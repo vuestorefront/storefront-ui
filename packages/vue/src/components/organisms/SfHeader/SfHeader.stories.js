@@ -7,7 +7,7 @@ import {
   object,
   optionsKnob as options,
 } from "@storybook/addon-knobs";
-import { SfHeader, SfLink } from "@storefront-ui/vue";
+import { SfHeader, SfLink, SfMegaMenu, SfList, SfMenuItem, SfBottomNavigation } from "@storefront-ui/vue";
 storiesOf("Organisms|Header", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -134,6 +134,238 @@ storiesOf("Organisms|Header", module)
       </div>
     </div>`,
   }))
+  .add("With MegaMenu", () => ({
+    components: { SfHeader,
+      SfBottomNavigation,
+      SfList,
+      SfBottomNavigation,
+      SfMegaMenu,
+      SfLink, 
+      SfMenuItem
+    },
+    data() {
+      return {
+        shopLogo:  "/assets/logo.svg",
+        shopName: "Storefront UI",
+        isVisible: true,
+        currentCategory: '',
+        categories: [
+          {
+            title: "Clothing",
+            link: "/clothing",
+            subcategories: [
+              {
+                title: "Skirts",
+                link: "/skirts",
+                subcategories: [
+                  {
+                    title: "Long",
+                    link: "/long",
+                  },
+                  {
+                    title: "Short",
+                    link: "/short",
+                  },
+                ],
+              },
+              {
+                title: "Sweaters",
+                link: "/sweaters",
+                subcategories: [
+                  {
+                    title: "Long",
+                    link: "/long",
+                  },
+                  {
+                    title: "Short",
+                    link: "/short",
+                  },
+                ],
+              },
+              {
+                title: "Dresses",
+                link: "/dresses",
+                subcategories: [
+                  {
+                    title: "Long",
+                    link: "/long",
+                  },
+                  {
+                    title: "Short",
+                    link: "/short",
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            title: "Accesories",
+            link: "/accesories",
+            subcategories: [
+              {
+                title: "Bags & Purses",
+                link: "/skirts",
+                subcategories: [
+                  {
+                    title: "Long",
+                    link: "/long",
+                  },
+                  {
+                    title: "Short",
+                    link: "/short",
+                  },
+                ],
+              },
+              {
+                title: "Belts",
+                link: "/belts",
+                subcategories: [
+                  {
+                    title: "Long",
+                    link: "/long",
+                  },
+                  {
+                    title: "Short",
+                    link: "/short",
+                  },
+                ],
+              },
+              {
+                title: "Gloves",
+                link: "/gloves",
+                subcategories: [
+                  {
+                    title: "Long",
+                    link: "/long",
+                  },
+                  {
+                    title: "Short",
+                    link: "/short",
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            title: "Shoes",
+            link: "/shoes",
+            subcategories: [
+              {
+                title: "Boots",
+                link: "/boots",
+                subcategories: [
+                  {
+                    title: "Long",
+                    link: "/long",
+                  },
+                  {
+                    title: "Short",
+                    link: "/short",
+                  },
+                ],
+              },
+              {
+                title: "Heels",
+                link: "/heels",
+                subcategories: [
+                  {
+                    title: "Long",
+                    link: "/long",
+                  },
+                  {
+                    title: "Short",
+                    link: "/short",
+                  },
+                ],
+              },
+              {
+                title: "Flat shoes",
+                link: "/flat",
+                subcategories: [
+                  {
+                    title: "Long",
+                    link: "/long",
+                  },
+                  {
+                    title: "Short",
+                    link: "/short",
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+        searchValue: "",
+      };
+    },
+    methods: {
+      changeVisibility() {
+        this.isVisible = !this.isVisible;
+      },
+    },
+    template: `
+    <div>
+      <SfHeader
+      :logo="shopLogo"
+      :title="shopName"
+      active-icon="account"
+      is-sticky
+      is-nav-visible
+      >
+        <template #navigation>
+          <SfHeaderNavigation
+            :is-visible-on-mobile="isVisible"
+            @close="isVisible = false"
+          >
+            <SfHeaderNavigationItem 
+              v-for="(category, index) in categories"
+              :key="index"
+              :label="category.title"
+              :link="category.link"
+              @mouseenter="currentCategory = category.title"
+              @mouseleave="currentCategory = ''"
+              @click="currentCategory = category.title"
+            >
+              <SfMegaMenu
+                :is-absolute="true"
+                :visible="currentCategory === category.title"
+                :title="category.title"
+                @close="currentCategory = ''"
+              >
+                <SfMegaMenuColumn
+                  v-for="(subcategory, subIndex) in category.subcategories"
+                  :key="subIndex"
+                  :title="subcategory.title"
+                >
+                  <SfList>
+                    <SfListItem
+                      v-for="(subcategoryChild,
+                      childIndex) in subcategory.subcategories"
+                      :key="childIndex"
+                    >
+                      <SfMenuItem :label="subcategoryChild.title">
+                        <SfLink :link="subcategoryChild.link">
+                          {{ subcategoryChild.title }}
+                        </SfLink>
+                      </SfMenuItem>
+                    </SfListItem>
+                  </SfList>
+                </SfMegaMenuColumn>
+              </SfMegaMenu>
+            </SfHeaderNavigationItem>
+          </SfHeaderNavigation>
+        </template>
+      </SfHeader>
+      <SfBottomNavigation>
+        <SfBottomNavigationItem
+          :icon="'menu'"
+          :label="'Menu'"
+          icon-size="20px"
+          @click="changeVisibility"
+        />
+      </SfBottomNavigation>
+    </div>`,
+  }))
   .add("with Search and Navigation items", () => ({
     components: { SfHeader },
     props: {
@@ -190,7 +422,7 @@ storiesOf("Organisms|Header", module)
     computed: {
       spacer() {
         return;
-      },
+      }
     },
     mounted() {
       this.isMobile =
