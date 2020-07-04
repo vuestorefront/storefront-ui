@@ -69,7 +69,10 @@
                 @click="$emit('click:wishlist')"
               >
                 <SfIcon
+                  class="sf-header__icon"
                   :icon="wishlistIcon"
+                  :has-badge="wishlistHasProducts"
+                  :badge-label="wishlistItemsQty"
                   size="1.25rem"
                   :class="{
                     'sf-header__icon--is-active': activeIcon === 'wishlist',
@@ -185,6 +188,13 @@ export default {
     /**
      * Header cart items quantity
      */
+    wishlistItemsQty: {
+      type: [String, Number],
+      default: "0",
+    },
+    /**
+     * Header cart items quantity
+     */
     cartItemsQty: {
       type: [String, Number],
       default: "0",
@@ -217,6 +227,9 @@ export default {
     ...mapMobileObserver(),
     cartHasProducts() {
       return parseInt(this.cartItemsQty, 10) > 0;
+    },
+    wishlistHasProducts() {
+      return parseInt(this.wishlistItemsQty, 10) > 0;
     },
     stickyHeight() {
       return {
