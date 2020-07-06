@@ -1,18 +1,18 @@
 @import "../helpers";
 :root {
   // font-family
-  --font-family-primary: "Roboto", serif;
-  --font-family-secondary: "Raleway", sans-serif;
+  --font-family--primary: "Roboto", serif;
+  --font-family--secondary: "Raleway", sans-serif;
   // font-weight
   --font-light: 300;
   --font-normal: 400;
   --font-medium: 500;
   --font-semibold: 600;
   // font-size
-  --font-xs: 0.75rem; //12px
-  --font-sm: 0.875rem; //14px
-  --font-base: 1rem; //16px
-  --font-lg: 1.125rem; //18px
+  --font-size--xs: 0.75rem; //12px
+  --font-size--sm: 0.875rem; //14px
+  --font-size--base: 1rem; //16px
+  --font-size--lg: 1.125rem; //18px
   // heading font-size
   --h1-font-size: 1.5rem; //24px
   --h2-font-size: 1.5rem; //24px

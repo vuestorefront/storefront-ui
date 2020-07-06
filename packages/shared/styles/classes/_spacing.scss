@@ -1,67 +1,62 @@
 /* padding */
-.pad {
-  padding: var(--spacer-base);
+
+.pd {
+  @include space-modifiers('padding');
 }
 
-.pad {
-  @include space-modifiers('-', 'padding');
-}
-
-.pad-x {
-  @include space-modifiers('-', 'padding-left', 'padding-right');
+.pdx {
+  @include space-modifiers('padding-left', 'padding-right');
   
 }
 
-.pad-y {
-  @include space-modifiers('-', 'padding-top', 'padding-bottom');
+.pdy {
+  @include space-modifiers('padding-top', 'padding-bottom');
 }
 
-.pad-t {
-  @include space-modifiers('-', 'padding-top');
+.pdt {
+  @include space-modifiers('padding-top');
 }
 
-.pad-b {
-  @include space-modifiers('-', 'padding-bottom');
+.pdb {
+  @include space-modifiers('padding-bottom');
 }
 
-.pad-l {
-  @include space-modifiers('-', 'padding-left');
+.pdl {
+  @include space-modifiers('padding-left');
 }
 
-.pad-r {
-  @include space-modifiers('-', 'padding-right');
+.pdr {
+  @include space-modifiers('padding-right');
 }
 
 /* margin */
-.mar {
-  margin: var(--spacer-base);
+
+.mr {
+  @include space-modifiers('margin');
 }
 
-.mar {
-  @include space-modifiers('-', 'margin');
+.mrx {
+  @include space-modifiers('margin-left', 'margin-right'); 
 }
 
-.mar-x {
-  @include space-modifiers('-', 'margin-left', 'margin-right');
+.mry {
+  @include space-modifiers('margin-top', 'margin-bottom');
   
 }
 
-.mar-y {
-  @include space-modifiers('-', 'margin-top', 'margin-bottom');
+.mrt {
+  @include space-modifiers('margin-top');
 }
 
-.mar-t {
-  @include space-modifiers('-', 'margin-top');
+.mrb {
+  @include space-modifiers('margin-bottom');
 }
 
-.mar-b {
-  @include space-modifiers('-', 'margin-bottom');
+.mrl {
+  @include space-modifiers('margin-left');
 }
 
-.mar-l {
-  @include space-modifiers('-', 'margin-left');
+.mrr {
+  @include space-modifiers('margin-right');
 }
 
-.mar-r {
-  @include space-modifiers('-', 'margin-right');
-}
