@@ -134,9 +134,8 @@ storiesOf("Organisms|Header", module)
       </div>
     </div>`,
   }))
-  .add("With MegaMenu", () => ({
+  .add("With SfHeaderNavigation", () => ({
     components: { SfHeader,
-      SfBottomNavigation,
       SfList,
       SfBottomNavigation,
       SfMegaMenu,
