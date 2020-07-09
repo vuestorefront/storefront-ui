@@ -45,22 +45,28 @@
       <transition name="sf-select">
         <div v-show="open" class="sf-select__dropdown">
           <!--  sf-select__option -->
-          <ul
-            :aria-expanded="open.toString()"
-            :style="{ maxHeight }"
-            class="sf-select__options"
+          <SfScrollable
+            show-text=""
+            hide-text=""
+            :max-content-height="maxHeight"
           >
-            <slot />
-          </ul>
-          <slot name="cancel">
-            <SfButton
-              ref="cancel"
-              class="sf-select__cancel sf-button--full-width mobile-only"
-              @click="closeHandler"
+            <ul
+              :aria-expanded="open.toString()"
+              :style="{ maxHeight }"
+              class="sf-select__options"
             >
-              Cancel
-            </SfButton>
-          </slot>
+              <slot />
+            </ul>
+            <slot name="cancel">
+              <SfButton
+                ref="cancel"
+                class="sf-select__cancel sf-button--full-width mobile-only"
+                @click="closeHandler"
+              >
+                Cancel
+              </SfButton>
+            </slot>
+          </SfScrollable>
         </div>
       </transition>
     </div>
@@ -79,6 +85,7 @@ import SfSelectOption from "./_internal/SfSelectOption.vue";
 import SfChevron from "../../atoms/SfChevron/SfChevron.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
+import SfScrollable from "../SfScrollable/SfScrollable.vue";
 import { focus } from "../../../utilities/directives";
 import { clickOutside } from "../../../utilities/directives";
 import Vue from "vue";
@@ -90,6 +97,7 @@ export default {
     SfButton,
     SfChevron,
     SfOverlay,
+    SfScrollable,
   },
   model: {
     prop: "selected",
