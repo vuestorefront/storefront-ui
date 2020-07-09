@@ -139,6 +139,9 @@ export default {
         if (value) {
           this.$nextTick(() => {
             disableBodyScroll(this.$refs.content);
+            if (this.$slots.default) {
+              this.setMaxHeight = this.$slots.default[0].elm.offsetHeight;
+            }
           });
           document.addEventListener("keydown", this.keydownHandler);
         } else {
@@ -149,15 +152,26 @@ export default {
       immediate: true,
     },
   },
-  mounted() {
-    this.classHandler();
-    console.log(this.$refs.asideHeight);
-    const asideHeight = this.$refs.asideHeight.clientHeight;
-    return (this.setMaxHeight = `--sidebar-content-max-height:${asideHeight}px`);
-  },
-  updated() {
-    this.classHandler();
-  },
+  // watch: {
+  //   open: {
+  //     immediate: true,
+  //     handler: function (visible) {
+  //       if (visible) {
+  //         this.$nextTick(() => {
+
+  //         });
+  //       }
+  //     },
+  //   },
+  // mounted() {
+  //   this.classHandler();
+  //   console.log(this.$refs.asideHeight);
+  //   const asideHeight = this.$refs.asideHeight.clientHeight;
+  //   return (this.setMaxHeight = `--sidebar-content-max-height:${asideHeight}px`);
+  // },
+  // updated() {
+  //   this.classHandler();
+  // },
   methods: {
     close() {
       this.$emit("close");
