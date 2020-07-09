@@ -180,7 +180,7 @@ export default {
         return stringified;
       },
       set(index) {
-        this.focusedOption = this.options[index].value;
+        this.focusedOption = this.options[index].value;        
         this.$emit("change", this.options[index].value);
       },
     },
@@ -285,6 +285,15 @@ export default {
     closeHandler() {
       this.open = false;
     },
+  },
+   provide: function () {
+    const optionIndexes = {};
+    Object.defineProperty(optionIndexes, "indexes", {
+      get: () => this.indexes,
+    });
+    return {
+      optionIndexes,
+    };
   },
 };
 </script>
