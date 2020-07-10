@@ -35,7 +35,6 @@ export default {
   },
   methods: {
     clicked() {
-      console.log(this.value);
       this.$parent.$emit("update", this.indexes[JSON.stringify(this.value)]);
     },
   },

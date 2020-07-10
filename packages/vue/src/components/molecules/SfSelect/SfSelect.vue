@@ -46,8 +46,6 @@
         <div v-show="open" class="sf-select__dropdown">
           <!--  sf-select__option -->
           <SfScrollable
-            show-text=""
-            hide-text=""
             :max-content-height="maxHeight"
           >
             <ul
@@ -189,8 +187,8 @@ export default {
       return this.options[this.index].html;
     },
     maxHeight() {
-      if (!this.options.length) return;
-      return `${this.optionHeight * this.options.length}px`;
+      if (!this.options.length) return;  
+      return `${this.optionHeight * this.size}px`;
     },
     isActive() {
       return this.open;
