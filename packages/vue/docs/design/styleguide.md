@@ -4,7 +4,6 @@
 
 Class | Properties
 ------------ | ------------- 
-.pd | padding: 24px;
 .pd2xs |  padding: 4px;
 .pdxs |  padding: 8px;
 .pdsm |  padding: 16px;
@@ -66,7 +65,6 @@ Class | Properties
 
 Class | Properties
 ------------ | ------------- 
-.mr | margin: 24px;
 .mr2xs |  margin: 4px;
 .mrxs |  margin: 8px;
 .mrsm |  margin: 16px;
