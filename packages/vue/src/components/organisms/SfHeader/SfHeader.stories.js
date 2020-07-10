@@ -123,9 +123,11 @@ storiesOf("Organisms|Header", module)
       >
         <template #navigation>
           <SfHeaderNavigationItem
-              v-for="item in navigation"
-              :key="item">
-            <SfLink href="#">{{item}}</SfLink>
+            v-for="item in navigation"
+            :key="item">
+            <template slot="desktop-navigation-item">
+              <SfLink href="#">{{item}}</SfLink>
+            </template>
           </SfHeaderNavigationItem>
         </template>
       </SfHeader>
@@ -320,7 +322,6 @@ storiesOf("Organisms|Header", module)
               v-for="(category, index) in categories"
               :key="index"
               :label="category.title"
-              :link="category.link"
               @mouseenter="currentCategory = category.title"
               @mouseleave="currentCategory = ''"
               @click="currentCategory = category.title"
@@ -363,115 +364,6 @@ storiesOf("Organisms|Header", module)
           @click="changeVisibility"
         />
       </SfBottomNavigation>
-    </div>`,
-  }))
-  .add("with Search and Navigation items", () => ({
-    components: { SfHeader },
-    props: {
-      title: {
-        default: text("title", "Storefront UI", "Props"),
-      },
-      logo: {
-        default: object(
-          "logo",
-          {
-            mobile: { url: "/assets/logo.svg" },
-            desktop: { url: "/assets/logo.svg" },
-          },
-          "Props"
-        ),
-      },
-      activeIcon: {
-        default: select(
-          "activeIcon",
-          ["", "account", "wishlist", "cart"],
-          "account",
-          "Props"
-        ),
-      },
-      isSticky: {
-        default: boolean("isSticky", true, "Props"),
-      },
-      searchPlaceholder: {
-        default: text("searchPlaceholder", "Search for items", "Props"),
-      },
-      cartIcon: {
-        default: text("cartIcon", "empty_cart", "Props"),
-      },
-      wishlistIcon: {
-        default: text("wishlistIcon", "heart", "Props"),
-      },
-      accountIcon: {
-        default: text("accountIcon", "profile", "Props"),
-      },
-      cartItemsQty: {
-        default: text("cartItemsQty", "0", "Props"),
-      },
-      wishlistItemsQty: {
-        default: text("wishlistItemsQty", "0", "Props"),
-      },
-    },
-    data() {
-      return {
-        isMobile: false,
-        navigation: ["women", "man", "kids"],
-        searchValue: "",
-      };
-    },
-    computed: {
-      spacer() {
-        return;
-      }
-    },
-    mounted() {
-      this.isMobile =
-        Math.max(document.documentElement.clientWidth, window.innerWidth) <=
-        1023;
-      window.matchMedia("(max-width: 1023px)").addListener(this.mobileHandler);
-    },
-    beforeDestroy() {
-      window
-        .matchMedia("(max-width: 1023px)")
-        .removeListener(this.mobileHandler);
-    },
-    methods: {
-      alert(label) {
-        alert(label);
-      },
-      mobileHandler(event) {
-        this.isMobile = event.matches;
-      },
-    },
-    template: `<div>
-      <SfHeader
-          :title="title"
-          :logo="logo"
-          :active-icon="activeIcon"
-          :search-placeholder="searchPlaceholder"
-          :search-value="searchValue"
-          :cart-icon="cartIcon"
-          :wishlist-icon="wishlistIcon"
-          :is-sticky="isSticky"
-          :account-icon="accountIcon"
-          :style="spacer"
-          :cart-items-qty="cartItemsQty"
-          :wishlist-items-qty="wishlistItemsQty"
-          @click:cart="alert('@click:cart')"
-          @click:wishlist="alert('@click:wishlist')"
-          @click:account="alert('@click:account')"
-          @change:search="searchValue = $event"
-      >
-        <template #navigation>
-          <SfHeaderNavigationItem
-              v-for="item in navigation"
-              :key="item">
-            <a href="#" :style="{ display: 'flex',alignItems: 'center',height: '100%' }">{{item}}</a>
-          </SfHeaderNavigationItem>
-        </template>
-      </SfHeader>
-      <div style="display: flex; align-items: center; justify-content: center; height: 155vh; background-color: #f2f2f2;">
-        [page content]
-      </div>
     </div>`,
   }))
   .add("[slot] navigation", () => ({

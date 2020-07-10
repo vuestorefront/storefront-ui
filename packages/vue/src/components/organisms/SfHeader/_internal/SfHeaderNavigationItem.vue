@@ -1,15 +1,23 @@
 <template>
   <div class="sf-header-navigation-item" v-on="$listeners">
-    <div class="sf-header-navigation-item--desktop">
-      <SfLink class="sf-header-navigation-item__link" :link="link">{{
-        label
-      }}</SfLink>
+    <div
+      class="sf-header-navigation-item__item sf-header-navigation-item__item--desktop"
+    >
+      <slot name="desktop-navigation-item">
+        <SfLink class="sf-header-navigation-item__link" :link="link">{{
+          label
+        }}</SfLink>
+      </slot>
       <slot />
     </div>
-    <div class="sf-header-navigation-item--mobile">
-      <SfMenuItem :label="label" class="sf-header-navigation-item__menu-item">
-        {{ label }}
-      </SfMenuItem>
+    <div
+      class="sf-header-navigation-item__item sf-header-navigation-item__item--mobile"
+    >
+      <slot name="mobile-navigation-item">
+        <SfMenuItem :label="label" class="sf-header-navigation-item__menu-item">
+          {{ label }}
+        </SfMenuItem>
+      </slot>
       <div class="sf-header-navigation-item__content">
         <slot />
       </div>
