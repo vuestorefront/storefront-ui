@@ -29,5 +29,10 @@
         }
       }
     }
+    &#{$name} {
+        @for $i from 0 to length($properties) {        
+            #{nth($properties, $i + 1)}: $space;
+        }
+      }
   }
 }
