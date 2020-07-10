@@ -1,6 +1,6 @@
 import "./SfMegaMenu.stories.scss";
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text } from "@storybook/addon-knobs";
+import { withKnobs } from "@storybook/addon-knobs";
 import {
   SfMegaMenu,
   SfList,
@@ -8,7 +8,6 @@ import {
   SfProductCard,
   SfScrollable,
   SfMenuItem,
-  SfHeader,
 } from "@storefront-ui/vue";
 storiesOf("Organisms|MegaMenu", module)
   .addDecorator(withKnobs)
