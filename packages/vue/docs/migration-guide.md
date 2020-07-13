@@ -120,5 +120,17 @@ Before | v0.7.0
 ------------ | ------------
 undefined | --c-text-disabled: var(--_c-gray-accent)
 
+### Deletions
+
+### Additions
+
+- **Props**
+  
+Component | Before | v0.8.0
+------------ | ------------ | ------------
+SfSearchBar| - | iconSize
+SfSearchBar| - | iconColor
+
+### Changes
 
 ## Release notes
