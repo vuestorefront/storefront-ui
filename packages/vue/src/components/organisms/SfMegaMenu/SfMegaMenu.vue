@@ -4,7 +4,7 @@
       <SfBar
         :title="active || title"
         :back="!!active"
-        class="sf-mega-menu__bar"
+        class="sf-mega-menu__bar mobile-only"
         @click:back="active = ''"
       />
       <div class="sf-mega-menu__content">
