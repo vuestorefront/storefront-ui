@@ -17,23 +17,35 @@
     </slot>
     <div class="sf-tabs__content">
       <div v-if="isActive" class="sf-tabs__content__tab">
-        <!--@slot Default. Here you should pass your tab content -->
-        <slot />
+        <SfScrollable
+          v-if="tabMaxContentHeight"
+          :max-content-height="tabMaxContentHeight"
+          :show-text="tabShowText"
+          :hide-text="tabHideText"
+        >
+          <!--@slot Default. Here you should pass your tab content -->
+          <slot />
+        </SfScrollable>
+        <slot v-else />
       </div>
     </div>
   </Fragment>
 </template>
 <script>
 import { Fragment } from "vue-fragment";
+import { isClient } from "../../../../utilities/helpers";
 import SfChevron from "../../../atoms/SfChevron/SfChevron.vue";
 import SfButton from "../../../atoms/SfButton/SfButton.vue";
+import SfScrollable from "../../../molecules/SfScrollable/SfScrollable.vue";
 export default {
   name: "SfTab",
   components: {
     Fragment,
     SfChevron,
+    SfScrollable,
     SfButton,
   },
+  inject: ["tabConfig"],
   props: {
     /**
      * Tab title.
@@ -49,10 +61,20 @@ export default {
       desktopMin: 1024,
     };
   },
+  computed: {
+    tabMaxContentHeight() {
+      return this.tabConfig.tabMaxContentHeight;
+    },
+    tabShowText() {
+      return this.tabConfig.tabShowText;
+    },
+    tabHideText() {
+      return this.tabConfig.tabHideText;
+    },
+  },
   methods: {
     tabClick() {
-      if (typeof window === "undefined" || typeof document === "undefined")
-        return;
+      if (!isClient) return;
       const width = Math.max(
         document.documentElement.clientWidth,
         window.innerWidth

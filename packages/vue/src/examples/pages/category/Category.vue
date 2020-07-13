@@ -14,7 +14,12 @@
           aria-label="Filters"
           @click="isFilterSidebarOpen = true"
         >
-          <SfIcon size="32px" color="#BEBFC4" icon="filter" />
+          <SfIcon
+            size="18px"
+            color="#BEBFC4"
+            icon="filter"
+            class="navbar__filters-icon"
+          />
           Filters
         </SfButton>
         <div class="navbar__sort desktop-only">
@@ -40,7 +45,7 @@
             class="navbar__view-icon"
             :color="isGridView ? '#1D1F22' : '#BEBFC4'"
             icon="tiles"
-            size="32px"
+            size="12px"
             role="button"
             aria-label="Change to grid view"
             :aria-pressed="isGridView"
@@ -50,7 +55,7 @@
             class="navbar__view-icon"
             :color="!isGridView ? '#1D1F22' : '#BEBFC4'"
             icon="list"
-            size="32px"
+            size="12px"
             role="button"
             aria-label="Change to list view"
             :aria-pressed="!isGridView"
@@ -644,6 +649,9 @@ export default {
     --heading-title-font-weight: var(--font-light);
     --heading-title-font-size: var(--font-xl);
   }
+  &__filters-icon {
+    margin: 0 var(--spacer-sm) 0 0;
+  }
   &__filters-button {
     display: flex;
     align-items: center;
@@ -667,8 +675,11 @@ export default {
     margin: 0 var(--spacer-2xs) 0 0;
   }
   &__select {
-    --select-padding: 0 var(--spacer-lg) 0 var(--spacer-2xs);
+    --select-width: 220px;
+    --select-padding: 0;
+    --select-selected-padding: 0 var(--spacer-lg) 0 var(--spacer-2xs);
     --select-margin: 0;
+    --select-error-message-height: 0;
   }
   &__sort {
     display: flex;
@@ -693,6 +704,10 @@ export default {
     }
     &-icon {
       cursor: pointer;
+      margin: 0 var(--spacer-base) 0 0;
+      &:last-child {
+        margin: 0;
+      }
     }
     &-label {
       margin: 0 var(--spacer-sm) 0 0;

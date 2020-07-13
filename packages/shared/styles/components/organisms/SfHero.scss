@@ -51,6 +51,15 @@
   &--align-right {
     --hero-item-justify-content: flex-end;
   }
+  &--position-bg-top-right {
+    background-position: top right;
+  }
+  &--position-bg-bottom-right {
+    background-position: bottom right;
+  }
+  &--position-bg-bottom-left {
+    background-position: bottom left;
+  }
   @include for-desktop {
     --hero-item-height: 36.625rem;
     --hero-item-padding: var(--spacer-2xl);
@@ -78,7 +87,11 @@
     justify-content: var(--hero-controls-justify-content, space-between);
     width: var(--hero-controls-width, 100%);
     padding: var(--hero-controls-padding, 0 var(--spacer-sm));
-  }
+    pointer-events: none;
+    &__arrow {
+      pointer-events: all;
+    }
+   }
   &__bullets {
     position: absolute;
     bottom: var(--hero-bullets-bottom, var(--spacer-xl));
