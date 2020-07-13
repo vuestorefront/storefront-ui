@@ -28,6 +28,9 @@ storiesOf("Molecules|SearchBar", module)
       iconSize: {
         default: text("icon size", "1rem", "Props"),
       },
+      iconColor: {
+        default: text("icon color", "#737680", "Props"),
+      },
     },
     data() {
       return {
@@ -36,6 +39,7 @@ storiesOf("Molecules|SearchBar", module)
     },
     template: `<SfSearchBar
       :iconSize="iconSize"
+      :iconColor="iconColor"
       :class="customClass"
       :placeholder="placeholder"
       aria-label="Search"
@@ -59,9 +63,6 @@ storiesOf("Molecules|SearchBar", module)
       placeholder: {
         default: text("placeholder", "Search for items", "Props"),
       },
-      iconSize: {
-        default: text("icon size", "3rem", "Props"),
-      },
     },
     data() {
       return {
@@ -69,7 +70,6 @@ storiesOf("Molecules|SearchBar", module)
       };
     },
     template: `<SfSearchBar
-      :iconSize="iconSize"
       :class="customClass"
       :placeholder="placeholder"
       aria-label="Search"
@@ -95,9 +95,6 @@ storiesOf("Molecules|SearchBar", module)
       placeholder: {
         default: text("placeholder", "Search for items", "Props"),
       },
-      iconSize: {
-        default: text("icon size", "3rem", "Props"),
-      },
     },
     data() {
       return {
@@ -105,7 +102,6 @@ storiesOf("Molecules|SearchBar", module)
       };
     },
     template: `<SfSearchBar
-      :iconSize="iconSize"
       :class="customClass"
       :placeholder="placeholder"
       aria-label="Search"
