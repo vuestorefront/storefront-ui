@@ -1,9 +1,6 @@
 <template>
   <div
     v-click-outside="checkPersistence"
-    :aria-expanded="open.toString()"
-    :aria-owns="'lbox_' + _uid"
-    :aria-label="label"
     :class="{
       'sf-select--is-active': isActive,
       'sf-select--is-selected': isSelected,
@@ -46,6 +43,8 @@
           <!--  sf-select__option -->
           <ul
             :aria-expanded="open.toString()"
+            :aria-owns="`lbox_${_uid}`"
+            :aria-label="label"
             :style="{ maxHeight }"
             role="listbox"
             class="sf-select__options"
