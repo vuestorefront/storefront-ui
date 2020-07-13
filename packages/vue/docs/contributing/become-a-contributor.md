@@ -11,7 +11,7 @@ We want you to have fun contributing with us, so let's go over a few important g
 * [Our Discord Server](https://discord.gg/GS8hqFS). This is the place where we discussed about new features, exchanging questions between the core team, contributors (`#contributors`) and StorefrontUI users.
 * [Our component storybook](http://storefrontui-storybook.netlify.com/) - Playground for our components
 * [Our current issues](https://github.com/DivanteLtd/storefront-ui/issues) - Where we keep track of all the bugs, feature requests reported by our community members.
-* [Our current Roadmap](https://github.com/DivanteLtd/storefront-ui/projects/1) - The status of our library in long term.
+* [Our current Roadmap](https://github.com/DivanteLtd/storefront-ui/blob/develop/ROADMAP.md) - The status of our library in long term.
 
 * [Our Figma component design](https://www.figma.com/file/hrwE3VsMBHgdJoS86rVr4W/Desktop-%26-Mobile-Vue-Storefront?node-id=99%3A0) - Where contains the designs of all the existing/future components in the library.
 
