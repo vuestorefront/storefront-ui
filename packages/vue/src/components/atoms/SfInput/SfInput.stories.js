@@ -51,8 +51,8 @@ storiesOf("Atoms|Input", module)
       disabled: {
         default: boolean("disabled", false, "Props"),
       },
-      successMessage: {
-        default: text("successMessage", "", "Props"),
+      infoMessage: {
+        default: text("infoMessage", "", "Props"),
       },
       hasShowPassword: {
         default: boolean("hasShowPassword", false, "Props"),
@@ -84,7 +84,7 @@ storiesOf("Atoms|Input", module)
         :valid="valid"
         :error-message="errorMessage"
         :hintMessage="hintMessage" 
-        :successMessage="successMessage"
+        :infoMessage="infoMessage"
         :required="required"
         :disabled="disabled"
         :icon="icon"
@@ -129,11 +129,17 @@ storiesOf("Atoms|Input", module)
       valid: {
         default: boolean("valid", true, "Props"),
       },
+      hintMessage: {
+        default: text("hintMessage", "Required", "Props"),
+      },
       required: {
         default: boolean("required", true, "Props"),
       },
       disabled: {
         default: boolean("disabled", false, "Props"),
+      },
+      infoMessage: {
+        default: text("infoMessage", "", "Props"),
       },
       hasShowPassword: {
         default: boolean("hasShowPassword", false, "Props"),
@@ -144,13 +150,12 @@ storiesOf("Atoms|Input", module)
       colorIcon: {
         default: select("colorIcon", ["", ...colors], "", "Props"),
       },
-      helperText: {
-        default: text(
-          "helperText",
-          "Password should consist of at least 2 digit, capital letter and special sign",
-          "Props"
-        ),
+      sizeIcon: {
+        default: text("sizeIcon", "xxs", "Props"),
       },
+      placeholder: {
+        default: text("placeholder", "", "Props"),
+      }, 
     },
     data() {
       return {
@@ -164,16 +169,23 @@ storiesOf("Atoms|Input", module)
         :name="name"
         :valid="valid"
         :error-message="errorMessage"
+        :hintMessage="hintMessage" 
+        :infoMessage="infoMessage"
         :required="required"
         :disabled="disabled"
+        :icon="icon"
+        :colorIcon="colorIcon"
+        :sizeIcon="sizeIcon"
         :has-show-password="hasShowPassword"
+        :class="customClass"
+        :placeholder="placeholder"
         >
       <template #label="{label}">
             {{label}} <SfIcon icon="heart_fill" size="10px" style="margin-right: 4px; display: inline-block"/>
       </template>
     </SfInput>`,
   }))
-  .add("[slot] helper-text", () => ({
+  .add("[slot] info-text", () => ({
     components: {
       SfInput,
       SfIcon,
@@ -203,13 +215,19 @@ storiesOf("Atoms|Input", module)
         default: text("errorMessage", "Something is wrong", "Props"),
       },
       valid: {
-        default: boolean("valid", false, "Props"),
+        default: boolean("valid", true, "Props"),
+      },
+      hintMessage: {
+        default: text("hintMessage", "Required", "Props"),
       },
       required: {
-        default: boolean("required", false, "Props"),
+        default: boolean("required", true, "Props"),
       },
       disabled: {
         default: boolean("disabled", false, "Props"),
+      },
+      infoMessage: {
+        default: text("infoMessage", "", "Props"),
       },
       hasShowPassword: {
         default: boolean("hasShowPassword", false, "Props"),
@@ -220,12 +238,11 @@ storiesOf("Atoms|Input", module)
       colorIcon: {
         default: select("colorIcon", ["", ...colors], "", "Props"),
       },
-      helperText: {
-        default: text(
-          "helperText",
-          "Password should consist of at least 2 digit, capital letter and special sign",
-          "Props"
-        ),
+      sizeIcon: {
+        default: text("sizeIcon", "xxs", "Props"),
+      },
+      placeholder: {
+        default: text("placeholder", "", "Props"),
       },
     },
     data() {
@@ -240,15 +257,19 @@ storiesOf("Atoms|Input", module)
       :name="name"
       :valid="valid"
       :error-message="errorMessage"
-      :required="required"      
+      :hintMessage="hintMessage" 
+      :infoMessage="infoMessage"
+      :required="required"
       :disabled="disabled"
-      :has-show-password="hasShowPassword"
-      aria-label="Input label"
       :icon="icon"
       :colorIcon="colorIcon"
-      :helperText="helperText"
+      :sizeIcon="sizeIcon"
+      :has-show-password="hasShowPassword"
+      :class="customClass"
+      :placeholder="placeholder"
+      aria-label="Input label"
       >
-      <template #helper-text="{helperText}">
+      <template #show-hint-message="{hintMessage}">
         <div>          
           CUSTOM HELPER TEXT
         </div>
@@ -288,11 +309,17 @@ storiesOf("Atoms|Input", module)
       valid: {
         default: boolean("valid", false, "Props"),
       },
+      hintMessage: {
+        default: text("hintMessage", "Required", "Props"),
+      },
       required: {
-        default: boolean("required", false, "Props"),
+        default: boolean("required", true, "Props"),
       },
       disabled: {
         default: boolean("disabled", false, "Props"),
+      },
+      infoMessage: {
+        default: text("infoMessage", "", "Props"),
       },
       hasShowPassword: {
         default: boolean("hasShowPassword", false, "Props"),
@@ -303,12 +330,11 @@ storiesOf("Atoms|Input", module)
       colorIcon: {
         default: select("colorIcon", ["", ...colors], "", "Props"),
       },
-      helperText: {
-        default: text(
-          "helperText",
-          "Password should consist of at least 2 digit, capital letter and special sign",
-          "Props"
-        ),
+      sizeIcon: {
+        default: text("sizeIcon", "xxs", "Props"),
+      },
+      placeholder: {
+        default: text("placeholder", "", "Props"),
       },
     },
     data() {
@@ -323,10 +349,17 @@ storiesOf("Atoms|Input", module)
       :name="name"
       :valid="valid"
       :error-message="errorMessage"
-      :required="required"      
+      :hintMessage="hintMessage" 
+      :infoMessage="infoMessage"
+      :required="required"
       :disabled="disabled"
-      :has-show-password="hasShowPassword"
       :icon="icon"
+      :colorIcon="colorIcon"
+      :sizeIcon="sizeIcon"
+      :has-show-password="hasShowPassword"
+      :class="customClass"
+      :placeholder="placeholder"
+      aria-label="Input label"
       >
       <template #show-error-message="{errorMessage}">
         <div>
@@ -367,13 +400,19 @@ storiesOf("Atoms|Input", module)
         default: text("errorMessage", "Something is wrong", "Props"),
       },
       valid: {
-        default: boolean("valid", false, "Props"),
+        default: boolean("valid", true, "Props"),
+      },
+      hintMessage: {
+        default: text("hintMessage", "Required", "Props"),
       },
       required: {
-        default: boolean("required", false, "Props"),
+        default: boolean("required", true, "Props"),
       },
       disabled: {
         default: boolean("disabled", false, "Props"),
+      },
+      infoMessage: {
+        default: text("infoMessage", "", "Props"),
       },
       hasShowPassword: {
         default: boolean("hasShowPassword", true, "Props"),
@@ -384,12 +423,11 @@ storiesOf("Atoms|Input", module)
       colorIcon: {
         default: select("colorIcon", ["", ...colors], "", "Props"),
       },
-      helperText: {
-        default: text(
-          "helperText",
-          "Password should consist of at least 2 digit, capital letter and special sign",
-          "Props"
-        ),
+      sizeIcon: {
+        default: text("sizeIcon", "xxs", "Props"),
+      },
+      placeholder: {
+        default: text("placeholder", "", "Props"),
       },
     },
     data() {
@@ -404,16 +442,18 @@ storiesOf("Atoms|Input", module)
       :name="name"
       :valid="valid"
       :error-message="errorMessage"
-      :required="required"      
+      :hintMessage="hintMessage" 
+      :infoMessage="infoMessage"
+      :required="required"
       :disabled="disabled"
+      :icon="icon"
+      :colorIcon="colorIcon"
+      :sizeIcon="sizeIcon"
       :has-show-password="hasShowPassword"
+      :class="customClass"
+      :placeholder="placeholder"
+      aria-label="Input label"
       >
-      <template #error-message="{errorMessage}">
-        <div style="display: flex; align-items: center">
-          <SfIcon icon="info_shield" size="0.875rem" color="#E22326" style="margin-right: 4px; display: inline-block"/>
-          <span>CUSTOM ERROR MESSAGE</span>
-        </div>
-      </template>
     </SfInput>`,
   }))
   .add("with modifier --filled", () => ({
@@ -446,11 +486,17 @@ storiesOf("Atoms|Input", module)
       valid: {
         default: boolean("valid", true, "Props"),
       },
+      hintMessage: {
+        default: text("hintMessage", "Required", "Props"),
+      },
       required: {
-        default: boolean("required", false, "Props"),
+        default: boolean("required", true, "Props"),
       },
       disabled: {
         default: boolean("disabled", false, "Props"),
+      },
+      infoMessage: {
+        default: text("infoMessage", "", "Props"),
       },
       hasShowPassword: {
         default: boolean("hasShowPassword", false, "Props"),
@@ -461,12 +507,11 @@ storiesOf("Atoms|Input", module)
       colorIcon: {
         default: select("colorIcon", ["", ...colors], "", "Props"),
       },
-      helperText: {
-        default: text(
-          "helperText",
-          "Password should consist of at least 2 digit, capital letter and special sign",
-          "Props"
-        ),
+      sizeIcon: {
+        default: text("sizeIcon", "xxs", "Props"),
+      },
+      placeholder: {
+        default: text("placeholder", "", "Props"),
       },
     },
     data() {
@@ -481,12 +526,16 @@ storiesOf("Atoms|Input", module)
       :name="name"
       :valid="valid"
       :error-message="errorMessage"
+      :hintMessage="hintMessage" 
+      :infoMessage="infoMessage"
       :required="required"
       :disabled="disabled"
-      :has-show-password="hasShowPassword"
-      :class="customClass"
       :icon="icon"
       :colorIcon="colorIcon"
-      :helperText="helperText"
+      :sizeIcon="sizeIcon"
+      :has-show-password="hasShowPassword"
+      :class="customClass"
+      :placeholder="placeholder"
+      aria-label="Input label"
       />`,
   }));

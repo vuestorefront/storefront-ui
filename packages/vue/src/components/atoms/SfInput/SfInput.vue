@@ -128,7 +128,7 @@ export default {
     /**
      * Success message value of form input.
      */
-    successMessage: {
+    infoMessage: {
       type: String,
       default: "",
     },
@@ -202,21 +202,21 @@ export default {
     computedMessageSlotName() {
       return this.messagesHandler(
         "show-error-message",
-        "show-success-message",
+        "show-info-message",
         this.required ? "show-hint-message" : ""
       );
     },
     computedMessage() {
       return this.messagesHandler(
         this.errorMessage,
-        this.successMessage,
+        this.infoMessage,
         this.required ? this.hintMessage : ""
       );
     },
     computedMessageClass() {
       return this.messagesHandler(
         "sf-input__message--error",
-        "sf-input__message--success",
+        "sf-input__message--info",
         this.required ? "sf-input__message--hint" : ""
       );
     },
@@ -267,11 +267,11 @@ export default {
       this.isPasswordVisible = !this.isPasswordVisible;
       this.inputType = this.isPasswordVisible ? "text" : "password";
     },
-    messagesHandler(error, success, hint) {
+    messagesHandler(error, info, hint) {
       if (this.errorMessage && !this.valid) {
         return error;
-      } else if (this.successMessage && this.valid) {
-        return success;
+      } else if (this.infoMessage && this.valid) {
+        return info;
       } else if (this.hintMessage) {
         return hint;
       } else {

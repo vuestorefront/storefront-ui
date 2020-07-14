@@ -80,8 +80,8 @@
     &--error {
       color: var(--input-message-error-color, var(--c-danger));
     }
-    &--success {
-      color: var(--input-message-success-color, var(--c-primary));
+    &--info {
+      color: var(--input-message-info-color, var(--c-primary));
     }
   }
   &__wrapper,
