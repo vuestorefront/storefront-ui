@@ -1,11 +1,15 @@
 <template>
-  <transition name="sf-fade">
-    <div v-show="visible" class="sf-mega-menu" :class="{ 'is-active': active }">
+  <transition :name="transitionName">
+    <div
+      v-show="visible"
+      class="sf-mega-menu"
+      :class="[{ 'is-active': active }, { 'is-absolute': isAbsolute }]"
+    >
       <SfBar
         :title="active || title"
-        :back="!!active"
+        :back="true"
         class="sf-mega-menu__bar"
-        @click:back="active = ''"
+        @click:back="back()"
       />
       <div class="sf-mega-menu__content">
         <div class="sf-mega-menu__menu">
@@ -49,6 +53,14 @@ export default {
       type: Boolean,
       default: false,
     },
+    isAbsolute: {
+      type: Boolean,
+      default: false,
+    },
+    transitionName: {
+      type: String,
+      default: "sf-fade",
+    },
     /**
      * @deprecated will be removed in 1.0.0
      */
@@ -88,9 +100,14 @@ export default {
   },
   methods: {
     changeActive(payload) {
-      if (!this.isMobile) return;
       this.active = payload;
       this.$emit("change", payload);
+    },
+    back() {
+      if (!this.active) {
+        this.$emit("close");
+      }
+      this.active = "";
     },
   },
 };
