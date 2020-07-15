@@ -4,10 +4,10 @@
   --font-family--primary: "Roboto", serif;
   --font-family--secondary: "Raleway", sans-serif;
   // font-weight
-  --font-light: 300;
-  --font-normal: 400;
-  --font-medium: 500;
-  --font-semibold: 600;
+  --font-weight--light: 300;
+  --font-weight--normal: 400;
+  --font-weight--medium: 500;
+  --font-weight--semibold: 600;
   // font-size
   --font-size--xs: 0.75rem; //12px
   --font-size--sm: 0.875rem; //14px
@@ -29,10 +29,10 @@
     --h6-font-size: 0.875rem; //14px
   }
   // line-height
-  --line-height-xs: 16px;
-  --line-height-sm: 22px;
-  --line-height-md: 26px;
-  --line-height-lg: 32px;
-  --line-height-xl: 42px;
-  --line-height-xxl: 48px;
+  --line-height--xs: 16px;
+  --line-height--sm: 22px;
+  --line-height--md: 26px;
+  --line-height--lg: 32px;
+  --line-height--xl: 42px;
+  --line-height--xxl: 48px;
 }
