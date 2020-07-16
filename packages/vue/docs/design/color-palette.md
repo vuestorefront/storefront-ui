@@ -35,7 +35,7 @@ If we add this mixin in the desired component:
 
 ```scss
 .sf-button {
-    @include color-modifiers('--button');
+  @include color-modifiers('--button');
 }
 ```
 
@@ -64,12 +64,12 @@ This mixin is based on the CSS variables of the component. To make it work, we n
 
 ```scss
 :root {
-    --button-color: #ffffff;
-    --button-background-color: #000000;
-    --button-border-color: #000000;
-    --button-hover-color: #000000;
-    --button-hover-background-color: #ffffff;
-    --button-hover-border-color: #ffffff;
+  --button-color: #ffffff;
+  --button-background-color: #000000;
+  --button-border-color: #000000;
+  --button-hover-color: #000000;
+  --button-hover-background-color: #ffffff;
+  --button-hover-border-color: #ffffff;
 }
 .sf-button {
   color: var(--button-color);
