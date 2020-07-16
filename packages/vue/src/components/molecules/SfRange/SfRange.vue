@@ -113,7 +113,6 @@ export default {
     },
     orientation: {
       handler(value) {
-        console.log(value);
         this.rangeOrientation = value ? "horizontal" : "vertical";
         return this.resetAndChangeOption({
           orientation: this.rangeOrientation,
@@ -123,7 +122,6 @@ export default {
     },
     direction: {
       handler(value) {
-        console.log(value);
         this.rangeDirection = value ? "ltr" : "rtl";
         return this.resetAndChangeOption({ direction: this.rangeDirection });
       },
@@ -151,7 +149,6 @@ export default {
   methods: {
     resetAndChangeOption(changedValue) {
       if (this.$refs.range) {
-        console.log(this.$refs.range, this.config);
         this.$refs.range.noUiSlider.destroy();
         noUiSlider
           .create(this.$refs.range, { ...this.config, ...changedValue })
