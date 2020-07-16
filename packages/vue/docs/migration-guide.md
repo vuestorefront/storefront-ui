@@ -80,7 +80,7 @@ Before | v0.6.4 | v0.7.0 | v0.8.0
 --body-font-weight-secondary: 400 | --font-weight-regular: 400 | --font-normal: 400 | --font-weight--normal: 400
 undefined | --font-weight-bold: 500 | --font-medium: 500 | --font-weight--medium: 500
 undefined | --font-weight-extra-bold: 600 | --font-semibold: 600 | --font-weight--semibold: 600
-undefined | undefined | --font-bold: 700 | undefined
+undefined | undefined | --font-bold: 700 | --font-weight--bold: 700
 undefined | undefined | --font-extra-bold: 800 | undefined
 undefined | undefined | --font-black: 900 | undefined
 
