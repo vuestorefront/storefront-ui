@@ -29,7 +29,7 @@ export default {
       default: 0,
     },
     valueMax: {
-      type: [Number, String],
+      type: Number,
       default: 1,
     },
     step: {
@@ -76,7 +76,7 @@ export default {
         if (this.$refs.range) {
           return this.updateOptions({
             range: {
-              min: value,
+              min: value >= this.max ? this.max - 1 : value,
               max: this.max,
             },
           });
@@ -89,7 +89,7 @@ export default {
         return this.updateOptions({
           range: {
             min: this.min,
-            max: value,
+            max: value <= this.min ? this.min + 1 : value,
           },
         });
       },
@@ -131,8 +131,8 @@ export default {
   mounted() {
     this.config = {
       range: {
-        min: this.min,
-        max: this.min === this.max ? this.max + 1 : this.max,
+        min: this.min >= this.max ? this.max - 1 : this.min,
+        max: this.max,
       },
       step: this.step,
       start: this.valueMax ? [this.valueMin, this.valueMax] : this.valueMin,

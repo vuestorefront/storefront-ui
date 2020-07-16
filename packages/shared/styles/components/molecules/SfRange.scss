@@ -10,48 +10,52 @@
   );
   border: none;
   box-shadow: none;
-  .noUi-handle {
-    width: var(--range-handle-width, var(--range-handle-size, 33px));
-    height: var(--range-handle-width, var(--range-handle-size, 33px));
-    transform: translate3d(0, -20%, 0);
-    @include border(
-      --range-handle-border,
-      1px, 
-      solid, 
-      var(--c-primary)
-    );
-    border-radius: var(--range-handle-border-radius, 50%);
-    @include background(
-    --range-handle-background,
-    var(--c-white),
-  );
-    box-shadow: none;
-    &::before,
-    &::after {
-      display: none;
-    }  
-  }
-  .noUi-connect {
-    background: var(--range-handle-background, var(--c-primary));
-  }
-  .noUi-touch-area {
-    background: var(--range-handle-background);
-    border-radius: var(--range-handle-border-radius);
-  }
-  .noUi-vertical {
-    --range-height: 100%;
-    --range-width: 7px;
-    .noUi-connect {
-      height: 100%;
-      width: 7px;
+    .noUi {
+      &-handle {
+        width: var(--range-handle-width, var(--range-handle-size, 33px));
+        height: var(--range-handle-width, var(--range-handle-size, 33px));
+        transform: translate3d(0, -20%, 0);
+        @include border(
+          --range-handle-border,
+          1px, 
+          solid, 
+          var(--c-primary)
+        );
+        border-radius: var(--range-handle-border-radius, 50%);
+        @include background(
+        --range-handle-background,
+        var(--c-white),
+      );
+        box-shadow: none;
+        &::before,
+        &::after {
+          display: none;
+        }  
+      }
+    &-connect {
+      background: var(--range-handle-background, var(--c-primary));
+    }
+    &-touch-area {
+      background: var(--range-handle-background);
+      border-radius: var(--range-handle-border-radius);
+    }
+    &-vertical {
+      --range-height: 100%;
+      --range-width: 7px;
+      .noUi-connect {
+        height: 100%;
+        width: 7px;
+      }
     }
   }
   &[disabled="disabled"] {
-    .noUi-handle {
-      --range-handle-border-color: var(--c-text-disabled);
-    }
-    .noUi-connect {
-      --range-handle-background: var(--c-text-disabled);
-    }
-  }  
+    .noUi {
+      &-handle {
+        --range-handle-border-color: var(--c-text-disabled);
+      }
+      &-connect {
+        --range-handle-background: var(--c-text-disabled);
+      }
+    }  
+  }
 }
