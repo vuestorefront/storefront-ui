@@ -6,8 +6,7 @@
         also cancel your order or request a return.
       </p>
       <div v-if="orders.length === 0" class="no-orders">
-        <p class="no-orders__title">You currently have no orders</p>
-        <p class="no-orders__content">Best get shopping pronto...</p>
+        <p class="no-orders__title">You currently have no order history.</p>
         <SfButton class="no-orders__button">Start shopping</SfButton>
       </div>
       <SfTable v-else class="orders">
@@ -15,9 +14,9 @@
           <SfTableHeader v-for="tableHeader in tableHeaders" :key="tableHeader"
             >{{ tableHeader }}
           </SfTableHeader>
-          <SfTableHeader>
+          <SfTableHeader class="orders__element--right">
             <span class="mobile-only">Download</span>
-            <SfButton class="desktop-only orders__download-all"
+            <SfButton class="desktop-only sf-button--text orders__download-all"
               >Download all
             </SfButton>
           </SfTableHeader>
@@ -28,16 +27,20 @@
               <span
                 :class="{
                   'text-success': data === 'Finalised',
-                  'text-warning': data === 'In process'
+                  'text-warning': data === 'In process',
                 }"
                 >{{ data }}</span
               >
             </template>
             <template v-else>{{ data }}</template>
           </SfTableData>
-          <SfTableData class="orders__view">
-            <SfButton class="sf-button--text mobile-only">Download</SfButton>
-            <SfButton class="sf-button--text desktop-only">VIEW</SfButton>
+          <SfTableData class="orders__view orders__element--right">
+            <SfButton class="sf-button--text color-secondary mobile-only"
+              >Download</SfButton
+            >
+            <SfButton class="sf-button--text color-secondary desktop-only"
+              >View details</SfButton
+            >
           </SfTableData>
         </SfTableRow>
       </SfTable>
@@ -55,19 +58,18 @@
 </template>
 <script>
 import { SfTabs, SfTable, SfButton } from "@storefront-ui/vue";
-
 export default {
   name: "PersonalDetails",
   components: {
     SfTabs,
     SfTable,
-    SfButton
+    SfButton,
   },
   props: {
     account: {
       type: Object,
-      default: () => ({})
-    }
+      default: () => ({}),
+    },
   },
   data() {
     return {
@@ -76,90 +78,50 @@ export default {
         "Payment date",
         "Payment method",
         "Amount",
-        "Status"
-      ]
+        "Status",
+      ],
     };
   },
   computed: {
     orders() {
       return this.account.orders;
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
-
-@mixin for-mobile {
-  @media screen and (max-width: $desktop-min) {
-    @content;
-  }
-}
-
-@mixin for-desktop {
-  @media screen and (min-width: $desktop-min) {
-    @content;
-  }
-}
-
-.message {
-  margin: 0 0 var(--spacer-extra-big) 0;
-  font-size: var(--font-size-regular);
-  font-family: var(--body-font-family-primary);
-  font-weight: var(--body-font-weight-primary);
-  line-height: 1.6;
-}
-
 .no-orders {
-  &__title,
-  &__content {
-    font-family: var(--body-font-family-secondary);
-    font-size: var(--font-size-regular);
-    line-height: 1.6;
-  }
-
   &__title {
-    margin: 0 0 var(--spacer-big) 0;
-    font-weight: 500;
+    margin: 0 0 var(--spacer-base) 0;
   }
-
-  &__content {
-    margin: 0 0 var(--spacer-extra-big) 0;
-    font-weight: 300;
-  }
-
   &__button {
-    width: 100%;
+    --button-width: 100%;
+    margin: var(--spacer-2xl) 0 0 0;
     @include for-desktop {
-      width: auto;
+      --button-width: 17.375rem;
     }
   }
 }
-
 .orders {
-  &__download-all {
-    padding: 10px 1.25rem;
-    font-size: 0.75rem;
-    white-space: nowrap;
-  }
-
-  &__view {
-    @include for-desktop {
-      text-align: center;
-    }
-  }
-
-  ::v-deep .sf-table {
-    &__row,
-    &__heading {
-      margin: 0 - (var(--spacer-big));
-    }
-
-    &__row:last-child {
-      @include for-mobile {
-        border-bottom: 0;
+  @include for-desktop {
+    &__element {
+      &--right {
+        text-align: right;
       }
     }
+  }
+}
+.message {
+  margin: 0 0 var(--spacer-xl) 0;
+  color: var(--c-dark-variant);
+}
+a {
+  color: var(--c-primary);
+  font-weight: var(--font-medium);
+  text-decoration: none;
+  &:hover {
+    color: var(--c-text);
   }
 }
 </style>

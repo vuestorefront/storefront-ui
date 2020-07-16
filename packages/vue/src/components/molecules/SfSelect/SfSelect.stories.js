@@ -1,20 +1,18 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
   text,
   number,
   boolean,
-  optionsKnob as options
+  optionsKnob as options,
 } from "@storybook/addon-knobs";
-import SfSelect from "./SfSelect.vue";
-import SfProductOption from "../SfProductOption/SfProductOption.vue";
+import { SfSelect, SfProductOption } from "@storefront-ui/vue";
 const optionsList = [
   { value: "amaranth", color: "#E52B50", label: "Amaranth" },
   { value: "amber", color: "#FFBF00", label: "Amber" },
   { value: "arctic-lime", color: "#D0FF14", label: "Arctic lime" },
   { value: "bluetiful", color: "#3C69E7", label: "Bluetiful" },
-  { value: "buff", color: "#F0DC82", label: "Buff" }
+  { value: "buff", color: "#F0DC82", label: "Buff" },
 ];
 const knobOptionsList = optionsList.reduce(
   (a, c) => ({ ...a, [c.label]: c.value }),
@@ -29,28 +27,34 @@ storiesOf("Molecules|Select", module)
         default: options(
           "CSS modifiers",
           {
-            "sf-select--bordered": "sf-select--bordered",
-            "sf-select--underlined": "sf-select--underlined"
+            "sf-select--underlined": "sf-select--underlined",
+            "sf-select--no-chevron": "sf-select--no-chevron",
           },
           "sf-select--underlined",
           { display: "multi-select" },
           "CSS Modifiers"
-        )
+        ),
       },
       label: {
-        default: text("label", "Color", "Props")
+        default: text("label", "Color", "Props"),
       },
       size: {
-        default: number("size", 5, {}, "Props")
+        default: number("size", 5, {}, "Props"),
       },
       required: {
-        default: boolean("required", false, "Props")
+        default: boolean("required", false, "Props"),
       },
       valid: {
-        default: boolean("valid", true, "Props")
+        default: boolean("valid", true, "Props"),
+      },
+      disabled: {
+        default: boolean("disabled", false, "Props"),
       },
       errorMessage: {
-        default: text("errorMessage", "Color", "Props")
+        default: text("errorMessage", "Color", "Props"),
+      },
+      persistent: {
+        default: boolean("persistent", false, "Props"),
       },
       selected: {
         default: options(
@@ -59,15 +63,15 @@ storiesOf("Molecules|Select", module)
           optionsList[0].value,
           { display: "select" },
           "Data"
-        )
-      }
+        ),
+      },
     },
     data() {
       return {
-        options: optionsList
+        options: optionsList,
       };
     },
-    template: `<div style="max-width: 18.75rem">
+    template: `
       <SfSelect
         v-model="selected"
         :class="customClass"
@@ -75,14 +79,15 @@ storiesOf("Molecules|Select", module)
         :size="size"
         :required="required"
         :valid="valid"
-        :error-message="errorMessage">
+        :disabled="disabled"
+        :error-message="errorMessage"
+        :persistent="persistent"
+        style="max-width: 30rem"
+      >
         <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
           <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
         </SfSelectOption>
-      </SfSelect>
-      <br>
-      <h3>Selected option: {{selected}}</h3>
-    </div>`
+      </SfSelect>`,
   }))
   .add("[slot] label", () => ({
     components: { SfSelect, SfProductOption },
@@ -91,37 +96,43 @@ storiesOf("Molecules|Select", module)
         default: options(
           "CSS modifiers",
           {
-            "sf-select--bordered": "sf-select--bordered",
-            "sf-select--underlined": "sf-select--underlined"
+            "sf-select--underlined": "sf-select--underlined",
+            "sf-select--no-chevron": "sf-select--no-chevron",
           },
           "sf-select--underlined",
           { display: "multi-select" },
           "CSS Modifiers"
-        )
+        ),
       },
       label: {
-        default: text("label", "Color", "Props")
+        default: text("label", "Color", "Props"),
       },
       size: {
-        default: number("size", 5, {}, "Props")
+        default: number("size", 5, {}, "Props"),
       },
       required: {
-        default: boolean("required", false, "Props")
+        default: boolean("required", false, "Props"),
       },
       valid: {
-        default: boolean("valid", true, "Props")
+        default: boolean("valid", true, "Props"),
+      },
+      disabled: {
+        default: boolean("disabled", false, "Props"),
       },
       errorMessage: {
-        default: text("errorMessage", "Color", "Props")
-      }
+        default: text("errorMessage", "Color", "Props"),
+      },
+      persistent: {
+        default: boolean("persistent", false, "Props"),
+      },
     },
     data() {
       return {
         selected: "",
-        options: optionsList
+        options: optionsList,
       };
     },
-    template: `<div style="max-width: 18.75rem">
+    template: `<div style="max-width: 30rem">    
       <SfSelect
         v-model="selected"
         :class="customClass"
@@ -129,7 +140,10 @@ storiesOf("Molecules|Select", module)
         :size="size"
         :required="required"
         :valid="valid"
-        :error-message="errorMessage">
+        :disabled="disabled"
+        :error-message="errorMessage" 
+        :persistent="persistent"       
+        >
         <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
           <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
         </SfSelectOption>
@@ -137,7 +151,7 @@ storiesOf("Molecules|Select", module)
           CUSTOM LABEL
         </template>
       </SfSelect>
-    </div>`
+    </div>`,
   }))
   .add("[slot] errorMessage", () => ({
     components: { SfSelect, SfProductOption },
@@ -146,37 +160,43 @@ storiesOf("Molecules|Select", module)
         default: options(
           "CSS modifiers",
           {
-            "sf-select--bordered": "sf-select--bordered",
-            "sf-select--underlined": "sf-select--underlined"
+            "sf-select--underlined": "sf-select--underlined",
+            "sf-select--no-chevron": "sf-select--no-chevron",
           },
           "sf-select--underlined",
           { display: "multi-select" },
           "CSS Modifiers"
-        )
+        ),
       },
       label: {
-        default: text("label", "Color", "Props")
+        default: text("label", "Color", "Props"),
       },
       size: {
-        default: number("size", 5, {}, "Props")
+        default: number("size", 5, {}, "Props"),
       },
       required: {
-        default: boolean("required", false, "Props")
+        default: boolean("required", false, "Props"),
       },
       valid: {
-        default: boolean("valid", false, "Props")
+        default: boolean("valid", false, "Props"),
+      },
+      disabled: {
+        default: boolean("disabled", false, "Props"),
       },
       errorMessage: {
-        default: text("errorMessage", "Color", "Props")
-      }
+        default: text("errorMessage", "Color", "Props"),
+      },
+      persistent: {
+        default: boolean("persistent", false, "Props"),
+      },
     },
     data() {
       return {
         selected: "",
-        options: optionsList
+        options: optionsList,
       };
     },
-    template: `<div style="max-width: 18.75rem">
+    template: `<div style="max-width: 30rem">
       <SfSelect
         v-model="selected"
         :class="customClass"
@@ -184,7 +204,10 @@ storiesOf("Molecules|Select", module)
         :size="size"
         :required="required"
         :valid="valid"
-        :error-message="errorMessage">
+        :disabled="disabled"
+        :error-message="errorMessage"
+        :persistent="persistent"
+        >
         <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
           <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
         </SfSelectOption>
@@ -192,5 +215,69 @@ storiesOf("Molecules|Select", module)
           CUSTOM ERROR MESSAGE
         </template>
       </SfSelect>
-    </div>`
+    </div>`,
+  }))
+  .add("[slot] cancel", () => ({
+    components: { SfSelect, SfProductOption },
+    props: {
+      customClass: {
+        default: options(
+          "CSS modifiers",
+          {
+            "sf-select--underlined": "sf-select--underlined",
+            "sf-select--no-chevron": "sf-select--no-chevron",
+          },
+          "sf-select--underlined",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        ),
+      },
+      label: {
+        default: text("label", "Color", "Props"),
+      },
+      size: {
+        default: number("size", 5, {}, "Props"),
+      },
+      required: {
+        default: boolean("required", false, "Props"),
+      },
+      valid: {
+        default: boolean("valid", false, "Props"),
+      },
+      disabled: {
+        default: boolean("disabled", false, "Props"),
+      },
+      errorMessage: {
+        default: text("errorMessage", "Color", "Props"),
+      },
+      persistent: {
+        default: boolean("persistent", false, "Props"),
+      },
+    },
+    data() {
+      return {
+        selected: "",
+        options: optionsList,
+      };
+    },
+    template: `<div style="max-width: 30rem">
+      <SfSelect
+        v-model="selected"
+        :class="customClass"
+        :label="label"
+        :size="size"
+        :required="required"
+        :valid="valid"
+        :disabled="disabled"
+        :error-message="errorMessage"
+        :persistent="persistent"
+        >
+        <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
+          <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
+        </SfSelectOption>
+        <template #cancel>
+          CUSTOM CANCEL BUTTON
+        </template>
+      </SfSelect>
+    </div>`,
   }));

@@ -1,77 +1,114 @@
-@import '../../variables';
-:root {
-  --radio-font-family: var(--body-font-family-secondary);
-  --radio-font-size: var(--font-size-small);
-  --radio-font-weight: var(--body-font-weight-primary);
-  --radio-line-height: 1.6;
-  --radio-transition: background-color .25s cubic-bezier(1, .5, .8, 1);
-  --radio--is-active-background: var(--c-light);
-  --radio__label-font-size: var(--font-size-extra-big);
-  --radio__label-font-weight: 500;
-  --radio__checkmark-transition: border .25s cubic-bezier(1, .5, .8, 1);
-  --radio__checkmark-size: 1.4375rem;
-  --radio__checkmark-border-color: var(--c-gray-variant);
-  --radio--is-active__checkmark-border-color: var(--c-primary);
-  @media screen and (min-width: $desktop-min) {
-    --radio-font-size: var(--font-size-small);
-    --radio__label-font-size: var(--font-size-big);
-  }
-}
+@import "../../helpers";
 .sf-radio {
-  $this: &;
-  display: flex;
-  font-family: var(--radio-font-family);
-  font-size: var(--radio-font-size);
-  font-weight: var(--radio-font-weight);
-  line-height: var(--radio-line-height);
-  transition: var(--radio-transition);
-  &.is-active {
-    background-color: var(--radio--is-active-background);
-  }
-  &--transparent {
-    &.is-active {
-      background-color: transparent;
-    }
-  }
-  &__input {
-    position: absolute;
-    opacity: 0;
-  }
-  &__container {
-    flex: 1;
-    display: flex;
-    padding: var(--spacer-big);
-    cursor: pointer;
-    &:hover {
-      #{$this}__checkmark {
-        border: 1px solid var(--c-primary);
-        .is-active & {
-          border: 9px solid var(--c-primary);
-        }
-      }
-    }
+  display: var(--radio-display, flex);
+  transition: var(
+    --radio-transition,
+    background-color 0.25s cubic-bezier(1, 0.5, 0.8, 1)
+  );
+  &__label {
+    display: var(--radio-label-display, flex);
+    @include font(
+      --radio-label-font,
+      var(--font-normal),
+      var(--h4-font-size),
+      normal,
+      var(--font-family-secondary)
+    );
+    color: var(--radio-label-color);
   }
   &__checkmark {
     box-sizing: border-box;
-    width: var(--radio__checkmark-size);
-    height: var(--radio__checkmark-size);
-    border: 1px solid var(--radio__checkmark-border-color);
-    border-radius: 50%;
-    transition: var(--radio__checkmark-transition);
-    .is-active & {
-      border: 9px solid var(--radio--is-active__checkmark-border-color);
+    width: var(--radio-checkmark-size, 1.5rem);
+    height: var(--radio-checkmark-size, 1.5rem);
+    @include border(
+      --radio-checkmark-border,
+      1px,
+      solid,
+      var(--c-gray-variant)
+    );
+    border-radius: var(--radio-checkmark-border-radius, 100%);
+    transition: var(
+      --radio-checkmark-transition,
+      border 0.25s cubic-bezier(1, 0.5, 0.8, 1)
+    );
+    .sf-radio--is-active & {
+      --radio-checkmark-border-width: 9px;
+      --radio-checkmark-border-color: var(--c-primary);
     }
+  }
+  input {
+    position: absolute;
+    opacity: 0;
+    left: -1000%;
+    width: 1px;
+    height: 1px;
+    &[style*="outline: none"]:focus + .sf-radio__checkmark {
+      outline: none;
+    }
+    &:focus + .sf-radio__checkmark {
+      outline-color: -webkit-focus-ring-color;
+      outline-style: auto;
+    }
+  }
+  &__container {
+    position: relative;
+    display: var(--radio-container-display, flex);
+    align-items: var(--radio-container-align-items);
+    flex: 1;
+    padding: var(
+      --radio-container-padding,
+      var(--spacer-sm) var(--spacer-lg) var(--spacer-sm) var(--spacer-sm)
+    );
+    cursor: var(--radio-container-cursor, pointer);
+  }
+  &:hover {
+    --radio-checkmark-border-color: var(--c-primary);
   }
   &__content {
     flex: 1;
-    margin: 0 0 0 var(--spacer-big);
+    margin: var(--radio-content-margin, 0 0 0 var(--spacer-sm));
   }
-  &__label {
-    display: flex;
-    font-size: var(--radio__label-font-size);
-    font-weight: var(--radio__label-font-weight);
+  &__details {
+    margin: var(--radio-details-margin, var(--spacer-xs) 0 0 0);
+    color: var(--radio-details-color, var(--c-text-muted));
+    @include font(
+      --radio-details-font,
+      var(--font-light),
+      var(--font-xs),
+      1.2,
+      var(--font-family-secondary)
+    );
   }
   &__description {
-    margin: var(--spacer-medium) 0 0 0;
+    margin: var(--radio-description-margin, var(--spacer-xs) 0 0 0);
+    @include font(
+      --radio-description-font,
+      var(--font-light),
+      var(--font-xs),
+      1.6,
+      var(--font-family-primary)
+    );
+    color: var(--radio-description-margin);
+  }
+  &--is-active {
+    background: var(--radio-background, var(--c-light));
+  }
+  &.is-disabled {
+    --radio-checkmark-border-color:  var(--c-text-disabled);
+    --radio-details-color: var(--c-text-disabled);
+    --radio-description-margin: var(--c-text-disabled);
+    --radio-label-color: var(--c-text-disabled);
+    --radio-container-cursor: default;
+    &:hover {
+      --radio-checkmark-border-color: var(--c-text-disabled);
+    }
+  }
+  &--transparent {
+    &.sf-radio--is-active {
+      --radio-background: transparent;
+    }
+  }
+  @include for-desktop {
+    --radio-container-padding: var(--spacer-sm);
   }
 }

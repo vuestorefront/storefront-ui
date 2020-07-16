@@ -8,23 +8,21 @@
         :step-click="stepClick"
         v-bind="{ step }"
       >
-        <div
+        <SfButton
           :key="step.index"
+          class="sf-button--pure"
           :class="{
-            'sf-steps__header-step': true,
-            'sf-steps__header-step-done': step.done,
-            'sf-steps__header-step-current': step.current,
-            'sf-steps__header-step-disabled': step.disabled
+            'sf-steps__step': true,
+            'sf-steps__step--done': step.done,
+            'sf-steps__step--current': step.current,
+            'sf-steps__step--disabled': step.disabled,
           }"
           @click="stepClick(step)"
         >
-          <span>{{ step.step }}</span>
-        </div>
+          <span class="sf-steps__title">{{ step.step }}</span>
+        </SfButton>
       </slot>
-      <div
-        class="sf-steps__progress"
-        :style="{ width: progressWidth, transform: `scaleX(${progress})` }"
-      ></div>
+      <div class="sf-steps__progress" :style="progress"></div>
     </div>
     <div class="sf-steps__content">
       <slot></slot>
@@ -34,29 +32,33 @@
 <script>
 import Vue from "vue";
 import SfStep from "./_internal/SfStep.vue";
+import SfButton from "../../atoms/SfButton/SfButton.vue";
 Vue.component("SfStep", SfStep);
 export default {
   name: "SfSteps",
+  components: {
+    SfButton,
+  },
   model: {
     prop: "active",
-    event: "change"
+    event: "change",
   },
   provide() {
     const stepsData = {};
     Object.defineProperty(stepsData, "index", {
       enumerable: false,
-      get: () => this.active
+      get: () => this.active,
     });
     Object.defineProperty(stepsData, "name", {
       enumerable: false,
-      get: () => this.steps[this.active]
+      get: () => this.steps[this.active],
     });
     Object.defineProperty(stepsData, "updateSteps", {
       enumerable: false,
-      value: this.updateSteps
+      value: this.updateSteps,
     });
     return {
-      stepsData
+      stepsData,
     };
   },
   props: {
@@ -65,19 +67,19 @@ export default {
      */
     active: {
       type: Number,
-      default: 0
+      default: 0,
     },
     /**
      * Disable clicking on  a past step
      */
     canGoBack: {
       type: Boolean,
-      default: true
-    }
+      default: true,
+    },
   },
   data() {
     return {
-      steps: []
+      steps: [],
     };
   },
   computed: {
@@ -88,17 +90,17 @@ export default {
           step,
           done: index < this.active,
           disabled: !this.canGoBack && index < this.active,
-          current: index === this.active
+          current: index === this.active,
         }));
       }
       return [];
     },
     progress() {
-      return this.active + 1;
+      return {
+        "--_steps-progress-width": `${100 / this.steps.length}%`,
+        "--_steps-progress-active-step": this.active + 1,
+      };
     },
-    progressWidth() {
-      return `${100 / this.steps.length}%`;
-    }
   },
   methods: {
     updateSteps(step) {
@@ -115,8 +117,8 @@ export default {
          */
         this.$emit("change", index);
       }
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

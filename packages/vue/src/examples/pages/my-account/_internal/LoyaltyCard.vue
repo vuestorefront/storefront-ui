@@ -3,57 +3,38 @@
     <SfTab title="Loyalty Card">
       <p class="message">
         This feature is not implemented yet! Please take a look at<br />
-        <a href="#"
-          >https://github.com/DivanteLtd/vue-storefront/issues for our
-          Roadmap!</a
-        >
+        <a href="#">https://github.com/DivanteLtd/vue-storefront/issues </a>
+        for our Roadmap!
       </p>
     </SfTab>
   </SfTabs>
 </template>
 <script>
 import { SfTabs } from "@storefront-ui/vue";
-
 export default {
   name: "LoyalityCard",
-  components: { SfTabs }
+  components: { SfTabs },
 };
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
-
-@mixin for-mobile {
-  @media screen and (max-width: $desktop-min) {
-    @content;
-  }
-}
-
-@mixin for-desktop {
-  @media screen and (min-width: $desktop-min) {
-    @content;
-  }
-}
-
-.message {
-  margin: 0 0 var(--spacer-extra-big) 0;
-  font-family: var(--body-font-family-primary);
-  font-weight: var(--body-font-weight-primary);
-  line-height: 1.6;
-  font-size: var(--font-size-regular);
-}
-
 .tab-orphan {
   @include for-mobile {
-    ::v-deep .sf-tabs {
-      &__title {
-        display: none;
-      }
-
-      &__content {
-        border: 0;
-        padding: 0;
-      }
-    }
+    --tabs-title-display: none;
+    --tabs-content-padding: 0;
+    --tabs-conent-border-width: 0;
+  }
+}
+.message {
+  margin: 0 0 var(--spacer-sm) 0;
+  color: var(--c-dark-variant);
+}
+a {
+  font-weight: var(--font-medium);
+  color: var(--c-primary);
+  text-decoration: none;
+  &:hover {
+    color: var(--c-text);
   }
 }
 </style>

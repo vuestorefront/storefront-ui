@@ -1,5 +1,5 @@
 <template>
-  <transition name="fade">
+  <transition name="sf-fade">
     <SfTabs
       v-if="editAddress"
       key="edit-address"
@@ -65,7 +65,7 @@
             name="country"
             label="Country"
             required
-            class="sf-select--underlined form__select form__element form__element--half form__element--half-even"
+            class="sf-select--underlined form__select form__element form__element--half form__select form__element--half-even"
           >
             <SfSelectOption
               v-for="countryOption in countries"
@@ -82,7 +82,7 @@
             required
             class="form__element"
           />
-          <SfButton class="form__button" @click="updateAddress"
+          <SfButton class="action-button" @click="updateAddress"
             >Update the address</SfButton
           >
         </div>
@@ -95,7 +95,7 @@
           ...) This way you won't have to enter the shipping address manually
           with each order.
         </p>
-        <transition-group tag="div" name="fade" class="shipping-list">
+        <transition-group tag="div" name="sf-fade" class="shipping-list">
           <div
             v-for="(shipping, key) in account.shipping"
             :key="shipping.streetName + shipping.apartment"
@@ -146,9 +146,8 @@ import {
   SfInput,
   SfButton,
   SfSelect,
-  SfIcon
+  SfIcon,
 } from "@storefront-ui/vue";
-
 export default {
   name: "ShippingDetails",
   components: {
@@ -156,13 +155,13 @@ export default {
     SfInput,
     SfButton,
     SfSelect,
-    SfIcon
+    SfIcon,
   },
   props: {
     account: {
       type: Object,
-      default: () => ({})
-    }
+      default: () => ({}),
+    },
   },
   data() {
     return {
@@ -224,8 +223,8 @@ export default {
         "Turkey",
         "Ukraine",
         "United Kingdom",
-        "Vatican City"
-      ]
+        "Vatican City",
+      ],
     };
   },
   methods: {
@@ -257,7 +256,7 @@ export default {
         state: this.state,
         zipCode: this.zipCode,
         country: this.country,
-        phoneNumber: this.phoneNumber
+        phoneNumber: this.phoneNumber,
       };
       const index = this.editedAddress;
       if (index > -1) {
@@ -273,151 +272,95 @@ export default {
       const account = { ...this.account };
       account.shipping.splice(index, 1);
       this.$emit("update:shipping", account);
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
-
-@mixin for-mobile {
-  @media screen and (max-width: $desktop-min) {
-    @content;
-  }
-}
-
-@mixin for-desktop {
-  @media screen and (min-width: $desktop-min) {
-    @content;
-  }
-}
-
-.form {
-  @include for-desktop {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-  }
-
-  &__element {
-    margin-bottom: var(--spacer-extra-big);
-    @include for-desktop {
-      flex: 0 0 100%;
-    }
-
-    &--half {
-      @include for-desktop {
-        flex: 1 1 50%;
-      }
-
-      &-even {
-        @include for-desktop {
-          padding-left: var(--spacer-extra-big);
-        }
-      }
-    }
-  }
-
-  &__select {
-    ::v-deep .sf-select__selected {
-      padding: 5px 0;
-    }
-  }
-
-  &__button {
-    width: 100%;
-    @include for-desktop {
-      width: auto;
-    }
-  }
-}
-
-.message {
-  margin: 0 0 var(--spacer-extra-big) 0;
-  font-family: var(--body-font-family-primary);
-  font-weight: var(--body-font-weight-primary);
-  line-height: 1.6;
-  font-size: var(--font-size-regular);
-}
-
 .shipping-list {
-  margin-bottom: var(--spacer-extra-big);
+  margin: 0 0 var(--spacer-base) 0;
 }
-
 .shipping {
   display: flex;
-  padding: var(--spacer-big) 0;
-  border-top: 1px solid var(--c-light);
-
+  padding: var(--spacer-base) 0;
+  border: 1px solid var(--c-light);
+  border-width: 1px 0 0 0;
   &:last-child {
-    border-bottom: 1px solid var(--c-light);
+    border-width: 1px 0 1px 0;
   }
-
   &__content {
     flex: 1;
     color: var(--c-text);
-    font-size: var(--font-size-small);
-    font-weight: 300;
-    line-height: 1.6;
   }
-
   &__actions {
-    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-end;
     @include for-desktop {
       flex-direction: row;
-      align-items: center;
       justify-content: flex-end;
+      align-items: center;
     }
   }
-
   &__button-delete {
-    background-color: var(--c-light);
-    color: var(--c-text-muted);
+    --button-background: var(--c-light);
+    --button-color: var(--c-dark-variant);
+    &:hover {
+      --button-background: var(--_c-light-primary);
+    }
     @include for-desktop {
-      margin-left: var(--spacer-big);
+      margin: 0 0 0 var(--spacer-base);
     }
   }
-
   &__address {
-    margin: 0 0 var(--spacer-big) 0;
-
+    margin: 0 0 var(--spacer-base) 0;
     &:last-child {
       margin: 0;
     }
   }
-
-  &__client-name {
-    font-size: var(--font-size-big);
-    font-weight: 500;
-    @include for-desktop {
-      font-size: var(--font-size-regular);
-    }
-  }
 }
-
-.action-button {
-  width: 100%;
-  @include for-desktop {
-    width: auto;
-  }
-}
-
 .tab-orphan {
   @include for-mobile {
-    ::v-deep .sf-tabs {
-      &__title {
-        display: none;
+    --tabs-content-border-width: 0;
+    --tabs-title-display: none;
+    --tabs-content-padding: 0;
+  }
+}
+.form {
+  @include for-desktop {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  &__element {
+    margin: 0 0 var(--spacer-base) 0;
+    @include for-desktop {
+      flex: 0 0 100%;
+    }
+    &--half {
+      @include for-desktop {
+        flex: 1 1 50%;
       }
-
-      &__content {
-        border: 0;
-        padding: 0;
+      &-even {
+        @include for-desktop {
+          padding: 0 0 0 var(--spacer-lg);
+        }
       }
     }
+  }
+  &__select {
+    padding-bottom: calc(var(--font-xs) * 1.2);
+  }
+}
+.message {
+  margin: 0 0 var(--spacer-base) 0;
+}
+.action-button {
+  --button-width: 100%;
+  @include for-desktop {
+    --button-width: auto;
   }
 }
 </style>

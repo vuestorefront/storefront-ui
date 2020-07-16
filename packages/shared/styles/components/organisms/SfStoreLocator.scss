@@ -1,171 +1,129 @@
-@import '../../variables';
-:root {
-  --store-locator__font-family-primary: var(--body-font-family-primary);
-  --store-locator__list-width: 100%;
-  --store-locator__list-max-width: none;
-  --store-locator__map-width: 100%;
-  --store-locator__map-max-width: none;
-  --store-locator__map-min-height: 26.875rem;
-  --store__media-width: 5.125rem;
-  --store__media-height: 7rem;
-  --store__media-margin: 0 1.25rem 0 0;
-  --store__item-font-size: var(--font-size-small);
-  --store__name-font-size: var(--font-size-big);
-  --store__name-font-weight: var(--h1-font-weight);
-  --store__color-primary: var(--c-dark);
-  --store__color-secondary: var(--c-gray-variant);
-  --store__font-family-primary: var(--body-font-family-primary);
-  --store__font-family-secondary: var(--body-font-family-secondary);
-  @media screen and (min-width: $desktop-min) {
-    --store-locator__list-width: 33%;
-    --store-locator__list-max-width: 26.25rem;
-    --store-locator__map-width: 66%;
-    --store-locator__map-max-width: 43.75rem;
-    --store-locator__map-min-height: 34.375rem;
-    --store__item-font-size: var(--font-size-extra-small);
-    --store__name-font-size: var(--font-size-regular);
+@import "../../helpers";
+.sf-store {
+  display: flex;
+  flex-wrap: wrap;
+  padding: var(--store-padding, 0 0 var(--spacer-sm) 0);
+  margin: var(--store-margin, var(--spacer-base) 0 0 0);
+  @include border(--store-border, 0 0 1px 0, solid, var(--c-light));
+  &__distance {
+    flex: var(--store-distance-flex, 0 0 100%);
+    order: var(--store-distance-order);
+    margin: var(--store-distance-margin, 0 0 var(--spacer-xs) 0);
+    color: var(--c-dark-variant);
+    @include font(
+      --store-item-distance-font,
+      var(--font-light),
+      var(--font-base),
+      1.4,
+      var(--font-family-primary)
+    );
+    span {
+      font-weight: var(--font-bold);
+      color: var(--c-text);
+    }
+  }
+  &__media {
+    flex: var(--store-media-flex, 0 0 7rem);
+  }
+  &__address {
+    margin: var(--store-item-addres-margin, 0 0 var(--spacer-base) 0);
+    color: var(--c-dark-variant);
+    @include font(
+      --store-item-property-font,
+      var(--font-normal),
+      var(--font-xs),
+      1.4,
+      var(--font-family-secondary)
+    );
+  }
+  &__name {
+    margin: var(--store-item-name-margin, 0 0 var(--spacer-2xs) 0);
+    color: var(--c-text);
+    @include font(
+      --store-item-property-font,
+      var(--font-normal),
+      var(--font-xs),
+      1.4,
+      var(--font-family-secondary)
+    );
+  }
+  &__property {
+    display: flex;
+    align-items: center;
+    margin: var(--store-item-property-margin, 0 0 var(--spacer-sm) 0);
+    color: var(--c-dark-variant);
+    @include font(
+      --store-item-property-font,
+      var(--font-normal),
+      var(--font-xs),
+      1.4,
+      var(--font-family-secondary)
+    );
+    &:last-child {
+      margin: var(--store-item-property-margin, 0);
+    }
+  }
+  &__property-link {
+    color: var(--c-link);
+    text-decoration: none;
+  }
+  @include for-desktop {
+    --store-distance-flex: 0 0 auto;
+    --store-distance-order: 1;
+    --store-distance-margin: 0 0 0 auto;
   }
 }
 .sf-store-locator {
-  font-family: var(--store-locator__font-family-primary);
-  &__title {
-    margin-bottom: .625rem;
-  }
   &__wrapper {
     display: flex;
-    flex-flow: column-reverse nowrap;
-    justify-content: flex-start;
-    align-items: flex-start;
+    flex-direction: var(--store-locator-wrapper-flex-direction, column-reverse);
+    justify-content: var(--store-locator-wrapper-justify-content, flex-start);
+    align-items: var(--store-locator-wrapper-align-items, flex-start);
   }
   &__list {
-    width: var(--store-locator__list-width);
-    max-width: var(--store-locator__list-max-width);
+    flex: var(--store-locator-list-flex);
+    width: 100%;
+    padding: var(--store-locator-list-padding, 0 var(--spacer-sm));
+    margin: var(--store-locator-list-margin);
   }
   &__map-wrapper {
-    width: var(--store-locator__map-width);
-    max-width: var(--store-locator__map-max-width);
-    min-height: var(--store-locator__map-min-height);
     position: relative;
-    &-map {
-      // Workaround to known bug about min-height / height interaction in Chrome / Firefox
-      position: absolute;
-      height: 100%;
-      &-my-location-btn {
-        a {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          &:hover {
-            display: flex;
-          }
-        }
-      }
-    }
-    .sf-loader {
-      position: absolute;
+    flex: var(--store-locator-map-flex, 0 0 60vh);
+    width: var(--store-locator-map-width, 100%);
+    height: var(--store-locator-map-height);
+  }
+  &__map {
+    // Workaround to known bug about min-height / height interaction in Chrome / Firefox
+    position: absolute;
+    height: 100%;
+  }
+  &__stores {
+    padding: var(--store-locator-stores-padding, var(--spacer-sm));
+    @include border(
+      --store-locator-stores-border,
+      2px 0,
+      solid,
+      var(--c-light)
+    );
+    color: var(--store-locator-store-colot, var(--c-text));
+    @include font(
+      --store-locator-stores-font,
+      var(--font-normal),
+      var(--font-sm),
+      1.4,
+      var(--font-family-secondary)
+    );
+    span {
+      font-weight: var(--font-bold);
+      color: var(--c-text);
     }
   }
-  .sf-store {
-    .sf-divider {
-      margin: 7px 0 7px auto;
-    }
-    &__first-divider {
-      display: none;
-      max-width: unset;
-      margin: 8px 0;
-    }
-    &:first-of-type {
-      .sf-store__first-divider {
-        display: block;
-      }
-    }
-    &__desktop-divider {
-      display: none;
-    }
-    &__item {
-      display: flex;
-      flex-flow: row nowrap;
-      justify-content: flex-start;
-      align-items: flex-start;
-      font-size: var(--store__item-font-size);
-      &-media {
-        width: var(--store__media-width);
-        height: var(--store__media-height);
-        margin: var(--store__media-margin);
-        overflow: hidden;
-        cursor: pointer;
-      }
-      &-info {
-        flex: 1;
-        &-heading {
-          &-name {
-            font-size: var(--store__name-font-size);
-            color: var(--store__color-primary);
-            font-family: var(--store__font-family-secondary);
-            font-weight: var(--store__name-font-weight);
-          }
-          &-distance {
-            color: var(--store__color-secondary);
-            span {
-              color: var(--store__color-primary);
-            }
-          }
-        }
-        &-address {
-          color: var(--store__color-secondary);
-          margin-bottom: 1.25rem;
-        }
-        &-phone,
-        &-email {
-          display: flex;
-          flex-flow: row nowrap;
-          justify-content: flex-start;
-          align-items: center;
-          margin-bottom: .625rem;
-          span {
-            font-family: var(--store__font-family-secondary);
-            margin-left: .3125rem;
-            font-weight: 300;
-          }
-        }
-      }
-    }
-  }
-}
-@media screen and (min-width: $desktop-min) {
-  .sf-store-locator {
-    &__wrapper {
-      flex-flow: row nowrap;
-    }
-    &__list {
-      margin-right: 2.5rem;
-    }
-    .sf-store {
-      .sf-divider {
-        max-width: 100%;
-      }
-      &__desktop-divider {
-        display: block;
-      }
-      &__mobile-divider {
-        display: none;
-      }
-      &__first-divider {
-        margin-top: 0;
-        width: calc(100% + 2.5rem);
-      }
-      &__item {
-        &-info {
-          &-heading {
-            display: flex;
-            flex-flow: row nowrap;
-            justify-content: space-between;
-            &-distance {
-              width: 80px;
-            }
-          }
-        }
-      }
-    }
+  @include for-desktop {
+    --store-locator-wrapper-flex-direction: row;
+    --store-locator-list-flex: 1;
+    --store-locator-list-padding: 0;
+    --store-locator-list-margin: 0 var(--spacer-2xl) 0 0;
+    --store-locator-map-flex: 1;
+    --store-locator-map-height: 46.25rem;
   }
 }

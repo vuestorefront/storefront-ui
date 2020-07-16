@@ -1,52 +1,46 @@
-@import '../../variables';
-:root {
-  --menu-item-color: var(--c-gray);
-  --menu-item-color--is-active: var(--c-dark);
-  --menu-item-font-family: var(--body-font-family-secondary);
-  --menu-item-font-size: var(--font-size-big);
-  --menu-item-font-weight: var(--body-font-weight-secondary);
-  --menu-item-line-height: 1.6;
-  @media screen and (min-width: $desktop-min) {
-    --menu-item-font-size: var(--font-size-regular);
-  }
-}
+@import "../../helpers";
 .sf-menu-item {
-  $this: &;
-  cursor: pointer;
+  --link-text-decoration: none;
+  --button-width: 100%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  color: var(--menu-item-color);
-  font-family: var(--menu-item-font-family);
-  font-size: var(--menu-item-font-size);
-  font-weight: var(--menu-item-font-weight);
-  line-height: var(--menu-item-line-height);
-  &:hover {
-    color: var(--menu-item-color--is-active);
-  }
-  &--is-active {
-    color: var(--menu-item-color--is-active);
-    text-decoration: underline;
+  text-transform: var(--menu-item-text-transform);
+  cursor: pointer;
+  @include font(
+    --menu-item-font,
+    var(--font-normal),
+    var(--font-base),
+    1.4,
+    var(--font-family-secondary)
+  );
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
   }
   &__icon {
-    fill: var(--menu-item-color);
-    margin-right: var(--spacer-big);
-    #{$this}--is-active & {
-      fill: var(--menu-item-color--is-active);
-    }
+    --icon-color: var(--c-gray);
+    margin: var(--menu-item-icon-margin, 0 var(--spacer-xs) 0 0);
   }
   &__count {
-    margin-left: auto;
+    margin: var(--menu-item-count-margin, 0 0 0 auto);
+    color: var(--menu-item-count-color, var(--c-gray));
   }
   &__mobile-nav-icon {
-    display: flex;
-    margin-left: var(--spacer-big);
+    display: var(--menu-item-mobile-nav-icon-display, flex);
+    margin: var(--menu-item-mobile-nav-icon-margin, 0 0 0 var(--spacer-base));
   }
-}
-@media screen and (min-width: $desktop-min) {
-  .sf-menu-item {
-    &__mobile-nav-icon {
-      display: none;
-    }
+  &__label {
+    color: var(--menu-item-label-color, var(--c-dark-variant));
+  }
+  &--is-active {
+    --menu-item-label-color: var(--c-primary);
+  }
+  &:hover {
+    --menu-item-label-color: var(--c-black);
+  }
+  @include for-desktop {
+    --menu-item-mobile-nav-icon-display: none;
   }
 }

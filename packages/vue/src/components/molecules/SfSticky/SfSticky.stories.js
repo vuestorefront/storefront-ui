@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 const StoriesWrapper = {
   template: `<div style="display: flex;">
@@ -9,19 +8,16 @@ const StoriesWrapper = {
     <div style="flex: 1">
       <slot/>
     </div>
-  </div>`
+  </div>`,
 };
-const StoriesPlaceholder = {
-  template: `<div style="display: flex; flex: 1; align-items:center; justify-content:center; height: 18.75rem; background-color: #f2f2f2;">
-        [#default slot content]
-      </div>`
-};
-import SfSticky from "./SfSticky.vue";
+import { SfSticky } from "@storefront-ui/vue";
 storiesOf("Molecules|Sticky", module).add("Common", () => ({
-  components: { SfSticky, StoriesWrapper, StoriesPlaceholder },
+  components: { SfSticky, StoriesWrapper },
   template: `<StoriesWrapper>
     <SfSticky>
-      <StoriesPlaceholder/>
+      <div style="display: flex; flex: 1; align-items:center; justify-content:center; height: 18.75rem; background-color: #f2f2f2;">
+        [#default slot content]
+      </div>
     </SfSticky>
-  </StoriesWrapper>`
+  </StoriesWrapper>`,
 }));

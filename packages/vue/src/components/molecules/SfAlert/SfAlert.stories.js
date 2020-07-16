@@ -1,13 +1,13 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, select } from "@storybook/addon-knobs";
-import SfAlert from "./SfAlert.vue";
+import { SfAlert } from "@storefront-ui/vue";
 storiesOf("Molecules|Alert", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
     components: { SfAlert },
     props: {
       message: {
-        default: text("message", "Low in stock", "Props")
+        default: text("message", "Low in stock", "Props"),
       },
       type: {
         default: select(
@@ -15,19 +15,19 @@ storiesOf("Molecules|Alert", module)
           ["info", "success", "warning", "danger"],
           "info",
           "Props"
-        )
-      }
+        ),
+      },
     },
     template: `<SfAlert
       :message="message"
       :type="type"
-      />`
+      />`,
   }))
   .add("[slot] icon", () => ({
     components: { SfAlert },
     props: {
       message: {
-        default: text("message", "Low in stock", "Props")
+        default: text("message", "Low in stock", "Props"),
       },
       type: {
         default: select(
@@ -35,8 +35,8 @@ storiesOf("Molecules|Alert", module)
           ["info", "success", "warning", "danger"],
           "info",
           "Props"
-        )
-      }
+        ),
+      },
     },
     template: `<SfAlert
       :message="message"
@@ -44,13 +44,13 @@ storiesOf("Molecules|Alert", module)
       <template #icon="{icon}">
         ❤️
       </template>  
-    </SfAlert>`
+    </SfAlert>`,
   }))
   .add("[slot] message", () => ({
     components: { SfAlert },
     props: {
       message: {
-        default: text("message", "Low in stock", "Props")
+        default: text("message", "Low in stock", "Props"),
       },
       type: {
         default: select(
@@ -58,8 +58,8 @@ storiesOf("Molecules|Alert", module)
           ["info", "success", "warning", "danger"],
           "info",
           "Props"
-        )
-      }
+        ),
+      },
     },
     template: `<SfAlert
       :message="message"
@@ -67,5 +67,5 @@ storiesOf("Molecules|Alert", module)
       <template #message="{message}">
         CUSTOM MESSAGE
       </template>  
-    </SfAlert>`
+    </SfAlert>`,
   }));

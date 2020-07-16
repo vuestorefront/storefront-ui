@@ -1,66 +1,98 @@
-@import '../../variables';
-:root {
-  --sidebar-width: 20rem;
-  --sidebar-padding: var(--spacer-extra-big);
-  --sidebar-background-color: var(--c-white);
-  --sidebar__title-margin-bottom: 1.5rem;
-  @media screen and (min-width: $desktop-min) {
-    --sidebar-width: 25.5rem;
-  }
-}
+@import "../../helpers";
 .sf-sidebar {
-  $this: &;
   &__aside {
     position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1;
+    top: var(--sidebar-top, 0);
+    left: var(--sidebar-left, 0);
+    right: var(--sidebar-right, 0);
+    bottom: var(--sidebar-bottom, 0);
+    z-index: var(--sidebar-z-index, 1);
+    display: flex;
+    flex-direction: column;
     box-sizing: border-box;
     width: var(--sidebar-width);
     height: 100%;
-    background-color: var(--sidebar-background-color);
+    background-color: var(--sidebar-background, var(--c-white));
+    box-shadow: var(--sidebar-box-shadow, 0px 4px 11px rgba(29, 31, 34, 0.1));
+  }
+  &__top {
+    padding: var(
+      --sidebar-top-padding,
+      var(--spacer-sm) var(--spacer-sm) 0 var(--spacer-sm)
+    );
+    @include font(
+      --sidebar-top,
+      var(--font-light),
+      var(--font-base),
+      1.6,
+      var(--font-family-primary)
+    );
   }
   &__content {
-    overflow-y: auto;
+    overflow: auto;
+    display: var(--sidebar-content-display, flex);
+    flex-direction: var(--sidebar-content-flex-direction, column);
     box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
+    width: var(--sidebar-content-width);
     height: 100%;
-    padding: var(--sidebar-padding);
+    padding: var(
+      --sidebar-content-padding,
+      var(--spacer-base) var(--spacer-sm)
+    );
+    color: var(--sidebar-content-color, var(--c-text));
+    @include font(
+      --sidebar-content-font,
+      var(--font-light),
+      var(--font-base),
+      1.6,
+      var(--font-family-primary)
+    );
     &::-webkit-scrollbar {
       width: 0;
     }
   }
   &__title {
-    margin-bottom: var(--sidebar__title-margin-bottom);
+    --heading-title-color: var(--c-dark-variant);
+    --heading-title-font-size: var(--font-xl);
+    --heading-title-font-weight: var(--font-light);
+    --heading-subtitle-font-size: var(--font-xl);
+    display: var(--sidebar-title-display);
+    margin: var(--sidebar-title, 0 0 var(--spacer-lg) 0);
+  }
+  &__bottom {
+    position: sticky;
+    top: 0;
+    bottom: auto;
+    padding: var(--sidebar-bottom-padding, var(--spacer-sm));
+    @include font(
+      --sidebar-bottom,
+      var(--font-light),
+      var(--font-base),
+      1.6,
+      var(--font-family-primary)
+    );
   }
   &__circle-icon {
-    position: absolute;
-    right: 3.25rem / 2 * -1;
-    top: 4.925rem;
+    --circle-icon-position: absolute;
+    z-index: 1;
+    display: var(--sidebar-circle-icon-display, flex);
+    left: var(--sidebar-circle-icon-left);
+    top: var(--sidebar-circle-icon-top, var(--spacer-xl));
+    right: var(--sidebar-circle-icon-right, 0);
+    transform: var(--sidebar-circle-icon-transform, translate3d(50%, 0, 0));
   }
-  &--right {
-    #{$this}__aside {
-      left: auto;
-      right: 0;
-    }
-    #{$this}__circle-icon {
-      left: 3.25rem / 2 * -1;
-    }
-  }
-  &--mobile-only {
-    #{$this}__circle-icon {
-      display: none;
-    }
-  }
-  &--has-scroll-lock {
-    overflow: hidden;
-  }
-}
-@media screen and (min-width: $desktop-min) {
-  .sf-sidebar {
-    &__circle-icon {
-      top: 5.625rem;
+  @include for-desktop {
+    --sidebar-width: 25.5rem;
+    --sidebar-top-padding: var(--spacer-xl) var(--spacer-xl) var(--spacer-sm)
+      var(--spacer-xl);
+    --sidebar-content-padding: var(--spacer-base) var(--spacer-xl);
+    --sidebar-bottom-padding: var(--spacer-sm) var(--spacer-xl) var(--spacer-xl)
+      var(--spacer-xl);
+    &--right {
+      --sidebar-left: auto;
+      --sidebar-right: 0;
+      --sidebar-circle-icon-left: 0;
+      --sidebar-circle-icon-transform: translate3d(-50%, 0, 0);
     }
   }
 }

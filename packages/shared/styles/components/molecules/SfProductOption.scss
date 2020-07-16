@@ -1,26 +1,24 @@
-@import '../../variables';
-:root {
-  --product-option-font-family: var(--body-font-family-secondary);
-  --product-option-font-size: var(--font-size-regular);
-  --product-option-font-weight: var(--body-font-weight-secondary);
-  --product-option-line-height: 1.6;
-  --product-option__color-size: 1.125rem;
-}
+@import "../../helpers";
 .sf-product-option {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-family: var(--product-option-font-family);
-  font-size: var(--product-option-font-size);
-  font-weight: var(--product-option-font-weight);
-  line-height: var(--product-option-line-height);
-  &__label {
-    flex-grow: 1;
-  }
+  @include font(
+    --product-option-font,
+    var(--font-light),
+    var(--font-sm),
+    normal,
+    var(--font-family-primary)
+  );
   &__color {
-    width: var(--product-option__color-size);
-    height: var(--product-option__color-size);
-    margin-right: var(--spacer-big);
-    border: 1px solid var(--c-gray-variant);
+    box-sizing: border-box;
+    width: var(--product-option-size, 1.25rem);
+    height: var(--product-option-size, 1.25rem);
+    margin: var(--product-option-color-margin, 0 var(--spacer-sm) 0 0);
+    @include border(--product-option-border, 0, solid, var(--c-light));
+    border-radius: var(--product-option-border-radius);
+  }
+  &__label {
+    flex: 1;
   }
 }

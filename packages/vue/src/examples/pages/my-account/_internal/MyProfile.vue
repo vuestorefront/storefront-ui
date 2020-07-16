@@ -29,7 +29,7 @@
           class="form__element"
         />
         <SfButton class="form__button" @click="updatePersonal"
-          >Update personal data
+          >Save changes
         </SfButton>
       </div>
       <p class="notice">
@@ -79,19 +79,18 @@
 </template>
 <script>
 import { SfTabs, SfInput, SfButton } from "@storefront-ui/vue";
-
 export default {
   name: "PersonalDetails",
   components: {
     SfTabs,
     SfInput,
-    SfButton
+    SfButton,
   },
   props: {
     account: {
       type: Object,
-      default: () => ({})
-    }
+      default: () => ({}),
+    },
   },
   data() {
     return {
@@ -100,7 +99,7 @@ export default {
       email: "",
       currentPassword: "",
       newPassword: "",
-      repeatPassword: ""
+      repeatPassword: "",
     };
   },
   watch: {
@@ -110,92 +109,72 @@ export default {
         this.lastName = value.lastName;
         this.email = value.email;
       },
-      immediate: true
-    }
+      immediate: true,
+    },
   },
   methods: {
     updatePersonal() {
       const personal = {
         firstName: this.firstName,
         lastName: this.lastName,
-        email: this.email
+        email: this.email,
       };
       this.$emit("update:personal", personal);
     },
     updatePassword() {
       const password = {
-        password: this.newPassword
+        password: this.newPassword,
       };
       this.$emit("update:password", password);
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
-
-@mixin for-desktop {
-  @media screen and (min-width: $desktop-min) {
-    @content;
-  }
-}
-
 .form {
   @include for-desktop {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
   }
-
   &__element {
-    margin-bottom: var(--spacer-extra-big);
+    margin: 0 0 var(--spacer-lg) 0;
     @include for-desktop {
       flex: 0 0 100%;
     }
-
     &--half {
       @include for-desktop {
         flex: 1 1 50%;
       }
-
       &-even {
         @include for-desktop {
-          padding-left: var(--spacer-extra-big);
+          padding: 0 0 0 var(--spacer-lg);
         }
       }
     }
   }
-
   &__button {
-    width: 100%;
+    --button-width: 100%;
     @include for-desktop {
-      width: auto;
+      --button-width: auto;
     }
   }
 }
-
-.message,
-.notice {
-  font-family: var(--body-font-family-primary);
-  font-weight: var(--body-font-weight-primary);
-  line-height: 1.6;
-}
-
 .message {
-  margin: 0 0 var(--spacer-extra-big) 0;
-  font-size: var(--font-size-regular);
-
-  &__label {
-    font-weight: 400;
-  }
+  margin: 0 0 var(--spacer-xl) 0;
+  color: var(--c-dark-variant);
 }
-
 .notice {
-  margin: var(--spacer-big) 0 0 0;
-  font-size: var(--font-size-extra-small);
-  @include for-desktop {
-    max-width: 70%;
-    margin: var(--spacer) 0 0 0;
+  max-width: 31rem;
+  margin: var(--spacer-base) 0 0 0;
+  font-size: var(--font-2xs);
+}
+a {
+  color: var(--c-primary);
+  text-decoration: none;
+  &:hover {
+    color: var(--c-text);
   }
 }
 </style>

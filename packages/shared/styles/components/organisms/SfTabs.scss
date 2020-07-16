@@ -1,90 +1,81 @@
-@import '../../variables';
-:root {
-  --tabs-border-color: var(--c-light);
-  --tabs-font-family: var(--body-font-family-secondary);
-  --tabs-font-size: var(--font-size-regular);
-  --tabs-font-weight: var(--body-font-weight-secondary);
-  --tabs-line-height: 1.6;
-  --tabs__title-padding-y: var(--spacer-big);
-  --tabs__title-color: var(--c-gray-variant);
-  --tabs__title-color--active: var(--c-dark);
-  --tabs__title-color--hover: var(--c-dark);
-  --tabs__title-font-size: var(--font-size-big);
-  --tabs__content-padding-y: calc(3 * var(--spacer-big));
-  --tabs__chevron-size: 1.25rem;
-  @media screen and (min-width: $desktop-min) {
-    --tabs-font-size: var(--font-size-regular);
-    --tabs__title-font-size: var(--font-size-big);
-  }
-}
+@import "../../helpers";
 .sf-tabs {
-  $this: &;
-  position: relative;
   display: flex;
   flex-wrap: wrap;
-  font-family: var(--tabs-font-family);
-  font-size: var(--tabs-font-size);
-  font-weight: var(--tabs-font-weight);
-  line-height: var(--tabs-line-height);
   &__title {
-    display: flex;
-    flex-basis: 100%;
+    z-index: var(--tabs-title-z-index);
+    display: var(--tabs-title-display, flex);
+    box-sizing: border-box;
+    flex: var(--tabs-title-flex, 0 0 100%);
     justify-content: space-between;
-    padding: calc(var(--tabs__title-padding-y) - 5px) 0;
-    border-bottom: 1px solid var(--tabs-border-color);
-    color: var(--c-dark);
-    cursor: pointer;
-    transition: border-color 150ms ease-in-out, color 150ms ease-in-out;
-    font-size: var(--tabs__title-font-size);
+    margin: var(--tabs-title-margin);
+    padding: var(--tabs-title-padding, var(--spacer-sm));
+    background: var(--tabs-title-background);
+    @include border(--tabs-title-border, 0 0 1px 0, solid, var(--c-light));
+    color: var(--tabs-title-color);
+    transition: color 150ms ease-in-out;
+    @include font(
+      --tabs-title-font,
+      var(--font-normal),
+      var(--h3-font-size),
+      1.4,
+      var(--font-family-secondary)
+    );
     &--active {
-      border-color: transparent;
-      & + #{$this}__content {
-        display: block;
-        border-bottom: 1px solid var(--tabs-border-color);
+      --tabs-title-border-width: 0;
+      --tabs-title-color: var(--c-primary);
+      & + .sf-tabs__content {
+        --tabs-content-border-width: var(
+          --tabs-content-border-width,
+          1px 0 0 0
+        );
       }
+    }
+  }
+  &__content {
+    flex: 0 0 100%;
+    order: var(--tabs-content-order);
+    @include border(--tabs-content-border, 0, solid, var(--c-light));
+    color: var(--tabs-content-color, var(--c-text));
+    @include font(
+      --tabs-content-font,
+      var(--font-light),
+      var(--font-base),
+      1.6,
+      var(--font-family-primary)
+    );
+    &__tab {
+      padding: var(
+        --tabs-content-tab-padding,
+        var(--spacer-base) var(--spacer-sm)
+      );
     }
   }
   &__chevron {
-    display: flex;
-    align-items: center;
-    max-height: calc(var(--accordion-font-size) * var(--accordion-line-height));
+    display: var(--tabs-chevron-display);
   }
-  &__content {
-    flex-basis: 100%;
-    padding: calc(var(--tabs__content-padding-y) / 2) 0;
-  }
-}
-@media screen and (min-width: $desktop-min) {
-  .sf-tabs {
-    $this: &;
+  @include for-desktop {
+    --tabs-title-z-index: 1;
+    --tabs-content-order: 1;
+    --tabs-title-flex: 0 0 auto;
+    --tabs-title-margin: 0 var(--spacer-lg) -2px 0;
+    --tabs-title-padding: var(--spacer-xs) 0;
+    --tabs-title-color: var(--c-text-muted);
+    --tabs-title-font-size: var(--h4-font-size);
+    --tabs-content-tab-padding: var(--spacer-base) 0;
+    --tabs-chevron-display: none;
     &__title {
-      flex-basis: auto;
-      margin-right: 2rem;
-      margin-bottom: -2px;
-      padding: var(--tabs__title-padding-y) 0;
-      border-width: 2px;
-      border-color: transparent;
-      color: var(--c-gray-variant);
       &--active {
-        z-index: 1;
-        border-width: 2px;
-        border-color: var(--c-dark);
-        color: var(--c-dark);
-        & + #{$this}__content {
-          border-bottom: 0;
+        --tabs-title-border-width: 0 0 2px 0;
+        --tabs-title-border-color: var(--c-text);
+        --tabs-title-color: var(--c-text);
+        & + .sf-tabs__content {
+          --tabs-content-border-width: 2px 0 0 0;
         }
       }
       &:hover {
-        color: var(--c-dark);
+        --tabs-title-color: var(--c-text);
       }
-    }
-    &__content {
-      order: 99;
-      padding: var(--tabs__content-padding-y) 0;
-      border-top: 2px solid var(--tabs-border-color);
-    }
-    &__chevron {
-      display: none;
     }
   }
 }

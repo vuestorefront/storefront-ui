@@ -1,12 +1,10 @@
 "use strict";
-
 const fs = require("fs");
 const glob = require("glob");
 const path = require("path");
 const sass = require("node-sass");
 const vueDocs = require("vue-docgen-api");
 const prettier = require("prettier");
-
 const pathTemplateFile = path.resolve(__dirname, "component-docs-template.md");
 const pathTargetMdsRoot = path.resolve(__dirname, "..", "docs/components");
 const pathVuepressConfigRoot = path.resolve(__dirname, "..", "docs/.vuepress");
@@ -17,16 +15,16 @@ const pathComponentsScssRoot = path.resolve(
 );
 const nodePathSimplebarIncludes = "simplebar/dist/";
 const pathsSassIncludes = [
-  path.resolve(__dirname, "../..", "shared/styles/variables/"),
+  path.resolve(__dirname, "../..", "shared/styles/helpers/"),
   path.resolve(
     __dirname,
     "../../..",
     "node_modules/" + nodePathSimplebarIncludes
-  )
+  ),
 ];
 const pathVueComponentsRoot = path.resolve(__dirname, "..", "src/components");
 const pathsVueComponents = glob.sync("*/*/Sf*.vue", {
-  cwd: pathVueComponentsRoot
+  cwd: pathVueComponentsRoot,
 });
 const pathIconsJs = path.resolve(__dirname, "../..", "shared/icons/icons.js");
 const pathSizesJs = path.resolve(
@@ -40,10 +38,8 @@ const pathColorsJs = path.resolve(
   "shared/variables/colors.js"
 );
 const cache = {};
-
 function createVueComponentsDocs() {
   const contentTemplateFile = fs.readFileSync(pathTemplateFile, "utf8");
-
   const sfComponents = [];
   for (const pathComponentVue of pathsVueComponents) {
     let componentInfoFull;
@@ -53,39 +49,34 @@ function createVueComponentsDocs() {
       console.warn(`WARN: Skipping component docs generation: ${e.message}`);
       continue;
     }
-
     let resultMd = replacePlaceholdersInTemplate(
       contentTemplateFile,
       componentInfoFull
     );
-
     if (componentInfoFull.internalComponentsInfo) {
       resultMd = addInternalComponentsToTargetMd(
         componentInfoFull.internalComponentsInfo,
         resultMd
       );
     }
-
     const targetFilepath = path.join(
       pathTargetMdsRoot,
-      componentInfoFull.componentName + ".md"
+      componentInfoFull.componentName.toLowerCase() + ".md"
     );
     const success = saveResultMd(targetFilepath, resultMd);
     if (success) {
       sfComponents.push({
         sfComponentName: componentInfoFull.sfComponentName,
         componentName: componentInfoFull.componentName,
-        pathComponentVue
+        pathComponentVue,
       });
     }
   }
-
   const successCount = sfComponents.length;
   if (successCount === 0) {
     console.error("ERROR: No component docs were generated. Quit.");
     process.exit(2);
   }
-
   if (successCount === pathsVueComponents.length) {
     console.log(`Successfully generated ${successCount} component docs.`);
   } else {
@@ -93,20 +84,16 @@ function createVueComponentsDocs() {
       `WARN: Generated component docs for ${successCount} but found ${pathsVueComponents.length} components.`
     );
   }
-
   try {
     editVuepressConfigFiles(sfComponents);
   } catch (e) {
     console.warn(`WARN: Cannot update VuePress config files: ${e.message}`);
     process.exit(3);
   }
-
   console.log("Successfully updated VuePress config files. Done.");
 }
-
 function getFullComponentInfo(pathComponentVue) {
   const componentInfoFromPath = getComponentInfoFromPath(pathComponentVue);
-
   const pathComponentMd = componentInfoFromPath.pathComponentMd;
   let componentInfoFromMd;
   try {
@@ -114,7 +101,6 @@ function getFullComponentInfo(pathComponentVue) {
   } catch (e) {
     throw new Error(`Cannot read "${pathComponentMd}": ${e.message}`);
   }
-
   const pathComponentStories = componentInfoFromPath.pathComponentStories;
   let componentInfoFromStories;
   try {
@@ -124,31 +110,26 @@ function getFullComponentInfo(pathComponentVue) {
   } catch (e) {
     throw new Error(`Cannot read "${pathComponentStories}": ${e.message}`);
   }
-
   const filenameComponentScss = componentInfoFromPath.pathComponentScss;
   let componentInfoFromScss;
   try {
-    componentInfoFromScss = getComponentInfoFromScss(filenameComponentScss);
+    componentInfoFromScss = getComponentInfoFromScss(componentInfoFromPath);
   } catch (e) {
     throw new Error(`Cannot read "${filenameComponentScss}": ${e.message}`);
   }
-
   const componentInfoFromVue = getComponentInfoFromVue(pathComponentVue);
-
   const internalComponentsInfo =
     getInternalComponentsInfo(componentInfoFromPath.pathInternalComponents) ||
     {};
-
   return {
     ...componentInfoFromPath,
     ...componentInfoFromMd,
     ...componentInfoFromStories,
     ...componentInfoFromScss,
     ...componentInfoFromVue,
-    ...internalComponentsInfo
+    ...internalComponentsInfo,
   };
 }
-
 function getComponentInfoFromPath(pathComponentVue) {
   const componentDirname = path.dirname(pathComponentVue);
   const componentFilename = path.basename(pathComponentVue);
@@ -156,7 +137,6 @@ function getComponentInfoFromPath(pathComponentVue) {
   const sfComponentName = "Sf" + componentName;
   const atomicType = componentDirname.replace(/\/.*/, "");
   const storybookLink = `${atomicType}-${componentName}--common`.toLowerCase();
-
   return {
     componentName,
     sfComponentName,
@@ -169,10 +149,10 @@ function getComponentInfoFromPath(pathComponentVue) {
       "$1.stories.js"
     ),
     pathInternalComponents: path.join(componentDirname, "_internal"),
-    storybookLink
+    componentType: atomicType,
+    storybookLink,
   };
 }
-
 function getComponentInfoFromMd(pathComponentMd) {
   const contentComponentFile = readComponentMd(pathComponentMd);
   if (!contentComponentFile) {
@@ -188,7 +168,6 @@ function getComponentInfoFromMd(pathComponentMd) {
     process.exit(1);
   }
 }
-
 function getComponentInfoFromStories(pathComponentStories) {
   // there is no usage section for internal components
   if (pathComponentStories.includes("_internal")) {
@@ -210,50 +189,45 @@ function getComponentInfoFromStories(pathComponentStories) {
     process.exit(1);
   }
 }
-
-function getComponentInfoFromScss(filename) {
-  const contentScssFile = readComponentScss(filename);
+function getComponentInfoFromScss(componentInfo) {
+  const contentScssFile = readComponentScss(componentInfo);
   if (!contentScssFile) {
     return null;
   }
   try {
     return parseScssFile(contentScssFile);
   } catch (e) {
-    console.error(`ERROR: Cannot parse "${filename}": ${e.message}`);
+    console.error(
+      `ERROR: Cannot parse "${componentInfo.pathComponentScss}": ${e.message}`
+    );
     process.exit(1);
   }
 }
-
 function getComponentInfoFromVue(pathVueFile) {
   const fullPathVueFile = pathInsideComponentsRoot(pathVueFile);
   const componentDoc = vueDocs.parse(fullPathVueFile);
-
   const props = extractPropsFromComponentDoc(componentDoc);
   const slots = extractSlotsFromComponentDoc(componentDoc);
   const events = extractEventsFromComponentDoc(componentDoc);
   return {
     props: generateComponentDetailsInfo(props),
     slots: generateComponentDetailsInfo(slots),
-    events: generateComponentDetailsInfo(events)
+    events: generateComponentDetailsInfo(events),
   };
 }
-
 function getInternalComponentsInfo(pathInternalComponent) {
   const fullPath = pathInsideComponentsRoot(pathInternalComponent);
   if (!fs.existsSync(fullPath)) {
     return null;
   }
-
   const internalComponentsVue = glob.sync("**/Sf*.vue", { cwd: fullPath });
-  const internalComponentsInfo = internalComponentsVue.map(component =>
+  const internalComponentsInfo = internalComponentsVue.map((component) =>
     getFullComponentInfo(path.join(pathInternalComponent, component))
   );
-
   return {
-    internalComponentsInfo
+    internalComponentsInfo,
   };
 }
-
 function readComponentMd(pathComponentMd) {
   const fullPathComponentMd = pathInsideComponentsRoot(pathComponentMd);
   if (!fs.existsSync(fullPathComponentMd)) {
@@ -261,7 +235,6 @@ function readComponentMd(pathComponentMd) {
   }
   return fs.readFileSync(fullPathComponentMd, "utf8");
 }
-
 function readComponentStories(pathComponentStories) {
   const fullPathComponentStories = pathInsideComponentsRoot(
     pathComponentStories
@@ -271,15 +244,13 @@ function readComponentStories(pathComponentStories) {
   }
   return fs.readFileSync(fullPathComponentStories, "utf8");
 }
-
-function readComponentScss(filename) {
-  const pathComponentScss = pathInsideComponentsScssRoot(filename);
+function readComponentScss(componentInfo) {
+  const pathComponentScss = pathInsideComponentsScssRoot(componentInfo);
   if (!fs.existsSync(pathComponentScss)) {
     return null;
   }
   return fs.readFileSync(pathComponentScss, "utf8");
 }
-
 function readVuepressConfig(filename) {
   const pathVuepressConfig = pathInsideVuepressConfigRoot(filename);
   if (!fs.existsSync(pathVuepressConfig)) {
@@ -287,13 +258,11 @@ function readVuepressConfig(filename) {
   }
   return fs.readFileSync(pathVuepressConfig, "utf8");
 }
-
 function parseComponentFile(contentComponentFile) {
   const headlines = ["# component-description", "# storybook-iframe-height"];
   const reString = headlines.join("\\n([\\s\\S]+?)\\s*?") + "\\n([\\s\\S]+)";
   const regExp = new RegExp(reString, "m");
   const reResult = regExp.exec(contentComponentFile);
-
   if (!reResult) {
     throw new Error(`RegExp didn't match: /${reString}/${regExp.flags}`);
   }
@@ -303,23 +272,20 @@ function parseComponentFile(contentComponentFile) {
         `(expected ${headlines.length}, found ${reResult.length - 1})`
     );
   }
-
   return {
     componentDescription: reResult[1],
-    storybookIFrameHeight: reResult[2].trim()
+    storybookIFrameHeight: reResult[2].trim(),
   };
 }
-
 function parseStoriesFile(contentStoriesFile) {
   // remove non-relevant parts before evaluating the story
   const nonrelevantParts = [
     /\.addDecorator\((.+)\)/gm,
-    /\.addParameters\((.+)\)/gm
+    /\.addParameters\((.+)\)/gm,
   ];
   for (const part of nonrelevantParts) {
     contentStoriesFile = contentStoriesFile.replace(part, "");
   }
-
   // prevent the engine from searching actual components by turning the
   // imports and components list into strings
   contentStoriesFile = contentStoriesFile.replace(
@@ -330,51 +296,45 @@ function parseStoriesFile(contentStoriesFile) {
     /components: {([\s\S]+?)},/gm,
     "components: `$1`,"
   );
-
   // Next, we create a JS closure where we define functions which the storybook
   // definition file expects, e.g. `number`, `text` and the complete `storiesOf`
   // function object with its `add` method.
   // Then, we `eval()` the whole .stories-file. It will call our overridden
   // functions so we can gather the information we need.
-
   function evalStoriesFile() {
     /* eslint-disable no-unused-vars */
     // some stories use our icons, sizes, etc. so make them available
     const { icons, sizes, colors } = getSfUiConstants();
-
-    const dataToggleMixin = dataKey => ({
+    const dataToggleMixin = (dataKey) => ({
       data() {
         return {
-          [dataKey]: true
+          [dataKey]: true,
         };
-      }
+      },
     });
     const visibilityToggleMixin = dataToggleMixin("visible");
-
     let storyComponents = "";
     let storyTemplate = "";
     let storyData = {};
-    const extractComponents = data => (storyComponents = data);
-    const extractTemplate = template => (storyTemplate = template);
-    const extractData = data => (storyData = data);
-    const extractMixinsData = data => (storyData = { ...storyData, ...data });
-
+    const extractComponents = (data) => (storyComponents = data);
+    const extractTemplate = (template) => (storyTemplate = template);
+    const extractData = (data) => (storyData = data);
+    const extractMixinsData = (data) => (storyData = { ...storyData, ...data });
     // ignore options: we only use it for CSS modifiers
     const options = () => null;
-
     // store all props
     const storyProps = new Map();
     const object = (name, value) => storyProps.set(name, value);
+    const array = (name, value) => storyProps.set(name, value);
     const number = (name, value) => storyProps.set(name, value);
     const text = (name, value) => storyProps.set(name, value);
     const boolean = (name, value) => storyProps.set(name, value);
     const color = (name, value) => storyProps.set(name, value);
     const select = (name, _, value) => storyProps.set(name, value);
-
     function storiesOf() {
       // we need a returnable function object so all chained `.add()` calls work
       const functionObject = {
-        add: function(storyName, storyFn) {
+        add: function (storyName, storyFn) {
           // use only "common" stories
           if (storyName.toLowerCase() !== "common") {
             return functionObject;
@@ -386,36 +346,31 @@ function parseStoriesFile(contentStoriesFile) {
           extractComponents(trimmedComponents);
           extractTemplate(storyFnObject.template);
           storyFnObject.data && extractData(storyFnObject.data());
-          (storyFnObject.mixins || []).forEach(mixin =>
+          (storyFnObject.mixins || []).forEach((mixin) =>
             extractMixinsData(mixin.data())
           );
           // allow chaining
           return functionObject;
-        }
+        },
       };
       return functionObject;
     }
     /* eslint-enable no-unused-vars */
-
     eval(contentStoriesFile);
     return { storyComponents, storyTemplate, storyData, storyProps };
   }
-
   let {
     storyComponents,
     storyTemplate,
     storyData,
-    storyProps
+    storyProps,
   } = evalStoriesFile();
-
   /* insert story data into code block */
-
   // generate imports for used components
   const storyImportsString = storyComponents
     .split(",")
-    .map(component => `import { ${component} } from "@storefront-ui/vue";`)
+    .map((component) => `import { ${component} } from "@storefront-ui/vue";`)
     .join("\n");
-
   // merge props and data from the story into a single data object
   const componentData = [];
   for (const [k, v] of Object.entries(storyData)) {
@@ -425,64 +380,160 @@ function parseStoriesFile(contentStoriesFile) {
     componentData.push(`${k}: ${JSON.stringify(v)}`);
   }
   const componentDataString = componentData.join(",\n");
-
   const codeBlock = getCommonUsageCodeBlock(
     storyTemplate,
     storyImportsString,
     storyComponents,
     componentDataString
   );
-
   const prettified = prettier.format(codeBlock, { parser: "vue" });
   const codeBlockMd = `\`\`\`html\n${prettified}\`\`\``;
-
   return {
-    storybookCode: codeBlockMd
+    storybookCode: codeBlockMd,
   };
 }
-
 function parseScssFile(contentScssFile) {
-  const scssVariables = extractScssVariables(contentScssFile);
+  const cssVariables = extractCssVariables(contentScssFile);
   const cssModifiers = extractCssModifiers(contentScssFile);
-
   return {
-    scssVariables,
-    cssModifiers
+    cssVariables,
+    cssModifiers,
   };
 }
-
-function extractScssVariables(contentScssFile) {
-  const lines = contentScssFile.split("\n");
-
-  // account for multiline variable definition (a variable is considered terminated when the line ends with a semicolon)
-  let lastLineNotTerminated = false;
-  let scssVariables = "";
-  for (const line of lines) {
-    if (lastLineNotTerminated || /^\$/.test(line)) {
-      scssVariables += line + "\n";
-      lastLineNotTerminated = !/(^$)|(;$)/.test(line);
-    }
-  }
-
-  if (!scssVariables) {
-    return "";
-  }
-
-  return "```scss\n" + scssVariables + "```";
+function extractCssVariables(contentScssFile) {
+  // const mediaVars = getMediaArray(contentScssFile);
+  const varsArray = getVarsArray(contentScssFile);
+  const headConfig = ["NAME", "DEFAULT"];
+  // Object.keys(mediaVars).length > 0
+  //   ? ["NAME", "DEFAULT", "DESKTOP VALUE", "DESCRIPTION"]
+  //   : ["NAME", "DEFAULT", "DESCRIPTION"];
+  let result = "";
+  varsArray[0].forEach((variable) => {
+    result += `- **\`${variable[0]}\`**\n`;
+  });
+  result += `### Overridden other components CSS variables \n`;
+  result += varsArray[1].length ? "" : `None. \n`;
+  varsArray[1].forEach((variable) => {
+    result += `- **\`${variable[0]}\`**\n`;
+  });
+  return result;
 }
-
-function extractCssModifiers(contentScssFile) {
-  // remove webpack-alias-style import; the SASS compiler resolves all imports by simple name, if includePath is set
+function getMediaArray(file) {
+  const start = file.indexOf(":root {");
+  const end = file.indexOf("}\n");
+  let vars = file.substring(start, end);
+  if (vars.indexOf("@media") === -1) {
+    return [];
+  }
+  const mediaArray = [];
+  let mediaVars = file.substring(file.indexOf("@media"));
+  mediaVars = mediaVars.substring(
+    mediaVars.indexOf("{") + 1,
+    mediaVars.indexOf("}\n")
+  );
+  mediaVars = mediaVars.split("\n");
+  mediaVars.forEach(function (item) {
+    let name = item.substring(item.indexOf("--"), item.indexOf(":"));
+    let value = item.substring(item.indexOf(": ") + 2, item.indexOf(";"));
+    if (name !== "" && value !== "") {
+      mediaArray[name] = value;
+    }
+  });
+  return mediaArray;
+}
+function getVarsArray(file) {
   const webpackGlidePath = "~" + nodePathSimplebarIncludes;
-  const contentWithFixedImports = contentScssFile.replace(webpackGlidePath, "");
+  let contentWithFixedImports = file.replace(webpackGlidePath, "");
+  contentWithFixedImports = contentWithFixedImports.replace(
+    "../../helpers",
+    "../helpers"
+  );
   const { css } = sass.renderSync({
     data: contentWithFixedImports,
     includePaths: pathsSassIncludes,
-    outputStyle: "expanded"
+    outputStyle: "expanded",
+  });
+  const text = css.toString();
+  const patterns = [/var\((\S+)(, (.+))?\)/g, / {2}(--.+):( (.+));/g];
+  const componentName = /.sf-(.+) ?{/g.exec(text)[1].trim();
+  let variables = [];
+  let keys = [];
+  let result;
+  patterns.forEach((pattern, index) => {
+    let array = [];
+    while ((result = pattern.exec(text)) !== null) {
+      if (index === 0 && !result[1].includes(componentName)) {
+        continue;
+      }
+      if (keys.includes(result[1])) continue;
+      let variable = [];
+      let font;
+      if ((font = /--\S+-font/g.exec(result[1]))) {
+        const regex = /var\((\S+)(, (\S+))?\)/g;
+        let fontVar;
+        array.push([font, ""]);
+        while ((fontVar = regex.exec(result[3])) !== null) {
+          keys.push(fontVar[1]);
+          array.push([fontVar[1], fontVar[3]]);
+        }
+        continue;
+      }
+      variable.push(result[1]);
+      keys.push(result[1]);
+      if (result[3]) {
+        variable.push(result[3]);
+      } else {
+        variable.push("");
+      }
+      array.push(variable);
+    }
+    variables.push(array);
   });
 
+  return variables;
+}
+function generateStorybookTable(config) {
+  const { tableHeadConfig, tableBodyConfig } = config;
+  const getTableBodyRow = (item) =>
+    item.reduce(
+      (acc, item, index) =>
+        (acc = index === 0 ? acc + `|${item}|` : acc + `${item}|`),
+      ""
+    );
+  const getSeparationTableHead = () =>
+    tableHeadConfig
+      .map((acc, index) => (index === 0 ? `|---|` : `---|`))
+      .join("");
+  const getTableHead = () =>
+    tableHeadConfig.reduce(
+      (acc, item, index) =>
+        index === 0 ? acc + `|${item}|` : acc + `${item}|`,
+      ""
+    );
+  const getTableBody = () =>
+    tableBodyConfig.reduce(
+      (acc, item) => (acc = acc + `${getTableBodyRow(item)}\n`),
+      ""
+    );
+  return `${getTableHead()}
+${getSeparationTableHead()}
+${getTableBody()}`;
+}
+function extractCssModifiers(contentScssFile) {
+  // remove webpack-alias-style import; the SASS compiler resolves all imports by simple name, if includePath is set
+  const webpackGlidePath = "~" + nodePathSimplebarIncludes;
+  let contentWithFixedImports = contentScssFile.replace(webpackGlidePath, "");
+  // variable folder url solution, problem by method "status = binding.renderSync(options)" from NODE-SASS
+  contentWithFixedImports = contentWithFixedImports.replace(
+    "../../helpers",
+    "../helpers"
+  );
+  const { css } = sass.renderSync({
+    data: contentWithFixedImports,
+    includePaths: pathsSassIncludes,
+    outputStyle: "expanded",
+  });
   const lines = css.toString().split("\n");
-
   // collect all unique modifiers and search for modifier descriptions in comments
   const uniqueModifiers = new Map();
   for (let i = 0; i < lines.length; ++i) {
@@ -493,10 +544,14 @@ function extractCssModifiers(contentScssFile) {
     // as multiple modifiers may be on one line, we have to make this (stateful) reg exp. search
     while ((partialReResult = regExp.exec(line)) !== null) {
       // skip CSS vars which the simple regexp catches accidentally
-      if (partialReResult[0].includes("var(")) {
+      if (
+        partialReResult[0].includes("var(") ||
+        !partialReResult[0].includes(".")
+      ) {
         continue;
       }
       if (!uniqueModifiers.has(partialReResult[0])) {
+        if (partialReResult[0].split(".").length > 2) continue;
         uniqueModifiers.set(partialReResult[0], null);
         lastModifierFound = partialReResult[0];
       }
@@ -524,7 +579,6 @@ function extractCssModifiers(contentScssFile) {
       do {
         comment += lines[++j] + "\n";
       } while (j < lines.length && !lines[j].includes("*/"));
-
       // replace line breaks inside description with a space
       // and remove spurious whitespace, the modifier annotation and the comment marks.
       // Expected syntax (though the Reg. Exp. is less strict):
@@ -539,16 +593,13 @@ function extractCssModifiers(contentScssFile) {
         .replace(/\n\s*(\*\s*)?/g, " ")
         .replace(/\s*\*?\/$/, "")
         .trim();
-
       uniqueModifiers.set(lastModifierFound, description);
       break;
     }
   }
-
   if (!uniqueModifiers.size) {
     return "";
   }
-
   let cssModifiers = "";
   for (const [modifier, description] of uniqueModifiers) {
     cssModifiers += `- **\`${modifier}\`**\n`;
@@ -556,10 +607,8 @@ function extractCssModifiers(contentScssFile) {
       cssModifiers += `  - _${escapeHtmlAngleBrackets(description)}_\n`;
     }
   }
-
   return cssModifiers.trim();
 }
-
 function extractPropsFromComponentDoc(componentDoc) {
   const propNames = Object.keys(componentDoc.props || {});
   if (!propNames.length) {
@@ -573,13 +622,12 @@ function extractPropsFromComponentDoc(componentDoc) {
       description: escapeHtmlAngleBrackets(prop.description),
       type: prop.type.name,
       defaultValue: prop.defaultValue && prop.defaultValue.value,
-      required: !!prop.required
+      required: !!prop.required,
     };
     props.push(propInfo);
   }
   return props;
 }
-
 function extractSlotsFromComponentDoc(componentDoc) {
   const slotNames = Object.keys(componentDoc.slots || {});
   if (!slotNames.length) {
@@ -591,13 +639,12 @@ function extractSlotsFromComponentDoc(componentDoc) {
     const slotInfo = {
       name: slotName,
       description: escapeHtmlAngleBrackets(slot.description),
-      bindings: Object.keys(slot.bindings)
+      bindings: Object.keys(slot.bindings),
     };
     slots.push(slotInfo);
   }
   return slots;
 }
-
 function extractEventsFromComponentDoc(componentDoc) {
   const eventNames = Object.keys(componentDoc.events || {});
   if (!eventNames.length) {
@@ -608,32 +655,28 @@ function extractEventsFromComponentDoc(componentDoc) {
     const event = componentDoc.events[eventName];
     const eventInfo = {
       name: eventName,
-      description: escapeHtmlAngleBrackets(event.description)
+      description: escapeHtmlAngleBrackets(event.description),
     };
     events.push(eventInfo);
   }
   return events;
 }
-
 function generateComponentDetailsInfo(rawDetails) {
   if (!rawDetails.length) {
     return "";
   }
-
   const commonObjKeys = ["name", "description"];
   let str = "";
   for (const detailsItem of rawDetails) {
     str += `- **\`${detailsItem.name}\`**\n`;
-
     if (detailsItem.description) {
       // replace line breaks inside description with a point
       const description = detailsItem.description.replace(/\.?\n/g, ". ");
       str += `  - _${description}_\n`;
     }
-
     // exclude the already displayed fields
     const extraObjKeys = Object.keys(detailsItem).filter(
-      objKey => !commonObjKeys.includes(objKey)
+      (objKey) => !commonObjKeys.includes(objKey)
     );
     for (const objKey of extraObjKeys) {
       const item = detailsItem[objKey];
@@ -655,7 +698,6 @@ function generateComponentDetailsInfo(rawDetails) {
   // remove spurious line breaks
   return str.trim();
 }
-
 function replacePlaceholdersInTemplate(contentTemplateFile, componentInfo) {
   const componentDescription =
     componentInfo.componentDescription || "<!-- No Component description -->";
@@ -663,7 +705,6 @@ function replacePlaceholdersInTemplate(contentTemplateFile, componentInfo) {
     componentInfo.storybookLink,
     componentInfo.storybookIFrameHeight
   );
-
   const replaceMap = new Map([
     ["[[component-name]]", componentInfo.componentName],
     ["[[component-description]]", componentDescription],
@@ -674,10 +715,11 @@ function replacePlaceholdersInTemplate(contentTemplateFile, componentInfo) {
     ["[[slots]]", componentInfo.slots || "None."],
     ["[[events]]", componentInfo.events || "None."],
     ["[[css-modifiers]]", componentInfo.cssModifiers || "None."],
-    ["[[scss-variables]]", componentInfo.scssVariables || "None."],
+    ["[[css-variables]]", componentInfo.cssVariables || "None."],
     ["[[path-component-html]]", componentInfo.pathComponentHtml],
     ["[[path-component-js]]", componentInfo.pathComponentJs],
-    ["[[storybook-link]]", componentInfo.storybookLink || ""]
+    ["[[storybook-link]]", componentInfo.storybookLink || ""],
+    ["[[component-type]]", componentInfo.componentType],
   ]);
   let renderedTemplate = contentTemplateFile;
   for (const [placeholder, value] of replaceMap.entries()) {
@@ -689,10 +731,8 @@ function replacePlaceholdersInTemplate(contentTemplateFile, componentInfo) {
   }
   return renderedTemplate;
 }
-
 function addInternalComponentsToTargetMd(internalComponentsInfo, renderedMd) {
   const internalComponentTemplate = getInternalComponentTemplate();
-
   const internalSections = [];
   for (const componentInfo of internalComponentsInfo) {
     const replaceMap = new Map([
@@ -701,7 +741,7 @@ function addInternalComponentsToTargetMd(internalComponentsInfo, renderedMd) {
       ["[[internal-slots]]", componentInfo.slots || "None."],
       ["[[internal-events]]", componentInfo.events || "None."],
       ["[[internal-css-modifiers]]", componentInfo.cssModifiers || "None."],
-      ["[[internal-scss-variables]]", componentInfo.scssVariables || "None."]
+      ["[[internal-css-variables]]", componentInfo.cssVariables || "None."],
     ]);
     let renderedTemplate = internalComponentTemplate;
     for (const [placeholder, value] of replaceMap.entries()) {
@@ -711,16 +751,13 @@ function addInternalComponentsToTargetMd(internalComponentsInfo, renderedMd) {
     }
     internalSections.push(renderedTemplate);
   }
-
   const renderedInternalSections =
     "## Internal components\n\n" + internalSections.join("\n\n");
-
   return renderedMd.replace(
     "<!-- No _internal components -->",
     renderedInternalSections
   );
 }
-
 function saveResultMd(targetFilepath, resultMd) {
   const pathWithoutFilename = path.dirname(targetFilepath);
   if (!fs.existsSync(pathWithoutFilename)) {
@@ -729,15 +766,12 @@ function saveResultMd(targetFilepath, resultMd) {
   fs.writeFileSync(targetFilepath, resultMd);
   return true;
 }
-
 function editVuepressConfigFiles(sfComponents) {
   const contentConfigJs = readVuepressConfig("config.js");
   const contentEnhanceApp = readVuepressConfig("enhanceApp.js");
-
   if (!contentConfigJs || !contentEnhanceApp) {
     throw new Error("Error reading VuePress config files");
   }
-
   /* config.js */
   // divide content into:
   // - (1) everything before the line with the start tag,
@@ -746,30 +780,47 @@ function editVuepressConfigFiles(sfComponents) {
   // - (4) everything after the end tag
   let regExp = /([\s\S]+)\n(\s*)(\/\/\s*@components-docs-start.*[\s\S]*@components-docs-end)\n([\s\S]+)/g;
   let reResult = regExp.exec(contentConfigJs);
-
   if (!reResult || reResult.length !== 5) {
     throw new Error("Error parsing VuePress config.js: Reg. Exp. mismatch");
   }
-
   // skip the components part (index 3) because we replace it entirely anyway
   let [, before, indent, , after] = reResult;
-
-  sfComponents.sort((a, b) => (a.sfComponentName > b.sfComponentName ? 1 : -1));
-  let components = [];
-  for (const { componentName } of sfComponents) {
-    const path = "/components/" + componentName;
+  function ComponentsGroup(title, children) {
+    (this.title = title), (this.children = children);
+  }
+  let atoms = new ComponentsGroup("Atoms", []);
+  let molecules = new ComponentsGroup("Molecules", []);
+  let organisms = new ComponentsGroup("Organisms", []);
+  let components = [atoms, molecules, organisms];
+  function componentsToString() {
+    return `{ \n${indent} title: "${this.title}",\n${indent} collapsable: false,\n${indent} children:  [${this.children}]\n }`;
+  }
+  ComponentsGroup.prototype.toString = componentsToString;
+  for (const { componentName, pathComponentVue } of sfComponents) {
+    const path = "/components/" + componentName.toLowerCase();
     // put spaces between words for title
     const title = componentName.replace(/([A-Z])/g, " $1").trim();
-
-    components.push(`["${path}", "${title}"]`);
+    switch (pathComponentVue.split("/")[0]) {
+      case "atoms":
+        atoms.children.push(`\n${indent}["${path}", "${title}"]`);
+        break;
+      case "molecules":
+        molecules.children.push(`\n${indent}["${path}", "${title}"]`);
+        break;
+      case "organisms":
+        organisms.children.push(`\n${indent}["${path}", "${title}"]`);
+        break;
+      default:
+        components.push(`["${path}", "${title}"]`);
+    }
   }
-  let startTag = `\n${indent}// @components-docs-start (keep comment and indentation for auto-generated component docs)\n`;
-  let endTag = `\n${indent}// @components-docs-end\n`;
-  let formattedComponents = indent + components.join(`,\n${indent}`);
-  let newContent = before + startTag + formattedComponents + endTag + after;
+  let startTag = `\n// @components-docs-start (keep comment and indentation for auto-generated component docs)\n`;
+  let endTag = `// @components-docs-end\n`;
+  let formattedComponents =
+    indent + startTag + components.join(`,\n${indent}`) + endTag;
+  let newContent = before + formattedComponents + after;
   let pathVuepressConfig = pathInsideVuepressConfigRoot("config.js");
   fs.writeFileSync(pathVuepressConfig, newContent);
-
   /* enhanceApp.js */
   // divide content into:
   // - (1) everything before the line with the start tag (for other imports),
@@ -780,15 +831,12 @@ function editVuepressConfigFiles(sfComponents) {
   // - (6) everything after the end tag
   regExp = /([\s\S]*?)\n?(\/\/\s*@components-docs-start.*[\s\S]*?@components-docs-end)\n([\s\S]+?)\n(\s*)(\/\/\s*@components-docs-start.*[\s\S]*@components-docs-end)\n([\s\S]+)/g;
   reResult = regExp.exec(contentEnhanceApp);
-
   if (!reResult || reResult.length !== 7) {
     throw new Error("Error parsing VuePress enhanceApp.js: Reg. Exp. mismatch");
   }
-
   let beforeImports, middle;
   // skip the component imports part (index 2) and components part (index 5) because we replace them entirely anyway
   [, beforeImports, , middle, indent, , after] = reResult;
-
   const importStatements = [];
   components = [];
   for (const { sfComponentName, pathComponentVue } of sfComponents) {
@@ -815,23 +863,22 @@ function editVuepressConfigFiles(sfComponents) {
   pathVuepressConfig = pathInsideVuepressConfigRoot("enhanceApp.js");
   fs.writeFileSync(pathVuepressConfig, newContent);
 }
-
 function pathInsideComponentsRoot(subPath) {
   return path.join(pathVueComponentsRoot, subPath);
 }
-
-function pathInsideComponentsScssRoot(subPath) {
-  return path.join(pathComponentsScssRoot, subPath);
+function pathInsideComponentsScssRoot(componentInfo) {
+  const namePathInsideComponents = path.join(
+    componentInfo.componentType,
+    componentInfo.pathComponentScss
+  );
+  return path.join(pathComponentsScssRoot, namePathInsideComponents);
 }
-
 function pathInsideVuepressConfigRoot(subPath) {
   return path.join(pathVuepressConfigRoot, subPath);
 }
-
 function escapeHtmlAngleBrackets(rawString) {
   return rawString.replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
-
 function getSfUiConstants() {
   if (!cache._initialized) {
     cache.icons = fs.readFileSync(pathIconsJs, "utf8");
@@ -841,21 +888,17 @@ function getSfUiConstants() {
   }
   return { ...cache };
 }
-
 function getCommonUsageCodeBlock(template, imports, components, data) {
   let codeBlock = `
 <template>
   ${template}
 </template>
-
 <script>
 ${imports}
-
 export default {
   components: {
     ${components}
   }`;
-
   if (data) {
     codeBlock += `,
   data() {
@@ -867,56 +910,43 @@ export default {
   codeBlock += `
 };
 </script>`;
-
   return codeBlock;
 }
-
 function getFallbackCommonUsage() {
   return `:::warning NOT YET DOCUMENTED 
 This section is not fully documented yet. We are doing our best to make our documentation a good and complete source of knowledge about Storefront UI. If you would like to help us, please don't hesitate to contribute to our docs. You can read more about it [here](https://docs.storefrontui.io/contributing/become-a-contributor.html#work-on-documentation).
 :::`;
 }
-
 function getStorybookIFrameMarkup(storybookLink, storybookIFrameHeight) {
   let style = "width: 100%; border: 0; border-bottom: 1px solid #eee;";
   if (storybookIFrameHeight) {
     style += `height: ${storybookIFrameHeight}`;
   }
-  return `<iframe src="https://deploy-preview-480--storefrontui-storybook.netlify.com/iframe.html?id=${storybookLink}" style="${style}"></iframe>`;
+  return `<div class="vuepress-mobile">
+    <label for="vuepress-mobile" class="vuepress-mobile-label">Mobile view</label><input id="vuepress-mobile" type="checkbox" class="vuepress-mobile-checkbox">
+    <iframe class="storybook-iframe" src="https://storybook.storefrontui.io/iframe.html?id=${storybookLink}" style="${style}"></iframe>
+  </div>`;
 }
-
 function getInternalComponentTemplate() {
   return `### [[internal-component-name]]
-
 #### Props
-
 [[internal-props]]
 
-
 #### Slots
-
 [[internal-slots]]
 
-
 #### Events
-
 [[internal-events]]
 
-
 #### CSS modifiers
-
 [[internal-css-modifiers]]
 
-
-#### SCSS variables
-
-[[internal-scss-variables]]`;
+#### CSS variables
+[[internal-css-variables]]`;
 }
-
 module.exports = {
-  createVueComponentsDocs
+  createVueComponentsDocs,
 };
-
 if (require.main === module) {
   createVueComponentsDocs();
 }

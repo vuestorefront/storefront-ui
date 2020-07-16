@@ -1,97 +1,85 @@
-@import '../../variables';
-:root {
-  --banner-min-height: 9rem;
-  --banner-padding-x: 1.25rem;
-  --banner-padding-y: 1.25rem;
-  --banner-color: var(--c-text);
-  --banner-font-family: var(--body-font-family-secondary);
-  --banner-font-weight: var(--body-font-weight-primary);
-  --banner-line-height: 1.6;
-  --banner-font-size: var(--font-size-extra-big);
-  --banner__subtitle-color: var(--c-dark-variant);
-  --banner__subtitle-font-family: var(--body-font-family-primary);
-  --banner__subtitle-font-size: var(--font-size-regular);
-  --banner__subtitle-font-weight: var(--body-font-weight-primary);
-  --banner__subtitle-line-height: 1.16;
-  --banner__title-font-size: var(--font-size-extra-big);
-  --banner__title-font-weight: var(--body-font-weight-primary);
-  --banner__description-line-height: 1.6;
-  --banner__description-margin: 1.875rem 0 0 0;
-  --banner--slim-padding: 5rem 2.5rem;
-  --banner--slim__title-font-size: 2.25rem;
-  @media screen and (min-width: $desktop-min) {
-    --banner-min-height: 20rem;
-    --banner-padding-y: 4rem;
-    --banner-padding-x: 5rem;
-    --banner-font-size: var(--font-size-big);
-    --banner__subtitle-font-size: var(--font-size-extra-big);
-    --banner__title-font-size: 3rem;
-  }
-}
+@import "../../helpers";
 .sf-banner {
-  $this: &;
   box-sizing: border-box;
-  display: flex;
-  min-height: var(--banner-min-height);
-  padding: var(--banner-padding-y) var(--banner-padding-x);
-  color: var(--banner-color);
-  background-repeat: no-repeat;
-  background-position: bottom left;
-  background-size: cover;
-  background-color: var(--background-color);
-  background-image: var(--background-image);
-  font-family: var(--banner-font-family);
-  font-size: var(--banner-font-size);
-  font-weight: var(--banner-font-weight);
-  line-height: var(--banner-line-height);
+  display: var(--banner-display, flex);
+  align-items: var(--banner-align-items, flex-start);
+  justify-content: var(--banner-justify-content, flex-start);
+  min-height: var(--banner-height, 14rem);
+  width: var(--banner-width, 100%);
+  padding: var(--banner-padding, var(--spacer-xl));
+  @include background(
+    --banner-background,
+    var(--_banner-background-color, transparent),
+    var(--_banner-background-image)
+  );
   &__container {
-    flex-basis: 100%;
+    display: flex;
+    flex: 0 0 var(--banner-container-width, 50%);
+    justify-content: var(--banner-container-justify-content, flex-start);
+    align-items: var(--banner-container-align-items, flex-start);
+    flex-direction: var(--banner-container-flex-direction, column);
   }
   &__subtitle {
-    color: var(--banner__subtitle-color);
-    font-family: var(--banner__subtitle-font-family);
-    font-size: var(--banner__subtitle-font-size);
-    font-weight: var(--banner__subtitle-font-weight);
-    line-height: var(--banner__subtitle-line-height);
+    margin: var(--banner-subtitle-margin, 0);
+    color: var(
+      --banner-color,
+      var(--banner-subtitle-color, var(--c-dark-variant))
+    );
+    @include font(
+      --banner-subtitle-font,
+      var(--font-normal),
+      var(--font-2xs),
+      1.4,
+      var(--font-family-secondary)
+    );
+    text-transform: var(--banner-subtitle-text-transform, uppercase);
   }
   &__title {
-    font-size: var(--banner__title-font-size);
-    font-weight: var(--banner__title-font-weight);
+    margin: var(--banner-title-margin, 0.6875rem 0 0 0);
+    color: var(--banner-color, var(--banner-title-color, var(--c-text)));
+    @include font(
+      --banner-title-font,
+      var(--font-normal),
+      var(--h2-font-size),
+      1.4,
+      var(--font-family-secondary)
+    );
+    text-transform: var(--banner-title-text-transform, uppercase);
   }
   &__description {
-    display: none;
+    display: var(--banner-display-description, none);
+    margin: var(
+      --banner-description-margin,
+      var(--spacer-sm) 0 var(--spacer-base) 0
+    );
+    color: var(--banner-color, var(--banner-description-color, var(--c-text)));
+    @include font(
+      --banner-description-font,
+      var(--font-light),
+      var(--font-base),
+      1.6,
+      var(--font-family-primary)
+    );
   }
   &__call-to-action {
-    display: none;
+    display: var(--banner-display-call-to-action, none);
   }
-  &--slim {
-    padding: var(--banner-padding-y) var(--banner-padding-x);
+  @include for-desktop {
+    align-items: var(--banner-align-items, center);
+    --banner-background-image: var(
+      --_banner-background-desktop-image,
+      var(--_banner-background-image)
+    );
+    --banner-display-description: block;
+    --banner-display-call-to-action: block;
+    --banner-title-margin: var(--spacer-base) 0 0 0;
+    --banner-subtitle-color: var(--c-gray);
+    --banner-title-font-size: var(--h1-font-size);
+    min-height: var(--banner-height, 19rem);
   }
-}
-@media screen and (min-width: $desktop-min) {
-  .sf-banner {
-    $this: &;
-    background-image: var(--background-desktop-image);
-    padding: var(--banner-padding-y) var(--banner-padding-x) var(--banner-padding-y) calc(50% + var(--banner-padding-x));
-    &__description {
-      display: block;
-      margin: var(--banner__description-margin);
-    }
-    &__call-to-action {
-      display: block;
-      margin-top: var(--spacer-big);
-    }
-    &--left {
-      padding: var(--banner-padding-y) calc(50% + var(--banner-padding-x)) var(--banner-padding-y) var(--banner-padding-x);
-    }
-    &--slim {
-      padding: var(--banner--slim-padding);
-      #{$this}__container {
-        flex-basis: 100%;
-      }
-      #{$this}__title {
-        font-size: var(--banner--slim__title-font-size);
-      }
+  &--right {
+    @include for-desktop {
+      --banner-justify-content: flex-end;
     }
   }
 }

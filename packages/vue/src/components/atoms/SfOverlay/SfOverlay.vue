@@ -18,15 +18,15 @@ export default {
      */
     transition: {
       type: String,
-      default: "fade"
+      default: "sf-fade",
     },
     /**
      * Visibility state
      */
     visible: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   computed: {
     staticClass() {
@@ -34,8 +34,8 @@ export default {
     },
     className() {
       return this.$vnode.data.class;
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

@@ -1,116 +1,64 @@
-@import '../../variables';
-:root {
-  --gallery-flex-direction: row;
-  --gallery__nav-width: 100px;
-  --gallery__nav-margin: 0 var(--spacer-extra-big) 0 0;
-  --gallery__item-margin-bottom: var(--spacer-medium);
-  --gallery__item-opacity: .5;
-  --gallery__item-transition: opacity .15s linear;
-  --gallery__item-mobile-size: 10px;
-  --gallery__item-mobile-background: var(--c-gray-variant);
-  --gallery__item-mobile--selected-background: var(--c-primary);
-  --gallery__stage-width: 400px;
-  --gallery__stage-cursor: zoom-in;
-}
+@import "../../helpers";
 .sf-gallery {
-  width: 100%;
-  text-align: center;
   display: flex;
-  flex-direction: var(--gallery-flex-direction);
-  position: relative;
-  justify-content: center;
-  margin-bottom: var(--gallery__item-mobile-size);
+  flex-direction: var(--gallery-flex-direction, column);
   &__thumbs {
-    position: absolute;
-    width: auto;
-    margin: 0;
-    padding: 0;
-    display: inline-flex;
-    bottom: var(--gallery__item-mobile-size);
+    display: var(--gallery-thumbs-display, flex);
+    flex: var(--gallery-thumbs-flex);
+    flex-direction: var(--gallery-thumbs-flex-direction);
+    margin: var(--gallery-thumbs-margin, var(--spacer-xs) 0 0 0);
+    order: var(--gallery-thumbs-order);
+    overflow: auto;
+    &::-webkit-scrollbar {
+      width: 0;
+    }
   }
   &__item {
-    cursor: pointer;
-    opacity: var(--gallery__item-opacity);
-    transition: var(--gallery__item-transition);
-    margin-right: var(--gallery__item-margin-bottom);
-    &:last-of-type {
-      margin-right: 0;
+    display: flex;
+    flex: 0 0 var(--gallery-thumb-width, 10rem);
+    margin: var(--gallery-item-margin, 0 var(--spacer-xs) 0 0);
+    &:last-child {
+      --gallery-item-margin: 0;
     }
-    &::before {
-      content: "";
-      display: block;
-      height: var(--gallery__item-mobile-size);
-      width: var(--gallery__item-mobile-size);
-      background: var(--gallery__item-mobile-background);
-      border-radius: 50%;
-    }
+    opacity: var(--gallery-item-opacity, 0.5);
+    transition: var(--gallery-item-transition, opacity 150ms ease-in-out);
+    cursor: var(--gallery-item-cursor, pointer);
     &--selected {
-      cursor: auto;
-      opacity: 1;
-      &::before {
-        background: var(--gallery__item-mobile--selected-background);
-      }
+      --gallery-item-opacity: 1;
+      --gallery-item-cursor: default;
     }
-  }
-  &__stage {
-    width: var(--gallery__stage-width);
-    max-width: 100%;
-    overflow: hidden;
-    user-select: none;
   }
   &__thumb {
-    display: none;
+    width: var(--gallery-thumb-width, calc(var(--_image-width, 10rem) * 1px));
+    height: var(
+      --gallery-thumb-height,
+      calc(var(--_image-height, 10rem) * 1px)
+    );
   }
-  &__big-image {
-    max-width: 100%;
-    width: auto;
-    height: auto;
-    &--has-zoom {
-      cursor: var(--gallery__stage-cursor);
-    }
-  }
-  img {
-    user-select: none;
+  &__stage {
+    flex: 1;
+    max-width: var(--gallery-stage-width, 26.375rem);
   }
   .glide {
+    &__slide {
+      flex: 1;
+      display: flex;
+    }
     &__slides {
       margin: 0;
     }
   }
-}
-.sf-gallery__zoom {
-  z-index: 1;
-  position: absolute;
-  img {
-    transform: translate3d(0, -50%, 0) scale(2) !important;
-  }
-}
-@media screen and (min-width: $desktop-min) {
-  .sf-gallery {
-    margin-bottom: 0;
-    &__thumbs {
-      position: static;
-      display: block;
-      order: -1;
-      width: var(--gallery__nav-width);
-      margin: var(--gallery__nav-margin);
-      left: auto;
-      bottom: auto;
-      overflow-y: auto;
-    }
+  @include for-desktop {
+    --gallery-flex-direction: row;
+    --gallery-thumbs-flex: 0 0 var(--gallery-thumb-width, 10rem);
+    --gallery-thumbs-flex-direction: column;
+    --gallery-thumbs-order: -1;
+    --gallery-thumbs-margin: 0 var(--spacer-xs) 0 0;
+    --gallery-item-margin: 0 0 var(--spacer-xs) 0;
     &__item {
-      margin: 0 0 var(--gallery__item-margin-bottom);
-      &:last-of-type {
-        margin-bottom: 0;
+      &:last-child {
+        --gallery-item-margin: 0;
       }
-      &::before {
-        display: none;
-      }
-    }
-    &__thumb {
-      display: block;
-      width: 100%;
-      height: auto;
     }
   }
 }

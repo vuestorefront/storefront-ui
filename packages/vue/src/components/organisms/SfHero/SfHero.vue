@@ -13,7 +13,7 @@
       <slot name="prev" v-bind="{ go: () => go('prev') }">
         <div @click="go('prev')">
           <SfArrow
-            class="sf-arrow sf-arrow--transparent"
+            class="sf-arrow sf-arrow--transparent sf-hero__controls__arrow"
             aria-label="previous"
           />
         </div>
@@ -22,7 +22,7 @@
       <slot name="next" v-bind="{ go: () => go('next') }">
         <div @click="go('next')">
           <SfArrow
-            class="sf-arrow sf-arrow--right sf-arrow--transparent"
+            class="sf-arrow sf-arrow--right sf-arrow--transparent sf-hero__controls__arrow"
             aria-label="next"
           />
         </div>
@@ -51,7 +51,7 @@ export default {
   name: "SfHero",
   components: {
     SfArrow,
-    SfBullets
+    SfBullets,
   },
   props: {
     /**
@@ -59,8 +59,8 @@ export default {
      */
     sliderOptions: {
       type: Object,
-      default: () => ({})
-    }
+      default: () => ({}),
+    },
   },
   data() {
     return {
@@ -70,20 +70,20 @@ export default {
         rewind: true,
         autoplay: 5000,
         perView: 1,
-        gap: 0
-      }
+        gap: 0,
+      },
     };
   },
   computed: {
     mergedOptions() {
       return {
         ...this.defaultOptions,
-        ...this.sliderOptions
+        ...this.sliderOptions,
       };
     },
     numberOfPages() {
       return this.$slots.default
-        ? this.$slots.default.filter(slot => slot.tag).length
+        ? this.$slots.default.filter((slot) => slot.tag).length
         : 0;
     },
     page() {
@@ -91,7 +91,7 @@ export default {
         return this.glide.index + 1;
       }
       return 1;
-    }
+    },
   },
   mounted() {
     if (this.numberOfPages) {
@@ -117,8 +117,8 @@ export default {
           this.glide.go(`=${direct}`);
           break;
       }
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

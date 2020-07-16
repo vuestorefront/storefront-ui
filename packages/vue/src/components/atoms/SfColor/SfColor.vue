@@ -1,35 +1,54 @@
 <template>
-  <button
-    class="sf-color"
+  <SfButton
+    class="sf-button--pure sf-color"
     :class="{ 'sf-color--active': selected }"
     :style="style"
     :aria-pressed="selected.toString()"
     v-on="$listeners"
   >
-    <!-- @slot Custom color markup -->
-    <slot>
-      <div v-if="color" class="sf-color__fill" />
-    </slot>
-  </button>
+    <transition name="sf-bounce">
+      <!-- @slot Use it to replace badge to custom element -->
+      <slot name="badge" v-bind="{ selected, hasBadge }">
+        <SfBadge
+          v-if="selected && hasBadge"
+          class="sf-color__badge mobile-only"
+        >
+          <SfIcon aria-hidden="true" icon="check" size="8px" color="white" />
+        </SfBadge>
+      </slot>
+    </transition>
+  </SfButton>
 </template>
 <script>
+import SfBadge from "../../atoms/SfBadge/SfBadge.vue";
+import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+import SfButton from "../SfButton/SfButton.vue";
 export default {
   name: "SfColor",
+  components: {
+    SfBadge,
+    SfIcon,
+    SfButton,
+  },
   props: {
     color: {
       type: String,
-      default: ""
+      default: "",
     },
     selected: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
+    hasBadge: {
+      type: Boolean,
+      default: true,
+    },
   },
   computed: {
     style() {
-      return { "--color": this.color };
-    }
-  }
+      return { "--color-background": this.color };
+    },
+  },
 };
 </script>
 <style lang="scss">

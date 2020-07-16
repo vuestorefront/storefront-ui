@@ -1,35 +1,186 @@
 # How to customize Storefront UI components
 
-One of the key goals of Storefront Ui is to provide you with a ready to use design system with which you can recreate almost every design. 
+One of the key goals of Storefront UI is to provide you with a ready to use design system that will allow you to recreate almost every design.
 
 Below you can read how you can customize different aspects of its styles and components.
 
 [[toc]]
-## Global styles
-Usually when you're designing a new app you're starting with a style guide. A style guide is a set of common design standards and principles used in a whole projet. It usually covers things such as typography or colors. 
 
-We can represent style guide as a set of global SCSS variables. By using them we are abstracting visual configuration from html and CSS structure tod eclarative variables. Thank to this approach we can ship updates to Storefront UI without breaking your projects.
+## Intro to CSS Custom Properties
+CSS Custom Properties (or so called CSS variables) are extremely powerful and have a great impact on how we write and structure our styles. We decided to migrate from SCSS to CSS variables for many reasons:
+- **Easy-theming**
+You can easily overwrite any variable as they are dynamic (unlike variables defined using preprocessors). All elements that use the variable will automatically reflect the change.
+```css
+.sf-button {
+  background: var(--button-background, var(--c-primary));
 
-You can override them to shape the look and feel of your project. There are two groups of available SCSS variables in Storefront UI:
-- **Global** variables are representing project style guide. They are setting up global properties like like colors or typography.  For example below code in `sfui.scss` will change accent color in your whole project to `blue`.
-```scss
-$c-accent-primary: blue;
+  &:hover {
+    --button-background: var(--c-primary-variant);
+  }
+}
 ```
-- **Component-specific** variables are meant to customize behavior of certain component type (like `SfButton`). You can find them in documents about certain components. For example below code in `sfui.scss` will change default (not modified by other CSS rules) background color of every `SfButton` component in your project to `red`.
-```scss
-$button-background-color: red;
+- **Locally scoped properties**
+Thanks to them we can setup a local property for any component inside parent selector without the need to add additional selectors. For example:
+```css
+.sf-arrow {
+    --button-height: 2.75rem;
+    --button-background: var(--c-light);
+    --icon-width: 1.5rem;
+}
 ```
-You can override any of those variables in `sfui.scss` file in a root of your project.
+- **Clean, good looking code**
+CSS variables allow us to keep apply all the required styles without need to use `::v-deep` or nest many properties and classes inside of parent selector.
+This is how SCSS file for the same component looked before:
+```css
+.product-carousel {
+  margin: -20px - var(--spacer-big) -20px 0;
+  @include for-desktop {
+    margin: -20px 0;
+  }
+  ::v-deep .sf-carousel__wrapper {
+    padding: 20px 0;
+    @include for-desktop {
+      padding: 20px;
+      max-width: calc(100% - 216px);
+    }
+  }
+}
+```
+And how it looks now, thanks to the power of CSS Custom Properties:
+```css
+.product-carousel {
+    margin: 0 calc(var(--spacer-big) * -1) 0 0;
+    @include for-desktop {
+      margin: var(--spacer-big) 0;
+      --carousel-padding: var(--spacer-big);
+      --carousel-max-width: calc(100% - 13.5rem);
+    }
+  }
+```
+To learn more about CSS variables and the default approach we use check out [MDN web docs](https://developer.mozilla.org/docs/Web/CSS/Using_CSS_custom_properties)
 
-:::tip 
-You can use `sfui.scss` to create and share completely new design system for Storefront UI
+## Customizing styles
+In most scenarios, when you're designing a new app you're starting with a style guide. A style guide is a set of common design standards and principles used in a whole project. It usually covers things such as typography or colors.
+
+We can represent style guide as a set of global CSS variables. By using them we are abstracting visual configuration from html and CSS structure to declarative variables. Thank to this approach we can ship updates to Storefront UI without breaking your projects.
+
+You can override them to shape the look and feel of your project. There are two groups of available CSS variables in Storefront UI:
+- **Global** variables are representing project style guide. They are setting up global properties like like colors or typography. For example, the following code will change primary font in your whole project to `Raleway`.
+```scss
+/*
+ * use id of DOM root element
+ * vue-cli -> #app
+ * nuxt-app -> __nuxt
+ */
+#app {
+    --font-family-primary: 'Raleway', serif;
+}
+```
+- **Component-specific** variables are meant to customize behavior of certain component type (like `SfButton`) and cover edge cases of any project.
+For example, the following code will change default (not modified by other CSS rules) background color of every `SfButton` component in your project to `red`.
+```css
+.sf-button {
+    --button-background: red;
+}
+```
+
+And this code will change `width` of icon inside `SfArrow` to `2rem`.
+```css
+.sf-arrow {
+  --icon-width: 2rem;
+}
+```
+
+## Global variables
+**You can override any global variable as well as  component-specific variables.**
+
+Below you can find more information about global variables for **typography, layout variables (spacers) and colors.**
+To find the components variables to override, go to [Components documentation](https://docs.storefrontui.io/components/accordion.html).
+
+### Typography
+<<< @/../shared/styles/variables/_typography.scss
+
+### Spacers
+<<< @/../shared/styles/variables/_layout.scss
+
+### Colors
+
+There are two kinds of color variables, **Internal colors** and **Theme Variables**.
+
+**Internal colors** should NOT be used directly for theming or component styles. They are only used to generate theme color variables.
+
+There are some kinds of **Theme Variables**:
+
+* **Body and text defaults**: They are used to define body, text and links colors.
+* **Brand Colors**:
+    * **Primary**:  Should be used to drive attention to the main tasks that should be done while using the app. It is meant to be used in major interactive elements of the page.
+    * **Secondary**: Should be used to drive attention in the elements with relevant info, but where the user is not intended to take action.
+* **Base colors**: Light, Gray and Dark.
+* **Context colors**: Info, Success, Warning and Danger.
+
+#### Internal color variables generation
+
+Internal color variables are defined using a SASS mixin that generates all the internal color variants.
+
+This code:
+
+```scss
+@include generate-color-variants(--_c-green-primary, #5ece7b);
+```
+
+will generate the following variables:
+
+```css
+--_c-green-primary: #5fce7d;
+--_c-green-primary-base: 95, 206, 125;
+--_c-green-primary-lighten: #73d48d;
+--_c-green-primary-darken: #4bc86d;
+```
+
+This variables will be used to define the Theme color variables.
+
+#### Theme color variables definition
+
+Once we have generated all the internal color variants, we can assign them to the Theme color variables. For example:
+
+```scss
+@include assign-color-variants(--c-primary, --_c-green-primary);
+```
+
+This code will generate the following variables:
+
+```css
+--c-primary: var(--_c-green-primary);
+--c-primary-base: var(--_c-green-primary-base);
+--c-primary-lighten: var(--_c-green-primary-lighten);
+--c-primary-darken: var(--_c-green-primary-darken);
+```
+
+#### How to override color variables?
+
+:::tip For example:
+```scss
+// Internal color variables
+@include generate-color-variants(--_c-blue-primary, #0284fe);
+/* Brand colors */
+// Primary
+@include assign-color-variants(--c-primary, --_c-blue-primary);
+```
 :::
+
+
+#### Below, you can find all global color variables that you can use and override.
+
+
+<<< @/../shared/styles/variables/_colors.scss
+
 
 ## Per-instance component customization
 
-Even though global and component-specific variables are providing decent level of customization
+Even though global and component-specific variables are providing decent level of customization, there might be edge cases that a user would like to cover as well.
+You can achieve that with vue slots.
 
-Almost every Storefront UI component is divided into sections (following BEM convention). Each of them is wrapped into a Vue slot to let you replace parts of it's HTML. 
+Almost every Storefront UI component is divided into sections (following BEM convention). Each of them is wrapped into a Vue slot to let you replace parts of it's HTML.
 
 Take a look at below example. This is how `SfPagination` component look like out of the box:
 
@@ -37,16 +188,16 @@ Take a look at below example. This is how `SfPagination` component look like out
 
 ````html
 
-<SfPagination 
-  :current="currentPage" 
-  :total="20" 
-  :visible="5"  
+<SfPagination
+  :current="currentPage"
+  :total="20"
+  :visible="5"
   @click="page => currentPage = page"
 />
 
 ````
 
-Let's say we want to display `prev` and `next` buttons instead of default arrow icons. 
+Let's say we want to display `prev` and `next` buttons instead of default arrow icons.
 
 In component documentation we can read that it has `next` and `prev` slots. We can use them to add our custom behavior. For every slot you have access to methods and data properties related to it's functionality via slot scope. In our case it would be `go` function that will move forward/backward and `isDisabled` property that tells us if there is a next or previous page.
 We can use the latest to disable buttons when they're not usable.

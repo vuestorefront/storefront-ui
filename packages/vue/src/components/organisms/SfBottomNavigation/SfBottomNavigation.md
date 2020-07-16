@@ -2,4 +2,4 @@
 Full-width fixed bottom navigation component with items and circle icon.
 
 # storybook-iframe-height
-15rem
+8rem

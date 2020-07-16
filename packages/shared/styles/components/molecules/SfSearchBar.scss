@@ -1,18 +1,5 @@
-@import '../../variables';
-:root {
-  --search-bar-background-primary: var(--c-light);
-  --search-bar-background-secondary: var(--c-light-variant);
-  --search-bar-placeholder-color: var(--c-dark);
-  --search-bar-placeholder-color-focus: var(--c-gray);
-  --search-bar-width: 100%;
-  --search-bar-height: 2.25rem;
-  --search-bar-border-radius: 1.6875rem;
-  --search-bar-text-align: center;
-  --search-bar-font-size: .875rem;
-  @media screen and (min-width: $desktop-min) {
-    --search-bar-width: 20rem;
-  }
-}
+@import "../../helpers";
+// todo: after replace <input> to <SfInput> we can remove @mixin placeholder and @mixin iconPosition
 @mixin placeholder {
   &::-webkit-input-placeholder {
     @content;
@@ -25,87 +12,77 @@
   }
 }
 @mixin iconPosition {
-  flex-direction: row;
-  .sf-search-bar {
-    &__input {
-      text-align: left;
-      &::placeholder {
-        text-align: left;
-      }
-      &:focus {
-        & ~ .sf-search-bar__clear-icon {
-          padding-right: 1.5rem;
-        }
-      }
+  flex-direction: var(--search-bar-icon-flex-direction, row);
+  .sf-search-bar__input {
+    --search-bar-input-text-align: center;
+    &::placeholder {
+      text-align: center;
     }
   }
 }
 .sf-search-bar {
-  background-color: var(--search-bar-background-primary);
-  border-radius: var(--search-bar-border-radius);
-  width: var(--search-bar-width);
-  padding: 0 .9375rem;
-  height: var(--search-bar-height);
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: center;
   box-sizing: border-box;
   position: relative;
-  &--secondary {
-    background-color: var(--search-bar-background-secondary);
-  }
-  &--position-right {
-    @include iconPosition();
-  }
-  &--position-right-mobile {
-    @media (max-width: $mobile-max) {
-      @include iconPosition();
-    }
-  }
-  &--position-right-desktop {
-    @media (min-width: $mobile-max) {
-      @include iconPosition();
-    }
-  }
-  &--no-icon {
-    .sf-search-bar__icon {
-      display: none;
-    }
+  display: var(--search-bar-display, flex);
+  align-items: center;
+  background: var(--search-bar-background);
+  padding: var(--search-bar-padding);
+  width: var(--search-bar-width);
+  height: var(--search-bar-height, 2rem);
+  &__icon {
+    --icon-size: 1.25rem;
+    position: absolute;
+    bottom: var(--spacer-xs);
+    right: var(--search-bar-icon-right, 0);
+    display: var(--search-bar-icon-display, block);
   }
   &__input {
-    border: none;
+    position: relative;
     flex-grow: 1;
     background: transparent;
-    text-align: center;
-    outline: none;
-    position: relative;
+    text-align: var(--search-bar-input-text-align);
+    width: 100%;
+    height: 100%;
+    @include font(
+      --search-bar-font,
+      var(--font-normal),
+      var(--font-sm),
+      1.6,
+      var(--font-family-secondary)
+    );
+    @include border(
+      --search-bar-border,
+      0 0 2px 0,
+      solid,
+      var(--c-dark-variant)
+    );
     @include placeholder {
-      color: var(--search-bar-placeholder-color);
-      transition: color .2s ease-in;
+      color: var(--search-bar-placeholder-color, var(--c-gray));
+      transition: var(--search-bar-placeholder-transition, color 0.2s ease-in);
+      font: inherit;
     }
     &:focus {
       @include placeholder {
-        color: var(--search-bar-placeholder-color-focus);
-      }
-      & ~ .sf-search-bar__clear-icon {
-        position: absolute;
-        opacity: 1;
-        padding-right: .4rem;
-        right: .9375rem;
+        color: var(--search-bar-placeholder-color-focus, transparent);
       }
     }
     &::-webkit-search-cancel-button {
       opacity: 0;
     }
+    &[type="search"] {
+      -webkit-appearance: none;
+    }
     &::-ms-clear {
       opacity: 0;
     }
   }
-  &__clear-icon {
-    opacity: 0;
-    padding-right: .4rem;
-    position: absolute;
-    right: .9375rem;
-    transition: all .2s ease-in;
+  &--position-center {
+    @include iconPosition();
+  }
+  &--no-icon {
+    --search-bar-icon-display: none;
+  }
+  @include for-desktop {
+    --search-bar-width: 20rem;
   }
 }

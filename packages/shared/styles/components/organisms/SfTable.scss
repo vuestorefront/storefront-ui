@@ -1,71 +1,75 @@
-@import "../../variables";
+@import "../../helpers";
 .sf-table {
-  $this: &;
   box-sizing: border-box;
-  width: 100%;
-  border-spacing: 0;
+  width: var(--table-width, 100%);
   border: none;
+  border-spacing: var(--table-border-spacing, 0);
   &__heading,
   &__row {
     box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
-    padding: var(--spacer-big);
-    border-bottom: 1px solid var(--c-light);
-    @media (min-width: $desktop-min) {
-      border: none;
-    }
   }
   &__heading {
     align-items: center;
-    background-color: var(--c-light);
-    @media (min-width: $desktop-min) {
-      padding: 10px var(--spacer-big);
-      border-bottom: 1px solid var(--c-light);
-      background-color: transparent;
-    }
+    padding: var(--table-heading-padding, var(--spacer-sm) 0);
+    background-color: var(--table-heading-background, transparent);
+    @include border(--table-border, 2px 0 2px 0, solid, var(--c-light));
+  }
+  &__header {
+    @include font(
+      --table-header-font,
+      var(--font-semibold),
+      var(--font-xs),
+      1.4,
+      var(--font-family-secondary)
+    );
+    color: var(--table-header-color, var(--c-text));
   }
   &__row {
-    @media (min-width: $desktop-min) {
-      &:hover {
-        background-color: var(--c-light);
-        box-shadow: 0 4px 20px rgba(168, 172, 176, .19);
-      }
-    }
+    padding: var(--table-row-padding, var(--spacer-xs) 0);
+    background-color: var(--table-row-background);
+    box-shadow: var(--table-row-box-shadow);
+    @include border(--table-row-border, 0 0 2px 0, solid, var(--c-light));
+  }
+  &__data {
+    color: var(--table-data-color, var(--c-dark-variant));
+    @include font(
+      --table-data-font,
+      var(--font-normal),
+      var(--font-sm),
+      1.6,
+      var(--font-family-secondary)
+    );
   }
   &__data,
   &__header {
     box-sizing: border-box;
-    flex: 0 0 calc(100% / var(--mobile-column));
-    padding: 0;
-    margin-bottom: var(--spacer);
-    text-align: left;
-    @media (min-width: $desktop-min) {
-      flex: 1;
-      margin-bottom: 0;
-    }
+    flex: var(--table-column-flex, 0 0 calc(100% / var(--_table-column-width)));
+    padding: var(--table-column-padding, 0);
+    text-align: var(--table-column-text-align, left);
     &:nth-child(even) {
-      order: 1;
-      margin-bottom: 0;
-      @media (min-width: $desktop-min) {
-        order: 0;
-      }
+      order: var(--_table-column-order, 1);
     }
   }
-  &--bordered {
-    #{$this}__heading,
-    #{$this}__row {
-      padding: var(--spacer-big);
-      @media (min-width: $desktop-min) {
-        padding: 10px;
+  &--no-border {
+    --table-row-border-width: 0;
+  }
+  @include for-desktop {
+    --table-row-padding: var(--spacer-sm) var(--spacer-sm);
+    --table-heading-padding: var(--spacer-sm) var(--spacer-sm);
+    --table-heading-background: transparent;
+    --table-column-flex: 1;
+    --_table-column-order: 0;
+    --table-header-font-size: var(--font-sm);
+    --table-header-font-weight: var(--font-normal);
+    &--no-border {
+      --table-row-border-width: 0;
+    }
+    &__row {
+      &:hover {
+        --table-row-box-shadow: 0 4px 20px rgba(100, 122, 145, 0.19);
       }
-    }
-    #{$this}__heading {
-      border: 1px solid var(--c-light);
-      border-width: 1px 0 1px 0;
-    }
-    #{$this}__row {
-      border-bottom: 1px solid var(--c-light);
     }
   }
 }

@@ -1,81 +1,70 @@
-@import '../../variables';
-:root {
-  --circle-icon-background: var(--c-primary);
-  --circle-icon-size: 3.25rem;
-  --circle-icon-size-small: 1.625rem;
-  --circle-icon-size-big: 4rem;
-  --circle-icon-color: var(--c-on-primary);
-  --circle-icon-hover-background: var(--c-primary-lighten);
-  --circle-icon-hover-box-shadow: 0 0 0 .3125rem rgba(var(--c-primary-base), .4);
-  --circle-icon-active-box-shadow: 0 0 0 .625rem rgba(var(--c-primary-base), .4);
-  --circle-icon__badge-background-color: var(--c-danger);
-  --circle-icon__badge-font-family: var(--body-font-family-primary);
-  --circle-icon__badge-font-size: var(--font-size-extra-small);
-  --circle-icon__badge-radius: 1.1rem;
-}
+@import "../../helpers";
 .sf-circle-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-  border-radius: 50%;
-  transition: box-shadow 0.3s ease, opacity 150ms ease-in-out;
-  position: relative;
-  &.sf-button {
-    padding: var(--spacer-big);
-  }
+  --icon-color: var(--c-white);
+  --button-padding: 0;
+  --icon-size: 1.5rem;
+  --button-size: 3.25rem;
+  --button-background: var(--c-primary);
+  --button-border-radius: 100%;
+  position: var(--circle-icon-position, relative);
+  --button-box-shadow: 0 0 0 0.3125rem var(--c-primary);
   &:hover {
-    box-shadow: var(--circle-icon-hover-box-shadow);
-    background-color: var(--circle-icon-hover-background);
+    --button-background: var(--c-primary);
+    --button-box-shadow-opacity: 0.3;
   }
   &:active {
-    box-shadow: var(--circle-icon-active-box-shadow);
+    --button-box-shadow: 0 0 0 0.5rem var(--c-primary);
+  }
+  &:disabled {
+    --button-box-shadow: none;
+    --icon-color: var(--c-text-disabled);
+    &:hover {
+      --button-background: var(--c-light);
+    }
+  }
+  &__icon {
+    --icon-position: static;
   }
   @each $color, $map in $colors-map {
-    $background: map-get($map, 'bg');
-    $backgroundBase: map-get($map, 'bg-base');
-    $backgroundLighten: map-get($map, 'bg-lighten');
-    $text: map-get($map, 'text');
+    $primary: map-get($map, "primary");
+    $variant: map-get($map, "variant");
     &.color-#{$color} {
-      --circle-icon-color: #{$text};
-      --circle-icon-background: #{$background};
-      --circle-icon-hover-background: #{$backgroundLighten};
-      --circle-icon-hover-box-shadow: 0 0 0 .3125rem rgba(#{$backgroundBase}, .4);
-      --circle-icon-active-box-shadow: 0 0 0 .625rem rgba(#{$backgroundBase}, .4);
+      --button-background: var(--c-#{$color});
+      --button-box-shadow: 0 0 0 0.3125rem var(--c-#{$color});
+
+      &:hover {
+        --button-background: var(--c-#{$color}-lighten);
+        --button-box-shadow-opacity: 0.08;
+      }
+      &:active {
+        --button-box-shadow: 0 0 0 0.5rem var(--c-#{$color});
+      }
     }
   }
-  &__badge {
-    box-sizing: border-box;
-    position: absolute;
-    right: calc(var(--spacer)*-1);
-    top: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    line-height: 1rem;
-    padding: 0 3px;
-    min-width: var(--circle-icon__badge-radius);
-    min-height: var(--circle-icon__badge-radius);
-    border-radius: 10px;
-    font-family: var(--circle-icon__badge-font-family);
-    font-size: var(--circle-icon__badge-font-size);
-    background-color: var(--circle-icon__badge-background-color);
-    &-enter-active {
-      animation: bounce-in .3s;
+  &--small {
+    --icon-size: 8px;
+    --button-size: 1.625rem;
+    --button-transition: background 150ms ease;
+    &:hover {
+      --button-background: var(--c-primary);
+      --button-box-shadow: none;
     }
-    &-leave-active {
-      animation: bounce-in .3s reverse;
+    &:active {
+      --button-background: var(--c-primary-variant);
     }
-  }
-}
-@keyframes bounce-in {
-  0% {
-    transform: scale(0);
-  }
-  50% {
-    transform: scale(1.2);
-  }
-  100% {
-    transform: scale(1);
+    @each $color, $map in $colors-map {
+      $primary: map-get($map, "primary");
+      $variant: map-get($map, "variant");
+      &.color-#{$color} {
+        &:hover {
+          --button-background: var(--c-#{$color});
+          --button-box-shadow: none;
+        }
+        &:active {
+          --button-background: var(--c-#{$color}-variant);
+          --button-box-shadow: none;
+        }
+      }
+    }
   }
 }

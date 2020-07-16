@@ -1,40 +1,31 @@
-@import '../../variables';
-:root {
-  --characteristic-font-family: var(--body-font-family-primary);
-  --characteristic-font-size: var(--font-size-small);
-  --characteristic-font-weight: var(--body-font-weight-primary);
-  --characteristic-line-height: 1.6;
-  --characteristic__icon-margin-right: var(--spacer-big);
-  --characteristic__title-font-family: var(--body-font-family-secondary);
-  --characteristic__title-font-size: var(--font-size-regular);
-  --characteristic__title-font-weight: 500;
-  @media screen and (min-width: $desktop-min) {
-    --characteristic-font-size: var(--font-size-small);
-  }
-}
+@import "../../helpers";
 .sf-characteristic {
   display: flex;
   align-items: center;
-  font-family: var(--characteristic-font-family);
-  font-size: var(--characteristic-font-size);
-  font-weight: var(--characteristic-font-weight);
-  line-height: var(--characteristic-line-height);
   &__icon {
+    --icon-color: var(--c-primary);
+    --icon-size: 1.25rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: calc(var(--characteristic__icon-margin-right) / 2);
+    margin: var(--characteristic-margin, 0 var(--spacer-sm) 0 0);
   }
   &__title {
-    font-family: var(--characteristic__title-font-family);
-    font-size: var(--characteristic__title-font-size);
-    font-weight: var(--characteristic__title-font-weight);
+    @include font(
+      --characteristic-title-font,
+      var(--font-bold),
+      var(--h5-font-size),
+      1.6,
+      var(--font-family-secondary)
+    );
   }
-}
-@media screen and (min-width: $desktop-min) {
-  .sf-characteristic {
-    &__icon {
-      margin-right: var(--characteristic__icon-margin-right);
-    }
+  &__description {
+    @include font(
+      --characteristic-description-font,
+      var(--font-normal),
+      var(--font-2xs),
+      1.6,
+      var(--font-family-secondary)
+    );
   }
 }

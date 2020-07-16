@@ -1,104 +1,68 @@
 <template>
-  <div>
-    <div class="highlighted">
-      <SfHeading
-        title="Order summary"
-        class="sf-heading--left sf-heading--no-underline title"
-      />
-      <div class="total-items">
-        <h3>Total items: {{ totalItems }}</h3>
-        <SfButton class="sf-button--text" @click="listIsHidden = !listIsHidden"
-          >{{ listIsHidden ? "Show" : "Hide" }} items list
-        </SfButton>
-      </div>
-      <transition name="fade">
-        <div v-if="!listIsHidden" class="collected-product-list">
-          <SfCollectedProduct
-            v-for="(product, index) in products"
-            :key="index"
-            v-model="product.qty"
-            :image="product.image"
-            :title="product.title"
-            :regular-price="product.price.regular"
-            :special-price="product.price.special"
-            :stock="product.stock"
-            class="collected-product"
-            @click:remove="removeProduct(index)"
-          >
-            <template #configuration>
-              <div class="product__properties">
-                <SfProperty
-                  v-for="(property, key) in product.configuration"
-                  :key="key"
-                  :name="property.name"
-                  :value="property.value"
-                  class="product__property"
-                />
-              </div>
-            </template>
-            <template #actions>
-              <div>
-                <div class="product__action">{{ product.sku }}</div>
-                <div class="product__action">
-                  Quantity: <span class="product__qty">{{ product.qty }}</span>
-                </div>
-              </div>
-            </template>
-            <template #input>
-              <!--              <div></div>-->
-            </template>
-          </SfCollectedProduct>
-        </div>
-      </transition>
-    </div>
+  <div id="order-summary">
+    <SfHeading
+      title="Totals"
+      :level="3"
+      class="sf-heading--left sf-heading--no-underline title"
+    />
     <div class="highlighted highlighted--total">
       <SfProperty
         name="Products"
         :value="totalItems"
-        class="sf-property--full-width property"
+        class="sf-property--full-width sf-property--large property"
       />
       <SfProperty
         name="Subtotal"
         :value="subtotal"
-        class="sf-property--full-width property"
+        class="sf-property--full-width sf-property--large property"
       />
       <SfProperty
         name="Shipping"
         :value="shippingMethod.price"
-        class="sf-property--full-width property"
+        class="sf-property--full-width sf-property--large property"
       />
+      <SfDivider class="divider" />
       <SfProperty
-        name="Total"
+        name="Total price"
         :value="total"
-        class="sf-property--full-width property-total"
+        class="sf-property--full-width sf-property--large property"
       />
     </div>
     <div class="highlighted promo-code">
-      <SfButton
-        class="promo-code__button"
-        @click="showPromoCode = !showPromoCode"
-        >{{ showPromoCode ? "-" : "+" }} Promo Code
-      </SfButton>
-      <transition name="fade">
-        <div v-if="showPromoCode">
-          <SfInput
-            v-model="promoCode"
-            name="promoCode"
-            label="Enter promo code"
-            class="promo-code__input"
-          />
-          <SfButton class="sf-button--full-width">Apply code</SfButton>
-        </div>
-      </transition>
+      <SfInput
+        v-model="promoCode"
+        name="promoCode"
+        label="Enter promo code"
+        class="sf-input--filled promo-code__input"
+      />
+      <SfCircleIcon
+        aria-label="Send promo code"
+        class="promo-code__circle-icon"
+        icon="check"
+      />
     </div>
-    <div class="highlighted">
+    <div class="actions">
+      <SfButton
+        class="sf-button--full-width actions__button"
+        @click="$emit('click:next')"
+        >{{ buttonName }}</SfButton
+      >
+      <SfButton
+        class="sf-button--text actions__button actions__button--secondary"
+        @click="$emit('click:back')"
+        >Go back</SfButton
+      >
+    </div>
+    <div class="characteristics">
       <SfCharacteristic
         v-for="characteristic in characteristics"
         :key="characteristic.title"
         :title="characteristic.title"
         :description="characteristic.description"
         :icon="characteristic.icon"
-        class="characteristic"
+        size-icon="20px"
+        color-icon="green-primary"
+        class="characteristics__item"
       />
     </div>
   </div>
@@ -107,59 +71,50 @@
 import {
   SfHeading,
   SfButton,
-  SfCollectedProduct,
+  SfCircleIcon,
+  SfDivider,
   SfProperty,
   SfCharacteristic,
-  SfInput
+  SfInput,
 } from "@storefront-ui/vue";
-
 export default {
   name: "OrderSummary",
   components: {
     SfHeading,
     SfButton,
-    SfCollectedProduct,
+    SfDivider,
+    SfCircleIcon,
     SfProperty,
     SfCharacteristic,
-    SfInput
+    SfInput,
   },
   props: {
     order: {
       type: Object,
-      default: () => ({})
+      default: () => ({}),
     },
     shippingMethods: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     paymentMethods: {
       type: Array,
-      default: () => []
-    }
+      default: () => [],
+    },
+    characteristics: {
+      type: Array,
+      default: () => [],
+    },
+    buttonName: {
+      type: String,
+      default: "",
+    },
   },
   data() {
     return {
       promoCode: "",
       showPromoCode: false,
       listIsHidden: false,
-      characteristics: [
-        {
-          title: "Safety",
-          description: "It carefully packaged with a personal touch",
-          icon: "safety"
-        },
-        {
-          title: "Easy shipping",
-          description:
-            "You’ll receive dispatch confirmation and an arrival date",
-          icon: "shipping"
-        },
-        {
-          title: "Changed your mind?",
-          description: "Rest assured, we offer free returns within 30 days",
-          icon: "return"
-        }
-      ]
     };
   },
   computed: {
@@ -180,7 +135,7 @@ export default {
     shippingMethod() {
       const shippingMethod = this.shipping.shippingMethod;
       const method = this.shippingMethods.find(
-        method => method.value === shippingMethod
+        (method) => method.value === shippingMethod
       );
       return method ? method : { price: "$0.00" };
     },
@@ -190,7 +145,7 @@ export default {
     paymentMethod() {
       const paymentMethod = this.payment.paymentMethod;
       const method = this.paymentMethods.find(
-        method => method.value === paymentMethod
+        (method) => method.value === paymentMethod
       );
       return method ? method : { label: "" };
     },
@@ -211,137 +166,49 @@ export default {
       const shipping = parseFloat(this.shippingMethod.price.replace("$", ""));
       const total = subtotal + (isNaN(shipping) ? 0 : shipping);
       return "$" + total.toFixed(2);
-    }
+    },
   },
-  methods: {
-    removeProduct(index) {
-      const order = { ...this.order };
-      const products = [...order.products];
-      products.splice(index, 1);
-      order.products = products;
-      this.$emit("update:order", order);
-    }
-  }
 };
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
-
-@mixin for-desktop {
-  @media screen and (min-width: $desktop-min) {
-    @content;
-  }
-}
-
-.highlighted {
-  box-sizing: border-box;
-  width: 100%;
-  background-color: #f1f2f3;
-  padding: var(--spacer-extra-big);
-  margin-bottom: var(--spacer-big);
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-
-  &--total {
-    margin-bottom: 1px;
-  }
-}
-
 .title {
-  margin-bottom: var(--spacer-extra-big);
+  --heading-title-margin: 0 0 var(--spacer-2xl) 0;
 }
-
-.total-items {
+.property {
+  margin: var(--spacer-base) 0;
+}
+.divider {
+  --divider-border-color: var(--c-white);
+  --divider-margin: calc(var(--spacer-base) * 2) 0 0 0;
+}
+.promo-code {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: var(--spacer-big);
-}
-
-.property {
-  margin-bottom: var(--spacer);
-
-  ::v-deep .sf-property__name {
-    text-transform: unset;
+  align-items: flex-start;
+  padding: var(--spacer-lg) 0 var(--spacer-base) 0;
+  &__circle-icon {
+    --button-size: 2rem;
+    --icon-size: 0.6875rem;
   }
-}
-
-.property-total {
-  margin-top: var(--spacer-extra-big);
-  font-size: var(--font-size-extra-big);
-  font-weight: 500;
-
-  ::v-deep .sf-property__name {
-    color: var(--c-text);
-  }
-}
-
-.collected-product-list {
-  margin: 0 -20px;
-}
-
-.collected-product {
-  &:not(:last-child) {
-    margin-bottom: var(--spacer-big);
-  }
-}
-
-.characteristic {
-  &:not(:last-child) {
-    margin-bottom: var(--spacer-big);
-  }
-}
-
-.promo-code {
-  &__button {
-    padding: 0;
-    background-color: transparent;
-    color: var(--c-primary);
-    font-size: var(--font-size-extra-big);
-    @include for-desktop {
-      font-size: var(--font-size-big);
-    }
-  }
-
   &__input {
-    margin: var(--spacer-big) 0;
-
-    ::v-deep input {
-      border-color: var(--c-gray-variant);
-    }
+    --input-background: var(--c-white);
+    flex: 1;
+    margin: 0 var(--spacer-lg) 0 0;
   }
 }
-
-.product {
-  &__properties {
-    margin: var(--spacer-big) 0 0 0;
+.characteristics {
+  margin: 0 0 0 var(--spacer-xs);
+  &__item {
+    margin: var(--spacer-base) 0;
   }
-
-  &__property,
-  &__action {
-    font-size: var(--font-size-small);
-    @include for-desktop {
-      font-size: var(--font-size-extra-small);
+}
+.actions {
+  &__button {
+    margin: var(--spacer-sm) 0;
+    &--secondary {
+      text-align: left;
     }
-  }
-
-  &__action {
-    color: var(--c-gray-variant);
-    font-size: var(--font-size-small);
-    margin: 0 0 var(--spacer-small) 0;
-    @include for-desktop {
-      font-size: var(--font-size-extra-small);
-    }
-
-    &:last-child {
-      margin: 0;
-    }
-  }
-
-  &__qty {
-    color: var(--c-text);
   }
 }
 </style>

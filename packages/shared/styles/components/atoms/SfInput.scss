@@ -1,96 +1,58 @@
-@import '../../variables';
-:root {
-  --input-color: var(--c-text);
-  --input-color-active: var(--c-primary);
-  --input-color-invalid: #d12727;
-  --input-color-disabled: var(--c-dark-variant);
-  --input-font-family: var(--body-font-family-secondary);
-  --input-font-size: var(--font-size-big);
-  --input-font-weight: var(--body-font-weight-secondary);
-  --input-line-height: 1.6;
-  --input__label-focus-font-size: var(--font-size-small);
-  --input__label-transition: all 150ms ease-in-out;
-  --input__bar-transition: all 150ms ease-in-out;
-  --input__error-message-font-family: var(--body-font-family-primary);
-  --input__error-message-font-size: var(--font-size-small-mobile);
-  --input__password-icon-hidden-color: var(--c-gray-variant);
-  --input__password-icon-width: 1.4rem;
-  @media screen and (min-width: $desktop-min) {
-    --input__label-focus-font-size: var(--font-size-extra-small);
-  }
-}
-@mixin move-label-up {
-  top: calc(calc(var(--input__label-focus-font-size) / 2) - 5px);
-  font-size: var(--input__label-focus-font-size);
-}
+@import "../../helpers";
 .sf-input {
-  $this: &;
-  box-sizing: border-box;
   position: relative;
-  margin-top: 5px;
-  color: var(--input-color);
-  font-family: var(--input-font-family);
-  font-size: var(--input-font-size);
-  font-weight: var(--input-font-weight);
-  line-height: var(--input-line-height);
-  & input {
-    position: relative;
-    box-sizing: border-box;
-    display: block;
-    width: 100%;
-    height: 100%;
-    padding: 5px 0;
-    border-width: 0 0 1px 0;
-    border-color: var(--c-light);
-    background-color: transparent;
-    outline: none;
-    font-family: inherit;
-    font-size: inherit;
-    font-weight: inherit;
-    line-height: inherit;
-    &:focus ~ #{$this}__label {
-      @include move-label-up;
-      color: var(--input-color-active);
+  box-sizing: border-box;
+  width: var(--input-width);
+  height: var(--input-height);
+  min-height: var(
+    --input-height,
+    calc(
+      var(--spacer-base) + var(--spacer-2xs) +
+      var(--input-label-font-size, var(--font-lg))
+    )
+  );
+  &__label {
+    position: absolute;
+    display: var(--input-label-display);
+    top: var(--input-label-top, 50%);
+    left: var(--input-label-left);
+    padding: var(--input-label-padding);
+    color: var(--input-label-color, inherit);
+    text-transform: underline;
+    background: var(--input-label-background);
+    transform: var(
+      --input-label-transform,
+      translate3d(0, calc(var(--input-label-top, 50%) * -1), 0)
+    );
+    transition: var(
+      --input-label-transition,
+      top 150ms linear,
+      font-size 150ms linear
+    );
+
+    &::after {
+      content: var(--input-label-required);
+      color: var(--input-label-color, var(--c-primary));
     }
-    &:focus ~ #{$this}__bar::before,
-    &:focus ~ #{$this}__bar::after {
-      width: 50%;
-    }
-    &:required ~ #{$this}__label::after {
-      content: " *";
-    }
-    &:disabled ~ #{$this}__label {
-      color: var(--input-color-disabled);
-    }
-    &[type="number"] {
-      &::-webkit-inner-spin-button,
-      &::-webkit-outer-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-      }
-    }
-    &#{$this}--is-password {
-      padding-right: calc(var(--input__password-icon-width) + 2 * var(--spacer-big));
-    }
-  }
-  &__wrapper {
-    position: relative;
-    display: flex;
-    height: 100%;
-    justify-content: space-between;
-    align-items: center;
+    @include font(
+      --input-label-font,
+      var(--font-normal),
+      var(--font-lg),
+      1,
+      var(--font-family-secondary)
+    );
   }
   &__bar {
     position: relative;
-    display: block;
+    display: var(--input-bar-display, block);
     &::before,
     &::after {
       position: absolute;
       bottom: 0;
-      width: 0;
+      width: var(--input-bar-width, 0);
       height: 1px;
-      background-color: var(--input-color-active);
-      transition: var(--input__bar-transition);
+      background: var(--input-bar-background, var(--c-primary));
+      transition: width 150ms linear;
       content: "";
     }
     &::before {
@@ -100,79 +62,182 @@
       right: 50%;
     }
   }
-  &__label {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    transition: var(--input__label-transition);
-    &::after {
-      color: var(--input-color-active);
+  &__error-message {
+    color: var(--input-error-message-color, var(--c-danger));
+    min-height: calc(var(--font-xs) * 1.2);
+    @include font(
+      --input-error-message-font,
+      var(--font-medium),
+      var(--font-xs),
+      1.2,
+      var(--font-family-secondary)
+    );
+  }
+  &__wrapper,
+  input {
+    width: 100%;
+    height: 100%;
+  }
+  &__wrapper {
+    position: relative;
+    margin: var(--input-margin, 0 0 var(--spacer-xs) 0);
+  }
+  input {
+    display: block;
+    box-sizing: border-box;
+    padding: var(--input-padding, var(--spacer-sm) 0 var(--spacer-xs) 0);
+    @include border(--input-border, 0 0 1px 0, solid, var(--c-light));
+    background: var(--input-background);
+    color: var(--input-color, var(--c-text));
+    @include font(
+      --input-font,
+      var(--font-normal),
+      var(--font-lg),
+      1,
+      var(--font-family-secondary)
+    );
+    text-align: var(--input-text-align);
+    &:focus {
+      & ~ * {
+        --icon-color: var(--c-primary);
+        --input-password-icon-background: var(--c-primary);
+        --input-label-top: 0;
+        --input-label-color: var(--c-primary);
+        --input-label-font-size: var(--font-xs);
+        --input-bar-width: 50%;
+        --input-error-message-color: var(--c-primary);
+      }
+    }
+    &:required {
+      & ~ * {
+        --input-label-required: " *";
+      }
+    }
+    &:disabled {
+      --input-color: var(--c-text-disabled);
+      /* add to provide color on iOS */
+      -webkit-text-fill-color: var(--c-text-disabled);
+      & ~ * {
+        --icon-color: var(--text-disabled);
+        --input-label-color: var(--c-text-disabled);
+      }
+    }
+    &[type="number"] {
+      &::-webkit-inner-spin-button,
+      &::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+      -moz-appearance: textfield;
+    }
+    &[type="search"] {
+      -webkit-appearance: none;
     }
   }
-  &__error-message {
-    margin-top: 5px;
-    color: var(--input-color-invalid);
-    font-family: var(--input__error-message-font-family);
-    font-size: var(--input__error-message-font-size);
-  }
-  &__password-button.sf-button {
+  &__password-button {
+    --icon-size: 12px;
+    --button-padding: 0;
+    --button-background: transparent;
     position: absolute;
-    right: var(--spacer-big);
-    padding: 0;
-    background: transparent;
-    border: none;
+    top: var(--input-icon-top, 50%);
+    right: var(--input-icon-right, var(--spacer-xs));
+    transform: translate3d(0, -50%, 0);
     &:hover {
-      background-color: transparent;
+      --button-background: transparent;
+      --button-box-shadow: none;
     }
   }
   &__password-icon {
-    &.sf-icon {
-      height: auto;
+    position: relative;
+    &--hidden {
+      --input-password-icon-scaleX: 1;
     }
-    &:after {
-      content: "";
+    &::after {
       position: absolute;
       top: 50%;
       width: 100%;
       height: 1px;
-      background-color: var(--input__password-icon-hidden-color);
-      transform: translate3d(0, -50%, 0) rotate(45deg) scaleX(0);
-      transition: transform 300ms ease-in-out;
-    }
-    @at-root #{&}--hidden {
-      &:after {
-        transform: translate3d(0, -50%, 0) rotate(45deg) scaleX(1);
-      }
+      background: var(--input-password-icon-background, var(--c-black));
+      transform: translate3d(0, -50%, 0) rotate(45deg)
+        scaleX(var(--input-password-icon-scaleX, 0));
+      transition: transform 150ms linear;
+      content: "";
     }
   }
   &--invalid {
+    --input-border-color: var(--c-danger);
     input {
-      border-color: var(--input-color-invalid);
-      &:focus ~ #{$this}__label {
-        &,
-        &:after {
-          color: var(--input-color-invalid);
+      &:focus {
+        & ~ * {
+          --input-bar-background: var(--c-danger);
+          --input-label-color: var(--c-danger);
         }
-      }
-      &:required ~ #{$this}__label::after {
-        color: var(--input-color-invalid);
-      }
-    }
-    #{$this}__bar {
-      &::before,
-      &::after {
-        background-color: var(--input-color-invalid);
-      }
-    }
-    @at-root #{&}#{$this}--has-text {
-      #{$this}__label {
-        color: var(--input-color-invalid);
       }
     }
   }
-  &--has-text {
-    #{$this}__label {
-      @include move-label-up;
+  &--has-text,
+  input[type="date"] ~ *,
+  input[type="time"] ~ *,
+  input[type="image"] ~ *,
+  input[type="file"] ~ * {
+    --input-label-top: 0;
+    --input-label-font-size: var(--font-xs);
+  }
+  &--filled {
+    --input-background: var(--c-light);
+    --input-font-size: var(--font-xs);
+    --input-padding: var(--spacer-xs);
+    --input-label-left: var(--spacer-xs);
+    --input-label-font-size: var(--font-xs);
+    --input-label-color: var(--c-secondary-variant);
+    --input-label-transition: color 150ms ease;
+    &.sf-input--has-text {
+      --input-label-display: none;
+    }
+    input {
+      &:focus {
+        & ~ * {
+          --input-bar-width: unset;
+          --input-label-top: 50%;
+          --input-label-font-size: var(--font-xs);
+          --input-label-color: var(--c-text);
+        }
+      }
+    }
+  }
+  &--outline {
+    --input-label-left: var(--spacer-sm);
+    --input-padding: var(--spacer-xs) var(--spacer-xs) var(--spacer-xs) var(--spacer-sm);
+    --input-border-color: var(--c-secondary-variant);
+    --input-label-background: var(--c-white);
+    --input-label-font-size: var(--font-base);
+    &.sf-input--has-text {
+      --input-label-top: -25%;
+      --input-label-left: var(--spacer-xs);
+      --input-label-padding: 0 var(--spacer-2xs);
+    }
+    &.sf-input--invalid {
+      --input-border-color: var(--c-danger);
+      --input-label-color: var(--c-danger);
+      input {
+        &:focus {
+          & ~ * {
+            --input-label-color: var(--c-danger);
+          }
+        }
+      }
+    }
+    input {
+      --input-border-width: 1px;
+      &:focus {
+        & ~ * {
+          --input-label-top: -25%;
+          --input-label-left: var(--spacer-xs);
+          --input-label-padding: 0 var(--spacer-2xs);
+          --input-bar-width: 0;
+          --input-label-color: var(--c-secondary-variant);
+        }
+      }
     }
   }
 }

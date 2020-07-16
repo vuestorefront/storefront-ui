@@ -10,16 +10,16 @@ export default storiesOf("Utilities|Transitions", module)
       <SfButton v-on:click="show = !show">
         Fade
       </SfButton>
-      <transition name="fade">
+      <transition name="sf-fade">
         <p v-if="show">hello</p>
       </transition>
     </div>`,
       data: () => ({
-        show: false
-      })
+        show: false,
+      }),
     }),
     {
-      info: true
+      info: true,
     }
   )
   .add(
@@ -31,16 +31,16 @@ export default storiesOf("Utilities|Transitions", module)
       <SfButton v-on:click="show = !show">
         Slide left
       </SfButton>
-      <transition name="slide-left">
+      <transition name="sf-slide-left">
         <p v-if="show">hello</p>
       </transition>
     </div>`,
       data: () => ({
-        show: false
-      })
+        show: false,
+      }),
     }),
     {
-      info: true
+      info: true,
     }
   )
   .add(
@@ -52,16 +52,16 @@ export default storiesOf("Utilities|Transitions", module)
       <SfButton v-on:click="show = !show">
         Slide right
       </SfButton>
-      <transition name="slide-right">
+      <transition name="sf-slide-right">
         <p v-if="show">hello</p>
       </transition>
     </div>`,
       data: () => ({
-        show: false
-      })
+        show: false,
+      }),
     }),
     {
-      info: true
+      info: true,
     }
   )
   .add(
@@ -73,16 +73,16 @@ export default storiesOf("Utilities|Transitions", module)
       <SfButton v-on:click="show = !show">
         Collapse top
       </SfButton>
-      <transition name="collapse-top">
+      <transition name="sf-collapse-top">
         <p v-if="show">hello</p>
       </transition>
     </div>`,
       data: () => ({
-        show: false
-      })
+        show: false,
+      }),
     }),
     {
-      info: true
+      info: true,
     }
   )
   .add(
@@ -94,57 +94,15 @@ export default storiesOf("Utilities|Transitions", module)
       <SfButton v-on:click="show = !show">
         Collapse bottom
       </SfButton>
-      <transition name="collapse-bottom">
+      <transition name="sf-collapse-bottom">
         <p v-if="show">hello</p>
       </transition>
     </div>`,
       data: () => ({
-        show: false
-      })
+        show: false,
+      }),
     }),
     {
-      info: true
-    }
-  )
-  .add(
-    "fade in slide out",
-    () => ({
-      components: { SfButton },
-      template: `
-    <div>
-      <SfButton v-on:click="show = !show">
-        Fade/slide
-      </SfButton>
-      <transition name="fade-slide">
-        <p v-if="show">hello</p>
-      </transition>
-    </div>`,
-      data: () => ({
-        show: false
-      })
-    }),
-    {
-      info: true
-    }
-  )
-  .add(
-    "fade in collapse out",
-    () => ({
-      components: { SfButton },
-      template: `
-    <div>
-      <SfButton v-on:click="show = !show">
-        Fade/collapse
-      </SfButton>
-      <transition name="fade-collapse">
-        <p v-if="show">hello</p>
-      </transition>
-    </div>`,
-      data: () => ({
-        show: false
-      })
-    }),
-    {
-      info: true
+      info: true,
     }
   );

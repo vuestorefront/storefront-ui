@@ -1,70 +1,76 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, boolean, text } from "@storybook/addon-knobs";
-import SfModal from "./SfModal.vue";
+import { SfModal } from "@storefront-ui/vue";
 import {
   visibilityToggleMixin,
-  withVisibilityToggle
-} from "../../../../config/storybook/decorators";
-
+  withVisibilityToggle,
+} from "@storefront-ui/vue/config/storybook/decorators";
 storiesOf("Molecules|Modal", module)
   .addDecorator(withKnobs)
   .addDecorator(withVisibilityToggle)
   .add("Common", () => ({
     components: { SfModal },
     props: {
+      title: {
+        default: text("title", "My title", "Props"),
+      },
       overlay: {
-        default: boolean("overlay", true, "Props")
+        default: boolean("overlay", true, "Props"),
       },
       cross: {
-        default: boolean("cross", true, "Props")
+        default: boolean("cross", true, "Props"),
       },
       persistent: {
-        default: boolean("persistent", false, "Props")
+        default: boolean("persistent", false, "Props"),
       },
-      ariaLabelClose: {
-        default: text("ariaLabelClose", "Close", "Props")
-      }
     },
     mixins: [visibilityToggleMixin],
     template: `
       <SfModal
         :visible="visible"
+        :title="title"
         :overlay="overlay"
         :cross="cross"
         :persistent="persistent"
-        :ariaLabelClose="ariaLabelClose"
         @close="visible = false"
       >
-        HELLO STOREFRONT UI!
-      </SfModal>`
+        <p>HELLO STOREFRONT UI!</p>
+        <form action="">
+          <input type="text">
+          <input type="text">
+          <button>hello</button>
+        </form>
+      </SfModal>`,
   }))
   .add("[slot] close", () => ({
     components: { SfModal },
     props: {
+      title: {
+        default: text("title", "My title", "Props"),
+      },
       overlay: {
-        default: boolean("overlay", true, "Props")
+        default: boolean("overlay", true, "Props"),
       },
       cross: {
-        default: boolean("cross", true, "Props")
+        default: boolean("cross", true, "Props"),
       },
       persistent: {
-        default: boolean("persistent", false, "Props")
-      }
+        default: boolean("persistent", false, "Props"),
+      },
     },
     mixins: [visibilityToggleMixin],
     template: `
       <SfModal
         :visible="visible"
         :overlay="overlay"
+        :title="title"
         :cross="cross"
         :persistent="persistent"
-        :ariaLabelClose="ariaLabelClose"
         @close="visible = false"
       >
         HELLO STOREFRONT UI!
         <template #close>
           close
         </template>
-      </SfModal>`
+      </SfModal>`,
   }));

@@ -2,4 +2,4 @@
 Search bar component with placeholder text and icon.
 
 # storybook-iframe-height
-10rem
+6rem

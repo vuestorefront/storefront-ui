@@ -1,48 +1,40 @@
-@import '../../variables';
-:root {
-  --breadcrumbs-font-family: var(--body-font-family-secondary);
-  --breadcrumbs-font-size: var(--font-size-small);
-  --breadcrumbs-font-weight: var(--body-font-weight-secondary);
-  --breadcrumbs-line-height: 1.6;
-  --breadcrumbs__link-color: var(--c-dark);
-  --breadcrumbs__link-hover-color: var(--c-dark-variant);
-  --breadcrumbs__item-padding: .75rem;
-  --breadcrumbs__item-color: var(--c-gray);
-  --breadcrumbs__item-separator-color: var(--breadcrumbs__link-color);
-  --breadcrumbs__item-separator: "|";
-  --breadcrumbs__current-color: var(--c-gray-variant);
-}
+@import "../../helpers";
 .sf-breadcrumbs {
-  font-family: var(--breadcrumbs-font-family);
-  font-size: var(--breadcrumbs-font-size);
-  font-weight: var(--breadcrumbs-font-weight);
   &__list {
-    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
     padding: 0;
     margin: 0;
+    list-style: none;
   }
-  &__item {
-    display: inline-block;
-    color: var(--breadcrumbs__item-color);
-    &:not(:first-child) {
-      padding-left: var(--breadcrumbs__item-padding);
-      &::before {
-        display: inline-block;
-        content: var(--breadcrumbs__item-separator);
-        padding-right: var(--breadcrumbs__item-padding);
-        color: var(--breadcrumbs__item-separator-color);
+  &__list-item {
+    &:not(:last-child) {
+      &::after {
+        padding: var(
+          --breadcrumbs-list-item-before-padding,
+          0 var(--spacer-sm)
+        );
+        content: var(--breadcrumbs-list-item-seperator, "|");
+        color: var(--breadcrumbs-list-item-before-color, var(--c-text-muted));
       }
     }
   }
-  &__link {
-    cursor: pointer;
-    color: var(--breadcrumbs__link-color);
+  &__breadcrumb {
+    @include font(
+      --breadcrumbs-font,
+      var(--font-normal),
+      var(--font-sm),
+      1.6,
+      var(--font-family-secondary)
+    );
+    --link-color: var(--c-text-muted);
+    --link-text-decoration: none;
     &:hover {
-      color: var(--breadcrumbs__link-hover-color);
+      --link-color: var(--c-text);
     }
-  }
-  &__current {
-    cursor: default;
-    color: var(--breadcrumbs__current-color);
+    &--current {
+      --link-color: var(--c-text);
+      cursor: default;
+    }
   }
 }

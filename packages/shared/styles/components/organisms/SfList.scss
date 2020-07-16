@@ -1,15 +1,19 @@
-@import '../../variables';
-:root {
-  --list__item-font-size: var(--font-size-big);
-  @media screen and (min-width: $desktop-min) {
-    --list__item-font-size: var(--font-size-small);
-  }
-}
+@import "../../helpers";
 .sf-list {
-  list-style-type: none;
-  padding-left: 0;
-  margin: 0;
+  list-style: var(--list-list-style, none);
+  padding: var(--list-padding, 0);
+  margin: var(--list-margin, 0);
   .sf-list__item {
-    font-size: var(--list__item-font-size);
+    margin: var(--list-item-margin, 0);
+    padding: var(--list-item-padding, 0);
+    color: var(--list-item-color, var(--c-text));
+    @include border(--list-item-border, 0, solid, var(--c-light));
+    @include font(
+      --list-item-font,
+      var(--font-normal),
+      var(--font-sm),
+      1.4,
+      var(--font-family-secondary)
+    );
   }
 }

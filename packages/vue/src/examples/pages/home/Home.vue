@@ -1,157 +1,97 @@
 <template>
   <div id="home">
-    <SfHero class="section">
+    <SfHero class="hero">
       <SfHeroItem
-        v-for="(hero, i) in heroes"
-        :key="i"
-        :title="hero.title"
-        :subtitle="hero.subtitle"
-        :button-text="hero.buttonText"
-        :background="hero.background"
-        :image="hero.image"
-        :class="hero.className"
-      ></SfHeroItem>
+        v-for="(img, index) in heroes"
+        :key="index"
+        :image="img.image"
+        :title="img.title"
+        :button-text="img.buttonText"
+        :background="img.background"
+        :class="img.className"
+      />
     </SfHero>
-    <SfBannerGrid :banner-grid="1" class="banners section">
-      <template #bannerA>
-        <a href="#">
-          <SfBanner
-            subtitle="Dresses"
-            title="COCKTAIL PARTY"
-            description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
-            button-text="SHOP NOW"
-            :image="{
-              mobile: '/assets/storybook/Home/bannerB.jpg',
-              desktop: '/assets/storybook/Home/bannerF.jpg'
-            }"
-            class="sf-banner--slim banner-custom"
-          />
-        </a>
-      </template>
-      <template #bannerB>
-        <a href="#">
-          <SfBanner
-            subtitle="Dresses"
-            title="LINEN DRESSES"
-            description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
-            button-text="SHOP NOW"
-            image="/assets/storybook/Home/bannerE.jpg"
-            class="sf-banner--slim banner-central"
-          />
-        </a>
-      </template>
-      <template #bannerC>
-        <a href="#">
-          <SfBanner
-            subtitle="T-Shirts"
-            title="THE OFFICE LIFE"
-            image="/assets/storybook/Home/bannerC.jpg"
-            class="sf-banner--slim"
-          />
-        </a>
-      </template>
-      <template #bannerD>
-        <a href="#">
-          <SfBanner
-            subtitle="Summer shoes"
-            title="ECO SANDALS"
-            image="/assets/storybook/Home/bannerG.jpg"
-            class="sf-banner--slim"
-          />
-        </a>
+    <SfBannerGrid class="banner-grid">
+      <template v-for="banner in banners" #[banner.slot]>
+        <SfBanner
+          :key="banner.slot"
+          :title="banner.title"
+          :subtitle="banner.subtitle"
+          :description="banner.description"
+          :button-text="banner.buttonText"
+          :image="banner.image"
+          :class="banner.class"
+        />
       </template>
     </SfBannerGrid>
     <SfCallToAction
+      class="call-to-action"
       title="Subscribe to Newsletters"
-      button-text="Subscribe"
       description="Be aware of upcoming sales and events. Receive gifts and special offers!"
-      class="call-to-action-newsletter"
-      image="assets/storybook/Home/newsletter.jpg"
+      button-text="subscribe"
+      image="/assets/storybook/Home/newsletter.jpg"
     />
-    <SfSection title-heading="Best Sellers" class="section">
-      <SfCarousel class="product-carousel">
-        <SfCarouselItem v-for="(product, i) in products" :key="i">
+    <SfSection title-heading="Bestsellers">
+      <SfCarousel
+        :settings="{ peek: 16, breakpoints: { 1023: { peek: 0, perView: 2 } } }"
+        class="carousel"
+      >
+        <SfCarouselItem
+          v-for="(product, index) in products"
+          :key="index"
+          class="carousel__item"
+        >
           <SfProductCard
-            :title="product.title"
             :image="product.image"
+            :title="product.title"
             :regular-price="product.price.regular"
-            :max-rating="product.rating.max"
+            :special-price="product.price.special"
             :score-rating="product.rating.score"
+            :max-rating="product.rating.max"
             :is-on-wishlist="product.isOnWishlist"
-            class="product-card"
-            @click:wishlist="toggleWishlist(i)"
+            :show-add-to-cart-button="true"
+            :reviews-count="product.reviews"
+            :badge-label="product.badgeLabel"
+            :badge-color="product.badgeColor"
+            @click:wishlist="toggleWishlist(index)"
           />
         </SfCarouselItem>
       </SfCarousel>
     </SfSection>
-    <SfSection
-      title-heading="Share Your Look"
-      subtitle-heading="#YOURLOOK"
-      class="section"
-    >
-      <div class="images-grid">
-        <div class="images-grid__row">
-          <div class="images-grid__col">
-            <SfImage
-              src="assets/storybook/Home/imageA.jpg"
-              :width="486"
-              :height="486"
-              >katherina_trn</SfImage
-            >
-          </div>
-          <div class="images-grid__col">
-            <SfImage
-              src="assets/storybook/Home/imageB.jpg"
-              :width="486"
-              :height="486"
-              >katherina_trn</SfImage
-            >
-          </div>
-        </div>
-        <div class="images-grid__row">
-          <div class="images-grid__col">
-            <SfImage
-              src="assets/storybook/Home/imageC.jpg"
-              :width="486"
-              :height="486"
-              >katherina_trn</SfImage
-            >
-          </div>
-          <div class="images-grid__col">
-            <SfImage
-              src="assets/storybook/Home/imageD.jpg"
-              :width="486"
-              :height="486"
-              >katherina_trn</SfImage
-            >
+    <SfSection title-heading="Share Your Look" subtitle-heading="#YOURLOOK">
+      <div class="instagram-grid">
+        <div
+          v-for="(col, rowKey) in instagramFeed"
+          :key="rowKey"
+          class="instagram-grid__row"
+        >
+          <div
+            v-for="(image, colKey) in col"
+            :key="colKey"
+            class="instagram-grid__col"
+          >
+            <SfImage :src="image">{{ image.content }}</SfImage>
           </div>
         </div>
       </div>
     </SfSection>
     <SfBanner
+      class="app-banner desktop-only"
+      title="Download our application to your mobile"
+      subtitle="fashion to take away"
       image="/assets/storybook/Home/bannerD.png"
-      class="banner-application desktop-only"
     >
-      <template #subtitle>
-        <div class="banner-application__subtitle">Fashion to Take Away</div>
-      </template>
-      <template #title>
-        <h1 class="banner-application__title">
-          Download our application to your&nbsp;mobile
-        </h1>
-      </template>
       <template #call-to-action>
-        <div>
-          <img
-            class="banner-application__download"
-            src="assets/storybook/Home/google.png"
-            alt=""
-          />
-          <img
-            class="banner-application__download"
-            src="assets/storybook/Home/apple.png"
-            alt=""
-          />
+        <div class="app-banner__call-to-action">
+          <SfButton class="app-banner__button" aria-label="Go to Apple Product">
+            <SfImage src="/assets/storybook/Home/apple.png" />
+          </SfButton>
+          <SfButton
+            class="app-banner__button"
+            aria-label="Go to Google Product"
+          >
+            <SfImage src="/assets/storybook/Home/google.png" />
+          </SfButton>
         </div>
       </template>
     </SfBanner>
@@ -159,249 +99,306 @@
 </template>
 <script>
 import {
+  SfButton,
   SfHero,
+  SfBannerGrid,
   SfBanner,
   SfCallToAction,
   SfSection,
   SfCarousel,
   SfProductCard,
   SfImage,
-  SfBannerGrid
 } from "@storefront-ui/vue";
 export default {
   name: "Home",
   components: {
+    SfButton,
     SfHero,
+    SfBannerGrid,
     SfBanner,
     SfCallToAction,
     SfSection,
     SfCarousel,
     SfProductCard,
     SfImage,
-    SfBannerGrid
   },
   data() {
     return {
+      headingTitle: {
+        mobile: "Match it with",
+        desktop: "Bestsellers",
+      },
       heroes: [
         {
           title: "Colorful summer dresses are already in store",
-          subtitle: "SUMMER COLLECTION 2019",
+          subtitle: "SUMMER COLLECTION 2020",
           buttonText: "Learn more",
-          background: "#eceff1",
-          image: "assets/storybook/Home/bannerH.jpg"
+          background: "rgb(236, 239, 241)",
+          image: "/assets/storybook/Home/hero.png",
         },
         {
           title: "Colorful summer dresses are already in store",
-          subtitle: "SUMMER COLLECTION 2019",
+          subtitle: "SUMMER COLLECTION 2020",
           buttonText: "Learn more",
-          background: "#efebe9",
-          image: "assets/storybook/Home/bannerHM.jpg",
+          background: "rgb(239, 235, 233)",
+          image: "/assets/storybook/Home/bannerHM.jpg",
           className:
-            "sf-hero-item--position-bg-top-left sf-hero-item--align-right"
+            "sf-hero-item--position-bg-top-left sf-hero-item--align-right",
         },
         {
           title: "Colorful summer dresses are already in store",
-          subtitle: "SUMMER COLLECTION 2019",
+          subtitle: "SUMMER COLLECTION 2020",
           buttonText: "Learn more",
-          background: "#fce4ec",
-          image: "assets/storybook/Home/bannerH.jpg"
-        }
+          background: "rgb(236, 239, 241)",
+          image: "/assets/storybook/Home/hero.png",
+        },
+      ],
+      banners: [
+        {
+          slot: "banner-A",
+          subtitle: "Dresses",
+          title: "Cocktail & Party",
+          description:
+            "Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands.",
+          buttonText: "Shop now",
+          image: "/assets/storybook/Home/bannerF.jpg",
+          class: "desktop-only",
+        },
+        {
+          slot: "banner-B",
+          subtitle: "Dresses",
+          title: "Linen Dresses",
+          description:
+            "Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands.",
+          buttonText: "Shop now",
+          image: "/assets/storybook/Home/bannerE.jpg",
+          class: "desktop-only",
+        },
+        {
+          slot: "banner-C",
+          subtitle: "T-Shirts",
+          title: "The Office Life",
+          image: "/assets/storybook/Home/bannerC.jpg",
+        },
+        {
+          slot: "banner-D",
+          subtitle: "Summer Sandals",
+          title: "Eco Sandals",
+          image: "/assets/storybook/Home/bannerG.jpg",
+        },
       ],
       products: [
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/Home/productA.jpg",
-          price: { regular: "50.00 $" },
+          price: { regular: "$ 50.00 " },
           rating: { max: 5, score: 4 },
-          isOnWishlist: true
+          isOnWishlist: true,
+          reviews: 8,
+          badgeLabel: "",
+          badgeColor: "color-primary",
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/Home/productB.jpg",
-          price: { regular: "50.00 $" },
+          price: { regular: "$ 50.00 ", special: "$ 25.00 " },
           rating: { max: 5, score: 4 },
-          isOnWishlist: false
+          isOnWishlist: true,
+          reviews: 8,
+          badgeLabel: "-50%",
+          badgeColor: "color-primary",
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/Home/productC.jpg",
-          price: { regular: "50.00 $" },
+          price: { regular: "$ 50.00 " },
           rating: { max: 5, score: 4 },
-          isOnWishlist: false
+          isOnWishlist: false,
+          reviews: 8,
+          badgeLabel: "",
+          badgeColor: "color-primary",
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/Home/productA.jpg",
-          price: { regular: "50.00 $" },
+          price: { regular: "$ 50.00 " },
           rating: { max: 5, score: 4 },
-          isOnWishlist: false
+          isOnWishlist: false,
+          reviews: 8,
+          badgeLabel: "",
+          badgeColor: "color-primary",
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/Home/productB.jpg",
-          price: { regular: "50.00 $" },
+          price: { regular: "$ 50.00 ", special: "$ 45.00" },
           rating: { max: 5, score: 4 },
-          isOnWishlist: false
+          isOnWishlist: false,
+          reviews: 8,
+          badgeLabel: "-10%",
+          badgeColor: "color-primary",
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/Home/productC.jpg",
-          price: { regular: "50.00 $" },
+          price: { regular: "$ 50.00 " },
           rating: { max: 5, score: 4 },
-          isOnWishlist: false
+          isOnWishlist: false,
+          reviews: 8,
+          badgeLabel: "",
+          badgeColor: "color-primary",
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/Home/productA.jpg",
-          price: { regular: "50.00 $" },
+          price: { regular: "$ 50.00 " },
           rating: { max: 5, score: 4 },
-          isOnWishlist: false
+          isOnWishlist: false,
+          reviews: 8,
+          badgeLabel: "",
+          badgeColor: "color-primary",
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/Home/productB.jpg",
-          price: { regular: "50.00 $" },
+          price: { regular: "$ 50.00 " },
           rating: { max: 5, score: 4 },
-          isOnWishlist: false
-        }
-      ]
+          isOnWishlist: false,
+          reviews: 8,
+          badgeLabel: "",
+          badgeColor: "color-primary",
+        },
+      ],
+      instagramFeed: [
+        [
+          {
+            content: "angelina_trn",
+            mobile: {
+              url: "/assets/storybook/Home/imageA.png",
+            },
+            desktop: {
+              url: "/assets/storybook/Home/imageA.png",
+            },
+          },
+          {
+            content: "angelina_trn",
+            mobile: {
+              url: "/assets/storybook/Home/imageB.png",
+            },
+            desktop: {
+              url: "/assets/storybook/Home/imageB.png",
+            },
+          },
+        ],
+        [
+          {
+            content: "angelina_trn",
+            mobile: {
+              url: "/assets/storybook/Home/imageC.jpg",
+            },
+            desktop: {
+              url: "/assets/storybook/Home/imageC.jpg",
+            },
+          },
+          {
+            content: "angelina_trn",
+            mobile: {
+              url: "/assets/storybook/Home/imageD.jpg",
+            },
+            desktop: {
+              url: "/assets/storybook/Home/imageD.jpg",
+            },
+          },
+        ],
+      ],
     };
   },
   methods: {
     toggleWishlist(index) {
-      this.products[index].isOnWishlist = !this.products[index].isOnWishlist;
-    }
-  }
+      return (this.products[index].isOnWishlist = !this.products[index]
+        .isOnWishlist);
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
-
-@mixin for-desktop {
-  @media screen and (min-width: $desktop-min) {
-    @content;
-  }
-}
-
 #home {
   box-sizing: border-box;
+  padding: 0 var(--spacer-sm);
   @include for-desktop {
-    max-width: 1240px;
-    margin: auto;
+    padding: 0 var(--spacer-sm);
+    max-width: 1272px;
+    margin: 0 auto;
   }
 }
-
-.call-to-action-newsletter {
-  margin: var(--spacer-big) 0;
-  box-sizing: border-box;
+.carousel {
+  margin: 0 calc(var(--spacer-sm) * -1) 0 0;
   @include for-desktop {
-    margin: calc(var(--spacer-extra-big) * 2) 0;
+    margin: 0;
+  }
+  &__item {
+    margin: 1.9375rem 0 2.4375rem 0;
   }
 }
-
-.banner-central {
+.banner-grid {
+  margin: var(--spacer-base) 0;
   @include for-desktop {
-    padding-right: 30%;
+    margin: var(--spacer-2xl) 0;
   }
 }
-
-.banner-application {
-  min-height: 420px;
-  max-width: 1040px;
-  margin: auto;
-  padding-right: calc(25% + 5rem);
-  padding-left: 2.5rem;
-  line-height: 1.6;
-
-  &__title {
-    margin: var(--spacer-big) 0 0 0;
-    font-size: var(--h1-font-size);
-    font-weight: var(--h1-font-weight);
-  }
-
-  &__subtitle {
-    color: #a3a5ad;
-    font-family: var(--body-font-family-primary);
-    font-size: var(--font-size-extra-big);
-    font-weight: var(--body-font-weight-primary);
-  }
-
-  &__download {
-    max-height: 47px;
-    margin-top: var(--spacer-extra-big);
-
-    & + & {
-      margin-left: var(--spacer-big);
-    }
-  }
+.call-to-action {
+  display: flex;
 }
-
-.banners {
-  margin: var(--spacer-big) 0;
-  @include for-desktop {
-    margin: var(--spacer-extra-big) 0;
-  }
-}
-
-.images-grid {
-  max-width: 960px;
-  margin: auto;
-
+.instagram-grid {
+  max-width: 60rem;
+  margin: 0 auto;
   &__row {
     display: flex;
-
     & + & {
-      margin-top: calc(var(--spacer-big) / 2);
+      margin: var(--spacer-xs) 0 0 0;
       @include for-desktop {
-        margin-top: var(--spacer-big);
+        margin: calc(var(--spacer-xl) / 2) 0 0 0;
       }
     }
   }
-
   &__col {
-    margin: 0;
     flex: 1;
-
+    margin: 0;
     & + & {
-      margin-left: calc(var(--spacer-big) / 2);
+      margin: 0 0 0 var(--spacer-xs);
       @include for-desktop {
-        margin-left: var(--spacer-big);
+        margin: 0 0 0 calc(var(--spacer-xl) / 2);
       }
     }
   }
 }
-
-.product-card {
-  max-width: unset;
-
-  &:hover {
-    @include for-desktop {
-      box-shadow: 0 4px 20px rgba(168, 172, 176, 0.19);
+.app-banner {
+  --banner-container-width: 100%;
+  --banner-title-margin: var(--spacer-base) 0 var(--spacer-xl) 0;
+  --banner-padding: 0 var(--spacer-2xl);
+  --banner-title-font-size: var(--h1-font-size);
+  --banner-subtitle-font-size: var(--font-xl);
+  --banner-title-font-weight: var(--font-semibold);
+  --banner-subtitle-font-weight: var(--font-medium);
+  --banner-title-text-transform: capitalize;
+  --banner-subtitle-text-transform: capitalize;
+  display: block;
+  min-height: 26.25rem;
+  max-width: 65rem;
+  margin: 0 auto;
+  padding: 0 calc(25% + var(--spacer-2xl)) 0 var(--spacer-xl);
+  &__call-to-action {
+    --button-background: transparent;
+    display: flex;
+  }
+  &__button {
+    --image-width: 8.375rem;
+    --image-height: 2.75rem;
+    --button-padding: 0;
+    & + & {
+      margin: 0 0 0 calc(var(--spacer-xl) / 2);
     }
-  }
-}
-
-.product-carousel {
-  margin: -20px - var(--spacer-big) -20px 0;
-  @include for-desktop {
-    margin: -20px 0;
-  }
-
-  ::v-deep .sf-carousel__wrapper {
-    padding: 20px 0;
-    @include for-desktop {
-      padding: 20px;
-      max-width: calc(100% - 216px);
-    }
-  }
-}
-
-.section {
-  padding-left: var(--spacer-big);
-  padding-right: var(--spacer-big);
-  @include for-desktop {
-    padding-left: 0;
-    padding-right: 0;
   }
 }
 </style>

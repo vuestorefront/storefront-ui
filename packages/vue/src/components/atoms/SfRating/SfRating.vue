@@ -4,8 +4,8 @@
     <slot v-for="index in parseInt(finalScore, 10)" name="icon-positive">
       <SfIcon
         :key="`p${index}`"
-        size="14px"
-        class="sf-rating__icon-positive"
+        size="0.875rem"
+        class="sf-rating__icon"
         icon="star"
       />
     </slot>
@@ -16,8 +16,8 @@
     >
       <SfIcon
         :key="`n${index}`"
-        size="14px"
-        class="sf-rating__icon-negative"
+        size="0.875rem"
+        class="sf-rating__icon sf-rating__icon--negative"
         icon="star"
       />
     </slot>
@@ -28,7 +28,7 @@ import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 export default {
   name: "SfRating",
   components: {
-    SfIcon
+    SfIcon,
   },
   props: {
     /**
@@ -36,15 +36,15 @@ export default {
      */
     max: {
       type: Number,
-      default: 5
+      default: 5,
     },
     /**
      * Score (obviously must be less than maximum)
      */
     score: {
       type: Number,
-      default: 1
-    }
+      default: 1,
+    },
   },
   computed: {
     finalScore() {
@@ -62,8 +62,8 @@ export default {
     },
     finalMax() {
       return !this.max || this.max <= 0 ? 1 : this.max;
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

@@ -1,15 +1,14 @@
-@import '../../variables';
-:root {
-  --section-margin-y: calc(var(--spacer-big) * 3);
-  --section__content-margin-top: var(--spacer-big);
-  @media screen and (min-width: $desktop-min) {
-    --section-margin-y: 10rem;
-    --section__content-margin-top: calc(var(--spacer-extra-big) * 1.5);
-  }
-}
+@import "../../helpers";
 .sf-section {
-  margin: var(--section-margin-y) 0;
+  margin: var(
+    --section-margin,
+    calc(var(--spacer-lg) * 2) 0 var(--spacer-lg) 0
+  );
   &__content {
-    margin-top: var(--section__content-margin-top);
+    margin: var(--section-content-margin, calc(var(--spacer-lg) * 2) 0 0 0);
+  }
+  @include for-desktop {
+    --section-margin: var(--spacer-3xl) 0;
+    --section-content-margin: var(--spacer-2xl) 0 0 0;
   }
 }

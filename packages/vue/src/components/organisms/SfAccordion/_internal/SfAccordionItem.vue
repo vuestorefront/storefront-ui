@@ -7,51 +7,63 @@
         header,
         isOpen,
         accordionClick,
-        showChevron: $parent.showChevron
+        showChevron: $parent.showChevron,
       }"
     >
-      <div
+      <SfButton
+        :aria-pressed="isOpen.toString()"
+        :aria-expanded="isOpen.toString()"
         :class="{ 'sf-accordion-item__header--open': isOpen }"
-        class="sf-accordion-item__header"
+        class="sf-button--pure sf-accordion-item__header"
         @click="accordionClick"
       >
         {{ header }}
-        <div v-if="$parent.showChevron" class="sf-accordion-item__chevron">
-          <SfChevron :class="{ 'sf-chevron--top': isOpen }" />
+        <SfChevron
+          tabindex="0"
+          class="sf-accordion-item__chevron"
+          :class="{ 'sf-chevron--right': !isOpen }"
+        />
+      </SfButton>
+    </slot>
+    <SfExpand :transition="$parent.transition">
+      <div v-if="isOpen">
+        <div class="sf-accordion-item__content">
+          <!-- @slot -->
+          <slot />
         </div>
       </div>
-    </slot>
-    <transition :name="$parent.transition">
-      <div v-if="isOpen" class="sf-accordion-item__content">
-        <!-- @slot -->
-        <slot />
-      </div>
-    </transition>
+    </SfExpand>
   </div>
 </template>
 <script>
+import { focus } from "../../../../utilities/directives";
+import SfExpand from "../../../../utilities/transitions/component/SfExpand";
 import SfChevron from "../../../atoms/SfChevron/SfChevron.vue";
+import SfButton from "../../../atoms/SfButton/SfButton.vue";
 export default {
   name: "SfAccordionItem",
+  directives: { focus },
   components: {
-    SfChevron
+    SfChevron,
+    SfButton,
+    SfExpand,
   },
   props: {
     header: {
       type: String,
-      default: ""
-    }
+      default: "",
+    },
   },
   data() {
     return {
-      isOpen: false
+      isOpen: false,
     };
   },
   methods: {
     accordionClick() {
       this.$parent.$emit("toggle", this._uid);
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

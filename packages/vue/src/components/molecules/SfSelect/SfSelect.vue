@@ -1,72 +1,99 @@
 <template>
   <div
-    :aria-expanded="open ? 'true' : 'false'"
+    v-click-outside="checkPersistence"
+    :aria-expanded="open.toString()"
     :aria-owns="'lbox_' + _uid"
-    aria-autocomplete="none"
-    role="combobox"
-    tabindex="0"
+    :aria-label="label"
+    role="listbox"
     :class="{
       'sf-select--is-active': isActive,
       'sf-select--is-selected': isSelected,
-      'sf-select--is-required': required
+      'sf-select--is-required': required,
+      'sf-select--is-disabled': disabled,
+      'sf-select--is-invalid': !valid,
     }"
     class="sf-select"
     @click="toggle($event)"
-    @blur="closeHandler"
+    @keyup.esc="closeHandler"
     @keyup.space="openHandler"
     @keyup.up="move(-1)"
     @keyup.down="move(1)"
     @keyup.enter="enter($event)"
   >
-    <div style="position: relative">
-      <!-- eslint-disable-next-line vue/no-v-html -->
-      <div class="sf-select__selected sf-select-option" v-html="html"></div>
+    <div style="position: relative;">
+      <div
+        ref="sfSelect"
+        v-focus
+        tabindex="0"
+        class="sf-select__selected sf-select-option"
+        v-on="$listeners"
+        v-html="html"
+      ></div>
       <slot name="label">
         <div v-if="label" class="sf-select__label">
           {{ label }}
         </div>
       </slot>
-      <SfOverlay :visible="open" class="sf-select__overlay" />
+      <slot name="icon">
+        <SfChevron class="sf-select__chevron" />
+      </slot>
+      <SfOverlay
+        ref="overlay"
+        :visible="open"
+        class="sf-select__overlay mobile-only"
+      />
       <transition name="sf-select">
         <div v-show="open" class="sf-select__dropdown">
           <!--  sf-select__option -->
-          <ul :style="{ maxHeight }" class="sf-select__options">
+          <ul
+            :aria-expanded="open.toString()"
+            :style="{ maxHeight }"
+            class="sf-select__options"
+          >
             <slot />
           </ul>
-          <SfButton
-            ref="cancel"
-            class="sf-select__cancel sf-button--full-width"
-            @click="closeHandler"
-          >
-            Cancel
-          </SfButton>
+          <slot name="cancel">
+            <SfButton
+              ref="cancel"
+              class="sf-select__cancel sf-button--full-width mobile-only"
+              @click="closeHandler"
+            >
+              Cancel
+            </SfButton>
+          </slot>
         </div>
       </transition>
     </div>
-    <div v-if="valid !== undefined" class="sf-select__error-message">
-      <transition name="fade">
-        <span v-if="valid === false">
-          <slot name="error-message">{{ errorMessage }}</slot>
-        </span>
+    <div class="sf-select__error-message">
+      <transition name="sf-fade">
+        <!-- @slot Custom error message of form select -->
+        <slot v-if="!valid" name="error-message" v-bind="{ errorMessage }">
+          <span> {{ errorMessage }} </span>
+        </slot>
       </transition>
     </div>
   </div>
 </template>
 <script>
 import SfSelectOption from "./_internal/SfSelectOption.vue";
+import SfChevron from "../../atoms/SfChevron/SfChevron.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
+import { focus } from "../../../utilities/directives";
+import { clickOutside } from "../../../utilities/directives";
 import Vue from "vue";
 Vue.component("SfSelectOption", SfSelectOption);
 export default {
   name: "SfSelect",
+  directives: { focus, clickOutside },
   components: {
     SfButton,
-    SfOverlay
+    SfChevron,
+    SfOverlay,
   },
   model: {
     prop: "selected",
-    event: "change"
+    event: "change",
   },
   props: {
     /**
@@ -74,50 +101,65 @@ export default {
      */
     label: {
       type: String,
-      default: ""
+      default: "",
     },
     /**
      * Selected item value
      */
     selected: {
-      type: [String, Object],
-      default: ""
+      type: [String, Number, Object],
+      default: "",
     },
     /**
      * Dropdown list size
      */
     size: {
       type: Number,
-      default: 5
+      default: 5,
     },
     /**
      * Required attribute
      */
     required: {
       type: Boolean,
-      default: false
+      default: false,
     },
     /**
-     * Validate value of form input
+     * Validate value of form select
      */
     valid: {
       type: Boolean,
-      default: undefined
+      default: true,
+    },
+    /**
+     * Disabled status of form select
+     */
+    disabled: {
+      type: Boolean,
+      default: false,
     },
     /**
      * Error message value of form select. It will be appeared if `valid` is `true`.
      */
     errorMessage: {
       type: String,
-      default: "This field is not correct."
-    }
+      default: "This field is not correct.",
+    },
+    /**
+     * If true clicking outside will not dismiss the select
+     */
+    persistent: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
       open: false,
       options: [],
       indexes: {},
-      optionHeight: 0
+      optionHeight: 0,
+      focusedOption: "",
     };
   },
   computed: {
@@ -130,61 +172,72 @@ export default {
         return stringified;
       },
       set(index) {
+        this.focusedOption = this.options[index].value;
         this.$emit("change", this.options[index].value);
-      }
+      },
     },
     html() {
       if (this.index < 0) return;
       return this.options[this.index].html;
     },
     maxHeight() {
-      if (!this.size) return;
-      return `${this.optionHeight * this.size}px`;
+      if (!this.options.length) return;
+      return `${this.optionHeight * this.options.length}px`;
     },
     isActive() {
       return this.open;
     },
     isSelected() {
       return this.selected;
-    }
+    },
   },
   watch: {
     open: {
       immediate: true,
-      handler: function(visible) {
+      handler: function (visible) {
         if (visible) {
           this.$nextTick(() => {
-            this.optionHeight = this.$slots.default[0].elm.offsetHeight;
+            if (this.$slots.default) {
+              this.optionHeight = this.$slots.default[0].elm.offsetHeight;
+            }
           });
         }
+      },
+    },
+  },
+  created: function () {},
+  mounted: function () {
+    this.addOptionsAndIndexes();
+  },
+  updated() {
+    if (this.$slots.default) {
+      if (this.$slots.default.length > this.options.length) {
+        this.addOptionsAndIndexes();
       }
     }
   },
-  created: function() {},
-  mounted: function() {
-    const options = [];
-    const indexes = {};
-    let i = 0;
-    if (!this.$slots.default) return;
-    this.$on("update", this.update);
-    this.$slots.default.forEach(slot => {
-      if (!slot.tag) return;
-      options.push({
-        ...slot.componentOptions.propsData,
-        html: slot.elm.innerHTML
-      });
-      indexes[JSON.stringify(slot.componentOptions.propsData.value)] = i;
-      i++;
-    });
-    this.options = options;
-    this.indexes = indexes;
-  },
-  beforeDestroy: function() {
+  beforeDestroy: function () {
     this.$off("update", this.update);
   },
   methods: {
     update(index) {
       this.index = index;
+    },
+    addOptionsAndIndexes() {
+      const options = [];
+      const indexes = {};
+      if (!this.$slots.default) return;
+      this.$on("update", this.update);
+      this.$slots.default.forEach(({ tag, componentOptions, elm }, index) => {
+        if (!tag) return;
+        options.push({
+          ...componentOptions.propsData,
+          html: elm.innerHTML,
+        });
+        indexes[JSON.stringify(componentOptions.propsData.value)] = index;
+      });
+      this.options = options;
+      this.indexes = indexes;
     },
     move(payload) {
       const optionsLength = this.options.length;
@@ -193,23 +246,38 @@ export default {
       if (index < 0) index = 0;
       if (index >= optionsLength) index = optionsLength - 1;
       this.index = index;
+      this.$refs.sfSelect.blur();
+      document.getElementById(this.focusedOption).focus();
     },
     enter() {
       this.toggle();
     },
     toggle(event) {
-      if (this.$refs.cancel && event.target.contains(this.$refs.cancel.$el)) {
+      if (
+        (this.$refs.cancel &&
+          event &&
+          event.target.contains(this.$refs.cancel.$el)) ||
+        (this.$refs.overlay &&
+          event &&
+          this.persistent &&
+          event.target.contains(this.$refs.overlay.$el)) ||
+        this.disabled
+      )
         return;
-      }
       this.open = !this.open;
+    },
+    checkPersistence() {
+      if (!this.persistent) {
+        this.closeHandler();
+      }
     },
     openHandler() {
       this.open = true;
     },
     closeHandler() {
       this.open = false;
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

@@ -8,60 +8,10 @@
       "orgUrl": "https://www.vuestorefront.io/"
     },
     "location": "Wrocław, Poland",
-    "languages": ["pl", "en"],
+    "languages": ["pl","en"],
     "socials": {
       "github": "filrak",
       "twitter": "filrakowski"
-    }
-  },
-  {
-    "name": "Przemysław Spaczek",
-    "role": "Maintainer",
-    "work": {
-      "title": "Frontend Developer",
-      "org": "DivanteLtd",
-      "orgUrl": "https://github.com/DivanteLtd"
-    },
-    "location": "Wrocław, Poland",
-    "languages": ["pl", "en"],
-    "socials": {
-      "github": "pspaczek",
-      "twitter": "przemekspaczek"
-    }
-  },
-  {
-    "name": "Anna Musiał",
-    "role": "Maintainer",
-    "work": {
-      "title": "Junior Frontend Developer",
-      "org": "DivanteLtd",
-      "orgUrl": "https://github.com/DivanteLtd"
-    },
-    "location": "Wrocław, Poland",
-    "languages": ["pl", "en"],
-    "socials": {
-      "github": "aniamusial",
-      "twitter": "musialania"
-    }
-  },
-  {
-    "name": "Maya Shavin",
-    "role": "Maintainer",
-    "work": {
-      "title": "Senior Frontend Developer",
-      "org": "Cloudinary",
-      "orgUrl": "https://cloudinary.com"
-    },
-    "location": "Israel",
-    "languages": ["vi", "he", "en"],
-    "links": [
-      "https://mayashavin.com",
-      "https://m16yproject.io",
-      "https://vuejsisrael.com"
-    ],
-    "socials": {
-      "github": "mayashavin",
-      "twitter": "mayashavin"
     }
   },
   {
@@ -73,11 +23,48 @@
       "orgUrl": "https://github.com/ecomclub"
     },
     "location": "BH - Minas Gerais - Brasil",
-    "languages": ["pt", "en"],
-    "links": ["https://ecom.bhz.br"],
+    "languages": ["pt","en"],
+    "links": [
+      "https://ecom.bhz.br"
+    ],
     "socials": {
       "github": "leomp12",
       "linkedin": "leonardo-matos-13248810b"
+    }
+  },
+  {
+    "name": "Przemysław Spaczek",
+    "role": "Maintainer",
+    "work": {
+      "title": "Senior Frontend Developer",
+      "org": "DivanteLtd",
+      "orgUrl": "https://github.com/DivanteLtd"
+    },
+    "location": "Wrocław, Poland",
+    "languages": ["pl","en"],
+    "socials": {
+      "github": "pspaczek",
+      "twitter": "przemekspaczek"
+    }
+  },
+  {
+    "name": "Maya Shavin",
+    "role": "Maintainer",
+    "work": {
+      "title": "Senior Frontend Developer",
+      "org": "Cloudinary",
+      "orgUrl": "https://cloudinary.com"
+    },
+    "location": "Israel",
+    "languages": ["vi","he","en"],
+    "links": [
+      "https://mayashavin.com",
+      "https://m16yproject.io",
+      "https://vuejsisrael.com"
+    ],
+    "socials": {
+      "github": "mayashavin",
+      "twitter": "mayashavin"
     }
   },
   {
@@ -89,7 +76,7 @@
       "orgUrl": "https://gitlab.com/"
     },
     "location": "Budapest, Hungary",
-    "languages": ["it", "en"],
+    "languages": ["it","en"],
     "socials": {
       "github": "DonNicoJs",
       "twitter": "DonNicoJs"
@@ -104,10 +91,40 @@
       "orgUrl": "https://www.ifm.com"
     },
     "location": "Essen, Germany",
-    "languages": ["de", "en"],
+    "languages": ["de","en"],
     "socials": {
       "github": "EduardDopler",
       "twitter": "quotingeddie"
+    }
+  },
+  {
+    "name": "Anna Musiał",
+    "role": "Maintainer",
+    "work": {
+      "title": "Frontend Developer",
+      "org": "DivanteLtd",
+      "orgUrl": "https://github.com/DivanteLtd"
+    },
+    "location": "Wrocław, Poland",
+    "languages": ["pl","en"],
+    "socials": {
+      "github": "aniamusial",
+      "twitter": "musialania"
+    }
+  },
+  {
+    "name": "Marta Radziszewska",
+    "role": "Maintainer",
+    "work": {
+      "title": "Frontend Developer",
+      "org": "DivanteLtd",
+      "orgUrl": "https://github.com/DivanteLtd"
+    },
+    "location": "Wrocław, Poland",
+    "languages": ["pl","en"],
+    "socials": {
+      "github": "martaradziszewska",
+      "twitter": "mradziszewska_"
     }
   }
 ]

@@ -1,45 +1,68 @@
-@import '../../variables';
-:root {
-  --accordion-font-family: var(--body-font-family-secondary);
-  --accordion-font-size: var(--font-size-regular);
-  --accordion-font-weight: var(--body-font-weight-secondary);
-  --accordion-line-height: 1.6;
-  --accordion__title-padding-y: .625rem;
-  --accordion__title-font-size: var(--font-size-big);
-  --accordion__content-padding-y: 1.875rem;
-  @media screen and (min-width: $desktop-min) {
-    --accordion-font-size: var(--font-size-regular);
-    --accordion__title-font-size: var(--font-size-big);
-  }
-}
+@import "../../helpers";
 .sf-accordion-item {
-  $this: &;
-  font-family: var(--accordion-font-family);
-  font-size: var(--accordion-font-size);
-  font-weight: var(--accordion-font-weight);
-  line-height: var(--accordion-line-height);
+  will-change: height;
+  transform: translateZ(0);
+  backface-visibility: hidden;
   &__header {
     display: flex;
-    justify-content: space-between;
-    padding: var(--accordion__title-padding-y) 0;
-    color: var(--c-dark);
-    cursor: pointer;
-    font-size: var(--accordion__title-font-size);
+    justify-content: var(--accordion-item-header-justify, space-between);
+    padding: var(--accordion-item-header-padding, var(--spacer-sm));
+    color: var(--accordion-item-header-color);
+    transition: color 150ms ease-in-out;
+    width: 100%;
+    @include border(
+      --accordion-item-header-border,
+      0 0 1px 0,
+      solid,
+      var(--c-light)
+    );
+    @include font(
+      --accordion-item-header-font,
+      var(--font-medium),
+      var(--font-base),
+      1.4,
+      var(--font-family-secondary)
+    );
+    &--open {
+      --accordion-item-header-border-width: 0;
+      --accordion-item-header-color: var(--c-primary);
+    }
   }
   &__content {
-    padding: var(--accordion__content-padding-y) 0;
+    padding: var(
+      --accordion-item-content-padding,
+      var(--spacer-base) var(--spacer-sm)
+    );
+    color: var(--accordion-item-content-color, var(--c-text));
+    @include border(
+      --accordion-item-content-border,
+      1px 0,
+      solid,
+      var(--c-light)
+    );
+    @include font(
+      --accordion-item-content-font,
+      var(--font-light),
+      var(--font-base),
+      1.6,
+      var(--font-family-primary)
+    );
   }
   &__chevron {
-    display: none;
+    display: var(--accordion-item-chevron-display, none);
+    flex: 0 0 auto;
+  }
+  @include for-desktop {
+    --accordion-item-header-padding: var(--spacer-xs) 0;
+    --accordion-item-header-font-size: var(--h4-font-size);
+    --accordion-item-header-font-weight: var(--font-normal);
+    --accordion-item-header-border-width: 0;
+    --accordion-item-content-border-width: 0;
+    --accordion-item-content-padding: var(--spacer-base) 0;
   }
 }
 .sf-accordion {
-  $this: &;
   &--has-chevron {
-    #{$this}-item__chevron {
-      display: flex;
-      align-items: center;
-      max-height: calc(var(--accordion-font-size) * var(--accordion-line-height));
-    }
+    --accordion-item-chevron-display: flex;
   }
 }

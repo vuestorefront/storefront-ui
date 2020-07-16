@@ -1,62 +1,37 @@
-@import '../../variables';
-:root {
-  --pagination-font-family: var(--body-font-family-secondary);
-  --pagination-font-size: var(--font-size-big);
-  --pagination-font-weight: var(--body-font-weight-secondary);
-  --pagination-line-height: 1.6;
-  --pagination__item-margin: 0 calc(var(--spacer-big) / 4);
-  --pagination__item-color: var(--c-text-muted);
-  --pagination__button--current-color: var(--c-text);
-  --pagination__button--navigation-margin: 3rem;
-  --pagination__button-transition: color 150ms ease-in-out, border-color 150ms ease-in-out;
-  @media screen and (min-width: $desktop-min) {
-    --pagination__item-margin: 0 calc(var(--spacer-big) / 2);
-  }
-}
+@import "../../helpers";
 .sf-pagination {
-  font-family: var(--pagination-font-family);
-  font-size: var(--pagination-font-size);
-  font-weight: var(--pagination-font-weight);
-  line-height: var(--pagination-line-height);
-  &__list {
-    display: flex;
-    align-items: center;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
+  display: flex;
+  align-items: center;
   &__item {
-    display: flex;
-    align-items: center;
-    margin: var(--pagination__item-margin);
-    color: var(--pagination__item-color);
-  }
-  &__button {
-    padding: 0;
-    border: 0;
-    background-color: transparent;
-    font-family: inherit;
-    font-size: inherit;
-    font-weight: inherit;
-    line-height: inherit;
-    cursor: pointer;
-    color: inherit;
-    outline: none;
-    border-bottom: 1px solid transparent;
-    transition: var(--pagination__button-transition);
+    --link-text-decoration: none;
+    --link-color: var(--c-text-muted);
+    width: var(--pagination-item-width);
+    height: var(--pagination-item-height);
+    margin: var(--pagination-item-margin, 0 var(--spacer-2xs));
+    color: var(--c-text-muted);
+    @include font(
+      --pagination-font,
+      var(--font-normal),
+      var(--font-lg),
+      1.4,
+      var(--font-family-secondary)
+    );
+    &--prev, &--next {
+      --pagination-item-width: 1.125rem;
+      --pagination-item-height: 1.125rem;
+    }
     &--prev {
-      margin-right: var(--pagination__button--navigation-margin);
+      --pagination-item-margin: 0 var(--spacer-lg) 0 0;
     }
     &--next {
-      margin-left: var(--pagination__button--navigation-margin);
+      --pagination-item-margin: 0 0 0 var(--spacer-lg);
     }
     &--current {
-      color: var(--pagination__button--current-color);
-      border-color: var(--pagination__button--current-color);
-    }
-    &[disabled] {
+      color: var(--c-text);
       cursor: default;
-      opacity: .7;
     }
+  }
+  @include for-desktop {
+    --pagination-item-margin: 0 var(--spacer-xs);
   }
 }

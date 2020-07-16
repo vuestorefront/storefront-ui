@@ -11,23 +11,26 @@
           <SfCheckbox
             v-model="newsletter"
             label="Woman"
+            name="Woman"
             value="woman"
             class="form__element"
           />
           <SfCheckbox
             v-model="newsletter"
             label="Man"
+            name="Man"
             value="man"
             class="form__element"
           />
           <SfCheckbox
             v-model="newsletter"
             label="Children"
+            name="Children"
             value="children"
             class="form__element"
           />
         </div>
-        <SfButton class="form__button">Join Newsletter</SfButton>
+        <SfButton class="form__button">Save changes</SfButton>
       </div>
       <p class="notice">
         I have read and understand the <a href="#">Privacy</a> and
@@ -39,96 +42,59 @@
 </template>
 <script>
 import { SfTabs, SfCheckbox, SfButton } from "@storefront-ui/vue";
-
 export default {
   name: "MyNewsletter",
   components: { SfTabs, SfCheckbox, SfButton },
   data() {
-    return { newsletter: "" };
-  }
+    return {
+      newsletter: [],
+    };
+  },
 };
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
-
-@mixin for-mobile {
-  @media screen and (max-width: $desktop-min) {
-    @content;
+.tab-orphan {
+  @include for-mobile {
+    --tabs-title-display: none;
+    --tabs-content-padding: 0;
+    --tabs-conent-border-width: 0;
   }
 }
-
-@mixin for-desktop {
-  @media screen and (min-width: $desktop-min) {
-    @content;
-  }
-}
-
 .form {
   &__element {
-    margin: 0 0 var(--spacer-big) 0;
-
+    margin: 0 0 var(--spacer-base) 0;
     &:last-child {
       margin: 0;
     }
   }
-
   &__checkbox-group {
-    margin: 0 0 var(--spacer-extra-big) 0;
+    margin: 0 0 var(--spacer-xl) 0;
   }
-
   &__title {
-    margin: 0 0 var(--spacer-big) 0;
-    font-family: var(--body-font-family-secondary);
-    font-size: var(--font-size-big);
-    font-weight: 500;
-    line-height: 1.6;
-    @include for-desktop {
-      font-size: var(--font-size-regular);
-    }
+    margin: 0 0 var(--spacer-base) 0;
   }
-
   &__button {
-    width: 100%;
+    --button-width: 100%;
     @include for-desktop {
-      width: auto;
+      --button-width: auto;
     }
   }
 }
-
-.message,
-.notice {
-  font-family: var(--body-font-family-primary);
-  font-weight: var(--body-font-weight-primary);
-  line-height: 1.6;
-}
-
 .message {
-  margin: 0 0 var(--spacer-extra-big) 0;
-  font-size: var(--font-size-regular);
+  margin: 0 0 var(--spacer-xl) 0;
+  color: var(--c-dark-variant);
 }
-
+a {
+  color: var(--c-primary);
+  text-decoration: none;
+  &:hover {
+    color: var(--c-text);
+  }
+}
 .notice {
-  margin: var(--spacer-big) 0 0 0;
-  font-size: var(--font-size-small);
-  @include for-desktop {
-    max-width: 70%;
-    margin: var(--spacer) 0 0 0;
-    font-size: var(--font-size-extra-small);
-  }
-}
-
-.tab-orphan {
-  @include for-mobile {
-    ::v-deep .sf-tabs {
-      &__title {
-        display: none;
-      }
-
-      &__content {
-        border: 0;
-        padding: 0;
-      }
-    }
-  }
+  max-width: 31rem;
+  margin: var(--spacer-base) 0 0 0;
+  font-size: var(--font-2xs);
 }
 </style>
