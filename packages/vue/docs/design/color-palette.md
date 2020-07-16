@@ -92,7 +92,7 @@ In order to maximize ease of use for `SfIcon` in rendering custom SVG icons, we 
 
 ### Use with classes
 
-Each color used from this list for the icon will be converted to a proper color class, following the syntax `sf-icon--color-<color>`. For example `sf-icon--color-green-primary`. These classes for colors are defined [here](https://github.com/DivanteLtd/storefront-ui/blob/develop/packages/shared/styles/components/SfIcon.scss)
+Each color used from this list for the icon will be converted to a proper color class, following the syntax `sf-icon--color-<color>`. For example `sf-icon--color-green-primary`. These classes for colors are defined [here](https://github.com/DivanteLtd/storefront-ui/blob/develop/packages/shared/styles/components/atoms/SfIcon.scss)
 
 You can apply any color from the list above to an icon, simply by passing the color's label to `color` prop, e.g
 ```html
