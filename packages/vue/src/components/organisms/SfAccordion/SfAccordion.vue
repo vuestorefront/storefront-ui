@@ -52,7 +52,7 @@ export default {
   data() {
     return {
       openedHeader: this.open,
-    }
+    };
   },
   mounted() {
     this.$on("toggle", this.toggleHandler);
@@ -85,7 +85,7 @@ export default {
       if (!this.multiple && !Array.isArray(this.openedHeader)) {
         this.$children.forEach((child) => {
           if (child._uid === slotId) {
-            child.isOpen = !child.isOpen
+            child.isOpen = !child.isOpen;
             this.openedHeader = child.header;
           } else {
             child.isOpen = false;
