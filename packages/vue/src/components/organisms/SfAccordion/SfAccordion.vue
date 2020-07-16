@@ -51,7 +51,7 @@ export default {
   },
   data() {
     return {
-      openedHeader: this.open,
+      openHeader: this.open,
     };
   },
   mounted() {
@@ -75,18 +75,18 @@ export default {
         }
         // <- TODO remove in 1.0.0
         this.$children.forEach((child) => {
-          child.isOpen = Array.isArray(this.openedHeader)
-            ? this.openedHeader.includes(child.header)
-            : this.openedHeader === child.header;
+          child.isOpen = Array.isArray(this.openHeader)
+            ? this.openHeader.includes(child.header)
+            : this.openHeader === child.header;
         });
       }
     },
     toggleHandler(slotId) {
-      if (!this.multiple && !Array.isArray(this.openedHeader)) {
+      if (!this.multiple && !Array.isArray(this.openHeader)) {
         this.$children.forEach((child) => {
           if (child._uid === slotId) {
             child.isOpen = !child.isOpen;
-            this.openedHeader = child.header;
+            this.openHeader = child.header;
           } else {
             child.isOpen = false;
           }
