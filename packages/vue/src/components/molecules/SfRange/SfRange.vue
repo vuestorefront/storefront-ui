@@ -9,7 +9,7 @@
 </template>
 <script>
 import noUiSlider from "nouislider";
-import focus from "../../../utilities/directives";
+import { focus } from "../../../utilities/directives";
 export default {
   name: "SfRange",
   directives: {
@@ -150,8 +150,9 @@ export default {
     resetAndChangeOption(changedValue) {
       if (this.$refs.range) {
         this.$refs.range.noUiSlider.destroy();
+        const newConfig = Object.assign(this.config, changedValue);
         noUiSlider
-          .create(this.$refs.range, { ...this.config, ...changedValue })
+          .create(this.$refs.range, newConfig)
           .on("change", (values) => this.$emit("change", values));
       }
     },

@@ -13,7 +13,7 @@
   .noUi-handle {
     width: var(--range-handle-width, var(--range-handle-size, 33px));
     height: var(--range-handle-width, var(--range-handle-size, 33px));
-    transform: translate3d(0, -20%, 0);
+    transform: var(--range-handle-transform, translate3d(0, -20%, 0));
     @include border(
       --range-handle-border,
       1px, 
@@ -29,21 +29,6 @@
     &::before,
     &::after {
       display: none;
-    }  
-  }
-  .noUi-connect {
-    background: var(--range-handle-background, var(--c-primary));
-  }
-  .noUi-touch-area {
-    background: var(--range-handle-background);
-    border-radius: var(--range-handle-border-radius);
-  }
-  .noUi-vertical {
-    --range-height: 100%;
-    --range-width: 7px;
-    .noUi-connect {
-      height: 100%;
-      width: 7px;
     }
   }
   &[disabled="disabled"] {
@@ -54,4 +39,22 @@
       --range-handle-background: var(--c-text-disabled);
     }
   }  
+}
+
+.noUi-vertical {
+  --range-height: 100px;
+  --range-width: 7px;
+  --range-handle-transform: translate3d(20%, 0, 0);
+  .noUi-connect {
+    height: var(--range-height);
+    width: 7px;
+  }
+}
+.noUi-connect {
+  background: var(--range-handle-background, var(--c-primary));
+}
+
+.noUi-touch-area {
+  background: var(--range-handle-background);
+  border-radius: var(--range-handle-border-radius);
 }
