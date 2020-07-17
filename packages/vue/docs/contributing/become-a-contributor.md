@@ -67,7 +67,7 @@ If you are sure your issue is a bug, or a valid feature request, [file a new iss
 
 ### Work on Documentation
 
-Good and friendly documentation is **extremply significant** for our community, for every reason. Currently we have lots of work needed to be done on this matter. Would you like to help us a hand to build the best documentation? 😉
+Good and friendly documentation is **extremly significant** for our community, for every reason. Currently we have lots of work needed to be done on this matter. Would you like to help us a hand to build the best documentation? 😉
 
 StorefrontUI aims to be an international community, with the core team coming from different timezones across the globe. Thus, we are actively looking for contributors on the following:
 
