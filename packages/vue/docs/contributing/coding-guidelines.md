@@ -83,7 +83,7 @@ Keep up to 2 BEM levels (elements) at **most**.
 
 ```css
 .sf-button {
-	padding: var(--button-padding, var(--spacer));
+  padding: var(--button-padding, var(--spacer));
 }
 ```
 or empty variable without default
@@ -168,9 +168,9 @@ All global variables are here `shared/styles/_variables.scss`
 - If you want to customize:
 ```css
 .sf-banner {
-	&__title {
-		--banner-title-font-size: var(--font-size-regular);
-	}
+  &__title {
+    --banner-title-font-size: var(--font-size-regular);
+  }
 }
 ```
 
