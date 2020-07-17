@@ -49,6 +49,11 @@ export default {
       default: true,
     },
   },
+  data() {
+    return {
+      openHeader: this.open,
+    };
+  },
   mounted() {
     this.$on("toggle", this.toggleHandler);
     this.setAsOpen();
@@ -70,18 +75,21 @@ export default {
         }
         // <- TODO remove in 1.0.0
         this.$children.forEach((child) => {
-          child.isOpen = Array.isArray(this.open)
-            ? this.open.includes(child.header)
-            : this.open === child.header;
+          child.isOpen = Array.isArray(this.openHeader)
+            ? this.openHeader.includes(child.header)
+            : this.openHeader === child.header;
         });
       }
     },
     toggleHandler(slotId) {
-      if (!this.multiple && !Array.isArray(this.open)) {
+      if (!this.multiple && !Array.isArray(this.openHeader)) {
         this.$children.forEach((child) => {
-          child._uid === slotId
-            ? (child.isOpen = !child.isOpen)
-            : (child.isOpen = false);
+          if (child._uid === slotId) {
+            child.isOpen = !child.isOpen;
+            this.openHeader = child.header;
+          } else {
+            child.isOpen = false;
+          }
         });
       } else {
         const clickedHeader = this.$children.find((child) => {
