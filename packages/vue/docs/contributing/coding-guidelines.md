@@ -88,7 +88,7 @@ Keep up to 2 BEM levels (elements) at **most**.
 ```
 or empty variable without default
 ```css 
-sf-button {
+.sf-button {
   border-radius: var(--button-border-radius);
 }
 ```
