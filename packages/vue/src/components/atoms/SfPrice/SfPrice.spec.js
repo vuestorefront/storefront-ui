@@ -3,7 +3,7 @@ import SfPrice from "./SfPrice.vue";
 describe("SfPrice.vue", () => {
   it("renders a component", () => {
     const component = shallowMount(SfPrice);
-    expect(component.contains(".sf-price")).toBe(true);
+    expect(component.classes("sf-price")).toBe(true);
   });
   it("renders regular and special price props passed as String", () => {
     const regPrice = "$3,99";
@@ -15,8 +15,8 @@ describe("SfPrice.vue", () => {
       },
     });
     expect(
-      component.contains(".sf-price__old") &&
-        component.contains(".sf-price__special")
+      component.find(".sf-price__old").exists() &&
+        component.find(".sf-price__special").exists()
     ).toBe(true);
   });
   it("renders regular and special price props passed as Number", () => {
@@ -29,8 +29,8 @@ describe("SfPrice.vue", () => {
       },
     });
     expect(
-      component.contains(".sf-price__old") &&
-        component.contains(".sf-price__special")
+      component.find(".sf-price__old").exists() &&
+        component.find(".sf-price__special").exists()
     ).toBe(true);
   });
   it("renders an old price via slot", () => {
@@ -39,7 +39,7 @@ describe("SfPrice.vue", () => {
         old: "<del class='old'>text</del>",
       },
     });
-    expect(component.contains(".old")).toBe(true);
+    expect(component.find(".old").exists()).toBe(true);
   });
   it("renders a special price via slot", () => {
     const component = shallowMount(SfPrice, {
@@ -48,6 +48,6 @@ describe("SfPrice.vue", () => {
       },
     });
     expect(component.find(".sf-price__special").exists()).toBe(false);
-    expect(component.contains(".special")).toBe(true);
+    expect(component.find(".special").exists()).toBe(true);
   });
 });

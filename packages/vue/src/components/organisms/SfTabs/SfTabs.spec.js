@@ -3,7 +3,7 @@ import SfTabs from "./SfTabs.vue";
 describe("SfTabs.vue", () => {
   it("renders a tabs", () => {
     const component = shallowMount(SfTabs);
-    expect(component.contains(".sf-tabs")).toBe(true);
+    expect(component.classes("sf-tabs")).toBe(true);
   });
   it("checks if Tab slot is passed correctly", () => {
     const component = shallowMount(SfTabs, {

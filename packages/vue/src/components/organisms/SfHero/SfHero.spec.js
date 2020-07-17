@@ -55,7 +55,7 @@ describe("SfHero.vue", () => {
       component.destroy();
     });
     it("renders a component", () => {
-      expect(component.contains(".sf-hero")).toBe(true);
+      expect(component.classes("sf-hero")).toBe(true);
     });
     it("renders three SfHeroItem components when passed three items", () => {
       expect(component.findAll(SfHeroItem)).toHaveLength(items.length);
