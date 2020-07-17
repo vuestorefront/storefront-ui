@@ -103,7 +103,7 @@ Think of properties you would like to change it as a user and create for it a va
 Create size variables `var(--component-size, 25px)` in case when you have the same width and height value 
 
 ```css
-.sf-arrow{
+.sf-arrow {
   width: var(--component-width, var(--component-size, 266px));
   height: var(--component-height, var(--component-size, 266px));
 }
