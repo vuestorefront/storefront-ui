@@ -17,17 +17,17 @@
   // heading font-size
   --h1-font-size: 1.5rem; //24px
   --h2-font-size: 1.5rem; //24px
-  --h3-font-size: 1.125rem; //18px
-  --h4-font-size: 1.125rem; //18px
-  --h5-font-size: 1rem; //16px
-  --h6-font-size: 1rem; //16px
+  --h3-font-size: var(--font-size--lg); //18px
+  --h4-font-size: var(--font-size--lg); //18px
+  --h5-font-size: var(--font-size--base); //16px
+  --h6-font-size: var(--font-size--base); //16px
   @include for-desktop {
     --h1-font-size: 2.625rem; //42px
     --h2-font-size: 2.25rem; //36px
     --h3-font-size: 1.625rem; //26px
     --h4-font-size: 1.25rem; //20px
-    --h5-font-size: 1rem; //16px
-    --h6-font-size: 0.875rem; //14px
+    --h5-font-size: var(--font-size--base); //16px
+    --h6-font-size: var(--font-size--sm); //14px
   }
   // line-height
   --line-height--xs: 16px;
@@ -35,5 +35,5 @@
   --line-height--md: 26px;
   --line-height--lg: 32px;
   --line-height--xl: 42px;
-  --line-height--xxl: 48px;
+  --line-height--2xl: 48px;
 }
