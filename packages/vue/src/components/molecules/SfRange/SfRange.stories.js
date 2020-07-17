@@ -5,12 +5,13 @@ import {
   text,
   boolean,
   optionsKnob as options,
+  object,
 } from "@storybook/addon-knobs";
 import SfRange from "./SfRange.vue";
 storiesOf("Molecules|Range", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
-    props: {      
+    props: {
       min: {
         default: number("min", 0, "Props"),
       },
@@ -41,6 +42,16 @@ storiesOf("Molecules|Range", module)
       tooltips: {
         default: boolean("tooltips", false, "Props"),
       },
+      formatValues: {
+        default: object("format values", {
+          decimals: 2,
+          mark: '.',
+          thousand: ' ',
+          prefix: '$',
+          suffix: '',
+          negative: ''
+        }, "Props")
+      }
     },
     components: { SfRange },
     template: `<div style="padding: 100px">
@@ -55,6 +66,7 @@ storiesOf("Molecules|Range", module)
         :orientation="orientation"
         :direction="direction"
         :tooltips="tooltips"
+        :formatValues="formatValues"
       />
       </div>`,
   }))

@@ -9,6 +9,7 @@
 </template>
 <script>
 import noUiSlider from "nouislider";
+import wNumb from "wnumb";
 import focus from "../../../utilities/directives";
 export default {
   name: "SfRange",
@@ -62,6 +63,19 @@ export default {
       type: Boolean,
       default: false,
     },
+    formatValues: {
+      type: Object,
+      default: () => {
+        return {
+          decimals: 2,
+          mark: ".",
+          thousand: " ",
+          prefix: "$",
+          suffix: "",
+          negative: "",
+        };
+      },
+    },
   },
   data() {
     return {
@@ -92,6 +106,18 @@ export default {
             max: value <= this.min ? this.min + 1 : value,
           },
         });
+      },
+      immediate: true,
+    },
+    valueMin: {
+      handler(value) {
+        return wNumb(this.formatValues).to(value);
+      },
+      immediate: true,
+    },
+    valueMax: {
+      handler(value) {
+        return wNumb(this.formatValues).to(value);
       },
       immediate: true,
     },

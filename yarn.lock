@@ -18078,6 +18078,11 @@ with@^5.0.0:
     acorn "^3.1.0"
     acorn-globals "^3.0.0"
 
+wnumb@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/wnumb/-/wnumb-1.2.0.tgz#f6fa5bfa739b9ca3b1e472094e1feeeb189484d9"
+  integrity sha512-eYut5K/dW7usfk/Mwm6nxBNoTPp/uP7PlXld+hhg7lDtHLdHFnNclywGYM9BRC7Ohd4JhwuHg+vmOUGfd3NhVA==
+
 word-wrap@~1.2.3:
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/word-wrap/-/word-wrap-1.2.3.tgz#610636f6b1f703891bd34771ccb17fb93b47079c"
