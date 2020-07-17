@@ -141,18 +141,27 @@ export default {
       orientation: this.rangeOrientation,
       behaviour: "tap-drag",
       tooltips: this.tooltipsShow,
+      keyboardSupport: true,
     };
-    noUiSlider
-      .create(this.$refs.range, this.config)
-      .on("change", (values) => this.$emit("change", values));
+    this.noUiSliderInit();
   },
   methods: {
+    noUiSliderInit(changedValue) {
+      noUiSlider
+        .create(this.$refs.range, { ...this.config, ...changedValue })
+        .on("change", (values) => this.$emit("change", values));
+      this.$refs.range.noUiSlider.on("onkeyup", (handle) => {
+        const handleFocused = document.querySelector(
+          `[data-handle="${handle}"]`
+        );
+        console.log(handleFocused);
+        return handleFocused.classList.add("key-focus");
+      });
+    },
     resetAndChangeOption(changedValue) {
       if (this.$refs.range) {
         this.$refs.range.noUiSlider.destroy();
-        noUiSlider
-          .create(this.$refs.range, { ...this.config, ...changedValue })
-          .on("change", (values) => this.$emit("change", values));
+        this.noUiSliderInit(changedValue);
       }
     },
     updateOptions(updatedOption) {

@@ -10,35 +10,61 @@
   );
   border: none;
   box-shadow: none;
-    .noUi {
-      &-handle {
-        width: var(--range-handle-width, var(--range-handle-size, 33px));
-        height: var(--range-handle-width, var(--range-handle-size, 33px));
-        transform: translate3d(0, -20%, 0);
-        @include border(
-          --range-handle-border,
-          1px, 
-          solid, 
-          var(--c-primary)
-        );
-        border-radius: var(--range-handle-border-radius, 50%);
-        @include background(
+  .noUi {
+    &-handle {
+      width: var(--range-handle-width, var(--range-handle-size, 33px));
+      height: var(--range-handle-width, var(--range-handle-size, 33px));
+      border-radius: var(--range-handle-border-radius, 50%);
+      transform: translate3d(0, -20%, 0);
+      box-shadow: none;
+      @include border(
+        --range-handle-border,
+        1px, 
+        solid, 
+        var(--c-primary)
+      );
+      @include background(
         --range-handle-background,
         var(--c-white),
       );
-        box-shadow: none;
-        &::before,
-        &::after {
-          display: none;
-        }  
-      }
+      &::before,
+      &::after {
+        display: none;
+      }        
+      &:focus {
+        outline: none;        
+      }  
+      &.noUi-active .noUi-touch-area  {
+        --range-handle-background: var(--c-primary);
+      } 
+    }
     &-connect {
-      background: var(--range-handle-background, var(--c-primary));
+      background: var(--range-connect-background, var(--c-primary));      
     }
     &-touch-area {
       background: var(--range-handle-background);
-      border-radius: var(--range-handle-border-radius);
-    }
+      border-radius: var(--range-handle-border-radius, 50%); 
+      &:hover {
+      --range-handle-background: var(--c-primary-variant);
+    }             
+    } 
+    &-tooltip {
+      bottom: var(--range-tooltip-bottom, -120%);
+      color: var(--range-tooltip-color, var(--c-secondary-variant));
+      @include font (
+        --range-tooltip-font,
+        var(--font-normal),
+        var(--font-xs),
+        1.2,
+        (--font-family-secondary)        
+      );
+      @include border(
+        --range-tooltip-border,
+        0, 
+        none, 
+        var(--c-primary)
+      ); 
+    }  
     &-vertical {
       --range-height: 100%;
       --range-width: 7px;
@@ -46,16 +72,19 @@
         height: 100%;
         width: 7px;
       }
-    }
-  }
-  &[disabled="disabled"] {
-    .noUi {
-      &-handle {
-        --range-handle-border-color: var(--c-text-disabled);
-      }
-      &-connect {
-        --range-handle-background: var(--c-text-disabled);
-      }
     }  
+    &[disabled="disabled"] {
+      .noUi {
+        &-handle {
+          --range-handle-border-color: var(--c-text-disabled);
+        }
+        &-connect {
+          --range-connect-background: var(--c-text-disabled);
+        }
+      }             
+    }
+    .key-focus {
+        outline: "";
+      }
   }
 }
