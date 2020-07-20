@@ -1,21 +1,11 @@
 <template>
-  <div
-    ref="range"
-    v-focus
-    class="sf-range"
-    v-bind="$attrs"
-    :disabled="disabled"
-  ></div>
+  <div ref="range" class="sf-range" v-bind="$attrs" :disabled="disabled"></div>
 </template>
 <script>
 import noUiSlider from "nouislider";
 import wNumb from "wnumb";
-import { focus } from "../../../utilities/directives";
 export default {
   name: "SfRange",
-  directives: {
-    focus,
-  },
   props: {
     min: {
       type: Number,
@@ -48,14 +38,14 @@ export default {
     /*
      * Horizontal orientation if true, vertical orientation if false
      */
-    orientation: {
+    horizontalOrientation: {
       type: Boolean,
       default: true,
     },
     /*
      * Ltr orientation if true, rtl orientation if false
      */
-    direction: {
+    ltrDirection: {
       type: Boolean,
       default: true,
     },
@@ -80,8 +70,6 @@ export default {
   data() {
     return {
       config: {},
-      rangeOrientation: "horizontal",
-      rangeDirection: "ltr",
     };
   },
   watch: {
@@ -119,6 +107,12 @@ export default {
     },
     tooltips: {
       handler(value) {
+        value
+          ? (value = [
+              wNumb(this.formatTooltipsValues),
+              wNumb(this.formatTooltipsValues),
+            ])
+          : value;
         return this.updateRangeOptions({
           tooltips: value,
         });
@@ -127,28 +121,29 @@ export default {
     },
     formatTooltipsValues: {
       handler(value) {
-        return this.updateRangeOptions({
-          tooltips: [
-            wNumb(this.formatTooltipsValues),
-            wNumb(this.formatTooltipsValues),
-          ],
-        });
+        if (this.tooltips)
+          return this.updateRangeOptions({
+            tooltips: [
+              wNumb(this.formatTooltipsValues),
+              wNumb(this.formatTooltipsValues),
+            ],
+          });
       },
       immediate: true,
     },
-    orientation: {
+    horizontalOrientation: {
       handler(value) {
-        this.rangeOrientation = value ? "horizontal" : "vertical";
+        value ? (value = "horizontal") : (value = "vertical");
         return this.resetAndChangeOption({
-          orientation: this.rangeOrientation,
+          orientation: value,
         });
       },
       immediate: true,
     },
-    direction: {
+    ltrDirection: {
       handler(value) {
-        this.rangeDirection = value ? "ltr" : "rtl";
-        return this.resetAndChangeOption({ direction: this.rangeDirection });
+        value ? (value = "ltr") : (value = "rtl");
+        return this.resetAndChangeOption({ direction: value });
       },
       immediate: true,
     },
@@ -162,29 +157,27 @@ export default {
       step: this.step,
       start: this.valueMax ? [this.valueMin, this.valueMax] : this.valueMin,
       connect: true,
-      direction: this.rangeDirection,
-      orientation: this.rangeOrientation,
+      direction: this.ltrDirection ? "ltr" : "rtl",
+      orientation: this.horizontalOrientation ? "horizontal" : "vertical",
       behaviour: "tap-drag",
-      tooltips: [
-        wNumb(this.formatTooltipsValues),
-        wNumb(this.formatTooltipsValues),
-      ],
+      tooltips: false,
       keyboardSupport: true,
     };
     this.noUiSliderInit();
   },
   methods: {
     noUiSliderInit(changedValue) {
+      const newConfig = Object.assign(this.config, changedValue);
       noUiSlider
-        .create(this.$refs.range, { ...this.config, ...changedValue })
+        .create(this.$refs.range, newConfig)
         .on("change", (values) => this.$emit("change", values));
-      this.$refs.range.noUiSlider.on("onkeyup", (handle) => {
-        const handleFocused = document.querySelector(
-          `[data-handle="${handle}"]`
-        );
-        console.log(handleFocused);
-        return handleFocused.classList.add("key-focus");
-      });
+      // this.$refs.range.noUiSlider.on("keyup", (handle) => {
+      //   const handleFocused = document.querySelector(
+      //     `[data-handle="${handle}"]`
+      //   );
+      //   console.log(handleFocused);
+      //   return handleFocused.style.outline = "";
+      // });
     },
     resetAndChangeOption(changedValue) {
       if (this.$refs.range) {

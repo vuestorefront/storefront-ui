@@ -33,11 +33,11 @@ storiesOf("Molecules|Range", module)
       disabled: {
         default: boolean("disabled", false, "Props"),
       },
-      orientation: {
-        default: boolean("orientation", true, "Props"),
+      horizontalOrientation: {
+        default: boolean("horizontal orientation", true, "Props"),
       },
-      direction: {
-        default: boolean("direction", true, "Props"),
+      ltrDirection: {
+        default: boolean("ltr direction", true, "Props"),
       },
       tooltips: {
         default: boolean("tooltips", false, "Props"),
@@ -63,8 +63,8 @@ storiesOf("Molecules|Range", module)
         :step="step"
         :label="label"
         :disabled="disabled"
-        :orientation="orientation"
-        :direction="direction"
+        :horizontalOrientation="horizontalOrientation"
+        :ltrDirection="ltrDirection"
         :tooltips="tooltips"
         :formatTooltipsValues="formatTooltipsValues"
       />

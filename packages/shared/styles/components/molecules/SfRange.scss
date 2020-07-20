@@ -2,7 +2,7 @@
 
 .sf-range {
   position: relative;  
-  width: var(--range-width, 100%);
+  width: var(--range-width, 100px);
   height: var(--range-height, 7px);
   @include background(
     --range-background,
@@ -15,7 +15,7 @@
       width: var(--range-handle-width, var(--range-handle-size, 33px));
       height: var(--range-handle-width, var(--range-handle-size, 33px));
       border-radius: var(--range-handle-border-radius, 50%);
-      transform: translate3d(0, -20%, 0);
+      transform: var(--range-handle-transform, translate3d(0, -20%, 0));
       box-shadow: none;
       @include border(
         --range-handle-border,
@@ -43,10 +43,10 @@
     }
     &-touch-area {
       background: var(--range-handle-background);
-      border-radius: var(--range-handle-border-radius, 50%); 
+      border-radius: var(--range-handle-border-radius, 50%);
       &:hover {
-      --range-handle-background: var(--c-primary-variant);
-    }             
+        --range-handle-background: var(--c-primary-variant);
+      }             
     } 
     &-tooltip {
       bottom: var(--range-tooltip-bottom, -120%);
@@ -66,14 +66,17 @@
       ); 
     }  
     &-vertical {
-      --range-height: 100%;
+      --range-height: 100px;
       --range-width: 7px;
-      .noUi-connect {
-        height: 100%;
-        width: 7px;
-      }
-    }  
-    &[disabled="disabled"] {
+      --range-handle-transform: translate3d(20%, 0, 0);
+        .noUi-connect {
+          height: var(--range-height);
+          width: var(--range-width);
+          background: var(--range-handle-background, var(--c-primary));
+      } 
+    }    
+  }
+  &[disabled="disabled"] {
       .noUi {
         &-handle {
           --range-handle-border-color: var(--c-text-disabled);
@@ -81,10 +84,11 @@
         &-connect {
           --range-connect-background: var(--c-text-disabled);
         }
+        &-touch-area:hover {            
+          --range-handle-background: var(--c-base);    
+        }
       }             
     }
-    .key-focus {
-        outline: "";
-      }
-  }
-}
+}  
+
+
