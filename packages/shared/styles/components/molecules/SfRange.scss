@@ -39,15 +39,15 @@
       } 
     }
     &-connect {
-      background: var(--range-connect-background, var(--c-primary));      
+      background: var(--range-connect-background, var(--c-primary));
     }
     &-touch-area {
       background: var(--range-handle-background);
       border-radius: var(--range-handle-border-radius, 50%);
       &:hover {
         --range-handle-background: var(--c-primary-variant);
-      }             
-    } 
+      } 
+    }
     &-tooltip {
       bottom: var(--range-tooltip-bottom, -120%);
       color: var(--range-tooltip-color, var(--c-secondary-variant));
@@ -64,17 +64,7 @@
         none, 
         var(--c-primary)
       ); 
-    }  
-    &-vertical {
-      --range-height: 100px;
-      --range-width: 7px;
-      --range-handle-transform: translate3d(20%, 0, 0);
-        .noUi-connect {
-          height: var(--range-height);
-          width: var(--range-width);
-          background: var(--range-handle-background, var(--c-primary));
-      } 
-    }    
+    }     
   }
   &[disabled="disabled"] {
       .noUi {
@@ -90,5 +80,14 @@
       }             
     }
 }  
+.noUi-vertical {
+  --range-height: 300px;
+  --range-width: 7px;
+  --range-handle-transform: translate3d(20%, 0, 0);
+    .noUi-connect {
+      height: var(--range-height);
+      width: var(--range-width);
+  }
+}
 
 
