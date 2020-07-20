@@ -83,12 +83,12 @@ Keep up to 2 BEM levels (elements) at **most**.
 
 ```css
 .sf-button {
-    padding: var(--button-padding, var(--spacer));
+  padding: var(--button-padding, var(--spacer));
 }
 ```
 or empty variable without default
 ```css 
-sf-button {
+.sf-button {
   border-radius: var(--button-border-radius);
 }
 ```
@@ -103,7 +103,7 @@ Think of properties you would like to change it as a user and create for it a va
 Create size variables `var(--component-size, 25px)` in case when you have the same width and height value 
 
 ```css
-.sf-arrow{
+.sf-arrow {
   width: var(--component-width, var(--component-size, 266px));
   height: var(--component-height, var(--component-size, 266px));
 }
@@ -113,7 +113,7 @@ Create size variables `var(--component-size, 25px)` in case when you have the sa
 3. Use **global variables** for spacers, font-sizes, colors. You can find all variables here `shared/styles/variables`
 
 :::tip
-SCSS functions and mixins you cand find here `shared/styles/_helpers.scss`
+SCSS functions and mixins you can find here `shared/styles/_helpers.scss`
 
 All global variables are here `shared/styles/_variables.scss`
 :::
@@ -168,9 +168,9 @@ All global variables are here `shared/styles/_variables.scss`
 - If you want to customize:
 ```css
 .sf-banner {
-    &__title {
-        --banner-title-font-size: var(--font-size-regular);
-    }
+  &__title {
+    --banner-title-font-size: var(--font-size-regular);
+  }
 }
 ```
 

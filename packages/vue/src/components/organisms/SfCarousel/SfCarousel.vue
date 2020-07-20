@@ -3,17 +3,13 @@
     <div class="sf-carousel__controls">
       <!--@slot slot for icon moving to the previous item -->
       <slot name="prev" v-bind="{ go: () => go('prev') }">
-        <SfArrow
-          aria-label="previous"
-          class="sf-arrow--long"
-          @click="go('prev')"
-        />
+        <SfArrow aria-label="previous" @click="go('prev')" />
       </slot>
       <!--@slot slot for icon moving to the next item -->
       <slot name="next" v-bind="{ go: () => go('next') }">
         <SfArrow
           aria-label="next"
-          class="sf-arrow--long sf-arrow--right"
+          class="sf-arrow--right"
           @click="go('next')"
         />
       </slot>
