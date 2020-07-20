@@ -58,24 +58,26 @@ describe("SfHero.vue", () => {
       expect(component.contains(".sf-hero")).toBe(true);
     });
     it("renders three SfHeroItem components when passed three items", () => {
-      expect(component.findAll(SfHeroItem)).toHaveLength(items.length);
+      expect(component.findAllComponents(SfHeroItem)).toHaveLength(
+        items.length
+      );
     });
     it("renders two SfArrow components", () => {
-      expect(component.findAll(SfArrow)).toHaveLength(2);
+      expect(component.findAllComponents(SfArrow)).toHaveLength(2);
     });
     it("renders SfBullets component", () => {
-      expect(component.findAll(SfBullets)).toHaveLength(1);
+      expect(component.findAllComponents(SfBullets)).toHaveLength(1);
     });
     it("calls #go with 'prev' when clicked on left arrow", () => {
       jest.spyOn(component.vm, "go");
       expect(component.vm.go).not.toHaveBeenCalled();
-      component.findAll(SfArrow).at(0).trigger("click");
+      component.findAllComponents(SfArrow).at(0).trigger("click");
       expect(component.vm.go).toHaveBeenCalledWith("prev");
     });
     it("calls #go with 'next' when clicked on right arrow", () => {
       jest.spyOn(component.vm, "go");
       expect(component.vm.go).not.toHaveBeenCalled();
-      component.findAll(SfArrow).at(1).trigger("click");
+      component.findAllComponents(SfArrow).at(1).trigger("click");
       expect(component.vm.go).toHaveBeenCalledWith("next");
     });
   });
@@ -101,9 +103,9 @@ describe("SfHero.vue", () => {
     it("renders 'prev' and 'next' slots instead of SfArrow", () => {
       jest.spyOn(component.vm, "go");
       expect(component.vm.go).not.toHaveBeenCalled();
-      expect(component.findAll(".forPrevSlot")).toHaveLength(1);
-      expect(component.findAll(".forNextSlot")).toHaveLength(1);
-      expect(component.findAll(SfArrow)).toHaveLength(0);
+      expect(component.find(".forPrevSlot").exists()).toBe(true);
+      expect(component.find(".forNextSlot").exists()).toBe(true);
+      expect(component.findAllComponents(SfArrow)).toHaveLength(0);
     });
     it("calls #go with 'prev' when clicked on 'prev' slot", () => {
       jest.spyOn(component.vm, "go");
@@ -134,10 +136,10 @@ describe("SfHero.vue", () => {
       component.destroy();
     });
     it("doesn't render any SfArrow components if only one item passed as prop", () => {
-      expect(component.findAll(SfArrow)).toHaveLength(0);
+      expect(component.findAllComponents(SfArrow)).toHaveLength(0);
     });
     it("doesn't render SfBullets component if only one item passed as prop", () => {
-      expect(component.findAll(SfBullets)).toHaveLength(0);
+      expect(component.findAllComponents(SfBullets)).toHaveLength(0);
     });
   });
   describe("with using default slot", () => {
@@ -147,7 +149,7 @@ describe("SfHero.vue", () => {
           default: "<SfHeroItem></SfHeroItem>",
         },
       });
-      expect(component.findAll(SfHeroItem)).toHaveLength(1);
+      expect(component.findAllComponents(SfHeroItem)).toHaveLength(1);
     });
   });
 });
