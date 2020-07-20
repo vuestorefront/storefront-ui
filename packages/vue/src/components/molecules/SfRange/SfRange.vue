@@ -10,7 +10,7 @@
 <script>
 import noUiSlider from "nouislider";
 import wNumb from "wnumb";
-import focus from "../../../utilities/directives";
+import { focus } from "../../../utilities/directives";
 export default {
   name: "SfRange",
   directives: {
@@ -63,7 +63,7 @@ export default {
       type: Boolean,
       default: false,
     },
-    formatValues: {
+    formatTooltipsValues: {
       type: Object,
       default: () => {
         return {
@@ -88,7 +88,7 @@ export default {
     min: {
       handler(value) {
         if (this.$refs.range) {
-          return this.updateOptions({
+          return this.updateRangeOptions({
             range: {
               min: value >= this.max ? this.max - 1 : value,
               max: this.max,
@@ -100,7 +100,7 @@ export default {
     },
     max: {
       handler(value) {
-        return this.updateOptions({
+        return this.updateRangeOptions({
           range: {
             min: this.min,
             max: value <= this.min ? this.min + 1 : value,
@@ -109,21 +109,9 @@ export default {
       },
       immediate: true,
     },
-    valueMin: {
-      handler(value) {
-        return wNumb(this.formatValues).to(value);
-      },
-      immediate: true,
-    },
-    valueMax: {
-      handler(value) {
-        return wNumb(this.formatValues).to(value);
-      },
-      immediate: true,
-    },
     step: {
       handler(value) {
-        return this.updateOptions({
+        return this.updateRangeOptions({
           step: value,
         });
       },
@@ -131,8 +119,19 @@ export default {
     },
     tooltips: {
       handler(value) {
-        return this.updateOptions({
+        return this.updateRangeOptions({
           tooltips: value,
+        });
+      },
+      immediate: true,
+    },
+    formatTooltipsValues: {
+      handler(value) {
+        return this.updateRangeOptions({
+          tooltips: [
+            wNumb(this.formatTooltipsValues),
+            wNumb(this.formatTooltipsValues),
+          ],
         });
       },
       immediate: true,
@@ -166,7 +165,10 @@ export default {
       direction: this.rangeDirection,
       orientation: this.rangeOrientation,
       behaviour: "tap-drag",
-      tooltips: this.tooltipsShow,
+      tooltips: [
+        wNumb(this.formatTooltipsValues),
+        wNumb(this.formatTooltipsValues),
+      ],
       keyboardSupport: true,
     };
     this.noUiSliderInit();
@@ -190,7 +192,7 @@ export default {
         this.noUiSliderInit(changedValue);
       }
     },
-    updateOptions(updatedOption) {
+    updateRangeOptions(updatedOption) {
       if (this.$refs.range) {
         return this.$refs.range.noUiSlider.updateOptions(updatedOption, false);
       }

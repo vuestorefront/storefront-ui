@@ -42,7 +42,7 @@ storiesOf("Molecules|Range", module)
       tooltips: {
         default: boolean("tooltips", false, "Props"),
       },
-      formatValues: {
+      formatTooltipsValues: {
         default: object("format values", {
           decimals: 2,
           mark: '.',
@@ -66,7 +66,7 @@ storiesOf("Molecules|Range", module)
         :orientation="orientation"
         :direction="direction"
         :tooltips="tooltips"
-        :formatValues="formatValues"
+        :formatTooltipsValues="formatTooltipsValues"
       />
       </div>`,
   }))
