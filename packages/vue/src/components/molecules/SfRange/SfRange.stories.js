@@ -12,23 +12,17 @@ storiesOf("Molecules|Range", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
     props: {
+      slidersInitialValues: {
+        default: object("sliders initial values", [0, 1], "Props"),
+      },
       min: {
         default: number("min", 0, "Props"),
       },
       max: {
         default: number("max", 10, "Props"),
       },
-      valueMin: {
-        default: number("Value min", 0, "Props"),
-      },
-      valueMax: {
-        default: number("Value Max", 1, "Props"),
-      },
       step: {
         default: number("step", 1, "Props"),
-      },
-      label: {
-        default: text("label", "Price", "Props"),
       },
       disabled: {
         default: boolean("disabled", false, "Props"),
@@ -43,25 +37,29 @@ storiesOf("Molecules|Range", module)
         default: boolean("tooltips", false, "Props"),
       },
       formatTooltipsValues: {
-        default: object("format values", {
-          decimals: 2,
-          mark: '.',
-          thousand: ' ',
-          prefix: '$',
-          suffix: '',
-          negative: ''
-        }, "Props")
-      }
+        default: object(
+          "format values",
+          {
+            decimals: 2,
+            mark: ".",
+            thousand: " ",
+            prefix: "$",
+            suffix: "",
+            negative: "",
+          },
+          "Props"
+        ),
+      },
     },
     components: { SfRange },
     template: `<div style="padding: 100px">
     <SfRange
+        :slidersInitialValues="slidersInitialValues"
         :min="min"
         :max="max"
         :valueMin="valueMin"
         :valueMax="valueMax"
         :step="step"
-        :label="label"
         :disabled="disabled"
         :horizontalOrientation="horizontalOrientation"
         :ltrDirection="ltrDirection"
@@ -72,50 +70,57 @@ storiesOf("Molecules|Range", module)
   }))
   .add("One slider", () => ({
     props: {
+      slidersInitialValues: {
+        default: object("sliders initial values", [0], "Props"),
+      },
       min: {
         default: number("min", 0, "Props"),
       },
       max: {
         default: number("max", 10, "Props"),
       },
-      valueMin: {
-        default: number("Value min", 0, "Props"),
-      },
-      valueMax: {
-        default: text("Value Max", "", "Props"),
-      },
       step: {
         default: number("step", 1, "Props"),
-      },
-      label: {
-        default: text("label", "Price", "Props"),
       },
       disabled: {
         default: boolean("disabled", false, "Props"),
       },
-      orientation: {
-        default: boolean("orientation", true, "Props"),
+      horizontalOrientation: {
+        default: boolean("horizontal orientation", true, "Props"),
       },
-      direction: {
-        default: boolean("direction", true, "Props"),
+      ltrDirection: {
+        default: boolean("ltr direction", true, "Props"),
       },
       tooltips: {
         default: boolean("tooltips", false, "Props"),
+      },
+      formatTooltipsValues: {
+        default: object(
+          "format values",
+          {
+            decimals: 2,
+            mark: ".",
+            thousand: " ",
+            prefix: "$",
+            suffix: "",
+            negative: "",
+          },
+          "Props"
+        ),
       },
     },
     components: { SfRange },
     template: `<div style="padding: 100px">
     <SfRange
+        :slidersInitialValues="slidersInitialValues"
         :min="min"
         :max="max"
-        :valueMin="valueMin"
-        :valueMax="valueMax"
         :step="step"
-        :label="label"
         :disabled="disabled"
-        :orientation="orientation"
-        :direction="direction"
+        :horizontalOrientation="horizontalOrientation"
+        :ltrDirection="ltrDirection"
         :tooltips="tooltips"
+        :formatTooltipsValues="formatTooltipsValues"
       />
       </div>`,
   }));

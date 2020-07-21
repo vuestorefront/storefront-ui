@@ -2,7 +2,7 @@
 
 .sf-range {
   position: relative;  
-  width: var(--range-width, 100px);
+  width: var(--range-width, 100%);
   height: var(--range-height, 7px);
   @include background(
     --range-background,
@@ -76,6 +76,9 @@
         }
         &-touch-area:hover {            
           --range-handle-background: var(--c-base);    
+        }
+        &-tooltip {
+          display: none;
         }
       }             
     }

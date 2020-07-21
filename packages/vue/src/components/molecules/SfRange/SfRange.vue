@@ -7,33 +7,54 @@ import wNumb from "wnumb";
 export default {
   name: "SfRange",
   props: {
+    /*
+     * Sets the number of sliders (1 or 2) by adding initial values to the array
+     */
+    slidersInitialValues: {
+      type: Array,
+      default: () => [0, 1],
+    },
+    /*
+     * Minimal value of the slider
+     */
     min: {
       type: Number,
       default: 0,
     },
+    /*
+     * Maximum value of the slider
+     */
     max: {
       type: Number,
       default: 0,
     },
+    /*
+     * The value of left slider (or the only one in case there is one slider)
+     */
     valueMin: {
       type: Number,
       default: 0,
     },
+    /*
+     * The value of right slider (when there are two sliders)
+     */
     valueMax: {
       type: Number,
       default: 1,
     },
+    /*
+     * The value of moving the slider on the scale
+     */
     step: {
       type: Number,
       default: 1,
     },
-    label: {
-      type: String,
-      default: "",
-    },
+    /*
+     * Disabling the slider
+     */
     disabled: {
       type: Boolean,
-      default: true,
+      default: false,
     },
     /*
      * Horizontal orientation if true, vertical orientation if false
@@ -49,10 +70,22 @@ export default {
       type: Boolean,
       default: true,
     },
+    /*
+     * Boolean for showing the tooltips
+     */
     tooltips: {
       type: Boolean,
       default: false,
     },
+    /*
+     * Config for toolips formatting (from wNumb library):
+     * decimals - number of digits after dot/comma
+     * mark - sign separating the fraction value from integer
+     * thousand - sign separating the thousands from hundreds
+     * prefix - sign before value
+     * suffix - sign after the value
+     * negative - sign for negative values, by default it is set to "-"
+     */
     formatTooltipsValues: {
       type: Object,
       default: () => {
@@ -108,10 +141,13 @@ export default {
     tooltips: {
       handler(value) {
         value
-          ? (value = [
-              wNumb(this.formatTooltipsValues),
-              wNumb(this.formatTooltipsValues),
-            ])
+          ? (value =
+              this.slidersInitialValues.length === 2
+                ? [
+                    wNumb(this.formatTooltipsValues),
+                    wNumb(this.formatTooltipsValues),
+                  ]
+                : [wNumb(this.formatTooltipsValues)])
           : value;
         return this.updateRangeOptions({
           tooltips: value,
@@ -123,10 +159,13 @@ export default {
       handler(value) {
         if (this.tooltips)
           return this.updateRangeOptions({
-            tooltips: [
-              wNumb(this.formatTooltipsValues),
-              wNumb(this.formatTooltipsValues),
-            ],
+            tooltips:
+              this.slidersInitialValues.length === 2
+                ? [
+                    wNumb(this.formatTooltipsValues),
+                    wNumb(this.formatTooltipsValues),
+                  ]
+                : [wNumb(this.formatTooltipsValues)],
           });
       },
       immediate: true,
@@ -150,12 +189,12 @@ export default {
   },
   mounted() {
     this.config = {
+      start: this.slidersInitialValues,
       range: {
         min: this.min >= this.max ? this.max - 1 : this.min,
         max: this.max,
       },
       step: this.step,
-      start: this.valueMax ? [this.valueMin, this.valueMax] : this.valueMin,
       connect: true,
       direction: this.ltrDirection ? "ltr" : "rtl",
       orientation: this.horizontalOrientation ? "horizontal" : "vertical",
@@ -171,13 +210,6 @@ export default {
       noUiSlider
         .create(this.$refs.range, newConfig)
         .on("change", (values) => this.$emit("change", values));
-      // this.$refs.range.noUiSlider.on("keyup", (handle) => {
-      //   const handleFocused = document.querySelector(
-      //     `[data-handle="${handle}"]`
-      //   );
-      //   console.log(handleFocused);
-      //   return handleFocused.style.outline = "";
-      // });
     },
     resetAndChangeOption(changedValue) {
       if (this.$refs.range) {
