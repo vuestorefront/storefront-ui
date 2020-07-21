@@ -74,6 +74,10 @@ export default {
           return;
         }
         // <- TODO remove in 1.0.0
+        if (this.open === "all") {
+          this.multiple = true;
+          this.openHeader = this.$children.map((child) => child.header);
+        }
         this.$children.forEach((child) => {
           child.isOpen = Array.isArray(this.openHeader)
             ? this.openHeader.includes(child.header)
