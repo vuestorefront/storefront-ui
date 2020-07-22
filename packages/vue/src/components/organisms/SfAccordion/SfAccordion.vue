@@ -16,7 +16,7 @@ export default {
   name: "SfAccordion",
   props: {
     /**
-     * Opens an accordion item based on title
+     * Opens an accordion item based on title. If 'all' string is passed than all items will be open by default.
      */
     open: {
       type: [String, Array],
