@@ -6,13 +6,13 @@
     :aria-label="label"
     role="listbox"
     :class="{
-      'sf-select--is-active': isActive,
-      'sf-select--is-selected': isSelected,
-      'sf-select--is-required': required,
-      'sf-select--is-disabled': disabled,
-      'sf-select--is-invalid': !valid,
+      'sf-component-select--is-active': isActive,
+      'sf-component-select--is-selected': isSelected,
+      'sf-component-select--is-required': required,
+      'sf-component-select--is-disabled': disabled,
+      'sf-component-select--is-invalid': !valid,
     }"
-    class="sf-select"
+    class="sf-component-select"
     @click="toggle($event)"
     @keyup.esc="closeHandler"
     @keyup.space="openHandler"
@@ -22,40 +22,40 @@
   >
     <div style="position: relative;">
       <div
-        ref="sfSelect"
+        ref="sfComponentSelect"
         v-focus
         tabindex="0"
-        class="sf-select__selected sf-select-option"
+        class="sf-component-select__selected sf-component-select-option"
         v-on="$listeners"
         v-html="html"
       ></div>
       <slot name="label">
-        <div v-if="label" class="sf-select__label">
+        <div v-if="label" class="sf-component-select__label">
           {{ label }}
         </div>
       </slot>
       <slot name="icon">
-        <SfChevron class="sf-select__chevron" />
+        <SfChevron class="sf-component-select__chevron" />
       </slot>
       <SfOverlay
         ref="overlay"
         :visible="open"
-        class="sf-select__overlay mobile-only"
+        class="sf-component-select__overlay mobile-only"
       />
-      <transition name="sf-select">
-        <div v-show="open" class="sf-select__dropdown">
-          <!--  sf-select__option -->
+      <transition name="sf-component-select">
+        <div v-show="open" class="sf-component-select__dropdown">
+          <!--  sf-component-select__option -->
           <ul
             :aria-expanded="open.toString()"
             :style="{ maxHeight }"
-            class="sf-select__options"
+            class="sf-component-select__options"
           >
             <slot />
           </ul>
           <slot name="cancel">
             <SfButton
               ref="cancel"
-              class="sf-select__cancel sf-button--full-width mobile-only"
+              class="sf-component-select__cancel sf-button--full-width mobile-only"
               @click="closeHandler"
             >
               Cancel
@@ -64,7 +64,7 @@
         </div>
       </transition>
     </div>
-    <div class="sf-select__error-message">
+    <div class="sf-component-select__error-message">
       <transition name="sf-fade">
         <!-- @slot Custom error message of form select -->
         <slot v-if="!valid" name="error-message" v-bind="{ errorMessage }">
@@ -75,16 +75,16 @@
   </div>
 </template>
 <script>
-import SfSelectOption from "./_internal/SfSelectOption.vue";
+import SfComponentSelectOption from "./_internal/SfComponentSelectOption.vue";
 import SfChevron from "../../atoms/SfChevron/SfChevron.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import { focus } from "../../../utilities/directives";
 import { clickOutside } from "../../../utilities/directives";
 import Vue from "vue";
-Vue.component("SfSelectOption", SfSelectOption);
+Vue.component("SfComponentSelectOption", SfComponentSelectOption);
 export default {
-  name: "SfSelect",
+  name: "SfComponentSelect",
   directives: { focus, clickOutside },
   components: {
     SfButton,
@@ -246,7 +246,7 @@ export default {
       if (index < 0) index = 0;
       if (index >= optionsLength) index = optionsLength - 1;
       this.index = index;
-      this.$refs.sfSelect.blur();
+      this.$refs.sfComponentSelect.blur();
       document.getElementById(this.focusedOption).focus();
     },
     enter() {
@@ -281,5 +281,5 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "~@storefront-ui/shared/styles/components/molecules/SfSelect.scss";
+@import "~@storefront-ui/shared/styles/components/molecules/SfComponentSelect.scss";
 </style>

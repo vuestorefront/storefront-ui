@@ -2,8 +2,8 @@
   <li
     :id="value"
     role="option"
-    class="sf-select-option"
-    :class="{ 'sf-select-option--is-active': selected === value }"
+    class="sf-component-select-option"
+    :class="{ 'sf-component-select-option--is-active': selected === value }"
     tabindex="0"
     :aria-selected="selected === value ? 'true' : 'false'"
     @click="clicked"
@@ -16,7 +16,7 @@
 <script>
 import { focus } from "../../../../utilities/directives";
 export default {
-  name: "SfSelectOption",
+  name: "SfComponentSelectOption",
   directives: { focus },
   props: {
     value: {
