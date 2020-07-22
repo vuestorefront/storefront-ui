@@ -3,6 +3,6 @@ import SfComponentSelectOption from "./SfComponentSelectOption.vue";
 describe("SfComponentSelectOption.vue", () => {
   it("renders a component", () => {
     const component = shallowMount(SfComponentSelectOption);
-    expect(component.contains(".sf-select-option")).toBe(true);
+    expect(component.classes("sf-component-select-option")).toBe(true);
   });
 });
