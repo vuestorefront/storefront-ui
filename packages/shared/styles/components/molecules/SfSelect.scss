@@ -1,0 +1,81 @@
+@import "../../helpers";
+
+.sf-select {
+  position: relative;
+  box-sizing: border-box;
+  width: var(--select-width);
+  height: var(--select-height);
+  padding: var(--select-padding, 0 0 calc(var(--font-xs) * 1.2) 0);
+  color: var(--select-color, var(--c-text));
+  cursor: default;
+  &__label {
+    position: absolute;
+    top: var(--select-label-top, 50%);
+    left: var(--select-label-left, 0);
+    color: var(--select-label-color, inherit);
+    transform: var(
+      --select-label-transform,
+      translate3d(0, calc(var(--select-label-top, 50%) * -1), 0)
+    );
+    transition: var(
+      --select-label-transition,
+      top 150ms linear,
+      font-size 150ms linear
+    );
+    @include font(
+      --select-label-font,
+      var(--font-normal),
+      var(--font-lg),
+      1,
+      var(--font-family-secondary)
+    );
+    &::after {
+      content: var(--select-label-required);
+      color: var(--select-label-color, var(--c-primary));
+    }
+  }
+  &__cancel {
+    --button-background: var(--c-light);
+    --button-color: var(--c-dark-variant);
+    &:hover {
+      --button-background: var(--c-light);
+    }
+  }
+  &__option {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    overflow: auto;
+    &::-webkit-scrollbar {
+      width: 0;
+    }
+  }
+  &--underlined {
+    --select-border-width: 0 0 1px 0;
+    --select-border-color: var(--c-light);
+  }
+  &--is-selected {
+    --select-label-top: 0;
+    --select-label-font-size: var(--font-xs);
+  }
+  &--is-invalid {
+    --select-border-color: var(--c-danger);
+  }
+  &--is-active {
+    --chevron-color: var(--c-primary);
+    --select-label-color: var(--c-text-muted);
+    --select-border-color: var(--c-primary);
+  }
+  &--is-disabled {
+    --chevron-color: var(--c-text-disabled);
+    --select-color: var(--c-text-disabled);
+    --select-border-color: var(--c-text-disabled);
+    --select-label-color: var(--c-text-disabled);
+  }
+  &--is-required {
+    --select-label-required: " *";
+  }
+  &--no-chevron {
+    --chevron-display: none;
+  }
+}
