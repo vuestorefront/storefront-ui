@@ -57,13 +57,7 @@ storiesOf("Molecules|Select", module)
         default: boolean("persistent", false, "Props"),
       },
       selected: {
-        default: options(
-          "selected",
-          knobOptionsList,
-          optionsList[0].value,
-          { display: "select" },
-          "Data"
-        ),
+        default: text("selected", "", "Props"),
       },
     },
     data() {
@@ -82,7 +76,7 @@ storiesOf("Molecules|Select", module)
         :disabled="disabled"
         :error-message="errorMessage"
         :persistent="persistent"
-        style="max-width: 30rem"
+        style="max-width: 30rem; margin: 10px;"
       >
         <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
           <SfProductOption :color="option.color" :label="option.label"></SfProductOption>

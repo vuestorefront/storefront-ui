@@ -1,22 +1,26 @@
 @import "../../helpers";
 
 .sf-select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
   position: relative;
   box-sizing: border-box;
   width: var(--select-width);
-  height: var(--select-height);
-  padding: var(--select-padding, 0 0 calc(var(--font-xs) * 1.2) 0);
+  height: var(--select-height, 2.625rem);
+  padding: var(--select-padding, var(--spacer-sm) 0 0 0);
   color: var(--select-color, var(--c-text));
   cursor: default;
   &__label {
     position: absolute;
     top: var(--select-label-top, 50%);
     left: var(--select-label-left, 0);
+    height: 0.625rem;
     color: var(--select-label-color, inherit);
-    transform: var(
-      --select-label-transform,
-      translate3d(0, calc(var(--select-label-top, 50%) * -1), 0)
-    );
+    // transform: var(
+    //   --select-label-transform,
+    //   translate3d(0, calc(var(--select-label-top, 50%) * -1), 0)
+    // );
     transition: var(
       --select-label-transition,
       top 150ms linear,
@@ -25,7 +29,7 @@
     @include font(
       --select-label-font,
       var(--font-normal),
-      var(--font-lg),
+      var(--font-xs),
       1,
       var(--font-family-secondary)
     );
@@ -41,14 +45,43 @@
       --button-background: var(--c-light);
     }
   }
+  &__dropdown {
+    width: 100%;
+    height: 1.625rem;
+    box-shadow: none;
+  }
   &__option {
     margin: 0;
     padding: 0;
     list-style-type: none;
     overflow: auto;
+    @include background(
+      --select-option-background-color,
+      var(--c-white)
+    );
+     @include font(
+      --select-option-font,
+      var(--font-normal),
+      var(--font-base),
+      1,
+      var(--font-family-secondary)
+    );
     &::-webkit-scrollbar {
       width: 0;
     }
+    &:focus,
+    &:hover {
+      box-shadow: none;
+    }
+  }
+  .sf-select__dropdown:active .sf-select__default-selected {
+    display: none;
+  }
+  &__label .sf-select__dropdown:active  {
+    top: 0;
+  }
+  &::-ms-expand {
+    display: none;
   }
   &--underlined {
     --select-border-width: 0 0 1px 0;

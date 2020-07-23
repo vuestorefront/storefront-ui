@@ -1,24 +1,26 @@
 <template>
-  <div class="sf-select">
-    <label class="sf-select__label"></label>
-    <select v-focus>
-      <transition name="sf-fade">
-        <div>
-          <slot />
-        </div>
-      </transition>
+  <div class="sf-select" :class="{ 'sf-select--is-selected': isSelected }">
+    <label :for="label" class="sf-select__label">{{ label }}</label>
+    <select :id="label" class="sf-select__dropdown">
+      <option
+        class="sf-select__default-selected"
+        disabled
+        selected
+        value
+      ></option>
+      <slot />
     </select>
   </div>
 </template>
 <script>
-import { focus } from "../../../utilities/directives";
+// import { focus } from "../../../utilities/directives";
 import { clickOutside } from "../../../utilities/directives";
 import SfSelectOption from "./_internal/SfSelectOption.vue";
 import Vue from "vue";
 Vue.component("SfSelectOption", SfSelectOption);
 export default {
   name: "SfSelect",
-  directives: { focus, clickOutside },
+  // directives: { focus, clickOutside },
   components: {},
   model: {
     prop: "selected",
@@ -77,10 +79,6 @@ export default {
     /**
      * If true clicking outside will not dismiss the select
      */
-    persistent: {
-      type: Boolean,
-      default: false,
-    },
   },
   data() {
     return {
@@ -90,6 +88,11 @@ export default {
       optionHeight: 0,
       focusedOption: "",
     };
+  },
+  computed: {
+    isSelected() {
+      return this.selected;
+    },
   },
 };
 </script>
