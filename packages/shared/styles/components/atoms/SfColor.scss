@@ -25,11 +25,6 @@
     right: -25%;
   }
   @include for-desktop {
-    --color-size: 0.75rem;
-    &--active,
-    &:hover {
-      transform: scale(1.667);
-    }
     &:hover {
       --color-box-shadow-opacity: 0.25;
     }
