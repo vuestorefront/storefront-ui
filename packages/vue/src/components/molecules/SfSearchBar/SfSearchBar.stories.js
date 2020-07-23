@@ -2,6 +2,7 @@ import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
   text,
+  object,
   optionsKnob as options,
 } from "@storybook/addon-knobs";
 import { SfSearchBar } from "@storefront-ui/vue";
@@ -25,11 +26,15 @@ storiesOf("Molecules|SearchBar", module)
       placeholder: {
         default: text("placeholder", "Search for items", "Props"),
       },
-      iconSize: {
-        default: text("icon size", "1rem", "Props"),
-      },
-      iconColor: {
-        default: text("icon color", "#737680", "Props"),
+      icon: {
+        default: object(
+          "icon",
+          {
+            color: "#43464E",
+            size: "1.25rem",
+          },
+          "Props"
+        ),
       },
     },
     data() {
@@ -38,8 +43,7 @@ storiesOf("Molecules|SearchBar", module)
       };
     },
     template: `<SfSearchBar
-      :iconSize="iconSize"
-      :iconColor="iconColor"
+      :icon="icon"
       :class="customClass"
       :placeholder="placeholder"
       aria-label="Search"
