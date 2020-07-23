@@ -28,6 +28,7 @@ import SfBottomModal from "../../src/components/molecules/SfBottomModal/SfBottom
 import SfCallToAction from "../../src/components/molecules/SfCallToAction/SfCallToAction.vue"
 import SfCharacteristic from "../../src/components/molecules/SfCharacteristic/SfCharacteristic.vue"
 import SfCheckbox from "../../src/components/molecules/SfCheckbox/SfCheckbox.vue"
+import SfComponentSelect from "../../src/components/molecules/SfComponentSelect/SfComponentSelect.vue"
 import SfDropdown from "../../src/components/molecules/SfDropdown/SfDropdown.vue"
 import SfFilter from "../../src/components/molecules/SfFilter/SfFilter.vue"
 import SfGallery from "../../src/components/molecules/SfGallery/SfGallery.vue"
@@ -41,7 +42,7 @@ import SfReview from "../../src/components/molecules/SfReview/SfReview.vue"
 import SfScrollable from "../../src/components/molecules/SfScrollable/SfScrollable.vue"
 import SfSearchBar from "../../src/components/molecules/SfSearchBar/SfSearchBar.vue"
 import SfSection from "../../src/components/molecules/SfSection/SfSection.vue"
-import SfComponentSelect from "../../src/components/molecules/SfComponentSelect/SfComponentSelect.vue"
+import SfSelect from "../../src/components/molecules/SfSelect/SfSelect.vue"
 import SfSlidingSection from "../../src/components/molecules/SfSlidingSection/SfSlidingSection.vue"
 import SfSteps from "../../src/components/molecules/SfSteps/SfSteps.vue"
 import SfSticky from "../../src/components/molecules/SfSticky/SfSticky.vue"
@@ -101,6 +102,7 @@ export default ({
   Vue.component("SfCallToAction", SfCallToAction);
   Vue.component("SfCharacteristic", SfCharacteristic);
   Vue.component("SfCheckbox", SfCheckbox);
+  Vue.component("SfComponentSelect", SfComponentSelect);
   Vue.component("SfDropdown", SfDropdown);
   Vue.component("SfFilter", SfFilter);
   Vue.component("SfGallery", SfGallery);
@@ -114,7 +116,7 @@ export default ({
   Vue.component("SfScrollable", SfScrollable);
   Vue.component("SfSearchBar", SfSearchBar);
   Vue.component("SfSection", SfSection);
-  Vue.component("SfComponentSelect", SfComponentSelect);
+  Vue.component("SfSelect", SfSelect);
   Vue.component("SfSlidingSection", SfSlidingSection);
   Vue.component("SfSteps", SfSteps);
   Vue.component("SfSticky", SfSticky);

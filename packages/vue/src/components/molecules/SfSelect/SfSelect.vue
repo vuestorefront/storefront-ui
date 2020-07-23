@@ -3,9 +3,9 @@
     <label class="sf-select__label"></label>
     <select v-focus>
       <transition name="sf-fade">
-        <option class="sf-select-option">
+        <div>
           <slot />
-        </option>
+        </div>
       </transition>
     </select>
   </div>
@@ -13,6 +13,9 @@
 <script>
 import { focus } from "../../../utilities/directives";
 import { clickOutside } from "../../../utilities/directives";
+import SfSelectOption from "./_internal/SfSelectOption.vue";
+import Vue from "vue";
+Vue.component("SfSelectOption", SfSelectOption);
 export default {
   name: "SfSelect",
   directives: { focus, clickOutside },

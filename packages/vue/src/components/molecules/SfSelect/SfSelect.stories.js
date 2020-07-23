@@ -18,7 +18,7 @@ const knobOptionsList = optionsList.reduce(
   (a, c) => ({ ...a, [c.label]: c.value }),
   {}
 );
-storiesOf("Molecules|ComponentSelect", module)
+storiesOf("Molecules|Select", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
     components: { SfSelect, SfProductOption },
