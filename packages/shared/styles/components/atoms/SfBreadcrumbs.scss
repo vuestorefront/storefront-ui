@@ -23,7 +23,7 @@
     @include font(
       --breadcrumbs-font,
       var(--font-weight--normal),
-      var(--font-size--sm),
+      var(--font-size--xs),
       1.6,
       var(--font-family--secondary)
     );
@@ -36,5 +36,8 @@
       --link-color: var(--c-text);
       cursor: default;
     }
+  }
+  @include for-desktop {
+    --breadcrumbs-font-size: var(--font-size--sm);
   }
 }

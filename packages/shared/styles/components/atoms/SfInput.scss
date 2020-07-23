@@ -114,6 +114,7 @@
       }
     }
     &:disabled {
+      --input-border-color: var(--c-text-disabled);
       --input-color: var(--c-text-disabled);
       /* add to provide color on iOS */
       -webkit-text-fill-color: var(--c-text-disabled);
@@ -191,6 +192,7 @@
     --input-label-font-size: var(--font-size--xs);
     --input-label-color: var(--c-secondary-variant);
     --input-label-transition: color 150ms ease;
+    --input-border: none;
     &.sf-input--has-text {
       --input-label-display: none;
     }

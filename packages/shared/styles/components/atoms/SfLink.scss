@@ -16,4 +16,7 @@
   &:hover {
     --link-color: var(--c-black);
   }
+  &:active {
+    --link-color: var(--c-gray);
+  }
 }

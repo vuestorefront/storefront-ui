@@ -8,10 +8,11 @@
   display: var(--button-display, flex);
   align-items: center;
   justify-content: center;
-  padding: var(--button-padding, var(--spacer-sm) calc(var(--spacer-sm) * 2));
+  padding: var(--button-padding, var(--spacer-sm) var(--spacer-base));
   color: var(--button-color, var(--c-light-variant));
   background: var(--button-background, var(--c-primary));
-  transition: var(--button-transition);
+  transition: var(--button-transition,  background 0.8s);
+  background-position: center;
   text-transform: var(--button-text-transform, uppercase);
   text-decoration: var(--button-text-decoration);
   cursor: var(--button-cursor, pointer);
@@ -27,11 +28,11 @@
   @include border(--button-border, 0, solid, var(--c-primary));
   @include box-shadow(
     --button-box-shadow,
-    0px,
     4px,
-    4px,
+    12px,
+    24px,
     0px,
-    var(--c-black),
+    var(--c-gray),
   );
   --button-box-shadow-opacity: 0;
   @each $color, $map in $colors-map {
@@ -39,8 +40,20 @@
     $variant: map-get($map, "variant");
     &.color-#{$color} {
       --button-background: #{$primary};
+      &:hover {
+        --button-background: #{$primary} radial-gradient(circle, transparent 1%, #{$variant} 1%) center/15000%;
+      }
       &:active {
-        --button-background: #{$variant};
+        --button-background:  #{$primary} radial-gradient(circle, transparent 40%, #{$variant} 1%) center/15000%;
+      }
+    }
+    &.color-light {
+      color: var(--c-gray);
+      &:hover {
+        --button-background: var(--c-light) radial-gradient(circle, transparent 1%, var(--c-text-disabled) 1%) center/15000%;
+      }
+      &:active {
+        --button-background: var(--c-light) radial-gradient(circle, transparent 40%, var(--c-text-disabled) 1%) center/15000%;
       }
     }
   }
@@ -49,15 +62,18 @@
   }
   &:hover {
     --button-box-shadow-opacity: 0.25;
+    --button-background: var(--c-primary) radial-gradient(circle, transparent 1%, var(--c-primary-variant) 1%) center/15000%;
   }
   &:active {
     --button-box-shadow: none;
-    --button-background: var(--c-primary-variant);
-    --button-transition: background 150ms linear;
+    --button-background: var(--c-primary) radial-gradient(circle, transparent 40%, var(--c-primary-variant) 1%) center/15000%;
+    --button-transition: background 0s ;
+    --button-text-decoration: underline;
+  background-size: 100%;
   }
   &:disabled {
     --button-background: var(--c-light);
-    --button-color: var(--c-text-muted);
+    --button-color: var(--c-text-disabled);
     --button-cursor: default;
     --button-box-shadow: none;
   }
@@ -68,27 +84,30 @@
     --button-text-transform: none;
     --button-wrap: normal;
     --button-box-shadow: none;
-    &:active {
+    &:active, &:hover {
       --button-background: transparent;
+      --button-text-decoration: none;
     }
   }
   &--full-width {
     --button-width: 100%;
   }
   &--outline {
-    --button-border-width: 2px 2px 2px 2px;
+    --button-border-width: 1px;
     --button-background: transparent;
     --button-color: var(--c-text);
+    &:hover {
+      --button-background: transparent;
+    }
     &:active {
       --button-border-color: var(--c-primary-variant);
       --button-background: transparent;
-      --button-color: var(--c-text-muted);
       --button-transition: color 150ms linear;
     }
     &:disabled {
       --button-border-color: var(--c-light);
       --button-background: transparent;
-      --button-color: var(--c-text-muted);
+      --button-color: var(--c-text-disabled);
     }
     @each $color, $map in $colors-map {
       $primary: map-get($map, "primary");
@@ -105,7 +124,7 @@
     --button-border-width: 0;
     --button-padding: 0;
     --button-background: transparent;
-    --button-color: var(--c-text);
+    --button-color: var(--c-info);
     --button-text-transform: none;
     --button-text-decoration: underline;
     --button-font-size: var(--font-size--xs);
@@ -114,14 +133,15 @@
     display: inline;
     &:hover {
       --button-background: transparent;
-      --button-color: var(--c-primary);
+      --button-color: var(--c-black);
     }
     &:active {
       --button-color: var(--c-gray);
+      --button-background: transparent;
     }
     &:disabled {
       --button-background: transparent;
-      --button-color: var(--c-text-muted);
+      --button-color: var(--c-gray-variant);
     }
     @each $color, $map in $colors-map {
       $primary: map-get($map, "primary");
@@ -152,6 +172,10 @@
       --button-background: var(--c-gray-variant);
       --button-color: var(--c-light-variant);
     }
+    &:hover {
+      --button-background: var(--c-gray-variant);
+      --button-color: var(--c-white);
+    }
     @each $color, $map in $colors-map {
       $primary: map-get($map, "primary");
       &.color-#{$color} {
@@ -162,6 +186,12 @@
           --button-border-color: var(--c-light);
         }
       }
+    }
+  }
+  @include for-desktop {
+    --button-padding: var(--spacer-sm) var(--spacer-lg);
+    &--pure {
+      --button-padding: 0;
     }
   }
 }
