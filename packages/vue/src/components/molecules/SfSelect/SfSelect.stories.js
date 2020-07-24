@@ -59,6 +59,12 @@ storiesOf("Molecules|Select", module)
       selected: {
         default: text("selected", "", "Props"),
       },
+      multiple: {
+        default: boolean("", false, "Props")
+      },
+      placeholder: {
+        default: text("placeholder", "", "Props"),
+      }
     },
     data() {
       return {
@@ -75,7 +81,8 @@ storiesOf("Molecules|Select", module)
         :valid="valid"
         :disabled="disabled"
         :error-message="errorMessage"
-        :persistent="persistent"
+        :multiple="multiple"
+        :placeholder="placeholder"
         style="max-width: 30rem; margin: 10px;"
       >
         <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">

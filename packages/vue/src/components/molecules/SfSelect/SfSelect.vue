@@ -1,13 +1,22 @@
 <template>
-  <div class="sf-select" :class="{ 'sf-select--is-selected': isSelected }">
+  <div class="sf-select" :class="{ 'sf-select--is-selected': selected }">
     <label :for="label" class="sf-select__label">{{ label }}</label>
-    <select :id="label" class="sf-select__dropdown">
+    <select
+      :id="label"
+      v-model="selected"
+      class="sf-select__dropdown"
+      :multiple="multiple"
+    >
+      <!-- empty option by default, may be used as placeholder -->
       <option
-        class="sf-select__default-selected"
+        class="sf-select__placeholder sf-select__option"
         disabled
         selected
         value
-      ></option>
+        ><slot name="placeholder" :placeholder="placeholder" />{{
+          placeholder
+        }}</option
+      >
       <slot />
     </select>
   </div>
@@ -22,10 +31,10 @@ export default {
   name: "SfSelect",
   // directives: { focus, clickOutside },
   components: {},
-  model: {
-    prop: "selected",
-    event: "change",
-  },
+  // model: {
+  //   prop: "selected",
+  //   event: "change",
+  // },
   props: {
     /**
      * Select field label
@@ -76,18 +85,14 @@ export default {
       type: String,
       default: "This field is not correct.",
     },
-    /**
-     * If true clicking outside will not dismiss the select
-     */
-  },
-  data() {
-    return {
-      open: false,
-      options: [],
-      indexes: {},
-      optionHeight: 0,
-      focusedOption: "",
-    };
+    multiple: {
+      type: Boolean,
+      default: false,
+    },
+    placeholder: {
+      type: String,
+      default: "",
+    },
   },
   computed: {
     isSelected() {

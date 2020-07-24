@@ -1,26 +1,19 @@
 @import "../../helpers";
 
 .sf-select {
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
   position: relative;
   box-sizing: border-box;
   width: var(--select-width);
   height: var(--select-height, 2.625rem);
   padding: var(--select-padding, var(--spacer-sm) 0 0 0);
-  color: var(--select-color, var(--c-text));
-  cursor: default;
+  color: var(--select-color, var(--c-text));  
+  cursor: default;  
   &__label {
     position: absolute;
     top: var(--select-label-top, 50%);
     left: var(--select-label-left, 0);
     height: 0.625rem;
     color: var(--select-label-color, inherit);
-    // transform: var(
-    //   --select-label-transform,
-    //   translate3d(0, calc(var(--select-label-top, 50%) * -1), 0)
-    // );
     transition: var(
       --select-label-transition,
       top 150ms linear,
@@ -28,10 +21,10 @@
     );
     @include font(
       --select-label-font,
-      var(--font-normal),
-      var(--font-xs),
+      var(--font-weight--normal),
+      var(--font-weight--xs),
       1,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
     &::after {
       content: var(--select-label-required);
@@ -47,35 +40,28 @@
   }
   &__dropdown {
     width: 100%;
-    height: 1.625rem;
-    box-shadow: none;
+    height: 1.625rem;    
+    overflow: auto;
+    box-shadow: none;  
+    background: var(--c-white);    
+    @include border(--select-dropdown-border, 0 0 1px 0, solid, var(--c-secondary));
   }
   &__option {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    overflow: auto;
+    padding: var(--select-option-padding, 0);            
     @include background(
-      --select-option-background-color,
+      --select-option-background,
       var(--c-white)
-    );
-     @include font(
+    ); 
+    @include font(
       --select-option-font,
-      var(--font-normal),
-      var(--font-base),
+      var(--font-weight--normal),
+      var(--font-size--base),
       1,
-      var(--font-family-secondary)
-    );
-    &::-webkit-scrollbar {
-      width: 0;
-    }
-    &:focus,
-    &:hover {
-      box-shadow: none;
-    }
+      var(--font-family--secondary)
+    ); 
   }
-  .sf-select__dropdown:active .sf-select__default-selected {
-    display: none;
+  .sf-select__dropdown:active .sf-select__placeholder {
+    display: var(--select-placeholder-display, none);
   }
   &__label .sf-select__dropdown:active  {
     top: 0;
