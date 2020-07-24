@@ -1,9 +1,9 @@
 import { shallowMount } from "@vue/test-utils";
-import SfSelect from "./SfSelect.vue";
+import SfSelectOption from "./SfSelectOption.vue";
 
-describe("SfSelect.vue", () => {
+describe("SfSelectOption.vue", () => {
   it("renders a component", () => {
-    const component = shallowMount(SfSelect);
+    const component = shallowMount(SfSelectOption);
     expect(component.classes("sf-select-option")).toBe(true);
   });
 });
