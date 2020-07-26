@@ -6,12 +6,13 @@
   width: var(--select-width);
   height: var(--select-height, 2.625rem);
   padding: var(--select-padding, var(--spacer-sm) 0 0 0);
-  color: var(--select-color, var(--c-text));  
+  color: var(--select-color, var(--c-text));      
   cursor: default;  
   &__label {
     position: absolute;
     top: var(--select-label-top, 50%);
     left: var(--select-label-left, 0);
+    padding: 0 0 0 4px;
     height: 0.625rem;
     color: var(--select-label-color, inherit);
     transition: var(
@@ -31,23 +32,23 @@
       color: var(--select-label-color, var(--c-primary));
     }
   }
-  &__cancel {
-    --button-background: var(--c-light);
-    --button-color: var(--c-dark-variant);
-    &:hover {
-      --button-background: var(--c-light);
-    }
-  }
+  // &__cancel {
+  //   --button-background: var(--c-light);
+  //   --button-color: var(--c-dark-variant);
+  //   &:hover {
+  //     --button-background: var(--c-light);
+  //   }
+  // }
   &__dropdown {
     width: 100%;
     height: 1.625rem;    
     overflow: auto;
     box-shadow: none;  
-    background: var(--c-white);    
+    background: var(--c-white); 
+    outline: none;   
     @include border(--select-dropdown-border, 0 0 1px 0, solid, var(--c-secondary));
   }
-  &__option {
-    padding: var(--select-option-padding, 0);            
+  &__option {           
     @include background(
       --select-option-background,
       var(--c-white)
@@ -65,7 +66,7 @@
   }
   &__label .sf-select__dropdown:active  {
     top: 0;
-  }
+  }  
   &::-ms-expand {
     display: none;
   }

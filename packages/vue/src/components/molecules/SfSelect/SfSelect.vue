@@ -1,5 +1,14 @@
 <template>
-  <div class="sf-select" :class="{ 'sf-select--is-selected': selected }">
+  <div
+    class="sf-select"
+    :class="{
+      'sf-select--is-selected': selected,
+      'sf-component-select--is-active': isActive,
+      'sf-component-select--is-required': required,
+      'sf-component-select--is-disabled': disabled,
+      'sf-component-select--is-invalid': !valid,
+    }"
+  >
     <label :for="label" class="sf-select__label">{{ label }}</label>
     <select
       :id="label"

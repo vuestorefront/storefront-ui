@@ -60,11 +60,11 @@ storiesOf("Molecules|Select", module)
         default: text("selected", "", "Props"),
       },
       multiple: {
-        default: boolean("", false, "Props")
+        default: boolean("multiple", false, "Props"),
       },
       placeholder: {
         default: text("placeholder", "", "Props"),
-      }
+      },
     },
     data() {
       return {

@@ -7,4 +7,3 @@ describe("SfSelect.vue", () => {
     expect(component.contains(".sf-select")).toBe(true);
   });
 });
-
