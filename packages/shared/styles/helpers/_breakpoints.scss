@@ -7,7 +7,12 @@ $desktop-xl-min: 1440px;
 $desktop-xxl-min: 1920px;
 // Media mixins
 @mixin for-mobile {
-  @media (max-width: $desktop-min - 1px) {
+  @media (max-width: $tablet-min - 1px) {
+    @content;
+  }
+}
+@mixin for-tablet {
+  @media (min-width: $tablet-min) and (max-width: $desktop-min - 1px) {
     @content;
   }
 }
@@ -17,13 +22,29 @@ $desktop-xxl-min: 1920px;
   }
 }
 // Visibility helpers
-.mobile-only {
+.smartphone-only {
+  @include for-tablet {
+    display: none !important;
+  }
   @include for-desktop {
     display: none !important;
   }
 }
+
+.tablet-only {
+  @include for-mobile {
+    display: none !important;
+  }
+  @include for-desktop {
+    display: none !important;
+  }
+}
+
 .desktop-only {
   @include for-mobile {
+    display: none !important;
+  }
+  @include for-tablet {
     display: none !important;
   }
 }
