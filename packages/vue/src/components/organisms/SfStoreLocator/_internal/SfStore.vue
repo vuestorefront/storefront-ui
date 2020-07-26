@@ -6,15 +6,17 @@
         <span>{{ distance }}km</span> away from you
       </div>
     </slot>
-    <div class="sf-store__media" @click="centerOn(latlng)">
+    <div v-bind:class="{ 'sf-store__media': picture }" @click="centerOn(latlng)">
       <!-- @slot Use this slot to show media elements -->
       <slot name="media">
         <SfImage
+          v-if="picture"
           :src="picture"
           :alt="`${name} picture`"
           :width="82"
           :height="112"
         />
+        <SfIcon v-if="!picture" icon="marker" />
       </slot>
     </div>
     <div class="sf-store__info">
