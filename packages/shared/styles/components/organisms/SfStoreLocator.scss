@@ -12,13 +12,13 @@
     color: var(--c-dark-variant);
     @include font(
       --store-item-distance-font,
-      var(--font-normal),
-      var(--font-base),
+      var(--font-weight--normal),
+      var(--font-size--base),
       1.4,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
     span {
-      font-weight: var(--font-bold);
+      font-weight: var(--font-weight-bold);
       color: var(--c-text);
     }
   }
@@ -50,10 +50,10 @@
     color: var(--c-dark-variant);
     @include font(
       --store-item-property-font,
-      var(--font-normal),
-      var(--font-base),
+      var(--font-weight--normal),
+      var(--font-size--base),
       1.4,
-      var(--font-family-primary)
+      var(--font-family--primary)
     );
   }
   &__name {
@@ -61,10 +61,10 @@
     color: var(--c-text);
     @include font(
       --store-item-property-font,
-      var(--font-normal),
-      var(--font-base),
+      var(--font-weight--normal),
+      var(--font-size--base),
       1.4,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
   }
   &__property {
@@ -74,10 +74,10 @@
     color: var(--c-dark-variant);
     @include font(
       --store-item-property-font,
-      var(--font-normal),
-      var(--font-xs),
+      var(--font-weight--normal),
+      var(--font-size--xs),
       1.4,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
     &:last-child {
       margin: var(--store-item-property-margin, 0);
@@ -129,13 +129,13 @@
     color: var(--store-locator-store-color, var(--c-text));
     @include font(
       --store-locator-stores-font,
-      var(--font-normal),
-      var(--font-sm),
+      var(--font-weight--normal),
+      var(--font-size--sm),
       1.4,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
     span {
-      font-weight: var(--font-bold);
+      font-weight: var(--font-weight--bold);
       color: var(--c-text);
     }
   }
