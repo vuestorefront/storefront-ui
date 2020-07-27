@@ -2,20 +2,17 @@
   <div
     class="sf-select"
     :class="{
-      'sf-select--is-selected': selected,
-      'sf-component-select--is-active': isActive,
-      'sf-component-select--is-required': required,
-      'sf-component-select--is-disabled': disabled,
-      'sf-component-select--is-invalid': !valid,
+      'sf-select--is-selected': selected || placeholder,
+      'sf-select--is-required': required,
+      'sf-select--is-disabled': disabled,
     }"
   >
-    <label :for="label" class="sf-select__label">{{ label }}</label>
-    <select
-      :id="label"
-      v-model="selected"
-      class="sf-select__dropdown"
-      :multiple="multiple"
-    >
+    <label :for="label" class="sf-select__label">
+      <slot name="label" :label="label">
+        {{ label }}
+      </slot>
+    </label>
+    <select :id="label" v-model="selected" v-focus class="sf-select__dropdown">
       <!-- empty option by default, may be used as placeholder -->
       <option
         class="sf-select__placeholder sf-select__option"
@@ -31,19 +28,13 @@
   </div>
 </template>
 <script>
-// import { focus } from "../../../utilities/directives";
-import { clickOutside } from "../../../utilities/directives";
+import { focus } from "../../../utilities/directives";
 import SfSelectOption from "./_internal/SfSelectOption.vue";
 import Vue from "vue";
 Vue.component("SfSelectOption", SfSelectOption);
 export default {
   name: "SfSelect",
-  // directives: { focus, clickOutside },
-  components: {},
-  // model: {
-  //   prop: "selected",
-  //   event: "change",
-  // },
+  directives: { focus },
   props: {
     /**
      * Select field label
@@ -58,13 +49,6 @@ export default {
     selected: {
       type: [String, Number, Object],
       default: "",
-    },
-    /**
-     * Dropdown list size
-     */
-    size: {
-      type: Number,
-      default: 5,
     },
     /**
      * Required attribute
@@ -88,16 +72,8 @@ export default {
       default: false,
     },
     /**
-     * Error message value of form select. It will be appeared if `valid` is `true`.
+     * Adds placeholder
      */
-    errorMessage: {
-      type: String,
-      default: "This field is not correct.",
-    },
-    multiple: {
-      type: Boolean,
-      default: false,
-    },
     placeholder: {
       type: String,
       default: "",

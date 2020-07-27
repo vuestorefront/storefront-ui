@@ -28,7 +28,6 @@ storiesOf("Molecules|Select", module)
           "CSS modifiers",
           {
             "sf-select--underlined": "sf-select--underlined",
-            "sf-select--no-chevron": "sf-select--no-chevron",
           },
           "sf-select--underlined",
           { display: "multi-select" },
@@ -38,30 +37,15 @@ storiesOf("Molecules|Select", module)
       label: {
         default: text("label", "Color", "Props"),
       },
-      size: {
-        default: number("size", 5, {}, "Props"),
+      selected: {
+        default: text("selected", "", "Props"),
       },
       required: {
         default: boolean("required", false, "Props"),
       },
-      valid: {
-        default: boolean("valid", true, "Props"),
-      },
       disabled: {
         default: boolean("disabled", false, "Props"),
-      },
-      errorMessage: {
-        default: text("errorMessage", "Color", "Props"),
-      },
-      persistent: {
-        default: boolean("persistent", false, "Props"),
-      },
-      selected: {
-        default: text("selected", "", "Props"),
-      },
-      multiple: {
-        default: boolean("multiple", false, "Props"),
-      },
+      }, 
       placeholder: {
         default: text("placeholder", "", "Props"),
       },
@@ -76,12 +60,8 @@ storiesOf("Molecules|Select", module)
         v-model="selected"
         :class="customClass"
         :label="label"
-        :size="size"
         :required="required"
-        :valid="valid"
         :disabled="disabled"
-        :error-message="errorMessage"
-        :multiple="multiple"
         :placeholder="placeholder"
         style="max-width: 30rem; margin: 10px;"
       >
@@ -108,24 +88,15 @@ storiesOf("Molecules|Select", module)
       label: {
         default: text("label", "Color", "Props"),
       },
-      size: {
-        default: number("size", 5, {}, "Props"),
-      },
       required: {
         default: boolean("required", false, "Props"),
       },
-      valid: {
-        default: boolean("valid", true, "Props"),
-      },
       disabled: {
         default: boolean("disabled", false, "Props"),
-      },
-      errorMessage: {
-        default: text("errorMessage", "Color", "Props"),
-      },
-      persistent: {
-        default: boolean("persistent", false, "Props"),
-      },
+      },    
+      placeholder: {
+        default: text("placeholder", "", "Props"),
+      },  
     },
     data() {
       return {
@@ -138,12 +109,9 @@ storiesOf("Molecules|Select", module)
         v-model="selected"
         :class="customClass"
         :label="label"
-        :size="size"
         :required="required"
-        :valid="valid"
-        :disabled="disabled"
-        :error-message="errorMessage" 
-        :persistent="persistent"       
+        :disabled="disabled"  
+        :placeholder="placeholder"    
         >
         <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
           <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
