@@ -31,7 +31,7 @@ storiesOf("Molecules|Dropdown", module)
     },
     data() {
       return {
-        isOpen: false,
+        toggle: false,
         actionList: [
           "Add to cart",
           "Add to compare",
@@ -40,18 +40,19 @@ storiesOf("Molecules|Dropdown", module)
         ],
       };
     },
-    template: `<div style="display:flex">
-      <div style="position: relative; display: inline-block;">
-        <SfButton @click="isOpen = true">Choose your action</SfButton>
-        <SfDropdown :class="customClass" :is-open="isOpen" :persistent="persistent" :title="title" @click:close="isOpen = false">
-          <SfList>
-            <SfListItem v-for="(action, key) in actionList" :key="key">
-              <SfButton class="sf-button--full-width sf-button--underlined color-primary" @click="isOpen = !isOpen">{{ action }}</SfButton>
-            </SfListItem>
-          </SfList>
-        </SfDropdown>
-      </div>
-    </div>`,
+    template: 
+        `<SfDropdown :class="customClass" :persistent="persistent" :title="title">
+          <template v-slot="toggle"> 
+            <SfButton>Choose your action</SfButton> 
+          </template>
+          <template #content>
+            <SfList>
+              <SfListItem v-for="(action, key) in actionList" :key="key">
+                <SfButton class="sf-button--full-width sf-button--underlined color-primary" @click="toggle">{{ action }}</SfButton>
+              </SfListItem>
+            </SfList>
+          </template> 
+        </SfDropdown>`,
   }))
   .add("With up modifier", () => ({
     components: { SfDropdown, SfList, SfButton },
@@ -85,16 +86,13 @@ storiesOf("Molecules|Dropdown", module)
         ],
       };
     },
-    template: `<div>
-      <div style="position: absolute; display: inline-block; bottom: 0;">
-        <SfButton @click="isOpen = true">Choose your action</SfButton>
-        <SfDropdown :class="customClass" :is-open="isOpen" :persistent="persistent" :title="title" @click:close="isOpen = false">
+    template: `        
+        <SfDropdown :class="customClass" :persistent="persistent" :title="title">
+          <SfButton>Choose your action</SfButton>
           <SfList>
             <SfListItem v-for="(action, key) in actionList" :key="key">
-              <SfButton class="sf-button--full-width sf-button--underlined color-primary" @click="isOpen = false">{{ action }}</SfButton>
+              <SfButton class="sf-button--full-width sf-button--underlined color-primary">{{ action }}</SfButton>
             </SfListItem>
           </SfList>
-        </SfDropdown>
-      </div>
-    </div>`,
+        </SfDropdown>`,
   }));

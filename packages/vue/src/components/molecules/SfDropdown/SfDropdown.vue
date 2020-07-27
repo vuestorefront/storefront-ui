@@ -1,9 +1,16 @@
 <template>
   <div class="sf-dropdown">
     <SfOverlay :visible="isOpen" class="sf-dropdown__overlay" />
+    <slot :toggle="toggle">
+      <SfButton
+        class="sf-button--full-width sf-dropdown__trigger"
+        @click="toggle"
+        >Choose your action</SfButton
+      >
+    </slot>
     <transition name="sf-dropdown">
       <div
-        v-show="isOpen"
+        v-show="toggle"
         v-click-outside="checkPersistence"
         class="sf-dropdown__container"
       >
@@ -12,12 +19,12 @@
           <div v-if="title" class="sf-dropdown__title">{{ title }}</div>
         </slot>
         <!--@slot Use this slot to place content inside the dropdown.-->
-        <slot />
+        <slot name="content" />
         <!--@slot Use this slot to replace cancel button. -->
-        <slot name="cancel" v-bind="{ close }">
+        <slot name="cancel" v-bind="{ toggle }">
           <SfButton
             class="sf-button--full-width sf-dropdown__cancel"
-            @click="close"
+            @click="toggle(false)"
             >Cancel</SfButton
           >
         </slot>
@@ -77,15 +84,18 @@ export default {
     },
   },
   methods: {
-    close() {
-      this.$emit("click:close");
+    toggle(value) {
+      return value ? (this.isOpen = value) : !this.isOpen;
     },
+    // close() {
+    //   this.$emit("click:close");
+    // },
     checkPersistence() {
-      if (!this.persistent) this.close();
+      if (!this.persistent) this.toggle(false);
     },
     keydownHandler(e) {
       if (e.key === "Escape" || e.key === "Esc" || e.keyCode === 27) {
-        this.close();
+        this.toggle(false);
       }
     },
   },

@@ -38,7 +38,8 @@
     );
     text-align: center;
   }
-  &__cancel {
+  &__cancel,
+  &__trigger {
     --button-background: var(--c-light);
     --button-color: var(--c-text-muted);
     &:hover {
