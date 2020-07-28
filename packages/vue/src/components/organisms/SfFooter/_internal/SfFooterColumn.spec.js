@@ -7,6 +7,6 @@ describe("SfFooterColumn.vue", () => {
     const component = shallowMount(SfFooterColumn, {
       parentComponent: SfFooter,
     });
-    expect(component.contains(".sf-footer-column")).toBe(true);
+    expect(component.classes("sf-footer-column")).toBe(true);
   });
 });

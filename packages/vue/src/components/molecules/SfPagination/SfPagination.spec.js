@@ -4,6 +4,6 @@ import SfPagination from "./SfPagination.vue";
 describe("SfPagination.vue", () => {
   it("renders a pagination", () => {
     const component = shallowMount(SfPagination);
-    expect(component.contains("nav")).toBe(true);
+    expect(component.classes("sf-pagination")).toBe(true);
   });
 });
