@@ -19,7 +19,7 @@
           <div v-if="title" class="sf-dropdown__title">{{ title }}</div>
         </slot>
         <!--@slot Use this slot to place content inside the dropdown.-->
-        <slot name="content" />
+        <slot name="content" v-bind="{ toggle }" />
         <!--@slot Use this slot to replace cancel button. -->
         <slot name="cancel" v-bind="{ toggle }">
           <SfButton
@@ -92,9 +92,6 @@ export default {
         return !this.isOpen;
       }
     },
-    // close() {
-    //   this.$emit("click:close");
-    // },
     checkPersistence() {
       if (!this.persistent) this.toggle(false);
     },
