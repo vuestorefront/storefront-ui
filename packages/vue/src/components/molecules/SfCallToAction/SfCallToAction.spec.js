@@ -3,7 +3,7 @@ import SfCallToAction from "./SfCallToAction.vue";
 describe("SfCallToAction.vue", () => {
   it("renders a section", () => {
     const component = shallowMount(SfCallToAction);
-    expect(component.contains("section")).toBe(true);
+    expect(component.classes("sf-call-to-action")).toBe(true);
   });
   it("renders title text when passed", () => {
     const msg = "HelloWorld";
