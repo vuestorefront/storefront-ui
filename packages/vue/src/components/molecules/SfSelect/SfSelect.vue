@@ -5,6 +5,7 @@
       'sf-select--is-selected': selected || placeholder,
       'sf-select--is-required': required,
       'sf-select--is-disabled': disabled,
+      'sf-select--is-invalid': !valid,
     }"
   >
     <label :for="label" class="sf-select__label">
@@ -25,6 +26,14 @@
       >
       <slot />
     </select>
+    <div class="sf-component-select__error-message">
+      <transition name="sf-fade">
+        <!-- @slot Custom error message of form select -->
+        <slot v-if="!valid" name="error-message" v-bind="{ errorMessage }">
+          <span> {{ errorMessage }} </span>
+        </slot>
+      </transition>
+    </div>
   </div>
 </template>
 <script>
@@ -70,6 +79,13 @@ export default {
     disabled: {
       type: Boolean,
       default: false,
+    },
+    /**
+     * Error message value of form select. It will be appeared if `valid` is `true`.
+     */
+    errorMessage: {
+      type: String,
+      default: "This field is not correct.",
     },
     /**
      * Adds placeholder

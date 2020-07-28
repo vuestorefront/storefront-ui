@@ -1,6 +1,6 @@
 @import "../../helpers";
 .sf-component-select-option {
-  display: block;
+  display: flex;
   box-sizing: border-box;
   padding: var(--component-select-option-padding, var(--spacer-sm));
   @include border(--component-select-option-border, 1px 0 0 0, solid, var(--c-light));
@@ -10,15 +10,15 @@
     --component-select-height,
     calc(
       var(--spacer-base) + var(--spacer-2xs) +
-      var(--component-select-label-font-size, var(--font-lg))
+      var(--component-select-label-font-size, var(--font-size--lg))
     )
   );
   @include font(
     --component-select-option-font,
-    var(--font-light),
-    var(--font-sm),
+    var(--font-weight--light),
+    var(--font-size--sm),
     1.2,
-    var(--font-family-primary)
+    var(--font-family--primary)
   );
   &--is-active {
     --component-select-option-background: var(--c-light);
@@ -35,7 +35,7 @@
   box-sizing: border-box;
   width: var(--component-select-width);
   height: var(--component-select-height);
-  padding: var(--component-select-padding, 0 0 calc(var(--font-xs) * 1.2) 0);
+  padding: var(--component-select-padding, 0 0 calc(var(--font-size--xs) * 1.2) 0);
   color: var(--component-select-color, var(--c-text));
   cursor: default;
   &__label {
@@ -54,10 +54,10 @@
     );
     @include font(
       --component-select-label-font,
-      var(--font-normal),
-      var(--font-lg),
+      var(--font-weight--normal),
+      var(--font-size--lg),
       1,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
     &::after {
       content: var(--component-select-label-required);
@@ -72,8 +72,8 @@
     transform: translate3d(0, -50%, 0);
   }
   &__selected {
-    --product-option-font-size: var(--font-lg);
-    --component-select-option-font-size: var(--font-lg);
+    --product-option-font-size: var(--font-size--lg);
+    --component-select-option-font-size: var(--font-size--lg);
     box-sizing: border-box;
     display: flex;
     align-items: var(--component-select-selected-align-items,center);
@@ -113,13 +113,13 @@
   &__error-message {
     --component-select-border-color: var(--c-danger);
     color: var(--component-select-error-message-color, var(--c-danger));
-    min-height: var(--component-select-error-message-height, calc(var(--font-xs) * 1.2));
+    min-height: var(--component-select-error-message-height, calc(var(--font-size--xs) * 1.2));
     @include font(
       --input-error-message-font,
-      var(--font-medium),
-      var(--font-xs),
+      var(--font-weight--medium),
+      var(--font-size--xs),
       1.2,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
   }
   &__cancel {
@@ -135,7 +135,7 @@
   }
   &--is-selected {
     --component-select-label-top: 0;
-    --component-select-label-font-size: var(--font-xs);
+    --component-select-label-font-size: var(--font-size--xs);
   }
   &--is-invalid {
     --component-select-border-color: var(--c-danger);

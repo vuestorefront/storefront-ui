@@ -40,7 +40,7 @@
       <SfOverlay
         ref="overlay"
         :visible="open"
-        class="sf-component-select__overlay mobile-only"
+        class="sf-component-select__overlay smartphone-only"
       />
       <transition name="sf-component-select">
         <div v-show="open" class="sf-component-select__dropdown">
@@ -55,7 +55,7 @@
           <slot name="cancel">
             <SfButton
               ref="cancel"
-              class="sf-component-select__cancel sf-button--full-width mobile-only"
+              class="sf-component-select__cancel sf-button--full-width smartphone-only"
               @click="closeHandler"
             >
               Cancel
