@@ -170,7 +170,7 @@ storiesOf("Molecules|Scrollable", module)
           :color="option.color" 
           :label="option.label"
           :style="{marginBottom: key < options.length - 1 ? '8px' : undefined}"/>
-          <template #button> 
+          <template #view-all> 
             <button  @click="isHidden = !isHidden">
               <span v-if="isHidden" >{{showText}}</span>
               <span v-else>{{hideText}}</span>
