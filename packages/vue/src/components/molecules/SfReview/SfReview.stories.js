@@ -26,7 +26,7 @@ storiesOf("Molecules|Review", module)
         default: number("rating", 4, {}, "Props"),
       },
       charLimit: {
-        default: number("charLimit", 250, {}, "Props"),
+        default: number("charLimit", 231, {}, "Props"),
       },
       readMoreText: {
         default: text("readMoreText", "Read more", "Props"),
@@ -41,7 +41,7 @@ storiesOf("Molecules|Review", module)
       :message="message"
       :max-rating="maxRating"
       :rating="rating"
-      :char-limit="charLimit"
+      :charLimit="charLimit"
       :read-more-text="readMoreText"
       :hide-full-text="hideFullText" />`,
   }))

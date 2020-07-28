@@ -25,10 +25,10 @@
     padding: var(--modal-content-padding, var(--spacer-base) var(--spacer-sm));
     @include font(
       --modal-content-font,
-      var(--font-light),
-      var(--font-base),
+      var(--font-weight--light),
+      var(--font-size--base),
       1.6,
-      var(--font-family-primary)
+      var(--font-family--primary)
     );
   }
   &__close {

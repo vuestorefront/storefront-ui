@@ -2,6 +2,7 @@
 .sf-rating {
   display: flex;
   &__icon {
+    --icon-size: 0.875rem;
     --icon-color: var(--c-primary);
     &--negative {
       --icon-color: var(--c-text-disabled);

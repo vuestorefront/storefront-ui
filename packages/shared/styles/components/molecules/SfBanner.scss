@@ -27,10 +27,10 @@
     );
     @include font(
       --banner-subtitle-font,
-      var(--font-normal),
-      var(--font-2xs),
+      var(--font-weight--normal),
+      var(--font-size--base),
       1.4,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
     text-transform: var(--banner-subtitle-text-transform, uppercase);
   }
@@ -39,10 +39,10 @@
     color: var(--banner-color, var(--banner-title-color, var(--c-text)));
     @include font(
       --banner-title-font,
-      var(--font-normal),
+      var(--font-weight--normal),
       var(--h2-font-size),
       1.4,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
     text-transform: var(--banner-title-text-transform, uppercase);
   }
@@ -55,10 +55,10 @@
     color: var(--banner-color, var(--banner-description-color, var(--c-text)));
     @include font(
       --banner-description-font,
-      var(--font-light),
-      var(--font-base),
+      var(--font-weight--light),
+      var(--font-size--base),
       1.6,
-      var(--font-family-primary)
+      var(--font-family--primary)
     );
   }
   &__call-to-action {
@@ -72,13 +72,13 @@
     );
     --banner-display-description: block;
     --banner-display-call-to-action: block;
-    --banner-title-margin: var(--spacer-base) 0 0 0;
+    --banner-title-margin: var(--spacer-sm) 0 0 0;
     --banner-subtitle-color: var(--c-gray);
-    --banner-title-font-size: var(--h1-font-size);
-    min-height: var(--banner-height, 19rem);
-  }
-  &--right {
-    @include for-desktop {
+    min-height: var(--banner-height, 25rem);
+    &__call-to-action {
+      --button-padding: var(--spacer-sm) var(--spacer-xl);
+    }
+    &--right {
       --banner-justify-content: flex-end;
     }
   }

@@ -30,10 +30,10 @@
     );
     @include font(
       --call-to-action-title-font,
-      var(--font-semibold),
+      var(--font-weight--semibold),
       var(--h2-font-size),
       1.4,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
     text-transform: var(--call-to-action-title-text-transform, none);
   }
@@ -45,10 +45,10 @@
     );
     @include font(
       --call-to-action-description-font,
-      var(--font-light),
-      var(--font-base),
+      var(--font-weight--normal),
+      var(--font-size--lg),
       1.6,
-      var(--font-family-primary)
+      var(--font-family--primary)
     );
   }
   @include for-desktop {
