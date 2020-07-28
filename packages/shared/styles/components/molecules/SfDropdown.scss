@@ -1,7 +1,6 @@
 @import "../../helpers";
 .sf-dropdown {
   position: var(--dropdown-position, fixed);
-  width: var(--dropdown-width, 100%);
   top: var(--dropdown-top);
   bottom: var(--dropdown-bottom, 0);
   transform: var(--dropdown-transform);
@@ -11,6 +10,7 @@
   }
   &__container {
     position: relative;
+    width: var(--dropdown-container-width, 100%);
     z-index: 1;
     background: var(--dropdown-background, var(--c-white));
     box-shadow: var(--dropdown-box-shadow);
@@ -31,15 +31,14 @@
     color: var(--c-primary);
     @include font(
       --dropdown-title-font,
-      var(--font-normal),
-      var(--font-sm),
+      var(--font-weight--normal),
+      var(--font-size--sm),
       1.2,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
     text-align: center;
   }
-  &__cancel,
-  &__trigger {
+  &__cancel, {
     --button-background: var(--c-light);
     --button-color: var(--c-text-muted);
     &:hover {

@@ -1,7 +1,7 @@
 <template>
   <div class="sf-dropdown">
     <SfOverlay :visible="isOpen" class="sf-dropdown__overlay" />
-    <slot :toggle="toggle">
+    <slot v-bind="{ toggle }">
       <SfButton
         class="sf-button--full-width sf-dropdown__trigger"
         @click="toggle"
@@ -10,7 +10,7 @@
     </slot>
     <transition name="sf-dropdown">
       <div
-        v-show="toggle"
+        v-show="isOpen"
         v-click-outside="checkPersistence"
         class="sf-dropdown__container"
       >
@@ -24,7 +24,7 @@
         <slot name="cancel" v-bind="{ toggle }">
           <SfButton
             class="sf-button--full-width sf-dropdown__cancel"
-            @click="toggle(false)"
+            @click="toggle"
             >Cancel</SfButton
           >
         </slot>
@@ -85,7 +85,12 @@ export default {
   },
   methods: {
     toggle(value) {
-      return value ? (this.isOpen = value) : !this.isOpen;
+      console.log(value);
+      if (typeof value !== undefined) {
+        return (this.isOpen = value);
+      } else {
+        return !this.isOpen;
+      }
     },
     // close() {
     //   this.$emit("click:close");
