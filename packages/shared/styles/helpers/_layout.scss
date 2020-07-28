@@ -8,8 +8,6 @@
 @mixin border($element, $border-width, $border-style, $border-color) {
   border: var(#{$element}, _border($element, $border-style, $border-color));
   border-width: var(#{$element}-width, $border-width);
-  border-top-width: var(#{$element}-top-width, $border-width);
-  border-bottom-width: var(#{$element}-bottom-width, $border-width);
 }
 // Use this mixin to set component background properties: color, image, position, size
 @mixin background(

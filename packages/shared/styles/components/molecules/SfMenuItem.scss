@@ -8,10 +8,10 @@
   cursor: pointer;
   @include font(
     --menu-item-font,
-    var(--font-normal),
-    var(--font-base),
+    var(--font-width--normal),
+    var(--font-size--base),
     1.4,
-    var(--font-family-secondary)
+    var(--font-family--secondary)
   );
   &__link {
     display: flex;

@@ -5,7 +5,7 @@
   align-items: var(--notification-align-items, center);
   box-sizing: border-box;
   max-width: var(--notification-max-width, 20.9375rem);
-  padding: var(--notification-padding, var(--spacer-sm));
+  padding: var(--notification-padding, var(--spacer-sm) var(--spacer-xs));
   box-shadow: var(
     --notification-box-shadow,
     0 4px 11px rgba(var(--c-dark-base), 0.1)
@@ -15,8 +15,8 @@
   color: var(--notification-color, var(--c-white));
   @include font(
     --notification-font,
-    var(--font-weight--normal),
-    var(--font-size--xs),
+    var(--font-weight--medium),
+    var(--font-size--lg),
     normal,
     var(--font-family--secondary)
   );
@@ -24,7 +24,7 @@
     display: var(--notification-title-display, block);
     @include font(
       --notification-title-font,
-      var(--font-weight--normal),
+      var(--font-weight--medium),
       var(--font-size--lg),
       normal,
       var(--font-family--secondary)
@@ -49,7 +49,7 @@
   }
   &__icon {
     --icon-color: var(--c-white);
-    margin: var(--notification-icon-margin, 0 var(--spacer-base) 0 0);
+    margin: var(--notification-icon-margin, 0 var(--spacer-xs) 0 0);
   }
   &__close {
     --icon-size: 0.85rem;
@@ -59,8 +59,8 @@
   }
   @include for-desktop {
     --notification-max-width: 100%;
-    --notification-icon-margin: 0 var(--spacer-lg) 0 0;
-    --notification-padding: var(--spacer-xs) var(--spacer-sm);
+    --notification-icon-margin: 0 var(--spacer-base) 0 0;
+    --notification-padding: var(--spacer-sm) var(--spacer-xs) ;
     --notification-action-display: inline;
     --notification-close-top: auto;
     --notification-close-right: var(--spacer-sm);

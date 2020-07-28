@@ -4,7 +4,7 @@
   display: var(--banner-display, flex);
   align-items: var(--banner-align-items, flex-start);
   justify-content: var(--banner-justify-content, flex-start);
-  min-height: var(--banner-height, 14rem);
+  min-height: var(--banner-height, 21.4375rem);
   width: var(--banner-width, 100%);
   padding: var(--banner-padding, var(--spacer-xl));
   @include background(
@@ -12,6 +12,7 @@
     var(--_banner-background-color, transparent),
     var(--_banner-background-image)
   );
+  --banner-background-position: 60%;
   &__container {
     display: flex;
     flex: 0 0 var(--banner-container-width, 50%);

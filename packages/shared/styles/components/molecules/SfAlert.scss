@@ -1,13 +1,13 @@
 @import "../../helpers";
 .sf-alert {
-  --icon-size: 0.9375rem;
+  --icon-size: 20px;
   display: flex;
   align-items: center;
   color: var(--alert-color);
   @include font(
     --alert-font,
     var(--font-weight--normal),
-    var(--font-size--sm),
+    var(--font-size--base),
     1.6,
     var(--font-family--primary)
   );
