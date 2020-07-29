@@ -126,10 +126,9 @@ undefined | --c-text-disabled: var(--_c-gray-accent) | --c-text-disabled: var(--
 
 - **Props**
   
-Component | Before | v0.8.0
------------- | ------------ | ------------
-SfSearchBar| - | iconSize
-SfSearchBar| - | iconColor
+Component | Before | v0.8.0 | Info
+------------ | ------------ | ------------ | ------------
+SfSearchBar| - | icon | Object to define icon look. Should have values for color and size
 
 ### Changes
 
