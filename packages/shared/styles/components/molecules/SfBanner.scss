@@ -15,7 +15,7 @@
   --banner-background-position: 60%;
   &__container {
     display: flex;
-    flex: 0 0 var(--banner-container-width, 50%);
+    flex: 0 0 var(--banner-container-width, 70%);
     justify-content: var(--banner-container-justify-content, flex-start);
     align-items: var(--banner-container-align-items, flex-start);
     flex-direction: var(--banner-container-flex-direction, column);
@@ -36,7 +36,7 @@
     text-transform: var(--banner-subtitle-text-transform, uppercase);
   }
   &__title {
-    margin: var(--banner-title-margin, 0.6875rem 0 0 0);
+    margin: var(--banner-title-margin, var(--spacer-2xs) 0 0 0);
     color: var(--banner-color, var(--banner-title-color, var(--c-text)));
     @include font(
       --banner-title-font,
@@ -71,6 +71,7 @@
       --_banner-background-desktop-image,
       var(--_banner-background-image)
     );
+    --banner-container-width: 50%;
     --banner-display-description: block;
     --banner-display-call-to-action: block;
     --banner-title-margin: var(--spacer-sm) 0 0 0;

@@ -4,6 +4,7 @@
   --checkbox-border-radius: 100%;
   --color-size: 1.5rem;
   width: 100%;
+  --checkbox-border-color: transparent;
   &__color {
     margin: var(--filter-color-margin, 0 var(--spacer-sm) 0 0);
   }
@@ -41,7 +42,6 @@
   &--active {
     --filter-count-color: var(--c-primary);
     --filter-label-color: var(--c-primary);
-
   }
   @include for-desktop {
     --checkbox-border-radius: 0;
