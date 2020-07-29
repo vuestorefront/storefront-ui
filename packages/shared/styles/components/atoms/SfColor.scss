@@ -18,11 +18,9 @@
   --color-box-shadow-transition-duration: 150ms;
   transition: transform 150ms linear;
   &__badge {
-    --badge-padding: var(--spacer-xs);
+    --badge-padding: var(--spacer-2xs);
     --badge-border-radius: 100%;
     position: absolute;
-    top: -25%;
-    right: -25%;
   }
   @include for-desktop {
     &:hover {
