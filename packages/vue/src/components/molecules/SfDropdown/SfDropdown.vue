@@ -85,10 +85,11 @@ export default {
   },
   methods: {
     toggle(value) {
-      console.log(value);
       if (typeof value !== undefined) {
+        console.log(value);
         return (this.isOpen = value);
       } else {
+        console.log(value);
         return !this.isOpen;
       }
     },

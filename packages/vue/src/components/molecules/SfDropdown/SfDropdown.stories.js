@@ -48,7 +48,7 @@ storiesOf("Molecules|Dropdown", module)
             <template #content>
               <SfList>
                 <SfListItem v-for="(action, key) in actionList" :key="key">
-                  <SfButton class="sf-button--full-width sf-button--underlined color-primary" @click="isOpen = false">{{ action }}</SfButton>
+                  <SfButton class="sf-button--full-width sf-button--underlined color-primary" @click="isOpen = !isOpen">{{ action }}</SfButton>
                 </SfListItem>
               </SfList>
             </template> 
