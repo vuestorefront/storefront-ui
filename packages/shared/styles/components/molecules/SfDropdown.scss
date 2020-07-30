@@ -34,7 +34,7 @@
     );
     text-align: center;
   }
-  &__cancel, {
+  &__cancel {
     --button-background: var(--c-light);
     --button-color: var(--c-text-muted);
     &:hover {
@@ -50,8 +50,9 @@
   }
   &--up {
     @include for-desktop {
-      --dropdown-top: 0;
-      --dropdown-bottom: auto;
+      --dropdown-position: absolute;
+      --dropdown-top: auto;
+      --dropdown-bottom: 0;
       --dropdown-transform: translate(0, -100%);
       --dropdown-box-shadow: 0px -4px 11px rgba(var(--c-dark-base), 0.1);
     }

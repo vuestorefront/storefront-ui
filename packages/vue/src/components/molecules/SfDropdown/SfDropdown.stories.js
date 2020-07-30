@@ -41,7 +41,7 @@ storiesOf("Molecules|Dropdown", module)
       };
     },
     template: `
-            <SfDropdown :class="customClass" :is-open="isOpen" :persistent="persistent" :title="title">
+            <SfDropdown :class="customClass" :is-open="isOpen"  @click:close="isOpen = false" @click:open="isOpen = true" :persistent="persistent" :title="title">
               <template #content>
                 <SfList>
                   <SfListItem v-for="(action, key) in actionList" :key="key">

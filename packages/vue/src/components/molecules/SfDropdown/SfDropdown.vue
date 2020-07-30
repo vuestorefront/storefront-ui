@@ -1,14 +1,14 @@
 <template>
   <div class="sf-dropdown">
-    <SfOverlay :visible="opened" class="sf-dropdown__overlay" />
-    <slot @click="toggle">
-      <SfButton class="sf-button--full-width sf-dropdown__trigger"
+    <SfOverlay :visible="isOpen" class="sf-dropdown__overlay" />
+    <slot>
+      <SfButton class="sf-button--full-width sf-dropdown__trigger" @click="open"
         >Choose your action</SfButton
       >
     </slot>
     <transition name="sf-dropdown">
       <div
-        v-show="opened"
+        v-show="isOpen"
         v-click-outside="checkPersistence"
         class="sf-dropdown__container"
       >
@@ -19,8 +19,10 @@
         <!--@slot Use this slot to place content inside the dropdown.-->
         <slot name="content" />
         <!--@slot Use this slot to replace cancel button. -->
-        <slot name="cancel" @click="toggle">
-          <SfButton class="sf-button--full-width sf-dropdown__cancel"
+        <slot name="cancel">
+          <SfButton
+            class="sf-button--full-width sf-dropdown__cancel"
+            @click="close"
             >Cancel</SfButton
           >
         </slot>
@@ -66,13 +68,8 @@ export default {
       default: false,
     },
   },
-  data() {
-    return {
-      opened: this.isOpen,
-    };
-  },
   watch: {
-    opened: {
+    isOpen: {
       handler(value) {
         if (!isClient) return;
         if (value) {
@@ -85,22 +82,19 @@ export default {
     },
   },
   methods: {
-    toggle(value) {
-      console.log(value);
-      if (value === false) {
-        this.opened = false;
-      } else if (value === true) {
-        this.opened = true;
-      } else {
-        this.opened = !this.opened;
-      }
+    open() {
+      if (this.isOpen) return this.close();
+      this.$emit("click:open");
+    },
+    close() {
+      this.$emit("click:close");
     },
     checkPersistence() {
-      if (!this.persistent) this.toggle(false);
+      if (!this.persistent) return this.$emit("click:close");
     },
     keydownHandler(e) {
       if (e.key === "Escape" || e.key === "Esc" || e.keyCode === 27) {
-        this.toggle(false);
+        this.$emit("click:close");
       }
     },
   },
