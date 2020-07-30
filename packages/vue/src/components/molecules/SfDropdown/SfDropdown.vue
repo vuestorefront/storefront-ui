@@ -1,16 +1,14 @@
 <template>
   <div class="sf-dropdown">
-    <SfOverlay :visible="isOpen" class="sf-dropdown__overlay" />
-    <slot v-bind="{ toggle }">
-      <SfButton
-        class="sf-button--full-width sf-dropdown__trigger"
-        @click="toggle"
+    <SfOverlay :visible="opened" class="sf-dropdown__overlay" />
+    <slot @click="toggle">
+      <SfButton class="sf-button--full-width sf-dropdown__trigger"
         >Choose your action</SfButton
       >
     </slot>
     <transition name="sf-dropdown">
       <div
-        v-show="isOpen"
+        v-show="opened"
         v-click-outside="checkPersistence"
         class="sf-dropdown__container"
       >
@@ -19,12 +17,10 @@
           <div v-if="title" class="sf-dropdown__title">{{ title }}</div>
         </slot>
         <!--@slot Use this slot to place content inside the dropdown.-->
-        <slot name="content" v-bind="{ toggle }" />
+        <slot name="content" />
         <!--@slot Use this slot to replace cancel button. -->
-        <slot name="cancel" v-bind="{ toggle }">
-          <SfButton
-            class="sf-button--full-width sf-dropdown__cancel"
-            @click="toggle"
+        <slot name="cancel" @click="toggle">
+          <SfButton class="sf-button--full-width sf-dropdown__cancel"
             >Cancel</SfButton
           >
         </slot>
@@ -70,8 +66,13 @@ export default {
       default: false,
     },
   },
+  data() {
+    return {
+      opened: this.isOpen,
+    };
+  },
   watch: {
-    isOpen: {
+    opened: {
       handler(value) {
         if (!isClient) return;
         if (value) {
@@ -85,12 +86,13 @@ export default {
   },
   methods: {
     toggle(value) {
-      if (typeof value !== undefined) {
-        console.log(value);
-        return (this.isOpen = value);
+      console.log(value);
+      if (value === false) {
+        this.opened = false;
+      } else if (value === true) {
+        this.opened = true;
       } else {
-        console.log(value);
-        return !this.isOpen;
+        this.opened = !this.opened;
       }
     },
     checkPersistence() {

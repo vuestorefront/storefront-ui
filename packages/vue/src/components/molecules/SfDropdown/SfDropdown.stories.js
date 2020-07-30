@@ -17,9 +17,9 @@ storiesOf("Molecules|Dropdown", module)
       persistent: {
         default: boolean("persistent", false, "Props"),
       },
-      isOpen: {
-        default: boolean("isOpen", false, "Props"),
-      },
+      // isOpen: {
+      //   default: boolean("isOpen", false, "Props"),
+      // },
       customClass: {
         default: options(
           "CSS modifiers",
@@ -33,7 +33,8 @@ storiesOf("Molecules|Dropdown", module)
       },
     },
     data() {
-      return {       
+      return {   
+        isOpen: false,    
         actionList: [
           "Add to cart",
           "Add to compare",
@@ -42,18 +43,17 @@ storiesOf("Molecules|Dropdown", module)
         ],
       };
     },
-    template: 
-        `<div style="position: relative;">
-          <SfDropdown :class="customClass" :is-open="isOpen" :persistent="persistent" :title="title">
-            <template #content>
-              <SfList>
-                <SfListItem v-for="(action, key) in actionList" :key="key">
-                  <SfButton class="sf-button--full-width sf-button--underlined color-primary" @click="isOpen = !isOpen">{{ action }}</SfButton>
-                </SfListItem>
-              </SfList>
-            </template> 
-          </SfDropdown>
-        </div>`,
+    template:     
+        `
+            <SfDropdown :class="customClass" :is-open="isOpen" @click:close="isOpen = false" :persistent="persistent" :title="title">
+              <template #content>
+                <SfList>
+                  <SfListItem v-for="(action, key) in actionList" :key="key">
+                    <SfButton class="sf-button--full-width sf-button--underlined color-primary" @click="isOpen = false">{{ action }}</SfButton>
+                  </SfListItem>
+                </SfList>
+              </template> 
+            </SfDropdown>`,
   }))
   .add("With up modifier", () => ({
     components: { SfDropdown, SfList, SfButton },
@@ -88,7 +88,7 @@ storiesOf("Molecules|Dropdown", module)
       };
     },
     template:
-      `<div style="position: relative;">        
+      `      
         <SfDropdown :class="customClass" :persistent="persistent" :title="title">
           <SfButton>Choose your action</SfButton>
           <SfList>
@@ -96,6 +96,5 @@ storiesOf("Molecules|Dropdown", module)
               <SfButton class="sf-button--full-width sf-button--underlined color-primary" @click="toggle(false)">{{ action }}</SfButton>
             </SfListItem>
           </SfList>
-        </SfDropdown>
-      </div>`,
+        </SfDropdown>`,
   }));

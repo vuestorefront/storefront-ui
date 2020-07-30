@@ -2,12 +2,12 @@
 .sf-dropdown {
   position: var(--dropdown-position, fixed);
   top: var(--dropdown-top);
-  bottom: var(--dropdown-bottom, 0);
+  bottom: var(--dropdown-bottom);
   transform: var(--dropdown-transform);
-  @include for-desktop {
-    position: var(--dropdown-position, absolute);
-    transform: var(--dropdown-transform, translate(0, 100%));
-  }
+  // @include for-desktop {
+  //   position: var(--dropdown-position, fixed);
+  //   transform: var(--dropdown-transform, translate(0, 100%));
+  // }
   &__container {
     position: relative;
     width: var(--dropdown-container-width, 100%);
