@@ -84,11 +84,11 @@ storiesOf("Molecules|Dropdown", module)
       };
     },
     template: `      
-        <SfDropdown :class="customClass" :persistent="persistent" :title="title">
+        <SfDropdown :class="customClass" :is-open="isOpen"  @click:close="isOpen = false" @click:open="isOpen = true" :persistent="persistent" :title="title">
           <SfButton>Choose your action</SfButton>
           <SfList>
             <SfListItem v-for="(action, key) in actionList" :key="key">
-              <SfButton class="sf-button--full-width sf-button--underlined color-primary" @click="toggle(false)">{{ action }}</SfButton>
+              <SfButton class="sf-button--full-width sf-button--underlined color-primary" @click="isOpen = false">{{ action }}</SfButton>
             </SfListItem>
           </SfList>
         </SfDropdown>`,
