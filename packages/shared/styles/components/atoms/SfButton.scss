@@ -190,7 +190,7 @@
   }
   @include for-desktop {
     --button-padding: var(--spacer-sm) var(--spacer-lg);
-    &--pure {
+    &--pure, &--text {
       --button-padding: 0;
     }
   }
