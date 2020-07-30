@@ -2,7 +2,9 @@
   <div class="sf-dropdown">
     <SfOverlay :visible="isOpen" class="sf-dropdown__overlay" />
     <slot>
-      <SfButton class="sf-button--full-width sf-dropdown__trigger" @click="open"
+      <SfButton
+        class="sf-button--full-width sf-dropdown__trigger"
+        @click="isOpen ? close : open"
         >Choose your action</SfButton
       >
     </slot>
@@ -82,11 +84,15 @@ export default {
     },
   },
   methods: {
+    // toggle() {
+    //   this.isOpen = !this.isOpen
+    // },
     open() {
-      if (this.isOpen) return this.close();
+      console.log(this.isOpen);
       this.$emit("click:open");
     },
     close() {
+      console.log(this.isOpen);
       this.$emit("click:close");
     },
     checkPersistence() {
