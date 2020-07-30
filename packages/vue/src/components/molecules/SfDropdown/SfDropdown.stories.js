@@ -17,9 +17,6 @@ storiesOf("Molecules|Dropdown", module)
       persistent: {
         default: boolean("persistent", false, "Props"),
       },
-      // isOpen: {
-      //   default: boolean("isOpen", false, "Props"),
-      // },
       customClass: {
         default: options(
           "CSS modifiers",
@@ -33,8 +30,8 @@ storiesOf("Molecules|Dropdown", module)
       },
     },
     data() {
-      return {   
-        isOpen: false,    
+      return {
+        isOpen: false,
         actionList: [
           "Add to cart",
           "Add to compare",
@@ -43,9 +40,8 @@ storiesOf("Molecules|Dropdown", module)
         ],
       };
     },
-    template:     
-        `
-            <SfDropdown :class="customClass" :is-open="isOpen" @click:close="isOpen = false" :persistent="persistent" :title="title">
+    template: `
+            <SfDropdown :class="customClass" :is-open="isOpen" :persistent="persistent" :title="title">
               <template #content>
                 <SfList>
                   <SfListItem v-for="(action, key) in actionList" :key="key">
@@ -87,8 +83,7 @@ storiesOf("Molecules|Dropdown", module)
         ],
       };
     },
-    template:
-      `      
+    template: `      
         <SfDropdown :class="customClass" :persistent="persistent" :title="title">
           <SfButton>Choose your action</SfButton>
           <SfList>

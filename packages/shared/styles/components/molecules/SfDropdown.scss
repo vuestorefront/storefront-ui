@@ -3,11 +3,7 @@
   position: var(--dropdown-position, fixed);
   top: var(--dropdown-top);
   bottom: var(--dropdown-bottom);
-  transform: var(--dropdown-transform);
-  // @include for-desktop {
-  //   position: var(--dropdown-position, fixed);
-  //   transform: var(--dropdown-transform, translate(0, 100%));
-  // }
+  transform: var(--dropdown-transform);  
   &__container {
     position: relative;
     width: var(--dropdown-container-width, 100%);
