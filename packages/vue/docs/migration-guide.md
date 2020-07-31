@@ -121,4 +121,9 @@ Before | v0.7.0 | v0.8.0
 undefined | --c-text-disabled: var(--_c-gray-accent) | --c-text-disabled: var(--_c-gray-accent)
 
 
+Component | Before | v0.8.0 | Info
+------------ | ------------ | ------------ | ------------
+SfDropdown| - | button | 'opener' slot (default SfButton) added inside component to open content on 'click:open' event
+
+
 ## Release notes

@@ -1,8 +1,8 @@
 <template>
   <div class="sf-dropdown">
     <SfOverlay :visible="isOpen" class="sf-dropdown__overlay" />
-    <slot>
-      <SfButton class="sf-button--full-width sf-dropdown__trigger" @click="open"
+    <slot name="opener">
+      <SfButton class="sf-button--full-width sf-dropdown__opener" @click="open"
         >Choose your action</SfButton
       >
     </slot>
@@ -17,7 +17,7 @@
           <div v-if="title" class="sf-dropdown__title">{{ title }}</div>
         </slot>
         <!--@slot Use this slot to place content inside the dropdown.-->
-        <slot name="content" />
+        <slot />
         <!--@slot Use this slot to replace cancel button. -->
         <slot name="cancel">
           <SfButton
