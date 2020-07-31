@@ -14,6 +14,7 @@ Closes #
 - [ ] Run tests and docs
 - [ ] Self code-reviewed
 - [ ] Changes documented 
+
 If applicable:
 
 - [ ] I followed [composition rules](https://docs.storefrontui.io/contributing/coding-guidelines.html#component-rules) for my component
