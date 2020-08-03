@@ -11,7 +11,7 @@
   @include font(
     --quantity-selector-font,
     var(--font-weight--normal),
-    var(--font-size--lg),
+    var(--font-size--xs),
     1.6,
     var(--font-family--primary)
   );
@@ -34,6 +34,9 @@
     --input-margin: 0;
     --input-border: 0;
     --input-text-align: center;
+    & input {
+      font-family: inherit;
+    }
   }
   &--secondary {
     --quantity-selector-background: transparent;

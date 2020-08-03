@@ -8,7 +8,7 @@
   cursor: pointer;
   @include font(
     --menu-item-font,
-    var(--font-width--normal),
+    var(--font-weight--normal),
     var(--font-size--base),
     1.4,
     var(--font-family--secondary)
@@ -38,7 +38,7 @@
     --menu-item-label-color: var(--c-primary);
   }
   &:hover {
-    --menu-item-label-color: var(--c-black);
+    --menu-item-label-color: var(--c-primary);
   }
   @include for-desktop {
     --menu-item-mobile-nav-icon-display: none;

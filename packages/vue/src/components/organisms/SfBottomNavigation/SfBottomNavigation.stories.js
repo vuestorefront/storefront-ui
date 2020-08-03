@@ -13,7 +13,7 @@ storiesOf("Organisms|BottomNavigation", module)
         default: text("icon", "home", "Props"),
       },
       iconActive: {
-        default: text("iconActive", "home_fill", "Props"),
+        default: text("iconActive", "home", "Props"),
       },
     },
     data() {
@@ -21,21 +21,21 @@ storiesOf("Organisms|BottomNavigation", module)
         items: [
           {
             icon: "menu",
-            iconActive: "",
+            iconActive: "menu",
             label: "Menu",
           },
           {
             icon: "heart",
-            iconActive: "heart_fill",
+            iconActive: "heart",
             label: "Heart",
           },
           {
-            icon: "profile",
-            iconActive: "profile_fill",
+            icon: "account",
+            iconActive: "account",
             label: "Profile",
           },
         ],
-        currentIcon: "heart_fill",
+        currentIcon: "heart",
       };
     },
     template: `<SfBottomNavigation>

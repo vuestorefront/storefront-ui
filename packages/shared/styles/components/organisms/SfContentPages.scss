@@ -2,10 +2,10 @@
 .sf-content-page {
   @include font(
     --content-pages-content-page-font,
-    var(--font-light),
-    var(--font-base),
+    var(--font-weight--light),
+    var(--font-size--base),
     1.6,
-    var(--font-family-primary)
+    var(--font-family--primary)
   );
 }
 .sf-content-pages {
@@ -44,10 +44,10 @@
     margin: var(--content-pages-sidebar-title-margin, 0 0 var(--spacer-xl) 0);
     @include font(
       --content-pages-sidebar-title-font,
-      var(--font-medium),
+      var(--font-weight--medium),
       var(--h3-font-size),
       1.4,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
   }
   &__category-title {
@@ -57,10 +57,10 @@
     );
     @include font(
       --content-pages-sidebar-category-title-font,
-      var(--font-bold),
-      var(--font-lg),
+      var(--font-weight--bold),
+      var(--font-size--lg),
       1.2,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
   }
   &__list-item {
