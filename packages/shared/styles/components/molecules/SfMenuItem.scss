@@ -8,7 +8,7 @@
   cursor: pointer;
   @include font(
     --menu-item-font,
-    var(--font-width--normal),
+    var(--font-weight--normal),
     var(--font-size--base),
     1.4,
     var(--font-family--secondary)
