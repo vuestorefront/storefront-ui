@@ -41,7 +41,7 @@ storiesOf("Molecules|Review", module)
       :message="message"
       :max-rating="maxRating"
       :rating="rating"
-      :charLimit="charLimit"
+      :char-limit="charLimit"
       :read-more-text="readMoreText"
       :hide-full-text="hideFullText" />`,
   }))

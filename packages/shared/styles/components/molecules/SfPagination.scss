@@ -17,7 +17,7 @@
     );  
     &--prev, &--next {
       --pagination-item-width: 1.125rem;
-      --pagination-item-height: 18px;
+      --pagination-item-height: 1.125rem;
     }
     &--prev {
       --pagination-item-margin: 0 var(--spacer-base) 0 0;
