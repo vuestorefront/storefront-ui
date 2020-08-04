@@ -134,6 +134,47 @@
       -webkit-appearance: none;
     }
   }
+  textarea {
+    box-sizing: border-box;
+    height: var(--input-textarea-height, 8.75rem);
+    width: var(--input-textarea-width, 20.3125rem);
+    @include font(
+      --input-font,
+      var(--font-normal),
+      var(--font-base),
+      1,
+      var(--font-family-secondary)
+    );
+    padding: var(--spacer-sm);
+    & ~ * {
+      --input-label-padding: var(--spacer-sm);
+      --input-label-top: 0;
+      --input-label-font-size: var(--font-base);
+    }
+    &:focus {
+      border: var(--c-primary) 1px solid;
+      & ~ * {
+        --input-label-padding: 0;
+        --icon-color: var(--c-primary);
+        --input-label-top: 0;
+        --input-label-transform: translate3d(0, -1rem, 0);
+        --input-label-color: var(--c-primary);
+        --input-label-font-size: var(--font-xs);
+      }
+    }
+    &:disabled {
+      & ~ * {
+        --input-label-color: var(--c-text-disabled);
+      }
+    }
+    &[value]:not([value=""]) ~ * {
+      --input-label-top: 0;
+      --input-label-font-size: var(--font-xs);
+      --input-label-transform: translate3d(0, -1rem, 0);
+      --input-label-padding: 0;
+    }
+  }
+ 
   &__password-button {
     --icon-size: 12px;
     --button-padding: 0;
