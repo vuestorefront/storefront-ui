@@ -9,13 +9,23 @@ storiesOf("Atoms|Price", module)
       regular: {
         default: text("regular", "$200.00", "Props"),
       },
+    },
+    template: `<SfPrice :regular="regular" />`,
+  }))
+  .add("Regular and special", () => ({
+    components: { SfPrice },
+    props: {
+      regular: {
+        default: text("regular", "$200.00", "Props"),
+      },
       special: {
         default: text("special", "$100.00", "Props"),
       },
     },
-    template: `<SfPrice
-      :regular="regular"
-      :special="special"/>`,
+    template: `<SfPrice 
+        :special="special"
+        :regular="regular" 
+        />`,
   }))
   .add("[slot] special", () => ({
     components: {
