@@ -1,5 +1,6 @@
 @import "../../helpers";
 .sf-checkbox {
+  --icon-size: 1.25rem;
   &__container {
      position: relative;
     display: flex;

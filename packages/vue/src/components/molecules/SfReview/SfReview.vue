@@ -41,7 +41,6 @@
           {{ buttonText }}
         </SfButton>
       </div>
-      <SfDivider />
     </slot>
   </section>
 </template>
@@ -49,14 +48,12 @@
 import SfRating from "../../atoms/SfRating/SfRating.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
-import SfDivider from "../../atoms/SfDivider/SfDivider.vue";
 export default {
   name: "SfReview",
   components: {
     SfRating,
     SfIcon,
     SfButton,
-    SfDivider,
   },
   props: {
     /**

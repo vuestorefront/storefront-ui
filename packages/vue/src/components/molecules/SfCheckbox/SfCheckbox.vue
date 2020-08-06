@@ -24,7 +24,7 @@
           class="sf-checkbox__checkmark"
           :class="{ 'sf-checkbox__checkmark--is-active': isChecked }"
         >
-          <SfIcon v-if="isChecked" icon="check" size="12px" color="white" />
+          <SfIcon v-if="isChecked" icon="check" color="white" />
         </div>
       </slot>
       <!-- @slot Custom label markup -->
