@@ -3,9 +3,8 @@
   position: relative;
   display: var(--review-display, block);
   max-width: var(--review-max-width, 343px);
-  --divider-border-top-width: 0;
-  --divider-border-bottom-width: 1px;
-  --divider-margin: var(--spacer-sm) 0 0 0;
+  padding: var(--review-padding, 0 0 8px);
+  @include border(--review-border, 0 0 1px 0, solid, var(--c-light)); 
   &__icon {
     --icon-size: 1.5rem;
     --icon-color: var(--c-primary);

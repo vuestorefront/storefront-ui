@@ -239,7 +239,7 @@ storiesOf("Atoms|Input", module)
         default: text("errorMessage", "Required.", "Props"),
       },
       valid: {
-        default: boolean("valid", false, "Props"),
+        default: boolean("valid", true, "Props"),
       },
       required: {
         default: boolean("required", false, "Props"),
