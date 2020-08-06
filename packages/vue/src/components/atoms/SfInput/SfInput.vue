@@ -7,8 +7,7 @@
     }"
   >
     <div class="sf-input__wrapper">
-      <component
-        :is="tag"
+      <input
         :id="name"
         v-focus
         v-bind="$attrs"
@@ -73,13 +72,6 @@ export default {
   components: { SfIcon, SfButton },
   inheritAttrs: false,
   props: {
-    /**
-     * There is input tag with default value true, with false there is textarea tag
-     */
-    isInput: {
-      type: Boolean,
-      default: true,
-    },
     /**
      * Current input value (`v-model`)
      */
@@ -162,9 +154,6 @@ export default {
     },
     isPassword() {
       return this.type === "password" && this.hasShowPassword;
-    },
-    tag() {
-      return this.isInput ? "input" : "textarea";
     },
   },
   watch: {
