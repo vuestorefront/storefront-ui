@@ -6,7 +6,7 @@
   min-width: var(--badge-min-width);
   height: var(--badge-height);
   min-height: var(--badge-min-height);
-  padding: var(--badge-padding, 6px var(--spacer-sm));
+  padding: var(--badge-padding, var(--spacer-xs) var(--spacer-sm));
   background: var(--badge-background, var(--c-primary));
   border: var(--badge-border);
   border-radius: var(--badge-border-radius);
@@ -26,10 +26,10 @@
     --badge-min-width: 1.25rem;
     --badge-min-height: 1.25rem;
     --badge-padding: 2px var(--spacer-2xs);
-    --badge-border-radius: calc(var(--bage-line-height) * 1rem);
+    --badge-border-radius: calc(var(--badge-line-height) * 1rem);
     --badge-background: var(--c-danger);
     --badge-font-size: var(--font-2xs);
-    --bage-line-height: 1;
+    --badge-line-height: 1;
     --badge-font-family: var(--font-family-primary);
   }
   @each $color, $map in $colors-map {
@@ -39,9 +39,8 @@
     }
   }
   @include for-desktop {
-    --badge-padding: var(--spacer-xs) var(--spacer-sm);
     &--number {
-      --badge-padding: 2px var(--spacer-2xs);
+      --badge-padding: 1px var(--spacer-2xs);
     }
   }
 }
