@@ -34,7 +34,7 @@
     </label>
     <div class="sf-checkbox__error-message">
       <transition name="sf-fade">
-        <!-- @slot Custom error message of form input -->
+        <!-- @slot Custom error message -->
         <slot v-if="!valid" name="error-message" v-bind="{ errorMessage }">
           <div>{{ errorMessage }}</div></slot
         >

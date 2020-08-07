@@ -21,6 +21,9 @@ storiesOf("Atoms|Checkbox", module)
       disabled: {
         default: boolean("disabled", false, "Props"),
       },
+      errorMessage: {
+        default: text("errorMessage", "Error message", "Props"),
+      },
     },
     data() {
       return {
@@ -34,6 +37,7 @@ storiesOf("Atoms|Checkbox", module)
       :required="required"
       :disabled="disabled"
       :valid="valid"
+      :error-message="errorMessage"
       />`,
   }))
   .add("Invalid", () => ({
@@ -45,9 +49,6 @@ storiesOf("Atoms|Checkbox", module)
       label: {
         default: text("label", "I want to create an account", "Props"),
       },
-      errorMessage: {
-        default: text("errorMessage", "Error message", "Props"),
-      },
       required: {
         default: boolean("required", false, "Props"),
       },
@@ -56,6 +57,9 @@ storiesOf("Atoms|Checkbox", module)
       },
       disabled: {
         default: boolean("disabled", false, "Props"),
+      },
+      errorMessage: {
+        default: text("errorMessage", "Error message", "Props"),
       },
     },
     data() {
