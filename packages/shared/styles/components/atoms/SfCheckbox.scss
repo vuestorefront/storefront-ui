@@ -63,7 +63,7 @@
     margin: var(--checkbox-error-message-margin, var(--spacer-2xs) 0 0 0);
     color: var(--checkbox-error-message-color, var(--c-danger));
     @include font(
-      --input-error-message-font,
+      --checkbox-error-message-font,
       var(--font-normal),
       var(--font-xs),
       1.2,
