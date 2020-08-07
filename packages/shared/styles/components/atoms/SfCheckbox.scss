@@ -59,6 +59,17 @@
     --checkbox-label-color: var(--c-text-disabled);
     --checkbox-border-color: var(--c-text-disabled);
   }
+  &__error-message {
+    margin: var(--checkbox-error-message-margin, var(--spacer-2xs) 0 0 0);
+    color: var(--checkbox-error-message-color, var(--c-danger));
+    @include font(
+      --input-error-message-font,
+      var(--font-normal),
+      var(--font-xs),
+      1.2,
+      var(--font-family-secondary)
+    );
+  }
   input {
     position: absolute;
     opacity: 0;

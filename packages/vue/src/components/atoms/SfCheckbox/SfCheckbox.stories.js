@@ -36,6 +36,43 @@ storiesOf("Atoms|Checkbox", module)
       :valid="valid"
       />`,
   }))
+  .add("Invalid", () => ({
+    components: { SfCheckbox },
+    props: {
+      name: {
+        default: text("name", "shipping", "Props"),
+      },
+      label: {
+        default: text("label", "I want to create an account", "Props"),
+      },
+      errorMessage: {
+        default: text("errorMessage", "Error message", "Props"),
+      },
+      required: {
+        default: boolean("required", false, "Props"),
+      },
+      valid: {
+        default: boolean("valid", false, "Props"),
+      },
+      disabled: {
+        default: boolean("disabled", false, "Props"),
+      },
+    },
+    data() {
+      return {
+        checked: false,
+      };
+    },
+    template: `<SfCheckbox 
+      v-model="checked"
+      :name="name"      
+      :label="label"
+      :error-message="errorMessage"
+      :required="required"
+      :disabled="disabled"
+      :valid="valid"
+      />`,
+  }))
   .add("Multiple checkboxes", () => ({
     components: { SfCheckbox },
     data() {
@@ -129,4 +166,45 @@ storiesOf("Atoms|Checkbox", module)
         <span v-else style="margin-left: 1rem">👈 Please check me</span>
       </template>
     </SfCheckbox>`,
+  }))
+  .add("[slot] error-message", () => ({
+    components: { SfCheckbox },
+    props: {
+      name: {
+        default: text("name", "shipping", "Props"),
+      },
+      label: {
+        default: text("label", "I want to create an account", "Props"),
+      },
+      errorMessage: {
+        default: text("errorMessage", "Error message", "Props"),
+      },
+      required: {
+        default: boolean("required", false, "Props"),
+      },
+      valid: {
+        default: boolean("valid", false, "Props"),
+      },
+      disabled: {
+        default: boolean("disabled", false, "Props"),
+      },
+    },
+    data() {
+      return {
+        checked: false,
+      };
+    },
+    template: `<SfCheckbox 
+      v-model="checked"
+      :name="name"      
+      :label="label"
+      :error-message="errorMessage"
+      :required="required"
+      :disabled="disabled"
+      :valid="valid"
+      >
+        <template #error-message="{ errorMessage }">
+          <span> CUSTOM ERROR MESSAGE 👈</span>
+        </template>
+      </SfCheckbox>`,
   }));

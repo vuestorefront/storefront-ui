@@ -32,6 +32,14 @@
         <div v-if="label" class="sf-checkbox__label">{{ label }}</div>
       </slot>
     </label>
+    <div class="sf-checkbox__error-message">
+      <transition name="sf-fade">
+        <!-- @slot Custom error message of form input -->
+        <slot v-if="!valid" name="error-message" v-bind="{ errorMessage }">
+          <div>{{ errorMessage }}</div></slot
+        >
+      </transition>
+    </div>
   </div>
 </template>
 <script>
@@ -77,6 +85,10 @@ export default {
     selected: {
       type: [Array, Boolean],
       default: () => [],
+    },
+    errorMessage: {
+      type: String,
+      default: "",
     },
   },
   computed: {
