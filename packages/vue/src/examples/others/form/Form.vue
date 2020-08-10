@@ -63,23 +63,23 @@
         error-message="Please type your zip code. Zipcode should have only numbers."
         @blur="zipCodeBlur = false"
       />
-      <SfSelect
+      <SfComponentSelect
         v-model="country"
         label="Country"
-        class="form__element form__element--half form__element--half-even form__select sf-select--underlined"
+        class="form__element form__element--half form__element--half-even form__select sf-component-select--underlined"
         required
         :valid="countryBlur || validCountry(country)"
         error-message="Please choose your country."
         @blur="countryBlur = false"
       >
-        <SfSelectOption
+        <SfComponentSelectOption
           v-for="countryOption in countries"
           :key="countryOption"
           :value="countryOption"
         >
           {{ countryOption }}
-        </SfSelectOption>
-      </SfSelect>
+        </SfComponentSelectOption>
+      </SfComponentSelect>
       <SfInput
         v-model="phoneNumber"
         label="Phone number"
@@ -113,13 +113,13 @@
   </div>
 </template>
 <script>
-import { SfInput, SfSelect, SfButton } from "@storefront-ui/vue";
+import { SfInput, SfComponentSelect, SfButton } from "@storefront-ui/vue";
 export default {
   name: "Default",
   components: {
     SfButton,
     SfInput,
-    SfSelect,
+    SfComponentSelect,
   },
   data() {
     return {
