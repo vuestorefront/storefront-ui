@@ -89,11 +89,11 @@ export default {
       this.$emit("click:close");
     },
     checkPersistence() {
-      if (!this.persistent) return this.$emit("click:close");
+      if (!this.persistent) return this.close();
     },
     keydownHandler(e) {
       if (e.key === "Escape" || e.key === "Esc" || e.keyCode === 27) {
-        this.$emit("click:close");
+        this.close();
       }
     },
   },
