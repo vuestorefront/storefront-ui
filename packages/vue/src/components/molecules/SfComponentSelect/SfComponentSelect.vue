@@ -205,15 +205,15 @@ export default {
       },
     },
   },
-  created: function () {},
   mounted: function () {
     this.addOptionsAndIndexes();
   },
   updated() {
-    if (this.$slots.default) {
-      if (this.$slots.default.length > this.options.length) {
-        this.addOptionsAndIndexes();
-      }
+    if (
+      this.$slots.default &&
+      this.$slots.default.length > this.options.length
+    ) {
+      this.addOptionsAndIndexes();
     }
   },
   beforeDestroy: function () {
