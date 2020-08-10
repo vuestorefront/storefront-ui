@@ -3,7 +3,7 @@ import SfStoreLocator from "./SfStoreLocator.vue";
 describe("SfStoreLocator.vue", () => {
   it("renders a component", () => {
     const component = shallowMount(SfStoreLocator, {});
-    expect(component.contains(".sf-store-locator")).toBe(true);
+    expect(component.classes("sf-store-locator")).toBe(true);
   });
   it("emits on event when vue2-leaflet is loaded", (done) => {
     const component = shallowMount(SfStoreLocator, {
