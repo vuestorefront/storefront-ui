@@ -91,6 +91,7 @@ module.exports = {
 ["/components/calltoaction", "Call To Action"],
 ["/components/characteristic", "Characteristic"],
 ["/components/checkbox", "Checkbox"],
+["/components/componentselect", "Component Select"],
 ["/components/dropdown", "Dropdown"],
 ["/components/filter", "Filter"],
 ["/components/gallery", "Gallery"],
