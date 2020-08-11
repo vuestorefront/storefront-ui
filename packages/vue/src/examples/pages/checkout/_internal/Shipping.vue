@@ -140,7 +140,7 @@
           </template>
         </SfRadio>
       </div>
-      <div class="form__action mobile-only">
+      <div class="form__action smartphone-only">
         <SfButton
           class="sf-button--full-width form__action-button"
           @click="$emit('click:next')"
@@ -352,7 +352,7 @@ export default {
     justify-content: flex-start;
     align-items: flex-end;
     &-price {
-      font-size: var(--font-lg);
+      font-size: var(--font-size--lg);
       @include for-mobile {
         order: -1;
         margin: 0 var(--spacer-xs) 0 0;

@@ -17,7 +17,7 @@
             icon="drag"
             size="xl"
             color="gray-secondary"
-            class="product__drag-icon mobile-only"
+            class="product__drag-icon smartphone-only"
           />
         </div>
         <div class="product__price-and-rating">
@@ -32,9 +32,7 @@
                 ({{ product.reviews.length }})
               </a>
             </div>
-            <SfButton class="sf-button--text desktop-only"
-              >Read all reviews</SfButton
-            >
+            <SfButton class="sf-button--text">Read all reviews</SfButton>
           </div>
         </div>
         <div>
@@ -44,20 +42,20 @@
           <SfButton class="sf-button--text desktop-only product__guide">
             Size guide
           </SfButton>
-          <SfComponentSelect
+          <SfSelect
             v-model="selectedSize"
             label="Size"
             class="sf-select--underlined product__select-size"
             :reqired="true"
           >
-            <SfComponentSelectOption
+            <SfSelectOption
               v-for="(size, key) in product.sizes"
               :key="key"
               :value="size"
             >
               <SfProductOption :label="size"></SfProductOption>
-            </SfComponentSelectOption>
-          </SfComponentSelect>
+            </SfSelectOption>
+          </SfSelect>
           <div class="product__colors desktop-only">
             <p class="product__color-label">Color:</p>
             <SfColor
@@ -109,7 +107,7 @@
                 :message="review.message"
                 :max-rating="review.rating.max"
                 :rating="review.rating.rate"
-                :char-limit="250"
+                :char-limit="231"
                 read-more-text="Read more"
                 hide-full-text="Read less"
                 class="product__review"
@@ -149,7 +147,7 @@ import {
   SfReview,
   SfAddToCart,
   SfColor,
-  SfComponentSelect,
+  SfSelect,
   SfProductOption,
   SfBreadcrumbs,
 } from "@storefront-ui/vue";
@@ -167,7 +165,7 @@ export default {
     SfReview,
     SfAddToCart,
     SfColor,
-    SfComponentSelect,
+    SfSelect,
     SfProductOption,
     SfBreadcrumbs,
   },
@@ -217,7 +215,7 @@ export default {
         },
         details: [
           {
-            name: "Code",
+            name: "Product Code",
             value: 435435,
           },
           {
@@ -361,15 +359,15 @@ export default {
   &__rating {
     display: flex;
     align-items: center;
-    margin: var(--spacer-xs) 0 0 0;
+    margin: var(--spacer-xs) 0 var(--spacer-xs);
   }
   &__count {
     @include font(
       --count-font,
-      var(--font-normal),
-      var(--font-sm),
+      var(--font-weight--normal),
+      var(--font-size--sm),
       1.4,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
     color: var(--c-text);
     text-decoration: none;
@@ -379,10 +377,10 @@ export default {
     color: var(--c-link);
     @include font(
       --product-description-font,
-      var(--font-light),
-      var(--font-base),
+      var(--font-weight--light),
+      var(--font-size--base),
       1.6,
-      var(--font-family-primary)
+      var(--font-family--primary)
     );
   }
   &__select-size {
@@ -394,10 +392,10 @@ export default {
   &__colors {
     @include font(
       --product-color-font,
-      var(--font-normal),
-      var(--font-lg),
+      var(--font-weight--normal),
+      var(--font-size--lg),
       1.6,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
     display: flex;
     align-items: center;
@@ -426,9 +424,9 @@ export default {
   }
   &__tabs {
     margin: var(--spacer-lg) auto var(--spacer-2xl);
+    --tabs-title-font-size: var(--font-size--lg);
     @include for-desktop {
       margin-top: var(--spacer-2xl);
-      --tabs-content-tab-padding: 3.5rem 0 0 0;
     }
   }
   &__property {
@@ -438,25 +436,18 @@ export default {
     padding-bottom: 24px;
     border-bottom: var(--c-light) solid 1px;
     margin-bottom: var(--spacer-base);
-    &:last-of-type {
-      border: none;
-      padding-bottom: 0;
-      margin-bottom: 0;
-    }
-    @include for-desktop {
-      padding-bottom: 0;
-    }
   }
   &__additional-info {
+    color: var(--c-link);
     @include font(
       --additional-info-font,
-      var(--font-light),
-      var(--font-base),
+      var(--font-weight--light),
+      var(--font-size--base),
       1.6,
-      var(--font-family-primary)
+      var(--font-family--primary)
     );
     &__title {
-      font-weight: var(--font-bold);
+      font-weight: var(--font-weight--normal);
       margin: 0 0 var(--spacer-sm);
       &:not(:first-child) {
         margin-top: 3.5rem;

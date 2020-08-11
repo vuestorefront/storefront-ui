@@ -119,16 +119,17 @@ export default {
 .paragraph {
   margin: var(--spacer-xs) 0 var(--spacer-sm) 0;
   color: var(--c-dark-variant);
-  font: var(--font-light) var(--font-base) / 1.6 var(--font-family-primary);
+  font: var(--font-weight--light) var(--font-size--base) / 1.6
+    var(--font-family--primary);
   @include for-desktop {
-    font-weight: var(--font-normal);
-    font-size: var(--font-sm);
+    font-weight: var(--font-weight--normal);
+    font-size: var(--font-size--sm);
   }
 }
 .banner {
   --call-to-action-color: var(--c-text);
-  --call-to-action-title-font-size: var(--font-xl);
-  --call-to-action-title-font-weight: var(--font-medium);
+  --call-to-action-title-font-size: var(--font-size--xl);
+  --call-to-action-title-font-weight: var(--font-weight--medium);
   --call-to-action-text-container-width: 50%;
   margin: 0 0 var(--spacer-base);
   @include for-desktop {
@@ -137,10 +138,11 @@ export default {
   &__order-number {
     display: flex;
     flex-direction: column;
-    font: var(--font-light) var(--font-sm) / 1.4 var(--font-family-primary);
+    font: var(--font-weight--light) var(--font-size--sm) / 1.4
+      var(--font-family--primary);
     @include for-desktop {
       flex-direction: row;
-      font-size: var(--font-normal);
+      font-size: var(--font-size--normal);
     }
   }
 }
@@ -188,10 +190,11 @@ export default {
 }
 .contact {
   color: var(--c-dark-variant);
-  font: var(--font-light) var(--font-base) / 1.6 var(--font-family-secondary);
+  font: var(--font-weight--light) var(--font-size--base) / 1.6
+    var(--font-family--secondary);
   @include for-desktop {
-    font-weight: var(--font-normal);
-    font-size: var(--font-sm);
+    font-weight: var(--font-weight--normal);
+    font-size: var(--font-size--sm);
   }
   &__name,
   &__street,

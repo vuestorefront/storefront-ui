@@ -378,9 +378,9 @@ export default {
   --banner-title-margin: var(--spacer-base) 0 var(--spacer-xl) 0;
   --banner-padding: 0 var(--spacer-2xl);
   --banner-title-font-size: var(--h1-font-size);
-  --banner-subtitle-font-size: var(--font-xl);
-  --banner-title-font-weight: var(--font-semibold);
-  --banner-subtitle-font-weight: var(--font-medium);
+  --banner-subtitle-font-size: var(--font-size--xl);
+  --banner-title-font-weight: var(--font-weight--semibold);
+  --banner-subtitle-font-weight: var(--font-weight--medium);
   --banner-title-text-transform: capitalize;
   --banner-subtitle-text-transform: capitalize;
   display: block;

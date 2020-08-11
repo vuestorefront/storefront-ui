@@ -71,7 +71,7 @@
           required
         />
       </transition>
-      <div class="form__action mobile-only">
+      <div class="form__action smartphone-only">
         <SfButton
           class="sf-button--full-width form__action-button"
           @click="$emit('click:next')"
@@ -163,10 +163,11 @@ export default {
   &__info {
     margin: var(--spacer-lg) 0;
     color: var(--c-dark-variant);
-    font: var(--font-light) var(--font-base) / 1.6 var(--font-family-primary);
+    font: var(--font-weight--light) var(--font-size--base) / 1.6
+      var(--font-family--primary);
     @include for-desktop {
-      font-weight: var(--font-normal);
-      font-size: var(--font-sm);
+      font-weight: var(--font-weight--normal);
+      font-size: var(--font-size--sm);
     }
   }
   &__button {
@@ -176,18 +177,18 @@ export default {
 .info {
   margin: 0 0 var(--spacer-xl) 0;
   &__heading {
-    font-family: var(--font-family-primary);
-    font-weight: var(--font-light);
+    font-family: var(--font-family--primary);
+    font-weight: var(--font-weight--light);
   }
   &__characteristic {
-    --characteristic-description-font-size: var(--font-xs);
+    --characteristic-description-font-size: var(--font-size--xs);
     margin: 0 0 var(--spacer-sm) var(--spacer-2xs);
   }
   @include for-desktop {
     margin: 0;
     &__heading {
       margin: 0 0 var(--spacer-sm) 0;
-      font-size: var(--font-xs);
+      font-size: var(--font-size--xs);
     }
     &__characteristic {
       margin: var(--spacer-base) 0;
@@ -209,9 +210,9 @@ export default {
   }
   @include for-mobile {
     &__checkbox {
-      --checkbox-font-family: var(--font-family-primary);
-      --checkbox-font-weight: var(--font-light);
-      --checkbox-font-size: var(--font-sm);
+      --checkbox-font-family: var(--font-family--primary);
+      --checkbox-font-weight: var(--font-weight--light);
+      --checkbox-font-size: var(--font-size--sm);
     }
   }
   @include for-desktop {

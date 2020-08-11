@@ -231,7 +231,7 @@
           />
         </div>
       </transition>
-      <div class="form__action mobile-only">
+      <div class="form__action smartphone-only">
         <SfButton
           class="sf-button--full-width form__action-button"
           @click="$emit('click:next')"
@@ -484,7 +484,7 @@ export default {
     flex: 1;
   }
   &__label {
-    font-size: var(--font-lg);
+    font-size: var(--font-size--lg);
     padding: var(--spacer-sm) 0 0 0;
     flex: 1;
   }

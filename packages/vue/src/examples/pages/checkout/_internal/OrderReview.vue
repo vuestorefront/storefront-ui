@@ -159,15 +159,15 @@ export default {
   }
 }
 .content {
-  font-family: var(--font-family-primary);
-  font-size: var(--font-xs);
+  font-family: var(--font-family--primary);
+  font-size: var(--font-size--xs);
   line-height: 1.6;
-  font-weight: var(--font-light);
+  font-weight: var(--font-weight--light);
   margin: 0;
   color: var(--c-dark-variant);
   &__label {
     color: var(--c-text);
-    font-weight: var(--font-normal);
+    font-weight: var(--font-weight--normal);
   }
 }
 .actions {

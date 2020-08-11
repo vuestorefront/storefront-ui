@@ -6,9 +6,9 @@
       class="sf-sidebar--right sf-sidebar--icon"
       @close="() => {}"
     >
-      <template v-if="totalItems" #content-top>
+      <template #content-top>
         <SfProperty
-          class="sf-property--large"
+          class="sf-property--large desktop-only"
           name="Total items"
           :value="totalItems"
         />
@@ -40,13 +40,11 @@
                 </template>
                 <template #actions>
                   <div class="desktop-only collected-product__actions">
-                    <SfButton
-                      class="sf-button--text color-secondary collected-product__save"
-                    >
+                    <SfButton class="sf-button--text collected-product__save">
                       Save for later
                     </SfButton>
                     <SfButton
-                      class="sf-button--text color-secondary collected-product__compare"
+                      class="sf-button--text collected-product__compare"
                     >
                       Add to compare
                     </SfButton>
@@ -90,7 +88,7 @@
           </div>
           <div v-else>
             <SfButton class="sf-button--full-width color-primary"
-              >Start shopping</SfButton
+              >Go back shopping</SfButton
             >
           </div>
         </transition>
@@ -124,7 +122,7 @@ export default {
       isCartSidebarOpen: true,
       products: [
         {
-          title: "Cream Beach Bag",
+          title: "Cream Beach Bag Modern Style",
           id: "CBB1",
           image: "assets/storybook/Home/productA.jpg",
           price: { regular: "$50.00" },
@@ -135,10 +133,10 @@ export default {
           qty: "1",
         },
         {
-          title: "Cream Beach Bag",
+          title: "Cream Beach Bag Modern Style",
           id: "CBB2",
           image: "assets/storybook/Home/productB.jpg",
-          price: { regular: "$50.00", special: "$20.05" },
+          price: { regular: "$50.00" },
           configuration: [
             { name: "Size", value: "XS" },
             { name: "Color", value: "White" },
@@ -146,10 +144,10 @@ export default {
           qty: "2",
         },
         {
-          title: "Cream Beach Bag",
+          title: "Cream Beach Bag Modern Style",
           id: "CBB3",
           image: "assets/storybook/Home/productC.jpg",
-          price: { regular: "$50.00", special: "$20.50" },
+          price: { regular: "$50.00" },
           configuration: [
             { name: "Size", value: "XS" },
             { name: "Color", value: "White" },
@@ -204,16 +202,16 @@ export default {
     margin: 0;
   }
   &__total-price {
-    --price-font-size: var(--font-xl);
-    --price-font-weight: var(--font-semibold);
+    --price-font-size: var(--font-size--xl);
+    --price-font-weight: var(--font-weight--medium);
     margin: 0 0 var(--spacer-base) 0;
   }
 }
 .empty-cart {
   --heading-subtitle-margin: 0 0 var(--spacer-xl) 0;
-  --heading-title-margin: 0 0 var(--spacer-base) 0;
+  --heading-title-margin: 0 0 var(--spacer-xl) 0;
   --heading-title-color: var(--c-primary);
-  --heading-title-font-weight: var(--font-semibold);
+  --heading-title-font-weight: var(--font-weight--semibold);
   display: flex;
   flex: 1;
   align-items: center;
@@ -230,10 +228,15 @@ export default {
   }
   &__image {
     --image-width: 13.1875rem;
-    margin: 0 0 var(--spacer-2xl) 0;
+    margin: 0 0 var(--spacer-xl) 0;
+    @include for-desktop {
+      --image-width: 23.3125rem;
+      margin: 0 0 var(--spacer-2xl) 0;
+    }
   }
   @include for-desktop {
-    --heading-title-font-size: var(--font-xl);
+    --heading-title-font-size: var(--font-size--xl);
+    --heading-title-margin: 0 0 var(--spacer-sm) 0;
   }
 }
 .collected-product-list {
@@ -243,6 +246,14 @@ export default {
   margin: 0 0 var(--spacer-sm) 0;
   &__properties {
     margin: var(--spacer-xs) 0 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    flex: 2;
+    &:first-child {
+      margin-bottom: 8px;
+    }
   }
   &__actions {
     transition: opacity 150ms ease-in-out;
@@ -264,6 +275,11 @@ export default {
   &:hover {
     --cp-save-opacity: 1;
     --cp-compare-opacity: 1;
+    @include for-desktop {
+      .collected-product__properties {
+        display: none;
+      }
+    }
   }
 }
 </style>
