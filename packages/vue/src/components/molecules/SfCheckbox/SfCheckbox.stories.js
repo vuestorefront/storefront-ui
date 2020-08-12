@@ -1,7 +1,7 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, boolean } from "@storybook/addon-knobs";
 import { SfCheckbox } from "@storefront-ui/vue";
-storiesOf("Atoms|Checkbox", module)
+storiesOf("Molecules|Checkbox", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
     components: { SfCheckbox },
