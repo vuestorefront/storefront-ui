@@ -110,12 +110,12 @@
       width: 0;
     }
   }
-  &__error-message {
+  &__message {
     --component-select-border-color: var(--c-danger);
-    color: var(--component-select-error-message-color, var(--c-danger));
-    min-height: var(--component-select-error-message-height, calc(var(--font-size--xs) * 1.2));
+    color: var(--component-select-message-color, var(--c-danger));
+    min-height: var(--component-select-message-height, calc(var(--font-size--xs) * 1.2));
     @include font(
-      --input-error-message-font,
+      --input-message-font,
       var(--font-weight--medium),
       var(--font-size--xs),
       1.2,

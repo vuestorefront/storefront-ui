@@ -22,7 +22,7 @@
       >
       <slot />
     </select>
-    <div class="sf-component-select__error-message">
+    <div class="sf-select__message">
       <transition name="sf-fade">
         <!-- @slot Custom message of form input -->
         <slot
