@@ -138,7 +138,6 @@
   }
   &--is-sticky {
     --header-wrapper-position: fixed;
-    height: var(--_header-height);
   }
   &--is-hidden {
     --header-wrapper-transform: translate3d(0, -100%, 0);
