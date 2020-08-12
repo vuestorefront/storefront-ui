@@ -3,7 +3,7 @@ import SfInput from "./SfInput.vue";
 describe("SfInput.vue", () => {
   it("renders a input", () => {
     const component = shallowMount(SfInput);
-    expect(component.contains(".sf-input")).toBe(true);
+    expect(component.classes("sf-input")).toBe(true);
   });
   it("renders label text when passed", () => {
     const label = "HelloWorld";
@@ -16,7 +16,7 @@ describe("SfInput.vue", () => {
   });
   it("renders errorMessage with valid set to false when passed", () => {
     const errorMessage = "This phrase is wrong";
-    const component = shallowMount(SfInput, {      
+    const component = shallowMount(SfInput, {
       propsData: {
         valid: false,
         errorMessage: errorMessage,

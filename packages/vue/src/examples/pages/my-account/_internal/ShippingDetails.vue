@@ -67,22 +67,22 @@
             required
             class="form__element form__element--half"
           />
-          <SfSelect
+          <SfComponentSelect
             v-model="country"
             required-message="Required"
             name="country"
             label="Country"
             required
-            class="sf-select--underlined form__select form__element form__element--half form__select form__element--half-even"
+            class="sf-component-select--underlined form__select form__element form__element--half form__element--half-even"
           >
-            <SfSelectOption
+            <SfComponentSelectOption
               v-for="countryOption in countries"
               :key="countryOption"
               :value="countryOption"
             >
               {{ countryOption }}
-            </SfSelectOption>
-          </SfSelect>
+            </SfComponentSelectOption>
+          </SfComponentSelect>
           <SfInput
             v-model="phoneNumber"
             required-message="Required"
@@ -154,7 +154,7 @@ import {
   SfTabs,
   SfInput,
   SfButton,
-  SfSelect,
+  SfComponentSelect,
   SfIcon,
 } from "@storefront-ui/vue";
 export default {
@@ -163,7 +163,7 @@ export default {
     SfTabs,
     SfInput,
     SfButton,
-    SfSelect,
+    SfComponentSelect,
     SfIcon,
   },
   props: {
