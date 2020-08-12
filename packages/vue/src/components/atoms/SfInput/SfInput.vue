@@ -126,7 +126,7 @@ export default {
       default: "",
     },
     /**
-     * Success message value of form input.
+     * Info/success message value of form input.
      */
     infoMessage: {
       type: String,

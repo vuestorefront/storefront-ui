@@ -15,11 +15,7 @@
     </label>
     <select :id="label" v-model="selected" v-focus class="sf-select__dropdown">
       <!-- empty option by default, may be used as placeholder -->
-      <option
-        class="sf-select__placeholder sf-select__option"
-        disabled
-        selected
-        value
+      <option class="sf-select__placeholder sf-select__option" disabled
         ><slot name="placeholder" :placeholder="placeholder" />{{
           placeholder
         }}</option
@@ -71,46 +67,42 @@ export default {
       default: false,
     },
     /**
-     * Validate value of form select
-     */
-    valid: {
-      type: Boolean,
-      default: true,
-    },
-    /**
-     * Disabled status of form select
-     */
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
-    /**
-     * Error message value of form select. It will be appeared if `valid` is `true`.
-     */
-    errorMessage: {
-      type: String,
-      default: "This field is not correct.",
-    },
-    /**
-<<<<<<< HEAD
-     * Hint/Required message value of form select.
+     * Hint/Required message value of select.
      */
     hintMessage: {
       type: String,
       default: "Required.",
     },
     /**
-     * Success message value of form select.
+     * Validate value of select
      */
-    successMessage: {
+    valid: {
+      type: Boolean,
+      default: true,
+    },
+    /**
+     * Error message value of select. It will be appeared if `valid` is `true`.
+     */
+    errorMessage: {
+      type: String,
+      default: "This field is not correct.",
+    },
+    /**
+     * Info/success message value of select.
+     */
+    infoMessage: {
       type: String,
       default: "",
     },
     /**
-     * If true clicking outside will not dismiss the select
-=======
-     * Adds placeholder
->>>>>>> a870f25e46ba3cf7f1488fae044ef4bfc45e2aba
+     * Disabled status of form select.
+     */
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+    /**
+     * Adds placeholder.
      */
     placeholder: {
       type: String,
@@ -122,34 +114,35 @@ export default {
       return this.selected;
     },
     computedMessageSlotName() {
-      if (this.errorMessage && !this.valid) {
-        return "show-error-message";
-      } else if (this.successMessage && this.valid) {
-        return "show-success-message";
-      } else if (this.hintMessage) {
-        return this.required ? "show-hint-message" : "";
-      } else {
-        return "";
-      }
+      return this.messagesHandler(
+        "show-error-message",
+        "show-info-message",
+        this.required ? "show-hint-message" : ""
+      );
     },
     computedMessage() {
-      if (this.errorMessage && !this.valid) {
-        return this.errorMessage;
-      } else if (this.successMessage && this.valid) {
-        return this.successMessage;
-      } else if (this.hintMessage) {
-        return this.required ? this.hintMessage : "";
-      } else {
-        return "";
-      }
+      return this.messagesHandler(
+        this.errorMessage,
+        this.infoMessage,
+        this.required ? this.hintMessage : ""
+      );
     },
     computedMessageClass() {
+      return this.messagesHandler(
+        "sf-input__message--error",
+        "sf-input__message--info",
+        this.required ? "sf-input__message--hint" : ""
+      );
+    },
+  },
+  methods: {
+    messagesHandler(error, info, hint) {
       if (this.errorMessage && !this.valid) {
-        return "sf-input__message--error";
-      } else if (this.successMessage && this.valid) {
-        return "sf-input__message--success";
+        return error;
+      } else if (this.infoMessage && this.valid) {
+        return info;
       } else if (this.hintMessage) {
-        return this.required ? "sf-input__message--hint" : "";
+        return hint;
       } else {
         return "";
       }

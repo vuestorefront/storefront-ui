@@ -1,5 +1,10 @@
 <template>
-  <option :value="value" class="sf-select__option" tabindex="0">
+  <option
+    :value="value"
+    class="sf-select__option"
+    :selected="selected"
+    tabindex="0"
+  >
     <!-- @slot -->
     <slot />
   </option>
@@ -12,10 +17,9 @@ export default {
       type: [String, Number, Object],
       default: "",
     },
-  },
-  computed: {
-    selected() {
-      return this.$parent.selected;
+    selected: {
+      type: [String, Number, Object],
+      default: "",
     },
   },
 };

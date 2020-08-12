@@ -2,9 +2,9 @@ import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
   text,
-  number,
   boolean,
   optionsKnob as options,
+  select,
 } from "@storybook/addon-knobs";
 import { SfSelect, SfProductOption } from "@storefront-ui/vue";
 const optionsList = [
@@ -14,10 +14,7 @@ const optionsList = [
   { value: "bluetiful", color: "#3C69E7", label: "Bluetiful" },
   { value: "buff", color: "#F0DC82", label: "Buff" },
 ];
-const knobOptionsList = optionsList.reduce(
-  (a, c) => ({ ...a, [c.label]: c.value }),
-  {}
-);
+const optionValues = ["", ...optionsList.map((i) => i.value)];
 storiesOf("Molecules|Select", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -38,19 +35,25 @@ storiesOf("Molecules|Select", module)
         default: text("label", "Color", "Props"),
       },
       selected: {
-        default: text("selected", "", "Props"),
+        default: select("selected", optionValues, "", "Props"),
+      },
+      hintMessage: {
+        default: text("hintMessage", "Required", "Props"),
       },
       required: {
         default: boolean("required", false, "Props"),
       },
+      errorMessage: {
+        default: text("errorMessage", "Something is wrong", "Props"),
+      },
       valid: {
         default: boolean("valid", true, "Props"),
       },
+      infoMessage: {
+        default: text("infoMessage", "", "Props"),
+      },
       disabled: {
         default: boolean("disabled", false, "Props"),
-      },
-      errorMessage: {
-        default: text("errorMessage", "Color", "Props"),
       },
       placeholder: {
         default: text("placeholder", "", "Props"),
@@ -63,13 +66,15 @@ storiesOf("Molecules|Select", module)
     },
     template: `
       <SfSelect
-        v-model="selected"
+        :selected="selected"
         :class="customClass"
         :label="label"
+        :hintMessage="hintMessage"
         :required="required"
-        :valid="valid"
-        :disabled="disabled"
         :error-message="errorMessage"
+        :valid="valid"
+        :infoMessage="infoMessage"
+        :disabled="disabled"
         :placeholder="placeholder"
         style="max-width: 30rem; margin: 10px;"
       >
@@ -96,17 +101,26 @@ storiesOf("Molecules|Select", module)
       label: {
         default: text("label", "Color", "Props"),
       },
+      selected: {
+        default: select("selected", optionValues, "", "Props"),
+      },
+      hintMessage: {
+        default: text("hintMessage", "Required", "Props"),
+      },
       required: {
         default: boolean("required", false, "Props"),
+      },
+      errorMessage: {
+        default: text("errorMessage", "Something is wrong", "Props"),
       },
       valid: {
         default: boolean("valid", true, "Props"),
       },
+      infoMessage: {
+        default: text("infoMessage", "", "Props"),
+      },
       disabled: {
         default: boolean("disabled", false, "Props"),
-      },
-      errorMessage: {
-        default: text("errorMessage", "Color", "Props"),
       },
       placeholder: {
         default: text("placeholder", "", "Props"),
@@ -114,20 +128,22 @@ storiesOf("Molecules|Select", module)
     },
     data() {
       return {
-        selected: "",
+        selected: ["", ...optionsList.map((i) => i.value)],
         options: optionsList,
       };
     },
     template: `<div style="max-width: 30rem">    
       <SfSelect
-        v-model="selected"
+        :selected="selected"
         :class="customClass"
         :label="label"
+        :hintMessage="hintMessage"
         :required="required"
-        :valid="valid"
-        :disabled="disabled"  
         :error-message="errorMessage"
-        :placeholder="placeholder"    
+        :valid="valid"
+        :infoMessage="infoMessage"
+        :disabled="disabled"
+        :placeholder="placeholder""    
         >
         <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
           <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
@@ -155,17 +171,26 @@ storiesOf("Molecules|Select", module)
       label: {
         default: text("label", "Color", "Props"),
       },
+      selected: {
+        default: select("selected", optionValues, "", "Props"),
+      },
+      hintMessage: {
+        default: text("hintMessage", "Required", "Props"),
+      },
       required: {
         default: boolean("required", false, "Props"),
       },
+      errorMessage: {
+        default: text("errorMessage", "Something is wrong", "Props"),
+      },
       valid: {
-        default: boolean("valid", false, "Props"),
+        default: boolean("valid", true, "Props"),
+      },
+      infoMessage: {
+        default: text("infoMessage", "", "Props"),
       },
       disabled: {
         default: boolean("disabled", false, "Props"),
-      },
-      errorMessage: {
-        default: text("errorMessage", "Color", "Props"),
       },
       placeholder: {
         default: text("placeholder", "", "Props"),
@@ -178,21 +203,24 @@ storiesOf("Molecules|Select", module)
       };
     },
     template: `<div style="max-width: 30rem">
-      <SfComponentSelect
-        v-model="selected"
+      <SfSelect
+        :selected="selected"
         :class="customClass"
         :label="label"
+        :hintMessage="hintMessage"
         :required="required"
-        :valid="valid"
-        :disabled="disabled"
         :error-message="errorMessage"
+        :valid="valid"
+        :infoMessage="infoMessage"
+        :disabled="disabled"
+        :placeholder="placeholder"
         >
-        <SfComponentSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
+        <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
           <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
-        </SfComponentSelectOption>
+        </SfSelectOption>
         <template #errorMessage>
           CUSTOM ERROR MESSAGE
         </template>
-      </SfComponentSelect>
+      </SfSelect>
     </div>`,
   }));
