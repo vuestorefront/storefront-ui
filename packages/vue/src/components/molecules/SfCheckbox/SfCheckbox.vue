@@ -5,6 +5,7 @@
       'sf-checkbox--is-active': isChecked,
       'sf-checkbox--is-disabled': disabled,
       'sf-checkbox--has-error': !valid,
+      'sf-checkbox--is-required': required,
     }"
   >
     <label class="sf-checkbox__container">
@@ -32,11 +33,15 @@
         <div v-if="label" class="sf-checkbox__label">{{ label }}</div>
       </slot>
     </label>
-    <div class="sf-checkbox__error-message">
+    <div class="sf-checkbox__message">
       <transition name="sf-fade">
-        <!-- @slot Custom error message -->
-        <slot v-if="!valid" name="error-message" v-bind="{ errorMessage }">
-          <div>{{ errorMessage }}</div></slot
+        <!-- @slot Custom message of form input -->
+        <slot
+          v-if="!disabled"
+          :name="computedMessageSlotName"
+          v-bind="{ computedMessage }"
+        >
+          <div :class="computedMessageClass">{{ computedMessage }}</div></slot
         >
       </transition>
     </div>
@@ -70,25 +75,42 @@ export default {
       type: String,
       default: "",
     },
+    /**
+     *  Hint/Required message value of checkbox.
+     */
+    hintMessage: {
+      type: String,
+      default: "Required.",
+    },
     required: {
       type: Boolean,
       default: false,
     },
-    disabled: {
-      type: Boolean,
-      default: false,
+    /**
+     * Info/success message value of select.
+     */
+    infoMessage: {
+      type: String,
+      default: "",
+    },
+    /**
+     * Error message value of select. It will be appeared if `valid` is `true`.
+     */
+    errorMessage: {
+      type: String,
+      default: "This field is not correct.",
     },
     valid: {
       type: Boolean,
       default: true,
     },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
     selected: {
       type: [Array, Boolean],
       default: () => [],
-    },
-    errorMessage: {
-      type: String,
-      default: "",
     },
   },
   computed: {
@@ -98,6 +120,27 @@ export default {
       } else {
         return this.selected.includes(this.value);
       }
+    },
+    computedMessageSlotName() {
+      return this.messagesHandler(
+        "show-error-message",
+        "show-info-message",
+        this.required ? "show-hint-message" : ""
+      );
+    },
+    computedMessage() {
+      return this.messagesHandler(
+        this.errorMessage,
+        this.infoMessage,
+        this.required ? this.hintMessage : ""
+      );
+    },
+    computedMessageClass() {
+      return this.messagesHandler(
+        "sf-input__message--error",
+        "sf-input__message--info",
+        this.required ? "sf-input__message--hint" : ""
+      );
     },
   },
   methods: {
@@ -112,6 +155,17 @@ export default {
           selected.push(this.value);
         }
         this.$emit("change", selected);
+      }
+    },
+    messagesHandler(error, info, hint) {
+      if (this.errorMessage && !this.valid) {
+        return error;
+      } else if (this.infoMessage && this.valid) {
+        return info;
+      } else if (this.hintMessage) {
+        return hint;
+      } else {
+        return "";
       }
     },
   },

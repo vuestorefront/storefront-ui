@@ -12,17 +12,23 @@ storiesOf("Molecules|Checkbox", module)
       label: {
         default: text("label", "I want to create an account", "Props"),
       },
+      hintMessage: {
+        default: text("hintMessage", "Required", "Props"),
+      },
       required: {
         default: boolean("required", false, "Props"),
+      },
+      errorMessage: {
+        default: text("errorMessage", "Something is wrong", "Props"),
       },
       valid: {
         default: boolean("valid", true, "Props"),
       },
+      infoMessage: {
+        default: text("infoMessage", "", "Props"),
+      },
       disabled: {
         default: boolean("disabled", false, "Props"),
-      },
-      errorMessage: {
-        default: text("errorMessage", "Error message", "Props"),
       },
     },
     data() {
@@ -34,10 +40,12 @@ storiesOf("Molecules|Checkbox", module)
       v-model="checked"
       :name="name"      
       :label="label"
+      :hintMessage="hintMessage"
       :required="required"
-      :disabled="disabled"
-      :valid="valid"
       :error-message="errorMessage"
+      :valid="valid"
+      :infoMessage="infoMessage"
+      :disabled="disabled"
       />`,
   }))
   .add("Invalid", () => ({
@@ -49,17 +57,23 @@ storiesOf("Molecules|Checkbox", module)
       label: {
         default: text("label", "I want to create an account", "Props"),
       },
+      hintMessage: {
+        default: text("hintMessage", "Required", "Props"),
+      },
       required: {
         default: boolean("required", false, "Props"),
       },
+      errorMessage: {
+        default: text("errorMessage", "Something is wrong", "Props"),
+      },
       valid: {
-        default: boolean("valid", false, "Props"),
+        default: boolean("valid", true, "Props"),
+      },
+      infoMessage: {
+        default: text("infoMessage", "", "Props"),
       },
       disabled: {
         default: boolean("disabled", false, "Props"),
-      },
-      errorMessage: {
-        default: text("errorMessage", "Error message", "Props"),
       },
     },
     data() {
@@ -71,10 +85,12 @@ storiesOf("Molecules|Checkbox", module)
       v-model="checked"
       :name="name"      
       :label="label"
-      :error-message="errorMessage"
+      :hintMessage="hintMessage"
       :required="required"
-      :disabled="disabled"
+      :error-message="errorMessage"
       :valid="valid"
+      :infoMessage="infoMessage"
+      :disabled="disabled"
       />`,
   }))
   .add("Multiple checkboxes", () => ({
@@ -114,8 +130,20 @@ storiesOf("Molecules|Checkbox", module)
       label: {
         default: text("label", "Copy address data from shipping", "Props"),
       },
+      hintMessage: {
+        default: text("hintMessage", "Required", "Props"),
+      },
       required: {
         default: boolean("required", false, "Props"),
+      },
+      errorMessage: {
+        default: text("errorMessage", "Something is wrong", "Props"),
+      },
+      valid: {
+        default: boolean("valid", true, "Props"),
+      },
+      infoMessage: {
+        default: text("infoMessage", "", "Props"),
       },
       disabled: {
         default: boolean("disabled", false, "Props"),
@@ -130,7 +158,11 @@ storiesOf("Molecules|Checkbox", module)
       v-model="checked"
       :name="name"
       :label="label"
+      :hintMessage="hintMessage"
       :required="required"
+      :error-message="errorMessage"
+      :valid="valid"
+      :infoMessage="infoMessage"
       :disabled="disabled">
       <template #checkmark="{isChecked, disabled}">
         <span v-if="isChecked">👍🏻</span>
@@ -147,8 +179,20 @@ storiesOf("Molecules|Checkbox", module)
       label: {
         default: text("label", "Copy address data from shipping", "Props"),
       },
+      hintMessage: {
+        default: text("hintMessage", "Required", "Props"),
+      },
       required: {
         default: boolean("required", false, "Props"),
+      },
+      errorMessage: {
+        default: text("errorMessage", "Something is wrong", "Props"),
+      },
+      valid: {
+        default: boolean("valid", true, "Props"),
+      },
+      infoMessage: {
+        default: text("infoMessage", "", "Props"),
       },
       disabled: {
         default: boolean("disabled", false, "Props"),
@@ -163,7 +207,11 @@ storiesOf("Molecules|Checkbox", module)
       v-model="checked"
       :name="name"
       :label="label"
+     :hintMessage="hintMessage"
       :required="required"
+      :error-message="errorMessage"
+      :valid="valid"
+      :infoMessage="infoMessage"
       :disabled="disabled">
       <template #label="{label, isChecked, disabled}">
         <span v-if="isChecked" style="margin-left: 1rem">🎉 I'm checked</span>
@@ -180,14 +228,20 @@ storiesOf("Molecules|Checkbox", module)
       label: {
         default: text("label", "I want to create an account", "Props"),
       },
-      errorMessage: {
-        default: text("errorMessage", "Error message", "Props"),
+      hintMessage: {
+        default: text("hintMessage", "Required", "Props"),
       },
       required: {
         default: boolean("required", false, "Props"),
       },
+      errorMessage: {
+        default: text("errorMessage", "Something is wrong", "Props"),
+      },
       valid: {
-        default: boolean("valid", false, "Props"),
+        default: boolean("valid", true, "Props"),
+      },
+      infoMessage: {
+        default: text("infoMessage", "", "Props"),
       },
       disabled: {
         default: boolean("disabled", false, "Props"),
@@ -202,10 +256,12 @@ storiesOf("Molecules|Checkbox", module)
       v-model="checked"
       :name="name"      
       :label="label"
-      :error-message="errorMessage"
+      :hintMessage="hintMessage"
       :required="required"
-      :disabled="disabled"
+      :error-message="errorMessage"
       :valid="valid"
+      :infoMessage="infoMessage"
+      :disabled="disabled"
       >
         <template #error-message="{ errorMessage }">
           <span> CUSTOM ERROR MESSAGE 👈</span>

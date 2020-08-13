@@ -49,27 +49,35 @@
     &.sf-checkbox--has-error {
       --checkbox-border-color: var(--c-danger);
       --checkbox-background: var(--c-danger);
+      --checkbox-message-color: var(--c-danger);
     }
     &.sf-checkbox--is-disabled {
       --checkbox-border-color: var(--c-text-disabled);
       --checkbox-background: var(--c-text-disabled);
     }
   }
+  &--is-required {
+    --checkbox-message-color: var var(--c-text);
+  }
   &--is-disabled {
     --checkbox-label-color: var(--c-text-disabled);
     --checkbox-border-color: var(--c-text-disabled);
   }
-  &__error-message {
-    margin: var(--checkbox-error-message-margin, var(--spacer-2xs) 0 0 0);
-    color: var(--checkbox-error-message-color, var(--c-danger));
+  &__message {
+    margin: var(--checkbox-message-margin, var(--spacer-2xs) 0 0 0);
+    color: var(--checkbox-message-color, var(--c-danger));
     @include font(
-      --checkbox-error-message-font,
+      --checkbox-message-font,
       var(--font-normal),
       var(--font-xs),
       1.2,
       var(--font-family-secondary)
     );
+    .sf-input__message--info {
+      color: var(--checkbox-message-color, var(--c-primary));
+    }
   }
+  
   input {
     position: absolute;
     opacity: 0;
