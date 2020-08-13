@@ -7,6 +7,6 @@ describe("SfSidebar.vue", () => {
         visible: true,
       },
     });
-    expect(component.classes("sf-sidebar")).toBe(true);
+    expect(component.contains(".sf-sidebar")).toBe(true);
   });
 });

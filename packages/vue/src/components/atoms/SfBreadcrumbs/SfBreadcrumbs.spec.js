@@ -6,7 +6,7 @@ const propsData = {
 describe("SfBreadcrumbs.vue", () => {
   it("renders a nav", () => {
     const component = shallowMount(SfBreadcrumbs, { propsData });
-    expect(component.classes("sf-breadcrumbs")).toBe(true);
+    expect(component.contains("nav")).toBe(true);
   });
   it("renders breadcrumbs text", () => {
     const msg = "HelloWorld";

@@ -20,7 +20,7 @@
       <SfIcon
         v-if="icon"
         :icon="icon"
-        class="sf-menu-item__mobile-nav-icon mobile-only"
+        class="sf-menu-item__mobile-nav-icon"
         size="14px"
       />
     </slot>

@@ -7,6 +7,6 @@ describe("SfOverlay.vue", () => {
         visible: true,
       },
     });
-    expect(component.find(".sf-overlay").exists()).toBe(true);
+    expect(component.contains(".sf-overlay")).toBe(true);
   });
 });

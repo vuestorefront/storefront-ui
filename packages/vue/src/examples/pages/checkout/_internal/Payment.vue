@@ -77,22 +77,22 @@
         required
         @input="updateField('zipCode', $event)"
       />
-      <SfComponentSelect
+      <SfSelect
         v-model="country"
         :value="country"
         label="Country"
-        class="form__element form__element--half form__element--half-even form__select sf-component-select--underlined"
+        class="form__element form__element--half form__element--half-even form__select sf-select--underlined"
         required
         @change="updateField('country', $event)"
       >
-        <SfComponentSelectOption
+        <SfSelectOption
           v-for="countryOption in countries"
           :key="countryOption"
           :value="countryOption"
         >
           {{ countryOption }}
-        </SfComponentSelectOption>
-      </SfComponentSelect>
+        </SfSelectOption>
+      </SfSelect>
       <SfInput
         v-model="phoneNumber"
         :value="phoneNumber"
@@ -175,36 +175,36 @@
               >Expiry date:</span
             >
             <div class="credit-card-form__element">
-              <SfComponentSelect
+              <SfSelect
                 v-model="cardMonth"
                 :value="cardMonth"
                 label="Month"
-                class="credit-card-form__input credit-card-form__input--with-spacer form__select sf-component-select--underlined"
+                class="credit-card-form__input credit-card-form__input--with-spacer form__select sf-select--underlined"
                 @change="updateField('cardMonth', $event)"
               >
-                <SfComponentSelectOption
+                <SfSelectOption
                   v-for="monthOption in months"
                   :key="monthOption"
                   :value="monthOption"
                 >
                   {{ monthOption }}
-                </SfComponentSelectOption>
-              </SfComponentSelect>
-              <SfComponentSelect
+                </SfSelectOption>
+              </SfSelect>
+              <SfSelect
                 v-model="cardYear"
                 :value="cardYear"
                 label="Year"
-                class="credit-card-form__input form__select sf-component-select--underlined"
+                class="credit-card-form__input form__select sf-select--underlined"
                 @change="updateField('cardYear', $event)"
               >
-                <SfComponentSelectOption
+                <SfSelectOption
                   v-for="yearOption in years"
                   :key="yearOption"
                   :value="yearOption"
                 >
                   {{ yearOption }}
-                </SfComponentSelectOption>
-              </SfComponentSelect>
+                </SfSelectOption>
+              </SfSelect>
             </div>
           </div>
           <div class="credit-card-form__group">
@@ -252,7 +252,7 @@ import {
   SfHeading,
   SfInput,
   SfButton,
-  SfComponentSelect,
+  SfSelect,
   SfRadio,
   SfImage,
   SfCheckbox,
@@ -264,7 +264,7 @@ export default {
     SfHeading,
     SfInput,
     SfButton,
-    SfComponentSelect,
+    SfSelect,
     SfRadio,
     SfImage,
     SfCheckbox,

@@ -4,7 +4,7 @@ import SfBanner from "./SfBanner.vue";
 describe("SfBanner.vue", () => {
   it("renders a banner", () => {
     const component = shallowMount(SfBanner);
-    expect(component.classes("sf-banner")).toBe(true);
+    expect(component.contains(".sf-banner")).toBe(true);
   });
   it("renders title slot text when passed", () => {
     const title = "HelloWorld";

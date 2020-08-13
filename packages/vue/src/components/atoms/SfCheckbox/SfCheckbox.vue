@@ -48,7 +48,7 @@
   </div>
 </template>
 <script>
-import SfIcon from "../../atoms/SfIcon/SfIcon";
+import SfIcon from "../SfIcon/SfIcon.vue";
 import { focus } from "../../../utilities/directives";
 export default {
   name: "SfCheckbox",
@@ -172,5 +172,5 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "~@storefront-ui/shared/styles/components/molecules/SfCheckbox.scss";
+@import "~@storefront-ui/shared/styles/components/atoms/SfCheckbox.scss";
 </style>

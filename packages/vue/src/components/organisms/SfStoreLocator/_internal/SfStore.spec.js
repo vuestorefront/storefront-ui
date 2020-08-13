@@ -25,6 +25,6 @@ describe("SfStore.vue", () => {
         };
       },
     });
-    expect(component.classes("sf-store")).toBe(true);
+    expect(component.contains(".sf-store")).toBe(true);
   });
 });

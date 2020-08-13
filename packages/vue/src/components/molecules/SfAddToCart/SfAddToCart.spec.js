@@ -3,6 +3,6 @@ import SfAddToCart from "./SfAddToCart.vue";
 describe("SfAddToCart.vue", () => {
   it("renders a component", () => {
     const component = shallowMount(SfAddToCart);
-    expect(component.classes("sf-add-to-cart")).toBe(true);
+    expect(component.contains(".sf-add-to-cart")).toBe(true);
   });
 });

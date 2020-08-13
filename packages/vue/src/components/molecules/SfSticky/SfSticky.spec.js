@@ -3,6 +3,6 @@ import SfSticky from "./SfSticky.vue";
 describe("SfSticky.vue", () => {
   it("renders a component", () => {
     const component = shallowMount(SfSticky);
-    expect(component.classes("sf-sticky")).toBe(true);
+    expect(component.contains(".sf-sticky")).toBe(true);
   });
 });

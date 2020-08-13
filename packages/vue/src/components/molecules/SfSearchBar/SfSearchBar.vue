@@ -13,8 +13,8 @@
     />
     <!-- @slot -->
     <slot name="icon">
-      <span v-if="icon" class="sf-search-bar__icon">
-        <SfIcon :color="icon.color" :size="icon.size" icon="search" />
+      <span class="sf-search-bar__icon">
+        <SfIcon color="#737680" size="1.25rem" icon="search" />
       </span>
     </slot>
   </div>
@@ -26,26 +26,13 @@ export default {
   components: { SfIcon },
   inheritAttrs: false,
   props: {
-    /**
-     * Text for placeholder
-     */
     placeholder: {
       type: String,
       default: "",
     },
-    /**
-     * Value that will be displayed in search bar
-     */
     value: {
       type: [Number, String],
       default: null,
-    },
-    /**
-     * Object to define icon look. Should have values for color and size
-     */
-    icon: {
-      type: Object,
-      default: () => {},
     },
   },
 };

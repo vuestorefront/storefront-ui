@@ -24,15 +24,15 @@
         </SfButton>
         <div class="navbar__sort desktop-only">
           <span class="navbar__label">Sort by:</span>
-          <SfComponentSelect v-model="sortBy" class="navbar__select">
-            <SfComponentSelectOption
+          <SfSelect v-model="sortBy" class="navbar__select">
+            <SfSelectOption
               v-for="option in sortByOptions"
               :key="option.value"
               :value="option.value"
               class="sort-by__option"
-              >{{ option.label }}</SfComponentSelectOption
+              >{{ option.label }}</SfSelectOption
             >
-          </SfComponentSelect>
+          </SfSelect>
         </div>
         <div class="navbar__counter">
           <span class="navbar__label desktop-only">Products found: </span>
@@ -313,7 +313,7 @@ import {
   SfProductCardHorizontal,
   SfPagination,
   SfAccordion,
-  SfComponentSelect,
+  SfSelect,
   SfBreadcrumbs,
   SfColor,
 } from "@storefront-ui/vue";
@@ -330,7 +330,7 @@ export default {
     SfPagination,
     SfMenuItem,
     SfAccordion,
-    SfComponentSelect,
+    SfSelect,
     SfBreadcrumbs,
     SfColor,
   },
@@ -675,11 +675,11 @@ export default {
     margin: 0 var(--spacer-2xs) 0 0;
   }
   &__select {
-    --component-select-width: 220px;
-    --component-select-padding: 0;
-    --component-select-selected-padding: 0 var(--spacer-lg) 0 var(--spacer-2xs);
-    --component-select-margin: 0;
-    --component-select-error-message-height: 0;
+    --select-width: 220px;
+    --select-padding: 0;
+    --select-selected-padding: 0 var(--spacer-lg) 0 var(--spacer-2xs);
+    --select-margin: 0;
+    --select-error-message-height: 0;
   }
   &__sort {
     display: flex;
@@ -717,7 +717,7 @@ export default {
   }
 }
 .sort-by {
-  --component-select-dropdown-z-index: 1;
+  --select-dropdown-z-index: 1;
   flex: unset;
   width: 11.875rem;
 }

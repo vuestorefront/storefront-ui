@@ -87,11 +87,7 @@
     justify-content: var(--hero-controls-justify-content, space-between);
     width: var(--hero-controls-width, 100%);
     padding: var(--hero-controls-padding, 0 var(--spacer-sm));
-    pointer-events: none;
-    &__arrow {
-      pointer-events: all;
-    }
-   }
+  }
   &__bullets {
     position: absolute;
     bottom: var(--hero-bullets-bottom, var(--spacer-xl));

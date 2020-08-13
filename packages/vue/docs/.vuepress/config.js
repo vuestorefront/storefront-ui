@@ -46,7 +46,7 @@ module.exports = {
         children: [
           ['/design/color-palette', 'Colors'],
           ['/design/sizes', 'Sizes'],
-          ['/design/working-with-designs', 'Working with Designs'],
+          ['/design/working-with-designs', 'Working with Designs']
         ],
       },
       {
@@ -63,6 +63,7 @@ module.exports = {
 ["/components/breadcrumbs", "Breadcrumbs"],
 ["/components/bullets", "Bullets"],
 ["/components/button", "Button"],
+["/components/checkbox", "Checkbox"],
 ["/components/chevron", "Chevron"],
 ["/components/circleicon", "Circle Icon"],
 ["/components/color", "Color"],
@@ -90,8 +91,6 @@ module.exports = {
 ["/components/bottommodal", "Bottom Modal"],
 ["/components/calltoaction", "Call To Action"],
 ["/components/characteristic", "Characteristic"],
-["/components/checkbox", "Checkbox"],
-["/components/componentselect", "Component Select"],
 ["/components/dropdown", "Dropdown"],
 ["/components/filter", "Filter"],
 ["/components/gallery", "Gallery"],

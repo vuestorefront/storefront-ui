@@ -7,7 +7,7 @@ describe("SfNotification.vue", () => {
         visible: true,
       },
     });
-    expect(component.find(".sf-notification").exists()).toBe(true);
+    expect(component.contains(".sf-notification")).toBe(true);
   });
   it("renders the message when passed via props", () => {
     const message = "Hello World";
@@ -26,7 +26,7 @@ describe("SfNotification.vue", () => {
         icon: "info",
       },
     });
-    expect(component.find(".sf-notification__icon").exists()).toBe(true);
+    expect(component.contains(".sf-notification__icon")).toBe(true);
   });
   it("renders an alert icon when passed via slot", () => {
     const component = shallowMount(SfNotification, {
@@ -37,7 +37,7 @@ describe("SfNotification.vue", () => {
         icon: "<img class='slotImg' src='/assets/img.jpg' />",
       },
     });
-    expect(component.find(".slotImg").exists()).toBe(true);
+    expect(component.contains(".slotImg")).toBe(true);
   });
   it("renders an alert message when passed via slot", () => {
     const component = shallowMount(SfNotification, {
@@ -48,6 +48,6 @@ describe("SfNotification.vue", () => {
         message: "<p class='slotMessage'>text</p>",
       },
     });
-    expect(component.find(".slotMessage").exists()).toBe(true);
+    expect(component.contains(".slotMessage")).toBe(true);
   });
 });

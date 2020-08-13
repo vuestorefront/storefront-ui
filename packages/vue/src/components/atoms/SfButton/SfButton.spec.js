@@ -3,7 +3,7 @@ import SfButton from "./SfButton.vue";
 describe("SfButton.vue", () => {
   it("renders a button", () => {
     const component = shallowMount(SfButton);
-    expect(component.classes("sf-button")).toBe(true);
+    expect(component.contains("button")).toBe(true);
   });
   it("renders default prop text when passed", () => {
     const msg = "HelloWorld";

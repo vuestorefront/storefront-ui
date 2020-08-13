@@ -8,6 +8,6 @@ describe("SfCollectedProduct.vue", () => {
         title,
       },
     });
-    expect(component.classes("sf-collected-product")).toBe(true);
+    expect(component.contains(".sf-collected-product")).toBe(true);
   });
 });

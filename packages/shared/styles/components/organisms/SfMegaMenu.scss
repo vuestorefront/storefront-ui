@@ -31,11 +31,11 @@
     top: var(--mega-menu-column-content-top, 0);
     display: var(--mega-menu-column-content-display, none);
     width: 100%;
-    transform: var(--mega-menu-column-content-transform, translateX(100%));
+    transform: var(--mega-menu-column-content-transorm, translateX(100%));
     @include for-desktop {
       display: var(--mega-menu-column-content-display, block);
       position: var(--mega-menu-column-content-position, static);
-      transform: var(--mega-menu-column-content-transform, translateX(0));
+      transform: var(--mega-menu-column-content-transorm, translateX(0));
     }
   }
   &--hide-header-on-mobile {
@@ -46,7 +46,7 @@
   &--pined-content-on-mobile {
     @include for-mobile {
       --mega-menu-column-content-position: static;
-      --mega-menu-column-content-transform: translateX(0);
+      --mega-menu-column-content-transorm: translateX(0);
       --mega-menu-column-content-display: block;
     }
   }
@@ -57,11 +57,6 @@
 .sf-mega-menu {
   width: 100%;
   background: var(--mega-menu-background, var(--c-white));
-  position: var(--mega-menu-position, static);
-  height: var(--mega-menu-height, 100vh);
-  @include for-desktop {
-    --mega-menu-height: auto;
-  }
   &__bar {
     display: var(--mega-menu-bar-display, flex);
     @include for-desktop {
@@ -120,10 +115,5 @@
     @include for-desktop {
       --mega-menu-content-transform: translate(0);
     }
-  }
-  &.is-absolute{
-    --mega-menu-position: absolute;
-    top: var(--mega-menu-top, 100%);
-    left: var(--mega-menu-left, 0);
   }
 }

@@ -27,7 +27,7 @@
   </SfCheckbox>
 </template>
 <script>
-import SfCheckbox from "../../molecules/SfCheckbox/SfCheckbox.vue";
+import SfCheckbox from "../../atoms/SfCheckbox/SfCheckbox.vue";
 import SfColor from "../../atoms/SfColor/SfColor.vue";
 export default {
   name: "SfFilter",

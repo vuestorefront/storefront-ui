@@ -3,6 +3,6 @@ import SfListItem from "./SfListItem.vue";
 describe("SfListItem.vue", () => {
   it("renders a component", () => {
     const component = shallowMount(SfListItem);
-    expect(component.classes("sf-list__item")).toBe(true);
+    expect(component.contains(".sf-list__item")).toBe(true);
   });
 });

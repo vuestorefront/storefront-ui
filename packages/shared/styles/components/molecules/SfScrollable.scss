@@ -15,7 +15,7 @@
   &--is-open {
     --scrollable-max-height: auto;
   }
-  &__view-all {
+  &__button {
     margin: var(--scrollable-button-margin, var(--spacer-sm) 0 0 0);
   }
 }

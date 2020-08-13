@@ -7,6 +7,6 @@ describe("SfDropdown.vue", () => {
         isOpen: true,
       },
     });
-    expect(component.classes("sf-dropdown")).toBe(true);
+    expect(component.contains(".sf-dropdown")).toBe(true);
   });
 });

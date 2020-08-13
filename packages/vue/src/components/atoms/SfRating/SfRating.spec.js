@@ -3,7 +3,7 @@ import SfRating from "./SfRating.vue";
 describe("SfRating.vue", () => {
   it("renders a component", () => {
     const component = shallowMount(SfRating);
-    expect(component.classes("sf-rating")).toBe(true);
+    expect(component.contains(".sf-rating")).toBe(true);
   });
   it("render multiple stars when max is increased", () => {
     const score = 4;
