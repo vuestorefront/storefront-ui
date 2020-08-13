@@ -137,9 +137,9 @@ export default {
     },
     computedMessageClass() {
       return this.messagesHandler(
-        "sf-input__message--error",
-        "sf-input__message--info",
-        this.required ? "sf-input__message--hint" : ""
+        "sf-checkbox__message--error",
+        "sf-checkbox__message--info",
+        this.required ? "sf-checkbox__message--hint" : ""
       );
     },
   },
