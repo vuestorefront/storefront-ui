@@ -69,23 +69,23 @@
         required
         @input="updateField('zipCode', $event)"
       />
-      <SfSelect
+      <SfComponentSelect
         v-model="country"
         :value="country"
         label="Country"
-        class="form__element form__element--half form__element--half-even form__select sf-select--underlined"
+        class="form__element form__element--half form__element--half-even form__select sf-component-select--underlined"
         :valid="true"
         required
         @change="updateField('country', $event)"
       >
-        <SfSelectOption
+        <SfComponentSelectOption
           v-for="countryOption in countries"
           :key="countryOption"
           :value="countryOption"
         >
           {{ countryOption }}
-        </SfSelectOption>
-      </SfSelect>
+        </SfComponentSelectOption>
+      </SfComponentSelect>
       <SfInput
         v-model="phoneNumber"
         :value="phoneNumber"
@@ -131,7 +131,7 @@
                   >info
                 </SfButton>
               </div>
-              <transition name="fade">
+              <transition name="sf-fade">
                 <div v-if="item.isOpen" class="shipping__info">
                   {{ description }}
                 </div>
@@ -160,7 +160,7 @@ import {
   SfHeading,
   SfInput,
   SfButton,
-  SfSelect,
+  SfComponentSelect,
   SfRadio,
 } from "@storefront-ui/vue";
 export default {
@@ -169,7 +169,7 @@ export default {
     SfHeading,
     SfInput,
     SfButton,
-    SfSelect,
+    SfComponentSelect,
     SfRadio,
   },
   props: {

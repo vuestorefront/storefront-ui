@@ -16,7 +16,7 @@ export default {
   name: "SfAccordion",
   props: {
     /**
-     * Opens an accordion item based on title
+     * Opens an accordion item based on title. If 'all' string is passed then all items will be open by default.
      */
     open: {
       type: [String, Array],
@@ -42,12 +42,17 @@ export default {
      */
     transition: {
       type: String,
-      default: "fade",
+      default: "sf-expand",
     },
     showChevron: {
       type: Boolean,
       default: true,
     },
+  },
+  data() {
+    return {
+      openHeader: this.open,
+    };
   },
   mounted() {
     this.$on("toggle", this.toggleHandler);
@@ -69,19 +74,26 @@ export default {
           return;
         }
         // <- TODO remove in 1.0.0
+        if (this.open === "all") {
+          this.multiple = true;
+          this.openHeader = this.$children.map((child) => child.header);
+        }
         this.$children.forEach((child) => {
-          child.isOpen = Array.isArray(this.open)
-            ? this.open.includes(child.header)
-            : this.open === child.header;
+          child.isOpen = Array.isArray(this.openHeader)
+            ? this.openHeader.includes(child.header)
+            : this.openHeader === child.header;
         });
       }
     },
     toggleHandler(slotId) {
-      if (!this.multiple && !Array.isArray(this.open)) {
+      if (!this.multiple && !Array.isArray(this.openHeader)) {
         this.$children.forEach((child) => {
-          child._uid === slotId
-            ? (child.isOpen = !child.isOpen)
-            : (child.isOpen = false);
+          if (child._uid === slotId) {
+            child.isOpen = !child.isOpen;
+            this.openHeader = child.header;
+          } else {
+            child.isOpen = false;
+          }
         });
       } else {
         const clickedHeader = this.$children.find((child) => {

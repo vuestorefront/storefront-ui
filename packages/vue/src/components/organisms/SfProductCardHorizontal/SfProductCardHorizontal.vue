@@ -1,12 +1,15 @@
 <template>
   <div class="sf-product-card-horizontal">
-    <SfLink
-      :link="link"
-      class="sf-product-card-horizontal__link sf-product-card-horizontal__link--image"
-    >
-      <div class="sf-product-card-horizontal__image-wrapper">
-        <!--@slot Use this slot to replace image-->
-        <slot name="image" v-bind="{ image, title }">
+    <div class="sf-product-card-horizontal__image-wrapper">
+      <!--@slot Use this slot to replace image-->
+      <slot
+        name="image"
+        v-bind="{ image, title, link, imageHeight, imageWidth }"
+      >
+        <SfLink
+          :link="link"
+          class="sf-product-card-horizontal__link sf-product-card-horizontal__link--image"
+        >
           <template v-if="Array.isArray(image)">
             <SfImage
               v-for="(picture, key) in image.slice(0, 2)"
@@ -26,19 +29,19 @@
             :width="imageWidth"
             :height="imageHeight"
           />
-        </slot>
-      </div>
-    </SfLink>
+        </SfLink>
+      </slot>
+    </div>
     <div class="sf-product-card-horizontal__main">
       <div class="sf-product-card-horizontal__details">
-        <SfLink :link="link" class="sf-product-card-horizontal__link">
-          <!--@slot Use this slot to replace title-->
-          <slot name="title" v-bind="{ title }">
+        <!--@slot Use this slot to replace title-->
+        <slot name="title" v-bind="{ title, link }">
+          <SfLink :link="link" class="sf-product-card-horizontal__link">
             <h3 class="sf-product-card-horizontal__title">
               {{ title }}
             </h3>
-          </slot>
-        </SfLink>
+          </SfLink>
+        </slot>
         <!--@slot Use this slot to replace description-->
         <slot name="description">
           <p class="sf-product-card-horizontal__description desktop-only">
@@ -118,7 +121,6 @@
   </div>
 </template>
 <script>
-import { focus } from "../../../utilities/directives";
 import SfPrice from "../../atoms/SfPrice/SfPrice.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfLink from "../../atoms/SfLink/SfLink.vue";
@@ -136,9 +138,6 @@ export default {
     SfLink,
     SfButton,
     SfAddToCart,
-  },
-  directives: {
-    focus: focus,
   },
   model: {
     prop: "qty",
@@ -189,8 +188,7 @@ export default {
     },
     /**
      * Link element tag
-     * By default it'll be 'router-link' if Vue Router
-     * is available on instance, or 'a' otherwise.
+     * @deprecated will be removed in 1.0.0 use slot to replace content
      */
     linkTag: {
       type: String,
@@ -290,17 +288,6 @@ export default {
       return `${defaultClass} ${
         this.isOnWishlist ? "sf-product-card-horizontal--on-wishlist" : ""
       }`;
-    },
-    linkComponentTag() {
-      if (this.linkTag) {
-        return this.linkTag;
-      }
-      if (this.link) {
-        return typeof this.link === "object" || this.$router
-          ? "router-link"
-          : "a";
-      }
-      return "div";
     },
   },
   methods: {

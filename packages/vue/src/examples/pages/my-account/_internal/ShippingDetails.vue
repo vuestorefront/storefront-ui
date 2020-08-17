@@ -1,5 +1,5 @@
 <template>
-  <transition name="fade">
+  <transition name="sf-fade">
     <SfTabs
       v-if="editAddress"
       key="edit-address"
@@ -60,21 +60,21 @@
             required
             class="form__element form__element--half"
           />
-          <SfSelect
+          <SfComponentSelect
             v-model="country"
             name="country"
             label="Country"
             required
-            class="sf-select--underlined form__select form__element form__element--half form__select form__element--half-even"
+            class="sf-component-select--underlined form__select form__element form__element--half form__element--half-even"
           >
-            <SfSelectOption
+            <SfComponentSelectOption
               v-for="countryOption in countries"
               :key="countryOption"
               :value="countryOption"
             >
               {{ countryOption }}
-            </SfSelectOption>
-          </SfSelect>
+            </SfComponentSelectOption>
+          </SfComponentSelect>
           <SfInput
             v-model="phoneNumber"
             name="phone"
@@ -95,7 +95,7 @@
           ...) This way you won't have to enter the shipping address manually
           with each order.
         </p>
-        <transition-group tag="div" name="fade" class="shipping-list">
+        <transition-group tag="div" name="sf-fade" class="shipping-list">
           <div
             v-for="(shipping, key) in account.shipping"
             :key="shipping.streetName + shipping.apartment"
@@ -145,7 +145,7 @@ import {
   SfTabs,
   SfInput,
   SfButton,
-  SfSelect,
+  SfComponentSelect,
   SfIcon,
 } from "@storefront-ui/vue";
 export default {
@@ -154,7 +154,7 @@ export default {
     SfTabs,
     SfInput,
     SfButton,
-    SfSelect,
+    SfComponentSelect,
     SfIcon,
   },
   props: {

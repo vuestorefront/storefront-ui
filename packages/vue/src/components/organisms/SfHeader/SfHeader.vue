@@ -23,7 +23,10 @@
           <slot name="aside" />
         </div>
         <div class="sf-header__actions">
-          <nav class="sf-header__navigation">
+          <nav
+            class="sf-header__navigation"
+            :class="{ 'is-visible': isNavVisible }"
+          >
             <slot name="navigation"></slot>
           </nav>
           <!--@slot Use this slot to replace default search bar-->
@@ -69,7 +72,10 @@
                 @click="$emit('click:wishlist')"
               >
                 <SfIcon
+                  class="sf-header__icon"
                   :icon="wishlistIcon"
+                  :has-badge="wishlistHasProducts"
+                  :badge-label="wishlistItemsQty"
                   size="1.25rem"
                   :class="{
                     'sf-header__icon--is-active': activeIcon === 'wishlist',
@@ -102,6 +108,8 @@
 <script>
 import Vue from "vue";
 import SfHeaderNavigationItem from "./_internal/SfHeaderNavigationItem.vue";
+import SfHeaderNavigation from "./_internal/SfHeaderNavigation.vue";
+Vue.component("SfHeaderNavigation", SfHeaderNavigation);
 Vue.component("SfHeaderNavigationItem", SfHeaderNavigationItem);
 import {
   mapMobileObserver,
@@ -141,21 +149,21 @@ export default {
      * Header cartIcon (accepts same value as SfIcon)
      */
     cartIcon: {
-      type: [String, Boolean],
+      type: [String, Boolean, Array],
       default: "empty_cart",
     },
     /**
      * Header wishlistIcon (accepts same value as SfIcon)
      */
     wishlistIcon: {
-      type: [String, Boolean],
+      type: [String, Boolean, Array],
       default: "heart",
     },
     /**
      * Header accountIcon (accepts same value as SfIcon)
      */
     accountIcon: {
-      type: [String, Boolean],
+      type: [String, Boolean, Array],
       default: "profile",
     },
     /**
@@ -185,6 +193,13 @@ export default {
     /**
      * Header cart items quantity
      */
+    wishlistItemsQty: {
+      type: [String, Number],
+      default: "0",
+    },
+    /**
+     * Header cart items quantity
+     */
     cartItemsQty: {
       type: [String, Number],
       default: "0",
@@ -198,6 +213,13 @@ export default {
     },
     /**
      * Header search on mobile
+     */
+    isNavVisible: {
+      type: Boolean,
+      default: false,
+    },
+    /**
+     * Is nav slot visible at mobile view
      */
   },
   data() {
@@ -217,6 +239,9 @@ export default {
     ...mapMobileObserver(),
     cartHasProducts() {
       return parseInt(this.cartItemsQty, 10) > 0;
+    },
+    wishlistHasProducts() {
+      return parseInt(this.wishlistItemsQty, 10) > 0;
     },
     stickyHeight() {
       return {

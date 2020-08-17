@@ -3,7 +3,7 @@ import SfCheckbox from "./SfCheckbox.vue";
 describe("SfCheckbox.vue", () => {
   it("renders a checkbox", () => {
     const component = shallowMount(SfCheckbox);
-    expect(component.contains("input[type='checkbox']")).toBe(true);
+    expect(component.find(".sf-checkbox__input").exists()).toBe(true);
   });
   it("renders label text when passed", () => {
     const msg = "HelloWorld";

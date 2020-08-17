@@ -136,11 +136,10 @@ storiesOf("Molecules|Pagination", module)
       :total="total"
       :has-arrows="hasArrows"
       @click="value => current = value">
-      <template #number="{number, go}">
+      <template #number="{page}">
         <button 
           class="sf-pagination__button"
-          :class="{'sf-pagination__button--current': (current === number)}"
-          @click="go(number)">{{number}}.-</button>
+          :class="{'sf-pagination__button--current': current === page}">{{page}}</button>
       </template>
     </SfPagination>`,
   }));
