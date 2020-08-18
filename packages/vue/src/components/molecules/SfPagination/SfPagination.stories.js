@@ -139,7 +139,7 @@ storiesOf("Molecules|Pagination", module)
       <template #number="{page}">
         <button 
           class="sf-pagination__button"
-          :class="{'sf-pagination__button--current': (current === number)}">{{page}}</button>
+          :class="{'sf-pagination__button--current': current === page}">{{page}}</button>
       </template>
     </SfPagination>`,
   }));
