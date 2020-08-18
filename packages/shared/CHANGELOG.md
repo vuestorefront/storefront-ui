@@ -3,6 +3,49 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/AdamPawlinski/storefront-ui-adam/compare/@storefront-ui/shared@0.7.17...@storefront-ui/shared@0.8.0) (2020-08-18)
+
+
+### Bug Fixes
+
+* add background for mega menu ([636551b](https://github.com/AdamPawlinski/storefront-ui-adam/commit/636551b27ecee851b84ca636da8771baff3e5edf))
+* adjust height for input in quantity selector ([548ffc6](https://github.com/AdamPawlinski/storefront-ui-adam/commit/548ffc6b3205d1e3f37cf6bfc0698a42174a5665))
+* checkbox as molecule ([#1266](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1266)) ([32f9cbe](https://github.com/AdamPawlinski/storefront-ui-adam/commit/32f9cbe754b4ea20118d151a49b7e5c553d2b9bf))
+* custom classes added ([#1247](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1247)) ([6d925e7](https://github.com/AdamPawlinski/storefront-ui-adam/commit/6d925e7881afcd437dfd2b306b14721353e6a742))
+* height of SfSearch on Category page ([4c75e23](https://github.com/AdamPawlinski/storefront-ui-adam/commit/4c75e23d5be6a2d50ae9dce3502293626caa733f))
+* jumping inputs content on validation messages ([#1035](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1035)) ([037792b](https://github.com/AdamPawlinski/storefront-ui-adam/commit/037792bceb5e68f0a16bb4ed98deb75a3312df51))
+* pointer events none for arrows wrapper ([#1283](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1283)) ([9c04e49](https://github.com/AdamPawlinski/storefront-ui-adam/commit/9c04e493f1136160c92d290204bae5a1cbd7aa10))
+* shadow and border radius removed ([#1324](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1324)) ([b07b9c6](https://github.com/AdamPawlinski/storefront-ui-adam/commit/b07b9c6a8f209ae5f02c3cbadef8441d76afb4ca))
+* **a11y:** access to SfMenuItem by tab key ([#1231](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1231)) ([a777c5a](https://github.com/AdamPawlinski/storefront-ui-adam/commit/a777c5ae7b5608feba1e151a240272d3f590b3c0))
+* title overlapping in SfCollectedProduct ([#1237](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1237)) ([40f1dc2](https://github.com/AdamPawlinski/storefront-ui-adam/commit/40f1dc22d59a88c2ee468bd858ffefdeea1a5bca))
+* wishlist position in relation to image ([#1248](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1248)) ([7dfef47](https://github.com/AdamPawlinski/storefront-ui-adam/commit/7dfef47a89a624266cdde4b352529380feaf0108))
+
+
+### Features
+
+* **component:** SfColorPicker ([#1012](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1012)) ([99bf306](https://github.com/AdamPawlinski/storefront-ui-adam/commit/99bf3067b1dbaf35fae6ff3a18bbb1f3a75ce7ba))
+*  SfImage add webp and different formats of src and srcset ([#1212](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1212)) ([f6be0b4](https://github.com/AdamPawlinski/storefront-ui-adam/commit/f6be0b4b5ed66684def42c67a8d24c98a28bfb29))
+* add input '--outline' modifier ([#1186](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1186)) ([be0314f](https://github.com/AdamPawlinski/storefront-ui-adam/commit/be0314f8ca854b01cbc65a83fc38b23d279a5d13))
+* add SfHeaderNavigation component ([#1286](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1286)) ([016d364](https://github.com/AdamPawlinski/storefront-ui-adam/commit/016d3642d14dc44d6a3ef7ff51bd2a3fee2ca5d3))
+* add sflink to button ([#1251](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1251)) ([7329cc5](https://github.com/AdamPawlinski/storefront-ui-adam/commit/7329cc5d5582715002a56fb837c14811d2145e82))
+* multiline breadcrumbs ([#1228](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1228)) ([1bc99d8](https://github.com/AdamPawlinski/storefront-ui-adam/commit/1bc99d84afadba87958d1ead341ca94c2107218d))
+* sf-expand transition for SfAccordion ([#1210](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1210)) ([53cc340](https://github.com/AdamPawlinski/storefront-ui-adam/commit/53cc340053177a7f6bbde56027bdf8fd31f49d91))
+* SfScrollable add slot for button ([#1330](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1330)) ([454b9fb](https://github.com/AdamPawlinski/storefront-ui-adam/commit/454b9fb41ffc096a7b9eba89066faa849903556c))
+
+
+### Reverts
+
+* Revert "[WIP] refactor: new styles for guide (#1250)" ([3a08256](https://github.com/AdamPawlinski/storefront-ui-adam/commit/3a082568edea90f615ef625579713e01881ff329)), closes [#1250](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1250)
+
+
+### BREAKING CHANGES
+
+* different positioning
+
+
+
+
+
 ## [0.7.17](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/shared@0.7.16...@storefront-ui/shared@0.7.17) (2020-07-03)
 
 **Note:** Version bump only for package @storefront-ui/shared
