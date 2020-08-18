@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.17](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/shared@0.7.16...@storefront-ui/shared@0.7.17) (2020-07-03)
+
+**Note:** Version bump only for package @storefront-ui/shared
+
+
+
+
+
 ## [0.7.16](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/shared@0.7.13...@storefront-ui/shared@0.7.16) (2020-05-28)
 
 

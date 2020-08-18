@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.18](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.7.17...@storefront-ui/vue@0.7.18) (2020-07-03)
+
+**Note:** Version bump only for package @storefront-ui/vue
+
+
+
+
+
+## [0.7.17](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.7.16...@storefront-ui/vue@0.7.17) (2020-05-29)
+
+
+### Bug Fixes
+
+* slot for number in SfPagination ([3b522f2](https://github.com/DivanteLtd/storefront-ui/commit/3b522f21c44e52d49cddb433524a1df7fd512a27))
+
+
+
+
+
 ## [0.7.16](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.7.15...@storefront-ui/vue@0.7.16) (2020-05-28)
 
 
