@@ -41,12 +41,6 @@ As always what is first, update your `package.json` by changing your current ver
 }
 ```
 
-### Global variables
-We have changed global variables and naming conventions for them to be more consistent.
-
-See what's new in our comparison below: 
-
-- #### **Transition and animation**
 
 <!-- - #### **Typography**
 
