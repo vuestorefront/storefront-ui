@@ -6,10 +6,10 @@ const fs = require('fs');
 
 const src = path.join(__dirname, "../packages/vue/src/");
 const styleSrc = path.join(__dirname, "../packages/shared");
-const targetComponents = path.join(__dirname, "../../storefrontUI/components");
-const targetStyles = path.join(__dirname, "../../storefrontUI/styles");
-const examplesPath = path.join(__dirname, "../../storefrontUI/components/examples");
-const componentsPath = path.join(__dirname, "../../storefrontUI/components");
+const targetComponents = path.join(__dirname, "../../../../storefrontUI/components");
+const targetStyles = path.join(__dirname, "../../../../storefrontUI/styles");
+const examplesPath = path.join(__dirname, "../../../../storefrontUI/components/examples");
+const componentsPath = path.join(__dirname, "../../../../storefrontUI/components");
 
 function removeDir(path) {
   if (fs.existsSync(path)) {
