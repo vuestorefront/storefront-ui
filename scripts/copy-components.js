@@ -33,7 +33,7 @@ function removeDir(path) {
 }
 
 function removeFiles(names, path) {
-  if (names.length > 4) {
+  if (names.length > 3) {
     fs.readdirSync(path)
       .filter((file) => {
         return names.indexOf(file) > -1;
@@ -50,9 +50,6 @@ function removeFiles(names, path) {
           names.forEach(name => {
             if (fs.existsSync(`${path}/components/${folder}/${filename}/${filename}${name}`)) {
               fs.unlinkSync(`${path}/components/${folder}/${filename}/${filename}${name}`)
-            }
-            if (fs.existsSync(`${path}/components/${folder}/${filename}/${name}`)) {
-                removeDir(`${path}/components/${folder}/${filename}/${name}`)
             }
           })
           if(fs.existsSync(`${path}/components/${folder}/${filename}/${filename}.vue`)) {
@@ -75,7 +72,7 @@ function removeFiles(names, path) {
 fse.copydir(src, targetComponents)
   .then(() => removeDir(examplesPath))
   .then(() => removeFiles(["App.vue", "index.js", "main.js", "Playground.vue", "shims-vue.d.ts", ], componentsPath))
-  .then(() => removeFiles([".stories.js", ".md", ".spec.js", "_internal" ], componentsPath))
+  .then(() => removeFiles([".stories.js", ".md", ".spec.js" ], componentsPath))
   .then(() => {
     fs.readFile(`${componentsPath}/components/atoms/SfIcon/SfIcon.vue`, 'utf8', function (err,data) {
       if (err) {
