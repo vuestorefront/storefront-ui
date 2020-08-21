@@ -3,11 +3,12 @@
 const fse = require("fse");
 const path = require('path');
 const fs = require('fs');
+const { setFlagsFromString } = require("v8");
 
-const src = path.join(__dirname, "../packages/vue/src/");
-const styleSrc = path.join(__dirname, "../packages/shared");
-const targetComponents = path.join(__dirname, "../../../../storefrontUI/components");
-const targetStyles = path.join(__dirname, "../../../../storefrontUI/styles");
+const srcPath = path.join(__dirname, "../packages/vue/src/");
+const styleSrcPath = path.join(__dirname, "../packages/shared");
+const targetComponentsPath = path.join(__dirname, "../../../../storefrontUI/components");
+const targetStylesPath = path.join(__dirname, "../../../../storefrontUI/styles");
 const examplesPath = path.join(__dirname, "../../../../storefrontUI/components/examples");
 const componentsPath = path.join(__dirname, "../../../../storefrontUI/components");
 
@@ -32,58 +33,81 @@ function removeDir(path) {
   }
 }
 
-function removeFiles(names, path) {
-  if (names.length > 3) {
+function removeFiles(names, path, flat) {
+
+  const removeFilesFlat = () => {
     fs.readdirSync(path)
-      .filter((file) => {
-        return names.indexOf(file) > -1;
-      })
-      .forEach(file => {
-        fs.unlinkSync(`${path}/${file}`)
-      })
-  } else {
-    fs.readdirSync(path + "/components")
-      .forEach(folder => {
-        fs.readdirSync(`${path}/components/${folder}`)
-        .forEach(filename => {
-          fs.readdirSync(`${path}/components/${folder}/${filename}`)
-          names.forEach(name => {
-            if (fs.existsSync(`${path}/components/${folder}/${filename}/${filename}${name}`)) {
-              fs.unlinkSync(`${path}/components/${folder}/${filename}/${filename}${name}`)
-            }
-          })
-          if(fs.existsSync(`${path}/components/${folder}/${filename}/${filename}.vue`)) {
-            fs.readFile(`${path}/components/${folder}/${filename}/${filename}.vue`, 'utf8', function (err,data) {
-              if (err) {
-                return console.log(err);
-              }
-              const stylesImport = data.replace('~@storefront-ui/shared/', 'storefrontUI/styles/');
-            
-              fs.writeFileSync(`${path}/components/${folder}/${filename}/${filename}.vue`, stylesImport, 'utf8', function (err) {
-                 if (err) return console.log(err);
-              });
-            });
-          }
-        })
-      })
+    .filter((file) => {
+      return names.indexOf(file) > -1;
+    })
+    .forEach(file => {
+      fs.unlinkSync(`${path}/${file}`)
+    })
   }
+
+  if (flat) {
+    removeFilesFlat();
+    return;
+  }
+
+  const getAllFoldersFromDir = fs.readdirSync(`${path}/components`);
+
+  const getAllFilesFromDir = getAllFoldersFromDir.map(file => `${path}/components/${file}`)
+
+  const getAllComponentsNames = getAllFilesFromDir
+    .map(fileDir => fs.readdirSync(fileDir))
+    .reduce((acc, val) => acc.concat(val), [])
+
+  const getAllComponentsPaths = getAllComponentsNames.map(name => {
+    return getAllFilesFromDir.map(path => {
+      return `${path}/${name}`
+    })
+    .filter(el => fs.existsSync(el))
+  })
+  .reduce((acc, val) => acc.concat(val), [])
+
+  const getAllFilesInComponent = getAllComponentsPaths.map(file => {
+    return fs.readdirSync(file);
+  }).reduce((acc, val) => acc.concat(val), [])
+
+  const getAllPathFilesInComponents = []
+    .concat(...getAllFilesInComponent
+    .map(name => getAllComponentsPaths.map(path =>  {
+        return `${path}/${name}`
+    })))
+    .filter(el => fs.existsSync(el))
+
+  const getAllVueFilesFromDir = getAllPathFilesInComponents.filter(el => el.endsWith(".vue"))
+
+  const storiesFilesToRemove = getAllPathFilesInComponents.filter((path) => {
+    return path.endsWith(names[0])
+  })
+  const mdFilesToRemove = getAllPathFilesInComponents.filter((path) => {
+    return path.endsWith(names[1])
+  })
+  const specFilesToRemove = getAllPathFilesInComponents.filter((path) => {
+    return path.endsWith(names[2])
+  })
+
+  const namesToRemove = [...storiesFilesToRemove, ...mdFilesToRemove, ...specFilesToRemove]
+
+  getAllVueFilesFromDir.forEach(vueFile => fs.readFile(vueFile, 'utf8', function (err,data) {
+    if (err) {
+      return console.log(err);
+    }
+    data = data.replace('~@storefront-ui/shared/', 'storefrontUI/styles/');
+    data = data.replace(/\"{1}\@{1}storefront\-ui\/shared/g, '"../../../../styles')
+    
+    fs.writeFileSync(vueFile, data, 'utf8', function (err) {
+        if (err) return console.log(err);
+    });
+  }))
+
+  namesToRemove.forEach(filePath => fs.unlinkSync(filePath))
 }
 
-fse.copydir(src, targetComponents)
+fse.copydir(srcPath, targetComponentsPath)
   .then(() => removeDir(examplesPath))
-  .then(() => removeFiles(["App.vue", "index.js", "main.js", "Playground.vue", "shims-vue.d.ts", ], componentsPath))
-  .then(() => removeFiles([".stories.js", ".md", ".spec.js" ], componentsPath))
-  .then(() => {
-    fs.readFile(`${componentsPath}/components/atoms/SfIcon/SfIcon.vue`, 'utf8', function (err,data) {
-      if (err) {
-        return console.log(err);
-      }
-
-      const pathsImportIcons = data.replace(/\"{1}\@{1}storefront\-ui\/shared/g, '"../../../../styles')
-    
-      fs.writeFileSync(`${componentsPath}/components/atoms/SfIcon/SfIcon.vue`, pathsImportIcons, 'utf8', function (err) {
-        if (err) return console.log(err);
-      });
-    });
-  })
-fse.copydir(styleSrc, targetStyles);
+  .then(() => removeFiles(["App.vue", "index.js", "main.js", "Playground.vue", "shims-vue.d.ts"], componentsPath, true))
+  .then(() => removeFiles([".stories.js", ".md", ".spec.js" ], componentsPath, false))
+fse.copydir(styleSrcPath, targetStylesPath);
