@@ -3,7 +3,6 @@
 const fse = require("fse");
 const path = require('path');
 const fs = require('fs');
-const { setFlagsFromString } = require("v8");
 
 const srcPath = path.join(__dirname, "../packages/vue/src/");
 const styleSrcPath = path.join(__dirname, "../packages/shared");
