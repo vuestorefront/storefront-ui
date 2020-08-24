@@ -7,7 +7,7 @@ module.exports = {
     "^.+\\.js$": "babel-jest",
   },
   transformIgnorePatterns: [
-    "/node_modules/(?!@storefront-ui/shared/icons/icons).+(js)$",
+    "/node_modules/(?!@storefront-ui/shared/icons/icons|@storefront-ui/shared/variables/colors).+(js)$",
   ],
   moduleNameMapper: {
     "^@/components/(.*)$": "<rootDir>/src/components/$1",
