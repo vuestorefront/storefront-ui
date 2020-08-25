@@ -3,6 +3,315 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.16](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.7.15...@storefront-ui/vue@0.7.16) (2020-05-28)
+
+
+### Bug Fixes
+
+* **a11y:** accessibility error's in SfBottomNavigationItem ([c5ed935](https://github.com/DivanteLtd/storefront-ui/commit/c5ed9357e8650a1ad69f7bc6e039d221acaaebb4))
+* a11y violations in select fixed ([#1223](https://github.com/DivanteLtd/storefront-ui/issues/1223)) ([156da91](https://github.com/DivanteLtd/storefront-ui/commit/156da910efcfc709b5492fb0fe3cf2c1df0bea58))
+* close on desktop in SfCollectedProduct should emit click:remove ([96a160f](https://github.com/DivanteLtd/storefront-ui/commit/96a160fde2800e7ed78982e1c81d353dc6bc112c))
+* typos in docs ([#1219](https://github.com/DivanteLtd/storefront-ui/issues/1219)) ([87cde90](https://github.com/DivanteLtd/storefront-ui/commit/87cde90f0dfcad68b3e26a11f67e8789996371d0))
+
+
+
+
+
+## [0.7.15](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.7.14...@storefront-ui/vue@0.7.15) (2020-05-26)
+
+
+### Bug Fixes
+
+* move sass to deps ([a9ab5fa](https://github.com/DivanteLtd/storefront-ui/commit/a9ab5fa87ac20ede7b7063c5fd1ecb4ca3c0f34d))
+
+
+
+
+
+## [0.7.14](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.7.13...@storefront-ui/vue@0.7.14) (2020-05-25)
+
+
+### Bug Fixes
+
+* body-scroll-lock dep ([8dcece8](https://github.com/DivanteLtd/storefront-ui/commit/8dcece863a3073f8b58ae24bebf4aba97338c5f4))
+
+
+
+
+
+## [0.7.13](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.7.12...@storefront-ui/vue@0.7.13) (2020-05-22)
+
+
+### Bug Fixes
+
+* remove getElementById and add overflow for dropdown with options ([5229656](https://github.com/DivanteLtd/storefront-ui/commit/5229656fa54efba09e672e2248f148c8183542de))
+
+
+
+
+
+## [0.7.12](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.7.11...@storefront-ui/vue@0.7.12) (2020-05-19)
+
+
+### Bug Fixes
+
+* display checked icon on checkbox ([#1201](https://github.com/DivanteLtd/storefront-ui/issues/1201)) ([5ea8950](https://github.com/DivanteLtd/storefront-ui/commit/5ea8950d7cc3cd396a929dcd91b554efeeeae620))
+* icon assign array ([#1193](https://github.com/DivanteLtd/storefront-ui/issues/1193)) ([a6b4b90](https://github.com/DivanteLtd/storefront-ui/commit/a6b4b901cdd7265cafb1bc5b97a1aac9b63aab3d))
+* last/first page number, add condition to show dots ([#1189](https://github.com/DivanteLtd/storefront-ui/issues/1189)) ([763c25f](https://github.com/DivanteLtd/storefront-ui/commit/763c25f72a2a49cb40f24af88e2e5f6339274bd4))
+* product cards with SfLink inside slots ([#1197](https://github.com/DivanteLtd/storefront-ui/issues/1197)) ([d4a3809](https://github.com/DivanteLtd/storefront-ui/commit/d4a38099d596bbb62d120e28c3dab32aedcda806))
+* remove this from SfPagination ([#1199](https://github.com/DivanteLtd/storefront-ui/issues/1199)) ([1006752](https://github.com/DivanteLtd/storefront-ui/commit/1006752763d62c2a634185953c595fc6002bcde3))
+
+
+### Features
+
+* add additional class + add auto title bar ([#1191](https://github.com/DivanteLtd/storefront-ui/issues/1191)) ([ca14797](https://github.com/DivanteLtd/storefront-ui/commit/ca14797467dbface4b0b78ef10577bd695b2c398))
+
+
+
+
+
+## [0.7.11](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.7.10...@storefront-ui/vue@0.7.11) (2020-05-14)
+
+
+### Bug Fixes
+
+* add unique keys to titles in SfContentPages ([#1188](https://github.com/DivanteLtd/storefront-ui/issues/1188)) ([f154822](https://github.com/DivanteLtd/storefront-ui/commit/f154822f31136c2b0e0c920186eb218864ee2e29))
+* adjust icon to Material Icon Guidelines ([#1154](https://github.com/DivanteLtd/storefront-ui/issues/1154)) ([c60a01a](https://github.com/DivanteLtd/storefront-ui/commit/c60a01ac3d412c85fa57657be0ec2be41624cfc5))
+* disabled in SfRadio  ([#1174](https://github.com/DivanteLtd/storefront-ui/issues/1174)) ([d1f698b](https://github.com/DivanteLtd/storefront-ui/commit/d1f698b7e1002c780bebe5535d7946c6cd372058))
+* header icons API in SfHeader ([#1180](https://github.com/DivanteLtd/storefront-ui/issues/1180)) ([c86a457](https://github.com/DivanteLtd/storefront-ui/commit/c86a457f31c90d09ab8ec509c543619d159f93c6))
+* impossible to see photos in enlargement ([#1178](https://github.com/DivanteLtd/storefront-ui/issues/1178)) ([546848c](https://github.com/DivanteLtd/storefront-ui/commit/546848c16a89313b8df6c7f5ef28e17ba8d8c480))
+* revert image refs in SfImage ([#1184](https://github.com/DivanteLtd/storefront-ui/issues/1184)) ([43f2d17](https://github.com/DivanteLtd/storefront-ui/commit/43f2d17a88d8fb029342425727a2098587cc5633))
+
+
+### Features
+
+* click outside directive ([#1099](https://github.com/DivanteLtd/storefront-ui/issues/1099)) ([47e344b](https://github.com/DivanteLtd/storefront-ui/commit/47e344b25b069575832d807c8eec11afce000b12))
+* remove jump effect from SfTabs ([#1018](https://github.com/DivanteLtd/storefront-ui/issues/1018)) ([43e737f](https://github.com/DivanteLtd/storefront-ui/commit/43e737f0389ce30d9c074d3479919b941d6d440a))
+* **helper:** isClient helper and reorganize imports ([#1175](https://github.com/DivanteLtd/storefront-ui/issues/1175)) ([ae3b2f4](https://github.com/DivanteLtd/storefront-ui/commit/ae3b2f4775c92d2bef09a685f1d4c5362b926fd4))
+
+
+
+
+
+## [0.7.10](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.7.9...@storefront-ui/vue@0.7.10) (2020-05-08)
+
+
+### Bug Fixes
+
+* **a11y:** link in SfCollectedProduct and SfGroupedProduct ([#1153](https://github.com/DivanteLtd/storefront-ui/issues/1153)) ([349df75](https://github.com/DivanteLtd/storefront-ui/commit/349df757e807bd104ecbc321d8e6b44162783c7b))
+* **a11y:** v-focus in SfSelect  ([#1095](https://github.com/DivanteLtd/storefront-ui/issues/1095)) ([6417541](https://github.com/DivanteLtd/storefront-ui/commit/6417541d4509150228662b3c97c7e1f4a7c63ce4))
+* more descriptive aria labels for buttons ([#1131](https://github.com/DivanteLtd/storefront-ui/issues/1131)) ([c68e66f](https://github.com/DivanteLtd/storefront-ui/commit/c68e66f973aac16aa18d2ad436910103b4a179b6))
+
+
+### Features
+
+* **component:** SfBottomModal ([#1144](https://github.com/DivanteLtd/storefront-ui/issues/1144)) ([fc1893b](https://github.com/DivanteLtd/storefront-ui/commit/fc1893b659455219686c1237c20ae294cdb046cb))
+
+
+
+
+
+## [0.7.9](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.7.8...@storefront-ui/vue@0.7.9) (2020-05-08)
+
+
+### Bug Fixes
+
+* nullish SfImage ([#1167](https://github.com/DivanteLtd/storefront-ui/issues/1167)) ([ea6275a](https://github.com/DivanteLtd/storefront-ui/commit/ea6275ae8bc0c1a1fab4a04b31d794047c897ed1))
+* ssr and specificity in SfHeader ([#1166](https://github.com/DivanteLtd/storefront-ui/issues/1166)) ([c3da59c](https://github.com/DivanteLtd/storefront-ui/commit/c3da59c68655f643180410f88737c5b328970c8a))
+* sticky with a gap to hide in SfHeader ([#1163](https://github.com/DivanteLtd/storefront-ui/issues/1163)) ([e1fe15b](https://github.com/DivanteLtd/storefront-ui/commit/e1fe15b4737ea62eb1f58ea4b7e9d451dfcdcaee))
+* **docs:** broken links at documentation ([#1161](https://github.com/DivanteLtd/storefront-ui/issues/1161)) ([fd230b6](https://github.com/DivanteLtd/storefront-ui/commit/fd230b696475ce067754ea4d7dbb03c0998b2bda))
+* button add to card on SfProductCard ([#1162](https://github.com/DivanteLtd/storefront-ui/issues/1162)) ([710aa95](https://github.com/DivanteLtd/storefront-ui/commit/710aa95a809992c3ef40685afa1d2bf2fd697b9c))
+* **docs:** broken links at documentation ([#1159](https://github.com/DivanteLtd/storefront-ui/issues/1159)) ([388d26f](https://github.com/DivanteLtd/storefront-ui/commit/388d26fc333946df90d6f7d3b2a64f425923e3ea))
+
+
+### Features
+
+* mobile navigation for short categories in SfHeader ([#1137](https://github.com/DivanteLtd/storefront-ui/issues/1137)) ([428bf8b](https://github.com/DivanteLtd/storefront-ui/commit/428bf8b93ea1fc7f9692923b8da92fb66b6afd35))
+
+
+
+
+
+## [0.7.8](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.7.7...@storefront-ui/vue@0.7.8) (2020-05-06)
+
+
+### Features
+
+* support fot SSR in SfPagination ([#1151](https://github.com/DivanteLtd/storefront-ui/issues/1151)) ([0b3e93a](https://github.com/DivanteLtd/storefront-ui/commit/0b3e93af85c9eea275523d9b868bb5119d0548eb))
+
+
+
+
+
+## [0.7.7](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.7.6...@storefront-ui/vue@0.7.7) (2020-05-05)
+
+
+### Bug Fixes
+
+* noscript fallback for SfImage ([#1150](https://github.com/DivanteLtd/storefront-ui/issues/1150)) ([97a9647](https://github.com/DivanteLtd/storefront-ui/commit/97a96471e9a1fcb04f64bf3a9c781d901ed752a1))
+* up modifier in SfDropdown ([#1149](https://github.com/DivanteLtd/storefront-ui/issues/1149)) ([eedf3df](https://github.com/DivanteLtd/storefront-ui/commit/eedf3df918f709e297fd76bbbde14ed1cb9bdcfe))
+
+
+
+
+
+## [0.7.6](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.7.5...@storefront-ui/vue@0.7.6) (2020-05-04)
+
+
+### Bug Fixes
+
+* **a11y:** clickable elements visible on focus ([#1148](https://github.com/DivanteLtd/storefront-ui/issues/1148)) ([09b8ce3](https://github.com/DivanteLtd/storefront-ui/commit/09b8ce367105782996cbbd1fe2fd92f1cde936c0))
+* SSR mismatch in the SfBottomNav ([#1133](https://github.com/DivanteLtd/storefront-ui/issues/1133)) ([32256fe](https://github.com/DivanteLtd/storefront-ui/commit/32256fe4e97e3f8f0a89646b48aeb7ae7892fc1c))
+* **a11y:** order of SfQuantitySelector in SfAddToCart ([#1146](https://github.com/DivanteLtd/storefront-ui/issues/1146)) ([0eabb92](https://github.com/DivanteLtd/storefront-ui/commit/0eabb92e07216de9c8702d2716f51d16101a2dd6))
+* move add to cart button outside the link ([#1132](https://github.com/DivanteLtd/storefront-ui/issues/1132)) ([2308c6f](https://github.com/DivanteLtd/storefront-ui/commit/2308c6f9615e53df734a5b208ae5664ba514152f))
+* SfHeader click moved to button ([#1143](https://github.com/DivanteLtd/storefront-ui/issues/1143)) ([df2f077](https://github.com/DivanteLtd/storefront-ui/commit/df2f077a398aacad89aadb2ef352d0abbb8446d6))
+
+
+### Features
+
+* pure modifier for SfButton ([#1119](https://github.com/DivanteLtd/storefront-ui/issues/1119)) ([46bd3db](https://github.com/DivanteLtd/storefront-ui/commit/46bd3db4ec20251a2df716b44664b6e1ba763c49))
+
+
+
+
+
+## [0.7.5](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.7.4...@storefront-ui/vue@0.7.5) (2020-04-29)
+
+
+### Bug Fixes
+
+* add Object to type of image props in SfCallToAction ([30776a0](https://github.com/DivanteLtd/storefront-ui/commit/30776a09e3e4cef29c93d510efe6f88d366fac68))
+* duplicated id for SfCheckbox and SfRadio ([#1118](https://github.com/DivanteLtd/storefront-ui/issues/1118)) ([d164b3e](https://github.com/DivanteLtd/storefront-ui/commit/d164b3eeae535219112da408a7757f4562fdc692))
+* **a11y:** focus should be only for interactive elements ([#1093](https://github.com/DivanteLtd/storefront-ui/issues/1093)) ([437d6aa](https://github.com/DivanteLtd/storefront-ui/commit/437d6aa51bdb455929ad373bc14551c53566435a))
+* cartIsNotEmpty is not Boolean ([99b0a0f](https://github.com/DivanteLtd/storefront-ui/commit/99b0a0f4310a1e4c9bb000998d41b10a0787d1e9))
+* **a11:** global colors have too low contrast  ([#1121](https://github.com/DivanteLtd/storefront-ui/issues/1121)) ([736dcd9](https://github.com/DivanteLtd/storefront-ui/commit/736dcd9cba5855bd0fe44b64e4ec86e06f0ca4df))
+* position of the elements in SfBar ([d38644c](https://github.com/DivanteLtd/storefront-ui/commit/d38644cadad69d526745319e1b0aa2763705d3ae))
+* **a11y:** aria-labels  ([#1079](https://github.com/DivanteLtd/storefront-ui/issues/1079)) ([8b856ba](https://github.com/DivanteLtd/storefront-ui/commit/8b856ba7644e21618140a5f78dd4eac0dd3cb99e))
+* **a11y:** focus and alt for thumbs on SfGallery ([#1060](https://github.com/DivanteLtd/storefront-ui/issues/1060)) ([ebd40d2](https://github.com/DivanteLtd/storefront-ui/commit/ebd40d218e125c36a39e62d071b9b0eff181892e))
+* **a11y:** focus and aria in SfAddToCart ([#1069](https://github.com/DivanteLtd/storefront-ui/issues/1069)) ([2d73d95](https://github.com/DivanteLtd/storefront-ui/commit/2d73d95cc2cf9dfedf8ea886d239f1a6b085f1cf))
+* **a11y:** improve SfLink to SfBreadcrumbs ([#1046](https://github.com/DivanteLtd/storefront-ui/issues/1046)) ([6302133](https://github.com/DivanteLtd/storefront-ui/commit/6302133bf965ddde540811ade26cf3efb9735775))
+* **a11y:** replace role="button" to button ([#1085](https://github.com/DivanteLtd/storefront-ui/issues/1085)) ([d3f3338](https://github.com/DivanteLtd/storefront-ui/commit/d3f33382cd59e7f2f8fcf0f12e1b48e96d07b99e))
+* **a11y:** semantics and v-focus in SfAccordion ([#1080](https://github.com/DivanteLtd/storefront-ui/issues/1080)) ([86bd4a1](https://github.com/DivanteLtd/storefront-ui/commit/86bd4a1b9e5b69acac9b5cc6e3a8ba7f1770c37d))
+* **a11y:** v-focus in molecules ([#1073](https://github.com/DivanteLtd/storefront-ui/issues/1073)) ([dd0b01f](https://github.com/DivanteLtd/storefront-ui/commit/dd0b01f7833fb8e1c440e8bf97a48a64e2bcd8d6))
+* **a11y:** v-focus in SfCheckbox ([#1078](https://github.com/DivanteLtd/storefront-ui/issues/1078)) ([6369a9c](https://github.com/DivanteLtd/storefront-ui/commit/6369a9c27b8c66fa40e633c576f1bdc48ca6b902))
+* **docs:** haven't information about props, slots, and events ([4258dc4](https://github.com/DivanteLtd/storefront-ui/commit/4258dc4bbd30948887d4ee3b54ca613bd4b9c328))
+* typos ([#1103](https://github.com/DivanteLtd/storefront-ui/issues/1103)) ([b569291](https://github.com/DivanteLtd/storefront-ui/commit/b569291b409a5355d881f7a6e37fc0d3977c775a))
+
+
+### Features
+
+* **a11y:** v-focus-trap directive ([#1088](https://github.com/DivanteLtd/storefront-ui/issues/1088)) ([596f921](https://github.com/DivanteLtd/storefront-ui/commit/596f921bcd0376b7269cb3d9d7845ad97ba40c2d))
+* close SfDropdown by Esc ([#1091](https://github.com/DivanteLtd/storefront-ui/issues/1091)) ([3b4ce55](https://github.com/DivanteLtd/storefront-ui/commit/3b4ce55d489ef8a0c3a4422a6a8bfc99f248fe1e))
+* number modifier in SfBadge for all number notification([#1021](https://github.com/DivanteLtd/storefront-ui/issues/1021)) ([818e174](https://github.com/DivanteLtd/storefront-ui/commit/818e174ca8a0b9ea531cfc23832ad8e058e62b96))
+* **component:** SfLink ([#1092](https://github.com/DivanteLtd/storefront-ui/issues/1092)) ([e360170](https://github.com/DivanteLtd/storefront-ui/commit/e360170d4aa2a5110d0c19c4aeb8f42952305ee8))
+
+
+
+
+
+## [0.7.4](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.7.3...@storefront-ui/vue@0.7.4) (2020-04-23)
+
+**Note:** Version bump only for package @storefront-ui/vue
+
+
+
+
+
+## [0.7.3](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.7.2...@storefront-ui/vue@0.7.3) (2020-04-23)
+
+
+### Bug Fixes
+
+* lozad props default state ([8084ef9](https://github.com/DivanteLtd/storefront-ui/commit/8084ef99fb94a5619869416925f66d905a1504ef))
+
+
+
+
+
+## [0.7.2](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.7.1...@storefront-ui/vue@0.7.2) (2020-04-23)
+
+
+### Bug Fixes
+
+* **styles:** gallery size on Product example page ([8382a41](https://github.com/DivanteLtd/storefront-ui/commit/8382a41d7ad4ab151e20e0ec1528ed9f57b4fc88))
+* downgrade vuepress ([d4a117d](https://github.com/DivanteLtd/storefront-ui/commit/d4a117dc4150b15fb01599b353d7f5f6da752934))
+* minus sign in SfQuantitySelector ([#1098](https://github.com/DivanteLtd/storefront-ui/issues/1098)) ([98bf75a](https://github.com/DivanteLtd/storefront-ui/commit/98bf75ad3bfb30574af72370929b37fb37cf41df))
+* **a11y:** add v-focus to Atoms ([#1075](https://github.com/DivanteLtd/storefront-ui/issues/1075)) ([236c99f](https://github.com/DivanteLtd/storefront-ui/commit/236c99fb1b2a4f29b49b01cd4d506b1cdb58fc49))
+* **a11y:** adjust semantic and add v-focus for SfStoreLocator ([#1044](https://github.com/DivanteLtd/storefront-ui/issues/1044)) ([8ab9c81](https://github.com/DivanteLtd/storefront-ui/commit/8ab9c8127df46058ca08c6048491d5137c0a5818))
+* **a11y:** aria-hidde for SfIcons ([#1063](https://github.com/DivanteLtd/storefront-ui/issues/1063)) ([f0cdbf4](https://github.com/DivanteLtd/storefront-ui/commit/f0cdbf4a2ac84458e97b72a656508e4923d65c49))
+* **a11y:** button tag in SfBullets ([#1054](https://github.com/DivanteLtd/storefront-ui/issues/1054)) ([66080f5](https://github.com/DivanteLtd/storefront-ui/commit/66080f516ae443c95a43651264de9d4dc61deef7))
+* **a11y:** improvements on SfTopBar stories ([#1064](https://github.com/DivanteLtd/storefront-ui/issues/1064)) ([046bd7f](https://github.com/DivanteLtd/storefront-ui/commit/046bd7f00be89af13adf405226de2213d029f5e7))
+* **a11y:** replace div to button ([#1024](https://github.com/DivanteLtd/storefront-ui/issues/1024)) ([3175d56](https://github.com/DivanteLtd/storefront-ui/commit/3175d560de33685a5dadb273a00bfaddc1525b65))
+* **a11y:** replace div to button on SfTabs ([#1036](https://github.com/DivanteLtd/storefront-ui/issues/1036)) ([f640225](https://github.com/DivanteLtd/storefront-ui/commit/f6402254a6f37bc77ee6bd1d5b53b6edc6709d87))
+* **a11y:** semantic of SfLoader ([#1049](https://github.com/DivanteLtd/storefront-ui/issues/1049)) ([f1050c8](https://github.com/DivanteLtd/storefront-ui/commit/f1050c8064ae9fc1a63e722e875bd08674bae909))
+* **docs:** vuepress links on production ([a445513](https://github.com/DivanteLtd/storefront-ui/commit/a4455133c0c29265457173a838b5a656c64832d4))
+* breakpoint for mobile/desktop ([#1038](https://github.com/DivanteLtd/storefront-ui/issues/1038)) ([c7884ea](https://github.com/DivanteLtd/storefront-ui/commit/c7884eaec165b1ded05b1fa5a4ed4b5f487f9598))
+* icon viewBox as rectangle ([#1034](https://github.com/DivanteLtd/storefront-ui/issues/1034)) ([13a4423](https://github.com/DivanteLtd/storefront-ui/commit/13a44236bfabf54a865d205087b0be9d542d5e84))
+* reactivity on SfSearch in SfHeader ([#1033](https://github.com/DivanteLtd/storefront-ui/issues/1033)) ([c654eda](https://github.com/DivanteLtd/storefront-ui/commit/c654edab32065734aa5a836e5dcd6c4235afe6ca))
+* remove unnecessary blur from v-focus ([#1072](https://github.com/DivanteLtd/storefront-ui/issues/1072)) ([2d94763](https://github.com/DivanteLtd/storefront-ui/commit/2d947637090134a734fec624722a794d5d3da662))
+
+
+### Features
+
+* add rootMargin and threshold for lozad ([#1057](https://github.com/DivanteLtd/storefront-ui/issues/1057)) ([6958b23](https://github.com/DivanteLtd/storefront-ui/commit/6958b232b4220ad9947f304f9bed47cee8fe4dcd))
+* details for SfRadio ([#1030](https://github.com/DivanteLtd/storefront-ui/issues/1030)) ([cd9667d](https://github.com/DivanteLtd/storefront-ui/commit/cd9667d6c25cffdb53caea919072dbe935471467))
+* view icons for mobile on Category ([#1041](https://github.com/DivanteLtd/storefront-ui/issues/1041)) ([677ee84](https://github.com/DivanteLtd/storefront-ui/commit/677ee846aba4776d28068d2e532eae46f6129010))
+
+
+
+
+
+## [0.7.1](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.7.0...@storefront-ui/vue@0.7.1) (2020-04-10)
+
+
+### Bug Fixes
+
+* update quantity update in the SfProductCardHorizontal  ([#1010](https://github.com/DivanteLtd/storefront-ui/issues/1010)) ([3ba6a7a](https://github.com/DivanteLtd/storefront-ui/commit/3ba6a7a8f2bade461cf801a77b5423e159d5f836))
+
+
+### Features
+
+* **component:** SfDropdown ([#968](https://github.com/DivanteLtd/storefront-ui/issues/968)) ([2bf5831](https://github.com/DivanteLtd/storefront-ui/commit/2bf5831695ae3e0ed233c8a68fccb9b789dbdc12))
+* add slot for cancel in the SfSelect ([#1015](https://github.com/DivanteLtd/storefront-ui/issues/1015)) ([275b823](https://github.com/DivanteLtd/storefront-ui/commit/275b823060491d08ce18c9e1975285db2b28a6a0))
+
+
+
+
+
+# [0.7.0](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.6.4...@storefront-ui/vue@0.7.0) (2020-04-08)
+
+
+### Bug Fixes
+
+* buttons + / - work with :disabled in SfQuantitySelector ([#992](https://github.com/DivanteLtd/storefront-ui/issues/992)) ([5e4ebf3](https://github.com/DivanteLtd/storefront-ui/commit/5e4ebf36e9d6e6e4e6a4fb59bbb7aa5c452c9dee)), closes [#807](https://github.com/DivanteLtd/storefront-ui/issues/807) [#813](https://github.com/DivanteLtd/storefront-ui/issues/813) [#814](https://github.com/DivanteLtd/storefront-ui/issues/814) [#818](https://github.com/DivanteLtd/storefront-ui/issues/818) [#821](https://github.com/DivanteLtd/storefront-ui/issues/821) [#820](https://github.com/DivanteLtd/storefront-ui/issues/820) [#825](https://github.com/DivanteLtd/storefront-ui/issues/825) [#817](https://github.com/DivanteLtd/storefront-ui/issues/817) [#815](https://github.com/DivanteLtd/storefront-ui/issues/815) [#822](https://github.com/DivanteLtd/storefront-ui/issues/822) [#838](https://github.com/DivanteLtd/storefront-ui/issues/838) [#843](https://github.com/DivanteLtd/storefront-ui/issues/843) [#844](https://github.com/DivanteLtd/storefront-ui/issues/844) [#816](https://github.com/DivanteLtd/storefront-ui/issues/816) [#824](https://github.com/DivanteLtd/storefront-ui/issues/824) [#826](https://github.com/DivanteLtd/storefront-ui/issues/826) [#836](https://github.com/DivanteLtd/storefront-ui/issues/836) [#827](https://github.com/DivanteLtd/storefront-ui/issues/827) [#823](https://github.com/DivanteLtd/storefront-ui/issues/823) [#828](https://github.com/DivanteLtd/storefront-ui/issues/828) [#829](https://github.com/DivanteLtd/storefront-ui/issues/829) [#830](https://github.com/DivanteLtd/storefront-ui/issues/830) [#831](https://github.com/DivanteLtd/storefront-ui/issues/831) [#832](https://github.com/DivanteLtd/storefront-ui/issues/832) [#860](https://github.com/DivanteLtd/storefront-ui/issues/860) [#833](https://github.com/DivanteLtd/storefront-ui/issues/833) [#840](https://github.com/DivanteLtd/storefront-ui/issues/840) [#842](https://github.com/DivanteLtd/storefront-ui/issues/842) [#839](https://github.com/DivanteLtd/storefront-ui/issues/839) [#847](https://github.com/DivanteLtd/storefront-ui/issues/847) [#864](https://github.com/DivanteLtd/storefront-ui/issues/864) [#859](https://github.com/DivanteLtd/storefront-ui/issues/859) [#879](https://github.com/DivanteLtd/storefront-ui/issues/879) [#849](https://github.com/DivanteLtd/storefront-ui/issues/849) [#861](https://github.com/DivanteLtd/storefront-ui/issues/861) [#866](https://github.com/DivanteLtd/storefront-ui/issues/866) [#834](https://github.com/DivanteLtd/storefront-ui/issues/834) [#874](https://github.com/DivanteLtd/storefront-ui/issues/874) [#856](https://github.com/DivanteLtd/storefront-ui/issues/856) [#868](https://github.com/DivanteLtd/storefront-ui/issues/868) [#898](https://github.com/DivanteLtd/storefront-ui/issues/898) [#877](https://github.com/DivanteLtd/storefront-ui/issues/877) [#876](https://github.com/DivanteLtd/storefront-ui/issues/876) [#869](https://github.com/DivanteLtd/storefront-ui/issues/869) [#858](https://github.com/DivanteLtd/storefront-ui/issues/858) [#862](https://github.com/DivanteLtd/storefront-ui/issues/862) [#880](https://github.com/DivanteLtd/storefront-ui/issues/880) [#902](https://github.com/DivanteLtd/storefront-ui/issues/902) [#901](https://github.com/DivanteLtd/storefront-ui/issues/901) [#892](https://github.com/DivanteLtd/storefront-ui/issues/892) [#873](https://github.com/DivanteLtd/storefront-ui/issues/873) [#909](https://github.com/DivanteLtd/storefront-ui/issues/909) [#875](https://github.com/DivanteLtd/storefront-ui/issues/875) [#887](https://github.com/DivanteLtd/storefront-ui/issues/887) [#913](https://github.com/DivanteLtd/storefront-ui/issues/913) [#896](https://github.com/DivanteLtd/storefront-ui/issues/896) [#916](https://github.com/DivanteLtd/storefront-ui/issues/916) [#915](https://github.com/DivanteLtd/storefront-ui/issues/915) [#905](https://github.com/DivanteLtd/storefront-ui/issues/905) [#907](https://github.com/DivanteLtd/storefront-ui/issues/907) [#897](https://github.com/DivanteLtd/storefront-ui/issues/897) [#910](https://github.com/DivanteLtd/storefront-ui/issues/910) [#895](https://github.com/DivanteLtd/storefront-ui/issues/895) [#884](https://github.com/DivanteLtd/storefront-ui/issues/884) [#899](https://github.com/DivanteLtd/storefront-ui/issues/899) [#929](https://github.com/DivanteLtd/storefront-ui/issues/929) [#889](https://github.com/DivanteLtd/storefront-ui/issues/889) [#893](https://github.com/DivanteLtd/storefront-ui/issues/893) [#904](https://github.com/DivanteLtd/storefront-ui/issues/904) [#917](https://github.com/DivanteLtd/storefront-ui/issues/917) [#888](https://github.com/DivanteLtd/storefront-ui/issues/888) [#955](https://github.com/DivanteLtd/storefront-ui/issues/955) [#943](https://github.com/DivanteLtd/storefront-ui/issues/943) [#906](https://github.com/DivanteLtd/storefront-ui/issues/906) [#945](https://github.com/DivanteLtd/storefront-ui/issues/945) [#953](https://github.com/DivanteLtd/storefront-ui/issues/953) [#948](https://github.com/DivanteLtd/storefront-ui/issues/948)
+* different height of SfInput and SfSelect ([#978](https://github.com/DivanteLtd/storefront-ui/issues/978)) ([c3a2d17](https://github.com/DivanteLtd/storefront-ui/commit/c3a2d17bbd71df4ac1ec3d4b8096f7c9014843ca)), closes [#807](https://github.com/DivanteLtd/storefront-ui/issues/807) [#813](https://github.com/DivanteLtd/storefront-ui/issues/813) [#814](https://github.com/DivanteLtd/storefront-ui/issues/814) [#818](https://github.com/DivanteLtd/storefront-ui/issues/818) [#821](https://github.com/DivanteLtd/storefront-ui/issues/821) [#820](https://github.com/DivanteLtd/storefront-ui/issues/820) [#825](https://github.com/DivanteLtd/storefront-ui/issues/825) [#817](https://github.com/DivanteLtd/storefront-ui/issues/817) [#815](https://github.com/DivanteLtd/storefront-ui/issues/815) [#822](https://github.com/DivanteLtd/storefront-ui/issues/822) [#838](https://github.com/DivanteLtd/storefront-ui/issues/838) [#843](https://github.com/DivanteLtd/storefront-ui/issues/843) [#844](https://github.com/DivanteLtd/storefront-ui/issues/844) [#816](https://github.com/DivanteLtd/storefront-ui/issues/816) [#824](https://github.com/DivanteLtd/storefront-ui/issues/824) [#826](https://github.com/DivanteLtd/storefront-ui/issues/826) [#836](https://github.com/DivanteLtd/storefront-ui/issues/836) [#827](https://github.com/DivanteLtd/storefront-ui/issues/827) [#823](https://github.com/DivanteLtd/storefront-ui/issues/823) [#828](https://github.com/DivanteLtd/storefront-ui/issues/828) [#829](https://github.com/DivanteLtd/storefront-ui/issues/829) [#830](https://github.com/DivanteLtd/storefront-ui/issues/830) [#831](https://github.com/DivanteLtd/storefront-ui/issues/831) [#832](https://github.com/DivanteLtd/storefront-ui/issues/832) [#860](https://github.com/DivanteLtd/storefront-ui/issues/860) [#833](https://github.com/DivanteLtd/storefront-ui/issues/833) [#840](https://github.com/DivanteLtd/storefront-ui/issues/840) [#842](https://github.com/DivanteLtd/storefront-ui/issues/842) [#839](https://github.com/DivanteLtd/storefront-ui/issues/839) [#847](https://github.com/DivanteLtd/storefront-ui/issues/847) [#864](https://github.com/DivanteLtd/storefront-ui/issues/864) [#859](https://github.com/DivanteLtd/storefront-ui/issues/859) [#879](https://github.com/DivanteLtd/storefront-ui/issues/879) [#849](https://github.com/DivanteLtd/storefront-ui/issues/849) [#861](https://github.com/DivanteLtd/storefront-ui/issues/861) [#866](https://github.com/DivanteLtd/storefront-ui/issues/866) [#834](https://github.com/DivanteLtd/storefront-ui/issues/834) [#874](https://github.com/DivanteLtd/storefront-ui/issues/874) [#856](https://github.com/DivanteLtd/storefront-ui/issues/856) [#868](https://github.com/DivanteLtd/storefront-ui/issues/868) [#898](https://github.com/DivanteLtd/storefront-ui/issues/898) [#877](https://github.com/DivanteLtd/storefront-ui/issues/877) [#876](https://github.com/DivanteLtd/storefront-ui/issues/876) [#869](https://github.com/DivanteLtd/storefront-ui/issues/869) [#858](https://github.com/DivanteLtd/storefront-ui/issues/858) [#862](https://github.com/DivanteLtd/storefront-ui/issues/862) [#880](https://github.com/DivanteLtd/storefront-ui/issues/880) [#902](https://github.com/DivanteLtd/storefront-ui/issues/902) [#901](https://github.com/DivanteLtd/storefront-ui/issues/901) [#892](https://github.com/DivanteLtd/storefront-ui/issues/892) [#873](https://github.com/DivanteLtd/storefront-ui/issues/873) [#909](https://github.com/DivanteLtd/storefront-ui/issues/909) [#875](https://github.com/DivanteLtd/storefront-ui/issues/875) [#887](https://github.com/DivanteLtd/storefront-ui/issues/887) [#913](https://github.com/DivanteLtd/storefront-ui/issues/913) [#896](https://github.com/DivanteLtd/storefront-ui/issues/896) [#916](https://github.com/DivanteLtd/storefront-ui/issues/916) [#915](https://github.com/DivanteLtd/storefront-ui/issues/915) [#905](https://github.com/DivanteLtd/storefront-ui/issues/905) [#907](https://github.com/DivanteLtd/storefront-ui/issues/907) [#897](https://github.com/DivanteLtd/storefront-ui/issues/897) [#910](https://github.com/DivanteLtd/storefront-ui/issues/910) [#895](https://github.com/DivanteLtd/storefront-ui/issues/895) [#884](https://github.com/DivanteLtd/storefront-ui/issues/884) [#899](https://github.com/DivanteLtd/storefront-ui/issues/899) [#929](https://github.com/DivanteLtd/storefront-ui/issues/929) [#889](https://github.com/DivanteLtd/storefront-ui/issues/889) [#893](https://github.com/DivanteLtd/storefront-ui/issues/893) [#904](https://github.com/DivanteLtd/storefront-ui/issues/904) [#917](https://github.com/DivanteLtd/storefront-ui/issues/917) [#888](https://github.com/DivanteLtd/storefront-ui/issues/888) [#955](https://github.com/DivanteLtd/storefront-ui/issues/955) [#943](https://github.com/DivanteLtd/storefront-ui/issues/943) [#906](https://github.com/DivanteLtd/storefront-ui/issues/906) [#945](https://github.com/DivanteLtd/storefront-ui/issues/945) [#953](https://github.com/DivanteLtd/storefront-ui/issues/953) [#948](https://github.com/DivanteLtd/storefront-ui/issues/948)
+* number input on Safari ([#976](https://github.com/DivanteLtd/storefront-ui/issues/976)) ([3c5c624](https://github.com/DivanteLtd/storefront-ui/commit/3c5c624e85d5314e6cd9ed56a076676d9ac9ab87)), closes [#807](https://github.com/DivanteLtd/storefront-ui/issues/807) [#813](https://github.com/DivanteLtd/storefront-ui/issues/813) [#814](https://github.com/DivanteLtd/storefront-ui/issues/814) [#818](https://github.com/DivanteLtd/storefront-ui/issues/818) [#821](https://github.com/DivanteLtd/storefront-ui/issues/821) [#820](https://github.com/DivanteLtd/storefront-ui/issues/820) [#825](https://github.com/DivanteLtd/storefront-ui/issues/825) [#817](https://github.com/DivanteLtd/storefront-ui/issues/817) [#815](https://github.com/DivanteLtd/storefront-ui/issues/815) [#822](https://github.com/DivanteLtd/storefront-ui/issues/822) [#838](https://github.com/DivanteLtd/storefront-ui/issues/838) [#843](https://github.com/DivanteLtd/storefront-ui/issues/843) [#844](https://github.com/DivanteLtd/storefront-ui/issues/844) [#816](https://github.com/DivanteLtd/storefront-ui/issues/816) [#824](https://github.com/DivanteLtd/storefront-ui/issues/824) [#826](https://github.com/DivanteLtd/storefront-ui/issues/826) [#836](https://github.com/DivanteLtd/storefront-ui/issues/836) [#827](https://github.com/DivanteLtd/storefront-ui/issues/827) [#823](https://github.com/DivanteLtd/storefront-ui/issues/823) [#828](https://github.com/DivanteLtd/storefront-ui/issues/828) [#829](https://github.com/DivanteLtd/storefront-ui/issues/829) [#830](https://github.com/DivanteLtd/storefront-ui/issues/830) [#831](https://github.com/DivanteLtd/storefront-ui/issues/831) [#832](https://github.com/DivanteLtd/storefront-ui/issues/832) [#860](https://github.com/DivanteLtd/storefront-ui/issues/860) [#833](https://github.com/DivanteLtd/storefront-ui/issues/833) [#840](https://github.com/DivanteLtd/storefront-ui/issues/840) [#842](https://github.com/DivanteLtd/storefront-ui/issues/842) [#839](https://github.com/DivanteLtd/storefront-ui/issues/839) [#847](https://github.com/DivanteLtd/storefront-ui/issues/847) [#864](https://github.com/DivanteLtd/storefront-ui/issues/864) [#859](https://github.com/DivanteLtd/storefront-ui/issues/859) [#879](https://github.com/DivanteLtd/storefront-ui/issues/879) [#849](https://github.com/DivanteLtd/storefront-ui/issues/849) [#861](https://github.com/DivanteLtd/storefront-ui/issues/861) [#866](https://github.com/DivanteLtd/storefront-ui/issues/866) [#834](https://github.com/DivanteLtd/storefront-ui/issues/834) [#874](https://github.com/DivanteLtd/storefront-ui/issues/874) [#856](https://github.com/DivanteLtd/storefront-ui/issues/856) [#868](https://github.com/DivanteLtd/storefront-ui/issues/868) [#898](https://github.com/DivanteLtd/storefront-ui/issues/898) [#877](https://github.com/DivanteLtd/storefront-ui/issues/877) [#876](https://github.com/DivanteLtd/storefront-ui/issues/876) [#869](https://github.com/DivanteLtd/storefront-ui/issues/869) [#858](https://github.com/DivanteLtd/storefront-ui/issues/858) [#862](https://github.com/DivanteLtd/storefront-ui/issues/862) [#880](https://github.com/DivanteLtd/storefront-ui/issues/880) [#902](https://github.com/DivanteLtd/storefront-ui/issues/902) [#901](https://github.com/DivanteLtd/storefront-ui/issues/901) [#892](https://github.com/DivanteLtd/storefront-ui/issues/892) [#873](https://github.com/DivanteLtd/storefront-ui/issues/873) [#909](https://github.com/DivanteLtd/storefront-ui/issues/909) [#875](https://github.com/DivanteLtd/storefront-ui/issues/875) [#887](https://github.com/DivanteLtd/storefront-ui/issues/887) [#913](https://github.com/DivanteLtd/storefront-ui/issues/913) [#896](https://github.com/DivanteLtd/storefront-ui/issues/896) [#916](https://github.com/DivanteLtd/storefront-ui/issues/916) [#915](https://github.com/DivanteLtd/storefront-ui/issues/915) [#905](https://github.com/DivanteLtd/storefront-ui/issues/905) [#907](https://github.com/DivanteLtd/storefront-ui/issues/907) [#897](https://github.com/DivanteLtd/storefront-ui/issues/897) [#910](https://github.com/DivanteLtd/storefront-ui/issues/910) [#895](https://github.com/DivanteLtd/storefront-ui/issues/895) [#884](https://github.com/DivanteLtd/storefront-ui/issues/884) [#899](https://github.com/DivanteLtd/storefront-ui/issues/899) [#929](https://github.com/DivanteLtd/storefront-ui/issues/929) [#889](https://github.com/DivanteLtd/storefront-ui/issues/889) [#893](https://github.com/DivanteLtd/storefront-ui/issues/893) [#904](https://github.com/DivanteLtd/storefront-ui/issues/904) [#917](https://github.com/DivanteLtd/storefront-ui/issues/917) [#888](https://github.com/DivanteLtd/storefront-ui/issues/888) [#955](https://github.com/DivanteLtd/storefront-ui/issues/955) [#943](https://github.com/DivanteLtd/storefront-ui/issues/943) [#906](https://github.com/DivanteLtd/storefront-ui/issues/906) [#945](https://github.com/DivanteLtd/storefront-ui/issues/945) [#953](https://github.com/DivanteLtd/storefront-ui/issues/953) [#948](https://github.com/DivanteLtd/storefront-ui/issues/948)
+* only positive integer in qty selector ([#962](https://github.com/DivanteLtd/storefront-ui/issues/962)) ([8e25084](https://github.com/DivanteLtd/storefront-ui/commit/8e25084a7db84aa8210cb95455fb299d23538f63))
+* spacing adjustment on example pages ([42c1baa](https://github.com/DivanteLtd/storefront-ui/commit/42c1baa3dcebff30efbaa1ee38f840f8f8fcd08c))
+* stories bugs  ([#1003](https://github.com/DivanteLtd/storefront-ui/issues/1003)) ([614735b](https://github.com/DivanteLtd/storefront-ui/commit/614735b5a8f780bd5dc415400c09c33f899eb807))
+
+
+### Features
+
+* add default template to example ([#1006](https://github.com/DivanteLtd/storefront-ui/issues/1006)) ([5619e62](https://github.com/DivanteLtd/storefront-ui/commit/5619e62ae0c31847eb2681ca8ffa5f36ef055511))
+* add hasBadge prop for SfColor ([#947](https://github.com/DivanteLtd/storefront-ui/issues/947)) ([a58b36f](https://github.com/DivanteLtd/storefront-ui/commit/a58b36fc86cef19c9d8fe47dc6a5db875fce618f)), closes [#807](https://github.com/DivanteLtd/storefront-ui/issues/807) [#813](https://github.com/DivanteLtd/storefront-ui/issues/813) [#814](https://github.com/DivanteLtd/storefront-ui/issues/814) [#818](https://github.com/DivanteLtd/storefront-ui/issues/818) [#821](https://github.com/DivanteLtd/storefront-ui/issues/821) [#820](https://github.com/DivanteLtd/storefront-ui/issues/820) [#825](https://github.com/DivanteLtd/storefront-ui/issues/825) [#817](https://github.com/DivanteLtd/storefront-ui/issues/817) [#815](https://github.com/DivanteLtd/storefront-ui/issues/815) [#822](https://github.com/DivanteLtd/storefront-ui/issues/822) [#838](https://github.com/DivanteLtd/storefront-ui/issues/838) [#843](https://github.com/DivanteLtd/storefront-ui/issues/843) [#844](https://github.com/DivanteLtd/storefront-ui/issues/844) [#816](https://github.com/DivanteLtd/storefront-ui/issues/816) [#824](https://github.com/DivanteLtd/storefront-ui/issues/824) [#826](https://github.com/DivanteLtd/storefront-ui/issues/826) [#836](https://github.com/DivanteLtd/storefront-ui/issues/836) [#827](https://github.com/DivanteLtd/storefront-ui/issues/827) [#823](https://github.com/DivanteLtd/storefront-ui/issues/823) [#828](https://github.com/DivanteLtd/storefront-ui/issues/828) [#829](https://github.com/DivanteLtd/storefront-ui/issues/829) [#830](https://github.com/DivanteLtd/storefront-ui/issues/830) [#831](https://github.com/DivanteLtd/storefront-ui/issues/831) [#832](https://github.com/DivanteLtd/storefront-ui/issues/832) [#860](https://github.com/DivanteLtd/storefront-ui/issues/860) [#833](https://github.com/DivanteLtd/storefront-ui/issues/833) [#840](https://github.com/DivanteLtd/storefront-ui/issues/840) [#842](https://github.com/DivanteLtd/storefront-ui/issues/842) [#839](https://github.com/DivanteLtd/storefront-ui/issues/839) [#847](https://github.com/DivanteLtd/storefront-ui/issues/847) [#864](https://github.com/DivanteLtd/storefront-ui/issues/864) [#859](https://github.com/DivanteLtd/storefront-ui/issues/859) [#879](https://github.com/DivanteLtd/storefront-ui/issues/879) [#849](https://github.com/DivanteLtd/storefront-ui/issues/849) [#861](https://github.com/DivanteLtd/storefront-ui/issues/861) [#866](https://github.com/DivanteLtd/storefront-ui/issues/866) [#834](https://github.com/DivanteLtd/storefront-ui/issues/834) [#874](https://github.com/DivanteLtd/storefront-ui/issues/874) [#856](https://github.com/DivanteLtd/storefront-ui/issues/856) [#868](https://github.com/DivanteLtd/storefront-ui/issues/868) [#898](https://github.com/DivanteLtd/storefront-ui/issues/898) [#877](https://github.com/DivanteLtd/storefront-ui/issues/877) [#876](https://github.com/DivanteLtd/storefront-ui/issues/876) [#869](https://github.com/DivanteLtd/storefront-ui/issues/869) [#858](https://github.com/DivanteLtd/storefront-ui/issues/858) [#862](https://github.com/DivanteLtd/storefront-ui/issues/862) [#880](https://github.com/DivanteLtd/storefront-ui/issues/880) [#902](https://github.com/DivanteLtd/storefront-ui/issues/902) [#901](https://github.com/DivanteLtd/storefront-ui/issues/901) [#892](https://github.com/DivanteLtd/storefront-ui/issues/892) [#873](https://github.com/DivanteLtd/storefront-ui/issues/873) [#909](https://github.com/DivanteLtd/storefront-ui/issues/909) [#875](https://github.com/DivanteLtd/storefront-ui/issues/875) [#887](https://github.com/DivanteLtd/storefront-ui/issues/887) [#913](https://github.com/DivanteLtd/storefront-ui/issues/913) [#896](https://github.com/DivanteLtd/storefront-ui/issues/896) [#916](https://github.com/DivanteLtd/storefront-ui/issues/916) [#915](https://github.com/DivanteLtd/storefront-ui/issues/915) [#905](https://github.com/DivanteLtd/storefront-ui/issues/905) [#907](https://github.com/DivanteLtd/storefront-ui/issues/907) [#897](https://github.com/DivanteLtd/storefront-ui/issues/897) [#910](https://github.com/DivanteLtd/storefront-ui/issues/910) [#895](https://github.com/DivanteLtd/storefront-ui/issues/895) [#884](https://github.com/DivanteLtd/storefront-ui/issues/884) [#899](https://github.com/DivanteLtd/storefront-ui/issues/899) [#929](https://github.com/DivanteLtd/storefront-ui/issues/929) [#889](https://github.com/DivanteLtd/storefront-ui/issues/889) [#893](https://github.com/DivanteLtd/storefront-ui/issues/893) [#904](https://github.com/DivanteLtd/storefront-ui/issues/904) [#917](https://github.com/DivanteLtd/storefront-ui/issues/917) [#888](https://github.com/DivanteLtd/storefront-ui/issues/888) [#955](https://github.com/DivanteLtd/storefront-ui/issues/955) [#943](https://github.com/DivanteLtd/storefront-ui/issues/943) [#906](https://github.com/DivanteLtd/storefront-ui/issues/906) [#945](https://github.com/DivanteLtd/storefront-ui/issues/945) [#953](https://github.com/DivanteLtd/storefront-ui/issues/953) [#948](https://github.com/DivanteLtd/storefront-ui/issues/948)
+* add sf color to sf filter ([#985](https://github.com/DivanteLtd/storefront-ui/issues/985)) ([898b7e8](https://github.com/DivanteLtd/storefront-ui/commit/898b7e8b3d0ec820b2c67645ef4487b63c5e86e4))
+
+
+
+
+
+## [0.6.4](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.6.3...@storefront-ui/vue@0.6.4) (2020-03-27)
+
+
+### Bug Fixes
+
+* leaflet.css import ([#953](https://github.com/DivanteLtd/storefront-ui/issues/953)) ([3a6c7a3](https://github.com/DivanteLtd/storefront-ui/commit/3a6c7a3b25643f62a6eebd81e1866e311e4af430)), closes [#948](https://github.com/DivanteLtd/storefront-ui/issues/948)
+
+
+
+
+
 ## [0.6.3](https://github.com/DivanteLtd/storefront-ui/compare/@storefront-ui/vue@0.6.2...@storefront-ui/vue@0.6.3) (2020-03-26)
 
 

@@ -6,10 +6,10 @@ describe("SfTableHeading.vue", () => {
       inject: ["table"],
       provide() {
         return {
-          table: []
+          table: [],
         };
-      }
+      },
     });
-    expect(component.contains(".sf-table__heading")).toBe(true);
+    expect(component.classes("sf-table__heading")).toBe(true);
   });
 });

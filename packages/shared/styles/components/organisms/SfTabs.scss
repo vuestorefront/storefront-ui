@@ -1,85 +1,81 @@
 @import "../../helpers";
-
 .sf-tabs {
-  position: relative;
   display: flex;
   flex-wrap: wrap;
-  font: var(
-    --tabs-font,
-    font(
-      --tabs,
-      400,
-      var(--font-size-regular),
-      1.6,
-      var(--body-font-family-secondary)
-    )
-  );
   &__title {
-    z-index: var(--tabs-title-index);
+    z-index: var(--tabs-title-z-index);
     display: var(--tabs-title-display, flex);
-    flex-basis: var(--tabs-title-flex-basis, 100%);
+    box-sizing: border-box;
+    flex: var(--tabs-title-flex, 0 0 100%);
     justify-content: space-between;
     margin: var(--tabs-title-margin);
-    padding: var(--tabs-title-padding, calc(var(--spacer-big) - 5px) 0);
-    border: var(--tabs-title-border, 1px solid var(--c-light));
-    border-width: var(--tabs-title-border-width, 0 0 1px 0);
-    color: var(--tabs-title-color, var(--c-dark));
-    font: var(
+    padding: var(--tabs-title-padding, var(--spacer-sm));
+    background: var(--tabs-title-background);
+    @include border(--tabs-title-border, 0 0 1px 0, solid, var(--c-light));
+    color: var(--tabs-title-color);
+    transition: color 150ms ease-in-out;
+    @include font(
       --tabs-title-font,
-      font(
-        --tabs-title,
-        400,
-        var(--font-size-big),
-        1.6,
-        var(--body-font-family-secondary)
-      )
+      var(--font-normal),
+      var(--h3-font-size),
+      1.4,
+      var(--font-family-secondary)
     );
-    transition: var(
-      --tabs-title-transition,
-      border-color 150ms ease-in-out,
-      color 150ms ease-in-out
-    );
-    cursor: pointer;
     &--active {
-      --tabs-title-border-bottom: 1px solid transparent;
-      @include for-desktop {
-        --tabs-title-index: 1;
-        --tabs-title-color: var(--c-dark);
-        --tabs-title-border-bottom: 2px solid var(--c-dark);
+      --tabs-title-border-width: 0;
+      --tabs-title-color: var(--c-primary);
+      & + .sf-tabs__content {
+        --tabs-content-border-width: var(
+          --tabs-content-border-width,
+          1px 0 0 0
+        );
       }
     }
-    &:hover {
-      @include for-desktop {
-        --tabs-title-color: var(--c-dark);
-      }
+  }
+  &__content {
+    flex: 0 0 100%;
+    order: var(--tabs-content-order);
+    @include border(--tabs-content-border, 0, solid, var(--c-light));
+    color: var(--tabs-content-color, var(--c-text));
+    @include font(
+      --tabs-content-font,
+      var(--font-light),
+      var(--font-base),
+      1.6,
+      var(--font-family-primary)
+    );
+    &__tab {
+      padding: var(
+        --tabs-content-tab-padding,
+        var(--spacer-base) var(--spacer-sm)
+      );
     }
   }
   &__chevron {
-    display: var(--tabs-chevron-display, flex);
-    align-items: center;
-    max-height: var(
-      --tabs-chevron-max-height,
-      calc(var(--accordion-font-size) * var(--accordion-line-height))
-    );
-  }
-  &__content {
-    flex-basis: 100%;
-    padding: var(--tabs-content-padding, calc(var(--spacer-big) / 2) 0);
-    order: var(--tabs-content-order);
-    border: var(--tabs-content-border);
-    border-width: var(--tabs-content-border-width);
+    display: var(--tabs-chevron-display);
   }
   @include for-desktop {
-    --tabs-title-margin: 0 2rem -0.125rem 0;
-    --tabs-title-padding: var(--spacer-big) 0;
-    --tabs-title-border: 2px solid var(--c-dark);
-    --tabs-title-border-width: 0 0 2px 0;
-    --tabs-title-color: var(--c-gray-variant);
-    --tabs-title-flex-basis: auto;
-    --tabs-content-order: 99;
-    --tabs-content-padding: 3.75rem 0;
-    --tabs-content-border: 2px solid var(--c-light);
-    --tabs-content-border-width: 2px 0 0 0;
+    --tabs-title-z-index: 1;
+    --tabs-content-order: 1;
+    --tabs-title-flex: 0 0 auto;
+    --tabs-title-margin: 0 var(--spacer-lg) -2px 0;
+    --tabs-title-padding: var(--spacer-xs) 0;
+    --tabs-title-color: var(--c-text-muted);
+    --tabs-title-font-size: var(--h4-font-size);
+    --tabs-content-tab-padding: var(--spacer-base) 0;
     --tabs-chevron-display: none;
+    &__title {
+      &--active {
+        --tabs-title-border-width: 0 0 2px 0;
+        --tabs-title-border-color: var(--c-text);
+        --tabs-title-color: var(--c-text);
+        & + .sf-tabs__content {
+          --tabs-content-border-width: 2px 0 0 0;
+        }
+      }
+      &:hover {
+        --tabs-title-color: var(--c-text);
+      }
+    }
   }
 }

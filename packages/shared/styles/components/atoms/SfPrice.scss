@@ -1,28 +1,35 @@
 @import "../../helpers";
-
+@mixin _price($type, $margin: 0, $color: var(--c-text), $weight: var(--font-medium), $text-decoration: none) {
+  margin: var(--price-#{$type}-margin, $margin );
+  color: var(--price-#{$type}-color, $color);
+  @include font(
+    --price-#{$type}-font,
+    $weight,
+    var(--font-lg),
+    1.6,
+    var(--font-family-secondary)
+  );
+  text-decoration: var(--price-#{$type}-text-decoration, $text-decoration);
+}
 .sf-price {
-  &__value {
-    margin: var(--price-margin);
-    color: var(--price-color, var(--c-text));
-    font: var(
-      --price-font,
-      font(
-        --price,
-        400,
-        var(--font-size-big),
-        1.6,
-        var(--body-font-family-primary)
-      )
-    );
-    text-decoration: var(--price-text-decoration);
-    &--special {
-      --price-color: var(--c-danger);
-      --price-margin: 0 var(--spacer-small) 0 0;
-    }
-    &--old {
-      --price-color: var(--c-text-muted);
-      --price-font-size: var(--font-size-small);
-      --price-text-decoration: line-through;
-    }
+  display: flex;
+  flex-wrap: var(--price-flex-wrap, wrap);
+  flex-direction: var(--price-flex-direction, row);
+  align-items: var(--price-align-items, center);
+  justify-content: var(--price-justify-content);
+  &__regular {
+    @include _price($type: regular)
+  }
+  &__special {
+    @include _price($type: special)
+  }
+  &__old {
+    @include _price(
+      $type: old,
+      $margin: 0 var(--spacer-xs) 0 0,
+      $color: var(--c-danger),
+      $weight: var(--font-light),
+      $text-decoration: line-through
+    )
   }
 }

@@ -10,21 +10,21 @@ describe("SfStep.vue", () => {
         const stepsData = {};
         Object.defineProperty(stepsData, "index", {
           enumerable: false,
-          get: () => this.active
+          get: () => this.active,
         });
         Object.defineProperty(stepsData, "name", {
           enumerable: false,
-          get: () => this.steps[this.active]
+          get: () => this.steps[this.active],
         });
         Object.defineProperty(stepsData, "updateSteps", {
           enumerable: false,
-          value: this.updateSteps
+          value: this.updateSteps,
         });
         return {
-          stepsData
+          stepsData,
         };
-      }
+      },
     });
-    expect(component.contains(".sf-step")).toBe(true);
+    expect(component.classes("sf-step")).toBe(true);
   });
 });

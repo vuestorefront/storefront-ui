@@ -1,81 +1,91 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
   text,
   number,
   boolean,
-  select
+  select,
 } from "@storybook/addon-knobs";
-import SfProductCardHorizontal from "./SfProductCardHorizontal.vue";
-import SfProperty from "../../atoms/SfProperty/SfProperty.vue";
-import SfButton from "../../atoms/SfButton/SfButton.vue";
+import {
+  SfProductCardHorizontal,
+  SfProperty,
+  SfButton,
+} from "@storefront-ui/vue";
 storiesOf("Organisms|ProductCardHorizontal", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
+    data() {
+      return {
+        quantity: 1,
+      };
+    },
     props: {
       image: {
         default: text(
           "image",
           "assets/storybook/SfProductCardHorizontal/productA.jpg",
           "Props"
-        )
+        ),
       },
       imageWidth: {
-        default: number("imageWidth", 216, {}, "Props")
+        default: number("imageWidth", 140, {}, "Props"),
       },
       imageHeight: {
-        default: number("imageHeight", 326, {}, "Props")
+        default: number("imageHeight", 200, {}, "Props"),
       },
       title: {
-        default: text("title", "Cream Beach Bag", "Props")
+        default: text("title", "Cream Beach Bag", "Props"),
       },
       description: {
         default: text(
           "description",
           "Find stunning women cocktail and party dresses. Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands.",
           "Props"
-        )
+        ),
       },
       link: {
-        default: text("link", "", "Props")
+        default: text("link", "", "Props"),
       },
       linkTag: {
-        default: text("linkTag", "", "Props")
+        default: text("linkTag", "", "Props"),
       },
       regularPrice: {
-        default: text("regularPrice", "$10,99", "Props")
+        default: text("regularPrice", "$10,99", "Props"),
       },
       specialPrice: {
-        default: text("specialPrice", "", "Props")
+        default: text("specialPrice", "", "Props"),
       },
       wishlistIcon: {
-        default: select("wishlistIcon", [false, "heart"], "heart", "Props")
+        default: select("wishlistIcon", [false, "heart"], "heart", "Props"),
       },
       isOnWishlist: {
-        default: boolean("isOnWishlist", false, "Props")
+        default: boolean("isOnWishlist", true, "Props"),
       },
       isOnWishlistIcon: {
-        default: text("isOnWishlistIcon", "heart_fill", "Props")
+        default: text("isOnWishlistIcon", "heart_fill", "Props"),
       },
       maxRating: {
-        default: number("maxRating", 5, {}, "Props")
+        default: number("maxRating", 5, {}, "Props"),
       },
       scoreRating: {
-        default: number("scoreRating", 4, {}, "Props")
+        default: number("scoreRating", 4, {}, "Props"),
       },
       reviewsCount: {
-        default: number("reviewsCount", 7, {}, "Props")
+        default: number("reviewsCount", 7, {}, "Props"),
       },
       isAddedToCart: {
-        default: select("isAddedToCart", [false, true], false, "Props")
+        default: select("isAddedToCart", [false, true], false, "Props"),
+      },
+      qty: {
+        default: number("qty", 1, {}, "Props"),
       },
       addToCartDisabled: {
-        default: select("addToCartDisabled", [false, true], false, "Props")
-      }
+        default: select("addToCartDisabled", [false, true], false, "Props"),
+      },
     },
     components: { SfProductCardHorizontal, SfButton, SfProperty },
-    template: `<SfProductCardHorizontal
+    template: `<div :style="{maxWidth: '1240px'}">
+      <SfProductCardHorizontal
           :image="image"
           :image-width="imageWidth"
           :image-height="imageHeight"
@@ -91,117 +101,102 @@ storiesOf("Organisms|ProductCardHorizontal", module)
           :is-added-to-cart="isAddedToCart"
           :add-to-cart-disabled="addToCartDisabled"
           :description="description"
+          :qty="quantity"
+          @input="quantity = $event"
           :is-on-wishlist-icon="isOnWishlistIcon"
           :is-on-wishlist="isOnWishlist">
           <template #configuration>
-            <div>
-              <SfProperty name="Size" value="XS"/>
-              <SfProperty name="Color" value="white"/>
-            </div>
+              <SfProperty class="desktop-only" name="Size" value="XS" style="margin: 0 0 1rem 0"/>
+              <SfProperty class="desktop-only" name="Color" value="white"/>
           </template>
           <template #actions>
-            <div style="display:flex; flex-direction: column; align-items: flex-end">
               <SfButton
-                class="sf-button--text color-secondary"
+                class="sf-button--text desktop-only"
                 @click="$emit('click:add-to-wishlist')"
-                style="padding-bottom: 1.25rem" 
+                style="margin: 0 0 1rem auto; display: block" 
               >
                 Save for later
               </SfButton>
               <SfButton
-                class="sf-button--text color-secondary"
+                class="sf-button--text desktop-only"
                 @click="$emit('click:add-to-compare')"
-                style="padding-bottom: 1.25rem" 
+                style="margin: 0 0 0 auto; display: block"
               >
                 Add to compare
               </SfButton>
-            </div>
           </template>
-      </SfProductCardHorizontal>`
+      </SfProductCardHorizontal>
+    </div>`,
   }))
   .add("With 2 pictures", () => ({
     props: {
       imageWidth: {
-        default: number("imageWidth", 216, {}, "Props")
+        default: number("imageWidth", 140, {}, "Props"),
       },
       imageHeight: {
-        default: number("imageHeight", 326, {}, "Props")
+        default: number("imageHeight", 200, {}, "Props"),
       },
       title: {
-        default: text("title", "Product name", "Props")
+        default: text("title", "Product name", "Props"),
       },
       description: {
-        default: text("description", "Short description", "Props")
+        default: text("description", "Short description", "Props"),
       },
       link: {
-        default: text("link", "javascript:window.alert();", "Props")
+        default: text("link", "javascript:window.alert();", "Props"),
       },
       linkTag: {
-        default: text("linkTag", "", "Props")
+        default: text("linkTag", "", "Props"),
       },
       regularPrice: {
-        default: text("regularPrice", "$1000,99", "Props")
+        default: text("regularPrice", "$1000,99", "Props"),
       },
       specialPrice: {
-        default: text("specialPrice", "$500,99", "Props")
+        default: text("specialPrice", "$500,99", "Props"),
       },
       maxRating: {
-        default: number("maxRating", 5, {}, "Props")
+        default: number("maxRating", 5, {}, "Props"),
       },
       scoreRating: {
-        default: number("scoreRating", 4, {}, "Props")
+        default: number("scoreRating", 4, {}, "Props"),
       },
       reviewsCount: {
-        default: number("reviewsCount", 7, {}, "Props")
+        default: number("reviewsCount", 7, {}, "Props"),
       },
       wishlistIcon: {
-        default: select("wishlistIcon", [false, "heart"], "heart", "Props")
+        default: select("wishlistIcon", [false, "heart"], "heart", "Props"),
       },
       isAddedToCart: {
-        default: select("isAddedToCart", [null, false, true], null, "Props")
+        default: select("isAddedToCart", [null, false, true], null, "Props"),
       },
       addToCartDisabled: {
-        default: select("addToCartDisabled", [false, true], false, "Props")
+        default: select("addToCartDisabled", [false, true], false, "Props"),
       },
       isOnWishlist: {
-        default: boolean("isOnWishlist", false, "Props")
+        default: boolean("isOnWishlist", false, "Props"),
       },
       isOnWishlistIcon: {
-        default: text("isOnWishlistIcon", "heart_fill", "Props")
-      }
+        default: text("isOnWishlistIcon", "heart_fill", "Props"),
+      },
     },
     data() {
       return {
         pictures: [
           {
-            desktop: {
-              url:
-                "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/400px/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
-              alt: "Macbook PRO Apple"
-            },
-            mobile: {
-              url:
-                "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/100px/@1550858949523-frontal-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
-              alt: "Macbook PRO Apple"
-            }
+            mobile: { url: "/assets/storybook/Home/productB.jpg" },
+            desktop: { url: "/assets/storybook/Home/productB.jpg" },
           },
           {
-            desktop: {
-              url:
-                "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/400px/@1550858951531-teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
-              alt: "Macbook PRO Apple (keyboard)"
-            },
-            mobile: {
-              url:
-                "https://ecom-ptqgjveg.nyc3.digitaloceanspaces.com/imgs/100px/@1550858951531-teclado-macbook-pro-apple-13-intel-core-i5-128gb-mpxq2bz-a.jpg",
-              alt: "Macbook PRO Apple (keyboard)"
-            }
-          }
-        ]
+            mobile: { url: "/assets/storybook/Home/productA.jpg" },
+            desktop: { url: "/assets/storybook/Home/productA.jpg" },
+          },
+        ],
+        quantity: 1,
       };
     },
     components: { SfProductCardHorizontal, SfButton, SfProperty },
-    template: `<SfProductCardHorizontal
+    template: `<div :style="{maxWidth: '1240px'}">
+      <SfProductCardHorizontal
         :image="pictures"
         :image-width="imageWidth"
         :image-height="imageHeight"
@@ -215,36 +210,36 @@ storiesOf("Organisms|ProductCardHorizontal", module)
         :max-rating="maxRating"
         :reviews-count="reviewsCount"
         :wishlist-icon="wishlistIcon"
+        :qty="quantity"
+        @input="quantity = $event"
         :is-added-to-cart="isAddedToCart"
         :add-to-cart-disabled="addToCartDisabled"
         :is-on-wishlist-icon="isOnWishlistIcon"
         :is-on-wishlist="isOnWishlist"
         >
         <template #configuration>
-          <div>
-            <SfProperty name="Size" value="XS"/>
-            <SfProperty name="Color" value="white"/>
-          </div>
+            <SfProperty class="desktop-only" name="Size" value="XS" style="margin: 0 0 1rem 0"/>
+            <SfProperty class="desktop-only" name="Color" value="white"/>
           </template>
-          <template #actions>
-            <div style="display:flex; flex-direction: column; align-items: flex-end">
+        <template #actions>
+          <div>
               <SfButton
-                class="sf-button--text color-primary"
-                style="padding-bottom: 1.25rem" 
+                class="sf-button--text color-primary desktop-only"
+                style="padding-bottom: 1rem" 
                 @click="$emit('click:add-to-wishlist')"
               >
                 Save for later
               </SfButton>
               <SfButton
-                class="sf-button--text color-primary"
-                style="padding-bottom: 1.25rem" 
+                class="sf-button--text color-primary desktop-only"
                 @click="$emit('click:add-to-compare')"
               >
                 Add to compare
               </SfButton>
-            </div>
+          </div>
           </template>
-    </SfProductCardHorizontal>`
+    </SfProductCardHorizontal>
+    </div>`,
   }))
   .add("[slot] configuration", () => ({
     props: {
@@ -253,63 +248,69 @@ storiesOf("Organisms|ProductCardHorizontal", module)
           "image",
           "assets/storybook/SfProductCardHorizontal/productA.jpg",
           "Props"
-        )
+        ),
       },
       imageWidth: {
-        default: number("imageWidth", 216, {}, "Props")
+        default: number("imageWidth", 140, {}, "Props"),
       },
       imageHeight: {
-        default: number("imageHeight", 326, {}, "Props")
+        default: number("imageHeight", 200, {}, "Props"),
       },
       title: {
-        default: text("title", "Cream Beach Bag", "Props")
+        default: text("title", "Cream Beach Bag", "Props"),
       },
       description: {
         default: text(
           "description",
           "Find stunning women cocktail and party dresses. Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands.",
           "Props"
-        )
+        ),
       },
       link: {
-        default: text("link", "", "Props")
+        default: text("link", "", "Props"),
       },
       linkTag: {
-        default: text("linkTag", "", "Props")
+        default: text("linkTag", "", "Props"),
       },
       regularPrice: {
-        default: text("regularPrice", "$10,99", "Props")
+        default: text("regularPrice", "$10,99", "Props"),
       },
       specialPrice: {
-        default: text("specialPrice", "", "Props")
+        default: text("specialPrice", "", "Props"),
       },
       wishlistIcon: {
-        default: select("wishlistIcon", [false, "heart"], "heart", "Props")
+        default: select("wishlistIcon", [false, "heart"], "heart", "Props"),
       },
       isOnWishlist: {
-        default: boolean("isOnWishlist", false, "Props")
+        default: boolean("isOnWishlist", false, "Props"),
       },
       isOnWishlistIcon: {
-        default: text("isOnWishlistIcon", "heart_fill", "Props")
+        default: text("isOnWishlistIcon", "heart_fill", "Props"),
       },
       maxRating: {
-        default: number("maxRating", 5, {}, "Props")
+        default: number("maxRating", 5, {}, "Props"),
       },
       scoreRating: {
-        default: number("scoreRating", 4, {}, "Props")
+        default: number("scoreRating", 4, {}, "Props"),
       },
       reviewsCount: {
-        default: number("reviewsCount", 7, {}, "Props")
+        default: number("reviewsCount", 7, {}, "Props"),
       },
       isAddedToCart: {
-        default: select("isAddedToCart", [false, true], false, "Props")
+        default: select("isAddedToCart", [false, true], false, "Props"),
       },
       addToCartDisabled: {
-        default: select("addToCartDisabled", [false, true], false, "Props")
-      }
+        default: select("addToCartDisabled", [false, true], false, "Props"),
+      },
+    },
+    data() {
+      return {
+        quantity: 1,
+      };
     },
     components: { SfProductCardHorizontal },
-    template: `<SfProductCardHorizontal
+    template: `<div :style="{maxWidth: '1240px'}">
+      <SfProductCardHorizontal
           :image="image"
           :image-width="imageWidth"
           :image-height="imageHeight"
@@ -323,6 +324,8 @@ storiesOf("Organisms|ProductCardHorizontal", module)
           :wishlist-icon="wishlistIcon"
           :reviews-count="reviewsCount"
           :is-added-to-cart="isAddedToCart"
+          :qty="quantity"
+          @input="quantity = $event"
           :add-to-cart-disabled="addToCartDisabled"
           :description="description"
           :is-on-wishlist-icon="isOnWishlistIcon"
@@ -330,7 +333,8 @@ storiesOf("Organisms|ProductCardHorizontal", module)
           <template #configuration>
             CUSTOM CONFIGURATION
           </template>
-      </SfProductCardHorizontal>`
+      </SfProductCardHorizontal>
+    </div>`,
   }))
   .add("[slot] actions", () => ({
     props: {
@@ -339,63 +343,69 @@ storiesOf("Organisms|ProductCardHorizontal", module)
           "image",
           "assets/storybook/SfProductCardHorizontal/productA.jpg",
           "Props"
-        )
+        ),
       },
       imageWidth: {
-        default: number("imageWidth", 216, {}, "Props")
+        default: number("imageWidth", 140, {}, "Props"),
       },
       imageHeight: {
-        default: number("imageHeight", 326, {}, "Props")
+        default: number("imageHeight", 200, {}, "Props"),
       },
       title: {
-        default: text("title", "Cream Beach Bag", "Props")
+        default: text("title", "Cream Beach Bag", "Props"),
       },
       description: {
         default: text(
           "description",
           "Find stunning women cocktail and party dresses. Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands.",
           "Props"
-        )
+        ),
       },
       link: {
-        default: text("link", "", "Props")
+        default: text("link", "", "Props"),
       },
       linkTag: {
-        default: text("linkTag", "", "Props")
+        default: text("linkTag", "", "Props"),
       },
       regularPrice: {
-        default: text("regularPrice", "$10,99", "Props")
+        default: text("regularPrice", "$10,99", "Props"),
       },
       specialPrice: {
-        default: text("specialPrice", "", "Props")
+        default: text("specialPrice", "", "Props"),
       },
       wishlistIcon: {
-        default: select("wishlistIcon", [false, "heart"], "heart", "Props")
+        default: select("wishlistIcon", [false, "heart"], "heart", "Props"),
       },
       isOnWishlist: {
-        default: boolean("isOnWishlist", false, "Props")
+        default: boolean("isOnWishlist", false, "Props"),
       },
       isOnWishlistIcon: {
-        default: text("isOnWishlistIcon", "heart_fill", "Props")
+        default: text("isOnWishlistIcon", "heart_fill", "Props"),
       },
       maxRating: {
-        default: number("maxRating", 5, {}, "Props")
+        default: number("maxRating", 5, {}, "Props"),
       },
       scoreRating: {
-        default: number("scoreRating", 4, {}, "Props")
+        default: number("scoreRating", 4, {}, "Props"),
       },
       reviewsCount: {
-        default: number("reviewsCount", 7, {}, "Props")
+        default: number("reviewsCount", 7, {}, "Props"),
       },
       isAddedToCart: {
-        default: select("isAddedToCart", [false, true], false, "Props")
+        default: select("isAddedToCart", [false, true], false, "Props"),
       },
       addToCartDisabled: {
-        default: select("addToCartDisabled", [false, true], false, "Props")
-      }
+        default: select("addToCartDisabled", [false, true], false, "Props"),
+      },
+    },
+    data() {
+      return {
+        quantity: 1,
+      };
     },
     components: { SfProductCardHorizontal },
-    template: `<SfProductCardHorizontal
+    template: `<div :style="{maxWidth: '1240px'}">
+      <SfProductCardHorizontal
           :image="image"
           :image-width="imageWidth"
           :image-height="imageHeight"
@@ -411,10 +421,13 @@ storiesOf("Organisms|ProductCardHorizontal", module)
           :is-added-to-cart="isAddedToCart"
           :add-to-cart-disabled="addToCartDisabled"
           :description="description"
+          :qty="quantity"
+          @input="quantity = $event"
           :is-on-wishlist-icon="isOnWishlistIcon"
           :is-on-wishlist="isOnWishlist">
           <template #actions>
             CUSTOM ACTIONS
           </template>
-      </SfProductCardHorizontal>`
+      </SfProductCardHorizontal>
+    </div>`,
   }));

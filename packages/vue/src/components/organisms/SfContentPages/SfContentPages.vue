@@ -12,14 +12,17 @@
     >
       <div class="sf-content-pages__sidebar">
         <h1 class="sf-content-pages__title desktop-only">{{ title }}</h1>
-        <div v-for="(category, key) in categories" :key="key">
+        <div
+          v-for="(category, key) in categories"
+          :key="`${category.title}-${key}`"
+        >
           <h2 v-if="category.title" class="sf-content-pages__category-title">
             {{ category.title }}
           </h2>
           <SfList class="sf-content-pages__list">
             <SfListItem
-              v-for="page in category.items"
-              :key="page.title"
+              v-for="(page, itemKey) in category.items"
+              :key="`${page.title}-${itemKey}`"
               class="sf-content-pages__list-item"
             >
               <!-- @slot Custom menu-item markup -->
@@ -64,16 +67,15 @@ import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfBar from "../../molecules/SfBar/SfBar.vue";
 import {
   mapMobileObserver,
-  unMapMobileObserver
+  unMapMobileObserver,
 } from "../../../utilities/mobile-observer";
-
 export default {
   name: "SfContentPages",
   components: {
     SfList,
     SfMenuItem,
     SfIcon,
-    SfBar
+    SfBar,
   },
   props: {
     /**
@@ -81,19 +83,19 @@ export default {
      */
     title: {
       type: String,
-      default: ""
+      default: "",
     },
     /**
      * Active page
      */
     active: {
       type: String,
-      default: ""
-    }
+      default: "",
+    },
   },
   data() {
     return {
-      items: []
+      items: [],
     };
   },
   computed: {
@@ -108,7 +110,7 @@ export default {
           orphans.items = [];
         }
       };
-      this.items.forEach(item => {
+      this.items.forEach((item) => {
         if (item.items) {
           reduceOrphans();
           const category = { ...item };
@@ -122,12 +124,12 @@ export default {
     },
     isActive() {
       return this.active.length > 0;
-    }
+    },
   },
   provide() {
     const provided = {};
     Object.defineProperty(provided, "active", {
-      get: () => this.active
+      get: () => this.active,
     });
     return { provided };
   },
@@ -138,7 +140,7 @@ export default {
         return;
       }
       this.$emit("click:change", this.categories[0].items[0].title);
-    }
+    },
   },
   beforeDestroy() {
     unMapMobileObserver();
@@ -152,8 +154,8 @@ export default {
        * @type String
        */
       this.$emit("click:change", title);
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

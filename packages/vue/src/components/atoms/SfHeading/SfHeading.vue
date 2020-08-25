@@ -2,7 +2,11 @@
   <header class="sf-heading">
     <!--@slot Heading title. Slot content will replace default <h> tag-->
     <slot name="title" v-bind="{ title }">
-      <component :is="`h${level}`" class="sf-heading__title">
+      <component
+        :is="`h${level}`"
+        class="sf-heading__title"
+        :class="level > 1 && `sf-heading__title--h${level}`"
+      >
         {{ title }}
       </component>
     </slot>
@@ -23,28 +27,28 @@ export default {
      */
     level: {
       type: Number,
-      default: 2
+      default: 2,
     },
     /**
      * Heading title
      */
     title: {
       type: String,
-      default: ""
+      default: "",
     },
     /**
      * Heading subtitle
      */
     subtitle: {
       type: String,
-      default: ""
-    }
+      default: "",
+    },
   },
   computed: {
     hasSubtitle() {
       return !!this.subtitle || this.$slots.hasOwnProperty("subtitle");
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

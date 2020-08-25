@@ -1,5 +1,4 @@
 @import "../../helpers";
-
 .sf-sliding-section {
   display: var(--sliding-section-display, inline);
   margin: var(--sliding-section-margin, 0);
@@ -14,17 +13,11 @@
   }
   &__sliding {
     flex: 1;
-    padding: var(--sliding-section-sliding-padding, 0 var(--spacer-big));
+    padding: var(--sliding-section-sliding-padding, 0 var(--spacer-xl));
   }
   &__mobile-bar {
-    padding: var(--sliding-section-mobile-bar-padding, var(--spacer-medium) 0);
     display: var(--sliding-section-mobile-bar-display, none);
-  }
-  &__close {
-    padding: 0;
-    border: 0;
-    background: transparent;
-    cursor: pointer;
+    padding: var(--sliding-section-mobile-bar-padding, var(--spacer-lg) 0);
   }
   &--has-scroll-lock {
     overflow: hidden;
@@ -35,7 +28,7 @@
   }
   @include for-desktop {
     --sliding-section-display: flex;
-    --sliding-section-sliding-margin: 0 0 0 3.75rem;
+    --sliding-section-sliding-margin: 0 0 0 var(--spacer-lg);
     --sliding-section-mobile-bar-display: none;
   }
 }

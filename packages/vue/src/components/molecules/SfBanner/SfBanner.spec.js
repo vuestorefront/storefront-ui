@@ -4,14 +4,14 @@ import SfBanner from "./SfBanner.vue";
 describe("SfBanner.vue", () => {
   it("renders a banner", () => {
     const component = shallowMount(SfBanner);
-    expect(component.contains(".sf-banner")).toBe(true);
+    expect(component.classes("sf-banner")).toBe(true);
   });
   it("renders title slot text when passed", () => {
     const title = "HelloWorld";
     const component = shallowMount(SfBanner, {
       slots: {
-        title
-      }
+        title,
+      },
     });
     expect(component.find(".sf-banner").text()).toContain(title);
   });
@@ -19,8 +19,8 @@ describe("SfBanner.vue", () => {
     const subtitle = "HelloWorld";
     const component = shallowMount(SfBanner, {
       slots: {
-        subtitle
-      }
+        subtitle,
+      },
     });
     expect(component.find(".sf-banner").text()).toContain(subtitle);
   });
@@ -28,8 +28,8 @@ describe("SfBanner.vue", () => {
     const description = "HelloWorld";
     const component = shallowMount(SfBanner, {
       slots: {
-        description
-      }
+        description,
+      },
     });
     expect(component.find(".sf-banner").text()).toContain(description);
   });
@@ -37,8 +37,8 @@ describe("SfBanner.vue", () => {
     const buttonText = "HelloWorld";
     const component = shallowMount(SfBanner, {
       propsData: {
-        buttonText
-      }
+        buttonText,
+      },
     });
     expect(component.find(".sf-banner__call-to-action").text()).toEqual(
       buttonText
@@ -48,8 +48,8 @@ describe("SfBanner.vue", () => {
     const msg = "<p class='testSlot'>HelloWorld</p>";
     const component = shallowMount(SfBanner, {
       slots: {
-        "call-to-action": msg
-      }
+        "call-to-action": msg,
+      },
     });
     expect(component.find(".sf-banner__button").exists()).toBe(false);
     expect(component.find(".testSlot").exists()).toBe(true);

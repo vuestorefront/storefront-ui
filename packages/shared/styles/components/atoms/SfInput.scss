@@ -1,25 +1,25 @@
 @import "../../helpers";
-
 .sf-input {
   position: relative;
   box-sizing: border-box;
   width: var(--input-width);
   height: var(--input-height);
-  color: var(--input-color, var(--c-text));
+  min-height: var(
+    --input-height,
+    calc(
+      var(--spacer-base) + var(--spacer-2xs) +
+      var(--input-label-font-size, var(--font-lg))
+    )
+  );
   &__label {
     position: absolute;
+    display: var(--input-label-display);
     top: var(--input-label-top, 50%);
+    left: var(--input-label-left);
+    padding: var(--input-label-padding);
     color: var(--input-label-color, inherit);
-    font: var(
-      --input-label-font,
-      font(
-        --input-label,
-        400,
-        var(--font-size-big),
-        normal,
-        var(--body-font-family-secondary)
-      )
-    );
+    text-transform: underline;
+    background: var(--input-label-background);
     transform: var(
       --input-label-transform,
       translate3d(0, calc(var(--input-label-top, 50%) * -1), 0)
@@ -29,14 +29,22 @@
       top 150ms linear,
       font-size 150ms linear
     );
+
     &::after {
       content: var(--input-label-required);
       color: var(--input-label-color, var(--c-primary));
     }
+    @include font(
+      --input-label-font,
+      var(--font-normal),
+      var(--font-lg),
+      1,
+      var(--font-family-secondary)
+    );
   }
   &__bar {
     position: relative;
-    display: block;
+    display: var(--input-bar-display, block);
     &::before,
     &::after {
       position: absolute;
@@ -54,85 +62,54 @@
       right: 50%;
     }
   }
-  &__password-button {
-    --button-padding: 0;
-    --button-background: transparent;
-    position: absolute;
-    top: 50%;
-    right: var(--spacer-big);
-    transform: translate3d(0, -50%, 0);
-    &:hover {
-      --button-background: transparent;
-    }
-  }
-  &__password-icon {
-    --icon-width: var(--input-password-icon-width, 1.375rem);
-    --icon-height: 0.8125rem;
-    --icon-color: var(--c-dark-variant);
-    position: relative;
-    &--hidden {
-      --icon-color: var(--c-gray-variant);
-      --input-password-icon-scaleX: 1;
-    }
-    &::after {
-      position: absolute;
-      top: 50%;
-      width: 100%;
-      height: 1px;
-      background: var(--c-gray-variant);
-      transform: translate3d(0, -50%, 0) rotate(45deg)
-        scaleX(var(--input-password-icon-scaleX, 0));
-      transition: transform 150ms linear;
-      content: "";
-    }
-  }
   &__error-message {
     color: var(--input-error-message-color, var(--c-danger));
-    font: var(
+    min-height: calc(var(--font-xs) * 1.2);
+    @include font(
       --input-error-message-font,
-      font(
-        --input-error-message,
-        400,
-        var(--font-size-small),
-        1.6,
-        var(--body-font-family-secondary)
-      )
+      var(--font-medium),
+      var(--font-xs),
+      1.2,
+      var(--font-family-secondary)
     );
   }
   &__wrapper,
   input {
+    border-radius: 0;
     width: 100%;
     height: 100%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
   }
   &__wrapper {
     position: relative;
-    margin: var(--input-margin, 0 0 var(--spacer-small) 0);
+    margin: var(--input-margin, 0 0 var(--spacer-xs) 0);
   }
   input {
     display: block;
     box-sizing: border-box;
-    padding: var(--input-padding, 0.9375rem 0 0.625rem 0);
-    border: var(--input-border, 1px solid var(--c-light));
-    border-width: var(--input-border-width, 0 0 1px 0);
+    padding: var(--input-padding, var(--spacer-sm) 0 var(--spacer-xs) 0);
+    @include border(--input-border, 0 0 1px 0, solid, var(--c-light));
     background: var(--input-background);
-    color: inherit;
-    font: var(
+    color: var(--input-color, var(--c-text));
+    @include font(
       --input-font,
-      font(
-        --input,
-        300,
-        var(--font-size-big),
-        normal,
-        var(--body-font-family-primary)
-      )
+      var(--font-normal),
+      var(--font-lg),
+      1,
+      var(--font-family-secondary)
     );
-    outline: none;
+    text-align: var(--input-text-align);
     &:focus {
       & ~ * {
+        --icon-color: var(--c-primary);
+        --input-password-icon-background: var(--c-primary);
         --input-label-top: 0;
         --input-label-color: var(--c-primary);
-        --input-label-font-size: var(--font-size-extra-small);
+        --input-label-font-size: var(--font-xs);
         --input-bar-width: 50%;
+        --input-error-message-color: var(--c-primary);
       }
     }
     &:required {
@@ -141,9 +118,12 @@
       }
     }
     &:disabled {
+      --input-color: var(--c-text-disabled);
+      /* add to provide color on iOS */
+      -webkit-text-fill-color: var(--c-text-disabled);
       & ~ * {
-        --input-color: var(--c-text-muted);
-        --input-label-color: var(--c-text-muted);
+        --icon-color: var(--text-disabled);
+        --input-label-color: var(--c-text-disabled);
       }
     }
     &[type="number"] {
@@ -152,15 +132,116 @@
         -webkit-appearance: none;
         margin: 0;
       }
+      -moz-appearance: textfield;
     }
-    &[type="password"] {
-      --input-padding: 0.9375rem
-        calc(var(--spacer-big) * 2 + var(--input-password-icon-width, 1.375rem))
-        10px 0;
+    &[type="search"] {
+      -webkit-appearance: none;
     }
   }
-  &--has-text {
+  &__password-button {
+    --icon-size: 12px;
+    --button-padding: 0;
+    --button-background: transparent;
+    position: absolute;
+    top: var(--input-icon-top, 50%);
+    right: var(--input-icon-right, var(--spacer-xs));
+    transform: translate3d(0, -50%, 0);
+    &:hover {
+      --button-background: transparent;
+      --button-box-shadow: none;
+    }
+  }
+  &__password-icon {
+    position: relative;
+    &--hidden {
+      --input-password-icon-scaleX: 1;
+    }
+    &::after {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      height: 1px;
+      background: var(--input-password-icon-background, var(--c-black));
+      transform: translate3d(0, -50%, 0) rotate(45deg)
+        scaleX(var(--input-password-icon-scaleX, 0));
+      transition: transform 150ms linear;
+      content: "";
+    }
+  }
+  &--invalid {
+    --input-border-color: var(--c-danger);
+    input {
+      &:focus {
+        & ~ * {
+          --input-bar-background: var(--c-danger);
+          --input-label-color: var(--c-danger);
+        }
+      }
+    }
+  }
+  &--has-text,
+  input[type="date"] ~ *,
+  input[type="time"] ~ *,
+  input[type="image"] ~ *,
+  input[type="file"] ~ * {
     --input-label-top: 0;
-    --input-label-font-size: var(--font-size-extra-small);
+    --input-label-font-size: var(--font-xs);
+  }
+  &--filled {
+    --input-background: var(--c-light);
+    --input-font-size: var(--font-xs);
+    --input-padding: var(--spacer-xs);
+    --input-label-left: var(--spacer-xs);
+    --input-label-font-size: var(--font-xs);
+    --input-label-color: var(--c-secondary-variant);
+    --input-label-transition: color 150ms ease;
+    &.sf-input--has-text {
+      --input-label-display: none;
+    }
+    input {
+      &:focus {
+        & ~ * {
+          --input-bar-width: unset;
+          --input-label-top: 50%;
+          --input-label-font-size: var(--font-xs);
+          --input-label-color: var(--c-text);
+        }
+      }
+    }
+  }
+  &--outline {
+    --input-label-left: var(--spacer-sm);
+    --input-padding: var(--spacer-xs) var(--spacer-xs) var(--spacer-xs) var(--spacer-sm);
+    --input-border-color: var(--c-secondary-variant);
+    --input-label-background: var(--c-white);
+    --input-label-font-size: var(--font-base);
+    &.sf-input--has-text {
+      --input-label-top: -25%;
+      --input-label-left: var(--spacer-xs);
+      --input-label-padding: 0 var(--spacer-2xs);
+    }
+    &.sf-input--invalid {
+      --input-border-color: var(--c-danger);
+      --input-label-color: var(--c-danger);
+      input {
+        &:focus {
+          & ~ * {
+            --input-label-color: var(--c-danger);
+          }
+        }
+      }
+    }
+    input {
+      --input-border-width: 1px;
+      &:focus {
+        & ~ * {
+          --input-label-top: -25%;
+          --input-label-left: var(--spacer-xs);
+          --input-label-padding: 0 var(--spacer-2xs);
+          --input-bar-width: 0;
+          --input-label-color: var(--c-secondary-variant);
+        }
+      }
+    }
   }
 }

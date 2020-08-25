@@ -3,14 +3,14 @@ import SfCallToAction from "./SfCallToAction.vue";
 describe("SfCallToAction.vue", () => {
   it("renders a section", () => {
     const component = shallowMount(SfCallToAction);
-    expect(component.contains("section")).toBe(true);
+    expect(component.classes("sf-call-to-action")).toBe(true);
   });
   it("renders title text when passed", () => {
     const msg = "HelloWorld";
     const component = shallowMount(SfCallToAction, {
       propsData: {
-        title: msg
-      }
+        title: msg,
+      },
     });
     expect(component.find(".sf-call-to-action__title").text()).toMatch(msg);
   });
@@ -18,8 +18,8 @@ describe("SfCallToAction.vue", () => {
     const msg = "ButtonText";
     const component = shallowMount(SfCallToAction, {
       propsData: {
-        buttonText: msg
-      }
+        buttonText: msg,
+      },
     });
     const wrapper = component.find(".sf-call-to-action__button");
     expect(wrapper.text()).toMatch(msg);

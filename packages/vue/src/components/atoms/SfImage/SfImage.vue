@@ -1,135 +1,175 @@
 <template>
   <div
     class="sf-image"
-    :class="{ 'sf-image--has-size': wrapper }"
-    :style="wrapper"
+    :class="{ 'sf-image--has-size': size }"
+    :style="size"
     v-on="$listeners"
-    @mouseover="overlay = true"
-    @mouseleave="overlay = false"
   >
-    <template v-if="typeof source === 'string'">
-      <img
-        v-if="show"
-        ref="image"
-        :src="source"
-        :alt="alt"
-        :width="width"
-        :height="height"
-      />
-    </template>
-    <template v-else>
+    <template v-if="(isSrcset && isSrcsetArray) || isSrcObject">
       <picture>
         <source
-          :srcset="source.desktop.url"
-          :media="`(min-width: ${pictureBreakpoint}px)`"
-        />
-        <source
-          :srcset="source.mobile.url"
-          :media="`(max-width: ${pictureBreakpoint}px)`"
+          v-for="(srcItem, i) in getSrcsetWhenIsArray.srcset"
+          :key="i"
+          :srcset="srcItem.src"
+          :media="srcItem.media"
+          :type="srcItem.type"
         />
         <img
-          v-if="show"
-          ref="image"
-          :src="source"
-          :alt="alt"
+          v-show="getSrcsetWhenIsArray.src"
+          :src="getSrcsetWhenIsArray.src"
+          v-bind="$attrs"
           :width="width"
           :height="height"
         />
       </picture>
     </template>
-    <transition name="fade">
-      <div v-if="showOverlay" class="sf-image__overlay">
-        <slot />
-      </div>
-    </transition>
+    <template v-else>
+      <img
+        v-show="getSrcOrSrcset"
+        v-bind="{ ...$attrs, ...getSrcOrSrcset }"
+        :width="width"
+        :height="height"
+      />
+    </template>
+    <noscript v-if="noscript" inline-template>
+      <img
+        class="noscript"
+        :src="noscript"
+        v-bind="$attrs"
+        :width="width"
+        :height="height"
+      />
+    </noscript>
+    <div v-if="hasOverlay" class="sf-image__overlay">
+      <slot />
+    </div>
   </div>
 </template>
 <script>
+import { deprecationWarning } from "../../../utilities/helpers";
 import lozad from "lozad";
 export default {
   name: "SfImage",
+  inheritAttrs: false,
   props: {
     src: {
       type: [String, Object],
-      default: () => ({ mobile: { url: "" }, desktop: { url: "" } })
+      default: "",
     },
-    alt: {
-      type: String,
-      default: ""
-    },
-    width: {
-      type: [String, Number],
-      default: undefined
-    },
-    height: {
-      type: [String, Number],
-      default: undefined
+    srcset: {
+      type: [String, Array],
+      default: "",
     },
     lazy: {
       type: Boolean,
-      default: true
+      default: true,
     },
-    pictureBreakpoint: {
-      type: Number,
-      default: 1024
-    }
+    width: {
+      type: [String, Number],
+      default: null,
+    },
+    height: {
+      type: [String, Number],
+      default: null,
+    },
+    rootMargin: {
+      type: String,
+      default: "0px 0px 0px 0px",
+    },
+    threshold: {
+      type: [String, Number],
+      default: 0,
+    },
   },
   data() {
     return {
-      show: false,
-      overlay: false
+      isLoaded: false,
     };
   },
   computed: {
-    source() {
-      let src = this.src || "";
-      if (typeof src === "object") {
-        if (!src.desktop || !src.mobile) {
-          const object = src.desktop || src.mobile || { url: "" };
-          src = object.url;
-        }
+    // TODO: To be removed if src as an object will not be available anymore
+    isSrcObject() {
+      return !!this.src && typeof this.src === "object";
+    },
+    isSrcset() {
+      return !!this.srcset.length;
+    },
+    isSrcsetArray() {
+      return !!Array.isArray(this.srcset);
+    },
+    isLazyAndNotLoaded() {
+      return !this.isLoaded && this.lazy;
+    },
+    getSrcsetWhenIsArray() {
+      if (this.isLazyAndNotLoaded) {
+        return {
+          srcset: [{ media: null, src: null, type: null }],
+          src: "",
+        };
       }
-      return src;
+      // TODO: To be removed if src as an object will not be available anymore
+      if (this.isSrcObject) {
+        deprecationWarning(
+          this.$options.name,
+          "Prop 'src' type should be a string, the object type is deprecated, change the prop type."
+        );
+        return {
+          src: this.src.desktop?.url,
+          srcset: [
+            {
+              src: this.src.mobile?.url,
+              media: `(max-width: 1023px)`,
+            },
+            {
+              src: this.src.desktop?.url,
+              media: `(min-width: 1024px)`,
+            },
+          ],
+        };
+      }
+      return { srcset: this.srcset, src: this.src };
     },
-    showOverlay() {
-      return this.$slots.default && this.overlay;
+    getSrcOrSrcset() {
+      if (this.isLazyAndNotLoaded) {
+        return this.isSrcset ? { src: null, srcset: null } : { src: null };
+      }
+      return this.isSrcset
+        ? { src: this.src, srcset: this.srcset }
+        : { src: this.src };
     },
-    wrapper() {
+    noscript() {
+      return (
+        (this.isSrcsetArray && this.srcset.length && this.srcset[0].src) ||
+        this.src
+      );
+    },
+    size() {
       return (
         this.width &&
-        this.height &&
-        `--_image-width: ${this.width}; --_image-height: ${this.height}`
+        this.height && {
+          "--_image-width": this.width,
+          "--_image-height": this.height,
+        }
       );
-    }
-  },
-  watch: {
-    lazy: {
-      handler(value) {
-        this.show = !value;
-      },
-      immediate: true
-    }
+    },
+    hasOverlay() {
+      return this.$slots.default;
+    },
   },
   mounted() {
-    if (!this.lazy) {
-      this.show = true;
-      return;
-    }
-    this.lozad();
-  },
-  methods: {
-    lozad() {
-      const vm = this;
-      this.$nextTick(() => {
-        const observer = lozad(vm.$el, {
-          load() {
-            vm.show = true;
-          }
-        });
-        observer.observe();
+    if (!this.lazy) return;
+    const vm = this;
+    this.$nextTick(() => {
+      const observer = lozad(vm.$el, {
+        load() {
+          vm.isLoaded = true;
+        },
+        rootMargin: vm.rootMargin,
+        threshold: vm.threshold,
       });
-    }
-  }
+      observer.observe();
+    });
+  },
 };
 </script>
 <style lang="scss">

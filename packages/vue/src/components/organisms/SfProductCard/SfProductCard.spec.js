@@ -1,5 +1,6 @@
 import { shallowMount } from "@vue/test-utils";
 import SfProductCard from "./SfProductCard.vue";
+import "@testing-library/jest-dom";
 const title = "Product A";
 const wishlistIconButtonClass = ".sf-product-card__wishlist-icon";
 const clickEventName = "click:wishlist";
@@ -7,38 +8,36 @@ describe("SfProductCard.vue", () => {
   it("renders Product Card", () => {
     const component = shallowMount(SfProductCard, {
       propsData: {
-        title
-      }
+        title,
+      },
     });
     expect(component.exists()).toBe(true);
-    expect(component.isVueInstance()).toBe(true);
-    expect(component.isVisible()).toBe(true);
+    expect(component.find(".sf-product-card").element).toBeVisible();
   });
 });
 describe("SfProductCard.vue: Wish list icon button", () => {
   it("renders Product Card", () => {
     const component = shallowMount(SfProductCard, {
       propsData: {
-        title
-      }
+        title,
+      },
     });
     expect(component.exists()).toBe(true);
-    expect(component.isVueInstance()).toBe(true);
-    expect(component.isVisible()).toBe(true);
+    expect(component.find(".sf-product-card").element).toBeVisible();
   });
   it("has correct CSS class for container", () => {
     const component = shallowMount(SfProductCard, {
       propsData: {
-        title
-      }
+        title,
+      },
     });
     expect(component.classes()).toContain("sf-product-card");
   });
   it("has default slot content when no custom content for wish list icon is passed", () => {
     const component = shallowMount(SfProductCard, {
       propsData: {
-        title
-      }
+        title,
+      },
     });
     const wishlistIconButton = component.find(wishlistIconButtonClass);
     const sfIconForWishlist = wishlistIconButton.find("sficon-stub");
@@ -47,8 +46,8 @@ describe("SfProductCard.vue: Wish list icon button", () => {
   it("has default wish list icon when none is passed (isOnWishlist=false)", () => {
     const component = shallowMount(SfProductCard, {
       propsData: {
-        title
-      }
+        title,
+      },
     });
     const defaultWishlistIcon = component.props().wishlistIcon;
     const wishlistIconButton = component.find(wishlistIconButtonClass);
@@ -60,8 +59,8 @@ describe("SfProductCard.vue: Wish list icon button", () => {
     const component = shallowMount(SfProductCard, {
       propsData: {
         title,
-        isOnWishlist: true
-      }
+        isOnWishlist: true,
+      },
     });
     const defaultIsOnWishlistIcon = component.props().isOnWishlistIcon;
     const wishlistIconButton = component.find(wishlistIconButtonClass);
@@ -75,8 +74,8 @@ describe("SfProductCard.vue: Wish list icon button", () => {
     const component = shallowMount(SfProductCard, {
       propsData: {
         title,
-        wishlistIcon: customWishlistIconPath
-      }
+        wishlistIcon: customWishlistIconPath,
+      },
     });
     const wishlistIconButton = component.find(wishlistIconButtonClass);
     const sfIconForWishlist = wishlistIconButton.find("sficon-stub");
@@ -90,8 +89,8 @@ describe("SfProductCard.vue: Wish list icon button", () => {
       propsData: {
         title,
         isOnWishlistIcon: customIsOnWishlistIconPath,
-        isOnWishlist: true
-      }
+        isOnWishlist: true,
+      },
     });
     const wishlistIconButton = component.find(wishlistIconButtonClass);
     const sfIconForWishlist = wishlistIconButton.find("sficon-stub");
@@ -102,8 +101,8 @@ describe("SfProductCard.vue: Wish list icon button", () => {
     const component = shallowMount(SfProductCard, {
       propsData: {
         title,
-        wishlistIcon: false
-      }
+        wishlistIcon: false,
+      },
     });
     const wishlistIconButton = component.find(wishlistIconButtonClass);
     expect(wishlistIconButton.exists()).toBe(false);
@@ -113,8 +112,8 @@ describe("SfProductCard.vue: Wish list icon button", () => {
       propsData: {
         title,
         wishlistIcon: false,
-        isOnWishlist: true
-      }
+        isOnWishlist: true,
+      },
     });
     const wishlistIconButton = component.find(wishlistIconButtonClass);
     expect(wishlistIconButton.exists()).toBe(false);
@@ -124,11 +123,11 @@ describe("SfProductCard.vue: Wish list icon button", () => {
     const customSlotContent = `<b>${customSlotContentText}</b>`;
     const component = shallowMount(SfProductCard, {
       propsData: {
-        title
+        title,
       },
       slots: {
-        "wishlist-icon": customSlotContent
-      }
+        "wishlist-icon": customSlotContent,
+      },
     });
     const wishlistIconButton = component.find(wishlistIconButtonClass);
     const sfIconForWishlist = wishlistIconButton.find("sficon-stub");
@@ -138,32 +137,34 @@ describe("SfProductCard.vue: Wish list icon button", () => {
   it("emits click:wishlist event on button click", () => {
     const component = shallowMount(SfProductCard, {
       propsData: {
-        title
-      }
+        title,
+      },
     });
     const wishlistIconButton = component.find(wishlistIconButtonClass);
-    wishlistIconButton.trigger("click");
+
+    wishlistIconButton.vm.$emit("click");
     expect(component.emitted()[clickEventName].length).toBe(1);
   });
   it("emits click:wishlist event with payload=true on button click when isOnWishlist=false", () => {
     const component = shallowMount(SfProductCard, {
       propsData: {
-        title
-      }
+        title,
+      },
     });
     const wishlistIconButton = component.find(wishlistIconButtonClass);
-    wishlistIconButton.trigger("click");
+
+    wishlistIconButton.vm.$emit("click");
     expect(component.emitted()[clickEventName][0][0]).toBe(true);
   });
   it("emits click:wishlist event with payload=false on button click when isOnWishlist=true", () => {
     const component = shallowMount(SfProductCard, {
       propsData: {
         title,
-        isOnWishlist: true
-      }
+        isOnWishlist: true,
+      },
     });
     const wishlistIconButton = component.find(wishlistIconButtonClass);
-    wishlistIconButton.trigger("click");
+    wishlistIconButton.vm.$emit("click");
     expect(component.emitted()[clickEventName][0][0]).toBe(false);
   });
 });

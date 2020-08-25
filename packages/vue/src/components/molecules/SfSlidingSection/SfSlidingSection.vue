@@ -11,9 +11,12 @@
       <div class="sf-sliding-section__mobile-bar">
         <!-- @slot Use this slot to replace close icon -->
         <slot name="close" v-bind="{ closeHandler }">
-          <button class="sf-sliding-section__close" @click="closeHandler">
-            <SfIcon icon="cross" size="xxs" />
-          </button>
+          <SfButton
+            class="sf-button--pure sf-sliding-section__close"
+            @click="closeHandler"
+          >
+            <SfIcon icon="cross" size="14px" />
+          </SfButton>
         </slot>
       </div>
       <!-- @slot Use this slot to place sliding content. -->
@@ -23,31 +26,33 @@
 </template>
 <script>
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+import SfButton from "../../atoms/SfButton/SfButton.vue";
 import {
   mapMobileObserver,
-  unMapMobileObserver
+  unMapMobileObserver,
 } from "../../../utilities/mobile-observer";
+import { isClient } from "../../../utilities/helpers";
 
 export default {
   name: "SfSlidingSection",
   components: {
-    SfIcon
+    SfIcon,
+    SfButton,
   },
   data() {
     return {
       isActive: false,
       hasScrollLock: false,
       hammer: undefined,
-      hasStaticHeight: false
+      hasStaticHeight: false,
     };
   },
   computed: {
-    ...mapMobileObserver()
+    ...mapMobileObserver(),
   },
   watch: {
     isMobile(mobile) {
-      if (typeof window === "undefined" || typeof document === "undefined")
-        return;
+      if (!isClient) return;
       if (!mobile) {
         this.isActive = false;
         this.hasScrollLock = false;
@@ -58,8 +63,7 @@ export default {
       this.hammer.set({ enable: true });
     },
     isActive(active) {
-      if (typeof window === "undefined" || typeof document === "undefined")
-        return;
+      if (!isClient) return;
       if (!active) {
         this.hasStaticHeight = false;
         if (!this.isMobile) {
@@ -72,20 +76,19 @@ export default {
       this.hasScrollLock = false;
     },
     hasScrollLock(scrollLock) {
-      if (typeof window === "undefined" || typeof document === "undefined")
-        return;
+      if (!isClient) return;
       if (!scrollLock) {
         this.scrollUnlock();
         return;
       }
       this.scrollLock();
-    }
+    },
   },
   mounted() {
-    import("hammerjs").then(h => {
+    import("hammerjs").then((h) => {
       const Hammer = h.default;
       this.hammer = new Hammer(document, {
-        enable: false
+        enable: false,
       }).on("pan", this.touchHandler);
     });
   },
@@ -102,13 +105,13 @@ export default {
       window.scrollTo(0, 0);
       document.body.classList.add("sf-sliding-section--has-scroll-lock");
       window.addEventListener("touchmove", this.touchPreventDefault, {
-        passive: false
+        passive: false,
       });
     },
     scrollUnlock() {
       document.body.classList.remove("sf-sliding-section--has-scroll-lock");
       window.removeEventListener("touchmove", this.touchPreventDefault, {
-        passive: false
+        passive: false,
       });
     },
     touchHandler(event) {
@@ -129,8 +132,8 @@ export default {
     },
     closeHandler() {
       this.isActive = false;
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

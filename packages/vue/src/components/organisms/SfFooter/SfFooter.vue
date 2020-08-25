@@ -10,43 +10,46 @@ import Vue from "vue";
 import SfFooterColumn from "./_internal/SfFooterColumn.vue";
 import {
   mapMobileObserver,
-  unMapMobileObserver
+  unMapMobileObserver,
 } from "../../../utilities/mobile-observer";
-
 Vue.component("SfFooterColumn", SfFooterColumn);
 export default {
   name: "SfFooter",
   props: {
     column: {
       type: Number,
-      default: 4
+      default: 4,
     },
     multiple: {
       type: Boolean,
-      default: true
-    }
+      default: true,
+    },
+    open: {
+      type: [String, Array],
+      default: () => [],
+    },
   },
   data() {
     return {
-      open: [],
-      items: []
+      isOpen: [],
+      items: [],
     };
   },
   computed: {
     ...mapMobileObserver(),
     style() {
-      return { "--col-width": `${100 / this.column}%` };
-    }
+      return { "--_footer-column-width": `${100 / this.column}%` };
+    },
   },
   watch: {
     isMobile: {
       handler(mobile) {
         this.$nextTick(() => {
-          this.open = mobile ? [] : [...this.items];
+          this.isOpen = mobile ? [...this.open] : [...this.items];
         });
       },
-      immediate: true
-    }
+      immediate: true,
+    },
   },
   beforeDestroy() {
     unMapMobileObserver();
@@ -55,15 +58,15 @@ export default {
     toggle(payload) {
       if (!this.isMobile) return;
       if (!this.multiple) {
-        this.open = [payload];
-      } else if (this.open.includes(payload)) {
-        this.open = this.open.filter(item => item !== payload);
+        this.isOpen = [payload];
+      } else if (this.isOpen.includes(payload)) {
+        this.isOpen = this.isOpen.filter((item) => item !== payload);
       } else {
-        this.open.push(payload);
+        this.isOpen.push(payload);
       }
-      this.$emit("change", this.open);
-    }
-  }
+      this.$emit("change", this.isOpen);
+    },
+  },
 };
 </script>
 <style lang="scss">

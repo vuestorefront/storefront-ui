@@ -54,7 +54,7 @@ Example: [SfButton](https://github.com/DivanteLtd/storefront-ui/blob/master/pack
 
 ## Add unit tests
 
-Please follow [our Unit tests guidelines](coding-guidelines.md#Unit-tests)
+Please follow [our Unit tests guidelines](coding-guidelines.md#unit-tests)
 
 Some of the most common cases can be found in an [example template](https://github.com/DivanteLtd/storefront-ui/blob/master/packages/vue/scripts/component-template/component.spec.js).
 

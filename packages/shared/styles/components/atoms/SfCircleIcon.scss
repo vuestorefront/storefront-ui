@@ -1,88 +1,70 @@
 @import "../../helpers";
-
 .sf-circle-icon {
-  --button-padding: var(--spacer-big);
-  --button-border-radius: 100%;
+  --icon-color: var(--c-white);
+  --button-padding: 0;
+  --icon-size: 1.5rem;
+  --button-size: 3.25rem;
   --button-background: var(--c-primary);
-  --button-transition: box-shadow 300ms ease;
-
+  --button-border-radius: 100%;
   position: var(--circle-icon-position, relative);
-  box-shadow: var(--circle-icon-box-shadow);
+  --button-box-shadow: 0 0 0 0.3125rem var(--c-primary);
   &:hover {
-    --button-background: var(--c-primary-lighten);
-    --circle-icon-box-shadow: 0 0 0 0.3124rem rgba(var(--c-primary-base), 0.4);
+    --button-background: var(--c-primary);
+    --button-box-shadow-opacity: 0.3;
   }
   &:active {
-    --circle-icon-box-shadow: 0 0 0 0.625rem rgba(var(--c-primary-bases), 0.4);
+    --button-box-shadow: 0 0 0 0.5rem var(--c-primary);
   }
   &:disabled {
-    --circle-icon-box-shadow: 0;
+    --button-box-shadow: none;
+    --icon-color: var(--c-text-disabled);
+    &:hover {
+      --button-background: var(--c-light);
+    }
   }
-  &__badge {
-    position: absolute;
-    top: var(--circle-icon-badge-top, 0);
-    right: var(--circle-icon-badge-right, 0);
-    box-sizing: border-box;
-    min-width: var(
-      --circle-icon-badge-width,
-      var(--circle-icon-badge-size, 1.2rem)
-    );
-    min-height: var(
-      --circle-icon-badge-height,
-      var(--circle-icon-badge-size, 1.2rem)
-    );
-    padding: var(--circle-icon-badge-padding, 0 3px);
-    border-radius: var(--circle-icon-badge-border-radius, 0.625rem);
-    background: var(--circle-icon-badge-background, var(--c-danger));
-    font: var(
-      --circle-icon-badge-font,
-      font(
-        --circle-icon-bage,
-        400,
-        var(--font-size-small),
-        1.4,
-        var(--body-font-family-secondary)
-      )
-    );
-    &-enter-active {
-      animation: bounce-in 300ms;
-    }
-    &-leave-active {
-      animation: bounce-in 300ms reverse;
-    }
+  &__icon {
+    --icon-position: static;
   }
   @each $color, $map in $colors-map {
     $primary: map-get($map, "primary");
     $variant: map-get($map, "variant");
     &.color-#{$color} {
       --button-background: var(--c-#{$color});
+      --button-box-shadow: 0 0 0 0.3125rem var(--c-#{$color});
+
       &:hover {
         --button-background: var(--c-#{$color}-lighten);
-        --circle-icon-box-shadow: 0
-          0
-          0
-          0.3124rem
-          rgba(var(--c-#{$color}-base), 0.4);
+        --button-box-shadow-opacity: 0.08;
       }
       &:active {
-        --circle-icon-box-shadow: 0
-          0
-          0
-          0.625rem
-          rgba(var(--c-#{$color}-base), 0.4);
+        --button-box-shadow: 0 0 0 0.5rem var(--c-#{$color});
       }
     }
   }
-}
-
-@keyframes bounce-in {
-  0% {
-    transform: scale(0);
-  }
-  50% {
-    transform: scale(1.2);
-  }
-  100% {
-    transform: scale(1);
+  &--small {
+    --icon-size: 8px;
+    --button-size: 1.625rem;
+    --button-transition: background 150ms ease;
+    &:hover {
+      --button-background: var(--c-primary);
+      --button-box-shadow: none;
+    }
+    &:active {
+      --button-background: var(--c-primary-variant);
+    }
+    @each $color, $map in $colors-map {
+      $primary: map-get($map, "primary");
+      $variant: map-get($map, "variant");
+      &.color-#{$color} {
+        &:hover {
+          --button-background: var(--c-#{$color});
+          --button-box-shadow: none;
+        }
+        &:active {
+          --button-background: var(--c-#{$color}-variant);
+          --button-box-shadow: none;
+        }
+      }
+    }
   }
 }

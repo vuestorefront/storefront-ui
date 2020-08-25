@@ -1,10 +1,15 @@
 <template>
   <div class="sf-sidebar" :class="[staticClass, className]">
-    <SfOverlay :visible="visibleOverlay" @click="close" />
+    <SfOverlay :visible="visibleOverlay" />
     <transition :name="transitionName">
-      <aside v-if="visible" class="sf-sidebar__aside">
+      <aside
+        v-if="visible"
+        v-focus-trap
+        v-click-outside="checkPersistence"
+        class="sf-sidebar__aside"
+      >
         <!--@slot Use this slot to place content inside the modal bar.-->
-        <slot name="modal-bar">
+        <slot name="bar">
           <SfBar
             :title="title"
             class="mobile-only"
@@ -12,7 +17,19 @@
             @click:back="close"
           />
         </slot>
-        <div ref="content" class="sf-sidebar__content">
+        <!--@slot Use this slot to replace close icon.-->
+        <slot name="circle-icon" v-bind="{ close, button }">
+          <SfCircleIcon
+            v-if="button"
+            icon-size="12px"
+            aria-label="Close sidebar"
+            icon="cross"
+            class="sf-sidebar__circle-icon desktop-only"
+            @click="close"
+          />
+        </slot>
+        <div v-if="title || hasTop" class="sf-sidebar__top">
+          <!--@slot Use this slot to replace SfHeading component.-->
           <slot name="title" v-bind="{ title, subtitle, headingLevel }">
             <SfHeading
               v-if="title"
@@ -22,67 +39,77 @@
               class="sf-heading--left sf-heading--no-underline sf-sidebar__title desktop-only"
             />
           </slot>
+          <!--@slot Use this slot to add sticky top content.-->
+          <slot name="content-top" />
+        </div>
+        <div ref="content" class="sf-sidebar__content">
+          <!--@slot Use this slot to add SfSidebar content.-->
           <slot />
         </div>
-        <slot name="circle-icon" v-bind="{ close, button }">
-          <SfCircleIcon
-            v-if="button"
-            icon-size="14px"
-            icon="cross"
-            icon-color="white"
-            class="sf-sidebar__circle-icon desktop-only"
-            @click="close"
-          />
-        </slot>
+        <!--@slot Use this slot to place content to sticky bottom.-->
+        <div v-if="hasBottom" class="sf-sidebar__bottom">
+          <slot name="content-bottom" />
+        </div>
       </aside>
     </transition>
   </div>
 </template>
 <script>
+import { focusTrap } from "../../../utilities/directives/";
+import { clickOutside } from "../../../utilities/directives/";
+import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
+import { isClient } from "../../../utilities/helpers";
 import SfBar from "../../molecules/SfBar/SfBar.vue";
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import SfHeading from "../../atoms/SfHeading/SfHeading.vue";
-import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
 export default {
   name: "SfSidebar",
+  directives: { focusTrap, clickOutside },
   components: {
     SfBar,
     SfCircleIcon,
     SfOverlay,
-    SfHeading
+    SfHeading,
   },
   props: {
     title: {
       type: String,
-      default: ""
+      default: "",
     },
     subtitle: {
       type: String,
-      default: ""
+      default: "",
     },
     headingLevel: {
       type: Number,
-      default: 2
+      default: 3,
     },
     button: {
       type: Boolean,
-      default: true
+      default: true,
     },
     visible: {
       type: Boolean,
-      default: false
+      default: false,
     },
     overlay: {
       type: Boolean,
-      default: true
-    }
+      default: true,
+    },
+    /**
+     * If true clicking outside will not dismiss the sidebar
+     */
+    persistent: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
       position: "left",
       staticClass: null,
-      className: null
+      className: null,
     };
   },
   computed: {
@@ -90,14 +117,19 @@ export default {
       return this.visible && this.overlay;
     },
     transitionName() {
-      return "slide-" + this.position;
-    }
+      return "sf-slide-" + this.position;
+    },
+    hasTop() {
+      return this.$slots.hasOwnProperty("content-top");
+    },
+    hasBottom() {
+      return this.$slots.hasOwnProperty("content-bottom");
+    },
   },
   watch: {
     visible: {
       handler(value) {
-        if (typeof window === "undefined" || typeof document === "undefined")
-          return;
+        if (!isClient) return;
         if (value) {
           this.$nextTick(() => {
             disableBodyScroll(this.$refs.content);
@@ -108,8 +140,8 @@ export default {
           document.removeEventListener("keydown", this.keydownHandler);
         }
       },
-      immediate: true
-    }
+      immediate: true,
+    },
   },
   mounted() {
     this.classHandler();
@@ -120,6 +152,9 @@ export default {
   methods: {
     close() {
       this.$emit("close");
+    },
+    checkPersistence() {
+      if (!this.persistent) this.close();
     },
     keydownHandler(e) {
       if (e.key === "Escape" || e.key === "Esc" || e.keyCode === 27) {
@@ -142,8 +177,8 @@ export default {
             ? "right"
             : "left";
       }
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

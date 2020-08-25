@@ -1,201 +1,105 @@
 @import "../../helpers";
 
-.sf-select-option {
-  display: block;
-  box-sizing: border-box;
-  padding: var(
-    --select-padding,
-    0.9375rem var(--spacer) 0.625rem var(--spacer)
-  );
-  border: var(--select-option-border, 1px solid var(--c-light));
-  border-width: var(--select-option-border-width, 1px 0 0 0);
-  background: var(--select-option-background);
-  color: inherit;
-  font: var(
-    --select-font,
-    font(
-      --select,
-      300,
-      var(--font-size-big),
-      normal,
-      var(--body-font-family-primary)
-    )
-  );
-  &--is-active {
-    --select-option-background: var(--c-light);
-  }
-  @include for-desktop {
-    --select-option-border-width: 0;
-    &:hover {
-      --select-option-background: var(--c-light-variant);
-    }
-  }
-}
-
 .sf-select {
   position: relative;
   box-sizing: border-box;
   width: var(--select-width);
-  height: var(--select-height);
-  color: var(--select-color, var(--c-text));
-  outline: none;
-  cursor: default;
+  height: var(--select-height, 4.25rem);
+  padding: var(--select-padding, var(--spacer-sm) 0 var(--spacer-sm) 0);
+  color: var(--select-color, var(--c-text));      
+  cursor: default;  
   &__label {
     position: absolute;
-    top: var(--select-label-top, 50%);
-    left: var(--select-label-left, var(--spacer));
+    top: var(--select-label-top, 30%);
+    left: var(--select-label-left, 0);
+    padding: 0 0 0 4px;
+    height: 0.625rem;
     color: var(--select-label-color, inherit);
-    font: var(
-      --select-label-font,
-      font(
-        --select-label,
-        400,
-        var(--font-size-big),
-        normal,
-        var(--body-font-family-secondary)
-      )
-    );
-    transform: var(
-      --select-label-transform,
-      translate3d(0, calc(var(--select-label-top, 50%) * -1), 0)
-    );
     transition: var(
       --select-label-transition,
       top 150ms linear,
       font-size 150ms linear
     );
-    opacity: var(--select-label-opacity);
+    @include font(
+      --select-label-font,
+      var(--font-weight--normal),
+      var(--font-size--base),
+      1,
+      var(--font-family--secondary)
+    );
     &::after {
       content: var(--select-label-required);
       color: var(--select-label-color, var(--c-primary));
     }
   }
-  &__selected {
-    display: flex;
-    align-items: center;
-    box-sizing: border-box;
-    padding: var(
-      --select-padding,
-      0.9375rem var(--spacer) 0.625rem var(--spacer)
-    );
-    // I know it's look's like magic but we need it now :(
-    min-height: calc(
-      0.9375rem + 0.9375rem + var(--select-font-size, var(--font-size-big))
-    );
-    margin: var(--select-margin, 0 0 var(--spacer-small) 0);
-    border: var(--select-border, 1px solid transparent);
-    border-width: var(--select-border-width, 0 0 1px 0);
-    background: var(--select-background);
-    color: inherit;
-    font: var(
-      --select-font,
-      font(
-        --select,
-        300,
-        var(--font-size-big),
-        normal,
-        var(--body-font-family-primary)
-      )
-    );
-  }
   &__dropdown {
-    position: var(--select-dropdown-position, fixed);
-    top: var(--select-dropdown-top, auto);
-    left: 0;
-    bottom: var(--select-dropdown-bottom, 0);
-    z-index: var(--select-dropdown-z-index, 1);
-    box-sizing: border-box;
     width: 100%;
-    background: var(--select-dropdown-background, var(--c-white));
-    box-shadow: var(
-      --select-dropdown-box-shadow,
-      0 8px 11px rgba(0, 0, 0, 0.1)
-    );
-  }
-  &__options {
+    height: 1.625rem; 
+    margin: 0 0 var(--spacer-2xs) 0;       
     overflow: auto;
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    &::-webkit-scrollbar {
-      width: 0;
-    }
+    box-shadow: none;  
+    color: var(--select-dropdown-color, var(--c-secondary-variant));
+    background: var(--c-white); 
+    outline: none;       
+    @include border(--select-dropdown-border, 0 0 0 0, solid, var(--c-secondary));
   }
-  &__error-message {
+  &__option {           
+    @include background(
+      --select-option-background,
+      var(--c-white)
+    ); 
+    @include font(
+      --select-option-font,
+      var(--font-weight--normal),
+      var(--font-size--base),
+      1,
+      var(--font-family--secondary)
+    ); 
+  }
+  .sf-select__dropdown:active .sf-select__placeholder {
+    display: var(--select-placeholder-display, none);
+  }
+  .sf-select__dropdown:active {
+    --select-label-color: var(--c-text-muted);
+    --select-dropdown-border-color: var(--c-primary);
+    --select-dropdown-color: var(--c-text-muted);
+  }
+  &__label .sf-select__dropdown:active {
+    top: 0;
+  }  
+  &::-ms-expand {
+    display: none;
+  }
+  &__error-message {    
     color: var(--select-error-message-color, var(--c-danger));
-    font: var(
-      --select-error-message-font,
-      font(
-        --select-error-message,
-        400,
-        var(--font-size-small),
-        1.6,
-        var(--body-font-family-secondary)
-      )
+    min-height: var(--select-error-message-height, calc(var(--font-size--xs) * 1.2));
+    @include font(
+      --input-error-message-font,
+      var(--font-weight--medium),
+      var(--font-size--xs),
+      1.2,
+      var(--font-family--secondary)
     );
   }
-  &__cancel {
-    --button-background: var(--c-light);
-    --button-color: var(--c-dark-variant);
-    &:hover {
-      --button-background: var(--c-light);
-    }
+  &--underlined {
+    --select-dropdown-border-width: 0 0 1px 0;
+    --select-border-width: 0 0 1px 0;
+    --select-border-color: var(--c-light);    
   }
-  &--is-active,
   &--is-selected {
     --select-label-top: 0;
-    --select-label-font-size: var(--font-size-extra-small);
+    --select-label-font-size: var(--font-size--xs);
+    --select-dropdown-color: var(--c-secondary-variant);
   }
-  &--is-active {
-    --select-label-color: var(--c-primary);
+  &--is-invalid {
+    --select-dropdown-border-color: var(--c-danger);
+  }
+  &--is-disabled {
+    --select-dropdown-color: var(--c-text-disabled);
+    --select-dropdown-border-color: var(--c-text-disabled);
+    --select-label-color: var(--c-text-disabled);
   }
   &--is-required {
     --select-label-required: " *";
-  }
-  &--underlined {
-    --select-border: 1px solid var(--c-light);
-  }
-  &--bordered {
-    --select-padding: 0.9375rem var(--spacer-big) 0.625rem var(--spacer-big);
-    --select-label-left: var(--spacer-big);
-    --select-border: 1px solid var(--c-light);
-    --select-border-width: 1px 1px 1px 1px;
-    &.sf-select--is-active {
-      --select-label-top: 50%;
-      --select-label-font-size: var(--select-font-size);
-    }
-    &.sf-select--is-selected {
-      --select-label-opacity: 0;
-    }
-  }
-  &-enter-active {
-    animation: var(--select-animation-enter, ssmobile 150ms);
-  }
-  &-leave-active {
-    animation: var(--select-animation-leave, ssmobile 150ms revers);
-  }
-  @include for-desktop {
-    --select-dropdown-position: absolute;
-    --select-dropdown-top: 100%;
-    --select-dropdown-bottom: auto;
-    --select-animation-enter: ssdesktop 150ms;
-    --select-animation-leave: ssdesktop 150ms revers;
-  }
-}
-
-@keyframes ssdesktop {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@keyframes ssmobile {
-  0% {
-    transform: translate(0, 100%);
-  }
-  100% {
-    transform: translate(0, 0);
   }
 }

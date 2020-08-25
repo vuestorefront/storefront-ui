@@ -3,7 +3,7 @@ import SfRating from "./SfRating.vue";
 describe("SfRating.vue", () => {
   it("renders a component", () => {
     const component = shallowMount(SfRating);
-    expect(component.contains(".sf-rating")).toBe(true);
+    expect(component.classes("sf-rating")).toBe(true);
   });
   it("render multiple stars when max is increased", () => {
     const score = 4;
@@ -11,8 +11,8 @@ describe("SfRating.vue", () => {
     const component = shallowMount(SfRating, {
       propsData: {
         score,
-        max
-      }
+        max,
+      },
     });
     expect(component.findAll(".sf-rating__icon--negative").length).toBe(
       max - score
@@ -24,11 +24,11 @@ describe("SfRating.vue", () => {
     const component = shallowMount(SfRating, {
       propsData: {
         score,
-        max
+        max,
       },
       slots: {
-        "icon-positive": '<div class="sf-rating__icon-clock"></div>'
-      }
+        "icon-positive": '<div class="sf-rating__icon-clock"></div>',
+      },
     });
     expect(component.findAll(".sf-rating__icon-clock").length).toBe(score);
   });
@@ -38,11 +38,11 @@ describe("SfRating.vue", () => {
     const component = shallowMount(SfRating, {
       propsData: {
         score,
-        max
+        max,
       },
       slots: {
-        "icon-negative": '<div class="sf-rating__icon-close"></div>'
-      }
+        "icon-negative": '<div class="sf-rating__icon-close"></div>',
+      },
     });
     expect(component.findAll(".sf-rating__icon-close").length).toBe(
       max - score

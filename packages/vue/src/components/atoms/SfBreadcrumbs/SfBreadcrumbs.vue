@@ -4,21 +4,25 @@
       <li
         v-for="(breadcrumb, i) in breadcrumbs"
         :key="i"
-        class="sf-breadcrumbs__item"
+        class="sf-breadcrumbs__list-item"
         :aria-current="last === i && 'page'"
       >
         <template v-if="last !== i">
           <!-- @slot Custom markup for previous pages (binds `breadcrumb` object) -->
-          <slot name="link" v-bind="{ breadcrumb, go }">
-            <a class="sf-breadcrumbs__link" @click="go(breadcrumb)">{{
-              breadcrumb.text
-            }}</a>
+          <slot name="link" v-bind="{ breadcrumb }">
+            <SfLink :link="breadcrumb.link" class="sf-breadcrumbs__breadcrumb"
+              >{{ breadcrumb.text }}
+            </SfLink>
           </slot>
         </template>
         <template v-else>
           <!-- @slot Custom markup for current page (binds `breadcrumb` object) -->
           <slot name="current" v-bind="{ breadcrumb }">
-            <span class="sf-breadcrumbs__current">{{ breadcrumb.text }}</span>
+            <SfLink
+              :link="breadcrumb.link"
+              class="sf-breadcrumbs__breadcrumb sf-breadcrumbs__breadcrumb--current"
+              >{{ breadcrumb.text }}</SfLink
+            >
           </slot>
         </template>
       </li>
@@ -26,31 +30,26 @@
   </nav>
 </template>
 <script>
+import SfLink from "../SfLink/SfLink";
 export default {
   name: "SfBreadcrumbs",
+  components: {
+    SfLink,
+  },
   props: {
     /**
      * List of breadcrumbs (array of nested objects: `[ { text, route } ]`)
      */
     breadcrumbs: {
       type: Array,
-      default: () => []
-    }
+      default: () => [],
+    },
   },
   computed: {
     last() {
       return this.breadcrumbs.length - 1;
-    }
+    },
   },
-  methods: {
-    go(breadcrumb) {
-      /**
-       * Event for breadcrumb click, passes `breadcrumb.route` as value
-       * @type {Event}
-       */
-      this.$emit("click", breadcrumb.route);
-    }
-  }
 };
 </script>
 <style lang="scss">

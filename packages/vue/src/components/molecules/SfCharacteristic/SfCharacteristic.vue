@@ -3,7 +3,12 @@
     <!--@slot Icon. Slot content will replace SfIcon atom component-->
     <slot name="icon" v-bind="{ colorIcon, sizeIcon, icon }">
       <div class="sf-characteristic__icon">
-        <SfIcon :color="colorIcon" :size="sizeIcon" :icon="icon" />
+        <SfIcon
+          aria-hidden="true"
+          :color="colorIcon"
+          :size="sizeIcon"
+          :icon="icon"
+        />
       </div>
     </slot>
     <!--@slot Characteristic text. Slot content will replace default title and description text-->
@@ -26,35 +31,35 @@ import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 export default {
   name: "SfCharacteristic",
   components: {
-    SfIcon
+    SfIcon,
   },
   props: {
     /** One of predefined SfIcon colors, default is black.  */
     colorIcon: {
       type: String,
-      default: ""
+      default: "",
     },
     /** One of predefined SfIcon sizes.  */
     sizeIcon: {
       type: String,
-      default: ""
+      default: "",
     },
     /** Svg file iconPath  */
     icon: {
-      type: String,
-      default: ""
+      type: [String, Array],
+      default: "",
     },
     /** Characteristic title  */
     title: {
       type: String,
-      default: ""
+      default: "",
     },
     /** Characteristic description  */
     description: {
       type: String,
-      default: ""
-    }
-  }
+      default: "",
+    },
+  },
 };
 </script>
 <style lang="scss">

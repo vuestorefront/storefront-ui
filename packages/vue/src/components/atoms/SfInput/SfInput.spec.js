@@ -3,14 +3,14 @@ import SfInput from "./SfInput.vue";
 describe("SfInput.vue", () => {
   it("renders a input", () => {
     const component = shallowMount(SfInput);
-    expect(component.contains(".sf-input")).toBe(true);
+    expect(component.classes("sf-input")).toBe(true);
   });
   it("renders label text when passed", () => {
     const label = "HelloWorld";
     const component = shallowMount(SfInput, {
       propsData: {
-        label
-      }
+        label,
+      },
     });
     expect(component.find(".sf-input__label").text()).toBe(label);
   });
@@ -18,11 +18,11 @@ describe("SfInput.vue", () => {
     const errorMessage = "This field is required";
     const component = shallowMount(SfInput, {
       slots: {
-        "error-message": errorMessage
+        "error-message": errorMessage,
       },
       propsData: {
-        valid: false
-      }
+        valid: false,
+      },
     });
     expect(component.find(".sf-input__error-message").text()).toMatch(
       errorMessage
