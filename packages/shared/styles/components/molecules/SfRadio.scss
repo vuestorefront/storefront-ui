@@ -10,9 +10,9 @@
     @include font(
       --radio-label-font,
       var(--font-weight--normal),
-      var(--h4-font-size),
+      var(--font-size--base),
       normal,
-      var(--font-family--secondary)
+      var(--font-family--primary)
     );
     color: var(--radio-label-color);
   }
@@ -74,9 +74,9 @@
     @include font(
       --radio-details-font,
       var(--font-weight--light),
-      var(--font-size--xs),
+      var(--font-size--sm),
       1.2,
-      var(--font-family--secondary)
+      var(--font-family--primary)
     );
   }
   &__description {
@@ -84,7 +84,7 @@
     @include font(
       --radio-description-font,
       var(--font-weight--light),
-      var(--font-size--xs),
+      var(--font-size--sm),
       1.6,
       var(--font-family--primary)
     );

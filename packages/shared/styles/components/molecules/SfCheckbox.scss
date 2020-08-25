@@ -38,9 +38,9 @@
     @include font(
       --checkbox-font,
       var(--font-weight--normal),
-      var(--font-size--sm),
+      var(--font-size--base),
       1.6,
-      var(--font-family--secondary)
+      var(--font-family--primary)
     );
     transition: color 150ms linear;
     &:hover {
