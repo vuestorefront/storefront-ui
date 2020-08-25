@@ -26,7 +26,7 @@ storiesOf("Molecules|Review", module)
         default: number("rating", 4, {}, "Props"),
       },
       charLimit: {
-        default: number("charLimit", 231, {}, "Props"),
+        default: number("charLimit", 200, {}, "Props"),
       },
       readMoreText: {
         default: text("readMoreText", "Read more", "Props"),
