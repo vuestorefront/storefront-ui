@@ -35,13 +35,24 @@
         label="Enter promo code"
         class="sf-input--filled promo-code__input"
       />
-      <SfCircleIcon
-        aria-label="Send promo code"
-        class="promo-code__circle-icon"
-        icon="check"
+      <SfButton class="promo-code__button" @click="$emit('click:apply')"
+        >Apply</SfButton
+      >
+    </div>
+
+    <div class="characteristics">
+      <SfCharacteristic
+        v-for="characteristic in characteristics"
+        :key="characteristic.title"
+        :title="characteristic.title"
+        :description="characteristic.description"
+        :icon="characteristic.icon"
+        size-icon="32px"
+        color-icon="green-primary"
+        class="characteristics__item"
       />
     </div>
-    <div class="actions">
+    <div class="actions smartphone-only">
       <SfButton
         class="sf-button--full-width actions__button"
         @click="$emit('click:next')"
@@ -53,25 +64,12 @@
         >Go back</SfButton
       >
     </div>
-    <div class="characteristics">
-      <SfCharacteristic
-        v-for="characteristic in characteristics"
-        :key="characteristic.title"
-        :title="characteristic.title"
-        :description="characteristic.description"
-        :icon="characteristic.icon"
-        size-icon="20px"
-        color-icon="green-primary"
-        class="characteristics__item"
-      />
-    </div>
   </div>
 </template>
 <script>
 import {
   SfHeading,
   SfButton,
-  SfCircleIcon,
   SfDivider,
   SfProperty,
   SfCharacteristic,
@@ -83,7 +81,6 @@ export default {
     SfHeading,
     SfButton,
     SfDivider,
-    SfCircleIcon,
     SfProperty,
     SfCharacteristic,
     SfInput,
@@ -173,7 +170,7 @@ export default {
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
 .title {
-  --heading-title-margin: 0 0 var(--spacer-2xl) 0;
+  --heading-title-margin: 0 0 var(--spacer-xl) 0;
 }
 .property {
   margin: var(--spacer-base) 0;
@@ -184,17 +181,15 @@ export default {
 }
 .promo-code {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: flex-start;
   padding: var(--spacer-lg) 0 var(--spacer-base) 0;
-  &__circle-icon {
-    --button-size: 2rem;
-    --icon-size: 0.6875rem;
-  }
   &__input {
     --input-background: var(--c-white);
     flex: 1;
-    margin: 0 var(--spacer-lg) 0 0;
+  }
+  &__button {
+    --button-height: 30px;
   }
 }
 .characteristics {
@@ -204,11 +199,10 @@ export default {
   }
 }
 .actions {
+  background: var(--c-white);
+  width: 100%;
   &__button {
     margin: var(--spacer-sm) 0;
-    &--secondary {
-      text-align: left;
-    }
   }
 }
 </style>

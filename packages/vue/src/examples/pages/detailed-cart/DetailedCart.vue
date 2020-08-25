@@ -1,5 +1,9 @@
 <template>
   <div id="detailed-cart">
+    <SfBreadcrumbs
+      class="breadcrumbs desktop-only"
+      :breadcrumbs="breadcrumbs"
+    />
     <div class="detailed-cart">
       <div v-if="totalItems" class="detailed-cart__aside">
         <OrderSummary
@@ -9,10 +13,6 @@
         />
       </div>
       <div class="detailed-cart__main">
-        <SfBreadcrumbs
-          class="breadcrumbs desktop-only"
-          :breadcrumbs="breadcrumbs"
-        />
         <transition name="sf-fade" mode="out-in">
           <div
             v-if="totalItems"
@@ -129,7 +129,7 @@ export default {
       ],
       products: [
         {
-          title: "Cream Beach Bag",
+          title: "Cream Beach Bag Modern Style",
           id: "CBB1",
           image: "assets/storybook/Home/productA.jpg",
           price: { regular: "50.00" },
@@ -140,10 +140,10 @@ export default {
           qty: "1",
         },
         {
-          title: "Cream Beach Bag",
+          title: "Cream Beach Bag Modern Style",
           id: "CBB2",
           image: "assets/storybook/Home/productB.jpg",
-          price: { regular: "50.00", special: "20.05" },
+          price: { regular: "50.00" },
           configuration: [
             { name: "Size", value: "XS" },
             { name: "Color", value: "White" },
@@ -151,10 +151,10 @@ export default {
           qty: "2",
         },
         {
-          title: "Cream Beach Bag",
+          title: "Cream Beach Bag Modern Style",
           id: "CBB3",
           image: "assets/storybook/Home/productC.jpg",
-          price: { regular: "50.00", special: "20.50" },
+          price: { regular: "50.00" },
           configuration: [
             { name: "Size", value: "XS" },
             { name: "Color", value: "White" },
@@ -251,7 +251,7 @@ export default {
     box-sizing: border-box;
     width: 100%;
     background: var(--c-light);
-    padding: var(--spacer-xl);
+    padding: var(--spacer-base) var(--spacer-sm);
   }
   @include for-desktop {
     display: flex;
@@ -262,7 +262,7 @@ export default {
       flex: 0 0 26.8125rem;
       order: 1;
       margin: 0 0 0 var(--spacer-xl);
-      box-shadow: 0px 4px 11px rgba(var(--c-dark-base), 0.1);
+      padding: var(--spacer-xl);
     }
   }
 }
@@ -271,7 +271,11 @@ export default {
   --collected-product-actions-display: flex;
   border: 1px solid var(--c-light);
   border-width: 1px 0 0 0;
+  &:first-of-type {
+    border-top: none;
+  }
   &__properties {
+    --property-value-font-weight: var(--font-weight--normal);
     margin: var(--spacer-sm) 0 0 0;
     display: flex;
     flex-direction: column;
@@ -281,9 +285,6 @@ export default {
   }
   @include for-mobile {
     --collected-product-remove-bottom: var(--spacer-sm);
-    &:first-of-type {
-      border: none;
-    }
   }
   @include for-desktop {
     --collected-product-padding: var(--spacer-lg) 0;

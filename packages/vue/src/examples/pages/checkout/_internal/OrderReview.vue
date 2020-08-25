@@ -63,15 +63,17 @@
       </SfButton>
     </div>
     <p class="content">{{ paymentMethod.label }}</p>
-    <SfButton class="sf-button--full-width actions__button"
-      >Place my order
-    </SfButton>
-    <SfButton
-      class="sf-button--full-width sf-button--text color-secondary actions__button actions__button--secondary"
-      @click="$emit('click:back')"
-    >
-      Go back
-    </SfButton>
+    <div class="highlighted promo-code">
+      <SfInput
+        v-model="promoCode"
+        name="promoCode"
+        label="Enter promo code"
+        class="sf-input--filled promo-code__input"
+      />
+      <SfButton class="promo-code__button" @click="$emit('click:apply')"
+        >Apply</SfButton
+      >
+    </div>
     <div class="characteristics">
       <SfCharacteristic
         v-for="characteristic in characteristics"
@@ -86,13 +88,19 @@
   </div>
 </template>
 <script>
-import { SfHeading, SfButton, SfCharacteristic } from "@storefront-ui/vue";
+import {
+  SfHeading,
+  SfButton,
+  SfCharacteristic,
+  SfInput,
+} from "@storefront-ui/vue";
 export default {
   name: "OrderReview",
   components: {
     SfHeading,
     SfButton,
     SfCharacteristic,
+    SfInput,
   },
   props: {
     order: {
@@ -151,6 +159,21 @@ export default {
     h3 {
       font: inherit;
     }
+  }
+}
+.promo-code {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: var(--spacer-lg) 0 var(--spacer-base) 0;
+  margin-top: var(--spacer-lg);
+  border-top: var(--c-white) solid 1px;
+  &__input {
+    --input-background: var(--c-white);
+    flex: 1;
+  }
+  &__button {
+    --button-height: 30px;
   }
 }
 .characteristics {

@@ -40,7 +40,7 @@
         >Go back shopping</SfButton
       >
       <div class="actions__email">
-        <SfCharacteristic icon="mail" size-icon="20px" color-icon="secondary">
+        <SfCharacteristic icon="mail" size-icon="15px" color-icon="#0468DB">
           <template #text>
             <SfButton
               class="sf-button--text actions__button actions__button--secondary"
@@ -155,9 +155,10 @@ export default {
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
 .title {
+  --heading-title-font-weight: var(--font-weight--bold);
+  --heading-title-font-size: var(--h4-font-size);
   @include for-desktop {
     --heading-title-margin: 0 0 var(--spacer-2xl) 0;
-    --heading-title-font-size: var(--h3-font-size);
     --heading-title-font-weight: var(--font-weight--semibold);
   }
 }
@@ -191,13 +192,13 @@ export default {
   &__button {
     margin: var(--spacer-sm) 0;
     &--secondary {
-      margin: 0 0 0 var(--spacer-xs);
+      margin: 0;
       text-align: left;
     }
   }
 }
 .info {
-  margin: var(--spacer-2xl) 0;
+  margin: var(--spacer-lg) 0 var(--spacer-xl);
   color: var(--c-link);
   font-family: var(--font-family--primary);
   font-size: var(--font-size--base);

@@ -1,8 +1,8 @@
 <template>
   <div id="confirm-order">
     <SfHeading
-      title="4. Order details"
-      :level="2"
+      title="Order details"
+      :level="3"
       class="sf-heading--left sf-heading--no-underline title"
     />
     <SfAccordion class="accordion smartphone-only">
@@ -211,57 +211,44 @@
         class="characteristics__item"
       />
     </div>
-    <div class="actions smartphone-only">
+    <div class="totals desktop-only">
+      <SfProperty
+        name="Subtotal"
+        :value="subtotal"
+        class="sf-property--full-width property__subtotal"
+      >
+      </SfProperty>
+      <SfProperty
+        name="Shipping"
+        :value="shippingMethod.price"
+        class="sf-property--full-width property"
+      >
+      </SfProperty>
+      <SfDivider class="divider" />
+      <SfProperty
+        name="Total price"
+        :value="total"
+        class="sf-property--full-width sf-property--large property__total"
+      >
+      </SfProperty>
+      <SfCheckbox v-model="terms" name="terms" class="totals__terms">
+        <template #label>
+          <div class="sf-checkbox__label">
+            I agree to <a href="#">Terms and conditions</a>
+          </div>
+        </template>
+      </SfCheckbox>
+    </div>
+    <div class="actions">
       <SfButton class="sf-button--full-width actions__button"
         >Place my order
       </SfButton>
       <SfButton
-        class="sf-button--full-width sf-button--text color-secondary actions__button actions__button--secondary"
+        class="sf-button--full-width sf-button--underlined color-secondary actions__button actions__button--secondary smartphone-only"
         @click="$emit('click:back')"
       >
         Go back
       </SfButton>
-    </div>
-    <div class="totals desktop-only">
-      <div class="totals__element">
-        <SfCheckbox v-model="terms" name="terms" class="totals__terms">
-          <template #label>
-            <div class="sf-checkbox__label">
-              I agree to <a href="#">Terms and conditions</a>
-            </div>
-          </template>
-        </SfCheckbox>
-        <div class="promo-code">
-          <SfInput
-            v-model="promoCode"
-            name="promoCode"
-            placeholder="Enter promo code"
-            class="sf-input--filled promo-code__input"
-          />
-          <SfCircleIcon class="promo-code__circle-icon" icon="check" />
-        </div>
-      </div>
-      <div class="totals__element">
-        <SfProperty
-          name="Subtotal"
-          :value="subtotal"
-          class="sf-property--full-width property"
-        >
-        </SfProperty>
-        <SfProperty
-          name="Shipping"
-          :value="shippingMethod.price"
-          class="sf-property--full-width property"
-        >
-        </SfProperty>
-        <SfDivider class="divider" />
-        <SfProperty
-          name="Total price"
-          :value="total"
-          class="sf-property--full-width sf-property--large property__total"
-        >
-        </SfProperty>
-      </div>
     </div>
   </div>
 </template>
@@ -270,13 +257,11 @@ import {
   SfHeading,
   SfTable,
   SfCheckbox,
-  SfCircleIcon,
   SfCharacteristic,
   SfCollectedProduct,
   SfDivider,
   SfButton,
   SfImage,
-  SfInput,
   SfPrice,
   SfProperty,
   SfAccordion,
@@ -287,13 +272,11 @@ export default {
     SfHeading,
     SfTable,
     SfCheckbox,
-    SfCircleIcon,
     SfCharacteristic,
     SfCollectedProduct,
     SfDivider,
     SfButton,
     SfImage,
-    SfInput,
     SfPrice,
     SfProperty,
     SfAccordion,
@@ -374,7 +357,7 @@ export default {
   --heading-padding: var(--spacer-base) 0;
   @include for-desktop {
     --heading-title-font-size: var(--h3-font-size);
-    --heading-padding: var(--spacer-2xl) 0 var(--spacer-base) 0;
+    --heading-padding: var(--spacer-xl) 0;
   }
 }
 .table {
@@ -409,13 +392,11 @@ export default {
   flex-direction: column;
 }
 .totals {
-  display: flex;
-  justify-content: space-between;
-  &__element {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    flex: 0 0 18.75rem;
+  &__terms {
+    margin-top: var(--spacer-xl);
+  }
+  &__element:first-child {
+    margin-bottom: var(--spacer-base);
   }
 }
 .promo-code {
@@ -450,7 +431,7 @@ export default {
   }
 }
 .divider {
-  --divider-border-color: var(--c-white);
+  --divider-border-color: var(--c-primary);
   --divider-width: 100%;
   --divider-margin: 0 0 var(--spacer-base) 0;
 }
@@ -518,11 +499,12 @@ export default {
 }
 .actions {
   &__button {
-    &:first-child {
-      --button-height: 4.0625rem;
-    }
+    margin-top: var(--spacer-xl);
     &--secondary {
       margin: var(--spacer-base) 0;
+    }
+    @include for-desktop {
+      --button-width: 25rem;
     }
   }
 }

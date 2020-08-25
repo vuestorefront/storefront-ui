@@ -8,7 +8,7 @@
     >
       <template #content-top>
         <SfProperty
-          class="sf-property--large desktop-only"
+          class="sf-property--large cart-summary desktop-only"
           name="Total items"
           :value="totalItems"
         />
@@ -194,6 +194,10 @@ export default {
     }
   }
 }
+.cart-summary {
+  margin-top: var(--spacer-xl);
+}
+
 .my-cart {
   flex: 1;
   display: flex;

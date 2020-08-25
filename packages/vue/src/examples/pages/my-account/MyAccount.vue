@@ -27,7 +27,7 @@
         <SfContentPage title="Loyalty Card">
           <LoyaltyCard />
         </SfContentPage>
-        <SfContentPage title="My newsletter">
+        <SfContentPage title="Newsletter">
           <MyNewsletter />
         </SfContentPage>
       </SfContentCategory>

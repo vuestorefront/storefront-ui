@@ -15,8 +15,8 @@
           />
           <SfIcon
             icon="drag"
-            size="xl"
-            color="gray-secondary"
+            size="42px"
+            color="#E0E0E1"
             class="product__drag-icon smartphone-only"
           />
         </div>
@@ -330,17 +330,21 @@ export default {
     display: flex;
   }
   &__info {
-    margin: var(--spacer-sm) auto var(--spacer-xs);
+    margin: var(--spacer-xs) auto;
     @include for-desktop {
       max-width: 32.625rem;
       margin: 0 0 0 7.5rem;
     }
   }
   &__header {
+    --heading-title-color: var(--c-link);
+    --heading-title-font-weight: var(--font-weight--bold);
+    --heading-padding: 0;
     margin: 0 var(--spacer-sm);
     display: flex;
     justify-content: space-between;
     @include for-desktop {
+      --heading-title-font-weight: var(--font-weight--semibold);
       margin: 0 auto;
     }
   }
@@ -348,7 +352,7 @@ export default {
     animation: moveicon 1s ease-in-out infinite;
   }
   &__price-and-rating {
-    margin: var(--spacer-xs) var(--spacer-sm) var(--spacer-base);
+    margin: 0 var(--spacer-sm) var(--spacer-base);
     align-items: center;
     @include for-desktop {
       display: flex;
@@ -442,12 +446,13 @@ export default {
     @include font(
       --additional-info-font,
       var(--font-weight--light),
-      var(--font-size--base),
+      var(--font-size--sm),
       1.6,
       var(--font-family--primary)
     );
     &__title {
       font-weight: var(--font-weight--normal);
+      font-size: var(--font-size--base);
       margin: 0 0 var(--spacer-sm);
       &:not(:first-child) {
         margin-top: 3.5rem;

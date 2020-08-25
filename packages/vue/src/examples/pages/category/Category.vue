@@ -15,9 +15,9 @@
           @click="isFilterSidebarOpen = true"
         >
           <SfIcon
-            size="18px"
-            color="#BEBFC4"
-            icon="filter"
+            size="24px"
+            color="#43464E"
+            icon="filter2"
             class="navbar__filters-icon"
           />
           Filters
@@ -43,7 +43,7 @@
           <span class="navbar__view-label desktop-only">View</span>
           <SfIcon
             class="navbar__view-icon"
-            :color="isGridView ? '#1D1F22' : '#BEBFC4'"
+            :color="isGridView ? '#43464E' : '#8D8F9A'"
             icon="tiles"
             size="12px"
             role="button"
@@ -53,7 +53,7 @@
           />
           <SfIcon
             class="navbar__view-icon"
-            :color="!isGridView ? '#1D1F22' : '#BEBFC4'"
+            :color="!isGridView ? '#43464E' : '#8D8F9A'"
             icon="list"
             size="12px"
             role="button"
@@ -66,7 +66,7 @@
     </div>
     <div class="main section">
       <div class="sidebar desktop-only">
-        <SfAccordion :open="sidebarAccordion[0].header" :show-chevron="false">
+        <SfAccordion :open="sidebarAccordion[0].header" :show-chevron="true">
           <SfAccordionItem
             v-for="(accordion, i) in sidebarAccordion"
             :key="i"
@@ -132,7 +132,33 @@
             :is-on-wishlist="product.isOnWishlist"
             class="products__product-card-horizontal"
             @click:wishlist="toggleWishlist(i)"
-          />
+          >
+            <template #configuration>
+              <SfProperty
+                class="desktop-only"
+                name="Size"
+                value="XS"
+                style="margin: 0 0 1rem 0;"
+              />
+              <SfProperty class="desktop-only" name="Color" value="white" />
+            </template>
+            <template #actions>
+              <SfButton
+                class="sf-button--text desktop-only"
+                style="margin: 0 0 1rem auto; display: block;"
+                @click="$emit('click:add-to-wishlist')"
+              >
+                Save for later
+              </SfButton>
+              <SfButton
+                class="sf-button--text desktop-only"
+                style="margin: 0 0 0 auto; display: block;"
+                @click="$emit('click:add-to-compare')"
+              >
+                Add to compare
+              </SfButton>
+            </template>
+          </SfProductCardHorizontal>
         </transition-group>
         <SfPagination
           class="products__pagination desktop-only"
@@ -316,6 +342,7 @@ import {
   SfComponentSelect,
   SfBreadcrumbs,
   SfColor,
+  SfProperty,
 } from "@storefront-ui/vue";
 export default {
   components: {
@@ -333,6 +360,7 @@ export default {
     SfComponentSelect,
     SfBreadcrumbs,
     SfColor,
+    SfProperty,
   },
   data() {
     return {
@@ -399,7 +427,7 @@ export default {
           description:
             "Find stunning women cocktail and party dresses. Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands.",
           image: "assets/storybook/Home/productA.jpg",
-          price: { regular: "$50.00", special: "$20.00" },
+          price: { regular: "$50.00" },
           rating: { max: 5, score: 5 },
           reviewsCount: 8,
           isOnWishlist: true,
@@ -646,15 +674,19 @@ export default {
     }
   }
   &__title {
-    --heading-title-font-weight: var(--font-weight--light);
+    --heading-title-font-weight: var(--font-weight--semibold);
     --heading-title-font-size: var(--font-size--xl);
   }
   &__filters-icon {
-    margin: 0 var(--spacer-sm) 0 0;
+    margin: 0 var(--spacer-xs) 0 0;
   }
   &__filters-button {
     display: flex;
     align-items: center;
+    --button-font-size: var(--font-size--base);
+    --button-text-decoration: none;
+    --button-color: var(--c-link);
+    --button-font-weight: var(--font-weight--normal);
     @include for-mobile {
       order: 1;
     }
@@ -671,7 +703,7 @@ export default {
   &__label {
     font-family: var(--font-family--secondary);
     font-weight: var(--font-weight--normal);
-    color: var(--c-text-muted);
+    color: var(--c-link);
     margin: 0 var(--spacer-2xs) 0 0;
   }
   &__select {
@@ -711,9 +743,10 @@ export default {
     }
     &-label {
       margin: 0 var(--spacer-sm) 0 0;
-      font: var(--font-weight--medium) var(--font-size--xs) / 1.6
+      font: var(--font-weight--normal) var(--font-size--base) / 1.6
         var(--font-family--secondary);
-      text-decoration: underline;
+      text-decoration: none;
+      color: var(--c-link);
     }
   }
 }
@@ -778,7 +811,7 @@ export default {
     margin: var(--spacer-sm) 0 0 var(--spacer-sm);
     &__pagination {
       display: flex;
-      justify-content: center;
+      justify-content: flex-start;
       margin: var(--spacer-xl) 0 0 0;
     }
     &__product-card-horizontal {
@@ -799,6 +832,9 @@ export default {
     &:first-child {
       margin: calc(var(--spacer-xl) + var(--spacer-base)) 0 var(--spacer-xs) 0;
     }
+  }
+  &__colors {
+    display: flex;
   }
   &__color {
     margin: var(--spacer-xs) var(--spacer-xs) var(--spacer-xs) 0;
