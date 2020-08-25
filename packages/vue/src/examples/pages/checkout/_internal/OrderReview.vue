@@ -157,7 +157,9 @@ export default {
     align-items: center;
     justify-content: space-between;
     h3 {
-      font: inherit;
+      font-family: var(--font-family--secondary);
+      font-weight: var(--font-weight--normal);
+      font-size: var(--font-size--base);
     }
   }
 }

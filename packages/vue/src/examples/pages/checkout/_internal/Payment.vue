@@ -406,7 +406,7 @@ export default {
   --heading-padding: var(--spacer-base) 0;
   @include for-desktop {
     --heading-title-font-size: var(--h3-font-size);
-    --heading-padding: 0 var(--spacer-xl) 0;
+    --heading-padding: var(--spacer-xl) 0;
   }
 }
 .form {
