@@ -57,20 +57,13 @@
     );
   }
   &__read-more {
-    margin: var(--review-read-more-margin);
-    --button-padding: var(--spacer-xs) 0 0;
-    --button-font-family: var(--font-family--primary);
-    --button-font-weight: var(--font-weight--normal);
+    margin: var(--review-read-more-margin, 0 0 0 var(--spacer-xs));
+    --button-padding: 0;
+    --button-font-weight: var(--font-weight--medium);
     --button-font-size: var(--font-size--sm);
-    vertical-align: middle;
   }
   @include for-desktop {
     --review-max-width: 33.1875rem;
-    &__read-more {
-    --button-padding: 0;
-    --review-read-more-margin: 0 0 0 8px;
-    }
     --review-message-display: inline;
-    --review-read-more-margin: 0 0 0 var(--spacer-xs);
   }
 }
