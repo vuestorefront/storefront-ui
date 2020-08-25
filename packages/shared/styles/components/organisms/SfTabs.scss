@@ -24,6 +24,7 @@
     &--active {
       --tabs-title-border-width: 0;
       --tabs-title-color: var(--c-primary);
+      --chevron-color: var(--c-primary);
       & + .sf-tabs__content {
         --tabs-content-border-width: var(
           --tabs-content-border-width,
