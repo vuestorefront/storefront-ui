@@ -129,8 +129,7 @@ undefined | --c-text-disabled: var(--_c-gray-accent) | --c-text-disabled: var(--
 
 Component | Before | v0.8.0
 ------------ | ------------ | ------------
-SfSearchBar| - | iconSize
-SfSearchBar| - | iconColor  
+SfSearchBar| - | icon (Object to define icon look. Should have values for color and size)
 SfImage| - | srcset (String, Array) 
 SfAccordion | open (String) | open ("all") 
 SfSearchBar | - | icon (Object) 
