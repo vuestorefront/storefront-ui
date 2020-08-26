@@ -28,9 +28,9 @@
     --badge-padding: 2px var(--spacer-2xs);
     --badge-border-radius: calc(var(--badge-line-height) * 1rem);
     --badge-background: var(--c-danger);
-    --badge-font-size: var(--font-2xs);
+    --badge-font-size: var(--font-size--xs);
     --badge-line-height: 1;
-    --badge-font-family: var(--font-family-primary);
+    --badge-font-family: var(--font-family--primary);
   }
   @each $color, $map in $colors-map {
     $primary: map-get($map, "primary");
