@@ -8,7 +8,7 @@
     --input-height,
     calc(
       var(--spacer-base) + var(--spacer-2xs) +
-      var(--input-label-font-size, var(--font-lg))
+      var(--input-label-font-size, var(--font-size--lg))
     )
   );
   &__label {
@@ -64,7 +64,7 @@
   }
   &__error-message {
     color: var(--input-error-message-color, var(--c-danger));
-    min-height: calc(var(--font-xs) * 1.2);
+    min-height: calc(var(--font-size--xs) * 1.2);
     @include font(
       --input-error-message-font,
       var(--font-weight--medium),
