@@ -728,11 +728,9 @@ export default {
   &__view {
     display: flex;
     align-items: center;
+    margin: 0 var(--spacer-xl);
     @include for-desktop {
       margin: 0 0 0 var(--spacer-2xl);
-    }
-    @include for-mobile {
-      order: -1;
     }
     &-icon {
       cursor: pointer;

@@ -2,7 +2,7 @@
 .sf-add-to-cart {
   display: flex;
   &__button {
-    --button-font-weight: var(--font-semibold);
+    --button-font-weight: var(--font-weight--semibold);
     --button-width: 100%;
     align-items: center;
     &:disabled {
