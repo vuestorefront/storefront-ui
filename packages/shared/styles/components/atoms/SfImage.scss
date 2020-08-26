@@ -39,10 +39,10 @@
     opacity: var(--image-overlay-opacity, 0);
     @include font(
       --image-overlay-font,
-      var(--font-light),
-      var(--font-sm),
+      var(--font-weight--light),
+      var(--font-size--sm),
       1.6,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
     transition: opacity 150ms ease-in-out;
   }
