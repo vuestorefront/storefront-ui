@@ -28,6 +28,9 @@ import SfBar from "../../src/components/molecules/SfBar/SfBar.vue"
 import SfBottomModal from "../../src/components/molecules/SfBottomModal/SfBottomModal.vue"
 import SfCallToAction from "../../src/components/molecules/SfCallToAction/SfCallToAction.vue"
 import SfCharacteristic from "../../src/components/molecules/SfCharacteristic/SfCharacteristic.vue"
+import SfCheckbox from "../../src/components/molecules/SfCheckbox/SfCheckbox.vue"
+import SfColorPicker from "../../src/components/molecules/SfColorPicker/SfColorPicker.vue"
+import SfComponentSelect from "../../src/components/molecules/SfComponentSelect/SfComponentSelect.vue"
 import SfDropdown from "../../src/components/molecules/SfDropdown/SfDropdown.vue"
 import SfFilter from "../../src/components/molecules/SfFilter/SfFilter.vue"
 import SfGallery from "../../src/components/molecules/SfGallery/SfGallery.vue"
@@ -101,6 +104,9 @@ export default ({
   Vue.component("SfBottomModal", SfBottomModal);
   Vue.component("SfCallToAction", SfCallToAction);
   Vue.component("SfCharacteristic", SfCharacteristic);
+  Vue.component("SfCheckbox", SfCheckbox);
+  Vue.component("SfColorPicker", SfColorPicker);
+  Vue.component("SfComponentSelect", SfComponentSelect);
   Vue.component("SfDropdown", SfDropdown);
   Vue.component("SfFilter", SfFilter);
   Vue.component("SfGallery", SfGallery);

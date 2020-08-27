@@ -1,35 +1,4 @@
 @import "../../helpers";
-.sf-select-option {
-  display: block;
-  box-sizing: border-box;
-  padding: var(--select-option-padding, var(--spacer-sm));
-  @include border(--select-option-border, 1px 0 0 0, solid, var(--c-light));
-  background: var(--select-option-background);
-  color: inherit;
-  min-height: var(
-    --select-height,
-    calc(
-      var(--spacer-base) + var(--spacer-2xs) +
-      var(--select-label-font-size, var(--font-lg))
-    )
-  );
-  @include font(
-    --select-option-font,
-    var(--font-light),
-    var(--font-sm),
-    1.2,
-    var(--font-family-primary)
-  );
-  &--is-active {
-    --select-option-background: var(--c-light);
-  }
-  @include for-desktop {
-    --select-option-padding: var(--spacer-xs);
-    &:hover {
-      --select-option-background: rgba(var(--c-gray-base), 0.1);
-    }
-  }
-}
 .sf-select {
   position: relative;
   box-sizing: border-box;
