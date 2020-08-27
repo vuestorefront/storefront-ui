@@ -125,7 +125,7 @@ undefined | --c-text-disabled: var(--_c-gray-accent) | --c-text-disabled: var(--
 
 **Breakpoints**
 
-v0.7.0 | v0.8.0
+v0.8.0 | v0.9.0
 ------------ | ------------
 .mobile-only | .smartphone-only
 
