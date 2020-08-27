@@ -6,7 +6,7 @@ module.exports = {
       "jest-transform-stub",
     "^.+\\.js$": "babel-jest",
   },
-  transformIgnorePatterns: ["/node_modules/"],
+  transformIgnorePatterns: ["/node_modules/(?!@storefront-ui/shared/*).+(js)$"],
   moduleNameMapper: {
     "^@/components/(.*)$": "<rootDir>/src/components/$1",
   },
