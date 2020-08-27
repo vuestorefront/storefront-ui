@@ -55,7 +55,7 @@ storiesOf("Atoms|Image", module)
         default: boolean("lazy", true, "Props"),
       },
       rootMargin: {
-        default: text("rootMargin", "", "Props"),
+        default: text("rootMargin", "0px", "Props"),
       },
       threshold: {
         default: number("threshold", 0, {}, "Props"),
@@ -98,7 +98,7 @@ storiesOf("Atoms|Image", module)
         default: boolean("lazy", true, "Props"),
       },
       rootMargin: {
-        default: text("rootMargin", "", "Props"),
+        default: text("rootMargin", "0px", "Props"),
       },
       threshold: {
         default: number("threshold", 0, {}, "Props"),
@@ -131,7 +131,7 @@ storiesOf("Atoms|Image", module)
         default: boolean("lazy", true, "Props"),
       },
       rootMargin: {
-        default: text("rootMargin", "", "Props"),
+        default: text("rootMargin", "0px", "Props"),
       },
       threshold: {
         default: number("threshold", 0, {}, "Props"),
@@ -162,7 +162,7 @@ storiesOf("Atoms|Image", module)
         default: boolean("lazy", true, "Props"),
       },
       rootMargin: {
-        default: text("rootMargin", "", "Props"),
+        default: text("rootMargin", "0px", "Props"),
       },
       threshold: {
         default: number("threshold", 0, {}, "Props"),
@@ -199,7 +199,7 @@ storiesOf("Atoms|Image", module)
         default: boolean("lazy", true, "Props"),
       },
       rootMargin: {
-        default: text("rootMargin", "", "Props"),
+        default: text("rootMargin", "0px", "Props"),
       },
       threshold: {
         default: number("threshold", 0, {}, "Props"),
