@@ -8,7 +8,8 @@
     "create-component": "node ./scripts/create-component.js",
     "storybook:serve": "cd packages/vue && yarn storybook:serve",
     "vue-docs:dev": "cd packages/vue && yarn docs:dev",
-    "create-gitlog": "node ./scripts/create-gitlog.js"
+    "create-gitlog": "node ./scripts/create-gitlog.js",
+    "copy-components": "node ./scripts/copy-components.js"
   },
   "repository": {
     "type": "git",
@@ -34,6 +35,7 @@
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
     "file-save": "^0.2.0",
+    "fse": "^4.0.1",
     "glob": "^7.1.4",
     "husky": "^3.1.0",
     "lerna": "^3.16.4",
