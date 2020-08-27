@@ -23,7 +23,10 @@
           <slot name="aside" />
         </div>
         <div class="sf-header__actions">
-          <nav class="sf-header__navigation">
+          <nav
+            class="sf-header__navigation"
+            :class="{ 'is-visible': isNavVisible }"
+          >
             <slot name="navigation"></slot>
           </nav>
           <!--@slot Use this slot to replace default search bar-->
@@ -105,6 +108,8 @@
 <script>
 import Vue from "vue";
 import SfHeaderNavigationItem from "./_internal/SfHeaderNavigationItem.vue";
+import SfHeaderNavigation from "./_internal/SfHeaderNavigation.vue";
+Vue.component("SfHeaderNavigation", SfHeaderNavigation);
 Vue.component("SfHeaderNavigationItem", SfHeaderNavigationItem);
 import {
   mapMobileObserver,
@@ -208,6 +213,13 @@ export default {
     },
     /**
      * Header search on mobile
+     */
+    isNavVisible: {
+      type: Boolean,
+      default: false,
+    },
+    /**
+     * Is nav slot visible at mobile view
      */
   },
   data() {
