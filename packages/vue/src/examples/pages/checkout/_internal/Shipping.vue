@@ -69,23 +69,23 @@
         required
         @input="updateField('zipCode', $event)"
       />
-      <SfSelect
+      <SfComponentSelect
         v-model="country"
         :value="country"
         label="Country"
-        class="form__element form__element--half form__element--half-even form__select sf-select--underlined"
+        class="form__element form__element--half form__element--half-even form__select sf-component-select--underlined"
         :valid="true"
         required
         @change="updateField('country', $event)"
       >
-        <SfSelectOption
+        <SfComponentSelectOption
           v-for="countryOption in countries"
           :key="countryOption"
           :value="countryOption"
         >
           {{ countryOption }}
-        </SfSelectOption>
-      </SfSelect>
+        </SfComponentSelectOption>
+      </SfComponentSelect>
       <SfInput
         v-model="phoneNumber"
         :value="phoneNumber"
@@ -114,13 +114,13 @@
           class="form__radio shipping"
           @input="updateField('shippingMethod', $event)"
         >
-          <template #label="{label}">
+          <template #label="{ label }">
             <div class="sf-radio__label shipping__label">
               <div>{{ label }}</div>
               <div class="shipping__label-price">{{ item.price }}</div>
             </div>
           </template>
-          <template #description="{description}">
+          <template #description="{ description }">
             <div class="sf-radio__description shipping__description">
               <div class="shipping__delivery">
                 <p>{{ item.delivery }}</p>
@@ -160,7 +160,7 @@ import {
   SfHeading,
   SfInput,
   SfButton,
-  SfSelect,
+  SfComponentSelect,
   SfRadio,
 } from "@storefront-ui/vue";
 export default {
@@ -169,7 +169,7 @@ export default {
     SfHeading,
     SfInput,
     SfButton,
-    SfSelect,
+    SfComponentSelect,
     SfRadio,
   },
   props: {
