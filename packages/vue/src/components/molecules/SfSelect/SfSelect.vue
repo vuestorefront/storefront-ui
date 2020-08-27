@@ -20,10 +20,9 @@
         disabled
         selected
         value
-        ><slot name="placeholder" :placeholder="placeholder" />{{
-          placeholder
-        }}</option
       >
+        <slot name="placeholder" :placeholder="placeholder" />{{ placeholder }}
+      </option>
       <slot />
     </select>
     <div class="sf-component-select__error-message">
