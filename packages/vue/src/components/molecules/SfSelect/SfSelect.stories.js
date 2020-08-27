@@ -178,7 +178,7 @@ storiesOf("Molecules|Select", module)
       };
     },
     template: `<div style="max-width: 30rem">
-      <SfComponentSelect
+      <SfSelect
         v-model="selected"
         :class="customClass"
         :label="label"
@@ -187,12 +187,14 @@ storiesOf("Molecules|Select", module)
         :disabled="disabled"
         :error-message="errorMessage"
         >
-        <SfComponentSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
+        <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
           <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
-        </SfComponentSelectOption>
-        <template #errorMessage>
-          CUSTOM ERROR MESSAGE
+        </SfSelectOption>
+        <template #error-message>
+          <span>
+            CUSTOM ERROR MESSAGE
+          </span>
         </template>
-      </SfComponentSelect>
+      </SfSelect>
     </div>`,
   }));
