@@ -6,6 +6,6 @@ describe("SfMegaMenu.vue", () => {
     const component = shallowMount(SfMegaMenu, {
       propsData: { visible: true },
     });
-    expect(component.contains(".sf-mega-menu")).toBe(true);
+    expect(component.find(".sf-mega-menu").exists()).toBe(true);
   });
 });
