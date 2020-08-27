@@ -46,7 +46,7 @@ module.exports = {
         children: [
           ['/design/color-palette', 'Colors'],
           ['/design/sizes', 'Sizes'],
-          ['/design/working-with-designs', 'Working with Designs'],
+          ['/design/working-with-designs', 'Working with Designs']
         ],
       },
       {
@@ -91,6 +91,7 @@ module.exports = {
 ["/components/calltoaction", "Call To Action"],
 ["/components/characteristic", "Characteristic"],
 ["/components/checkbox", "Checkbox"],
+["/components/colorpicker", "Color Picker"],
 ["/components/componentselect", "Component Select"],
 ["/components/dropdown", "Dropdown"],
 ["/components/filter", "Filter"],
