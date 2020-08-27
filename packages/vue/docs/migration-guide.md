@@ -3,33 +3,29 @@
 In this section we will add notes and info's about new changes and releases.
 
 
-## Migration to v0.7.0
+## Migration to v0.8.0
 
-> **v0.7.0 has been released!** :tada:
+> **v0.8.0 has been released!** :tada:
 
 ### **Why you should migrate?**
 
-Q1 2020
-Withing first Q1 we came through a lot of changes:
-- we have CSS Custom Properties! 
-- and **now** we have refreshed [StorefrontUI design system](http://bit.ly/storefront-ui-design-system) :tada:
-
-
 :::tip What is new?
 
-:point_right: each component went through **deep refactor**, we have used css variables and we adjusted each component to new design system
+:point_right: new SfColorPicker component  
 
-:point_right: updated global variables [Global Variables](migration-guide.md#global-variables).
+:point_right: SfHeaderNavigation component 
 
-:point_right: refreshed **example pages**
+:point_right: changed SfImage API allowing to use `srcset` prop
 
-:point_right: we have covered some fixes regarding Safari support
+:point_right: manual on how to use Tailwind css with Storefront UI was added 
 
-:point_right: added improvements to `v-focus` directive
+:point_right: open all items in SfAccordion by default by passing `open="all"`
 
-:point_right: storybook `stories` updated!
+:point_right: slot for button in SfScrollable was applied
 
-:point_right: `first-open` in `SfAccordion` is deprecated in favor of `open`
+:point_right: prop icon added in SfSearchbar to customize size and color of the icon
+
+:point_right: new component SfComponentSelect added with all current functionality and SfSelect component changed to native 
 
 :information_source: for more details see our `CHANGELOG.md`
 
@@ -41,20 +37,21 @@ As always what is first, update your `package.json` by changing your current ver
 
 ```json
 "dependencies: {
-    "@storefront-ui/vue": "^0.7.0"
+    "@storefront-ui/vue": "^0.8.0"
 }
 ```
 
-### Global variables
-We have changed global variables and naming conventions for them to be more consistent.
 
-See what's new in our comparison below: 
+<!-- - #### **Typography**
 
-- #### **Typography**
+Before | v0.8.0 
+------------ | ------------- | -------------
+--body-font-family-primary: "Roboto", serif |   --font-family-primary: "Roboto", serif |   --font-family--primary: "Roboto", serif
+--body-font-family-secondary: "Raleway", sans-serif |   --font-family-secondary: "Raleway", sans-serif |   --font-family--secondary: "Raleway", sans-serif
 
 **Font family**
 
-Before | v0.0.7. | v0.8.0
+Before | v0.7.0 | v0.9.0
 ------------ | ------------- | -------------
 --body-font-family-primary: "Roboto", serif |   --font-family-primary: "Roboto", serif |   --font-family--primary: "Roboto", serif
 --body-font-family-secondary: "Raleway", sans-serif |   --font-family-secondary: "Raleway", sans-serif |   --font-family--secondary: "Raleway", sans-serif
@@ -62,7 +59,7 @@ Before | v0.0.7. | v0.8.0
 
 **Font sizes**
 
-Before | v0.6.4 |  v0.7.0 | v0.8.0
+Before | v0.6.4 |  v0.7.0 | v0.9.0
 ------------ | ------------ | ------------- | -------------
 $font-size-extra-small-mobile: 0.625rem | undefined | --font-2xs: 0.625rem | undefined
 $font-size-extra-small-desktop: 0.75rem<br>$font-size-small-mobile: 0.75rem | --font-size-extra-small: 0.75rem | --font-xs: 0.75rem | --font-size--xs: 0.75rem
@@ -74,7 +71,7 @@ $font-size-extra-big-desktop: 1.5rem | --font-size-extra-big: 1.5rem | --font-si
 
 **Font weights**
 
-Before | v0.6.4 | v0.7.0 | v0.8.0
+Before | v0.6.4 | v0.7.0 | v0.9.0
 ------------ | ------------ | ------------- | -------------
 --body-font-weight-primary: 300 | --font-weight-light: 300 | --font-light: 300 | --font-weight--light: 300
 --body-font-weight-secondary: 400 | --font-weight-regular: 400 | --font-normal: 400 | --font-weight--normal: 400
@@ -88,7 +85,7 @@ undefined | undefined | --font-black: 900 | undefined
 
 **Spacers**
 
-Before | v0.6.4 | v0.7.0 | v0.8.0
+Before | v0.6.4 | v0.7.0 | v0.9.0
 ------------ | ------------ | ------------- | -------------
  $spacer-small | --spacer-small: 0.25rem | --spacer-2xs: 0.25rem | --spacer-2xs: 0.25rem
  $spacer | --spacer: 0.5rem | --spacer-xs: 0.5rem | --spacer-xs: 0.5rem
@@ -104,7 +101,7 @@ Before | v0.6.4 | v0.7.0 | v0.8.0
 
 **Color variants**
 
-Before | v0.7.0 | v0.8.0 
+Before | v0.7.0 | v0.9.0 
 ------------ | ------------ | ------------
 undefined | --_c-gray-accent: #e0e0e1 | --_c-gray-accent: #e0e0e1
 --_c-light-secondary: #f6f7f8 |  --_c-light-secondary: #ffffff |  --_c-light-secondary: #ffffff
@@ -116,9 +113,44 @@ undefined | --_c-gray-accent: #e0e0e1 | --_c-gray-accent: #e0e0e1
 
 **Body and text default colors**
 
-Before | v0.7.0 | v0.8.0 
+Before | v0.7.0 | v0.9.0 
 ------------ | ------------ | ------------
-undefined | --c-text-disabled: var(--_c-gray-accent) | --c-text-disabled: var(--_c-gray-accent)
+undefined | --c-text-disabled: var(--_c-gray-accent) | --c-text-disabled: var(--_c-gray-accent) -->
+
+### Deletions
+
+1. removed viewport addon on Storybook
+
+### Additions
+
+- **Components** 
+
+1. SfColorPicker
+2. SfHeaderNavigation 
+3. SfComponentSelect - select component with current API
+
+- **Props**
+  
+<!-- 
+Component | Before | v0.8.0
+------------ | ------------ | ------------
+SfSearchBar| - | iconSize
+SfSearchBar| - | iconColor  
+-->
+
+Component | Before | v0.8.0
+------------ | ------------ | ------------
+SfSearchBar| - | iconSize
+SfSearchBar| - | iconColor 
+SfImage| - | srcset (String, Array) 
+SfAccordion | open (String) | open ("all") 
+SfSearchBar | - | icon (Object) 
+
+### Changes
+
+Component | Before | v0.8.0 | Info
+------------ | ------------ | ------------ | ------------
+SfDropdown| - | button | 'opener' slot (default SfButton) added inside component to open content on 'click:open' event
 
 ### Deletions
 
