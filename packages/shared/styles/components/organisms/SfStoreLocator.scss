@@ -96,6 +96,7 @@
     // Workaround to known bug about min-height / height interaction in Chrome / Firefox
     position: absolute;
     height: 100%;
+    z-index: 0;
   }
   &__stores {
     padding: var(--store-locator-stores-padding, var(--spacer-sm));

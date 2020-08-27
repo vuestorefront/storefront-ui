@@ -5,7 +5,6 @@ import SfBadge from "../../src/components/atoms/SfBadge/SfBadge.vue"
 import SfBreadcrumbs from "../../src/components/atoms/SfBreadcrumbs/SfBreadcrumbs.vue"
 import SfBullets from "../../src/components/atoms/SfBullets/SfBullets.vue"
 import SfButton from "../../src/components/atoms/SfButton/SfButton.vue"
-import SfCheckbox from "../../src/components/atoms/SfCheckbox/SfCheckbox.vue"
 import SfChevron from "../../src/components/atoms/SfChevron/SfChevron.vue"
 import SfCircleIcon from "../../src/components/atoms/SfCircleIcon/SfCircleIcon.vue"
 import SfColor from "../../src/components/atoms/SfColor/SfColor.vue"
@@ -81,7 +80,6 @@ export default ({
   Vue.component("SfBreadcrumbs", SfBreadcrumbs);
   Vue.component("SfBullets", SfBullets);
   Vue.component("SfButton", SfButton);
-  Vue.component("SfCheckbox", SfCheckbox);
   Vue.component("SfChevron", SfChevron);
   Vue.component("SfCircleIcon", SfCircleIcon);
   Vue.component("SfColor", SfColor);

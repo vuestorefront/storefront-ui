@@ -63,7 +63,6 @@ module.exports = {
 ["/components/breadcrumbs", "Breadcrumbs"],
 ["/components/bullets", "Bullets"],
 ["/components/button", "Button"],
-["/components/checkbox", "Checkbox"],
 ["/components/chevron", "Chevron"],
 ["/components/circleicon", "Circle Icon"],
 ["/components/color", "Color"],
