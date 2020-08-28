@@ -30,7 +30,7 @@
   ],
   "dependencies": {
     "@glidejs/glide": "^3.3.0",
-    "@storefront-ui/shared": "^0.7.17",
+    "@storefront-ui/shared": "^0.8.0",
     "body-scroll-lock": "^3.0.1",
     "core-js": "^3.6.5",
     "hammerjs": "^2.0.8",
