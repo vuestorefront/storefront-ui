@@ -43,10 +43,7 @@
         --button-background: #{$variant};
       }
     }
-  }
-  &.sf-link { 
-    --button-width: var(--spacer-3xl);
-  }
+  }   
   &:hover {
     --button-box-shadow-opacity: 0.25;
   }
@@ -118,11 +115,7 @@
     }
     &:active {
       --button-color: var(--c-gray);
-    }
-    &:disabled {
-      --button-background: transparent;
-      --button-color: var(--c-text-muted);
-    }
+    }    
     @each $color, $map in $colors-map {
       $primary: map-get($map, "primary");
       &.color-#{$color} {
@@ -163,5 +156,14 @@
         }
       }
     }
+  }
+}
+.sf-link { 
+  --button-width: var(--spacer-3xl);
+  &--disabled {
+    --button-border-color: var(--c-light);
+    --button-background: transparent;
+    --link-color: var(--c-text-muted);
+    cursor: default;
   }
 }
