@@ -29,8 +29,6 @@
 </template>
 <script>
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
-import icons from "@storefront-ui/shared/icons/icons";
-const SF_ICONS = Object.keys(icons);
 export default {
   name: "SfRating",
   components: {
