@@ -37,9 +37,6 @@ storiesOf("Molecules|Select", module)
       label: {
         default: text("label", "Color", "Props"),
       },
-      selected: {
-        default: text("selected", "", "Props"),
-      },
       required: {
         default: boolean("required", false, "Props"),
       },
@@ -53,11 +50,12 @@ storiesOf("Molecules|Select", module)
         default: text("errorMessage", "Color", "Props"),
       },
       placeholder: {
-        default: text("placeholder", "", "Props"),
+        default: text("placeholder", "Select color", "Props"),
       },
     },
     data() {
       return {
+        selected: "",
         options: optionsList,
       };
     },
