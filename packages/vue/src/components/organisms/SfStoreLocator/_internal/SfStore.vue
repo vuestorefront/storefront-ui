@@ -6,7 +6,7 @@
         <span>{{ distance }}km</span> away from you
       </div>
     </slot>
-    <div v-bind:class="{ 'sf-store__media': picture }" @click="centerOn(latlng)">
+    <div :class="{ 'sf-store__media': picture }" @click="centerOn(latlng)">
       <!-- @slot Use this slot to show media elements -->
       <slot name="media">
         <SfImage
@@ -16,7 +16,7 @@
           :width="82"
           :height="112"
         />
-        <SfIcon v-if="!picture" icon="marker" />
+        <SfIcon v-else icon="marker" class="sf-store__icon" />
       </slot>
     </div>
     <div class="sf-store__info">
@@ -72,6 +72,7 @@
 <script>
 import { focus } from "../../../../utilities/directives";
 import SfImage from "../../../atoms/SfImage/SfImage.vue";
+import SfIcon from "../../../atoms/SfIcon/SfIcon.vue";
 import SfCharacteristic from "../../../molecules/SfCharacteristic/SfCharacteristic.vue";
 export default {
   name: "SfStore",
@@ -85,6 +86,7 @@ export default {
   components: {
     SfImage,
     SfCharacteristic,
+    SfIcon,
   },
   directives: {
     focus: focus,
