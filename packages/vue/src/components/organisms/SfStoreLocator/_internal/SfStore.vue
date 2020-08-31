@@ -7,7 +7,7 @@
       </div>
     </slot>
     <SfButton
-      class="sf-store__btn sf-button--full-width"
+      class="sf-store__btn sf-button--full-width sf-button--pure"
       @click="centerOn(latlng)"
     >
       <div class="sf-store__media">

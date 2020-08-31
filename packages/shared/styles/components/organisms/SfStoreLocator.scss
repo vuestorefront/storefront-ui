@@ -23,15 +23,8 @@
     }
   }
   &__btn {
-    --button-background: var(--c-white);
-    --button-box-shadow: none;
-    --button-text-transform: none;
     display: flex;
-    flex-wrap: wrap; 
     justify-content: flex-start; 
-  }
-  &__btn:active {
-    --button-background: var(--c-white);
   }
   &__media {
     flex: var(--store-media-flex, 0 0 7rem);
