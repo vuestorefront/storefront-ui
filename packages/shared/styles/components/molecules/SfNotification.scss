@@ -60,7 +60,6 @@
   @include for-desktop {
     --notification-max-width: 100%;
     --notification-icon-margin: 0 var(--spacer-base) 0 0;
-    --notification-padding: var(--spacer-sm) var(--spacer-xs) ;
     --notification-action-display: inline;
     --notification-close-top: auto;
     --notification-close-right: var(--spacer-sm);
