@@ -1,6 +1,11 @@
 <template>
   <div class="sf-dropdown">
     <SfOverlay :visible="isOpen" class="sf-dropdown__overlay" />
+    <slot name="opener">
+      <SfButton class="sf-button--full-width sf-dropdown__opener" @click="open"
+        >Choose your action</SfButton
+      >
+    </slot>
     <transition name="sf-dropdown">
       <div
         v-show="isOpen"
@@ -14,7 +19,7 @@
         <!--@slot Use this slot to place content inside the dropdown.-->
         <slot />
         <!--@slot Use this slot to replace cancel button. -->
-        <slot name="cancel" v-bind="{ close }">
+        <slot name="cancel">
           <SfButton
             class="sf-button--full-width sf-dropdown__cancel"
             @click="close"
@@ -77,11 +82,14 @@ export default {
     },
   },
   methods: {
+    open() {
+      this.$emit("click:open");
+    },
     close() {
       this.$emit("click:close");
     },
     checkPersistence() {
-      if (!this.persistent) this.close();
+      if (!this.persistent) return this.close();
     },
     keydownHandler(e) {
       if (e.key === "Escape" || e.key === "Esc" || e.keyCode === 27) {

@@ -25,6 +25,6 @@ describe("SfStep.vue", () => {
         };
       },
     });
-    expect(component.contains(".sf-step")).toBe(true);
+    expect(component.classes("sf-step")).toBe(true);
   });
 });
