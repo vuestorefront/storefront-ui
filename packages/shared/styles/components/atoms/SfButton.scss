@@ -52,12 +52,6 @@
     --button-background: var(--c-primary-variant);
     --button-transition: background 150ms linear;
   }
-  &:disabled {
-    --button-background: var(--c-light);
-    --button-color: var(--c-text-muted);
-    --button-cursor: default;
-    --button-box-shadow: none;
-  }
   &--pure {
     --button-padding: 0;
     --button-background: transparent;
@@ -81,11 +75,6 @@
       --button-background: transparent;
       --button-color: var(--c-text-muted);
       --button-transition: color 150ms linear;
-    }
-    &:disabled {
-      --button-border-color: var(--c-light);
-      --button-background: transparent;
-      --button-color: var(--c-text-muted);
     }
     @each $color, $map in $colors-map {
       $primary: map-get($map, "primary");
@@ -115,7 +104,7 @@
     }
     &:active {
       --button-color: var(--c-gray);
-    }    
+    }       
     @each $color, $map in $colors-map {
       $primary: map-get($map, "primary");
       &.color-#{$color} {
@@ -127,13 +116,24 @@
           --button-color: var(--c-gray);
           --button-background: transparent;
         }
-        &:disabled {
-          &:hover {
-            --button-color: var(--c-text-muted);
-          }
-        }
       }
     }
+  }  
+  &--disabled,
+  &--disabled:hover {
+    --button-color: var(--c-text-disabled);
+    --button-border-color: transparent;
+    --button-background: var(--c-light);
+    --button-box-shadow: none;
+    cursor: default;
+    &.sf-button--text {
+      --button-background: transparent;
+      --button-color: var(--c-gray-variant);
+    }
+    &.sf-button--outline {
+      --button-border-color: var(--c-light);
+      --button-background: transparent;
+    } 
   }
   &--underlined {
     --button-border-width: 0 0 1px 0;
@@ -158,12 +158,24 @@
     }
   }
 }
-.sf-link { 
+.sf-link {
   --button-width: var(--spacer-3xl);
-  &--disabled {
-    --button-border-color: var(--c-light);
-    --button-background: transparent;
-    --link-color: var(--c-text-muted);
+  &--disabled,
+  &--disabled:hover { 
+    --button-box-shadow: none;
+    --button-border-color: transparent;
+    --button-background: var(--c-light);       
     cursor: default;
+    &.sf-button {
+      --link-color: var(--c-text-disabled);
+      &--text {
+        --button-background: transparent;
+        --link-color: var(--c-gray-variant); 
+      }      
+    }
+    &.sf-button--outline {
+      --button-border-color: var(--c-light);
+      --button-background: transparent;
+    }
   }
 }

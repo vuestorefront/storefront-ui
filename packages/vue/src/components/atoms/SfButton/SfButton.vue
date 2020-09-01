@@ -3,10 +3,13 @@
     :is="tag"
     v-focus
     class="sf-button"
-    :class="{ 'sf-link--disabled': typeof linkDisabled === undefined }"
+    :class="{
+      'sf-button--disabled': buttonActive,
+      'sf-link--disabled': linkActive,
+    }"
     v-bind="$attrs"
     :disabled="disabled"
-    :link="linkDisabled"
+    :link="link"
     v-on="$listeners"
   >
     <!--@slot Use this slot to place content inside the button.-->
@@ -44,8 +47,11 @@ export default {
     tag() {
       return this.link ? "SfLink" : "button";
     },
-    linkDisabled() {
-      return this.link && this.disabled ? undefined : null;
+    linkActive() {
+      return this.link && this.disabled;
+    },
+    buttonActive() {
+      return !this.link && this.disabled;
     },
   },
 };
