@@ -48,51 +48,6 @@ storiesOf("Molecules|Checkbox", module)
       :disabled="disabled"
       />`,
   }))
-  .add("Invalid", () => ({
-    components: { SfCheckbox },
-    props: {
-      name: {
-        default: text("name", "shipping", "Props"),
-      },
-      label: {
-        default: text("label", "I want to create an account", "Props"),
-      },
-      hintMessage: {
-        default: text("hintMessage", "Required", "Props"),
-      },
-      required: {
-        default: boolean("required", false, "Props"),
-      },
-      errorMessage: {
-        default: text("errorMessage", "Something is wrong", "Props"),
-      },
-      valid: {
-        default: boolean("valid", true, "Props"),
-      },
-      infoMessage: {
-        default: text("infoMessage", "", "Props"),
-      },
-      disabled: {
-        default: boolean("disabled", false, "Props"),
-      },
-    },
-    data() {
-      return {
-        checked: false,
-      };
-    },
-    template: `<SfCheckbox 
-      v-model="checked"
-      :name="name"      
-      :label="label"
-      :hintMessage="hintMessage"
-      :required="required"
-      :error-message="errorMessage"
-      :valid="valid"
-      :infoMessage="infoMessage"
-      :disabled="disabled"
-      />`,
-  }))
   .add("Multiple checkboxes", () => ({
     components: { SfCheckbox },
     data() {
@@ -238,7 +193,7 @@ storiesOf("Molecules|Checkbox", module)
         default: text("errorMessage", "Something is wrong", "Props"),
       },
       valid: {
-        default: boolean("valid", true, "Props"),
+        default: boolean("valid", false, "Props"),
       },
       infoMessage: {
         default: text("infoMessage", "", "Props"),
@@ -256,14 +211,14 @@ storiesOf("Molecules|Checkbox", module)
       v-model="checked"
       :name="name"      
       :label="label"
-      :hintMessage="hintMessage"
+      :hint-message="hintMessage"
       :required="required"
       :error-message="errorMessage"
       :valid="valid"
-      :infoMessage="infoMessage"
+      :info-message="infoMessage"
       :disabled="disabled"
       >
-        <template #error-message="{ errorMessage }">
+        <template #show-error-message="{ errorMessage }">
           <span> CUSTOM ERROR MESSAGE 👈</span>
         </template>
       </SfCheckbox>`,

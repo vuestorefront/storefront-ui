@@ -20,11 +20,14 @@
     border-radius: var(--checkbox-border-radius);
     background: var(--checkbox-background, transparent);
     transition: background 150ms linear, border-color 150ms linear;
+    .sf-checkbox--has-error & {
+      --checkbox-border-color: var(--c-danger);
+    }
     &:hover {
       --checkbox-border-color: var(--c-primary);
       .sf-checkbox--has-error & {
         --checkbox-border-color: var(--c-danger);
-      }
+      }      
       .sf-checkbox--is-disabled & {
         --checkbox-border-color: var(--c-text-disabled);
       }
@@ -57,7 +60,10 @@
     }
   }
   &--is-required {
-    --checkbox-message-color: var var(--c-text);
+    --checkbox-message-color: var(--c-text);
+    &.sf-checkbox--has-error {
+      --checkbox-message-color: var(--c-danger);
+    }
   }
   &--is-disabled {
     --checkbox-label-color: var(--c-text-disabled);
