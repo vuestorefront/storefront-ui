@@ -18,6 +18,12 @@ storiesOf("Atoms|Textarea", module)
       rows: {
         default: text("rows", "10", "Props"),
       },
+      minlength: {
+        default: text("minlength", "", "Props"),
+      },
+      maxlength: {
+        default: text("maxlength", "", "Props"),
+      },
       wrap: {
         default: text("wrap", "soft", "Props"),
       },
@@ -47,6 +53,8 @@ storiesOf("Atoms|Textarea", module)
         v-model="value"
         :cols="cols"
         :rows="rows"
+        :minlength="minlength"
+        :maxlength="maxlength"
         :label="label"
         :name="name"
         :wrap="wrap"

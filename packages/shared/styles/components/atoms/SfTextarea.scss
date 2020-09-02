@@ -32,6 +32,11 @@
         --textarea-label-color: var(--c-text-disabled);
       }  
     }
+    &:required {
+      & ~ * {
+        --textarea-label-required: " *";
+      }
+    }
   }
   &__label {
     @include font(
@@ -50,6 +55,10 @@
     transform: var(--textarea-label-transform);
     color: var(--textarea-label-color, var(--c-link));
     transition: var(--textarea-label-transition, transform 150ms linear, font-size 150ms linear);
+    &::after {
+      content: var(--textarea-label-required);
+      --textarea-label-color: var(--c-primary);
+    }
   }
   &--has-text {
     --textarea-border-color: var(--c-text);

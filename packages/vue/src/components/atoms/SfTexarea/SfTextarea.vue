@@ -16,6 +16,9 @@
       :rows="rows"
       :wrap="wrap"
       :disabled="disabled"
+      :required="required"
+      :maxlength="maxlength"
+      :minlength="minlength"
       v-on="listeners"
     />
     <label class="sf-textarea__label" :for="name">
@@ -129,7 +132,7 @@ export default {
     required: {
       type: Boolean,
       default: false,
-      description: "Native input required attribute",
+      description: "Native textarea required attribute",
     },
     /**
      * Placeholder for textarea.
