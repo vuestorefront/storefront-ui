@@ -160,13 +160,13 @@ SfDropdown| - | button | 'opener' slot (default SfButton) added inside component
 
 - **Props**
 
-Component | Before | v0.8.0
+Component | Before | v0.9.0
 ------------ | ------------ | ------------
 SfHeading | subtitle | description
 
 - **Custom properties**
 
-Component | Before | v0.8.0
+Component | Before | v0.9.0
 ------------ | ------------ | ------------
 SfHeading | --heading-subtitle-margin | --heading-description-margin
 SfHeading | --heading-subtitle-color | --heading-description-color
@@ -175,7 +175,7 @@ SfHeading | --heading-subtitle-font-family | --heading-description-font-family
 
 - **Slots**
 
-Component | Before | v0.8.0
+Component | Before | v0.9.0
 ------------ | ------------ | ------------
 SfHeading | subtitle | description
 
