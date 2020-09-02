@@ -125,7 +125,7 @@ undefined | --c-text-disabled: var(--_c-gray-accent)
 
 ## Components with data-testid
 
-Before | v0.8.0
+Before | v0.9.0
 ------------ | ------------
 - | SfBreadcrumbs
 - | SfBullets
