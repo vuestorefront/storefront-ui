@@ -179,9 +179,6 @@ export default {
     },
   },
   methods: {
-    close() {
-      this.$emit("close");
-    },
     removeHandler(product) {
       const products = [...this.products];
       this.products = products.filter((element) => element.id !== product.id);

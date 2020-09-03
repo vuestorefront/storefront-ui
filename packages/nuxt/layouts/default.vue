@@ -76,16 +76,8 @@
   }
 </script>
 <style lang="scss">
-@import "~@storefront-ui/vue/styles.scss";
-html,
-body {
-  margin: 0;
-}
-.sf-header__container {
-  --header-container-max-width: 1500px;
-}
-.sf-header__navigation {
-  margin: 0 2rem;
-  --header-navigation-item-font-size: var(--font-size-extra-small);
-}
+  @import "~@storefront-ui/vue/styles.scss";
+  html, body {
+    margin: 0;
+  }
 </style>
