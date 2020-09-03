@@ -8,7 +8,7 @@
           <SfLink :link="item.link">{{item.name}}</SfLink>
         </SfHeaderNavigationItem>
       </template>
-    </SfHeader>
+    </SfHeader>    
       <nuxt />
     <SfFooter v-if="false"></SfFooter>
     <SfBottomNavigation class="mobile-only">

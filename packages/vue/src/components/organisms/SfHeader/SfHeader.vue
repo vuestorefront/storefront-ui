@@ -14,7 +14,7 @@
               :src="logo"
               :alt="title"
               class="sf-header__logo"
-            />
+            />            
             <h1 v-else class="sf-header__title">{{ title }}</h1>
           </SfLink>
         </slot>
