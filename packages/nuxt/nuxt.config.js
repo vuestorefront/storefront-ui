@@ -21,7 +21,7 @@ export default {
       return [
         ["@nuxt/babel-preset-app", options]
       ]
-    }
+    },
   },
   /*
    ** Customize the progress-bar color
@@ -38,9 +38,7 @@ export default {
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: [
-
-  ],
+  buildModules: [],
   /*
    ** Nuxt.js modules
    */
@@ -66,6 +64,7 @@ export default {
       }
     },
     build: {
+      extend(config, ctx) { },
       transpile: [/^@storefront-ui/],
     },
   },
@@ -73,5 +72,5 @@ export default {
   //   stories: [
   //     "@storefront-ui/vue/src/components/organisms/SfFooter/SfFooter.stories.js"
   //   ]
-  // }
+  // }    
 };
