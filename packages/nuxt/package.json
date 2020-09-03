@@ -10,28 +10,25 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "test": "jest",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "storybook": "nuxt-storybook",
+    "build-storybook": "nuxt-storybook build"
   },
   "dependencies": {
+    "@nuxt/babel-preset-app": "^2.14.3",
     "@nuxtjs/pwa": "^3.0.0-0",
-    "@storefront-ui/vue": "0.7.16",
+    "@storefront-ui/vue": "0.8.0",
     "lerna": "^3.16.4",
-    "nuxt": "^2.0.0",
-    "nuxt-stories": "^1.0.6"
+    "nuxt": "2.14.3"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
-    "@babel/runtime-corejs2": "^7.8.4",
-    "@storybook/addon-actions": "^5.3.18",
-    "@storybook/addon-links": "^5.3.18",
-    "@storybook/addons": "^5.3.18",
-    "@storybook/vue": "^5.3.18",
+    "@babel/runtime-corejs3": "^7.11.2",
+    "@nuxtjs/storybook": "^2.2.0",
     "@vue/test-utils": "^1.0.0-beta.27",
     "babel-jest": "^24.1.0",
     "babel-loader": "^8.1.0",
     "babel-preset-vue": "^2.0.2",
-    "core-js": "2",
+    "core-js": "3",
     "jest": "^24.1.0",
     "vue-jest": "^4.0.0-0"
   }

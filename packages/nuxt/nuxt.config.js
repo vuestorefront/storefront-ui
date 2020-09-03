@@ -16,6 +16,13 @@ export default {
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
   },
+  babel: {
+    presets(env, [preset, options]) {
+      return [
+        ["@nuxt/babel-preset-app", options]
+      ]
+    }
+  },
   /*
    ** Customize the progress-bar color
    */
@@ -32,10 +39,7 @@ export default {
    ** Nuxt.js dev-modules
    */
   buildModules: [
-    [
-      "nuxt-stories",
-      { forceBuild: true, storiesDir: ".stories", markdownEnabled: false },
-    ],
+
   ],
   /*
    ** Nuxt.js modules
@@ -48,13 +52,26 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {},
-    transpile: [/^@storefront-ui/],
-    parallel: false,
-    cache: false,
-    hardSource: false,
+    babel: {
+      // envName: server, client, modern
+      presets({ envName }) {
+        return [
+          [
+            '@nuxt/babel-preset-app',
+            {
+              corejs: { version: 3 }
+            }
+          ]
+        ]
+      }
+    },
+    build: {
+      transpile: [/^@storefront-ui/],
+    },
   },
-  generate: {
-    routes: ["/.stories"],
-  },
+  // storybook: {
+  //   stories: [
+  //     "@storefront-ui/vue/src/components/organisms/SfFooter/SfFooter.stories.js"
+  //   ]
+  // }
 };
