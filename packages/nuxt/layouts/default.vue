@@ -74,7 +74,6 @@
       }
     }
   }
-};
 </script>
 <style lang="scss">
 @import "~@storefront-ui/vue/styles.scss";
