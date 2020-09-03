@@ -7,13 +7,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @storefront-ui/vue
 
-
-
-
-
-# [0.8.0](https://github.com/AdamPawlinski/storefront-ui-adam/compare/@storefront-ui/vue@0.7.18...@storefront-ui/vue@0.8.0) (2020-08-18)
-
-
 ### Bug Fixes
 
 * add mobile-only classes ([#1292](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1292)) ([a916ea1](https://github.com/AdamPawlinski/storefront-ui-adam/commit/a916ea112be07072018ac0f22a2ae3feb7ca0b9f))
