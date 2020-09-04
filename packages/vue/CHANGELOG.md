@@ -25,15 +25,10 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### BREAKING CHANGES
 
 * different positioning
-* different positioning
-
-
-
 
 
 # [0.8.0](https://github.com/AdamPawlinski/storefront-ui-adam/compare/@storefront-ui/vue@0.8.0...@storefront-ui/vue@0.8.0) (2020-08-18)
 
-**Note:** Version bump only for package @storefront-ui/vue
 
 ### Bug Fixes
 
