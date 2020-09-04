@@ -21,10 +21,15 @@
     );
     @include font(
       --select-label-font,
+<<<<<<< HEAD
       var(--font-normal),
       var(--font-base),
+=======
+      var(--font-weight--normal),
+      var(--font-size--base),
+>>>>>>> 9fc898e4b85dd06dc647dbdb23735fc40928bc67
       1,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
     &::after {
       content: var(--select-label-required);
@@ -49,10 +54,10 @@
     ); 
     @include font(
       --select-option-font,
-      var(--font-normal),
-      var(--font-base),
+      var(--font-weight--normal),
+      var(--font-size--base),
       1,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     ); 
   }
   .sf-select__dropdown:active .sf-select__placeholder {
@@ -74,10 +79,10 @@
     min-height: var(--select-error-message-height, calc(var(--font-size--xs) * 1.2));
     @include font(
       --input-error-message-font,
-      var(--font-medium),
-      var(--font-xs),
+      var(--font-weight--medium),
+      var(--font-size--xs),
       1.2,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
   }
   &--underlined {
