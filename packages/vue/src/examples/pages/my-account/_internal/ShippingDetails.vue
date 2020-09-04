@@ -7,9 +7,7 @@
       class="tab-orphan"
     >
       <SfTab title="Change the address">
-        <p class="message">
-          Keep your addresses and contact details updated.
-        </p>
+        <p class="message">Keep your addresses and contact details updated.</p>
         <div class="form">
           <SfInput
             v-model="firstName"
@@ -60,21 +58,21 @@
             required
             class="form__element form__element--half"
           />
-          <SfSelect
+          <SfComponentSelect
             v-model="country"
             name="country"
             label="Country"
             required
-            class="sf-select--underlined form__select form__element form__element--half form__select form__element--half-even"
+            class="sf-component-select--underlined form__select form__element form__element--half form__element--half-even"
           >
-            <SfSelectOption
+            <SfComponentSelectOption
               v-for="countryOption in countries"
               :key="countryOption"
               :value="countryOption"
             >
               {{ countryOption }}
-            </SfSelectOption>
-          </SfSelect>
+            </SfComponentSelectOption>
+          </SfComponentSelect>
           <SfInput
             v-model="phoneNumber"
             name="phone"
@@ -145,7 +143,7 @@ import {
   SfTabs,
   SfInput,
   SfButton,
-  SfSelect,
+  SfComponentSelect,
   SfIcon,
 } from "@storefront-ui/vue";
 export default {
@@ -154,7 +152,7 @@ export default {
     SfTabs,
     SfInput,
     SfButton,
-    SfSelect,
+    SfComponentSelect,
     SfIcon,
   },
   props: {

@@ -5,7 +5,6 @@
       <slot name="prev" v-bind="{ go: () => go('prev') }">
         <SfArrow
           aria-label="previous"
-          class="sf-arrow--long"
           @click="go('prev')"
         />
       </slot>
@@ -13,7 +12,7 @@
       <slot name="next" v-bind="{ go: () => go('next') }">
         <SfArrow
           aria-label="next"
-          class="sf-arrow--long sf-arrow--right"
+          class="sf-arrow--right"
           @click="go('next')"
         />
       </slot>
