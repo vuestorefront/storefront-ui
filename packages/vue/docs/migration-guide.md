@@ -127,12 +127,14 @@ undefined | --c-text-disabled: var(--_c-gray-accent) | --c-text-disabled: var(--
 - **Props**
   
 
-Component | Before | v0.8.0
+Component | Before | v0.8.0 | Info
 ------------ | ------------ | ------------
 SfSearchBar| - | icon (Object to define icon look. Should have values for color and size)
 SfImage| - | srcset (String, Array) 
 SfAccordion | open (String) | open ("all") 
 SfSearchBar | - | icon (Object) 
+SfDropdown| - | button | 'opener' slot (default SfButton) added inside component to open content on 'click:open' event
+
 
 ### Changes
 

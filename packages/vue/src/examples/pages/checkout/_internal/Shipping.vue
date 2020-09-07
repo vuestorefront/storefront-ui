@@ -114,13 +114,13 @@
           class="form__radio shipping"
           @input="updateField('shippingMethod', $event)"
         >
-          <template #label="{label}">
+          <template #label="{ label }">
             <div class="sf-radio__label shipping__label">
               <div>{{ label }}</div>
               <div class="shipping__label-price">{{ item.price }}</div>
             </div>
           </template>
-          <template #description="{description}">
+          <template #description="{ description }">
             <div class="sf-radio__description shipping__description">
               <div class="shipping__delivery">
                 <p>{{ item.delivery }}</p>
