@@ -138,13 +138,15 @@ SfSearchBar| - | iconSize
 SfSearchBar| - | iconColor  
 -->
 
-Component | Before | v0.8.0
+Component | Before | v0.8.0 | Info
 ------------ | ------------ | ------------
 SfSearchBar| - | iconSize
 SfSearchBar| - | iconColor 
 SfImage| - | srcset (String, Array) 
 SfAccordion | open (String) | open ("all") 
 SfSearchBar | - | icon (Object) 
+SfDropdown| - | button | 'opener' slot (default SfButton) added inside component to open content on 'click:open' event
+
 
 ### Changes
 
