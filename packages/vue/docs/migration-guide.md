@@ -138,19 +138,22 @@ SfSearchBar| - | iconSize
 SfSearchBar| - | iconColor  
 -->
 
-Component | Before | v0.8.0
+Component | Before | v0.8.0 | Info
 ------------ | ------------ | ------------
 SfSearchBar| - | iconSize
 SfSearchBar| - | iconColor 
 SfImage| - | srcset (String, Array) 
 SfAccordion | open (String) | open ("all") 
 SfSearchBar | - | icon (Object) 
+SfDropdown| - | button | 'opener' slot (default SfButton) added inside component to open content on 'click:open' event
+
 
 ### Changes
 
-Component | Before | v0.8.0 | Info
------------- | ------------ | ------------ | ------------
-SfDropdown| - | button | 'opener' slot (default SfButton) added inside component to open content on 'click:open' event
+1. SfCheckbox moved from atoms to molecules
+2. Deprecated method `contains` in tests was replaced by `classes` or `find` methods
+3. SfScrollable slot for show/hide button was added 
+4. SfSelect changed to native select with error messages and native placeholder
 
 ### Deletions
 
