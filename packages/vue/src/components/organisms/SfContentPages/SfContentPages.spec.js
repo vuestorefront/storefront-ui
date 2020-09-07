@@ -15,6 +15,6 @@ describe("SfContentPages.vue", () => {
         },
       },
     });
-    expect(component.contains(".sf-content-pages")).toBe(true);
+    expect(component.classes("sf-content-pages")).toBe(true);
   });
 });
