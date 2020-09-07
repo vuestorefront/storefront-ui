@@ -21,7 +21,7 @@
       <SfIcon
         v-if="icon"
         :icon="icon"
-        class="sf-menu-item__mobile-nav-icon"
+        class="sf-menu-item__mobile-nav-icon mobile-only"
         size="14px"
       />
     </slot>
@@ -79,7 +79,7 @@ export default {
       return bind;
     },
     componentIs() {
-      return this.link ? "sf-link" : "sf-button";
+      return this.link ? "SfLink" : "SfButton";
     },
   },
 };

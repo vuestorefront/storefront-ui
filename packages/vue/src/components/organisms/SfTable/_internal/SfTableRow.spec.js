@@ -10,6 +10,6 @@ describe("SfTableRow.vue", () => {
         };
       },
     });
-    expect(component.contains(".sf-table__row")).toBe(true);
+    expect(component.classes("sf-table__row")).toBe(true);
   });
 });
