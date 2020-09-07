@@ -21,8 +21,13 @@
     );
     @include font(
       --select-label-font,
+<<<<<<< HEAD
+      var(--font-normal),
+      var(--font-base),
+=======
       var(--font-weight--normal),
       var(--font-size--base),
+>>>>>>> 9fc898e4b85dd06dc647dbdb23735fc40928bc67
       1,
       var(--font-family--secondary)
     );
