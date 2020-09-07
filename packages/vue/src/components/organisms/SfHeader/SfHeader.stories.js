@@ -7,7 +7,14 @@ import {
   object,
   optionsKnob as options,
 } from "@storybook/addon-knobs";
-import { SfHeader, SfLink } from "@storefront-ui/vue";
+import {
+  SfHeader,
+  SfLink,
+  SfMegaMenu,
+  SfList,
+  SfMenuItem,
+  SfBottomNavigation,
+} from "@storefront-ui/vue";
 storiesOf("Organisms|Header", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -123,9 +130,11 @@ storiesOf("Organisms|Header", module)
       >
         <template #navigation>
           <SfHeaderNavigationItem
-              v-for="item in navigation"
-              :key="item">
-            <SfLink href="#">{{item}}</SfLink>
+            v-for="item in navigation"
+            :key="item">
+            <template slot="desktop-navigation-item">
+              <SfLink href="#">{{item}}</SfLink>
+            </template>
           </SfHeaderNavigationItem>
         </template>
       </SfHeader>
@@ -134,113 +143,235 @@ storiesOf("Organisms|Header", module)
       </div>
     </div>`,
   }))
-  .add("with Search and Navigation items", () => ({
-    components: { SfHeader },
-    props: {
-      title: {
-        default: text("title", "Storefront UI", "Props"),
-      },
-      logo: {
-        default: object(
-          "logo",
-          {
-            mobile: { url: "/assets/logo.svg" },
-            desktop: { url: "/assets/logo.svg" },
-          },
-          "Props"
-        ),
-      },
-      activeIcon: {
-        default: select(
-          "activeIcon",
-          ["", "account", "wishlist", "cart"],
-          "account",
-          "Props"
-        ),
-      },
-      isSticky: {
-        default: boolean("isSticky", true, "Props"),
-      },
-      searchPlaceholder: {
-        default: text("searchPlaceholder", "Search for items", "Props"),
-      },
-      cartIcon: {
-        default: text("cartIcon", "empty_cart", "Props"),
-      },
-      wishlistIcon: {
-        default: text("wishlistIcon", "heart", "Props"),
-      },
-      accountIcon: {
-        default: text("accountIcon", "profile", "Props"),
-      },
-      cartItemsQty: {
-        default: text("cartItemsQty", "0", "Props"),
-      },
-      wishlistItemsQty: {
-        default: text("wishlistItemsQty", "0", "Props"),
-      },
+  .add("With SfHeaderNavigation", () => ({
+    components: {
+      SfHeader,
+      SfList,
+      SfBottomNavigation,
+      SfMegaMenu,
+      SfLink,
+      SfMenuItem,
     },
     data() {
       return {
-        isMobile: false,
-        navigation: ["women", "man", "kids"],
+        shopLogo: "/assets/logo.svg",
+        shopName: "Storefront UI",
+        isVisible: true,
+        currentCategory: "",
+        categories: [
+          {
+            title: "Clothing",
+            link: "/clothing",
+            subcategories: [
+              {
+                title: "Skirts",
+                link: "/skirts",
+                subcategories: [
+                  {
+                    title: "Long",
+                    link: "/long",
+                  },
+                  {
+                    title: "Short",
+                    link: "/short",
+                  },
+                ],
+              },
+              {
+                title: "Sweaters",
+                link: "/sweaters",
+                subcategories: [
+                  {
+                    title: "Long",
+                    link: "/long",
+                  },
+                  {
+                    title: "Short",
+                    link: "/short",
+                  },
+                ],
+              },
+              {
+                title: "Dresses",
+                link: "/dresses",
+                subcategories: [
+                  {
+                    title: "Long",
+                    link: "/long",
+                  },
+                  {
+                    title: "Short",
+                    link: "/short",
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            title: "Accesories",
+            link: "/accesories",
+            subcategories: [
+              {
+                title: "Bags & Purses",
+                link: "/skirts",
+                subcategories: [
+                  {
+                    title: "Long",
+                    link: "/long",
+                  },
+                  {
+                    title: "Short",
+                    link: "/short",
+                  },
+                ],
+              },
+              {
+                title: "Belts",
+                link: "/belts",
+                subcategories: [
+                  {
+                    title: "Long",
+                    link: "/long",
+                  },
+                  {
+                    title: "Short",
+                    link: "/short",
+                  },
+                ],
+              },
+              {
+                title: "Gloves",
+                link: "/gloves",
+                subcategories: [
+                  {
+                    title: "Long",
+                    link: "/long",
+                  },
+                  {
+                    title: "Short",
+                    link: "/short",
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            title: "Shoes",
+            link: "/shoes",
+            subcategories: [
+              {
+                title: "Boots",
+                link: "/boots",
+                subcategories: [
+                  {
+                    title: "Long",
+                    link: "/long",
+                  },
+                  {
+                    title: "Short",
+                    link: "/short",
+                  },
+                ],
+              },
+              {
+                title: "Heels",
+                link: "/heels",
+                subcategories: [
+                  {
+                    title: "Long",
+                    link: "/long",
+                  },
+                  {
+                    title: "Short",
+                    link: "/short",
+                  },
+                ],
+              },
+              {
+                title: "Flat shoes",
+                link: "/flat",
+                subcategories: [
+                  {
+                    title: "Long",
+                    link: "/long",
+                  },
+                  {
+                    title: "Short",
+                    link: "/short",
+                  },
+                ],
+              },
+            ],
+          },
+        ],
         searchValue: "",
       };
     },
-    computed: {
-      spacer() {
-        return;
-      },
-    },
-    mounted() {
-      this.isMobile =
-        Math.max(document.documentElement.clientWidth, window.innerWidth) <=
-        1023;
-      window.matchMedia("(max-width: 1023px)").addListener(this.mobileHandler);
-    },
-    beforeDestroy() {
-      window
-        .matchMedia("(max-width: 1023px)")
-        .removeListener(this.mobileHandler);
-    },
     methods: {
-      alert(label) {
-        alert(label);
-      },
-      mobileHandler(event) {
-        this.isMobile = event.matches;
+      changeVisibility() {
+        this.isVisible = !this.isVisible;
       },
     },
-    template: `<div>
+    template: `
+    <div>
       <SfHeader
-          :title="title"
-          :logo="logo"
-          :active-icon="activeIcon"
-          :search-placeholder="searchPlaceholder"
-          :search-value="searchValue"
-          :cart-icon="cartIcon"
-          :wishlist-icon="wishlistIcon"
-          :is-sticky="isSticky"
-          :account-icon="accountIcon"
-          :style="spacer"
-          :cart-items-qty="cartItemsQty"
-          :wishlist-items-qty="wishlistItemsQty"
-          @click:cart="alert('@click:cart')"
-          @click:wishlist="alert('@click:wishlist')"
-          @click:account="alert('@click:account')"
-          @change:search="searchValue = $event"
+      :logo="shopLogo"
+      :title="shopName"
+      active-icon="account"
+      is-sticky
+      is-nav-visible
       >
         <template #navigation>
-          <SfHeaderNavigationItem
-              v-for="item in navigation"
-              :key="item">
-            <a href="#" :style="{ display: 'flex',alignItems: 'center',height: '100%' }">{{item}}</a>
-          </SfHeaderNavigationItem>
+          <SfHeaderNavigation
+            :is-visible-on-mobile="isVisible"
+            @close="isVisible = false"
+          >
+            <SfHeaderNavigationItem 
+              v-for="(category, index) in categories"
+              :key="index"
+              :label="category.title"
+              @mouseenter="currentCategory = category.title"
+              @mouseleave="currentCategory = ''"
+              @click="currentCategory = category.title"
+            >
+              <SfMegaMenu
+                :is-absolute="true"
+                :visible="currentCategory === category.title"
+                :title="category.title"
+                @close="currentCategory = ''"
+              >
+                <SfMegaMenuColumn
+                  v-for="(subcategory, subIndex) in category.subcategories"
+                  :key="subIndex"
+                  :title="subcategory.title"
+                >
+                  <SfList>
+                    <SfListItem
+                      v-for="(subcategoryChild,
+                      childIndex) in subcategory.subcategories"
+                      :key="childIndex"
+                    >
+                      <SfMenuItem :label="subcategoryChild.title">
+                        <SfLink :link="subcategoryChild.link">
+                          {{ subcategoryChild.title }}
+                        </SfLink>
+                      </SfMenuItem>
+                    </SfListItem>
+                  </SfList>
+                </SfMegaMenuColumn>
+              </SfMegaMenu>
+            </SfHeaderNavigationItem>
+          </SfHeaderNavigation>
         </template>
       </SfHeader>
-      <div style="display: flex; align-items: center; justify-content: center; height: 155vh; background-color: #f2f2f2;">
-        [page content]
-      </div>
+      <SfBottomNavigation>
+        <SfBottomNavigationItem
+          :icon="'menu'"
+          :label="'Menu'"
+          icon-size="20px"
+          @click="changeVisibility"
+        />
+      </SfBottomNavigation>
     </div>`,
   }))
   .add("[slot] navigation", () => ({

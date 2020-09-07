@@ -3,14 +3,16 @@
     <Simplebar ref="content" class="sf-scrollable__content" :style="style">
       <slot />
     </Simplebar>
-    <SfButton
-      v-show="hasScroll"
-      class="sf-button--text sf-scrollable__button"
-      @click="isHidden = !isHidden"
-    >
-      <span v-if="isHidden">{{ showText }}</span>
-      <span v-else>{{ hideText }}</span>
-    </SfButton>
+    <slot name="view-all" v-bind="{ hasScroll, showText, hideText }">
+      <SfButton
+        v-show="hasScroll"
+        class="sf-button--text sf-scrollable__view-all"
+        @click="isHidden = !isHidden"
+      >
+        <span v-if="isHidden">{{ showText }}</span>
+        <span v-else>{{ hideText }}</span>
+      </SfButton>
+    </slot>
   </div>
 </template>
 <script>
@@ -66,7 +68,7 @@ export default {
       this.contentEl = this.$refs.content.$el.querySelector(
         ".simplebar-content"
       );
-      if (typeof MutationObserver === "undefined") return;
+      if (typeof MutationObserver === "undefined" || !this.contentEl) return;
       const observer = new MutationObserver(this.sizeCalc);
       this.sizeCalc();
       observer.observe(this.contentEl, { childList: true });

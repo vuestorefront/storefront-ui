@@ -1,9 +1,5 @@
 <template>
-  <div
-    class="sf-header"
-    :class="{ 'is-sticky': sticky, 'is-hidden': hidden }"
-    :style="stickyHeight"
-  >
+  <div class="sf-header" :class="{ 'is-sticky': sticky, 'is-hidden': hidden }">
     <div class="sf-header__wrapper">
       <header ref="header">
         <!--@slot Use this slot to replace logo with text or image-->
@@ -23,7 +19,10 @@
           <slot name="aside" />
         </div>
         <div class="sf-header__actions">
-          <nav class="sf-header__navigation">
+          <nav
+            class="sf-header__navigation"
+            :class="{ 'is-visible': isNavVisible }"
+          >
             <slot name="navigation"></slot>
           </nav>
           <!--@slot Use this slot to replace default search bar-->
@@ -105,6 +104,8 @@
 <script>
 import Vue from "vue";
 import SfHeaderNavigationItem from "./_internal/SfHeaderNavigationItem.vue";
+import SfHeaderNavigation from "./_internal/SfHeaderNavigation.vue";
+Vue.component("SfHeaderNavigation", SfHeaderNavigation);
 Vue.component("SfHeaderNavigationItem", SfHeaderNavigationItem);
 import {
   mapMobileObserver,
@@ -209,11 +210,17 @@ export default {
     /**
      * Header search on mobile
      */
+    isNavVisible: {
+      type: Boolean,
+      default: false,
+    },
+    /**
+     * Is nav slot visible at mobile view
+     */
   },
   data() {
     return {
       icons: [],
-      height: 0,
       hidden: false,
       sticky: false,
       scrollDirection: null,
@@ -231,11 +238,6 @@ export default {
     wishlistHasProducts() {
       return parseInt(this.wishlistItemsQty, 10) > 0;
     },
-    stickyHeight() {
-      return {
-        "--_header-height": `${this.height}px`,
-      };
-    },
   },
   watch: {
     scrollDirection: {
@@ -248,15 +250,6 @@ export default {
           this.animationHandler
         );
       },
-    },
-    isMobile: {
-      handler() {
-        if (!isClient) return;
-        this.$nextTick(() => {
-          this.height = this.$refs.header.offsetHeight;
-        });
-      },
-      immediate: true,
     },
     isSticky: {
       handler(isSticky) {
@@ -295,9 +288,11 @@ export default {
       if (!isClient) return;
       const currentScrollPosition =
         window.pageYOffset || document.documentElement.scrollTop;
-      if (currentScrollPosition >= this.height) {
-        this.scrollDirection =
-          currentScrollPosition < this.lastScrollPosition ? "up" : "down";
+      if (!!this.refs) {
+        if (currentScrollPosition >= this.$refs.header.offsetHeight) {
+          this.scrollDirection =
+            currentScrollPosition < this.lastScrollPosition ? "up" : "down";
+        }
       }
       this.lastScrollPosition = currentScrollPosition;
     },

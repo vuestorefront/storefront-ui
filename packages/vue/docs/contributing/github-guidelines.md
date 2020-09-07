@@ -344,7 +344,7 @@ git push origin <your-branch-name>
 ```
 
 :::danger STAGE THE WRONG FILE?
-If there is a staged file that wasn't supposed to be staged in the commit, you can **unstage** it by using `checkout` command. See [Troubleshootings - Unstaged unwanted file(s)](#unstaged-unwanted-file(s)) for more information.
+If there is a staged file that wasn't supposed to be staged in the commit, you can **unstage** it by using `checkout` command. See [Troubleshootings - Unstage unwanted file(s)](#unstage-unwanted-file-s) for more information.
 :::
 
 #### By VSCode UI

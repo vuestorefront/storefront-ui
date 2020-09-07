@@ -5,20 +5,18 @@
     :style="size"
     v-on="$listeners"
   >
-    <template v-if="isPicture">
+    <template v-if="(isSrcset && isSrcsetArray) || isSrcObject">
       <picture>
         <source
-          :srcset="source.desktop.url"
-          :media="`(min-width: ${pictureBreakpoint}px)`"
-        />
-        <source
-          :srcset="source.mobile.url"
-          :media="`(max-width: ${pictureBreakpoint - 1}px)`"
+          v-for="(srcItem, i) in getSrcsetWhenIsArray.srcset"
+          :key="i"
+          :srcset="srcItem.src"
+          :media="srcItem.media"
+          :type="srcItem.type"
         />
         <img
-          v-show="source.desktop.url"
-          ref="image"
-          :src="source.desktop.url"
+          v-show="getSrcsetWhenIsArray.src"
+          :src="getSrcsetWhenIsArray.src"
           v-bind="$attrs"
           :width="width"
           :height="height"
@@ -27,15 +25,13 @@
     </template>
     <template v-else>
       <img
-        v-show="source"
-        ref="image"
-        :src="source"
-        v-bind="$attrs"
+        v-show="getSrcOrSrcset"
+        v-bind="{ ...$attrs, ...getSrcOrSrcset }"
         :width="width"
         :height="height"
       />
     </template>
-    <noscript v-if="lazy && noscript" inline-template>
+    <noscript v-if="noscript" inline-template>
       <img
         class="noscript"
         :src="noscript"
@@ -50,6 +46,7 @@
   </div>
 </template>
 <script>
+import { deprecationWarning } from "../../../utilities/helpers";
 import lozad from "lozad";
 export default {
   name: "SfImage",
@@ -57,6 +54,10 @@ export default {
   props: {
     src: {
       type: [String, Object],
+      default: "",
+    },
+    srcset: {
+      type: [String, Array],
       default: "",
     },
     lazy: {
@@ -70,10 +71,6 @@ export default {
     height: {
       type: [String, Number],
       default: null,
-    },
-    pictureBreakpoint: {
-      type: Number,
-      default: 1024,
     },
     rootMargin: {
       type: String,
@@ -90,19 +87,61 @@ export default {
     };
   },
   computed: {
-    isPicture() {
+    // TODO: To be removed if src as an object will not be available anymore
+    isSrcObject() {
       return !!this.src && typeof this.src === "object";
     },
-    source() {
-      const allow =
-        (this.isLoaded && this.lazy) || (!this.isLoaded && !this.lazy);
-      const disallow = this.isPicture
-        ? { desktop: { url: null }, mobile: { url: null } }
-        : null;
-      return allow ? this.src : disallow;
+    isSrcset() {
+      return !!this.srcset.length;
+    },
+    isSrcsetArray() {
+      return !!Array.isArray(this.srcset);
+    },
+    isLazyAndNotLoaded() {
+      return !this.isLoaded && this.lazy;
+    },
+    getSrcsetWhenIsArray() {
+      if (this.isLazyAndNotLoaded) {
+        return {
+          srcset: [{ media: null, src: null, type: null }],
+          src: "",
+        };
+      }
+      // TODO: To be removed if src as an object will not be available anymore
+      if (this.isSrcObject) {
+        deprecationWarning(
+          this.$options.name,
+          "Prop 'src' type should be a string, the object type is deprecated, change the prop type."
+        );
+        return {
+          src: this.src.desktop?.url,
+          srcset: [
+            {
+              src: this.src.mobile?.url,
+              media: `(max-width: 1023px)`,
+            },
+            {
+              src: this.src.desktop?.url,
+              media: `(min-width: 1024px)`,
+            },
+          ],
+        };
+      }
+      return { srcset: this.srcset, src: this.src };
+    },
+    getSrcOrSrcset() {
+      if (this.isLazyAndNotLoaded) {
+        return this.isSrcset ? { src: null, srcset: null } : { src: null };
+      }
+      return this.isSrcset
+        ? { src: this.src, srcset: this.srcset }
+        : { src: this.src };
     },
     noscript() {
-      return this.isPicture ? this.src.desktop.url : this.src;
+      return (
+        (this.isSrcsetArray && this.srcset.length && this.srcset[0].src) ||
+        this.src
+      );
     },
     size() {
       return (

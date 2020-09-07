@@ -6,6 +6,6 @@ describe("SfContentCategory.vue", () => {
     const component = shallowMount(SfContentCategory, {
       parentComponent: SfContentPages,
     });
-    expect(component.contains(".sf-content-category")).toBe(true);
+    expect(component.classes("sf-content-category")).toBe(true);
   });
 });
