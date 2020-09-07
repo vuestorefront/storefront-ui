@@ -78,7 +78,7 @@ export default {
       return bind;
     },
     componentIs() {
-      return this.link ? "sf-link" : "sf-button";
+      return this.link ? "SfLink" : "SfButton";
     },
   },
 };
