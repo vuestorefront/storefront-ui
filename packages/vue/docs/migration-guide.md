@@ -117,6 +117,16 @@ Before | v0.7.0 | v0.9.0
 ------------ | ------------ | ------------
 undefined | --c-text-disabled: var(--_c-gray-accent) | --c-text-disabled: var(--_c-gray-accent) -->
 
+
+### Classes
+
+**Breakpoints**
+
+v0.8.0 | v0.9.0
+------------ | ------------
+.mobile-only | .smartphone-only
+
+
 ### Deletions
 
 1. removed viewport addon on Storybook
