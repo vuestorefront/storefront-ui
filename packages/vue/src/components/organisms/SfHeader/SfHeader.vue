@@ -55,6 +55,7 @@
               <SfButton
                 v-if="accountIcon"
                 class="sf-button--pure sf-header__action"
+                data-testid="accountIcon"
                 @click="$emit('click:account')"
               >
                 <SfIcon
@@ -68,6 +69,7 @@
               <SfButton
                 v-if="wishlistIcon"
                 class="sf-button--pure sf-header__action"
+                data-testid="wishlistIcon"
                 @click="$emit('click:wishlist')"
               >
                 <SfIcon
@@ -84,6 +86,7 @@
               <SfButton
                 v-if="cartIcon"
                 class="sf-button--pure sf-header__action"
+                data-testid="cartIcon"
                 @click="$emit('click:cart')"
               >
                 <SfIcon

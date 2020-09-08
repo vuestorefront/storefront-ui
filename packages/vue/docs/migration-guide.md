@@ -183,3 +183,16 @@ Component | Before | v0.9.0
 SfHeading | subtitle | description
 
 ## Release notes
+
+## Components with data-testid
+
+Before | v0.9.0
+------------ | ------------
+- | SfBreadcrumbs
+- | SfBullets
+- | SfCheckbox
+- | SfColor
+- | SfInput
+- | SfQuantitySelector
+- | SfMenuItem
+- | SfHeader
