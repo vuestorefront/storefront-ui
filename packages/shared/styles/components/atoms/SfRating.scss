@@ -3,8 +3,9 @@
   display: flex;
   &__icon {
     --icon-color: var(--c-primary);
+    --icon-color-negative: var(--c-gray-variant);
     &--negative {
-      --icon-color: var(--c-gray-variant);
+      --icon-color: var(--icon-color-negative);
     }
   }
 }
