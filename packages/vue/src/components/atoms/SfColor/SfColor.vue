@@ -4,6 +4,7 @@
     :class="{ 'is-active': selected }"
     :style="style"
     :aria-pressed="selected.toString()"
+    :data-testid="color"
     v-on="$listeners"
   >
     <transition name="sf-bounce">

@@ -5,6 +5,7 @@
       'has-text': !!value,
       invalid: !valid,
     }"
+    :data-testid="name"
   >
     <div class="sf-input__wrapper">
       <input
