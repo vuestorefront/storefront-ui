@@ -28,54 +28,45 @@
           </div>
         </slot>
       </div>
-      <div class="sf-store__info">
-        <div class="sf-store__heading">
-          <!-- @slot Use this slot to show heading -->
-          <slot name="heading">
-            <div class="sf-store__name">
-              {{ name }}
-            </div>
-          </slot>
+      <!-- @slot This is the default slot of the component, placed on the right of the picture -->
+      <slot>
+        <div v-if="address" class="sf-store__address">
+          {{ address }}
         </div>
-        <!-- @slot This is the default slot of the component, placed on the right of the picture -->
-        <slot>
-          <div v-if="address" class="sf-store__address">
-            {{ address }}
-          </div>
-          <SfCharacteristic
-            v-if="phone"
-            icon="phone"
-            size-icon="16px"
-            class="sf-store__property"
-          >
-            <template #text>
-              <a
-                v-focus
-                :href="`tel:${phone}`"
-                tabindex="0"
-                class="sf-store__property-link"
-                >{{ phone }}</a
-              >
-            </template>
-          </SfCharacteristic>
-          <SfCharacteristic
-            v-if="email"
-            icon="mail"
-            size-icon="16px"
-            class="sf-store__property"
-          >
-            <template #text>
-              <a
-                v-focus
-                :href="`mailto:${email}`"
-                tabindex="0"
-                class="sf-store__property-link"
-                >{{ email }}</a
-              >
-            </template>
-          </SfCharacteristic>
-        </slot>
-      </div>
+        <SfCharacteristic
+          v-if="phone"
+          icon="phone"
+          size-icon="16px"
+          class="sf-store__property"
+        >
+          <template #text>
+            <a
+              v-focus
+              :href="`tel:${phone}`"
+              tabindex="0"
+              class="sf-store__property-link"
+              >{{ phone }}</a
+            >
+          </template>
+        </SfCharacteristic>
+        <SfCharacteristic
+          v-if="email"
+          icon="mail"
+          size-icon="16px"
+          class="sf-store__property"
+        >
+          <template #text>
+            <a
+              v-focus
+              :href="`mailto:${email}`"
+              tabindex="0"
+              class="sf-store__property-link"
+              >{{ email }}</a
+            >
+          </template>
+        </SfCharacteristic>
+      </slot>
+    </div>
   </div>
 </template>
 <script>
