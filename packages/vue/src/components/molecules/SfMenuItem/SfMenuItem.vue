@@ -3,6 +3,7 @@
     :is="componentIs"
     class="sf-menu-item"
     v-bind="bind"
+    :data-testid="label"
     v-on="$listeners"
   >
     <!-- @slot for menu item icon-->

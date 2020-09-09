@@ -28,45 +28,54 @@
           </div>
         </slot>
       </div>
-      <!-- @slot This is the default slot of the component, placed on the right of the picture -->
-      <slot>
-        <div v-if="address" class="sf-store__address">
-          {{ address }}
+      <div class="sf-store__info">
+        <div class="sf-store__heading">
+          <!-- @slot Use this slot to show heading -->
+          <slot name="heading">
+            <div class="sf-store__name">
+              {{ name }}
+            </div>
+          </slot>
         </div>
-        <SfCharacteristic
-          v-if="phone"
-          icon="phone"
-          size-icon="16px"
-          class="sf-store__property"
-        >
-          <template #text>
-            <a
-              v-focus
-              :href="`tel:${phone}`"
-              tabindex="0"
-              class="sf-store__property-link"
-              >{{ phone }}</a
-            >
-          </template>
-        </SfCharacteristic>
-        <SfCharacteristic
-          v-if="email"
-          icon="mail"
-          size-icon="16px"
-          class="sf-store__property"
-        >
-          <template #text>
-            <a
-              v-focus
-              :href="`mailto:${email}`"
-              tabindex="0"
-              class="sf-store__property-link"
-              >{{ email }}</a
-            >
-          </template>
-        </SfCharacteristic>
-      </slot>
-    </div>
+        <!-- @slot This is the default slot of the component, placed on the right of the picture -->
+        <slot>
+          <div v-if="address" class="sf-store__address">
+            {{ address }}
+          </div>
+          <SfCharacteristic
+            v-if="phone"
+            icon="phone"
+            size-icon="16px"
+            class="sf-store__property"
+          >
+            <template #text>
+              <a
+                v-focus
+                :href="`tel:${phone}`"
+                tabindex="0"
+                class="sf-store__property-link"
+                >{{ phone }}</a
+              >
+            </template>
+          </SfCharacteristic>
+          <SfCharacteristic
+            v-if="email"
+            icon="mail"
+            size-icon="16px"
+            class="sf-store__property"
+          >
+            <template #text>
+              <a
+                v-focus
+                :href="`mailto:${email}`"
+                tabindex="0"
+                class="sf-store__property-link"
+                >{{ email }}</a
+              >
+            </template>
+          </SfCharacteristic>
+        </slot>
+      </div>
   </div>
 </template>
 <script>
@@ -74,6 +83,7 @@ import { focus } from "../../../../utilities/directives";
 import SfImage from "../../../atoms/SfImage/SfImage.vue";
 import SfIcon from "../../../atoms/SfIcon/SfIcon.vue";
 import SfCharacteristic from "../../../molecules/SfCharacteristic/SfCharacteristic.vue";
+import SfButton from "../../../atoms/SfButton/SfButton.vue";
 export default {
   name: "SfStore",
   inject: [

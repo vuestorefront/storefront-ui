@@ -11,10 +11,27 @@
         :viewBox="iconViewBox"
         preserveAspectRatio="none"
       >
+        <defs>
+          <linearGradient
+            v-if="coverage < 1"
+            :id="coverage"
+            x1="0"
+            y1="0"
+            x2="1"
+            y2="0"
+          >
+            <stop :offset="coverage" stop-color="var(--icon-color)" />
+            <stop
+              offset="0"
+              stop-color="var(--icon-color-negative, var(--c-gray-variant))"
+            />
+          </linearGradient>
+        </defs>
         <path
           v-for="(path, index) in iconPaths"
           :key="index"
           :d="path"
+          :fill="fillPath"
           style="height: 100%;"
         />
       </svg>
@@ -85,6 +102,14 @@ export default {
       type: String,
       default: "",
     },
+    /**
+     * The fraction in which the icon is partially collored with --icon-color value and the rest with --icon-color-negative.
+     * To be used in SfRating.
+     * */
+    coverage: {
+      type: [String, Number],
+      default: 1,
+    },
   },
   computed: {
     isSFColors() {
@@ -122,6 +147,16 @@ export default {
       } else {
         return Array.isArray(this.icon) ? this.icon : [this.icon];
       }
+    },
+    fillPath() {
+      return this.coverage === 1
+        ? "var(--icon-color)"
+        : this.fillUrl(this.coverage);
+    },
+  },
+  methods: {
+    fillUrl(index) {
+      return "url(#" + index + ")";
     },
   },
 };
