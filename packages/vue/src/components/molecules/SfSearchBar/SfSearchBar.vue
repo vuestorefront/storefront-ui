@@ -12,18 +12,24 @@
       @blur="$emit('blur')"
     />
     <!-- @slot -->
-    <slot name="icon">
-      <span v-if="icon" class="sf-search-bar__icon">
-        <SfIcon :color="icon.color" :size="icon.size" icon="search" />
-      </span>
-    </slot>
+    <SfButton
+      class="sf-search-bar__button sf-button--pure"
+      @click="$emit('click', $event.target.value)"
+    >
+      <slot name="icon">
+        <span v-if="icon" class="sf-search-bar__icon">
+          <SfIcon :color="icon.color" :size="icon.size" icon="search" />
+        </span>
+      </slot>
+    </SfButton>
   </div>
 </template>
 <script>
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+import SfButton from "../../atoms/SfButton/SfButton.vue";
 export default {
   name: "SfSearchBar",
-  components: { SfIcon },
+  components: { SfIcon, SfButton },
   inheritAttrs: false,
   props: {
     /**
