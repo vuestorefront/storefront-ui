@@ -3,6 +3,7 @@
     <SfButton
       :disabled="disabled"
       class="sf-quantity-selector__button"
+      data-testid="+"
       @click="$emit('input', parseInt(qty, 10) - 1)"
       >&minus;</SfButton
     >
@@ -12,11 +13,13 @@
       v-bind="$attrs"
       :disabled="disabled"
       class="sf-quantity-selector__input"
+      data-testid="sf-quantity-selector input"
       @input="$emit('input', parseInt($event, 10))"
     />
     <SfButton
       :disabled="disabled"
       class="sf-quantity-selector__button"
+      ata-testid="-"
       @click="$emit('input', parseInt(qty, 10) + 1)"
       >+</SfButton
     >

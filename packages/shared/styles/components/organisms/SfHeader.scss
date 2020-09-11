@@ -123,7 +123,7 @@
     transform: var(--header-wrapper-transform);
     box-shadow: var(--header-box-shadow);
   }
-  header {
+  &__header {
     display: flex;
     flex-wrap: var(--header-flex-wrap, wrap);
     align-items: center;
@@ -209,7 +209,6 @@
   }
   &--is-sticky {
     --header-wrapper-position: fixed;
-    height: var(--_header-height);
   }
   &--is-hidden {
     --header-wrapper-transform: translate3d(0, -100%, 0);

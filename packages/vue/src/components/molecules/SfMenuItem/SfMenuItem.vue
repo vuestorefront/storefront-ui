@@ -3,6 +3,7 @@
     :is="componentIs"
     class="sf-menu-item"
     v-bind="bind"
+    :data-testid="label"
     v-on="$listeners"
   >
     <!-- @slot for menu item icon-->
@@ -78,7 +79,7 @@ export default {
       return bind;
     },
     componentIs() {
-      return this.link ? "sf-link" : "sf-button";
+      return this.link ? "SfLink" : "SfButton";
     },
   },
 };
