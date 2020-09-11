@@ -51,8 +51,7 @@ export default {
      ** You can extend webpack config here
      */
     babel: {
-      // envName: server, client, modern
-      presets({ envName }) {
+      presets ({ envName }) {
         return [
           [
             '@nuxt/babel-preset-app',
@@ -66,9 +65,9 @@ export default {
     extend(config, ctx) { },
     transpile: [/^@storefront-ui/],
   },
-  // storybook: {
-  //   stories: [
-  //     "@storefront-ui/vue/src/components/organisms/SfFooter/SfFooter.stories.js"
-  //   ]
-  // }    
+  storybook: {
+    stories: [
+      "@storefront-ui/vue/src/components/organisms/SfFooter/SfFooter.stories.js"
+    ]
+  }    
 };
