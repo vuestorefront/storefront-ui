@@ -26,12 +26,13 @@ storiesOf("Molecules|SearchBar", module)
       placeholder: {
         default: text("placeholder", "Search for items", "Props"),
       },
-      icon: {
+      iconObject: {
         default: object(
           "icon",
           {
             color: "#43464E",
             size: "1.25rem",
+            icon: "search",
           },
           "Props"
         ),
@@ -43,7 +44,7 @@ storiesOf("Molecules|SearchBar", module)
       };
     },
     template: `<SfSearchBar
-      :icon="icon"
+      :iconObject="iconObject"
       :class="customClass"
       :placeholder="placeholder"
       aria-label="Search"
