@@ -16,9 +16,10 @@
   "dependencies": {
     "@nuxt/babel-preset-app": "^2.14.3",
     "@nuxtjs/pwa": "^3.0.0-0",
-    "@storefront-ui/vue": "0.7.18",
+    "@storefront-ui/vue": "0.8.1",
     "lerna": "^3.16.4",
-    "nuxt": "2.14.3"
+    "nuxt": "2.14.2",
+    "nuxt-edge": "^2.14.6-26663074.45b78387"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",

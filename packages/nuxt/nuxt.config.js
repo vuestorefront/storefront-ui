@@ -62,11 +62,9 @@ export default {
           ]
         ]
       }
-    },
-    build: {
-      extend(config, ctx) { },
-      transpile: [/^@storefront-ui/],
-    },
+    },    
+    extend(config, ctx) { },
+    transpile: [/^@storefront-ui/],
   },
   // storybook: {
   //   stories: [
