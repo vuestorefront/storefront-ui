@@ -13,8 +13,16 @@
     />
     <!-- @slot -->
     <slot name="icon">
-      <span v-if="iconObject" class="sf-search-bar__icon">
-        <SfIcon :icon-object="iconObject" />
+      <span v-if="icon" class="sf-search-bar__icon">
+        <SfIcon
+          :icon="icon.icon"
+          :size="icon.size"
+          :color="icon.color"
+          :view-box="icon.viewBox"
+          :has-badge="icon.hasBadge"
+          :badge-label="icon.badgeLabel"
+          :coverage="icon.coverage"
+        />
       </span>
     </slot>
   </div>
@@ -41,9 +49,9 @@ export default {
       default: null,
     },
     /**
-     * Object to define icon look.
+     * Object to pass icon props (icon, size, color, viewBox, hasBadge, badgeLabel, coverage).
      */
-    iconObject: {
+    icon: {
       type: Object,
       default: () => {
         return {

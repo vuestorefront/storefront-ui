@@ -26,7 +26,7 @@ storiesOf("Molecules|SearchBar", module)
       placeholder: {
         default: text("placeholder", "Search for items", "Props"),
       },
-      iconObject: {
+      icon: {
         default: object(
           "icon",
           {
@@ -44,7 +44,7 @@ storiesOf("Molecules|SearchBar", module)
       };
     },
     template: `<SfSearchBar
-      :iconObject="iconObject"
+      :icon="icon"
       :class="customClass"
       :placeholder="placeholder"
       aria-label="Search"

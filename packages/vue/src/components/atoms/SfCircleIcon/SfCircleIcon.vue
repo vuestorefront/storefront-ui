@@ -5,11 +5,13 @@
       <SfIcon
         aria-hidden="true"
         class="sf-circle-icon__icon"
-        :icon="icon"
-        :color="iconColor"
-        :size="iconSize"
-        :badge-label="badgeLabel"
-        :has-badge="hasBadge"
+        :icon="icon.icon"
+        :size="icon.size"
+        :color="icon.color"
+        :view-box="icon.viewBox"
+        :has-badge="icon.hasBadge"
+        :badge-label="icon.badgeLabel"
+        :coverage="icon.coverage"
       />
     </slot>
   </SfButton>
@@ -25,28 +27,17 @@ export default {
   },
   props: {
     icon: {
-      type: [String, Array],
-      default: "home",
-    },
-    iconColor: {
-      type: String,
-      default: "",
-    },
-    iconSize: {
-      type: String,
-      default: "",
+      type: Object,
+      default: () => {
+        return {
+          icon: "home",
+          size: "1.5rem",
+        };
+      },
     },
     disabled: {
       type: Boolean,
       default: false,
-    },
-    hasBadge: {
-      type: Boolean,
-      default: false,
-    },
-    badgeLabel: {
-      type: String,
-      default: "",
     },
   },
 };

@@ -3,6 +3,7 @@ import {
   withKnobs,
   text,
   boolean,
+  object,
   optionsKnob as options,
 } from "@storybook/addon-knobs";
 import { SfInput, SfIcon } from "@storefront-ui/vue";
@@ -50,6 +51,25 @@ storiesOf("Atoms|Input", module)
       placeholder: {
         default: text("placeholder", "", "Props"),
       },
+      icon: {
+        default: object(
+          "icon",
+          {
+            icon: "show_password",
+            size: "1.5rem",
+          },
+          "Props"
+        ),
+      },
+      button: {
+        default: object(
+          "button",
+          {
+            disabled: false,
+          },
+          "Props"
+        ),
+      },
     },
     data() {
       return {
@@ -69,6 +89,8 @@ storiesOf("Atoms|Input", module)
         :has-show-password="hasShowPassword"
         :class="customClass"
         :placeholder="placeholder"
+        :icon="icon"
+        :button="button"
       />
     </div>`,
   }))
@@ -114,6 +136,25 @@ storiesOf("Atoms|Input", module)
       hasShowPassword: {
         default: boolean("hasShowPassword", false, "Props"),
       },
+      icon: {
+        default: object(
+          "icon",
+          {
+            icon: "show_password",
+            size: "1.5rem",
+          },
+          "Props"
+        ),
+      },
+      button: {
+        default: object(
+          "button",
+          {
+            disabled: false,
+          },
+          "Props"
+        ),
+      },
     },
     data() {
       return {
@@ -130,6 +171,8 @@ storiesOf("Atoms|Input", module)
         :required="required"
         :disabled="disabled"
         :has-show-password="hasShowPassword"
+        :icon="icon"
+        :button="button"
         >
       <template #label="{label}">
             <SfIcon icon="heart_fill" size="10px" style="margin-right: 4px; display: inline-block"/>{{label}}
@@ -178,6 +221,25 @@ storiesOf("Atoms|Input", module)
       hasShowPassword: {
         default: boolean("hasShowPassword", false, "Props"),
       },
+      icon: {
+        default: object(
+          "icon",
+          {
+            icon: "show_password",
+            size: "1.5rem",
+          },
+          "Props"
+        ),
+      },
+      button: {
+        default: object(
+          "button",
+          {
+            disabled: false,
+          },
+          "Props"
+        ),
+      },
     },
     data() {
       return {
@@ -194,6 +256,8 @@ storiesOf("Atoms|Input", module)
       :required="required"
       :disabled="disabled"
       :has-show-password="hasShowPassword"
+      :icon="icon"
+      :button="button"
       >
       <template #error-message="{errorMessage}">
         <div>
@@ -234,7 +298,7 @@ storiesOf("Atoms|Input", module)
         default: text("errorMessage", "Required.", "Props"),
       },
       valid: {
-        default: boolean("valid", false, "Props"),
+        default: boolean("valid", true, "Props"),
       },
       required: {
         default: boolean("required", false, "Props"),
@@ -262,11 +326,10 @@ storiesOf("Atoms|Input", module)
       :disabled="disabled"
       :has-show-password="hasShowPassword"
       >
-      <template #error-message="{errorMessage}">
-        <div style="display: flex; align-items: center">
-          <SfIcon icon="info_shield" size="0.875rem" color="#E22326" style="margin-right: 4px; display: inline-block"/>
-          <span>CUSTOM ERROR MESSAGE</span>
-        </div>
+      <template #show-password>
+        <SfButton class="sf-input__password-button">
+          <SfIcon class="sf-input__password-icon" icon="info_shield" size="1.5rem" color="#E22326"/>      
+        </SfButton>
       </template>
     </SfInput>`,
   }))
@@ -309,6 +372,25 @@ storiesOf("Atoms|Input", module)
       hasShowPassword: {
         default: boolean("hasShowPassword", false, "Props"),
       },
+      icon: {
+        default: object(
+          "icon",
+          {
+            icon: "show_password",
+            size: "1.5rem",
+          },
+          "Props"
+        ),
+      },
+      button: {
+        default: object(
+          "button",
+          {
+            disabled: false,
+          },
+          "Props"
+        ),
+      },
     },
     data() {
       return {
@@ -326,5 +408,7 @@ storiesOf("Atoms|Input", module)
       :disabled="disabled"
       :has-show-password="hasShowPassword"
       :class="customClass"
+      :icon="icon"
+      :button="button"
       />`,
   }));

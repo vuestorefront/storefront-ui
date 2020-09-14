@@ -36,6 +36,8 @@
         <SfButton
           class="sf-input__password-button"
           type="button"
+          :disabled="button.disabled"
+          :link="button.link"
           aria-label="switch-visibility-password"
           :aria-pressed="isPasswordVisible.toString()"
           @click="switchVisibilityPassword"
@@ -45,8 +47,13 @@
             :class="{
               'sf-input__password-icon--hidden': !isPasswordVisible,
             }"
-            icon="show_password"
-            size="1.5rem"
+            :icon="icon.icon"
+            :size="icon.size"
+            :color="icon.color"
+            :view-box="icon.viewBox"
+            :has-badge="icon.hasBadge"
+            :badge-label="icon.badgeLabel"
+            :coverage="icon.coverage"
           ></SfIcon>
         </SfButton>
       </slot>
@@ -137,6 +144,26 @@ export default {
     hasShowPassword: {
       type: Boolean,
       default: false,
+    },
+    /**
+     * Object to pass button props (disabled, link).
+     */
+    button: {
+      type: Object,
+      default: () => {
+        return {
+          disabled: false,
+        };
+      },
+    },
+    icon: {
+      type: Object,
+      default: () => {
+        return {
+          icon: "show_password",
+          size: "1.5rem",
+        };
+      },
     },
   },
   data() {

@@ -8,10 +8,15 @@
       >&minus;</SfButton
     >
     <SfInput
-      type="number"
       :value="qty"
       v-bind="$attrs"
-      :disabled="disabled"
+      :label="input.label"
+      :name="input.name"
+      :type="input.type"
+      :valid="input.valid"
+      :error-message="input.errorMessage"
+      :required="input.required"
+      :disabled="input.disabled || disabled"
       class="sf-quantity-selector__input"
       data-testid="sf-quantity-selector input"
       @input="$emit('input', parseInt($event, 10))"
@@ -47,6 +52,17 @@ export default {
     disabled: {
       type: Boolean,
       default: false,
+    },
+    /**
+     * Object to pass input props (label, name, type, valid, errorMessage, required, disabled).
+     */
+    input: {
+      type: Object,
+      default: () => {
+        return {
+          type: "number",
+        };
+      },
     },
   },
   watch: {

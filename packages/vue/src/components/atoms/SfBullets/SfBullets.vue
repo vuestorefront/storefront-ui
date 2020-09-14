@@ -5,6 +5,8 @@
       <slot name="inactive" class="sf-bullet" v-bind="{ index, go }">
         <li :key="index">
           <SfButton
+            :disabled="buttonsInactive.disabled"
+            :link="buttonsInactive.link"
             :aria-label="'Go to slide ' + (index + 1)"
             class="sf-button--pure sf-bullet"
             :data-testid="index + 1"
@@ -17,6 +19,8 @@
     <slot name="active">
       <li>
         <SfButton
+          :disabled="buttonActive.disabled"
+          :link="buttonActive.link"
           aria-label="Current slide"
           class="sf-button--pure sf-bullet sf-bullet--active"
         ></SfButton>
@@ -31,6 +35,8 @@
       >
         <li :key="inactiveLeft + 1 + index">
           <SfButton
+            :disabled="buttonsInactive.disabled"
+            :link="buttonsInactive.link"
             :aria-label="'Go to slide ' + (inactiveLeft + 2 + index)"
             class="sf-button--pure sf-bullet"
             :data-testid="inactiveLeft + 1 + index"
@@ -62,6 +68,28 @@ export default {
     current: {
       type: Number,
       default: 0,
+    },
+    /**
+     * Object to pass button props for active bullet (disabled, link).
+     */
+    buttonActive: {
+      type: Object,
+      default: () => {
+        return {
+          disabled: false,
+        };
+      },
+    },
+    /**
+     * Object to pass button props for inactive bullets (disabled, link).
+     */
+    buttonsInactive: {
+      type: Object,
+      default: () => {
+        return {
+          disabled: false,
+        };
+      },
     },
   },
   computed: {

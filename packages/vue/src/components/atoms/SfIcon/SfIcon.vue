@@ -58,10 +58,6 @@ export default {
     SfBadge,
   },
   props: {
-    iconObject: {
-      type: Object,
-      default: () => {},
-    },
     /**
      * Icon SVG path(s)
      * It can be single SVG path (string) or array of SVG paths or icon name
@@ -164,21 +160,6 @@ export default {
       return "url(#" + index + ")";
     },
   },
-  watch: {
-    iconObject: {
-      handler(value) {
-        console.log(this.$props, value)
-        // Object.entries(value).forEach(         
-        //   objectProp => {
-        //   console.log(objectProp, objectProp[0])
-        //   Vue.set(this.$props, objectProp[0], objectProp[1])
-        // })
-        Object.assign(this.$props, value)
-        console.log(this.$props)
-      },
-      immediate: true,
-    }
-  }
 };
 </script>
 <style lang="scss">

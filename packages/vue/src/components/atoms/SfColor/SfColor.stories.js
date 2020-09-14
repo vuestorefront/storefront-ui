@@ -4,6 +4,7 @@ import {
   text,
   optionsKnob as options,
   boolean,
+  object,
 } from "@storybook/addon-knobs";
 import { SfColor } from "@storefront-ui/vue";
 storiesOf("Atoms|Color", module)
@@ -24,6 +25,15 @@ storiesOf("Atoms|Color", module)
           "CSS Modifiers"
         ),
       },
+      button: {
+        default: object(
+          "button",
+          {
+            disabled: false,
+          },
+          "Props"
+        ),
+      },
     },
     data() {
       return {
@@ -34,6 +44,7 @@ storiesOf("Atoms|Color", module)
           :color="color" 
           :selected="selected" 
           :has-badge="hasBadge"
+          :button="button"
           :aria-label="color"  
           style="margin: 10px;"
           :class="customClass"

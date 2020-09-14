@@ -3,6 +3,8 @@
     class="sf-button--pure sf-color"
     :class="{ 'sf-color--active': selected }"
     :style="style"
+    :disabled="button.disabled"
+    :link="button.link"
     :aria-pressed="selected.toString()"
     :data-testid="color"
     v-on="$listeners"
@@ -43,6 +45,17 @@ export default {
     hasBadge: {
       type: Boolean,
       default: true,
+    },
+    /**
+     * Object to pass button props (disabled, link).
+     */
+    button: {
+      type: Object,
+      default: () => {
+        return {
+          disabled: false,
+        };
+      },
     },
   },
   computed: {
