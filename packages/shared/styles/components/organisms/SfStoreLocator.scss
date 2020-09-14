@@ -12,28 +12,41 @@
     color: var(--c-dark-variant);
     @include font(
       --store-item-distance-font,
-      var(--font-light),
-      var(--font-base),
+      var(--font-weight--normal),
+      var(--font-size--base),
       1.4,
-      var(--font-family-primary)
+      var(--font-family--secondary)
     );
     span {
-      font-weight: var(--font-bold);
+      font-weight: var(--font-weight-bold);
       color: var(--c-text);
     }
   }
+  &__btn {
+    display: flex;
+    justify-content: flex-start; 
+  }
   &__media {
     flex: var(--store-media-flex, 0 0 7rem);
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+  }
+  &__heading,
+  &__address {
+    display: flex;
+    justify-content: flex-start;
   }
   &__address {
     margin: var(--store-item-addres-margin, 0 0 var(--spacer-base) 0);
     color: var(--c-dark-variant);
     @include font(
       --store-item-property-font,
-      var(--font-normal),
-      var(--font-xs),
+      var(--font-weight--normal),
+      var(--font-size--base),
       1.4,
-      var(--font-family-secondary)
+      var(--font-family--primary)
     );
   }
   &__name {
@@ -41,10 +54,10 @@
     color: var(--c-text);
     @include font(
       --store-item-property-font,
-      var(--font-normal),
-      var(--font-xs),
+      var(--font-weight--normal),
+      var(--font-size--base),
       1.4,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
   }
   &__property {
@@ -54,10 +67,10 @@
     color: var(--c-dark-variant);
     @include font(
       --store-item-property-font,
-      var(--font-normal),
-      var(--font-xs),
+      var(--font-weight--normal),
+      var(--font-size--xs),
       1.4,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
     &:last-child {
       margin: var(--store-item-property-margin, 0);
@@ -93,7 +106,7 @@
     height: var(--store-locator-map-height);
   }
   &__map {
-    // Workaround to known bug about min-height / height interaction in Chrome / Firefox
+  // Workaround to known bug about min-height / height interaction in Chrome / Firefox
     position: absolute;
     height: 100%;
     z-index: 0;
@@ -106,16 +119,16 @@
       solid,
       var(--c-light)
     );
-    color: var(--store-locator-store-colot, var(--c-text));
+    color: var(--store-locator-store-color, var(--c-text));
     @include font(
       --store-locator-stores-font,
-      var(--font-normal),
-      var(--font-sm),
+      var(--font-weight--normal),
+      var(--font-size--sm),
       1.4,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
     span {
-      font-weight: var(--font-bold);
+      font-weight: var(--font-weight--bold);
       color: var(--c-text);
     }
   }

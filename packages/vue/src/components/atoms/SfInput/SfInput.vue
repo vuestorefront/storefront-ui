@@ -6,6 +6,7 @@
       'sf-input--invalid': !valid,
       'sf-input--has-icon': icon,
     }"
+    :data-testid="name"
   >
     <div class="sf-input__wrapper">
       <input

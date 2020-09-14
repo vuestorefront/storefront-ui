@@ -17,10 +17,6 @@ export default {
       type: [String, Number, Object],
       default: "",
     },
-    selected: {
-      type: [String, Number, Object],
-      default: "",
-    },
   },
 };
 </script>

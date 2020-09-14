@@ -7,9 +7,7 @@
       class="tab-orphan"
     >
       <SfTab title="Change the address">
-        <p class="message">
-          Keep your addresses and contact details updated.
-        </p>
+        <p class="message">Keep your addresses and contact details updated.</p>
         <div class="form">
           <SfInput
             v-model="firstName"

@@ -2,7 +2,7 @@
   <div
     class="sf-select"
     :class="{
-      'sf-select--is-selected': selected || placeholder,
+      'sf-select--is-selected': selectedValue || placeholder,
       'sf-select--is-required': required,
       'sf-select--is-disabled': disabled,
       'sf-select--is-invalid': !valid,
@@ -13,13 +13,23 @@
         {{ label }}
       </slot>
     </label>
-    <select :id="label" v-model="selected" v-focus class="sf-select__dropdown">
+    <select
+      :id="label"
+      v-model="selectedValue"
+      v-focus
+      class="sf-select__dropdown"
+      @change="$emit('selected', $event.target.value)"
+    >
       <!-- empty option by default, may be used as placeholder -->
-      <option class="sf-select__placeholder sf-select__option" disabled
-        ><slot name="placeholder" :placeholder="placeholder" />{{
-          placeholder
-        }}</option
+      <option
+        class="sf-select__placeholder sf-select__option"
+        disabled
+        selected
+        value
       >
+        <slot name="placeholder" v-bind="{ placeholder }" />
+        {{ placeholder }}
+      </option>
       <slot />
     </select>
     <div class="sf-select__message">
@@ -50,13 +60,6 @@ export default {
      */
     label: {
       type: String,
-      default: "",
-    },
-    /**
-     * Selected item value
-     */
-    selected: {
-      type: [String, Number, Object],
       default: "",
     },
     /**

@@ -34,9 +34,6 @@ storiesOf("Molecules|Select", module)
       label: {
         default: text("label", "Color", "Props"),
       },
-      selected: {
-        default: select("selected", optionValues, "", "Props"),
-      },
       hintMessage: {
         default: text("hintMessage", "Required", "Props"),
       },
@@ -56,7 +53,7 @@ storiesOf("Molecules|Select", module)
         default: boolean("disabled", false, "Props"),
       },
       placeholder: {
-        default: text("placeholder", "", "Props"),
+        default: text("placeholder", "Select color", "Props"),
       },
     },
     data() {
@@ -66,7 +63,6 @@ storiesOf("Molecules|Select", module)
     },
     template: `
       <SfSelect
-        :selected="selected"
         :class="customClass"
         :label="label"
         :hintMessage="hintMessage"
@@ -204,7 +200,7 @@ storiesOf("Molecules|Select", module)
     },
     template: `<div style="max-width: 30rem">
       <SfSelect
-        :selected="selected"
+        v-model="selected"
         :class="customClass"
         :label="label"
         :hintMessage="hintMessage"
@@ -219,7 +215,9 @@ storiesOf("Molecules|Select", module)
           <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
         </SfSelectOption>
         <template #errorMessage>
-          CUSTOM ERROR MESSAGE
+          <span>
+            CUSTOM ERROR MESSAGE
+          </span>
         </template>
       </SfSelect>
     </div>`,
