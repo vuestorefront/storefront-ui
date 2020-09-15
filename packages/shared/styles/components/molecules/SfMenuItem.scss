@@ -34,7 +34,7 @@
   &__label {
     color: var(--menu-item-label-color, var(--c-dark-variant));
   }
-  &--is-active {
+  &.is-active {
     --menu-item-label-color: var(--c-primary);
   }
   &:hover {

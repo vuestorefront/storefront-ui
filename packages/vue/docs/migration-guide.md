@@ -36,11 +36,53 @@ In this section we will add notes and info's about new changes and releases.
 As always what is first, update your `package.json` by changing your current version:
 
 ```json
-"dependencies: {
+dependencies: {
     "@storefront-ui/vue": "^0.8.0"
 }
 ```
 
+#### **State classes**
+
+Before | v0.9.0 
+------------ | ------------- 
+--is-active |  .is-active
+--is-disabled | .is-disabled
+--is-current | .is-current
+--has-error | .has-error
+--h2 | .h2 
+--h3 | .h3 
+--h4 | .h4 
+--h5 | .h5 
+--h6 | .h6 
+--has-size | .has-size
+--hidden | .hidden 
+--invalid | .invalid 
+--has-text | .has-text 
+--is-color | .is-color 
+--prev | .prev
+--next | .next 
+--is-open | .is-open 
+--is-selected | .is-selected 
+--is-required | .is-required 
+--open | .is-open 
+--has-chevron | .has-chevron 
+--has-margin | .has-margin 
+--floating | .is-floating
+--center | --center 
+--without-carousel | .without-carousel
+--without-quantity | .without-quantity
+--on-wishlist | .on-wishlist 
+.is-current | .current
+
+So now we can use it like this: 
+```
+.sf-component {.is-active {}}
+```
+instead of 
+```
+.sf-component {&--is-active {}}
+```
+This change follows [css guideline](https://github.com/chris-pearce/css-guidelines#state-hooks).
 
 - #### **Typography**
 
@@ -137,7 +179,7 @@ v0.8.0 | v0.9.0
 - **Props**
   
 
-Component | Before | v0.8.0 | Info
+Component | Before | v0.8.0
 ------------ | ------------ | ------------
 SfSearchBar| - | icon (Object to define icon look. Should have values for color and size)
 SfImage| - | srcset (String, Array) 

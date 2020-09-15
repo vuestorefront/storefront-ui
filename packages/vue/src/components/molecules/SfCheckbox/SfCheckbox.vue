@@ -2,9 +2,9 @@
   <div
     class="sf-checkbox"
     :class="{
-      'sf-checkbox--is-active': isChecked,
-      'sf-checkbox--is-disabled': disabled,
-      'sf-checkbox--has-error': !valid,
+      'is-active': isChecked,
+      'is-disabled': disabled,
+      'has-error': !valid,
     }"
     :data-testid="name"
   >
@@ -23,7 +23,7 @@
       <slot name="checkmark" v-bind="{ isChecked, disabled }">
         <div
           class="sf-checkbox__checkmark"
-          :class="{ 'sf-checkbox__checkmark--is-active': isChecked }"
+          :class="{ 'sf-checkbox__checkmark is-active': isChecked }"
         >
           <SfIcon v-if="isChecked" icon="check" color="white" />
         </div>

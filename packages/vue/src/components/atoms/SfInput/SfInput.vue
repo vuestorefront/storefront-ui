@@ -2,8 +2,8 @@
   <div
     class="sf-input"
     :class="{
-      'sf-input--has-text': !!value,
-      'sf-input--invalid': !valid,
+      'has-text': !!value,
+      invalid: !valid,
     }"
     :data-testid="name"
   >
@@ -43,7 +43,7 @@
           <SfIcon
             class="sf-input__password-icon"
             :class="{
-              'sf-input__password-icon--hidden': !isPasswordVisible,
+              hidden: !isPasswordVisible,
             }"
             icon="show_password"
             size="1.5rem"
