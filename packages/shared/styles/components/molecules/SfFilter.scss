@@ -52,13 +52,13 @@
     --filter-count-margin: 0 0 0 auto;
     --filter-label-font-size: var(--font-size--sm);
     --filter-count-font-size: var(--font-size--sm);
-    &--active {
+    &.is-active {
       --filter-label-color: var(--c-text);
       --filter-count-color: var(--c-text-muted);
       --checkbox-border-color: var(--c-primary);
     }
   }
-  &--is-color {
+  &.is-color {
     @include for-desktop {
       --checkbox-display: none;
       --filter-label-display: none;

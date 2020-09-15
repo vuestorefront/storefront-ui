@@ -23,11 +23,23 @@
     transition: background 150ms linear, border-color 150ms linear;
     &:hover {
       --checkbox-border-color: var(--c-black);
-      .sf-checkbox--has-error & {
+      .has-error & {
         --checkbox-border-color: var(--c-danger);
       }
-      .sf-checkbox--is-disabled & {
+      .is-disabled & {
         --checkbox-border-color: var(--c-text-disabled);
+      }
+    }
+    .is-disabled & {
+      --checkbox-border-color: var(--c-text-disabled);
+      &.is-active {
+        --checkbox-background: var(--c-text-disabled);
+      }
+    }
+    .has-error & {
+      &.is-active {
+        --checkbox-border-color: var(--c-danger);
+        --checkbox-background: var(--c-danger);
       }
     }
   }
@@ -51,20 +63,14 @@
     }
 
   }
-  &--is-active {
+  &.is-active {
     --checkbox-border-color: var(--c-primary);
     --checkbox-background: var(--c-primary);
+    &.has-error {
     --checkbox-label-color: var(--c-text);
-    &.sf-checkbox--has-error {
-      --checkbox-border-color: var(--c-danger);
-      --checkbox-background: var(--c-danger);
-    }
-    &.sf-checkbox--is-disabled {
-      --checkbox-border-color: var(--c-text-disabled);
-      --checkbox-background: var(--c-text-disabled);
-    }
   }
-  &--is-disabled {
+}
+  &.is-disabled {
     --checkbox-label-color: var(--c-text-disabled);
     --checkbox-border-color: var(--c-text-disabled);
   }

@@ -33,7 +33,7 @@
       --header-navigation-item-color: var(--c-primary);
     }
   }
-  &--is-active:hover > *:not(.sf-mega-menu){
+  &.is-active:hover > *:not(.sf-mega-menu){
     --header-navigation-item-color: var(--c-primary);
   }
   &--not-stretched {
@@ -197,7 +197,7 @@
     &:hover {
       --icon-color: var(--c-text);
     }
-    &--is-active {
+    &.is-active {
       --icon-color: var(--c-primary);
     }
   }
@@ -207,10 +207,10 @@
   &-height {
     box-sizing: border-box;
   }
-  &--is-sticky {
+  &.is-sticky {
     --header-wrapper-position: fixed;
   }
-  &--is-hidden {
+  &.is-hidden {
     --header-wrapper-transform: translate3d(0, -100%, 0);
     --header-wrapper-transition: transform 300ms ease-in-out;
   }

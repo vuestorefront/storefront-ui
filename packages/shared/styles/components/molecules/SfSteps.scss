@@ -24,16 +24,16 @@
     );
     color: var(--steps-step-color, var(--c-link));
     cursor: var(--steps-step-cursor, pointer);
-    &--current,
-    &--done {
+    &.current,
+    &.done {
       --steps-step-color: var(--c-primary);
       --steps-step-cursor: default;
       --step-font-weight: var(--font-weight--normal);
     }
-    &--done {
+    &.is-done {
       --steps-step-cursor: pointer;
     }
-    &--disabled {
+    &.is-disabled {
       --steps-step-cursor: not-allowed;
     }
   }
@@ -71,8 +71,8 @@
     &__step {
       --steps-step-padding: 0 0 var(--spacer-xs) 0;
       --step-font-size: var(--font-size--base);
-      &--current,
-      &--done {
+      &.current,
+      &.done {
         --steps-step-after-background: var(--c-primary);
       }
       &::after {

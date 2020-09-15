@@ -15,17 +15,17 @@
       1.4,
       var(--font-family--secondary)
     );  
-    &--prev, &--next {
+    &.prev, &--next {
       --pagination-item-width: 1.125rem;
       --pagination-item-height: 1.125rem;
     }
-    &--prev {
+    &.prev {
       --pagination-item-margin: 0 var(--spacer-base) 0 0;
     }
-    &--next {
+    &.next {
       --pagination-item-margin: 0 0 0 var(--spacer-base);
     }
-    &--current {
+    &.current {
       --pagination-item-color: var(--c-text);
       cursor: default;
     }
