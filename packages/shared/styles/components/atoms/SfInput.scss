@@ -154,7 +154,7 @@
   }
   &__password-icon {
     position: relative;
-    &--hidden {
+    &.hidden {
       --input-password-icon-scaleX: 1;
     }
     &::after {
@@ -169,7 +169,7 @@
       content: "";
     }
   }
-  &--invalid {
+  &.invalid {
     --input-label-color: var(--c-danger);
     input {
       &:focus {
@@ -180,7 +180,7 @@
       }
     }
   }
-  &--has-text,
+  &.has-text,
   input[type="date"] ~ *,
   input[type="time"] ~ *,
   input[type="image"] ~ *,
@@ -197,7 +197,7 @@
     --input-label-color: var(--c-secondary-variant);
     --input-label-transition: color 150ms ease;
     --input-border: none;
-    &.sf-input--has-text {
+    &.has-text {
       --input-label-display: none;
     }
     input {

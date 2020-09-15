@@ -32,7 +32,7 @@
     &:hover {
       --link-color: var(--c-text);
     }
-    &--current {
+    &.current {
       --link-color: var(--c-text);
       cursor: default;
     }

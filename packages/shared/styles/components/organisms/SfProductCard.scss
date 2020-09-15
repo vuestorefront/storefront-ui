@@ -115,7 +115,7 @@
       --product-card-wishlist-icon-opacity: 1;
     }
   }
-  &--on-wishlist {
+  &.on-wishlist {
     --product-card-wishlist-icon-opacity: 1;
   }
   @include for-desktop {

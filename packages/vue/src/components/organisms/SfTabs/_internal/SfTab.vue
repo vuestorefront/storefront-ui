@@ -5,7 +5,7 @@
       <SfButton
         :aria-pressed="isActive.toString()"
         class="sf-button--pure sf-tabs__title"
-        :class="{ 'sf-tabs__title--active': isActive }"
+        :class="{ 'is-active': isActive }"
         @click="tabClick"
       >
         {{ title }}
