@@ -7,7 +7,7 @@
       @click:back="updatePage()"
     />
     <section
-      :class="{ 'sf-content-pages__section--is-active': isActive }"
+      :class="{ 'is-active': isActive }"
       class="sf-content-pages__section"
     >
       <div class="sf-content-pages__sidebar">
@@ -28,7 +28,7 @@
               <!-- @slot Custom menu-item markup -->
               <slot name="menu-item" v-bind="{ updatePage, page, active }">
                 <SfMenuItem
-                  :class="{ 'sf-menu-item--is-active': page.title === active }"
+                  :class="{ 'is-active': page.title === active }"
                   :label="page.title"
                   class="sf-content-pages__menu"
                   @click="updatePage(page.title)"

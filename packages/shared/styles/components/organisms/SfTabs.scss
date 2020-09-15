@@ -21,7 +21,7 @@
       1.4,
       var(--font-family-secondary)
     );
-    &--active {
+    &.is-active {
       --tabs-title-border-width: 0;
       --tabs-title-color: var(--c-primary);
       & + .sf-tabs__content {
@@ -65,7 +65,7 @@
     --tabs-content-tab-padding: var(--spacer-base) 0;
     --tabs-chevron-display: none;
     &__title {
-      &--active {
+      &.is-active {
         --tabs-title-border-width: 0 0 2px 0;
         --tabs-title-border-color: var(--c-text);
         --tabs-title-color: var(--c-text);
