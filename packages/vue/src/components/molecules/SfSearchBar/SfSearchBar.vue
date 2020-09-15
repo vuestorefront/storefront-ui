@@ -14,7 +14,7 @@
     <!-- @slot -->
     <SfButton
       class="sf-search-bar__button sf-button--pure"
-      @click="$emit('click', $event.target.value)"
+      @click="$emit('click', value)"
     >
       <slot name="icon">
         <span v-if="icon" class="sf-search-bar__icon">

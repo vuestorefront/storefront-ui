@@ -30,17 +30,12 @@
   width: var(--search-bar-width);
   height: var(--search-bar-height, 2rem);
   &__button {
-    // --icon-size: 1.25rem;
     position: absolute;
     bottom: var(--spacer-xs);
     right: var(--search-bar-button-right, 0);
-    // display: var(--search-bar-icon-display, block);
   }
   &__icon {
     --icon-size: 1.25rem;
-    // position: absolute;
-    // bottom: var(--spacer-xs);
-    // right: var(--search-bar-icon-right, 0);
     display: var(--search-bar-icon-display, block);
   }
   &__input {
