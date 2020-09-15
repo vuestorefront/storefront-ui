@@ -1,0 +1,31 @@
+@import "../../helpers";
+
+.sf-address {
+  box-sizing: border-box;
+  position: relative;
+  padding: var(--address-padding, var(--spacer-sm));
+  width: var(--address-padding, 23.375rem);
+  border: var(--address-border, 1px solid var(--c-light));
+  display: var(--address-display, flex);
+  flex-direction: var(--address-flex-direction, column);
+  align-items: flex-start;
+  cursor: var(--address-cursor,pointer);
+  @include font(
+    --address-font,
+    var(--font-normal),
+    var(--font-base),
+    1.6,
+    var(--font-family-primary)
+  );
+  color: var(--address-color, var(--c-link));
+  &__checkbox {
+    position: absolute;
+    right: var(--address-checkbox-right, var(--spacer-sm));
+    top: var(--address-checkbox-top, var(--spacer-sm));
+    --checkbox-border: none;
+    --checkbox-border-radius: 100%;
+  }
+ &.is-selected {
+  --address-border: 1px solid var(--c-primary);
+  }
+}
