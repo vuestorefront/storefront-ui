@@ -4,7 +4,7 @@
   box-sizing: border-box;
   position: relative;
   padding: var(--address-padding, var(--spacer-sm));
-  width: var(--address-padding, 23.375rem);
+  width: var(--address-width, 100%);
   border: var(--address-border, 1px solid var(--c-light));
   display: var(--address-display, flex);
   flex-direction: var(--address-flex-direction, column);
@@ -27,5 +27,8 @@
   }
  &.is-selected {
   --address-border: 1px solid var(--c-primary);
+  }
+  @include for-desktop {
+    --address-width: 23.375rem;
   }
 }

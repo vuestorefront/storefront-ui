@@ -1,4 +1,3 @@
-import "./SfAddress.stories.scss";
 import { storiesOf } from "@storybook/vue";
 import { withKnobs } from "@storybook/addon-knobs";
 import SfAddress from "./SfAddress.vue";

@@ -84,6 +84,7 @@ module.exports = {
  title: "Molecules",
  collapsable: false,
  children:  [
+["/components/address", "Address"],
 ["/components/addtocart", "Add To Cart"],
 ["/components/alert", "Alert"],
 ["/components/banner", "Banner"],

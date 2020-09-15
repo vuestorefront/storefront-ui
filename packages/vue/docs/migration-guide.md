@@ -138,6 +138,7 @@ v0.8.0 | v0.9.0
 1. SfColorPicker
 2. SfHeaderNavigation 
 3. SfComponentSelect - select component with current API
+4. SfAddress
 
 - **Props**
   
