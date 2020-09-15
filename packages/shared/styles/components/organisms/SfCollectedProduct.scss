@@ -102,6 +102,7 @@
       );
       align-items: var(--collected-product-configuration-align-items, flex-start);
       flex: 2;
+      margin: var(--collected-product-configuration-margin, 1rem 0 0 0);
     }
     &__actions {
       display: var(--collected-product-actions-display, none);

@@ -77,7 +77,7 @@
             <SfHeading
               title="Your cart is empty"
               :level="2"
-              subtitle="Looks like you haven’t added any items to the cart yet. Start
+              description="Looks like you haven’t added any items to the cart yet. Start
                 shopping to fill it in."
             />
             <SfButton
@@ -308,7 +308,7 @@ export default {
 .empty-cart {
   --heading-title-color: var(--c-primary);
   --heading-title-margin: 0 0 var(--spacer-base) 0;
-  --heading-subtitle-margin: 0 0 var(--spacer-xl) 0;
+  --heading-description-margin: 0 0 var(--spacer-xl) 0;
   --heading-title-font-weight: var(--font-weight--semibold);
   display: flex;
   flex: 1;

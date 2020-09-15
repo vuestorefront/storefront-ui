@@ -65,7 +65,7 @@
               title="Your cart is empty"
               :level="2"
               class="empty-cart__heading"
-              subtitle="Looks like you haven’t added any items to the bag yet. Start
+              description="Looks like you haven’t added any items to the bag yet. Start
               shopping to fill it in."
             />
           </div>
@@ -212,7 +212,7 @@ export default {
   }
 }
 .empty-cart {
-  --heading-subtitle-margin: 0 0 var(--spacer-xl) 0;
+  --heading-description-margin: 0 0 var(--spacer-xl) 0;
   --heading-title-margin: 0 0 var(--spacer-xl) 0;
   --heading-title-color: var(--c-primary);
   --heading-title-font-weight: var(--font-weight--semibold);

@@ -23,9 +23,22 @@
       color: var(--c-text);
     }
   }
+  &__btn {
+    display: flex;
+    justify-content: flex-start; 
+  }
   &__media {
     flex: var(--store-media-flex, 0 0 5.125rem);
     margin: var(--store-media-margin, 0 var(--spacer-xs) 0 0);
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+  }
+  &__heading,
+  &__address {
+    display: flex;
+    justify-content: flex-start;
   }
   &__address {
     margin: var(--store-item-addres-margin, 0 0 var(--spacer-base) 0);
@@ -96,7 +109,7 @@
     height: var(--store-locator-map-height);
   }
   &__map {
-    // Workaround to known bug about min-height / height interaction in Chrome / Firefox
+  // Workaround to known bug about min-height / height interaction in Chrome / Firefox
     position: absolute;
     height: 100%;
     z-index: 0;

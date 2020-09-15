@@ -7,7 +7,7 @@
     <SfHeading
       title="Page not found"
       :level="2"
-      subtitle="We are sorry that we can’t find the page, please go back or try again"
+      description="We are sorry that we can’t find the page, please go back or try again"
       class="heading sf-heading--no-underline"
     />
     <div class="actions">
@@ -53,12 +53,12 @@ export default {
   --heading-title-margin: 0 0 var(--spacer-sm);
   --heading-title-color: var(--c-primary);
   --heading-title-font-weight: var(--font-weight--semibold);
-  --heading-subtitle-color: var(--c-text-muted);
-  --heading-subtitle-font-size: var(--font-size--base);
-  --heading-subtitle-margin: 0 var(--spacer-base);
-  --heading-subtitle-font-family: var(--font-family--primary);
+  --heading-description-color: var(--c-text-muted);
+  --heading-description-font-size: var(--font-size--base);
+  --heading-description-margin: 0 var(--spacer-base);
+  --heading-description-font-family: var(--font-family--primary);
   @include for-desktop {
-    --heading-subtitle-margin: 0;
+    --heading-description-margin: 0;
   }
 }
 .actions {
