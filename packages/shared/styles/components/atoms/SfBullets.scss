@@ -17,11 +17,11 @@
   );
   --bullet-box-shadow-opacity: 0;
   &:hover,
-  &--active {
+  &.is-active {
     transform: scale3d(1.25, 1.25, 1);
     --bullet-box-shadow-opacity: 0.25;
   }
-  &--active {
+  &.is-active {
     --bullet-background: var(--c-primary);
     cursor: default;
   }
