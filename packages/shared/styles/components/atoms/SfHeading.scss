@@ -34,11 +34,11 @@
       font-weight: var(--heading-title-font-weight, var(--font-normal));
     }
   }
-  &__subtitle {
-    margin: var(--heading-subtitle-margin);
-    color: var(--heading-subtitle-color, var(--c-text));
+  &__description {
+    margin: var(--heading-description-margin);
+    color: var(--heading-description-color, var(--c-text));
     @include font(
-      --heading-subtitle-font,
+      --heading-description-font,
       var(--font-light),
       var(--font-xs),
       1.6,
