@@ -23,7 +23,7 @@
       1.4,
       var(--font-family--secondary)
     );
-    &--open {
+    &.is-open {
       --accordion-item-header-border-width: 0;
       --accordion-item-header-color: var(--c-primary);
       --chevron-color: var(--c-primary);
@@ -63,7 +63,7 @@
   }
 }
 .sf-accordion {
-  &--has-chevron {
+  &.has-chevron {
     --accordion-item-chevron-display: flex;
   }
 }

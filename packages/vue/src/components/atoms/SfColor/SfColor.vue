@@ -1,7 +1,7 @@
 <template>
   <SfButton
     class="sf-button--pure sf-color"
-    :class="{ 'sf-color--active': selected }"
+    :class="{ 'is-active': selected }"
     :style="style"
     :aria-pressed="selected.toString()"
     :data-testid="color"
