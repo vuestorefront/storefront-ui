@@ -4,8 +4,10 @@
   &__icon {
     --icon-size: 0.875rem;
     --icon-color: var(--c-primary);
+    --icon-color-negative: var(--c-gray-variant);
     &--negative {
-      --icon-color: var(--c-text-disabled);
+      --icon-color: var(--icon-color-negative);
     }
   }
 }
+// --c-text-disabled
