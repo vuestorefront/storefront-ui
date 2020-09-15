@@ -18,7 +18,7 @@
     "@nuxtjs/pwa": "^3.0.0-0",
     "@storefront-ui/vue": "0.8.1",
     "lerna": "^3.16.4",
-    "nuxt": "2.14.2",
+    "nuxt": "1.0.0",
     "nuxt-edge": "^2.14.6-26663074.45b78387"
   },
   "devDependencies": {

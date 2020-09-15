@@ -1,5 +1,5 @@
 export default {
-  mode: "universal",
+  ssr: true,
   /*
    ** Headers of the page
    */
@@ -15,13 +15,6 @@ export default {
       },
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
-  },
-  babel: {
-    presets(env, [preset, options]) {
-      return [
-        ["@nuxt/babel-preset-app", options]
-      ]
-    },
   },
   /*
    ** Customize the progress-bar color
@@ -67,7 +60,7 @@ export default {
   },
   storybook: {
     stories: [
-      "@storefront-ui/vue/src/components/organisms/SfFooter/SfFooter.stories.js"
+      "@storefront-ui/vue/src/components/**/**/*.stories.js"
     ]
   }    
 };
