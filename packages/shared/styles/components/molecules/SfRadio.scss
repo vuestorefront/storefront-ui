@@ -9,10 +9,10 @@
     display: var(--radio-label-display, flex);
     @include font(
       --radio-label-font,
-      var(--font-normal),
-      var(--h4-font-size),
+      var(--font-weight--normal),
+      var(--font-size--base),
       normal,
-      var(--font-family-secondary)
+      var(--font-family--primary)
     );
     color: var(--radio-label-color);
   }
@@ -62,7 +62,7 @@
     cursor: var(--radio-container-cursor, pointer);
   }
   &:hover {
-    --radio-checkmark-border-color: var(--c-primary);
+    --radio-checkmark-border-color: var(--c-black);
   }
   &__content {
     flex: 1;
@@ -73,20 +73,20 @@
     color: var(--radio-details-color, var(--c-text-muted));
     @include font(
       --radio-details-font,
-      var(--font-light),
-      var(--font-xs),
+      var(--font-weight--light),
+      var(--font-size--sm),
       1.2,
-      var(--font-family-secondary)
+      var(--font-family--primary)
     );
   }
   &__description {
     margin: var(--radio-description-margin, var(--spacer-xs) 0 0 0);
     @include font(
       --radio-description-font,
-      var(--font-light),
-      var(--font-xs),
+      var(--font-weight--light),
+      var(--font-size--sm),
       1.6,
-      var(--font-family-primary)
+      var(--font-family--primary)
     );
     color: var(--radio-description-margin);
   }

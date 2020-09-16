@@ -17,8 +17,8 @@
         <!--@slot Use this slot to place content inside the modal bar.-->
         <slot name="modal-bar">
           <SfBar
-            class="sf-modal__bar mobile-only"
-            :close="true"
+            class="sf-modal__bar smartphone-only"
+            :close="false"
             :title="title"
             @click:close="close"
           />
