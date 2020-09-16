@@ -61,6 +61,10 @@ export default {
   storybook: {
     stories: [
       "@storefront-ui/vue/src/components/**/**/*.stories.js"
+    ],
+    addons: [
+      '@storybook/addon-knobs/register',
+      '@storybook/addon-storysource/register',
     ]
   }    
 };
