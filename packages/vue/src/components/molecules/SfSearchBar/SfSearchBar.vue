@@ -12,16 +12,16 @@
       @blur="$emit('blur')"
     />
     <!-- @slot -->
-    <SfButton
-      class="sf-search-bar__button sf-button--pure"
-      @click="$emit('click', value)"
-    >
-      <slot name="icon">
+    <slot name="icon">
+      <SfButton
+        class="sf-search-bar__button sf-button--pure"
+        @click="$emit('click', value)"
+      >
         <span v-if="icon" class="sf-search-bar__icon">
           <SfIcon :color="icon.color" :size="icon.size" icon="search" />
         </span>
-      </slot>
-    </SfButton>
+      </SfButton>
+    </slot>
   </div>
 </template>
 <script>
