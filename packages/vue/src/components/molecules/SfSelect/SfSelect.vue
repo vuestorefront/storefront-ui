@@ -21,18 +21,16 @@
       @change="$emit('selected', $event.target.value)"
     >
       <!-- empty option by default, may be used as placeholder -->
-      <SfScrollable :max-content-height="maxHeight">
-        <option
-          class="sf-select__placeholder sf-select__option"
-          disabled
-          selected
-          value
-        >
-          <slot name="placeholder" v-bind="{ placeholder }" />
-          {{ placeholder }}
-        </option>
-        <slot />
-      </SfScrollable>
+      <option
+        class="sf-select__placeholder sf-select__option"
+        disabled
+        selected
+        value
+      >
+        <slot name="placeholder" v-bind="{ placeholder }" />
+        {{ placeholder }}
+      </option>
+      <slot />
     </select>
     <div class="sf-select__error-message">
       <transition name="sf-fade">
@@ -47,15 +45,12 @@
 <script>
 import { focus } from "../../../utilities/directives";
 import SfSelectOption from "./_internal/SfSelectOption.vue";
-import SfScrollable from "../SfScrollable/SfScrollable.vue";
 import Vue from "vue";
+
 Vue.component("SfSelectOption", SfSelectOption);
 export default {
   name: "SfSelect",
   directives: { focus },
-  components: {
-    // SfScrollable,
-  },
   props: {
     /**
      * Select field label
@@ -96,10 +91,6 @@ export default {
      * Adds placeholder
      */
     placeholder: {
-      type: String,
-      default: "",
-    },
-    maxHeight: {
       type: String,
       default: "",
     },
