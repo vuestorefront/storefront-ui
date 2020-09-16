@@ -1,5 +1,6 @@
 @import "../../helpers";
 .sf-checkbox {
+  --icon-size: 1.25rem;
   &__container {
      position: relative;
     display: flex;
@@ -16,12 +17,12 @@
     order: var(--checkbox-order);
     width: var(--checkbox-size, 1.5rem);
     height: var(--checkbox-size, 1.5rem);
-    @include border(--checkbox-border, 1px, solid, var(--c-gray-variant));
+    @include border(--checkbox-border, 1px, solid, var(--c-link));
     border-radius: var(--checkbox-border-radius);
     background: var(--checkbox-background, transparent);
     transition: background 150ms linear, border-color 150ms linear;
     &:hover {
-      --checkbox-border-color: var(--c-primary);
+      --checkbox-border-color: var(--c-black);
       .has-error & {
         --checkbox-border-color: var(--c-danger);
       }
@@ -44,15 +45,23 @@
   }
   &__label {
     flex: 1;
-    margin: var(--checkbox-label-margin, 0 0 0 var(--spacer-sm));
-    color: var(--checkbox-label-color, var(--_c-dark-secondary));
+    margin: var(--checkbox-label-margin, 0 0 0 var(--spacer-xs));
+    color: var(--checkbox-label-color, var(--c-link));
     @include font(
       --checkbox-font,
-      var(--font-normal),
-      var(--font-sm),
+      var(--font-weight--normal),
+      var(--font-size--base),
       1.6,
-      var(--font-family-secondary)
+      var(--font-family--primary)
     );
+    transition: color 150ms linear;
+    &:hover {
+      --checkbox-label-color: var(--c-black);
+      .sf-checkbox--is-disabled & {
+        --checkbox-label-color: var(--c-text-disabled);
+      }
+    }
+
   }
   &.is-active {
     --checkbox-border-color: var(--c-primary);

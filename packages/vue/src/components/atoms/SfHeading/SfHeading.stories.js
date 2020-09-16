@@ -25,10 +25,10 @@ storiesOf("Atoms|Heading", module)
         ),
       },
       level: {
-        default: number("level", 2, { min: 1, max: 6 }, "Props"),
+        default: number("level", 3, { min: 1, max: 6 }, "Props"),
       },
       title: {
-        default: text("title", "Show how YOU wear it", "Props"),
+        default: text("title", "Share Your Look", "Props"),
       },
       description: {
         default: text("description", "#YOURLOOK", "Props"),
@@ -63,7 +63,7 @@ storiesOf("Atoms|Heading", module)
         default: number("level", 2, { min: 1, max: 6 }, "Props"),
       },
       title: {
-        default: text("title", "Show how YOU wear it", "Props"),
+        default: text("title", "Share Your Look", "Props"),
       },
       description: {
         default: text("description", "#YOURLOOK", "Props"),
@@ -104,7 +104,7 @@ storiesOf("Atoms|Heading", module)
         default: number("level", 2, { min: 1, max: 6 }, "Props"),
       },
       title: {
-        default: text("title", "Show how YOU wear it", "Props"),
+        default: text("title", "Share Your Look", "Props"),
       },
       description: {
         default: text("description", "#YOURLOOK", "Props"),

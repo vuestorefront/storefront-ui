@@ -20,7 +20,6 @@
     >
       <SfIcon
         :key="`n${index}`"
-        size="0.875rem"
         class="sf-rating__icon sf-rating__icon--negative"
         :icon="icon"
       />
