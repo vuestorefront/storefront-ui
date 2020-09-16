@@ -13,7 +13,7 @@
       <SfButton
         :aria-pressed="isOpen.toString()"
         :aria-expanded="isOpen.toString()"
-        :class="{ 'sf-accordion-item__header--open': isOpen }"
+        :class="{ 'is-open': isOpen }"
         class="sf-button--pure sf-accordion-item__header"
         @click="accordionClick"
       >

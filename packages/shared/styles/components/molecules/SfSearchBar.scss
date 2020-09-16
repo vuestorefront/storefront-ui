@@ -47,10 +47,10 @@
     height: 100%;
     @include font(
       --search-bar-font,
-      var(--font-normal),
-      var(--font-sm),
+      var(--font-weight--normal),
+      var(--font-size--base),
       1.6,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
     @include border(
       --search-bar-border,
@@ -64,6 +64,7 @@
       font: inherit;
     }
     &:focus {
+      --search-bar-border-color: var(--c-primary);
       @include placeholder {
         color: var(--search-bar-placeholder-color-focus, transparent);
       }
