@@ -60,6 +60,9 @@
   &.sf-link { 
     --button-width: var(--spacer-3xl);
   }
+  &.sf-link { 
+    --button-width: var(--spacer-3xl);
+  }
   &:hover {
     --button-box-shadow-opacity: 0.25;
     --button-background: var(--c-primary) radial-gradient(circle, transparent 1%, var(--c-primary-variant) 1%) center/15000%;
