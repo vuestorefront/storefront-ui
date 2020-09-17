@@ -13,7 +13,7 @@ const iconsNames = Object.keys(icons);
 storiesOf("Atoms|Input", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
-    components: { SfInput },
+    components: { SfInput, SfIcon },
     props: {
       customClass: {
         default: options(

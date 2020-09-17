@@ -2,9 +2,9 @@
   <div
     class="sf-input"
     :class="{
-      'sf-input--has-text': !!value,
-      'sf-input--invalid': !valid,
-      'sf-input--has-icon': icon,
+      'has-text': !!value,
+      invalid: !valid,
+      'has-icon': icon,
     }"
     :data-testid="name"
   >
