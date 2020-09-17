@@ -44,7 +44,7 @@
           <SfIcon
             class="sf-input__password-icon"
             :class="{
-              'sf-input__password-icon--hidden': !isPasswordVisible,
+              hidden: !isPasswordVisible,
             }"
             icon="show_password"
           />

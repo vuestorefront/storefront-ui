@@ -12,14 +12,42 @@ storiesOf("Molecules|Notification", module)
     components: { SfNotification },
     props: {
       title: {
-        default: text("title", "Added to Cart", "Props"),
+        default: text("title", "", "Props"),
       },
       message: {
-        default: text(
-          "message",
-          "This is informative message for the user.",
+        default: text("message", "This is an information message.", "Props"),
+      },
+      action: {
+        default: text("action", "", "Props"),
+      },
+      type: {
+        default: select(
+          "type",
+          ["info", "success", "warning", "danger"],
+          "info",
           "Props"
         ),
+      },
+    },
+    mixins: [visibilityToggleMixin],
+    template: `
+      <SfNotification
+        :visible="visible"
+        :title="title"
+        :message="message"
+        :action="action"
+        :type="type"
+        @click:close="visible = false"
+      />`,
+  }))
+  .add("With title and action", () => ({
+    components: { SfNotification },
+    props: {
+      title: {
+        default: text("title", "Information", "Props"),
+      },
+      message: {
+        default: text("message", "This is an information message.", "Props"),
       },
       action: {
         default: text("action", "View cart", "Props"),

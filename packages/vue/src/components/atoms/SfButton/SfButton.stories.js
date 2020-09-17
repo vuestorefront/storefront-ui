@@ -21,6 +21,7 @@ storiesOf("Atoms|Button", module)
             "sf-button--pure": "sf-button--pure",
             "color-primary": "color-primary",
             "color-secondary": "color-secondary",
+            "color-light": "color-light",
             "color-warning": "color-warning",
             "color-danger": "color-danger",
             "color-info": "color-info",

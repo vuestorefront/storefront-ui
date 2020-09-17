@@ -18,7 +18,7 @@
       <li>
         <SfButton
           aria-label="Current slide"
-          class="sf-button--pure sf-bullet sf-bullet--active"
+          class="sf-button--pure sf-bullet is-active"
         ></SfButton>
       </li>
     </slot>
