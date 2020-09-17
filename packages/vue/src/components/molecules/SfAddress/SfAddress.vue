@@ -1,31 +1,51 @@
 <template>
-  <SfButton
-    class="sf-address sf-button--pure"
-    :class="selected ? 'is-selected' : ''"
-    @click="toggleSelected"
+  <SfRadio
+    v-model="selected"
+    class="sf-address"
+    :class="{
+      'is-selected': selected,
+    }"
+    :value="selectedValue"
+    :name="selectedValue"
+    @input="selectValue"
   >
-    <slot />
-    <SfCheckbox v-model="selected" class="sf-address__checkbox" />
-  </SfButton>
+    <template #label>
+      <slot />
+    </template>
+    <template #checkmark>
+      <slot name="icon">
+        <div class="sf-address__icon-container">
+          <SfIcon icon="check" class="sf-address__icon" />
+        </div>
+      </slot>
+    </template>
+  </SfRadio>
 </template>
 <script>
-import SfCheckbox from "../SfCheckbox/SfCheckbox.vue";
-import SfButton from "../../atoms/SfButton/SfButton.vue";
+import SfRadio from "../SfRadio/SfRadio.vue";
+import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+
 export default {
   name: "SfAddress",
   components: {
-    SfCheckbox,
-    SfButton,
+    SfRadio,
+    SfIcon,
+  },
+  props: {
+    valueName: {
+      type: String,
+      default: "",
+    },
   },
   data() {
     return {
-      selected: false,
+      selected: "",
+      selectedValue: this.valueName,
     };
   },
   methods: {
-    toggleSelected() {
-      this.selected = !this.selected;
-      this.$emit("change", this.selected);
+    selectValue(value) {
+      this.$emit("input", value);
     },
   },
 };

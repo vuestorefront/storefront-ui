@@ -2,14 +2,9 @@
 
 .sf-address {
   box-sizing: border-box;
-  position: relative;
-  padding: var(--address-padding, var(--spacer-sm));
   width: var(--address-width, 100%);
   border: var(--address-border, 1px solid var(--c-light));
-  display: var(--address-display, flex);
-  flex-direction: var(--address-flex-direction, column);
-  align-items: flex-start;
-  cursor: var(--address-cursor,pointer);
+  transition: border 150ms linear;
   @include font(
     --address-font,
     var(--font-normal),
@@ -18,15 +13,41 @@
     var(--font-family-primary)
   );
   color: var(--address-color, var(--c-link));
-  &__checkbox {
-    position: absolute;
-    right: var(--address-checkbox-right, var(--spacer-sm));
-    top: var(--address-checkbox-top, var(--spacer-sm));
-    --checkbox-border: none;
-    --checkbox-border-radius: 100%;
+  &__icon-container {
+    width: var(--address-icon-container-width, 1.5rem);
+    height: var(--address-icon-container-height, 1.5rem);
+    background: var(--address-icon-container-background, transparent);
+    position: var(--address-icon-container-position, absolute);
+    right: var(--address-icon-container-right, var(--spacer-sm));
+    border-radius: var(--address-icon-container-border-radius, 100%);
+    display: var(--address-icon-container-display, flex);
+    justify-content: var(--address-icon-container-justify-content, center);
+    align-items: var(--address-icon-container-align-items, center);
+    transition: background 150ms linear;
+  --radio-content-margin: 0;
+  }
+  &__icon {
+    --icon-color: var(--c-white);
+    --icon-size: 0.875rem;
+  }
+  &.sf-radio {
+    &--is-active {
+      --radio-background: transparent;
+    }
+    input {
+      &[style*="outline: none"]:focus + .sf-address__icon-container {
+        outline: none;
+      }
+      &:focus + .sf-address__icon-container {
+        outline-color: -webkit-focus-ring-color;
+        outline-style: auto;
+      }
+    } 
   }
  &.is-selected {
-  --address-border: 1px solid var(--c-primary);
+   --address-border: 1px solid var(--c-primary);
+   --icon-color: var(--c-white);
+   --address-icon-container-background: var(--c-primary);
   }
   @include for-desktop {
     --address-width: 23.375rem;
