@@ -2,7 +2,7 @@
 .sf-mega-menu-column {
   --list-item-padding: var(--spacer-sm) var(--spacer-sm) var(--spacer-sm) var(--spacer-lg);
   --list-item-border-width: 0 0 1px 0;
-  --menu-item-font-size: var(--font-sm);
+  --menu-item-font-size: var(--font-size--sm);
   flex: 1;
   width: 100%;
   @include for-desktop {
@@ -12,15 +12,15 @@
     width: auto;
   }
   &__header {
-    --menu-item-font-size: var(--font-base);
-    --menu-item-font-weight: var(--font-medium);
+    --menu-item-font-size: var(--font-size--base);
+    --menu-item-font-weight: var(--font-weight--medium);
     --menu-item-text-transform: uppercase;
     display: var(--mega-menu-column-header-display, flex);
     padding: var(--mega-menu-column-header-padding, var(--spacer-sm));
     margin: var(--mega-menu-column-header-margin, 0);
     @include border(--mega-menu-column-header-border, 0 0 1px 0, solid, var(--c-light));
     @include for-desktop {
-      --menu-item-font-weight: var(--font-bold);
+      --menu-item-font-weight: var(--font-weight--normal);
       padding: var(--mega-menu-column-header-padding, 0);
       margin: var(--mega-menu-column-header-margin, var(--spacer-sm) 0);
       border-width: var(--mega-menu-column-header-border-width, 0);
@@ -100,15 +100,15 @@
     flex: 1;
     width: 100%;
     &-header {
-      --menu-item-font-size: var(--font-base);
-      --menu-item-font-weight: var(--font-medium);
+      --menu-item-font-size: var(--font-size--base);
+      --menu-item-font-weight: var(--font-weight--medium);
       --menu-item-text-transform: uppercase;
       display: var(--mega-menu-column-header-display, flex);
       padding: var(--mega-menu-column-header-padding, var(--spacer-sm));
       margin: var(--mega-menu-column-header-margin, 0);
       @include border(--mega-menu-column-header-border, 0 0 1px 0, solid, var(--c-light));
       @include for-desktop {
-        --menu-item-font-weight: var(--font-bold);
+        --menu-item-font-weight: var(--font-weight--bold);
         padding: var(--mega-menu-column-header-padding, 0);
         margin: var(--mega-menu-column-header-margin, var(--spacer-sm) 0);
         border-width: var(--mega-menu-column-header-border-width, 0);
