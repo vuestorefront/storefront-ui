@@ -1,0 +1,8 @@
+@import "~@storefront-ui/shared/styles/helpers";
+.price-range{
+  font-weight: var(--font-weight--medium);
+  font-size: var(--font-size--lg);
+  font-family: var(--font-family--secondary);
+  text-decoration: none;
+  margin: var(--spacer-xs) 0;
+}

@@ -7,8 +7,9 @@ import {
   select,
   object,
 } from "@storybook/addon-knobs";
-import { SfProductCard } from "@storefront-ui/vue";
+import { SfProductCard, SfPrice } from "@storefront-ui/vue";
 import { colorsValues as colors } from "@storefront-ui/shared/variables/colors";
+import "./SfProductCardWithRange.scss";
 storiesOf("Organisms|ProductCard", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -206,6 +207,119 @@ storiesOf("Organisms|ProductCard", module)
         @click:wishlist="alert('@click:wishlist')"
         @click:reviews="alert('@click:reviews')"
     />`,
+  }))
+  .add("With price range", () => ({
+    components: { SfProductCard, SfPrice },
+    props: {
+      image: {
+        default: object(
+          "image",
+          {
+            mobile: { url: "/assets/storybook/Home/productB.jpg" },
+            desktop: { url: "/assets/storybook/Home/productB.jpg" },
+          },
+          "Props"
+        ),
+      },
+      imageWidth: {
+        default: number("imageWidth", 216, {}, "Props"),
+      },
+      imageHeight: {
+        default: number("imageHeight", 326, {}, "Props"),
+      },
+      badgeLabel: {
+        default: text("badgeLabel", "", "Props"),
+      },
+      badgeColor: {
+        default: select("badgeColor", colors, "color-primary", "Props"),
+      },
+      title: {
+        default: text("title", "Cotton Sweater", "Props"),
+      },
+      link: {
+        default: text("link", "", "Props"),
+      },
+      linkTag: {
+        default: text("linkTag", "", "Props"),
+      },
+      scoreRating: {
+        default: number("scoreRating", 4, {}, "Props"),
+      },
+      maxRating: {
+        default: number("maxRating", 5, {}, "Props"),
+      },
+      reviewsCount: {
+        default: number("reviewsCount", 7, {}, "Props"),
+      },
+      regularPrice: {
+        default: text("regularPrice", "$3.99", "Props"),
+      },
+      specialPrice: {
+        default: text("specialPrice", "$19.09", "Props"),
+      },
+      wishlistIcon: {
+        default: text("wishlistIcon", "heart", "Props"),
+      },
+      isOnWishlistIcon: {
+        default: text("isOnWishlistIcon", "heart_fill", "Props"),
+      },
+      isOnWishlist: {
+        default: boolean("isOnWishlist", false, "Props"),
+      },
+      showAddToCartButton: {
+        default: boolean("showAddToCartButton", true, "Props"),
+      },
+      isAddedToCart: {
+        default: boolean("isAddedToCart", false, "Props"),
+      },
+      addToCartDisabled: {
+        default: boolean("addToCartDisabled", false, "Props"),
+      },
+    },
+    methods: {
+      alert(label) {
+        alert(label);
+      },
+    },
+    template: `<SfProductCard
+        :image="image"
+        :image-width="imageWidth"
+        :image-height="imageHeight"
+        :badge-label="badgeLabel"
+        :badge-color="badgeColor"
+        :title="title"
+        :link="link"
+        :link-tag="linkTag"
+        :score-rating="scoreRating"
+        :max-rating="maxRating"
+        :reviews-count="reviewsCount"
+        :regular-price="regularPrice"
+        :special-price="specialPrice"
+        :wishlist-icon="wishlistIcon"
+        :is-on-wishlist-icon="isOnWishlistIcon"
+        :is-on-wishlist="isOnWishlist"
+        :show-add-to-cart-button="showAddToCartButton"
+        :add-to-cart-disabled="addToCartDisabled"
+        :is-added-to-cart="isAddedToCart"
+        @click:is-added-to-cart="alert('@click:is-added-to-cart')"
+        @click:wishlist="alert('@click:wishlist')"
+        @click:reviews="alert('@click:reviews')"
+    >
+      <template #price>
+        <SfPrice 
+          class="price-range"
+          :regular="regularPrice"
+          :special="specialPrice" 
+        >
+          <template #old>
+            <span> {{ regularPrice }} - </span>
+          </template>
+          <template #special>
+            <span>&nbsp;{{ specialPrice }} </span>
+          </template>
+        </SfPrice>
+      </template>
+    </SfProductCard>`,
   }))
   .add("With 2 pictures", () => ({
     components: { SfProductCard },
