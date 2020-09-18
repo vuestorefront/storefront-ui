@@ -22,7 +22,7 @@
   &--has-scroll-lock {
     overflow: hidden;
   }
-  &--is-active {
+  &.is-active {
     --sliding-section-static-height: 0;
     --sliding-section-mobile-bar-display: block;
   }

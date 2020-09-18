@@ -36,13 +36,53 @@ In this section we will add notes and info's about new changes and releases.
 As always what is first, update your `package.json` by changing your current version:
 
 ```json
-"dependencies: {
+dependencies: {
     "@storefront-ui/vue": "^0.8.0"
 }
 ```
 
+#### **State classes**
 
-<!-- - #### **Typography**
+Before | v0.9.0 
+------------ | ------------- 
+--is-active |  .is-active
+--is-disabled | .is-disabled
+--is-current | .is-current
+--has-error | .has-error
+--h2 | .h2 
+--h3 | .h3 
+--h4 | .h4 
+--h5 | .h5 
+--h6 | .h6 
+--has-size | .has-size
+--hidden | .hidden 
+--invalid | .invalid 
+--has-text | .has-text 
+--is-color | .is-color 
+--prev | .prev
+--next | .next 
+--is-open | .is-open 
+--is-selected | .is-selected 
+--is-required | .is-required 
+--open | .is-open 
+--has-chevron | .has-chevron 
+--has-margin | .has-margin 
+--floating | .is-floating
+--center | --center 
+--without-carousel | .without-carousel
+--without-quantity | .without-quantity
+--on-wishlist | .on-wishlist 
+.is-current | .current
+
+So now we can use it like this: 
+```
+.sf-component {.is-active {}}
+```
+instead of 
+```
+.sf-component {&--is-active {}}
+```
+This change follows [css guideline](https://github.com/chris-pearce/css-guidelines#state-hooks).
 
 Before | v0.8.0 
 ------------ | ------------- | -------------
@@ -51,7 +91,7 @@ Before | v0.8.0
 
 **Font family**
 
-Before | v0.7.0 | v0.9.0
+Before | v0.8.0 | v0.9.0
 ------------ | ------------- | -------------
 --body-font-family-primary: "Roboto", serif |   --font-family-primary: "Roboto", serif |   --font-family--primary: "Roboto", serif
 --body-font-family-secondary: "Raleway", sans-serif |   --font-family-secondary: "Raleway", sans-serif |   --font-family--secondary: "Raleway", sans-serif
@@ -59,7 +99,7 @@ Before | v0.7.0 | v0.9.0
 
 **Font sizes**
 
-Before | v0.6.4 |  v0.7.0 | v0.9.0
+Before | v0.6.4 |  v0.8.0 | v0.9.0
 ------------ | ------------ | ------------- | -------------
 $font-size-extra-small-mobile: 0.625rem | undefined | --font-2xs: 0.625rem | undefined
 $font-size-extra-small-desktop: 0.75rem<br>$font-size-small-mobile: 0.75rem | --font-size-extra-small: 0.75rem | --font-xs: 0.75rem | --font-size--xs: 0.75rem
@@ -71,7 +111,7 @@ $font-size-extra-big-desktop: 1.5rem | --font-size-extra-big: 1.5rem | --font-si
 
 **Font weights**
 
-Before | v0.6.4 | v0.7.0 | v0.9.0
+Before | v0.6.4 | v0.8.0 | v0.9.0
 ------------ | ------------ | ------------- | -------------
 --body-font-weight-primary: 300 | --font-weight-light: 300 | --font-light: 300 | --font-weight--light: 300
 --body-font-weight-secondary: 400 | --font-weight-regular: 400 | --font-normal: 400 | --font-weight--normal: 400
@@ -85,7 +125,7 @@ undefined | undefined | --font-black: 900 | undefined
 
 **Spacers**
 
-Before | v0.6.4 | v0.7.0 | v0.9.0
+Before | v0.6.4 | v0.8.0 | v0.9.0
 ------------ | ------------ | ------------- | -------------
  $spacer-small | --spacer-small: 0.25rem | --spacer-2xs: 0.25rem | --spacer-2xs: 0.25rem
  $spacer | --spacer: 0.5rem | --spacer-xs: 0.5rem | --spacer-xs: 0.5rem
@@ -101,7 +141,7 @@ Before | v0.6.4 | v0.7.0 | v0.9.0
 
 **Color variants**
 
-Before | v0.7.0 | v0.9.0 
+Before | v0.8.0 | v0.9.0 
 ------------ | ------------ | ------------
 undefined | --_c-gray-accent: #e0e0e1 | --_c-gray-accent: #e0e0e1
 --_c-light-secondary: #f6f7f8 |  --_c-light-secondary: #ffffff |  --_c-light-secondary: #ffffff
@@ -113,9 +153,9 @@ undefined | --_c-gray-accent: #e0e0e1 | --_c-gray-accent: #e0e0e1
 
 **Body and text default colors**
 
-Before | v0.7.0 | v0.9.0 
+Before | v0.8.0 | v0.9.0 
 ------------ | ------------ | ------------
-undefined | --c-text-disabled: var(--_c-gray-accent) | --c-text-disabled: var(--_c-gray-accent) -->
+undefined | --c-text-disabled: var(--_c-gray-accent) | --c-text-disabled: var(--_c-gray-accent)
 
 
 ### Classes
@@ -142,17 +182,10 @@ v0.8.0 | v0.9.0
 
 - **Props**
   
-<!-- 
+
 Component | Before | v0.8.0
 ------------ | ------------ | ------------
-SfSearchBar| - | iconSize
-SfSearchBar| - | iconColor  
--->
-
-Component | Before | v0.8.0 | Info
------------- | ------------ | ------------
-SfSearchBar| - | iconSize
-SfSearchBar| - | iconColor 
+SfSearchBar| - | icon (Object to define icon look. Should have values for color and size)
 SfImage| - | srcset (String, Array) 
 SfAccordion | open (String) | open ("all") 
 SfSearchBar | - | icon (Object) 
