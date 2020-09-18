@@ -3,29 +3,26 @@
 In this section we will add notes and info's about new changes and releases.
 
 
-## Migration to v0.8.0
+## Migration to v0.9.0
 
-> **v0.8.0 has been released!** :tada:
+> **v0.9.0 has been released!** :tada:
 
 ### **Why you should migrate?**
 
 :::tip What is new?
 
-:point_right: new SfColorPicker component  
+:point_right: design refreshment adjusting to current style guide [figma](https://www.figma.com/file/N0Ct95cSAoODNv7zYS01ng/Storefront-UI-Design-System?node-id=0%3A1)   
 
-:point_right: SfHeaderNavigation component 
+:point_right: changes of global variables for typography and layout
 
-:point_right: changed SfImage API allowing to use `srcset` prop
+:point_right: change of BEM modifiers for component states into seperate classes e.g. `--is-active` to `.is-active`  
 
-:point_right: manual on how to use Tailwind css with Storefront UI was added 
+:point_right: script to pull off library components to your project 
 
-:point_right: open all items in SfAccordion by default by passing `open="all"`
+:point_right: new component SfTextArea 
 
-:point_right: slot for button in SfScrollable was applied
+:point_right: SfDropdown with new API
 
-:point_right: prop icon added in SfSearchbar to customize size and color of the icon
-
-:point_right: new component SfComponentSelect added with all current functionality and SfSelect component changed to native 
 
 :information_source: for more details see our `CHANGELOG.md`
 
@@ -37,7 +34,7 @@ As always what is first, update your `package.json` by changing your current ver
 
 ```json
 dependencies: {
-    "@storefront-ui/vue": "^0.8.0"
+    "@storefront-ui/vue": "^0.9.0"
 }
 ```
 
@@ -45,7 +42,7 @@ dependencies: {
 
 - #### **Typography**
 
-**Font family**
+  **Font family**
 
 Before | v0.8.0 | v0.9.0
 ------------ | ------------- | -------------
@@ -53,9 +50,9 @@ Before | v0.8.0 | v0.9.0
 --body-font-family-secondary: "Raleway", sans-serif |   --font-family-secondary: "Raleway", sans-serif |   --font-family--secondary: "Raleway", sans-serif
 
 
-**Font sizes**
+  **Font sizes**
 
-Before | v0.6.4 |  v0.8.0 | v0.9.0
+Before | v0.6.4 |  v0.7.0 | v0.9.0
 ------------ | ------------ | ------------- | -------------
 $font-size-extra-small-mobile: 0.625rem | undefined | --font-2xs: 0.625rem | undefined
 $font-size-extra-small-desktop: 0.75rem<br>$font-size-small-mobile: 0.75rem | --font-size-extra-small: 0.75rem | --font-xs: 0.75rem | --font-size--xs: 0.75rem
@@ -65,9 +62,9 @@ $font-size-big-desktop: 1.125rem <br> $font-size-extra-big-mobile: 1.125rem | --
 $font-size-extra-big-desktop: 1.5rem | --font-size-extra-big: 1.5rem | --font-size--xl: 1.5rem | undefined
 
 
-**Font weights**
+  **Font weights**
 
-Before | v0.6.4 | v0.8.0 | v0.9.0
+Before | v0.6.4 | v0.7.0 | v0.9.0
 ------------ | ------------ | ------------- | -------------
 --body-font-weight-primary: 300 | --font-weight-light: 300 | --font-light: 300 | --font-weight--light: 300
 --body-font-weight-secondary: 400 | --font-weight-regular: 400 | --font-normal: 400 | --font-weight--normal: 400
@@ -79,9 +76,9 @@ undefined | undefined | --font-black: 900 | undefined
 
 - #### **Layout**
 
-**Spacers**
+  **Spacers**
 
-Before | v0.6.4 | v0.8.0 | v0.9.0
+Before | v0.6.4 | v0.7.0 | v0.9.0
 ------------ | ------------ | ------------- | -------------
  $spacer-small | --spacer-small: 0.25rem | --spacer-2xs: 0.25rem | --spacer-2xs: 0.25rem
  $spacer | --spacer: 0.5rem | --spacer-xs: 0.5rem | --spacer-xs: 0.5rem
@@ -95,9 +92,9 @@ Before | v0.6.4 | v0.8.0 | v0.9.0
 
 - **Colors**
 
-**Color variants**
+  **Color variants**
 
-Before | v0.8.0 | v0.9.0 
+Before | v0.7.0 | v0.9.0 
 ------------ | ------------ | ------------
 undefined | --_c-gray-accent: #e0e0e1 | --_c-gray-accent: #e0e0e1
 --_c-light-secondary: #f6f7f8 |  --_c-light-secondary: #ffffff |  --_c-light-secondary: #ffffff
@@ -107,9 +104,9 @@ undefined | --_c-gray-accent: #e0e0e1 | --_c-gray-accent: #e0e0e1
 --_c-yellow-secondary: #fffceb | --_c-yellow-secondary: #f6e389 | --_c-yellow-secondary: #f6e389
 --_c-blue-primary: #6699cc | --_c-blue-primary: #67c6fa | --_c-blue-primary: #67c6fa
 
-**Body and text default colors**
+  **Body and text default colors**
 
-Before | v0.8.0 | v0.9.0 
+Before | v0.7.0 | v0.9.0 
 ------------ | ------------ | ------------
 undefined | --c-text-disabled: var(--_c-gray-accent) | --c-text-disabled: var(--_c-gray-accent)
 
@@ -137,7 +134,7 @@ SfHeading | subtitle | description
 
 - **Breakpoints**
 
-v0.8.0 | v0.9.0
+v0.7.0 | v0.9.0
 ------------ | ------------
 .mobile-only | .smartphone-only
 
@@ -186,41 +183,33 @@ This change follows [css guideline](https://github.com/chris-pearce/css-guidelin
 
 - **Others**
 
-1. SfCheckbox moved from atoms to molecules
-2. Deprecated method `contains` in tests was replaced by `classes` or `find` methods
-3. SfSelect changed to native select with error messages and native placeholder
-
+  1. SfRadio styling changes to allow for address component look 
+  2. SfRating allowing for fractional rate   
+  3. SfHeading wrapped in div 
 
 ### Deletions
-
-1. removed viewport addon on Storybook
 
 
 ### Additions
 
 - **Components** 
 
-1. SfColorPicker
-2. SfHeaderNavigation 
-3. SfComponentSelect - select component with current API
+  1. SfTextArea
+
 
 - **Props**
 
-Component | Before | v0.8.0
+Component | Before | v0.9.0
 ------------ | ------------ | ------------
-SfSearchBar| - | icon (Object to define icon look. Should have values for color and size)
-SfImage| - | srcset (String, Array) 
-SfAccordion | open (String) | open ("all") 
-SfSearchBar | - | icon (Object)
-SfDropdown| - | button | 'opener' slot (default SfButton) added inside component to open content on 'click:open' event 
+SfSearchBar| - | -
+
 
 
 - **Slots**
 
-Component | Before | v0.8.0 | Info
+Component | Before | v0.9.0 | Info
 ------------ | ------------ | ------------ | ------------
-SfScrollable | - | view-all | Slot for show/hide button
-SfDropdown| - | button | 'opener' slot (default SfButton) added inside component to open content on 'click:open' event
+SfScrollable | - | - | -
 
 
 - **Components with data-testid**
