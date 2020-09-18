@@ -70,7 +70,8 @@
     --checkbox-border-color: var(--c-primary);
     --checkbox-background: var(--c-primary);
     &.has-error {
-    --checkbox-label-color: var(--c-text);
+      --checkbox-label-color: var(--c-text);
+    }
     &.sf-checkbox--has-error {
       --checkbox-border-color: var(--c-danger);
       --checkbox-background: var(--c-danger);
