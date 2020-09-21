@@ -34,6 +34,9 @@ storiesOf("Molecules|Select", module)
       label: {
         default: text("label", "Color", "Props"),
       },
+      selectedValue: {
+        default: text("selectedValue", "", "Props"),
+      },
       hintMessage: {
         default: text("hintMessage", "Required", "Props"),
       },
@@ -72,6 +75,7 @@ storiesOf("Molecules|Select", module)
         :infoMessage="infoMessage"
         :disabled="disabled"
         :placeholder="placeholder"
+        :selected-value="selectedValue"
         style="max-width: 30rem; margin: 10px;"
       >
         <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
@@ -97,8 +101,8 @@ storiesOf("Molecules|Select", module)
       label: {
         default: text("label", "Color", "Props"),
       },
-      selected: {
-        default: select("selected", optionValues, "", "Props"),
+      selectedValue: {
+        default: text("selectedValue", "", "Props"),
       },
       hintMessage: {
         default: text("hintMessage", "Required", "Props"),
@@ -139,7 +143,8 @@ storiesOf("Molecules|Select", module)
         :valid="valid"
         :infoMessage="infoMessage"
         :disabled="disabled"
-        :placeholder="placeholder""    
+        :placeholder="placeholder"
+        :selected-value="selectedValue"    
         >
         <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
           <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
@@ -167,8 +172,8 @@ storiesOf("Molecules|Select", module)
       label: {
         default: text("label", "Color", "Props"),
       },
-      selected: {
-        default: select("selected", optionValues, "", "Props"),
+      selectedValue: {
+        default: text("selectedValue", "", "Props"),
       },
       hintMessage: {
         default: text("hintMessage", "Required", "Props"),
@@ -210,6 +215,7 @@ storiesOf("Molecules|Select", module)
         :infoMessage="infoMessage"
         :disabled="disabled"
         :placeholder="placeholder"
+        :selected-value="selectedValue"
         >
         <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
           <SfProductOption :color="option.color" :label="option.label"></SfProductOption>

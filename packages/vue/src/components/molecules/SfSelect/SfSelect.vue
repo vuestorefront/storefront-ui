@@ -112,6 +112,11 @@ export default {
       default: "",
     },
   },
+  data() {
+    return {
+      selectedValue: "",
+    };
+  },
   computed: {
     isSelected() {
       return this.selected;
