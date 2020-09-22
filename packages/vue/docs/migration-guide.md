@@ -84,7 +84,10 @@ instead of
 ```
 This change follows [css guideline](https://github.com/chris-pearce/css-guidelines#state-hooks).
 
-- #### **Typography**
+Before | v0.8.0 
+------------ | ------------- | -------------
+--body-font-family-primary: "Roboto", serif |   --font-family-primary: "Roboto", serif |   --font-family--primary: "Roboto", serif
+--body-font-family-secondary: "Raleway", sans-serif |   --font-family-secondary: "Raleway", sans-serif |   --font-family--secondary: "Raleway", sans-serif
 
 **Font family**
 
