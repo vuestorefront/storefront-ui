@@ -14,11 +14,11 @@
   background: var(--bottom-navigation-background, var(--c-white));
   box-shadow: var(
     --bottom-navigation-box-shadow,
-    0px -2px 10px rgba(var(--c-dark-base), 0.15)
+    0px -2px 10px rgba(var(--_c-gray-secondary-base), 0.15)
   );
 }
 .sf-bottom-navigation-item {
-  --icon-color: var(--c-gray);
+  --icon-color: var(--c-link);
   background: transparent;
   border: 0;
   top: var(--bottom-navigation-item-top);
@@ -32,13 +32,13 @@
     --bottom-navigation-item-padding,
     var(--spacer-xs) 0 var(--spacer-xs) 0
   );
-  color: var(--bottom-navigation-item-color, var(--c-gray));
+  color: var(--bottom-navigation-item-color, var(--c-link));
   @include font(
     --bottom-navigation-item-font,
-    var(--font-light),
-    var(--font-xs),
+    var(--font-weight--light),
+    var(--font-size--xs),
     1,
-    var(--font-family-primary)
+    var(--font-family--primary)
   );
   & .sf-circle-icon {
     --button-size: 4.125rem;
@@ -46,19 +46,19 @@
   &__label {
     margin: var(--bottom-navigation-item-label-margin);
   }
-  &--active {
-    --icon-color: var(--c-black);
-    --bottom-navigation-item-color: var(--c-black);
-    --bottom-navigation-item-font-weight: var(--font-normal);
+  &.is-active {
+    --icon-color: var(--c-primary);
+    --bottom-navigation-item-color: var(--c-primary);
+    --bottom-navigation-item-font-weight: var(--font-weight--normal);
   }
-  &--has-margin {
+  & .has-margin {
     --bottom-navigation-item-label-margin: var(--spacer-xs) 0 0 0;
   }
   &__icon {
     background: transparent;
     padding: 0;
   }
-  &--floating {
+  &.is-floating {
     --icon-color: var(--c-white);
     & .sf-circle-icon {
       --circle-icon-position: absolute;
@@ -66,7 +66,7 @@
       transform: translate3d(0, -50%, 0);
     }
   }
-  &--center {
+  &.center {
     --bottom-navigation-item-align-self: center;
   }
 }

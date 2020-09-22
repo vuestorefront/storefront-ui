@@ -2,8 +2,8 @@
   <div class="sf-store-locator">
     <div class="sf-store-locator__wrapper">
       <div class="sf-store-locator__list">
-        <div class="sf-store-locator__stores desktop-only">
-          Found stores: <span>{{ stores.length }}</span>
+        <div class="sf-store-locator__stores">
+          Stores found: <span>{{ stores.length }}</span>
         </div>
         <!-- @slot Use this slot to show stores cards -->
         <slot

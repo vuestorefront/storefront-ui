@@ -18,19 +18,15 @@
   --color-box-shadow-transition-duration: 150ms;
   transition: transform 150ms linear;
   &__badge {
-    --badge-padding: var(--spacer-xs);
+    --badge-padding: var(--spacer-2xs);
     --badge-border-radius: 100%;
     position: absolute;
-    top: -25%;
-    right: -25%;
   }
   @include for-desktop {
     --color-size: 0.75rem;
-    &--active,
+    &.is-active,
     &:hover {
       transform: scale(1.667);
-    }
-    &:hover {
       --color-box-shadow-opacity: 0.25;
     }
     &:active {

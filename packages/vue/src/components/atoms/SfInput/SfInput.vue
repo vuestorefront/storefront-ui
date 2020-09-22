@@ -2,9 +2,10 @@
   <div
     class="sf-input"
     :class="{
-      'sf-input--has-text': !!value,
-      'sf-input--invalid': !valid,
+      'has-text': !!value,
+      invalid: !valid,
     }"
+    :data-testid="name"
   >
     <div class="sf-input__wrapper">
       <input
@@ -42,7 +43,7 @@
           <SfIcon
             class="sf-input__password-icon"
             :class="{
-              'sf-input__password-icon--hidden': !isPasswordVisible,
+              hidden: !isPasswordVisible,
             }"
             icon="show_password"
             size="1.5rem"
@@ -77,21 +78,21 @@ export default {
      */
     value: {
       type: [String, Number],
-      default: null,
+      default: "",
     },
     /**
      * Form input label
      */
     label: {
       type: String,
-      default: null,
+      default: "",
     },
     /**
      * Form input name
      */
     name: {
       type: String,
-      default: null,
+      default: "",
     },
     /**
      * Form input type
@@ -112,7 +113,7 @@ export default {
      */
     errorMessage: {
       type: String,
-      default: null,
+      default: "",
     },
     /**
      * Native input required attribute

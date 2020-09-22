@@ -24,6 +24,7 @@ module.exports = {
           ['/import-stories', 'Import stories to your Storybook'],
           ['/customization', 'Customization'],
           ['/migration-guide', 'Migration Guide'],
+          ['/pull-off-components', 'Pull off components'],
           ['/meet-the-team', 'Meet the core team'],
         ]
       },
@@ -64,7 +65,6 @@ module.exports = {
 ["/components/breadcrumbs", "Breadcrumbs"],
 ["/components/bullets", "Bullets"],
 ["/components/button", "Button"],
-["/components/checkbox", "Checkbox"],
 ["/components/chevron", "Chevron"],
 ["/components/circleicon", "Circle Icon"],
 ["/components/color", "Color"],
@@ -79,7 +79,8 @@ module.exports = {
 ["/components/price", "Price"],
 ["/components/property", "Property"],
 ["/components/quantityselector", "Quantity Selector"],
-["/components/rating", "Rating"]]
+["/components/rating", "Rating"],
+["/components/textarea", "Textarea"]]
  },
 { 
  title: "Molecules",
@@ -92,6 +93,9 @@ module.exports = {
 ["/components/bottommodal", "Bottom Modal"],
 ["/components/calltoaction", "Call To Action"],
 ["/components/characteristic", "Characteristic"],
+["/components/checkbox", "Checkbox"],
+["/components/colorpicker", "Color Picker"],
+["/components/componentselect", "Component Select"],
 ["/components/dropdown", "Dropdown"],
 ["/components/filter", "Filter"],
 ["/components/gallery", "Gallery"],

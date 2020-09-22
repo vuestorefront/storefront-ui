@@ -1,5 +1,6 @@
 import { shallowMount } from "@vue/test-utils";
 import SfProductCard from "./SfProductCard.vue";
+import "@testing-library/jest-dom";
 const title = "Product A";
 const wishlistIconButtonClass = ".sf-product-card__wishlist-icon";
 const clickEventName = "click:wishlist";
@@ -11,8 +12,7 @@ describe("SfProductCard.vue", () => {
       },
     });
     expect(component.exists()).toBe(true);
-    expect(component.isVueInstance()).toBe(true);
-    expect(component.isVisible()).toBe(true);
+    expect(component.find(".sf-product-card").element).toBeVisible();
   });
 });
 describe("SfProductCard.vue: Wish list icon button", () => {
@@ -23,8 +23,7 @@ describe("SfProductCard.vue: Wish list icon button", () => {
       },
     });
     expect(component.exists()).toBe(true);
-    expect(component.isVueInstance()).toBe(true);
-    expect(component.isVisible()).toBe(true);
+    expect(component.find(".sf-product-card").element).toBeVisible();
   });
   it("has correct CSS class for container", () => {
     const component = shallowMount(SfProductCard, {

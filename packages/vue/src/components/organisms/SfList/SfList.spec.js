@@ -3,7 +3,7 @@ import SfList from "./SfList.vue";
 describe("SfList.vue", () => {
   it("renders a component", () => {
     const component = shallowMount(SfList);
-    expect(component.contains(".sf-list")).toBe(true);
+    expect(component.classes("sf-list")).toBe(true);
   });
   // todo: test defautl slot, test if SfListItem is rendered
 });

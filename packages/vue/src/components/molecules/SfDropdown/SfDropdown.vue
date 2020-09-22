@@ -1,10 +1,15 @@
 <template>
   <div class="sf-dropdown">
     <SfOverlay :visible="isOpen" class="sf-dropdown__overlay" />
+    <slot name="opener">
+      <SfButton class="sf-button--full-width sf-dropdown__opener" @click="open"
+        >Choose your action</SfButton
+      >
+    </slot>
     <transition name="sf-dropdown">
       <div
         v-show="isOpen"
-        v-click-outside="close"
+        v-click-outside="checkPersistence"
         class="sf-dropdown__container"
       >
         <!--@slot Use this slot to replace title. -->
@@ -14,7 +19,7 @@
         <!--@slot Use this slot to place content inside the dropdown.-->
         <slot />
         <!--@slot Use this slot to replace cancel button. -->
-        <slot name="cancel" v-bind="{ close }">
+        <slot name="cancel">
           <SfButton
             class="sf-button--full-width sf-dropdown__cancel"
             @click="close"
@@ -26,7 +31,7 @@
   </div>
 </template>
 <script>
-import { clickOutside } from "../../../utilities/directives";
+import { clickOutside } from "../../../utilities/directives/";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import { isClient } from "../../../utilities/helpers";
@@ -55,6 +60,13 @@ export default {
       type: String,
       default: "",
     },
+    /**
+     * If true clicking outside will not dismiss the dropdown
+     */
+    persistent: {
+      type: Boolean,
+      default: false,
+    },
   },
   watch: {
     isOpen: {
@@ -70,8 +82,14 @@ export default {
     },
   },
   methods: {
+    open() {
+      this.$emit("click:open");
+    },
     close() {
       this.$emit("click:close");
+    },
+    checkPersistence() {
+      if (!this.persistent) return this.close();
     },
     keydownHandler(e) {
       if (e.key === "Escape" || e.key === "Esc" || e.keyCode === 27) {

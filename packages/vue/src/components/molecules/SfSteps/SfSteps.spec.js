@@ -7,6 +7,6 @@ describe("SfSteps.vue", () => {
         steps: ["one", "two"],
       },
     });
-    expect(component.contains(".sf-steps")).toBe(true);
+    expect(component.classes("sf-steps")).toBe(true);
   });
 });

@@ -24,7 +24,7 @@ describe("SfHeroItem.vue", () => {
       component.destroy();
     });
     it("renders a component", () => {
-      expect(component.contains(".sf-hero-item")).toBe(true);
+      expect(component.classes("sf-hero-item")).toBe(true);
     });
     it("renders title correctly", () => {
       expect(component.text()).toContain(title);
@@ -33,7 +33,7 @@ describe("SfHeroItem.vue", () => {
       expect(component.text()).toContain(subtitle);
     });
     it("renders SfButton correctly", () => {
-      expect(component.find(SfButton).text()).toContain(buttonText);
+      expect(component.findComponent(SfButton).text()).toContain(buttonText);
     });
   });
   describe("with items passed through slots", () => {

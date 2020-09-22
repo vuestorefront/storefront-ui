@@ -3,7 +3,7 @@ import SfIcon from "./SfIcon.vue";
 describe("SfIcon.vue", () => {
   it("renders a component", () => {
     const component = shallowMount(SfIcon);
-    expect(component.contains(".sf-icon")).toBe(true);
+    expect(component.classes("sf-icon")).toBe(true);
   });
   it("renders path when passed", () => {
     const path =
@@ -22,7 +22,7 @@ describe("SfIcon.vue", () => {
         size: size,
       },
     });
-    expect(component.contains(`.size-${size}`)).toBe(true);
+    expect(component.classes(`size-${size}`)).toBe(true);
   });
   it("renders sf-color when passed", () => {
     const color = "green-primary";
@@ -31,7 +31,7 @@ describe("SfIcon.vue", () => {
         color: color,
       },
     });
-    expect(component.contains(`.color-${color}`)).toBe(true);
+    expect(component.classes(`color-${color}`)).toBe(true);
   });
   it("renders viewBox default when not passed", () => {
     const color = "green-primary";

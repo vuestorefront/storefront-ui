@@ -3,7 +3,7 @@ import SfInput from "./SfInput.vue";
 describe("SfInput.vue", () => {
   it("renders a input", () => {
     const component = shallowMount(SfInput);
-    expect(component.contains(".sf-input")).toBe(true);
+    expect(component.classes("sf-input")).toBe(true);
   });
   it("renders label text when passed", () => {
     const label = "HelloWorld";

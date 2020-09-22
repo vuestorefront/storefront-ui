@@ -3,7 +3,7 @@ import SfTopBar from "./SfTopBar.vue";
 describe("SfTopBar", () => {
   it("renders a container element", () => {
     const component = shallowMount(SfTopBar, {});
-    expect(component.contains(".sf-top-bar")).toBe(true);
+    expect(component.classes("sf-top-bar")).toBe(true);
   });
   // Left slot check
   it("renders left slot content when passed", () => {

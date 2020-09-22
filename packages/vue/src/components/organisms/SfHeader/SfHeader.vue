@@ -1,11 +1,7 @@
 <template>
-  <div
-    class="sf-header"
-    :class="{ 'sf-header--is-sticky': sticky, 'sf-header--is-hidden': hidden }"
-    :style="stickyHeight"
-  >
+  <div class="sf-header" :class="{ 'is-sticky': sticky, 'is-hidden': hidden }">
     <div class="sf-header__wrapper">
-      <header ref="header">
+      <header ref="header" class="sf-header__header">
         <!--@slot Use this slot to replace logo with text or image-->
         <slot name="logo" v-bind="{ logo, title }">
           <SfLink link="/">
@@ -23,7 +19,10 @@
           <slot name="aside" />
         </div>
         <div class="sf-header__actions">
-          <nav class="sf-header__navigation">
+          <nav
+            class="sf-header__navigation"
+            :class="{ 'is-visible': isNavVisible }"
+          >
             <slot name="navigation"></slot>
           </nav>
           <!--@slot Use this slot to replace default search bar-->
@@ -53,32 +52,38 @@
               <SfButton
                 v-if="accountIcon"
                 class="sf-button--pure sf-header__action"
+                data-testid="accountIcon"
                 @click="$emit('click:account')"
               >
                 <SfIcon
                   :icon="accountIcon"
                   size="1.25rem"
                   :class="{
-                    'sf-header__icon--is-active': activeIcon === 'account',
+                    'sf-header__icon is-active': activeIcon === 'account',
                   }"
                 />
               </SfButton>
               <SfButton
                 v-if="wishlistIcon"
                 class="sf-button--pure sf-header__action"
+                data-testid="wishlistIcon"
                 @click="$emit('click:wishlist')"
               >
                 <SfIcon
+                  class="sf-header__icon"
                   :icon="wishlistIcon"
+                  :has-badge="wishlistHasProducts"
+                  :badge-label="wishlistItemsQty"
                   size="1.25rem"
                   :class="{
-                    'sf-header__icon--is-active': activeIcon === 'wishlist',
+                    'sf-header__icon is-active': activeIcon === 'wishlist',
                   }"
                 />
               </SfButton>
               <SfButton
                 v-if="cartIcon"
                 class="sf-button--pure sf-header__action"
+                data-testid="cartIcon"
                 @click="$emit('click:cart')"
               >
                 <SfIcon
@@ -88,7 +93,7 @@
                   :badge-label="cartItemsQty"
                   size="1.25rem"
                   :class="{
-                    'sf-header__icon--is-active': activeIcon === 'cart',
+                    'sf-header__icon is-active': activeIcon === 'cart',
                   }"
                 />
               </SfButton>
@@ -102,6 +107,8 @@
 <script>
 import Vue from "vue";
 import SfHeaderNavigationItem from "./_internal/SfHeaderNavigationItem.vue";
+import SfHeaderNavigation from "./_internal/SfHeaderNavigation.vue";
+Vue.component("SfHeaderNavigation", SfHeaderNavigation);
 Vue.component("SfHeaderNavigationItem", SfHeaderNavigationItem);
 import {
   mapMobileObserver,
@@ -185,6 +192,13 @@ export default {
     /**
      * Header cart items quantity
      */
+    wishlistItemsQty: {
+      type: [String, Number],
+      default: "0",
+    },
+    /**
+     * Header cart items quantity
+     */
     cartItemsQty: {
       type: [String, Number],
       default: "0",
@@ -199,11 +213,17 @@ export default {
     /**
      * Header search on mobile
      */
+    isNavVisible: {
+      type: Boolean,
+      default: false,
+    },
+    /**
+     * Is nav slot visible at mobile view
+     */
   },
   data() {
     return {
       icons: [],
-      height: 0,
       hidden: false,
       sticky: false,
       scrollDirection: null,
@@ -218,10 +238,8 @@ export default {
     cartHasProducts() {
       return parseInt(this.cartItemsQty, 10) > 0;
     },
-    stickyHeight() {
-      return {
-        "--_header-height": `${this.height}px`,
-      };
+    wishlistHasProducts() {
+      return parseInt(this.wishlistItemsQty, 10) > 0;
     },
   },
   watch: {
@@ -235,15 +253,6 @@ export default {
           this.animationHandler
         );
       },
-    },
-    isMobile: {
-      handler() {
-        if (!isClient) return;
-        this.$nextTick(() => {
-          this.height = this.$refs.header.offsetHeight;
-        });
-      },
-      immediate: true,
     },
     isSticky: {
       handler(isSticky) {
@@ -282,9 +291,11 @@ export default {
       if (!isClient) return;
       const currentScrollPosition =
         window.pageYOffset || document.documentElement.scrollTop;
-      if (currentScrollPosition >= this.height) {
-        this.scrollDirection =
-          currentScrollPosition < this.lastScrollPosition ? "up" : "down";
+      if (!!this.refs) {
+        if (currentScrollPosition >= this.$refs.header.offsetHeight) {
+          this.scrollDirection =
+            currentScrollPosition < this.lastScrollPosition ? "up" : "down";
+        }
       }
       this.lastScrollPosition = currentScrollPosition;
     },

@@ -1,5 +1,6 @@
+import "./SfFooter.stories.scss";
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, number, boolean } from "@storybook/addon-knobs";
+import { withKnobs, number, boolean, object } from "@storybook/addon-knobs";
 import {
   SfFooter,
   SfHeader,
@@ -26,10 +27,12 @@ storiesOf("Organisms|Footer", module)
       multiple: {
         default: boolean("multiple", false, "Props"),
       },
+      open: {
+        default: object("open", ["About us", "Help", "Social"], "Props"),
+      },
     },
     data() {
       return {
-        isMobile: false,
         columns: [
           {
             title: "About us",
@@ -54,39 +57,20 @@ storiesOf("Organisms|Footer", module)
         ],
       };
     },
-    computed: {
-      itemSpacer() {
-        return this.isMobile ? { padding: "24px 32px" } : { padding: "16px 0" };
-      },
-    },
-    mounted() {
-      this.isMobile =
-        Math.max(document.documentElement.clientWidth, window.innerWidth) <=
-        1023;
-      window.matchMedia("(max-width: 1023px)").addListener(this.mobileHandler);
-    },
-    beforeDestroy() {
-      window
-        .matchMedia("(max-width: 1023px)")
-        .removeListener(this.mobileHandler);
-    },
-    methods: {
-      mobileHandler(event) {
-        this.isMobile = event.matches;
-      },
-    },
     template: `<SfFooter
         :column="column"
         :multiple="multiple"
+        :open="open"
+        class="sb-footer"
       >
-        <SfFooterColumn v-for="column in columns" :key="column.title" :title="column.title">
+        <SfFooterColumn v-for="column in columns" :key="column.title" :title="column.title">        
           <SfList v-if="column.items">
             <SfListItem v-for="item in column.items" :key="item">
               <SfMenuItem :label="item"/>
             </SfListItem>
           </SfList>
-          <div v-else :style="{display: 'flex', ...itemSpacer}">
-            <SfImage v-for="picture in column.pictures" :key="picture" width="12" height="12" :src="'/assets/storybook/SfFooter/'+picture+'.svg'" :style="{margin: '0 1.5rem 0 0'}"/>
+          <div v-else class="sb-footer__social">
+            <SfImage v-for="picture in column.pictures" :key="picture" width="12" height="12" :src="'/assets/storybook/SfFooter/'+picture+'.svg'" class="sb-social-icon"/>
           </div>
         </SfFooterColumn>
       </SfFooter>`,
