@@ -1,10 +1,5 @@
 <template>
-  <SfRadio
-    v-model="$parent.selected"
-    class="sf-address"
-    :value="name"
-    name="addressPicker"
-  >
+  <SfRadio v-model="selected" class="sf-address" :value="name" name="groupName">
     <template #label>
       <slot />
     </template>
@@ -33,19 +28,11 @@ export default {
       default: "",
     },
   },
+  inject: ["selectedValue"],
   data() {
     return {
-      selected: "",
+      selected: this.selectedValue.selected,
     };
-  },
-  methods: {
-    toggle() {
-      if (this.$parent.selected === this.name) {
-        return;
-      } else {
-        this.$parent.selected = this.name;
-      }
-    },
   },
 };
 </script>

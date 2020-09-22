@@ -13,6 +13,9 @@
     var(--font-family--primary)
   );
   color: var(--address-color, var(--c-link));
+  span {
+    display: var(--address-span-display, block);
+  }
   &__icon-container {
     width: var(--address-icon-container-width, 1.5rem);
     height: var(--address-icon-container-height, 1.5rem);
@@ -48,7 +51,7 @@
     --address-border: 1px solid var(--c-primary);
     --icon-color: var(--c-white);
     --address-icon-container-background: var(--c-primary);
-    --radio-background: white;
+    --radio-background: var(--c-white);
   }
   @include for-desktop {
     --address-width: 23.375rem;

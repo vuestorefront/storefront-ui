@@ -32,14 +32,12 @@ storiesOf("Molecules|Address", module)
     },
     template: `<SfAddressPicker v-model="selected" >
         <SfAddress v-for="address in addresses" :key="address.id" :name="address.id">
-          <div style="display: flex; flex-direction: column;">
-            <span>{{address.name}}</span>
-            <span>{{address.street}}</span>
-            <span>{{address.postCode}}</span>
-            <span>{{address.city}}</span>
-            <span>{{address.country}}</span>
-            <span>{{address.phone}}</span>
-          </div>
+          <span>{{address.name}}</span>
+          <span>{{address.street}}</span>
+          <span>{{address.postCode}}</span>
+          <span>{{address.city}}</span>
+          <span>{{address.country}}</span>
+          <span>{{address.phone}}</span>
         </SfAddress>
       </SfAddressPicker>`,
   }));

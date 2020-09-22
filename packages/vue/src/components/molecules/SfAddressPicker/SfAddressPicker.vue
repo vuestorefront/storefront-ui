@@ -13,9 +13,19 @@ export default {
   model: {
     prop: "selected",
   },
-  data() {
+  props: {
+    selected: {
+      type: String,
+      default: "",
+    },
+  },
+  provide() {
+    const selectedValue = {};
+    Object.defineProperty(selectedValue, "selected", {
+      get: () => this.selected,
+    });
     return {
-      selected: "",
+      selectedValue,
     };
   },
 };
