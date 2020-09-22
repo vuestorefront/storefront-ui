@@ -1,13 +1,9 @@
 <template>
   <SfRadio
-    v-model="selected"
+    v-model="$parent.selected"
     class="sf-address"
-    :class="{
-      'is-selected': selected,
-    }"
-    :value="selectedValue"
-    :name="selectedValue"
-    @input="selectValue"
+    :value="name"
+    name="addressPicker"
   >
     <template #label>
       <slot />
@@ -22,17 +18,17 @@
   </SfRadio>
 </template>
 <script>
-import SfRadio from "../SfRadio/SfRadio.vue";
-import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+import SfRadio from "../../SfRadio/SfRadio.vue";
+import SfIcon from "../../../atoms/SfIcon/SfIcon.vue";
 
 export default {
-  name: "SfAddress",
+  name: "SfAddressPicker",
   components: {
     SfRadio,
     SfIcon,
   },
   props: {
-    valueName: {
+    name: {
       type: String,
       default: "",
     },
@@ -40,16 +36,16 @@ export default {
   data() {
     return {
       selected: "",
-      selectedValue: this.valueName,
     };
   },
   methods: {
-    selectValue(value) {
-      this.$emit("input", value);
+    toggle() {
+      if (this.$parent.selected === this.name) {
+        return;
+      } else {
+        this.$parent.selected = this.name;
+      }
     },
   },
 };
 </script>
-<style lang="scss">
-@import "~@storefront-ui/shared/styles/components/molecules/SfAddress.scss";
-</style>

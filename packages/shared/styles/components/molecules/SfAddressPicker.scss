@@ -7,10 +7,10 @@
   transition: var(--address-transition, border 150ms linear);
   @include font(
     --address-font,
-    var(--font-normal),
-    var(--font-base),
+    var(--font-weight--normal),
+    var(--font-size--base),
     1.6,
-    var(--font-family-primary)
+    var(--font-family--primary)
   );
   color: var(--address-color, var(--c-link));
   &__icon-container {
@@ -44,10 +44,11 @@
       }
     }
   }
- &.is-selected {
-   --address-border: 1px solid var(--c-primary);
-   --icon-color: var(--c-white);
-   --address-icon-container-background: var(--c-primary);
+  &.is-active {
+    --address-border: 1px solid var(--c-primary);
+    --icon-color: var(--c-white);
+    --address-icon-container-background: var(--c-primary);
+    --radio-background: white;
   }
   @include for-desktop {
     --address-width: 23.375rem;
