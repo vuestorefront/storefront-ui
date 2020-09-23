@@ -10,23 +10,30 @@ import Vue from "vue";
 Vue.component("SfAddress", SfAddress);
 export default {
   name: "SfAddressPicker",
-  model: {
-    prop: "selected",
-  },
   props: {
     selected: {
       type: String,
       default: "",
     },
   },
-  provide() {
-    const selectedValue = {};
-    Object.defineProperty(selectedValue, "selected", {
-      get: () => this.selected,
-    });
+  data() {
     return {
-      selectedValue,
+      checked: this.selected,
     };
+  },
+  provide() {
+    return {
+      getSelectedValue: this.getSelectedValue,
+      setSelectedValue: this.setSelectedValue,
+    };
+  },
+  methods: {
+    getSelectedValue() {
+      return this.checked;
+    },
+    setSelectedValue(newVal) {
+      this.checked = newVal;
+    },
   },
 };
 </script>

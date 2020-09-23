@@ -28,11 +28,16 @@ export default {
       default: "",
     },
   },
-  inject: ["selectedValue"],
-  data() {
-    return {
-      selected: this.selectedValue.selected,
-    };
+  inject: ["getSelectedValue", "setSelectedValue"],
+  computed: {
+    selected: {
+      get() {
+        return this.getSelectedValue();
+      },
+      set(newValue) {
+        this.setSelectedValue(newValue);
+      },
+    },
   },
 };
 </script>
