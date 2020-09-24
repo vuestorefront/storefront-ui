@@ -79,6 +79,11 @@ export default {
     },
   },
   mounted: function () {
+    const size = this.$slots.default.filter((slot) => slot.tag).length;
+    if (size < this.defaultSettings.perView) {
+      this.defaultSettings.perView = size;
+      this.defaultSettings.rewind = false;
+    }
     this.$nextTick(() => {
       if (!this.$slots.default) return;
       const glide = new Glide(this.$refs.glide, this.mergedOptions);
@@ -88,7 +93,6 @@ export default {
         if (!slidePerPage) return;
         const { perView } = glide.settings;
         if (!perView > 1) return;
-        const size = this.$slots.default.filter((slot) => slot.tag).length;
         const { direction } = move;
         let page, newIndex;
         switch (direction) {
