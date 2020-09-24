@@ -1,6 +1,6 @@
 <template>
   <div class="sf-carousel">
-    <div class="sf-carousel__controls">
+    <div ref="controls" class="sf-carousel__controls">
       <!--@slot slot for icon moving to the previous item -->
       <slot name="prev" v-bind="{ go: () => go('prev') }">
         <SfArrow aria-label="previous" @click="go('prev')" />
@@ -79,14 +79,15 @@ export default {
     },
   },
   mounted: function () {
-    const size = this.$slots.default.filter((slot) => slot.tag).length;
-    if (size < this.defaultSettings.perView) {
-      this.defaultSettings.perView = size;
-      this.defaultSettings.rewind = false;
-    }
     this.$nextTick(() => {
       if (!this.$slots.default) return;
       const glide = new Glide(this.$refs.glide, this.mergedOptions);
+      const size = this.$slots.default.filter((slot) => slot.tag).length;
+      if (size <= glide.settings.perView) {
+        glide.settings.perView = size;
+        glide.settings.rewind = false;
+        this.$refs.controls.style.display = "none";
+      }
       glide.mount();
       glide.on("run.before", (move) => {
         const { slidePerPage, rewind, type } = this.mergedOptions;
