@@ -2,9 +2,9 @@
 
 .sf-address {
   box-sizing: border-box;
-  width: var(--address-width, 100%);
-  border: var(--address-border, 1px solid var(--c-light));
-  transition: var(--address-transition, border 150ms linear);
+  width: 100%;
+  border: 1px solid var(--c-light);
+  transition: border 150ms linear;
   @include font(
     --address-font,
     var(--font-weight--normal),
@@ -12,21 +12,21 @@
     1.6,
     var(--font-family--primary)
   );
-  color: var(--address-color, var(--c-link));
+  color: var(--c-link);
   span {
-    display: var(--address-span-display, block);
+    display: block;
   }
   &__icon-container {
-    width: var(--address-icon-container-width, 1.5rem);
-    height: var(--address-icon-container-height, 1.5rem);
-    background: var(--address-icon-container-background, transparent);
-    position: var(--address-icon-container-position, absolute);
-    right: var(--address-icon-container-right, var(--spacer-sm));
-    border-radius: var(--address-icon-container-border-radius, 100%);
-    display: var(--address-icon-container-display, flex);
-    justify-content: var(--address-icon-container-justify-content, center);
-    align-items: var(--address-icon-container-align-items, center);
-    transition: var(--address-icon-container-transition, background 150ms linear);
+    width: 1.5rem;
+    height: 1.5rem;
+    background:  transparent;
+    position: absolute;
+    right: var(--spacer-sm);
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 150ms linear;
   }
   &__icon {
     --icon-color: var(--c-white);
@@ -48,12 +48,14 @@
     }
   }
   &.is-active {
-    --address-border: 1px solid var(--c-primary);
+    border: 1px solid var(--c-primary);
     --icon-color: var(--c-white);
-    --address-icon-container-background: var(--c-primary);
     --radio-background: var(--c-white);
+    .sf-address__icon-container {
+      background: var(--c-primary);
+    }
   }
   @include for-desktop {
-    --address-width: 23.375rem;
+    width: 23.375rem;
   }
 }
