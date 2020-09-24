@@ -208,7 +208,7 @@ storiesOf("Organisms|ProductCard", module)
     />`,
   }))
   .add("With price range", () => ({
-    components: { SfProductCard, SfPrice },
+    components: { SfProductCard },
     props: {
       image: {
         default: object(
