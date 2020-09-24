@@ -2,9 +2,11 @@
 .sb-footer {
   &__social{
     display: flex;
+    justify-content: space-between;
     padding: var(--spacer-base) var(--spacer-xl);
     @include for-desktop {
       padding: var(--spacer-sm) 0;
+      justify-content: flex-start;
     }
   }
  .sb-social-icon {

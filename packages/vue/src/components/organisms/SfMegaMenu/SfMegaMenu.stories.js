@@ -148,7 +148,7 @@ storiesOf("Organisms|MegaMenu", module)
           >
             <template #label>
               <div style="display: flex; align-items: center;">
-                {{title}} <span style="margin: 0 0 0 var(--spacer-sm); color:var(--c-gray); font: var(--font-normal) var(--font-sm)/1.4 var(--font-family-secondary); text-transform: lowercase">(20 items)</span>
+                {{title}} <span style="margin: 0 0 0 var(--spacer-sm); color:var(--c-gray); font: var(--font-weight--normal) var(--font-size--sm)/1.4 var(--font-family--secondary); text-transform: lowercase">(20 items)</span>
               </div>
             </template>
           </SfMenuItem>

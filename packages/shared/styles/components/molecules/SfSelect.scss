@@ -21,13 +21,8 @@
     );
     @include font(
       --select-label-font,
-<<<<<<< HEAD
-      var(--font-normal),
-      var(--font-base),
-=======
       var(--font-weight--normal),
       var(--font-size--base),
->>>>>>> 9fc898e4b85dd06dc647dbdb23735fc40928bc67
       1,
       var(--font-family--secondary)
     );
@@ -38,9 +33,9 @@
   }
   &__dropdown {
     width: 100%;
-    height: 1.625rem; 
+    height: 1.625rem;
     margin: 0 0 var(--spacer-2xs) 0;       
-    overflow: auto;
+    overflow-y: scroll;
     box-shadow: none;  
     color: var(--select-dropdown-color, var(--c-secondary-variant));
     background: var(--c-white); 
@@ -90,20 +85,20 @@
     --select-border-width: 0 0 1px 0;
     --select-border-color: var(--c-light);    
   }
-  &--is-selected {
+  &.is-selected {
     --select-label-top: 0;
     --select-label-font-size: var(--font-size--xs);
     --select-dropdown-color: var(--c-secondary-variant);
   }
-  &--is-invalid {
+  &.is-invalid {
     --select-dropdown-border-color: var(--c-danger);
   }
-  &--is-disabled {
+  &.is-disabled {
     --select-dropdown-color: var(--c-text-disabled);
     --select-dropdown-border-color: var(--c-text-disabled);
     --select-label-color: var(--c-text-disabled);
   }
-  &--is-required {
+  &.is-required {
     --select-label-required: " *";
   }
 }
