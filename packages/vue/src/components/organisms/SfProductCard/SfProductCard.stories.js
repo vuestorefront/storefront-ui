@@ -7,9 +7,8 @@ import {
   select,
   object,
 } from "@storybook/addon-knobs";
-import { SfProductCard, SfPrice } from "@storefront-ui/vue";
+import { SfProductCard } from "@storefront-ui/vue";
 import { colorsValues as colors } from "@storefront-ui/shared/variables/colors";
-import "./SfProductCardWithRange.scss";
 storiesOf("Organisms|ProductCard", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -252,10 +251,10 @@ storiesOf("Organisms|ProductCard", module)
         default: number("reviewsCount", 7, {}, "Props"),
       },
       regularPrice: {
-        default: text("regularPrice", "$3.99", "Props"),
+        default: text("regularPrice", "$3.99 - $19.09", "Props"),
       },
       specialPrice: {
-        default: text("specialPrice", "$19.09", "Props"),
+        default: text("specialPrice", "", "Props"),
       },
       wishlistIcon: {
         default: text("wishlistIcon", "heart", "Props"),
@@ -304,22 +303,7 @@ storiesOf("Organisms|ProductCard", module)
         @click:is-added-to-cart="alert('@click:is-added-to-cart')"
         @click:wishlist="alert('@click:wishlist')"
         @click:reviews="alert('@click:reviews')"
-    >
-      <template #price>
-        <SfPrice 
-          class="price-range"
-          :regular="regularPrice"
-          :special="specialPrice" 
-        >
-          <template #old>
-            <span> {{ regularPrice }} - </span>
-          </template>
-          <template #special>
-            <span>&nbsp;{{ specialPrice }} </span>
-          </template>
-        </SfPrice>
-      </template>
-    </SfProductCard>`,
+    />`,
   }))
   .add("With 2 pictures", () => ({
     components: { SfProductCard },
