@@ -48,7 +48,7 @@ storiesOf("Organisms|GroupedProduct", module)
         default: text("priceRegular", "$10,99", "Props"),
       },
       priceSpecial: {
-        default: text("priceSpecial", "$5,09", "Props"),
+        default: text("priceSpecial", "", "Props"),
       },
     },
     data() {
@@ -73,7 +73,7 @@ storiesOf("Organisms|GroupedProduct", module)
           :price-special="priceSpecial"
         >
           <template #details>
-           <div :style="{color: '#72757E', fontSize: '12px'}">MSD23-345-324</div>
+           <div :style="{color: '#72757E', fontSize: 'var(--font-size--base'}">MSD23-345-324</div>
            <SfProperty name="Color" value="White" :style="{margin: 'auto 0 0 0'}" />
           </template>
         </SfGroupedProductItem>

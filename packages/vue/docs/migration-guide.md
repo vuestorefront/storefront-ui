@@ -40,7 +40,10 @@ dependencies: {
 
 ### Changes
 
-- #### **Typography**
+Before | v0.8.0 
+------------ | ------------- | -------------
+--body-font-family-primary: "Roboto", serif |   --font-family-primary: "Roboto", serif |   --font-family--primary: "Roboto", serif
+--body-font-family-secondary: "Raleway", sans-serif |   --font-family-secondary: "Raleway", sans-serif |   --font-family--secondary: "Raleway", sans-serif
 
   **Font family**
 

@@ -1,10 +1,10 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, optionsKnob as options } from "@storybook/addon-knobs";
-import { SfTable } from "@storefront-ui/vue";
+import { SfTable, SfButton } from "@storefront-ui/vue";
 storiesOf("Organisms/Table", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
-    components: { SfTable },
+    components: { SfTable, SfButton },
     props: {
       customClass: {
         default: options(
@@ -21,9 +21,9 @@ storiesOf("Organisms/Table", module)
     data() {
       return {
         tableHeaders: [
-          "Quantity",
-          "Payment date",
-          "Payment method",
+          "Order ID",
+          "Pay. date",
+          "Pay. method",
           "Amount",
           "Status",
         ],
@@ -46,15 +46,17 @@ storiesOf("Organisms/Table", module)
               v-for="header in tableHeaders" 
               :key="header"
           >{{header}}</SfTableHeader>
+          <SfTableHeader><SfButton class="sf-button--text">Download all</SfButton></SfTableHeader>
         </SfTableHeading>
         <SfTableRow 
           v-for="(row, key) in tableRows"
           :key="key"
         > 
-          <SfTableData 
+          <SfTableData
             v-for="data in row"
             :key="data"
             :class="status[data]">{{data}}</SfTableData>
+            <SfTableData><SfButton class="sf-button--text">View details</SfButton></SfTableData>
         </SfTableRow>
       </SfTable>`,
   }));

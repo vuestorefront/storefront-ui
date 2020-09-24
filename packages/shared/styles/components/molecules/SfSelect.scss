@@ -33,9 +33,9 @@
   }
   &__dropdown {
     width: 100%;
-    height: 1.625rem; 
+    height: 1.625rem;
     margin: 0 0 var(--spacer-2xs) 0;       
-    overflow: auto;
+    overflow-y: scroll;
     box-shadow: none;  
     color: var(--select-dropdown-color, var(--c-secondary-variant));
     background: var(--c-white); 
