@@ -128,21 +128,32 @@ storiesOf("Atoms|Image", module)
     },
     template: `<SfImage
         :src="src"
+        :srcset="srcset"
         :alt="alt"
         :lazy="lazy"
         :rootMargin="rootMargin"
         :threshold="threshold"
       />`,
   }))
-  .add("Without width and height", () => ({
+  .add("With srcset as string", () => ({
     components: { SfImage },
     props: {
+      srcset: {
+        default: text(
+          "srcset",
+          "/assets/storybook/SfImage/product-109x164.jpg 109w, /assets/storybook/SfImage/product-216x326.jpg 216w",
+          "Props"
+        ),
+      },
       src: {
         default: text(
           "src",
           "/assets/storybook/SfImage/product-216x326.jpg",
           "Props"
         ),
+      },
+      sizes: {
+        default: text("sizes", "(max-width: 1024px) 109px, 216px", "Props"),
       },
       alt: {
         default: text("alt", "Vila stripe maxi shirt dress", "Props"),
