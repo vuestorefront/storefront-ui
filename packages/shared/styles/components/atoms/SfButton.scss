@@ -119,8 +119,8 @@
       }
     }
   }  
-  &--disabled,
-  &--disabled:hover {
+  &.is-disabled--button,
+  &.is-disabled--button:hover {
     --button-color: var(--c-text-disabled);
     --button-border-color: transparent;
     --button-background: var(--c-light);
@@ -160,14 +160,14 @@
 }
 .sf-link {
   --button-width: var(--spacer-3xl);
-  &--disabled,
-  &--disabled:hover { 
+  &.is-disabled--link,
+  &.is-disabled--link:hover { 
     --button-box-shadow: none;
     --button-border-color: transparent;
     --button-background: var(--c-light);       
     cursor: default;
     &.sf-button {
-      --link-color: var(--c-text-disabled);
+      --button-color: var(--c-text-disabled);
       &--text {
         --button-background: transparent;
         --link-color: var(--c-gray-variant); 

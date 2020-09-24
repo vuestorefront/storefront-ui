@@ -4,12 +4,12 @@
     v-focus
     class="sf-button"
     :class="{
-      'sf-button--disabled': buttonActive,
-      'sf-link--disabled': linkActive,
+      'is-disabled--button': buttonActive,
+      'is-disabled--link': linkActive,
     }"
     v-bind="$attrs"
     :disabled="disabled"
-    :link="link"
+    :link="disabled ? null : link"
     v-on="$listeners"
   >
     <!--@slot Use this slot to place content inside the button.-->
