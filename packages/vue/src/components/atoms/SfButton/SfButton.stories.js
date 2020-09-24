@@ -41,12 +41,62 @@ storiesOf("Atoms|Button", module)
       link: {
         default: text("link", "", "Props"),
       },
+      type: {
+        default: text("type", "", "Props"),
+      },
     },
     components: { SfButton },
     template: `<SfButton
       :class="customClass"
       :disabled="disabled"
-      :link="link">
+      :link="link"
+      :type="type">
+      {{customLabel}}
+    </SfButton>`,
+  }))
+  .add("Submit button", () => ({
+    props: {
+      customClass: {
+        default: options(
+          "CSS modifiers",
+          {
+            "sf-button--outline": "sf-button--outline",
+            "sf-button--underlined": "sf-button--underlined",
+            "sf-button--text": "sf-button--text",
+            "sf-button--full-width": "sf-button--full-width",
+            "sf-button--pure": "sf-button--pure",
+            "color-primary": "color-primary",
+            "color-secondary": "color-secondary",
+            "color-light": "color-light",
+            "color-warning": "color-warning",
+            "color-danger": "color-danger",
+            "color-info": "color-info",
+            "color-success": "color-success",
+          },
+          "",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        ),
+      },
+      customLabel: {
+        default: text("default", "Shop now", "Slots"),
+      },
+      disabled: {
+        default: boolean("disabled", false, "Props"),
+      },
+      link: {
+        default: text("link", "", "Props"),
+      },
+      type: {
+        default: text("type", "submit", "Props"),
+      },
+    },
+    components: { SfButton },
+    template: `<SfButton
+      :class="customClass"
+      :disabled="disabled"
+      :link="link"
+      :type="type">
       {{customLabel}}
     </SfButton>`,
   }))
