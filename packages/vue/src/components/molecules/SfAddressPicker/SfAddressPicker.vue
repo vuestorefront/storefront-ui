@@ -33,7 +33,8 @@ export default {
       return this.checked;
     },
     setSelectedValue(newVal) {
-      this.checked = newVal;
+      const newValue = newVal;
+      this.checked = newValue;
     },
   },
 };
