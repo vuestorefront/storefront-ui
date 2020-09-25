@@ -68,7 +68,10 @@
           >
             <div class="sf-product-card__add-button--icons">
               <transition name="sf-pulse" mode="out-in">
-                <slot v-if="!isAddingToCart" name="add-to-cart-icon">
+                <slot
+                  v-if="!isAddingToCart && !isAddedToCart"
+                  name="add-to-cart-icon"
+                >
                   <SfIcon
                     key="add_to_cart"
                     icon="add_to_cart"
@@ -76,7 +79,10 @@
                     color="white"
                   />
                 </slot>
-                <slot v-else name="adding-to-cart-icon">
+                <slot
+                  v-if="isAddingToCart || isAddedToCart"
+                  name="adding-to-cart-icon"
+                >
                   <SfIcon
                     key="added_to_cart"
                     icon="added_to_cart"
