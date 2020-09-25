@@ -189,8 +189,6 @@ SfImage| - | srcset (String, Array)
 SfAccordion | open (String) | open ("all") 
 SfSearchBar | - | icon (Object) 
 SfDropdown| - | button | 'opener' slot (default SfButton) added inside component to open content on 'click:open' event
-SfButton | link, disabled | type | Type for button: "submit" or "button"
-
 
 ### Changes
 
