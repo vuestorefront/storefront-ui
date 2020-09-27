@@ -56,21 +56,23 @@ storiesOf("Atoms|Input", module)
         value: "",
       };
     },
-    template: `<div style="padding: 10px">
+    template: `
+      <div style="padding: 10px">
       <SfInput
-        v-model="value"
-        :type="type"
-        :label="label"
-        :name="name"
-        :valid="valid"
-        :error-message="errorMessage"
-        :required="required"
-        :disabled="disabled"
-        :has-show-password="hasShowPassword"
-        :class="customClass"
-        :placeholder="placeholder"
+          v-model="value"
+          :type="type"
+          :label="label"
+          :name="name"
+          :valid="valid"
+          :error-message="errorMessage"
+          :required="required"
+          :disabled="disabled"
+          :has-show-password="hasShowPassword"
+          :class="customClass"
+          :placeholder="placeholder"
+          :placeholderShown="placeholder !== ''"
       />
-    </div>`,
+      </div>`,
   }))
   .add("[slot] label", () => ({
     components: {

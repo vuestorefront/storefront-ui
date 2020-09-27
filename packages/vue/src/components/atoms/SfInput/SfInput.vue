@@ -21,7 +21,11 @@
         v-on="listeners"
       />
       <span class="sf-input__bar"></span>
-      <label class="sf-input__label" :for="name">
+      <label
+        class="sf-input__label"
+        :for="name"
+        :class="{ 'sf-input__placeholder-shown': placeholderShown }"
+      >
         <!-- @slot Custom input label -->
         <slot name="label" v-bind="{ label }">{{ label }}</slot>
       </label>
@@ -93,6 +97,13 @@ export default {
     name: {
       type: String,
       default: "",
+    },
+    /**
+     * Form input placeholder
+     */
+    placeholderShown: {
+      type: Boolean,
+      default: false,
     },
     /**
      * Form input type
