@@ -48,9 +48,6 @@ export default {
       default: 2,
     },
   },
-  data() {
-    return {};
-  },
   mounted: function () {},
 };
 </script>
