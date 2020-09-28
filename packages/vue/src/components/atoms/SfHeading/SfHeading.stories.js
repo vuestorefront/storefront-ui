@@ -15,6 +15,7 @@ storiesOf("Atoms|Heading", module)
         default: options(
           "CSS modifiers",
           {
+            "sf-heading--underline": "sf-heading--underline",
             "sf-heading--left": "sf-heading--left",
             "sf-heading--right": "sf-heading--right",
           },
@@ -49,6 +50,7 @@ storiesOf("Atoms|Heading", module)
         default: options(
           "CSS modifiers",
           {
+            "sf-heading--underline": "sf-heading--underline",
             "sf-heading--left": "sf-heading--left",
             "sf-heading--right": "sf-heading--right",
           },
@@ -89,6 +91,7 @@ storiesOf("Atoms|Heading", module)
         default: options(
           "CSS modifiers",
           {
+            "sf-heading--underline": "sf-heading--underline",
             "sf-heading--left": "sf-heading--left",
             "sf-heading--right": "sf-heading--right",
           },
