@@ -222,16 +222,15 @@ export default {
         this.eventHover = $event;
         if (this.outsideZoom) {
           this.positionStatic = this.positionObject(index);
-          this.$refs.imgZoom.$el.children[0].style.top = "0";
-          this.$refs.imgZoom.$el.children[0].style.transform = "scale(2)";
+          this.$refs.imgZoom.$el.children[0].style.cssText =
+            "top: 0; transform: scale(2);";
           this.$refs.imgZoom.$el.children[0].style.transformOrigin = `${
             $event.clientX - this.positionStatic.x
           }px ${$event.clientY - this.positionStatic.y}px`;
         } else {
           this.positionStatic = this.positionObject(index);
-          this.$refs.sfGalleryBigImage[index].$el.children[0].style.top = "0";
-          this.$refs.sfGalleryBigImage[index].$el.children[0].style.transform =
-            "scale(2)";
+          this.$refs.sfGalleryBigImage[index].$el.children[0].style.cssText =
+            "top: 0; transform: scale(2);";
           this.$refs.sfGalleryBigImage[
             index
           ].$el.children[0].style.transformOrigin = `${
