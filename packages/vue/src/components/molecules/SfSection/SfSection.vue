@@ -47,7 +47,7 @@ export default {
       type: Number,
       default: 2,
     },
-  }
+  },
 };
 </script>
 <style lang="scss">
