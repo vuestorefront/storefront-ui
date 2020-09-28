@@ -2,10 +2,10 @@
   <div
     class="sf-select"
     :class="{
-      'sf-select--is-selected': selectedValue || placeholder,
-      'sf-select--is-required': required,
-      'sf-select--is-disabled': disabled,
-      'sf-select--is-invalid': !valid,
+      'is-selected': selectedValue || placeholder,
+      'is-required': required,
+      'is-disabled': disabled,
+      'is-invalid': !valid,
     }"
   >
     <label :for="label" class="sf-select__label">
@@ -46,6 +46,7 @@
 import { focus } from "../../../utilities/directives";
 import SfSelectOption from "./_internal/SfSelectOption.vue";
 import Vue from "vue";
+
 Vue.component("SfSelectOption", SfSelectOption);
 export default {
   name: "SfSelect",

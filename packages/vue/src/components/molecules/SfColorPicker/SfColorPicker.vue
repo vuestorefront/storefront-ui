@@ -4,7 +4,7 @@
       <div
         v-if="!isOpen"
         key="color-picker-button"
-        class="sf-color-picker__button mobile-only"
+        class="sf-color-picker__button smartphone-only"
       >
         <!-- @slot Use this slot to replace open button. -->
         <slot name="open" v-bind="{ toggle }">
@@ -18,7 +18,7 @@
       <div v-else key="color-picker-colors" class="sf-color-picker__colors">
         <!-- @slot Use this slot to replace label. -->
         <slot name="label" v-bind="{ label }">
-          <div v-if="label" class="sf-color-picker__label mobile-only">
+          <div v-if="label" class="sf-color-picker__label smartphone-only">
             {{ label }}
           </div>
         </slot>
@@ -28,7 +28,7 @@
         <slot name="close" v-bind="{ hasClose, toggle, isOpen }">
           <SfButton
             v-if="hasClose"
-            class="sf-button--text sf-color-picker__close mobile-only"
+            class="sf-button--text sf-color-picker__close smartphone-only"
             aria-label="Close button"
             :aria-pressed="!isOpen"
             @click="toggle"

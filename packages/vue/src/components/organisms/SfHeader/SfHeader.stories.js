@@ -7,7 +7,14 @@ import {
   object,
   optionsKnob as options,
 } from "@storybook/addon-knobs";
-import { SfHeader, SfLink, SfMegaMenu, SfList, SfMenuItem, SfBottomNavigation } from "@storefront-ui/vue";
+import {
+  SfHeader,
+  SfLink,
+  SfMegaMenu,
+  SfList,
+  SfMenuItem,
+  SfBottomNavigation,
+} from "@storefront-ui/vue";
 storiesOf("Organisms|Header", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -137,19 +144,20 @@ storiesOf("Organisms|Header", module)
     </div>`,
   }))
   .add("With SfHeaderNavigation", () => ({
-    components: { SfHeader,
+    components: {
+      SfHeader,
       SfList,
       SfBottomNavigation,
       SfMegaMenu,
-      SfLink, 
-      SfMenuItem
+      SfLink,
+      SfMenuItem,
     },
     data() {
       return {
-        shopLogo:  "/assets/logo.svg",
+        shopLogo: "/assets/logo.svg",
         shopName: "Storefront UI",
         isVisible: true,
-        currentCategory: '',
+        currentCategory: "",
         categories: [
           {
             title: "Clothing",
@@ -887,7 +895,7 @@ storiesOf("Organisms|Header", module)
         class="sf-header--has-mobile-search sf-header--has-mobile-navigation"
     >
       <template #aside>
-        <div :style="{margin: '0 0 0 1rem'}" class="mobile-only">ASIDE</div>
+        <div :style="{margin: '0 0 0 1rem'}" class="smartphone-only">ASIDE</div>
       </template>
       <template #navigation>
         <SfHeaderNavigationItem

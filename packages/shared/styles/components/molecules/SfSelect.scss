@@ -21,10 +21,10 @@
     );
     @include font(
       --select-label-font,
-      var(--font-normal),
-      var(--font-base),
+      var(--font-weight--normal),
+      var(--font-size--base),
       1,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
     &::after {
       content: var(--select-label-required);
@@ -33,9 +33,9 @@
   }
   &__dropdown {
     width: 100%;
-    height: 1.625rem; 
+    height: 1.625rem;
     margin: 0 0 var(--spacer-2xs) 0;       
-    overflow: auto;
+    overflow-y: scroll;
     box-shadow: none;  
     color: var(--select-dropdown-color, var(--c-secondary-variant));
     background: var(--c-white); 
@@ -44,15 +44,16 @@
   }
   &__option {           
     @include background(
-      --select-option-background,
-      var(--c-white)
+      --select-option-background,      
+      var(--_select-option-background-color, var(--c-white)),
+      var(--_select-option-background-image)
     ); 
     @include font(
       --select-option-font,
-      var(--font-normal),
-      var(--font-base),
+      var(--font-weight--normal),
+      var(--font-size--base),
       1,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     ); 
   }
   .sf-select__dropdown:active .sf-select__placeholder {
@@ -74,10 +75,10 @@
     min-height: var(--select-error-message-height, calc(var(--font-size--xs) * 1.2));
     @include font(
       --input-error-message-font,
-      var(--font-medium),
-      var(--font-xs),
+      var(--font-weight--medium),
+      var(--font-size--xs),
       1.2,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
   }
   &--underlined {
@@ -85,20 +86,20 @@
     --select-border-width: 0 0 1px 0;
     --select-border-color: var(--c-light);    
   }
-  &--is-selected {
+  &.is-selected {
     --select-label-top: 0;
     --select-label-font-size: var(--font-size--xs);
     --select-dropdown-color: var(--c-secondary-variant);
   }
-  &--is-invalid {
+  &.is-invalid {
     --select-dropdown-border-color: var(--c-danger);
   }
-  &--is-disabled {
+  &.is-disabled {
     --select-dropdown-color: var(--c-text-disabled);
     --select-dropdown-border-color: var(--c-text-disabled);
     --select-label-color: var(--c-text-disabled);
   }
-  &--is-required {
+  &.is-required {
     --select-label-required: " *";
   }
 }

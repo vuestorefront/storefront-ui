@@ -8,41 +8,41 @@
     color: var(--heading-title-color, var(--c-text));
     @include font(
       --heading-title-font,
-      var(--font-semibold),
+      var(--font-weight--semibold),
       var(--h1-font-size),
       1.6,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
-    &--h2 {
+    &.h2 {
       font-size: var(--heading-title-font-size, var(--h2-font-size));
-      font-weight: var(--heading-title-font-weight, var(--font-normal));
+      font-weight: var(--heading-title-font-weight, var(--font-weight--normal));
     }
-    &--h3 {
+    &.h3 {
       font-size: var(--heading-title-font-size, var(--h3-font-size));
-      font-weight: var(--heading-title-font-weight, var(--font-medium));
+      font-weight: var(--heading-title-font-weight, var(--font-weight--semibold));
     }
-    &--h4 {
+    &.h4 {
       font-size: var(--heading-title-font-size, var(--h4-font-size));
-      font-weight: var(--heading-title-font-weight, var(--font-normal));
+      font-weight: var(--heading-title-font-weight, var(--font-weight--medium));
     }
-    &--h5 {
+    &.h5 {
       font-size: var(--heading-title-font-size, var(--h5-font-size));
-      font-weight: var(--heading-title-font-weight, var(--font-bold));
+      font-weight: var(--heading-title-font-weight, var(--font-weight--normal));
     }
-    &--h6 {
+    &.h6 {
       font-size: var(--heading-title-font-size, var(--h6-font-size));
-      font-weight: var(--heading-title-font-weight, var(--font-normal));
+      font-weight: var(--heading-title-font-weight, var(--font-weight--normal));
     }
   }
-  &__subtitle {
-    margin: var(--heading-subtitle-margin);
-    color: var(--heading-subtitle-color, var(--c-text));
+  &__description {
+    margin: var(--heading-description-margin, var(--spacer-sm) 0 0);
+    color: var(--heading-description-color, var(--c-text));
     @include font(
-      --heading-subtitle-font,
-      var(--font-light),
-      var(--font-xs),
+      --heading-description-font,
+      var(--font-weight--normal),
+      var(--font-size--base),
       1.6,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
   }
   @include for-desktop {

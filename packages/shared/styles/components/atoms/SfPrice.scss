@@ -1,13 +1,13 @@
 @import "../../helpers";
-@mixin _price($type, $margin: 0, $color: var(--c-text), $weight: var(--font-medium), $text-decoration: none) {
+@mixin _price($type, $margin: 0, $color: var(--c-text), $weight: var(--font-weight--medium), $text-decoration: none) {
   margin: var(--price-#{$type}-margin, $margin );
   color: var(--price-#{$type}-color, $color);
   @include font(
     --price-#{$type}-font,
     $weight,
-    var(--font-lg),
+    var(--font-size--lg),
     1.6,
-    var(--font-family-secondary)
+    var(--font-family--secondary)
   );
   text-decoration: var(--price-#{$type}-text-decoration, $text-decoration);
 }
@@ -15,7 +15,7 @@
   display: flex;
   flex-wrap: var(--price-flex-wrap, wrap);
   flex-direction: var(--price-flex-direction, row);
-  align-items: var(--price-align-items, center);
+  align-items: var(--price-align-items, flex-end);
   justify-content: var(--price-justify-content);
   &__regular {
     @include _price($type: regular)
@@ -28,8 +28,9 @@
       $type: old,
       $margin: 0 var(--spacer-xs) 0 0,
       $color: var(--c-danger),
-      $weight: var(--font-light),
+      $weight: var(--font-weight--normal),
       $text-decoration: line-through
-    )
+    );
+    --price-old-font-size: var(--font-size--xs);
   }
 }

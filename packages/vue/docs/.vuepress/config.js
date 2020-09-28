@@ -24,6 +24,7 @@ module.exports = {
           ['/import-stories', 'Import stories to your Storybook'],
           ['/customization', 'Customization'],
           ['/migration-guide', 'Migration Guide'],
+          ['/pull-off-components', 'Pull off components'],
           ['/meet-the-team', 'Meet the core team'],
         ]
       },
@@ -40,6 +41,7 @@ module.exports = {
           ['/contributing/issue-report-guidelines', 'How to report an issue'],
         ],
       },
+      ['/faq', 'FAQ'],
       {
         title: 'Styles & Designs',
         collapsable: false,
@@ -84,6 +86,7 @@ module.exports = {
  title: "Molecules",
  collapsable: false,
  children:  [
+["/components/addresspicker", "Address Picker"],
 ["/components/addtocart", "Add To Cart"],
 ["/components/alert", "Alert"],
 ["/components/banner", "Banner"],

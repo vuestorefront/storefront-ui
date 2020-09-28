@@ -1,7 +1,7 @@
 <template>
   <SfCheckbox
     class="sf-filter"
-    :class="{ 'sf-filter--active': selected, 'sf-filter--is-color': color }"
+    :class="{ 'is-active': selected, 'is-color': color }"
     :name="label"
     :selected="selected"
     v-on="$listeners"

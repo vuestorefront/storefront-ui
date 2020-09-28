@@ -2,11 +2,12 @@
   <div
     class="sf-checkbox"
     :class="{
-      'sf-checkbox--is-active': isChecked,
-      'sf-checkbox--is-disabled': disabled,
-      'sf-checkbox--has-error': !valid,
-      'sf-checkbox--is-required': required,
+      'is-active': isChecked,
+      'is-disabled': disabled,
+      'has-error': !valid,
+      'is-required': required,
     }"
+    :data-testid="name"
   >
     <label class="sf-checkbox__container">
       <input
@@ -23,9 +24,9 @@
       <slot name="checkmark" v-bind="{ isChecked, disabled }">
         <div
           class="sf-checkbox__checkmark"
-          :class="{ 'sf-checkbox__checkmark--is-active': isChecked }"
+          :class="{ 'sf-checkbox__checkmark is-active': isChecked }"
         >
-          <SfIcon v-if="isChecked" icon="check" size="12px" color="white" />
+          <SfIcon v-if="isChecked" icon="check" color="white" />
         </div>
       </slot>
       <!-- @slot Custom label markup -->

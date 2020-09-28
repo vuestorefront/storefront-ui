@@ -7,6 +7,7 @@
           <SfButton
             :aria-label="'Go to slide ' + (index + 1)"
             class="sf-button--pure sf-bullet"
+            :data-testid="index + 1"
             @click="go(index)"
           ></SfButton>
         </li>
@@ -17,7 +18,7 @@
       <li>
         <SfButton
           aria-label="Current slide"
-          class="sf-button--pure sf-bullet sf-bullet--active"
+          class="sf-button--pure sf-bullet is-active"
         ></SfButton>
       </li>
     </slot>
@@ -32,6 +33,7 @@
           <SfButton
             :aria-label="'Go to slide ' + (inactiveLeft + 2 + index)"
             class="sf-button--pure sf-bullet"
+            :data-testid="inactiveLeft + 1 + index"
             @click="go(inactiveLeft + 1 + index)"
           ></SfButton>
         </li>
