@@ -198,6 +198,10 @@ This change follows [css guideline](https://github.com/chris-pearce/css-guidelin
 - **Components** 
 
   1. SfTextArea
+  2. SfColorPicker
+  3. SfHeaderNavigation 
+  4. SfComponentSelect - select component with current API
+  5. SfAddressPicker
 
 
 - **Props**
