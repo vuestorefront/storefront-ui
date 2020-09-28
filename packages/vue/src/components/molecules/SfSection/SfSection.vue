@@ -48,7 +48,6 @@ export default {
       default: 2,
     },
   },
-  mounted: function () {},
 };
 </script>
 <style lang="scss">
