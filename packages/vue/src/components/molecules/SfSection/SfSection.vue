@@ -9,7 +9,6 @@
         :level="levelHeading"
         :title="titleHeading"
         :description="subtitleHeading"
-        :class="{ 'sf-heading--underline': hasUnderlinedModifier }"
       />
     </slot>
     <!--@slot Section content.-->
@@ -50,15 +49,9 @@ export default {
     },
   },
   data() {
-    return {
-      hasUnderlinedModifier: false,
-    };
+    return {};
   },
-  mounted: function () {
-    this.hasUnderlinedModifier = this.$el.classList.contains(
-      "sf-section--underline"
-    );
-  },
+  mounted: function () {},
 };
 </script>
 <style lang="scss">
