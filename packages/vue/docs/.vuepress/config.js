@@ -41,6 +41,7 @@ module.exports = {
           ['/contributing/issue-report-guidelines', 'How to report an issue'],
         ],
       },
+      ['/faq', 'FAQ'],
       {
         title: 'Styles & Designs',
         collapsable: false,
@@ -78,12 +79,14 @@ module.exports = {
 ["/components/price", "Price"],
 ["/components/property", "Property"],
 ["/components/quantityselector", "Quantity Selector"],
-["/components/rating", "Rating"]]
+["/components/rating", "Rating"],
+["/components/textarea", "Textarea"]]
  },
 { 
  title: "Molecules",
  collapsable: false,
  children:  [
+["/components/addresspicker", "Address Picker"],
 ["/components/addtocart", "Add To Cart"],
 ["/components/alert", "Alert"],
 ["/components/banner", "Banner"],

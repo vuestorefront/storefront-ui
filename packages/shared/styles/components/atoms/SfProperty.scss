@@ -8,10 +8,10 @@
     text-transform: var(--property-name-text-transform);
     @include font(
       --property-name-font,
-      var(--font-normal),
-      var(--font-sm),
+      var(--font-weight--normal),
+      var(--font-size--base),
       1.2,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
     &::after {
       content: var(--property-name-content, ":");
@@ -21,16 +21,17 @@
     color: var(--property-value-color);
     @include font(
       --property-value-font,
-      var(--font-medium),
-      var(--font-sm),
+      var(--font-weight--semibold),
+      var(--font-size--base),
       1.2,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
   }
   &--large {
-    --property-name-font-size: var(--font-xl);
-    --property-value-font-size: var(--font-xl);
-    --property-value-font-weight: var(--font-semibold);
+    --property-name-font-size: var(--font-size--lg);
+    --property-name-font-weight: var(--font-weight--medium);
+    --property-value-font-size: var(--font-size--lg);
+    --property-value-font-weight: var(--font-weight--semibold);
   }
   &--full-width {
     justify-content: space-between;

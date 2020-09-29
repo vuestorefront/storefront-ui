@@ -35,10 +35,10 @@
     color: var(--color-picker-label-color, var(--c-white));
     @include font(
       --color-picker-label-font,
-      var(--font-bold),
-      var(--font-sm),
+      var(--font-weight--bold),
+      var(--font-size--sm),
       1.2,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
     text-align: center;
   }
@@ -49,7 +49,7 @@
   &__button {
     --button-width: 100%;
     --button-padding: var(--spacer-xs) var(--spacer-sm);
-    --button-font-weight: var(--font-light);
+    --button-font-weight: var(--font-weight--light);
     --button-text-transform: capitalize;
     width: 100%;
     padding: var(--color-picker-open-padding);

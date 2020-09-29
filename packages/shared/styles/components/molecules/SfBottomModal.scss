@@ -5,15 +5,16 @@
   width: var(--bottom-modal-width, 100%);
   top: var(--bottom-modal-top);
   bottom: var(--bottom-modal-bottom, 0);
+  right: var(--bottom-modal-right, 0);
   transform: var(--bottom-modal-transform);
-  --characteristic-description-font-size: var(--font-base);
+  --characteristic-description-font-size: var(--font-size--base);
   @include for-mobile {
-    --characteristic-description-font-weight: var(--font-semibold);
+    --characteristic-description-font-weight: var(--font-weight--semibold);
   }
   @include for-desktop {
     --list-item-margin: 0 var(--spacer-sm);
     --button-text-transform: capitalize;
-    --characteristic-description-font-size: var(--font-sm);
+    --characteristic-description-font-size: var(--font-size--sm);
   }
   &__container {
     box-sizing: border-box;
@@ -23,10 +24,10 @@
     background: var(--bottom-modal-background, var(--c-white));
     @include font(
       --bottom-modal-container-font,
-      var(--font-light),
-      var(--font-base),
+      var(--font-weight--light),
+      var(--font-size--base),
       1.6,
-      var(--font-family-primary)
+      var(--font-family--primary)
     );
     @include for-desktop {
       height: var(--bottom-modal-height);
@@ -37,7 +38,7 @@
     }
   }
   &__title {
-    --heading-title-font-weight: var(--font-normal);
+    --heading-title-font-weight: var(--font-weight--normal);
     padding: var(
       --bottom-modal-title-padding,
       var(--spacer-sm) var(--spacer-lg)
@@ -45,8 +46,8 @@
     color: var(--bottom-modal-title-color, var(--c-text));
     text-align: var(--bottom-modal-title-text-align, center);
     @include for-mobile {
-      --heading-title-font-size: var(--font-xs);
-      --heading-title-font-weight: var(--font-bold);
+      --heading-title-font-size: var(--font-size--xs);
+      --heading-title-font-weight: var(--font-weight--bold);
     }
   }
   &__close {
