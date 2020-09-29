@@ -110,12 +110,11 @@ Create size variables `var(--component-size, 25px)` in case when you have the sa
 ```
 :::
 
-3. Use **global variables** for spacers, font-sizes, colors. You can find all variables here `shared/styles/variables`
+3. Use **global variables** for spacers, font-sizes, colors. You can find all variables here `shared/styles/__variables`
 
 :::tip
 SCSS functions and mixins you can find here `shared/styles/_helpers.scss`
 
-All global variables are here `shared/styles/_variables.scss`
 :::
 
 4. **CSS Variables Naming convention**
