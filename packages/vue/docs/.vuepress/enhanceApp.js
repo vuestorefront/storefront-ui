@@ -21,6 +21,7 @@ import SfProperty from "../../src/components/atoms/SfProperty/SfProperty.vue"
 import SfQuantitySelector from "../../src/components/atoms/SfQuantitySelector/SfQuantitySelector.vue"
 import SfRating from "../../src/components/atoms/SfRating/SfRating.vue"
 import SfTextarea from "../../src/components/atoms/SfTexarea/SfTextarea.vue"
+import SfAddressPicker from "../../src/components/molecules/SfAddressPicker/SfAddressPicker.vue"
 import SfAddToCart from "../../src/components/molecules/SfAddToCart/SfAddToCart.vue"
 import SfAlert from "../../src/components/molecules/SfAlert/SfAlert.vue"
 import SfBanner from "../../src/components/molecules/SfBanner/SfBanner.vue"
@@ -97,6 +98,7 @@ export default ({
   Vue.component("SfQuantitySelector", SfQuantitySelector);
   Vue.component("SfRating", SfRating);
   Vue.component("SfTextarea", SfTextarea);
+  Vue.component("SfAddressPicker", SfAddressPicker);
   Vue.component("SfAddToCart", SfAddToCart);
   Vue.component("SfAlert", SfAlert);
   Vue.component("SfBanner", SfBanner);

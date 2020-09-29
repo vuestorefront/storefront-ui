@@ -117,7 +117,7 @@ storiesOf("Atoms|Heading", module)
       :description="description">
       <template #description="{description}">
         <div style="display: flex; align-items: center">
-          {{description}} <SfIcon icon="notify" size="xxs" style="margin-left: 1rem"/>
+          {{description}} <SfIcon icon="gift" size="xxs" style="margin-left: 1rem"/>
         </div>
       </template>        
     </SfHeading>`,
