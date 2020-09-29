@@ -92,7 +92,7 @@
                 class="product__property"
               >
                 <template v-if="detailed.name === 'Category'" #value>
-                  <SfButton class="sf-button--text">
+                  <SfButton class="sf-button--text product__property__button">
                     {{ detailed.value }}</SfButton
                   >
                 </template>
@@ -363,6 +363,7 @@ export default {
   &__rating {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
     margin: var(--spacer-xs) 0 var(--spacer-xs);
   }
   &__count {
@@ -435,6 +436,9 @@ export default {
   }
   &__property {
     margin: var(--spacer-base) 0;
+    &__button {
+      --button-font-size: var(--font-size--base);
+    }
   }
   &__review {
     padding-bottom: 24px;

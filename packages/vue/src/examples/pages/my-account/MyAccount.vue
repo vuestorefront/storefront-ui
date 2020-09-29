@@ -154,6 +154,6 @@ export default {
   }
 }
 .breadcrumbs {
-  padding: var(--spacer-base) 0;
+  padding: var(--spacer-base) 0 var(--spacer-lg);
 }
 </style>

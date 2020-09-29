@@ -792,6 +792,7 @@ export default {
   }
   &__product-card {
     --product-card-max-width: 50%;
+    --product-card-title-margin: var(--spacer-base) 0 0 0;
     flex: 1 1 50%;
   }
   &__product-card-horizontal {

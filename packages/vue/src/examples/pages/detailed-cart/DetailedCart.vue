@@ -294,6 +294,10 @@ export default {
   &__button {
     display: block;
     margin: 0 0 var(--spacer-xs) 0;
+    color: var(--c-text);
+    &:hover {
+      color: var(--c-text-muted);
+    }
   }
   &__description {
     font-family: var(--font-family--primary);
