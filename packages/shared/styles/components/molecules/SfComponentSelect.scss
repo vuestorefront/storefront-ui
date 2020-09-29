@@ -20,7 +20,7 @@
     1.2,
     var(--font-family--primary)
   );
-  &--is-active {
+  &.is-active {
     --component-select-option-background: var(--c-light);
   }
   @include for-desktop {
@@ -133,25 +133,25 @@
     --component-select-border-width: 0 0 1px 0;
     --component-select-border-color: var(--c-light);
   }
-  &--is-selected {
+  &.is-selected {
     --component-select-label-top: 0;
     --component-select-label-font-size: var(--font-size--xs);
   }
-  &--is-invalid {
+  &.is-invalid {
     --component-select-border-color: var(--c-danger);
   }
-  &--is-active {
+  &.is-active {
     --chevron-color: var(--c-primary);
     --component-select-label-color: var(--c-text-muted);
     --component-select-border-color: var(--c-primary);
   }
-  &--is-disabled {
+  &.is-disabled {
     --chevron-color: var(--c-text-disabled);
     --component-select-color: var(--c-text-disabled);
     --component-select-border-color: var(--c-text-disabled);
     --component-select-label-color: var(--c-text-disabled);
   }
-  &--is-required {
+  &.is-required {
     --component-select-label-required: " *";
   }
   &--no-chevron {
