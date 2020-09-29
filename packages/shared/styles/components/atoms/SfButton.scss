@@ -194,7 +194,8 @@
   &.is-disabled--link:hover { 
     --button-box-shadow: none;
     --button-border-color: transparent;
-    --button-background: var(--c-light);       
+    --button-background: var(--c-light); 
+    pointer-events: none;      
     cursor: default;
     &.sf-button {
       --button-color: var(--c-text-disabled);
