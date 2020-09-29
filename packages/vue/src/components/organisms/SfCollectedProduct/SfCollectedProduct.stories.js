@@ -68,7 +68,7 @@ storiesOf("Organisms|CollectedProduct", module)
     </SfCollectedProduct>`,
   }))
   .add("[slot] actions", () => ({
-    components: { SfCollectedProduct},
+    components: { SfCollectedProduct },
     props: {
       customClass: {
         default: options(
@@ -129,7 +129,7 @@ storiesOf("Organisms|CollectedProduct", module)
     </SfCollectedProduct>`,
   }))
   .add("[slot] configuration", () => ({
-    components: { SfCollectedProduct},
+    components: { SfCollectedProduct },
     props: {
       customClass: {
         default: options(
@@ -190,7 +190,7 @@ storiesOf("Organisms|CollectedProduct", module)
     </SfCollectedProduct>`,
   }))
   .add("[slot] remove", () => ({
-    components: { SfCollectedProduct},
+    components: { SfCollectedProduct },
     props: {
       customClass: {
         default: options(
@@ -251,7 +251,7 @@ storiesOf("Organisms|CollectedProduct", module)
     </SfCollectedProduct>`,
   }))
   .add("[slot] image", () => ({
-    components: { SfCollectedProduct},
+    components: { SfCollectedProduct },
     props: {
       customClass: {
         default: options(
@@ -312,7 +312,7 @@ storiesOf("Organisms|CollectedProduct", module)
     </SfCollectedProduct>`,
   }))
   .add("[slot] input", () => ({
-    components: { SfCollectedProduct},
+    components: { SfCollectedProduct },
     props: {
       customClass: {
         default: options(
@@ -373,7 +373,7 @@ storiesOf("Organisms|CollectedProduct", module)
     </SfCollectedProduct>`,
   }))
   .add("[slot] title", () => ({
-    components: { SfCollectedProduct},
+    components: { SfCollectedProduct },
     props: {
       customClass: {
         default: options(
@@ -434,7 +434,7 @@ storiesOf("Organisms|CollectedProduct", module)
     </SfCollectedProduct>`,
   }))
   .add("[slot] price", () => ({
-    components: { SfCollectedProduct},
+    components: { SfCollectedProduct },
     props: {
       customClass: {
         default: options(
