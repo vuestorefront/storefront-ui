@@ -125,6 +125,7 @@
     --button-border-color: transparent;
     --button-background: var(--c-light);
     --button-box-shadow: none;
+    pointer-events: none;
     cursor: default;
     &.sf-button--text {
       --button-background: transparent;

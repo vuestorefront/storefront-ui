@@ -9,7 +9,7 @@
     }"
     v-bind="$attrs"
     :disabled="disabled"
-    :link="disabled ? null : link"
+    :link="link"
     v-on="$listeners"
   >
     <!--@slot Use this slot to place content inside the button.-->
