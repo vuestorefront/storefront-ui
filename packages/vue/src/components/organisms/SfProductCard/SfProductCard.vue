@@ -79,10 +79,7 @@
                     color="white"
                   />
                 </slot>
-                <slot
-                  v-if="isAddingToCart || isAddedToCart"
-                  name="adding-to-cart-icon"
-                >
+                <slot v-else name="adding-to-cart-icon">
                   <SfIcon
                     key="added_to_cart"
                     icon="added_to_cart"
