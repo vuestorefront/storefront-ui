@@ -5,7 +5,7 @@ import {
   boolean,
   optionsKnob as options,
 } from "@storybook/addon-knobs";
-import { SfButton, SfLink } from "@storefront-ui/vue";
+import { SfButton } from "@storefront-ui/vue";
 storiesOf("Atoms|Button", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -42,7 +42,7 @@ storiesOf("Atoms|Button", module)
         default: text("link", "", "Props"),
       },
     },
-    components: { SfButton, SfLink },
+    components: { SfButton },
     template: `<SfButton
       :class="customClass"
       :disabled="disabled"
@@ -83,7 +83,7 @@ storiesOf("Atoms|Button", module)
         default: text("link", "https://www.storefrontui.io/", "Props"),
       },
     },
-    components: { SfButton, SfLink },
+    components: { SfButton },
     template: `<SfButton
       :class="customClass"
       :disabled="disabled"
