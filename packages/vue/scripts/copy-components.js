@@ -4,7 +4,7 @@ const fse = require("fse");
 const path = require("path");
 const fs = require("fs");
 
-const srcPath = path.join(__dirname, "./src/");
+const srcPath = path.join(__dirname, "../src/");
 const styleSrcPath = path.join(__dirname, "../../shared");
 const targetComponentsPath = path.join(
   __dirname,
