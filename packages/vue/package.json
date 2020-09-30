@@ -6,6 +6,7 @@
     "build": "yarn create-index-files && vue-cli-service build --target lib --name storefront-ui ./src/index.js",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
+    "copy-components": "node scripts/copy-components.js",
     "create-index-files": "node scripts/create-index-files.js",
     "docs:build": "yarn docs:vuecomponents && vuepress build docs",
     "docs:dev": "yarn docs:vuecomponents && vuepress dev docs",

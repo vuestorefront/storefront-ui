@@ -4,8 +4,8 @@ const fse = require("fse");
 const path = require("path");
 const fs = require("fs");
 
-const srcPath = path.join(__dirname, "../packages/vue/src/");
-const styleSrcPath = path.join(__dirname, "../packages/shared");
+const srcPath = path.join(__dirname, "./src/");
+const styleSrcPath = path.join(__dirname, "../../shared");
 const targetComponentsPath = path.join(
   __dirname,
   "../../../../storefrontUI/components"
