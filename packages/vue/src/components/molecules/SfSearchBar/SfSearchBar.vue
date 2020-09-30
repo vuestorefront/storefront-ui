@@ -28,6 +28,8 @@
 <script>
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
+import { focus } from "../../../utilities/directives";
+
 export default {
   name: "SfSearchBar",
   directives: {
