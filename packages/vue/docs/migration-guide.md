@@ -152,6 +152,7 @@ This change follows [css guideline](https://github.com/chris-pearce/css-guidelin
   4. SfSelect scrollbar added to the native element 
   5. Add SfButtons to SfStoreLocator to wrap whole store component and make it clickable 
   6. SfProductCard with price range
+  7. SfLink change default colors to --c-text, --c-text-muted (in hover state) and --c-link (in active and visited states)
 
 <!-- ### Deletions
  -->
