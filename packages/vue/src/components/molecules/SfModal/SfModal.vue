@@ -27,6 +27,7 @@
           v-if="cross"
           class="sf-button--pure sf-modal__close desktop-only"
           aria-label="Close modal"
+          type="button"
           @click="close"
         >
           <!--@slot Use this slot to place content inside the close button.-->
