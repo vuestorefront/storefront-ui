@@ -21,7 +21,7 @@
     border-radius: var(--checkbox-border-radius);
     background: var(--checkbox-background, transparent);
     transition: background 150ms linear, border-color 150ms linear;
-    .sf-checkbox--has-error & {
+    .has-error & {
       --checkbox-border-color: var(--c-danger);
     }
     &:hover {
@@ -72,7 +72,7 @@
     &.has-error {
       --checkbox-label-color: var(--c-text);
     }
-    &.sf-checkbox--has-error {
+    &.has-error {
       --checkbox-border-color: var(--c-danger);
       --checkbox-background: var(--c-danger);
       --checkbox-message-color: var(--c-danger);
@@ -84,7 +84,7 @@
   }
   &.is-required {
     --checkbox-message-color: var(--c-text);
-    &.sf-checkbox--has-error {
+    &.has-error {
       --checkbox-message-color: var(--c-danger);
     }
   }
@@ -97,10 +97,10 @@
     color: var(--checkbox-message-color, var(--c-danger));
     @include font(
       --checkbox-message-font,
-      var(--font-normal),
-      var(--font-xs),
+      var(--font-weight--normal),
+      var(--font-size--xs),
       1.2,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
     .sf-checkbox__message--info {
       color: var(--checkbox-message-color, var(--c-primary));
