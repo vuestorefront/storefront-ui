@@ -3,6 +3,73 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.1](https://github.com/AdamPawlinski/storefront-ui-adam/compare/@storefront-ui/vue@0.9.0...@storefront-ui/vue@0.9.1) (2020-10-02)
+
+
+### Bug Fixes
+
+* add focus directive import in searchbar ([014027a](https://github.com/AdamPawlinski/storefront-ui-adam/commit/014027a16c92791faf94ef68fe43d0bcb4a6507f))
+* address name in storybook and change address test file name ([cc19334](https://github.com/AdamPawlinski/storefront-ui-adam/commit/cc193348ee21a982966daab4ff77af8f82a9961f))
+* change link colors, fix path in copy components, update deps ([86132bb](https://github.com/AdamPawlinski/storefront-ui-adam/commit/86132bb5b27677e5f29fceb0f8e08e429f1d5b8a))
+* copy component script add to package json and fix path in script ([db5645d](https://github.com/AdamPawlinski/storefront-ui-adam/commit/db5645df33fde87baadc40eb764b05012e423904))
+* price deleted ([cf948bc](https://github.com/AdamPawlinski/storefront-ui-adam/commit/cf948bc7bd3702fe3144ddaf2364a79389fe27bb))
+* price range as regular price ([87eca77](https://github.com/AdamPawlinski/storefront-ui-adam/commit/87eca77b3b8142d212bd5f2e3b59c025811fb5bf))
+* script moved to vue and import in serachbar added ([2653eeb](https://github.com/AdamPawlinski/storefront-ui-adam/commit/2653eeb32a729fb5b2d6bf6afecd98b031cc9393))
+
+
+### Features
+
+* product card with price range ([3f47af9](https://github.com/AdamPawlinski/storefront-ui-adam/commit/3f47af9d160190c57a0039707675b094ae104375))
+
+
+
+
+
+# [0.9.0](https://github.com/AdamPawlinski/storefront-ui-adam/compare/@storefront-ui/vue@0.8.1...@storefront-ui/vue@0.9.0) (2020-09-28)
+
+
+### Bug Fixes
+
+* add class to header and change css rule ([#1264](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1264)) ([dda5c33](https://github.com/AdamPawlinski/storefront-ui-adam/commit/dda5c330cf503c961c4c6c3934e8449709c773d2))
+* add data url for currency img in topbar story ([a22b8c1](https://github.com/AdamPawlinski/storefront-ui-adam/commit/a22b8c16de32a359569918a246c32702990c25aa))
+* clean story options values ([1512257](https://github.com/AdamPawlinski/storefront-ui-adam/commit/151225770eee7dc1c70bdcf5f363174805722d9f))
+* heading icon fix on story, bottom modal change img to data url ([328f306](https://github.com/AdamPawlinski/storefront-ui-adam/commit/328f306b63a3b2cdb78d321b80959afccd7443ae))
+* migration guide fixes ([0260829](https://github.com/AdamPawlinski/storefront-ui-adam/commit/026082925055833f90c8b57a5c9a5307e20ee6a0))
+* msg style in checkbox, state classes in component select ([bfa14b3](https://github.com/AdamPawlinski/storefront-ui-adam/commit/bfa14b3d56b7e4fe3fd8a66f4546f166f59bc4b2))
+* rootmargin error in storybook fixed in firefox ([#1365](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1365)) ([aee5c4e](https://github.com/AdamPawlinski/storefront-ui-adam/commit/aee5c4e6a37b318a28d51e137bfd081c3755c070))
+* SfHeading should be wrapped in div ([#1267](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1267)) ([c4e822a](https://github.com/AdamPawlinski/storefront-ui-adam/commit/c4e822ae1334771f203647a445990c26d7001df4))
+* sfstep change lifecycle method to created ([#1398](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1398)) ([ffe37c0](https://github.com/AdamPawlinski/storefront-ui-adam/commit/ffe37c0a887f2b3445ed62afa009a6ba778da721))
+* update dependencies ([3dcd3ac](https://github.com/AdamPawlinski/storefront-ui-adam/commit/3dcd3acb957b9bdd405564c06402472734eebda1))
+* update migration guide ([d42d117](https://github.com/AdamPawlinski/storefront-ui-adam/commit/d42d117d8f8649b63bdbeef3f2c1ff7fb07b0c4e))
+
+
+### chore
+
+
+### Features
+
+* data-testid attrs for clickable elements ([#1274](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1274)) ([30e041d](https://github.com/AdamPawlinski/storefront-ui-adam/commit/30e041d87d1e1b824364747d36d079bfdc6b5678))
+* native scrollbar added ([a63c52b](https://github.com/AdamPawlinski/storefront-ui-adam/commit/a63c52b00d6a7086190c9af2cb633b4a730547e3))
+* script to pull off components from SFUI to the project  ([#1374](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1374)) ([d22720d](https://github.com/AdamPawlinski/storefront-ui-adam/commit/d22720d9adbb789fcedc8f5668dd655c62c4832a))
+* **component** SfAddress ([#1403](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1403)) ([b8b12c8](https://github.com/AdamPawlinski/storefront-ui-adam/commit/b8b12c8ebaa5593203fe31ed92d958498614c641))
+* SfRating add support for fractions ([#1235](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1235)) ([c4a65b4](https://github.com/AdamPawlinski/storefront-ui-adam/commit/c4a65b406ccddc1b21107d6246bdab215d046600))
+* sfsearchbar add button on loupe ([#1397](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1397)) ([b91d944](https://github.com/AdamPawlinski/storefront-ui-adam/commit/b91d94481e4a5ccd8f9cfb2afef157a469582add))
+* SfStorelocator map centering  on click on shop card ([#1320](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1320)) ([0abcc5c](https://github.com/AdamPawlinski/storefront-ui-adam/commit/0abcc5c77baa740d307b33b17bda649fe864e14f))
+
+
+### hotfix
+
+*  checkbox without error msg ([#1356](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1356)) ([946d2dc](https://github.com/AdamPawlinski/storefront-ui-adam/commit/946d2dc9a33dca010fb4d430e61363d568c3781a)), 
+* **component** no textarea ([#1353](https://github.com/DivanteLtd/storefront-ui/pull/1353)) 
+
+### BREAKING CHANGES
+
+* refactor: consistent class names ([#1170](https://github.com/DivanteLtd/storefront-ui/pull/1170))
+* refactor: atoms ([#1319](https://github.com/DivanteLtd/storefront-ui/pull/1319))
+* refactor: molecules ([#1343](https://github.com/DivanteLtd/storefront-ui/pull/1343))
+* refactor: organisms ([#1351](https://github.com/DivanteLtd/storefront-ui/pull/1351))
+* refactor: SfDropdown changing api ([#1342](https://github.com/DivanteLtd/storefront-ui/pull/1342))
+
 ## [0.8.1](https://github.com/AdamPawlinski/storefront-ui-adam/compare/@storefront-ui/vue@0.7.18...@storefront-ui/vue@0.8.1) (2020-09-04)
 
 

@@ -207,6 +207,104 @@ storiesOf("Organisms|ProductCard", module)
         @click:reviews="alert('@click:reviews')"
     />`,
   }))
+  .add("With price range", () => ({
+    components: { SfProductCard },
+    props: {
+      image: {
+        default: object(
+          "image",
+          {
+            mobile: { url: "/assets/storybook/Home/productB.jpg" },
+            desktop: { url: "/assets/storybook/Home/productB.jpg" },
+          },
+          "Props"
+        ),
+      },
+      imageWidth: {
+        default: number("imageWidth", 216, {}, "Props"),
+      },
+      imageHeight: {
+        default: number("imageHeight", 326, {}, "Props"),
+      },
+      badgeLabel: {
+        default: text("badgeLabel", "", "Props"),
+      },
+      badgeColor: {
+        default: select("badgeColor", colors, "color-primary", "Props"),
+      },
+      title: {
+        default: text("title", "Cotton Sweater", "Props"),
+      },
+      link: {
+        default: text("link", "", "Props"),
+      },
+      linkTag: {
+        default: text("linkTag", "", "Props"),
+      },
+      scoreRating: {
+        default: number("scoreRating", 4, {}, "Props"),
+      },
+      maxRating: {
+        default: number("maxRating", 5, {}, "Props"),
+      },
+      reviewsCount: {
+        default: number("reviewsCount", 7, {}, "Props"),
+      },
+      regularPrice: {
+        default: text("regularPrice", "$3.99 - $19.09", "Props"),
+      },
+      specialPrice: {
+        default: text("specialPrice", "", "Props"),
+      },
+      wishlistIcon: {
+        default: text("wishlistIcon", "heart", "Props"),
+      },
+      isOnWishlistIcon: {
+        default: text("isOnWishlistIcon", "heart_fill", "Props"),
+      },
+      isOnWishlist: {
+        default: boolean("isOnWishlist", false, "Props"),
+      },
+      showAddToCartButton: {
+        default: boolean("showAddToCartButton", true, "Props"),
+      },
+      isAddedToCart: {
+        default: boolean("isAddedToCart", false, "Props"),
+      },
+      addToCartDisabled: {
+        default: boolean("addToCartDisabled", false, "Props"),
+      },
+    },
+    methods: {
+      alert(label) {
+        alert(label);
+      },
+    },
+    template: `<SfProductCard
+        :image="image"
+        :image-width="imageWidth"
+        :image-height="imageHeight"
+        :badge-label="badgeLabel"
+        :badge-color="badgeColor"
+        :title="title"
+        :link="link"
+        :link-tag="linkTag"
+        :score-rating="scoreRating"
+        :max-rating="maxRating"
+        :reviews-count="reviewsCount"
+        :regular-price="regularPrice"
+        :special-price="specialPrice"
+        :wishlist-icon="wishlistIcon"
+        :is-on-wishlist-icon="isOnWishlistIcon"
+        :is-on-wishlist="isOnWishlist"
+        :show-add-to-cart-button="showAddToCartButton"
+        :add-to-cart-disabled="addToCartDisabled"
+        :is-added-to-cart="isAddedToCart"
+        @click:is-added-to-cart="alert('@click:is-added-to-cart')"
+        @click:wishlist="alert('@click:wishlist')"
+        @click:reviews="alert('@click:reviews')"
+    />`,
+  }))
   .add("With 2 pictures", () => ({
     components: { SfProductCard },
     props: {
