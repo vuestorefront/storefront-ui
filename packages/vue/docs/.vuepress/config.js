@@ -23,7 +23,7 @@ module.exports = {
           ['/getting-started', 'Getting started'],
           ['/import-stories', 'Import stories to your Storybook'],
           ['/customization', 'Customization'],
-          ['/migration-guide', 'Migration Guide'],
+          ['/migration-guide', 'Releases & Migration'],
           ['/pull-off-components', 'Pull off components'],
           ['/meet-the-team', 'Meet the core team'],
         ]

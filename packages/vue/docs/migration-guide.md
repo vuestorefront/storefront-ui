@@ -2,35 +2,43 @@
 
 In this section we will add notes and info's about new changes and releases.
 
-
-## Migration to v0.9.0
+## Latest version - v0.9.0
 
 > **v0.9.0 has been released!** :tada:
 
-### **Why you should migrate?**
+### **What is new?**
 
-:::tip What is new?
+:point_right: Design refreshment adjusting to current style guide [figma](https://www.figma.com/file/N0Ct95cSAoODNv7zYS01ng/Storefront-UI-Design-System?node-id=0%3A1)   
 
-:point_right: design refreshment adjusting to current style guide [figma](https://www.figma.com/file/N0Ct95cSAoODNv7zYS01ng/Storefront-UI-Design-System?node-id=0%3A1)   
+:point_right: Changes of global variables for typography
 
-:point_right: changes of global variables for typography
+:point_right: Change of BEM modifiers for component states into seperate classes e.g. `--is-active` to `.is-active`  
 
-:point_right: change of BEM modifiers for component states into seperate classes e.g. `--is-active` to `.is-active`  
+:point_right: Script to pull off library components to your project 
 
-:point_right: script to pull off library components to your project 
-
-:point_right: two new component SfTextArea and SfAddress 
+:point_right: Two new component SfTextArea and SfAddress 
 
 :point_right: SfDropdown with new API - opener button added
 
 
-:information_source: for more details see our `CHANGELOG.md`
+:information_source: For more details see our `CHANGELOG.md`
 
-:::
+## Dependencies update
 
-### Dependencies update
+### Using NPM/Yarn
 
-As always what is first, update your `package.json` by changing your current version:
+You can run the following command to auto update StorefrontUI version:
+
+```bash
+yarn add @storefront-ui/vue
+
+#OR
+npm i @storefront-ui/vue
+```
+
+### Manually
+
+Alternatively, you can also update your `package.json` by manually setting your StorefrontUI version as below:
 
 ```json
 dependencies: {
@@ -38,10 +46,11 @@ dependencies: {
 }
 ```
 
-### Changes
+Then run `yarn` or `npm i` to re-install your local dependencies.
 
+## Changes
 
-  **Font family**
+### Font family
 
 Before | v0.8.0 | v0.9.0
 ------------ | ------------- | -------------
@@ -49,7 +58,7 @@ Before | v0.8.0 | v0.9.0
 --body-font-family-secondary: "Raleway", sans-serif |   --font-family-secondary: "Raleway", sans-serif |   --font-family--secondary: "Raleway", sans-serif
 
 
-  **Font sizes**
+### Font sizes
 
 Before | v0.6.4 |  v0.7.0 | v0.9.0
 ------------ | ------------ | ------------- | -------------
@@ -61,26 +70,26 @@ $font-size-big-desktop: 1.125rem <br> $font-size-extra-big-mobile: 1.125rem | --
 $font-size-extra-big-desktop: 1.5rem | --font-size-extra-big: 1.5rem | --font-size--xl: 1.5rem | undefined
 
 
-  **Font weights**
+### Font weights
 
 Before | v0.6.4 | v0.7.0 | v0.9.0
 ------------ | ------------ | ------------- | -------------
 --body-font-weight-primary: 300 | --font-weight-light: 300 | --font-light: 300 | --font-weight--light: 300
 --body-font-weight-secondary: 400 | --font-weight-regular: 400 | --font-normal: 400 | --font-weight--normal: 400
-undefined | --font-weight-bold: 500 | --font-medium: 500 | --font-weight--medium: 500
-undefined | --font-weight-extra-bold: 600 | --font-semibold: 600 | --font-weight--semibold: 600
-undefined | undefined | --font-bold: 700 | --font-weight--bold: 700
-undefined | undefined | --font-extra-bold: 800 | undefined
-undefined | undefined | --font-black: 900 | undefined
+ - | --font-weight-bold: 500 | --font-medium: 500 | --font-weight--medium: 500
+ - | --font-weight-extra-bold: 600 | --font-semibold: 600 | --font-weight--semibold: 600
+ - | - | --font-bold: 700 | --font-weight--bold: 700
+ - | - | --font-extra-bold: 800 | undefined
+ - | - | --font-black: 900 | undefined
 
-- **Props**
+### Props
 
 Component | Before | v0.9.0
 ------------ | ------------ | ------------
 SfHeading | subtitle | description
 
 
-- **Custom properties**
+### CSS Custom properties
 
 Component | Before | v0.9.0
 ------------ | ------------ | ------------
@@ -89,19 +98,19 @@ SfHeading | --heading-subtitle-color | --heading-description-color
 SfHeading | --heading-subtitle-font-size | --heading-description-font-size
 SfHeading | --heading-subtitle-font-family | --heading-description-font-family
 
-- **Slots**
+### Slots
 
 Component | Before | v0.9.0
 ------------ | ------------ | ------------
 SfHeading | subtitle | description
 
-- **Breakpoints**
+## Breakpoints
 
 v0.7.0 | v0.9.0
 ------------ | ------------
 .mobile-only | .smartphone-only
 
-- **State classes**
+## State classes
 
 Before | v0.9.0 
 ------------ | ------------- 
@@ -135,48 +144,59 @@ Before | v0.9.0
 .is-current | .current
 
 So now we can use it like this: 
+
+```css
+.sf-component {
+  .is-active {
+    /*css stylings*/
+  }
+}
 ```
-.sf-component {.is-active {}}
-```
+
 instead of 
+
+```css
+.sf-component {
+  &--is-active {
+    /*css stylings*/
+  }
+}
 ```
-.sf-component {&--is-active {}}
-```
+
 This change follows [css guideline](https://github.com/chris-pearce/css-guidelines#state-hooks).
 
-- **Others**
+## Others
 
-  1. SfRating allowing for fractional rate   
-  2. SfHeading wrapped in div 
-  3. SfSearchbar button added on loupe icon so it is now active 
-  4. SfSelect scrollbar added to the native element 
-  5. Add SfButtons to SfStoreLocator to wrap whole store component and make it clickable
+  1. `SfRating` allows fractional rate.
+  2. `SfHeading` wrapped in `div`.
+  3. `SfSearchbar` button added on loupe icon so it is now active. 
+  4. `SfSelect` scrollbar added to the native element.
+  5. Add `SfButtons` to `SfStoreLocator` to wrap whole store component and make it clickable.
 
 <!-- ### Deletions
  -->
 
-### Additions
+## Additions
 
-- **Components** 
+### Components
 
-  1. SfTextArea
-  5. SfAddress
+  1. `SfTextArea`
+  2. `SfAddress`
 
-
-- **Props**
+### Props
 
 Component | Before | v0.9.0
 ------------ | ------------ | ------------
 SfIcon | - | coverage 
 SfRating | - | icon 
 
-- **Slots**
+### Slots
 
 Component | Before | v0.9.0 | Info
 ------------ | ------------ | ------------ | ------------
 SfDropdown | - | opener
 
-- **Components with data-testid**
+### Components with data-testid
 
 Before | v0.9.0
 ------------ | ------------
