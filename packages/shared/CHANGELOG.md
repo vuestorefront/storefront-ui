@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.1](https://github.com/AdamPawlinski/storefront-ui-adam/compare/@storefront-ui/shared@0.9.0...@storefront-ui/shared@0.9.1) (2020-10-02)
+
+
+### Bug Fixes
+
+* change link color on hover ([79556ee](https://github.com/AdamPawlinski/storefront-ui-adam/commit/79556eec4ecc1b9673697ff3b68f039563a500b8))
+* change link colors, fix path in copy components, update deps ([86132bb](https://github.com/AdamPawlinski/storefront-ui-adam/commit/86132bb5b27677e5f29fceb0f8e08e429f1d5b8a))
+* close button adjusted to new design ([7d5d6a8](https://github.com/AdamPawlinski/storefront-ui-adam/commit/7d5d6a8f09ecf2307b50b6653699695feeb91b81))
+
+
+
+
+
 # [0.9.0](https://github.com/AdamPawlinski/storefront-ui-adam/compare/@storefront-ui/shared@0.8.1...@storefront-ui/shared@0.9.0) (2020-09-28)
 
 

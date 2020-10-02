@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.1](https://github.com/AdamPawlinski/storefront-ui-adam/compare/@storefront-ui/vue@0.9.0...@storefront-ui/vue@0.9.1) (2020-10-02)
+
+
+### Bug Fixes
+
+* add focus directive import in searchbar ([014027a](https://github.com/AdamPawlinski/storefront-ui-adam/commit/014027a16c92791faf94ef68fe43d0bcb4a6507f))
+* address name in storybook and change address test file name ([cc19334](https://github.com/AdamPawlinski/storefront-ui-adam/commit/cc193348ee21a982966daab4ff77af8f82a9961f))
+* change link colors, fix path in copy components, update deps ([86132bb](https://github.com/AdamPawlinski/storefront-ui-adam/commit/86132bb5b27677e5f29fceb0f8e08e429f1d5b8a))
+* copy component script add to package json and fix path in script ([db5645d](https://github.com/AdamPawlinski/storefront-ui-adam/commit/db5645df33fde87baadc40eb764b05012e423904))
+* price deleted ([cf948bc](https://github.com/AdamPawlinski/storefront-ui-adam/commit/cf948bc7bd3702fe3144ddaf2364a79389fe27bb))
+* price range as regular price ([87eca77](https://github.com/AdamPawlinski/storefront-ui-adam/commit/87eca77b3b8142d212bd5f2e3b59c025811fb5bf))
+* script moved to vue and import in serachbar added ([2653eeb](https://github.com/AdamPawlinski/storefront-ui-adam/commit/2653eeb32a729fb5b2d6bf6afecd98b031cc9393))
+
+
+### Features
+
+* product card with price range ([3f47af9](https://github.com/AdamPawlinski/storefront-ui-adam/commit/3f47af9d160190c57a0039707675b094ae104375))
+
+
+
+
+
 # [0.9.0](https://github.com/AdamPawlinski/storefront-ui-adam/compare/@storefront-ui/vue@0.8.1...@storefront-ui/vue@0.9.0) (2020-09-28)
 
 
