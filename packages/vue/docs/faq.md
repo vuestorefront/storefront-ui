@@ -3,7 +3,7 @@
 
 Currently we are in the process of collecting your frequently asked questions so we can write all of them here for everyone that are interested. 
 
-If you have some questions that someone would appreciate of its answer - please contact [with us](meet-the-team.md) :)
+If you have some questions that someone would appreciate of its answer - please [contact us](meet-the-team.md) :)
 
 ## 1. How can I override Storefront UI global CSS variables?
 
