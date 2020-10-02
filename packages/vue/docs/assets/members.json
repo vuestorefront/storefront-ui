@@ -1,5 +1,26 @@
 [
   {
+    "name": "Maya Shavin",
+    "role": "Maintainer",
+    "work": {
+      "title": "Senior Frontend Developer",
+      "org": "Cloudinary",
+      "orgUrl": "https://cloudinary.com"
+    },
+    "location": "Israel",
+    "languages": ["vi","he","en"],
+    "links": [
+      "https://mayashavin.com",
+      "https://cloudinary.nuxtjs.org",
+      "https://palette-generators.vercel.app/",
+    ],
+    "socials": {
+      "github": "mayashavin",
+      "twitter": "mayashavin"
+    },
+    "active": true
+  },
+  {
     "name": "Filip Rakowski",
     "role": "Maintainer",
     "work": {
@@ -12,7 +33,8 @@
     "socials": {
       "github": "filrak",
       "twitter": "filrakowski"
-    }
+    },
+    "active": true
   },
   {
     "name": "Leonardo Matos",
@@ -30,7 +52,8 @@
     "socials": {
       "github": "leomp12",
       "linkedin": "leonardo-matos-13248810b"
-    }
+    },
+    "active": false
   },
   {
     "name": "Przemysław Spaczek",
@@ -45,27 +68,8 @@
     "socials": {
       "github": "pspaczek",
       "twitter": "przemekspaczek"
-    }
-  },
-  {
-    "name": "Maya Shavin",
-    "role": "Maintainer",
-    "work": {
-      "title": "Senior Frontend Developer",
-      "org": "Cloudinary",
-      "orgUrl": "https://cloudinary.com"
     },
-    "location": "Israel",
-    "languages": ["vi","he","en"],
-    "links": [
-      "https://mayashavin.com",
-      "https://m16yproject.io",
-      "https://vuejsisrael.com"
-    ],
-    "socials": {
-      "github": "mayashavin",
-      "twitter": "mayashavin"
-    }
+    "active": false
   },
   {
     "name": "Nicolò Maria Mezzopera",
@@ -80,7 +84,8 @@
     "socials": {
       "github": "DonNicoJs",
       "twitter": "DonNicoJs"
-    }
+    },
+    "active": false
   },
   {
     "name": "Eduard Dopler",
@@ -95,7 +100,8 @@
     "socials": {
       "github": "EduardDopler",
       "twitter": "quotingeddie"
-    }
+    },
+    "active": false
   },
   {
     "name": "Anna Musiał",
@@ -110,7 +116,8 @@
     "socials": {
       "github": "aniamusial",
       "twitter": "musialania"
-    }
+    },
+    "active": false
   },
   {
     "name": "Marta Radziszewska",
@@ -125,6 +132,38 @@
     "socials": {
       "github": "martaradziszewska",
       "twitter": "mradziszewska_"
-    }
+    },
+    "active": false
+  }, 
+  {
+    "name": "Adam Pawliński",
+    "role": "Maintainer",
+    "work": {
+      "title": "Frontend Developer",
+      "org": "DivanteLtd",
+      "orgUrl": "https://github.com/DivanteLtd"
+    },
+    "location": "Wrocław, Poland",
+    "languages": ["pl","en"],
+    "socials": {
+      "github": "AdamPawlinski",
+      "twitter": "adam_pawlinski"
+    },
+    "active": true
+  },
+  {
+    "name": "Justyna Gieracka",
+    "role": "Maintainer",
+    "work": {
+      "title": "Frontend Developer",
+      "org": "DivanteLtd",
+      "orgUrl": "https://github.com/DivanteLtd"
+    },
+    "location": "Wrocław, Poland",
+    "languages": ["pl","en"],
+    "socials": {
+      "github": "justyna-13"
+    },
+    "active": true
   }
 ]
