@@ -1,7 +1,7 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs } from "@storybook/addon-knobs";
 import SfAddressPicker from "./SfAddressPicker.vue";
-storiesOf("Molecules|Address", module)
+storiesOf("Molecules|AddressPicker", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
     components: { SfAddressPicker },
