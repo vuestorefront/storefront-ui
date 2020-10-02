@@ -9,7 +9,7 @@
     max-width: 100%;
     height: var(--image-height, auto);
   }
-  &--has-size {
+  &.has-size {
     width: 100%;
     max-width: calc(var(--_image-width) * 1px);
     img:not(.noscript) {
@@ -33,16 +33,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: var(--image-ovarlay-padding, var(--spacer-sm));
-    background: var(--image-ovarlay-background, rgba(var(--c-dark-base), 0.6));
+    padding: var(--image-overlay-padding, var(--spacer-sm));
+    background: var(--image-overlay-background, rgba(var(--c-dark-base), 0.6));
     color: var(--image-overlay-color, var(--c-white));
     opacity: var(--image-overlay-opacity, 0);
     @include font(
       --image-overlay-font,
-      var(--font-light),
-      var(--font-sm),
+      var(--font-weight--light),
+      var(--font-size--sm),
       1.6,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
     transition: opacity 150ms ease-in-out;
   }

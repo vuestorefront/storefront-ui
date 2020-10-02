@@ -44,20 +44,20 @@
           <SfButton class="sf-button--text desktop-only product__guide">
             Size guide
           </SfButton>
-          <SfSelect
+          <SfComponentSelect
             v-model="selectedSize"
             label="Size"
             class="sf-select--underlined product__select-size"
             :reqired="true"
           >
-            <SfSelectOption
+            <SfComponentSelectOption
               v-for="(size, key) in product.sizes"
               :key="key"
               :value="size"
             >
               <SfProductOption :label="size"></SfProductOption>
-            </SfSelectOption>
-          </SfSelect>
+            </SfComponentSelectOption>
+          </SfComponentSelect>
           <div class="product__colors desktop-only">
             <p class="product__color-label">Color:</p>
             <SfColor
@@ -149,7 +149,7 @@ import {
   SfReview,
   SfAddToCart,
   SfColor,
-  SfSelect,
+  SfComponentSelect,
   SfProductOption,
   SfBreadcrumbs,
 } from "@storefront-ui/vue";
@@ -167,7 +167,7 @@ export default {
     SfReview,
     SfAddToCart,
     SfColor,
-    SfSelect,
+    SfComponentSelect,
     SfProductOption,
     SfBreadcrumbs,
   },

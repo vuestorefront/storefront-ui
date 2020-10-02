@@ -14,7 +14,7 @@
       <div>
         <!--@slot Custom title. Slot content will replace default title.-->
         <slot name="title" v-bind="{ title }">
-          <div v-if="title" class="sf-notification__title mobile-only">
+          <div v-if="title" class="sf-notification__title smartphone-only">
             {{ title }}
           </div>
         </slot>
