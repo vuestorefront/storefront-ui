@@ -28,15 +28,4 @@ describe("SfInput.vue", () => {
       errorMessage
     );
   });
-  it("renders label with new class when placeholder is passed", () => {
-    const label = "HelloWorld";
-    const placeholderShown = true;
-    const component = shallowMount(SfInput, {
-      propsData: {
-        label,
-        placeholderShown
-      },
-    });
-    expect(component.find(".sf-input__placeholder-shown").text()).toBe(label);
-  });
 });
