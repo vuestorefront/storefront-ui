@@ -42,15 +42,6 @@
       var(--font-family--secondary)
     );
   }
-  &__placeholder-shown{
-    --icon-color: var(--c-primary);
-    --input-password-icon-background: var(--c-primary);
-    --input-label-top: 0;
-    --input-label-color: var(--c-primary);
-    --input-label-font-size: var(--font-xs);
-    --input-bar-width: 50%;
-    --input-error-message-color: var(--c-primary);
-  }
   &__bar {
     position: relative;
     display: var(--input-bar-display, block);
@@ -110,7 +101,7 @@
       var(--font-family--secondary)
     );
     text-align: var(--input-text-align);
-    &:focus {
+    &:focus, &:placeholder-shown {
       & ~ * {
         --icon-color: var(--c-primary);
         --input-password-icon-background: var(--c-primary);

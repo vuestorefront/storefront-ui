@@ -70,7 +70,6 @@ storiesOf("Atoms|Input", module)
           :has-show-password="hasShowPassword"
           :class="customClass"
           :placeholder="placeholder"
-          :placeholderShown="placeholder !== ''"
       />
       </div>`,
   }))
