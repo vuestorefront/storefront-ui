@@ -1,13 +1,15 @@
-# Stay up to date with the new releases
+# Releases
 
-In this section we will add notes and info's about new changes and releases.
+## Current state of the project
 
+Storefront UI is currently in **BETA** which means it is not suitable for production!
+The package is stable but some breaking changes may occur.
 
-## Latest version - v0.9.1
+Currently we are focusing on  API & component polishments and docs.
 
-> **v0.9.1 has been released!** :tada:
+## Latest version - v0.9.1 🎉
 
-### **What is new?**
+### What is new?
 
 :point_right: Design refreshment adjusting to current style guide [figma](https://www.figma.com/file/N0Ct95cSAoODNv7zYS01ng/Storefront-UI-Design-System?node-id=0%3A1)   
 
@@ -20,7 +22,6 @@ In this section we will add notes and info's about new changes and releases.
 :point_right: Two new component SfTextArea and SfAddressPicker 
 
 :point_right: `SfDropdown` with new API - opener button added
-
 
 :information_source: For more details see our `CHANGELOG.md`
 
