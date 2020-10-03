@@ -2,9 +2,10 @@
 
 In this section we will add notes and info's about new changes and releases.
 
-## Latest version - v0.9.0
 
-> **v0.9.0 has been released!** :tada:
+## Latest version - v0.9.1
+
+> **v0.9.1 has been released!** :tada:
 
 ### **What is new?**
 
@@ -16,9 +17,9 @@ In this section we will add notes and info's about new changes and releases.
 
 :point_right: Script to pull off library components to your project 
 
-:point_right: Two new component SfTextArea and SfAddress 
+:point_right: Two new component SfTextArea and SfAddressPicker 
 
-:point_right: SfDropdown with new API - opener button added
+:point_right: `SfDropdown` with new API - opener button added
 
 
 :information_source: For more details see our `CHANGELOG.md`
@@ -42,7 +43,7 @@ Alternatively, you can also update your `package.json` by manually setting your 
 
 ```json
 dependencies: {
-    "@storefront-ui/vue": "^0.9.0"
+    "@storefront-ui/vue": "^0.9.1"
 }
 ```
 
@@ -52,7 +53,7 @@ Then run `yarn` or `npm i` to re-install your local dependencies.
 
 ### Font family
 
-Before | v0.8.0 | v0.9.0
+Before | v0.8.0 | v0.9.1
 ------------ | ------------- | -------------
 --body-font-family-primary: "Roboto", serif |   --font-family-primary: "Roboto", serif |   --font-family--primary: "Roboto", serif
 --body-font-family-secondary: "Raleway", sans-serif |   --font-family-secondary: "Raleway", sans-serif |   --font-family--secondary: "Raleway", sans-serif
@@ -60,7 +61,7 @@ Before | v0.8.0 | v0.9.0
 
 ### Font sizes
 
-Before | v0.6.4 |  v0.7.0 | v0.9.0
+Before | v0.6.4 |  v0.7.0 | v0.9.1
 ------------ | ------------ | ------------- | -------------
 $font-size-extra-small-mobile: 0.625rem | undefined | --font-2xs: 0.625rem | undefined
 $font-size-extra-small-desktop: 0.75rem<br>$font-size-small-mobile: 0.75rem | --font-size-extra-small: 0.75rem | --font-xs: 0.75rem | --font-size--xs: 0.75rem
@@ -72,7 +73,7 @@ $font-size-extra-big-desktop: 1.5rem | --font-size-extra-big: 1.5rem | --font-si
 
 ### Font weights
 
-Before | v0.6.4 | v0.7.0 | v0.9.0
+Before | v0.6.4 | v0.7.0 | v0.9.1
 ------------ | ------------ | ------------- | -------------
 --body-font-weight-primary: 300 | --font-weight-light: 300 | --font-light: 300 | --font-weight--light: 300
 --body-font-weight-secondary: 400 | --font-weight-regular: 400 | --font-normal: 400 | --font-weight--normal: 400
@@ -84,14 +85,14 @@ Before | v0.6.4 | v0.7.0 | v0.9.0
 
 ### Props
 
-Component | Before | v0.9.0
+Component | Before | v0.9.1
 ------------ | ------------ | ------------
 SfHeading | subtitle | description
 
 
 ### CSS Custom properties
 
-Component | Before | v0.9.0
+Component | Before | v0.9.1
 ------------ | ------------ | ------------
 SfHeading | --heading-subtitle-margin | --heading-description-margin
 SfHeading | --heading-subtitle-color | --heading-description-color
@@ -100,19 +101,19 @@ SfHeading | --heading-subtitle-font-family | --heading-description-font-family
 
 ### Slots
 
-Component | Before | v0.9.0
+Component | Before | v0.9.1
 ------------ | ------------ | ------------
 SfHeading | subtitle | description
 
 ## Breakpoints
 
-v0.7.0 | v0.9.0
+v0.7.0 | v0.9.1
 ------------ | ------------
 .mobile-only | .smartphone-only
 
 ## State classes
 
-Before | v0.9.0 
+Before | v0.9.1 
 ------------ | ------------- 
 --is-active |  .is-active
 --is-disabled | .is-disabled
@@ -172,6 +173,8 @@ This change follows [css guideline](https://github.com/chris-pearce/css-guidelin
   3. `SfSearchbar` button added on loupe icon so it is now active. 
   4. `SfSelect` scrollbar added to the native element.
   5. Add `SfButtons` to `SfStoreLocator` to wrap whole store component and make it clickable.
+  6. `SfProductCard` with price range
+  7. `SfLink` change default colors to `--c-text`, `--c-primary` (in hover state) and `--c-link` (in active and visited states)
 
 <!-- ### Deletions
  -->
@@ -181,24 +184,24 @@ This change follows [css guideline](https://github.com/chris-pearce/css-guidelin
 ### Components
 
   1. `SfTextArea`
-  2. `SfAddress`
+  2. `SfAddressPicker`
 
 ### Props
 
-Component | Before | v0.9.0
+Component | Before | v0.9.1
 ------------ | ------------ | ------------
 SfIcon | - | coverage 
 SfRating | - | icon 
 
 ### Slots
 
-Component | Before | v0.9.0 | Info
+Component | Before | v0.9.1 | Info
 ------------ | ------------ | ------------ | ------------
 SfDropdown | - | opener
 
 ### Components with data-testid
 
-Before | v0.9.0
+Before | v0.9.1
 ------------ | ------------
 - | SfBreadcrumbs
 - | SfBullets
