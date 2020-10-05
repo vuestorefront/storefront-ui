@@ -42,12 +42,8 @@
     outline: none;       
     @include border(--select-dropdown-border, 0 0 0 0, solid, var(--c-secondary));
   }
-  &__option {           
-    @include background(
-      --select-option-background,      
-      var(--_select-option-background-color, var(--c-white)),
-      var(--_select-option-background-image)
-    ); 
+  &__option {
+    background: var(--select-option-background, var(--c-white));   
     @include font(
       --select-option-font,
       var(--font-weight--normal),
