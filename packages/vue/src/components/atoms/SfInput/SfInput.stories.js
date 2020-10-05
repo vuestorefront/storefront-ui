@@ -57,7 +57,7 @@ storiesOf("Atoms|Input", module)
       };
     },
     template: `<div style="padding: 10px">
-    <SfInput
+      <SfInput
         v-model="value"
         :type="type"
         :label="label"
@@ -69,7 +69,7 @@ storiesOf("Atoms|Input", module)
         :has-show-password="hasShowPassword"
         :class="customClass"
         :placeholder="placeholder"
-    />
+      />
     </div>`,
   }))
   .add("[slot] label", () => ({
