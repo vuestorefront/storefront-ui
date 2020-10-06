@@ -202,7 +202,6 @@ export default {
       this.$emit("click", page);
     },
     getLinkTo(page) {
-      Object.assign(this.$route.query, { [this.pageParamName]: page });
       const linkToPage = page.toString();
       return linkToPage;
     },
