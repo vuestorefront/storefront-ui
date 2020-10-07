@@ -104,7 +104,7 @@ export default {
       if (this.isLazyAndNotLoaded) {
         return {
           srcset: [{ media: null, src: null, type: null }],
-          src: "",
+          src: this.src,
         };
       }
       // TODO: To be removed if src as an object will not be available anymore
