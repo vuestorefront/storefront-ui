@@ -1,13 +1,16 @@
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, optionsKnob as options, object } from "@storybook/addon-knobs";
-import { SfArrow, SfButton, SfIcon } from "@storefront-ui/vue";
+import {
+  withKnobs,
+  optionsKnob as options,
+  object,
+} from "@storybook/addon-knobs";
+import { SfArrow, SfIcon } from "@storefront-ui/vue";
 storiesOf("Atoms|Arrow", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
     components: {
       SfArrow,
-      SfButton,
-      SfIcon
+      SfIcon,
     },
     props: {
       customClass: {
@@ -32,7 +35,7 @@ storiesOf("Atoms|Arrow", module)
           "icon",
           {
             icon: "arrow_left",
-            size: "1.5rem"
+            size: "1.5rem",
           },
           "Props"
         ),
@@ -41,7 +44,7 @@ storiesOf("Atoms|Arrow", module)
         default: object(
           "button",
           {
-            disabled: false
+            disabled: false,
           },
           "Props"
         ),
@@ -80,7 +83,7 @@ storiesOf("Atoms|Arrow", module)
           "icon",
           {
             icon: "arrow_left",
-            size: "1.5rem"
+            size: "1.5rem",
           },
           "Props"
         ),
@@ -89,7 +92,7 @@ storiesOf("Atoms|Arrow", module)
         default: object(
           "button",
           {
-            disabled: false
+            disabled: false,
           },
           "Props"
         ),
