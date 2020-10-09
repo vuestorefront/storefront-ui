@@ -5,55 +5,59 @@
     :value="value"
     v-bind="$attrs"
     :placeholder="placeholder"
+    icon="search"
     name="search"
-    :icon="icon"
-    :color-icon="colorIcon"
-    :size-icon="sizeIcon"
-    v-on="listeners"
+    v-on="$listeners"
+    @keyup.enter="$emit('enter', $event.target.value)"
+    @keyup.esc="$emit('input', '')"
+    @blur="$emit('blur')"
   >
+    <template v-bind="{ icon }">
+      <SfButton
+        class="sf-search-bar__button sf-button--pure"
+        @click="$emit('click', value)"
+      >
+        <span v-if="icon" class="sf-search-bar__icon">
+          <SfIcon :color="icon.color" :size="icon.size" :icon="icon.icon" />
+        </span>
+      </SfButton>
+    </template>
   </SfInput>
 </template>
 <script>
 import SfInput from "../../atoms/SfInput/SfInput.vue";
+import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+import SfButton from "../../atoms/SfButton/SfButton.vue";
+import { focus } from "../../../utilities/directives";
+
 export default {
   name: "SfSearchBar",
-  components: { SfInput },
+  components: { SfInput, SfIcon, SfButton },
+  directives: {
+    focus,
+  },
   inheritAttrs: false,
   props: {
+    /**
+     * Text for placeholder
+     */
     placeholder: {
       type: String,
       default: "",
     },
+    /**
+     * Value that will be displayed in search bar
+     */
     value: {
       type: [Number, String],
       default: null,
     },
-    colorIcon: {
-      type: String,
-      default: "--c-secondary-variant",
-    },
-    sizeIcon: {
-      type: String,
-      default: "1.25rem",
-    },
+    /**
+     * Object to define icon look. Should have values for color and size
+     */
     icon: {
-      type: [String, Array],
-      default: "search",
-    },
-  },
-  computed: {
-    listeners() {
-      return {
-        ...this.$listeners,
-        input: (value) => this.$emit("input", value),
-        keyup: (event) => {
-          if (event.enter) this.$emit("enter", event.target.value);
-        },
-        keyup: (event) => {
-          if (event.esc) this.$emit("input", "");
-        },
-        blur: () => this.$emit("blur"),
-      };
+      type: Object,
+      default: () => {},
     },
   },
 };

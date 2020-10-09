@@ -5,7 +5,6 @@ import SfBadge from "../../src/components/atoms/SfBadge/SfBadge.vue"
 import SfBreadcrumbs from "../../src/components/atoms/SfBreadcrumbs/SfBreadcrumbs.vue"
 import SfBullets from "../../src/components/atoms/SfBullets/SfBullets.vue"
 import SfButton from "../../src/components/atoms/SfButton/SfButton.vue"
-import SfCheckbox from "../../src/components/atoms/SfCheckbox/SfCheckbox.vue"
 import SfChevron from "../../src/components/atoms/SfChevron/SfChevron.vue"
 import SfCircleIcon from "../../src/components/atoms/SfCircleIcon/SfCircleIcon.vue"
 import SfColor from "../../src/components/atoms/SfColor/SfColor.vue"
@@ -21,6 +20,8 @@ import SfPrice from "../../src/components/atoms/SfPrice/SfPrice.vue"
 import SfProperty from "../../src/components/atoms/SfProperty/SfProperty.vue"
 import SfQuantitySelector from "../../src/components/atoms/SfQuantitySelector/SfQuantitySelector.vue"
 import SfRating from "../../src/components/atoms/SfRating/SfRating.vue"
+import SfTextarea from "../../src/components/atoms/SfTexarea/SfTextarea.vue"
+import SfAddressPicker from "../../src/components/molecules/SfAddressPicker/SfAddressPicker.vue"
 import SfAddToCart from "../../src/components/molecules/SfAddToCart/SfAddToCart.vue"
 import SfAlert from "../../src/components/molecules/SfAlert/SfAlert.vue"
 import SfBanner from "../../src/components/molecules/SfBanner/SfBanner.vue"
@@ -28,6 +29,9 @@ import SfBar from "../../src/components/molecules/SfBar/SfBar.vue"
 import SfBottomModal from "../../src/components/molecules/SfBottomModal/SfBottomModal.vue"
 import SfCallToAction from "../../src/components/molecules/SfCallToAction/SfCallToAction.vue"
 import SfCharacteristic from "../../src/components/molecules/SfCharacteristic/SfCharacteristic.vue"
+import SfCheckbox from "../../src/components/molecules/SfCheckbox/SfCheckbox.vue"
+import SfColorPicker from "../../src/components/molecules/SfColorPicker/SfColorPicker.vue"
+import SfComponentSelect from "../../src/components/molecules/SfComponentSelect/SfComponentSelect.vue"
 import SfDropdown from "../../src/components/molecules/SfDropdown/SfDropdown.vue"
 import SfFilter from "../../src/components/molecules/SfFilter/SfFilter.vue"
 import SfGallery from "../../src/components/molecules/SfGallery/SfGallery.vue"
@@ -78,7 +82,6 @@ export default ({
   Vue.component("SfBreadcrumbs", SfBreadcrumbs);
   Vue.component("SfBullets", SfBullets);
   Vue.component("SfButton", SfButton);
-  Vue.component("SfCheckbox", SfCheckbox);
   Vue.component("SfChevron", SfChevron);
   Vue.component("SfCircleIcon", SfCircleIcon);
   Vue.component("SfColor", SfColor);
@@ -94,6 +97,8 @@ export default ({
   Vue.component("SfProperty", SfProperty);
   Vue.component("SfQuantitySelector", SfQuantitySelector);
   Vue.component("SfRating", SfRating);
+  Vue.component("SfTextarea", SfTextarea);
+  Vue.component("SfAddressPicker", SfAddressPicker);
   Vue.component("SfAddToCart", SfAddToCart);
   Vue.component("SfAlert", SfAlert);
   Vue.component("SfBanner", SfBanner);
@@ -101,6 +106,9 @@ export default ({
   Vue.component("SfBottomModal", SfBottomModal);
   Vue.component("SfCallToAction", SfCallToAction);
   Vue.component("SfCharacteristic", SfCharacteristic);
+  Vue.component("SfCheckbox", SfCheckbox);
+  Vue.component("SfColorPicker", SfColorPicker);
+  Vue.component("SfComponentSelect", SfComponentSelect);
   Vue.component("SfDropdown", SfDropdown);
   Vue.component("SfFilter", SfFilter);
   Vue.component("SfGallery", SfGallery);

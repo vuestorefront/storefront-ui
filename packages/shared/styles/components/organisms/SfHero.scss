@@ -25,10 +25,10 @@
     color: var(--hero-item-subtitle-color, var(--c-gray));
     @include font(
       --hero-item-subtitle-font,
-      var(--font-normal),
-      var(--font-2xs),
+      var(--font-weight--normal),
+      var(--h6-font-size),
       1.4,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
     text-transform: var(--hero-item-subtitle-transform, uppercase);
   }
@@ -37,10 +37,10 @@
     color: var(--hero-item-title-color, var(--c-text));
     @include font(
       --hero-item-title-font,
-      var(--font-semibold),
+      var(--font-weight--semibold),
       var(--h2-font-size),
       1.2,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
     letter-spacing: 0.1px;
     text-transform: var(--hero-item-title-transform, none);
@@ -50,6 +50,15 @@
   }
   &--align-right {
     --hero-item-justify-content: flex-end;
+  }
+  &--position-bg-top-right {
+    background-position: top right;
+  }
+  &--position-bg-bottom-right {
+    background-position: bottom right;
+  }
+  &--position-bg-bottom-left {
+    background-position: bottom left;
   }
   @include for-desktop {
     --hero-item-height: 36.625rem;
@@ -78,7 +87,11 @@
     justify-content: var(--hero-controls-justify-content, space-between);
     width: var(--hero-controls-width, 100%);
     padding: var(--hero-controls-padding, 0 var(--spacer-sm));
-  }
+    pointer-events: none;
+    &__arrow {
+      pointer-events: all;
+    }
+   }
   &__bullets {
     position: absolute;
     bottom: var(--hero-bullets-bottom, var(--spacer-xl));

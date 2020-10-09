@@ -33,7 +33,7 @@ export default {
       return this.internalName === this.name;
     },
   },
-  mounted() {
+  created() {
     this.stepsData.updateSteps(this.name);
   },
 };
