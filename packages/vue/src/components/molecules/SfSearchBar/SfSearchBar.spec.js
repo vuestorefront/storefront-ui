@@ -14,15 +14,6 @@ describe.only("SfSearchBar.vue", () => {
     });
     expect(component.find(".sf-search-bar__icon").exists()).toBe(true);
   });
-  it("renders slot with clear icon when passed", () => {
-    const icon = "<span class='sf-search-bar__clear-icon'></span>";
-    const component = shallowMount(SfSearchBar, {
-      slots: {
-        icon,
-      },
-    });
-    expect(component.find(".sf-search-bar__clear-icon").exists()).toBe(true);
-  });
   it("renders placeholder props when passed", () => {
     const placeholder = "Search for...";
     const component = shallowMount(SfSearchBar, {
