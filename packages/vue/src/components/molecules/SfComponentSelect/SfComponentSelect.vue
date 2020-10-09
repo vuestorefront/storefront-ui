@@ -6,11 +6,11 @@
     :aria-label="label"
     role="listbox"
     :class="{
-      'sf-component-select--is-active': isActive,
-      'sf-component-select--is-selected': isSelected,
-      'sf-component-select--is-required': required,
-      'sf-component-select--is-disabled': disabled,
-      'sf-component-select--is-invalid': !valid,
+      'is-active': isActive,
+      'is-selected': isSelected,
+      'is-required': required,
+      'is-disabled': disabled,
+      'is-invalid': !valid,
     }"
     class="sf-component-select"
     @click="toggle($event)"
@@ -20,7 +20,7 @@
     @keyup.down="move(1)"
     @keyup.enter="enter($event)"
   >
-    <div style="position: relative;">
+    <div style="position: relative">
       <div
         ref="sfComponentSelect"
         v-focus
