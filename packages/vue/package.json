@@ -16,7 +16,7 @@
     "prepublish": "yarn create-index-files",
     "storybook:build": "yarn create-index-files && vue-cli-service storybook:build -s ./public -c config/storybook",
     "storybook:serve": "yarn create-index-files && vue-cli-service storybook:serve -s ./public -p 6006 -c config/storybook",
-    "test:dev": "vue-cli-service test:unit --watch",
+    "test:dev": "vue-cli-service test:unit --watch --silent",
     "version": "node scripts/version.js"
   },
   "main": "./index.js",
