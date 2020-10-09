@@ -28,7 +28,6 @@
     );
     &::after {
       content: var(--select-label-required);
-      color: var(--select-label-color, var(--c-primary));
     }
   }
   &__dropdown {
@@ -97,6 +96,9 @@
   }
   &.is-invalid {
     --select-dropdown-border-color: var(--c-danger);
+    .sf-select__label::after {
+      color: var(--c-danger);
+    }
   }
   &.is-disabled {
     --select-dropdown-color: var(--c-text-disabled);
