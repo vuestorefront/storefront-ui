@@ -12,16 +12,14 @@
     @keyup.esc="$emit('input', '')"
     @blur="$emit('blur')"
   >
-    <template v-bind="{ icon }">
-      <SfButton
-        class="sf-search-bar__button sf-button--pure"
-        @click="$emit('click', value)"
-      >
-        <span v-if="icon" class="sf-search-bar__icon">
-          <SfIcon :color="icon.color" :size="icon.size" :icon="icon.icon" />
-        </span>
-      </SfButton>
-    </template>
+    <SfButton
+      class="sf-search-bar__button sf-button--pure"
+      @click="$emit('click', value)"
+    >
+      <span v-if="icon" class="sf-search-bar__icon">
+        <SfIcon :color="icon.color" :size="icon.size" :icon="icon.icon" />
+      </span>
+    </SfButton>
   </SfInput>
 </template>
 <script>
