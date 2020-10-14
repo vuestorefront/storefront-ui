@@ -224,14 +224,15 @@ storiesOf("Organisms|ProductCardHorizontal", module)
         <template #actions>
           <div>
               <SfButton
-                class="sf-button--text color-primary desktop-only"
-                style="padding-bottom: 1rem" 
+                class="sf-button--text desktop-only"
+                style="margin: 0 0 1rem auto; display: block"
                 @click="$emit('click:add-to-wishlist')"
               >
                 Save for later
               </SfButton>
               <SfButton
-                class="sf-button--text color-primary desktop-only"
+                class="sf-button--text desktop-only"
+                style="margin: 0 0 0 auto; display: block"
                 @click="$emit('click:add-to-compare')"
               >
                 Add to compare
