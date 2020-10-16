@@ -33,7 +33,7 @@ CSS variables allow us to keep apply all the required styles without need to use
 This is how SCSS file for the same component looked before:
 ```css
 .product-carousel {
-  margin: -20px - var(--spacer-big) -20px 0;
+  margin: -20px - var(--spacer-base) -20px 0;
   @include for-desktop {
     margin: -20px 0;
   }
@@ -49,10 +49,10 @@ This is how SCSS file for the same component looked before:
 And how it looks now, thanks to the power of CSS Custom Properties:
 ```css
 .product-carousel {
-    margin: 0 calc(var(--spacer-big) * -1) 0 0;
+    margin: 0 calc(var(--spacer-base) * -1) 0 0;
     @include for-desktop {
-      margin: var(--spacer-big) 0;
-      --carousel-padding: var(--spacer-big);
+      margin: var(--spacer-base) 0;
+      --carousel-padding: var(--spacer-base);
       --carousel-max-width: calc(100% - 13.5rem);
     }
   }
@@ -73,7 +73,7 @@ You can override them to shape the look and feel of your project. There are two 
  * nuxt-app -> __nuxt
  */
 #app {
-    --font-family-primary: 'Raleway', serif;
+    --font-family--primary: 'Raleway', serif;
 }
 ```
 - **Component-specific** variables are meant to customize behavior of certain component type (like `SfButton`) and cover edge cases of any project.
@@ -302,12 +302,12 @@ module.exports = {
         'sf-c-success-darken': 'var(--c-success-darken)', // #4ac86b
         'sf-c-success-variant': 'var(--c-success-variant)', // #9ee2b0
         'sf-c-on-success': 'var(--c-on-success)', //  #ffffff
-        'sf-c-waring': 'var(--c-waring)', // #ecc713
-        'sf-c-waring-base': 'var(--c-waring-base)', // #ecc713
-        'sf-c-waring-lighten': 'var(--c-waring-lighten)', //  #eecd2b
-        'sf-c-waring-darken': 'var(--c-waring-darken)', // #d4b311
-        'sf-c-waring-variant': 'var(--c-waring-variant)', // #f6e389
-        'sf-c-on-waring': 'var(--c-on-waring)', //  #ffffff
+        'sf-c-warning': 'var(--c-warning)', // #ecc713
+        'sf-c-warning-base': 'var(--c-warning-base)', // #ecc713
+        'sf-c-warning-lighten': 'var(--c-warning-lighten)', //  #eecd2b
+        'sf-c-warning-darken': 'var(--c-warning-darken)', // #d4b311
+        'sf-c-warning-variant': 'var(--c-warning-variant)', // #f6e389
+        'sf-c-on-warning': 'var(--c-on-warning)', //  #ffffff
         'sf-c-danger': 'var(--c-danger)', //  #d12727
         'sf-c-danger-base': 'var(--c-danger-base)', //  #d12727
         'sf-c-danger-lighten': 'var(--c-danger-lighten)', // #da3838

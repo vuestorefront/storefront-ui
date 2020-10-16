@@ -1,4 +1,4 @@
-## Installation
+# Installation
 
 :::warning
 For best extendability and performance we ship Storefront UI as (unpackaged) source code which requires **webpack** in your project to use the library.
@@ -6,6 +6,8 @@ For best extendability and performance we ship Storefront UI as (unpackaged) sou
 Storefront UI is working out of the box with **Nuxt** and **Vue CLI 2 & 3**!
 In order to use it in custom projects you need the following webpack loaders: `css-loader@>1.0.1`, `scss-loader`, `sass-loader`, `vue-loader`
 :::
+
+[[toc]]
 
 Storefront UI is installed as a dependency to your project:
 
@@ -29,9 +31,11 @@ That's all! Now you can import any of Storefront UI components like this:
 import { SfComponentName } from "@storefront-ui/vue";
 ```
 
-### Nuxt
+## Using with Nuxt
+
 To use Storefront UI in a Nuxt project you need to include it's transpilation during build process using nuxt.config.js or your alternative webpack config.
 For example in Nuxt 2-edge all you have to do is to add `/^@storefront-ui/` to the [transpile.build](https://nuxtjs.org/api/configuration-build/#transpile) array e.g.
+
 ```
 module.exports = {
 	build: {
@@ -39,11 +43,12 @@ module.exports = {
 	},
 }
 ```
+
 Make sure that you already have all required webpack loaders.
 
 ## Customization
 
-Storefront UI is very flexible in terms of customization. You can read [here](customization.md) about its capabilities.
+Storefront UI is very flexible in terms of customization. You can read [here](/getting-started/customization.md) about its capabilities.
 
 ## Play with components on Storybook
 
