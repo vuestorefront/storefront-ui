@@ -1,4 +1,3 @@
-import "./SfCategoryCard.stories.scss";
 import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
