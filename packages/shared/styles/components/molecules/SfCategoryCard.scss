@@ -1,0 +1,34 @@
+@import "../../helpers";
+
+.sf-category-card {
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  width: 12.375rem;
+  height: 9.0625rem;
+  &__details {
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 0;
+    --property-value-font-weight: var(--font-weight--normal);
+    --property-name-font-weight: var(--font-weight--medium);
+    --property-name-color: var(--c-white);
+    --property-value-color: var(--c-white);
+    background: var(--c-primary);
+    padding: var(--spacer-xs);
+    transition: padding 150ms ease-in;
+  }
+  @include for-desktop {
+    width: 18.4375rem;
+    height: 13.875rem;
+    &__details {
+      padding: var(--spacer-sm) var(--spacer-xs);
+      --property-value-font-weight: var(--font-weight--normal);
+    }
+    &:hover {
+      .sf-category-card__details {
+        padding: var(--spacer-base) var(--spacer-xs);
+      }
+    }
+  }
+}
