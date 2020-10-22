@@ -1,5 +1,5 @@
 <template>
-  <div class="sf-address-picker" @change="inputHandler">
+  <div class="sf-address-picker">
     <!--@slot Default. Here you should pass your addresses-->
     <slot />
   </div>
@@ -40,9 +40,7 @@ export default {
     setSelectedValue(newVal) {
       const newValue = newVal;
       this.selectedValue = newValue;
-    },
-    inputHandler() {
-      this.$emit("input", this.selectedValue);
+      this.$emit("change", newValue);
     },
   },
 };
