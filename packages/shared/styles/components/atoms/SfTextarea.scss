@@ -7,10 +7,10 @@
     color: var(--textarea-color);
     @include font(
       --textarea-font,
-      var(--font-normal),
-      var(--font-base),
+      var(--font-weight--normal),
+      var(--font-size--base),
       1,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
     height: var(--textarea-height);
     width: var(--textarea-width);
@@ -37,14 +37,21 @@
         --textarea-label-required: " *";
       }
     }
+     &:placeholder-shown {
+      & ~ * {
+        --textarea-label-padding: 0;
+        --textarea-label-transform: translate3d(0, -1rem, 0);
+        --textarea-label-font-size: var(--font-xs);
+      }
+    }
   }
   &__label {
     @include font(
       --textarea-label-font,
-      var(--font-normal),
-      var(--font-base),
+      var(--font-weight--normal),
+      var(--font-size--base),
       1,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
     position: var(--textarea-label-position, absolute);
     padding: var(--textarea-label-padding, var(--spacer-sm));
@@ -77,10 +84,10 @@
     min-height: calc(var(--font-xs) * 1.2);
     @include font(
       --textarea-error-message-font,
-      var(--font-medium),
-      var(--font-xs),
+      var(--font-weight--medium),
+      var(--font-size--xs),
       1.2,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
   }
 }
