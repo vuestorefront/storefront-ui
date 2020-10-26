@@ -32,7 +32,6 @@
           v-if="colors"
           class="sf-product-card__colors"
           label="Choose color"
-          :has-close="true"
           :is-open="!isMobile || openColorPicker"
           @click:toggle="toggleColorPicker"
         >
