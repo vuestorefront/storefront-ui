@@ -22,7 +22,7 @@
         --textarea-label-padding: 0;
         --textarea-label-color: var(--c-primary);
         --textarea-label-transform: translate3d(0, -1rem, 0);
-        --textarea-label-font-size: var(--font-xs);
+        --textarea-label-font-size: var(--font-size--xs);
       }
     }
     &:disabled {
@@ -41,7 +41,6 @@
       & ~ * {
         --textarea-label-padding: 0;
         --textarea-label-transform: translate3d(0, -1rem, 0);
-        --textarea-label-font-size: var(--font-xs);
       }
     }
   }
