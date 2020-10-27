@@ -33,7 +33,7 @@
       </slot>
       <slot name="colors" v-bind="{ colors }">
         <SfColorPicker
-          v-if="colors"
+          v-if="colors.length"
           class="sf-product-card__colors"
           label="Choose color"
           :is-open="!isMobile || openColorPicker"
