@@ -37,7 +37,7 @@
         --textarea-label-required: " *";
       }
     }
-     &:placeholder-shown {
+    &:placeholder-shown {
       & ~ * {
         --textarea-label-padding: 0;
         --textarea-label-transform: translate3d(0, -1rem, 0);
@@ -70,7 +70,7 @@
     --textarea-border-color: var(--c-text);
     --textarea-color: var(--c-text);
     --textarea-label-top: 0;
-    --textarea-label-font-size: var(--font-xs);
+    --textarea-label-font-size: var(--font-size--xs);
     --textarea-label-transform: translate3d(0, -1rem, 0);
     --textarea-label-padding: 0;
   }
@@ -80,7 +80,7 @@
   }
   &__error-message {
     color: var(--textarea-error-message-color, var(--c-danger));
-    min-height: calc(var(--font-xs) * 1.2);
+    min-height: calc(var(--font-size--xs) * 1.2);
     @include font(
       --textarea-error-message-font,
       var(--font-weight--medium),
