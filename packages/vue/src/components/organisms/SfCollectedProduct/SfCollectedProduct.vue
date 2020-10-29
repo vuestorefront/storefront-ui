@@ -7,7 +7,7 @@
             <component
               :is="componentIs"
               class="sf-collected-product__title"
-              v-bind="link ? link : ''"
+              :link="link ? link : ''"
             >
               {{ title }}
             </component>
