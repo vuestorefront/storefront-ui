@@ -94,7 +94,7 @@
       --sidebar-top-padding: var(--spacer-base);
       --sidebar-circle-icon-top: var(--spacer-sm);
       --sidebar-content-padding: var(--spacer-base);
-      & .sf-circle-icon {
+      & .sf-sidebar__circle-icon {
         --button-background: transparent;
         --icon-color: var(--c-link);
         &:hover {
