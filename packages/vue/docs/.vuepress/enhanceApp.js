@@ -76,6 +76,15 @@ export default ({
   router,
   siteData
 }) => {
+  router.addRoutes([
+    { path: '/guide.html', redirect: '/introduction/why-storefrontui' },
+    { path: '/meet-the-team.html', redirect: '/introduction/meet-the-team' },
+    { path: '/migration-guide', redirect: '/introduction/releases' },
+    { path: '/getting-started', redirect: '/getting-started/installation'},
+    { path: '/customization', redirect: '/getting-started/customization'},
+    { path: '/import-stories', redirect: '/getting-started/import-stories'},
+    { path: '/pull-off-components', redirect: '/getting-started/pull-off-components'},
+  ])
   // @components-docs-start (keep comment and indentation for auto-generated component docs)
   Vue.component("SfArrow", SfArrow);
   Vue.component("SfBadge", SfBadge);
