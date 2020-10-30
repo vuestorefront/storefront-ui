@@ -7,10 +7,10 @@
     color: var(--textarea-color);
     @include font(
       --textarea-font,
-      var(--font-normal),
-      var(--font-base),
+      var(--font-weight--normal),
+      var(--font-size--base),
       1,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
     height: var(--textarea-height);
     width: var(--textarea-width);
@@ -22,7 +22,7 @@
         --textarea-label-padding: 0;
         --textarea-label-color: var(--c-primary);
         --textarea-label-transform: translate3d(0, -1rem, 0);
-        --textarea-label-font-size: var(--font-xs);
+        --textarea-label-font-size: var(--font-size--xs);
       }
     }
     &:disabled {
@@ -37,14 +37,20 @@
         --textarea-label-required: " *";
       }
     }
+    &:placeholder-shown {
+      & ~ * {
+        --textarea-label-padding: 0;
+        --textarea-label-transform: translate3d(0, -1rem, 0);
+      }
+    }
   }
   &__label {
     @include font(
       --textarea-label-font,
-      var(--font-normal),
-      var(--font-base),
+      var(--font-weight--normal),
+      var(--font-size--base),
       1,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
     position: var(--textarea-label-position, absolute);
     padding: var(--textarea-label-padding, var(--spacer-sm));
@@ -64,7 +70,7 @@
     --textarea-border-color: var(--c-text);
     --textarea-color: var(--c-text);
     --textarea-label-top: 0;
-    --textarea-label-font-size: var(--font-xs);
+    --textarea-label-font-size: var(--font-size--xs);
     --textarea-label-transform: translate3d(0, -1rem, 0);
     --textarea-label-padding: 0;
   }
@@ -74,13 +80,13 @@
   }
   &__error-message {
     color: var(--textarea-error-message-color, var(--c-danger));
-    min-height: calc(var(--font-xs) * 1.2);
+    min-height: calc(var(--font-size--xs) * 1.2);
     @include font(
       --textarea-error-message-font,
-      var(--font-medium),
-      var(--font-xs),
+      var(--font-weight--medium),
+      var(--font-size--xs),
       1.2,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
   }
 }
