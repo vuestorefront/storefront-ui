@@ -119,7 +119,7 @@
                 color="gray"
                 size="14px"
                 role="button"
-                class="mobile-only"
+                class="smartphone-only"
                 @click="deleteAddress(key)"
               />
               <SfButton @click="changeAddress(key)">Change</SfButton>
