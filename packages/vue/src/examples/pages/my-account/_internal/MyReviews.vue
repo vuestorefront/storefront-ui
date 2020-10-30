@@ -33,7 +33,7 @@ export default {
 a {
   color: var(--c-primary);
   text-decoration: none;
-  font-weight: var(--font-medium);
+  font-weight: var(--font-weight--medium);
   &:hover {
     color: var(--c-text);
   }
