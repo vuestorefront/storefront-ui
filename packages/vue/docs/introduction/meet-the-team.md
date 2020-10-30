@@ -20,4 +20,7 @@ And of course, without these awesome [contributors](https://github.com/DivanteLt
 
 ## Become a maintainer?
 
-If you are interested in becoming a core maintainer, please email us at [**filip@vuestorefront.io**](mailto:filip@vuestorefront.io)
+StorefrontUI is a completely new approach for component libraries oriented around customization possibilities instead of out of the box possibilities.
+It's a great goal but it will take a lot of time to achieve it only by ourselves.
+
+If you are interested in becoming a core maintainer, please [email us](mailto:filip@vuestorefront.io)
