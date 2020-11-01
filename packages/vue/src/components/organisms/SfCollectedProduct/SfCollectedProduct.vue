@@ -4,9 +4,13 @@
       <div class="sf-collected-product__details">
         <slot name="title" v-bind="{ title }">
           <div class="sf-collected-product__title-wraper">
-            <SfLink :link="link" class="sf-collected-product__title">
+            <component
+              :is="componentIs"
+              class="sf-collected-product__title"
+              :link="link ? link : ''"
+            >
               {{ title }}
-            </SfLink>
+            </component>
           </div>
         </slot>
         <slot name="price" v-bind="{ specialPrice, regularPrice }">
@@ -155,6 +159,11 @@ export default {
     link: {
       type: [String, Object],
       default: "",
+    },
+  },
+  computed: {
+    componentIs() {
+      return this.link ? "SfLink" : "div";
     },
   },
   methods: {
