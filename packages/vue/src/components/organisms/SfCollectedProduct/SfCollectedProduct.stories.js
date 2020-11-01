@@ -42,6 +42,9 @@ storiesOf("Organisms|CollectedProduct", module)
       title: {
         default: text("title", "Cotton Sweater Modern Style", "Props"),
       },
+      link: {
+        default: text("link", "", "Props"),
+      },
       regularPrice: {
         default: text("regularPrice", "$10,99", "Props"),
       },
@@ -62,6 +65,7 @@ storiesOf("Organisms|CollectedProduct", module)
         :image-width="imageWidth"
         :image-height="imageHeight"
         :title="title"
+        :link="link"
         :regular-price="regularPrice"
         :special-price="specialPrice"
     >
@@ -100,6 +104,9 @@ storiesOf("Organisms|CollectedProduct", module)
       title: {
         default: text("title", "Cotton Sweater", "Props"),
       },
+      link: {
+        default: text("link", "", "Props"),
+      },
       regularPrice: {
         default: text("regularPrice", "$10,99", "Props"),
       },
@@ -120,6 +127,7 @@ storiesOf("Organisms|CollectedProduct", module)
         :image-width="imageWidth"
         :image-height="imageHeight"
         :title="title"
+        :link="link"
         :regular-price="regularPrice"
         :special-price="specialPrice"
     >
@@ -161,6 +169,9 @@ storiesOf("Organisms|CollectedProduct", module)
       title: {
         default: text("title", "Cotton Sweater", "Props"),
       },
+      link: {
+        default: text("link", "", "Props"),
+      },
       regularPrice: {
         default: text("regularPrice", "$10,99", "Props"),
       },
@@ -181,6 +192,7 @@ storiesOf("Organisms|CollectedProduct", module)
         :image-width="imageWidth"
         :image-height="imageHeight"
         :title="title"
+        :link="link"
         :regular-price="regularPrice"
         :special-price="specialPrice"
     >
@@ -222,6 +234,9 @@ storiesOf("Organisms|CollectedProduct", module)
       title: {
         default: text("title", "Cotton Sweater", "Props"),
       },
+      link: {
+        default: text("link", "", "Props"),
+      },
       regularPrice: {
         default: text("regularPrice", "$10,99", "Props"),
       },
@@ -242,6 +257,7 @@ storiesOf("Organisms|CollectedProduct", module)
         :image-width="imageWidth"
         :image-height="imageHeight"
         :title="title"
+        :link="link"
         :regular-price="regularPrice"
         :special-price="specialPrice"
     >
@@ -283,6 +299,9 @@ storiesOf("Organisms|CollectedProduct", module)
       title: {
         default: text("title", "Cotton Sweater", "Props"),
       },
+      link: {
+        default: text("link", "", "Props"),
+      },
       regularPrice: {
         default: text("regularPrice", "$10,99", "Props"),
       },
@@ -303,6 +322,7 @@ storiesOf("Organisms|CollectedProduct", module)
         :image-width="imageWidth"
         :image-height="imageHeight"
         :title="title"
+        :link="link"
         :regular-price="regularPrice"
         :special-price="specialPrice"
     >
@@ -344,6 +364,9 @@ storiesOf("Organisms|CollectedProduct", module)
       title: {
         default: text("title", "Cotton Sweater", "Props"),
       },
+      link: {
+        default: text("link", "", "Props"),
+      },
       regularPrice: {
         default: text("regularPrice", "$10,99", "Props"),
       },
@@ -364,6 +387,7 @@ storiesOf("Organisms|CollectedProduct", module)
         :image-width="imageWidth"
         :image-height="imageHeight"
         :title="title"
+        :link="link"
         :regular-price="regularPrice"
         :special-price="specialPrice"
     >
@@ -466,6 +490,9 @@ storiesOf("Organisms|CollectedProduct", module)
       title: {
         default: text("title", "Cotton Sweater", "Props"),
       },
+      link: {
+        default: text("link", "", "Props"),
+      },
       regularPrice: {
         default: text("regularPrice", "$10,99", "Props"),
       },
@@ -486,6 +513,7 @@ storiesOf("Organisms|CollectedProduct", module)
         :image-width="imageWidth"
         :image-height="imageHeight"
         :title="title"
+        :link="link"
         :regular-price="regularPrice"
         :special-price="specialPrice"
     >
