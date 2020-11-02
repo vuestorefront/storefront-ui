@@ -1,32 +1,42 @@
 <template>
-  <section class="sf-banner" :style="style" v-on="isMobile ? $listeners : {}">
-    <div class="sf-banner__container">
-      <slot name="subtitle" v-bind="{ subtitle }">
-        <h2 v-if="subtitle" class="sf-banner__subtitle">
-          {{ subtitle }}
-        </h2>
-      </slot>
-      <slot name="title" v-bind="{ title }">
-        <h1 v-if="title" class="sf-banner__title">
-          {{ title }}
-        </h1>
-      </slot>
-      <slot name="description" v-bind="{ description }">
-        <p v-if="description" class="sf-banner__description">
-          {{ description }}
-        </p>
-      </slot>
-      <slot name="call-to-action" v-bind="{ buttonText }">
-        <SfButton
-          v-if="buttonText"
-          class="sf-banner__call-to-action color-secondary"
-          v-on="!isMobile ? $listeners : {}"
-        >
-          {{ buttonText }}
-        </SfButton>
-      </slot>
-    </div>
-  </section>
+  <SfButton
+    class="sf-banner__button-wrapper sf-button--pure"
+    :link="buttonLink"
+    :class="{
+      'is-disabled--button': !isMobile,
+      'is-disabled--link': !isMobile,
+    }"
+  >
+    <section class="sf-banner" :style="style" v-on="isMobile ? $listeners : {}">
+      <div class="sf-banner__container">
+        <slot name="subtitle" v-bind="{ subtitle }">
+          <h2 v-if="subtitle" class="sf-banner__subtitle">
+            {{ subtitle }}
+          </h2>
+        </slot>
+        <slot name="title" v-bind="{ title }">
+          <h1 v-if="title" class="sf-banner__title">
+            {{ title }}
+          </h1>
+        </slot>
+        <slot name="description" v-bind="{ description }">
+          <p v-if="description" class="sf-banner__description">
+            {{ description }}
+          </p>
+        </slot>
+        <slot name="call-to-action" v-bind="{ buttonText }">
+          <SfButton
+            v-if="buttonText"
+            :link="buttonLink"
+            class="sf-banner__call-to-action color-secondary"
+            v-on="!isMobile ? $listeners : {}"
+          >
+            {{ buttonText }}
+          </SfButton>
+        </slot>
+      </div>
+    </section>
+  </SfButton>
 </template>
 <script>
 import SfButton from "../../atoms/SfButton/SfButton.vue";
@@ -63,6 +73,11 @@ export default {
       type: String,
       default: "",
     },
+    /** link to be used in call to action button if necessary */
+    buttonLink: {
+      type: String,
+      default: "",
+    },
     /** Background color in HEX (eg #FFFFFF) */
     background: {
       type: String,
@@ -89,6 +104,14 @@ export default {
       };
     },
   },
+  // watch: {
+  //   isMobile: {
+  //     handler(value) {
+  //       this.visible = value;
+  //     },
+  //     immediate: true,
+  //   },
+  // },
   beforeDestroy() {
     unMapMobileObserver();
   },

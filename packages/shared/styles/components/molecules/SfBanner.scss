@@ -1,87 +1,62 @@
 @import "../../helpers";
 .sf-banner {
-  box-sizing: border-box;
-  display: var(--banner-display, flex);
-  align-items: var(--banner-align-items, flex-start);
-  justify-content: var(--banner-justify-content, flex-start);
-  min-height: var(--banner-height, 21.4375rem);
-  width: var(--banner-width, 100%);
-  padding: var(--banner-padding, var(--spacer-xl));
-  @include background(
-    --banner-background,
-    var(--_banner-background-color, transparent),
-    var(--_banner-background-image)
-  );
-  --banner-background-position: 60%;
-  &__container {
-    display: flex;
-    flex: 0 0 var(--banner-container-width, 70%);
-    justify-content: var(--banner-container-justify-content, flex-start);
-    align-items: var(--banner-container-align-items, flex-start);
-    flex-direction: var(--banner-container-flex-direction, column);
-  }
-  &__subtitle {
-    margin: var(--banner-subtitle-margin, 0);
-    color: var(
-      --banner-color,
-      var(--banner-subtitle-color, var(--c-dark-variant))
-    );
-    @include font(
-      --banner-subtitle-font,
-      var(--font-weight--normal),
-      var(--font-size--base),
-      1.4,
-      var(--font-family--secondary)
-    );
-    text-transform: var(--banner-subtitle-text-transform, uppercase);
-  }
-  &__title {
-    margin: var(--banner-title-margin, var(--spacer-2xs) 0 0 0);
-    color: var(--banner-color, var(--banner-title-color, var(--c-text)));
-    @include font(
-      --banner-title-font,
-      var(--font-weight--normal),
-      var(--h2-font-size),
-      1.4,
-      var(--font-family--secondary)
-    );
-    text-transform: var(--banner-title-text-transform, uppercase);
-  }
-  &__description {
-    display: var(--banner-display-description, none);
-    margin: var(
-      --banner-description-margin,
-      var(--spacer-sm) 0 var(--spacer-base) 0
-    );
-    color: var(--banner-color, var(--banner-description-color, var(--c-text)));
-    @include font(
-      --banner-description-font,
-      var(--font-weight--light),
-      var(--font-size--base),
-      1.6,
-      var(--font-family--primary)
-    );
-  }
-  &__call-to-action {
-    display: var(--banner-display-call-to-action, none);
-  }
-  @include for-desktop {
-    align-items: var(--banner-align-items, center);
-    --banner-background-image: var(
-      --_banner-background-desktop-image,
-      var(--_banner-background-image)
-    );
-    --banner-container-width: 50%;
-    --banner-display-description: block;
-    --banner-display-call-to-action: block;
-    --banner-title-margin: var(--spacer-sm) 0 0 0;
-    --banner-subtitle-color: var(--c-gray);
-    min-height: var(--banner-height, 25rem);
+    box-sizing: border-box;
+    display: var(--banner-display, flex);
+    align-items: var(--banner-align-items, flex-start);
+    justify-content: var(--banner-justify-content, flex-start);
+    min-height: var(--banner-height, 21.4375rem);
+    width: var(--banner-width, 100%);
+    padding: var(--banner-padding, var(--spacer-xl));
+    @include background( --banner-background, var(--_banner-background-color, transparent), var(--_banner-background-image));
+    --banner-background-position: 60%;
+    &__container {
+        display: flex;
+        flex: 0 0 var(--banner-container-width, 70%);
+        justify-content: var(--banner-container-justify-content, flex-start);
+        align-items: var(--banner-container-align-items, flex-start);
+        flex-direction: var(--banner-container-flex-direction, column);
+    }
+    &__button-wrapper {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    &__subtitle {
+        margin: var(--banner-subtitle-margin, 0);
+        color: var( --banner-color, var(--banner-subtitle-color, var(--c-dark-variant)));
+        @include font( --banner-subtitle-font, var(--font-weight--normal), var(--font-size--base), 1.4, var(--font-family--secondary));
+        text-transform: var(--banner-subtitle-text-transform, uppercase);
+    }
+    &__title {
+        margin: var(--banner-title-margin, var(--spacer-2xs) 0 0 0);
+        color: var(--banner-color, var(--banner-title-color, var(--c-text)));
+        @include font( --banner-title-font, var(--font-weight--normal), var(--h2-font-size), 1.4, var(--font-family--secondary));
+        text-transform: var(--banner-title-text-transform, uppercase);
+    }
+    &__description {
+        display: var(--banner-display-description, none);
+        margin: var( --banner-description-margin, var(--spacer-sm) 0 var(--spacer-base) 0);
+        color: var(--banner-color, var(--banner-description-color, var(--c-text)));
+        @include font( --banner-description-font, var(--font-weight--light), var(--font-size--base), 1.6, var(--font-family--primary));
+    }
     &__call-to-action {
-      --button-padding: var(--spacer-sm) var(--spacer-xl);
+        display: var(--banner-display-call-to-action, none);
     }
-    &--right {
-      --banner-justify-content: flex-end;
+    @include for-desktop {
+        align-items: var(--banner-align-items, center);
+        --banner-background-image: var( --_banner-background-desktop-image, var(--_banner-background-image));
+        --banner-container-width: 50%;
+        --banner-display-description: block;
+        --banner-justify-content: flex-start;
+        --banner-display-call-to-action: block;
+        --banner-title-margin: var(--spacer-sm) 0 0 0;
+        --banner-subtitle-color: var(--c-gray);
+        min-height: var(--banner-height, 25rem);
+        &__call-to-action {
+            --button-padding: var(--spacer-sm) var(--spacer-xl);
+        }
+        &--right {
+            --banner-justify-content: flex-end;
+        }
     }
-  }
 }
