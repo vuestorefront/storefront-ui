@@ -47,6 +47,10 @@
       --button-background: transparent;
       --icon-color: var(--c-dark);
     }
+    &:disabled {
+      --button-background: transparent;
+      --icon-color: var(--c-text-disabled);
+    }
   }
   &--rounded {
     --button-border-radius: 100%;
