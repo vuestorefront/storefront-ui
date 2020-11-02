@@ -8,7 +8,8 @@ import {
 } from "@storybook/addon-knobs";
 import {
   SfProductCardHorizontal,
-  SfProperty,
+  SfSelect,
+  SfProductOption,
   SfButton,
 } from "@storefront-ui/vue";
 storiesOf("Organisms|ProductCardHorizontal", module)
@@ -17,6 +18,29 @@ storiesOf("Organisms|ProductCardHorizontal", module)
     data() {
       return {
         quantity: 1,
+        selects: {
+          size: {
+            label: "Size:",
+            placeholder: "Size: XS",
+            errorMessage: "Please pick a size",
+            options: ["XXS", "XS", "S", "M", "L", "XL", "XXL"].map(
+              (size) => `Size: ${size}`
+            ),
+          },
+          colour: {
+            label: "Colour:",
+            placeholder: "Colour: Brown",
+            errorMessage: "Please pick a colour",
+            options: [
+              "Maroon",
+              "Blue",
+              "Brown",
+              "Mustard",
+              "White",
+              "Black",
+            ].map((colour) => `Colour: ${colour}`),
+          },
+        },
       };
     },
     props: {
@@ -83,48 +107,65 @@ storiesOf("Organisms|ProductCardHorizontal", module)
         default: select("addToCartDisabled", [false, true], false, "Props"),
       },
     },
-    components: { SfProductCardHorizontal, SfButton, SfProperty },
+    components: {
+      SfProductCardHorizontal,
+      SfButton,
+      SfSelect,
+      SfProductOption,
+    },
     template: `<div :style="{maxWidth: '1240px'}">
       <SfProductCardHorizontal
-          :image="image"
-          :image-width="imageWidth"
-          :image-height="imageHeight"
-          :title="title"
-          :link="link"
-          :link-tag="linkTag"
-          :regular-price="regularPrice"
-          :special-price="specialPrice"
-          :score-rating="scoreRating"
-          :max-rating="maxRating"
-          :wishlist-icon="wishlistIcon"
-          :reviews-count="reviewsCount"
-          :is-added-to-cart="isAddedToCart"
-          :add-to-cart-disabled="addToCartDisabled"
-          :description="description"
-          :qty="quantity"
-          @input="quantity = $event"
-          :is-on-wishlist-icon="isOnWishlistIcon"
-          :is-on-wishlist="isOnWishlist">
-          <template #configuration>
-              <SfProperty class="desktop-only" name="Size" value="XS" style="margin: 0 0 1rem 0"/>
-              <SfProperty class="desktop-only" name="Color" value="white"/>
-          </template>
-          <template #actions>
-              <SfButton
-                class="sf-button--text desktop-only"
-                @click="$emit('click:add-to-wishlist')"
-                style="margin: 0 0 1rem auto; display: block" 
-              >
-                Save for later
-              </SfButton>
-              <SfButton
-                class="sf-button--text desktop-only"
-                @click="$emit('click:add-to-compare')"
-                style="margin: 0 0 0 auto; display: block"
-              >
-                Add to compare
-              </SfButton>
-          </template>
+        :image="image"
+        :image-width="imageWidth"
+        :image-height="imageHeight"
+        :title="title"
+        :link="link"
+        :link-tag="linkTag"
+        :regular-price="regularPrice"
+        :special-price="specialPrice"
+        :score-rating="scoreRating"
+        :max-rating="maxRating"
+        :wishlist-icon="wishlistIcon"
+        :reviews-count="reviewsCount"
+        :is-added-to-cart="isAddedToCart"
+        :add-to-cart-disabled="addToCartDisabled"
+        :description="description"
+        :qty="quantity"
+        @input="quantity = $event"
+        :is-on-wishlist-icon="isOnWishlistIcon"
+        :is-on-wishlist="isOnWishlist"
+      >
+        <template #configuration>
+          <div style="display: flex; flex-direction: column; justify-content: flex-end">
+            <SfSelect
+              v-for="(valSelects, keySelects) in selects"
+              :key="keySelects"
+              :error-message="valSelects.errorMessage"
+              :placeholder="valSelects.placeholder"
+              style="display: flex; width: fit-content; height: fit-content; padding: inherit;"
+            >
+              <SfSelectOption v-for="(val, key) in valSelects.options" :key="key" :value="key">
+                <SfProductOption color="black" :label="val"></SfProductOption>
+              </SfSelectOption>
+            </SfSelect>
+          </div>
+        </template>
+        <template #actions>
+            <SfButton
+              class="sf-button--text desktop-only"
+              @click="$emit('click:add-to-wishlist')"
+              style="margin: 0 0 1rem auto; display: block" 
+            >
+              Save for later
+            </SfButton>
+            <SfButton
+              class="sf-button--text desktop-only"
+              @click="$emit('click:add-to-compare')"
+              style="margin: 0 0 0 auto; display: block"
+            >
+              Add to compare
+            </SfButton>
+        </template>
       </SfProductCardHorizontal>
     </div>`,
   }))
@@ -192,9 +233,37 @@ storiesOf("Organisms|ProductCardHorizontal", module)
           },
         ],
         quantity: 1,
+        selects: {
+          size: {
+            label: "Size:",
+            placeholder: "Size: XS",
+            errorMessage: "Please pick a size",
+            options: ["XXS", "XS", "S", "M", "L", "XL", "XXL"].map(
+              (size) => `Size: ${size}`
+            ),
+          },
+          colour: {
+            label: "Colour:",
+            placeholder: "Colour: Brown",
+            errorMessage: "Please pick a colour",
+            options: [
+              "Maroon",
+              "Blue",
+              "Brown",
+              "Mustard",
+              "White",
+              "Black",
+            ].map((colour) => `Colour: ${colour}`),
+          },
+        },
       };
     },
-    components: { SfProductCardHorizontal, SfButton, SfProperty },
+    components: {
+      SfProductCardHorizontal,
+      SfButton,
+      SfSelect,
+      SfProductOption,
+    },
     template: `<div :style="{maxWidth: '1240px'}">
       <SfProductCardHorizontal
         :image="pictures"
@@ -218,9 +287,20 @@ storiesOf("Organisms|ProductCardHorizontal", module)
         :is-on-wishlist="isOnWishlist"
         >
         <template #configuration>
-            <SfProperty class="desktop-only" name="Size" value="XS" style="margin: 0 0 1rem 0"/>
-            <SfProperty class="desktop-only" name="Color" value="white"/>
-          </template>
+          <div style="display: flex; flex-direction: column; justify-content: flex-end">
+            <SfSelect
+              v-for="(valSelects, keySelects) in selects"
+              :key="keySelects"
+              :error-message="valSelects.errorMessage"
+              :placeholder="valSelects.placeholder"
+              style="display: flex; width: fit-content; height: fit-content; padding: inherit;"
+            >
+              <SfSelectOption v-for="(val, key) in valSelects.options" :key="key" :value="key">
+                <SfProductOption color="black" :label="val"></SfProductOption>
+              </SfSelectOption>
+            </SfSelect>
+          </div>
+        </template>
         <template #actions>
           <div>
               <SfButton
