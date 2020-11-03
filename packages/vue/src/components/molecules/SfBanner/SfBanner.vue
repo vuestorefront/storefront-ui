@@ -2,7 +2,7 @@
   <section class="sf-banner" :style="style" v-on="isMobile ? $listeners : {}">
     <SfButton
       class="sf-banner__button-wrapper sf-button--pure"
-      :link="buttonLink"
+      :link="link"
       :class="{
         'is-disabled--button': !isMobile,
         'is-disabled--link': !isMobile,
@@ -27,7 +27,7 @@
         <slot name="call-to-action" v-bind="{ buttonText }">
           <SfButton
             v-if="buttonText"
-            :link="buttonLink"
+            :link="link"
             class="sf-banner__call-to-action color-secondary"
             v-on="!isMobile ? $listeners : {}"
           >
@@ -74,7 +74,7 @@ export default {
       default: "",
     },
     /** link to be used in call to action button if necessary */
-    buttonLink: {
+    link: {
       type: String,
       default: "",
     },

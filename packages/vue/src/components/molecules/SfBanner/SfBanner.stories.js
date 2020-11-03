@@ -37,8 +37,8 @@ storiesOf("Molecules|Banner", module)
             buttonText: {
                 default: text("buttonText", "Shop Now", "Props"),
             },
-            buttonLink: {
-                default: text("buttonLink", "", "Props")
+            link: {
+                default: text("link", "", "Props")
             },
             image: {
                 default: object(
@@ -60,7 +60,7 @@ storiesOf("Molecules|Banner", module)
       :subtitle="subtitle"
       :description="description"
       :button-text="buttonText"
-      :button-link="buttonLink"
+      :link="link"
       :image="image"
       :background="background"
       />
