@@ -8,7 +8,6 @@
         'is-disabled--link': !isMobile,
       }"
     >
-      <!-- <div class="sf-banner__container"> -->
       <slot name="subtitle" v-bind="{ subtitle }">
         <h2 v-if="subtitle" class="sf-banner__subtitle">
           {{ subtitle }}
@@ -34,7 +33,6 @@
           {{ buttonText }}
         </SfButton>
       </slot>
-      <!-- </div> -->
     </SfButton>
   </section>
 </template>
