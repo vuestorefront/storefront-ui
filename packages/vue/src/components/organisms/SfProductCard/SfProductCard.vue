@@ -54,7 +54,6 @@
           name="add-to-cart"
           v-bind="{
             isAddedToCart,
-            showAddedToCartBadge,
             isAddingToCart,
             title,
           }"
@@ -62,7 +61,6 @@
           <SfCircleIcon
             class="sf-product-card__add-button"
             :aria-label="`Add to Cart ${title}`"
-            :has-badge="showAddedToCartBadge"
             :disabled="addToCartDisabled"
             @click="onAddToCart"
           >
@@ -310,9 +308,6 @@ export default {
     },
     currentWishlistIcon() {
       return this.isOnWishlist ? this.isOnWishlistIcon : this.wishlistIcon;
-    },
-    showAddedToCartBadge() {
-      return !this.isAddingToCart && this.isAddedToCart;
     },
     ariaLabel() {
       return this.isOnWishlist ? "Remove from wishlist" : "Add to wishlist";
