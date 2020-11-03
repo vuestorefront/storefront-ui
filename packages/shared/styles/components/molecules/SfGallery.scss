@@ -39,6 +39,11 @@
     flex: 1;
     max-width: var(--gallery-stage-width, 26.375rem);
   }
+  &__zoom {
+    position: absolute;
+    left: 50%;
+    top: 0;
+  }
   .glide {
     &__slide {
       flex: 1;
