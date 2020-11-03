@@ -1,13 +1,13 @@
 <template>
-  <SfButton
-    class="sf-banner__button-wrapper sf-button--pure"
-    :link="buttonLink"
-    :class="{
-      'is-disabled--button': !isMobile,
-      'is-disabled--link': !isMobile,
-    }"
-  >
-    <section class="sf-banner" :style="style" v-on="isMobile ? $listeners : {}">
+  <section class="sf-banner" :style="style" v-on="isMobile ? $listeners : {}">
+    <SfButton
+      class="sf-banner__button-wrapper sf-button--pure"
+      :link="buttonLink"
+      :class="{
+        'is-disabled--button': !isMobile,
+        'is-disabled--link': !isMobile,
+      }"
+    >
       <div class="sf-banner__container">
         <slot name="subtitle" v-bind="{ subtitle }">
           <h2 v-if="subtitle" class="sf-banner__subtitle">
@@ -35,8 +35,8 @@
           </SfButton>
         </slot>
       </div>
-    </section>
-  </SfButton>
+    </SfButton>
+  </section>
 </template>
 <script>
 import SfButton from "../../atoms/SfButton/SfButton.vue";
@@ -104,14 +104,6 @@ export default {
       };
     },
   },
-  // watch: {
-  //   isMobile: {
-  //     handler(value) {
-  //       this.visible = value;
-  //     },
-  //     immediate: true,
-  //   },
-  // },
   beforeDestroy() {
     unMapMobileObserver();
   },

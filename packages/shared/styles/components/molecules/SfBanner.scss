@@ -1,25 +1,24 @@
 @import "../../helpers";
 .sf-banner {
-    box-sizing: border-box;
-    display: var(--banner-display, flex);
-    align-items: var(--banner-align-items, flex-start);
-    justify-content: var(--banner-justify-content, flex-start);
-    min-height: var(--banner-height, 21.4375rem);
-    width: var(--banner-width, 100%);
-    padding: var(--banner-padding, var(--spacer-xl));
-    @include background( --banner-background, var(--_banner-background-color, transparent), var(--_banner-background-image));
-    --banner-background-position: 60%;
+    display: flex;
     &__container {
-        display: flex;
+        box-sizing: border-box;
+        display: var(--banner-display, flex);
         flex: 0 0 var(--banner-container-width, 70%);
-        justify-content: var(--banner-container-justify-content, flex-start);
-        align-items: var(--banner-container-align-items, flex-start);
+        align-items: var(--banner-align-items, flex-start);
+        justify-content: var(--banner-justify-content, flex-start);
+        min-height: var(--banner-height, 21.4375rem);
+        width: var(--banner-width, 100%);
         flex-direction: var(--banner-container-flex-direction, column);
+        padding: var(--banner-padding, var(--spacer-xl));
+        @include background( --banner-background, var(--_banner-background-color, transparent), var(--_banner-background-image));
+        --banner-background-position: 60%;
     }
     &__button-wrapper {
         display: flex;
         flex-direction: column;
         width: 100%;
+        height: 100%;
     }
     &__subtitle {
         margin: var(--banner-subtitle-margin, 0);
@@ -52,6 +51,14 @@
         --banner-title-margin: var(--spacer-sm) 0 0 0;
         --banner-subtitle-color: var(--c-gray);
         min-height: var(--banner-height, 25rem);
+        &__button-wrapper {
+            &.is-disabled--button,
+            &.is-disabled--link {
+                .sf-banner__call-to-action {
+                    pointer-events: auto;
+                }
+            }
+        }
         &__call-to-action {
             --button-padding: var(--spacer-sm) var(--spacer-xl);
         }
