@@ -1,59 +1,62 @@
 import { storiesOf } from "@storybook/vue";
 import {
-    withKnobs,
-    text,
-    color,
-    object,
-    optionsKnob as options,
+  withKnobs,
+  text,
+  color,
+  object,
+  optionsKnob as options,
 } from "@storybook/addon-knobs";
 import { SfBanner } from "@storefront-ui/vue";
 storiesOf("Molecules|Banner", module)
-    .addDecorator(withKnobs)
-    .add("Common", () => ({
-        components: { SfBanner },
-        props: {
-            customClass: {
-                default: options(
-                    "CSS Modifiers", {
-                        "sf-banner--right": "sf-banner--right",
-                    },
-                    "", { display: "multi-select" },
-                    "CSS Modifiers"
-                ),
-            },
-            title: {
-                default: text("title", "Eco Sandals", "Props"),
-            },
-            subtitle: {
-                default: text("subtitle", "Summer shoes", "Props"),
-            },
-            description: {
-                default: text(
-                    "description",
-                    "The collection features formal and casual comfort shoes with a Danish design focus. Made from premium leathers and comfort.",
-                    "Props"
-                ),
-            },
-            buttonText: {
-                default: text("buttonText", "Shop Now", "Props"),
-            },
-            link: {
-                default: text("link", "", "Props")
-            },
-            image: {
-                default: object(
-                    "image", {
-                        mobile: "/assets/storybook/SfBanner/Banner2.jpg",
-                        desktop: "/assets/storybook/SfBanner/Banner2.jpg",
-                    },
-                    "Props"
-                ),
-            },
-            background: {
-                default: color("background", "#e1e3e2", "Props"),
-            },
-        },
-        template: `<div style="max-width: 77.5rem">
+  .addDecorator(withKnobs)
+  .add("Common", () => ({
+    components: { SfBanner },
+    props: {
+      customClass: {
+        default: options(
+          "CSS Modifiers",
+          {
+            "sf-banner--right": "sf-banner--right",
+          },
+          "",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        ),
+      },
+      title: {
+        default: text("title", "Eco Sandals", "Props"),
+      },
+      subtitle: {
+        default: text("subtitle", "Summer shoes", "Props"),
+      },
+      description: {
+        default: text(
+          "description",
+          "The collection features formal and casual comfort shoes with a Danish design focus. Made from premium leathers and comfort.",
+          "Props"
+        ),
+      },
+      buttonText: {
+        default: text("buttonText", "Shop Now", "Props"),
+      },
+      link: {
+        default: text("link", "", "Props"),
+      },
+      image: {
+        default: object(
+          "image",
+          {
+            mobile: "/assets/storybook/SfBanner/Banner2.jpg",
+            desktop: "/assets/storybook/SfBanner/Banner2.jpg",
+          },
+          "Props"
+        ),
+      },
+      background: {
+        default: color("background", "#e1e3e2", "Props"),
+      },
+    },
+    template: `<div style="max-width: 77.5rem">
       <SfBanner 
       :class="customClass"
       :title="title"
@@ -65,52 +68,55 @@ storiesOf("Molecules|Banner", module)
       :background="background"
       />
     </div>`,
-    }))
-    .add("[slot] subtitle", () => ({
-        components: { SfBanner },
-        props: {
-            customClass: {
-                default: options(
-                    "CSS Modifiers", {
-                        "sf-banner--right": "sf-banner--right",
-                    },
-                    "", { display: "multi-select" },
-                    "CSS Modifiers"
-                ),
-            },
-            title: {
-                default: text("title", "Eco Sandals", "Props"),
-            },
-            subtitle: {
-                default: text("subtitle", "Summer shoes", "Props"),
-            },
-            description: {
-                default: text(
-                    "description",
-                    "The collection features formal and casual comfort shoes with a Danish design focus. Made from premium leathers and comfort.",
-                    "Props"
-                ),
-            },
-            buttonText: {
-                default: text("buttonText", "Shop Now", "Props"),
-            },
-            link: {
-                default: text("link", "", "Props")
-            },
-            image: {
-                default: object(
-                    "image", {
-                        mobile: "/assets/storybook/SfBanner/Banner2.jpg",
-                        desktop: "/assets/storybook/SfBanner/Banner2.jpg",
-                    },
-                    "Props"
-                ),
-            },
-            background: {
-                default: color("background", "#e1e3e2", "Props"),
-            },
-        },
-        template: `<div style="max-width: 77.5rem">
+  }))
+  .add("[slot] subtitle", () => ({
+    components: { SfBanner },
+    props: {
+      customClass: {
+        default: options(
+          "CSS Modifiers",
+          {
+            "sf-banner--right": "sf-banner--right",
+          },
+          "",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        ),
+      },
+      title: {
+        default: text("title", "Eco Sandals", "Props"),
+      },
+      subtitle: {
+        default: text("subtitle", "Summer shoes", "Props"),
+      },
+      description: {
+        default: text(
+          "description",
+          "The collection features formal and casual comfort shoes with a Danish design focus. Made from premium leathers and comfort.",
+          "Props"
+        ),
+      },
+      buttonText: {
+        default: text("buttonText", "Shop Now", "Props"),
+      },
+      link: {
+        default: text("link", "", "Props"),
+      },
+      image: {
+        default: object(
+          "image",
+          {
+            mobile: "/assets/storybook/SfBanner/Banner2.jpg",
+            desktop: "/assets/storybook/SfBanner/Banner2.jpg",
+          },
+          "Props"
+        ),
+      },
+      background: {
+        default: color("background", "#e1e3e2", "Props"),
+      },
+    },
+    template: `<div style="max-width: 77.5rem">
       <SfBanner 
       :class="customClass"
       :title="title"
@@ -125,52 +131,55 @@ storiesOf("Molecules|Banner", module)
         </template>
       </SfBanner>
     </div>`,
-    }))
-    .add("[slot] title", () => ({
-        components: { SfBanner },
-        props: {
-            customClass: {
-                default: options(
-                    "CSS Modifiers", {
-                        "sf-banner--right": "sf-banner--right",
-                    },
-                    "", { display: "multi-select" },
-                    "CSS Modifiers"
-                ),
-            },
-            title: {
-                default: text("title", "Eco Sandals", "Props"),
-            },
-            subtitle: {
-                default: text("subtitle", "Summer shoes", "Props"),
-            },
-            description: {
-                default: text(
-                    "description",
-                    "The collection features formal and casual comfort shoes with a Danish design focus. Made from premium leathers and comfort.",
-                    "Props"
-                ),
-            },
-            buttonText: {
-                default: text("buttonText", "Shop Now", "Props"),
-            },
-            link: {
-                default: text("link", "", "Props")
-            },
-            image: {
-                default: object(
-                    "image", {
-                        mobile: "/assets/storybook/SfBanner/Banner2.jpg",
-                        desktop: "/assets/storybook/SfBanner/Banner2.jpg",
-                    },
-                    "Props"
-                ),
-            },
-            background: {
-                default: color("background", "#e1e3e2", "Props"),
-            },
-        },
-        template: `<div style="max-width: 77.5rem">
+  }))
+  .add("[slot] title", () => ({
+    components: { SfBanner },
+    props: {
+      customClass: {
+        default: options(
+          "CSS Modifiers",
+          {
+            "sf-banner--right": "sf-banner--right",
+          },
+          "",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        ),
+      },
+      title: {
+        default: text("title", "Eco Sandals", "Props"),
+      },
+      subtitle: {
+        default: text("subtitle", "Summer shoes", "Props"),
+      },
+      description: {
+        default: text(
+          "description",
+          "The collection features formal and casual comfort shoes with a Danish design focus. Made from premium leathers and comfort.",
+          "Props"
+        ),
+      },
+      buttonText: {
+        default: text("buttonText", "Shop Now", "Props"),
+      },
+      link: {
+        default: text("link", "", "Props"),
+      },
+      image: {
+        default: object(
+          "image",
+          {
+            mobile: "/assets/storybook/SfBanner/Banner2.jpg",
+            desktop: "/assets/storybook/SfBanner/Banner2.jpg",
+          },
+          "Props"
+        ),
+      },
+      background: {
+        default: color("background", "#e1e3e2", "Props"),
+      },
+    },
+    template: `<div style="max-width: 77.5rem">
       <SfBanner 
       :class="customClass"
       :title="title"
@@ -185,52 +194,55 @@ storiesOf("Molecules|Banner", module)
         </template>
       </SfBanner>
     </div>`,
-    }))
-    .add("[slot] description", () => ({
-        components: { SfBanner },
-        props: {
-            customClass: {
-                default: options(
-                    "CSS Modifiers", {
-                        "sf-banner--right": "sf-banner--right",
-                    },
-                    "", { display: "multi-select" },
-                    "CSS Modifiers"
-                ),
-            },
-            title: {
-                default: text("title", "Eco Sandals", "Props"),
-            },
-            subtitle: {
-                default: text("subtitle", "Summer shoes", "Props"),
-            },
-            description: {
-                default: text(
-                    "description",
-                    "The collection features formal and casual comfort shoes with a Danish design focus. Made from premium leathers and comfort.",
-                    "Props"
-                ),
-            },
-            buttonText: {
-                default: text("buttonText", "Shop Now", "Props"),
-            },
-            link: {
-                default: text("link", "", "Props")
-            },
-            image: {
-                default: object(
-                    "image", {
-                        mobile: "/assets/storybook/SfBanner/Banner2.jpg",
-                        desktop: "/assets/storybook/SfBanner/Banner2.jpg",
-                    },
-                    "Props"
-                ),
-            },
-            background: {
-                default: color("background", "#e1e3e2", "Props"),
-            },
-        },
-        template: `<div style="max-width: 77.5rem">
+  }))
+  .add("[slot] description", () => ({
+    components: { SfBanner },
+    props: {
+      customClass: {
+        default: options(
+          "CSS Modifiers",
+          {
+            "sf-banner--right": "sf-banner--right",
+          },
+          "",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        ),
+      },
+      title: {
+        default: text("title", "Eco Sandals", "Props"),
+      },
+      subtitle: {
+        default: text("subtitle", "Summer shoes", "Props"),
+      },
+      description: {
+        default: text(
+          "description",
+          "The collection features formal and casual comfort shoes with a Danish design focus. Made from premium leathers and comfort.",
+          "Props"
+        ),
+      },
+      buttonText: {
+        default: text("buttonText", "Shop Now", "Props"),
+      },
+      link: {
+        default: text("link", "", "Props"),
+      },
+      image: {
+        default: object(
+          "image",
+          {
+            mobile: "/assets/storybook/SfBanner/Banner2.jpg",
+            desktop: "/assets/storybook/SfBanner/Banner2.jpg",
+          },
+          "Props"
+        ),
+      },
+      background: {
+        default: color("background", "#e1e3e2", "Props"),
+      },
+    },
+    template: `<div style="max-width: 77.5rem">
       <SfBanner 
       :class="customClass"
       :title="title"
@@ -245,52 +257,55 @@ storiesOf("Molecules|Banner", module)
         </template>
       </SfBanner>
     </div>`,
-    }))
-    .add("[slot] call-to-action", () => ({
-        components: { SfBanner },
-        props: {
-            customClass: {
-                default: options(
-                    "CSS Modifiers", {
-                        "sf-banner--right": "sf-banner--right",
-                    },
-                    "", { display: "multi-select" },
-                    "CSS Modifiers"
-                ),
-            },
-            title: {
-                default: text("title", "Eco Sandals", "Props"),
-            },
-            subtitle: {
-                default: text("subtitle", "Summer shoes", "Props"),
-            },
-            description: {
-                default: text(
-                    "description",
-                    "The collection features formal and casual comfort shoes with a Danish design focus. Made from premium leathers and comfort.",
-                    "Props"
-                ),
-            },
-            buttonText: {
-                default: text("buttonText", "Shop Now", "Props"),
-            },
-            link: {
-                default: text("link", "", "Props")
-            },
-            image: {
-                default: object(
-                    "image", {
-                        mobile: "/assets/storybook/SfBanner/Banner2.jpg",
-                        desktop: "/assets/storybook/SfBanner/Banner2.jpg",
-                    },
-                    "Props"
-                ),
-            },
-            background: {
-                default: color("background", "#e1e3e2", "Props"),
-            },
-        },
-        template: `<div style="max-width: 77.5rem">
+  }))
+  .add("[slot] call-to-action", () => ({
+    components: { SfBanner },
+    props: {
+      customClass: {
+        default: options(
+          "CSS Modifiers",
+          {
+            "sf-banner--right": "sf-banner--right",
+          },
+          "",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        ),
+      },
+      title: {
+        default: text("title", "Eco Sandals", "Props"),
+      },
+      subtitle: {
+        default: text("subtitle", "Summer shoes", "Props"),
+      },
+      description: {
+        default: text(
+          "description",
+          "The collection features formal and casual comfort shoes with a Danish design focus. Made from premium leathers and comfort.",
+          "Props"
+        ),
+      },
+      buttonText: {
+        default: text("buttonText", "Shop Now", "Props"),
+      },
+      link: {
+        default: text("link", "", "Props"),
+      },
+      image: {
+        default: object(
+          "image",
+          {
+            mobile: "/assets/storybook/SfBanner/Banner2.jpg",
+            desktop: "/assets/storybook/SfBanner/Banner2.jpg",
+          },
+          "Props"
+        ),
+      },
+      background: {
+        default: color("background", "#e1e3e2", "Props"),
+      },
+    },
+    template: `<div style="max-width: 77.5rem">
       <SfBanner 
       :class="customClass"
       :title="title"
@@ -305,4 +320,4 @@ storiesOf("Molecules|Banner", module)
         </template>
       </SfBanner>
     </div>`,
-    }));
+  }));
