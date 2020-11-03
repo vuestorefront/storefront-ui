@@ -14,11 +14,6 @@
     width: inherit;
     height: inherit;
   }
-  &__badge {
-    position: absolute;
-    top: var(--icon-badge-top, 0);
-    right: var(--icon-badge-right, 0);
-  }
   @each $palette, $color in $icon-colors {
     &.color-#{$palette} {
       --icon-color: #{$color};
