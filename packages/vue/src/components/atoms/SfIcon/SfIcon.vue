@@ -36,29 +36,15 @@
         />
       </svg>
     </slot>
-    <slot name="badge" v-bind="{ badge }">
-      <transition name="sf-bounce">
-        <SfBadge
-          v-if="badge && badge.length > 0"
-          class="sf-icon__badge sf-badge--number"
-        >
-          {{ badge }}
-        </SfBadge>
-      </transition>
-    </slot>
   </div>
 </template>
 <script>
 import icons from "@storefront-ui/shared/icons/icons";
 import { iconColorsValues as SF_COLORS } from "@storefront-ui/shared/variables/colors";
 import { sizesValues as SF_SIZES } from "@storefront-ui/shared/variables/sizes";
-import SfBadge from "../SfBadge/SfBadge";
 const SF_ICONS = Object.keys(icons);
 export default {
   name: "SfIcon",
-  components: {
-    SfBadge,
-  },
   props: {
     /**
      * Icon SVG path(s)
@@ -96,10 +82,6 @@ export default {
     viewBox: {
       type: String,
       default: "0 0 24 24",
-    },
-    badge: {
-      type: String,
-      default: "",
     },
     /**
      * The fraction in which the icon is partially collored with --icon-color value and the rest with --icon-color-negative.

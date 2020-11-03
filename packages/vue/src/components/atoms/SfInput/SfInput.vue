@@ -47,7 +47,7 @@
             }"
             icon="show_password"
             size="1.5rem"
-          ></SfIcon>
+          />
         </SfButton>
       </slot>
     </div>

@@ -8,7 +8,6 @@
         :icon="icon"
         :color="iconColor"
         :size="iconSize"
-        :badge="badge"
       />
     </slot>
   </SfButton>
@@ -38,10 +37,6 @@ export default {
     disabled: {
       type: Boolean,
       default: false,
-    },
-    badge: {
-      type: String,
-      default: "",
     },
   },
 };
