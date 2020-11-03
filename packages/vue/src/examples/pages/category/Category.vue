@@ -171,6 +171,19 @@
             }
           "
         />
+        <div class="products__show-on-page">
+          <span class="products__show-on-page__label">Show on page:</span>
+          <SfSelect class="products__items-per-page">
+            <SfSelectOption
+              v-for="option in showOnPage"
+              :key="option"
+              :value="option"
+              class="products__items-per-page__option"
+            >
+              {{ option }}
+            </SfSelectOption>
+          </SfSelect>
+        </div>
       </div>
     </div>
     <SfSidebar
@@ -253,6 +266,49 @@
         />
       </div>
       <SfAccordion class="filters smartphone-only">
+        <SfAccordionItem header="Show on page" class="filters__accordion-item">
+          <template #additional-info>
+            <span class="filters__chosen"> {{ displayOnPage }} items </span>
+          </template>
+          <SfRadio
+            v-for="value in showOnPage"
+            :key="value"
+            v-model="displayOnPage"
+            :value="value"
+            :label="value"
+            class="filters__item"
+          />
+        </SfAccordionItem>
+        <SfAccordionItem header="Sort by" class="filters__accordion-item">
+          <template #additional-info>
+            <span class="filters__chosen">
+              {{ sortBy }}
+            </span>
+          </template>
+          <SfRadio
+            v-for="sort in sortByOptions"
+            :key="sort.value"
+            v-model="sortBy"
+            :value="sort.value"
+            :label="sort.label"
+            class="filters__item"
+          />
+        </SfAccordionItem>
+        <SfAccordionItem header="Category" class="filters__accordion-item">
+          <template #additional-info>
+            <span class="filters__chosen">
+              {{ category }}
+            </span>
+          </template>
+          <SfRadio
+            v-for="cat in sidebarAccordion"
+            :key="cat.header"
+            v-model="category"
+            :value="cat.header"
+            :label="cat.header"
+            class="filters__item"
+          />
+        </SfAccordionItem>
         <SfAccordionItem header="Collection" class="filters__accordion-item">
           <SfFilter
             v-for="filter in filters.collection"
@@ -343,6 +399,8 @@ import {
   SfBreadcrumbs,
   SfColor,
   SfProperty,
+  SfRadio,
+  SfSelect,
 } from "@storefront-ui/vue";
 export default {
   components: {
@@ -361,24 +419,28 @@ export default {
     SfBreadcrumbs,
     SfColor,
     SfProperty,
+    SfRadio,
+    SfSelect,
   },
   data() {
     return {
       currentPage: 1,
-      sortBy: "price-up",
+      sortBy: "Latest",
       isFilterSidebarOpen: false,
       isGridView: true,
+      category: "Clothing",
+      displayOnPage: "40",
       sortByOptions: [
         {
-          value: "latest",
+          value: "Latest",
           label: "Latest",
         },
         {
-          value: "price-up",
+          value: "Price-up",
           label: "Price from low to high",
         },
         {
-          value: "price-down",
+          value: "Price-down",
           label: "Price from high to low",
         },
       ],
@@ -420,6 +482,7 @@ export default {
           ],
         },
       ],
+      showOnPage: ["20", "40", "60"],
       products: [
         {
           title: "Cream Beach Bag",
@@ -823,6 +886,15 @@ export default {
       margin: 0 0 0 var(--spacer-sm);
     }
   }
+  &__show-on-page {
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+    &__label {
+      font-family: var(--font-family--secondary);
+      font-size: var(--font-size--sm);
+    }
+  }
 }
 .filters {
   &__title {
@@ -838,7 +910,16 @@ export default {
   &__color {
     margin: var(--spacer-xs) var(--spacer-xs) var(--spacer-xs) 0;
   }
+  &__chosen {
+    color: var(--c-text-muted);
+    font-weight: var(--font-weight--normal);
+    font-family: var(--font-family--secondary);
+    position: absolute;
+    right: var(--spacer-xl);
+  }
   &__item {
+    --radio-container-padding: 0 var(--spacer-sm) 0 var(--spacer-xl);
+    --radio-background: transparent;
     --filter-label-color: var(--c-secondary-variant);
     --filter-count-color: var(--c-secondary-variant);
     --checkbox-padding: 0 var(--spacer-sm) 0 var(--spacer-xl);
@@ -873,3 +954,4 @@ export default {
   }
 }
 </style>
+0
