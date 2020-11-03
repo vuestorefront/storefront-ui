@@ -16,7 +16,7 @@ import {
   SfBottomNavigation,
   SfBanner,
   SfOverlay,
-} from "@storefront-ui/vue"
+} from "@storefront-ui/vue";
 storiesOf("Organisms|Header", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
