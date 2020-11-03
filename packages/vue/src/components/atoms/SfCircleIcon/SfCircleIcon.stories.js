@@ -35,12 +35,6 @@ storiesOf("Atoms|CircleIcon", module)
       icon: {
         default: select("icon", iconsNames, "home", "Props"),
       },
-      hasBadge: {
-        default: boolean("hasBadge", false, "Props"),
-      },
-      badgeLabel: {
-        default: text("badgeLabel", "99", "Props"),
-      },
       disabled: {
         default: boolean("disabled", false, "Props"),
       },
@@ -48,8 +42,6 @@ storiesOf("Atoms|CircleIcon", module)
     template: `<SfCircleIcon
         :class="customClass"
         :icon="icon" 
-        :has-badge="hasBadge"
-        :badge-label="badgeLabel"
         aria-label="Go to Home"
         :disabled="disabled"
         :style="{margin: '.5rem'}"

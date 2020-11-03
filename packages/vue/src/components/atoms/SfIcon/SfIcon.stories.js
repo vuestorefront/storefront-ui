@@ -28,12 +28,6 @@ storiesOf("Atoms|Icon", module)
       viewBox: {
         default: text("viewBox", "0 0 24 24", "Props"),
       },
-      hasBadge: {
-        default: boolean("hasBadge", false, "Props"),
-      },
-      badgeLabel: {
-        default: text("badgeLabel", "99", "Props"),
-      },
       coverage: {
         default: number("coverage (0-1)", 1, "Props"),
       },
@@ -44,8 +38,6 @@ storiesOf("Atoms|Icon", module)
       :size="size"
       :color="color"
       :view-box="viewBox"
-      :has-badge="hasBadge"
-      :badge-label="badgeLabel"
       :coverage="coverage"/>`,
   }))
   .add("Available icons", () => ({
@@ -85,12 +77,6 @@ storiesOf("Atoms|Icon", module)
       viewBox: {
         default: text("viewBox", "0 0 24 24", "Props"),
       },
-      hasBadge: {
-        default: boolean("hasBadge", false, "Props"),
-      },
-      badgeLabel: {
-        default: text("badgeLabel", "99", "Props"),
-      },
       coverage: {
         default: number("coverage (0-1)", 1, "Props"),
       },
@@ -100,9 +86,7 @@ storiesOf("Atoms|Icon", module)
       :icon="icon"
       :size="size"
       :color="color"
-      :view-box="viewBox" 
-      :has-badge="hasBadge"
-      :badge-label="badgeLabel"
+      :view-box="viewBox"
       :coverage="coverage"/>`,
   }))
   .add("[slot] default", () => ({
@@ -123,12 +107,6 @@ storiesOf("Atoms|Icon", module)
       viewBox: {
         default: text("viewBox", "0 0 24 24", "Props"),
       },
-      hasBadge: {
-        default: boolean("hasBadge", false, "Props"),
-      },
-      badgeLabel: {
-        default: text("badgeLabel", "99", "Props"),
-      },
     },
     components: { SfIcon },
     template: `<SfIcon
@@ -136,8 +114,7 @@ storiesOf("Atoms|Icon", module)
       :size="size"
       :color="color"
       :view-box="viewBox"
-      :has-badge="hasBadge"
-      :badge-label="badgeLabel">
+    >
       <template #default="{viewBox, iconPaths, icon}">
         <img src="/assets/logo.svg" alt="Vue.js">
       </template>
