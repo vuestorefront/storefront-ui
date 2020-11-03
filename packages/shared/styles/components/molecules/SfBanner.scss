@@ -1,11 +1,11 @@
 @import "../../helpers";
 .sf-banner {
+    --banner-background-position: 60%;
     display: var(--banner-display, flex);
     justify-content: var(--banner-justify-content, flex-start);
     width: var(--banner-width, 100%);
     min-height: var(--banner-height, 21.4375rem);
     @include background( --banner-background, var(--_banner-background-color, transparent), var(--_banner-background-image));
-    --banner-background-position: 60%;
     &__button-wrapper {
         display: flex;
         flex-direction: column;
