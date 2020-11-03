@@ -1,13 +1,6 @@
 <template>
   <section class="sf-banner" :style="style" v-on="isMobile ? $listeners : {}">
-    <SfButton
-      class="sf-banner__button-wrapper sf-button--pure"
-      :link="link"
-      :class="{
-        'is-disabled--button': !isMobile,
-        'is-disabled--link': !isMobile,
-      }"
-    >
+    <component :is="tag" class="sf-banner__button-wrapper" :link="link">
       <slot name="subtitle" v-bind="{ subtitle }">
         <h2 v-if="subtitle" class="sf-banner__subtitle">
           {{ subtitle }}
@@ -33,11 +26,12 @@
           {{ buttonText }}
         </SfButton>
       </slot>
-    </SfButton>
+    </component>
   </section>
 </template>
 <script>
 import SfButton from "../../atoms/SfButton/SfButton.vue";
+import SfLink from "../../atoms/SfLink/SfLink.vue";
 import {
   mapMobileObserver,
   unMapMobileObserver,
@@ -46,6 +40,7 @@ export default {
   name: "SfBanner",
   components: {
     SfButton,
+    SfLink,
   },
   props: {
     /**
@@ -100,6 +95,9 @@ export default {
           image.desktop && `url(${image.desktop})`,
         "--_banner-background-color": background,
       };
+    },
+    tag() {
+      return !this.isMobile ? "div" : this.link ? "SfLink" : "SfButton";
     },
   },
   beforeDestroy() {
