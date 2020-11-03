@@ -35,13 +35,17 @@ storiesOf("Atoms|CircleIcon", module)
       icon: {
         default: select("icon", iconsNames, "home", "Props"),
       },
+      iconSize: {
+        default: text("iconSize", "20px", "Props"),
+      },
       disabled: {
         default: boolean("disabled", false, "Props"),
       },
     },
     template: `<SfCircleIcon
         :class="customClass"
-        :icon="icon" 
+        :icon="icon"
+        :iconSize="iconSize"
         aria-label="Go to Home"
         :disabled="disabled"
         :style="{margin: '.5rem'}"
@@ -79,11 +83,13 @@ storiesOf("Atoms|CircleIcon", module)
     template: `<SfCircleIcon
       :class="customClass"
       :icon="icon"
-      :iconSize="iconSize"
       aria-label="Go to Home"
+      :iconSize="iconSize"
+      :disabled="disabled"
+      :style="{margin: '.5rem'}"
     >
       <span style="font-size: 1.5rem; width: 20px; height: 20px; line-height: 0; display: flex; justify-content: center; align-items: center">
         1
-      </span>,
+      </span>
     </SfCircleIcon>`,
   }));
