@@ -9,6 +9,9 @@ storiesOf("Molecules|Gallery", module)
       enableZoom: {
         default: boolean("enableZoom", false, "Props"),
       },
+      outsideZoom: {
+        default: boolean("outsideZoom", false, "Props"),
+      },
       images: {
         default: object(
           "images",
@@ -95,5 +98,6 @@ storiesOf("Molecules|Gallery", module)
       :slider-options="sliderOptions"
       :current="current"
       :enable-zoom="enableZoom"
+      :outsideZoom="outsideZoom"
     />`,
   }));
