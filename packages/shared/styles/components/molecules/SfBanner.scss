@@ -1,24 +1,20 @@
 @import "../../helpers";
 .sf-banner {
-    display: flex;
-    &__container {
-        box-sizing: border-box;
-        display: var(--banner-display, flex);
-        flex: 0 0 var(--banner-container-width, 70%);
-        align-items: var(--banner-align-items, flex-start);
-        justify-content: var(--banner-justify-content, flex-start);
-        min-height: var(--banner-height, 21.4375rem);
-        width: var(--banner-width, 100%);
-        flex-direction: var(--banner-container-flex-direction, column);
-        padding: var(--banner-padding, var(--spacer-xl));
-        @include background( --banner-background, var(--_banner-background-color, transparent), var(--_banner-background-image));
-        --banner-background-position: 60%;
-    }
+    display: var(--banner-display, flex);
+    justify-content: var(--banner-justify-content, flex-start);
+    width: var(--banner-width, 100%);
+    min-height: var(--banner-height, 21.4375rem);
+    @include background( --banner-background, var(--_banner-background-color, transparent), var(--_banner-background-image));
+    --banner-background-position: 60%;
     &__button-wrapper {
         display: flex;
         flex-direction: column;
-        width: 100%;
-        height: 100%;
+        box-sizing: border-box;
+        align-items: var(--banner-align-items, flex-start);
+        justify-content: var(--banner-container-justify-content, flex-start);
+        flex-direction: var(--banner-container-flex-direction, column);
+        padding: var(--banner-padding, var(--spacer-xl));
+        flex: 0 0 var(--banner-container-width, 100%);
     }
     &__subtitle {
         margin: var(--banner-subtitle-margin, 0);
@@ -33,27 +29,31 @@
         text-transform: var(--banner-title-text-transform, uppercase);
     }
     &__description {
-        display: var(--banner-display-description, none);
+        display: var(--banner-description-display, none);
         margin: var( --banner-description-margin, var(--spacer-sm) 0 var(--spacer-base) 0);
         color: var(--banner-color, var(--banner-description-color, var(--c-text)));
+        text-align: var(--banner-description-text-align, left);
         @include font( --banner-description-font, var(--font-weight--light), var(--font-size--base), 1.6, var(--font-family--primary));
     }
     &__call-to-action {
+        --button-color: var(--c-light-variant);
         display: var(--banner-display-call-to-action, none);
     }
     @include for-desktop {
         align-items: var(--banner-align-items, center);
         --banner-background-image: var( --_banner-background-desktop-image, var(--_banner-background-image));
         --banner-container-width: 50%;
-        --banner-display-description: block;
-        --banner-justify-content: flex-start;
+        --banner-description-display: block;
         --banner-display-call-to-action: block;
         --banner-title-margin: var(--spacer-sm) 0 0 0;
         --banner-subtitle-color: var(--c-gray);
         min-height: var(--banner-height, 25rem);
         &__button-wrapper {
             &.is-disabled--button,
-            &.is-disabled--link {
+            &.is-disabled--link,
+            &.is-disabled--button:hover,
+            &.is-disabled--link:hover {
+                --button-background: transparent;
                 .sf-banner__call-to-action {
                     pointer-events: auto;
                 }
