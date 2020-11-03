@@ -8,7 +8,7 @@
   width: var(--icon-width, var(--icon-size, #{map-get($sizes, "sm")}));
   height: var(--icon-height, var(--icon-size, #{map-get($sizes, "sm")}));
   background: transparent;
-  fill: var(--icon-color, #{map-get($icon-colors, "black")});   
+  fill: var(--icon-color, #{map-get($icon-colors, "black")});
   svg,
   img {
     width: inherit;

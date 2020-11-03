@@ -36,10 +36,13 @@
         />
       </svg>
     </slot>
-    <slot name="badge" v-bind="{ badgeLabel, hasBadge }">
+    <slot name="badge" v-bind="{ badge }">
       <transition name="sf-bounce">
-        <SfBadge v-if="hasBadge" class="sf-icon__badge sf-badge--number">
-          {{ badgeLabel }}
+        <SfBadge
+          v-if="badge && badge.length > 0"
+          class="sf-icon__badge sf-badge--number"
+        >
+          {{ badge }}
         </SfBadge>
       </transition>
     </slot>
@@ -94,11 +97,7 @@ export default {
       type: String,
       default: "0 0 24 24",
     },
-    hasBadge: {
-      type: Boolean,
-      default: false,
-    },
-    badgeLabel: {
+    badge: {
       type: String,
       default: "",
     },
