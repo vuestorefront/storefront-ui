@@ -27,19 +27,19 @@
         margin: 0 0 var(--spacer-2xs) 0;
         overflow-y: scroll;
         box-shadow: none;
-        color: var(--select-dropdown-color, var(--c-text-muted));
+        color: var(--select-dropdown-color, var(--c-secondary-variant));
         background: var(--c-white);
         outline: none;
         @include border(--select-dropdown-border, 0 0 0 0, solid, var(--c-secondary));
     }
     &__option {
-        @include background( --select-option-background, var(--_select-option-background-color, var(--c-white)), var(--_select-option-background-image));
+        background: var(--select-option-background, var(--c-white));
         @include font( --select-option-font, var(--font-weight--normal), var(--font-size--base), 1, var(--font-family--secondary));
     }
     .sf-select__dropdown:active {
-        --select-label-color: var(--c-text);
+        --select-label-color: var(--c-text-muted);
         --select-dropdown-border-color: var(--c-primary);
-        --select-dropdown-color: var(--c-text);
+        --select-dropdown-color: var(--c-link);
     }
     &__label .sf-select__dropdown:active {
         top: 0;
@@ -60,7 +60,7 @@
     &.is-selected {
         --select-label-top: 0;
         --select-label-font-size: var(--font-size--xs);
-        --select-dropdown-color: var(--c-text);
+        --select-dropdown-color: var(--c-secondary-variant);
     }
     &.is-invalid {
         --select-dropdown-border-color: var(--c-danger);

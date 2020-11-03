@@ -110,7 +110,7 @@
     --button-border-width: 0;
     --button-padding: 0;
     --button-background: transparent;
-    --button-color: var(--c-info);
+    --button-color: var(--c-text);
     --button-text-transform: none;
     --button-text-decoration: underline;
     --button-font-size: var(--font-size--sm);
@@ -119,7 +119,7 @@
     display: inline;
     &:hover {
       --button-background: transparent;
-      --button-color: var(--c-black);
+      --button-color: var(--c-primary);
     }
     &:active {
       --button-color: var(--c-gray);
