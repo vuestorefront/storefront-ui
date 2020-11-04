@@ -18,7 +18,7 @@
       </slot>
       <slot name="call-to-action" v-bind="{ buttonText }">
         <SfButton
-          v-if="buttonText"
+          v-if="buttonText && !isMobile"
           :link="link"
           class="sf-banner__call-to-action color-secondary"
           v-on="!isMobile ? $listeners : {}"
