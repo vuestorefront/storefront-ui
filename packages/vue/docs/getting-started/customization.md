@@ -233,6 +233,7 @@ Then create or edit an existing `tailwind.config.js` file. To use the variables 
 ```js
 module.exports = {
   purge: [],
+  important: true,
   theme: {
     extend: {
       fontSize: {
