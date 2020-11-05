@@ -71,7 +71,7 @@ storiesOf("Molecules|Select", module)
         style="max-width: 30rem; margin: 10px;"
       >
         <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
-          <span :color="option.color" :label="option.label">{{option.value}}</span>
+        {{option.label}}
         </SfSelectOption>
       </SfSelect>`,
   }))
@@ -127,7 +127,7 @@ storiesOf("Molecules|Select", module)
         :placeholder="placeholder"    
         >
         <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
-          <span :color="option.color" :label="option.label">{{option.value}</span>
+          {{option.label}}
         </SfSelectOption>
         <template #label>
           CUSTOM LABEL
@@ -185,7 +185,7 @@ storiesOf("Molecules|Select", module)
         :disabled="disabled"
         >
         <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
-          <span :color="option.color" :label="option.label">{{option.value}</span>
+          {{option.label}}
         </SfSelectOption>
         <template #errorMessage>
           <span>
