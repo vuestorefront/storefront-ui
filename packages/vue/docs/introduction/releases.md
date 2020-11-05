@@ -186,6 +186,7 @@ This change follows [css guideline](https://github.com/chris-pearce/css-guidelin
 
   1. `SfTextArea`
   2. `SfAddressPicker`
+  3. `SfCategoryCard`
 
 ### Props
 
