@@ -86,7 +86,7 @@ storiesOf("Organisms|ProductCard", module)
       handleSelectedColor(color) {
         this.colors.map((el) => {
           if (el.label === color.label) {
-            color.selected = !color.selected;
+            el.selected = !el.selected;
           } else {
             el.selected = false;
           }
