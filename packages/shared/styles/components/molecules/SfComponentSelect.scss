@@ -35,7 +35,6 @@
     }
   }
 }
-
 .sf-component-select {
   position: relative;
   box-sizing: border-box;
@@ -186,7 +185,6 @@
     --component-select-animation-leave: ssdesktop 150ms reverse;
   }
 }
-
 @keyframes ssdesktop {
   0% {
     opacity: 0;
@@ -195,7 +193,6 @@
     opacity: 1;
   }
 }
-
 @keyframes ssmobile {
   0% {
     transform: translate(0, 100%);
