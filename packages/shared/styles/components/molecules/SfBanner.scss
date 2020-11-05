@@ -1,6 +1,6 @@
 @import "../../helpers";
 .sf-banner {
-  --banner-background-position: 60%;
+  box-sizing: border-box;
   display: var(--banner-display, flex);
   justify-content: var(--banner-justify-content, flex-start);
   width: var(--banner-width, 100%);
@@ -10,10 +10,10 @@
     var(--_banner-background-color, transparent),
     var(--_banner-background-image)
   );
+  --banner-background-position: 60%;
   &__button-wrapper {
     display: flex;
     flex-direction: column;
-    box-sizing: border-box;
     align-items: var(--banner-align-items, flex-start);
     justify-content: var(--banner-container-justify-content, flex-start);
     flex-direction: var(--banner-container-flex-direction, column);
