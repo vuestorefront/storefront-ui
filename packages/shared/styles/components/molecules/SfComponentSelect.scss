@@ -3,24 +3,28 @@
   display: flex;
   box-sizing: border-box;
   padding: var(--component-select-option-padding, var(--spacer-sm));
-  @include border(--component-select-option-border, 1px 0 0 0, solid, var(--c-light));
+  @include border(
+    --component-select-option-border,
+    1px 0 0 0,
+    solid,
+    var(--c-light)
+  );
   background: var(--component-select-option-background);
   color: inherit;
-  min-height: var( 
-		--component-select-height, 
-		calc( 
-			var(--spacer-base) + 
-			var(--spacer-2xs) + 
-			var(--component-select-label-font-size, var(--font-size--lg))
-		)
-	);
-  @include font( 
-		--component-select-option-font, 
-		var(--font-weight--light), 
-		var(--font-size--sm), 
-		1.2, 
-		var(--font-family--primary)
-	);
+  min-height: var(
+    --component-select-height,
+    calc(
+      var(--spacer-base) + var(--spacer-2xs) +
+        var(--component-select-label-font-size, var(--font-size--lg))
+    )
+  );
+  @include font(
+    --component-select-option-font,
+    var(--font-weight--light),
+    var(--font-size--sm),
+    1.2,
+    var(--font-family--primary)
+  );
   &.is-active {
     --component-select-option-background: var(--c-light);
   }
@@ -37,7 +41,10 @@
   box-sizing: border-box;
   width: var(--component-select-width);
   height: var(--component-select-height);
-  padding: var(--component-select-padding, 0 0 calc(var(--font-size--xs) * 1.2) 0);
+  padding: var(
+    --component-select-padding,
+    0 0 calc(var(--font-size--xs) * 1.2) 0
+  );
   color: var(--component-select-color, var(--c-text));
   cursor: default;
   &__label {
@@ -45,22 +52,22 @@
     top: var(--component-select-label-top, 50%);
     left: var(--component-select-label-left, 0);
     color: var(--component-select-label-color, var(--c-secondary-variant));
-    transform: var( 
-			--component-select-label-transform, 
-			translate3d(0, calc(var(--component-select-label-top, 50%) * -1), 0)
-		);
-    transition: var( 
-			--component-select-label-transition, 
-			top 150ms linear, 
-			font-size 150ms linear
-		);
-    @include font( 
-			--component-select-label-font, 
-			var(--font-weight--normal), 
-			var(--font-size--lg), 
-			1, 
-			var(--font-family--secondary)
-		);
+    transform: var(
+      --component-select-label-transform,
+      translate3d(0, calc(var(--component-select-label-top, 50%) * -1), 0)
+    );
+    transition: var(
+      --component-select-label-transition,
+      top 150ms linear,
+      font-size 150ms linear
+    );
+    @include font(
+      --component-select-label-font,
+      var(--font-weight--normal),
+      var(--font-size--lg),
+      1,
+      var(--font-family--secondary)
+    );
     &::after {
       content: var(--component-select-label-required);
       color: var(--component-select-label-color, var(--c-primary));
@@ -79,8 +86,14 @@
     box-sizing: border-box;
     display: flex;
     align-items: var(--component-select-selected-align-items, center);
-    justify-content: var(--component-select-selected-justify-content, flex-start);
-    padding: var( --component-select-selected-padding, var(--spacer-sm) var(--spacer-lg) var(--spacer-xs) 0);
+    justify-content: var(
+      --component-select-selected-justify-content,
+      flex-start
+    );
+    padding: var(
+      --component-select-selected-padding,
+      var(--spacer-sm) var(--spacer-lg) var(--spacer-xs) 0
+    );
     margin: var(--component-select-margin, 0 0 var(--spacer-xs) 0);
     background: var(--component-select-background);
     color: var(--component-select-color, var(--c-text));
@@ -95,10 +108,10 @@
     z-index: var(--component-select-dropdown-z-index, 1);
     width: 100%;
     background: var(--component-select-dropdown-background, var(--c-white));
-    box-shadow: var( 
-			--component-select-dropdown-box-shadow, 
-			0 4px 11px rgba(var(--c-dark-base), 0.1)
-		);
+    box-shadow: var(
+      --component-select-dropdown-box-shadow,
+      0 4px 11px rgba(var(--c-dark-base), 0.1)
+    );
   }
   &__options {
     margin: 0;
@@ -112,14 +125,17 @@
   &__error-message {
     --component-select-border-color: var(--c-danger);
     color: var(--component-select-error-message-color, var(--c-danger));
-    min-height: var(--component-select-error-message-height, calc(var(--font-size--xs) * 1.2));
-    @include font( 
-			--input-error-message-font, 
-			var(--font-weight--medium), 
-			var(--font-size--xs), 
-			1.2, 
-			var(--font-family--secondary)
-		);
+    min-height: var(
+      --component-select-error-message-height,
+      calc(var(--font-size--xs) * 1.2)
+    );
+    @include font(
+      --input-error-message-font,
+      var(--font-weight--medium),
+      var(--font-size--xs),
+      1.2,
+      var(--font-family--secondary)
+    );
   }
   &__cancel {
     --button-background: var(--c-light);
