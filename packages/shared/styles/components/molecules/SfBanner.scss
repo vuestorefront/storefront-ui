@@ -5,7 +5,11 @@
   justify-content: var(--banner-justify-content, flex-start);
   width: var(--banner-width, 100%);
   min-height: var(--banner-height, 21.4375rem);
-  @include background( --banner-background, var(--_banner-background-color, transparent), var(--_banner-background-image));
+  @include background(
+    --banner-background,
+    var(--_banner-background-color, transparent),
+    var(--_banner-background-image)
+  );
   &__button-wrapper {
     display: flex;
     flex-direction: column;
@@ -25,29 +29,56 @@
   }
   &__subtitle {
     margin: var(--banner-subtitle-margin, 0);
-    color: var( --banner-color, var(--banner-subtitle-color, var(--c-dark-variant)));
-    @include font( --banner-subtitle-font, var(--font-weight--normal), var(--font-size--base), 1.4, var(--font-family--secondary));
+    color: var(
+      --banner-color,
+      var(--banner-subtitle-color, var(--c-dark-variant))
+    );
+    @include font(
+      --banner-subtitle-font,
+      var(--font-weight--normal),
+      var(--font-size--base),
+      1.4,
+      var(--font-family--secondary)
+    );
     text-transform: var(--banner-subtitle-text-transform, uppercase);
   }
   &__title {
     margin: var(--banner-title-margin, var(--spacer-2xs) 0 0 0);
     color: var(--banner-color, var(--banner-title-color, var(--c-text)));
-    @include font( --banner-title-font, var(--font-weight--normal), var(--h2-font-size), 1.4, var(--font-family--secondary));
+    @include font(
+      --banner-title-font,
+      var(--font-weight--normal),
+      var(--h2-font-size),
+      1.4,
+      var(--font-family--secondary)
+    );
     text-transform: var(--banner-title-text-transform, uppercase);
   }
   &__description {
     display: var(--banner-description-display, none);
-    margin: var( --banner-description-margin, var(--spacer-sm) 0 var(--spacer-base) 0);
+    margin: var(
+      --banner-description-margin,
+      var(--spacer-sm) 0 var(--spacer-base) 0
+    );
     color: var(--banner-color, var(--banner-description-color, var(--c-text)));
     text-align: var(--banner-description-text-align, left);
-    @include font( --banner-description-font, var(--font-weight--light), var(--font-size--base), 1.6, var(--font-family--primary));
+    @include font(
+      --banner-description-font,
+      var(--font-weight--light),
+      var(--font-size--base),
+      1.6,
+      var(--font-family--primary)
+    );
   }
   &__call-to-action {
     --button-color: var(--c-light-variant);
     display: var(--banner-display-call-to-action, none);
   }
   @include for-desktop {
-    --banner-background-image: var( --_banner-background-desktop-image, var(--_banner-background-image));
+    --banner-background-image: var(
+      --_banner-background-desktop-image,
+      var(--_banner-background-image)
+    );
     --banner-container-width: 50%;
     --banner-description-display: block;
     --banner-display-call-to-action: block;
