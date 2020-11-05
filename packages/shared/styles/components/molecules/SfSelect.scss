@@ -14,8 +14,18 @@
     padding: 0 0 0 4px;
     height: 0.625rem;
     color: var(--select-label-color, var(--c-secondary-variant));
-    transition: var( --select-label-transition, top 150ms linear, font-size 150ms linear);
-    @include font( --select-label-font, var(--font-weight--normal), var(--font-size--base), 1, var(--font-family--secondary));
+    transition: var(
+      --select-label-transition,
+      top 150ms linear,
+      font-size 150ms linear
+    );
+    @include font(
+      --select-label-font,
+      var(--font-weight--normal),
+      var(--font-size--base),
+      1,
+      var(--font-family--secondary)
+    );
     &::after {
       content: var(--select-label-required);
       color: var(--select-label-color, var(--c-primary));
@@ -30,11 +40,22 @@
     color: var(--select-dropdown-color, var(--c-secondary-variant));
     background: var(--c-white);
     outline: none;
-    @include border(--select-dropdown-border, 0 0 0 0, solid, var(--c-secondary));
+    @include border(
+      --select-dropdown-border,
+      0 0 0 0,
+      solid,
+      var(--c-secondary)
+    );
   }
   &__option {
     background: var(--select-option-background, var(--c-white));
-    @include font( --select-option-font, var(--font-weight--normal), var(--font-size--base), 1, var(--font-family--secondary));
+    @include font(
+      --select-option-font,
+      var(--font-weight--normal),
+      var(--font-size--base),
+      1,
+      var(--font-family--secondary)
+    );
   }
   .sf-select__dropdown:active {
     --select-label-color: var(--c-text-muted);
@@ -49,8 +70,17 @@
   }
   &__error-message {
     color: var(--select-error-message-color, var(--c-danger));
-    min-height: var(--select-error-message-height, calc(var(--font-size--xs) * 1.2));
-    @include font( --input-error-message-font, var(--font-weight--medium), var(--font-size--xs), 1.2, var(--font-family--secondary));
+    min-height: var(
+      --select-error-message-height,
+      calc(var(--font-size--xs) * 1.2)
+    );
+    @include font(
+      --input-error-message-font,
+      var(--font-weight--medium),
+      var(--font-size--xs),
+      1.2,
+      var(--font-family--secondary)
+    );
   }
   &--underlined {
     --select-dropdown-border-width: 0 0 1px 0;
