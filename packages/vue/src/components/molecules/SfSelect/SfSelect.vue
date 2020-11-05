@@ -22,6 +22,7 @@
     >
       <!-- empty option by default, may be used as placeholder -->
       <option
+        v-if="placeholder"
         class="sf-select__placeholder sf-select__option"
         disabled
         :selected="!!placeholder"
