@@ -510,6 +510,8 @@ export default {
       this.products[index].colors.map((el) => {
         if (el.label === color.label) {
           color.selected = !color.selected;
+        } else {
+          el.selected = false;
         }
       });
     },
