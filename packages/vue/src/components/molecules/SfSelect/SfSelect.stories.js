@@ -5,7 +5,7 @@ import {
   boolean,
   optionsKnob as options,
 } from "@storybook/addon-knobs";
-import { SfSelect, SfProductOption } from "@storefront-ui/vue";
+import { SfSelect } from "@storefront-ui/vue";
 const optionsList = [
   { value: "amaranth", color: "#E52B50", label: "Amaranth" },
   { value: "amber", color: "#FFBF00", label: "Amber" },
@@ -20,7 +20,7 @@ const knobOptionsList = optionsList.reduce(
 storiesOf("Molecules|Select", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
-    components: { SfSelect, SfProductOption },
+    components: { SfSelect },
     props: {
       customClass: {
         default: options(
@@ -71,12 +71,12 @@ storiesOf("Molecules|Select", module)
         style="max-width: 30rem; margin: 10px;"
       >
         <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
-          <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
+          <span :color="option.color" :label="option.label">{{option.value}}</span>
         </SfSelectOption>
       </SfSelect>`,
   }))
   .add("[slot] label", () => ({
-    components: { SfSelect, SfProductOption },
+    components: { SfSelect },
     props: {
       customClass: {
         default: options(
@@ -127,7 +127,7 @@ storiesOf("Molecules|Select", module)
         :placeholder="placeholder"    
         >
         <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
-          <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
+          <span :color="option.color" :label="option.label">{{option.value}</span>
         </SfSelectOption>
         <template #label>
           CUSTOM LABEL
@@ -136,7 +136,7 @@ storiesOf("Molecules|Select", module)
     </div>`,
   }))
   .add("[slot] errorMessage", () => ({
-    components: { SfSelect, SfProductOption },
+    components: { SfSelect },
     props: {
       customClass: {
         default: options(
@@ -185,7 +185,7 @@ storiesOf("Molecules|Select", module)
         :disabled="disabled"
         >
         <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
-          <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
+          <span :color="option.color" :label="option.label">{{option.value}</span>
         </SfSelectOption>
         <template #errorMessage>
           <span>
