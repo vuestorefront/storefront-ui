@@ -6,6 +6,21 @@
     />
     <div class="product">
       <SfGallery :images="product.images" class="product__gallery" />
+      <SfColorPicker
+        class="sf-color-picker--vertical smartphone-only"
+        :is-open="!isMobile || openColorPicker"
+        :has-close="true"
+        @click:toggle="toggleColorPicker"
+      >
+        <SfColor
+          v-for="(color, i) in product.colors"
+          :key="color.name"
+          class="product__color"
+          :color="color.color"
+          :selected="color.selected"
+          @click="selectColor(i)"
+        />
+      </SfColorPicker>
       <div class="product__info">
         <div class="product__header">
           <SfHeading
@@ -53,20 +68,25 @@
               :key="key"
               :value="size"
             >
-              <SfProductOption :label="size"></SfProductOption>
+              {{ size }}
             </SfSelectOption>
           </SfSelect>
           <div class="product__colors desktop-only">
             <p class="product__color-label">Color:</p>
-            <SfColor
-              v-for="(color, i) in product.colors"
-              :key="i"
-              :aria-label="color.name"
-              :color="color.color"
-              :selected="color.selected"
-              class="product__color"
-              @click="selectColor(i)"
-            />
+            <SfColorPicker
+              class="product__collor-picker sf-color-picker--vertical desktop-only"
+              :is-open="true"
+              @click:toggle="toggleColorPicker"
+            >
+              <SfColor
+                v-for="(color, i) in product.colors"
+                :key="color.name"
+                class="product__color"
+                :color="color.color"
+                :selected="color.selected"
+                @click="selectColor(i)"
+              />
+            </SfColorPicker>
           </div>
           <SfAddToCart
             v-model="qty"
@@ -148,9 +168,14 @@ import {
   SfAddToCart,
   SfColor,
   SfSelect,
-  SfProductOption,
   SfBreadcrumbs,
+  SfColorPicker,
 } from "@storefront-ui/vue";
+import {
+  mapMobileObserver,
+  unMapMobileObserver,
+} from "../../../utilities/mobile-observer";
+
 export default {
   name: "Product",
   components: {
@@ -166,11 +191,12 @@ export default {
     SfAddToCart,
     SfColor,
     SfSelect,
-    SfProductOption,
     SfBreadcrumbs,
+    SfColorPicker,
   },
   data() {
     return {
+      openColorPicker: false,
       current: 1,
       selectedColor: "beige",
       selectedSize: undefined,
@@ -273,7 +299,6 @@ export default {
           content: "",
         },
       ],
-      selected: false,
       breadcrumbs: [
         {
           text: "Home",
@@ -296,6 +321,12 @@ export default {
       ],
     };
   },
+  computed: {
+    ...mapMobileObserver(),
+  },
+  beforeDestroy() {
+    unMapMobileObserver();
+  },
   methods: {
     addToCart() {
       console.log(
@@ -311,6 +342,9 @@ export default {
           el.selected = false;
         }
       });
+    },
+    toggleColorPicker() {
+      this.openColorPicker = !this.openColorPicker;
     },
   },
 };
@@ -403,14 +437,19 @@ export default {
       var(--font-family--secondary)
     );
     display: flex;
-    align-items: center;
     margin-top: var(--spacer-xl);
   }
-  &__color-label {
-    margin: 0 var(--spacer-lg) 0 0;
+  &__collor-picker {
+    position: relative;
   }
   &__color {
-    margin: 0 var(--spacer-2xs);
+    margin: var(--spacer-xs);
+    @include for-desktop {
+      margin: 0 var(--spacer-xs) 0;
+    }
+  }
+  &__color-label {
+    margin: 0 var(--spacer-sm) 0 0;
   }
   &__add-to-cart {
     margin: var(--spacer-base) var(--spacer-sm) 0;
@@ -469,6 +508,9 @@ export default {
   &__gallery {
     flex: 1;
   }
+}
+::v-deep .sf-color-picker__button-open {
+  --button-padding: var(--spacer-xs) var(--spacer-lg);
 }
 .breadcrumbs {
   margin: var(--spacer-base) auto var(--spacer-lg);
