@@ -5,7 +5,7 @@ import {
   boolean,
   optionsKnob as options,
 } from "@storybook/addon-knobs";
-import { SfSelect } from "@storefront-ui/vue";
+import { SfSelect, SfProductOption } from "@storefront-ui/vue";
 const optionsList = [
   {value: ""},
   { value: "amaranth", color: "#E52B50", label: "Amaranth" },
@@ -21,7 +21,7 @@ const knobOptionsList = optionsList.reduce(
 storiesOf("Molecules|Select", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
-    components: { SfSelect },
+    components: { SfSelect, SfProductOption },
     props: {
       customClass: {
         default: options(
@@ -86,12 +86,12 @@ storiesOf("Molecules|Select", module)
         style="max-width: 30rem; margin: 10px;"
       >
         <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
-        {{option.label}}
+          <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
         </SfSelectOption>
       </SfSelect>`,
   }))
   .add("[slot] label", () => ({
-    components: { SfSelect },
+    components: { SfSelect, SfProductOption },
     props: {
       customClass: {
         default: options(
@@ -156,7 +156,7 @@ storiesOf("Molecules|Select", module)
         @input="alert(selectedValue)"   
         >
         <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
-          {{option.label}}
+          <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
         </SfSelectOption>
         <template #label>
           CUSTOM LABEL
@@ -165,7 +165,7 @@ storiesOf("Molecules|Select", module)
     </div>`,
   }))
   .add("[slot] errorMessage", () => ({
-    components: { SfSelect },
+    components: { SfSelect, SfProductOption },
     props: {
       customClass: {
         default: options(
@@ -228,7 +228,7 @@ storiesOf("Molecules|Select", module)
         @input="alert(selectedValue)"
         >
         <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
-          {{option.label}}
+          <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
         </SfSelectOption>
         <template #errorMessage>
           <span>
