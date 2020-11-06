@@ -11,17 +11,6 @@ storiesOf("Molecules|Section", module)
   .add("Common", () => ({
     components: { SfSection },
     props: {
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-section--underline": "sf-section--underline",
-          },
-          "sf-section--underline",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        ),
-      },
       titleHeading: {
         default: text("titleHeading", "Share your look", "Props"),
       },
@@ -44,17 +33,6 @@ storiesOf("Molecules|Section", module)
   .add("[slot] heading", () => ({
     components: { SfSection },
     props: {
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-section--underline": "sf-section--underline",
-          },
-          "sf-section--underline",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        ),
-      },
       titleHeading: {
         default: text("titleHeading", "Share your look", "Props"),
       },
