@@ -9,7 +9,7 @@ Currently we are focusing on API & component polishments and docs.
 
 ## Latest version - v0.9.2 🎉
 
-:point_right: SfBanner adding prop for button link and make SfBanner clickable on mobile
+:point_right: SfBanner adding prop for button link and make SfBanner clickable on mobile,
 
 ### Fixes
 
