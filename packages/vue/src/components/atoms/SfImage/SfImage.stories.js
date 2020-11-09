@@ -69,40 +69,6 @@ storiesOf("Atoms|Image", module)
         :threshold="threshold"
       />`,
   }))
-  .add("Without width and height", () => ({
-    components: { SfImage },
-    props: {
-      src: {
-        default: text(
-          "src",
-          "/assets/storybook/SfImage/product-216x326.jpg",
-          "Props"
-        ),
-      },
-      alt: {
-        default: text("alt", "Vila stripe maxi shirt dress", "Props"),
-      },
-      lazy: {
-        default: boolean("lazy", true, "Props"),
-      },
-
-      rootMargin: {
-        default: text("rootMargin", "0px", "Props"),
-      },
-      threshold: {
-        default: number("threshold", 0, {}, "Props"),
-      },
-    },
-    template: `<SfImage
-        :src="src"
-        :srcset="srcset"
-        :alt="alt"
-        :lazy="lazy"
-        :sizes="sizes"
-        :rootMargin="rootMargin"
-        :threshold="threshold"
-      />`,
-  }))
   .add("With src", () => ({
     components: { SfImage },
     props: {
@@ -128,7 +94,6 @@ storiesOf("Atoms|Image", module)
     },
     template: `<SfImage
         :src="src"
-        :srcset="srcset"
         :alt="alt"
         :lazy="lazy"
         :rootMargin="rootMargin"
