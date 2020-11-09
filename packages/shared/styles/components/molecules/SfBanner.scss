@@ -11,7 +11,7 @@
     var(--_banner-background-image)
   );
   --banner-background-position: 60%;
-  &__button-wrapper {
+  &__wrapper {
     display: flex;
     flex-direction: column;
     align-items: var(--banner-align-items, flex-start);
@@ -86,7 +86,7 @@
     --banner-subtitle-color: var(--c-gray);
     align-items: var(--banner-align-items, center);
     min-height: var(--banner-height, 25rem);
-    &__button-wrapper {
+    &__wrapper {
       pointer-events: none;
     }
     &__call-to-action {

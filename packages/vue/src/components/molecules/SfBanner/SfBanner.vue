@@ -1,6 +1,6 @@
 <template>
   <section class="sf-banner" :style="style" v-on="isMobile ? $listeners : {}">
-    <component :is="tag" class="sf-banner__button-wrapper" :link="link">
+    <component :is="wrapper" class="sf-banner__wrapper" :link="link">
       <slot name="subtitle" v-bind="{ subtitle }">
         <h2 v-if="subtitle" class="sf-banner__subtitle">
           {{ subtitle }}
@@ -96,7 +96,7 @@ export default {
         "--_banner-background-color": background,
       };
     },
-    tag() {
+    wrapper() {
       return !this.isMobile ? "div" : this.link ? "SfLink" : "SfButton";
     },
   },
