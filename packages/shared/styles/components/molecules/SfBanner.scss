@@ -15,10 +15,10 @@
     display: flex;
     flex-direction: column;
     align-items: var(--banner-align-items, flex-start);
-    justify-content: var(--banner-container-justify-content, flex-start);
-    flex-direction: var(--banner-container-flex-direction, column);
+    justify-content: var(--banner-wrapper-justify-content, flex-start);
+    flex-direction: var(--banner-wrapper-flex-direction, column);
     padding: var(--banner-padding, var(--spacer-xl));
-    flex: 0 0 var(--banner-container-width, 100%);
+    flex: 0 0 var(--banner-wrapper-width, 100%);
     text-decoration: none;
     &.sf-button,
     &.sf-button:hover,
@@ -79,7 +79,7 @@
       --_banner-background-desktop-image,
       var(--_banner-background-image)
     );
-    --banner-container-width: 50%;
+    --banner-wrapper-width: 50%;
     --banner-description-display: block;
     --banner-display-call-to-action: block;
     --banner-title-margin: var(--spacer-sm) 0 0 0;
