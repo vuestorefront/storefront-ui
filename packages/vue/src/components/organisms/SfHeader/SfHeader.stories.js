@@ -16,7 +16,7 @@ import {
   SfBottomNavigation,
   SfBanner,
   SfOverlay,
-} from "@storefront-ui/vue"
+} from "@storefront-ui/vue";
 storiesOf("Organisms|Header", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -52,7 +52,7 @@ storiesOf("Organisms|Header", module)
       activeIcon: {
         default: select(
           "activeIcon",
-          ["", "account", "wishlist", "cart"],
+          ["", "account", "wishlist", "cart", "shipping_test"],
           "account",
           "Props"
         ),
@@ -119,9 +119,9 @@ storiesOf("Organisms|Header", module)
           :search-placeholder="searchPlaceholder"
           :search-value="searchValue"
           :cart-icon="cartIcon"
-          :wishlist-icon="wishlistIcon"
+          :wishlist-icon="shipping_test"
           :is-sticky="isSticky"
-          :account-icon="accountIcon"
+					:account-icon="accountIcon"
           :style="spacer"
           :cart-items-qty="cartItemsQty"
           :wishlist-items-qty="wishlistItemsQty"
