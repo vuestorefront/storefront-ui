@@ -52,7 +52,7 @@ storiesOf("Organisms|Header", module)
       activeIcon: {
         default: select(
           "activeIcon",
-          ["", "account", "wishlist", "cart", "shipping_test"],
+          ["", "account", "wishlist", "cart"],
           "account",
           "Props"
         ),
@@ -119,7 +119,7 @@ storiesOf("Organisms|Header", module)
           :search-placeholder="searchPlaceholder"
           :search-value="searchValue"
           :cart-icon="cartIcon"
-          :wishlist-icon="shipping_test"
+          :wishlist-icon="wishlistIcon"
           :is-sticky="isSticky"
 					:account-icon="accountIcon"
           :style="spacer"

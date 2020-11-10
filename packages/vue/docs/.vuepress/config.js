@@ -14,7 +14,7 @@ module.exports = {
     editLinks: true,
     editLinkText: 'Help us improve this page ❤️',
     nav: [
-      { text: `v${version}`, link:`/introduction/releases/v${version}` },
+      { text: `v${version}`, link:`/releases/v${version}` },
       { text: 'Community', link: 'https://discord.gg/GS8hqFS' },
       { text: 'Storybook', link: 'http://storybook.storefrontui.io' },
       { text: 'GitHub', link: 'https://github.com/DivanteLtd/storefront-ui' }
