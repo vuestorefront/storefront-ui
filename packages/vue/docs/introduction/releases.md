@@ -7,7 +7,13 @@ The package is stable but some breaking changes may occur.
 
 Currently we are focusing on  API & component polishments and docs.
 
-## Latest version - v0.9.1 🎉
+## Latest version - v0.9.2 🎉
+
+:point_right: SfBanner adding prop for button link and make SfBanner clickable on mobile,
+
+### Fixes
+
+## version - v0.9.1
 
 ### What is new?
 
