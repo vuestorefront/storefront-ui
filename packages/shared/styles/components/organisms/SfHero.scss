@@ -21,7 +21,8 @@
     text-decoration: none;
     &.sf-button,
     &.sf-button:hover,
-    &.sf-button:active &.sflink {
+    &.sf-button:active,
+    &.sf-link {
       --button-background: transparent;
       --button-box-shadow-opacity: 0;
       --button-wrap: normal;
@@ -31,6 +32,7 @@
   &__subtitle {
     margin: var(--hero-item-subtitle-margin, 0);
     color: var(--hero-item-subtitle-color, var(--c-gray));
+    width: var(--hero-item-subtitle-width, 60%);
     @include font(
       --hero-item-subtitle-font,
       var(--font-weight--normal),
@@ -43,6 +45,7 @@
   &__title {
     margin: var(--hero-item-title-margin, var(--spacer-xs) 0 0 0);
     color: var(--hero-item-title-color, var(--c-text));
+    width: var(--hero-item-title-width, 60%);
     @include font(
       --hero-item-title-font,
       var(--font-weight--semibold),
@@ -71,6 +74,8 @@
   @include for-desktop {
     --hero-item-wrapper-width: 50%;
     --hero-item-wrapper-height: 36.625rem;
+    --hero-item-subtitle-width: 100%;
+    --hero-item-title-width: 100%;
     --hero-item-wrapper-padding: var(--spacer-2xl);
     --hero-item-background-image: var(
       --_hero-item-background-desktop-image,
