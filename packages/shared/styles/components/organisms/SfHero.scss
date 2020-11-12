@@ -1,7 +1,7 @@
 @import "../../helpers";
 .sf-hero-item {
-	display: flex; 
-	justify-content: var(--hero-item-justify-content, flex-start);    
+  display: flex; 
+  justify-content: var(--hero-item-justify-content, flex-start);    
   box-sizing: border-box;  
   width: var(--hero-item-width, 100%);  
   color: var(--hero-item-color, var(--c-text));
@@ -24,7 +24,9 @@
     &.sf-button:active
     &.sflink {
       --button-background: transparent;
-      --button-box-shadow-opacity: 0;			
+      --button-box-shadow-opacity: 0;	
+      --button-wrap: normal;	
+      text-align: left;	
 		}
   }
   &__subtitle {
@@ -49,6 +51,7 @@
       1.2,
       var(--font-family--secondary)
     );
+    // text-align: var(--hero-item-title-text-align, left);    
     letter-spacing: 0.1px;
     text-transform: var(--hero-item-title-transform, none);
   }

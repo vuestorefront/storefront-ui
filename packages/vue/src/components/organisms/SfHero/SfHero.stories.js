@@ -64,7 +64,7 @@ storiesOf("Organisms|Hero", module)
           :subtitle="subtitle"
           :button-text="buttonText"
           :image="image"
-					:background="background"
+          :background="background"
       />
       <SfHeroItem
           :class="customClass"
