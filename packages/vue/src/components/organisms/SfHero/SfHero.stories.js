@@ -64,7 +64,7 @@ storiesOf("Organisms|Hero", module)
           :subtitle="subtitle"
           :button-text="buttonText"
           :image="image"
-          :background="background"
+					:background="background"
       />
       <SfHeroItem
           :class="customClass"
@@ -72,7 +72,76 @@ storiesOf("Organisms|Hero", module)
           subtitle="Summer Collection 2019"
           button-text="Learn more"
           image="/assets/storybook/SfHero/hero.png"
-          background="#FCE4EC"
+					background="#FCE4EC"
+      />
+    </SfHero>`,
+  }))
+  .add("With links", () => ({
+    components: { SfHero },
+    props: {
+      customClass: {
+        default: options(
+          "customClass",
+          {
+            "sf-hero-item--position-bg-top-right":
+              "sf-hero-item--position-bg-top-right",
+            "sf-hero-item--position-bg-bottom-right":
+              "sf-hero-item--position-bg-bottom-right",
+            "sf-hero-item--position-bg-bottom-left":
+              "sf-hero-item--position-bg-bottom-left",
+            "sf-hero-item--align-right": "sf-hero-item--align-right",
+          },
+          "",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        ),
+      },
+      title: {
+        default: text(
+          "title",
+          "Colorful summer dresses are already in store",
+          "Props"
+        ),
+      },
+      subtitle: {
+        default: text("subtitle", "Summer Collection 2019", "Props"),
+      },
+      buttonText: {
+        default: text("buttonText", "Learn more", "Props"),
+      },
+      image: {
+        default: object(
+          "image",
+          {
+            mobile: "/assets/storybook/SfHero/hero.png",
+            desktop: "/assets/storybook/SfHero/hero.png",
+          },
+          "Props"
+        ),
+      },
+      background: {
+        default: color("background", "#ECEFF1", "Props"),
+      },
+    },
+    template: `<SfHero
+        :style="{maxWidth: '1240px', margin: 'auto'}">
+      <SfHeroItem
+          :class="customClass"
+          :title="title"
+          :subtitle="subtitle"
+          :button-text="buttonText"
+          :image="image"
+					:background="background"
+					link="http://storefrontui.io"
+      />
+      <SfHeroItem
+          :class="customClass"
+          title="Colorful summer dresses are already in store"
+          subtitle="Summer Collection 2019"
+          button-text="Learn more"
+          image="/assets/storybook/SfHero/hero.png"
+					background="#FCE4EC"
+					link="http://vuestorefront.io"
       />
     </SfHero>`,
   }))
