@@ -11,20 +11,20 @@
     var(--_hero-item-background-image)
   );
   &__wrapper {
-		display: flex;
-		flex-direction: var(--hero-item-wrapper-flex-direction, column);
-		align-items: var(--hero-item-wrapper-align-items, flex-start);
-		justify-content: var(--hero-item-wrapper-justify-content, center);
-		width: var(--hero-item-wrapper-width, 100%);	
-		min-height: var(--hero-item-wrapper-height, 14rem);
-		padding: var(--hero-item-wrapper-padding, var(--spacer-sm));
-		text-decoration: none;	
-		&.sf-button,
+    display: flex;
+    flex-direction: var(--hero-item-wrapper-flex-direction, column);
+    align-items: var(--hero-item-wrapper-align-items, flex-start);
+    justify-content: var(--hero-item-wrapper-justify-content, center);
+    width: var(--hero-item-wrapper-width, 100%);	
+    min-height: var(--hero-item-wrapper-height, 14rem);
+    padding: var(--hero-item-wrapper-padding, var(--spacer-sm));
+    text-decoration: none;	
+    &.sf-button,
     &.sf-button:hover,
-		&.sf-button:active
-		&.sflink {
-			--button-background: transparent;
-			--button-box-shadow-opacity: 0;			
+    &.sf-button:active
+    &.sflink {
+      --button-background: transparent;
+      --button-box-shadow-opacity: 0;			
 		}
   }
   &__subtitle {
@@ -53,7 +53,7 @@
     text-transform: var(--hero-item-title-transform, none);
   }
   &__button {
-		display: var(--hero-item-button-display, none);		
+    display: var(--hero-item-button-display, none);		
   }
   &--align-right {
     --hero-item-justify-content: flex-end;
@@ -68,14 +68,14 @@
     background-position: bottom left;
   }
   @include for-desktop {
-		--hero-item-wrapper-width: 50%;
+    --hero-item-wrapper-width: 50%;
     --hero-item-wrapper-height: 36.625rem;
-		--hero-item-wrapper-padding: var(--spacer-2xl);
+    --hero-item-wrapper-padding: var(--spacer-2xl);
     --hero-item-background-image: var(
       --_hero-item-background-desktop-image,
       var(--_hero-item-background-image)
-		);
-		&__wrapper {
+    );
+    &__wrapper {
       pointer-events: none;
     }
     &__title {
@@ -83,8 +83,8 @@
       --hero-item-title-margin: var(--spacer-base) 0 var(--spacer-lg) 0;
     }
     &__button {
-			--hero-item-button-display: block;
-			pointer-events: auto;
+      --hero-item-button-display: block;
+      pointer-events: auto;
     }
   }
 }

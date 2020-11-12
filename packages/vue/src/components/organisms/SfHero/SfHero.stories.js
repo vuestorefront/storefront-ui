@@ -72,7 +72,7 @@ storiesOf("Organisms|Hero", module)
           subtitle="Summer Collection 2019"
           button-text="Learn more"
           image="/assets/storybook/SfHero/hero.png"
-					background="#FCE4EC"
+          background="#FCE4EC"
       />
     </SfHero>`,
   }))
@@ -131,8 +131,8 @@ storiesOf("Organisms|Hero", module)
           :subtitle="subtitle"
           :button-text="buttonText"
           :image="image"
-					:background="background"
-					link="http://storefrontui.io"
+          :background="background"
+          link="http://storefrontui.io"
       />
       <SfHeroItem
           :class="customClass"
@@ -140,8 +140,8 @@ storiesOf("Organisms|Hero", module)
           subtitle="Summer Collection 2019"
           button-text="Learn more"
           image="/assets/storybook/SfHero/hero.png"
-					background="#FCE4EC"
-					link="http://vuestorefront.io"
+          background="#FCE4EC"
+          link="http://vuestorefront.io"
       />
     </SfHero>`,
   }))
