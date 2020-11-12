@@ -6,7 +6,7 @@ import {
   number,
   object,
 } from "@storybook/addon-knobs";
-import { SfImage } from "@storefront-ui/vue";
+import { SfImage, SfArrow } from "@storefront-ui/vue";
 storiesOf("Atoms|Image", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -128,7 +128,6 @@ storiesOf("Atoms|Image", module)
     },
     template: `<SfImage
         :src="src"
-        :srcset="srcset"
         :alt="alt"
         :lazy="lazy"
         :rootMargin="rootMargin"
@@ -206,6 +205,71 @@ storiesOf("Atoms|Image", module)
         :rootMargin="rootMargin"
         :threshold="threshold"
       />`,
+	}))
+	.add("With progressive loading", () => ({
+    components: { SfImage, SfArrow },
+    props: {
+      srcset: {
+        default: object(
+          "srcset",
+          [
+            {
+              src: `/assets/storybook/SfImage/product-109x164.webp`,
+              media: `(max-width: 480px)`,
+              type: `image/webp`,
+            },
+            {
+              src: `/assets/storybook/SfImage/product-109x164.webp`,
+              media: `(min-width: 480px) and (max-width: 720px)`,
+              type: `image/webp`,
+            },
+            {
+              src: `/assets/storybook/SfImage/product-216x326.jpg`,
+              media: `(min-width: 1240px)`,
+              type: `image/jpg`,
+            },
+          ],
+          "Props"
+        ),
+      },
+      src: {
+        default: text(
+          "src",
+          "/assets/storybook/SfImage/placeholder.png",
+          "Props"
+        ),
+      },
+      alt: {
+        default: text("alt", "Vila stripe maxi shirt dress", "Props"),
+      },
+      width: {
+        default: number("width", 216, {}, "Props"),
+      },
+      height: {
+        default: number("height", 326, {}, "Props"),
+      },
+      lazy: {
+        default: boolean("lazy", true, "Props"),
+      },
+      rootMargin: {
+        default: text("rootMargin", "", "Props"),
+      },
+      threshold: {
+        default: number("threshold", 0.5, {}, "Props"),
+      },
+    },
+    template: `
+    <div>
+      <SfArrow class="sf-arrow--down" style="margin: 20vh auto 100vh auto"/>
+      <SfImage
+          :src="src"
+          :srcset="srcset"
+          :alt="alt"
+          :lazy="lazy"
+          :rootMargin="rootMargin"
+          :threshold="threshold"
+        />
+    </div>`,
   }))
   .add("[slot] default", () => ({
     components: { SfImage },
