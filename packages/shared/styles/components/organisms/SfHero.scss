@@ -1,9 +1,9 @@
 @import "../../helpers";
 .sf-hero-item {
-  display: flex; 
-  justify-content: var(--hero-item-justify-content, flex-start);    
-  box-sizing: border-box;  
-  width: var(--hero-item-width, 100%);  
+  display: flex;
+  justify-content: var(--hero-item-justify-content, flex-start);
+  box-sizing: border-box;
+  width: var(--hero-item-width, 100%);
   color: var(--hero-item-color, var(--c-text));
   @include background(
     --hero-item-background,
@@ -15,19 +15,18 @@
     flex-direction: var(--hero-item-wrapper-flex-direction, column);
     align-items: var(--hero-item-wrapper-align-items, flex-start);
     justify-content: var(--hero-item-wrapper-justify-content, center);
-    width: var(--hero-item-wrapper-width, 100%);	
+    width: var(--hero-item-wrapper-width, 100%);
     min-height: var(--hero-item-wrapper-height, 14rem);
     padding: var(--hero-item-wrapper-padding, var(--spacer-sm));
-    text-decoration: none;	
+    text-decoration: none;
     &.sf-button,
     &.sf-button:hover,
-    &.sf-button:active
-    &.sflink {
+    &.sf-button:active &.sflink {
       --button-background: transparent;
-      --button-box-shadow-opacity: 0;	
-      --button-wrap: normal;	
-      text-align: left;	
-		}
+      --button-box-shadow-opacity: 0;
+      --button-wrap: normal;
+      text-align: var(--hero-item-wrapper-text-align, left);
+    }
   }
   &__subtitle {
     margin: var(--hero-item-subtitle-margin, 0);
@@ -51,12 +50,11 @@
       1.2,
       var(--font-family--secondary)
     );
-    // text-align: var(--hero-item-title-text-align, left);    
     letter-spacing: 0.1px;
     text-transform: var(--hero-item-title-transform, none);
   }
   &__button {
-    display: var(--hero-item-button-display, none);		
+    display: var(--hero-item-button-display, none);
   }
   &--align-right {
     --hero-item-justify-content: flex-end;
@@ -106,7 +104,7 @@
     &__arrow {
       pointer-events: all;
     }
-   }
+  }
   &__bullets {
     position: absolute;
     bottom: var(--hero-bullets-bottom, var(--spacer-xl));
