@@ -45,6 +45,9 @@ jobs:
             packages/vue/node_modules
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
 
+      - name: Install vue-cli
+        run: yarn add @vue/cli -W
+
       - name: Run linter and unit tests
         run: cd packages/vue && yarn lint && yarn test:unit
 
@@ -67,6 +70,9 @@ jobs:
           path: node_modules
             packages/vue/node_modules
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install vue-cli
+        run: yarn add @vue/cli -W
 
       - name: Build
         run: cd packages/vue && yarn build
