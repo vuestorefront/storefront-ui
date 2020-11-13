@@ -15,7 +15,7 @@
             >{{ tableHeader }}
           </SfTableHeader>
           <SfTableHeader class="orders__element--right">
-            <span class="mobile-only">Download</span>
+            <span class="smartphone-only">Download</span>
             <SfButton class="desktop-only sf-button--text orders__download-all"
               >Download all
             </SfButton>
@@ -35,7 +35,7 @@
             <template v-else>{{ data }}</template>
           </SfTableData>
           <SfTableData class="orders__view orders__element--right">
-            <SfButton class="sf-button--text color-secondary mobile-only"
+            <SfButton class="sf-button--text color-secondary smartphone-only"
               >Download</SfButton
             >
             <SfButton class="sf-button--text color-secondary desktop-only"
@@ -118,7 +118,7 @@ export default {
 }
 a {
   color: var(--c-primary);
-  font-weight: var(--font-medium);
+  font-weight: var(--font-weight--medium);
   text-decoration: none;
   &:hover {
     color: var(--c-text);

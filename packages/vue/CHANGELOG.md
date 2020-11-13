@@ -3,6 +3,78 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.2](https://github.com/AdamPawlinski/storefront-ui-adam/compare/@storefront-ui/vue@0.9.1...@storefront-ui/vue@0.9.2) (2020-11-13)
+
+
+### Bug Fixes
+
+* additional slot for info in accordion item and new items in filtes ([#1484](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1484)) ([619dc19](https://github.com/AdamPawlinski/storefront-ui-adam/commit/619dc196b3c377fa7c82724e00b4fb1fe4f294c0))
+* border color change ([#1503](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1503)) ([8661f82](https://github.com/AdamPawlinski/storefront-ui-adam/commit/8661f82310acdf435fe5dbf047d6668b7b4a4edc))
+* button type for buttons in bar ([#1488](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1488)) ([5f7dad3](https://github.com/AdamPawlinski/storefront-ui-adam/commit/5f7dad3ac115dd676b88dc691289be7d3d194241))
+* change customization docs ([0bb8825](https://github.com/AdamPawlinski/storefront-ui-adam/commit/0bb8825c97feb1b34f29ede735766b566be1f525))
+* checkbox and review fixed ([9799247](https://github.com/AdamPawlinski/storefront-ui-adam/commit/97992470bb2bda693c1804998fd9fead0da7e44e))
+* collectedproduct two elements move to component, after CR ([fd6dcbb](https://github.com/AdamPawlinski/storefront-ui-adam/commit/fd6dcbbec08682ead109290c9ab7121314ada970))
+* conditional SfLnk in SfCollectedProduct ([#1430](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1430)) ([75b2205](https://github.com/AdamPawlinski/storefront-ui-adam/commit/75b2205ff5567715dc045ce32345ed6e9ddabbb7))
+* conflict resolved ([91d3199](https://github.com/AdamPawlinski/storefront-ui-adam/commit/91d31992372c96a88d072ee927c80913ac54ea42))
+* conflict resolved in bottom nav ([83c2494](https://github.com/AdamPawlinski/storefront-ui-adam/commit/83c2494e2d44c3f3cf2c9c6c64291505a8199141))
+* conflict resolved in molecules ([239bca9](https://github.com/AdamPawlinski/storefront-ui-adam/commit/239bca9a93ae9fad44e3615001dae26e4cde72c3))
+* conflicts resolved ([166c1cb](https://github.com/AdamPawlinski/storefront-ui-adam/commit/166c1cb9db6521b9236dd2c87556bb799a8d614a))
+* develop merged ([ea7b6cc](https://github.com/AdamPawlinski/storefront-ui-adam/commit/ea7b6cc3e05ed704076673ea002d5f9267711e50))
+* docs updated and added mixin for all views ([2750b9d](https://github.com/AdamPawlinski/storefront-ui-adam/commit/2750b9dc74b9199af04c63967c4352e3bee8994a))
+* few fixes in design ([7287a6d](https://github.com/AdamPawlinski/storefront-ui-adam/commit/7287a6d418ccf8c3282df03611cca0b09108ce42))
+* fixes in checkout ([e281f4e](https://github.com/AdamPawlinski/storefront-ui-adam/commit/e281f4eddbae0eacee55d5726417739b0e6ddf74))
+* fixes with fonts vars ([a8697b4](https://github.com/AdamPawlinski/storefront-ui-adam/commit/a8697b47070492306162617b23516904a61c9c7d))
+* font fix in mega menu ([e0e9fb4](https://github.com/AdamPawlinski/storefront-ui-adam/commit/e0e9fb438254ca8ebd240e292d2adebe9eac9f1f))
+* font fixes - review radio and checkbox ([9b4f977](https://github.com/AdamPawlinski/storefront-ui-adam/commit/9b4f977f4bbe4f719fd3fa9590bd60ddd407b4b4))
+* fonts in SfTextarea and add SfTextarea to form example ([#1501](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1501)) ([72fabca](https://github.com/AdamPawlinski/storefront-ui-adam/commit/72fabca3372ea125b880d2c674a12af0f7f74a16))
+* input conflict resolved ([0c4e442](https://github.com/AdamPawlinski/storefront-ui-adam/commit/0c4e442423ec0dd7d2008041e6acbb327ff434c4))
+* jest tests console bugs fix ([#1465](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1465)) ([e450dd1](https://github.com/AdamPawlinski/storefront-ui-adam/commit/e450dd17524820c06ad5f5566f839f0b4f6c0b7d))
+* nullish propagation in sfimage ([#1498](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1498)) ([ed91cee](https://github.com/AdamPawlinski/storefront-ui-adam/commit/ed91cee8c07a2a4db635e3ccc6053cd0912578ac))
+* opacity removed ([#1508](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1508)) ([4dc0930](https://github.com/AdamPawlinski/storefront-ui-adam/commit/4dc0930088ed906c9b7679a6e38cc34990b7d0c3))
+* overlay added ([#1504](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1504)) ([d698493](https://github.com/AdamPawlinski/storefront-ui-adam/commit/d698493bf931a3aa6ea79caa448aa594090ee6e5))
+* prevent null assigment to isMobile ([#1495](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1495)) ([eefadde](https://github.com/AdamPawlinski/storefront-ui-adam/commit/eefaddeb423968b0a99af44b5a634bc7c01f45e3))
+* removed dash from mr ([c9625cd](https://github.com/AdamPawlinski/storefront-ui-adam/commit/c9625cd03b52a1d8e8eabccdcc502049b18a6569))
+* removed old classes ([a04bb57](https://github.com/AdamPawlinski/storefront-ui-adam/commit/a04bb5759031d867258ee5508ab18704bc4bd61f))
+* selected color for desktop ([68e2612](https://github.com/AdamPawlinski/storefront-ui-adam/commit/68e2612b43b8e1b090bb91f0a5f0322815dd4028))
+* SfAddressPicker doesn't react to "selected" prop changes ([#1492](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1492)) ([c7ff6cc](https://github.com/AdamPawlinski/storefront-ui-adam/commit/c7ff6ccffd48d69ab0cf459500b19800444305d0))
+* SfButton native link in disabled state ([#1383](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1383)) ([55fbdad](https://github.com/AdamPawlinski/storefront-ui-adam/commit/55fbdad284ab2221857e7c2415aaeda321c60ead))
+* SfGallery error with enableZoom ([#1439](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1439)) ([0be714e](https://github.com/AdamPawlinski/storefront-ui-adam/commit/0be714e46ffd3eeada6a65e571d6718cd9337b58))
+* sfimage fix in story, add progressive lazy loading with story ([211d2bb](https://github.com/AdamPawlinski/storefront-ui-adam/commit/211d2bb3203ed8b3c3267987261e38b3b28d2059))
+* sfimage fix in story, add progressive lazy loading with story ([#1522](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1522)) ([663e3d9](https://github.com/AdamPawlinski/storefront-ui-adam/commit/663e3d931cf66bac8cfe8a260ac138449bfd6fa3))
+* SfPagination pass link as string ([#1431](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1431)) ([5ee1a68](https://github.com/AdamPawlinski/storefront-ui-adam/commit/5ee1a6880ec825aee167a99884dd71dc485d4681))
+* SfProductCard isAddedToCart prop not changing icon ([#1432](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1432)) ([aec9638](https://github.com/AdamPawlinski/storefront-ui-adam/commit/aec9638247b5a6ac9577be6e5c8e56b47e86b664))
+* sfselect fix v-model and stories ([#1493](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1493)) ([f4a3967](https://github.com/AdamPawlinski/storefront-ui-adam/commit/f4a3967fbbfc2e734b711f0347bc0f8e07fee223))
+* SfSelect stories remove SfProductOption ([#1517](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1517)) ([620f658](https://github.com/AdamPawlinski/storefront-ui-adam/commit/620f6588f48f2fab660af778322c94fa7dbfc0df))
+* small fixes ([ad6b2b8](https://github.com/AdamPawlinski/storefront-ui-adam/commit/ad6b2b892efb4962a6f1b1bc3cbe02c84ccff26f))
+* stories in pagination fixed ([#1406](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1406)) ([426260d](https://github.com/AdamPawlinski/storefront-ui-adam/commit/426260d5b299140a04406f2a8715f7f5147b1143))
+* styles for hover buttons in story variant ([#1472](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1472)) ([abe2b36](https://github.com/AdamPawlinski/storefront-ui-adam/commit/abe2b367fe7795d3f1d9ce62625818414452ef51))
+* tbody and thead in SfTable ([#1524](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1524)) ([8f0ba10](https://github.com/AdamPawlinski/storefront-ui-adam/commit/8f0ba105c9333e96cd65dd1c86c795098a91c4c1))
+* type deleted ([23a3348](https://github.com/AdamPawlinski/storefront-ui-adam/commit/23a3348ba4047e15c02bdaa084cfc768e59b0281))
+* type for button ([3d5ca53](https://github.com/AdamPawlinski/storefront-ui-adam/commit/3d5ca53ee98dbb12d5314c7a785cbd1970ceae7d))
+* **modal:** add type button to SfModal stories ([#1461](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1461)) ([44bafa7](https://github.com/AdamPawlinski/storefront-ui-adam/commit/44bafa7b4510da6a6ea1323b76ec869af59d16c7))
+* **sfproductcardhorizontal stories:** use SfSelect instead of SfProperty ([#1448](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1448)) ([3dc7d40](https://github.com/AdamPawlinski/storefront-ui-adam/commit/3dc7d40ef91e69ea72ddc307a58ec718336e29e7))
+* updated config for tailwind ([#1489](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1489)) ([adbb26a](https://github.com/AdamPawlinski/storefront-ui-adam/commit/adbb26a1f80cb2f07dc15ce124b1d238a9662073))
+* updated link to figma ([#1470](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1470)) ([f7385f6](https://github.com/AdamPawlinski/storefront-ui-adam/commit/f7385f6b618eddc7d4ce2deaf9812ac6e0fc770d))
+
+
+### Features
+
+* all classes in docs ([e1f0dfe](https://github.com/AdamPawlinski/storefront-ui-adam/commit/e1f0dfef96b9ad6ba54e0f678235dccafefeae6f))
+* classes for typography and colors ([c79e6c5](https://github.com/AdamPawlinski/storefront-ui-adam/commit/c79e6c59a350be48d518953873735817d7632ae3))
+* line-height added ([2306f34](https://github.com/AdamPawlinski/storefront-ui-adam/commit/2306f34db69a57a8523c6f2a031ac485ab018aa9))
+* link prop for button in calltoaction ([#1527](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1527)) ([2e082bd](https://github.com/AdamPawlinski/storefront-ui-adam/commit/2e082bdf1b90d50f27ffe28b9a33854d5f3ccc6b))
+* SfBanner adding prop for button link ([#1515](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1515)) ([7feafda](https://github.com/AdamPawlinski/storefront-ui-adam/commit/7feafda7ec0f6d0e1d3f3fc4576bea971aebffb5))
+* SfHero add link prop and wrapper for component ([#1528](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1528)) ([b28b8c9](https://github.com/AdamPawlinski/storefront-ui-adam/commit/b28b8c9c507b00e534d9a59d4815db13538ee68b))
+
+
+### Reverts
+
+* Revert last commit ([eb99b8b](https://github.com/AdamPawlinski/storefront-ui-adam/commit/eb99b8bfd1d94fb4b9296fd3c9732be8d0f6b984))
+
+
+
+
+
 ## [0.9.1](https://github.com/AdamPawlinski/storefront-ui-adam/compare/@storefront-ui/vue@0.9.0...@storefront-ui/vue@0.9.1) (2020-10-02)
 
 
