@@ -1,6 +1,5 @@
 name: Run tests
-
-on: [push]
+on: push
 
 jobs:
   prepare_dependencies:
@@ -20,7 +19,7 @@ jobs:
         with:
           path: |
             **/node_modules 
-            packages/vue/node_modules
+            **/packages/vue/node_modules
 
       - name: Install dependencies
         run: yarn --frozen-lockfile
