@@ -19,6 +19,9 @@ storiesOf("Molecules|CallToAction", module)
       buttonText: {
         default: text("buttonText", "Subscribe", "Props"),
       },
+      link: {
+        default: text("link", "", "Props"),
+      },
       image: {
         default: text("image", "assets/storybook/Home/newsletter.jpg", "Props"),
       },
@@ -31,6 +34,7 @@ storiesOf("Molecules|CallToAction", module)
       :title="title"
       :description="description"
       :button-text="buttonText"
+      :link="link"
       :image="image"
       :background="background"/>
     </div>`,
@@ -51,6 +55,9 @@ storiesOf("Molecules|CallToAction", module)
       buttonText: {
         default: text("buttonText", "Subscribe", "Props"),
       },
+      link: {
+        default: text("link", "", "Props"),
+      },
       image: {
         default: text("image", "assets/storybook/Home/newsletter.jpg", "Props"),
       },
@@ -63,6 +70,7 @@ storiesOf("Molecules|CallToAction", module)
       :title="title"
       :description="description"
       :button-text="buttonText"
+      :link="link"
       :image="image"
       :background="background">
         <template #title="{title}">
@@ -87,6 +95,9 @@ storiesOf("Molecules|CallToAction", module)
       buttonText: {
         default: text("buttonText", "Subscribe", "Props"),
       },
+      link: {
+        default: text("link", "", "Props"),
+      },
       image: {
         default: text("image", "assets/storybook/Home/newsletter.jpg", "Props"),
       },
@@ -99,6 +110,7 @@ storiesOf("Molecules|CallToAction", module)
       :title="title"
       :description="description"
       :button-text="buttonText"
+      :link="link"
       :image="image"
       :background="background">
         <template #description="{description}">
@@ -123,6 +135,9 @@ storiesOf("Molecules|CallToAction", module)
       buttonText: {
         default: text("buttonText", "Subscribe", "Props"),
       },
+      link: {
+        default: text("link", "", "Props"),
+      },
       image: {
         default: text("image", "assets/storybook/Home/newsletter.jpg", "Props"),
       },
@@ -135,6 +150,7 @@ storiesOf("Molecules|CallToAction", module)
       :title="title"
       :description="description"
       :button-text="buttonText"
+      :link="link"
       :image="image"
       :background="background">
         <template #button="{buttonText}">
