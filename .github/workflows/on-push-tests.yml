@@ -41,13 +41,12 @@ jobs:
       - name: Get cached dependencies
         uses: actions/cache@v2
         with:
-          path: |
-            node_modules 
+          path: node_modules
             packages/vue/node_modules
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
 
-      - name: Lint and unit tests
-        run: cd /packages/vue && yarn lint && yarn test:unit
+      - name: Run linter and unit tests
+        run: cd packages/vue && yarn lint && yarn test:unit
 
   build:
     name: Build
@@ -65,10 +64,9 @@ jobs:
       - name: Get cached dependencies
         uses: actions/cache@v2
         with:
-          path: |
-            node_modules 
+          path: node_modules
             packages/vue/node_modules
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
 
       - name: Build
-        run: cd /packages/vue && yarn build
+        run: cd packages/vue && yarn build
