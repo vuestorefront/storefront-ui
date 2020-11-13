@@ -29,10 +29,6 @@ jobs:
     name: Lint
     needs: prepare_dependencies
     runs-on: ubuntu-latest
-    uses: actions/checkout@v2
-    with:
-      repository: storefront-ui/vue
-      path: packages/vue
     steps:
       - name: Lint and unit tests
         run: yarn lint && yarn test:unit
@@ -43,4 +39,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Build
-        run: cd '**/packages/vue' && yarn build
+        run: yarn build
