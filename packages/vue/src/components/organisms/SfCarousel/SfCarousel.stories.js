@@ -7,9 +7,9 @@ storiesOf("Organisms|Carousel", module)
     template: `<SfCarousel
       :style="{maxWidth: '1140px', margin: 'auto'}"
     >
-        <SfCarouselItem v-for="index in 12">
+        <SfCarouselItem v-for="(item, i) in 12" :key="i">
           <div style="display: flex; align-items: center; justify-content: center; height: 300px; background-color: #5ECE7B; color: #FFF; font-size: 2.5rem">
-            {{index}}
+            {{item}}
           </div>
         </SfCarouselItem>
       </SfCarousel>`,
@@ -22,9 +22,9 @@ storiesOf("Organisms|Carousel", module)
       <template #next="{go}">
         <button @click="go">NEXT</button>
       </template>
-      <SfCarouselItem v-for="index in 12">
+      <SfCarouselItem v-for="(item, i) in 12" :key="i">
         <div style="display: flex; align-items: center; justify-content: center; height: 300px; background-color: #5ECE7B; color: #FFF; font-size: 2.5rem">
-          {{index}}
+          {{item}}
         </div>
       </SfCarouselItem>
     </SfCarousel>`,
@@ -37,9 +37,9 @@ storiesOf("Organisms|Carousel", module)
       <template #prev="{go}">
         <button @click="go">PREV</button>
       </template>
-      <SfCarouselItem v-for="index in 12">
+      <SfCarouselItem v-for="(item, i) in 12" :key="i">
         <div style="display: flex; align-items: center; justify-content: center; height: 300px; background-color: #5ECE7B; color: #FFF; font-size: 2.5rem">
-          {{index}}
+          {{item}}
         </div>
       </SfCarouselItem>
     </SfCarousel>`,
