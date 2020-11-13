@@ -29,9 +29,13 @@ jobs:
     name: Lint
     needs: prepare_dependencies
     runs-on: ubuntu-latest
+    uses: actions/checkout@v2
+    with:
+      repository: storefront-ui/vue
+      path: packages/vue
     steps:
       - name: Lint and unit tests
-        run: cd '**packages/vue' && yarn lint && yarn test:unit
+        run: yarn lint && yarn test:unit
 
   build:
     name: Build
