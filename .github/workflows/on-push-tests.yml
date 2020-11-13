@@ -30,6 +30,22 @@ jobs:
     needs: prepare_dependencies
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: "12"
+
+      - name: Get cached dependencies
+        uses: actions/cache@v2
+        with:
+          path: |
+            node_modules 
+            packages/vue/node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+
       - name: Lint and unit tests
         run: cd /packages/vue && yarn lint && yarn test:unit
 
@@ -38,5 +54,21 @@ jobs:
     needs: prepare_dependencies
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: "12"
+
+      - name: Get cached dependencies
+        uses: actions/cache@v2
+        with:
+          path: |
+            node_modules 
+            packages/vue/node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+
       - name: Build
         run: cd /packages/vue && yarn build
