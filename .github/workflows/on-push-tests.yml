@@ -18,8 +18,8 @@ jobs:
         uses: actions/cache@v2
         with:
           path: |
-            **/node_modules 
-            **/packages/vue/node_modules
+            node_modules 
+            packages/vue/node_modules
           key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
 
       - name: Install dependencies
@@ -31,7 +31,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Lint and unit tests
-        run: cd **/packages/vue && yarn lint && yarn test:unit
+        run: cd packages/vue && yarn lint && yarn test:unit
 
   build:
     name: Build
@@ -39,4 +39,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Build
-        run: cd **/packages/vue && yarn build
+        run: cd packages/vue && yarn build
