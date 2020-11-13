@@ -1,0 +1,45 @@
+name: Run tests
+
+on: [push]
+
+jobs:
+  prepare_dependencies:
+    name: Prepare dependencies
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12'
+
+      - name: Get cached dependencies
+        uses: actions/cache@v2
+        with:
+          path: |
+            **/node_modules 
+            packages/vue/node_modules
+
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+
+  lint:
+    name: Lint
+    needs: prepare_dependencies
+    runs-on: ubuntu-latest
+    steps:
+      - name: Lint and unit tests
+      run: cd packages/vue
+      run: yarn lint
+      run: yarn test:unit
+
+  build:
+    name: Build
+    needs: prepare_dependencies
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build
+      run: cd packages/vue
+      run: yarn build
