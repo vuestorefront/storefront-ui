@@ -7,7 +7,7 @@ import {
 } from "@storybook/addon-knobs";
 import { SfSelect, SfProductOption } from "@storefront-ui/vue";
 const optionsList = [
-  {value: ""},
+  { value: "" },
   { value: "amaranth", color: "#E52B50", label: "Amaranth" },
   { value: "amber", color: "#FFBF00", label: "Amber" },
   { value: "arctic-lime", color: "#D0FF14", label: "Arctic lime" },
@@ -54,7 +54,7 @@ storiesOf("Molecules|Select", module)
       },
       selectedValue: {
         default: options(
-          "selectedValue",                   
+          "selectedValue",
           knobOptionsList,
           optionsList[0].value,
           { display: "select" },
@@ -123,7 +123,7 @@ storiesOf("Molecules|Select", module)
       placeholder: {
         default: text("placeholder", "", "Props"),
       },
-     selectedValue: {
+      selectedValue: {
         default: options(
           "selectedValue",
           knobOptionsList,
@@ -196,7 +196,7 @@ storiesOf("Molecules|Select", module)
       placeholder: {
         default: text("placeholder", "", "Props"),
       },
-     selectedValue: {
+      selectedValue: {
         default: options(
           "selectedValue",
           knobOptionsList,
