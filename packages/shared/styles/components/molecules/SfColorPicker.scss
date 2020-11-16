@@ -25,31 +25,35 @@
     align-items: center;
     justify-content: var(--color-picker-justify-content, center);
     padding: var(--color-picker-padding, var(--spacer-xs));
-    @include for-mobile {
-      background: var(--color-picker-background, var(--c-black));
+    &__overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      --overlay-z-index: auto;
+      --overlay-background: rgba(var(--c-black-base), 0.8);
     }
   }
   &__label {
+    position: relative;
     flex: 0 0 100%;
     margin: var(--color-picker-label-margin, 0 0 var(--spacer-xs));
     color: var(--color-picker-label-color, var(--c-white));
     @include font(
       --color-picker-label-font,
-      var(--font-bold),
-      var(--font-sm),
+      var(--font-weight--bold),
+      var(--font-size--sm),
       1.2,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
     text-align: center;
   }
-  &__colors,
   &__button {
     opacity: var(--color-picker-opacity, 0.8);
   }
   &__button {
     --button-width: 100%;
     --button-padding: var(--spacer-xs) var(--spacer-sm);
-    --button-font-weight: var(--font-light);
+    --button-font-weight: var(--font-weight--light);
     --button-text-transform: capitalize;
     width: 100%;
     padding: var(--color-picker-open-padding);

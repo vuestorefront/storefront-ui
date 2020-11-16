@@ -2,10 +2,10 @@
   <div
     class="sf-select"
     :class="{
-      'sf-select--is-selected': selected || placeholder,
-      'sf-select--is-required': required,
-      'sf-select--is-disabled': disabled,
-      'sf-select--is-invalid': !valid,
+      'is-selected': value || placeholder,
+      'is-required': required,
+      'is-disabled': disabled,
+      'is-invalid': !valid,
     }"
   >
     <label :for="label" class="sf-select__label">
@@ -13,22 +13,30 @@
         {{ label }}
       </slot>
     </label>
-    <select :id="label" v-model="selected" v-focus class="sf-select__dropdown">
+    <select
+      :id="label"
+      v-focus
+      :value="value"
+      class="sf-select__dropdown"
+      @change="changeHandler"
+    >
       <!-- empty option by default, may be used as placeholder -->
       <option
+        v-if="placeholder"
         class="sf-select__placeholder sf-select__option"
         disabled
-        selected
+        :selected="!!placeholder"
         value
       >
-        <slot name="placeholder" :placeholder="placeholder" />{{ placeholder }}
+        <slot name="placeholder" v-bind="{ placeholder }" />
+        {{ placeholder }}
       </option>
       <slot />
     </select>
-    <div class="sf-component-select__error-message">
+    <div class="sf-select__error-message">
       <transition name="sf-fade">
         <!-- @slot Custom error message of form select -->
-        <slot v-if="!valid" name="error-message" v-bind="{ errorMessage }">
+        <slot v-if="!valid" name="errorMessage" v-bind="{ errorMessage }">
           <span> {{ errorMessage }} </span>
         </slot>
       </transition>
@@ -39,6 +47,7 @@
 import { focus } from "../../../utilities/directives";
 import SfSelectOption from "./_internal/SfSelectOption.vue";
 import Vue from "vue";
+
 Vue.component("SfSelectOption", SfSelectOption);
 export default {
   name: "SfSelect",
@@ -49,13 +58,6 @@ export default {
      */
     label: {
       type: String,
-      default: "",
-    },
-    /**
-     * Selected item value
-     */
-    selected: {
-      type: [String, Number, Object],
       default: "",
     },
     /**
@@ -87,6 +89,13 @@ export default {
       default: "This field is not correct.",
     },
     /**
+     * Value selected.
+     */
+    value: {
+      type: String,
+      default: "",
+    },
+    /**
      * Adds placeholder
      */
     placeholder: {
@@ -94,9 +103,9 @@ export default {
       default: "",
     },
   },
-  computed: {
-    isSelected() {
-      return this.selected;
+  methods: {
+    changeHandler(event) {
+      this.$emit("input", event.target.value);
     },
   },
 };

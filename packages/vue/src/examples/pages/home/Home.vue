@@ -6,6 +6,7 @@
         :key="index"
         :image="img.image"
         :title="img.title"
+        :subtitle="img.subtitle"
         :button-text="img.buttonText"
         :background="img.background"
         :class="img.className"
@@ -31,34 +32,40 @@
       button-text="subscribe"
       image="/assets/storybook/Home/newsletter.jpg"
     />
-    <SfSection title-heading="Bestsellers">
-      <SfCarousel
-        :settings="{ peek: 16, breakpoints: { 1023: { peek: 0, perView: 2 } } }"
-        class="carousel"
+    <div class="match-with-it">
+      <p class="match-with-it__paragraph">Match with it</p>
+      <SfButton class="sf-button--text smartphone-only">See all</SfButton>
+    </div>
+    <SfCarousel
+      :settings="{ peek: 16, breakpoints: { 1023: { peek: 0, perView: 2 } } }"
+      class="carousel"
+    >
+      <SfCarouselItem
+        v-for="(product, index) in products"
+        :key="index"
+        class="carousel__item"
       >
-        <SfCarouselItem
-          v-for="(product, index) in products"
-          :key="index"
-          class="carousel__item"
-        >
-          <SfProductCard
-            :image="product.image"
-            :title="product.title"
-            :regular-price="product.price.regular"
-            :special-price="product.price.special"
-            :score-rating="product.rating.score"
-            :max-rating="product.rating.max"
-            :is-on-wishlist="product.isOnWishlist"
-            :show-add-to-cart-button="true"
-            :reviews-count="product.reviews"
-            :badge-label="product.badgeLabel"
-            :badge-color="product.badgeColor"
-            @click:wishlist="toggleWishlist(index)"
-          />
-        </SfCarouselItem>
-      </SfCarousel>
-    </SfSection>
-    <SfSection title-heading="Share Your Look" subtitle-heading="#YOURLOOK">
+        <SfProductCard
+          :image="product.image"
+          :title="product.title"
+          :regular-price="product.price.regular"
+          :special-price="product.price.special"
+          :score-rating="product.rating.score"
+          :max-rating="product.rating.max"
+          :is-on-wishlist="product.isOnWishlist"
+          :show-add-to-cart-button="true"
+          :reviews-count="product.reviews"
+          :badge-label="product.badgeLabel"
+          :badge-color="product.badgeColor"
+          @click:wishlist="toggleWishlist(index)"
+        />
+      </SfCarouselItem>
+    </SfCarousel>
+    <SfSection
+      title-heading="Share Your Look"
+      subtitle-heading="#YOURLOOK"
+      class="share-your-look"
+    >
       <div class="instagram-grid">
         <div
           v-for="(col, rowKey) in instagramFeed"
@@ -332,6 +339,28 @@ export default {
     margin: 0 auto;
   }
 }
+.hero {
+  --hero-item-background-position: center;
+  --hero-item-container-width: 60%;
+}
+.match-with-it {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-top: var(--spacer-xl);
+  font-size: var(--h3-font-size);
+  font-family: var(--font-family--secondary);
+  font-weight: var(--font-weight--bold);
+  border-bottom: solid 1px var(--c-light);
+  &__paragraph {
+    margin-bottom: var(--spacer-xs);
+  }
+  @include for-desktop {
+    border: none;
+    justify-content: center;
+    font-weight: var(--font-weight--semibold);
+  }
+}
 .carousel {
   margin: 0 calc(var(--spacer-sm) * -1) 0 0;
   @include for-desktop {
@@ -343,8 +372,15 @@ export default {
 }
 .banner-grid {
   margin: var(--spacer-base) 0;
+  --banner-container-width: 50%;
   @include for-desktop {
     margin: var(--spacer-2xl) 0;
+  }
+}
+.share-your-look {
+  --heading-title-font-weight: var(--font-weight--semibold);
+  @include for-desktop {
+    --section-margin: var(--spacer-2xl) 0;
   }
 }
 .call-to-action {
@@ -378,9 +414,9 @@ export default {
   --banner-title-margin: var(--spacer-base) 0 var(--spacer-xl) 0;
   --banner-padding: 0 var(--spacer-2xl);
   --banner-title-font-size: var(--h1-font-size);
-  --banner-subtitle-font-size: var(--font-xl);
-  --banner-title-font-weight: var(--font-semibold);
-  --banner-subtitle-font-weight: var(--font-medium);
+  --banner-subtitle-font-size: var(--font-size--xl);
+  --banner-title-font-weight: var(--font-weight--semibold);
+  --banner-subtitle-font-weight: var(--font-weight--medium);
   --banner-title-text-transform: capitalize;
   --banner-subtitle-text-transform: capitalize;
   display: block;

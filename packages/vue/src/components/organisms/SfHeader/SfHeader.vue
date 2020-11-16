@@ -1,11 +1,7 @@
 <template>
-  <div
-    class="sf-header"
-    :class="{ 'sf-header--is-sticky': sticky, 'sf-header--is-hidden': hidden }"
-    :style="stickyHeight"
-  >
+  <div class="sf-header" :class="{ 'is-sticky': sticky, 'is-hidden': hidden }">
     <div class="sf-header__wrapper">
-      <header ref="header">
+      <header ref="header" class="sf-header__header">
         <!--@slot Use this slot to replace logo with text or image-->
         <slot name="logo" v-bind="{ logo, title }">
           <SfLink link="/">
@@ -56,19 +52,21 @@
               <SfButton
                 v-if="accountIcon"
                 class="sf-button--pure sf-header__action"
+                data-testid="accountIcon"
                 @click="$emit('click:account')"
               >
                 <SfIcon
                   :icon="accountIcon"
                   size="1.25rem"
                   :class="{
-                    'sf-header__icon--is-active': activeIcon === 'account',
+                    'sf-header__icon is-active': activeIcon === 'account',
                   }"
                 />
               </SfButton>
               <SfButton
                 v-if="wishlistIcon"
                 class="sf-button--pure sf-header__action"
+                data-testid="wishlistIcon"
                 @click="$emit('click:wishlist')"
               >
                 <SfIcon
@@ -78,13 +76,14 @@
                   :badge-label="wishlistItemsQty"
                   size="1.25rem"
                   :class="{
-                    'sf-header__icon--is-active': activeIcon === 'wishlist',
+                    'sf-header__icon is-active': activeIcon === 'wishlist',
                   }"
                 />
               </SfButton>
               <SfButton
                 v-if="cartIcon"
                 class="sf-button--pure sf-header__action"
+                data-testid="cartIcon"
                 @click="$emit('click:cart')"
               >
                 <SfIcon
@@ -94,7 +93,7 @@
                   :badge-label="cartItemsQty"
                   size="1.25rem"
                   :class="{
-                    'sf-header__icon--is-active': activeIcon === 'cart',
+                    'sf-header__icon is-active': activeIcon === 'cart',
                   }"
                 />
               </SfButton>
@@ -225,7 +224,6 @@ export default {
   data() {
     return {
       icons: [],
-      height: 0,
       hidden: false,
       sticky: false,
       scrollDirection: null,
@@ -243,11 +241,6 @@ export default {
     wishlistHasProducts() {
       return parseInt(this.wishlistItemsQty, 10) > 0;
     },
-    stickyHeight() {
-      return {
-        "--_header-height": `${this.height}px`,
-      };
-    },
   },
   watch: {
     scrollDirection: {
@@ -260,15 +253,6 @@ export default {
           this.animationHandler
         );
       },
-    },
-    isMobile: {
-      handler() {
-        if (!isClient) return;
-        this.$nextTick(() => {
-          this.height = this.$refs.header.offsetHeight;
-        });
-      },
-      immediate: true,
     },
     isSticky: {
       handler(isSticky) {
@@ -307,9 +291,11 @@ export default {
       if (!isClient) return;
       const currentScrollPosition =
         window.pageYOffset || document.documentElement.scrollTop;
-      if (currentScrollPosition >= this.height) {
-        this.scrollDirection =
-          currentScrollPosition < this.lastScrollPosition ? "up" : "down";
+      if (!!this.refs) {
+        if (currentScrollPosition >= this.$refs.header.offsetHeight) {
+          this.scrollDirection =
+            currentScrollPosition < this.lastScrollPosition ? "up" : "down";
+        }
       }
       this.lastScrollPosition = currentScrollPosition;
     },
