@@ -11,9 +11,7 @@
           :level="cardDetails.level"
           :title="cardDetails.title"
           class="sf-card__title"
-        >
-          Baby Care
-        </SfHeading>
+        />
         <p class="sf-card__description">
           {{ cardDetails.description }}
         </p>
@@ -21,7 +19,9 @@
     </slot>
     <!-- @slot Slot content will replace button -->
     <slot name="action">
-      <SfButton class="sf-card__action" v-on="$listeners">Learn more</SfButton>
+      <SfButton :link="link" class="sf-card__action" v-on="$listeners">
+        {{ buttonText }}
+      </SfButton>
     </slot>
   </div>
 </template>
@@ -52,6 +52,20 @@ export default {
     cardDetails: {
       type: Object,
       default: () => {},
+    },
+    /**
+     * Card link
+     */
+    link: {
+      type: String,
+      default: "",
+    },
+    /**
+     * Text displayed on button
+     */
+    buttonText: {
+      type: String,
+      default: "",
     },
   },
 };

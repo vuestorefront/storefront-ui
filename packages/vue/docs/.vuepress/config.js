@@ -4,7 +4,7 @@ module.exports = {
   title: 'Storefront UI',
   description: 'Customizable and performant Vue.js UI library for eCommerce',
   head: [
-    ['link', { rel: "icon", type: "image/png", sizes: "32x32", href: "https://divante.com/open-graph/favicons_storefrontui/sfui_favicon-32x32.png"}],
+    ['link', { rel: "icon", type: "image/png", sizes: "32x32", href: "https://divante.com/open-graph/favicons_storefrontui/sfui_favicon-32x32.png" }],
   ],
   themeConfig: {
     logo: '/logo.png',
@@ -14,7 +14,7 @@ module.exports = {
     editLinks: true,
     editLinkText: 'Help us improve this page ❤️',
     nav: [
-      { text: `v${version}`, link:'/migration-guide' },
+      { text: `v${version}`, link: `/releases/v${version}` },
       { text: 'Community', link: 'https://discord.gg/GS8hqFS' },
       { text: 'Storybook', link: 'http://storybook.storefrontui.io' },
       { text: 'GitHub', link: 'https://github.com/DivanteLtd/storefront-ui' }
@@ -26,10 +26,19 @@ module.exports = {
         collapsable: true,
         children: [
           ['/introduction/why-storefrontui', 'Why Storefront UI?'],
-          ['/introduction/releases', 'Releases'],
           ['/introduction/storybook', 'Storybook'],
           ['/introduction/showcases', 'Showcases'],
           ['/introduction/meet-the-team', 'Meet the core team'],
+        ]
+      },
+      {
+        title: 'Releases',
+        collapsable: true,
+        children: [
+          ['/releases/v0.10.0', 'v0.10.0'],
+          ['/releases/v0.9.2', 'v0.9.2'],
+          ['/releases/v0.9.1', 'v0.9.1'],
+          ['/releases/v0.9.0', 'v0.9.0'],
         ]
       },
       {

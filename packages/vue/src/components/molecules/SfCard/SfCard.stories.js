@@ -25,10 +25,18 @@ storiesOf("Molecules|Card", module)
       image: {
         default: text("image", "assets/storybook/SfCard/card.jpg", "Props"),
       },
+      link: {
+        default: text("link", "", "Props"),
+      },
+      buttonText: {
+        default: text("buttonText", "Learn more", "Props"),
+      },
     },
     components: { SfCard },
     template: `<SfCard
         :card-details="cardDetails"
         :image="image"
+        :link="link"
+        :buttonText="buttonText"
       />`,
   }));
