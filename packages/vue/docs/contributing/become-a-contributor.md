@@ -13,7 +13,7 @@ We want you to have fun contributing with us, so let's go over a few important g
 * [Our current issues](https://github.com/DivanteLtd/storefront-ui/issues) - Where we keep track of all the bugs, feature requests reported by our community members.
 * [Our current Roadmap](https://github.com/DivanteLtd/storefront-ui/blob/develop/ROADMAP.md) - The status of our library in long term.
 
-* [Our Figma component design](https://www.figma.com/file/hrwE3VsMBHgdJoS86rVr4W/Desktop-%26-Mobile-Vue-Storefront?node-id=99%3A0) - Where contains the designs of all the existing/future components in the library.
+* [Our Figma component design](https://www.figma.com/file/N0Ct95cSAoODNv7zYS01ng/Storefront-UI-%7C-Design-System?node-id=127%3A1054) - Where contains the designs of all the existing/future components in the library.
 
 ## Repository's structure
 
