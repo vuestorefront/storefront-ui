@@ -70,7 +70,6 @@ export default {
     style() {
       const image = this.image;
       const background = this.background;
-      console.log("test");
       return {
         "--_hero-item-background-image": image.mobile
           ? `url(${image.mobile})`

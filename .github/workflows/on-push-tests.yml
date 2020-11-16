@@ -1,5 +1,5 @@
 name: Run tests
-on: push
+on: [push, pull_request]
 
 jobs:
   prepare_dependencies:
@@ -18,7 +18,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: |
-            node_modules 
+            **/node_modules 
             packages/vue/node_modules
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
 
@@ -41,12 +41,10 @@ jobs:
       - name: Get cached dependencies
         uses: actions/cache@v2
         with:
-          path: node_modules
+          path: |
+            **/node_modules
             packages/vue/node_modules
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-
-      - name: Install vue-cli
-        run: yarn add @vue/cli -W
 
       - name: Run linter and unit tests
         run: cd packages/vue && yarn lint && yarn test:unit
@@ -67,12 +65,10 @@ jobs:
       - name: Get cached dependencies
         uses: actions/cache@v2
         with:
-          path: node_modules
+          path: |
+            **/node_modules
             packages/vue/node_modules
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-
-      - name: Install vue-cli
-        run: yarn add @vue/cli -W
 
       - name: Build
         run: cd packages/vue && yarn build
