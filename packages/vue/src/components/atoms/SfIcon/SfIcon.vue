@@ -99,7 +99,7 @@ export default {
       default: false,
     },
     badgeLabel: {
-      type: String,
+      type: [String, Number],
       default: "",
     },
     /**
