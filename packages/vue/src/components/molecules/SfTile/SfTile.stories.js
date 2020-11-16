@@ -19,9 +19,13 @@ storiesOf("Molecules|Tile", module)
           "Props"
         ),
       },
+      link: {
+        default: text("link", "https://www.storefrontui.io/", "Props"),
+      },
     },
     template: `<SfTile
       :title="title"
       :background="background"
+      :link="link"
       />`,
   }));

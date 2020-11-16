@@ -1,20 +1,29 @@
 <template>
-  <div class="sf-tile" :style="style">
+  <SfLink :link="link" class="sf-tile" :style="style">
     <!-- @slot Use this slot to replace title -->
     <slot name="title" v-bind="{ title }">
-      <div v-if="title" class="sf-tile__title">
-        {{ title }}
-      </div>
+      <SfHeading
+        v-if="title"
+        class="sf-tile__title"
+        :level="3"
+        :title="title"
+      />
     </slot>
-  </div>
+  </SfLink>
 </template>
 <script>
 import {
   mapMobileObserver,
   unMapMobileObserver,
 } from "../../../utilities/mobile-observer";
+import SfHeading from "../../atoms/SfHeading/SfHeading.vue";
+import SfLink from "../../atoms/SfLink/SfLink.vue";
 export default {
   name: "SfTile",
+  components: {
+    SfHeading,
+    SfLink,
+  },
   props: {
     /**
      * Tile title
@@ -30,17 +39,24 @@ export default {
       type: [String, Object],
       default: "",
     },
+    /**
+     * Link title
+     */
+    link: {
+      type: String,
+      default: "",
+    },
   },
   computed: {
     ...mapMobileObserver(),
     style() {
       if (typeof this.background === String) {
         return {
-          "--tile-background-image": `url('${this.background}')`,
+          background: `url('${this.background}')`,
         };
       } else {
         return {
-          "--tile-background-image": this.isMobile
+          background: this.isMobile
             ? `url('${this.background.mobile}')`
             : `url('${this.background.desktop}')`,
         };

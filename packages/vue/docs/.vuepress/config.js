@@ -1,15 +1,21 @@
+const { version } = require('../../package.json')
+
 module.exports = {
   title: 'Storefront UI',
   description: 'Customizable and performant Vue.js UI library for eCommerce',
   head: [
-    ['link', { rel: "icon", type: "image/png", sizes: "32x32", href: "https://divante.com/open-graph/favicons_storefrontui/sfui_favicon-32x32.png"}],
+    ['link', { rel: "icon", type: "image/png", sizes: "32x32", href: "https://divante.com/open-graph/favicons_storefrontui/sfui_favicon-32x32.png" }],
   ],
   themeConfig: {
     logo: '/logo.png',
+    version: version,
+    repo: 'DivanteLtd/storefront-ui',
+    docsDir: 'packages/vue/docs',
+    editLinks: true,
+    editLinkText: 'Help us improve this page ❤️',
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Introduction', link: '/guide' },
-      { text: 'Customization', link: '/customization' },
+      { text: `v${version}`, link: `/releases/v${version}` },
+      { text: 'Community', link: 'https://discord.gg/GS8hqFS' },
       { text: 'Storybook', link: 'http://storybook.storefrontui.io' },
       { text: 'GitHub', link: 'https://github.com/DivanteLtd/storefront-ui' }
     ],
@@ -17,31 +23,50 @@ module.exports = {
     sidebar: [
       {
         title: 'Introduction',
-        collapsable: false,
+        collapsable: true,
         children: [
-          ['/guide', 'Beginner\'s Guide'],
-          ['/getting-started', 'Getting started'],
-          ['/import-stories', 'Import stories to your Storybook'],
-          ['/customization', 'Customization'],
-          ['/migration-guide', 'Migration Guide'],
-          ['/pull-off-components', 'Pull off components'],
-          ['/meet-the-team', 'Meet the core team'],
+          ['/introduction/why-storefrontui', 'Why Storefront UI?'],
+          ['/introduction/storybook', 'Storybook'],
+          ['/introduction/showcases', 'Showcases'],
+          ['/introduction/meet-the-team', 'Meet the core team'],
+        ]
+      },
+      {
+        title: 'Releases',
+        collapsable: true,
+        children: [
+          ['/releases/v0.10.0', 'v0.10.0'],
+          ['/releases/v0.9.2', 'v0.9.2'],
+          ['/releases/v0.9.1', 'v0.9.1'],
+          ['/releases/v0.9.0', 'v0.9.0'],
+        ]
+      },
+      {
+        title: 'Getting started',
+        collapsable: true,
+        children: [
+          ['/getting-started/installation', 'Installation'],
+          ['/getting-started/customization', 'Customization'],
+          ['/getting-started/import-stories', 'Import stories to your Storybook'],
+          ['/getting-started/pull-off-components', 'Pull off components'],
         ]
       },
       {
         title: 'Contributing Guide',
-        collapsable: false,
+        collapsable: true,
         children: [
           ['/contributing/become-a-contributor', 'Become a contributor'],
           ['/contributing/github-guidelines', 'Working with Github'],
           ['/contributing/coding-guidelines', 'Coding guidelines'],
           ['/contributing/branching-guidelines', 'Branching guidelines'],
-          ['/contributing/creating-new-component', 'Create/Edit Component'],
           ['/contributing/documentation-guidelines', 'Documentation guidelines'],
+          ['/contributing/using-third-party', 'Using third-party libs'],
+          ['/contributing/creating-new-component', 'Create/Edit Component'],
+          ['/contributing/acceptance-rules', 'PR acceptance rules'],
           ['/contributing/issue-report-guidelines', 'How to report an issue'],
+          ['/contributing/release-pipeline', 'Release pipeline'],
         ],
       },
-      ['/faq', 'FAQ'],
       {
         title: 'Styles & Designs',
         collapsable: false,
@@ -54,7 +79,7 @@ module.exports = {
       {
         title: 'Components',
         collapsable: false,
-        children: [
+        children: [          
 // @components-docs-start (keep comment and indentation for auto-generated component docs)
 { 
  title: "Atoms",
@@ -142,6 +167,7 @@ module.exports = {
  }// @components-docs-end
         ],
       },
+      ['/faq', 'Frequently Asked Questions']
     ]
-  }
+  },
 };
