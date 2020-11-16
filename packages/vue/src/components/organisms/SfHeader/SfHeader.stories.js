@@ -121,7 +121,7 @@ storiesOf("Organisms|Header", module)
           :cart-icon="cartIcon"
           :wishlist-icon="wishlistIcon"
           :is-sticky="isSticky"
-          :account-icon="accountIcon"
+        	:account-icon="accountIcon"
           :style="spacer"
           :cart-items-qty="cartItemsQty"
           :wishlist-items-qty="wishlistItemsQty"
