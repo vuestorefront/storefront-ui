@@ -1,7 +1,6 @@
 package-lock.json
 .DS_Store
 node_modules
-vsf-test
 
 # local env files
 .env.local
