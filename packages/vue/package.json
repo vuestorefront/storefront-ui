@@ -42,6 +42,7 @@
     "simplebar-vue": "^1.4.0",
     "vue-drag-drop": "^1.1.4",
     "vue-fragment": "^1.5.1",
+    "vue-template-compiler": "2.6.11",
     "vue2-leaflet": "^2.5.2"
   },
   "devDependencies": {
