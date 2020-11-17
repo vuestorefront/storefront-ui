@@ -29,20 +29,6 @@ export default {
       default: 0,
     },
     /*
-     * The value of left slider (or the only one in case there is one slider)
-     */
-    valueMin: {
-      type: Number,
-      default: 0,
-    },
-    /*
-     * The value of right slider (when there are two sliders)
-     */
-    valueMax: {
-      type: Number,
-      default: 1,
-    },
-    /*
      * The value of moving the slider on the scale
      */
     step: {
@@ -111,7 +97,7 @@ export default {
         if (this.$refs.range) {
           return this.updateRangeOptions({
             range: {
-              min: value >= this.max ? this.max - 1 : value,
+              min: value >= this.max ? this.max - this.step : value,
               max: this.max,
             },
           });
@@ -124,7 +110,7 @@ export default {
         return this.updateRangeOptions({
           range: {
             min: this.min,
-            max: value <= this.min ? this.min + 1 : value,
+            max: value <= this.min ? this.min + this.step : value,
           },
         });
       },
@@ -140,15 +126,17 @@ export default {
     },
     tooltips: {
       handler(value) {
-        value
-          ? (value =
-              this.slidersInitialValues.length === 2
-                ? [
-                    wNumb(this.formatTooltipsValues),
-                    wNumb(this.formatTooltipsValues),
-                  ]
-                : [wNumb(this.formatTooltipsValues)])
-          : value;
+        if (value) {
+          value =
+            this.slidersInitialValues.length === 2
+              ? [
+                  wNumb(this.formatTooltipsValues),
+                  wNumb(this.formatTooltipsValues),
+                ]
+              : [wNumb(this.formatTooltipsValues)];
+        } else {
+          return value;
+        }
         return this.updateRangeOptions({
           tooltips: value,
         });
@@ -172,17 +160,21 @@ export default {
     },
     horizontalOrientation: {
       handler(value) {
-        value ? (value = "horizontal") : (value = "vertical");
+        let orientationValue = "horizontal";
+        value
+          ? (orientationValue = "horizontal")
+          : (orientationValue = "vertical");
         return this.resetAndChangeOption({
-          orientation: value,
+          orientation: orientationValue,
         });
       },
       immediate: true,
     },
     ltrDirection: {
       handler(value) {
-        value ? (value = "ltr") : (value = "rtl");
-        return this.resetAndChangeOption({ direction: value });
+        let directionValue = "ltr";
+        value ? (directionValue = "ltr") : (directionValue = "rtl");
+        return this.resetAndChangeOption({ direction: directionValue });
       },
       immediate: true,
     },
@@ -203,6 +195,9 @@ export default {
       keyboardSupport: true,
     };
     this.noUiSliderInit();
+  },
+  beforeDestroy() {
+    this.$refs.range.noUiSlider.destroy();
   },
   methods: {
     noUiSliderInit(changedValue) {

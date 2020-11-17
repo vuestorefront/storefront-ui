@@ -2,7 +2,6 @@ import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
   number,
-  text,
   boolean,
   optionsKnob as options,
   object,
@@ -51,20 +50,24 @@ storiesOf("Molecules|Range", module)
         ),
       },
     },
+    methods: {
+      alertValues(value) {
+        console.log(value)
+      }
+    },
     components: { SfRange },
     template: `<div style="padding: 100px">
-    <SfRange
+		<SfRange
         :slidersInitialValues="slidersInitialValues"
         :min="min"
         :max="max"
-        :valueMin="valueMin"
-        :valueMax="valueMax"
         :step="step"
         :disabled="disabled"
         :horizontalOrientation="horizontalOrientation"
         :ltrDirection="ltrDirection"
         :tooltips="tooltips"
-        :formatTooltipsValues="formatTooltipsValues"
+				:formatTooltipsValues="formatTooltipsValues"
+				@change="alertValues"
       />
       </div>`,
   }))
@@ -109,6 +112,11 @@ storiesOf("Molecules|Range", module)
         ),
       },
     },
+    methods: {
+      alertValues(value) {
+        console.log(value)
+      }
+    },
     components: { SfRange },
     template: `<div style="padding: 100px">
     <SfRange
@@ -121,6 +129,7 @@ storiesOf("Molecules|Range", module)
         :ltrDirection="ltrDirection"
         :tooltips="tooltips"
         :formatTooltipsValues="formatTooltipsValues"
+        @change="alertValues"
       />
       </div>`,
   }));
