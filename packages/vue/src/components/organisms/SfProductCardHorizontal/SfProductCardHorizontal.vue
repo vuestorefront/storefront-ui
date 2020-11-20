@@ -44,9 +44,7 @@
         </slot>
         <!--@slot Use this slot to replace description-->
         <slot name="description">
-          <p class="sf-product-card-horizontal__description desktop-only">
-            {{ description }}
-          </p>
+          <p class="sf-product-card-horizontal__description desktop-only" v-html="description"></p>
         </slot>
         <!--@slot Use this slot to place content inside configuration-->
         <div class="sf-product-card-horizontal__configuration">
