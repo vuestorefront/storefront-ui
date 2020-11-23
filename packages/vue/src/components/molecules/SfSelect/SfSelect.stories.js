@@ -5,9 +5,9 @@ import {
   boolean,
   optionsKnob as options,
 } from "@storybook/addon-knobs";
-import { SfSelect } from "@storefront-ui/vue";
+import { SfSelect, SfProductOption } from "@storefront-ui/vue";
 const optionsList = [
-  {value: ""},
+  { value: "" },
   { value: "amaranth", color: "#E52B50", label: "Amaranth" },
   { value: "amber", color: "#FFBF00", label: "Amber" },
   { value: "arctic-lime", color: "#D0FF14", label: "Arctic lime" },
@@ -21,7 +21,7 @@ const knobOptionsList = optionsList.reduce(
 storiesOf("Molecules|Select", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
-    components: { SfSelect },
+    components: { SfSelect, SfProductOption },
     props: {
       customClass: {
         default: options(
@@ -54,7 +54,7 @@ storiesOf("Molecules|Select", module)
       },
       selectedValue: {
         default: options(
-          "selectedValue",                   
+          "selectedValue",
           knobOptionsList,
           optionsList[0].value,
           { display: "select" },
@@ -86,12 +86,12 @@ storiesOf("Molecules|Select", module)
         style="max-width: 30rem; margin: 10px;"
       >
         <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
-        {{option.label}}
+          <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
         </SfSelectOption>
       </SfSelect>`,
   }))
   .add("[slot] label", () => ({
-    components: { SfSelect },
+    components: { SfSelect, SfProductOption },
     props: {
       customClass: {
         default: options(
@@ -123,7 +123,7 @@ storiesOf("Molecules|Select", module)
       placeholder: {
         default: text("placeholder", "", "Props"),
       },
-     selectedValue: {
+      selectedValue: {
         default: options(
           "selectedValue",
           knobOptionsList,
@@ -156,7 +156,7 @@ storiesOf("Molecules|Select", module)
         @input="alert(selectedValue)"   
         >
         <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
-          {{option.label}}
+          <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
         </SfSelectOption>
         <template #label>
           CUSTOM LABEL
@@ -165,7 +165,7 @@ storiesOf("Molecules|Select", module)
     </div>`,
   }))
   .add("[slot] errorMessage", () => ({
-    components: { SfSelect },
+    components: { SfSelect, SfProductOption },
     props: {
       customClass: {
         default: options(
@@ -196,7 +196,7 @@ storiesOf("Molecules|Select", module)
       placeholder: {
         default: text("placeholder", "", "Props"),
       },
-     selectedValue: {
+      selectedValue: {
         default: options(
           "selectedValue",
           knobOptionsList,
@@ -228,7 +228,7 @@ storiesOf("Molecules|Select", module)
         @input="alert(selectedValue)"
         >
         <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
-          {{option.label}}
+          <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
         </SfSelectOption>
         <template #errorMessage>
           <span>
