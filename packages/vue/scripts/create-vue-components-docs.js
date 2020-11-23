@@ -154,6 +154,7 @@ function getComponentInfoFromPath(pathComponentVue) {
   };
 }
 function getComponentInfoFromMd(pathComponentMd) {
+  if (pathComponentMd.includes("_internal")) return;
   const contentComponentFile = readComponentMd(pathComponentMd);
   if (!contentComponentFile) {
     console.warn(
@@ -269,7 +270,7 @@ function parseComponentFile(contentComponentFile) {
   if (reResult.length !== headlines.length + 1) {
     throw new Error(
       "Placeholder count in component file doesn't match " +
-        `(expected ${headlines.length}, found ${reResult.length - 1})`
+      `(expected ${headlines.length}, found ${reResult.length - 1})`
     );
   }
   return {
