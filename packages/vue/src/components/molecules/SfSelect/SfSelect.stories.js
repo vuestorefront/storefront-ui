@@ -8,6 +8,7 @@ import {
 } from "@storybook/addon-knobs";
 import { SfSelect, SfProductOption } from "@storefront-ui/vue";
 const optionsList = [
+  { value: "" },
   { value: "amaranth", color: "#E52B50", label: "Amaranth" },
   { value: "amber", color: "#FFBF00", label: "Amber" },
   { value: "arctic-lime", color: "#D0FF14", label: "Arctic lime" },
@@ -56,7 +57,16 @@ storiesOf("Molecules|Select", module)
         default: boolean("disabled", false, "Props"),
       },
       placeholder: {
-        default: text("placeholder", "Select color", "Props"),
+        default: text("placeholder", "select color", "Props"),
+      },
+      selectedValue: {
+        default: options(
+          "selectedValue",
+          knobOptionsList,
+          optionsList[0].value,
+          { display: "select" },
+          "Data"
+        ),
       },
     },
     data() {
@@ -64,8 +74,14 @@ storiesOf("Molecules|Select", module)
         options: optionsList,
       };
     },
+    methods: {
+      alert(label) {
+        console.log(label);
+      },
+    },
     template: `
       <SfSelect
+        v-model="selectedValue"
         :class="customClass"
         :label="label"
         :hintMessage="hintMessage"
@@ -74,8 +90,9 @@ storiesOf("Molecules|Select", module)
         :valid="valid"
         :infoMessage="infoMessage"
         :disabled="disabled"
-        :placeholder="placeholder"
-        :selected-value="selectedValue"
+        :error-message="errorMessage"
+        :placeholder="placeholder"       
+        @input="alert(selectedValue)"
         style="max-width: 30rem; margin: 10px;"
       >
         <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
@@ -125,16 +142,29 @@ storiesOf("Molecules|Select", module)
       placeholder: {
         default: text("placeholder", "", "Props"),
       },
+      selectedValue: {
+        default: options(
+          "selectedValue",
+          knobOptionsList,
+          optionsList[0].value,
+          { display: "select" },
+          "Data"
+        ),
+      },
     },
     data() {
       return {
-        selected: ["", ...optionsList.map((i) => i.value)],
         options: optionsList,
       };
     },
+    methods: {
+      alert(label) {
+        console.log(label);
+      },
+    },
     template: `<div style="max-width: 30rem">    
       <SfSelect
-        :selected="selected"
+        v-model="selectedValue"
         :class="customClass"
         :label="label"
         :hintMessage="hintMessage"
@@ -144,7 +174,8 @@ storiesOf("Molecules|Select", module)
         :infoMessage="infoMessage"
         :disabled="disabled"
         :placeholder="placeholder"
-        :selected-value="selectedValue"    
+        :selected-value="selectedValue"  
+        @input="alert(selectedValue)"   
         >
         <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
           <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
@@ -196,16 +227,29 @@ storiesOf("Molecules|Select", module)
       placeholder: {
         default: text("placeholder", "", "Props"),
       },
+      selectedValue: {
+        default: options(
+          "selectedValue",
+          knobOptionsList,
+          optionsList[0].value,
+          { display: "select" },
+          "Data"
+        ),
+      },
     },
     data() {
       return {
-        selected: "",
         options: optionsList,
       };
     },
+    methods: {
+      alert(label) {
+        console.log(label);
+      },
+    },
     template: `<div style="max-width: 30rem">
       <SfSelect
-        v-model="selected"
+        v-model="selectedValue"
         :class="customClass"
         :label="label"
         :hintMessage="hintMessage"
@@ -216,6 +260,7 @@ storiesOf("Molecules|Select", module)
         :disabled="disabled"
         :placeholder="placeholder"
         :selected-value="selectedValue"
+        @input="alert(selectedValue)"
         >
         <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
           <SfProductOption :color="option.color" :label="option.label"></SfProductOption>

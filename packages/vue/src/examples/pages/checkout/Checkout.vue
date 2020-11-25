@@ -307,14 +307,13 @@ export default {
   &__aside {
     @include for-desktop {
       flex: 0 0 26.8125rem;
-      margin: 0 0 0 var(--spacer-xl);
+      margin: 0 0 0 var(--spacer-sm);
     }
     &-order {
       box-sizing: border-box;
       width: 100%;
-      box-shadow: 0px 4px 11px rgba(var(--c-dark-base), 0.1);
       background: var(--c-light);
-      padding: var(--spacer-xl) calc(var(--spacer-lg) * 2);
+      padding: var(--spacer-xl);
     }
   }
 }

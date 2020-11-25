@@ -104,7 +104,7 @@ export default {
       if (this.isLazyAndNotLoaded) {
         return {
           srcset: [{ media: null, src: null, type: null }],
-          src: "",
+          src: this.src,
         };
       }
       // TODO: To be removed if src as an object will not be available anymore
@@ -114,14 +114,14 @@ export default {
           "Prop 'src' type should be a string, the object type is deprecated, change the prop type."
         );
         return {
-          src: this.src.desktop?.url,
+          src: this.src.desktop && this.src.desktop.url,
           srcset: [
             {
-              src: this.src.mobile?.url,
+              src: this.src.mobile && this.src.mobile.url,
               media: `(max-width: 1023px)`,
             },
             {
-              src: this.src.desktop?.url,
+              src: this.src.desktop && this.src.desktop.url,
               media: `(min-width: 1024px)`,
             },
           ],

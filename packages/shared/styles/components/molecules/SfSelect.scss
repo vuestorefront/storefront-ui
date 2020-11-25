@@ -5,15 +5,15 @@
   width: var(--select-width);
   height: var(--select-height, 4.25rem);
   padding: var(--select-padding, var(--spacer-sm) 0 var(--spacer-sm) 0);
-  color: var(--select-color, var(--c-text));      
-  cursor: default;  
+  color: var(--select-color, var(--c-text));
+  cursor: default;
   &__label {
     position: absolute;
     top: var(--select-label-top, 30%);
     left: var(--select-label-left, 0);
     padding: 0 0 0 4px;
     height: 0.625rem;
-    color: var(--select-label-color, inherit);
+    color: var(--select-label-color, var(--c-secondary-variant));
     transition: var(
       --select-label-transition,
       top 150ms linear,
@@ -33,43 +33,41 @@
   &__dropdown {
     width: 100%;
     height: 1.625rem;
-    margin: 0 0 var(--spacer-2xs) 0;       
+    margin: 0 0 var(--spacer-2xs) 0;
     overflow-y: scroll;
-    box-shadow: none;  
+    box-shadow: none;
     color: var(--select-dropdown-color, var(--c-secondary-variant));
-    background: var(--c-white); 
-    outline: none;       
-    @include border(--select-dropdown-border, 0 0 0 0, solid, var(--c-secondary));
+    background: var(--c-white);
+    outline: none;
+    @include border(
+      --select-dropdown-border,
+      0 0 0 0,
+      solid,
+      var(--c-secondary)
+    );
   }
-  &__option {           
-    @include background(
-      --select-option-background,      
-      var(--_select-option-background-color, var(--c-white)),
-      var(--_select-option-background-image)
-    ); 
+  &__option {
+    background: var(--select-option-background, var(--c-white));
     @include font(
       --select-option-font,
       var(--font-weight--normal),
       var(--font-size--base),
       1,
       var(--font-family--secondary)
-    ); 
-  }
-  .sf-select__dropdown:active .sf-select__placeholder {
-    display: var(--select-placeholder-display, none);
+    );
   }
   .sf-select__dropdown:active {
     --select-label-color: var(--c-text-muted);
     --select-dropdown-border-color: var(--c-primary);
-    --select-dropdown-color: var(--c-text-muted);
+    --select-dropdown-color: var(--c-link);
   }
   &__label .sf-select__dropdown:active {
     top: 0;
-  }  
+  }
   &::-ms-expand {
     display: none;
   }
-  &__message {    
+  &__message {
     color: var(--select-message-color, var(--c-danger));
     min-height: var(--select-message-height, calc(var(--font-size--xs) * 1.2));
     @include font(
@@ -87,7 +85,7 @@
   &--underlined {
     --select-dropdown-border-width: 0 0 1px 0;
     --select-border-width: 0 0 1px 0;
-    --select-border-color: var(--c-light);    
+    --select-border-color: var(--c-light);
   }
   &.is-selected {
     --select-label-top: 0;

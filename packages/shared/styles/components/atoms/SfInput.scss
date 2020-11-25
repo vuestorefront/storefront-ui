@@ -117,7 +117,7 @@
       var(--font-family--secondary)
     );
     text-align: var(--input-text-align);
-    &:focus {
+    &:focus, &:placeholder-shown {
       & ~ * {
         --input-password-icon-background: var(--c-primary);
         --input-label-top: 0;
