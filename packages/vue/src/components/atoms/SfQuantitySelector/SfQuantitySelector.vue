@@ -2,7 +2,7 @@
   <div class="sf-quantity-selector">
     <SfButton
       :disabled="disabled"
-      class="sf-quantity-selector__button"
+      class="sf-button--pure sf-quantity-selector__button"
       data-testid="+"
       @click="$emit('input', parseInt(qty, 10) - 1)"
       >&minus;</SfButton
@@ -23,8 +23,8 @@
     />
     <SfButton
       :disabled="disabled"
-      class="sf-quantity-selector__button"
-      ata-testid="-"
+      class="sf-button--pure sf-quantity-selector__button"
+      data-testid="-"
       @click="$emit('input', parseInt(qty, 10) + 1)"
       >+</SfButton
     >

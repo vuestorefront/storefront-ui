@@ -2,10 +2,10 @@
   <div
     class="sf-select"
     :class="{
-      'sf-select--is-selected': selectedValue || placeholder,
-      'sf-select--is-required': required,
-      'sf-select--is-disabled': disabled,
-      'sf-select--is-invalid': !valid,
+      'is-selected': value || placeholder,
+      'is-required': required,
+      'is-disabled': disabled,
+      'is-invalid': !valid,
     }"
   >
     <label :for="label" class="sf-select__label">
@@ -15,16 +15,17 @@
     </label>
     <select
       :id="label"
-      v-model="selectedValue"
       v-focus
+      :value="value"
       class="sf-select__dropdown"
-      @change="$emit('selected', $event.target.value)"
+      @change="changeHandler"
     >
       <!-- empty option by default, may be used as placeholder -->
       <option
+        v-if="placeholder"
         class="sf-select__placeholder sf-select__option"
         disabled
-        selected
+        :selected="!!placeholder"
         value
       >
         <slot name="placeholder" v-bind="{ placeholder }" />
@@ -46,6 +47,7 @@
 import { focus } from "../../../utilities/directives";
 import SfSelectOption from "./_internal/SfSelectOption.vue";
 import Vue from "vue";
+
 Vue.component("SfSelectOption", SfSelectOption);
 export default {
   name: "SfSelect",
@@ -87,6 +89,13 @@ export default {
       default: "This field is not correct.",
     },
     /**
+     * Value selected.
+     */
+    value: {
+      type: String,
+      default: "",
+    },
+    /**
      * Adds placeholder
      */
     placeholder: {
@@ -94,10 +103,10 @@ export default {
       default: "",
     },
   },
-  data() {
-    return {
-      selectedValue: "",
-    };
+  methods: {
+    changeHandler(event) {
+      this.$emit("input", event.target.value);
+    },
   },
 };
 </script>

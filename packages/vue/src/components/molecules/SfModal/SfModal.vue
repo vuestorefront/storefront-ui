@@ -17,8 +17,8 @@
         <!--@slot Use this slot to place content inside the modal bar.-->
         <slot name="modal-bar">
           <SfBar
-            class="sf-modal__bar mobile-only"
-            :close="true"
+            class="sf-modal__bar smartphone-only"
+            :close="false"
             :title="title"
             @click:close="close"
           />
@@ -27,6 +27,7 @@
           v-if="cross"
           class="sf-button--pure sf-modal__close desktop-only"
           aria-label="Close modal"
+          type="button"
           @click="close"
         >
           <!--@slot Use this slot to place content inside the close button.-->

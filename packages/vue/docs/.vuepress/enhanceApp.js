@@ -20,6 +20,8 @@ import SfPrice from "../../src/components/atoms/SfPrice/SfPrice.vue"
 import SfProperty from "../../src/components/atoms/SfProperty/SfProperty.vue"
 import SfQuantitySelector from "../../src/components/atoms/SfQuantitySelector/SfQuantitySelector.vue"
 import SfRating from "../../src/components/atoms/SfRating/SfRating.vue"
+import SfTextarea from "../../src/components/atoms/SfTexarea/SfTextarea.vue"
+import SfAddressPicker from "../../src/components/molecules/SfAddressPicker/SfAddressPicker.vue"
 import SfAddToCart from "../../src/components/molecules/SfAddToCart/SfAddToCart.vue"
 import SfAlert from "../../src/components/molecules/SfAlert/SfAlert.vue"
 import SfBanner from "../../src/components/molecules/SfBanner/SfBanner.vue"
@@ -74,6 +76,15 @@ export default ({
   router,
   siteData
 }) => {
+  router.addRoutes([
+    { path: '/guide.html', redirect: '/introduction/why-storefrontui' },
+    { path: '/meet-the-team.html', redirect: '/introduction/meet-the-team' },
+    { path: '/migration-guide', redirect: '/introduction/releases' },
+    { path: '/getting-started', redirect: '/getting-started/installation'},
+    { path: '/customization', redirect: '/getting-started/customization'},
+    { path: '/import-stories', redirect: '/getting-started/import-stories'},
+    { path: '/pull-off-components', redirect: '/getting-started/pull-off-components'},
+  ])
   // @components-docs-start (keep comment and indentation for auto-generated component docs)
   Vue.component("SfArrow", SfArrow);
   Vue.component("SfBadge", SfBadge);
@@ -95,6 +106,8 @@ export default ({
   Vue.component("SfProperty", SfProperty);
   Vue.component("SfQuantitySelector", SfQuantitySelector);
   Vue.component("SfRating", SfRating);
+  Vue.component("SfTextarea", SfTextarea);
+  Vue.component("SfAddressPicker", SfAddressPicker);
   Vue.component("SfAddToCart", SfAddToCart);
   Vue.component("SfAlert", SfAlert);
   Vue.component("SfBanner", SfBanner);

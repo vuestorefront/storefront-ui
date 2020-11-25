@@ -5,7 +5,7 @@ import {
   select,
   boolean,
   object,
-  number
+  number,
 } from "@storybook/addon-knobs";
 import { icons } from "@storefront-ui/shared/icons/icons";
 import { sizesValues as sizes } from "@storefront-ui/shared/variables/sizes";
@@ -36,7 +36,7 @@ storiesOf("Atoms|Icon", module)
       },
       coverage: {
         default: number("coverage (0-1)", 1, "Props"),
-      }
+      },
     },
     components: { SfIcon },
     template: `<SfIcon
@@ -93,7 +93,7 @@ storiesOf("Atoms|Icon", module)
       },
       coverage: {
         default: number("coverage (0-1)", 1, "Props"),
-      }
+      },
     },
     components: { SfIcon },
     template: `<SfIcon

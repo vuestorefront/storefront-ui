@@ -1,11 +1,5 @@
 <template>
-  <SfButton
-    class="sf-arrow"
-    type="button"
-    :disabled="button.disabled"
-    :link="button.link"
-    v-on="$listeners"
-  >
+  <SfButton class="sf-arrow" type="button" v-bind="$attrs" v-on="$listeners">
     <!--@slot Use this slot to replace arrow icon-->
     <slot>
       <SfIcon

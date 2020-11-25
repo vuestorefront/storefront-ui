@@ -43,10 +43,17 @@ storiesOf("Molecules|SearchBar", module)
         value: "",
       };
     },
+    methods: {
+      alert(label) {
+        alert(label);
+      },
+    },
     template: `<SfSearchBar
       :icon="icon"
       :class="customClass"
       :placeholder="placeholder"
+      @click="alert(value)"
+      @enter="alert(value)"
       aria-label="Search"
       v-model="value"/>`,
   }))
@@ -74,9 +81,16 @@ storiesOf("Molecules|SearchBar", module)
         value: "",
       };
     },
+    methods: {
+      alert(label) {
+        alert(label);
+      },
+    },
     template: `<SfSearchBar
       :class="customClass"
       :placeholder="placeholder"
+      @click="alert(value)"
+      @enter="alert(value)"
       aria-label="Search"
       v-model="value">
       <template #icon>👀</template>
@@ -106,9 +120,15 @@ storiesOf("Molecules|SearchBar", module)
         value: "",
       };
     },
+    methods: {
+      alert(label) {
+        alert(label);
+      },
+    },
     template: `<SfSearchBar
       :class="customClass"
       :placeholder="placeholder"
+      @enter="alert(value)"
       aria-label="Search"
       v-model="value">
     </SfSearchBar>`,

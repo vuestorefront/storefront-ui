@@ -1,6 +1,7 @@
 <template>
   <div class="sf-search-bar">
     <input
+      v-focus
       class="sf-search-bar__input"
       type="search"
       :value="value"
@@ -13,25 +14,27 @@
     />
     <!-- @slot -->
     <slot name="icon">
-      <span v-if="icon" class="sf-search-bar__icon">
-        <SfIcon
-          :icon="icon.icon"
-          :size="icon.size"
-          :color="icon.color"
-          :view-box="icon.viewBox"
-          :has-badge="icon.hasBadge"
-          :badge-label="icon.badgeLabel"
-          :coverage="icon.coverage"
-        />
-      </span>
+      <SfButton
+        class="sf-search-bar__button sf-button--pure"
+        @click="$emit('click', value)"
+      >
+        <span v-if="icon" class="sf-search-bar__icon">
+          <SfIcon :color="icon.color" :size="icon.size" icon="search" />
+        </span>
+      </SfButton>
     </slot>
   </div>
 </template>
 <script>
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+import SfButton from "../../atoms/SfButton/SfButton.vue";
+import { focus } from "../../../utilities/directives";
 export default {
   name: "SfSearchBar",
-  components: { SfIcon },
+  directives: {
+    focus,
+  },
+  components: { SfIcon, SfButton },
   inheritAttrs: false,
   props: {
     /**

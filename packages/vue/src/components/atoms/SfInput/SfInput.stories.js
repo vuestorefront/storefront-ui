@@ -175,7 +175,12 @@ storiesOf("Atoms|Input", module)
         :button="button"
         >
       <template #label="{label}">
-            <SfIcon icon="heart_fill" size="10px" style="margin-right: 4px; display: inline-block"/>{{label}}
+            <SfIcon 
+              icon="heart_fill" 
+              size="10px" 
+              :style="disabled ? {'--icon-color': 'var(--c-text-disabled)'} : ''"
+              style="margin-right: 4px; display: inline-block"
+            />{{label}}
       </template>
     </SfInput>`,
   }))

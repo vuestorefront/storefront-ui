@@ -13,11 +13,13 @@
       <SfButton
         :aria-pressed="isOpen.toString()"
         :aria-expanded="isOpen.toString()"
-        :class="{ 'sf-accordion-item__header--open': isOpen }"
+        :class="{ 'is-open': isOpen }"
         class="sf-button--pure sf-accordion-item__header"
         @click="accordionClick"
       >
         {{ header }}
+        <!-- @slot here you can add additional information about this item -->
+        <slot name="additional-info" />
         <SfChevron
           tabindex="0"
           class="sf-accordion-item__chevron"
