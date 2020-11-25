@@ -15,7 +15,10 @@ const optionsList = [
   { value: "bluetiful", color: "#3C69E7", label: "Bluetiful" },
   { value: "buff", color: "#F0DC82", label: "Buff" },
 ];
-const optionValues = ["", ...optionsList.map((i) => i.value)];
+const knobOptionsList = optionsList.reduce(
+  (a, c) => ({ ...a, [c.label]: c.value }),
+  {}
+);
 storiesOf("Molecules|Select", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({

@@ -95,8 +95,10 @@ export default {
     /**
      * Info/success message value of select.
      */
-    infoMessage: {},
-
+    infoMessage: {
+      type: String,
+      default: "",
+    },
     /**
      * Value selected.
      */
