@@ -9,11 +9,11 @@ We want you to have fun contributing with us, so let's go over a few important g
 ## Important resources
 
 * [Our Discord Server](https://discord.gg/GS8hqFS). This is the place where we discussed about new features, exchanging questions between the core team, contributors (`#contributors`) and StorefrontUI users.
-* [Our component storybook](http://storefrontui-storybook.netlify.com/) - Playground for our components
+* [Our component storybook](https://storybook.storefrontui.io/) - Playground for our components
 * [Our current issues](https://github.com/DivanteLtd/storefront-ui/issues) - Where we keep track of all the bugs, feature requests reported by our community members.
-* [Our current Roadmap](https://github.com/DivanteLtd/storefront-ui/projects/1) - The status of our library in long term.
+* [Our current Roadmap](https://github.com/DivanteLtd/storefront-ui/blob/develop/ROADMAP.md) - The status of our library in long term.
 
-* [Our Figma component design](https://www.figma.com/file/hrwE3VsMBHgdJoS86rVr4W/Desktop-%26-Mobile-Vue-Storefront?node-id=99%3A0) - Where contains the designs of all the existing/future components in the library.
+* [Our Figma component design](https://www.figma.com/file/N0Ct95cSAoODNv7zYS01ng/Storefront-UI-%7C-Design-System?node-id=127%3A1054) - Where contains the designs of all the existing/future components in the library.
 
 ## Repository's structure
 
@@ -67,7 +67,7 @@ If you are sure your issue is a bug, or a valid feature request, [file a new iss
 
 ### Work on Documentation
 
-Good and friendly documentation is **extremply significant** for our community, for every reason. Currently we have lots of work needed to be done on this matter. Would you like to help us a hand to build the best documentation? 😉
+Good and friendly documentation is **extremly significant** for our community, for every reason. Currently we have lots of work needed to be done on this matter. Would you like to help us a hand to build the best documentation? 😉
 
 StorefrontUI aims to be an international community, with the core team coming from different timezones across the globe. Thus, we are actively looking for contributors on the following:
 

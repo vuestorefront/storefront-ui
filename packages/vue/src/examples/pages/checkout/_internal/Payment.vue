@@ -1,8 +1,8 @@
 <template>
   <div>
     <SfHeading
-      title="3. Billing address"
-      :level="2"
+      title="Billing address"
+      :level="3"
       class="sf-heading--left sf-heading--no-underline title"
     />
     <div class="form">
@@ -77,22 +77,22 @@
         required
         @input="updateField('zipCode', $event)"
       />
-      <SfSelect
+      <SfComponentSelect
         v-model="country"
         :value="country"
         label="Country"
-        class="form__element form__element--half form__element--half-even form__select sf-select--underlined"
+        class="form__element form__element--half form__element--half-even form__select sf-component-select--underlined"
         required
         @change="updateField('country', $event)"
       >
-        <SfSelectOption
+        <SfComponentSelectOption
           v-for="countryOption in countries"
           :key="countryOption"
           :value="countryOption"
         >
           {{ countryOption }}
-        </SfSelectOption>
-      </SfSelect>
+        </SfComponentSelectOption>
+      </SfComponentSelect>
       <SfInput
         v-model="phoneNumber"
         :value="phoneNumber"
@@ -175,36 +175,36 @@
               >Expiry date:</span
             >
             <div class="credit-card-form__element">
-              <SfSelect
+              <SfComponentSelect
                 v-model="cardMonth"
                 :value="cardMonth"
                 label="Month"
-                class="credit-card-form__input credit-card-form__input--with-spacer form__select sf-select--underlined"
+                class="credit-card-form__input credit-card-form__input--with-spacer form__select sf-component-select--underlined"
                 @change="updateField('cardMonth', $event)"
               >
-                <SfSelectOption
+                <SfComponentSelectOption
                   v-for="monthOption in months"
                   :key="monthOption"
                   :value="monthOption"
                 >
                   {{ monthOption }}
-                </SfSelectOption>
-              </SfSelect>
-              <SfSelect
+                </SfComponentSelectOption>
+              </SfComponentSelect>
+              <SfComponentSelect
                 v-model="cardYear"
                 :value="cardYear"
                 label="Year"
-                class="credit-card-form__input form__select sf-select--underlined"
+                class="credit-card-form__input form__select sf-component-select--underlined"
                 @change="updateField('cardYear', $event)"
               >
-                <SfSelectOption
+                <SfComponentSelectOption
                   v-for="yearOption in years"
                   :key="yearOption"
                   :value="yearOption"
                 >
                   {{ yearOption }}
-                </SfSelectOption>
-              </SfSelect>
+                </SfComponentSelectOption>
+              </SfComponentSelect>
             </div>
           </div>
           <div class="credit-card-form__group">
@@ -231,14 +231,14 @@
           />
         </div>
       </transition>
-      <div class="form__action mobile-only">
+      <div class="form__action">
         <SfButton
           class="sf-button--full-width form__action-button"
           @click="$emit('click:next')"
           >Review order
         </SfButton>
         <SfButton
-          class="sf-button--full-width sf-button--text color-secondary form__action-button form__action-button--secondary"
+          class="sf-button--full-width sf-button--underlined color-secondary form__action-button form__action-button--secondary smartphone-only"
           @click="$emit('click:back')"
         >
           Go back
@@ -252,7 +252,7 @@ import {
   SfHeading,
   SfInput,
   SfButton,
-  SfSelect,
+  SfComponentSelect,
   SfRadio,
   SfImage,
   SfCheckbox,
@@ -264,7 +264,7 @@ export default {
     SfHeading,
     SfInput,
     SfButton,
-    SfSelect,
+    SfComponentSelect,
     SfRadio,
     SfImage,
     SfCheckbox,
@@ -406,10 +406,7 @@ export default {
   --heading-padding: var(--spacer-base) 0;
   @include for-desktop {
     --heading-title-font-size: var(--h3-font-size);
-    --heading-padding: var(--spacer-2xl) 0 var(--spacer-base) 0;
-    &:last-of-type {
-      --heading-padding: var(--spacer-xs) 0 var(--spacer-base) var(--spacer-xs);
-    }
+    --heading-padding: var(--spacer-xl) 0;
   }
 }
 .form {
@@ -423,7 +420,6 @@ export default {
   }
   &__action-button {
     &:first-child {
-      --button-height: 4.0625rem;
       margin: var(--spacer-xl) 0 0 0;
     }
     &--secondary {
@@ -448,6 +444,9 @@ export default {
     &__action {
       flex: 0 0 100%;
       display: flex;
+    }
+    &__action-button {
+      --button-width: 25rem;
     }
   }
 }
@@ -484,7 +483,7 @@ export default {
     flex: 1;
   }
   &__label {
-    font-size: var(--font-lg);
+    font-size: var(--font-size--lg);
     padding: var(--spacer-sm) 0 0 0;
     flex: 1;
   }

@@ -35,6 +35,20 @@
           >{{ badgeLabel }}</SfBadge
         >
       </slot>
+      <SfButton
+        v-if="wishlistIcon !== false"
+        :aria-label="`${ariaLabel} ${title}`"
+        :class="wishlistIconClasses"
+        @click="toggleIsOnWishlist"
+      >
+        <slot name="wishlist-icon" v-bind="{ currentWishlistIcon }">
+          <SfIcon
+            :icon="currentWishlistIcon"
+            size="22px"
+            data-test="sf-wishlist-icon"
+          />
+        </slot>
+      </SfButton>
       <template v-if="showAddToCartButton">
         <slot
           name="add-to-cart"
@@ -54,7 +68,10 @@
           >
             <div class="sf-product-card__add-button--icons">
               <transition name="sf-pulse" mode="out-in">
-                <slot v-if="!isAddingToCart" name="add-to-cart-icon">
+                <slot
+                  v-if="!isAddingToCart && !isAddedToCart"
+                  name="add-to-cart-icon"
+                >
                   <SfIcon
                     key="add_to_cart"
                     icon="add_to_cart"
@@ -83,20 +100,6 @@
         </h3>
       </SfLink>
     </slot>
-    <SfButton
-      v-if="wishlistIcon !== false"
-      :aria-label="`${ariaLabel} ${title}`"
-      :class="wishlistIconClasses"
-      @click="toggleIsOnWishlist"
-    >
-      <slot name="wishlist-icon" v-bind="{ currentWishlistIcon }">
-        <SfIcon
-          :icon="currentWishlistIcon"
-          size="22px"
-          data-test="sf-wishlist-icon"
-        />
-      </slot>
-    </SfButton>
     <slot name="price" v-bind="{ specialPrice, regularPrice }">
       <SfPrice
         v-if="regularPrice"
@@ -316,9 +319,7 @@ export default {
     },
     wishlistIconClasses() {
       const defaultClass = "sf-button--pure sf-product-card__wishlist-icon";
-      return `${defaultClass} ${
-        this.isOnWishlist ? "sf-product-card--on-wishlist" : ""
-      }`;
+      return `${defaultClass} ${this.isOnWishlist ? "on-wishlist" : ""}`;
     },
   },
   methods: {

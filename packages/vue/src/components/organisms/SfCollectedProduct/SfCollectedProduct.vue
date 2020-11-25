@@ -4,9 +4,13 @@
       <div class="sf-collected-product__details">
         <slot name="title" v-bind="{ title }">
           <div class="sf-collected-product__title-wraper">
-            <SfLink :link="link" class="sf-collected-product__title">
+            <component
+              :is="componentIs"
+              class="sf-collected-product__title"
+              :link="link ? link : ''"
+            >
               {{ title }}
-            </SfLink>
+            </component>
           </div>
         </slot>
         <slot name="price" v-bind="{ specialPrice, regularPrice }">
@@ -16,10 +20,19 @@
             :special="specialPrice"
           />
         </slot>
-        <slot name="configuration" />
+        <div class="sf-collected-product__configuration">
+          <slot name="configuration">
+            <SfProperty name="Size" value="XS" />
+            <SfProperty name="Color" value="white" />
+          </slot>
+        </div>
       </div>
       <div class="sf-collected-product__actions">
-        <slot name="actions" />
+        <slot name="actions">
+          <SfButton class="sf-button--text desktop-only"
+            >Save for later</SfButton
+          >
+        </slot>
       </div>
     </div>
     <div class="sf-collected-product__aside">
@@ -58,9 +71,9 @@
     <slot name="more-actions">
       <SfButton
         aria-label="More actions"
-        class="sf-button--pure sf-collected-product__more-actions mobile-only"
+        class="sf-button--pure sf-collected-product__more-actions smartphone-only"
       >
-        <SfIcon icon="more" />
+        <SfIcon icon="more" size="18px" />
       </SfButton>
     </slot>
   </div>
@@ -73,6 +86,7 @@ import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfQuantitySelector from "../../atoms/SfQuantitySelector/SfQuantitySelector.vue";
 import SfLink from "../../atoms/SfLink/SfLink.vue";
+import SfProperty from "../../atoms/SfProperty/SfProperty.vue";
 export default {
   name: "SfCollectedProduct",
   components: {
@@ -83,6 +97,7 @@ export default {
     SfPrice,
     SfQuantitySelector,
     SfLink,
+    SfProperty,
   },
   model: {
     prop: "qty",
@@ -144,6 +159,11 @@ export default {
     link: {
       type: [String, Object],
       default: "",
+    },
+  },
+  computed: {
+    componentIs() {
+      return this.link ? "SfLink" : "div";
     },
   },
   methods: {

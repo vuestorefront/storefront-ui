@@ -14,15 +14,15 @@
     align-items: center;
     padding: var(--table-heading-padding, var(--spacer-sm) 0);
     background-color: var(--table-heading-background, transparent);
-    @include border(--table-border, 2px 0 2px 0, solid, var(--c-light));
+    @include border(--table-border-heading, 0 0 2px 0, solid, var(--c-primary));
   }
   &__header {
     @include font(
       --table-header-font,
-      var(--font-semibold),
-      var(--font-xs),
+      var(--font-weight--normal),
+      var(--font-size--base),
       1.4,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
     color: var(--table-header-color, var(--c-text));
   }
@@ -36,10 +36,10 @@
     color: var(--table-data-color, var(--c-dark-variant));
     @include font(
       --table-data-font,
-      var(--font-normal),
-      var(--font-sm),
+      var(--font-weight--normal),
+      var(--font-size--base),
       1.6,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
   }
   &__data,
@@ -61,14 +61,13 @@
     --table-heading-background: transparent;
     --table-column-flex: 1;
     --_table-column-order: 0;
-    --table-header-font-size: var(--font-sm);
-    --table-header-font-weight: var(--font-normal);
+    --table-header-font-weight: var(--font-weight--normal);
     &--no-border {
       --table-row-border-width: 0;
     }
     &__row {
       &:hover {
-        --table-row-box-shadow: 0 4px 20px rgba(100, 122, 145, 0.19);
+        --table-row-box-shadow: 0px 4px 11px rgba(29, 31, 34, 0.1);
       }
     }
   }

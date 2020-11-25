@@ -1,7 +1,7 @@
 <template>
   <SfCheckbox
     class="sf-filter"
-    :class="{ 'sf-filter--active': selected, 'sf-filter--is-color': color }"
+    :class="{ 'is-active': selected, 'is-color': color }"
     :name="label"
     :selected="selected"
     v-on="$listeners"
@@ -27,7 +27,7 @@
   </SfCheckbox>
 </template>
 <script>
-import SfCheckbox from "../../atoms/SfCheckbox/SfCheckbox.vue";
+import SfCheckbox from "../../molecules/SfCheckbox/SfCheckbox.vue";
 import SfColor from "../../atoms/SfColor/SfColor.vue";
 export default {
   name: "SfFilter",

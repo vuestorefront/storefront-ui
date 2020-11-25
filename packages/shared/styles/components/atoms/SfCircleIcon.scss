@@ -16,11 +16,10 @@
     --button-box-shadow: 0 0 0 0.5rem var(--c-primary);
   }
   &:disabled {
-    --button-box-shadow: none;
+    --button-box-shadow: 0px 4px 11px var(--c-light);
+    --button-box-shadow-opacity: 1;
     --icon-color: var(--c-text-disabled);
-    &:hover {
-      --button-background: var(--c-light);
-    }
+    --button-background: var(--c-light);
   }
   &__icon {
     --icon-position: static;
@@ -39,6 +38,12 @@
       &:active {
         --button-box-shadow: 0 0 0 0.5rem var(--c-#{$color});
       }
+      &:disabled {
+        --button-box-shadow: 0px 4px 11px var(--c-light);
+        --button-box-shadow-opacity: 1;
+        --icon-color: var(--c-text-disabled);
+        --button-background: var(--c-light);
+      }
     }
   }
   &--small {
@@ -47,22 +52,32 @@
     --button-transition: background 150ms ease;
     &:hover {
       --button-background: var(--c-primary);
-      --button-box-shadow: none;
+      --button-box-shadow: 0 0 0 0.1875rem var(--c-primary);
     }
     &:active {
-      --button-background: var(--c-primary-variant);
+      --button-box-shadow: 0 0 0 0.25rem var(--c-primary);
+    }
+    &:disabled {
+      --button-box-shadow: 0px 4px 11px var(--c-light);
+      --button-box-shadow-opacity: 1;
+      --icon-color: var(--c-text-disabled);
+      --button-background: var(--c-light);
     }
     @each $color, $map in $colors-map {
       $primary: map-get($map, "primary");
       $variant: map-get($map, "variant");
       &.color-#{$color} {
         &:hover {
-          --button-background: var(--c-#{$color});
-          --button-box-shadow: none;
+          --button-box-shadow: 0 0 0 0.1875rem var(--c-#{$color});
         }
         &:active {
-          --button-background: var(--c-#{$color}-variant);
-          --button-box-shadow: none;
+          --button-box-shadow: 0 0 0 0.25rem var(--c-#{$color});
+        }
+        &:disabled {
+          --button-box-shadow: 0px 4px 11px var(--c-light);
+          --button-box-shadow-opacity: 1;
+          --icon-color: var(--c-text-disabled);
+          --button-background: var(--c-light);
         }
       }
     }

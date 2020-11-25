@@ -2,6 +2,7 @@
 .sf-banner-grid {
   --banner-align-items: flex-start;
   --banner-container-width: 100%;
+  --banner-description-margin: var(--spacer-xl) 0;
   &__row {
     display: var(--banner-grid-row-display, block);
     flex: var(--banner-grid-row-flex);
@@ -37,7 +38,7 @@
         display: flex;
         flex: 1;
       }
-      &--small {
+      &--small { 
         --banner-grid-col-flex: 0 1 36%;
       }
       &--medium {

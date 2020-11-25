@@ -1,24 +1,27 @@
 <template>
   <div class="sf-rating">
     <!--@slot custom icon for finalScore. Provide single icon that will be automatically repeated -->
-    <slot v-for="index in parseInt(finalScore, 10)" name="icon-positive">
+    <slot v-for="index in Math.ceil(finalScore)" name="icon-positive">
       <SfIcon
         :key="`p${index}`"
         size="0.875rem"
         class="sf-rating__icon"
-        icon="star"
+        :icon="icon"
+        :coverage="
+          index === Math.ceil(finalScore) && finalScore % 1 > 0
+            ? finalScore % 1
+            : 1
+        "
       />
     </slot>
-    <!--@slot custom icon for negative (left) finalScore. Provide single icon that will be automatically repeated -->
     <slot
-      v-for="index in parseInt(finalMax, 10) - parseInt(finalScore, 10)"
+      v-for="index in parseInt(finalMax, 10) - Math.ceil(finalScore)"
       name="icon-negative"
     >
       <SfIcon
         :key="`n${index}`"
-        size="0.875rem"
         class="sf-rating__icon sf-rating__icon--negative"
-        icon="star"
+        :icon="icon"
       />
     </slot>
   </div>
@@ -44,6 +47,10 @@ export default {
     score: {
       type: Number,
       default: 1,
+    },
+    icon: {
+      type: String,
+      default: "star",
     },
   },
   computed: {
