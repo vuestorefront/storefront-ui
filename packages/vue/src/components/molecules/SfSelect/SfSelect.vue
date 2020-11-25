@@ -2,7 +2,7 @@
   <div
     class="sf-select"
     :class="{
-      'is-selected': selectedValue || placeholder,
+      'is-selected': value || placeholder,
       'is-required': required,
       'is-disabled': disabled,
       'is-invalid': !valid,
@@ -15,16 +15,17 @@
     </label>
     <select
       :id="label"
-      v-model="selectedValue"
       v-focus
+      :value="value"
       class="sf-select__dropdown"
-      @change="$emit('selected', $event.target.value)"
+      @change="changeHandler"
     >
       <!-- empty option by default, may be used as placeholder -->
       <option
+        v-if="placeholder"
         class="sf-select__placeholder sf-select__option"
         disabled
-        selected
+        :selected="!!placeholder"
         value
       >
         <slot name="placeholder" v-bind="{ placeholder }" />
@@ -88,6 +89,13 @@ export default {
       default: "This field is not correct.",
     },
     /**
+     * Value selected.
+     */
+    value: {
+      type: String,
+      default: "",
+    },
+    /**
      * Adds placeholder
      */
     placeholder: {
@@ -95,10 +103,10 @@ export default {
       default: "",
     },
   },
-  data() {
-    return {
-      selectedValue: "",
-    };
+  methods: {
+    changeHandler(event) {
+      this.$emit("input", event.target.value);
+    },
   },
 };
 </script>

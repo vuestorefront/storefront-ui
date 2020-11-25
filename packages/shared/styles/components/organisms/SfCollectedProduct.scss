@@ -25,6 +25,10 @@
       top: var(--collected-product-remove-top);
       display: var(--collected-product-remove-circle-icon-display, none);
       transform: var(--collected-product-remove-circle-icon-transform);
+      background: var(--c-primary);
+      .sf-icon {
+        --icon-color: var(--c-white);
+      }
     }
     &--text {
       bottom: var(--collected-product-remove-bottom, var(--spacer-xs));
