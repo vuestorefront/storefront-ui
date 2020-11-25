@@ -12,11 +12,20 @@ storiesOf("Molecules|Checkbox", module)
       label: {
         default: text("label", "I want to create an account", "Props"),
       },
+      hintMessage: {
+        default: text("hintMessage", "Required", "Props"),
+      },
       required: {
         default: boolean("required", false, "Props"),
       },
+      errorMessage: {
+        default: text("errorMessage", "Something is wrong", "Props"),
+      },
       valid: {
         default: boolean("valid", true, "Props"),
+      },
+      infoMessage: {
+        default: text("infoMessage", "", "Props"),
       },
       disabled: {
         default: boolean("disabled", false, "Props"),
@@ -31,9 +40,12 @@ storiesOf("Molecules|Checkbox", module)
       v-model="checked"
       :name="name"      
       :label="label"
+      :hintMessage="hintMessage"
       :required="required"
-      :disabled="disabled"
+      :error-message="errorMessage"
       :valid="valid"
+      :infoMessage="infoMessage"
+      :disabled="disabled"
       />`,
   }))
   .add("Multiple checkboxes", () => ({
@@ -73,8 +85,20 @@ storiesOf("Molecules|Checkbox", module)
       label: {
         default: text("label", "Copy address data from shipping", "Props"),
       },
+      hintMessage: {
+        default: text("hintMessage", "Required", "Props"),
+      },
       required: {
         default: boolean("required", false, "Props"),
+      },
+      errorMessage: {
+        default: text("errorMessage", "Something is wrong", "Props"),
+      },
+      valid: {
+        default: boolean("valid", true, "Props"),
+      },
+      infoMessage: {
+        default: text("infoMessage", "", "Props"),
       },
       disabled: {
         default: boolean("disabled", false, "Props"),
@@ -89,7 +113,11 @@ storiesOf("Molecules|Checkbox", module)
       v-model="checked"
       :name="name"
       :label="label"
+      :hintMessage="hintMessage"
       :required="required"
+      :error-message="errorMessage"
+      :valid="valid"
+      :infoMessage="infoMessage"
       :disabled="disabled">
       <template #checkmark="{isChecked, disabled}">
         <span v-if="isChecked">👍🏻</span>
@@ -106,8 +134,20 @@ storiesOf("Molecules|Checkbox", module)
       label: {
         default: text("label", "Copy address data from shipping", "Props"),
       },
+      hintMessage: {
+        default: text("hintMessage", "Required", "Props"),
+      },
       required: {
         default: boolean("required", false, "Props"),
+      },
+      errorMessage: {
+        default: text("errorMessage", "Something is wrong", "Props"),
+      },
+      valid: {
+        default: boolean("valid", true, "Props"),
+      },
+      infoMessage: {
+        default: text("infoMessage", "", "Props"),
       },
       disabled: {
         default: boolean("disabled", false, "Props"),
@@ -122,11 +162,64 @@ storiesOf("Molecules|Checkbox", module)
       v-model="checked"
       :name="name"
       :label="label"
+     :hintMessage="hintMessage"
       :required="required"
+      :error-message="errorMessage"
+      :valid="valid"
+      :infoMessage="infoMessage"
       :disabled="disabled">
       <template #label="{label, isChecked, disabled}">
         <span v-if="isChecked" style="margin-left: 1rem">🎉 I'm checked</span>
         <span v-else style="margin-left: 1rem">👈 Please check me</span>
       </template>
     </SfCheckbox>`,
+  }))
+  .add("[slot] error-message", () => ({
+    components: { SfCheckbox },
+    props: {
+      name: {
+        default: text("name", "shipping", "Props"),
+      },
+      label: {
+        default: text("label", "I want to create an account", "Props"),
+      },
+      hintMessage: {
+        default: text("hintMessage", "Required", "Props"),
+      },
+      required: {
+        default: boolean("required", false, "Props"),
+      },
+      errorMessage: {
+        default: text("errorMessage", "Something is wrong", "Props"),
+      },
+      valid: {
+        default: boolean("valid", false, "Props"),
+      },
+      infoMessage: {
+        default: text("infoMessage", "", "Props"),
+      },
+      disabled: {
+        default: boolean("disabled", false, "Props"),
+      },
+    },
+    data() {
+      return {
+        checked: false,
+      };
+    },
+    template: `<SfCheckbox 
+      v-model="checked"
+      :name="name"      
+      :label="label"
+      :hint-message="hintMessage"
+      :required="required"
+      :error-message="errorMessage"
+      :valid="valid"
+      :info-message="infoMessage"
+      :disabled="disabled"
+      >
+        <template #show-error-message="{ errorMessage }">
+          <span> CUSTOM ERROR MESSAGE 👈</span>
+        </template>
+      </SfCheckbox>`,
   }));

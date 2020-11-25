@@ -7,7 +7,16 @@ import {
   object,
   optionsKnob as options,
 } from "@storybook/addon-knobs";
-import { SfHeader, SfLink, SfMegaMenu, SfList, SfMenuItem, SfBottomNavigation } from "@storefront-ui/vue";
+import {
+  SfHeader,
+  SfLink,
+  SfMegaMenu,
+  SfList,
+  SfMenuItem,
+  SfBottomNavigation,
+  SfBanner,
+  SfOverlay,
+} from "@storefront-ui/vue";
 storiesOf("Organisms|Header", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -112,7 +121,7 @@ storiesOf("Organisms|Header", module)
           :cart-icon="cartIcon"
           :wishlist-icon="wishlistIcon"
           :is-sticky="isSticky"
-          :account-icon="accountIcon"
+        	:account-icon="accountIcon"
           :style="spacer"
           :cart-items-qty="cartItemsQty"
           :wishlist-items-qty="wishlistItemsQty"
@@ -137,19 +146,22 @@ storiesOf("Organisms|Header", module)
     </div>`,
   }))
   .add("With SfHeaderNavigation", () => ({
-    components: { SfHeader,
+    components: {
+      SfHeader,
       SfList,
       SfBottomNavigation,
       SfMegaMenu,
-      SfLink, 
-      SfMenuItem
+      SfLink,
+      SfMenuItem,
+      SfBanner,
+      SfOverlay,
     },
     data() {
       return {
-        shopLogo:  "/assets/logo.svg",
+        shopLogo: "/assets/logo.svg",
         shopName: "Storefront UI",
         isVisible: true,
-        currentCategory: '',
+        currentCategory: "",
         categories: [
           {
             title: "Clothing",
@@ -296,6 +308,24 @@ storiesOf("Organisms|Header", module)
             ],
           },
         ],
+        banners: [
+          {
+            title: "THE OFFICE LIFE",
+            subtitle: "T-shirts",
+            pictures: {
+              mobile: "/assets/storybook/SfMegaMenu/bannerSandals.jpg",
+              desktop: "/assets/storybook/SfMegaMenu/bannerSandals.jpg",
+            },
+          },
+          {
+            title: "ECO SANDALS",
+            subtitle: "T-shirts",
+            pictures: {
+              mobile: "/assets/storybook/SfMegaMenu/bannerBeachBag.jpg",
+              desktop: "/assets/storybook/SfMegaMenu/bannerBeachBag.jpg",
+            },
+          },
+        ],
         searchValue: "",
       };
     },
@@ -306,6 +336,7 @@ storiesOf("Organisms|Header", module)
     },
     template: `
     <div>
+      <SfOverlay :visible="!!currentCategory" />
       <SfHeader
       :logo="shopLogo"
       :title="shopName"
@@ -351,6 +382,18 @@ storiesOf("Organisms|Header", module)
                     </SfListItem>
                   </SfList>
                 </SfMegaMenuColumn>
+                <SfMegaMenuColumn v-if="currentCategory === 'Clothing'" title="Featured" class="sf-mega-menu-column--pined-content-on-mobile sf-mega-menu-column--hide-header-on-mobile sb-mega-menu__featured">
+                <div class="sb-mega-menu__banners">
+                  <SfBanner
+                    v-for="(banner, key) in banners"
+                    :key="key"
+                    :title="banner.title"
+                    :subtitle="banner.subtitle"
+                    :image="banner.pictures"
+                    class="sb-mega-menu__banner"
+                  />
+                </div>
+              </SfMegaMenuColumn>
               </SfMegaMenu>
             </SfHeaderNavigationItem>
           </SfHeaderNavigation>
@@ -887,7 +930,7 @@ storiesOf("Organisms|Header", module)
         class="sf-header--has-mobile-search sf-header--has-mobile-navigation"
     >
       <template #aside>
-        <div :style="{margin: '0 0 0 1rem'}" class="mobile-only">ASIDE</div>
+        <div :style="{margin: '0 0 0 1rem'}" class="smartphone-only">ASIDE</div>
       </template>
       <template #navigation>
         <SfHeaderNavigationItem

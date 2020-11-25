@@ -16,7 +16,11 @@
     </div>
     <!--@slot Use this slot to replace bottom button-->
     <slot name="button" v-bind="{ buttonText }">
-      <SfButton v-if="buttonText" class="sf-call-to-action__button">
+      <SfButton
+        v-if="buttonText"
+        :link="link"
+        class="sf-call-to-action__button"
+      >
         {{ buttonText }}
       </SfButton>
     </slot>
@@ -30,22 +34,44 @@ export default {
     SfButton,
   },
   props: {
+    /**
+     * CallToAction title.
+     */
     title: {
       type: String,
       default: "",
     },
+    /**
+     * Text that will be displayed inside the button.
+     */
     buttonText: {
       type: String,
       default: "",
     },
+    /**
+     *  CallToAction link. If it's filled in, changes button tag on a tag.
+     */
+    link: {
+      type: String,
+      default: "",
+    },
+    /**
+     * CallToAction description.
+     */
     description: {
       type: String,
       default: "",
     },
+    /**
+     * Background color.
+     */
     background: {
       type: String,
       default: "",
     },
+    /**
+     * Background image.
+     */
     image: {
       type: [String, Object],
       default: "",

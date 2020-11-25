@@ -12,7 +12,7 @@
         <slot name="bar">
           <SfBar
             :title="title"
-            class="mobile-only"
+            class="smartphone-only"
             :back="true"
             @click:back="close"
           />

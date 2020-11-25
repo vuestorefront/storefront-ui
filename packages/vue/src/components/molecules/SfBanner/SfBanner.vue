@@ -1,6 +1,6 @@
 <template>
   <section class="sf-banner" :style="style" v-on="isMobile ? $listeners : {}">
-    <div class="sf-banner__container">
+    <component :is="wrapper" class="sf-banner__wrapper" :link="link">
       <slot name="subtitle" v-bind="{ subtitle }">
         <h2 v-if="subtitle" class="sf-banner__subtitle">
           {{ subtitle }}
@@ -18,18 +18,20 @@
       </slot>
       <slot name="call-to-action" v-bind="{ buttonText }">
         <SfButton
-          v-if="buttonText"
+          v-if="buttonText && !isMobile"
+          :link="link"
           class="sf-banner__call-to-action color-secondary"
           v-on="!isMobile ? $listeners : {}"
         >
           {{ buttonText }}
         </SfButton>
       </slot>
-    </div>
+    </component>
   </section>
 </template>
 <script>
 import SfButton from "../../atoms/SfButton/SfButton.vue";
+import SfLink from "../../atoms/SfLink/SfLink.vue";
 import {
   mapMobileObserver,
   unMapMobileObserver,
@@ -38,6 +40,7 @@ export default {
   name: "SfBanner",
   components: {
     SfButton,
+    SfLink,
   },
   props: {
     /**
@@ -60,6 +63,11 @@ export default {
     },
     /** text that will be displayed inside the button. You can replace the button  with "call-to-action" slot */
     buttonText: {
+      type: String,
+      default: "",
+    },
+    /** link to be used in call to action button if necessary */
+    link: {
       type: String,
       default: "",
     },
@@ -87,6 +95,9 @@ export default {
           image.desktop && `url(${image.desktop})`,
         "--_banner-background-color": background,
       };
+    },
+    wrapper() {
+      return !this.isMobile ? "div" : this.link ? "SfLink" : "SfButton";
     },
   },
   beforeDestroy() {

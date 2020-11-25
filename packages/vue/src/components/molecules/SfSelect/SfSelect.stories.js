@@ -2,12 +2,12 @@ import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
   text,
-  number,
   boolean,
   optionsKnob as options,
 } from "@storybook/addon-knobs";
 import { SfSelect, SfProductOption } from "@storefront-ui/vue";
 const optionsList = [
+  { value: "" },
   { value: "amaranth", color: "#E52B50", label: "Amaranth" },
   { value: "amber", color: "#FFBF00", label: "Amber" },
   { value: "arctic-lime", color: "#D0FF14", label: "Arctic lime" },
@@ -50,25 +50,39 @@ storiesOf("Molecules|Select", module)
         default: text("errorMessage", "Color", "Props"),
       },
       placeholder: {
-        default: text("placeholder", "Select color", "Props"),
+        default: text("placeholder", "select color", "Props"),
+      },
+      selectedValue: {
+        default: options(
+          "selectedValue",
+          knobOptionsList,
+          optionsList[0].value,
+          { display: "select" },
+          "Data"
+        ),
       },
     },
     data() {
       return {
-        selected: "",
         options: optionsList,
       };
     },
+    methods: {
+      alert(label) {
+        console.log(label);
+      },
+    },
     template: `
       <SfSelect
-        v-model="selected"
+        v-model="selectedValue"
         :class="customClass"
         :label="label"
         :required="required"
         :valid="valid"
         :disabled="disabled"
         :error-message="errorMessage"
-        :placeholder="placeholder"
+        :placeholder="placeholder"       
+        @input="alert(selectedValue)"
         style="max-width: 30rem; margin: 10px;"
       >
         <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
@@ -109,23 +123,37 @@ storiesOf("Molecules|Select", module)
       placeholder: {
         default: text("placeholder", "", "Props"),
       },
+      selectedValue: {
+        default: options(
+          "selectedValue",
+          knobOptionsList,
+          optionsList[0].value,
+          { display: "select" },
+          "Data"
+        ),
+      },
     },
     data() {
       return {
-        selected: "",
         options: optionsList,
       };
     },
+    methods: {
+      alert(label) {
+        console.log(label);
+      },
+    },
     template: `<div style="max-width: 30rem">    
       <SfSelect
-        v-model="selected"
+        v-model="selectedValue"
         :class="customClass"
         :label="label"
         :required="required"
         :valid="valid"
         :disabled="disabled"  
         :error-message="errorMessage"
-        :placeholder="placeholder"    
+        :placeholder="placeholder" 
+        @input="alert(selectedValue)"   
         >
         <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
           <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
@@ -168,22 +196,36 @@ storiesOf("Molecules|Select", module)
       placeholder: {
         default: text("placeholder", "", "Props"),
       },
+      selectedValue: {
+        default: options(
+          "selectedValue",
+          knobOptionsList,
+          optionsList[0].value,
+          { display: "select" },
+          "Data"
+        ),
+      },
     },
     data() {
       return {
-        selected: "",
         options: optionsList,
       };
     },
+    methods: {
+      alert(label) {
+        console.log(label);
+      },
+    },
     template: `<div style="max-width: 30rem">
       <SfSelect
-        v-model="selected"
+        v-model="selectedValue"
         :class="customClass"
         :label="label"
         :required="required"
         :valid="valid"
         :error-message="errorMessage"
         :disabled="disabled"
+        @input="alert(selectedValue)"
         >
         <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
           <SfProductOption :color="option.color" :label="option.label"></SfProductOption>

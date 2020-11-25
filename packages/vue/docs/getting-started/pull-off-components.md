@@ -5,7 +5,9 @@ With just one command you can have all components and their styles, so that no n
 
 ## Required
 
-Storefront UI added as a dependency to your project
+* Storefront UI added as a dependency to your project.
+
+* `fse` package added to your project with `npm install fse -D` or `yarn add fse -D` .
 
 ## How to copy components
 

@@ -105,7 +105,7 @@
         v-if="wishlistIcon !== false"
         :aria-label="`${ariaLabel} ${title}`"
         :class="wishlistIconClasses"
-        class="sf-button--pure mobile-only"
+        class="sf-button--pure smartphone-only"
         @click="toggleIsOnWishlist"
       >
         <!--@slot Use this slot to replace wishlist icon-->

@@ -4,16 +4,19 @@
   color: var(--link-color, var(--c-text));
   @include font(
     --link-font,
-    var(--font-normal),
-    var(--font-lg),
+    var(--font-weight--medium),
+    var(--font-size--sm),
     1.4,
-    var(--font-family-secondary)
+    var(--font-family--secondary)
   );
   text-decoration: var(--link-text-decoration, underline);
   &:visited {
-    color: var(--link-color);
+    --link-color: var(--c-link);
   }
   &:hover {
-    color: var(--link-color);
+    --link-color: var(--c-primary);
+  }
+  &:active {
+    --link-color: var(--c-link);
   }
 }
