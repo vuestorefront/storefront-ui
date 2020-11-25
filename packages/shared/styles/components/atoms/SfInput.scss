@@ -26,8 +26,7 @@
     );
     transition: var(
       --input-label-transition,
-      top 150ms linear,
-      font-size 150ms linear
+      all 150ms linear
     );
 
     &::after {
@@ -41,6 +40,10 @@
       1,
       var(--font-family--secondary)
     );
+    &::after {
+      content: var(--input-label-required);
+      color: var(--input-label-color, var(--c-text));
+    }       
   }
   &__bar {
     position: relative;
@@ -62,16 +65,29 @@
       right: 50%;
     }
   }
-  &__error-message {
-    color: var(--input-error-message-color, var(--c-danger));
-    min-height: calc(var(--font-size--xs) * 1.2);
+  &__message {
+    min-height: calc(var(--font-xs) * 1.2);
     @include font(
-      --input-error-message-font,
+      --input-message-font,
       var(--font-weight--medium),
       var(--font-size--xs),
       1.2,
       var(--font-family--secondary)
     );
+    &--hint {
+      color: var(--input-message-hint-color, var(--c-secondary));
+      &::before {
+        display: var(--input-message-hint-display, inline-block);
+        content: var(--input-message-required, "*");
+        color: var(--input-message-hint-color);
+      }
+    }
+    &--error {
+      color: var(--input-message-error-color, var(--c-danger));
+    }
+    &--info {
+      color: var(--input-message-info-color, var(--c-primary));
+    }
   }
   &__wrapper,
   input {
@@ -103,15 +119,16 @@
     text-align: var(--input-text-align);
     &:focus, &:placeholder-shown {
       & ~ * {
-        --icon-color: var(--c-primary);
         --input-password-icon-background: var(--c-primary);
         --input-label-top: 0;
         --input-label-color: var(--c-primary);
         --input-label-font-size: var(--font-size--xs);
-        --input-bar-width: 50%;
-        --input-error-message-color: var(--c-primary);
-      }
-    }
+        --input-bar-width: 50%; 
+        .sf-input__password-icon{
+          --input-password-icon-size: 12px;
+        }                    
+      }                            
+    }   
     &:required {
       & ~ * {
         --input-label-required: " *";
@@ -123,7 +140,7 @@
       /* add to provide color on iOS */
       -webkit-text-fill-color: var(--c-text-disabled);
       & ~ * {
-        --icon-color: var(--text-disabled);
+        --icon-color: var(--c-text-disabled);
         --input-label-color: var(--c-text-disabled);
       }
     }
@@ -138,14 +155,25 @@
     &[type="search"] {
       -webkit-appearance: none;
     }
+    &:placeholder-shown  {
+      & ~ * {
+        --input-label-padding: 0 0 0 var(--spacer-sm);
+        --input-label-top: 0;    
+        --input-label-font-size: var(--font-size--xs); 
+        --input-icon-top: 0;  
+        --input-icon-transform: translate3d(0, 50%, 0);       
+        --input-icon-size: 0.375rem;
+      }
+    }
   }
   &__password-button {
-    --icon-size: 12px;
+    width: var(--input-password-icon-size, 12px);
+    height: var(--input-password-icon-size, 12px);
     --button-padding: 0;
     --button-background: transparent;
     position: absolute;
-    top: var(--input-icon-top, 50%);
-    right: var(--input-icon-right, var(--spacer-xs));
+    top: var(--input-password-icon-top, 50%);
+    right: var(--input-password-icon-right, var(--spacer-xs));
     transform: translate3d(0, -50%, 0);
     &:hover {
       --button-background: transparent;
@@ -169,14 +197,29 @@
       content: "";
     }
   }
+  &__icon {
+    --icon-color: var(--input-label-color);
+    position: absolute;
+    display: var(--input-icon-display, flex);
+    width: var(--input-icon-width, var(--input-icon-size, var(--icon-size)));
+    height: var(--input-icon-height, var(--input-icon-size, var(--icon-size)));
+    top: var(--input-icon-top, 50%);
+    left: var(--input-icon-left, var(--spacer-2xs));    
+    transform: var(--input-icon-transform, translate3d(0, -50%, 0));
+    transition: var(
+      --input-icon-transition,
+      all 150ms linear
+    );       
+  }  
   &.invalid {
-    --input-label-color: var(--c-danger);
+    --input-border-color: var(--c-danger);
+    --input-label-color: var(--c-danger); 
     input {
       &:focus {
         & ~ * {
           --input-bar-background: var(--c-danger);
-          --input-label-color: var(--c-danger);
-        }
+          --input-label-color: var(--c-danger);                           
+        }        
       }
     }
   }
@@ -185,13 +228,35 @@
   input[type="time"] ~ *,
   input[type="image"] ~ *,
   input[type="file"] ~ * {
-    --input-label-top: 0;
-    --input-label-font-size: var(--font-size--xs);
+    --input-label-top: 0;    
+    --input-label-font-size: var(--font-size--xs);    
+  }
+  &.has-icon {
+    label {
+      padding: var(--input-label-padding, 0 0 0 var(--spacer-base));
+    }    
+    input:focus {
+      & ~ * {
+        --input-icon-top: 0;        
+        --input-icon-transform: translate3d(0, 50%, 0);
+        --input-icon-size: 0.375rem;
+        --input-label-padding: 0 0 0 var(--spacer-sm);
+      } 
+    }
+    &.has-text {
+      --input-icon-top: 0;  
+      --input-icon-transform: translate3d(0, 50%, 0);        
+      --input-label-padding: 0 0 0 var(--spacer-sm); 
+      .sf-icon {
+        --input-icon-size: 0.375rem;
+      }  
+    }
   }
   &--filled {
     --input-background: var(--c-light);
     --input-font-size: var(--font-size--xs);
     --input-padding: var(--spacer-xs);
+    --input-label-padding: 0;
     --input-label-left: var(--spacer-xs);
     --input-label-font-size: var(--font-size--xs);
     --input-label-color: var(--c-secondary-variant);
@@ -200,15 +265,16 @@
     &.has-text {
       --input-label-display: none;
     }
-    input {
+    .sf-input__icon {
+      --input-icon-display: none;
+    }
+    input {      
       &:focus {
         & ~ * {
           --input-bar-width: unset;
-          --input-label-top: 50%;
-          --input-label-font-size: var(--font-size--xs);
-          --input-label-color: var(--c-text);
+          --input-label-display: none;
         }
-      }
+      }      
     }
   }
   &--outline {
@@ -216,19 +282,31 @@
     --input-padding: var(--spacer-xs) var(--spacer-xs) var(--spacer-xs) var(--spacer-sm);
     --input-border-color: var(--c-secondary-variant);
     --input-label-background: var(--c-white);
-    --input-label-font-size: var(--font-size-base);
-    &.sf-input--has-text {
-      --input-label-top: -25%;
-      --input-label-left: var(--spacer-xs);
-      --input-label-padding: 0 var(--spacer-2xs);
-    }
-    &.sf-input--invalid {
-      --input-border-color: var(--c-danger);
-      --input-label-color: var(--c-danger);
-      input {
-        &:focus {
-          & ~ * {
-            --input-label-color: var(--c-danger);
+    &.sf-input {
+      &.has-text {
+        --input-icon-display: none;
+        --input-label-top: -25%;
+        --input-label-left: var(--spacer-xs);
+        --input-label-padding: 0 var(--spacer-2xs);
+      }
+      &.has-icon {
+        --input-label-left: var(--spacer-xs);
+        --input-icon-left: var(--spacer-xs);
+        input:focus {
+           & ~ * {
+             --input-icon-display: none;
+             --input-label-left: var(--spacer-xs);
+           }
+        }
+      }
+      &.invalid {
+        --input-border-color: var(--c-danger);
+        --input-label-color: var(--c-danger);
+        input {
+          &:focus {
+            & ~ * {
+              --input-label-color: var(--c-danger);
+            }
           }
         }
       }

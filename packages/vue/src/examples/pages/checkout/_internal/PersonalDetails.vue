@@ -15,6 +15,7 @@
       <SfInput
         v-model="firstName"
         :value="firstName"
+        required-message="Required"
         label="First name"
         name="firstName"
         class="form__element form__element--half"
@@ -24,6 +25,7 @@
       <SfInput
         v-model="lastName"
         :value="lastName"
+        required-message="Required"
         label="Last name"
         name="lastName"
         class="form__element form__element--half form__element--half-even"
@@ -33,6 +35,7 @@
       <SfInput
         v-model="email"
         :value="email"
+        required-message="Required"
         label="Your email"
         name="email"
         class="form__element"
@@ -65,6 +68,7 @@
           v-if="createAccount"
           v-model="password"
           :has-show-password="true"
+          required-message="Required"
           type="password"
           label="Create Password"
           class="form__element"

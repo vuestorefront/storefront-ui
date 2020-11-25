@@ -43,17 +43,23 @@ storiesOf("Molecules|ComponentSelect", module)
       size: {
         default: number("size", 5, {}, "Props"),
       },
+      hintMessage: {
+        default: text("hintMessage", "Required", "Props"),
+      },
       required: {
         default: boolean("required", false, "Props"),
+      },
+      errorMessage: {
+        default: text("errorMessage", "Something is wrong", "Props"),
       },
       valid: {
         default: boolean("valid", true, "Props"),
       },
+      infoMessage: {
+        default: text("infoMessage", "", "Props"),
+      },
       disabled: {
         default: boolean("disabled", false, "Props"),
-      },
-      errorMessage: {
-        default: text("errorMessage", "Color", "Props"),
       },
       persistent: {
         default: boolean("persistent", false, "Props"),
@@ -79,10 +85,12 @@ storiesOf("Molecules|ComponentSelect", module)
         :class="customClass"
         :label="label"
         :size="size"
+        :hintMessage="hintMessage"
         :required="required"
-        :valid="valid"
-        :disabled="disabled"
         :error-message="errorMessage"
+        :valid="valid"
+        :infoMessage="infoMessage"
+        :disabled="disabled"
         :persistent="persistent"
         style="max-width: 30rem"
       >
@@ -114,17 +122,23 @@ storiesOf("Molecules|ComponentSelect", module)
       size: {
         default: number("size", 5, {}, "Props"),
       },
+      hintMessage: {
+        default: text("hintMessage", "Required", "Props"),
+      },
       required: {
         default: boolean("required", false, "Props"),
+      },
+      errorMessage: {
+        default: text("errorMessage", "Something is wrong", "Props"),
       },
       valid: {
         default: boolean("valid", true, "Props"),
       },
+      infoMessage: {
+        default: text("infoMessage", "", "Props"),
+      },
       disabled: {
         default: boolean("disabled", false, "Props"),
-      },
-      errorMessage: {
-        default: text("errorMessage", "Color", "Props"),
       },
       persistent: {
         default: boolean("persistent", false, "Props"),
@@ -142,17 +156,21 @@ storiesOf("Molecules|ComponentSelect", module)
         :class="customClass"
         :label="label"
         :size="size"
+        :hintMessage="hintMessage"
         :required="required"
+        :error-message="errorMessage"
         :valid="valid"
+        :infoMessage="infoMessage"
         :disabled="disabled"
-        :error-message="errorMessage" 
         :persistent="persistent"       
         >
         <SfComponentSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
           <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
         </SfComponentSelectOption>
         <template #label>
-          CUSTOM LABEL
+          <div class="sf-component-select__label">
+            CUSTOM LABEL
+          </div>
         </template>
       </SfComponentSelect>
     </div>`,
@@ -180,17 +198,23 @@ storiesOf("Molecules|ComponentSelect", module)
       size: {
         default: number("size", 5, {}, "Props"),
       },
+      hintMessage: {
+        default: text("hintMessage", "Required", "Props"),
+      },
       required: {
         default: boolean("required", false, "Props"),
+      },
+      errorMessage: {
+        default: text("errorMessage", "Something is wrong", "Props"),
       },
       valid: {
         default: boolean("valid", false, "Props"),
       },
+      infoMessage: {
+        default: text("infoMessage", "", "Props"),
+      },
       disabled: {
         default: boolean("disabled", false, "Props"),
-      },
-      errorMessage: {
-        default: text("errorMessage", "Color", "Props"),
       },
       persistent: {
         default: boolean("persistent", false, "Props"),
@@ -208,17 +232,19 @@ storiesOf("Molecules|ComponentSelect", module)
         :class="customClass"
         :label="label"
         :size="size"
+        :hintMessage="hintMessage"
         :required="required"
+        :errorMessage="errorMessage"
         :valid="valid"
+        :infoMessage="infoMessage"
         :disabled="disabled"
-        :error-message="errorMessage"
         :persistent="persistent"
         >
         <SfComponentSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
           <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
         </SfComponentSelectOption>
-        <template #errorMessage>
-          CUSTOM ERROR MESSAGE
+        <template #show-error-message="errorMessage">
+          <div>CUSTOM ERROR MESSAGE</div>
         </template>
       </SfComponentSelect>
     </div>`,
@@ -246,17 +272,23 @@ storiesOf("Molecules|ComponentSelect", module)
       size: {
         default: number("size", 5, {}, "Props"),
       },
+      hintMessage: {
+        default: text("hint message", "Required", "Props"),
+      },
       required: {
         default: boolean("required", false, "Props"),
       },
+      errorMessage: {
+        default: text("error message", "Something is wrong", "Props"),
+      },
       valid: {
-        default: boolean("valid", false, "Props"),
+        default: boolean("valid", true, "Props"),
+      },
+      infoMessage: {
+        default: text("info message", "", "Props"),
       },
       disabled: {
         default: boolean("disabled", false, "Props"),
-      },
-      errorMessage: {
-        default: text("errorMessage", "Color", "Props"),
       },
       persistent: {
         default: boolean("persistent", false, "Props"),
@@ -274,10 +306,12 @@ storiesOf("Molecules|ComponentSelect", module)
         :class="customClass"
         :label="label"
         :size="size"
+        :hintMessage="hintMessage"
         :required="required"
-        :valid="valid"
-        :disabled="disabled"
         :error-message="errorMessage"
+        :valid="valid"
+        :infoMessage="infoMessage"
+        :disabled="disabled"
         :persistent="persistent"
         >
         <SfComponentSelectOption v-for="(option, key) in options" :key="key" :value="option.value">

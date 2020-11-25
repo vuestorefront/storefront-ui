@@ -4,6 +4,7 @@
     :class="{
       'has-text': !!value,
       invalid: !valid,
+      'has-icon': icon,
     }"
     :data-testid="name"
   >
@@ -26,14 +27,14 @@
         <slot name="label" v-bind="{ label }">{{ label }}</slot>
       </label>
       <slot
-        v-if="isPassword"
         v-bind="{
           isPasswordVisible,
           switchVisibilityPassword,
         }"
-        name="show-password"
+        name="computedIconSlotName"
       >
         <SfButton
+          v-if="isPassword"
           class="sf-input__password-button"
           type="button"
           aria-label="switch-visibility-password"
@@ -46,16 +47,26 @@
               hidden: !isPasswordVisible,
             }"
             icon="show_password"
-            size="1.5rem"
-          ></SfIcon>
+          />
         </SfButton>
+        <SfIcon
+          v-if="icon"
+          class="sf-input__icon"
+          :icon="icon"
+          :color="colorIcon"
+          :size="sizeIcon"
+        />
       </slot>
     </div>
-    <div class="sf-input__error-message">
+    <div class="sf-input__message">
       <transition name="sf-fade">
-        <!-- @slot Custom error message of form input -->
-        <slot v-if="!valid" name="error-message" v-bind="{ errorMessage }">
-          <div>{{ errorMessage }}</div></slot
+        <!-- @slot Custom message of form input -->
+        <slot
+          v-if="!disabled"
+          :name="computedMessageSlotName"
+          v-bind="{ computedMessage }"
+        >
+          <div :class="computedMessageClass">{{ computedMessage }}</div></slot
         >
       </transition>
     </div>
@@ -116,12 +127,26 @@ export default {
       default: "",
     },
     /**
+     * Info/success message value of form input.
+     */
+    infoMessage: {
+      type: String,
+      default: "",
+    },
+    /**
      * Native input required attribute
      */
     required: {
       type: Boolean,
-      default: false,
+      default: true,
       description: "Native input required attribute",
+    },
+    /**
+     * Hint/Required message value of form input.
+     */
+    hintMessage: {
+      type: String,
+      default: "Required.",
     },
     /**
      * Native input disabled attribute
@@ -137,6 +162,25 @@ export default {
     hasShowPassword: {
       type: Boolean,
       default: false,
+    },
+    /**
+     * Status and properties of icon display
+     */
+    hasIcon: {
+      type: Boolean,
+      default: false,
+    },
+    icon: {
+      type: String,
+      default: "",
+    },
+    colorIcon: {
+      type: String,
+      default: "",
+    },
+    sizeIcon: {
+      type: String,
+      default: "",
     },
   },
   data() {
@@ -155,6 +199,38 @@ export default {
     },
     isPassword() {
       return this.type === "password" && this.hasShowPassword;
+    },
+    computedMessageSlotName() {
+      return this.messagesHandler(
+        "show-error-message",
+        "show-info-message",
+        this.required ? "show-hint-message" : ""
+      );
+    },
+    computedMessage() {
+      return this.messagesHandler(
+        this.errorMessage,
+        this.infoMessage,
+        this.required ? this.hintMessage : ""
+      );
+    },
+    computedMessageClass() {
+      return this.messagesHandler(
+        "sf-input__message--error",
+        "sf-input__message--info",
+        this.required ? "sf-input__message--hint" : ""
+      );
+    },
+    computedIconSlotName() {
+      if (this.hasShowPassword) {
+        return this.hasIcon
+          ? "show-password-button-and-icon"
+          : "show-password-button";
+      } else if (this.hasIcon) {
+        return "show-icon";
+      } else {
+        return "";
+      }
     },
   },
   watch: {
@@ -191,6 +267,17 @@ export default {
     switchVisibilityPassword() {
       this.isPasswordVisible = !this.isPasswordVisible;
       this.inputType = this.isPasswordVisible ? "text" : "password";
+    },
+    messagesHandler(error, info, hint) {
+      if (this.errorMessage && !this.valid) {
+        return error;
+      } else if (this.infoMessage && this.valid) {
+        return info;
+      } else if (this.hintMessage) {
+        return hint;
+      } else {
+        return "";
+      }
     },
   },
 };

@@ -33,12 +33,16 @@
       </option>
       <slot />
     </select>
-    <div class="sf-select__error-message">
+    <div class="sf-select__message">
       <transition name="sf-fade">
-        <!-- @slot Custom error message of form select -->
-        <slot v-if="!valid" name="errorMessage" v-bind="{ errorMessage }">
-          <span> {{ errorMessage }} </span>
-        </slot>
+        <!-- @slot Custom message of form input -->
+        <slot
+          v-if="!disabled"
+          :name="computedMessageSlotName"
+          v-bind="{ computedMessage }"
+        >
+          <div :class="computedMessageClass">{{ computedMessage }}</div></slot
+        >
       </transition>
     </div>
   </div>
@@ -68,25 +72,32 @@ export default {
       default: false,
     },
     /**
-     * Validate value of form select
+     * Hint/Required message value of select.
+     */
+    hintMessage: {
+      type: String,
+      default: "Required.",
+    },
+    /**
+     * Validate value of select
      */
     valid: {
       type: Boolean,
       default: true,
     },
     /**
-     * Disabled status of form select
-     */
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
-    /**
-     * Error message value of form select. It will be appeared if `valid` is `true`.
+     * Error message value of select. It will be appeared if `valid` is `true`.
      */
     errorMessage: {
       type: String,
       default: "This field is not correct.",
+    },
+    /**
+     * Info/success message value of select.
+     */
+    infoMessage: {
+      type: String,
+      default: "",
     },
     /**
      * Value selected.
@@ -96,16 +107,62 @@ export default {
       default: "",
     },
     /**
-     * Adds placeholder
+     * Disabled status of form select.
+     */
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+    /**
+     * Adds placeholder.
      */
     placeholder: {
       type: String,
       default: "",
     },
   },
+  computed: {
+    isSelected() {
+      return this.selected;
+    },
+    computedMessageSlotName() {
+      return this.messagesHandler(
+        "show-error-message",
+        "show-info-message",
+        this.required ? "show-hint-message" : ""
+      );
+    },
+    computedMessage() {
+      return this.messagesHandler(
+        this.errorMessage,
+        this.infoMessage,
+        this.required ? this.hintMessage : ""
+      );
+    },
+    computedMessageClass() {
+      return this.messagesHandler(
+        "sf-input__message--error",
+        "sf-input__message--info",
+        this.required ? "sf-input__message--hint" : ""
+      );
+    },
+  },
   methods: {
     changeHandler(event) {
       this.$emit("input", event.target.value);
+    },
+  },
+  methods: {
+    messagesHandler(error, info, hint) {
+      if (this.errorMessage && !this.valid) {
+        return error;
+      } else if (this.infoMessage && this.valid) {
+        return info;
+      } else if (this.hintMessage) {
+        return hint;
+      } else {
+        return "";
+      }
     },
   },
 };

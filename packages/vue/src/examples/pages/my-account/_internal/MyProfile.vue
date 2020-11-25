@@ -8,6 +8,7 @@
       <div class="form">
         <SfInput
           v-model="firstName"
+          required-message="Required"
           name="firstName"
           label="First Name"
           required
@@ -15,6 +16,7 @@
         />
         <SfInput
           v-model="lastName"
+          required-message="Required"
           name="lastName"
           label="Last Name"
           required
@@ -22,6 +24,7 @@
         />
         <SfInput
           v-model="email"
+          required-message="Required"
           type="email"
           name="email"
           label="Your e-mail"
@@ -48,6 +51,7 @@
       <div class="form">
         <SfInput
           v-model="currentPassword"
+          required-message="Required"
           type="password"
           name="currentPassword"
           label="Current Password"
@@ -56,6 +60,7 @@
         />
         <SfInput
           v-model="newPassword"
+          required-message="Required"
           type="password"
           name="newPassword"
           label="New Password"
@@ -64,6 +69,7 @@
         />
         <SfInput
           v-model="repeatPassword"
+          required-message="Required"
           type="password"
           name="repeatPassword"
           label="Repeat Password"

@@ -14,17 +14,15 @@ describe("SfInput.vue", () => {
     });
     expect(component.find(".sf-input__label").text()).toBe(label);
   });
-  it("renders errorMessage slot with valid is false when passed", () => {
-    const errorMessage = "This field is required";
+  it("renders errorMessage with valid set to false when passed", () => {
+    const errorMessage = "This phrase is wrong";
     const component = shallowMount(SfInput, {
-      slots: {
-        "error-message": errorMessage,
-      },
       propsData: {
         valid: false,
+        errorMessage: errorMessage,
       },
     });
-    expect(component.find(".sf-input__error-message").text()).toMatch(
+    expect(component.find(".sf-input__message--error").text()).toMatch(
       errorMessage
     );
   });

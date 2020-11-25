@@ -4,6 +4,7 @@ import {
   text,
   boolean,
   optionsKnob as options,
+  select,
 } from "@storybook/addon-knobs";
 import { SfSelect, SfProductOption } from "@storefront-ui/vue";
 const optionsList = [
@@ -37,17 +38,26 @@ storiesOf("Molecules|Select", module)
       label: {
         default: text("label", "Color", "Props"),
       },
+      selectedValue: {
+        default: text("selectedValue", "", "Props"),
+      },
+      hintMessage: {
+        default: text("hintMessage", "Required", "Props"),
+      },
       required: {
         default: boolean("required", false, "Props"),
+      },
+      errorMessage: {
+        default: text("errorMessage", "Something is wrong", "Props"),
       },
       valid: {
         default: boolean("valid", true, "Props"),
       },
+      infoMessage: {
+        default: text("infoMessage", "", "Props"),
+      },
       disabled: {
         default: boolean("disabled", false, "Props"),
-      },
-      errorMessage: {
-        default: text("errorMessage", "Color", "Props"),
       },
       placeholder: {
         default: text("placeholder", "select color", "Props"),
@@ -77,8 +87,11 @@ storiesOf("Molecules|Select", module)
         v-model="selectedValue"
         :class="customClass"
         :label="label"
+        :hintMessage="hintMessage"
         :required="required"
+        :error-message="errorMessage"
         :valid="valid"
+        :infoMessage="infoMessage"
         :disabled="disabled"
         :error-message="errorMessage"
         :placeholder="placeholder"       
@@ -108,17 +121,26 @@ storiesOf("Molecules|Select", module)
       label: {
         default: text("label", "Color", "Props"),
       },
+      selectedValue: {
+        default: text("selectedValue", "", "Props"),
+      },
+      hintMessage: {
+        default: text("hintMessage", "Required", "Props"),
+      },
       required: {
         default: boolean("required", false, "Props"),
+      },
+      errorMessage: {
+        default: text("errorMessage", "Something is wrong", "Props"),
       },
       valid: {
         default: boolean("valid", true, "Props"),
       },
+      infoMessage: {
+        default: text("infoMessage", "", "Props"),
+      },
       disabled: {
         default: boolean("disabled", false, "Props"),
-      },
-      errorMessage: {
-        default: text("errorMessage", "Color", "Props"),
       },
       placeholder: {
         default: text("placeholder", "", "Props"),
@@ -148,11 +170,14 @@ storiesOf("Molecules|Select", module)
         v-model="selectedValue"
         :class="customClass"
         :label="label"
+        :hintMessage="hintMessage"
         :required="required"
-        :valid="valid"
-        :disabled="disabled"  
         :error-message="errorMessage"
-        :placeholder="placeholder" 
+        :valid="valid"
+        :infoMessage="infoMessage"
+        :disabled="disabled"
+        :placeholder="placeholder"
+        :selected-value="selectedValue"  
         @input="alert(selectedValue)"   
         >
         <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
@@ -181,17 +206,26 @@ storiesOf("Molecules|Select", module)
       label: {
         default: text("label", "Color", "Props"),
       },
+      selectedValue: {
+        default: text("selectedValue", "", "Props"),
+      },
+      hintMessage: {
+        default: text("hintMessage", "Required", "Props"),
+      },
       required: {
         default: boolean("required", false, "Props"),
       },
+      errorMessage: {
+        default: text("errorMessage", "Something is wrong", "Props"),
+      },
       valid: {
-        default: boolean("valid", false, "Props"),
+        default: boolean("valid", true, "Props"),
+      },
+      infoMessage: {
+        default: text("infoMessage", "", "Props"),
       },
       disabled: {
         default: boolean("disabled", false, "Props"),
-      },
-      errorMessage: {
-        default: text("errorMessage", "Color", "Props"),
       },
       placeholder: {
         default: text("placeholder", "", "Props"),
@@ -221,10 +255,14 @@ storiesOf("Molecules|Select", module)
         v-model="selectedValue"
         :class="customClass"
         :label="label"
+        :hintMessage="hintMessage"
         :required="required"
-        :valid="valid"
         :error-message="errorMessage"
+        :valid="valid"
+        :infoMessage="infoMessage"
         :disabled="disabled"
+        :placeholder="placeholder"
+        :selected-value="selectedValue"
         @input="alert(selectedValue)"
         >
         <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">

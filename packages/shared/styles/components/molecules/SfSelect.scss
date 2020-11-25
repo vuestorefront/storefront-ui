@@ -28,7 +28,6 @@
     );
     &::after {
       content: var(--select-label-required);
-      color: var(--select-label-color, var(--c-primary));
     }
   }
   &__dropdown {
@@ -68,19 +67,20 @@
   &::-ms-expand {
     display: none;
   }
-  &__error-message {
-    color: var(--select-error-message-color, var(--c-danger));
-    min-height: var(
-      --select-error-message-height,
-      calc(var(--font-size--xs) * 1.2)
-    );
+  &__message {
+    color: var(--select-message-color, var(--c-danger));
+    min-height: var(--select-message-height, calc(var(--font-size--xs) * 1.2));
     @include font(
-      --input-error-message-font,
+      --input-message-font,
       var(--font-weight--medium),
       var(--font-size--xs),
       1.2,
       var(--font-family--secondary)
     );
+    &--required {
+      color: var(--select-message-required-color, var(--c-primary));
+      margin: var(--select-message-required-margin, 0 var(--spacer-2xs) 0 0);
+    }
   }
   &--underlined {
     --select-dropdown-border-width: 0 0 1px 0;
@@ -94,6 +94,9 @@
   }
   &.is-invalid {
     --select-dropdown-border-color: var(--c-danger);
+    .sf-select__label::after {
+      color: var(--c-danger);
+    }
   }
   &.is-disabled {
     --select-dropdown-color: var(--c-text-disabled);
