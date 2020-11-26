@@ -1,18 +1,15 @@
 <template>
   <SfLink class="sf-category-card" :link="link" :style="style">
     <!--@slot Default. Here you can pass content of your category card-->
-    <slot v-bind="{ cardDetails }">
-      <SfProperty
-        v-if="cardDetails"
-        class="sf-category-card__details sf-property--without-suffix sf-property--full-width"
-        :name="cardDetails.name"
-        :value="cardDetails.value"
-      />
+    <slot v-bind="{ label, count }">
+      <div class="sf-category-card__details">
+        <span v-if="label" class="sf-category-card__label">{{ label }}</span>
+        <span v-if="count" class="sf-category-card__count">{{ count }}</span>
+      </div>
     </slot>
   </SfLink>
 </template>
 <script>
-import SfProperty from "../../atoms/SfProperty/SfProperty.vue";
 import SfLink from "../../atoms/SfLink/SfLink.vue";
 
 import {
@@ -23,16 +20,22 @@ import {
 export default {
   name: "SfCategoryCard",
   components: {
-    SfProperty,
     SfLink,
   },
   props: {
     /**
-     * Object to define card name and value. Should have values for name and value
+     * Label for card
      */
-    cardDetails: {
-      type: Object,
-      default: () => {},
+    label: {
+      type: String,
+      default: "",
+    },
+    /**
+     * Count for card
+     */
+    count: {
+      type: [String, Number],
+      default: "",
     },
     /**
      * Defines background of card.

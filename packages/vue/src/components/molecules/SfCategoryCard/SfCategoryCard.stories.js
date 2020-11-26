@@ -10,15 +10,11 @@ storiesOf("Molecules|CategoryCard", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
     props: {
-      cardDetails: {
-        default: object(
-          "cardDetails",
-          {
-            name: "Personal Care",
-            value: "36",
-          },
-          "Props"
-        ),
+      label: {
+        default: text("label", "Personal Care", "Props"),
+      },
+      count: {
+        default: text("count", "32", "Props"),
       },
       background: {
         default: object(
@@ -37,7 +33,8 @@ storiesOf("Molecules|CategoryCard", module)
     components: { SfCategoryCard },
     template: `<SfCategoryCard
         :link="link"
-        :cardDetails="cardDetails"
+        :label="label"
+        :count="count"
         :background="background"
       />`,
   }));

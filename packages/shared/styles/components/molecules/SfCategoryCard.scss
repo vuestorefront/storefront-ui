@@ -10,20 +10,26 @@
     box-sizing: border-box;
     position: absolute;
     bottom: 0;
-    --property-value-font-weight: var(--font-weight--normal);
-    --property-name-font-weight: var(--font-weight--medium);
-    --property-name-color: var(--c-white);
-    --property-value-color: var(--c-white);
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
     background: var(--c-primary);
     padding: var(--spacer-xs);
     transition: padding 150ms ease-in;
+  }
+  &__label, &__count {
+    font-size: var(--font-size--base);
+    font-weight: var(--font-weight--medium);
+    color: var(--c-white);
   }
   @include for-desktop {
     width: 18.4375rem;
     height: 13.875rem;
     &__details {
       padding: var(--spacer-sm) var(--spacer-xs);
-      --property-value-font-weight: var(--font-weight--normal);
+    }
+    &__label, &__count {
+      font-weight: var(--font-weight--normal);
     }
     &:hover {
       .sf-category-card__details {
