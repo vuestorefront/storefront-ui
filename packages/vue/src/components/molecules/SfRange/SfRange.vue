@@ -94,14 +94,12 @@ export default {
   watch: {
     min: {
       handler(value) {
-        if (this.$refs.range) {
-          return this.updateRangeOptions({
-            range: {
-              min: value >= this.max ? this.max - this.step : value,
-              max: this.max,
-            },
-          });
-        }
+        return this.updateRangeOptions({
+          range: {
+            min: value >= this.max ? this.max - this.step : value,
+            max: this.max,
+          },
+        });
       },
       immediate: true,
     },
@@ -126,14 +124,12 @@ export default {
     },
     tooltips: {
       handler(value) {
+        const wNumbFormatter = wNumb(this.formatTooltipsValues);
         if (value) {
           value =
             this.slidersInitialValues.length === 2
-              ? [
-                  wNumb(this.formatTooltipsValues),
-                  wNumb(this.formatTooltipsValues),
-                ]
-              : [wNumb(this.formatTooltipsValues)];
+              ? [wNumbFormatter, wNumbFormatter]
+              : [wNumbFormatter];
         } else {
           return value;
         }
@@ -145,25 +141,20 @@ export default {
     },
     formatTooltipsValues: {
       handler(value) {
+        const wNumbFormatter = wNumb(this.formatTooltipsValues);
         if (this.tooltips)
           return this.updateRangeOptions({
             tooltips:
               this.slidersInitialValues.length === 2
-                ? [
-                    wNumb(this.formatTooltipsValues),
-                    wNumb(this.formatTooltipsValues),
-                  ]
-                : [wNumb(this.formatTooltipsValues)],
+                ? [wNumbFormatter, wNumbFormatter]
+                : [wNumbFormatter],
           });
       },
       immediate: true,
     },
     horizontalOrientation: {
       handler(value) {
-        let orientationValue = "horizontal";
-        value
-          ? (orientationValue = "horizontal")
-          : (orientationValue = "vertical");
+        let orientationValue = value ? "horizontal" : "vertical";
         return this.resetAndChangeOption({
           orientation: orientationValue,
         });
@@ -172,8 +163,7 @@ export default {
     },
     ltrDirection: {
       handler(value) {
-        let directionValue = "ltr";
-        value ? (directionValue = "ltr") : (directionValue = "rtl");
+        let directionValue = value ? "ltr" : "rtl";
         return this.resetAndChangeOption({ direction: directionValue });
       },
       immediate: true,
@@ -197,7 +187,8 @@ export default {
     this.noUiSliderInit();
   },
   beforeDestroy() {
-    this.$refs.range.noUiSlider.destroy();
+    if (this.$refs.range && this.$refs.range.noUiSlider)
+      this.$refs.range.noUiSlider.destroy();
   },
   methods: {
     noUiSliderInit(changedValue) {
