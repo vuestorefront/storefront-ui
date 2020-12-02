@@ -4,6 +4,7 @@
   position: relative;
   width: var(--range-width, 100%);
   height: var(--range-height, 7px);
+  padding: var(--range-tooltips-padding, 0 var(--spacer-sm));
   @include background(--range-background, var(--c-light));
   border: none;
   box-shadow: none;
@@ -29,6 +30,10 @@
     }
     &-connect {
       background: var(--range-connect-background, var(--c-primary));
+    }
+    &-connects {
+      margin: 0 var(--range-tooltips-padding);
+      width: calc(100% + var(--range-tooltips-padding) * 2);
     }
     &-touch-area {
       background: var(--range-handle-background);
