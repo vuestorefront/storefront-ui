@@ -25,18 +25,16 @@ storiesOf("Molecules|Range", module)
             direction: "ltr",
             orientation: "horizontal",
             behaviour: "tap-drag",
-            tooltips: [
-              {
-                to: function (value) {
-                  return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(value)
-                },
+            tooltips: true,
+            format: {
+              to: function (value) {
+                return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(value)
               },
-              {
-                to: function (value) {
-                  return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(value)
-                },
+              from: function (value) {
+                const parsedValue = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).formatToParts(value)
+                return parsedValue[0].value
               }
-            ],
+            },
             keyboardSupport: true,
           },
           "Props"),
@@ -81,13 +79,16 @@ storiesOf("Molecules|Range", module)
             direction: "ltr",
             orientation: "horizontal",
             behaviour: "tap-drag",
-            tooltips: [
-              {
-                to: function (value) {
-                  return new Intl.NumberFormat('pl', { style: 'currency', currency: 'PLN' }).format(value)
-                },
+            tooltips: true,
+            format: {
+              to: function (value) {
+                return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(value)
               },
-            ],
+              from: function (value) {
+                const parsedValue = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).formatToParts(value)
+                return parsedValue[0].value
+              }
+            },
             keyboardSupport: true,
           },
           "Props"),

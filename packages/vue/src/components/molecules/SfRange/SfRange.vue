@@ -13,7 +13,7 @@ export default {
      * Sets the number of sliders (1 or 2) by adding initial values to the array
      */
     value: {
-      type: [String, Array],
+      type: [Number, Array],
       default: () => [0, 1],
     },
     /*
