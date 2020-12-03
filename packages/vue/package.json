@@ -43,8 +43,7 @@
     "simplebar-vue": "^1.4.0",
     "vue-drag-drop": "^1.1.4",
     "vue-fragment": "^1.5.1",
-    "vue2-leaflet": "^2.5.2",
-    "wnumb": "^1.2.0"
+    "vue2-leaflet": "^2.5.2"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
