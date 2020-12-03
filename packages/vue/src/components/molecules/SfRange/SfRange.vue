@@ -5,7 +5,6 @@
 </template>
 <script>
 import noUiSlider from "nouislider";
-import wNumb from "wnumb";
 export default {
   name: "SfRange",
   props: {
