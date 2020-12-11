@@ -5,15 +5,15 @@
       <SfImage :src="image" class="sf-card__image" />
     </slot>
     <!-- @slot Custom content for heading and description-->
-    <slot name="details" v-bind="cardDetails">
-      <div v-if="cardDetails" class="sf-card__details">
+    <slot name="details" v-bind="{ title, description, titleLevel }">
+      <div class="sf-card__details">
         <SfHeading
-          :level="cardDetails.level"
-          :title="cardDetails.title"
+          :title-level="titleLevel"
+          :title="title"
           class="sf-card__title"
         />
         <p class="sf-card__description">
-          {{ cardDetails.description }}
+          {{ description }}
         </p>
       </div>
     </slot>
@@ -46,12 +46,25 @@ export default {
       default: "",
     },
     /**
-     * Object to define a heading, a level of heading and description for a card.
-     * Should have values for title, level and description
+     * Card title
      */
-    cardDetails: {
-      type: Object,
-      default: () => {},
+    title: {
+      type: String,
+      default: "",
+    },
+    /**
+     * Card title level of heading (form 1 as h1 tag to 6 as h6 tag)
+     */
+    titleLevel: {
+      type: Number,
+      default: 3,
+    },
+    /**
+     * Card description
+     */
+    description: {
+      type: String,
+      default: "",
     },
     /**
      * Card link

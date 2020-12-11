@@ -3,6 +3,7 @@ import {
   withKnobs,
   object,
   text,
+  number,
   optionsKnob as options,
 } from "@storybook/addon-knobs";
 import SfCard from "./SfCard.vue";
@@ -10,20 +11,21 @@ storiesOf("Molecules|Card", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
     props: {
-      cardDetails: {
-        default: object(
-          "cardDetails",
-          {
-            title: "Baby Care",
-            titleLevel: "3",
-            description:
-              "Read how to take care of your baby, see our products available, clothes and suggestions how stay healthy.",
-          },
-          "Props"
-        ),
-      },
       image: {
         default: text("image", "assets/storybook/SfCard/card.jpg", "Props"),
+      },
+      title: {
+        default: text("title", "Baby Care", "Props"),
+      },
+      titleLevel: {
+        default: number("titleLevel", 3, { min: 1, max: 6 }, "Props"),
+      },
+      description: {
+        default: text(
+          "description",
+          "Read how to take care of your baby, see our products available, clothes and suggestions how stay healthy.",
+          "Props"
+        ),
       },
       link: {
         default: text("link", "", "Props"),
@@ -34,8 +36,10 @@ storiesOf("Molecules|Card", module)
     },
     components: { SfCard },
     template: `<SfCard
-        :card-details="cardDetails"
+        :title="title"
+        :titleLevel="titleLevel"
         :image="image"
+        :description="description"
         :link="link"
         :buttonText="buttonText"
       />`,
