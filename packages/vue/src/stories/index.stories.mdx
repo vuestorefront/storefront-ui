@@ -1,0 +1,39 @@
+import { Meta, ArgsTable, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions'
+import { linkTo } from '@storybook/addon-links'
+import MyButton from '../components/MyButton.vue';
+
+<Meta title="MDX|Button" component={MyButton} />
+
+# Button
+
+<ArgsTable of={MyButton} />
+
+This is a simple button with some text in it.
+
+<Canvas>
+  <Story name="With Text">
+    {{
+        components: { MyButton },
+        template: '<my-button @click="action">Hello Button</my-button>',
+        methods: { action: action("clicked") }
+    }}
+  </Story>
+</Canvas>
+
+You can perform some action when the button is clicked.
+
+<Canvas>
+  <RMyButton onClick={linkTo('Button', 'With Some Emoji')}>With JSX</RMyButton>
+</Canvas>
+
+You can even have Emoji in the button.
+
+<Canvas>
+  <Story name="With Some Emoji">
+    {{
+        components: { MyButton },
+        template: '<my-button>😀 😎 👍 💯</my-button>'
+    }}
+  </Story>
+</Canvas>

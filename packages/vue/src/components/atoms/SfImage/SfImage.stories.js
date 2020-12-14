@@ -171,8 +171,8 @@ storiesOf("Atoms|Image", module)
         :rootMargin="rootMargin"
         :threshold="threshold"
       />`,
-	}))
-	.add("With progressive loading", () => ({
+  }))
+  .add("With progressive loading", () => ({
     components: { SfImage, SfArrow },
     props: {
       srcset: {

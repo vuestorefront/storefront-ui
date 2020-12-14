@@ -1,4 +1,4 @@
-import { create } from "@storybook/theming";
+import { create } from "@storybook/theming/create";
 
 export default create({
   base: "light",
@@ -28,5 +28,5 @@ export default create({
 
   brandTitle: "StorefrontUI",
   brandUrl: "https://github.com/Divanteltd/storefront-ui",
-  brandImage: "assets/storybook/logo.png"
+  brandImage: "../../public/assets/storybook/logo.png",
 });
