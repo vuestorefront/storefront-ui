@@ -1,5 +1,6 @@
+import "./SfMegaMenu.stories.scss";
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text } from "@storybook/addon-knobs";
+import { withKnobs } from "@storybook/addon-knobs";
 import {
   SfMegaMenu,
   SfList,
@@ -8,6 +9,7 @@ import {
   SfScrollable,
   SfMenuItem,
   SfHeader,
+  SfOverlay,
 } from "@storefront-ui/vue";
 storiesOf("Organisms|MegaMenu", module)
   .addDecorator(withKnobs)
@@ -87,12 +89,12 @@ storiesOf("Organisms|MegaMenu", module)
         :title="category.title"
       >
         <SfList>
-          <SfListItem v-for="(subcategory, key) in category.subcategories">
+          <SfListItem v-for="(subcategory, key) in category.subcategories" :key="key">
             <SfMenuItem :label="subcategory.title"></SfMenuItem>
           </SfListItem>
         </SfList>
       </SfMegaMenuColumn>
-      <SfMegaMenuColumn title="Featured" class="sf-mega-menu-column--pined-content-on-mobile sf-mega-menu-column--hide-header-on-mobile sb-mega-menu__promo">
+      <SfMegaMenuColumn title="Featured" class="sf-mega-menu-column--pined-content-on-mobile sf-mega-menu-column--hide-header-on-mobile sb-mega-menu__featured">
         <div class="sb-mega-menu__banners">
           <SfBanner
             v-for="(banner, key) in banners"
@@ -134,7 +136,7 @@ storiesOf("Organisms|MegaMenu", module)
     >
       <SfMegaMenuColumn title="Categories" class="sf-mega-menu-column--pined-content-on-mobile" style="flex: 0 0 220px; --menu-item-mobile-nav-icon-display: none;">
         <SfList>
-          <SfListItem v-for="(category, key) in categories">
+          <SfListItem v-for="(category, key) in categories" :key="key">
             {{category}}
           </SfListItem>
         </SfList>
@@ -148,7 +150,7 @@ storiesOf("Organisms|MegaMenu", module)
           >
             <template #label>
               <div style="display: flex; align-items: center;">
-                {{title}} <span style="margin: 0 0 0 var(--spacer-sm); color:var(--c-gray); font: var(--font-normal) var(--font-sm)/1.4 var(--font-family-secondary); text-transform: lowercase">(20 items)</span>
+                {{title}} <span style="margin: 0 0 0 var(--spacer-sm); color:var(--c-gray); font: var(--font-weight--normal) var(--font-size--sm)/1.4 var(--font-family--secondary); text-transform: lowercase">(20 items)</span>
               </div>
             </template>
           </SfMenuItem>
@@ -245,7 +247,7 @@ storiesOf("Organisms|MegaMenu", module)
         :title="category.title"
       >
         <SfList>
-          <SfListItem v-for="(subcategory, key) in category.subcategories">
+          <SfListItem v-for="(subcategory, key) in category.subcategories" :key="key">
             {{subcategory.title}}
           </SfListItem>
         </SfList>
@@ -262,7 +264,7 @@ storiesOf("Organisms|MegaMenu", module)
           />
         </div>
       </template>
-    </SfMegaMenu>`,
+      </SfMegaMenu>`,
   }))
   .add("With SfHeader", () => ({
     components: {
@@ -271,6 +273,7 @@ storiesOf("Organisms|MegaMenu", module)
       SfBanner,
       SfMenuItem,
       SfHeader,
+      SfOverlay,
     },
     data() {
       return {
@@ -331,48 +334,52 @@ storiesOf("Organisms|MegaMenu", module)
         isOpen: false,
       };
     },
-    template: `<SfHeader
-          title="Storefront UI"
-          :logo="{ mobile: { url: '/assets/logo.svg' }, desktop: { url: '/assets/logo.svg' } }"
-      >
-      <template #navigation>
-        <SfHeaderNavigationItem
-            :class="{'sf-header-navigation-item--is-active': isOpen}"
-            @mouseover="isOpen = true"
-            @mouseleave="isOpen = false"
-        >
-          <a href="#women">Women</a>
-            <SfMegaMenu 
-            :visible="isOpen" 
-            title="Woman"
-            class="sb-mega-menu"
-            :style="{position: 'absolute', left: 0, top: '100%'}"
+    template: `<div>
+          <SfOverlay :visible="isOpen" />
+          <SfHeader
+            :style="{'z-index': '3'}"
+            title="Storefront UI"
+            :logo="{ mobile: { url: '/assets/logo.svg' }, desktop: { url: '/assets/logo.svg' } }"
           >
-            <SfMegaMenuColumn 
-              v-for="(category, key) in categories" 
-              :key="key" 
-              :title="category.title"
+          <template #navigation>
+            <SfHeaderNavigationItem
+                :class="{'sf-header-navigation-item--is-active': isOpen}"
+                @mouseover="isOpen = true"
+                @mouseleave="isOpen = false"
             >
-              <SfList>
-                <SfListItem v-for="(subcategory, key) in category.subcategories">
-                  <SfMenuItem :label="subcategory.title"></SfMenuItem>
-                </SfListItem>
-              </SfList>
-            </SfMegaMenuColumn>
-            <SfMegaMenuColumn title="Featured" class="sf-mega-menu-column--pined-content-on-mobile sf-mega-menu-column--hide-header-on-mobile sb-mega-menu__promo">
-              <div class="sb-mega-menu__banners">
-                <SfBanner
-                  v-for="(banner, key) in banners"
-                  :key="key"
-                  :title="banner.title"
-                  :subtitle="banner.subtitle"
-                  :image="banner.pictures"
-                  class="sb-mega-menu__banner"
-                />
-              </div>
-            </SfMegaMenuColumn>
-          </SfMegaMenu>
-        </SfHeaderNavigationItem>
-      </template>
-    </SfHeader>`,
+              <a href="#women">Women</a>
+                <SfMegaMenu 
+                :visible="isOpen" 
+                title="Woman"
+                class="sb-mega-menu"
+                :style="{position: 'absolute', left: 0, top: '100%'}"
+              >
+                <SfMegaMenuColumn 
+                  v-for="(category, key) in categories" 
+                  :key="key" 
+                  :title="category.title"
+                >
+                  <SfList>
+                    <SfListItem v-for="(subcategory, key) in category.subcategories" :key="key">
+                      <SfMenuItem :label="subcategory.title"></SfMenuItem>
+                    </SfListItem>
+                  </SfList>
+                </SfMegaMenuColumn>
+                <SfMegaMenuColumn title="Featured" class="sf-mega-menu-column--pined-content-on-mobile sf-mega-menu-column--hide-header-on-mobile sb-mega-menu__featured">
+                  <div class="sb-mega-menu__banners">
+                    <SfBanner
+                      v-for="(banner, key) in banners"
+                      :key="key"
+                      :title="banner.title"
+                      :subtitle="banner.subtitle"
+                      :image="banner.pictures"
+                      class="sb-mega-menu__banner"
+                    />
+                  </div>
+                </SfMegaMenuColumn>
+              </SfMegaMenu>
+            </SfHeaderNavigationItem>
+          </template>
+        </SfHeader>
+      </div>`,
   }));

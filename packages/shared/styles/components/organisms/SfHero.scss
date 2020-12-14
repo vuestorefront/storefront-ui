@@ -1,46 +1,57 @@
 @import "../../helpers";
 .sf-hero-item {
   display: flex;
-  flex-direction: var(--hero-item-flex-direction, row);
-  align-items: var(--hero-item-align-items, center);
   justify-content: var(--hero-item-justify-content, flex-start);
   box-sizing: border-box;
-  min-height: var(--hero-item-height, 14rem);
   width: var(--hero-item-width, 100%);
-  padding: var(--hero-item-padding, var(--spacer-sm));
   color: var(--hero-item-color, var(--c-text));
   @include background(
     --hero-item-background,
     var(--_hero-item-background-color, transparent),
     var(--_hero-item-background-image)
   );
-  &__container {
+  &__wrapper {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: var(--hero-item-container-width, 50%);
+    flex-direction: var(--hero-item-wrapper-flex-direction, column);
+    align-items: var(--hero-item-wrapper-align-items, flex-start);
+    justify-content: var(--hero-item-wrapper-justify-content, center);
+    width: var(--hero-item-wrapper-width, 100%);
+    min-height: var(--hero-item-wrapper-height, 14rem);
+    padding: var(--hero-item-wrapper-padding, var(--spacer-sm));
+    text-decoration: none;
+    &.sf-button,
+    &.sf-button:hover,
+    &.sf-button:active,
+    &.sf-link {
+      --button-background: transparent;
+      --button-box-shadow-opacity: 0;
+      --button-wrap: normal;
+      text-align: var(--hero-item-wrapper-text-align, left);
+    }
   }
   &__subtitle {
     margin: var(--hero-item-subtitle-margin, 0);
     color: var(--hero-item-subtitle-color, var(--c-gray));
+    width: var(--hero-item-subtitle-width, 60%);
     @include font(
       --hero-item-subtitle-font,
-      var(--font-normal),
-      var(--font-2xs),
+      var(--font-weight--normal),
+      var(--h6-font-size),
       1.4,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
     text-transform: var(--hero-item-subtitle-transform, uppercase);
   }
   &__title {
     margin: var(--hero-item-title-margin, var(--spacer-xs) 0 0 0);
     color: var(--hero-item-title-color, var(--c-text));
+    width: var(--hero-item-title-width, 60%);
     @include font(
       --hero-item-title-font,
-      var(--font-semibold),
+      var(--font-weight--semibold),
       var(--h2-font-size),
       1.2,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
     letter-spacing: 0.1px;
     text-transform: var(--hero-item-title-transform, none);
@@ -51,19 +62,35 @@
   &--align-right {
     --hero-item-justify-content: flex-end;
   }
+  &--position-bg-top-right {
+    background-position: top right;
+  }
+  &--position-bg-bottom-right {
+    background-position: bottom right;
+  }
+  &--position-bg-bottom-left {
+    background-position: bottom left;
+  }
   @include for-desktop {
-    --hero-item-height: 36.625rem;
-    --hero-item-padding: var(--spacer-2xl);
+    --hero-item-wrapper-width: 50%;
+    --hero-item-wrapper-height: 36.625rem;
+    --hero-item-subtitle-width: 100%;
+    --hero-item-title-width: 100%;
+    --hero-item-wrapper-padding: var(--spacer-2xl);
     --hero-item-background-image: var(
       --_hero-item-background-desktop-image,
       var(--_hero-item-background-image)
     );
+    &__wrapper {
+      pointer-events: none;
+    }
     &__title {
       --hero-item-font-size: var(--h1-font-size);
       --hero-item-title-margin: var(--spacer-base) 0 var(--spacer-lg) 0;
     }
     &__button {
       --hero-item-button-display: block;
+      pointer-events: auto;
     }
   }
 }
@@ -78,6 +105,10 @@
     justify-content: var(--hero-controls-justify-content, space-between);
     width: var(--hero-controls-width, 100%);
     padding: var(--hero-controls-padding, 0 var(--spacer-sm));
+    pointer-events: none;
+    &__arrow {
+      pointer-events: all;
+    }
   }
   &__bullets {
     position: absolute;

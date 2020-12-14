@@ -50,9 +50,11 @@ storiesOf("Molecules|Pagination", module)
       :current="current"
       :visible="visible"
       :total="total"
-      :has-arrows="hasArrows">
-        <template #default="{go}">CUSTOM DEFAULT</template>
-    </SfPagination>`,
+      :has-arrows="hasArrows"
+      @click="value => current = value"
+      >
+        <template #points >🎉</template>
+      </SfPagination>`,
   }))
   .add("[slot] prev", () => ({
     components: { SfPagination },
@@ -78,8 +80,8 @@ storiesOf("Molecules|Pagination", module)
       :total="total"
       :has-arrows="hasArrows"
       @click="value => current = value">
-      <template #prev="{isDisabled, go}">
-        <button @click="go">prev</button>
+      <template #prev="{isDisabled, go, prev}">
+        <button @click="go(prev)">prev</button>
       </template>
     </SfPagination>`,
   }))
@@ -107,8 +109,8 @@ storiesOf("Molecules|Pagination", module)
       :total="total"
       :has-arrows="hasArrows"
       @click="value => current = value">
-      <template #next="{isDisabled, go}">
-        <button @click="go">next</button>
+      <template #next="{isDisabled, go, next}">
+        <button @click="go(next)">next</button>
       </template>
     </SfPagination>`,
   }))
@@ -138,8 +140,8 @@ storiesOf("Molecules|Pagination", module)
       @click="value => current = value">
       <template #number="{page}">
         <button 
-          class="sf-pagination__button"
-          :class="{'sf-pagination__button--current': (current === number)}">{{page}}</button>
+          class="sf-pagination__item"
+          :class="{'current': current === page}">{{page}}</button>
       </template>
     </SfPagination>`,
   }));

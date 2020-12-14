@@ -1,5 +1,9 @@
 <template>
   <div id="detailed-cart">
+    <SfBreadcrumbs
+      class="breadcrumbs desktop-only"
+      :breadcrumbs="breadcrumbs"
+    />
     <div class="detailed-cart">
       <div v-if="totalItems" class="detailed-cart__aside">
         <OrderSummary
@@ -9,10 +13,6 @@
         />
       </div>
       <div class="detailed-cart__main">
-        <SfBreadcrumbs
-          class="breadcrumbs desktop-only"
-          :breadcrumbs="breadcrumbs"
-        />
         <transition name="sf-fade" mode="out-in">
           <div
             v-if="totalItems"
@@ -46,18 +46,24 @@
                   </div>
                 </template>
                 <template #actions>
-                  <SfButton class="sf-button--text actions__button desktop-only"
-                    >Edit</SfButton
-                  >
-                  <SfButton class="sf-button--text actions__button desktop-only"
-                    >Save for later</SfButton
-                  >
-                  <SfButton class="sf-button--text actions__button desktop-only"
-                    >Add to compare</SfButton
-                  >
-                  <SfButton class="sf-button--text actions__button desktop-only"
-                    >Add message or gift wrap</SfButton
-                  >
+                  <div class="actions desktop-only">
+                    <SfButton class="sf-button--text actions__button"
+                      >Edit</SfButton
+                    >
+                    <SfButton class="sf-button--text actions__button"
+                      >Save for later</SfButton
+                    >
+                    <SfButton class="sf-button--text actions__button"
+                      >Add to compare</SfButton
+                    >
+                    <SfButton class="sf-button--text actions__button"
+                      >Add message or gift wrap</SfButton
+                    >
+                    <span class="actions__description">
+                      Usually arrives in 5-13 business days. A shipping timeline
+                      specific to your destination can be viewed in Checkout.
+                    </span>
+                  </div>
                 </template>
               </SfCollectedProduct>
             </transition-group>
@@ -71,7 +77,7 @@
             <SfHeading
               title="Your cart is empty"
               :level="2"
-              subtitle="Looks like you haven’t added any items to the cart yet. Start
+              description="Looks like you haven’t added any items to the cart yet. Start
                 shopping to fill it in."
             />
             <SfButton
@@ -123,7 +129,7 @@ export default {
       ],
       products: [
         {
-          title: "Cream Beach Bag",
+          title: "Cream Beach Bag Modern Style",
           id: "CBB1",
           image: "assets/storybook/Home/productA.jpg",
           price: { regular: "50.00" },
@@ -134,10 +140,10 @@ export default {
           qty: "1",
         },
         {
-          title: "Cream Beach Bag",
+          title: "Cream Beach Bag Modern Style",
           id: "CBB2",
           image: "assets/storybook/Home/productB.jpg",
-          price: { regular: "50.00", special: "20.05" },
+          price: { regular: "50.00" },
           configuration: [
             { name: "Size", value: "XS" },
             { name: "Color", value: "White" },
@@ -145,10 +151,10 @@ export default {
           qty: "2",
         },
         {
-          title: "Cream Beach Bag",
+          title: "Cream Beach Bag Modern Style",
           id: "CBB3",
           image: "assets/storybook/Home/productC.jpg",
-          price: { regular: "50.00", special: "20.50" },
+          price: { regular: "50.00" },
           configuration: [
             { name: "Size", value: "XS" },
             { name: "Color", value: "White" },
@@ -245,7 +251,7 @@ export default {
     box-sizing: border-box;
     width: 100%;
     background: var(--c-light);
-    padding: var(--spacer-xl);
+    padding: var(--spacer-base) var(--spacer-sm);
   }
   @include for-desktop {
     display: flex;
@@ -256,22 +262,29 @@ export default {
       flex: 0 0 26.8125rem;
       order: 1;
       margin: 0 0 0 var(--spacer-xl);
-      box-shadow: 0px 4px 11px rgba(var(--c-dark-base), 0.1);
+      padding: var(--spacer-xl);
     }
   }
 }
 .collected-product {
   --collected-product-padding: var(--spacer-sm) 0;
+  --collected-product-actions-display: flex;
   border: 1px solid var(--c-light);
   border-width: 1px 0 0 0;
+  &:first-of-type {
+    border-top: none;
+  }
   &__properties {
+    --property-value-font-weight: var(--font-weight--normal);
     margin: var(--spacer-sm) 0 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    flex: 2;
   }
   @include for-mobile {
     --collected-product-remove-bottom: var(--spacer-sm);
-    &:first-of-type {
-      border: none;
-    }
   }
   @include for-desktop {
     --collected-product-padding: var(--spacer-lg) 0;
@@ -279,14 +292,28 @@ export default {
 }
 .actions {
   &__button {
-    margin: 0 0 var(--spacer-base) 0;
+    display: block;
+    margin: 0 0 var(--spacer-xs) 0;
+    color: var(--c-text);
+    &:hover {
+      color: var(--c-text-muted);
+    }
+  }
+  &__description {
+    font-family: var(--font-family--primary);
+    font-size: var(--font-size--sm);
+    font-weight: var(--font-weight--light);
+    color: var(--c-text-muted);
+    position: absolute;
+    bottom: 0;
+    padding-bottom: var(--spacer-lg);
   }
 }
 .empty-cart {
   --heading-title-color: var(--c-primary);
   --heading-title-margin: 0 0 var(--spacer-base) 0;
-  --heading-subtitle-margin: 0 0 var(--spacer-xl) 0;
-  --heading-title-font-weight: var(--font-semibold);
+  --heading-description-margin: 0 0 var(--spacer-xl) 0;
+  --heading-title-font-weight: var(--font-weight--semibold);
   display: flex;
   flex: 1;
   align-items: center;

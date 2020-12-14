@@ -1,22 +1,22 @@
 <template>
-  <header class="sf-heading">
+  <div class="sf-heading">
     <!--@slot Heading title. Slot content will replace default <h> tag-->
     <slot name="title" v-bind="{ title }">
       <component
         :is="`h${level}`"
         class="sf-heading__title"
-        :class="level > 1 && `sf-heading__title--h${level}`"
+        :class="level > 1 && `h${level}`"
       >
         {{ title }}
       </component>
     </slot>
-    <!--@slot Heading subtitle. Slot content will replace default <div> tag-->
-    <slot name="subtitle" v-bind="{ subtitle }">
-      <div v-if="hasSubtitle" class="sf-heading__subtitle">
-        {{ subtitle }}
+    <!--@slot Heading description. Slot content will replace default <div> tag-->
+    <slot name="description" v-bind="{ description }">
+      <div v-if="hasDescription" class="sf-heading__description">
+        {{ description }}
       </div>
     </slot>
-  </header>
+  </div>
 </template>
 <script>
 export default {
@@ -37,16 +37,16 @@ export default {
       default: "",
     },
     /**
-     * Heading subtitle
+     * Heading description
      */
-    subtitle: {
+    description: {
       type: String,
       default: "",
     },
   },
   computed: {
-    hasSubtitle() {
-      return !!this.subtitle || this.$slots.hasOwnProperty("subtitle");
+    hasDescription() {
+      return !!this.description || this.$slots.hasOwnProperty("description");
     },
   },
 };

@@ -13,7 +13,7 @@
         <slot name="bar">
           <SfBar
             :title="title"
-            class="mobile-only"
+            class="smartphone-only"
             :back="true"
             @click:back="close"
           />
@@ -35,7 +35,7 @@
             <SfHeading
               v-if="title"
               :title="title"
-              :subtitle="subtitle"
+              :description="subtitle"
               :level="headingLevel"
               class="sf-heading--left sf-heading--no-underline sf-sidebar__title desktop-only"
             />

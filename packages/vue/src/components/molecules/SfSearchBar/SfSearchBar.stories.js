@@ -2,6 +2,7 @@ import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
   text,
+  object,
   optionsKnob as options,
 } from "@storybook/addon-knobs";
 import { SfSearchBar } from "@storefront-ui/vue";
@@ -25,15 +26,33 @@ storiesOf("Molecules|SearchBar", module)
       placeholder: {
         default: text("placeholder", "Search for items", "Props"),
       },
+      icon: {
+        default: object(
+          "icon",
+          {
+            color: "#43464E",
+            size: "1.25rem",
+          },
+          "Props"
+        ),
+      },
     },
     data() {
       return {
         value: "",
       };
     },
+    methods: {
+      alert(label) {
+        alert(label);
+      },
+    },
     template: `<SfSearchBar
+      :icon="icon"
       :class="customClass"
       :placeholder="placeholder"
+      @click="alert(value)"
+      @enter="alert(value)"
       aria-label="Search"
       v-model="value"/>`,
   }))
@@ -61,9 +80,16 @@ storiesOf("Molecules|SearchBar", module)
         value: "",
       };
     },
+    methods: {
+      alert(label) {
+        alert(label);
+      },
+    },
     template: `<SfSearchBar
       :class="customClass"
       :placeholder="placeholder"
+      @click="alert(value)"
+      @enter="alert(value)"
       aria-label="Search"
       v-model="value">
       <template #icon>👀</template>
@@ -93,9 +119,15 @@ storiesOf("Molecules|SearchBar", module)
         value: "",
       };
     },
+    methods: {
+      alert(label) {
+        alert(label);
+      },
+    },
     template: `<SfSearchBar
       :class="customClass"
       :placeholder="placeholder"
+      @enter="alert(value)"
       aria-label="Search"
       v-model="value">
     </SfSearchBar>`,
