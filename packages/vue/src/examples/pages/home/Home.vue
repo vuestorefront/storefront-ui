@@ -77,7 +77,7 @@
             :key="colKey"
             class="instagram-grid__col"
           >
-            <SfImage :src="image" :alt="image.content">{{
+            <SfImage :src="image.url" :alt="image.content">{{
               image.content
             }}</SfImage>
           </div>
@@ -282,41 +282,21 @@ export default {
         [
           {
             content: "angelina_trn",
-            mobile: {
-              url: "/assets/storybook/Home/imageA.png",
-            },
-            desktop: {
-              url: "/assets/storybook/Home/imageA.png",
-            },
+            url: "/assets/storybook/Home/imageA.png",
           },
           {
             content: "angelina_trn",
-            mobile: {
-              url: "/assets/storybook/Home/imageB.png",
-            },
-            desktop: {
-              url: "/assets/storybook/Home/imageB.png",
-            },
+            url: "/assets/storybook/Home/imageB.png",
           },
         ],
         [
           {
             content: "angelina_trn",
-            mobile: {
-              url: "/assets/storybook/Home/imageC.jpg",
-            },
-            desktop: {
-              url: "/assets/storybook/Home/imageC.jpg",
-            },
+            url: "/assets/storybook/Home/imageC.jpg",
           },
           {
             content: "angelina_trn",
-            mobile: {
-              url: "/assets/storybook/Home/imageD.jpg",
-            },
-            desktop: {
-              url: "/assets/storybook/Home/imageD.jpg",
-            },
+            url: "/assets/storybook/Home/imageD.jpg",
           },
         ],
       ],

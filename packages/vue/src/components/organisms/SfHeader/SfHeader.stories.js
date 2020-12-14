@@ -40,14 +40,7 @@ storiesOf("Organisms|Header", module)
         default: text("title", "Storefront UI", "Props"),
       },
       logo: {
-        default: object(
-          "logo",
-          {
-            mobile: { url: "/assets/logo.svg" },
-            desktop: { url: "/assets/logo.svg" },
-          },
-          "Props"
-        ),
+        default: text("logo", "/assets/logo.svg", "Props"),
       },
       activeIcon: {
         default: select(
@@ -416,14 +409,7 @@ storiesOf("Organisms|Header", module)
         default: text("title", "Storefront UI", "Props"),
       },
       logo: {
-        default: object(
-          "logo",
-          {
-            mobile: { url: "/assets/logo.svg" },
-            desktop: { url: "/assets/logo.svg" },
-          },
-          "Props"
-        ),
+        default: text("logo", "/assets/logo.svg", "Props"),
       },
       activeIcon: {
         default: select(
@@ -518,14 +504,7 @@ storiesOf("Organisms|Header", module)
         default: text("title", "Storefront UI", "Props"),
       },
       logo: {
-        default: object(
-          "logo",
-          {
-            mobile: { url: "/assets/logo.svg" },
-            desktop: { url: "/assets/logo.svg" },
-          },
-          "Props"
-        ),
+        default: text("logo", "/assets/logo.svg", "Props"),
       },
       activeIcon: {
         default: select(
@@ -627,14 +606,7 @@ storiesOf("Organisms|Header", module)
         default: text("title", "Storefront UI", "Props"),
       },
       logo: {
-        default: object(
-          "logo",
-          {
-            mobile: { url: "/assets/logo.svg" },
-            desktop: { url: "/assets/logo.svg" },
-          },
-          "Props"
-        ),
+        default: text("logo", "/assets/logo.svg", "Props"),
       },
       activeIcon: {
         default: select(
@@ -736,14 +708,7 @@ storiesOf("Organisms|Header", module)
         default: text("title", "Storefront UI", "Props"),
       },
       logo: {
-        default: object(
-          "logo",
-          {
-            mobile: { url: "/assets/logo.svg" },
-            desktop: { url: "/assets/logo.svg" },
-          },
-          "Props"
-        ),
+        default: text("logo", "/assets/logo.svg", "Props"),
       },
       activeIcon: {
         default: select(
@@ -845,14 +810,7 @@ storiesOf("Organisms|Header", module)
         default: text("title", "Storefront UI", "Props"),
       },
       logo: {
-        default: object(
-          "logo",
-          {
-            mobile: { url: "/assets/logo.svg" },
-            desktop: { url: "/assets/logo.svg" },
-          },
-          "Props"
-        ),
+        default: text("logo", "/assets/logo.svg", "Props"),
       },
       activeIcon: {
         default: select(
