@@ -43,7 +43,11 @@
           <!--@slot Use this slot to add sticky top content.-->
           <slot name="content-top" />
         </div>
-        <SfScrollable show-text="" hide-text="" :style="setMaxHeight">
+        <SfScrollable
+          show-text=""
+          hide-text=""
+          :max-content-height="setMaxHeight"
+        >
           <div ref="content" class="sf-sidebar__content">
             <!--@slot Use this slot to add SfSidebar content.-->
             <slot />
@@ -78,26 +82,44 @@ export default {
     SfScrollable,
   },
   props: {
+    /**
+     * The sidebar's title
+     */
     title: {
       type: String,
       default: "",
     },
+    /**
+     * The sidebar's subtitle
+     */
     subtitle: {
       type: String,
       default: "",
     },
+    /**
+     * The heading's level
+     */
     headingLevel: {
       type: Number,
       default: 3,
     },
+    /**
+     * The close button
+     */
     button: {
       type: Boolean,
       default: true,
     },
+    /**
+     * The sidebar's visibility
+     */
     visible: {
       type: Boolean,
       default: false,
     },
+    /**
+     * The overlay's visibility
+     */
     overlay: {
       type: Boolean,
       default: true,
@@ -140,7 +162,7 @@ export default {
           this.$nextTick(() => {
             disableBodyScroll(this.$refs.content);
             if (this.$slots.default) {
-              this.setMaxHeight = this.$slots.default[0].elm.offsetHeight;
+              this.setMaxHeight = `${this.$refs.sidebarAside.offsetHeight.toString()}px`;
             }
           });
           document.addEventListener("keydown", this.keydownHandler);
@@ -152,26 +174,6 @@ export default {
       immediate: true,
     },
   },
-  // watch: {
-  //   open: {
-  //     immediate: true,
-  //     handler: function (visible) {
-  //       if (visible) {
-  //         this.$nextTick(() => {
-
-  //         });
-  //       }
-  //     },
-  //   },
-  // mounted() {
-  //   this.classHandler();
-  //   console.log(this.$refs.asideHeight);
-  //   const asideHeight = this.$refs.asideHeight.clientHeight;
-  //   return (this.setMaxHeight = `--sidebar-content-max-height:${asideHeight}px`);
-  // },
-  // updated() {
-  //   this.classHandler();
-  // },
   methods: {
     close() {
       this.$emit("close");

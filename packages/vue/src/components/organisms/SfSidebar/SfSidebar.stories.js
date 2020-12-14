@@ -32,7 +32,7 @@ storiesOf("Organisms|Sidebar", module)
         default: text("title", "My Cart", "Props"),
       },
       subtitle: {
-        default: text("subtitle", "", "Props"),
+        default: text("subtitle", "Items:", "Props"),
       },
       headingLevel: {
         default: number("headingLevel", 3, {}, "Props"),
@@ -59,11 +59,7 @@ storiesOf("Organisms|Sidebar", module)
         :class="customClass"
         :persistent="persistent"
       >
-        Jako Akcja Miasto pojawiliśmy się dziś na spacerze szlakiem Olszówki Krzyckiej. Spacer miał miejsce tuż po ogłoszeniu przez miasto zaniechania budowy kolektora w obecnej formie i rozpoczęcia procesu projektowania od nowa. 
-Miasto zapowiada: "zaczynamy od białej kartki" (!). Słusznie! Weźmiemy udział w konsultacjach nowego projektu, bo uważamy, że przyroda i retencja są ważniejsze niż rura. Gratulujemy obrońcom Olszówki 🙂
-Okazuje się, że jak jest potrzeba, to Wrocław rozmawia, a to bardzo nas cieszy. - W rozmowach uczestniczyli m.in pracownicy MPWiK Wrocław oraz urzędnicy z Zielony Wrocław czy Biura Zrównoważonej Mobilności.
-Bardzo dziękujemy Extinction Rebellion Wrocław za pojawienie się podczas spaceru i danie wyraźnego sygnału, że przyglądają się sprawie.
-Poniżej link do posta Biuro Prasowe Urzędu Miejskiego Wrocławia z pismem podpisanym przez Prezydent Wrocławia Jacek Sutryk:
+				Total items: 0
       </SfSidebar>`,
   }))
   .add("On the right", () => ({
