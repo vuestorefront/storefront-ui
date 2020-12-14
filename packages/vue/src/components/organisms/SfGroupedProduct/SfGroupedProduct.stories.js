@@ -26,10 +26,10 @@ storiesOf("Organisms|GroupedProduct", module)
         ),
       },
       imageWidth: {
-        default: number("imageWidth", 328, {}, "Props"),
+        default: number("imageWidth", 82, {}, "Props"),
       },
       imageHeight: {
-        default: number("imageHeight", 448, {}, "Props"),
+        default: number("imageHeight", 112, {}, "Props"),
       },
       imageLazy: {
         default: boolean("imageLazy", true, "Props"),
@@ -86,13 +86,11 @@ storiesOf("Organisms|GroupedProduct", module)
       return {
         products: [
           {
-            image: {
-              default: text(
-                "image",
-                "/assets/storybook/SfGroupedProduct/product-white.png",
-                "Props"
-              ),
-            },
+            image: text(
+              "image",
+              "/assets/storybook/SfGroupedProduct/product-white.png",
+              "Product 1"
+            ),
             sku: "MSD23-345-324",
             title: "Leave white brooch",
             priceRegular: "$10,99",
@@ -105,13 +103,11 @@ storiesOf("Organisms|GroupedProduct", module)
             ],
           },
           {
-            image: {
-              default: text(
-                "image",
-                "/assets/storybook/SfGroupedProduct/product-white.png",
-                "Props"
-              ),
-            },
+            image: text(
+              "image",
+              "/assets/storybook/SfGroupedProduct/product-white.png",
+              "Product 2"
+            ),
             sku: "MSD23-345-324",
             title: "Leave black brooch",
             priceRegular: "$10,99",
@@ -124,13 +120,11 @@ storiesOf("Organisms|GroupedProduct", module)
             ],
           },
           {
-            image: {
-              default: text(
-                "image",
-                "/assets/storybook/SfGroupedProduct/product-white.png",
-                "Props"
-              ),
-            },
+            image: text(
+              "image",
+              "/assets/storybook/SfGroupedProduct/product-black.png",
+              "Product 3"
+            ),
             sku: "MSD23-345-324",
             title: "Leave green brooch",
             priceRegular: "$10,99",
@@ -156,8 +150,8 @@ storiesOf("Organisms|GroupedProduct", module)
           :qty="product.productQty"
           @input="product.productQty = $event"
           :image="product.image"
-          image-width="328"
-          image-height="448"
+          image-width="82"
+          image-height="auto"
           :title="product.title"
           :price-regular="product.priceRegular"
           :price-special="product.priceSpecial"
@@ -186,10 +180,10 @@ storiesOf("Organisms|GroupedProduct", module)
         ),
       },
       imageWidth: {
-        default: number("imageWidth", 328, {}, "Props"),
+        default: number("imageWidth", 82, {}, "Props"),
       },
       imageHeight: {
-        default: number("imageHeight", 448, {}, "Props"),
+        default: number("imageHeight", 112, {}, "Props"),
       },
       imageLazy: {
         default: boolean("imageLazy", true, "Props"),
@@ -248,10 +242,10 @@ storiesOf("Organisms|GroupedProduct", module)
         ),
       },
       imageWidth: {
-        default: number("imageWidth", 328, {}, "Props"),
+        default: number("imageWidth", 82, {}, "Props"),
       },
       imageHeight: {
-        default: number("imageHeight", 448, {}, "Props"),
+        default: number("imageHeight", 112, {}, "Props"),
       },
       imageLazy: {
         default: boolean("imageLazy", true, "Props"),
@@ -310,10 +304,10 @@ storiesOf("Organisms|GroupedProduct", module)
         ),
       },
       imageWidth: {
-        default: number("imageWidth", 328, {}, "Props"),
+        default: number("imageWidth", 82, {}, "Props"),
       },
       imageHeight: {
-        default: number("imageHeight", 448, {}, "Props"),
+        default: number("imageHeight", 112, {}, "Props"),
       },
       imageLazy: {
         default: boolean("imageLazy", true, "Props"),
@@ -372,10 +366,10 @@ storiesOf("Organisms|GroupedProduct", module)
         ),
       },
       imageWidth: {
-        default: number("imageWidth", 328, {}, "Props"),
+        default: number("imageWidth", 82, {}, "Props"),
       },
       imageHeight: {
-        default: number("imageHeight", 448, {}, "Props"),
+        default: number("imageHeight", 112, {}, "Props"),
       },
       imageLazy: {
         default: boolean("imageLazy", true, "Props"),
@@ -436,10 +430,10 @@ storiesOf("Organisms|GroupedProduct", module)
         ),
       },
       imageWidth: {
-        default: number("imageWidth", 328, {}, "Props"),
+        default: number("imageWidth", 82, {}, "Props"),
       },
       imageHeight: {
-        default: number("imageHeight", 448, {}, "Props"),
+        default: number("imageHeight", 112, {}, "Props"),
       },
       imageLazy: {
         default: boolean("imageLazy", true, "Props"),
@@ -498,10 +492,10 @@ storiesOf("Organisms|GroupedProduct", module)
         ),
       },
       imageWidth: {
-        default: number("imageWidth", 328, {}, "Props"),
+        default: number("imageWidth", 82, {}, "Props"),
       },
       imageHeight: {
-        default: number("imageHeight", 448, {}, "Props"),
+        default: number("imageHeight", 112, {}, "Props"),
       },
       imageLazy: {
         default: boolean("imageLazy", true, "Props"),

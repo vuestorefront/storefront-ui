@@ -13,6 +13,7 @@
   object-fit: cover;
   width: var(--image-width);
   height: var(--image-height, auto);
+  display: flex;
 
   &:not(.sf-image-loaded) {
     opacity: 0;
