@@ -76,6 +76,15 @@ export default {
       default: "",
     },
     /**
+     * Custom color of the icon
+     * It can be according to our standard colors, or legitimate CSS color such as `#fff`, `rgb(255,255,255)`), and `lightgray` or nothing.
+     * Standard colors: `white`, `black`, `green-primary`, `green-secondary`, `gray-primary`, `gray-secondary`, `light-primary`, `light-secondary`, `pink-primary`, `pink-secondary`, `yellow-primary`, `yellow-secondary`, `blue-primary`, `blue-secondary`, `accent`.
+     */
+    color: {
+      type: String,
+      default: "",
+    },
+    /**
      * Custom viewBox size of the icon
      * It should be according to the standard `"min-x min-y width height"`.
      * By default it will be `0 0 24 24`. If you use our icons, you don't need to pass this prop at all.
