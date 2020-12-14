@@ -46,6 +46,9 @@ storiesOf("Atoms|Image", module)
       height: {
         default: number("height", 326, {}, "Props"),
       },
+      placeholder: {
+        default: text("placeholder", "", "Props"),
+      },
     },
     components: { SfImage },
     template: `<SfImage
@@ -186,6 +189,46 @@ storiesOf("Atoms|Image", module)
         :alt="alt"
       />`,
   }))
+  .add("With placeholder", () => ({
+    props: {
+      src: {
+        default: text(
+          "src",
+          "/assets/storybook/SfImage/product-216x326.jpg",
+          "Props"
+        ),
+      },
+      alt: {
+        default: text("alt", "Vila stripe maxi shirt dress", "Attributes"),
+      },
+      width: {
+        default: text("width", "", "Props"),
+      },
+      height: {
+        default: text("height", "", "Props"),
+      },
+      textOverlay: {
+        default: text("overlay", "Custom overlay", "Slot"),
+      },
+      placeholder: {
+        default: text(
+          "placeholder",
+          "https://res.cloudinary.com/mayashavin/image/upload/e_pixelate/v1607977495/StorefrontUI/product-216x326.jpg",
+          "Props"
+        ),
+      },
+    },
+    components: { SfImage },
+    template: `
+      <SfImage
+        :src="src"
+        :srcsets="srcsets"
+        :width="width"
+        :height="height"
+        :placeholder="placeholder"
+        :alt="alt"
+      >{{textOverlay}}</SfImage>`,
+  }))
   .add("With accessibility", () => ({
     props: {
       src: {
@@ -216,6 +259,38 @@ storiesOf("Atoms|Image", module)
         :width="width"
         :height="height"
         :alt="alt"
-      >Text</SfImage>
+      />
       </div>`,
+  }))
+  .add("With overlay [slot]", () => ({
+    props: {
+      src: {
+        default: text(
+          "src",
+          "/assets/storybook/SfImage/product-216x326.jpg",
+          "Props"
+        ),
+      },
+      alt: {
+        default: text("alt", "Vila stripe maxi shirt dress", "Attributes"),
+      },
+      width: {
+        default: text("width", "", "Props"),
+      },
+      height: {
+        default: text("height", "", "Props"),
+      },
+      textOverlay: {
+        default: text("overlay", "Custom overlay", "Slot"),
+      },
+    },
+    components: { SfImage },
+    template: `
+      <SfImage
+        :src="src"
+        :srcsets="srcsets"
+        :width="width"
+        :height="height"
+        :alt="alt"
+      >{{textOverlay}}</SfImage>`,
   }));

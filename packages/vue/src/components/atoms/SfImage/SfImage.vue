@@ -1,39 +1,36 @@
 <template>
-  <img
-    loading="lazy"
-    v-bind="$attrs"
-    :src="url"
-    :srcset="srcset"
-    :sizes="sizes"
-    :class="classes"
-    :width="width"
-    :height="height"
-    :alt="alt && alt.trim()"
-    @load="loading"
-    v-on="$listeners"
-  />
+  <div class="sf-image--wrapper">
+    <img
+      loading="lazy"
+      v-bind="$attrs"
+      :src="src"
+      :srcset="srcset"
+      :sizes="sizes"
+      :class="classes"
+      :width="width"
+      :height="height"
+      :alt="alt && alt.trim()"
+      @load="loading"
+      v-on="$listeners"
+    />
+    <img
+      v-if="!loaded && placeholder"
+      class="sf-image--placeholder"
+      :src="placeholder"
+      alt="Placeholder"
+    />
+    <div v-if="$slots.default" class="sf-image--overlay">
+      <slot />
+    </div>
+  </div>
 </template>
 <script>
 export default {
   name: "SfImage",
   props: {
-    width: {
-      type: [String, Number],
-      default: "",
-    },
-    height: {
-      type: [String, Number],
-      default: "",
-    },
-    loader: {
-      type: String,
-      default: "",
-    },
     src: {
-      type: [String, Object],
+      type: String,
       required: true,
-      validator: (value) =>
-        typeof value === "object" ? value.desktop && value.desktop.url : value,
     },
     srcsets: {
       type: Array,
@@ -48,6 +45,18 @@ export default {
       required: true,
       validator: (value) => value && !!value.trim(),
     },
+    width: {
+      type: [String, Number],
+      default: "",
+    },
+    height: {
+      type: [String, Number],
+      default: "",
+    },
+    placeholder: {
+      type: String,
+      default: "",
+    },
   },
   data() {
     return {
@@ -56,14 +65,6 @@ export default {
   },
   computed: {
     sortedSrcsets() {
-      if (typeof this.src === "object" && !this.srcsets.length) {
-        return Object.keys(this.src).map((item) => ({
-          src: this.src[item].url,
-          width: this.width,
-          breakpoint: item === "mobile" ? 1023 : "",
-        }));
-      }
-
       const arr = [...this.srcsets];
 
       arr.sort((setA, setB) =>
@@ -97,9 +98,6 @@ export default {
     },
     classes() {
       return `sf-image ${this.loaded && "sf-image-loaded"}`;
-    },
-    url() {
-      return typeof this.src === "object" ? this.src.desktop.url : this.src;
     },
   },
   methods: {
