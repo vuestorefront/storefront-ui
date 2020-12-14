@@ -337,7 +337,7 @@ storiesOf("Organisms|StoreLocator", module)
           <!-- This function is provided by SfStoreLocator, so in a custom component it can be used with 'provide' for the sake of the example is not used in the markup. -->
           {{registerStore(store)}}
           <small>{{store.name}}</small>
-          <SfImage  @click="centerOn(store.latlng)":src="store.picture" :width="82" :height="112"/>
+          <SfImage  @click="centerOn(store.latlng)" :alt="store.name" :src="store.picture" :width="82" :height="112"/>
           <small>* click picture to zoom</small>
         </div>
       </SfStoreLocator>

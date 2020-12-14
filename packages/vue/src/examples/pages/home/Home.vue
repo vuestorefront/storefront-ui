@@ -77,7 +77,9 @@
             :key="colKey"
             class="instagram-grid__col"
           >
-            <SfImage :src="image">{{ image.content }}</SfImage>
+            <SfImage :src="image" :alt="image.content">{{
+              image.content
+            }}</SfImage>
           </div>
         </div>
       </div>
@@ -91,13 +93,13 @@
       <template #call-to-action>
         <div class="app-banner__call-to-action">
           <SfButton class="app-banner__button" aria-label="Go to Apple Product">
-            <SfImage src="/assets/storybook/Home/apple.png" />
+            <SfImage src="/assets/storybook/Home/apple.png" alt="Apple" />
           </SfButton>
           <SfButton
             class="app-banner__button"
             aria-label="Go to Google Product"
           >
-            <SfImage src="/assets/storybook/Home/google.png" />
+            <SfImage src="/assets/storybook/Home/google.png" alt="Google" />
           </SfButton>
         </div>
       </template>

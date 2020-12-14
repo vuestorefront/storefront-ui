@@ -141,7 +141,7 @@
         class="table__row"
       >
         <SfTableData class="table__image">
-          <SfImage :src="product.image" />
+          <SfImage :src="product.image" :alt="product.title" />
         </SfTableData>
         <SfTableData class="table__description">
           <div class="product-title">{{ product.title }}</div>
