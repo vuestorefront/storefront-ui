@@ -2,10 +2,7 @@
 
 .sf-image--wrapper {
   position: relative;
-  line-height: 0;
-  overflow: hidden;
   display: inline-block;
-  max-width: 100%;
 
   &:hover{	
     --image-overlay-opacity: 1	
@@ -15,7 +12,7 @@
 .sf-image{    
   object-fit: cover;
   width: var(--image-width);
-  height: var(--image-height);
+  height: var(--image-height, auto);
 
   &:not(.sf-image-loaded) {
     opacity: 0;

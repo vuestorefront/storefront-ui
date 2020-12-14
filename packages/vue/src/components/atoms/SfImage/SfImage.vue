@@ -1,5 +1,5 @@
 <template>
-  <div class="sf-image--wrapper">
+  <div class="sf-image--wrapper" :style="variables">
     <img
       loading="lazy"
       v-bind="$attrs"
@@ -92,12 +92,20 @@ export default {
         (str, set) =>
           `${this.prefix(str)}${this.formatBreakpoint(
             set.breakpoint
-          )}${this.formatWidth(set.width)}`,
+          )}${this.formatDimension(set.width)}`,
         ""
       );
     },
     classes() {
       return `sf-image ${this.loaded && "sf-image-loaded"}`;
+    },
+    variables() {
+      const width =
+        this.width && `--image-width: ${this.formatDimension(this.width)}`;
+      const height =
+        this.width && `--image-height: ${this.formatDimension(this.height)}`;
+
+      return [width, height].filter(Boolean).join(";");
     },
   },
   methods: {
@@ -107,7 +115,7 @@ export default {
     formatResolution(resolution) {
       return ("" + resolution).endsWith("x") ? resolution : `${resolution}x`;
     },
-    formatWidth(width) {
+    formatDimension(width) {
       return ["em", "px", "vw"].includes(`${width}`.slice(-2))
         ? width
         : `${width}px`;
