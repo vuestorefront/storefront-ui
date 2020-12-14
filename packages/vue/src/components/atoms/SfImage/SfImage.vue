@@ -1,174 +1,130 @@
 <template>
-  <div
-    class="sf-image"
-    :class="{ 'has-size': size }"
-    :style="size"
+  <img
+    loading="lazy"
+    v-bind="$attrs"
+    :src="url"
+    :srcset="srcset"
+    :sizes="sizes"
+    :class="classes"
+    :width="width"
+    :height="height"
+    :alt="alt && alt.trim()"
+    @load="loading"
     v-on="$listeners"
-  >
-    <template v-if="(isSrcset && isSrcsetArray) || isSrcObject">
-      <picture>
-        <source
-          v-for="(srcItem, i) in getSrcsetWhenIsArray.srcset"
-          :key="i"
-          :srcset="srcItem.src"
-          :media="srcItem.media"
-          :type="srcItem.type"
-        />
-        <img
-          v-show="getSrcsetWhenIsArray.src"
-          :src="getSrcsetWhenIsArray.src"
-          v-bind="$attrs"
-          :width="width"
-          :height="height"
-        />
-      </picture>
-    </template>
-    <template v-else>
-      <img
-        v-show="getSrcOrSrcset"
-        v-bind="{ ...$attrs, ...getSrcOrSrcset }"
-        :width="width"
-        :height="height"
-      />
-    </template>
-    <noscript v-if="noscript" inline-template>
-      <img
-        class="noscript"
-        :src="noscript"
-        v-bind="$attrs"
-        :width="width"
-        :height="height"
-      />
-    </noscript>
-    <div v-if="hasOverlay" class="sf-image__overlay">
-      <slot />
-    </div>
-  </div>
+  />
 </template>
 <script>
-import { deprecationWarning } from "../../../utilities/helpers";
-import lozad from "lozad";
 export default {
   name: "SfImage",
-  inheritAttrs: false,
   props: {
-    src: {
-      type: [String, Object],
-      default: "",
-    },
-    srcset: {
-      type: [String, Array],
-      default: "",
-    },
-    lazy: {
-      type: Boolean,
-      default: true,
-    },
     width: {
       type: [String, Number],
-      default: null,
+      default: "",
     },
     height: {
       type: [String, Number],
-      default: null,
+      default: "",
     },
-    rootMargin: {
+    loader: {
       type: String,
-      default: "0px 0px 0px 0px",
+      default: "",
     },
-    threshold: {
-      type: [String, Number],
-      default: 0,
+    src: {
+      type: [String, Object],
+      required: true,
+      validator: (value) =>
+        typeof value === "object" ? value.desktop && value.desktop.url : value,
+    },
+    srcsets: {
+      type: Array,
+      default: () => [],
+      validator: (value) =>
+        value.length === 0 ||
+        value.every((item) => item.resolution && item.src) ||
+        value.every((item) => item.src && item.width),
+    },
+    alt: {
+      type: String,
+      required: true,
+      validator: (value) => value && !!value.trim(),
     },
   },
   data() {
     return {
-      isLoaded: false,
+      loaded: false,
     };
   },
   computed: {
-    // TODO: To be removed if src as an object will not be available anymore
-    isSrcObject() {
-      return !!this.src && typeof this.src === "object";
-    },
-    isSrcset() {
-      return !!this.srcset.length;
-    },
-    isSrcsetArray() {
-      return !!Array.isArray(this.srcset);
-    },
-    isLazyAndNotLoaded() {
-      return !this.isLoaded && this.lazy;
-    },
-    getSrcsetWhenIsArray() {
-      if (this.isLazyAndNotLoaded) {
-        return {
-          srcset: [{ media: null, src: null, type: null }],
-          src: this.src,
-        };
+    sortedSrcsets() {
+      if (typeof this.src === "object" && !this.srcsets.length) {
+        return Object.keys(this.src).map((item) => ({
+          src: this.src[item].url,
+          width: this.width,
+          breakpoint: item === "mobile" ? 1023 : "",
+        }));
       }
-      // TODO: To be removed if src as an object will not be available anymore
-      if (this.isSrcObject) {
-        deprecationWarning(
-          this.$options.name,
-          "Prop 'src' type should be a string, the object type is deprecated, change the prop type."
-        );
-        return {
-          src: this.src.desktop && this.src.desktop.url,
-          srcset: [
-            {
-              src: this.src.mobile && this.src.mobile.url,
-              media: `(max-width: 1023px)`,
-            },
-            {
-              src: this.src.desktop && this.src.desktop.url,
-              media: `(min-width: 1024px)`,
-            },
-          ],
-        };
-      }
-      return { srcset: this.srcset, src: this.src };
+
+      const arr = [...this.srcsets];
+
+      arr.sort((setA, setB) =>
+        setA.width && setB.width
+          ? Number.parseInt(setA.width) - Number.parseInt(setB.width)
+          : Number.parseInt(setA.resolution) - Number.parseInt(setB.resolution)
+      );
+      return arr;
     },
-    getSrcOrSrcset() {
-      if (this.isLazyAndNotLoaded) {
-        return this.isSrcset ? { src: null, srcset: null } : { src: null };
-      }
-      return this.isSrcset
-        ? { src: this.src, srcset: this.srcset }
-        : { src: this.src };
-    },
-    noscript() {
-      return (
-        (this.isSrcsetArray && this.srcset.length && this.srcset[0].src) ||
-        this.src
+    srcset() {
+      return this.sortedSrcsets.reduce(
+        (str, set) =>
+          `${this.prefix(str)}${set.src} ${this.srcsetDescriptor(set)}`,
+        ""
       );
     },
-    size() {
-      return (
-        this.width &&
-        this.height && {
-          "--_image-width": this.width,
-          "--_image-height": this.height,
-        }
+    sizes() {
+      const hasBreakpoints = this.sortedSrcsets.every(
+        (set) => set.breakpoint && set.width
+      );
+
+      if (!hasBreakpoints) return null;
+
+      return this.sortedSrcsets.reduce(
+        (str, set) =>
+          `${this.prefix(str)}${this.formatBreakpoint(
+            set.breakpoint
+          )}${this.formatWidth(set.width)}`,
+        ""
       );
     },
-    hasOverlay() {
-      return this.$slots.default;
+    classes() {
+      return `sf-image ${this.loaded && "sf-image-loaded"}`;
+    },
+    url() {
+      return typeof this.src === "object" ? this.src.desktop.url : this.src;
     },
   },
-  mounted() {
-    if (!this.lazy) return;
-    const vm = this;
-    this.$nextTick(() => {
-      const observer = lozad(vm.$el, {
-        load() {
-          vm.isLoaded = true;
-        },
-        rootMargin: vm.rootMargin,
-        threshold: vm.threshold,
-      });
-      observer.observe();
-    });
+  methods: {
+    loading() {
+      this.loaded = true;
+    },
+    formatResolution(resolution) {
+      return ("" + resolution).endsWith("x") ? resolution : `${resolution}x`;
+    },
+    formatWidth(width) {
+      return ["em", "px", "vw"].includes(`${width}`.slice(-2))
+        ? width
+        : `${width}px`;
+    },
+    formatBreakpoint(breakpoint) {
+      return breakpoint ? `(max-width: ${breakpoint}px) ` : "";
+    },
+    prefix(str) {
+      return str ? `${str}, ` : "";
+    },
+    srcsetDescriptor(srcset) {
+      return srcset.width
+        ? `${Number.parseInt(srcset.width) || ""}w`
+        : this.formatResolution(srcset.resolution);
+    },
   },
 };
 </script>

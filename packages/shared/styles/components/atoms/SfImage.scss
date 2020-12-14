@@ -1,52 +1,15 @@
 @import "../../helpers";
-.sf-image {
+
+.sf-image{
   position: relative;
-  display: inline-block;
   line-height: 0;
   overflow: hidden;
-  img {
-    width: var(--image-width);
-    max-width: 100%;
-    height: var(--image-height, auto);
-  }
-  &.has-size {
-    width: 100%;
-    max-width: calc(var(--_image-width) * 1px);
-    img:not(.noscript) {
-      position: absolute;
-      top: 50%;
-      left: 0;
-      transform: translate3d(0, -50%, 0);
-    }
-    &::after {
-      display: block;
-      content: "";
-      padding-bottom: calc(var(--_image-height) / var(--_image-width) * 100%);
-    }
-  }
-  &__overlay {
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: var(--image-overlay-padding, var(--spacer-sm));
-    background: var(--image-overlay-background, rgba(var(--c-dark-base), 0.6));
-    color: var(--image-overlay-color, var(--c-white));
-    opacity: var(--image-overlay-opacity, 0);
-    @include font(
-      --image-overlay-font,
-      var(--font-weight--light),
-      var(--font-size--sm),
-      1.6,
-      var(--font-family--secondary)
-    );
-    transition: opacity 150ms ease-in-out;
-  }
-  &:hover{
-    --image-overlay-opacity: 1
+  max-width: 100%;
+
+  &:not([alt]),
+  &[alt=""] {
+    outline-color: red;
+    outline-width: 1px;
+    outline-style: dashed;
   }
 }
