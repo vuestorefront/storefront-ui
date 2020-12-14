@@ -19,16 +19,9 @@ storiesOf("Organisms|GroupedProduct", module)
         default: boolean("hasCarousel", false, "Props"),
       },
       image: {
-        default: object(
+        default: text(
           "image",
-          {
-            mobile: {
-              url: "/assets/storybook/SfGroupedProduct/product-white.png",
-            },
-            desktop: {
-              url: "/assets/storybook/SfGroupedProduct/product-white.png",
-            },
-          },
+          "/assets/storybook/SfGroupedProduct/product-white.png",
           "Props"
         ),
       },
@@ -94,12 +87,11 @@ storiesOf("Organisms|GroupedProduct", module)
         products: [
           {
             image: {
-              mobile: {
-                url: "/assets/storybook/SfGroupedProduct/product-white.png",
-              },
-              desktop: {
-                url: "/assets/storybook/SfGroupedProduct/product-white.png",
-              },
+              default: text(
+                "image",
+                "/assets/storybook/SfGroupedProduct/product-white.png",
+                "Props"
+              ),
             },
             sku: "MSD23-345-324",
             title: "Leave white brooch",
@@ -114,12 +106,11 @@ storiesOf("Organisms|GroupedProduct", module)
           },
           {
             image: {
-              mobile: {
-                url: "/assets/storybook/SfGroupedProduct/product-black.png",
-              },
-              desktop: {
-                url: "/assets/storybook/SfGroupedProduct/product-black.png",
-              },
+              default: text(
+                "image",
+                "/assets/storybook/SfGroupedProduct/product-white.png",
+                "Props"
+              ),
             },
             sku: "MSD23-345-324",
             title: "Leave black brooch",
@@ -134,12 +125,11 @@ storiesOf("Organisms|GroupedProduct", module)
           },
           {
             image: {
-              mobile: {
-                url: "/assets/storybook/SfGroupedProduct/product-green.png",
-              },
-              desktop: {
-                url: "/assets/storybook/SfGroupedProduct/product-green.png",
-              },
+              default: text(
+                "image",
+                "/assets/storybook/SfGroupedProduct/product-white.png",
+                "Props"
+              ),
             },
             sku: "MSD23-345-324",
             title: "Leave green brooch",
@@ -189,16 +179,9 @@ storiesOf("Organisms|GroupedProduct", module)
         default: boolean("hasCarousel", false, "Props"),
       },
       image: {
-        default: object(
+        default: text(
           "image",
-          {
-            mobile: {
-              url: "/assets/storybook/SfGroupedProduct/product-white.png",
-            },
-            desktop: {
-              url: "/assets/storybook/SfGroupedProduct/product-white.png",
-            },
-          },
+          "/assets/storybook/SfGroupedProduct/product-white.png",
           "Props"
         ),
       },
@@ -258,16 +241,9 @@ storiesOf("Organisms|GroupedProduct", module)
         default: boolean("hasCarousel", false, "Props"),
       },
       image: {
-        default: object(
+        default: text(
           "image",
-          {
-            mobile: {
-              url: "/assets/storybook/SfGroupedProduct/product-white.png",
-            },
-            desktop: {
-              url: "/assets/storybook/SfGroupedProduct/product-white.png",
-            },
-          },
+          "/assets/storybook/SfGroupedProduct/product-white.png",
           "Props"
         ),
       },
@@ -327,16 +303,9 @@ storiesOf("Organisms|GroupedProduct", module)
         default: boolean("hasCarousel", false, "Props"),
       },
       image: {
-        default: object(
+        default: text(
           "image",
-          {
-            mobile: {
-              url: "/assets/storybook/SfGroupedProduct/product-white.png",
-            },
-            desktop: {
-              url: "/assets/storybook/SfGroupedProduct/product-white.png",
-            },
-          },
+          "/assets/storybook/SfGroupedProduct/product-white.png",
           "Props"
         ),
       },
@@ -396,16 +365,9 @@ storiesOf("Organisms|GroupedProduct", module)
         default: boolean("hasCarousel", false, "Props"),
       },
       image: {
-        default: object(
+        default: text(
           "image",
-          {
-            mobile: {
-              url: "/assets/storybook/SfGroupedProduct/product-white.png",
-            },
-            desktop: {
-              url: "/assets/storybook/SfGroupedProduct/product-white.png",
-            },
-          },
+          "/assets/storybook/SfGroupedProduct/product-white.png",
           "Props"
         ),
       },
@@ -467,16 +429,9 @@ storiesOf("Organisms|GroupedProduct", module)
         default: boolean("hasCarousel", false, "Props"),
       },
       image: {
-        default: object(
+        default: text(
           "image",
-          {
-            mobile: {
-              url: "/assets/storybook/SfGroupedProduct/product-white.png",
-            },
-            desktop: {
-              url: "/assets/storybook/SfGroupedProduct/product-white.png",
-            },
-          },
+          "/assets/storybook/SfGroupedProduct/product-white.png",
           "Props"
         ),
       },
@@ -536,16 +491,9 @@ storiesOf("Organisms|GroupedProduct", module)
         default: boolean("hasCarousel", false, "Props"),
       },
       image: {
-        default: object(
+        default: text(
           "image",
-          {
-            mobile: {
-              url: "/assets/storybook/SfGroupedProduct/product-white.png",
-            },
-            desktop: {
-              url: "/assets/storybook/SfGroupedProduct/product-white.png",
-            },
-          },
+          "/assets/storybook/SfGroupedProduct/product-white.png",
           "Props"
         ),
       },
