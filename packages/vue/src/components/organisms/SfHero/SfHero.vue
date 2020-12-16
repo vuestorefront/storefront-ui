@@ -96,7 +96,6 @@ export default {
     },
   },
   mounted() {
-    console.log(isClient);
     if (this.numberOfPages) {
       this.$nextTick(() => {
         if (!this.$slots.default) return;
