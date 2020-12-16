@@ -9,13 +9,13 @@
   >
     <!--@slot Use this slot to replace arrow icon-->
     <slot>
-      <component
-				:is="injections.components.SfIcon"
+      <component 
+        :is="injections.components.SfIcon"
         size="1.5rem"
         icon="arrow_left"
         aria-hidden="true"
-				v-bind="data.attrs" 
-				v-on="listeners"
+        v-bind="data.attrs"
+        v-on="listeners"
         :class="[data.class, data.staticClass, 'sf-arrow__icon']"
       />
     </slot>
@@ -27,10 +27,10 @@ import SfIcon from "../SfIcon/SfIcon";
 export default {
 	name: "SfArrow",
 	inject: {
-		components: { 
-			default: {SfButton, SfIcon }
-		}
-	}
+    components: {
+      default: {SfButton, SfIcon }
+    }
+  }
 };
 </script>
 <style lang="scss">

@@ -27,14 +27,6 @@ export default {
       default: false,
     },
   },
-  // computed: {
-  //   staticClass() {
-  //     return this.$vnode.data.staticClass;
-  //   },
-  //   className() {
-  //     return this.$vnode.data.class;
-  //   },
-  // },
 };
 </script>
 <style lang="scss">
