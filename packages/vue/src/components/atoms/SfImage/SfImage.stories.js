@@ -198,6 +198,9 @@ storiesOf("Atoms|Image", module)
           "Props"
         ),
       },
+      srcsets: {
+        default: object("srcsets", [], "Props"),
+      },
       alt: {
         default: text("alt", "Vila stripe maxi shirt dress", "Attributes"),
       },
@@ -238,6 +241,9 @@ storiesOf("Atoms|Image", module)
           "Props"
         ),
       },
+      srcsets: {
+        default: object("srcsets", [], "Props"),
+      },
       alt: {
         default: text("alt", "Vila stripe maxi shirt dress", "Attributes"),
       },
@@ -251,7 +257,7 @@ storiesOf("Atoms|Image", module)
     components: { SfImage },
     template: `<div>
       <p>
-        <span style="color:red">Red</span> highlight when no Alt text found.
+        <span style="color:#b40e01">Red</span> highlight when no Alt text found.
       </p>
       <SfImage
         :src="src"
@@ -270,6 +276,9 @@ storiesOf("Atoms|Image", module)
           "/assets/storybook/SfImage/product-216x326.jpg",
           "Props"
         ),
+      },
+      srcsets: {
+        default: object("srcsets", [], "Props"),
       },
       alt: {
         default: text("alt", "Vila stripe maxi shirt dress", "Attributes"),
