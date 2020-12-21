@@ -11,7 +11,6 @@ import SfDivider from "./src/components/atoms/SfDivider/SfDivider.vue";
 import SfHeading from "./src/components/atoms/SfHeading/SfHeading.vue";
 import SfIcon from "./src/components/atoms/SfIcon/SfIcon.vue";
 import SfImage from "./src/components/atoms/SfImage/SfImage.vue";
-import SfImg from "./src/components/atoms/SfImg/SfImg.vue";
 import SfInput from "./src/components/atoms/SfInput/SfInput.vue";
 import SfLink from "./src/components/atoms/SfLink/SfLink.vue";
 import SfLoader from "./src/components/atoms/SfLoader/SfLoader.vue";
@@ -82,7 +81,6 @@ export {
   SfHeading,
   SfIcon,
   SfImage,
-  SfImg,
   SfInput,
   SfLink,
   SfLoader,

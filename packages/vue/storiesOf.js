@@ -11,7 +11,6 @@ const SfDivider = require("./src/components/atoms/SfDivider/SfDivider.stories.js
 const SfHeading = require("./src/components/atoms/SfHeading/SfHeading.stories.js");
 const SfIcon = require("./src/components/atoms/SfIcon/SfIcon.stories.js");
 const SfImage = require("./src/components/atoms/SfImage/SfImage.stories.js");
-const SfImg = require("./src/components/atoms/SfImg/SfImg.stories.js");
 const SfInput = require("./src/components/atoms/SfInput/SfInput.stories.js");
 const SfLink = require("./src/components/atoms/SfLink/SfLink.stories.js");
 const SfLoader = require("./src/components/atoms/SfLoader/SfLoader.stories.js");
@@ -82,7 +81,6 @@ module.exports = {
   SfHeading,
   SfIcon,
   SfImage,
-  SfImg,
   SfInput,
   SfLink,
   SfLoader,
