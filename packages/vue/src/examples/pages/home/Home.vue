@@ -341,7 +341,6 @@ export default {
 }
 .hero {
   --hero-item-background-position: center;
-  --hero-item-container-width: 60%;
 }
 .match-with-it {
   display: flex;
