@@ -1,19 +1,43 @@
-import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, boolean } from "@storybook/addon-knobs";
 import { SfOverlay } from "@storefront-ui/vue";
-storiesOf("Atoms|Overlay", module)
-  .addDecorator(withKnobs)
-  .add("Common", () => ({
-    components: { SfOverlay },
-    props: {
-      transition: {
-        default: text("transition", "sf-fade", "Props"),
-      },
-      visible: {
-        default: boolean("visible", true, "Props"),
+
+export default {
+  title: "Atoms/Overlay",
+  component: SfOverlay,
+  argTypes: {
+    transition: {
+      control: "text",
+      table: {
+        category: "Props",
       },
     },
-    template: `<SfOverlay
-      :visible="visible"
-      :transition="transition" />`,
-  }));
+    visible: {
+      control: "boolean",
+      table: {
+        category: "Props",
+      },
+    },
+  },
+};
+
+const Template = (args, { argTypes }) => ({
+  components: { SfOverlay },
+  props: Object.keys(argTypes),
+  template: `<SfOverlay :visible="visible" :transition="transition" />`,
+});
+
+export const Common = Template.bind({});
+Common.args = {
+  visible: true,
+};
+
+export const WithFadeTransition = Template.bind({});
+WithFadeTransition.args = {
+  ...Common.args,
+  transition: "sf-fade",
+};
+
+export const Visible = Template.bind({});
+Visible.args = {
+  ...Common.args,
+  visible: true,
+};
