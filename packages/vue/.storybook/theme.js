@@ -28,5 +28,5 @@ export default create({
 
   brandTitle: "StorefrontUI",
   brandUrl: "https://github.com/Divanteltd/storefront-ui",
-  brandImage: "../../public/assets/storybook/logo.png",
+  brandImage: "assets/storybook/logo.png",
 });
