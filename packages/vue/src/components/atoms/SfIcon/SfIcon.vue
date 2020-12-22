@@ -32,16 +32,9 @@
           :key="index"
           :d="path"
           :fill="fillPath"
-          style="height: 100%;"
+          style="height: 100%"
         />
       </svg>
-    </slot>
-    <slot name="badge" v-bind="{ badgeLabel, hasBadge }">
-      <transition name="sf-bounce">
-        <SfBadge v-if="hasBadge" class="sf-icon__badge sf-badge--number">
-          {{ badgeLabel }}
-        </SfBadge>
-      </transition>
     </slot>
   </div>
 </template>
@@ -49,13 +42,9 @@
 import icons from "@storefront-ui/shared/icons/icons";
 import { iconColorsValues as SF_COLORS } from "@storefront-ui/shared/variables/colors";
 import { sizesValues as SF_SIZES } from "@storefront-ui/shared/variables/sizes";
-import SfBadge from "../SfBadge/SfBadge";
 const SF_ICONS = Object.keys(icons);
 export default {
   name: "SfIcon",
-  components: {
-    SfBadge,
-  },
   props: {
     /**
      * Icon SVG path(s)
