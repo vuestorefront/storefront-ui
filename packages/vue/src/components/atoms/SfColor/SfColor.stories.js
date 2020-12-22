@@ -1,41 +1,67 @@
-import { storiesOf } from "@storybook/vue";
-import {
-  withKnobs,
-  text,
-  optionsKnob as options,
-  boolean,
-} from "@storybook/addon-knobs";
 import { SfColor } from "@storefront-ui/vue";
-storiesOf("Atoms|Color", module)
-  .addDecorator(withKnobs)
-  .add("Common", () => ({
-    components: { SfColor },
-    props: {
-      color: { default: text("color", "red", "Props") },
-      hasBadge: { default: boolean("hasBadge", true, "Props") },
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-color--rounded": "sf-color--rounded",
-          },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        ),
+
+export default {
+  title: "Atoms/Color",
+  component: SfColor,
+  argTypes: {
+    color: { 
+      control: "color",
+      table: {
+        category: "Props" 
       },
     },
-    data() {
-      return {
-        selected: true,
-      };
+    hasBadge: { 
+      control: "boolean",
+      defaultValue: false,
+      table: {
+        category: "Props" 
+      },
     },
-    template: `<SfColor 
-          :color="color" 
-          :selected="selected" 
-          :has-badge="hasBadge"
-          :aria-label="color"  
-          style="margin: 10px;"
-          :class="customClass"
-          @click="selected = !selected"/>`,
-  }));
+    classes: {
+      control: {
+        type: "select",
+        options: ["sf-color--rounded", ""]
+      },
+      table: {
+        category: "CSS Modifiers" 
+      },
+    },
+    selected: {
+      control: "boolean",
+      defaultValue: false,
+      table: {
+        category: "Props" 
+      },
+    },
+    onClick: { action: "toggle selected", table: { category: "Events" } },
+  },
+};
+
+const Template = (args, { argTypes }) => ({
+  components: { SfColor },
+  props: Object.keys(argTypes),
+  template: `
+  <SfColor 
+    :color="color" 
+    :selected="selected" 
+    :has-badge="hasBadge"
+    :aria-label="color"  
+    style="margin: 10px;"
+    :class="classes" />`,
+});
+
+export const Common = Template.bind({})
+Common.args = {
+  color: 'black'
+}
+
+export const Selected = Template.bind({})
+Selected.args = {
+  ...Common.args,
+  selected: true
+}
+
+export const WithColor = Template.bind({})
+WithColor.args = {
+  color: "red"
+}
