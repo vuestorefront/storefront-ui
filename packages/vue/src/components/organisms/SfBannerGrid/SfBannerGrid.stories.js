@@ -1,6 +1,40 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, select } from "@storybook/addon-knobs";
 import { SfBannerGrid, SfBanner } from "@storefront-ui/vue";
+export default {
+  title: "Molecules/AddressPicker",
+  component: SfAddressPicker,
+  argTypes: {
+    name: {
+      control: "text",
+      table: {
+        category: "Props",
+      },
+      defaultValue: 0,
+    },
+    current: {
+      control: "number",
+      defaultValue: 0,
+      table: {
+        category: "Props",
+      },
+    },
+    input: { action: "Address picked", table: { category: "Events" } },
+  },
+};
+
+const Template = (args, { argTypes }) => ({
+  components: { SfAddressPicker },
+  props: Object.keys(argTypes),
+  template: `<SfBar
+  :title="title"
+  :back="back"
+  :close="close"
+/>`,
+});
+
+export const Common = Template.bind({});
+Common.args = {};
 storiesOf("Organisms|BannerGrid", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
