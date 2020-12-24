@@ -9,7 +9,7 @@ export default {
         category: "Props",
         defaultValue: {
           summary: `{}`,
-        }
+        },
       },
       defaultValue: {},
     },

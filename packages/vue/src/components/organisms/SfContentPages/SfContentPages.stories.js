@@ -40,7 +40,7 @@ const pages = [
     content:
       "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
   },
-]
+];
 export default {
   title: "Organisms/ContentPages",
   component: SfContentPages,
@@ -50,8 +50,8 @@ export default {
       table: {
         category: "Props",
         defaultValue: {
-          summary: ""
-        }
+          summary: "",
+        },
       },
       defaultValue: "",
     },
@@ -61,7 +61,7 @@ export default {
         category: "Props",
       },
     },
-    "click:change": { action: "Page changed", table: { category: "Events" } }
+    "click:change": { action: "Page changed", table: { category: "Events" } },
   },
 };
 
@@ -92,7 +92,7 @@ Common.args = {
 export const HasActive = Template.bind({});
 HasActive.args = {
   ...Common.args,
-  active: "About us"
+  active: "About us",
 };
 
 export const WithCategories = (args, { argTypes }) => ({
@@ -114,8 +114,8 @@ export const WithCategories = (args, { argTypes }) => ({
 });
 WithCategories.args = {
   ...Common.args,
-  categories: [{ pages, title: "Personal Details" }]
-}
+  categories: [{ pages, title: "Personal Details" }],
+};
 
 export const WithCategoryIcon = (args, { argTypes }) => ({
   components: { SfContentPages, SfTabs },
@@ -181,7 +181,7 @@ WithCategoryIcon.args = {
         "This website ('website') is operated by Luma Inc., which includes Luma stores, and Luma Private Sales.",
     },
   ],
-}
+};
 
 export const UseMenuItemSlot = (args, { argTypes }) => ({
   components: { SfContentPages, SfTabs },
@@ -203,4 +203,4 @@ export const UseMenuItemSlot = (args, { argTypes }) => ({
   </SfContentPage>
   </SfContentPages>`,
 });
-UseMenuItemSlot.args = { ...Common.args }
+UseMenuItemSlot.args = { ...Common.args };

@@ -24,7 +24,7 @@ export default {
         category: "Props",
       },
       description: "Number of columns in footer",
-    },    
+    },
     multiple: {
       control: "boolean",
       table: {
