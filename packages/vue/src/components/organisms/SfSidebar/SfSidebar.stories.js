@@ -11,6 +11,40 @@ import {
   dataToggleMixin,
 } from "@storefront-ui/vue/config/storybook/decorators";
 import { SfSidebar } from "@storefront-ui/vue";
+export default {
+  title: "Molecules/AddressPicker",
+  component: SfAddressPicker,
+  argTypes: {
+    name: {
+      control: "text",
+      table: {
+        category: "Props",
+      },
+      defaultValue: 0,
+    },
+    current: {
+      control: "number",
+      defaultValue: 0,
+      table: {
+        category: "Props",
+      },
+    },
+    input: { action: "Address picked", table: { category: "Events" } },
+  },
+};
+
+const Template = (args, { argTypes }) => ({
+  components: { SfAddressPicker },
+  props: Object.keys(argTypes),
+  template: `<SfBar
+  :title="title"
+  :back="back"
+  :close="close"
+/>`,
+});
+
+export const Common = Template.bind({});
+Common.args = {};
 storiesOf("Organisms|Sidebar", module)
   .addDecorator(withKnobs)
   .addDecorator(withDataToggle("isSidebarOpen"))
