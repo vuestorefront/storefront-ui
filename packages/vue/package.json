@@ -15,10 +15,9 @@
     "precommit": "lint-staged",
     "prepublish": "yarn create-index-files",
     "storybook:build": "vue-cli-service storybook:build -c config/storybook",
-    "storybook:serve": "vue-cli-service storybook:serve -p 6006 -c config/storybook",
     "test:dev": "vue-cli-service test:unit --watch",
     "version": "node scripts/version.js",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -s ./public -p 6006",
     "build-storybook": "build-storybook"
   },
   "main": "./index.js",
