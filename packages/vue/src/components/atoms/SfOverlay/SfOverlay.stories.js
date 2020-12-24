@@ -16,13 +16,14 @@ export default {
         category: "Props",
       },
     },
+    click: { action: "Overlay clicked!", table: { category: "Events" } },
   },
 };
 
 const Template = (args, { argTypes }) => ({
   components: { SfOverlay },
   props: Object.keys(argTypes),
-  template: `<SfOverlay :visible="visible" :transition="transition" />`,
+  template: `<SfOverlay :visible="visible" :transition="transition" @click="click"/>`,
 });
 
 export const Common = Template.bind({});

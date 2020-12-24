@@ -4,33 +4,33 @@ export default {
   title: "Atoms/Color",
   component: SfColor,
   argTypes: {
-    color: { 
+    color: {
       control: "color",
       table: {
-        category: "Props" 
+        category: "Props",
       },
     },
-    hasBadge: { 
+    hasBadge: {
       control: "boolean",
       defaultValue: false,
       table: {
-        category: "Props" 
+        category: "Props",
       },
     },
     classes: {
       control: {
         type: "select",
-        options: ["sf-color--rounded", ""]
+        options: ["sf-color--rounded", ""],
       },
       table: {
-        category: "CSS Modifiers" 
+        category: "CSS Modifiers",
       },
     },
     selected: {
       control: "boolean",
       defaultValue: false,
       table: {
-        category: "Props" 
+        category: "Props",
       },
     },
     onClick: { action: "toggle selected", table: { category: "Events" } },
@@ -47,21 +47,22 @@ const Template = (args, { argTypes }) => ({
     :has-badge="hasBadge"
     :aria-label="color"  
     style="margin: 10px;"
+    @click="onClick"
     :class="classes" />`,
 });
 
-export const Common = Template.bind({})
+export const Common = Template.bind({});
 Common.args = {
-  color: 'black'
-}
+  color: "black",
+};
 
-export const Selected = Template.bind({})
+export const Selected = Template.bind({});
 Selected.args = {
   ...Common.args,
-  selected: true
-}
+  selected: true,
+};
 
-export const WithColor = Template.bind({})
+export const WithColor = Template.bind({});
 WithColor.args = {
-  color: "red"
-}
+  color: "red",
+};

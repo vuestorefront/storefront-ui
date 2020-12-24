@@ -19,6 +19,7 @@ export default {
         category: "CSS Modifiers",
       },
     },
+    input: { action: "Quantity changed!", table: { category: "Events" } },
   },
 };
 
@@ -35,6 +36,7 @@ const Template = (args, { argTypes }) => ({
     v-model="value"
     aria-label="Quantity"
     :class="classes"
+    @input="input"
   />`,
 });
 

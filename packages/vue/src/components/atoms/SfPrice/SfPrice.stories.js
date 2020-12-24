@@ -7,16 +7,16 @@ export default {
     regular: {
       control: "text",
       table: {
-        category: "Props"
-      }
+        category: "Props",
+      },
     },
     special: {
       control: "text",
       table: {
-        category: "Props"
-      }
-    }
-  }
+        category: "Props",
+      },
+    },
+  },
 };
 
 const Template = (args, { argTypes }) => ({
@@ -25,21 +25,21 @@ const Template = (args, { argTypes }) => ({
   template: `<SfPrice :special="special" :regular="regular" />`,
 });
 
-export const Common = Template.bind({})
+export const Common = Template.bind({});
 Common.args = {
-  regular: "$200.00"
-}
+  regular: "$200.00",
+};
 
-export const OnlyRegular = Template.bind({})
+export const OnlyRegular = Template.bind({});
 OnlyRegular.args = {
-  regular: "$200.00"
-}
+  regular: "$200.00",
+};
 
-export const HasSpecial = Template.bind({})
+export const HasSpecial = Template.bind({});
 HasSpecial.args = {
   ...Common.args,
-  special: "$100.00"
-}
+  special: "$100.00",
+};
 
 export const WithSpecialSlot = (args, { argTypes }) => ({
   components: { SfPrice, SfBadge },
@@ -52,10 +52,10 @@ export const WithSpecialSlot = (args, { argTypes }) => ({
       <SfBadge class="color-warning">{{special}}</SfBadge>
     </template>  
   </SfPrice>`,
-})
+});
 WithSpecialSlot.args = {
-  ...HasSpecial.args
-}
+  ...HasSpecial.args,
+};
 
 export const WithOldSlot = (args, { argTypes }) => ({
   components: { SfPrice, SfBadge },
@@ -68,10 +68,10 @@ export const WithOldSlot = (args, { argTypes }) => ({
       <SfBadge class="color-warning">{{special}}</SfBadge>
     </template>  
   </SfPrice>`,
-})
+});
 WithOldSlot.args = {
-  ...WithSpecialSlot.args
-}
+  ...WithSpecialSlot.args,
+};
 
 export const WithRegularSlot = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
@@ -83,8 +83,8 @@ export const WithRegularSlot = (args, { argTypes }) => ({
     <template #regular="{regular, special}">
       <SfBadge>{{regular}}</SfBadge>
     </template>
-  </SfPrice>`
-})
+  </SfPrice>`,
+});
 WithRegularSlot.args = {
-  ...OnlyRegular.args
-}
+  ...OnlyRegular.args,
+};

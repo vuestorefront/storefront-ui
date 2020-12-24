@@ -44,6 +44,7 @@ export default {
     content: {
       control: "text",
     },
+    onClick: { action: "Button clicked", table: { category: "Events" } },
   },
 };
 
@@ -53,7 +54,8 @@ const Template = (args, { argTypes }) => ({
   template: `
   <SfButton
     :class="classes"
-    :disabled="disabled"
+    :disabled="disabled" 
+    @click="onClick"
     :link="link">
       {{content}}
   </SfButton>`,
@@ -121,6 +123,7 @@ export const WithDefaultSlot = (args, { argTypes }) => ({
   <SfButton
     :class="classes"
     :disabled="disabled"
+    @click="onClick"
     :link="link">
     <template>
       <div v-html="content"/>

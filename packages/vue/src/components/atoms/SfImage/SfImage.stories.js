@@ -5,18 +5,18 @@ export default {
   component: SfImage,
   argTypes: {
     srcset: {
-      control: 'object',
+      control: "object",
       table: {
-        category: "Props"
-      }
+        category: "Props",
+      },
     },
     src: {
-      control: 'text',
+      control: "text",
       table: {
-        category: "Props"
-      }
+        category: "Props",
+      },
     },
-  }
+  },
 };
 
 const Template = (args, { argTypes }) => ({
@@ -29,7 +29,7 @@ const Template = (args, { argTypes }) => ({
   />`,
 });
 
-export const Common = Template.bind({})
+export const Common = Template.bind({});
 Common.args = {
   srcset: [
     {
@@ -47,5 +47,5 @@ Common.args = {
       media: `(min-width: 1240px)`,
       type: `image/jpg`,
     },
-  ]
-}
+  ],
+};

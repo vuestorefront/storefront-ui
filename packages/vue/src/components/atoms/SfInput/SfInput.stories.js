@@ -94,6 +94,7 @@ const Template = (args, { argTypes }) => ({
     :required="required"
     :disabled="disabled"
     :has-show-password="hasShowPassword"
+    @change="onChange"
   />`,
 });
 
@@ -167,6 +168,7 @@ export const WithLabelSlot = (args, { argTypes }) => ({
     :required="required"
     :disabled="disabled"
     :has-show-password="hasShowPassword"
+    @change="onChange"
     >
     <template #label="{label}">
       <SfIcon 
@@ -203,6 +205,7 @@ export const WithErrorSlot = (args, { argTypes }) => ({
     :required="required"
     :disabled="disabled"
     :has-show-password="hasShowPassword"
+    @change="onChange"
     >
     <template #error-message="{errorMessage}">
       <div>

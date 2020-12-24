@@ -48,6 +48,7 @@ export default {
         category: "Props",
       },
     },
+    onClick: { action: "Circle icon clicked", table: { category: "Events" } },
   },
 };
 
@@ -62,19 +63,20 @@ const Template = (args, { argTypes }) => ({
     aria-label="Go to Home"
     :disabled="disabled"
     :style="{margin: '.5rem'}"
+    @click="onClick"
   />`,
 });
 
 export const Primary = Template.bind({});
 Primary.args = {
   icon: "home",
-}
+};
 
 export const Disabled = Template.bind({});
 Disabled.args = {
   ...Primary.args,
   disabled: true,
-}
+};
 
 export const Secondary = Template.bind({});
 Secondary.args = {
@@ -122,6 +124,7 @@ export const WithDefaultSlot = (args, { argTypes }) => ({
     :iconSize="iconSize"
     aria-label="Go to Home"
     :disabled="disabled"
+    @click="onClick"
   >
     <span style="font-size: 1.5rem; width: 20px; height: 20px; line-height: 0; display: flex; justify-content: center; align-items: center">
       Home
@@ -131,5 +134,5 @@ export const WithDefaultSlot = (args, { argTypes }) => ({
 
 WithDefaultSlot.args = {
   ...Primary.args,
-  iconSize: "20px"
-}
+  iconSize: "20px",
+};
