@@ -65,5 +65,5 @@ Common.args = {};
 
 export const WithoutBorder = Template.bind({});
 WithoutBorder.args = {
-  classes: "sf-table--no-border"
+  classes: "sf-table--no-border",
 };

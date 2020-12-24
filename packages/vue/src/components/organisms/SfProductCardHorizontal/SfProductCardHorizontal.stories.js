@@ -213,21 +213,22 @@ export const Common = Template.bind({});
 
 Common.args = {
   title: "Cream Beach Bag",
-  description: "Find stunning women cocktail and party dresses. Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands.",
+  description:
+    "Find stunning women cocktail and party dresses. Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands.",
   regularPrice: "$10,99",
   scoreRating: 4,
   maxRating: 5,
   reviewsCount: 7,
   showAddToCartButton: true,
-  image: "assets/storybook/SfProductCardHorizontal/productA.jpg"
+  image: "assets/storybook/SfProductCardHorizontal/productA.jpg",
 };
 
 export const WithMultipleImages = Template.bind({
   argTypes: {
     image: {
-      control: "object"
-    }
-  }
+      control: "object",
+    },
+  },
 });
 WithMultipleImages.args = {
   ...Common.args,
@@ -240,11 +241,11 @@ WithMultipleImages.args = {
       mobile: { url: "/assets/storybook/Home/productA.jpg" },
       desktop: { url: "/assets/storybook/Home/productA.jpg" },
     },
-  ]
+  ],
 };
 
 export const AddedToWishlist = Template.bind({});
 AddedToWishlist.args = {
   ...Common.args,
-  isOnWishlist: true
-}
+  isOnWishlist: true,
+};
