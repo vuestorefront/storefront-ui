@@ -1,251 +1,180 @@
 import { SfAccordion, SfList, SfMenuItem } from "@storefront-ui/vue";
+
+const accordions = [
+  {
+    header: "Clothing",
+    items: [
+      { label: "All", count: "280" },
+      { label: "Skirts", count: "11" },
+      { label: "Dresses", count: "32" },
+    ],
+  },
+  {
+    header: "Accessories",
+    items: [
+      { label: "All", count: "80" },
+      { label: "Belts", count: "101" },
+      { label: "Bag", count: "2" },
+    ],
+  },
+  {
+    header: "Shoes",
+    items: [
+      { label: "All", count: "2" },
+      { label: "Trainers", count: "22" },
+      { label: "Sandals", count: "55" },
+    ],
+  },
+];
+
 export default {
-  title: "Molecules/SfAccordion",
+  title: "Organisms/Accordion",
   component: SfAccordion,
   argTypes: {
-    name: {
+    open: {
       control: "text",
       table: {
         category: "Props",
+        defaultValue: {
+          summary: "",
+        },
       },
-      defaultValue: 0,
+      description:
+        "Opens an accordion item based on title. If 'all' string is passed then all items will be open by default.",
     },
-    current: {
-      control: "number",
-      defaultValue: 0,
+    multiple: {
+      control: "boolean",
       table: {
         category: "Props",
+        defaultValue: {
+          summary: false,
+        },
+      },
+      description: "Allows to open multiple accordion items if set to `true`",
+    },
+    transition: {
+      control: "string",
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: "sf-expand",
+        },
       },
     },
-    input: { action: "Address picked", table: { category: "Events" } },
+    showChevron: {
+      control: "boolean",
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: true,
+        },
+      },
+      description: "Show chevron icon",
+    },
   },
 };
 
 const Template = (args, { argTypes }) => ({
-  components: { SfAccordion },
+  components: { SfAccordion, SfList, SfMenuItem },
   props: Object.keys(argTypes),
-  template: `<SfBar
-  :title="title"
-  :back="back"
-  :close="close"
-/>`,
+  data() {
+    return {
+      accordions,
+    };
+  },
+  template: `
+  <SfAccordion 
+    :open="open" 
+    :multiple="multiple"
+    :show-chevron="showChevron"
+    :transition="transition">
+    <SfAccordionItem 
+      v-for="accordion in accordions" 
+      :key="accordion.header" 
+      :header="accordion.header"
+    >
+      <SfList>
+        <SfListItem
+          v-for="item in accordion.items"
+          :key="item.label"
+          >
+          <SfMenuItem 
+            :label="item.label" 
+            :count="item.count"
+          />
+        </SfListItem>
+      </SfList>
+    </SfAccordionItem>
+  </SfAccordion>`,
 });
 
 export const Common = Template.bind({});
 Common.args = {};
-storiesOf("Organisms|Accordion", module)
-  .addDecorator(withKnobs)
-  .add("Common", () => ({
-    components: { SfAccordion, SfList, SfMenuItem },
-    props: {
-      open: {
-        default: text("open", "Clothing", "Props"),
-      },
-      multiple: {
-        default: boolean("multiple", false, "Props"),
-      },
-      showChevron: {
-        default: boolean("showChevron", false, "Props"),
-      },
-      transition: {
-        default: text("transition", "sf-expand", "Props"),
-      },
+
+export const OpenOne = Template.bind({});
+OpenOne.args = {
+  ...Common.args,
+  open: "Accessories",
+};
+
+export const OpenMultiple = Template.bind({
+  argTypes: {
+    open: {
+      control: "array",
     },
-    data() {
-      return {
-        accordions: [
-          {
-            header: "Clothing",
-            items: [
-              { label: "All", count: "280" },
-              { label: "Skirts", count: "11" },
-              { label: "Dresses", count: "32" },
-            ],
-          },
-          {
-            header: "Accessories",
-            items: [
-              { label: "All", count: "80" },
-              { label: "Belts", count: "101" },
-              { label: "Bag", count: "2" },
-            ],
-          },
-          {
-            header: "Shoes",
-            items: [
-              { label: "All", count: "2" },
-              { label: "Trainers", count: "22" },
-              { label: "Sandals", count: "55" },
-            ],
-          },
-        ],
-      };
-    },
-    template: `<SfAccordion 
-        :open="open" 
-        :multiple="multiple"
-        :show-chevron="showChevron"
-        :transition="transition">
-      <SfAccordionItem 
-        v-for="accordion in accordions" 
-        :key="accordion.header" 
-        :header="accordion.header"
-      >
-        <SfList>
-          <SfListItem
-            v-for="item in accordion.items"
-            :key="item.label"
-            >
-            <SfMenuItem 
-              :label="item.label" 
-              :count="item.count"
-            />
-          </SfListItem>
-        </SfList>
-      </SfAccordionItem>
-      </SfAccordion>`,
-  }))
-  .add("[slot] header", () => ({
-    components: { SfAccordion, SfList, SfMenuItem },
-    props: {
-      open: {
-        default: text("open", "Shoes", "Props"),
-      },
-      multiple: {
-        default: boolean("multiple", false, "Props"),
-      },
-      showChevron: {
-        default: boolean("showChevron", false, "Props"),
-      },
-      transition: {
-        default: text("transition", "sf-expand", "Props"),
-      },
-    },
-    data() {
-      return {
-        accordions: [
-          {
-            header: "Clothing",
-            items: [
-              { label: "All", count: "280" },
-              { label: "Skirts", count: "11" },
-              { label: "Dresses", count: "32" },
-            ],
-          },
-          {
-            header: "Accessories",
-            items: [
-              { label: "All", count: "80" },
-              { label: "Belts", count: "101" },
-              { label: "Bag", count: "2" },
-            ],
-          },
-          {
-            header: "Shoes",
-            items: [
-              { label: "All", count: "2" },
-              { label: "Trainers", count: "22" },
-              { label: "Sandals", count: "55" },
-            ],
-          },
-        ],
-      };
-    },
-    template: `<SfAccordion
-        :open="open"
-        :multiple="multiple"
-        :show-chevron="showChevron"
-        :transition="transition"
-        :style="{maxWidth: '186px', padding: '1rem'}">
-      <SfAccordionItem
-          v-for="accordion in accordions"
-          :key="accordion.header"
-          :header="accordion.header"
-      >
-        <template #header="{header, isOpen, accordionClick, showChevron}">
-          <div @click="accordionClick" :style="{cursor: 'pointer'}">CUSTOM HEADER</div>
-        </template>
-        <SfList>
-          <SfListItem
-              v-for="item in accordion.items"
-              :key="item.label"
-              :style="{margin: '10px 0'}">
-            <SfMenuItem
-                :label="item.label"
-                :count="item.count"
-            />
-          </SfListItem>
-        </SfList>
-      </SfAccordionItem>
-    </SfAccordion>`,
-  }))
-  .add("All open", () => ({
-    components: { SfAccordion, SfList, SfMenuItem },
-    props: {
-      open: {
-        default: text("open", "all", "Props"),
-      },
-      multiple: {
-        default: boolean("multiple", true, "Props"),
-      },
-      showChevron: {
-        default: boolean("showChevron", false, "Props"),
-      },
-      transition: {
-        default: text("transition", "sf-expand", "Props"),
-      },
-    },
-    data() {
-      return {
-        accordions: [
-          {
-            header: "Clothing",
-            items: [
-              { label: "All", count: "280" },
-              { label: "Skirts", count: "11" },
-              { label: "Dresses", count: "32" },
-            ],
-          },
-          {
-            header: "Accessories",
-            items: [
-              { label: "All", count: "80" },
-              { label: "Belts", count: "101" },
-              { label: "Bag", count: "2" },
-            ],
-          },
-          {
-            header: "Shoes",
-            items: [
-              { label: "All", count: "2" },
-              { label: "Trainers", count: "22" },
-              { label: "Sandals", count: "55" },
-            ],
-          },
-        ],
-      };
-    },
-    template: `<SfAccordion 
-        :open="open" 
-        :multiple="multiple"
-        :show-chevron="showChevron"
-        :transition="transition">
-      <SfAccordionItem 
-        v-for="accordion in accordions" 
-        :key="accordion.header" 
-        :header="accordion.header"
-      >
-        <SfList>
-          <SfListItem
-            v-for="item in accordion.items"
-            :key="item.label"
-            >
-            <SfMenuItem 
-              :label="item.label" 
-              :count="item.count"
-            />
-          </SfListItem>
-        </SfList>
-      </SfAccordionItem>
-      </SfAccordion>`,
-  }));
+  },
+});
+
+OpenMultiple.args = {
+  open: ["Clothing", "Shoes"],
+};
+
+export const AllOpen = Template.bind({});
+AllOpen.args = {
+  ...Common.args,
+  open: "all",
+};
+
+export const HideChevron = Template.bind({});
+HideChevron.args = {
+  ...Common.args,
+  showChevron: false,
+};
+
+export const UseHeaderSlot = (args, { argTypes }) => ({
+  components: { SfAccordion, SfList, SfMenuItem },
+  props: Object.keys(argTypes),
+  data() {
+    return {
+      accordions,
+    };
+  },
+  template: `
+  <SfAccordion 
+    :open="open" 
+    :multiple="multiple"
+    :show-chevron="showChevron"
+    :transition="transition">
+    <SfAccordionItem 
+      v-for="accordion in accordions" 
+      :key="accordion.header" 
+      :header="accordion.header"
+    >
+      <template #header="{header, isOpen, accordionClick, showChevron}">
+        <div @click="accordionClick" :style="{cursor: 'pointer'}">CUSTOM HEADER</div>
+      </template>
+      <SfList>
+        <SfListItem
+          v-for="item in accordion.items"
+          :key="item.label"
+          >
+          <SfMenuItem 
+            :label="item.label" 
+            :count="item.count"
+          />
+        </SfListItem>
+      </SfList>
+    </SfAccordionItem>
+  </SfAccordion>`,
+});
+UseHeaderSlot.args = { ...Common.args };
