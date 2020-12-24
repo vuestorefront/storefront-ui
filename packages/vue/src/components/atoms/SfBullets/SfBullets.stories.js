@@ -29,8 +29,8 @@ const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   data() {
     return {
-      curr: this.current
-    }
+      curr: this.current,
+    };
   },
   template: `
   <SfBullets
@@ -40,19 +40,19 @@ const Template = (args, { argTypes }) => ({
   />`,
 });
 
-export const Common = Template.bind({})
+export const Common = Template.bind({});
 Common.args = {
   total: 3,
   current: 1,
-}
+};
 
 export const WithActiveSlot = (args, { argTypes }) => ({
   components: { SfBullets },
   props: Object.keys(argTypes),
   data() {
     return {
-      curr: this.current
-    }
+      curr: this.current,
+    };
   },
   template: `
     <SfBullets
@@ -63,19 +63,19 @@ export const WithActiveSlot = (args, { argTypes }) => ({
         <li style="width: 10px; height: 10px; background-color:#9EE2B0"/>
       </template>
     </SfBullets>`,
-})
+});
 
 WithActiveSlot.args = {
   total: 3,
-}
+};
 
 export const WithInactiveSlot = (args, { argTypes }) => ({
   components: { SfBullets },
   props: Object.keys(argTypes),
   data() {
     return {
-      curr: this.current
-    }
+      curr: this.current,
+    };
   },
   template: `
     <SfBullets
@@ -86,6 +86,6 @@ export const WithInactiveSlot = (args, { argTypes }) => ({
       <li style="width: 10px; height: 10px; background-color:#CCC; transform: rotate(45deg)"/>
       </template>
     </SfBullets>`,
-})
+});
 
-WithInactiveSlot.args = { ...Common.args }
+WithInactiveSlot.args = { ...Common.args };
