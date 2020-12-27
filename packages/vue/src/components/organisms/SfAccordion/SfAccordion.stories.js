@@ -178,3 +178,29 @@ export const UseHeaderSlot = (args, { argTypes }) => ({
   </SfAccordion>`,
 });
 UseHeaderSlot.args = { ...Common.args };
+UseHeaderSlot.parameters = {
+  docs: {
+    source: {
+      code: `
+<template>
+  <SfAccordion transition="sf-expand" showChevron>
+    <SfAccordionItem  header="Clothing">
+      <template #header="{header, isOpen, accordionClick, showChevron}">
+        <div @click="accordionClick" :style="{cursor: 'pointer'}">CUSTOM HEADER</div>
+      </template>            
+    </SfAccordionItem>
+    <SfAccordionItem  header="Accessories">
+      <template #header="{header, isOpen, accordionClick, showChevron}">
+        <div @click="accordionClick" :style="{cursor: 'pointer'}">CUSTOM HEADER</div>
+      </template>            
+    </SfAccordionItem>
+    <SfAccordionItem  header="Shoes">
+      <template #header="{header, isOpen, accordionClick, showChevron}">
+        <div @click="accordionClick" :style="{cursor: 'pointer'}">CUSTOM HEADER</div>
+      </template>            
+    </SfAccordionItem>
+  </SfAccordion>
+</template>`,
+    },
+  },
+};

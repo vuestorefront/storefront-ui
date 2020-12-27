@@ -1,5 +1,3 @@
-import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, number } from "@storybook/addon-knobs";
 import { SfReview } from "@storefront-ui/vue";
 export default {
   title: "Molecules/Review",

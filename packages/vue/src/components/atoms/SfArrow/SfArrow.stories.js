@@ -52,7 +52,7 @@ export const Disabled = Template.bind({});
 
 Disabled.args = { disabled: true };
 
-export const WithDefaultSlot = (args, { argTypes }) => ({
+export const UseDefaultSlot = (args, { argTypes }) => ({
   components: { SfArrow, SfIcon },
   props: Object.keys(argTypes),
   template: `<SfArrow :class="classes" :disabled="disabled" aria-label="Arrow label">
@@ -60,4 +60,4 @@ export const WithDefaultSlot = (args, { argTypes }) => ({
 </SfArrow>`,
 });
 
-WithDefaultSlot.args = { ...Common.args };
+UseDefaultSlot.args = { ...Common.args };
