@@ -10,7 +10,7 @@
       :width="width"
       :height="height"
       :alt="alt && alt.trim()"
-      @load="loading"
+      @load="onLoad"
       v-on="$listeners"
     />
     <img
@@ -109,7 +109,7 @@ export default {
     },
   },
   methods: {
-    loading() {
+    onLoad() {
       this.loaded = true;
     },
     formatResolution(resolution) {
