@@ -28,6 +28,10 @@
     &__slide {
       overflow: unset;
     }
+    &__slide {
+      display: flex;
+      justify-content: center;
+    }
     &__slides {
       margin: 0;
     }
