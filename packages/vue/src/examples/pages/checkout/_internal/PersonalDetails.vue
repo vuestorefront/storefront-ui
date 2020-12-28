@@ -40,9 +40,7 @@
         @input="updateField('email', $event)"
       />
       <div class="info">
-        <p class="info__heading">
-          Enjoy these perks with your free account!
-        </p>
+        <p class="info__heading">Enjoy these perks with your free account!</p>
         <SfCharacteristic
           v-for="(characteristic, key) in characteristics"
           :key="key"

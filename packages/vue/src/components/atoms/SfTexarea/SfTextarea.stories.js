@@ -1,68 +1,133 @@
-import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, boolean } from "@storybook/addon-knobs";
 import { SfTextarea } from "@storefront-ui/vue";
-storiesOf("Atoms|Textarea", module)
-  .addDecorator(withKnobs)
-  .add("Common", () => ({
-    components: { SfTextarea },
-    props: {
-      label: {
-        default: text("label", "First name", "Props"),
-      },
-      name: {
-        default: text("name", "first-name", "Props"),
-      },
-      cols: {
-        default: text("cols", "40", "Props"),
-      },
-      rows: {
-        default: text("rows", "10", "Props"),
-      },
-      minlength: {
-        default: text("minlength", "", "Props"),
-      },
-      maxlength: {
-        default: text("maxlength", "", "Props"),
-      },
-      wrap: {
-        default: text("wrap", "soft", "Props"),
-      },
-      errorMessage: {
-        default: text("errorMessage", "Required.", "Props"),
-      },
-      valid: {
-        default: boolean("valid", true, "Props"),
-      },
-      required: {
-        default: boolean("required", true, "Props"),
-      },
-      disabled: {
-        default: boolean("disabled", false, "Props"),
-      },
-      placeholder: {
-        default: text("placeholder", "", "Props"),
+
+export default {
+  title: "Atoms/Textarea",
+  component: SfTextarea,
+  argTypes: {
+    value: {
+      control: "text",
+      defaultValue: "",
+      table: {
+        category: "Props",
       },
     },
-    data() {
-      return {
-        value: "",
-      };
+    label: {
+      control: "text",
+      table: {
+        category: "Props",
+      },
     },
-    template: `<div style="padding-top: 20px">
-      <SfTextarea
-        v-model="value"
-        :cols="cols"
-        :rows="rows"
-        :minlength="minlength"
-        :maxlength="maxlength"
-        :label="label"
-        :name="name"
-        :wrap="wrap"
-        :valid="valid"
-        :error-message="errorMessage"
-        :required="required"
-        :disabled="disabled"
-        :placeholder="placeholder"
-      />
-    </div>`,
-  }));
+    name: {
+      control: "text",
+      table: {
+        category: "Props",
+      },
+    },
+    cols: {
+      control: "number",
+      table: {
+        category: "Props",
+      },
+    },
+    rows: {
+      control: "number",
+      table: {
+        category: "Props",
+      },
+    },
+    minlength: {
+      control: "text",
+      table: {
+        category: "Props",
+      },
+    },
+    maxlength: {
+      control: "text",
+      table: {
+        category: "Props",
+      },
+    },
+    wrap: {
+      control: "text",
+      table: {
+        category: "Props",
+      },
+    },
+    errorMessage: {
+      control: "text",
+      table: {
+        category: "Props",
+      },
+    },
+    valid: {
+      control: "boolean",
+      defaultValue: true,
+      table: {
+        category: "Props",
+      },
+    },
+    required: {
+      control: "boolean",
+      defaultValue: false,
+      table: {
+        category: "Props",
+      },
+    },
+    disabled: {
+      control: "boolean",
+      defaultValue: false,
+      table: {
+        category: "Props",
+      },
+    },
+    placeholder: {
+      control: "text",
+      table: {
+        category: "Props",
+      },
+    },
+    input: { action: "Text area input typing", table: { category: "Events" } },
+    change: { action: "Text area changed", table: { category: "Events" } },
+    click: { action: "Text area focus", table: { category: "Events" } },
+  },
+};
+
+const Template = (args, { argTypes }) => ({
+  components: { SfTextarea },
+  props: Object.keys(argTypes),
+  data() {
+    return {
+      textArea: this.value,
+    };
+  },
+  template: `
+  <SfTextarea
+    v-model="textArea"
+    :cols="cols"
+    :rows="rows"
+    :minlength="minlength"
+    :maxlength="maxlength"
+    :label="label"
+    :name="name"
+    :wrap="wrap"
+    :valid="valid"
+    :error-message="errorMessage"
+    :required="required"
+    :disabled="disabled"
+    :placeholder="placeholder"
+    @input="input"
+    @click="click"
+    @change="change"
+  />`,
+});
+
+export const Common = Template.bind({});
+
+Common.args = {
+  label: "First name",
+  name: "first-name",
+  cols: 40,
+  rows: 10,
+  wrap: "soft",
+  errorMessage: "Required",
+};
