@@ -1,96 +1,81 @@
-import { storiesOf } from "@storybook/vue";
-import {
-  withKnobs,
-  text,
-  boolean,
-  optionsKnob as options,
-} from "@storybook/addon-knobs";
 import { SfDropdown, SfList, SfButton } from "@storefront-ui/vue";
-storiesOf("Molecules|Dropdown", module)
-  .addDecorator(withKnobs)
-  .add("Common", () => ({
-    components: { SfDropdown, SfList, SfButton },
-    props: {
-      title: {
-        default: text("title", "Choose size", "Props"),
-      },
-      persistent: {
-        default: boolean("persistent", false, "Props"),
-      },
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-dropdown--up": "sf-dropdown--up",
-          },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        ),
+
+export default {
+  title: "Molecules/Dropdown",
+  component: SfDropdown,
+  argTypes: {
+    classes: {
+      control: {
+        type: "select",
+        options: ["sf-dropdown--up", ""],
       },
     },
-    data() {
-      return {
-        isOpen: false,
-        actionList: [
-          "Add to cart",
-          "Add to compare",
-          "Add to wishlist",
-          "Share",
-        ],
-      };
-    },
-    template: `
-            <SfDropdown :class="customClass" :is-open="isOpen"  @click:close="isOpen = false" @click:open="isOpen = true" :persistent="persistent" :title="title">
-              <template>
-                <SfList>
-                  <SfListItem v-for="(action, key) in actionList" :key="key">
-                    <SfButton class="sf-button--full-width sf-button--underlined color-primary" @click="isOpen = false">{{ action }}</SfButton>
-                  </SfListItem>
-                </SfList>
-              </template> 
-            </SfDropdown>`,
-  }))
-  .add("With up modifier", () => ({
-    components: { SfDropdown, SfList, SfButton },
-    props: {
-      title: {
-        default: text("title", "Choose size", "Props"),
-      },
-      persistent: {
-        default: boolean("persistent", false, "Props"),
-      },
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-dropdown--up": "sf-dropdown--up",
-          },
-          "sf-dropdown--up",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        ),
+    title: {
+      control: "text",
+      table: {
+        category: "Props",
       },
     },
-    data() {
-      return {
-        isOpen: false,
-        actionList: [
-          "Add to cart",
-          "Add to compare",
-          "Add to wishlist",
-          "Share",
-        ],
-      };
+    isOpen: {
+      control: "boolean",
+      table: {
+        category: "Props",
+      },
     },
-    template: `      
-        <SfDropdown :class="customClass" :is-open="isOpen"  @click:close="isOpen = false" @click:open="isOpen = true" :persistent="persistent" :title="title">
-          <template>
-            <SfList>
-              <SfListItem v-for="(action, key) in actionList" :key="key">
-                <SfButton class="sf-button--full-width sf-button--underlined color-primary" @click="isOpen = false">{{ action }}</SfButton>
-              </SfListItem>
-            </SfList>
-          </template>
-        </SfDropdown>`,
-  }));
+    persistent: {
+      control: "boolean",
+      table: {
+        category: "Props",
+      },
+    },
+    "click:close": { action: "Close dropdown", table: { category: "Events" } },
+    "click:open": { action: "Open dropdown", table: { category: "Events" } },
+  },
+};
+
+const Template = (args, { argTypes }) => ({
+  components: { SfDropdown, SfList, SfButton },
+  props: Object.keys(argTypes),
+  template: `
+  <SfDropdown
+    :class="classes" 
+    :is-open="isOpen"  
+    @click:open="() => { this['click:open'](); this.isOpen = true }" 
+    @click:close="() => { this['click:close'](); this.isOpen = false }" 
+    :persistent="persistent" 
+    :title="title"
+  >
+    <template>
+      <SfList>
+        <SfListItem v-for="(action, key) in actionList" :key="key">
+          <SfButton class="sf-button--full-width sf-button--underlined color-primary" @click.stop="isOpen = false">{{ action }}</SfButton>
+        </SfListItem>
+      </SfList>
+    </template> 
+  </SfDropdown>`,
+});
+
+export const Common = Template.bind({});
+Common.args = {
+  title: "Choose size",
+  actionList: ["Add to cart", "Add to compare", "Add to wishlist", "Share"],
+};
+
+export const Persistent = Template.bind({});
+Persistent.args = {
+  ...Common.args,
+  isOpen: true,
+  persistent: true,
+};
+
+export const IsOpened = Template.bind({});
+IsOpened.args = {
+  ...Common.args,
+  isOpen: true,
+};
+
+export const WithUpModifier = Template.bind({});
+WithUpModifier.args = {
+  ...Common.args,
+  classes: "sf-dropdown--up",
+};
