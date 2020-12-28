@@ -1,12 +1,14 @@
-import { storiesOf } from "@storybook/vue";
 import Login from "./Login.vue";
-storiesOf("Pages|Login & Sign in", module).add("Common", () => ({
+export default {
+  title: "Pages/Login & Sign-in",
+  component: Login,
+};
+
+const Template = (args, { argTypes }) => ({
   components: { Login },
-  mounted() {
-    document.body.style.setProperty("margin", "0");
-  },
-  beforeDestroy() {
-    document.body.style.removeProperty("margin");
-  },
+  props: Object.keys(argTypes),
   template: `<Login />`,
-}));
+});
+
+export const Common = Template.bind({});
+Common.args = {};

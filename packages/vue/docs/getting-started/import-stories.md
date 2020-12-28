@@ -1,12 +1,15 @@
 # Import stories to your Storybook
 
 ## Required
-- @storybook/addon-knobs
-- use [StoriesOf API](https://storybook.js.org/docs/formats/storiesof-api/)
+
+- @storybook/addon-essentials
+- Storybook version 6+
 
 ## How to use
+
 - Open storybook config file, it can be `config.js` or `preview.js`
 - Use [manual loading](https://storybook.js.org/docs/basics/writing-stories/#loading-stories) to add Storefront UI stories to your Storybook. Below, you can find a basic config example:
+
 ``` js
 //config/storybook/preview.js
 import { configure } from '@storybook/vue';
@@ -27,6 +30,9 @@ req.keys().forEach(filename => stories.push(req(filename)))
 }
 configure(loadStories, module)
 ``` 
+
 - Get images from Storefront UI repository and host it on `/assets/storybook`
+
 ## Others
+
 - What happens when I have the same name of stories as Storefront UI? For example: `Atoms|Buttons`. Then, you should keep in mind to add your stories after Storefront UI stories have been added to `array`. Otherwise, you will see Button from Storefront UI.

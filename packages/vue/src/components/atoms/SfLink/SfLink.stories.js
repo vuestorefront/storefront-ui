@@ -1,20 +1,32 @@
-import { storiesOf } from "@storybook/vue";
-import { withKnobs, text } from "@storybook/addon-knobs";
 import SfLink from "./SfLink.vue";
-storiesOf("Atoms|Link", module)
-  .addDecorator(withKnobs)
-  .add("Common", () => ({
-    props: {
-      link: {
-        default: text("link", "https://www.storefrontui.io/", "Props"),
+
+export default {
+  title: "Atoms/Link",
+  component: SfLink,
+  argTypes: {
+    link: {
+      control: "text",
+      table: {
+        category: "Props",
       },
     },
-    components: { SfLink },
-    template: `<SfLink
-        target="_blank"
-        :link="link"
-      >
-      Check this out!
-      </SfLink>
-      `,
-  }));
+  },
+};
+
+const Template = (args, { argTypes }) => ({
+  components: { SfLink },
+  props: Object.keys(argTypes),
+  template: `
+  <SfLink
+    target="_blank"
+    :link="link"
+  >
+  Check this out!
+  </SfLink>
+`,
+});
+
+export const Common = Template.bind({});
+Common.args = {
+  link: "https://www.storefrontui.io/",
+};

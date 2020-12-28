@@ -1,67 +1,58 @@
-import { storiesOf } from "@storybook/vue";
-import { withKnobs, object } from "@storybook/addon-knobs";
 import { SfBreadcrumbs } from "@storefront-ui/vue";
-storiesOf("Atoms|Breadcrumbs", module)
-  .addDecorator(withKnobs)
-  .add("Common", () => ({
-    components: { SfBreadcrumbs },
-    props: {
-      breadcrumbs: {
-        default: object(
-          "breadcrumbs",
-          [
-            { text: "Home", link: "#" },
-            { text: "Category", link: "#" },
-            { text: "Pants", link: "#" },
-          ],
-          "Props"
-        ),
+
+export default {
+  title: "Atoms/Breadcrumbs",
+  component: SfBreadcrumbs,
+  argTypes: {
+    breadcrumbs: {
+      control: "array",
+      table: {
+        category: "Props",
       },
     },
-    template: `<SfBreadcrumbs
-      :breadcrumbs="breadcrumbs" />`,
-  }))
-  .add("[slot] link", () => ({
-    components: { SfBreadcrumbs },
-    props: {
-      breadcrumbs: {
-        default: object(
-          "breadcrumbs",
-          [
-            { text: "Home", link: "#" },
-            { text: "Category", link: "#" },
-            { text: "Pants", link: "#" },
-          ],
-          "Props"
-        ),
-      },
-    },
-    template: `<SfBreadcrumbs
-      :breadcrumbs="breadcrumbs">
-      <template #link="{breadcrumb, go}">
-        <span style="text-transform: lowercase">'{{breadcrumb.text}}'</span>
-      </template>
-    </SfBreadcrumbs>`,
-  }))
-  .add("[slot] current", () => ({
-    components: { SfBreadcrumbs },
-    props: {
-      breadcrumbs: {
-        default: object(
-          "breadcrumbs",
-          [
-            { text: "Home", link: "#" },
-            { text: "Category", link: "#" },
-            { text: "Pants", link: "#" },
-          ],
-          "Props"
-        ),
-      },
-    },
-    template: `<SfBreadcrumbs
-      :breadcrumbs="breadcrumbs">
-      <template #current="{breadcrumb}">
-        <span style="text-transform: uppercase">"{{breadcrumb.text}}"</span>
-      </template>
-    </SfBreadcrumbs>`,
-  }));
+  },
+};
+
+const Template = (args, { argTypes }) => ({
+  components: { SfBreadcrumbs },
+  props: Object.keys(argTypes),
+  template: `<SfBreadcrumbs :breadcrumbs="breadcrumbs" />`,
+});
+
+export const Common = Template.bind({});
+
+Common.args = {
+  breadcrumbs: [
+    { text: "Home", link: "#" },
+    { text: "Category", link: "#" },
+    { text: "Pants", link: "#" },
+  ],
+};
+
+export const WithLinkSlot = (args, { argTypes }) => ({
+  components: { SfBreadcrumbs },
+  props: Object.keys(argTypes),
+  template: `
+  <SfBreadcrumbs
+    :breadcrumbs="breadcrumbs">
+    <template #link="{breadcrumb, go}">
+      <span style="text-transform: lowercase">'{{breadcrumb.text}}'</span>
+    </template>
+  </SfBreadcrumbs>`,
+});
+
+WithLinkSlot.args = { ...Common.args };
+
+export const WithCurrentSlot = (args, { argTypes }) => ({
+  components: { SfBreadcrumbs },
+  props: Object.keys(argTypes),
+  template: `
+  <SfBreadcrumbs
+    :breadcrumbs="breadcrumbs">
+    <template #current="{breadcrumb}">
+      <span style="text-transform: uppercase">"{{breadcrumb.text}}"</span>
+    </template>
+  </SfBreadcrumbs>`,
+});
+
+WithCurrentSlot.args = { ...Common.args };
