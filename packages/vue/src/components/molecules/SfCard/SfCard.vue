@@ -39,7 +39,7 @@ export default {
      * Card image
      */
     image: {
-      type: [String, Object],
+      type: String,
       default: "",
     },
     /**
