@@ -53,14 +53,6 @@ export default {
       type: Boolean,
       default: false,
     },
-    hasBadge: {
-      type: Boolean,
-      default: false,
-    },
-    badgeLabel: {
-      type: String,
-      default: "",
-    },
   },
 };
 </script>

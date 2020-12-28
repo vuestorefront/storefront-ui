@@ -1,8 +1,13 @@
-import { storiesOf } from "@storybook/vue";
 import { SfDivider } from "@storefront-ui/vue";
-storiesOf("Atoms|Divider", module).add("Common", () => ({
+
+export default {
+  title: "Atoms/Divider",
+  component: SfDivider,
+};
+
+const Template = (args, { argTypes }) => ({
   components: { SfDivider },
   template: `<div style="margin-top:10vh"> 
 		<SfDivider/> 
 	</div>`,
-}));
+});
