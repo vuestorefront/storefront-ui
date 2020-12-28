@@ -56,8 +56,8 @@ export const Common = Template.bind({});
 Common.args = {
   settings: { type: "slider" },
   image: "/assets/storybook/SfGroupedProduct/product-white.png",
-  imageWidth: 380,
-  imageHeight: 448,
+  imageWidth: 82,
+  imageHeight: 112,
   imageLazy: true,
   title: "Leave white brooch",
   priceRegular: "$10.99",

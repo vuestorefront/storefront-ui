@@ -84,7 +84,7 @@ const Template = (args, { argTypes }) => ({
           </SfListItem>
         </SfList>
         <div v-else class="sb-footer__social">
-          <SfImage v-for="picture in column.pictures" :key="picture" width="12" height="12" :src="'/assets/storybook/SfFooter/'+picture+'.svg'" class="sb-social-icon"/>
+          <SfImage v-for="picture in column.pictures" :key="picture" width="12" height="12" :src="'/assets/storybook/SfFooter/'+picture+'.svg'" :alt="picture" class="sb-social-icon"/>
         </div>
       </SfFooterColumn>
     </SfFooter>`,
