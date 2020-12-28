@@ -9,13 +9,7 @@
     <div :class="{ 'sf-store__media': picture }" @click="centerOn(latlng)">
       <!-- @slot Use this slot to show media elements -->
       <slot name="media">
-        <SfImage
-          v-if="picture"
-          :src="picture"
-          :alt="`${name} picture`"
-          :width="82"
-          :height="112"
-        />
+        <SfImage v-if="picture" :src="picture" :alt="`${name} picture`" />
         <SfIcon v-else icon="marker" class="sf-store__icon" />
       </slot>
     </div>
