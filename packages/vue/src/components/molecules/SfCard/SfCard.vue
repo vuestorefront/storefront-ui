@@ -1,9 +1,6 @@
 <template>
   <div class="sf-card">
-    <!-- @slot Custom content that will replace default image-->
-    <slot name="image" v-bind="image">
-      <SfImage :src="image" class="sf-card__image" />
-    </slot>
+    <SfImage :src="image" class="sf-card__image" />
     <!-- @slot Custom content for heading and description-->
     <slot name="details" v-bind="{ title, description, titleLevel }">
       <div class="sf-card__details">
