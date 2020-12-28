@@ -40,6 +40,15 @@ export default {
         category: "Attributes",
       },
     },
+    loading: {
+      control: {
+        type: "select",
+        options: ["", "lazy", "eager"],
+      },
+      table: {
+        category: "Attributes",
+      },
+    },
   },
 };
 
