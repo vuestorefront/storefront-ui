@@ -2,7 +2,9 @@
   <div class="sf-dropdown">
     <SfOverlay :visible="isOpen" class="sf-dropdown__overlay" />
     <slot name="opener">
-      <SfButton class="sf-button--full-width sf-dropdown__opener" @click="open"
+      <SfButton
+        class="sf-button--full-width sf-dropdown__opener"
+        @click.stop="open"
         >Choose your action</SfButton
       >
     </slot>
@@ -22,7 +24,7 @@
         <slot name="cancel">
           <SfButton
             class="sf-button--full-width sf-dropdown__cancel"
-            @click="close"
+            @click.stop="close"
             >Cancel</SfButton
           >
         </slot>
