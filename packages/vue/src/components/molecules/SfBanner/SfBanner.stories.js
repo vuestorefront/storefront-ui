@@ -39,6 +39,9 @@ storiesOf("Molecules|Banner", module)
       buttonText: {
         default: text("buttonText", "Shop Now", "Props"),
       },
+      link: {
+        default: text("link", "", "Props"),
+      },
       image: {
         default: object(
           "image",
@@ -60,6 +63,7 @@ storiesOf("Molecules|Banner", module)
       :subtitle="subtitle"
       :description="description"
       :button-text="buttonText"
+      :link="link"
       :image="image"
       :background="background"
       />
@@ -95,6 +99,9 @@ storiesOf("Molecules|Banner", module)
       buttonText: {
         default: text("buttonText", "Shop Now", "Props"),
       },
+      link: {
+        default: text("link", "", "Props"),
+      },
       image: {
         default: object(
           "image",
@@ -116,6 +123,7 @@ storiesOf("Molecules|Banner", module)
       :subtitle="subtitle"
       :description="description"
       :button-text="buttonText"
+      :link="link"
       :image="image"
       :background="background">
         <template #subtitle="{subtitle}">
@@ -154,6 +162,9 @@ storiesOf("Molecules|Banner", module)
       buttonText: {
         default: text("buttonText", "Shop Now", "Props"),
       },
+      link: {
+        default: text("link", "", "Props"),
+      },
       image: {
         default: object(
           "image",
@@ -175,6 +186,7 @@ storiesOf("Molecules|Banner", module)
       :subtitle="subtitle"
       :description="description"
       :button-text="buttonText"
+      :link="link"
       :image="image"
       :background="background">
         <template #title="{title}">
@@ -213,6 +225,9 @@ storiesOf("Molecules|Banner", module)
       buttonText: {
         default: text("buttonText", "Shop Now", "Props"),
       },
+      link: {
+        default: text("link", "", "Props"),
+      },
       image: {
         default: object(
           "image",
@@ -234,6 +249,7 @@ storiesOf("Molecules|Banner", module)
       :subtitle="subtitle"
       :description="description"
       :button-text="buttonText"
+      :link="link"
       :image="image"
       :background="background">
         <template #description="{description}">
@@ -272,6 +288,9 @@ storiesOf("Molecules|Banner", module)
       buttonText: {
         default: text("buttonText", "Shop Now", "Props"),
       },
+      link: {
+        default: text("link", "", "Props"),
+      },
       image: {
         default: object(
           "image",
@@ -293,6 +312,7 @@ storiesOf("Molecules|Banner", module)
       :subtitle="subtitle"
       :description="description"
       :button-text="buttonText"
+      :link="link"
       :image="image"
       :background="background">
         <template #call-to-action="{buttonText}">

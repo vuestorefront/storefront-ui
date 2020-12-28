@@ -35,7 +35,7 @@ We are building Storefront UI based on the following 6 fundamentals:
 Storefront UI is based on atomic design which means every component is built from tiny atoms that you can use in your application! You’re not limited to big UI components anymore. Use Storefront UI atoms to quickly build your own, great-looking components!
 
 
-Read [how it can be customized](https://docs.storefrontui.io/customization.html).
+Read [how it can be customized](https://docs.storefrontui.io/getting-started/customization.html).
 
 ![](https://i.ibb.co/7SKbz5K/123457.png)
 ![](https://i.ibb.co/VHTcyrw/1234.png)
@@ -52,28 +52,11 @@ You can find the stunning designs we are using for Storefront UI components [her
 
 We are currently in the process of building the library. If you want to help in shaping the future of Vue and eCommerce UI's we'd be more than happy if you want to contribute! [Here](https://docs.storefrontui.io/contributing/become-a-contributor.html) you can find all the required information.
 
-# Maintainers
-
-[These awesome people](https://docs.storefrontui.io/meet-the-team.html) are maintaining Storefront UI. They're ensuring that it performs smooth and looks awesome!
-
-- Filip Rakowski ([@filrak](https://github.com/filrak))
-- Leonardo Matos ([@leomp12](https://github.com/leomp12))
-- Przemek Spaczek ([@pspaczek](https://github.com/pspaczek))
-- Maya Shavin ([@mayashavin](https://github.com/mayashavin))
-- Nicolò Maria Mezzopera ([@DonNicoJS](https://github.com/DonNicoJs))
-- Eduard Dopler ([@EduardDopler](https://github.com/EduardDopler))
-- Ania Musiał ([@aniamusial](https://github.com/aniamusial))
-- Marta Radziszewska ([@martaradziszewska](https://github.com/martaradziszewska))
-
-
-...and amazing [contributors](https://github.com/DivanteLtd/storefront-ui/graphs/contributors) who are committing their time to make it better.
-
-Thank you! There would be no Storefront UI without you.
 
 # Supporters
 <a href="https://divante.co"><img src="https://raw.githubusercontent.com/DivanteLtd/storefront-ui/master/packages/vue/docs/assets/logo-divante.svg" alt="divante" height="55px"></a>&nbsp;&nbsp;
 <a href="https://developers.e-com.plus/"><img src="https://developers.e-com.plus/src/assets/img/logo-dark.png" alt="e-com club" height="55px"></a>
-
+<a href="https://cloudinary.com"><img src="https://camo.githubusercontent.com/451061eb9714c2135705a1ad757017cc943627ca474d8a20e78209214469bf72/68747470733a2f2f6437756d7169637069373236332e636c6f756466726f6e742e6e65742f696d672f70726f647563742f65306364363161372d316336352d343561302d393765652d3737363364646335313533612f39383834313664302d323562632d346264322d623864622d6633343764306131393335642e706e67" height="55px" /></a>
 # Contributing
 
 Read [how to start](https://docs.storefrontui.io/contributing/become-a-contributor.html) and become a part of our amazing community ;)
