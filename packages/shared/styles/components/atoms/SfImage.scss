@@ -45,4 +45,6 @@
   color: var(--image-overlay-color, var(--c-white));
   opacity: var(--image-overlay-opacity, 0);
   transition: opacity 150ms ease-in-out;
+  font-family: var(--font-family--secondary);
+  font-weight: var(--font-weight--light);
 }
