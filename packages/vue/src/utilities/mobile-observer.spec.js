@@ -1,7 +1,8 @@
 import {
   mapMobileObserver,
   unMapMobileObserver,
-  onMediaMatch,
+  onMediaMatchMobile,
+  onMediaMatchDesktop,
 } from "./mobile-observer";
 describe("mobile observer", () => {
   let addListener;
@@ -49,9 +50,13 @@ describe("mobile observer", () => {
         it("initialize", () => {
           expect(instance.mobileObserverIsInitialized.get()).toBe(true);
         });
-        it("calls matchMedia and addListeners", () => {
+        it("calls matchMediaMobile and addListener", () => {
           expect(window.matchMedia).toHaveBeenCalledWith("(max-width: 1023px)");
-          expect(addListener).toHaveBeenCalledWith(onMediaMatch);
+          expect(addListener).toHaveBeenCalledWith(onMediaMatchMobile);
+        });
+        it("calls matchMediaDesktop and addListener", () => {
+          expect(window.matchMedia).toHaveBeenCalledWith("(min-width: 1024px)");
+          expect(addListener).toHaveBeenCalledWith(onMediaMatchDesktop);
         });
         it("multiple calls on get do not attach multiple listeners", () => {
           instance.isMobile.get();
@@ -72,7 +77,9 @@ describe("mobile observer", () => {
           unMapMobileObserver();
           expect(instance.isMobile.get()).toEqual(false);
           expect(window.matchMedia).toHaveBeenCalledWith("(max-width: 1023px)");
-          expect(removeListener).toHaveBeenCalledWith(onMediaMatch);
+          expect(removeListener).toHaveBeenCalledWith(onMediaMatchMobile);
+          expect(window.matchMedia).toHaveBeenCalledWith("(min-width: 1024px)");
+          expect(removeListener).toHaveBeenCalledWith(onMediaMatchDesktop);
         });
       });
     });
