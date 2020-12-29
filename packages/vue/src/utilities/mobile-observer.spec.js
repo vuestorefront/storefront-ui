@@ -60,7 +60,7 @@ describe("mobile observer", () => {
         });
         it("multiple calls on get do not attach multiple listeners", () => {
           instance.isMobile.get();
-          expect(window.matchMedia).toHaveBeenCalledTimes(1);
+          expect(window.matchMedia).toHaveBeenCalledTimes(2);
           expect(addListener).toHaveBeenCalledTimes(1);
         });
       });
