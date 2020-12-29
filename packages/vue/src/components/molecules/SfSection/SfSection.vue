@@ -11,7 +11,6 @@
         :description="subtitleHeading"
       />
     </slot>
-    <!--@slot Section content.-->
     <div class="sf-section__content">
       <!--@slot Section content.-->
       <slot />

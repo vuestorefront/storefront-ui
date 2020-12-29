@@ -1,11 +1,3 @@
-import { storiesOf } from "@storybook/vue";
-import {
-  withKnobs,
-  text,
-  number,
-  boolean,
-  optionsKnob as options,
-} from "@storybook/addon-knobs";
 import { SfComponentSelect, SfProductOption } from "@storefront-ui/vue";
 const optionsList = [
   { value: "amaranth", color: "#E52B50", label: "Amaranth" },
@@ -14,278 +6,213 @@ const optionsList = [
   { value: "bluetiful", color: "#3C69E7", label: "Bluetiful" },
   { value: "buff", color: "#F0DC82", label: "Buff" },
 ];
-const knobOptionsList = optionsList.reduce(
-  (a, c) => ({ ...a, [c.label]: c.value }),
-  {}
-);
-storiesOf("Molecules|ComponentSelect", module)
-  .addDecorator(withKnobs)
-  .add("Common", () => ({
-    components: { SfComponentSelect, SfProductOption },
-    props: {
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-component-select--underlined":
-              "sf-component-select--underlined",
-            "sf-component-select--no-chevron":
-              "sf-component-select--no-chevron",
-          },
+
+export default {
+  title: "Molecules/ComponentSelect",
+  component: SfComponentSelect,
+  argTypes: {
+    classes: {
+      control: {
+        type: "select",
+        options: [
           "sf-component-select--underlined",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        ),
-      },
-      label: {
-        default: text("label", "Color", "Props"),
-      },
-      size: {
-        default: number("size", 5, {}, "Props"),
-      },
-      required: {
-        default: boolean("required", false, "Props"),
-      },
-      valid: {
-        default: boolean("valid", true, "Props"),
-      },
-      disabled: {
-        default: boolean("disabled", false, "Props"),
-      },
-      errorMessage: {
-        default: text("errorMessage", "Color", "Props"),
-      },
-      persistent: {
-        default: boolean("persistent", false, "Props"),
-      },
-      selected: {
-        default: options(
-          "selected",
-          knobOptionsList,
-          optionsList[0].value,
-          { display: "select" },
-          "Data"
-        ),
+          "sf-component-select--no-chevron",
+        ],
       },
     },
-    data() {
-      return {
-        options: optionsList,
-      };
-    },
-    template: `
-      <SfComponentSelect
-        v-model="selected"
-        :class="customClass"
-        :label="label"
-        :size="size"
-        :required="required"
-        :valid="valid"
-        :disabled="disabled"
-        :error-message="errorMessage"
-        :persistent="persistent"
-        style="max-width: 30rem"
-      >
-        <SfComponentSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
-          <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
-        </SfComponentSelectOption>
-      </SfComponentSelect>`,
-  }))
-  .add("[slot] label", () => ({
-    components: { SfComponentSelect, SfProductOption },
-    props: {
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-component-select--underlined":
-              "sf-component-select--underlined",
-            "sf-component-select--no-chevron":
-              "sf-component-select--no-chevron",
-          },
-          "sf-component-select--underlined",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        ),
-      },
-      label: {
-        default: text("label", "Color", "Props"),
-      },
-      size: {
-        default: number("size", 5, {}, "Props"),
-      },
-      required: {
-        default: boolean("required", false, "Props"),
-      },
-      valid: {
-        default: boolean("valid", true, "Props"),
-      },
-      disabled: {
-        default: boolean("disabled", false, "Props"),
-      },
-      errorMessage: {
-        default: text("errorMessage", "Color", "Props"),
-      },
-      persistent: {
-        default: boolean("persistent", false, "Props"),
+    label: {
+      control: "text",
+      table: {
+        category: "Props",
       },
     },
-    data() {
-      return {
-        selected: "",
-        options: optionsList,
-      };
-    },
-    template: `<div style="max-width: 30rem">    
-      <SfComponentSelect
-        v-model="selected"
-        :class="customClass"
-        :label="label"
-        :size="size"
-        :required="required"
-        :valid="valid"
-        :disabled="disabled"
-        :error-message="errorMessage" 
-        :persistent="persistent"       
-        >
-        <SfComponentSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
-          <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
-        </SfComponentSelectOption>
-        <template #label>
-          CUSTOM LABEL
-        </template>
-      </SfComponentSelect>
-    </div>`,
-  }))
-  .add("[slot] errorMessage", () => ({
-    components: { SfComponentSelect, SfProductOption },
-    props: {
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-component-select--underlined":
-              "sf-component-select--underlined",
-            "sf-component-select--no-chevron":
-              "sf-component-select--no-chevron",
-          },
-          "sf-component-select--underlined",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        ),
-      },
-      label: {
-        default: text("label", "Color", "Props"),
-      },
-      size: {
-        default: number("size", 5, {}, "Props"),
-      },
-      required: {
-        default: boolean("required", false, "Props"),
-      },
-      valid: {
-        default: boolean("valid", false, "Props"),
-      },
-      disabled: {
-        default: boolean("disabled", false, "Props"),
-      },
-      errorMessage: {
-        default: text("errorMessage", "Color", "Props"),
-      },
-      persistent: {
-        default: boolean("persistent", false, "Props"),
+    selected: {
+      control: "object",
+      table: {
+        category: "Props",
       },
     },
-    data() {
-      return {
-        selected: "",
-        options: optionsList,
-      };
-    },
-    template: `<div style="max-width: 30rem">
-      <SfComponentSelect
-        v-model="selected"
-        :class="customClass"
-        :label="label"
-        :size="size"
-        :required="required"
-        :valid="valid"
-        :disabled="disabled"
-        :error-message="errorMessage"
-        :persistent="persistent"
-        >
-        <SfComponentSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
-          <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
-        </SfComponentSelectOption>
-        <template #errorMessage>
-          CUSTOM ERROR MESSAGE
-        </template>
-      </SfComponentSelect>
-    </div>`,
-  }))
-  .add("[slot] cancel", () => ({
-    components: { SfComponentSelect, SfProductOption },
-    props: {
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-component-select--underlined":
-              "sf-component-select--underlined",
-            "sf-component-select--no-chevron":
-              "sf-component-select--no-chevron",
-          },
-          "sf-component-select--underlined",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        ),
-      },
-      label: {
-        default: text("label", "Color", "Props"),
-      },
-      size: {
-        default: number("size", 5, {}, "Props"),
-      },
-      required: {
-        default: boolean("required", false, "Props"),
-      },
-      valid: {
-        default: boolean("valid", false, "Props"),
-      },
-      disabled: {
-        default: boolean("disabled", false, "Props"),
-      },
-      errorMessage: {
-        default: text("errorMessage", "Color", "Props"),
-      },
-      persistent: {
-        default: boolean("persistent", false, "Props"),
+    size: {
+      control: "number",
+      table: {
+        category: "Props",
       },
     },
-    data() {
-      return {
-        selected: "",
-        options: optionsList,
-      };
+    required: {
+      control: "boolean",
+      table: {
+        category: "Props",
+      },
     },
-    template: `<div style="max-width: 30rem">
-      <SfComponentSelect
-        v-model="selected"
-        :class="customClass"
-        :label="label"
-        :size="size"
-        :required="required"
-        :valid="valid"
-        :disabled="disabled"
-        :error-message="errorMessage"
-        :persistent="persistent"
-        >
-        <SfComponentSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
-          <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
-        </SfComponentSelectOption>
-        <template #cancel>
-          CUSTOM CANCEL BUTTON
-        </template>
-      </SfComponentSelect>
-    </div>`,
-  }));
+    valid: {
+      control: "boolean",
+      table: {
+        category: "Props",
+      },
+    },
+    disabled: {
+      control: "boolean",
+      table: {
+        category: "Props",
+      },
+    },
+    errorMessage: {
+      control: "text",
+      table: {
+        category: "Props",
+      },
+    },
+    persistent: {
+      control: "boolean",
+      table: {
+        category: "Props",
+      },
+    },
+  },
+};
+
+const Template = (args, { argTypes }) => ({
+  components: { SfComponentSelect, SfProductOption },
+  props: Object.keys(argTypes),
+  template: `
+  <SfComponentSelect
+    v-model="selected"
+    :class="classes"
+    :label="label"
+    :size="size"
+    :required="required"
+    :valid="valid"
+    :disabled="disabled"
+    :error-message="errorMessage"
+    :persistent="persistent"
+    style="max-width: 30rem"
+  >
+    <SfComponentSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
+      <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
+    </SfComponentSelectOption>
+  </SfComponentSelect>`,
+});
+
+export const Common = Template.bind({});
+Common.args = {
+  label: "Color",
+  options: optionsList,
+};
+
+export const Required = Template.bind({});
+Required.args = {
+  ...Common.args,
+  required: true,
+};
+
+export const Invalid = Template.bind({});
+Invalid.args = {
+  ...Common.args,
+  valid: false,
+  selected: optionsList[0].value,
+};
+
+export const Persistent = Template.bind({});
+Persistent.args = {
+  ...Common.args,
+  persistent: true,
+};
+
+export const Selected = Template.bind({});
+Selected.args = {
+  ...Common.args,
+  selected: optionsList[0].value,
+};
+
+export const WithUnderlined = Template.bind({});
+WithUnderlined.args = {
+  ...Common.args,
+  classes: "sf-component-select--underlined",
+};
+
+export const NoChevron = Template.bind({});
+NoChevron.args = {
+  ...Common.args,
+  classes: "sf-component-select--no-chevron",
+};
+
+export const UseLabelSlot = (args, { argTypes }) => ({
+  components: { SfComponentSelect, SfProductOption },
+  props: Object.keys(argTypes),
+  template: `
+  <SfComponentSelect
+    v-model="selected"
+    :class="classes"
+    :label="label"
+    :size="size"
+    :required="required"
+    :valid="valid"
+    :disabled="disabled"
+    :error-message="errorMessage" 
+    :persistent="persistent"       
+    >
+    <SfComponentSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
+      <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
+    </SfComponentSelectOption>
+    <template #label>
+      CUSTOM LABEL
+    </template>
+  </SfComponentSelect>`,
+});
+UseLabelSlot.args = { ...Common.args };
+UseLabelSlot.decorators = [
+  () => ({ template: '<div style="max-width: 20rem;"><story /></div>' }),
+];
+
+export const UseErrorMessageSlot = (args, { argTypes }) => ({
+  components: { SfComponentSelect, SfProductOption },
+  props: Object.keys(argTypes),
+  template: `
+  <SfComponentSelect
+    v-model="selected"
+    :class="classes"
+    :label="label"
+    :size="size"
+    :required="required"
+    :valid="valid"
+    :disabled="disabled"
+    :error-message="errorMessage"
+    :persistent="persistent"
+    >
+    <SfComponentSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
+      <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
+    </SfComponentSelectOption>
+    <template #errorMessage>
+      CUSTOM ERROR MESSAGE
+    </template>
+  </SfComponentSelect>`,
+});
+UseErrorMessageSlot.args = { ...Common.args };
+UseErrorMessageSlot.decorators = [...UseLabelSlot.decorators];
+
+export const UseCancelSlot = (args, { argTypes }) => ({
+  components: { SfComponentSelect, SfProductOption },
+  props: Object.keys(argTypes),
+  template: `
+  <SfComponentSelect
+    v-model="selected"
+    :class="classes"
+    :label="label"
+    :size="size"
+    :required="required"
+    :valid="valid"
+    :disabled="disabled"
+    :error-message="errorMessage"
+    :persistent="persistent"
+    >
+    <SfComponentSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
+      <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
+    </SfComponentSelectOption>
+    <template #cancel>
+      CUSTOM CANCEL BUTTON
+    </template>
+  </SfComponentSelect>`,
+});
+
+UseCancelSlot.args = { ...Common.args };
+UseCancelSlot.decorators = [...UseLabelSlot.decorators];

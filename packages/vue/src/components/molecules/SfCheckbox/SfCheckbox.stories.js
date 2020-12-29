@@ -1,225 +1,174 @@
-import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, boolean } from "@storybook/addon-knobs";
 import { SfCheckbox } from "@storefront-ui/vue";
-storiesOf("Molecules|Checkbox", module)
-  .addDecorator(withKnobs)
-  .add("Common", () => ({
-    components: { SfCheckbox },
-    props: {
-      name: {
-        default: text("name", "shipping", "Props"),
-      },
-      label: {
-        default: text("label", "I want to create an account", "Props"),
-      },
-      hintMessage: {
-        default: text("hintMessage", "Required", "Props"),
-      },
-      required: {
-        default: boolean("required", false, "Props"),
-      },
-      errorMessage: {
-        default: text("errorMessage", "Something is wrong", "Props"),
-      },
-      valid: {
-        default: boolean("valid", true, "Props"),
-      },
-      infoMessage: {
-        default: text("infoMessage", "", "Props"),
-      },
-      disabled: {
-        default: boolean("disabled", false, "Props"),
+
+export default {
+  title: "Molecules/Checkbox",
+  component: SfCheckbox,
+  argTypes: {
+    name: {
+      control: "text",
+      table: {
+        category: "Props",
       },
     },
-    data() {
-      return {
-        checked: false,
-      };
-    },
-    template: `<SfCheckbox 
-      v-model="checked"
-      :name="name"      
-      :label="label"
-      :hintMessage="hintMessage"
-      :required="required"
-      :error-message="errorMessage"
-      :valid="valid"
-      :infoMessage="infoMessage"
-      :disabled="disabled"
-      />`,
-  }))
-  .add("Multiple checkboxes", () => ({
-    components: { SfCheckbox },
-    data() {
-      return {
-        checked: [],
-      };
-    },
-    template: `<div>
-        <SfCheckbox 
-          v-model="checked"
-          name="woman"
-          value="woman"
-          label="Woman"
-        />
-        <SfCheckbox 
-          v-model="checked"
-          name="man"
-          value="man"
-          label="Man"
-        />
-        <SfCheckbox 
-          v-model="checked"
-          name="children"
-          value="children"
-          label="Children"
-        /> 
-      </div>`,
-  }))
-  .add("[slot] checkmark", () => ({
-    components: { SfCheckbox },
-    props: {
-      name: {
-        default: text("name", "shipping", "Props"),
-      },
-      label: {
-        default: text("label", "Copy address data from shipping", "Props"),
-      },
-      hintMessage: {
-        default: text("hintMessage", "Required", "Props"),
-      },
-      required: {
-        default: boolean("required", false, "Props"),
-      },
-      errorMessage: {
-        default: text("errorMessage", "Something is wrong", "Props"),
-      },
-      valid: {
-        default: boolean("valid", true, "Props"),
-      },
-      infoMessage: {
-        default: text("infoMessage", "", "Props"),
-      },
-      disabled: {
-        default: boolean("disabled", false, "Props"),
+    value: {
+      control: "text",
+      table: {
+        category: "Props",
       },
     },
-    data() {
-      return {
-        checked: false,
-      };
+    label: {
+      control: "text",
+      table: {
+        category: "Props",
+      },
     },
-    template: `<SfCheckbox 
-      v-model="checked"
-      :name="name"
-      :label="label"
-      :hintMessage="hintMessage"
-      :required="required"
-      :error-message="errorMessage"
-      :valid="valid"
-      :infoMessage="infoMessage"
-      :disabled="disabled">
-      <template #checkmark="{isChecked, disabled}">
-        <span v-if="isChecked">👍🏻</span>
-        <span v-else>👎🏻</span>
+    hintMessage: {
+      control: "text",
+      table: {
+        category: "Props",
+      },
+    },
+    required: {
+      control: "boolean",
+      table: {
+        category: "Props",
+      },
+    },
+    infoMessage: {
+      control: "text",
+      table: {
+        category: "Props",
+      },
+    },
+    errorMessage: {
+      control: "text",
+      table: {
+        category: "Props",
+      },
+    },
+    valid: {
+      control: "boolean",
+      table: {
+        category: "Props",
+      },
+    },
+    disabled: {
+      control: "boolean",
+      table: {
+        category: "Props",
+      },
+    },
+    selected: {
+      control: "array",
+      table: {
+        category: "Props",
+      },
+    },
+    change: { action: "Selected items changed", table: { category: "Events" } },
+  },
+};
+
+const Template = (args, { argTypes }) => ({
+  components: { SfCheckbox },
+  props: Object.keys(argTypes),
+  template: `
+  <SfCheckbox 
+    v-model="selected"
+    :name="name"      
+    :label="label"
+    :hintMessage="hintMessage"
+    :required="required"
+    :error-message="errorMessage"
+    :valid="valid"
+    :infoMessage="infoMessage"
+    :disabled="disabled"
+    @change="change"
+  />`,
+});
+
+export const Common = Template.bind({});
+Common.args = {
+  name: "shipping",
+  label: "I want to create an account",
+};
+
+export const Selected = Template.bind({});
+Selected.args = {
+  ...Common.args,
+  selected: true,
+};
+
+export const Required = Template.bind({});
+Required.args = {
+  ...Common.args,
+  required: true,
+};
+
+export const WithInfo = Template.bind({});
+WithInfo.args = {
+  ...Common.args,
+  infoMessage: "This is an info message",
+};
+
+export const WithCustomError = Template.bind({});
+WithCustomError.args = {
+  ...Common.args,
+  errorMessage: "Something is wrong",
+  valid: false,
+};
+
+export const Invalid = Template.bind({});
+Invalid.args = {
+  ...Common.args,
+  valid: false,
+};
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  ...Common.args,
+  disabled: true,
+};
+
+export const UseCheckmarkSlot = (args, { argTypes }) => ({
+  components: { SfCheckbox },
+  props: Object.keys(argTypes),
+  template: `
+  <SfCheckbox 
+    v-model="checked"
+    :name="name"
+    :label="label"
+    :hintMessage="hintMessage"
+    :required="required"
+    :error-message="errorMessage"
+    :valid="valid"
+    :infoMessage="infoMessage"
+    :disabled="disabled">
+    <template #checkmark="{isChecked, disabled}">
+      <span v-if="isChecked">👍🏻</span>
+      <span v-else>👎🏻</span>
+    </template>
+  </SfCheckbox>`,
+});
+UseCheckmarkSlot.args = { ...Common.args };
+
+export const UseErrorMessageSlot = (args, { argTypes }) => ({
+  components: { SfCheckbox },
+  props: Object.keys(argTypes),
+  template: `
+  <SfCheckbox 
+    v-model="checked"
+    :name="name"      
+    :label="label"
+    :hint-message="hintMessage"
+    :required="required"
+    :error-message="errorMessage"
+    :valid="valid"
+    :info-message="infoMessage"
+    :disabled="disabled"
+    >
+      <template #show-error-message="{ errorMessage }">
+        <span> CUSTOM ERROR MESSAGE 👈</span>
       </template>
     </SfCheckbox>`,
-  }))
-  .add("[slot] label", () => ({
-    components: { SfCheckbox },
-    props: {
-      name: {
-        default: text("name", "shipping", "Props"),
-      },
-      label: {
-        default: text("label", "Copy address data from shipping", "Props"),
-      },
-      hintMessage: {
-        default: text("hintMessage", "Required", "Props"),
-      },
-      required: {
-        default: boolean("required", false, "Props"),
-      },
-      errorMessage: {
-        default: text("errorMessage", "Something is wrong", "Props"),
-      },
-      valid: {
-        default: boolean("valid", true, "Props"),
-      },
-      infoMessage: {
-        default: text("infoMessage", "", "Props"),
-      },
-      disabled: {
-        default: boolean("disabled", false, "Props"),
-      },
-    },
-    data() {
-      return {
-        checked: false,
-      };
-    },
-    template: `<SfCheckbox 
-      v-model="checked"
-      :name="name"
-      :label="label"
-     :hintMessage="hintMessage"
-      :required="required"
-      :error-message="errorMessage"
-      :valid="valid"
-      :infoMessage="infoMessage"
-      :disabled="disabled">
-      <template #label="{label, isChecked, disabled}">
-        <span v-if="isChecked" style="margin-left: 1rem">🎉 I'm checked</span>
-        <span v-else style="margin-left: 1rem">👈 Please check me</span>
-      </template>
-    </SfCheckbox>`,
-  }))
-  .add("[slot] error-message", () => ({
-    components: { SfCheckbox },
-    props: {
-      name: {
-        default: text("name", "shipping", "Props"),
-      },
-      label: {
-        default: text("label", "I want to create an account", "Props"),
-      },
-      hintMessage: {
-        default: text("hintMessage", "Required", "Props"),
-      },
-      required: {
-        default: boolean("required", false, "Props"),
-      },
-      errorMessage: {
-        default: text("errorMessage", "Something is wrong", "Props"),
-      },
-      valid: {
-        default: boolean("valid", false, "Props"),
-      },
-      infoMessage: {
-        default: text("infoMessage", "", "Props"),
-      },
-      disabled: {
-        default: boolean("disabled", false, "Props"),
-      },
-    },
-    data() {
-      return {
-        checked: false,
-      };
-    },
-    template: `<SfCheckbox 
-      v-model="checked"
-      :name="name"      
-      :label="label"
-      :hint-message="hintMessage"
-      :required="required"
-      :error-message="errorMessage"
-      :valid="valid"
-      :info-message="infoMessage"
-      :disabled="disabled"
-      >
-        <template #show-error-message="{ errorMessage }">
-          <span> CUSTOM ERROR MESSAGE 👈</span>
-        </template>
-      </SfCheckbox>`,
-  }));
+});
+UseErrorMessageSlot.args = { ...Invalid.args };
