@@ -4,14 +4,14 @@
   flex: 0 0 var(--_footer-column-width);
   justify-content: space-between;
   &__title {
-    color: var(--footer-column-title-color, var(--c-link));
+    color: var(--footer-column-title-color, var(--c-white));
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     border: 0;
     padding: var(--footer-column-title-padding, var(--spacer-base));
-    background: var(--footer-column-title-background, var(--c-light));
+    background: var(--footer-column-title-background, var(--c-secondary));
     text-transform: uppercase;
     @include font(
       --footer-column-title-font,
@@ -32,18 +32,19 @@
     );
     --menu-item-label-color: var(
       --footer-column-item-color,
-      var(--c-link)
+      var(--c-white)
     );
   }
   @include for-desktop {
     --footer-column-title-padding: var(--spacer-sm) 0;
-    --footer-column-title-background: transparent;
+    --footer-column-title-background: var(--c-secondary);
     --footer-column-title-font-weight: var(--font-weight--normal);
     --footer-column-chevron-display: none;
     --footer-column-item-padding: var(--spacer-xs) 0;
   }
 }
 .sf-footer {
+  background: var(--c-secondary);
   &__container {
     box-sizing: border-box;
     display: var(--footer-display);
