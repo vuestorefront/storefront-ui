@@ -1,6 +1,7 @@
 <template>
   <div class="sf-header-navigation-item" v-on="$listeners">
     <div
+      v-if="!isVisibleOnMobile"
       class="sf-header-navigation-item__item sf-header-navigation-item__item--desktop"
     >
       <slot name="desktop-navigation-item">
@@ -11,6 +12,7 @@
       <slot />
     </div>
     <div
+      v-else
       class="sf-header-navigation-item__item sf-header-navigation-item__item--mobile"
     >
       <slot name="mobile-navigation-item">
@@ -42,6 +44,16 @@ export default {
     link: {
       type: [String, Object],
       default: "",
+    },
+    // isVisibleOnMobile: {
+    //   type: Boolean,
+    //   default: true,
+    // }
+  },
+  inject: ["mobileObserver"],
+  computed: {
+    isVisibleOnMobile() {
+      return this.mobileObserver.isMobile;
     },
   },
 };
