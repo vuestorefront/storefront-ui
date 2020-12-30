@@ -1,5 +1,6 @@
 @import "../../helpers";
-.sf-footer-column {
+.sf-footer-column {  
+  --icon-color: var(--c-white);
   box-sizing: border-box;
   flex: 0 0 var(--_footer-column-width);
   justify-content: space-between;
@@ -23,8 +24,9 @@
     cursor: default;
   }
   &__chevron {
-    display: var(--footer-column-chevron-display);
-  }
+    --chevron-color: var(--c-white);
+    display: var(--footer-column-chevron-display);    
+  }  
   & .sf-list__item {
     --list-item-margin: var(
       --footer-column-item-padding,
@@ -36,6 +38,7 @@
     );
   }
   @include for-desktop {
+    margin: 0 0 var(--spacer-xl) 0;
     --footer-column-title-padding: var(--spacer-sm) 0;
     --footer-column-title-background: var(--c-secondary);
     --footer-column-title-font-weight: var(--font-weight--normal);
@@ -54,6 +57,19 @@
     margin: var(--footer-margin);
     padding: var(--footer-padding);
   }
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: var(--spacer-xs) 0;    
+    padding: 0 0 var(--spacer-xl) 0;
+    &-logo {
+      --image-width: auto;
+      --image-height: 2.125rem;
+      flex: 0 0 auto;
+      padding: var(--spacer-xl) 0 0 0;
+    }
+  }  
   @include for-desktop {
     --footer-display: flex;
     --footer-flex-wrap: wrap;

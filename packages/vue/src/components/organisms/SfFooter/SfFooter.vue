@@ -3,6 +3,18 @@
     <div class="sf-footer__container">
       <slot />
     </div>
+    <div class="sf-footer__bottom smartphone-only">
+      <slot name="bottom" />
+      <SfLink link="/">
+        <SfImage
+          v-if="logo"
+          :src="logo"
+          :alt="title"
+          class="sf-footer__bottom-logo"
+        />
+        <h1 v-else class="sf-footer__bottom-title">{{ title }}</h1>
+      </SfLink>
+    </div>
   </footer>
 </template>
 <script>
@@ -12,21 +24,48 @@ import {
   mapMobileObserver,
   unMapMobileObserver,
 } from "../../../utilities/mobile-observer";
+import SfLink from "../../atoms/SfLink/SfLink";
+import SfImage from "../../atoms/SfImage/SfImage";
+
 Vue.component("SfFooterColumn", SfFooterColumn);
 export default {
   name: "SfFooter",
+  components: { SfLink, SfImage },
   props: {
+    /**
+     * Number of footer columns
+     */
     column: {
       type: Number,
       default: 4,
     },
+    /**
+     * Multiple footer columns open at the same time on mobile
+     */
     multiple: {
       type: Boolean,
       default: true,
     },
+    /**
+     * Footer columns open on mobile
+     */
     open: {
       type: [String, Array],
       default: () => [],
+    },
+    /**
+     * Footer logo
+     */
+    logo: {
+      type: String,
+      default: "",
+    },
+    /**
+     * Footer title
+     */
+    title: {
+      type: String,
+      default: "",
     },
   },
   data() {
@@ -38,7 +77,9 @@ export default {
   computed: {
     ...mapMobileObserver(),
     style() {
-      return { "--_footer-column-width": `${100 / this.column}%` };
+      return !this.isMobile
+        ? { "--_footer-column-width": `${100 / this.column}%` }
+        : { "--_footer-column-width": "100%" };
     },
   },
   watch: {
