@@ -143,6 +143,7 @@
               <template v-else>
                 <SfImage
                   :src="`/assets/storybook/checkout/${item.value}.png`"
+                  :alt="item.value"
                   class="payment-image"
                   :lazy="false"
                 />
