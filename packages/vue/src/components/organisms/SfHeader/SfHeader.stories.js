@@ -1,5 +1,5 @@
-import { 
-  SfHeader, 
+import {
+  SfHeader,
   SfList,
   SfBottomNavigation,
   SfMegaMenu,
@@ -12,6 +12,7 @@ import {
 export default {
   title: "Organisms/Header",
   component: SfHeader,
+  parameters: { actions: { argTypesRegex: "^click.*" } },
   argTypes: {
     classes: {
       control: {
@@ -111,14 +112,8 @@ export default {
 };
 
 const Template = (args, { argTypes }) => ({
-  components: { SfHeader },
+  components: { SfHeader, SfLink },
   props: Object.keys(argTypes),
-  data() {
-    return {
-      navigation: ["women", "man", "kids"],
-      searchValue: "",
-    };
-  },
   template: `
   <SfHeader
     :class="classes"
@@ -131,7 +126,6 @@ const Template = (args, { argTypes }) => ({
     :wishlist-icon="wishlistIcon"
     :is-sticky="isSticky"
     :account-icon="accountIcon"
-    :style="spacer"
     :cart-items-qty="cartItemsQty"
     :wishlist-items-qty="wishlistItemsQty"
     @click:cart="this['click:cart']"
@@ -155,6 +149,8 @@ export const Common = Template.bind({});
 Common.args = {
   title: "Storefront UI",
   logo: "/assets/logo.svg",
+  searchValue: "",
+  navigation: ["woman", "man", "kids"],
 };
 
 export const WithSfHeaderNavigation = (args, { argTypes }) => ({
@@ -420,3 +416,5 @@ export const WithSfHeaderNavigation = (args, { argTypes }) => ({
       </SfBottomNavigation>
     </div>`,
 });
+
+WithSfHeaderNavigation.storyName = "With SfHeader Navigation";
