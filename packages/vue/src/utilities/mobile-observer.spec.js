@@ -1,8 +1,7 @@
 import {
   mapMobileObserver,
   unMapMobileObserver,
-  onMediaMatchMobile,
-  onMediaMatchDesktop,
+  onMediaMatch,
 } from "./mobile-observer";
 describe("mobile observer", () => {
   let addListener;
@@ -38,7 +37,7 @@ describe("mobile observer", () => {
       it("increase the clients count", () => {
         expect(instance.mobileObserverClients.get()).toBe(1);
         mapMobileObserver();
-        expect(instance.mobileObserverClients.get()).toBe(2);
+        expect(instance.mobileObserverClients.get()).toBe(1);
         unMapMobileObserver();
       });
       describe("calling get on isMobile", () => {
@@ -50,18 +49,14 @@ describe("mobile observer", () => {
         it("initialize", () => {
           expect(instance.mobileObserverIsInitialized.get()).toBe(true);
         });
-        it("calls matchMediaMobile and addListener", () => {
+        it("calls matchMedia and addListener", () => {
           expect(window.matchMedia).toHaveBeenCalledWith("(max-width: 1023px)");
-          expect(addListener).toHaveBeenCalledWith(onMediaMatchMobile);
-        });
-        it("calls matchMediaDesktop and addListener", () => {
-          expect(window.matchMedia).toHaveBeenCalledWith("(min-width: 1024px)");
-          expect(addListener).toHaveBeenCalledWith(onMediaMatchDesktop);
+          expect(addListener).toHaveBeenCalledWith(onMediaMatch);
         });
         it("multiple calls on get do not attach multiple listeners", () => {
           instance.isMobile.get();
-          expect(window.matchMedia).toHaveBeenCalledTimes(2);
-          expect(addListener).toHaveBeenCalledTimes(2);
+          expect(window.matchMedia).toHaveBeenCalledTimes(1);
+          expect(addListener).toHaveBeenCalledTimes(1);
         });
       });
     });
@@ -77,9 +72,7 @@ describe("mobile observer", () => {
           unMapMobileObserver();
           expect(instance.isMobile.get()).toEqual(false);
           expect(window.matchMedia).toHaveBeenCalledWith("(max-width: 1023px)");
-          expect(removeListener).toHaveBeenCalledWith(onMediaMatchMobile);
-          expect(window.matchMedia).toHaveBeenCalledWith("(min-width: 1024px)");
-          expect(removeListener).toHaveBeenCalledWith(onMediaMatchDesktop);
+          expect(removeListener).toHaveBeenCalledWith(onMediaMatch);
         });
       });
     });
