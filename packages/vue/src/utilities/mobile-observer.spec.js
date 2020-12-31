@@ -37,7 +37,7 @@ describe("mobile observer", () => {
       it("increase the clients count", () => {
         expect(instance.mobileObserverClients.get()).toBe(1);
         mapMobileObserver();
-        expect(instance.mobileObserverClients.get()).toBe(1);
+        expect(instance.mobileObserverClients.get()).toBe(2);
         unMapMobileObserver();
       });
       describe("calling get on isMobile", () => {

@@ -19,6 +19,7 @@ export const setupListener = () => {
   window
     .matchMedia(`(max-width: ${isMobileMax}px)`)
     .addListener(onMediaMatch);
+    observer.isInitialized = true;
 };
 export const tearDownListener = () => {
   if (
@@ -51,12 +52,12 @@ export const mapMobileObserver = () => {
     },
     mobileObserverClients: {
       get() {
-        observer ? observer.clients : 0;
+        return observer ? observer.clients : 0;
       },
     },
     mobileObserverIsInitialized: {
       get() {
-        observer ? observer.isInitialized : false;
+        return observer ? observer.isInitialized : false;
       },
     },
   };
