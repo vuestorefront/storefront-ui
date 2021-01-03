@@ -23,7 +23,6 @@ export default {
   inject: ["mobileObserver"],
   computed: {
     isVisibleOnMobile() {
-      console.log("navigation", this.mobileObserver.isMobile);
       return this.mobileObserver.isMobile;
     },
   },

@@ -45,15 +45,10 @@ export default {
       type: [String, Object],
       default: "",
     },
-    // isVisibleOnMobile: {
-    //   type: Boolean,
-    //   default: true,
-    // }
   },
   inject: ["mobileObserver"],
   computed: {
     isVisibleOnMobile() {
-      console.log("navigation item", this.mobileObserver.isMobile);
       return this.mobileObserver.isMobile;
     },
   },

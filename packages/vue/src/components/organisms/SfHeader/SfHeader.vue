@@ -233,7 +233,6 @@ export default {
   },
   provide() {
     const mobileObserver = Vue.observable({});
-    console.log(this.isMobile);
     Object.defineProperty(mobileObserver, "isMobile", {
       get: () => this.isMobile,
     });
@@ -267,13 +266,6 @@ export default {
       },
       immediate: true,
     },
-    // isMobile: {
-    //   handler(isMobile) {
-    //     isMobile ? this.isVisibleOnMobile = true : this.isVisibleOnMobile = false;
-    //     console.log('isVisibleOnMobile', this.isVisibleOnMobile)
-    //   },
-    //   immediate: true,
-    // }
   },
   mounted() {
     if (this.isSticky) {
@@ -281,7 +273,6 @@ export default {
     }
   },
   beforeDestroy() {
-    console.log("destroy", this.isMobile);
     unMapMobileObserver();
     if (this.isSticky) {
       window.removeEventListener("scroll", this.scrollHandler, {
