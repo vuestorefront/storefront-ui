@@ -19,7 +19,10 @@
           <slot name="aside" v-bind="{ isVisibleOnMobile }" />
         </div>
         <div class="sf-header__actions">
-          <nav class="sf-header__navigation">
+          <nav
+            class="sf-header__navigation"
+            :class="{ 'is-visible': isNavVisible }"
+          >
             <slot name="navigation" v-bind="{ isVisibleOnMobile }"></slot>
           </nav>
           <!--@slot Use this slot to replace default search bar-->
@@ -210,10 +213,10 @@ export default {
     /**
      * Is nav slot visible at mobile view
      */
-    // isNavVisible: {
-    //   type: Boolean,
-    //   default: false,
-    // },
+    isNavVisible: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
@@ -229,7 +232,8 @@ export default {
     };
   },
   provide() {
-    const mobileObserver = {};
+    const mobileObserver = Vue.observable({});
+    console.log(this.isMobile);
     Object.defineProperty(mobileObserver, "isMobile", {
       get: () => this.isMobile,
     });

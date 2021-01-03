@@ -349,11 +349,11 @@ export const WithSfHeaderNavigation = (args, { argTypes }) => ({
       :logo="shopLogo"
       :title="shopName"
       active-icon="account"
+      :is-nav-visible="isNavVisible"
       is-sticky
       >
         <template #navigation>
           <SfHeaderNavigation
-            :is-visible-on-mobile="isVisible"
             @close="isVisible = false"
           >
             <SfHeaderNavigationItem 
@@ -416,5 +416,9 @@ export const WithSfHeaderNavigation = (args, { argTypes }) => ({
       </SfBottomNavigation>
     </div>`,
 });
+
+WithSfHeaderNavigation.args = {
+  isNavVisible: true,
+}
 
 WithSfHeaderNavigation.storyName = "With SfHeader Navigation";

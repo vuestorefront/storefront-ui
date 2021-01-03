@@ -20,15 +20,10 @@ export default {
   components: {
     SfSidebar,
   },
-  // props: {
-  //   isVisibleOnMobile: {
-  //     type: Boolean,
-  //     default: true,
-  //   },
-  // },
   inject: ["mobileObserver"],
   computed: {
     isVisibleOnMobile() {
+      console.log("navigation", this.mobileObserver.isMobile);
       return this.mobileObserver.isMobile;
     },
   },
