@@ -16,7 +16,7 @@ export default {
 };
 
 const Template = (args, { argTypes }) => ({
-  components: { SfTable },
+  components: { SfTable, SfButton },
   props: Object.keys(argTypes),
   data() {
     return {
