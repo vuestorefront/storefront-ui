@@ -1,6 +1,6 @@
 <template>
   <div class="sf-card">
-    <SfImage :src="image" class="sf-card__image" />
+    <SfImage :src="image" :alt="title" class="sf-card__image" />
     <!-- @slot Custom content for heading and description-->
     <slot name="details" v-bind="{ title, description, titleLevel }">
       <div class="sf-card__details">
