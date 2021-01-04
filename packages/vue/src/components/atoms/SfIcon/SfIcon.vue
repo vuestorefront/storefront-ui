@@ -11,16 +11,9 @@
         :viewBox="iconViewBox"
         preserveAspectRatio="none"
       >
-        <defs>
-          <linearGradient
-            v-if="coverage < 1"
-            :id="coverage"
-            x1="0"
-            y1="0"
-            x2="1"
-            y2="0"
-          >
-            <stop :offset="coverage" stop-color="var(--icon-color)" />
+        <defs v-if="coverage < 1">
+          <linearGradient :id="coverage" x1="0" y1="0" x2="1" y2="0">
+            <stop :offset="coverage" stop-color="currentColor" />
             <stop
               offset="0"
               stop-color="var(--icon-color-negative, var(--c-gray-variant))"
@@ -43,6 +36,16 @@ import icons from "@storefront-ui/shared/icons/icons";
 import { iconColorsValues as SF_COLORS } from "@storefront-ui/shared/variables/colors";
 import { sizesValues as SF_SIZES } from "@storefront-ui/shared/variables/sizes";
 const SF_ICONS = Object.keys(icons);
+
+const fillPathUrl = (index) => `url(#${index})`;
+
+/**
+ * 1. Aria-hidden on by default
+ * 2. Aria-label ?
+ * 3. Check about material icon, font-awesome icons, etc?
+ * 4. Remove the cover div & slot - icon should be an icon and should not be customizable (and should not have listeners, but attributes)
+ */
+
 export default {
   name: "SfIcon",
   props: {
@@ -130,14 +133,7 @@ export default {
       }
     },
     fillPath() {
-      return this.coverage === 1
-        ? "var(--icon-color)"
-        : this.fillUrl(this.coverage);
-    },
-  },
-  methods: {
-    fillUrl(index) {
-      return "url(#" + index + ")";
+      return this.coverage === 1 ? "currentColor" : fillPathUrl(this.coverage);
     },
   },
 };

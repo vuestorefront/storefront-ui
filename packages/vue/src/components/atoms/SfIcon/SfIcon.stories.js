@@ -102,7 +102,7 @@ export const IconSizes = () => ({
   },
   template: `
   <div style="font-family: var(--font-family--primary);">
-    <p style="font-size: 14px; font-weight: 300;">We provide the same standard sizes for customizing icon</p>
+    <p style="font-size: 14px; font-weight: 300;">We provide the following standard sizes for customizing icon</p>
     <ul style="display: flex; flex-wrap: wrap; list-style: none; padding-left: 0px;">
       <li v-for="size in sizes" :key="size" style="margin: 0.5rem 1rem; align-self: flex-end; text-align: center;" >
         <SfIcon :icon="icon" :viewBox="viewBox" :color="color" :size="size" />
