@@ -1,6 +1,6 @@
 import { SfSlidingSection } from "@storefront-ui/vue";
 export default {
-  title: "Molecules/SlidingSection",
+  title: "Components/Molecules/SlidingSection",
   component: SfSlidingSection,
   decorators: [
     () => ({

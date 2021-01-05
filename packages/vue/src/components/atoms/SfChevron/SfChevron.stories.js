@@ -1,7 +1,7 @@
 import { SfChevron, SfIcon } from "@storefront-ui/vue";
 
 export default {
-  title: "Atoms/Chevron",
+  title: "Components/Atoms/Chevron",
   component: SfChevron,
   argTypes: {
     classes: {
