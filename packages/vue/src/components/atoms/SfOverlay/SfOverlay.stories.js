@@ -1,7 +1,7 @@
 import { SfOverlay } from "@storefront-ui/vue";
 
 export default {
-  title: "Atoms/Overlay",
+  title: "Components/Atoms/Overlay",
   component: SfOverlay,
   argTypes: {
     transition: {

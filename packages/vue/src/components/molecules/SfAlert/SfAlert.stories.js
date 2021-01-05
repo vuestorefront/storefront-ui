@@ -1,7 +1,7 @@
 import { SfAlert } from "@storefront-ui/vue";
 
 export default {
-  title: "Molecules/Alert",
+  title: "Components/Molecules/Alert",
   component: SfAlert,
   argTypes: {
     message: {
