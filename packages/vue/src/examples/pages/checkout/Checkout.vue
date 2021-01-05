@@ -6,10 +6,7 @@
           <SfStep name="Details">
             <PersonalDetails
               :value="personalDetails"
-              :button-name="getButtonName"
               @input="personalDetails = $event"
-              @click:next="currentStep++"
-              @click:back="currentStep--"
             />
           </SfStep>
           <SfStep name="Shipping">
@@ -17,8 +14,6 @@
               :value="shipping"
               :shipping-methods="shippingMethods"
               @input="shipping = $event"
-              @click:next="currentStep++"
-              @click:back="currentStep--"
             />
           </SfStep>
           <SfStep name="Payment">
@@ -27,8 +22,6 @@
               :payment-methods="paymentMethods"
               :shipping="shipping"
               @input="payment = $event"
-              @click:next="currentStep++"
-              @click:back="currentStep--"
             />
           </SfStep>
           <SfStep name="Review">
@@ -37,13 +30,12 @@
               :order="getOrder"
               :payment-methods="paymentMethods"
               :characteristics="characteristics"
-              @click:back="currentStep--"
               @click:edit="currentStep = $event"
             />
           </SfStep>
         </SfSteps>
       </div>
-      <div class="checkout__aside desktop-only">
+      <div class="checkout__aside">
         <transition name="sf-fade">
           <OrderSummary
             v-if="currentStep <= 2"
@@ -53,9 +45,6 @@
             :shipping-methods="shippingMethods"
             :payment-methods="paymentMethods"
             :characteristics="characteristics"
-            :button-name="getButtonName"
-            @click:next="currentStep++"
-            @click:back="currentStep--"
           />
           <OrderReview
             v-else
@@ -70,10 +59,22 @@
         </transition>
       </div>
     </div>
+    <div class="actions">
+      <SfButton
+        class="sf-button--full-width actions__button"
+        @click="currentStep++"
+        >{{ steps[currentStep] }}</SfButton
+      >
+      <SfButton
+        class="sf-button--full-width sf-button--underlined actions__button smartphone-only"
+        @click="currentStep--"
+        >Go back</SfButton
+      >
+    </div>
   </div>
 </template>
 <script>
-import { SfSteps } from "@storefront-ui/vue";
+import { SfSteps, SfButton } from "@storefront-ui/vue";
 import {
   PersonalDetails,
   Shipping,
@@ -92,10 +93,17 @@ export default {
     ConfirmOrder,
     OrderSummary,
     OrderReview,
+    SfButton,
   },
   data() {
     return {
       currentStep: 0,
+      steps: [
+        "Go to shipping",
+        "Go to payment",
+        "Pay for order",
+        "Confirm and pay",
+      ],
       personalDetails: { firstName: "", lastName: "", email: "" },
       shipping: {
         firstName: "",
@@ -268,9 +276,6 @@ export default {
         payment: { ...this.payment },
       };
     },
-    getButtonName() {
-      return this.buttonNames[this.currentStep].name;
-    },
   },
   methods: {
     updateStep(next) {
@@ -299,6 +304,9 @@ export default {
     display: flex;
   }
   &__main {
+    ::v-deep .sf-steps__step.is-done {
+      --steps-step-color: var(--c-primary);
+    }
     @include for-desktop {
       flex: 1;
       padding: var(--spacer-xl) 0 0 0;
@@ -307,13 +315,33 @@ export default {
   &__aside {
     @include for-desktop {
       flex: 0 0 26.8125rem;
-      margin: 0 0 0 var(--spacer-sm);
+      margin: 0 0 0 var(--spacer-base);
     }
     &-order {
       box-sizing: border-box;
       width: 100%;
       background: var(--c-light);
-      padding: var(--spacer-xl);
+      padding: var(--spacer-base) var(--spacer-sm) var(--spacer-xl);
+      @include for-desktop {
+        padding: var(--spacer-xl);
+      }
+    }
+  }
+}
+.actions {
+  background: var(--c-white);
+  padding: var(--spacer-sm);
+  box-shadow: 0px -2px 10px rgba(154, 154, 154, 0.15);
+  text-align: center;
+  &__button {
+    margin-bottom: var(--spacer-sm);
+  }
+  @include for-desktop {
+    box-shadow: none;
+    padding: 0;
+    width: 25rem;
+    &__button {
+      margin: 0;
     }
   }
 }
