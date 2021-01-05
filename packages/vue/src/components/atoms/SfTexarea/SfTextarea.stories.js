@@ -1,7 +1,7 @@
 import { SfTextarea } from "@storefront-ui/vue";
 
 export default {
-  title: "Atoms/Textarea",
+  title: "Components/Atoms/Textarea",
   component: SfTextarea,
   argTypes: {
     value: {

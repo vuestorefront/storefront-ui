@@ -1,7 +1,7 @@
 import { SfPrice, SfBadge } from "@storefront-ui/vue";
 
 export default {
-  title: "Atoms/Price",
+  title: "Components/Atoms/Price",
   component: SfPrice,
   argTypes: {
     regular: {

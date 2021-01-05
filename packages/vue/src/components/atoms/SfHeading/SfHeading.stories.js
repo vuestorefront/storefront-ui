@@ -1,7 +1,7 @@
 import { SfHeading, SfIcon } from "@storefront-ui/vue";
 
 export default {
-  title: "Atoms/Heading",
+  title: "Components/Atoms/Heading",
   component: SfHeading,
   argTypes: {
     classes: {
