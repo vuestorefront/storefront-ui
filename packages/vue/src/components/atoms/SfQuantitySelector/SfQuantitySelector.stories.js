@@ -1,36 +1,43 @@
-import { storiesOf } from "@storybook/vue";
-import { withKnobs, optionsKnob as options } from "@storybook/addon-knobs";
 import { SfQuantitySelector } from "@storefront-ui/vue";
-storiesOf("Atoms|QuantitySelector", module)
-  .addDecorator(withKnobs)
-  .add("Common", () => ({
-    components: { SfQuantitySelector },
-    data() {
-      return {
-        value: 1,
-      };
-    },
-    props: {
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-quantity-selector--secondary":
-              "sf-quantity-selector--secondary",
-            "sf-quantity-selector--transparent":
-              "sf-quantity-selector--transparent",
-          },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        ),
+
+export default {
+  title: "Components/Atoms/QuantitySelector",
+  component: SfQuantitySelector,
+  decorators: [
+    () => ({ template: '<div style="max-width: 375px;"><story /></div>' }),
+  ],
+  argTypes: {
+    classes: {
+      control: {
+        type: "select",
+        options: [
+          "sf-quantity-selector--secondary",
+          "sf-quantity-selector--transparent",
+        ],
+      },
+      table: {
+        category: "CSS Modifiers",
       },
     },
-    template: `<div style="max-width: 375px">
-        <SfQuantitySelector
-          v-model="value"
-          aria-label="Quantity"
-          :class="customClass"
-        />
-      </div>`,
-  }));
+    input: { action: "Quantity changed!", table: { category: "Events" } },
+  },
+};
+
+const Template = (args, { argTypes }) => ({
+  components: { SfQuantitySelector },
+  props: Object.keys(argTypes),
+  data() {
+    return {
+      value: 1,
+    };
+  },
+  template: `
+  <SfQuantitySelector
+    v-model="value"
+    aria-label="Quantity"
+    :class="classes"
+    @input="input"
+  />`,
+});
+
+export const Common = Template.bind({});

@@ -1,43 +1,55 @@
-import { storiesOf } from "@storybook/vue";
-import { withKnobs } from "@storybook/addon-knobs";
 import SfAddressPicker from "./SfAddressPicker.vue";
-storiesOf("Molecules|AddressPicker", module)
-  .addDecorator(withKnobs)
-  .add("Common", () => ({
-    components: { SfAddressPicker },
-    data() {
-      return {
-        selected: "",
-        addresses: [
-          {
-            id: "first",
-            name: "Jack Smith",
-            street: "Mazowiecka 34",
-            postCode: "02-020",
-            city: "Warszawa, Mazowieckie",
-            country: "Poland",
-            phone: "+48 777 777 777",
-          },
-          {
-            id: "second",
-            name: "Jack Doe",
-            street: "Mazowiecka 24",
-            postCode: "02-020",
-            city: "Warszawa, Mazowieckie",
-            country: "Poland",
-            phone: "+48 999 556 777",
-          },
-        ],
-      };
+
+export default {
+  title: "Components/Molecules/AddressPicker",
+  component: SfAddressPicker,
+  argTypes: {
+    name: {
+      control: "text",
+      table: {
+        category: "Props",
+      },
     },
-    template: `<SfAddressPicker v-model="selected" >
-        <SfAddress v-for="address in addresses" :key="address.id" :name="address.id">
-          <span>{{address.name}}</span>
-          <span>{{address.street}}</span>
-          <span>{{address.postCode}}</span>
-          <span>{{address.city}}</span>
-          <span>{{address.country}}</span>
-          <span>{{address.phone}}</span>
-        </SfAddress>
-      </SfAddressPicker>`,
-  }));
+    selected: {
+      control: "text",
+      table: {
+        category: "Computed",
+      },
+      defaultValue: "",
+    },
+    input: { action: "Address picked", table: { category: "Events" } },
+  },
+};
+
+const Template = (args, { argTypes }) => ({
+  components: { SfAddressPicker },
+  props: Object.keys(argTypes),
+  template: `
+  <SfAddressPicker v-model="selected">
+    <SfAddress :name="name">
+    <span>{{title}}</span>
+    <span>{{street}}</span>
+    <span>{{postCode}}</span>
+    <span>{{city}}</span>
+    <span>{{country}}</span>
+    <span>{{phone}}</span>
+    </SfAddress>
+  </SfAddressPicker>`,
+});
+
+export const Common = Template.bind({});
+Common.args = {
+  name: "first",
+  title: "Jack Smith",
+  street: "Mazowiecka 34",
+  postCode: "02-020",
+  city: "Warszawa, Mazowieckie",
+  country: "Poland",
+  phone: "+48 777 777 777",
+};
+
+export const Selected = Template.bind({});
+Selected.args = {
+  ...Common.args,
+  selected: Common.args.name,
+};
