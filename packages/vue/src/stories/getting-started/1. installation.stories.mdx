@@ -132,23 +132,31 @@ If you want to use your own font instead, use this [snippet generator](https://g
 For Nuxt.js project, you can add the following to the `head` section of `nuxt.config.js` (or a specific page component).
 
 ```js
-{
-	{
-		rel: 'preconnect',
-		href: 'https://fonts.gstatic.com/', crossorigin: 'anonymous'
-	},
-	{
-		rel: 'preload',
-		as: 'style', href: 'https://fonts.googleapis.com/css?family=Raleway:300,400,400i,500,600,700|Roboto:300,300i,400,400i,500,700&display=swap',
-		crossorigin: 'anonymous'
-	},
-	{
-		rel: 'stylesheet',
-		href: 'https://fonts.googleapis.com/css?family=Raleway:300,400,400i,500,600,700|Roboto:300,300i,400,400i,500,700&display=swap',
-		media: 'print',
-		onload: "this.media='all'"
-	},
-}
+export default {
+  head: {
+    meta: [
+      {
+        rel: "preconnect",
+        href: "https://fonts.gstatic.com/",
+        crossorigin: "anonymous",
+      },
+      {
+        rel: "preload",
+        as: "style",
+        href:
+          "https://fonts.googleapis.com/css?family=Raleway:300,400,400i,500,600,700|Roboto:300,300i,400,400i,500,700&display=swap",
+        crossorigin: "anonymous",
+      },
+      {
+        rel: "stylesheet",
+        href:
+          "https://fonts.googleapis.com/css?family=Raleway:300,400,400i,500,600,700|Roboto:300,300i,400,400i,500,700&display=swap",
+        media: "print",
+        onload: "this.media='all'",
+      },
+    ],
+  },
+};
 ```
 
 ## Using with Nuxt
