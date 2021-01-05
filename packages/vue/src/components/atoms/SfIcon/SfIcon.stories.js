@@ -5,7 +5,7 @@ import { SfIcon } from "@storefront-ui/vue";
 const iconsNames = Object.keys(icons);
 
 export default {
-  title: "Atoms/Icon",
+  title: "Components/Atoms/Icon",
   component: SfIcon,
   argTypes: {
     icon: {

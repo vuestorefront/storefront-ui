@@ -1,7 +1,7 @@
 import { SfDropdown, SfList, SfButton } from "@storefront-ui/vue";
 
 export default {
-  title: "Molecules/Dropdown",
+  title: "Components/Molecules/Dropdown",
   component: SfDropdown,
   argTypes: {
     classes: {
