@@ -138,21 +138,21 @@
                 class="desktop-only"
                 name="Size"
                 value="XS"
-                style="margin: 0 0 1rem 0"
+                style="margin: 0 0 1rem 0;"
               />
               <SfProperty class="desktop-only" name="Color" value="white" />
             </template>
             <template #actions>
               <SfButton
                 class="sf-button--text desktop-only"
-                style="margin: 0 0 1rem auto; display: block"
+                style="margin: 0 0 1rem auto; display: block;"
                 @click="$emit('click:add-to-wishlist')"
               >
                 Save for later
               </SfButton>
               <SfButton
                 class="sf-button--text desktop-only"
-                style="margin: 0 0 0 auto; display: block"
+                style="margin: 0 0 0 auto; display: block;"
                 @click="$emit('click:add-to-compare')"
               >
                 Add to compare
