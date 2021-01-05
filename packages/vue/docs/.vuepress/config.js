@@ -23,7 +23,6 @@ module.exports = {
     editLinks: true,
     editLinkText: "Help us improve this page ❤️",
     nav: [
-      { text: `v${version}`, link: `/releases/v${version}` },
       { text: "Community", link: "https://discord.gg/GS8hqFS" },
       { text: "Storybook", link: "http://storybook.storefrontui.io" },
       { text: "GitHub", link: "https://github.com/DivanteLtd/storefront-ui" },
@@ -38,15 +37,6 @@ module.exports = {
           ["/introduction/storybook", "Storybook"],
           ["/introduction/showcases", "Showcases"],
           ["/introduction/meet-the-team", "Meet the core team"],
-        ],
-      },
-      {
-        title: "Releases",
-        collapsable: true,
-        children: [
-          ["/releases/v0.9.2", "v0.9.2"],
-          ["/releases/v0.9.1", "v0.9.1"],
-          ["/releases/v0.9.0", "v0.9.0"],
         ],
       },
       ["/faq", "Frequently Asked Questions"],
