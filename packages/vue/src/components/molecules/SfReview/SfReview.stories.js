@@ -1,6 +1,6 @@
 import { SfReview } from "@storefront-ui/vue";
 export default {
-  title: "Molecules/Review",
+  title: "Components/Molecules/Review",
   component: SfReview,
   argTypes: {
     author: {

@@ -1,1 +1,0 @@
-# Acceptance rules (WIP)

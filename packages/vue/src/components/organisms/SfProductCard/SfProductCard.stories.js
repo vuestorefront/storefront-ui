@@ -1,7 +1,7 @@
 import { SfProductCard } from "@storefront-ui/vue";
 import { colorsValues as colors } from "@storefront-ui/shared/variables/colors";
 export default {
-  title: "Organisms/ProductCard",
+  title: "Components/Organisms/ProductCard",
   component: SfProductCard,
   argTypes: {
     title: {
