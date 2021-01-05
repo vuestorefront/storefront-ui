@@ -1,6 +1,6 @@
 import { SfCarousel } from "@storefront-ui/vue";
 export default {
-  title: "Organisms/Carousel",
+  title: "Components/Organisms/Carousel",
   component: SfCarousel,
   argTypes: {
     settings: {
