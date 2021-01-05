@@ -1,7 +1,7 @@
 import { SfFilter } from "@storefront-ui/vue";
 
 export default {
-  title: "Molecules/Filter",
+  title: "Components/Molecules/Filter",
   component: SfFilter,
   decorators: [
     () => ({ template: '<div style="max-width: 22.875rem"><story/></div>' }),
