@@ -1,6 +1,6 @@
 import { SfTable, SfButton } from "@storefront-ui/vue";
 export default {
-  title: "Organisms/Table",
+  title: "Components/Organisms/Table",
   component: SfTable,
   argTypes: {
     classes: {

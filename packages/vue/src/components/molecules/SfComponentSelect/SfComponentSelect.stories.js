@@ -8,7 +8,7 @@ const optionsList = [
 ];
 
 export default {
-  title: "Molecules/ComponentSelect",
+  title: "Components/Molecules/ComponentSelect",
   component: SfComponentSelect,
   argTypes: {
     classes: {

@@ -1,7 +1,7 @@
 import { SfRating, SfIcon } from "@storefront-ui/vue";
 
 export default {
-  title: "Atoms/Rating",
+  title: "Components/Atoms/Rating",
   component: SfRating,
   argTypes: {
     max: {

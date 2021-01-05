@@ -1,6 +1,6 @@
 import { SfModal } from "@storefront-ui/vue";
 export default {
-  title: "Molecules/Modal",
+  title: "Components/Molecules/Modal",
   component: SfModal,
   argTypes: {
     title: {
