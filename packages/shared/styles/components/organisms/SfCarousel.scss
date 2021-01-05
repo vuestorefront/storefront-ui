@@ -31,6 +31,9 @@
     &__slide {
       display: flex;
       justify-content: center;
+      & * {
+        width: 100%;
+      }
     }
     &__slides {
       margin: 0;
