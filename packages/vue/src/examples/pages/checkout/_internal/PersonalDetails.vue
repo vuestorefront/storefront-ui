@@ -2,7 +2,7 @@
   <div id="personal-details">
     <div class="log-in">
       <SfButton class="log-in__button sf-button--full-width color-secondary"
-        >Log in to your account</SfButton
+        >Log into your account</SfButton
       >
       <p class="log-in__info">or fill the details below:</p>
     </div>
@@ -50,7 +50,7 @@
           class="info__characteristic"
         />
       </div>
-      <div class="form__element">
+      <div>
         <SfCheckbox
           v-model="createAccount"
           name="createAccount"
@@ -69,17 +69,6 @@
           required
         />
       </transition>
-      <div class="form__action">
-        <SfButton
-          class="sf-button--full-width form__action-button"
-          @click="$emit('click:next')"
-          >{{ buttonName }}
-        </SfButton>
-        <SfButton
-          class="sf-button--full-width sf-button--underlined form__action-button form__action-button--secondary smartphone-only"
-          >Go back
-        </SfButton>
-      </div>
     </div>
   </div>
 </template>
@@ -119,9 +108,9 @@ export default {
       createAccount: false,
       characteristics: [
         { description: "Faster checkout", icon: "clock" },
-        { description: "Full rewards program benefits", icon: "rewards" },
         { description: "Earn credits with every purchase", icon: "credits" },
-        { description: "Manage your wishliste", icon: "heart" },
+        { description: "Full rewards program benefits", icon: "rewards" },
+        { description: "Manage your wishlist", icon: "heart" },
       ],
     };
   },
@@ -151,69 +140,73 @@ export default {
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
 .title {
-  --heading-padding: var(--spacer-base) 0;
+  --heading-padding: var(--spacer-xl) 0 var(--spacer-base);
+  --heading-title-font-weight: var(--font-weight--bold);
   @include for-desktop {
     --heading-title-font-size: var(--h3-font-size);
-    --heading-padding: 0 0 var(--spacer-base) 0;
+    --heading-title-font-weight: var(--font-weight--semibold);
+    --heading-padding: var(--spacer-xl) 0;
   }
 }
 .log-in {
   &__info {
-    margin: var(--spacer-lg) 0;
+    margin: 0;
     color: var(--c-dark-variant);
-    font: var(--font-weight--normal) var(--font-size--base) / 1.6
+    font: var(--font-weight--medium) var(--font-size--base) / 1.6
       var(--font-family--secondary);
-    // margin-top: var(--spacer-base);
     @include for-desktop {
       font-weight: var(--font-weight--normal);
-      font-size: var(--font-size--sm);
     }
   }
   &__button {
     margin: var(--spacer-xl) 0 var(--spacer-base) 0;
     @include for-desktop {
+      margin: var(--spacer-xl) 0;
       --button-width: 25rem;
     }
   }
 }
 .info {
-  margin: 0 0 var(--spacer-xl) 0;
   &__heading {
     font-family: var(--font-family--secondary);
-    font-weight: var(--font-weight--normal);
+    font-weight: var(--font-weight--medium);
+    color: var(--c-link);
     margin-bottom: var(--spacer-base);
   }
   &__characteristic {
     --characteristic-description-font-size: var(--font-size--base);
-    margin: 0 0 var(--spacer-sm) var(--spacer-2xs);
+    margin: 0 0 var(--spacer-base) var(--spacer-2xs);
   }
   @include for-desktop {
+    width: 37.5rem;
     display: flex;
     flex-wrap: wrap;
     margin: 0;
     &__heading {
       flex: 100%;
-      margin: 0 0 var(--spacer-sm) 0;
-      font-size: var(--font-size--xs);
+      margin: 0 0 var(--spacer-lg) 0;
     }
     &__characteristic {
-      margin: 0 0 var(--spacer-base) 0;
+      margin: 0 0 var(--spacer-2xs) 0;
       flex: 0 50%;
-      &:nth-child(even) {
-        margin-right: var(--spacer-2xl);
-        flex: 1;
+      box-sizing: border-box;
+      padding-right: var(--spacer-3xl);
+      &:nth-of-type(2),
+      &:nth-of-type(3) {
+        padding-right: var(--spacer-2xl);
       }
     }
   }
 }
 .form {
   &__element {
-    --input-label-font-size: var(--font-size--base);
     --input-padding: var(--spacer-sm) 0 var(--spacer-2xs) 0;
-    margin: 0 0 var(--spacer-xl) 0;
+    --input-label-top: 80%;
+    --input-label-font-size: var(--font-size--base);
+    margin: 0 0 var(--spacer-base) 0;
   }
   &__checkbox {
-    margin: var(--spacer-base) 0;
+    margin: var(--spacer-base) 0 var(--spacer-xl);
     --checkbox-font-family: var(--font-family--primary);
     --checkbox-font-size: var(--font-size--base);
   }
@@ -229,7 +222,6 @@ export default {
     }
   }
   @include for-desktop {
-    margin: 0 var(--spacer-2xl) 0 0;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -239,9 +231,12 @@ export default {
       &--half {
         flex: 1 1 50%;
         &-even {
-          padding: 0 0 0 var(--spacer-lg);
+          padding: 0 0 0 var(--spacer-base);
         }
       }
+    }
+    &__checkbox {
+      margin: var(--spacer-lg) 0 var(--spacer-xl);
     }
   }
 }
