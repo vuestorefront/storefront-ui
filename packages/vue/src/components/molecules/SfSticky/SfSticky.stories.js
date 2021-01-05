@@ -1,6 +1,6 @@
 import { SfSticky } from "@storefront-ui/vue";
 export default {
-  title: "Molecules/Sticky",
+  title: "Components/Molecules/Sticky",
   component: SfSticky,
   decorators: [
     () => ({

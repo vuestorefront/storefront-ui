@@ -1,6 +1,6 @@
 import { SfCollectedProduct, SfButton } from "@storefront-ui/vue";
 export default {
-  title: "Organisms/CollectedProduct",
+  title: "Components/Organisms/CollectedProduct",
   component: SfCollectedProduct,
   argTypes: {
     classes: {

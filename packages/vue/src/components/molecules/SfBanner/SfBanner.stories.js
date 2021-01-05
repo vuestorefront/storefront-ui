@@ -2,7 +2,7 @@ import { SfBanner } from "@storefront-ui/vue";
 import banner from "../../../../public/assets/storybook/SfBanner/Banner2.jpg";
 
 export default {
-  title: "Molecules/Banner",
+  title: "Components/Molecules/Banner",
   component: SfBanner,
   argTypes: {
     classes: {

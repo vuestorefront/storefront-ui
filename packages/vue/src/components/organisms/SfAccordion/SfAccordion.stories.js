@@ -28,7 +28,7 @@ const accordions = [
 ];
 
 export default {
-  title: "Organisms/Accordion",
+  title: "Components/Organisms/Accordion",
   component: SfAccordion,
   argTypes: {
     open: {
