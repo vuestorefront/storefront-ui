@@ -3,7 +3,7 @@ import { SfCircleIcon } from "@storefront-ui/vue";
 const iconsNames = Object.keys(icons);
 
 export default {
-  title: "Atoms/CircleIcon",
+  title: "Components/Atoms/CircleIcon",
   component: SfCircleIcon,
   argTypes: {
     classes: {

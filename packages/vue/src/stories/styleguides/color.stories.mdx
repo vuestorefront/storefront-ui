@@ -36,13 +36,13 @@ Each color from the palette is converted to:
 
 There is a SASS mixin prepared to add a set of styling classes (background, border, text color) in the components.
 
-```scss
+```css
 @mixin color-modifiers($componentName) { }
 ```
 
 If we add this mixin in the desired component:
 
-```scss
+```css
 .sf-button {
   @include color-modifiers('--button');
 }
@@ -50,7 +50,7 @@ If we add this mixin in the desired component:
 
 it will generate the following code for each color palette:
 
-```scss
+```css
 &.color-warning {
   --button-color: var(--c-on-warning);
   --button-background-color: var(--c-warning);
@@ -71,7 +71,7 @@ So that we can make color variations through a class such as:
 
 This mixin is based on the CSS variables of the component. To make it work, we need to define the desired variables based on component name and assign them to the component class. For example:
 
-```scss
+```css
 :root {
   --button-color: #ffffff;
   --button-background-color: #000000;
@@ -114,7 +114,7 @@ You can apply any color from the list above to an icon, simply by passing the co
 <sf-icon color="green-primary"/>
 ```
 or by importing the list of icon colors from `@storefront-ui/shared/variables/colors` and using the desired color variable, e.g
-```vue
+```html
 <template>
   <sf-icon :color="iconColor"/>
 </template>

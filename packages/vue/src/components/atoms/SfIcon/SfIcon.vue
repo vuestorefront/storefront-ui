@@ -11,15 +11,8 @@
         :viewBox="iconViewBox"
         preserveAspectRatio="none"
       >
-        <defs>
-          <linearGradient
-            v-if="coverage < 1"
-            :id="coverage"
-            x1="0"
-            y1="0"
-            x2="1"
-            y2="0"
-          >
+        <defs v-if="coverage < 1">
+          <linearGradient :id="coverage" x1="0" y1="0" x2="1" y2="0">
             <stop :offset="coverage" stop-color="var(--icon-color)" />
             <stop
               offset="0"
@@ -32,7 +25,7 @@
           :key="index"
           :d="path"
           :fill="fillPath"
-          style="height: 100%"
+          style="height: 100%;"
         />
       </svg>
     </slot>
@@ -43,6 +36,9 @@ import icons from "@storefront-ui/shared/icons/icons";
 import { iconColorsValues as SF_COLORS } from "@storefront-ui/shared/variables/colors";
 import { sizesValues as SF_SIZES } from "@storefront-ui/shared/variables/sizes";
 const SF_ICONS = Object.keys(icons);
+
+const fillPathUrl = (index) => `url(#${index})`;
+
 export default {
   name: "SfIcon",
   props: {
@@ -132,12 +128,7 @@ export default {
     fillPath() {
       return this.coverage === 1
         ? "var(--icon-color)"
-        : this.fillUrl(this.coverage);
-    },
-  },
-  methods: {
-    fillUrl(index) {
-      return "url(#" + index + ")";
+        : fillPathUrl(this.coverage);
     },
   },
 };
