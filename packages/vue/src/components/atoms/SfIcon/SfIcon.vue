@@ -25,7 +25,7 @@
           :key="index"
           :d="path"
           :fill="fillPath"
-          style="height: 100%"
+          style="height: 100%;"
         />
       </svg>
     </slot>
