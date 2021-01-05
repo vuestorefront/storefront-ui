@@ -1,6 +1,6 @@
 import { SfBottomNavigation, SfCircleIcon, SfIcon } from "@storefront-ui/vue";
 export default {
-  title: "Organisms/BottomNavigation",
+  title: "Components/Organisms/BottomNavigation",
   component: SfBottomNavigation,
 };
 
