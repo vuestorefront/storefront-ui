@@ -28,7 +28,6 @@
     padding: var(--spacer-sm);
     border: solid var(--c-light);
     border-width: 0 0 2px 0;
-    box-shadow: var(--table-row-box-shadow);
   }
   &__data {
     color: var(--c-dark-variant);
@@ -40,7 +39,7 @@
   &__data,
   &__header {
     box-sizing: border-box;
-    flex: var(--table-column-flex, 0 0 calc(100% / var(--table-column-width)));
+    flex: 0 0 calc(100% / var(--table-column-width));
     padding: 0;
     text-align: left;
   }
@@ -49,12 +48,16 @@
       border-width: 0;
     }
   }
+
   @include for-desktop {
-    --table-column-flex: 1;
+    &__data,
+    &__header {
+      flex: 1;
+    }
 
     &__row {
       &:hover {
-        --table-row-box-shadow: 0px 4px 11px rgba(29, 31, 34, 0.1);
+        box-shadow: 0px 4px 11px rgba(29, 31, 34, 0.1);
       }
     }
   }
