@@ -29,7 +29,6 @@
 <script>
 import SfLink from "../../../atoms/SfLink/SfLink";
 import SfMenuItem from "../../../molecules/SfMenuItem/SfMenuItem";
-
 export default {
   name: "SfHeaderNavigationItem",
   components: {

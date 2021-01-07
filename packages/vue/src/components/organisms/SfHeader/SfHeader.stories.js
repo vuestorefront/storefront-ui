@@ -12,7 +12,6 @@ import {
 export default {
   title: "Components/Organisms/Header",
   component: SfHeader,
-  parameters: { actions: { argTypesRegex: "^click.*" } },
   argTypes: {
     classes: {
       control: {
@@ -99,7 +98,14 @@ export default {
         category: "Props",
       },
     },
-    "click:cart": { action: "Clicked on cart", table: { category: "Events" } },
+    "change:search": { 
+      action: "Changed search value", 
+      table: { category: "Events" }
+    },
+    "click:cart": { 
+      action: "Clicked on cart", 
+      table: { category: "Events" }
+    },
     "click:wishlist": {
       action: "Clicked on Wishlist",
       table: { category: "Events" },
@@ -112,7 +118,7 @@ export default {
 };
 
 const Template = (args, { argTypes }) => ({
-  components: { SfHeader, SfLink },
+  components: { SfHeader },
   props: Object.keys(argTypes),
   template: `
   <SfHeader
