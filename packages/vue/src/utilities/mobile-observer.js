@@ -3,7 +3,7 @@ let observer;
 const isMobileMax = 1023;
 export const onMediaMatch = (e) => {
   if (typeof e.matches === null) return;
-  e.matches ? (observer.isMobile = true) : (observer.isMobile = false);
+  observer.isMobile = !!e.matches;
 };
 export const setupListener = () => {
   if (
@@ -16,10 +16,8 @@ export const setupListener = () => {
   observer.isMobile =
     Math.max(document.documentElement.clientWidth, window.innerWidth) <=
     isMobileMax;
-  window
-    .matchMedia(`(max-width: ${isMobileMax}px)`)
-    .addListener(onMediaMatch);
-    observer.isInitialized = true;
+  window.matchMedia(`(max-width: ${isMobileMax}px)`).addListener(onMediaMatch);
+  observer.isInitialized = true;
 };
 export const tearDownListener = () => {
   if (
