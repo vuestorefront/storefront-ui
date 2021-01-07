@@ -28,6 +28,7 @@ import SfBanner from "../../src/components/molecules/SfBanner/SfBanner.vue"
 import SfBar from "../../src/components/molecules/SfBar/SfBar.vue"
 import SfBottomModal from "../../src/components/molecules/SfBottomModal/SfBottomModal.vue"
 import SfCallToAction from "../../src/components/molecules/SfCallToAction/SfCallToAction.vue"
+import SfCategoryCard from "../../src/components/molecules/SfCategoryCard/SfCategoryCard.vue"
 import SfCard from "../../src/components/molecules/SfCard/SfCard.vue"
 import SfCharacteristic from "../../src/components/molecules/SfCharacteristic/SfCharacteristic.vue"
 import SfCheckbox from "../../src/components/molecules/SfCheckbox/SfCheckbox.vue"
@@ -50,6 +51,7 @@ import SfSelect from "../../src/components/molecules/SfSelect/SfSelect.vue"
 import SfSlidingSection from "../../src/components/molecules/SfSlidingSection/SfSlidingSection.vue"
 import SfSteps from "../../src/components/molecules/SfSteps/SfSteps.vue"
 import SfSticky from "../../src/components/molecules/SfSticky/SfSticky.vue"
+import SfTile from "../../src/components/molecules/SfTile/SfTile.vue"
 import SfAccordion from "../../src/components/organisms/SfAccordion/SfAccordion.vue"
 import SfBannerGrid from "../../src/components/organisms/SfBannerGrid/SfBannerGrid.vue"
 import SfBottomNavigation from "../../src/components/organisms/SfBottomNavigation/SfBottomNavigation.vue"
@@ -115,6 +117,7 @@ export default ({
   Vue.component("SfBar", SfBar);
   Vue.component("SfBottomModal", SfBottomModal);
   Vue.component("SfCallToAction", SfCallToAction);
+  Vue.component("SfCategoryCard", SfCategoryCard);
   Vue.component("SfCard", SfCard);
   Vue.component("SfCharacteristic", SfCharacteristic);
   Vue.component("SfCheckbox", SfCheckbox);
@@ -137,6 +140,7 @@ export default ({
   Vue.component("SfSlidingSection", SfSlidingSection);
   Vue.component("SfSteps", SfSteps);
   Vue.component("SfSticky", SfSticky);
+  Vue.component("SfTile", SfTile);
   Vue.component("SfAccordion", SfAccordion);
   Vue.component("SfBannerGrid", SfBannerGrid);
   Vue.component("SfBottomNavigation", SfBottomNavigation);
