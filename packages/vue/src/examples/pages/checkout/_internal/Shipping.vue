@@ -34,15 +34,6 @@
         @input="updateField('streetName', $event)"
       />
       <SfInput
-        v-model="apartment"
-        :value="apartment"
-        label="House/Apartment number"
-        name="apartment"
-        class="form__element"
-        required
-        @input="updateField('apartment', $event)"
-      />
-      <SfInput
         v-model="city"
         :value="city"
         label="City"
@@ -69,23 +60,21 @@
         required
         @input="updateField('zipCode', $event)"
       />
-      <SfComponentSelect
+      <SfSelect
         v-model="country"
-        :value="country"
-        label="Country"
-        class="form__element form__element--half form__element--half-even form__select sf-component-select--underlined"
+        placeholder="Country"
+        class="form__element form__element--half form__element--half-even form__select sf-select--underlined"
         :valid="true"
-        required
-        @change="updateField('country', $event)"
+        @input="updateField('country', $event)"
       >
-        <SfComponentSelectOption
+        <SfSelectOption
           v-for="countryOption in countries"
           :key="countryOption"
           :value="countryOption"
         >
           {{ countryOption }}
-        </SfComponentSelectOption>
-      </SfComponentSelect>
+        </SfSelectOption>
+      </SfSelect>
       <SfInput
         v-model="phoneNumber"
         :value="phoneNumber"
@@ -119,7 +108,7 @@
               <div>
                 {{ label }}
                 <SfButton
-                  class="sf-button--text shipping__action"
+                  class="sf-button--text shipping__action desktop-only"
                   :class="{ 'shipping__action--is-active': item.isOpen }"
                   @click="item.isOpen = !item.isOpen"
                   >{{ item.isOpen ? "- info" : "+ info" }}
@@ -142,18 +131,6 @@
           </template>
         </SfRadio>
       </div>
-      <div class="form__action">
-        <SfButton
-          class="sf-button--full-width form__action-button"
-          @click="$emit('click:next')"
-          >Continue to payment
-        </SfButton>
-        <SfButton
-          class="sf-button--full-width sf-button--underlined color-secondary form__action-button form__action-button--secondary smartphone-only"
-          @click="$emit('click:back')"
-          >Go back
-        </SfButton>
-      </div>
     </div>
   </div>
 </template>
@@ -162,7 +139,7 @@ import {
   SfHeading,
   SfInput,
   SfButton,
-  SfComponentSelect,
+  SfSelect,
   SfRadio,
 } from "@storefront-ui/vue";
 export default {
@@ -171,7 +148,7 @@ export default {
     SfHeading,
     SfInput,
     SfButton,
-    SfComponentSelect,
+    SfSelect,
     SfRadio,
   },
   props: {
@@ -189,7 +166,6 @@ export default {
       firstName: "",
       lastName: "",
       streetName: "",
-      apartment: "",
       city: "",
       state: "",
       zipCode: "",
@@ -253,7 +229,6 @@ export default {
         this.firstName = this.value.firstName;
         this.lastName = this.value.lastName;
         this.streetName = this.value.streetName;
-        this.apartment = this.value.apartment;
         this.city = this.value.city;
         this.state = this.value.state;
         this.zipCode = this.value.zipCode;
@@ -277,36 +252,59 @@ export default {
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
 .title {
-  --heading-padding: var(--spacer-base) 0;
+  --heading-padding: var(--spacer-xl) 0 var(--spacer-lg);
+  --heading-title-font-weight: var(--font-weight--bold);
+  &:not(:first-of-type) {
+    --heading-padding: var(--spacer-base) 0;
+  }
   @include for-desktop {
     --heading-title-font-size: var(--h3-font-size);
+    --heading-title-font-weight: var(--font-weight--semibold);
     --heading-padding: var(--spacer-xl) 0;
   }
 }
 .form {
+  &__element {
+    margin: 0 0 var(--spacer-base) 0;
+    --input-label-top: 80%;
+    --input-label-font-size: var(--font-size--base);
+    &:last-of-type {
+      margin: 0;
+    }
+  }
   &__group {
     display: flex;
     align-items: center;
   }
-  &__action-button {
-    &:first-child {
-      margin: var(--spacer-sm) 0 0 0;
-    }
-    &--secondary {
-      margin: var(--spacer-base) 0;
+  &__select {
+    display: flex;
+    align-items: center;
+    --select-option-font-size: var(--font-size--base);
+    --select-dropdown-color: blue;
+    ::v-deep .sf-select__dropdown {
+      margin: 0 0 2px 0;
+      font-size: var(--font-size--base);
+      font-family: var(--font-family--secondary);
+      color: var(--c-link);
     }
   }
-  &__button {
-    --button-width: 100%;
-  }
-  &__radio-group {
-    flex: 0 0 100%;
+  &__radio {
+    margin: var(--spacer-xs) 0;
+    &:last-of-type {
+      margin: var(--spacer-xs) 0 var(--spacer-xl);
+    }
+    ::v-deep .sf-radio__container {
+      --radio-container-padding: var(--spacer-xs);
+      @include for-desktop {
+        --radio-container-padding: var(--spacer-xs) var(--spacer-xs)
+          var(--spacer-xs) var(--spacer-sm);
+      }
+    }
   }
   @include for-desktop {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    margin: 0 var(--spacer-sm) 0 0;
     &:last-of-type {
       margin: 0 calc(var(--spacer-2xl) - var(--spacer-sm)) 0 0;
     }
@@ -316,30 +314,13 @@ export default {
       &--half {
         flex: 1 1 50%;
         &-even {
-          padding: 0 0 0 var(--spacer-xl);
+          padding: 0 0 0 var(--spacer-base);
         }
       }
-    }
-    &__action {
-      flex: 0 0 100%;
-      display: flex;
-    }
-    &__action-button {
-      --button-width: 25rem;
     }
     &__radio-group {
       flex: 0 0 calc(100% + var(--spacer-sm));
       margin: 0 calc(var(--spacer-sm) * -1);
-    }
-  }
-  @include for-mobile {
-    &__radio-group {
-      position: relative;
-      left: 50%;
-      right: 50%;
-      margin-left: -50vw;
-      margin-right: -50vw;
-      width: 100vw;
     }
   }
 }
@@ -347,14 +328,11 @@ export default {
   --radio-container-padding: var(--spacer-sm);
   &__label {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: flex-end;
     &-price {
       font-size: var(--font-size--lg);
-      @include for-mobile {
-        order: -1;
-        margin: 0 var(--spacer-xs) 0 0;
-      }
+      text-transform: uppercase;
     }
   }
   &__description {
@@ -362,12 +340,15 @@ export default {
   }
   &__delivery {
     color: var(--c-text-muted);
+    font-weight: var(--font-weight--normal);
     display: flex;
+    width: 10.625rem;
+    @include for-desktop {
+      font-weight: var(--font-weight--light);
+    }
   }
   &__action {
-    @include for-mobile {
-      margin: 0 0 0 var(--spacer-xs);
-    }
+    margin: 0 0 0 var(--spacer-xs);
     &::before {
       content: "+";
     }
@@ -384,8 +365,7 @@ export default {
       justify-content: space-between;
     }
     &__delivery {
-      justify-content: space-between;
-      max-width: 240px;
+      width: 100%;
     }
   }
 }

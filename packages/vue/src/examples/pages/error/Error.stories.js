@@ -1,6 +1,14 @@
-import { storiesOf } from "@storybook/vue";
 import Error from "./Error";
-storiesOf("Pages|Error", module).add("Common", () => ({
+export default {
+  title: "Pages/Error",
+  component: Error,
+};
+
+const Template = (args, { argTypes }) => ({
   components: { Error },
+  props: Object.keys(argTypes),
   template: `<Error />`,
-}));
+});
+
+export const Common = Template.bind({});
+Common.args = {};
