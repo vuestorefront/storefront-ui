@@ -5,6 +5,7 @@ const SfBreadcrumbs = require("./src/components/atoms/SfBreadcrumbs/SfBreadcrumb
 const SfBullets = require("./src/components/atoms/SfBullets/SfBullets.stories.js");
 const SfButton = require("./src/components/atoms/SfButton/SfButton.stories.js");
 const SfChevron = require("./src/components/atoms/SfChevron/SfChevron.stories.js");
+const SfCimage = require("./src/components/atoms/SfCimage/SfCimage.stories.js");
 const SfCircleIcon = require("./src/components/atoms/SfCircleIcon/SfCircleIcon.stories.js");
 const SfColor = require("./src/components/atoms/SfColor/SfColor.stories.js");
 const SfDivider = require("./src/components/atoms/SfDivider/SfDivider.stories.js");
@@ -77,6 +78,7 @@ module.exports = {
   SfBullets,
   SfButton,
   SfChevron,
+  SfCimage,
   SfCircleIcon,
   SfColor,
   SfDivider,
