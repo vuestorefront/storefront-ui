@@ -52,18 +52,6 @@
         class="characteristics__item"
       />
     </div>
-    <div class="actions smartphone-only">
-      <SfButton
-        class="sf-button--full-width actions__button"
-        @click="$emit('click:next')"
-        >{{ buttonName }}</SfButton
-      >
-      <SfButton
-        class="sf-button--text actions__button actions__button--secondary"
-        @click="$emit('click:back')"
-        >Go back</SfButton
-      >
-    </div>
   </div>
 </template>
 <script>
@@ -171,38 +159,45 @@ export default {
 @import "~@storefront-ui/vue/styles";
 .title {
   --heading-title-margin: 0 0 var(--spacer-xl) 0;
+  --heading-title-font-weight: var(--font-weight--bold);
+  --heading-padding: 0;
+  --heading-title-margin: 0 0 var(--spacer-xl) 0;
+  @include for-desktop {
+    --heading-title-font-weight: var(--font-weight--semibold);
+  }
 }
 .property {
   margin: var(--spacer-base) 0;
+  --property-name-font-weight: var(--font-weight--medium);
+  --property-value-font-weight: var(--font-weight--bold);
+  &:last-of-type {
+    margin: var(--spacer-base) 0 var(--spacer-xl);
+    --property-name-color: var(--c-text);
+  }
 }
 .divider {
   --divider-border-color: var(--c-white);
-  --divider-margin: calc(var(--spacer-base) * 2) 0 0 0;
+  --divider-margin: var(--spacer-xl) 0 0 0;
 }
 .promo-code {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding: var(--spacer-lg) 0 var(--spacer-base) 0;
   &__input {
     --input-background: var(--c-white);
+    --input-label-font-size: var(--font-size--base);
     flex: 1;
   }
   &__button {
-    --button-height: 30px;
+    --button-height: 1.875rem;
   }
 }
 .characteristics {
-  margin: 0 0 0 var(--spacer-xs);
   &__item {
     margin: var(--spacer-base) 0;
-  }
-}
-.actions {
-  background: var(--c-white);
-  width: 100%;
-  &__button {
-    margin: var(--spacer-sm) 0;
+    &:last-of-type {
+      margin: 0;
+    }
   }
 }
 </style>
