@@ -5,6 +5,7 @@ import SfBreadcrumbs from "./src/components/atoms/SfBreadcrumbs/SfBreadcrumbs.vu
 import SfBullets from "./src/components/atoms/SfBullets/SfBullets.vue";
 import SfButton from "./src/components/atoms/SfButton/SfButton.vue";
 import SfChevron from "./src/components/atoms/SfChevron/SfChevron.vue";
+import SfCimage from "./src/components/atoms/SfCimage/SfCimage.vue";
 import SfCircleIcon from "./src/components/atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfColor from "./src/components/atoms/SfColor/SfColor.vue";
 import SfDivider from "./src/components/atoms/SfDivider/SfDivider.vue";
@@ -49,6 +50,7 @@ import SfSelect from "./src/components/molecules/SfSelect/SfSelect.vue";
 import SfSlidingSection from "./src/components/molecules/SfSlidingSection/SfSlidingSection.vue";
 import SfSteps from "./src/components/molecules/SfSteps/SfSteps.vue";
 import SfSticky from "./src/components/molecules/SfSticky/SfSticky.vue";
+import SfTile from "./src/components/molecules/SfTile/SfTile.vue";
 import SfAccordion from "./src/components/organisms/SfAccordion/SfAccordion.vue";
 import SfBannerGrid from "./src/components/organisms/SfBannerGrid/SfBannerGrid.vue";
 import SfBottomNavigation from "./src/components/organisms/SfBottomNavigation/SfBottomNavigation.vue";
@@ -76,6 +78,7 @@ export {
   SfBullets,
   SfButton,
   SfChevron,
+  SfCimage,
   SfCircleIcon,
   SfColor,
   SfDivider,
@@ -120,6 +123,7 @@ export {
   SfSlidingSection,
   SfSteps,
   SfSticky,
+  SfTile,
   SfAccordion,
   SfBannerGrid,
   SfBottomNavigation,
@@ -138,5 +142,5 @@ export {
   SfStoreLocator,
   SfTable,
   SfTabs,
-  SfTopBar,
+  SfTopBar
 };
