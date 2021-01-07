@@ -5,6 +5,7 @@ const SfBreadcrumbs = require("./src/components/atoms/SfBreadcrumbs/SfBreadcrumb
 const SfBullets = require("./src/components/atoms/SfBullets/SfBullets.stories.js");
 const SfButton = require("./src/components/atoms/SfButton/SfButton.stories.js");
 const SfChevron = require("./src/components/atoms/SfChevron/SfChevron.stories.js");
+const SfCimage = require("./src/components/atoms/SfCimage/SfCimage.stories.js");
 const SfCircleIcon = require("./src/components/atoms/SfCircleIcon/SfCircleIcon.stories.js");
 const SfColor = require("./src/components/atoms/SfColor/SfColor.stories.js");
 const SfDivider = require("./src/components/atoms/SfDivider/SfDivider.stories.js");
@@ -27,6 +28,7 @@ const SfBanner = require("./src/components/molecules/SfBanner/SfBanner.stories.j
 const SfBar = require("./src/components/molecules/SfBar/SfBar.stories.js");
 const SfBottomModal = require("./src/components/molecules/SfBottomModal/SfBottomModal.stories.js");
 const SfCallToAction = require("./src/components/molecules/SfCallToAction/SfCallToAction.stories.js");
+const SfCard = require("./src/components/molecules/SfCard/SfCard.stories.js");
 const SfCharacteristic = require("./src/components/molecules/SfCharacteristic/SfCharacteristic.stories.js");
 const SfCheckbox = require("./src/components/molecules/SfCheckbox/SfCheckbox.stories.js");
 const SfColorPicker = require("./src/components/molecules/SfColorPicker/SfColorPicker.stories.js");
@@ -75,6 +77,7 @@ module.exports = {
   SfBullets,
   SfButton,
   SfChevron,
+  SfCimage,
   SfCircleIcon,
   SfColor,
   SfDivider,
@@ -97,6 +100,7 @@ module.exports = {
   SfBar,
   SfBottomModal,
   SfCallToAction,
+  SfCard,
   SfCharacteristic,
   SfCheckbox,
   SfColorPicker,
