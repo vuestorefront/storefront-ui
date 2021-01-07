@@ -270,7 +270,7 @@ function parseComponentFile(contentComponentFile) {
   if (reResult.length !== headlines.length + 1) {
     throw new Error(
       "Placeholder count in component file doesn't match " +
-        `(expected ${headlines.length}, found ${reResult.length - 1})`
+      `(expected ${headlines.length}, found ${reResult.length - 1})`
     );
   }
   return {
