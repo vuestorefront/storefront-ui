@@ -28,6 +28,7 @@ import SfBanner from "../../src/components/molecules/SfBanner/SfBanner.vue"
 import SfBar from "../../src/components/molecules/SfBar/SfBar.vue"
 import SfBottomModal from "../../src/components/molecules/SfBottomModal/SfBottomModal.vue"
 import SfCallToAction from "../../src/components/molecules/SfCallToAction/SfCallToAction.vue"
+import SfCategoryCard from "../../src/components/molecules/SfCategoryCard/SfCategoryCard.vue"
 import SfCard from "../../src/components/molecules/SfCard/SfCard.vue"
 import SfCharacteristic from "../../src/components/molecules/SfCharacteristic/SfCharacteristic.vue"
 import SfCheckbox from "../../src/components/molecules/SfCheckbox/SfCheckbox.vue"
@@ -115,6 +116,7 @@ export default ({
   Vue.component("SfBar", SfBar);
   Vue.component("SfBottomModal", SfBottomModal);
   Vue.component("SfCallToAction", SfCallToAction);
+  Vue.component("SfCategoryCard", SfCategoryCard);
   Vue.component("SfCard", SfCard);
   Vue.component("SfCharacteristic", SfCharacteristic);
   Vue.component("SfCheckbox", SfCheckbox);
