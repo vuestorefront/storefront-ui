@@ -1,6 +1,6 @@
 import { SfSearchBar } from "@storefront-ui/vue";
 export default {
-  title: "Molecules/SearchBar",
+  title: "Components/Molecules/SearchBar",
   component: SfSearchBar,
   argTypes: {
     classes: {

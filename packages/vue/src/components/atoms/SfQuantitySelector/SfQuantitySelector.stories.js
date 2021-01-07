@@ -1,7 +1,7 @@
 import { SfQuantitySelector } from "@storefront-ui/vue";
 
 export default {
-  title: "Atoms/QuantitySelector",
+  title: "Components/Atoms/QuantitySelector",
   component: SfQuantitySelector,
   decorators: [
     () => ({ template: '<div style="max-width: 375px;"><story /></div>' }),

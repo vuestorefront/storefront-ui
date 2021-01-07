@@ -134,7 +134,7 @@ export default {
      * Header logo
      */
     logo: {
-      type: [String, Object],
+      type: String,
       default: "",
     },
     /**

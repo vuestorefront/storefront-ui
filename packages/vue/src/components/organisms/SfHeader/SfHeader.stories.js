@@ -10,7 +10,7 @@ import {
 } from "@storefront-ui/vue";
 
 export default {
-  title: "Organisms/Header",
+  title: "Components/Organisms/Header",
   component: SfHeader,
   parameters: { actions: { argTypesRegex: "^click.*" } },
   argTypes: {
@@ -419,6 +419,6 @@ export const WithSfHeaderNavigation = (args, { argTypes }) => ({
 
 WithSfHeaderNavigation.args = {
   isNavVisible: true,
-}
+};
 
 WithSfHeaderNavigation.storyName = "With SfHeader Navigation";
