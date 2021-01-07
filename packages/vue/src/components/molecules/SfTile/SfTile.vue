@@ -56,9 +56,9 @@ export default {
         };
       } else {
         return {
-          background: this.isMobile
-            ? `url('${this.background.mobile}')`
-            : `url('${this.background.desktop}')`,
+          background: `url(${
+            this.background[this.isMobile ? "mobile" : "desktop"]
+          })`,
         };
       }
     },
