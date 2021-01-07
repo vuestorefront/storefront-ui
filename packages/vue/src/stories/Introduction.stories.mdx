@@ -7,10 +7,39 @@ import Flow from "./assets/flow.svg";
 import Plugin from "./assets/plugin.svg";
 import Repo from "./assets/repo.svg";
 import StackAlt from "./assets/stackalt.svg";
+import Hero from "./assets/hero.png";
+import Logo from "./assets/logo.png";
+import pkg from "../../package.json";
 
 <Meta title="Welcome" />
 
 <style>{`
+  .container {
+    margin: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero {
+    margin-bottom: 2rem;
+  }
+
+  .version {
+    color: #5ECE7B !important;
+  }
+
+  .heading {
+    font-size: 18px;
+    --mediumdark: '#999999';
+    color: #999;
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: 5px;
+  }
+
   .subheading {
     --mediumdark: '#999999';
     font-weight: 900;
@@ -87,7 +116,21 @@ import StackAlt from "./assets/stackalt.svg";
   }
 `}</style>
 
-# Welcome to Storefront UI
+<div class="container">
+  <img src={Logo} class="hero" alt="StorefrontUI logo" />
+  <p class="heading">
+    Current version:{" "}
+    <a
+      class="version"
+      href={`?path=/story/releases-v${pkg.version.replaceAll(
+        ".",
+        "-"
+      )}-change-log--page`}
+    >
+      {pkg.version}
+    </a>
+  </p>
+</div>
 
 **@storefront-ui/vue** is a UI component library that ships **raw** source, and aims to be:
 
