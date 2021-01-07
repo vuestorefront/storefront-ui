@@ -108,7 +108,7 @@ export default {
      * It should be an url of the product
      */
     image: {
-      type: [String, Object],
+      type: String,
       default: "",
     },
     /**

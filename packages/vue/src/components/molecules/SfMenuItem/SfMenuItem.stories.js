@@ -3,7 +3,7 @@ import { icons } from "@storefront-ui/shared/icons/icons";
 const iconsNames = Object.keys(icons);
 
 export default {
-  title: "Molecules/MenuItem",
+  title: "Components/Molecules/MenuItem",
   component: SfMenuItem,
   decorators: [
     () => ({ template: '<div style="max-width: 300px"><story/></div>' }),

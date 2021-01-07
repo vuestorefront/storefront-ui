@@ -1,15 +1,6 @@
-import {
-  SfHeader,
-  SfLink,
-  SfMegaMenu,
-  SfList,
-  SfMenuItem,
-  SfBottomNavigation,
-  SfBanner,
-  SfOverlay,
-} from "@storefront-ui/vue";
+import { SfHeader } from "@storefront-ui/vue";
 export default {
-  title: "Organisms/Header",
+  title: "Components/Organisms/Header",
   component: SfHeader,
   argTypes: {
     classes: {

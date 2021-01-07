@@ -1,7 +1,7 @@
 import { SfLoader, SfImage } from "@storefront-ui/vue";
 
 export default {
-  title: "Atoms/Loader",
+  title: "Components/Atoms/Loader",
   component: SfLoader,
   decorators: [
     () => ({ template: '<div style="margin: 3em;"><story /></div>' }),

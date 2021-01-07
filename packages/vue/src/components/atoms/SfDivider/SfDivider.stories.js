@@ -1,7 +1,7 @@
 import { SfDivider } from "@storefront-ui/vue";
 
 export default {
-  title: "Atoms/Divider",
+  title: "Components/Atoms/Divider",
   component: SfDivider,
 };
 
