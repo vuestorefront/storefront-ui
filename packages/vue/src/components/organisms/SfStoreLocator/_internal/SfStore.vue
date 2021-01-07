@@ -105,7 +105,7 @@ export default {
      * Url of the picture of the store
      */
     picture: {
-      type: [String, Object],
+      type: String,
       default: null,
     },
     /**
