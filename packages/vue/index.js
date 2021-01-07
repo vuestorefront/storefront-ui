@@ -50,6 +50,7 @@ import SfSelect from "./src/components/molecules/SfSelect/SfSelect.vue";
 import SfSlidingSection from "./src/components/molecules/SfSlidingSection/SfSlidingSection.vue";
 import SfSteps from "./src/components/molecules/SfSteps/SfSteps.vue";
 import SfSticky from "./src/components/molecules/SfSticky/SfSticky.vue";
+import SfTile from "./src/components/molecules/SfTile/SfTile.vue";
 import SfAccordion from "./src/components/organisms/SfAccordion/SfAccordion.vue";
 import SfBannerGrid from "./src/components/organisms/SfBannerGrid/SfBannerGrid.vue";
 import SfBottomNavigation from "./src/components/organisms/SfBottomNavigation/SfBottomNavigation.vue";
@@ -122,6 +123,7 @@ export {
   SfSlidingSection,
   SfSteps,
   SfSticky,
+  SfTile,
   SfAccordion,
   SfBannerGrid,
   SfBottomNavigation,

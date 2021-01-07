@@ -50,6 +50,7 @@ const SfSelect = require("./src/components/molecules/SfSelect/SfSelect.stories.j
 const SfSlidingSection = require("./src/components/molecules/SfSlidingSection/SfSlidingSection.stories.js");
 const SfSteps = require("./src/components/molecules/SfSteps/SfSteps.stories.js");
 const SfSticky = require("./src/components/molecules/SfSticky/SfSticky.stories.js");
+const SfTile = require("./src/components/molecules/SfTile/SfTile.stories.js");
 const SfAccordion = require("./src/components/organisms/SfAccordion/SfAccordion.stories.js");
 const SfBannerGrid = require("./src/components/organisms/SfBannerGrid/SfBannerGrid.stories.js");
 const SfBottomNavigation = require("./src/components/organisms/SfBottomNavigation/SfBottomNavigation.stories.js");
@@ -122,6 +123,7 @@ module.exports = {
   SfSlidingSection,
   SfSteps,
   SfSticky,
+  SfTile,
   SfAccordion,
   SfBannerGrid,
   SfBottomNavigation,
