@@ -1,6 +1,6 @@
 import { SfNotification, SfIcon } from "@storefront-ui/vue";
 export default {
-  title: "Molecules/Notification",
+  title: "Components/Molecules/Notification",
   component: SfNotification,
   argTypes: {
     title: {

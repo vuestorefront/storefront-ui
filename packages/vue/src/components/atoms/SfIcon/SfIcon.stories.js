@@ -5,7 +5,7 @@ import { SfIcon } from "@storefront-ui/vue";
 const iconsNames = Object.keys(icons);
 
 export default {
-  title: "Atoms/Icon",
+  title: "Components/Atoms/Icon",
   component: SfIcon,
   argTypes: {
     icon: {
@@ -65,6 +65,62 @@ Common.args = {
   icon: "home",
   size: "lg",
   color: "green-primary",
+};
+
+export const ListOfIcons = () => ({
+  components: { SfIcon },
+  data() {
+    return {
+      icons,
+    };
+  },
+  template: `
+  <div style="font-family: var(--font-family--primary);">
+    <p style="font-size: var(--font-size--base);">There are {{Object.keys(icons).length}} pre-defined icons.</p>
+    <ul style="display: flex; flex-wrap: wrap; list-style: none; padding-left: 0px;">
+      <li v-for="(icon, name) in icons" :key="name" style="display: flex; align-items: center; padding: 0px 7.5px 20px; min-width: 120px;" >
+        <SfIcon v-bind="icon" :icon="name" size="sm" />
+        <span style="margin-left: 5px; font-size: 12px; color: var(--c-gray-darken)">{{name}}</span>
+      </li>
+    </ul>
+  </div>
+  `,
+});
+ListOfIcons.parameters = {
+  controls: {
+    disabled: true,
+  },
+};
+
+export const IconSizes = () => ({
+  components: { SfIcon },
+  props: ["icon", "viewBox", "color"],
+  data() {
+    return {
+      sizes,
+    };
+  },
+  template: `
+  <div style="font-family: var(--font-family--primary);">
+    <p style="font-size: 14px; font-weight: 300;">We provide the following standard sizes for customizing icon</p>
+    <ul style="display: flex; flex-wrap: wrap; list-style: none; padding-left: 0px;">
+      <li v-for="size in sizes" :key="size" style="margin: 0.5rem 1rem; align-self: flex-end; text-align: center;" >
+        <SfIcon :icon="icon" :viewBox="viewBox" :color="color" :size="size" />
+        <h5 style="margin: 1rem 0; font-size: 14px; color: var(--c-gray-darken); font-weight:400">{{size}}</h5>
+      </li>
+    </ul>
+  </div>
+  `,
+});
+IconSizes.args = {
+  icon: "home",
+  color: "green-primary",
+};
+
+IconSizes.parameters = {
+  controls: {
+    disabled: true,
+  },
 };
 
 export const CustomIcon = Template.bind({});
