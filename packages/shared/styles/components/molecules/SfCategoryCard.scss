@@ -15,7 +15,6 @@
     width: 100%;
     background: var(--c-primary);
     padding: var(--spacer-xs);
-    transition: padding 150ms ease-in;
   }
   &__label, &__count {
     font-size: var(--font-size--base);
@@ -30,11 +29,6 @@
     }
     &__label, &__count {
       font-weight: var(--font-weight--normal);
-    }
-    &:hover {
-      .sf-category-card__details {
-        padding: var(--spacer-base) var(--spacer-xs);
-      }
     }
   }
 }

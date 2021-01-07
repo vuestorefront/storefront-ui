@@ -230,20 +230,6 @@ export default {
       default: null,
     },
     /**
-     * isAddedToCart status of whether button is showed, product is added or not
-     */
-    isAddedToCart: {
-      type: Boolean,
-      deafult: false,
-    },
-    /**
-     * addToCartDisabled status of whether button is disabled when out of stock
-     */
-    addToCartDisabled: {
-      type: Boolean,
-      default: false,
-    },
-    /**
      * Wish list icon
      * This is the default icon for product not yet added to wish list.
      * It can be a icon name from our icons list, or array or string as SVG path(s).

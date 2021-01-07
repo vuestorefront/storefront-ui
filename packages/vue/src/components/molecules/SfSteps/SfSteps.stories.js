@@ -1,29 +1,69 @@
-import { storiesOf } from "@storybook/vue";
-import { withKnobs, boolean } from "@storybook/addon-knobs";
 import { SfSteps } from "@storefront-ui/vue";
-storiesOf("Molecules|Steps", module)
-  .addDecorator(withKnobs)
-  .add("Common", () => ({
-    components: { SfSteps },
-    props: {
-      canGoBack: {
-        default: boolean("canGoBack", true, "Props"),
+export default {
+  title: "Components/Molecules/Steps",
+  component: SfSteps,
+  argTypes: {
+    canGoBack: {
+      control: "boolean",
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: true,
+        },
       },
+      description: "Disable clicking on  a past step",
     },
-    data() {
-      return {
-        active: 0,
-        steps: ["Details", "Shipping", "Payment", "Review"],
-      };
+    active: {
+      control: "number",
+      defaultValue: 0,
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: 0,
+        },
+      },
+      description: "Current active step",
     },
-    template: `<SfSteps
-       v-model="active" 
-       :steps="steps" 
-       :can-go-back="canGoBack">
-      <SfStep v-for="(step, key) in steps" :key="key" :name="step">
-        <div style="display: flex; align-items:center; justify-content:center; height: 18.75rem; background-color: #f2f2f2;">
-          [#default slot content] {{step}}
-        </div>
-      </SfStep>
-    </SfSteps>`,
-  }));
+    steps: {
+      control: "array",
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: "[]",
+        },
+      },
+      description: "Steps to display",
+    },
+    change: { action: "Step changed", table: { category: "Events" } },
+  },
+};
+
+const Template = (args, { argTypes }) => ({
+  components: { SfSteps },
+  props: Object.keys(argTypes),
+  template: `
+  <SfSteps
+    :active="active"
+    :steps="steps" 
+    :can-go-back="canGoBack"
+    @change="change"
+  >
+    <SfStep v-for="(step, key) in steps" :key="key" :name="step">
+      <div style="display: flex; align-items:center; justify-content:center; height: 18.75rem; background-color: #f2f2f2;">
+        [#default slot content] {{step}}
+      </div>
+    </SfStep>
+  </SfSteps>`,
+});
+
+export const Common = Template.bind({});
+Common.args = {
+  steps: ["Details", "Shipping", "Payment", "Review"],
+};
+
+export const NoGoBack = Template.bind({});
+NoGoBack.args = {
+  ...Common.args,
+  active: 1,
+  canGoBack: false,
+};

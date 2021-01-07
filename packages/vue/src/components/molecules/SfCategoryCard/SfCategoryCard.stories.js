@@ -1,40 +1,55 @@
-import { storiesOf } from "@storybook/vue";
-import {
-  withKnobs,
-  text,
-  object,
-  optionsKnob as options,
-} from "@storybook/addon-knobs";
 import SfCategoryCard from "./SfCategoryCard.vue";
-storiesOf("Molecules|CategoryCard", module)
-  .addDecorator(withKnobs)
-  .add("Common", () => ({
-    props: {
-      label: {
-        default: text("label", "Personal Care", "Props"),
-      },
-      count: {
-        default: text("count", "32", "Props"),
-      },
-      background: {
-        default: object(
-          "background",
-          {
-            mobile: "assets/storybook/SfCategoryCard/category-cardM.jpg",
-            desktop: "assets/storybook/SfCategoryCard/category-cardD.jpg",
-          },
-          "Props"
-        ),
-      },
-      link: {
-        default: text("link", "#", "Props"),
+
+export default {
+  title: "Components/Molecules/CategoryCard",
+  component: SfCategoryCard,
+  argTypes: {
+    label: {
+      control: "text",
+      table: {
+        category: "Props",
       },
     },
-    components: { SfCategoryCard },
-    template: `<SfCategoryCard
-        :link="link"
-        :label="label"
-        :count="count"
-        :background="background"
-      />`,
-  }));
+    count: {
+      control: "text",
+      table: {
+        category: "Props",
+      },
+    },
+    link: {
+      control: "text",
+      table: {
+        category: "Props",
+      },
+    },
+    background: {
+      control: "object",
+      table: {
+        category: "Props",
+      },
+    },
+  },
+};
+
+const Template = (args, { argTypes }) => ({
+  components: { SfCategoryCard },
+  props: Object.keys(argTypes),
+  template: `
+  <SfCategoryCard
+    :link="link"
+    :label="label"
+    :count="count"
+    :background="background"
+  />`,
+});
+
+export const Common = Template.bind({});
+Common.args = {
+  label: "Personal Care",
+  count: "32",
+  link: "#",
+  background: {
+    mobile: "assets/storybook/SfCategoryCard/category-cardM.jpg",
+    desktop: "assets/storybook/SfCategoryCard/category-cardD.jpg",
+  },
+};
