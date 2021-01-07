@@ -39,7 +39,6 @@
     box-shadow: none;
     color: var(--select-dropdown-color, var(--c-secondary-variant));
     background: var(--c-white);
-    outline: none;
     @include border(
       --select-dropdown-border,
       0 0 0 0,

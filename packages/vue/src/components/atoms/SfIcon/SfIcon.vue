@@ -11,15 +11,8 @@
         :viewBox="iconViewBox"
         preserveAspectRatio="none"
       >
-        <defs>
-          <linearGradient
-            v-if="coverage < 1"
-            :id="coverage"
-            x1="0"
-            y1="0"
-            x2="1"
-            y2="0"
-          >
+        <defs v-if="coverage < 1">
+          <linearGradient :id="coverage" x1="0" y1="0" x2="1" y2="0">
             <stop :offset="coverage" stop-color="var(--icon-color)" />
             <stop
               offset="0"
@@ -32,16 +25,9 @@
           :key="index"
           :d="path"
           :fill="fillPath"
-          style="height: 100%;"
+          style="height: 100%"
         />
       </svg>
-    </slot>
-    <slot name="badge" v-bind="{ badgeLabel, hasBadge }">
-      <transition name="sf-bounce">
-        <SfBadge v-if="hasBadge" class="sf-icon__badge sf-badge--number">
-          {{ badgeLabel }}
-        </SfBadge>
-      </transition>
     </slot>
   </div>
 </template>
@@ -49,13 +35,12 @@
 import icons from "@storefront-ui/shared/icons/icons";
 import { iconColorsValues as SF_COLORS } from "@storefront-ui/shared/variables/colors";
 import { sizesValues as SF_SIZES } from "@storefront-ui/shared/variables/sizes";
-import SfBadge from "../SfBadge/SfBadge";
 const SF_ICONS = Object.keys(icons);
+
+const fillPathUrl = (index) => `url(#${index})`;
+
 export default {
   name: "SfIcon",
-  components: {
-    SfBadge,
-  },
   props: {
     /**
      * Icon SVG path(s)
@@ -93,14 +78,6 @@ export default {
     viewBox: {
       type: String,
       default: "0 0 24 24",
-    },
-    hasBadge: {
-      type: Boolean,
-      default: false,
-    },
-    badgeLabel: {
-      type: String,
-      default: "",
     },
     /**
      * The fraction in which the icon is partially collored with --icon-color value and the rest with --icon-color-negative.
@@ -151,12 +128,7 @@ export default {
     fillPath() {
       return this.coverage === 1
         ? "var(--icon-color)"
-        : this.fillUrl(this.coverage);
-    },
-  },
-  methods: {
-    fillUrl(index) {
-      return "url(#" + index + ")";
+        : fillPathUrl(this.coverage);
     },
   },
 };
