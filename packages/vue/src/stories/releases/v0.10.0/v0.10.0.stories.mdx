@@ -2,30 +2,63 @@ import { Meta } from "@storybook/addon-docs/blocks";
 
 <Meta title="Releases/v0.10.0/Change log" />
 
-# Latest version - v0.10.0 🎉
+# v0.10.0
 
-## What is new?
+v0.10.0 contains API breaking changes and new features.
 
-👉 SfCard - new component for displaying information with title, image and action button in a card view
+## 🚀 Features
 
-👉 SfImage refactor
+- [SfCimage](?path=/story/components-atoms-cloudinary-image--common) - Advanced image component with built-in Cloudinary support.
+- [SfCard](?path=/story/components-molecules-card--common) - component for displaying information with title, image and action button in a card view.
+- [SfTile](?path=/story/components-molecules-tile--common) - component with title and background-image for displaying information in a tile view.
+- [SfCategoryCard](?path=/story/components-molecules-category-card--common) - component for displaying information about categories in a cred view.
+- Move configuration of fonts outside of StorefrontUI CSS Styling.
+- Move utilities classes from helpers folder to global
+- [SfHeroItem] - new `link` prop.
+- [SfCallToAction] - new `link` prop.
 
-👉 Storybook upgraded to 6x and migration of our docs form vuepress to MDX
+## ❗ Refactor/ Breaking Changes
 
-👉 Mobile pop-up with information after adding a product to the cart on product page
+- [SfImage](?path=/story/components-atoms-image--common). See [Migration guide](/?path=/story/releases-v0-10-0-migration-guide--page)
+- [Checkout page](?path=/story/pages-checkout--common) with the new design.
+- Deprecate `badgeLabel` and `hasBadgeLabel` props from `SfIcon`
 
-## Fixes
-
-### Molecules:
+## 🐛 Fixes
 
 - SfPagination: fixed linkToPage if SfPagination has router
-
-### Organisms:
-
 - SfProductCard: mobile category tile differs from the designs
 - SfCarousel: it doesn't look good when there are less than 4 products
 - SfHero: custom prev next not clickable
+- Mobile pop-up with information after adding a product to the cart on product page
+- SfMegaMenu typo in name of class inside scss for stories file
+- SfPagination link is a number instead of URL
+- Category page for mobile differs form figma design
+- SfSelect with no outline when focused with keyboard
+- SfBanner has no link prop and is not clickable on mobile
+- SfTableHeading and SfTableRow causes SSR missmatch
+- SfProductOption causes SSR missmatch
+- SfComponentSelect wrong border color
+- SfTextarea has wrong font
+- SfColorPicker opacity affects SfColor
+- SfFooter menu opens without clicking on it
+- SfAddressPicker doesn't react to "selected" prop changes
+- SfCollectedProduct remove button without background in SfSidebar
+- SfSelect `v-model` doesn't work
+- Property `isAddedToCart` on ProductCard doesn't change how item displays
+- SfCardHorizontal size and color change from property to select
+- SfProductCard isAddedToCart prop not changing icon
+- SfPagination error on SSR
+- SfCircleIcon in disabled state with color modifier
+- SfArrow with transparent modifier on disbaled mode
+- SfCarousel duplicates the slides
 
-### Other:
+## 🧹 Chores:
 
-- broken link in readme
+- Broken link in README.md
+- Storybook upgraded to 6x and migration of our docs form vuepress to MDX
+- Tailwind customization doesn't work as described
+- Update links to Figma designs
+- SfGallery error shows on Storybook when `enableZoom` is `true`
+- Add typography, styleguides to storybook
+- Add list of icons and sizes to SfIcon stories
+- Disable warnings during creating docs for internal components

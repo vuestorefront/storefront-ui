@@ -4,6 +4,7 @@
     <transition :name="transitionName">
       <aside
         v-if="visible"
+        ref="sidebarAside"
         v-focus-trap
         v-click-outside="checkPersistence"
         class="sf-sidebar__aside"
@@ -42,10 +43,16 @@
           <!--@slot Use this slot to add sticky top content.-->
           <slot name="content-top" />
         </div>
-        <div ref="content" class="sf-sidebar__content">
-          <!--@slot Use this slot to add SfSidebar content.-->
-          <slot />
-        </div>
+        <SfScrollable
+          show-text=""
+          hide-text=""
+          :max-content-height="setMaxHeight"
+        >
+          <div ref="content" class="sf-sidebar__content">
+            <!--@slot Use this slot to add SfSidebar content.-->
+            <slot />
+          </div>
+        </SfScrollable>
         <!--@slot Use this slot to place content to sticky bottom.-->
         <div v-if="hasBottom" class="sf-sidebar__bottom">
           <slot name="content-bottom" />
@@ -63,6 +70,7 @@ import SfBar from "../../molecules/SfBar/SfBar.vue";
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import SfHeading from "../../atoms/SfHeading/SfHeading.vue";
+import SfScrollable from "../../molecules/SfScrollable/SfScrollable.vue";
 export default {
   name: "SfSidebar",
   directives: { focusTrap, clickOutside },
@@ -71,28 +79,47 @@ export default {
     SfCircleIcon,
     SfOverlay,
     SfHeading,
+    SfScrollable,
   },
   props: {
+    /**
+     * The sidebar's title
+     */
     title: {
       type: String,
       default: "",
     },
+    /**
+     * The sidebar's subtitle
+     */
     subtitle: {
       type: String,
       default: "",
     },
+    /**
+     * The heading's level
+     */
     headingLevel: {
       type: Number,
       default: 3,
     },
+    /**
+     * The close button
+     */
     button: {
       type: Boolean,
       default: true,
     },
+    /**
+     * The sidebar's visibility
+     */
     visible: {
       type: Boolean,
       default: false,
     },
+    /**
+     * The overlay's visibility
+     */
     overlay: {
       type: Boolean,
       default: true,
@@ -110,6 +137,7 @@ export default {
       position: "left",
       staticClass: null,
       className: null,
+      setMaxHeight: "",
     };
   },
   computed: {
@@ -133,6 +161,9 @@ export default {
         if (value) {
           this.$nextTick(() => {
             disableBodyScroll(this.$refs.content);
+            if (this.$slots.default) {
+              this.setMaxHeight = `${this.$refs.sidebarAside.offsetHeight.toString()}px`;
+            }
           });
           document.addEventListener("keydown", this.keydownHandler);
         } else {
@@ -142,12 +173,6 @@ export default {
       },
       immediate: true,
     },
-  },
-  mounted() {
-    this.classHandler();
-  },
-  updated() {
-    this.classHandler();
   },
   methods: {
     close() {
