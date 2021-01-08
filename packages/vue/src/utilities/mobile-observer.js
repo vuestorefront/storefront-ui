@@ -1,14 +1,9 @@
 import Vue from "vue";
 let observer;
 const isMobileMax = 1023;
-const isMobileMin = 1024;
-export const onMediaMatchMobile = (e) => {
-  if (!e.matches) return;
-  e.matches ? (observer.isMobile = true) : null;
-};
-export const onMediaMatchDesktop = (e) => {
-  if (!e.matches) return;
-  e.matches ? (observer.isMobile = false) : null;
+export const onMediaMatch = (e) => {
+  if (typeof e.matches === null) return;
+  observer.isMobile = !!e.matches;
 };
 export const setupListener = () => {
   if (
