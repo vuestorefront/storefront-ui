@@ -6,8 +6,8 @@ import {
   SfButton,
   SfMenuItem,
   SfInput,
+  SfLink,
 } from "@storefront-ui/vue";
-import "./SfFooter.stories.scss";
 
 export default {
   title: "Organisms/Footer",
@@ -57,6 +57,7 @@ const Template = (args, { argTypes }) => ({
     SfButton,
     SfMenuItem,
     SfInput,
+    SfLink,
   },
   props: Object.keys(argTypes),
   data() {
@@ -92,7 +93,6 @@ const Template = (args, { argTypes }) => ({
       :open="open"
       :logo="logo"
       :title="title"
-      class="sb-footer"
     >
       <SfFooterColumn v-for="column in columns" :key="column.title" :title="column.title">        
         <SfList>
@@ -102,10 +102,10 @@ const Template = (args, { argTypes }) => ({
         </SfList>      
       </SfFooterColumn>
       <SfFooterColumn title="social.title" class="desktop-only">
-        <SfImage v-for="picture in social.pictures" :key="picture" :src="'/assets/storybook/SfFooter/'+picture+' Icon.svg'" :alt="picture" class="sb-social-icon"/>
+        <SfImage v-for="picture in social.pictures" :key="picture" :src="'/assets/storybook/SfFooter/'+picture+' Icon.svg'" :alt="picture" style="width: 32px; height: 32px;"/>
       </SfFooterColumn> 
       <SfFooterColumn title="Language" class="desktop-only">
-        <SfButton class="sb-footer__button sf-button--pure">
+        <SfButton class="sf-button--pure" style="display: flex; justify-content: space-between; ">
           <SfImage
             src="/assets/storybook/SfFooter/flag.png"
             alt="flag of the USA"
@@ -121,20 +121,27 @@ const Template = (args, { argTypes }) => ({
           </div>
         </template>
       </SfFooterColumn>
-      <template #bottom >
-        <div class="sb-footer__bottom">
-          <div class="sf-footer-column__title sb-footer__bottom-title">
+      <SfFooterColumn>
+        <div style="display: flex; flex-direction: column; jusify-content: space-around; align-items:center; width: 100%;">
+          <div class="sf-footer-column__title" style="align-self: flex-start; width: auto;">
             Social
           </div>
-          <div class="sb-footer__bottom-social">
+          <div class="sb-footer__bottom-social" style="display: flex; justfy-content: space-around; width: 100%;">
             <SfImage v-for="picture in social.pictures" :key="picture" :src="'/assets/storybook/SfFooter/'+picture+' Icon.svg'" :alt="picture" class="sb-social-icon"/>
           </div>
-          <div class="sb-footer__input">
-            <SfInput class="sf-input--outline" type="text" placeholder="Type your email address"/>
-            <SfButton>Subscribe</SfButton>
+          <div style="display: flex; align-items: center; justify-content: center;">
+            <SfInput class="sf-input--outline" type="text" placeholder="Type your email address" style="min-height: 32px; width: 242px;"/>
+            <SfButton style="width: 116px;">Subscribe</SfButton>
           </div>
-        </div>        
-      </template>
+          <SfLink link="#" class="smartphone-only">
+            <SfImage
+              :src="logo"
+              :alt="title"
+              class="sf-footer__bottom-logo"
+            />            
+          </SfLink>
+        </div>  
+      </SfFooterColumn>  
     </SfFooter>`,
 });
 
