@@ -16,12 +16,7 @@ export const setupListener = () => {
   observer.isMobile =
     Math.max(document.documentElement.clientWidth, window.innerWidth) <=
     isMobileMax;
-  window
-    .matchMedia(`(max-width: ${isMobileMax}px)`)
-    .addListener(onMediaMatchMobile);
-  window
-    .matchMedia(`(min-width: ${isMobileMin}px)`)
-    .addListener(onMediaMatchDesktop);
+  window.matchMedia(`(max-width: ${isMobileMax}px)`).addListener(onMediaMatch);
   observer.isInitialized = true;
 };
 export const tearDownListener = () => {
@@ -32,10 +27,7 @@ export const tearDownListener = () => {
   ) {
     window
       .matchMedia(`(max-width: ${isMobileMax}px)`)
-      .removeListener(onMediaMatchMobile);
-    window
-      .matchMedia(`(min-width: ${isMobileMin}px)`)
-      .removeListener(onMediaMatchDesktop);
+      .removeListener(onMediaMatch);
   }
 };
 export const mapMobileObserver = () => {
