@@ -2,8 +2,6 @@
 .sf-footer-column {  
   color: var(--c-white);
   box-sizing: border-box;
-  flex: 0 0 var(--_footer-column-width);
-  justify-content: space-between;
   &__title {
     color: var(--c-white);
     display: flex;
@@ -37,14 +35,22 @@
     font-weight: var(--font-weight--normal);
     &__chevron {
       display: none;  
+    }
+    &__title {
+      padding: var(--spacer-sm) 0;
     } 
+    & .sf-list__item {
+      margin: var(--spacer-xs) 0;
+    }
   }
 }
 .sf-footer {
-  background: var(--c-secondary);
+  background: var(--c-secondary);  
   &__container {
     box-sizing: border-box;
     display: flex;
+    flex: 1;
+    flex-direction: column;
   }
   &__bottom {
     display: flex;
@@ -59,11 +65,10 @@
       padding: var(--spacer-xl) 0 0 0;
     }
   }  
-  @include for-desktop {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin: 0 auto;
-    padding: var(--spacer-2xl) 0;
+  @include for-desktop {       
+    padding: var(--spacer-2xl) 10%;
+    &__container {
+      display: grid;
+    }
   }
 }

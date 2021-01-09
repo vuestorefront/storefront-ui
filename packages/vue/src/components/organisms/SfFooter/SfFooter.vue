@@ -1,6 +1,9 @@
 <template>
-  <footer class="sf-footer" :style="style">
-    <div class="sf-footer__container">
+  <footer class="sf-footer">
+    <div
+      class="sf-footer__container"
+      :style="{ 'grid-template-columns': ' 1fr'.repeat(column) }"
+    >
       <slot />
     </div>
   </footer>
@@ -47,11 +50,6 @@ export default {
   },
   computed: {
     ...mapMobileObserver(),
-    style() {
-      return !this.isMobile
-        ? { "--_footer-column-width": `${100 / this.column}%` }
-        : { "--_footer-column-width": "100%" };
-    },
   },
   watch: {
     isMobile: {

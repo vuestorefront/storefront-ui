@@ -82,7 +82,7 @@ const Template = (args, { argTypes }) => ({
       ],
       social: {
         title: "Social",
-        pictures: ["Facebook", "Pinterest", "Twitter", "Google", "Youtube"],
+        pictures: ["facebook", "pinterest", "twitter", "google", "youtube"],
       },
     };
   },
@@ -101,8 +101,8 @@ const Template = (args, { argTypes }) => ({
           </SfListItem>
         </SfList>      
       </SfFooterColumn>
-      <SfFooterColumn title="social.title" class="desktop-only">
-        <SfImage v-for="picture in social.pictures" :key="picture" :src="'/assets/storybook/SfFooter/'+picture+' Icon.svg'" :alt="picture" style="width: 32px; height: 32px;"/>
+      <SfFooterColumn :title="social.title" class="desktop-only">
+        <SfImage v-for="picture in social.pictures" :key="picture" :src="'/assets/storybook/SfFooter/'+picture+'.svg'" :alt="picture" style="width: 32px; height: 32px;"/>
       </SfFooterColumn> 
       <SfFooterColumn title="Language" class="desktop-only">
         <SfButton class="sf-button--pure" style="display: flex; justify-content: space-between; ">
@@ -121,7 +121,7 @@ const Template = (args, { argTypes }) => ({
           </div>
         </template>
       </SfFooterColumn>
-      <SfFooterColumn>
+      <div class="sf-footer-column smartphone-only">
         <div style="display: flex; flex-direction: column; jusify-content: space-around; align-items:center; width: 100%;">
           <div class="sf-footer-column__title" style="align-self: flex-start; width: auto;">
             Social
@@ -141,7 +141,7 @@ const Template = (args, { argTypes }) => ({
             />            
           </SfLink>
         </div>  
-      </SfFooterColumn>  
+      </div>  
     </SfFooter>`,
 });
 
