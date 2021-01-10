@@ -102,22 +102,23 @@ const Template = (args, { argTypes }) => ({
         </SfList>      
       </SfFooterColumn>
       <SfFooterColumn :title="social.title" class="desktop-only">
-        <SfImage v-for="picture in social.pictures" :key="picture" :src="'/assets/storybook/SfFooter/'+picture+'.svg'" :alt="picture" style="width: 32px; height: 32px;"/>
+        <SfImage v-for="picture in social.pictures" :key="picture" :src="'/assets/storybook/SfFooter/'+picture+'.svg'" :alt="picture" style="width: 32px; height: 32px; margin-right: 4px;"/>
       </SfFooterColumn> 
       <SfFooterColumn title="Language" class="desktop-only">
-        <SfButton class="sf-button--pure" style="display: flex; justify-content: space-between; ">
+        <SfButton class="sf-button--pure" style="display: flex; align-self: end; color: white;">
           <SfImage
             src="/assets/storybook/SfFooter/flag.png"
             alt="flag of the USA"
+            style="margin-right: 10px;"
           />
           English
         </SfButton>
       </SfFooterColumn>
       <SfFooterColumn class="desktop-only">
         <template>
-          <div class="sb-footer__input">
-            <SfInput class="sf-input--outline" type="text" placeholder="Type your email address"/>
-            <SfButton>Subscribe</SfButton>
+          <div style="display: flex; height: 32px; margin-top: 22px;" >
+            <SfInput class="sf-input--outline" type="text" placeholder="Type your email address" style="width: 242px; min-height: auto; font-size: 16px; color: #43464E; background-color: #F1F2F3; --input-border-color: #F1F2F3;"/>
+            <SfButton style="width: 116px;">Subscribe</SfButton>
           </div>
         </template>
       </SfFooterColumn>
@@ -126,18 +127,19 @@ const Template = (args, { argTypes }) => ({
           <div class="sf-footer-column__title" style="align-self: flex-start; width: auto;">
             Social
           </div>
-          <div class="sb-footer__bottom-social" style="display: flex; justfy-content: space-around; width: 100%;">
-            <SfImage v-for="picture in social.pictures" :key="picture" :src="'/assets/storybook/SfFooter/'+picture+' Icon.svg'" :alt="picture" class="sb-social-icon"/>
+          <div style="display: flex; justify-content: space-around; width: 100%;  margin-bottom: 32px;">
+            <SfImage v-for="picture in social.pictures" :key="picture" :src="'/assets/storybook/SfFooter/'+picture+'.svg'" :alt="picture"/>
           </div>
-          <div style="display: flex; align-items: center; justify-content: center;">
-            <SfInput class="sf-input--outline" type="text" placeholder="Type your email address" style="min-height: 32px; width: 242px;"/>
-            <SfButton style="width: 116px;">Subscribe</SfButton>
+          <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 38px;">
+            <SfInput class="sf-input--outline" type="text" placeholder="Type your email address" style="width: 242px; min-height: auto; height: 32px; font-size: 16px; color: #43464E; background-color: #F1F2F3; --input-border-color: #F1F2F3;"/>
+            <SfButton style="width: 116px; height: 32px;">Subscribe</SfButton>
           </div>
-          <SfLink link="#" class="smartphone-only">
+          <SfLink link="#">
             <SfImage
               :src="logo"
               :alt="title"
               class="sf-footer__bottom-logo"
+              style="margin-bottom: 38px;"
             />            
           </SfLink>
         </div>  
