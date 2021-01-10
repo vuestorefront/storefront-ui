@@ -8,7 +8,12 @@ v0.10.0 contains API breaking changes and new features.
 
 ## 🚀 Features
 
-- [SfCimage](?path=/story/components-atoms-cloudinary-image--common) - Advanced image component with built-in Cloudinary support.
+- [SfCimage](?path=/story/components-atoms-cloudinary-image--common) - Advanced image component with built-in Cloudinary support, containing the following features:
+  - Auto format and auto quality delivery per browser/device.
+  - `placeholder` support with four types: `pixelate`, `vectorize`, `predominant` and `blur`.
+  - `progressive` support.
+  - Lazy loading support.
+  - Accessibility auto-enforced by `alt` props.
 - [SfCard](?path=/story/components-molecules-card--common) - component for displaying information with title, image and action button in a card view.
 - [SfTile](?path=/story/components-molecules-tile--common) - component with title and background-image for displaying information in a tile view.
 - [SfCategoryCard](?path=/story/components-molecules-category-card--common) - component for displaying information about categories in a cred view.
@@ -16,12 +21,16 @@ v0.10.0 contains API breaking changes and new features.
 - Move utilities classes from helpers folder to global
 - [SfHeroItem](?path=/story/components-organisms-hero--common) - new `link` prop.
 - [SfCallToAction](?path=/story/components-molecules-call-to-action--common) - new `link` prop.
+- [SfImage](?path=/story/components-atoms-image--common) - Enhancements
+  - Placeholder supported with `placeholder`.
+  - Reponsive with resolutions is supported with new `srcsets` props.
+  - Accessibility auto-enforced by `alt` props.
 
 ## ❗ Refactor/ Breaking Changes
 
 - [SfImage](?path=/story/components-atoms-image--common). See [Migration guide](/?path=/story/releases-v0-10-0-migration-guide--page) for more details.
 - [Checkout page](?path=/story/pages-checkout--common) with the new design.
-- Deprecate `badgeLabel` and `hasBadgeLabel` props from `SfIcon`. See [Migration guide](/?path=/story/releases-v0-10-0-migration-guide--page) for more details.
+- Deprecate `badgeLabel` and `hasBadgeLabel` props from `SfIcon`. Use `SfBadge` together with `SfIcon` instead.
 
 ## 🐛 Fixes
 
