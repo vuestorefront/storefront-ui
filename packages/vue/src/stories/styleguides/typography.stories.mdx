@@ -1,5 +1,5 @@
-import { Meta, Story } from '@storybook/addon-docs/blocks';
-import { typography } from "./typography"
+import { Meta, Story } from "@storybook/addon-docs/blocks";
+import { typography } from "./typography";
 
 <Meta title="Styleguides/Typography" />
 
@@ -33,63 +33,67 @@ Below is the information about StorefrontUI's default typography.
 
 ## Font
 
- * Primary: Roboto (`--font-family--primary`)
- * Secondary: Raleway (`--font-family--secondary`)
+- Primary: Roboto (`--font-family--primary`)
+- Secondary: Raleway (`--font-family--secondary`)
 
 ## Weight
 
- * 300 (`--font-weight--light`)
- * 400 (`--font-weight--normal`)
- * 500 (`--font-weight--medium`)
- * 600 (`--font-weight--semibold`)
- * 700 (`--font-weight--bold`)
+- 300 (`--font-weight--light`)
+- 400 (`--font-weight--normal`)
+- 500 (`--font-weight--medium`)
+- 600 (`--font-weight--semibold`)
+- 700 (`--font-weight--bold`)
 
 ## Sizes
 
 You can modify the given standard sizes using the corresponding CSS variables:
 
 <div class="docblock-typeset">
-{ 
-  Object.keys(typography.size).map(key => (
+  {Object.keys(typography.size).map((key) => (
     <div class="size-row">
       <div class="size-row--label">--font-size--{key}</div>
-      <div style={{ lineHeight: 1.2, fontWeight: 500, fontSize: typography.size[key] }}>
+      <div
+        style={{
+          lineHeight: 1.2,
+          fontWeight: 500,
+          fontSize: typography.size[key],
+        }}
+      >
         Was he a beast if music could move him so?
       </div>
     </div>
-  ))
-}
+  ))}
 </div>
 
 The sizes are defined [here](https://github.com/DivanteLtd/storefront-ui/blob/develop/packages/shared/styles/variables/_typography.scss)
 
 ## Icon sizes
 
-<Story id="atoms-icon--icon-sizes" />
+<Story id="components-atoms-icon--icon-sizes" />
 
 Each size used from this list for the icon will be converted to a proper size class, following the syntax `sf-icon--size-<size>`. For example `sf-icon--size-xxs`. These classes for sizes are defined [here](https://github.com/DivanteLtd/storefront-ui/blob/develop/packages/shared/styles/components/atoms/SfIcon.scss)
 
 You can apply any size from the list above to an icon, simply by passing the size's label to `size` prop, e.g
 
 ```html
-<sf-icon size="xxs"/>
+<sf-icon size="xxs" />
 ```
 
 or by importing the list of icon sizes from `@storefront-ui/shared/variables/sizes` and using the desired size variable, e.g
 
 ```html
 <template>
-  <sf-icon :size="iconSize"/>
+  <sf-icon :size="iconSize" />
 </template>
 <script>
-import { sizes } from "@storefront-ui/shared/variables/sizes";
-export default {
-  data() {
-    return {
-      iconSize: sizes.xxs
-    }
-  }
-}
+  import { sizes } from "@storefront-ui/shared/variables/sizes";
+  export default {
+    data() {
+      return {
+        iconSize: sizes.xxs,
+      };
+    },
+  };
 </script>
 ```
 
