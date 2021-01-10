@@ -1,6 +1,6 @@
 import { SfProductOption } from "@storefront-ui/vue";
 export default {
-  title: "Molecules/ProductOption",
+  title: "Components/Molecules/ProductOption",
   component: SfProductOption,
   decorators: [
     () => ({ template: "<div style='max-width: 300px'><story/></div>" }),

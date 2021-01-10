@@ -1,6 +1,6 @@
 import { SfSection } from "@storefront-ui/vue";
 export default {
-  title: "Molecules/Section",
+  title: "Components/Molecules/Section",
   component: SfSection,
   argTypes: {
     titleHeading: {

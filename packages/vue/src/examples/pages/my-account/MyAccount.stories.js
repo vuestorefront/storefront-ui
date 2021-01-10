@@ -9,3 +9,6 @@ const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `<MyAccount />`,
 });
+
+export const Common = Template.bind({});
+Common.args = {};

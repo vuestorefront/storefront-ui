@@ -10,7 +10,7 @@ import {
 } from "@storefront-ui/vue";
 
 export default {
-  title: "Organisms/Footer",
+  title: "Components/Organisms/Footer",
   component: SfFooter,
   argTypes: {
     open: {
