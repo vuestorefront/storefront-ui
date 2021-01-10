@@ -27,7 +27,8 @@
     "hooks": {
       "pre-commit": "lerna run precommit",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-push": "lerna run test:unit"
+      "pre-push": "lerna run test:unit",
+      "postpublish": "yarn create-gitlog"
     }
   },
   "devDependencies": {
