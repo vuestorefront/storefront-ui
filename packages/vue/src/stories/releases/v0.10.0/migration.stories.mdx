@@ -344,7 +344,10 @@ Please refer to the below table for the deprecated variables and their alternati
       <div>N/A</div>
     </div>
   </div>
-</div>SfImage`
+</div>
+
+And the followings are planned be deprecated soon (from v0.11.0 onwards)
+
 - `--image-overlay-padding`
 - `--image-overlay-background`
 - `--image-overlay-color`
@@ -393,8 +396,7 @@ It was replaced by grid styling set directly in the inline CSS like this:
 
 ## Atoms refactored
 
-As the better web performance is one of our main goals, we refactored components without additional logic into functional components.
-This is the list of changed components:
+As the better web performance is one of our main goals, we refactored components without additional logic into functional components:
 
 - [SfArrow](?path=/story/components-atoms-arrow--common)
 - [SfBadge](?path=/story/components-atoms-badge--primary)
@@ -411,7 +413,7 @@ So the example component is now looking like this:
 ```
 <template functional>
   <div
-    :class="[data.class, data.staticClass, 'sf-badge']"
+    class="sf-badge"
     :style="[data.style, data.staticStyle]"
     v-bind="data.attrs"
     v-on="listeners"
