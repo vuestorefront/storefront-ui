@@ -15,15 +15,20 @@
 </template>
 <script>
 import SfSidebar from "../../../organisms/SfSidebar/SfSidebar";
+import {
+  mapMobileObserver,
+  unMapMobileObserver,
+} from "../../../utilities/mobile-observer";
+
 export default {
   name: "SfHeaderNavigation",
   components: {
     SfSidebar,
   },
-  inject: ["mobileObserver"],
   computed: {
+    ...mapMobileObserver(),
     isVisibleOnMobile() {
-      return this.mobileObserver.isMobile;
+      return this.isMobile;
     },
   },
 };

@@ -29,6 +29,11 @@
 <script>
 import SfLink from "../../../atoms/SfLink/SfLink";
 import SfMenuItem from "../../../molecules/SfMenuItem/SfMenuItem";
+import {
+  mapMobileObserver,
+  unMapMobileObserver,
+} from "../../../utilities/mobile-observer";
+
 export default {
   name: "SfHeaderNavigationItem",
   components: {
@@ -45,10 +50,10 @@ export default {
       default: "",
     },
   },
-  inject: ["mobileObserver"],
   computed: {
+    ...mapMobileObserver(),
     isVisibleOnMobile() {
-      return this.mobileObserver.isMobile;
+      return this.isMobile;
     },
   },
 };

@@ -229,14 +229,7 @@ export default {
       animationLong: null,
       animationDuration: 300,
     };
-  },
-  provide() {
-    const mobileObserver = Vue.observable({});
-    Object.defineProperty(mobileObserver, "isMobile", {
-      get: () => this.isMobile,
-    });
-    return { mobileObserver };
-  },
+  },  
   computed: {
     ...mapMobileObserver(),
     cartHasProducts() {
