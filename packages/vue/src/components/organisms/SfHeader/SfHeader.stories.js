@@ -1,12 +1,5 @@
 import {
   SfHeader,
-  SfList,
-  SfBottomNavigation,
-  SfMegaMenu,
-  SfLink,
-  SfMenuItem,
-  SfBanner,
-  SfOverlay,
 } from "@storefront-ui/vue";
 
 export default {

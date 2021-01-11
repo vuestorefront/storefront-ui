@@ -229,7 +229,7 @@ export default {
       animationLong: null,
       animationDuration: 300,
     };
-  },  
+  },
   computed: {
     ...mapMobileObserver(),
     cartHasProducts() {
