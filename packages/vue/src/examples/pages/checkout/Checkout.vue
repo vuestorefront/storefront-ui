@@ -333,10 +333,13 @@ export default {
   padding: var(--spacer-sm);
   box-shadow: 0px -2px 10px rgba(154, 154, 154, 0.15);
   text-align: center;
+  position: sticky;
+  bottom: 0;
   &__button {
     margin-bottom: var(--spacer-sm);
   }
   @include for-desktop {
+    position: relative;
     box-shadow: none;
     padding: 0;
     width: 25rem;
