@@ -7,10 +7,39 @@ import Flow from "./assets/flow.svg";
 import Plugin from "./assets/plugin.svg";
 import Repo from "./assets/repo.svg";
 import StackAlt from "./assets/stackalt.svg";
+import Hero from "./assets/hero.png";
+import Logo from "./assets/logo.png";
+import pkg from "../../package.json";
 
 <Meta title="Welcome" />
 
 <style>{`
+  .container {
+    margin: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero {
+    margin-bottom: 2rem;
+  }
+
+  .version {
+    color: #5ECE7B !important;
+  }
+
+  .heading {
+    font-size: 18px;
+    --mediumdark: '#999999';
+    color: #999;
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: 5px;
+  }
+
   .subheading {
     --mediumdark: '#999999';
     font-weight: 900;
@@ -85,9 +114,40 @@ import StackAlt from "./assets/stackalt.svg";
     font-size: 14px;
     line-height: 20px;
   }
+
+  .supporters {
+    display: flex;
+    align-items: center;
+    margin-top: 2rem;
+    font-size: 16px;
+    justify-content: center;
+  }
+
+  .flex {
+    display: flex;
+    justify-content: center;
+  }
+
+  .image {
+    margin: 0 0.5rem;
+  }
 `}</style>
 
-# Welcome to Storefront UI
+<div class="container">
+  <img src={Logo} class="hero" alt="StorefrontUI logo" />
+  <p class="heading">
+    Current version:{" "}
+    <a
+      class="version"
+      href={`?path=/story/releases-v${pkg.version.replaceAll(
+        ".",
+        "-"
+      )}-change-log--page`}
+    >
+      {pkg.version}
+    </a>
+  </p>
+</div>
 
 **@storefront-ui/vue** is a UI component library that ships **raw** source, and aims to be:
 
@@ -142,7 +202,7 @@ We are building Storefront UI based on the following 6 fundamentals:
   </a>
   <a
     className="link-item"
-    href="?path=/story/atoms-arrow--common"
+    href="?path=/story/components-atoms-arrow--common"
     target="_self"
   >
     <img src={StackAlt} alt="stackalt" />
@@ -202,4 +262,19 @@ We are building Storefront UI based on the following 6 fundamentals:
       The core team behind StorefrontUI
     </span>
   </a>
+</div>
+
+<div class="supporters">
+  <p class="line">In collaboration with </p>
+  <img
+    class="image"
+    src="https://res.cloudinary.com/cloudinary-marketing/image/upload/w_150,c_scale/v1595456749/creative_source/Logo/PNG/cloudinary_logo_blue_0720_2x.png"
+    alt="Cloudinary logo"
+  />
+</div>
+
+<div class="flex">
+
+MIT Licensed
+
 </div>
