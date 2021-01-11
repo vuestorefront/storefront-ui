@@ -1,6 +1,9 @@
 <template>
-  <footer class="sf-footer" :style="style">
-    <div class="sf-footer__container">
+  <footer class="sf-footer">
+    <div
+      class="sf-footer__container"
+      :style="{ 'grid-template-columns': ' 1fr'.repeat(column) }"
+    >
       <slot />
     </div>
   </footer>
@@ -12,18 +15,28 @@ import {
   mapMobileObserver,
   unMapMobileObserver,
 } from "../../../utilities/mobile-observer";
+
 Vue.component("SfFooterColumn", SfFooterColumn);
 export default {
   name: "SfFooter",
   props: {
+    /**
+     * Number of footer columns
+     */
     column: {
       type: Number,
       default: 4,
     },
+    /**
+     * Multiple footer columns open at the same time on mobile
+     */
     multiple: {
       type: Boolean,
       default: true,
     },
+    /**
+     * Footer columns open on mobile
+     */
     open: {
       type: [String, Array],
       default: () => [],
@@ -37,9 +50,6 @@ export default {
   },
   computed: {
     ...mapMobileObserver(),
-    style() {
-      return { "--_footer-column-width": `${100 / this.column}%` };
-    },
   },
   watch: {
     isMobile: {

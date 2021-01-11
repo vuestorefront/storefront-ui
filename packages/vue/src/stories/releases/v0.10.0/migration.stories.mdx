@@ -20,7 +20,7 @@ import { Meta } from "@storybook/addon-docs/blocks";
 
   .table-column {
     display: grid;
-    grid-template-columns: 200px 0.5fr 0.5fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 
   .table-cell {
@@ -280,7 +280,7 @@ Please refer to the below table for the deprecated variables and their alternati
     <div class="table-cell">
       <code>--_image-height</code>
     </div>
-    <div class="table-cell">Deprecate.</div>
+    <div class="table-cell">Deprecated</div>
     <div class="table-cell">
       <code>--image-height</code>
     </div>
@@ -289,7 +289,7 @@ Please refer to the below table for the deprecated variables and their alternati
     <div class="table-cell">
       <code>--_image-width</code>
     </div>
-    <div class="table-cell">Deprecated.</div>
+    <div class="table-cell">Deprecated</div>
     <div class="table-cell">
       <code>--image-width</code>
     </div>
@@ -298,7 +298,7 @@ Please refer to the below table for the deprecated variables and their alternati
     <div class="table-cell">
       <code>--image-overlay-font</code>
     </div>
-    <div class="table-cell">Deprecated.</div>
+    <div class="table-cell">Deprecated</div>
     <div class="table-cell">
       <div>
         Use <code>--font-weight--light</code> for <code>font-weight</code>. Use{" "}
@@ -310,7 +310,7 @@ Please refer to the below table for the deprecated variables and their alternati
     <div class="table-cell">
       <code>--image-overlay-font-line-height</code>
     </div>
-    <div class="table-cell">Deprecated.</div>
+    <div class="table-cell">Deprecated</div>
     <div class="table-cell">
       <div>Use normal CSS selector.</div>
     </div>
@@ -319,7 +319,7 @@ Please refer to the below table for the deprecated variables and their alternati
     <div class="table-cell">
       <code>--image-overlay-font-size</code>
     </div>
-    <div class="table-cell">Deprecated.</div>
+    <div class="table-cell">Deprecated</div>
     <div class="table-cell">
       <div>Use normal CSS selector.</div>
     </div>
@@ -328,7 +328,7 @@ Please refer to the below table for the deprecated variables and their alternati
     <div class="table-cell">
       <code>--image-overlay-font</code>
     </div>
-    <div class="table-cell">Deprecated.</div>
+    <div class="table-cell">Deprecated</div>
     <div class="table-cell">
       <div>Use normal CSS selector.</div>
     </div>
@@ -338,7 +338,7 @@ Please refer to the below table for the deprecated variables and their alternati
       <code>--gallery-thumb-width</code>
     </div>
     <div class="table-cell">
-      Deprecated. (also <code>.sf-gallery__thumb</code>)
+      Deprecated (also <code>.sf-gallery__thumb</code>)
     </div>
     <div class="table-cell">
       <div>N/A</div>
@@ -349,6 +349,47 @@ Please refer to the below table for the deprecated variables and their alternati
 - `--image-overlay-background`
 - `--image-overlay-color`
 - `--image-overlay-opacity`
+
+## `SfFooter`
+
+From v0.10.0 onwards, `SfFooter` has changed default design adjusted to figma look https://www.figma.com/file/N0Ct95cSAoODNv7zYS01ng/Storefront-UI-Design-System?node-id=4431%3A11564 and with '--_c-dark-primary' background of menu items on mobile.
+Also there was another step made to get rid of most of css variables which you can see in the table below.
+
+### CSS Variables changes
+
+All component specific CSS variables was removed so please use normal properties instead of following:
+
+- `--_footer-column-width`
+- `--footer-column-title-color`
+- `--footer-column-title-padding`
+- `--footer-column-title-background`
+- `--footer-column-title-font`
+- `--footer-column-title-font-weight`
+- `--footer-column-title-font-size`
+- `--footer-column-title-font-line-height`
+- `--footer-column-title-font-family`
+- `--footer-column-chevron-display`
+- `--footer-column-item-padding`
+- `--footer-display`
+- `--footer-flex-wrap`
+- `--footer-justify-content`
+- `--footer-width`
+- `--footer-margin`
+- `--footer-padding`
+
+Also there was flex based mechanism to set amount of columns in the footer passed by the prop.
+It was replaced by grid styling set directly in the inline CSS like this:
+
+```
+<footer class="sf-footer">
+    <div
+      class="sf-footer__container"
+      :style="{ 'grid-template-columns': ' 1fr'.repeat(column) }"
+    >
+      <slot />
+    </div>
+  </footer>
+```
 
 ## Atoms refactored
 
@@ -378,4 +419,3 @@ So the example component is now looking like this:
     <slot />
   </div>
 </template>
-```
