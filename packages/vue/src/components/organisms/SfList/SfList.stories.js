@@ -1,6 +1,6 @@
 import { SfList, SfMenuItem } from "@storefront-ui/vue";
 export default {
-  title: "Organisms/List",
+  title: "Components/Organisms/List",
   component: SfList,
 };
 

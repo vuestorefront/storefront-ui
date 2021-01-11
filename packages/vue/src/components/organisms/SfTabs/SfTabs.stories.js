@@ -1,6 +1,6 @@
 import { SfTabs } from "@storefront-ui/vue";
 export default {
-  title: "Organisms/Tabs",
+  title: "Components/Organisms/Tabs",
   component: SfTabs,
   argTypes: {
     tabMaxContentHeight: {

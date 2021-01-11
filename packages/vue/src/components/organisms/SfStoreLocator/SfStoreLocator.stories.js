@@ -1,7 +1,7 @@
 import { SfStoreLocator } from "@storefront-ui/vue";
 
 export default {
-  title: "Organisms/StoreLocator",
+  title: "Components/Organisms/StoreLocator",
   component: SfStoreLocator,
   decorators: [
     () => ({
@@ -129,7 +129,7 @@ export default {
       },
     },
     picture: {
-      control: "object",
+      control: "string",
       table: {
         category: "SfStore Props",
       },
