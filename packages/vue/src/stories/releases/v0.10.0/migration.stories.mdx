@@ -344,11 +344,38 @@ Please refer to the below table for the deprecated variables and their alternati
       <div>N/A</div>
     </div>
   </div>
-</div>
-
-And the followings are planned be deprecated soon (from v0.11.0 onwards)
-
+</div>SfImage`
 - `--image-overlay-padding`
 - `--image-overlay-background`
 - `--image-overlay-color`
 - `--image-overlay-opacity`
+
+## Atoms refactored
+
+As the better web performance is one of our main goals, we refactored components without additional logic into functional components.
+This is the list of changed components:
+
+- [SfArrow](?path=/story/components-atoms-arrow--common)
+- [SfBadge](?path=/story/components-atoms-badge--primary)
+- [SfChevron](?path=/story/components-atoms-chevron--common)
+- [SfCircleIcon](?path=/story/components-atoms-circleicon--primary)
+- [SfLoader](?path=/story/components-atoms-loader--loading)
+- [SfOverlay](?path=/story/components-atoms-overlay--common)
+- [SfPrice](?path=/story/components-atoms-price--common)
+- [SfProperty](?path=/story/components-atoms-property--common)
+- [SfTextarea](?path=/story/components-atoms-textarea--common)
+
+So the example component is now looking like this:
+
+```
+<template functional>
+  <div
+    :class="[data.class, data.staticClass, 'sf-badge']"
+    :style="[data.style, data.staticStyle]"
+    v-bind="data.attrs"
+    v-on="listeners"
+  >
+    <slot />
+  </div>
+</template>
+```

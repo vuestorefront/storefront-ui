@@ -11,7 +11,7 @@
       <component
         :is="injections.components.SfIcon"
         aria-hidden="true"
-        :class="[data.class, data.staticClass, 'sf-circle-icon__icon']"
+        class="sf-circle-icon__icon"
         v-bind="data.attrs"
         :icon="props.icon"
         :color="props.iconColor"

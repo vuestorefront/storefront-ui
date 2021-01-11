@@ -24,17 +24,11 @@
       :minlength="props.minlength"
       @input="listeners.input && listeners.input($event.target.value)"
     />
-    <label
-      :class="[data.class, data.staticClass, 'sf-textarea__label']"
-      :for="props.name"
-    >
+    <label class="sf-textarea__label" :for="props.name">
       <!-- @slot Custom input label -->
       <slot name="label" v-bind="{ props }">{{ props.label }}</slot>
     </label>
-    <div
-      v-if="!props.valid"
-      :class="[data.class, data.staticClass, 'sf-textarea__error-message']"
-    >
+    <div v-if="!props.valid" class="sf-textarea__error-message">
       <transition name="sf-fade">
         <!-- @slot Custom error message -->
         <slot name="error-message" v-bind="{ props }">

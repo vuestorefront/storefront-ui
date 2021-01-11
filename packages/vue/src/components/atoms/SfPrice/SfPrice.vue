@@ -7,28 +7,19 @@
   >
     <!--@slot Custom regular price -->
     <slot name="regular" v-bind="{ props }">
-      <span
-        v-if="!props.special"
-        :class="[data.class, data.staticClass, 'sf-price__regular']"
-      >
+      <span v-if="!props.special" class="sf-price__regular">
         {{ props.regular }}
       </span>
     </slot>
     <!--@slot Custom old price (value from regular)-->
     <slot name="old" v-bind="{ props }">
-      <del
-        v-if="props.special"
-        :class="[data.class, data.staticClass, 'sf-price__old']"
-      >
+      <del v-if="props.special" class="sf-price__old">
         {{ props.regular }}
       </del>
     </slot>
     <!--@slot Custom special price -->
     <slot name="special" v-bind="{ props }">
-      <ins
-        v-if="props.special"
-        :class="[data.class, data.staticClass, 'sf-price__special']"
-      >
+      <ins v-if="props.special" class="'sf-price__special">
         {{ props.special }}
       </ins>
     </slot>

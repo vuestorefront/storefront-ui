@@ -8,20 +8,10 @@
     <!-- @slot Custom chevron markup -->
     <slot>
       <span
-        :class="[
-          data.class,
-          data.staticClass,
-          'sf-chevron__bar',
-          'sf-chevron__bar--left',
-        ]"
+        class="sf-chevron__bar sf-chevron__bar--left"        
       ></span>
       <span
-        :class="[
-          data.class,
-          data.staticClass,
-          'sf-chevron__bar',
-          'sf-chevron__bar--right',
-        ]"
+        class="sf-chevron__bar sf-chevron__bar--right"
       ></span>
     </slot>
   </div>

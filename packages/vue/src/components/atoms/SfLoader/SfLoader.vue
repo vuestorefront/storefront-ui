@@ -9,7 +9,7 @@
     <transition name="sf-fade" mode="out-in">
       <!--@slot Slot for the actual content being loaded -->
       <slot v-if="!props.loading"></slot>
-      <div v-else :class="[data.class, data.staticClass, 'sf-loader__overlay']">
+      <div v-else class="sf-loader__overlay">
         <!--@slot Use this slot to replace the loader -->
         <slot name="loader">
           <svg
@@ -18,7 +18,7 @@
             height="38"
             viewBox="0 0 38 38"
             xmlns="http://www.w3.org/2000/svg"
-            :class="[data.class, data.staticClass, 'sf-loader__spinner']"
+            class="sf-loader__spinner"
           >
             <title>Loading...</title>
             <g fill="none" fill-rule="evenodd">

@@ -29,13 +29,6 @@
         />
       </svg>
     </slot>
-    <slot name="badge" v-bind="{ badgeLabel, hasBadge }">
-      <transition v-if="hasBadge" name="sf-bounce">
-        <SfBadge class="sf-icon__badge sf-badge--number">
-          {{ badgeLabel }}
-        </SfBadge>
-      </transition>
-    </slot>
   </div>
 </template>
 <script>

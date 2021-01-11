@@ -7,13 +7,13 @@
   >
     <!-- @slot Use this slot to replace property name -->
     <slot name="name" v-bind="{ props }">
-      <span :class="[data.class, data.staticClass, 'sf-property__name']">
+      <span class="sf-property__name">
         {{ props.name }}
       </span>
     </slot>
     <!-- @slot Use this slot to replace property value -->
     <slot name="value" v-bind="{ props }">
-      <span :class="[data.class, data.staticClass, 'sf-property__value']">
+      <span class="sf-property__value">
         {{ props.value }}
       </span>
     </slot>
