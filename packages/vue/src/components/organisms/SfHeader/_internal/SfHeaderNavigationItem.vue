@@ -32,7 +32,7 @@ import SfMenuItem from "../../../molecules/SfMenuItem/SfMenuItem";
 import {
   mapMobileObserver,
   unMapMobileObserver,
-} from "../../../utilities/mobile-observer";
+} from "../../../../utilities/mobile-observer";
 
 export default {
   name: "SfHeaderNavigationItem",
