@@ -8,11 +8,7 @@
       "orgUrl": "https://cloudinary.com"
     },
     "location": "Israel",
-<<<<<<< HEAD:packages/vue/docs/assets/members.json
-    "languages": ["vi","he","en"],
-=======
     "languages": ["vi", "he", "en"],
->>>>>>> release/0.10.0:packages/vue/src/stories/introduction/members.json
     "links": [
       "https://mayashavin.com",
       "https://cloudinary.nuxtjs.org",
@@ -136,11 +132,7 @@
       "twitter": "mradziszewska_"
     },
     "active": false
-<<<<<<< HEAD:packages/vue/docs/assets/members.json
-  }, 
-=======
   },
->>>>>>> release/0.10.0:packages/vue/src/stories/introduction/members.json
   {
     "name": "Adam Pawliński",
     "role": "Maintainer",
@@ -150,11 +142,7 @@
       "orgUrl": "https://github.com/DivanteLtd"
     },
     "location": "Wrocław, Poland",
-<<<<<<< HEAD:packages/vue/docs/assets/members.json
-    "languages": ["pl","en"],
-=======
     "languages": ["pl", "en"],
->>>>>>> release/0.10.0:packages/vue/src/stories/introduction/members.json
     "socials": {
       "github": "AdamPawlinski",
       "twitter": "adam_pawlinski"
@@ -170,11 +158,7 @@
       "orgUrl": "https://github.com/DivanteLtd"
     },
     "location": "Wrocław, Poland",
-<<<<<<< HEAD:packages/vue/docs/assets/members.json
-    "languages": ["pl","en"],
-=======
     "languages": ["pl", "en"],
->>>>>>> release/0.10.0:packages/vue/src/stories/introduction/members.json
     "socials": {
       "github": "justyna-13"
     },
