@@ -8,6 +8,7 @@ export default {
       control: {
         type: "select",
         options: [
+          "",
           "sf-property--full-width",
           "sf-property--value-in-middle",
           "sf-property--large",

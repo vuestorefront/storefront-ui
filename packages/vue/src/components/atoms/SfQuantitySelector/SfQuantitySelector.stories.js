@@ -11,12 +11,19 @@ export default {
       control: {
         type: "select",
         options: [
+          "",
           "sf-quantity-selector--secondary",
           "sf-quantity-selector--transparent",
         ],
       },
       table: {
         category: "CSS Modifiers",
+      },
+    },
+    disabled: {
+      control: "boolean",
+      table: {
+        category: "Props",
       },
     },
     input: { action: "Quantity changed!", table: { category: "Events" } },
@@ -34,6 +41,7 @@ const Template = (args, { argTypes }) => ({
   template: `
   <SfQuantitySelector
     v-model="value"
+    :disabled="disabled"
     aria-label="Quantity"
     :class="classes"
     @input="input"
