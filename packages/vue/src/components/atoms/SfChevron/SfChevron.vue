@@ -7,12 +7,8 @@
   >
     <!-- @slot Custom chevron markup -->
     <slot>
-      <span
-        class="sf-chevron__bar sf-chevron__bar--left"        
-      ></span>
-      <span
-        class="sf-chevron__bar sf-chevron__bar--right"
-      ></span>
+      <span class="sf-chevron__bar sf-chevron__bar--left"></span>
+      <span class="sf-chevron__bar sf-chevron__bar--right"></span>
     </slot>
   </div>
 </template>
