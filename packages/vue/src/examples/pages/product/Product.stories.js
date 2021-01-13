@@ -1,12 +1,14 @@
-import { storiesOf } from "@storybook/vue";
 import Product from "./Product";
-storiesOf("Pages|Product", module).add("Common", () => ({
+export default {
+  title: "Pages/Product",
+  component: Product,
+};
+
+const Template = (args, { argTypes }) => ({
   components: { Product },
-  mounted() {
-    document.body.style.setProperty("margin", "0");
-  },
-  beforeDestroy() {
-    document.body.style.removeProperty("margin");
-  },
+  props: Object.keys(argTypes),
   template: `<Product />`,
-}));
+});
+
+export const Common = Template.bind({});
+Common.args = {};
