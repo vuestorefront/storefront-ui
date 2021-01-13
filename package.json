@@ -28,8 +28,7 @@
       "pre-commit": "lerna run precommit",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-push": "lerna run test:unit",
-      "postpublish": "yarn create-gitlog",
-      "prepublishonly": "lerna run preversion"
+      "postpublish": "yarn create-gitlog"
     }
   },
   "devDependencies": {
