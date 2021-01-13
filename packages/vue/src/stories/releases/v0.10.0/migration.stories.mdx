@@ -353,8 +353,6 @@ And the followings are planned be deprecated soon (from v0.11.0 onwards)
 - `--image-overlay-color`
 - `--image-overlay-opacity`
 
-
-
 ## `SfFooter`
 
 From v0.10.0 onwards, `SfFooter` has changed default design adjusted to figma look https://www.figma.com/file/N0Ct95cSAoODNv7zYS01ng/Storefront-UI-Design-System?node-id=4431%3A11564 and with '--_c-dark-primary' background of menu items on mobile.
@@ -395,3 +393,31 @@ It was replaced by grid styling set directly in the inline CSS like this:
     </div>
   </footer>
 ```
+
+## Atoms refactored
+
+As the better web performance is one of our main goals, we refactored components without additional logic into functional components:
+
+- [SfArrow](?path=/story/components-atoms-arrow--common)
+- [SfBadge](?path=/story/components-atoms-badge--primary)
+- [SfChevron](?path=/story/components-atoms-chevron--common)
+- [SfCircleIcon](?path=/story/components-atoms-circleicon--primary)
+- [SfLoader](?path=/story/components-atoms-loader--loading)
+- [SfOverlay](?path=/story/components-atoms-overlay--common)
+- [SfPrice](?path=/story/components-atoms-price--common)
+- [SfProperty](?path=/story/components-atoms-property--common)
+- [SfTextarea](?path=/story/components-atoms-textarea--common)
+
+So the example component is now looking like this:
+
+```
+<template functional>
+  <div
+    class="sf-badge"
+    :style="[data.style, data.staticStyle]"
+    v-bind="data.attrs"
+    v-on="listeners"
+  >
+    <slot />
+  </div>
+</template>
