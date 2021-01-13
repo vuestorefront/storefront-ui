@@ -8,6 +8,7 @@ export default {
       control: {
         type: "select",
         options: [
+          "",
           "sf-badge--full-width",
           "sf-badge--number",
           "color-primary",

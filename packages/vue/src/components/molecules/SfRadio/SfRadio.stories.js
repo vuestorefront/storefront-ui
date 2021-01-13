@@ -72,6 +72,15 @@ export default {
       defaultValue: "",
       description: "Indicate if this option is disabled",
     },
+    required: {
+      control: "boolean",
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: false,
+        },
+      },
+    },
     input: { action: "Toggle selection", table: { category: "Events" } },
   },
 };

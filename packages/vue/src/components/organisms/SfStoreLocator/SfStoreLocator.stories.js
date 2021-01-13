@@ -179,10 +179,7 @@ Common.args = {
   phone: "(70) 881 9463",
   email: "example@email.com",
   name: "Store",
-  picture: {
-    mobile: { url: "/assets/storybook/SfStore/storeA.png" },
-    desktop: { url: "/assets/storybook/SfStore/storeA.png" },
-  },
+  picture: "/assets/storybook/SfStore/storeA.png",
 };
 
 export const UseMapLoadingSlot = (args, { argTypes }) => ({

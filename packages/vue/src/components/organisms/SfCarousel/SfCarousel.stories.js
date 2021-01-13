@@ -41,8 +41,8 @@ export const UseNextSlot = (args, { argTypes }) => ({
   <SfCarousel
   :style="{maxWidth: '1140px', margin: 'auto'}"
   >
-    <template #prev="{go}">
-      <button @click="go">PREV</button>
+    <template #next="{go}">
+      <button @click="go">NEXT</button>
     </template>
     <SfCarouselItem v-for="(item, i) in 12" :key="i">
       <div style="display: flex; align-items: center; justify-content: center; height: 300px; background-color: #5ECE7B; color: #FFF; font-size: 2.5rem">
@@ -59,8 +59,8 @@ export const UsePrevSlot = (args, { argTypes }) => ({
   <SfCarousel
   :style="{maxWidth: '1140px', margin: 'auto'}"
   >
-    <template #next="{go}">
-      <button @click="go">NEXT</button>
+    <template #prev="{go}">
+      <button @click="go">PREV</button>
     </template>
     <SfCarouselItem v-for="(item, i) in 12" :key="i">
       <div style="display: flex; align-items: center; justify-content: center; height: 300px; background-color: #5ECE7B; color: #FFF; font-size: 2.5rem">

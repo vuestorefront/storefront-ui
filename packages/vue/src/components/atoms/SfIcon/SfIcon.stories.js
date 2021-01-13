@@ -88,7 +88,7 @@ export const ListOfIcons = () => ({
 });
 ListOfIcons.parameters = {
   controls: {
-    disabled: true,
+    disable: true,
   },
 };
 
@@ -119,7 +119,7 @@ IconSizes.args = {
 
 IconSizes.parameters = {
   controls: {
-    disabled: true,
+    disable: true,
   },
 };
 
