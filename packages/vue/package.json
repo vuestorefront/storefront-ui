@@ -62,7 +62,7 @@
     "@vue/cli-plugin-unit-jest": "^4.3.0",
     "@vue/cli-service": "^4.3.1",
     "@vue/eslint-config-prettier": "^6.0.0",
-    "@vue/test-utils": "^1.0.0-beta.33",
+    "@vue/test-utils": "^1.1.0",
     "axios": "^0.21.1",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.2",
@@ -78,6 +78,8 @@
     "style-loader": "^2.0.0",
     "vue-docgen-api": "^3.22.3",
     "vue-template-compiler": "^2.6.11",
+    "vuepress": "^1.4.1",
+    "@vuepress/plugin-register-components": "^1.0.0-rc.1",
     "webpack-dev-middleware": "3.7.2"
   },
   "peerDependencies": {
