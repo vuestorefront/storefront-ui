@@ -1,13 +1,14 @@
 import { SfButton } from "@storefront-ui/vue";
 
 export default {
-  title: "Atoms/Button",
+  title: "Components/Atoms/Button",
   component: SfButton,
   argTypes: {
     classes: {
       control: {
         type: "select",
         options: [
+          "",
           "sf-button--outline",
           "sf-button--underlined",
           "sf-button--text",
@@ -101,7 +102,7 @@ Warning.args = {
 export const InDanger = Template.bind({});
 InDanger.args = {
   ...Primary.args,
-  classes: "color-primary",
+  classes: "color-danger",
 };
 
 export const Info = Template.bind({});

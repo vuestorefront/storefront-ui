@@ -3,13 +3,14 @@ import { SfCircleIcon } from "@storefront-ui/vue";
 const iconsNames = Object.keys(icons);
 
 export default {
-  title: "Atoms/CircleIcon",
+  title: "Components/Atoms/CircleIcon",
   component: SfCircleIcon,
   argTypes: {
     classes: {
       control: {
         type: "select",
         options: [
+          "",
           "sf-circle-icon--small",
           "color-primary",
           "color-secondary",
@@ -99,7 +100,7 @@ Warning.args = {
 export const InDanger = Template.bind({});
 InDanger.args = {
   ...Primary.args,
-  classes: "color-primary",
+  classes: "color-danger",
 };
 
 export const Info = Template.bind({});

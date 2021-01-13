@@ -1,6 +1,6 @@
 import { SfSearchBar } from "@storefront-ui/vue";
 export default {
-  title: "Molecules/SearchBar",
+  title: "Components/Molecules/SearchBar",
   component: SfSearchBar,
   argTypes: {
     classes: {
@@ -59,7 +59,7 @@ const Template = (args, { argTypes }) => ({
   components: { SfSearchBar },
   props: Object.keys(argTypes),
   computed: {
-    icon() {
+    iconCheck() {
       return this.iconSize || this.iconColor
         ? {
             size: this.iconSize,
@@ -70,7 +70,7 @@ const Template = (args, { argTypes }) => ({
   },
   template: `
   <SfSearchBar
-  :icon="icon"
+  :icon="iconCheck"
   :class="classes"
   :placeholder="placeholder"
   @enter="enter"

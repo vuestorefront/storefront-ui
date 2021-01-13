@@ -1,13 +1,14 @@
 import { SfProperty, SfBadge } from "@storefront-ui/vue";
 
 export default {
-  title: "Atoms/Property",
+  title: "Components/Atoms/Property",
   component: SfProperty,
   argTypes: {
     classes: {
       control: {
         type: "select",
         options: [
+          "",
           "sf-property--full-width",
           "sf-property--value-in-middle",
           "sf-property--large",

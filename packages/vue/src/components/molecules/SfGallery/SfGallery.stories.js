@@ -1,11 +1,11 @@
 import { SfGallery } from "@storefront-ui/vue";
 
 export default {
-  title: "Molecules/Gallery",
+  title: "Components/Molecules/Gallery",
   component: SfGallery,
   argTypes: {
     images: {
-      control: "array",
+      control: "object",
       table: {
         category: "Props",
       },

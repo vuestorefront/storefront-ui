@@ -1,7 +1,7 @@
 import { SfCheckbox } from "@storefront-ui/vue";
 
 export default {
-  title: "Molecules/Checkbox",
+  title: "Components/Molecules/Checkbox",
   component: SfCheckbox,
   argTypes: {
     name: {
@@ -149,14 +149,17 @@ export const UseCheckmarkSlot = (args, { argTypes }) => ({
     </template>
   </SfCheckbox>`,
 });
-UseCheckmarkSlot.args = { ...Common.args };
+UseCheckmarkSlot.args = {
+  ...Common.args,
+  checked: true,
+};
 
 export const UseErrorMessageSlot = (args, { argTypes }) => ({
   components: { SfCheckbox },
   props: Object.keys(argTypes),
   template: `
   <SfCheckbox 
-    v-model="checked"
+    v-model="selected"
     :name="name"      
     :label="label"
     :hint-message="hintMessage"

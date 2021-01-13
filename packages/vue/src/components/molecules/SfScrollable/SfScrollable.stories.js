@@ -28,7 +28,7 @@ const options = [
 ];
 
 export default {
-  title: "Molecules/Scrollable",
+  title: "Components/Molecules/Scrollable",
   component: SfScrollable,
   argTypes: {
     maxContentHeight: {
@@ -75,7 +75,7 @@ const Template = (args, { argTypes }) => ({
     :hide-text="hideText"
     :max-content-height="maxContentHeight"
     style="max-width: 13.75rem"
-    :style="style"
+    :style="customStyle"
   >
     <SfProductOption 
       v-for="(option, key) in options" 
@@ -88,7 +88,7 @@ const Template = (args, { argTypes }) => ({
 
 export const Common = Template.bind({});
 Common.args = {
-  style: "",
+  customStyle: "",
   showText: "View all colors",
   hideText: "Hide colors",
   maxContentHeight: "6.875rem",
@@ -98,7 +98,7 @@ export const WithCSSHeight = Template.bind({});
 WithCSSHeight.args = {
   ...Common.args,
   maxContentHeight: "",
-  style: "--max-height: 6.875rem;",
+  customStyle: "--max-height: 6.875rem;",
 };
 
 export const UseButtonSlot = (args, { argTypes }) => ({
@@ -107,6 +107,7 @@ export const UseButtonSlot = (args, { argTypes }) => ({
   data() {
     return {
       options,
+      isHidden: true,
     };
   },
   template: `

@@ -1,6 +1,6 @@
 import { SfSteps } from "@storefront-ui/vue";
 export default {
-  title: "Molecules/Steps",
+  title: "Components/Molecules/Steps",
   component: SfSteps,
   argTypes: {
     canGoBack: {

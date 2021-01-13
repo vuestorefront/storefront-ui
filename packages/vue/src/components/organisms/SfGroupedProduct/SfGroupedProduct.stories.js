@@ -1,6 +1,6 @@
 import { SfGroupedProduct, SfProperty } from "@storefront-ui/vue";
 export default {
-  title: "Organisms/GroupedProduct",
+  title: "Components/Organisms/GroupedProduct",
   component: SfGroupedProduct,
   argTypes: {
     settings: {
@@ -42,7 +42,6 @@ const Template = (args, { argTypes }) => ({
       :image-lazy="imageLazy"
       :title="title"
       :price-regular="priceRegular"
-      :price-special="priceSpecial"
     >
       <template #details>
         <div :style="{color: '#72757E', fontSize: 'var(--font-size--base'}">MSD23-345-324</div>
@@ -86,7 +85,6 @@ export const UseConfigurationSlot = (args, { argTypes }) => ({
       :image-lazy="imageLazy"
       :title="title"
       :price-regular="priceRegular"
-      :price-special="priceSpecial"
     >
       <template #configuration>
         CUSTOM CONFIGURATION
@@ -119,7 +117,6 @@ export const UseImageSlot = (args, { argTypes }) => ({
       :image-lazy="imageLazy"
       :title="title"
       :price-regular="priceRegular"
-      :price-special="priceSpecial"
     >
       <template #image="{ image, title, imagePlaceholder, imageLazy, imagePictureBreakpoint }">
         <div :style="{height: '111px'}">CUSTOM IMAGE</div>
@@ -152,7 +149,6 @@ export const UseInputSlot = (args, { argTypes }) => ({
       :image-lazy="imageLazy"
       :title="title"
       :price-regular="priceRegular"
-      :price-special="priceSpecial"
     >
       <template #input="{ qty }">
         <div style="position: absolute; bottom: 0; right: 0">
@@ -187,7 +183,6 @@ export const UseTitleSlot = (args, { argTypes }) => ({
       :image-lazy="imageLazy"
       :title="title"
       :price-regular="priceRegular"
-      :price-special="priceSpecial"
     >
       <template #title="{ title }">
         CUSTOM TITLE
@@ -220,7 +215,6 @@ export const UsePriceSlot = (args, { argTypes }) => ({
       :image-lazy="imageLazy"
       :title="title"
       :price-regular="priceRegular"
-      :price-special="priceSpecial"
     >
       <template #price="{ priceSpecial, priceRegular }">
         CUSTOM PRICE

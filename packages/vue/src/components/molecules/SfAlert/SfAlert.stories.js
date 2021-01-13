@@ -1,7 +1,7 @@
 import { SfAlert } from "@storefront-ui/vue";
 
 export default {
-  title: "Molecules/Alert",
+  title: "Components/Molecules/Alert",
   component: SfAlert,
   argTypes: {
     message: {
@@ -14,7 +14,7 @@ export default {
     type: {
       control: {
         type: "select",
-        options: ["secondary", "info", "success", "warning", "danger"],
+        options: ["", "secondary", "info", "success", "warning", "danger"],
       },
       table: {
         category: "Props",

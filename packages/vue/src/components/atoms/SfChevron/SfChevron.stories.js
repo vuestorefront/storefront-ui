@@ -1,13 +1,18 @@
 import { SfChevron, SfIcon } from "@storefront-ui/vue";
 
 export default {
-  title: "Atoms/Chevron",
+  title: "Components/Atoms/Chevron",
   component: SfChevron,
   argTypes: {
     classes: {
       control: {
         type: "select",
-        options: ["sf-chevron--top", "sf-chevron--left", "sf-chevron--right"],
+        options: [
+          "",
+          "sf-chevron--top",
+          "sf-chevron--left",
+          "sf-chevron--right",
+        ],
       },
       description: "Modifier classes",
       table: {

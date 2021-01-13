@@ -1,7 +1,7 @@
 import { SfStoreLocator } from "@storefront-ui/vue";
 
 export default {
-  title: "Organisms/StoreLocator",
+  title: "Components/Organisms/StoreLocator",
   component: SfStoreLocator,
   decorators: [
     () => ({
@@ -129,7 +129,7 @@ export default {
       },
     },
     picture: {
-      control: "object",
+      control: "string",
       table: {
         category: "SfStore Props",
       },
@@ -179,10 +179,7 @@ Common.args = {
   phone: "(70) 881 9463",
   email: "example@email.com",
   name: "Store",
-  picture: {
-    mobile: { url: "/assets/storybook/SfStore/storeA.png" },
-    desktop: { url: "/assets/storybook/SfStore/storeA.png" },
-  },
+  picture: "/assets/storybook/SfStore/storeA.png",
 };
 
 export const UseMapLoadingSlot = (args, { argTypes }) => ({

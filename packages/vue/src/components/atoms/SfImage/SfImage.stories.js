@@ -1,7 +1,7 @@
 import { SfImage } from "@storefront-ui/vue";
 
 export default {
-  title: "Atoms/Image",
+  title: "Components/Atoms/Image",
   component: SfImage,
   argTypes: {
     srcsets: {

@@ -1,13 +1,14 @@
 import { SfHero } from "@storefront-ui/vue";
 
 export default {
-  title: "Organisms/Hero",
+  title: "Components/Organisms/Hero",
   component: SfHero,
   argTypes: {
     classes: {
       control: {
         type: "select",
         options: [
+          "",
           "sf-hero-item--position-bg-top-right",
           "sf-hero-item--position-bg-bottom-right",
           "sf-hero-item--position-bg-bottom-left",

@@ -1,6 +1,6 @@
 import { SfCollectedProduct, SfButton } from "@storefront-ui/vue";
 export default {
-  title: "Organisms/CollectedProduct",
+  title: "Components/Organisms/CollectedProduct",
   component: SfCollectedProduct,
   argTypes: {
     classes: {
@@ -129,9 +129,8 @@ export const UseActionsSlot = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
   <SfCollectedProduct
-    :qty="productQty"
-    :class="customClass"
-    @input="productQty = $event"
+    :qty="qty"
+    @input="qty = $event"
     :image="image"
     :image-width="imageWidth"
     :image-height="imageHeight"
@@ -152,9 +151,8 @@ export const UseConfigurationSlot = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
   <SfCollectedProduct
-    :qty="productQty"
-    :class="customClass"
-    @input="productQty = $event"
+    :qty="qty"
+    @input="qty = $event"
     :image="image"
     :image-width="imageWidth"
     :image-height="imageHeight"
@@ -175,9 +173,8 @@ export const UseImageSlot = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
   <SfCollectedProduct
-    :qty="productQty"
-    :class="customClass"
-    @input="productQty = $event"
+    :qty="qty"
+    @input="qty = $event"
     :image="image"
     :image-width="imageWidth"
     :image-height="imageHeight"
@@ -198,9 +195,8 @@ export const UseInputSlot = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
   <SfCollectedProduct
-    :qty="productQty"
-    :class="customClass"
-    @input="productQty = $event"
+    :qty="qty"
+    @input="qty = $event"
     :image="image"
     :image-width="imageWidth"
     :image-height="imageHeight"
@@ -221,9 +217,8 @@ export const UseTitleSlot = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
   <SfCollectedProduct
-    :qty="productQty"
-    :class="customClass"
-    @input="productQty = $event"
+    :qty="qty"
+    @input="qty = $event"
     :image="image"
     :image-width="imageWidth"
     :image-height="imageHeight"
@@ -244,9 +239,8 @@ export const UsePriceSlot = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
   <SfCollectedProduct
-    :qty="productQty"
-    :class="customClass"
-    @input="productQty = $event"
+    :qty="qty"
+    @input="qty = $event"
     :image="image"
     :image-width="imageWidth"
     :image-height="imageHeight"
