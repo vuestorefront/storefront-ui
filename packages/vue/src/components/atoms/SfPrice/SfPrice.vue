@@ -1,16 +1,27 @@
-<template>
-  <div class="sf-price">
+<template functional>
+  <div
+    :class="[data.class, data.staticClass, 'sf-price']"
+    :style="[data.style, data.staticStyle]"
+    v-bind="data.attrs"
+    v-on="listeners"
+  >
     <!--@slot Custom regular price -->
-    <slot name="regular" v-bind="{ regular, special }">
-      <span v-if="!special" class="sf-price__regular">{{ regular }}</span>
+    <slot name="regular" v-bind="{ props }">
+      <span v-if="!props.special" class="sf-price__regular">
+        {{ props.regular }}
+      </span>
     </slot>
     <!--@slot Custom old price (value from regular)-->
-    <slot name="old" v-bind="{ regular, special }">
-      <del v-if="special" class="sf-price__old">{{ regular }}</del>
+    <slot name="old" v-bind="{ props }">
+      <del v-if="props.special" class="sf-price__old">
+        {{ props.regular }}
+      </del>
     </slot>
     <!--@slot Custom special price -->
-    <slot name="special" v-bind="{ special }">
-      <ins v-if="special" class="sf-price__special">{{ special }}</ins>
+    <slot name="special" v-bind="{ props }">
+      <ins v-if="props.special" class="sf-price__special">
+        {{ props.special }}
+      </ins>
     </slot>
   </div>
 </template>

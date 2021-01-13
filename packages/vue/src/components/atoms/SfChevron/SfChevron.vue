@@ -1,9 +1,18 @@
-<template>
-  <div class="sf-chevron">
+<template functional>
+  <div
+    :class="[data.class, data.staticClass, 'sf-chevron']"
+    :style="[data.style, data.staticStyle]"
+    v-bind="data.attrs"
+    v-on="listeners"
+  >
     <!-- @slot Custom chevron markup -->
     <slot>
-      <span class="sf-chevron__bar sf-chevron__bar--left"></span>
-      <span class="sf-chevron__bar sf-chevron__bar--right"></span>
+      <span
+        class="sf-chevron__bar sf-chevron__bar--left"        
+      ></span>
+      <span
+        class="sf-chevron__bar sf-chevron__bar--right"
+      ></span>
     </slot>
   </div>
 </template>
