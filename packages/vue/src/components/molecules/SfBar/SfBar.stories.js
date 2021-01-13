@@ -49,7 +49,7 @@ WithCloseBtn.args = {
   close: true,
 };
 
-export const UseBackSlot = (args, { argTypes }) => ({
+export const UseTitleSlot = (args, { argTypes }) => ({
   components: { SfBar },
   props: Object.keys(argTypes),
   template: `
@@ -61,7 +61,20 @@ export const UseBackSlot = (args, { argTypes }) => ({
     <template #title="{title}">CUSTOM TITLE</template>
   </SfBar>`,
 });
-UseBackSlot.args = { ...WithBackBtn.args };
+UseTitleSlot.args = { ...WithBackBtn.args };
+
+export const UseBackSlot = (args, { argTypes }) => ({
+  components: { SfBar },
+  props: Object.keys(argTypes),
+  template: `
+  <SfBar
+    :title="title"
+    :close="close"
+  >
+    <template #back>CUSTOM BACK</template>
+  </SfBar>`,
+});
+UseBackSlot.args = { ...WithCloseBtn.args };
 
 export const UseCloseSlot = (args, { argTypes }) => ({
   components: { SfBar },
@@ -75,4 +88,4 @@ export const UseCloseSlot = (args, { argTypes }) => ({
     <template #close>CUSTOM CLOSE</template>
   </SfBar>`,
 });
-UseBackSlot.args = { ...WithCloseBtn.args };
+UseCloseSlot.args = { ...WithCloseBtn.args };

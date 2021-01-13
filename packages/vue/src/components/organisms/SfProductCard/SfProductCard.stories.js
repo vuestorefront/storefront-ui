@@ -1,5 +1,5 @@
 import { SfProductCard } from "@storefront-ui/vue";
-import { colorsValues as colors } from "@storefront-ui/shared/variables/colors";
+
 export default {
   title: "Components/Organisms/ProductCard",
   component: SfProductCard,
@@ -113,7 +113,7 @@ export default {
         category: "Props",
       },
     },
-    "click:add-to-cart": {
+    "click:addToCart": {
       action: "Add-to-cart clicked",
       table: { category: "Events" },
     },
@@ -148,8 +148,8 @@ const Template = (args, { argTypes }) => ({
     :show-add-to-cart-button="showAddToCartButton"
     :add-to-cart-disabled="addToCartDisabled"
     :is-added-to-cart="isAddedToCart"
-    @click:add-to-cart="this['@click:add-to-cart']"
-    @click:wishlist="this['@click:wishlist']"
+    @click:add-to-cart="this['click:addToCart']"
+    @click:wishlist="this['click:wishlist']"
   />`,
 });
 
@@ -191,15 +191,9 @@ export const WithMultipleImages = Template.bind({
 });
 WithMultipleImages.args = {
   ...Common.args,
-  images: [
-    {
-      mobile: { url: "/assets/storybook/Home/productB.jpg" },
-      desktop: { url: "/assets/storybook/Home/productB.jpg" },
-    },
-    {
-      mobile: { url: "/assets/storybook/Home/productA.jpg" },
-      desktop: { url: "/assets/storybook/Home/productA.jpg" },
-    },
+  image: [
+    "/assets/storybook/Home/productB.jpg",
+    "/assets/storybook/Home/productA.jpg",
   ],
 };
 
@@ -233,8 +227,8 @@ export const UseImageSlot = (args, { argTypes }) => ({
     :show-add-to-cart-button="showAddToCartButton"
     :add-to-cart-disabled="addToCartDisabled"
     :is-added-to-cart="isAddedToCart"
-    @click:add-to-cart="this['@click:add-to-cart']"
-    @click:wishlist="this['@click:wishlist']"
+    @click:add-to-cart="this['click:addToCart']"
+    @click:wishlist="this['click:wishlist']"
   >
     <template #image="{ image, title }">
       <div :style="{ height: '111px', display: 'flex', alignItems: 'center', justifyContent: 'center'}">CUSTOM IMAGE</div>
@@ -267,8 +261,8 @@ export const UseAddToCart = (args, { argTypes }) => ({
     :show-add-to-cart-button="showAddToCartButton"
     :add-to-cart-disabled="addToCartDisabled"
     :is-added-to-cart="isAddedToCart"
-    @click:add-to-cart="this['@click:add-to-cart']"
-    @click:wishlist="this['@click:wishlist']"
+    @click:add-to-cart="this['click:addToCart']"
+    @click:wishlist="this['click:wishlist']"
   >
     <template #add-to-cart="{ isAddedToCart, showAddedToCartBadge, isAddingToCart }">
       CUSTOM ADD TO CART
@@ -301,8 +295,8 @@ export const UseTitleSlot = (args, { argTypes }) => ({
     :show-add-to-cart-button="showAddToCartButton"
     :add-to-cart-disabled="addToCartDisabled"
     :is-added-to-cart="isAddedToCart"
-    @click:add-to-cart="this['@click:add-to-cart']"
-    @click:wishlist="this['@click:wishlist']"
+    @click:add-to-cart="this['click:addToCart']"
+    @click:wishlist="this['click:wishlist']"
   >
     <template #title">
       CUSTOM TITLE
@@ -335,8 +329,8 @@ export const UseWishlistIconSlot = (args, { argTypes }) => ({
     :show-add-to-cart-button="showAddToCartButton"
     :add-to-cart-disabled="addToCartDisabled"
     :is-added-to-cart="isAddedToCart"
-    @click:add-to-cart="this['@click:add-to-cart']"
-    @click:wishlist="this['@click:wishlist']"
+    @click:add-to-cart="this['click:addToCart']"
+    @click:wishlist="this['click:wishlist']"
   >
     <template #wishlist-icon">
       CUSTOM WISHLIST ICON
@@ -369,8 +363,8 @@ export const UsePriceSlot = (args, { argTypes }) => ({
     :show-add-to-cart-button="showAddToCartButton"
     :add-to-cart-disabled="addToCartDisabled"
     :is-added-to-cart="isAddedToCart"
-    @click:add-to-cart="this['@click:add-to-cart']"
-    @click:wishlist="this['@click:wishlist']"
+    @click:add-to-cart="this['click:addToCart']"
+    @click:wishlist="this['click:wishlist']"
   >
     <template #price">
       CUSTOM PRICE
@@ -403,8 +397,8 @@ export const UseReviewsSlot = (args, { argTypes }) => ({
     :show-add-to-cart-button="showAddToCartButton"
     :add-to-cart-disabled="addToCartDisabled"
     :is-added-to-cart="isAddedToCart"
-    @click:add-to-cart="this['@click:add-to-cart']"
-    @click:wishlist="this['@click:wishlist']"
+    @click:add-to-cart="this['click:addToCart']"
+    @click:wishlist="this['click:wishlist']"
   >
     <template #reviews">
       CUSTOM REVIEWS

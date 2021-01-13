@@ -5,7 +5,7 @@ export default {
   component: SfBreadcrumbs,
   argTypes: {
     breadcrumbs: {
-      control: "array",
+      control: "object",
       table: {
         category: "Props",
       },

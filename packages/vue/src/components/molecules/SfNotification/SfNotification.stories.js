@@ -41,7 +41,7 @@ export default {
     type: {
       control: {
         type: "select",
-        options: ["secondary", "info", "success", "warning", "danger"],
+        options: ["", "secondary", "info", "success", "warning", "danger"],
       },
       table: {
         category: "Props",

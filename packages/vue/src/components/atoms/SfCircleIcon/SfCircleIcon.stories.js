@@ -10,6 +10,7 @@ export default {
       control: {
         type: "select",
         options: [
+          "",
           "sf-circle-icon--small",
           "color-primary",
           "color-secondary",

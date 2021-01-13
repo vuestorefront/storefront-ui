@@ -8,6 +8,7 @@ export default {
       control: {
         type: "select",
         options: [
+          "",
           "sf-hero-item--position-bg-top-right",
           "sf-hero-item--position-bg-bottom-right",
           "sf-hero-item--position-bg-bottom-left",

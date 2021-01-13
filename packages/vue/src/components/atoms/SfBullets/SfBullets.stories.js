@@ -83,7 +83,7 @@ export const WithInactiveSlot = (args, { argTypes }) => ({
       :current="curr"
       @click="value => curr = value">
       <template #inactive>
-      <li style="width: 10px; height: 10px; background-color:#CCC; transform: rotate(45deg)"/>
+        <li style="width: 10px; height: 10px; background-color:#CCC; transform: rotate(45deg)"/>
       </template>
     </SfBullets>`,
 });
