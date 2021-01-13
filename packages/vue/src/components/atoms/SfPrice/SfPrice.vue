@@ -19,7 +19,7 @@
     </slot>
     <!--@slot Custom special price -->
     <slot name="special" v-bind="{ props }">
-      <ins v-if="props.special" class="'sf-price__special">
+      <ins v-if="props.special" class="sf-price__special">
         {{ props.special }}
       </ins>
     </slot>
