@@ -1,6 +1,4 @@
-import {
-  SfHeader,
-} from "@storefront-ui/vue";
+import { SfHeader, SfLink } from "@storefront-ui/vue";
 
 export default {
   title: "Components/Organisms/Header",
@@ -10,6 +8,7 @@ export default {
       control: {
         type: "select",
         options: [
+          "",
           "sf-header--has-mobile-search",
           "sf-header--has-mobile-navigation",
           "sf-header--multiline",
@@ -111,8 +110,14 @@ export default {
 };
 
 const Template = (args, { argTypes }) => ({
-  components: { SfHeader },
+  components: { SfHeader, SfLink },
   props: Object.keys(argTypes),
+  data() {
+    return {
+      navigationItems: ["women", "man", "kids"],
+      searchValues: "",
+    };
+  },
   template: `
   <SfHeader
     :class="classes"
@@ -120,7 +125,7 @@ const Template = (args, { argTypes }) => ({
     :logo="logo"
     :active-icon="activeIcon"
     :search-placeholder="searchPlaceholder"
-    :search-value="searchValue"
+    :search-value="searchValues"
     :cart-icon="cartIcon"
     :wishlist-icon="wishlistIcon"
     :is-sticky="isSticky"
@@ -130,11 +135,11 @@ const Template = (args, { argTypes }) => ({
     @click:cart="this['click:cart']"
     @click:wishlist="this['click:wishlist']"
     @click:account="this['click:account']"
-    @change:search="searchValue = $event"
+    @change:search="searchValues = $event"
 >
   <template #navigation>
     <SfHeaderNavigationItem
-      v-for="item in navigation"
+      v-for="item in navigationItems"
       :key="item">
       <template slot="desktop-navigation-item">
         <SfLink href="#">{{item}}</SfLink>

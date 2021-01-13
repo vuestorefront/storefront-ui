@@ -15,6 +15,7 @@ export default {
       control: {
         type: "select",
         options: [
+          "",
           "sf-component-select--underlined",
           "sf-component-select--no-chevron",
         ],

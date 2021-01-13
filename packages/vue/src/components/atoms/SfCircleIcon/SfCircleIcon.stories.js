@@ -10,6 +10,7 @@ export default {
       control: {
         type: "select",
         options: [
+          "",
           "sf-circle-icon--small",
           "color-primary",
           "color-secondary",
@@ -99,7 +100,7 @@ Warning.args = {
 export const InDanger = Template.bind({});
 InDanger.args = {
   ...Primary.args,
-  classes: "color-primary",
+  classes: "color-danger",
 };
 
 export const Info = Template.bind({});

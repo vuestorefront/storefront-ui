@@ -29,6 +29,7 @@ const Template = (args, { argTypes }) => ({
       currentIcon: "heart",
       label: "Home",
       icon: "home",
+      iconActive: "home",
     };
   },
   template: `

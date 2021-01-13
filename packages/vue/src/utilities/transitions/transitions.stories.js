@@ -22,6 +22,7 @@ export default {
 };
 
 const Template = (args, { argTypes }) => ({
+  components: { SfButton },
   props: Object.keys(argTypes),
   data() {
     return { show: false };

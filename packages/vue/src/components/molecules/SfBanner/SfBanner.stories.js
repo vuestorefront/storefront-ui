@@ -141,7 +141,7 @@ export const WithTitleSlot = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
   <SfBanner 
-  :class="customClass"
+  :class="classes"
   :title="title"
   :subtitle="subtitle"
   :description="description"
@@ -161,7 +161,7 @@ export const WithSubtitleSlot = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
   <SfBanner 
-  :class="customClass"
+  :class="classes"
   :title="title"
   :subtitle="subtitle"
   :description="description"
@@ -181,7 +181,7 @@ export const WithDescriptionSlot = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
   <SfBanner 
-  :class="customClass"
+  :class="classes"
   :title="title"
   :subtitle="subtitle"
   :description="description"
@@ -201,7 +201,7 @@ export const WithCallToActionSlot = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
   <SfBanner 
-  :class="customClass"
+  :class="classes"
   :title="title"
   :subtitle="subtitle"
   :description="description"
