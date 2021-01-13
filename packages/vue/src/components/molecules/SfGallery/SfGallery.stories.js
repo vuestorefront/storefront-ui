@@ -5,7 +5,7 @@ export default {
   component: SfGallery,
   argTypes: {
     images: {
-      control: "array",
+      control: "object",
       table: {
         category: "Props",
       },

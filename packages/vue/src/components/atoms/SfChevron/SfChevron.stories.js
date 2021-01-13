@@ -7,7 +7,12 @@ export default {
     classes: {
       control: {
         type: "select",
-        options: ["sf-chevron--top", "sf-chevron--left", "sf-chevron--right"],
+        options: [
+          "",
+          "sf-chevron--top",
+          "sf-chevron--left",
+          "sf-chevron--right",
+        ],
       },
       description: "Modifier classes",
       table: {

@@ -8,8 +8,8 @@
         </ul>
       </div>
     </div>
-    <div v-if="numberOfPages > 1" class="sf-hero__control--left">
-      <!-- @slot slot for icon moving to the previous item  -->
+    <div v-if="numberOfPages > 1 && client" class="sf-hero__controls">
+      <!--@slot slot for icon moving to the previous item -->
       <slot name="prev" v-bind="{ go: () => go('prev') }">
         <SfButton class="sf-button--pure" @click.stop="go('prev')">
           <SfArrow
@@ -30,7 +30,7 @@
         </SfButton>
       </slot>
     </div>
-    <div v-if="numberOfPages > 1" class="sf-hero__bullets">
+    <div v-if="numberOfPages > 1 && client" class="sf-hero__bullets">
       <!--@slot custom markup for pagination bullets -->
       <slot name="bullets" v-bind="{ numberOfPages, page, go }">
         <SfBullets
@@ -49,6 +49,7 @@ import SfArrow from "../../atoms/SfArrow/SfArrow.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfBullets from "../../atoms/SfBullets/SfBullets.vue";
 import Glide from "@glidejs/glide";
+import { isClient } from "../../../utilities/helpers";
 Vue.component("SfHeroItem", SfHeroItem);
 export default {
   name: "SfHero",
@@ -68,6 +69,7 @@ export default {
   },
   data() {
     return {
+      client: isClient,
       glide: null,
       defaultOptions: {
         type: "slider",

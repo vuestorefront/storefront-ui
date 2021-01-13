@@ -7,14 +7,14 @@ const banners = [
     description:
       "Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands.",
     buttonText: "Shop now",
-    image: ["/assets/storybook/Home/bannerF.jpg"],
+    image: "/assets/storybook/Home/bannerF.jpg",
     class: "sf-banner--slim",
   },
   {
     slot: "banner-B",
     subtitle: "Dresses",
     title: "Linen Dresses",
-    image: ["/assets/storybook/Home/bannerE.jpg"],
+    image: "/assets/storybook/Home/bannerE.jpg",
     class: "sf-banner--slim",
     style: "padding-right: 20%",
     description:
@@ -25,7 +25,7 @@ const banners = [
     subtitle: "T-Shirts",
     title: "The Office Life",
     buttonText: "Shop now",
-    image: ["/assets/storybook/Home/bannerC.jpg"],
+    image: "/assets/storybook/Home/bannerC.jpg",
     class: "sf-banner--slim",
   },
   {
@@ -33,7 +33,7 @@ const banners = [
     subtitle: "Summer Sandals",
     title: "Eco Sandals",
     buttonText: "Shop now",
-    image: ["/assets/storybook/Home/bannerG.jpg"],
+    image: "/assets/storybook/Home/bannerG.jpg",
     class: "sf-banner--slim",
   },
 ];

@@ -1,4 +1,5 @@
-import { SfHeader } from "@storefront-ui/vue";
+import { SfHeader, SfLink } from "@storefront-ui/vue";
+
 export default {
   title: "Components/Organisms/Header",
   component: SfHeader,
@@ -7,6 +8,7 @@ export default {
       control: {
         type: "select",
         options: [
+          "",
           "sf-header--has-mobile-search",
           "sf-header--has-mobile-navigation",
           "sf-header--multiline",
@@ -88,7 +90,14 @@ export default {
         category: "Props",
       },
     },
-    "click:cart": { action: "Clicked on cart", table: { category: "Events" } },
+    "change:search": {
+      action: "Changed search value",
+      table: { category: "Events" },
+    },
+    "click:cart": {
+      action: "Clicked on cart",
+      table: { category: "Events" },
+    },
     "click:wishlist": {
       action: "Clicked on Wishlist",
       table: { category: "Events" },
@@ -101,12 +110,12 @@ export default {
 };
 
 const Template = (args, { argTypes }) => ({
-  components: { SfHeader },
+  components: { SfHeader, SfLink },
   props: Object.keys(argTypes),
   data() {
     return {
-      navigation: ["women", "man", "kids"],
-      searchValue: "",
+      navigationItems: ["women", "man", "kids"],
+      searchValues: "",
     };
   },
   template: `
@@ -116,22 +125,21 @@ const Template = (args, { argTypes }) => ({
     :logo="logo"
     :active-icon="activeIcon"
     :search-placeholder="searchPlaceholder"
-    :search-value="searchValue"
+    :search-value="searchValues"
     :cart-icon="cartIcon"
     :wishlist-icon="wishlistIcon"
     :is-sticky="isSticky"
     :account-icon="accountIcon"
-    :style="spacer"
     :cart-items-qty="cartItemsQty"
     :wishlist-items-qty="wishlistItemsQty"
     @click:cart="this['click:cart']"
     @click:wishlist="this['click:wishlist']"
     @click:account="this['click:account']"
-    @change:search="searchValue = $event"
+    @change:search="searchValues = $event"
 >
   <template #navigation>
     <SfHeaderNavigationItem
-      v-for="item in navigation"
+      v-for="item in navigationItems"
       :key="item">
       <template slot="desktop-navigation-item">
         <SfLink href="#">{{item}}</SfLink>
