@@ -72,10 +72,6 @@
           --header-navigation-item-border-color: var(--c-primary);
         }
       }
-      --header-navigation-item-display: none;
-      @include for-desktop {
-        --header-navigation-item-display: flex;
-      }
     }
     &--mobile {
       --header-navigation-item-padding: 0;
@@ -89,9 +85,6 @@
         padding: var(--header-navigation-item-menu-item-padding, var(--spacer-sm));
         margin: var(--header-navigation-item-menu-item-margin, 0);
         @include border(--header-navigation-item-menu-item-border, 0 0 1px 0, solid, var(--c-light));
-      }
-      @include for-desktop {
-        --header-navigation-item-display: none;
       }
     }
   }
