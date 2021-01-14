@@ -1,4 +1,5 @@
 import { SfImage } from "@storefront-ui/vue";
+import product216 from "../../../../public/assets/";
 
 export default {
   title: "Components/Atoms/Image",
