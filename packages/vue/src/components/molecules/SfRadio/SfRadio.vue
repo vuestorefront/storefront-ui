@@ -97,6 +97,7 @@ export default {
     },
     inputHandler() {
       this.$emit("input", this.value);
+      this.$emit("change", this.value);
     },
   },
 };
