@@ -188,6 +188,21 @@ export default {
     --button-height: 1.875rem;
   }
 }
+.promo-code {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: var(--spacer-lg) 0 var(--spacer-base) 0;
+  margin-top: var(--spacer-lg);
+  border-top: var(--c-white) solid 1px;
+  &__input {
+    --input-background: var(--c-white);
+    flex: 1;
+  }
+  &__button {
+    --button-height: 30px;
+  }
+}
 .characteristics {
   &__item {
     margin: var(--spacer-base) 0;

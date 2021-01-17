@@ -8,7 +8,7 @@
         </ul>
       </div>
     </div>
-    <div v-if="numberOfPages > 1 && client" class="sf-hero__controls">
+    <div v-if="numberOfPages > 1 && client" class="sf-hero__control--left">
       <!--@slot slot for icon moving to the previous item -->
       <slot name="prev" v-bind="{ go: () => go('prev') }">
         <SfButton class="sf-button--pure" @click.stop="go('prev')">

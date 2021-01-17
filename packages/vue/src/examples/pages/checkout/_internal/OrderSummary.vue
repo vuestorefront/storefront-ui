@@ -52,6 +52,18 @@
         class="characteristics__item"
       />
     </div>
+    <div class="actions smartphone-only">
+      <SfButton
+        class="sf-button--full-width actions__button"
+        @click="$emit('click:next')"
+        >{{ buttonName }}</SfButton
+      >
+      <SfButton
+        class="sf-button--text actions__button actions__button--secondary"
+        @click="$emit('click:back')"
+        >Go back</SfButton
+      >
+    </div>
   </div>
 </template>
 <script>
