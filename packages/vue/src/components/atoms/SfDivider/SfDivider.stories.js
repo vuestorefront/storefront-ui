@@ -11,3 +11,6 @@ const Template = (args, { argTypes }) => ({
 		<SfDivider/> 
 	</div>`,
 });
+
+export const Common = Template.bind({});
+Common.args = {};
