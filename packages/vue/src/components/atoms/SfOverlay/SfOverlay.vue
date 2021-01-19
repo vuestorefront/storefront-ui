@@ -4,7 +4,7 @@
       v-if="props.visible"
       ref="overlay"
       :class="[data.class, data.staticClass, 'sf-overlay']"
-      @click="listeners.click || (() => {})"
+      @click="listeners.click"
     ></div>
   </transition>
 </template>
