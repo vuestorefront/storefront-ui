@@ -18,6 +18,11 @@ export default {
     },
     click: { action: "Overlay clicked!", table: { category: "Events" } },
   },
+  parameters: {
+    docs: {
+      inlineStories: false,
+    },
+  },
 };
 
 const Template = (args, { argTypes }) => ({

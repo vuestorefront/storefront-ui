@@ -31,6 +31,11 @@ export default {
     "click:close": { action: "Close dropdown", table: { category: "Events" } },
     "click:open": { action: "Open dropdown", table: { category: "Events" } },
   },
+  parameters: {
+    docs: {
+      inlineStories: false,
+    },
+  },
 };
 
 const Template = (args, { argTypes }) => ({

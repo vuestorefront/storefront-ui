@@ -40,6 +40,11 @@ export default {
     transition: "sf-bottom-modal",
     content: "Your content",
   },
+  parameters: {
+    docs: {
+      inlineStories: false,
+    },
+  },
 };
 
 const Template = (args, { argTypes }) => ({
