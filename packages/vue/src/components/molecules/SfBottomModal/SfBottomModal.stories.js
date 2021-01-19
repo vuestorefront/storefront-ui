@@ -43,6 +43,9 @@ export default {
   parameters: {
     docs: {
       inlineStories: false,
+      source: {
+        type: "auto",
+      },
     },
   },
 };
@@ -61,6 +64,14 @@ const Template = (args, { argTypes }) => ({
 });
 
 export const Common = Template.bind({});
+Common.parameters = {
+  docs: {
+    inlineStories: false,
+    source: {
+      type: "auto",
+    },
+  },
+};
 
 export const Example = (args, { argTypes }) => ({
   props: Object.keys(argTypes),

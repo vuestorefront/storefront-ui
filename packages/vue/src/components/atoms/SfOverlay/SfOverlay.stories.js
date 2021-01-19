@@ -21,6 +21,9 @@ export default {
   parameters: {
     docs: {
       inlineStories: false,
+      source: {
+        type: 'auto',
+      }
     },
   },
 };
@@ -35,6 +38,14 @@ export const Common = Template.bind({});
 Common.args = {
   visible: true,
 };
+Common.parameters = {
+  docs: {
+    inlineStories: false,
+    source: {
+      type: 'auto',
+    }
+  },
+}
 
 export const WithFadeTransition = Template.bind({});
 WithFadeTransition.args = {
