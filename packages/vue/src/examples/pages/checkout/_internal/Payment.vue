@@ -448,6 +448,9 @@ export default {
     &__checkbox {
       margin: 0 0 var(--spacer-xl) 0;
     }
+    &__action-button {
+      --button-width: 25rem;
+    }
   }
 }
 .payment-methods {
