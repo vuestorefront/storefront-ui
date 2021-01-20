@@ -9,7 +9,7 @@
       :class="classes"
       :width="width"
       :height="height"
-      :alt="alt && alt.trim()"
+      :alt="alt"
       @load="onLoad"
       v-on="$listeners"
     />
@@ -47,12 +47,11 @@ export default {
         value.every((item) => item.src && item.width),
     },
     /**
-     * Alternative text in case image is not loaded.
+     * Alternative text in case image is not loaded. Use empty string " " for decorative-only image and full text otherwise
      */
     alt: {
       type: String,
       required: true,
-      validator: (value) => value && !!value.trim(),
     },
     /**
      * Width of the image

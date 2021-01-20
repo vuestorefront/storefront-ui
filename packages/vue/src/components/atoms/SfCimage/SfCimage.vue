@@ -36,7 +36,6 @@ export default {
     alt: {
       type: String,
       required: true,
-      validator: (value) => value && !!value.trim(),
     },
   },
   render(createElement, context) {
