@@ -1,4 +1,4 @@
-import { SfHeader, SfLink } from "@storefront-ui/vue";
+import { SfHeader, SfLink, SfMenuItem } from "@storefront-ui/vue";
 
 export default {
   title: "Components/Organisms/Header",
@@ -122,7 +122,7 @@ export default {
 };
 
 const Template = (args, { argTypes }) => ({
-  components: { SfHeader, SfLink },
+  components: { SfHeader, SfLink, SfMenuItem },
   props: Object.keys(argTypes),
   data() {
     return {
@@ -143,6 +143,7 @@ const Template = (args, { argTypes }) => ({
     :cart-icon="cartIcon"
     :wishlist-icon="wishlistIcon"
     :is-sticky="isSticky"
+    :is-nav-visible="isNavVisible"
     :account-icon="accountIcon"
     :cart-items-qty="cartItemsQty"
     :wishlist-items-qty="wishlistItemsQty"
@@ -157,6 +158,10 @@ const Template = (args, { argTypes }) => ({
       :key="item">
       <template slot="desktop-navigation-item">
         <SfLink href="#">{{item}}</SfLink>
+      </template>
+      <template slot="mobile-navigation-item">
+        <SfMenuItem :label="item" class="sf-header-navigation-item__menu-item">
+        </SfMenuItem>
       </template>
     </SfHeaderNavigationItem>
   </template>
