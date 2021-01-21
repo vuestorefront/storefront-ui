@@ -16,8 +16,6 @@
     position: relative;
     display: flex;
     flex: var(--grouped-product-item-flex);
-    // flex: 0 0 8.75rem;
-    // line-height: 0;
   }
   &__image {
     background: var(--grouped-product-item-image-background, var(--c-light));
