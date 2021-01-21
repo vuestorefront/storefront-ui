@@ -31,7 +31,7 @@ const Template = (args, { argTypes }) => ({
   <SfGroupedProduct
     :settings="settings"
     :has-carousel="hasCarousel"
-    :style="{maxWidth: '500px'}"
+    :style="{maxWidth: '1140px', margin: 'auto'}"
   >
     <SfGroupedProductItem
       :qty="productQty"
@@ -45,7 +45,52 @@ const Template = (args, { argTypes }) => ({
     >
       <template #details>
         <div :style="{color: '#72757E', fontSize: 'var(--font-size--base'}">MSD23-345-324</div>
-        <SfProperty name="Color" value="White" :style="{margin: 'auto 0 0 0'}" />
+        <SfProperty name="Color" value="White" :style="{margin: 'auto 0 0 0', width: '110px'}" />
+      </template>
+    </SfGroupedProductItem>
+    <SfGroupedProductItem
+      :qty="productQty"
+      @input="productQty = $event"
+      :image="image"
+      :image-width="imageWidth"
+      :image-height="imageHeight"
+      :image-lazy="imageLazy"
+      :title="title"
+      :price-regular="priceRegular"
+    >
+      <template #details>
+        <div :style="{color: '#72757E', fontSize: 'var(--font-size--base'}">MSD23-345-324</div>
+        <SfProperty name="Color" value="White" :style="{margin: 'auto 0 0 0', width: '110px'}" />
+      </template>
+    </SfGroupedProductItem>
+    <SfGroupedProductItem
+      :qty="productQty"
+      @input="productQty = $event"
+      :image="image"
+      :image-width="imageWidth"
+      :image-height="imageHeight"
+      :image-lazy="imageLazy"
+      :title="title"
+      :price-regular="priceRegular"
+    >
+      <template #details>
+        <div :style="{color: '#72757E', fontSize: 'var(--font-size--base'}">MSD23-345-324</div>
+        <SfProperty name="Color" value="White" :style="{margin: 'auto 0 0 0', width: '110px'}" />
+      </template>
+    </SfGroupedProductItem>
+    <SfGroupedProductItem
+      :qty="productQty"
+      @input="productQty = $event"
+      :image="image"
+      :image-width="imageWidth"
+      :image-height="imageHeight"
+      :image-lazy="imageLazy"
+      :title="title"
+      :price-regular="priceRegular"
+    >
+      <template #details>
+        <div :style="{color: '#72757E', fontSize: 'var(--font-size--base'}">MSD23-345-324</div>
+        <SfProperty name="Color" value="White" :style="{margin: 'auto 0 0 0', width: '110px'}" />
       </template>
     </SfGroupedProductItem>
   </SfGroupedProduct>`,
@@ -55,11 +100,12 @@ export const Common = Template.bind({});
 Common.args = {
   settings: { type: "slider" },
   image: "/assets/storybook/SfGroupedProduct/product-white.png",
-  imageWidth: 82,
-  imageHeight: 112,
+  imageWidth: 146,
+  imageHeight: 200,
   imageLazy: true,
   title: "Leave white brooch",
   priceRegular: "$10.99",
+  hasCarousel: false,
 };
 
 export const UseConfigurationSlot = (args, { argTypes }) => ({
