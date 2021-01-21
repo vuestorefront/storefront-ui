@@ -148,23 +148,18 @@ const Template = (args, { argTypes }) => ({
     :cart-items-qty="cartItemsQty"
     :wishlist-items-qty="wishlistItemsQty"
     @click:cart="this['click:cart']"
-    @click:wishlist="this['click:wishlist']"
+    @click:wishlist="this[
+      
+      </SfHeaderNavigationItem>'click:wishlist']"
     @click:account="this['click:account']"
     @change:search="searchValues = $event"
 >
   <template #navigation>
     <SfHeaderNavigationItem
       v-for="item in navigationItems"
-      :key="item">
-      <template slot="desktop-navigation-item">
-        <SfLink href="#">{{item}}</SfLink>
-      </template>
-      <template slot="mobile-navigation-item">
-        <SfLink href="#" class="sf-header-navigation-item__menu-item">
-          {{item}}
-        </SfLink>
-      </template>
-    </SfHeaderNavigationItem>
+      :key="item"
+      :label="item"
+    />
   </template>
 </SfHeader>`,
 });
