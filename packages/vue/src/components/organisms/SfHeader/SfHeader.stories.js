@@ -148,9 +148,7 @@ const Template = (args, { argTypes }) => ({
     :cart-items-qty="cartItemsQty"
     :wishlist-items-qty="wishlistItemsQty"
     @click:cart="this['click:cart']"
-    @click:wishlist="this[
-      
-      </SfHeaderNavigationItem>'click:wishlist']"
+    @click:wishlist="this['click:wishlist']"
     @click:account="this['click:account']"
     @change:search="searchValues = $event"
 >
