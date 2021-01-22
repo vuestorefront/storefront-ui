@@ -19,7 +19,7 @@
         </SfButton>
       </slot>
     </div>
-    <div v-if="numberOfPages > 1" class="sf-hero__control--right">
+    <div v-if="numberOfPages > 1 && client" class="sf-hero__control--right">
       <!-- @slot slot for icon moving to the next item  -->
       <slot name="next" v-bind="{ go: () => go('next') }">
         <SfButton class="sf-button--pure" @click.stop="go('next')">
