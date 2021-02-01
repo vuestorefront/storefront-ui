@@ -2,7 +2,7 @@
   <nav class="sf-pagination">
     <!-- @slot Custom markup for previous page button -->
     <slot name="prev" v-bind="{ isDisabled: !canGoPrev, go, prev: getPrev }">
-      <div class="sf-pagination__item prev">
+      <div v-if="hasArrows" class="sf-pagination__item prev">
         <component
           :is="componentIs"
           v-if="canGoPrev"
@@ -72,7 +72,7 @@
     </template>
     <!-- @slot Custom markup for previous page button -->
     <slot name="next" v-bind="{ isDisabled: !canGoNext, go, next: getNext }">
-      <div class="sf-pagination__item next">
+      <div v-if="hasArrows" class="sf-pagination__item next">
         <component
           :is="componentIs"
           v-if="canGoNext"
@@ -202,8 +202,13 @@ export default {
       this.$emit("click", page);
     },
     getLinkTo(page) {
-      const linkToPage = page.toString();
-      return linkToPage;
+      const route = {
+        name: this.$route.name,
+        params: this.$route.params,
+        query: { ...this.$route.query, page: page.toString() },
+      };
+      const linkToPage = this.$router.resolve(route).href;
+      return linkToPage.slice(1);
     },
   },
 };

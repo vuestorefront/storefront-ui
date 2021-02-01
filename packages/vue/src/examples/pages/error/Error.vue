@@ -3,6 +3,7 @@
     <SfImage
       class="image"
       :src="require('@storefront-ui/shared/icons/error.svg')"
+      alt="Page Not Found"
     />
     <SfHeading
       title="Page not found"

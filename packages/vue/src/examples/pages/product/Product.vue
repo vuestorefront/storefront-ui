@@ -132,6 +132,18 @@
         </SfTabs>
       </div>
     </div>
+    <transition name="slide">
+      <SfNotification
+        class="notification smartphone-only"
+        :visible="isOpenNotification"
+        :message="`${qty} x ${product.name} (size: ${selectedSize}, color: ${selectedColor}) has been added to cart`"
+        @click:close="isOpenNotification = false"
+      >
+        <template #icon>
+          <span></span>
+        </template>
+      </SfNotification>
+    </transition>
   </div>
 </template>
 <script>
@@ -150,6 +162,7 @@ import {
   SfSelect,
   SfProductOption,
   SfBreadcrumbs,
+  SfNotification,
 } from "@storefront-ui/vue";
 export default {
   name: "Product",
@@ -168,6 +181,7 @@ export default {
     SfSelect,
     SfProductOption,
     SfBreadcrumbs,
+    SfNotification,
   },
   data() {
     return {
@@ -184,21 +198,25 @@ export default {
             mobile: { url: "assets/storybook/Product/productA.png" },
             desktop: { url: "assets/storybook/Product/productA.png" },
             big: { url: "assets/storybook/Product/productA.png" },
+            alt: "Product A",
           },
           {
             mobile: { url: "assets/storybook/Product/productB.jpg" },
             desktop: { url: "assets/storybook/Product/productB.jpg" },
             big: { url: "assets/storybook/Product/productB.jpg" },
+            alt: "Product B",
           },
           {
             mobile: { url: "assets/storybook/Product/productA.png" },
             desktop: { url: "assets/storybook/Product/productA.png" },
             big: { url: "assets/storybook/Product/productA.png" },
+            alt: "Product A",
           },
           {
             mobile: { url: "assets/storybook/Product/productB.jpg" },
             desktop: { url: "assets/storybook/Product/productB.jpg" },
             big: { url: "assets/storybook/Product/productB.jpg" },
+            alt: "Product B",
           },
         ],
         price: "$50.00",
@@ -294,13 +312,15 @@ export default {
           },
         },
       ],
+      isOpenNotification: false,
     };
   },
   methods: {
     addToCart() {
-      console.log(
-        `${this.qty} x ${this.product.name} (size: ${this.selectedSize}, color: ${this.selectedColor}) has been added to cart`
-      );
+      this.isOpenNotification = true;
+      setTimeout(() => {
+        this.isOpenNotification = false;
+      }, 3000);
     },
     selectColor(colorIndex) {
       this.product.colors.map((el, i) => {
@@ -472,6 +492,32 @@ export default {
 }
 .breadcrumbs {
   margin: var(--spacer-base) auto var(--spacer-lg);
+}
+.notification {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  --notification-border-radius: 0;
+  --notification-max-width: 100%;
+  --notification-background: var(--c-link);
+  --notification-font-size: var(--font-size--sm);
+  --notification-font-family: var(--font-family--primary);
+  --notification-font-weight: var(--font-weight--normal);
+  --notification-padding: var(--spacer-base) var(--spacer-lg);
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: all 0.3s;
+}
+
+.slide-enter {
+  transform: translateY(40px);
+}
+
+.slide-leave-to {
+  transform: translateY(-80px);
 }
 @keyframes moveicon {
   0% {
