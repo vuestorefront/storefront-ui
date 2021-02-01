@@ -43,6 +43,7 @@ import SfNotification from "./src/components/molecules/SfNotification/SfNotifica
 import SfPagination from "./src/components/molecules/SfPagination/SfPagination.vue";
 import SfProductOption from "./src/components/molecules/SfProductOption/SfProductOption.vue";
 import SfRadio from "./src/components/molecules/SfRadio/SfRadio.vue";
+import SfRange from "./src/components/molecules/SfRange/SfRange.vue";
 import SfReview from "./src/components/molecules/SfReview/SfReview.vue";
 import SfScrollable from "./src/components/molecules/SfScrollable/SfScrollable.vue";
 import SfSearchBar from "./src/components/molecules/SfSearchBar/SfSearchBar.vue";
@@ -117,6 +118,7 @@ export {
   SfPagination,
   SfProductOption,
   SfRadio,
+  SfRange,
   SfReview,
   SfScrollable,
   SfSearchBar,
@@ -144,5 +146,5 @@ export {
   SfStoreLocator,
   SfTable,
   SfTabs,
-  SfTopBar,
+  SfTopBar
 };

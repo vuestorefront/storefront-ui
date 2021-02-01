@@ -1,7 +1,7 @@
-import { SfRadio } from "@storefront-ui/vue";
+import { SfRange } from "@storefront-ui/vue";
 export default {
-  title: "Components/Molecules/Radio",
-  component: SfRadio,
+  title: "Components/Molecules/Range",
+  component: SfRange,
   argTypes: {
     value: {
       control: [Number, Array],
@@ -59,12 +59,12 @@ export default {
       },
       description: "Configuration",
     },
-    input: { action: "Toggle selection", table: { category: "Events" } },
+    change: { action: "New value", table: { category: "Events" } },
   },
 };
 
 const Template = (args, { argTypes }) => ({
-  components: { SfRadio },
+  components: { SfRange },
   props: Object.keys(argTypes),
   template: `
   <div style="padding: 100px">
@@ -72,15 +72,19 @@ const Template = (args, { argTypes }) => ({
       v-model="value"
       :disabled="disabled"
       :config="config"        
-      @change="alert"
+      @change="change"
     />  
   </div>`,
 });
 
 export const Common = Template.bind({});
+Common.args = {
+  disabled: false,
+};
 
 export const OneSlider = Template.bind({});
 OneSlider.args = {
+  disabled: false,
   value: 0,
   config: {
     start: 0,
