@@ -17,7 +17,7 @@ export default {
     placeholder: {
       type: String,
       default: "",
-      validator: (value) => !!value || placeholderTypes[value],
+      validator: (value) => !value || placeholderTypes[value],
     },
     cloud: {
       type: Object,
