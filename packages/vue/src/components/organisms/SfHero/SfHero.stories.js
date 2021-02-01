@@ -1,4 +1,4 @@
-import { SfHero } from "@storefront-ui/vue";
+import { SfHero, SfCimage } from "@storefront-ui/vue";
 
 export default {
   title: "Components/Organisms/Hero",
@@ -65,3 +65,69 @@ const Template = (args, { argTypes }) => ({
 
 export const Common = Template.bind({});
 Common.args = {};
+
+export const WithCloudinaryImage = (args, { argTypes }) => ({
+  components: {
+    SfHero,
+    SfCimage,
+  },
+  props: Object.keys(argTypes),
+  data() {
+    return {
+      title: "Colorful summer dresses are already in store",
+      subtitle: "Summer Collection 2019",
+      buttonText: "Learn more",
+      cloud: { cloudName: "demo" },
+      alt: "animals",
+      placeholder: "SfHero with SfCimage",
+      transformations: [
+        {
+          resize: {
+            width: 1240,
+            height: 586,
+            type: "fill",
+          },
+          gravity: "center",
+        },
+      ],
+    };
+  },
+  template: `
+  <SfHero
+    :style="{maxWidth: '1240px', margin: 'auto'}"
+  >
+    <SfHeroItem
+      :class="classes"
+      :title="title"
+      :subtitle="subtitle"
+      :button-text="buttonText"
+    >
+      <template #withImgTag>
+        <SfCimage
+          public-id="dog"
+          :cloud="cloud"
+          :alt="alt"
+          :placeholder="placeholder"
+          :transformations="transformations"
+        />
+      </template>
+    </SfHeroItem>
+    <SfHeroItem
+      :class="classes"
+      title="Colorful summer dresses are already in store"
+      subtitle="Summer Collection 2019"
+      button-text="Learn more"
+    >
+      <template #withImgTag>
+        <SfCimage
+          public-id="brown_sheep"
+          :cloud="cloud"
+          :alt="alt"
+          :placeholder="placeholder"
+          :transformations="transformations"
+        />
+      </template>
+    </SfHeroItem>
+  </SfHero>`,
+});
+WithCloudinaryImage.args = { ...Common.args };
