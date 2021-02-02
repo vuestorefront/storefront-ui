@@ -6,17 +6,19 @@ import { Meta } from "@storybook/addon-docs/blocks";
 
 ## 🐛 Fixes
 
-- SfHero: left arrow below image
-- SfHero: buttons not clickable fix
-- SfHero: add client class to right control arrow
+
+- SfHero: 
+    - left arrow below image
+    - buttons not clickable fix
+    - add client class to right control arrow
+    - removed SfButtons as wrappers for SfArrows
 - SfTextarea: change component from functional to standard to fix listeners bug
 - SfCarousel: design broken
 - SfArrow, SfCircleIcon: remove doubled listeners
-- Category example: missing title
 - SfImage: accept empty alt text for decorative-only images
 - SfSidebar: SfScrollable removed and body scroll lock added to sidebar component
 - SfCimage: fix Image not defined in SSR render and validation
-- SfHero: removed SfButtons as wrappers for SfArrows
+
 
 ## 🧹 Chores:
 
@@ -24,6 +26,7 @@ import { Meta } from "@storybook/addon-docs/blocks";
 - fix changelog script
 - fix static assets for docs
 - fix logo build
+- fix docs build
 - SfImage: no image on Storybook
 - SfGallery: wrong prop type on storybook and default value for sliderOptions
 - SfStoreLocator: fix server select option prop on Storybook
@@ -33,4 +36,5 @@ import { Meta } from "@storybook/addon-docs/blocks";
 - SfSelect: selectedValue not defined in Storybook
 - SfDivider: lack of story on Storybook
 - SfSidebar: change rendering option to iframe
-- fix docs build
+- Category example: missing title
+
