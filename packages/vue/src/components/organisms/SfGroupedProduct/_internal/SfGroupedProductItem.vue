@@ -21,6 +21,19 @@
           class="sf-grouped-product-item__image"
         />
       </slot>
+      <!-- @slot Custom input markup -->
+      <div class="smartphone-only">
+        <slot name="input" v-bind="{ qty }">
+          <div class="sf-grouped-product-item__quantity-wrapper">
+            <SfQuantitySelector
+              :qty="qty"
+              aria-label="Quantity"
+              class="sf-grouped-product-item__quantity-selector"
+              @input="$emit('input', $event)"
+            />
+          </div>
+        </slot>
+      </div>
     </div>
     <div class="sf-grouped-product-item__description">
       <!-- @slot Custom title markup -->
@@ -47,14 +60,16 @@
       </slot>
     </div>
     <!-- @slot Custom input markup -->
-    <slot name="input" v-bind="{ qty }">
-      <SfQuantitySelector
-        :qty="qty"
-        aria-label="Quantity"
-        class="sf-grouped-product-item__quantity-selector"
-        @input="$emit('input', $event)"
-      />
-    </slot>
+    <div class="desktop-only">
+      <slot name="input" v-bind="{ qty }">
+        <SfQuantitySelector
+          :qty="qty"
+          aria-label="Quantity"
+          class="sf-grouped-product-item__quantity-selector"
+          @input="$emit('input', $event)"
+        />
+      </slot>
+    </div>
   </li>
 </template>
 <script>
