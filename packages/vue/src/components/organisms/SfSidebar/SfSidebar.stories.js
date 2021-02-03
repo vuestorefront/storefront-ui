@@ -58,6 +58,11 @@ export default {
     },
     close: { action: "Close sidebar clicked", table: { category: "Events" } },
   },
+  parameters: {
+    docs: {
+      inlineStories: false,
+    },
+  },
 };
 
 const Template = (args, { argTypes }) => ({

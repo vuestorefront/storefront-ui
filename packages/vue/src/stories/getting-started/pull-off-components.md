@@ -11,15 +11,9 @@ With just one command you can have all components and their styles, so that no n
 
 ## Required
 
-<<<<<<< HEAD:packages/vue/src/stories/getting-started/pull-off-components.md
-* Storefront UI added as a dependency to your project.
-
-* `fse` package added to your project with `npm install fse -D` or `yarn add fse -D` .
-=======
 - Storefront UI added as a dependency to your project.
 
 - `fse` package added to your project with `npm install fse -D` or `yarn add fse -D` .
->>>>>>> release/0.10.0:packages/vue/src/stories/getting-started/3. pulloff.stories.mdx
 
 ## How to copy components
 

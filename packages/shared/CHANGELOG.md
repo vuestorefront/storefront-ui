@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.1](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.10.0...@storefront-ui/shared@0.10.1) (2021-02-02)
+
+
+### Bug Fixes
+
+* [#1652](https://github.com/vuestorefront/storefront-ui/issues/1652) alt text should accept empty value ([ab49aa5](https://github.com/vuestorefront/storefront-ui/commit/ab49aa5ed708410aadb3b70edd79a0c1b0cb30bd))
+* another changelogs fix ([0fcf933](https://github.com/vuestorefront/storefront-ui/commit/0fcf933f75d45fa2c345638be67ba49469c5ac3d))
+* carousel fixed ([e57da66](https://github.com/vuestorefront/storefront-ui/commit/e57da66e72e3e8b24d6403dd35f059c29c71fd13))
+* pointer events removed ([#1650](https://github.com/vuestorefront/storefront-ui/issues/1650)) ([0a1b495](https://github.com/vuestorefront/storefront-ui/commit/0a1b4959c6f4dd5317154e6b752eda3d1165b789))
+
+
+
+
+
 # [0.10.0](https://github.com/AdamPawlinski/storefront-ui-adam/compare/@storefront-ui/shared@0.9.1...@storefront-ui/shared@0.10.0) (2021-01-13)
 
 ### Bug Fixes
