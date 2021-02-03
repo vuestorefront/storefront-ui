@@ -4,14 +4,16 @@ export default {
   component: SfRange,
   argTypes: {
     value: {
-      control: [Number, Array],
+      control: {
+        type: "array",
+      },
       table: {
         category: "Props",
       },
       defaultValue: {
-        default: () => [0, 1],
+        summary: [0, 1],
       },
-      description: "Disabled",
+      description: "value",
     },
     disabled: {
       control: "boolean",
@@ -29,7 +31,7 @@ export default {
         category: "Props",
       },
       defaultValue: {
-        start: [0, 1],
+        start: [0,1],
         range: {
           min: 0,
           max: 10,
@@ -84,10 +86,24 @@ Common.args = {
 
 export const OneSlider = Template.bind({});
 OneSlider.args = {
-  disabled: false,
-  value: 0,
+  ...Common.args,
+  value: {
+    control: {
+      type: "range",
+      min: 0,
+      max: 10,
+      step: 1,
+    },
+    table: {
+      category: "Props",
+    },
+    defaultValue: {
+      summary: 0,
+    },
+    description: "value",
+  },
   config: {
-    start: 0,
+    start: 0,    
     range: {
       min: 0,
       max: 10,
@@ -100,12 +116,14 @@ OneSlider.args = {
     tooltips: true,
     format: {
       to: function (value) {
+        console.log('to', value);
         return new Intl.NumberFormat("de-DE", {
           style: "currency",
           currency: "EUR",
         }).format(value);
       },
       from: function (value) {
+        console.log('from', value);
         const parsedValue = new Intl.NumberFormat("de-DE", {
           style: "currency",
           currency: "EUR",

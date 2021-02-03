@@ -4,7 +4,7 @@
   position: relative;
   width: var(--range-width, 100%);
   height: var(--range-height, 7px);
-  padding: var(--range-tooltips-padding, 0 var(--spacer-sm));
+  margin: var(--spacer-xl);
   @include background(--range-background, var(--c-light));
   border: none;
   box-shadow: none;

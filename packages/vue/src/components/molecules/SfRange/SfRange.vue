@@ -29,7 +29,7 @@ export default {
       type: Object,
       default: () => {
         return {
-          start: [0, 1],
+          start: this.value,
           range: {
             min: 0,
             max: 10,
@@ -47,8 +47,8 @@ export default {
   },
   watch: {
     config: {
-      handler(value) {
-        return this.resetAndChangeOption(value);
+      handler(newConfig) {
+        return this.resetAndChangeOption(newConfig);
       },
       deep: true,
     },
@@ -57,21 +57,18 @@ export default {
     this.noUiSliderInit(this.config);
   },
   beforeDestroy() {
-    if (this.$refs.range && this.$refs.range.noUiSlider)
-      this.$refs.range.noUiSlider.destroy();
+    this.$refs.range?.noUiSlider?.destroy();
   },
   methods: {
-    noUiSliderInit(changedValue) {
-      const newConfig = Object.assign(this.config, changedValue);
+    noUiSliderInit(config) {
+      const configSettings = Object.assign(this.config, config);
       noUiSlider
-        .create(this.$refs.range, newConfig)
+        .create(this.$refs.range, configSettings)
         .on("change", (values) => this.$emit("change", values));
     },
-    resetAndChangeOption(changedValue) {
-      if (this.$refs.range.noUiSlider) {
-        this.$refs.range.noUiSlider.destroy();
-        this.noUiSliderInit(changedValue);
-      }
+    resetAndChangeOption(config) {
+      this.$refs.range?.noUiSlider?.destroy();
+      this.noUiSliderInit(config);
     },
   },
 };

@@ -101,6 +101,7 @@
         error-message="Please choose your country."
         @blur="emailBlur = false"
       />
+      <SfRange v-model="rangeValue" :config="rangeConfig" />
       <SfTextarea
         v-model="message"
         class="form__element"
@@ -136,6 +137,7 @@ import {
   SfComponentSelect,
   SfButton,
   SfTextarea,
+  SfRange,
 } from "@storefront-ui/vue";
 export default {
   name: "Default",
@@ -144,6 +146,7 @@ export default {
     SfInput,
     SfComponentSelect,
     SfTextarea,
+    SfRange,
   },
   data() {
     return {
@@ -220,6 +223,36 @@ export default {
       ],
       message: "",
       messageBlur: true,
+      rangeValue: [0, 1],
+      rangeConfig: {
+        start: [0, 1],
+        range: {
+          min: 0,
+          max: 10,
+        },
+        step: 1,
+        connect: true,
+        direction: "ltr",
+        orientation: "horizontal",
+        behaviour: "tap-drag",
+        tooltips: false,
+        keyboardSupport: true,
+        format: {
+          to: function (rangeValue) {
+            return new Intl.NumberFormat("en-US", {
+              style: "currency",
+              currency: "USD",
+            }).format(rangeValue);
+          },
+          from: function (rangeValue) {
+            const parsedValue = new Intl.NumberFormat("en-US", {
+              style: "currency",
+              currency: "USD",
+            }).formatToParts(rangeValue);
+            return parsedValue[0].value;
+          },
+        },
+      },
     };
   },
   methods: {
