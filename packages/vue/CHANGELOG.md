@@ -3,6 +3,42 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.1](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/vue@0.10.0...@storefront-ui/vue@0.10.1) (2021-02-02)
+
+
+### Bug Fixes
+
+* [#1652](https://github.com/vuestorefront/storefront-ui/issues/1652) alt text should accept empty value ([ab49aa5](https://github.com/vuestorefront/storefront-ui/commit/ab49aa5ed708410aadb3b70edd79a0c1b0cb30bd))
+* another changelogs fix ([0fcf933](https://github.com/vuestorefront/storefront-ui/commit/0fcf933f75d45fa2c345638be67ba49469c5ac3d))
+* carousel fixed ([e57da66](https://github.com/vuestorefront/storefront-ui/commit/e57da66e72e3e8b24d6403dd35f059c29c71fd13))
+* change control options to object ([d06dd05](https://github.com/vuestorefront/storefront-ui/commit/d06dd05b16acb5cd04cd25bfb01316f63546db5d))
+* change docs rendering to iframe ([84c9c85](https://github.com/vuestorefront/storefront-ui/commit/84c9c859b2f4ed03d68b6264646cd367b44340e5))
+* cimage placeholder validator ([66470f3](https://github.com/vuestorefront/storefront-ui/commit/66470f3b4da09cb1cae0e5453074656b35cfea9b))
+* default value for slider options ([dc9e766](https://github.com/vuestorefront/storefront-ui/commit/dc9e766699ab0839ab7591e5a584cc52a07afa14))
+* document in pulloff page ([7eb182c](https://github.com/vuestorefront/storefront-ui/commit/7eb182cf22d4fe192147feb58e8a35ee4e74dd81))
+* examples for sfprice fixed ([3d1b4cf](https://github.com/vuestorefront/storefront-ui/commit/3d1b4cf7f2b3e958b5f1a527b0600c53a7083277))
+* fix conflict in member json ([5531463](https://github.com/vuestorefront/storefront-ui/commit/5531463da0f641b9f0e1c2d04b8fe8cc78080207))
+* left arrow with correct class ([a4db588](https://github.com/vuestorefront/storefront-ui/commit/a4db5883d46a02018c6b03bc4208325003ff836b))
+* linter ([be4518a](https://github.com/vuestorefront/storefront-ui/commit/be4518af57e5ea09ce2f5c025f5340a8671c2b60))
+* listeners in functional components  ([#1648](https://github.com/vuestorefront/storefront-ui/issues/1648)) ([fd52f2a](https://github.com/vuestorefront/storefront-ui/commit/fd52f2a9024fe43b22a0417c5d00e926d6487bda))
+* missing data in slots examples ([15890e4](https://github.com/vuestorefront/storefront-ui/commit/15890e4da41557670817ab8deac148598523a158))
+* remove changelog unnecessary info ([1ba3e21](https://github.com/vuestorefront/storefront-ui/commit/1ba3e215a6b3644da0a2d7eb2ddf582909a33ce8))
+* revert last changes add body scroll lock to whole sidebar ([c23a9af](https://github.com/vuestorefront/storefront-ui/commit/c23a9af345d246b91c917a87b051e15cf20a731e))
+* selectedValue added ([e14b649](https://github.com/vuestorefront/storefront-ui/commit/e14b649dd9fdd0fb40b039883fa66e6736de8aae))
+* SfHero - removed SfButton as wrapper for SfArrow ([#1676](https://github.com/vuestorefront/storefront-ui/issues/1676)) ([b63c5e1](https://github.com/vuestorefront/storefront-ui/commit/b63c5e1e36af9a63b463b714c7d2ef74456e4cce))
+* sfhero add client class to right control ([#1664](https://github.com/vuestorefront/storefront-ui/issues/1664)) ([a92c68f](https://github.com/vuestorefront/storefront-ui/commit/a92c68f8eea55ce69b4b5dc835d295e0014eea08))
+* static asset for docs ([df97c15](https://github.com/vuestorefront/storefront-ui/commit/df97c157eaf9dbc7c6f9f09c136543f71729f01b))
+* story for count slot in sffilter ([aadf4a2](https://github.com/vuestorefront/storefront-ui/commit/aadf4a27b10c0d3e3960a9c6b60ddbdad4c99376))
+* story for sfdivider ([8bd8fc5](https://github.com/vuestorefront/storefront-ui/commit/8bd8fc57544c891de00c69c60ed6d87149bee85e))
+* textarea component revert from functional to normal ([#1651](https://github.com/vuestorefront/storefront-ui/issues/1651)) ([e002fba](https://github.com/vuestorefront/storefront-ui/commit/e002fba168fd4dde724b7dd7d830fb25992e5082))
+* title in product card visible ([07fd0e4](https://github.com/vuestorefront/storefront-ui/commit/07fd0e4da006f845fa5fbdb6ac43532cb0cd15a7))
+* unused import deleted ([c42e2cd](https://github.com/vuestorefront/storefront-ui/commit/c42e2cd6da291d48f37c13ebbc7075cad3c393d2))
+* version script ([84f7b2e](https://github.com/vuestorefront/storefront-ui/commit/84f7b2e0edd346acd0e0fd5ac1917b93666d6e3d))
+
+
+
+
+
 # [0.10.0](https://github.com/AdamPawlinski/storefront-ui-adam/compare/@storefront-ui/vue@0.9.0...@storefront-ui/vue@0.10.0) (2021-01-13)
 
 
