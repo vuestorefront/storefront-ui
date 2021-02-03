@@ -42,6 +42,12 @@ export default {
     },
     sliderOptions: {
       control: "object",
+      defaultValue: {
+        type: "slider",
+        autoplay: false,
+        rewind: false,
+        gap: 0,
+      },
       table: {
         category: "Props",
       },
