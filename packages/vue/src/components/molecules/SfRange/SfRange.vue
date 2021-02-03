@@ -29,7 +29,7 @@ export default {
       type: Object,
       default: () => {
         return {
-          start: this.value,
+          start: [0, 1],
           range: {
             min: 0,
             max: 10,
