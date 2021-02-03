@@ -4,12 +4,12 @@
   position: relative;
   display: inline-block;
 
-  &:hover{	
-    --image-overlay-opacity: 1	
+  &:hover {
+    --image-overlay-opacity: 1;
   }
 }
 
-.sf-image{    
+.sf-image {
   object-fit: cover;
   width: var(--image-width);
   height: var(--image-height, auto);
@@ -33,14 +33,14 @@
 }
 
 .sf-image--overlay {
-  position: absolute;	
-  top: 0;	
+  position: absolute;
+  top: 0;
   width: 100%;
   height: 100%;
-  display: flex;	
-  justify-content: center;	
-  align-items: center;	
-  padding: var(--image-overlay-padding);	
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--image-overlay-padding);
   background: var(--image-overlay-background, rgba(var(--c-dark-base), 0.6));
   color: var(--image-overlay-color, var(--c-white));
   opacity: var(--image-overlay-opacity, 0);
