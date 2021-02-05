@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.2](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/vue@0.10.1...@storefront-ui/vue@0.10.2) (2021-02-04)
+
+
+### Bug Fixes
+
+* doc merge ([fbeb490](https://github.com/vuestorefront/storefront-ui/commit/fbeb490a80ea632869bdfbbadfb246707cca32b8))
+* removed client checker ([#1680](https://github.com/vuestorefront/storefront-ui/issues/1680)) ([52442c5](https://github.com/vuestorefront/storefront-ui/commit/52442c565db8895f75971d9211e9b966475977e0))
+
+
+
+
+
 ## [0.10.1](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/vue@0.10.0...@storefront-ui/vue@0.10.1) (2021-02-02)
 
 

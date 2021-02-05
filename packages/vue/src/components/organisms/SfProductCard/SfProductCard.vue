@@ -29,14 +29,14 @@
       </slot>
       <slot name="badge" v-bind="{ badgeLabel, badgeColor }">
         <SfBadge
-          v-if="badgeLabel && client"
+          v-if="badgeLabel"
           class="sf-product-card__badge"
           :class="badgeColorClass"
           >{{ badgeLabel }}</SfBadge
         >
       </slot>
       <SfButton
-        v-if="wishlistIcon !== false && client"
+        v-if="wishlistIcon !== false"
         :aria-label="`${ariaLabel} ${title}`"
         :class="wishlistIconClasses"
         @click="toggleIsOnWishlist"
@@ -49,7 +49,7 @@
           />
         </slot>
       </SfButton>
-      <template v-if="showAddToCartButton && client">
+      <template v-if="showAddToCartButton">
         <slot
           name="add-to-cart"
           v-bind="{
@@ -135,7 +135,6 @@
 </template>
 <script>
 import { colorsValues as SF_COLORS } from "@storefront-ui/shared/variables/colors";
-import { deprecationWarning, isClient } from "../../../utilities/helpers";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfLink from "../../atoms/SfLink/SfLink.vue";
 import SfPrice from "../../atoms/SfPrice/SfPrice.vue";
@@ -301,7 +300,6 @@ export default {
   },
   data() {
     return {
-      client: isClient,
       isAddingToCart: false,
     };
   },
