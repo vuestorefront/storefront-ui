@@ -52,6 +52,12 @@ export default {
       },
       deep: true,
     },
+    value: {
+      handler(values) {
+        return this.$refs.range.noUiSlider.set(values);
+      },
+      immedite: true,
+    }
   },
   mounted() {
     this.noUiSliderInit(this.config);
@@ -64,7 +70,9 @@ export default {
       const configSettings = Object.assign(this.config, config);
       noUiSlider
         .create(this.$refs.range, configSettings)
-        .on("change", (values) => this.$emit("change", values));
+        .on("change", (values) => {
+          this.$emit("change", values);
+        })
     },
     resetAndChangeOption(config) {
       this.$refs.range?.noUiSlider?.destroy();
