@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
-    "start": "nuxt start",
+    "start": "nuxt build && nuxt start",
     "generate": "nuxt generate",
     "test": "jest",
     "storybook": "nuxt-storybook",
@@ -16,7 +16,7 @@
   "dependencies": {
     "@nuxt/babel-preset-app": "^2.14.3",
     "@nuxtjs/pwa": "^3.0.0-0",
-    "@storefront-ui/vue": "0.8.1",
+    "@storefront-ui/vue": "^0.10.2",
     "lerna": "^3.16.4",
     "nuxt": "1.0.0",
     "nuxt-edge": "^2.14.6-26663074.45b78387"

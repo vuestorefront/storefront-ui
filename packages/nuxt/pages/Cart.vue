@@ -5,7 +5,7 @@
 </template>
 
 <script>
-  import Cart from "@storefront-ui/vue/src/examples/pages/cart/Cart.vue"
+  import Cart from "@storefront-ui/vue/src/examples/cart/Cart.vue"
   export default {
     components: {
       Cart
