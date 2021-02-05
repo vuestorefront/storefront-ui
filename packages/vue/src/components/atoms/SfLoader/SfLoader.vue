@@ -1,8 +1,14 @@
-<template>
-  <div class="sf-loader">
+<template functional>
+  <div
+    :ref="data.ref"
+    :class="[data.class, data.staticClass, 'sf-loader']"
+    :style="[data.style, data.staticStyle]"
+    v-bind="data.attrs"
+    v-on="listeners"
+  >
     <transition name="sf-fade" mode="out-in">
       <!--@slot Slot for the actual content being loaded -->
-      <slot v-if="!loading"></slot>
+      <slot v-if="!props.loading"></slot>
       <div v-else class="sf-loader__overlay">
         <!--@slot Use this slot to replace the loader -->
         <slot name="loader">

@@ -2,7 +2,7 @@
 .sf-add-to-cart {
   display: flex;
   &__button {
-    --button-font-weight: var(--font-semibold);
+    --button-font-weight: var(--font-weight--semibold);
     --button-width: 100%;
     align-items: center;
     &:disabled {
@@ -10,7 +10,7 @@
     }
   }
   &__select-quantity {
-    --add-to-cart-select-quantity-margin: 0 var(--spacer-sm) 0 0;
+    --add-to-cart-select-quantity-margin: 0 var(--spacer-base) 0 0;
     flex: none;
     margin: var(--add-to-cart-select-quantity-margin, 0 0 0 var(--spacer-xs));
   }

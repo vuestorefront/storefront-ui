@@ -67,8 +67,12 @@
             @click="onAddToCart"
           >
             <div class="sf-product-card__add-button--icons">
-              <transition name="sf-pulse" mode="out-in">
-                <slot v-if="!isAddingToCart" name="add-to-cart-icon">
+              <transition
+                v-if="!isAddingToCart && !isAddedToCart"
+                name="sf-pulse"
+                mode="out-in"
+              >
+                <slot name="add-to-cart-icon">
                   <SfIcon
                     key="add_to_cart"
                     icon="add_to_cart"
@@ -76,7 +80,9 @@
                     color="white"
                   />
                 </slot>
-                <slot v-else name="adding-to-cart-icon">
+              </transition>
+              <transition v-else name="sf-pulse" mode="out-in">
+                <slot name="adding-to-cart-icon">
                   <SfIcon
                     key="added_to_cart"
                     icon="added_to_cart"
@@ -129,7 +135,6 @@
 </template>
 <script>
 import { colorsValues as SF_COLORS } from "@storefront-ui/shared/variables/colors";
-import { deprecationWarning } from "../../../utilities/helpers";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfLink from "../../atoms/SfLink/SfLink.vue";
 import SfPrice from "../../atoms/SfPrice/SfPrice.vue";
@@ -316,9 +321,7 @@ export default {
     },
     wishlistIconClasses() {
       const defaultClass = "sf-button--pure sf-product-card__wishlist-icon";
-      return `${defaultClass} ${
-        this.isOnWishlist ? "sf-product-card--on-wishlist" : ""
-      }`;
+      return `${defaultClass} ${this.isOnWishlist ? "on-wishlist" : ""}`;
     },
   },
   methods: {

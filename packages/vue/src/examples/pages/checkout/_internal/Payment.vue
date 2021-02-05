@@ -1,8 +1,8 @@
 <template>
   <div>
     <SfHeading
-      title="3. Billing address"
-      :level="2"
+      title="Billing address"
+      :level="3"
       class="sf-heading--left sf-heading--no-underline title"
     />
     <div class="form">
@@ -77,22 +77,22 @@
         required
         @input="updateField('zipCode', $event)"
       />
-      <SfComponentSelect
+      <SfSelect
         v-model="country"
         :value="country"
-        label="Country"
-        class="form__element form__element--half form__element--half-even form__select sf-component-select--underlined"
+        placeholder="Country"
+        class="form__element form__element--half form__element--half-even form__select sf-select--underlined"
         required
         @change="updateField('country', $event)"
       >
-        <SfComponentSelectOption
+        <SfSelectOption
           v-for="countryOption in countries"
           :key="countryOption"
           :value="countryOption"
         >
           {{ countryOption }}
-        </SfComponentSelectOption>
-      </SfComponentSelect>
+        </SfSelectOption>
+      </SfSelect>
       <SfInput
         v-model="phoneNumber"
         :value="phoneNumber"
@@ -117,7 +117,7 @@
       class="sf-heading--left sf-heading--no-underline title"
     />
     <div class="form">
-      <div class="form__element payment-methods">
+      <div class="payment-methods">
         <SfRadio
           v-for="item in paymentMethods"
           :key="item.value"
@@ -143,6 +143,7 @@
               <template v-else>
                 <SfImage
                   :src="`/assets/storybook/checkout/${item.value}.png`"
+                  :alt="item.value"
                   class="payment-image"
                   :lazy="false"
                 />
@@ -175,36 +176,36 @@
               >Expiry date:</span
             >
             <div class="credit-card-form__element">
-              <SfComponentSelect
+              <SfSelect
                 v-model="cardMonth"
                 :value="cardMonth"
                 label="Month"
-                class="credit-card-form__input credit-card-form__input--with-spacer form__select sf-component-select--underlined"
+                class="credit-card-form__input credit-card-form__input--with-spacer form__select sf-select--underlined"
                 @change="updateField('cardMonth', $event)"
               >
-                <SfComponentSelectOption
+                <SfSelectOption
                   v-for="monthOption in months"
                   :key="monthOption"
                   :value="monthOption"
                 >
                   {{ monthOption }}
-                </SfComponentSelectOption>
-              </SfComponentSelect>
-              <SfComponentSelect
+                </SfSelectOption>
+              </SfSelect>
+              <SfSelect
                 v-model="cardYear"
                 :value="cardYear"
                 label="Year"
-                class="credit-card-form__input form__select sf-component-select--underlined"
+                class="credit-card-form__input form__select sf-select--underlined"
                 @change="updateField('cardYear', $event)"
               >
-                <SfComponentSelectOption
+                <SfSelectOption
                   v-for="yearOption in years"
                   :key="yearOption"
                   :value="yearOption"
                 >
                   {{ yearOption }}
-                </SfComponentSelectOption>
-              </SfComponentSelect>
+                </SfSelectOption>
+              </SfSelect>
             </div>
           </div>
           <div class="credit-card-form__group">
@@ -231,19 +232,6 @@
           />
         </div>
       </transition>
-      <div class="form__action mobile-only">
-        <SfButton
-          class="sf-button--full-width form__action-button"
-          @click="$emit('click:next')"
-          >Review order
-        </SfButton>
-        <SfButton
-          class="sf-button--full-width sf-button--text color-secondary form__action-button form__action-button--secondary"
-          @click="$emit('click:back')"
-        >
-          Go back
-        </SfButton>
-      </div>
     </div>
   </div>
 </template>
@@ -252,7 +240,7 @@ import {
   SfHeading,
   SfInput,
   SfButton,
-  SfComponentSelect,
+  SfSelect,
   SfRadio,
   SfImage,
   SfCheckbox,
@@ -264,7 +252,7 @@ export default {
     SfHeading,
     SfInput,
     SfButton,
-    SfComponentSelect,
+    SfSelect,
     SfRadio,
     SfImage,
     SfCheckbox,
@@ -403,77 +391,96 @@ export default {
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
 .title {
-  --heading-padding: var(--spacer-base) 0;
+  --heading-padding: var(--spacer-xl) 0 var(--spacer-lg);
+  --heading-title-font-weight: var(--font-weight--bold);
+  &:not(:first-of-type) {
+    --heading-padding: var(--spacer-xl) 0;
+    border-bottom: 2px solid var(--c-light);
+  }
   @include for-desktop {
     --heading-title-font-size: var(--h3-font-size);
-    --heading-padding: var(--spacer-2xl) 0 var(--spacer-base) 0;
-    &:last-of-type {
-      --heading-padding: var(--spacer-xs) 0 var(--spacer-base) var(--spacer-xs);
-    }
+    --heading-title-font-weight: var(--font-weight--semibold);
+    --heading-padding: var(--spacer-xl) 0;
   }
 }
 .form {
+  &__element {
+    margin: 0 0 var(--spacer-base) 0;
+    --input-label-font-size: var(--font-size--base);
+    --input-label-top: 80%;
+    &:last-of-type {
+      margin: 0;
+    }
+  }
   &__checkbox {
-    --checkbox-label-color: var(--c-dark-variant);
-    margin: 0 0 var(--spacer-sm) 0;
+    margin: 0 0 var(--spacer-xl) 0;
   }
   &__group {
     display: flex;
     align-items: center;
   }
-  &__action-button {
-    &:first-child {
-      --button-height: 4.0625rem;
-      margin: var(--spacer-xl) 0 0 0;
-    }
-    &--secondary {
-      margin: var(--spacer-base) 0;
+  &__select {
+    display: flex;
+    align-items: center;
+    --select-option-font-size: var(--font-size--base);
+    --select-dropdown-color: blue;
+    ::v-deep .sf-select__dropdown {
+      margin: 0 0 2px 0;
+      font-size: var(--font-size--base);
+      font-family: var(--font-family--secondary);
+      color: var(--c-link);
     }
   }
   @include for-desktop {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    margin: 0 var(--spacer-2xl) 0 var(--spacer-xs);
     &__element {
-      padding: 0 0 var(--spacer-xs) 0;
+      margin: 0 0 var(--spacer-sm) 0;
       flex: 0 0 100%;
       &--half {
         flex: 1 1 50%;
         &-even {
-          padding: 0 0 0 var(--spacer-xl);
+          padding: 0 0 0 var(--spacer-base);
         }
       }
     }
-    &__action {
-      flex: 0 0 100%;
-      display: flex;
+    &__checkbox {
+      margin: 0 0 var(--spacer-xl) 0;
+    }
+    &__action-button {
+      --button-width: 25rem;
     }
   }
 }
 .payment-methods {
-  border: 1px solid var(--c-light);
-  border-width: 0 0 1px 0;
-  padding: 0 0 var(--spacer-sm) 0;
+  border-bottom: solid 2px var(--c-light);
+  padding: 0 0 var(--spacer-base) 0;
+  margin-bottom: var(--spacer-lg);
   @include for-desktop {
     display: flex;
     justify-content: space-between;
+    margin-bottom: var(--spacer-xl);
     padding: var(--spacer-xs) 0;
-    border-width: 1px 0;
+    width: 100%;
   }
 }
 .payment-method {
   --radio-container-align-items: center;
-  --radio-container-padding: var(--spacer-sm) 0;
+  --radio-container-padding: var(--spacer-base) var(--spacer-sm) 0;
   --ratio-content-margin: 0 0 0 var(--spacer-lg);
   --radio-background: transparent;
+  color: var(--c-link);
   white-space: nowrap;
+  ::v-deep .sf-image {
+    width: 3.125rem;
+  }
   @include for-desktop {
     --radio-container-padding: var(--spacer-sm);
   }
 }
 .credit-card-form {
-  padding: var(--spacer-xl) 0 0 0;
+  width: 100%;
   &__group {
     display: flex;
     align-items: flex-start;
@@ -484,22 +491,25 @@ export default {
     flex: 1;
   }
   &__label {
-    font-size: var(--font-lg);
+    font-size: var(--font-size--base);
+    font-family: var(--font-family--secondary);
+    color: var(--c-link);
     padding: var(--spacer-sm) 0 0 0;
     flex: 1;
   }
   &__button {
-    --button-padding: var(--spacer-sm) 0 0 var(--spacer-sm);
+    --button-padding: var(--spacer-base) 0 0 var(--spacer-sm);
     text-align: right;
     flex: 1;
   }
   &__input {
+    --input-label-top: 80%;
+    --input-label-font-size: var(--font-size--base);
     flex: 1;
     padding: 0 0 var(--spacer-sm) 0;
   }
   @include for-desktop {
-    width: 100%;
-    padding: var(--spacer-lg) var(--spacer-xl);
+    width: 38.125rem;
     &__element {
       display: flex;
     }

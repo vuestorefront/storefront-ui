@@ -23,7 +23,7 @@
           <slot name="current" v-bind="{ breadcrumb }">
             <SfLink
               :link="breadcrumb.link"
-              class="sf-breadcrumbs__breadcrumb sf-breadcrumbs__breadcrumb--current"
+              class="sf-breadcrumbs__breadcrumb current"
               >{{ breadcrumb.text }}</SfLink
             >
           </slot>

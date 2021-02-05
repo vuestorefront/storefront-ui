@@ -2,7 +2,7 @@
   <div
     class="sf-radio"
     :class="{
-      'sf-radio--is-active': isChecked,
+      'is-active': isChecked,
       'is-disabled': disabled,
     }"
   >
@@ -14,13 +14,14 @@
         :value="value"
         :checked="isChecked"
         :disabled="disabled"
+        @change="changeHandler"
         @input="inputHandler"
       />
       <!-- @slot Custom checkmark markup (bind 'isChecked' boolean, 'disabled' boolean -->
       <slot name="checkmark" v-bind="{ isChecked, disabled }">
         <div
           class="sf-radio__checkmark"
-          :class="{ 'sf-radio__checkmark--is-active': isChecked }"
+          :class="{ 'sf-radio__checkmark is-active': isChecked }"
         ></div>
       </slot>
       <div class="sf-radio__content">
@@ -76,10 +77,6 @@ export default {
       type: String,
       default: "",
     },
-    required: {
-      type: Boolean,
-      default: false,
-    },
     disabled: {
       type: Boolean,
       default: false,
@@ -95,6 +92,9 @@ export default {
     },
   },
   methods: {
+    changeHandler() {
+      this.$emit("change", this.value);
+    },
     inputHandler() {
       this.$emit("input", this.value);
     },

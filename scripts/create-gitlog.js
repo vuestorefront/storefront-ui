@@ -9,13 +9,31 @@ const TEMPLATE_HEADINGS = new Map([
   ["fix", "🐛 FIXES"],
   ["refactor", "♻️ REFACTOR"],
   ["docs", "📝 DOCS"],
-  ["_other", "🔔 Other Noteworthy Goodies"]
+  ["_other", "🔔 Other Noteworthy Goodies"],
 ]);
-const TEMPLATE = `# 💚 Storefront UI Newsletter [[date]] 💚
+const TEMPLATE = `# 💚 Storefront UI Newsletter [[date]] - [[version]] 💚
 
 <!-- Preamble -->
 
+## ✨ NEW FEATURES
+
+[[features]]
+
+## 💥 BREAKING CHANGES
+
 [[log-entries]]
+
+## 🐛 FIXES
+[[fixes]]
+
+## ♻️ REFACTOR
+[[chores]]
+
+## 📓 DOCS
+[[]]
+
+🔔 Other Noteworthy Goodies
+[[]]
 
 <!-- Epilogue -->
 `;
@@ -23,10 +41,11 @@ const FILTER_ENTRIES = [
   "chore(release)",
   "merge branch",
   "merge remote",
-  "revert"
+  "revert",
+  "linted",
 ];
 
-const escapedFilters = FILTER_ENTRIES.map(filter =>
+const escapedFilters = FILTER_ENTRIES.map((filter) =>
   filter.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
 );
 
@@ -34,13 +53,10 @@ function createNewsletter() {
   const shortDate = new Date().toDateString().substring(4);
   let output = TEMPLATE.replace("[[date]]", shortDate);
 
-  const gitOptions = process.argv.slice(2);
-  const gitLog = runGitLog(gitOptions);
-  const entries = gitLog.split(/\r?\n/);
-  const filteredEntries = filterEntries(entries);
-  const groupedEntries = groupEntries(filteredEntries);
+  const entries = runGitLog();
+  const groupedEntries = groupEntries(entries);
 
-  const usedHeadings = [...TEMPLATE_HEADINGS.values()].filter(heading =>
+  const usedHeadings = [...TEMPLATE_HEADINGS.values()].filter((heading) =>
     groupedEntries.has(heading)
   );
 
@@ -54,27 +70,118 @@ function createNewsletter() {
 
   output = output.replace("[[log-entries]]", entriesWithHeadings);
   console.log(output);
+  return output;
 }
 
-function runGitLog(gitOptions) {
+function createLogsWithTemplate(template) {
+  const entries = runGitLog();
+  const shortDate = new Date().toDateString().substring(4);
+  const currentVersion = require("../package.json").version;
+
+  let output = template
+    .replace("[[date]]", shortDate)
+    .replace("[[version]]", currentVersion);
+
+  const features = [];
+  const chores = [];
+  const fixes = [];
+  const others = [];
+
+  entries.forEach((commit) => {
+    const mappings = {
+      features: {
+        key: "feat",
+        regex: /(^feat.*):\s?/,
+      },
+      chores: {
+        key: "chore",
+        regex: /(^chore.*):\s?/,
+      },
+      fixes: {
+        key: "fix:",
+        regex: /(^fix.*):\s?/,
+      },
+    };
+
+    const commitType =
+      mappings[
+        Object.keys(mappings).find((category) =>
+          commit.message.startsWith(mappings[category].key)
+        )
+      ];
+
+    const commitMsg = commitType
+      ? commit.message.replace(commitType.regex, "")
+      : commit.message;
+
+    const entry = TEMPLATE_LOG_ENTRY.replace(/\[\[commit-hash]]/g, commit.sha)
+      .replace("[[commit-msg]]", commitMsg)
+      .replace(/\s{2,}/g, " ");
+
+    if (!commitType) {
+      others.push(entry);
+    } else {
+      if (commitType.key === mappings.features.key) {
+        features.push(entry);
+      } else if (commitType.key === mappings.chores.key) {
+        chores.push(entry);
+      } else if (commitType.key === mappings.fixes.key) {
+        fixes.push(entry);
+      }
+    }
+  });
+
+  output = output
+    .replace(
+      "[[features]]",
+      features.length ? features.filter(Boolean).join("\n") : "N/A"
+    )
+    .replace(
+      "[[chores]]",
+      chores.length ? chores.filter(Boolean).join("\n") : "N/A"
+    )
+    .replace(
+      "[[fixes]]",
+      fixes.length ? fixes.filter(Boolean).join("\n") : "N/A"
+    )
+    .replace(
+      "[[others]]",
+      others.length ? others.filter(Boolean).join("\n") : "N/A"
+    );
+  return output;
+}
+
+function runGitLog() {
+  const gitOptions = process.argv.slice(2);
   const processOutput = spawnSync("git", [
     "log",
     "--oneline",
     "--no-decorate",
     "--no-merges",
-    ...gitOptions
+    ...gitOptions,
   ]);
   if (processOutput.stderr.length) {
     throw new Error(
       `'git log' failed. stderr: ${processOutput.stderr.toString()}`
     );
   }
-  return processOutput.stdout.toString().trim();
-}
+  const logs = processOutput.output
+    .toString("utf8")
+    .split(/\r?\n/)
+    .map((commit) => {
+      const [, sha, message] = commit.split(/([a-f0-9]+) (.+)/i);
 
-function filterEntries(entries) {
-  const filterRegExp = new RegExp("(" + escapedFilters.join(")|(") + ")", "i");
-  return entries.filter(entry => !filterRegExp.test(entry));
+      return { sha, message };
+    })
+    .filter(
+      (commit) =>
+        Boolean(commit.sha) &&
+        !new RegExp("(" + escapedFilters.join(")|(") + ")", "i").test(
+          commit.message
+        )
+    );
+
+  return logs;
 }
 
 function groupEntries(filteredEntries) {
@@ -91,7 +198,7 @@ function groupEntries(filteredEntries) {
 }
 
 function formatEntries(entries) {
-  return entries.map(entry => {
+  return entries.map((entry) => {
     const [, commitHash, commitMsg] = entry.split(/([a-f0-9]+) (.+)/i);
     return TEMPLATE_LOG_ENTRY.replace(/\[\[commit-hash]]/g, commitHash)
       .replace("[[commit-msg]]", commitMsg)
@@ -100,9 +207,10 @@ function formatEntries(entries) {
 }
 
 module.exports = {
-  createNewsletter
+  createNewsletter,
+  createLogsWithTemplate,
 };
 
 if (require.main === module) {
-  createNewsletter();
+  createLogsWithTemplate(TEMPLATE);
 }

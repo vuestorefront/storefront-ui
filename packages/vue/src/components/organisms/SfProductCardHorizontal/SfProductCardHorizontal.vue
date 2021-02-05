@@ -105,7 +105,7 @@
         v-if="wishlistIcon !== false"
         :aria-label="`${ariaLabel} ${title}`"
         :class="wishlistIconClasses"
-        class="sf-button--pure mobile-only"
+        class="sf-button--pure smartphone-only"
         @click="toggleIsOnWishlist"
       >
         <!--@slot Use this slot to replace wishlist icon-->
@@ -228,20 +228,6 @@ export default {
     specialPrice: {
       type: [Number, String],
       default: null,
-    },
-    /**
-     * isAddedToCart status of whether button is showed, product is added or not
-     */
-    isAddedToCart: {
-      type: Boolean,
-      deafult: false,
-    },
-    /**
-     * addToCartDisabled status of whether button is disabled when out of stock
-     */
-    addToCartDisabled: {
-      type: Boolean,
-      default: false,
     },
     /**
      * Wish list icon

@@ -1,6 +1,6 @@
 <template>
   <li class="glide__slide sf-hero-item" :style="style">
-    <div class="sf-hero-item__container">
+    <component :is="wrapper" class="sf-hero-item__wrapper" :link="link">
       <!--@slot hero item subtitle. Slot content will replace default <h2> tag-->
       <slot name="subtitle" v-bind="{ subtitle }">
         <div v-if="subtitle" class="sf-hero-item__subtitle">{{ subtitle }}</div>
@@ -10,22 +10,32 @@
         <h1 v-if="title" class="sf-hero-item__title">{{ title }}</h1>
       </slot>
       <!--@slot Call to action section. Slot content will replace default SfButton component-->
-      <slot name="call-to-action" v-bind="{ buttonText }">
-        <div v-if="buttonText" class="sf-hero-item__button">
-          <SfButton>
+      <slot name="call-to-action" v-bind="{ buttonText, link }">
+        <div v-if="buttonText && !isMobile" class="sf-hero-item__button">
+          <SfButton :link="link">
             {{ buttonText }}
           </SfButton>
         </div>
       </slot>
-    </div>
+      <!--@slot hero item withImgTag.
+      Slot dedicated to img tags or other components with this tag (e.g. SfImage, SfCimage) that can be used as images for background. 
+      If you want to use this slot, make sure that background and image props are NOT provided.-->
+      <slot name="withImgTag" />
+    </component>
   </li>
 </template>
 <script>
 import SfButton from "../../../atoms/SfButton/SfButton.vue";
+import SfLink from "../../../atoms/SfLink/SfLink.vue";
+import {
+  mapMobileObserver,
+  unMapMobileObserver,
+} from "../../../../utilities/mobile-observer";
 export default {
   name: "SfHeroItem",
   components: {
     SfButton,
+    SfLink,
   },
   props: {
     /** Hero item title */
@@ -53,8 +63,14 @@ export default {
       type: [Object, String],
       default: "",
     },
+    /** link to be used in button if necessary */
+    link: {
+      type: String,
+      default: "",
+    },
   },
   computed: {
+    ...mapMobileObserver(),
     style() {
       const image = this.image;
       const background = this.background;
@@ -67,6 +83,12 @@ export default {
         "--_hero-item-background-color": background,
       };
     },
+    wrapper() {
+      return !this.isMobile ? "div" : this.link ? "SfLink" : "SfButton";
+    },
+  },
+  beforeDestroy() {
+    unMapMobileObserver();
   },
 };
 </script>

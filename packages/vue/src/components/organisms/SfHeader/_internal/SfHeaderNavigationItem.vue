@@ -1,6 +1,7 @@
 <template>
   <div class="sf-header-navigation-item" v-on="$listeners">
     <div
+      v-if="!isVisibleOnMobile"
       class="sf-header-navigation-item__item sf-header-navigation-item__item--desktop"
     >
       <slot name="desktop-navigation-item">
@@ -11,6 +12,7 @@
       <slot />
     </div>
     <div
+      v-else
       class="sf-header-navigation-item__item sf-header-navigation-item__item--mobile"
     >
       <slot name="mobile-navigation-item">
@@ -27,6 +29,10 @@
 <script>
 import SfLink from "../../../atoms/SfLink/SfLink";
 import SfMenuItem from "../../../molecules/SfMenuItem/SfMenuItem";
+import {
+  mapMobileObserver,
+  unMapMobileObserver,
+} from "../../../../utilities/mobile-observer";
 
 export default {
   name: "SfHeaderNavigationItem",
@@ -42,6 +48,12 @@ export default {
     link: {
       type: [String, Object],
       default: "",
+    },
+  },
+  computed: {
+    ...mapMobileObserver(),
+    isVisibleOnMobile() {
+      return this.isMobile;
     },
   },
 };

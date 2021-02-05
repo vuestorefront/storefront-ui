@@ -28,16 +28,14 @@
       --gallery-item-cursor: default;
     }
   }
-  &__thumb {
-    width: var(--gallery-thumb-width, calc(var(--_image-width, 10rem) * 1px));
-    height: var(
-      --gallery-thumb-height,
-      calc(var(--_image-height, 10rem) * 1px)
-    );
-  }
   &__stage {
     flex: 1;
     max-width: var(--gallery-stage-width, 26.375rem);
+  }
+  &__zoom {
+    position: absolute;
+    left: 50%;
+    top: 0;
   }
   .glide {
     &__slide {

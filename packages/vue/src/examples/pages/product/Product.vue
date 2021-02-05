@@ -15,9 +15,9 @@
           />
           <SfIcon
             icon="drag"
-            size="xl"
-            color="gray-secondary"
-            class="product__drag-icon mobile-only"
+            size="42px"
+            color="#E0E0E1"
+            class="product__drag-icon smartphone-only"
           />
         </div>
         <div class="product__price-and-rating">
@@ -32,9 +32,7 @@
                 ({{ product.reviews.length }})
               </a>
             </div>
-            <SfButton class="sf-button--text desktop-only"
-              >Read all reviews</SfButton
-            >
+            <SfButton class="sf-button--text">Read all reviews</SfButton>
           </div>
         </div>
         <div>
@@ -44,20 +42,20 @@
           <SfButton class="sf-button--text desktop-only product__guide">
             Size guide
           </SfButton>
-          <SfComponentSelect
+          <SfSelect
             v-model="selectedSize"
             label="Size"
             class="sf-select--underlined product__select-size"
             :reqired="true"
           >
-            <SfComponentSelectOption
+            <SfSelectOption
               v-for="(size, key) in product.sizes"
               :key="key"
               :value="size"
             >
               <SfProductOption :label="size"></SfProductOption>
-            </SfComponentSelectOption>
-          </SfComponentSelect>
+            </SfSelectOption>
+          </SfSelect>
           <div class="product__colors desktop-only">
             <p class="product__color-label">Color:</p>
             <SfColor
@@ -94,7 +92,7 @@
                 class="product__property"
               >
                 <template v-if="detailed.name === 'Category'" #value>
-                  <SfButton class="sf-button--text">
+                  <SfButton class="sf-button--text product__property__button">
                     {{ detailed.value }}</SfButton
                   >
                 </template>
@@ -109,7 +107,7 @@
                 :message="review.message"
                 :max-rating="review.rating.max"
                 :rating="review.rating.rate"
-                :char-limit="250"
+                :char-limit="231"
                 read-more-text="Read more"
                 hide-full-text="Read less"
                 class="product__review"
@@ -134,6 +132,18 @@
         </SfTabs>
       </div>
     </div>
+    <transition name="slide">
+      <SfNotification
+        class="notification smartphone-only"
+        :visible="isOpenNotification"
+        :message="`${qty} x ${product.name} (size: ${selectedSize}, color: ${selectedColor}) has been added to cart`"
+        @click:close="isOpenNotification = false"
+      >
+        <template #icon>
+          <span></span>
+        </template>
+      </SfNotification>
+    </transition>
   </div>
 </template>
 <script>
@@ -149,9 +159,10 @@ import {
   SfReview,
   SfAddToCart,
   SfColor,
-  SfComponentSelect,
+  SfSelect,
   SfProductOption,
   SfBreadcrumbs,
+  SfNotification,
 } from "@storefront-ui/vue";
 export default {
   name: "Product",
@@ -167,9 +178,10 @@ export default {
     SfReview,
     SfAddToCart,
     SfColor,
-    SfComponentSelect,
+    SfSelect,
     SfProductOption,
     SfBreadcrumbs,
+    SfNotification,
   },
   data() {
     return {
@@ -186,21 +198,25 @@ export default {
             mobile: { url: "assets/storybook/Product/productA.png" },
             desktop: { url: "assets/storybook/Product/productA.png" },
             big: { url: "assets/storybook/Product/productA.png" },
+            alt: "Product A",
           },
           {
             mobile: { url: "assets/storybook/Product/productB.jpg" },
             desktop: { url: "assets/storybook/Product/productB.jpg" },
             big: { url: "assets/storybook/Product/productB.jpg" },
+            alt: "Product B",
           },
           {
             mobile: { url: "assets/storybook/Product/productA.png" },
             desktop: { url: "assets/storybook/Product/productA.png" },
             big: { url: "assets/storybook/Product/productA.png" },
+            alt: "Product A",
           },
           {
             mobile: { url: "assets/storybook/Product/productB.jpg" },
             desktop: { url: "assets/storybook/Product/productB.jpg" },
             big: { url: "assets/storybook/Product/productB.jpg" },
+            alt: "Product B",
           },
         ],
         price: "$50.00",
@@ -217,7 +233,7 @@ export default {
         },
         details: [
           {
-            name: "Code",
+            name: "Product Code",
             value: 435435,
           },
           {
@@ -296,13 +312,15 @@ export default {
           },
         },
       ],
+      isOpenNotification: false,
     };
   },
   methods: {
     addToCart() {
-      console.log(
-        `${this.qty} x ${this.product.name} (size: ${this.selectedSize}, color: ${this.selectedColor}) has been added to cart`
-      );
+      this.isOpenNotification = true;
+      setTimeout(() => {
+        this.isOpenNotification = false;
+      }, 3000);
     },
     selectColor(colorIndex) {
       this.product.colors.map((el, i) => {
@@ -332,17 +350,21 @@ export default {
     display: flex;
   }
   &__info {
-    margin: var(--spacer-sm) auto var(--spacer-xs);
+    margin: var(--spacer-xs) auto;
     @include for-desktop {
       max-width: 32.625rem;
       margin: 0 0 0 7.5rem;
     }
   }
   &__header {
+    --heading-title-color: var(--c-link);
+    --heading-title-font-weight: var(--font-weight--bold);
+    --heading-padding: 0;
     margin: 0 var(--spacer-sm);
     display: flex;
     justify-content: space-between;
     @include for-desktop {
+      --heading-title-font-weight: var(--font-weight--semibold);
       margin: 0 auto;
     }
   }
@@ -350,7 +372,7 @@ export default {
     animation: moveicon 1s ease-in-out infinite;
   }
   &__price-and-rating {
-    margin: var(--spacer-xs) var(--spacer-sm) var(--spacer-base);
+    margin: 0 var(--spacer-sm) var(--spacer-base);
     align-items: center;
     @include for-desktop {
       display: flex;
@@ -361,15 +383,16 @@ export default {
   &__rating {
     display: flex;
     align-items: center;
-    margin: var(--spacer-xs) 0 0 0;
+    justify-content: flex-end;
+    margin: var(--spacer-xs) 0 var(--spacer-xs);
   }
   &__count {
     @include font(
       --count-font,
-      var(--font-normal),
-      var(--font-sm),
+      var(--font-weight--normal),
+      var(--font-size--sm),
       1.4,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
     color: var(--c-text);
     text-decoration: none;
@@ -379,10 +402,10 @@ export default {
     color: var(--c-link);
     @include font(
       --product-description-font,
-      var(--font-light),
-      var(--font-base),
+      var(--font-weight--light),
+      var(--font-size--base),
       1.6,
-      var(--font-family-primary)
+      var(--font-family--primary)
     );
   }
   &__select-size {
@@ -394,10 +417,10 @@ export default {
   &__colors {
     @include font(
       --product-color-font,
-      var(--font-normal),
-      var(--font-lg),
+      var(--font-weight--normal),
+      var(--font-size--lg),
       1.6,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
     display: flex;
     align-items: center;
@@ -426,37 +449,34 @@ export default {
   }
   &__tabs {
     margin: var(--spacer-lg) auto var(--spacer-2xl);
+    --tabs-title-font-size: var(--font-size--lg);
     @include for-desktop {
       margin-top: var(--spacer-2xl);
-      --tabs-content-tab-padding: 3.5rem 0 0 0;
     }
   }
   &__property {
     margin: var(--spacer-base) 0;
+    &__button {
+      --button-font-size: var(--font-size--base);
+    }
   }
   &__review {
     padding-bottom: 24px;
     border-bottom: var(--c-light) solid 1px;
     margin-bottom: var(--spacer-base);
-    &:last-of-type {
-      border: none;
-      padding-bottom: 0;
-      margin-bottom: 0;
-    }
-    @include for-desktop {
-      padding-bottom: 0;
-    }
   }
   &__additional-info {
+    color: var(--c-link);
     @include font(
       --additional-info-font,
-      var(--font-light),
-      var(--font-base),
+      var(--font-weight--light),
+      var(--font-size--sm),
       1.6,
-      var(--font-family-primary)
+      var(--font-family--primary)
     );
     &__title {
-      font-weight: var(--font-bold);
+      font-weight: var(--font-weight--normal);
+      font-size: var(--font-size--base);
       margin: 0 0 var(--spacer-sm);
       &:not(:first-child) {
         margin-top: 3.5rem;
@@ -472,6 +492,32 @@ export default {
 }
 .breadcrumbs {
   margin: var(--spacer-base) auto var(--spacer-lg);
+}
+.notification {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  --notification-border-radius: 0;
+  --notification-max-width: 100%;
+  --notification-background: var(--c-link);
+  --notification-font-size: var(--font-size--sm);
+  --notification-font-family: var(--font-family--primary);
+  --notification-font-weight: var(--font-weight--normal);
+  --notification-padding: var(--spacer-base) var(--spacer-lg);
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: all 0.3s;
+}
+
+.slide-enter {
+  transform: translateY(40px);
+}
+
+.slide-leave-to {
+  transform: translateY(-80px);
 }
 @keyframes moveicon {
   0% {

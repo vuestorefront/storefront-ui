@@ -5,7 +5,9 @@
   bottom: var(--dropdown-bottom);
   transform: var(--dropdown-transform);  
   &__container {
-    position: relative;
+    position: var(--dropdown-container-position, relative);
+    top: var(--dropdown-container-top);
+    bottom: var(--dropdown-container-bottom);
     width: var(--dropdown-container-width, 100%);
     z-index: 1;
     background: var(--dropdown-background, var(--c-white));
@@ -41,7 +43,6 @@
       --button-background: var(--c-light-primary);
     }
   }
-  &__cancel,
   &__title {
     @include for-desktop {
       --button-display: none;
@@ -50,11 +51,11 @@
   }
   &--up {
     @include for-desktop {
-      --dropdown-position: absolute;
-      --dropdown-top: auto;
       --dropdown-bottom: 0;
-      --dropdown-transform: translate(0, -100%);
-      --dropdown-box-shadow: 0px -4px 11px rgba(var(--c-dark-base), 0.1);
+      .sf-dropdown__container {
+        --dropdown-container-position: absolute;
+        --dropdown-container-bottom: 3.125rem;
+      }
     }
   }
   &-enter-active {
