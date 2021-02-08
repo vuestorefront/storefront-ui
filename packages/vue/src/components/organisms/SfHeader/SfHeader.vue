@@ -190,7 +190,7 @@ export default {
       default: "",
     },
     /**
-     * Header cart items quantity
+     * Header wishlist items quantity
      */
     wishlistItemsQty: {
       type: [String, Number],
@@ -211,15 +211,12 @@ export default {
       default: false,
     },
     /**
-     * Header search on mobile
+     * Is nav slot visible on mobile view
      */
     isNavVisible: {
       type: Boolean,
       default: false,
     },
-    /**
-     * Is nav slot visible at mobile view
-     */
   },
   data() {
     return {

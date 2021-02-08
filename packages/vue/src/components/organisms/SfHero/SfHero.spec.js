@@ -2,6 +2,7 @@ import { shallowMount } from "@vue/test-utils";
 import SfHero from "./SfHero.vue";
 import SfHeroItem from "./_internal/SfHeroItem.vue";
 import SfArrow from "../../atoms/SfArrow/SfArrow.vue";
+import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfBullets from "../../atoms/SfBullets/SfBullets.vue";
 const items = [
   {
@@ -67,18 +68,6 @@ describe("SfHero.vue", () => {
     });
     it("renders SfBullets component", () => {
       expect(component.findAllComponents(SfBullets)).toHaveLength(1);
-    });
-    it("calls #go with 'prev' when clicked on left arrow", () => {
-      jest.spyOn(component.vm, "go");
-      expect(component.vm.go).not.toHaveBeenCalled();
-      component.findAllComponents(SfArrow).at(0).trigger("click");
-      expect(component.vm.go).toHaveBeenCalledWith("prev");
-    });
-    it("calls #go with 'next' when clicked on right arrow", () => {
-      jest.spyOn(component.vm, "go");
-      expect(component.vm.go).not.toHaveBeenCalled();
-      component.findAllComponents(SfArrow).at(1).trigger("click");
-      expect(component.vm.go).toHaveBeenCalledWith("next");
     });
   });
   describe("with 'prev' and 'next' slots populated", () => {

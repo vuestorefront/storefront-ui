@@ -43,7 +43,7 @@
           <span class="navbar__view-label desktop-only">View</span>
           <SfIcon
             class="navbar__view-icon"
-            :color="isGridView ? '#43464E' : '#8D8F9A'"
+            :color="'#43464E'"
             icon="tiles"
             size="12px"
             role="button"
@@ -53,7 +53,7 @@
           />
           <SfIcon
             class="navbar__view-icon"
-            :color="!isGridView ? '#43464E' : '#8D8F9A'"
+            :color="'#43464E'"
             icon="list"
             size="12px"
             role="button"
@@ -138,21 +138,21 @@
                 class="desktop-only"
                 name="Size"
                 value="XS"
-                style="margin: 0 0 1rem 0;"
+                style="margin: 0 0 1rem 0"
               />
               <SfProperty class="desktop-only" name="Color" value="white" />
             </template>
             <template #actions>
               <SfButton
                 class="sf-button--text desktop-only"
-                style="margin: 0 0 1rem auto; display: block;"
+                style="margin: 0 0 1rem auto; display: block"
                 @click="$emit('click:add-to-wishlist')"
               >
                 Save for later
               </SfButton>
               <SfButton
                 class="sf-button--text desktop-only"
-                style="margin: 0 0 0 auto; display: block;"
+                style="margin: 0 0 0 auto; display: block"
                 @click="$emit('click:add-to-compare')"
               >
                 Add to compare
@@ -161,7 +161,7 @@
           </SfProductCardHorizontal>
         </transition-group>
         <SfPagination
-          class="products__pagination desktop-only"
+          class="products__pagination"
           :current="currentPage"
           :total="4"
           :visible="5"
@@ -171,6 +171,19 @@
             }
           "
         />
+        <div class="products__show-on-page desktop-only">
+          <span class="products__show-on-page__label">Show on page:</span>
+          <SfSelect class="products__items-per-page">
+            <SfSelectOption
+              v-for="option in showOnPage"
+              :key="option"
+              :value="option"
+              class="products__items-per-page__option"
+            >
+              {{ option }}
+            </SfSelectOption>
+          </SfSelect>
+        </div>
       </div>
     </div>
     <SfSidebar
@@ -253,6 +266,49 @@
         />
       </div>
       <SfAccordion class="filters smartphone-only">
+        <SfAccordionItem header="Show on page" class="filters__accordion-item">
+          <template #additional-info>
+            <span class="filters__chosen"> {{ displayOnPage }} items </span>
+          </template>
+          <SfRadio
+            v-for="value in showOnPage"
+            :key="value"
+            v-model="displayOnPage"
+            :value="value"
+            :label="value"
+            class="filters__item"
+          />
+        </SfAccordionItem>
+        <SfAccordionItem header="Sort by" class="filters__accordion-item">
+          <template #additional-info>
+            <span class="filters__chosen">
+              {{ sortBy }}
+            </span>
+          </template>
+          <SfRadio
+            v-for="sort in sortByOptions"
+            :key="sort.value"
+            v-model="sortBy"
+            :value="sort.value"
+            :label="sort.label"
+            class="filters__item"
+          />
+        </SfAccordionItem>
+        <SfAccordionItem header="Category" class="filters__accordion-item">
+          <template #additional-info>
+            <span class="filters__chosen">
+              {{ category }}
+            </span>
+          </template>
+          <SfRadio
+            v-for="cat in sidebarAccordion"
+            :key="cat.header"
+            v-model="category"
+            :value="cat.header"
+            :label="cat.header"
+            class="filters__item"
+          />
+        </SfAccordionItem>
         <SfAccordionItem header="Collection" class="filters__accordion-item">
           <SfFilter
             v-for="filter in filters.collection"
@@ -343,6 +399,8 @@ import {
   SfBreadcrumbs,
   SfColor,
   SfProperty,
+  SfRadio,
+  SfSelect,
 } from "@storefront-ui/vue";
 export default {
   components: {
@@ -361,24 +419,28 @@ export default {
     SfBreadcrumbs,
     SfColor,
     SfProperty,
+    SfRadio,
+    SfSelect,
   },
   data() {
     return {
       currentPage: 1,
-      sortBy: "price-up",
+      sortBy: "Latest",
       isFilterSidebarOpen: false,
       isGridView: true,
+      category: "Clothing",
+      displayOnPage: "40",
       sortByOptions: [
         {
-          value: "latest",
+          value: "Latest",
           label: "Latest",
         },
         {
-          value: "price-up",
+          value: "Price-up",
           label: "Price from low to high",
         },
         {
-          value: "price-down",
+          value: "Price-down",
           label: "Price from high to low",
         },
       ],
@@ -420,6 +482,7 @@ export default {
           ],
         },
       ],
+      showOnPage: ["20", "40", "60"],
       products: [
         {
           title: "Cream Beach Bag",
@@ -668,6 +731,7 @@ export default {
   }
   &__main {
     flex: 1;
+    display: flex;
     padding: 0;
     @include for-desktop {
       padding: var(--spacer-xs) var(--spacer-xl);
@@ -678,7 +742,12 @@ export default {
     --heading-title-font-size: var(--font-size--xl);
   }
   &__filters-icon {
-    margin: 0 var(--spacer-xs) 0 0;
+    margin: 0 0 0 var(--spacer-2xs);
+    order: 1;
+    @include for-desktop {
+      margin: 0 var(--spacer-xs) 0 0;
+      order: 0;
+    }
   }
   &__filters-button {
     display: flex;
@@ -688,6 +757,8 @@ export default {
     --button-color: var(--c-link);
     --button-font-weight: var(--font-weight--normal);
     @include for-mobile {
+      --button-font-weight: var(--font-weight--medium);
+      margin-right: var(--spacer-sm);
       order: 1;
     }
     svg {
@@ -703,8 +774,10 @@ export default {
   &__label {
     font-family: var(--font-family--secondary);
     font-weight: var(--font-weight--normal);
-    color: var(--c-link);
-    margin: 0 var(--spacer-2xs) 0 0;
+    color: var(--c-text-muted);
+    @include for-desktop {
+      margin: 0 var(--spacer-2xs) 0 0;
+    }
   }
   &__select {
     --component-select-width: 220px;
@@ -727,14 +800,19 @@ export default {
   }
   &__view {
     display: flex;
+    order: -1;
     align-items: center;
-    margin: 0 var(--spacer-xl);
+    margin: 0;
     @include for-desktop {
       margin: 0 0 0 var(--spacer-2xl);
+      order: 0;
     }
     &-icon {
       cursor: pointer;
-      margin: 0 var(--spacer-base) 0 0;
+      margin: 0 var(--spacer-base) 0 var(--spacer-sm);
+      @include for-desktop {
+        margin: 0 var(--spacer-base) 0 0;
+      }
       &:last-child {
         margin: 0;
       }
@@ -788,15 +866,35 @@ export default {
     flex-wrap: wrap;
   }
   &__grid {
-    justify-content: space-between;
+    justify-content: center;
+    @include for-desktop {
+      justify-content: space-between;
+    }
   }
   &__product-card {
-    --product-card-max-width: 50%;
-    --product-card-title-margin: var(--spacer-base) 0 0 0;
+    --product-card-max-width: 11rem;
+    --product-card-title-margin: var(--spacer-2xs) 0 0 0;
+    --price-regular-font-line-height: 1;
+    margin-bottom: var(--spacer-sm);
+    ::v-deep .sf-product-card__price {
+      margin: var(--spacer-2xs) 0 var(--spacer-xs);
+    }
     flex: 1 1 50%;
+    @include for-desktop {
+      margin-bottom: 0;
+      --product-card-max-width: 50%;
+      --product-card-title-margin: var(--spacer-base) 0 0 0;
+    }
   }
   &__product-card-horizontal {
+    margin-bottom: var(--spacer-sm);
     flex: 0 0 100%;
+    ::v-deep .sf-product-card-horizontal__wishlist-icon {
+      .sf-icon {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+    }
   }
   &__slide-enter {
     opacity: 0;
@@ -806,10 +904,14 @@ export default {
     transition: all 0.2s ease;
     transition-delay: calc(0.1s * var(--index));
   }
+  &__pagination {
+    display: flex;
+    justify-content: center;
+    margin: var(--spacer-base) 0;
+  }
   @include for-desktop {
     margin: var(--spacer-sm) 0 0 var(--spacer-sm);
     &__pagination {
-      display: flex;
       justify-content: flex-start;
       margin: var(--spacer-xl) 0 0 0;
     }
@@ -821,6 +923,15 @@ export default {
     }
     &__list {
       margin: 0 0 0 var(--spacer-sm);
+    }
+  }
+  &__show-on-page {
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+    &__label {
+      font-family: var(--font-family--secondary);
+      font-size: var(--font-size--sm);
     }
   }
 }
@@ -838,7 +949,16 @@ export default {
   &__color {
     margin: var(--spacer-xs) var(--spacer-xs) var(--spacer-xs) 0;
   }
+  &__chosen {
+    color: var(--c-text-muted);
+    font-weight: var(--font-weight--normal);
+    font-family: var(--font-family--secondary);
+    position: absolute;
+    right: var(--spacer-xl);
+  }
   &__item {
+    --radio-container-padding: 0 var(--spacer-sm) 0 var(--spacer-xl);
+    --radio-background: transparent;
     --filter-label-color: var(--c-secondary-variant);
     --filter-count-color: var(--c-secondary-variant);
     --checkbox-padding: 0 var(--spacer-sm) 0 var(--spacer-xl);

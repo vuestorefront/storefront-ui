@@ -8,24 +8,24 @@
         </ul>
       </div>
     </div>
-    <div v-if="numberOfPages > 1" class="sf-hero__controls">
+    <div v-if="numberOfPages > 1" class="sf-hero__control--left">
       <!--@slot slot for icon moving to the previous item -->
       <slot name="prev" v-bind="{ go: () => go('prev') }">
-        <div @click="go('prev')">
-          <SfArrow
-            class="sf-arrow sf-arrow--transparent sf-hero__controls__arrow"
-            aria-label="previous"
-          />
-        </div>
+        <SfArrow
+          class="sf-arrow sf-arrow--transparent"
+          aria-label="previous"
+          @click.stop="go('prev')"
+        />
       </slot>
-      <!--@slot slot for icon moving to the next item -->
+    </div>
+    <div v-if="numberOfPages > 1" class="sf-hero__control--right">
+      <!-- @slot slot for icon moving to the next item  -->
       <slot name="next" v-bind="{ go: () => go('next') }">
-        <div @click="go('next')">
-          <SfArrow
-            class="sf-arrow sf-arrow--right sf-arrow--transparent sf-hero__controls__arrow"
-            aria-label="next"
-          />
-        </div>
+        <SfArrow
+          class="sf-arrow sf-arrow--right sf-arrow--transparent"
+          aria-label="next"
+          @click.stop="go('next')"
+        />
       </slot>
     </div>
     <div v-if="numberOfPages > 1" class="sf-hero__bullets">

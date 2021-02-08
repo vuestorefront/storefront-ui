@@ -1,0 +1,213 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Introduction/Contributing Guide/Documentation Guidelines" />
+
+<style>{`
+  a {
+    color: #5ECE7B !important;
+  }
+
+  .alert {
+    background: #efeded;
+    padding: 1rem;
+    margin: 0.5rem 0 1rem;
+  }
+
+  .tip {
+    border-left: 5px solid #5ECE7B;
+  }
+
+	.warning {
+		border-left: 5px solid #ffc107;
+		background-color: #fff4d5;
+	}
+
+  .danger {
+    border-left: 5px solid #c00;
+		background-color: #ffe6e6;
+  }
+
+  .danger * {
+    color: #4d0000;
+  }
+`}</style>
+
+# Documentation Guidelines
+
+At Storefront UI, we know that documentation is key—both for users of the components as well as for (new and existing) contributors. We aim for complete, correct and easy to understand docs for our components and the project in general.
+
+This guide explains how different parts of the documentation play together and how contributors can help improving it.
+
+<ul class="toc">
+  <li>
+    <a href="#the-basic-setup">The Basic Setup</a>
+  </li>
+  <li>
+    <a href="#prose-documentation">Prose Documentation</a>
+  </li>
+  <li>
+    <a href="#storybook-stories">Storybook Stories</a>
+  </li>
+  <li>
+    <a href="#auto-generated-docs-from-source-code">
+      Auto-generated Docs from Source Code
+    </a>
+  </li>
+  <ul class="toc">
+    <li>
+      <a href="#components-docs">Components Docs</a>
+    </li>
+  </ul>
+</ul>
+
+## The Basic Setup
+
+Different parts of documentation focus on different aspects, which is why they are located in various places:
+
+- The docs you read now are served via **VuePress**, a Markdown template-driven engine, perfect for general information about Storefront UI, mostly written in prose. The `.md` files (and some configuration files) located under _packages/vue/docs/_ serve this purpose.
+- **Storybook** stories may also be considered documentation, with a more formal and programmatic approach, focusing on characteristics of components. These `.stories.js` files reside next to the component's source code inside _packages/vue/src/components/_.
+- Some documentation may be found _inline_, i.e. **inside source code**. Important information for users is extracted automatically into other parts (e.g. slots are described in HTML comments but extracted into our main VuePress docs).
+
+## Prose Documentation
+
+Hand-written documentation (like the one you are reading now) takes place in Markdown files inside _packages/vue/docs/_. It follows less strict/formal rules but rather has to be addressed individually.
+
+## Storybook Stories
+
+<div class="alert warning">
+  <h5>WIP</h5>
+  <p>This part is not finalized yet.</p>
+</div>
+
+## Auto-generated Docs from Source Code
+
+Inline source code documentation tends to be up-to-date with the code it describes. In order to reduce redundancy, out-of-date errors and work for maintainers and contributors, we try to automate documentation generation as much as possible. This is an ongoing endeavor but already works well for our components docs.
+
+### Components Docs
+
+The generation of our components documentation is automated. By running the yarn task `docs:vuecomponents` which triggers the `create-vue-components-docs.js` script, the following sources are crawled and combined into the final component docs file, ready to serve via VuePress:
+
+- The **location** of the component as it describes
+  - its atomic type (atom, molecule, organism),
+  - its names (with and without _Sf_ prefix),
+  - the additional files of which it is composed (HTML, SCSS, etc.) and
+  - whether it contains internal components.
+- The **SCSS** style file because it holds
+  - the CSS modifiers (with an optional descriptions) and
+  - the CSS variables.
+- The **Vue** files are parsed for
+  - props,
+  - slots and
+  - events.
+- **Internal** components' Vue files are parsed the same way and inserted into their parent's component docs.
+- Each component can provide an **additional Markdown** (MD) file for additional information which is then inserted into the final MD. They contain
+  - a description of the component's purpose,
+  - a common usage example and
+  - a deep link into the component's (main) storybook page.
+
+The final file is then saved as `ComponentName.md` to _packages/vue/docs/components/_.
+
+<div class="alert tip">
+
+Being a generated asset, this directory is excluded from VCS. Altering files here has no enduring effect.
+
+</div>
+
+In order to include the components docs in the VuePress navigation, they are also referenced in the appropriate VuePress config files (_.vuepress/config.js_ and _.vuepress/enhanceApp.js_). Mind that altering the `@components-docs` comment markers in these files may lead to the script not being able to automatically insert the generated docs.
+
+<div class="alert tip">
+
+Make sure to run the generation script when adding/moving/removing components and after manual changes to the VuePress configuration files. On success, these changes need to be committed to VCS.
+
+</div>
+
+Documentation contributors need to know, where to add which type of documentation in which format. See the following _Syntax_ chapters for reference.
+
+#### Syntax inside Inside Vue files
+
+**Props:** Use normal block-comment style (with double-asterisk) for descriptions. _Example:_
+
+```js
+/**
+ * Product title
+ */
+title: {
+  type: String,
+  required: true
+}
+```
+
+**Slots:** Use HTML-comment style with `@slot` prepended for descriptions. The slot name and bindings are inserted automatically. _Example:_
+
+```html
+<!-- @slot Custom markup for previous page button -->
+<slot name="prev" v-bind="{isDisabled: canGoPrev, go: goPrev}"></slot>
+```
+
+**Events:** Use block-comment style (with double-asterisk) for descriptions and the `@event` identifier for the event name. _Example:_
+
+```js
+/**
+ * Library loaded event, the library is ready and the map is initialising
+ *
+ * @event 'library:loaded'
+ * @type null
+ */
+this.$emit("library:loaded");
+```
+
+Multiline descriptions are merged into a single line, joined by dots (if necessary).
+
+#### Syntax inside CSS Modifiers
+
+Use normal block-comment style (with single-asterisk) for descriptions. _Example:_
+
+```css
+.sf-badge--full-width {
+  /* @modifier This is the full-width modifier.
+   * (Multiple lines get concatenated) */
+  width: 100%;
+}
+```
+
+By using the `@no-docs` annotation instead, you can exclude a modifier from being added to the modifiers list.
+
+```css
+.sf-accordion-item__header-icon--up {
+  /* @no-docs */
+  transform: rotate(180deg);
+}
+```
+
+Single-asterisk style was chosen so it doesn't interfere with the SASS parser logic. For the same reason, the comment has to be _inside_ the modifier definition block it belongs to.
+
+#### Syntax inside Additional Component Info
+
+The MD file for additional component information has to be named exactly like the component (with _Sf_ prefix) and contain both (h1) headlines `component-description` and `common-usage`. _Example:_
+
+````markdown
+# component-description
+
+Arrow component for sliders and navigation.
+
+# common-usage
+
+<br>
+<SfArrow />
+
+```html
+<template>
+  <SfArrow />
+</template>
+
+<script>
+  import { SfArrow } from "@storefront-ui/vue";
+
+  export default {
+    components: {
+      SfArrow,
+    },
+  };
+</script>
+```
+````

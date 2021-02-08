@@ -1,6 +1,3 @@
-import "./SfFooter.stories.scss";
-import { storiesOf } from "@storybook/vue";
-import { withKnobs, number, boolean, object } from "@storybook/addon-knobs";
 import {
   SfFooter,
   SfHeader,
@@ -8,70 +5,151 @@ import {
   SfImage,
   SfButton,
   SfMenuItem,
+  SfInput,
+  SfLink,
 } from "@storefront-ui/vue";
-storiesOf("Organisms|Footer", module)
-  .addDecorator(withKnobs)
-  .add("Common", () => ({
-    components: {
-      SfFooter,
-      SfHeader,
-      SfList,
-      SfImage,
-      SfButton,
-      SfMenuItem,
-    },
-    props: {
-      column: {
-        default: number("column", 4, {}, "Props"),
-      },
-      multiple: {
-        default: boolean("multiple", false, "Props"),
-      },
-      open: {
-        default: object("open", ["About us", "Help", "Social"], "Props"),
+
+export default {
+  title: "Components/Organisms/Footer",
+  component: SfFooter,
+  argTypes: {
+    open: {
+      control: "array",
+      table: {
+        category: "Props",
       },
     },
-    data() {
-      return {
-        columns: [
-          {
-            title: "About us",
-            items: ["Who we are", "Quality in the details", "Customer Reviews"],
-          },
-          {
-            title: "Departments",
-            items: ["Women fashion", "Men fashion", "Kidswear", "Home"],
-          },
-          {
-            title: "Help",
-            items: ["Customer service", "Size guide", "Contact us"],
-          },
-          {
-            title: "Payment & delivery",
-            items: ["Purchase terms", "Guarantee"],
-          },
-          {
-            title: "Social",
-            pictures: ["facebook", "pinterest", "twitter", "youtube"],
-          },
-        ],
-      };
+    column: {
+      control: "number",
+      defaultValue: 4,
+      table: {
+        category: "Props",
+      },
+      description: "Number of columns in footer",
     },
-    template: `<SfFooter
-        :column="column"
-        :multiple="multiple"
-        :open="open"
-        class="sb-footer"
-      >
-        <SfFooterColumn v-for="column in columns" :key="column.title" :title="column.title">        
-          <SfList v-if="column.items">
-            <SfListItem v-for="item in column.items" :key="item">
-              <SfMenuItem :label="item"/>
-            </SfListItem>
-          </SfList>
-          <div v-else class="sb-footer__social">
-            <SfImage v-for="picture in column.pictures" :key="picture" width="12" height="12" :src="'/assets/storybook/SfFooter/'+picture+'.svg'" class="sb-social-icon"/>
+    multiple: {
+      control: "boolean",
+      table: {
+        category: "Props",
+      },
+    },
+    logo: {
+      control: "text",
+      table: {
+        category: "Props",
+      },
+    },
+    title: {
+      control: "text",
+      table: {
+        category: "Props",
+      },
+    },
+  },
+};
+
+const Template = (args, { argTypes }) => ({
+  components: {
+    SfFooter,
+    SfHeader,
+    SfList,
+    SfImage,
+    SfButton,
+    SfMenuItem,
+    SfInput,
+    SfLink,
+  },
+  props: Object.keys(argTypes),
+  data() {
+    return {
+      columns: [
+        {
+          title: "About us",
+          items: ["Who we are", "Quality in the details", "Customer Reviews"],
+        },
+        {
+          title: "Departments",
+          items: ["Women fashion", "Men fashion", "Kidswear", "Home"],
+        },
+        {
+          title: "Help",
+          items: ["Customer service", "Size guide", "Contact us"],
+        },
+        {
+          title: "Payment & delivery",
+          items: ["Purchase terms", "Guarantee"],
+        },
+      ],
+      social: {
+        title: "Social",
+        pictures: ["facebook", "pinterest", "twitter", "google", "youtube"],
+      },
+    };
+  },
+  template: `
+    <SfFooter
+      :column="column"
+      :multiple="multiple"
+      :open="open"
+      :logo="logo"
+      :title="title"
+    >
+      <SfFooterColumn v-for="column in columns" :key="column.title" :title="column.title">        
+        <SfList>
+          <SfListItem v-for="item in column.items" :key="item">
+            <SfMenuItem :label="item"/>
+          </SfListItem>
+        </SfList>      
+      </SfFooterColumn>
+      <SfFooterColumn :title="social.title" class="desktop-only">
+        <SfImage v-for="picture in social.pictures" :key="picture" :src="'/assets/storybook/SfFooter/'+picture+'.svg'" :alt="picture" style="width: 32px; height: 32px; margin-right: 4px;"/>
+      </SfFooterColumn> 
+      <SfFooterColumn title="Language" class="desktop-only">
+        <SfButton class="sf-button--pure" style="display: flex; align-self: end; color: white;">
+          <SfImage
+            src="/assets/storybook/SfFooter/flag.png"
+            alt="flag of the USA"
+            style="margin-right: 10px;"
+          />
+          English
+        </SfButton>
+      </SfFooterColumn>
+      <SfFooterColumn class="desktop-only">
+        <template>
+          <div style="display: flex; height: 32px; margin-top: 22px;" >
+            <SfInput class="sf-input--outline" type="text" placeholder="Type your email address" style="width: 242px; min-height: auto; font-size: 16px; color: #43464E; background-color: #F1F2F3; --input-border-color: #F1F2F3;"/>
+            <SfButton style="width: 116px;">Subscribe</SfButton>
           </div>
-        </SfFooterColumn>
-      </SfFooter>`,
-  }));
+        </template>
+      </SfFooterColumn>
+      <div class="sf-footer-column smartphone-only">
+        <div style="display: flex; flex-direction: column; jusify-content: space-around; align-items:center; width: 100%;">
+          <div class="sf-footer-column__title" style="align-self: flex-start; width: auto;">
+            Social
+          </div>
+          <div style="display: flex; justify-content: space-around; width: 100%;  margin-bottom: 32px;">
+            <SfImage v-for="picture in social.pictures" :key="picture" :src="'/assets/storybook/SfFooter/'+picture+'.svg'" :alt="picture"/>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 38px;">
+            <SfInput class="sf-input--outline" type="text" placeholder="Type your email address" style="width: 242px; min-height: auto; height: 32px; font-size: 16px; color: #43464E; background-color: #F1F2F3; --input-border-color: #F1F2F3;"/>
+            <SfButton style="width: 116px; height: 32px;">Subscribe</SfButton>
+          </div>
+          <SfLink link="#">
+            <SfImage
+              :src="logo"
+              :alt="title"
+              class="sf-footer__bottom-logo"
+              style="margin-bottom: 38px;"
+            />            
+          </SfLink>
+        </div>  
+      </div>  
+    </SfFooter>`,
+});
+
+export const Common = Template.bind({});
+Common.args = {
+  open: ["About us", "Help", "Social"],
+  title: "Storefront UI",
+  logo: "/assets/logo.svg",
+};
