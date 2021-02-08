@@ -13,9 +13,9 @@
         aria-hidden="true"
         class="sf-circle-icon__icon"
         v-bind="data.attrs"
-        :icon="props.icon"
-        :color="props.iconColor"
-        :size="props.iconSize"
+        :icon="props.icon.icon"
+        :color="props.icon.color"
+        :size="props.icon.size"
         :badge-label="props.badgeLabel"
         :has-badge="props.hasBadge"
       />
