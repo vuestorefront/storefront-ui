@@ -4,8 +4,8 @@
       class="banner"
       title="Thank you for your order!"
       :image="{
-        mobile: '/assets/storybook/ThankYou/BannerM.png',
-        desktop: '/assets/storybook/ThankYou/BannerD.png',
+        mobile: '/assets/storybook/ThankYou/bannerM.png',
+        desktop: '/assets/storybook/ThankYou/bannerD.png',
       }"
       background="#f1f2f3"
     >

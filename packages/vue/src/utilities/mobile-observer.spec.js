@@ -49,7 +49,7 @@ describe("mobile observer", () => {
         it("initialize", () => {
           expect(instance.mobileObserverIsInitialized.get()).toBe(true);
         });
-        it("calls matchMedia and addListeners", () => {
+        it("calls matchMedia and addListener", () => {
           expect(window.matchMedia).toHaveBeenCalledWith("(max-width: 1023px)");
           expect(addListener).toHaveBeenCalledWith(onMediaMatch);
         });
