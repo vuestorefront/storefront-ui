@@ -1,50 +1,33 @@
-<template>
-  <SfButton class="sf-arrow" type="button" v-bind="$attrs" v-on="$listeners">
+<template functional>
+  <component
+    :is="injections.components.SfButton"
+    :class="[data.class, data.staticClass, 'sf-arrow']"
+    :style="[data.style, data.staticStyle]"
+    type="button"
+    v-bind="data.attrs"
+    v-on="listeners"
+  >
     <!--@slot Use this slot to replace arrow icon-->
     <slot>
-      <SfIcon
-        :icon="icon.icon"
-        :size="icon.size"
-        :color="icon.color"
-        :view-box="icon.viewBox"
-        :has-badge="icon.hasBadge"
-        :badge-label="icon.badgeLabel"
-        :coverage="icon.coverage"
+      <component
+        :is="injections.components.SfIcon"
+        size="1.5rem"
+        icon="arrow_left"
         aria-hidden="true"
-        class="sf-arrow__icon"
+        v-bind="data.attrs"
+        :class="[data.class, data.staticClass, 'sf-arrow__icon']"
       />
     </slot>
-  </SfButton>
+  </component>
 </template>
 <script>
 import SfButton from "../SfButton/SfButton";
 import SfIcon from "../SfIcon/SfIcon";
 export default {
   name: "SfArrow",
-  components: { SfButton, SfIcon },
-  props: {
-    /**
-     * Object to pass icon props (icon, size, color, viewBox, hasBadge, badgeLabel, coverage).
-     */
-    icon: {
-      type: Object,
-      default: () => {
-        return {
-          icon: "arrow_left",
-          size: "1.5rem",
-        };
-      },
-    },
-    /**
-     * Object to pass button props (disabled, link).
-     */
-    button: {
-      type: Object,
-      default: () => {
-        return {
-          disabled: false,
-        };
-      },
+  inject: {
+    components: {
+      default: { SfButton, SfIcon },
     },
   },
 };

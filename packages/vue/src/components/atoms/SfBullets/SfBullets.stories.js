@@ -1,104 +1,91 @@
-import { storiesOf } from "@storybook/vue";
-import { withKnobs, number, object } from "@storybook/addon-knobs";
 import { SfBullets } from "@storefront-ui/vue";
-storiesOf("Atoms|Bullets", module)
-  .addDecorator(withKnobs)
-  .add("Common", () => ({
-    props: {
-      total: {
-        default: number("total", 3, {}, "Props"),
+
+export default {
+  title: "Components/Atoms/Bullets",
+  component: SfBullets,
+  argTypes: {
+    total: {
+      control: {
+        type: "number",
       },
-      buttonActive: {
-        default: object(
-          "active button",
-          {
-            disabled: false,
-          },
-          "Props"
-        ),
+      table: {
+        category: "Props",
       },
-      buttonsInactive: {
-        default: object(
-          "inactive buttons",
-          {
-            disabled: false,
-          },
-          "Props"
-        ),
+      defaultValue: 0,
+    },
+    current: {
+      control: "number",
+      defaultValue: 0,
+      table: {
+        category: "Props",
       },
     },
-    components: { SfBullets },
-    data() {
-      return {
-        current: 1,
-      };
-    },
-    template: `<SfBullets
+    click: { action: "set Value of current", table: { category: "Events" } },
+  },
+};
+
+const Template = (args, { argTypes }) => ({
+  components: { SfBullets },
+  props: Object.keys(argTypes),
+  data() {
+    return {
+      curr: this.current,
+    };
+  },
+  template: `
+  <SfBullets
+    :total="total"
+    :current="curr"
+    @click="value => curr = value"
+  />`,
+});
+
+export const Common = Template.bind({});
+Common.args = {
+  total: 3,
+  current: 1,
+};
+
+export const WithActiveSlot = (args, { argTypes }) => ({
+  components: { SfBullets },
+  props: Object.keys(argTypes),
+  data() {
+    return {
+      curr: this.current,
+    };
+  },
+  template: `
+    <SfBullets
       :total="total"
-      :current="current"
-      :buttonActive="buttonActive"
-      :buttonsInactive="buttonsInactive"
-      @click="value => current = value"/>`,
-  }))
-  .add("[slot] active", () => ({
-    props: {
-      total: {
-        default: number("total", 3, {}, "Props"),
-      },
-      buttonsInactive: {
-        default: object(
-          "inactive buttons",
-          {
-            disabled: false,
-          },
-          "Props"
-        ),
-      },
-    },
-    components: { SfBullets },
-    data() {
-      return {
-        current: 1,
-      };
-    },
-    template: `<SfBullets
-      :total="total"
-      :current="current"
-      :buttonsInactive="buttonsInactive"
-      @click="value => current = value">
+      :current="curr"
+      @click="value => curr = value">
       <template #active>
-        <li style="width: 10px; height: 10px; background-color:#9EE2B0"></li>
+        <li style="width: 10px; height: 10px; background-color:#9EE2B0"/>
       </template>
     </SfBullets>`,
-  }))
-  .add("[slot] inactive", () => ({
-    props: {
-      total: {
-        default: number("total", 3, {}, "Props"),
-      },
-      buttonActive: {
-        default: object(
-          "acive button",
-          {
-            disabled: false,
-          },
-          "Props"
-        ),
-      },
-    },
-    components: { SfBullets },
-    data() {
-      return {
-        current: 1,
-      };
-    },
-    template: `<SfBullets
+});
+
+WithActiveSlot.args = {
+  total: 3,
+};
+
+export const WithInactiveSlot = (args, { argTypes }) => ({
+  components: { SfBullets },
+  props: Object.keys(argTypes),
+  data() {
+    return {
+      curr: this.current,
+    };
+  },
+  template: `
+    <SfBullets
       :total="total"
-      :current="current"
-      :buttonActive="buttonActive"
-      @click="value => current = value">
-      <template #inactive="{index, go}">
-        <li @click="go(index)" style="width: 10px; height: 10px; background-color:#CCC; transform: rotate(45deg)"></li>
+      :current="curr"
+      @click="value => curr = value">
+      <template #inactive>
+        <li style="width: 10px; height: 10px; background-color:#CCC; transform: rotate(45deg)"/>
       </template>
     </SfBullets>`,
-  }));
+});
+
+WithInactiveSlot.args = { ...Common.args };

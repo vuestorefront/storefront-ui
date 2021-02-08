@@ -56,11 +56,7 @@ export default {
      */
     icon: {
       type: Object,
-      default: () => {
-        return {
-          icon: "search",
-        };
-      },
+      default: () => ({}),
     },
   },
 };
