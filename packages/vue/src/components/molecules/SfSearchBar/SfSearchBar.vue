@@ -16,9 +16,11 @@
       class="sf-search-bar__button sf-button--pure"
       @click="$emit('click', value)"
     >
-      <span v-if="icon" class="sf-search-bar__icon">
-        <SfIcon :color="icon.color" :size="icon.size" :icon="icon.icon" />
-      </span>
+      <slot name="icon">
+        <span v-if="icon" class="sf-search-bar__icon">
+          <SfIcon :color="icon.color" :size="icon.size" :icon="icon.icon" />
+        </span>
+      </slot>
     </SfButton>
   </SfInput>
 </template>
@@ -57,6 +59,11 @@ export default {
       type: Object,
       default: () => ({}),
     },
+  },
+  data() {
+    return {
+      defaultIcon: "search",
+    };
   },
 };
 </script>

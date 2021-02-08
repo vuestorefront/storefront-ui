@@ -24,7 +24,7 @@ export default {
       description: "Text for placeholder",
     },
     value: {
-      control: "number",
+      control: "text",
       table: {
         category: "Props",
         defaultValue: {
@@ -34,23 +34,23 @@ export default {
       description: "Value that will be displayed in search bar",
     },
     iconSize: {
-      control: "text",
+      control: "object",
       table: {
         category: "Props",
+        defaultValue: {
+          summary: {
+            icon: null,
+            size: "1.25rem",
+            color: "#43464E",
+          },
+        },
       },
-      name: "icon.size",
+      name: "icon object",
       description: "Define size of the search icon",
-    },
-    iconColor: {
-      control: "color",
-      table: {
-        category: "Props",
-      },
-      name: "icon.color",
-      description: "Define color of the search icon",
     },
     input: { action: "Input changed", table: { category: "Events" } },
     enter: { action: "Enter pressed", table: { category: "Events" } },
+    click: { action: "Search button clicked", table: { category: "Events" } },
     blur: { action: "Not focus anymore", table: { category: "Events" } },
   },
 };
@@ -58,24 +58,15 @@ export default {
 const Template = (args, { argTypes }) => ({
   components: { SfSearchBar },
   props: Object.keys(argTypes),
-  computed: {
-    iconCheck() {
-      return this.iconSize || this.iconColor
-        ? {
-            size: this.iconSize,
-            color: this.iconColor,
-          }
-        : null;
-    },
-  },
   template: `
   <SfSearchBar
-  :icon="iconCheck"
+  :icon="icon"
   :class="classes"
   :placeholder="placeholder"
   @enter="enter"
   @input="input"
   @blur="blur"
+  @click="click"
   aria-label="Search"
   v-model="value"/>`,
 });
@@ -88,8 +79,11 @@ Common.args = {
 export const WithIcon = Template.bind({});
 WithIcon.args = {
   ...Common.args,
-  iconColor: "#43464E",
-  iconSize: "1.25rem",
+  icon: {
+    icon: "search",
+    color: "#43464E",
+    size: "1.25rem",
+  }
 };
 
 export const WithValue = Template.bind({});
@@ -115,7 +109,6 @@ export const UseIconSlot = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
   <SfSearchBar
-    :class="customClass"
     :placeholder="placeholder"
     @click="alert(value)"
     @enter="enter"
