@@ -51,8 +51,6 @@
             :size="icon.size"
             :color="icon.color"
             :view-box="icon.viewBox"
-            :has-badge="icon.hasBadge"
-            :badge-label="icon.badgeLabel"
             :coverage="icon.coverage"
           ></SfIcon>
         </SfButton>
@@ -156,6 +154,9 @@ export default {
         };
       },
     },
+    /**
+     * Object to pass icon props (icon type, size, color etc.).
+     */
     icon: {
       type: Object,
       default: () => {

@@ -64,30 +64,30 @@ export default {
     placeholder: {
       control: "text",
       table: {
-        category: "Props",
-      },
-      icon: {
-        default: object(
-          "icon",
-          {
-            icon: "show_password",
-            size: "1.5rem",
-          },
-          "Props"
-        ),
-      },
-      button: {
-        default: object(
-          "button",
-          {
-            disabled: false,
-          },
-          "Props"
-        ),
+        category: "Attributes",
       },
     },
     value: {
       control: "text",
+    },
+    icon: {
+      control: "object",
+      table: {
+        category: "Props",
+      },
+      defaultValue: {
+        icon: "show_password",
+        size: "1.5rem",
+      },
+    },
+    button: {
+      default: "object",
+      table: {
+        category: "Props",
+      },
+      defaultValue: {
+        disabled: false,
+      },
     },
     onChange: { action: "input changed!", table: { category: "Events" } },
   },
@@ -109,9 +109,12 @@ const Template = (args, { argTypes }) => ({
     :label="label"
     :name="name"
     :valid="valid"
+    :icon="icon"
+    :button="button"
     :error-message="errorMessage"
     :required="required"
     :disabled="disabled"
+    :placeholder="placeholder"
     :has-show-password="hasShowPassword"
     @change="onChange"
   />`,

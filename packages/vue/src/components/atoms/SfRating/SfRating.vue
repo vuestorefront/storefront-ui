@@ -9,8 +9,6 @@
         :size="icon.size"
         :color="icon.color"
         :view-box="icon.viewBox"
-        :has-badge="icon.hasBadge"
-        :badge-label="icon.badgeLabel"
         :coverage="
           index === Math.ceil(finalScore) && finalScore % 1 > 0
             ? finalScore % 1
@@ -29,8 +27,6 @@
         :size="iconNegative.size"
         :color="iconNegative.color"
         :view-box="iconNegative.viewBox"
-        :has-badge="iconNegative.hasBadge"
-        :badge-label="iconNegative.badgeLabel"
         :coverage="iconNegative.coverage"
       />
     </slot>
@@ -64,6 +60,7 @@ export default {
         return {
           icon: "star",
           size: "0.875rem",
+          color: "primary",
         };
       },
     },

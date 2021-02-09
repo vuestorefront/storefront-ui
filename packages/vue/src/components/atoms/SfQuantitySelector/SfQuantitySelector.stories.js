@@ -25,23 +25,14 @@ export default {
       table: {
         category: "Props",
       },
-      input: {
-        default: object(
-          "input",
-          {
-            type: "number",
-          },
-          "Props"
-        ),
+    },
+    inputProps: {
+      control: "object",
+      table: {
+        category: "Props",
       },
-      disabled: {
-        default: boolean(
-          "disabled",
-          {
-            type: "boolean",
-          },
-          "Props"
-        ),
+      defaultValue: {
+        type: "number",
       },
     },
     input: { action: "Quantity changed!", table: { category: "Events" } },
@@ -60,6 +51,7 @@ const Template = (args, { argTypes }) => ({
   <SfQuantitySelector
     v-model="value"
     :disabled="disabled"
+    :inputProps="inputProps"
     aria-label="Quantity"
     :class="classes"
     @input="input"
@@ -67,3 +59,6 @@ const Template = (args, { argTypes }) => ({
 });
 
 export const Common = Template.bind({});
+Common.args = {
+  type: "number",
+};

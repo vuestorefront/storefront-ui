@@ -56,7 +56,7 @@ export default {
     /**
      * Object to pass input props (label, name, type, valid, errorMessage, required, disabled).
      */
-    input: {
+    inputProps: {
       type: Object,
       default: () => {
         return {
