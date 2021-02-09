@@ -8,12 +8,11 @@ We want you to have fun contributing with us, so let's go over a few important g
 
 ## Important resources
 
-* [Our Discord Server](https://discord.gg/GS8hqFS). This is the place where we discussed about new features, exchanging questions between the core team, contributors (`#contributors`) and StorefrontUI users.
+* [Our Discord Server](https://discord.gg/GS8hqFS) - This is the place where we discussed about new features, exchanging questions between the core team, contributors (`#contributors`) and StorefrontUI users.
 * [Our component storybook](http://storefrontui-storybook.netlify.com/) - Playground for our components
 * [Our current issues](https://github.com/DivanteLtd/storefront-ui/issues) - Where we keep track of all the bugs, feature requests reported by our community members.
 * [Our current Roadmap](https://github.com/DivanteLtd/storefront-ui/projects/1) - The status of our library in long term.
-
-* [Our Figma component design](https://www.figma.com/file/hrwE3VsMBHgdJoS86rVr4W/Desktop-%26-Mobile-Vue-Storefront?node-id=99%3A0) - Where contains the designs of all the existing/future components in the library.
+* [Our Figma component design](https://www.figma.com/file/hrwE3VsMBHgdJoS86rVr4W/Desktop-%26-Mobile-Vue-Storefront?node-id=99%3A0) - It contains the designs of all the existing/future components in the library.
 
 ## Repository's structure
 
@@ -47,7 +46,7 @@ We selected this strategy to enable the reusability of resources between future 
 StorefrontUI is a Github repository. If you are new to Github, please check [our Github guidelines](github-guidelines.md) for instructions.
 :::
 
-Anything for a better StorefrontUI and bulding the community is considered contributions :wink:, which include:
+Anything for a better StorefrontUI and building the community is considered contributions :wink:, which include:
 
 ### Contribute Code
 We have a lot of features that need good helping hand, as always. However, there are coding rules you need to follow, for maintaining readability and for us to process your pull request as quickly as possible. Please read [our code contributing guide](coding-guidelines.md).
