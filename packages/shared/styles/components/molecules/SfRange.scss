@@ -1,11 +1,12 @@
 @import "../../helpers";
 
 .sf-range {
+  --range-height: 7px; 
   position: relative;
   width: var(--range-width, 100%);
-  height: var(--range-height, 7px);
+  height: var(--range-height);
   margin: var(--spacer-xl);
-  @include background(--range-background, var(--c-light));
+  background-color: var(--c-light);
   border: none;
   box-shadow: none;
   .noUi {

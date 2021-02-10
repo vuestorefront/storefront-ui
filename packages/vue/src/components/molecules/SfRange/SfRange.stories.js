@@ -10,10 +10,7 @@ export default {
       table: {
         category: "Props",
       },
-      defaultValue: {
-        summary: [0, 1],
-      },
-      description: "value",
+      defaultValue: [0, 1],
     },
     disabled: {
       control: "boolean",
@@ -25,41 +22,92 @@ export default {
       },
       description: "Disabled",
     },
-    config: {
+    start: {
+      control: "array",
+      table: {
+        category: "Props",
+      },
+      defaultValue: [0, 1],
+    },
+    range: {
       control: "object",
       table: {
         category: "Props",
       },
       defaultValue: {
-        start: [0,1],
-        range: {
-          min: 0,
-          max: 10,
-        },
-        step: 1,
-        connect: true,
-        direction: "ltr",
-        orientation: "horizontal",
-        behaviour: "tap-drag",
-        tooltips: true,
-        format: {
-          to: function (value) {
-            return new Intl.NumberFormat("de-DE", {
-              style: "currency",
-              currency: "EUR",
-            }).format(value);
-          },
-          from: function (value) {
-            const parsedValue = new Intl.NumberFormat("de-DE", {
-              style: "currency",
-              currency: "EUR",
-            }).formatToParts(value);
-            return parsedValue[0].value;
-          },
-        },
-        keyboardSupport: true,
+        min: 0,
+        max: 10,
       },
-      description: "Configuration",
+    },
+    step: {
+      control: "number",
+      table: {
+        category: "Props",
+      },
+      defaultValue: 1,
+    },
+    connect: {
+      control: "boolean",
+      table: {
+        category: "Props",
+      },
+      defaultValue: true,
+    },
+    direction: {
+      control: "text",
+      table: {
+        category: "Props",
+      },
+      defaultValue: "ltr",
+    },
+    orientation: {
+      control: "text",
+      table: {
+        category: "Props",
+      },
+      defaultValue: "horizontal",
+    },
+    behaviour: {
+      control: "text",
+      table: {
+        category: "Props",
+      },
+      defaultValue: "tap-drag",
+    },
+    tooltips: {
+      control: "boolean",
+      table: {
+        category: "Props",
+      },
+      defaultValue: true,
+    },
+    keyboardSupport: {
+      control: "boolean",
+      table: {
+        category: "Props",
+      },
+      defaultValue: true,
+    },
+    format: {
+      control: "object",
+      table: {
+        category: "Props",
+      },
+      defaultValue: {
+        to: function (value) {
+          return new Intl.NumberFormat("de-DE", {
+            style: "currency",
+            currency: "EUR",
+          }).format(value);
+        },
+        from: function (value) {
+          const parsedValue = new Intl.NumberFormat("de-DE", {
+            style: "currency",
+            currency: "EUR",
+          }).formatToParts(value);
+          return parsedValue[0].value;
+        },
+      },
     },
     change: { action: "New value", table: { category: "Events" } },
   },
@@ -67,13 +115,29 @@ export default {
 
 const Template = (args, { argTypes }) => ({
   components: { SfRange },
+  data() {
+    return {
+      rangeValue: this.value,
+    };
+  },
   props: Object.keys(argTypes),
   template: `
   <div style="padding: 100px">
     <SfRange
-      v-model="value"
+      v-model="rangeValue"
       :disabled="disabled"
-      :config="config"        
+      :config="{
+        start,
+        range,
+        step,
+        connect,
+        direction,
+        orientation,
+        behaviour,
+        tooltips,
+        keyboardSupport,
+        format,
+      }"        
       @change="change"
     />  
   </div>`,
@@ -87,50 +151,32 @@ Common.args = {
 export const OneSlider = Template.bind({});
 OneSlider.args = {
   ...Common.args,
-  value: {
-    control: {
-      type: "range",
-      min: 0,
-      max: 10,
-      step: 1,
-    },
-    table: {
-      category: "Props",
-    },
-    defaultValue: {
-      summary: 0,
-    },
-    description: "value",
+  value: 0,
+  start: 0,
+  range: {
+    min: 0,
+    max: 10,
   },
-  config: {
-    start: 0,    
-    range: {
-      min: 0,
-      max: 10,
+  step: 1,
+  connect: true,
+  direction: "ltr",
+  orientation: "horizontal",
+  behaviour: "tap-drag",
+  tooltips: true,
+  format: {
+    to: function (value) {
+      return new Intl.NumberFormat("de-DE", {
+        style: "currency",
+        currency: "EUR",
+      }).format(value);
     },
-    step: 1,
-    connect: true,
-    direction: "ltr",
-    orientation: "horizontal",
-    behaviour: "tap-drag",
-    tooltips: true,
-    format: {
-      to: function (value) {
-        console.log('to', value);
-        return new Intl.NumberFormat("de-DE", {
-          style: "currency",
-          currency: "EUR",
-        }).format(value);
-      },
-      from: function (value) {
-        console.log('from', value);
-        const parsedValue = new Intl.NumberFormat("de-DE", {
-          style: "currency",
-          currency: "EUR",
-        }).formatToParts(value);
-        return parsedValue[0].value;
-      },
+    from: function (value) {
+      const parsedValue = new Intl.NumberFormat("de-DE", {
+        style: "currency",
+        currency: "EUR",
+      }).formatToParts(value);
+      return parsedValue[0].value;
     },
-    keyboardSupport: true,
   },
+  keyboardSupport: true,
 };
