@@ -1,40 +1,30 @@
 <template>
-  <div class="sf-search-bar">
-    <input
-      v-focus
-      class="sf-search-bar__input"
-      type="search"
-      :value="value"
-      v-bind="$attrs"
-      :placeholder="placeholder"
-      @input="$emit('input', $event.target.value)"
-      @keyup.enter="$emit('enter', $event.target.value)"
-      @keyup.esc="$emit('input', '')"
-      @blur="$emit('blur')"
-    />
-    <!-- @slot -->
-    <slot name="icon">
-      <SfButton
-        class="sf-search-bar__button sf-button--pure"
-        @click="$emit('click', value)"
-      >
-        <span v-if="icon" class="sf-search-bar__icon">
-          <SfIcon :color="icon.color" :size="icon.size" icon="search" />
-        </span>
-      </SfButton>
-    </slot>
-  </div>
+  <SfInput
+    class="sf-search-bar"
+    type="search"
+    name="search"
+    :value="value"
+    :placeholder="placeholder"
+    :icon="icon.icon"
+    :icon-color="icon.color"
+    :icon-size="icon.size"
+    @keyup.enter="$emit('enter', $event.target.value)"
+    @keyup.esc="$emit('input', '')"
+    @blur="$emit('blur')"
+  >
+    <slot v-bind="$attrs" v-on="$listeners"> </slot>
+  </SfInput>
 </template>
 <script>
-import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
-import SfButton from "../../atoms/SfButton/SfButton.vue";
+import SfInput from "../../atoms/SfInput/SfInput.vue";
 import { focus } from "../../../utilities/directives";
+
 export default {
   name: "SfSearchBar",
+  components: { SfInput },
   directives: {
     focus,
   },
-  components: { SfIcon, SfButton },
   inheritAttrs: false,
   props: {
     /**

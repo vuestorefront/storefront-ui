@@ -1,4 +1,8 @@
 import { SfInput, SfIcon } from "@storefront-ui/vue";
+import { sizesValues as sizes } from "@storefront-ui/shared/variables/sizes";
+import { iconColorsValues as colors } from "@storefront-ui/shared/variables/colors";
+import { icons } from "@storefront-ui/shared/icons/icons"; 
+const iconsNames = Object.keys(icons);
 
 export default {
   title: "Components/Atoms/Input",
@@ -67,6 +71,35 @@ export default {
         category: "Props",
       },
     },
+    icon: {
+      control: {
+        type: "select",
+        options: iconsNames,
+      },
+      table: {
+        category: "Props",
+      },
+    },
+    iconSize: {
+      control: {
+        type: "select",
+        options: sizes,
+      },
+      table: {
+        category: "Props",
+      },
+      defaultValue: "sm"
+    },
+    iconColor: {
+      control: {
+        type: "select",
+        options: colors,
+      },
+      table: {
+        category: "Props",
+      },
+      defaultValue: "black",
+    },
     value: {
       control: "text",
     },
@@ -93,6 +126,9 @@ const Template = (args, { argTypes }) => ({
     :error-message="errorMessage"
     :required="required"
     :disabled="disabled"
+    :icon="icon"
+    :iconSize="iconSize"
+    :iconColor="iconColor"
     :has-show-password="hasShowPassword"
     @change="onChange"
   />`,
@@ -167,6 +203,9 @@ export const WithLabelSlot = (args, { argTypes }) => ({
     :error-message="errorMessage"
     :required="required"
     :disabled="disabled"
+    :icon="icon"
+    :iconSize="iconSize"
+    :iconColor="iconColor"
     :has-show-password="hasShowPassword"
     @change="onChange"
     >
@@ -204,6 +243,9 @@ export const WithErrorSlot = (args, { argTypes }) => ({
     :error-message="errorMessage"
     :required="required"
     :disabled="disabled"
+    :icon="icon"
+    :iconSize="iconSize"
+    :iconColor="iconColor"
     :has-show-password="hasShowPassword"
     @change="onChange"
     >

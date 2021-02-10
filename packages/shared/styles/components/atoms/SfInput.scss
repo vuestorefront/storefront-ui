@@ -83,6 +83,7 @@
     appearance: none;
   }
   &__wrapper {
+    display: flex;
     position: relative;
     margin: var(--input-margin, 0 0 var(--spacer-xs) 0);
   }
@@ -152,6 +153,12 @@
       --button-box-shadow: none;
     }
   }
+  &__icon {
+    --icon-position: absolute;  
+    top: 50%;
+    right: 0;
+     transform: translate3d(0, -50%, 0);
+  } 
   &__password-icon {
     position: relative;
     &.hidden {
