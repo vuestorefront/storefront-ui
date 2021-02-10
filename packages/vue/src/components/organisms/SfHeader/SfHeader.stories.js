@@ -31,24 +31,30 @@ export default {
       },
     },
     cartIcon: {
-      control: "text",
+      control: "object",
       table: {
         category: "Props",
-        defaultValue: "empty_cart",
+      },
+      defaultValue: {
+        icon: "empty_cart",
       },
     },
     wishlistIcon: {
-      control: "text",
+      control: "object",
       table: {
         category: "Props",
-        defaultValue: "heart",
+      },
+      defaultValue: {
+        icon: "heart",
       },
     },
     accountIcon: {
-      control: "text",
+      ccontrol: "object",
       table: {
         category: "Props",
-        defaultValue: "profile",
+      },
+      defaultValue: {
+        icon: "profile",
       },
     },
     activeIcon: {

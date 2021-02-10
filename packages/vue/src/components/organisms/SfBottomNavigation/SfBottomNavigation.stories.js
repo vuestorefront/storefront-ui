@@ -28,7 +28,9 @@ const Template = (args, { argTypes }) => ({
       ],
       currentIcon: "heart",
       label: "Home",
-      icon: "home",
+      icon: {
+        icon: "home",
+      },
       iconActive: "home",
     };
   },
@@ -44,16 +46,15 @@ const Template = (args, { argTypes }) => ({
     <SfBottomNavigationItem
       v-for="(item, key) in items"
       :key="key"
-      :icon="item.icon" 
+      :icon="{icon: item.icon}" 
       :icon-active="item.iconActive"
       :label="item.label"
-      icon-size="20px"
       :is-active="currentIcon === item.iconActive"
       @click="currentIcon = item.iconActive"
     />
     <SfBottomNavigationItem
       label="Basket"
-      icon="add_to_cart"     
+      :icon='{icon:"add_to_cart"}'     
       is-floating
       />
   </SfBottomNavigation>`,

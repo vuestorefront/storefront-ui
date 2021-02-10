@@ -9,7 +9,7 @@
           type="button"
           @click="$emit('click:back')"
         >
-          <SfIcon icon="chevron_left" size="0.875rem" />
+          <SfIcon :icon="backIcon.icon" :size="backIcon.size" />
         </SfButton>
       </slot>
     </div>
@@ -27,7 +27,7 @@
           type="button"
           @click="$emit('click:close')"
         >
-          <SfIcon icon="cross" size="14px" />
+          <SfIcon :icon="closeIcon.icon" :size="closeIcon.size" />
         </SfButton>
       </slot>
     </div>
@@ -54,6 +54,24 @@ export default {
     close: {
       type: Boolean,
       default: false,
+    },
+    backIcon: {
+      type: Object,
+      default: () => {
+        return {
+          icon: "chevron_left",
+          size: "0.875rem",
+        };
+      },
+    },
+    closeIcon: {
+      type: Object,
+      default: () => {
+        return {
+          icon: "cross",
+          size: "0.875rem",
+        };
+      },
     },
   },
 };

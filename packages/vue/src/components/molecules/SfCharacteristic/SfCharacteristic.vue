@@ -5,9 +5,9 @@
       <div class="sf-characteristic__icon">
         <SfIcon
           aria-hidden="true"
-          :color="colorIcon"
-          :size="sizeIcon"
-          :icon="icon"
+          :color="icon.color"
+          :size="icon.size"
+          :icon="icon.icon"
         />
       </div>
     </slot>
@@ -34,20 +34,16 @@ export default {
     SfIcon,
   },
   props: {
-    /** One of predefined SfIcon colors, default is black.  */
-    colorIcon: {
-      type: String,
-      default: "",
-    },
-    /** One of predefined SfIcon sizes.  */
-    sizeIcon: {
-      type: String,
-      default: "",
-    },
-    /** Svg file iconPath  */
+    /** Object for icon props */
     icon: {
-      type: [String, Array],
-      default: "",
+      type: Object,
+      default: () => {
+        return {
+          icon: "",
+          size: "",
+          color: "",
+        };
+      },
     },
     /** Characteristic title  */
     title: {
