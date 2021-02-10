@@ -26,38 +26,42 @@
         <slot name="label" v-bind="{ label }">{{ label }}</slot>
       </label>
       <slot
-        v-if="isPassword"
         v-bind="{
+          iconColor,
+          iconSize,
+          icon,
           isPasswordVisible,
           switchVisibilityPassword,
         }"
-        name="show-password"
       >
         <SfButton
+          v-if="icon"
+          class="sf-input__button sf-button--pure"
+          @click="$emit('click', value)"
+        >
+          <SfIcon
+            :color="iconColor"
+            :size="iconSize"
+            :icon="icon"
+            class="sf-input__icon"
+          >
+          </SfIcon>
+        </SfButton>
+        <SfButton
+          v-else-if="hasShowPassword"
           class="sf-input__password-button"
-          type="button"
           aria-label="switch-visibility-password"
           :aria-pressed="isPasswordVisible.toString()"
           @click="switchVisibilityPassword"
         >
           <SfIcon
-            class="sf-input__password-icon"
-            :class="{
-              hidden: !isPasswordVisible,
-            }"
-            icon="show_password"
             size="1.5rem"
-          ></SfIcon>
+            icon="show_password"
+            class="sf-input__password-icon"
+            :class="{ hidden: !isPasswordVisible }"
+          >
+          </SfIcon>
         </SfButton>
-      </slot>
-      <slot v-if="icon" v-bind="{ iconColor, iconSize, icon }">
-        <SfIcon
-          :color="iconColor"
-          :size="iconSize"
-          :icon="icon"
-          class="sf-input__icon"
-        >
-        </SfIcon>
       </slot>
     </div>
     <div class="sf-input__error-message">
@@ -213,6 +217,7 @@ export default {
   },
   methods: {
     switchVisibilityPassword() {
+      if (this.type !== "password") return;
       this.isPasswordVisible = !this.isPasswordVisible;
       this.inputType = this.isPasswordVisible ? "text" : "password";
     },

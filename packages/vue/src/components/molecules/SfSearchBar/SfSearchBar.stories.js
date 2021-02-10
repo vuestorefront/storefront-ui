@@ -1,4 +1,5 @@
 import { SfSearchBar } from "@storefront-ui/vue";
+
 export default {
   title: "Components/Molecules/SearchBar",
   component: SfSearchBar,
@@ -33,16 +34,14 @@ export default {
       },
       description: "Value that will be displayed in search bar",
     },
-    iconSize: {
+    icon: {
       control: "object",
       table: {
         category: "Props",
         defaultValue: {
-          summary: {
-            icon: null,
-            size: "1.25rem",
-            color: "#43464E",
-          },
+          icon: null,
+          size: "1.25rem",
+          color: "#43464E",
         },
       },
       name: "icon object",
@@ -83,7 +82,7 @@ WithIcon.args = {
     icon: "search",
     color: "#43464E",
     size: "1.25rem",
-  }
+  },
 };
 
 export const WithValue = Template.bind({});
@@ -103,20 +102,3 @@ Centered.args = {
   ...WithIcon.args,
   classes: "sf-search-bar--position-center",
 };
-
-export const UseIconSlot = (args, { argTypes }) => ({
-  components: { SfSearchBar },
-  props: Object.keys(argTypes),
-  template: `
-  <SfSearchBar
-    :placeholder="placeholder"
-    @click="alert(value)"
-    @enter="enter"
-    @input="input"
-    @blur="blur"
-    aria-label="Search"
-    v-model="value">
-    <template #icon>👀</template>
-  </SfSearchBar>`,
-});
-UseIconSlot.args = { ...Common.args };
