@@ -1,5 +1,5 @@
 <template>
-  <div class="sf-tabs">
+  <div v-show="initialTabActivated" :class="{'sf-tabs': initialTabActivated}">
     <!--@slot Default. Here you should pass your tabs-->
     <slot />
   </div>
@@ -11,6 +11,11 @@ Vue.component("SfTab", SfTab);
 
 export default {
   name: "SfTabs",
+  data() {
+    return {
+      initialTabActivated: false
+    }
+  },
   props: {
     /** Which tab should be open at the beginning  */
     openTab: {
@@ -48,6 +53,7 @@ export default {
     openChild() {
       if (this.openTab < this.$children.length + 1) {
         this.$children[this.openTab - 1].isActive = true;
+        this.initialTabActivated = true;
       }
     },
   },
