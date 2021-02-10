@@ -50,10 +50,10 @@
           ></SfIcon>
         </SfButton>
       </slot>
-      <slot v-if="icon" v-bind="{ colorIcon, sizeIcon, icon }">
+      <slot v-if="icon" v-bind="{ iconColor, iconSize, icon }">
         <SfIcon
-          :color="colorIcon"
-          :size="sizeIcon"
+          :color="iconColor"
+          :size="iconSize"
           :icon="icon"
           class="sf-input__icon"
         >
@@ -148,12 +148,12 @@ export default {
       default: false,
     },
     /** One of predefined SfIcon colors, default is black.  */
-    colorIcon: {
+    iconColor: {
       type: String,
       default: "",
     },
     /** One of predefined SfIcon sizes.  */
-    sizeIcon: {
+    iconSize: {
       type: String,
       default: "",
     },

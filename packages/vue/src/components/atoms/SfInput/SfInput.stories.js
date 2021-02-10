@@ -1,4 +1,7 @@
 import { SfInput, SfIcon } from "@storefront-ui/vue";
+import { sizesValues as sizes } from "@storefront-ui/shared/variables/sizes";
+import { iconColorsValues as colors } from "@storefront-ui/shared/variables/colors";
+import {icons as iconsNames} from "@storefront-ui/shared/icons/icons"; 
 
 export default {
   title: "Components/Atoms/Input",
@@ -66,15 +69,35 @@ export default {
       table: {
         category: "Props",
       },
-      icon: {
-        default: select("icon", iconsNames, "", "Props"),
+    },
+    icon: {
+      control: {
+        type: "select",
+        options: iconsNames,
       },
-      sizeIcon: {
-        default: select("sizeIcon", sizes, "sm", "Props"),
+      table: {
+        category: "Props",
       },
-      colorIcon: {
-        default: select("colorIcon", colors, "black", "Props"),
+    },
+    iconSize: {
+      control: {
+        type: "select",
+        options: sizes,
       },
+      table: {
+        category: "Props",
+      },
+      defaultValue: "sm"
+    },
+    iconColor: {
+      control: {
+        type: "select",
+        options: colors,
+      },
+      table: {
+        category: "Props",
+      },
+      defaultValue: "black",
     },
     value: {
       control: "text",
@@ -102,6 +125,9 @@ const Template = (args, { argTypes }) => ({
     :error-message="errorMessage"
     :required="required"
     :disabled="disabled"
+    :icon="icon"
+    :iconSize="iconSize"
+    :iconColor="iconColor"
     :has-show-password="hasShowPassword"
     @change="onChange"
   />`,
