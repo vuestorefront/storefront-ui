@@ -61,8 +61,8 @@ export default {
       return {
         ...this.$listeners,
         input: (event) => this.$emit("input", event.target.value),
-        ["keyup.enter"]: (event) => this.$emit("input", event.target.value),
-        ["keyup.esc"]: () => this.$emit("input", ""),
+        "keyup.enter": (event) => this.$emit("input", event.target.value),
+        "keyup.esc": () => this.$emit("input", ""),
         blur: () => this.$emit("blur"),
       };
     },
