@@ -52,6 +52,8 @@ export default {
     input: { action: "Input changed", table: { category: "Events" } },
     enter: { action: "Enter pressed", table: { category: "Events" } },
     blur: { action: "Not focus anymore", table: { category: "Events" } },
+    focus: { action: "Focus", table: { category: "Events" } },
+    click: { action: "Button click", table: { category: "Events" } }
   },
 };
 
@@ -73,9 +75,11 @@ const Template = (args, { argTypes }) => ({
   :icon="iconCheck"
   :class="classes"
   :placeholder="placeholder"
+  @click="click"
   @enter="enter"
   @input="input"
   @blur="blur"
+  @focus="focus"
   aria-label="Search"
   v-model="value"/>`,
 });
@@ -117,10 +121,11 @@ export const UseIconSlot = (args, { argTypes }) => ({
   <SfSearchBar
     :class="customClass"
     :placeholder="placeholder"
-    @click="alert(value)"
+    @click="click"
     @enter="enter"
     @input="input"
     @blur="blur"
+    @focus="focus"
     aria-label="Search"
     v-model="value">
     <template #icon>👀</template>
