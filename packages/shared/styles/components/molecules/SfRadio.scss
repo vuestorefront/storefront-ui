@@ -14,7 +14,7 @@
       normal,
       var(--font-family--primary)
     );
-    color: var(--radio-label-color);
+    color: var(--c-text);
   }
   &__checkmark {
     box-sizing: border-box;
@@ -70,7 +70,7 @@
   }
   &__details {
     margin: var(--radio-details-margin, var(--spacer-xs) 0 0 0);
-    color: var(--radio-details-color, var(--c-text-muted));
+    color: var(--c-text-muted);
     @include font(
       --radio-details-font,
       var(--font-weight--light),
@@ -88,16 +88,15 @@
       1.6,
       var(--font-family--primary)
     );
-    color: var(--radio-description-margin);
+    color: var(--c-text);
   }
   &.is-active {
     background: var(--radio-background, var(--c-light));
   }
   &.is-disabled {
     --radio-checkmark-border-color:  var(--c-text-disabled);
-    --radio-details-color: var(--c-text-disabled);
-    --radio-description-margin: var(--c-text-disabled);
-    --radio-label-color: var(--c-text-disabled);
+    --c-text: var(--c-text-disabled);
+    --c-text-muted: var(--c-text-disabled);
     --radio-container-cursor: default;
     &:hover {
       --radio-checkmark-border-color: var(--c-text-disabled);
