@@ -1,9 +1,9 @@
 <template>
-  <SfTabs :open-tab="1" class="tab-orphan">
+  <SfTabs :open-tab="1" class="single-tab">
     <SfTab title="My reviews">
       <p class="message">
         This feature is not implemented yet! Please take a look at<br />
-        <a href="#"
+        <a class="link" href="#"
           >https://github.com/DivanteLtd/vue-storefront/issues for our
           Roadmap!</a
         >
@@ -20,22 +20,5 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
-.tab-orphan {
-  @include for-mobile {
-    --tabs-title-display: none;
-    --tabs-content-padding: 0;
-    --tabs-conent-border-width: 0;
-  }
-}
-.message {
-  margin: 0 0 var(--spacer-lg) 0;
-}
-a {
-  color: var(--c-primary);
-  text-decoration: none;
-  font-weight: var(--font-weight--medium);
-  &:hover {
-    color: var(--c-text);
-  }
-}
+@import "../../shared-styles.scss";
 </style>

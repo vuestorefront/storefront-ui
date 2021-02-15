@@ -169,14 +169,10 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
+@import "../../shared-styles.scss";
+
 .title {
-  --heading-title-margin: 0 0 var(--spacer-xl) 0;
-  --heading-title-font-weight: var(--font-weight--bold);
   --heading-padding: 0;
-  --heading-title-margin: 0 0 var(--spacer-xl) 0;
-  @include for-desktop {
-    --heading-title-font-weight: var(--font-weight--semibold);
-  }
 }
 .property {
   margin: var(--spacer-base) 0;
@@ -190,26 +186,5 @@ export default {
 .divider {
   --divider-border-color: var(--c-white);
   --divider-margin: var(--spacer-xl) 0 0 0;
-}
-.promo-code {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  &__input {
-    --input-background: var(--c-white);
-    --input-label-font-size: var(--font-size--base);
-    flex: 1;
-  }
-  &__button {
-    --button-height: 1.875rem;
-  }
-}
-.characteristics {
-  &__item {
-    margin: var(--spacer-base) 0;
-    &:last-of-type {
-      margin: 0;
-    }
-  }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <SfTabs :open-tab="1" class="tab-orphan">
+  <SfTabs :open-tab="1" class="single-tab">
     <SfTab title="My newsletter">
       <p class="message">
         Set up your newsletter and we will send you information about new
@@ -33,9 +33,9 @@
         <SfButton class="form__button">Save changes</SfButton>
       </div>
       <p class="notice">
-        I have read and understand the <a href="#">Privacy</a> and
-        <a href="#">Cookies Policy</a> and agree to receive personalized
-        commercial information from Brand name by email.
+        I have read and understand the <a class="link" href="#">Privacy</a> and
+        <a class="link" href="#">Cookies Policy</a> and agree to receive
+        personalized commercial information from Brand name by email.
       </p>
     </SfTab>
   </SfTabs>
@@ -54,13 +54,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
-.tab-orphan {
-  @include for-mobile {
-    --tabs-title-display: none;
-    --tabs-content-padding: 0;
-    --tabs-conent-border-width: 0;
-  }
-}
+@import "../../shared-styles.scss";
 .form {
   &__element {
     margin: 0 0 var(--spacer-base) 0;
@@ -80,20 +74,5 @@ export default {
       --button-width: 17.5rem;
     }
   }
-}
-.message {
-  margin: 0 0 var(--spacer-xl) 0;
-  color: var(--c-dark-variant);
-}
-a {
-  color: var(--c-primary);
-  text-decoration: none;
-  &:hover {
-    color: var(--c-text);
-  }
-}
-.notice {
-  margin: var(--spacer-base) 0 0 0;
-  font-size: var(--font-size--xs);
 }
 </style>

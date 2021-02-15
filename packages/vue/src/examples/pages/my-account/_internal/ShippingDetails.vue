@@ -4,7 +4,7 @@
       v-if="editAddress"
       key="edit-address"
       :open-tab="1"
-      class="tab-orphan"
+      class="single-tab"
     >
       <SfTab title="Change the address">
         <p class="message">Keep your addresses and contact details updated.</p>
@@ -86,7 +86,7 @@
         </div>
       </SfTab>
     </SfTabs>
-    <SfTabs v-else key="address-list" :open-tab="1" class="tab-orphan">
+    <SfTabs v-else key="address-list" :open-tab="1" class="single-tab">
       <SfTab title="Shipping details">
         <p class="message">
           Manage all the shipping addresses you want (work place, home address
@@ -276,6 +276,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
+@import "../../shared-styles.scss";
 .shipping-list {
   margin: 0 0 var(--spacer-base) 0;
 }
@@ -319,13 +320,6 @@ export default {
     }
   }
 }
-.tab-orphan {
-  @include for-mobile {
-    --tabs-content-border-width: 0;
-    --tabs-title-display: none;
-    --tabs-content-padding: 0;
-  }
-}
 .form {
   @include for-desktop {
     display: flex;
@@ -351,9 +345,6 @@ export default {
   &__select {
     padding-bottom: calc(var(--font-xs) * 1.2);
   }
-}
-.message {
-  margin: 0 0 var(--spacer-base) 0;
 }
 .action-button {
   --button-width: 100%;

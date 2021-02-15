@@ -390,17 +390,12 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
+@import "../../shared-styles.scss";
+
 .title {
-  --heading-padding: var(--spacer-xl) 0 var(--spacer-lg);
-  --heading-title-font-weight: var(--font-weight--bold);
   &:not(:first-of-type) {
     --heading-padding: var(--spacer-xl) 0;
     border-bottom: 2px solid var(--c-light);
-  }
-  @include for-desktop {
-    --heading-title-font-size: var(--h3-font-size);
-    --heading-title-font-weight: var(--font-weight--semibold);
-    --heading-padding: var(--spacer-xl) 0;
   }
 }
 .form {

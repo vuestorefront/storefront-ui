@@ -198,15 +198,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
-.title {
-  --heading-padding: var(--spacer-xl) 0 var(--spacer-base);
-  --heading-title-font-weight: var(--font-weight--bold);
-  @include for-desktop {
-    --heading-title-font-size: var(--h3-font-size);
-    --heading-title-font-weight: var(--font-weight--semibold);
-    --heading-padding: var(--spacer-xl) 0;
-  }
-}
+@import "../../shared-styles.scss";
 .table {
   --table-row-padding: var(--spacer-sm) 0 var(--spacer-xs);
   &__header:last-child,

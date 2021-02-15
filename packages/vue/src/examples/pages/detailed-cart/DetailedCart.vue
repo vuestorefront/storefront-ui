@@ -229,6 +229,8 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
+@import "../shared-styles.scss";
+
 #detailed-cart {
   box-sizing: border-box;
   @include for-desktop {
@@ -236,9 +238,6 @@ export default {
     margin: 0 auto;
     padding: 0 var(--spacer-sm);
   }
-}
-.breadcrumbs {
-  padding: var(--spacer-base) 0;
 }
 .detailed-cart {
   &__main {

@@ -48,7 +48,7 @@
     <SfTab title="Returns">
       <p class="message">
         This feature is not implemented yet! Please take a look at<br />
-        <a href="#"
+        <a class="link" href="#"
           >https://github.com/DivanteLtd/vue-storefront/issues for our
           Roadmap!</a
         >
@@ -91,6 +91,8 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
+@import "../../shared-styles.scss";
+
 .no-orders {
   &__title {
     margin: 0 0 var(--spacer-base) 0;
@@ -110,18 +112,6 @@ export default {
         text-align: right;
       }
     }
-  }
-}
-.message {
-  margin: 0 0 var(--spacer-xl) 0;
-  color: var(--c-dark-variant);
-}
-a {
-  color: var(--c-primary);
-  font-weight: var(--font-weight--medium);
-  text-decoration: none;
-  &:hover {
-    color: var(--c-text);
   }
 }
 </style>
