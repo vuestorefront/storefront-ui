@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.3](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/vue@0.10.3...@storefront-ui/vue@0.10.3) (2021-02-16)
+
+**Note:** Version bump only for package @storefront-ui/vue
+
+
+
+
+
 ## [0.10.3](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/vue@0.10.2...@storefront-ui/vue@0.10.3) (2021-02-15)
 
 
