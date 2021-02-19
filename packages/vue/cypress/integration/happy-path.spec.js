@@ -6,6 +6,7 @@ const selectors = {
 		prevArrowButton: element("hero-prev-button"),
 		nextArrowButton: element("hero-next-button"),
 		bullets: element("hero-bullets"),
+		items: element("hero-item"),
 	},
 	bannerGrid: {
 		ctaButton: element("banner-cta-button"),
@@ -16,6 +17,16 @@ const selectors = {
 	carousel: {
 		prevArrowButton: element("carousel-prev-button"),
 		nextArrowButton: element("carousel-next-button"),
+		productCard: element("product-card"),
+		productCardWishlistButton: element("product-wishlist-button"),
+		productCardAddIcon: element("product-add-icon"),
+	},
+	instagramSection: {
+		images: element("image-wrapper"),
+	},
+	banner: {
+		buttons: element("banner-cta-button"),
+		images: element("image-wrapper"),
 	},
 
 	// cart: {
@@ -31,12 +42,28 @@ describe("Home page", () => {
 		cy.visit("/?path=/story/pages-home--common");
 	});
 	it("test SfHero component", () => {
+		cy.iframe()
+			.find(selectors.hero.items)
+			.first()
+			.should("have.class", "glide__slide--active");
 		cy.iframe().find(selectors.hero.prevArrowButton).click({ multiple: true });
+		cy.iframe()
+			.find(selectors.hero.items)
+			.first()
+			.should("not.have.class", "glide__slide--active");
 		cy.iframe().find(selectors.hero.nextArrowButton).click({ multiple: true });
+		cy.iframe()
+			.find(selectors.hero.items)
+			.first()
+			.should("not.have.class", "glide__slide--active");
 		cy.iframe()
 			.find(selectors.hero.ctaButton)
 			.click({ multiple: true, force: true });
 		cy.iframe().find(selectors.hero.bullets).click({ multiple: true });
+		cy.iframe()
+			.find(selectors.hero.items)
+			.first()
+			.should("not.have.class", "glide__slide--active");
 
 		// Open 'Women' category
 		// cy.contains('WOMEN').click().wait(2000);
@@ -113,8 +140,9 @@ describe("Home page", () => {
 		// cy.url().should('include', 'checkout/thank-you');
 	});
 	it("test SfBannerGrid component", () => {
-		cy.iframe().find(selectors.bannerGrid.ctaButton).click({ multiple: true });
-		cy.iframe()("button").should("be.visible");
+		cy.iframe()
+			.find(selectors.bannerGrid.ctaButton)
+			.click({ multiple: true, force: true });
 		// cy.iframe().find(selectors.hero.nextArrowButton).click({ multiple: true });
 	});
 	it("test SfCallToAction component", () => {
@@ -122,12 +150,44 @@ describe("Home page", () => {
 		// cy.iframe().find(selectors.hero.nextArrowButton).click({ multiple: true });
 	});
 	it("test SfCarousel component", () => {
+		// cy.iframe().find(`${selectors.carousel.productCard}:not(glide__slide--clone)`).first().should("be.visible");
 		cy.iframe()
 			.find(selectors.carousel.prevArrowButton)
 			.click({ multiple: true });
 		cy.iframe()
+			.find(selectors.carousel.productCard)
+			.first()
+			.should("not.be.visible");
+		cy.iframe()
 			.find(selectors.carousel.nextArrowButton)
 			.click({ multiple: true });
-		// cy.iframe().find(selectors.hero.nextArrowButton).click({ multiple: true });
+		cy.iframe()
+			.find(selectors.carousel.productCard)
+			.first()
+			.should("not.be.visible");
+		cy.iframe()
+			.find(selectors.carousel.productCard)
+			.first()
+			.find(selectors.carousel.productCardWishlistButton)
+			.should("not.have.class", "on-wishlist")
+			.click({ force: true });
+		cy.iframe()
+			.find(selectors.carousel.productCard)
+			.first()
+			.find(selectors.carousel.productCardAddIcon)
+			.click({ force: true });
+	});
+	it("test Instagram Section component", () => {
+		cy.iframe()
+			.find(selectors.instagramSection.images)
+			.find(".sf-image--overlay");
+	});
+	it("test SfBanner component", () => {
+		cy.iframe()
+			.find(selectors.banner.buttons)
+			.first()
+			.click()
+			.find(".sf-image");
+		cy.iframe().find(selectors.banner.buttons).last().click().find(".sf-image");
 	});
 });
