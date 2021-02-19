@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.3](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/vue@0.10.3...@storefront-ui/vue@0.10.3) (2021-02-16)
+
+**Note:** Version bump only for package @storefront-ui/vue
+
+
+
+
+
+## [0.10.3](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/vue@0.10.3...@storefront-ui/vue@0.10.3) (2021-02-16)
+
+**Note:** Version bump only for package @storefront-ui/vue
+
+
+
+
+
+## [0.10.3](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/vue@0.10.2...@storefront-ui/vue@0.10.3) (2021-02-15)
+
+
+### Bug Fixes
+
+* both arrows visible and fixed links ([#1693](https://github.com/vuestorefront/storefront-ui/issues/1693)) ([d4f3447](https://github.com/vuestorefront/storefront-ui/commit/d4f3447107c96d88a63f91ad988ff9234c4f89a4))
+* change glide init condition ([#1696](https://github.com/vuestorefront/storefront-ui/issues/1696)) ([8273594](https://github.com/vuestorefront/storefront-ui/commit/8273594345bdf8f9d94669dd01cf67fb7cc161e6))
+* SfSearchbar adding listeners  ([#1697](https://github.com/vuestorefront/storefront-ui/issues/1697)) ([07581e0](https://github.com/vuestorefront/storefront-ui/commit/07581e08d04e193795fc157e4cfa62efd05f5718))
+
+
+
+
+
 ## [0.10.2](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/vue@0.10.1...@storefront-ui/vue@0.10.2) (2021-02-04)
 
 
