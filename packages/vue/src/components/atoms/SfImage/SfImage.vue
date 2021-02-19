@@ -1,5 +1,5 @@
 <template>
-  <div class="sf-image--wrapper" :style="variables">
+  <div class="sf-image--wrapper" :style="variables" data-testid="image-wrapper">
     <img
       :loading="loading"
       v-bind="$attrs"

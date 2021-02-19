@@ -1,5 +1,5 @@
 <template>
-  <div class="sf-product-card">
+  <div class="sf-product-card" data-testid="product-card">
     <div class="sf-product-card__image-wrapper">
       <slot
         name="image"
@@ -69,6 +69,7 @@
             :aria-label="`Add to Cart ${title}`"
             :has-badge="showAddedToCartBadge"
             :disabled="addToCartDisabled"
+            data-testid="product-add-icon"
             @click="onAddToCart"
           >
             <div class="sf-product-card__add-button--icons">
@@ -86,7 +87,7 @@
                   />
                 </slot>
               </transition>
-              <transition v-else name="sf-pulse" mode="out-in">
+              <transition name="sf-pulse" mode="out-in">
                 <slot name="adding-to-cart-icon">
                   <SfIcon
                     key="added_to_cart"

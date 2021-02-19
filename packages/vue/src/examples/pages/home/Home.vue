@@ -92,12 +92,17 @@
     >
       <template #call-to-action>
         <div class="app-banner__call-to-action">
-          <SfButton class="app-banner__button" aria-label="Go to Apple Product">
+          <SfButton
+            class="app-banner__button"
+            aria-label="Go to Apple Product"
+            data-testid="banner-cta-button"
+          >
             <SfImage src="/assets/storybook/Home/apple.png" alt="Apple" />
           </SfButton>
           <SfButton
             class="app-banner__button"
             aria-label="Go to Google Product"
+            data-testid="banner-cta-button"
           >
             <SfImage src="/assets/storybook/Home/google.png" alt="Google" />
           </SfButton>
