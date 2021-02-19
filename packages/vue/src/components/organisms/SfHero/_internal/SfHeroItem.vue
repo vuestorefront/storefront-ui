@@ -1,5 +1,5 @@
 <template>
-  <li class="glide__slide sf-hero-item" :style="style">
+  <li class="glide__slide sf-hero-item" :style="style" data-testid="hero-item">
     <component :is="wrapper" class="sf-hero-item__wrapper" :link="link">
       <!--@slot hero item subtitle. Slot content will replace default <h2> tag-->
       <slot name="subtitle" v-bind="{ subtitle }">
