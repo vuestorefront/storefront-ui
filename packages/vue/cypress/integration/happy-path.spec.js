@@ -7,6 +7,17 @@ const selectors = {
     nextArrowButton: element("hero-next-button"),
     bullets: element("hero-bullets"),
   },
+  bannerGrid: {
+    ctaButton: element("banner-cta-button"),
+  },
+  callToAction: {
+    button: element("cta-button"),
+  },
+  carousel: {
+    prevArrowButton: element("carousel-prev-button"),
+    nextArrowButton: element("carousel-next-button"),
+  },
+
   // cart: {
   // 	icon: element('header-minicart'),
   // 	// Can't use v-cypress directive because of https://github.com/vuejs/vue-loader/issues/1433
@@ -20,7 +31,10 @@ describe("Home page", () => {
     cy.visit("/?path=/story/pages-home--common");
   });
   it("test SfHero component", () => {
-    cy.iframe().find(selectors.hero.nextArrowButton).click();
+    cy.iframe().find(selectors.hero.prevArrowButton).click({ multiple: true });
+    cy.iframe().find(selectors.hero.nextArrowButton).click({ multiple: true });
+    cy.iframe().find(selectors.hero.ctaButton).click({ multiple: true, force: true });
+    cy.iframe().find(selectors.hero.bullets).click({ multiple: true });
 
     // Open 'Women' category
     // cy.contains('WOMEN').click().wait(2000);
@@ -95,5 +109,19 @@ describe("Home page", () => {
     // cy.get(selectors.checkout.termsCheckbox).click().wait(500);
     // cy.get(selectors.checkout.submitButton).click().wait(500);
     // cy.url().should('include', 'checkout/thank-you');
+  });
+  it("test SfBannerGrid component", () => {
+    cy.iframe().find(selectors.bannerGrid.ctaButton).click({ multiple: true });
+    cy.iframe()('button').should('be.visible')
+    // cy.iframe().find(selectors.hero.nextArrowButton).click({ multiple: true });
+  });
+  it("test SfCallToAction component", () => {
+    cy.iframe().find(selectors.callToAction.button).click();
+    // cy.iframe().find(selectors.hero.nextArrowButton).click({ multiple: true });
+  });
+  it("test SfCarousel component", () => {
+    cy.iframe().find(selectors.carousel.prevArrowButton).click({ multiple: true });
+    cy.iframe().find(selectors.carousel.nextArrowButton).click({ multiple: true });
+    // cy.iframe().find(selectors.hero.nextArrowButton).click({ multiple: true });
   });
 });

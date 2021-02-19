@@ -20,6 +20,7 @@
         v-if="buttonText"
         :link="link"
         class="sf-call-to-action__button"
+        data-testid="cta-button"
       >
         {{ buttonText }}
       </SfButton>
