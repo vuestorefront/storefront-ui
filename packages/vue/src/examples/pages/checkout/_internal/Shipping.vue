@@ -65,6 +65,7 @@
         placeholder="Country"
         class="form__element form__element--half form__element--half-even form__select sf-select--underlined"
         :valid="true"
+        data-testid="country"
         @input="updateField('country', $event)"
       >
         <SfSelectOption
@@ -91,7 +92,7 @@
       class="sf-heading--left sf-heading--no-underline title"
     />
     <div class="form">
-      <div class="form__radio-group">
+      <div class="form__radio-group" data-testid="shipping-method">
         <SfRadio
           v-for="item in shippingMethods"
           :key="item.value"

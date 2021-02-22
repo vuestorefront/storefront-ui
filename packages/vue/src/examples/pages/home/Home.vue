@@ -89,18 +89,19 @@
       title="Download our application to your mobile"
       subtitle="fashion to take away"
       image="/assets/storybook/Home/bannerD.png"
+      data-testid="application-banner"
     >
       <template #call-to-action>
         <div class="app-banner__call-to-action">
           <SfButton
-            class="app-banner__button"
+            class="app-banner__button sf-banner__call-to-action"
             aria-label="Go to Apple Product"
             data-testid="banner-cta-button"
           >
             <SfImage src="/assets/storybook/Home/apple.png" alt="Apple" />
           </SfButton>
           <SfButton
-            class="app-banner__button"
+            class="app-banner__button sf-banner__call-to-action"
             aria-label="Go to Google Product"
             data-testid="banner-cta-button"
           >
