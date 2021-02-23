@@ -32,10 +32,14 @@ const selectors = {
   checkout: {
     stepsProgress: element("steps-progress"),
     stepsButtons: element("steps-button"),
-    nextButton: element("button-next"),
+    nextButton: element("next-button"),
     shippingStep: element("shipping"),
     paymentStep: element("payment"),
     reviewStep: element("review"),
+  },
+  summary: {
+    applyButton: element("apply-button"),
+    promoCode: element("promoCode"),
   },
   details: {
     loginButton: element("login-button"),
@@ -68,6 +72,18 @@ const selectors = {
     phone: element("phone"),
     invoiceCheckbox: element("getInvoice"),
     paymentMethod: element("payment-methods"),
+  },
+  review: {
+    personalEditButton: element("personal-edit-button"),
+    shippingEditButton: element("shipping-edit-button"),
+    billingEditButton: element("billing-edit-button"),
+    paymentEditButton: element("payment-edit-button"),
+    applyButton: element("apply-button"),
+    promoCode: element("promoCode"),
+    productTableRow: element("product-table-row"),
+    productDescription: element("product-description-table-data"),
+    productImage: element("product-image-table-data"),
+    termsCheckbox: element("terms")
   }
 
   // cart: {
@@ -206,6 +222,8 @@ describe("Checkout page", () => {
     // cy.iframe().find(selectors.details.createPasswordInput).should("be.visible") 
     //   .parents(".sf-input").type("password").should("have.class", "has-text")
     //   .find(".sf-icon").click().should("not.have.class", "hidden");
+    // cy.iframe().find(selectors.summary.promoCode).type("1a2b1c2d1e2f").should("have.class", "has-text");
+    // cy.iframe().find(selectors.summary.applyButton).click();
     // cy.iframe().find(selectors.checkout.nextButton).contains("Go to shipping").click();
     // cy.iframe().find(selectors.checkout.stepsProgress).should("have.css", "--_steps-progress-active-step", "2");
     })
@@ -225,19 +243,36 @@ describe("Checkout page", () => {
       // cy.iframe().find(selectors.checkout.stepsProgress).should("have.css", "--_steps-progress-active-step", "3");
     })
     it("test Payment step", () => {
-      cy.iframe().find(selectors.checkout.nextButton).click().click();
-      cy.iframe().find(`${selectors.payment.addressCheckbox} input`).check({ force: true });
-      cy.iframe().find(selectors.payment.firstNameInput).type("John").should("have.class", "has-text");
-      cy.iframe().find(selectors.payment.lastNameInput).type("Doe").should("have.class", "has-text");
-      cy.iframe().find(selectors.payment.streetName).type("Dollar Street").should("have.class", "has-text");
-      cy.iframe().find(selectors.payment.city).type("Pound Town").should("have.class", "has-text");
-      cy.iframe().find(selectors.payment.state).type("Euro Region").should("have.class", "has-text");
-      cy.iframe().find(selectors.payment.zipCode).type("55-555").should("have.class", "has-text");
-      cy.iframe().find(`${selectors.payment.country} select`).select("Poland").parent().should("have.class", "is-selected");
-      cy.iframe().find(selectors.payment.phone).type("071 666 999").should("have.class", "has-text");
-      cy.iframe().find(`${selectors.payment.invoiceCheckbox} input`).check({force: true});
-      cy.iframe().find(selectors.payment.paymentMethod).find("[value='electron']").check("electron", {force: true}).siblings(".sf-radio__checkmark").should("have.class", "is-active");
-      cy.iframe().find(selectors.checkout.nextButton).contains("Pay for order").click();
-      cy.iframe().find(selectors.checkout.stepsProgress).should("have.css", "--_steps-progress-active-step", "4");       
+      // cy.iframe().find(selectors.checkout.nextButton).click().click();
+      // cy.iframe().find(`${selectors.payment.addressCheckbox} input`).check({ force: true });
+      // cy.iframe().find(selectors.payment.firstNameInput).type("John").should("have.class", "has-text");
+      // cy.iframe().find(selectors.payment.lastNameInput).type("Doe").should("have.class", "has-text");
+      // cy.iframe().find(selectors.payment.streetName).type("Dollar Street").should("have.class", "has-text");
+      // cy.iframe().find(selectors.payment.city).type("Pound Town").should("have.class", "has-text");
+      // cy.iframe().find(selectors.payment.state).type("Euro Region").should("have.class", "has-text");
+      // cy.iframe().find(selectors.payment.zipCode).type("55-555").should("have.class", "has-text");
+      // cy.iframe().find(`${selectors.payment.country} select`).select("Poland").parent().should("have.class", "is-selected");
+      // cy.iframe().find(selectors.payment.phone).type("071 666 999").should("have.class", "has-text");
+      // cy.iframe().find(`${selectors.payment.invoiceCheckbox} input`).check({force: true});
+      // cy.iframe().find(selectors.payment.paymentMethod).find("[value='electron']").check("electron", {force: true}).siblings(".sf-radio__checkmark").should("have.class", "is-active");
+      // cy.iframe().find(selectors.checkout.nextButton).contains("Pay for order").click();
+      // cy.iframe().find(selectors.checkout.stepsProgress).should("have.css", "--_steps-progress-active-step", "4");       
+    })
+
+    it("test Review step", () => {
+      cy.iframe().find(selectors.checkout.nextButton).click().click().click();
+      
+      cy.iframe().find(selectors.review.personalEditButton).click();
+      cy.iframe().find(selectors.review.shippingEditButton).click();
+      cy.iframe().find(selectors.review.billingEditButton).click();
+      cy.iframe().find(selectors.review.paymentEditButton).click();
+      cy.iframe().find(selectors.review.promoCode).type("1a2b1c2d1e2f").should("have.class", "has-text");
+      cy.iframe().find(selectors.review.applyButton).click();
+
+      cy.iframe().find(selectors.review.productTableRow).find(selectors.review.productImage);
+      cy.iframe().find(selectors.review.productTableRow).find(selectors.review.productDescription);
+      cy.iframe().find(`${selectors.review.termsCheckbox} input`).check({force: true});
+      cy.iframe().find(selectors.checkout.nextButton).contains("Confirm and pay").click();
+      cy.iframe().find(selectors.checkout.stepsProgress).should("have.css", "--_steps-progress-active-step", "4");
     })
   });
