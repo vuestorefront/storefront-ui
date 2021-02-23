@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div data-testid="review">
     <SfHeading
       title="Order review"
       :level="3"
