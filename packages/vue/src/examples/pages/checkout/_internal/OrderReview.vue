@@ -7,7 +7,10 @@
     />
     <div class="review__header">
       <p class="review__title">Personal details</p>
-      <SfButton class="sf-button--text" @click="$emit('click:edit', 0)"
+      <SfButton
+        class="sf-button--text"
+        data-testid="personal-edit-button"
+        @click="$emit('click:edit', 0)"
         >Edit
       </SfButton>
     </div>
@@ -26,8 +29,12 @@
     </p>
     <div class="review__header">
       <p class="review__title">Shipping details</p>
-      <SfButton class="sf-button--text" @click="$emit('click:edit', 1)"
-        >Edit
+      <SfButton
+        class="sf-button--text"
+        data-testid="shipping-edit-button"
+        @click="$emit('click:edit', 1)"
+      >
+        Edit
       </SfButton>
     </div>
     <p class="content">
@@ -41,8 +48,12 @@
     </p>
     <div class="review__header">
       <p class="review__title">Billing address</p>
-      <SfButton class="sf-button--text" @click="$emit('click:edit', 2)"
-        >Edit
+      <SfButton
+        class="sf-button--text"
+        data-testid="billing-edit-button"
+        @click="$emit('click:edit', 2)"
+      >
+        Edit
       </SfButton>
     </div>
     <p v-if="payment.sameAsShipping" class="content">
@@ -60,8 +71,12 @@
     </template>
     <div class="review__header">
       <p class="review__title">Payment method</p>
-      <SfButton class="sf-button--text" @click="$emit('click:edit', 2)"
-        >Edit
+      <SfButton
+        class="sf-button--text"
+        data-testid="payment-edit-button"
+        @click="$emit('click:edit', 2)"
+      >
+        Edit
       </SfButton>
     </div>
     <p class="content">{{ paymentMethod.label }}</p>
@@ -72,9 +87,13 @@
         label="Enter promo code"
         class="sf-input--filled promo-code__input"
       />
-      <SfButton class="promo-code__button" @click="$emit('click:apply')"
-        >Apply</SfButton
+      <SfButton
+        class="promo-code__button"
+        data-testid="apply-button"
+        @click="$emit('click:apply')"
       >
+        Apply
+      </SfButton>
     </div>
     <div class="characteristics">
       <SfCharacteristic
