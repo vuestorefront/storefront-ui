@@ -62,7 +62,7 @@
     <div class="actions">
       <SfButton
         class="sf-button--full-width actions__button"
-        data-testid="button-next"
+        data-testid="next-button"
         @click="currentStep++"
         >{{ steps[currentStep] }}</SfButton
       >
