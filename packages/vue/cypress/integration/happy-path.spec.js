@@ -1,65 +1,81 @@
 const element = (name) => `[data-testid=${name}]`;
 
 const selectors = {
-	hero: {
-		ctaButton: element("hero-cta-button"),
-		prevArrowButton: element("hero-prev-button"),
-		nextArrowButton: element("hero-next-button"),
-		bullets: element("hero-bullets"),
-		items: element("hero-item"),
-	},
-	bannerGrid: {
-		ctaButton: element("banner-cta-button"),
-	},
-	callToAction: {
-		button: element("cta-button"),
-	},
-	carousel: {
-		prevArrowButton: element("carousel-prev-button"),
-		nextArrowButton: element("carousel-next-button"),
-		productCard: element("product-card"),
-		productCardWishlistButton: element("product-wishlist-button"),
-		productCardAddIcon: element("product-add-icon"),
-	},
-	instagramSection: {
-		images: element("image-wrapper"),
-	},
-	banner: {
-		banner: element("application-banner"),
-		buttons: element("banner-cta-button"),
-		images: element("image-wrapper"),
-	},
-	checkout: {
-		stepsProgress: element("steps-progress"),
-		stepsButtons: element("steps-button"),
-		nextButton: element("button-next"),
-	},
-	details: {
-		loginButton: element("login-button"),
-		firstNameInput: element("firstName"),
-		lastNameInput: element("lastName"),
-		emailInput: element("email"),
-		createAccountCheckbox: element("create-account-checkbox"),
-		createPasswordInput: element("create-password-input"),
-	},
-	shipping: {
-		firstNameInput: element("firstName"),
-		lastNameInput: element("lastName"),
-		streetName: element("streetName"),
-		city: element("city"),
-		state: element("state"),
-		zipCode: element("zipCode"),
-		country: element("country"),
-		phone: element("phone"),
-		shippingMethod: element("shipping-method"),
-	},
+  hero: {
+    ctaButton: element("hero-cta-button"),
+    prevArrowButton: element("hero-prev-button"),
+    nextArrowButton: element("hero-next-button"),
+    bullets: element("hero-bullets"),
+    items: element("hero-item")
+  },
+  bannerGrid: {
+    ctaButton: element("banner-cta-button"),
+  },
+  callToAction: {
+    button: element("cta-button"),
+  },
+  carousel: {
+    prevArrowButton: element("carousel-prev-button"),
+    nextArrowButton: element("carousel-next-button"),
+    productCard: element("product-card"),
+    productCardWishlistButton: element("product-wishlist-button"), 
+    productCardAddIcon: element("product-add-icon"), 
+  },
+  instagramSection: {
+    images: element("image-wrapper"),
+  },
+  banner: {
+    banner: element("application-banner"),
+    buttons: element("banner-cta-button"),
+    images: element("image-wrapper"),
+  },
+  checkout: {
+    stepsProgress: element("steps-progress"),
+    stepsButtons: element("steps-button"),
+    nextButton: element("button-next"),
+    shippingStep: element("shipping"),
+    paymentStep: element("payment"),
+    reviewStep: element("review"),
+  },
+  details: {
+    loginButton: element("login-button"),
+    firstNameInput: element("firstName"),
+    lastNameInput: element("lastName"),
+    emailInput: element("email"),
+    createAccountCheckbox: element("create-account-checkbox"),
+    createPasswordInput: element("create-password-input"),
+  },
+  shipping: {
+    firstNameInput: element("firstName"),
+    lastNameInput: element("lastName"),
+    streetName: element("streetName"),
+    city: element("city"),
+    state: element("state"),
+    zipCode: element("zipCode"),
+    country: element("country"),
+    phone: element("phone"),
+    shippingMethod: element("shipping-method"),
+  },
+  payment: {
+    addressCheckbox: element("copyShippingAddress"),
+    firstNameInput: element("firstName"),
+    lastNameInput: element("lastName"),
+    streetName: element("streetName"),
+    city: element("city"),
+    state: element("state"),
+    zipCode: element("zipCode"),
+    country: element("country"),
+    phone: element("phone"),
+    invoiceCheckbox: element("getInvoice"),
+    paymentMethod: element("payment-methods"),
+  }
 
-	// cart: {
-	// 	icon: element('header-minicart'),
-	// 	// Can't use v-cypress directive because of https://github.com/vuejs/vue-loader/issues/1433
-	// 	indicator: `${ element('header-minicart') } .cart-badge`,
-	// 	items: element('collected-product-cart-sidebar')
-	// },
+  // cart: {
+  // 	icon: element('header-minicart'),
+  // 	// Can't use v-cypress directive because of https://github.com/vuejs/vue-loader/issues/1433
+  // 	indicator: `${ element('header-minicart') } .cart-badge`,
+  // 	items: element('collected-product-cart-sidebar')
+  // },
 };
 
 describe("Home page", () => {
@@ -159,6 +175,7 @@ describe("Home page", () => {
 });
 
 describe("Checkout page", () => {
+<<<<<<< HEAD
 	beforeEach(() => {
 		cy.visit("/?path=/docs/pages-checkout--common");
 	});
@@ -250,3 +267,53 @@ describe("Checkout page", () => {
 			.should("have.css", "--_steps-progress-active-step", "3");
 	});
 });
+=======
+  beforeEach(() => {
+    cy.visit("/?path=/docs/pages-checkout--common");
+  });
+  it("test Details step", () => {
+    // cy.iframe().find(selectors.details.loginButton).click();
+    // cy.iframe().find(selectors.details.firstNameInput).type("John").should("have.class", "has-text");
+    // cy.iframe().find(selectors.details.lastNameInput).type("Doe").should("have.class", "has-text");
+    // cy.iframe().find(selectors.details.emailInput).type("john.doe@vsf.io").should("have.class", "has-text");
+    // cy.iframe().find(`${selectors.details.createAccountCheckbox} input`).check({force: true})
+    // cy.iframe().find(selectors.details.createAccountCheckbox).should("have.class", "is-active")
+    // cy.iframe().find(selectors.details.createPasswordInput).should("be.visible") 
+    //   .parents(".sf-input").type("password").should("have.class", "has-text")
+    //   .find(".sf-icon").click().should("not.have.class", "hidden");
+    // cy.iframe().find(selectors.checkout.nextButton).contains("Go to shipping").click();
+    // cy.iframe().find(selectors.checkout.stepsProgress).should("have.css", "--_steps-progress-active-step", "2");
+    })
+    it("test Shipping step", () => {
+      // cy.iframe().find(selectors.checkout.nextButton).click();
+
+      // cy.iframe().find(selectors.shipping.firstNameInput).type("John").should("have.class", "has-text");
+      // cy.iframe().find(selectors.shipping.lastNameInput).type("Doe").should("have.class", "has-text");
+      // cy.iframe().find(selectors.shipping.streetName).type("Dollar Street").should("have.class", "has-text");
+      // cy.iframe().find(selectors.shipping.city).type("Pound Town").should("have.class", "has-text");
+      // cy.iframe().find(selectors.shipping.state).type("Euro Region").should("have.class", "has-text");
+      // cy.iframe().find(selectors.shipping.zipCode).type("55-555").should("have.class", "has-text");
+      // cy.iframe().find(`${selectors.shipping.country} select`).select("Poland").parent().should("have.class", "is-selected");
+      // cy.iframe().find(selectors.shipping.phone).type("071 666 999").should("have.class", "has-text");
+      // cy.iframe().find(selectors.shipping.shippingMethod).find("[value='inpost']").check("inpost", {force: true}).siblings(".sf-radio__checkmark").should("have.class", "is-active");
+      // cy.iframe().find(selectors.checkout.nextButton).contains("Go to payment").click();
+      // cy.iframe().find(selectors.checkout.stepsProgress).should("have.css", "--_steps-progress-active-step", "3");
+    })
+    it("test Payment step", () => {
+      cy.iframe().find(selectors.checkout.nextButton).click().click();
+      cy.iframe().find(`${selectors.payment.addressCheckbox} input`).check({ force: true });
+      cy.iframe().find(selectors.payment.firstNameInput).type("John").should("have.class", "has-text");
+      cy.iframe().find(selectors.payment.lastNameInput).type("Doe").should("have.class", "has-text");
+      cy.iframe().find(selectors.payment.streetName).type("Dollar Street").should("have.class", "has-text");
+      cy.iframe().find(selectors.payment.city).type("Pound Town").should("have.class", "has-text");
+      cy.iframe().find(selectors.payment.state).type("Euro Region").should("have.class", "has-text");
+      cy.iframe().find(selectors.payment.zipCode).type("55-555").should("have.class", "has-text");
+      cy.iframe().find(`${selectors.payment.country} select`).select("Poland").parent().should("have.class", "is-selected");
+      cy.iframe().find(selectors.payment.phone).type("071 666 999").should("have.class", "has-text");
+      cy.iframe().find(`${selectors.payment.invoiceCheckbox} input`).check({force: true});
+      cy.iframe().find(selectors.payment.paymentMethod).find("[value='electron']").check("electron", {force: true}).siblings(".sf-radio__checkmark").should("have.class", "is-active");
+      cy.iframe().find(selectors.checkout.nextButton).contains("Pay for order").click();
+      cy.iframe().find(selectors.checkout.stepsProgress).should("have.css", "--_steps-progress-active-step", "4");       
+    })
+  });
+>>>>>>> 187fccc1e (feat: add payment tests)
