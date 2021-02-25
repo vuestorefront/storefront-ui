@@ -1,6 +1,6 @@
 <template>
   <SfTabs :open-tab="1">
-    <SfTab title="Personal data">
+    <SfTab title="Personal data" data-testid="personal-data">
       <p class="message">
         Feel free to edit any of your details below so your account is always up
         to date
@@ -28,8 +28,12 @@
           required
           class="form__element"
         />
-        <SfButton class="form__button" @click="updatePersonal"
-          >Save changes
+        <SfButton
+          class="form__button"
+          data-testid="save-changes-button"
+          @click="updatePersonal"
+        >
+          Save changes
         </SfButton>
       </div>
       <p class="notice">
@@ -39,7 +43,7 @@
         <a href="">Privacy Policy.</a>
       </p>
     </SfTab>
-    <SfTab title="Password change">
+    <SfTab title="Password change" data-testid="password-change">
       <p class="message">
         If you want to change the password to access your account, enter the
         following information:<br />Your current email address is
@@ -70,8 +74,12 @@
           required
           class="form__element form__element--half form__element--half-even"
         />
-        <SfButton class="form__button" @click="updatePassword"
-          >Update password
+        <SfButton
+          class="form__button"
+          data-testid="update-password-button"
+          @click="updatePassword"
+        >
+          Update password
         </SfButton>
       </div>
     </SfTab>
