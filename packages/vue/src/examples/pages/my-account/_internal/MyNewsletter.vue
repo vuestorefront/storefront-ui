@@ -1,6 +1,6 @@
 <template>
   <SfTabs :open-tab="1" class="tab-orphan">
-    <SfTab title="My newsletter">
+    <SfTab title="My newsletter" data-testid="newsletter-tab">
       <p class="message">
         Set up your newsletter and we will send you information about new
         products and trends from the sections you selected every week.
@@ -30,7 +30,9 @@
             class="form__element"
           />
         </div>
-        <SfButton class="form__button">Save changes</SfButton>
+        <SfButton class="form__button" data-testid="save-changes-button"
+          >Save changes</SfButton
+        >
       </div>
       <p class="notice">
         I have read and understand the <a href="#">Privacy</a> and

@@ -6,6 +6,7 @@
         :key="i"
         class="sf-breadcrumbs__list-item"
         :aria-current="last === i && 'page'"
+        data-testid="breadcrumb"
       >
         <template v-if="last !== i">
           <!-- @slot Custom markup for previous pages (binds `breadcrumb` object) -->

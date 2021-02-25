@@ -14,6 +14,7 @@
         <SfContentPage title="My profile">
           <MyProfile
             :account="account"
+            data-testid="my-profile"
             @update:personal="account = { ...account, ...$event }"
             @update:password="account = { ...account, ...$event }"
           />
