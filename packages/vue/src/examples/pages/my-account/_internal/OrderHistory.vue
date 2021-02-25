@@ -1,6 +1,6 @@
 <template>
   <SfTabs :open-tab="1">
-    <SfTab title="My orders">
+    <SfTab title="My orders" data-testid="my-orders">
       <p class="message">
         Check the details and status of your orders in the online store. You can
         also cancel your order or request a return.
@@ -16,7 +16,9 @@
           </SfTableHeader>
           <SfTableHeader class="orders__element--right">
             <span class="smartphone-only">Download</span>
-            <SfButton class="desktop-only sf-button--text orders__download-all"
+            <SfButton
+              class="desktop-only sf-button--text orders__download-all"
+              data-testid="download-all-button"
               >Download all
             </SfButton>
           </SfTableHeader>
@@ -38,14 +40,16 @@
             <SfButton class="sf-button--text color-secondary smartphone-only"
               >Download</SfButton
             >
-            <SfButton class="sf-button--text color-secondary desktop-only"
+            <SfButton
+              class="sf-button--text color-secondary desktop-only"
+              data-testid="view-details-button"
               >View details</SfButton
             >
           </SfTableData>
         </SfTableRow>
       </SfTable>
     </SfTab>
-    <SfTab title="Returns">
+    <SfTab title="Returns" data-testid="returns">
       <p class="message">
         This feature is not implemented yet! Please take a look at<br />
         <a href="#"
