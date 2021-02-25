@@ -6,7 +6,7 @@
       :open-tab="1"
       class="tab-orphan"
     >
-      <SfTab title="Change the address">
+      <SfTab title="Change the address" data-testid="change-address-tab">
         <p class="message">Keep your addresses and contact details updated.</p>
         <div class="form">
           <SfInput
@@ -64,6 +64,7 @@
             label="Country"
             required
             class="sf-component-select--underlined form__select form__element form__element--half form__element--half-even"
+            data-testid="country"
           >
             <SfComponentSelectOption
               v-for="countryOption in countries"
@@ -80,14 +81,18 @@
             required
             class="form__element"
           />
-          <SfButton class="action-button" @click="updateAddress"
-            >Update the address</SfButton
+          <SfButton
+            class="action-button"
+            data-testid="update-address-button"
+            @click="updateAddress"
+          >
+            Update the address</SfButton
           >
         </div>
       </SfTab>
     </SfTabs>
     <SfTabs v-else key="address-list" :open-tab="1" class="tab-orphan">
-      <SfTab title="Shipping details">
+      <SfTab title="Shipping details" data-testid="shipping-details-tab">
         <p class="message">
           Manage all the shipping addresses you want (work place, home address
           ...) This way you won't have to enter the shipping address manually
@@ -98,6 +103,7 @@
             v-for="(shipping, key) in account.shipping"
             :key="shipping.streetName + shipping.apartment"
             class="shipping"
+            data-testid="shipping-address-list-item"
           >
             <div class="shipping__content">
               <p class="shipping__address">
@@ -122,17 +128,28 @@
                 class="smartphone-only"
                 @click="deleteAddress(key)"
               />
-              <SfButton @click="changeAddress(key)">Change</SfButton>
+              <SfButton
+                data-testid="change-address"
+                @click="changeAddress(key)"
+              >
+                Change
+              </SfButton>
               <SfButton
                 class="shipping__button-delete desktop-only"
+                data-testid="delete-address"
                 @click="deleteAddress(key)"
-                >Delete</SfButton
               >
+                Delete
+              </SfButton>
             </div>
           </div>
         </transition-group>
-        <SfButton class="action-button" @click="changeAddress(-1)"
-          >Add new address</SfButton
+        <SfButton
+          class="action-button"
+          data-testid="add-new-address"
+          @click="changeAddress(-1)"
+        >
+          Add new address</SfButton
         >
       </SfTab>
     </SfTabs>
