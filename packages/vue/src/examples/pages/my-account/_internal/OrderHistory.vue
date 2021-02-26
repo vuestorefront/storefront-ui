@@ -1,5 +1,5 @@
 <template>
-  <SfTabs :open-tab="1">
+  <SfTabs :open-tab="1" data-testid="order-history-tabs">
     <SfTab title="My orders" data-testid="my-orders">
       <p class="message">
         Check the details and status of your orders in the online store. You can
