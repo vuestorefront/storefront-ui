@@ -55,7 +55,7 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - name: Cypress run
-          uses: cypress-io/github-action@v2.8.2
+          uses: cypress-io/github-action@v2.9.0
           with:
             start: yarn storybook
             wait-on: 'http://localhost:6006/'
