@@ -120,12 +120,12 @@ const selectors = {
 	},
 	profile: {
 		myProfileButton: element("my-profile"),
-		peronalDataTab: element("personal-data"),
-		passwordChangeTab: element("password-change"),
+		myProfileTabs: element("my-profile-tabs"),
 		firstNameInput: element("firstName"),
 		lastNameInput: element("lastName"),
 		emailInput: element("email"),
 		saveChangesButton: element("save-changes-button"),
+
 		// Password change tab
 		currentPasswordInput: element("currentPassword"),
 		newPasswordInput: element("newPassword"),
@@ -134,9 +134,8 @@ const selectors = {
 	},
 	shippingDetails: {
 		shippingDetailsButton: element("Shipping details"),
-		shippingDetailsTab: element("shipping-details-tab"),
+		shippingDetailsTabs: element("shipping-details-tabs"),
 		changeButton: element("change-address"),
-		changeAddressTab: element("change-address-tab"),
 		deleteButton: element("delete-address"),
 		firstNameInput: element("firstName"),
 		lastNameInput: element("lastName"),
@@ -272,96 +271,6 @@ describe("Checkout page", () => {
 		cy.visit("/?path=/docs/pages-checkout--common");
 	});
 	it("test Details step", () => {
-		cy.iframe().find(selectors.details.loginButton).click();
-		cy.iframe()
-			.find(selectors.details.firstNameInput)
-			.type("John")
-			.should("have.class", "has-text");
-		cy.iframe()
-			.find(selectors.details.lastNameInput)
-			.type("Doe")
-			.should("have.class", "has-text");
-		cy.iframe()
-			.find(selectors.details.emailInput)
-			.type("john.doe@vsf.io")
-			.should("have.class", "has-text");
-		cy.iframe()
-			.find(`${selectors.details.createAccountCheckbox} input`)
-			.check({ force: true });
-		cy.iframe()
-			.find(selectors.details.createAccountCheckbox)
-			.should("have.class", "is-active");
-		cy.iframe()
-			.find(selectors.details.createPasswordInput)
-			.should("be.visible")
-			.parents(".sf-input")
-			.type("password")
-			.should("have.class", "has-text")
-			.find(".sf-icon")
-			.click()
-			.should("not.have.class", "hidden");
-		cy.iframe()
-			.find(selectors.checkout.nextButton)
-			.contains("Go to shipping")
-			.click();
-		cy.iframe()
-			.find(selectors.checkout.stepsProgress)
-			.should("have.css", "--_steps-progress-active-step", "2");
-	});
-	it("test Shipping step", () => {
-		cy.iframe().find(selectors.checkout.nextButton).click();
-
-		cy.iframe()
-			.find(selectors.shipping.firstNameInput)
-			.type("John")
-			.should("have.class", "has-text");
-		cy.iframe()
-			.find(selectors.shipping.lastNameInput)
-			.type("Doe")
-			.should("have.class", "has-text");
-		cy.iframe()
-			.find(selectors.shipping.streetName)
-			.type("Dollar Street")
-			.should("have.class", "has-text");
-		cy.iframe()
-			.find(selectors.shipping.city)
-			.type("Pound Town")
-			.should("have.class", "has-text");
-		cy.iframe()
-			.find(selectors.shipping.state)
-			.type("Euro Region")
-			.should("have.class", "has-text");
-		cy.iframe()
-			.find(selectors.shipping.zipCode)
-			.type("55-555")
-			.should("have.class", "has-text");
-		cy.iframe()
-			.find(`${selectors.shipping.country} select`)
-			.select("Poland")
-			.parent()
-			.should("have.class", "is-selected");
-		cy.iframe()
-			.find(selectors.shipping.phone)
-			.type("071 666 999")
-			.should("have.class", "has-text");
-		cy.iframe()
-			.find(selectors.shipping.shippingMethod)
-			.find("[value='inpost']")
-			.check("inpost", { force: true })
-			.siblings(".sf-radio__checkmark")
-			.should("have.class", "is-active");
-		cy.iframe()
-			.find(selectors.checkout.nextButton)
-			.contains("Go to payment")
-			.click();
-		cy.iframe()
-			.find(selectors.checkout.stepsProgress)
-			.should("have.css", "--_steps-progress-active-step", "3");
-	});
-	beforeEach(() => {
-		cy.visit("/?path=/docs/pages-checkout--common");
-	});
-	it("test Details step", () => {
 		// cy.iframe().find(selectors.details.loginButton).click();
 		// cy.iframe().find(selectors.details.firstNameInput).type("John").should("have.class", "has-text");
 		// cy.iframe().find(selectors.details.lastNameInput).type("Doe").should("have.class", "has-text");
@@ -433,55 +342,24 @@ describe("Login/signin page", () => {
 	beforeEach(() => {
 		cy.visit("/?path=/story/pages-login-sign-in--common");
 	});
-	it("test Login modal", () => {
-		cy.iframe()
-			.find(selectors.login.emailInput)
-			.type("johndoe@vuestorefront.io")
-			.should("have.class", "has-text");
-		cy.iframe()
-			.find(selectors.login.passwordInput)
-			.type("password")
-			.should("have.class", "has-text")
-			.find(".sf-icon")
-			.click()
-			.should("not.have.class", "hidden");
-		cy.iframe()
-			.find(`${selectors.login.rememberCheckbox} input`)
-			.check({ force: true })
-			.parents(selectors.login.rememberCheckbox)
-			.should("have.class", "is-active");
-		cy.iframe().find(selectors.login.loginButton).click();
-		cy.iframe().find(selectors.login.forgottenPasswordButton).click();
-		cy.iframe().find(selectors.login.closeButton).click();
-		cy.iframe()
-			.find(selectors.login.registerButton)
-			.click()
-			.should("be.visible", selectors.login.loginModal);
-	});
-	it("test Signin modal", () => {
-		cy.iframe().find(selectors.login.registerButton).click();
-		cy.iframe()
-			.find(selectors.signin.firstNameInput)
-			.type("John")
-			.should("have.class", "has-text");
-		cy.iframe()
-			.find(selectors.signin.lastNameInput)
-			.type("Doe")
-			.should("have.class", "has-text");
-		cy.iframe()
-			.find(selectors.signin.emailInput)
-			.type("johndoe@vuestorefront.io")
-			.should("have.class", "has-text");
-		cy.iframe()
-			.find(selectors.signin.passwordInput)
-			.type("password")
-			.should("have.class", "has-text");
-		cy.iframe().find(selectors.signin.createAccountButton).click();
-		cy.iframe()
-			.find(selectors.signin.loginAccountButton)
-			.click()
-			.should("be.visible", selectors.signin.signinModal);
-	});
+	// it("test Login modal", () => {
+	//   cy.iframe().find(selectors.login.emailInput).type("johndoe@vuestorefront.io").should("have.class", "has-text");
+	//   cy.iframe().find(selectors.login.passwordInput).type("password").should("have.class", "has-text").find(".sf-icon").click().should("not.have.class", "hidden");;
+	//   cy.iframe().find(`${selectors.login.rememberCheckbox} input`).check({force: true}).parents(selectors.login.rememberCheckbox).should("have.class", "is-active");
+	//   cy.iframe().find(selectors.login.loginButton).click();
+	//   cy.iframe().find(selectors.login.forgottenPasswordButton).click();
+	//   cy.iframe().find(selectors.login.closeButton).click();
+	//   cy.iframe().find(selectors.login.registerButton).click().should("be.visible", selectors.login.loginModal);
+	// })
+	// it("test Signin modal", () => {
+	//   cy.iframe().find(selectors.login.registerButton).click();
+	//   cy.iframe().find(selectors.signin.firstNameInput).type("John").should("have.class", "has-text");
+	//   cy.iframe().find(selectors.signin.lastNameInput).type("Doe").should("have.class", "has-text");
+	//   cy.iframe().find(selectors.signin.emailInput).type("johndoe@vuestorefront.io").should("have.class", "has-text");
+	//   cy.iframe().find(selectors.signin.passwordInput).type("password").should("have.class", "has-text");
+	//   cy.iframe().find(selectors.signin.createAccountButton).click();
+	//   cy.iframe().find(selectors.signin.loginAccountButton).click().should("be.visible", selectors.signin.signinModal);;
+	// })
 });
 describe("MyAccount page", () => {
 	beforeEach(() => {
@@ -489,22 +367,32 @@ describe("MyAccount page", () => {
 	});
 	it("test My profile", () => {
 		cy.iframe().find(selectors.profile.myProfileButton).click();
-		cy.iframe().find(`${selectors.profile.peronalDataTab} button`).click();
 		cy.iframe()
-			.find(selectors.profile.firstNameInput)
+			.find(`${selectors.profile.myProfileTabs} button`)
+			.first()
+			.click();
+		cy.iframe()
+			.find(`${selectors.profile.firstNameInput} input`)
+			.clear()
 			.type("John")
+			.parents(selectors.profile.firstNameInput)
 			.should("have.class", "has-text");
 		cy.iframe()
 			.find(selectors.profile.lastNameInput)
+			.clear()
 			.type("Doe")
 			.should("have.class", "has-text");
 		cy.iframe()
 			.find(selectors.profile.emailInput)
+			.clear()
 			.type("johndoe@vuestorefront.io")
 			.should("have.class", "has-text");
 		cy.iframe().find(selectors.profile.saveChangesButton).click();
 
-		cy.iframe().find(selectors.profile.passwordChangeTab).click();
+		cy.iframe()
+			.find(`${selectors.profile.myProfileTabs} button`)
+			.last()
+			.click();
 		cy.iframe()
 			.find(selectors.profile.currentPasswordInput)
 			.type("password")
@@ -520,46 +408,54 @@ describe("MyAccount page", () => {
 		cy.iframe().find(selectors.profile.updatePasswordButton).click();
 	});
 	it("test Shipping Details", () => {
-		cy.iframe().find(selectors.shippingDetails.shippingDetailsButton).click();
+		cy.iframe().find("[data-testid='Shipping details']").click();
 		cy.iframe()
 			.find(selectors.shippingDetails.changeButton)
+			.first()
 			.click()
 			.should("be.visible", selectors.shippingDetails.changeAddressTab);
 		cy.iframe()
 			.find(selectors.shippingDetails.firstNameInput)
+			.clear()
 			.type("John")
 			.should("have.class", "has-text");
 		cy.iframe()
 			.find(selectors.shippingDetails.lastNameInput)
+			.clear()
 			.type("Doe")
 			.should("have.class", "has-text");
 		cy.iframe()
-			.find(selectors.shippingDetails.streetName)
+			.find(selectors.shippingDetails.streetNameInput)
+			.clear()
 			.type("Dollar Street")
 			.should("have.class", "has-text");
 		cy.iframe()
 			.find(selectors.shippingDetails.apartmentInput)
+			.clear()
 			.type("66/66A")
 			.should("have.class", "has-text");
 		cy.iframe()
 			.find(selectors.shippingDetails.city)
+			.clear()
 			.type("Pound Town")
 			.should("have.class", "has-text");
 		cy.iframe()
 			.find(selectors.shippingDetails.state)
+			.clear()
 			.type("Euro Region")
 			.should("have.class", "has-text");
 		cy.iframe()
 			.find(selectors.shippingDetails.zipCode)
+			.clear()
 			.type("55-555")
 			.should("have.class", "has-text");
 		cy.iframe()
-			.find(`${selectors.shippingDetails.country} select`)
-			.select("Poland")
-			.parent()
-			.should("have.class", "is-selected");
+			.find(selectors.shippingDetails.country)
+			.contains("Poland")
+			.should("have.class", "sf-component-select__selected");
 		cy.iframe()
 			.find(selectors.shippingDetails.phone)
+			.clear()
 			.type("071 666 999")
 			.should("have.class", "has-text");
 		cy.iframe()
@@ -569,11 +465,12 @@ describe("MyAccount page", () => {
 		const shippingAddressItemsAmount = cy
 			.iframe()
 			.find(selectors.shippingDetails.shippingAddressItems)
-			.its("length");
+			.length();
 		cy.iframe()
 			.find(selectors.shippingDetails.deleteButton)
+			.first()
 			.click()
-			.should("have.length", shippingAddressItemsAmount - 1);
+			.should("have.length", `${shippingAddressItemsAmount - 1}`);
 	});
 	it("test Newsletter", () => {});
 	it("test Order history", () => {});
