@@ -22,7 +22,7 @@ const selectors = {
     nextArrowButton: element("carousel-next-button"),
     productCard: element("product-card"),
     productCardWishlistButton: element("product-wishlist-button"), 
-    productCardAddIcon: element("product-add-icon"), 
+    productCardAddIcon: element("product-add-icon"),
   },
   instagramSection: {
     images: element("image-wrapper"),
@@ -160,9 +160,8 @@ const selectors = {
     saveChangesButton: element("save-changes-button"),
   },
   orderHistory: {
-    orderHistoryButton: element("Newsletter"),
-    myOrdersTab: element("my-orders"),
-    returnsTab: element("returns"),
+    orderHistoryButton: element("Order history"),
+    orderHistoryTabs: element("order-history-tabs"),
     downloadAllButton: element("download-all-button"),
     viewDetailsButtons: element("view-details-button"),
   },
@@ -172,117 +171,43 @@ const selectors = {
 };
 
 describe("Home page", () => {
-  // beforeEach(() => {
-  //   cy.visit("/?path=/story/pages-home--common");
-  // });
-  // it("test SfHero component", () => {
-  //   cy.iframe().find(selectors.hero.items).first().should("have.class", "glide__slide--active");
-  //   cy.iframe().find(selectors.hero.prevArrowButton).click({ multiple: true })
-  //   cy.iframe().find(selectors.hero.items).first().should("not.have.class", "glide__slide--active");
-  //   cy.iframe().find(selectors.hero.nextArrowButton).click({ multiple: true });
-  //   cy.iframe().find(selectors.hero.items).first().should("not.have.class", "glide__slide--active");
-  //   cy.iframe().find(selectors.hero.ctaButton).click({ multiple: true, force: true });
-  //   cy.iframe().find(selectors.hero.bullets).click({ multiple: true });
-  //   cy.iframe().find(selectors.hero.items).first().should("not.have.class", "glide__slide--active");
-
-  //   // Open 'Women' category
-  //   // cy.contains('WOMEN').click().wait(2000);
-  //   // cy.url().should('include', '/c/women');
-
-  //   // // Open first product
-  //   // cy.get(selectors.catalog.products).first().click().wait(2000);
-  //   // cy.url().should('include', '/p/');
-
-  //   // // Check if cart is empty
-  //   // cy.get(selectors.cart.indicator).should('not.exist');
-
-  //   // // Add product to cart
-  //   // cy.get(selectors.product.addToCart).click().wait(2000);
-
-  //   // // Check if cart is not empty
-  //   // cy.get(selectors.cart.indicator).should('exist');
-
-  //   // // Open minicart
-  //   // cy.get(selectors.cart.icon).click();
-
-  //   // // Check if product is listen in minicart
-  //   // cy.get(selectors.cart.items).should('have.length', 1);
-
-  //   // // Go to checkout
-  //   // cy.contains('Go to checkout').click().wait(500);
-  //   // cy.url().should('include', 'checkout/personal-details');
-
-  //   // // Type personal details
-  //   // cy.get(selectors.checkout.personalDetails.firstNameInput).type('First');
-  //   // cy.get(selectors.checkout.personalDetails.lastNameInput).type('Last');
-  //   // cy.get(selectors.checkout.personalDetails.emailInput).type('fake@example.com');
-
-  //   // // Go to shipping details
-  //   // cy.get(selectors.checkout.continueButton).click().wait(500);
-  //   // cy.url().should('include', 'checkout/shipping');
-
-  //   // // Type shipping details
-  //   // cy.get(selectors.checkout.shipping.streetName).type('Street');
-  //   // cy.get(selectors.checkout.shipping.apartmentNumber).type('123');
-  //   // cy.get(selectors.checkout.shipping.cityName).type('City');
-  //   // cy.get(selectors.checkout.shipping.zipCode).type('12345');
-  //   // cy.get(selectors.checkout.shipping.phoneNumber).type('123456789');
-  //   // cy.ifElementExists(selectors.checkout.shipping.state, element => element.type('State'));
-
-  //   // // Select first country from the dropdown
-  //   // cy
-  //   //   .get(`${selectors.checkout.shipping.countryName} option`)
-  //   //   .eq(0)
-  //   //   .then(element => cy.get(`${selectors.checkout.shipping.countryName} select`).select(element.val()));
-
-  //   // // Show shipping methods
-  //   // cy.get(selectors.checkout.continueButton).click().wait(500);
-  //   // cy.get(`${selectors.checkout.shipping.methods} label`).first().click();
-
-  //   // // Go to payment
-  //   // cy.get(selectors.checkout.continueButton).click().wait(500);
-  //   // cy.url().should('include', 'checkout/payment');
-
-  //   // // Copy shipping details to payment
-  //   // cy.get(selectors.checkout.payment.copyFromShipping).click();
-
-  //   // // Show payment methods
-  //   // cy.get(selectors.checkout.continueButton).click().wait(500);
-  //   // cy.get(selectors.checkout.payment.paymentMethods).first().click();
-
-  //   // // Go to review
-  //   // cy.get(selectors.checkout.continueButton).click().wait(500);
-  //   // cy.url().should('include', 'checkout/order-review');
-
-  //   // // Complete order
-  //   // cy.get(selectors.checkout.termsCheckbox).click().wait(500);
-  //   // cy.get(selectors.checkout.submitButton).click().wait(500);
-  //   // cy.url().should('include', 'checkout/thank-you');
-  // });
-  // it("test SfBannerGrid component", () => {
-  //   cy.iframe().find(selectors.bannerGrid.ctaButton).click({ multiple: true, force: true });
-  //   // cy.iframe().find(selectors.hero.nextArrowButton).click({ multiple: true });
-  // });
-  // it("test SfCallToAction component", () => {
-  //   cy.iframe().find(selectors.callToAction.button).click();
-  //   // cy.iframe().find(selectors.hero.nextArrowButton).click({ multiple: true });
-  // });
-  // it("test SfCarousel component", () => {
-  //   // cy.iframe().find(`${selectors.carousel.productCard}:not(glide__slide--clone)`).first().should("be.visible");
-  //   cy.iframe().find(selectors.carousel.prevArrowButton).click({ multiple: true });
-  //   cy.iframe().find(selectors.carousel.productCard).first().should("not.be.visible");
-  //   cy.iframe().find(selectors.carousel.nextArrowButton).click({ multiple: true });
-  //   cy.iframe().find(selectors.carousel.productCard).first().should("not.be.visible");
-  //   cy.iframe().find(selectors.carousel.productCard).first().find(selectors.carousel.productCardWishlistButton).should("not.have.class", "on-wishlist").click({force:true})
-  //   cy.iframe().find(selectors.carousel.productCard).first().find(selectors.carousel.productCardAddIcon).click({ force: true })
-  // });
-  // it("test Instagram Section component", () => {
-  //   cy.iframe().find(selectors.instagramSection.images).find(".sf-image--overlay");
-  // });
-  // it("test SfBanner component", () => {
-  //   cy.iframe().find(selectors.banner.banner).find(selectors.banner.buttons).first().click().find(".sf-image");
-  //   cy.iframe().find(selectors.banner.banner).last(selectors.banner.buttons).click().find(".sf-image");
-  // });
+  beforeEach(() => {
+    cy.visit("/?path=/story/pages-home--common");
+  });
+  it("test SfHero component", () => {
+    cy.iframe().find(selectors.hero.items).first().should("have.class", "glide__slide--active");
+    cy.iframe().find(selectors.hero.prevArrowButton).click({ multiple: true })
+    cy.iframe().find(selectors.hero.items).first().should("not.have.class", "glide__slide--active");
+    cy.iframe().find(selectors.hero.nextArrowButton).click({ multiple: true });
+    cy.iframe().find(selectors.hero.items).first().should("not.have.class", "glide__slide--active");
+    cy.iframe().find(selectors.hero.ctaButton).click({ multiple: true, force: true });
+    cy.iframe().find(selectors.hero.bullets).click({ multiple: true });
+    cy.iframe().find(selectors.hero.items).first().should("not.have.class", "glide__slide--active");
+  });
+  it("test SfBannerGrid component", () => {
+    cy.iframe().find(selectors.bannerGrid.ctaButton).click({ multiple: true, force: true });
+    cy.iframe().find(selectors.hero.nextArrowButton).click({ multiple: true });
+  });
+  it("test SfCallToAction component", () => {
+    cy.iframe().find(selectors.callToAction.button).click();
+    cy.iframe().find(selectors.hero.nextArrowButton).click({ multiple: true });
+  });
+  it("test SfCarousel component", () => {
+    cy.iframe().find(".sf-carousel-item:not(.glide__slide--clone)").first().should("have.class", "glide__slide--active").find(selectors.carousel.productCard);
+    cy.iframe().find(selectors.carousel.prevArrowButton).click({ multiple: true });
+    cy.iframe().find(".sf-carousel-item:not(.glide__slide--clone)").first().should("not.be.visible");
+    cy.iframe().find(selectors.carousel.nextArrowButton).click({ multiple: true });
+    cy.iframe().find(".sf-carousel-item:not(.glide__slide--clone)").first().find(selectors.carousel.productCard).should("be.visible");
+    cy.iframe().find(selectors.carousel.productCard).first().find(selectors.carousel.productCardWishlistButton).should("not.have.class", "on-wishlist").click({force:true})
+    cy.iframe().find(selectors.carousel.productCard).first().find(selectors.carousel.productCardAddIcon).click({ force: true })
+  });
+  it("test Instagram Section component", () => {
+    cy.iframe().find(selectors.instagramSection.images).find(".sf-image--overlay");
+  });
+  it("test SfBanner component", () => {
+    cy.iframe().find(selectors.banner.banner).find(selectors.banner.buttons).first().click().find(".sf-image");
+    cy.iframe().find(selectors.banner.banner).last(selectors.banner.buttons).click().find(".sf-image");
+  });
 });
 
 describe("Checkout page", () => {
@@ -290,140 +215,155 @@ describe("Checkout page", () => {
     cy.visit("/?path=/docs/pages-checkout--common");
   });
   it("test Details step", () => {
-    // cy.iframe().find(selectors.details.loginButton).click();
-    // cy.iframe().find(selectors.details.firstNameInput).type("John").should("have.class", "has-text");
-    // cy.iframe().find(selectors.details.lastNameInput).type("Doe").should("have.class", "has-text");
-    // cy.iframe().find(selectors.details.emailInput).type("john.doe@vsf.io").should("have.class", "has-text");
-    // cy.iframe().find(`${selectors.details.createAccountCheckbox} input`).check({force: true})
-    // cy.iframe().find(selectors.details.createAccountCheckbox).should("have.class", "is-active")
-    // cy.iframe().find(selectors.details.createPasswordInput).should("be.visible") 
-    //   .parents(".sf-input").type("password").should("have.class", "has-text")
-    //   .find(".sf-icon").click().should("not.have.class", "hidden");
-    // cy.iframe().find(selectors.summary.promoCode).type("1a2b1c2d1e2f").should("have.class", "has-text");
-    // cy.iframe().find(selectors.summary.applyButton).click();
-    // cy.iframe().find(selectors.checkout.nextButton).contains("Go to shipping").click();
+    cy.iframe().find(selectors.details.loginButton).click();
+    cy.iframe().find(selectors.details.firstNameInput).type("John").should("have.class", "has-text");
+    cy.iframe().find(selectors.details.lastNameInput).type("Doe").should("have.class", "has-text");
+    cy.iframe().find(selectors.details.emailInput).type("john.doe@vsf.io").should("have.class", "has-text");
+    cy.iframe().find(`${selectors.details.createAccountCheckbox} input`).check({force: true})
+    cy.iframe().find(selectors.details.createAccountCheckbox).should("have.class", "is-active")
+    cy.iframe().find(selectors.details.createPasswordInput).should("be.visible") 
+      .parents(".sf-input").type("password").should("have.class", "has-text")
+      .find(".sf-icon").click().should("not.have.class", "hidden");
+    cy.iframe().find(selectors.summary.promoCode).type("1a2b1c2d1e2f").should("have.class", "has-text");
+    cy.iframe().find(selectors.summary.applyButton).click();
+    cy.iframe().find(selectors.checkout.nextButton).contains("Go to shipping").click();
     // cy.iframe().find(selectors.checkout.stepsProgress).should("have.css", "--_steps-progress-active-step", "2");
-    })
-    it("test Shipping step", () => {
-      // cy.iframe().find(selectors.checkout.nextButton).click();
-
-      // cy.iframe().find(selectors.shipping.firstNameInput).type("John").should("have.class", "has-text");
-      // cy.iframe().find(selectors.shipping.lastNameInput).type("Doe").should("have.class", "has-text");
-      // cy.iframe().find(selectors.shipping.streetName).type("Dollar Street").should("have.class", "has-text");
-      // cy.iframe().find(selectors.shipping.city).type("Pound Town").should("have.class", "has-text");
-      // cy.iframe().find(selectors.shipping.state).type("Euro Region").should("have.class", "has-text");
-      // cy.iframe().find(selectors.shipping.zipCode).type("55-555").should("have.class", "has-text");
-      // cy.iframe().find(`${selectors.shipping.country} select`).select("Poland").parent().should("have.class", "is-selected");
-      // cy.iframe().find(selectors.shipping.phone).type("071 666 999").should("have.class", "has-text");
-      // cy.iframe().find(selectors.shipping.shippingMethod).find("[value='inpost']").check("inpost", {force: true}).siblings(".sf-radio__checkmark").should("have.class", "is-active");
-      // cy.iframe().find(selectors.checkout.nextButton).contains("Go to payment").click();
-      // cy.iframe().find(selectors.checkout.stepsProgress).should("have.css", "--_steps-progress-active-step", "3");
-    })
-    it("test Payment step", () => {
-      // cy.iframe().find(selectors.checkout.nextButton).click().click();
-      // cy.iframe().find(`${selectors.payment.addressCheckbox} input`).check({ force: true });
-      // cy.iframe().find(selectors.payment.firstNameInput).type("John").should("have.class", "has-text");
-      // cy.iframe().find(selectors.payment.lastNameInput).type("Doe").should("have.class", "has-text");
-      // cy.iframe().find(selectors.payment.streetName).type("Dollar Street").should("have.class", "has-text");
-      // cy.iframe().find(selectors.payment.city).type("Pound Town").should("have.class", "has-text");
-      // cy.iframe().find(selectors.payment.state).type("Euro Region").should("have.class", "has-text");
-      // cy.iframe().find(selectors.payment.zipCode).type("55-555").should("have.class", "has-text");
-      // cy.iframe().find(`${selectors.payment.country} select`).select("Poland").parent().should("have.class", "is-selected");
-      // cy.iframe().find(selectors.payment.phone).type("071 666 999").should("have.class", "has-text");
-      // cy.iframe().find(`${selectors.payment.invoiceCheckbox} input`).check({force: true});
-      // cy.iframe().find(selectors.payment.paymentMethod).find("[value='electron']").check("electron", {force: true}).siblings(".sf-radio__checkmark").should("have.class", "is-active");
-      // cy.iframe().find(selectors.checkout.nextButton).contains("Pay for order").click();
-      // cy.iframe().find(selectors.checkout.stepsProgress).should("have.css", "--_steps-progress-active-step", "4");       
-    })
-
-    it("test Review step", () => {
-      // cy.iframe().find(selectors.checkout.nextButton).click().click().click();
-      
-      // cy.iframe().find(selectors.review.personalEditButton).click()
-      // cy.iframe().find(selectors.checkout.stepsButtons).first().should("have.class", "current");
-      // cy.iframe().find(selectors.checkout.nextButton).click().click().click();
-      // cy.iframe().find(selectors.review.shippingEditButton).click()
-      // cy.iframe().find(`${selectors.checkout.stepsButtons}:nth-of-type(2)`).should("have.class", "current");
-      // cy.iframe().find(selectors.checkout.nextButton).click().click();
-      // cy.iframe().find(selectors.review.billingEditButton).click();
-      // cy.iframe().find(`${selectors.checkout.stepsButtons}:nth-of-type(3)`).should("have.class", "current");
-      // cy.iframe().find(selectors.checkout.nextButton).click();
-      // cy.iframe().find(selectors.review.paymentEditButton).click();
-      // cy.iframe().find(selectors.checkout.nextButton).click();
-      // cy.iframe().find(`${selectors.review.promoCode} #promoCode`).last().type("1a2b1c2d1e2f", { force: true }).parents(".sf-input").should("have.class", "has-text");
-      // cy.iframe().find(selectors.review.applyButton).click();
-
-      // cy.iframe().find(selectors.review.productTableRow).find(selectors.review.productImage);
-      // cy.iframe().find(selectors.review.productTableRow).find(selectors.review.productDescription);
-      // cy.iframe().find(`${selectors.review.termsCheckbox} input`).check({force: true});
-      // cy.iframe().find(selectors.checkout.nextButton).contains("Confirm and pay").click();
-      // cy.iframe().find(selectors.checkout.stepsProgress).should("have.css", "--_steps-progress-active-step", "5");
-    })    
-  });
-  describe("Login/signin page", () => {
-    beforeEach(() => {
-      cy.visit("/?path=/story/pages-login-sign-in--common");
-    });
-    // it("test Login modal", () => {
-    //   cy.iframe().find(selectors.login.emailInput).type("johndoe@vuestorefront.io").should("have.class", "has-text");
-    //   cy.iframe().find(selectors.login.passwordInput).type("password").should("have.class", "has-text").find(".sf-icon").click().should("not.have.class", "hidden");;
-    //   cy.iframe().find(`${selectors.login.rememberCheckbox} input`).check({force: true}).parents(selectors.login.rememberCheckbox).should("have.class", "is-active");
-    //   cy.iframe().find(selectors.login.loginButton).click();
-    //   cy.iframe().find(selectors.login.forgottenPasswordButton).click();
-    //   cy.iframe().find(selectors.login.closeButton).click();
-    //   cy.iframe().find(selectors.login.registerButton).click().should("be.visible", selectors.login.loginModal);
-    // })
-    // it("test Signin modal", () => {
-    //   cy.iframe().find(selectors.login.registerButton).click();
-    //   cy.iframe().find(selectors.signin.firstNameInput).type("John").should("have.class", "has-text");
-    //   cy.iframe().find(selectors.signin.lastNameInput).type("Doe").should("have.class", "has-text");
-    //   cy.iframe().find(selectors.signin.emailInput).type("johndoe@vuestorefront.io").should("have.class", "has-text");
-    //   cy.iframe().find(selectors.signin.passwordInput).type("password").should("have.class", "has-text");
-    //   cy.iframe().find(selectors.signin.createAccountButton).click();
-    //   cy.iframe().find(selectors.signin.loginAccountButton).click().should("be.visible", selectors.signin.signinModal);;
-    // })    
-  });
-  describe("MyAccount page", () => {
-    beforeEach(() => {
-      cy.visit("//?path=/story/pages-myaccount--common");      
-    });
-    it("test My profile", () => {
-      cy.iframe().find(selectors.profile.myProfileButton).click();
-      cy.iframe().find(`${selectors.profile.myProfileTabs} button`).first().click();
-      cy.iframe().find(`${selectors.profile.firstNameInput} input`).clear().type("John").parents(selectors.profile.firstNameInput).should("have.class", "has-text");
-      cy.iframe().find(selectors.profile.lastNameInput).clear().type("Doe").should("have.class", "has-text");
-      cy.iframe().find(selectors.profile.emailInput).clear().type("johndoe@vuestorefront.io").should("have.class", "has-text");
-      cy.iframe().find(selectors.profile.saveChangesButton).click();
-
-      cy.iframe().find(`${selectors.profile.myProfileTabs} button`).last().click();
-      cy.iframe().find(selectors.profile.currentPasswordInput).type("password").should("have.class", "has-text");
-      cy.iframe().find(selectors.profile.newPasswordInput).type("password123").should("have.class", "has-text");
-      cy.iframe().find(selectors.profile.repeatPasswordInput).type("password123").should("have.class", "has-text");
-      cy.iframe().find(selectors.profile.updatePasswordButton).click();
-    })
-    it("test Shipping Details", () => {
-      cy.iframe().find("[data-testid='Shipping details']").click();
-      cy.iframe().find(selectors.shippingDetails.changeButton).first().click().should("be.visible", selectors.shippingDetails.changeAddressTab);
-      cy.iframe().find(selectors.shippingDetails.firstNameInput).clear().type("John").should("have.class", "has-text");
-      cy.iframe().find(selectors.shippingDetails.lastNameInput).clear().type("Doe").should("have.class", "has-text");
-      cy.iframe().find(selectors.shippingDetails.streetNameInput).clear().type("Dollar Street").should("have.class", "has-text");
-      cy.iframe().find(selectors.shippingDetails.apartmentInput).clear().type("66/66A").should("have.class", "has-text");
-      cy.iframe().find(selectors.shippingDetails.city).clear().type("Pound Town").should("have.class", "has-text");
-      cy.iframe().find(selectors.shippingDetails.state).clear().type("Euro Region").should("have.class", "has-text");
-      cy.iframe().find(selectors.shippingDetails.zipCode).clear().type("55-555").should("have.class", "has-text");
-      cy.iframe().find(selectors.shippingDetails.country).contains("Poland"). should("have.class", "sf-component-select__selected");
-      cy.iframe().find(selectors.shippingDetails.phone).clear().type("071 666 999").should("have.class", "has-text");
-      cy.iframe().find(selectors.shippingDetails.updateAddressButton).click().should("be.visible", selectors.shippingDetails.shippingDetailsTab);
-      const shippingAddressItemsAmount = cy.iframe().find(selectors.shippingDetails.shippingAddressItems).length();
-      cy.iframe().find(selectors.shippingDetails.deleteButton).first().click().should("have.length", `${shippingAddressItemsAmount -1}`);
-    })
-    it("test Newsletter", () => {
-
-    })
-    it("test Order history", () => {
-
-    })    
-    it("test Log out", () => {
-
-    })
   })
+  it("test Shipping step", () => {
+    cy.iframe().find(selectors.checkout.nextButton).click();
+
+    cy.iframe().find(selectors.shipping.firstNameInput).type("John").should("have.class", "has-text");
+    cy.iframe().find(selectors.shipping.lastNameInput).type("Doe").should("have.class", "has-text");
+    cy.iframe().find(selectors.shipping.streetName).type("Dollar Street").should("have.class", "has-text");
+    cy.iframe().find(selectors.shipping.city).type("Pound Town").should("have.class", "has-text");
+    cy.iframe().find(selectors.shipping.state).type("Euro Region").should("have.class", "has-text");
+    cy.iframe().find(selectors.shipping.zipCode).type("55-555").should("have.class", "has-text");
+    cy.iframe().find(`${selectors.shipping.country} select`).select("Poland").parent().should("have.class", "is-selected");
+    cy.iframe().find(selectors.shipping.phone).type("071 666 999").should("have.class", "has-text");
+    cy.iframe().find(selectors.shipping.shippingMethod).find("[value='inpost']").check("inpost", {force: true}).siblings(".sf-radio__checkmark").should("have.class", "is-active");
+    cy.iframe().find(selectors.checkout.nextButton).contains("Go to payment").click();
+    // cy.iframe().find(selectors.checkout.stepsProgress).should("have.css", "--_steps-progress-active-step", "3");
+  })
+
+  it("test Payment step", () => {
+    cy.iframe().find(selectors.checkout.nextButton).click().click();
+    cy.iframe().find(`${selectors.payment.addressCheckbox} input`).check({ force: true });
+    cy.iframe().find(selectors.payment.firstNameInput).type("John").should("have.class", "has-text");
+    cy.iframe().find(selectors.payment.lastNameInput).type("Doe").should("have.class", "has-text");
+    cy.iframe().find(selectors.payment.streetName).type("Dollar Street").should("have.class", "has-text");
+    cy.iframe().find(selectors.payment.city).type("Pound Town").should("have.class", "has-text");
+    cy.iframe().find(selectors.payment.state).type("Euro Region").should("have.class", "has-text");
+    cy.iframe().find(selectors.payment.zipCode).type("55-555").should("have.class", "has-text");
+    cy.iframe().find(`${selectors.payment.country} select`).select("Poland").parent().should("have.class", "is-selected");
+    cy.iframe().find(selectors.payment.phone).type("071 666 999").should("have.class", "has-text");
+    cy.iframe().find(`${selectors.payment.invoiceCheckbox} input`).check({force: true});
+    cy.iframe().find(selectors.payment.paymentMethod).find("[value='electron']").check("electron", {force: true}).siblings(".sf-radio__checkmark").should("have.class", "is-active");
+    cy.iframe().find(selectors.checkout.nextButton).contains("Pay for order").click();
+    // cy.iframe().find(selectors.checkout.stepsProgress).should("have.css", "--_steps-progress-active-step", "4");       
+  })
+
+  it("test Review step", () => {
+    cy.iframe().find(selectors.checkout.nextButton).click().click().click();
+    
+    cy.iframe().find(selectors.review.personalEditButton).click()
+    cy.iframe().find(selectors.checkout.stepsButtons).first().should("have.class", "current");
+    cy.iframe().find(selectors.checkout.nextButton).click().click().click();
+    cy.iframe().find(selectors.review.shippingEditButton).click()
+    cy.iframe().find(`${selectors.checkout.stepsButtons}:nth-of-type(2)`).should("have.class", "current");
+    cy.iframe().find(selectors.checkout.nextButton).click().click();
+    cy.iframe().find(selectors.review.billingEditButton).click();
+    cy.iframe().find(`${selectors.checkout.stepsButtons}:nth-of-type(3)`).should("have.class", "current");
+    cy.iframe().find(selectors.checkout.nextButton).click();
+    cy.iframe().find(selectors.review.paymentEditButton).click();
+    cy.iframe().find(selectors.checkout.nextButton).click();
+    cy.iframe().find(`${selectors.review.promoCode} #promoCode`).last().type("1a2b1c2d1e2f", { force: true }).parents(".sf-input").should("have.class", "has-text");
+    cy.iframe().find(selectors.review.applyButton).click();
+
+    cy.iframe().find(selectors.review.productTableRow).find(selectors.review.productImage);
+    cy.iframe().find(selectors.review.productTableRow).find(selectors.review.productDescription);
+    cy.iframe().find(`${selectors.review.termsCheckbox} input`).check({force: true});
+    cy.iframe().find(selectors.checkout.nextButton).contains("Confirm and pay").click();
+    // cy.iframe().find(selectors.checkout.stepsProgress).should("have.css", "--_steps-progress-active-step", "5");
+  })   
+});
+
+describe("Login/signin page", () => {
+  beforeEach(() => {
+    cy.visit("/?path=/story/pages-login-sign-in--common");
+  });
+  it("test Login modal", () => {
+    cy.iframe().find(selectors.login.emailInput).type("johndoe@vuestorefront.io").should("have.class", "has-text");
+    cy.iframe().find(selectors.login.passwordInput).type("password").should("have.class", "has-text").find(".sf-icon").click().should("not.have.class", "hidden");;
+    cy.iframe().find(`${selectors.login.rememberCheckbox} input`).check({force: true}).parents(selectors.login.rememberCheckbox).should("have.class", "is-active");
+    cy.iframe().find(selectors.login.loginButton).click();
+    cy.iframe().find(selectors.login.forgottenPasswordButton).click();
+    cy.iframe().find(selectors.login.closeButton).click();
+    cy.iframe().find(selectors.login.registerButton).click().should("be.visible", selectors.login.loginModal);
+  })
+  it("test Signin modal", () => {
+    cy.iframe().find(selectors.login.registerButton).click();
+    cy.iframe().find(selectors.signin.firstNameInput).type("John").should("have.class", "has-text");
+    cy.iframe().find(selectors.signin.lastNameInput).type("Doe").should("have.class", "has-text");
+    cy.iframe().find(selectors.signin.emailInput).type("johndoe@vuestorefront.io").should("have.class", "has-text");
+    cy.iframe().find(selectors.signin.passwordInput).type("password").should("have.class", "has-text");
+    cy.iframe().find(selectors.signin.createAccountButton).click();
+    cy.iframe().find(selectors.signin.loginAccountButton).click().should("be.visible", selectors.signin.signinModal);;
+  })    
+});
+
+describe("MyAccount page", () => {
+  beforeEach(() => {
+    cy.visit("//?path=/story/pages-myaccount--common");      
+  });
+  it("test My profile", () => {
+    cy.iframe().find(selectors.profile.myProfileButton).click();
+    cy.iframe().find(`${selectors.profile.myProfileTabs} button`).first().click();
+    cy.iframe().find(`${selectors.profile.firstNameInput} input`).clear().type("John").parents(selectors.profile.firstNameInput).should("have.class", "has-text");
+    cy.iframe().find(`${selectors.profile.lastNameInput} input`).clear().type("Doe").parents(selectors.profile.lastNameInput).should("have.class", "has-text");
+    cy.iframe().find(`${selectors.profile.emailInput} input`).clear().type("johndoe@vuestorefront.io").parents(selectors.profile.emailInput).should("have.class", "has-text");
+    cy.iframe().find(selectors.profile.saveChangesButton).click();
+
+    cy.iframe().find(`${selectors.profile.myProfileTabs} button`).last().click();
+    cy.iframe().find(selectors.profile.currentPasswordInput).type("password").should("have.class", "has-text");
+    cy.iframe().find(selectors.profile.newPasswordInput).type("password123").should("have.class", "has-text");
+    cy.iframe().find(selectors.profile.repeatPasswordInput).type("password123").should("have.class", "has-text");
+    cy.iframe().find(selectors.profile.updatePasswordButton).click();
+  })
+  it("test Shipping Details", () => {
+    cy.iframe().find("[data-testid='Shipping details']").click();
+    cy.iframe().find(selectors.shippingDetails.changeButton).first().click().should("be.visible", selectors.shippingDetails.changeAddressTab);
+    cy.iframe().find(`${selectors.shippingDetails.firstNameInput} input`).clear().type("John").parents(selectors.shippingDetails.firstNameInput).should("have.class", "has-text");
+    cy.iframe().find(`${selectors.shippingDetails.lastNameInput} input`).clear().type("Doe").parents(selectors.shippingDetails.lastNameInput).should("have.class", "has-text");
+    cy.iframe().find(`${selectors.shippingDetails.streetNameInput} input`).clear().type("Dollar Street").parents(selectors.shippingDetails.streetNameInput).should("have.class", "has-text");
+    cy.iframe().find(`${selectors.shippingDetails.apartmentInput} input`).clear().type("66/66A").parents(selectors.shippingDetails.apartmentInput).should("have.class", "has-text");
+    cy.iframe().find(`${selectors.shippingDetails.city} input`).clear().type("Pound Town").parents(selectors.shippingDetails.city).should("have.class", "has-text");
+    cy.iframe().find(`${selectors.shippingDetails.state} input`).clear().type("Euro Region").parents(selectors.shippingDetails.state).should("have.class", "has-text");
+    cy.iframe().find(`${selectors.shippingDetails.zipCode} input`).clear().type("55-555").parents(selectors.shippingDetails.zipCode).should("have.class", "has-text");
+    cy.iframe().find(selectors.shippingDetails.country).contains("Poland"). should("have.class", "sf-component-select__selected");
+    cy.iframe().find(`${selectors.shippingDetails.phone} input`).clear().type("071 666 999").parents(selectors.shippingDetails.phone).should("have.class", "has-text");
+    cy.iframe().find(selectors.shippingDetails.updateAddressButton).click()
+    cy.iframe().find(selectors.shippingDetails.deleteButton).each($el => {cy.wrap($el).click()})
+    cy.iframe().find(".shipping-list").should("to.be.empty");
+  })
+  it("test Newsletter", () => {
+    cy.iframe().find("[data-testid='Newsletter']").click();
+    cy.iframe().find(".sf-checkbox input").each(
+      $el => cy.wrap($el).check({force: true}).parents(".sf-checkbox").should("have.class", "is-active")
+    )
+    cy.iframe().find(selectors.newsletter.saveChangesButton).click();
+  })
+  it("test Order history", () => {
+    cy.iframe().find("[data-testid='Order history']").click();
+    cy.iframe().find(`${selectors.orderHistory.orderHistoryTabs} button`).first().click();
+    cy.iframe().find(selectors.orderHistory.downloadAllButton).click();
+    cy.iframe().find(selectors.orderHistory.viewDetailsButtons).each(
+      $el => cy.wrap($el).click()
+    );
+    cy.iframe().find(`${selectors.orderHistory.orderHistoryTabs} button`).last().click();
+  })    
+  it("test Log out", () => {
+    // cy.iframe().find("[data-testid='Log out']").click();
+    // cy.on("window:alert", msg => expect(msg).to.equal("You are logged out!"));
+    // cy.on('window:alert', () => true);
+  })
+})
