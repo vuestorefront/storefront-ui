@@ -49,6 +49,22 @@ jobs:
       - name: Run linter and unit tests
         run: cd packages/vue && yarn lint && yarn test:unit
 
+  cypress: 
+    name: e2e tests
+    needs: prepare_dependencies
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Cypress run
+          uses: cypress-io/github-action@v2.8.2
+          with:
+            start: yarn storybook
+            wait-on: 'http://localhost:6006/'
+            command: yarn run test:e2e:headless
+            config-file: packages/vue/cypress.json
+            browser: chrome
+            headless: true
+            install: false
+
   build:
     name: Build
     needs: prepare_dependencies
