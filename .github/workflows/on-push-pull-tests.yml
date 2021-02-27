@@ -24,28 +24,15 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install dependencies
-        run: yarn --frozen-lockfile && yarn add @vue/cli -W
+        run: |
+          yarn install --frozen-lockfile && yarn add @vue/cli -W
+            if: steps.yarn-dep-cache.outputs.cache-hit != 'true'
 
   lint:
     name: Lint
     needs: prepare_dependencies
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Setup node
-        uses: actions/setup-node@v1
-        with:
-          node-version: "12"
-
-      - name: Get cached dependencies
-        uses: actions/cache@v2
-        with:
-          path: |
-            **/node_modules
-            packages/vue/node_modules
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
 
       - name: Run linter and unit tests
         run: cd packages/vue && yarn lint && yarn test:unit
@@ -54,27 +41,7 @@ jobs:
     name: e2e tests
     needs: prepare_dependencies
     runs-on: ubuntu-latest
-    steps:       
-
-      - name: Setup node
-        uses: actions/setup-node@v1
-        with:
-          node-version: "12"
-
-      - name: Get cached dependencies
-        uses: actions/cache@v2
-        with:
-          path: |
-            ~/.cache/Cypress
-            **/node_modules
-            packages/vue/node_modules
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Install dependencies
-        run: yarn --frozen-lockfile
+    steps:            
 
       - name: Cypress run
         uses: cypress-io/github-action@v2
