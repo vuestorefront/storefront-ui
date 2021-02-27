@@ -77,15 +77,15 @@ jobs:
         run: yarn --frozen-lockfile
 
       - name: Cypress run
-          uses: cypress-io/github-action@v2
-          with:
-            start: yarn storybook
-            wait-on: 'http://localhost:6006/'
-            command: yarn run test:e2e:headless
-            config-file: packages/vue/cypress.json
-            browser: chrome
-            headless: true
-            install: false
+        uses: cypress-io/github-action@v2
+        with:
+          start: yarn storybook
+          wait-on: 'http://localhost:6006/'
+          command: yarn run test:e2e:headless
+          config-file: packages/vue/cypress.json
+          browser: chrome
+          headless: true
+          install: false
 
   build:
     name: Build
