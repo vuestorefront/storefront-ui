@@ -54,8 +54,8 @@ jobs:
     needs: prepare_dependencies
     runs-on: ubuntu-latest
     steps: 
-      - name: Checkout
-          uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
       - name: Setup node
         uses: actions/setup-node@v1
