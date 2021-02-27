@@ -35,7 +35,7 @@ jobs:
     steps:
 
       - name: Run linter and unit tests
-        run: arn lint && yarn test:unit
+        run: cd packages/vue && yarn lint && yarn test:unit
 
   cypress-run: 
     name: e2e tests
@@ -46,7 +46,7 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
-          start: yarn storybook
+          start: cd packages/vue && yarn storybook
           wait-on: 'http://localhost:6006/'
           command: yarn run test:e2e:headless
           config-file: cypress.json
@@ -61,4 +61,4 @@ jobs:
     steps:
 
       - name: Build
-        run: yarn build
+        run: cd packages/vue && yarn build
