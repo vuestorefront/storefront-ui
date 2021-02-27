@@ -73,6 +73,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+
       - name: Cypress run
           uses: cypress-io/github-action@v2
           with:
