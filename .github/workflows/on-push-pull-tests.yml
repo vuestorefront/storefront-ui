@@ -54,8 +54,8 @@ jobs:
     name: e2e tests
     needs: prepare_dependencies
     runs-on: ubuntu-latest
-    steps: 
-      
+    steps:       
+
       - name: Setup node
         uses: actions/setup-node@v1
         with:
@@ -70,8 +70,10 @@ jobs:
             packages/vue/node_modules
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
 
+      - name: Checkout code
+        uses: actions/checkout@v2
+
       - name: Cypress run
-          uses: actions/checkout@v2
           uses: cypress-io/github-action@v2
           with:
             start: yarn storybook
