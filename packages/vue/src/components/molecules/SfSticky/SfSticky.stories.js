@@ -1,6 +1,6 @@
 import { SfSticky } from "@storefront-ui/vue";
 export default {
-  title: "Molecules/Sticky",
+  title: "Components/Molecules/Sticky",
   component: SfSticky,
   decorators: [
     () => ({
@@ -22,13 +22,11 @@ const Template = (args, { argTypes }) => ({
   components: { SfSticky },
   props: Object.keys(argTypes),
   template: `
-  <StoriesWrapper>
     <SfSticky>
       <div style="display: flex; flex: 1; align-items:center; justify-content:center; height: 18.75rem; background-color: #f2f2f2;">
         [#default slot content]
       </div>
-    </SfSticky>
-  </StoriesWrapper>`,
+    </SfSticky>`,
 });
 
 export const Common = Template.bind({});

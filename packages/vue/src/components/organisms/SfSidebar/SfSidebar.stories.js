@@ -1,6 +1,6 @@
 import { SfSidebar } from "@storefront-ui/vue";
 export default {
-  title: "Organisms/Sidebar",
+  title: "Components/Organisms/Sidebar",
   component: SfSidebar,
   argTypes: {
     classes: {
@@ -57,6 +57,11 @@ export default {
       defaultValue: true,
     },
     close: { action: "Close sidebar clicked", table: { category: "Events" } },
+  },
+  parameters: {
+    docs: {
+      inlineStories: false,
+    },
   },
 };
 

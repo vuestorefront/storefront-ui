@@ -1,13 +1,14 @@
 import { SfBadge, SfIcon } from "@storefront-ui/vue";
 
 export default {
-  title: "Atoms/Badge",
+  title: "Components/Atoms/Badge",
   component: SfBadge,
   argTypes: {
     classes: {
       control: {
         type: "select",
         options: [
+          "",
           "sf-badge--full-width",
           "sf-badge--number",
           "color-primary",

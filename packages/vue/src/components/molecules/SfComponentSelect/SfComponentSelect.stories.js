@@ -8,13 +8,14 @@ const optionsList = [
 ];
 
 export default {
-  title: "Molecules/ComponentSelect",
+  title: "Components/Molecules/ComponentSelect",
   component: SfComponentSelect,
   argTypes: {
     classes: {
       control: {
         type: "select",
         options: [
+          "",
           "sf-component-select--underlined",
           "sf-component-select--no-chevron",
         ],

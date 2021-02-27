@@ -4,6 +4,7 @@
     <transition :name="transitionName">
       <aside
         v-if="visible"
+        ref="asideContent"
         v-focus-trap
         v-click-outside="checkPersistence"
         class="sf-sidebar__aside"
@@ -42,7 +43,7 @@
           <!--@slot Use this slot to add sticky top content.-->
           <slot name="content-top" />
         </div>
-        <div ref="content" class="sf-sidebar__content">
+        <div class="sf-sidebar__content">
           <!--@slot Use this slot to add SfSidebar content.-->
           <slot />
         </div>
@@ -73,26 +74,44 @@ export default {
     SfHeading,
   },
   props: {
+    /**
+     * The sidebar's title
+     */
     title: {
       type: String,
       default: "",
     },
+    /**
+     * The sidebar's subtitle
+     */
     subtitle: {
       type: String,
       default: "",
     },
+    /**
+     * The heading's level
+     */
     headingLevel: {
       type: Number,
       default: 3,
     },
+    /**
+     * The close button
+     */
     button: {
       type: Boolean,
       default: true,
     },
+    /**
+     * The sidebar's visibility
+     */
     visible: {
       type: Boolean,
       default: false,
     },
+    /**
+     * The overlay's visibility
+     */
     overlay: {
       type: Boolean,
       default: true,
@@ -132,7 +151,7 @@ export default {
         if (!isClient) return;
         if (value) {
           this.$nextTick(() => {
-            disableBodyScroll(this.$refs.content);
+            disableBodyScroll(this.$refs.asideContent);
           });
           document.addEventListener("keydown", this.keydownHandler);
         } else {

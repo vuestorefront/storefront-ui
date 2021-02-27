@@ -1,6 +1,6 @@
 import { SfGroupedProduct, SfProperty } from "@storefront-ui/vue";
 export default {
-  title: "Organisms/GroupedProduct",
+  title: "Components/Organisms/GroupedProduct",
   component: SfGroupedProduct,
   argTypes: {
     settings: {
@@ -16,6 +16,7 @@ export default {
         category: "Props",
       },
     },
+    input: { action: "Text area input typing", table: { category: "Events" } },
   },
 };
 
@@ -24,43 +25,72 @@ const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   data() {
     return {
-      productQty: 1,
+      products: [
+        {
+          productQty: 1,
+          title: "Leave white brooch",
+          priceRegular: "$10.99",
+          image: "/assets/storybook/SfGroupedProduct/product-white.png",
+          imageWidth: 146,
+          imageHeight: 200,
+        },
+        {
+          productQty: 1,
+          title: "Leave green brooch",
+          priceRegular: "$13.89",
+          image: "/assets/storybook/SfGroupedProduct/product-green.png",
+          imageWidth: 146,
+          imageHeight: 200,
+        },
+        {
+          productQty: 1,
+          title: "Leave black brooch",
+          priceRegular: "$9.99",
+          image: "/assets/storybook/SfGroupedProduct/product-black.png",
+          imageWidth: 146,
+          imageHeight: 200,
+        },
+        {
+          productQty: 1,
+          title: "Leave white brooch extra",
+          priceRegular: "$15.99",
+          image: "/assets/storybook/SfGroupedProduct/product-white.png",
+          imageWidth: 146,
+          imageHeight: 200,
+        },
+      ],
     };
   },
   template: `
   <SfGroupedProduct
     :settings="settings"
     :has-carousel="hasCarousel"
-    :style="{maxWidth: '500px'}"
+    :style="{maxWidth: '1140px', margin: 'auto'}"
   >
     <SfGroupedProductItem
-      :qty="productQty"
-      @input="productQty = $event"
-      :image="image"
-      :image-width="imageWidth"
-      :image-height="imageHeight"
+      v-for="(item, i) in products"
+      :key="i"
+      v-model="item.productQty"
+      @input="input"
+      :image="item.image"
+      :image-width="item.imageWidth"
+      :image-height="item.imageHeight"
       :image-lazy="imageLazy"
-      :title="title"
-      :price-regular="priceRegular"
-      :price-special="priceSpecial"
+      :title="item.title"
+      :price-regular="item.priceRegular"
     >
       <template #details>
         <div :style="{color: '#72757E', fontSize: 'var(--font-size--base'}">MSD23-345-324</div>
-        <SfProperty name="Color" value="White" :style="{margin: 'auto 0 0 0'}" />
+        <SfProperty name="Color" value="White" :style="{margin: 'auto 0 0 0', width: '110px'}" />
       </template>
-    </SfGroupedProductItem>
+    </SfGroupedProductItem>    
   </SfGroupedProduct>`,
 });
 
 export const Common = Template.bind({});
 Common.args = {
   settings: { type: "slider" },
-  image: "/assets/storybook/SfGroupedProduct/product-white.png",
-  imageWidth: 82,
-  imageHeight: 112,
   imageLazy: true,
-  title: "Leave white brooch",
-  priceRegular: "$10.99",
 };
 
 export const UseConfigurationSlot = (args, { argTypes }) => ({
@@ -86,7 +116,6 @@ export const UseConfigurationSlot = (args, { argTypes }) => ({
       :image-lazy="imageLazy"
       :title="title"
       :price-regular="priceRegular"
-      :price-special="priceSpecial"
     >
       <template #configuration>
         CUSTOM CONFIGURATION
@@ -119,7 +148,6 @@ export const UseImageSlot = (args, { argTypes }) => ({
       :image-lazy="imageLazy"
       :title="title"
       :price-regular="priceRegular"
-      :price-special="priceSpecial"
     >
       <template #image="{ image, title, imagePlaceholder, imageLazy, imagePictureBreakpoint }">
         <div :style="{height: '111px'}">CUSTOM IMAGE</div>
@@ -152,7 +180,6 @@ export const UseInputSlot = (args, { argTypes }) => ({
       :image-lazy="imageLazy"
       :title="title"
       :price-regular="priceRegular"
-      :price-special="priceSpecial"
     >
       <template #input="{ qty }">
         <div style="position: absolute; bottom: 0; right: 0">
@@ -187,7 +214,6 @@ export const UseTitleSlot = (args, { argTypes }) => ({
       :image-lazy="imageLazy"
       :title="title"
       :price-regular="priceRegular"
-      :price-special="priceSpecial"
     >
       <template #title="{ title }">
         CUSTOM TITLE
@@ -220,7 +246,6 @@ export const UsePriceSlot = (args, { argTypes }) => ({
       :image-lazy="imageLazy"
       :title="title"
       :price-regular="priceRegular"
-      :price-special="priceSpecial"
     >
       <template #price="{ priceSpecial, priceRegular }">
         CUSTOM PRICE

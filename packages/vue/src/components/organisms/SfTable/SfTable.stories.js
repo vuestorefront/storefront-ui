@@ -1,12 +1,12 @@
 import { SfTable, SfButton } from "@storefront-ui/vue";
 export default {
-  title: "Organisms/Table",
+  title: "Components/Organisms/Table",
   component: SfTable,
   argTypes: {
     classes: {
       control: {
         type: "select",
-        options: ["sf-table--no-border"],
+        options: ["", "sf-table--no-border"],
       },
       table: {
         category: "CSS Modifiers",
@@ -16,7 +16,7 @@ export default {
 };
 
 const Template = (args, { argTypes }) => ({
-  components: { SfTable },
+  components: { SfTable, SfButton },
   props: Object.keys(argTypes),
   data() {
     return {

@@ -9,25 +9,23 @@
       </div>
     </div>
     <div v-if="numberOfPages > 1" class="sf-hero__control--left">
-      <!-- @slot slot for icon moving to the previous item  -->
+      <!--@slot slot for icon moving to the previous item -->
       <slot name="prev" v-bind="{ go: () => go('prev') }">
-        <SfButton class="sf-button--pure" @click.stop="go('prev')">
-          <SfArrow
-            class="sf-arrow sf-arrow--transparent"
-            aria-label="previous"
-          />
-        </SfButton>
+        <SfArrow
+          class="sf-arrow sf-arrow--transparent"
+          aria-label="previous"
+          @click.stop="go('prev')"
+        />
       </slot>
     </div>
     <div v-if="numberOfPages > 1" class="sf-hero__control--right">
       <!-- @slot slot for icon moving to the next item  -->
       <slot name="next" v-bind="{ go: () => go('next') }">
-        <SfButton class="sf-button--pure" @click.stop="go('next')">
-          <SfArrow
-            class="sf-arrow sf-arrow--right sf-arrow--transparent"
-            aria-label="next"
-          />
-        </SfButton>
+        <SfArrow
+          class="sf-arrow sf-arrow--right sf-arrow--transparent"
+          aria-label="next"
+          @click.stop="go('next')"
+        />
       </slot>
     </div>
     <div v-if="numberOfPages > 1" class="sf-hero__bullets">
@@ -46,7 +44,6 @@
 import Vue from "vue";
 import SfHeroItem from "./_internal/SfHeroItem.vue";
 import SfArrow from "../../atoms/SfArrow/SfArrow.vue";
-import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfBullets from "../../atoms/SfBullets/SfBullets.vue";
 import Glide from "@glidejs/glide";
 Vue.component("SfHeroItem", SfHeroItem);
@@ -55,7 +52,6 @@ export default {
   components: {
     SfArrow,
     SfBullets,
-    SfButton,
   },
   props: {
     /**
@@ -98,7 +94,7 @@ export default {
     },
   },
   mounted() {
-    if (this.numberOfPages) {
+    if (this.numberOfPages > 1) {
       this.$nextTick(() => {
         if (!this.$slots.default) return;
         const glide = new Glide(this.$refs.glide, this.mergedOptions);

@@ -1,7 +1,7 @@
 import { SfFilter } from "@storefront-ui/vue";
 
 export default {
-  title: "Molecules/Filter",
+  title: "Components/Molecules/Filter",
   component: SfFilter,
   decorators: [
     () => ({ template: '<div style="max-width: 22.875rem"><story/></div>' }),
@@ -95,7 +95,7 @@ export const UseCountSlot = (args, { argTypes }) => ({
     @change="selected = !selected"
     style="max-width: 22.875rem"
   >
-  <template #label="{label}">CUSTOM LABEL</template>
+  <template #count="{count}">CUSTOM COUNT</template>
   </SfFilter>`,
 });
 UseCountSlot.args = { ...Common.args };

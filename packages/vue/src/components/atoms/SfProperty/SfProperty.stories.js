@@ -1,13 +1,14 @@
 import { SfProperty, SfBadge } from "@storefront-ui/vue";
 
 export default {
-  title: "Atoms/Property",
+  title: "Components/Atoms/Property",
   component: SfProperty,
   argTypes: {
     classes: {
       control: {
         type: "select",
         options: [
+          "",
           "sf-property--full-width",
           "sf-property--value-in-middle",
           "sf-property--large",
@@ -77,7 +78,7 @@ export const WithNameSlot = (args, { argTypes }) => ({
     :class="classes"
     :name="name"
     :value="value">
-    <template #name="{name}">
+    <template #name="{props}">
       {{name}}:<br>
     </template>
   </SfProperty>`,
@@ -94,7 +95,7 @@ export const WithValueSlot = (args, { argTypes }) => ({
     :class="classes"
     :name="name"
     :value="value">
-    <template #value="{value}">
+    <template #value="{props}">
       <SfBadge>{{value}}</SfBadge>
     </template>
   </SfProperty>`,

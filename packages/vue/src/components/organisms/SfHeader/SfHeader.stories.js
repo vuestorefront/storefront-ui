@@ -1,12 +1,13 @@
 import { SfHeader, SfLink } from "@storefront-ui/vue";
 export default {
-  title: "Organisms/Header",
+  title: "Components/Organisms/Header",
   component: SfHeader,
   argTypes: {
     classes: {
       control: {
         type: "select",
         options: [
+          "",
           "sf-header--has-mobile-search",
           "sf-header--has-mobile-navigation",
           "sf-header--multiline",
@@ -88,7 +89,14 @@ export default {
         category: "Props",
       },
     },
-    "click:cart": { action: "Clicked on cart", table: { category: "Events" } },
+    "change:search": {
+      action: "Changed search value",
+      table: { category: "Events" },
+    },
+    "click:cart": {
+      action: "Clicked on cart",
+      table: { category: "Events" },
+    },
     "click:wishlist": {
       action: "Clicked on Wishlist",
       table: { category: "Events" },
@@ -106,6 +114,7 @@ const Template = (args, { argTypes }) => ({
   data() {
     return {
       navigationItems: ["women", "man", "kids"],
+      searchValues: "",
     };
   },
   template: `
@@ -115,27 +124,25 @@ const Template = (args, { argTypes }) => ({
     :logo="logo"
     :active-icon="activeIcon"
     :search-placeholder="searchPlaceholder"
+    :search-value="searchValues"
     :cart-icon="cartIcon"
     :wishlist-icon="wishlistIcon"
     :is-sticky="isSticky"
+    :is-nav-visible="isNavVisible"
     :account-icon="accountIcon"
     :cart-items-qty="cartItemsQty"
     :wishlist-items-qty="wishlistItemsQty"
     @click:cart="this['click:cart']"
     @click:wishlist="this['click:wishlist']"
     @click:account="this['click:account']"
-    @change:search="searchValue = $event"
+    @change:search="searchValues = $event"
 >
   <template #navigation>
     <SfHeaderNavigationItem
       v-for="item in navigationItems"
       :key="item"
       :label="item"
-    >
-      <template slot="desktop-navigation-item">
-        <SfLink href="#">{{item}}</SfLink>
-      </template>
-    </SfHeaderNavigationItem>
+    />
   </template>
 </SfHeader>`,
 });

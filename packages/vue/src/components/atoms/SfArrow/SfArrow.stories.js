@@ -1,7 +1,7 @@
 import { SfArrow, SfIcon } from "@storefront-ui/vue";
 
 export default {
-  title: "Atoms/Arrow",
+  title: "Components/Atoms/Arrow",
   component: SfArrow,
   argTypes: {
     disabled: {
@@ -22,6 +22,7 @@ export default {
       control: {
         type: "select",
         options: [
+          "",
           "sf-arrow--right",
           "sf-arrow--long",
           "sf-arrow--transparent",
@@ -41,7 +42,7 @@ export default {
 const Template = (args, { argTypes }) => ({
   components: { SfArrow },
   props: Object.keys(argTypes),
-  template: `<SfArrow :disabled="disabled" :aria-label="ariaLabel" @click="onClick" />`,
+  template: `<SfArrow :class="classes" :disabled="disabled" :aria-label="ariaLabel" @click="onClick" />`,
 });
 
 export const Common = Template.bind({});

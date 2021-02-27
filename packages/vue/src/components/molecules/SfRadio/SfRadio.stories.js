@@ -1,6 +1,6 @@
 import { SfRadio } from "@storefront-ui/vue";
 export default {
-  title: "Molecules/Radio",
+  title: "Components/Molecules/Radio",
   component: SfRadio,
   argTypes: {
     classes: {
@@ -72,7 +72,23 @@ export default {
       defaultValue: "",
       description: "Indicate if this option is disabled",
     },
-    input: { action: "Toggle selection", table: { category: "Events" } },
+    required: {
+      control: "boolean",
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: false,
+        },
+      },
+    },
+    change: {
+      action: "Toggle selection: change event",
+      table: { category: "Events" },
+    },
+    input: {
+      action: "Toggle selection: input event",
+      table: { category: "Events" },
+    },
   },
 };
 
@@ -90,6 +106,7 @@ const Template = (args, { argTypes }) => ({
   :disabled="disabled"
   :required="required"
   v-model="selected"
+  @change="change"
   @input="input"
   />`,
 });

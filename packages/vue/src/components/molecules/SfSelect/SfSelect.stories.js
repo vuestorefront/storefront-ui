@@ -10,7 +10,7 @@ const options = [
 ];
 
 export default {
-  title: "Molecules/Select",
+  title: "Components/Molecules/Select",
   component: SfSelect,
   argTypes: {
     classes: {
@@ -106,6 +106,7 @@ const Template = (args, { argTypes }) => ({
   data() {
     return {
       options,
+      selectedValue: "",
     };
   },
   template: `
@@ -174,6 +175,7 @@ export const UseLabelSlot = (args, { argTypes }) => ({
   data() {
     return {
       options,
+      selectedValue: "",
     };
   },
   template: `

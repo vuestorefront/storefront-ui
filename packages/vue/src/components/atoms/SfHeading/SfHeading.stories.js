@@ -1,13 +1,14 @@
 import { SfHeading, SfIcon } from "@storefront-ui/vue";
 
 export default {
-  title: "Atoms/Heading",
+  title: "Components/Atoms/Heading",
   component: SfHeading,
   argTypes: {
     classes: {
       control: {
         type: "select",
         options: [
+          "",
           "sf-heading--underline",
           "sf-heading--left",
           "sf-heading--right",
@@ -68,7 +69,7 @@ export const WithLabelSlot = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
   <SfHeading
-    :class="customClass"
+    :class="classes"
     :level="level"
     :title="title"
     :description="description">
@@ -86,7 +87,7 @@ export const WithDescriptionSlot = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
   <SfHeading
-    :class="customClass"
+    :class="classes"
     :level="level"
     :title="title"
     :description="description">

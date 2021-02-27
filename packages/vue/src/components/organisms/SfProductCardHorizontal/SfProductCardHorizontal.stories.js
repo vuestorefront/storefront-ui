@@ -25,7 +25,7 @@ const selectOptions = {
 };
 
 export default {
-  title: "Organisms/ProductCardHorizontal",
+  title: "Components/Organisms/ProductCardHorizontal",
   component: SfProductCardHorizontal,
   decorators: [
     () => ({
@@ -131,7 +131,7 @@ export default {
       },
       defaultValue: 1,
     },
-    "click:add-to-cart": {
+    "click:addToCart": {
       action: "Add-to-cart clicked",
       table: { category: "Events" },
     },
@@ -165,20 +165,18 @@ const Template = (args, { argTypes }) => ({
     :max-rating="maxRating"
     :wishlist-icon="wishlistIcon"
     :reviews-count="reviewsCount"
-    :is-added-to-cart="isAddedToCart"
-    :add-to-cart-disabled="addToCartDisabled"
     :description="description"
     :qty="qty"
     @input="quantity = $event"
     :is-on-wishlist-icon="isOnWishlistIcon"
     :is-on-wishlist="isOnWishlist"
-    @click:add-to-cart="this['@click:add-to-cart']"
-    @click:wishlist="this['@click:wishlist']"
+    @click:add-to-cart="this['click:addToCart']"
+    @click:wishlist="this['click:wishlist']"
   >
     <template #configuration>
       <div style="display: flex; flex-direction: column; justify-content: flex-end">
         <SfSelect
-          v-for="(valSelects, keySelects) in selects"
+          v-for="(valSelects, keySelects) in selectOptions"
           :key="keySelects"
           :error-message="valSelects.errorMessage"
           :placeholder="valSelects.placeholder"
@@ -226,21 +224,15 @@ Common.args = {
 export const WithMultipleImages = Template.bind({
   argTypes: {
     image: {
-      control: "object",
+      control: "array",
     },
   },
 });
 WithMultipleImages.args = {
   ...Common.args,
   image: [
-    {
-      mobile: { url: "/assets/storybook/Home/productB.jpg" },
-      desktop: { url: "/assets/storybook/Home/productB.jpg" },
-    },
-    {
-      mobile: { url: "/assets/storybook/Home/productA.jpg" },
-      desktop: { url: "/assets/storybook/Home/productA.jpg" },
-    },
+    "/assets/storybook/Home/productB.jpg",
+    "/assets/storybook/Home/productA.jpg",
   ],
 };
 

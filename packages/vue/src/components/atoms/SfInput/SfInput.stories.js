@@ -1,13 +1,13 @@
 import { SfInput, SfIcon } from "@storefront-ui/vue";
 
 export default {
-  title: "Atoms/Input",
+  title: "Components/Atoms/Input",
   component: SfInput,
   argTypes: {
     classes: {
       control: {
         type: "select",
-        options: ["sf-input--filled", "sf-input--outline"],
+        options: ["", "sf-input--filled", "sf-input--outline"],
       },
       table: {
         category: "CSS Modifiers",
@@ -150,7 +150,7 @@ Filled.args = {
 };
 
 export const WithLabelSlot = (args, { argTypes }) => ({
-  components: { SfInput },
+  components: { SfInput, SfIcon },
   props: Object.keys(argTypes),
   data() {
     return {
@@ -187,7 +187,7 @@ WithLabelSlot.args = {
 };
 
 export const WithErrorSlot = (args, { argTypes }) => ({
-  components: { SfInput },
+  components: { SfInput, SfIcon },
   props: Object.keys(argTypes),
   data() {
     return {
