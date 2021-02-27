@@ -33,7 +33,8 @@ jobs:
     needs: prepare_dependencies
     runs-on: ubuntu-latest
     steps:
-
+      - name: Checkout code
+        uses: actions/checkout@v2
       - name: Run linter and unit tests
         run: cd packages/vue && yarn lint && yarn test:unit
 
@@ -41,7 +42,10 @@ jobs:
     name: e2e tests
     needs: prepare_dependencies
     runs-on: ubuntu-latest
-    steps:            
+    steps:      
+
+      - name: Checkout code
+        uses: actions/checkout@v2
 
       - name: Cypress run
         uses: cypress-io/github-action@v2
@@ -52,13 +56,13 @@ jobs:
           config-file: cypress.json
           browser: chrome
           headless: true
-          install: false
 
   build:
     name: Build
     needs: prepare_dependencies
     runs-on: ubuntu-latest
     steps:
-
+      - name: Checkout code
+        uses: actions/checkout@v2
       - name: Build
         run: cd packages/vue && yarn build
