@@ -4,25 +4,12 @@ import SfSteps from "../SfSteps.vue";
 describe("SfStep.vue", () => {
   it("renders a component", () => {
     const component = shallowMount(SfStep, {
-      parentComponent: SfSteps,
-      inject: ["stepsData"],
-      provide() {
-        const stepsData = {};
-        Object.defineProperty(stepsData, "index", {
-          enumerable: false,
-          get: () => this.active,
-        });
-        Object.defineProperty(stepsData, "name", {
-          enumerable: false,
-          get: () => this.steps[this.active],
-        });
-        Object.defineProperty(stepsData, "updateSteps", {
-          enumerable: false,
-          value: this.updateSteps,
-        });
-        return {
-          stepsData,
-        };
+      provide: {
+        stepsData: {
+          index: 0,
+          name: "example",
+          updateSteps: () => [],
+        },
       },
     });
     expect(component.classes("sf-step")).toBe(true);
