@@ -36,7 +36,7 @@
     line-height: 0;
     text-decoration: none;
     margin: var(--product-card-link-margin, 0);
-    text-align: left
+    text-align: left;
   }
   &__title {
     @include font(
