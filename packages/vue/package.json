@@ -98,5 +98,8 @@
     "*.vue",
     "*.scss",
     "*.css"
-  ]
+  ],
+  "storybook": {
+    "url": "https://docs.storefrontui.io/"
+  }
 }
