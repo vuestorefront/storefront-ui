@@ -3,11 +3,8 @@ import SfTableHeading from "./SfTableHeading.vue";
 describe("SfTableHeading.vue", () => {
   it("renders a component", () => {
     const component = shallowMount(SfTableHeading, {
-      inject: ["table"],
-      provide() {
-        return {
-          table: [],
-        };
+      provide: {
+        table: () => {},
       },
     });
     expect(component.exists()).toBe(true);
