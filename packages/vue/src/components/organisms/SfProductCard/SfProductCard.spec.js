@@ -84,7 +84,7 @@ describe("SfProductCard.vue: Wish list icon button", () => {
     expect(iconInSfIconForWishlist).toBe(customWishlistIconPath);
   });
   it("has custom wish list icon when SVG path is passed (isInWishlist=true)", () => {
-    const customisInWishlistIconPath =
+    const customIsInWishlistIconPath =
       "M0.954545 14L0 12.8798L5.07793 7L0 1.12024L0.954545 0L7 7.00006L0.954545 14Z";
     const component = shallowMount(SfProductCard, {
       propsData: {
