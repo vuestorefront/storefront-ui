@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.3](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.10.3...@storefront-ui/shared@0.10.3) (2021-02-16)
+
+**Note:** Version bump only for package @storefront-ui/shared
+
+
+
+
+
+## [0.10.3](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.10.2...@storefront-ui/shared@0.10.3) (2021-02-16)
+
+**Note:** Version bump only for package @storefront-ui/shared
+
+
+
+
+
 ## [0.10.2](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.10.1...@storefront-ui/shared@0.10.2) (2021-02-04)
 
 **Note:** Version bump only for package @storefront-ui/shared
