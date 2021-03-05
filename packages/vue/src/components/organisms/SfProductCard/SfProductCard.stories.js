@@ -121,7 +121,7 @@ export default {
       action: "Wishlist clicked",
       table: { category: "Events" },
     },
-    handleClick: {
+    "handleClick": {
       action: "Card clicked",
       table: { category: "Events" },
     },
