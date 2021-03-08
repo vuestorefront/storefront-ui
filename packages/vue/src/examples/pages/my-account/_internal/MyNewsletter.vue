@@ -68,11 +68,5 @@ export default {
   &__title {
     margin: 0 0 var(--spacer-base) 0;
   }
-  &__button {
-    --button-width: 100%;
-    @include for-desktop {
-      --button-width: 17.5rem;
-    }
-  }
 }
 </style>

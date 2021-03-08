@@ -57,3 +57,9 @@
   margin: var(--spacer-base) 0 0 0;
   font-size: var(--font-size--sm);
 }
+.action-button {
+  --button-width: 100%;
+  @include for-desktop {
+    --button-width: 17.5rem;
+  }
+}

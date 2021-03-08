@@ -7,7 +7,7 @@
       </p>
       <div v-if="orders.length === 0" class="no-orders">
         <p class="no-orders__title">You currently have no order history.</p>
-        <SfButton class="no-orders__button">Start shopping</SfButton>
+        <SfButton class="no-orders action-button">Start shopping</SfButton>
       </div>
       <SfTable v-else class="orders">
         <SfTableHeading>
@@ -95,14 +95,7 @@ export default {
 
 .no-orders {
   &__title {
-    margin: 0 0 var(--spacer-base) 0;
-  }
-  &__button {
-    --button-width: 100%;
-    margin: var(--spacer-2xl) 0 0 0;
-    @include for-desktop {
-      --button-width: 17.375rem;
-    }
+    margin: 0 0 var(--spacer-2xl) 0;
   }
 }
 .orders {

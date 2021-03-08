@@ -80,9 +80,7 @@
             required
             class="form__element"
           />
-          <SfButton class="action-button" @click="updateAddress"
-            >Update the address</SfButton
-          >
+          <SfButton @click="updateAddress">Update the address</SfButton>
         </div>
       </SfTab>
     </SfTabs>
@@ -344,12 +342,6 @@ export default {
   }
   &__select {
     padding-bottom: calc(var(--font-xs) * 1.2);
-  }
-}
-.action-button {
-  --button-width: 100%;
-  @include for-desktop {
-    --button-width: auto;
   }
 }
 </style>

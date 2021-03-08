@@ -28,7 +28,7 @@
           required
           class="form__element"
         />
-        <SfButton class="form__button" @click="updatePersonal"
+        <SfButton class="form action-button" @click="updatePersonal"
           >Save changes
         </SfButton>
       </div>
@@ -70,7 +70,7 @@
           required
           class="form__element form__element--half form__element--half-even"
         />
-        <SfButton class="form__button" @click="updatePassword"
+        <SfButton class="form action-button" @click="updatePassword"
           >Update password
         </SfButton>
       </div>
@@ -153,12 +153,6 @@ export default {
           padding: 0 0 0 var(--spacer-lg);
         }
       }
-    }
-  }
-  &__button {
-    --button-width: 100%;
-    @include for-desktop {
-      --button-width: 17.5rem;
     }
   }
 }
