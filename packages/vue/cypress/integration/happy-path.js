@@ -302,7 +302,13 @@ describe("Checkout page", () => {
 			.find(selectors.checkout.nextButton)
 			.contains("Go to shipping")
 			.click();
-		// cy.iframe().find(selectors.checkout.stepsProgress).should("have.css", "--_steps-progress-active-step", "2");
+		cy.iframe()
+			.find(selectors.checkout.stepsProgress)
+			.should(
+				"have.attr",
+				"style",
+				"--_steps-progress-width:25%; --_steps-progress-active-step:2;"
+			);
 	});
 	it("test Shipping step", () => {
 		cy.iframe().find(selectors.checkout.nextButton).click();
@@ -350,7 +356,13 @@ describe("Checkout page", () => {
 			.find(selectors.checkout.nextButton)
 			.contains("Go to payment")
 			.click();
-		// cy.iframe().find(selectors.checkout.stepsProgress).should("have.css", "--_steps-progress-active-step", "3");
+		cy.iframe()
+			.find(selectors.checkout.stepsProgress)
+			.should(
+				"have.attr",
+				"style",
+				"--_steps-progress-width:25%; --_steps-progress-active-step:3;"
+			);
 	});
 
 	it("test Payment step", () => {
@@ -404,7 +416,13 @@ describe("Checkout page", () => {
 			.find(selectors.checkout.nextButton)
 			.contains("Pay for order")
 			.click();
-		// cy.iframe().find(selectors.checkout.stepsProgress).should("have.css", "--_steps-progress-active-step", "4");
+		cy.iframe()
+			.find(selectors.checkout.stepsProgress)
+			.should(
+				"have.attr",
+				"style",
+				"--_steps-progress-width:25%; --_steps-progress-active-step:4;"
+			);
 	});
 
 	it("test Review step", () => {
@@ -449,7 +467,13 @@ describe("Checkout page", () => {
 			.find(selectors.checkout.nextButton)
 			.contains("Confirm and pay")
 			.click();
-		// cy.iframe().find(selectors.checkout.stepsProgress).should("have.css", "--_steps-progress-active-step", "5");
+		cy.iframe()
+			.find(selectors.checkout.stepsProgress)
+			.should(
+				"have.attr",
+				"style",
+				"--_steps-progress-width:25%; --_steps-progress-active-step:5;"
+			);
 	});
 });
 
@@ -652,8 +676,6 @@ describe("MyAccount page", () => {
 			.click();
 	});
 	it("test Log out", () => {
-		// cy.iframe().find("[data-testid='Log out']").click();
-		// cy.on("window:alert", msg => expect(msg).to.equal("You are logged out!"));
-		// cy.on('window:alert', () => true);
+		cy.iframe().find("[data-testid='Log out']");
 	});
 });

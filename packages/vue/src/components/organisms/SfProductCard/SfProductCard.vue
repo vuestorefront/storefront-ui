@@ -87,7 +87,7 @@
                   />
                 </slot>
               </transition>
-              <transition name="sf-pulse" mode="out-in">
+              <transition v-else name="sf-pulse" mode="out-in">
                 <slot name="adding-to-cart-icon">
                   <SfIcon
                     key="added_to_cart"
