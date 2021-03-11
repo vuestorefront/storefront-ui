@@ -19,10 +19,46 @@
     </div>
     <div class="sf-header__actions">
       <nav
+        v-if="$slots.navigation"
         class="sf-header__navigation"
         :class="{ 'is-visible': isNavVisible }"
       >
-        <slot name="navigation"></slot>
+        <slot name="navigation">
+          <div v-if="!isVisibleOnMobile" class="sf-header-navigation__menu">
+            <slot>
+              <SfButton
+                v-for="(item, i) in menuItems"
+                :key="i"
+                class="sf-header-navigation-item__item sf-header-navigation-item__item--desktop"
+                v-on="$listeners"
+              >
+                {{ item }}
+              </SfButton>
+            </slot>
+          </div>
+          <SfSidebar
+            :visible="isVisibleOnMobile"
+            :persistent="true"
+            class="sf-header-navigation__sidebar"
+            @close="$emit('close')"
+          >
+            <slot>
+              <SfMenuItem
+                v-for="(item, i) in menuItems"
+                :key="i"
+                :label="item"
+                class="sf-header-navigation-item__item sf-header-navigation-item__item--mobile"
+              >
+                {{ label }}
+              </SfMenuItem>
+            </slot>
+          </SfSidebar>
+          <div v-if="$slots.item" class="sf-header-navigation-item__content">
+            <template v-for="item in menuItems">
+              <slot :name="item" />
+            </template>
+          </div>
+        </slot>
       </nav>
       <!--@slot Use this slot to replace default search bar-->
       <slot name="search" v-bind="{ searchValue, searchPlaceholder }">
@@ -105,9 +141,8 @@
 </template>
 <script>
 import Vue from "vue";
+
 import SfHeaderNavigationItem from "./_internal/SfHeaderNavigationItem.vue";
-import SfHeaderNavigation from "./_internal/SfHeaderNavigation.vue";
-Vue.component("SfHeaderNavigation", SfHeaderNavigation);
 Vue.component("SfHeaderNavigationItem", SfHeaderNavigationItem);
 import {
   mapMobileObserver,
@@ -119,6 +154,9 @@ import SfSearchBar from "../../molecules/SfSearchBar/SfSearchBar.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfLink from "../../atoms/SfLink/SfLink.vue";
+import SfSidebar from "../../organisms/SfSidebar/SfSidebar";
+import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem";
+
 export default {
   name: "SfHeader",
   components: {
@@ -127,6 +165,8 @@ export default {
     SfButton,
     SfIcon,
     SfLink,
+    SfSidebar,
+    SfMenuItem,
   },
   props: {
     /**
@@ -142,6 +182,13 @@ export default {
     title: {
       type: String,
       default: "",
+    },
+    /**
+     * Navigation items
+     */
+    menuItems: {
+      type: [String, Array],
+      default: () => [],
     },
     /**
      * Header cartIcon (accepts same value as SfIcon)
@@ -220,13 +267,13 @@ export default {
   data() {
     return {
       icons: [],
-      // hidden: false,
       sticky: false,
       scrollDirection: null,
       lastScrollPosition: 0,
       animationStart: null,
       animationLong: null,
       animationDuration: 3000,
+      currentItem: "",
     };
   },
   computed: {
@@ -236,6 +283,9 @@ export default {
     },
     wishlistHasProducts() {
       return parseInt(this.wishlistItemsQty, 10) > 0;
+    },
+    isVisibleOnMobile() {
+      return this.isMobile;
     },
   },
   watch: {
