@@ -198,8 +198,8 @@ describe("Home page", () => {
     cy.iframe().find(".sf-carousel-item:not(.glide__slide--clone)").first().should("not.be.visible");
     cy.iframe().find(selectors.carousel.nextArrowButton).click({ multiple: true });
     cy.iframe().find(".sf-carousel-item:not(.glide__slide--clone)").first().find(selectors.carousel.productCard).should("be.visible");
-    cy.iframe().find(selectors.carousel.productCard).first().find(selectors.carousel.productCardWishlistButton).should("not.have.class", "on-wishlist").click({force:true})
-    cy.iframe().find(selectors.carousel.productCard).first().find(selectors.carousel.productCardAddIcon).click({ force: true })
+    cy.iframe().find(selectors.carousel.productCard).first().find(selectors.carousel.productCardWishlistButton).should("not.have.class", "on-wishlist").click({force:true});
+    cy.iframe().find(selectors.carousel.productCard).first().find(selectors.carousel.productCardAddIcon).click({ force: true });
   });
   it("test Instagram Section component", () => {
     cy.iframe().find(selectors.instagramSection.images).find(".sf-image--overlay");
@@ -219,15 +219,15 @@ describe("Checkout page", () => {
     cy.iframe().find(selectors.details.firstNameInput).type("John").should("have.class", "has-text");
     cy.iframe().find(selectors.details.lastNameInput).type("Doe").should("have.class", "has-text");
     cy.iframe().find(selectors.details.emailInput).type("john.doe@vsf.io").should("have.class", "has-text");
-    cy.iframe().find(`${selectors.details.createAccountCheckbox} input`).check({force: true})
-    cy.iframe().find(selectors.details.createAccountCheckbox).should("have.class", "is-active")
+    cy.iframe().find(`${selectors.details.createAccountCheckbox} input`).check({force: true});
+    cy.iframe().find(selectors.details.createAccountCheckbox).should("have.class", "is-active");
     cy.iframe().find(selectors.details.createPasswordInput).should("be.visible") 
       .parents(".sf-input").type("password").should("have.class", "has-text")
       .find(".sf-icon").click().should("not.have.class", "hidden");
     cy.iframe().find(selectors.summary.promoCode).type("1a2b1c2d1e2f").should("have.class", "has-text");
     cy.iframe().find(selectors.summary.applyButton).click();
     cy.iframe().find(selectors.checkout.nextButton).contains("Go to shipping").click();
-    // cy.iframe().find(selectors.checkout.stepsProgress).should("have.css", "--_steps-progress-active-step", "2");
+    cy.iframe().find(selectors.checkout.stepsProgress).should("have.attr", "style", "--_steps-progress-width:25%; --_steps-progress-active-step:2;");
   })
   it("test Shipping step", () => {
     cy.iframe().find(selectors.checkout.nextButton).click();
@@ -242,7 +242,7 @@ describe("Checkout page", () => {
     cy.iframe().find(selectors.shipping.phone).type("071 666 999").should("have.class", "has-text");
     cy.iframe().find(selectors.shipping.shippingMethod).find("[value='inpost']").check("inpost", {force: true}).siblings(".sf-radio__checkmark").should("have.class", "is-active");
     cy.iframe().find(selectors.checkout.nextButton).contains("Go to payment").click();
-    // cy.iframe().find(selectors.checkout.stepsProgress).should("have.css", "--_steps-progress-active-step", "3");
+    cy.iframe().find(selectors.checkout.stepsProgress).should("have.attr", "style", "--_steps-progress-width:25%; --_steps-progress-active-step:3;");
   })
 
   it("test Payment step", () => {
@@ -259,16 +259,16 @@ describe("Checkout page", () => {
     cy.iframe().find(`${selectors.payment.invoiceCheckbox} input`).check({force: true});
     cy.iframe().find(selectors.payment.paymentMethod).find("[value='electron']").check("electron", {force: true}).siblings(".sf-radio__checkmark").should("have.class", "is-active");
     cy.iframe().find(selectors.checkout.nextButton).contains("Pay for order").click();
-    // cy.iframe().find(selectors.checkout.stepsProgress).should("have.css", "--_steps-progress-active-step", "4");       
+    cy.iframe().find(selectors.checkout.stepsProgress).should("have.attr", "style", "--_steps-progress-width:25%; --_steps-progress-active-step:4;");    
   })
 
   it("test Review step", () => {
     cy.iframe().find(selectors.checkout.nextButton).click().click().click();
     
-    cy.iframe().find(selectors.review.personalEditButton).click()
+    cy.iframe().find(selectors.review.personalEditButton).click();
     cy.iframe().find(selectors.checkout.stepsButtons).first().should("have.class", "current");
     cy.iframe().find(selectors.checkout.nextButton).click().click().click();
-    cy.iframe().find(selectors.review.shippingEditButton).click()
+    cy.iframe().find(selectors.review.shippingEditButton).click();
     cy.iframe().find(`${selectors.checkout.stepsButtons}:nth-of-type(2)`).should("have.class", "current");
     cy.iframe().find(selectors.checkout.nextButton).click().click();
     cy.iframe().find(selectors.review.billingEditButton).click();
@@ -283,7 +283,7 @@ describe("Checkout page", () => {
     cy.iframe().find(selectors.review.productTableRow).find(selectors.review.productDescription);
     cy.iframe().find(`${selectors.review.termsCheckbox} input`).check({force: true});
     cy.iframe().find(selectors.checkout.nextButton).contains("Confirm and pay").click();
-    // cy.iframe().find(selectors.checkout.stepsProgress).should("have.css", "--_steps-progress-active-step", "5");
+    cy.iframe().find(selectors.checkout.stepsProgress).should("have.attr", "style", "--_steps-progress-width:25%; --_steps-progress-active-step:5;");
   })   
 });
 
@@ -313,7 +313,7 @@ describe("Login/signin page", () => {
 
 describe("MyAccount page", () => {
   beforeEach(() => {
-    cy.visit("//?path=/story/pages-myaccount--common");      
+    cy.visit("//?path=/story/pages-myaccount--common");
   });
   it("test My profile", () => {
     cy.iframe().find(selectors.profile.myProfileButton).click();
@@ -349,7 +349,7 @@ describe("MyAccount page", () => {
     cy.iframe().find("[data-testid='Newsletter']").click();
     cy.iframe().find(".sf-checkbox input").each(
       $el => cy.wrap($el).check({force: true}).parents(".sf-checkbox").should("have.class", "is-active")
-    )
+    );
     cy.iframe().find(selectors.newsletter.saveChangesButton).click();
   })
   it("test Order history", () => {
@@ -362,8 +362,6 @@ describe("MyAccount page", () => {
     cy.iframe().find(`${selectors.orderHistory.orderHistoryTabs} button`).last().click();
   })    
   it("test Log out", () => {
-    // cy.iframe().find("[data-testid='Log out']").click();
-    // cy.on("window:alert", msg => expect(msg).to.equal("You are logged out!"));
-    // cy.on('window:alert', () => true);
+    cy.iframe().find("[data-testid='Log out']")
   })
 })
