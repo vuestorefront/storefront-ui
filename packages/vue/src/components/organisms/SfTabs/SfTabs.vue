@@ -1,5 +1,5 @@
 <template>
-  <div class="sf-tabs">
+  <div v-show="initialTabActivated" class="sf-tabs">
     <!--@slot Default. Here you should pass your tabs-->
     <slot />
   </div>
@@ -33,6 +33,11 @@ export default {
       default: "hide",
     },
   },
+  data() {
+    return {
+      initialTabActivated: false,
+    };
+  },
   mounted() {
     this.$on("toggle", this.toggle);
     if (this.openTab) this.openChild();
@@ -48,6 +53,7 @@ export default {
     openChild() {
       if (this.openTab < this.$children.length + 1) {
         this.$children[this.openTab - 1].isActive = true;
+        this.initialTabActivated = true;
       }
     },
   },
