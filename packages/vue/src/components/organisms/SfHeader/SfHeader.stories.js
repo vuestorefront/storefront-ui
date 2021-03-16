@@ -38,6 +38,12 @@ export default {
         category: "Props",
       },
     },
+    menuItems: {
+      control: "object",
+      table: {
+        category: "Props",
+      },
+    },
     cartIcon: {
       control: "text",
       table: {
@@ -122,7 +128,6 @@ const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   data() {
     return {
-      navigationItems: ["women", "man", "kids"],
       searchValues: "",
     };
   },
@@ -131,6 +136,7 @@ const Template = (args, { argTypes }) => ({
     :class="classes"
     :title="title"
     :logo="logo"
+    :menuItems="menuItems"
     :active-icon="activeIcon"
     :search-placeholder="searchPlaceholder"
     :search-value="searchValues"
@@ -146,13 +152,6 @@ const Template = (args, { argTypes }) => ({
     @click:account="this['click:account']"
     @change:search="searchValues = $event"
 >
-  <template #navigation>
-    <SfHeaderNavigationItem
-      v-for="item in navigationItems"
-      :key="item"
-      :label="item"
-    />
-  </template>
 </SfHeader>`,
 });
 
@@ -160,6 +159,7 @@ export const Common = Template.bind({});
 Common.args = {
   title: "Storefront UI",
   logo: "/assets/logo.svg",
+  menuItems: ["woman", "man", "kids"],
 };
 
 export const WithSfHeaderNavigation = (args, { argTypes }) => ({
@@ -180,152 +180,10 @@ export const WithSfHeaderNavigation = (args, { argTypes }) => ({
       shopName: "Storefront UI",
       isVisible: true,
       currentCategory: "",
-      categories: [
-        {
-          title: "Clothing",
-          link: "/clothing",
-          subcategories: [
-            {
-              title: "Skirts",
-              link: "/skirts",
-              subcategories: [
-                {
-                  title: "Long",
-                  link: "/long",
-                },
-                {
-                  title: "Short",
-                  link: "/short",
-                },
-              ],
-            },
-            {
-              title: "Sweaters",
-              link: "/sweaters",
-              subcategories: [
-                {
-                  title: "Long",
-                  link: "/long",
-                },
-                {
-                  title: "Short",
-                  link: "/short",
-                },
-              ],
-            },
-            {
-              title: "Dresses",
-              link: "/dresses",
-              subcategories: [
-                {
-                  title: "Long",
-                  link: "/long",
-                },
-                {
-                  title: "Short",
-                  link: "/short",
-                },
-              ],
-            },
-          ],
-        },
-        {
-          title: "Accesories",
-          link: "/accesories",
-          subcategories: [
-            {
-              title: "Bags & Purses",
-              link: "/skirts",
-              subcategories: [
-                {
-                  title: "Long",
-                  link: "/long",
-                },
-                {
-                  title: "Short",
-                  link: "/short",
-                },
-              ],
-            },
-            {
-              title: "Belts",
-              link: "/belts",
-              subcategories: [
-                {
-                  title: "Long",
-                  link: "/long",
-                },
-                {
-                  title: "Short",
-                  link: "/short",
-                },
-              ],
-            },
-            {
-              title: "Gloves",
-              link: "/gloves",
-              subcategories: [
-                {
-                  title: "Long",
-                  link: "/long",
-                },
-                {
-                  title: "Short",
-                  link: "/short",
-                },
-              ],
-            },
-          ],
-        },
-        {
-          title: "Shoes",
-          link: "/shoes",
-          subcategories: [
-            {
-              title: "Boots",
-              link: "/boots",
-              subcategories: [
-                {
-                  title: "Long",
-                  link: "/long",
-                },
-                {
-                  title: "Short",
-                  link: "/short",
-                },
-              ],
-            },
-            {
-              title: "Heels",
-              link: "/heels",
-              subcategories: [
-                {
-                  title: "Long",
-                  link: "/long",
-                },
-                {
-                  title: "Short",
-                  link: "/short",
-                },
-              ],
-            },
-            {
-              title: "Flat shoes",
-              link: "/flat",
-              subcategories: [
-                {
-                  title: "Long",
-                  link: "/long",
-                },
-                {
-                  title: "Short",
-                  link: "/short",
-                },
-              ],
-            },
-          ],
-        },
-      ],
+      buttons: this.menuItems.map(
+        item => item.title
+      ),
+      categories: this.menuItems,
       banners: [
         {
           title: "THE OFFICE LIFE",
@@ -350,72 +208,232 @@ export const WithSfHeaderNavigation = (args, { argTypes }) => ({
     changeVisibility() {
       this.isVisible = !this.isVisible;
     },
+    currentCategoryToggle(activeCategory) {
+      console.log(activeCategory)
+      this.currentCategory = activeCategory;
+    }
   },
   template: `
   <div>
-  <SfOverlay :visible="!!currentCategory" />
-  <SfHeader
-  :logo="shopLogo"
-  :title="shopName"
-  active-icon="account"
-  :is-nav-visible="isNavVisible"
-  is-sticky
-  >
-  <template #navigation>
-  <SfMegaMenu
-  v-for="(category, index) in categories"
-  :is-absolute="true"
-  :visible="currentCategory === category.title"
-  :title="category.title"
-  @close="currentCategory = ''"
-  >
-  <SfMegaMenuColumn
-  v-for="(subcategory, subIndex) in category.subcategories"
-  :key="subIndex"
-  :title="subcategory.title"
-  >
-  <SfList>
-  <SfListItem
-  v-for="(subcategoryChild,
-  childIndex) in subcategory.subcategories"
-  :key="childIndex"
-  >
-  <SfMenuItem :label="subcategoryChild.title">
-  <SfLink :link="subcategoryChild.link">
-  {{ subcategoryChild.title }}
-  </SfLink>
-  </SfMenuItem>
-  </SfListItem>
-  </SfList>
-  </SfMegaMenuColumn>
-  <SfMegaMenuColumn v-if="currentCategory === 'Clothing'" title="Featured" class="sf-mega-menu-column--pined-content-on-mobile sf-mega-menu-column--hide-header-on-mobile sb-mega-menu__featured">
-  <div class="sb-mega-menu__banners">
-  <SfBanner
-  v-for="(banner, key) in banners"
-  :key="key"
-  :title="banner.title"
-  :subtitle="banner.subtitle"
-  :image="banner.pictures"
-  class="sb-mega-menu__banner"
-  />
-  </div>
-  </SfMegaMenuColumn>
-  </SfMegaMenu>
-  </template>
-  </SfHeader>
-  <SfBottomNavigation>
-  <SfBottomNavigationItem
-  :icon="'menu'"
-  :label="'Menu'"
-  icon-size="20px"
-  @click="changeVisibility"
-  />
-  </SfBottomNavigation>
+    <SfOverlay :visible="!!currentCategory" />
+    <SfHeader
+      :logo="shopLogo"
+      :title="shopName"
+      :menuItems="buttons"
+      active-icon="account"
+      :is-nav-visible="isNavVisible"
+      is-sticky
+      @mouseenter="currentCategoryToggle"
+      @mouseleave="currentCategoryToggle"
+      @click="currentCategoryToggle"
+    >
+      <template 
+        v-for="(category, index) in categories"
+        v-slot:[category.title]  
+      >      
+        <SfMegaMenu
+          :key="index"
+          :is-absolute="true"
+          :title="category.title"
+          :visible="currentCategory === category.title"
+        >
+          <SfMegaMenuColumn
+            v-for="(subcategory, subIndex) in category.subcategories"
+            :key="subIndex"
+            :title="subcategory.title"
+          >
+            <SfList>
+              <SfListItem
+              v-for="(subcategoryChild,
+              childIndex) in subcategory.subcategories"
+              :key="childIndex"
+              >
+                <SfMenuItem :label="subcategoryChild.title">
+                  <SfLink :link="subcategoryChild.link">
+                    {{ subcategoryChild.title }}
+                  </SfLink>
+                </SfMenuItem>
+              </SfListItem>
+            </SfList>
+          </SfMegaMenuColumn>
+          <SfMegaMenuColumn 
+            v-if="currentCategory === 'Clothing'" 
+            title="Featured" 
+            class="sf-mega-menu-column--pined-content-on-mobile sf-mega-menu-column--hide-header-on-mobile sb-mega-menu__featured"
+          >
+            <div class="sb-mega-menu__banners">
+              <SfBanner
+                v-for="(banner, key) in banners"
+                :key="key"
+                :title="banner.title"
+                :subtitle="banner.subtitle"
+                :image="banner.pictures"
+                class="sb-mega-menu__banner"
+              />
+            </div>
+          </SfMegaMenuColumn>
+        </SfMegaMenu>
+      </template>
+    </SfHeader>
+    <SfBottomNavigation>
+      <SfBottomNavigationItem
+        :icon="'menu'"
+        :label="'Menu'"
+        icon-size="20px"
+        @click="changeVisibility"
+      />
+    </SfBottomNavigation>
   </div>`,
 });
 
 WithSfHeaderNavigation.args = {
   isNavVisible: true,
+  menuItems: [
+    {
+      title: "Woman",
+      link: "/woman",
+      subcategories: [
+        {
+          title: "Skirts",
+          link: "/skirts",
+          subcategories: [
+            {
+              title: "Long",
+              link: "/long",
+            },
+            {
+              title: "Short",
+              link: "/short",
+            },
+          ],
+        },
+        {
+          title: "Sweaters",
+          link: "/sweaters",
+          subcategories: [
+            {
+              title: "Long",
+              link: "/long",
+            },
+            {
+              title: "Short",
+              link: "/short",
+            },
+          ],
+        },
+        {
+          title: "Dresses",
+          link: "/dresses",
+          subcategories: [
+            {
+              title: "Long",
+              link: "/long",
+            },
+            {
+              title: "Short",
+              link: "/short",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      title: "Man",
+      link: "/man",
+      subcategories: [
+        {
+          title: "Bags & Purses",
+          link: "/skirts",
+          subcategories: [
+            {
+              title: "Long",
+              link: "/long",
+            },
+            {
+              title: "Short",
+              link: "/short",
+            },
+          ],
+        },
+        {
+          title: "Belts",
+          link: "/belts",
+          subcategories: [
+            {
+              title: "Long",
+              link: "/long",
+            },
+            {
+              title: "Short",
+              link: "/short",
+            },
+          ],
+        },
+        {
+          title: "Gloves",
+          link: "/gloves",
+          subcategories: [
+            {
+              title: "Long",
+              link: "/long",
+            },
+            {
+              title: "Short",
+              link: "/short",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      title: "Kids",
+      link: "/kids",
+      subcategories: [
+        {
+          title: "Boots",
+          link: "/boots",
+          subcategories: [
+            {
+              title: "Long",
+              link: "/long",
+            },
+            {
+              title: "Short",
+              link: "/short",
+            },
+          ],
+        },
+        {
+          title: "Heels",
+          link: "/heels",
+          subcategories: [
+            {
+              title: "Long",
+              link: "/long",
+            },
+            {
+              title: "Short",
+              link: "/short",
+            },
+          ],
+        },
+        {
+          title: "Flat shoes",
+          link: "/flat",
+          subcategories: [
+            {
+              title: "Long",
+              link: "/long",
+            },
+            {
+              title: "Short",
+              link: "/short",
+            },
+          ],
+        },
+      ],
+    },
+  ],
 };
 
 WithSfHeaderNavigation.storyName = "With SfHeader Navigation";

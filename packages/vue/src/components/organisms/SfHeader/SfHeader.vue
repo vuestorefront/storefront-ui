@@ -19,41 +19,37 @@
     </div>
     <div class="sf-header__actions">
       <nav
-        v-if="$slots.navigation"
         class="sf-header__navigation"
         :class="{ 'is-visible': isNavVisible }"
       >
         <slot name="navigation">
-          <div v-if="!isVisibleOnMobile" class="sf-header-navigation__menu">
-            <slot>
-              <SfButton
-                v-for="(item, i) in menuItems"
-                :key="i"
-                class="sf-header-navigation-item__item sf-header-navigation-item__item--desktop"
-                v-on="$listeners"
-              >
-                {{ item }}
-              </SfButton>
-            </slot>
+          <div v-if="!isVisibleOnMobile" class="sf-header__menu">
+            <SfButton
+              v-for="(item, i) in menuItems"
+              :key="i"
+              class="sf-header__menu-item sf-header__menu-item--desktop sf-button--pure"
+              v-on="$listeners"
+              @mouseenter="$emit('mouseenter', item)"
+              @mouseleave="$emit('mouseleave', '')"
+              @click="$emit('click', item)"
+            >
+              {{ item }}
+            </SfButton>
           </div>
           <SfSidebar
             :visible="isVisibleOnMobile"
             :persistent="true"
-            class="sf-header-navigation__sidebar"
+            class="sf-header__menu--sidebar"
             @close="$emit('close')"
           >
-            <slot>
-              <SfMenuItem
-                v-for="(item, i) in menuItems"
-                :key="i"
-                :label="item"
-                class="sf-header-navigation-item__item sf-header-navigation-item__item--mobile"
-              >
-                {{ label }}
-              </SfMenuItem>
-            </slot>
+            <SfMenuItem
+              v-for="(item, i) in menuItems"
+              :key="i"
+              :label="item"
+              class="sf-header__menu-item sf-header__menu-item--mobile"
+            />
           </SfSidebar>
-          <div v-if="$slots.item" class="sf-header-navigation-item__content">
+          <div class="sf-header__menu-content">
             <template v-for="item in menuItems">
               <slot :name="item" />
             </template>
@@ -289,17 +285,6 @@ export default {
     },
   },
   watch: {
-    //   scrollDirection: {
-    //     handler() {
-    //       if (!isClient) return;
-    //       window.cancelAnimationFrame(this.animationLong);
-    //       this.animationLong = null;
-    //       this.animationStart = null;
-    //       this.animationLong = window.requestAnimationFrame(
-    //         this.animationHandler
-    //       );
-    //     },
-    //   },
     isSticky: {
       handler(isSticky) {
         if (!isClient) return;
@@ -307,44 +292,20 @@ export default {
       },
       immediate: true,
     },
-    // },
-    // mounted() {
-    //   if (this.isSticky) {
-    //     window.addEventListener("scroll", this.scrollHandler, { passive: true });
-    //   }
   },
+  // methods: {
+  //   clickHandler() {
+
+  //   },
+  //   mouseenterHandler() {
+
+  //   },
+  //   mouseleaveHandler() {
+
+  //   },
+  // },
   beforeDestroy() {
     unMapMobileObserver();
-    // if (this.isSticky) {
-    //   window.removeEventListener("scroll", this.scrollHandler, {
-    //     passive: true,
-    //   });
-    // }
-  },
-  methods: {
-    //   animationHandler(timestamp) {
-    //     if (!this.animationStart) this.animationStart = timestamp;
-    //     const progress = timestamp - this.animationStart;
-    //     if (progress < this.animationDuration) {
-    //       this.animationLong = window.requestAnimationFrame(
-    //         this.animationHandler
-    //       );
-    //       return;
-    //     }
-    //     this.hidden = this.scrollDirection === "down";
-    //   },
-    //   scrollHandler() {
-    //     if (!isClient) return;
-    //     const currentScrollPosition =
-    //       window.pageYOffset || document.documentElement.scrollTop;
-    //     if (!!this.refs) {
-    //       if (currentScrollPosition >= this.$refs.header.offsetHeight) {
-    //         this.scrollDirection =
-    //           currentScrollPosition < this.lastScrollPosition ? "up" : "down";
-    //       }
-    //     }
-    //     this.lastScrollPosition = currentScrollPosition;
-    //   },
   },
 };
 </script>
