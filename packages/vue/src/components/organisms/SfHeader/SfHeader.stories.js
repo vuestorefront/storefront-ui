@@ -208,14 +208,20 @@ export const WithSfHeaderNavigation = (args, { argTypes }) => ({
     changeVisibility() {
       this.isVisible = !this.isVisible;
     },
-    currentCategoryToggle(activeCategory) {
-      console.log(activeCategory)
-      this.currentCategory = activeCategory;
-    }
+    currentCategoryToggle(event) {
+      console.log(event);
+      this.currentCategory = event;
+      console.log(this.currentCategory);
+    },
+    // closeHandler() {
+    //   this.currentCategory = false;
+    // }
   },
   template: `
   <div>
-    <SfOverlay :visible="!!currentCategory" />
+    <SfOverlay 
+      :visible="!!currentCategory"
+    />
     <SfHeader
       :logo="shopLogo"
       :title="shopName"
@@ -223,19 +229,19 @@ export const WithSfHeaderNavigation = (args, { argTypes }) => ({
       active-icon="account"
       :is-nav-visible="isNavVisible"
       is-sticky
-      @mouseenter="currentCategoryToggle"
-      @mouseleave="currentCategoryToggle"
-      @click="currentCategoryToggle"
-    >
+      @mouseenter:button="currentCategoryToggle($event)"           
+      @click:button="currentCategoryToggle($event)"      
+      @close="currentCategoryToggle('')"
+    >    
       <template 
         v-for="(category, index) in categories"
-        v-slot:[category.title]  
+        v-slot:[category.title]          
       >      
         <SfMegaMenu
           :key="index"
           :is-absolute="true"
           :title="category.title"
-          :visible="currentCategory === category.title"
+          :visible="currentCategory === category.title"                           
         >
           <SfMegaMenuColumn
             v-for="(subcategory, subIndex) in category.subcategories"
@@ -257,7 +263,7 @@ export const WithSfHeaderNavigation = (args, { argTypes }) => ({
             </SfList>
           </SfMegaMenuColumn>
           <SfMegaMenuColumn 
-            v-if="currentCategory === 'Clothing'" 
+            v-if="currentCategory === 'Kids'" 
             title="Featured" 
             class="sf-mega-menu-column--pined-content-on-mobile sf-mega-menu-column--hide-header-on-mobile sb-mega-menu__featured"
           >

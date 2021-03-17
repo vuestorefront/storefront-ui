@@ -3,6 +3,7 @@
   <!-- <div class="sf-header__wrapper" > -->
   <header
     ref="header"
+    v-click-outside="closeHandler"
     class="sf-header sf-header__wrapper sf-header__header"
     :class="{ 'is-sticky': sticky }"
   >
@@ -29,9 +30,9 @@
               :key="i"
               class="sf-header__menu-item sf-header__menu-item--desktop sf-button--pure"
               v-on="$listeners"
-              @mouseenter="$emit('mouseenter', item)"
-              @mouseleave="$emit('mouseleave', '')"
-              @click="$emit('click', item)"
+              @mouseenter="$emit('mouseenter:button', item)"
+              @mouseleave="$emit('mouseleave:button', '')"
+              @click="$emit('click:button', item)"
             >
               {{ item }}
             </SfButton>
@@ -49,7 +50,7 @@
               class="sf-header__menu-item sf-header__menu-item--mobile"
             />
           </SfSidebar>
-          <div class="sf-header__menu-content">
+          <div v-if="openContent" class="sf-header__menu-content">
             <template v-for="item in menuItems">
               <slot :name="item" />
             </template>
@@ -137,6 +138,7 @@
 </template>
 <script>
 import Vue from "vue";
+import { clickOutside } from "../../../utilities/directives";
 
 import SfHeaderNavigationItem from "./_internal/SfHeaderNavigationItem.vue";
 Vue.component("SfHeaderNavigationItem", SfHeaderNavigationItem);
@@ -164,6 +166,7 @@ export default {
     SfSidebar,
     SfMenuItem,
   },
+  directives: { clickOutside },
   props: {
     /**
      * Header logo
@@ -270,6 +273,7 @@ export default {
       animationLong: null,
       animationDuration: 3000,
       currentItem: "",
+      openContent: true,
     };
   },
   computed: {
@@ -293,19 +297,13 @@ export default {
       immediate: true,
     },
   },
-  // methods: {
-  //   clickHandler() {
-
-  //   },
-  //   mouseenterHandler() {
-
-  //   },
-  //   mouseleaveHandler() {
-
-  //   },
-  // },
   beforeDestroy() {
     unMapMobileObserver();
+  },
+  methods: {
+    closeHandler() {
+      this.$emit("close");
+    },
   },
 };
 </script>
