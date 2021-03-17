@@ -1,4 +1,4 @@
-import { SfTabs } from "@storefront-ui/vue";
+import { SfTabs, SfButton } from "@storefront-ui/vue";
 export default {
   title: "Components/Organisms/Tabs",
   component: SfTabs,
@@ -76,3 +76,54 @@ Common.args = {
   openTab: 1,
   tabMaxContentHeight: "6.25rem",
 };
+
+export const changeTabsWithButtons = (args, { argTypes }) => ({
+  components: { SfTabs, SfButton },
+  props: Object.keys(argTypes),
+  data() {
+    return {
+      open: 1,
+      tabs: [
+        {
+          title: "Description",
+          content:
+            "The Karissa V-Neck Tee features a semi-fitted shape that's flattering for every figure. You can hit the gym with confidence while it hugs curves and hides common 'problem' areas. Find stunning women's cocktail dresses and party dresses. The Karissa V-Neck Tee features a semi-fitted shape that's flattering for every figure. You can hit the gym with confidence while it hugs curves and hides common 'problem' areas. Find stunning women's cocktail dresses and party dresses. The Karissa V-Neck Tee features a semi-fitted shape that's flattering for every figure. You can hit the gym with confidence while it hugs curves and hides common 'problem' areas. Find stunning women's cocktail dresses and party dresses. The Karissa V-Neck Tee features a semi-fitted shape that's flattering for every figure. You can hit the gym with confidence while it hugs curves and hides common 'problem' areas. Find stunning women's cocktail dresses and party dresses. The Karissa V-Neck Tee features a semi-fitted shape that's flattering for every figure. You can hit the gym with confidence while it hugs curves and hides common 'problem' areas. Find stunning women's cocktail dresses and party dresses.",
+        },
+        {
+          title: "Read reviews",
+          content:
+            "The Larissa V-Neck Tee features a semi-fitted shape that's flattering for every figure. You can hit the gym with confidence while it hugs curves and hides common 'problem' areas. Find stunning women's cocktail dresses and party dresses.",
+        },
+        {
+          title: "Additional Information",
+          content:
+            "The Marissa V-Neck Tee features a semi-fitted shape that's flattering for every figure. You can hit the gym with confidence while it hugs curves and hides common 'problem' areas. Find stunning women's cocktail dresses and party dresses.",
+        },
+      ],
+    };
+  },
+  methods: {
+    change(tabNumber) {
+      this.open = tabNumber;
+    },
+  },
+  template: `<div>
+  <SfButton style="display: inline; margin: var(--spacer-xs)" @click="change(1)">open tab 1</SfButton>
+  <SfButton style="display: inline; margin: var(--spacer-xs)" @click="change(2)">open tab 2</SfButton>
+  <SfButton style="display: inline; margin: var(--spacer-xs)" @click="change(3)">open tab 3</SfButton>
+  <SfTabs
+    :open-tab="open"
+    :tabMaxContentHeight="tabMaxContentHeight"
+    :tabShowText="tabShowText"
+    :tabHideText="tabHideText"
+  >
+    <SfTab
+        v-for="tab in tabs"
+        :key="tab.title"
+        :title="tab.title"
+    >
+        {{tab.content}}
+    </SfTab>
+  </SfTabs></div>`,
+});
+changeTabsWithButtons.args = { ...Common.args };

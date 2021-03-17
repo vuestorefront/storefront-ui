@@ -33,6 +33,12 @@ export default {
       default: "hide",
     },
   },
+  watch: {
+    openTab(newValue, oldValue) {
+      if (newValue === oldValue) return;
+      this.toggle(this.$children[newValue - 1]._uid);
+    },
+  },
   mounted() {
     this.$on("toggle", this.toggle);
     if (this.openTab) this.openChild();
@@ -40,9 +46,7 @@ export default {
   methods: {
     toggle(id) {
       this.$children.forEach((child) => {
-        child._uid === id
-          ? (child.isActive = !child.isActive)
-          : (child.isActive = false);
+        child._uid === id ? (child.isActive = true) : (child.isActive = false);
       });
     },
     openChild() {
