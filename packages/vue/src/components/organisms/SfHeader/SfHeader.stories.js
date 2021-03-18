@@ -208,13 +208,8 @@ export const WithSfHeaderNavigation = (args, { argTypes }) => ({
       this.isVisible = !this.isVisible;
     },
     currentCategoryToggle(event) {
-      console.log(event);
       this.currentCategory = event;
-      console.log(this.currentCategory);
     },
-    // closeHandler() {
-    //   this.currentCategory = false;
-    // }
   },
   template: `
   <div>
