@@ -12,7 +12,7 @@ Vue.component("SfTab", SfTab);
 export default {
   name: "SfTabs",
   props: {
-    /** Which tab should be open at the beginning  */
+    /** Which tab should be open  */
     openTab: {
       type: Number,
       default: 1,
@@ -48,6 +48,9 @@ export default {
       this.$children.forEach((child) => {
         child._uid === id ? (child.isActive = true) : (child.isActive = false);
       });
+      const active =
+        this.$children.findIndex((child) => child.isActive === true) + 1;
+      this.$emit("click:tab", active);
     },
     openChild() {
       if (this.openTab < this.$children.length + 1) {

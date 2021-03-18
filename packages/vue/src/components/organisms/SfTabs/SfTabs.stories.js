@@ -27,6 +27,12 @@ export default {
         category: "Props",
       },
     },
+    "click:tab": {
+      action: "Tab clicked",
+      table: { category: "Events" },
+      description:
+        "This event can be used on SfTabs when there is a need to change tabs in other way than clicking on a particular SfTab. For example by clicking on a button - this example can be found below in a story called `Change Tabs With Buttons`",
+    },
   },
 };
 
@@ -60,6 +66,7 @@ const Template = (args, { argTypes }) => ({
     :tabMaxContentHeight="tabMaxContentHeight"
     :tabShowText="tabShowText"
     :tabHideText="tabHideText"
+    @click:tab="this['click:tab']"
   >
     <SfTab 
         v-for="tab in tabs" 
@@ -116,6 +123,7 @@ export const changeTabsWithButtons = (args, { argTypes }) => ({
     :tabMaxContentHeight="tabMaxContentHeight"
     :tabShowText="tabShowText"
     :tabHideText="tabHideText"
+    @click:tab="change"
   >
     <SfTab
         v-for="tab in tabs"
