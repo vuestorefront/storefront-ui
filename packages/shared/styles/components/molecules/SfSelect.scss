@@ -94,10 +94,14 @@
   &.is-invalid {
     --select-dropdown-border-color: var(--c-danger);
   }
-  &.is-disabled {
+  &.is-disabled, select[disabled] {
     --select-dropdown-color: var(--c-text-disabled);
     --select-dropdown-border-color: var(--c-text-disabled);
     --select-label-color: var(--c-text-disabled);
+    color: var(--c-text-disabled);
+    .sf-select__dropdown:active {
+      --select-dropdown-border-color: var(--c-text-disabled);
+    }
   }
   &.is-required {
     --select-label-required: " *";
