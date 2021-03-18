@@ -160,6 +160,7 @@ Common.args = {
   title: "Storefront UI",
   logo: "/assets/logo.svg",
   menuItems: ["woman", "man", "kids"],
+  activeIcon: "account",
 };
 
 export const WithSfHeaderNavigation = (args, { argTypes }) => ({
@@ -180,9 +181,7 @@ export const WithSfHeaderNavigation = (args, { argTypes }) => ({
       shopName: "Storefront UI",
       isVisible: true,
       currentCategory: "",
-      buttons: this.menuItems.map(
-        item => item.title
-      ),
+      buttons: this.menuItems.map((item) => item.title),
       categories: this.menuItems,
       banners: [
         {
@@ -293,6 +292,7 @@ export const WithSfHeaderNavigation = (args, { argTypes }) => ({
 });
 
 WithSfHeaderNavigation.args = {
+  ...Common.args,
   isNavVisible: true,
   menuItems: [
     {
