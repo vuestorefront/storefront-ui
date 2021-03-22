@@ -1,6 +1,6 @@
 {
   "name": "@storefront-ui/vue",
-  "version": "0.10.3",
+  "version": "0.10.4",
   "scripts": {
     "serve": "yarn create-index-files && vue-cli-service serve",
     "build": "yarn create-index-files && vue-cli-service build --target lib --name storefront-ui ./src/index.js",
@@ -29,7 +29,7 @@
   ],
   "dependencies": {
     "@glidejs/glide": "^3.3.0",
-    "@storefront-ui/shared": "0.10.3",
+    "@storefront-ui/shared": "0.10.4",
     "body-scroll-lock": "^3.0.1",
     "cloudinary-build-url": "^0.1.1",
     "core-js": "^3.6.5",
@@ -98,5 +98,8 @@
     "*.vue",
     "*.scss",
     "*.css"
-  ]
+  ],
+  "storybook": {
+    "url": "https://docs.storefrontui.io/"
+  }
 }

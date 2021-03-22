@@ -97,6 +97,7 @@ const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
   <SfRadio 
+<<<<<<< HEAD
   :class="classes"
   :label="label"
   :details="details"
@@ -108,6 +109,19 @@ const Template = (args, { argTypes }) => ({
   v-model="selected"
   @change="change"
   @input="input"
+=======
+    :class="classes"
+    :label="label"
+    :details="details"
+    :description="description"
+    :name="name"
+    :value="value"
+    :disabled="disabled"
+    :required="required"
+    v-model="selected"
+    @change="change"
+    @input="input"
+>>>>>>> hotfix-0.10.4
   />`,
 });
 
@@ -144,15 +158,16 @@ export const UseCheckmarkSlot = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
   <SfRadio 
-  :class="classes"
-  :label="label"
-  :details="details"
-  :description="description"
-  :name="name"
-  :value="value"
-  :disabled="disabled"
-  :required="required"
-  @input="input"
+    :class="classes"
+    :label="label"
+    :details="details"
+    :description="description"
+    :name="name"
+    :value="value"
+    :disabled="disabled"
+    :required="required"
+    @change="change"
+    @input="input"
   >
     <template #checkmark="{isChecked, disabled}">
       <div v-if="isChecked">😀</div>
@@ -167,15 +182,16 @@ export const UseLabelSlot = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
   <SfRadio 
-  :class="classes"
-  :label="label"
-  :details="details"
-  :description="description"
-  :name="name"
-  :value="value"
-  :disabled="disabled"
-  :required="required"
-  @input="input"
+    :class="classes"
+    :label="label"
+    :details="details"
+    :description="description"
+    :name="name"
+    :value="value"
+    :disabled="disabled"
+    :required="required"
+    @change="change"
+    @input="input"
   >
     <template #label="{label, isChecked, disabled}">
       CUSTOM LABEL
@@ -189,15 +205,16 @@ export const UseDetailsSlot = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
   <SfRadio 
-  :class="classes"
-  :label="label"
-  :details="details"
-  :description="description"
-  :name="name"
-  :value="value"
-  :disabled="disabled"
-  :required="required"
-  @input="input"
+    :class="classes"
+    :label="label"
+    :details="details"
+    :description="description"
+    :name="name"
+    :value="value"
+    :disabled="disabled"
+    :required="required"
+    @change="change"
+    @input="input"
   >
     <template #details="{details}">
       CUSTOM DETAILS
@@ -211,15 +228,16 @@ export const UseDescriptionSlot = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
   <SfRadio 
-  :class="classes"
-  :label="label"
-  :details="details"
-  :description="description"
-  :name="name"
-  :value="value"
-  :disabled="disabled"
-  :required="required"
-  @input="input"
+    :class="classes"
+    :label="label"
+    :details="details"
+    :description="description"
+    :name="name"
+    :value="value"
+    :disabled="disabled"
+    :required="required"
+    @change="change"
+    @input="input"
   >
     <template #description="{description}">
       CUSTOM DESCRIPTION
