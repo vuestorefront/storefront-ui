@@ -97,19 +97,6 @@ const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
   <SfRadio 
-<<<<<<< HEAD
-  :class="classes"
-  :label="label"
-  :details="details"
-  :description="description"
-  :name="name"
-  :value="value"
-  :disabled="disabled"
-  :required="required"
-  v-model="selected"
-  @change="change"
-  @input="input"
-=======
     :class="classes"
     :label="label"
     :details="details"
@@ -121,7 +108,6 @@ const Template = (args, { argTypes }) => ({
     v-model="selected"
     @change="change"
     @input="input"
->>>>>>> hotfix-0.10.4
   />`,
 });
 
