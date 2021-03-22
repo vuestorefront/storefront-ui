@@ -12,7 +12,7 @@ Vue.component("SfTab", SfTab);
 export default {
   name: "SfTabs",
   props: {
-    /** Which tab should be open at the beginning  */
+    /** Which tab should be open  */
     openTab: {
       type: Number,
       default: 1,
@@ -38,6 +38,12 @@ export default {
       initialTabActivated: false,
     };
   },
+  watch: {
+    openTab(newValue, oldValue) {
+      if (newValue === oldValue) return;
+      this.toggle(this.$children[newValue - 1]._uid);
+    },
+  },
   mounted() {
     this.$on("toggle", this.toggle);
     if (this.openTab) this.openChild();
@@ -45,10 +51,11 @@ export default {
   methods: {
     toggle(id) {
       this.$children.forEach((child) => {
-        child._uid === id
-          ? (child.isActive = !child.isActive)
-          : (child.isActive = false);
+        child.isActive = child._uid === id;
       });
+      const activeTab =
+        this.$children.findIndex((child) => child.isActive === true) + 1;
+      this.$emit("click:tab", activeTab);
     },
     openChild() {
       if (this.openTab < this.$children.length + 1) {
