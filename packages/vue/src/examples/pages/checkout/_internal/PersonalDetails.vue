@@ -201,8 +201,6 @@ export default {
 .form {
   &__element {
     --input-padding: var(--spacer-sm) 0 var(--spacer-2xs) 0;
-    --input-label-top: 80%;
-    --input-label-font-size: var(--font-size--base);
     margin: 0 0 var(--spacer-base) 0;
   }
   &__checkbox {
