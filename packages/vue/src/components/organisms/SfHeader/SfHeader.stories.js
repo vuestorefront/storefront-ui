@@ -15,11 +15,7 @@ export default {
     classes: {
       control: {
         type: "select",
-        options: [
-          "",
-          "sf-header--has-mobile-search",
-          "sf-header--multiline",
-        ],
+        options: ["", "sf-header--has-mobile-search", "sf-header--multiline"],
       },
       table: {
         category: "CSS Modifiers",
@@ -128,8 +124,8 @@ export default {
       table: { category: "Events" },
     },
   },
-  parameters:{
-    layout:'fullscreen',
+  parameters: {
+    layout: "fullscreen",
   },
 };
 
@@ -145,7 +141,7 @@ const Template = (args, { argTypes }) => ({
   methods: {
     closeSidebar() {
       this.activeSidebar = false;
-    }
+    },
   },
   watch: {
     handler: function (newValue, oldValue) {
@@ -233,14 +229,16 @@ export const WithSfHeaderNavigation = (args, { argTypes }) => ({
       this.isVisible = !this.isVisible;
     },
     currentCategoryToggle(event) {
-      if (this.currentCategory === 'sidebar' && event === 'sidebar') {
+      if (this.currentCategory === "sidebar" && event === "sidebar") {
         this.activeSidebar = false;
-        this.currentCategory === ''
+        this.currentCategory === "";
       } else {
-        event === 'sidebar' ? this.activeSidebar = true : this.activeSidebar = false;
+        event === "sidebar"
+          ? (this.activeSidebar = true)
+          : (this.activeSidebar = false);
         this.currentCategory = event;
-        console.log(this.currentCategory)
-      }      
+        console.log(this.currentCategory);
+      }
     },
   },
   template: `
@@ -249,6 +247,7 @@ export const WithSfHeaderNavigation = (args, { argTypes }) => ({
       :visible="!!currentCategory"
     />
     <SfHeader
+      :class="classes"
       :logo="shopLogo"
       :title="shopName"
       :menuItems="buttons"
@@ -268,7 +267,7 @@ export const WithSfHeaderNavigation = (args, { argTypes }) => ({
           :is-absolute="true"
           :title="category.title"
           :visible="currentCategory === category.title"
-          @close="currentCategoryToggle('sidebar')"                           
+          @close="currentCategoryToggle('sidebar')"                                     
         >
           <SfMegaMenuColumn
             v-for="(subcategory, subIndex) in category.subcategories"
