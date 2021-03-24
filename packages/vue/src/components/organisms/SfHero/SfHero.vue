@@ -94,7 +94,7 @@ export default {
     },
   },
   mounted() {
-    if (this.numberOfPages) {
+    if (this.numberOfPages > 1) {
       this.$nextTick(() => {
         if (!this.$slots.default) return;
         const glide = new Glide(this.$refs.glide, this.mergedOptions);
