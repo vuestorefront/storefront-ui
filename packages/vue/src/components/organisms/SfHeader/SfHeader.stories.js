@@ -18,7 +18,6 @@ export default {
         options: [
           "",
           "sf-header--has-mobile-search",
-          "sf-header--has-mobile-navigation",
           "sf-header--multiline",
         ],
       },
@@ -98,11 +97,19 @@ export default {
         category: "Props",
       },
     },
-    isNavVisible: {
+    // isNavVisible: {
+    //   control: "boolean",
+    //   table: {
+    //     category: "Props",
+    //   },
+    //   defaultValue: true,
+    // },
+    openSidebar: {
       control: "boolean",
       table: {
         category: "Props",
       },
+      defaultValue: true,
     },
     "change:search": {
       action: "Changed search value",
@@ -121,6 +128,9 @@ export default {
       table: { category: "Events" },
     },
   },
+  parameters:{
+    layout:'fullscreen',
+  },
 };
 
 const Template = (args, { argTypes }) => ({
@@ -129,7 +139,20 @@ const Template = (args, { argTypes }) => ({
   data() {
     return {
       searchValues: "",
+      activeSidebar: "",
     };
+  },
+  methods: {
+    closeSidebar() {
+      this.activeSidebar = false;
+    }
+  },
+  watch: {
+    handler: function (newValue, oldValue) {
+      if (newValue === oldValue) return;
+      this.activeSidebar = newValue;
+    },
+    immediate: true,
   },
   template: `
   <SfHeader
@@ -143,7 +166,7 @@ const Template = (args, { argTypes }) => ({
     :cart-icon="cartIcon"
     :wishlist-icon="wishlistIcon"
     :is-sticky="isSticky"
-    :is-nav-visible="isNavVisible"
+    :open-sidebar="activeSidebar"
     :account-icon="accountIcon"
     :cart-items-qty="cartItemsQty"
     :wishlist-items-qty="wishlistItemsQty"
@@ -151,6 +174,7 @@ const Template = (args, { argTypes }) => ({
     @click:wishlist="this['click:wishlist']"
     @click:account="this['click:account']"
     @change:search="searchValues = $event"
+    @close="closeSidebar"
 >
 </SfHeader>`,
 });
@@ -182,6 +206,7 @@ export const WithSfHeaderNavigation = (args, { argTypes }) => ({
       isVisible: true,
       currentCategory: "",
       buttons: this.menuItems.map((item) => item.title),
+      activeSidebar: this.openSidebar,
       categories: this.menuItems,
       banners: [
         {
@@ -208,7 +233,14 @@ export const WithSfHeaderNavigation = (args, { argTypes }) => ({
       this.isVisible = !this.isVisible;
     },
     currentCategoryToggle(event) {
-      this.currentCategory = event;
+      if (this.currentCategory === 'sidebar' && event === 'sidebar') {
+        this.activeSidebar = false;
+        this.currentCategory === ''
+      } else {
+        event === 'sidebar' ? this.activeSidebar = true : this.activeSidebar = false;
+        this.currentCategory = event;
+        console.log(this.currentCategory)
+      }      
     },
   },
   template: `
@@ -221,7 +253,7 @@ export const WithSfHeaderNavigation = (args, { argTypes }) => ({
       :title="shopName"
       :menuItems="buttons"
       active-icon="account"
-      :is-nav-visible="isNavVisible"
+      :open-sidebar="activeSidebar"
       is-sticky
       @mouseenter:button="currentCategoryToggle($event)"           
       @click:button="currentCategoryToggle($event)"      
@@ -235,7 +267,8 @@ export const WithSfHeaderNavigation = (args, { argTypes }) => ({
           :key="index"
           :is-absolute="true"
           :title="category.title"
-          :visible="currentCategory === category.title"                           
+          :visible="currentCategory === category.title"
+          @close="currentCategoryToggle('sidebar')"                           
         >
           <SfMegaMenuColumn
             v-for="(subcategory, subIndex) in category.subcategories"
@@ -280,7 +313,7 @@ export const WithSfHeaderNavigation = (args, { argTypes }) => ({
         :icon="'menu'"
         :label="'Menu'"
         icon-size="20px"
-        @click="changeVisibility"
+        @click="currentCategoryToggle('sidebar')"
       />
     </SfBottomNavigation>
   </div>`,
@@ -288,7 +321,6 @@ export const WithSfHeaderNavigation = (args, { argTypes }) => ({
 
 WithSfHeaderNavigation.args = {
   ...Common.args,
-  isNavVisible: true,
   menuItems: [
     {
       title: "Woman",

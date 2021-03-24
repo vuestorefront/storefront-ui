@@ -19,10 +19,7 @@
       <slot name="aside" />
     </div>
     <div class="sf-header__actions">
-      <nav
-        class="sf-header__navigation"
-        :class="{ 'is-visible': isNavVisible }"
-      >
+      <nav class="sf-header__navigation">
         <slot name="navigation">
           <div v-if="!isVisibleOnMobile" class="sf-header__menu">
             <SfButton
@@ -38,8 +35,9 @@
             </SfButton>
           </div>
           <SfSidebar
-            :visible="isVisibleOnMobile"
+            :visible="isVisibleOnMobile && openSidebar"
             :persistent="true"
+            :overlay="false"
             class="sf-header__menu--sidebar"
             @close="$emit('close')"
           >
@@ -48,6 +46,7 @@
               :key="i"
               :label="item"
               class="sf-header__menu-item sf-header__menu-item--mobile"
+              @click="$emit('click:button', item)"
             />
           </SfSidebar>
           <div v-if="openContent" class="sf-header__menu-content">
@@ -258,9 +257,13 @@ export default {
     /**
      * Is nav slot visible on mobile view
      */
-    isNavVisible: {
+    // isNavVisible: {
+    //   type: Boolean,
+    //   default: false,
+    // },
+    openSidebar: {
       type: Boolean,
-      default: false,
+      default: true,
     },
   },
   data() {
