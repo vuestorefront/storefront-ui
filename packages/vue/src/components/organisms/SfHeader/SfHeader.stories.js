@@ -80,32 +80,12 @@ export default {
         category: "Props",
       },
     },
-    cartItemsQty: {
-      control: "number",
-      table: {
-        category: "Props",
-        defaultValue: 0,
-      },
-    },
-    isSticky: {
-      control: "boolean",
-      table: {
-        category: "Props",
-      },
-    },
-    // isNavVisible: {
-    //   control: "boolean",
-    //   table: {
-    //     category: "Props",
-    //   },
-    //   defaultValue: true,
-    // },
     openSidebar: {
-      control: "boolean",
+      control: "string",
       table: {
         category: "Props",
       },
-      defaultValue: true,
+      defaultValue: 'sidebar',
     },
     "change:search": {
       action: "Changed search value",
@@ -138,17 +118,17 @@ const Template = (args, { argTypes }) => ({
       activeSidebar: "",
     };
   },
-  methods: {
-    closeSidebar() {
-      this.activeSidebar = false;
-    },
-  },
   watch: {
-    handler: function (newValue, oldValue) {
-      if (newValue === oldValue) return;
-      this.activeSidebar = newValue;
-    },
-    immediate: true,
+    openSidebar: {
+      handler(newValue) {
+        if (newValue === true) {
+          this.activeSidebar = "sidebar";
+        } else {
+          this.activeSidebar = newValue;
+        }
+      },
+      immediate: true,
+    }
   },
   template: `
   <SfHeader
@@ -161,16 +141,13 @@ const Template = (args, { argTypes }) => ({
     :search-value="searchValues"
     :cart-icon="cartIcon"
     :wishlist-icon="wishlistIcon"
-    :is-sticky="isSticky"
     :open-sidebar="activeSidebar"
     :account-icon="accountIcon"
-    :cart-items-qty="cartItemsQty"
-    :wishlist-items-qty="wishlistItemsQty"
     @click:cart="this['click:cart']"
     @click:wishlist="this['click:wishlist']"
     @click:account="this['click:account']"
     @change:search="searchValues = $event"
-    @close="closeSidebar"
+    @close="activeSidebar = false"
 >
 </SfHeader>`,
 });
@@ -199,10 +176,8 @@ export const WithSfHeaderNavigation = (args, { argTypes }) => ({
     return {
       shopLogo: "/assets/logo.svg",
       shopName: "Storefront UI",
-      isVisible: true,
-      currentCategory: "",
+      currentCategory: this.openSidebar,
       buttons: this.menuItems.map((item) => item.title),
-      activeSidebar: this.openSidebar,
       categories: this.menuItems,
       banners: [
         {
@@ -224,20 +199,25 @@ export const WithSfHeaderNavigation = (args, { argTypes }) => ({
       ],
     };
   },
+  watch: {
+    openSidebar: {
+      handler(newValue) {
+        if (newValue === true) {
+          this.currentCategory = "sidebar";
+        } else {
+          this.currentCategory = newValue;
+        }
+      },
+      immediate: true,
+    }
+  },
   methods: {
-    changeVisibility() {
-      this.isVisible = !this.isVisible;
-    },
     currentCategoryToggle(event) {
-      if (this.currentCategory === "sidebar" && event === "sidebar") {
-        this.activeSidebar = false;
-        this.currentCategory === "";
+      console.log('start', this.currentCategory, "event:", event);
+      if (this.currentCategory === 'sidebar' && event === 'sidebar') {
+        return this.currentCategory = "";
       } else {
-        event === "sidebar"
-          ? (this.activeSidebar = true)
-          : (this.activeSidebar = false);
-        this.currentCategory = event;
-        console.log(this.currentCategory);
+        return this.currentCategory = event;
       }
     },
   },
@@ -252,8 +232,7 @@ export const WithSfHeaderNavigation = (args, { argTypes }) => ({
       :title="shopName"
       :menuItems="buttons"
       active-icon="account"
-      :open-sidebar="activeSidebar"
-      is-sticky
+      :open-sidebar="currentCategory === 'sidebar'"
       @mouseenter:button="currentCategoryToggle($event)"           
       @click:button="currentCategoryToggle($event)"      
       @close="currentCategoryToggle('')"
@@ -468,4 +447,4 @@ WithSfHeaderNavigation.args = {
   ],
 };
 
-WithSfHeaderNavigation.storyName = "With SfHeader Navigation";
+WithSfHeaderNavigation.storyName = "With SfMegaMenu Navigation";

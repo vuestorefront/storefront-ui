@@ -1,11 +1,8 @@
 <template>
-  <!-- <div class="sf-header" > -->
-  <!-- <div class="sf-header__wrapper" > -->
   <header
     ref="header"
     v-click-outside="closeHandler"
     class="sf-header sf-header__wrapper sf-header__header"
-    :class="{ 'is-sticky': sticky }"
   >
     <!--@slot Use this slot to replace logo with text or image-->
     <slot name="logo" v-bind="{ logo, title }">
@@ -57,7 +54,11 @@
         </slot>
       </nav>
       <!--@slot Use this slot to replace default search bar-->
-      <slot name="search" v-bind="{ searchValue, searchPlaceholder }">
+      <slot
+        v-if="isVisible"
+        name="search"
+        v-bind="{ searchValue, searchPlaceholder }"
+      >
         <SfSearchBar
           :value="searchValue"
           :placeholder="searchPlaceholder"
@@ -72,14 +73,12 @@
         name="header-icons"
         v-bind="{
           activeIcon,
-          cartHasProducts,
-          cartItemsQty,
           cartIcon,
           wishlistIcon,
           accountIcon,
         }"
       >
-        <div class="sf-header__icons">
+        <div v-if="isVisible" class="sf-header__icons">
           <SfButton
             v-if="accountIcon"
             class="sf-button--pure sf-header__action"
@@ -103,8 +102,6 @@
             <SfIcon
               class="sf-header__icon"
               :icon="wishlistIcon"
-              :has-badge="wishlistHasProducts"
-              :badge-label="wishlistItemsQty"
               size="1.25rem"
               :class="{
                 'sf-header__icon is-active': activeIcon === 'wishlist',
@@ -120,8 +117,6 @@
             <SfIcon
               class="sf-header__icon"
               :icon="cartIcon"
-              :has-badge="cartHasProducts"
-              :badge-label="cartItemsQty"
               size="1.25rem"
               :class="{
                 'sf-header__icon is-active': activeIcon === 'cart',
@@ -132,15 +127,9 @@
       </slot>
     </div>
   </header>
-  <!-- </div> -->
-  <!-- </div> -->
 </template>
 <script>
-import Vue from "vue";
 import { clickOutside } from "../../../utilities/directives";
-
-import SfHeaderNavigationItem from "./_internal/SfHeaderNavigationItem.vue";
-Vue.component("SfHeaderNavigationItem", SfHeaderNavigationItem);
 import {
   mapMobileObserver,
   unMapMobileObserver,
@@ -234,35 +223,10 @@ export default {
       default: "",
     },
     /**
-     * Header wishlist items quantity
+     * Open sidebar on mobile view
      */
-    wishlistItemsQty: {
-      type: [String, Number],
-      default: "0",
-    },
-    /**
-     * Header cart items quantity
-     */
-    cartItemsQty: {
-      type: [String, Number],
-      default: "0",
-    },
-    /**
-     * Header sticky to top
-     */
-    isSticky: {
-      type: Boolean,
-      default: false,
-    },
-    /**
-     * Is nav slot visible on mobile view
-     */
-    // isNavVisible: {
-    //   type: Boolean,
-    //   default: false,
-    // },
     openSidebar: {
-      type: Boolean,
+      type: [Boolean, String],
       default: true,
     },
   },
@@ -281,23 +245,11 @@ export default {
   },
   computed: {
     ...mapMobileObserver(),
-    cartHasProducts() {
-      return parseInt(this.cartItemsQty, 10) > 0;
-    },
-    wishlistHasProducts() {
-      return parseInt(this.wishlistItemsQty, 10) > 0;
-    },
     isVisibleOnMobile() {
       return this.isMobile;
     },
-  },
-  watch: {
-    isSticky: {
-      handler(isSticky) {
-        if (!isClient) return;
-        this.sticky = isSticky;
-      },
-      immediate: true,
+    isVisible() {
+      return isClient;
     },
   },
   beforeDestroy() {
