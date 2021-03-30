@@ -54,7 +54,7 @@ jobs:
 
       - name: Run linter and unit tests
         run: |
-          NODE_ENV=development yarn install --frozen-lockfile 
+          NODE_ENV=development yarn install --frozen-lockfile --prefer-offline
           cd packages/vue && yarn lint && yarn test:unit
 
   cypress-run: 
@@ -84,11 +84,10 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Cypress run
-        uses: cypress-io/github-action@v2
+        uses: cypress-io/github-action@v2        
         with:
-          start: |
-            NODE_ENV=development yarn install --frozen-lockfile 
-            cd packages/vue && yarn storybook
+          install: NODE_ENV=development yarn install --frozen-lockfile --prefer-offline
+          start: cd packages/vue && yarn storybook
           wait-on: 'http://localhost:6006/'
           wait-on-timeout: 120
           command: NODE_ENV=development yarn run test:e2e:headless
