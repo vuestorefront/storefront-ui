@@ -32,25 +32,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-      # - name: Checkout code
-      #   uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-      # - name: Setup node
-      #   uses: actions/setup-node@v1
-      #   with:
-      #     node-version: "12"
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: "12"
 
-      # - name: Get cached dependencies
-      #   uses: actions/cache@v2
-      #   with:
-      #     path: |
-      #       ~/.cache/Cypress
-      #       **/node_modules 
-      #       packages/vue/node_modules
-      #     key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+      - name: Get cached dependencies
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.cache/Cypress
+            **/node_modules 
+            packages/vue/node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
 
-      # - name: Checkout code
-      #   uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
+
       - name: Run linter and unit tests
         run: cd packages/vue && yarn lint && yarn test:unit
 
@@ -60,25 +61,25 @@ jobs:
     runs-on: ubuntu-latest
     steps:      
 
-      # - name: Checkout code
-      #   uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-      # - name: Setup node
-      #   uses: actions/setup-node@v1
-      #   with:
-      #     node-version: "12"
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: "12"
 
-      # - name: Get cached dependencies
-      #   uses: actions/cache@v2
-      #   with:
-      #     path: |
-      #       ~/.cache/Cypress
-      #       **/node_modules 
-      #       packages/vue/node_modules
-      #     key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+      - name: Get cached dependencies
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.cache/Cypress
+            **/node_modules 
+            packages/vue/node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
 
-      # - name: Checkout code
-      #   uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
       - name: Cypress run
         uses: cypress-io/github-action@v2
@@ -96,22 +97,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-      # - name: Checkout code
-      #   uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-      # - name: Setup node
-      #   uses: actions/setup-node@v1
-      #   with:
-      #     node-version: "12"
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: "12"
 
-      # - name: Get cached dependencies
-      #   uses: actions/cache@v2
-      #   with:
-      #     path: |
-      #       ~/.cache/Cypress
-      #       **/node_modules 
-      #       packages/vue/node_modules
-      #     key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+      - name: Get cached dependencies
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.cache/Cypress
+            **/node_modules 
+            packages/vue/node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           
       - name: Checkout code
         uses: actions/checkout@v2
