@@ -117,4 +117,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Build
-        run: cd packages/vue && yarn build
+        run: |
+          NODE_ENV=development npm ci
+          cd packages/vue && yarn build
