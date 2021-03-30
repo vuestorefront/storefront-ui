@@ -407,8 +407,6 @@ export default {
 .form {
   &__element {
     margin: 0 0 var(--spacer-base) 0;
-    --input-label-font-size: var(--font-size--base);
-    --input-label-top: 80%;
     &:last-of-type {
       margin: 0;
     }
@@ -504,8 +502,6 @@ export default {
     flex: 1;
   }
   &__input {
-    --input-label-top: 80%;
-    --input-label-font-size: var(--font-size--base);
     flex: 1;
     padding: 0 0 var(--spacer-sm) 0;
   }
