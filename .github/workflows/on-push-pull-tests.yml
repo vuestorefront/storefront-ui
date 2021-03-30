@@ -24,7 +24,7 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile --prefer-offline && yarn add @vue/cli -W
+        run: NODE_ENV=development yarn install --frozen-lockfile --prefer-offline && yarn add @vue/cli -W
         
   lint:
     name: Lint
@@ -117,6 +117,4 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Build
-        run: |
-          NODE_ENV=development npm ci
-          cd packages/vue && yarn build
+        run: cd packages/vue && yarn build
