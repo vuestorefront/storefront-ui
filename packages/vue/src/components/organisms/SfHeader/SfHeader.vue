@@ -1,9 +1,5 @@
 <template>
-  <header
-    ref="header"
-    v-click-outside="closeHandler"
-    class="sf-header sf-header__wrapper sf-header__header"
-  >
+  <header ref="header" v-click-outside="closeHandler" class="sf-header">
     <!--@slot Use this slot to replace logo with text or image-->
     <slot name="logo" v-bind="{ logo, title }">
       <SfLink link="/">
@@ -21,7 +17,7 @@
           <div v-if="!isVisibleOnMobile" class="sf-header__menu">
             <SfButton
               v-for="(item, i) in menuItems"
-              :key="i"
+              :key="`button-menu-item-${i}`"
               class="sf-header__menu-item sf-header__menu-item--desktop sf-button--pure"
               v-on="$listeners"
               @mouseenter="$emit('mouseenter:button', item)"
@@ -40,7 +36,7 @@
           >
             <SfMenuItem
               v-for="(item, i) in menuItems"
-              :key="i"
+              :key="`menu-item-${i}`"
               :label="item"
               class="sf-header__menu-item sf-header__menu-item--mobile"
               @click="$emit('click:button', item)"
@@ -88,9 +84,8 @@
             <SfIcon
               :icon="accountIcon"
               size="1.25rem"
-              :class="{
-                'sf-header__icon is-active': activeIcon === 'account',
-              }"
+              class="sf-header__icon"
+              :class="activeIcon"
             />
           </SfButton>
           <SfButton
@@ -174,7 +169,7 @@ export default {
      * Navigation items
      */
     menuItems: {
-      type: [String, Array],
+      type: Array,
       default: () => [],
     },
     /**
@@ -233,13 +228,6 @@ export default {
   data() {
     return {
       icons: [],
-      sticky: false,
-      scrollDirection: null,
-      lastScrollPosition: 0,
-      animationStart: null,
-      animationLong: null,
-      animationDuration: 3000,
-      currentItem: "",
       openContent: true,
     };
   },
@@ -250,6 +238,9 @@ export default {
     },
     isVisible() {
       return isClient;
+    },
+    activeIconClass() {
+      return this.activeIcon === "account" ? "is-active" : null;
     },
   },
   beforeDestroy() {

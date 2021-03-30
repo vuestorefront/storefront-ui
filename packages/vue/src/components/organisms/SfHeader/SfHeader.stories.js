@@ -213,7 +213,6 @@ export const WithSfHeaderNavigation = (args, { argTypes }) => ({
   },
   methods: {
     currentCategoryToggle(event) {
-      console.log('start', this.currentCategory, "event:", event);
       if (this.currentCategory === 'sidebar' && event === 'sidebar') {
         return this.currentCategory = "";
       } else {

@@ -9,7 +9,7 @@
   align-items: center;
   justify-content: center;
   padding: 0;
-  background: #ffffff;
+  background: var(--c-white);
   z-index: 1;
   @include for-desktop {
     flex-wrap: nowrap;
@@ -68,6 +68,7 @@
     }
   }
   &__menu-item {
+    --menu-item-font-weight: var(--font-weight--medium); 
     display: flex;
     box-sizing: border-box;
     flex: 1;
@@ -75,9 +76,13 @@
     justify-content: center;
     padding: calc(var(--spacer-sm) - 1px) var(--spacer-sm);
     margin: 0;    
-    text-decoration: none;   
-    --menu-item-font-weight: var(--font-weight--medium); 
-    @include border(--header-menu-item-border, 0 0 1px 0, solid, transparent);
+    text-decoration: none; 
+    @include border(
+      --header-menu-item-border, 
+      0 0 1px 0, 
+      solid, 
+      transparent
+    );
     transition: border-color 150ms ease-in-out, color 150ms ease-in-out;
     color: var(--c-dark-variant);
     text-transform: uppercase;
