@@ -24,8 +24,7 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install dependencies
-        run: |
-            yarn install --frozen-lockfile && yarn add @vue/cli -W
+        run: yarn install --frozen-lockfile && yarn add @vue/cli -W
         if: steps.yarn-dep-cache.outputs.cache-hit != 'true'
 
   lint:
