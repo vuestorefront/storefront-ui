@@ -25,7 +25,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-        yarn install --frozen-lockfile --prefer-offline && yarn add @vue/cli -W
+        yarn install --prefer-offline && yarn add @vue/cli -W
         
   lint:
     name: Lint
