@@ -88,6 +88,7 @@ jobs:
         with:
           start: cd packages/vue && yarn storybook
           wait-on: 'http://localhost:6006/'
+          wait-on-timeout: 120
           command: yarn run test:e2e:headless
           config-file: cypress.json
           browser: chrome
@@ -119,4 +120,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Build
-        run: cd packages/vue && yarn build
+        run: |
+          NODE_ENV=development yarn install --frozen-lockfile 
+          cd packages/vue && yarn build
