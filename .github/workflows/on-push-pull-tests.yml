@@ -53,7 +53,7 @@ jobs:
       # - name: Checkout code
       #   uses: actions/checkout@v2
       - name: Run linter and unit tests
-        run: cd packages/vue && yarn lint && yarn test:unit
+        run: yarn lint && yarn test:unit
 
   cypress-run: 
     name: e2e tests
@@ -84,7 +84,7 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
-          start: cd packages/vue && yarn storybook
+          start: yarn storybook
           wait-on: 'http://localhost:6006/'
           command: yarn run test:e2e:headless
           config-file: cypress.json
@@ -117,4 +117,4 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Build
-        run: cd packages/vue && yarn build
+        run: yarn build
