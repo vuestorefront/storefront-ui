@@ -86,8 +86,10 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v2        
         with:
-          install: NODE_ENV=development yarn install --frozen-lockfile --prefer-offline
-          start: cd packages/vue && yarn build-storybook && yarn storybook
+          install: | 
+            NODE_ENV=development yarn install --frozen-lockfile --prefer-offline
+            cd packages/vue && yarn build-storybook
+          start: yarn storybook
           wait-on: 'http://localhost:6006/'
           wait-on-timeout: 120
           command: yarn test:e2e:headless
