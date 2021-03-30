@@ -27,7 +27,6 @@ jobs:
         run: |
         yarn install --frozen-lockfile --prefer-offline && yarn add @vue/cli -W
         
-
   lint:
     name: Lint
     needs: prepare_dependencies
