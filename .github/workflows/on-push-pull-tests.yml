@@ -24,7 +24,7 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install dependencies
-        run: NODE_ENV=development yarn install --frozen-lockfile --prefer-offline && yarn add @vue/cli -W
+        run: yarn install --frozen-lockfile --prefer-offline && yarn add @vue/cli -W
         
   lint:
     name: Lint
@@ -53,7 +53,9 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run linter and unit tests
-        run: cd packages/vue && yarn lint && yarn test:unit
+        run: |
+          NODE_ENV=development yarn install --frozen-lockfile 
+          cd packages/vue && yarn lint && yarn test:unit
 
   cypress-run: 
     name: e2e tests
