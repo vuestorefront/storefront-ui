@@ -39,32 +39,17 @@ export default {
         category: "Props",
       },
     },
-    cartIcon: {
-      control: "text",
+    icons: {
+      control: "array",
       table: {
         category: "Props",
-        defaultValue: "empty_cart",
-      },
-    },
-    wishlistIcon: {
-      control: "text",
-      table: {
-        category: "Props",
-        defaultValue: "heart",
-      },
-    },
-    accountIcon: {
-      control: "text",
-      table: {
-        category: "Props",
-        defaultValue: "profile",
       },
     },
     activeIcon: {
-      control: "text",
+      control: "number",
       table: {
         category: "Props",
-        defaultValue: "",
+        defaultValue: 0,
       },
     },
     searchPlaceholder: {
@@ -85,7 +70,7 @@ export default {
       table: {
         category: "Props",
       },
-      defaultValue: 'sidebar',
+      defaultValue: "sidebar",
     },
     "change:search": {
       action: "Changed search value",
@@ -96,11 +81,11 @@ export default {
       table: { category: "Events" },
     },
     "click:wishlist": {
-      action: "Clicked on Wishlist",
+      action: "Clicked on wishlist",
       table: { category: "Events" },
     },
     "click:account": {
-      action: "Clicked on Account",
+      action: "Clicked on account",
       table: { category: "Events" },
     },
   },
@@ -128,7 +113,7 @@ const Template = (args, { argTypes }) => ({
         }
       },
       immediate: true,
-    }
+    },
   },
   template: `
   <SfHeader
@@ -139,13 +124,10 @@ const Template = (args, { argTypes }) => ({
     :active-icon="activeIcon"
     :search-placeholder="searchPlaceholder"
     :search-value="searchValues"
-    :cart-icon="cartIcon"
-    :wishlist-icon="wishlistIcon"
     :open-sidebar="activeSidebar"
-    :account-icon="accountIcon"
-    @click:cart="this['click:cart']"
-    @click:wishlist="this['click:wishlist']"
-    @click:account="this['click:account']"
+    @click:icon-0="this['click:cart']"
+    @click:icon-1="this['click:wishlist']"
+    @click:icon-2="this['click:account']"
     @change:search="searchValues = $event"
     @close="activeSidebar = false"
 >
@@ -157,7 +139,8 @@ Common.args = {
   title: "Storefront UI",
   logo: "/assets/logo.svg",
   menuItems: ["woman", "man", "kids"],
-  activeIcon: "account",
+  icons: ["empty_cart", "heart", "profile"],
+  activeIcon: 0,
 };
 
 export const WithSfHeaderNavigation = (args, { argTypes }) => ({
@@ -209,14 +192,14 @@ export const WithSfHeaderNavigation = (args, { argTypes }) => ({
         }
       },
       immediate: true,
-    }
+    },
   },
   methods: {
     currentCategoryToggle(event) {
-      if (this.currentCategory === 'sidebar' && event === 'sidebar') {
-        return this.currentCategory = "";
+      if (this.currentCategory === "sidebar" && event === "sidebar") {
+        return (this.currentCategory = "");
       } else {
-        return this.currentCategory = event;
+        return (this.currentCategory = event);
       }
     },
   },
@@ -230,7 +213,7 @@ export const WithSfHeaderNavigation = (args, { argTypes }) => ({
       :logo="shopLogo"
       :title="shopName"
       :menuItems="buttons"
-      active-icon="account"
+      :active-icon=0
       :open-sidebar="currentCategory === 'sidebar'"
       @mouseenter:button="currentCategoryToggle($event)"           
       @click:button="currentCategoryToggle($event)"      

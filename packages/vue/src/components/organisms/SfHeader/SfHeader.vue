@@ -69,53 +69,23 @@
         name="header-icons"
         v-bind="{
           activeIcon,
-          cartIcon,
-          wishlistIcon,
-          accountIcon,
+          icons,
+          isVisible,
         }"
       >
         <div v-if="isVisible" class="sf-header__icons">
           <SfButton
-            v-if="accountIcon"
+            v-for="(icon, item) in icons"
+            :key="`icon-${item}`"
             class="sf-button--pure sf-header__action"
-            data-testid="accountIcon"
-            @click="$emit('click:account')"
+            data-testid="'icon-' + item"
+            @click="$emit(`click:icon-${item}`)"
           >
             <SfIcon
-              :icon="accountIcon"
+              :icon="icon"
               size="1.25rem"
               class="sf-header__icon"
-              :class="activeIcon"
-            />
-          </SfButton>
-          <SfButton
-            v-if="wishlistIcon"
-            class="sf-button--pure sf-header__action"
-            data-testid="wishlistIcon"
-            @click="$emit('click:wishlist')"
-          >
-            <SfIcon
-              class="sf-header__icon"
-              :icon="wishlistIcon"
-              size="1.25rem"
-              :class="{
-                'sf-header__icon is-active': activeIcon === 'wishlist',
-              }"
-            />
-          </SfButton>
-          <SfButton
-            v-if="cartIcon"
-            class="sf-button--pure sf-header__action"
-            data-testid="cartIcon"
-            @click="$emit('click:cart')"
-          >
-            <SfIcon
-              class="sf-header__icon"
-              :icon="cartIcon"
-              size="1.25rem"
-              :class="{
-                'sf-header__icon is-active': activeIcon === 'cart',
-              }"
+              :class="{ 'is-active': activeIcon === item }"
             />
           </SfButton>
         </div>
@@ -173,35 +143,20 @@ export default {
       default: () => [],
     },
     /**
-     * Header cartIcon (accepts same value as SfIcon)
+     * Array of header icons (String or Array).
+     * Every icon can be single SVG path (string) or array of SVG paths or icon name
+     * from our icons list (such as 'added_to_cart`)
      */
-    cartIcon: {
-      type: [String, Boolean, Array],
-      default: "empty_cart",
+    icons: {
+      type: Array,
+      default: () => ["empty_cart", "heart", "profile"],
     },
     /**
-     * Header wishlistIcon (accepts same value as SfIcon)
-     */
-    wishlistIcon: {
-      type: [String, Boolean, Array],
-      default: "heart",
-    },
-    /**
-     * Header accountIcon (accepts same value as SfIcon)
-     */
-    accountIcon: {
-      type: [String, Boolean, Array],
-      default: "profile",
-    },
-    /**
-     * Header activeIcon (accepts account, wishlist and cart)
+     * Header activeIcon number from icon prop array
      */
     activeIcon: {
-      type: String,
-      default: "",
-      validator(value) {
-        return ["", "account", "wishlist", "cart"].includes(value);
-      },
+      type: Number,
+      default: 0,
     },
     /**
      * Header search placeholder
@@ -227,7 +182,6 @@ export default {
   },
   data() {
     return {
-      icons: [],
       openContent: true,
     };
   },
@@ -238,9 +192,6 @@ export default {
     },
     isVisible() {
       return isClient;
-    },
-    activeIconClass() {
-      return this.activeIcon === "account" ? "is-active" : null;
     },
   },
   beforeDestroy() {
