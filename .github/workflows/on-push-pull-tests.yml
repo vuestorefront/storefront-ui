@@ -92,7 +92,7 @@ jobs:
           start: yarn storybook
           wait-on: 'http://localhost:6006/'
           wait-on-timeout: 120
-          command: yarn test:e2e:headless
+          command: cd packages/vue && yarn test:e2e:headless
           config-file: cypress.json
           browser: chrome
           headless: true
