@@ -62,7 +62,7 @@ const Template = (args, { argTypes }) => ({
   data() {
     return {
       searchValue: this.value,
-    }
+    };
   },
   computed: {
     iconCheck() {
@@ -122,7 +122,7 @@ export const UseIconSlot = (args, { argTypes }) => ({
   data() {
     return {
       searchValue: this.value,
-    }
+    };
   },
   props: Object.keys(argTypes),
   template: `

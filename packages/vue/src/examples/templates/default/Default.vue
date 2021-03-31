@@ -73,5 +73,8 @@ export default {
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
 #default {
+  .sf-header {
+    max-width: 100%;
+  }
 }
 </style>

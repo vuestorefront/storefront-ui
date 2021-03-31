@@ -1,115 +1,100 @@
 <template>
-  <div class="sf-header" :class="{ 'is-sticky': sticky, 'is-hidden': hidden }">
-    <div class="sf-header__wrapper">
-      <header ref="header" class="sf-header__header">
-        <!--@slot Use this slot to replace logo with text or image-->
-        <slot name="logo" v-bind="{ logo, title }">
-          <SfLink link="/">
-            <SfImage
-              v-if="logo"
-              :src="logo"
-              :alt="title"
-              class="sf-header__logo"
-            />
-            <h1 v-else class="sf-header__title">{{ title }}</h1>
-          </SfLink>
-        </slot>
-        <div class="sf-header__aside">
-          <!-- @slot Use this slot for language or currency selector -->
-          <slot name="aside" />
-        </div>
-        <div class="sf-header__actions">
-          <nav
-            class="sf-header__navigation"
-            :class="{ 'is-visible': isNavVisible }"
-          >
-            <slot name="navigation"></slot>
-          </nav>
-          <!--@slot Use this slot to replace default search bar-->
-          <slot name="search" v-bind="{ searchValue, searchPlaceholder }">
-            <SfSearchBar
-              :value="searchValue"
-              :placeholder="searchPlaceholder"
-              aria-label="Search"
-              class="sf-header__search"
-              @input="$emit('change:search', $event)"
-              @enter="$emit('enter:search', $event)"
-            />
-          </slot>
-          <!--@slot Use this slot to replace default header icons with custom content-->
-          <slot
-            name="header-icons"
-            v-bind="{
-              activeIcon,
-              cartHasProducts,
-              cartItemsQty,
-              cartIcon,
-              wishlistIcon,
-              accountIcon,
-            }"
-          >
-            <div class="sf-header__icons">
-              <SfButton
-                v-if="accountIcon"
-                class="sf-button--pure sf-header__action"
-                data-testid="accountIcon"
-                @click="$emit('click:account')"
-              >
-                <SfIcon
-                  :icon="accountIcon"
-                  size="1.25rem"
-                  :class="{
-                    'sf-header__icon is-active': activeIcon === 'account',
-                  }"
-                />
-              </SfButton>
-              <SfButton
-                v-if="wishlistIcon"
-                class="sf-button--pure sf-header__action"
-                data-testid="wishlistIcon"
-                @click="$emit('click:wishlist')"
-              >
-                <SfIcon
-                  class="sf-header__icon"
-                  :icon="wishlistIcon"
-                  :has-badge="wishlistHasProducts"
-                  :badge-label="wishlistItemsQty"
-                  size="1.25rem"
-                  :class="{
-                    'sf-header__icon is-active': activeIcon === 'wishlist',
-                  }"
-                />
-              </SfButton>
-              <SfButton
-                v-if="cartIcon"
-                class="sf-button--pure sf-header__action"
-                data-testid="cartIcon"
-                @click="$emit('click:cart')"
-              >
-                <SfIcon
-                  class="sf-header__icon"
-                  :icon="cartIcon"
-                  :has-badge="cartHasProducts"
-                  :badge-label="cartItemsQty"
-                  size="1.25rem"
-                  :class="{
-                    'sf-header__icon is-active': activeIcon === 'cart',
-                  }"
-                />
-              </SfButton>
-            </div>
-          </slot>
-        </div>
-      </header>
+  <header ref="header" v-click-outside="closeHandler" class="sf-header">
+    <!--@slot Use this slot to replace logo with text or image-->
+    <slot name="logo" v-bind="{ logo, title }">
+      <SfLink link="/">
+        <SfImage v-if="logo" :src="logo" :alt="title" class="sf-header__logo" />
+        <h1 v-else class="sf-header__title">{{ title }}</h1>
+      </SfLink>
+    </slot>
+    <div class="sf-header__aside">
+      <!-- @slot Use this slot for language or currency selector -->
+      <slot name="aside" />
     </div>
-  </div>
+    <div class="sf-header__actions">
+      <nav class="sf-header__navigation">
+        <slot name="navigation">
+          <div v-if="!isVisibleOnMobile" class="sf-header__menu">
+            <SfButton
+              v-for="(item, i) in menuItems"
+              :key="`button-menu-item-${i}`"
+              class="sf-header__menu-item sf-header__menu-item--desktop sf-button--pure"
+              v-on="$listeners"
+              @mouseenter="$emit('mouseenter:button', item)"
+              @mouseleave="$emit('mouseleave:button', '')"
+              @click="$emit('click:button', item)"
+            >
+              {{ item }}
+            </SfButton>
+          </div>
+          <SfSidebar
+            :visible="isVisibleOnMobile && openSidebar"
+            :persistent="true"
+            :overlay="false"
+            class="sf-header__menu--sidebar"
+            @close="$emit('close')"
+          >
+            <SfMenuItem
+              v-for="(item, i) in menuItems"
+              :key="`menu-item-${i}`"
+              :label="item"
+              class="sf-header__menu-item sf-header__menu-item--mobile"
+              @click="$emit('click:button', item)"
+            />
+          </SfSidebar>
+          <div v-if="openContent" class="sf-header__menu-content">
+            <template v-for="item in menuItems">
+              <slot :name="item" />
+            </template>
+          </div>
+        </slot>
+      </nav>
+      <!--@slot Use this slot to replace default search bar-->
+      <slot
+        v-if="isVisible"
+        name="search"
+        v-bind="{ searchValue, searchPlaceholder }"
+      >
+        <SfSearchBar
+          :value="searchValue"
+          :placeholder="searchPlaceholder"
+          aria-label="Search"
+          class="sf-header__search"
+          @input="$emit('change:search', $event)"
+          @enter="$emit('enter:search', $event)"
+        />
+      </slot>
+      <!--@slot Use this slot to replace default header icons with custom content-->
+      <slot
+        name="header-icons"
+        v-bind="{
+          activeIcon,
+          icons,
+          isVisible,
+        }"
+      >
+        <div v-if="isVisible" class="sf-header__icons">
+          <SfButton
+            v-for="(icon, item) in icons"
+            :key="`icon-${item}`"
+            class="sf-button--pure sf-header__action"
+            data-testid="'icon-' + item"
+            @click="$emit(`click:icon-${item}`)"
+          >
+            <SfIcon
+              :icon="icon"
+              size="1.25rem"
+              class="sf-header__icon"
+              :class="{ 'is-active': activeIcon === item }"
+            />
+          </SfButton>
+        </div>
+      </slot>
+    </div>
+  </header>
 </template>
 <script>
-import Vue from "vue";
-import SfHeaderNavigationItem from "./_internal/SfHeaderNavigationItem.vue";
-import SfHeaderNavigation from "./_internal/SfHeaderNavigation.vue";
-Vue.component("SfHeaderNavigation", SfHeaderNavigation);
-Vue.component("SfHeaderNavigationItem", SfHeaderNavigationItem);
+import { clickOutside } from "../../../utilities/directives";
 import {
   mapMobileObserver,
   unMapMobileObserver,
@@ -120,6 +105,9 @@ import SfSearchBar from "../../molecules/SfSearchBar/SfSearchBar.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfLink from "../../atoms/SfLink/SfLink.vue";
+import SfSidebar from "../../organisms/SfSidebar/SfSidebar";
+import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem";
+
 export default {
   name: "SfHeader",
   components: {
@@ -128,7 +116,10 @@ export default {
     SfButton,
     SfIcon,
     SfLink,
+    SfSidebar,
+    SfMenuItem,
   },
+  directives: { clickOutside },
   props: {
     /**
      * Header logo
@@ -145,35 +136,27 @@ export default {
       default: "",
     },
     /**
-     * Header cartIcon (accepts same value as SfIcon)
+     * Navigation items
      */
-    cartIcon: {
-      type: [String, Boolean, Array],
-      default: "empty_cart",
+    menuItems: {
+      type: Array,
+      default: () => [],
     },
     /**
-     * Header wishlistIcon (accepts same value as SfIcon)
+     * Array of header icons (String or Array).
+     * Every icon can be single SVG path (string) or array of SVG paths or icon name
+     * from our icons list (such as 'added_to_cart`)
      */
-    wishlistIcon: {
-      type: [String, Boolean, Array],
-      default: "heart",
+    icons: {
+      type: Array,
+      default: () => ["empty_cart", "heart", "profile"],
     },
     /**
-     * Header accountIcon (accepts same value as SfIcon)
-     */
-    accountIcon: {
-      type: [String, Boolean, Array],
-      default: "profile",
-    },
-    /**
-     * Header activeIcon (accepts account, wishlist and cart)
+     * Header activeIcon number from icon prop array
      */
     activeIcon: {
-      type: String,
-      default: "",
-      validator(value) {
-        return ["", "account", "wishlist", "cart"].includes(value);
-      },
+      type: Number,
+      default: 0,
     },
     /**
      * Header search placeholder
@@ -190,111 +173,33 @@ export default {
       default: "",
     },
     /**
-     * Header wishlist items quantity
+     * Open sidebar on mobile view
      */
-    wishlistItemsQty: {
-      type: [String, Number],
-      default: "0",
-    },
-    /**
-     * Header cart items quantity
-     */
-    cartItemsQty: {
-      type: [String, Number],
-      default: "0",
-    },
-    /**
-     * Header sticky to top
-     */
-    isSticky: {
-      type: Boolean,
-      default: false,
-    },
-    /**
-     * Is nav slot visible on mobile view
-     */
-    isNavVisible: {
-      type: Boolean,
-      default: false,
+    openSidebar: {
+      type: [Boolean, String],
+      default: true,
     },
   },
   data() {
     return {
-      icons: [],
-      hidden: false,
-      sticky: false,
-      scrollDirection: null,
-      lastScrollPosition: 0,
-      animationStart: null,
-      animationLong: null,
-      animationDuration: 300,
+      openContent: true,
     };
   },
   computed: {
     ...mapMobileObserver(),
-    cartHasProducts() {
-      return parseInt(this.cartItemsQty, 10) > 0;
+    isVisibleOnMobile() {
+      return this.isMobile;
     },
-    wishlistHasProducts() {
-      return parseInt(this.wishlistItemsQty, 10) > 0;
+    isVisible() {
+      return isClient;
     },
-  },
-  watch: {
-    scrollDirection: {
-      handler() {
-        if (!isClient) return;
-        window.cancelAnimationFrame(this.animationLong);
-        this.animationLong = null;
-        this.animationStart = null;
-        this.animationLong = window.requestAnimationFrame(
-          this.animationHandler
-        );
-      },
-    },
-    isSticky: {
-      handler(isSticky) {
-        if (!isClient) return;
-        this.sticky = isSticky;
-      },
-      immediate: true,
-    },
-  },
-  mounted() {
-    if (this.isSticky) {
-      window.addEventListener("scroll", this.scrollHandler, { passive: true });
-    }
   },
   beforeDestroy() {
     unMapMobileObserver();
-    if (this.isSticky) {
-      window.removeEventListener("scroll", this.scrollHandler, {
-        passive: true,
-      });
-    }
   },
   methods: {
-    animationHandler(timestamp) {
-      if (!this.animationStart) this.animationStart = timestamp;
-      const progress = timestamp - this.animationStart;
-      if (progress < this.animationDuration) {
-        this.animationLong = window.requestAnimationFrame(
-          this.animationHandler
-        );
-        return;
-      }
-      this.hidden = this.scrollDirection === "down";
-    },
-    scrollHandler() {
-      if (!isClient) return;
-      const currentScrollPosition =
-        window.pageYOffset || document.documentElement.scrollTop;
-      if (!!this.refs) {
-        if (currentScrollPosition >= this.$refs.header.offsetHeight) {
-          this.scrollDirection =
-            currentScrollPosition < this.lastScrollPosition ? "up" : "down";
-        }
-      }
-      this.lastScrollPosition = currentScrollPosition;
+    closeHandler() {
+      this.$emit("close");
     },
   },
 };
