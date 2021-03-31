@@ -20,7 +20,7 @@
     @keyup.down="move(1)"
     @keyup.enter="enter($event)"
   >
-    <div style="position: relative;">
+    <div style="position: relative">
       <div
         ref="sfComponentSelect"
         v-focus

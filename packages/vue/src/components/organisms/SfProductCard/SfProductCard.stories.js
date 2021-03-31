@@ -15,6 +15,34 @@ export default {
       table: {
         category: "Props",
       },
+      handleSelectedColor(color) {
+        this.colors.map((el) => {
+          if (el.label === color.label) {
+            color.selected = !color.selected;
+          }
+        });
+      },
+    },
+    data() {
+      return {
+        colors: [
+          { label: "Sand", value: "sand", color: "#EDCBB9", selected: false },
+          { label: "Mint", value: "mint", color: "#ABD9D8", selected: false },
+          {
+            label: "Vivid rose",
+            value: "vivid rose",
+            color: "#DB5593",
+            selected: false,
+          },
+          { label: "Peach", value: "peach", color: "#F59F93", selected: false },
+          {
+            label: "Citrus",
+            value: "citrus",
+            color: "#FFEE97",
+            selected: false,
+          },
+        ],
+      };
     },
     image: {
       control: "text",
@@ -27,6 +55,34 @@ export default {
       table: {
         category: "Props",
       },
+      handleSelectedColor(color) {
+        this.colors.map((el) => {
+          if (el.label === color.label) {
+            color.selected = !color.selected;
+          }
+        });
+      },
+    },
+    data() {
+      return {
+        colors: [
+          { label: "Sand", value: "sand", color: "#EDCBB9", selected: false },
+          { label: "Mint", value: "mint", color: "#ABD9D8", selected: false },
+          {
+            label: "Vivid rose",
+            value: "vivid rose",
+            color: "#DB5593",
+            selected: false,
+          },
+          { label: "Peach", value: "peach", color: "#F59F93", selected: false },
+          {
+            label: "Citrus",
+            value: "citrus",
+            color: "#FFEE97",
+            selected: false,
+          },
+        ],
+      };
     },
     imageHeight: {
       control: "number",
@@ -39,6 +95,34 @@ export default {
       table: {
         category: "Props",
       },
+      handleSelectedColor(color) {
+        this.colors.map((el) => {
+          if (el.label === color.label) {
+            color.selected = !color.selected;
+          }
+        });
+      },
+    },
+    data() {
+      return {
+        colors: [
+          { label: "Sand", value: "sand", color: "#EDCBB9", selected: false },
+          { label: "Mint", value: "mint", color: "#ABD9D8", selected: false },
+          {
+            label: "Vivid rose",
+            value: "vivid rose",
+            color: "#DB5593",
+            selected: false,
+          },
+          { label: "Peach", value: "peach", color: "#F59F93", selected: false },
+          {
+            label: "Citrus",
+            value: "citrus",
+            color: "#FFEE97",
+            selected: false,
+          },
+        ],
+      };
     },
     badgeColor: {
       control: "color",
@@ -50,6 +134,13 @@ export default {
       control: "number",
       table: {
         category: "Props",
+      },
+      handleSelectedColor(color) {
+        this.colors.map((el) => {
+          if (el.label === color.label) {
+            color.selected = !color.selected;
+          }
+        });
       },
     },
     reviewsCount: {
