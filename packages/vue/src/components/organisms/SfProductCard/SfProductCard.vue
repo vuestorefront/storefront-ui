@@ -31,6 +31,25 @@
           />
         </SfButton>
       </slot>
+      <slot name="colors" v-bind="{ colors }">
+        <SfColorPicker
+          v-if="colors"
+          class="sf-product-card__colors"
+          label="Choose color"
+          :has-close="true"
+          :is-open="!isMobile || openColorPicker"
+          @click:toggle="toggleColorPicker"
+        >
+          <SfColor
+            v-for="(color, i) in colors"
+            :key="color.value"
+            :color="color.color"
+            :selected="color.selected"
+            class="sf-product-card__color"
+            @click="handleSelectedColor(i)"
+          />
+        </SfColorPicker>
+      </slot>
       <slot name="badge" v-bind="{ badgeLabel, badgeColor }">
         <SfBadge
           v-if="badgeLabel"
@@ -150,6 +169,13 @@ import SfImage from "../../atoms/SfImage/SfImage.vue";
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfBadge from "../../atoms/SfBadge/SfBadge.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
+import SfColorPicker from "../../molecules/SfColorPicker/SfColorPicker.vue";
+import SfColor from "../../atoms/SfColor/SfColor.vue";
+import {
+  mapMobileObserver,
+  unMapMobileObserver,
+} from "../../../utilities/mobile-observer";
+
 export default {
   name: "SfProductCard",
   components: {
@@ -160,6 +186,8 @@ export default {
     SfCircleIcon,
     SfBadge,
     SfButton,
+    SfColorPicker,
+    SfColor,
   },
   props: {
     /**
@@ -199,6 +227,14 @@ export default {
     badgeColor: {
       type: String,
       default: "",
+    },
+    /**
+     * Product colors
+     * It should be an array of objects
+     */
+    colors: {
+      type: Array,
+      default: () => [],
     },
     /**
      * Product title
@@ -307,9 +343,11 @@ export default {
   data() {
     return {
       isAddingToCart: false,
+      openColorPicker: false,
     };
   },
   computed: {
+    ...mapMobileObserver(),
     isSFColors() {
       return SF_COLORS.includes(this.badgeColor.trim());
     },
@@ -330,7 +368,22 @@ export default {
       return `${defaultClass} ${this.isOnWishlist ? "on-wishlist" : ""}`;
     },
   },
+  beforeDestroy() {
+    unMapMobileObserver();
+  },
   methods: {
+    handleSelectedColor(colorIndex) {
+      if (this.colors.length > 0) {
+        this.colors.map((color, i) => {
+          if (colorIndex === i) {
+            this.$emit("click:colors", color);
+          }
+        });
+      }
+    },
+    toggleColorPicker() {
+      this.openColorPicker = !this.openColorPicker;
+    },
     toggleIsOnWishlist() {
       this.$emit("click:wishlist", !this.isOnWishlist);
     },
