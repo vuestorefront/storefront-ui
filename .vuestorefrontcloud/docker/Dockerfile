@@ -10,4 +10,5 @@ RUN cd packages/vue \
 
 FROM nginx
 
+COPY .vuestorefrontcloud/docker/default.conf /etc/nginx/conf.d/default.conf
 COPY --from=build /var/www/packages/vue/storybook-static /usr/share/nginx/html
