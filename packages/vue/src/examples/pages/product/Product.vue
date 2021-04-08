@@ -32,7 +32,9 @@
                 ({{ product.reviews.length }})
               </a>
             </div>
-            <SfButton class="sf-button--text">Read all reviews</SfButton>
+            <SfButton class="sf-button--text" @click="changeTab(2)">
+              Read all reviews
+            </SfButton>
           </div>
         </div>
         <div>
@@ -80,7 +82,12 @@
             Add to compare
           </SfButton>
         </div>
-        <SfTabs :open-tab="1" class="product__tabs">
+        <SfTabs
+          id="tabs"
+          :open-tab="openTab"
+          class="product__tabs"
+          @click:tab="changeTab"
+        >
           <SfTab v-for="tab in tabs" :key="tab.title" :title="tab.title">
             {{ tab.content }}
             <div v-if="tab.title === 'Description'">
@@ -313,6 +320,7 @@ export default {
         },
       ],
       isOpenNotification: false,
+      openTab: 1,
     };
   },
   methods: {
@@ -331,6 +339,12 @@ export default {
           el.selected = false;
         }
       });
+    },
+    changeTab(tabNumber) {
+      document
+        .getElementById("tabs")
+        .scrollIntoView({ behavior: "smooth", block: "end" });
+      this.openTab = tabNumber;
     },
   },
 };

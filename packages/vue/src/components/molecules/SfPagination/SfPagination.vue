@@ -5,11 +5,12 @@
       <div v-if="hasArrows" class="sf-pagination__item prev">
         <component
           :is="componentIs"
-          v-if="canGoPrev"
           :class="{
             'sf-button--pure': !hasRouter,
+            'sf-arrow--transparent': !hasRouter && !canGoPrev,
           }"
           :link="hasRouter ? getLinkTo(getPrev) : null"
+          :disabled="!hasRouter && !canGoPrev ? true : false"
           aria-label="Go to previous page"
           @click="hasRouter ? null : go(getPrev)"
         >
@@ -75,11 +76,12 @@
       <div v-if="hasArrows" class="sf-pagination__item next">
         <component
           :is="componentIs"
-          v-if="canGoNext"
           :class="{
             'sf-button--pure': !hasRouter,
+            'sf-arrow--transparent': !hasRouter && !canGoNext,
           }"
           :link="hasRouter ? getLinkTo(getNext) : null"
+          :disabled="!hasRouter && !canGoNext ? true : false"
           aria-label="Go to previous next"
           @click="hasRouter ? null : go(getNext)"
         >
@@ -152,16 +154,20 @@ export default {
         : this.current;
     },
     getPrev() {
-      return this.currentPage - 1;
+      return this.currentPage === this.firstVisiblePageNumber
+        ? this.currentPage
+        : this.currentPage - 1;
     },
     canGoPrev() {
-      return this.getPrev > 0;
+      return this.currentPage !== this.firstVisiblePageNumber;
     },
     getNext() {
-      return this.currentPage + 1;
+      return this.currentPage === this.lastVisiblePageNumber
+        ? this.currentPage
+        : this.currentPage + 1;
     },
     canGoNext() {
-      return this.getNext <= this.total;
+      return this.currentPage !== this.lastVisiblePageNumber;
     },
     showFirst() {
       return this.firstVisiblePageNumber > 1;
@@ -202,13 +208,15 @@ export default {
       this.$emit("click", page);
     },
     getLinkTo(page) {
-      const route = {
-        name: this.$route.name,
-        params: this.$route.params,
-        query: { ...this.$route.query, page: page.toString() },
-      };
-      const linkToPage = this.$router.resolve(route).href;
-      return linkToPage.slice(1);
+      const pageNumber = page.toString();
+      if (this.hasRouter) {
+        return {
+          ...this.$route,
+          query: { ...this.$route.query, [this.pageParamName]: page },
+        };
+      } else {
+        return pageNumber;
+      }
     },
   },
 };
