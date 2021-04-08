@@ -5,7 +5,11 @@
         name="image"
         v-bind="{ image, title, link, imageHeight, imageWidth }"
       >
-        <SfLink :link="link" class="sf-product-card__link">
+        <SfButton
+          :link="link"
+          class="sf-button--pure sf-product-card__link"
+          v-on="$listeners"
+        >
           <template v-if="Array.isArray(image)">
             <SfImage
               v-for="(picture, key) in image.slice(0, 2)"
@@ -25,7 +29,7 @@
             :width="imageWidth"
             :height="imageHeight"
           />
-        </SfLink>
+        </SfButton>
       </slot>
       <slot name="colors" v-bind="{ colors }">
         <SfColorPicker
@@ -57,7 +61,7 @@
         v-if="wishlistIcon !== false"
         :aria-label="`${ariaLabel} ${title}`"
         :class="wishlistIconClasses"
-        @click="toggleIsOnWishlist"
+        @click="toggleIsInWishlist"
       >
         <slot name="wishlist-icon" v-bind="{ currentWishlistIcon }">
           <SfIcon
@@ -115,11 +119,15 @@
       </template>
     </div>
     <slot name="title" v-bind="{ title, link }">
-      <SfLink :link="link" class="sf-product-card__link">
+      <SfButton
+        :link="link"
+        class="sf-button--pure sf-product-card__link"
+        v-on="$listeners"
+      >
         <h3 class="sf-product-card__title">
           {{ title }}
         </h3>
-      </SfLink>
+      </SfButton>
     </slot>
     <slot name="price" v-bind="{ specialPrice, regularPrice }">
       <SfPrice
@@ -154,7 +162,6 @@
 <script>
 import { colorsValues as SF_COLORS } from "@storefront-ui/shared/variables/colors";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
-import SfLink from "../../atoms/SfLink/SfLink.vue";
 import SfPrice from "../../atoms/SfPrice/SfPrice.vue";
 import SfRating from "../../atoms/SfRating/SfRating.vue";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
@@ -175,7 +182,6 @@ export default {
     SfRating,
     SfIcon,
     SfImage,
-    SfLink,
     SfCircleIcon,
     SfBadge,
     SfButton,
@@ -300,14 +306,14 @@ export default {
      * This is the icon for product added to wish list. Default visible on mobile. Visible only on hover on desktop.
      * It can be a icon name from our icons list, or array or string as SVG path(s).
      */
-    isOnWishlistIcon: {
+    isInWishlistIcon: {
       type: [String, Array],
       default: "heart_fill",
     },
     /**
      * Status of whether product is on wish list or not
      */
-    isOnWishlist: {
+    isInWishlist: {
       type: Boolean,
       default: false,
     },
@@ -348,17 +354,17 @@ export default {
       return this.isSFColors ? `${this.badgeColor.trim()}` : "";
     },
     currentWishlistIcon() {
-      return this.isOnWishlist ? this.isOnWishlistIcon : this.wishlistIcon;
+      return this.isInWishlist ? this.isInWishlistIcon : this.wishlistIcon;
     },
     showAddedToCartBadge() {
       return !this.isAddingToCart && this.isAddedToCart;
     },
     ariaLabel() {
-      return this.isOnWishlist ? "Remove from wishlist" : "Add to wishlist";
+      return this.isInWishlist ? "Remove from wishlist" : "Add to wishlist";
     },
     wishlistIconClasses() {
       const defaultClass = "sf-button--pure sf-product-card__wishlist-icon";
-      return `${defaultClass} ${this.isOnWishlist ? "on-wishlist" : ""}`;
+      return `${defaultClass} ${this.isInWishlist ? "on-wishlist" : ""}`;
     },
   },
   beforeDestroy() {
@@ -377,8 +383,8 @@ export default {
     toggleColorPicker() {
       this.openColorPicker = !this.openColorPicker;
     },
-    toggleIsOnWishlist() {
-      this.$emit("click:wishlist", !this.isOnWishlist);
+    toggleIsInWishlist() {
+      this.$emit("click:wishlist", !this.isInWishlist);
     },
     onAddToCart(event) {
       event.preventDefault();

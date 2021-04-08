@@ -36,6 +36,7 @@
     line-height: 0;
     text-decoration: none;
     margin: var(--product-card-link-margin, 0);
+    text-align: left;
   }
   &__colors {
     --color-picker-label-font-size: var(--font-size--base);
