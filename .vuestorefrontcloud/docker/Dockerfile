@@ -6,7 +6,7 @@ COPY . .
 
 RUN cd packages/vue \
    && yarn \
-   && yarn docs:build
+   && yarn build-storybook
 
 FROM nginx
 
