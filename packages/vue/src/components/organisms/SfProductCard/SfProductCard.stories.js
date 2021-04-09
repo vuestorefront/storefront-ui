@@ -83,13 +83,13 @@ export default {
       },
       defaultValue: "heart",
     },
-    isOnWishlistIcon: {
+    isInWishlistIcon: {
       control: "text",
       table: {
         category: "Props",
       },
     },
-    isOnWishlist: {
+    isInWishlist: {
       control: "boolean",
       table: {
         category: "Props",
@@ -121,6 +121,10 @@ export default {
       action: "Wishlist clicked",
       table: { category: "Events" },
     },
+    handleClick: {
+      action: "Card clicked",
+      table: { category: "Events" },
+    },
   },
 };
 
@@ -143,13 +147,14 @@ const Template = (args, { argTypes }) => ({
     :regular-price="regularPrice"
     :special-price="specialPrice"
     :wishlist-icon="wishlistIcon"
-    :is-on-wishlist-icon="isOnWishlistIcon"
-    :is-on-wishlist="isOnWishlist"
+    :is-in-wishlist-icon="isInWishlistIcon"
+    :is-in-wishlist="isInWishlist"
     :show-add-to-cart-button="showAddToCartButton"
     :add-to-cart-disabled="addToCartDisabled"
     :is-added-to-cart="isAddedToCart"
     @click:add-to-cart="this['click:addToCart']"
     @click:wishlist="this['click:wishlist']"
+    @click="handleClick"
   />`,
 });
 
@@ -161,6 +166,12 @@ Common.args = {
   maxRating: 5,
   reviewsCount: 7,
   showAddToCartButton: true,
+};
+
+export const WithLink = Template.bind({});
+WithLink.args = {
+  ...Common.args,
+  link: "https://storefrontui.io",
 };
 
 export const WithBadge = Template.bind({});
@@ -179,7 +190,7 @@ AddedToCart.args = {
 export const AddedToWishlist = Template.bind({});
 AddedToWishlist.args = {
   ...Common.args,
-  isOnWishlist: true,
+  isInWishlist: true,
 };
 
 export const WithMultipleImages = Template.bind({
@@ -222,13 +233,14 @@ export const UseImageSlot = (args, { argTypes }) => ({
     :regular-price="regularPrice"
     :special-price="specialPrice"
     :wishlist-icon="wishlistIcon"
-    :is-on-wishlist-icon="isOnWishlistIcon"
-    :is-on-wishlist="isOnWishlist"
+    :is-in-wishlist-icon="isInWishlistIcon"
+    :is-in-wishlist="isInWishlist"
     :show-add-to-cart-button="showAddToCartButton"
     :add-to-cart-disabled="addToCartDisabled"
     :is-added-to-cart="isAddedToCart"
     @click:add-to-cart="this['click:addToCart']"
     @click:wishlist="this['click:wishlist']"
+    @click="handleClick"
   >
     <template #image="{ image, title }">
       <div :style="{ height: '111px', display: 'flex', alignItems: 'center', justifyContent: 'center'}">CUSTOM IMAGE</div>
@@ -256,13 +268,14 @@ export const UseAddToCart = (args, { argTypes }) => ({
     :regular-price="regularPrice"
     :special-price="specialPrice"
     :wishlist-icon="wishlistIcon"
-    :is-on-wishlist-icon="isOnWishlistIcon"
-    :is-on-wishlist="isOnWishlist"
+    :is-in-wishlist-icon="isInWishlistIcon"
+    :is-in-wishlist="isInWishlist"
     :show-add-to-cart-button="showAddToCartButton"
     :add-to-cart-disabled="addToCartDisabled"
     :is-added-to-cart="isAddedToCart"
     @click:add-to-cart="this['click:addToCart']"
     @click:wishlist="this['click:wishlist']"
+    @click="handleClick"
   >
     <template #add-to-cart="{ isAddedToCart, showAddedToCartBadge, isAddingToCart }">
       CUSTOM ADD TO CART
@@ -290,13 +303,14 @@ export const UseTitleSlot = (args, { argTypes }) => ({
     :regular-price="regularPrice"
     :special-price="specialPrice"
     :wishlist-icon="wishlistIcon"
-    :is-on-wishlist-icon="isOnWishlistIcon"
-    :is-on-wishlist="isOnWishlist"
+    :is-in-wishlist-icon="isInWishlistIcon"
+    :is-in-wishlist="isInWishlist"
     :show-add-to-cart-button="showAddToCartButton"
     :add-to-cart-disabled="addToCartDisabled"
     :is-added-to-cart="isAddedToCart"
     @click:add-to-cart="this['click:addToCart']"
     @click:wishlist="this['click:wishlist']"
+    @click="handleClick"
   >
     <template #title">
       CUSTOM TITLE
@@ -324,13 +338,14 @@ export const UseWishlistIconSlot = (args, { argTypes }) => ({
     :regular-price="regularPrice"
     :special-price="specialPrice"
     :wishlist-icon="wishlistIcon"
-    :is-on-wishlist-icon="isOnWishlistIcon"
-    :is-on-wishlist="isOnWishlist"
+    :is-in-wishlist-icon="isInWishlistIcon"
+    :is-in-wishlist="isInWishlist"
     :show-add-to-cart-button="showAddToCartButton"
     :add-to-cart-disabled="addToCartDisabled"
     :is-added-to-cart="isAddedToCart"
     @click:add-to-cart="this['click:addToCart']"
     @click:wishlist="this['click:wishlist']"
+    @click="handleClick"
   >
     <template #wishlist-icon">
       CUSTOM WISHLIST ICON
@@ -358,13 +373,14 @@ export const UsePriceSlot = (args, { argTypes }) => ({
     :regular-price="regularPrice"
     :special-price="specialPrice"
     :wishlist-icon="wishlistIcon"
-    :is-on-wishlist-icon="isOnWishlistIcon"
-    :is-on-wishlist="isOnWishlist"
+    :is-in-wishlist-icon="isInWishlistIcon"
+    :is-in-wishlist="isInWishlist"
     :show-add-to-cart-button="showAddToCartButton"
     :add-to-cart-disabled="addToCartDisabled"
     :is-added-to-cart="isAddedToCart"
     @click:add-to-cart="this['click:addToCart']"
     @click:wishlist="this['click:wishlist']"
+    @click="handleClick"
   >
     <template #price">
       CUSTOM PRICE
@@ -392,13 +408,14 @@ export const UseReviewsSlot = (args, { argTypes }) => ({
     :regular-price="regularPrice"
     :special-price="specialPrice"
     :wishlist-icon="wishlistIcon"
-    :is-on-wishlist-icon="isOnWishlistIcon"
-    :is-on-wishlist="isOnWishlist"
+    :is-in-wishlist-icon="isInWishlistIcon"
+    :is-in-wishlist="isInWishlist"
     :show-add-to-cart-button="showAddToCartButton"
     :add-to-cart-disabled="addToCartDisabled"
     :is-added-to-cart="isAddedToCart"
     @click:add-to-cart="this['click:addToCart']"
     @click:wishlist="this['click:wishlist']"
+    @click="handleClick"
   >
     <template #reviews">
       CUSTOM REVIEWS
