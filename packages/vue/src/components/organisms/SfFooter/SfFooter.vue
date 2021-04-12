@@ -42,6 +42,11 @@ export default {
       default: () => [],
     },
   },
+  provide() {
+    return {
+      items: this.items,
+    }
+  },
   data() {
     return {
       isOpen: [],
