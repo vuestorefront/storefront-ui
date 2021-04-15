@@ -52,7 +52,7 @@
           :special-price="product.price.special"
           :score-rating="product.rating.score"
           :max-rating="product.rating.max"
-          :is-on-wishlist="product.isOnWishlist"
+          :is-in-wishlist="product.isInWishlist"
           :show-add-to-cart-button="true"
           :reviews-count="product.reviews"
           :badge-label="product.badgeLabel"
@@ -202,7 +202,7 @@ export default {
           image: "assets/storybook/Home/productA.jpg",
           price: { regular: "$ 50.00 " },
           rating: { max: 5, score: 4 },
-          isOnWishlist: true,
+          isInWishlist: true,
           reviews: 8,
           badgeLabel: "",
           badgeColor: "color-primary",
@@ -212,7 +212,7 @@ export default {
           image: "assets/storybook/Home/productB.jpg",
           price: { regular: "$ 50.00 ", special: "$ 25.00 " },
           rating: { max: 5, score: 4 },
-          isOnWishlist: true,
+          isInWishlist: true,
           reviews: 8,
           badgeLabel: "-50%",
           badgeColor: "color-primary",
@@ -222,7 +222,7 @@ export default {
           image: "assets/storybook/Home/productC.jpg",
           price: { regular: "$ 50.00 " },
           rating: { max: 5, score: 4 },
-          isOnWishlist: false,
+          isInWishlist: false,
           reviews: 8,
           badgeLabel: "",
           badgeColor: "color-primary",
@@ -232,7 +232,7 @@ export default {
           image: "assets/storybook/Home/productA.jpg",
           price: { regular: "$ 50.00 " },
           rating: { max: 5, score: 4 },
-          isOnWishlist: false,
+          isInWishlist: false,
           reviews: 8,
           badgeLabel: "",
           badgeColor: "color-primary",
@@ -242,7 +242,7 @@ export default {
           image: "assets/storybook/Home/productB.jpg",
           price: { regular: "$ 50.00 ", special: "$ 45.00" },
           rating: { max: 5, score: 4 },
-          isOnWishlist: false,
+          isInWishlist: false,
           reviews: 8,
           badgeLabel: "-10%",
           badgeColor: "color-primary",
@@ -252,7 +252,7 @@ export default {
           image: "assets/storybook/Home/productC.jpg",
           price: { regular: "$ 50.00 " },
           rating: { max: 5, score: 4 },
-          isOnWishlist: false,
+          isInWishlist: false,
           reviews: 8,
           badgeLabel: "",
           badgeColor: "color-primary",
@@ -262,7 +262,7 @@ export default {
           image: "assets/storybook/Home/productA.jpg",
           price: { regular: "$ 50.00 " },
           rating: { max: 5, score: 4 },
-          isOnWishlist: false,
+          isInWishlist: false,
           reviews: 8,
           badgeLabel: "",
           badgeColor: "color-primary",
@@ -272,7 +272,7 @@ export default {
           image: "assets/storybook/Home/productB.jpg",
           price: { regular: "$ 50.00 " },
           rating: { max: 5, score: 4 },
-          isOnWishlist: false,
+          isInWishlist: false,
           reviews: 8,
           badgeLabel: "",
           badgeColor: "color-primary",
@@ -304,8 +304,8 @@ export default {
   },
   methods: {
     toggleWishlist(index) {
-      return (this.products[index].isOnWishlist = !this.products[index]
-        .isOnWishlist);
+      return (this.products[index].isInWishlist = !this.products[index]
+        .isInWishlist);
     },
   },
 };
