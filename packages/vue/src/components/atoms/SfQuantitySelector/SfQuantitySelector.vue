@@ -49,13 +49,6 @@ export default {
       default: false,
     },
   },
-  watch: {
-    qty(val) {
-      if (val < 1 || isNaN(val)) {
-        this.$emit("input", 1);
-      }
-    },
-  },
 };
 </script>
 <style lang="scss">
