@@ -1,5 +1,5 @@
 @import "~@storefront-ui/shared/styles/helpers";
-.sb-mega-menu {
+.sf-mega-menu {
   &__featured {
     flex: 0 0 43.125rem;
   }
@@ -18,6 +18,12 @@
       @include for-desktop {
         margin: 0 var(--spacer-sm) 0 0;
       }
+    }
+  }
+  &__sf-bar {
+    display: flex;
+    @include for-desktop {
+      display:  none;
     }
   }
 }
