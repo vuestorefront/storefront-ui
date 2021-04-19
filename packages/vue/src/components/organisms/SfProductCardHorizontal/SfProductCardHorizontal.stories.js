@@ -139,6 +139,10 @@ export default {
       action: "Wishlist clicked",
       table: { category: "Events" },
     },
+    input: {
+      action: "Quantity changed",
+      table: { category: "Events" },
+    },
   },
 };
 
@@ -166,8 +170,8 @@ const Template = (args, { argTypes }) => ({
     :wishlist-icon="wishlistIcon"
     :reviews-count="reviewsCount"
     :description="description"
-    :qty="qty"
-    @input="quantity = $event"
+    :qty="quantity"
+    @input="input"
     :is-in-wishlist-icon="isInWishlistIcon"
     :is-in-wishlist="isInWishlist"
     @click:add-to-cart="this['click:addToCart']"
