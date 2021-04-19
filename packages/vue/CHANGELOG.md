@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.5](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/vue@0.10.4...@storefront-ui/vue@0.10.5) (2021-04-19)
+
+
+### Bug Fixes
+
+* images on ssr ([d1941b9](https://github.com/vuestorefront/storefront-ui/commit/d1941b9b0bc3f9d4e72f254cacdde697c664fce0))
+* sficon replace div with span element ([bd53319](https://github.com/vuestorefront/storefront-ui/commit/bd53319eb76a9818aa652a041d12938e01f30c13))
+* sfmegamenu add sfbar class ([#1777](https://github.com/vuestorefront/storefront-ui/issues/1777)) ([26bd270](https://github.com/vuestorefront/storefront-ui/commit/26bd270f760d947dac9fd775c3db115547e4472f))
+
+
+
+
+
 ## [0.10.4](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/vue@0.10.3...@storefront-ui/vue@0.10.4) (2021-03-22)
 
 
