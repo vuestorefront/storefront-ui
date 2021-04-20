@@ -1,5 +1,15 @@
-<template>
-  <div class="sf-skeleton" :class="`sf-skeleton--${type}`">
+<template functional>
+  <div
+    :class="[
+      data.class,
+      data.staticClass,
+      'sf-skeleton',
+      `sf-skeleton--${props.type}`,
+    ]"
+    :style="[data.style, data.staticStyle]"
+    v-bind="data.attrs"
+    v-on="listeners"
+  >
     <slot />
   </div>
 </template>
