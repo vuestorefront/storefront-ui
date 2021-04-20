@@ -32,11 +32,16 @@ const Template = (args, { argTypes }) => ({
       curr: this.current,
     };
   },
+  methods: {
+    handleClick(value) {
+      this.curr = value;
+    },
+  },
   template: `
   <SfBullets
     :total="total"
     :current="curr"
-    @click="value => curr = value"
+    @click="handleClick"
   />`,
 });
 
