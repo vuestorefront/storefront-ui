@@ -1,8 +1,9 @@
-<template>
+<template functional>
   <component
-    :is="linkComponentTag"
-    v-focus
-    v-bind="urlTag"
+    :is="$options.linkComponentTag($options.isExternal, $nuxt, $router)"
+    v-bind="
+      $options.attributes($options.isExternal, $router, props.link, attrs)
+    "
     class="sf-link"
     v-on="$listeners"
   >
@@ -24,22 +25,21 @@ export default {
       default: "",
     },
   },
-  computed: {
-    isExternal() {
-      return (
-        typeof this.link === "string" && this.link.search(/(^\/|^#)/g) === -1
-      );
-    },
-    isNativeLinkTag() {
-      return this.isExternal || !this.$router;
-    },
-    urlTag() {
-      return this.isNativeLinkTag ? { href: this.link } : { to: this.link };
-    },
-    linkComponentTag() {
-      const routerLink = this.$nuxt ? "nuxt-link" : "router-link";
-      return this.isNativeLinkTag ? "a" : routerLink;
-    },
+  isExternal() {
+    return (
+      typeof this.link === "string" && this.link.search(/(^\/|^#)/g) === -1
+    );
+  },
+  attributes(isExternal, $router, link, attrs) {
+    const urlTag = isExternal || !$router ? { href: link } : { to: link };
+    return {
+      ...attrs,
+      ...urlTag,
+    };
+  },
+  linkComponentTag(isExternal, $nuxt, $router) {
+    const routerLink = $nuxt ? "nuxt-link" : "router-link";
+    return isExternal || !$router ? "a" : routerLink;
   },
 };
 </script>
