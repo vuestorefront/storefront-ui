@@ -1,42 +1,64 @@
-<template>
-  <div class="sf-quantity-selector">
-    <SfButton
-      :disabled="disabled"
+<template functional>
+  <div
+    :class="[data.class, data.staticClass, 'sf-quantity-selector']"
+    :style="[data.style, data.staticStyle]"
+  >
+    <component
+      :is="injections.components.SfButton"
+      :disabled="props.disabled"
       class="sf-button--pure sf-quantity-selector__button"
       data-testid="+"
-      @click="$emit('input', parseInt(qty, 10) - 1)"
-      >&minus;</SfButton
+      @click="
+        listeners.input &&
+          listeners.input(
+            props.qty,
+            $options.handleInput(props.qty, parseInt(props.qty, 10) - 1)
+          )
+      "
     >
-    <SfInput
+      &minus;
+    </component>
+    <component
+      :is="injections.components.SfInput"
       type="number"
-      :value="qty"
-      v-bind="$attrs"
-      :disabled="disabled"
+      :value="props.qty"
+      :disabled="props.disabled"
       class="sf-quantity-selector__input"
       data-testid="sf-quantity-selector input"
-      @input="$emit('input', parseInt($event, 10))"
+      @input="
+        listeners.input($options.handleInput(props.qty, parseInt($event, 10)))
+      "
     />
-    <SfButton
-      :disabled="disabled"
+    <component
+      :is="injections.components.SfButton"
+      :disabled="props.disabled"
       class="sf-button--pure sf-quantity-selector__button"
       data-testid="-"
-      @click="$emit('input', parseInt(qty, 10) + 1)"
-      >+</SfButton
+      @click="
+        listeners.input &&
+          listeners.input(
+            props.qty,
+            $options.handleInput(props.qty, parseInt(props.qty, 10) + 1)
+          )
+      "
     >
+      +
+    </component>
   </div>
 </template>
 <script>
 import SfInput from "../../atoms/SfInput/SfInput.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
+
 export default {
   name: "SfQuantitySelector",
-  components: {
-    SfInput,
-    SfButton,
-  },
-  inheritAttrs: false,
-  model: {
-    prop: "qty",
+  inject: {
+    components: {
+      default: {
+        SfInput,
+        SfButton,
+      },
+    },
   },
   props: {
     /** Quantity */
@@ -49,12 +71,8 @@ export default {
       default: false,
     },
   },
-  watch: {
-    qty(val) {
-      if (val < 1 || isNaN(val)) {
-        this.$emit("input", 1);
-      }
-    },
+  handleInput(qty, value) {
+    return qty < 1 || isNaN(qty) ? 1 : value;
   },
 };
 </script>
