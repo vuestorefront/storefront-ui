@@ -5,7 +5,7 @@
       $options.attributes($options.isExternal, $router, props.link, attrs)
     "
     class="sf-link"
-    v-on="$listeners"
+    v-on="listeners"
   >
     <!-- @slot -->
     <slot />
