@@ -1,5 +1,5 @@
 <template>
-  <Fragment class="sf-tabs__tab">
+  <div class="sf-tabs__tab">
     <!--@slot Title. Here you should pass a title tab-->
     <slot name="title" v-bind="{ tabClick, isActive, title }">
       <SfButton
@@ -29,10 +29,9 @@
         <slot v-else />
       </div>
     </div>
-  </Fragment>
+  </div>
 </template>
 <script>
-import { Fragment } from "vue-fragment";
 import { isClient } from "../../../../utilities/helpers";
 import SfChevron from "../../../atoms/SfChevron/SfChevron.vue";
 import SfButton from "../../../atoms/SfButton/SfButton.vue";
@@ -40,7 +39,6 @@ import SfScrollable from "../../../molecules/SfScrollable/SfScrollable.vue";
 export default {
   name: "SfTab",
   components: {
-    Fragment,
     SfChevron,
     SfScrollable,
     SfButton,
