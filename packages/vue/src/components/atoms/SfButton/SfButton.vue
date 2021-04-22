@@ -13,7 +13,7 @@
     :style="[data.style, data.staticStyle]"    
     :disabled="props.disabled"
     :link="props.link"
-    v-bind="attrs"
+    v-bind="data.attrs"
     v-on="listeners"
   >
     <!--@slot Use this slot to place content inside the button.-->
