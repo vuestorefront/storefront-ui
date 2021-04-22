@@ -38,7 +38,6 @@
     "node-sass": "^4.13.1",
     "sass-loader": "^8.0.2",
     "simplebar-vue": "^1.4.0",
-    "vue-drag-drop": "^1.1.4",
     "vue-fragment": "^1.5.1",
     "vue2-leaflet": "^2.5.2"
   },
@@ -63,7 +62,6 @@
     "@vue/cli-service": "^4.3.1",
     "@vue/eslint-config-prettier": "^6.0.0",
     "@vue/test-utils": "^1.1.0",
-    "@vuepress/plugin-register-components": "^1.0.0-rc.1",
     "axios": "^0.21.1",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.2",
@@ -79,7 +77,6 @@
     "style-loader": "^2.0.0",
     "vue-docgen-api": "^3.22.3",
     "vue-template-compiler": "^2.6.11",
-    "vuepress": "^1.4.1",
     "webpack-dev-middleware": "3.7.2"
   },
   "peerDependencies": {
