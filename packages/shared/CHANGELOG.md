@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.5](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.10.4...@storefront-ui/shared@0.10.5) (2021-04-19)
+
+
+### Bug Fixes
+
+* sfgallery main image ([e42c327](https://github.com/vuestorefront/storefront-ui/commit/e42c327c8ab455e97ce2eb109eaa4cdf78f183ab))
+* sfmegamenu add sfbar class ([#1777](https://github.com/vuestorefront/storefront-ui/issues/1777)) ([26bd270](https://github.com/vuestorefront/storefront-ui/commit/26bd270f760d947dac9fd775c3db115547e4472f))
+
+
+
+
+
+## [0.10.4](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.10.3...@storefront-ui/shared@0.10.4) (2021-03-22)
+
+
+### Bug Fixes
+
+* Possible to open SfSelect when it is disabled  ([#1740](https://github.com/vuestorefront/storefront-ui/issues/1740)) ([7ac97f8](https://github.com/vuestorefront/storefront-ui/commit/7ac97f82f51c38ee7cf7315c2c87b4e030ed0663))
+* SfProductCard - picture and title shouldn't be only links ([#1708](https://github.com/vuestorefront/storefront-ui/issues/1708)) ([686935f](https://github.com/vuestorefront/storefront-ui/commit/686935f43d13fd485405f1e2c6e6667a7e748fba))
+
+
+
+
+
 ## [0.10.3](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.10.3...@storefront-ui/shared@0.10.3) (2021-02-16)
 
 **Note:** Version bump only for package @storefront-ui/shared
