@@ -20,6 +20,7 @@
       class="sf-quantity-selector__input"
       data-testid="sf-quantity-selector input"
       @input="$emit('input', parseInt($event, 10))"
+      @blur="$emit('blur', $event)"
     />
     <SfButton
       :disabled="disabled"

@@ -3,6 +3,68 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.5](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/vue@0.10.4...@storefront-ui/vue@0.10.5) (2021-04-19)
+
+
+### Bug Fixes
+
+* images on ssr ([d1941b9](https://github.com/vuestorefront/storefront-ui/commit/d1941b9b0bc3f9d4e72f254cacdde697c664fce0))
+* sficon replace div with span element ([bd53319](https://github.com/vuestorefront/storefront-ui/commit/bd53319eb76a9818aa652a041d12938e01f30c13))
+* sfmegamenu add sfbar class ([#1777](https://github.com/vuestorefront/storefront-ui/issues/1777)) ([26bd270](https://github.com/vuestorefront/storefront-ui/commit/26bd270f760d947dac9fd775c3db115547e4472f))
+
+
+
+
+
+## [0.10.4](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/vue@0.10.3...@storefront-ui/vue@0.10.4) (2021-03-22)
+
+
+### Bug Fixes
+
+* add change event to the radio component ([#1731](https://github.com/vuestorefront/storefront-ui/issues/1731)) ([2f55310](https://github.com/vuestorefront/storefront-ui/commit/2f5531064971ada68a0c89265d658dc5cede4436))
+* Possible to open SfSelect when it is disabled  ([#1740](https://github.com/vuestorefront/storefront-ui/issues/1740)) ([7ac97f8](https://github.com/vuestorefront/storefront-ui/commit/7ac97f82f51c38ee7cf7315c2c87b4e030ed0663))
+* SfInput label and user text overlaps (checkout example)  ([#1707](https://github.com/vuestorefront/storefront-ui/issues/1707)) ([3d353b8](https://github.com/vuestorefront/storefront-ui/commit/3d353b82b148ce8fe334d2ccf50853a439d5843f))
+* SfProductCard - picture and title shouldn't be only links ([#1708](https://github.com/vuestorefront/storefront-ui/issues/1708)) ([686935f](https://github.com/vuestorefront/storefront-ui/commit/686935f43d13fd485405f1e2c6e6667a7e748fba))
+* SfTabs jumping content ([#1733](https://github.com/vuestorefront/storefront-ui/issues/1733)) ([b11e8bb](https://github.com/vuestorefront/storefront-ui/commit/b11e8bb93abe402088041da6af35122d9d4d2c2b))
+
+
+### Features
+
+* open tabs not only by clicking on SfTab ([#1743](https://github.com/vuestorefront/storefront-ui/issues/1743)) ([e5e4dd3](https://github.com/vuestorefront/storefront-ui/commit/e5e4dd3ebaf8050a2448e3908453e5e48b81082c))
+
+
+
+
+
+## [0.10.3](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/vue@0.10.3...@storefront-ui/vue@0.10.3) (2021-02-16)
+
+**Note:** Version bump only for package @storefront-ui/vue
+
+
+
+
+
+## [0.10.3](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/vue@0.10.3...@storefront-ui/vue@0.10.3) (2021-02-16)
+
+**Note:** Version bump only for package @storefront-ui/vue
+
+
+
+
+
+## [0.10.3](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/vue@0.10.2...@storefront-ui/vue@0.10.3) (2021-02-15)
+
+
+### Bug Fixes
+
+* both arrows visible and fixed links ([#1693](https://github.com/vuestorefront/storefront-ui/issues/1693)) ([d4f3447](https://github.com/vuestorefront/storefront-ui/commit/d4f3447107c96d88a63f91ad988ff9234c4f89a4))
+* change glide init condition ([#1696](https://github.com/vuestorefront/storefront-ui/issues/1696)) ([8273594](https://github.com/vuestorefront/storefront-ui/commit/8273594345bdf8f9d94669dd01cf67fb7cc161e6))
+* SfSearchbar adding listeners  ([#1697](https://github.com/vuestorefront/storefront-ui/issues/1697)) ([07581e0](https://github.com/vuestorefront/storefront-ui/commit/07581e08d04e193795fc157e4cfa62efd05f5718))
+
+
+
+
+
 ## [0.10.2](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/vue@0.10.1...@storefront-ui/vue@0.10.2) (2021-02-04)
 
 

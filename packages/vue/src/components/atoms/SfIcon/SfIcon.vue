@@ -1,5 +1,5 @@
 <template>
-  <div
+  <span
     ref="icon"
     :class="['sf-icon', iconColorClass, iconSizeClass]"
     :style="iconCustomStyle"
@@ -29,7 +29,7 @@
         />
       </svg>
     </slot>
-  </div>
+  </span>
 </template>
 <script>
 import Vue from "vue";
