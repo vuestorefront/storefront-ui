@@ -20,7 +20,12 @@ export default {
         category: "Props",
       },
     },
-    click: { action: "set Value of current", table: { category: "Events" } },
+    // click: { action: "set Value of current", table: { category: "Events" } },
+  },
+  parameters: {
+    actions: {
+      handles: ['click', '.sf-bullet']
+    },
   },
 };
 
