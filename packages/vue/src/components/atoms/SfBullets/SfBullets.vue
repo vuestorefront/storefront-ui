@@ -14,7 +14,6 @@
             :is="injections.components.SfButton"
             class="sf-button--pure sf-bullet"
             type="button"
-            v-bind="data.attrs"
             :aria-label="'Go to slide ' + (index + 1)"
             :data-testid="index + 1"
             @click="listeners.click && listeners.click(index)"
