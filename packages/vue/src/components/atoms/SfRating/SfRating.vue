@@ -26,7 +26,7 @@
     </slot>
     <slot
       v-for="index in parseInt($options.finalMax(props.max), 10) -
-      Math.ceil(finalScore)"
+      Math.ceil($options.finalScore(props.score, props.max))"
       name="icon-negative"
     >
       <component
