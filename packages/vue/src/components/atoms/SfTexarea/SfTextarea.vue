@@ -155,14 +155,6 @@ export default {
       description: "Native input disabled attribute",
     },
   },
-  // listenersHandler(listeners, $event) {
-  //   // const inputEvent = ($event) => listeners.input()
-  //   console.log($event)
-  //   return {
-  //     ...listeners,
-  //     input: listeners.input($event.target.value)
-  //   };
-  // },
 };
 </script>
 <style lang="scss">
