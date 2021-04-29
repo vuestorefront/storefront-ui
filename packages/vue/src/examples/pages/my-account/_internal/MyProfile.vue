@@ -28,7 +28,7 @@
           required
           class="form__element"
         />
-        <SfButton class="form__button" @click="updatePersonal"
+        <SfButton class="form action-button" @click="updatePersonal"
           >Save changes
         </SfButton>
       </div>
@@ -36,7 +36,7 @@
         At Brand name, we attach great importance to privacy issues and are
         committed to protecting the personal data of our users. Learn more about
         how we care and use your personal data in the
-        <a href="">Privacy Policy.</a>
+        <a class="link" href="">Privacy Policy.</a>
       </p>
     </SfTab>
     <SfTab title="Password change">
@@ -70,7 +70,7 @@
           required
           class="form__element form__element--half form__element--half-even"
         />
-        <SfButton class="form__button" @click="updatePassword"
+        <SfButton class="form action-button" @click="updatePassword"
           >Update password
         </SfButton>
       </div>
@@ -132,6 +132,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
+@import "../../shared-styles.scss";
 .form {
   @include for-desktop {
     display: flex;
@@ -153,27 +154,6 @@ export default {
         }
       }
     }
-  }
-  &__button {
-    --button-width: 100%;
-    @include for-desktop {
-      --button-width: 17.5rem;
-    }
-  }
-}
-.message {
-  margin: 0 0 var(--spacer-xl) 0;
-  color: var(--c-dark-variant);
-}
-.notice {
-  margin: var(--spacer-base) 0 0 0;
-  font-size: var(--font-size--sm);
-}
-a {
-  color: var(--c-primary);
-  text-decoration: none;
-  &:hover {
-    color: var(--c-text);
   }
 }
 </style>

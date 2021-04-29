@@ -351,6 +351,8 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
+@import "../shared-styles.scss";
+
 #product {
   box-sizing: border-box;
   @include for-desktop {
@@ -503,9 +505,6 @@ export default {
   &__gallery {
     flex: 1;
   }
-}
-.breadcrumbs {
-  margin: var(--spacer-base) auto var(--spacer-lg);
 }
 .notification {
   position: fixed;

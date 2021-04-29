@@ -684,6 +684,8 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
+@import "../shared-styles.scss";
+
 #category {
   box-sizing: border-box;
   @include for-desktop {
@@ -698,10 +700,6 @@ export default {
       padding: 0;
     }
   }
-}
-.breadcrumbs {
-  padding: var(--spacer-base) var(--spacer-base) var(--spacer-base)
-    var(--spacer-sm);
 }
 .navbar {
   position: relative;

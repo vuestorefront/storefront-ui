@@ -7,7 +7,7 @@
       </p>
       <div v-if="orders.length === 0" class="no-orders">
         <p class="no-orders__title">You currently have no order history.</p>
-        <SfButton class="no-orders__button">Start shopping</SfButton>
+        <SfButton class="no-orders action-button">Start shopping</SfButton>
       </div>
       <SfTable v-else class="orders">
         <SfTableHeading>
@@ -48,7 +48,7 @@
     <SfTab title="Returns">
       <p class="message">
         This feature is not implemented yet! Please take a look at<br />
-        <a href="#"
+        <a class="link" href="#"
           >https://github.com/DivanteLtd/vue-storefront/issues for our
           Roadmap!</a
         >
@@ -91,16 +91,11 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
+@import "../../shared-styles.scss";
+
 .no-orders {
   &__title {
-    margin: 0 0 var(--spacer-base) 0;
-  }
-  &__button {
-    --button-width: 100%;
-    margin: var(--spacer-2xl) 0 0 0;
-    @include for-desktop {
-      --button-width: 17.375rem;
-    }
+    margin: 0 0 var(--spacer-2xl) 0;
   }
 }
 .orders {
@@ -110,18 +105,6 @@ export default {
         text-align: right;
       }
     }
-  }
-}
-.message {
-  margin: 0 0 var(--spacer-xl) 0;
-  color: var(--c-dark-variant);
-}
-a {
-  color: var(--c-primary);
-  font-weight: var(--font-weight--medium);
-  text-decoration: none;
-  &:hover {
-    color: var(--c-text);
   }
 }
 </style>

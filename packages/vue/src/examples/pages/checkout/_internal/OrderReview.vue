@@ -3,7 +3,7 @@
     <SfHeading
       title="Order review"
       :level="3"
-      class="sf-heading--left sf-heading--no-underline title"
+      class="sf-heading--left sf-heading--no-underline title-heading"
     />
     <div class="review__header">
       <p class="review__title">Personal details</p>
@@ -153,7 +153,9 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
-.title {
+@import "../../shared-styles.scss";
+
+.title-heading {
   --heading-title-margin: 0 0 var(--spacer-xl) 0;
   --heading-title-font-weight: var(--font-weight--bold);
   border-bottom: 1px solid var(--c-white);
@@ -173,44 +175,11 @@ export default {
   }
 }
 .promo-code {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
   padding-top: var(--spacer-lg);
   margin-top: var(--spacer-lg);
   border-top: var(--c-white) solid 1px;
-  &__input {
-    --input-background: var(--c-white);
-    --input-label-font-size: var(--font-size--base);
-    flex: 1;
-  }
-  &__button {
-    --button-height: 1.875rem;
-  }
 }
-.promo-code {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding: var(--spacer-lg) 0 var(--spacer-base) 0;
-  margin-top: var(--spacer-lg);
-  border-top: var(--c-white) solid 1px;
-  &__input {
-    --input-background: var(--c-white);
-    flex: 1;
-  }
-  &__button {
-    --button-height: 30px;
-  }
-}
-.characteristics {
-  &__item {
-    margin: var(--spacer-base) 0;
-    &:last-of-type {
-      margin-bottom: 0;
-    }
-  }
-}
+
 .content {
   font-family: var(--font-family--primary);
   font-size: var(--font-size--sm);

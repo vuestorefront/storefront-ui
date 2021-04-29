@@ -133,6 +133,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
+@import "../shared-styles.scss";
 #my-account {
   box-sizing: border-box;
   @include for-desktop {
@@ -152,8 +153,5 @@ export default {
   @include for-desktop {
     --content-pages-sidebar-category-title-margin: var(--spacer-xl) 0 0 0;
   }
-}
-.breadcrumbs {
-  padding: var(--spacer-base) 0 var(--spacer-lg);
 }
 </style>
