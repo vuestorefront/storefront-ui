@@ -1,6 +1,7 @@
 {
   "name": "@storefront-ui/vue",
   "version": "0.10.5",
+  "license": "MIT",
   "scripts": {
     "serve": "yarn create-index-files && vue-cli-service serve",
     "build": "yarn create-index-files && vue-cli-service build --target lib --name storefront-ui ./src/index.js",
