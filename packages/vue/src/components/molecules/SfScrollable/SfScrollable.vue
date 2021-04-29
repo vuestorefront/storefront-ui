@@ -1,11 +1,10 @@
 <template>
   <div class="sf-scrollable" :class="{ 'is-open': !isHidden }">
-    <Simplebar ref="content" class="sf-scrollable__content" :style="style">
+    <div ref="content" class="sf-scrollable__content" :style="style">
       <slot />
-    </Simplebar>
+    </div>
     <slot name="view-all" v-bind="{ hasScroll, showText, hideText }">
       <SfButton
-        v-show="hasScroll"
         class="sf-button--text sf-scrollable__view-all"
         @click="isHidden = !isHidden"
       >
@@ -16,12 +15,10 @@
   </div>
 </template>
 <script>
-import Simplebar from "simplebar-vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 export default {
   name: "SfScrollable",
   components: {
-    Simplebar,
     SfButton,
   },
   props: {
@@ -51,7 +48,7 @@ export default {
     return {
       isHidden: true,
       hasScroll: false,
-      contentEl: undefined,
+      // contentEl: undefined,
     };
   },
   computed: {
@@ -64,22 +61,22 @@ export default {
     },
   },
   mounted() {
-    this.$nextTick(() => {
-      this.contentEl = this.$refs.content.$el.querySelector(
-        ".simplebar-content"
-      );
-      if (typeof MutationObserver === "undefined" || !this.contentEl) return;
-      const observer = new MutationObserver(this.sizeCalc);
-      this.sizeCalc();
-      observer.observe(this.contentEl, { childList: true });
-    });
+    // this.$nextTick(() => {
+    //   this.contentEl = this.$refs.content.$el.querySelector(
+    //     ".simplebar-content"
+    //   );
+    //   if (typeof MutationObserver === "undefined" || !this.contentEl) return;
+    //   const observer = new MutationObserver(this.sizeCalc);
+    //   this.sizeCalc();
+    //   observer.observe(this.contentEl, { childList: true });
+    // });
   },
   methods: {
-    sizeCalc() {
-      const containerHeight = this.$refs.content.$el.offsetHeight;
-      const contentHeight = this.contentEl.offsetHeight;
-      this.hasScroll = contentHeight > containerHeight;
-    },
+    // sizeCalc() {
+    //   const containerHeight = this.$refs.content.$el.offsetHeight;
+    //   const contentHeight = this.contentEl.offsetHeight;
+    //   this.hasScroll = contentHeight > containerHeight;
+    // },
   },
 };
 </script>
