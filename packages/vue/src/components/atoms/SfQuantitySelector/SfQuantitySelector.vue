@@ -9,11 +9,7 @@
       class="sf-button--pure sf-quantity-selector__button"
       data-testid="+"
       @click="
-        listeners.input &&
-          listeners.input(
-            props.qty,
-            $options.handleInput(props.qty, parseInt(props.qty, 10) - 1)
-          )
+        listeners.input && listeners.input($options.handleInput(props.qty - 1))
       "
     >
       &minus;
@@ -25,9 +21,7 @@
       :disabled="props.disabled"
       class="sf-quantity-selector__input"
       data-testid="sf-quantity-selector input"
-      @input="
-        listeners.input($options.handleInput(props.qty, parseInt($event, 10)))
-      "
+      @input="data.nativeOn.input($options.handleInput($event))"
     />
     <component
       :is="injections.components.SfButton"
@@ -35,11 +29,7 @@
       class="sf-button--pure sf-quantity-selector__button"
       data-testid="-"
       @click="
-        listeners.input &&
-          listeners.input(
-            props.qty,
-            $options.handleInput(props.qty, parseInt(props.qty, 10) + 1)
-          )
+        listeners.input && listeners.input($options.handleInput(props.qty + 1))
       "
     >
       +
@@ -71,8 +61,9 @@ export default {
       default: false,
     },
   },
-  handleInput(qty, value) {
-    return qty < 1 || isNaN(qty) ? 1 : value;
+  handleInput(qty) {
+    console.log(qty);
+    return qty < 1 || isNaN(qty) ? 1 : qty;
   },
 };
 </script>
