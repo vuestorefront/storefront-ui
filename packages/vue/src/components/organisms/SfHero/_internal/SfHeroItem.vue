@@ -75,11 +75,7 @@ export default {
       const image = this.image;
       const background = this.background;
       return {
-        "--_hero-item-background-image": image.mobile
-          ? `url(${image.mobile})`
-          : `url(${image})`,
-        "--_hero-item-background-desktop-image":
-          image.desktop && `url(${image.desktop})`,
+        "background-image": `url(${image})`,
         "--_hero-item-background-color": background,
       };
     },
