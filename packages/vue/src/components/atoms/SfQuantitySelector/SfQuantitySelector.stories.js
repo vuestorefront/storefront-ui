@@ -38,13 +38,18 @@ const Template = (args, { argTypes }) => ({
       value: 1,
     };
   },
+  methods: {
+    inputHandler(quantityValue) {
+      this.value = quantityValue;
+    },
+  },
   template: `
   <SfQuantitySelector
     v-model="value"
     :disabled="disabled"
     aria-label="Quantity"
     :class="classes"
-    @input="input"
+    @input="inputHandler"
   />`,
 });
 
