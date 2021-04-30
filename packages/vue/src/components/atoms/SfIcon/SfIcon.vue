@@ -2,17 +2,21 @@
   <span
     ref="icon"
     :class="[
-      data.class, 
-      data.staticClass, 
-      'sf-icon', 
+      data.class,
+      data.staticClass,
+      'sf-icon',
       $options.iconColorClass(props.color),
       $options.iconSizeClass(props.size),
     ]"
-    :style="[data.style, data.staticStyle, $options.iconCustomStyle(props.color, props.size)]"
+    :style="[
+      data.style,
+      data.staticStyle,
+      $options.iconCustomStyle(props.color, props.size),
+    ]"
     v-bind="data.attrs"
     v-on="listeners"
   >
-    <slot v-bind="{  $options }">
+    <slot v-bind="{ props }">
       <svg
         class="sf-icon-path"
         :viewBox="$options.iconViewBox(props.icon, props.viewBox)"
@@ -48,7 +52,7 @@ export default {
   name: "SfIcon",
   inject: {
     components: {
-      default: { 
+      default: {
         icons,
         SF_COLORS,
         SF_SIZES,
@@ -121,21 +125,20 @@ export default {
   },
   iconViewBox(icon, viewBox) {
     const isSFIcons = () => {
-        if (typeof icon === "string") {
+      if (typeof icon === "string") {
         return SF_ICONS.includes(icon.trim());
       } else return null;
-    }
-    return isSFIcons
-      ? icons[icon].viewBox || viewBox
-      : viewBox;
+    };
+    console.log(isSFIcons(), icon, viewBox);
+    return isSFIcons() ? icons[icon].viewBox || viewBox : viewBox;
   },
   iconPaths(icon) {
     const isSFIcons = () => {
-        if (typeof icon === "string") {
+      if (typeof icon === "string") {
         return SF_ICONS.includes(icon.trim());
       } else return null;
-    }
-    if (isSFIcons) {
+    };
+    if (isSFIcons()) {
       return icons[icon].paths;
     } else {
       return Array.isArray(icon) ? icon : [icon];
@@ -143,9 +146,7 @@ export default {
   },
   fillPath(coverage) {
     const fillPathUrl = (index) => `url(#${index})`;
-    return coverage === 1
-      ? "var(--icon-color)"
-      : fillPathUrl(coverage);
+    return coverage === 1 ? "var(--icon-color)" : fillPathUrl(coverage);
   },
 };
 </script>
