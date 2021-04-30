@@ -18,10 +18,11 @@
           <slot name="link" v-bind="{ breadcrumb }">
             <component
               :is="injections.components.SfLink"
-              :link="breadcrumb.link"
               class="sf-breadcrumbs__breadcrumb"
+              :link="breadcrumb.link"
               :data-testid="breadcrumb.text"
-              >{{ breadcrumb.text }}
+            >
+              {{ breadcrumb.text }}
             </component>
           </slot>
         </template>
@@ -32,8 +33,9 @@
               :is="injections.components.SfLink"
               :link="breadcrumb.link"
               class="sf-breadcrumbs__breadcrumb current"
-              >{{ breadcrumb.text }}</component
             >
+              {{ breadcrumb.text }}
+            </component>
           </slot>
         </template>
       </li>
@@ -59,6 +61,7 @@ export default {
     },
   },
   breadcrumbLast(breadcrumbs) {
+    console.log(breadcrumbs.length);
     return breadcrumbs.length - 1;
   },
 };

@@ -2,9 +2,9 @@
   <component
     :is="$options.linkComponentTag($options.isExternal, $nuxt, $router)"
     v-bind="
-      $options.attributes($options.isExternal, $router, props.link, attrs)
+      $options.attributes($options.isExternal, $router, props.link, data.attrs)
     "
-    class="sf-link"
+    :class="[data.class, data.staticClass, 'sf-link']"
     v-on="listeners"
   >
     <!-- @slot -->
