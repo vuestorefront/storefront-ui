@@ -21,6 +21,7 @@
           v-if="buttonText && !isMobile"
           :link="link"
           class="sf-banner__call-to-action color-secondary"
+          data-testid="banner-cta-button"
           v-on="!isMobile ? $listeners : {}"
         >
           {{ buttonText }}

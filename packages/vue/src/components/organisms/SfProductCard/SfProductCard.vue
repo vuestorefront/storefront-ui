@@ -5,10 +5,10 @@
         name="image"
         v-bind="{ image, title, link, imageHeight, imageWidth }"
       >
-        <SfButton
+        <SfLink
           :link="link"
-          class="sf-button--pure sf-product-card__link"
-          v-on="$listeners"
+          class="sf-product-card__link"
+          data-testid="product-link"
         >
           <template v-if="Array.isArray(image)">
             <SfImage
@@ -29,7 +29,7 @@
             :width="imageWidth"
             :height="imageHeight"
           />
-        </SfButton>
+        </SfLink>
       </slot>
       <slot name="badge" v-bind="{ badgeLabel, badgeColor }">
         <SfBadge
@@ -43,6 +43,7 @@
         v-if="wishlistIcon !== false"
         :aria-label="`${ariaLabel} ${title}`"
         :class="wishlistIconClasses"
+        data-testid="product-wishlist-button"
         @click="toggleIsOnWishlist"
       >
         <slot name="wishlist-icon" v-bind="{ currentWishlistIcon }">
@@ -101,15 +102,15 @@
       </template>
     </div>
     <slot name="title" v-bind="{ title, link }">
-      <SfButton
+      <SfLink
         :link="link"
-        class="sf-button--pure sf-product-card__link"
-        v-on="$listeners"
+        class="sf-product-card__link"
+        data-testid="product-link"
       >
         <h3 class="sf-product-card__title">
           {{ title }}
         </h3>
-      </SfButton>
+      </SfLink>
     </slot>
     <slot name="price" v-bind="{ specialPrice, regularPrice }">
       <SfPrice
@@ -133,6 +134,7 @@
           v-if="reviewsCount"
           :aria-label="`Read ${reviewsCount} reviews about ${title}`"
           class="sf-button--pure sf-product-card__reviews-count"
+          data-testid="product-review-button"
           @click="$emit('click:reviews')"
         >
           ({{ reviewsCount }})
