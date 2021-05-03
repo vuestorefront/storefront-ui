@@ -129,7 +129,6 @@ export default {
         return SF_ICONS.includes(icon.trim());
       } else return null;
     };
-    console.log(isSFIcons(), icon, viewBox);
     return isSFIcons() ? icons[icon].viewBox || viewBox : viewBox;
   },
   iconPaths(icon) {
