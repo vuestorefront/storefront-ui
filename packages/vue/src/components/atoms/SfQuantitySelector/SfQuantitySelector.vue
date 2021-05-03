@@ -21,7 +21,7 @@
       :disabled="props.disabled"
       class="sf-quantity-selector__input"
       data-testid="sf-quantity-selector input"
-      @input="data.nativeOn.input($options.handleInput($event))"
+      @input="listeners.input($options.handleInput($event))"
     />
     <component
       :is="injections.components.SfButton"
