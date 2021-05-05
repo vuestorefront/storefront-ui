@@ -20,6 +20,7 @@
       class="sf-quantity-selector__input"
       data-testid="sf-quantity-selector input"
       @input="$options.handleInput($event, listeners)"
+      @blur="listeners.blur($event)"
     />
     <component
       :is="injections.components.SfButton"
