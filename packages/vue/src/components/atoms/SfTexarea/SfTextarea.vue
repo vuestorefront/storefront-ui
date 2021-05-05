@@ -14,6 +14,7 @@
   >
     <textarea
       :id="props.name"
+      :value="props.value"
       :name="props.name"
       :placeholder="props.placeholder"
       :cols="props.cols"
@@ -23,8 +24,7 @@
       :required="props.required"
       :maxlength="props.maxlength"
       :minlength="props.minlength"
-      v-on="listeners"
-      @input="listeners.input"
+      v-on="$options.handleInput(listeners)"
     />
     <label class="sf-textarea__label" :for="props.name">
       <!-- @slot Custom input label -->
@@ -154,6 +154,13 @@ export default {
       default: false,
       description: "Native input disabled attribute",
     },
+  },
+  handleInput(listeners) {
+    return {
+      ...listeners,
+      input: ($event) =>
+        listeners.input && listeners.input($event.target.value),
+    };
   },
 };
 </script>
