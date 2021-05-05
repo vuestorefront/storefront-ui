@@ -35,10 +35,11 @@
           <SfImage
             ref="imgZoom"
             class="sf-gallery__zoom"
-            :src="pictureSelected"
+            :src="pictureSelectedUrl"
             :width="imageWidth"
             :height="imageHeight"
             :lazy="false"
+            :alt="pictureSelected.alt"
           />
         </div>
       </transition>
@@ -150,7 +151,7 @@ export default {
     return {
       positionStatic: {},
       eventHover: {},
-      pictureSelected: "",
+      pictureSelected: { alt: "" },
       glide: null,
       activeIndex: this.current - 1,
       style: "",
@@ -166,6 +167,11 @@ export default {
     },
     updatedSliderOptions() {
       return { ...this.sliderOptions, startAt: this.activeIndex };
+    },
+    pictureSelectedUrl() {
+      const { zoom, big, desktop } = this.pictureSelected;
+      const definedPicture = zoom || big || desktop;
+      return definedPicture ? definedPicture.url : "";
     },
   },
   mounted() {
@@ -213,8 +219,7 @@ export default {
     },
     startZoom(picture) {
       if (this.enableZoom) {
-        const { zoom, big, desktop } = picture;
-        this.pictureSelected = (zoom || big || desktop).url;
+        this.pictureSelected = picture;
       }
     },
     moveZoom($event, index) {
