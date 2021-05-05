@@ -10,7 +10,7 @@
         'is-disabled--link': $options.linkActive(props.link, props.disabled),
       }
     ]"
-    :style="[data.style, data.staticStyle]"    
+    :style="[data.style, data.staticStyle]"
     :disabled="props.disabled"
     :link="props.link"
     v-bind="data.attrs"
