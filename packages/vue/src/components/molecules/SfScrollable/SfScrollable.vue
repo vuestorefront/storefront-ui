@@ -48,7 +48,6 @@ export default {
     return {
       isHidden: true,
       hasScroll: false,
-      // contentEl: undefined,
     };
   },
   computed: {
@@ -59,24 +58,6 @@ export default {
           : undefined,
       };
     },
-  },
-  mounted() {
-    // this.$nextTick(() => {
-    //   this.contentEl = this.$refs.content.$el.querySelector(
-    //     ".simplebar-content"
-    //   );
-    //   if (typeof MutationObserver === "undefined" || !this.contentEl) return;
-    //   const observer = new MutationObserver(this.sizeCalc);
-    //   this.sizeCalc();
-    //   observer.observe(this.contentEl, { childList: true });
-    // });
-  },
-  methods: {
-    // sizeCalc() {
-    //   const containerHeight = this.$refs.content.$el.offsetHeight;
-    //   const contentHeight = this.contentEl.offsetHeight;
-    //   this.hasScroll = contentHeight > containerHeight;
-    // },
   },
 };
 </script>
