@@ -57,7 +57,7 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
-          start: yarn storybook
+          start: cd packages/vue && yarn storybook
           wait-on: "http://localhost:6006/"
           command: yarn run test:e2e:headless
           config-file: packages/vue/cypress.json
