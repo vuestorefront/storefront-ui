@@ -9,8 +9,9 @@ describe("SfCimage.vue", () => {
         cloud: {
           cloudName: "demo",
         },
+        alt: "example",
       },
     });
-    expect(component.contains(".sf-cimage")).toBe(true);
+    expect(component.classes("sf-cimage")).toBe(true);
   });
 });
