@@ -1,71 +1,67 @@
 <template>
   <div class="sf-sidebar" :class="[staticClass, className]">
     <!-- <label class="sf-sidebar__container"> -->
-      <input type="checkbox" class="sf-sidebar__checkbox" id="toggler"/>
-      
-      <SfOverlay :visible="visibleOverlay || true"/>
-      <transition :name="transitionName">      
-          <aside
-            ref="asideContent"
-            v-focus-trap
-            v-click-outside="checkPersistence"
-            class="sf-sidebar__aside"
-          >
-            <SfSidebarButton/>
-            <!--@slot Use this slot to place content inside the modal bar.-->        
-            <slot name="bar">
-              <SfBar
-                :title="title"
-                class="smartphone-only"
-                @click:back="close"
+    <SfSidebarButton />
+    <SfOverlay :visible="visibleOverlay" />
+    <input id="toggler" type="checkbox" class="sf-sidebar__checkbox" />
+    <transition :name="transitionName">
+      <aside
+        v-if="visible"
+        ref="asideContent"
+        v-focus-trap
+        v-click-outside="checkPersistence"
+        class="sf-sidebar__aside"
+      >
+        <!--@slot Use this slot to place content inside the modal bar.-->
+        <slot name="bar">
+          <SfBar :title="title" class="smartphone-only" @click:back="close">
+            <template #back>
+              <SfButton
+                aria-label="back"
+                class="sf-sidebar__bar-button sf-button--pure sf-bar__icon"
+                type="button"
+                @click="$emit('click:back')"
               >
-                <template #back>
-                  <SfButton
-                    aria-label="back"
-                    class="sf-sidebar__bar-button sf-button--pure sf-bar__icon"
-                    type="button"
-                    @click="$emit('click:back')"
-                  >
-                    <SfIcon icon="chevron_left" size="0.875rem" />
-                  </SfButton>
-                </template>
-              </SfBar>
-            </slot>
-            <!--@slot Use this slot to replace close icon.-->
-            <slot name="circle-icon" v-bind="{ close, button }">
-              <SfCircleIcon
-                v-if="button"
-                icon-size="12px"
-                aria-label="Close sidebar"
-                icon="cross"
-                class="sf-sidebar__circle-icon desktop-only"
-                @click="close"
-              />
-            </slot>
-            <div v-if="title || hasTop" class="sf-sidebar__top">
-              <!--@slot Use this slot to replace SfHeading component.-->
-              <slot name="title" v-bind="{ title, subtitle, headingLevel }">
-                <SfHeading
-                  v-if="title"
-                  :title="title"
-                  :description="subtitle"
-                  :level="headingLevel"
-                  class="sf-heading--left sf-heading--no-underline sf-sidebar__title desktop-only"
-                />
-              </slot>
-              <!--@slot Use this slot to add sticky top content.-->
-              <slot name="content-top" />
-            </div>
-            <div class="sf-sidebar__content">
-              <!--@slot Use this slot to add SfSidebar content.-->
-              <slot />
-            </div>
-            <!--@slot Use this slot to place content to sticky bottom.-->
-            <div v-if="hasBottom" class="sf-sidebar__bottom">
-              <slot name="content-bottom" />
-            </div>        
-          </aside>        
-      </transition>
+                <SfIcon icon="chevron_left" size="0.875rem" />
+              </SfButton>
+            </template>
+          </SfBar>
+        </slot>
+        <!--@slot Use this slot to replace close icon.-->
+        <slot name="circle-icon" v-bind="{ close, button }">
+          <SfCircleIcon
+            v-if="button"
+            icon-size="12px"
+            aria-label="Close sidebar"
+            icon="cross"
+            class="sf-sidebar__circle-icon desktop-only"
+            @click="close"
+          />
+        </slot>
+        <div v-if="title || hasTop" class="sf-sidebar__top">
+          <!--@slot Use this slot to replace SfHeading component.-->
+          <slot name="title" v-bind="{ title, subtitle, headingLevel }">
+            <SfHeading
+              v-if="title"
+              :title="title"
+              :description="subtitle"
+              :level="headingLevel"
+              class="sf-heading--left sf-heading--no-underline sf-sidebar__title desktop-only"
+            />
+          </slot>
+          <!--@slot Use this slot to add sticky top content.-->
+          <slot name="content-top" />
+        </div>
+        <div class="sf-sidebar__content">
+          <!--@slot Use this slot to add SfSidebar content.-->
+          <slot />
+        </div>
+        <!--@slot Use this slot to place content to sticky bottom.-->
+        <div v-if="hasBottom" class="sf-sidebar__bottom">
+          <slot name="content-bottom" />
+        </div>
+      </aside>
+    </transition>
     <!-- </label> -->
   </div>
 </template>
@@ -73,7 +69,7 @@
 import { focusTrap } from "../../../utilities/directives/";
 import { clickOutside } from "../../../utilities/directives/";
 import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
-import { isClient } from "../../../utilities/helpers";      
+import { isClient } from "../../../utilities/helpers";
 import SfSidebarButton from "./_internal/SfSidebarButton";
 import SfBar from "../../molecules/SfBar/SfBar.vue";
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";

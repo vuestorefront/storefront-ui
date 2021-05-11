@@ -1,4 +1,4 @@
-import { SfSidebar } from "@storefront-ui/vue";
+import { SfSidebar, SfSidebarButton } from "@storefront-ui/vue";
 export default {
   title: "Components/Organisms/Sidebar",
   component: SfSidebar,
@@ -42,6 +42,7 @@ export default {
       table: {
         category: "Props",
       },
+      defaultValue: false,
     },
     persistent: {
       control: "boolean",
@@ -66,22 +67,30 @@ export default {
 };
 
 const Template = (args, { argTypes }) => ({
-  components: { SfSidebar },
+  components: { SfSidebar, SfSidebarButton },
   props: Object.keys(argTypes),
+  methods: {
+    close() {
+      this.visible = false;
+    },
+  },
   template: `
-  <SfSidebar
-    :visible="visible"
-    @close="close"
-    :title="title"
-    :subtitle="subtitle"
-    :heading-level="headingLevel"
-    :button="button"
-    :overlay="overlay"
-    :class="classes"
-    :persistent="persistent"
-  >
-    Total items: 0
-  </SfSidebar>`,
+  <div>
+    <SfSidebarButton/>
+    <SfSidebar
+      :visible="visible"
+      @close="close"
+      :title="title"
+      :subtitle="subtitle"
+      :heading-level="headingLevel"
+      :button="button"
+      :overlay="overlay"
+      :class="classes"
+      :persistent="persistent"
+    >
+      Total items: 0
+    </SfSidebar>
+  </div>`,
 });
 
 export const Common = Template.bind({});
