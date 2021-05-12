@@ -8,7 +8,7 @@ describe("SfAddress.vue", () => {
       provide: {
         getSelectedValue: () => "example",
         setSelectedValue: () => "example",
-      }
+      },
     });
     expect(component.classes("sf-address")).toBe(true);
   });
