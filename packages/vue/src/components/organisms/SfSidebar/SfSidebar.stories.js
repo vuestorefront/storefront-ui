@@ -57,7 +57,7 @@ export default {
       },
       defaultValue: true,
     },
-    close: { action: "Close sidebar clicked", table: { category: "Events" } },
+    // close: { action: "Close sidebar clicked", table: { category: "Events" } },
   },
   parameters: {
     docs: {
@@ -69,16 +69,21 @@ export default {
 const Template = (args, { argTypes }) => ({
   components: { SfSidebar, SfSidebarButton },
   props: Object.keys(argTypes),
+  data() {
+    return {
+      openedSidebar: this.visible,
+    };
+  },
   methods: {
     close() {
-      this.visible = false;
+      this.openedSidebar = false;
     },
   },
   template: `
   <div>
     <SfSidebarButton/>
     <SfSidebar
-      :visible="visible"
+      :visible="openedSidebar"
       @close="close"
       :title="title"
       :subtitle="subtitle"

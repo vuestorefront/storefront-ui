@@ -18,16 +18,17 @@
   &__checkbox {
     position: absolute;
     left: -1000px;
+    width: var(--sidebar-width);
     &:checked {
-      & ~ .sf-sidebar__aside {
+      & ~ aside.sf-sidebar__aside {
         width: 0;
       }
     }
-    &:not(checked) {
-      & ~ .sf-sidebar__aside {
-        width: var(--sidebar-width);
-      }
-    }
+    // &:not(checked) {
+    //   & ~ aside {
+        
+    //   }
+    // }
   }
   &__circle-icon,
   &__bar-button {

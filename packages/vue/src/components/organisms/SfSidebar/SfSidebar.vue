@@ -1,8 +1,8 @@
 <template>
   <div class="sf-sidebar" :class="[staticClass, className]">
     <!-- <label class="sf-sidebar__container"> -->
-    <SfSidebarButton />
     <SfOverlay :visible="visibleOverlay" />
+    <SfSidebarButton />
     <input id="toggler" type="checkbox" class="sf-sidebar__checkbox" />
     <transition :name="transitionName">
       <aside
