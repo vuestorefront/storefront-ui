@@ -24,11 +24,11 @@
         width: 0;
       }
     }
-    // &:not(checked) {
-    //   & ~ aside {
-        
-    //   }
-    // }
+    &:not(:checked) {
+      & ~ aside {
+        --sidebar-width: 100%;
+      }
+    }
   }
   &__circle-icon,
   &__bar-button {
