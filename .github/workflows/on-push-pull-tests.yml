@@ -58,7 +58,8 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           start: cd packages/vue && yarn storybook
-          wait-on: "http://localhost:6006/"
+          wait-on: "http://localhost:6006"
+          wait-on-timeout: 120
           command: yarn run test:e2e:headless
           config-file: packages/vue/cypress.json
           browser: chrome
