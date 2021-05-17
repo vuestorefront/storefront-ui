@@ -52,6 +52,9 @@
       );
     }
   }
+  &__tab {
+    display: contents;
+  }
   &__chevron {
     display: var(--tabs-chevron-display);
   }
