@@ -57,31 +57,23 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Setup node
-        uses: actions/setup-node@v1
-        with:
-          node-version: "12"
+      # - name: Setup node
+      #   uses: actions/setup-node@v1
+      #   with:
+      #     node-version: "12"
 
-      - name: Get cached dependencies
-        uses: actions/cache@v2
-        with:
-          path: |
-            **/node_modules
-            packages/vue/node_modules
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+      # - name: Get cached dependencies
+      #   uses: actions/cache@v2
+      #   with:
+      #     path: |
+      #       **/node_modules
+      #       packages/vue/node_modules
+      #     key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           
-      - name: Run Storybook 
-        run: yarn storybook
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
-          wait-on: "http://localhost:6006"
-          wait-on-timeout: 60
-          command: yarn run test:e2e:headless
-          config-file: packages/vue/cypress.json
-          browser: chrome
-          headless: true
-          install: false
+          start: yarn storybook
 
   build:
     name: Build
