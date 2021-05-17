@@ -57,7 +57,7 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
-          start: yarn storybook
+          start: yarn run storybook
           wait-on: "http://localhost:6006"
           wait-on-timeout: 120
           command: yarn run test:e2e:headless
