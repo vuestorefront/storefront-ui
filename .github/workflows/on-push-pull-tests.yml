@@ -54,12 +54,13 @@ jobs:
     needs: prepare_dependencies
     runs-on: ubuntu-latest
     steps:
+      - name: Run Storybook 
+        run: yarn storybook
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
-          start: yarn run storybook
           wait-on: "http://localhost:6006"
-          wait-on-timeout: 120
+          wait-on-timeout: 60
           command: yarn run test:e2e:headless
           config-file: packages/vue/cypress.json
           browser: chrome
