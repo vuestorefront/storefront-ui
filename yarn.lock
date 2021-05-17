@@ -18388,10 +18388,30 @@ simplebar-react@^1.0.0-alpha.6:
     prop-types "^15.6.1"
     simplebar "^4.2.3"
 
+simplebar-vue@^1.4.0:
+  version "1.6.3"
+  resolved "https://registry.yarnpkg.com/simplebar-vue/-/simplebar-vue-1.6.3.tgz#c2fa3058508fcdb95a6635cb0bbc6d82692ff1b3"
+  integrity sha512-3uxZXuBIcHmPpkm2YiJN/0lJOyXyZ2KpjMls3hw2PXbm2J2PlJjIbcemTDFrB3ezvZTOBFM/8a2FuqmWvNc/jw==
+  dependencies:
+    core-js "^3.0.1"
+    simplebar "^5.3.3"
+
 simplebar@^4.2.3:
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/simplebar/-/simplebar-4.2.3.tgz#dac40aced299c17928329eab3d5e6e795fafc10c"
   integrity sha512-9no0pK7/1y+8/oTF3sy/+kx0PjQ3uk4cYwld5F1CJGk2gx+prRyUq8GRfvcVLq5niYWSozZdX73a2wIr1o9l/g==
+  dependencies:
+    can-use-dom "^0.1.0"
+    core-js "^3.0.1"
+    lodash.debounce "^4.0.8"
+    lodash.memoize "^4.1.2"
+    lodash.throttle "^4.1.1"
+    resize-observer-polyfill "^1.5.1"
+
+simplebar@^5.3.3:
+  version "5.3.3"
+  resolved "https://registry.yarnpkg.com/simplebar/-/simplebar-5.3.3.tgz#7d89fa4374a637da96c493b2662ab5af4408d02e"
+  integrity sha512-OfuSX47Axq9aR6rp9WK3YefAg+1Qw3UKKxS46PdElPpd+FWXMj17/nispYxsHtU3F7mv+ilmqELWmRt7KUgHgg==
   dependencies:
     can-use-dom "^0.1.0"
     core-js "^3.0.1"
