@@ -74,6 +74,8 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           start: yarn storybook
+          command: yarn run test:e2e:headless
+          config-file: packages/vue/cypress.json
 
   build:
     name: Build
