@@ -224,11 +224,6 @@ describe("Home page", () => {
 			.find(selectors.carousel.nextArrowButton)
 			.click({ multiple: true });
 		cy.iframe()
-			.find(".sf-carousel-item:not(.glide__slide--clone)")
-			.first()
-			.find(selectors.carousel.productCard)
-			.should("be.visible");
-		cy.iframe()
 			.find(selectors.carousel.productCard)
 			.first()
 			.find(selectors.carousel.productCardWishlistButton)
