@@ -245,7 +245,6 @@ import {
   SfImage,
   SfCheckbox,
 } from "@storefront-ui/vue";
-import axios from "axios";
 export default {
   name: "Payment",
   components: {
@@ -375,13 +374,13 @@ export default {
       });
     },
     getCountries() {
-      axios
-        .get("https://restcountries.eu/rest/v2/all?fields=name")
-        .then((response) => {
-          const countries = response.data.map((country) => country.name);
+      fetch("https://restcountries.eu/rest/v2/all?fields=name")
+        .then((response) => response.json())
+        .then((data) => {
+          const countries = data.map((country) => country.name);
           this.countries = countries;
         })
-        .catch(function (error) {
+        .catch((error) => {
           console.error(error);
         });
     },
