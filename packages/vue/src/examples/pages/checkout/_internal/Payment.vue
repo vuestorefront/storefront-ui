@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div data-testid="payment">
     <SfHeading
       title="Billing address"
       :level="3"
@@ -83,6 +83,7 @@
         placeholder="Country"
         class="form__element form__element--half form__element--half-even form__select sf-select--underlined"
         required
+        data-testid="country"
         @change="updateField('country', $event)"
       >
         <SfSelectOption
@@ -117,7 +118,7 @@
       class="sf-heading--left sf-heading--no-underline title"
     />
     <div class="form">
-      <div class="payment-methods">
+      <div class="payment-methods" data-testid="payment-methods">
         <SfRadio
           v-for="item in paymentMethods"
           :key="item.value"

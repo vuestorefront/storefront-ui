@@ -6,6 +6,8 @@
     "serve": "yarn create-index-files && vue-cli-service serve",
     "build": "yarn create-index-files && vue-cli-service build --target lib --name storefront-ui ./src/index.js",
     "test:unit": "vue-cli-service test:unit",
+    "test:e2e": "cypress open",
+    "test:e2e:headless": "cypress run --headless",
     "lint": "vue-cli-service lint",
     "copy-components": "node scripts/copy-components.js",
     "create-index-files": "node scripts/create-index-files.js",
@@ -29,6 +31,7 @@
     "styles.scss"
   ],
   "dependencies": {
+    "@cypress/vue": "^2.0.1",
     "@glidejs/glide": "^3.3.0",
     "@storefront-ui/shared": "0.10.5",
     "body-scroll-lock": "^3.0.1",
@@ -44,6 +47,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
+    "@cypress/webpack-preprocessor": "^5.6.0",
     "@storybook/addon-a11y": "^6.1.11",
     "@storybook/addon-actions": "^6.1.11",
     "@storybook/addon-backgrounds": "^6.1.11",
@@ -66,6 +70,8 @@
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.2",
     "babel-loader": "^8.0.5",
+    "cypress": "^6.5.0",
+    "cypress-iframe": "^1.0.1",
     "eslint": "^6.8.0",
     "eslint-plugin-vue": "^6.2.2",
     "html-loader": "^1.1.0",

@@ -1,5 +1,5 @@
 <template>
-  <li class="glide__slide sf-hero-item" :style="style">
+  <li class="glide__slide sf-hero-item" :style="style" data-testid="hero-item">
     <component :is="wrapper" class="sf-hero-item__wrapper" :link="link">
       <!--@slot hero item subtitle. Slot content will replace default <h2> tag-->
       <slot name="subtitle" v-bind="{ subtitle }">
@@ -12,7 +12,7 @@
       <!--@slot Call to action section. Slot content will replace default SfButton component-->
       <slot name="call-to-action" v-bind="{ buttonText, link }">
         <div v-if="buttonText && !isMobile" class="sf-hero-item__button">
-          <SfButton :link="link">
+          <SfButton :link="link" data-testid="hero-cta-button">
             {{ buttonText }}
           </SfButton>
         </div>
