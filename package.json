@@ -13,14 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DivanteLtd/storefront-ui.git"
+    "url": "git+https://github.com/vuestorefront/storefront-ui.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/DivanteLtd/storefront-ui/issues"
+    "url": "https://github.com/vuestorefront/storefront-ui/issues"
   },
-  "homepage": "https://github.com/DivanteLtd/storefront-ui#readme",
+  "homepage": "https://github.com/vuestorefront/storefront-ui#readme",
   "workspaces": [
     "packages/*"
   ],
