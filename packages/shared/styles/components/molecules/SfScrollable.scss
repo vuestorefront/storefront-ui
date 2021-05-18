@@ -18,9 +18,4 @@
   &__view-all {
     margin: var(--scrollable-button-margin, var(--spacer-sm) 0 0 0);
   }
-
-  ::-webkit-scrollbar {
-    background-color: var(--c-white);
-    width: 12px;
-  }
 }
