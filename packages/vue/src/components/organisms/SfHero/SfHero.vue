@@ -14,6 +14,7 @@
         <SfArrow
           class="sf-arrow sf-arrow--transparent"
           aria-label="previous"
+          data-testid="hero-prev-button"
           @click.stop="go('prev')"
         />
       </slot>
@@ -24,6 +25,7 @@
         <SfArrow
           class="sf-arrow sf-arrow--right sf-arrow--transparent"
           aria-label="next"
+          data-testid="hero-next-button"
           @click.stop="go('next')"
         />
       </slot>
@@ -34,6 +36,7 @@
         <SfBullets
           :total="numberOfPages"
           :current="page - 1"
+          data-testid="hero-bullets"
           @click="go($event)"
         />
       </slot>
