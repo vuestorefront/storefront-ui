@@ -217,7 +217,7 @@ describe("Home page", () => {
 			.find(selectors.carousel.prevArrowButton)
 			.click({ multiple: true });
 		cy.iframe()
-			.find(".sf-carousel-item:not(.glide__slide--clone)")
+			.find(".sf-carousel-item.glide__slide--clone")
 			.first()
 			.should("not.be.visible");
 		cy.iframe()
