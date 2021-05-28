@@ -68,7 +68,6 @@ import SfMegaMenu from "./src/components/organisms/SfMegaMenu/SfMegaMenu.vue";
 import SfProductCard from "./src/components/organisms/SfProductCard/SfProductCard.vue";
 import SfProductCardHorizontal from "./src/components/organisms/SfProductCardHorizontal/SfProductCardHorizontal.vue";
 import SfSidebar from "./src/components/organisms/SfSidebar/SfSidebar.vue";
-import SfSidebarButton from "./src/components/organisms/SfSidebar/_internal/SfSidebarButton.vue";
 import SfStoreLocator from "./src/components/organisms/SfStoreLocator/SfStoreLocator.vue";
 import SfTable from "./src/components/organisms/SfTable/SfTable.vue";
 import SfTabs from "./src/components/organisms/SfTabs/SfTabs.vue";
@@ -144,7 +143,6 @@ export {
   SfProductCard,
   SfProductCardHorizontal,
   SfSidebar,
-  SfSidebarButton,
   SfStoreLocator,
   SfTable,
   SfTabs,

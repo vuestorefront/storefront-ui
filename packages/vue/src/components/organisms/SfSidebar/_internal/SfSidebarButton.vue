@@ -1,9 +1,15 @@
 <template>
-  <label for="toggler">
+  <div>
     <slot>
-      <SfButton class="sf-sidebar__button"> Open </SfButton>
+      <SfButton
+        link="#sidebar"
+        class="sf-sidebar__button"
+        @click="() => this.$emit('click:open')"
+      >
+        Open
+      </SfButton>
     </slot>
-  </label>
+  </div>
 </template>
 <script>
 import SfButton from "../../../atoms/SfButton/SfButton";

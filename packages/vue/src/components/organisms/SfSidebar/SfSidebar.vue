@@ -1,12 +1,13 @@
 <template>
-  <div class="sf-sidebar" :class="[staticClass, className]">
-    <!-- <label class="sf-sidebar__container"> -->
+  <div
+    class="sf-sidebar"
+    :class="{ staticClass, className, jsEnabled: jsEnabled }"
+  >
     <SfOverlay :visible="visibleOverlay" />
-    <SfSidebarButton />
-    <input id="toggler" type="checkbox" class="sf-sidebar__checkbox" />
     <transition :name="transitionName">
       <aside
         v-if="visible"
+        :id="jsEnabled ? null : sidebarId"
         ref="asideContent"
         v-focus-trap
         v-click-outside="checkPersistence"
@@ -17,6 +18,7 @@
           <SfBar :title="title" class="smartphone-only" @click:back="close">
             <template #back>
               <SfButton
+                :link="jsEnabled ? null : '#'"
                 aria-label="back"
                 class="sf-sidebar__bar-button sf-button--pure sf-bar__icon"
                 type="button"
@@ -31,6 +33,7 @@
         <slot name="circle-icon" v-bind="{ close, button }">
           <SfCircleIcon
             v-if="button"
+            :link="jsEnabled ? null : '#'"
             icon-size="12px"
             aria-label="Close sidebar"
             icon="cross"
@@ -62,7 +65,6 @@
         </div>
       </aside>
     </transition>
-    <!-- </label> -->
   </div>
 </template>
 <script>
@@ -70,7 +72,6 @@ import { focusTrap } from "../../../utilities/directives/";
 import { clickOutside } from "../../../utilities/directives/";
 import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
 import { isClient } from "../../../utilities/helpers";
-import SfSidebarButton from "./_internal/SfSidebarButton";
 import SfBar from "../../molecules/SfBar/SfBar.vue";
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
@@ -88,7 +89,6 @@ export default {
     SfHeading,
     SfIcon,
     SfButton,
-    SfSidebarButton,
   },
   props: {
     /**
@@ -140,12 +140,20 @@ export default {
       type: Boolean,
       default: false,
     },
+    /**
+     * Id of aside element to point it from outside button
+     */
+    sidebarId: {
+      type: String,
+      defalut: "sidebar",
+    },
   },
   data() {
     return {
       position: "left",
       staticClass: null,
       className: null,
+      jsEnabled: false,
     };
   },
   computed: {
@@ -181,6 +189,11 @@ export default {
   },
   mounted() {
     this.classHandler();
+    this.$nextTick(() => {
+      this.jsEnabled = true;
+      console.log("jsEnabled", this.jsEnabled);
+      return this.jsEnabled;
+    });
   },
   updated() {
     this.classHandler();

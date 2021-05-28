@@ -1,4 +1,4 @@
-import { SfSidebar, SfSidebarButton } from "@storefront-ui/vue";
+import { SfSidebar, SfButton } from "@storefront-ui/vue";
 export default {
   title: "Components/Organisms/Sidebar",
   component: SfSidebar,
@@ -42,7 +42,7 @@ export default {
       table: {
         category: "Props",
       },
-      defaultValue: false,
+      defaultValue: true,
     },
     persistent: {
       control: "boolean",
@@ -57,7 +57,6 @@ export default {
       },
       defaultValue: true,
     },
-    // close: { action: "Close sidebar clicked", table: { category: "Events" } },
   },
   parameters: {
     docs: {
@@ -67,7 +66,7 @@ export default {
 };
 
 const Template = (args, { argTypes }) => ({
-  components: { SfSidebar, SfSidebarButton },
+  components: { SfSidebar, SfButton },
   props: Object.keys(argTypes),
   data() {
     return {
@@ -75,16 +74,16 @@ const Template = (args, { argTypes }) => ({
     };
   },
   methods: {
-    close() {
-      this.openedSidebar = false;
+    sidebarToggler() {
+      this.openedSidebar = !this.openedSidebar;
     },
   },
   template: `
-  <div>
-    <SfSidebarButton/>
+  <div>  
+    <SfButton @click="sidebarToggler" link="#sidebar" style="position: absolute; top: 50%; left: 50%;"> Open </SfButton>  
     <SfSidebar
       :visible="openedSidebar"
-      @close="close"
+      @close="sidebarToggler"
       :title="title"
       :subtitle="subtitle"
       :heading-level="headingLevel"
