@@ -63,6 +63,22 @@ jobs:
           start: yarn storybook
           command: yarn run test:e2e:headless
           config-file: packages/vue/cypress.json
+  
+  lighthouse:
+    name: lighthouse performance test
+    needs: prepare_dependencies
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+          
+      - name: lighthouse audit
+        uses: treosh/lighthouse-ci-action@v7
+        with:
+          start: yarn storybook
+          urls: |
+            http://localhost:6006/?path=/story/templates-default--common
+            http://localhost:6006/??path=/story/pages-category--common
 
   build:
     name: Build
