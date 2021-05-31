@@ -6,8 +6,7 @@
     <SfOverlay :visible="visibleOverlay" />
     <transition :name="transitionName">
       <aside
-        v-if="visible"
-        :id="jsEnabled ? null : sidebarId"
+        v-if="jsEnabled ? visible : true"
         ref="asideContent"
         v-focus-trap
         v-click-outside="checkPersistence"
@@ -140,13 +139,6 @@ export default {
       type: Boolean,
       default: false,
     },
-    /**
-     * Id of aside element to point it from outside button
-     */
-    sidebarId: {
-      type: String,
-      defalut: "sidebar",
-    },
   },
   data() {
     return {
@@ -190,9 +182,7 @@ export default {
   mounted() {
     this.classHandler();
     this.$nextTick(() => {
-      this.jsEnabled = true;
-      console.log("jsEnabled", this.jsEnabled);
-      return this.jsEnabled;
+      return (this.jsEnabled = true);
     });
   },
   updated() {
