@@ -1,5 +1,6 @@
 @import "../../helpers";
 .sf-modal {
+   visibility: hidden;
   &__container {
     position: fixed;
     top: var(--modal-top, 0);
@@ -47,5 +48,11 @@
     --modal-height: auto;
     --modal-max-height: 90%;
     --modal-content-padding: var(--spacer-sm) var(--spacer-lg);
+  }
+   &:target {
+    visibility: visible;
+  }
+  &.jsEnabled {
+    visibility: inherit;
   }
 }
