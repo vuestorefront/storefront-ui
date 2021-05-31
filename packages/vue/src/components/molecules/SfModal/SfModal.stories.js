@@ -1,4 +1,4 @@
-import { SfModal } from "@storefront-ui/vue";
+import { SfModal, SfButton } from "@storefront-ui/vue";
 export default {
   title: "Components/Molecules/Modal",
   component: SfModal,
@@ -101,5 +101,51 @@ export const UseCloseSlot = (args, { argTypes }) => ({
   </SfModal>`,
 });
 UseCloseSlot.args = {
+  ...Common.args,
+};
+
+export const ModalWithoutJs = (args, { argTypes }) => ({
+  components: { SfModal, SfButton },
+  props: Object.keys(argTypes),
+  data() {
+    return {
+      openedModal: false,
+      jsEnabled: false,
+    };
+  },
+  methods: {
+    modalToggler() {
+      this.openedModal = !this.openedModal;
+    },
+  },
+  mounted() {
+    this.$nextTick(() => {
+      return (this.jsEnabled = "block");
+    });
+  },
+  template: `
+  <div>
+    <noscript inline-template>
+      <SfButton link="#modal">
+        open
+      </SfButton>
+    </noscript>      
+    <SfButton :style="{ display: jsEnabled }" @click="modalToggler">
+      open
+    </SfButton>
+    <SfModal
+      :visible="openedModal"
+      :title="title"
+      :overlay="overlay"
+      :cross="cross"
+      :persistent="persistent"
+      @close="modalToggler"
+      id="modal"
+    >
+      <p>HELLO STOREFRONT UI!  </p>    
+    </SfModal>
+  </div>`,
+});
+ModalWithoutJs.args = {
   ...Common.args,
 };

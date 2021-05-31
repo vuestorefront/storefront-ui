@@ -49,7 +49,7 @@
     --modal-max-height: 90%;
     --modal-content-padding: var(--spacer-sm) var(--spacer-lg);
   }
-   &:target {
+  &:target {
     visibility: visible;
   }
   &.jsEnabled {
