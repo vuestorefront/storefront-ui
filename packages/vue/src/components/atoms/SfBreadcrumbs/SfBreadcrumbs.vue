@@ -61,7 +61,6 @@ export default {
     },
   },
   breadcrumbLast(breadcrumbs) {
-    console.log(breadcrumbs.length);
     return breadcrumbs.length - 1;
   },
 };
