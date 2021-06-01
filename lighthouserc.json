@@ -1,0 +1,7 @@
+{
+  "ci": {
+    "collect": {
+      "staticDistDir": "./package/nuxt/dist"
+    }
+  }
+}

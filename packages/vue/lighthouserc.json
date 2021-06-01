@@ -1,7 +1,0 @@
-{
-  "ci": {
-    "collect": {
-      "staticDistDir": "./storybook-static"
-    }
-  }
-}

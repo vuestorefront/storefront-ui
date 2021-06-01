@@ -1,0 +1,36 @@
+{
+  "name": "nuxt",
+  "version": "1.0.0",
+  "description": "nuxt",
+  "author": "Przemysław Spaczek",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt build && nuxt start",
+    "generate": "nuxt generate",
+    "test": "jest",
+    "storybook": "nuxt-storybook",
+    "build-storybook": "nuxt-storybook build"
+  },
+  "dependencies": {
+    "@nuxt/babel-preset-app": "^2.14.3",
+    "@nuxtjs/pwa": "^3.0.0-0",
+    "@storefront-ui/vue": "0.10.6",
+    "lerna": "^3.16.4",
+    "nuxt": "1.0.0",
+    "nuxt-edge": "^2.14.6-26663074.45b78387"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/runtime-corejs3": "^7.11.2",
+    "@nuxtjs/storybook": "^2.2.0",
+    "@vue/test-utils": "^1.0.0-beta.27",
+    "babel-jest": "^24.1.0",
+    "babel-loader": "^8.1.0",
+    "babel-preset-vue": "^2.0.2",
+    "core-js": "3.6.5",
+    "jest": "^24.1.0",
+    "vue-jest": "^4.0.0-0"
+  }
+}
