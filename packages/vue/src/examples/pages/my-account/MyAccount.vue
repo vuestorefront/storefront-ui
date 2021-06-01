@@ -11,16 +11,18 @@
       @click:change="changeActivePage"
     >
       <SfContentCategory title="Personal Details">
-        <SfContentPage title="My profile">
+        <SfContentPage title="My profile" data-testid="my-profile">
           <MyProfile
             :account="account"
+            data-testid="my-profile-tabs"
             @update:personal="account = { ...account, ...$event }"
             @update:password="account = { ...account, ...$event }"
           />
         </SfContentPage>
-        <SfContentPage title="Shipping details">
+        <SfContentPage title="Shipping details" data-testid="shipping-details">
           <ShippingDetails
             :account="account"
+            data-testid="shipping-details-tabs"
             @update:shipping="account = { ...account, ...$event }"
           />
         </SfContentPage>

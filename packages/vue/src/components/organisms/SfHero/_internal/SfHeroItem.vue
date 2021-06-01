@@ -1,5 +1,5 @@
 <template>
-  <li class="glide__slide sf-hero-item" :style="style">
+  <li class="glide__slide sf-hero-item" :style="style" data-testid="hero-item">
     <component :is="wrapper" class="sf-hero-item__wrapper" :link="link">
       <!--@slot hero item subtitle. Slot content will replace default <h2> tag-->
       <slot name="subtitle" v-bind="{ subtitle }">
@@ -12,7 +12,7 @@
       <!--@slot Call to action section. Slot content will replace default SfButton component-->
       <slot name="call-to-action" v-bind="{ buttonText, link }">
         <div v-if="buttonText && !isMobile" class="sf-hero-item__button">
-          <SfButton :link="link">
+          <SfButton :link="link" data-testid="hero-cta-button">
             {{ buttonText }}
           </SfButton>
         </div>
@@ -73,13 +73,12 @@ export default {
     ...mapMobileObserver(),
     style() {
       const image = this.image;
+      const isImageString = typeof image === "string";
       const background = this.background;
       return {
-        "--_hero-item-background-image": image.mobile
-          ? `url(${image.mobile})`
-          : `url(${image})`,
-        "--_hero-item-background-desktop-image":
-          image.desktop && `url(${image.desktop})`,
+        "background-image": isImageString
+          ? `url(${image})`
+          : `url(${this.isMobile ? image.mobile : image.desktop})`,
         "--_hero-item-background-color": background,
       };
     },
