@@ -67,7 +67,7 @@ describe("SfProductCard.vue: Wish list icon button", () => {
     const wishlistIconButton = component.find(wishlistIconButtonClass);
     const sfIconForWishlist = wishlistIconButton.find("sficon-stub");
     const iconInSfIconForWishlist = sfIconForWishlist.attributes().icon;
-    expect(iconInSfIconForWishlist).toBe(defaultIsInWishlistIcon);
+    expect(iconInSfIconForWishlist).toBe(defaultIsOnWishlistIcon);
   });
   it("has custom wish list icon when SVG path is passed (isOnWishlist=false)", () => {
     const customWishlistIconPath =
@@ -81,7 +81,7 @@ describe("SfProductCard.vue: Wish list icon button", () => {
     const wishlistIconButton = component.find(wishlistIconButtonClass);
     const sfIconForWishlist = wishlistIconButton.find("sficon-stub");
     const iconInSfIconForWishlist = sfIconForWishlist.attributes().icon;
-    expect(iconInSfIconForWishlist).toBe(wishlistIcon);
+    expect(iconInSfIconForWishlist).toBe(customWishlistIconPath);
   });
   it("has custom wish list icon when SVG path is passed (isOnWishlist=true)", () => {
     const customIsOnWishlistIconPath =
@@ -96,7 +96,7 @@ describe("SfProductCard.vue: Wish list icon button", () => {
     const wishlistIconButton = component.find(wishlistIconButtonClass);
     const sfIconForWishlist = wishlistIconButton.find("sficon-stub");
     const iconInSfIconForWishlist = sfIconForWishlist.attributes().icon;
-    expect(iconInSfIconForWishlist).toBe(isOnWishlistIcon);
+    expect(iconInSfIconForWishlist).toBe(customIsOnWishlistIconPath);
   });
   it("has no wish list button when wishlistIcon is false (isOnWishlist=false)", () => {
     const component = shallowMount(SfProductCard, {
