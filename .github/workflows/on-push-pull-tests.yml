@@ -75,10 +75,9 @@ jobs:
           yarn nuxt:start
 
       - name: lighthouse audit
-        with:
-          run: |
-            yarn add -g @lhci/cli@0.7.x
-            lhci autorun
+        run: |
+          yarn add -g @lhci/cli@0.7.x
+          lhci autorun
 
   build:
     name: Build
