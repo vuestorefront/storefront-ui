@@ -44,41 +44,44 @@ export default {
         };
       },
     },
-    watch: {
-      config: {
-        handler(newConfig) {
-          this.$refs.range?.noUiSlider?.destroy();
-          return this.noUiSliderInit(newConfig);
-        },
-        deep: true,
+  },
+  watch: {
+    config: {
+      handler(newConfig) {
+        console.log(newConfig);
+        this.$refs.range?.noUiSlider?.destroy();
+        const newSlider = this.noUiSliderInit(newConfig);
+        return newSlider;
       },
-      value: {
-        handler(values) {
-          return this.$refs.range.noUiSlider.set(values);
-        },
-        immediate: true,
+      deep: true,
+    },
+    value: {
+      handler(values) {
+        console.log(values);
+        return this.$refs.range?.noUiSlider?.set(values);
       },
+      immediate: true,
     },
-    mounted() {
-      this.noUiSliderInit(this.config);
-    },
-    beforeDestroy() {
-      this.$refs.range?.noUiSlider?.destroy();
-    },
-    methods: {
-      noUiSliderInit(config) {
-        const configSettings = Object.assign(this.config, config);
-        noUiSlider
-          .create(this.$refs.range, configSettings)
-          .on("change", (values) => {
-            this.$emit("change", values);
-          });
-      },
+  },
+  mounted() {
+    this.noUiSliderInit(this.config);
+  },
+  beforeDestroy() {
+    this.$refs.range?.noUiSlider?.destroy();
+  },
+  methods: {
+    noUiSliderInit(config) {
+      const configSettings = Object.assign(this.config, config);
+      noUiSlider
+        .create(this.$refs.range, configSettings)
+        .on("change", (values) => {
+          this.$emit("change", values);
+        });
     },
   },
 };
 </script>
 <style lang="scss">
-// @import "~nouislider/distribute/nouislider.css";
+@import "~nouislider/dist/nouislider.css";
 @import "~@storefront-ui/shared/styles/components/molecules/SfRange.scss";
 </style>
