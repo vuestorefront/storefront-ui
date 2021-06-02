@@ -1,5 +1,5 @@
 <template>
-  <div class="sf-product-card">
+  <div class="sf-product-card" data-testid="product-card">
     <div class="sf-product-card__image-wrapper">
       <slot
         name="image"
@@ -8,6 +8,7 @@
         <SfButton
           :link="link"
           class="sf-button--pure sf-product-card__link"
+          data-testid="product-link"
           v-on="$listeners"
         >
           <template v-if="Array.isArray(image)">
@@ -43,7 +44,8 @@
         v-if="wishlistIcon !== false"
         :aria-label="`${ariaLabel} ${title}`"
         :class="wishlistIconClasses"
-        @click="toggleIsOnWishlist"
+        data-testid="product-wishlist-button"
+        @click="toggleIsInWishlist"
       >
         <slot name="wishlist-icon" v-bind="{ currentWishlistIcon }">
           <SfIcon
@@ -68,6 +70,7 @@
             :aria-label="`Add to Cart ${title}`"
             :has-badge="showAddedToCartBadge"
             :disabled="addToCartDisabled"
+            data-testid="product-add-icon"
             @click="onAddToCart"
           >
             <div class="sf-product-card__add-button--icons">
@@ -104,6 +107,7 @@
       <SfButton
         :link="link"
         class="sf-button--pure sf-product-card__link"
+        data-testid="product-link"
         v-on="$listeners"
       >
         <h3 class="sf-product-card__title">
@@ -133,6 +137,7 @@
           v-if="reviewsCount"
           :aria-label="`Read ${reviewsCount} reviews about ${title}`"
           class="sf-button--pure sf-product-card__reviews-count"
+          data-testid="product-review-button"
           @click="$emit('click:reviews')"
         >
           ({{ reviewsCount }})
@@ -271,14 +276,14 @@ export default {
      * This is the icon for product added to wish list. Default visible on mobile. Visible only on hover on desktop.
      * It can be a icon name from our icons list, or array or string as SVG path(s).
      */
-    isOnWishlistIcon: {
+    isInWishlistIcon: {
       type: [String, Array],
       default: "heart_fill",
     },
     /**
      * Status of whether product is on wish list or not
      */
-    isOnWishlist: {
+    isInWishlist: {
       type: Boolean,
       default: false,
     },
@@ -317,22 +322,22 @@ export default {
       return this.isSFColors ? `${this.badgeColor.trim()}` : "";
     },
     currentWishlistIcon() {
-      return this.isOnWishlist ? this.isOnWishlistIcon : this.wishlistIcon;
+      return this.isInWishlist ? this.isInWishlistIcon : this.wishlistIcon;
     },
     showAddedToCartBadge() {
       return !this.isAddingToCart && this.isAddedToCart;
     },
     ariaLabel() {
-      return this.isOnWishlist ? "Remove from wishlist" : "Add to wishlist";
+      return this.isInWishlist ? "Remove from wishlist" : "Add to wishlist";
     },
     wishlistIconClasses() {
       const defaultClass = "sf-button--pure sf-product-card__wishlist-icon";
-      return `${defaultClass} ${this.isOnWishlist ? "on-wishlist" : ""}`;
+      return `${defaultClass} ${this.isInWishlist ? "on-wishlist" : ""}`;
     },
   },
   methods: {
-    toggleIsOnWishlist() {
-      this.$emit("click:wishlist", !this.isOnWishlist);
+    toggleIsInWishlist() {
+      this.$emit("click:wishlist", !this.isInWishlist);
     },
     onAddToCart(event) {
       event.preventDefault();

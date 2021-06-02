@@ -20,15 +20,23 @@
         v-for="(product, index) in products"
         :key="index"
         class="table__row"
+        data-testid="product-table-row"
       >
         <SfTableData class="table__image">
-          <SfImage :src="product.image" :alt="product.title" />
+          <SfImage
+            :src="product.image"
+            :alt="product.title"
+            data-testid="product-image-table-data"
+          />
         </SfTableData>
         <SfTableData class="table__data"
           >{{ product.configuration[0].value }}
         </SfTableData>
 
-        <SfTableData class="table__description">
+        <SfTableData
+          class="table__description"
+          data-testid="product-description-table-data"
+        >
           <div class="product-title">{{ product.title }}</div>
           <div class="product-sku">{{ product.sku }}</div>
         </SfTableData>

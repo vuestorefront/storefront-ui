@@ -52,7 +52,7 @@
           :special-price="product.price.special"
           :score-rating="product.rating.score"
           :max-rating="product.rating.max"
-          :is-on-wishlist="product.isOnWishlist"
+          :is-in-wishlist="product.isInWishlist"
           :show-add-to-cart-button="true"
           :reviews-count="product.reviews"
           :badge-label="product.badgeLabel"
@@ -89,15 +89,21 @@
       title="Download our application to your mobile"
       subtitle="fashion to take away"
       image="/assets/storybook/Home/bannerD.png"
+      data-testid="application-banner"
     >
       <template #call-to-action>
         <div class="app-banner__call-to-action">
-          <SfButton class="app-banner__button" aria-label="Go to Apple Product">
+          <SfButton
+            class="app-banner__button sf-banner__call-to-action"
+            aria-label="Go to Apple Product"
+            data-testid="banner-cta-button"
+          >
             <SfImage src="/assets/storybook/Home/apple.png" alt="Apple" />
           </SfButton>
           <SfButton
-            class="app-banner__button"
+            class="app-banner__button sf-banner__call-to-action"
             aria-label="Go to Google Product"
+            data-testid="banner-cta-button"
           >
             <SfImage src="/assets/storybook/Home/google.png" alt="Google" />
           </SfButton>
@@ -202,7 +208,7 @@ export default {
           image: "assets/storybook/Home/productA.jpg",
           price: { regular: "$ 50.00 " },
           rating: { max: 5, score: 4 },
-          isOnWishlist: true,
+          isInWishlist: true,
           reviews: 8,
           badgeLabel: "",
           badgeColor: "color-primary",
@@ -212,7 +218,7 @@ export default {
           image: "assets/storybook/Home/productB.jpg",
           price: { regular: "$ 50.00 ", special: "$ 25.00 " },
           rating: { max: 5, score: 4 },
-          isOnWishlist: true,
+          isInWishlist: true,
           reviews: 8,
           badgeLabel: "-50%",
           badgeColor: "color-primary",
@@ -222,7 +228,7 @@ export default {
           image: "assets/storybook/Home/productC.jpg",
           price: { regular: "$ 50.00 " },
           rating: { max: 5, score: 4 },
-          isOnWishlist: false,
+          isInWishlist: false,
           reviews: 8,
           badgeLabel: "",
           badgeColor: "color-primary",
@@ -232,7 +238,7 @@ export default {
           image: "assets/storybook/Home/productA.jpg",
           price: { regular: "$ 50.00 " },
           rating: { max: 5, score: 4 },
-          isOnWishlist: false,
+          isInWishlist: false,
           reviews: 8,
           badgeLabel: "",
           badgeColor: "color-primary",
@@ -242,7 +248,7 @@ export default {
           image: "assets/storybook/Home/productB.jpg",
           price: { regular: "$ 50.00 ", special: "$ 45.00" },
           rating: { max: 5, score: 4 },
-          isOnWishlist: false,
+          isInWishlist: false,
           reviews: 8,
           badgeLabel: "-10%",
           badgeColor: "color-primary",
@@ -252,7 +258,7 @@ export default {
           image: "assets/storybook/Home/productC.jpg",
           price: { regular: "$ 50.00 " },
           rating: { max: 5, score: 4 },
-          isOnWishlist: false,
+          isInWishlist: false,
           reviews: 8,
           badgeLabel: "",
           badgeColor: "color-primary",
@@ -262,7 +268,7 @@ export default {
           image: "assets/storybook/Home/productA.jpg",
           price: { regular: "$ 50.00 " },
           rating: { max: 5, score: 4 },
-          isOnWishlist: false,
+          isInWishlist: false,
           reviews: 8,
           badgeLabel: "",
           badgeColor: "color-primary",
@@ -272,7 +278,7 @@ export default {
           image: "assets/storybook/Home/productB.jpg",
           price: { regular: "$ 50.00 " },
           rating: { max: 5, score: 4 },
-          isOnWishlist: false,
+          isInWishlist: false,
           reviews: 8,
           badgeLabel: "",
           badgeColor: "color-primary",
@@ -304,8 +310,8 @@ export default {
   },
   methods: {
     toggleWishlist(index) {
-      return (this.products[index].isOnWishlist = !this.products[index]
-        .isOnWishlist);
+      return (this.products[index].isInWishlist = !this.products[index]
+        .isInWishlist);
     },
   },
 };
