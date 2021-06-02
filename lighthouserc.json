@@ -1,7 +1,13 @@
 {
   "ci": {
     "collect": {
-      "staticDistDir": "./package/nuxt/dist"
-    }
+      "staticDistDir": "./package/nuxt/dist",
+      "url": "http://localhost:3000/",
+      "url": "http://localhost:3000/category",
+      "numberOfRuns": 5
+    },
+    "upload": {
+      "target": "filesystem"
+    }    
   }
 }
