@@ -17,13 +17,12 @@ export default {
       table: {
         category: "Props",
       },
-      defaultValue: {
-        summary: false,
-      },
       description: "Disabled",
     },
     start: {
-      control: "array",
+      control: {
+        type: "array",
+      },
       table: {
         category: "Props",
       },

@@ -9,10 +9,10 @@ export default {
   name: "SfRange",
   props: {
     /*
-     * Sets the number of sliders (1 or 2) by adding initial values to the array
+     * Sets the starting values for slider(s), if only one number is given than only one slider appears
      */
     value: {
-      type: [Number, Array],
+      type: Array,
       default: () => [0, 1],
     },
     /*
@@ -44,39 +44,37 @@ export default {
         };
       },
     },
-  },
-  watch: {
-    config: {
-      handler(newConfig) {
-        return this.resetAndChangeOption(newConfig);
+    watch: {
+      config: {
+        handler(newConfig) {
+          this.$refs.range?.noUiSlider?.destroy();
+          return this.noUiSliderInit(newConfig);
+        },
+        deep: true,
       },
-      deep: true,
-    },
-    value: {
-      handler(values) {
-        return this.$refs.range.noUiSlider.set(values);
+      value: {
+        handler(values) {
+          console.log(values);
+          return this.$refs.range.noUiSlider.set(values);
+        },
+        immediate: true,
       },
-      immedite: true,
-    }
-  },
-  mounted() {
-    this.noUiSliderInit(this.config);
-  },
-  beforeDestroy() {
-    this.$refs.range?.noUiSlider?.destroy();
-  },
-  methods: {
-    noUiSliderInit(config) {
-      const configSettings = Object.assign(this.config, config);
-      noUiSlider
-        .create(this.$refs.range, configSettings)
-        .on("change", (values) => {
-          this.$emit("change", values);
-        })
     },
-    resetAndChangeOption(config) {
+    mounted() {
+      this.noUiSliderInit(this.config);
+    },
+    beforeDestroy() {
       this.$refs.range?.noUiSlider?.destroy();
-      this.noUiSliderInit(config);
+    },
+    methods: {
+      noUiSliderInit(config) {
+        const configSettings = Object.assign(this.config, config);
+        noUiSlider
+          .create(this.$refs.range, configSettings)
+          .on("change", (values) => {
+            this.$emit("change", values);
+          });
+      },
     },
   },
 };
