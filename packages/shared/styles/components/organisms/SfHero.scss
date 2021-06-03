@@ -8,8 +8,7 @@
   color: var(--c-text);
   @include background(
     --hero-item-background,
-    var(--_hero-item-background-color, transparent),
-    var(--_hero-item-background-image)
+    var(--_hero-item-background-color, transparent)
   );
   img {
     position: absolute;
@@ -87,10 +86,6 @@
     &__subtitle {
       width: 100%;
     }
-    --hero-item-background-image: var(
-      --_hero-item-background-desktop-image,
-      var(--_hero-item-background-image)
-    );
     &__title {
       --hero-item-font-size: var(--h1-font-size);
       width: 100%;

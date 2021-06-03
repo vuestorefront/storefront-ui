@@ -28,8 +28,12 @@
           required
           class="form__element"
         />
-        <SfButton class="form__button" @click="updatePersonal"
-          >Save changes
+        <SfButton
+          class="form__button"
+          data-testid="save-changes-button"
+          @click="updatePersonal"
+        >
+          Save changes
         </SfButton>
       </div>
       <p class="notice">
@@ -70,8 +74,12 @@
           required
           class="form__element form__element--half form__element--half-even"
         />
-        <SfButton class="form__button" @click="updatePassword"
-          >Update password
+        <SfButton
+          class="form__button"
+          data-testid="update-password-button"
+          @click="updatePassword"
+        >
+          Update password
         </SfButton>
       </div>
     </SfTab>
