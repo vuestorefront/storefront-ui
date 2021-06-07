@@ -82,6 +82,9 @@ jobs:
             packages/vue/node_modules
             packages/nuxt/node_modules
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+      
+      - name: Install dependencies
+        run: cd packages/nuxt && yarn --frozen-lockfile
 
       - name: generate nuxt
         run: |
