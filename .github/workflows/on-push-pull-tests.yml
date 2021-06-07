@@ -45,6 +45,7 @@ jobs:
           path: |
             **/node_modules
             packages/vue/node_modules
+            packages/nuxt/node_modules
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
 
       - name: Run linter and unit tests
@@ -73,6 +74,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Get cached dependencies
+        uses: actions/cache@v2
+        with:
+          path: |
+            **/node_modules 
+            packages/vue/node_modules
+            packages/nuxt/node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+
       - name: generate nuxt
         run: |
           yarn nuxt:generate
@@ -100,8 +110,9 @@ jobs:
         uses: actions/cache@v2
         with:
           path: |
-            **/node_modules
+            **/node_modules 
             packages/vue/node_modules
+            packages/nuxt/node_modules
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
 
       - name: Build
