@@ -20,6 +20,7 @@ jobs:
           path: |
             **/node_modules 
             packages/vue/node_modules
+            packages/nuxt/node_modules
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install dependencies
