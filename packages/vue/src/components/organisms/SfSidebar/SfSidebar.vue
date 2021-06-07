@@ -1,9 +1,12 @@
 <template>
-  <div class="sf-sidebar" :class="[staticClass, className]">
+  <div
+    class="sf-sidebar"
+    :class="{ staticClass, className, jsEnabled: jsEnabled }"
+  >
     <SfOverlay :visible="visibleOverlay" />
     <transition :name="transitionName">
       <aside
-        v-if="visible"
+        v-if="jsEnabled ? visible : true"
         ref="asideContent"
         v-focus-trap
         v-click-outside="checkPersistence"
@@ -11,17 +14,25 @@
       >
         <!--@slot Use this slot to place content inside the modal bar.-->
         <slot name="bar">
-          <SfBar
-            :title="title"
-            class="smartphone-only"
-            :back="true"
-            @click:back="close"
-          />
+          <SfBar :title="title" class="smartphone-only" @click:back="close">
+            <template #back>
+              <SfButton
+                :link="jsEnabled ? null : '#'"
+                aria-label="back"
+                class="sf-sidebar__bar-button sf-button--pure sf-bar__icon"
+                type="button"
+                @click="$emit('click:back')"
+              >
+                <SfIcon icon="chevron_left" size="0.875rem" />
+              </SfButton>
+            </template>
+          </SfBar>
         </slot>
         <!--@slot Use this slot to replace close icon.-->
         <slot name="circle-icon" v-bind="{ close, button }">
           <SfCircleIcon
             v-if="button"
+            :link="jsEnabled ? null : '#'"
             icon-size="12px"
             aria-label="Close sidebar"
             icon="cross"
@@ -64,6 +75,9 @@ import SfBar from "../../molecules/SfBar/SfBar.vue";
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import SfHeading from "../../atoms/SfHeading/SfHeading.vue";
+import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+import SfButton from "../../atoms/SfButton/SfButton.vue";
+
 export default {
   name: "SfSidebar",
   directives: { focusTrap, clickOutside },
@@ -72,6 +86,8 @@ export default {
     SfCircleIcon,
     SfOverlay,
     SfHeading,
+    SfIcon,
+    SfButton,
   },
   props: {
     /**
@@ -129,6 +145,7 @@ export default {
       position: "left",
       staticClass: null,
       className: null,
+      jsEnabled: false,
     };
   },
   computed: {
@@ -164,6 +181,9 @@ export default {
   },
   mounted() {
     this.classHandler();
+    this.$nextTick(() => {
+      return (this.jsEnabled = true);
+    });
   },
   updated() {
     this.classHandler();
