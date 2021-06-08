@@ -1,23 +1,22 @@
 @import "../../helpers";
 
-.sf-range {
-  --range-height: 7px; 
+.sf-range { 
   position: relative;
-  width: var(--range-width, 100%);
-  height: var(--range-height);
+  width: 100%;
+  height: 7px;
   margin: var(--spacer-xl);
   background-color: var(--c-light);
   border: none;
   box-shadow: none;
   .noUi {
     &-handle {
-      width: var(--range-handle-width, var(--range-handle-size, 33px));
-      height: var(--range-handle-width, var(--range-handle-size, 33px));
-      border-radius: var(--range-handle-border-radius, 50%);
-      transform: var(--range-handle-transform, translate3d(0, -20%, 0));
+      width: 33px;
+      height: 33px;
+      border-radius: 50%;
+      transform: translate3d(0, -20%, 0);
       box-shadow: none;
       @include border(--range-handle-border, 1px, solid, var(--c-primary));
-      @include background(--range-handle-background, var(--c-white));
+      background-color: var(--c-white);
       &::before,
       &::after {
         display: none;
@@ -26,26 +25,22 @@
         outline: none;
       }
       &.noUi-active .noUi-touch-area {
-        --range-handle-background: var(--c-primary);
+        background-color:  var(--c-primary);
       }
     }
     &-connect {
-      background: var(--range-connect-background, var(--c-primary));
-    }
-    &-connects {
-      margin: 0 var(--range-tooltips-padding);
-      width: calc(100% + var(--range-tooltips-padding) * 2);
+      background-color: var(--c-primary);
     }
     &-touch-area {
-      background: var(--range-handle-background);
-      border-radius: var(--range-handle-border-radius, 50%);
+      background-color: var(--c-white);
+      border-radius: 50%;
       &:hover {
-        --range-handle-background: var(--c-primary-variant);
+        background-color: var(--c-primary-variant);
       }
     }
     &-tooltip {
-      bottom: var(--range-tooltip-bottom, -120%);
-      color: var(--range-tooltip-color, var(--c-secondary-variant));
+      bottom: -120%;
+      color: var(--c-secondary-variant);
       @include font(
         --range-tooltip-font,
         var(--font-weight--normal),
@@ -59,13 +54,13 @@
   &[disabled="disabled"] {
     .noUi {
       &-handle {
-        --range-handle-border-color: var(--c-text-disabled);
+        border-color: var(--c-text-disabled);
       }
       &-connect {
-        --range-connect-background: var(--c-text-disabled);
+        background-color: var(--c-text-disabled);
       }
       &-touch-area:hover {
-        --range-handle-background: var(--c-base);
+        background-color: var(--c-base);
       }
       &-tooltip {
         display: none;
@@ -74,11 +69,9 @@
   }
 }
 .noUi-vertical {
-  --range-height: 300px;
-  --range-width: 7px;
-  --range-handle-transform: translate3d(20%, 0, 0);
-  .noUi-connect {
-    height: var(--range-height);
-    width: var(--range-width);
+  height: 300px;
+  width: 7px;
+  .noUi-handle {
+    transform: translate3d(20%, 0, 0);  
   }
 }
