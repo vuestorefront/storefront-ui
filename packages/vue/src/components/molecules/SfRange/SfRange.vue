@@ -35,12 +35,6 @@ export default {
             max: 10,
           },
           step: 1,
-          connect: true,
-          direction: "ltr",
-          orientation: "horizontal",
-          behaviour: "tap-drag",
-          tooltips: false,
-          keyboardSupport: true,
         };
       },
     },
@@ -48,7 +42,6 @@ export default {
   watch: {
     config: {
       handler(newConfig) {
-        console.log(newConfig);
         this.$refs.range?.noUiSlider?.destroy();
         const newSlider = this.noUiSliderInit(newConfig);
         return newSlider;
@@ -57,7 +50,6 @@ export default {
     },
     value: {
       handler(values) {
-        console.log(values);
         return this.$refs.range?.noUiSlider?.set(values);
       },
       immediate: true,
