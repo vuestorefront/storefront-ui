@@ -42,7 +42,7 @@ export default {
       table: {
         category: "Props",
       },
-      defaultValue: true,
+      defaultValue: false,
     },
     persistent: {
       control: "boolean",

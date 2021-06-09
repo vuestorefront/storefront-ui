@@ -80,14 +80,18 @@
       var(--font-family--primary)
     );
   }
-  &__circle-icon {
-    --circle-icon-position: absolute;
+  &__circle-icon.sf-circle-icon {
+    position: absolute;
     z-index: 1;
     display: var(--sidebar-circle-icon-display, flex);
     left: var(--sidebar-circle-icon-left);
     top: var(--sidebar-circle-icon-top, var(--spacer-xl));
     right: var(--sidebar-circle-icon-right, 0);
-    transform: var(--sidebar-circle-icon-transform, translate3d(50%, 0, 0));
+    padding: 0;
+    transform: var(--sidebar-circle-icon-transform, translate3d(50%, 0, 0))
+  }
+  & .sf-sidebar__bar-button.sf-link {
+    width: auto;
   }
   @include for-desktop {    
     --sidebar-top-padding: var(--spacer-xl) var(--spacer-xl) var(--spacer-sm)

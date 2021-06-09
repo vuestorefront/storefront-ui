@@ -21,7 +21,7 @@
                 aria-label="back"
                 class="sf-sidebar__bar-button sf-button--pure sf-bar__icon"
                 type="button"
-                @click="$emit('click:back')"
+                @click="close"
               >
                 <SfIcon icon="chevron_left" size="0.875rem" />
               </SfButton>
@@ -189,6 +189,9 @@ export default {
     this.classHandler();
   },
   methods: {
+    isVisible() {
+      if (typeof this.jsEnabled === undefined) return false;
+    },
     close() {
       this.$emit("close");
     },
