@@ -19,13 +19,19 @@
       >
         <!--@slot Use this slot to place content inside the modal bar.-->
         <slot name="modal-bar">
-          <SfBar
-            :link="jsEnabled ? null : '#'"
-            class="sf-modal__bar smartphone-only"
-            :close="cross"
-            :title="title"
-            @click:close="close"
-          />
+          <SfBar class="sf-modal__bar smartphone-only" :title="title">
+            <template #close="{ jsEnabled }">
+              <SfButton
+                :link="jsEnabled ? null : '#'"
+                class="sf-button--pure sf-bar__icon"
+                aria-label="close"
+                type="button"
+                @click="close"
+              >
+                <SfIcon icon="cross" size="14px" />
+              </SfButton>
+            </template>
+          </SfBar>
         </slot>
         <SfButton
           v-if="cross"

@@ -33,10 +33,13 @@
       var(--font-family--primary)
     );
   }
-  &__close {
+  &__close.sf-button {
     position: absolute;
     right: var(--modal-close-right, var(--spacer-sm));
-    top: var(--modal-close-top, var(--spacer-sm));
+    top: var(--modal-close-top, var(--spacer-sm));    
+  }
+  & .sf-link {
+    --button-width: auto;
   }
   @include for-desktop {
     --modal-width: 29.375rem;
