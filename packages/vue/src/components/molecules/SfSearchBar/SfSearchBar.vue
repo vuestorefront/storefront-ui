@@ -49,7 +49,7 @@ export default {
       default: null,
     },
     /**
-     * Object to define icon look. Should have values for color and size
+     * Object to pass icon props (icon, size, color, viewBox, hasBadge, badgeLabel, coverage).
      */
     icon: {
       type: Object,

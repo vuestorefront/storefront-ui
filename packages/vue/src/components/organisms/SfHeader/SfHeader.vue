@@ -50,48 +50,44 @@
           >
             <div class="sf-header__icons">
               <SfButton
-                v-if="accountIcon"
+                v-if="accountIcon.icon"
                 class="sf-button--pure sf-header__action"
                 data-testid="accountIcon"
                 @click="$emit('click:account')"
               >
                 <SfIcon
-                  :icon="accountIcon"
-                  size="1.25rem"
+                  :icon="accountIcon.icon"
+                  :size="accountIcon.size"
                   :class="{
                     'sf-header__icon is-active': activeIcon === 'account',
                   }"
                 />
               </SfButton>
               <SfButton
-                v-if="wishlistIcon"
+                v-if="wishlistIcon.icon"
                 class="sf-button--pure sf-header__action"
                 data-testid="wishlistIcon"
                 @click="$emit('click:wishlist')"
               >
                 <SfIcon
                   class="sf-header__icon"
-                  :icon="wishlistIcon"
-                  :has-badge="wishlistHasProducts"
-                  :badge-label="wishlistItemsQty"
-                  size="1.25rem"
+                  :icon="wishlistIcon.icon"
+                  :size="wishlistIcon.size"
                   :class="{
                     'sf-header__icon is-active': activeIcon === 'wishlist',
                   }"
                 />
               </SfButton>
               <SfButton
-                v-if="cartIcon"
+                v-if="cartIcon.icon"
                 class="sf-button--pure sf-header__action"
                 data-testid="cartIcon"
                 @click="$emit('click:cart')"
               >
                 <SfIcon
                   class="sf-header__icon"
-                  :icon="cartIcon"
-                  :has-badge="cartHasProducts"
-                  :badge-label="cartItemsQty"
-                  size="1.25rem"
+                  :icon="cartIcon.icon"
+                  :size="cartIcon.size"
                   :class="{
                     'sf-header__icon is-active': activeIcon === 'cart',
                   }"
@@ -148,22 +144,37 @@ export default {
      * Header cartIcon (accepts same value as SfIcon)
      */
     cartIcon: {
-      type: [String, Boolean, Array],
-      default: "empty_cart",
+      type: Object,
+      default: () => {
+        return {
+          icon: "empty_cart",
+          size: "1.25rem",
+        };
+      },
     },
     /**
      * Header wishlistIcon (accepts same value as SfIcon)
      */
     wishlistIcon: {
-      type: [String, Boolean, Array],
-      default: "heart",
+      type: Object,
+      default: () => {
+        return {
+          icon: "heart",
+          size: "1.25rem",
+        };
+      },
     },
     /**
      * Header accountIcon (accepts same value as SfIcon)
      */
     accountIcon: {
-      type: [String, Boolean, Array],
-      default: "profile",
+      type: Object,
+      default: () => {
+        return {
+          icon: "profile",
+          size: "1.25rem",
+        };
+      },
     },
     /**
      * Header activeIcon (accepts account, wishlist and cart)

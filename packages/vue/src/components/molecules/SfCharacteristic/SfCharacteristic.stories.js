@@ -8,31 +8,17 @@ export default {
   title: "Components/Molecules/Characteristic",
   component: SfCharacteristic,
   argTypes: {
-    sizeIcon: {
-      control: {
-        type: "select",
-        options: sizes,
-      },
-      table: {
-        category: "Props",
-      },
-    },
-    colorIcon: {
-      control: {
-        type: "select",
-        options: colors,
-      },
-      table: {
-        category: "Props",
-      },
-    },
     icon: {
       control: {
-        type: "select",
-        options: iconsNames,
+        type: "object",
       },
       table: {
         category: "Props",
+      },
+      defaultValue: {
+        icon: "info",
+        size: "lg",
+        color: "green-primary",
       },
     },
     title: {
@@ -58,8 +44,6 @@ const Template = (args, { argTypes }) => ({
   :title="title"
   :description="description"
   :icon="icon"
-  :size-icon="sizeIcon"
-  :color-icon="colorIcon"
   />`,
 });
 export const Common = Template.bind({});
@@ -71,7 +55,9 @@ Common.args = {
 export const WithIcon = Template.bind({});
 WithIcon.args = {
   ...Common.args,
-  icon: "safety",
+  icon: {
+    icon: "safety",
+  },
 };
 
 export const UseIconSlot = (args, { argTypes }) => ({
@@ -82,10 +68,8 @@ export const UseIconSlot = (args, { argTypes }) => ({
     :title="title"
     :description="description"
     :icon="icon"
-    :size-icon="sizeIcon"
-    :color-icon="colorIcon"
   >
-    <template #icon="{colorIcon, sizeIcon, icon}">
+    <template #icon>
       ❤️
     </template>
   </SfCharacteristic>`,
@@ -117,8 +101,6 @@ export const UseDescriptionSlot = (args, { argTypes }) => ({
     :title="title"
     :description="description"
     :icon="icon"
-    :size-icon="sizeIcon"
-    :color-icon="colorIcon">
     <template #description="{description}">
       CUSTOM DESCRIPTION
     </template>

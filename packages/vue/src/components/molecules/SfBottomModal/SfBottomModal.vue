@@ -26,7 +26,7 @@
           <SfCircleIcon
             class="sf-circle-icon--small sf-bottom-modal__close"
             aria-label="Close"
-            icon="cross"
+            :icon="{ icon: 'cross' }"
             @click="close"
           />
         </slot>

@@ -13,11 +13,9 @@
         aria-hidden="true"
         class="sf-circle-icon__icon"
         v-bind="data.attrs"
-        :icon="props.icon"
-        :color="props.iconColor"
-        :size="props.iconSize"
-        :badge-label="props.badgeLabel"
-        :has-badge="props.hasBadge"
+        :icon="props.icon.icon"
+        :color="props.icon.color"
+        :size="props.icon.size"
       />
     </slot>
   </component>
@@ -37,16 +35,13 @@ export default {
   },
   props: {
     icon: {
-      type: [String, Array],
-      default: "home",
-    },
-    iconColor: {
-      type: String,
-      default: "",
-    },
-    iconSize: {
-      type: String,
-      default: "",
+      type: Object,
+      default: () => {
+        return {
+          icon: "home",
+          size: "1.5rem",
+        };
+      },
     },
     disabled: {
       type: Boolean,

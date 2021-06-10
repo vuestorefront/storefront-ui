@@ -22,6 +22,26 @@ export default {
         category: "Props",
       },
     },
+    backIcon: {
+      control: "object",
+      table: {
+        category: "Props",
+      },
+      defaultValue: {
+        icon: "chevron_left",
+        size: "0.875rem",
+      }
+    },
+    closeIcon: {
+      control: "object",
+      table: {
+        category: "Props",
+      },
+      defaultValue: {
+        icon: "cross",
+        size: "0.875rem",
+      }
+    },
     onBackClick: { action: "Back clicked", table: { category: "Events" } },
     onCloseClick: { action: "Close clicked", table: { category: "Events" } },
   },
@@ -35,7 +55,15 @@ export default {
 const Template = (args, { argTypes }) => ({
   components: { SfBar },
   props: Object.keys(argTypes),
-  template: `<SfBar :title="title" :back="back" :close="close" @click:close="onCloseClick" @click:back="onBackClick"/>`,
+  template: `
+  <SfBar 
+    :title="title" 
+    :back="back" 
+    :close="close"
+    :backIcon="backIcon"
+    :closeIcon="closeIcon" 
+    @click:close="onCloseClick" 
+    @click:back="onBackClick"/>`,
 });
 
 export const Common = Template.bind({});

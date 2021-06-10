@@ -28,19 +28,12 @@ export default {
     },
     icon: {
       control: {
-        type: "select",
-        options: iconsNames,
+        type: "object",
       },
       table: {
         category: "Props",
       },
       description: "Icon to use",
-    },
-    iconSize: {
-      control: "text",
-      table: {
-        category: "Props",
-      },
     },
     disabled: {
       control: "boolean",
@@ -60,7 +53,6 @@ const Template = (args, { argTypes }) => ({
   <SfCircleIcon
     :class="classes"
     :icon="icon" 
-    :iconSize="iconSize"
     aria-label="Go to Home"
     :disabled="disabled"
     :style="{margin: '.5rem'}"
@@ -70,7 +62,11 @@ const Template = (args, { argTypes }) => ({
 
 export const Primary = Template.bind({});
 Primary.args = {
-  icon: "home",
+  icon: {
+    icon: "home",
+    size: "1.5rem",
+    color: "white",
+  },
 };
 
 export const Disabled = Template.bind({});
@@ -122,7 +118,6 @@ export const WithDefaultSlot = (args, { argTypes }) => ({
   <SfCircleIcon
     :class="classes"
     :icon="icon" 
-    :iconSize="iconSize"
     aria-label="Go to Home"
     :disabled="disabled"
     @click="onClick"
@@ -135,5 +130,7 @@ export const WithDefaultSlot = (args, { argTypes }) => ({
 
 WithDefaultSlot.args = {
   ...Primary.args,
-  iconSize: "20px",
+  icon: {
+    size: "20px",
+  },
 };

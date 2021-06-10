@@ -4,9 +4,11 @@
     <slot v-for="index in Math.ceil(finalScore)" name="icon-positive">
       <SfIcon
         :key="`p${index}`"
-        size="0.875rem"
         class="sf-rating__icon"
-        :icon="icon"
+        :icon="icon.icon"
+        :size="icon.size"
+        :color="icon.color"
+        :view-box="icon.viewBox"
         :coverage="
           index === Math.ceil(finalScore) && finalScore % 1 > 0
             ? finalScore % 1
@@ -21,7 +23,11 @@
       <SfIcon
         :key="`n${index}`"
         class="sf-rating__icon sf-rating__icon--negative"
-        :icon="icon"
+        :icon="iconNegative.icon"
+        :size="iconNegative.size"
+        :color="iconNegative.color"
+        :view-box="iconNegative.viewBox"
+        :coverage="iconNegative.coverage"
       />
     </slot>
   </div>
@@ -49,8 +55,23 @@ export default {
       default: 1,
     },
     icon: {
-      type: String,
-      default: "star",
+      type: Object,
+      default: () => {
+        return {
+          icon: "star",
+          size: "0.875rem",
+          color: "primary",
+        };
+      },
+    },
+    iconNegative: {
+      type: Object,
+      default: () => {
+        return {
+          icon: "star",
+          size: "0.875rem",
+        };
+      },
     },
   },
   computed: {

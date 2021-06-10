@@ -8,20 +8,14 @@
     }"
     v-on="$listeners"
   >
-    <slot name="icon" v-bind="{ icon, iconActive, iconSize, isFloating }">
-      <SfCircleIcon
-        v-if="isFloating"
-        :icon="icon"
-        icon-color="white"
-        icon-size="28px"
-        :aria-label="label"
-      />
+    <slot name="icon" v-bind="{ icon, iconActive, isFloating }">
+      <SfCircleIcon v-if="isFloating" :icon="circleIcon" :aria-label="label" />
       <SfButton
-        v-else-if="icon"
+        v-else-if="icon.icon"
         class="sf-button--pure sf-bottom-navigation-item__icon"
         :aria-label="label"
       >
-        <SfIcon :icon="currentIcon" :size="iconSize" />
+        <SfIcon :icon="currentIcon" :size="icon.size" />
       </SfButton>
     </slot>
     <slot name="label" v-bind="{ label }">
@@ -52,8 +46,13 @@ export default {
   },
   props: {
     icon: {
-      type: [String, Array],
-      default: "",
+      type: Object,
+      default: () => {
+        return {
+          icon: "",
+          size: "20px",
+        };
+      },
     },
     isActive: {
       type: Boolean,
@@ -67,18 +66,25 @@ export default {
       type: String,
       default: "",
     },
-    iconSize: {
-      type: String,
-      default: "20px",
-    },
     isFloating: {
       type: Boolean,
       default: false,
     },
   },
+  data() {
+    return {
+      circleIcon: {
+        icon: this.icon.icon,
+        color: "white",
+        size: "28px",
+      },
+    };
+  },
   computed: {
     currentIcon() {
-      return this.isActive && this.iconActive ? this.iconActive : this.icon;
+      return this.isActive && this.iconActive
+        ? this.iconActive
+        : this.icon.icon;
     },
   },
 };

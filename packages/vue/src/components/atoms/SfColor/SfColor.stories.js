@@ -9,6 +9,15 @@ export default {
       table: {
         category: "Props",
       },
+      button: {
+        default: object(
+          "button",
+          {
+            disabled: false,
+          },
+          "Props"
+        ),
+      },
     },
     hasBadge: {
       control: "boolean",
