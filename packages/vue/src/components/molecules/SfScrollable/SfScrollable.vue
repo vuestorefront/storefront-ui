@@ -21,8 +21,8 @@ import SfButton from "../../atoms/SfButton/SfButton.vue";
 export default {
   name: "SfScrollable",
   components: {
-    Simplebar,
     SfButton,
+    Simplebar,
   },
   props: {
     /*

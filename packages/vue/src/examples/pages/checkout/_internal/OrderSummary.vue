@@ -35,9 +35,13 @@
         label="Enter promo code"
         class="sf-input--filled promo-code__input"
       />
-      <SfButton class="promo-code__button" @click="$emit('click:apply')"
-        >Apply</SfButton
+      <SfButton
+        class="promo-code__button"
+        data-testid="apply-button"
+        @click="$emit('click:apply')"
       >
+        Apply
+      </SfButton>
     </div>
 
     <div class="characteristics">
