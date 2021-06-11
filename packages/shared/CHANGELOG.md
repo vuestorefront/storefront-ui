@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.6](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.10.5...@storefront-ui/shared@0.10.6) (2021-05-18)
+
+
+### Bug Fixes
+
+* remove css vars for background img ([a003b9e](https://github.com/vuestorefront/storefront-ui/commit/a003b9ec51524c49c8f53deb3a4c45ac1d9c1168))
+
+
+### Features
+
+* [#1763](https://github.com/vuestorefront/storefront-ui/issues/1763) add styling for scrollbar ([fe1026c](https://github.com/vuestorefront/storefront-ui/commit/fe1026c498d9af44d5bf95a2e2bb40752e97f6d2))
+* [#1763](https://github.com/vuestorefront/storefront-ui/issues/1763) fix SfScrollable and SfTabs ([06accc5](https://github.com/vuestorefront/storefront-ui/commit/06accc53b96f118d1c85e2c168ded66932c8b1d8))
+* [#1763](https://github.com/vuestorefront/storefront-ui/issues/1763) make scrollbar thinner ([0cda21a](https://github.com/vuestorefront/storefront-ui/commit/0cda21a294f7c0b46224262312d13fcb6a233de5))
+* [#1763](https://github.com/vuestorefront/storefront-ui/issues/1763) remove simplebar-vue from SfScrollabe ([71286fc](https://github.com/vuestorefront/storefront-ui/commit/71286fc3fa7ec8421577665abd4531aef0c3b641))
+* [#1763](https://github.com/vuestorefront/storefront-ui/issues/1763) remove unnecessary scrollbar styling ([dcba903](https://github.com/vuestorefront/storefront-ui/commit/dcba90323eac32f587b499885b86bbdc13017746))
+* [#1763](https://github.com/vuestorefront/storefront-ui/issues/1763) remove unused code ([85e2e5c](https://github.com/vuestorefront/storefront-ui/commit/85e2e5c07ea74b7715997dc93fd43aada6350a38))
+* [#1763](https://github.com/vuestorefront/storefront-ui/issues/1763) revoke simplebar library due to issues with overflow ([8e3eacd](https://github.com/vuestorefront/storefront-ui/commit/8e3eacdffbda96e3377aaa02d328fdd4704dd7cd))
+* [#1763](https://github.com/vuestorefront/storefront-ui/issues/1763) use variables for static values ([f8f30dc](https://github.com/vuestorefront/storefront-ui/commit/f8f30dcb4f794c7ea29a00961d5b2c14dd82855e))
+
+
+
+
+
+## [0.10.5](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.10.4...@storefront-ui/shared@0.10.5) (2021-04-19)
+
+
+### Bug Fixes
+
+* sfgallery main image ([e42c327](https://github.com/vuestorefront/storefront-ui/commit/e42c327c8ab455e97ce2eb109eaa4cdf78f183ab))
+* sfmegamenu add sfbar class ([#1777](https://github.com/vuestorefront/storefront-ui/issues/1777)) ([26bd270](https://github.com/vuestorefront/storefront-ui/commit/26bd270f760d947dac9fd775c3db115547e4472f))
+
+
+
+
+
 ## [0.10.4](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.10.3...@storefront-ui/shared@0.10.4) (2021-03-22)
 
 

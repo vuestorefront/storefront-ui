@@ -1,10 +1,13 @@
 {
   "name": "@storefront-ui/vue",
-  "version": "0.10.4",
+  "version": "0.10.6",
+  "license": "MIT",
   "scripts": {
     "serve": "yarn create-index-files && vue-cli-service serve",
     "build": "yarn create-index-files && vue-cli-service build --target lib --name storefront-ui ./src/index.js",
     "test:unit": "vue-cli-service test:unit",
+    "test:e2e": "cypress open",
+    "test:e2e:headless": "cypress run --headless",
     "lint": "vue-cli-service lint",
     "copy-components": "node scripts/copy-components.js",
     "create-index-files": "node scripts/create-index-files.js",
@@ -28,8 +31,9 @@
     "styles.scss"
   ],
   "dependencies": {
+    "@cypress/vue": "^2.0.1",
     "@glidejs/glide": "^3.3.0",
-    "@storefront-ui/shared": "0.10.4",
+    "@storefront-ui/shared": "0.10.6",
     "body-scroll-lock": "^3.0.1",
     "cloudinary-build-url": "^0.1.1",
     "core-js": "^3.6.5",
@@ -38,12 +42,12 @@
     "node-sass": "^4.13.1",
     "sass-loader": "^8.0.2",
     "simplebar-vue": "^1.4.0",
-    "vue-drag-drop": "^1.1.4",
-    "vue-fragment": "^1.5.1",
+    "vue": "^2.6.12",
     "vue2-leaflet": "^2.5.2"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
+    "@cypress/webpack-preprocessor": "^5.6.0",
     "@storybook/addon-a11y": "^6.1.11",
     "@storybook/addon-actions": "^6.1.11",
     "@storybook/addon-backgrounds": "^6.1.11",
@@ -63,11 +67,11 @@
     "@vue/cli-service": "^4.3.1",
     "@vue/eslint-config-prettier": "^6.0.0",
     "@vue/test-utils": "^1.1.0",
-    "@vuepress/plugin-register-components": "^1.0.0-rc.1",
-    "axios": "^0.21.1",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.2",
     "babel-loader": "^8.0.5",
+    "cypress": "^6.5.0",
+    "cypress-iframe": "^1.0.1",
     "eslint": "^6.8.0",
     "eslint-plugin-vue": "^6.2.2",
     "html-loader": "^1.1.0",
@@ -79,11 +83,7 @@
     "style-loader": "^2.0.0",
     "vue-docgen-api": "^3.22.3",
     "vue-template-compiler": "^2.6.11",
-    "vuepress": "^1.4.1",
     "webpack-dev-middleware": "3.7.2"
-  },
-  "peerDependencies": {
-    "vue": "^2.6.x"
   },
   "lint-staged": {
     "*.{js,vue}": "vue-cli-service lint --fix"

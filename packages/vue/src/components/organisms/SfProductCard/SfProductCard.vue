@@ -1,5 +1,5 @@
 <template>
-  <div class="sf-product-card">
+  <div class="sf-product-card" data-testid="product-card">
     <div class="sf-product-card__image-wrapper">
       <slot
         name="image"
@@ -8,6 +8,7 @@
         <SfButton
           :link="link"
           class="sf-button--pure sf-product-card__link"
+          data-testid="product-link"
           v-on="$listeners"
         >
           <template v-if="Array.isArray(image)">
@@ -61,6 +62,7 @@
         v-if="wishlistIcon !== false"
         :aria-label="`${ariaLabel} ${title}`"
         :class="wishlistIconClasses"
+        data-testid="product-wishlist-button"
         @click="toggleIsInWishlist"
       >
         <slot name="wishlist-icon" v-bind="{ currentWishlistIcon }">
@@ -86,6 +88,7 @@
             :aria-label="`Add to Cart ${title}`"
             :has-badge="showAddedToCartBadge"
             :disabled="addToCartDisabled"
+            data-testid="product-add-icon"
             @click="onAddToCart"
           >
             <div class="sf-product-card__add-button--icons">
@@ -122,6 +125,7 @@
       <SfButton
         :link="link"
         class="sf-button--pure sf-product-card__link"
+        data-testid="product-link"
         v-on="$listeners"
       >
         <h3 class="sf-product-card__title">
@@ -151,6 +155,7 @@
           v-if="reviewsCount"
           :aria-label="`Read ${reviewsCount} reviews about ${title}`"
           class="sf-button--pure sf-product-card__reviews-count"
+          data-testid="product-review-button"
           @click="$emit('click:reviews')"
         >
           ({{ reviewsCount }})

@@ -1,5 +1,5 @@
 <template>
-  <div class="sf-image--wrapper" :style="variables">
+  <div class="sf-image--wrapper" :style="variables" data-testid="image-wrapper">
     <img
       :loading="loading"
       v-bind="$attrs"
@@ -22,6 +22,16 @@
     <div v-if="$slots.default" class="sf-image--overlay">
       <slot />
     </div>
+    <noscript inline-template>
+      <img
+        :src="src"
+        :alt="alt"
+        class="sf-image sf-image-loaded"
+        v-bind="$attrs"
+        :width="width"
+        :height="height"
+      />
+    </noscript>
   </div>
 </template>
 <script>

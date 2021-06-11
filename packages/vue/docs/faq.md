@@ -7,7 +7,7 @@ If you have some questions that someone would appreciate of its answer - please 
 
 ## 1. I got problem working with Vue Storefront (APIs, Capybara theme, etc.). Please help
 
-Despit the fact that our name is similar (both are Storefront) and both projects are from the same creator, StorefrontUI is independent project and our team, unfortunately, won't have the right answer for issues related to Vue Storefront (VSF). Please [visit the VSF team's Slack channel](https://vuestorefront.slack.com/join/shared_invite/enQtOTUwNjQyNjY5MDI0LWFmYzE4NTYxNDBhZDRlMjM5MDUzY2RiMjU0YTRjYWQ3YzdkY2YzZjZhZDZmMDUwMWQyOWRmZjQ3NDgwZGQ3NTk#/) for a better support 😉
+Despite the fact that our name is similar (both are Storefront) and both projects are from the same creator, StorefrontUI is independent project and our team, unfortunately, won't have the right answer for issues related to Vue Storefront (VSF). Please [visit the VSF team's Slack channel](https://vuestorefront.slack.com/join/shared_invite/enQtOTUwNjQyNjY5MDI0LWFmYzE4NTYxNDBhZDRlMjM5MDUzY2RiMjU0YTRjYWQ3YzdkY2YzZjZhZDZmMDUwMWQyOWRmZjQ3NDgwZGQ3NTk#/) for a better support 😉
 
 ## 2. How can I override StorefrontUI (SFUI) global CSS variables?
 
