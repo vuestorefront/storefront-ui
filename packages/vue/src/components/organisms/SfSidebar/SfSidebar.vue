@@ -6,7 +6,7 @@
     <SfOverlay :visible="visibleOverlay" />
     <transition :name="transitionName">
       <aside
-        v-if="jsEnabled ? visible : true"
+        v-if="isMounted ? visible : true"
         ref="asideContent"
         v-focus-trap
         v-click-outside="checkPersistence"
@@ -146,6 +146,7 @@ export default {
       staticClass: null,
       className: null,
       jsEnabled: false,
+      isCreated: false,
     };
   },
   computed: {
@@ -178,6 +179,9 @@ export default {
       },
       immediate: true,
     },
+  },
+  beforeMount() {
+    this.isMounted = true;
   },
   mounted() {
     this.classHandler();
