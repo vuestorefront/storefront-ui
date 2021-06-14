@@ -131,6 +131,36 @@ import pkg from "../../package.json";
   .image {
     margin: 0 0.5rem;
   }
+
+  .websites {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    
+    -webkit-flex-flow: row wrap;
+    justify-content: space-around;
+  }
+
+  .website-logo {
+    margin: 20px !important;
+    text-align: center;
+    align-self: center;
+  }
+
+  @media screen and (max-width: 970px) {
+    .website-logo {
+      width: 140px;
+      height: 80px;
+      margin-top: 10px;
+      text-align: center;
+    }
+  }
 `}</style>
 
 <div class="container">
@@ -155,7 +185,41 @@ import pkg from "../../package.json";
 - Customization-first and
 - Performance oriented
 
-Below you can find information about key concepts behind the project.
+
+## Who is using Storefront UI?
+
+<ul class="websites">
+  <li class="website-logo">
+    <a href="https://www.vintageria.it/" target="_blank">
+      <img src="https://www.vintageria.it/svg/elements/vintageria-logo.svg" />
+    </a>
+  </li>
+  <li class="website-logo">
+    <a href="https://boutique.fff.fr/" target="_blank">
+      <img src="https://boutique.fff.fr/assets/logo.png" />
+    </a>
+  </li>
+  <li class="website-logo">
+    <a href="https://www.rugbyshop.com/" target="_blank">
+      <img src="https://www.rugbyshop.com/assets/logo.png" />
+    </a>
+  </li>
+  <li class="website-logo">
+    <a href="https://www.chromeburner.nl/" target="_blank">
+      <img src="https://www.chromeburner.nl/assets/logo.png" />
+    </a>
+  </li>
+  <li class="website-logo">
+    <a href="https://www.tasurprise.com/" target="_blank">
+      <img src="https://www.tasurprise.com/assets/logo.svg" />
+    </a>
+  </li>
+  <li class="website-logo">
+    <a href="https://chucksboots.com/" target="_blank">
+      <img src="https://chucksboots.com/assets/logo.svg" />
+    </a>
+  </li>
+</ul>
 
 ## Our core concepts
 
