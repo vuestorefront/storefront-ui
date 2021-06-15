@@ -48,7 +48,11 @@
               :title="title"
               :description="subtitle"
               :level="headingLevel"
-              class="sf-heading--left sf-heading--no-underline sf-sidebar__title desktop-only"
+              class="
+                sf-heading--left sf-heading--no-underline
+                sf-sidebar__title
+                desktop-only
+              "
             />
           </slot>
           <!--@slot Use this slot to add sticky top content.-->
@@ -146,7 +150,7 @@ export default {
       staticClass: null,
       className: null,
       jsEnabled: false,
-      isCreated: false,
+      isMounted: false,
     };
   },
   computed: {
