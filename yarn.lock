@@ -15167,6 +15167,11 @@ normalize-url@^3.0.0, normalize-url@^3.3.0:
   resolved "https://registry.yarnpkg.com/normalize-url/-/normalize-url-3.3.0.tgz#b2e1c4dc4f7c6d57743df733a4f5978d18650559"
   integrity sha512-U+JJi7duF1o+u2pynbp2zXDW2/PADgC30f0GsHZtRh+HOcXHnw137TrNlyxxRvWW5fjKd3bcLHPxofWuCjaeZg==
 
+nouislider@^15.1.1:
+  version "15.1.1"
+  resolved "https://registry.yarnpkg.com/nouislider/-/nouislider-15.1.1.tgz#f92b9a45fdbf8824c0e1a8621ea21994814e3f86"
+  integrity sha512-xV9nabBSF59Q4vs5yNfnAey8AkEfq2bKM98e8wfg5jJM7IESGIViWHdjRoBsBGyljYenWt6fSJgczwt8ilKpew==
+
 npm-bundled@^1.0.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/npm-bundled/-/npm-bundled-1.1.1.tgz#1edd570865a94cdb1bc8220775e29466c9fb234b"

@@ -1,36 +1,41 @@
-<template>
+<template functional>
   <div
-    class="sf-textarea"
-    :class="{
-      'sf-textarea--has-text': !!value,
-      'sf-textarea--invalid': !valid,
-    }"
+    :class="[
+      data.class,
+      data.staticClass,
+      'sf-textarea',
+      {
+        'sf-textarea--has-text': !!props.value,
+        'sf-textarea--invalid': !props.valid,
+      },
+    ]"
+    :style="[data.style, data.staticStyle]"
+    v-bind="data.attrs"
   >
     <textarea
-      :id="name"
-      v-focus
-      :value="value"
-      :name="name"
-      :placeholder="placeholder"
-      :cols="cols"
-      :rows="rows"
-      :wrap="wrap"
-      :disabled="disabled"
-      :required="required"
-      :maxlength="maxlength"
-      :minlength="minlength"
-      v-on="listeners"
+      :id="props.name"
+      :value="props.value"
+      :name="props.name"
+      :placeholder="props.placeholder"
+      :cols="props.cols"
+      :rows="props.rows"
+      :wrap="props.wrap"
+      :disabled="props.disabled"
+      :required="props.required"
+      :maxlength="props.maxlength"
+      :minlength="props.minlength"
+      v-on="$options.handleInput(listeners)"
     />
-    <label class="sf-textarea__label" :for="name">
+    <label class="sf-textarea__label" :for="props.name">
       <!-- @slot Custom input label -->
-      <slot name="label" v-bind="{ label }">{{ label }}</slot>
+      <slot name="label" v-bind="{ props }">{{ props.label }}</slot>
     </label>
     <div class="sf-textarea__error-message">
       <transition name="sf-fade">
         <!-- @slot Custom error message -->
-        <slot v-if="!valid" name="error-message" v-bind="{ errorMessage }">
-          <div>{{ errorMessage }}</div></slot
-        >
+        <slot v-if="!props.valid" name="error-message" v-bind="{ props }">
+          <div>{{ props.errorMessage }}</div>
+        </slot>
       </transition>
     </div>
   </div>
@@ -150,13 +155,12 @@ export default {
       description: "Native input disabled attribute",
     },
   },
-  computed: {
-    listeners() {
-      return {
-        ...this.$listeners,
-        input: (event) => this.$emit("input", event.target.value),
-      };
-    },
+  handleInput(listeners) {
+    return {
+      ...listeners,
+      input: ($event) =>
+        listeners.input && listeners.input($event.target.value),
+    };
   },
 };
 </script>
