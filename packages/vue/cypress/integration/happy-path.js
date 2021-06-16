@@ -257,7 +257,7 @@ describe("Home page", () => {
 
 describe("Checkout page", () => {
 	beforeEach(() => {
-		cy.visit("/?path=/docs/pages-checkout--common");
+		cy.visit("/?path=/story/pages-checkout--common");
 	});
 	it("test Details step", () => {
 		cy.iframe().find(selectors.details.loginButton).click();
