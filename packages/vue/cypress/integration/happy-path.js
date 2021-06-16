@@ -391,6 +391,7 @@ describe("Checkout page", () => {
 			.should("have.class", "has-text");
 		cy.iframe()
 			.find(`${selectors.payment.country} select`)
+			.wait(2000)
 			.select("Poland")
 			.parent()
 			.should("have.class", "is-selected");
