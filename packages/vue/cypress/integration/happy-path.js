@@ -191,11 +191,11 @@ describe("Home page", () => {
 		cy.iframe()
 			.find(selectors.hero.ctaButton)
 			.click({ multiple: true, force: true });
-		cy.iframe().find(selectors.hero.bullets).click({ multiple: true });
+		cy.iframe().find(selectors.hero.bullets).first().click({ multiple: true });
 		cy.iframe()
 			.find(selectors.hero.items)
 			.first()
-			.should("not.have.class", "glide__slide--active");
+			.should("have.class", "glide__slide--active");
 	});
 	it("test SfBannerGrid component", () => {
 		cy.iframe()
