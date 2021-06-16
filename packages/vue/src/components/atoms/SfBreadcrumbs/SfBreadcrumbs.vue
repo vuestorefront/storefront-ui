@@ -1,17 +1,19 @@
 <template functional>
-  <nav 
+  <nav
     :class="[data.class, data.staticClass, 'sf-breadcrumbs']"
     :style="[data.style, data.staticStyle]"
     v-bind="data.attrs"
-    v-on="listeners"
     aria-label="breadcrumb"
+    v-on="listeners"
   >
     <ol class="sf-breadcrumbs__list">
       <li
         v-for="(breadcrumb, i) in props.breadcrumbs"
         :key="i"
         class="sf-breadcrumbs__list-item"
-        :aria-current="$options.breadcrumbLast(props.breadcrumbs) === i && 'page'"
+        :aria-current="
+          $options.breadcrumbLast(props.breadcrumbs) === i && 'page'
+        "
       >
         <template v-if="$options.breadcrumbLast(props.breadcrumbs) !== i">
           <!-- @slot Custom markup for previous pages (binds `breadcrumb` object) -->
