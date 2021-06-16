@@ -2,13 +2,16 @@
   <component
     :is="props.link ? injections.components.SfLink : 'button'"
     :class="[
-      data.class, 
-      data.staticClass, 
-      'sf-button', 
+      data.class,
+      data.staticClass,
+      'sf-button',
       {
-        'is-disabled--button': $options.buttonActive(props.link, props.disabled),
+        'is-disabled--button': $options.buttonActive(
+          props.link,
+          props.disabled
+        ),
         'is-disabled--link': $options.linkActive(props.link, props.disabled),
-      }
+      },
     ]"
     :style="[data.style, data.staticStyle]"
     :disabled="props.disabled"
@@ -31,7 +34,7 @@ export default {
     },
   },
   directives: {
-    focus
+    focus,
   },
   props: {
     /**

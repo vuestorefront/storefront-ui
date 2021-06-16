@@ -53,6 +53,11 @@ export default {
       default: "",
     },
   },
+  data() {
+    return {
+      isMobileView: false,
+    };
+  },
   computed: {
     ...mapMobileObserver(),
     style() {
@@ -63,12 +68,15 @@ export default {
         };
       } else {
         return {
-          background: this.isMobile
+          background: this.isMobileView
             ? `url('${background.mobile}')`
             : `url('${background.desktop}')`,
         };
       }
     },
+  },
+  mounted() {
+    this.isMobileView = this.isMobile;
   },
   beforeDestroy() {
     unMapMobileObserver();

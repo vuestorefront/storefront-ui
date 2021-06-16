@@ -1,5 +1,6 @@
 @import "../../helpers";
 .sf-modal {
+   visibility: hidden;
   &__container {
     position: fixed;
     top: var(--modal-top, 0);
@@ -32,10 +33,13 @@
       var(--font-family--primary)
     );
   }
-  &__close {
+  &__close.sf-button {
     position: absolute;
     right: var(--modal-close-right, var(--spacer-sm));
-    top: var(--modal-close-top, var(--spacer-sm));
+    top: var(--modal-close-top, var(--spacer-sm));    
+  }
+  & .sf-link {
+    --button-width: auto;
   }
   @include for-desktop {
     --modal-width: 29.375rem;
@@ -47,5 +51,11 @@
     --modal-height: auto;
     --modal-max-height: 90%;
     --modal-content-padding: var(--spacer-sm) var(--spacer-lg);
+  }
+  &:target {
+    visibility: visible;
+  }
+  &.jsEnabled {
+    visibility: inherit;
   }
 }
