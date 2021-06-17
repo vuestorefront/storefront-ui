@@ -16,7 +16,7 @@
         </SfButton>
       </template>
     </SfTopBar>
-    <SfHeader title="Storefront UI" logo="/assets/logo.svg" cartItemsQty="1" is-sticky>
+    <SfHeader class="sf-header--multiline" title="Storefront UI" logo="/assets/logo.svg" cartItemsQty="1" is-sticky>
       <template #navigation>
         <SfHeaderNavigationItem
             v-for="(item, i) in navigation"
@@ -138,11 +138,11 @@
           {link: "/category", name: "Category"},
           {link: "/product", name: "Product"},
           {link: "/cart", name: "Cart"},
-          // {link: "/detailed-cart", name: "Detailed Cart"},
-          // {link: "/login", name: "Login"},
-          // {link: "/my-account", name: "My Account"},
-          // {link: "/static", name: "Static"},
-          // {link: "/thank-you", name: "Thank You"}
+          {link: "/detailed-cart", name: "Detailed Cart"},
+          {link: "/login", name: "Login"},
+          {link: "/my-account", name: "My Account"},
+          {link: "/static", name: "Static"},
+          {link: "/thank-you", name: "Thank You"}
         ],
         footer: {
           aboutUs: ['Who we are', 'Quality in the details', 'Customer Reviews'],
