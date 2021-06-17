@@ -62,7 +62,36 @@ jobs:
         with:
           start: yarn storybook
           command: yarn run test:e2e:headless
-          config-file: packages/vue/cypress.json
+          config-file: packages/vue/cypress.json 
+
+  lighthouse:
+    name: lighthouse performance test
+    needs: prepare_dependencies
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Get cached dependencies
+        uses: actions/cache@v2
+        with:
+          path: |
+            **/node_modules 
+            packages/vue/node_modules
+            packages/nuxt/node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+      
+      - name: Install dependencies
+        run: cd packages/nuxt && yarn --frozen-lockfile && yarn add -g @lhci/cli@0.7.x
+
+      - name: generate nuxt
+        run: |
+          yarn nuxt:generate
+          yarn nuxt:start
+
+      - name: lighthouse audit
+        run: |          
+          lhci autorun
 
   build:
     name: Build
@@ -81,7 +110,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: |
-            **/node_modules
+            **/node_modules 
             packages/vue/node_modules
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
 
