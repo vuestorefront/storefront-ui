@@ -140,9 +140,9 @@
           {link: "/cart", name: "Cart"},
           {link: "/detailed-cart", name: "Detailed Cart"},
           {link: "/login", name: "Login"},
-          {link: "/my-account", name: "My Account"},
+          // {link: "/my-account", name: "My Account"},
           {link: "/static", name: "Static"},
-          {link: "/thank-you", name: "Thank You"}
+          // {link: "/thank-you", name: "Thank You"}
         ],
         footer: {
           aboutUs: ['Who we are', 'Quality in the details', 'Customer Reviews'],
