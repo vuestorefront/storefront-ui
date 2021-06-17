@@ -82,7 +82,7 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
       
       - name: Install dependencies
-        run: cd packages/nuxt && yarn --frozen-lockfile && yarn add -g @lhci/cli@0.7.x
+        run: yarn install && yarn global add @lhci/cli@0.7.x
 
       - name: generate nuxt
         run: |
