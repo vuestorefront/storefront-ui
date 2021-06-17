@@ -105,6 +105,7 @@
   </div>
 </template>
 <script>
+  import "@storefront-ui/vue/styles.scss";
   import { SfHeader, SfFooter, SfBottomNavigation, SfLink, SfTopBar, SfButton, SfList, SfMenuItem, SfImage } from "@storefront-ui/vue"
   export default {
     components: { SfHeader, SfFooter, SfBottomNavigation, SfLink, SfTopBar, SfButton, SfList, SfMenuItem, SfImage },
@@ -157,7 +158,6 @@
   }
 </script>
 <style lang="scss">
-  @import "~@storefront-ui/vue/styles.scss";
   html, body {
     margin: 0;
   }
