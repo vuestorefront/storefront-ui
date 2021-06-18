@@ -82,16 +82,14 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
       
       - name: Install dependencies
-        run: yarn install && yarn global add @lhci/cli@0.7.x
+        run: yarn install && yarn global add @lhci/cli
 
       - name: generate nuxt
         run: |
           yarn nuxt:generate
-          yarn nuxt:start
 
       - name: lighthouse audit
-        run: |          
-          lhci autorun
+        run: lhci autorun
 
   build:
     name: Build
