@@ -1,19 +1,26 @@
 @import "../../helpers";
-.sf-sidebar {
-  &__aside {
+.sf-sidebar { 
+  visibility: hidden;
+  &__aside {   
+    display: flex;
+    flex-direction: column;
     position: fixed;
     top: var(--sidebar-top, 0);
     left: var(--sidebar-left, 0);
     right: var(--sidebar-right, 0);
     bottom: var(--sidebar-bottom, 0);
-    z-index: var(--sidebar-z-index, 1);
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-    width: var(--sidebar-width);
+    z-index: var(--sidebar-z-index, 1);    
+    box-sizing: border-box;    
     height: 100%;
+    width: var(--sidebar-width);
     background-color: var(--sidebar-background, var(--c-white));
     box-shadow: var(--sidebar-box-shadow, 0px 4px 11px rgba(29, 31, 34, 0.1));
+  }
+  &:target {
+    visibility: visible;
+  }
+  &.jsEnabled {
+    visibility: inherit;
   }
   &__top {
     padding: var(
@@ -33,7 +40,6 @@
     display: var(--sidebar-content-display, flex);
     flex-direction: var(--sidebar-content-flex-direction, column);
     box-sizing: border-box;
-    width: var(--sidebar-content-width);
     height: 100%;
     scrollbar-color: var(--c-gray-variant) var(--c-light);
     scrollbar-width: thin;
@@ -74,22 +80,28 @@
       var(--font-family--primary)
     );
   }
-  &__circle-icon {
-    --circle-icon-position: absolute;
+  &__circle-icon.sf-circle-icon {
+    position: absolute;
     z-index: 1;
     display: var(--sidebar-circle-icon-display, flex);
     left: var(--sidebar-circle-icon-left);
     top: var(--sidebar-circle-icon-top, var(--spacer-xl));
     right: var(--sidebar-circle-icon-right, 0);
-    transform: var(--sidebar-circle-icon-transform, translate3d(50%, 0, 0));
+    padding: 0;
+    transform: var(--sidebar-circle-icon-transform, translate3d(50%, 0, 0))
   }
-  @include for-desktop {
-    --sidebar-width: 25.5rem;
+  & .sf-sidebar__bar-button.sf-link {
+    width: auto;
+  }
+  @include for-desktop {    
     --sidebar-top-padding: var(--spacer-xl) var(--spacer-xl) var(--spacer-sm)
       var(--spacer-xl);
     --sidebar-content-padding: var(--spacer-base) var(--spacer-xl);
     --sidebar-bottom-padding: var(--spacer-sm) var(--spacer-xl) var(--spacer-xl)
       var(--spacer-xl);
+    &__aside {
+      --sidebar-width: 25.5rem;
+    }
     &--right {
       --sidebar-left: auto;
       --sidebar-right: 0;
