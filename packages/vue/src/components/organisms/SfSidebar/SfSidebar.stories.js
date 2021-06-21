@@ -1,4 +1,4 @@
-import { SfSidebar } from "@storefront-ui/vue";
+import { SfSidebar, SfButton } from "@storefront-ui/vue";
 export default {
   title: "Components/Organisms/Sidebar",
   component: SfSidebar,
@@ -42,6 +42,7 @@ export default {
       table: {
         category: "Props",
       },
+      defaultValue: false,
     },
     persistent: {
       control: "boolean",
@@ -56,7 +57,6 @@ export default {
       },
       defaultValue: true,
     },
-    close: { action: "Close sidebar clicked", table: { category: "Events" } },
   },
   parameters: {
     docs: {
@@ -66,22 +66,35 @@ export default {
 };
 
 const Template = (args, { argTypes }) => ({
-  components: { SfSidebar },
+  components: { SfSidebar, SfButton },
   props: Object.keys(argTypes),
+  data() {
+    return {
+      openedSidebar: this.visible,
+    };
+  },
+  methods: {
+    sidebarToggler() {
+      this.openedSidebar = !this.openedSidebar;
+    },
+  },
   template: `
-  <SfSidebar
-    :visible="visible"
-    @close="close"
-    :title="title"
-    :subtitle="subtitle"
-    :heading-level="headingLevel"
-    :button="button"
-    :overlay="overlay"
-    :class="classes"
-    :persistent="persistent"
-  >
-    Total items: 0
-  </SfSidebar>`,
+  <div>  
+    <SfButton @click="sidebarToggler" link="#sidebar" style="position: absolute; top: 50%; left: 50%;"> Open </SfButton>  
+    <SfSidebar
+      :visible="openedSidebar"
+      @close="sidebarToggler"
+      :title="title"
+      :subtitle="subtitle"
+      :heading-level="headingLevel"
+      :button="button"
+      :overlay="overlay"
+      :class="classes"
+      :persistent="persistent"
+    >
+      Total items: 0
+    </SfSidebar>
+  </div>`,
 });
 
 export const Common = Template.bind({});
@@ -155,3 +168,53 @@ export const UseCircleIconSlot = (args, { argTypes }) => ({
   </SfSidebar>`,
 });
 UseCircleIconSlot.args = { ...Common.args };
+
+export const SidebarWithoutJs = (args, { argTypes }) => ({
+  components: { SfSidebar, SfButton },
+  props: Object.keys(argTypes),
+  data() {
+    return {
+      openedSidebar: false,
+      jsEnabled: false,
+    };
+  },
+  methods: {
+    sidebarToggler() {
+      this.openedSidebar = !this.openedSidebar;
+    },
+  },
+  mounted() {
+    this.$nextTick(() => {
+      return (this.jsEnabled = "block");
+    });
+  },
+  template: `
+  <div>
+    <noscript inline-template>
+      <SfButton link="#sidebar">
+        open
+      </SfButton>
+    </noscript>      
+    <SfButton :style="{ display: jsEnabled }" @click="sidebarToggler">
+      open
+    </SfButton>  
+    <SfSidebar
+      :visible="openedSidebar"
+      @close="sidebarToggler"
+      :title="title"
+      :subtitle="subtitle"
+      :heading-level="headingLevel"
+      :button="button"
+      :overlay="overlay"
+      :class="classes"
+      :persistent="persistent"
+      id="sidebar"
+    >
+      <template #title="{title, subtitle, headingLevel}">
+        <div>CUSTOM TITLE</div>
+      </template>
+      Total items: 0
+    </SfSidebar>
+  </div>`,
+});
+SidebarWithoutJs.args = { ...Common.args };
