@@ -170,25 +170,25 @@ export const UseCircleIconSlot = (args, { argTypes }) => ({
 UseCircleIconSlot.args = { ...Common.args };
 
 export const SidebarWithoutJs = (args, { argTypes }) => ({
-	components: { SfSidebar, SfButton },
-	props: Object.keys(argTypes),
-	data() {
-		return {
-			openedSidebar: false,
-			jsEnabled: false,
-		};
-	},
-	methods: {
-		sidebarToggler() {
-			this.openedSidebar = !this.openedSidebar;
-		},
-	},
-	mounted() {
-		this.$nextTick(() => {
-			return (this.jsEnabled = "block");
-		});
-	},
-	template: `
+  components: { SfSidebar, SfButton },
+  props: Object.keys(argTypes),
+  data() {
+    return {
+      openedSidebar: false,
+      jsEnabled: false,
+    };
+  },
+  methods: {
+    sidebarToggler() {
+      this.openedSidebar = !this.openedSidebar;
+    },
+  },
+  mounted() {
+    this.$nextTick(() => {
+      return (this.jsEnabled = "block");
+    });
+  },
+  template: `
   <div>
     <noscript inline-template>
       <SfButton link="#sidebar">
