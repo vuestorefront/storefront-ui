@@ -9,8 +9,8 @@ describe("SfStore.vue", () => {
         centerOn: () => {},
         getGeoDistance: () => {},
         locatorData: () => {},
-      }
-    }); 
+      },
+    });
     expect(component.classes("sf-store")).toBe(true);
   });
 });
