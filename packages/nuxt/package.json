@@ -1,6 +1,6 @@
 {
   "name": "nuxt",
-  "version": "1.0.0",
+  "version": "0.10.7",
   "private": true,
   "author": "Storefront UI team",
   "scripts": {
@@ -14,9 +14,9 @@
     "@babel/core": "^7.14.5",
     "@babel/runtime-corejs3": "^7.14.5",
     "@nuxtjs/pwa": "^3.3.5",
+    "@storefront-ui/vue": "link:../vue",
     "core-js": "^3.9.1",
-    "nuxt": "^2.15.3",
-    "@storefront-ui/vue": "link:../vue"
+    "nuxt": "^2.15.3"
   },
   "devDependencies": {
     "@vue/test-utils": "^1.1.3",
