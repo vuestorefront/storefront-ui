@@ -12,7 +12,7 @@
     </SfOverlay>
     <transition :name="transitionModal">
       <div
-        v-if="jsEnabled ? visible : true"
+        v-if="isMounted ? visible : true"
         v-focus-trap
         v-click-outside="checkPersistence"
         class="sf-modal__container"
@@ -133,6 +133,7 @@ export default {
       staticClass: null,
       className: null,
       jsEnabled: false,
+      isMounted: false,
     };
   },
   watch: {
@@ -151,6 +152,9 @@ export default {
       },
       immediate: true,
     },
+  },
+  beforeMount() {
+    this.isMounted = true;
   },
   mounted() {
     this.$nextTick(() => {

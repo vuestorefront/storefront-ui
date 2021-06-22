@@ -83,6 +83,9 @@ jobs:
             packages/nuxt/node_modules
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
 
+      - name: Install dependencies
+        run: yarn
+
       - name: generate nuxt
         run: |
           yarn nuxt:generate
