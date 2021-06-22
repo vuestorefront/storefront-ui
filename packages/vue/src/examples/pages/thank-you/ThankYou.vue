@@ -88,7 +88,7 @@
 <script>
 import { SfHeading, SfButton, SfCallToAction } from "@storefront-ui/vue";
 export default {
-  name: "ThankYou",
+  name: "Product",
   components: {
     SfHeading,
     SfButton,
