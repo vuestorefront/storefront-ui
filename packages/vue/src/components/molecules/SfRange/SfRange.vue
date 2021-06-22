@@ -5,6 +5,8 @@
 </template>
 <script>
 import noUiSlider from "nouislider";
+import "nouislider/dist/nouislider.css";
+
 export default {
   name: "SfRange",
   props: {
@@ -74,6 +76,5 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "~nouislider/dist/nouislider.css";
 @import "~@storefront-ui/shared/styles/components/molecules/SfRange.scss";
 </style>
