@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/ThankYou", {data:[{}],fetch:{},mutations:void 0});
