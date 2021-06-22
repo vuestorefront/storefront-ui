@@ -92,9 +92,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "resolutions": {
-    "webpack-dev-middleware": "3.7.2"
-  },
   "sideEffects": [
     "*.vue",
     "*.scss",
