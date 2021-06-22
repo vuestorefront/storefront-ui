@@ -56,6 +56,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: yarn
           
       - name: Cypress run
         uses: cypress-io/github-action@v2
