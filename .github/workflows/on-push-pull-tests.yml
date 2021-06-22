@@ -82,9 +82,6 @@ jobs:
             packages/vue/node_modules
             packages/nuxt/node_modules
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-      
-      - name: Install lhci
-        run: yarn global add @lhci/cli
 
       - name: generate nuxt
         run: |
