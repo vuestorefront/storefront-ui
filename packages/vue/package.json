@@ -37,6 +37,7 @@
     "body-scroll-lock": "^3.0.1",
     "cloudinary-build-url": "^0.1.1",
     "core-js": "^3.6.5",
+    "glob": "^7.1.7",
     "hammerjs": "^2.0.8",
     "leaflet": "^1.5.1",
     "node-sass": "^4.13.1",
