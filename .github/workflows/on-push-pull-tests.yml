@@ -23,7 +23,7 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install dependencies
-        run: yarn && yarn add @vue/cli -W
+        run: yarn --frozen-lockfile && yarn add @vue/cli -W
 
   lint:
     name: Lint
@@ -57,9 +57,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Install dependencies
-        run: yarn
-          
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
@@ -86,8 +83,8 @@ jobs:
             packages/nuxt/node_modules
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
       
-      - name: Install dependencies
-        run: yarn install && yarn global add @lhci/cli
+      - name: Install lhci
+        run: yarn global add @lhci/cli
 
       - name: generate nuxt
         run: |
