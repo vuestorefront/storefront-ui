@@ -1,7 +1,7 @@
 <template>
   <div class="sf-quantity-selector">
     <SfButton
-      :disabled="disabled"
+      :disabled="isMinusDisabled"
       class="sf-button--pure sf-quantity-selector__button"
       data-testid="+"
       @click="$emit('input', parseInt(qty, 10) - 1)"
@@ -18,7 +18,7 @@
       @blur="$emit('blur', $event)"
     />
     <SfButton
-      :disabled="disabled"
+      :disabled="isPlusDisabled"
       class="sf-button--pure sf-quantity-selector__button"
       data-testid="-"
       @click="$emit('input', parseInt(qty, 10) + 1)"
@@ -49,11 +49,38 @@ export default {
       type: Boolean,
       default: false,
     },
+    /** Minimum allowed quantity */
+    min: {
+      type: Number,
+      required: false,
+      default: null,
+    },
+    /** Maximum allowed quantity */
+    max: {
+      type: Number,
+      required: false,
+      default: null,
+    },
+  },
+  computed: {
+    isMinusDisabled() {
+      return (
+        this.disabled || Boolean(this.min !== null && this.qty <= this.min)
+      );
+    },
+    isPlusDisabled() {
+      return (
+        this.disabled || Boolean(this.max !== null && this.qty >= this.max)
+      );
+    },
   },
   watch: {
     qty(val) {
-      if (val < 1 || isNaN(val)) {
-        this.$emit("input", 1);
+      const min = this.min || 1;
+      if (val < min || isNaN(val)) {
+        this.$emit("input", min);
+      } else if (this.max !== null && val > this.max) {
+        this.$emit("input", this.max);
       }
     },
   },

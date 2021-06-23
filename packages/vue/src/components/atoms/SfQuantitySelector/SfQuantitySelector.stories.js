@@ -26,6 +26,20 @@ export default {
         category: "Props",
       },
     },
+    min: {
+      control: "number",
+      defaultValue: null,
+      table: {
+        category: "Props",
+      },
+    },
+    max: {
+      control: "number",
+      defaultValue: null,
+      table: {
+        category: "Props",
+      },
+    },
     input: { action: "Quantity changed!", table: { category: "Events" } },
   },
 };
@@ -42,6 +56,8 @@ const Template = (args, { argTypes }) => ({
   <SfQuantitySelector
     v-model="value"
     :disabled="disabled"
+    :min="min"
+    :max="max"
     aria-label="Quantity"
     :class="classes"
     @input="input"
