@@ -5,13 +5,13 @@
       data.class,
       data.staticClass,
       'sf-button--pure sf-color',
-      { 'is-active': selected },
+      { 'is-active': props.selected },
     ]"
-    :style="[
-      data.style,
-      data.staticStyle,
-      { '--color-background': props.color },
-    ]"
+    :style="{
+      ...data.style,
+      ...data.staticStyle,
+      '--color-background': props.color,
+    }"
     :aria-pressed="props.selected.toString()"
     :data-testid="props.color"
     v-bind="data.attrs"
@@ -38,8 +38,8 @@
   </component>
 </template>
 <script>
-import SfBadge from "../../atoms/SfBadge/SfBadge.vue";
-import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+import SfBadge from "../SfBadge/SfBadge.vue";
+import SfIcon from "../SfIcon/SfIcon.vue";
 import SfButton from "../SfButton/SfButton.vue";
 export default {
   name: "SfColor",
@@ -65,6 +65,9 @@ export default {
       type: Boolean,
       default: true,
     },
+  },
+  style(color) {
+    return color;
   },
 };
 </script>
