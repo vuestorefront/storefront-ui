@@ -140,12 +140,7 @@ NoChevron.args = {
 export const LongOptionsList = Template.bind({});
 LongOptionsList.args = {
   ...Common.args,
-  options: [
-      ...optionsList,
-    { value: "red", color: "#ff0000", label: "Red" },
-    { value: "green", color: "#00ff00", label: "Green" },
-    { value: "blue", color: "#0000ff", label: "Blue" }
-  ],
+  size: 3,
 };
 
 export const UseLabelSlot = (args, { argTypes }) => ({
