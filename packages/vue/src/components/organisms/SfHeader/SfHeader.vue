@@ -9,6 +9,8 @@
               v-if="logo"
               :src="logo"
               :alt="title"
+              :width="34"
+              :height="35"
               class="sf-header__logo"
             />
             <h1 v-else class="sf-header__title">{{ title }}</h1>
