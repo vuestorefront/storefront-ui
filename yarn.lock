@@ -16,6 +16,7 @@
     "@babel/highlight" "^7.8.3"
 
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.10.4", "@babel/code-frame@^7.14.5", "@babel/code-frame@^7.5.5":
+<<<<<<< HEAD
 =======
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.10.4", "@babel/code-frame@^7.14.5", "@babel/code-frame@^7.8.3":
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
@@ -50,16 +51,27 @@
   dependencies:
     "@babel/highlight" "^7.14.5"
 
+=======
+  version "7.14.5"
+  resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.14.5.tgz#23b08d740e83f49c5e59945fbf1b43e80bbf4edb"
+  integrity sha512-9pzDqyc6OLDaqe+zbACgFkb6fKMNG6CObKpnYXChRsvYGyEdc7CA2BaqeOM+vOtCS5ndmJicPJhKAwYRI6UfFw==
+  dependencies:
+    "@babel/highlight" "^7.14.5"
+
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 "@babel/compat-data@^7.13.11", "@babel/compat-data@^7.14.5":
   version "7.14.5"
   resolved "https://registry.yarnpkg.com/@babel/compat-data/-/compat-data-7.14.5.tgz#8ef4c18e58e801c5c95d3c1c0f2874a2680fadea"
   integrity sha512-kixrYn4JwfAVPa0f2yfzc2AWti6WRRyO3XjWW5PJAvtE11qhSayrrcrEnee05KAtNaPC+EwehE8Qt1UedEVB8w==
+<<<<<<< HEAD
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
 
 "@babel/compat-data@^7.14.0", "@babel/compat-data@^7.14.7":
   version "7.14.7"
   resolved "https://registry.yarnpkg.com/@babel/compat-data/-/compat-data-7.14.7.tgz#7b047d7a3a89a67d2258dc61f604f098f1bc7e08"
   integrity sha512-nS6dZaISCXJ3+518CWiBfEr//gHyMO02uDxBkXTKZDN5POruCnOZ1N4YBRZDCabwF8nZMWBpRxIicmXtBs+fvw==
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 
 "@babel/core@7.12.9":
   version "7.12.9"
@@ -87,10 +99,14 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 "@babel/core@>=7.9.0", "@babel/core@^7.1.0", "@babel/core@^7.1.6", "@babel/core@^7.11.0", "@babel/core@^7.12.1", "@babel/core@^7.12.3", "@babel/core@^7.7.5", "@babel/core@^7.9.0":
   version "7.14.6"
   resolved "https://registry.yarnpkg.com/@babel/core/-/core-7.14.6.tgz#e0814ec1a950032ff16c13a2721de39a8416fcab"
   integrity sha512-gJnOEWSqTk96qG5BoIrl5bVtc23DCycmIePPYnamY9RboYdI4nFy5vAQMSl81O5K/W0sLDWfGysnOECC+KUUCA==
+<<<<<<< HEAD
 =======
 "@babel/core@>=7.9.0", "@babel/core@^7.1.0", "@babel/core@^7.1.6", "@babel/core@^7.11.0", "@babel/core@^7.12.10", "@babel/core@^7.14.0", "@babel/core@^7.14.5", "@babel/core@^7.7.5", "@babel/core@^7.9.0":
   version "7.14.5"
@@ -103,11 +119,14 @@
   resolved "https://registry.yarnpkg.com/@babel/core/-/core-7.12.10.tgz#b79a2e1b9f70ed3d84bbfb6d8c4ef825f606bccd"
   integrity sha512-eTAlQKq65zHfkHZV0sIVODCPGVgoo1HdBlbSLi9CqOzuZanMv2ihzY+4paiKr1mH+XmYESMAmJ/dpZ68eN6d8w==
 >>>>>>> 90415bab9 (feat: add layout and home page)
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   dependencies:
     "@babel/code-frame" "^7.14.5"
     "@babel/generator" "^7.14.5"
     "@babel/helper-compilation-targets" "^7.14.5"
     "@babel/helper-module-transforms" "^7.14.5"
+<<<<<<< HEAD
 <<<<<<< HEAD
     "@babel/helpers" "^7.14.6"
     "@babel/parser" "^7.14.6"
@@ -115,13 +134,18 @@
     "@babel/helpers" "^7.14.5"
     "@babel/parser" "^7.14.5"
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
+=======
+    "@babel/helpers" "^7.14.6"
+    "@babel/parser" "^7.14.6"
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
     "@babel/template" "^7.14.5"
     "@babel/traverse" "^7.14.5"
     "@babel/types" "^7.14.5"
     convert-source-map "^1.7.0"
     debug "^4.1.0"
-    gensync "^1.0.0-beta.1"
+    gensync "^1.0.0-beta.2"
     json5 "^2.1.2"
+<<<<<<< HEAD
     lodash "^4.17.19"
     semver "^5.4.1"
     source-map "^0.5.0"
@@ -166,6 +190,12 @@
 =======
 "@babel/generator@^7.12.1", "@babel/generator@^7.12.5", "@babel/generator@^7.14.5", "@babel/generator@^7.4.0":
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+    semver "^6.3.0"
+    source-map "^0.5.0"
+
+"@babel/generator@^7.12.1", "@babel/generator@^7.12.5", "@babel/generator@^7.14.5", "@babel/generator@^7.4.0":
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "7.14.5"
   resolved "https://registry.yarnpkg.com/@babel/generator/-/generator-7.14.5.tgz#848d7b9f031caca9d0cd0af01b063f226f52d785"
   integrity sha512-y3rlP+/G25OIX3mYKKIOlQRcqj7YgrvHxOLbVmyLJ9bPmi5ttvUmpydVjcFjZphOktWuA7ovbx91ECloWTfjIA==
@@ -192,6 +222,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 "@babel/helper-compilation-targets@^7.13.0", "@babel/helper-compilation-targets@^7.14.5", "@babel/helper-compilation-targets@^7.9.6":
 =======
 "@babel/helper-compilation-targets@^7.13.0", "@babel/helper-compilation-targets@^7.13.16", "@babel/helper-compilation-targets@^7.14.5", "@babel/helper-compilation-targets@^7.9.6":
@@ -202,6 +233,9 @@
 =======
 "@babel/helper-compilation-targets@^7.13.0", "@babel/helper-compilation-targets@^7.13.16", "@babel/helper-compilation-targets@^7.14.5", "@babel/helper-compilation-targets@^7.9.6":
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+"@babel/helper-compilation-targets@^7.13.0", "@babel/helper-compilation-targets@^7.14.5", "@babel/helper-compilation-targets@^7.9.6":
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "7.14.5"
   resolved "https://registry.yarnpkg.com/@babel/helper-compilation-targets/-/helper-compilation-targets-7.14.5.tgz#7a99c5d0967911e972fe2c3411f7d5b498498ecf"
   integrity sha512-v+QtZqXEiOnpO6EYvlImB6zCD2Lel06RzOPzmkz/D/XgQiUu3C/Jb1LOqSt/AIA34TYi/Q+KlT8vTQrgdxkbLw==
@@ -210,6 +244,7 @@
     "@babel/helper-validator-option" "^7.14.5"
     browserslist "^4.16.6"
     semver "^6.3.0"
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -367,6 +402,108 @@
   dependencies:
     "@babel/types" "^7.14.5"
 
+=======
+
+"@babel/helper-create-class-features-plugin@^7.14.5", "@babel/helper-create-class-features-plugin@^7.14.6":
+  version "7.14.6"
+  resolved "https://registry.yarnpkg.com/@babel/helper-create-class-features-plugin/-/helper-create-class-features-plugin-7.14.6.tgz#f114469b6c06f8b5c59c6c4e74621f5085362542"
+  integrity sha512-Z6gsfGofTxH/+LQXqYEK45kxmcensbzmk/oi8DmaQytlQCgqNZt9XQF8iqlI/SeXWVjaMNxvYvzaYw+kh42mDg==
+  dependencies:
+    "@babel/helper-annotate-as-pure" "^7.14.5"
+    "@babel/helper-function-name" "^7.14.5"
+    "@babel/helper-member-expression-to-functions" "^7.14.5"
+    "@babel/helper-optimise-call-expression" "^7.14.5"
+    "@babel/helper-replace-supers" "^7.14.5"
+    "@babel/helper-split-export-declaration" "^7.14.5"
+
+"@babel/helper-create-regexp-features-plugin@^7.14.5":
+  version "7.14.5"
+  resolved "https://registry.yarnpkg.com/@babel/helper-create-regexp-features-plugin/-/helper-create-regexp-features-plugin-7.14.5.tgz#c7d5ac5e9cf621c26057722fb7a8a4c5889358c4"
+  integrity sha512-TLawwqpOErY2HhWbGJ2nZT5wSkR192QpN+nBg1THfBfftrlvOh+WbhrxXCH4q4xJ9Gl16BGPR/48JA+Ryiho/A==
+  dependencies:
+    "@babel/helper-annotate-as-pure" "^7.14.5"
+    regexpu-core "^4.7.1"
+
+"@babel/helper-define-polyfill-provider@^0.2.2":
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/@babel/helper-define-polyfill-provider/-/helper-define-polyfill-provider-0.2.3.tgz#0525edec5094653a282688d34d846e4c75e9c0b6"
+  integrity sha512-RH3QDAfRMzj7+0Nqu5oqgO5q9mFtQEVvCRsi8qCEfzLR9p2BHfn5FzhSB2oj1fF7I2+DcTORkYaQ6aTR9Cofew==
+  dependencies:
+    "@babel/helper-compilation-targets" "^7.13.0"
+    "@babel/helper-module-imports" "^7.12.13"
+    "@babel/helper-plugin-utils" "^7.13.0"
+    "@babel/traverse" "^7.13.0"
+    debug "^4.1.1"
+    lodash.debounce "^4.0.8"
+    resolve "^1.14.2"
+    semver "^6.1.2"
+
+"@babel/helper-explode-assignable-expression@^7.14.5":
+  version "7.14.5"
+  resolved "https://registry.yarnpkg.com/@babel/helper-explode-assignable-expression/-/helper-explode-assignable-expression-7.14.5.tgz#8aa72e708205c7bb643e45c73b4386cdf2a1f645"
+  integrity sha512-Htb24gnGJdIGT4vnRKMdoXiOIlqOLmdiUYpAQ0mYfgVT/GDm8GOYhgi4GL+hMKrkiPRohO4ts34ELFsGAPQLDQ==
+  dependencies:
+    "@babel/types" "^7.14.5"
+
+"@babel/helper-function-name@^7.14.5":
+  version "7.14.5"
+  resolved "https://registry.yarnpkg.com/@babel/helper-function-name/-/helper-function-name-7.14.5.tgz#89e2c474972f15d8e233b52ee8c480e2cfcd50c4"
+  integrity sha512-Gjna0AsXWfFvrAuX+VKcN/aNNWonizBj39yGwUzVDVTlMYJMK2Wp6xdpy72mfArFq5uK+NOuexfzZlzI1z9+AQ==
+  dependencies:
+    "@babel/helper-get-function-arity" "^7.14.5"
+    "@babel/template" "^7.14.5"
+    "@babel/types" "^7.14.5"
+
+"@babel/helper-get-function-arity@^7.14.5":
+  version "7.14.5"
+  resolved "https://registry.yarnpkg.com/@babel/helper-get-function-arity/-/helper-get-function-arity-7.14.5.tgz#25fbfa579b0937eee1f3b805ece4ce398c431815"
+  integrity sha512-I1Db4Shst5lewOM4V+ZKJzQ0JGGaZ6VY1jYvMghRjqs6DWgxLCIyFt30GlnKkfUeFLpJt2vzbMVEXVSXlIFYUg==
+  dependencies:
+    "@babel/types" "^7.14.5"
+
+"@babel/helper-hoist-variables@^7.14.5":
+  version "7.14.5"
+  resolved "https://registry.yarnpkg.com/@babel/helper-hoist-variables/-/helper-hoist-variables-7.14.5.tgz#e0dd27c33a78e577d7c8884916a3e7ef1f7c7f8d"
+  integrity sha512-R1PXiz31Uc0Vxy4OEOm07x0oSjKAdPPCh3tPivn/Eo8cvz6gveAeuyUUPB21Hoiif0uoPQSSdhIPS3352nvdyQ==
+  dependencies:
+    "@babel/types" "^7.14.5"
+
+"@babel/helper-member-expression-to-functions@^7.14.5":
+  version "7.14.5"
+  resolved "https://registry.yarnpkg.com/@babel/helper-member-expression-to-functions/-/helper-member-expression-to-functions-7.14.5.tgz#d5c70e4ad13b402c95156c7a53568f504e2fb7b8"
+  integrity sha512-UxUeEYPrqH1Q/k0yRku1JE7dyfyehNwT6SVkMHvYvPDv4+uu627VXBckVj891BO8ruKBkiDoGnZf4qPDD8abDQ==
+  dependencies:
+    "@babel/types" "^7.14.5"
+
+"@babel/helper-module-imports@^7.0.0", "@babel/helper-module-imports@^7.12.13", "@babel/helper-module-imports@^7.14.5", "@babel/helper-module-imports@^7.8.3":
+  version "7.14.5"
+  resolved "https://registry.yarnpkg.com/@babel/helper-module-imports/-/helper-module-imports-7.14.5.tgz#6d1a44df6a38c957aa7c312da076429f11b422f3"
+  integrity sha512-SwrNHu5QWS84XlHwGYPDtCxcA0hrSlL2yhWYLgeOc0w7ccOl2qv4s/nARI0aYZW+bSwAL5CukeXA47B/1NKcnQ==
+  dependencies:
+    "@babel/types" "^7.14.5"
+
+"@babel/helper-module-transforms@^7.12.1", "@babel/helper-module-transforms@^7.14.5":
+  version "7.14.5"
+  resolved "https://registry.yarnpkg.com/@babel/helper-module-transforms/-/helper-module-transforms-7.14.5.tgz#7de42f10d789b423eb902ebd24031ca77cb1e10e"
+  integrity sha512-iXpX4KW8LVODuAieD7MzhNjmM6dzYY5tfRqT+R9HDXWl0jPn/djKmA+G9s/2C2T9zggw5tK1QNqZ70USfedOwA==
+  dependencies:
+    "@babel/helper-module-imports" "^7.14.5"
+    "@babel/helper-replace-supers" "^7.14.5"
+    "@babel/helper-simple-access" "^7.14.5"
+    "@babel/helper-split-export-declaration" "^7.14.5"
+    "@babel/helper-validator-identifier" "^7.14.5"
+    "@babel/template" "^7.14.5"
+    "@babel/traverse" "^7.14.5"
+    "@babel/types" "^7.14.5"
+
+"@babel/helper-optimise-call-expression@^7.14.5":
+  version "7.14.5"
+  resolved "https://registry.yarnpkg.com/@babel/helper-optimise-call-expression/-/helper-optimise-call-expression-7.14.5.tgz#f27395a8619e0665b3f0364cddb41c25d71b499c"
+  integrity sha512-IqiLIrODUOdnPU9/F8ib1Fx2ohlgDhxnIDU7OEVi+kAbEZcyiF7BLU8W6PfvPi9LzztjS7kcbzbmL7oG8kD6VA==
+  dependencies:
+    "@babel/types" "^7.14.5"
+
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 "@babel/helper-plugin-utils@7.10.4":
   version "7.10.4"
   resolved "https://registry.yarnpkg.com/@babel/helper-plugin-utils/-/helper-plugin-utils-7.10.4.tgz#2f75a831269d4f677de49986dff59927533cf375"
@@ -440,10 +577,14 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 "@babel/helpers@^7.12.5", "@babel/helpers@^7.14.6":
   version "7.14.6"
   resolved "https://registry.yarnpkg.com/@babel/helpers/-/helpers-7.14.6.tgz#5b58306b95f1b47e2a0199434fa8658fa6c21635"
   integrity sha512-yesp1ENQBiLI+iYHSJdoZKUtRpfTlL1grDIX9NRlAVppljLw/4tTyYupIB7uIYmC3stW/imAv8EqaKaS/ibmeA==
+<<<<<<< HEAD
 =======
 "@babel/helpers@^7.12.5", "@babel/helpers@^7.14.5":
 =======
@@ -453,11 +594,14 @@
   resolved "https://registry.yarnpkg.com/@babel/helpers/-/helpers-7.14.5.tgz#4870f8d9a6fdbbd65e5674a3558b4ff7fef0d9b2"
   integrity sha512-xtcWOuN9VL6nApgVHtq3PPcQv5qFBJzoSZzJ/2c0QK/IP/gxVcoWSNQwFEGvmbQsuS9rhYqjILDGGXcTkA705Q==
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   dependencies:
     "@babel/template" "^7.14.5"
     "@babel/traverse" "^7.14.5"
     "@babel/types" "^7.14.5"
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -486,6 +630,9 @@
 =======
 "@babel/highlight@^7.14.5":
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+"@babel/highlight@^7.14.5", "@babel/highlight@^7.8.3":
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "7.14.5"
   resolved "https://registry.yarnpkg.com/@babel/highlight/-/highlight-7.14.5.tgz#6861a52f03966405001f6aa534a01a24d99e8cd9"
   integrity sha512-qf9u2WFWVV0MppaL877j2dBtQIDgmidgjGk5VIMw3OadXvYaXn66U1BFlH2t4+t3i+8PhedppRv+i40ABzd+gg==
@@ -494,6 +641,7 @@
     chalk "^2.0.0"
     js-tokens "^4.0.0"
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 "@babel/parser@^7.1.0", "@babel/parser@^7.1.6", "@babel/parser@^7.12.0", "@babel/parser@^7.12.3", "@babel/parser@^7.12.7", "@babel/parser@^7.13.12", "@babel/parser@^7.13.9", "@babel/parser@^7.14.5", "@babel/parser@^7.14.6", "@babel/parser@^7.14.7", "@babel/parser@^7.2.3", "@babel/parser@^7.4.3", "@babel/parser@^7.6.0", "@babel/parser@^7.7.0", "@babel/parser@^7.9.6":
@@ -511,6 +659,9 @@
 =======
 "@babel/parser@^7.1.0", "@babel/parser@^7.1.6", "@babel/parser@^7.12.0", "@babel/parser@^7.12.3", "@babel/parser@^7.12.7", "@babel/parser@^7.13.12", "@babel/parser@^7.13.9", "@babel/parser@^7.14.5", "@babel/parser@^7.14.6", "@babel/parser@^7.2.3", "@babel/parser@^7.4.3", "@babel/parser@^7.6.0", "@babel/parser@^7.7.0", "@babel/parser@^7.9.6":
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+"@babel/parser@^7.1.0", "@babel/parser@^7.1.6", "@babel/parser@^7.12.0", "@babel/parser@^7.12.3", "@babel/parser@^7.12.7", "@babel/parser@^7.13.12", "@babel/parser@^7.13.9", "@babel/parser@^7.14.5", "@babel/parser@^7.14.6", "@babel/parser@^7.2.3", "@babel/parser@^7.4.3", "@babel/parser@^7.6.0", "@babel/parser@^7.7.0", "@babel/parser@^7.9.6":
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "7.14.6"
   resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.14.6.tgz#d85cc68ca3cac84eae384c06f032921f5227f4b2"
   integrity sha512-oG0ej7efjEXxb4UgE+klVx+3j4MVo+A2vCzm7OUN4CLo6WhQ+vSOD2yJ8m7B+DghObxtLxt3EfgMWpq+AsWehQ==
@@ -523,6 +674,7 @@
     "@babel/helper-plugin-utils" "^7.14.5"
     "@babel/helper-skip-transparent-expression-wrappers" "^7.14.5"
     "@babel/plugin-proposal-optional-chaining" "^7.14.5"
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 "@babel/plugin-proposal-async-generator-functions@^7.14.7":
@@ -555,13 +707,24 @@
   version "7.14.7"
   resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-async-generator-functions/-/plugin-proposal-async-generator-functions-7.14.7.tgz#784a48c3d8ed073f65adcf30b57bcbf6c8119ace"
   integrity sha512-RK8Wj7lXLY3bqei69/cc25gwS5puEc3dknoFPFbqfy3XxYQBQFvu4ioWpafMBAB+L9NyptQK4nMOa5Xz16og8Q==
+=======
+
+"@babel/plugin-proposal-async-generator-functions@^7.14.5":
+  version "7.14.5"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-async-generator-functions/-/plugin-proposal-async-generator-functions-7.14.5.tgz#4024990e3dd74181f4f426ea657769ff49a2df39"
+  integrity sha512-tbD/CG3l43FIXxmu4a7RBe4zH7MLJ+S/lFowPFO7HetS2hyOZ/0nnnznegDuzFzfkyQYTxqdTH/hKmuBngaDAA==
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   dependencies:
     "@babel/helper-plugin-utils" "^7.14.5"
     "@babel/helper-remap-async-to-generator" "^7.14.5"
     "@babel/plugin-syntax-async-generators" "^7.8.4"
 
+<<<<<<< HEAD
 "@babel/plugin-proposal-class-properties@^7.1.0", "@babel/plugin-proposal-class-properties@^7.12.1", "@babel/plugin-proposal-class-properties@^7.13.0", "@babel/plugin-proposal-class-properties@^7.14.5", "@babel/plugin-proposal-class-properties@^7.8.3":
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+"@babel/plugin-proposal-class-properties@^7.1.0", "@babel/plugin-proposal-class-properties@^7.12.1", "@babel/plugin-proposal-class-properties@^7.14.5", "@babel/plugin-proposal-class-properties@^7.8.3":
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "7.14.5"
   resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-class-properties/-/plugin-proposal-class-properties-7.14.5.tgz#40d1ee140c5b1e31a350f4f5eed945096559b42e"
   integrity sha512-q/PLpv5Ko4dVc1LYMpCY7RVAAO4uk55qPwrIuJ5QJ8c6cVuAmhu7I/49JOppXL6gXf7ZHzpRVEUZdYoPLM04Gg==
@@ -582,6 +745,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 "@babel/plugin-proposal-decorators@^7.12.1", "@babel/plugin-proposal-decorators@^7.8.3":
+<<<<<<< HEAD
 =======
 "@babel/plugin-proposal-decorators@^7.12.12", "@babel/plugin-proposal-decorators@^7.13.15", "@babel/plugin-proposal-decorators@^7.8.3":
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
@@ -591,6 +755,8 @@
 =======
 "@babel/plugin-proposal-decorators@^7.12.12", "@babel/plugin-proposal-decorators@^7.13.15", "@babel/plugin-proposal-decorators@^7.8.3":
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "7.14.5"
   resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-decorators/-/plugin-proposal-decorators-7.14.5.tgz#59bc4dfc1d665b5a6749cf798ff42297ed1b2c1d"
   integrity sha512-LYz5nvQcvYeRVjui1Ykn28i+3aUiXwQ/3MGoEy0InTaz1pJo/lAzmIDXX+BQny/oufgHzJ6vnEEiXQ8KZjEVFg==
@@ -642,6 +808,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 "@babel/plugin-proposal-nullish-coalescing-operator@^7.12.1", "@babel/plugin-proposal-nullish-coalescing-operator@^7.14.5":
 =======
 "@babel/plugin-proposal-nullish-coalescing-operator@^7.12.1", "@babel/plugin-proposal-nullish-coalescing-operator@^7.13.8", "@babel/plugin-proposal-nullish-coalescing-operator@^7.14.5":
@@ -652,6 +819,9 @@
 =======
 "@babel/plugin-proposal-nullish-coalescing-operator@^7.12.1", "@babel/plugin-proposal-nullish-coalescing-operator@^7.13.8", "@babel/plugin-proposal-nullish-coalescing-operator@^7.14.5":
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+"@babel/plugin-proposal-nullish-coalescing-operator@^7.12.1", "@babel/plugin-proposal-nullish-coalescing-operator@^7.14.5":
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "7.14.5"
   resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-nullish-coalescing-operator/-/plugin-proposal-nullish-coalescing-operator-7.14.5.tgz#ee38589ce00e2cc59b299ec3ea406fcd3a0fdaf6"
   integrity sha512-gun/SOnMqjSb98Nkaq2rTKMwervfdAoz6NphdY0vTfuzMfryj+tDGb2n6UkDKwez+Y8PZDhE3D143v6Gepp4Hg==
@@ -677,12 +847,21 @@
     "@babel/plugin-transform-parameters" "^7.12.1"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 "@babel/plugin-proposal-object-rest-spread@^7.0.0", "@babel/plugin-proposal-object-rest-spread@^7.12.1", "@babel/plugin-proposal-object-rest-spread@^7.14.7":
   version "7.14.7"
   resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-object-rest-spread/-/plugin-proposal-object-rest-spread-7.14.7.tgz#5920a2b3df7f7901df0205974c0641b13fd9d363"
   integrity sha512-082hsZz+sVabfmDWo1Oct1u1AgbKbUAyVgmX4otIc7bdsRgHBXwTwb3DpDmD4Eyyx6DNiuz5UAATT655k+kL5g==
   dependencies:
     "@babel/compat-data" "^7.14.7"
+=======
+"@babel/plugin-proposal-object-rest-spread@^7.0.0", "@babel/plugin-proposal-object-rest-spread@^7.12.1", "@babel/plugin-proposal-object-rest-spread@^7.14.5":
+  version "7.14.5"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-object-rest-spread/-/plugin-proposal-object-rest-spread-7.14.5.tgz#e581d5ccdfa187ea6ed73f56c6a21c1580b90fbf"
+  integrity sha512-VzMyY6PWNPPT3pxc5hi9LloKNr4SSrVCg7Yr6aZpW4Ym07r7KqSU/QXYwjXLVxqwSv0t/XSXkFoKBPUkZ8vb2A==
+  dependencies:
+    "@babel/compat-data" "^7.14.5"
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
     "@babel/helper-compilation-targets" "^7.14.5"
     "@babel/helper-plugin-utils" "^7.14.5"
     "@babel/plugin-syntax-object-rest-spread" "^7.8.3"
@@ -695,6 +874,7 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.14.5"
     "@babel/plugin-syntax-optional-catch-binding" "^7.8.3"
+<<<<<<< HEAD
 
 "@babel/plugin-proposal-optional-chaining@^7.12.1", "@babel/plugin-proposal-optional-chaining@^7.14.5":
 =======
@@ -784,6 +964,44 @@
     "@babel/helper-create-regexp-features-plugin" "^7.14.5"
     "@babel/helper-plugin-utils" "^7.14.5"
 
+=======
+
+"@babel/plugin-proposal-optional-chaining@^7.12.1", "@babel/plugin-proposal-optional-chaining@^7.14.5":
+  version "7.14.5"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-optional-chaining/-/plugin-proposal-optional-chaining-7.14.5.tgz#fa83651e60a360e3f13797eef00b8d519695b603"
+  integrity sha512-ycz+VOzo2UbWNI1rQXxIuMOzrDdHGrI23fRiz/Si2R4kv2XZQ1BK8ccdHwehMKBlcH/joGW/tzrUmo67gbJHlQ==
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.14.5"
+    "@babel/helper-skip-transparent-expression-wrappers" "^7.14.5"
+    "@babel/plugin-syntax-optional-chaining" "^7.8.3"
+
+"@babel/plugin-proposal-private-methods@^7.12.1", "@babel/plugin-proposal-private-methods@^7.14.5":
+  version "7.14.5"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-private-methods/-/plugin-proposal-private-methods-7.14.5.tgz#37446495996b2945f30f5be5b60d5e2aa4f5792d"
+  integrity sha512-838DkdUA1u+QTCplatfq4B7+1lnDa/+QMI89x5WZHBcnNv+47N8QEj2k9I2MUU9xIv8XJ4XvPCviM/Dj7Uwt9g==
+  dependencies:
+    "@babel/helper-create-class-features-plugin" "^7.14.5"
+    "@babel/helper-plugin-utils" "^7.14.5"
+
+"@babel/plugin-proposal-private-property-in-object@^7.14.5":
+  version "7.14.5"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-private-property-in-object/-/plugin-proposal-private-property-in-object-7.14.5.tgz#9f65a4d0493a940b4c01f8aa9d3f1894a587f636"
+  integrity sha512-62EyfyA3WA0mZiF2e2IV9mc9Ghwxcg8YTu8BS4Wss4Y3PY725OmS9M0qLORbJwLqFtGh+jiE4wAmocK2CTUK2Q==
+  dependencies:
+    "@babel/helper-annotate-as-pure" "^7.14.5"
+    "@babel/helper-create-class-features-plugin" "^7.14.5"
+    "@babel/helper-plugin-utils" "^7.14.5"
+    "@babel/plugin-syntax-private-property-in-object" "^7.14.5"
+
+"@babel/plugin-proposal-unicode-property-regex@^7.14.5", "@babel/plugin-proposal-unicode-property-regex@^7.4.4":
+  version "7.14.5"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-unicode-property-regex/-/plugin-proposal-unicode-property-regex-7.14.5.tgz#0f95ee0e757a5d647f378daa0eca7e93faa8bbe8"
+  integrity sha512-6axIeOU5LnY471KenAB9vI8I5j7NQ2d652hIYwVyRfgaZT5UpiqFKCuVXCDMSrU+3VFafnu2c5m3lrWIlr6A5Q==
+  dependencies:
+    "@babel/helper-create-regexp-features-plugin" "^7.14.5"
+    "@babel/helper-plugin-utils" "^7.14.5"
+
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 "@babel/plugin-syntax-async-generators@^7.8.4":
   version "7.8.4"
   resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-async-generators/-/plugin-syntax-async-generators-7.8.4.tgz#a983fb1aeb2ec3f6ed042a210f640e90e786fe0d"
@@ -811,6 +1029,7 @@
   integrity sha512-b+YyPmr6ldyNnM6sqYeMWE+bgJcJpO6yS4QD7ymxgH34GBPNDM/THBh8iunyvKIZztiwLH4CJZ0RxTk9emgpjw==
   dependencies:
     "@babel/helper-plugin-utils" "^7.14.5"
+<<<<<<< HEAD
 
 "@babel/plugin-syntax-decorators@^7.14.5":
   version "7.14.5"
@@ -819,6 +1038,16 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.14.5"
 
+=======
+
+"@babel/plugin-syntax-decorators@^7.14.5":
+  version "7.14.5"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-decorators/-/plugin-syntax-decorators-7.14.5.tgz#eafb9c0cbe09c8afeb964ba3a7bbd63945a72f20"
+  integrity sha512-c4sZMRWL4GSvP1EXy0woIP7m4jkVcEuG8R1TOZxPBPtp4FSM/kiPZub9UIs/Jrb5ZAOzvTUSGYrWsrSu1JvoPw==
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.14.5"
+
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 "@babel/plugin-syntax-dynamic-import@^7.8.3":
   version "7.8.3"
   resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-dynamic-import/-/plugin-syntax-dynamic-import-7.8.3.tgz#62bf98b2da3cd21d626154fc96ee5b3cb68eacb3"
@@ -927,6 +1156,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 "@babel/plugin-syntax-top-level-await@^7.14.5":
 =======
 "@babel/plugin-syntax-top-level-await@^7.14.5", "@babel/plugin-syntax-top-level-await@^7.8.3":
@@ -937,6 +1167,9 @@
 =======
 "@babel/plugin-syntax-top-level-await@^7.14.5", "@babel/plugin-syntax-top-level-await@^7.8.3":
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+"@babel/plugin-syntax-top-level-await@^7.14.5":
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "7.14.5"
   resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-top-level-await/-/plugin-syntax-top-level-await-7.14.5.tgz#c1cfdadc35a646240001f06138247b741c34d94c"
   integrity sha512-hx++upLv5U1rgYfwe1xBQUhRmU41NEvpUvrp8jkrSCdvGSnM5/qdRMtylJ6PG5OFkBaHkbTAKTnd3/YyESRHFw==
@@ -954,6 +1187,7 @@
   version "7.14.5"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-arrow-functions/-/plugin-transform-arrow-functions-7.14.5.tgz#f7187d9588a768dd080bf4c9ffe117ea62f7862a"
   integrity sha512-KOnO0l4+tD5IfOdi4x8C1XmEIRWUjNRV8wc6K2vz/3e8yAOoZZvsRXRRIF/yo/MAOFb4QjtAw9xSxMXbSMRy8A==
+<<<<<<< HEAD
 <<<<<<< HEAD
   dependencies:
     "@babel/helper-plugin-utils" "^7.14.5"
@@ -987,6 +1221,8 @@
   integrity sha512-J4VxKAMykM06K/64z9rwiL6xnBHgB1+FVspqvlgCdwD1KUbQNfszeKVVOMh59w3sztHYIZDgnhOC4WbdEfHFDA==
   dependencies:
 =======
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   dependencies:
     "@babel/helper-plugin-utils" "^7.14.5"
 
@@ -1018,7 +1254,10 @@
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-classes/-/plugin-transform-classes-7.14.5.tgz#0e98e82097b38550b03b483f9b51a78de0acb2cf"
   integrity sha512-J4VxKAMykM06K/64z9rwiL6xnBHgB1+FVspqvlgCdwD1KUbQNfszeKVVOMh59w3sztHYIZDgnhOC4WbdEfHFDA==
   dependencies:
+<<<<<<< HEAD
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
     "@babel/helper-annotate-as-pure" "^7.14.5"
     "@babel/helper-function-name" "^7.14.5"
     "@babel/helper-optimise-call-expression" "^7.14.5"
@@ -1031,6 +1270,7 @@
   version "7.14.5"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-computed-properties/-/plugin-transform-computed-properties-7.14.5.tgz#1b9d78987420d11223d41195461cc43b974b204f"
   integrity sha512-pWM+E4283UxaVzLb8UBXv4EIxMovU4zxT1OPnpHJcmnvyY9QbPPTKZfEj31EUvG3/EQRbYAGaYEUZ4yWOBC2xg==
+<<<<<<< HEAD
 <<<<<<< HEAD
   dependencies:
     "@babel/helper-plugin-utils" "^7.14.5"
@@ -1355,10 +1595,190 @@
     "@babel/helper-annotate-as-pure" "^7.14.5"
     "@babel/helper-plugin-utils" "^7.14.5"
 
+=======
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.14.5"
+
+"@babel/plugin-transform-destructuring@^7.12.1", "@babel/plugin-transform-destructuring@^7.14.5":
+  version "7.14.5"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-destructuring/-/plugin-transform-destructuring-7.14.5.tgz#d32ad19ff1a6da1e861dc62720d80d9776e3bf35"
+  integrity sha512-wU9tYisEbRMxqDezKUqC9GleLycCRoUsai9ddlsq54r8QRLaeEhc+d+9DqCG+kV9W2GgQjTZESPTpn5bAFMDww==
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.14.5"
+
+"@babel/plugin-transform-dotall-regex@^7.14.5", "@babel/plugin-transform-dotall-regex@^7.4.4":
+  version "7.14.5"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-dotall-regex/-/plugin-transform-dotall-regex-7.14.5.tgz#2f6bf76e46bdf8043b4e7e16cf24532629ba0c7a"
+  integrity sha512-loGlnBdj02MDsFaHhAIJzh7euK89lBrGIdM9EAtHFo6xKygCUGuuWe07o1oZVk287amtW1n0808sQM99aZt3gw==
+  dependencies:
+    "@babel/helper-create-regexp-features-plugin" "^7.14.5"
+    "@babel/helper-plugin-utils" "^7.14.5"
+
+"@babel/plugin-transform-duplicate-keys@^7.14.5":
+  version "7.14.5"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-duplicate-keys/-/plugin-transform-duplicate-keys-7.14.5.tgz#365a4844881bdf1501e3a9f0270e7f0f91177954"
+  integrity sha512-iJjbI53huKbPDAsJ8EmVmvCKeeq21bAze4fu9GBQtSLqfvzj2oRuHVx4ZkDwEhg1htQ+5OBZh/Ab0XDf5iBZ7A==
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.14.5"
+
+"@babel/plugin-transform-exponentiation-operator@^7.14.5":
+  version "7.14.5"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-exponentiation-operator/-/plugin-transform-exponentiation-operator-7.14.5.tgz#5154b8dd6a3dfe6d90923d61724bd3deeb90b493"
+  integrity sha512-jFazJhMBc9D27o9jDnIE5ZErI0R0m7PbKXVq77FFvqFbzvTMuv8jaAwLZ5PviOLSFttqKIW0/wxNSDbjLk0tYA==
+  dependencies:
+    "@babel/helper-builder-binary-assignment-operator-visitor" "^7.14.5"
+    "@babel/helper-plugin-utils" "^7.14.5"
+
+"@babel/plugin-transform-flow-strip-types@^7.14.5":
+  version "7.14.5"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-flow-strip-types/-/plugin-transform-flow-strip-types-7.14.5.tgz#0dc9c1d11dcdc873417903d6df4bed019ef0f85e"
+  integrity sha512-KhcolBKfXbvjwI3TV7r7TkYm8oNXHNBqGOy6JDVwtecFaRoKYsUUqJdS10q0YDKW1c6aZQgO+Ys3LfGkox8pXA==
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.14.5"
+    "@babel/plugin-syntax-flow" "^7.14.5"
+
+"@babel/plugin-transform-for-of@^7.12.1", "@babel/plugin-transform-for-of@^7.14.5":
+  version "7.14.5"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-for-of/-/plugin-transform-for-of-7.14.5.tgz#dae384613de8f77c196a8869cbf602a44f7fc0eb"
+  integrity sha512-CfmqxSUZzBl0rSjpoQSFoR9UEj3HzbGuGNL21/iFTmjb5gFggJp3ph0xR1YBhexmLoKRHzgxuFvty2xdSt6gTA==
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.14.5"
+
+"@babel/plugin-transform-function-name@^7.14.5":
+  version "7.14.5"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-function-name/-/plugin-transform-function-name-7.14.5.tgz#e81c65ecb900746d7f31802f6bed1f52d915d6f2"
+  integrity sha512-vbO6kv0fIzZ1GpmGQuvbwwm+O4Cbm2NrPzwlup9+/3fdkuzo1YqOZcXw26+YUJB84Ja7j9yURWposEHLYwxUfQ==
+  dependencies:
+    "@babel/helper-function-name" "^7.14.5"
+    "@babel/helper-plugin-utils" "^7.14.5"
+
+"@babel/plugin-transform-literals@^7.14.5":
+  version "7.14.5"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-literals/-/plugin-transform-literals-7.14.5.tgz#41d06c7ff5d4d09e3cf4587bd3ecf3930c730f78"
+  integrity sha512-ql33+epql2F49bi8aHXxvLURHkxJbSmMKl9J5yHqg4PLtdE6Uc48CH1GS6TQvZ86eoB/ApZXwm7jlA+B3kra7A==
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.14.5"
+
+"@babel/plugin-transform-member-expression-literals@^7.14.5":
+  version "7.14.5"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-member-expression-literals/-/plugin-transform-member-expression-literals-7.14.5.tgz#b39cd5212a2bf235a617d320ec2b48bcc091b8a7"
+  integrity sha512-WkNXxH1VXVTKarWFqmso83xl+2V3Eo28YY5utIkbsmXoItO8Q3aZxN4BTS2k0hz9dGUloHK26mJMyQEYfkn/+Q==
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.14.5"
+
+"@babel/plugin-transform-modules-amd@^7.14.5":
+  version "7.14.5"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-modules-amd/-/plugin-transform-modules-amd-7.14.5.tgz#4fd9ce7e3411cb8b83848480b7041d83004858f7"
+  integrity sha512-3lpOU8Vxmp3roC4vzFpSdEpGUWSMsHFreTWOMMLzel2gNGfHE5UWIh/LN6ghHs2xurUp4jRFYMUIZhuFbody1g==
+  dependencies:
+    "@babel/helper-module-transforms" "^7.14.5"
+    "@babel/helper-plugin-utils" "^7.14.5"
+    babel-plugin-dynamic-import-node "^2.3.3"
+
+"@babel/plugin-transform-modules-commonjs@^7.14.5", "@babel/plugin-transform-modules-commonjs@^7.9.6":
+  version "7.14.5"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-modules-commonjs/-/plugin-transform-modules-commonjs-7.14.5.tgz#7aaee0ea98283de94da98b28f8c35701429dad97"
+  integrity sha512-en8GfBtgnydoao2PS+87mKyw62k02k7kJ9ltbKe0fXTHrQmG6QZZflYuGI1VVG7sVpx4E1n7KBpNlPb8m78J+A==
+  dependencies:
+    "@babel/helper-module-transforms" "^7.14.5"
+    "@babel/helper-plugin-utils" "^7.14.5"
+    "@babel/helper-simple-access" "^7.14.5"
+    babel-plugin-dynamic-import-node "^2.3.3"
+
+"@babel/plugin-transform-modules-systemjs@^7.14.5":
+  version "7.14.5"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-modules-systemjs/-/plugin-transform-modules-systemjs-7.14.5.tgz#c75342ef8b30dcde4295d3401aae24e65638ed29"
+  integrity sha512-mNMQdvBEE5DcMQaL5LbzXFMANrQjd2W7FPzg34Y4yEz7dBgdaC+9B84dSO+/1Wba98zoDbInctCDo4JGxz1VYA==
+  dependencies:
+    "@babel/helper-hoist-variables" "^7.14.5"
+    "@babel/helper-module-transforms" "^7.14.5"
+    "@babel/helper-plugin-utils" "^7.14.5"
+    "@babel/helper-validator-identifier" "^7.14.5"
+    babel-plugin-dynamic-import-node "^2.3.3"
+
+"@babel/plugin-transform-modules-umd@^7.14.5":
+  version "7.14.5"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-modules-umd/-/plugin-transform-modules-umd-7.14.5.tgz#fb662dfee697cce274a7cda525190a79096aa6e0"
+  integrity sha512-RfPGoagSngC06LsGUYyM9QWSXZ8MysEjDJTAea1lqRjNECE3y0qIJF/qbvJxc4oA4s99HumIMdXOrd+TdKaAAA==
+  dependencies:
+    "@babel/helper-module-transforms" "^7.14.5"
+    "@babel/helper-plugin-utils" "^7.14.5"
+
+"@babel/plugin-transform-named-capturing-groups-regex@^7.14.5":
+  version "7.14.5"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-named-capturing-groups-regex/-/plugin-transform-named-capturing-groups-regex-7.14.5.tgz#d537e8ee083ee6f6aa4f4eef9d2081d555746e4c"
+  integrity sha512-+Xe5+6MWFo311U8SchgeX5c1+lJM+eZDBZgD+tvXu9VVQPXwwVzeManMMjYX6xw2HczngfOSZjoFYKwdeB/Jvw==
+  dependencies:
+    "@babel/helper-create-regexp-features-plugin" "^7.14.5"
+
+"@babel/plugin-transform-new-target@^7.14.5":
+  version "7.14.5"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-new-target/-/plugin-transform-new-target-7.14.5.tgz#31bdae8b925dc84076ebfcd2a9940143aed7dbf8"
+  integrity sha512-Nx054zovz6IIRWEB49RDRuXGI4Gy0GMgqG0cII9L3MxqgXz/+rgII+RU58qpo4g7tNEx1jG7rRVH4ihZoP4esQ==
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.14.5"
+
+"@babel/plugin-transform-object-super@^7.14.5":
+  version "7.14.5"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-object-super/-/plugin-transform-object-super-7.14.5.tgz#d0b5faeac9e98597a161a9cf78c527ed934cdc45"
+  integrity sha512-MKfOBWzK0pZIrav9z/hkRqIk/2bTv9qvxHzPQc12RcVkMOzpIKnFCNYJip00ssKWYkd8Sf5g0Wr7pqJ+cmtuFg==
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.14.5"
+    "@babel/helper-replace-supers" "^7.14.5"
+
+"@babel/plugin-transform-parameters@^7.12.1", "@babel/plugin-transform-parameters@^7.14.5":
+  version "7.14.5"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-parameters/-/plugin-transform-parameters-7.14.5.tgz#49662e86a1f3ddccac6363a7dfb1ff0a158afeb3"
+  integrity sha512-Tl7LWdr6HUxTmzQtzuU14SqbgrSKmaR77M0OKyq4njZLQTPfOvzblNKyNkGwOfEFCEx7KeYHQHDI0P3F02IVkA==
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.14.5"
+
+"@babel/plugin-transform-property-literals@^7.14.5":
+  version "7.14.5"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-property-literals/-/plugin-transform-property-literals-7.14.5.tgz#0ddbaa1f83db3606f1cdf4846fa1dfb473458b34"
+  integrity sha512-r1uilDthkgXW8Z1vJz2dKYLV1tuw2xsbrp3MrZmD99Wh9vsfKoob+JTgri5VUb/JqyKRXotlOtwgu4stIYCmnw==
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.14.5"
+
+"@babel/plugin-transform-react-display-name@^7.14.5":
+  version "7.14.5"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-react-display-name/-/plugin-transform-react-display-name-7.14.5.tgz#baa92d15c4570411301a85a74c13534873885b65"
+  integrity sha512-07aqY1ChoPgIxsuDviptRpVkWCSbXWmzQqcgy65C6YSFOfPFvb/DX3bBRHh7pCd/PMEEYHYWUTSVkCbkVainYQ==
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.14.5"
+
+"@babel/plugin-transform-react-jsx-development@^7.14.5":
+  version "7.14.5"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-react-jsx-development/-/plugin-transform-react-jsx-development-7.14.5.tgz#1a6c73e2f7ed2c42eebc3d2ad60b0c7494fcb9af"
+  integrity sha512-rdwG/9jC6QybWxVe2UVOa7q6cnTpw8JRRHOxntG/h6g/guAOe6AhtQHJuJh5FwmnXIT1bdm5vC2/5huV8ZOorQ==
+  dependencies:
+    "@babel/plugin-transform-react-jsx" "^7.14.5"
+
+"@babel/plugin-transform-react-jsx@^7.12.1", "@babel/plugin-transform-react-jsx@^7.14.5":
+  version "7.14.5"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-react-jsx/-/plugin-transform-react-jsx-7.14.5.tgz#39749f0ee1efd8a1bd729152cf5f78f1d247a44a"
+  integrity sha512-7RylxNeDnxc1OleDm0F5Q/BSL+whYRbOAR+bwgCxIr0L32v7UFh/pz1DLMZideAUxKT6eMoS2zQH6fyODLEi8Q==
+  dependencies:
+    "@babel/helper-annotate-as-pure" "^7.14.5"
+    "@babel/helper-module-imports" "^7.14.5"
+    "@babel/helper-plugin-utils" "^7.14.5"
+    "@babel/plugin-syntax-jsx" "^7.14.5"
+    "@babel/types" "^7.14.5"
+
+"@babel/plugin-transform-react-pure-annotations@^7.14.5":
+  version "7.14.5"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-react-pure-annotations/-/plugin-transform-react-pure-annotations-7.14.5.tgz#18de612b84021e3a9802cbc212c9d9f46d0d11fc"
+  integrity sha512-3X4HpBJimNxW4rhUy/SONPyNQHp5YRr0HhJdT2OH1BRp0of7u3Dkirc7x9FRJMKMqTBI079VZ1hzv7Ouuz///g==
+  dependencies:
+    "@babel/helper-annotate-as-pure" "^7.14.5"
+    "@babel/helper-plugin-utils" "^7.14.5"
+
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 "@babel/plugin-transform-regenerator@^7.14.5":
   version "7.14.5"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-regenerator/-/plugin-transform-regenerator-7.14.5.tgz#9676fd5707ed28f522727c5b3c0aa8544440b04f"
   integrity sha512-NVIY1W3ITDP5xQl50NgTKlZ0GrotKtLna08/uGY6ErQt6VEQZXla86x/CTddm5gZdcr+5GSsvMeTmWA5Ii6pkg==
+<<<<<<< HEAD
 <<<<<<< HEAD
   dependencies:
     regenerator-transform "^0.14.2"
@@ -1372,6 +1792,8 @@
 
 "@babel/plugin-transform-runtime@^7.11.0":
 =======
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   dependencies:
     regenerator-transform "^0.14.2"
 
@@ -1379,6 +1801,7 @@
   version "7.14.5"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-reserved-words/-/plugin-transform-reserved-words-7.14.5.tgz#c44589b661cfdbef8d4300dcc7469dffa92f8304"
   integrity sha512-cv4F2rv1nD4qdexOGsRQXJrOcyb5CrgjUH9PKrrtyhSDBNWGxd0UIitjyJiWagS+EbUGjG++22mGH1Pub8D6Vg==
+<<<<<<< HEAD
   dependencies:
     "@babel/helper-plugin-utils" "^7.14.5"
 
@@ -1513,6 +1936,64 @@
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-typescript/-/plugin-transform-typescript-7.14.6.tgz#6e9c2d98da2507ebe0a883b100cde3c7279df36c"
   integrity sha512-XlTdBq7Awr4FYIzqhmYY80WN0V0azF74DMPyFqVHBvf81ZUgc4X7ZOpx6O8eLDK6iM5cCQzeyJw0ynTaefixRA==
   dependencies:
+=======
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.14.5"
+
+"@babel/plugin-transform-runtime@^7.11.0":
+  version "7.14.5"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-runtime/-/plugin-transform-runtime-7.14.5.tgz#30491dad49c6059f8f8fa5ee8896a0089e987523"
+  integrity sha512-fPMBhh1AV8ZyneiCIA+wYYUH1arzlXR1UMcApjvchDhfKxhy2r2lReJv8uHEyihi4IFIGlr1Pdx7S5fkESDQsg==
+  dependencies:
+    "@babel/helper-module-imports" "^7.14.5"
+    "@babel/helper-plugin-utils" "^7.14.5"
+    babel-plugin-polyfill-corejs2 "^0.2.2"
+    babel-plugin-polyfill-corejs3 "^0.2.2"
+    babel-plugin-polyfill-regenerator "^0.2.2"
+    semver "^6.3.0"
+
+"@babel/plugin-transform-shorthand-properties@^7.12.1", "@babel/plugin-transform-shorthand-properties@^7.14.5":
+  version "7.14.5"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-shorthand-properties/-/plugin-transform-shorthand-properties-7.14.5.tgz#97f13855f1409338d8cadcbaca670ad79e091a58"
+  integrity sha512-xLucks6T1VmGsTB+GWK5Pl9Jl5+nRXD1uoFdA5TSO6xtiNjtXTjKkmPdFXVLGlK5A2/or/wQMKfmQ2Y0XJfn5g==
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.14.5"
+
+"@babel/plugin-transform-spread@^7.12.1", "@babel/plugin-transform-spread@^7.14.5":
+  version "7.14.6"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-spread/-/plugin-transform-spread-7.14.6.tgz#6bd40e57fe7de94aa904851963b5616652f73144"
+  integrity sha512-Zr0x0YroFJku7n7+/HH3A2eIrGMjbmAIbJSVv0IZ+t3U2WUQUA64S/oeied2e+MaGSjmt4alzBCsK9E8gh+fag==
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.14.5"
+    "@babel/helper-skip-transparent-expression-wrappers" "^7.14.5"
+
+"@babel/plugin-transform-sticky-regex@^7.14.5":
+  version "7.14.5"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-sticky-regex/-/plugin-transform-sticky-regex-7.14.5.tgz#5b617542675e8b7761294381f3c28c633f40aeb9"
+  integrity sha512-Z7F7GyvEMzIIbwnziAZmnSNpdijdr4dWt+FJNBnBLz5mwDFkqIXU9wmBcWWad3QeJF5hMTkRe4dAq2sUZiG+8A==
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.14.5"
+
+"@babel/plugin-transform-template-literals@^7.12.1", "@babel/plugin-transform-template-literals@^7.14.5":
+  version "7.14.5"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-template-literals/-/plugin-transform-template-literals-7.14.5.tgz#a5f2bc233937d8453885dc736bdd8d9ffabf3d93"
+  integrity sha512-22btZeURqiepOfuy/VkFr+zStqlujWaarpMErvay7goJS6BWwdd6BY9zQyDLDa4x2S3VugxFb162IZ4m/S/+Gg==
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.14.5"
+
+"@babel/plugin-transform-typeof-symbol@^7.14.5":
+  version "7.14.5"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-typeof-symbol/-/plugin-transform-typeof-symbol-7.14.5.tgz#39af2739e989a2bd291bf6b53f16981423d457d4"
+  integrity sha512-lXzLD30ffCWseTbMQzrvDWqljvZlHkXU+CnseMhkMNqU1sASnCsz3tSzAaH3vCUXb9PHeUb90ZT1BdFTm1xxJw==
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.14.5"
+
+"@babel/plugin-transform-typescript@^7.14.5":
+  version "7.14.6"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-typescript/-/plugin-transform-typescript-7.14.6.tgz#6e9c2d98da2507ebe0a883b100cde3c7279df36c"
+  integrity sha512-XlTdBq7Awr4FYIzqhmYY80WN0V0azF74DMPyFqVHBvf81ZUgc4X7ZOpx6O8eLDK6iM5cCQzeyJw0ynTaefixRA==
+  dependencies:
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
     "@babel/helper-create-class-features-plugin" "^7.14.6"
     "@babel/helper-plugin-utils" "^7.14.5"
     "@babel/plugin-syntax-typescript" "^7.14.5"
@@ -1538,16 +2019,23 @@
   integrity sha512-ci6TsS0bjrdPpWGnQ+m4f+JSSzDKlckqKIJJt9UZ/+g7Zz9k0N8lYU8IeLg/01o2h8LyNZDMLGgRLDTxpudLsA==
   dependencies:
     "@babel/compat-data" "^7.14.5"
+<<<<<<< HEAD
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
     "@babel/helper-compilation-targets" "^7.14.5"
     "@babel/helper-plugin-utils" "^7.14.5"
     "@babel/helper-validator-option" "^7.14.5"
     "@babel/plugin-bugfix-v8-spread-parameters-in-optional-chaining" "^7.14.5"
 <<<<<<< HEAD
+<<<<<<< HEAD
     "@babel/plugin-proposal-async-generator-functions" "^7.14.7"
 =======
     "@babel/plugin-proposal-async-generator-functions" "^7.14.5"
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
+=======
+    "@babel/plugin-proposal-async-generator-functions" "^7.14.5"
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
     "@babel/plugin-proposal-class-properties" "^7.14.5"
     "@babel/plugin-proposal-class-static-block" "^7.14.5"
     "@babel/plugin-proposal-dynamic-import" "^7.14.5"
@@ -1557,10 +2045,14 @@
     "@babel/plugin-proposal-nullish-coalescing-operator" "^7.14.5"
     "@babel/plugin-proposal-numeric-separator" "^7.14.5"
 <<<<<<< HEAD
+<<<<<<< HEAD
     "@babel/plugin-proposal-object-rest-spread" "^7.14.7"
 =======
     "@babel/plugin-proposal-object-rest-spread" "^7.14.5"
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
+=======
+    "@babel/plugin-proposal-object-rest-spread" "^7.14.5"
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
     "@babel/plugin-proposal-optional-catch-binding" "^7.14.5"
     "@babel/plugin-proposal-optional-chaining" "^7.14.5"
     "@babel/plugin-proposal-private-methods" "^7.14.5"
@@ -1587,10 +2079,14 @@
     "@babel/plugin-transform-classes" "^7.14.5"
     "@babel/plugin-transform-computed-properties" "^7.14.5"
 <<<<<<< HEAD
+<<<<<<< HEAD
     "@babel/plugin-transform-destructuring" "^7.14.7"
 =======
     "@babel/plugin-transform-destructuring" "^7.14.5"
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
+=======
+    "@babel/plugin-transform-destructuring" "^7.14.5"
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
     "@babel/plugin-transform-dotall-regex" "^7.14.5"
     "@babel/plugin-transform-duplicate-keys" "^7.14.5"
     "@babel/plugin-transform-exponentiation-operator" "^7.14.5"
@@ -1603,10 +2099,14 @@
     "@babel/plugin-transform-modules-systemjs" "^7.14.5"
     "@babel/plugin-transform-modules-umd" "^7.14.5"
 <<<<<<< HEAD
+<<<<<<< HEAD
     "@babel/plugin-transform-named-capturing-groups-regex" "^7.14.7"
 =======
     "@babel/plugin-transform-named-capturing-groups-regex" "^7.14.5"
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
+=======
+    "@babel/plugin-transform-named-capturing-groups-regex" "^7.14.5"
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
     "@babel/plugin-transform-new-target" "^7.14.5"
     "@babel/plugin-transform-object-super" "^7.14.5"
     "@babel/plugin-transform-parameters" "^7.14.5"
@@ -1615,10 +2115,14 @@
     "@babel/plugin-transform-reserved-words" "^7.14.5"
     "@babel/plugin-transform-shorthand-properties" "^7.14.5"
 <<<<<<< HEAD
+<<<<<<< HEAD
     "@babel/plugin-transform-spread" "^7.14.6"
 =======
     "@babel/plugin-transform-spread" "^7.14.5"
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
+=======
+    "@babel/plugin-transform-spread" "^7.14.5"
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
     "@babel/plugin-transform-sticky-regex" "^7.14.5"
     "@babel/plugin-transform-template-literals" "^7.14.5"
     "@babel/plugin-transform-typeof-symbol" "^7.14.5"
@@ -1629,6 +2133,7 @@
     babel-plugin-polyfill-corejs2 "^0.2.2"
     babel-plugin-polyfill-corejs3 "^0.2.2"
     babel-plugin-polyfill-regenerator "^0.2.2"
+<<<<<<< HEAD
 <<<<<<< HEAD
     core-js-compat "^3.15.0"
 =======
@@ -1713,6 +2218,9 @@
     babel-plugin-polyfill-corejs3 "^0.2.2"
     babel-plugin-polyfill-regenerator "^0.2.2"
     core-js-compat "^3.15.0"
+=======
+    core-js-compat "^3.14.0"
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
     semver "^6.3.0"
 
 "@babel/preset-flow@^7.0.0":
@@ -1738,6 +2246,9 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 "@babel/preset-react@^7.12.1":
   version "7.14.5"
   resolved "https://registry.yarnpkg.com/@babel/preset-react/-/preset-react-7.14.5.tgz#0fbb769513f899c2c56f3a882fa79673c2d4ab3c"
@@ -1757,6 +2268,7 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.14.5"
     "@babel/helper-validator-option" "^7.14.5"
+<<<<<<< HEAD
 =======
 "@babel/preset-react@^7.12.10":
 =======
@@ -1784,6 +2296,8 @@
     "@babel/helper-plugin-utils" "^7.14.5"
     "@babel/helper-validator-option" "^7.14.5"
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
     "@babel/plugin-transform-typescript" "^7.14.5"
 
 "@babel/register@^7.0.0", "@babel/register@^7.12.1":
@@ -1800,17 +2314,26 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 "@babel/runtime-corejs3@^7.10.2":
+<<<<<<< HEAD
   version "7.14.7"
   resolved "https://registry.yarnpkg.com/@babel/runtime-corejs3/-/runtime-corejs3-7.14.7.tgz#0ef292bbce40ca00f874c9724ef175a12476465c"
   integrity sha512-Wvzcw4mBYbTagyBVZpAJWI06auSIj033T/yNE0Zn1xcup83MieCddZA7ls3kme17L4NOGBrQ09Q+nKB41RLWBA==
   dependencies:
     core-js-pure "^3.15.0"
+=======
+  version "7.14.6"
+  resolved "https://registry.yarnpkg.com/@babel/runtime-corejs3/-/runtime-corejs3-7.14.6.tgz#066b966eda40481740180cb3caab861a3f208cd3"
+  integrity sha512-Xl8SPYtdjcMoCsIM4teyVRg7jIcgl8F2kRtoCcXuHzXswt9UxZCS6BzRo8fcnCuP6u2XtPgvyonmEPF57Kxo9Q==
+  dependencies:
+    core-js-pure "^3.14.0"
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
     regenerator-runtime "^0.13.4"
 
 "@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.10.2", "@babel/runtime@^7.11.0", "@babel/runtime@^7.12.13", "@babel/runtime@^7.12.5", "@babel/runtime@^7.13.10", "@babel/runtime@^7.3.1", "@babel/runtime@^7.5.0", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
   version "7.14.6"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.14.6.tgz#535203bc0892efc7dec60bdc27b2ecf6e409062d"
   integrity sha512-/PCB2uJ7oM44tz8YhC4Z/6PeOKXp4K588f+5M3clr1M4zbqztlo0XEfJ2LEzj/FgwfgGcIdl8n7YYjTCI0BYwg==
+<<<<<<< HEAD
 =======
 "@babel/runtime-corejs3@^7.10.2", "@babel/runtime-corejs3@^7.14.5":
   version "7.14.5"
@@ -1853,6 +2376,11 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
+=======
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 "@babel/template@^7.0.0", "@babel/template@^7.12.7", "@babel/template@^7.14.5", "@babel/template@^7.3.3", "@babel/template@^7.4.0":
   version "7.14.5"
   resolved "https://registry.yarnpkg.com/@babel/template/-/template-7.14.5.tgz#a9bc9d8b33354ff6e55a9c60d1109200a68974f4"
@@ -1862,6 +2390,7 @@
     "@babel/parser" "^7.14.5"
     "@babel/types" "^7.14.5"
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 "@babel/traverse@^7.0.0", "@babel/traverse@^7.1.0", "@babel/traverse@^7.12.9", "@babel/traverse@^7.13.0", "@babel/traverse@^7.14.5", "@babel/traverse@^7.4.3", "@babel/traverse@^7.7.0":
@@ -1880,6 +2409,12 @@
   resolved "https://registry.yarnpkg.com/@babel/traverse/-/traverse-7.14.5.tgz#c111b0f58afab4fea3d3385a406f692748c59870"
   integrity sha512-G3BiS15vevepdmFqmUc9X+64y0viZYygubAMO8SvBmKARuF6CPSZtH4Ng9vi/lrWlZFGe3FWdXNy835akH8Glg==
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
+=======
+"@babel/traverse@^7.0.0", "@babel/traverse@^7.1.0", "@babel/traverse@^7.12.9", "@babel/traverse@^7.13.0", "@babel/traverse@^7.14.5", "@babel/traverse@^7.4.3", "@babel/traverse@^7.7.0":
+  version "7.14.5"
+  resolved "https://registry.yarnpkg.com/@babel/traverse/-/traverse-7.14.5.tgz#c111b0f58afab4fea3d3385a406f692748c59870"
+  integrity sha512-G3BiS15vevepdmFqmUc9X+64y0viZYygubAMO8SvBmKARuF6CPSZtH4Ng9vi/lrWlZFGe3FWdXNy835akH8Glg==
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   dependencies:
     "@babel/code-frame" "^7.14.5"
     "@babel/generator" "^7.14.5"
@@ -1887,10 +2422,14 @@
     "@babel/helper-hoist-variables" "^7.14.5"
     "@babel/helper-split-export-declaration" "^7.14.5"
 <<<<<<< HEAD
+<<<<<<< HEAD
     "@babel/parser" "^7.14.7"
 =======
     "@babel/parser" "^7.14.5"
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
+=======
+    "@babel/parser" "^7.14.5"
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
     "@babel/types" "^7.14.5"
     debug "^4.1.0"
     globals "^11.1.0"
@@ -2061,6 +2600,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
@@ -2075,6 +2615,8 @@
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
 =======
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 "@cypress/listr-verbose-renderer@^0.4.1":
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/@cypress/listr-verbose-renderer/-/listr-verbose-renderer-0.4.1.tgz#a77492f4b11dcc7c446a34b3e28721afd33c642a"
@@ -2362,6 +2904,9 @@
     gud "^1.0.0"
     warning "^4.0.3"
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 
 "@icons/material@^0.2.4":
   version "0.2.4"
@@ -3669,6 +4214,7 @@
   version "2.1.5"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.scandir/-/fs.scandir-2.1.5.tgz#7619c2eb21b25483f6d167548b4cfd5a7488c3d5"
   integrity sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==
+<<<<<<< HEAD
   dependencies:
     "@nodelib/fs.stat" "2.0.5"
     run-parallel "^1.1.9"
@@ -4317,6 +4863,37 @@
 =======
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
 =======
+=======
+  dependencies:
+    "@nodelib/fs.stat" "2.0.5"
+    run-parallel "^1.1.9"
+
+"@nodelib/fs.stat@2.0.5", "@nodelib/fs.stat@^2.0.2":
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-2.0.5.tgz#5bd262af94e9d25bd1e71b05deed44876a222e8b"
+  integrity sha512-RkhPPp2zrqDAQA/2jNhnztcPAlv64XdhIp7a7454A5ovI7Bukxgt7MX7udwAu3zg1DcpPU0rz3VV1SeaqvY4+A==
+
+"@nodelib/fs.stat@^1.1.2":
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.3.tgz#2b5a3ab3f918cca48a8c754c08168e3f03eba61b"
+  integrity sha512-shAmDyaQC4H92APFoIaVDHCx5bStIocgvbwQyxPRrbUY20V1EYTbSDchWbuwlMG3V17cprZhA6+78JfB+3DTPw==
+
+"@nodelib/fs.walk@^1.2.3":
+  version "1.2.7"
+  resolved "https://registry.yarnpkg.com/@nodelib/fs.walk/-/fs.walk-1.2.7.tgz#94c23db18ee4653e129abd26fb06f870ac9e1ee2"
+  integrity sha512-BTIhocbPBSrRmHxOAJFtR18oLhxTtAFDAvL8hY1S3iU8k+E60W/YFs4jrixGzQjMpF4qPXxIQHcjVD9dz1C2QA==
+  dependencies:
+    "@nodelib/fs.scandir" "2.1.5"
+    fastq "^1.6.0"
+
+"@npmcli/move-file@^1.0.1":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@npmcli/move-file/-/move-file-1.1.2.tgz#1a82c3e372f7cae9253eb66d72543d6b8685c674"
+  integrity sha512-1SUf/Cg2GzGDyaf15aR9St9TWlb+XvbZXWpDx8YKs7MLzMH/BCeopv+y9vzrzgkfykCGuWOlSu3mZhj2+FQcrg==
+  dependencies:
+    mkdirp "^1.0.4"
+    rimraf "^3.0.2"
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
 "@octokit/auth-token@^2.4.0":
@@ -4435,6 +5012,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 "@popperjs/core@^2.5.4":
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
@@ -4451,11 +5029,17 @@
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
 =======
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "2.9.2"
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.9.2.tgz#adea7b6953cbb34651766b0548468e743c6a2353"
   integrity sha512-VZMYa7+fXHdwIq1TDhSXoVmSPEGM/aa+6Aiq3nVVJ9bXr24zScr+NlKFKC3iPljA7ho/GAZr+d2jOf5GIRC30Q==
 
+<<<<<<< HEAD
 "@reach/router@^1.2.1", "@reach/router@^1.3.3", "@reach/router@^1.3.4":
+=======
+"@reach/router@^1.2.1", "@reach/router@^1.3.3":
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "1.3.4"
   resolved "https://registry.yarnpkg.com/@reach/router/-/router-1.3.4.tgz#d2574b19370a70c80480ed91f3da840136d10f8c"
   integrity sha512-+mtn9wjlB9NN2CNnnC/BRYtwdKBfSyyasPYraNAyvaV1occr/5NnB4CVzjEZipNHwYebQwcndGUmpFzxAUoqSA==
@@ -4509,6 +5093,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
 =======
@@ -4531,6 +5116,8 @@
     vue2-leaflet "^2.5.2"
 
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 "@storybook/addon-a11y@6.1.11":
   version "6.1.11"
   resolved "https://registry.yarnpkg.com/@storybook/addon-a11y/-/addon-a11y-6.1.11.tgz#13f1cbe02a6c6ab08cebe1851183e1813d86eb16"
@@ -4578,8 +5165,11 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 "@storybook/addon-actions@6.1.11":
   version "6.1.11"
   resolved "https://registry.yarnpkg.com/@storybook/addon-actions/-/addon-actions-6.1.11.tgz#73e91cc95c45ea477cfd4f3603f6b95f5829eab6"
@@ -4668,8 +5258,11 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 "@storybook/addon-controls@6.1.11":
   version "6.1.11"
   resolved "https://registry.yarnpkg.com/@storybook/addon-controls/-/addon-controls-6.1.11.tgz#9a104ac58eefa3cf2b0fb6f4c762b8a39ed239cc"
@@ -4681,6 +5274,7 @@
     "@storybook/components" "6.1.11"
     "@storybook/node-logger" "6.1.11"
     "@storybook/theming" "6.1.11"
+<<<<<<< HEAD
     core-js "^3.0.1"
 <<<<<<< HEAD
     ts-dedent "^2.0.0"
@@ -4714,6 +5308,8 @@
     acorn "^7.1.0"
     acorn-jsx "^5.1.0"
     acorn-walk "^7.0.0"
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
     core-js "^3.0.1"
 =======
 "@storybook/addon-controls@6.2.9":
@@ -4755,6 +5351,7 @@
     "@storybook/core-events" "6.1.11"
     "@storybook/csf" "0.0.1"
 <<<<<<< HEAD
+<<<<<<< HEAD
     "@storybook/node-logger" "6.2.9"
     "@storybook/postinstall" "6.2.9"
     "@storybook/source-loader" "6.2.9"
@@ -4765,6 +5362,8 @@
     core-js "^3.8.2"
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
 =======
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
     "@storybook/node-logger" "6.1.11"
     "@storybook/postinstall" "6.1.11"
     "@storybook/source-loader" "6.1.11"
@@ -4792,8 +5391,11 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 "@storybook/addon-essentials@6.1.11":
   version "6.1.11"
   resolved "https://registry.yarnpkg.com/@storybook/addon-essentials/-/addon-essentials-6.1.11.tgz#0147d429b33581cc9d42398d73a8c6a5962d5796"
@@ -4808,6 +5410,7 @@
     "@storybook/addons" "6.1.11"
     "@storybook/api" "6.1.11"
     "@storybook/node-logger" "6.1.11"
+<<<<<<< HEAD
     core-js "^3.0.1"
 <<<<<<< HEAD
     regenerator-runtime "^0.13.7"
@@ -4824,6 +5427,8 @@
     "@storybook/csf" "0.0.1"
     "@storybook/router" "6.1.11"
     "@types/qs" "^6.9.0"
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
     core-js "^3.0.1"
     global "^4.3.2"
 =======
@@ -4857,12 +5462,15 @@
     "@storybook/core-events" "6.1.11"
     "@storybook/csf" "0.0.1"
 <<<<<<< HEAD
+<<<<<<< HEAD
     "@storybook/router" "6.2.9"
     "@types/qs" "^6.9.5"
     core-js "^3.8.2"
     global "^4.4.0"
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
 =======
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
     "@storybook/router" "6.1.11"
     "@types/qs" "^6.9.0"
     core-js "^3.0.1"
@@ -4894,8 +5502,11 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 "@storybook/addon-storysource@6.1.11":
   version "6.1.11"
   resolved "https://registry.yarnpkg.com/@storybook/addon-storysource/-/addon-storysource-6.1.11.tgz#f5413a51262f62eed3b399c4d9861b873f2c2827"
@@ -4937,13 +5548,19 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 "@storybook/addon-toolbars@6.1.11":
   version "6.1.11"
   resolved "https://registry.yarnpkg.com/@storybook/addon-toolbars/-/addon-toolbars-6.1.11.tgz#47c9e5ae4ec182aec718ccb4be34881b9fdcb9af"
   integrity sha512-qeIgM28cnzaAP03BMWwfA24IZh7SLveQr+G+z41ymNFUcL8PHVTpKJof/AqjYAZ4SXzkgE3bHZ7JvfVXnbDXug==
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   dependencies:
     "@storybook/addons" "6.1.11"
     "@storybook/api" "6.1.11"
@@ -5027,8 +5644,11 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 "@storybook/addons@6.1.11":
   version "6.1.11"
   resolved "https://registry.yarnpkg.com/@storybook/addons/-/addons-6.1.11.tgz#cb4578411ca00ccb206b484df5a171ccaca34719"
@@ -5105,12 +5725,16 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 "@storybook/api@6.1.11":
   version "6.1.11"
   resolved "https://registry.yarnpkg.com/@storybook/api/-/api-6.1.11.tgz#1e0b798203df823ac21184386258cf8b5f17f440"
   integrity sha512-/p4QW/p3uWO0AKVveNezX3I/CotyBKaJ5ui8PuvSPsl7yvqcsK41qI4evKOw7GMQn6oP+2enRbzHpGuCUgQSjA==
+<<<<<<< HEAD
 <<<<<<< HEAD
   dependencies:
     "@reach/router" "^1.3.3"
@@ -5133,6 +5757,8 @@
   integrity sha512-okkA3HAScE9tGnYBrjTOcgzT+L1lRHNoEh3ZfGgh1u/XNEyHGNkj4grvkd6nX7BzRcYQ/l2VkcKCqmOjUnSkVQ==
 =======
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   dependencies:
     "@reach/router" "^1.3.3"
     "@storybook/channels" "6.1.11"
@@ -5142,6 +5768,7 @@
     "@storybook/router" "6.1.11"
     "@storybook/semver" "^7.3.2"
 <<<<<<< HEAD
+<<<<<<< HEAD
     "@storybook/theming" "6.2.9"
     "@types/reach__router" "^1.3.7"
     core-js "^3.8.2"
@@ -5150,6 +5777,8 @@
     lodash "^4.17.20"
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
 =======
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
     "@storybook/theming" "6.1.11"
     "@types/reach__router" "^1.3.5"
     core-js "^3.0.1"
@@ -5164,6 +5793,7 @@
     ts-dedent "^2.0.0"
     util-deprecate "^1.0.2"
 
+<<<<<<< HEAD
 "@storybook/api@6.2.9":
   version "6.2.9"
   resolved "https://registry.yarnpkg.com/@storybook/api/-/api-6.2.9.tgz#a9b46569192ad5d8da6435c9d63dc4b0c8463b51"
@@ -5190,11 +5820,14 @@
     ts-dedent "^2.0.0"
     util-deprecate "^1.0.2"
 
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 "@storybook/channel-postmessage@6.1.11":
   version "6.1.11"
   resolved "https://registry.yarnpkg.com/@storybook/channel-postmessage/-/channel-postmessage-6.1.11.tgz#62c1079f04870dd27925bd538a2020e7380daa2e"
   integrity sha512-voW4Z2SUacDOxwN2q1NEBL//8OpgvL2C5CeoG1VQyEllKM8Vg9t1Nxo2FFTJBzv5LeEX7VIJKeBoB25DYvKyng==
   dependencies:
+<<<<<<< HEAD
 <<<<<<< HEAD
     "@babel/core" "^7.12.10"
     "@babel/plugin-proposal-class-properties" "^7.12.1"
@@ -5275,6 +5908,8 @@
   dependencies:
 =======
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
     "@storybook/channels" "6.1.11"
     "@storybook/client-logger" "6.1.11"
     "@storybook/core-events" "6.1.11"
@@ -5322,12 +5957,16 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 "@storybook/channels@6.1.11":
   version "6.1.11"
   resolved "https://registry.yarnpkg.com/@storybook/channels/-/channels-6.1.11.tgz#a93a83746ad78dd40e1c056029f6d93b17bb66bc"
   integrity sha512-NvjWzQ95TSV1e18jaQBCOGoe+vptKH2NOKZ7QRQ7I0O5OoHKr47IXoh+MQ5C8CRD9FTdLE/xWdn1sVVEPRyHEw==
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 "@storybook/channels@6.2.9":
@@ -5337,11 +5976,14 @@
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
 =======
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   dependencies:
     core-js "^3.0.1"
     ts-dedent "^2.0.0"
     util-deprecate "^1.0.2"
 
+<<<<<<< HEAD
 "@storybook/channels@6.2.9":
   version "6.2.9"
   resolved "https://registry.yarnpkg.com/@storybook/channels/-/channels-6.2.9.tgz#a9fd7f25102cbec15fb56f76abf891b7b214e9de"
@@ -5361,11 +6003,19 @@
   integrity sha512-DodJQzGCR+PYs26klvbquTjfBgkw5nvCZd3jpgWQtOrYaY/cMY1LLkVkKqrm2ENW8f7vf7tiw78RtxaXy7xeIQ==
 <<<<<<< HEAD
   dependencies:
+=======
+"@storybook/client-api@6.1.11":
+  version "6.1.11"
+  resolved "https://registry.yarnpkg.com/@storybook/client-api/-/client-api-6.1.11.tgz#d25aac484ca84a1acb01d450e756a62408f00c1a"
+  integrity sha512-DodJQzGCR+PYs26klvbquTjfBgkw5nvCZd3jpgWQtOrYaY/cMY1LLkVkKqrm2ENW8f7vf7tiw78RtxaXy7xeIQ==
+  dependencies:
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
     "@storybook/addons" "6.1.11"
     "@storybook/channel-postmessage" "6.1.11"
     "@storybook/channels" "6.1.11"
     "@storybook/client-logger" "6.1.11"
     "@storybook/core-events" "6.1.11"
+<<<<<<< HEAD
 =======
 "@storybook/client-api@6.2.9":
   version "6.2.9"
@@ -5386,6 +6036,8 @@
     "@storybook/client-logger" "6.1.11"
     "@storybook/core-events" "6.1.11"
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
     "@storybook/csf" "0.0.1"
     "@types/qs" "^6.9.0"
     "@types/webpack-env" "^1.15.3"
@@ -5433,12 +6085,16 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 "@storybook/client-logger@6.1.11":
   version "6.1.11"
   resolved "https://registry.yarnpkg.com/@storybook/client-logger/-/client-logger-6.1.11.tgz#5dd092e4293e5f58f7e89ddbc6eb2511b7d60954"
   integrity sha512-dSc+VKLW1UaiMPMhlZYRqhynrrHdHFiBEgU28+8LcmoZ1yhZBwLkcKdSD4YTT0CbMJAG1/+NUW5kRI8Geeg+rA==
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 "@storybook/client-logger@6.2.9":
@@ -5448,6 +6104,8 @@
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
 =======
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   dependencies:
     core-js "^3.0.1"
     global "^4.3.2"
@@ -5489,12 +6147,16 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 "@storybook/components@6.1.11":
   version "6.1.11"
   resolved "https://registry.yarnpkg.com/@storybook/components/-/components-6.1.11.tgz#edd5db7fe43f47b5a7ab515840795a89d931512e"
   integrity sha512-DGDl76uONTkg0rpsa36TpVuXv4K7rFYe8GnQ/Q8n4By5tvldC4s9YXwcDRYHVrfnYybKzuZ/+jv2ZAp4/8ZaeA==
+<<<<<<< HEAD
 <<<<<<< HEAD
   dependencies:
     "@popperjs/core" "^2.5.4"
@@ -5516,10 +6178,13 @@
   integrity sha512-hnV1MI2aB2g1sJ7NJphpxi7TwrMZQ/tpCJeHnkjmzyC6ez1MXqcBXGrEEdSXzRfAxjQTOEpu6H1mnns0xMP0Ag==
 =======
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   dependencies:
     "@popperjs/core" "^2.5.4"
     "@storybook/client-logger" "6.1.11"
     "@storybook/csf" "0.0.1"
+<<<<<<< HEAD
 <<<<<<< HEAD
     "@storybook/theming" "6.2.9"
     "@types/color-convert" "^2.0.0"
@@ -5533,6 +6198,8 @@
     markdown-to-jsx "^7.1.0"
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
 =======
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
     "@storybook/theming" "6.1.11"
     "@types/overlayscrollbars" "^1.9.0"
     "@types/react-color" "^3.0.1"
@@ -5598,6 +6265,7 @@
   resolved "https://registry.yarnpkg.com/@storybook/core-events/-/core-events-6.1.11.tgz#d50e8ec90490f9a7180a8c8a83afb6dcfe47ed66"
   integrity sha512-hTib81W8PxepM7iXVvl3pBXSaGpChl5LTzaLCoIRO9sSB8dy0/x2DLAHzbQvShk/l1wqUc3TtOLIxq+eC9l3wg==
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 "@storybook/core-client@6.2.9":
   version "6.2.9"
@@ -5620,10 +6288,16 @@
 <<<<<<< HEAD
 =======
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+  dependencies:
+    core-js "^3.0.1"
+
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 "@storybook/core@6.1.11":
   version "6.1.11"
   resolved "https://registry.yarnpkg.com/@storybook/core/-/core-6.1.11.tgz#ed9d3b513794c604ab11180f6a014924b871179e"
   integrity sha512-pYOOQwiNJ5myLRn6p6nnLUjjjISHK/N55vS4HFnETYSaRLA++h1coN1jk7Zwt89dOQTdF0EsTJn+6snYOC+lxQ==
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 "@storybook/core-common@6.2.9":
@@ -5633,6 +6307,8 @@
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
 =======
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   dependencies:
     "@babel/core" "^7.12.3"
     "@babel/plugin-proposal-class-properties" "^7.12.1"
@@ -5658,8 +6334,11 @@
     "@babel/register" "^7.12.1"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
     "@storybook/addons" "6.1.11"
     "@storybook/api" "6.1.11"
     "@storybook/channel-postmessage" "6.1.11"
@@ -5671,6 +6350,7 @@
     "@storybook/csf" "0.0.1"
     "@storybook/node-logger" "6.1.11"
     "@storybook/router" "6.1.11"
+<<<<<<< HEAD
 <<<<<<< HEAD
     "@storybook/semver" "^7.3.2"
     "@storybook/theming" "6.1.11"
@@ -5684,6 +6364,11 @@
     "@storybook/theming" "6.1.11"
     "@storybook/ui" "6.1.11"
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+    "@storybook/semver" "^7.3.2"
+    "@storybook/theming" "6.1.11"
+    "@storybook/ui" "6.1.11"
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
     "@types/glob-base" "^0.3.0"
     "@types/micromatch" "^4.0.1"
     "@types/node-fetch" "^2.5.4"
@@ -5759,12 +6444,16 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 "@storybook/node-logger@6.1.11":
   version "6.1.11"
   resolved "https://registry.yarnpkg.com/@storybook/node-logger/-/node-logger-6.1.11.tgz#8e0d058b4804f2fea03c9d7d331b8e2d02f3b7ff"
   integrity sha512-MASonXDWpSMU9HF9mqbGOR1Ps/DTJ8AVmYD50+OnB9kXl4M42Dliobeq7JwKFMnZ42RelUCCSXdWW80hGrUKKA==
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 "@storybook/node-logger@6.2.9":
@@ -5774,6 +6463,8 @@
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
 =======
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   dependencies:
     "@types/npmlog" "^4.1.2"
     chalk "^4.0.0"
@@ -5783,12 +6474,16 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 "@storybook/postinstall@6.1.11":
   version "6.1.11"
   resolved "https://registry.yarnpkg.com/@storybook/postinstall/-/postinstall-6.1.11.tgz#4b13de88ee42bfa2d65f7d4cf4924884b9c0dc7e"
   integrity sha512-ICW70RuOJOHD7PcKq62yr7hCmo04F7yRMuy5/MD/G+Neaw3YpfYTc6pQ228h5UrmXiKSKG1unPkjzuIAoIeN7w==
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 "@storybook/postinstall@6.2.9":
@@ -5798,6 +6493,8 @@
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
 =======
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   dependencies:
     core-js "^3.0.1"
 
@@ -5823,12 +6520,16 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 "@storybook/router@6.1.11":
   version "6.1.11"
   resolved "https://registry.yarnpkg.com/@storybook/router/-/router-6.1.11.tgz#d58e0c8324d8b16d71e09c017a4e3c844b1a4139"
   integrity sha512-YEYOoKMo/WI13MZCkdqI9X3H1G0Oj5OUxi7So4qd3khX3zcCjSr3LjiMDBcmIVZpFo5VAvzjhIY4KqpgvzTG0A==
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 "@storybook/router@6.2.9":
@@ -5838,6 +6539,8 @@
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
 =======
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   dependencies:
     "@reach/router" "^1.3.3"
     "@types/reach__router" "^1.3.5"
@@ -5872,12 +6575,16 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 "@storybook/source-loader@6.1.11":
   version "6.1.11"
   resolved "https://registry.yarnpkg.com/@storybook/source-loader/-/source-loader-6.1.11.tgz#26e0ba30d5b9d1828ed10ccb76eb38bf48aad304"
   integrity sha512-pEMWGn3XwZYAXwIrtmd7ziH5d1zN8NCpJM8vNJssntZFW45rDo69xgGM/PrTLPDca6f/Mhv+vqzR99tdfarJSw==
+<<<<<<< HEAD
 <<<<<<< HEAD
   dependencies:
     "@storybook/addons" "6.1.11"
@@ -5896,6 +6603,11 @@
     "@storybook/addons" "6.1.11"
     "@storybook/client-logger" "6.1.11"
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+  dependencies:
+    "@storybook/addons" "6.1.11"
+    "@storybook/client-logger" "6.1.11"
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
     "@storybook/csf" "0.0.1"
     core-js "^3.0.1"
     estraverse "^4.2.0"
@@ -5926,12 +6638,16 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 "@storybook/theming@6.1.11":
   version "6.1.11"
   resolved "https://registry.yarnpkg.com/@storybook/theming/-/theming-6.1.11.tgz#0e757e0562aedefc96bd1d12714d4c8e92823467"
   integrity sha512-zRChacVgKoU2BmpvwK1ntiF3KIpc8QblJT7IGiKfP/BNpy9gNeXbLPLk3g/tkHszOvVYtkaZhEXni4Od8tqy1A==
+<<<<<<< HEAD
 <<<<<<< HEAD
   dependencies:
     "@emotion/core" "^10.1.1"
@@ -5952,6 +6668,8 @@
     core-js "^3.8.2"
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
 =======
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   dependencies:
     "@emotion/core" "^10.1.1"
     "@emotion/is-prop-valid" "^0.8.6"
@@ -5967,6 +6685,7 @@
     resolve-from "^5.0.0"
     ts-dedent "^2.0.0"
 
+<<<<<<< HEAD
 "@storybook/theming@6.2.9":
   version "6.2.9"
   resolved "https://registry.yarnpkg.com/@storybook/theming/-/theming-6.2.9.tgz#16bf40180861f222c7ed1d80abd5d1e3cb315660"
@@ -5989,10 +6708,13 @@
 <<<<<<< HEAD
 =======
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 "@storybook/ui@6.1.11":
   version "6.1.11"
   resolved "https://registry.yarnpkg.com/@storybook/ui/-/ui-6.1.11.tgz#2e5a5df010f2bb75a09a0fd0439fc8e62f8c89e5"
   integrity sha512-Qth2dxS5+VbKHcqgkiKpeD+xr/hRUuUIDUA/2Ierh/BaA8Up/krlso/mCLaQOa5E8Og9WJAdDFO0cUbt939c2Q==
+<<<<<<< HEAD
 <<<<<<< HEAD
   dependencies:
     "@emotion/core" "^10.1.1"
@@ -6018,6 +6740,8 @@
   integrity sha512-jq2xmw3reIqik/6ibUSbNKGR+Xvr9wkAEwexiOl+5WQ5BeYJpw4dmDmsFQf+SQuWaSEUUPolbzkakRQM778Kdg==
 =======
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   dependencies:
     "@emotion/core" "^10.1.1"
     "@storybook/addons" "6.1.11"
@@ -6029,6 +6753,7 @@
     "@storybook/router" "6.1.11"
     "@storybook/semver" "^7.3.2"
 <<<<<<< HEAD
+<<<<<<< HEAD
     "@storybook/theming" "6.2.9"
     "@types/markdown-to-jsx" "^6.11.3"
     copy-to-clipboard "^3.3.1"
@@ -6038,6 +6763,8 @@
     emotion-theming "^10.0.27"
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
 =======
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
     "@storybook/theming" "6.1.11"
     "@types/markdown-to-jsx" "^6.11.0"
     copy-to-clipboard "^3.0.8"
@@ -6061,6 +6788,7 @@
     resolve-from "^5.0.0"
     store2 "^2.7.1"
 
+<<<<<<< HEAD
 "@storybook/ui@6.2.9":
   version "6.2.9"
   resolved "https://registry.yarnpkg.com/@storybook/ui/-/ui-6.2.9.tgz#25cdf7ae2ef38ab337570c2377fda1da999792e7"
@@ -6100,10 +6828,13 @@
 <<<<<<< HEAD
 =======
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 "@storybook/vue@6.1.11":
   version "6.1.11"
   resolved "https://registry.yarnpkg.com/@storybook/vue/-/vue-6.1.11.tgz#491a121daa5bfccbf636e86e13530debd80298e9"
   integrity sha512-5yIiaYwlIDs6qifcjfAimIvbp42BWmAtrrp8OYub42rC1UkLV8WFZpYvmJF7JgfjdJvYR8EygjF5JUAjegSgjg==
+<<<<<<< HEAD
 <<<<<<< HEAD
   dependencies:
     "@storybook/addons" "6.1.11"
@@ -6130,6 +6861,8 @@
     read-pkg-up "^7.0.1"
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
 =======
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   dependencies:
     "@storybook/addons" "6.1.11"
     "@storybook/core" "6.1.11"
@@ -6186,6 +6919,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
@@ -6200,6 +6934,8 @@
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
 =======
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 "@types/babel-types@*", "@types/babel-types@^7.0.0":
   version "7.0.9"
   resolved "https://registry.yarnpkg.com/@types/babel-types/-/babel-types-7.0.9.tgz#01d7b86949f455402a94c788883fe4ba574cad41"
@@ -6209,6 +6945,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 "@types/babel__core@^7.1.0", "@types/babel__core@^7.1.7":
+<<<<<<< HEAD
 =======
 "@types/babel__core@^7.0.0", "@types/babel__core@^7.1.0", "@types/babel__core@^7.1.7":
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
@@ -6218,6 +6955,8 @@
 =======
 "@types/babel__core@^7.0.0", "@types/babel__core@^7.1.0", "@types/babel__core@^7.1.7":
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "7.1.14"
   resolved "https://registry.yarnpkg.com/@types/babel__core/-/babel__core-7.1.14.tgz#faaeefc4185ec71c389f4501ee5ec84b170cc402"
   integrity sha512-zGZJzzBUVDo/eV6KgbE0f0ZI7dInEYvo12Rb70uNQDshC3SkRMb67ja0GgRHZgAX3Za6rhaWlvbDO8rrGyAb1g==
@@ -6252,10 +6991,13 @@
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
 =======
 "@types/babel__traverse@*", "@types/babel__traverse@^7.0.6":
+<<<<<<< HEAD
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
 =======
 "@types/babel__traverse@*", "@types/babel__traverse@^7.0.4", "@types/babel__traverse@^7.0.6":
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "7.11.1"
   resolved "https://registry.yarnpkg.com/@types/babel__traverse/-/babel__traverse-7.11.1.tgz#654f6c4f67568e24c23b367e947098c6206fa639"
   integrity sha512-Vs0hm0vPahPMYi9tDjtP66llufgO3ST16WXaSTtDGEl9cewAl3AibmxWw6TINOqHPT9z0uABKAYjT9jNSg4npw==
@@ -6426,6 +7168,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 "@types/json-schema@^7.0.5", "@types/json-schema@^7.0.6":
+<<<<<<< HEAD
 =======
 "@types/json-schema@^7.0.4", "@types/json-schema@^7.0.5", "@types/json-schema@^7.0.6":
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
@@ -6435,11 +7178,17 @@
 =======
 "@types/json-schema@^7.0.4", "@types/json-schema@^7.0.5", "@types/json-schema@^7.0.6":
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "7.0.7"
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.7.tgz#98a993516c859eb0d5c4c8f098317a9ea68db9ad"
   integrity sha512-cxWFQVseBm6O9Gbw1IWb8r6OS4OhSt3hPZLkFApLjM8TEXROBuQGLAH2i2gZpcXdLBIrpXuTDhH7Vbm1iXmNGA==
 
+<<<<<<< HEAD
 "@types/markdown-to-jsx@^6.11.0", "@types/markdown-to-jsx@^6.11.3":
+=======
+"@types/markdown-to-jsx@^6.11.0":
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "6.11.3"
   resolved "https://registry.yarnpkg.com/@types/markdown-to-jsx/-/markdown-to-jsx-6.11.3.tgz#cdd1619308fecbc8be7e6a26f3751260249b020e"
   integrity sha512-30nFYpceM/ZEvhGiqWjm5quLUxNeld0HCzJEXMZZDpq53FPkS85mTwkWtCXzCqq8s5JYLgM5W392a02xn8Bdaw==
@@ -6479,12 +7228,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 "@types/node-fetch@^2.5.4":
+<<<<<<< HEAD
 =======
 "@types/node-fetch@^2.5.7":
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
 =======
 "@types/node-fetch@^2.5.4":
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "2.5.10"
   resolved "https://registry.yarnpkg.com/@types/node-fetch/-/node-fetch-2.5.10.tgz#9b4d4a0425562f9fcea70b12cb3fcdd946ca8132"
   integrity sha512-IpkX0AasN44hgEad0gEF/V6EgR5n69VEqPEgnmoM8GsIGro3PowbWs4tR6IhxUTyPLpOn+fiGG6nrQhcmoCuIQ==
@@ -6496,6 +7248,7 @@
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
 "@types/node@*", "@types/node@>= 8":
 <<<<<<< HEAD
+<<<<<<< HEAD
   version "15.12.4"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-15.12.4.tgz#e1cf817d70a1e118e81922c4ff6683ce9d422e26"
   integrity sha512-zrNj1+yqYF4WskCMOHwN+w9iuD12+dGm0rQ35HLl9/Ouuq52cEtd0CH9qMgrdNmi5ejC1/V7vKEXYubB+65DkA==
@@ -6504,6 +7257,11 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-15.12.2.tgz#1f2b42c4be7156ff4a6f914b2fb03d05fa84e38d"
   integrity sha512-zjQ69G564OCIWIOHSXyQEEDpdpGl+G348RAKY0XXy9Z5kU9Vzv1GMNnkar/ZJ8dzXB3COzD9Mo9NtRZ4xfgUww==
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
+=======
+  version "15.12.2"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-15.12.2.tgz#1f2b42c4be7156ff4a6f914b2fb03d05fa84e38d"
+  integrity sha512-zjQ69G564OCIWIOHSXyQEEDpdpGl+G348RAKY0XXy9Z5kU9Vzv1GMNnkar/ZJ8dzXB3COzD9Mo9NtRZ4xfgUww==
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 
 "@types/node@12.12.50":
   version "12.12.50"
@@ -6569,6 +7327,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 "@types/qs@*", "@types/qs@^6.9.0":
+<<<<<<< HEAD
 =======
 "@types/qs@*", "@types/qs@^6.9.5":
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
@@ -6578,6 +7337,8 @@
 =======
 "@types/qs@*", "@types/qs@^6.9.0", "@types/qs@^6.9.5":
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "6.9.6"
   resolved "https://registry.yarnpkg.com/@types/qs/-/qs-6.9.6.tgz#df9c3c8b31a247ec315e6996566be3171df4b3b1"
   integrity sha512-0/HnwIfW4ki2D8L8c9GVcG5I72s9jP5GSLVF0VIXDW00kmIpA6O33G7a8n59Tmh7Nz0WUC3rSb7PTY/sdW2JzA==
@@ -6594,6 +7355,7 @@
   version "1.3.8"
   resolved "https://registry.yarnpkg.com/@types/reach__router/-/reach__router-1.3.8.tgz#7b8607abf13704f918a9543257bcb7ec63028bfa"
   integrity sha512-cjjT0FPdwuvhLWpCDt2WCh4sdBqNzJe3XhxXmRQGsY3IvT58M8sE4E7A0QaFYuJs3ar+McSJTiJxdYKWAXbBhw==
+<<<<<<< HEAD
   dependencies:
     "@types/react" "*"
 
@@ -6613,6 +7375,8 @@
   resolved "https://registry.yarnpkg.com/@types/reach__router/-/reach__router-1.3.8.tgz#7b8607abf13704f918a9543257bcb7ec63028bfa"
   integrity sha512-cjjT0FPdwuvhLWpCDt2WCh4sdBqNzJe3XhxXmRQGsY3IvT58M8sE4E7A0QaFYuJs3ar+McSJTiJxdYKWAXbBhw==
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   dependencies:
     "@types/react" "*"
 
@@ -6653,6 +7417,11 @@
     "@types/prop-types" "*"
     "@types/scheduler" "*"
     csstype "^3.0.2"
+
+"@types/scheduler@*":
+  version "0.16.1"
+  resolved "https://registry.yarnpkg.com/@types/scheduler/-/scheduler-0.16.1.tgz#18845205e86ff0038517aab7a18a62a6b9f71275"
+  integrity sha512-EaCxbanVeyxDRTQBkdLb3Bvl/HK7PBK6UJjsSixB0iHKoWxE5uu2Q/DgtpOhPIojN0Zl1whvOd7PoHs2P0s5eA==
 
 "@types/scheduler@*":
   version "0.16.1"
@@ -6753,6 +7522,7 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 "@types/webpack@^4", "@types/webpack@^4.0.0", "@types/webpack@^4.41.8":
 =======
 "@types/webpack@^4", "@types/webpack@^4.0.0", "@types/webpack@^4.41.26", "@types/webpack@^4.41.8":
@@ -6760,6 +7530,9 @@
 =======
 "@types/webpack@^4", "@types/webpack@^4.0.0", "@types/webpack@^4.41.8":
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+"@types/webpack@^4", "@types/webpack@^4.0.0", "@types/webpack@^4.41.8":
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "4.41.29"
   resolved "https://registry.yarnpkg.com/@types/webpack/-/webpack-4.41.29.tgz#2e66c1de8223c440366469415c50a47d97625773"
   integrity sha512-6pLaORaVNZxiB3FSHbyBiWM7QdazAWda1zvAq4SbZObZqHSDbWLi62iFdblVea6SK9eyBIVp5yHhKt/yNQdR7Q==
@@ -7108,6 +7881,7 @@
 "@vue/component-compiler-utils@^3.1.0", "@vue/component-compiler-utils@^3.1.2":
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/@vue/component-compiler-utils/-/component-compiler-utils-3.2.2.tgz#2f7ed5feed82ff7f0284acc11d525ee7eff22460"
   integrity sha512-rAYMLmgMuqJFWAOb3Awjqqv5X3Q3hVr4jH/kgrFJpiU0j3a90tnNBplqbj+snzrgZhC9W128z+dtgMifOiMfJg==
@@ -7121,11 +7895,17 @@
   resolved "https://registry.yarnpkg.com/@vue/component-compiler-utils/-/component-compiler-utils-3.2.2.tgz#2f7ed5feed82ff7f0284acc11d525ee7eff22460"
   integrity sha512-rAYMLmgMuqJFWAOb3Awjqqv5X3Q3hVr4jH/kgrFJpiU0j3a90tnNBplqbj+snzrgZhC9W128z+dtgMifOiMfJg==
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/@vue/component-compiler-utils/-/component-compiler-utils-3.2.2.tgz#2f7ed5feed82ff7f0284acc11d525ee7eff22460"
+  integrity sha512-rAYMLmgMuqJFWAOb3Awjqqv5X3Q3hVr4jH/kgrFJpiU0j3a90tnNBplqbj+snzrgZhC9W128z+dtgMifOiMfJg==
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   dependencies:
     consolidate "^0.15.1"
     hash-sum "^1.0.2"
     lru-cache "^4.1.2"
     merge-source-map "^1.1.0"
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     postcss "^7.0.36"
@@ -7134,6 +7914,9 @@
 =======
     postcss "^7.0.36"
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+    postcss "^7.0.36"
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
     postcss-selector-parser "^6.0.2"
     source-map "~0.6.1"
     vue-template-es2015-compiler "^1.9.0"
@@ -7426,6 +8209,7 @@ acorn@^6.0.1, acorn@^6.4.1:
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 acorn@^7.1.0, acorn@^7.1.1, acorn@^7.4.0:
 =======
 acorn@^7.1.0, acorn@^7.1.1, acorn@^7.4.0, acorn@^7.4.1:
@@ -7433,6 +8217,9 @@ acorn@^7.1.0, acorn@^7.1.1, acorn@^7.4.0, acorn@^7.4.1:
 =======
 acorn@^7.1.0, acorn@^7.1.1, acorn@^7.4.0:
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+acorn@^7.1.0, acorn@^7.1.1, acorn@^7.4.0:
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "7.4.1"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-7.4.1.tgz#feaed255973d2e77555b83dbc08851a6c63520fa"
   integrity sha512-nQyp0o1/mNdbTO1PO6kHkwSrmgZ0MT/jCCpNiwbUjGoRN4dlBhqJtoQuCnEOKzgTVwg0ZWiCoQy6SxMebQVh8A==
@@ -7632,6 +8419,7 @@ anymatch@^2.0.0:
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 anymatch@^3.0.0, anymatch@^3.0.3, anymatch@~3.1.2:
 =======
 anymatch@^3.0.0, anymatch@^3.0.3, anymatch@~3.1.1:
@@ -7639,6 +8427,9 @@ anymatch@^3.0.0, anymatch@^3.0.3, anymatch@~3.1.1:
 =======
 anymatch@^3.0.0, anymatch@^3.0.3, anymatch@~3.1.2:
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+anymatch@^3.0.0, anymatch@^3.0.3, anymatch@~3.1.2:
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/anymatch/-/anymatch-3.1.2.tgz#c0557c096af32f106198f4f4e2a383537e378716"
   integrity sha512-P43ePfOAIupkguHUycrc4qJ9kz8ZiuOUijaETwX7THt0Y/GNK7v0aa8rY816xWjZ7rJdA5XdMcpVFTKMq+RvWg==
@@ -7739,6 +8530,20 @@ array-ify@^1.0.0:
   resolved "https://registry.yarnpkg.com/array-ify/-/array-ify-1.0.0.tgz#9e528762b4a9066ad163a6962a364418e9626ece"
   integrity sha1-nlKHYrSpBmrRY6aWKjZEGOlibs4=
 
+<<<<<<< HEAD
+=======
+array-includes@^3.0.3:
+  version "3.1.3"
+  resolved "https://registry.yarnpkg.com/array-includes/-/array-includes-3.1.3.tgz#c7f619b382ad2afaf5326cddfdc0afc61af7690a"
+  integrity sha512-gcem1KlBU7c9rB+Rq8/3PPKsK2kjqeEBa3bD5kkQo4nYlOHQCJqIJFqBXDEfwaRuYTT4E+FxA9xez7Gf/e3Q7A==
+  dependencies:
+    call-bind "^1.0.2"
+    define-properties "^1.1.3"
+    es-abstract "^1.18.0-next.2"
+    get-intrinsic "^1.1.1"
+    is-string "^1.0.5"
+
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 array-union@^1.0.1, array-union@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/array-union/-/array-union-1.0.2.tgz#9a34410e4f4e3da23dea375be5be70f24778ec39"
@@ -7761,6 +8566,39 @@ array-unique@^0.3.2:
   resolved "https://registry.yarnpkg.com/array-unique/-/array-unique-0.3.2.tgz#a894b75d4bc4f6cd679ef3244a9fd8f46ae2d428"
   integrity sha1-qJS3XUvE9s1nnvMkSp/Y9Gri1Cg=
 
+<<<<<<< HEAD
+=======
+array.prototype.flat@^1.2.1:
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/array.prototype.flat/-/array.prototype.flat-1.2.4.tgz#6ef638b43312bd401b4c6199fdec7e2dc9e9a123"
+  integrity sha512-4470Xi3GAPAjZqFcljX2xzckv1qeKPizoNkiS0+O4IoPR2ZNpcjE0pkhdihlDouK+x6QOast26B4Q/O9DJnwSg==
+  dependencies:
+    call-bind "^1.0.0"
+    define-properties "^1.1.3"
+    es-abstract "^1.18.0-next.1"
+
+array.prototype.flatmap@^1.2.1:
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/array.prototype.flatmap/-/array.prototype.flatmap-1.2.4.tgz#94cfd47cc1556ec0747d97f7c7738c58122004c9"
+  integrity sha512-r9Z0zYoxqHz60vvQbWEdXIEtCwHF0yxaWfno9qzXeNHvfyl3BZqygmGzb84dsubyaXLH4husF+NFgMSdpZhk2Q==
+  dependencies:
+    call-bind "^1.0.0"
+    define-properties "^1.1.3"
+    es-abstract "^1.18.0-next.1"
+    function-bind "^1.1.1"
+
+array.prototype.map@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/array.prototype.map/-/array.prototype.map-1.0.3.tgz#1609623618d3d84134a37d4a220030c2bd18420b"
+  integrity sha512-nNcb30v0wfDyIe26Yif3PcV1JXQp4zEeEfupG7L4SRjnD6HLbO5b2a7eVSba53bOx4YCHYMBHt+Fp4vYstneRA==
+  dependencies:
+    call-bind "^1.0.0"
+    define-properties "^1.1.3"
+    es-abstract "^1.18.0-next.1"
+    es-array-method-boxes-properly "^1.0.0"
+    is-string "^1.0.5"
+
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 arrify@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/arrify/-/arrify-1.0.1.tgz#898508da2226f380df904728456849c1501a4b0d"
@@ -7919,12 +8757,15 @@ axe-core@4.2.1:
 
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
 axe-core@^4.0.1:
+<<<<<<< HEAD
 =======
 axe-core@^4.1.1:
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
 =======
 axe-core@^4.0.1:
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "4.2.2"
   resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-4.2.2.tgz#0c987d82c8b82b4b9b7a945f1b5ef0d8fed586ed"
   integrity sha512-OKRkKM4ojMEZRJ5UNJHmq9tht7cEnRnqKG6KyB/trYws00Xtkv12mHtlJ0SK7cmuNbrU8dPUova3ELTuilfBbw==
@@ -8037,6 +8878,7 @@ babel-plugin-dynamic-import-node@^2.3.3:
 <<<<<<< HEAD
 <<<<<<< HEAD
 babel-plugin-emotion@^10.0.20, babel-plugin-emotion@^10.0.27:
+<<<<<<< HEAD
 =======
 babel-plugin-emotion@^10.0.27:
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
@@ -8046,6 +8888,8 @@ babel-plugin-emotion@^10.0.20, babel-plugin-emotion@^10.0.27:
 =======
 babel-plugin-emotion@^10.0.27:
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "10.2.2"
   resolved "https://registry.yarnpkg.com/babel-plugin-emotion/-/babel-plugin-emotion-10.2.2.tgz#a1fe3503cff80abfd0bdda14abd2e8e57a79d17d"
   integrity sha512-SMSkGoqTbTyUTDeuVuPIWifPdUGkTk1Kf9BWRiXIOIcuyMfsdp2EjeiiFvOzX8NOBvEh/ypKYvUh2rkgAJMCLA==
@@ -8213,8 +9057,35 @@ babel-plugin-polyfill-regenerator@^0.2.2:
   dependencies:
     "@babel/helper-define-polyfill-provider" "^0.2.2"
 
+<<<<<<< HEAD
 =======
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+babel-plugin-polyfill-corejs2@^0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/babel-plugin-polyfill-corejs2/-/babel-plugin-polyfill-corejs2-0.2.2.tgz#e9124785e6fd94f94b618a7954e5693053bf5327"
+  integrity sha512-kISrENsJ0z5dNPq5eRvcctITNHYXWOA4DUZRFYCz3jYCcvTb/A546LIddmoGNMVYg2U38OyFeNosQwI9ENTqIQ==
+  dependencies:
+    "@babel/compat-data" "^7.13.11"
+    "@babel/helper-define-polyfill-provider" "^0.2.2"
+    semver "^6.1.1"
+
+babel-plugin-polyfill-corejs3@^0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/babel-plugin-polyfill-corejs3/-/babel-plugin-polyfill-corejs3-0.2.2.tgz#7424a1682ee44baec817327710b1b094e5f8f7f5"
+  integrity sha512-l1Cf8PKk12eEk5QP/NQ6TH8A1pee6wWDJ96WjxrMXFLHLOBFzYM4moG80HFgduVhTqAFez4alnZKEhP/bYHg0A==
+  dependencies:
+    "@babel/helper-define-polyfill-provider" "^0.2.2"
+    core-js-compat "^3.9.1"
+
+babel-plugin-polyfill-regenerator@^0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/babel-plugin-polyfill-regenerator/-/babel-plugin-polyfill-regenerator-0.2.2.tgz#b310c8d642acada348c1fa3b3e6ce0e851bee077"
+  integrity sha512-Goy5ghsc21HgPDFtzRkSirpZVW35meGoTmTOb2bxqdl60ghub4xOidgNTHaZfQ2FaxQsKmwvXtOAkcIS4SMBWg==
+  dependencies:
+    "@babel/helper-define-polyfill-provider" "^0.2.2"
+
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 babel-plugin-syntax-jsx@^6.18.0:
   version "6.18.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-syntax-jsx/-/babel-plugin-syntax-jsx-6.18.0.tgz#0af32a9a6e13ca7a3fd5069e62d7b0f58d0d8946"
@@ -8390,6 +9261,7 @@ balanced-match@^1.0.0:
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.2.tgz#e83e3a7e3f300b34cb9d87f615fa0cbf357690ee"
   integrity sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 balanced-match@^2.0.0:
@@ -8399,11 +9271,15 @@ balanced-match@^2.0.0:
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
 
 <<<<<<< HEAD
+=======
+
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 balanced-match@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-2.0.0.tgz#dc70f920d78db8b858535795867bf48f820633d9"
   integrity sha512-1ugUSr8BHXRnK23KfuYS+gVMC3LB8QGH9W1iGtDPsNWoQbgtXSExkBu2aDR4epiGWZOjZsj6lDl/N/AqqTC3UA==
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
@@ -8411,6 +9287,9 @@ base64-js@^1.0.2:
 =======
 base64-js@^1.0.2, base64-js@^1.3.1:
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+base64-js@^1.0.2:
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/base64-js/-/base64-js-1.5.1.tgz#1b1b440160a5bf7ad40b650f095963481903930a"
   integrity sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==
@@ -8449,6 +9328,16 @@ before-after-hook@^2.0.0:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/before-after-hook/-/before-after-hook-2.2.2.tgz#a6e8ca41028d90ee2c24222f201c90956091613e"
   integrity sha512-3pZEU3NT5BFUo/AD5ERPWOgQOCZITni6iavr5AUw5AUwQjMlI0kzu5btnyD39AF0gUEsDPwJT+oY1ORBJijPjQ==
+<<<<<<< HEAD
+=======
+
+better-opn@^2.0.0:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/better-opn/-/better-opn-2.1.1.tgz#94a55b4695dc79288f31d7d0e5f658320759f7c6"
+  integrity sha512-kIPXZS5qwyKiX/HcRvDYfmBQUa8XP17I0mYZZ0y4UhpYOSvtsLHDYqmomS+Mj20aDvD3knEiQ0ecQy2nhio3yA==
+  dependencies:
+    open "^7.0.3"
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 
 bfj@^6.1.1:
   version "6.1.2"
@@ -8706,8 +9595,11 @@ browserify-zlib@^0.2.0:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 browserslist@4.10.0:
   version "4.10.0"
   resolved "https://registry.yarnpkg.com/browserslist/-/browserslist-4.10.0.tgz#f179737913eaf0d2b98e4926ac1ca6a15cbcc6a9"
@@ -8720,6 +9612,7 @@ browserslist@4.10.0:
     pkg-up "^3.1.0"
 
 browserslist@^4.0.0, browserslist@^4.12.0, browserslist@^4.16.6:
+<<<<<<< HEAD
 =======
 browserslist@4.14.2:
   version "4.14.2"
@@ -8746,6 +9639,12 @@ browserslist@^4.0.0, browserslist@^4.12.0, browserslist@^4.16.6, browserslist@^4
   resolved "https://registry.yarnpkg.com/browserslist/-/browserslist-4.16.6.tgz#d7901277a5a88e554ed305b183ec9b0c08f66fa2"
   integrity sha512-Wspk/PqO+4W9qp5iUTJsa1B/QrYn1keNCcEP5OvP7WBwT4KaDly0uONYmC6Xa3Z5IqnUgS0KcgLYu1l74x0ZXQ==
   dependencies:
+=======
+  version "4.16.6"
+  resolved "https://registry.yarnpkg.com/browserslist/-/browserslist-4.16.6.tgz#d7901277a5a88e554ed305b183ec9b0c08f66fa2"
+  integrity sha512-Wspk/PqO+4W9qp5iUTJsa1B/QrYn1keNCcEP5OvP7WBwT4KaDly0uONYmC6Xa3Z5IqnUgS0KcgLYu1l74x0ZXQ==
+  dependencies:
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
     caniuse-lite "^1.0.30001219"
     colorette "^1.2.2"
     electron-to-chromium "^1.3.723"
@@ -8808,6 +9707,7 @@ buffer@^4.3.0:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
@@ -8825,6 +9725,8 @@ buffer@^5.1.0:
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
 =======
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 builtin-status-codes@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/builtin-status-codes/-/builtin-status-codes-3.0.0.tgz#85982878e21b98e1c66425e03d0174788f569ee8"
@@ -8926,6 +9828,7 @@ cache-loader@^4.1.0:
     neo-async "^2.6.1"
     schema-utils "^2.0.0"
 
+<<<<<<< HEAD
 cacheable-request@^6.0.0:
   version "6.1.0"
   resolved "https://registry.yarnpkg.com/cacheable-request/-/cacheable-request-6.1.0.tgz#20ffb8bd162ba4be11e9567d823db651052ca912"
@@ -8939,6 +9842,8 @@ cacheable-request@^6.0.0:
     normalize-url "^4.1.0"
     responselike "^1.0.2"
 
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 cachedir@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/cachedir/-/cachedir-2.3.0.tgz#0c75892a052198f0b21c7c1804d8331edfcae0e8"
@@ -9071,6 +9976,7 @@ caniuse-api@^3.0.0:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 caniuse-lite@^1.0.0, caniuse-lite@^1.0.30001035, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001219:
   version "1.0.30001239"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001239.tgz#66e8669985bb2cb84ccb10f68c25ce6dd3e4d2b8"
@@ -9092,6 +9998,12 @@ caniuse-lite@^1.0.30000981, caniuse-lite@^1.0.30001228:
   version "1.0.30001239"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001239.tgz#66e8669985bb2cb84ccb10f68c25ce6dd3e4d2b8"
   integrity sha512-cyBkXJDMeI4wthy8xJ2FvDU6+0dtcZSJW3voUF8+e9f1bBeuvyZfc3PNbkOETyhbR+dGCPzn9E7MA3iwzusOhQ==
+=======
+caniuse-lite@^1.0.0, caniuse-lite@^1.0.30001035, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001219:
+  version "1.0.30001237"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001237.tgz#4b7783661515b8e7151fc6376cfd97f0e427b9e5"
+  integrity sha512-pDHgRndit6p1NR2GhzMbQ6CkRrp4VKuSsqbcLeOQppYPKOYkKT/6ZvZDvKJUqcmtyWIAHuZq3SVS2vc1egCZzw==
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 
 capital-case@^1.0.4:
   version "1.0.4"
@@ -9113,6 +10025,7 @@ capture-exit@^2.0.0:
 <<<<<<< HEAD
 <<<<<<< HEAD
 case-sensitive-paths-webpack-plugin@^2.2.0, case-sensitive-paths-webpack-plugin@^2.3.0:
+<<<<<<< HEAD
 =======
 case-sensitive-paths-webpack-plugin@^2.3.0:
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
@@ -9122,6 +10035,8 @@ case-sensitive-paths-webpack-plugin@^2.2.0, case-sensitive-paths-webpack-plugin@
 =======
 case-sensitive-paths-webpack-plugin@^2.3.0:
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/case-sensitive-paths-webpack-plugin/-/case-sensitive-paths-webpack-plugin-2.4.0.tgz#db64066c6422eed2e08cc14b986ca43796dbc6d4"
   integrity sha512-roIFONhcxog0JSSWbvVAh3OocukmSgpqOH6YpMkCvav/ySIV3JKg4Dc8vYtQjYi/UxpNE36r/9v+VqTQqgkYmw==
@@ -9270,6 +10185,7 @@ chokidar@^2.1.8:
 =======
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
 chokidar@^3.3.0, chokidar@^3.4.1:
+<<<<<<< HEAD
 =======
 chokidar@^3.4.1, chokidar@^3.4.2, chokidar@^3.5.1:
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
@@ -9285,6 +10201,11 @@ chokidar@^3.4.1, chokidar@^3.4.2, chokidar@^3.5.1:
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
 =======
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+  version "3.5.2"
+  resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-3.5.2.tgz#dba3976fcadb016f66fd365021d91600d01c1e75"
+  integrity sha512-ekGhOnNVPgT77r4K/U3GDhu+FQ2S8TnK/s2KbIGXi0SZWuwkZ2QNyfWdZW+TVfn84DpEP7rLeCt2UI6bJ8GwbQ==
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   dependencies:
     anymatch "~3.1.2"
     braces "~3.0.2"
@@ -9306,6 +10227,7 @@ chownr@^2.0.0:
   resolved "https://registry.yarnpkg.com/chownr/-/chownr-2.0.0.tgz#15bfbe53d2eab4cf70f18a8cd68ebe5b3cb1dece"
   integrity sha512-bIomtDF5KGpdogkLd9VspvFzk9KfpyyGlS8YFVZl7TGPBHL5snIOnxeshwVgPteQ9b4Eydl+pVbIyE1DcvCWgQ==
 
+<<<<<<< HEAD
 chrome-launcher@^0.13.4:
   version "0.13.4"
   resolved "https://registry.yarnpkg.com/chrome-launcher/-/chrome-launcher-0.13.4.tgz#4c7d81333c98282899c4e38256da23e00ed32f73"
@@ -9328,6 +10250,8 @@ chrome-launcher@^0.14.0:
     is-wsl "^2.2.0"
     lighthouse-logger "^1.0.0"
 
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 chrome-trace-event@^1.0.2:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/chrome-trace-event/-/chrome-trace-event-1.0.3.tgz#1015eced4741e15d06664a957dbbf50d041e26ac"
@@ -10010,10 +10934,13 @@ conventional-recommended-bump@^5.0.0:
 
 convert-source-map@^1.4.0, convert-source-map@^1.5.0, convert-source-map@^1.6.0, convert-source-map@^1.7.0:
 <<<<<<< HEAD
+<<<<<<< HEAD
   version "1.8.0"
   resolved "https://registry.yarnpkg.com/convert-source-map/-/convert-source-map-1.8.0.tgz#f3373c32d21b4d780dd8004514684fb791ca4369"
   integrity sha512-+OQdjP49zViI/6i7nIJpA8rAl4sV/JdPfU9nZs3VqOwGIgizICvuN2ru6fMd+4llL0tar18UYJXfZ/TWtmhUjA==
 =======
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/convert-source-map/-/convert-source-map-1.7.0.tgz#17a2cb882d7f77d3490585e2ce6c524424a3a442"
   integrity sha512-4FJkXzKXEDB1snCFZlLP4gpC3JILicCpGbzG9f9G7tGqGCzETQ2hWPrcinA9oU4wtf2biUaEH5065UnMeR33oA==
@@ -10081,6 +11008,7 @@ copy-webpack-plugin@^5.1.1:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 core-js-compat@^3.14.0, core-js-compat@^3.15.0, core-js-compat@^3.6.5:
   version "3.15.0"
   resolved "https://registry.yarnpkg.com/core-js-compat/-/core-js-compat-3.15.0.tgz#e14a371123db9d1c5b41206d3f420643d238b8fa"
@@ -10104,10 +11032,17 @@ core-js-compat@^3.14.0, core-js-compat@^3.6.5, core-js-compat@^3.9.1:
   resolved "https://registry.yarnpkg.com/core-js-compat/-/core-js-compat-3.14.0.tgz#b574dabf29184681d5b16357bd33d104df3d29a5"
   integrity sha512-R4NS2eupxtiJU+VwgkF9WTpnSfZW4pogwKHd8bclWU2sp93Pr5S1uYJI84cMOubJRou7bcfL0vmwtLslWN5p3A==
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
+=======
+core-js-compat@^3.14.0, core-js-compat@^3.6.5, core-js-compat@^3.9.1:
+  version "3.14.0"
+  resolved "https://registry.yarnpkg.com/core-js-compat/-/core-js-compat-3.14.0.tgz#b574dabf29184681d5b16357bd33d104df3d29a5"
+  integrity sha512-R4NS2eupxtiJU+VwgkF9WTpnSfZW4pogwKHd8bclWU2sp93Pr5S1uYJI84cMOubJRou7bcfL0vmwtLslWN5p3A==
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   dependencies:
     browserslist "^4.16.6"
     semver "7.0.0"
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 core-js-pure@^3.0.1, core-js-pure@^3.15.0:
@@ -10128,6 +11063,12 @@ core-js-pure@^3.15.0, core-js-pure@^3.8.2:
   version "3.15.0"
   resolved "https://registry.yarnpkg.com/core-js-pure/-/core-js-pure-3.15.0.tgz#c19349ae0be197b8bcf304acf4d91c5e29ae2091"
   integrity sha512-RO+LFAso8DB6OeBX9BAcEGvyth36QtxYon1OyVsITNVtSKr/Hos0BXZwnsOJ7o+O6KHtK+O+cJIEj9NGg6VwFA==
+=======
+core-js-pure@^3.0.1, core-js-pure@^3.14.0:
+  version "3.14.0"
+  resolved "https://registry.yarnpkg.com/core-js-pure/-/core-js-pure-3.14.0.tgz#72bcfacba74a65ffce04bf94ae91d966e80ee553"
+  integrity sha512-YVh+LN2FgNU0odThzm61BsdkwrbrchumFq3oztnE9vTKC4KS2fvnPmcx8t6jnqAyOTCTF4ZSiuK8Qhh7SNcL4g==
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 
 core-js@^2.4.0, core-js@^2.5.0, core-js@^2.6.5:
   version "2.6.12"
@@ -10137,6 +11078,7 @@ core-js@^2.4.0, core-js@^2.5.0, core-js@^2.6.5:
 <<<<<<< HEAD
 <<<<<<< HEAD
 core-js@^3.0.1, core-js@^3.0.4, core-js@^3.6.5:
+<<<<<<< HEAD
   version "3.15.0"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.15.0.tgz#db9554ebce0b6fd90dc9b1f2465c841d2d055044"
   integrity sha512-GUbtPllXMYRzIgHNZ4dTYTcUemls2cni83Q4Q/TrFONHfhcg9oEGOtaGHfb0cpzec60P96UKPvMkjX1jET8rUw==
@@ -10154,6 +11096,11 @@ core-js@^3.8.2, core-js@^3.9.1:
   version "3.15.0"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.15.0.tgz#db9554ebce0b6fd90dc9b1f2465c841d2d055044"
   integrity sha512-GUbtPllXMYRzIgHNZ4dTYTcUemls2cni83Q4Q/TrFONHfhcg9oEGOtaGHfb0cpzec60P96UKPvMkjX1jET8rUw==
+=======
+  version "3.14.0"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.14.0.tgz#62322b98c71cc2018b027971a69419e2425c2a6c"
+  integrity sha512-3s+ed8er9ahK+zJpp9ZtuVcDoFzHNiZsPbNAAE4KXgrRHbjSqqNN6xGSXq6bq7TZIbKj4NLrLb6bJ5i+vSVjHA==
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
@@ -10192,10 +11139,27 @@ cosmiconfig@^7.0.0:
     path-type "^4.0.0"
     yaml "^1.10.0"
 
+<<<<<<< HEAD
 crc@^3.8.0:
   version "3.8.0"
   resolved "https://registry.yarnpkg.com/crc/-/crc-3.8.0.tgz#ad60269c2c856f8c299e2c4cc0de4556914056c6"
   integrity sha512-iX3mfgcTMIq3ZKLIsVFAbv7+Mc10kxabAGQb8HvjA1o3T1PIYprbakQ65d3I+2HGHt6nSKkM9PYjgoJO2KcFBQ==
+=======
+cp-file@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/cp-file/-/cp-file-7.0.0.tgz#b9454cfd07fe3b974ab9ea0e5f29655791a9b8cd"
+  integrity sha512-0Cbj7gyvFVApzpK/uhCtQ/9kE9UnYpxMzaq5nQQC/Dh4iaj5fxp7iEFIullrYwzj8nf0qnsI1Qsx34hAeAebvw==
+  dependencies:
+    graceful-fs "^4.1.2"
+    make-dir "^3.0.0"
+    nested-error-stacks "^2.0.0"
+    p-event "^4.1.0"
+
+cpy@^8.1.1:
+  version "8.1.2"
+  resolved "https://registry.yarnpkg.com/cpy/-/cpy-8.1.2.tgz#e339ea54797ad23f8e3919a5cffd37bfc3f25935"
+  integrity sha512-dmC4mUesv0OYH2kNFEidtf/skUwv4zePmGeepjyyJ0qTo5+8KhA1o99oIAwVVLzQMAeDJml74d6wPPKb6EZUTg==
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   dependencies:
     buffer "^5.1.0"
 
@@ -10290,6 +11254,7 @@ cross-spawn@^7.0.0, cross-spawn@^7.0.3:
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
 =======
@@ -10301,6 +11266,8 @@ crypt@0.0.2:
   integrity sha1-iNf/fsDfuG9xPch7u0LQRNPmxBs=
 
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 crypto-browserify@^3.11.0:
   version "3.12.0"
   resolved "https://registry.yarnpkg.com/crypto-browserify/-/crypto-browserify-3.12.0.tgz#396cf9f3137f03e4b8e532c58f698254e00f80ec"
@@ -10574,6 +11541,7 @@ cssnano-util-same-parent@^4.0.0:
 <<<<<<< HEAD
 <<<<<<< HEAD
 cssnano@^4.0.0, cssnano@^4.1.10:
+<<<<<<< HEAD
 =======
 cssnano@^4.0.0, cssnano@^4.1.10, cssnano@^4.1.11:
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
@@ -10583,6 +11551,8 @@ cssnano@^4.0.0, cssnano@^4.1.10:
 =======
 cssnano@^4.0.0, cssnano@^4.1.10, cssnano@^4.1.11:
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "4.1.11"
   resolved "https://registry.yarnpkg.com/cssnano/-/cssnano-4.1.11.tgz#c7b5f5b81da269cb1fd982cb960c1200910c9a99"
   integrity sha512-6gZm2htn7xIPJOHY824ERgj8cNPgPxyCSnkXc4v7YvNW+TdVfzgngHcEhy/8D11kUWRUMbke+tC+AUcUsnMz2g==
@@ -10640,6 +11610,7 @@ csstype@^3.0.2:
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-3.0.8.tgz#d2266a792729fb227cd216fb572f43728e1ad340"
   integrity sha512-jXKhWqXPmlUeoQnF/EhTtTl4C9SnrxSH/jZUih3jmO6lBKr99rP3/+FmrMj4EFpOXzMtXHAZkd3x0E6h6Fgflw==
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 <<<<<<< HEAD
@@ -10657,6 +11628,8 @@ cuint@^0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/cuint/-/cuint-0.2.2.tgz#408086d409550c2631155619e9fa7bcadc3b991b"
   integrity sha1-QICG1AlVDCYxFVYZ6fp7ytw7mRs=
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
 currently-unhandled@^0.4.1:
@@ -10804,6 +11777,7 @@ debug@3.1.0:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
@@ -10820,6 +11794,8 @@ debug@4, debug@^4.0.0, debug@^4.0.1, debug@^4.1.0, debug@^4.1.1, debug@^4.2.0, d
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
 =======
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 debug@4.3.2:
   version "4.3.2"
   resolved "https://registry.yarnpkg.com/debug/-/debug-4.3.2.tgz#f0a49c18ac8779e31d4a0c6029dfb76873c7428b"
@@ -10837,8 +11813,11 @@ debug@^3.1.0, debug@^3.1.1, debug@^3.2.6:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 debug@^4.0.0, debug@^4.0.1, debug@^4.1.0, debug@^4.1.1, debug@^4.2.0, debug@^4.3.1:
   version "4.3.1"
   resolved "https://registry.yarnpkg.com/debug/-/debug-4.3.1.tgz#f0d229c505e0c6d8c49ac553d1b13dc183f6b2ee"
@@ -10994,6 +11973,7 @@ define-property@^2.0.2:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
@@ -11023,6 +12003,8 @@ defu@^5.0.0:
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
 =======
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 del@^4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/del/-/del-4.1.1.tgz#9e8f117222ea44a31ff3a156c049b99052a9f0b4"
@@ -11110,12 +12092,24 @@ detect-node@^2.0.4:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/detect-node/-/detect-node-2.1.0.tgz#c9c70775a49c3d03bc2c06d9a73be550f978f8b1"
   integrity sha512-T0NIuQpnTvFDATNuHN5roPwSBG83rFsuO+MXXH9/3N1eFbn4wcPjttvjMLEPWJ0RGUYgQE7cGgS3tNxbqCGM7g==
+<<<<<<< HEAD
+=======
+
+detect-port-alt@1.1.6:
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/detect-port-alt/-/detect-port-alt-1.1.6.tgz#24707deabe932d4a3cf621302027c2b266568275"
+  integrity sha512-5tQykt+LqfJFBEYaDITx7S7cR7mJ/zQmLXZ2qt5w04ainYZw6tBf9dBunMjVeVOdYVRUzUOE4HkY5J7+uttb5Q==
+  dependencies:
+    address "^1.0.1"
+    debug "^2.6.0"
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 
 devalue@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/devalue/-/devalue-2.0.1.tgz#5d368f9adc0928e47b77eea53ca60d2f346f9762"
   integrity sha512-I2TiqT5iWBEyB8GRfTDP0hiLZ0YeDJZ+upDxjBfOC2lebO5LezQMv7QvIUTzdb64jQyAKLf1AHADtGN+jw6v8Q==
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -11127,6 +12121,8 @@ devalue@^2.0.1:
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
 =======
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 dezalgo@^1.0.0:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/dezalgo/-/dezalgo-1.0.3.tgz#7f742de066fc748bc8db820569dddce49bf0d456"
@@ -11354,6 +12350,7 @@ dotenv@^8.0.0, dotenv@^8.2.0:
 <<<<<<< HEAD
 <<<<<<< HEAD
 downshift@^6.0.6:
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
@@ -11371,6 +12368,8 @@ downshift@^6.0.6:
 =======
 downshift@^6.0.15, downshift@^6.0.6:
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "6.1.3"
   resolved "https://registry.yarnpkg.com/downshift/-/downshift-6.1.3.tgz#e794b7805d24810968f21e81ad6bdd9f3fdc40da"
   integrity sha512-RA1MuaNcTbt0j+sVLhSs8R2oZbBXYAtdQP/V+uHhT3DoDteZzJPjlC+LQVm9T07Wpvo84QXaZtUCePLDTDwGXg==
@@ -11379,11 +12378,14 @@ downshift@^6.0.15, downshift@^6.0.6:
     compute-scroll-into-view "^1.0.17"
     prop-types "^15.7.2"
     react-is "^17.0.2"
+<<<<<<< HEAD
 
 duplexer3@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/duplexer3/-/duplexer3-0.1.4.tgz#ee01dd1cac0ed3cbc7fdbea37dc0a8f1ce002ce2"
   integrity sha1-7gHdHKwO08vH/b6jfcCo8c4ALOI=
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 
 duplexer@^0.1.1, duplexer@^0.1.2:
   version "0.1.2"
@@ -11447,6 +12449,7 @@ ejs@^3.1.2:
 
 electron-to-chromium@^1.3.378, electron-to-chromium@^1.3.723:
 <<<<<<< HEAD
+<<<<<<< HEAD
   version "1.3.754"
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.754.tgz#afbe69177ad7aae968c3bbeba129dc70dcc37cf4"
   integrity sha512-Q50dJbfYYRtwK3G9mFP/EsJVzlgcYwKxFjbXmvVa1lDAbdviPcT9QOpFoufDApub4j0hBfDRL6v3lWNLEdEDXQ==
@@ -11461,6 +12464,11 @@ electron-to-chromium@^1.3.723:
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.752.tgz#0728587f1b9b970ec9ffad932496429aef750d09"
   integrity sha512-2Tg+7jSl3oPxgsBsWKh5H83QazTkmWG/cnNwJplmyZc7KcN61+I10oUgaXSVk/NwfvN3BdkKDR4FYuRBQQ2v0A==
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
+=======
+  version "1.3.752"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.752.tgz#0728587f1b9b970ec9ffad932496429aef750d09"
+  integrity sha512-2Tg+7jSl3oPxgsBsWKh5H83QazTkmWG/cnNwJplmyZc7KcN61+I10oUgaXSVk/NwfvN3BdkKDR4FYuRBQQ2v0A==
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 
 elegant-spinner@^1.0.1:
   version "1.0.1"
@@ -11471,6 +12479,7 @@ elegant-spinner@^1.0.1:
 <<<<<<< HEAD
 <<<<<<< HEAD
 element-resize-detector@^1.2.1:
+<<<<<<< HEAD
 =======
 element-resize-detector@^1.2.2:
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
@@ -11480,6 +12489,8 @@ element-resize-detector@^1.2.1:
 =======
 element-resize-detector@^1.2.1, element-resize-detector@^1.2.2:
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/element-resize-detector/-/element-resize-detector-1.2.2.tgz#bf7c3ff915957e4e62e86241ed2f9c86b078892b"
   integrity sha512-+LOXRkCJc4I5WhEJxIDjhmE3raF8jtOMBDqSCgZTMz2TX3oXAX5pE2+MDeopJlGdXzP7KzPbBJaUGfNaP9HG4A==
@@ -11500,6 +12511,7 @@ elliptic@^6.5.3:
     minimalistic-crypto-utils "^1.0.1"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 <<<<<<< HEAD
@@ -11518,6 +12530,9 @@ emittery@^0.7.1:
 =======
 
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 "emoji-regex@>=6.0.0 <=6.1.1":
   version "6.1.1"
   resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-6.1.1.tgz#c6cd0ec1b0642e2a3c67a1137efc5e796da4f88e"
@@ -11633,7 +12648,11 @@ error-stack-parser@^2.0.0, error-stack-parser@^2.0.2:
   dependencies:
     stackframe "^1.1.1"
 
+<<<<<<< HEAD
 es-abstract@^1.17.2, es-abstract@^1.18.0-next.2, es-abstract@^1.18.2:
+=======
+es-abstract@^1.17.0-next.0, es-abstract@^1.17.2, es-abstract@^1.18.0-next.1, es-abstract@^1.18.0-next.2, es-abstract@^1.18.2:
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "1.18.3"
   resolved "https://registry.yarnpkg.com/es-abstract/-/es-abstract-1.18.3.tgz#25c4c3380a27aa203c44b2b685bba94da31b63e0"
   integrity sha512-nQIr12dxV7SSxE6r6f1l3DtAeEYdsGpps13dR0TwJg1S8gyp4ZPgy3FZcHBgbiQqnoqSTb+oC+kO4UQ0C/J8vw==
@@ -11654,6 +12673,28 @@ es-abstract@^1.17.2, es-abstract@^1.18.0-next.2, es-abstract@^1.18.2:
     string.prototype.trimend "^1.0.4"
     string.prototype.trimstart "^1.0.4"
     unbox-primitive "^1.0.1"
+<<<<<<< HEAD
+=======
+
+es-array-method-boxes-properly@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/es-array-method-boxes-properly/-/es-array-method-boxes-properly-1.0.0.tgz#873f3e84418de4ee19c5be752990b2e44718d09e"
+  integrity sha512-wd6JXUmyHmt8T5a2xreUwKcGPq6f1f+WwIJkijUqiGcJz1qqnZgP6XIK+QyIWU5lT7imeNxUll48bziG+TSYcA==
+
+es-get-iterator@^1.0.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/es-get-iterator/-/es-get-iterator-1.1.2.tgz#9234c54aba713486d7ebde0220864af5e2b283f7"
+  integrity sha512-+DTO8GYwbMCwbywjimwZMHp8AuYXOS2JZFWoi2AlPOS3ebnII9w/NLpNZtA7A0YLaVDw+O7KFCeoIV7OPvM7hQ==
+  dependencies:
+    call-bind "^1.0.2"
+    get-intrinsic "^1.1.0"
+    has-symbols "^1.0.1"
+    is-arguments "^1.1.0"
+    is-map "^2.0.2"
+    is-set "^2.0.2"
+    is-string "^1.0.5"
+    isarray "^2.0.5"
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 
 es-to-primitive@^1.2.1:
   version "1.2.1"
@@ -11664,6 +12705,14 @@ es-to-primitive@^1.2.1:
     is-date-object "^1.0.1"
     is-symbol "^1.0.2"
 
+<<<<<<< HEAD
+=======
+es5-shim@^4.5.13:
+  version "4.5.15"
+  resolved "https://registry.yarnpkg.com/es5-shim/-/es5-shim-4.5.15.tgz#6a26869b261854a3b045273f5583c52d390217fe"
+  integrity sha512-FYpuxEjMeDvU4rulKqFdukQyZSTpzhg4ScQHrAosrlVpR6GFyaw14f74yn2+4BugniIS0Frpg7TvwZocU4ZMTw==
+
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 es6-promise@^4.0.3:
   version "4.2.8"
   resolved "https://registry.yarnpkg.com/es6-promise/-/es6-promise-4.2.8.tgz#4eb21594c972bc40553d276e510539143db53e0a"
@@ -11914,6 +12963,7 @@ events@^3.0.0:
   integrity sha512-mQw+2fkQbALzQ7V0MY0IqdnXNOeTtP4r0lN9z7AAawCXgqea7bDii20AYrIBrFd/Hx0M2Ocz6S111CaFkUcb0Q==
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 <<<<<<< HEAD
@@ -11932,6 +12982,9 @@ eventsource-polyfill@^0.9.6:
 =======
 
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 eventsource@^1.0.7:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/eventsource/-/eventsource-1.1.0.tgz#00e8ca7c92109e94b0ddf32dac677d841028cfaf"
@@ -11951,6 +13004,7 @@ exec-sh@^0.3.2:
   version "0.3.6"
   resolved "https://registry.yarnpkg.com/exec-sh/-/exec-sh-0.3.6.tgz#ff264f9e325519a60cb5e273692943483cca63bc"
   integrity sha512-nQn+hI3yp+oD0huYhKwvYI32+JFeq+XkNcD1GAo3Y/MjxsfVGmrrzrnzjWiNY6f+pUCP440fThsFh5gZrRAU/w==
+<<<<<<< HEAD
 
 execa@^0.7.0:
   version "0.7.0"
@@ -11964,6 +13018,8 @@ execa@^0.7.0:
     p-finally "^1.0.0"
     signal-exit "^3.0.0"
     strip-eof "^1.0.0"
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 
 execa@^0.8.0:
   version "0.8.0"
@@ -12451,6 +13507,9 @@ filter-obj@^1.1.0:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 finalhandler@~1.1.2:
 =======
 finalhandler@1.1.2, finalhandler@~1.1.2:
@@ -12583,6 +13642,7 @@ flatted@^3.1.0:
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-3.1.1.tgz#c4b489e80096d9df1dfc97c79871aea7c617c469"
   integrity sha512-zAoAQiudy+r5SvnSw3KJy5os/oRJYHzrzja/tBDqrZtNhUw8bt6y8OBzMWcjWr+8liV8Eb6yOhw8WZ7VFZ5ZzA==
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 flow-parser@0.*:
   version "0.153.0"
@@ -12606,6 +13666,13 @@ flow-parser@0.*:
   resolved "https://registry.yarnpkg.com/flow-parser/-/flow-parser-0.153.0.tgz#bac7e977c79f380b07088d36fd0fccea24435db8"
   integrity sha512-qa7UODgbofQyruRWqNQ+KM5hO37CenByxhNfAztiwjBsPhWZ5AFh5g+gtLpTWPlzG7X66QdjBB9DuHNUBcaF+Q==
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+
+flow-parser@0.*:
+  version "0.153.0"
+  resolved "https://registry.yarnpkg.com/flow-parser/-/flow-parser-0.153.0.tgz#bac7e977c79f380b07088d36fd0fccea24435db8"
+  integrity sha512-qa7UODgbofQyruRWqNQ+KM5hO37CenByxhNfAztiwjBsPhWZ5AFh5g+gtLpTWPlzG7X66QdjBB9DuHNUBcaF+Q==
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 
 flush-write-stream@^1.0.0:
   version "1.1.1"
@@ -12781,6 +13848,7 @@ fs-extra@^8.1.0:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 fs-extra@^9.0.0, fs-extra@^9.0.1:
 =======
 fs-extra@^9.0.0, fs-extra@^9.0.1, fs-extra@^9.1.0:
@@ -12791,6 +13859,9 @@ fs-extra@^9.0.0, fs-extra@^9.0.1:
 =======
 fs-extra@^9.0.0, fs-extra@^9.0.1, fs-extra@^9.1.0:
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+fs-extra@^9.0.0, fs-extra@^9.0.1:
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "9.1.0"
   resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-9.1.0.tgz#5954460c764a8da2094ba3554bf839e6b9a7c86d"
   integrity sha512-hcg3ZmepS30/7BSFqRvoo3DOMQu7IjqxO5nCDt+zM9XWjb33Wg7ziNT+Qvqbuc3+gWpzO02JubVyk2G4Zvo1OQ==
@@ -12854,6 +13925,7 @@ fsevents@^1.2.7:
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 fsevents@^2.1.2, fsevents@~2.3.2:
 =======
 fsevents@^2.1.2, fsevents@~2.3.1:
@@ -12861,6 +13933,9 @@ fsevents@^2.1.2, fsevents@~2.3.1:
 =======
 fsevents@^2.1.2, fsevents@~2.3.2:
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+fsevents@^2.1.2, fsevents@~2.3.2:
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-2.3.2.tgz#8a526f78b8fdf4623b709e0b975c52c24c02fd1a"
   integrity sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==
@@ -12880,11 +13955,32 @@ function-bind@^1.1.1:
   resolved "https://registry.yarnpkg.com/function-bind/-/function-bind-1.1.1.tgz#a56899d3ea3c9bab874bb9773b7c5ede92f4895d"
   integrity sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A==
 
+<<<<<<< HEAD
+=======
+function.prototype.name@^1.1.0:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/function.prototype.name/-/function.prototype.name-1.1.4.tgz#e4ea839b9d3672ae99d0efd9f38d9191c5eaac83"
+  integrity sha512-iqy1pIotY/RmhdFZygSSlW0wko2yxkSCKqsuv4pr8QESohpYyG/Z7B/XXvPRKTJS//960rgguE5mSRUsDdaJrQ==
+  dependencies:
+    call-bind "^1.0.2"
+    define-properties "^1.1.3"
+    es-abstract "^1.18.0-next.2"
+    functions-have-names "^1.2.2"
+
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 functional-red-black-tree@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/functional-red-black-tree/-/functional-red-black-tree-1.0.1.tgz#1b0ab3bd553b2a0d6399d29c0e3ea0b252078327"
   integrity sha1-GwqzvVU7Kg1jmdKcDj6gslIHgyc=
 
+<<<<<<< HEAD
+=======
+functions-have-names@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/functions-have-names/-/functions-have-names-1.2.2.tgz#98d93991c39da9361f8e50b337c4f6e41f120e21"
+  integrity sha512-bLgc3asbWdwPbx2mNk2S49kmJCuQeu0nfmaOgbs8WIyzzkw3r4htszdIi9Q9EMezDPTYuJx2wvjZ/EwgAthpnA==
+
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 fuse.js@^3.6.1:
   version "3.6.1"
   resolved "https://registry.yarnpkg.com/fuse.js/-/fuse.js-3.6.1.tgz#7de85fdd6e1b3377c23ce010892656385fd9b10c"
@@ -12933,7 +14029,11 @@ get-caller-file@^2.0.1, get-caller-file@^2.0.5:
   resolved "https://registry.yarnpkg.com/get-caller-file/-/get-caller-file-2.0.5.tgz#4f94412a82db32f36e3b0b9741f8a97feb031f7e"
   integrity sha512-DyFP3BM/3YHTQOCUL/w0OZHR0lpKeGrxotcHWcqNEdnltqFwXVfhEBQ94eIo34AfQpo0rGki4cyIiftY06h2Fg==
 
+<<<<<<< HEAD
 get-intrinsic@^1.0.2, get-intrinsic@^1.1.1:
+=======
+get-intrinsic@^1.0.2, get-intrinsic@^1.1.0, get-intrinsic@^1.1.1:
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/get-intrinsic/-/get-intrinsic-1.1.1.tgz#15f59f376f855c446963948f0d24cd3637b4abc6"
   integrity sha512-kWZrnVM42QCiEA2Ig1bG8zjoIMOgxWwYCEeNdwY6Tv/cOSeGpcoX4pXHfKUxNKVoArnrEr2e9srnAxxGIraS9Q==
@@ -13093,6 +14193,7 @@ git-up@^4.0.0:
 <<<<<<< HEAD
 <<<<<<< HEAD
 git-url-parse@^11.1.2:
+<<<<<<< HEAD
 =======
 git-url-parse@^11.1.2, git-url-parse@^11.4.4:
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
@@ -13102,6 +14203,8 @@ git-url-parse@^11.1.2:
 =======
 git-url-parse@^11.1.2, git-url-parse@^11.4.4:
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "11.4.4"
   resolved "https://registry.yarnpkg.com/git-url-parse/-/git-url-parse-11.4.4.tgz#5d747debc2469c17bc385719f7d0427802d83d77"
   integrity sha512-Y4o9o7vQngQDIU9IjyCmRJBin5iYjI5u9ZITnddRZpD7dcCFQj2sL2XuMNbLRE4b4B/4ENPsp2Q8P44fjAZ0Pw==
@@ -13147,6 +14250,7 @@ glob-parent@^3.1.0:
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 glob-parent@^5.0.0, glob-parent@^5.1.0, glob-parent@~5.1.2:
 =======
 glob-parent@^5.0.0, glob-parent@^5.1.0, glob-parent@~5.1.0:
@@ -13154,6 +14258,9 @@ glob-parent@^5.0.0, glob-parent@^5.1.0, glob-parent@~5.1.0:
 =======
 glob-parent@^5.0.0, glob-parent@^5.1.0, glob-parent@~5.1.2:
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+glob-parent@^5.0.0, glob-parent@^5.1.0, glob-parent@~5.1.2:
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "5.1.2"
   resolved "https://registry.yarnpkg.com/glob-parent/-/glob-parent-5.1.2.tgz#869832c58034fe68a4093c17dc15e8340d8401c4"
   integrity sha512-AOIgSQCepiJYwP3ARnGx+5VnTu2HBYdzbGP45eLw1vr3zB3vZLeyed1sC9hnbcOc9/SrMyM5RPQrkGz4aS9Zow==
@@ -13168,6 +14275,7 @@ glob-to-regexp@^0.3.0:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 glob@^7.0.0, glob@^7.0.3, glob@^7.1.1, glob@^7.1.2, glob@^7.1.3, glob@^7.1.4, glob@^7.1.6, glob@~7.1.1:
 =======
 glob@^7.0.0, glob@^7.0.3, glob@^7.1.1, glob@^7.1.2, glob@^7.1.3, glob@^7.1.4, glob@^7.1.6, glob@^7.1.7, glob@~7.1.1:
@@ -13178,6 +14286,9 @@ glob@^7.0.0, glob@^7.0.3, glob@^7.1.1, glob@^7.1.2, glob@^7.1.3, glob@^7.1.4, gl
 =======
 glob@^7.0.0, glob@^7.0.3, glob@^7.1.1, glob@^7.1.2, glob@^7.1.3, glob@^7.1.4, glob@^7.1.6, glob@^7.1.7, glob@~7.1.1:
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+glob@^7.0.0, glob@^7.0.3, glob@^7.1.1, glob@^7.1.2, glob@^7.1.3, glob@^7.1.4, glob@^7.1.6, glob@~7.1.1:
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "7.1.7"
   resolved "https://registry.yarnpkg.com/glob/-/glob-7.1.7.tgz#3b193e9233f01d42d0b3f78294bbeeb418f94a90"
   integrity sha512-OvD9ENzPLbegENnYP5UUfJIirTg4+XwMWGaQfQTY0JenxNvvIKP3U3/tAQSPIu/lHxXYSZmpXlUHeqAIdKzBLQ==
@@ -13254,8 +14365,11 @@ globalthis@^1.0.0:
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 globby@8.0.2:
   version "8.0.2"
   resolved "https://registry.yarnpkg.com/globby/-/globby-8.0.2.tgz#5697619ccd95c5275dbb2d6faa42087c1a941d8d"
@@ -13274,6 +14388,7 @@ globby@^11.0.3:
   version "11.0.4"
   resolved "https://registry.yarnpkg.com/globby/-/globby-11.0.4.tgz#2cbaff77c2f2a62e71e9b2813a67b97a3a3001a5"
   integrity sha512-9O4MVG9ioZJ08ffbcyVYyLOJLk5JQ688pJ4eMGLpdWLHq/Wr1D9BlriLQyL0E+jbkuePVZXYFj47QM/v093wHg==
+<<<<<<< HEAD
 =======
 globby@11.0.1:
   version "11.0.1"
@@ -13303,6 +14418,8 @@ globby@^11.0.3:
   resolved "https://registry.yarnpkg.com/globby/-/globby-11.0.4.tgz#2cbaff77c2f2a62e71e9b2813a67b97a3a3001a5"
   integrity sha512-9O4MVG9ioZJ08ffbcyVYyLOJLk5JQ688pJ4eMGLpdWLHq/Wr1D9BlriLQyL0E+jbkuePVZXYFj47QM/v093wHg==
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   dependencies:
     array-union "^2.1.0"
     dir-glob "^3.0.1"
@@ -13509,6 +14626,16 @@ has-flag@^4.0.0:
   resolved "https://registry.yarnpkg.com/has-flag/-/has-flag-4.0.0.tgz#944771fd9c81c81265c4d6941860da06bb59479b"
   integrity sha512-EykJT/Q1KjTWctppgIAgfSO0tKVuZUjhgMr17kqTumMl6Afv3EISleU7qZUzoXDFTAHTDC4NOoG/ZxU3EvlMPQ==
 
+<<<<<<< HEAD
+=======
+has-glob@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/has-glob/-/has-glob-1.0.0.tgz#9aaa9eedbffb1ba3990a7b0010fb678ee0081207"
+  integrity sha1-mqqe7b/7G6OZCnsAEPtnjuAIEgc=
+  dependencies:
+    is-glob "^3.0.0"
+
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 has-symbols@^1.0.1, has-symbols@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/has-symbols/-/has-symbols-1.0.2.tgz#165d3070c00309752a1236a479331e3ac56f1423"
@@ -13592,6 +14719,7 @@ hash.js@^1.0.0, hash.js@^1.0.3:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
@@ -13609,6 +14737,8 @@ hasha@^5.2.2:
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
 =======
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 hast-to-hyperscript@^9.0.0:
   version "9.0.1"
   resolved "https://registry.yarnpkg.com/hast-to-hyperscript/-/hast-to-hyperscript-9.0.1.tgz#9b67fd188e4c81e8ad66f803855334173920218d"
@@ -13878,6 +15008,7 @@ html-webpack-plugin@^3.2.0:
 <<<<<<< HEAD
 <<<<<<< HEAD
 html-webpack-plugin@^4.2.1:
+<<<<<<< HEAD
 =======
 html-webpack-plugin@^4.0.0, html-webpack-plugin@^4.5.1:
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
@@ -13887,6 +15018,8 @@ html-webpack-plugin@^4.2.1:
 =======
 html-webpack-plugin@^4.5.1:
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "4.5.2"
   resolved "https://registry.yarnpkg.com/html-webpack-plugin/-/html-webpack-plugin-4.5.2.tgz#76fc83fa1a0f12dd5f7da0404a54e2699666bc12"
   integrity sha512-q5oYdzjKUIPQVjOosjgvCHQOv9Ett9CYYHlgvJeXG0qQvdSojnBq4vAdQBwn1+yGveAwHCoe/rMR86ozX3+c2A==
@@ -14130,6 +15263,7 @@ icss-utils@^4.0.0, icss-utils@^4.1.1:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 icss-utils@^5.0.0:
 =======
 icss-utils@^5.0.0, icss-utils@^5.1.0:
@@ -14140,6 +15274,9 @@ icss-utils@^5.0.0:
 =======
 icss-utils@^5.0.0, icss-utils@^5.1.0:
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+icss-utils@^5.0.0:
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/icss-utils/-/icss-utils-5.1.0.tgz#c6be6858abd013d768e98366ae47e25d5887b1ae"
   integrity sha512-soFhflCVWLfRNOPU3iv5Z9VUdT44xFRbzjLsEzSr5AQmgqPMTHdU3PMT1Cf1ssx8fLNJDA1juftYl+PUcv3MqA==
@@ -14147,6 +15284,7 @@ icss-utils@^5.0.0, icss-utils@^5.1.0:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ieee754@^1.1.4:
 =======
 ieee754@^1.1.13, ieee754@^1.1.4:
@@ -14157,6 +15295,9 @@ ieee754@^1.1.4:
 =======
 ieee754@^1.1.13, ieee754@^1.1.4:
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+ieee754@^1.1.4:
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/ieee754/-/ieee754-1.2.1.tgz#8eb7a10a63fff25d15a57b001586d177d1b0d352"
   integrity sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==
@@ -14385,6 +15526,9 @@ internal-ip@^4.3.0:
     ipaddr.js "^1.9.0"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 internal-slot@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/internal-slot/-/internal-slot-1.0.3.tgz#7347e307deeea2faac2ac6205d4bc7d34967f59c"
@@ -14394,6 +15538,7 @@ internal-slot@^1.0.3:
     has "^1.0.3"
     side-channel "^1.0.4"
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 interpret@^1.0.0:
   version "1.4.0"
@@ -14401,6 +15546,8 @@ interpret@^1.0.0:
   integrity sha512-agE4QfB2Lkp9uICn7BAqoscw4SZP9kTE2hxiFI3jBPmXJfdqiahTbUuKGsMoN2GtqL9AxhYioAcVvgsb1HvRbA==
 =======
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 
 interpret@^1.0.0:
   version "1.4.0"
@@ -14485,7 +15632,7 @@ is-alphanumerical@^1.0.0:
     is-alphabetical "^1.0.0"
     is-decimal "^1.0.0"
 
-is-arguments@^1.0.4:
+is-arguments@^1.0.4, is-arguments@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/is-arguments/-/is-arguments-1.1.0.tgz#62353031dfbee07ceb34656a6bde59efecae8dd9"
   integrity sha512-1Ij4lOMPl/xB5kBDn7I+b2ttPMKa8szhEIrXDuXQD/oe3HJLTLhqhgGspwgyGd6MOywBUqVvYicF72lkgDnIHg==
@@ -14528,7 +15675,11 @@ is-boolean-object@^1.1.0:
   dependencies:
     call-bind "^1.0.2"
 
+<<<<<<< HEAD
 is-buffer@^1.1.5, is-buffer@~1.1.6:
+=======
+is-buffer@^1.1.5:
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "1.1.6"
   resolved "https://registry.yarnpkg.com/is-buffer/-/is-buffer-1.1.6.tgz#efaa2ea9daa0d7ab2ea13a97b2b8ad51fefbe8be"
   integrity sha512-NcdALwpXkTm5Zvvbk7owOUSvVvBKDgKP5/ewfXEznmQFfs4ZRmanOeKBTjRVjka3QFoN6XJ+9F3USqfHqTaU5w==
@@ -14627,6 +15778,7 @@ is-directory@^0.3.1:
 <<<<<<< HEAD
 <<<<<<< HEAD
 is-docker@^2.0.0:
+<<<<<<< HEAD
 =======
 is-docker@^2.0.0, is-docker@^2.2.1:
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
@@ -14636,6 +15788,8 @@ is-docker@^2.0.0:
 =======
 is-docker@^2.0.0, is-docker@^2.2.1:
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/is-docker/-/is-docker-2.2.1.tgz#33eeabe23cfe86f14bde4408a02c0cfb853acdaa"
   integrity sha512-F+i2BKsFrH66iaUFc0woD8sLy8getkwTwtOBjvs56Cx4CgJDeKQeqfz8wAYiSb8JOprWhHH5p77PbmYCvvUuXQ==
@@ -14760,11 +15914,20 @@ is-installed-globally@^0.3.1, is-installed-globally@^0.3.2:
     global-dirs "^2.0.1"
     is-path-inside "^3.0.1"
 
+<<<<<<< HEAD
+=======
+is-map@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/is-map/-/is-map-2.0.2.tgz#00922db8c9bf73e81b7a335827bc2a43f2b91127"
+  integrity sha512-cOZFQQozTha1f4MxLFzlgKYPTyj26picdZTx82hbc/Xf4K/tZOOXSCkMvU4pKioRXGDLJRn0GM7Upe7kR721yg==
+
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 is-negative-zero@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/is-negative-zero/-/is-negative-zero-2.0.1.tgz#3de746c18dda2319241a53675908d8f766f11c24"
   integrity sha512-2z6JzQvZRa9A2Y7xC6dQQm4FSTSTNWjKIYYTt4246eMTJmIo0Q+ZyOsU66X8lxK1AbB92dFeglPLrhwpeRKO6w==
 
+<<<<<<< HEAD
 is-npm@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/is-npm/-/is-npm-3.0.0.tgz#ec9147bfb629c43f494cf67936a961edec7e8053"
@@ -14775,6 +15938,8 @@ is-npm@^4.0.0:
   resolved "https://registry.yarnpkg.com/is-npm/-/is-npm-4.0.0.tgz#c90dd8380696df87a7a6d823c20d0b12bbe3c84d"
   integrity sha512-96ECIfh9xtDDlPylNPXhzjsykHsMJZ18ASpaWzQyBr4YRTcVjUvzaHayDAES2oU/3KpljhHUjtSRNiDwi0F0ig==
 
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 is-number-object@^1.0.4:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/is-number-object/-/is-number-object-1.0.5.tgz#6edfaeed7950cff19afedce9fbfca9ee6dd289eb"
@@ -14910,6 +16075,19 @@ is-resolvable@^1.0.0:
   resolved "https://registry.yarnpkg.com/is-resolvable/-/is-resolvable-1.1.0.tgz#fb18f87ce1feb925169c9a407c19318a3206ed88"
   integrity sha512-qgDYXFSR5WvEfuS5dMj6oTMEbrrSaM0CrFk2Yiq/gXnBvD9pMa2jGXxyhGLfvhZpuMZe18CJpFxAt3CRs42NMg==
 
+<<<<<<< HEAD
+=======
+is-root@2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/is-root/-/is-root-2.1.0.tgz#809e18129cf1129644302a4f8544035d51984a9c"
+  integrity sha512-AGOriNp96vNBd3HtU+RzFEc75FfR5ymiYv8E553I71SCeXBiMsVDUtdio1OEFvrPyLIQ9tVR5RxXIFe5PUFjMg==
+
+is-set@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/is-set/-/is-set-2.0.2.tgz#90755fa4c2562dc1c5d4024760d6119b94ca18ec"
+  integrity sha512-+2cnTEZeY5z/iXGbLhPrOAaK/Mau5k5eXq9j14CpRTftq0pAJu2MwVRSZhyZWBzx3o6X795Lz6Bpb6R0GKf37g==
+
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 is-ssh@^1.3.0:
   version "1.3.3"
   resolved "https://registry.yarnpkg.com/is-ssh/-/is-ssh-1.3.3.tgz#7f133285ccd7f2c2c7fc897b771b53d95a2b2c7e"
@@ -15129,6 +16307,32 @@ istanbul-reports@^3.0.2:
     html-escaper "^2.0.0"
     istanbul-lib-report "^3.0.0"
 
+<<<<<<< HEAD
+=======
+iterate-iterator@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/iterate-iterator/-/iterate-iterator-1.0.1.tgz#1693a768c1ddd79c969051459453f082fe82e9f6"
+  integrity sha512-3Q6tudGN05kbkDQDI4CqjaBf4qf85w6W6GnuZDtUVYwKgtC1q8yxYX7CZed7N+tLzQqS6roujWvszf13T+n9aw==
+
+iterate-value@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/iterate-value/-/iterate-value-1.0.2.tgz#935115bd37d006a52046535ebc8d07e9c9337f57"
+  integrity sha512-A6fMAio4D2ot2r/TYzr4yUWrmwNdsN5xL7+HUiyACE4DXm+q8HtPcnFTp+NnW3k4N05tZ7FVYFFb2CR13NxyHQ==
+  dependencies:
+    es-get-iterator "^1.0.2"
+    iterate-iterator "^1.0.1"
+
+jake@^10.6.1:
+  version "10.8.2"
+  resolved "https://registry.yarnpkg.com/jake/-/jake-10.8.2.tgz#ebc9de8558160a66d82d0eadc6a2e58fbc500a7b"
+  integrity sha512-eLpKyrfG3mzvGE2Du8VoPbeSkRry093+tyNjdYaBbJS9v17knImYGNXQCUV0gLxQtF82m3E8iRb/wdSQZLoq7A==
+  dependencies:
+    async "0.9.x"
+    chalk "^2.4.2"
+    filelist "^1.0.1"
+    minimatch "^3.0.4"
+
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 javascript-stringify@^2.0.1:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/javascript-stringify/-/javascript-stringify-2.1.0.tgz#27c76539be14d8bd128219a2d731b09337904e79"
@@ -16282,11 +17486,14 @@ js-beautify@^1.6.12, js-beautify@^1.6.14:
     glob "^7.1.3"
     nopt "^5.0.0"
 
+<<<<<<< HEAD
 js-library-detector@^6.4.0:
   version "6.4.0"
   resolved "https://registry.yarnpkg.com/js-library-detector/-/js-library-detector-6.4.0.tgz#63e165cb84a4a0a7f7bbf1e97d60623921baae14"
   integrity sha512-NB2sYpmgqiTd7PNNhgp6bnEZmjvTUdAbzxABvYXWLpTL/t158T6mPnD8uYNd0FDP73YWyMrTYDvPxqdvCTbv2g==
 
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 js-message@1.0.7:
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/js-message/-/js-message-1.0.7.tgz#fbddd053c7a47021871bb8b2c95397cc17c20e47"
@@ -16512,6 +17719,7 @@ json3@^3.3.3:
 <<<<<<< HEAD
 <<<<<<< HEAD
 json5@2.x, json5@^2.1.1, json5@^2.1.2:
+<<<<<<< HEAD
 =======
 json5@2.x, json5@^2.1.2, json5@^2.1.3:
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
@@ -16521,6 +17729,8 @@ json5@2.x, json5@^2.1.1, json5@^2.1.2:
 =======
 json5@2.x, json5@^2.1.2, json5@^2.1.3:
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/json5/-/json5-2.2.0.tgz#2dfefe720c6ba525d9ebd909950f0515316c89a3"
   integrity sha512-f+8cldu7X/y7RAJurMEJmdoKXGB/X550w2Nr3tTbezL6RwEE/iMcm+tZnXeoZtKuOq6ft8+CqzEkrIgx1fPoQA==
@@ -16635,6 +17845,7 @@ kleur@^3.0.3:
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 klona@^2.0.4:
   version "2.0.4"
@@ -16644,10 +17855,13 @@ klona@^2.0.4:
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
 =======
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 known-css-properties@^0.21.0:
   version "0.21.0"
   resolved "https://registry.yarnpkg.com/known-css-properties/-/known-css-properties-0.21.0.tgz#15fbd0bbb83447f3ce09d8af247ed47c68ede80d"
   integrity sha512-sZLUnTqimCkvkgRS+kbPlYW5o8q5w1cu+uIisKpEWkj31I8mx8kNG162DwRav8Zirkva6N5uoFsm9kzK4mUXjw==
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -16680,6 +17894,8 @@ latest-version@^5.0.0:
   integrity sha512-weT+r0kTkRQdCdYCNtkMwWXQTMEswKrFBkm4ckQOMVhhqhIMI1UT2hMj+1iigIhgSZm5gTmrRXBNoGUgaTY1xA==
   dependencies:
     package-json "^6.3.0"
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
 launch-editor-middleware@^2.2.1:
@@ -17008,6 +18224,7 @@ lodash-es@^4.17.15:
   resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.21.tgz#43e626c46e6591b7750beb2b50117390c609e3ee"
   integrity sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
@@ -17023,6 +18240,8 @@ locate-path@^6.0.0:
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
 =======
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 
 lodash._reinterpolate@^3.0.0:
   version "3.0.0"
@@ -17142,6 +18361,7 @@ lodash@4.17.15:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 lodash@^4.0.0, lodash@^4.0.1, lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.20, lodash@^4.17.21, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.2.1, lodash@~4.17.10:
 =======
 lodash@^4.0.0, lodash@^4.15.0, lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.20, lodash@^4.17.21, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.2.1, lodash@^4.7.0, lodash@~4.17.10:
@@ -17152,6 +18372,9 @@ lodash@^4.0.0, lodash@^4.0.1, lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.14,
 =======
 lodash@^4.0.0, lodash@^4.15.0, lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.20, lodash@^4.17.21, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.2.1, lodash@^4.7.0, lodash@~4.17.10:
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+lodash@^4.0.0, lodash@^4.0.1, lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.20, lodash@^4.17.21, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.2.1, lodash@~4.17.10:
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "4.17.21"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
@@ -17749,10 +18972,13 @@ mime-types@^2.1.12, mime-types@^2.1.19, mime-types@^2.1.27, mime-types@^2.1.30, 
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
 =======
 mime-types@^2.1.12, mime-types@^2.1.27, mime-types@~2.1.17, mime-types@~2.1.19, mime-types@~2.1.24:
+<<<<<<< HEAD
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
 =======
 mime-types@^2.1.12, mime-types@^2.1.19, mime-types@^2.1.27, mime-types@^2.1.30, mime-types@~2.1.17, mime-types@~2.1.19, mime-types@~2.1.24:
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "2.1.31"
   resolved "https://registry.yarnpkg.com/mime-types/-/mime-types-2.1.31.tgz#a00d76b74317c61f9c2db2218b8e9f8e9c5c9e6b"
   integrity sha512-XGZnNzm3QvgKxa8dpzyhFTHmpP3l5YNusmne07VUOXxou9CqUqYa/HBy124RqtVh/O2pECas/MOcsDgpilPOPg==
@@ -17768,6 +18994,7 @@ mime@1.6.0:
 <<<<<<< HEAD
 <<<<<<< HEAD
 mime@^2.4.4:
+<<<<<<< HEAD
 =======
 mime@^2.3.1, mime@^2.4.4:
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
@@ -17777,6 +19004,8 @@ mime@^2.4.4:
 =======
 mime@^2.3.1, mime@^2.4.4:
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "2.5.2"
   resolved "https://registry.yarnpkg.com/mime/-/mime-2.5.2.tgz#6e3dc6cc2b9510643830e5f19d5cb753da5eeabe"
   integrity sha512-tqkh47FzKeCPD2PUiPB6pkbMzsCasjxAfC62/Wap5qrUWcb+sFasXUC5I3gYM5iBM8v/Qpn4UK0x+j0iHyFPDg==
@@ -18262,10 +19491,14 @@ node-notifier@^6.0.0:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 node-releases@^1.1.52, node-releases@^1.1.71:
   version "1.1.73"
   resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-1.1.73.tgz#dd4e81ddd5277ff846b80b52bb40c49edf7a7b20"
   integrity sha512-uW7fodD6pyW2FZNZnp/Z3hvWKeEW1Y8R1+1CnErE8cXFXzl5blBOoVB41CvMer6P6Q0S5FXDwcHgFd1Wj0U9zg==
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
@@ -18280,6 +19513,8 @@ node-notifier@^8.0.0:
     shellwords "^0.1.1"
     uuid "^8.3.0"
     which "^2.0.2"
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 
 node-object-hash@^1.2.0:
   version "1.4.2"
@@ -18427,6 +19662,7 @@ normalize-url@^3.0.0:
   resolved "https://registry.yarnpkg.com/normalize-url/-/normalize-url-3.3.0.tgz#b2e1c4dc4f7c6d57743df733a4f5978d18650559"
   integrity sha512-U+JJi7duF1o+u2pynbp2zXDW2/PADgC30f0GsHZtRh+HOcXHnw137TrNlyxxRvWW5fjKd3bcLHPxofWuCjaeZg==
 
+<<<<<<< HEAD
 normalize-url@^4.1.0:
   version "4.5.1"
   resolved "https://registry.yarnpkg.com/normalize-url/-/normalize-url-4.5.1.tgz#0dd90cf1288ee1d1313b87081c9a5932ee48518a"
@@ -18449,10 +19685,14 @@ nouislider@^15.2.0:
   integrity sha512-VU4pzAuh7Kip71XEmO9aNREYAdMHFGTVj/i+CaTImS8x0i1d3jUZkXhqluy/PRgjPLMgsLQulYY3PJ/aSbSjpQ==
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
 =======
+=======
+normalize-url@^6.0.1:
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/normalize-url/-/normalize-url-6.0.1.tgz#a4f27f58cf8c7b287b440b8a8201f42d0b00d256"
   integrity sha512-VU4pzAuh7Kip71XEmO9aNREYAdMHFGTVj/i+CaTImS8x0i1d3jUZkXhqluy/PRgjPLMgsLQulYY3PJ/aSbSjpQ==
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 nouislider@^15.1.1:
   version "15.1.1"
@@ -18460,11 +19700,16 @@ nouislider@^15.1.1:
   integrity sha512-xV9nabBSF59Q4vs5yNfnAey8AkEfq2bKM98e8wfg5jJM7IESGIViWHdjRoBsBGyljYenWt6fSJgczwt8ilKpew==
 >>>>>>> 90415bab9 (feat: add layout and home page)
 =======
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 nouislider@^15.2.0:
   version "15.2.0"
   resolved "https://registry.yarnpkg.com/nouislider/-/nouislider-15.2.0.tgz#21d6c94b34c70fe8097c3806f5e48eaa97332bd9"
   integrity sha512-LoZwN+wwU+z/0/UtjQY8VUcVElFJX6GfHkgJ5z1NIt/+KpOsjxEW4EAtBkBWvHNxf9HBzR62K6ft9NpNBkA5/w==
+<<<<<<< HEAD
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 
 npm-bundled@^1.0.1:
   version "1.1.2"
@@ -18653,7 +19898,30 @@ object.assign@^4.1.0, object.assign@^4.1.2:
     has-symbols "^1.0.1"
     object-keys "^1.1.1"
 
+<<<<<<< HEAD
 object.getownpropertydescriptors@^2.0.3, object.getownpropertydescriptors@^2.1.0, object.getownpropertydescriptors@^2.1.1:
+=======
+object.entries@^1.1.0:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/object.entries/-/object.entries-1.1.4.tgz#43ccf9a50bc5fd5b649d45ab1a579f24e088cafd"
+  integrity sha512-h4LWKWE+wKQGhtMjZEBud7uLGhqyLwj8fpHOarZhD2uY3C9cRtk57VQ89ke3moByLXMedqs3XCHzyb4AmA2DjA==
+  dependencies:
+    call-bind "^1.0.2"
+    define-properties "^1.1.3"
+    es-abstract "^1.18.2"
+
+"object.fromentries@^2.0.0 || ^1.0.0":
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/object.fromentries/-/object.fromentries-2.0.4.tgz#26e1ba5c4571c5c6f0890cef4473066456a120b8"
+  integrity sha512-EsFBshs5RUUpQEY1D4q/m59kMfz4YJvxuNCJcv/jWwOJr34EaVnG11ZrZa0UHB3wnzV1wx8m58T4hQL8IuNXlQ==
+  dependencies:
+    call-bind "^1.0.2"
+    define-properties "^1.1.3"
+    es-abstract "^1.18.0-next.2"
+    has "^1.0.3"
+
+object.getownpropertydescriptors@^2.0.3, object.getownpropertydescriptors@^2.1.0, object.getownpropertydescriptors@^2.1.1, object.getownpropertydescriptors@^2.1.2:
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/object.getownpropertydescriptors/-/object.getownpropertydescriptors-2.1.2.tgz#1bd63aeacf0d5d2d2f31b5e393b03a7c601a23f7"
   integrity sha512-WtxeKSzfBjlzL+F9b7M7hewDzMwy+C8NRssHd1YrNlzHzIDrXcXiNOMrezdAEM4UXixgV+vvnyBeN7Rygl2ttQ==
@@ -18733,7 +20001,11 @@ open@^6.3.0, open@^6.4.0:
   dependencies:
     is-wsl "^1.1.0"
 
+<<<<<<< HEAD
 open@^7.1.0:
+=======
+open@^7.0.2, open@^7.0.3:
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "7.4.2"
   resolved "https://registry.yarnpkg.com/open/-/open-7.4.2.tgz#b8147e26dcf3e426316c730089fd71edd29c2321"
   integrity sha512-MVHddDVweXZF3awtlAS+6pgKLlm/JgxZ90+/NBurBoQctVOOB/zDdVjcyPzQ+0laDGbsWgrRkflI65sQeOgT9Q==
@@ -18836,6 +20108,9 @@ ospath@^1.2.2:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 overlayscrollbars@^1.10.2:
 =======
 overlayscrollbars@^1.13.1:
@@ -18991,6 +20266,7 @@ p-waterfall@^1.0.0:
   dependencies:
     p-reduce "^1.0.0"
 
+<<<<<<< HEAD
 package-json@^6.3.0:
   version "6.5.0"
   resolved "https://registry.yarnpkg.com/package-json/-/package-json-6.5.0.tgz#6feedaca35e75725876d0b0e64974697fed145b0"
@@ -19001,6 +20277,8 @@ package-json@^6.3.0:
     registry-url "^5.0.0"
     semver "^6.2.0"
 
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 pako@~1.0.5:
   version "1.0.11"
   resolved "https://registry.yarnpkg.com/pako/-/pako-1.0.11.tgz#6c9599d340d54dfd3946380252a35705a6b992bf"
@@ -19386,12 +20664,16 @@ polished@^3.3.1:
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
 =======
 polished@^3.3.1, polished@^3.4.4:
+<<<<<<< HEAD
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "3.7.2"
   resolved "https://registry.yarnpkg.com/polished/-/polished-3.7.2.tgz#ec5ddc17a7d322a574d5e10ddd2a6f01d3e767d1"
   integrity sha512-pQKtpZGmsZrW8UUpQMAnR7s3ppHeMQVNyMDKtUyKwuvDmklzcEyM5Kllb3JyE/sE/x7arDmyd35i+4vp99H6sQ==
   dependencies:
     "@babel/runtime" "^7.12.5"
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
@@ -19416,6 +20698,9 @@ polished@^4.0.5:
     "@babel/runtime" "^7.14.0"
 
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 popper.js@^1.14.4, popper.js@^1.14.7:
   version "1.16.1"
   resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.16.1.tgz#2a223cb3dc7b6213d740e40372be40de43e65b1b"
@@ -19785,6 +21070,9 @@ postcss-modules-extract-imports@^3.0.0:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 postcss-modules-local-by-default@^3.0.2:
 =======
 postcss-modules-local-by-default@^3.0.2, postcss-modules-local-by-default@^3.0.3:
@@ -20109,10 +21397,14 @@ postcss-selector-parser@^3.0.0:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 postcss-selector-parser@^6.0.0, postcss-selector-parser@^6.0.2, postcss-selector-parser@^6.0.4, postcss-selector-parser@^6.0.5:
   version "6.0.6"
   resolved "https://registry.yarnpkg.com/postcss-selector-parser/-/postcss-selector-parser-6.0.6.tgz#2c5bba8174ac2f6981ab631a42ab0ee54af332ea"
   integrity sha512-9LXrvaaX3+mcv5xkg5kFwqSzSH1JIObIx51PrndZwlmznwXRfxMddDvo9gve3gVR8ZTKgoFDdWkbRFmEhT4PMg==
+<<<<<<< HEAD
   dependencies:
 =======
 =======
@@ -20137,6 +21429,9 @@ postcss-selector-parser@^6.0.0, postcss-selector-parser@^6.0.2, postcss-selector
   integrity sha512-9LXrvaaX3+mcv5xkg5kFwqSzSH1JIObIx51PrndZwlmznwXRfxMddDvo9gve3gVR8ZTKgoFDdWkbRFmEhT4PMg==
   dependencies:
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
+=======
+  dependencies:
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
     cssesc "^3.0.0"
     util-deprecate "^1.0.2"
 
@@ -20187,6 +21482,7 @@ postcss-value-parser@^4.0.2, postcss-value-parser@^4.1.0:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 postcss@^7.0.0, postcss@^7.0.1, postcss@^7.0.14, postcss@^7.0.2, postcss@^7.0.21, postcss@^7.0.26, postcss@^7.0.27, postcss@^7.0.32, postcss@^7.0.35, postcss@^7.0.36, postcss@^7.0.5, postcss@^7.0.6:
 =======
 =======
@@ -20209,6 +21505,9 @@ postcss@^7.0.0, postcss@^7.0.1, postcss@^7.0.14, postcss@^7.0.2, postcss@^7.0.21
 =======
 postcss@^7.0.0, postcss@^7.0.1, postcss@^7.0.14, postcss@^7.0.17, postcss@^7.0.2, postcss@^7.0.21, postcss@^7.0.26, postcss@^7.0.27, postcss@^7.0.32, postcss@^7.0.35, postcss@^7.0.36, postcss@^7.0.5, postcss@^7.0.6:
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+postcss@^7.0.0, postcss@^7.0.1, postcss@^7.0.14, postcss@^7.0.2, postcss@^7.0.21, postcss@^7.0.26, postcss@^7.0.27, postcss@^7.0.32, postcss@^7.0.35, postcss@^7.0.36, postcss@^7.0.5, postcss@^7.0.6:
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "7.0.36"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-7.0.36.tgz#056f8cffa939662a8f5905950c07d5285644dfcb"
   integrity sha512-BebJSIUMwJHRH0HAQoxN4u1CN86glsrwsW0q7T+/m44eXOUAxSNdHRkNZPYz5vVUbg17hFgOQDE7fZk7li3pZw==
@@ -20218,6 +21517,7 @@ postcss@^7.0.0, postcss@^7.0.1, postcss@^7.0.14, postcss@^7.0.17, postcss@^7.0.2
     supports-color "^6.1.0"
 
 postcss@^8.1.10:
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   version "8.3.5"
@@ -20248,6 +21548,11 @@ postcss@^8.2.15:
   version "8.3.5"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.3.5.tgz#982216b113412bc20a86289e91eb994952a5b709"
   integrity sha512-NxTuJocUhYGsMiMFHDUkmjSKT3EdH4/WbGF6GCi1NDGk+vbcUTun4fpbOqaPtD8IIsztA2ilZm2DhYCuyN58gA==
+=======
+  version "8.3.4"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.3.4.tgz#41ece1c43f2f7c74dc7d90144047ce052757b822"
+  integrity sha512-/tZY0PXExXXnNhKv3TOvZAOUYRyuqcCbBm2c17YMDK0PlVII3K7/LKdt3ScHL+hhouddjUWi+1sKDf9xXW+8YA==
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   dependencies:
     colorette "^1.2.2"
     nanoid "^3.1.23"
@@ -20285,6 +21590,9 @@ prettier@^2.0.4:
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.3.1.tgz#76903c3f8c4449bc9ac597acefa24dc5ad4cbea6"
   integrity sha512-p+vNbgpLjif/+D+DwAZAbndtRrR0md0MwfmOVN9N+2RgyACMT+7tfaRnT+WDPkqnuVwleyuBIG2XBxKDme3hPA==
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 
 prettier@~2.0.5:
   version "2.0.5"
@@ -20292,6 +21600,7 @@ prettier@~2.0.5:
   integrity sha512-7PtVymN48hGcO4fGjybyBSIWDsLU4H4XlvOHfq91pz9kkGlonzwTfYkaIEwiRg/dAJF9YlbsduBAgtYLi+8cFg==
 
 pretty-bytes@^5.4.1:
+<<<<<<< HEAD
 =======
 
 prettier@~2.2.1:
@@ -20309,6 +21618,8 @@ pretty-bytes@^5.4.1:
 =======
 pretty-bytes@^5.4.1, pretty-bytes@^5.6.0:
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "5.6.0"
   resolved "https://registry.yarnpkg.com/pretty-bytes/-/pretty-bytes-5.6.0.tgz#356256f643804773c82f64723fe78c92c62beaeb"
   integrity sha512-FFw039TmrBqFK8ma/7OL3sDz/VytdtJr044/QUJtH0wK9lb9jLq9tJyIxUwtQJHwar2BqtiA4iCWSwo9JLkzFg==
@@ -20417,6 +21728,30 @@ promise-retry@^1.1.1:
     err-code "^1.0.0"
     retry "^0.10.0"
 
+<<<<<<< HEAD
+=======
+promise.allsettled@^1.0.0:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/promise.allsettled/-/promise.allsettled-1.0.4.tgz#65e71f2a604082ed69c548b68603294090ee6803"
+  integrity sha512-o73CbvQh/OnPFShxHcHxk0baXR2a1m4ozb85ha0H14VEoi/EJJLa9mnPfEWJx9RjA9MLfhdjZ8I6HhWtBa64Ag==
+  dependencies:
+    array.prototype.map "^1.0.3"
+    call-bind "^1.0.2"
+    define-properties "^1.1.3"
+    es-abstract "^1.18.0-next.2"
+    get-intrinsic "^1.0.2"
+    iterate-value "^1.0.2"
+
+promise.prototype.finally@^3.1.0:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/promise.prototype.finally/-/promise.prototype.finally-3.1.2.tgz#b8af89160c9c673cefe3b4c4435b53cfd0287067"
+  integrity sha512-A2HuJWl2opDH0EafgdjwEw7HysI8ff/n4lW4QEVBCUXFk9QeGecBWv0Deph0UmLe3tTNYegz8MOjsVuE6SMoJA==
+  dependencies:
+    define-properties "^1.1.3"
+    es-abstract "^1.17.0-next.0"
+    function-bind "^1.1.1"
+
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 promise@^7.0.1:
   version "7.3.1"
   resolved "https://registry.yarnpkg.com/promise/-/promise-7.3.1.tgz#064b72602b18f90f29192b8b1bc418ffd1ebd3bf"
@@ -20433,6 +21768,7 @@ prompts@^2.0.1, prompts@^2.1.0:
   resolved "https://registry.yarnpkg.com/prompts/-/prompts-2.4.1.tgz#befd3b1195ba052f9fd2fde8a486c4e82ee77f61"
   integrity sha512-EQyfIuO2hPDsX1L/blblV+H7I0knhgAd82cVneCwcdND9B8AuCDuRcBH6yIcG4dFzlOUqbazQqwGjx5xmsNLuQ==
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 prompts@2.4.0:
   version "2.4.0"
@@ -20441,6 +21777,8 @@ prompts@2.4.0:
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
 =======
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   dependencies:
     kleur "^3.0.3"
     sisteransi "^1.0.5"
@@ -20808,10 +22146,13 @@ qs@^6.10.0, qs@^6.6.0, qs@^6.9.4:
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
 =======
 qs@^6.6.0, qs@^6.9.4:
+<<<<<<< HEAD
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
 =======
 qs@^6.10.0, qs@^6.6.0, qs@^6.9.4:
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "6.10.1"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.10.1.tgz#4931482fa8d647a5aab799c5271d2133b981fb6a"
   integrity sha512-M528Hph6wsSVOBiYUnGf+K/7w0hNshs/duGsNXPUCLH5XAqjEtiPGwNONLV0tBH8NoGb0mvD5JubnUTrujKDTg==
@@ -20946,6 +22287,7 @@ react-clientside-effect@^1.2.2:
   resolved "https://registry.yarnpkg.com/react-clientside-effect/-/react-clientside-effect-1.2.5.tgz#e2c4dc3c9ee109f642fac4f5b6e9bf5bcd2219a3"
   integrity sha512-2bL8qFW1TGBHozGGbVeyvnggRpMjibeZM2536AKNENLECutp2yfs44IL8Hmpn8qjFQ2K7A9PnYf3vc7aQq/cPA==
 <<<<<<< HEAD
+<<<<<<< HEAD
   dependencies:
     "@babel/runtime" "^7.12.13"
 =======
@@ -20973,6 +22315,10 @@ rc@^1.2.8:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+  dependencies:
+    "@babel/runtime" "^7.12.13"
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 
 react-clientside-effect@^1.2.2:
   version "1.2.5"
@@ -21026,12 +22372,15 @@ react-element-to-jsx-string@^14.3.2:
 <<<<<<< HEAD
 <<<<<<< HEAD
 react-error-overlay@^6.0.7:
+<<<<<<< HEAD
 =======
 react-error-overlay@^6.0.9:
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
 =======
 react-error-overlay@^6.0.7:
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "6.0.9"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.9.tgz#3c743010c9359608c375ecd6bc76f35d93995b0a"
   integrity sha512-nQTTcUu+ATDbrSD1BZHr5kgSD4oF8OFjxun8uAaL8RwPBacGBNPf/yAuVVdx17N8XNzRDMrZ9XcKZHCjPW+9ew==
@@ -21059,6 +22408,7 @@ react-focus-lock@^2.1.0:
 <<<<<<< HEAD
 <<<<<<< HEAD
 react-helmet-async@^1.0.2:
+<<<<<<< HEAD
 =======
 react-helmet-async@^1.0.2, react-helmet-async@^1.0.7:
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
@@ -21068,6 +22418,8 @@ react-helmet-async@^1.0.2:
 =======
 react-helmet-async@^1.0.2, react-helmet-async@^1.0.7:
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/react-helmet-async/-/react-helmet-async-1.0.9.tgz#5b9ed2059de6b4aab47f769532f9fbcbce16c5ca"
   integrity sha512-N+iUlo9WR3/u9qGMmP4jiYfaD6pe9IvDTapZLFJz2D3xlTlCM1Bzy4Ab3g72Nbajo/0ZyW+W9hdz8Hbe4l97pQ==
@@ -21092,6 +22444,7 @@ react-hotkeys@2.0.0:
 
 react-inspector@^5.0.1:
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 react-inspector@^5.1.0:
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
@@ -21100,6 +22453,8 @@ react-inspector@^5.1.0:
 =======
 react-inspector@^5.1.0:
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/react-inspector/-/react-inspector-5.1.1.tgz#58476c78fde05d5055646ed8ec02030af42953c8"
   integrity sha512-GURDaYzoLbW8pMGXwYPDBIv6nqei4kK7LPRZ9q9HCZF54wqXz/dnylBp/kfE9XmekBhHvLDdcYeyIwSrvtOiWg==
@@ -21215,6 +22570,7 @@ react-textarea-autosize@^7.1.0:
 <<<<<<< HEAD
 <<<<<<< HEAD
 react-textarea-autosize@^8.1.1:
+<<<<<<< HEAD
 =======
 react-textarea-autosize@^8.3.0:
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
@@ -21224,6 +22580,8 @@ react-textarea-autosize@^8.1.1:
 =======
 react-textarea-autosize@^8.3.0:
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "8.3.3"
   resolved "https://registry.yarnpkg.com/react-textarea-autosize/-/react-textarea-autosize-8.3.3.tgz#f70913945369da453fd554c168f6baacd1fa04d8"
   integrity sha512-2XlHXK2TDxS6vbQaoPbMOfQ8GK7+irc2fVK6QFIcC8GOnH3zI/v481n+j1L0WaPVvKxwesnY93fEfH++sus2rQ==
@@ -21525,7 +22883,11 @@ regex-not@^1.0.0, regex-not@^1.0.2:
     extend-shallow "^3.0.2"
     safe-regex "^1.1.0"
 
+<<<<<<< HEAD
 regexp.prototype.flags@^1.2.0:
+=======
+regexp.prototype.flags@^1.2.0, regexp.prototype.flags@^1.3.1:
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/regexp.prototype.flags/-/regexp.prototype.flags-1.3.1.tgz#7ef352ae8d159e758c0eadca6f8fcb4eef07be26"
   integrity sha512-JiBdRBq91WlY7uRJ0ds7R+dU02i6LKi8r3BuQhNXn+kmeLN+EfHhfjqMRis1zJxnlu88hq/4dx0P2OP3APRTOA==
@@ -21584,8 +22946,11 @@ relateurl@0.2.x, relateurl@^0.2.7:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 remark-external-links@^6.0.0:
   version "6.1.0"
   resolved "https://registry.yarnpkg.com/remark-external-links/-/remark-external-links-6.1.0.tgz#1a545b3cf896eae00ec1732d90f595f75a329abe"
@@ -21847,6 +23212,7 @@ resolve@1.1.7:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 resolve@1.x, resolve@^1.1.6, resolve@^1.10.0, resolve@^1.12.0, resolve@^1.14.2, resolve@^1.15.1, resolve@^1.17.0, resolve@^1.20.0, resolve@^1.3.2:
 =======
 resolve@1.x, resolve@^1.1.6, resolve@^1.1.7, resolve@^1.10.0, resolve@^1.12.0, resolve@^1.14.2, resolve@^1.15.1, resolve@^1.17.0, resolve@^1.18.1, resolve@^1.19.0, resolve@^1.2.0, resolve@^1.20.0, resolve@^1.3.2:
@@ -21857,6 +23223,9 @@ resolve@1.x, resolve@^1.1.6, resolve@^1.10.0, resolve@^1.12.0, resolve@^1.14.2, 
 =======
 resolve@1.x, resolve@^1.1.6, resolve@^1.1.7, resolve@^1.10.0, resolve@^1.12.0, resolve@^1.14.2, resolve@^1.15.1, resolve@^1.17.0, resolve@^1.18.1, resolve@^1.19.0, resolve@^1.2.0, resolve@^1.20.0, resolve@^1.3.2:
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+resolve@1.x, resolve@^1.1.6, resolve@^1.10.0, resolve@^1.12.0, resolve@^1.14.2, resolve@^1.15.1, resolve@^1.17.0, resolve@^1.20.0, resolve@^1.3.2:
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "1.20.0"
   resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.20.0.tgz#629a013fb3f70755d6f0b7935cc1c2c5378b1975"
   integrity sha512-wENBPt4ySzg4ybFQW2TT1zMQucPK95HSh/nq2CFTZVOGut2+pQvSsgtda4d26YrYcr067wjbmzOG8byDPBX63A==
@@ -21998,6 +23367,7 @@ run-queue@^1.0.0, run-queue@^1.0.3:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 rxjs@^6.3.3, rxjs@^6.4.0, rxjs@^6.5.3, rxjs@^6.6.0, rxjs@^6.6.7:
 =======
 rxjs@^6.3.3, rxjs@^6.4.0, rxjs@^6.6.0, rxjs@^6.6.7:
@@ -22008,6 +23378,9 @@ rxjs@^6.3.3, rxjs@^6.4.0, rxjs@^6.5.3, rxjs@^6.6.0, rxjs@^6.6.7:
 =======
 rxjs@^6.3.3, rxjs@^6.4.0, rxjs@^6.6.0, rxjs@^6.6.7:
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+rxjs@^6.3.3, rxjs@^6.4.0, rxjs@^6.5.3, rxjs@^6.6.0, rxjs@^6.6.7:
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "6.6.7"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-6.6.7.tgz#90ac018acabf491bf65044235d5863c4dab804c9"
   integrity sha512-hTdwr+7yYNIT5n4AMYp85KA6yw2Va0FLa3Rguvbpa4W3I5xynaBZo41cM3XM+4Q6fRMj3sBYIR1VAmZMXYJvRQ==
@@ -22202,6 +23575,7 @@ semver@7.0.0:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 semver@^7.3.4:
 =======
 semver@^7.3.2, semver@^7.3.4, semver@^7.3.5:
@@ -22212,6 +23586,9 @@ semver@^7.3.4:
 =======
 semver@^7.3.2, semver@^7.3.4, semver@^7.3.5:
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+semver@^7.3.4:
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "7.3.5"
   resolved "https://registry.yarnpkg.com/semver/-/semver-7.3.5.tgz#0b621c879348d8998e4b0e4be94b3f12e6018ef7"
   integrity sha512-PoeGJYh8HK4BTO/a9Tf6ZG3veo/A7ZVsYrSA6J8ny9nb3B1VrpkuN+z9OE5wfE5p6H4LchYZsegiQgbJD94ZFQ==
@@ -22386,7 +23763,11 @@ shebang-regex@^3.0.0:
   resolved "https://registry.yarnpkg.com/shebang-regex/-/shebang-regex-3.0.0.tgz#ae16f1644d873ecad843b0307b143362d4c42172"
   integrity sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==
 
+<<<<<<< HEAD
 shell-quote@^1.6.1:
+=======
+shell-quote@1.7.2, shell-quote@^1.6.1:
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "1.7.2"
   resolved "https://registry.yarnpkg.com/shell-quote/-/shell-quote-1.7.2.tgz#67a7d02c76c9da24f99d20808fcaded0e0e04be2"
   integrity sha512-mRz/m/JVscCrkMyPqHc/bczi3OQHkLTqXHEFu0zDhK/qfv3UcOA4SVmRCLmos4bhjr9ekVQubj/R7waKapmiQg==
@@ -22664,6 +24045,7 @@ source-map-url@^0.4.0:
   resolved "https://registry.yarnpkg.com/source-map-url/-/source-map-url-0.4.1.tgz#0af66605a745a5a2f91cf1bbf8a7afbc283dec56"
   integrity sha512-cPiFOTLUKvJFIg4SKVScy4ilPPW6rFgMgfuZJPNoDuMs3nC1HbMUycBoJw77xFIp6z1UJQJOfx6C9GMH80DiTw==
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 <<<<<<< HEAD
@@ -22683,6 +24065,9 @@ source-map@0.5.6:
   integrity sha1-dc449SvwczxafwwRjYEzSiu19BI=
 
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 source-map@^0.4.2:
   version "0.4.4"
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.4.4.tgz#eba4f5da9c0dc999de68032d8b4f76173652036b"
@@ -22860,6 +24245,7 @@ stack-utils@^1.0.1:
   resolved "https://registry.yarnpkg.com/stack-utils/-/stack-utils-1.0.5.tgz#a19b0b01947e0029c8e451d5d61a498f5bb1471b"
   integrity sha512-KZiTzuV3CnSnSvgMRrARVCj+Ht7rMbauGDK0LdVFRGyenwdylpajAp4Q0i6SX8rEmbTpMMf6ryq2gb8pPq2WgQ==
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   dependencies:
     escape-string-regexp "^2.0.0"
@@ -22881,6 +24267,8 @@ stack-utils@^2.0.2:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/stack-utils/-/stack-utils-2.0.3.tgz#cd5f030126ff116b78ccb3c027fe302713b61277"
   integrity sha512-gL//fkxfWUsIlFL2Tl42Cl6+HFALEaB1FU76I/Fy+oZjRreP7OPMXFlGbxM7NQsI0ZpUfw76sHnv0WNYuTb7Iw==
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   dependencies:
     escape-string-regexp "^2.0.0"
 
@@ -23059,6 +24447,41 @@ string-width@^4.0.0, string-width@^4.1.0, string-width@^4.2.0, string-width@^4.2
     is-fullwidth-code-point "^3.0.0"
     strip-ansi "^6.0.0"
 
+<<<<<<< HEAD
+=======
+"string.prototype.matchall@^4.0.0 || ^3.0.1":
+  version "4.0.5"
+  resolved "https://registry.yarnpkg.com/string.prototype.matchall/-/string.prototype.matchall-4.0.5.tgz#59370644e1db7e4c0c045277690cf7b01203c4da"
+  integrity sha512-Z5ZaXO0svs0M2xd/6By3qpeKpLKd9mO4v4q3oMEQrk8Ck4xOD5d5XeBOOjGrmVZZ/AHB1S0CgG4N5r1G9N3E2Q==
+  dependencies:
+    call-bind "^1.0.2"
+    define-properties "^1.1.3"
+    es-abstract "^1.18.2"
+    get-intrinsic "^1.1.1"
+    has-symbols "^1.0.2"
+    internal-slot "^1.0.3"
+    regexp.prototype.flags "^1.3.1"
+    side-channel "^1.0.4"
+
+string.prototype.padend@^3.0.0:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/string.prototype.padend/-/string.prototype.padend-3.1.2.tgz#6858ca4f35c5268ebd5e8615e1327d55f59ee311"
+  integrity sha512-/AQFLdYvePENU3W5rgurfWSMU6n+Ww8n/3cUt7E+vPBB/D7YDG8x+qjoFs4M/alR2bW7Qg6xMjVwWUOvuQ0XpQ==
+  dependencies:
+    call-bind "^1.0.2"
+    define-properties "^1.1.3"
+    es-abstract "^1.18.0-next.2"
+
+string.prototype.padstart@^3.0.0:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/string.prototype.padstart/-/string.prototype.padstart-3.1.2.tgz#f9b9ce66bedd7c06acb40ece6e34c6046e1a019d"
+  integrity sha512-HDpngIP3pd0DeazrfqzuBrQZa+D2arKWquEHfGt5LzVjd+roLC3cjqVI0X8foaZz5rrrhcu8oJAQamW8on9dqw==
+  dependencies:
+    call-bind "^1.0.2"
+    define-properties "^1.1.3"
+    es-abstract "^1.18.0-next.2"
+
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 string.prototype.trimend@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/string.prototype.trimend/-/string.prototype.trimend-1.0.4.tgz#e75ae90c2942c63504686c18b287b4a0b1a45f80"
@@ -23393,6 +24816,19 @@ symbol-tree@^3.2.2, symbol-tree@^3.2.4:
   resolved "https://registry.yarnpkg.com/symbol-tree/-/symbol-tree-3.2.4.tgz#430637d248ba77e078883951fb9aa0eed7c63fa2"
   integrity sha512-9QNk5KwDF+Bvz+PyObkmSYjI5ksVUYtjW7AU22r2NKcfLJcXp96hkDWU3+XndOsUb+AQ9QhfzfCT2O+CNWT5Tw==
 
+<<<<<<< HEAD
+=======
+symbol.prototype.description@^1.0.0:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/symbol.prototype.description/-/symbol.prototype.description-1.0.4.tgz#c30edd3fe8c040d941cf7dc15842be15adf66855"
+  integrity sha512-fZkHwJ8ZNRVRzF/+/2OtygyyH06CjC0YZAQRHu9jKKw8RXlJpbizEHvGRUu22Qkg182wJk1ugb5Aovcv3UPrww==
+  dependencies:
+    call-bind "^1.0.2"
+    es-abstract "^1.18.0-next.2"
+    has-symbols "^1.0.1"
+    object.getownpropertydescriptors "^2.1.2"
+
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 table@^5.2.3:
   version "5.4.6"
   resolved "https://registry.yarnpkg.com/table/-/table-5.4.6.tgz#1292d19500ce3f86053b05f0e8e7e4a3bb21079e"
@@ -23472,6 +24908,7 @@ telejson@^3.2.0:
 <<<<<<< HEAD
 <<<<<<< HEAD
 telejson@^5.0.2:
+<<<<<<< HEAD
 =======
 telejson@^5.1.0:
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
@@ -23481,6 +24918,8 @@ telejson@^5.0.2:
 =======
 telejson@^5.0.2, telejson@^5.1.0:
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "5.3.3"
   resolved "https://registry.yarnpkg.com/telejson/-/telejson-5.3.3.tgz#fa8ca84543e336576d8734123876a9f02bf41d2e"
   integrity sha512-PjqkJZpzEggA9TBpVtJi1LVptP7tYtXB6rEubwlHap76AMjzvOdKX41CxyaW7ahhzDU1aftXnMCx5kAPDZTQBA==
@@ -23556,11 +24995,14 @@ terser-webpack-plugin@^1.4.3, terser-webpack-plugin@^1.4.4:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 terser-webpack-plugin@^3.0.0:
 =======
 terser-webpack-plugin@^3.1.0:
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
 =======
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 terser-webpack-plugin@^3.0.0:
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
   version "3.1.0"
@@ -23602,6 +25044,7 @@ terser-webpack-plugin@^4.2.3:
     terser "^5.3.4"
     webpack-sources "^1.4.3"
 
+<<<<<<< HEAD
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
 =======
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
@@ -23609,6 +25052,9 @@ terser@^4.1.2, terser@^4.6.3, terser@^4.8.0:
 =======
 terser@^4.1.2, terser@^4.6.3:
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+terser@^4.1.2, terser@^4.6.3, terser@^4.8.0:
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "4.8.0"
   resolved "https://registry.yarnpkg.com/terser/-/terser-4.8.0.tgz#63056343d7c70bb29f3af665865a46fe03a0df17"
   integrity sha512-EAPipTNeWsb/3wLPeup1tVPaXfIaU68xMnVdPafIL1TV05OhASArYyIfFvnvJCNrR2NIOvDVNNTFRa+Re2MWyw==
@@ -23755,6 +25201,7 @@ thunky@^1.0.2:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
@@ -23774,6 +25221,8 @@ timed-out@4.0.1:
   integrity sha1-8y6srFoXW+ol1/q1Zas+2HQe9W8=
 
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 timers-browserify@^2.0.4:
   version "2.0.12"
   resolved "https://registry.yarnpkg.com/timers-browserify/-/timers-browserify-2.0.12.tgz#44a45c11fbf407f34f97bccd1577c652361b00ee"
@@ -24100,6 +25549,7 @@ type-fest@^0.18.0:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
@@ -24114,6 +25564,8 @@ type-fest@^0.20.2:
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
 =======
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 type-fest@^0.21.3:
   version "0.21.3"
   resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-0.21.3.tgz#d260a24b0198436e133fa26a524a6d65fa3b2e37"
@@ -24129,7 +25581,7 @@ type-fest@^0.6.0:
   resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-0.6.0.tgz#8d2a2370d3df886eb5c90ada1c5bf6188acf838b"
   integrity sha512-q+MB8nYR1KDLrgr4G5yemftpMC7/QLqVndBmEEdqzmNj5dcFOO4Oo8qlwZE3ULT3+Zim1F8Kq4cBnikNhlCMlg==
 
-type-fest@^0.8.0, type-fest@^0.8.1:
+type-fest@^0.8.1:
   version "0.8.1"
   resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-0.8.1.tgz#09e249ebde851d3b1e48d27c105444667f17b83d"
   integrity sha512-4dbzIzqvjtgiM5rw1k5rEHtBANKmdudhGyBEajN01fEyhaAIhsoKNy6y7+IN93IfpFtwY9iqi7kD+xwKhQsNJA==
@@ -24161,6 +25613,7 @@ typedarray@^0.0.6:
 
 typescript@^3.2.2:
 <<<<<<< HEAD
+<<<<<<< HEAD
   version "3.9.10"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.9.10.tgz#70f3910ac7a51ed6bef79da7800690b19bf778b8"
   integrity sha512-w6fIxVE/H1PkLKcCPsFqKE7Kv7QUwhU8qQY2MueZXWx5cPZdwFupLgKK3vntcK98BtNHZtAF4LA/yl2a7k8R6Q==
@@ -24184,6 +25637,11 @@ ufo@^0.7.4:
   integrity sha512-FGG+EgguC1oz5dTE1JptPWCyj6Z9mYpwvZY8PTu9Vh/Aoy+Mj9cpeQ3gg4kyEMDbMrH+lTYiw7bomG58B8X7Kg==
 <<<<<<< HEAD
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
+=======
+  version "3.9.9"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.9.9.tgz#e69905c54bc0681d0518bd4d587cc6f2d0b1a674"
+  integrity sha512-kdMjTiekY+z/ubJCATUPlRDl39vXYiMV9iyeMuEuXZh2we6zz80uovNN2WlAxmmdE/Z/YQe+EbOEXB5RHEED3w==
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 
 =======
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
@@ -24217,10 +25675,13 @@ uglify-js@^3.1.4, uglify-js@^3.5.1:
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
 =======
 uglify-js@^3.1.4:
+<<<<<<< HEAD
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
 =======
 uglify-js@^3.1.4, uglify-js@^3.5.1:
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "3.13.9"
   resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.13.9.tgz#4d8d21dcd497f29cfd8e9378b9df123ad025999b"
   integrity sha512-wZbyTQ1w6Y7fHdt8sJnHfSIuWeDgk6B5rCb4E/AM6QNNPbOMIZph21PW5dRB3h7Df0GszN+t7RuUH6sWK5bF0g==
@@ -24576,6 +26037,7 @@ url-loader@^4.1.1:
     mime-types "^2.1.27"
     schema-utils "^3.0.0"
 
+<<<<<<< HEAD
 url-parse-lax@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/url-parse-lax/-/url-parse-lax-3.0.0.tgz#16b5cafc07dbe3676c1b1999177823d6503acb0c"
@@ -24583,6 +26045,8 @@ url-parse-lax@^3.0.0:
   dependencies:
     prepend-http "^2.0.0"
 
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 url-parse@^1.4.3, url-parse@^1.5.1:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/url-parse/-/url-parse-1.5.1.tgz#d5fa9890af8a5e1f274a2c98376510f6425f6e3b"
@@ -24704,6 +26168,7 @@ utils-merge@1.0.1:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 uuid-browser@^3.1.0:
   version "3.1.0"
@@ -24720,6 +26185,8 @@ uuid@3.3.2:
   integrity sha512-yXJmeNaw3DnnKAOKJE51sL/ZaYfWJRl1pK9dr19YFCu0ObS231AB1/LbqTKRAQ5kw8A90rA6fr4riOUpTZvQZA==
 
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 uuid@^3.0.1, uuid@^3.3.2, uuid@^3.4.0:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
@@ -24850,6 +26317,7 @@ vue-docgen-api@^3.11.4, vue-docgen-api@^3.22.3:
 <<<<<<< HEAD
 <<<<<<< HEAD
 vue-docgen-api@^4.33.1:
+<<<<<<< HEAD
 =======
 vue-docgen-api@^4.34.2:
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
@@ -24859,6 +26327,8 @@ vue-docgen-api@^4.33.1:
 =======
 vue-docgen-api@^4.34.2:
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "4.40.0"
   resolved "https://registry.yarnpkg.com/vue-docgen-api/-/vue-docgen-api-4.40.0.tgz#18a6b25359a2340c051df612ad73f0c7714cb0d1"
   integrity sha512-wQKnLILHJpJjaWGfQ4gvlg9yvI5I+qgB0YppPZUmz6PEpqaFZDoBejDfCjmpM9Hzf8OB9N0zyRmgvT4UxP3Ifg==
@@ -24939,9 +26409,12 @@ vue-jest@^3.0.4, vue-jest@^3.0.5:
 <<<<<<< HEAD
 vue-loader@^15.9.2:
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 vue-loader@^15.9.2, vue-loader@^15.9.7:
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "15.9.7"
   resolved "https://registry.yarnpkg.com/vue-loader/-/vue-loader-15.9.7.tgz#15b05775c3e0c38407679393c2ce6df673b01044"
   integrity sha512-qzlsbLV1HKEMf19IqCJqdNvFJRCI58WNbS6XbPqK13MrLz65es75w392MSQ5TsARAfIjUw+ATm3vlCXUJSOH9Q==
@@ -24955,6 +26428,7 @@ vue-loader@^15.9.2, vue-loader@^15.9.7:
 <<<<<<< HEAD
 <<<<<<< HEAD
 vue-style-loader@^4.1.0, vue-style-loader@^4.1.2:
+<<<<<<< HEAD
 =======
 =======
 vue-loader@^15.9.7:
@@ -25023,6 +26497,8 @@ vue-style-loader@^4.1.0, vue-style-loader@^4.1.2:
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
 =======
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "4.1.3"
   resolved "https://registry.yarnpkg.com/vue-style-loader/-/vue-style-loader-4.1.3.tgz#6d55863a51fa757ab24e89d9371465072aa7bc35"
   integrity sha512-sFuh0xfbtpRlKfm39ss/ikqs9AbKCoXZBpHeVZ8Tx650o0k0q/YCM7FRvigtxpACezfq6af+a7JeqVTWvncqDg==
@@ -25034,6 +26510,7 @@ vue-style-loader@^4.1.0, vue-style-loader@^4.1.2:
 <<<<<<< HEAD
 <<<<<<< HEAD
 vue-template-compiler@^2.0.0, vue-template-compiler@^2.5.16, vue-template-compiler@^2.6.11:
+<<<<<<< HEAD
 =======
 vue-template-compiler@2.6.14, vue-template-compiler@^2.0.0, vue-template-compiler@^2.5.16, vue-template-compiler@^2.6.12:
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
@@ -25043,6 +26520,8 @@ vue-template-compiler@^2.0.0, vue-template-compiler@^2.5.16, vue-template-compil
 =======
 vue-template-compiler@2.6.14, vue-template-compiler@^2.0.0, vue-template-compiler@^2.5.16, vue-template-compiler@^2.6.12:
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "2.6.14"
   resolved "https://registry.yarnpkg.com/vue-template-compiler/-/vue-template-compiler-2.6.14.tgz#a2f0e7d985670d42c9c9ee0d044fed7690f4f763"
   integrity sha512-ODQS1SyMbjKoO1JBJZojSw6FE4qnh9rIpUZn2EUT86FKizx9uH5z6uXiIrm4/Nb/gwxTi/o17ZDEGWAXHvtC7g==
@@ -25064,6 +26543,7 @@ vue2-leaflet@^2.5.2:
 <<<<<<< HEAD
 <<<<<<< HEAD
 vue@^2.6.12:
+<<<<<<< HEAD
 =======
 vue@2.6.14, vue@^2.6.12:
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
@@ -25073,6 +26553,8 @@ vue@^2.6.12:
 =======
 vue@2.6.14, vue@^2.6.12:
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "2.6.14"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.14.tgz#e51aa5250250d569a3fbad3a8a5a687d6036e235"
   integrity sha512-x2284lgYvjOMj3Za7kqzRcUSxBboHqtgRE2zlos1qWaOye5yUmHn42LB1250NJBLRwEcdrB0JRwyPTEPhfQjiQ==
@@ -25220,6 +26702,7 @@ webpack-chain@^6.4.0:
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 webpack-dev-middleware@3.7.2:
 =======
 webpack-dev-middleware@3.7.2, webpack-dev-middleware@^3.7.2:
@@ -25227,6 +26710,9 @@ webpack-dev-middleware@3.7.2, webpack-dev-middleware@^3.7.2:
 =======
 webpack-dev-middleware@3.7.2:
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
+=======
+webpack-dev-middleware@3.7.2:
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "3.7.2"
   resolved "https://registry.yarnpkg.com/webpack-dev-middleware/-/webpack-dev-middleware-3.7.2.tgz#0019c3db716e3fa5cecbf64f2ab88a74bab331f3"
   integrity sha512-1xC42LxbYoqLNAhV6YzTYacicgMZQTqRd27Sim9wn5hJrX3I5nxYy1SxSd4+gjUFsz1dQFj+yEe6zEVmSkeJjw==
@@ -25237,6 +26723,7 @@ webpack-dev-middleware@3.7.2:
     range-parser "^1.2.1"
     webpack-log "^2.0.0"
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -25254,6 +26741,9 @@ webpack-dev-middleware@^3.7.0, webpack-dev-middleware@^3.7.2:
 =======
 webpack-dev-middleware@^3.7.2:
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+webpack-dev-middleware@^3.7.0, webpack-dev-middleware@^3.7.2:
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "3.7.3"
   resolved "https://registry.yarnpkg.com/webpack-dev-middleware/-/webpack-dev-middleware-3.7.3.tgz#0639372b143262e2b84ab95d3b91a7597061c2c5"
   integrity sha512-djelc/zGiz9nZj/U7PTBi2ViorGJXEWo/3ltkPbDyxCXhhEXkW0ce99falaok4TPj+AsxLiXJR0EBOb0zh9fKQ==
@@ -25264,6 +26754,7 @@ webpack-dev-middleware@^3.7.2:
     range-parser "^1.2.1"
     webpack-log "^2.0.0"
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -25294,6 +26785,8 @@ webpack-dev-middleware@^4.2.0:
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
 =======
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 webpack-dev-server@^3.11.0:
   version "3.11.2"
   resolved "https://registry.yarnpkg.com/webpack-dev-server/-/webpack-dev-server-3.11.2.tgz#695ebced76a4929f0d5de7fd73fafe185fe33708"
@@ -25361,6 +26854,7 @@ webpack-merge@^4.2.2:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 webpack-sources@^1.1.0, webpack-sources@^1.4.0, webpack-sources@^1.4.1, webpack-sources@^1.4.3:
 =======
 =======
@@ -25374,6 +26868,8 @@ webpack-sources@^1.0.1, webpack-sources@^1.1.0, webpack-sources@^1.4.0, webpack-
 <<<<<<< HEAD
 >>>>>>> 0cdf8dbaa (feat: setup nuxt package)
 =======
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 webpack-sources@^1.1.0, webpack-sources@^1.4.0, webpack-sources@^1.4.1, webpack-sources@^1.4.3:
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
 =======
@@ -25480,6 +26976,7 @@ whatwg-url@^7.0.0:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
@@ -25498,6 +26995,8 @@ whatwg-url@^8.0.0, whatwg-url@^8.5.0:
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
 =======
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 which-boxed-primitive@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/which-boxed-primitive/-/which-boxed-primitive-1.0.2.tgz#13757bc89b209b049fe5d86430e21cf40a89a8e6"
@@ -25742,6 +27241,7 @@ ws@^6.0.0, ws@^6.2.1:
 =======
 >>>>>>> 4f6157d6e (fix: update dependecies, fix tests and nouislider import (#1840))
 ws@^7.0.0:
+<<<<<<< HEAD
 =======
 ws@^7.0.0, ws@^7.3.1, ws@^7.4.5:
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
@@ -25767,6 +27267,11 @@ xdg-basedir@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/xdg-basedir/-/xdg-basedir-4.0.0.tgz#4bc8d9984403696225ef83a1573cbbcb4e79db13"
   integrity sha512-PSNhEJDejZYV7h50BohL09Er9VaIefr2LMAf3OEmpCkjOi34eYyQYAXUTjEQtZJTKcF0E2UKTh+osDLsgNim9Q==
+=======
+  version "7.5.0"
+  resolved "https://registry.yarnpkg.com/ws/-/ws-7.5.0.tgz#0033bafea031fb9df041b2026fc72a571ca44691"
+  integrity sha512-6ezXvzOZupqKj4jUqbQ9tXuJNo+BR2gU8fFRk3XCP3e0G6WT414u5ELe6Y0vtp7kmSJ3F7YWObSNr1ESsgi4vw==
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 
 xml-name-validator@^3.0.0:
   version "3.0.0"
@@ -25853,6 +27358,7 @@ yargs-parser@^18.1.2:
 
 yargs-parser@^20.2.2, yargs-parser@^20.2.3:
 <<<<<<< HEAD
+<<<<<<< HEAD
   version "20.2.9"
   resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-20.2.9.tgz#2eb7dc3b0289718fc295f362753845c41a0c94ee"
   integrity sha512-y11nGElTIV+CT3Zv9t7VKl+Q3hTQoT9a1Qzezhhl6Rp21gJ/IVTW7Z3y9EWXhuUBC2Shnf+DX0antecpAwSP8w==
@@ -25866,6 +27372,11 @@ yargs-parser@^20.2.4:
   version "20.2.9"
   resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-20.2.9.tgz#2eb7dc3b0289718fc295f362753845c41a0c94ee"
   integrity sha512-y11nGElTIV+CT3Zv9t7VKl+Q3hTQoT9a1Qzezhhl6Rp21gJ/IVTW7Z3y9EWXhuUBC2Shnf+DX0antecpAwSP8w==
+=======
+  version "20.2.7"
+  resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-20.2.7.tgz#61df85c113edfb5a7a4e36eb8aa60ef423cbc90a"
+  integrity sha512-FiNkvbeHzB/syOjIUxFDCnhSfzAL8R5vs40MgLFBorXACCOAEaWu0gRZl14vG8MR9AOJIZbmkjhusqBYZ3HTHw==
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
 
 yargs@^13.3.0, yargs@^13.3.2:
   version "13.3.2"
@@ -25903,6 +27414,7 @@ yargs@^14.2.2:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 yargs@^15.3.1:
 =======
 yargs@^15.3.1, yargs@^15.4.1:
@@ -25913,6 +27425,9 @@ yargs@^15.3.1:
 =======
 yargs@^15.3.1, yargs@^15.4.1:
 >>>>>>> 8c6565bd7 (fix: update deps and fix gh actions workflow)
+=======
+yargs@^15.3.1:
+>>>>>>> 7b28ec4bc (fix: update dependecies, fix tests and nouislider import (#1840))
   version "15.4.1"
   resolved "https://registry.yarnpkg.com/yargs/-/yargs-15.4.1.tgz#0d87a16de01aee9d8bec2bfbf74f67851730f4f8"
   integrity sha512-aePbxDmcYW++PaqBsJ+HYUFwCdv4LVvdnhBy78E57PIor8/OVvhMrADFFEDh8DHDFRv/O9i3lPhsENjO7QX0+A==
