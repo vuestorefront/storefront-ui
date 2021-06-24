@@ -1,5 +1,8 @@
 <template>
-  <section class="sf-modal" :class="[staticClass, className]">
+  <section
+    class="sf-modal"
+    :class="{ staticClass, className, jsEnabled: jsEnabled }"
+  >
     <SfOverlay
       v-if="overlay"
       class="sf-modal__overlay"
@@ -9,22 +12,30 @@
     </SfOverlay>
     <transition :name="transitionModal">
       <div
-        v-if="visible"
+        v-if="isMounted ? visible : true"
         v-focus-trap
         v-click-outside="checkPersistence"
         class="sf-modal__container"
       >
         <!--@slot Use this slot to place content inside the modal bar.-->
         <slot name="modal-bar">
-          <SfBar
-            class="sf-modal__bar smartphone-only"
-            :close="cross"
-            :title="title"
-            @click:close="close"
-          />
+          <SfBar class="sf-modal__bar smartphone-only" :title="title">
+            <template #close="{ jsEnabled }">
+              <SfButton
+                :link="jsEnabled ? null : '#'"
+                class="sf-button--pure sf-bar__icon"
+                aria-label="close"
+                type="button"
+                @click="close"
+              >
+                <SfIcon icon="cross" size="14px" />
+              </SfButton>
+            </template>
+          </SfBar>
         </slot>
         <SfButton
           v-if="cross"
+          :link="jsEnabled ? null : '#'"
           class="sf-button--pure sf-modal__close desktop-only"
           aria-label="Close modal"
           type="button"
@@ -121,6 +132,8 @@ export default {
     return {
       staticClass: null,
       className: null,
+      jsEnabled: false,
+      isMounted: false,
     };
   },
   watch: {
@@ -139,6 +152,14 @@ export default {
       },
       immediate: true,
     },
+  },
+  beforeMount() {
+    this.isMounted = true;
+  },
+  mounted() {
+    this.$nextTick(() => {
+      return (this.jsEnabled = true);
+    });
   },
   methods: {
     close() {
