@@ -1,69 +1,41 @@
-<template functional>
-  <ol
-    :class="[data.class, data.staticClass, 'sf-bullets']"
-    :style="[data.style, data.staticStyle]"
-    v-bind="data.attrs"
-  >
-    <template
-      v-for="(_, index) of $options.inactiveLeft(props.total, props.current)"
-    >
+<template>
+  <ol class="sf-bullets">
+    <template v-for="(_, index) of inactiveLeft">
       <!--@slot custom icon for inactive bullet -->
-      <slot name="inactive" class="sf-bullet" v-bind="{ index, $options }">
+      <slot name="inactive" class="sf-bullet" v-bind="{ index, go }">
         <li :key="index">
-          <component
-            :is="injections.components.SfButton"
-            class="sf-button--pure sf-bullet"
-            type="button"
+          <SfButton
             :aria-label="'Go to slide ' + (index + 1)"
+            class="sf-button--pure sf-bullet"
             :data-testid="index + 1"
-            @click="listeners.click && listeners.click(index)"
-          ></component>
+            @click="go(index)"
+          ></SfButton>
         </li>
       </slot>
     </template>
     <!--@slot custom icon for active bullet -->
     <slot name="active">
       <li>
-        <component
-          :is="injections.components.SfButton"
-          v-bind="data.attrs"
+        <SfButton
           aria-label="Current slide"
           class="sf-button--pure sf-bullet is-active"
-        ></component>
+        ></SfButton>
       </li>
     </slot>
-    <template
-      v-for="(_, index) of $options.inactiveRight(props.total, props.current)"
-    >
+    <template v-for="(_, index) of inactiveRight">
       <!--@slot custom icon for inactive bullet -->
       <slot
         name="inactive"
         class="sf-bullet"
-        v-bind="{
-          index: $options.inactiveLeft(props.total, props.current) + 1 + index,
-          $options,
-        }"
+        v-bind="{ index: inactiveLeft + 1 + index, go }"
       >
-        <li
-          :key="$options.inactiveLeft(props.total, props.current) + 1 + index"
-        >
-          <component
-            :is="injections.components.SfButton"
-            :aria-label="
-              'Go to slide ' +
-              ($options.inactiveLeft(props.total, props.current) + 2 + index)
-            "
+        <li :key="inactiveLeft + 1 + index">
+          <SfButton
+            :aria-label="'Go to slide ' + (inactiveLeft + 2 + index)"
             class="sf-button--pure sf-bullet"
-            :data-testid="
-              $options.inactiveLeft(props.total, props.current) + 1 + index
-            "
-            @click="
-              listeners.click &&
-                listeners.click(
-                  $options.inactiveLeft(props.total, props.current) + 1 + index
-                )
-            "
-          ></component>
+            :data-testid="inactiveLeft + 1 + index"
+            @click="go(inactiveLeft + 1 + index)"
+          ></SfButton>
         </li>
       </slot>
     </template>
@@ -73,10 +45,8 @@
 import SfButton from "../SfButton/SfButton.vue";
 export default {
   name: "SfBullets",
-  inject: {
-    components: {
-      default: { SfButton },
-    },
+  components: {
+    SfButton,
   },
   props: {
     /**
@@ -94,14 +64,18 @@ export default {
       default: 0,
     },
   },
-  inactiveRight(total, current) {
-    return total - 1 - current;
+  computed: {
+    inactiveRight() {
+      return this.total - 1 - this.current;
+    },
+    inactiveLeft() {
+      return this.total - this.inactiveRight - 1;
+    },
   },
-  inactiveLeft(total, current) {
-    return total - (total - 1 - current) - 1;
-  },
-  go(listeners, index) {
-    listeners.click && listeners.click(index);
+  methods: {
+    go(index) {
+      this.$emit("click", index);
+    },
   },
 };
 </script>

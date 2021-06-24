@@ -66,13 +66,7 @@
       <SfComponentSelect
         v-model="country"
         label="Country"
-        class="
-          form__element
-          form__element--half
-          form__element--half-even
-          form__select
-          sf-component-select--underlined
-        "
+        class="form__element form__element--half form__element--half-even form__select sf-component-select--underlined"
         required
         :valid="countryBlur || validCountry(country)"
         error-message="Please choose your country."
@@ -107,12 +101,6 @@
         error-message="Please choose your country."
         @blur="emailBlur = false"
       />
-      <SfHeading title="Prices" level="5" />
-      <SfRange
-        v-model="range"
-        class="form__element--range"
-        :config="rangeConfig"
-      />
       <SfTextarea
         v-model="message"
         class="form__element"
@@ -134,10 +122,7 @@
       <div class="form__action">
         <SfButton type="submit" @click.prevent="submit">Submit</SfButton>
         <SfButton
-          class="
-            sf-button--text
-            form__action-button form__action-button--secondary
-          "
+          class="sf-button--text form__action-button form__action-button--secondary"
           @click="reset"
           >Reset</SfButton
         >
@@ -151,8 +136,6 @@ import {
   SfComponentSelect,
   SfButton,
   SfTextarea,
-  SfHeading,
-  SfRange,
 } from "@storefront-ui/vue";
 export default {
   name: "Default",
@@ -161,8 +144,6 @@ export default {
     SfInput,
     SfComponentSelect,
     SfTextarea,
-    SfHeading,
-    SfRange,
   },
   data() {
     return {
@@ -239,36 +220,6 @@ export default {
       ],
       message: "",
       messageBlur: true,
-      range: [0, 1],
-      rangeConfig: {
-        start: [0, 1],
-        range: {
-          min: 0,
-          max: 10,
-        },
-        step: 1,
-        connect: true,
-        direction: "ltr",
-        orientation: "horizontal",
-        behaviour: "tap-drag",
-        tooltips: true,
-        keyboardSupport: true,
-        format: {
-          to: function (range) {
-            return new Intl.NumberFormat("de-DE", {
-              style: "currency",
-              currency: "EUR",
-            }).format(range);
-          },
-          from: function (range) {
-            const parsedValue = new Intl.NumberFormat("de-DE", {
-              style: "currency",
-              currency: "EUR",
-            }).formatToParts(range);
-            return parsedValue[0].value;
-          },
-        },
-      },
     };
   },
   methods: {
@@ -397,9 +348,6 @@ export default {
         &-even {
           padding: 0 0 0 var(--spacer-xl);
         }
-      }
-      &--range {
-        margin: var(--spacer-xl) var(--spacer-base) var(--spacer-2xl);
       }
     }
     &__action {

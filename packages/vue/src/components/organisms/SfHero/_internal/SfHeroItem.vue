@@ -11,7 +11,7 @@
       </slot>
       <!--@slot Call to action section. Slot content will replace default SfButton component-->
       <slot name="call-to-action" v-bind="{ buttonText, link }">
-        <div v-if="buttonText && !mobileView" class="sf-hero-item__button">
+        <div v-if="buttonText && !isMobile" class="sf-hero-item__button">
           <SfButton :link="link" data-testid="hero-cta-button">
             {{ buttonText }}
           </SfButton>
@@ -65,11 +65,6 @@ export default {
       default: "",
     },
   },
-  data() {
-    return {
-      mobileView: false,
-    };
-  },
   computed: {
     ...mapMobileObserver(),
     style() {
@@ -79,16 +74,13 @@ export default {
       return {
         "background-image": isImageString
           ? `url(${image})`
-          : `url(${this.mobileView ? image.mobile : image.desktop})`,
+          : `url(${this.isMobile ? image.mobile : image.desktop})`,
         "--_hero-item-background-color": background,
       };
     },
     wrapper() {
-      return !this.mobileView ? "div" : this.link ? "SfLink" : "SfButton";
+      return !this.isMobile ? "div" : this.link ? "SfLink" : "SfButton";
     },
-  },
-  mounted() {
-    this.mobileView = this.isMobile;
   },
   beforeDestroy() {
     unMapMobileObserver();

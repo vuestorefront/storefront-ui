@@ -1,9 +1,5 @@
 <template>
-  <section
-    class="sf-banner"
-    :style="style"
-    v-on="isMobileView ? $listeners : {}"
-  >
+  <section class="sf-banner" :style="style" v-on="isMobile ? $listeners : {}">
     <component :is="wrapper" class="sf-banner__wrapper" :link="link">
       <slot name="subtitle" v-bind="{ subtitle }">
         <h2 v-if="subtitle" class="sf-banner__subtitle">
@@ -22,11 +18,11 @@
       </slot>
       <slot name="call-to-action" v-bind="{ buttonText }">
         <SfButton
-          v-if="buttonText && !isMobileView"
+          v-if="buttonText && !isMobile"
           :link="link"
           class="sf-banner__call-to-action color-secondary"
           data-testid="banner-cta-button"
-          v-on="!isMobileView ? $listeners : {}"
+          v-on="!isMobile ? $listeners : {}"
         >
           {{ buttonText }}
         </SfButton>
@@ -87,11 +83,6 @@ export default {
       default: "",
     },
   },
-  data() {
-    return {
-      isMobileView: false,
-    };
-  },
   computed: {
     ...mapMobileObserver(),
     style() {
@@ -107,11 +98,8 @@ export default {
       };
     },
     wrapper() {
-      return !this.isMobileView ? "div" : this.link ? "SfLink" : "SfButton";
+      return !this.isMobile ? "div" : this.link ? "SfLink" : "SfButton";
     },
-  },
-  mounted() {
-    this.isMobileView = this.isMobile;
   },
   beforeDestroy() {
     unMapMobileObserver();

@@ -1,39 +1,27 @@
-<template functional>
-  <div
-    :class="[data.class, data.staticClass, 'sf-rating']"
-    :style="[data.style, data.staticStyle]"
-    v-bind="data.attrs"
-    v-on="listeners"
-  >
+<template>
+  <div class="sf-rating">
     <!--@slot custom icon for finalScore. Provide single icon that will be automatically repeated -->
-    <slot
-      v-for="index in Math.ceil($options.finalScore(props.score, props.max))"
-      name="icon-positive"
-    >
-      <component
-        :is="injections.components.SfIcon"
+    <slot v-for="index in Math.ceil(finalScore)" name="icon-positive">
+      <SfIcon
         :key="`p${index}`"
         size="0.875rem"
         class="sf-rating__icon"
-        :icon="props.icon"
+        :icon="icon"
         :coverage="
-          index === Math.ceil($options.finalScore(props.score, props.max)) &&
-          $options.finalScore(props.score, props.max) % 1 > 0
-            ? $options.finalScore(props.score, props.max) % 1
+          index === Math.ceil(finalScore) && finalScore % 1 > 0
+            ? finalScore % 1
             : 1
         "
       />
     </slot>
     <slot
-      v-for="index in parseInt($options.finalMax(props.max), 10) -
-      Math.ceil($options.finalScore(props.score, props.max))"
+      v-for="index in parseInt(finalMax, 10) - Math.ceil(finalScore)"
       name="icon-negative"
     >
-      <component
-        :is="injections.components.SfIcon"
+      <SfIcon
         :key="`n${index}`"
         class="sf-rating__icon sf-rating__icon--negative"
-        :icon="props.icon"
+        :icon="icon"
       />
     </slot>
   </div>
@@ -42,10 +30,8 @@
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 export default {
   name: "SfRating",
-  inject: {
-    components: {
-      default: { SfIcon },
-    },
+  components: {
+    SfIcon,
   },
   props: {
     /**
@@ -67,21 +53,23 @@ export default {
       default: "star",
     },
   },
-  finalScore(score, max) {
-    if (!score) {
-      return 0;
-    } else if (score < 0) {
-      return 0;
-    } else if (score > max && max > 0) {
-      return max;
-    } else if (max <= 0) {
-      return 0;
-    } else {
-      return score;
-    }
-  },
-  finalMax(max) {
-    return !max || max <= 0 ? 1 : max;
+  computed: {
+    finalScore() {
+      if (!this.score) {
+        return 0;
+      } else if (this.score < 0) {
+        return 0;
+      } else if (this.score > this.max && this.max > 0) {
+        return this.max;
+      } else if (this.max <= 0) {
+        return 0;
+      } else {
+        return this.score;
+      }
+    },
+    finalMax() {
+      return !this.max || this.max <= 0 ? 1 : this.max;
+    },
   },
 };
 </script>

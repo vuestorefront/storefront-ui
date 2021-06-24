@@ -25,22 +25,11 @@ export default {
   components: {
     SfSidebar,
   },
-  data() {
-    return {
-      isMobileView: false,
-    };
-  },
   computed: {
     ...mapMobileObserver(),
     isVisibleOnMobile() {
-      return this.isMobileView;
+      return this.isMobile;
     },
-  },
-  mounted() {
-    this.isMobileView = this.isMobile;
-  },
-  beforeDestroy() {
-    unMapMobileObserver();
   },
 };
 </script>

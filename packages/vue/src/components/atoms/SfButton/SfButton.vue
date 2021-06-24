@@ -1,23 +1,16 @@
-<template functional>
+<template>
   <component
-    :is="props.link ? injections.components.SfLink : 'button'"
-    :class="[
-      data.class,
-      data.staticClass,
-      'sf-button',
-      {
-        'is-disabled--button': $options.buttonActive(
-          props.link,
-          props.disabled
-        ),
-        'is-disabled--link': $options.linkActive(props.link, props.disabled),
-      },
-    ]"
-    :style="[data.style, data.staticStyle]"
-    :disabled="props.disabled"
-    :link="props.link"
-    v-bind="data.attrs"
-    v-on="listeners"
+    :is="tag"
+    v-focus
+    class="sf-button"
+    :class="{
+      'is-disabled--button': buttonActive,
+      'is-disabled--link': linkActive,
+    }"
+    v-bind="$attrs"
+    :disabled="disabled"
+    :link="link"
+    v-on="$listeners"
   >
     <!--@slot Use this slot to place content inside the button.-->
     <slot />
@@ -28,10 +21,8 @@ import { focus } from "../../../utilities/directives";
 import SfLink from "../SfLink/SfLink.vue";
 export default {
   name: "SfButton",
-  inject: {
-    components: {
-      default: { SfLink },
-    },
+  components: {
+    SfLink,
   },
   directives: {
     focus,
@@ -52,11 +43,16 @@ export default {
       default: "",
     },
   },
-  linkActive(link, disabled) {
-    return link && disabled;
-  },
-  buttonActive(link, disabled) {
-    return !link && disabled;
+  computed: {
+    tag() {
+      return this.link ? "SfLink" : "button";
+    },
+    linkActive() {
+      return this.link && this.disabled;
+    },
+    buttonActive() {
+      return !this.link && this.disabled;
+    },
   },
 };
 </script>

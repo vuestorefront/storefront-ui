@@ -9,7 +9,6 @@
     padding: var(--accordion-item-header-padding, var(--spacer-sm));
     color: var(--accordion-item-header-color);
     transition: color 150ms ease-in-out;
-    text-align: left;
     width: 100%;
     @include border(
       --accordion-item-header-border,
