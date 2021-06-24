@@ -1,6 +1,6 @@
 {
   "name": "@storefront-ui/vue",
-  "version": "0.10.7",
+  "version": "0.10.71",
   "license": "MIT",
   "scripts": {
     "serve": "yarn create-index-files && vue-cli-service serve",
@@ -33,7 +33,7 @@
   "dependencies": {
     "@cypress/vue": "^2.0.1",
     "@glidejs/glide": "^3.3.0",
-    "@storefront-ui/shared": "0.10.7",
+    "@storefront-ui/shared": "0.10.71",
     "body-scroll-lock": "^3.0.1",
     "cloudinary-build-url": "^0.1.1",
     "core-js": "^3.6.5",
