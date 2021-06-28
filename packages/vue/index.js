@@ -20,6 +20,7 @@ import SfPrice from "./src/components/atoms/SfPrice/SfPrice.vue";
 import SfProperty from "./src/components/atoms/SfProperty/SfProperty.vue";
 import SfQuantitySelector from "./src/components/atoms/SfQuantitySelector/SfQuantitySelector.vue";
 import SfRating from "./src/components/atoms/SfRating/SfRating.vue";
+import SfSkeleton from "./src/components/atoms/SfSkeleton/SfSkeleton.vue";
 import SfTextarea from "./src/components/atoms/SfTexarea/SfTextarea.vue";
 import SfAddressPicker from "./src/components/molecules/SfAddressPicker/SfAddressPicker.vue";
 import SfAddToCart from "./src/components/molecules/SfAddToCart/SfAddToCart.vue";
@@ -95,6 +96,7 @@ export {
   SfProperty,
   SfQuantitySelector,
   SfRating,
+  SfSkeleton,
   SfTextarea,
   SfAddressPicker,
   SfAddToCart,
@@ -146,5 +148,5 @@ export {
   SfStoreLocator,
   SfTable,
   SfTabs,
-  SfTopBar
+  SfTopBar,
 };
