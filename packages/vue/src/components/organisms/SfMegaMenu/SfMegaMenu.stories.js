@@ -442,9 +442,11 @@ export const UseMultilevelNavigation = (args, { argTypes }) => ({
     class="sb-mega-menu"
     @change="change"
     @close="close"
-    :multilevel="multilevel"
-    :subcategories="subcategories.subcategories"
+    :multilevel="multilevel"    
   >    
+    <template #multilevel>
+      <SfMultilevelMegaMenu :subcategories="subcategories.subcategories" />
+    </template>
   </SfMegaMenu>`,
 });
 

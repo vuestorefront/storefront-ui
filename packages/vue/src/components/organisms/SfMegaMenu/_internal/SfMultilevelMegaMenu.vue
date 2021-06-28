@@ -11,11 +11,9 @@
     <div class="sf-mega-menu__content">
       <SfList>
         <SfMultilevelMegaMenu
-          v-for="subcategory in subcategories"
+          v-for="(subcategory, i) in subcategories.subcategories"
           v-show="toggleCategory"
-          :key="subcategory.title"
-          :transition-name="transitionName"
-          :multilevel="true"
+          :key="`${subcategory.title}-${i}`"
           :subcategories="subcategory.subcategories"
           :title="subcategory.title"
           class="sf-mega-menu-column__header"
@@ -42,14 +40,19 @@ export default {
       type: String,
       default: "",
     },
+    subcategories: {
+      type: [Object, Array],
+      default: () => {},
+    },
+  },
+  data() {
+    return {
+      showSubcategories: false,
+    };
   },
   computed: {
     toggleComponent() {
-      console.log(
-        this.subcategories.find(
-          (subcategory) => subcategory.title === this.title
-        )
-      );
+      console.log(this.subcategories);
       return this.subcategories.find(
         (subcategory) => subcategory.title === this.title
       )
