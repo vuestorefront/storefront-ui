@@ -86,7 +86,6 @@ export default {
         category: "Props",
       },
     },
-    input: { action: "Text area input typing", table: { category: "Events" } },
     change: { action: "Text area changed", table: { category: "Events" } },
     click: { action: "Text area focus", table: { category: "Events" } },
   },
@@ -115,7 +114,6 @@ const Template = (args, { argTypes }) => ({
     :required="required"
     :disabled="disabled"
     :placeholder="placeholder"
-    @input="input"
     @click="click"
     @change="change"
   />`,

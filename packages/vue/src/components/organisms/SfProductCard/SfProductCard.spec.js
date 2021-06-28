@@ -1,5 +1,6 @@
 import { shallowMount } from "@vue/test-utils";
 import SfProductCard from "./SfProductCard.vue";
+import SfButton from "../../atoms/SfButton/SfButton.vue";
 import "@testing-library/jest-dom";
 const title = "Product A";
 const wishlistIconButtonClass = ".sf-product-card__wishlist-icon";
@@ -12,7 +13,7 @@ describe("SfProductCard.vue", () => {
       },
     });
     expect(component.exists()).toBe(true);
-    expect(component.find(".sf-product-card").element).toBeVisible();
+    expect(component.find(".sf-product-card").exists()).toBe(true);
   });
 });
 describe("SfProductCard.vue: Wish list icon button", () => {
@@ -23,7 +24,7 @@ describe("SfProductCard.vue: Wish list icon button", () => {
       },
     });
     expect(component.exists()).toBe(true);
-    expect(component.find(".sf-product-card").element).toBeVisible();
+    expect(component.find(".sf-product-card").exists()).toBe(true);
   });
   it("has correct CSS class for container", () => {
     const component = shallowMount(SfProductCard, {
@@ -52,7 +53,7 @@ describe("SfProductCard.vue: Wish list icon button", () => {
     const defaultWishlistIcon = component.props().wishlistIcon;
     const wishlistIconButton = component.find(wishlistIconButtonClass);
     const sfIconForWishlist = wishlistIconButton.find("sficon-stub");
-    const iconInSfIconForWishlist = sfIconForWishlist.props().icon;
+    const iconInSfIconForWishlist = sfIconForWishlist.attributes().icon;
     expect(iconInSfIconForWishlist).toBe(defaultWishlistIcon);
   });
   it("has default wish list icon when none is passed (isInWishlist=true)", () => {
@@ -65,7 +66,7 @@ describe("SfProductCard.vue: Wish list icon button", () => {
     const defaultIsInWishlistIcon = component.props().isInWishlistIcon;
     const wishlistIconButton = component.find(wishlistIconButtonClass);
     const sfIconForWishlist = wishlistIconButton.find("sficon-stub");
-    const iconInSfIconForWishlist = sfIconForWishlist.props().icon;
+    const iconInSfIconForWishlist = sfIconForWishlist.attributes().icon;
     expect(iconInSfIconForWishlist).toBe(defaultIsInWishlistIcon);
   });
   it("has custom wish list icon when SVG path is passed (isInWishlist=false)", () => {
@@ -79,7 +80,7 @@ describe("SfProductCard.vue: Wish list icon button", () => {
     });
     const wishlistIconButton = component.find(wishlistIconButtonClass);
     const sfIconForWishlist = wishlistIconButton.find("sficon-stub");
-    const iconInSfIconForWishlist = sfIconForWishlist.props().icon;
+    const iconInSfIconForWishlist = sfIconForWishlist.attributes().icon;
     expect(iconInSfIconForWishlist).toBe(customWishlistIconPath);
   });
   it("has custom wish list icon when SVG path is passed (isInWishlist=true)", () => {
@@ -94,7 +95,7 @@ describe("SfProductCard.vue: Wish list icon button", () => {
     });
     const wishlistIconButton = component.find(wishlistIconButtonClass);
     const sfIconForWishlist = wishlistIconButton.find("sficon-stub");
-    const iconInSfIconForWishlist = sfIconForWishlist.props().icon;
+    const iconInSfIconForWishlist = sfIconForWishlist.attributes().icon;
     expect(iconInSfIconForWishlist).toBe(customIsInWishlistIconPath);
   });
   it("has no wish list button when wishlistIcon is false (isInWishlist=false)", () => {
@@ -136,35 +137,44 @@ describe("SfProductCard.vue: Wish list icon button", () => {
   });
   it("emits click:wishlist event on button click", () => {
     const component = shallowMount(SfProductCard, {
+      stubs: {
+        wishlistIconButtonClass: SfButton,
+      },
       propsData: {
         title,
       },
     });
     const wishlistIconButton = component.find(wishlistIconButtonClass);
 
-    wishlistIconButton.vm.$emit("click");
-    expect(component.emitted()[clickEventName].length).toBe(1);
+    wishlistIconButton.trigger("click");
+    expect(component.emitted(clickEventName).length).toBe(1);
   });
   it("emits click:wishlist event with payload=true on button click when isInWishlist=false", () => {
     const component = shallowMount(SfProductCard, {
+      stubs: {
+        wishlistIconButtonClass: SfButton,
+      },
       propsData: {
         title,
       },
     });
     const wishlistIconButton = component.find(wishlistIconButtonClass);
 
-    wishlistIconButton.vm.$emit("click");
+    wishlistIconButton.trigger("click");
     expect(component.emitted()[clickEventName][0][0]).toBe(true);
   });
   it("emits click:wishlist event with payload=false on button click when isInWishlist=true", () => {
     const component = shallowMount(SfProductCard, {
+      stubs: {
+        wishlistIconButtonClass: SfButton,
+      },
       propsData: {
         title,
         isInWishlist: true,
       },
     });
     const wishlistIconButton = component.find(wishlistIconButtonClass);
-    wishlistIconButton.vm.$emit("click");
+    wishlistIconButton.trigger("click");
     expect(component.emitted()[clickEventName][0][0]).toBe(false);
   });
 });

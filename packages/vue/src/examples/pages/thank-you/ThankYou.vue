@@ -69,7 +69,12 @@
             Your feedback is important to us. Let us know what we could improve.
           </p>
           <SfButton
-            class="feedback-button color-secondary sf-button--full-width button-size"
+            class="
+              feedback-button
+              color-secondary
+              sf-button--full-width
+              button-size
+            "
             >Send my feedback</SfButton
           >
         </div>
