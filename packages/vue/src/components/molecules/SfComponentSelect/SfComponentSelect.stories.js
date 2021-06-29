@@ -137,6 +137,17 @@ NoChevron.args = {
   classes: "sf-component-select--no-chevron",
 };
 
+export const LongOptionsList = Template.bind({});
+LongOptionsList.args = {
+  ...Common.args,
+  options: [
+      ...optionsList,
+    { value: "red", color: "#ff0000", label: "Red" },
+    { value: "green", color: "#00ff00", label: "Green" },
+    { value: "blue", color: "#0000ff", label: "Blue" }
+  ],
+};
+
 export const UseLabelSlot = (args, { argTypes }) => ({
   components: { SfComponentSelect, SfProductOption },
   props: Object.keys(argTypes),

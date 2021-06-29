@@ -1,60 +1,287 @@
 import { SfMegaMenu, SfList, SfMenuItem, SfBanner } from "@storefront-ui/vue";
 import "./SfMegaMenu.stories.scss";
 
-const categories = [
-  {
-    title: "Clothing",
-    subcategories: [
-      { title: "Skirts" },
-      { title: "Sweaters" },
-      { title: "Dresses" },
-      { title: "TShirts" },
-      { title: "Pants" },
-      { title: "Underwear" },
-      { title: "Jackets" },
-      { title: "Blouses" },
-    ],
-  },
-  {
-    title: "Accesories",
-    subcategories: [
-      { title: "Bags & Purses" },
-      { title: "Belts" },
-      { title: "Gloves" },
-      { title: "Hats" },
-    ],
-  },
-  {
-    title: "Shoes",
-    subcategories: [
-      { title: "Boots" },
-      { title: "Heels" },
-      { title: "Flat shoes" },
-      { title: "Loafers" },
-      { title: "Sandals" },
-      { title: "Slippers" },
-      { title: "Trainers" },
-    ],
-    banners: [
-      {
-        title: "THE OFFICE LIFE",
-        subtitle: "T-shirts",
-        pictures: {
-          mobile: "/assets/storybook/SfMegaMenu/bannerSandals.jpg",
-          desktop: "/assets/storybook/SfMegaMenu/bannerSandals.jpg",
+const categories = {
+  title: "Menu",
+  subcategories: [
+    {
+      title: "Clothing",
+      subcategories: [
+        {
+          title: "Skirts",
+          subcategories: [
+            {
+              title: "long",
+              subcategories: [
+                { title: "red" },
+                { title: "white" },
+                { title: "blue" },
+              ],
+            },
+            {
+              title: "middle",
+              subcategories: [
+                { title: "red" },
+                { title: "white" },
+                { title: "blue" },
+              ],
+            },
+            {
+              title: "short",
+              subcategories: [
+                { title: "red" },
+                { title: "white" },
+                { title: "blue" },
+              ],
+            },
+          ],
         },
-      },
-      {
-        title: "ECO SANDALS",
-        subtitle: "T-shirts",
-        pictures: {
-          mobile: "/assets/storybook/SfMegaMenu/bannerBeachBag.jpg",
-          desktop: "/assets/storybook/SfMegaMenu/bannerBeachBag.jpg",
+        {
+          title: "Sweaters",
+          subcategories: [
+            {
+              title: "long",
+              subcategories: [
+                { title: "red" },
+                { title: "white" },
+                { title: "blue" },
+              ],
+            },
+            {
+              title: "middle",
+              subcategories: [
+                { title: "red" },
+                { title: "white" },
+                { title: "blue" },
+              ],
+            },
+            {
+              title: "short",
+              subcategories: [
+                { title: "red" },
+                { title: "white" },
+                { title: "blue" },
+              ],
+            },
+          ],
         },
-      },
-    ],
-  },
-];
+        {
+          title: "Dresses",
+          subcategories: [
+            {
+              title: "long",
+              subcategories: [
+                { title: "red" },
+                { title: "white" },
+                { title: "blue" },
+              ],
+            },
+            {
+              title: "middle",
+              subcategories: [
+                { title: "red" },
+                { title: "white" },
+                { title: "blue" },
+              ],
+            },
+            {
+              title: "short",
+              subcategories: [
+                { title: "red" },
+                { title: "white" },
+                { title: "blue" },
+              ],
+            },
+          ],
+        },
+        {
+          title: "TShirts",
+          subcategories: [
+            {
+              title: "long",
+              subcategories: [
+                { title: "red" },
+                { title: "white" },
+                { title: "blue" },
+              ],
+            },
+            {
+              title: "middle",
+              subcategories: [
+                { title: "red" },
+                { title: "white" },
+                { title: "blue" },
+              ],
+            },
+            {
+              title: "short",
+              subcategories: [
+                { title: "red" },
+                { title: "white" },
+                { title: "blue" },
+              ],
+            },
+          ],
+        },
+        {
+          title: "Pants",
+          subcategories: [
+            {
+              title: "long",
+              subcategories: [
+                { title: "red" },
+                { title: "white" },
+                { title: "blue" },
+              ],
+            },
+            {
+              title: "middle",
+              subcategories: [
+                { title: "red" },
+                { title: "white" },
+                { title: "blue" },
+              ],
+            },
+            {
+              title: "short",
+              subcategories: [
+                { title: "red" },
+                { title: "white" },
+                { title: "blue" },
+              ],
+            },
+          ],
+        },
+        {
+          title: "Underwear",
+          subcategories: [
+            {
+              title: "long",
+              subcategories: [
+                { title: "red" },
+                { title: "white" },
+                { title: "blue" },
+              ],
+            },
+            {
+              title: "middle",
+              subcategories: [
+                { title: "red" },
+                { title: "white" },
+                { title: "blue" },
+              ],
+            },
+            {
+              title: "short",
+              subcategories: [
+                { title: "red" },
+                { title: "white" },
+                { title: "blue" },
+              ],
+            },
+          ],
+        },
+        {
+          title: "Jackets",
+          subcategories: [
+            {
+              title: "long",
+              subcategories: [
+                { title: "red" },
+                { title: "white" },
+                { title: "blue" },
+              ],
+            },
+            {
+              title: "middle",
+              subcategories: [
+                { title: "red" },
+                { title: "white" },
+                { title: "blue" },
+              ],
+            },
+            {
+              title: "short",
+              subcategories: [
+                { title: "red" },
+                { title: "white" },
+                { title: "blue" },
+              ],
+            },
+          ],
+        },
+        {
+          title: "Blouses",
+          subcategories: [
+            {
+              title: "long",
+              subcategories: [
+                { title: "red" },
+                { title: "white" },
+                { title: "blue" },
+              ],
+            },
+            {
+              title: "middle",
+              subcategories: [
+                { title: "red" },
+                { title: "white" },
+                { title: "blue" },
+              ],
+            },
+            {
+              title: "short",
+              subcategories: [
+                { title: "red" },
+                { title: "white" },
+                { title: "blue" },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      title: "Accesories",
+      subcategories: [
+        { title: "Bags & Purses" },
+        { title: "Belts" },
+        { title: "Gloves" },
+        { title: "Hats" },
+      ],
+    },
+    {
+      title: "Shoes",
+      subcategories: [
+        { title: "Boots" },
+        { title: "Heels" },
+        { title: "Flat shoes" },
+        { title: "Loafers" },
+        { title: "Sandals" },
+        { title: "Slippers" },
+        { title: "Trainers" },
+      ],
+      banners: [
+        {
+          title: "THE OFFICE LIFE",
+          subtitle: "T-shirts",
+          pictures: {
+            mobile: "/assets/storybook/SfMegaMenu/bannerSandals.jpg",
+            desktop: "/assets/storybook/SfMegaMenu/bannerSandals.jpg",
+          },
+        },
+        {
+          title: "ECO SANDALS",
+          subtitle: "T-shirts",
+          pictures: {
+            mobile: "/assets/storybook/SfMegaMenu/bannerBeachBag.jpg",
+            desktop: "/assets/storybook/SfMegaMenu/bannerBeachBag.jpg",
+          },
+        },
+      ],
+    },
+  ],
+};
 
 export default {
   title: "Components/Organisms/MegaMenu",
@@ -87,6 +314,20 @@ export default {
         },
       },
     },
+    multilevel: {
+      control: "boolean",
+      table: {
+        category: "Props",
+      },
+      defaultValue: false,
+    },
+    subcategories: {
+      control: "object",
+      table: {
+        category: "Props",
+      },
+      defaultValue: "",
+    },
     change: { action: "Active item changed", table: { category: "Events" } },
     close: { action: "Close button clicked", table: { category: "Events" } },
   },
@@ -112,7 +353,7 @@ const Template = (args, { argTypes }) => ({
   class="sb-mega-menu"
 >
   <SfMegaMenuColumn 
-    v-for="(category, key) in categories" 
+    v-for="(category, key) in categories.subcategories" 
     :key="key" 
     :title="category.title"
   >
@@ -168,7 +409,7 @@ export const UseAsideSlot = (args, { argTypes }) => ({
     @close="close"
   >
     <SfMegaMenuColumn 
-      v-for="(category, key) in categories" 
+      v-for="(category, key) in categories.subcategories" 
       :key="key" 
       :title="category.title"
     />
@@ -187,3 +428,33 @@ export const UseAsideSlot = (args, { argTypes }) => ({
   </SfMegaMenu>`,
 });
 UseAsideSlot.args = { ...Common.args };
+
+export const UseMultilevelNavigation = (args, { argTypes }) => ({
+	components: {
+		SfMegaMenu,
+	},
+	props: Object.keys(argTypes),
+	data() {
+		return {
+			categories,
+		};
+	},
+	template: `
+  <SfMegaMenu 
+    :isAbsolute="isAbsolute"
+    :transitionName="transitionName"
+    class="sb-mega-menu"
+    @change="change"
+    @close="close"
+    :multilevel="multilevel"    
+  >    
+    <template #multilevel v-bind="{ categories }">
+      <SfMultilevelMegaMenu :categories="categories.subcategories" title="Menu"/>
+    </template>
+  </SfMegaMenu>`,
+});
+
+UseMultilevelNavigation.args = {
+  ...Common.args,
+  multilevel: true,
+};
