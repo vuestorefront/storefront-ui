@@ -46,10 +46,8 @@ export default {
   },
   data() {
     return {
-      showSubcategories: false,
       active: "",
       childCategories: this.categories,
-      parent: {},
       categoryTree: [],
     };
   },
@@ -59,9 +57,6 @@ export default {
     },
   },
   methods: {
-    toggleCategory() {
-      return (this.showSubcategories = !this.showSubcategories);
-    },
     toggleHandler(subcategory) {
       if (!subcategory.subcategories) return;
       this.categoryTree.push({
