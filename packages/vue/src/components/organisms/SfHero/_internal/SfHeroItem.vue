@@ -79,7 +79,7 @@ export default {
       return {
         "background-image": isImageString
           ? `url(${image})`
-          : `url(${this.isMobile ? image.mobile : image.desktop})`,
+          : `url(${this.mobileView ? image.mobile : image.desktop})`,
         "background-color": background,
       };
     },
