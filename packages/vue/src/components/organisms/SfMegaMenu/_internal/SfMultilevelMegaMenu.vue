@@ -1,46 +1,45 @@
 <template>
-  <SfListItem>
-    <component
-      :is="toggleComponent"
-      :title="title"
+  <div>
+    <SfBar
+      :title="active || categoryTitle"
       :back="true"
-      :class="{ 'sf-mega-menu__bar': toggleComponent === 'SfBar' }"
-      @click="toggleComponent === 'SfMenuItem' ? toggleCategory : ''"
+      class="sf-mega-menu__bar"
+      @click:back="backHandler"
     >
-    </component>
+    </SfBar>
     <div class="sf-mega-menu__content">
       <SfList>
-        <SfMultilevelMegaMenu
-          v-for="(subcategory, i) in subcategories.subcategories"
-          v-show="toggleCategory"
+        <SfListItem
+          v-for="(subcategory, i) in childCategories"
           :key="`${subcategory.title}-${i}`"
-          :subcategories="subcategory.subcategories"
-          :title="subcategory.title"
-          class="sf-mega-menu-column__header"
-        />
+        >
+          <SfMenuItem
+            class="sf-mega-menu-column__header"
+            :label="subcategory.title"
+            @click="toggleHandler(subcategory)"
+          />
+        </SfListItem>
       </SfList>
     </div>
-  </SfListItem>
+  </div>
 </template>
 <script>
 import SfMenuItem from "../../../molecules/SfMenuItem/SfMenuItem.vue";
 import SfBar from "../../../molecules/SfBar/SfBar.vue";
 import SfList from "../../SfList/SfList";
-import SfMultilevelMegaMenu from "./SfMultilevelMegaMenu";
 export default {
   name: "SfMultilevelMegaMenu",
   components: {
     SfMenuItem,
     SfBar,
     SfList,
-    SfMultilevelMegaMenu,
   },
   props: {
     title: {
       type: String,
       default: "",
     },
-    subcategories: {
+    categories: {
       type: [Object, Array],
       default: () => {},
     },
@@ -48,21 +47,34 @@ export default {
   data() {
     return {
       showSubcategories: false,
+      active: "",
+      childCategories: this.categories,
+      categoryTree: {},
     };
   },
   computed: {
-    toggleComponent() {
-      console.log(this.subcategories);
-      return this.subcategories.find(
-        (subcategory) => subcategory.title === this.title
-      )
-        ? "SfMenuItem"
-        : "SfBar";
+    categoryTitle() {
+      return this.title ? this.title : this.subcategories.title;
     },
   },
   methods: {
     toggleCategory() {
-      this.showSubcategories = !this.showSubcategories;
+      return (this.showSubcategories = !this.showSubcategories);
+    },
+    toggleHandler(subcategory) {
+      if (!subcategory.subcategories) return;
+      console.log(this.categoryTree);
+      this.categoryTree = {
+        title: this.active,
+        subcategories: this.childCategories,
+      };
+      this.active = subcategory.title;
+      this.childCategories = subcategory.subcategories;
+    },
+    backHandler() {
+      console.log(this.categoryTree.title);
+      this.active = this.categoryTree.title;
+      this.childCategories = this.categoryTree.subcategories;
     },
   },
 };

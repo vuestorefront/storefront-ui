@@ -1,7 +1,7 @@
 <template>
   <transition :name="transitionName">
     <div>
-      <!-- <div
+      <div
         v-show="visible && !multilevel"
         class="sf-mega-menu"
         :class="[{ 'is-active': active }, { 'is-absolute': isAbsolute }]"
@@ -13,34 +13,34 @@
           @click:back="back()"
         />
         <div class="sf-mega-menu__content">
-          <div class="sf-mega-menu__menu"> -->
-      <!-- @slot Slot for menu column -->
-      <!-- <slot />
+          <div class="sf-mega-menu__menu">
+            <!-- @slot Slot for menu column -->
+            <slot />
           </div>
-          <div v-if="$slots.aside" class="sf-mega-menu__aside"> -->
-      <!-- @slot @deprecated will be removed in 1.0.0 -->
-      <!-- <SfMenuItem
+          <div v-if="$slots.aside" class="sf-mega-menu__aside">
+            <!-- @slot @deprecated will be removed in 1.0.0 -->
+            <SfMenuItem
               :label="asideTitle"
               class="sf-mega-menu__aside-header desktop-only"
             />
             <slot name="aside" />
           </div>
         </div>
-      </div> -->
+      </div>
       <div v-if="multilevel" class="sf-mega-menu">
-        <slot name="multilevel" v-bind="{ title }" />
+        <slot name="multilevel" />
       </div>
     </div>
   </transition>
 </template>
 <script>
 import Vue from "vue";
-// Vue.component("SfMegaMenuColumn", SfMegaMenuColumn);
+Vue.component("SfMegaMenuColumn", SfMegaMenuColumn);
 Vue.component("SfMultilevelMegaMenu", SfMultilevelMegaMenu);
-// import SfMegaMenuColumn from "./_internal/SfMegaMenuColumn";
+import SfMegaMenuColumn from "./_internal/SfMegaMenuColumn";
 import SfMultilevelMegaMenu from "./_internal/SfMultilevelMegaMenu";
-// import SfBar from "../../molecules/SfBar/SfBar";
-// import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem";
+import SfBar from "../../molecules/SfBar/SfBar";
+import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem";
 import {
   mapMobileObserver,
   unMapMobileObserver,
@@ -49,8 +49,8 @@ import {
 export default {
   name: "SfMegaMenu",
   components: {
-    // SfBar,
-    // SfMenuItem,
+    SfBar,
+    SfMenuItem,
   },
   props: {
     title: {
@@ -94,6 +94,9 @@ export default {
     Object.defineProperty(megaMenu, "changeActive", {
       value: this.changeActive,
     });
+    return {
+      megaMenu,
+    };
   },
   computed: {
     ...mapMobileObserver(),

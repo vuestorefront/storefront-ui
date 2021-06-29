@@ -322,11 +322,11 @@ export default {
       defaultValue: false,
     },
     subcategories: {
-      control: "pbject",
+      control: "object",
       table: {
         category: "Props",
       },
-      defaultValue: categories,
+      defaultValue: "",
     },
     change: { action: "Active item changed", table: { category: "Events" } },
     close: { action: "Close button clicked", table: { category: "Events" } },
@@ -353,7 +353,7 @@ const Template = (args, { argTypes }) => ({
   class="sb-mega-menu"
 >
   <SfMegaMenuColumn 
-    v-for="(category, key) in categories" 
+    v-for="(category, key) in categories.subcategories" 
     :key="key" 
     :title="category.title"
   >
@@ -409,7 +409,7 @@ export const UseAsideSlot = (args, { argTypes }) => ({
     @close="close"
   >
     <SfMegaMenuColumn 
-      v-for="(category, key) in categories" 
+      v-for="(category, key) in categories.subcategories" 
       :key="key" 
       :title="category.title"
     />
@@ -434,9 +434,13 @@ export const UseMultilevelNavigation = (args, { argTypes }) => ({
 		SfMegaMenu,
 	},
 	props: Object.keys(argTypes),
+	data() {
+		return {
+			categories,
+		};
+	},
 	template: `
   <SfMegaMenu 
-    :title="subcategories.title"
     :isAbsolute="isAbsolute"
     :transitionName="transitionName"
     class="sb-mega-menu"
@@ -444,8 +448,8 @@ export const UseMultilevelNavigation = (args, { argTypes }) => ({
     @close="close"
     :multilevel="multilevel"    
   >    
-    <template #multilevel>
-      <SfMultilevelMegaMenu :subcategories="subcategories.subcategories" />
+    <template #multilevel v-bind="{ categories }">
+      <SfMultilevelMegaMenu :categories="categories.subcategories" title="Menu"/>
     </template>
   </SfMegaMenu>`,
 });
