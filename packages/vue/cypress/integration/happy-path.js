@@ -191,11 +191,11 @@ describe("Home page", () => {
 		cy.iframe()
 			.find(selectors.hero.ctaButton)
 			.click({ multiple: true, force: true });
-		cy.iframe().find(selectors.hero.bullets).click({ multiple: true });
+		cy.iframe().find(selectors.hero.bullets).first().click({ multiple: true });
 		cy.iframe()
 			.find(selectors.hero.items)
 			.first()
-			.should("not.have.class", "glide__slide--active");
+			.should("have.class", "glide__slide--active");
 	});
 	it("test SfBannerGrid component", () => {
 		cy.iframe()
@@ -257,7 +257,7 @@ describe("Home page", () => {
 
 describe("Checkout page", () => {
 	beforeEach(() => {
-		cy.visit("/?path=/docs/pages-checkout--common");
+		cy.visit("/?path=/story/pages-checkout--common");
 	});
 	it("test Details step", () => {
 		cy.iframe().find(selectors.details.loginButton).click();
@@ -391,6 +391,7 @@ describe("Checkout page", () => {
 			.should("have.class", "has-text");
 		cy.iframe()
 			.find(`${selectors.payment.country} select`)
+			.wait(2000)
 			.select("Poland")
 			.parent()
 			.should("have.class", "is-selected");

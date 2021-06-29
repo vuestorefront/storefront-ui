@@ -20,13 +20,19 @@ export default {
         category: "CSS Modifiers",
       },
     },
+    qty: {
+      control: "number",
+      table: {
+        category: "Props",
+      },
+      defaultValue: 1,
+    },
     disabled: {
       control: "boolean",
       table: {
         category: "Props",
       },
     },
-    input: { action: "Quantity changed!", table: { category: "Events" } },
   },
 };
 
@@ -35,16 +41,15 @@ const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   data() {
     return {
-      value: 1,
+      inputValue: this.qty,
     };
   },
   template: `
   <SfQuantitySelector
-    v-model="value"
+    v-model="inputValue"
     :disabled="disabled"
     aria-label="Quantity"
     :class="classes"
-    @input="input"
   />`,
 });
 
