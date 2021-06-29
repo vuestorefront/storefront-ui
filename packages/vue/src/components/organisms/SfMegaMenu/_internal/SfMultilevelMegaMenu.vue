@@ -49,7 +49,8 @@ export default {
       showSubcategories: false,
       active: "",
       childCategories: this.categories,
-      categoryTree: {},
+      parent: {},
+      categoryTree: [],
     };
   },
   computed: {
@@ -63,18 +64,23 @@ export default {
     },
     toggleHandler(subcategory) {
       if (!subcategory.subcategories) return;
-      console.log(this.categoryTree);
-      this.categoryTree = {
+      this.categoryTree.push({
         title: this.active,
+        subcategory: subcategory,
         subcategories: this.childCategories,
-      };
+      });
       this.active = subcategory.title;
       this.childCategories = subcategory.subcategories;
     },
     backHandler() {
-      console.log(this.categoryTree.title);
-      this.active = this.categoryTree.title;
-      this.childCategories = this.categoryTree.subcategories;
+      if (!this.categoryTree.length) {
+        this.$emit("close");
+        return;
+      }
+      this.active = this.categoryTree[this.categoryTree.length - 1].title;
+      this.childCategories =
+        this.categoryTree[this.categoryTree.length - 1].subcategories;
+      this.categoryTree.pop();
     },
   },
 };
