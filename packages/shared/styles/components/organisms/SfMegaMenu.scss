@@ -115,6 +115,35 @@
       }
     }
   }
+  &-multilevel-column {
+    position: absolute;
+    top: 0;
+    width: 28.125rem;
+    height: 21rem;  
+    &--1,
+    &--2 {  
+      left: 28.125rem;
+    }
+    &--2 {
+      .sf-list {
+        position: absolute;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+    &--3 {
+      .sf-list {
+        position: absolute;
+        top: var(--spacer-2xl);
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-content: space-between;
+      }
+    }
+  }
   &.is-active{
     --mega-menu-content-transform: translateX(-100%);
     @include for-desktop {

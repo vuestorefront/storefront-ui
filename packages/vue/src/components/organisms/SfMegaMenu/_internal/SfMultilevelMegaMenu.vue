@@ -3,36 +3,48 @@
     <SfBar
       :title="active || categoryTitle"
       :back="true"
-      class="sf-mega-menu__bar"
+      class="sf-mega-menu__bar smartphone-only"
       @click:back="backHandler"
     >
     </SfBar>
     <div class="sf-mega-menu__content">
-      <SfList>
-        <SfListItem
-          v-for="(subcategory, i) in childCategories"
-          :key="`${subcategory.title}-${i}`"
-        >
-          <SfMenuItem
-            class="sf-mega-menu-column__header"
-            :label="subcategory.title"
-            @click="toggleHandler(subcategory)"
-          />
-        </SfListItem>
-      </SfList>
+      <div class="smartphone-only">
+        <slot name="mobile">
+          <SfList>
+            <SfListItem
+              v-for="(subcategory, i) in childCategories"
+              :key="`${subcategory.title}-${i}`"
+            >
+              <SfMenuItem
+                class="sf-mega-menu-column__header"
+                :label="subcategory.title"
+                @click="toggleHandler(subcategory)"
+              />
+            </SfListItem>
+          </SfList>
+        </slot>
+      </div>
+      <div class="desktop-only">
+        <SfMegaMenuMultilevelColumn :categories="childCategories" :depth="0" />
+      </div>
     </div>
   </div>
 </template>
 <script>
+import Vue from "vue";
+Vue.component("SfMegaMenuMultilevelColumn", SfMegaMenuMultilevelColumn);
 import SfMenuItem from "../../../molecules/SfMenuItem/SfMenuItem.vue";
 import SfBar from "../../../molecules/SfBar/SfBar.vue";
 import SfList from "../../SfList/SfList";
+import SfMegaMenuMultilevelColumn from "./SfMegaMenuMultilevelColumn";
+
 export default {
   name: "SfMultilevelMegaMenu",
   components: {
     SfMenuItem,
     SfBar,
     SfList,
+    SfMegaMenuMultilevelColumn,
   },
   props: {
     title: {

@@ -449,7 +449,9 @@ export const UseMultilevelNavigation = (args, { argTypes }) => ({
     :multilevel="multilevel"    
   >    
     <template #multilevel v-bind="{ categories }">
-      <SfMultilevelMegaMenu :categories="categories.subcategories" title="Menu"/>
+      <SfMultilevelMegaMenu :categories="categories.subcategories" title="Menu">
+        <SfMegaMenuMultilevelColumn :categories="categories" :depth="0" />
+      </SfMultilevelMegaMenu>
     </template>
   </SfMegaMenu>`,
 });
