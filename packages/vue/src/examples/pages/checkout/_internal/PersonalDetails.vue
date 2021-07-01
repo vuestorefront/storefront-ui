@@ -1,7 +1,9 @@
 <template>
   <div id="personal-details">
     <div class="log-in">
-      <SfButton class="log-in__button sf-button--full-width color-secondary"
+      <SfButton
+        class="log-in__button sf-button--full-width color-secondary"
+        data-testid="login-button"
         >Log into your account</SfButton
       >
       <p class="log-in__info">or fill the details below:</p>
@@ -56,6 +58,7 @@
           name="createAccount"
           label="I want to create an account"
           class="form__checkbox"
+          data-testid="create-account-checkbox"
         />
       </div>
       <transition name="sf-fade">
@@ -67,6 +70,7 @@
           label="Create Password"
           class="form__element"
           required
+          data-testid="create-password-input"
         />
       </transition>
     </div>
@@ -201,8 +205,6 @@ export default {
 .form {
   &__element {
     --input-padding: var(--spacer-sm) 0 var(--spacer-2xs) 0;
-    --input-label-top: 80%;
-    --input-label-font-size: var(--font-size--base);
     margin: 0 0 var(--spacer-base) 0;
   }
   &__checkbox {

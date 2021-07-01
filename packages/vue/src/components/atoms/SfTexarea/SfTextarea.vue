@@ -9,6 +9,8 @@
         'sf-textarea--invalid': !props.valid,
       },
     ]"
+    :style="[data.style, data.staticStyle]"
+    v-bind="data.attrs"
   >
     <textarea
       :id="props.name"
@@ -22,19 +24,17 @@
       :required="props.required"
       :maxlength="props.maxlength"
       :minlength="props.minlength"
-      @input="listeners.input && listeners.input($event.target.value)"
+      v-on="$options.handleInput(listeners)"
     />
     <label class="sf-textarea__label" :for="props.name">
       <!-- @slot Custom input label -->
       <slot name="label" v-bind="{ props }">{{ props.label }}</slot>
     </label>
-    <div v-if="!props.valid" class="sf-textarea__error-message">
+    <div class="sf-textarea__error-message">
       <transition name="sf-fade">
         <!-- @slot Custom error message -->
-        <slot name="error-message" v-bind="{ props }">
-          <div>
-            {{ props.errorMessage }}
-          </div>
+        <slot v-if="!props.valid" name="error-message" v-bind="{ props }">
+          <div>{{ props.errorMessage }}</div>
         </slot>
       </transition>
     </div>
@@ -154,6 +154,13 @@ export default {
       default: false,
       description: "Native input disabled attribute",
     },
+  },
+  handleInput(listeners) {
+    return {
+      ...listeners,
+      input: ($event) =>
+        listeners.input && listeners.input($event.target.value),
+    };
   },
 };
 </script>

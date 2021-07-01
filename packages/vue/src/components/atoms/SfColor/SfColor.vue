@@ -1,35 +1,56 @@
-<template>
-  <SfButton
-    class="sf-button--pure sf-color"
-    :class="{ 'is-active': selected }"
-    :style="style"
-    :aria-pressed="selected.toString()"
-    :data-testid="color"
-    v-on="$listeners"
+<template functional>
+  <component
+    :is="injections.components.SfButton"
+    :class="[
+      data.class,
+      data.staticClass,
+      'sf-button--pure sf-color',
+      { 'is-active': props.selected },
+    ]"
+    :style="{
+      ...data.style,
+      ...data.staticStyle,
+      '--color-background': props.color,
+    }"
+    :aria-pressed="props.selected.toString()"
+    :data-testid="props.color"
+    v-bind="data.attrs"
+    v-on="listeners"
   >
     <transition name="sf-bounce">
       <!-- @slot Use it to replace badge to custom element -->
-      <slot name="badge" v-bind="{ selected, hasBadge }">
-        <SfBadge
-          v-if="selected && hasBadge"
+      <slot name="badge" v-bind="{ props }">
+        <component
+          :is="injections.components.SfBadge"
+          v-if="props.selected && props.hasBadge"
           class="sf-color__badge smartphone-only"
         >
-          <SfIcon aria-hidden="true" icon="check" size="16px" color="white" />
-        </SfBadge>
+          <component
+            :is="injections.components.SfIcon"
+            size="16px"
+            color="white"
+            icon="check"
+            aria-hidden="true"
+          />
+        </component>
       </slot>
     </transition>
-  </SfButton>
+  </component>
 </template>
 <script>
-import SfBadge from "../../atoms/SfBadge/SfBadge.vue";
-import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+import SfBadge from "../SfBadge/SfBadge.vue";
+import SfIcon from "../SfIcon/SfIcon.vue";
 import SfButton from "../SfButton/SfButton.vue";
 export default {
   name: "SfColor",
-  components: {
-    SfBadge,
-    SfIcon,
-    SfButton,
+  inject: {
+    components: {
+      default: {
+        SfBadge,
+        SfIcon,
+        SfButton,
+      },
+    },
   },
   props: {
     color: {
@@ -45,10 +66,8 @@ export default {
       default: true,
     },
   },
-  computed: {
-    style() {
-      return { "--color-background": this.color };
-    },
+  style(color) {
+    return color;
   },
 };
 </script>

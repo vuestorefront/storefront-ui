@@ -12,13 +12,11 @@
         :is="injections.components.SfIcon"
         aria-hidden="true"
         class="sf-circle-icon__icon"
-        v-bind="data.attrs"
         :icon="props.icon"
         :color="props.iconColor"
         :size="props.iconSize"
         :badge-label="props.badgeLabel"
         :has-badge="props.hasBadge"
-        v-on="listeners"
       />
     </slot>
   </component>

@@ -1,5 +1,5 @@
 <template>
-  <div class="sf-image--wrapper" :style="variables">
+  <div class="sf-image--wrapper" :style="variables" data-testid="image-wrapper">
     <img
       :loading="loading"
       v-bind="$attrs"
@@ -9,7 +9,7 @@
       :class="classes"
       :width="width"
       :height="height"
-      :alt="alt && alt.trim()"
+      :alt="alt"
       @load="onLoad"
       v-on="$listeners"
     />
@@ -22,6 +22,16 @@
     <div v-if="$slots.default" class="sf-image--overlay">
       <slot />
     </div>
+    <noscript inline-template>
+      <img
+        :src="src"
+        :alt="alt"
+        class="sf-image sf-image-loaded"
+        v-bind="$attrs"
+        :width="width"
+        :height="height"
+      />
+    </noscript>
   </div>
 </template>
 <script>
@@ -47,12 +57,11 @@ export default {
         value.every((item) => item.src && item.width),
     },
     /**
-     * Alternative text in case image is not loaded.
+     * Alternative text in case image is not loaded. Use empty string " " for decorative-only image and full text otherwise
      */
     alt: {
       type: String,
       required: true,
-      validator: (value) => value && !!value.trim(),
     },
     /**
      * Width of the image

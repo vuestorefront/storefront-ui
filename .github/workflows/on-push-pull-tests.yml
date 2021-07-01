@@ -23,7 +23,7 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install dependencies
-        run: yarn --frozen-lockfile && yarn add @vue/cli -W
+        run: yarn && yarn add @vue/cli -W
 
   lint:
     name: Lint
@@ -49,6 +49,57 @@ jobs:
       - name: Run linter and unit tests
         run: cd packages/vue && yarn lint && yarn test:unit
 
+  cypress:
+    name: e2e tests
+    needs: prepare_dependencies
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
+        with:
+          start: yarn storybook
+          command: yarn run test:e2e:headless
+          config-file: packages/vue/cypress.json 
+
+  lighthouse:
+    name: lighthouse performance test
+    needs: prepare_dependencies
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Get cached dependencies
+        uses: actions/cache@v2
+        with:
+          path: |
+            **/node_modules 
+            packages/vue/node_modules
+            packages/nuxt/node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install dependencies
+        run: yarn
+
+      - name: generate nuxt
+        run: |
+          yarn nuxt:generate
+
+      - name: lighthouse mobile audit
+        run: yarn lhci
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+
+      - name: lighthouse desktop audit
+        run: yarn lhci:desktop
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+
   build:
     name: Build
     needs: prepare_dependencies
@@ -66,7 +117,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: |
-            **/node_modules
+            **/node_modules 
             packages/vue/node_modules
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
 

@@ -1,11 +1,16 @@
 <template>
-  <div class="sf-product-card">
+  <div class="sf-product-card" data-testid="product-card">
     <div class="sf-product-card__image-wrapper">
       <slot
         name="image"
         v-bind="{ image, title, link, imageHeight, imageWidth }"
       >
-        <SfLink :link="link" class="sf-product-card__link">
+        <SfButton
+          :link="link"
+          class="sf-button--pure sf-product-card__link"
+          data-testid="product-link"
+          v-on="$listeners"
+        >
           <template v-if="Array.isArray(image)">
             <SfImage
               v-for="(picture, key) in image.slice(0, 2)"
@@ -25,20 +30,21 @@
             :width="imageWidth"
             :height="imageHeight"
           />
-        </SfLink>
+        </SfButton>
       </slot>
       <slot name="badge" v-bind="{ badgeLabel, badgeColor }">
         <SfBadge
-          v-if="badgeLabel && client"
+          v-if="badgeLabel"
           class="sf-product-card__badge"
           :class="badgeColorClass"
           >{{ badgeLabel }}</SfBadge
         >
       </slot>
       <SfButton
-        v-if="wishlistIcon !== false && client"
+        v-if="wishlistIcon !== false"
         :aria-label="`${ariaLabel} ${title}`"
         :class="wishlistIconClasses"
+        data-testid="product-wishlist-button"
         @click="toggleIsOnWishlist"
       >
         <slot name="wishlist-icon" v-bind="{ currentWishlistIcon }">
@@ -49,7 +55,7 @@
           />
         </slot>
       </SfButton>
-      <template v-if="showAddToCartButton && client">
+      <template v-if="showAddToCartButton">
         <slot
           name="add-to-cart"
           v-bind="{
@@ -64,6 +70,7 @@
             :aria-label="`Add to Cart ${title}`"
             :has-badge="showAddedToCartBadge"
             :disabled="addToCartDisabled"
+            data-testid="product-add-icon"
             @click="onAddToCart"
           >
             <div class="sf-product-card__add-button--icons">
@@ -97,11 +104,16 @@
       </template>
     </div>
     <slot name="title" v-bind="{ title, link }">
-      <SfLink :link="link" class="sf-product-card__link">
+      <SfButton
+        :link="link"
+        class="sf-button--pure sf-product-card__link"
+        data-testid="product-link"
+        v-on="$listeners"
+      >
         <h3 class="sf-product-card__title">
           {{ title }}
         </h3>
-      </SfLink>
+      </SfButton>
     </slot>
     <slot name="price" v-bind="{ specialPrice, regularPrice }">
       <SfPrice
@@ -125,6 +137,7 @@
           v-if="reviewsCount"
           :aria-label="`Read ${reviewsCount} reviews about ${title}`"
           class="sf-button--pure sf-product-card__reviews-count"
+          data-testid="product-review-button"
           @click="$emit('click:reviews')"
         >
           ({{ reviewsCount }})
@@ -135,9 +148,7 @@
 </template>
 <script>
 import { colorsValues as SF_COLORS } from "@storefront-ui/shared/variables/colors";
-import { deprecationWarning, isClient } from "../../../utilities/helpers";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
-import SfLink from "../../atoms/SfLink/SfLink.vue";
 import SfPrice from "../../atoms/SfPrice/SfPrice.vue";
 import SfRating from "../../atoms/SfRating/SfRating.vue";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
@@ -151,7 +162,6 @@ export default {
     SfRating,
     SfIcon,
     SfImage,
-    SfLink,
     SfCircleIcon,
     SfBadge,
     SfButton,
@@ -301,7 +311,6 @@ export default {
   },
   data() {
     return {
-      client: isClient,
       isAddingToCart: false,
     };
   },

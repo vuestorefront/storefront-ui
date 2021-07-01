@@ -1,15 +1,20 @@
 <template>
   <div class="sf-carousel">
-    <div v-if="client" ref="controls" class="sf-carousel__controls">
+    <div ref="controls" class="sf-carousel__controls">
       <!--@slot slot for icon moving to the previous item -->
       <slot name="prev" v-bind="{ go: () => go('prev') }">
-        <SfArrow aria-label="previous" @click="go('prev')" />
+        <SfArrow
+          aria-label="previous"
+          data-testid="carousel-prev-button"
+          @click="go('prev')"
+        />
       </slot>
       <!--@slot slot for icon moving to the next item -->
       <slot name="next" v-bind="{ go: () => go('next') }">
         <SfArrow
           aria-label="next"
           class="sf-arrow--right"
+          data-testid="carousel-next-button"
           @click="go('next')"
         />
       </slot>
@@ -31,7 +36,6 @@ import Vue from "vue";
 import SfCarouselItem from "./_internal/SfCarouselItem.vue";
 import SfArrow from "../../atoms/SfArrow/SfArrow.vue";
 import Glide from "@glidejs/glide";
-import { isClient } from "../../../utilities/helpers";
 Vue.component("SfCarouselItem", SfCarouselItem);
 export default {
   name: "SfCarousel",
@@ -47,7 +51,6 @@ export default {
   },
   data() {
     return {
-      client: isClient,
       glide: null,
       defaultSettings: {
         type: "carousel",

@@ -12,21 +12,11 @@ export default {
     tileServerUrl: {
       control: {
         type: "select",
-        options: [
-          {
-            name: "default",
-            value:
-              "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}",
-          },
-          {
-            name: "openstreetmap",
-            value: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-          },
-          {
-            name: "wikimedia",
-            value: "https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}{r}.png",
-          },
-        ],
+        options: {
+          default:
+            "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}",
+          openstreetmap: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+        },
       },
       table: {
         category: "Props",

@@ -4,7 +4,7 @@
     <transition :name="transitionName">
       <aside
         v-if="visible"
-        ref="sidebarAside"
+        ref="asideContent"
         v-focus-trap
         v-click-outside="checkPersistence"
         class="sf-sidebar__aside"
@@ -37,22 +37,20 @@
               :title="title"
               :description="subtitle"
               :level="headingLevel"
-              class="sf-heading--left sf-heading--no-underline sf-sidebar__title desktop-only"
+              class="
+                sf-heading--left sf-heading--no-underline
+                sf-sidebar__title
+                desktop-only
+              "
             />
           </slot>
           <!--@slot Use this slot to add sticky top content.-->
           <slot name="content-top" />
         </div>
-        <SfScrollable
-          show-text=""
-          hide-text=""
-          :max-content-height="setMaxHeight"
-        >
-          <div ref="content" class="sf-sidebar__content">
-            <!--@slot Use this slot to add SfSidebar content.-->
-            <slot />
-          </div>
-        </SfScrollable>
+        <div class="sf-sidebar__content">
+          <!--@slot Use this slot to add SfSidebar content.-->
+          <slot />
+        </div>
         <!--@slot Use this slot to place content to sticky bottom.-->
         <div v-if="hasBottom" class="sf-sidebar__bottom">
           <slot name="content-bottom" />
@@ -70,7 +68,6 @@ import SfBar from "../../molecules/SfBar/SfBar.vue";
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import SfHeading from "../../atoms/SfHeading/SfHeading.vue";
-import SfScrollable from "../../molecules/SfScrollable/SfScrollable.vue";
 export default {
   name: "SfSidebar",
   directives: { focusTrap, clickOutside },
@@ -79,7 +76,6 @@ export default {
     SfCircleIcon,
     SfOverlay,
     SfHeading,
-    SfScrollable,
   },
   props: {
     /**
@@ -137,7 +133,6 @@ export default {
       position: "left",
       staticClass: null,
       className: null,
-      setMaxHeight: "",
     };
   },
   computed: {
@@ -160,10 +155,7 @@ export default {
         if (!isClient) return;
         if (value) {
           this.$nextTick(() => {
-            disableBodyScroll(this.$refs.content);
-            if (this.$slots.default) {
-              this.setMaxHeight = `${this.$refs.sidebarAside.offsetHeight.toString()}px`;
-            }
+            disableBodyScroll(this.$refs.asideContent);
           });
           document.addEventListener("keydown", this.keydownHandler);
         } else {
@@ -173,6 +165,12 @@ export default {
       },
       immediate: true,
     },
+  },
+  mounted() {
+    this.classHandler();
+  },
+  updated() {
+    this.classHandler();
   },
   methods: {
     close() {

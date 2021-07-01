@@ -1,31 +1,43 @@
-<template>
-  <nav class="sf-breadcrumbs" aria-label="breadcrumb">
+<template functional>
+  <nav
+    :class="[data.class, data.staticClass, 'sf-breadcrumbs']"
+    :style="[data.style, data.staticStyle]"
+    v-bind="data.attrs"
+    aria-label="breadcrumb"
+    v-on="listeners"
+  >
     <ol class="sf-breadcrumbs__list">
       <li
-        v-for="(breadcrumb, i) in breadcrumbs"
+        v-for="(breadcrumb, i) in props.breadcrumbs"
         :key="i"
         class="sf-breadcrumbs__list-item"
-        :aria-current="last === i && 'page'"
+        :aria-current="
+          $options.breadcrumbLast(props.breadcrumbs) === i && 'page'
+        "
       >
-        <template v-if="last !== i">
+        <template v-if="$options.breadcrumbLast(props.breadcrumbs) !== i">
           <!-- @slot Custom markup for previous pages (binds `breadcrumb` object) -->
           <slot name="link" v-bind="{ breadcrumb }">
-            <SfLink
-              :link="breadcrumb.link"
+            <component
+              :is="injections.components.SfLink"
               class="sf-breadcrumbs__breadcrumb"
+              :link="breadcrumb.link"
               :data-testid="breadcrumb.text"
-              >{{ breadcrumb.text }}
-            </SfLink>
+            >
+              {{ breadcrumb.text }}
+            </component>
           </slot>
         </template>
         <template v-else>
           <!-- @slot Custom markup for current page (binds `breadcrumb` object) -->
           <slot name="current" v-bind="{ breadcrumb }">
-            <SfLink
+            <component
+              :is="injections.components.SfLink"
               :link="breadcrumb.link"
               class="sf-breadcrumbs__breadcrumb current"
-              >{{ breadcrumb.text }}</SfLink
             >
+              {{ breadcrumb.text }}
+            </component>
           </slot>
         </template>
       </li>
@@ -36,8 +48,10 @@
 import SfLink from "../SfLink/SfLink";
 export default {
   name: "SfBreadcrumbs",
-  components: {
-    SfLink,
+  inject: {
+    components: {
+      default: { SfLink },
+    },
   },
   props: {
     /**
@@ -48,10 +62,8 @@ export default {
       default: () => [],
     },
   },
-  computed: {
-    last() {
-      return this.breadcrumbs.length - 1;
-    },
+  breadcrumbLast(breadcrumbs) {
+    return breadcrumbs.length - 1;
   },
 };
 </script>

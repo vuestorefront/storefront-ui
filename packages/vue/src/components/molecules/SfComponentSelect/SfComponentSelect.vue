@@ -20,7 +20,7 @@
     @keyup.down="move(1)"
     @keyup.enter="enter($event)"
   >
-    <div style="position: relative;">
+    <div style="position: relative">
       <div
         ref="sfComponentSelect"
         v-focus
@@ -182,7 +182,7 @@ export default {
     },
     maxHeight() {
       if (!this.options.length) return;
-      return `${this.optionHeight * this.options.length}px`;
+      return `${this.optionHeight * (this.size + 0.5)}px`;
     },
     isActive() {
       return this.open;

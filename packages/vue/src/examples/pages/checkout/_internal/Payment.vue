@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div data-testid="payment">
     <SfHeading
       title="Billing address"
       :level="3"
@@ -83,6 +83,7 @@
         placeholder="Country"
         class="form__element form__element--half form__element--half-even form__select sf-select--underlined"
         required
+        data-testid="country"
         @change="updateField('country', $event)"
       >
         <SfSelectOption
@@ -117,7 +118,7 @@
       class="sf-heading--left sf-heading--no-underline title"
     />
     <div class="form">
-      <div class="payment-methods">
+      <div class="payment-methods" data-testid="payment-methods">
         <SfRadio
           v-for="item in paymentMethods"
           :key="item.value"
@@ -245,7 +246,6 @@ import {
   SfImage,
   SfCheckbox,
 } from "@storefront-ui/vue";
-import axios from "axios";
 export default {
   name: "Payment",
   components: {
@@ -375,13 +375,13 @@ export default {
       });
     },
     getCountries() {
-      axios
-        .get("https://restcountries.eu/rest/v2/all?fields=name")
-        .then((response) => {
-          const countries = response.data.map((country) => country.name);
+      fetch("https://restcountries.eu/rest/v2/all?fields=name")
+        .then((response) => response.json())
+        .then((data) => {
+          const countries = data.map((country) => country.name);
           this.countries = countries;
         })
-        .catch(function (error) {
+        .catch((error) => {
           console.error(error);
         });
     },
@@ -406,8 +406,6 @@ export default {
 .form {
   &__element {
     margin: 0 0 var(--spacer-base) 0;
-    --input-label-font-size: var(--font-size--base);
-    --input-label-top: 80%;
     &:last-of-type {
       margin: 0;
     }
@@ -503,8 +501,6 @@ export default {
     flex: 1;
   }
   &__input {
-    --input-label-top: 80%;
-    --input-label-font-size: var(--font-size--base);
     flex: 1;
     padding: 0 0 var(--spacer-sm) 0;
   }

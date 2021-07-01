@@ -1,5 +1,5 @@
 <template>
-  <li class="glide__slide sf-hero-item" :style="style">
+  <li class="glide__slide sf-hero-item" :style="style" data-testid="hero-item">
     <component :is="wrapper" class="sf-hero-item__wrapper" :link="link">
       <!--@slot hero item subtitle. Slot content will replace default <h2> tag-->
       <slot name="subtitle" v-bind="{ subtitle }">
@@ -11,8 +11,8 @@
       </slot>
       <!--@slot Call to action section. Slot content will replace default SfButton component-->
       <slot name="call-to-action" v-bind="{ buttonText, link }">
-        <div v-if="buttonText && !isMobile" class="sf-hero-item__button">
-          <SfButton :link="link">
+        <div v-if="buttonText && !mobileView" class="sf-hero-item__button">
+          <SfButton :link="link" data-testid="hero-cta-button">
             {{ buttonText }}
           </SfButton>
         </div>
@@ -65,23 +65,30 @@ export default {
       default: "",
     },
   },
+  data() {
+    return {
+      mobileView: false,
+    };
+  },
   computed: {
     ...mapMobileObserver(),
     style() {
       const image = this.image;
+      const isImageString = typeof image === "string";
       const background = this.background;
       return {
-        "--_hero-item-background-image": image.mobile
-          ? `url(${image.mobile})`
-          : `url(${image})`,
-        "--_hero-item-background-desktop-image":
-          image.desktop && `url(${image.desktop})`,
+        "background-image": isImageString
+          ? `url(${image})`
+          : `url(${this.mobileView ? image.mobile : image.desktop})`,
         "--_hero-item-background-color": background,
       };
     },
     wrapper() {
-      return !this.isMobile ? "div" : this.link ? "SfLink" : "SfButton";
+      return !this.mobileView ? "div" : this.link ? "SfLink" : "SfButton";
     },
+  },
+  mounted() {
+    this.mobileView = this.isMobile;
   },
   beforeDestroy() {
     unMapMobileObserver();

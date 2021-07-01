@@ -8,34 +8,35 @@
         </ul>
       </div>
     </div>
-    <div v-if="numberOfPages > 1 && client" class="sf-hero__control--left">
+    <div v-if="numberOfPages > 1" class="sf-hero__control--left">
       <!--@slot slot for icon moving to the previous item -->
       <slot name="prev" v-bind="{ go: () => go('prev') }">
-        <SfButton class="sf-button--pure" @click.stop="go('prev')">
-          <SfArrow
-            class="sf-arrow sf-arrow--transparent"
-            aria-label="previous"
-          />
-        </SfButton>
+        <SfArrow
+          class="sf-arrow sf-arrow--transparent"
+          aria-label="previous"
+          data-testid="hero-prev-button"
+          @click.stop="go('prev')"
+        />
       </slot>
     </div>
     <div v-if="numberOfPages > 1" class="sf-hero__control--right">
       <!-- @slot slot for icon moving to the next item  -->
       <slot name="next" v-bind="{ go: () => go('next') }">
-        <SfButton class="sf-button--pure" @click.stop="go('next')">
-          <SfArrow
-            class="sf-arrow sf-arrow--right sf-arrow--transparent"
-            aria-label="next"
-          />
-        </SfButton>
+        <SfArrow
+          class="sf-arrow sf-arrow--right sf-arrow--transparent"
+          aria-label="next"
+          data-testid="hero-next-button"
+          @click.stop="go('next')"
+        />
       </slot>
     </div>
-    <div v-if="numberOfPages > 1 && client" class="sf-hero__bullets">
+    <div v-if="numberOfPages > 1" class="sf-hero__bullets">
       <!--@slot custom markup for pagination bullets -->
       <slot name="bullets" v-bind="{ numberOfPages, page, go }">
         <SfBullets
           :total="numberOfPages"
           :current="page - 1"
+          data-testid="hero-bullets"
           @click="go($event)"
         />
       </slot>
@@ -46,17 +47,14 @@
 import Vue from "vue";
 import SfHeroItem from "./_internal/SfHeroItem.vue";
 import SfArrow from "../../atoms/SfArrow/SfArrow.vue";
-import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfBullets from "../../atoms/SfBullets/SfBullets.vue";
 import Glide from "@glidejs/glide";
-import { isClient } from "../../../utilities/helpers";
 Vue.component("SfHeroItem", SfHeroItem);
 export default {
   name: "SfHero",
   components: {
     SfArrow,
     SfBullets,
-    SfButton,
   },
   props: {
     /**
@@ -69,7 +67,6 @@ export default {
   },
   data() {
     return {
-      client: isClient,
       glide: null,
       defaultOptions: {
         type: "slider",
@@ -100,7 +97,7 @@ export default {
     },
   },
   mounted() {
-    if (this.numberOfPages) {
+    if (this.numberOfPages > 1) {
       this.$nextTick(() => {
         if (!this.$slots.default) return;
         const glide = new Glide(this.$refs.glide, this.mergedOptions);
