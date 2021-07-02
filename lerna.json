@@ -1,6 +1,7 @@
 {
   "packages": [
-    "packages/*"
+    "packages/vue",
+    "packages/shared"
   ],
   "npmClient": "yarn",
   "useWorkspaces": true,
