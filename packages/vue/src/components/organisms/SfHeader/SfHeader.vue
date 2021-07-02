@@ -9,8 +9,8 @@
               v-if="logo"
               :src="logo"
               :alt="title"
-              :width="34"
-              :height="35"
+              :width="logoWidth"
+              :height="logoHeight"
               class="sf-header__logo"
             />
             <h1 v-else class="sf-header__title">{{ title }}</h1>
@@ -138,6 +138,20 @@ export default {
     logo: {
       type: [String, Object],
       default: "",
+    },
+    /**
+     * Header logo height
+     */
+    logoHeight: {
+      type: Number,
+      default: 35,
+    },
+    /**
+     * Header logo width
+     */
+    logoWidth: {
+      type: Number,
+      default: 34,
     },
     /**
      * Header title
