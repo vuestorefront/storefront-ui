@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.7](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.10.6...@storefront-ui/shared@0.10.7) (2021-06-22)
+
+
+### Bug Fixes
+
+* [#1796](https://github.com/vuestorefront/storefront-ui/issues/1796) add text-aling left to accordion header ([96e552e](https://github.com/vuestorefront/storefront-ui/commit/96e552e401e4474343d92a57996b599e602a2c65))
+* sfrange after CR ([31d9c66](https://github.com/vuestorefront/storefront-ui/commit/31d9c66c1cfb03f9f007d093775e2368f935c0da))
+
+
+### Features
+
+*  sfsidebar without js ([#1825](https://github.com/vuestorefront/storefront-ui/issues/1825)) ([cc06ba7](https://github.com/vuestorefront/storefront-ui/commit/cc06ba73aea5c8e355e821a305bf24677b9ef768))
+* add new range component, new lib and add to form example ([fb98400](https://github.com/vuestorefront/storefront-ui/commit/fb98400a643af1de3926f40c5b2135fa75dfb921))
+* revoke modal and sidebar ([e3e5fa6](https://github.com/vuestorefront/storefront-ui/commit/e3e5fa61e5379c0a88f27f17c32ecdf44cb06e2b))
+* SfModal without js ([#1817](https://github.com/vuestorefront/storefront-ui/issues/1817)) ([9c04310](https://github.com/vuestorefront/storefront-ui/commit/9c043103698ebbb9a5533084696bf1ba4b698a34))
+
+
+
+
+
 ## [0.10.6](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.10.5...@storefront-ui/shared@0.10.6) (2021-05-18)
 
 
