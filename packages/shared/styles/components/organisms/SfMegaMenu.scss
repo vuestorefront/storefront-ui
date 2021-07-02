@@ -119,12 +119,17 @@
     position: absolute;
     top: 0;
     width: 28.125rem;
-    height: 21rem;  
+    height: 21rem;   
+    visibility: hidden;
+    &--0 {
+      visibility: visible;      
+    } 
     &--1,
     &--2 {  
       left: 28.125rem;
     }
-    &--2 {
+    &--2,
+    &--3 {
       .sf-list {
         position: absolute;
         width: 100%;
@@ -132,17 +137,20 @@
         flex-direction: row;
         justify-content: space-between;
       }
-    }
+    }    
     &--3 {
       .sf-list {
-        position: absolute;
         top: var(--spacer-2xl);
-        width: 100%;
-        display: flex;
         flex-direction: column;
         align-content: space-between;
       }
+    }    
+    & button:hover {        
+      ~ div .sf-mega-menu-multilevel-column  {       
+        visibility: visible;
+      }             
     }
+    
   }
   &.is-active{
     --mega-menu-content-transform: translateX(-100%);
