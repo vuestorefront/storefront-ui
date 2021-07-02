@@ -34,9 +34,7 @@ export default {
   parameters: {
     docs: {
       inlineStories: false,
-      source: {
-        type: "auto",
-      },
+      iframeHeight: "500px",
     },
   },
 };
@@ -67,14 +65,6 @@ export const Common = Template.bind({});
 Common.args = {
   title: "Choose size",
   actionList: ["Add to cart", "Add to compare", "Add to wishlist", "Share"],
-};
-Common.parameters = {
-  docs: {
-    inlineStories: false,
-    source: {
-      type: "auto",
-    },
-  },
 };
 
 export const Persistent = Template.bind({});

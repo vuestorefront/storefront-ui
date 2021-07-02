@@ -1,31 +1,29 @@
 import { SfOverlay } from "@storefront-ui/vue";
 
 export default {
-  title: "Components/Atoms/Overlay",
-  component: SfOverlay,
-  argTypes: {
-    transition: {
-      control: "text",
-      table: {
-        category: "Props",
-      },
-    },
-    visible: {
-      control: "boolean",
-      table: {
-        category: "Props",
-      },
-    },
-    click: { action: "Overlay clicked!", table: { category: "Events" } },
-  },
-  parameters: {
-    docs: {
-      inlineStories: false,
-      source: {
-        type: 'auto',
-      }
-    },
-  },
+	title: "Components/Atoms/Overlay",
+	component: SfOverlay,
+	argTypes: {
+		transition: {
+			control: "text",
+			table: {
+				category: "Props",
+			},
+		},
+		visible: {
+			control: "boolean",
+			table: {
+				category: "Props",
+			},
+		},
+		click: { action: "Overlay clicked!", table: { category: "Events" } },
+	},
+	parameters: {
+		docs: {
+			inlineStories: false,
+			iframeHeight: "300px",
+		},
+	},
 };
 
 const Template = (args, { argTypes }) => ({
@@ -38,14 +36,6 @@ export const Common = Template.bind({});
 Common.args = {
   visible: true,
 };
-Common.parameters = {
-  docs: {
-    inlineStories: false,
-    source: {
-      type: 'auto',
-    }
-  },
-}
 
 export const WithFadeTransition = Template.bind({});
 WithFadeTransition.args = {

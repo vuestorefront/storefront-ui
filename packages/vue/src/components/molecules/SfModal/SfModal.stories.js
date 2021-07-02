@@ -69,14 +69,6 @@ Common.args = {
   title: "My title",
   visible: true,
 };
-Common.parameters = {
-  docs: {
-    inlineStories: false,
-    source: {
-      type: "auto",
-    },
-  },
-};
 
 export const WithoutOverlay = Template.bind({});
 WithoutOverlay.args = {
