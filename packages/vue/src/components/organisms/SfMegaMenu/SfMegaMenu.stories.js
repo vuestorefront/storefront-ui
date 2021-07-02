@@ -13,9 +13,9 @@ const categories = {
             {
               title: "long",
               subcategories: [
-                { title: "red" },
-                { title: "white" },
-                { title: "blue" },
+                { title: "black" },
+                { title: "green" },
+                { title: "gray" },
               ],
             },
             {
@@ -29,9 +29,9 @@ const categories = {
             {
               title: "short",
               subcategories: [
-                { title: "red" },
-                { title: "white" },
-                { title: "blue" },
+                { title: "violet" },
+                { title: "orange" },
+                { title: "rose" },
               ],
             },
           ],
@@ -430,16 +430,16 @@ export const UseAsideSlot = (args, { argTypes }) => ({
 UseAsideSlot.args = { ...Common.args };
 
 export const UseMultilevelNavigation = (args, { argTypes }) => ({
-	components: {
-		SfMegaMenu,
-	},
-	props: Object.keys(argTypes),
-	data() {
-		return {
-			categories,
-		};
-	},
-	template: `
+  components: {
+    SfMegaMenu,
+  },
+  props: Object.keys(argTypes),
+  data() {
+    return {
+      categories,
+    };
+  },
+  template: `
   <SfMegaMenu 
     :isAbsolute="isAbsolute"
     :transitionName="transitionName"
