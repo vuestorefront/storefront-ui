@@ -28,7 +28,7 @@ export default create({
   inputBorderRadius: 4,
 
   brandTitle: "StorefrontUI",
-  brandUrl: "https://github.com/Divanteltd/storefront-ui",
+  brandUrl: "https://github.com/vuestorefront/storefront-ui",
   brandImage:
     process.env.NODE_ENV === "production" ? logo : "/assets/storybook/logo.png",
 });

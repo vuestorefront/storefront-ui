@@ -55,7 +55,11 @@
           <slot name="cancel">
             <SfButton
               ref="cancel"
-              class="sf-component-select__cancel sf-button--full-width smartphone-only"
+              class="
+                sf-component-select__cancel
+                sf-button--full-width
+                smartphone-only
+              "
               @click="closeHandler"
             >
               Cancel
