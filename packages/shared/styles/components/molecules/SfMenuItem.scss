@@ -33,6 +33,7 @@
   }
   &__label {
     color: var(--menu-item-label-color, var(--c-dark-variant));
+    text-align: left;
   }
   &.is-active {
     --menu-item-label-color: var(--c-primary);

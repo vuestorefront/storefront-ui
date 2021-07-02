@@ -38,9 +38,7 @@ export default {
   parameters: {
     docs: {
       inlineStories: false,
-      source: {
-        type: "auto",
-      },
+      iframeHeight: "300px",
     },
   },
 };
