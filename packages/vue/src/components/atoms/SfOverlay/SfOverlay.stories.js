@@ -1,29 +1,29 @@
 import { SfOverlay } from "@storefront-ui/vue";
 
 export default {
-	title: "Components/Atoms/Overlay",
-	component: SfOverlay,
-	argTypes: {
-		transition: {
-			control: "text",
-			table: {
-				category: "Props",
-			},
-		},
-		visible: {
-			control: "boolean",
-			table: {
-				category: "Props",
-			},
-		},
-		click: { action: "Overlay clicked!", table: { category: "Events" } },
-	},
-	parameters: {
-		docs: {
-			inlineStories: false,
-			iframeHeight: "300px",
-		},
-	},
+  title: "Components/Atoms/Overlay",
+  component: SfOverlay,
+  argTypes: {
+    transition: {
+      control: "text",
+      table: {
+        category: "Props",
+      },
+    },
+    visible: {
+      control: "boolean",
+      table: {
+        category: "Props",
+      },
+    },
+    click: { action: "Overlay clicked!", table: { category: "Events" } },
+  },
+  parameters: {
+    docs: {
+      inlineStories: false,
+      iframeHeight: "300px",
+    },
+  },
 };
 
 const Template = (args, { argTypes }) => ({
