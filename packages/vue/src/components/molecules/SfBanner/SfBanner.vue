@@ -1,5 +1,9 @@
 <template>
-  <section class="sf-banner" :style="style" v-on="isMobileView ? $listeners : {}">
+  <section
+    class="sf-banner"
+    :style="style"
+    v-on="isMobileView ? $listeners : {}"
+  >
     <component :is="wrapper" class="sf-banner__wrapper" :link="link">
       <slot name="subtitle" v-bind="{ subtitle }">
         <h2 v-if="subtitle" class="sf-banner__subtitle">
