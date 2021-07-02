@@ -1,0 +1,77 @@
+@import "../../helpers";
+
+.sf-range { 
+  position: relative;
+  width: 100%;
+  height: 7px;
+  margin: var(--spacer-xl);
+  background-color: var(--c-light);
+  border: none;
+  box-shadow: none;
+  .noUi {
+    &-handle {
+      width: 33px;
+      height: 33px;
+      border-radius: 50%;
+      transform: translate3d(0, -20%, 0);
+      box-shadow: none;
+      @include border(--range-handle-border, 1px, solid, var(--c-primary));
+      background-color: var(--c-white);
+      &::before,
+      &::after {
+        display: none;
+      }
+      &:focus {
+        outline: none;
+      }
+      &.noUi-active .noUi-touch-area {
+        background-color:  var(--c-primary);
+      }
+    }
+    &-connect {
+      background-color: var(--c-primary);
+    }
+    &-touch-area {
+      background-color: var(--c-white);
+      border-radius: 50%;
+      &:hover {
+        background-color: var(--c-primary-variant);
+      }
+    }
+    &-tooltip {
+      bottom: -120%;
+      color: var(--c-secondary-variant);
+      @include font(
+        --range-tooltip-font,
+        var(--font-weight--normal),
+        var(--font-size--xs),
+        1.2,
+        (--font-family--secondary)
+      );
+      @include border(--range-tooltip-border, 0, none, var(--c-primary));
+    }
+  }
+  &[disabled="disabled"] {
+    .noUi {
+      &-handle {
+        border-color: var(--c-text-disabled);
+      }
+      &-connect {
+        background-color: var(--c-text-disabled);
+      }
+      &-touch-area:hover {
+        background-color: var(--c-base);
+      }
+      &-tooltip {
+        display: none;
+      }
+    }
+  }
+}
+.noUi-vertical {
+  height: 300px;
+  width: 7px;
+  .noUi-handle {
+    transform: translate3d(20%, 0, 0);  
+  }
+}

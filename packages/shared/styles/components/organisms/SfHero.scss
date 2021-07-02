@@ -5,10 +5,8 @@
   box-sizing: border-box;
   width: 100%;
   color: var(--c-text);
-  @include background(
-    --hero-item-background,
-    var(--_hero-item-background-color, transparent)
-  );
+  background-repeat: no-repeat;
+  background-size: cover;
   &__wrapper {
     display: flex;
     flex-direction: column;
