@@ -1,9 +1,11 @@
 {
-  "name": "root",
+  "name": "@storefront-ui/root",
   "private": true,
-  "version": "0.10.6",
+  "version": "0.10.8",
   "description": "",
   "main": "index.js",
+  "author": "Storefront UI",
+  "license": "MIT",
   "scripts": {
     "create-component": "node ./scripts/create-component.js",
     "storybook": "cd packages/vue && yarn storybook",
@@ -20,8 +22,6 @@
     "type": "git",
     "url": "git+https://github.com/vuestorefront/storefront-ui.git"
   },
-  "author": "",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/vuestorefront/storefront-ui/issues"
   },

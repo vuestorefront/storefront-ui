@@ -1,4 +1,4 @@
-import { SfSelect, SfProductOption } from "@storefront-ui/vue";
+import { SfSelect } from "@storefront-ui/vue";
 
 const options = [
   { value: "" },
@@ -101,7 +101,7 @@ export default {
 };
 
 const Template = (args, { argTypes }) => ({
-  components: { SfSelect, SfProductOption },
+  components: { SfSelect },
   props: Object.keys(argTypes),
   data() {
     return {
@@ -123,7 +123,7 @@ const Template = (args, { argTypes }) => ({
     style="max-width: 30rem; margin: 10px;"
   >
     <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
-      <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
+      {{option.label}}
     </SfSelectOption>
   </SfSelect>`,
 });
@@ -170,7 +170,7 @@ HasSelectedValue.args = {
 };
 
 export const UseLabelSlot = (args, { argTypes }) => ({
-  components: { SfSelect, SfProductOption },
+  components: { SfSelect },
   props: Object.keys(argTypes),
   data() {
     return {
@@ -192,7 +192,7 @@ export const UseLabelSlot = (args, { argTypes }) => ({
     style="max-width: 30rem; margin: 10px;"
   >
     <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
-      <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
+      {{option.label}}
     </SfSelectOption>
     <template #label>
       CUSTOM LABEL

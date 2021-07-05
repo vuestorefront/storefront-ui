@@ -84,7 +84,7 @@ export default {
         "background-image": isImageString
           ? `url(${image})`
           : `url(${this.mobileView ? image.mobile : image.desktop})`,
-        "--_hero-item-background-color": background,
+        "background-color": background,
       };
     },
     wrapper() {

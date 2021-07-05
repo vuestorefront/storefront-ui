@@ -10,5 +10,6 @@ module.exports = {
     "@storybook/addon-links",
     "@storybook/addon-a11y",
     "@storybook/preset-scss",
+    "@storybook/addon-storysource", 
   ],
 }

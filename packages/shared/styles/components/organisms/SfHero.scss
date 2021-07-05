@@ -6,16 +6,8 @@
   box-sizing: border-box;
   width: 100%;
   color: var(--c-text);
-  @include background(
-    --hero-item-background,
-    var(--_hero-item-background-color, transparent)
-  );
-  img {
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 0;
-  }
+  background-repeat: no-repeat;
+  background-size: cover;
   &__wrapper {
     display: flex;
     flex-direction: column;

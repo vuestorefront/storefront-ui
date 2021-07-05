@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+
+## [0.10.8](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.10.7...@storefront-ui/shared@0.10.8) (2021-07-05)
+
+
+### Bug Fixes
+
+* conflict resolved ([c15c393](https://github.com/vuestorefront/storefront-ui/commit/c15c393b714b02f617a3c9ab7825282e41ba32db))
+* conflict resolved ([fb0ca6b](https://github.com/vuestorefront/storefront-ui/commit/fb0ca6b866f8a52962cb91b7e02df00592fb89c9))
+* multilined text aligned to left ([fc3f8da](https://github.com/vuestorefront/storefront-ui/commit/fc3f8da2459bd37a6181b44eda787ee334f68ee6))
+* removed background css vars ([bb845e8](https://github.com/vuestorefront/storefront-ui/commit/bb845e81d5fb44d7d7bd49c16dce5bf1c6538fb6))
+
+
 ## [0.10.71](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.10.7...@storefront-ui/shared@0.10.71) (2021-06-24)
 
 **Note:** Version bump only for package @storefront-ui/shared
