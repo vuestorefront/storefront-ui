@@ -31,6 +31,12 @@ export default {
     "click:close": { action: "Close dropdown", table: { category: "Events" } },
     "click:open": { action: "Open dropdown", table: { category: "Events" } },
   },
+  parameters: {
+    docs: {
+      inlineStories: false,
+      iframeHeight: "500px",
+    },
+  },
 };
 
 const Template = (args, { argTypes }) => ({
