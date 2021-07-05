@@ -1,7 +1,7 @@
 {
   "name": "@storefront-ui/root",
   "private": true,
-  "version": "0.10.71",
+  "version": "0.10.8",
   "description": "",
   "main": "index.js",
   "author": "Storefront UI",
