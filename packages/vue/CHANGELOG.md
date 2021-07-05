@@ -3,6 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+
 ## [0.10.8](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/vue@0.10.7...@storefront-ui/vue@0.10.8) (2021-07-05)
 
 
@@ -43,7 +44,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * width and heigth for logo and flag ([6ba34f2](https://github.com/vuestorefront/storefront-ui/commit/6ba34f24eb119cd563520eeef7d4beb3286107e7))
 
 
+## [0.10.71](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/vue@0.10.7...@storefront-ui/vue@0.10.71) (2021-06-24)
 
+
+### Bug Fixes
+
+* hotfix sidebar not working on mobile ([d6d4a7c](https://github.com/vuestorefront/storefront-ui/commit/d6d4a7c707dc9a053a5671b66eae6f73ad85c7ce))
+* stories for 0.10.71 ([70fc8af](https://github.com/vuestorefront/storefront-ui/commit/70fc8af6893716885cbfc1b77f0729151008f3ee))
 
 
 ## [0.10.7](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/vue@0.10.6...@storefront-ui/vue@0.10.7) (2021-06-22)
