@@ -1,6 +1,6 @@
 {
   "name": "@storefront-ui/vue",
-  "version": "0.10.7",
+  "version": "0.10.8",
   "license": "MIT",
   "scripts": {
     "serve": "yarn create-index-files && vue-cli-service serve",
@@ -32,14 +32,14 @@
   ],
   "dependencies": {
     "@glidejs/glide": "^3.3.0",
-    "@storefront-ui/shared": "0.10.7",
+    "@storefront-ui/shared": "0.10.8",
     "body-scroll-lock": "^3.0.1",
     "cloudinary-build-url": "^0.1.1",
     "core-js": "^3.6.5",
     "hammerjs": "^2.0.8",
     "leaflet": "^1.5.1",
-    "sass": "^1.32.13",
     "nouislider": "^15.2.0",
+    "sass": "^1.32.13",
     "sass-loader": "^10.0.3",
     "simplebar-vue": "^1.4.0",
     "vue": "^2.6.12",
