@@ -175,6 +175,9 @@ export default {
   updated() {
     this.classHandler();
   },
+  beforeDestroy() {
+    clearAllBodyScrollLocks();
+  },
   methods: {
     close() {
       this.$emit("close");

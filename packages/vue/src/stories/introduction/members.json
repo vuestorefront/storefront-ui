@@ -1,5 +1,68 @@
 [
   {
+    "name": "Jakub Andrzejewski",
+    "role": "Maintainer",
+    "work": {
+      "title": "Technology Leader",
+      "org": "Vue Storefront",
+      "orgUrl": "https://github.com/vuestorefront"
+    },
+    "location": "Wrocław, Poland",
+    "languages": ["pl", "en"],
+    "socials": {
+      "github": "baroshem",
+      "twitter": "j__andrzejewski"
+    },
+    "active": true
+  },
+  {
+    "name": "Adam Pawliński",
+    "role": "Maintainer",
+    "work": {
+      "title": "Core Developer",
+      "org": "Vue Storefront",
+      "orgUrl": "https://github.com/vuestorefront"
+    },
+    "location": "Wrocław, Poland",
+    "languages": ["pl", "en"],
+    "socials": {
+      "github": "AdamPawlinski",
+      "twitter": "adam_pawlinski"
+    },
+    "active": true
+  },
+  {
+    "name": "Justyna Gieracka",
+    "role": "Maintainer",
+    "work": {
+      "title": "Core Developer",
+      "org": "Vue Storefront",
+      "orgUrl": "https://github.com/vuestorefront"
+    },
+    "location": "Wrocław, Poland",
+    "languages": ["pl", "en"],
+    "socials": {
+      "github": "justyna-13"
+    },
+    "active": true
+  },
+  {
+    "name": "Filip Rakowski",
+    "role": "Maintainer",
+    "work": {
+      "title": "Co-founder",
+      "org": "Vue Storefront",
+      "orgUrl": "https://www.vuestorefront.io/"
+    },
+    "location": "Wrocław, Poland",
+    "languages": ["pl", "en"],
+    "socials": {
+      "github": "filrak",
+      "twitter": "filrakowski"
+    },
+    "active": true
+  },
+  {
     "name": "Maya Shavin",
     "role": "Maintainer",
     "work": {
@@ -17,22 +80,6 @@
     "socials": {
       "github": "mayashavin",
       "twitter": "mayashavin"
-    },
-    "active": true
-  },
-  {
-    "name": "Filip Rakowski",
-    "role": "Maintainer",
-    "work": {
-      "title": "Co-founder",
-      "org": "Vue Storefront",
-      "orgUrl": "https://www.vuestorefront.io/"
-    },
-    "location": "Wrocław, Poland",
-    "languages": ["pl", "en"],
-    "socials": {
-      "github": "filrak",
-      "twitter": "filrakowski"
     },
     "active": true
   },
@@ -132,36 +179,5 @@
       "twitter": "mradziszewska_"
     },
     "active": false
-  },
-  {
-    "name": "Adam Pawliński",
-    "role": "Maintainer",
-    "work": {
-      "title": "Frontend Developer",
-      "org": "DivanteLtd",
-      "orgUrl": "https://github.com/DivanteLtd"
-    },
-    "location": "Wrocław, Poland",
-    "languages": ["pl", "en"],
-    "socials": {
-      "github": "AdamPawlinski",
-      "twitter": "adam_pawlinski"
-    },
-    "active": true
-  },
-  {
-    "name": "Justyna Gieracka",
-    "role": "Maintainer",
-    "work": {
-      "title": "Frontend Developer",
-      "org": "DivanteLtd",
-      "orgUrl": "https://github.com/DivanteLtd"
-    },
-    "location": "Wrocław, Poland",
-    "languages": ["pl", "en"],
-    "socials": {
-      "github": "justyna-13"
-    },
-    "active": true
   }
 ]
