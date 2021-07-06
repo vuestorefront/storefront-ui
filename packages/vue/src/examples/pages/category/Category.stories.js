@@ -1,56 +1,12 @@
-import {
-  SfBreadcrumbs,
-  SfHeading,
-  SfButton,
-  SfIcon,
-  SfComponentSelect,
-  SfAccordion,
-  SfList,
-  SfProductCard,
-  SfProductCardHorizontal,
-  SfProperty,
-  SfPagination,
-  SfSelect,
-  SfSidebar,
-  SfFilter,
-  SfColor,
-  SfRadio,
-  SfMenuItem,
-} from "@storefront-ui/vue";
-import "./category.stories.scss";
+import Category from "./Category.vue";
 export default {
   title: "Pages/Category",
-  argTypes: {
-    "click:add-to-wishlist": {
-      action: "Added to wishlist",
-      table: { category: "Events" },
-    },
-    "click:add-to-compare": {
-      action: "Added to compare",
-      table: { category: "Events" },
-    },
-  },
+  component: Category,
 };
 
 const Template = (args, { argTypes }) => ({
   components: {
-    SfBreadcrumbs,
-    SfHeading,
-    SfButton,
-    SfIcon,
-    SfComponentSelect,
-    SfAccordion,
-    SfList,
-    SfProductCard,
-    SfProductCardHorizontal,
-    SfProperty,
-    SfPagination,
-    SfSelect,
-    SfSidebar,
-    SfFilter,
-    SfColor,
-    SfRadio,
-    SfMenuItem,
+    Category,
   },
   props: Object.keys(argTypes),
   data() {
@@ -311,8 +267,15 @@ const Template = (args, { argTypes }) => ({
       this.products[index].isOnWishlist = !this.products[index].isOnWishlist;
     },
   },
-  template: `
-    <template>
+  template: `<Category />`,
+});
+
+export const Common = Template.bind({});
+Common.args = {};
+Common.parameters = {
+  docs: {
+    source: {
+      code: `<template>
       <div class="category">
         <SfBreadcrumbs
           class="breadcrumbs desktop-only"
@@ -684,20 +647,20 @@ const Template = (args, { argTypes }) => ({
               <SfButton
                 class="sf-button--full-width"
                 @click="isFilterSidebarOpen = false"
-                >Done</SfButton
               >
+                Done
+              </SfButton>
               <SfButton
                 class="sf-button--full-width filters__button-clear"
                 @click="clearAllFilters"
-                >Clear all</SfButton
               >
+                Clear all
+              </SfButton>
             </div>
           </template>
         </SfSidebar>
       </div>
-    </div>
-  `,
-});
-
-export const Common = Template.bind({});
-Common.args = {};
+    </template>`,
+    },
+  },
+};
