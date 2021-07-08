@@ -67,7 +67,11 @@
         >{{ steps[currentStep] }}</SfButton
       >
       <SfButton
-        class="sf-button--full-width sf-button--underlined actions__button smartphone-only"
+        class="
+          sf-button--full-width sf-button--underlined
+          actions__button
+          smartphone-only
+        "
         @click="currentStep--"
         >Go back</SfButton
       >
@@ -350,3 +354,5 @@ export default {
   }
 }
 </style>
+
+<include-source />

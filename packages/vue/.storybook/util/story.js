@@ -11,14 +11,29 @@ export const story = (StoryComponent) => {
 
 export const params = (StoryComponent) => {
   const storyParams = {
-    source: StoryComponent.source,
-    docs: {
-      inlineStories: true,
-      source: {
-        code: StoryComponent.source,
-      },
-    },
-  };
+		source: StoryComponent.source,
+		docs: {
+			inlineStories: true,
+			source: {
+				code: StoryComponent.source,
+			},
+		},
+		controls: {
+			disable: true,
+		},
+		actions: {
+			disable: true,
+		},
+		a11y: {
+			disable: true,
+		},
+		storysource: {
+			disable: true,
+		},
+		// docs: {
+		// 	disable: false,
+		// },
+	};
 
   return storyParams;
 };

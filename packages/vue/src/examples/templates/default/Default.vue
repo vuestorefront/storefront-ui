@@ -75,3 +75,5 @@ export default {
 #default {
 }
 </style>
+
+<include-source />
