@@ -70,13 +70,11 @@ export default {
     /** Minimum allowed quantity */
     min: {
       type: Number,
-      required: false,
       default: null,
     },
     /** Maximum allowed quantity */
     max: {
       type: Number,
-      required: false,
       default: null,
     },
   },
