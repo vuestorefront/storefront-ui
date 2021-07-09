@@ -12,7 +12,7 @@ describe("Cart page", () => {
       .first()
       .find(selectors.collectedProduct.removeButton)
       .click({force: true})
-      .wait(2000)
+      .wait(3000)
       .get(".collected-product")
       .its('length')
       .should('eq', 2)
