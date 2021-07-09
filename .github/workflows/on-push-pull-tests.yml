@@ -61,6 +61,7 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           start: cd packages/nuxt && yarn dev
+          wait-on: 'http://localhost:3080'
           command: yarn run test:e2e:headless
           config-file: packages/nuxt/cypress.json 
 
