@@ -30,9 +30,6 @@ export const params = (StoryComponent) => {
 		storysource: {
 			disable: true,
 		},
-		// docs: {
-		// 	disable: false,
-		// },
 	};
 
   return storyParams;

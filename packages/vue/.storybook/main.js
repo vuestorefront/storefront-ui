@@ -11,6 +11,7 @@ module.exports = {
 		"@storybook/addon-a11y",
 		"@storybook/preset-scss",
 		"@storybook/addon-storysource",
+		"./util/source-addon",
 		{
 			name: "@storybook/addon-docs",
 			options: {
