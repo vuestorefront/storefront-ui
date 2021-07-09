@@ -137,7 +137,7 @@ export default {
             { name: "Size", value: "XS" },
             { name: "Color", value: "White" },
           ],
-          qty: "1",
+          qty: 1,
         },
         {
           title: "Cream Beach Bag Modern Style",
@@ -148,7 +148,7 @@ export default {
             { name: "Size", value: "XS" },
             { name: "Color", value: "White" },
           ],
-          qty: "2",
+          qty: 2,
         },
         {
           title: "Cream Beach Bag Modern Style",
@@ -159,7 +159,7 @@ export default {
             { name: "Size", value: "XS" },
             { name: "Color", value: "White" },
           ],
-          qty: "1",
+          qty: 1,
         },
       ],
       shippingMethods: [
