@@ -62,7 +62,7 @@ jobs:
         with:
           build: yarn nuxt:generate
           start: yarn nuxt:start
-          wait-on: 'http://localhost:3080'
+          wait-on: 'http://localhost:3000'
           command: yarn run test:e2e:headless
           config-file: packages/nuxt/cypress.json 
 
