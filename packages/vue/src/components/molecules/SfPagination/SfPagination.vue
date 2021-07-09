@@ -12,6 +12,7 @@
           :link="hasRouter ? getLinkTo(getPrev) : null"
           :disabled="!hasRouter && !canGoPrev ? true : false"
           aria-label="Go to previous page"
+          data-testid="pagination-button-prev"
           @click="hasRouter ? null : go(getPrev)"
         >
           <SfIcon icon="arrow_left" size="1.125rem" />
@@ -83,6 +84,7 @@
           :link="hasRouter ? getLinkTo(getNext) : null"
           :disabled="!hasRouter && !canGoNext ? true : false"
           aria-label="Go to previous next"
+          data-testid="pagination-button-next"
           @click="hasRouter ? null : go(getNext)"
         >
           <SfIcon icon="arrow_right" size="1.125rem" />

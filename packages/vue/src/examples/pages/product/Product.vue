@@ -32,7 +32,11 @@
                 ({{ product.reviews.length }})
               </a>
             </div>
-            <SfButton class="sf-button--text" @click="changeTab(2)">
+            <SfButton
+              class="sf-button--text"
+              data-testid="read-all-reviews"
+              @click="changeTab(2)"
+            >
               Read all reviews
             </SfButton>
           </div>
@@ -55,7 +59,7 @@
               :key="key"
               :value="size"
             >
-              <SfProductOption :label="size"></SfProductOption>
+              {{ size }}
             </SfSelectOption>
           </SfSelect>
           <div class="product__colors desktop-only">
@@ -167,7 +171,6 @@ import {
   SfAddToCart,
   SfColor,
   SfSelect,
-  SfProductOption,
   SfBreadcrumbs,
   SfNotification,
 } from "@storefront-ui/vue";
@@ -186,7 +189,6 @@ export default {
     SfAddToCart,
     SfColor,
     SfSelect,
-    SfProductOption,
     SfBreadcrumbs,
     SfNotification,
   },
