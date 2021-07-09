@@ -1,7 +1,7 @@
 <template>
   <div class="login">
     <Login v-if="isLoginOpen" @close="isLoginOpen = false"> </Login>
-    <SfButton @click="isLoginOpen = true" v-if="!isLoginOpen">Login</SfButton>
+    <SfButton data-testid="open-login-button" @click="isLoginOpen = true" v-if="!isLoginOpen">Login</SfButton>
   </div>
 </template>
 
