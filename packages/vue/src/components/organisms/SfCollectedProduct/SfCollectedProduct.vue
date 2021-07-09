@@ -59,11 +59,18 @@
       <SfCircleIcon
         icon="cross"
         aria-label="Remove"
-        class="sf-circle-icon--small sf-collected-product__remove sf-collected-product__remove--circle-icon"
+        class="
+          sf-circle-icon--small
+          sf-collected-product__remove sf-collected-product__remove--circle-icon
+        "
         @click="removeHandler"
       />
       <SfButton
-        class="sf-button--text sf-collected-product__remove sf-collected-product__remove--text"
+        class="
+          sf-button--text
+          sf-collected-product__remove sf-collected-product__remove--text
+        "
+        data-testid="collected-product-desktop-remove"
         @click="removeHandler"
         >Remove</SfButton
       >
@@ -71,7 +78,11 @@
     <slot name="more-actions">
       <SfButton
         aria-label="More actions"
-        class="sf-button--pure sf-collected-product__more-actions smartphone-only"
+        class="
+          sf-button--pure
+          sf-collected-product__more-actions
+          smartphone-only
+        "
       >
         <SfIcon icon="more" size="18px" />
       </SfButton>

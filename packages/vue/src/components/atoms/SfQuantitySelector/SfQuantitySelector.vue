@@ -9,7 +9,7 @@
         props.disabled || Boolean(props.min !== null && props.qty <= props.min)
       "
       class="sf-button--pure sf-quantity-selector__button"
-      data-testid="+"
+      data-testid="decrease"
       @click="
         $options.handleInput(props.qty - 1, listeners, props.min, props.max)
       "
@@ -31,7 +31,7 @@
         props.disabled || Boolean(props.max !== null && props.qty >= props.max)
       "
       class="sf-button--pure sf-quantity-selector__button"
-      data-testid="-"
+      data-testid="increase"
       @click="
         $options.handleInput(props.qty + 1, listeners, props.min, props.max)
       "
