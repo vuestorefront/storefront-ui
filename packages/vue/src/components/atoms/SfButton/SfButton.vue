@@ -14,10 +14,10 @@
       },
     ]"
     :style="[data.style, data.staticStyle]"
-    :disabled="props.disabled"
+    :aria-disabled="props.disabled"
     :link="props.link"
     v-bind="data.attrs"
-    v-on="listeners"
+    v-on="!props.disabled ? listeners : {}"
   >
     <!--@slot Use this slot to place content inside the button.-->
     <slot />
@@ -38,7 +38,8 @@ export default {
   },
   props: {
     /**
-     * Native button disabled attribute
+     * Equivalent of native button disabled attribute,
+     * allows focus for better accessibility
      */
     disabled: {
       type: Boolean,
