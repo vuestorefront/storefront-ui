@@ -8,7 +8,6 @@ const ADDON_ID = 'vueStorySource';
 const PARAM_KEY = 'docs';
 const PANEL_ID = `${ADDON_ID}/panel`;
 
-// The SourcePanel component (React)
 const SourcePanel = ({ active }) => {
   const docsParams = useParameter(PARAM_KEY, null);
   const source = docsParams && docsParams.source && docsParams.source.code;
@@ -28,7 +27,6 @@ const SourcePanel = ({ active }) => {
     null;
 };
 
-// Register the addon
 addons.register(ADDON_ID, () => {
   const render = ({ active, key }) => React.createElement(
     AddonPanel,
