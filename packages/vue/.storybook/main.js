@@ -11,21 +11,6 @@ module.exports = {
 		"@storybook/addon-a11y",
 		"@storybook/preset-scss",
 		"@storybook/addon-storysource",
-		{
-			name: "@storybook/addon-docs",
-			options: {
-				babelOptions: {
-					presets: [
-						[
-							"@vue/cli-plugin-babel/preset",
-							{
-								jsx: false,
-							},
-						],
-					],
-				},
-			},
-		},
 	],
 	webpackFinal: async (config) => {
 		config.module.rules.push({
