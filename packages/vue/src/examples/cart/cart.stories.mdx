@@ -1,0 +1,14 @@
+import { Meta, Props, Preview, Story } from "@storybook/addon-docs/blocks";
+
+import { story, params } from "~storybook-util/story";
+import CartComponent from "./Cart";
+
+<Meta title="Examples/Cart" component={CartComponent} />
+
+# Cart example page
+
+<Preview>
+	<Story name="Cart" inline parameters={params(CartComponent)}>
+		{story(CartComponent)}
+	</Story>
+</Preview>
