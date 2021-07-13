@@ -27,8 +27,7 @@ describe("Login/signin page", () => {
       .get(selectors.login.forgottenPasswordButton)
       .click()
       .get(selectors.login.closeButton)
-      .click()
-      .should("be.visible", selectors.login.loginModal);
+      .click();
   });
   it("test Signin modal", () => {
     cy.get(selectors.login.openModalButton)
