@@ -115,7 +115,11 @@
         </div>
       </transition>
     </SfModal>
-    <SfButton style="margin: 0 auto" @click="openModal = true">
+    <SfButton
+      style="margin: 0 auto"
+      data-testid="open-modal-button"
+      @click="openModal = true"
+    >
       Open Modal
     </SfButton>
   </div>

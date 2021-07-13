@@ -1,11 +1,13 @@
 import selectors from "../selectors/index.js";
 
 describe("Login/signin page", () => {
-  it('successfully loads', () => {
-    cy.visit('/login')
-  })
+  it("successfully loads", () => {
+    cy.visit("/login");
+  });
   it("test Login modal", () => {
-    cy.get(selectors.login.openLoginButton)
+    cy.get(selectors.login.openModalButton)
+      .click()
+      .get(selectors.login.openLoginButton)
       .click()
       .get(selectors.login.emailInput)
       .type("johndoe@vuestorefront.io")
@@ -26,12 +28,12 @@ describe("Login/signin page", () => {
       .click()
       .get(selectors.login.closeButton)
       .click()
-      .get(selectors.login.registerButton)
-      .click()
       .should("be.visible", selectors.login.loginModal);
   });
   it("test Signin modal", () => {
-    cy.get(selectors.login.registerButton)
+    cy.get(selectors.login.openModalButton)
+      .click()
+      .get(selectors.login.registerButton)
       .click()
       .get(selectors.signin.firstNameInput)
       .type("John")
@@ -49,6 +51,6 @@ describe("Login/signin page", () => {
       .click()
       .get(selectors.signin.loginAccountButton)
       .click()
-      .should("be.visible", selectors.signin.signinModal)
+      .should("be.visible", selectors.signin.signinModal);
   });
 });

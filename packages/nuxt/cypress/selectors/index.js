@@ -94,7 +94,8 @@ const selectors = {
   // Login/singin page elements
 
   login: {
-    openLoginButton: element("open-login-button"),
+    openModalButton: element("open-modal-button"),
+    openLoginButton: element("log-in-button"),
     loginModal: element("login-modal"),
     emailInput: element("email"),
     passwordInput: element("password"),
@@ -172,23 +173,23 @@ const selectors = {
   // Cart
 
   collectedProduct: {
-    removeButton: element('collected-product-desktop-remove'),
+    removeButton: element("collected-product-desktop-remove"),
   },
 
   // Category page
-  
+
   pagination: {
-    prevArrow: element('pagination-button-prev'),
-    nextArrow: element('pagination-button-next')
+    prevArrow: element("pagination-button-prev"),
+    nextArrow: element("pagination-button-next"),
   },
 
   // Product page
 
   quantitySelector: {
-    increaseQuantity: element('increase'),
-    decreaseQuantity: element('decrease')
+    increaseQuantity: element("increase"),
+    decreaseQuantity: element("decrease"),
   },
-  readAllReviews: element('read-all-reviews')
+  readAllReviews: element("read-all-reviews"),
 };
 
 export default selectors;
