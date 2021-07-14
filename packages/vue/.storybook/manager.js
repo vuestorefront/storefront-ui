@@ -3,6 +3,6 @@ import theme from "./theme.js";
 import "./util/source-addon";
 
 addons.setConfig({
-	theme: theme,
-	selectedPanel: "@storybook/addon-controls",
+  theme: theme,
+  selectedPanel: "@storybook/addon-controls",
 });

@@ -4,33 +4,33 @@
  * For MDX stories, params much be set in the params() function.
  */
 export const story = (StoryComponent) => {
-	const storyExport = () => StoryComponent;
+  const storyExport = () => StoryComponent;
 
-	return storyExport();
+  return storyExport();
 };
 
 export const params = (StoryComponent) => {
-	const storyParams = {
-		source: StoryComponent.source,
-		docs: {
-			inlineStories: false,
-			source: {
-				code: StoryComponent.source,
-			},
-		},
-		controls: {
-			disable: true,
-		},
-		actions: {
-			disable: true,
-		},
-		a11y: {
-			disable: true,
-		},
-		storysource: {
-			disable: true,
-		},
-	};
+  const storyParams = {
+    source: StoryComponent.source,
+    docs: {
+      inlineStories: false,
+      source: {
+        code: StoryComponent.source,
+      },
+    },
+    controls: {
+      disable: true,
+    },
+    actions: {
+      disable: true,
+    },
+    a11y: {
+      disable: true,
+    },
+    storysource: {
+      disable: true,
+    },
+  };
 
-	return storyParams;
+  return storyParams;
 };
