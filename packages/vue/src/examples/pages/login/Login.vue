@@ -116,9 +116,9 @@
       </transition>
     </SfModal>
     <SfButton
-      style="margin: 0 auto"
+      class="open-button"
       data-testid="open-modal-button"
-      @click="openModal = true"
+      @click="toggleModal"
     >
       Open Modal
     </SfButton>
@@ -169,8 +169,8 @@ export default {
     },
   },
   methods: {
-    toggleModal(event) {
-      this.openModal = event;
+    toggleModal() {
+      this.openModal = !this.openModal;
     },
   },
 };
@@ -197,6 +197,9 @@ export default {
 }
 .action-button {
   margin: var(--spacer-xl) 0;
+}
+.open-button {
+  margin: 0 auto;
 }
 .aside {
   margin: 0 0 var(--spacer-xl) 0;
