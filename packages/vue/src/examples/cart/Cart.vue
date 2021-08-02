@@ -76,7 +76,10 @@
           <div v-if="totalItems">
             <SfProperty
               name="Total price"
-              class="sf-property--full-width sf-property--large my-cart__total-price"
+              class="
+                sf-property--full-width sf-property--large
+                my-cart__total-price
+              "
             >
               <template #value>
                 <SfPrice :regular="totalPrice" />
@@ -130,7 +133,7 @@ export default {
             { name: "Size", value: "XS" },
             { name: "Color", value: "White" },
           ],
-          qty: 1,
+          qty: "1",
         },
         {
           title: "Cream Beach Bag Modern Style",
@@ -141,7 +144,7 @@ export default {
             { name: "Size", value: "XS" },
             { name: "Color", value: "White" },
           ],
-          qty: 2,
+          qty: "2",
         },
         {
           title: "Cream Beach Bag Modern Style",
@@ -152,7 +155,7 @@ export default {
             { name: "Size", value: "XS" },
             { name: "Color", value: "White" },
           ],
-          qty: 1,
+          qty: "1",
         },
       ],
     };

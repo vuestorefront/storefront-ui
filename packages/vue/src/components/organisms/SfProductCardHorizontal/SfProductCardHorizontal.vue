@@ -8,7 +8,10 @@
       >
         <SfLink
           :link="link"
-          class="sf-product-card-horizontal__link sf-product-card-horizontal__link--image"
+          class="
+            sf-product-card-horizontal__link
+            sf-product-card-horizontal__link--image
+          "
         >
           <template v-if="Array.isArray(image)">
             <SfImage
@@ -93,7 +96,7 @@
           <!--@slot Use this slot to replace add to cart-->
           <slot name="add-to-cart">
             <SfAddToCart
-              :qty="qty"
+              :qty="quantity"
               class="sf-product-card-horizontal__add-to-cart desktop-only"
               @input="$emit('input', $event)"
               @click="$emit('click:add-to-cart')"
@@ -274,6 +277,9 @@ export default {
       return `${defaultClass} ${
         this.isOnWishlist ? "sf-product-card-horizontal--on-wishlist" : ""
       }`;
+    },
+    quantity() {
+      return typeof this.qty === "string" ? Number(this.qty) : this.qty;
     },
   },
   methods: {
