@@ -36,7 +36,7 @@
         </slot>
       </div>
       <!--@slot Custom notification close icon. Slot content will replace default close icon.-->
-      <slot name="close" v-bind="{ closeHandler }">
+      <slot v-if="!persistent" name="close" v-bind="{ closeHandler }">
         <SfButton
           aria-label="Close notification"
           class="sf-button--pure sf-notification__close"
@@ -62,6 +62,13 @@ export default {
      * Visibility of the Notification. Default value is false.
      */
     visible: {
+      type: Boolean,
+      default: false,
+    },
+    /**
+     * Persistence of the Notification. Default value is false.
+     */
+    persistent: {
       type: Boolean,
       default: false,
     },
