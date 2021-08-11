@@ -93,10 +93,10 @@
           <!--@slot Use this slot to replace add to cart-->
           <slot name="add-to-cart">
             <SfAddToCart
-              v-model="quantity"
+              :qty="qty"
               class="sf-product-card-horizontal__add-to-cart desktop-only"
               @input="$emit('input', $event)"
-              @click="$emit('click:add-to-cart', quantity)"
+              @click="$emit('click:add-to-cart')"
             />
           </slot>
         </div>
@@ -106,7 +106,7 @@
         :aria-label="`${ariaLabel} ${title}`"
         :class="wishlistIconClasses"
         class="sf-button--pure smartphone-only"
-        @click="toggleIsInWishlist"
+        @click="toggleIsOnWishlist"
       >
         <!--@slot Use this slot to replace wishlist icon-->
         <slot name="wishlist-icon" v-bind="{ currentWishlistIcon }">
@@ -138,6 +138,9 @@ export default {
     SfLink,
     SfButton,
     SfAddToCart,
+  },
+  model: {
+    prop: "qty",
   },
   props: {
     /**
@@ -240,14 +243,14 @@ export default {
      * This is the icon for product added to wish list. Default visible on mobile. Visible only on hover on desktop.
      * It can be a icon name from our icons list, or array or string as SVG path(s).
      */
-    isInWishlistIcon: {
+    isOnWishlistIcon: {
       type: [String, Array],
       default: "heart_fill",
     },
     /**
      * Status of whether product is on wish list or not
      */
-    isInWishlist: {
+    isOnWishlist: {
       type: Boolean,
       default: false,
     },
@@ -259,28 +262,23 @@ export default {
       default: 1,
     },
   },
-  data() {
-    return {
-      quantity: this.qty,
-    };
-  },
   computed: {
     currentWishlistIcon() {
-      return this.isInWishlist ? this.isInWishlistIcon : this.wishlistIcon;
+      return this.isOnWishlist ? this.isOnWishlistIcon : this.wishlistIcon;
     },
     ariaLabel() {
-      return this.isInWishlist ? "Remove from wishlist" : "Add to wishlist";
+      return this.isOnWishlist ? "Remove from wishlist" : "Add to wishlist";
     },
     wishlistIconClasses() {
       const defaultClass = "sf-product-card-horizontal__wishlist-icon";
       return `${defaultClass} ${
-        this.isInWishlist ? "sf-product-card-horizontal--on-wishlist" : ""
+        this.isOnWishlist ? "sf-product-card-horizontal--on-wishlist" : ""
       }`;
     },
   },
   methods: {
-    toggleIsInWishlist() {
-      this.$emit("click:wishlist", !this.isInWishlist);
+    toggleIsOnWishlist() {
+      this.$emit("click:wishlist", !this.isOnWishlist);
     },
   },
 };

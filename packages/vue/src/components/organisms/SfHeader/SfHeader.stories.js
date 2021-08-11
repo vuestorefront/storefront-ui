@@ -143,7 +143,6 @@ const Template = (args, { argTypes }) => ({
     :cart-icon="cartIcon"
     :wishlist-icon="wishlistIcon"
     :is-sticky="isSticky"
-    :is-nav-visible="isNavVisible"
     :account-icon="accountIcon"
     :cart-items-qty="cartItemsQty"
     :wishlist-items-qty="wishlistItemsQty"
@@ -155,9 +154,11 @@ const Template = (args, { argTypes }) => ({
   <template #navigation>
     <SfHeaderNavigationItem
       v-for="item in navigationItems"
-      :key="item"
-      :label="item"
-    />
+      :key="item">
+      <template slot="desktop-navigation-item">
+        <SfLink href="#">{{item}}</SfLink>
+      </template>
+    </SfHeaderNavigationItem>
   </template>
 </SfHeader>`,
 });

@@ -90,8 +90,7 @@
   }
   
 }
-.sf-header__navigation {
-  display: none;
+.sf-header-navigation {
   &__menu {
     display: var(--header-navigation-menu-display, none);
     @include for-desktop {
@@ -152,21 +151,18 @@
     }
   }
   &__navigation {
-    order: 1;    
+    order: 1;
+    display: var(--header-navigation-display, none);
     flex: 0 0 calc(100% + var(--spacer-sm) * 2);
     margin: var(--header-navigation-margin, 0 calc(var(--spacer-sm) * -1));
     @include for-desktop {
-      display: flex;
+      --header-navigation-display: flex;
       --header-navigation-margin: 0 auto 0 var(--spacer-xl);
       order: 0;
       flex: 0 0 auto;
     }
     &.is-visible {
-      display: flex;
-      --link-text-decoration: none;
-      @include for-mobile {
-        flex-direction: column;      
-      }
+      --header-navigation-display: flex;
     }
   }
   &__search {
@@ -225,12 +221,7 @@
     }
   }
   &--has-mobile-navigation {
-    @include for-mobile{
-      .sf-header__navigation {
-        display: flex;  
-        flex-direction: column;
-      }   
-    }    
+    --header-navigation-display: flex;
   }
   &--multiline {
     @include for-desktop{

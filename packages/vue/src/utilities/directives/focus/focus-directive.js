@@ -3,9 +3,9 @@ export const focus = {
     el._mouseHandler = function () {
       el.style.outline = "none";
     };
-    el._keyHandler = function (e) {
+    el._keyHandler = function () {
       el.style.outline = "";
-      if (e.code === "Tab") el.focus();
+      el.focus();
     };
     window.addEventListener("mousedown", el._mouseHandler);
     el.addEventListener("keyup", el._keyHandler);

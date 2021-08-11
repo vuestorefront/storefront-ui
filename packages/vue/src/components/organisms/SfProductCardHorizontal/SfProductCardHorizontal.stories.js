@@ -106,13 +106,13 @@ export default {
       },
       defaultValue: "heart",
     },
-    isInWishlistIcon: {
+    isOnWishlistIcon: {
       control: "text",
       table: {
         category: "Props",
       },
     },
-    isInWishlist: {
+    isOnWishlist: {
       control: "boolean",
       table: {
         category: "Props",
@@ -137,10 +137,6 @@ export default {
     },
     "click:wishlist": {
       action: "Wishlist clicked",
-      table: { category: "Events" },
-    },
-    input: {
-      action: "Quantity changed",
       table: { category: "Events" },
     },
   },
@@ -170,10 +166,10 @@ const Template = (args, { argTypes }) => ({
     :wishlist-icon="wishlistIcon"
     :reviews-count="reviewsCount"
     :description="description"
-    :qty="quantity"
-    @input="input"
-    :is-in-wishlist-icon="isInWishlistIcon"
-    :is-in-wishlist="isInWishlist"
+    :qty="qty"
+    @input="quantity = $event"
+    :is-on-wishlist-icon="isOnWishlistIcon"
+    :is-on-wishlist="isOnWishlist"
     @click:add-to-cart="this['click:addToCart']"
     @click:wishlist="this['click:wishlist']"
   >
@@ -243,5 +239,5 @@ WithMultipleImages.args = {
 export const AddedToWishlist = Template.bind({});
 AddedToWishlist.args = {
   ...Common.args,
-  isInWishlist: true,
+  isOnWishlist: true,
 };

@@ -44,7 +44,6 @@ export default {
         type: "slider",
         rewind: true,
         gap: 0,
-        perView: 2,
         slidePerPage: true,
         breakpoints: {
           1023: {
