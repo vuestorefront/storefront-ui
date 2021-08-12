@@ -17,6 +17,7 @@ export const params = (StoryComponent) => {
       source: {
         code: StoryComponent.source,
       },
+      disabled: false,
     },
     controls: {
       disable: true,
