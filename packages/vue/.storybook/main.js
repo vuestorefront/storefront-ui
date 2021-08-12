@@ -1,16 +1,19 @@
-const path = require("path");
+const path = require('path');
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 const rootPath = path.resolve(__dirname, "../../");
 
 module.exports = {
-  stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
+  stories: [
+    "../src/**/*.stories.mdx", 
+    "../src/**/*.stories.@(js|jsx|ts|tsx)"
+  ],
   addons: [
     "@storybook/addon-essentials",
     "@storybook/addon-links",
     "@storybook/addon-a11y",
     "@storybook/preset-scss",
-    "@storybook/addon-storysource",
+    "@storybook/addon-storysource", 
   ],
   webpackFinal: async (config) => {
     config.module.rules.push({

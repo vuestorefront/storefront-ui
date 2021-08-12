@@ -4,5 +4,4 @@ import "./util/source-addon";
 
 addons.setConfig({
   theme: theme,
-  selectedPanel: "@storybook/addon-controls",
 });
