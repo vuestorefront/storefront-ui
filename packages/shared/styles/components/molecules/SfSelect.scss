@@ -19,6 +19,7 @@
       top 150ms linear,
       font-size 150ms linear
     );
+    pointer-events: none;
     @include font(
       --select-label-font,
       var(--font-weight--normal),
@@ -44,7 +45,7 @@
       0 0 0 0,
       solid,
       var(--c-secondary)
-    );
+    );    
   }
   &__option {
     background: var(--select-option-background, var(--c-white));
