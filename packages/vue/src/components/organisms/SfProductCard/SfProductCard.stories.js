@@ -27,12 +27,14 @@ export default {
       table: {
         category: "Props",
       },
+      defaultValue: "100%",
     },
     imageHeight: {
       control: "number",
       table: {
         category: "Props",
       },
+      defaultValue: "auto",
     },
     badgeLabel: {
       control: "text",
