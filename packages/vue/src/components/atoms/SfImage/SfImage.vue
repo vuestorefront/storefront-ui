@@ -8,10 +8,7 @@
       :sizes="sizes"
       :class="classes"
       :width="width"
-      :style="{
-        '--image-width': `${width}px`,
-        '--image-height': `${height}px`,
-      }"
+      :style="imageStyle"
       :height="height"
       :alt="alt"
       @load="onLoad"
@@ -138,6 +135,12 @@ export default {
     classes() {
       return `sf-image ${this.loaded && "sf-image-loaded"}`;
     },
+    imageStyle() {
+      return {
+        '--image-width': typeof this.width === 'string' ? this.width : `${this.width}px`,
+        '--image-height': typeof this.height === 'string' ? this.height : `${this.height}px`,
+      }
+    }
   },
   methods: {
     onLoad() {
