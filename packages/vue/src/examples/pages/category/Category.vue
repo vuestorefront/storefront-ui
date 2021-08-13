@@ -403,6 +403,7 @@ import {
   SfSelect,
 } from "@storefront-ui/vue";
 export default {
+  name: "Category",
   components: {
     SfHeading,
     SfButton,
@@ -993,3 +994,5 @@ export default {
   }
 }
 </style>
+
+<include-source />

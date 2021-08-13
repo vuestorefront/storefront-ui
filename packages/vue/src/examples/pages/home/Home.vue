@@ -310,8 +310,8 @@ export default {
   },
   methods: {
     toggleWishlist(index) {
-      return (this.products[index].isOnWishlist = !this.products[index]
-        .isOnWishlist);
+      return (this.products[index].isOnWishlist =
+        !this.products[index].isOnWishlist);
     },
   },
 };
@@ -425,3 +425,5 @@ export default {
   }
 }
 </style>
+
+<include-source />
