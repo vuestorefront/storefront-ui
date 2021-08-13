@@ -180,16 +180,16 @@ const selectors = {
 
   pagination: {
     prevArrow: element('pagination-button-prev'),
-    nextArrow: element('pagination-button-next'),
+    nextArrow: element('pagination-button-next')
   },
 
   // Product page
 
   quantitySelector: {
     increaseQuantity: element('increase'),
-    decreaseQuantity: element('decrease'),
+    decreaseQuantity: element('decrease')
   },
-  readAllReviews: element('read-all-reviews'),
+  readAllReviews: element('read-all-reviews')
 };
 
 export default selectors;

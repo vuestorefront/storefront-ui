@@ -4,9 +4,9 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const rootPath = path.resolve(__dirname, "../../");
 
 module.exports = {
-  stories: [
+  "stories": [
     "../src/**/*.stories.mdx",
-    "../src/**/*.stories.@(js|jsx|ts|tsx)"
+    "../src/**/*.stories.@(js|jsx|ts|tsx)",
   ],
   addons: [
     "@storybook/addon-essentials",

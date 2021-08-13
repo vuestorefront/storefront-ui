@@ -1,8 +1,8 @@
 import selectors from "../selectors/index.js";
 
 describe("Login/signin page", () => {
-  it("successfully loads", () => {
-    cy.visit("/login");
+  it('successfully loads', () => {
+    cy.visit('/login');
   });
   it("test Login modal", () => {
     cy.get(selectors.login.openModalButton)
