@@ -94,7 +94,8 @@ const selectors = {
   // Login/singin page elements
 
   login: {
-    openLoginButton: element("open-login-button"),
+    openModalButton: element("open-modal-button"),
+    openLoginButton: element("log-in-button"),
     loginModal: element("login-modal"),
     emailInput: element("email"),
     passwordInput: element("password"),
@@ -176,7 +177,7 @@ const selectors = {
   },
 
   // Category page
-  
+
   pagination: {
     prevArrow: element('pagination-button-prev'),
     nextArrow: element('pagination-button-next')
