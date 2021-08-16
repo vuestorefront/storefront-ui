@@ -65,10 +65,6 @@
       left: 0;
       opacity: var(--product-card-image-even-opacity, 0);
     }
-    .sf-image {
-      --image-width: 100%;
-      --image-height: auto;
-    }
   }
   &__badge {
     position: absolute;
