@@ -1,5 +1,5 @@
 <template>
-  <div :class="`color-${type}`" class="sf-alert">
+  <div :class="colorClass" class="sf-alert">
     <!--@slot Custom alert icon. Slot content will replace default icon <SfIcon/> tag.-->
     <slot name="icon" v-bind="{ icon }">
       <SfIcon aria-hidden="true" :icon="icon" class="sf-alert__icon" />
@@ -47,6 +47,22 @@ export default {
           return "info_shield";
         default:
           return "info_circle";
+      }
+    },
+    colorClass() {
+      switch(this.type) {
+        case "secondary":
+          return "color-secondary";
+        case "info":
+          return "color-info";
+        case "success":
+          return "color-success";
+        case "warning":
+          return "color-warning";
+        case "danger":
+          return "color-danger";
+        default:
+          return "color-info";
       }
     },
   },
