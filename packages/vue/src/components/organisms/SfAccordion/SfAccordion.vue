@@ -53,7 +53,7 @@ export default {
   },
   watch: {
     open(newValue, oldValue) {
-      if (newValue === oldValue) return;
+      if (!newValue || newValue === oldValue) return;
       const activeHeader = this.$children.find(
         (accordionItem) => accordionItem.header === newValue
       );
@@ -107,6 +107,13 @@ export default {
           return child._uid === slotId;
         });
         clickedHeader.isOpen = !clickedHeader.isOpen;
+      }
+      const headersAreClosed = this.$children
+        .map((header) => header.isOpen)
+        .every((header) => header === false);
+
+      if (headersAreClosed) {
+        this.openHeader = "";
       }
     },
   },
