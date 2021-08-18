@@ -109,11 +109,73 @@ export default {
   },
   iconColorClass(color) {
     const isSFColors = SF_COLORS.includes(color.trim());
-    return isSFColors ? `color-${color.trim()}` : "";
+    if (isSFColors) {
+      switch (color.trim()) {
+        case "green-primary":
+          return "color-green-primary";
+        case "green-secondary":
+          return "color-green-secondary";
+        case "black":
+          return "color-black";
+        case "dark-secondary":
+          return "color-dark-secondary";
+        case "gray-primary":
+          return "color-gray-primary";
+        case "dark-secondary":
+          return "color-dark-secondary";
+        case "gray-secondary":
+          return "color-gray-secondary";
+        case "light-primary":
+          return "color-light-primary";
+        case "white":
+          return "color-white";
+        case "red-primary":
+          return "color-red-primary";
+        case "red-secondary":
+          return "color-red-secondary";
+        case "yellow-primary":
+          return "color-yellow-primary";
+        case "yellow-secondary":
+          return "color-yellow-secondary";
+        case "blue-primary":
+          return "color-blue-primary";
+        case "blue-secondary":
+          return "color-blue-secondary";
+        default:
+          return "color-green-primary";
+      }
+    } else {
+      return "";
+    }
   },
   iconSizeClass(size) {
     const isSFSizes = SF_SIZES.includes(size.trim());
-    return isSFSizes ? `size-${size.trim()}` : "";
+    if (isSFSizes) {
+      switch (size.trim()) {
+        case "xxs":
+          return "size-xxs";
+        case "xs":
+          return "size-xs";
+        case "sm":
+          return "size-sm";
+        case "md":
+          return "size-md";
+        case "lg":
+          return "size-lg";
+        case "xl":
+          return "size-xl";
+        case "xxl":
+          return "size-xxl";
+        case "xl3":
+          return "size-xl3";
+        case "xl4":
+          return "size-xl4";
+        default:
+          return "size-lg";
+      }
+    } else {
+      return "";
+    }
   },
   iconCustomStyle(color, size) {
     const isSFColors = SF_COLORS.includes(color.trim());
