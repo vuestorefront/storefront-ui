@@ -1,5 +1,9 @@
 <template>
-  <div class="sf-image--wrapper" data-testid="image-wrapper">
+  <div
+    class="sf-image--wrapper"
+    :style="imageStyle"
+    data-testid="image-wrapper"
+  >
     <img
       :loading="loading"
       v-bind="$attrs"
@@ -8,7 +12,6 @@
       :sizes="sizes"
       :class="classes"
       :width="width"
-      :style="imageStyle"
       :height="height"
       :alt="alt"
       @load="onLoad"
@@ -142,9 +145,13 @@ export default {
     imageStyle() {
       return {
         "--image-width":
-          typeof this.width === "string" ? this.width : `${this.width}px`,
+          typeof this.width === "string"
+            ? this.formatDimension(this.width)
+            : `${this.width}px`,
         "--image-height":
-          typeof this.height === "string" ? this.height : `${this.height}px`,
+          typeof this.height === "string"
+            ? this.formatDimension(this.height)
+            : `${this.height}px`,
       };
     },
   },
@@ -155,10 +162,17 @@ export default {
     formatResolution(resolution) {
       return ("" + resolution).endsWith("x") ? resolution : `${resolution}x`;
     },
-    formatDimension(width) {
-      return ["em", "px", "vw"].includes(`${width}`.slice(-2))
-        ? width
-        : `${width}px`;
+    formatDimension(size) {
+      if (
+        ["%"].includes(`${size}`.slice(-1)) ||
+        ["rem"].includes(`${size}`.slice(-3)) ||
+        ["em", "px", "vw", "vh"].includes(`${size}`.slice(-2)) ||
+        !parseInt(size, 10)
+      ) {
+        return size;
+      } else {
+        return `${size}px`;
+      }
     },
     formatBreakpoint(breakpoint) {
       return breakpoint ? `(max-width: ${breakpoint}px) ` : "";

@@ -180,14 +180,14 @@ export default {
      */
     imageWidth: {
       type: [String, Number],
-      default: 216,
+      default: "100%",
     },
     /**
      * Product image height, without unit
      */
     imageHeight: {
       type: [String, Number],
-      default: 326,
+      default: "auto",
     },
     /**
      * Badge label
