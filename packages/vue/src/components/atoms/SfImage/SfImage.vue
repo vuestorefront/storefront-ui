@@ -136,7 +136,11 @@ export default {
       );
     },
     classes() {
-      return `sf-image ${this.loaded && "sf-image-loaded"}`;
+      if (this.loaded) {
+        return "sf-image sf-image-loaded";
+      } else {
+        return "sf-image";
+      }
     },
     imageStyle() {
       return {
