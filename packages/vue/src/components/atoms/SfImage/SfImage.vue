@@ -1,5 +1,9 @@
 <template>
-  <div class="sf-image--wrapper" :style="imageStyle" data-testid="image-wrapper">
+  <div
+    class="sf-image--wrapper"
+    :style="imageStyle"
+    data-testid="image-wrapper"
+  >
     <img
       :loading="loading"
       v-bind="$attrs"
@@ -7,7 +11,7 @@
       :srcset="srcset"
       :sizes="sizes"
       :class="classes"
-      :width="width"      
+      :width="width"
       :height="height"
       :alt="alt"
       @load="onLoad"
@@ -135,11 +139,16 @@ export default {
       return `sf-image ${this.loaded && "sf-image-loaded"}`;
     },
     imageStyle() {
-      console.log(typeof this.width, typeof this.height )
       return {
-        '--image-width': typeof this.width === 'string' ? this.formatDimension(this.width) : `${this.width}px`,
-        '--image-height': typeof this.height === 'string' ?  this.formatDimension(this.height) : `${this.height}px`,
-      }
+        "--image-width":
+          typeof this.width === "string"
+            ? this.formatDimension(this.width)
+            : `${this.width}px`,
+        "--image-height":
+          typeof this.height === "string"
+            ? this.formatDimension(this.height)
+            : `${this.height}px`,
+      };
     },
   },
   methods: {
@@ -149,12 +158,15 @@ export default {
     formatResolution(resolution) {
       return ("" + resolution).endsWith("x") ? resolution : `${resolution}x`;
     },
-    formatDimension(size) {     
-      if (["%"].includes(`${size}`.slice(-1)) || ["rem"].includes(`${size}`.slice(-3))  || ["em", "px", "vw", "vh"].includes(`${size}`.slice(-2)) || !parseInt(size, 10)) {
-         console.log(size, 'first')
+    formatDimension(size) {
+      if (
+        ["%"].includes(`${size}`.slice(-1)) ||
+        ["rem"].includes(`${size}`.slice(-3)) ||
+        ["em", "px", "vw", "vh"].includes(`${size}`.slice(-2)) ||
+        !parseInt(size, 10)
+      ) {
         return size;
       } else {
-         console.log(size, 'second')
         return `${size}px`;
       }
     },
