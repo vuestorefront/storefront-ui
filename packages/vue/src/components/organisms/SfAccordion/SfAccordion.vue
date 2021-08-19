@@ -51,9 +51,16 @@ export default {
       openHeader: this.open,
     };
   },
+  computed: {
+    headersAreClosed() {
+      return this.$children
+        .map((header) => header.isOpen)
+        .every((header) => header === false);
+    },
+  },
   watch: {
     open(newValue, oldValue) {
-      if (newValue === oldValue) return;
+      if (!newValue || newValue === oldValue) return;
       const activeHeader = this.$children.find(
         (accordionItem) => accordionItem.header === newValue
       );
@@ -63,9 +70,11 @@ export default {
   mounted() {
     this.$on("toggle", this.toggleHandler);
     this.setAsOpen();
+    this.$emit("click:open-header");
   },
   updated() {
     this.setAsOpen();
+    this.$emit("click:open-header");
   },
   methods: {
     setAsOpen() {
@@ -97,7 +106,6 @@ export default {
           if (child._uid === slotId) {
             child.isOpen = !child.isOpen;
             this.openHeader = child.header;
-            this.$emit("click:open-header", child.header);
           } else {
             child.isOpen = false;
           }
@@ -107,6 +115,9 @@ export default {
           return child._uid === slotId;
         });
         clickedHeader.isOpen = !clickedHeader.isOpen;
+      }
+      if (this.headersAreClosed) {
+        this.openHeader = "";
       }
     },
   },
