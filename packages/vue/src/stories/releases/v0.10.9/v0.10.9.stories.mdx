@@ -4,10 +4,38 @@ import { Meta } from "@storybook/addon-docs/blocks";
 
 # v0.10.9
 
+## ✨ Props
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="5">Props</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Component</td>
+      <td>Before</td>
+      <td>v0.10.9</td>
+      <td>Required</td>
+      <td>Default value</td>
+    </tr>
+    <tr>
+      <td>SfNotification</td>
+      <td>-</td>
+      <td>persistent</td>
+      <td>false</td>
+      <td>false</td>
+    </tr>
+  </tbody>
+</table>
+
 ## 🚀 Features
 
 - E2E tests moved to nuxt directory
 - example pages on Storybook refactored to show full source code in docs tab
+- SfButton - disabled state made more inclusive
+- SfAccordion - SfAccordionItems can be opened programmatically
 
 ## 🐛 Fixes
 
@@ -20,4 +48,4 @@ import { Meta } from "@storybook/addon-docs/blocks";
 - SfRange - removed optional chaining
 - SfNotification - added persistent prop to exclude closing button
 - SfCart, SfDetailedCart: increasing quantity with "+" button fixed
-- SfRadio: fixed to work on Safari 11 and older
+- SfImage: add dynamic styles to override default styles in ProductCard
