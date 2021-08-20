@@ -21,6 +21,20 @@ import { Meta } from "@storybook/addon-docs/blocks";
       <td>Default value</td>
     </tr>
     <tr>
+      <td>SfQuantitySelector</td>
+      <td>-</td>
+      <td>min</td>
+      <td>false</td>
+      <td>null</td>
+    </tr>
+    <tr>
+      <td>SfQuantitySelector</td>
+      <td>-</td>
+      <td>max</td>
+      <td>false</td>
+      <td>null</td>
+    </tr>
+    <tr>
       <td>SfNotification</td>
       <td>-</td>
       <td>persistent</td>
@@ -32,28 +46,28 @@ import { Meta } from "@storybook/addon-docs/blocks";
 
 ## 🚀 Features
 
-- E2E tests moved to nuxt directory
 - SfButton - disabled state made more inclusive
 - SfAccordion - SfAccordionItems can be opened programmatically
 - SfFooter: now works with JS disabled
-- SfNotification - added persistent prop to exclude closing button
-- example pages on Storybook refactored to show full source code in docs tab
+- SfNotification: added persistent prop to exclude closing button
 - SfProductCard: added `SfColorPicker` inside a new slot `colors`
+- SfQuantitySelector: Add min and max props to set minimum or maximum allowed QTY
+- E2E tests moved to nuxt directory
+- docs: example pages on Storybook refactored to show full source code in docs tab
 - docs: clean up releases page
 
 ## 🐛 Fixes
 
-- SfSelect cannot click on label to open the dropdown
+- SfSelect: cannot click on label to open the dropdown
 - SfRadio: fixed to work on Safari 11 and older
-- SfProductCardHorizontal - access to quantity during adding to cart
-- SfRange - removed optional chaining
+- SfProductCardHorizontal: access to quantity during adding to cart
+- SfRange: removed optional chaining
 - SfCart, SfDetailedCart: increasing quantity with "+" button fixed
 - SfImage: fix dynamic styles in ProductCard
-- add missing glob dependency to fix bug when adding SFUI to project on yarn2 in pnp mode
+- SfBottomNavigation: adjusted the same wrapper size for the items
+- SfGallery: fix missing alt on a SfImage which displays the zoomed image when outsideZoom is enabled
 - molecules: replace dynamic classes with static
 - atoms: replace dynamic classes with static
-- molecules: replace dynamic classes with static
-- SfBottomNavigation - adjusted the same wrapper size for the items
-- SfGallery - fix missing alt on a SfImage which displays the zoomed image when outsideZoom is enabled
+- deps: add missing glob dependency to fix bug when adding SFUI to project on yarn2 in pnp mode
 - docs: fix links to Discord Channel
 - docs: fix Meet the team section lists and email to storefront ui contributors
