@@ -54,7 +54,7 @@ export default {
   },
   model: {
     prop: "selected",
-    event: "input",
+    event: "change",
   },
   props: {
     name: {
