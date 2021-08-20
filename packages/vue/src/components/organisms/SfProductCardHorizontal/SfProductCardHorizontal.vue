@@ -96,8 +96,7 @@
           <!--@slot Use this slot to replace add to cart-->
           <slot name="add-to-cart">
             <SfAddToCart
-              v-model="quantity"
-              :qty="itemQuantity"
+              v-model="itemQuantity"
               class="sf-product-card-horizontal__add-to-cart desktop-only"
               @input="$emit('input', $event)"
               @click="$emit('click:add-to-cart', itemQuantity)"
@@ -281,10 +280,15 @@ export default {
         this.isOnWishlist ? "sf-product-card-horizontal--on-wishlist" : ""
       }`
     },
-    itemQuantity() {
-      return typeof this.quantity === "string"
-        ? Number(this.quantity)
-        : this.quantity
+    itemQuantity: {
+      get() {
+        return typeof this.quantity === "string"
+          ? Number(this.quantity)
+          : this.quantity
+      },
+      set(newValue) {
+        this.quantity = newValue
+      },
     },
   },
   methods: {
