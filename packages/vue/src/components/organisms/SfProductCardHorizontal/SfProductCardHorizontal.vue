@@ -97,9 +97,10 @@
           <slot name="add-to-cart">
             <SfAddToCart
               v-model="quantity"
+              :qty="itemQuantity"
               class="sf-product-card-horizontal__add-to-cart desktop-only"
               @input="$emit('input', $event)"
-              @click="$emit('click:add-to-cart', quantity)"
+              @click="$emit('click:add-to-cart', itemQuantity)"
             />
           </slot>
         </div>
@@ -277,8 +278,13 @@ export default {
     wishlistIconClasses() {
       const defaultClass = "sf-product-card-horizontal__wishlist-icon"
       return `${defaultClass} ${
-        this.isInWishlist ? "sf-product-card-horizontal--on-wishlist" : ""
+        this.isOnWishlist ? "sf-product-card-horizontal--on-wishlist" : ""
       }`
+    },
+    itemQuantity() {
+      return typeof this.quantity === "string"
+        ? Number(this.quantity)
+        : this.quantity
     },
   },
   methods: {
