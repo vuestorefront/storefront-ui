@@ -48,7 +48,7 @@
       <slot name="input">
         <div class="sf-collected-product__quantity-wrapper">
           <SfQuantitySelector
-            :qty="qty"
+            :qty="quantity"
             class="sf-collected-product__quantity-selector"
             @input="$emit('input', $event)"
           />
@@ -175,6 +175,9 @@ export default {
   computed: {
     componentIs() {
       return this.link ? "SfLink" : "div";
+    },
+    quantity() {
+      return typeof this.qty === "string" ? Number(this.qty) : this.qty;
     },
   },
   methods: {

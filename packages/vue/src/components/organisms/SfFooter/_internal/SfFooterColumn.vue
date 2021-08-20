@@ -3,11 +3,11 @@
     <button v-focus class="sf-footer-column__title" @click="toggle(title)">
       {{ title }}
       <div class="sf-footer-column__chevron">
-        <SfChevron :class="{ 'sf-chevron--top': open }" />
+        <SfChevron :class="{ 'sf-chevron--top': isColumnOpen }" />
       </div>
     </button>
     <transition name="sf-fade">
-      <div v-if="open" class="sf-footer-column__content">
+      <div v-if="isColumnOpen" class="sf-footer-column__content">
         <slot />
       </div>
     </transition>
@@ -26,13 +26,21 @@ export default {
       default: "",
     },
   },
-  computed: {
-    open() {
-      return this.$parent.isOpen.includes(this.title);
+  inject: ["items"],
+  data() {
+    return {
+      isColumnOpen: true,
+    };
+  },
+  watch: {
+    "$parent.isOpen": {
+      handler(newVal) {
+        this.isColumnOpen = newVal.includes(this.title);
+      },
     },
   },
-  mounted() {
-    this.$parent.items.push(this.title);
+  created() {
+    this.items.push(this.title);
   },
   methods: {
     toggle(payload) {

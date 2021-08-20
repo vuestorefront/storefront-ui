@@ -168,3 +168,5 @@ export default {
   }
 }
 </style>
+
+<include-source />

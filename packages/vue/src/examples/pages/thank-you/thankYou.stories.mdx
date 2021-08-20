@@ -1,0 +1,21 @@
+import { Meta, Props, Preview, Story } from '@storybook/addon-docs/blocks';
+
+import { story, params } from '~storybook-util/story';
+import ThankYouComponent from './ThankYou'
+
+<Meta title="Pages/ThankYou"
+  component={ThankYouComponent}
+/>
+
+# ThankYou example page 
+
+
+<Preview>
+  <Story 
+    name='ThankYou' 
+    inline 
+    parameters={params(ThankYouComponent)}
+  >
+    {story(ThankYouComponent)}
+  </Story>
+</Preview>

@@ -100,6 +100,8 @@
             :style="{ '--index': i }"
             :title="product.title"
             :image="product.image"
+            image-height="auto"
+            image-width="100%"
             :regular-price="product.price.regular"
             :special-price="product.price.special"
             :max-rating="product.rating.max"
@@ -403,6 +405,7 @@ import {
   SfSelect,
 } from "@storefront-ui/vue";
 export default {
+  name: "Category",
   components: {
     SfHeading,
     SfButton,
@@ -993,3 +996,5 @@ export default {
   }
 }
 </style>
+
+<include-source />

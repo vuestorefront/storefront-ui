@@ -1,6 +1,6 @@
 <template>
   <transition name="sf-fade">
-    <div v-if="visible" class="sf-notification" :class="`color-${type}`">
+    <div v-if="visible" class="sf-notification" :class="colorClass">
       <!--@slot Custom notification icon. Slot content will replace default icon.-->
       <slot name="icon" v-bind="{ icon }">
         <SfIcon
@@ -36,7 +36,7 @@
         </slot>
       </div>
       <!--@slot Custom notification close icon. Slot content will replace default close icon.-->
-      <slot name="close" v-bind="{ closeHandler }">
+      <slot v-if="!persistent" name="close" v-bind="{ closeHandler }">
         <SfButton
           aria-label="Close notification"
           class="sf-button--pure sf-notification__close"
@@ -62,6 +62,13 @@ export default {
      * Visibility of the Notification. Default value is false.
      */
     visible: {
+      type: Boolean,
+      default: false,
+    },
+    /**
+     * Persistence of the Notification. Default value is false.
+     */
+    persistent: {
       type: Boolean,
       default: false,
     },
@@ -108,6 +115,22 @@ export default {
           return "info_shield";
         default:
           return "info_circle";
+      }
+    },
+    colorClass() {
+      switch (this.type) {
+        case "secondary":
+          return "color-secondary";
+        case "info":
+          return "color-info";
+        case "success":
+          return "color-success";
+        case "warning":
+          return "color-warning";
+        case "danger":
+          return "color-danger";
+        default:
+          return "color-info";
       }
     },
   },

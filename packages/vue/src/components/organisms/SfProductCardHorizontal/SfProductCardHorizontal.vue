@@ -8,7 +8,10 @@
       >
         <SfLink
           :link="link"
-          class="sf-product-card-horizontal__link sf-product-card-horizontal__link--image"
+          class="
+            sf-product-card-horizontal__link
+            sf-product-card-horizontal__link--image
+          "
         >
           <template v-if="Array.isArray(image)">
             <SfImage
@@ -93,10 +96,10 @@
           <!--@slot Use this slot to replace add to cart-->
           <slot name="add-to-cart">
             <SfAddToCart
-              :qty="qty"
+              v-model="itemQuantity"
               class="sf-product-card-horizontal__add-to-cart desktop-only"
               @input="$emit('input', $event)"
-              @click="$emit('click:add-to-cart')"
+              @click="$emit('click:add-to-cart', itemQuantity)"
             />
           </slot>
         </div>
@@ -138,9 +141,6 @@ export default {
     SfLink,
     SfButton,
     SfAddToCart,
-  },
-  model: {
-    prop: "qty",
   },
   props: {
     /**
@@ -262,6 +262,11 @@ export default {
       default: 1,
     },
   },
+  data() {
+    return {
+      quantity: this.qty,
+    };
+  },
   computed: {
     currentWishlistIcon() {
       return this.isOnWishlist ? this.isOnWishlistIcon : this.wishlistIcon;
@@ -274,6 +279,16 @@ export default {
       return `${defaultClass} ${
         this.isOnWishlist ? "sf-product-card-horizontal--on-wishlist" : ""
       }`;
+    },
+    itemQuantity: {
+      get() {
+        return typeof this.quantity === "string"
+          ? Number(this.quantity)
+          : this.quantity;
+      },
+      set(newValue) {
+        this.quantity = newValue;
+      },
     },
   },
   methods: {
