@@ -1,0 +1,21 @@
+import { Meta, Props, Preview, Story } from '@storybook/addon-docs/blocks';
+
+import { story, params } from '~storybook-util/story';
+import CheckoutComponent from './Checkout'
+
+<Meta title="Pages/Checkout"
+  component={CheckoutComponent}
+/>
+
+# Checkout example page 
+
+
+<Preview>
+  <Story 
+    name='Checkout' 
+    inline 
+    parameters={params(CheckoutComponent)}
+  >
+    {story(CheckoutComponent)}
+  </Story>
+</Preview>

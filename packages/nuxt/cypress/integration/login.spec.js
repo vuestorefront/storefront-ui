@@ -2,10 +2,12 @@ import selectors from "../selectors/index.js";
 
 describe("Login/signin page", () => {
   it('successfully loads', () => {
-    cy.visit('/login')
-  })
+    cy.visit('/login');
+  });
   it("test Login modal", () => {
-    cy.get(selectors.login.openLoginButton)
+    cy.get(selectors.login.openModalButton)
+      .click()
+      .get(selectors.login.openLoginButton)
       .click()
       .get(selectors.login.emailInput)
       .type("johndoe@vuestorefront.io")
@@ -25,13 +27,12 @@ describe("Login/signin page", () => {
       .get(selectors.login.forgottenPasswordButton)
       .click()
       .get(selectors.login.closeButton)
-      .click()
-      .get(selectors.login.registerButton)
-      .click()
-      .should("be.visible", selectors.login.loginModal);
+      .click();
   });
   it("test Signin modal", () => {
-    cy.get(selectors.login.registerButton)
+    cy.get(selectors.login.openModalButton)
+      .click()
+      .get(selectors.login.registerButton)
       .click()
       .get(selectors.signin.firstNameInput)
       .type("John")
