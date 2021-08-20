@@ -38,6 +38,13 @@ export default {
         category: "Props",
       },
     },
+    persistent: {
+      control: "boolean",
+      defaultValue: false,
+      table: {
+        category: "Props",
+      },
+    },
     type: {
       control: {
         type: "select",
@@ -62,6 +69,7 @@ const Template = (args, { argTypes }) => ({
   template: `
   <SfNotification
     :visible="visible"
+    :persistent="persistent"
     :title="title"
     :message="message"
     :action="action"
@@ -117,6 +125,12 @@ export const WithAction = Template.bind({});
 WithAction.args = {
   ...Common.args,
   action: "View cart",
+};
+
+export const Persistent = Template.bind({});
+Persistent.args = {
+  ...Common.args,
+  persistent: true,
 };
 
 export const UseIconSlot = (args, { argTypes }) => ({
