@@ -196,7 +196,7 @@ const Template = (args, { argTypes }) => ({
         <SfButton
           class="sf-button--text desktop-only"
           @click="$emit('click:add-to-wishlist')"
-          style="margin: 0 0 1rem auto; display: block" 
+          style="margin: 0 0 1rem auto; display: block"
         >
           Save for later
         </SfButton>
