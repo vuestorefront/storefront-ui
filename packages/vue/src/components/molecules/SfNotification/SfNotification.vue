@@ -36,7 +36,7 @@
         </slot>
       </div>
       <!--@slot Custom notification close icon. Slot content will replace default close icon.-->
-      <slot name="close" v-bind="{ closeHandler }">
+      <slot v-if="!persistent" name="close" v-bind="{ closeHandler }">
         <SfButton
           aria-label="Close notification"
           class="sf-button--pure sf-notification__close"
@@ -49,8 +49,8 @@
   </transition>
 </template>
 <script>
-import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
-import SfButton from "../../atoms/SfButton/SfButton.vue";
+import SfIcon from "../../atoms/SfIcon/SfIcon.vue"
+import SfButton from "../../atoms/SfButton/SfButton.vue"
 export default {
   name: "SfNotification",
   components: {
@@ -62,6 +62,13 @@ export default {
      * Visibility of the Notification. Default value is false.
      */
     visible: {
+      type: Boolean,
+      default: false,
+    },
+    /**
+     * Persistence of the Notification. Default value is false.
+     */
+    persistent: {
       type: Boolean,
       default: false,
     },
@@ -95,7 +102,7 @@ export default {
       validator: function (value) {
         return ["secondary", "info", "success", "warning", "danger"].includes(
           value
-        );
+        )
       },
     },
   },
@@ -103,11 +110,11 @@ export default {
     icon() {
       switch (this.type) {
         case "success":
-          return "added_to_cart";
+          return "added_to_cart"
         case "danger":
-          return "info_shield";
+          return "info_shield"
         default:
-          return "info_circle";
+          return "info_circle"
       }
     },
   },
@@ -117,17 +124,17 @@ export default {
        * Event for action button
        * @type {Event}
        */
-      this.$emit("click:action");
+      this.$emit("click:action")
     },
     closeHandler() {
       /**
        * Event for close icon
        * @type {Event}
        */
-      this.$emit("click:close");
+      this.$emit("click:close")
     },
   },
-};
+}
 </script>
 <style lang="scss">
 @import "~@storefront-ui/shared/styles/components/molecules/SfNotification.scss";
