@@ -76,7 +76,10 @@
           <div v-if="totalItems">
             <SfProperty
               name="Total price"
-              class="sf-property--full-width sf-property--large my-cart__total-price"
+              class="
+                sf-property--full-width sf-property--large
+                my-cart__total-price
+              "
             >
               <template #value>
                 <SfPrice :regular="totalPrice" />
@@ -287,3 +290,5 @@ export default {
   }
 }
 </style>
+
+<include-source />

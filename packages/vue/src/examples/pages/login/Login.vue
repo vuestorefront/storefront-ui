@@ -1,114 +1,128 @@
 <template>
-  <SfModal id="login" :visible="true" :title="modalTitle">
-    <transition name="sf-fade" mode="out-in">
-      <div
-        v-if="isLogIn"
-        key="log-in"
-        class="modal-content"
-        data-testid="login-modal"
-      >
-        <form class="form" @submit.prevent="() => false">
-          <SfInput
-            v-model="email"
-            name="email"
-            label="Your email"
-            class="form__element"
-            type="email"
-          />
-          <SfInput
-            v-model="password"
-            name="password"
-            label="Password"
-            type="password"
-            class="form__element"
-            :has-show-password="true"
-          />
-          <SfCheckbox
-            v-model="rememberMe"
-            name="remember-me"
-            label="Remember me"
-            class="form__element form__checkbox"
-          />
-          <SfButton
-            type="submit"
-            class="sf-button--full-width form__submit"
-            data-testid="log-in-button"
-          >
-            Log In
-          </SfButton>
-        </form>
-        <SfButton
-          class="sf-button--text action-button"
-          data-testid="forgotten-password-button"
+  <div>
+    <SfModal
+      id="login"
+      :visible="openModal"
+      :title="modalTitle"
+      @close="toggleModal"
+    >
+      <transition name="sf-fade" mode="out-in">
+        <div
+          v-if="isLogIn"
+          key="log-in"
+          class="modal-content"
+          data-testid="login-modal"
         >
-          Forgotten password?
-        </SfButton>
-        <div class="aside">
-          <SfHeading
-            title="Don't have an account yet?"
-            :level="3"
-            class="aside__heading"
-          />
+          <form class="form" @submit.prevent="() => false">
+            <SfInput
+              v-model="email"
+              name="email"
+              label="Your email"
+              class="form__element"
+              type="email"
+            />
+            <SfInput
+              v-model="password"
+              name="password"
+              label="Password"
+              type="password"
+              class="form__element"
+              :has-show-password="true"
+            />
+            <SfCheckbox
+              v-model="rememberMe"
+              name="remember-me"
+              label="Remember me"
+              class="form__element form__checkbox"
+            />
+            <SfButton
+              type="submit"
+              class="sf-button--full-width form__submit"
+              data-testid="log-in-button"
+            >
+              Log In
+            </SfButton>
+          </form>
           <SfButton
-            class="sf-button--text"
-            data-testid="register-now-button"
-            @click="isLogIn = false"
+            class="sf-button--text action-button"
+            data-testid="forgotten-password-button"
           >
-            Register now
+            Forgotten password?
+          </SfButton>
+          <div class="aside">
+            <SfHeading
+              title="Don't have an account yet?"
+              :level="3"
+              class="aside__heading"
+            />
+            <SfButton
+              class="sf-button--text"
+              data-testid="register-now-button"
+              @click="isLogIn = false"
+            >
+              Register now
+            </SfButton>
+          </div>
+        </div>
+        <div
+          v-else
+          key="sign-up"
+          class="modal-content"
+          data-testid="signin-modal"
+        >
+          <form class="form" @submit.prevent="() => false">
+            <SfInput
+              v-model="firstName"
+              name="first-name"
+              label="Name"
+              class="form__element"
+            />
+            <SfInput
+              v-model="lastName"
+              name="last-name"
+              label="Last Name"
+              class="form__element"
+            />
+            <SfInput
+              v-model="email"
+              name="email"
+              label="Your email"
+              class="form__element"
+              type="email"
+            />
+            <SfInput
+              v-model="password"
+              name="password"
+              label="Password"
+              type="password"
+              class="form__element"
+            />
+            <SfButton
+              type="submit"
+              class="sf-button--full-width form__submit"
+              data-testid="create-acount-button"
+            >
+              Create an account
+            </SfButton>
+          </form>
+          <SfButton
+            class="sf-button--text action-button"
+            data-testid="log-in-account"
+            @click="isLogIn = true"
+          >
+            or Log In To Your Account
           </SfButton>
         </div>
-      </div>
-      <div
-        v-else
-        key="sign-up"
-        class="modal-content"
-        data-testid="signin-modal"
-      >
-        <form class="form" @submit.prevent="() => false">
-          <SfInput
-            v-model="firstName"
-            name="first-name"
-            label="Name"
-            class="form__element"
-          />
-          <SfInput
-            v-model="lastName"
-            name="last-name"
-            label="Last Name"
-            class="form__element"
-          />
-          <SfInput
-            v-model="email"
-            name="email"
-            label="Your email"
-            class="form__element"
-            type="email"
-          />
-          <SfInput
-            v-model="password"
-            name="password"
-            label="Password"
-            type="password"
-            class="form__element"
-          />
-          <SfButton
-            type="submit"
-            class="sf-button--full-width form__submit"
-            data-testid="create-acount-button"
-          >
-            Create an account
-          </SfButton>
-        </form>
-        <SfButton
-          class="sf-button--text action-button"
-          data-testid="log-in-account"
-          @click="isLogIn = true"
-        >
-          or Log In To Your Account
-        </SfButton>
-      </div>
-    </transition>
-  </SfModal>
+      </transition>
+    </SfModal>
+    <SfButton
+      class="open-button"
+      data-testid="open-modal-button"
+      @click="toggleModal"
+    >
+      Open Modal
+    </SfButton>
+  </div>
 </template>
 <script>
 import {
@@ -136,6 +150,7 @@ export default {
       rememberMe: false,
       firstName: "",
       lastName: "",
+      openModal: false,
     };
   },
   computed: {
@@ -151,6 +166,11 @@ export default {
       this.rememberMe = false;
       this.firstName = "";
       this.lastName = "";
+    },
+  },
+  methods: {
+    toggleModal() {
+      this.openModal = !this.openModal;
     },
   },
 };
@@ -178,6 +198,9 @@ export default {
 .action-button {
   margin: var(--spacer-xl) 0;
 }
+.open-button {
+  margin: 0 auto;
+}
 .aside {
   margin: 0 0 var(--spacer-xl) 0;
   &__heading {
@@ -186,3 +209,5 @@ export default {
   }
 }
 </style>
+
+<include-source />

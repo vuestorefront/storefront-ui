@@ -1,4 +1,4 @@
-import { SfAccordion, SfList, SfMenuItem } from "@storefront-ui/vue";
+import { SfAccordion, SfList, SfMenuItem, SfButton } from "@storefront-ui/vue";
 
 const accordions = [
   {
@@ -71,6 +71,12 @@ export default {
       },
       description: "Show chevron icon",
     },
+    "click:open-header": {
+      action: "Open header",
+      table: { category: "Events" },
+      description:
+        "This event can be used on SfAccordion when there is a need to open SfAccordionItems programmatically. This example can be found below in a story called `Control With Buttons`",
+    },
   },
 };
 
@@ -140,6 +146,53 @@ HideChevron.args = {
   ...Common.args,
   showChevron: false,
 };
+
+export const controlWithButtons = (args, { argTypes }) => ({
+  components: { SfAccordion, SfList, SfMenuItem, SfButton },
+  props: Object.keys(argTypes),
+  data() {
+    return {
+      accordions,
+      activeHeader: "Shoes",
+    };
+  },
+  methods: {
+    change(headerName) {
+      this.activeHeader = headerName;
+    },
+  },
+  template: `
+  <div>
+    <SfButton style="display: inline; margin: var(--spacer-xs)" @click="change('Clothing')">open Clothing</SfButton>
+    <SfButton style="display: inline; margin: var(--spacer-xs)" @click="change('Accessories')">open Accessories</SfButton>
+    <SfButton style="display: inline; margin: var(--spacer-xs)" @click="change('Shoes')">open Shoes</SfButton>
+    <SfAccordion 
+      :open="activeHeader" 
+      :multiple="multiple"
+      :show-chevron="showChevron"
+      :transition="transition"
+      @click:open-header="change('')"
+    >
+      <SfAccordionItem 
+        v-for="accordion in accordions" 
+        :key="accordion.header" 
+        :header="accordion.header"
+      >
+        <SfList>
+          <SfListItem
+            v-for="item in accordion.items"
+            :key="item.label"
+          >
+            <SfMenuItem
+              :label="item.label" 
+              :count="item.count"
+            />
+          </SfListItem>
+        </SfList>
+      </SfAccordionItem>
+    </SfAccordion>
+  </div>`,
+});
 
 export const UseHeaderSlot = (args, { argTypes }) => ({
   components: { SfAccordion, SfList, SfMenuItem },

@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.11.0-rc.1](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.10.8...@storefront-ui/shared@0.11.0-rc.1) (2021-08-20)
+
+
+### Bug Fixes
+
+* bottom nav fixed ([9afc96e](https://github.com/vuestorefront/storefront-ui/commit/9afc96e23a4104b50a049aada06ca33a12d81b47))
+* enable label click ([#1912](https://github.com/vuestorefront/storefront-ui/issues/1912)) ([04c7cb6](https://github.com/vuestorefront/storefront-ui/commit/04c7cb6c833791495d1262649652a5db2ae58e6a))
+
+
+### Features
+
+* [#881](https://github.com/vuestorefront/storefront-ui/issues/881) update SfProductCard styling ([b7dd4de](https://github.com/vuestorefront/storefront-ui/commit/b7dd4decd2141d9bf3ad95b208c43a87ca875f65))
+* add styles for button active state as it is possible now ([9e57f0d](https://github.com/vuestorefront/storefront-ui/commit/9e57f0deb841a5adeefeab29ebefedc73c3bf4a1))
+
+
+
+
+
 
 ## [0.10.8](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.10.7...@storefront-ui/shared@0.10.8) (2021-07-05)
 

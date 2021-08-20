@@ -44,15 +44,19 @@ export default {
   watch: {
     config: {
       handler(newConfig) {
-        this.$refs.range?.noUiSlider?.destroy();
-        const newSlider = this.noUiSliderInit(newConfig);
-        return newSlider;
+        if (this.$refs && this.$refs.range && this.$refs.range.noUiSlider) {
+          this.$refs.range.noUiSlider.destroy();
+          const newSlider = this.noUiSliderInit(newConfig);
+          return newSlider;
+        }
       },
       deep: true,
     },
     value: {
       handler(values) {
-        return this.$refs.range?.noUiSlider?.set(values);
+        if (this.$refs && this.$refs.range && this.$refs.range.noUiSlider) {
+          return this.$refs.range.noUiSlider.set(values);
+        }
       },
       immediate: true,
     },
@@ -61,7 +65,9 @@ export default {
     this.noUiSliderInit(this.config);
   },
   beforeDestroy() {
-    this.$refs.range?.noUiSlider?.destroy();
+    if (this.$refs && this.$refs.range && this.$refs.range.noUiSlider) {
+      this.$refs.range.noUiSlider.destroy();
+    }
   },
   methods: {
     noUiSliderInit(config) {
