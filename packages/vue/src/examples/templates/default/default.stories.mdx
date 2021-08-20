@@ -1,0 +1,21 @@
+import { Meta, Props, Preview, Story } from '@storybook/addon-docs/blocks';
+
+import { story, params } from '~storybook-util/story';
+import DefaultComponent from './Default'
+
+<Meta title="Templates/Default"
+  component={DefaultComponent}
+/>
+
+# Default example page 
+
+
+<Preview>
+  <Story 
+    name='Default' 
+    inline 
+    parameters={params(DefaultComponent)}
+  >
+    {story(DefaultComponent)}
+  </Story>
+</Preview>

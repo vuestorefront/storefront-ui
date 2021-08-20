@@ -1,0 +1,14 @@
+import { Meta, Props, Preview, Story } from "@storybook/addon-docs/blocks";
+
+import { story, params } from "~storybook-util/story";
+import FormComponent from "./Form";
+
+<Meta title="Examples/Form" component={FormComponent} />
+
+# Form example page
+
+<Preview>
+  <Story name="Form" inline parameters={params(FormComponent)}>
+    {story(FormComponent)}
+  </Story>
+</Preview>
