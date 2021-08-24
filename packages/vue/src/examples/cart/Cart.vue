@@ -76,7 +76,10 @@
           <div v-if="totalItems">
             <SfProperty
               name="Total price"
-              class="sf-property--full-width sf-property--large my-cart__total-price"
+              class="
+                sf-property--full-width sf-property--large
+                my-cart__total-price
+              "
             >
               <template #value>
                 <SfPrice :regular="totalPrice" />
@@ -105,7 +108,7 @@ import {
   SfPrice,
   SfImage,
   SfCollectedProduct,
-} from "@storefront-ui/vue";
+} from "@storefront-ui/vue"
 export default {
   name: "Cart",
   components: {
@@ -155,34 +158,34 @@ export default {
           qty: "1",
         },
       ],
-    };
+    }
   },
   computed: {
     totalItems() {
       return this.products.reduce(
         (totalItems, product) => totalItems + parseInt(product.qty, 10),
         0
-      );
+      )
     },
     totalPrice() {
       return this.products
         .reduce((totalPrice, product) => {
           const price = product.price.special
             ? product.price.special.replace("$", "")
-            : product.price.regular.replace("$", "");
-          const summary = parseFloat(price).toFixed(2) * product.qty;
-          return totalPrice + summary;
+            : product.price.regular.replace("$", "")
+          const summary = parseFloat(price).toFixed(2) * product.qty
+          return totalPrice + summary
         }, 0)
-        .toFixed(2);
+        .toFixed(2)
     },
   },
   methods: {
     removeHandler(product) {
-      const products = [...this.products];
-      this.products = products.filter((element) => element.id !== product.id);
+      const products = [...this.products]
+      this.products = products.filter((element) => element.id !== product.id)
     },
   },
-};
+}
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
@@ -287,3 +290,5 @@ export default {
   }
 }
 </style>
+
+<include-source />

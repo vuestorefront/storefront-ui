@@ -16,7 +16,7 @@
         </SfButton>
       </template>
     </SfTopBar>
-    <SfHeader class="sf-header--multiline" title="Storefront UI" logo="/assets/logo.svg" cartItemsQty="1" is-sticky>
+    <SfHeader class="sf-header--multiline" title="Storefront UI" logo="/assets/logo.svg" cartItemsQty="1">
       <template #navigation>
         <SfHeaderNavigationItem
             v-for="(item, i) in navigation"

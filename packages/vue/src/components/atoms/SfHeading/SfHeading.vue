@@ -10,7 +10,7 @@
       <component
         :is="`h${props.level}`"
         class="sf-heading__title"
-        :class="props.level > 1 && `h${props.level}`"
+        :class="props.level > 1 && $options.headingClass(props.level)"
       >
         {{ props.title }}
       </component>
@@ -54,6 +54,22 @@ export default {
   },
   hasDescription(descriptionProp, slots) {
     return !!descriptionProp || slots().description;
+  },
+  headingClass(headingLevel) {
+    switch (headingLevel) {
+      case 1:
+        return "h1";
+      case 3:
+        return "h3";
+      case 4:
+        return "h4";
+      case 5:
+        return "h5";
+      case 6:
+        return "h6";
+      default:
+        return "h2";
+    }
   },
 };
 </script>

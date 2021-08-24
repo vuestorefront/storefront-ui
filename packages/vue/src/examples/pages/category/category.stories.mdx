@@ -1,0 +1,21 @@
+import { Meta, Props, Preview, Story } from '@storybook/addon-docs/blocks';
+
+import { story, params } from '~storybook-util/story';
+import CategoryComponent from './Category'
+
+<Meta title="Pages/Category"
+  component={CategoryComponent}
+/>
+
+# Category example page 
+
+
+<Preview>
+  <Story 
+    name='Category' 
+    inline 
+    parameters={params(CategoryComponent)}
+  >
+    {story(CategoryComponent)}
+  </Story>
+</Preview>
