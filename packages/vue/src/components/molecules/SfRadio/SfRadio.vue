@@ -93,6 +93,7 @@ export default {
   methods: {
     changeHandler() {
       this.$emit("change", this.value)
+      this.$emit("input", this.value)
     },
   },
 }
