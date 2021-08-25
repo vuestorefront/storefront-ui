@@ -1,4 +1,4 @@
-import { SfRadio } from "@storefront-ui/vue";
+import { SfRadio } from "@storefront-ui/vue"
 export default {
   title: "Components/Molecules/Radio",
   component: SfRadio,
@@ -90,13 +90,13 @@ export default {
       table: { category: "Events" },
     },
   },
-};
+}
 
 const Template = (args, { argTypes }) => ({
   components: { SfRadio },
   props: Object.keys(argTypes),
   template: `
-  <SfRadio 
+  <SfRadio
     :class="classes"
     :label="label"
     :details="details"
@@ -109,9 +109,9 @@ const Template = (args, { argTypes }) => ({
     @change="change"
     @input="input"
   />`,
-});
+})
 
-export const Common = Template.bind({});
+export const Common = Template.bind({})
 Common.args = {
   label: "Pickup in the store",
   details: "Delivery from 4-6 business days",
@@ -119,31 +119,31 @@ Common.args = {
     "Novelty! From now on you have the option of picking up an order in the selected InPack parceler. Just remember that in the case of orders paid on delivery, only the card payment will be accepted.",
   name: "Shipping",
   value: "store",
-};
+}
 
-export const Selected = Template.bind({});
+export const Selected = Template.bind({})
 Selected.args = {
   ...Common.args,
   selected: "store",
-};
+}
 
-export const TransparentSelected = Template.bind({});
+export const TransparentSelected = Template.bind({})
 TransparentSelected.args = {
   ...Selected.args,
   classes: "sf-radio--transparent",
-};
+}
 
-export const Disabled = Template.bind({});
+export const Disabled = Template.bind({})
 Disabled.args = {
   ...Common.args,
   disabled: true,
-};
+}
 
 export const UseCheckmarkSlot = (args, { argTypes }) => ({
   components: { SfRadio },
   props: Object.keys(argTypes),
   template: `
-  <SfRadio 
+  <SfRadio
     :class="classes"
     :label="label"
     :details="details"
@@ -160,14 +160,14 @@ export const UseCheckmarkSlot = (args, { argTypes }) => ({
       <div v-else>😔</div>
     </template>
   </SfRadio>`,
-});
-UseCheckmarkSlot.args = { ...Common.args };
+})
+UseCheckmarkSlot.args = { ...Common.args }
 
 export const UseLabelSlot = (args, { argTypes }) => ({
   components: { SfRadio },
   props: Object.keys(argTypes),
   template: `
-  <SfRadio 
+  <SfRadio
     :class="classes"
     :label="label"
     :details="details"
@@ -183,14 +183,14 @@ export const UseLabelSlot = (args, { argTypes }) => ({
       CUSTOM LABEL
     </template>
   </SfRadio>`,
-});
-UseLabelSlot.args = { ...Common.args };
+})
+UseLabelSlot.args = { ...Common.args }
 
 export const UseDetailsSlot = (args, { argTypes }) => ({
   components: { SfRadio },
   props: Object.keys(argTypes),
   template: `
-  <SfRadio 
+  <SfRadio
     :class="classes"
     :label="label"
     :details="details"
@@ -206,14 +206,14 @@ export const UseDetailsSlot = (args, { argTypes }) => ({
       CUSTOM DETAILS
     </template>
   </SfRadio>`,
-});
-UseDetailsSlot.args = { ...Common.args };
+})
+UseDetailsSlot.args = { ...Common.args }
 
 export const UseDescriptionSlot = (args, { argTypes }) => ({
   components: { SfRadio },
   props: Object.keys(argTypes),
   template: `
-  <SfRadio 
+  <SfRadio
     :class="classes"
     :label="label"
     :details="details"
@@ -229,5 +229,5 @@ export const UseDescriptionSlot = (args, { argTypes }) => ({
       CUSTOM DESCRIPTION
     </template>
   </SfRadio>`,
-});
-UseDescriptionSlot.args = { ...Common.args };
+})
+UseDescriptionSlot.args = { ...Common.args }

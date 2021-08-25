@@ -25,12 +25,12 @@
   </li>
 </template>
 <script>
-import SfButton from "../../../atoms/SfButton/SfButton.vue";
-import SfLink from "../../../atoms/SfLink/SfLink.vue";
+import SfButton from "../../../atoms/SfButton/SfButton.vue"
+import SfLink from "../../../atoms/SfLink/SfLink.vue"
 import {
   mapMobileObserver,
   unMapMobileObserver,
-} from "../../../../utilities/mobile-observer";
+} from "../../../../utilities/mobile-observer"
 export default {
   name: "SfHeroItem",
   components: {
@@ -72,30 +72,30 @@ export default {
   data() {
     return {
       mobileView: false,
-    };
+    }
   },
   computed: {
     ...mapMobileObserver(),
     style() {
-      const image = this.image;
-      const isImageString = typeof image === "string";
-      const background = this.background;
+      const image = this.image
+      const isImageString = typeof image === "string"
+      const background = this.background
       return {
         "background-image": isImageString
           ? `url(${image})`
           : `url(${this.mobileView ? image.mobile : image.desktop})`,
         "background-color": background,
-      };
+      }
     },
     wrapper() {
-      return !this.mobileView ? "div" : this.link ? "SfLink" : "SfButton";
+      return !this.mobileView ? "div" : this.link ? "SfLink" : "SfButton"
     },
   },
   mounted() {
-    this.mobileView = this.isMobile;
+    this.mobileView = this.isMobile
   },
   beforeDestroy() {
-    unMapMobileObserver();
+    unMapMobileObserver()
   },
-};
+}
 </script>
