@@ -2,7 +2,6 @@
   <section
     class="sf-banner"
     :style="style"
-    v-on="isMobileView ? $listeners : {}"
   >
     <component :is="wrapper" class="sf-banner__wrapper" :link="link">
       <slot name="subtitle" v-bind="{ subtitle }">
@@ -22,11 +21,10 @@
       </slot>
       <slot name="call-to-action" v-bind="{ buttonText }">
         <SfButton
-          v-if="buttonText && !isMobileView"
+          v-if="buttonText"
           :link="link"
           class="sf-banner__call-to-action color-secondary"
           data-testid="banner-cta-button"
-          v-on="!isMobileView ? $listeners : {}"
         >
           {{ buttonText }}
         </SfButton>
@@ -107,7 +105,7 @@ export default {
       };
     },
     wrapper() {
-      return !this.isMobileView ? "div" : this.link ? "SfLink" : "SfButton";
+      return !this.isMobileView ? "div" : this.link ? "SfLink" : "";
     },
   },
   mounted() {

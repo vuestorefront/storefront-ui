@@ -97,4 +97,29 @@
       --banner-justify-content: flex-end;
     }
   }
+
+  @include for-mobile {
+    --banner-background-image: var(
+      --_banner-background-desktop-image,
+      var(--_banner-background-image)
+    );
+    --banner-wrapper-width: 50%;
+    --banner-description-display: block;
+    --banner-display-call-to-action: block;
+    --banner-title-margin: var(--spacer-sm) 0 0 0;
+    --banner-subtitle-color: var(--c-gray);
+    align-items: var(--banner-align-items, center);
+    min-height: var(--banner-height, 25rem);
+    &__wrapper {
+      pointer-events: none;
+    }
+    &__call-to-action {
+      --button-padding: var(--spacer-sm) var(--spacer-xl);
+      pointer-events: auto;
+    }
+    &--right {
+      --banner-justify-content: flex-end;
+    }
+  }
+
 }
