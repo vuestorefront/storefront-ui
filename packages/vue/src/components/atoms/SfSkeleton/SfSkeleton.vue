@@ -17,7 +17,8 @@ export default {
       validator: (value) => ["paragraph", "image", "button", "input", "avatar"],
     },
   },
-}
+};
+
 </script>
 <style lang="scss">
 @import "~@storefront-ui/shared/styles/components/atoms/SfSkeleton.scss";

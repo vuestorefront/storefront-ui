@@ -1,4 +1,4 @@
-import { SfSkeleton } from "@storefront-ui/vue"
+import { SfSkeleton } from "@storefront-ui/vue";
 
 export default {
   title: "Components/Atoms/Skeleton",
@@ -31,23 +31,23 @@ export default {
       defaultValue: "paragraph",
     },
   },
-}
+};
 
 const Template = (args, { argTypes }) => ({
   components: { SfSkeleton },
   props: Object.keys(argTypes),
   template: `<SfSkeleton :type="type" style="max-width: 500px;" :class="classes" />`,
-})
+});
 
-export const Common = Template.bind({})
+export const Common = Template.bind({});
 
 export const Image = (args, { argTypes }) => ({
   components: { SfSkeleton },
   props: Object.keys(argTypes),
   template: `<SfSkeleton type="image" style="max-width: 500px" :class="classes" />
     `,
-})
-Image.args = { ...Common.args }
+});
+Image.args = { ...Common.args };
 
 export const ParagrapInputAndButton = (args, { argTypes }) => ({
   components: { SfSkeleton },
@@ -58,8 +58,8 @@ export const ParagrapInputAndButton = (args, { argTypes }) => ({
       <SfSkeleton type="input" :class="classes" />
       <SfSkeleton type="button" style="margin: 0 auto;" :class="classes" />
     </div>`,
-})
-ParagrapInputAndButton.args = { ...Common.args }
+});
+ParagrapInputAndButton.args = { ...Common.args };
 
 export const AvatarAndParagraphs = (args, { argTypes }) => ({
   components: { SfSkeleton },
@@ -71,5 +71,5 @@ export const AvatarAndParagraphs = (args, { argTypes }) => ({
       <SfSkeleton type="paragraph" :class="classes" />
       <SfSkeleton type="paragraph" :class="classes" />
     </div>`,
-})
-AvatarAndParagraphs.args = { ...Common.args }
+});
+AvatarAndParagraphs.args = { ...Common.args };
