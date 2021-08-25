@@ -81,10 +81,6 @@ export default {
         },
       },
     },
-    input: {
-      action: "Toggle selection: input event",
-      table: { category: "Events" },
-    },
     change: {
       action: "Toggle selection: change event",
       table: { category: "Events" },
@@ -106,7 +102,6 @@ const Template = (args, { argTypes }) => ({
   :disabled="disabled"
   :required="required"
   v-model="selected"
-  @input="input"
   @change="change"
   />`,
 });
