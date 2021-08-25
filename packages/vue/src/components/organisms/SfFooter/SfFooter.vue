@@ -45,7 +45,7 @@ export default {
   provide() {
     return {
       items: this.items,
-    }
+    };
   },
   data() {
     return {

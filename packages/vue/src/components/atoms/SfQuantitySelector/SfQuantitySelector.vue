@@ -79,7 +79,7 @@ export default {
       default: null,
     },
   },
-  handleInput(qty, listeners) {
+  handleInput(qty, listeners, min, max) {
     // adjust qty per min/max if needed
     const minimum = min || 1
     if (qty < minimum || isNaN(qty)) {
