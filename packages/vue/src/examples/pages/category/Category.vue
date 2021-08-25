@@ -100,6 +100,8 @@
             :style="{ '--index': i }"
             :title="product.title"
             :image="product.image"
+            image-height="auto"
+            image-width="100%"
             :regular-price="product.price.regular"
             :special-price="product.price.special"
             :max-rating="product.rating.max"
@@ -167,7 +169,7 @@
           :visible="5"
           @click="
             (page) => {
-              currentPage = page;
+              currentPage = page
             }
           "
         />
@@ -401,8 +403,9 @@ import {
   SfProperty,
   SfRadio,
   SfSelect,
-} from "@storefront-ui/vue";
+} from "@storefront-ui/vue"
 export default {
+  name: "Category",
   components: {
     SfHeading,
     SfButton,
@@ -663,24 +666,24 @@ export default {
           },
         },
       ],
-    };
+    }
   },
   methods: {
     updateFilter() {},
     clearAllFilters() {
-      const filters = Object.keys(this.filters);
+      const filters = Object.keys(this.filters)
       filters.forEach((name) => {
-        const prop = this.filters[name];
+        const prop = this.filters[name]
         prop.forEach((value) => {
-          value.selected = false;
-        });
-      });
+          value.selected = false
+        })
+      })
     },
     toggleWishlist(index) {
-      this.products[index].isInWishlist = !this.products[index].isInWishlist;
+      this.products[index].isInWishlist = !this.products[index].isInWishlist
     },
   },
-};
+}
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
@@ -993,3 +996,5 @@ export default {
   }
 }
 </style>
+
+<include-source />

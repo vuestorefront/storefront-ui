@@ -179,7 +179,6 @@ import {
   mapMobileObserver,
   unMapMobileObserver,
 } from "../../../utilities/mobile-observer";
-
 export default {
   name: "SfProductCard",
   components: {
@@ -207,14 +206,14 @@ export default {
      */
     imageWidth: {
       type: [String, Number],
-      default: 216,
+      default: "100%",
     },
     /**
      * Product image height, without unit
      */
     imageHeight: {
       type: [String, Number],
-      default: 326,
+      default: "auto",
     },
     /**
      * Badge label
@@ -376,18 +375,6 @@ export default {
     unMapMobileObserver();
   },
   methods: {
-    handleSelectedColor(colorIndex) {
-      if (this.colors.length > 0) {
-        this.colors.map((color, i) => {
-          if (colorIndex === i) {
-            this.$emit("click:colors", color);
-          }
-        });
-      }
-    },
-    toggleColorPicker() {
-      this.openColorPicker = !this.openColorPicker;
-    },
     toggleIsInWishlist() {
       this.$emit("click:wishlist", !this.isInWishlist);
     },
@@ -398,6 +385,21 @@ export default {
         this.isAddingToCart = false;
       }, 1000);
       this.$emit("click:add-to-cart");
+    },
+    handleSelectedColor(colorIndex) {
+      if (this.colors.length > 0) {
+        this.colors.map((color, i) => {
+          if (colorIndex === i) {
+            this.$emit("click:colors", color);
+            if (this.isMobile) {
+              this.toggleColorPicker();
+            }
+          }
+        });
+      }
+    },
+    toggleColorPicker() {
+      this.openColorPicker = !this.openColorPicker;
     },
   },
 };

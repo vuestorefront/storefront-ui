@@ -3,6 +3,57 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.11.0-rc.1](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/vue@0.10.8...@storefront-ui/vue@0.11.0-rc.1) (2021-08-20)
+
+
+### Bug Fixes
+
+* [#1667](https://github.com/vuestorefront/storefront-ui/issues/1667) make SfFooter work without JS ([bc4665f](https://github.com/vuestorefront/storefront-ui/commit/bc4665ff06c622ff718024c900756f7088f1ce7d))
+* [#1667](https://github.com/vuestorefront/storefront-ui/issues/1667) update changelog ([35d4582](https://github.com/vuestorefront/storefront-ui/commit/35d458297e57323588da6458b5ad537e2b313296))
+* [#1960](https://github.com/vuestorefront/storefront-ui/issues/1960) replace dynamic classes with static ([5477318](https://github.com/vuestorefront/storefront-ui/commit/54773180003b43213650747e37f0bd82fca5a77b))
+* [#1960](https://github.com/vuestorefront/storefront-ui/issues/1960) update changelog ([9b9c3a5](https://github.com/vuestorefront/storefront-ui/commit/9b9c3a513fa7c893702a3f47373ae8b55759a6ca))
+* access to quantity ([3e65a87](https://github.com/vuestorefront/storefront-ui/commit/3e65a879be886af9bd480e9198e8733c4f8fbc15))
+* accordion items can be opened when are closed ([e79dc83](https://github.com/vuestorefront/storefront-ui/commit/e79dc83fa99c21bd42a71a6ba59d7c9d1cc7d7d6))
+* add missing glob dependency ([#1793](https://github.com/vuestorefront/storefront-ui/issues/1793)) ([ad0640d](https://github.com/vuestorefront/storefront-ui/commit/ad0640dea20f60180838090d5f4349e753e1d9d5))
+* bottom nav fixed ([9afc96e](https://github.com/vuestorefront/storefront-ui/commit/9afc96e23a4104b50a049aada06ca33a12d81b47))
+* conflict resolved ([0de8b96](https://github.com/vuestorefront/storefront-ui/commit/0de8b9622070ffb5e751fdb293a6a71ef72af98d))
+* conflict resolved ([5544a35](https://github.com/vuestorefront/storefront-ui/commit/5544a358bb234276733919ff125747eddce6f27a))
+* conflict resolved ([d9c923f](https://github.com/vuestorefront/storefront-ui/commit/d9c923ff9674fdac045de1b6272b9fc2973fce8e))
+* conflict resolved ([de5f669](https://github.com/vuestorefront/storefront-ui/commit/de5f6695e2239ced03de6ccb4738f067b7efcc03))
+* enable label click ([#1912](https://github.com/vuestorefront/storefront-ui/issues/1912)) ([04c7cb6](https://github.com/vuestorefront/storefront-ui/commit/04c7cb6c833791495d1262649652a5db2ae58e6a))
+* heading static classes ([fc98b64](https://github.com/vuestorefront/storefront-ui/commit/fc98b64e89af499807e9a9c07467f59b12459a6d))
+* hotfix sidebar not working on mobile ([d6d4a7c](https://github.com/vuestorefront/storefront-ui/commit/d6d4a7c707dc9a053a5671b66eae6f73ad85c7ce))
+* image and icon dynamic classes ([0ec5460](https://github.com/vuestorefront/storefront-ui/commit/0ec5460f509b6e53214708c7e547e2f7c09bebd6))
+* missing alt on zoom ([1832a62](https://github.com/vuestorefront/storefront-ui/commit/1832a6289e8e432899c5826aa3847150ebace582))
+* opened header can be closed ([d09df07](https://github.com/vuestorefront/storefront-ui/commit/d09df07078df61a2162dd42c7be6b06b500a9e5d))
+* optional chaining removed ([1fae4cf](https://github.com/vuestorefront/storefront-ui/commit/1fae4cf1606ff1e280176889138af163fdf1ce83))
+* quantity as number ([c2aa086](https://github.com/vuestorefront/storefront-ui/commit/c2aa0867d12544dec255a63db260179c64d7b720))
+* quantity fixed ([41582e0](https://github.com/vuestorefront/storefront-ui/commit/41582e07a922ea450223549b24f4db03531f90db))
+* radio works on safari 11 and older ([a4b4069](https://github.com/vuestorefront/storefront-ui/commit/a4b40692140d900e9a479a55f5c3b7b9a05f706a))
+* remove websites ([2f9663f](https://github.com/vuestorefront/storefront-ui/commit/2f9663fc91dfb98c117edf64aeea43b910e51aa7))
+* remove websites from docs ([dd3d03a](https://github.com/vuestorefront/storefront-ui/commit/dd3d03a322364f9272a9e499aee2ed4545b7c391))
+* SfImage passing sizes props to img element ([#1968](https://github.com/vuestorefront/storefront-ui/issues/1968)) ([2974854](https://github.com/vuestorefront/storefront-ui/commit/29748544fd6f20b98c493f2e5bae368e4a5805f0))
+* stories for 0.10.71 ([70fc8af](https://github.com/vuestorefront/storefront-ui/commit/70fc8af6893716885cbfc1b77f0729151008f3ee))
+* storybook link in homepage ([10b9239](https://github.com/vuestorefront/storefront-ui/commit/10b92399237948f4ab9943990b3d17bdc737f485))
+
+
+### Features
+
+* [#881](https://github.com/vuestorefront/storefront-ui/issues/881) add SfColorPicker to SfProductCard ([8cc4216](https://github.com/vuestorefront/storefront-ui/commit/8cc42166253bc9d147139e4809dd53954f01e14e))
+* [#881](https://github.com/vuestorefront/storefront-ui/issues/881) add toggle on mobile ([d99371c](https://github.com/vuestorefront/storefront-ui/commit/d99371c2eed1e1b6253859fefa1a9072f2f3d0ef))
+* [#881](https://github.com/vuestorefront/storefront-ui/issues/881) update changelog ([dc3ac2e](https://github.com/vuestorefront/storefront-ui/commit/dc3ac2e85ba3afd9571af8c2cd8c82a32eec1d51))
+* [#881](https://github.com/vuestorefront/storefront-ui/issues/881) update SfProductCard stories ([3bdc4b9](https://github.com/vuestorefront/storefront-ui/commit/3bdc4b9c49ffcb49ce84c42ef5fab9e408fc16bd))
+* accordion items can be opened programmatically ([e735fba](https://github.com/vuestorefront/storefront-ui/commit/e735fba3a32a9fcc7eb8806d927cba50591fdd85))
+* add SfQuantitySelector min and max ([df84234](https://github.com/vuestorefront/storefront-ui/commit/df8423480f070aa4f3336d55566af3a0c64a5161))
+* e2e tests for nuxt ([d358c3d](https://github.com/vuestorefront/storefront-ui/commit/d358c3d39093e11913b95cb8474be656aa9d15db))
+* provide an option to exclude closing button for SfNotification ([17778f8](https://github.com/vuestorefront/storefront-ui/commit/17778f8ea22f4b70d12f6b8beabadb546f94c4fc))
+* refactor example pages ([#1895](https://github.com/vuestorefront/storefront-ui/issues/1895)) ([6fb2408](https://github.com/vuestorefront/storefront-ui/commit/6fb24081253046181343085ca441d0459b5af6e6))
+* remove disabled state from button, assure proper event trigger ([2431922](https://github.com/vuestorefront/storefront-ui/commit/2431922aec2c119f69e120fe0b352f05bf3a3acf))
+
+
+
+
+
 
 ## [0.10.8](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/vue@0.10.7...@storefront-ui/vue@0.10.8) (2021-07-05)
 

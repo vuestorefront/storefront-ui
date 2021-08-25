@@ -98,8 +98,8 @@ import {
   SfProperty,
   SfHeading,
   SfBreadcrumbs,
-} from "@storefront-ui/vue";
-import { OrderSummary } from "./_internal/index.js";
+} from "@storefront-ui/vue"
+import { OrderSummary } from "./_internal/index.js"
 export default {
   name: "DetailedCart",
   components: {
@@ -209,23 +209,23 @@ export default {
             "Novelty! From now on you have the option of picking up an order in the selected InPack parceled. Just remember that in the case of orders paid on delivery, only the card payment will be accepted.",
         },
       ],
-    };
+    }
   },
   computed: {
     totalItems() {
       return this.products.reduce(
         (totalItems, product) => totalItems + parseInt(product.qty, 10),
         0
-      );
+      )
     },
   },
   methods: {
     removeHandler(product) {
-      const products = [...this.products];
-      this.products = products.filter((element) => element.id !== product.id);
+      const products = [...this.products]
+      this.products = products.filter((element) => element.id !== product.id)
     },
   },
-};
+}
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
@@ -332,3 +332,5 @@ export default {
   }
 }
 </style>
+
+<include-source />
