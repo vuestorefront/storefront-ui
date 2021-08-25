@@ -8,7 +8,10 @@
       >
         <SfLink
           :link="link"
-          class="sf-product-card-horizontal__link sf-product-card-horizontal__link--image"
+          class="
+            sf-product-card-horizontal__link
+            sf-product-card-horizontal__link--image
+          "
         >
           <template v-if="Array.isArray(image)">
             <SfImage
@@ -93,10 +96,10 @@
           <!--@slot Use this slot to replace add to cart-->
           <slot name="add-to-cart">
             <SfAddToCart
-              :qty="qty"
+              v-model="quantity"
               class="sf-product-card-horizontal__add-to-cart desktop-only"
               @input="$emit('input', $event)"
-              @click="$emit('click:add-to-cart')"
+              @click="$emit('click:add-to-cart', quantity)"
             />
           </slot>
         </div>
@@ -121,13 +124,13 @@
   </div>
 </template>
 <script>
-import SfPrice from "../../atoms/SfPrice/SfPrice.vue";
-import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
-import SfLink from "../../atoms/SfLink/SfLink.vue";
-import SfRating from "../../atoms/SfRating/SfRating.vue";
-import SfImage from "../../atoms/SfImage/SfImage.vue";
-import SfButton from "../../atoms/SfButton/SfButton.vue";
-import SfAddToCart from "../../molecules/SfAddToCart/SfAddToCart.vue";
+import SfPrice from "../../atoms/SfPrice/SfPrice.vue"
+import SfIcon from "../../atoms/SfIcon/SfIcon.vue"
+import SfLink from "../../atoms/SfLink/SfLink.vue"
+import SfRating from "../../atoms/SfRating/SfRating.vue"
+import SfImage from "../../atoms/SfImage/SfImage.vue"
+import SfButton from "../../atoms/SfButton/SfButton.vue"
+import SfAddToCart from "../../molecules/SfAddToCart/SfAddToCart.vue"
 export default {
   name: "SfProductCardHorizontal",
   components: {
@@ -138,9 +141,6 @@ export default {
     SfLink,
     SfButton,
     SfAddToCart,
-  },
-  model: {
-    prop: "qty",
   },
   props: {
     /**
@@ -262,26 +262,31 @@ export default {
       default: 1,
     },
   },
+  data() {
+    return {
+      quantity: this.qty,
+    }
+  },
   computed: {
     currentWishlistIcon() {
-      return this.isInWishlist ? this.isInWishlistIcon : this.wishlistIcon;
+      return this.isInWishlist ? this.isInWishlistIcon : this.wishlistIcon
     },
     ariaLabel() {
-      return this.isInWishlist ? "Remove from wishlist" : "Add to wishlist";
+      return this.isInWishlist ? "Remove from wishlist" : "Add to wishlist"
     },
     wishlistIconClasses() {
-      const defaultClass = "sf-product-card-horizontal__wishlist-icon";
+      const defaultClass = "sf-product-card-horizontal__wishlist-icon"
       return `${defaultClass} ${
         this.isInWishlist ? "sf-product-card-horizontal--on-wishlist" : ""
-      }`;
+      }`
     },
   },
   methods: {
     toggleIsInWishlist() {
-      this.$emit("click:wishlist", !this.isInWishlist);
+      this.$emit("click:wishlist", !this.isInWishlist)
     },
   },
-};
+}
 </script>
 <style lang="scss">
 @import "~@storefront-ui/shared/styles/components/organisms/SfProductCardHorizontal.scss";
