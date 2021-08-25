@@ -381,6 +381,9 @@ export default {
         this.colors.map((color, i) => {
           if (colorIndex === i) {
             this.$emit("click:colors", color)
+            if (this.isMobile) {
+              this.toggleColorPicker()
+            }
           }
         })
       }
