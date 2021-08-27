@@ -41,7 +41,8 @@
     "sass": "^1.32.13",
     "sass-loader": "^10.0.3",
     "simplebar-vue": "^1.4.0",
-    "vue": "^2.6.12",
+    "vue": "^3.1.0",
+    "@vue/compat": "^3.1.0",
     "vue2-leaflet": "^2.5.2"
   },
   "devDependencies": {
@@ -80,7 +81,7 @@
     "prettier": "^2.0.4",
     "style-loader": "^2.0.0",
     "vue-docgen-api": "^3.22.3",
-    "vue-template-compiler": "^2.6.11",
+    "@vue/compiler-sfc": "^3.1.0",
     "webpack-dev-middleware": "3.7.2"
   },
   "lint-staged": {
