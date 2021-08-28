@@ -1,22 +1,16 @@
-<template functional>
-  <ol
-    :class="[data.class, data.staticClass, 'sf-bullets']"
-    :style="[data.style, data.staticStyle]"
-    v-bind="data.attrs"
-  >
-    <template
-      v-for="(_, index) of $options.inactiveLeft(props.total, props.current)"
-    >
+<template>
+  <ol class="sf-bullets" v-bind="$attrs">
+    <template v-for="(_, index) of $options.inactiveLeft(total, current)">
       <!--@slot custom icon for inactive bullet -->
       <slot name="inactive" class="sf-bullet" v-bind="{ index, $options }">
         <li :key="index">
           <component
-            :is="injections.components.SfButton"
+            :is="components.SfButton"
             class="sf-button--pure sf-bullet"
             type="button"
             :aria-label="'Go to slide ' + (index + 1)"
             :data-testid="index + 1"
-            @click="listeners.click && listeners.click(index)"
+            @click="$attrs.listeners.click && $attrs.listeners.click(index)"
           ></component>
         </li>
       </slot>
@@ -25,42 +19,36 @@
     <slot name="active">
       <li>
         <component
-          :is="injections.components.SfButton"
-          v-bind="data.attrs"
+          :is="components.SfButton"
+          v-bind="$attrs"
           aria-label="Current slide"
           class="sf-button--pure sf-bullet is-active"
         ></component>
       </li>
     </slot>
-    <template
-      v-for="(_, index) of $options.inactiveRight(props.total, props.current)"
-    >
+    <template v-for="(_, index) of $options.inactiveRight(total, current)">
       <!--@slot custom icon for inactive bullet -->
       <slot
         name="inactive"
         class="sf-bullet"
         v-bind="{
-          index: $options.inactiveLeft(props.total, props.current) + 1 + index,
+          index: $options.inactiveLeft(total, current) + 1 + index,
           $options,
         }"
       >
-        <li
-          :key="$options.inactiveLeft(props.total, props.current) + 1 + index"
-        >
+        <li :key="$options.inactiveLeft(total, current) + 1 + index">
           <component
-            :is="injections.components.SfButton"
+            :is="components.SfButton"
             :aria-label="
               'Go to slide ' +
-              ($options.inactiveLeft(props.total, props.current) + 2 + index)
+              ($options.inactiveLeft(total, current) + 2 + index)
             "
             class="sf-button--pure sf-bullet"
-            :data-testid="
-              $options.inactiveLeft(props.total, props.current) + 1 + index
-            "
+            :data-testid="$options.inactiveLeft(total, current) + 1 + index"
             @click="
               listeners.click &&
                 listeners.click(
-                  $options.inactiveLeft(props.total, props.current) + 1 + index
+                  $options.inactiveLeft(total, current) + 1 + index
                 )
             "
           ></component>
