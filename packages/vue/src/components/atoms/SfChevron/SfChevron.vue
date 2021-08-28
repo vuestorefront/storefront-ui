@@ -1,10 +1,5 @@
-<template functional>
-  <div
-    :class="[data.class, data.staticClass, 'sf-chevron']"
-    :style="[data.style, data.staticStyle]"
-    v-bind="data.attrs"
-    v-on="listeners"
-  >
+<template>
+  <div class="sf-chevron" v-bind="$attrs">
     <!-- @slot Custom chevron markup -->
     <slot>
       <span class="sf-chevron__bar sf-chevron__bar--left"></span>

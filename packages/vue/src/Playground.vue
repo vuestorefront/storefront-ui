@@ -1,31 +1,32 @@
 <template>
   <div id="playground">
-    <sf-badge class="sf-badge--number">90</sf-badge>
+    <sf-chevron class="sf-chevron--right"></sf-chevron>
     <br />
-    <sf-breadcrumbs :breadcrumbs="breadc"></sf-breadcrumbs>
-    <br />
-    <sf-bullets :total="3" :current="1"></sf-bullets>
+    <SfCimage :publicId="publicId" :cloud="cloud" :alt="alt" />
   </div>
 </template>
 
 <script>
 // Use this component to play with other components
-import SfBadge from "../src/components/atoms/SfBadge/SfBadge.vue";
-import SfBreadcrumbs from "../src/components/atoms/SfBreadcrumbs/SfBreadcrumbs.vue";
-import SfBullets from "../src/components/atoms/SfBullets/SfBullets.vue";
+import { configureCompat } from "vue";
+import SfChevron from "../src/components/atoms/SfChevron/SfChevron.vue";
+import SfCimage from "../src/components/atoms/SfCimage/SfCimage.vue";
 export default {
+  compatConfig: {
+    // MODE: 2, // opt-in to Vue 3 behavior for this component only
+    COMPONENT_ASYNC: false, // features can also be toggled at component level
+  },
   components: {
-    SfBadge,
-    SfBreadcrumbs,
-    SfBullets,
+    SfChevron,
+    SfCimage,
   },
   data: function () {
     return {
-      breadc: [
-        { text: "Home", link: "http://localhost:3002" },
-        { text: "Category", link: "http://localhost:3002" },
-        { text: "Pants", link: "http://localhost:3002" },
-      ],
+      publicId: "sheep",
+      cloud: {
+        cloudName: "demo",
+      },
+      alt: "example",
     };
   },
 };
