@@ -2,9 +2,8 @@
   <component
     :is="linkComponentTag"
     v-focus
-    v-bind="urlTag"
+    v-bind="{ ...$attrs, urlTag }"
     class="sf-link"
-    v-on="$listeners"
   >
     <!-- @slot -->
     <slot />
