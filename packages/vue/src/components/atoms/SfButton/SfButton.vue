@@ -1,23 +1,19 @@
-<template functional>
+<template>
   <component
-    :is="props.link ? injections.components.SfLink : 'button'"
+    :is="$props.link ? components.SfLink : 'button'"
     :class="[
-      data.class,
-      data.staticClass,
       'sf-button',
       {
         'is-disabled--button': $options.buttonActive(
-          props.link,
-          props.disabled
+          $props.link,
+          $props.disabled
         ),
-        'is-disabled--link': $options.linkActive(props.link, props.disabled),
+        'is-disabled--link': $options.linkActive($props.link, $props.disabled),
       },
     ]"
-    :style="[data.style, data.staticStyle]"
-    :aria-disabled="props.disabled"
-    :link="props.link"
-    v-bind="data.attrs"
-    v-on="!props.disabled ? listeners : {}"
+    :disabled="$props.disabled"
+    :link="$props.link"
+    v-bind="$attrs"
   >
     <!--@slot Use this slot to place content inside the button.-->
     <slot />
@@ -38,8 +34,7 @@ export default {
   },
   props: {
     /**
-     * Equivalent of native button disabled attribute,
-     * allows focus for better accessibility
+     * Native button disabled attribute
      */
     disabled: {
       type: Boolean,
