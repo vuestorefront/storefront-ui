@@ -1,22 +1,21 @@
-<template functional>
+<template>
   <component
-    :is="injections.components.SfButton"
-    :class="[data.class, data.staticClass, 'sf-circle-icon']"
-    v-bind="data.attrs"
-    :disabled="props.disabled"
-    v-on="listeners"
+    :is="components.SfButton"
+    class="sf-circle-icon"
+    v-bind="$attrs"
+    :disabled="disabled"
   >
     <!--@slot Custom content that will replace default icon. can be used for inlined SVG's-->
     <slot>
       <component
-        :is="injections.components.SfIcon"
+        :is="components.SfIcon"
         aria-hidden="true"
         class="sf-circle-icon__icon"
-        :icon="props.icon"
-        :color="props.iconColor"
-        :size="props.iconSize"
-        :badge-label="props.badgeLabel"
-        :has-badge="props.hasBadge"
+        :icon="icon"
+        :color="iconColor"
+        :size="iconSize"
+        :badge-label="badgeLabel"
+        :has-badge="hasBadge"
       />
     </slot>
   </component>

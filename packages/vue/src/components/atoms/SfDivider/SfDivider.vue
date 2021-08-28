@@ -1,8 +1,5 @@
-<template functional>
-  <hr
-    :class="[data.class, data.staticClass, 'sf-divider']"
-    :style="[data.style, data.staticStyle]"
-  />
+<template>
+  <hr class="sf-divider" v-bind="$attrs" />
 </template>
 <script>
 export default {

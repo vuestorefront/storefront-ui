@@ -1,32 +1,24 @@
-<template functional>
+<template>
   <component
-    :is="injections.components.SfButton"
-    :class="[
-      data.class,
-      data.staticClass,
-      'sf-button--pure sf-color',
-      { 'is-active': props.selected },
-    ]"
+    :is="components.SfButton"
+    :class="['sf-button--pure sf-color', { 'is-active': selected }]"
     :style="{
-      ...data.style,
-      ...data.staticStyle,
-      '--color-background': props.color,
+      '--color-background': color,
     }"
-    :aria-pressed="props.selected.toString()"
-    :data-testid="props.color"
-    v-bind="data.attrs"
-    v-on="listeners"
+    :aria-pressed="selected.toString()"
+    :data-testid="color"
+    v-bind="$attrs"
   >
     <transition name="sf-bounce">
       <!-- @slot Use it to replace badge to custom element -->
-      <slot name="badge" v-bind="{ props }">
+      <slot name="badge">
         <component
-          :is="injections.components.SfBadge"
-          v-if="props.selected && props.hasBadge"
+          :is="components.SfBadge"
+          v-if="selected && hasBadge"
           class="sf-color__badge smartphone-only"
         >
           <component
-            :is="injections.components.SfIcon"
+            :is="components.SfIcon"
             size="16px"
             color="white"
             icon="check"

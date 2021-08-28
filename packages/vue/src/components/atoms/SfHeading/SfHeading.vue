@@ -1,27 +1,22 @@
-<template functional>
-  <div
-    :class="[data.class, data.staticClass, 'sf-heading']"
-    :style="[data.style, data.staticStyle]"
-    v-bind="data.attrs"
-    v-on="listeners"
-  >
+<template>
+  <div class="sf-heading" v-bind="$attrs">
     <!--@slot Heading title. Slot content will replace default <h> tag-->
-    <slot name="title" v-bind="{ props }">
+    <slot name="title">
       <component
-        :is="`h${props.level}`"
+        :is="`h${level}`"
         class="sf-heading__title"
-        :class="props.level > 1 && $options.headingClass(props.level)"
+        :class="level > 1 && $options.headingClass(level)"
       >
-        {{ props.title }}
+        {{ title }}
       </component>
     </slot>
     <!--@slot Heading description. Slot content will replace default <div> tag-->
-    <slot name="description" v-bind="{ props }">
+    <slot name="description">
       <div
-        v-if="$options.hasDescription(props.description, slots)"
+        v-if="$options.hasDescription(description, $slots)"
         class="sf-heading__description"
       >
-        {{ props.description }}
+        {{ description }}
       </div>
     </slot>
   </div>

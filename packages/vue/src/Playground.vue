@@ -1,24 +1,31 @@
 <template>
   <div id="playground">
-    <sf-chevron class="sf-chevron--right"></sf-chevron>
-    <br />
-    <SfCimage :publicId="publicId" :cloud="cloud" :alt="alt" />
+    <SfCircleIcon />
+    <sf-divider></sf-divider>
+    <sf-color color="black"> gknesl</sf-color>
+    <hr>
+    <sf-heading :level="3" title="fkasek" description="gkgbrki"></sf-heading>
   </div>
 </template>
 
 <script>
 // Use this component to play with other components
 import { configureCompat } from "vue";
-import SfChevron from "../src/components/atoms/SfChevron/SfChevron.vue";
-import SfCimage from "../src/components/atoms/SfCimage/SfCimage.vue";
+import SfCircleIcon from "../src/components/atoms/SfCircleIcon/SfCircleIcon.vue";
+import SfColor from "../src/components/atoms/SfColor/SfColor.vue";
+import SfDivider from "../src/components/atoms/SfDivider/SfDivider.vue";
+import SfHeading from "../src/components/atoms/SfHeading/SfHeading.vue";
+
 export default {
   compatConfig: {
     // MODE: 2, // opt-in to Vue 3 behavior for this component only
     COMPONENT_ASYNC: false, // features can also be toggled at component level
   },
   components: {
-    SfChevron,
-    SfCimage,
+    SfCircleIcon,
+    SfColor,
+    SfDivider,
+    SfHeading,
   },
   data: function () {
     return {
