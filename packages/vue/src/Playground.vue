@@ -1,26 +1,24 @@
 <template>
   <div id="playground">
-    <SfImage
-      src="https://docs.storefrontui.io/assets/storybook/SfImage/product-216x326.jpg"
-      alt="rfefw"
-    >
-      ntgrioeoi
-    </SfImage>
-    <SfInput label="First name" name="name" v-model="fname" type="text" valid />
+    <sf-price regular="300.00" special="$200.00"></sf-price>
+    <SfOverlay :visible="true" />
     <hr />
     {{ fname }}
     <sf-loader :loading="true">
       <!-- <template #loader>Loading...</template> -->
     </sf-loader>
+    <hr />
+    <SfProperty name="Material" value="Cotton" />
   </div>
 </template>
 
 <script>
 // Use this component to play with other components
 import { configureCompat } from "vue";
-import SfImage from "../src/components/atoms/SfImage/SfImage.vue";
-import SfInput from "../src/components/atoms/SfInput/SfInput.vue";
+import SfPrice from "../src/components/atoms/SfPrice/SfPrice.vue";
+import SfOverlay from "../src/components/atoms/SfOverlay/SfOverlay.vue";
 import SfLoader from "../src/components/atoms/SfLoader/SfLoader.vue";
+import SfProperty from "../src/components/atoms/SfProperty/SfProperty.vue";
 
 export default {
   compatConfig: {
@@ -28,9 +26,10 @@ export default {
     // COMPONENT_V_MODEL: false,
   },
   components: {
-    SfImage,
-    SfInput,
+    SfPrice,
+    SfOverlay,
     SfLoader,
+    SfProperty,
   },
   data: function () {
     return {
