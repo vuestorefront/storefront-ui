@@ -2,7 +2,7 @@
   <div
     class="sf-input"
     :class="{
-      'has-text': !!value,
+      'has-text': !!modelValue,
       invalid: !valid,
     }"
     :data-testid="name"
@@ -12,13 +12,13 @@
         :id="name"
         v-focus
         v-bind="$attrs"
-        :value="value"
+        :value="modelValue"
         :required="required"
         :disabled="disabled"
         :name="name"
         :class="{ 'sf-input--is-password': isPassword }"
         :type="inputType"
-        v-on="listeners"
+        @input="updateValue"
       />
       <span class="sf-input__bar"></span>
       <label class="sf-input__label" :for="name">
@@ -67,6 +67,9 @@ import SfButton from "../../atoms/SfButton/SfButton.vue";
 import { focus } from "../../../utilities/directives";
 export default {
   name: "SfInput",
+  compatConfig: {
+    COMPONENT_V_MODEL: false, //temporary and to be removed on removal of @vue/compat
+  },
   directives: {
     focus,
   },
@@ -74,9 +77,9 @@ export default {
   inheritAttrs: false,
   props: {
     /**
-     * Current input value (`v-model`)
+     * Current input modelValue (`v-model`)
      */
-    value: {
+    modelValue: {
       type: [String, Number],
       default: "",
     },
@@ -147,12 +150,6 @@ export default {
     };
   },
   computed: {
-    listeners() {
-      return {
-        ...this.$listeners,
-        input: (event) => this.$emit("input", event.target.value),
-      };
-    },
     isPassword() {
       return this.type === "password" && this.hasShowPassword;
     },
@@ -177,12 +174,12 @@ export default {
         this.inputType = inputType;
       },
     },
-    value: {
+    modelValue: {
       immediate: true,
       handler: function (value) {
         if (!this.isNumberTypeSafari) return;
         if (isNaN(value)) {
-          this.$emit("input");
+          this.$emit("update:modelValue");
         }
       },
     },
@@ -191,6 +188,9 @@ export default {
     switchVisibilityPassword() {
       this.isPasswordVisible = !this.isPasswordVisible;
       this.inputType = this.isPasswordVisible ? "text" : "password";
+    },
+    updateValue(event) {
+      this.$emit("update:modelValue", event.target.value);
     },
   },
 };

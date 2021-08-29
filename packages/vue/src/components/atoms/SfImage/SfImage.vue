@@ -15,7 +15,6 @@
       :height="height"
       :alt="alt"
       @load="onLoad"
-      v-on="$listeners"
     />
     <img
       v-if="!loaded && placeholder"
@@ -26,7 +25,7 @@
     <div v-if="$slots.default" class="sf-image--overlay">
       <slot />
     </div>
-    <noscript inline-template>
+    <noscript>
       <img
         :src="src"
         :alt="alt"

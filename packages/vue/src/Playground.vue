@@ -1,31 +1,36 @@
 <template>
   <div id="playground">
-    <SfCircleIcon />
-    <sf-divider></sf-divider>
-    <sf-color color="black"> gknesl</sf-color>
-    <hr>
-    <sf-heading :level="3" title="fkasek" description="gkgbrki"></sf-heading>
+    <SfImage
+      src="https://docs.storefrontui.io/assets/storybook/SfImage/product-216x326.jpg"
+      alt="rfefw"
+    >
+      ntgrioeoi
+    </SfImage>
+    <SfInput label="First name" name="name" v-model="fname" type="text" valid />
+    <hr />
+    {{ fname }}
+    <sf-loader :loading="true">
+      <!-- <template #loader>Loading...</template> -->
+    </sf-loader>
   </div>
 </template>
 
 <script>
 // Use this component to play with other components
 import { configureCompat } from "vue";
-import SfCircleIcon from "../src/components/atoms/SfCircleIcon/SfCircleIcon.vue";
-import SfColor from "../src/components/atoms/SfColor/SfColor.vue";
-import SfDivider from "../src/components/atoms/SfDivider/SfDivider.vue";
-import SfHeading from "../src/components/atoms/SfHeading/SfHeading.vue";
+import SfImage from "../src/components/atoms/SfImage/SfImage.vue";
+import SfInput from "../src/components/atoms/SfInput/SfInput.vue";
+import SfLoader from "../src/components/atoms/SfLoader/SfLoader.vue";
 
 export default {
   compatConfig: {
-    // MODE: 2, // opt-in to Vue 3 behavior for this component only
-    COMPONENT_ASYNC: false, // features can also be toggled at component level
+    // COMPONENT_ASYNC: false, // features can also be toggled at component level
+    // COMPONENT_V_MODEL: false,
   },
   components: {
-    SfCircleIcon,
-    SfColor,
-    SfDivider,
-    SfHeading,
+    SfImage,
+    SfInput,
+    SfLoader,
   },
   data: function () {
     return {
@@ -34,6 +39,7 @@ export default {
         cloudName: "demo",
       },
       alt: "example",
+      fname: "Batman",
     };
   },
 };
