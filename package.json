@@ -27,9 +27,10 @@
     "url": "https://github.com/vuestorefront/storefront-ui/issues"
   },
   "homepage": "https://github.com/vuestorefront/storefront-ui#readme",
-  "workspaces": [
-    "packages/*"
-  ],
+  "workspaces": {
+    "packages": ["packages/*"],
+    "nohoist": ["**/*jest*", "**/*jest*/**"]
+  },
   "husky": {
     "hooks": {
       "pre-commit": "lerna run precommit",

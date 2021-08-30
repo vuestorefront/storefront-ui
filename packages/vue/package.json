@@ -31,6 +31,7 @@
   "dependencies": {
     "@glidejs/glide": "^3.3.0",
     "@storefront-ui/shared": "0.11.0-rc.1",
+    "@vue/compat": "^3.1.0",
     "body-scroll-lock": "^3.0.1",
     "cloudinary-build-url": "^0.1.1",
     "core-js": "^3.6.5",
@@ -42,7 +43,7 @@
     "sass-loader": "^10.0.3",
     "simplebar-vue": "^1.4.0",
     "vue": "^3.1.0",
-    "@vue/compat": "^3.1.0",
+    "vue-jest": "^5.0.0-alpha.10",
     "vue2-leaflet": "^2.5.2"
   },
   "devDependencies": {
@@ -65,10 +66,11 @@
     "@vue/babel-preset-app": "^4.3.1",
     "@vue/cli-plugin-babel": "^4.3.1",
     "@vue/cli-plugin-eslint": "^4.3.1",
-    "@vue/cli-plugin-unit-jest": "^4.3.0",
+    "@vue/cli-plugin-unit-jest": "^5.0.0-beta.3",
     "@vue/cli-service": "^4.3.1",
+    "@vue/compiler-sfc": "^3.1.0",
     "@vue/eslint-config-prettier": "^6.0.0",
-    "@vue/test-utils": "^1.1.0",
+    "@vue/test-utils": "^2.0.0-rc.12",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.2",
     "babel-loader": "^8.0.5",
@@ -81,7 +83,6 @@
     "prettier": "^2.0.4",
     "style-loader": "^2.0.0",
     "vue-docgen-api": "^3.22.3",
-    "@vue/compiler-sfc": "^3.1.0",
     "webpack-dev-middleware": "3.7.2"
   },
   "lint-staged": {
