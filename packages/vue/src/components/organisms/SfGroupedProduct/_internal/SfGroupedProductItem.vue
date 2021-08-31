@@ -21,19 +21,6 @@
           class="sf-grouped-product-item__image"
         />
       </slot>
-      <!-- @slot Custom input markup -->
-      <div class="smartphone-only">
-        <slot name="input" v-bind="{ qty }">
-          <div class="sf-grouped-product-item__quantity-wrapper">
-            <SfQuantitySelector
-              :qty="qty"
-              aria-label="Quantity"
-              class="sf-grouped-product-item__quantity-selector"
-              @input="$emit('input', $event)"
-            />
-          </div>
-        </slot>
-      </div>
     </div>
     <div class="sf-grouped-product-item__description">
       <!-- @slot Custom title markup -->
@@ -60,23 +47,21 @@
       </slot>
     </div>
     <!-- @slot Custom input markup -->
-    <div class="desktop-only">
-      <slot name="input" v-bind="{ qty }">
-        <SfQuantitySelector
-          :qty="qty"
-          aria-label="Quantity"
-          class="sf-grouped-product-item__quantity-selector"
-          @input="$emit('input', $event)"
-        />
-      </slot>
-    </div>
+    <slot name="input" v-bind="{ qty }">
+      <SfQuantitySelector
+        :qty="qty"
+        aria-label="Quantity"
+        class="sf-grouped-product-item__quantity-selector"
+        @input="$emit('input', $event)"
+      />
+    </slot>
   </li>
 </template>
 <script>
-import SfPrice from "../../../atoms/SfPrice/SfPrice.vue";
-import SfImage from "../../../atoms/SfImage/SfImage.vue";
-import SfQuantitySelector from "../../../atoms/SfQuantitySelector/SfQuantitySelector.vue";
-import SfLink from "../../../atoms/SfLink/SfLink.vue";
+import SfPrice from "../../../atoms/SfPrice/SfPrice.vue"
+import SfImage from "../../../atoms/SfImage/SfImage.vue"
+import SfQuantitySelector from "../../../atoms/SfQuantitySelector/SfQuantitySelector.vue"
+import SfLink from "../../../atoms/SfLink/SfLink.vue"
 export default {
   name: "SfGroupedProductItem",
   components: {
@@ -158,5 +143,5 @@ export default {
       default: "",
     },
   },
-};
+}
 </script>
