@@ -353,16 +353,16 @@ export default {
   computed: {
     ...mapMobileObserver(),
     isSFColors() {
-      return SF_COLORS.includes(this.badgeColor.trim())
+      return SF_COLORS.includes(this.badgeColor.trim());
     },
     badgeColorClass() {
-      return this.isSFColors ? `${this.badgeColor.trim()}` : ""
+      return this.isSFColors ? `${this.badgeColor.trim()}` : "";
     },
     currentWishlistIcon() {
       return this.isInWishlist ? this.isInWishlistIcon : this.wishlistIcon;
     },
     showAddedToCartBadge() {
-      return !this.isAddingToCart && this.isAddedToCart
+      return !this.isAddingToCart && this.isAddedToCart;
     },
     ariaLabel() {
       return this.isInWishlist ? "Remove from wishlist" : "Add to wishlist";
@@ -380,12 +380,12 @@ export default {
       this.$emit("click:wishlist", !this.isInWishlist);
     },
     onAddToCart(event) {
-      event.preventDefault()
-      this.isAddingToCart = true
+      event.preventDefault();
+      this.isAddingToCart = true;
       setTimeout(() => {
-        this.isAddingToCart = false
+        this.isAddingToCart = false;
       }, 1000)
-      this.$emit("click:add-to-cart")
+      this.$emit("click:add-to-cart");
     },
     handleSelectedColor(colorIndex) {
       if (this.colors.length > 0) {
@@ -403,7 +403,7 @@ export default {
       this.openColorPicker = !this.openColorPicker;
     },
   },
-}
+};
 </script>
 <style lang="scss">
 @import "~@storefront-ui/shared/styles/components/organisms/SfProductCard.scss";
