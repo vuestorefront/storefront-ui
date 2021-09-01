@@ -1,10 +1,12 @@
 <template>
   <div
     class="sf-input"
-    :class="{
-      'has-text': !!modelValue,
-      invalid: !valid,
-    }"
+    :class="[
+      { 'has-text': !!modelValue },
+      { invalid: !valid },
+      'sf-input',
+      $attrs.class,
+    ]"
     :data-testid="name"
   >
     <div class="sf-input__wrapper">
