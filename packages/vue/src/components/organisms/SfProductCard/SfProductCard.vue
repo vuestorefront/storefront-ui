@@ -179,6 +179,7 @@ import {
   mapMobileObserver,
   unMapMobileObserver,
 } from "../../../utilities/mobile-observer";
+
 export default {
   name: "SfProductCard",
   components: {
@@ -383,7 +384,7 @@ export default {
       this.isAddingToCart = true;
       setTimeout(() => {
         this.isAddingToCart = false;
-      }, 1000);
+      }, 1000)
       this.$emit("click:add-to-cart");
     },
     handleSelectedColor(colorIndex) {

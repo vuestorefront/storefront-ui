@@ -15,7 +15,7 @@ describe("SfProductCard.vue", () => {
     expect(component.exists()).toBe(true);
     expect(component.find(".sf-product-card").exists()).toBe(true);
   });
-});
+})
 describe("SfProductCard.vue: Wish list icon button", () => {
   it("renders Product Card", () => {
     const component = shallowMount(SfProductCard, {
@@ -71,7 +71,7 @@ describe("SfProductCard.vue: Wish list icon button", () => {
   });
   it("has custom wish list icon when SVG path is passed (isInWishlist=false)", () => {
     const customWishlistIconPath =
-      "M6.04545 0L7 1.12025L1.92207 7L7 12.8798L6.04545 14L0 6.99994L6.04545 0Z";
+      "M6.04545 0L7 1.12025L1.92207 7L7 12.8798L6.04545 14L0 6.99994L6.04545 0Z"
     const component = shallowMount(SfProductCard, {
       propsData: {
         title,
@@ -118,10 +118,10 @@ describe("SfProductCard.vue: Wish list icon button", () => {
     });
     const wishlistIconButton = component.find(wishlistIconButtonClass);
     expect(wishlistIconButton.exists()).toBe(false);
-  });
+  })
   it("has custom slot content when slot is used", () => {
-    const customSlotContentText = "Wish List";
-    const customSlotContent = `<b>${customSlotContentText}</b>`;
+    const customSlotContentText = "Wish List"
+    const customSlotContent = `<b>${customSlotContentText}</b>`
     const component = shallowMount(SfProductCard, {
       propsData: {
         title,
@@ -143,7 +143,7 @@ describe("SfProductCard.vue: Wish list icon button", () => {
       propsData: {
         title,
       },
-    });
+    })
     const wishlistIconButton = component.find(wishlistIconButtonClass);
 
     wishlistIconButton.trigger("click");

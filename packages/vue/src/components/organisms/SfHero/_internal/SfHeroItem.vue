@@ -18,7 +18,7 @@
         </div>
       </slot>
       <!--@slot hero item withImgTag.
-      Slot dedicated to img tags or other components with this tag (e.g. SfImage, SfCimage) that can be used as images for background. 
+      Slot dedicated to img tags or other components with this tag (e.g. SfImage, SfCimage) that can be used as images for background.
       If you want to use this slot, make sure that background and image props are NOT provided.-->
       <slot name="withImgTag" />
     </component>
