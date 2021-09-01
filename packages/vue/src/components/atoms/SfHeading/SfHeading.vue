@@ -1,5 +1,5 @@
 <template>
-  <div class="sf-heading" v-bind="$attrs">
+  <div class="sf-heading">
     <!--@slot Heading title. Slot content will replace default <h> tag-->
     <slot name="title">
       <component
@@ -51,7 +51,7 @@ export default {
     },
   },
   hasDescription(descriptionProp, slots) {
-    return !!descriptionProp || slots().description;
+    return !!descriptionProp || slots.description;
   },
   headingClass(headingLevel) {
     switch (headingLevel) {
