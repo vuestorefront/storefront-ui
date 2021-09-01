@@ -1,40 +1,29 @@
-<template functional>
-  <div
-    :class="[data.class, data.staticClass, 'sf-quantity-selector']"
-    :style="[data.style, data.staticStyle]"
-  >
+<template>
+  <div class="sf-quantity-selector">
     <component
-      :is="injections.components.SfButton"
-      :disabled="
-        props.disabled || Boolean(props.min !== null && props.qty <= props.min)
-      "
+      :is="components.SfButton"
+      :disabled="disabled || Boolean(min !== null && modelValue <= min)"
       class="sf-button--pure sf-quantity-selector__button"
       data-testid="decrease"
-      @click="
-        $options.handleInput(props.qty - 1, listeners, props.min, props.max)
-      "
+      @click="handleInput(-1)"
     >
       &minus;
     </component>
     <component
-      :is="injections.components.SfInput"
+      :is="components.SfInput"
+      :value="modelValue"
       type="number"
-      :value="props.qty"
-      :disabled="props.disabled"
+      :disabled="disabled"
       class="sf-quantity-selector__input"
       data-testid="sf-quantity-selector input"
-      @input="$options.handleInput($event, listeners, props.min, props.max)"
+      @input="handleInput(0)"
     />
     <component
-      :is="injections.components.SfButton"
-      :disabled="
-        props.disabled || Boolean(props.max !== null && props.qty >= props.max)
-      "
+      :is="components.SfButton"
+      :disabled="disabled || Boolean(max !== null && modelValue >= max)"
       class="sf-button--pure sf-quantity-selector__button"
       data-testid="increase"
-      @click="
-        $options.handleInput(props.qty + 1, listeners, props.min, props.max)
-      "
+      @click="handleInput(1)"
     >
       +
     </component>
@@ -46,6 +35,9 @@ import SfButton from "../../atoms/SfButton/SfButton.vue";
 
 export default {
   name: "SfQuantitySelector",
+  compatConfig: {
+    MODE: 3, // opt-in to Vue 3 behavior for this component only
+  },
   inject: {
     components: {
       default: {
@@ -54,12 +46,9 @@ export default {
       },
     },
   },
-  model: {
-    prop: "qty",
-  },
   props: {
     /** Quantity */
-    qty: {
+    modelValue: {
       type: [Number, String],
       default: 1,
     },
@@ -78,15 +67,29 @@ export default {
       default: null,
     },
   },
-  handleInput(qty, listeners, min, max) {
-    // adjust qty per min/max if needed
-    const minimum = min || 1;
-    if (qty < minimum || isNaN(qty)) {
-      qty = minimum;
-    } else if (max !== null && qty > max) {
-      qty = max;
-    }
-    return listeners.input && listeners.input(qty);
+  methods: {
+    handleInput(inputType) {
+      // adjust qty per min/max if needed
+      var qty = this.modelValue;
+      const minimum = this.min || 1;
+      switch (inputType) {
+        case 0:
+          qty = Number(qty);
+          break;
+        case 1:
+          qty++;
+          break;
+        case -1:
+          qty--;
+          break;
+      }
+      if (qty < minimum || isNaN(qty)) {
+        qty = minimum;
+      } else if (this.max !== null && qty > this.max) {
+        qty = this.max;
+      }
+      this.$emit("update:modelValue", qty);
+    },
   },
 };
 </script>

@@ -1,40 +1,36 @@
-<template functional>
+<template>
   <div
     :class="[
-      data.class,
-      data.staticClass,
       'sf-textarea',
       {
-        'sf-textarea--has-text': !!props.value,
-        'sf-textarea--invalid': !props.valid,
+        'sf-textarea--has-text': !!modelValue,
+        'sf-textarea--invalid': !valid,
       },
     ]"
-    :style="[data.style, data.staticStyle]"
-    v-bind="data.attrs"
   >
     <textarea
-      :id="props.name"
-      :value="props.value"
-      :name="props.name"
-      :placeholder="props.placeholder"
-      :cols="props.cols"
-      :rows="props.rows"
-      :wrap="props.wrap"
-      :disabled="props.disabled"
-      :required="props.required"
-      :maxlength="props.maxlength"
-      :minlength="props.minlength"
-      v-on="$options.handleInput(listeners)"
+      :id="name"
+      :value="modelValue"
+      :name="name"
+      :placeholder="placeholder"
+      :cols="cols"
+      :rows="rows"
+      :wrap="wrap"
+      :disabled="disabled"
+      :required="required"
+      :maxlength="maxlength"
+      :minlength="minlength"
+      @input="handleInput"
     />
-    <label class="sf-textarea__label" :for="props.name">
+    <label class="sf-textarea__label" :for="name">
       <!-- @slot Custom input label -->
-      <slot name="label" v-bind="{ props }">{{ props.label }}</slot>
+      <slot name="label">{{ label }}</slot>
     </label>
     <div class="sf-textarea__error-message">
       <transition name="sf-fade">
         <!-- @slot Custom error message -->
-        <slot v-if="!props.valid" name="error-message" v-bind="{ props }">
-          <div>{{ props.errorMessage }}</div>
+        <slot v-if="!valid" name="error-message">
+          <div>{{ errorMessage }}</div>
         </slot>
       </transition>
     </div>
@@ -44,14 +40,17 @@
 import { focus } from "../../../utilities/directives";
 export default {
   name: "SfTextarea",
+  compatConfig: {
+    MODE: 3, // opt-in to Vue 3 behavior for this component only
+  },
   directives: {
     focus,
   },
   props: {
     /**
-     * Current textarea value (`v-model`).
+     * Current textarea modelValue (`v-model`).
      */
-    value: {
+    modelValue: {
       type: [String, Number],
       default: "",
     },
@@ -155,12 +154,10 @@ export default {
       description: "Native input disabled attribute",
     },
   },
-  handleInput(listeners) {
-    return {
-      ...listeners,
-      input: ($event) =>
-        listeners.input && listeners.input($event.target.value),
-    };
+  methods: {
+    handleInput(event) {
+      this.$emit("update:modelValue", event.target.value);
+    },
   },
 };
 </script>

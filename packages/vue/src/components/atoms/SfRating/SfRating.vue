@@ -1,39 +1,34 @@
-<template functional>
-  <div
-    :class="[data.class, data.staticClass, 'sf-rating']"
-    :style="[data.style, data.staticStyle]"
-    v-bind="data.attrs"
-    v-on="listeners"
-  >
+<template>
+  <div class="sf-rating">
     <!--@slot custom icon for finalScore. Provide single icon that will be automatically repeated -->
     <slot
-      v-for="index in Math.ceil($options.finalScore(props.score, props.max))"
+      v-for="index in Math.ceil($options.finalScore(score, max))"
       name="icon-positive"
     >
       <component
-        :is="injections.components.SfIcon"
+        :is="components.SfIcon"
         :key="`p${index}`"
         size="0.875rem"
         class="sf-rating__icon"
-        :icon="props.icon"
+        :icon="icon"
         :coverage="
-          index === Math.ceil($options.finalScore(props.score, props.max)) &&
-          $options.finalScore(props.score, props.max) % 1 > 0
-            ? $options.finalScore(props.score, props.max) % 1
+          index === Math.ceil($options.finalScore(score, max)) &&
+          $options.finalScore(score, max) % 1 > 0
+            ? $options.finalScore(score, max) % 1
             : 1
         "
       />
     </slot>
     <slot
-      v-for="index in parseInt($options.finalMax(props.max), 10) -
-      Math.ceil($options.finalScore(props.score, props.max))"
+      v-for="index in parseInt($options.finalMax(max), 10) -
+      Math.ceil($options.finalScore(score, max))"
       name="icon-negative"
     >
       <component
-        :is="injections.components.SfIcon"
+        :is="components.SfIcon"
         :key="`n${index}`"
         class="sf-rating__icon sf-rating__icon--negative"
-        :icon="props.icon"
+        :icon="icon"
       />
     </slot>
   </div>
@@ -42,6 +37,9 @@
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 export default {
   name: "SfRating",
+  compatConfig: {
+    MODE: 3, // opt-in to Vue 3 behavior for this component only
+  },
   inject: {
     components: {
       default: { SfIcon },
