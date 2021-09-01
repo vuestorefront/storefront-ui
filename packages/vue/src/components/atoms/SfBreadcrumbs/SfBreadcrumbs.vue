@@ -1,5 +1,5 @@
 <template>
-  <nav class="sf-breadcrumbs" v-bind="$attrs" aria-label="breadcrumb">
+  <nav class="sf-breadcrumbs" aria-label="breadcrumb">
     <ol class="sf-breadcrumbs__list">
       <li
         v-for="(breadcrumb, i) in breadcrumbs"
@@ -11,7 +11,7 @@
       >
         <template v-if="$options.breadcrumbLast(breadcrumbs) !== i">
           <!-- @slot Custom markup for previous pages (binds `breadcrumb` object) -->
-          <slot name="link" v-bind="{ breadcrumb }">
+          <slot name="link">
             <component
               :is="components.SfLink"
               class="sf-breadcrumbs__breadcrumb"
