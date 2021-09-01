@@ -11,6 +11,9 @@
 import { focus } from "../../../utilities/directives";
 export default {
   name: "SfChevron",
+  compatConfig: {
+    MODE: 3, //temporary and to be removed on removal of @vue/compat
+  },
   directives: {
     focus,
   },

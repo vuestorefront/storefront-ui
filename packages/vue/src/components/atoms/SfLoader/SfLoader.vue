@@ -39,6 +39,9 @@
 <script>
 export default {
   name: "SfLoader",
+  compatConfig: {
+    MODE: 3, //temporary and to be removed on removal of @vue/compat
+  },
   props: {
     /**
      * Shows the loader on top of the existing content

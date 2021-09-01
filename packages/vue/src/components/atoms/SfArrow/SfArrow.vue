@@ -23,6 +23,9 @@ import SfButton from "../SfButton/SfButton";
 import SfIcon from "../SfIcon/SfIcon";
 export default {
   name: "SfArrow",
+  compatConfig: {
+    MODE: 3, //temporary and to be removed on removal of @vue/compat
+  },
   inject: {
     components: {
       default: { SfButton, SfIcon },

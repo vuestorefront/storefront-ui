@@ -43,6 +43,9 @@ const SF_ICONS = Object.keys(icons);
 
 export default {
   name: "SfIcon",
+  compatConfig: {
+    MODE: 3, //temporary and to be removed on removal of @vue/compat
+  },
   inject: {
     components: {
       default: {

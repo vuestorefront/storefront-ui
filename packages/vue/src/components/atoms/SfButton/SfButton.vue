@@ -24,6 +24,9 @@ import { focus } from "../../../utilities/directives";
 import SfLink from "../SfLink/SfLink.vue";
 export default {
   name: "SfButton",
+  compatConfig: {
+    MODE: 3, //temporary and to be removed on removal of @vue/compat
+  },
   inject: {
     components: {
       default: { SfLink },

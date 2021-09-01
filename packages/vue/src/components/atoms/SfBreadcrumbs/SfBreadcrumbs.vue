@@ -42,6 +42,9 @@
 import SfLink from "../SfLink/SfLink";
 export default {
   name: "SfBreadcrumbs",
+  compatConfig: {
+    MODE: 3, //temporary and to be removed on removal of @vue/compat
+  },
   inject: {
     components: {
       default: { SfLink },

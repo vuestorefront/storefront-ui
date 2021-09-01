@@ -17,6 +17,9 @@
 <script>
 export default {
   name: "SfProperty",
+  compatConfig: {
+    MODE: 3, //temporary and to be removed on removal of @vue/compat
+  },
   props: {
     name: {
       type: String,

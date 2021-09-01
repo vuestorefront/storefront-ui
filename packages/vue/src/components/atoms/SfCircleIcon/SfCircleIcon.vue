@@ -25,6 +25,9 @@ import SfButton from "../SfButton/SfButton.vue";
 import SfIcon from "../SfIcon/SfIcon.vue";
 export default {
   name: "SfCircleIcon",
+  compatConfig: {
+    MODE: 3, //temporary and to be removed on removal of @vue/compat
+  },
   inject: {
     components: {
       default: {

@@ -6,6 +6,9 @@
 <script>
 export default {
   name: "SfOverlay",
+  compatConfig: {
+    MODE: 3, //temporary and to be removed on removal of @vue/compat
+  },
   props: {
     /**
      * Transition effect to apply when overlay visibility is changed

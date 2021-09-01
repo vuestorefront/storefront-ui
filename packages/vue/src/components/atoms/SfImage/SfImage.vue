@@ -40,6 +40,9 @@
 <script>
 export default {
   name: "SfImage",
+  compatConfig: {
+    MODE: 3, //temporary and to be removed on removal of @vue/compat
+  },
   props: {
     /**
      * Main source url for the image

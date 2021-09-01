@@ -23,6 +23,9 @@
 <script>
 export default {
   name: "SfPrice",
+  compatConfig: {
+    MODE: 3, //temporary and to be removed on removal of @vue/compat
+  },
   props: {
     /**
      * Regular/old price value. Crossed out if `special` is provided

@@ -61,6 +61,9 @@
 import SfButton from "../SfButton/SfButton.vue";
 export default {
   name: "SfBullets",
+  compatConfig: {
+    MODE: 3, //temporary and to be removed on removal of @vue/compat
+  },
   inject: {
     components: {
       default: { SfButton },

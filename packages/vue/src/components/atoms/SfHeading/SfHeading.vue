@@ -24,6 +24,9 @@
 <script>
 export default {
   name: "SfHeading",
+  compatConfig: {
+    MODE: 3, //temporary and to be removed on removal of @vue/compat
+  },
   props: {
     /**
      * Heading level

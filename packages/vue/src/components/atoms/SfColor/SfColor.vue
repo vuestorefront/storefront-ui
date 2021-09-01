@@ -35,6 +35,9 @@ import SfIcon from "../SfIcon/SfIcon.vue";
 import SfButton from "../SfButton/SfButton.vue";
 export default {
   name: "SfColor",
+  compatConfig: {
+    MODE: 3, //temporary and to be removed on removal of @vue/compat
+  },
   inject: {
     components: {
       default: {
