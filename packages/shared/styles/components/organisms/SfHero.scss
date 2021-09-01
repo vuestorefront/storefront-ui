@@ -8,6 +8,12 @@
   color: var(--c-text);
   background-repeat: no-repeat;
   background-size: cover;
+  img {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+  }
   &__wrapper {
     display: flex;
     flex-direction: column;

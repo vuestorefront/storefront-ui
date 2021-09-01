@@ -96,7 +96,7 @@ const Template = (args, { argTypes }) => ({
   components: { SfRadio },
   props: Object.keys(argTypes),
   template: `
-  <SfRadio 
+  <SfRadio
     :class="classes"
     :label="label"
     :details="details"
@@ -143,7 +143,7 @@ export const UseCheckmarkSlot = (args, { argTypes }) => ({
   components: { SfRadio },
   props: Object.keys(argTypes),
   template: `
-  <SfRadio 
+  <SfRadio
     :class="classes"
     :label="label"
     :details="details"
@@ -167,7 +167,7 @@ export const UseLabelSlot = (args, { argTypes }) => ({
   components: { SfRadio },
   props: Object.keys(argTypes),
   template: `
-  <SfRadio 
+  <SfRadio
     :class="classes"
     :label="label"
     :details="details"
@@ -190,7 +190,7 @@ export const UseDetailsSlot = (args, { argTypes }) => ({
   components: { SfRadio },
   props: Object.keys(argTypes),
   template: `
-  <SfRadio 
+  <SfRadio
     :class="classes"
     :label="label"
     :details="details"
@@ -213,7 +213,7 @@ export const UseDescriptionSlot = (args, { argTypes }) => ({
   components: { SfRadio },
   props: Object.keys(argTypes),
   template: `
-  <SfRadio 
+  <SfRadio
     :class="classes"
     :label="label"
     :details="details"
