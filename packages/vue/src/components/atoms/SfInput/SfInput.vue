@@ -11,8 +11,8 @@
       <input
         :id="name"
         v-focus
-        v-bind="$attrs"
         :value="modelValue"
+        v-bind="$attrs"
         :required="required"
         :disabled="disabled"
         :name="name"
