@@ -45,11 +45,11 @@ yarn add @storefront-ui/nuxt # or npm install @storefront-ui/nuxt
 Copyright (c) Vue Storefront
 
 <!-- Badges -->
-[npm-version-src]: https://img.shields.io/npm/v/storefront-ui-nuxt/latest.svg
-[npm-version-href]: https://npmjs.com/package/storefront-ui-nuxt
+[npm-version-src]: https://img.shields.io/npm/v/@storefront-ui/nuxt/latest.svg
+[npm-version-href]: https://npmjs.com/package/@storefront-ui/nuxt
 
-[npm-downloads-src]: https://img.shields.io/npm/dt/storefront-ui-nuxt.svg
-[npm-downloads-href]: https://npmjs.com/package/storefront-ui-nuxt
+[npm-downloads-src]: https://img.shields.io/npm/dt/@storefront-ui/nuxt.svg
+[npm-downloads-href]: https://npmjs.com/package/@storefront-ui/nuxt
 
 [github-actions-ci-src]: https://github.com//workflows/ci/badge.svg
 [github-actions-ci-href]: https://github.com//actions?query=workflow%3Aci
@@ -57,5 +57,5 @@ Copyright (c) Vue Storefront
 [codecov-src]: https://img.shields.io/codecov/c/github/.svg
 [codecov-href]: https://codecov.io/gh/
 
-[license-src]: https://img.shields.io/npm/l/storefront-ui-nuxt.svg
-[license-href]: https://npmjs.com/package/storefront-ui-nuxt
+[license-src]: https://img.shields.io/npm/l/@storefront-ui/nuxt.svg
+[license-href]: https://npmjs.com/package/@storefront-ui/nuxt
