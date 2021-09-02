@@ -13,7 +13,6 @@
     "create-gitlog": "node ./scripts/changelog.js",
     "test:e2e": "cd packages/nuxt && yarn test:e2e",
     "test:e2e:headless": "cd packages/nuxt && yarn test:e2e:headless",
-    "test:unit": "cd packages/vue && yarn test:unit",
     "nuxt:generate": "cd packages/nuxt && yarn generate",
     "nuxt:build": "cd packages/nuxt && yarn build",
     "nuxt:start": "cd packages/nuxt && yarn start",
