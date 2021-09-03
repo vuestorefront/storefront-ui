@@ -121,19 +121,19 @@ Common.args = {
   value: "store",
 };
 
-export const Selected = Template.bind({});
+export const Selected = Template.bind({})
 Selected.args = {
   ...Common.args,
   selected: "store",
 };
 
-export const TransparentSelected = Template.bind({});
+export const TransparentSelected = Template.bind({})
 TransparentSelected.args = {
   ...Selected.args,
   classes: "sf-radio--transparent",
 };
 
-export const Disabled = Template.bind({});
+export const Disabled = Template.bind({})
 Disabled.args = {
   ...Common.args,
   disabled: true,
