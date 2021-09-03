@@ -384,7 +384,7 @@ export default {
       this.isAddingToCart = true;
       setTimeout(() => {
         this.isAddingToCart = false;
-      }, 1000)
+      }, 1000);
       this.$emit("click:add-to-cart");
     },
     handleSelectedColor(colorIndex) {
