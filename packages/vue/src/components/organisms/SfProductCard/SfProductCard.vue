@@ -165,21 +165,20 @@
   </div>
 </template>
 <script>
-import { colorsValues as SF_COLORS } from "@storefront-ui/shared/variables/colors";
-import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
-import SfPrice from "../../atoms/SfPrice/SfPrice.vue";
-import SfRating from "../../atoms/SfRating/SfRating.vue";
-import SfImage from "../../atoms/SfImage/SfImage.vue";
-import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
-import SfBadge from "../../atoms/SfBadge/SfBadge.vue";
-import SfButton from "../../atoms/SfButton/SfButton.vue";
-import SfColorPicker from "../../molecules/SfColorPicker/SfColorPicker.vue";
-import SfColor from "../../atoms/SfColor/SfColor.vue";
+import { colorsValues as SF_COLORS } from "@storefront-ui/shared/variables/colors"
+import SfIcon from "../../atoms/SfIcon/SfIcon.vue"
+import SfPrice from "../../atoms/SfPrice/SfPrice.vue"
+import SfRating from "../../atoms/SfRating/SfRating.vue"
+import SfImage from "../../atoms/SfImage/SfImage.vue"
+import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue"
+import SfBadge from "../../atoms/SfBadge/SfBadge.vue"
+import SfButton from "../../atoms/SfButton/SfButton.vue"
+import SfColorPicker from "../../molecules/SfColorPicker/SfColorPicker.vue"
+import SfColor from "../../atoms/SfColor/SfColor.vue"
 import {
   mapMobileObserver,
   unMapMobileObserver,
-} from "../../../utilities/mobile-observer";
-
+} from "../../../utilities/mobile-observer"
 export default {
   name: "SfProductCard",
   components: {
@@ -348,62 +347,62 @@ export default {
     return {
       isAddingToCart: false,
       openColorPicker: false,
-    };
+    }
   },
   computed: {
     ...mapMobileObserver(),
     isSFColors() {
-      return SF_COLORS.includes(this.badgeColor.trim());
+      return SF_COLORS.includes(this.badgeColor.trim())
     },
     badgeColorClass() {
-      return this.isSFColors ? `${this.badgeColor.trim()}` : "";
+      return this.isSFColors ? `${this.badgeColor.trim()}` : ""
     },
     currentWishlistIcon() {
-      return this.isInWishlist ? this.isInWishlistIcon : this.wishlistIcon;
+      return this.isInWishlist ? this.isInWishlistIcon : this.wishlistIcon
     },
     showAddedToCartBadge() {
-      return !this.isAddingToCart && this.isAddedToCart;
+      return !this.isAddingToCart && this.isAddedToCart
     },
     ariaLabel() {
-      return this.isInWishlist ? "Remove from wishlist" : "Add to wishlist";
+      return this.isInWishlist ? "Remove from wishlist" : "Add to wishlist"
     },
     wishlistIconClasses() {
-      const defaultClass = "sf-button--pure sf-product-card__wishlist-icon";
-      return `${defaultClass} ${this.isInWishlist ? "on-wishlist" : ""}`;
+      const defaultClass = "sf-button--pure sf-product-card__wishlist-icon"
+      return `${defaultClass} ${this.isInWishlist ? "on-wishlist" : ""}`
     },
   },
   beforeDestroy() {
-    unMapMobileObserver();
+    unMapMobileObserver()
   },
   methods: {
     toggleIsInWishlist() {
-      this.$emit("click:wishlist", !this.isInWishlist);
+      this.$emit("click:wishlist", !this.isInWishlist)
     },
     onAddToCart(event) {
-      event.preventDefault();
-      this.isAddingToCart = true;
+      event.preventDefault()
+      this.isAddingToCart = true
       setTimeout(() => {
-        this.isAddingToCart = false;
-      }, 1000);
-      this.$emit("click:add-to-cart");
+        this.isAddingToCart = false
+      }, 1000)
+      this.$emit("click:add-to-cart")
     },
     handleSelectedColor(colorIndex) {
       if (this.colors.length > 0) {
         this.colors.map((color, i) => {
           if (colorIndex === i) {
-            this.$emit("click:colors", color);
+            this.$emit("click:colors", color)
             if (this.isMobile) {
-              this.toggleColorPicker();
+              this.toggleColorPicker()
             }
           }
-        });
+        })
       }
     },
     toggleColorPicker() {
-      this.openColorPicker = !this.openColorPicker;
+      this.openColorPicker = !this.openColorPicker
     },
   },
-};
+}
 </script>
 <style lang="scss">
 @import "~@storefront-ui/shared/styles/components/organisms/SfProductCard.scss";
