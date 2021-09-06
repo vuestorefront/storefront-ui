@@ -20,21 +20,21 @@
     "test": "yarn lint && jest"
   },
   "dependencies": {
-    "@storefront-ui/vue": "^0.10.8",
+    "@storefront-ui/vue": "0.10.8",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@babel/core": "latest",
+    "@babel/core": "^7.9.0",
     "@babel/preset-env": "latest",
     "@commitlint/cli": "latest",
     "@commitlint/config-conventional": "latest",
     "@nuxtjs/eslint-config": "latest",
     "@nuxtjs/module-test-utils": "latest",
-    "babel-eslint": "latest",
+    "babel-eslint": "^10.0.2",
     "babel-jest": "latest",
-    "eslint": "latest",
+    "eslint": "^6.8.0",
     "husky": "latest",
-    "jest": "latest",
+    "jest": "^25.3.0",
     "nuxt-edge": "latest",
     "css-loader": "^5.2.0",
     "standard-version": "latest"
