@@ -173,6 +173,11 @@ export default {
       const definedPicture = zoom || big || desktop
       return definedPicture ? definedPicture.url : ""
     },
+    pictureSelectedUrl() {
+      const { zoom, big, desktop } = this.pictureSelected;
+      const definedPicture = zoom || big || desktop;
+      return definedPicture ? definedPicture.url : "";
+    },
   },
   mounted() {
     this.$nextTick(() => {
