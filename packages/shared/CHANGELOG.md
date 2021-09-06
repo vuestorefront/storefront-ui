@@ -3,37 +3,6 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [0.11.0-rc.2](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.11.0-rc.1...@storefront-ui/shared@0.11.0-rc.2) (2021-09-06)
-
-
-### Bug Fixes
-
-* [#1551](https://github.com/vuestorefront/storefront-ui/issues/1551) and remove component css variables ([5199efc](https://github.com/vuestorefront/storefront-ui/commit/5199efcee6d17d58a36ac7e6e6252a2c6204862d))
-* [#1662](https://github.com/vuestorefront/storefront-ui/issues/1662)/product card size ([#1908](https://github.com/vuestorefront/storefront-ui/issues/1908)) ([07b0283](https://github.com/vuestorefront/storefront-ui/commit/07b0283be096a8a1627d201222746f3adf2d86a4))
-* bottom nav fixed ([c54a080](https://github.com/vuestorefront/storefront-ui/commit/c54a08086a1f2419a3a8774030a0a4e47727e460))
-* change mobile view for slider and adjust story ([e03cae5](https://github.com/vuestorefront/storefront-ui/commit/e03cae535c8d4b1352e6d2283154fb3508799dc9))
-* enable clickable indicate ([6fd3bb8](https://github.com/vuestorefront/storefront-ui/commit/6fd3bb8d36ed9936a67a0f630ada3bd387c563ea))
-* enable label click ([#1912](https://github.com/vuestorefront/storefront-ui/issues/1912)) ([0e490e7](https://github.com/vuestorefront/storefront-ui/commit/0e490e74dc61a298cd3f87c50436b531d7c1fe35))
-* remove component variables for radio text color ([27b8169](https://github.com/vuestorefront/storefront-ui/commit/27b81696bc77d2816fa1de6ce8f4ef96dcb1abd6))
-* remove component variables for SfRadio ([c314b06](https://github.com/vuestorefront/storefront-ui/commit/c314b06d366d3c2614b5bb61d0b930982af3181a))
-* remove css var and menuitem from story ([1442057](https://github.com/vuestorefront/storefront-ui/commit/1442057032fed776ea2b5a3ac51b7fbc701d138e))
-* revert SfGroupedProduct code ([24850b7](https://github.com/vuestorefront/storefront-ui/commit/24850b72e9c5dd1d84723a1f2ac856d273b25a94))
-* revert unnecessary changes ([04e737c](https://github.com/vuestorefront/storefront-ui/commit/04e737c6370d47d283b7a9313088ad8988e869e0))
-* sfheader mobile navigation ([7f40e56](https://github.com/vuestorefront/storefront-ui/commit/7f40e5600dffab4591dfe674508a8ecc1fb88fe8))
-* story products and style ([4b0d1aa](https://github.com/vuestorefront/storefront-ui/commit/4b0d1aadffece478adc01e52d04d60ab18960666))
-
-
-### Features
-
-* add styles for button active state as it is possible now ([46db956](https://github.com/vuestorefront/storefront-ui/commit/46db956fe279b25cdb25626065bee181752d6562))
-* color picker in product card ([e02c489](https://github.com/vuestorefront/storefront-ui/commit/e02c489914788a061544271467222945524ee39b))
-* sfhero with sfcimage ([0969382](https://github.com/vuestorefront/storefront-ui/commit/09693828e871e70af1d572290a82c90481835126))
-* sfskeleton ([aa81f49](https://github.com/vuestorefront/storefront-ui/commit/aa81f49133deeed5042f268f5d3bb0cb347685ba))
-
-
-
-
-
 # [0.11.0-rc.1](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.10.8...@storefront-ui/shared@0.11.0-rc.1) (2021-08-20)
 
 
