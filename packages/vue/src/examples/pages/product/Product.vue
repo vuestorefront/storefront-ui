@@ -173,7 +173,7 @@ import {
   SfSelect,
   SfBreadcrumbs,
   SfNotification,
-} from "@storefront-ui/vue";
+} from "@storefront-ui/vue"
 export default {
   name: "Product",
   components: {
@@ -323,33 +323,33 @@ export default {
       ],
       isOpenNotification: false,
       openTab: 1,
-    };
+    }
   },
   methods: {
     addToCart() {
-      this.isOpenNotification = true;
+      this.isOpenNotification = true
       setTimeout(() => {
-        this.isOpenNotification = false;
-      }, 3000);
+        this.isOpenNotification = false
+      }, 3000)
     },
     selectColor(colorIndex) {
       this.product.colors.map((el, i) => {
         if (colorIndex === i) {
-          el.selected = true;
-          this.selectedColor = el.name;
+          el.selected = true
+          this.selectedColor = el.name
         } else {
-          el.selected = false;
+          el.selected = false
         }
-      });
+      })
     },
     changeTab(tabNumber) {
       document
         .getElementById("tabs")
-        .scrollIntoView({ behavior: "smooth", block: "end" });
-      this.openTab = tabNumber;
+        .scrollIntoView({ behavior: "smooth", block: "end" })
+      this.openTab = tabNumber
     },
   },
-};
+}
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";

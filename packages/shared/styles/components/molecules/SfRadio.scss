@@ -1,39 +1,26 @@
 @import "../../helpers";
 .sf-radio {
-  display: var(--radio-display, flex);
-  transition: var(
-    --radio-transition,
-    background-color 0.25s cubic-bezier(1, 0.5, 0.8, 1)
-  );
+  display: flex;
+  transition: background-color 0.25s cubic-bezier(1, 0.5, 0.8, 1);
   &__label {
-    display: var(--radio-label-display, flex);
-    @include font(
-      --radio-label-font,
-      var(--font-weight--normal),
-      var(--font-size--base),
-      normal,
-      var(--font-family--primary)
-    );
-    color: var(--radio-label-color);
+    display: flex;
+    font-weight: var(--font-weight--normal);
+    font-size: var(--font-size--base);
+    font-family: var(--font-family--primary);
+    line-height: normal;
+    color: var(--c-text);
   }
   &__checkmark {
     box-sizing: border-box;
-    width: var(--radio-checkmark-size, 1.5rem);
-    height: var(--radio-checkmark-size, 1.5rem);
-    @include border(
-      --radio-checkmark-border,
-      1px,
-      solid,
-      var(--c-gray-variant)
-    );
-    border-radius: var(--radio-checkmark-border-radius, 100%);
-    transition: var(
-      --radio-checkmark-transition,
-      border 0.25s cubic-bezier(1, 0.5, 0.8, 1)
-    );
+    width: 1.5rem;
+    height: 1.5rem;
+    border: solid var(--c-gray-variant);
+    border-width: 1px;
+    border-radius: 100%;
+    transition: border 0.25s cubic-bezier(1, 0.5, 0.8, 1);
     &.is-active {
-      --radio-checkmark-border-width: 9px;
-      --radio-checkmark-border-color: var(--c-primary);
+      border-width: 9px;
+      border-color: var(--c-primary);
     }
   }
   input {
@@ -52,63 +39,67 @@
   }
   &__container {
     position: relative;
-    display: var(--radio-container-display, flex);
-    align-items: var(--radio-container-align-items);
+    display: flex;
+    align-items: normal;
     flex: 1;
-    padding: var(
-      --radio-container-padding,
-      var(--spacer-sm) var(--spacer-lg) var(--spacer-sm) var(--spacer-sm)
-    );
-    cursor: var(--radio-container-cursor, pointer);
+    padding: var(--spacer-sm) var(--spacer-lg) var(--spacer-sm) var(--spacer-sm);
+    cursor: pointer;
   }
   &:hover {
-    --radio-checkmark-border-color: var(--c-black);
+    .sf-radio__checkmark {
+      border-color: var(--c-black);
+    }
   }
   &__content {
     flex: 1;
-    margin: var(--radio-content-margin, 0 0 0 var(--spacer-sm));
+    margin: 0 0 0 var(--spacer-sm);
   }
   &__details {
-    margin: var(--radio-details-margin, var(--spacer-xs) 0 0 0);
-    color: var(--radio-details-color, var(--c-text-muted));
-    @include font(
-      --radio-details-font,
-      var(--font-weight--light),
-      var(--font-size--sm),
-      1.2,
-      var(--font-family--primary)
-    );
+    margin: var(--spacer-xs) 0 0 0;
+    color: var(--c-text-muted);
+    font-weight: var(--font-weight--light);
+    font-size: var(--font-size--sm);
+    font-family: var(--font-family--primary);
+    line-height: 1.2;
   }
   &__description {
-    margin: var(--radio-description-margin, var(--spacer-xs) 0 0 0);
-    @include font(
-      --radio-description-font,
-      var(--font-weight--light),
-      var(--font-size--sm),
-      1.6,
-      var(--font-family--primary)
-    );
-    color: var(--radio-description-margin);
+    margin: var(--spacer-xs) 0 0 0;
+    font-weight: var(--font-weight--light);
+    font-size: var(--font-size--sm);
+    font-family: var(--font-family--primary);
+    line-height: 1.6;
+    color: var(--c-text);
   }
   &.is-active {
-    background: var(--radio-background, var(--c-light));
+    background: var(--c-light);
   }
   &.is-disabled {
-    --radio-checkmark-border-color:  var(--c-text-disabled);
-    --radio-details-color: var(--c-text-disabled);
-    --radio-description-margin: var(--c-text-disabled);
-    --radio-label-color: var(--c-text-disabled);
-    --radio-container-cursor: default;
+    .sf-radio__checkmark {
+      border-color: var(--c-text-disabled);
+    }
+    .sf-radio__container {
+      cursor: default;
+    }
     &:hover {
-      --radio-checkmark-border-color: var(--c-text-disabled);
+      .sf-radio__checkmark {
+        border-color: var(--c-text-disabled);
+      }
+    }
+
+    .sf-radio__label,
+    .sf-radio__details,
+    .sf-radio__description {
+      color: var(--c-text-disabled);
     }
   }
   &--transparent {
     &.is-active {
-      --radio-background: transparent;
+      background: transparent;
     }
   }
   @include for-desktop {
-    --radio-container-padding: var(--spacer-sm);
+    .sf-radio__container {
+      padding: var(--spacer-sm);
+    }
   }
 }

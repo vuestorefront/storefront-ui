@@ -96,7 +96,7 @@ const Template = (args, { argTypes }) => ({
   components: { SfRadio },
   props: Object.keys(argTypes),
   template: `
-  <SfRadio 
+  <SfRadio
     :class="classes"
     :label="label"
     :details="details"
@@ -121,19 +121,19 @@ Common.args = {
   value: "store",
 };
 
-export const Selected = Template.bind({});
+export const Selected = Template.bind({})
 Selected.args = {
   ...Common.args,
   selected: "store",
 };
 
-export const TransparentSelected = Template.bind({});
+export const TransparentSelected = Template.bind({})
 TransparentSelected.args = {
   ...Selected.args,
   classes: "sf-radio--transparent",
 };
 
-export const Disabled = Template.bind({});
+export const Disabled = Template.bind({})
 Disabled.args = {
   ...Common.args,
   disabled: true,
@@ -143,7 +143,7 @@ export const UseCheckmarkSlot = (args, { argTypes }) => ({
   components: { SfRadio },
   props: Object.keys(argTypes),
   template: `
-  <SfRadio 
+  <SfRadio
     :class="classes"
     :label="label"
     :details="details"
@@ -167,7 +167,7 @@ export const UseLabelSlot = (args, { argTypes }) => ({
   components: { SfRadio },
   props: Object.keys(argTypes),
   template: `
-  <SfRadio 
+  <SfRadio
     :class="classes"
     :label="label"
     :details="details"
@@ -190,7 +190,7 @@ export const UseDetailsSlot = (args, { argTypes }) => ({
   components: { SfRadio },
   props: Object.keys(argTypes),
   template: `
-  <SfRadio 
+  <SfRadio
     :class="classes"
     :label="label"
     :details="details"
@@ -213,7 +213,7 @@ export const UseDescriptionSlot = (args, { argTypes }) => ({
   components: { SfRadio },
   props: Object.keys(argTypes),
   template: `
-  <SfRadio 
+  <SfRadio
     :class="classes"
     :label="label"
     :details="details"

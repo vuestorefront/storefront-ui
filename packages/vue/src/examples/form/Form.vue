@@ -153,7 +153,7 @@ import {
   SfTextarea,
   SfHeading,
   SfRange,
-} from "@storefront-ui/vue";
+} from "@storefront-ui/vue"
 export default {
   name: "Default",
   components: {
@@ -258,31 +258,31 @@ export default {
             return new Intl.NumberFormat("de-DE", {
               style: "currency",
               currency: "EUR",
-            }).format(range);
+            }).format(range)
           },
           from: function (range) {
             const parsedValue = new Intl.NumberFormat("de-DE", {
               style: "currency",
               currency: "EUR",
-            }).formatToParts(range);
-            return parsedValue[0].value;
+            }).formatToParts(range)
+            return parsedValue[0].value
           },
         },
       },
-    };
+    }
   },
   methods: {
     validate() {
-      this.firstNameBlur = false;
-      this.lastNameBlur = false;
-      this.streetNameBlur = false;
-      this.apartmentBlur = false;
-      this.cityBlur = false;
-      this.zipCodeBlur = false;
-      this.countryBlur = false;
-      this.phoneNumberBlur = false;
-      this.emailBlur = false;
-      this.messageBlur = false;
+      this.firstNameBlur = false
+      this.lastNameBlur = false
+      this.streetNameBlur = false
+      this.apartmentBlur = false
+      this.cityBlur = false
+      this.zipCodeBlur = false
+      this.countryBlur = false
+      this.phoneNumberBlur = false
+      this.emailBlur = false
+      this.messageBlur = false
       if (
         this.validEmail(this.email) &&
         this.validPhoneNumber(this.phoneNumber) &&
@@ -295,63 +295,63 @@ export default {
         this.validCountry(this.country) &&
         this.validMessage(this.message)
       ) {
-        this.valid = true;
+        this.valid = true
       }
     },
     validFirstName(firstName) {
-      return firstName.length > 2;
+      return firstName.length > 2
     },
     validLastName(lastName) {
-      return lastName.length > 2;
+      return lastName.length > 2
     },
     validStreetName(streetName) {
-      return streetName.length > 2;
+      return streetName.length > 2
     },
     validApartment(apartment) {
-      const regex = /^[0-9]/;
-      return regex.test(apartment);
+      const regex = /^[0-9]/
+      return regex.test(apartment)
     },
     validCity(city) {
-      return !!city && city.length > 2;
+      return !!city && city.length > 2
     },
     validZipCode(zipCode) {
-      const regex = /^[0-9]/;
-      return regex.test(zipCode);
+      const regex = /^[0-9]/
+      return regex.test(zipCode)
     },
     validCountry(country) {
-      return !!country;
+      return !!country
     },
     validPhoneNumber(phone) {
-      const regex = /^[0-9]{9}$/;
-      return regex.test(phone);
+      const regex = /^[0-9]{9}$/
+      return regex.test(phone)
     },
     validEmail(email) {
-      const regex = /(.+)@(.+){2,}\.(.+){2,}/;
-      return regex.test(email.toLowerCase());
+      const regex = /(.+)@(.+){2,}\.(.+){2,}/
+      return regex.test(email.toLowerCase())
     },
     validMessage(message) {
-      return !!message && message.length > 10 && message.length <= 400;
+      return !!message && message.length > 10 && message.length <= 400
     },
     submit() {
-      this.validate();
+      this.validate()
       if (this.valid) {
-        this.submitted = true;
+        this.submitted = true
       }
     },
     reset() {
-      this.email = "";
-      this.phoneNumber = "";
-      this.zipCode = "";
-      this.country = "";
-      this.streetName = "";
-      this.city = "";
-      this.lastName = "";
-      this.firstName = "";
-      this.apartment = "";
-      this.message = "";
+      this.email = ""
+      this.phoneNumber = ""
+      this.zipCode = ""
+      this.country = ""
+      this.streetName = ""
+      this.city = ""
+      this.lastName = ""
+      this.firstName = ""
+      this.apartment = ""
+      this.message = ""
     },
   },
-};
+}
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";

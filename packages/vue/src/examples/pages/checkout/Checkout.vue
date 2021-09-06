@@ -79,7 +79,7 @@
   </div>
 </template>
 <script>
-import { SfSteps, SfButton } from "@storefront-ui/vue";
+import { SfSteps, SfButton } from "@storefront-ui/vue"
 import {
   PersonalDetails,
   Shipping,
@@ -87,7 +87,7 @@ import {
   ConfirmOrder,
   OrderSummary,
   OrderReview,
-} from "./_internal/index.js";
+} from "./_internal/index.js"
 export default {
   name: "Checkout",
   components: {
@@ -270,7 +270,7 @@ export default {
           icon: "return",
         },
       ],
-    };
+    }
   },
   computed: {
     getOrder() {
@@ -279,18 +279,18 @@ export default {
         ...this.personalDetails,
         shipping: { ...this.shipping },
         payment: { ...this.payment },
-      };
+      }
     },
   },
   methods: {
     updateStep(next) {
       // prevent to move next by SfStep header
       if (next < this.currentStep) {
-        this.currentStep = next;
+        this.currentStep = next
       }
     },
   },
-};
+}
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";

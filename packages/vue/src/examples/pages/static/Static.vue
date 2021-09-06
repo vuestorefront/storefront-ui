@@ -45,7 +45,7 @@
   </div>
 </template>
 <script>
-import { SfContentPages, SfTabs, SfBreadcrumbs } from "@storefront-ui/vue";
+import { SfContentPages, SfTabs, SfBreadcrumbs } from "@storefront-ui/vue"
 export default {
   name: "Static",
   components: {
@@ -134,14 +134,14 @@ export default {
           ],
         },
       ],
-    };
+    }
   },
   methods: {
     updateActive(title) {
-      this.activePage = title;
+      this.activePage = title
     },
   },
-};
+}
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
