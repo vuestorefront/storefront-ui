@@ -3397,10 +3397,10 @@
   integrity sha512-T7VNNlYVM1SgQ+VsMYhnDkcGmWhQdL0bDyGm5TlQ3GBXnJscEClUUOKduWTmm2zCnvNLC1hc3JpuXjs/nFOc5w==
 
 "@storefront-ui/vue@link:packages/vue":
-  version "0.11.0-rc.1"
+  version "0.11.0-rc.2"
   dependencies:
     "@glidejs/glide" "^3.3.0"
-    "@storefront-ui/shared" "0.11.0-rc.1"
+    "@storefront-ui/shared" "0.11.0-rc.2"
     body-scroll-lock "^3.0.1"
     cloudinary-build-url "^0.1.1"
     core-js "^3.6.5"
@@ -15035,6 +15035,11 @@ mdurl@^1.0.0:
   resolved "https://registry.yarnpkg.com/mdurl/-/mdurl-1.0.1.tgz#fe85b2ec75a59037f2adfec100fd6c601761152e"
   integrity sha1-/oWy7HWlkDfyrf7BAP1sYBdhFS4=
 
+mdx-embed@^0.0.19:
+  version "0.0.19"
+  resolved "https://registry.yarnpkg.com/mdx-embed/-/mdx-embed-0.0.19.tgz#07220a7a7f3ab6aa9ced1e1c79de1c9896bef337"
+  integrity sha512-0HEXkQqP7GuNE3kOWoj4FPdOWbACNpObeoUpTQe1BXrqcTR0KBGckCs30K+ypRuutQPo0L3IZsCLBMQqLMYaug==
+
 media-typer@0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/media-typer/-/media-typer-0.3.0.tgz#8710d7af0aa626f8fffa1ce00168545263255748"
@@ -22187,21 +22192,10 @@ webpack-chain@^6.4.0:
     deepmerge "^1.5.2"
     javascript-stringify "^2.0.1"
 
-webpack-dev-middleware@3.7.2:
+webpack-dev-middleware@3.7.2, webpack-dev-middleware@^3.7.0, webpack-dev-middleware@^3.7.2:
   version "3.7.2"
   resolved "https://registry.yarnpkg.com/webpack-dev-middleware/-/webpack-dev-middleware-3.7.2.tgz#0019c3db716e3fa5cecbf64f2ab88a74bab331f3"
   integrity sha512-1xC42LxbYoqLNAhV6YzTYacicgMZQTqRd27Sim9wn5hJrX3I5nxYy1SxSd4+gjUFsz1dQFj+yEe6zEVmSkeJjw==
-  dependencies:
-    memory-fs "^0.4.1"
-    mime "^2.4.4"
-    mkdirp "^0.5.1"
-    range-parser "^1.2.1"
-    webpack-log "^2.0.0"
-
-webpack-dev-middleware@^3.7.0, webpack-dev-middleware@^3.7.2:
-  version "3.7.3"
-  resolved "https://registry.yarnpkg.com/webpack-dev-middleware/-/webpack-dev-middleware-3.7.3.tgz#0639372b143262e2b84ab95d3b91a7597061c2c5"
-  integrity sha512-djelc/zGiz9nZj/U7PTBi2ViorGJXEWo/3ltkPbDyxCXhhEXkW0ce99falaok4TPj+AsxLiXJR0EBOb0zh9fKQ==
   dependencies:
     memory-fs "^0.4.1"
     mime "^2.4.4"
