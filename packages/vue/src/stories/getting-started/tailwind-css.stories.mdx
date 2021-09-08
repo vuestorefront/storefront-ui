@@ -5,7 +5,15 @@ import { YouTube } from 'mdx-embed';
   .mdx-embed {
     width: 80%;
     text-align: center;
-    margin: 0 auto;
+    margin: 2.5rem auto;
+  }
+  .warning {
+		border-left: 5px solid #ffc107;
+		background-color: #fff4d5;
+	}
+  .alert {
+    padding: 1rem;
+    margin: 0.5rem 0 1rem;
   }
 `}</style>
 
@@ -17,6 +25,7 @@ import { YouTube } from 'mdx-embed';
 You can use the it to customize **StorefrontUI** components in your application.
 
 <YouTube youTubeId="uCxPb_39TNg" />
+
 
 ## Vue 2 based projects
 
@@ -140,9 +149,12 @@ module.exports = {
   important: true,
 }
 ```
+<div class="alert warning">
 
 It is important to notice here, that adding `important` rule here will override also other classes
 written by yourself, so be aware that there are no conflicting classes that you use except of Tailwind.
+
+</div>
 
 * Include TailwindCSS in your CSS
 
