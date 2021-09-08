@@ -1,0 +1,42 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+import FigmaComponents from "./assets/figma-components.jpg";
+import FigmaStyle from "./assets/figma-styles.jpg";
+
+<Meta title="Design Principles" />
+
+# Design Principles
+
+Below are StorefrontUI's design principles.
+
+## Design patterns
+
+We use [**atomic design**](http://bradfrost.com/blog/post/atomic-web-design/) concept for grouping components (**without** templates and pages).
+
+![Atomic design](https://res.cloudinary.com/mayashavin/image/upload/h_150/v1567776459/StorefrontUI/atomic-design.png)
+
+In general, there are three groups of components:
+
+- **Atoms** - Atoms are **the most basic and abstract** components for building other components, such as color palletes, icons, button, input, etc.
+- **Molecules** - Molecules are components built from **groups of atoms bonded together**, take on their own properties and serve as the backbone of the design systems. Some good examples are a banner, gallery, menu item, etc.
+- **Organisms** - Organisms are complex and distinct components built from **groups of molecules** joined together, such as header, grid, accordions, etc.
+
+## Contributing
+
+Before starting, please review our design concepts ad the components section to get familiar with our standards.
+
+### Working with Figma
+
+We use [Figma](https://www.figma.com/file/N0Ct95cSAoODNv7zYS01ng/Storefront-UI-%7C-Design-System?node-id=127%3A1054) to design the basic layouts of our component.
+
+While working with our figma designs there are two concepts that you need to be familiar with:
+
+1. All of the components (not always with the names same as in a code) can be found under 'components' section in left bottom corner.
+
+   <img src={FigmaComponents} alt="figma components" />
+
+2. Most of the components have style applied on them. It means that if you click
+   on a text field of particular element you can find the name of a style (instead
+   of raw color/size) referring to styleguide. You can find them in global SCSS
+   vars.
+
+   <img src={FigmaComponents} alt="figma components" />

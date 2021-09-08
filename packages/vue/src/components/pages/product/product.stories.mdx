@@ -1,0 +1,21 @@
+import { Meta, Props, Preview, Story } from '@storybook/addon-docs/blocks';
+
+import { story, params } from '~storybook-util/story';
+import ProductComponent from './Product'
+
+<Meta title="Components/Pages/Product"
+  component={ProductComponent}
+/>
+
+# Product example page 
+
+
+<Preview>
+  <Story 
+    name='Product' 
+    inline 
+    parameters={params(ProductComponent)}
+  >
+    {story(ProductComponent)}
+  </Story>
+</Preview>

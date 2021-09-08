@@ -1,0 +1,22 @@
+import { Meta, Props, Preview, Story } from '@storybook/addon-docs/blocks';
+
+import { story, params } from '~storybook-util/story';
+import LoginComponent from './Login'
+
+<Meta title="Components/Pages/Login"
+  component={LoginComponent}
+/>
+
+# Login example page 
+
+
+<Preview>
+  <Story 
+    name='Login' 
+    inline 
+    parameters={params(LoginComponent)}
+    height="700px"
+  >
+    {story(LoginComponent)}
+  </Story>
+</Preview>

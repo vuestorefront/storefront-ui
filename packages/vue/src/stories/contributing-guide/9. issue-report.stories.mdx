@@ -1,0 +1,175 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Contributing Guide/How to report an issue" />
+
+<style>{`
+  a {
+    color: #5ECE7B !important;
+  }
+
+  .alert {
+    background: #efeded;
+    padding: 1rem;
+    margin: 0.5rem 0 1rem;
+  }
+
+  .tip {
+    border-left: 5px solid #5ECE7B;
+  }
+
+	.warning {
+		border-left: 5px solid #ffc107;
+		background-color: #fff4d5;
+	}
+
+  .danger {
+    border-left: 5px solid #c00;
+		background-color: #ffe6e6;
+  }
+
+  .danger * {
+    color: #4d0000;
+  }
+`}</style>
+
+# How to report an issue
+
+For us to ensure proper planning for any bugfix or feature development workflow, we appreciate if our beloved reporters follow the below guidelines 😃
+
+## Use issue tracker for the right purpose
+
+As part of maintaining our OSS workflow, StorefrontUI uses Github issue tracker **ONLY** for [bugs](#bug-report) and [feature requests (RFC)](#feature-requests-rfc).
+
+<div class="alert warning">
+
+- It is **NOT** for requesting personal support or asking a question. Use [our Discord Server](https://discord.gg/GS8hqFS) or [Stack Overflow](https://stackoverflow.com) or even [Twitter](https://twitter.com/home).
+- It is **NOT** for social media, respect others' opinions, and proper languages are **required**.
+
+</div>
+
+## Issue types
+
+For organizing and tracking purpose, we divide issues on StorefrontUI into the following main types:
+
+- Bug report
+- Feature request (RFC)
+
+## Before reporting
+
+Please do the following checks:
+
+- **Double-check** [the current issues](https://github.com/DivanteLtd/storefront-ui/issues) with the help of Github issue search, to avoid report duplication.
+- If it is an issue about **component behavior**, check our [Components Playground](http://storybook.storefrontui.io) or [Components Documentation](/components/Accordion.md) to make sure it is indeed a bug 🐛 and not an intended feature.
+- If it's about **technical questions** or just to **verify it is technical related**, refer to our [Discord Server](https://discord.gg/GS8hqFS) first. Our contributors and core team will be more than happy to help.
+- Besides, if it is about **feature request**, refer to our current [Roadmap](https://github.com/vuestorefront/storefront-ui/blob/develop/ROADMAP.md) to see if your request exists.
+
+Once you verify your issue from the above checks, it's time to create a new report using [Github issue tracker](https://github.com/DivanteLtd/storefront-ui/issues/new) with the right template recommendations below.
+
+## Issue template
+
+**Issue title** is the first impression of the developer to identify the issue quickly. A good title should contain a brief, clear, and concise explanation with the essential key points.
+
+<div class="alert tip">
+  <h5>GOOD TITLE</h5>
+  <p>[BUG]Precommit checks for shared package fail</p>
+</div>
+
+<div class="alert danger">
+  <h5> BAD TITLE</h5>
+  <p>Can't commit.</p>
+</div>
+
+### Feature requests (RFC)
+
+OSS projects can't live without improvements 😉. So feature requests are always welcome.
+
+<div class="alert warning">
+
+Please take a moment to validate if your request is within the scope of StorefrontUI by contacting us on [Discord Server](https://discord.gg/GS8hqFS), or DM to [@StorefronUI](https://twitter.com/StorefrontUI)
+
+</div>
+
+Our feature request, unlike the bug report, is straightforward. There are two main fields needed for developers' understanding:
+
+#### User story
+
+A user story is the use case of the requested feature. To convince developers of the need for this feature, try to clarify as many aspects and context related to the feature as possible, such as:
+
+- What is the user flow of the feature?
+- What is expected?
+- What generic problem does this feature solve?
+- Any other benefit this feature provides users?
+
+The more details you provide, the stronger and clearer your request will appear to developers.
+
+#### Description / Proposed idea
+
+Sometimes developers get developer-block also. It's similar to writer-block. And not all developers are good at proposing feature API. In such circumstances, it's constructive to give them a hint or your suggestion on how you think we should develop the feature. Sharing is caring.
+
+### Bug report
+
+[Bug report template](https://github.com/DivanteLtd/storefront-ui/blob/master/.github/ISSUE_TEMPLATE/bug_report.md) is the standard placeholder for every new bug found.
+
+<div class="alert tip">
+  <h5> TITLE WITH PREFIX</h5>
+  <p>Bug report will be populated with a title prefix <code>[BUG]</code> upon creation:</p>
+
+`[BUG]<bug issue title>`
+
+</div>
+
+As always, some crucial pre-guidelines:
+
+1. **If the issue has been fixed before**, try to reproduce it with the latest `master` branch.
+2. To help us understand the exact problem, make an effort to **isolate the problem** by a [reduced test case](http://css-tricks.com/reduced-test-cases/), steps to reproduce and a live example if possible.
+
+<div class="alert tip">
+  <h5> A GOOD BUG REPORT</h5>
+  <p>
+    A good bug report should be <b>clear</b>, as <b>detailed</b> as possible <b>without</b> the need of chasing for more information.
+  </p>
+
+</div>
+
+#### General description
+
+What is the bug you are reporting? Summary the bug in a bit of more details (but still concise) than the bug title.
+
+#### Steps to reproduce
+
+It is the most significant part, allowing the developer to reproduce the issue and backtrack why it happens. If a bug can be reproduced, it's 90% fixable.
+
+Hence developers need you to describe each step precisely, even the most and seem-less-important detail.
+
+Example:
+
+1. Navigate to Contributing.md
+2. Click on Become A Contributor link.
+
+If possible, include a live record of the reproducing process, so that we can avoid any misunderstanding and unnecessary ping pong conversations between reporter and developer.
+
+#### Expected & actual behavior
+
+It's a must to state the result you expect and the observed one so everyone is in sync on the bug and clarify in case there is any mismatch.
+
+Examples:
+
+Expected behavior: Open link to become a contributor documentation page.
+
+Actual behavior: Received 404 page.
+
+#### Code examples
+
+If there is any code or extra configuration involved (like how you use the component in practice), don't forget to include them. Either CodeSandbox or simply Markdown code is acceptable.
+
+#### Additional information
+
+In addition to the above fields, more information may be required to speed up bug fix, including:
+
+- **Screenshots** - It can be console logs, terminal logs, actual problematic behavior, etc.
+- **Environment** - It can be which browser, OS, and devices that relate to the issue.
+- **Repository branch, the version used, tech stacks used, etc.**
+
+---
+
+Interested in becoming contributors? Reach out to us [@StorefrontUI](https://twitter.com/StorefrontUI) or in [our Discord Server](https://discord.gg/GS8hqFS) 🔥
