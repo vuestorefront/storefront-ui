@@ -24,32 +24,32 @@ describe("Category page", () => {
       .find(".sf-pagination__item")
       .eq(2)
       .click()
-      .url()
+      .url()      
       .should('eq', 'http://localhost:3000/Category?page=2')
-      .get(selectors.pagination.nextArrow)
-      .click()
-      .url()
-      .should('eq', 'http://localhost:3000/Category?page=3')
       .get(selectors.pagination.prevArrow)
       .click()
       .url()
+      .should('eq', 'http://localhost:3000/Category?page=1')
+      .get(selectors.pagination.nextArrow)
+      .click()
+      .url()
       .should('eq', 'http://localhost:3000/Category?page=2')
+      
   });
   it("test SfSidebar", () => {
     cy.get(".sidebar-filters")
       .children()
-      .should('have.length', 0)
+      .should('not.exist')
       .get(".navbar__filters-button")
       .click()
       .get(".sidebar-filters")
       .children()
-      .its('length')
-      .should('be.greaterThan', 1)
-      .get(".sf-sidebar__circle-icon ")
+      .should('be.visible')
+      .get(".sf-sidebar__circle-icon")
       .click()
       .get(".sidebar-filters")
       .children()
-      .should('have.length', 0)
+      .should('not.exist')
   });
   it("test SfFilters", () => {
     cy.get(".navbar__filters-button")
@@ -66,7 +66,7 @@ describe("Category page", () => {
       .click()
       .should("have.class", "is-active")
   });
-  it("test SfSidebar 'Crear all' button", () => {
+  it("test SfSidebar 'Clear all' button", () => {
     cy.get(".filters__button-clear")
       .click()
       .get(".filters__color")
