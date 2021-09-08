@@ -26,20 +26,19 @@ describe("Category page", () => {
       .click()
       .url()      
       .should('eq', 'http://localhost:3000/Category?page=2')
-      .get(selectors.pagination.prevArrow)
+      .wait(10000)
+      .get(selectors.pagination.prevArrow)      
       .click()
       .url()
       .should('eq', 'http://localhost:3000/Category?page=1')
       .get(selectors.pagination.nextArrow)
       .click()
       .url()
-      .should('eq', 'http://localhost:3000/Category?page=2')
-      
+      .should('eq', 'http://localhost:3000/Category?page=2')      
   });
   it("test SfSidebar", () => {
     cy.get(".sidebar-filters")
-      .children()
-      .should('not.exist')
+      .should('not.to.have.descendants')
       .get(".navbar__filters-button")
       .click()
       .get(".sidebar-filters")
@@ -48,8 +47,7 @@ describe("Category page", () => {
       .get(".sf-sidebar__circle-icon")
       .click()
       .get(".sidebar-filters")
-      .children()
-      .should('not.exist')
+      .should('not.to.have.descendants')
   });
   it("test SfFilters", () => {
     cy.get(".navbar__filters-button")
