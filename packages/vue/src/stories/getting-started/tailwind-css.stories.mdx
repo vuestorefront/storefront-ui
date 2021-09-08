@@ -1,11 +1,19 @@
 import { Meta } from "@storybook/addon-docs/blocks";
 import { YouTube } from 'mdx-embed';
 
+<style>{`
+  .mdx-embed {
+    width: 80%;
+    text-align: center;
+    margin: 0 auto;
+  }
+`}</style>
+
 <Meta title="Setup/Integrations/TailwindCSS" />
 
 # TailwindCSS
 
-[TailwindCSS](https://tailwindcss.com/) is a utility-first CSS framework packed with classes like flex, pt-4, text-center and rotate-90 that can be composed to build any design, directly in your markup.
+[TailwindCSS](https://tailwindcss.com/) is a utility-first CSS framework packed with classes like `flex`, `pt-4`, `text-center` and `rotate-90` that can be composed to build any design, directly in your markup.
 You can use the it to customize **StorefrontUI** components in your application.
 
 <YouTube youTubeId="uCxPb_39TNg" />
@@ -42,17 +50,21 @@ module.exports = {
 }
 ```
 
-* Create index.css file with TailwindCSS styles and include it in main.js
+* Create index.css file
 
 ```bash
 cd src && touch index.css
 ```
+
+* Add TailwindCSS styles to it
 
 ```css
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 ```
+
+* Include this file in `main.js`
 
 ```js
 import Vue from 'vue'
@@ -128,6 +140,9 @@ module.exports = {
   important: true,
 }
 ```
+
+It is important to notice here, that adding `important` rule here will override also other classes
+written by yourself, so be aware that there are no conflicting classes that you use except of Tailwind.
 
 * Include TailwindCSS in your CSS
 
