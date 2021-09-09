@@ -1,5 +1,5 @@
 <template>
-  <div id="confirm-order">
+  <div class="sf-confirm-order">
     <SfHeading
       title="Order details"
       :level="3"

@@ -1,5 +1,5 @@
 <template>
-  <div data-testid="review">
+  <div class="sf-order-review" data-testid="review">
     <SfHeading
       title="Order review"
       :level="3"
@@ -126,7 +126,27 @@ export default {
   props: {
     order: {
       type: Object,
-      default: () => ({}),
+      default: () => ({
+        firstName: "",
+        lastName: "",
+        email: "",
+        shipping: {
+          streetName: "",
+          apartment: "",
+          zipCode: "",
+          city: "",
+          country: "",
+          phoneNumber: "",
+        },
+        payment: {
+          streetName: "",
+          apartment: "",
+          zipCode: "",
+          city: "",
+          country: "",
+          phoneNumber: "",
+        },
+      }),
     },
     shippingMethods: {
       type: Array,

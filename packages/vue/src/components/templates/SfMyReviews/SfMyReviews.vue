@@ -1,5 +1,5 @@
 <template>
-  <SfTabs :open-tab="1" class="tab-orphan">
+  <SfTabs :open-tab="1" class="sf-my-reviews tab-orphan">
     <SfTab title="My reviews">
       <p class="message">
         This feature is not implemented yet! Please take a look at<br />

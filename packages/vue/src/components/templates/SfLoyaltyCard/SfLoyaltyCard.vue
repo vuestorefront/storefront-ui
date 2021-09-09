@@ -1,5 +1,5 @@
 <template>
-  <SfTabs :open-tab="1" class="tab-orphan">
+  <SfTabs class="sf-loyalty-card tab-orphan" :open-tab="1">
     <SfTab title="Loyalty Card">
       <p class="message">
         This feature is not implemented yet! Please take a look at<br />

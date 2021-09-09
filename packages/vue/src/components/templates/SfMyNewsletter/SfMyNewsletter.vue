@@ -1,5 +1,5 @@
 <template>
-  <SfTabs :open-tab="1" class="tab-orphan">
+  <SfTabs :open-tab="1" class="sf-my-newsletter tab-orphan">
     <SfTab title="My newsletter" data-testid="newsletter-tab">
       <p class="message">
         Set up your newsletter and we will send you information about new
