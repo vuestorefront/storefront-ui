@@ -1,5 +1,5 @@
 <template>
-  <SfTabs class="sf-my-prfile" :open-tab="1">
+  <SfTabs class="sf-my-profile" :open-tab="1">
     <SfTab title="Personal data">
       <p class="message">
         Feel free to edit any of your details below so your account is always up

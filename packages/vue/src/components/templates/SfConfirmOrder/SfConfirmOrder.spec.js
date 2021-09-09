@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import SfConfirmOrder from "./SfOrderSummary.vue";
+import SfConfirmOrder from "./SfConfirmOrder.vue";
 describe("SfConfirmOrder.vue", () => {
   it("renders a component", () => {
     const component = shallowMount(SfConfirmOrder);
