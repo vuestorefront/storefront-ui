@@ -176,7 +176,6 @@ const Template = (args, { argTypes }) => ({
     :shipping-methods="shippingMethods"
     :payment-methods="paymentMethods"
     :characteristics="characteristics"
-    :button-name="buttonName"
   >
   </SfConfirmOrder>`,
 });

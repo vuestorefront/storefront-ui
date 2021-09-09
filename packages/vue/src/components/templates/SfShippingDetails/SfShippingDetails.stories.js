@@ -1,4 +1,4 @@
-import { SfOrderHistory } from "@storefront-ui/vue";
+import { SfShippingDetails } from "@storefront-ui/vue";
 
 const accountData = {
   firstName: "John",
@@ -38,13 +38,8 @@ const accountData = {
 };
 
 export default {
-  title: "Components/Templates/OrderHistory",
-  component: SfOrderHistory,
-};
-
-const Template = (args, { argTypes }) => ({
-  props: Object.keys(argTypes),
-  components: { SfOrderHistory },
+  title: "Components/Templates/ShippingDetails",
+  component: SfShippingDetails,
   argTypes: {
     account: {
       control: "Object",
@@ -54,11 +49,16 @@ const Template = (args, { argTypes }) => ({
       defaultValue: accountData,
     },
   },
+};
+
+const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { SfShippingDetails },
   template: `
-  <SfOrderHistory
+  <SfShippingDetails 
     :account="account"
   >
-  </SfOrderHistory>`,
+  </SfShippingDetails>`,
 });
 
 export const Common = Template.bind({});

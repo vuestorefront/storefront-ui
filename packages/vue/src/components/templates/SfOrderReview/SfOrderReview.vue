@@ -126,27 +126,7 @@ export default {
   props: {
     order: {
       type: Object,
-      default: () => ({
-        firstName: "",
-        lastName: "",
-        email: "",
-        shipping: {
-          streetName: "",
-          apartment: "",
-          zipCode: "",
-          city: "",
-          country: "",
-          phoneNumber: "",
-        },
-        payment: {
-          streetName: "",
-          apartment: "",
-          zipCode: "",
-          city: "",
-          country: "",
-          phoneNumber: "",
-        },
-      }),
+      default: () => ({}),
     },
     shippingMethods: {
       type: Array,
@@ -168,7 +148,16 @@ export default {
   },
   computed: {
     shipping() {
-      return this.order.shipping;
+      return this.order
+        ? this.order.shipping
+        : {
+            streetName: "",
+            apartment: "",
+            zipCode: "",
+            city: "",
+            country: "",
+            phoneNumber: "",
+          };
     },
     shippingMethod() {
       const shippingMethod = this.shipping.shippingMethod;
@@ -178,7 +167,16 @@ export default {
       return method ? method : { price: 0 };
     },
     payment() {
-      return this.order.payment;
+      return this.order
+        ? this.order.payment
+        : {
+            streetName: "",
+            apartment: "",
+            zipCode: "",
+            city: "",
+            country: "",
+            phoneNumber: "",
+          };
     },
     paymentMethod() {
       const paymentMethod = this.payment.paymentMethod;

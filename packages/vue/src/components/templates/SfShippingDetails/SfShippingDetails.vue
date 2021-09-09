@@ -4,7 +4,7 @@
       v-if="editAddress"
       key="edit-address"
       :open-tab="1"
-      class="tab-orphan"
+      class="sf-shipping-details tab-orphan"
       data-testid="shipping-details-tabs"
     >
       <SfTab title="Change the address">

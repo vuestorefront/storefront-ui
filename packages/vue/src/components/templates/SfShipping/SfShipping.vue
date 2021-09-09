@@ -1,5 +1,5 @@
 <template>
-  <div data-testid="shipping">
+  <div class="sf-shipping" data-testid="shipping">
     <SfHeading
       title="Shipping"
       :level="3"

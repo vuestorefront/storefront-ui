@@ -1,5 +1,5 @@
 <template>
-  <div data-testid="payment">
+  <div class="sf-payment" data-testid="payment">
     <SfHeading
       title="Billing address"
       :level="3"
@@ -290,7 +290,9 @@ export default {
     },
     value: {
       type: Object,
-      default: () => ({}),
+      default: () => ({
+        card: {},
+      }),
     },
   },
   data() {

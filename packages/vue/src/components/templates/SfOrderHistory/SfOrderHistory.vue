@@ -9,7 +9,7 @@
         Check the details and status of your orders in the online store. You can
         also cancel your order or request a return.
       </p>
-      <div v-if="orders.length === 0" class="no-orders">
+      <div v-if="orders && orders.length === 0" class="no-orders">
         <p class="no-orders__title">You currently have no order history.</p>
         <SfButton class="no-orders__button">Start shopping</SfButton>
       </div>
@@ -76,9 +76,7 @@ export default {
   props: {
     account: {
       type: Object,
-      default: () => ({
-        orders: {},
-      }),
+      default: () => ({}),
     },
   },
   data() {
