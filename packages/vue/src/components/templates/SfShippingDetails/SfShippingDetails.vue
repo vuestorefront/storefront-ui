@@ -1,166 +1,170 @@
 <template>
-  <transition name="sf-fade">
-    <SfTabs
-      v-if="editAddress"
-      key="edit-address"
-      :open-tab="1"
-      class="sf-shipping-details tab-orphan"
-      data-testid="shipping-details-tabs"
-    >
-      <SfTab title="Change the address">
-        <p class="message">Keep your addresses and contact details updated.</p>
-        <div class="form">
-          <SfInput
-            v-model="firstName"
-            name="firstName"
-            label="First Name"
-            required
-            class="form__element form__element--half"
-          />
-          <SfInput
-            v-model="lastName"
-            name="lastName"
-            label="Last Name"
-            required
-            class="form__element form__element--half form__element--half-even"
-          />
-          <SfInput
-            v-model="streetName"
-            name="streetName"
-            label="Street Name"
-            required
-            class="form__element"
-          />
-          <SfInput
-            v-model="apartment"
-            name="apartment"
-            label="House/Apartment number"
-            required
-            class="form__element"
-          />
-          <SfInput
-            v-model="city"
-            name="city"
-            label="City"
-            required
-            class="form__element form__element--half"
-          />
-          <SfInput
-            v-model="state"
-            name="state"
-            label="State/Province"
-            required
-            class="form__element form__element--half form__element--half-even"
-          />
-          <SfInput
-            v-model="zipCode"
-            name="zipCode"
-            label="Zip-code"
-            required
-            class="form__element form__element--half"
-          />
-          <SfComponentSelect
-            v-model="country"
-            name="country"
-            label="Country"
-            required
-            class="
-              sf-component-select--underlined
-              form__select
-              form__element
-              form__element--half
-              form__element--half-even
-            "
-            data-testid="country"
-          >
-            <SfComponentSelectOption
-              v-for="countryOption in countries"
-              :key="countryOption"
-              :value="countryOption"
+  <div class="sf-shipping-details">
+    <transition name="sf-fade">
+      <SfTabs
+        v-if="editAddress"
+        key="edit-address"
+        :open-tab="1"
+        class="tab-orphan"
+        data-testid="shipping-details-tabs"
+      >
+        <SfTab title="Change the address">
+          <p class="message">
+            Keep your addresses and contact details updated.
+          </p>
+          <div class="form">
+            <SfInput
+              v-model="firstName"
+              name="firstName"
+              label="First Name"
+              required
+              class="form__element form__element--half"
+            />
+            <SfInput
+              v-model="lastName"
+              name="lastName"
+              label="Last Name"
+              required
+              class="form__element form__element--half form__element--half-even"
+            />
+            <SfInput
+              v-model="streetName"
+              name="streetName"
+              label="Street Name"
+              required
+              class="form__element"
+            />
+            <SfInput
+              v-model="apartment"
+              name="apartment"
+              label="House/Apartment number"
+              required
+              class="form__element"
+            />
+            <SfInput
+              v-model="city"
+              name="city"
+              label="City"
+              required
+              class="form__element form__element--half"
+            />
+            <SfInput
+              v-model="state"
+              name="state"
+              label="State/Province"
+              required
+              class="form__element form__element--half form__element--half-even"
+            />
+            <SfInput
+              v-model="zipCode"
+              name="zipCode"
+              label="Zip-code"
+              required
+              class="form__element form__element--half"
+            />
+            <SfComponentSelect
+              v-model="country"
+              name="country"
+              label="Country"
+              required
+              class="
+                sf-component-select--underlined
+                form__select
+                form__element
+                form__element--half
+                form__element--half-even
+              "
+              data-testid="country"
             >
-              {{ countryOption }}
-            </SfComponentSelectOption>
-          </SfComponentSelect>
-          <SfInput
-            v-model="phoneNumber"
-            name="phone"
-            label="Phone number"
-            required
-            class="form__element"
-          />
+              <SfComponentSelectOption
+                v-for="countryOption in countries"
+                :key="countryOption"
+                :value="countryOption"
+              >
+                {{ countryOption }}
+              </SfComponentSelectOption>
+            </SfComponentSelect>
+            <SfInput
+              v-model="phoneNumber"
+              name="phone"
+              label="Phone number"
+              required
+              class="form__element"
+            />
+            <SfButton
+              class="action-button"
+              data-testid="update-address-button"
+              @click="updateAddress"
+            >
+              Update the address</SfButton
+            >
+          </div>
+        </SfTab>
+      </SfTabs>
+      <SfTabs v-else key="address-list" :open-tab="1" class="tab-orphan">
+        <SfTab title="Shipping details">
+          <p class="message">
+            Manage all the shipping addresses you want (work place, home address
+            ...) This way you won't have to enter the shipping address manually
+            with each order.
+          </p>
+          <transition-group tag="div" name="sf-fade" class="shipping-list">
+            <div
+              v-for="(shipping, key) in account.shipping"
+              :key="shipping.streetName + shipping.apartment"
+              class="shipping"
+              data-testid="shipping-address-list-item"
+            >
+              <div class="shipping__content">
+                <p class="shipping__address">
+                  <span class="shipping__client-name"
+                    >{{ shipping.firstName }} {{ shipping.lastName }}</span
+                  ><br />
+                  {{ shipping.streetName }} {{ shipping.apartment }}<br />{{
+                    shipping.zipCode
+                  }}
+                  {{ shipping.city }},<br />{{ shipping.country }}
+                </p>
+                <p class="shipping__address">
+                  {{ shipping.phoneNumber }}
+                </p>
+              </div>
+              <div class="shipping__actions">
+                <SfIcon
+                  icon="cross"
+                  color="gray"
+                  size="14px"
+                  role="button"
+                  class="smartphone-only"
+                  @click="deleteAddress(key)"
+                />
+                <SfButton
+                  data-testid="change-address"
+                  @click="changeAddress(key)"
+                >
+                  Change
+                </SfButton>
+                <SfButton
+                  class="shipping__button-delete desktop-only"
+                  data-testid="delete-address"
+                  @click="deleteAddress(key)"
+                >
+                  Delete
+                </SfButton>
+              </div>
+            </div>
+          </transition-group>
           <SfButton
             class="action-button"
-            data-testid="update-address-button"
-            @click="updateAddress"
+            data-testid="add-new-address"
+            @click="changeAddress(-1)"
           >
-            Update the address</SfButton
+            Add new address</SfButton
           >
-        </div>
-      </SfTab>
-    </SfTabs>
-    <SfTabs v-else key="address-list" :open-tab="1" class="tab-orphan">
-      <SfTab title="Shipping details">
-        <p class="message">
-          Manage all the shipping addresses you want (work place, home address
-          ...) This way you won't have to enter the shipping address manually
-          with each order.
-        </p>
-        <transition-group tag="div" name="sf-fade" class="shipping-list">
-          <div
-            v-for="(shipping, key) in account.shipping"
-            :key="shipping.streetName + shipping.apartment"
-            class="shipping"
-            data-testid="shipping-address-list-item"
-          >
-            <div class="shipping__content">
-              <p class="shipping__address">
-                <span class="shipping__client-name"
-                  >{{ shipping.firstName }} {{ shipping.lastName }}</span
-                ><br />
-                {{ shipping.streetName }} {{ shipping.apartment }}<br />{{
-                  shipping.zipCode
-                }}
-                {{ shipping.city }},<br />{{ shipping.country }}
-              </p>
-              <p class="shipping__address">
-                {{ shipping.phoneNumber }}
-              </p>
-            </div>
-            <div class="shipping__actions">
-              <SfIcon
-                icon="cross"
-                color="gray"
-                size="14px"
-                role="button"
-                class="smartphone-only"
-                @click="deleteAddress(key)"
-              />
-              <SfButton
-                data-testid="change-address"
-                @click="changeAddress(key)"
-              >
-                Change
-              </SfButton>
-              <SfButton
-                class="shipping__button-delete desktop-only"
-                data-testid="delete-address"
-                @click="deleteAddress(key)"
-              >
-                Delete
-              </SfButton>
-            </div>
-          </div>
-        </transition-group>
-        <SfButton
-          class="action-button"
-          data-testid="add-new-address"
-          @click="changeAddress(-1)"
-        >
-          Add new address</SfButton
-        >
-      </SfTab>
-    </SfTabs>
-  </transition>
+        </SfTab>
+      </SfTabs>
+    </transition>
+  </div>
 </template>
 <script>
 import {
