@@ -6,24 +6,24 @@ const orderData = {
     shipping: "$9.00",
     total: "$159.00",
   },
-  firstName: "",
-  lastName: "",
-  email: "",
+  firstName: "John",
+  lastName: "Dog",
+  email: "john,dog@gmail.com",
   shipping: {
-    streetName: "",
-    apartment: "",
-    zipCode: "",
-    city: "",
-    country: "",
-    phoneNumber: "",
+    streetName: "Sezame Street",
+    apartment: "24/193A",
+    city: "Wroclaw",
+    zipCode: "53-540",
+    country: "Poland",
+    phoneNumber: "(00)560 123 456",
   },
   payment: {
-    streetName: "",
-    apartment: "",
-    zipCode: "",
-    city: "",
-    country: "",
-    phoneNumber: "",
+    streetName: "Sezame Street",
+    apartment: "24/193A",
+    city: "Wroclaw",
+    zipCode: "53-540",
+    country: "Poland",
+    phoneNumber: "(00)560 123 456",
   },
   products: [
     {
@@ -141,7 +141,7 @@ const characteristicsData = [
 ];
 
 export default {
-  title: "Components/Templates/OrderReview",
+  title: "Components/Templates/Checkout/OrderReview",
   component: SfOrderReview,
 };
 

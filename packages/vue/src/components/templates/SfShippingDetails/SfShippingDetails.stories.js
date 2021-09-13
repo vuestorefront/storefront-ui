@@ -38,7 +38,7 @@ const accountData = {
 };
 
 export default {
-  title: "Components/Templates/ShippingDetails",
+  title: "Components/Templates/MyAccount/ShippingDetails",
   component: SfShippingDetails,
   argTypes: {
     account: {

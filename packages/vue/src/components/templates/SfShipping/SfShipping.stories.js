@@ -49,7 +49,7 @@ const shippingMethodsData = [
 ];
 
 export default {
-  title: "Components/Templates/Shipping",
+  title: "Components/Templates/Checkout/Shipping",
   component: SfShipping,
   argTypes: {
     value: {

@@ -1,17 +1,19 @@
-import { SfMyReviews } from "@storefront-ui/vue";
+// To prepare according to figma design
 
-export default {
-  title: "Components/Templates/MyReviews",
-  component: SfMyReviews,
-};
+// import { SfMyReviews } from "@storefront-ui/vue";
 
-const Template = (args, { argTypes }) => ({
-  props: Object.keys(argTypes),
-  components: { SfMyReviews },
-  template: `
-  <SfMyReviews>
-  </SfMyReviews>`,
-});
+// export default {
+//   title: "Components/Templates/MyReviews",
+//   component: SfMyReviews,
+// };
 
-export const Common = Template.bind({});
-Common.args = {};
+// const Template = (args, { argTypes }) => ({
+//   props: Object.keys(argTypes),
+//   components: { SfMyReviews },
+//   template: `
+//   <SfMyReviews>
+//   </SfMyReviews>`,
+// });
+
+// export const Common = Template.bind({});
+// Common.args = {};

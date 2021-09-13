@@ -133,7 +133,7 @@ const characteristicsData = [
 ];
 
 export default {
-  title: "Components/Templates/ConfirmOrder",
+  title: "Components/Templates/Checkout/ConfirmOrder",
   component: SfConfirmOrder,
   argTypes: {
     order: {

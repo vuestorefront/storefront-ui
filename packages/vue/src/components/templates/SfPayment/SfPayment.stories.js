@@ -33,7 +33,7 @@ const shippingData = {
 };
 
 export default {
-  title: "Components/Templates/Payment",
+  title: "Components/Templates/Checkout/Payment",
   component: SfPayment,
   argTypes: {
     value: {

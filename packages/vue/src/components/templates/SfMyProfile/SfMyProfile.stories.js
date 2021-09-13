@@ -38,7 +38,7 @@ const accountData = {
 };
 
 export default {
-  title: "Components/Templates/MyProfile",
+  title: "Components/Templates/MyAccount/MyProfile",
   component: SfMyProfile,
 };
 

@@ -38,7 +38,7 @@ const accountData = {
 };
 
 export default {
-  title: "Components/Templates/OrderHistory",
+  title: "Components/Templates/MyAccount/OrderHistory",
   component: SfOrderHistory,
 };
 

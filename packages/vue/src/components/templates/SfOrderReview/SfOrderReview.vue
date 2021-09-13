@@ -148,7 +148,8 @@ export default {
   },
   computed: {
     shipping() {
-      return this.order
+      console.log(this.order.shipping);
+      return this.order.shipping
         ? this.order.shipping
         : {
             streetName: "",
@@ -167,7 +168,7 @@ export default {
       return method ? method : { price: 0 };
     },
     payment() {
-      return this.order
+      return this.order.payment
         ? this.order.payment
         : {
             streetName: "",

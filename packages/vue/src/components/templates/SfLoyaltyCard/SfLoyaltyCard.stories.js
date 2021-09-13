@@ -1,17 +1,19 @@
-import { SfLoyaltyCard } from "@storefront-ui/vue";
+// To prepare
 
-export default {
-  title: "Components/Templates/LoyaltyCard",
-  component: SfLoyaltyCard,
-};
+// import { SfLoyaltyCard } from "@storefront-ui/vue";
 
-const Template = (args, { argTypes }) => ({
-  props: Object.keys(argTypes),
-  components: { SfLoyaltyCard },
-  template: `
-  <SfLoyaltyCard>
-  </SfLoyaltyCard>`,
-});
+// export default {
+//   title: "Components/Templates/LoyaltyCard",
+//   component: SfLoyaltyCard,
+// };
 
-export const Common = Template.bind({});
-Common.args = {};
+// const Template = (args, { argTypes }) => ({
+//   props: Object.keys(argTypes),
+//   components: { SfLoyaltyCard },
+//   template: `
+//   <SfLoyaltyCard>
+//   </SfLoyaltyCard>`,
+// });
+
+// export const Common = Template.bind({});
+// Common.args = {};

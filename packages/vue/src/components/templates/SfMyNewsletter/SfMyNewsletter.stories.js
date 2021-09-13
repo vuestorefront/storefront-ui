@@ -1,7 +1,7 @@
 import { SfMyNewsletter } from "@storefront-ui/vue";
 
 export default {
-  title: "Components/Templates/MyNewsletter",
+  title: "Components/Templates/MyAccount/MyNewsletter",
   component: SfMyNewsletter,
 };
 

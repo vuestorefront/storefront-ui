@@ -133,7 +133,7 @@ const characteristicsData = [
 ];
 
 export default {
-  title: "Components/Templates/OrderSummary",
+  title: "Components/Templates/Checkout/OrderSummary",
   component: SfOrderSummary,
   argTypes: {
     order: {
