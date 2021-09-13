@@ -74,7 +74,7 @@ import SfTable from "./src/components/organisms/SfTable/SfTable.vue";
 import SfTabs from "./src/components/organisms/SfTabs/SfTabs.vue";
 import SfTopBar from "./src/components/organisms/SfTopBar/SfTopBar.vue";
 import SfConfirmOrder from "./src/components/templates/SfConfirmOrder/SfConfirmOrder.vue";
-import SfMyNewsletter from "./src/components/templates/SfMyNewsletter/SfMyNewsletter.vue";
+import SfMyAccountContent from "./src/components/templates/SfMyAccountContent/SfMyAccountContent.vue";
 import SfMyProfile from "./src/components/templates/SfMyProfile/SfMyProfile.vue";
 import SfOrderHistory from "./src/components/templates/SfOrderHistory/SfOrderHistory.vue";
 import SfOrderReview from "./src/components/templates/SfOrderReview/SfOrderReview.vue";
@@ -160,7 +160,7 @@ export {
   SfTabs,
   SfTopBar,
   SfConfirmOrder,
-  SfMyNewsletter,
+  SfMyAccountContent,
   SfMyProfile,
   SfOrderHistory,
   SfOrderReview,
