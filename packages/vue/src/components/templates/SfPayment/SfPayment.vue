@@ -340,22 +340,40 @@ export default {
   },
   watch: {
     payment: {
-      handler() {
-        this.sameAsShipping = this.value.sameAsShipping;
-        this.streetName = this.value.streetName;
-        this.apartment = this.value.apartment;
-        this.city = this.value.city;
-        this.state = this.value.state;
-        this.zipCode = this.value.zipCode;
-        this.country = this.value.country;
-        this.phoneNumber = this.value.phoneNumber;
-        this.paymentMethod = this.value.paymentMethod;
-        this.cardNumber = this.value.card.number;
-        this.cardHolder = this.value.card.holder;
-        this.cardMonth = this.value.card.month;
-        this.cardYear = this.value.card.year;
-        this.cardCVC = this.value.card.cvc;
-        this.cardKeep = this.value.card.keep;
+      handler(value) {
+        if (value) {
+          this.sameAsShipping = this.value.sameAsShipping;
+          this.streetName = this.value.streetName;
+          this.apartment = this.value.apartment;
+          this.city = this.value.city;
+          this.state = this.value.state;
+          this.zipCode = this.value.zipCode;
+          this.country = this.value.country;
+          this.phoneNumber = this.value.phoneNumber;
+          this.paymentMethod = this.value.paymentMethod;
+          this.cardNumber = this.value.card.number;
+          this.cardHolder = this.value.card.holder;
+          this.cardMonth = this.value.card.month;
+          this.cardYear = this.value.card.year;
+          this.cardCVC = this.value.card.cvc;
+          this.cardKeep = this.value.card.keep;
+        } else {
+          this.sameAsShipping = false;
+          this.streetName = "";
+          this.apartment = "";
+          this.city = "";
+          this.state = "";
+          this.zipCode = null;
+          this.country = "";
+          this.phoneNumber = null;
+          this.paymentMethod = "";
+          this.cardNumber = null;
+          this.cardHolder = "";
+          this.cardMonth = null;
+          this.cardYear = null;
+          this.cardCVC = null;
+          this.cardKeep = "";
+        }
       },
       immediate: true,
     },
