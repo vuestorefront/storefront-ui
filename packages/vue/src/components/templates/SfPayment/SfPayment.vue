@@ -290,9 +290,7 @@ export default {
     },
     value: {
       type: Object,
-      default: () => ({
-        card: {},
-      }),
+      default: () => ({}),
     },
   },
   data() {
