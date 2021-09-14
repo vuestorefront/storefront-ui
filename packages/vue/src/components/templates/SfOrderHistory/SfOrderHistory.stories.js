@@ -40,11 +40,6 @@ const accountData = {
 export default {
   title: "Components/Templates/MyAccount/OrderHistory",
   component: SfOrderHistory,
-};
-
-const Template = (args, { argTypes }) => ({
-  props: Object.keys(argTypes),
-  components: { SfOrderHistory },
   argTypes: {
     account: {
       control: "Object",
@@ -54,6 +49,11 @@ const Template = (args, { argTypes }) => ({
       defaultValue: accountData,
     },
   },
+};
+
+const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { SfOrderHistory },
   template: `
   <SfOrderHistory
     :account="account"

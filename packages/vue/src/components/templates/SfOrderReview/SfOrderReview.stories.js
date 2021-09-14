@@ -143,11 +143,6 @@ const characteristicsData = [
 export default {
   title: "Components/Templates/Checkout/OrderReview",
   component: SfOrderReview,
-};
-
-const Template = (args, { argTypes }) => ({
-  props: Object.keys(argTypes),
-  components: { SfOrderReview },
   argTypes: {
     order: {
       control: "Object",
@@ -178,6 +173,11 @@ const Template = (args, { argTypes }) => ({
       defaultValue: characteristicsData,
     },
   },
+};
+
+const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { SfOrderReview },
   template: `
   <SfOrderReview
     :order="order"

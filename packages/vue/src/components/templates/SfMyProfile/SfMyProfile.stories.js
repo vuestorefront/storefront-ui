@@ -40,11 +40,6 @@ const accountData = {
 export default {
   title: "Components/Templates/MyAccount/MyProfile",
   component: SfMyProfile,
-};
-
-const Template = (args, { argTypes }) => ({
-  props: Object.keys(argTypes),
-  components: { SfMyProfile },
   argTypes: {
     account: {
       control: "Array",
@@ -54,6 +49,11 @@ const Template = (args, { argTypes }) => ({
       defaultValue: accountData,
     },
   },
+};
+
+const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { SfMyProfile },  
   template: `
   <SfMyProfile
     :account="account"
