@@ -1,11 +1,15 @@
 <template>
-  <SfTabs :open-tab="1" data-testid="order-history-tabs">
+  <SfTabs
+    class="sf-order-history"
+    :open-tab="1"
+    data-testid="order-history-tabs"
+  >
     <SfTab title="My orders" data-testid="my-orders">
       <p class="message">
         Check the details and status of your orders in the online store. You can
         also cancel your order or request a return.
       </p>
-      <div v-if="orders.length === 0" class="no-orders">
+      <div v-if="orders && orders.length === 0" class="no-orders">
         <p class="no-orders__title">You currently have no order history.</p>
         <SfButton class="no-orders__button">Start shopping</SfButton>
       </div>

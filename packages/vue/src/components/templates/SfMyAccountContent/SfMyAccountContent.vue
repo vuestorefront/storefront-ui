@@ -1,6 +1,6 @@
 <template>
-  <SfTabs :open-tab="1" class="tab-orphan">
-    <SfTab title="My newsletter" data-testid="newsletter-tab">
+  <SfTabs :open-tab="1" class="sf-my-account-content tab-orphan">
+    <SfTab title="My account" data-testid="newsletter-tab">
       <p class="message">
         Set up your newsletter and we will send you information about new
         products and trends from the sections you selected every week.
@@ -45,7 +45,7 @@
 <script>
 import { SfTabs, SfCheckbox, SfButton } from "@storefront-ui/vue";
 export default {
-  name: "SfMyNewsletter",
+  name: "SfMyAccountContent",
   components: { SfTabs, SfCheckbox, SfButton },
   data() {
     return {
