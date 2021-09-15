@@ -1,4 +1,4 @@
-import { SfOrderSummary } from "@storefront-ui/vue";
+import { SfConfirmOrder } from "@storefront-ui/vue";
 
 const orderData = {
   review: {
@@ -133,11 +133,11 @@ const characteristicsData = [
 ];
 
 export default {
-  title: "Components/Templates/Checkout/OrderSummary",
-  component: SfOrderSummary,
+  title: "Components/Templates/Checkout/ConfirmOrder",
+  component: SfConfirmOrder,
   argTypes: {
     order: {
-      control: "object",
+      control: "Object",
       table: {
         category: "Props",
       },
@@ -164,28 +164,20 @@ export default {
       },
       defaultValue: characteristicsData,
     },
-    buttonName: {
-      control: "String",
-      table: {
-        category: "Props",
-      },
-      defaultValue: "Place my order",
-    },
   },
 };
 
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
-  components: { SfOrderSummary },
+  components: { SfConfirmOrder },
   template: `
-  <SfOrderSummary 
+  <SfConfirmOrder 
     :order="order"
     :shipping-methods="shippingMethods"
     :payment-methods="paymentMethods"
     :characteristics="characteristics"
-    :button-name="buttonName"
   >
-  </SfOrderSummary>`,
+  </SfConfirmOrder>`,
 });
 
 export const Common = Template.bind({});

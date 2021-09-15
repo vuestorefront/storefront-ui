@@ -1,5 +1,5 @@
 <template>
-  <div id="confirm-order">
+  <div class="sf-confirm-order">
     <SfHeading
       title="Order details"
       :level="3"
@@ -167,7 +167,9 @@ export default {
       return this.order.shipping;
     },
     shippingMethod() {
-      const shippingMethod = this.shipping.shippingMethod;
+      const shippingMethod = this.shipping
+        ? this.shipping.shippingMethod
+        : null;
       const method = this.shippingMethods.find(
         (method) => method.value === shippingMethod
       );
@@ -185,14 +187,16 @@ export default {
     },
     subtotal() {
       const products = this.products;
-      const subtotal = products.reduce((previous, current) => {
-        const qty = current.qty;
-        const price = current.price.special
-          ? current.price.special
-          : current.price.regular;
-        const total = qty * parseFloat(price.replace("$", ""));
-        return previous + total;
-      }, 0);
+      const subtotal = this.products
+        ? products.reduce((previous, current) => {
+            const qty = current.qty;
+            const price = current.price.special
+              ? current.price.special
+              : current.price.regular;
+            const total = qty * parseFloat(price.replace("$", ""));
+            return previous + total;
+          }, 0)
+        : 0;
       return "$" + subtotal.toFixed(2);
     },
     total() {

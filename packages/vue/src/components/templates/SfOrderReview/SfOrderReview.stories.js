@@ -1,4 +1,4 @@
-import { SfOrderSummary } from "@storefront-ui/vue";
+import { SfOrderReview } from "@storefront-ui/vue";
 
 const orderData = {
   review: {
@@ -6,16 +6,24 @@ const orderData = {
     shipping: "$9.00",
     total: "$159.00",
   },
+  firstName: "John",
+  lastName: "Dog",
+  email: "john,dog@gmail.com",
   shipping: {
-    shippingMethod: {
-      isOpen: false,
-      price: "Free",
-      delivery: "Delivery from 3 to 7 business days",
-      label: "Pickup in the store",
-      value: "store",
-      description:
-        "Novelty! From now on you have the option of picking up an order in the selected InPack parceled. Just remember that in the case of orders paid on delivery, only the card payment will be accepted.",
-    },
+    streetName: "Sezame Street",
+    apartment: "24/193A",
+    city: "Wroclaw",
+    zipCode: "53-540",
+    country: "Poland",
+    phoneNumber: "(00)560 123 456",
+  },
+  payment: {
+    streetName: "Sezame Street",
+    apartment: "24/193A",
+    city: "Wroclaw",
+    zipCode: "53-540",
+    country: "Poland",
+    phoneNumber: "(00)560 123 456",
   },
   products: [
     {
@@ -133,11 +141,11 @@ const characteristicsData = [
 ];
 
 export default {
-  title: "Components/Templates/Checkout/OrderSummary",
-  component: SfOrderSummary,
+  title: "Components/Templates/Checkout/OrderReview",
+  component: SfOrderReview,
   argTypes: {
     order: {
-      control: "object",
+      control: "Object",
       table: {
         category: "Props",
       },
@@ -164,28 +172,20 @@ export default {
       },
       defaultValue: characteristicsData,
     },
-    buttonName: {
-      control: "String",
-      table: {
-        category: "Props",
-      },
-      defaultValue: "Place my order",
-    },
   },
 };
 
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
-  components: { SfOrderSummary },
+  components: { SfOrderReview },
   template: `
-  <SfOrderSummary 
+  <SfOrderReview
     :order="order"
     :shipping-methods="shippingMethods"
     :payment-methods="paymentMethods"
     :characteristics="characteristics"
-    :button-name="buttonName"
   >
-  </SfOrderSummary>`,
+  </SfOrderReview>`,
 });
 
 export const Common = Template.bind({});
