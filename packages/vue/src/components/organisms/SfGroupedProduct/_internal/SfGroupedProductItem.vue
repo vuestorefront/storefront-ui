@@ -58,10 +58,10 @@
   </li>
 </template>
 <script>
-import SfPrice from "../../../atoms/SfPrice/SfPrice.vue"
-import SfImage from "../../../atoms/SfImage/SfImage.vue"
-import SfQuantitySelector from "../../../atoms/SfQuantitySelector/SfQuantitySelector.vue"
-import SfLink from "../../../atoms/SfLink/SfLink.vue"
+import SfPrice from "../../../atoms/SfPrice/SfPrice.vue";
+import SfImage from "../../../atoms/SfImage/SfImage.vue";
+import SfQuantitySelector from "../../../atoms/SfQuantitySelector/SfQuantitySelector.vue";
+import SfLink from "../../../atoms/SfLink/SfLink.vue";
 export default {
   name: "SfGroupedProductItem",
   components: {
@@ -143,5 +143,5 @@ export default {
       default: "",
     },
   },
-}
+};
 </script>
