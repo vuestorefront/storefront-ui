@@ -1,9 +1,9 @@
-import SfCimage from "./SfCimage.vue";
-import { placeholderTypes } from "./helpers";
-import { RESIZE_TYPES } from "@cld-apis/utils";
+import SfCimage from "./SfCimage.vue"
+import { placeholderTypes } from "./helpers"
+import { RESIZE_TYPES } from "@cld-apis/utils"
 
 export default {
-  title: "Components/Atoms/Cloudinary/Image",
+  title: "Setup/Integrations/Cloudinary/Image",
   component: SfCimage,
   decorators: [
     () => ({
@@ -94,7 +94,7 @@ export default {
       description: "Alternative text in case image is not loaded.",
     },
   },
-};
+}
 
 const Template = (args, { argTypes }) => ({
   components: { SfCimage },
@@ -109,30 +109,30 @@ const Template = (args, { argTypes }) => ({
     :progressive="progressive"
     :alt="alt"
   />`,
-});
+})
 
-export const Common = Template.bind({});
+export const Common = Template.bind({})
 Common.args = {
   publicId: "sheep",
   cloud: {
     cloudName: "demo",
   },
   alt: "Example sheep",
-};
+}
 
-export const WithPlaceholder = Template.bind({});
+export const WithPlaceholder = Template.bind({})
 WithPlaceholder.args = {
   ...Common.args,
   placeholder: "blur",
-};
+}
 
-export const Progressive = Template.bind({});
+export const Progressive = Template.bind({})
 Progressive.args = {
   ...Common.args,
   placeholder: "blur",
-};
+}
 
-export const Resize = Template.bind({});
+export const Resize = Template.bind({})
 Resize.args = {
   ...Common.args,
   transformations: [
@@ -144,9 +144,9 @@ Resize.args = {
       },
     },
   ],
-};
+}
 
-export const ResizeWithGravity = Template.bind({});
+export const ResizeWithGravity = Template.bind({})
 ResizeWithGravity.args = {
   ...Common.args,
   transformations: [
@@ -159,9 +159,9 @@ ResizeWithGravity.args = {
       gravity: "auto",
     },
   ],
-};
+}
 
-export const AsThumbnail = Template.bind({});
+export const AsThumbnail = Template.bind({})
 AsThumbnail.args = {
   ...Common.args,
   publicId: "puppy_cute",
@@ -174,9 +174,9 @@ AsThumbnail.args = {
       },
     },
   ],
-};
+}
 
-export const WithBorder = Template.bind({});
+export const WithBorder = Template.bind({})
 WithBorder.args = {
   ...Common.args,
   transformations: [
@@ -187,9 +187,9 @@ WithBorder.args = {
       },
     },
   ],
-};
+}
 
-export const WithRoundCorner = Template.bind({});
+export const WithRoundCorner = Template.bind({})
 WithRoundCorner.args = {
   ...Common.args,
   transformations: [
@@ -197,9 +197,9 @@ WithRoundCorner.args = {
       radius: 20,
     },
   ],
-};
+}
 
-export const WithColor = Template.bind({});
+export const WithColor = Template.bind({})
 WithColor.args = {
   ...Common.args,
   transformations: [
@@ -211,13 +211,13 @@ WithColor.args = {
       color: "red",
     },
   ],
-};
+}
 
-export const WithAccessibility = Template.bind({});
+export const WithAccessibility = Template.bind({})
 WithAccessibility.args = {
   ...Common.args,
   alt: "",
-};
+}
 WithAccessibility.decorators = [
   () => ({
     template: `<div>
@@ -227,4 +227,4 @@ WithAccessibility.decorators = [
     <story />
   </div>`,
   }),
-];
+]

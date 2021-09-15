@@ -19,7 +19,6 @@ export default {
   },
   computed: {
     classFromProps() {
-      console.log(this.type)
       switch (this.type) {
         case "paragraph":
           return "sf-skeleton--paragraph"

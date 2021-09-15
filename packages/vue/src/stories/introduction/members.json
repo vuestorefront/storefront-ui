@@ -47,6 +47,21 @@
     "active": true
   },
   {
+    "name": "Aditya Patel",
+    "role": "Maintainer",
+    "work": {
+      "title": "Core Team Member | Video Tutorial Host",
+      "org": "HotWax Commerce",
+      "orgUrl": "https://www.hotwax.co/"
+    },
+    "location": "New York",
+    "languages": ["en"],
+    "socials": {
+      "github": "dt2patel"
+    },
+    "active": true
+  },
+  {
     "name": "Filip Rakowski",
     "role": "Maintainer",
     "work": {
