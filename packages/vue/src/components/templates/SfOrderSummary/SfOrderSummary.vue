@@ -1,101 +1,108 @@
 <template>
   <div class="sf-order-summary">
-    <SfHeading
-      title="Totals"
-      :level="3"
-      class="sf-heading--left sf-heading--no-underline title"
-    />
+    <slot name="heading">
+      <SfHeading
+        :title="reviewTitle"
+        :level="reviewTitleLevel"
+        class="sf-heading--left sf-heading--no-underline title"
+      />
+    </slot>
     <div class="highlighted highlighted--total">
-      <SfProperty
-        name="Products"
-        :value="totalItems"
-        class="sf-property--full-width sf-property--large property"
-      />
-      <SfProperty
-        name="Subtotal"
-        :value="subtotal"
-        class="sf-property--full-width sf-property--large property"
-      />
-      <SfProperty
-        name="Shipping"
-        :value="shippingMethod.price"
-        class="sf-property--full-width sf-property--large property"
-      />
-      <SfDivider class="divider" />
-      <SfProperty
-        name="Total price"
-        :value="total"
-        class="sf-property--full-width sf-property--large property"
-      />
+      <slot name="summary">
+        <SfProperty
+          name="Products"
+          :value="totalItems"
+          class="sf-property--full-width sf-property--large property"
+        />
+        <SfProperty
+          name="Subtotal"
+          :value="subtotal"
+          class="sf-property--full-width sf-property--large property"
+        />
+        <SfProperty
+          name="Shipping"
+          :value="shippingMethod.price"
+          class="sf-property--full-width sf-property--large property"
+        />
+        <SfDivider class="divider" />
+        <SfProperty
+          name="Total price"
+          :value="total"
+          class="sf-property--full-width sf-property--large property"
+        />
+      </slot>
     </div>
     <div class="highlighted promo-code">
-      <SfInput
-        v-model="promoCode"
-        name="promoCode"
-        label="Enter promo code"
-        class="sf-input--filled promo-code__input"
-      />
-      <SfButton
-        class="promo-code__button"
-        data-testid="apply-button"
-        @click="$emit('click:apply')"
-      >
-        Apply
-      </SfButton>
+      <slot name="promo">
+        <SfInput
+          v-model="promoCode"
+          name="promoCode"
+          label="Enter promo code"
+          class="sf-input--filled promo-code__input"
+        />
+        <SfButton
+          class="promo-code__button"
+          data-testid="apply-button"
+          @click="$emit('click:apply-code')"
+        >
+          Apply
+        </SfButton>
+      </slot>
     </div>
     <div class="actions">
-      <SfButton
-        class="sf-button--full-width actions__button desktop-only"
-        @click="$emit('click:next')"
-        >Go to checkout</SfButton
-      >
-      <SfButton
-        class="
-          sf-button--full-width
-          actions__button
-          color-secondary
-          desktop-only
-        "
-        @click="$emit('click:back')"
-        >Go back shopping</SfButton
-      >
-      <SfCharacteristic
-        v-for="characteristic in characteristics"
-        :key="characteristic.title"
-        :title="characteristic.title"
-        :description="characteristic.description"
-        :icon="characteristic.icon"
-        size-icon="32px"
-        color-icon="green-primary"
-        class="characteristics__item"
-      >
-        <template #text>
+      <slot name="actions">
+        <SfButton
+          class="sf-button--full-width actions__button desktop-only"
+          @click="$emit('click:checkout')"
+          >{{ firstButtonName }}</SfButton
+        >
+        <SfButton
+          class="
+            sf-button--full-width
+            actions__button
+            color-secondary
+            desktop-only
+          "
+          @click="$emit('click:shopping')"
+          >{{ secondButtonName }}</SfButton
+        >
+        <SfCharacteristic
+          v-for="characteristic in characteristics"
+          :key="characteristic.title"
+          :title="characteristic.title"
+          :description="characteristic.description"
+          :icon="characteristic.icon"
+          size-icon="32px"
+          color-icon="green-primary"
+          class="characteristics__item"
+        >
+        </SfCharacteristic>
+        <div class="smartphone-only">
           <SfButton
-            class="sf-button--text actions__button actions__button--secondary"
-            >Send my basket to email</SfButton
+            class="sf-button--full-width actions__button"
+            @click="$emit('click:next')"
+            >{{ firstMobileButtonName }}</SfButton
           >
-        </template>
-      </SfCharacteristic>
-      <div class="smartphone-only">
-        <SfButton
-          class="sf-button--full-width actions__button"
-          @click="$emit('click:next')"
-          >{{ buttonName }}</SfButton
-        >
-        <SfButton
-          class="sf-button--text actions__button actions__button--secondary"
-          @click="$emit('click:back')"
-          >Go back</SfButton
-        >
-      </div>
-      <div class="info desktop-only">
+          <SfButton
+            class="
+              sf-button--full-width sf-button--underlined
+              actions__button actions__button--back
+            "
+            @click="$emit('click:back')"
+            >{{ secondMobileButtonName }}</SfButton
+          >
+        </div>
+      </slot>
+    </div>
+    <div class="info desktop-only">
+      <slot name="info">
         <p>Helpful information:</p>
         <ul class="info__list">
           <li>Questions? Chat with us or call 1.888.282.6060.</li>
           <li>Shipping internationally? Choose your destination & currency.</li>
           <li>Shipping methods & charges</li>
         </ul>
-      </div>
+      </slot>
     </div>
   </div>
 </template>
@@ -119,6 +126,22 @@ export default {
     SfInput,
   },
   props: {
+    reviewTitle: {
+      type: String,
+      default: "Order review",
+    },
+    reviewTitleLevel: {
+      type: Number,
+      default: 3,
+    },
+    firstButtonName: {
+      type: String,
+      default: "Go to checkout",
+    },
+    secondButtonName: {
+      type: String,
+      default: "Go back shopping",
+    },
     order: {
       type: Object,
       default: () => ({}),
@@ -135,9 +158,13 @@ export default {
       type: Array,
       default: () => [],
     },
-    buttonName: {
+    firstMobileButtonName: {
       type: String,
-      default: "",
+      default: "PLace my order",
+    },
+    secondMobileButtonName: {
+      type: String,
+      default: "Go back",
     },
   },
   data() {
@@ -249,6 +276,10 @@ export default {
     &--secondary {
       margin: 0;
       text-align: left;
+    }
+    &--back {
+      color: var(--c-text);
+      background-color: var(--c-white);
     }
   }
 }
