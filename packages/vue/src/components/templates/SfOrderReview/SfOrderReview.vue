@@ -1,111 +1,123 @@
 <template>
-  <div class="sf-order-review" data-testid="review">
-    <SfHeading
-      title="Order review"
-      :level="3"
-      class="sf-heading--left sf-heading--no-underline title"
-    />
-    <div class="review__header">
-      <p class="review__title">Personal details</p>
-      <SfButton
-        class="sf-button--text"
-        data-testid="personal-edit-button"
-        @click="$emit('click:edit', 0)"
-        >Edit
-      </SfButton>
-    </div>
-    <p class="content">{{ order.firstName }} {{ order.lastName }}<br /></p>
-    <p class="content">
-      {{ shipping.streetName }} {{ shipping.apartment }}, {{ shipping.zipCode
-      }}<br />
-      {{ shipping.city }}, {{ shipping.country }}
-    </p>
-    <br />
-    <p class="content">
-      {{ order.email }}
-    </p>
-    <p class="content">
-      {{ shipping.phoneNumber }}
-    </p>
-    <div class="review__header">
-      <p class="review__title">Shipping details</p>
-      <SfButton
-        class="sf-button--text"
-        data-testid="shipping-edit-button"
-        @click="$emit('click:edit', 1)"
-      >
-        Edit
-      </SfButton>
-    </div>
-    <p class="content">
-      <span class="content__label content__shipping">{{
-        shippingMethod.label
-      }}</span
-      ><br />
-      {{ shipping.streetName }} {{ shipping.apartment }}, {{ shipping.zipCode
-      }}<br />
-      {{ shipping.city }}, {{ shipping.country }}
-    </p>
-    <div class="review__header">
-      <p class="review__title">Billing address</p>
-      <SfButton
-        class="sf-button--text"
-        data-testid="billing-edit-button"
-        @click="$emit('click:edit', 2)"
-      >
-        Edit
-      </SfButton>
-    </div>
-    <p v-if="payment.sameAsShipping" class="content">
-      Same as shipping address
-    </p>
-    <template v-else>
+  <div class="sf-order-review review" data-testid="review">
+    <slot name="heading">
+      <SfHeading
+        :title="reviewTitle"
+        :level="reviewTitleLevel"
+        class="sf-heading--left sf-heading--no-underline title"
+      />
+    </slot>
+    <slot name="personal-details">
+      <div class="review__header">
+        <p class="review__title">Personal details</p>
+        <SfButton
+          class="sf-button--text"
+          data-testid="personal-edit-button"
+          @click="$emit('click:personal-details-edit', 0)"
+          >Edit
+        </SfButton>
+      </div>
+      <p class="content">{{ order.firstName }} {{ order.lastName }}<br /></p>
       <p class="content">
-        <span class="content__label">{{ payment.shippingMethod }}</span
-        ><br />
-        {{ payment.streetName }} {{ payment.apartment }}, {{ payment.zipCode
-        }}<br />
-        {{ payment.city }}, {{ payment.country }}
+        {{ shipping.streetName }} {{ shipping.apartment }} <br />
+        {{ shipping.zipCode }}, {{ shipping.city }}, {{ shipping.country }}
       </p>
-      <p class="content">{{ payment.phoneNumber }}</p>
-    </template>
-    <div class="review__header">
-      <p class="review__title">Payment method</p>
-      <SfButton
-        class="sf-button--text"
-        data-testid="payment-edit-button"
-        @click="$emit('click:edit', 2)"
-      >
-        Edit
-      </SfButton>
-    </div>
-    <p class="content">{{ paymentMethod.label }}</p>
-    <div class="promo-code">
-      <SfInput
-        v-model="promoCode"
-        name="promoCode"
-        label="Enter promo code"
-        class="sf-input--filled promo-code__input"
-      />
-      <SfButton
-        class="promo-code__button"
-        data-testid="apply-button"
-        @click="$emit('click:apply')"
-      >
-        Apply
-      </SfButton>
-    </div>
-    <div class="characteristics">
-      <SfCharacteristic
-        v-for="characteristic in characteristics"
-        :key="characteristic.title"
-        :title="characteristic.title"
-        :description="characteristic.description"
-        :icon="characteristic.icon"
-        color-icon="green-primary"
-        class="characteristics__item"
-      />
-    </div>
+      <br />
+      <p class="content">
+        {{ order.email }}
+      </p>
+      <p class="content">
+        {{ shipping.phoneNumber }}
+      </p>
+    </slot>
+    <slot name="shipping-details">
+      <div class="review__header">
+        <p class="review__title">Shipping details</p>
+        <SfButton
+          class="sf-button--text"
+          data-testid="shipping-edit-button"
+          @click="$emit('click:shipping-details-edit', 1)"
+        >
+          Edit
+        </SfButton>
+      </div>
+      <p class="content">
+        <span class="content__label content__shipping">{{
+          shippingMethod.label
+        }}</span
+        ><br />
+        {{ shipping.streetName }} {{ shipping.apartment }} <br />
+        {{ shipping.zipCode }}, {{ shipping.city }}, {{ shipping.country }}
+      </p>
+    </slot>
+    <slot name="billing-details">
+      <div class="review__header">
+        <p class="review__title">Billing address</p>
+        <SfButton
+          class="sf-button--text"
+          data-testid="billing-edit-button"
+          @click="$emit('click:billing-details-edit', 2)"
+        >
+          Edit
+        </SfButton>
+      </div>
+      <p v-if="payment.sameAsShipping" class="content">
+        Same as shipping address
+      </p>
+      <template v-else>
+        <p class="content">
+          <span class="content__label">{{ payment.shippingMethod }}</span
+          ><br />
+          {{ payment.streetName }} {{ payment.apartment }}, {{ payment.zipCode
+          }}<br />
+          {{ payment.city }}, {{ payment.country }}
+        </p>
+        <p class="content">{{ payment.phoneNumber }}</p>
+      </template>
+    </slot>
+    <slot name="payment-details">
+      <div class="review__header">
+        <p class="review__title">Payment method</p>
+        <SfButton
+          class="sf-button--text"
+          data-testid="payment-edit-button"
+          @click="$emit('click:payment-details-edit', 2)"
+        >
+          Edit
+        </SfButton>
+      </div>
+      <p class="content">{{ paymentMethod.label }}</p>
+    </slot>
+    <slot name="promo">
+      <div class="promo-code">
+        <SfInput
+          v-model="promoCode"
+          name="promoCode"
+          label="Enter promo code"
+          class="sf-input--filled promo-code__input"
+        />
+        <SfButton
+          class="promo-code__button"
+          data-testid="apply-button"
+          @click="$emit('click:promo-code-apply')"
+        >
+          Apply
+        </SfButton>
+      </div>
+    </slot>
+    <slot name="characteristics">
+      <div class="characteristics">
+        <SfCharacteristic
+          v-for="characteristic in characteristics"
+          :key="characteristic.title"
+          :title="characteristic.title"
+          :description="characteristic.description"
+          :icon="characteristic.icon"
+          color-icon="green-primary"
+          class="characteristics__item"
+        />
+      </div>
+    </slot>
   </div>
 </template>
 <script>
@@ -124,6 +136,14 @@ export default {
     SfInput,
   },
   props: {
+    reviewTitle: {
+      type: String,
+      default: "Order review",
+    },
+    reviewTitleLevel: {
+      type: Number,
+      default: 3,
+    },
     order: {
       type: Object,
       default: () => ({}),
@@ -158,6 +178,7 @@ export default {
             city: "",
             country: "",
             phoneNumber: "",
+            shippingMethod: "",
           };
     },
     shippingMethod() {
@@ -177,6 +198,7 @@ export default {
             city: "",
             country: "",
             phoneNumber: "",
+            paymentMethod: "",
           };
     },
     paymentMethod() {
