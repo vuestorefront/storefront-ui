@@ -15,8 +15,6 @@
         :icon="props.icon"
         :color="props.iconColor"
         :size="props.iconSize"
-        :badge-label="props.badgeLabel"
-        :has-badge="props.hasBadge"
       />
     </slot>
   </component>
