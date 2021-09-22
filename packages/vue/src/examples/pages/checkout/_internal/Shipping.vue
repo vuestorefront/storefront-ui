@@ -63,7 +63,13 @@
       <SfSelect
         v-model="country"
         placeholder="Country"
-        class="form__element form__element--half form__element--half-even form__select sf-select--underlined"
+        class="
+          form__element
+          form__element--half
+          form__element--half-even
+          form__select
+          sf-select--underlined
+        "
         :valid="true"
         data-testid="country"
         @input="updateField('country', $event)"

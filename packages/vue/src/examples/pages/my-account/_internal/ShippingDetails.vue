@@ -64,7 +64,13 @@
             name="country"
             label="Country"
             required
-            class="sf-component-select--underlined form__select form__element form__element--half form__element--half-even"
+            class="
+              sf-component-select--underlined
+              form__select
+              form__element
+              form__element--half
+              form__element--half-even
+            "
             data-testid="country"
           >
             <SfComponentSelectOption

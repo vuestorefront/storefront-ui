@@ -65,9 +65,8 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      this.contentEl = this.$refs.content.$el.querySelector(
-        ".simplebar-content"
-      );
+      this.contentEl =
+        this.$refs.content.$el.querySelector(".simplebar-content");
       if (typeof MutationObserver === "undefined" || !this.contentEl) return;
       const observer = new MutationObserver(this.sizeCalc);
       this.sizeCalc();

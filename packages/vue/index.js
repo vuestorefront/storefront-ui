@@ -148,5 +148,5 @@ export {
   SfStoreLocator,
   SfTable,
   SfTabs,
-  SfTopBar
+  SfTopBar,
 };

@@ -50,7 +50,7 @@ export default {
       }
     },
     colorClass() {
-      switch(this.type) {
+      switch (this.type) {
         case "secondary":
           return "color-secondary";
         case "info":

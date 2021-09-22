@@ -169,7 +169,7 @@
           :visible="5"
           @click="
             (page) => {
-              currentPage = page
+              currentPage = page;
             }
           "
         />
@@ -403,7 +403,7 @@ import {
   SfProperty,
   SfRadio,
   SfSelect,
-} from "@storefront-ui/vue"
+} from "@storefront-ui/vue";
 export default {
   name: "Category",
   components: {
@@ -666,24 +666,24 @@ export default {
           },
         },
       ],
-    }
+    };
   },
   methods: {
     updateFilter() {},
     clearAllFilters() {
-      const filters = Object.keys(this.filters)
+      const filters = Object.keys(this.filters);
       filters.forEach((name) => {
-        const prop = this.filters[name]
+        const prop = this.filters[name];
         prop.forEach((value) => {
-          value.selected = false
-        })
-      })
+          value.selected = false;
+        });
+      });
     },
     toggleWishlist(index) {
-      this.products[index].isInWishlist = !this.products[index].isInWishlist
+      this.products[index].isInWishlist = !this.products[index].isInWishlist;
     },
   },
-}
+};
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";

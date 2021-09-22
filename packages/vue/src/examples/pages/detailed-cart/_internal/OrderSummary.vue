@@ -25,7 +25,10 @@
       <SfProperty
         name="Total price"
         :value="total"
-        class="sf-property--full-width sf-property--large property property__total"
+        class="
+          sf-property--full-width sf-property--large
+          property property__total
+        "
       />
     </div>
     <div class="actions">
@@ -35,7 +38,12 @@
         >Go to checkout</SfButton
       >
       <SfButton
-        class="sf-button--full-width actions__button color-secondary desktop-only"
+        class="
+          sf-button--full-width
+          actions__button
+          color-secondary
+          desktop-only
+        "
         @click="$emit('click:back')"
         >Go back shopping</SfButton
       >
