@@ -5,61 +5,82 @@
     data-testid="order-history-tabs"
   >
     <SfTab title="My orders" data-testid="my-orders">
-      <p class="message">
-        Check the details and status of your orders in the online store. You can
-        also cancel your order or request a return.
-      </p>
+      <slot name="message-order-history" v-bind="{ orderHistoryDescription }">
+        <p class="message">
+          {{ orderHistoryDescription }}
+        </p>
+      </slot>
       <div v-if="orders && orders.length === 0" class="no-orders">
-        <p class="no-orders__title">You currently have no order history.</p>
-        <SfButton class="no-orders__button">Start shopping</SfButton>
+        <slot name="no-orders" v-bind="{ noOrdersDescription }">
+          <p class="no-orders__title">{{ noOrdersDescription }}</p>
+          <SfButton class="no-orders__button" @click="$emit('no-orders')">
+            {{ noOrdersButtonText }}
+          </SfButton>
+        </slot>
       </div>
-      <SfTable v-else class="orders">
-        <SfTableHeading>
-          <SfTableHeader v-for="tableHeader in tableHeaders" :key="tableHeader"
-            >{{ tableHeader }}
-          </SfTableHeader>
-          <SfTableHeader class="orders__element--right">
-            <span class="smartphone-only">Download</span>
-            <SfButton
-              class="desktop-only sf-button--text orders__download-all"
-              data-testid="download-all-button"
-              >Download all
-            </SfButton>
-          </SfTableHeader>
-        </SfTableHeading>
-        <SfTableRow v-for="order in orders" :key="order[0]">
-          <SfTableData v-for="(data, key) in order" :key="key">
-            <template v-if="key === 4">
-              <span
-                :class="{
-                  'text-success': data === 'Finalised',
-                  'text-warning': data === 'In process',
-                }"
-                >{{ data }}</span
-              >
-            </template>
-            <template v-else>{{ data }}</template>
-          </SfTableData>
-          <SfTableData class="orders__view orders__element--right">
-            <SfButton class="sf-button--text color-secondary smartphone-only"
-              >Download</SfButton
-            >
-            <SfButton
-              class="sf-button--text color-secondary desktop-only"
-              data-testid="view-details-button"
-              >View details</SfButton
-            >
-          </SfTableData>
-        </SfTableRow>
-      </SfTable>
+      <div v-else>
+        <slot name="table" v-bind="{ tableHeaders, orders }">
+          <SfTable class="orders">
+            <SfTableHeading>
+              <slot name="table-headers">
+                <SfTableHeader
+                  v-for="tableHeader in tableHeaders"
+                  :key="tableHeader"
+                  >{{ tableHeader }}
+                </SfTableHeader>
+                <slot name="last-column-header">
+                  <SfTableHeader class="orders__element--right">
+                    <span class="smartphone-only">Download</span>
+                    <SfButton
+                      class="desktop-only sf-button--text orders__download-all"
+                      data-testid="download-all-button"
+                      >Download all
+                    </SfButton>
+                  </SfTableHeader>
+                </slot>
+              </slot>
+            </SfTableHeading>
+            <SfTableRow v-for="order in orders" :key="order[0]">
+              <slot name="table-data">
+                <SfTableData v-for="(data, key) in order" :key="key">
+                  <template v-if="key === 4">
+                    <span
+                      :class="{
+                        'text-success': data === 'Finalised',
+                        'text-warning': data === 'In process',
+                      }"
+                      >{{ data }}</span
+                    >
+                  </template>
+                  <template v-else>{{ data }}</template>
+                </SfTableData>
+                <slot name="last-column-data">
+                  <SfTableData class="orders__view orders__element--right">
+                    <SfButton class="sf-button--text smartphone-only"
+                      >Download</SfButton
+                    >
+                    <SfButton
+                      class="sf-button--text desktop-only"
+                      data-testid="view-details-button"
+                      >View details</SfButton
+                    >
+                  </SfTableData>
+                </slot>
+              </slot>
+            </SfTableRow>
+          </SfTable>
+        </slot>
+      </div>
     </SfTab>
     <SfTab title="Returns" data-testid="returns">
       <p class="message">
-        This feature is not implemented yet! Please take a look at<br />
-        <a href="#"
-          >https://github.com/DivanteLtd/vue-storefront/issues for our
-          Roadmap!</a
-        >
+        <slot name="returns">
+          This feature is not implemented yet! Please take a look at<br />
+          <a href="#"
+            >https://github.com/DivanteLtd/vue-storefront/issues for our
+            Roadmap!</a
+          >
+        </slot>
       </p>
     </SfTab>
   </SfTabs>
@@ -78,17 +99,22 @@ export default {
       type: Object,
       default: () => ({}),
     },
-  },
-  data() {
-    return {
-      tableHeaders: [
-        "Order ID",
-        "Payment date",
-        "Payment method",
-        "Amount",
-        "Status",
-      ],
-    };
+    tableHeaders: {
+      type: Object,
+      default: () => [],
+    },
+    orderHistoryDescription: {
+      type: String,
+      default: "",
+    },
+    noOrdersDescription: {
+      type: String,
+      default: "",
+    },
+    noOrdersButtonText: {
+      type: String,
+      default: "Start shopping",
+    },
   },
   computed: {
     orders() {
