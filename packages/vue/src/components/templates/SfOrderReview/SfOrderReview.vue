@@ -43,7 +43,7 @@
       </div>
       <p class="content">
         <span class="content__label content__shipping">{{
-          shippingMethod.label
+          shippingMethod
         }}</span
         ><br />
         {{ shipping.streetName }} {{ shipping.apartment }} <br />
@@ -86,7 +86,7 @@
           Edit
         </SfButton>
       </div>
-      <p class="content">{{ paymentMethod.label }}</p>
+      <p class="content">{{ paymentMethod }}</p>
     </slot>
     <div class="promo-code">
       <slot name="promo">
@@ -148,14 +148,6 @@ export default {
       type: Object,
       default: () => ({}),
     },
-    shippingMethods: {
-      type: Array,
-      default: () => [],
-    },
-    paymentMethods: {
-      type: Array,
-      default: () => [],
-    },
     characteristics: {
       type: Array,
       default: () => [],
@@ -167,8 +159,13 @@ export default {
     };
   },
   computed: {
+    shippingMethod() {
+      return this.order.shipping.shippingMethod;
+    },
+    paymentMethod() {
+      return this.order.payment.paymentMethod;
+    },
     shipping() {
-      console.log(this.order.shipping);
       return this.order.shipping
         ? this.order.shipping
         : {
@@ -181,13 +178,6 @@ export default {
             shippingMethod: "",
           };
     },
-    shippingMethod() {
-      const shippingMethod = this.shipping.shippingMethod;
-      const method = this.shippingMethods.find(
-        (method) => method.value === shippingMethod
-      );
-      return method ? method : { price: 0 };
-    },
     payment() {
       return this.order.payment
         ? this.order.payment
@@ -199,14 +189,8 @@ export default {
             country: "",
             phoneNumber: "",
             paymentMethod: "",
+            shippingMethod: "",
           };
-    },
-    paymentMethod() {
-      const paymentMethod = this.payment.paymentMethod;
-      const method = this.paymentMethods.find(
-        (method) => method.value === paymentMethod
-      );
-      return method ? method : { label: "" };
     },
   },
 };

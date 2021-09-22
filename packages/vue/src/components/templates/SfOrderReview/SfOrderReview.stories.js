@@ -1,11 +1,6 @@
 import { SfOrderReview } from "@storefront-ui/vue";
 
 const orderData = {
-  review: {
-    subtotal: "$150.00",
-    shipping: "$9.00",
-    total: "$159.00",
-  },
   firstName: "John",
   lastName: "Dog",
   email: "john,dog@gmail.com",
@@ -26,6 +21,7 @@ const orderData = {
     country: "Poland",
     phoneNumber: "(00)560 123 456",
     paymentMethod: "debit",
+    shippingMethod: "home",
   },
   products: [
     {
@@ -52,77 +48,6 @@ const orderData = {
     },
   ],
 };
-
-const paymentMethodsData = [
-  {
-    label: "Visa Debit",
-    value: "debit",
-  },
-  {
-    label: "MasterCard",
-    value: "mastercard",
-  },
-  {
-    label: "Visa Electron",
-    value: "electron",
-  },
-  {
-    label: "Cash on delivery",
-    value: "cash",
-  },
-  {
-    label: "Check",
-    value: "check",
-  },
-];
-
-const shippingMethodsData = [
-  {
-    isOpen: false,
-    price: "Free",
-    delivery: "Delivery from 3 to 7 business days",
-    label: "Pickup in the store",
-    value: "store",
-    description:
-      "Novelty! From now on you have the option of picking up an order in the selected InPack parceled. Just remember that in the case of orders paid on delivery, only the card payment will be accepted.",
-  },
-  {
-    isOpen: false,
-    price: "$9.90",
-    delivery: "Delivery from 4 to 6 business days",
-    label: "Delivery to home",
-    value: "home",
-    description:
-      "Novelty! From now on you have the option of picking up an order in the selected InPack parceled. Just remember that in the case of orders paid on delivery, only the card payment will be accepted.",
-  },
-  {
-    isOpen: false,
-    price: "$9.90",
-    delivery: "Delivery from 4 to 6 business days",
-    label: "Paczkomaty InPost",
-    value: "inpost",
-    description:
-      "Novelty! From now on you have the option of picking up an order in the selected InPack parceled. Just remember that in the case of orders paid on delivery, only the card payment will be accepted.",
-  },
-  {
-    isOpen: false,
-    price: "$11.00",
-    delivery: "Delivery within 48 hours",
-    label: "48 hours coffee",
-    value: "coffee",
-    description:
-      "Novelty! From now on you have the option of picking up an order in the selected InPack parceled. Just remember that in the case of orders paid on delivery, only the card payment will be accepted.",
-  },
-  {
-    isOpen: false,
-    price: "$14.00",
-    delivery: "Delivery within 24 hours",
-    label: "Urgent 24h",
-    value: "urgent",
-    description:
-      "Novelty! From now on you have the option of picking up an order in the selected InPack parceled. Just remember that in the case of orders paid on delivery, only the card payment will be accepted.",
-  },
-];
 
 const characteristicsData = [
   {
@@ -168,18 +93,18 @@ export default {
       defaultValue: orderData,
     },
     shippingMethods: {
-      control: "Array",
+      control: "String",
       table: {
         category: "Props",
       },
-      defaultValue: shippingMethodsData,
+      defaultValue: "",
     },
     paymentMethods: {
-      control: "Array",
+      control: "String",
       table: {
         category: "Props",
       },
-      defaultValue: paymentMethodsData,
+      defaultValue: "",
     },
     characteristics: {
       control: "Array",
@@ -199,8 +124,6 @@ const Template = (args, { argTypes }) => ({
     :review-title="reviewTitle"
     :review-title-level="reviewTitleLevel"
     :order="order"
-    :shipping-methods="shippingMethods"
-    :payment-methods="paymentMethods"
     :characteristics="characteristics"
   >
   </SfOrderReview>`,
