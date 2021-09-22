@@ -159,12 +159,6 @@ export default {
     };
   },
   computed: {
-    shippingMethod() {
-      return this.order.shipping.shippingMethod;
-    },
-    paymentMethod() {
-      return this.order.payment.paymentMethod;
-    },
     shipping() {
       return this.order.shipping
         ? this.order.shipping
@@ -191,6 +185,12 @@ export default {
             paymentMethod: "",
             shippingMethod: "",
           };
+    },
+    shippingMethod() {
+      return this.shipping.shippingMethod;
+    },
+    paymentMethod() {
+      return this.payment.paymentMethod;
     },
   },
 };
