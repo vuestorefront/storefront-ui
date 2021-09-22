@@ -92,20 +92,6 @@ export default {
       },
       defaultValue: orderData,
     },
-    shippingMethods: {
-      control: "String",
-      table: {
-        category: "Props",
-      },
-      defaultValue: "",
-    },
-    paymentMethods: {
-      control: "String",
-      table: {
-        category: "Props",
-      },
-      defaultValue: "",
-    },
     characteristics: {
       control: "Array",
       table: {
