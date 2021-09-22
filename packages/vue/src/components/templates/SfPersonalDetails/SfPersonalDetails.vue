@@ -1,78 +1,101 @@
 <template>
   <div class="sf-personal-details">
     <div class="log-in">
-      <SfButton
-        class="log-in__button sf-button--full-width color-secondary"
-        data-testid="login-button"
-        >Log into your account</SfButton
-      >
-      <p class="log-in__info">or fill the details below:</p>
+      <slot name="log-in" v-bind="{ buttonText, logInInfo }">
+        <SfButton
+          class="log-in__button sf-button--full-width color-secondary"
+          data-testid="login-button"
+          >{{ buttonText }}</SfButton
+        >
+        <p class="log-in__info">{{ logInInfo }}</p>
+      </slot>
     </div>
-    <SfHeading
-      title="Personal details"
-      :level="3"
-      class="sf-heading--left sf-heading--no-underline title"
-    />
+    <slot name="heading" v-bind="{ headingTitle, headingTitleLevel }">
+      <SfHeading
+        :title="headingTitle"
+        :level="headingTitleLevel"
+        class="sf-heading--left sf-heading--no-underline title"
+      />
+    </slot>
     <div class="form">
-      <SfInput
-        v-model="firstName"
-        :value="firstName"
-        label="First name"
-        name="firstName"
-        class="form__element form__element--half"
-        required
-        @input="updateField('firstName', $event)"
-      />
-      <SfInput
-        v-model="lastName"
-        :value="lastName"
-        label="Last name"
-        name="lastName"
-        class="form__element form__element--half form__element--half-even"
-        required
-        @input="updateField('lastName', $event)"
-      />
-      <SfInput
-        v-model="email"
-        :value="email"
-        label="Your email"
-        name="email"
-        class="form__element"
-        required
-        @input="updateField('email', $event)"
-      />
-      <div class="info">
-        <p class="info__heading">Enjoy these perks with your free account!</p>
-        <SfCharacteristic
-          v-for="(characteristic, key) in characteristics"
-          :key="key"
-          :description="characteristic.description"
-          :icon="characteristic.icon"
-          size-icon="24px"
-          class="info__characteristic"
-        />
-      </div>
-      <div>
-        <SfCheckbox
-          v-model="createAccount"
-          name="createAccount"
-          label="I want to create an account"
-          class="form__checkbox"
-          data-testid="create-account-checkbox"
-        />
-      </div>
-      <transition name="sf-fade">
+      <slot
+        name="form"
+        v-bind="{ inputsLabels, additionalDeatils, characteristics }"
+      >
         <SfInput
-          v-if="createAccount"
-          v-model="password"
-          :has-show-password="true"
-          type="password"
-          label="Create Password"
+          v-model="firstName"
+          :value="firstName"
+          :label="inputsLabels[0]"
+          name="firstName"
+          class="form__element form__element--half"
+          required
+          @input="updateField('firstName', $event)"
+        />
+        <SfInput
+          v-model="lastName"
+          :value="lastName"
+          :label="inputsLabels[1]"
+          name="lastName"
+          class="form__element form__element--half form__element--half-even"
+          required
+          @input="updateField('lastName', $event)"
+        />
+        <SfInput
+          v-model="email"
+          :value="email"
+          :label="inputsLabels[2]"
+          name="email"
           class="form__element"
           required
-          data-testid="create-password-input"
+          @input="updateField('email', $event)"
         />
-      </transition>
+        <div class="info">
+          <slot
+            name="additional-info"
+            v-bind="{ additionalDeatils, characteristics }"
+          >
+            <p class="info__heading">
+              {{ additionalDeatils }}
+            </p>
+            <SfCharacteristic
+              v-for="(characteristic, key) in characteristics"
+              :key="key"
+              :description="characteristic.description"
+              :icon="characteristic.icon"
+              :size-icon="characteristic.size"
+              class="info__characteristic"
+            />
+          </slot>
+        </div>
+        <slot
+          name="ceate-account"
+          v-bind="{
+            createAccountCheckboxLabel,
+            createAccountTransition,
+            createAccountInputLabel,
+          }"
+        >
+          <SfCheckbox
+            v-model="createAccount"
+            name="createAccount"
+            :label="createAccountCheckboxLabel"
+            class="form__checkbox"
+            data-testid="create-account-checkbox"
+          />
+          <transition :name="createAccountTransition">
+            <SfInput
+              v-if="createAccount"
+              v-model="password"
+              :has-show-password="true"
+              type="password"
+              :label="createAccountInputLabel"
+              class="form__element"
+              required
+              data-testid="create-password-input"
+            />
+          </transition>
+        </slot>
+      </slot>
     </div>
   </div>
 </template>
@@ -98,9 +121,58 @@ export default {
       type: Object,
       default: () => ({}),
     },
-    buttonName: {
+    buttonText: {
       type: String,
-      default: "",
+      default: "Log into your account",
+    },
+    logInInfo: {
+      type: String,
+      default: "or fill the details below:",
+    },
+    headingTitle: {
+      type: String,
+      default: "Personal details",
+    },
+    headingTitleLevel: {
+      type: Number,
+      default: 3,
+    },
+    inputsLabels: {
+      type: Array,
+      default: () => ["First name", "Last name", "Your email"],
+    },
+    additionalDeatils: {
+      type: String,
+      default: "Enjoy these perks with your free account!",
+    },
+    characteristics: {
+      type: Array,
+      default: () => [
+        { description: "Faster checkout", icon: "clock", size: "24px" },
+        {
+          description: "Earn credits with every purchase",
+          icon: "credits",
+          size: "24px",
+        },
+        {
+          description: "Full rewards program benefits",
+          icon: "rewards",
+          size: "24px",
+        },
+        { description: "Manage your wishlist", icon: "heart", size: "24px" },
+      ],
+    },
+    createAccountTransition: {
+      type: String,
+      default: "sf-fade",
+    },
+    createAccountCheckboxLabel: {
+      type: String,
+      default: "I want to create an account",
+    },
+    createAccountInputLabel: {
+      type: String,
+      default: "Create Password",
     },
   },
   data() {
@@ -110,12 +182,6 @@ export default {
       email: "",
       password: "",
       createAccount: false,
-      characteristics: [
-        { description: "Faster checkout", icon: "clock" },
-        { description: "Earn credits with every purchase", icon: "credits" },
-        { description: "Full rewards program benefits", icon: "rewards" },
-        { description: "Manage your wishlist", icon: "heart" },
-      ],
     };
   },
   watch: {
