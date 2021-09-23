@@ -145,7 +145,7 @@ export default {
       return this.order.shipping;
     },
     shippingMethod() {
-      return this.shipping.shippingMethod || {};
+      return this.shipping.shippingMethod;
     },
     subtotal() {
       const orderItems = this.orderItems;
