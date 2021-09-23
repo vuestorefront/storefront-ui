@@ -4,8 +4,11 @@
     :open-tab="1"
     data-testid="order-history-tabs"
   >
-    <SfTab title="My orders" data-testid="my-orders">
-      <slot name="message-order-history" v-bind="{ orderHistoryDescription }">
+    <SfTab :title="tabTitle" data-testid="my-orders">
+      <slot
+        name="order-history-description"
+        v-bind="{ orderHistoryDescription }"
+      >
         <p class="message">
           {{ orderHistoryDescription }}
         </p>
@@ -28,7 +31,7 @@
                   :key="tableHeader"
                   >{{ tableHeader }}
                 </SfTableHeader>
-                <slot name="last-column-header">
+                <slot name="action-header">
                   <SfTableHeader class="orders__element--right">
                     <span class="smartphone-only">Download</span>
                     <SfButton
@@ -40,7 +43,7 @@
                 </slot>
               </slot>
             </SfTableHeading>
-            <SfTableRow v-for="order in orders" :key="order[0]">
+            <SfTableRow v-for="order in ordersHistory" :key="order[0]">
               <slot name="table-data">
                 <SfTableData v-for="(data, key) in order" :key="key">
                   <template v-if="key === 4">
@@ -54,14 +57,17 @@
                   </template>
                   <template v-else>{{ data }}</template>
                 </SfTableData>
-                <slot name="last-column-data">
+                <slot name="action-rows">
                   <SfTableData class="orders__view orders__element--right">
-                    <SfButton class="sf-button--text smartphone-only"
+                    <SfButton
+                      class="sf-button--text smartphone-only"
+                      @click="$emit('download')"
                       >Download</SfButton
                     >
                     <SfButton
                       class="sf-button--text desktop-only"
                       data-testid="view-details-button"
+                      @click="$emit('view-details')"
                       >View details</SfButton
                     >
                   </SfTableData>
@@ -71,17 +77,6 @@
           </SfTable>
         </slot>
       </div>
-    </SfTab>
-    <SfTab title="Returns" data-testid="returns">
-      <p class="message">
-        <slot name="returns">
-          This feature is not implemented yet! Please take a look at<br />
-          <a href="#"
-            >https://github.com/DivanteLtd/vue-storefront/issues for our
-            Roadmap!</a
-          >
-        </slot>
-      </p>
     </SfTab>
   </SfTabs>
 </template>
@@ -95,7 +90,11 @@ export default {
     SfButton,
   },
   props: {
-    account: {
+    tabTitle: {
+      type: String,
+      default: "My orders",
+    },
+    orders: {
       type: Object,
       default: () => ({}),
     },
@@ -117,45 +116,12 @@ export default {
     },
   },
   computed: {
-    orders() {
-      return this.account.orders;
+    ordersHistory() {
+      return this.orders;
     },
   },
 };
 </script>
 <style lang="scss" scoped>
-@import "~@storefront-ui/vue/styles";
-.no-orders {
-  &__title {
-    margin: 0 0 var(--spacer-base) 0;
-  }
-  &__button {
-    --button-width: 100%;
-    margin: var(--spacer-2xl) 0 0 0;
-    @include for-desktop {
-      --button-width: 17.375rem;
-    }
-  }
-}
-.orders {
-  @include for-desktop {
-    &__element {
-      &--right {
-        text-align: right;
-      }
-    }
-  }
-}
-.message {
-  margin: 0 0 var(--spacer-xl) 0;
-  color: var(--c-dark-variant);
-}
-a {
-  color: var(--c-primary);
-  font-weight: var(--font-weight--medium);
-  text-decoration: none;
-  &:hover {
-    color: var(--c-text);
-  }
-}
+@import "~@storefront-ui/shared/styles/components/templates/my-account/SfOrderHistory.scss";
 </style>

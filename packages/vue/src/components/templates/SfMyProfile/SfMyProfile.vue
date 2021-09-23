@@ -1,12 +1,15 @@
 <template>
   <SfTabs class="sf-my-profile" :open-tab="1">
     <SfTab :title="tabsTitles[0]">
-      <slot name="personal-data-message" v-bind="{ personalDataDescription }">
+      <slot
+        name="personal-data-description"
+        v-bind="{ personalDataDescription }"
+      >
         <p class="message">
           {{ personalDataDescription }}
         </p>
       </slot>
-      <div class="form" v-bind="{ personalInputsLabels, buttonsTexts }">
+      <div class="form" v-bind="{ personalInputsLabels, saveButtonText }">
         <slot name="personal-data-form">
           <SfInput
             v-model="firstName"
@@ -35,7 +38,7 @@
             data-testid="save-changes-button"
             @click="updatePersonal"
           >
-            {{ buttonsTexts[0] }}
+            {{ saveButtonText }}
           </SfButton>
         </slot>
       </div>
@@ -49,18 +52,18 @@
       </slot>
     </SfTab>
     <SfTab :title="tabsTitles[1]">
-      <slot name="password-change-message">
+      <slot name="password-change-description">
         <p class="message">
-          {{ passwordChangeDescription[0] }}<br />{{
-            passwordChangeDescription[1]
-          }}
-          <span class="message__label">{{ passwordChangeEmail }}</span>
+          If you want to change the password to access your account, enter the
+          following information:<br />
+          Your current email address is
+          <span class="message__label">example@email.com</span>
         </p>
       </slot>
       <div class="form">
         <slot
           name="password-change-form"
-          v-bind="{ passwordInputsLabels, buttonsTexts }"
+          v-bind="{ passwordInputsLabels, updateButtonText }"
         >
           <SfInput
             v-model="currentPassword"
@@ -91,7 +94,7 @@
             data-testid="update-password-button"
             @click="updatePassword"
           >
-            {{ buttonsTexts[1] }}
+            {{ updateButtonText }}
           </SfButton>
         </slot>
       </div>
@@ -124,25 +127,18 @@ export default {
       type: Array,
       default: () => ["Current Password", "New Password", "Repeat Password"],
     },
-    buttonsTexts: {
-      type: Array,
-      default: () => ["Save changes", "Update password"],
-    },
     personalDataDescription: {
       type: String,
       default:
         "Feel free to edit any of your details below so your account is always up to date",
     },
-    passwordChangeDescription: {
-      type: Array,
-      default: () => [
-        "If you want to change the password to access your account, enter the following information:",
-        "Your current email address is",
-      ],
-    },
-    passwordChangeEmail: {
+    saveButtonText: {
       type: String,
-      default: "example@email.com",
+      default: "Save changes",
+    },
+    updateButtonText: {
+      type: String,
+      default: "Update password",
     },
   },
   data() {
@@ -184,49 +180,5 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import "~@storefront-ui/vue/styles";
-.form {
-  @include for-desktop {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-  }
-  &__element {
-    margin: 0 0 var(--spacer-lg) 0;
-    @include for-desktop {
-      flex: 0 0 100%;
-    }
-    &--half {
-      @include for-desktop {
-        flex: 1 1 50%;
-      }
-      &-even {
-        @include for-desktop {
-          padding: 0 0 0 var(--spacer-lg);
-        }
-      }
-    }
-  }
-  &__button {
-    --button-width: 100%;
-    @include for-desktop {
-      --button-width: 17.5rem;
-    }
-  }
-}
-.message {
-  margin: 0 0 var(--spacer-xl) 0;
-  color: var(--c-dark-variant);
-}
-.notice {
-  margin: var(--spacer-base) 0 0 0;
-  font-size: var(--font-size--sm);
-}
-a {
-  color: var(--c-primary);
-  text-decoration: none;
-  &:hover {
-    color: var(--c-text);
-  }
-}
+@import "~@storefront-ui/shared/styles/components/templates/my-account/SfMyProfile.scss";
 </style>

@@ -40,13 +40,21 @@ export default {
       defaultValue: ["Current Password", "New Password", "Repeat Password"],
       description: "Labels for inputs in the second tab",
     },
-    buttonsTexts: {
-      control: "object",
+    saveButtonText: {
+      control: "text",
       table: {
         category: "Props",
       },
-      defaultValue: ["Save changes", "Update password"],
-      description: "Labels for buttons",
+      defaultValue: "Save changes",
+      description: "Text for save button",
+    },
+    updateButtonText: {
+      control: "text",
+      table: {
+        category: "Props",
+      },
+      defaultValue: "Update password",
+      description: "Text for update button",
     },
     personalDataDescription: {
       control: "text",
@@ -56,25 +64,6 @@ export default {
       defaultValue:
         "Feel free to edit any of your details below so your account is always up to date",
       description: "Description for the forst tab",
-    },
-    passwordChangeDescription: {
-      control: "object",
-      table: {
-        category: "Props",
-      },
-      defaultValue: [
-        "If you want to change the password to access your account, enter the following information:",
-        "Your current email address is",
-      ],
-      description: "Description for the second tab",
-    },
-    passwordChangeEmail: {
-      control: "text",
-      table: {
-        category: "Props",
-      },
-      defaultValue: "example@email.com",
-      description: "Email displayed in the sceond tab description",
     },
   },
 };
@@ -88,10 +77,9 @@ const Template = (args, { argTypes }) => ({
     :account="account"
     :personalInputsLabels="personalInputsLabels"
     :passwordInputsLabels="passwordInputsLabels"
-    :buttonsTexts="buttonsTexts"
+    :saveButtonText="saveButtonText"
+    :updateButtonText="updateButtonText"
     :personalDataDescription="personalDataDescription"
-    :passwordChangeDescription="passwordChangeDescription"
-    :passwordChangeEmail="passwordChangeEmail"
   />`,
 });
 

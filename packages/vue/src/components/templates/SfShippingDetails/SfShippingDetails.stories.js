@@ -5,15 +5,22 @@ export default {
   title: "Components/Templates/MyAccount/ShippingDetails",
   component: SfShippingDetails,
   argTypes: {
-    tabsTitles: {
-      control: "array",
+    shippingTabTitle: {
+      control: "text",
       table: {
         category: "Props",
-        defaultValue: {
-          summary: '["Change the address", "Shipping details"]',
-        },
       },
-      defaultValue: ["Change the address", "Shipping details"],
+      defaultValue: "Shipping details",
+      description: "Label for the first tab - Shipping details",
+    },
+    changeAddressTabTitle: {
+      control: "text",
+      table: {
+        category: "Props",
+      },
+      defaultValue: "Change the address",
+      description:
+        "Label for the second tab - Change the address. It showhs when `Change` or `Add new address` button is clicked",
     },
     account: {
       control: "object",
@@ -42,13 +49,41 @@ export default {
       defaultValue: "",
       description: "Text when there are no orders",
     },
-    changeAddressButtonText: {
+    changeButtonText: {
       control: "text",
       table: {
         category: "Props",
       },
-      defaultValue: "",
-      description: "Button text for Change Address tab",
+      defaultValue: "Change",
+      description:
+        "Text for button Change. If there is no value button will not be displayed.",
+    },
+    deleteButtonText: {
+      control: "text",
+      table: {
+        category: "Props",
+      },
+      defaultValue: "Delete",
+      description:
+        "Text for button Delete. If there is no value button will not be displayed.",
+    },
+    addNewAddressButtonText: {
+      control: "text",
+      table: {
+        category: "Props",
+      },
+      defaultValue: "Add new address",
+      description:
+        "Text for button Add new address. If there is no value button will not be displayed.",
+    },
+    updateAddressButtonText: {
+      control: "text",
+      table: {
+        category: "Props",
+      },
+      defaultValue: "Update the address",
+      description:
+        "Button text for Change Address tab. If there is no value button will not be displayed.",
     },
     inputsLabels: {
       control: "object",
@@ -79,17 +114,6 @@ export default {
       defaultValue: "",
       description: "Shipping tab description",
     },
-    shippingButtonsTexts: {
-      control: "array",
-      table: {
-        category: "Props",
-        defaultValue: {
-          summary: '["Change", "Delete", "Add new address"]',
-        },
-      },
-      defaultValue: ["Change", "Delete", "Add new address"],
-      description: "Labels for buttons in shipping tab",
-    },
   },
 };
 
@@ -98,7 +122,8 @@ const Template = (args, { argTypes }) => ({
   components: { SfShippingDetails },
   template: `
   <SfShippingDetails
-    :tabsTitles="tabsTitles"
+    :shippingTabTitle="shippingTabTitle"
+    :changeAddressTabTitle="changeAddressTabTitle"
     :account="account"
     :transition="transition"
     :changeAddressDescription="changeAddressDescription"
@@ -106,8 +131,10 @@ const Template = (args, { argTypes }) => ({
     :selectLabel="selectLabel"
     :countries="countries"
     :shipingTabDescription="shipingTabDescription"
-    :shippingButtonsTexts="shippingButtonsTexts"
-    :changeAddressButtonText="changeAddressButtonText"
+    :changeButtonText="changeButtonText"
+    :deleteButtonText="deleteButtonText"
+    :addNewAddressButtonText="addNewAddressButtonText"
+    :updateAddressButtonText="updateAddressButtonText"
   />`,
 });
 

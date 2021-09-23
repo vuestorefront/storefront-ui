@@ -1,0 +1,36 @@
+@import "../../../helpers/";
+.sf-order-history {
+  .no-orders {
+    &__title {
+      margin: 0 0 var(--spacer-base) 0;
+    }
+    &__button {
+      --button-width: 100%;
+      margin: var(--spacer-2xl) 0 0 0;
+      @include for-desktop {
+        --button-width: 17.375rem;
+      }
+    }
+  }
+  .orders {
+    @include for-desktop {
+      &__element {
+        &--right {
+          text-align: right;
+        }
+      }
+    }
+  }
+  .message {
+    margin: 0 0 var(--spacer-xl) 0;
+    color: var(--c-dark-variant);
+  }
+  a { 
+    color: var(--c-primary);
+    font-weight: var(--font-weight--medium);
+    text-decoration: none;
+    &:hover {
+      color: var(--c-text);
+    }
+  }
+}

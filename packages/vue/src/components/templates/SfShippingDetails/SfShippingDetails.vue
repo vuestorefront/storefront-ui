@@ -8,7 +8,7 @@
         class="tab-orphan"
         data-testid="shipping-details-tabs"
       >
-        <SfTab :title="tabsTitles[0]">
+        <SfTab :title="changeAddressTabTitle">
           <slot name="change-address-description">
             <p class="message">
               {{ changeAddressDescription }}
@@ -94,23 +94,32 @@
               <SfInput
                 v-model="phoneNumber"
                 name="phone"
-                :label="inputsLabels[6]"
+                :label="inputsLabels[7]"
                 required
                 class="form__element"
               />
               <SfButton
+                v-if="updateAddressButtonText"
                 class="action-button"
                 data-testid="update-address-button"
                 @click="updateAddress"
               >
-                {{ changeAddressButtonText }}</SfButton
+                {{ updateAddressButtonText }}</SfButton
+              >
+              <SfButton
+                v-if="cancelButtonText"
+                class="action-button color-secondary cancel-button"
+                data-testid="update-address-button"
+                @click="cancelEditing"
+              >
+                {{ cancelButtonText }}</SfButton
               >
             </slot>
           </div>
         </SfTab>
       </SfTabs>
       <SfTabs v-else key="address-list" :open-tab="1" class="tab-orphan">
-        <SfTab :title="tabsTitles[1]">
+        <SfTab :title="shippingTabTitle">
           <slot name="shipping-tab-description">
             <p class="message">
               {{ shipingTabDescription }}
@@ -125,18 +134,20 @@
                 data-testid="shipping-address-list-item"
               >
                 <div class="shipping__content">
-                  <p class="shipping__address">
-                    <span class="shipping__client-name"
-                      >{{ shipping.firstName }} {{ shipping.lastName }}</span
-                    ><br />
-                    {{ shipping.streetName }} {{ shipping.apartment }}<br />{{
-                      shipping.zipCode
-                    }}
-                    {{ shipping.city }},<br />{{ shipping.country }}
-                  </p>
-                  <p class="shipping__address">
-                    {{ shipping.phoneNumber }}
-                  </p>
+                  <slot name="shipping-details">
+                    <p class="shipping__address">
+                      <span class="shipping__client-name"
+                        >{{ shipping.firstName }} {{ shipping.lastName }}</span
+                      ><br />
+                      {{ shipping.streetName }} {{ shipping.apartment }}<br />{{
+                        shipping.zipCode
+                      }}
+                      {{ shipping.city }},<br />{{ shipping.country }}
+                    </p>
+                    <p class="shipping__address">
+                      {{ shipping.phoneNumber }}
+                    </p>
+                  </slot>
                 </div>
                 <div class="shipping__actions">
                   <SfIcon
@@ -148,28 +159,31 @@
                     @click="deleteAddress(key)"
                   />
                   <SfButton
+                    v-if="changeButtonText"
                     data-testid="change-address"
                     @click="changeAddress(key)"
                   >
-                    {{ shippingButtonsTexts[0] }}
+                    {{ changeButtonText }}
                   </SfButton>
                   <SfButton
+                    v-if="deleteButtonText"
                     class="shipping__button-delete desktop-only"
                     data-testid="delete-address"
                     @click="deleteAddress(key)"
                   >
-                    {{ shippingButtonsTexts[1] }}
+                    {{ deleteButtonText }}
                   </SfButton>
                 </div>
               </div>
             </slot>
           </transition-group>
           <SfButton
+            v-if="addNewAddressButtonText"
             class="action-button"
             data-testid="add-new-address"
             @click="changeAddress(-1)"
           >
-            {{ shippingButtonsTexts[2] }}</SfButton
+            {{ addNewAddressButtonText }}</SfButton
           >
         </SfTab>
       </SfTabs>
@@ -194,9 +208,13 @@ export default {
     SfIcon,
   },
   props: {
-    tabsTitles: {
-      type: Array,
-      default: () => ["Change the address", "Shipping details"],
+    shippingTabTitle: {
+      type: String,
+      default: "Shipping details",
+    },
+    changeAddressTabTitle: {
+      type: String,
+      default: "Change the address",
     },
     account: {
       type: Object,
@@ -210,9 +228,25 @@ export default {
       type: String,
       default: "",
     },
-    changeAddressButtonText: {
+    changeButtonText: {
+      type: String,
+      default: "Change",
+    },
+    deleteButtonText: {
+      type: String,
+      default: "Delete",
+    },
+    addNewAddressButtonText: {
+      type: String,
+      default: "Add new address",
+    },
+    updateAddressButtonText: {
       type: String,
       default: "Update the address",
+    },
+    cancelButtonText: {
+      type: String,
+      default: "Cancel",
     },
     inputsLabels: {
       type: Array,
@@ -234,10 +268,6 @@ export default {
     shipingTabDescription: {
       type: String,
       default: "",
-    },
-    shippingButtonsTexts: {
-      type: Array,
-      default: () => ["Change", "Delete", "Add new address"],
     },
     countries: {
       type: Array,
@@ -276,6 +306,7 @@ export default {
         this.editedAddress = index;
       }
       this.editAddress = true;
+      this.$emit("change-address", index);
     },
     updateAddress() {
       const account = { ...this.account };
@@ -300,99 +331,19 @@ export default {
       this.editAddress = false;
       this.$emit("update:shipping", account);
     },
+    cancelEditing() {
+      const account = this.account;
+      this.editAddress = false;
+      this.$emit("cancel-editing", account);
+    },
     deleteAddress(index) {
       const account = { ...this.account };
       account.shipping.splice(index, 1);
-      this.$emit("update:shipping", account);
+      this.$emit("delete-address", index);
     },
   },
 };
 </script>
 <style lang="scss" scoped>
-@import "~@storefront-ui/vue/styles";
-.shipping-list {
-  margin: 0 0 var(--spacer-base) 0;
-}
-.shipping {
-  display: flex;
-  padding: var(--spacer-base) 0;
-  border: 1px solid var(--c-light);
-  border-width: 1px 0 0 0;
-  &:last-child {
-    border-width: 1px 0 1px 0;
-  }
-  &__content {
-    flex: 1;
-    color: var(--c-text);
-  }
-  &__actions {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-end;
-    @include for-desktop {
-      flex-direction: row;
-      justify-content: flex-end;
-      align-items: center;
-    }
-  }
-  &__button-delete {
-    --button-background: var(--c-light);
-    --button-color: var(--c-dark-variant);
-    &:hover {
-      --button-background: var(--_c-light-primary);
-    }
-    @include for-desktop {
-      margin: 0 0 0 var(--spacer-base);
-    }
-  }
-  &__address {
-    margin: 0 0 var(--spacer-base) 0;
-    &:last-child {
-      margin: 0;
-    }
-  }
-}
-.tab-orphan {
-  @include for-mobile {
-    --tabs-content-border-width: 0;
-    --tabs-title-display: none;
-    --tabs-content-padding: 0;
-  }
-}
-.form {
-  @include for-desktop {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-  }
-  &__element {
-    margin: 0 0 var(--spacer-base) 0;
-    @include for-desktop {
-      flex: 0 0 100%;
-    }
-    &--half {
-      @include for-desktop {
-        flex: 1 1 50%;
-      }
-      &-even {
-        @include for-desktop {
-          padding: 0 0 0 var(--spacer-lg);
-        }
-      }
-    }
-  }
-  &__select {
-    padding-bottom: calc(var(--font-xs) * 1.2);
-  }
-}
-.message {
-  margin: 0 0 var(--spacer-base) 0;
-}
-.action-button {
-  --button-width: 100%;
-  @include for-desktop {
-    --button-width: auto;
-  }
-}
+@import "~@storefront-ui/shared/styles/components/templates/my-account/SfShippingDetails.scss";
 </style>
