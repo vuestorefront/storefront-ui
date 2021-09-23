@@ -4,7 +4,10 @@
       <SfHeading
         :title="orderTitle"
         :level="orderTitleLevel"
-        class="sf-heading--left sf-heading--no-underline title"
+        class="
+          sf-heading--left sf-heading--no-underline
+          sf-order-summary__heading
+        "
       />
     </slot>
     <div class="highlighted highlighted--total">
@@ -12,36 +15,48 @@
         <SfProperty
           name="Products"
           :value="totalItems"
-          class="sf-property--full-width sf-property--large property"
+          class="
+            sf-property--full-width sf-property--large
+            sf-order-summary__property
+          "
         />
         <SfProperty
           name="Subtotal"
           :value="subtotal"
-          class="sf-property--full-width sf-property--large property"
+          class="
+            sf-property--full-width sf-property--large
+            sf-order-summary__property
+          "
         />
         <SfProperty
           name="Shipping"
           :value="shippingMethod.price"
-          class="sf-property--full-width sf-property--large property"
+          class="
+            sf-property--full-width sf-property--large
+            sf-order-summary__property
+          "
         />
-        <SfDivider class="divider" />
+        <SfDivider class="sf-order-summary__divider" />
         <SfProperty
           name="Total price"
           :value="total"
-          class="sf-property--full-width sf-property--large property"
+          class="
+            sf-property--full-width sf-property--large
+            sf-order-summary__property
+          "
         />
       </slot>
     </div>
-    <div class="highlighted promo-code">
+    <div class="highlighted sf-order-summary__promo-code">
       <slot name="promo">
         <SfInput
           v-model="promoCode"
           name="promoCode"
           label="Enter promo code"
-          class="sf-input--filled promo-code__input"
+          class="sf-input--filled sf-order-summary__promo-code-input"
         />
         <SfButton
-          class="promo-code__button"
+          class="sf-order-summary__promo-code-button"
           data-testid="apply-button"
           @click="$emit('click:apply-code')"
         >
@@ -49,7 +64,7 @@
         </SfButton>
       </slot>
     </div>
-    <div class="characteristics">
+    <div class="sf-order-summary__characteristics">
       <slot name="characteristics">
         <SfCharacteristic
           v-for="characteristic in characteristics"
@@ -59,7 +74,7 @@
           :icon="characteristic.icon"
           size-icon="32px"
           color-icon="green-primary"
-          class="characteristics__item"
+          class="sf-order-summary__characteristics-item"
         >
         </SfCharacteristic>
       </slot>
@@ -154,81 +169,5 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-@import "~@storefront-ui/vue/styles";
-.title {
-  --heading-title-margin: 0 0 var(--spacer-xl) 0;
-  --heading-title-font-weight: var(--font-weight--bold);
-  --heading-padding: 0;
-  --heading-title-margin: 0 0 var(--spacer-xl) 0;
-  @include for-desktop {
-    --heading-title-font-weight: var(--font-weight--semibold);
-  }
-}
-.property {
-  margin: var(--spacer-base) 0;
-  --property-name-font-weight: var(--font-weight--medium);
-  --property-value-font-weight: var(--font-weight--bold);
-  &:last-of-type {
-    margin: var(--spacer-base) 0 var(--spacer-xl);
-    --property-name-color: var(--c-text);
-  }
-}
-.divider {
-  --divider-border-color: var(--c-white);
-  --divider-margin: var(--spacer-xl) 0 0 0;
-}
-.promo-code {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  &__input {
-    --input-background: var(--c-white);
-    --input-label-font-size: var(--font-size--base);
-    flex: 1;
-  }
-  &__button {
-    --button-height: 1.875rem;
-  }
-}
-.actions {
-  &__email {
-    margin: var(--spacer-lg) auto 0;
-  }
-  &__button {
-    margin: var(--spacer-sm) 0;
-    &--secondary {
-      margin: 0;
-      text-align: left;
-    }
-    &--back {
-      color: var(--c-text);
-      background-color: var(--c-white);
-    }
-  }
-}
-.characteristics {
-  &__item {
-    margin: var(--spacer-base) 0;
-    &:last-of-type {
-      margin: 0;
-    }
-  }
-}
-.info {
-  margin: var(--spacer-lg) 0 var(--spacer-xl);
-  color: var(--c-link);
-  font-family: var(--font-family--primary);
-  font-size: var(--font-size--base);
-  font-weight: var(--font-weight--light);
-  line-height: 1.6;
-  &__list {
-    padding: 0;
-    list-style: none;
-    li::before {
-      content: "•";
-      color: var(--c-primary);
-      padding: 0 var(--spacer-xs) 0 0;
-    }
-  }
-}
+@import "~@storefront-ui/shared/styles/components/templates/SfOrderSummary.scss";
 </style>
