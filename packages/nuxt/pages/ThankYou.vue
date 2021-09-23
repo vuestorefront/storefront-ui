@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import ThankYou from "@storefront-ui/vue/src/examples/pages/thank-you/ThankYou";
+import ThankYou from "@storefront-ui/vue/src/components/pages/thank-you/ThankYou.vue";
 
 export default {
   components: {
