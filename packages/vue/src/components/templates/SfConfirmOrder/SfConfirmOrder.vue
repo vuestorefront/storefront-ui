@@ -57,36 +57,7 @@
         </SfTableRow>
       </SfTable>
     </slot>
-    <div class="summary smartphone-only">
-      <slot name="smartphone-summary">
-        <div class="summary__content">
-          <SfProperty
-            name="Subtotal"
-            :value="subtotal"
-            class="sf-property--full-width property"
-          />
-          <SfProperty
-            name="Shipping"
-            :value="shippingMethod.price"
-            class="sf-property--full-width property"
-          />
-          <SfDivider class="divider" />
-          <SfProperty
-            name="Total price"
-            :value="total"
-            class="sf-property--full-width property"
-          />
-          <SfCheckbox v-model="terms" name="terms" class="summary__terms">
-            <template #label>
-              <div class="sf-checkbox__label">
-                I agree to <a href="#">Terms and conditions</a>
-              </div>
-            </template>
-          </SfCheckbox>
-        </div>
-      </slot>
-    </div>
-    <div class="totals desktop-only">
+    <div class="totals">
       <slot name="desktop-summary">
         <SfProperty
           name="Subtotal"
@@ -107,13 +78,15 @@
           class="sf-property--full-width sf-property--large property__total"
         >
         </SfProperty>
-        <SfCheckbox v-model="terms" name="terms" class="totals__terms">
-          <template #label>
-            <div class="sf-checkbox__label">
-              I agree to <SfLink href="#">Terms and conditions</SfLink>
-            </div>
-          </template>
-        </SfCheckbox>
+        <slot name="checkbox">
+          <SfCheckbox v-model="terms" name="terms" class="totals__terms">
+            <template #label>
+              <div class="sf-checkbox__label">
+                I agree to <SfLink href="#">Terms and conditions</SfLink>
+              </div>
+            </template>
+          </SfCheckbox>
+        </slot>
       </slot>
     </div>
   </div>
@@ -172,7 +145,7 @@ export default {
       return this.order.shipping;
     },
     shippingMethod() {
-      return this.shipping.shippingMethod;
+      return this.shipping.shippingMethod || {};
     },
     subtotal() {
       const orderItems = this.orderItems;
