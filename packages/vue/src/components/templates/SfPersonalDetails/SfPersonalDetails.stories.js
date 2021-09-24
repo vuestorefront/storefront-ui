@@ -52,7 +52,7 @@ export default {
       defaultValue: ["First name", "Last name", "Your email"],
       description: "Labels for inputs",
     },
-    additionalDeatils: {
+    additionalDetails: {
       control: "text",
       table: {
         category: "Props",
@@ -81,7 +81,7 @@ export default {
       ],
       description: "Characteristics below inputs",
     },
-    createAccountTransition: {
+    transition: {
       control: "text",
       table: {
         category: "Props",
@@ -103,7 +103,7 @@ export default {
         category: "Props",
       },
       defaultValue: "Create Password",
-      description: "Label fo rpassword input",
+      description: "Label fo password input",
     },
   },
 };
@@ -119,9 +119,9 @@ const Template = (args, { argTypes }) => ({
     :headingTitle="headingTitle"
     :headingTitleLevel="headingTitleLevel"
     :inputsLabels="inputsLabels"
-    :additionalDeatils="additionalDeatils"
+    :additionalDetails="additionalDetails"
     :characteristics="characteristics"
-    :createAccountTransition="createAccountTransition"
+    :transition="transition"
     :createAccountCheckboxLabel="createAccountCheckboxLabel"
     :createAccountInputLabel="createAccountInputLabel"
   />`,

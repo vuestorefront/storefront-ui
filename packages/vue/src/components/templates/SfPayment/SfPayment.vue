@@ -26,7 +26,7 @@
           :label="sameAsShippingCheckboxLabel"
           name="copyShippingAddress"
           class="form__element form__checkbox"
-          @change="updateField('sameAsShipping', $event)"
+          @change="$emit('same-as-shipping')"
         />
         <SfInput
           v-model="firstName"
@@ -129,7 +129,7 @@
           :label="generateInvoiceCheckboxlabel"
           name="getInvoice"
           class="form__element form__checkbox"
-          @change="updateField('invoice', $event)"
+          @change="$emit('invoice', invoice)"
         />
       </slot>
     </div>
@@ -373,6 +373,10 @@ export default {
       type: Array,
       default: () => [],
     },
+    shipping: {
+      type: Object,
+      default: () => ({}),
+    },
     cvcCodeButtonText: {
       type: String,
       default: "Where can I find CVC code",
@@ -488,144 +492,5 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import "~@storefront-ui/vue/styles";
-.title {
-  --heading-padding: var(--spacer-xl) 0 var(--spacer-lg);
-  --heading-title-font-weight: var(--font-weight--bold);
-  &:not(:first-of-type) {
-    --heading-padding: var(--spacer-xl) 0;
-    border-bottom: 2px solid var(--c-light);
-  }
-  @include for-desktop {
-    --heading-title-font-size: var(--h3-font-size);
-    --heading-title-font-weight: var(--font-weight--semibold);
-    --heading-padding: var(--spacer-xl) 0;
-  }
-}
-.form {
-  &__element {
-    margin: 0 0 var(--spacer-base) 0;
-    &:last-of-type {
-      margin: 0;
-    }
-  }
-  &__checkbox {
-    margin: 0 0 var(--spacer-xl) 0;
-  }
-  &__group {
-    display: flex;
-    align-items: center;
-  }
-  &__select {
-    display: flex;
-    align-items: center;
-    --select-option-font-size: var(--font-size--base);
-    --select-dropdown-color: blue;
-    ::v-deep .sf-select__dropdown {
-      margin: 0 0 2px 0;
-      font-size: var(--font-size--base);
-      font-family: var(--font-family--secondary);
-      color: var(--c-link);
-    }
-  }
-  @include for-desktop {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    &__element {
-      margin: 0 0 var(--spacer-sm) 0;
-      flex: 0 0 100%;
-      &--half {
-        flex: 1 1 50%;
-        &-even {
-          padding: 0 0 0 var(--spacer-base);
-        }
-      }
-    }
-    &__checkbox {
-      margin: 0 0 var(--spacer-xl) 0;
-    }
-    &__action-button {
-      --button-width: 25rem;
-    }
-  }
-}
-.payment-methods {
-  border-bottom: solid 2px var(--c-light);
-  padding: 0 0 var(--spacer-base) 0;
-  margin-bottom: var(--spacer-lg);
-  @include for-desktop {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: var(--spacer-xl);
-    padding: var(--spacer-xs) 0;
-    width: 100%;
-  }
-}
-.payment-method {
-  --radio-container-align-items: center;
-  --radio-container-padding: var(--spacer-base) var(--spacer-sm) 0;
-  --ratio-content-margin: 0 0 0 var(--spacer-lg);
-  --radio-background: transparent;
-  color: var(--c-link);
-  white-space: nowrap;
-  ::v-deep .sf-image {
-    width: 3.125rem;
-  }
-  @include for-desktop {
-    --radio-container-padding: var(--spacer-sm);
-  }
-}
-.credit-card-form {
-  width: 100%;
-  &__group {
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    position: relative;
-  }
-  &__element {
-    flex: 1;
-  }
-  &__label {
-    font-size: var(--font-size--base);
-    font-family: var(--font-family--secondary);
-    color: var(--c-link);
-    padding: var(--spacer-sm) 0 0 0;
-    flex: 1;
-  }
-  &__button {
-    --button-padding: var(--spacer-base) 0 0 var(--spacer-sm);
-    text-align: right;
-    flex: 1;
-  }
-  &__input {
-    flex: 1;
-    padding: 0 0 var(--spacer-sm) 0;
-  }
-  @include for-desktop {
-    width: 38.125rem;
-    &__element {
-      display: flex;
-    }
-    &__label {
-      padding: var(--spacer-sm) var(--spacer-sm) 0 0;
-      &--small {
-        flex: 0 0 calc(100% / 3);
-      }
-    }
-    &__button {
-      text-align: left;
-    }
-    &__input {
-      align-self: center;
-      &--with-spacer {
-        margin: 0 var(--spacer-lg) 0 0;
-      }
-      &--small {
-        flex: 0 0 calc(100% / 3);
-      }
-    }
-  }
-}
+@import "~@storefront-ui/shared/styles/components/templates/checkout/SfPayment.scss";
 </style>

@@ -5,6 +5,7 @@
         <SfButton
           class="log-in__button sf-button--full-width color-secondary"
           data-testid="login-button"
+          @click="$emit('log-in')"
           >{{ buttonText }}</SfButton
         >
         <p class="log-in__info">{{ logInInfo }}</p>
@@ -20,7 +21,7 @@
     <div class="form">
       <slot
         name="form"
-        v-bind="{ inputsLabels, additionalDeatils, characteristics }"
+        v-bind="{ inputsLabels, additionalDetails, characteristics }"
       >
         <SfInput
           v-model="firstName"
@@ -52,10 +53,10 @@
         <div class="info">
           <slot
             name="additional-info"
-            v-bind="{ additionalDeatils, characteristics }"
+            v-bind="{ additionalDetails, characteristics }"
           >
             <p class="info__heading">
-              {{ additionalDeatils }}
+              {{ additionalDetails }}
             </p>
             <SfCharacteristic
               v-for="(characteristic, key) in characteristics"
@@ -71,7 +72,7 @@
           name="ceate-account"
           v-bind="{
             createAccountCheckboxLabel,
-            createAccountTransition,
+            transition,
             createAccountInputLabel,
           }"
         >
@@ -81,8 +82,9 @@
             :label="createAccountCheckboxLabel"
             class="form__checkbox"
             data-testid="create-account-checkbox"
+            @change="$emit('create-account', createAccount)"
           />
-          <transition :name="createAccountTransition">
+          <transition :name="transition">
             <SfInput
               v-if="createAccount"
               v-model="password"
@@ -141,7 +143,7 @@ export default {
       type: Array,
       default: () => ["First name", "Last name", "Your email"],
     },
-    additionalDeatils: {
+    additionalDetails: {
       type: String,
       default: "Enjoy these perks with your free account!",
     },
@@ -162,7 +164,7 @@ export default {
         { description: "Manage your wishlist", icon: "heart", size: "24px" },
       ],
     },
-    createAccountTransition: {
+    transition: {
       type: String,
       default: "sf-fade",
     },
@@ -208,104 +210,5 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import "~@storefront-ui/vue/styles";
-.title {
-  --heading-padding: var(--spacer-xl) 0 var(--spacer-base);
-  --heading-title-font-weight: var(--font-weight--bold);
-  @include for-desktop {
-    --heading-title-font-size: var(--h3-font-size);
-    --heading-title-font-weight: var(--font-weight--semibold);
-    --heading-padding: var(--spacer-xl) 0;
-  }
-}
-.log-in {
-  &__info {
-    margin: 0;
-    color: var(--c-dark-variant);
-    font: var(--font-weight--medium) var(--font-size--base) / 1.6
-      var(--font-family--secondary);
-    @include for-desktop {
-      font-weight: var(--font-weight--normal);
-    }
-  }
-  &__button {
-    margin: var(--spacer-xl) 0 var(--spacer-base) 0;
-    @include for-desktop {
-      margin: var(--spacer-xl) 0;
-      --button-width: 25rem;
-    }
-  }
-}
-.info {
-  &__heading {
-    font-family: var(--font-family--secondary);
-    font-weight: var(--font-weight--medium);
-    color: var(--c-link);
-    margin-bottom: var(--spacer-base);
-  }
-  &__characteristic {
-    --characteristic-description-font-size: var(--font-size--base);
-    margin: 0 0 var(--spacer-base) var(--spacer-2xs);
-  }
-  @include for-desktop {
-    width: 37.5rem;
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0;
-    &__heading {
-      flex: 100%;
-      margin: 0 0 var(--spacer-lg) 0;
-    }
-    &__characteristic {
-      margin: 0 0 var(--spacer-2xs) 0;
-      flex: 0 50%;
-      box-sizing: border-box;
-      padding-right: var(--spacer-3xl);
-      &:nth-of-type(2),
-      &:nth-of-type(3) {
-        padding-right: var(--spacer-2xl);
-      }
-    }
-  }
-}
-.form {
-  &__element {
-    --input-padding: var(--spacer-sm) 0 var(--spacer-2xs) 0;
-    margin: 0 0 var(--spacer-base) 0;
-  }
-  &__checkbox {
-    margin: var(--spacer-base) 0 var(--spacer-xl);
-    --checkbox-font-family: var(--font-family--primary);
-    --checkbox-font-size: var(--font-size--base);
-  }
-  &__action-button {
-    &:first-child {
-      margin: var(--spacer-sm) 0 0 0;
-    }
-    &--secondary {
-      margin: var(--spacer-base) 0;
-    }
-    @include for-desktop {
-      --button-width: 25rem;
-    }
-  }
-  @include for-desktop {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    &__element {
-      margin: 0 0 var(--spacer-base) 0;
-      flex: 0 0 100%;
-      &--half {
-        flex: 1 1 50%;
-        &-even {
-          padding: 0 0 0 var(--spacer-base);
-        }
-      }
-    }
-    &__checkbox {
-      margin: var(--spacer-lg) 0 var(--spacer-xl);
-    }
-  }
-}
+@import "~@storefront-ui/shared/styles/components/templates/checkout/SfPersonalDetails.scss";
 </style>

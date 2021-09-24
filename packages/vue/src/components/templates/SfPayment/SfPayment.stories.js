@@ -1,5 +1,11 @@
 import { SfPayment } from "@storefront-ui/vue";
-import { countries, months, years, paymentMethods } from "../internalData.js";
+import {
+  countries,
+  months,
+  years,
+  paymentMethods,
+  accountData,
+} from "../internalData.js";
 
 export default {
   title: "Components/Templates/Checkout/Payment",
@@ -110,6 +116,14 @@ export default {
       defaultValue: [],
       description: "Months needed for expiration day on credid card",
     },
+    shipping: {
+      control: "object",
+      table: {
+        category: "Props",
+      },
+      defaultValue: {},
+      description: "Shipping data",
+    },
     cvcCodeButtonText: {
       control: "text",
       table: {
@@ -133,7 +147,8 @@ const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { SfPayment },
   template: `
-  <SfPayment 
+  <SfPayment
+    :shipping="shipping"
     :payment-methods="paymentMethods"
     :transition="transition"
     :countries="countries"
@@ -146,6 +161,7 @@ const Template = (args, { argTypes }) => ({
 
 export const Common = Template.bind({});
 Common.args = {
+  shipping: accountData.shipping[0],
   countries: countries,
   years: years,
   months: months,
