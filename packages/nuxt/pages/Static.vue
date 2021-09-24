@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import Static from "@storefront-ui/vue/src/examples/pages/static/Static";
+import Static from "@storefront-ui/vue/src/components/pages/static/Static";
 
 export default {
   components: {
