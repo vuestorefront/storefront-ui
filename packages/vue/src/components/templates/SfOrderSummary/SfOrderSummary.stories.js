@@ -61,18 +61,20 @@ export default {
   component: SfOrderSummary,
   argTypes: {
     orderTitle: {
-      control: "String",
+      control: "string",
       table: {
         category: "Props",
       },
       defaultValue: "Order review",
+      description: "Heading text",
     },
     orderTitleLevel: {
-      control: "Number",
+      control: "number",
       table: {
         category: "Props",
       },
       defaultValue: 3,
+      description: "Heading text size",
     },
     order: {
       control: "object",
@@ -80,13 +82,16 @@ export default {
         category: "Props",
       },
       defaultValue: orderData,
+      description: "Order data",
     },
     characteristics: {
-      control: "Array",
+      control: "array",
       table: {
         category: "Props",
       },
       defaultValue: characteristicsData,
+      description:
+        "The array of objects with data filling SfCharacteristics components: title, description and icon",
     },
   },
 };
