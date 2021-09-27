@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Home from "@storefront-ui/vue/src/examples/pages/home/Home"
+import Home from "@storefront-ui/vue/src/components/pages/home/Home"
 export default {
   components: {
     Home
