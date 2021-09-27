@@ -51,7 +51,7 @@ export default {
   component: SfConfirmOrder,
   argTypes: {
     orderTitle: {
-      control: "string",
+      control: "text",
       table: {
         category: "Props",
       },
@@ -75,7 +75,7 @@ export default {
       description: "Order data",
     },
     tableHeaders: {
-      control: "array",
+      control: "object",
       table: {
         category: "Props",
       },
