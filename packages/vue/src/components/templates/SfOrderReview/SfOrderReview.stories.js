@@ -72,7 +72,7 @@ export default {
   component: SfOrderReview,
   argTypes: {
     reviewTitle: {
-      control: "string",
+      control: "text",
       table: {
         category: "Props",
       },
@@ -96,7 +96,7 @@ export default {
       description: "Order data",
     },
     characteristics: {
-      control: "array",
+      control: "object",
       table: {
         category: "Props",
       },
