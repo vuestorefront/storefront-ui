@@ -165,10 +165,10 @@ export default {
       return this.order.orderItems;
     },
     shipping() {
-      return this.order.shipping;
+      return this.order.shipping || {};
     },
     shippingMethod() {
-      return this.shipping.shippingMethod;
+      return this.shipping.shippingMethod || { price: "" };
     },
     subtotal() {
       const orderItems = this.orderItems;
