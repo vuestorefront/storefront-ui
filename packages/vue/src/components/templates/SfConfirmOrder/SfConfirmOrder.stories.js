@@ -51,32 +51,36 @@ export default {
   component: SfConfirmOrder,
   argTypes: {
     orderTitle: {
-      control: "String",
+      control: "string",
       table: {
         category: "Props",
       },
       defaultValue: "Order details",
+      description: "Heading text",
     },
     orderTitleLevel: {
-      control: "Number",
+      control: "number",
       table: {
         category: "Props",
       },
       defaultValue: 3,
+      description: "Heading text size",
     },
     order: {
-      control: "Object",
+      control: "object",
       table: {
         category: "Props",
       },
       defaultValue: orderData,
+      description: "Order data",
     },
     tableHeaders: {
-      control: "Array",
+      control: "array",
       table: {
         category: "Props",
       },
       defaultValue: tableHeadersData,
+      description: "Order table headers",
     },
   },
 }
