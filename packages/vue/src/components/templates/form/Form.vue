@@ -104,7 +104,7 @@
         class="form__element form__element--half form__element--half-even"
         required
         :valid="emailBlur || validEmail(email)"
-        error-message="Please choose your country."
+        error-message="Please enter a valid email address."
         @blur="emailBlur = false"
       />
       <SfHeading title="Prices" level="5" />
