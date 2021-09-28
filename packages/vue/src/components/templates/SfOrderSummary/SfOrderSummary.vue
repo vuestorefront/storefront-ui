@@ -1,5 +1,5 @@
 <template>
-  <div id="order-summary">
+  <div class="sf-order-summary">
     <SfHeading
       title="Totals"
       :level="3"
@@ -43,8 +43,22 @@
         Apply
       </SfButton>
     </div>
-
-    <div class="characteristics">
+    <div class="actions">
+      <SfButton
+        class="sf-button--full-width actions__button desktop-only"
+        @click="$emit('click:next')"
+        >Go to checkout</SfButton
+      >
+      <SfButton
+        class="
+          sf-button--full-width
+          actions__button
+          color-secondary
+          desktop-only
+        "
+        @click="$emit('click:back')"
+        >Go back shopping</SfButton
+      >
       <SfCharacteristic
         v-for="characteristic in characteristics"
         :key="characteristic.title"
@@ -54,19 +68,34 @@
         size-icon="32px"
         color-icon="green-primary"
         class="characteristics__item"
-      />
-    </div>
-    <div class="actions smartphone-only">
-      <SfButton
-        class="sf-button--full-width actions__button"
-        @click="$emit('click:next')"
-        >{{ buttonName }}</SfButton
       >
-      <SfButton
-        class="sf-button--text actions__button actions__button--secondary"
-        @click="$emit('click:back')"
-        >Go back</SfButton
-      >
+        <template #text>
+          <SfButton
+            class="sf-button--text actions__button actions__button--secondary"
+            >Send my basket to email</SfButton
+          >
+        </template>
+      </SfCharacteristic>
+      <div class="smartphone-only">
+        <SfButton
+          class="sf-button--full-width actions__button"
+          @click="$emit('click:next')"
+          >{{ buttonName }}</SfButton
+        >
+        <SfButton
+          class="sf-button--text actions__button actions__button--secondary"
+          @click="$emit('click:back')"
+          >Go back</SfButton
+        >
+      </div>
+      <div class="info desktop-only">
+        <p>Helpful information:</p>
+        <ul class="info__list">
+          <li>Questions? Chat with us or call 1.888.282.6060.</li>
+          <li>Shipping internationally? Choose your destination & currency.</li>
+          <li>Shipping methods & charges</li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
@@ -123,18 +152,17 @@ export default {
       return this.order.products
     },
     totalItems() {
-      return (
-        "" +
-        this.products.reduce((previous, current) => {
-          return previous + current.qty
-        }, 0)
-      )
+      return this.products
+        ? this.products.reduce((previous, current) => {
+            return previous + current.qty
+          }, 0)
+        : 0
     },
     shipping() {
       return this.order.shipping
     },
     shippingMethod() {
-      const shippingMethod = this.shipping.shippingMethod
+      const shippingMethod = this.shipping ? this.shipping.shippingMethod : null
       const method = this.shippingMethods.find(
         (method) => method.value === shippingMethod
       )
@@ -152,14 +180,16 @@ export default {
     },
     subtotal() {
       const products = this.products
-      const subtotal = products.reduce((previous, current) => {
-        const qty = current.qty
-        const price = current.price.special
-          ? current.price.special
-          : current.price.regular
-        const total = qty * parseFloat(price.replace("$", ""))
-        return previous + total
-      }, 0)
+      const subtotal = this.products
+        ? products.reduce((previous, current) => {
+            const qty = current.qty
+            const price = current.price.special
+              ? current.price.special
+              : current.price.regular
+            const total = qty * parseFloat(price.replace("$", ""))
+            return previous + total
+          }, 0)
+        : 0
       return "$" + subtotal.toFixed(2)
     },
     total() {
@@ -208,11 +238,40 @@ export default {
     --button-height: 1.875rem;
   }
 }
+.actions {
+  &__email {
+    margin: var(--spacer-lg) auto 0;
+  }
+  &__button {
+    margin: var(--spacer-sm) 0;
+    &--secondary {
+      margin: 0;
+      text-align: left;
+    }
+  }
+}
 .characteristics {
   &__item {
     margin: var(--spacer-base) 0;
     &:last-of-type {
       margin: 0;
+    }
+  }
+}
+.info {
+  margin: var(--spacer-lg) 0 var(--spacer-xl);
+  color: var(--c-link);
+  font-family: var(--font-family--primary);
+  font-size: var(--font-size--base);
+  font-weight: var(--font-weight--light);
+  line-height: 1.6;
+  &__list {
+    padding: 0;
+    list-style: none;
+    li::before {
+      content: "•";
+      color: var(--c-primary);
+      padding: 0 var(--spacer-xs) 0 0;
     }
   }
 }

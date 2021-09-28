@@ -1,5 +1,5 @@
 <template>
-  <div id="personal-details">
+  <div class="sf-personal-details">
     <div class="log-in">
       <SfButton
         class="log-in__button sf-button--full-width color-secondary"

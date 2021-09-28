@@ -1,5 +1,5 @@
 <template>
-  <div data-testid="review">
+  <div class="sf-order-review" data-testid="review">
     <SfHeading
       title="Order review"
       :level="3"
@@ -148,7 +148,17 @@ export default {
   },
   computed: {
     shipping() {
+      console.log(this.order.shipping)
       return this.order.shipping
+        ? this.order.shipping
+        : {
+            streetName: "",
+            apartment: "",
+            zipCode: "",
+            city: "",
+            country: "",
+            phoneNumber: "",
+          }
     },
     shippingMethod() {
       const shippingMethod = this.shipping.shippingMethod
@@ -159,6 +169,15 @@ export default {
     },
     payment() {
       return this.order.payment
+        ? this.order.payment
+        : {
+            streetName: "",
+            apartment: "",
+            zipCode: "",
+            city: "",
+            country: "",
+            phoneNumber: "",
+          }
     },
     paymentMethod() {
       const paymentMethod = this.payment.paymentMethod
