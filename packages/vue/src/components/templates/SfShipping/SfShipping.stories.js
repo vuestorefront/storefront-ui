@@ -1,69 +1,82 @@
 import { SfShipping } from "@storefront-ui/vue"
-
-const shippingMethodsData = [
-  {
-    isOpen: false,
-    price: "Free",
-    delivery: "Delivery from 3 to 7 business days",
-    label: "Pickup in the store",
-    value: "store",
-    description:
-      "Novelty! From now on you have the option of picking up an order in the selected InPack parceled. Just remember that in the case of orders paid on delivery, only the card payment will be accepted.",
-  },
-  {
-    isOpen: false,
-    price: "$9.90",
-    delivery: "Delivery from 4 to 6 business days",
-    label: "Delivery to home",
-    value: "home",
-    description:
-      "Novelty! From now on you have the option of picking up an order in the selected InPack parceled. Just remember that in the case of orders paid on delivery, only the card payment will be accepted.",
-  },
-  {
-    isOpen: false,
-    price: "$9.90",
-    delivery: "Delivery from 4 to 6 business days",
-    label: "Paczkomaty InPost",
-    value: "inpost",
-    description:
-      "Novelty! From now on you have the option of picking up an order in the selected InPack parceled. Just remember that in the case of orders paid on delivery, only the card payment will be accepted.",
-  },
-  {
-    isOpen: false,
-    price: "$11.00",
-    delivery: "Delivery within 48 hours",
-    label: "48 hours coffee",
-    value: "coffee",
-    description:
-      "Novelty! From now on you have the option of picking up an order in the selected InPack parceled. Just remember that in the case of orders paid on delivery, only the card payment will be accepted.",
-  },
-  {
-    isOpen: false,
-    price: "$14.00",
-    delivery: "Delivery within 24 hours",
-    label: "Urgent 24h",
-    value: "urgent",
-    description:
-      "Novelty! From now on you have the option of picking up an order in the selected InPack parceled. Just remember that in the case of orders paid on delivery, only the card payment will be accepted.",
-  },
-]
+import { countries, shippingMethodsData } from "../internalData.js"
 
 export default {
   title: "Components/Templates/Checkout/Shipping",
   component: SfShipping,
   argTypes: {
-    value: {
+    shippingMethods: {
       control: "object",
       table: {
         category: "Props",
       },
+      defaultValue: shippingMethodsData,
+      description: "Available shipping methods",
     },
-    shippingMethods: {
-      control: "Array",
+    headingTitle: {
+      control: "text",
       table: {
         category: "Props",
       },
-      defaultValue: shippingMethodsData,
+      defaultValue: "Shipping",
+      description: "Heading text for the first header",
+    },
+    headingTitleLevel: {
+      control: "number",
+      table: {
+        category: "Props",
+      },
+      defaultValue: 3,
+      description: "Heading number for the first header",
+    },
+    inputsLabels: {
+      control: "object",
+      table: {
+        category: "Props",
+      },
+      defaultValue: [
+        "First name",
+        "Last name",
+        "Street name",
+        "City",
+        "State/Province",
+        "Zip-code",
+        "Phone number",
+      ],
+      description: "Labels for inputs",
+    },
+    selectLabel: {
+      control: "text",
+      table: {
+        category: "Props",
+      },
+      defaultValue: "Country",
+      description: "Label for select",
+    },
+    countries: {
+      control: "object",
+      table: {
+        category: "Props",
+      },
+      defaultValue: [],
+      description:
+        "List of counties needed for select to creeate shipping address",
+    },
+    methodsHeadingTitle: {
+      control: "text",
+      table: {
+        category: "Props",
+      },
+      defaultValue: "Shipping method",
+      description: "Heading text for the second header",
+    },
+    methodsHeadingTitleLevel: {
+      control: "number",
+      table: {
+        category: "Props",
+      },
+      defaultValue: 3,
+      description: "Heading number for the second header",
     },
   },
 }
@@ -72,12 +85,20 @@ const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { SfShipping },
   template: `
-  <SfShipping 
-    :value="value"
+  <SfShipping
     :shipping-methods="shippingMethods"
-  >
-  </SfShipping>`,
+    :headingTitle="headingTitle"
+    :headingTitleLevel="headingTitleLevel"
+    :inputsLabels="inputsLabels"
+    :selectLabel="selectLabel"
+    :countries="countries"
+    :methodsHeadingTitle="methodsHeadingTitle"
+    :methodsHeadingTitleLevel="methodsHeadingTitleLevel"
+  />`,
 })
 
 export const Common = Template.bind({})
-Common.args = {}
+Common.args = {
+  countries: countries,
+  shippingMethods: shippingMethodsData,
+}
