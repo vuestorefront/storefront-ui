@@ -152,13 +152,7 @@ export default {
     },
     tableHeaders: {
       type: Array,
-      default: () => [
-         {
-          title : "Safety",
-          description : "It carefully packaged with a personal touch",
-          icon : "safety",
-        }
-      ],
+      default: () => ["Size", "Description", "Quantity", "Colour", "Amount"],
     },
   },
   data() {
