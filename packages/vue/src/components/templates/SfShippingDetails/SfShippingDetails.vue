@@ -1,6 +1,6 @@
 <template>
   <div class="sf-shipping-details">
-    <transition name="sf-fade">
+    <transition :name="transition">
       <SfTabs
         v-if="editAddress"
         key="edit-address"
@@ -8,158 +8,182 @@
         class="tab-orphan"
         data-testid="shipping-details-tabs"
       >
-        <SfTab title="Change the address">
-          <p class="message">
-            Keep your addresses and contact details updated.
-          </p>
+        <SfTab :title="changeAddressTabTitle">
+          <slot name="change-address-description">
+            <p class="message">
+              {{ changeAddressDescription }}
+            </p>
+          </slot>
           <div class="form">
-            <SfInput
-              v-model="firstName"
-              name="firstName"
-              label="First Name"
-              required
-              class="form__element form__element--half"
-            />
-            <SfInput
-              v-model="lastName"
-              name="lastName"
-              label="Last Name"
-              required
-              class="form__element form__element--half form__element--half-even"
-            />
-            <SfInput
-              v-model="streetName"
-              name="streetName"
-              label="Street Name"
-              required
-              class="form__element"
-            />
-            <SfInput
-              v-model="apartment"
-              name="apartment"
-              label="House/Apartment number"
-              required
-              class="form__element"
-            />
-            <SfInput
-              v-model="city"
-              name="city"
-              label="City"
-              required
-              class="form__element form__element--half"
-            />
-            <SfInput
-              v-model="state"
-              name="state"
-              label="State/Province"
-              required
-              class="form__element form__element--half form__element--half-even"
-            />
-            <SfInput
-              v-model="zipCode"
-              name="zipCode"
-              label="Zip-code"
-              required
-              class="form__element form__element--half"
-            />
-            <SfComponentSelect
-              v-model="country"
-              name="country"
-              label="Country"
-              required
-              class="
-                sf-component-select--underlined
-                form__select
-                form__element
-                form__element--half
-                form__element--half-even
-              "
-              data-testid="country"
-            >
-              <SfComponentSelectOption
-                v-for="countryOption in countries"
-                :key="countryOption"
-                :value="countryOption"
+            <slot name="form">
+              <SfInput
+                v-model="firstName"
+                name="firstName"
+                :label="inputsLabels[0]"
+                required
+                class="form__element form__element--half"
+              />
+              <SfInput
+                v-model="lastName"
+                name="lastName"
+                :label="inputsLabels[1]"
+                required
+                class="
+                  form__element form__element--half form__element--half-even
+                "
+              />
+              <SfInput
+                v-model="streetName"
+                name="streetName"
+                :label="inputsLabels[2]"
+                required
+                class="form__element"
+              />
+              <SfInput
+                v-model="apartment"
+                name="apartment"
+                :label="inputsLabels[3]"
+                required
+                class="form__element"
+              />
+              <SfInput
+                v-model="city"
+                name="city"
+                :label="inputsLabels[4]"
+                required
+                class="form__element form__element--half"
+              />
+              <SfInput
+                v-model="state"
+                name="state"
+                :label="inputsLabels[5]"
+                required
+                class="
+                  form__element form__element--half form__element--half-even
+                "
+              />
+              <SfInput
+                v-model="zipCode"
+                name="zipCode"
+                :label="inputsLabels[6]"
+                required
+                class="form__element form__element--half"
+              />
+              <SfComponentSelect
+                v-model="country"
+                name="country"
+                :label="selectLabel"
+                required
+                class="
+                  sf-component-select--underlined
+                  form__select
+                  form__element
+                  form__element--half
+                  form__element--half-even
+                "
+                data-testid="country"
               >
-                {{ countryOption }}
-              </SfComponentSelectOption>
-            </SfComponentSelect>
-            <SfInput
-              v-model="phoneNumber"
-              name="phone"
-              label="Phone number"
-              required
-              class="form__element"
-            />
-            <SfButton
-              class="action-button"
-              data-testid="update-address-button"
-              @click="updateAddress"
-            >
-              Update the address</SfButton
-            >
+                <SfComponentSelectOption
+                  v-for="countryOption in countries"
+                  :key="countryOption"
+                  :value="countryOption"
+                >
+                  {{ countryOption }}
+                </SfComponentSelectOption>
+              </SfComponentSelect>
+              <SfInput
+                v-model="phoneNumber"
+                name="phone"
+                :label="inputsLabels[7]"
+                required
+                class="form__element"
+              />
+              <SfButton
+                v-if="updateAddressButtonText"
+                class="action-button"
+                data-testid="update-address-button"
+                @click="updateAddress"
+              >
+                {{ updateAddressButtonText }}</SfButton
+              >
+              <SfButton
+                v-if="cancelButtonText"
+                class="action-button color-secondary cancel-button"
+                data-testid="update-address-button"
+                @click="cancelEditing"
+              >
+                {{ cancelButtonText }}</SfButton
+              >
+            </slot>
           </div>
         </SfTab>
       </SfTabs>
       <SfTabs v-else key="address-list" :open-tab="1" class="tab-orphan">
-        <SfTab title="Shipping details">
-          <p class="message">
-            Manage all the shipping addresses you want (work place, home address
-            ...) This way you won't have to enter the shipping address manually
-            with each order.
-          </p>
-          <transition-group tag="div" name="sf-fade" class="shipping-list">
-            <div
-              v-for="(shipping, key) in account.shipping"
-              :key="shipping.streetName + shipping.apartment"
-              class="shipping"
-              data-testid="shipping-address-list-item"
-            >
-              <div class="shipping__content">
-                <p class="shipping__address">
-                  <span class="shipping__client-name"
-                    >{{ shipping.firstName }} {{ shipping.lastName }}</span
-                  ><br />
-                  {{ shipping.streetName }} {{ shipping.apartment }}<br />{{
-                    shipping.zipCode
-                  }}
-                  {{ shipping.city }},<br />{{ shipping.country }}
-                </p>
-                <p class="shipping__address">
-                  {{ shipping.phoneNumber }}
-                </p>
+        <SfTab :title="shippingTabTitle">
+          <slot name="shipping-tab-description">
+            <p class="message">
+              {{ shipingTabDescription }}
+            </p>
+          </slot>
+          <transition-group tag="div" :name="transition" class="shipping-list">
+            <slot name="shipping-list">
+              <div
+                v-for="(shipping, key) in account.shipping"
+                :key="shipping.streetName + shipping.apartment"
+                class="shipping"
+                data-testid="shipping-address-list-item"
+              >
+                <div class="shipping__content">
+                  <slot name="shipping-details">
+                    <p class="shipping__address">
+                      <span class="shipping__client-name"
+                        >{{ shipping.firstName }} {{ shipping.lastName }}</span
+                      ><br />
+                      {{ shipping.streetName }} {{ shipping.apartment }}<br />{{
+                        shipping.zipCode
+                      }}
+                      {{ shipping.city }},<br />{{ shipping.country }}
+                    </p>
+                    <p class="shipping__address">
+                      {{ shipping.phoneNumber }}
+                    </p>
+                  </slot>
+                </div>
+                <div class="shipping__actions">
+                  <SfIcon
+                    icon="cross"
+                    color="gray"
+                    size="14px"
+                    role="button"
+                    class="smartphone-only"
+                    @click="deleteAddress(key)"
+                  />
+                  <SfButton
+                    v-if="changeButtonText"
+                    data-testid="change-address"
+                    @click="changeAddress(key)"
+                  >
+                    {{ changeButtonText }}
+                  </SfButton>
+                  <SfButton
+                    v-if="deleteButtonText"
+                    class="shipping__button-delete desktop-only"
+                    data-testid="delete-address"
+                    @click="deleteAddress(key)"
+                  >
+                    {{ deleteButtonText }}
+                  </SfButton>
+                </div>
               </div>
-              <div class="shipping__actions">
-                <SfIcon
-                  icon="cross"
-                  color="gray"
-                  size="14px"
-                  role="button"
-                  class="smartphone-only"
-                  @click="deleteAddress(key)"
-                />
-                <SfButton
-                  data-testid="change-address"
-                  @click="changeAddress(key)"
-                >
-                  Change
-                </SfButton>
-                <SfButton
-                  class="shipping__button-delete desktop-only"
-                  data-testid="delete-address"
-                  @click="deleteAddress(key)"
-                >
-                  Delete
-                </SfButton>
-              </div>
-            </div>
+            </slot>
           </transition-group>
           <SfButton
+            v-if="addNewAddressButtonText"
             class="action-button"
             data-testid="add-new-address"
             @click="changeAddress(-1)"
           >
-            Add new address</SfButton
+            {{ addNewAddressButtonText }}</SfButton
           >
         </SfTab>
       </SfTabs>
@@ -184,9 +208,70 @@ export default {
     SfIcon,
   },
   props: {
+    shippingTabTitle: {
+      type: String,
+      default: "Shipping details",
+    },
+    changeAddressTabTitle: {
+      type: String,
+      default: "Change the address",
+    },
     account: {
       type: Object,
       default: () => ({}),
+    },
+    transition: {
+      type: String,
+      default: "sf-fade",
+    },
+    changeAddressDescription: {
+      type: String,
+      default: "",
+    },
+    changeButtonText: {
+      type: String,
+      default: "Change",
+    },
+    deleteButtonText: {
+      type: String,
+      default: "Delete",
+    },
+    addNewAddressButtonText: {
+      type: String,
+      default: "Add new address",
+    },
+    updateAddressButtonText: {
+      type: String,
+      default: "Update the address",
+    },
+    cancelButtonText: {
+      type: String,
+      default: "Cancel",
+    },
+    inputsLabels: {
+      type: Array,
+      default: () => [
+        "First Name",
+        "Last Name",
+        "Street Name",
+        "House/Apartment number",
+        "City",
+        "State/Province",
+        "Zip-Code",
+        "Phone number",
+      ],
+    },
+    selectLabel: {
+      type: String,
+      default: "Country",
+    },
+    shipingTabDescription: {
+      type: String,
+      default: "",
+    },
+    countries: {
+      type: Array,
+      default: () => [],
     },
   },
   data() {
@@ -202,55 +287,6 @@ export default {
       zipCode: "",
       country: "",
       phoneNumber: "",
-      countries: [
-        "Austria",
-        "Azerbaijan",
-        "Belarus",
-        "Belgium",
-        "Bosnia and Herzegovina",
-        "Bulgaria",
-        "Croatia",
-        "Cyprus",
-        "Czech Republic",
-        "Denmark",
-        "Estonia",
-        "Finland",
-        "France",
-        "Georgia",
-        "Germany",
-        "Greece",
-        "Hungary",
-        "Iceland",
-        "Ireland",
-        "Italy",
-        "Kosovo",
-        "Latvia",
-        "Liechtenstein",
-        "Lithuania",
-        "Luxembourg",
-        "Macedonia",
-        "Malta",
-        "Moldova",
-        "Monaco",
-        "Montenegro",
-        "The Netherlands",
-        "Norway",
-        "Poland",
-        "Portugal",
-        "Romania",
-        "Russia",
-        "San Marino",
-        "Serbia",
-        "Slovakia",
-        "Slovenia",
-        "Spain",
-        "Sweden",
-        "Switzerland",
-        "Turkey",
-        "Ukraine",
-        "United Kingdom",
-        "Vatican City",
-      ],
     };
   },
   methods: {
@@ -270,6 +306,7 @@ export default {
         this.editedAddress = index;
       }
       this.editAddress = true;
+      this.$emit("change-address", index);
     },
     updateAddress() {
       const account = { ...this.account };
@@ -294,99 +331,19 @@ export default {
       this.editAddress = false;
       this.$emit("update:shipping", account);
     },
+    cancelEditing() {
+      const account = this.account;
+      this.editAddress = false;
+      this.$emit("cancel-editing", account);
+    },
     deleteAddress(index) {
       const account = { ...this.account };
       account.shipping.splice(index, 1);
-      this.$emit("update:shipping", account);
+      this.$emit("delete-address", index);
     },
   },
 };
 </script>
 <style lang="scss" scoped>
-@import "~@storefront-ui/vue/styles";
-.shipping-list {
-  margin: 0 0 var(--spacer-base) 0;
-}
-.shipping {
-  display: flex;
-  padding: var(--spacer-base) 0;
-  border: 1px solid var(--c-light);
-  border-width: 1px 0 0 0;
-  &:last-child {
-    border-width: 1px 0 1px 0;
-  }
-  &__content {
-    flex: 1;
-    color: var(--c-text);
-  }
-  &__actions {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-end;
-    @include for-desktop {
-      flex-direction: row;
-      justify-content: flex-end;
-      align-items: center;
-    }
-  }
-  &__button-delete {
-    --button-background: var(--c-light);
-    --button-color: var(--c-dark-variant);
-    &:hover {
-      --button-background: var(--_c-light-primary);
-    }
-    @include for-desktop {
-      margin: 0 0 0 var(--spacer-base);
-    }
-  }
-  &__address {
-    margin: 0 0 var(--spacer-base) 0;
-    &:last-child {
-      margin: 0;
-    }
-  }
-}
-.tab-orphan {
-  @include for-mobile {
-    --tabs-content-border-width: 0;
-    --tabs-title-display: none;
-    --tabs-content-padding: 0;
-  }
-}
-.form {
-  @include for-desktop {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-  }
-  &__element {
-    margin: 0 0 var(--spacer-base) 0;
-    @include for-desktop {
-      flex: 0 0 100%;
-    }
-    &--half {
-      @include for-desktop {
-        flex: 1 1 50%;
-      }
-      &-even {
-        @include for-desktop {
-          padding: 0 0 0 var(--spacer-lg);
-        }
-      }
-    }
-  }
-  &__select {
-    padding-bottom: calc(var(--font-xs) * 1.2);
-  }
-}
-.message {
-  margin: 0 0 var(--spacer-base) 0;
-}
-.action-button {
-  --button-width: 100%;
-  @include for-desktop {
-    --button-width: auto;
-  }
-}
+@import "~@storefront-ui/shared/styles/components/templates/my-account/SfShippingDetails.scss";
 </style>
