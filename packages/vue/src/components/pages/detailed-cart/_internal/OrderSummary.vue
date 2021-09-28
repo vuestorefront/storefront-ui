@@ -75,7 +75,7 @@ import {
   SfCharacteristic,
   SfProperty,
   SfDivider,
-} from "@storefront-ui/vue"
+} from "@storefront-ui/vue";
 export default {
   name: "OrderSummary",
   components: {
@@ -123,42 +123,42 @@ export default {
           icon: "return",
         },
       ],
-    }
+    };
   },
   computed: {
     cheapestShippingMethod() {
       const methods = this.shippingMethods.filter(
         (method) => method.price !== "Free"
-      )
+      );
       const cheapestMethod = methods.reduce((previous, current) => {
-        const price = parseFloat(current.price.replace("$", ""))
-        const previousPrice = parseFloat(previous.price.replace("$", ""))
-        return price < previousPrice ? current : previous
-      })
-      return cheapestMethod
+        const price = parseFloat(current.price.replace("$", ""));
+        const previousPrice = parseFloat(previous.price.replace("$", ""));
+        return price < previousPrice ? current : previous;
+      });
+      return cheapestMethod;
     },
     subtotal() {
-      const products = this.products
+      const products = this.products;
       const subtotal = products.reduce((previous, current) => {
-        const qty = current.qty
+        const qty = current.qty;
         const price = current.price.special
           ? current.price.special
-          : current.price.regular
-        const total = qty * parseFloat(price.replace("$", ""))
-        return previous + total
-      }, 0)
-      return "$" + subtotal.toFixed(2)
+          : current.price.regular;
+        const total = qty * parseFloat(price.replace("$", ""));
+        return previous + total;
+      }, 0);
+      return "$" + subtotal.toFixed(2);
     },
     total() {
-      const subtotal = parseFloat(this.subtotal.replace("$", ""))
+      const subtotal = parseFloat(this.subtotal.replace("$", ""));
       const shipping = parseFloat(
         this.cheapestShippingMethod.price.replace("$", "")
-      )
-      const total = subtotal + (isNaN(shipping) ? 0 : shipping)
-      return "$" + total.toFixed(2)
+      );
+      const total = subtotal + (isNaN(shipping) ? 0 : shipping);
+      return "$" + total.toFixed(2);
     },
   },
-}
+};
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";

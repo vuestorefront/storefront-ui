@@ -46,7 +46,7 @@
   </div>
 </template>
 <script>
-import { focus } from "../../../utilities/directives"
+import { focus } from "../../../utilities/directives";
 export default {
   name: "SfRadio",
   directives: {
@@ -88,18 +88,18 @@ export default {
   },
   computed: {
     isChecked() {
-      return this.value === this.selected
+      return this.value === this.selected;
     },
   },
   methods: {
     changeHandler() {
-      this.$emit("change", this.value)
+      this.$emit("change", this.value);
     },
     inputHandler() {
-      this.$emit("input", this.value)
+      this.$emit("input", this.value);
     },
   },
-}
+};
 </script>
 <style lang="scss">
 @import "~@storefront-ui/shared/styles/components/molecules/SfRadio.scss";

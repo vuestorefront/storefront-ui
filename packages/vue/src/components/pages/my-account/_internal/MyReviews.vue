@@ -12,11 +12,11 @@
   </SfTabs>
 </template>
 <script>
-import { SfTabs } from "@storefront-ui/vue"
+import { SfTabs } from "@storefront-ui/vue";
 export default {
   name: "MyReviews",
   components: { SfTabs },
-}
+};
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";

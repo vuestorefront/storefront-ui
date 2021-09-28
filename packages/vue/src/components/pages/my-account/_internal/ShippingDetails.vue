@@ -169,7 +169,7 @@ import {
   SfButton,
   SfComponentSelect,
   SfIcon,
-} from "@storefront-ui/vue"
+} from "@storefront-ui/vue";
 export default {
   name: "ShippingDetails",
   components: {
@@ -247,28 +247,28 @@ export default {
         "United Kingdom",
         "Vatican City",
       ],
-    }
+    };
   },
   methods: {
     changeAddress(index) {
-      const account = this.account
-      const shipping = account.shipping[index]
+      const account = this.account;
+      const shipping = account.shipping[index];
       if (index > -1) {
-        this.firstName = account.firstName
-        this.lastName = account.lastName
-        this.streetName = shipping.streetName
-        this.apartment = shipping.apartment
-        this.city = shipping.city
-        this.state = shipping.state
-        this.zipCode = shipping.zipCode
-        this.country = shipping.country
-        this.phoneNumber = shipping.phoneNumber
-        this.editedAddress = index
+        this.firstName = account.firstName;
+        this.lastName = account.lastName;
+        this.streetName = shipping.streetName;
+        this.apartment = shipping.apartment;
+        this.city = shipping.city;
+        this.state = shipping.state;
+        this.zipCode = shipping.zipCode;
+        this.country = shipping.country;
+        this.phoneNumber = shipping.phoneNumber;
+        this.editedAddress = index;
       }
-      this.editAddress = true
+      this.editAddress = true;
     },
     updateAddress() {
-      const account = { ...this.account }
+      const account = { ...this.account };
       const shipping = {
         firstName: this.firstName,
         lastName: this.lastName,
@@ -279,24 +279,24 @@ export default {
         zipCode: this.zipCode,
         country: this.country,
         phoneNumber: this.phoneNumber,
-      }
-      const index = this.editedAddress
+      };
+      const index = this.editedAddress;
       if (index > -1) {
-        account.shipping[index] = shipping
-        this.editedAddress = -1
+        account.shipping[index] = shipping;
+        this.editedAddress = -1;
       } else {
-        account.shipping.push(shipping)
+        account.shipping.push(shipping);
       }
-      this.editAddress = false
-      this.$emit("update:shipping", account)
+      this.editAddress = false;
+      this.$emit("update:shipping", account);
     },
     deleteAddress(index) {
-      const account = { ...this.account }
-      account.shipping.splice(index, 1)
-      this.$emit("update:shipping", account)
+      const account = { ...this.account };
+      account.shipping.splice(index, 1);
+      this.$emit("update:shipping", account);
     },
   },
-}
+};
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";

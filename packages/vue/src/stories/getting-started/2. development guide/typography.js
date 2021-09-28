@@ -12,4 +12,4 @@ export const typography = {
     semibold: 600,
     bold: 700,
   },
-}
+};
