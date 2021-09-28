@@ -1,7 +1,7 @@
 import { SfMyNewsletter } from "@storefront-ui/vue"
 
 export default {
-  title: "Components/Templates/MyAccount/MyNewsletter",
+  title: "Components/Templates/MyNewsletter",
   component: SfMyNewsletter,
   argTypes: {
     tabTitle: {

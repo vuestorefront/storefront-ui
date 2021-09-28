@@ -2,7 +2,7 @@ import { SfShippingDetails } from "@storefront-ui/vue"
 import { accountData, countries } from "../internalData.js"
 
 export default {
-  title: "Components/Templates/MyAccount/ShippingDetails",
+  title: "Components/Templates/ShippingDetails",
   component: SfShippingDetails,
   argTypes: {
     shippingTabTitle: {

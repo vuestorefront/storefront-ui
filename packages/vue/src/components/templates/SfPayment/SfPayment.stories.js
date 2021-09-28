@@ -1,14 +1,14 @@
-import { SfPayment } from "@storefront-ui/vue";
+import { SfPayment } from "@storefront-ui/vue"
 import {
   countries,
   months,
   years,
   paymentMethods,
   accountData,
-} from "../internalData.js";
+} from "../internalData.js"
 
 export default {
-  title: "Components/Templates/Checkout/Payment",
+  title: "Components/Templates/Payment",
   component: SfPayment,
   argTypes: {
     paymentMethods: {
@@ -166,13 +166,13 @@ const Template = (args, { argTypes }) => ({
     :expiryDateLabel="expiryDateLabel"
     :creditCards="creditCards"
   />`,
-});
+})
 
-export const Common = Template.bind({});
+export const Common = Template.bind({})
 Common.args = {
   shipping: accountData.shipping[0],
   countries: countries,
   years: years,
   months: months,
   paymentMethods: paymentMethods,
-};
+}

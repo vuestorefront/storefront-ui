@@ -2,7 +2,7 @@ import { SfShipping } from "@storefront-ui/vue"
 import { countries, shippingMethodsData } from "../internalData.js"
 
 export default {
-  title: "Components/Templates/Checkout/Shipping",
+  title: "Components/Templates/Shipping",
   component: SfShipping,
   argTypes: {
     shippingMethods: {

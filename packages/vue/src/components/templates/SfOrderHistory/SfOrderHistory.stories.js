@@ -2,7 +2,7 @@ import { SfOrderHistory } from "@storefront-ui/vue"
 import { accountData } from "../internalData.js"
 
 export default {
-  title: "Components/Templates/MyAccount/OrderHistory",
+  title: "Components/Templates/OrderHistory",
   component: SfOrderHistory,
   argTypes: {
     tabTitle: {

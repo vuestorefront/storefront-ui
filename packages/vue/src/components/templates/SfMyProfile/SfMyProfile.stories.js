@@ -2,7 +2,7 @@ import { SfMyProfile } from "@storefront-ui/vue"
 import { accountData } from "../internalData.js"
 
 export default {
-  title: "Components/Templates/MyAccount/MyProfile",
+  title: "Components/Templates/MyProfile",
   component: SfMyProfile,
   argTypes: {
     tabsTitles: {

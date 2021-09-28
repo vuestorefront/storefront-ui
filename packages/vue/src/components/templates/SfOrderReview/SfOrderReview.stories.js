@@ -68,7 +68,7 @@ const characteristicsData = [
 ]
 
 export default {
-  title: "Components/Templates/Checkout/OrderReview",
+  title: "Components/Templates/OrderReview",
   component: SfOrderReview,
   argTypes: {
     reviewTitle: {
@@ -99,7 +99,7 @@ export default {
       control: "object",
       table: {
         category: "Props",
-        type: { summary: 'array' },
+        type: { summary: "array" },
         defaultValue: {
           summary: `[
             {
@@ -107,7 +107,7 @@ export default {
               description: "It carefully packaged with a personal touch",
               icon: "safety",
             },
-          ]`
+          ]`,
         },
       },
       defaultValue: characteristicsData,

@@ -47,7 +47,7 @@ const tableHeadersData = [
 ];
 
 export default {
-  title: "Components/Templates/Checkout/ConfirmOrder",
+  title: "Components/Templates/ConfirmOrder",
   component: SfConfirmOrder,
   argTypes: {
     orderTitle: {

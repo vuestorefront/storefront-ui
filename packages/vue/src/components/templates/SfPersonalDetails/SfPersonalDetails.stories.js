@@ -1,7 +1,7 @@
 import { SfPersonalDetails } from "@storefront-ui/vue"
 
 export default {
-  title: "Components/Templates/Checkout/PersonalDetails",
+  title: "Components/Templates/PersonalDetails",
   component: SfPersonalDetails,
   argTypes: {
     value: {
