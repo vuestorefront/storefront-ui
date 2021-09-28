@@ -88,6 +88,7 @@ export default {
       control: "object",
       table: {
         category: "Props",
+        type: { summary: "array" },
         defaultValue: {
           summary: `[
             {
