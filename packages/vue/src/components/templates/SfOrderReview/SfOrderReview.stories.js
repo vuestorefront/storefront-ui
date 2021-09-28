@@ -16,6 +16,7 @@ const orderData = {
     zipCode: "53-540",
     country: "Poland",
     phoneNumber: "(00)560 123 456",
+    shippingMethod: "home",
   },
   payment: {
     streetName: "Sezame Street",
@@ -24,6 +25,7 @@ const orderData = {
     zipCode: "53-540",
     country: "Poland",
     phoneNumber: "(00)560 123 456",
+    paymentMethod: "debit"
   },
   products: [
     {
