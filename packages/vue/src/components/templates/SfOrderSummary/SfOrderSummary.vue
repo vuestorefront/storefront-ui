@@ -2,8 +2,8 @@
   <div class="sf-order-summary">
     <slot name="heading">
       <SfHeading
-        :title="reviewTitle"
-        :level="reviewTitleLevel"
+        :title="orderTitle"
+        :level="orderTitleLevel"
         class="sf-heading--left sf-heading--no-underline title"
       />
     </slot>
@@ -126,11 +126,11 @@ export default {
     SfInput,
   },
   props: {
-    reviewTitle: {
+    orderTitle: {
       type: String,
       default: "Order review",
     },
-    reviewTitleLevel: {
+    orderTitleLevel: {
       type: Number,
       default: 3,
     },

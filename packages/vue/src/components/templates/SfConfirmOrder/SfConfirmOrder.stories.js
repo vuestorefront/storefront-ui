@@ -43,6 +43,14 @@ const orderData = {
   ],
 }
 
+const tableHeadersData = [
+  "Size", 
+  "Description", 
+  "Quantity", 
+  "Colour", 
+  "Amount"
+];
+
 const paymentMethodsData = [
   {
     label: "Visa Debit",
@@ -136,12 +144,33 @@ export default {
   title: "Components/Templates/Checkout/ConfirmOrder",
   component: SfConfirmOrder,
   argTypes: {
+    orderTitle: {
+      control: "String",
+      table: {
+        category: "Props",
+      },
+      defaultValue: "Order details",
+    },
+    orderTitleLevel: {
+      control: "Number",
+      table: {
+        category: "Props",
+      },
+      defaultValue: 3,
+    },
     order: {
       control: "Object",
       table: {
         category: "Props",
       },
       defaultValue: orderData,
+    },
+    tableHeaders: {
+      control: "Array",
+      table: {
+        category: "Props",
+      },
+      defaultValue: tableHeadersData,
     },
     shippingMethods: {
       control: "Array",
@@ -164,6 +193,13 @@ export default {
       },
       defaultValue: characteristicsData,
     },
+    buttonName: {
+      control: "String",
+      table: {
+        category: "Props",
+      },
+      defaultValue: "Confirm and pay",
+    },
   },
 }
 
@@ -172,10 +208,14 @@ const Template = (args, { argTypes }) => ({
   components: { SfConfirmOrder },
   template: `
   <SfConfirmOrder 
+    :orderTitle="orderTitle"
+    :orderTitleLevel="orderTitleLevel"
     :order="order"
     :shipping-methods="shippingMethods"
     :payment-methods="paymentMethods"
     :characteristics="characteristics"
+    :table-headers="tableHeaders"
+    :button-name="buttonName"
   >
   </SfConfirmOrder>`,
 })

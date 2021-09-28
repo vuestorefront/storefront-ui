@@ -25,7 +25,7 @@ const orderData = {
     zipCode: "53-540",
     country: "Poland",
     phoneNumber: "(00)560 123 456",
-    paymentMethod: "debit"
+    paymentMethod: "debit",
   },
   products: [
     {
@@ -146,6 +146,20 @@ export default {
   title: "Components/Templates/Checkout/OrderReview",
   component: SfOrderReview,
   argTypes: {
+    reviewTitle: {
+      control: "String",
+      table: {
+        category: "Props",
+      },
+      defaultValue: "Order review",
+    },
+    reviewTitleLevel: {
+      control: "Number",
+      table: {
+        category: "Props",
+      },
+      defaultValue: 3,
+    },
     order: {
       control: "Object",
       table: {
@@ -182,6 +196,8 @@ const Template = (args, { argTypes }) => ({
   components: { SfOrderReview },
   template: `
   <SfOrderReview
+    :review-title="reviewTitle"
+    :review-title-level="reviewTitleLevel"
     :order="order"
     :shipping-methods="shippingMethods"
     :payment-methods="paymentMethods"

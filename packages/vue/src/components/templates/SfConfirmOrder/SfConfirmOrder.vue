@@ -1,113 +1,120 @@
 <template>
   <div class="sf-confirm-order">
-    <SfHeading
-      title="Order details"
-      :level="3"
-      class="sf-heading--left sf-heading--no-underline title"
-    />
-    <SfTable class="sf-table--bordered table">
-      <SfTableHeading class="table__row">
-        <SfTableHeader class="table__header table__image">Item</SfTableHeader>
-        <SfTableHeader
-          v-for="tableHeader in tableHeaders"
-          :key="tableHeader"
-          class="table__header"
-          :class="{ table__description: tableHeader === 'Description' }"
-          >{{ tableHeader }}
-        </SfTableHeader>
-      </SfTableHeading>
-      <SfTableRow
-        v-for="(product, index) in products"
-        :key="index"
-        class="table__row"
-        data-testid="product-table-row"
-      >
-        <SfTableData class="table__image">
-          <SfImage
-            :src="product.image"
-            :alt="product.title"
-            data-testid="product-image-table-data"
-          />
-        </SfTableData>
-        <SfTableData class="table__data"
-          >{{ product.configuration[0].value }}
-        </SfTableData>
-
-        <SfTableData
-          class="table__description"
-          data-testid="product-description-table-data"
+    <slot name="heading">
+      <SfHeading
+        :title="orderTitle"
+        :level="orderTitleLevel"
+        class="sf-heading--left sf-heading--no-underline title"
+      />
+    </slot>
+    <slot name="table">
+      <SfTable class="sf-table--bordered table">
+        <SfTableHeading class="table__row">
+          <SfTableHeader class="table__header table__image">Item</SfTableHeader>
+          <SfTableHeader
+            v-for="tableHeader in tableHeaders"
+            :key="tableHeader"
+            class="table__header"
+            :class="{ table__description: tableHeader === 'Description' }"
+            >{{ tableHeader }}
+          </SfTableHeader>
+        </SfTableHeading>
+        <SfTableRow
+          v-for="(product, index) in products"
+          :key="index"
+          class="table__row"
+          data-testid="product-table-row"
         >
-          <div class="product-title">{{ product.title }}</div>
-          <div class="product-sku">{{ product.sku }}</div>
-        </SfTableData>
-        <SfTableData class="table__data">{{ product.qty }}</SfTableData>
+          <SfTableData class="table__image">
+            <SfImage
+              :src="product.image"
+              :alt="product.title"
+              data-testid="product-image-table-data"
+            />
+          </SfTableData>
+          <SfTableData class="table__data"
+            >{{ product.configuration[0].value }}
+          </SfTableData>
+          <SfTableData
+            class="table__description"
+            data-testid="product-description-table-data"
+          >
+            <div class="product-title">{{ product.title }}</div>
+            <div class="product-sku">{{ product.sku }}</div>
+          </SfTableData>
+          <SfTableData class="table__data">{{ product.qty }}</SfTableData>
 
-        <SfTableData class="table__data"
-          >{{ product.configuration[1].value }}
-        </SfTableData>
-        <SfTableData class="table__data">
-          <SfPrice
-            :regular="product.price.regular"
-            :special="product.price.special"
-            class="product-price"
-          />
-        </SfTableData>
-      </SfTableRow>
-    </SfTable>
+          <SfTableData class="table__data"
+            >{{ product.configuration[1].value }}
+          </SfTableData>
+          <SfTableData class="table__data">
+            <SfPrice
+              :regular="product.price.regular"
+              :special="product.price.special"
+              class="product-price"
+            />
+          </SfTableData>
+        </SfTableRow>
+      </SfTable>
+    </slot>
     <div class="summary smartphone-only">
-      <div class="summary__content">
+      <slot name="smartphone-summary">
+        <div class="summary__content">
+          <SfProperty
+            name="Subtotal"
+            :value="subtotal"
+            class="sf-property--full-width property"
+          />
+          <SfProperty
+            name="Shipping"
+            :value="shippingMethod.price"
+            class="sf-property--full-width property"
+          />
+          <SfDivider class="divider" />
+          <SfProperty
+            name="Total price"
+            :value="total"
+            class="sf-property--full-width property"
+          />
+          <SfCheckbox v-model="terms" name="terms" class="summary__terms">
+            <template #label>
+              <div class="sf-checkbox__label">
+                I agree to <a href="#">Terms and conditions</a>
+              </div>
+            </template>
+          </SfCheckbox>
+        </div>
+      </slot>
+    </div>
+    <div class="totals desktop-only">
+      <slot name="desktop-summary">
         <SfProperty
           name="Subtotal"
           :value="subtotal"
-          class="sf-property--full-width property"
-        />
+          class="sf-property--full-width property property__subtotal"
+        >
+        </SfProperty>
         <SfProperty
           name="Shipping"
           :value="shippingMethod.price"
           class="sf-property--full-width property"
-        />
+        >
+        </SfProperty>
         <SfDivider class="divider" />
         <SfProperty
           name="Total price"
           :value="total"
-          class="sf-property--full-width property"
-        />
-        <SfCheckbox v-model="terms" name="terms" class="summary__terms">
+          class="sf-property--full-width sf-property--large property__total"
+        >
+        </SfProperty>
+        <SfCheckbox v-model="terms" name="terms" class="totals__terms">
           <template #label>
             <div class="sf-checkbox__label">
-              I agree to <a href="#">Terms and conditions</a>
+              I agree to <SfLink href="#">Terms and conditions</SfLink>
             </div>
           </template>
         </SfCheckbox>
-      </div>
-    </div>
-    <div class="totals desktop-only">
-      <SfProperty
-        name="Subtotal"
-        :value="subtotal"
-        class="sf-property--full-width property property__subtotal"
-      >
-      </SfProperty>
-      <SfProperty
-        name="Shipping"
-        :value="shippingMethod.price"
-        class="sf-property--full-width property"
-      >
-      </SfProperty>
-      <SfDivider class="divider" />
-      <SfProperty
-        name="Total price"
-        :value="total"
-        class="sf-property--full-width sf-property--large property__total"
-      >
-      </SfProperty>
-      <SfCheckbox v-model="terms" name="terms" class="totals__terms">
-        <template #label>
-          <div class="sf-checkbox__label">
-            I agree to <SfLink href="#">Terms and conditions</SfLink>
-          </div>
-        </template>
-      </SfCheckbox>
+      </slot>
     </div>
   </div>
 </template>
@@ -135,9 +142,21 @@ export default {
     SfLink,
   },
   props: {
+    orderTitle: {
+      type: String,
+      default: "Order details",
+    },
+    orderTitleLevel: {
+      type: Number,
+      default: 3,
+    },
     order: {
       type: Object,
       default: () => ({}),
+    },
+    tableHeaders: {
+      type: Array,
+      default: () => [],
     },
     shippingMethods: {
       type: Array,
@@ -156,7 +175,6 @@ export default {
     return {
       terms: false,
       promoCode: "",
-      tableHeaders: ["Size", "Description", "Quantity", "Colour", "Amount"],
     }
   },
   computed: {

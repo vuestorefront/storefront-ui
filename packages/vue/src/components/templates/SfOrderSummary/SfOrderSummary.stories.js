@@ -136,6 +136,34 @@ export default {
   title: "Components/Templates/OrderSummary",
   component: SfOrderSummary,
   argTypes: {
+    orderTitle: {
+      control: "String",
+      table: {
+        category: "Props",
+      },
+      defaultValue: "Order review",
+    },
+    orderTitleLevel: {
+      control: "Number",
+      table: {
+        category: "Props",
+      },
+      defaultValue: 3,
+    },
+    firstButtonName: {
+      control: "String",
+      table: {
+        category: "Props",
+      },
+      defaultValue: "Go to checkout",
+    },
+    secondButtonName: {
+      control: "String",
+      table: {
+        category: "Props",
+      },
+      defaultValue: "Go back shopping",
+    },
     order: {
       control: "object",
       table: {
@@ -164,12 +192,19 @@ export default {
       },
       defaultValue: characteristicsData,
     },
-    buttonName: {
+    firstMobileButtonName: {
       control: "String",
       table: {
         category: "Props",
       },
       defaultValue: "Place my order",
+    },
+    secondMobileButtonName: {
+      control: "String",
+      table: {
+        category: "Props",
+      },
+      defaultValue: "Go back",
     },
   },
 }
@@ -179,11 +214,16 @@ const Template = (args, { argTypes }) => ({
   components: { SfOrderSummary },
   template: `
   <SfOrderSummary
+    :order-title="orderTitle"
+    :order-title-level="orderTitleLevel"
+    :first-button-name="firstButtonName"
+    :second-button-name="secondButtonName"
     :order="order"
     :shipping-methods="shippingMethods"
     :payment-methods="paymentMethods"
     :characteristics="characteristics"
-    :button-name="buttonName"
+    :first-mobile-button-name="firstMobileButtonName"
+    :second-mobile-button-name="secondMobileButtonName"
   >
   </SfOrderSummary>`,
 })

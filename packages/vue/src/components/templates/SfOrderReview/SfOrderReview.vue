@@ -88,8 +88,8 @@
       </div>
       <p class="content">{{ paymentMethod.label }}</p>
     </slot>
-    <slot name="promo">
-      <div class="promo-code">
+    <div class="promo-code">
+      <slot name="promo">
         <SfInput
           v-model="promoCode"
           name="promoCode"
@@ -103,10 +103,10 @@
         >
           Apply
         </SfButton>
-      </div>
-    </slot>
-    <slot name="characteristics">
-      <div class="characteristics">
+      </slot>
+    </div>
+    <div class="characteristics">
+      <slot name="characteristics">
         <SfCharacteristic
           v-for="characteristic in characteristics"
           :key="characteristic.title"
@@ -116,8 +116,8 @@
           color-icon="green-primary"
           class="characteristics__item"
         />
-      </div>
-    </slot>
+      </slot>
+    </div>
   </div>
 </template>
 <script>
