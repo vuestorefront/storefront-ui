@@ -140,6 +140,14 @@ export default {
       defaultValue: "",
       description: "Label for expiry date for credid card",
     },
+    creditCards: {
+      control: "object",
+      table: {
+        category: "Props",
+      },
+      defaultValue: ["debit", "mastercard", "electron"],
+      description: "List of credit cards",
+    },
   },
 }
 
@@ -156,6 +164,7 @@ const Template = (args, { argTypes }) => ({
     :months="months"
     :cvcCodeButtonText="cvcCodeButtonText"
     :expiryDateLabel="expiryDateLabel"
+    :creditCards="creditCards"
   />`,
 });
 
