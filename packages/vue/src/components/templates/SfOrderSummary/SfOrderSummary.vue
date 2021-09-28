@@ -49,23 +49,8 @@
         </SfButton>
       </slot>
     </div>
-    <div class="actions">
-      <slot name="actions">
-        <SfButton
-          class="sf-button--full-width actions__button desktop-only"
-          @click="$emit('click:checkout')"
-          >{{ firstButtonName }}</SfButton
-        >
-        <SfButton
-          class="
-            sf-button--full-width
-            actions__button
-            color-secondary
-            desktop-only
-          "
-          @click="$emit('click:shopping')"
-          >{{ secondButtonName }}</SfButton
-        >
+    <div class="characteristics">
+      <slot name="characteristics">
         <SfCharacteristic
           v-for="characteristic in characteristics"
           :key="characteristic.title"
@@ -77,31 +62,6 @@
           class="characteristics__item"
         >
         </SfCharacteristic>
-        <div class="smartphone-only">
-          <SfButton
-            class="sf-button--full-width actions__button"
-            @click="$emit('click:next')"
-            >{{ firstMobileButtonName }}</SfButton
-          >
-          <SfButton
-            class="
-              sf-button--full-width sf-button--underlined
-              actions__button actions__button--back
-            "
-            @click="$emit('click:back')"
-            >{{ secondMobileButtonName }}</SfButton
-          >
-        </div>
-      </slot>
-    </div>
-    <div class="info desktop-only">
-      <slot name="info">
-        <p>Helpful information:</p>
-        <ul class="info__list">
-          <li>Questions? Chat with us or call 1.888.282.6060.</li>
-          <li>Shipping internationally? Choose your destination & currency.</li>
-          <li>Shipping methods & charges</li>
-        </ul>
       </slot>
     </div>
   </div>
@@ -134,37 +94,13 @@ export default {
       type: Number,
       default: 3,
     },
-    firstButtonName: {
-      type: String,
-      default: "Go to checkout",
-    },
-    secondButtonName: {
-      type: String,
-      default: "Go back shopping",
-    },
     order: {
       type: Object,
       default: () => ({}),
     },
-    shippingMethods: {
-      type: Array,
-      default: () => [],
-    },
-    paymentMethods: {
-      type: Array,
-      default: () => [],
-    },
     characteristics: {
       type: Array,
       default: () => [],
-    },
-    firstMobileButtonName: {
-      type: String,
-      default: "PLace my order",
-    },
-    secondMobileButtonName: {
-      type: String,
-      default: "Go back",
     },
   },
   data() {
@@ -188,22 +124,11 @@ export default {
     shipping() {
       return this.order.shipping
     },
-    shippingMethod() {
-      const shippingMethod = this.shipping ? this.shipping.shippingMethod : null
-      const method = this.shippingMethods.find(
-        (method) => method.value === shippingMethod
-      )
-      return method ? method : { price: "$0.00" }
-    },
     payment() {
       return this.order.payment
     },
-    paymentMethod() {
-      const paymentMethod = this.payment.paymentMethod
-      const method = this.paymentMethods.find(
-        (method) => method.value === paymentMethod
-      )
-      return method ? method : { label: "" }
+    shippingMethod() {
+      return this.shipping.shippingMethod
     },
     subtotal() {
       const products = this.products
