@@ -37,6 +37,7 @@
                     <SfButton
                       class="desktop-only sf-button--text orders__download-all"
                       data-testid="download-all-button"
+                      @click="$emit('download-all')"
                       >Download all
                     </SfButton>
                   </SfTableHeader>
@@ -95,11 +96,11 @@ export default {
       default: "My orders",
     },
     orders: {
-      type: Object,
-      default: () => ({}),
+      type: Array,
+      default: () => [],
     },
     tableHeaders: {
-      type: Object,
+      type: Array,
       default: () => [],
     },
     orderHistoryDescription: {
