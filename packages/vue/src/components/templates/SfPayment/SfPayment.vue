@@ -385,6 +385,10 @@ export default {
       type: String,
       default: "Expiry date:",
     },
+    creditCards: {
+      type: Array,
+      default: () => ["debit", "mastercard", "electron"],
+    },
   },
   data() {
     return {
@@ -410,7 +414,8 @@ export default {
   },
   computed: {
     isCreditCard() {
-      return ["debit", "mastercard", "electron"].includes(this.paymentMethod);
+      if (!this.creditCards) return;
+      return this.creditCards.includes(this.paymentMethod);
     },
   },
   watch: {
