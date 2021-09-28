@@ -137,13 +137,10 @@ export default {
         : 0
     },
     shipping() {
-      return this.order.shipping
-    },
-    payment() {
-      return this.order.payment
+      return this.order.shipping || {}
     },
     shippingMethod() {
-      return this.shipping.shippingMethod
+      return this.shipping.shippingMethod || { price: "" }
     },
     subtotal() {
       const products = this.products

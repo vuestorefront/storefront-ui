@@ -1,15 +1,10 @@
 import { SfOrderSummary } from "@storefront-ui/vue"
 
 const orderData = {
-  review: {
-    subtotal: "$150.00",
-    shipping: "$9.00",
-    total: "$159.00",
-  },
   shipping: {
     shippingMethod: {
       isOpen: false,
-      price: "Free",
+      price: "$5.99",
       delivery: "Delivery from 3 to 7 business days",
       label: "Pickup in the store",
       value: "store",
