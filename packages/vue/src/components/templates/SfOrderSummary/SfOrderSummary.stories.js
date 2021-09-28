@@ -133,7 +133,7 @@ const characteristicsData = [
 ]
 
 export default {
-  title: "Components/Templates/Checkout/OrderSummary",
+  title: "Components/Templates/OrderSummary",
   component: SfOrderSummary,
   argTypes: {
     order: {
@@ -178,7 +178,7 @@ const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { SfOrderSummary },
   template: `
-  <SfOrderSummary 
+  <SfOrderSummary
     :order="order"
     :shipping-methods="shippingMethods"
     :payment-methods="paymentMethods"
