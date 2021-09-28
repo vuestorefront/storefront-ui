@@ -5,7 +5,15 @@ export default {
   title: "Components/Templates/MyAccount/OrderHistory",
   component: SfOrderHistory,
   argTypes: {
-    account: {
+    tabTitle: {
+      control: "text",
+      table: {
+        category: "Props",
+      },
+      defaultValue: "My orders",
+      description: "Label for tab title",
+    },
+    orders: {
       control: "object",
       table: {
         category: "Props",
@@ -58,7 +66,8 @@ const Template = (args, { argTypes }) => ({
   components: { SfOrderHistory },
   template: `
   <SfOrderHistory
-    :account="account"
+    :tabTitle="tabTitle"
+    :orders="orders"
     :orderHistoryDescription="orderHistoryDescription"
     :noOrdersDescription="noOrdersDescription"
     :tableHeaders="tableHeaders"
@@ -68,7 +77,7 @@ const Template = (args, { argTypes }) => ({
 
 export const Common = Template.bind({})
 Common.args = {
-  account: accountData,
+  orders: accountData.orders,
   orderHistoryDescription:
     "Check the details and status of your orders in the online store. You can also cancel your order or request a return.",
   noOrdersDescription: "You currently have no order history.",
