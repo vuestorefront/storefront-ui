@@ -20,7 +20,7 @@
           </SfTableHeader>
         </SfTableHeading>
         <SfTableRow
-          v-for="(product, index) in products"
+          v-for="(product, index) in orderItems"
           :key="index"
           class="table__row"
           data-testid="product-table-row"
@@ -158,53 +158,26 @@ export default {
       type: Array,
       default: () => [],
     },
-    shippingMethods: {
-      type: Array,
-      default: () => [],
-    },
-    paymentMethods: {
-      type: Array,
-      default: () => [],
-    },
-    characteristics: {
-      type: Array,
-      default: () => [],
-    },
   },
   data() {
     return {
       terms: false,
-      promoCode: "",
     }
   },
   computed: {
-    products() {
-      return this.order.products
+    orderItems() {
+      return this.order.orderItems
     },
     shipping() {
       return this.order.shipping
     },
     shippingMethod() {
-      const shippingMethod = this.shipping ? this.shipping.shippingMethod : null
-      const method = this.shippingMethods.find(
-        (method) => method.value === shippingMethod
-      )
-      return method ? method : { price: "$0.00" }
-    },
-    payment() {
-      return this.order.payment
-    },
-    paymentMethod() {
-      const paymentMethod = this.payment.paymentMethod
-      const method = this.paymentMethods.find(
-        (method) => method.value === paymentMethod
-      )
-      return method ? method : { label: "" }
+      return this.order.shipping.shippingMethod
     },
     subtotal() {
-      const products = this.products
-      const subtotal = this.products
-        ? products.reduce((previous, current) => {
+      const orderItems = this.orderItems
+      const subtotal = this.orderItems
+        ? orderItems.reduce((previous, current) => {
             const qty = current.qty
             const price = current.price.special
               ? current.price.special
