@@ -159,7 +159,13 @@ export default {
     },
     characteristics: {
       type: Array,
-      default: () => [],
+      default: () => [
+        {
+          title: "Safety",
+          description: "It carefully packaged with a personal touch",
+          icon: "safety",
+        },
+      ],
     },
   },
   data() {
