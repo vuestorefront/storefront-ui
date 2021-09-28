@@ -1,8 +1,8 @@
 import { shallowMount } from "@vue/test-utils"
-import SfMyAccountContent from "./SfMyAccountContent.vue"
-describe("SfMyAccountContent.vue", () => {
+import SfMyNewsletter from "./SfMyNewsletter.vue"
+describe("SfMyNewsletter.vue", () => {
   it("renders a component", () => {
-    const component = shallowMount(SfMyAccountContent)
+    const component = shallowMount(SfMyNewsletter)
     expect(component.classes("sf-my-account-content")).toBe(true)
   })
 })

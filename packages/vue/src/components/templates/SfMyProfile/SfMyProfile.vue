@@ -1,86 +1,99 @@
 <template>
   <SfTabs class="sf-my-profile" :open-tab="1">
-    <SfTab title="Personal data">
-      <p class="message">
-        Feel free to edit any of your details below so your account is always up
-        to date
-      </p>
-      <div class="form">
-        <SfInput
-          v-model="firstName"
-          name="firstName"
-          label="First Name"
-          required
-          class="form__element form__element--half"
-        />
-        <SfInput
-          v-model="lastName"
-          name="lastName"
-          label="Last Name"
-          required
-          class="form__element form__element--half form__element--half-even"
-        />
-        <SfInput
-          v-model="email"
-          type="email"
-          name="email"
-          label="Your e-mail"
-          required
-          class="form__element"
-        />
-        <SfButton
-          class="form__button"
-          data-testid="save-changes-button"
-          @click="updatePersonal"
-        >
-          Save changes
-        </SfButton>
+    <SfTab :title="tabsTitles[0]">
+      <slot name="personal-data-message" v-bind="{ personalDataDescription }">
+        <p class="message">
+          {{ personalDataDescription }}
+        </p>
+      </slot>
+      <div class="form" v-bind="{ personalInputsLabels, buttonsTexts }">
+        <slot name="personal-data-form">
+          <SfInput
+            v-model="firstName"
+            name="firstName"
+            :label="personalInputsLabels[0]"
+            required
+            class="form__element form__element--half"
+          />
+          <SfInput
+            v-model="lastName"
+            name="lastName"
+            :label="personalInputsLabels[1]"
+            required
+            class="form__element form__element--half form__element--half-even"
+          />
+          <SfInput
+            v-model="email"
+            type="email"
+            name="email"
+            :label="personalInputsLabels[2]"
+            required
+            class="form__element"
+          />
+          <SfButton
+            class="form__button"
+            data-testid="save-changes-button"
+            @click="updatePersonal"
+          >
+            {{ buttonsTexts[0] }}
+          </SfButton>
+        </slot>
       </div>
-      <p class="notice">
-        At Brand name, we attach great importance to privacy issues and are
-        committed to protecting the personal data of our users. Learn more about
-        how we care and use your personal data in the
-        <a href="">Privacy Policy.</a>
-      </p>
+      <slot name="personal-data-notice">
+        <p class="notice">
+          At Brand name, we attach great importance to privacy issues and are
+          committed to protecting the personal data of our users. Learn more
+          about how we care and use your personal data in the
+          <a href="">Privacy Policy.</a>
+        </p>
+      </slot>
     </SfTab>
-    <SfTab title="Password change">
-      <p class="message">
-        If you want to change the password to access your account, enter the
-        following information:<br />Your current email address is
-        <span class="message__label">example@email.com</span>
-      </p>
+    <SfTab :title="tabsTitles[1]">
+      <slot name="password-change-message">
+        <p class="message">
+          {{ passwordChangeDescription[0] }}<br />{{
+            passwordChangeDescription[1]
+          }}
+          <span class="message__label">{{ passwordChangeEmail }}</span>
+        </p>
+      </slot>
       <div class="form">
-        <SfInput
-          v-model="currentPassword"
-          type="password"
-          name="currentPassword"
-          label="Current Password"
-          required
-          class="form__element"
-        />
-        <SfInput
-          v-model="newPassword"
-          type="password"
-          name="newPassword"
-          label="New Password"
-          required
-          class="form__element form__element--half"
-        />
-        <SfInput
-          v-model="repeatPassword"
-          type="password"
-          name="repeatPassword"
-          label="Repeat Password"
-          required
-          class="form__element form__element--half form__element--half-even"
-        />
-        <SfButton
-          class="form__button"
-          data-testid="update-password-button"
-          @click="updatePassword"
+        <slot
+          name="password-change-form"
+          v-bind="{ passwordInputsLabels, buttonsTexts }"
         >
-          Update password
-        </SfButton>
+          <SfInput
+            v-model="currentPassword"
+            type="password"
+            name="currentPassword"
+            :label="passwordInputsLabels[0]"
+            required
+            class="form__element"
+          />
+          <SfInput
+            v-model="newPassword"
+            type="password"
+            name="newPassword"
+            :label="passwordInputsLabels[1]"
+            required
+            class="form__element form__element--half"
+          />
+          <SfInput
+            v-model="repeatPassword"
+            type="password"
+            name="repeatPassword"
+            :label="passwordInputsLabels[2]"
+            required
+            class="form__element form__element--half form__element--half-even"
+          />
+          <SfButton
+            class="form__button"
+            data-testid="update-password-button"
+            @click="updatePassword"
+          >
+            {{ buttonsTexts[1] }}
+          </SfButton>
+        </slot>
       </div>
     </SfTab>
   </SfTabs>
@@ -95,9 +108,41 @@ export default {
     SfButton,
   },
   props: {
+    tabsTitles: {
+      type: Array,
+      default: () => ["Personal data", "Password change"],
+    },
     account: {
       type: Object,
       default: () => ({}),
+    },
+    personalInputsLabels: {
+      type: Array,
+      default: () => ["First Name", "Last Name", "Your e-mail"],
+    },
+    passwordInputsLabels: {
+      type: Array,
+      default: () => ["Current Password", "New Password", "Repeat Password"],
+    },
+    buttonsTexts: {
+      type: Array,
+      default: () => ["Save changes", "Update password"],
+    },
+    personalDataDescription: {
+      type: String,
+      default:
+        "Feel free to edit any of your details below so your account is always up to date",
+    },
+    passwordChangeDescription: {
+      type: Array,
+      default: () => [
+        "If you want to change the password to access your account, enter the following information:",
+        "Your current email address is",
+      ],
+    },
+    passwordChangeEmail: {
+      type: String,
+      default: "example@email.com",
     },
   },
   data() {
