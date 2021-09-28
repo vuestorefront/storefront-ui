@@ -69,7 +69,7 @@
           </slot>
         </div>
         <slot
-          name="ceate-account"
+          name="create-account"
           v-bind="{
             createAccountCheckboxLabel,
             transition,
