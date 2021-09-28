@@ -18,10 +18,10 @@ export default {
       table: {
         category: "Props",
         defaultValue: {
-          summary: "{}",
+          summary: "[]",
         },
       },
-      defaultValue: "",
+      defaultValue: [],
       description: "Account data",
     },
     orderHistoryDescription: {
