@@ -99,6 +99,15 @@ export default {
       control: "object",
       table: {
         category: "Props",
+        defaultValue: {
+          summary: `[
+            {
+              title: "Safety",
+              description: "It carefully packaged with a personal touch",
+              icon: "safety",
+            },
+          ]`
+        },
       },
       defaultValue: characteristicsData,
       description:
