@@ -46,7 +46,7 @@
   </div>
 </template>
 <script>
-import { SfBreadcrumbs, SfContentPages } from "@storefront-ui/vue"
+import { SfBreadcrumbs, SfContentPages } from "@storefront-ui/vue";
 import {
   MyProfile,
   ShippingDetails,
@@ -54,7 +54,7 @@ import {
   MyNewsletter,
   OrderHistory,
   MyReviews,
-} from "./_internal/index.js"
+} from "./_internal/index.js";
 export default {
   name: "MyAccount",
   components: {
@@ -120,18 +120,18 @@ export default {
           ["#35769", "4th Nov, 2019", "Paypal", "$12.00", "Finalised"],
         ],
       },
-    }
+    };
   },
   methods: {
     changeActivePage(title) {
       if (title === "Log out") {
-        alert("You are logged out!")
-        return
+        alert("You are logged out!");
+        return;
       }
-      this.activePage = title
+      this.activePage = title;
     },
   },
-}
+};
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";

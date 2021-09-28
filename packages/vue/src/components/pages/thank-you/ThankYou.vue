@@ -86,7 +86,7 @@
   </div>
 </template>
 <script>
-import { SfHeading, SfButton, SfCallToAction } from "@storefront-ui/vue"
+import { SfHeading, SfButton, SfCallToAction } from "@storefront-ui/vue";
 export default {
   name: "Product",
   components: {
@@ -105,9 +105,9 @@ export default {
       order: {
         number: "#80932031-030-00",
       },
-    }
+    };
   },
-}
+};
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";

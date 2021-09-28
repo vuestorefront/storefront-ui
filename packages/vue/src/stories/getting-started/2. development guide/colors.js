@@ -7,7 +7,7 @@ export const colors = {
   success: ["#5ece7b", "#9ee2b0"],
   warning: ["#ecc713", "#f6e389"],
   danger: ["#d12727", "#fcede8"],
-}
+};
 
 export const iconColors = {
   greenPrimary: "#5ece7b",
@@ -25,4 +25,4 @@ export const iconColors = {
   yellowSecondary: "#f6e389",
   bluePrimary: "#0468DB",
   blueSecondary: "#e1f4fe",
-}
+};

@@ -78,7 +78,7 @@ import {
   SfProperty,
   SfCharacteristic,
   SfInput,
-} from "@storefront-ui/vue"
+} from "@storefront-ui/vue";
 export default {
   name: "OrderSummary",
   components: {
@@ -116,60 +116,60 @@ export default {
       promoCode: "",
       showPromoCode: false,
       listIsHidden: false,
-    }
+    };
   },
   computed: {
     products() {
-      return this.order.products
+      return this.order.products;
     },
     totalItems() {
       return (
         "" +
         this.products.reduce((previous, current) => {
-          return previous + current.qty
+          return previous + current.qty;
         }, 0)
-      )
+      );
     },
     shipping() {
-      return this.order.shipping
+      return this.order.shipping;
     },
     shippingMethod() {
-      const shippingMethod = this.shipping.shippingMethod
+      const shippingMethod = this.shipping.shippingMethod;
       const method = this.shippingMethods.find(
         (method) => method.value === shippingMethod
-      )
-      return method ? method : { price: "$0.00" }
+      );
+      return method ? method : { price: "$0.00" };
     },
     payment() {
-      return this.order.payment
+      return this.order.payment;
     },
     paymentMethod() {
-      const paymentMethod = this.payment.paymentMethod
+      const paymentMethod = this.payment.paymentMethod;
       const method = this.paymentMethods.find(
         (method) => method.value === paymentMethod
-      )
-      return method ? method : { label: "" }
+      );
+      return method ? method : { label: "" };
     },
     subtotal() {
-      const products = this.products
+      const products = this.products;
       const subtotal = products.reduce((previous, current) => {
-        const qty = current.qty
+        const qty = current.qty;
         const price = current.price.special
           ? current.price.special
-          : current.price.regular
-        const total = qty * parseFloat(price.replace("$", ""))
-        return previous + total
-      }, 0)
-      return "$" + subtotal.toFixed(2)
+          : current.price.regular;
+        const total = qty * parseFloat(price.replace("$", ""));
+        return previous + total;
+      }, 0);
+      return "$" + subtotal.toFixed(2);
     },
     total() {
-      const subtotal = parseFloat(this.subtotal.replace("$", ""))
-      const shipping = parseFloat(this.shippingMethod.price.replace("$", ""))
-      const total = subtotal + (isNaN(shipping) ? 0 : shipping)
-      return "$" + total.toFixed(2)
+      const subtotal = parseFloat(this.subtotal.replace("$", ""));
+      const shipping = parseFloat(this.shippingMethod.price.replace("$", ""));
+      const total = subtotal + (isNaN(shipping) ? 0 : shipping);
+      return "$" + total.toFixed(2);
     },
   },
-}
+};
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";

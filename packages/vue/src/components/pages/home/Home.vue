@@ -123,7 +123,7 @@ import {
   SfCarousel,
   SfProductCard,
   SfImage,
-} from "@storefront-ui/vue"
+} from "@storefront-ui/vue";
 export default {
   name: "Home",
   components: {
@@ -306,15 +306,15 @@ export default {
           },
         ],
       ],
-    }
+    };
   },
   methods: {
     toggleWishlist(index) {
       return (this.products[index].isInWishlist =
-        !this.products[index].isInWishlist)
+        !this.products[index].isInWishlist);
     },
   },
-}
+};
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";

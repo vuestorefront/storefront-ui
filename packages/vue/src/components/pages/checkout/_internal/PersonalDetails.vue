@@ -83,7 +83,7 @@ import {
   SfButton,
   SfHeading,
   SfCharacteristic,
-} from "@storefront-ui/vue"
+} from "@storefront-ui/vue";
 export default {
   name: "PersonalDetails",
   components: {
@@ -116,19 +116,19 @@ export default {
         { description: "Full rewards program benefits", icon: "rewards" },
         { description: "Manage your wishlist", icon: "heart" },
       ],
-    }
+    };
   },
   watch: {
     personalDetails: {
       handler() {
-        this.firstName = this.value.firstName
-        this.lastName = this.value.lastName
-        this.email = this.value.email
+        this.firstName = this.value.firstName;
+        this.lastName = this.value.lastName;
+        this.email = this.value.email;
       },
       immediate: true,
     },
     createAccount(value) {
-      if (!value) this.password = ""
+      if (!value) this.password = "";
     },
   },
   methods: {
@@ -136,10 +136,10 @@ export default {
       this.$emit("input", {
         ...this.value,
         [fieldName]: fieldValue,
-      })
+      });
     },
   },
-}
+};
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";

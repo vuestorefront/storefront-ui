@@ -114,7 +114,7 @@ import {
   SfButton,
   SfCharacteristic,
   SfInput,
-} from "@storefront-ui/vue"
+} from "@storefront-ui/vue";
 export default {
   name: "OrderReview",
   components: {
@@ -144,31 +144,31 @@ export default {
   data() {
     return {
       promoCode: "",
-    }
+    };
   },
   computed: {
     shipping() {
-      return this.order.shipping
+      return this.order.shipping;
     },
     shippingMethod() {
-      const shippingMethod = this.shipping.shippingMethod
+      const shippingMethod = this.shipping.shippingMethod;
       const method = this.shippingMethods.find(
         (method) => method.value === shippingMethod
-      )
-      return method ? method : { price: 0 }
+      );
+      return method ? method : { price: 0 };
     },
     payment() {
-      return this.order.payment
+      return this.order.payment;
     },
     paymentMethod() {
-      const paymentMethod = this.payment.paymentMethod
+      const paymentMethod = this.payment.paymentMethod;
       const method = this.paymentMethods.find(
         (method) => method.value === paymentMethod
-      )
-      return method ? method : { label: "" }
+      );
+      return method ? method : { label: "" };
     },
   },
-}
+};
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";

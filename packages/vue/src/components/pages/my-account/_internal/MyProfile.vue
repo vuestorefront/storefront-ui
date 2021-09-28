@@ -86,7 +86,7 @@
   </SfTabs>
 </template>
 <script>
-import { SfTabs, SfInput, SfButton } from "@storefront-ui/vue"
+import { SfTabs, SfInput, SfButton } from "@storefront-ui/vue";
 export default {
   name: "PersonalDetails",
   components: {
@@ -108,14 +108,14 @@ export default {
       currentPassword: "",
       newPassword: "",
       repeatPassword: "",
-    }
+    };
   },
   watch: {
     account: {
       handler(value) {
-        this.firstName = value.firstName
-        this.lastName = value.lastName
-        this.email = value.email
+        this.firstName = value.firstName;
+        this.lastName = value.lastName;
+        this.email = value.email;
       },
       immediate: true,
     },
@@ -126,17 +126,17 @@ export default {
         firstName: this.firstName,
         lastName: this.lastName,
         email: this.email,
-      }
-      this.$emit("update:personal", personal)
+      };
+      this.$emit("update:personal", personal);
     },
     updatePassword() {
       const password = {
         password: this.newPassword,
-      }
-      this.$emit("update:password", password)
+      };
+      this.$emit("update:password", password);
     },
   },
-}
+};
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";

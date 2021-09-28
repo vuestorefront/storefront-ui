@@ -43,16 +43,16 @@
   </SfTabs>
 </template>
 <script>
-import { SfTabs, SfCheckbox, SfButton } from "@storefront-ui/vue"
+import { SfTabs, SfCheckbox, SfButton } from "@storefront-ui/vue";
 export default {
   name: "MyNewsletter",
   components: { SfTabs, SfCheckbox, SfButton },
   data() {
     return {
       newsletter: [],
-    }
+    };
   },
-}
+};
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";

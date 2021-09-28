@@ -267,7 +267,7 @@ import {
   SfRadio,
   SfImage,
   SfCheckbox,
-} from "@storefront-ui/vue"
+} from "@storefront-ui/vue";
 export default {
   name: "Payment",
   components: {
@@ -329,86 +329,86 @@ export default {
       ],
       years: ["2020", "2021", "2022", "2025"],
       countries: [],
-    }
+    };
   },
   computed: {
     isCreditCard() {
-      return ["debit", "mastercard", "electron"].includes(this.paymentMethod)
+      return ["debit", "mastercard", "electron"].includes(this.paymentMethod);
     },
   },
   watch: {
     payment: {
       handler() {
-        this.sameAsShipping = this.value.sameAsShipping
-        this.streetName = this.value.streetName
-        this.apartment = this.value.apartment
-        this.city = this.value.city
-        this.state = this.value.state
-        this.zipCode = this.value.zipCode
-        this.country = this.value.country
-        this.phoneNumber = this.value.phoneNumber
-        this.paymentMethod = this.value.paymentMethod
-        this.cardNumber = this.value.card.number
-        this.cardHolder = this.value.card.holder
-        this.cardMonth = this.value.card.month
-        this.cardYear = this.value.card.year
-        this.cardCVC = this.value.card.cvc
-        this.cardKeep = this.value.card.keep
+        this.sameAsShipping = this.value.sameAsShipping;
+        this.streetName = this.value.streetName;
+        this.apartment = this.value.apartment;
+        this.city = this.value.city;
+        this.state = this.value.state;
+        this.zipCode = this.value.zipCode;
+        this.country = this.value.country;
+        this.phoneNumber = this.value.phoneNumber;
+        this.paymentMethod = this.value.paymentMethod;
+        this.cardNumber = this.value.card.number;
+        this.cardHolder = this.value.card.holder;
+        this.cardMonth = this.value.card.month;
+        this.cardYear = this.value.card.year;
+        this.cardCVC = this.value.card.cvc;
+        this.cardKeep = this.value.card.keep;
       },
       immediate: true,
     },
     sameAsShipping: {
       handler(value) {
         if (value) {
-          this.firstName = this.shipping.firstName
-          this.lastName = this.shipping.lastName
-          this.streetName = this.shipping.streetName
-          this.apartment = this.shipping.apartment
-          this.city = this.shipping.city
-          this.state = this.shipping.state
-          this.zipCode = this.shipping.zipCode
-          this.country = this.shipping.country
-          this.phoneNumber = this.shipping.phoneNumber
-          this.paymentMethod = this.shipping.paymentMethod
+          this.firstName = this.shipping.firstName;
+          this.lastName = this.shipping.lastName;
+          this.streetName = this.shipping.streetName;
+          this.apartment = this.shipping.apartment;
+          this.city = this.shipping.city;
+          this.state = this.shipping.state;
+          this.zipCode = this.shipping.zipCode;
+          this.country = this.shipping.country;
+          this.phoneNumber = this.shipping.phoneNumber;
+          this.paymentMethod = this.shipping.paymentMethod;
         } else {
-          this.firstName = ""
-          this.lastName = ""
-          this.streetName = ""
-          this.apartment = ""
-          this.city = ""
-          this.state = ""
-          this.zipCode = ""
-          this.country = ""
-          this.phoneNumber = ""
-          this.paymentMethod = ""
+          this.firstName = "";
+          this.lastName = "";
+          this.streetName = "";
+          this.apartment = "";
+          this.city = "";
+          this.state = "";
+          this.zipCode = "";
+          this.country = "";
+          this.phoneNumber = "";
+          this.paymentMethod = "";
         }
       },
       immediate: true,
     },
   },
   mounted() {
-    this.getCountries()
+    this.getCountries();
   },
   methods: {
     updateField(fieldName, fieldValue) {
       this.$emit("input", {
         ...this.value,
         [fieldName]: fieldValue,
-      })
+      });
     },
     getCountries() {
       fetch("https://restcountries.eu/rest/v2/all?fields=name")
         .then((response) => response.json())
         .then((data) => {
-          const countries = data.map((country) => country.name)
-          this.countries = countries
+          const countries = data.map((country) => country.name);
+          this.countries = countries;
         })
         .catch((error) => {
-          console.error(error)
-        })
+          console.error(error);
+        });
     },
   },
-}
+};
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";

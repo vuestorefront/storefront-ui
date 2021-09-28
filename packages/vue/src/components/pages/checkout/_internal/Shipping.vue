@@ -148,7 +148,7 @@ import {
   SfButton,
   SfSelect,
   SfRadio,
-} from "@storefront-ui/vue"
+} from "@storefront-ui/vue";
 export default {
   name: "Shipping",
   components: {
@@ -228,20 +228,20 @@ export default {
         "United Kingdom",
         "Vatican City",
       ],
-    }
+    };
   },
   watch: {
     shipping: {
       handler() {
-        this.firstName = this.value.firstName
-        this.lastName = this.value.lastName
-        this.streetName = this.value.streetName
-        this.city = this.value.city
-        this.state = this.value.state
-        this.zipCode = this.value.zipCode
-        this.country = this.value.country
-        this.phoneNumber = this.value.phoneNumber
-        this.shippingMethod = this.value.shippingMethod
+        this.firstName = this.value.firstName;
+        this.lastName = this.value.lastName;
+        this.streetName = this.value.streetName;
+        this.city = this.value.city;
+        this.state = this.value.state;
+        this.zipCode = this.value.zipCode;
+        this.country = this.value.country;
+        this.phoneNumber = this.value.phoneNumber;
+        this.shippingMethod = this.value.shippingMethod;
       },
       immediate: true,
     },
@@ -251,10 +251,10 @@ export default {
       this.$emit("input", {
         ...this.value,
         [fieldName]: fieldValue,
-      })
+      });
     },
   },
-}
+};
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";

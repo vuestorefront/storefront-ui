@@ -66,9 +66,9 @@
   </div>
 </template>
 <script>
-import Glide from "@glidejs/glide"
-import SfImage from "../../atoms/SfImage/SfImage.vue"
-import SfButton from "../../atoms/SfButton/SfButton.vue"
+import Glide from "@glidejs/glide";
+import SfImage from "../../atoms/SfImage/SfImage.vue";
+import SfButton from "../../atoms/SfButton/SfButton.vue";
 export default {
   name: "SfGallery",
   components: {
@@ -129,7 +129,7 @@ export default {
           autoplay: false,
           rewind: false,
           gap: 0,
-        }
+        };
       },
     },
     /**
@@ -155,7 +155,7 @@ export default {
       glide: null,
       activeIndex: this.current - 1,
       style: "",
-    }
+    };
   },
   computed: {
     mapPictures() {
@@ -163,95 +163,97 @@ export default {
       return this.images.map(({ desktop, big }) => ({
         mobile: desktop,
         desktop: big,
-      }))
+      }));
     },
     updatedSliderOptions() {
-      return { ...this.sliderOptions, startAt: this.activeIndex }
+      return { ...this.sliderOptions, startAt: this.activeIndex };
     },
     pictureSelectedUrl() {
-      const { zoom, big, desktop } = this.pictureSelected
-      const definedPicture = zoom || big || desktop
-      return definedPicture ? definedPicture.url : ""
+      const { zoom, big, desktop } = this.pictureSelected;
+      const definedPicture = zoom || big || desktop;
+      return definedPicture ? definedPicture.url : "";
     },
   },
   mounted() {
     this.$nextTick(() => {
       // handle slider with swipe and transitions with Glide.js
       // https://glidejs.com/docs/
-      if (this.images.length < 1) return
-      const glide = new Glide(this.$refs.glide, this.updatedSliderOptions)
+      if (this.images.length < 1) return;
+      const glide = new Glide(this.$refs.glide, this.updatedSliderOptions);
       glide.on("run", () => {
-        this.go(glide.index)
-      })
-      glide.mount()
-      this.glide = glide
-    })
+        this.go(glide.index);
+      });
+      glide.mount();
+      this.glide = glide;
+    });
   },
   beforeDestroy() {
     if (this.glide) {
-      this.glide.destroy()
+      this.glide.destroy();
     }
   },
   methods: {
     positionObject(index) {
       if (this.$refs.sfGalleryBigImage) {
         if (this.outsideZoom) {
-          return this.$refs.glide.getBoundingClientRect()
+          return this.$refs.glide.getBoundingClientRect();
         } else {
-          return this.$refs.sfGalleryBigImage[index].$el.getBoundingClientRect()
+          return this.$refs.sfGalleryBigImage[
+            index
+          ].$el.getBoundingClientRect();
         }
       }
-      return ""
+      return "";
     },
     go(index) {
-      if (!this.glide) return
-      this.activeIndex = index
+      if (!this.glide) return;
+      this.activeIndex = index;
       /**
        * Event for current image change (`v-model`)
        * @type {Event}
        */
-      this.$emit("click", index + 1)
+      this.$emit("click", index + 1);
       if (this.glide) {
-        this.glide.go(`=${index}`)
+        this.glide.go(`=${index}`);
       }
     },
     startZoom(picture) {
       if (this.enableZoom) {
-        this.pictureSelected = picture
+        this.pictureSelected = picture;
       }
     },
     moveZoom($event, index) {
       if (this.enableZoom) {
-        this.eventHover = $event
+        this.eventHover = $event;
         if (this.outsideZoom) {
-          this.positionStatic = this.positionObject(index)
+          this.positionStatic = this.positionObject(index);
           this.$refs.imgZoom.$el.children[0].style.cssText =
-            "top: 0; transform: scale(2);"
+            "top: 0; transform: scale(2);";
           this.$refs.imgZoom.$el.children[0].style.transformOrigin = `${
             $event.clientX - this.positionStatic.x
-          }px ${$event.clientY - this.positionStatic.y}px`
+          }px ${$event.clientY - this.positionStatic.y}px`;
         } else {
-          this.positionStatic = this.positionObject(index)
+          this.positionStatic = this.positionObject(index);
           this.$refs.sfGalleryBigImage[index].$el.children[0].style.cssText =
-            "top: 0; transform: scale(2);"
+            "top: 0; transform: scale(2);";
           this.$refs.sfGalleryBigImage[
             index
           ].$el.children[0].style.transformOrigin = `${
             $event.clientX - this.positionStatic.x
-          }px ${$event.clientY - this.positionStatic.y}px`
+          }px ${$event.clientY - this.positionStatic.y}px`;
         }
       }
     },
     removeZoom(index) {
       if (this.enableZoom) {
-        this.pictureSelected = ""
-        if (this.outsideZoom) return
+        this.pictureSelected = "";
+        if (this.outsideZoom) return;
         this.$refs.sfGalleryBigImage[index].$el.children[0].style.transform =
-          "scale(1)"
+          "scale(1)";
       }
     },
   },
-}
+};
 </script>
 <style lang="scss">
 @import "~@storefront-ui/shared/styles/components/molecules/SfGallery.scss";
