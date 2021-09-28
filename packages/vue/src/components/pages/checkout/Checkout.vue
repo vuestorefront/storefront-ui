@@ -4,20 +4,20 @@
       <div class="checkout__main">
         <SfSteps :active="currentStep" @change="updateStep($event)">
           <SfStep name="Details">
-            <PersonalDetails
+            <SfPersonalDetails
               :value="personalDetails"
               @input="personalDetails = $event"
             />
           </SfStep>
           <SfStep name="Shipping">
-            <Shipping
+            <SfShipping
               :value="shipping"
               :shipping-methods="shippingMethods"
               @input="shipping = $event"
             />
           </SfStep>
           <SfStep name="Payment">
-            <Payment
+            <SfPayment
               :value="payment"
               :payment-methods="paymentMethods"
               :shipping="shipping"
@@ -25,7 +25,7 @@
             />
           </SfStep>
           <SfStep name="Review">
-            <ConfirmOrder
+            <SfConfirmOrder
               :shipping-methods="shippingMethods"
               :order="getOrder"
               :payment-methods="paymentMethods"
@@ -37,7 +37,7 @@
       </div>
       <div class="checkout__aside">
         <transition name="sf-fade">
-          <OrderSummary
+          <SfOrderSummary
             v-if="currentStep <= 2"
             key="order-summary"
             class="checkout__aside-order"
@@ -46,7 +46,7 @@
             :payment-methods="paymentMethods"
             :characteristics="characteristics"
           />
-          <OrderReview
+          <SfOrderReview
             v-else
             key="order-review"
             class="checkout__aside-order"
@@ -79,25 +79,34 @@
   </div>
 </template>
 <script>
-import { SfSteps, SfButton } from "@storefront-ui/vue";
 import {
-  PersonalDetails,
-  Shipping,
-  Payment,
-  ConfirmOrder,
-  OrderSummary,
-  OrderReview,
-} from "./_internal/index.js";
+  SfSteps,
+  SfButton,
+  SfPersonalDetails,
+  SfShipping,
+  SfPayment,
+  SfConfirmOrder,
+  SfOrderSummary,
+  SfOrderReview,
+} from "@storefront-ui/vue"
+// import {
+//   PersonalDetails,
+//   Shipping,
+//   Payment,
+//   ConfirmOrder,
+//   OrderSummary,
+//   OrderReview,
+// } from "./_internal/index.js";
 export default {
   name: "Checkout",
   components: {
     SfSteps,
-    PersonalDetails,
-    Shipping,
-    Payment,
-    ConfirmOrder,
-    OrderSummary,
-    OrderReview,
+    SfPersonalDetails,
+    SfShipping,
+    SfPayment,
+    SfConfirmOrder,
+    SfOrderSummary,
+    SfOrderReview,
     SfButton,
   },
   data() {
@@ -270,7 +279,7 @@ export default {
           icon: "return",
         },
       ],
-    };
+    }
   },
   computed: {
     getOrder() {
@@ -279,18 +288,18 @@ export default {
         ...this.personalDetails,
         shipping: { ...this.shipping },
         payment: { ...this.payment },
-      };
+      }
     },
   },
   methods: {
     updateStep(next) {
       // prevent to move next by SfStep header
       if (next < this.currentStep) {
-        this.currentStep = next;
+        this.currentStep = next
       }
     },
   },
-};
+}
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
