@@ -1,5 +1,5 @@
-import { SfMyProfile } from "@storefront-ui/vue"
-import { accountData } from "../internalData.js"
+import { SfMyProfile } from "@storefront-ui/vue";
+import { accountData } from "../internalData.js";
 
 export default {
   title: "Components/Templates/MyProfile",
@@ -66,7 +66,7 @@ export default {
       description: "Description for the forst tab",
     },
   },
-}
+};
 
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
@@ -81,9 +81,9 @@ const Template = (args, { argTypes }) => ({
     :updateButtonText="updateButtonText"
     :personalDataDescription="personalDataDescription"
   />`,
-})
+});
 
-export const Common = Template.bind({})
+export const Common = Template.bind({});
 Common.args = {
   account: accountData,
-}
+};

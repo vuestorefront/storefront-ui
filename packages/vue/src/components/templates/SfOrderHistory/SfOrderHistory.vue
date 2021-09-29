@@ -82,7 +82,7 @@
   </SfTabs>
 </template>
 <script>
-import { SfTabs, SfTable, SfButton } from "@storefront-ui/vue"
+import { SfTabs, SfTable, SfButton } from "@storefront-ui/vue";
 export default {
   name: "SfOrderHistory",
   components: {
@@ -118,10 +118,10 @@ export default {
   },
   computed: {
     ordersHistory() {
-      return this.orders
+      return this.orders;
     },
   },
-}
+};
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/shared/styles/components/templates/my-account/SfOrderHistory.scss";

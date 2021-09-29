@@ -42,7 +42,7 @@
   </SfTabs>
 </template>
 <script>
-import { SfTabs, SfCheckbox, SfButton } from "@storefront-ui/vue"
+import { SfTabs, SfCheckbox, SfButton } from "@storefront-ui/vue";
 export default {
   name: "SfMyNewsletter",
   components: { SfTabs, SfCheckbox, SfButton },
@@ -71,9 +71,9 @@ export default {
   data() {
     return {
       newsletter: [],
-    }
+    };
   },
-}
+};
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/shared/styles/components/templates/my-account/SfMyNewsletter.scss";

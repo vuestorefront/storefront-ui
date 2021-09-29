@@ -1,5 +1,5 @@
-import { SfShippingDetails } from "@storefront-ui/vue"
-import { accountData, countries } from "../internalData.js"
+import { SfShippingDetails } from "@storefront-ui/vue";
+import { accountData, countries } from "../internalData.js";
 
 export default {
   title: "Components/Templates/ShippingDetails",
@@ -115,7 +115,7 @@ export default {
       description: "Shipping tab description",
     },
   },
-}
+};
 
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
@@ -136,13 +136,13 @@ const Template = (args, { argTypes }) => ({
     :addNewAddressButtonText="addNewAddressButtonText"
     :updateAddressButtonText="updateAddressButtonText"
   />`,
-})
+});
 
-export const Common = Template.bind({})
+export const Common = Template.bind({});
 Common.args = {
   account: accountData,
   changeAddressDescription: "Keep your addresses and contact details updated.",
   countries: countries,
   shipingTabDescription:
     "Manage all the shipping addresses you want (work place, home address ...) This way you won't have to enter the shipping address manually with each order.",
-}
+};

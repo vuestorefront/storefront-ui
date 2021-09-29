@@ -1,4 +1,4 @@
-import { SfMyNewsletter } from "@storefront-ui/vue"
+import { SfMyNewsletter } from "@storefront-ui/vue";
 
 export default {
   title: "Components/Templates/MyNewsletter",
@@ -49,7 +49,7 @@ export default {
       table: { category: "Events" },
     },
   },
-}
+};
 
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
@@ -62,13 +62,13 @@ const Template = (args, { argTypes }) => ({
       :buttonText="buttonText"
       @save-changes="saveChanges"
     />`,
-})
+});
 
-export const Common = Template.bind({})
+export const Common = Template.bind({});
 Common.args = {
   tabTitle: "My newsletter",
   tabDescription:
     "Set up your newsletter and we will send you information about new products and trends from the sections you selected every week.",
   formTitle: "Sections that interest you",
   newsletterSections: ["Woman", "Man", "Children"],
-}
+};

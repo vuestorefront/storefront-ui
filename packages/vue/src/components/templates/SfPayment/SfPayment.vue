@@ -299,7 +299,7 @@ import {
   SfRadio,
   SfImage,
   SfCheckbox,
-} from "@storefront-ui/vue"
+} from "@storefront-ui/vue";
 export default {
   name: "SfPayment",
   components: {
@@ -410,49 +410,49 @@ export default {
       cardYear: "",
       cardCVC: "",
       cardKeep: false,
-    }
+    };
   },
   computed: {
     isCreditCard() {
-      if (!this.creditCards) return
-      return this.creditCards.includes(this.paymentMethod)
+      if (!this.creditCards) return;
+      return this.creditCards.includes(this.paymentMethod);
     },
   },
   watch: {
     payment: {
       handler(value) {
         if (value) {
-          this.sameAsShipping = this.value.sameAsShipping
-          this.streetName = this.value.streetName
-          this.apartment = this.value.apartment
-          this.city = this.value.city
-          this.state = this.value.state
-          this.zipCode = this.value.zipCode
-          this.country = this.value.country
-          this.phoneNumber = this.value.phoneNumber
-          this.paymentMethod = this.value.paymentMethod
-          this.cardNumber = this.value.card.number
-          this.cardHolder = this.value.card.holder
-          this.cardMonth = this.value.card.month
-          this.cardYear = this.value.card.year
-          this.cardCVC = this.value.card.cvc
-          this.cardKeep = this.value.card.keep
+          this.sameAsShipping = this.value.sameAsShipping;
+          this.streetName = this.value.streetName;
+          this.apartment = this.value.apartment;
+          this.city = this.value.city;
+          this.state = this.value.state;
+          this.zipCode = this.value.zipCode;
+          this.country = this.value.country;
+          this.phoneNumber = this.value.phoneNumber;
+          this.paymentMethod = this.value.paymentMethod;
+          this.cardNumber = this.value.card.number;
+          this.cardHolder = this.value.card.holder;
+          this.cardMonth = this.value.card.month;
+          this.cardYear = this.value.card.year;
+          this.cardCVC = this.value.card.cvc;
+          this.cardKeep = this.value.card.keep;
         } else {
-          this.sameAsShipping = false
-          this.streetName = ""
-          this.apartment = ""
-          this.city = ""
-          this.state = ""
-          this.zipCode = null
-          this.country = ""
-          this.phoneNumber = null
-          this.paymentMethod = ""
-          this.cardNumber = null
-          this.cardHolder = ""
-          this.cardMonth = null
-          this.cardYear = null
-          this.cardCVC = null
-          this.cardKeep = ""
+          this.sameAsShipping = false;
+          this.streetName = "";
+          this.apartment = "";
+          this.city = "";
+          this.state = "";
+          this.zipCode = null;
+          this.country = "";
+          this.phoneNumber = null;
+          this.paymentMethod = "";
+          this.cardNumber = null;
+          this.cardHolder = "";
+          this.cardMonth = null;
+          this.cardYear = null;
+          this.cardCVC = null;
+          this.cardKeep = "";
         }
       },
       immediate: true,
@@ -460,27 +460,27 @@ export default {
     sameAsShipping: {
       handler(value) {
         if (value) {
-          this.firstName = this.shipping.firstName
-          this.lastName = this.shipping.lastName
-          this.streetName = this.shipping.streetName
-          this.apartment = this.shipping.apartment
-          this.city = this.shipping.city
-          this.state = this.shipping.state
-          this.zipCode = this.shipping.zipCode
-          this.country = this.shipping.country
-          this.phoneNumber = this.shipping.phoneNumber
-          this.paymentMethod = this.shipping.paymentMethod
+          this.firstName = this.shipping.firstName;
+          this.lastName = this.shipping.lastName;
+          this.streetName = this.shipping.streetName;
+          this.apartment = this.shipping.apartment;
+          this.city = this.shipping.city;
+          this.state = this.shipping.state;
+          this.zipCode = this.shipping.zipCode;
+          this.country = this.shipping.country;
+          this.phoneNumber = this.shipping.phoneNumber;
+          this.paymentMethod = this.shipping.paymentMethod;
         } else {
-          this.firstName = ""
-          this.lastName = ""
-          this.streetName = ""
-          this.apartment = ""
-          this.city = ""
-          this.state = ""
-          this.zipCode = ""
-          this.country = ""
-          this.phoneNumber = ""
-          this.paymentMethod = ""
+          this.firstName = "";
+          this.lastName = "";
+          this.streetName = "";
+          this.apartment = "";
+          this.city = "";
+          this.state = "";
+          this.zipCode = "";
+          this.country = "";
+          this.phoneNumber = "";
+          this.paymentMethod = "";
         }
       },
       immediate: true,
@@ -491,10 +491,10 @@ export default {
       this.$emit("input", {
         ...this.value,
         [fieldName]: fieldValue,
-      })
+      });
     },
   },
-}
+};
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/shared/styles/components/templates/checkout/SfPayment.scss";
