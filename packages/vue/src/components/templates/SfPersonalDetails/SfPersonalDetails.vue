@@ -108,7 +108,7 @@ import {
   SfButton,
   SfHeading,
   SfCharacteristic,
-} from "@storefront-ui/vue"
+} from "@storefront-ui/vue";
 export default {
   name: "SfPersonalDetails",
   components: {
@@ -184,19 +184,19 @@ export default {
       email: "",
       password: "",
       createAccount: false,
-    }
+    };
   },
   watch: {
     personalDetails: {
       handler() {
-        this.firstName = this.value.firstName
-        this.lastName = this.value.lastName
-        this.email = this.value.email
+        this.firstName = this.value.firstName;
+        this.lastName = this.value.lastName;
+        this.email = this.value.email;
       },
       immediate: true,
     },
     createAccount(value) {
-      if (!value) this.password = ""
+      if (!value) this.password = "";
     },
   },
   methods: {
@@ -204,10 +204,10 @@ export default {
       this.$emit("input", {
         ...this.value,
         [fieldName]: fieldValue,
-      })
+      });
     },
   },
-}
+};
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/shared/styles/components/templates/checkout/SfPersonalDetails.scss";

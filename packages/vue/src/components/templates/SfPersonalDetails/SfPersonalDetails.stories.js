@@ -1,4 +1,4 @@
-import { SfPersonalDetails } from "@storefront-ui/vue"
+import { SfPersonalDetails } from "@storefront-ui/vue";
 
 export default {
   title: "Components/Templates/PersonalDetails",
@@ -106,13 +106,13 @@ export default {
       description: "Label fo password input",
     },
   },
-}
+};
 
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { SfPersonalDetails },
   template: `
-  <SfPersonalDetails
+  <SfPersonalDetails 
     :value="value"
     :button-text="buttonText"
     :logInInfo="logInInfo"
@@ -125,7 +125,7 @@ const Template = (args, { argTypes }) => ({
     :createAccountCheckboxLabel="createAccountCheckboxLabel"
     :createAccountInputLabel="createAccountInputLabel"
   />`,
-})
+});
 
-export const Common = Template.bind({})
-Common.args = {}
+export const Common = Template.bind({});
+Common.args = {};

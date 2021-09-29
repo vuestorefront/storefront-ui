@@ -128,7 +128,7 @@
                     class="sf-button--text shipping__action desktop-only"
                     :class="{ 'shipping__action--is-active': item.isOpen }"
                     @click="
-                      ;(item.isOpen = !item.isOpen),
+                      (item.isOpen = !item.isOpen),
                         $emit('toggle-info', item.value)
                     "
                     >{{ item.isOpen ? "- info" : "+ info" }}
@@ -162,7 +162,7 @@ import {
   SfButton,
   SfSelect,
   SfRadio,
-} from "@storefront-ui/vue"
+} from "@storefront-ui/vue";
 export default {
   name: "SfShipping",
   components: {
@@ -229,20 +229,20 @@ export default {
       country: "",
       phoneNumber: "",
       shippingMethod: "",
-    }
+    };
   },
   watch: {
     shipping: {
       handler() {
-        this.firstName = this.value.firstName
-        this.lastName = this.value.lastName
-        this.streetName = this.value.streetName
-        this.city = this.value.city
-        this.state = this.value.state
-        this.zipCode = this.value.zipCode
-        this.country = this.value.country
-        this.phoneNumber = this.value.phoneNumber
-        this.shippingMethod = this.value.shippingMethod
+        this.firstName = this.value.firstName;
+        this.lastName = this.value.lastName;
+        this.streetName = this.value.streetName;
+        this.city = this.value.city;
+        this.state = this.value.state;
+        this.zipCode = this.value.zipCode;
+        this.country = this.value.country;
+        this.phoneNumber = this.value.phoneNumber;
+        this.shippingMethod = this.value.shippingMethod;
       },
       immediate: true,
     },
@@ -252,10 +252,10 @@ export default {
       this.$emit("input", {
         ...this.value,
         [fieldName]: fieldValue,
-      })
+      });
     },
   },
-}
+};
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/shared/styles/components/templates/checkout/SfShipping.scss";

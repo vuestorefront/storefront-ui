@@ -1,5 +1,5 @@
-import { SfOrderHistory } from "@storefront-ui/vue"
-import { accountData } from "../internalData.js"
+import { SfOrderHistory } from "@storefront-ui/vue";
+import { accountData } from "../internalData.js";
 
 export default {
   title: "Components/Templates/OrderHistory",
@@ -59,7 +59,7 @@ export default {
       description: "Labels for table headers",
     },
   },
-}
+};
 
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
@@ -73,9 +73,9 @@ const Template = (args, { argTypes }) => ({
     :tableHeaders="tableHeaders"
     :noOrdersButtonText="noOrdersButtonText"
   />`,
-})
+});
 
-export const Common = Template.bind({})
+export const Common = Template.bind({});
 Common.args = {
   orders: accountData.orders,
   orderHistoryDescription:
@@ -88,4 +88,4 @@ Common.args = {
     "Amount",
     "Status",
   ],
-}
+};

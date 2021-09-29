@@ -1,5 +1,5 @@
-import { SfShipping } from "@storefront-ui/vue"
-import { countries, shippingMethodsData } from "../internalData.js"
+import { SfShipping } from "@storefront-ui/vue";
+import { countries, shippingMethodsData } from "../internalData.js";
 
 export default {
   title: "Components/Templates/Shipping",
@@ -79,13 +79,13 @@ export default {
       description: "Heading number for the second header",
     },
   },
-}
+};
 
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { SfShipping },
   template: `
-  <SfShipping
+  <SfShipping 
     :shipping-methods="shippingMethods"
     :headingTitle="headingTitle"
     :headingTitleLevel="headingTitleLevel"
@@ -95,10 +95,10 @@ const Template = (args, { argTypes }) => ({
     :methodsHeadingTitle="methodsHeadingTitle"
     :methodsHeadingTitleLevel="methodsHeadingTitleLevel"
   />`,
-})
+});
 
-export const Common = Template.bind({})
+export const Common = Template.bind({});
 Common.args = {
   countries: countries,
   shippingMethods: shippingMethodsData,
-}
+};
