@@ -88,7 +88,7 @@ import {
   SfConfirmOrder,
   SfOrderSummary,
   SfOrderReview,
-} from "@storefront-ui/vue"
+} from "@storefront-ui/vue";
 // import {
 //   PersonalDetails,
 //   Shipping,
@@ -279,7 +279,7 @@ export default {
           icon: "return",
         },
       ],
-    }
+    };
   },
   computed: {
     getOrder() {
@@ -288,18 +288,18 @@ export default {
         ...this.personalDetails,
         shipping: { ...this.shipping },
         payment: { ...this.payment },
-      }
+      };
     },
   },
   methods: {
     updateStep(next) {
       // prevent to move next by SfStep header
       if (next < this.currentStep) {
-        this.currentStep = next
+        this.currentStep = next;
       }
     },
   },
-}
+};
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
