@@ -54,7 +54,7 @@
           class="
             sf-order-review__content-label sf-order-review__content-shipping
           "
-          >{{ shippingMethod }}</span
+          >{{ shippingMethod.value }}</span
         ><br />
         {{ shipping.streetName }} {{ shipping.apartment }} <br />
         {{ shipping.zipCode }}, {{ shipping.city }}, {{ shipping.country }}
@@ -158,7 +158,7 @@ export default {
     },
     order: {
       type: Object,
-      default: () => ({}),
+      default: () => {},
     },
     buttonText: {
       type: String,

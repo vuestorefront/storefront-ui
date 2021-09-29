@@ -138,7 +138,7 @@ export default {
   },
   computed: {
     products() {
-      return this.order.products;
+      return this.order.orderItems;
     },
     totalItems() {
       return this.products
