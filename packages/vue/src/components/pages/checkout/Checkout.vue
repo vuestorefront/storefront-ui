@@ -27,10 +27,16 @@
           <SfStep name="Review">
             <SfConfirmOrder
               :order="getOrder"
-              orderTitle="Order details"
-              :orderTitleLevel="3"
-              :propertiesNames='["Subtotal", "Shipping", "Total price"]' 
-              :tableHeaders='["Size", "Description", "Quantity", "Colour", "Amount"]'
+              order-title="Order details"
+              :order-title-level="3"
+              :properties-names="['Subtotal', 'Shipping', 'Total price']"
+              :table-headers="[
+                'Size',
+                'Description',
+                'Quantity',
+                'Colour',
+                'Amount',
+              ]"
               @click:edit="currentStep = $event"
             />
           </SfStep>
@@ -43,9 +49,14 @@
             key="order-summary"
             class="checkout__aside-order"
             :order="getOrder"
-            orderTitle="Order review"
-            :orderTitleLevel="3"
-            :propertiesNames='["Products", "Subtotal", "Shipping", "Total price"]'
+            order-title="Order review"
+            :order-title-level="3"
+            :properties-names="[
+              'Products',
+              'Subtotal',
+              'Shipping',
+              'Total price',
+            ]"
             :characteristics="characteristics"
           />
           <SfOrderReview
@@ -53,9 +64,9 @@
             key="order-review"
             class="checkout__aside-order"
             :order="getOrder"
-            reviewTitle="Order review"
-            :reviewTitleLevel="3"
-            buttonText="Edit"
+            review-title="Order review"
+            :review-title-level="3"
+            button-text="Edit"
             :characteristics="characteristics"
             @click:edit="currentStep = $event"
           />
@@ -91,7 +102,7 @@ import {
   SfConfirmOrder,
   SfOrderSummary,
   SfOrderReview,
-} from "@storefront-ui/vue"
+} from "@storefront-ui/vue";
 export default {
   name: "Checkout",
   components: {
@@ -299,7 +310,7 @@ export default {
           icon: "return",
         },
       ],
-    }
+    };
   },
   computed: {
     getOrder() {
@@ -308,18 +319,18 @@ export default {
         ...this.personalDetails,
         shipping: { ...this.shipping },
         payment: { ...this.payment },
-      }
+      };
     },
   },
   methods: {
     updateStep(next) {
       // prevent to move next by SfStep header
       if (next < this.currentStep) {
-        this.currentStep = next
+        this.currentStep = next;
       }
     },
   },
-}
+};
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
