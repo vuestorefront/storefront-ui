@@ -1,6 +1,6 @@
 <template>
   <div class="sf-confirm-order">
-    <slot name="heading">
+    <slot name="heading" v-bind="{ orderTitle, orderTitleLevel }">
       <SfHeading
         :title="orderTitle"
         :level="orderTitleLevel"
@@ -10,7 +10,7 @@
         "
       />
     </slot>
-    <slot name="table">
+    <slot name="table" v-bind="{ tableHeaders, orderItems }">
       <SfTable class="sf-table--bordered sf-confirm-order__table">
         <SfTableHeading class="sf-confirm-order__table-row">
           <SfTableHeader
@@ -71,9 +71,12 @@
       </SfTable>
     </slot>
     <div class="sf-confirm-order__totals">
-      <slot name="summary">
+      <slot
+        name="summary"
+        v-bind="{ shippingMethod, subtotal, total, propertiesNames }"
+      >
         <SfProperty
-          name="Subtotal"
+          :name="propertiesNames[0]"
           :value="subtotal"
           class="
             sf-property--full-width
@@ -82,14 +85,14 @@
         >
         </SfProperty>
         <SfProperty
-          name="Shipping"
+          :name="propertiesNames[1]"
           :value="shippingMethod.price"
           class="sf-property--full-width sf-confirm-order__property"
         >
         </SfProperty>
         <SfDivider class="sf-confirm-order__divider" />
         <SfProperty
-          name="Total price"
+          :name="propertiesNames[2]"
           :value="total"
           class="
             sf-property--full-width sf-property--large
@@ -97,7 +100,7 @@
           "
         >
         </SfProperty>
-        <slot name="checkbox">
+        <slot name="checkbox" v-bind="{ terms }">
           <SfCheckbox
             v-model="terms"
             name="terms"
@@ -124,7 +127,7 @@ import {
   SfPrice,
   SfProperty,
   SfLink,
-} from "@storefront-ui/vue"
+} from "@storefront-ui/vue";
 export default {
   name: "SfConfirmOrder",
   components: {
@@ -150,6 +153,10 @@ export default {
       type: Object,
       default: () => ({}),
     },
+    propertiesNames: {
+      type: Array,
+      default: () => ["Subtotal", "Shipping", "Total price"],
+    },
     tableHeaders: {
       type: Array,
       default: () => ["Size", "Description", "Quantity", "Colour", "Amount"],
@@ -158,11 +165,11 @@ export default {
   data() {
     return {
       terms: false,
-    }
+    };
   },
   computed: {
     orderItems() {
-      return this.order.orderItems
+      return this.order.orderItems;
     },
     shipping() {
       return this.order.shipping || {};
@@ -171,27 +178,27 @@ export default {
       return this.shipping.shippingMethod || { price: "" };
     },
     subtotal() {
-      const orderItems = this.orderItems
+      const orderItems = this.orderItems;
       const subtotal = this.orderItems
         ? orderItems.reduce((previous, current) => {
-            const qty = current.qty
+            const qty = current.qty;
             const price = current.price.special
               ? current.price.special
-              : current.price.regular
-            const total = qty * parseFloat(price.replace("$", ""))
-            return previous + total
+              : current.price.regular;
+            const total = qty * parseFloat(price.replace("$", ""));
+            return previous + total;
           }, 0)
-        : 0
-      return "$" + subtotal.toFixed(2)
+        : 0;
+      return "$" + subtotal.toFixed(2);
     },
     total() {
-      const subtotal = parseFloat(this.subtotal.replace("$", ""))
-      const shipping = parseFloat(this.shippingMethod.price.replace("$", ""))
-      const total = subtotal + (isNaN(shipping) ? 0 : shipping)
-      return "$" + total.toFixed(2)
+      const subtotal = parseFloat(this.subtotal.replace("$", ""));
+      const shipping = parseFloat(this.shippingMethod.price.replace("$", ""));
+      const total = subtotal + (isNaN(shipping) ? 0 : shipping);
+      return "$" + total.toFixed(2);
     },
   },
-}
+};
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/shared/styles/components/templates/SfConfirmOrder.scss";

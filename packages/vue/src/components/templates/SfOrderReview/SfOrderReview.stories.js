@@ -1,4 +1,4 @@
-import { SfOrderReview } from "@storefront-ui/vue"
+import { SfOrderReview } from "@storefront-ui/vue";
 
 const orderData = {
   firstName: "John",
@@ -47,7 +47,7 @@ const orderData = {
       sku: "MSD23-345-325",
     },
   ],
-}
+};
 
 const characteristicsData = [
   {
@@ -65,7 +65,7 @@ const characteristicsData = [
     description: "Rest assured, we offer free returns within 30 days",
     icon: "return",
   },
-]
+];
 
 export default {
   title: "Components/Templates/OrderReview",
@@ -95,6 +95,14 @@ export default {
       defaultValue: orderData,
       description: "Order data",
     },
+    buttonText: {
+      control: "text",
+      table: {
+        category: "Props",
+      },
+      defaultValue: "Edit",
+      description: "Order sections button text",
+    },
     characteristics: {
       control: "object",
       table: {
@@ -115,7 +123,7 @@ export default {
         "The array of objects with data filling SfCharacteristics components: title, description and icon",
     },
   },
-}
+};
 
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
@@ -125,10 +133,10 @@ const Template = (args, { argTypes }) => ({
     :review-title="reviewTitle"
     :review-title-level="reviewTitleLevel"
     :order="order"
+    :buttonText="buttonText"
     :characteristics="characteristics"
-  >
-  </SfOrderReview>`,
-})
+  />`,
+});
 
-export const Common = Template.bind({})
-Common.args = {}
+export const Common = Template.bind({});
+Common.args = {};

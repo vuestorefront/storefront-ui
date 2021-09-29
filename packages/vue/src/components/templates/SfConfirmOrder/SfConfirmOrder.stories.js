@@ -1,4 +1,4 @@
-import { SfConfirmOrder } from "@storefront-ui/vue"
+import { SfConfirmOrder } from "@storefront-ui/vue";
 
 const orderData = {
   shipping: {
@@ -36,14 +36,14 @@ const orderData = {
       sku: "MSD23-345-325",
     },
   ],
-}
+};
 
 const tableHeadersData = [
   "Size",
   "Description",
   "Quantity",
   "Colour",
-  "Amount"
+  "Amount",
 ];
 
 export default {
@@ -82,8 +82,20 @@ export default {
       defaultValue: tableHeadersData,
       description: "Order table headers",
     },
+    propertiesNames: {
+      control: "object",
+      table: {
+        category: "Props",
+        type: { summary: "array" },
+        defaultValue: {
+          summary: `["Subtotal", "Shipping", "Total price"]`,
+        },
+      },
+      defaultValue: ["Subtotal", "Shipping", "Total price"],
+      description: "The array of names for order summary",
+    },
   },
-}
+};
 
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
@@ -94,9 +106,10 @@ const Template = (args, { argTypes }) => ({
     :orderTitleLevel="orderTitleLevel"
     :order="order"
     :table-headers="tableHeaders"
+    :propertiesNames="propertiesNames"
   >
   </SfConfirmOrder>`,
-})
+});
 
-export const Common = Template.bind({})
-Common.args = {}
+export const Common = Template.bind({});
+Common.args = {};

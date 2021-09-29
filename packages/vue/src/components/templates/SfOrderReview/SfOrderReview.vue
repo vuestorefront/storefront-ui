@@ -1,6 +1,6 @@
 <template>
   <div class="sf-order-review" data-testid="review">
-    <slot name="heading">
+    <slot name="heading" v-bind="{ reviewTitle, reviewTitleLevel }">
       <SfHeading
         :title="reviewTitle"
         :level="reviewTitleLevel"
@@ -10,14 +10,14 @@
         "
       />
     </slot>
-    <slot name="personal-details">
+    <slot name="personal-details" v-bind="{ order, shipping, buttonText }">
       <div class="sf-order-review__header">
         <p class="sf-order-review__title">Personal details</p>
         <SfButton
           class="sf-button--text"
           data-testid="personal-edit-button"
           @click="$emit('click:personal-details-edit', 0)"
-          >Edit
+          >{{ buttonText }}
         </SfButton>
       </div>
       <p class="sf-order-review__content">
@@ -35,7 +35,10 @@
         {{ shipping.phoneNumber }}
       </p>
     </slot>
-    <slot name="shipping-details">
+    <slot
+      name="shipping-details"
+      v-bind="{ buttonText, shippingMethod, shipping }"
+    >
       <div class="sf-order-review__header">
         <p class="sf-order-review__title">Shipping details</p>
         <SfButton
@@ -43,7 +46,7 @@
           data-testid="shipping-edit-button"
           @click="$emit('click:shipping-details-edit', 1)"
         >
-          Edit
+          {{ buttonText }}
         </SfButton>
       </div>
       <p class="sf-order-review__content">
@@ -57,7 +60,7 @@
         {{ shipping.zipCode }}, {{ shipping.city }}, {{ shipping.country }}
       </p>
     </slot>
-    <slot name="billing-details">
+    <slot name="billing-details" v-bind="{ payment, buttonText }">
       <div class="sf-order-review__header">
         <p class="sf-order-review__title">Billing address</p>
         <SfButton
@@ -65,7 +68,7 @@
           data-testid="billing-edit-button"
           @click="$emit('click:billing-details-edit', 2)"
         >
-          Edit
+          {{ buttonText }}
         </SfButton>
       </div>
       <p v-if="payment.sameAsShipping" class="sf-order-review__content">
@@ -84,7 +87,7 @@
         <p class="sf-order-review__content">{{ payment.phoneNumber }}</p>
       </template>
     </slot>
-    <slot name="payment-details">
+    <slot name="payment-details" v-bind="{ paymentMethod, buttonText }">
       <div class="sf-order-review__header">
         <p class="sf-order-review__title">Payment method</p>
         <SfButton
@@ -92,13 +95,13 @@
           data-testid="payment-edit-button"
           @click="$emit('click:payment-details-edit', 2)"
         >
-          Edit
+          {{ buttonText }}
         </SfButton>
       </div>
       <p class="sf-order-review__content">{{ paymentMethod }}</p>
     </slot>
     <div class="sf-order-review__promo-code">
-      <slot name="promo">
+      <slot name="promo" v-bind="{ promoCode }">
         <SfInput
           v-model="promoCode"
           name="promoCode"
@@ -115,7 +118,7 @@
       </slot>
     </div>
     <div class="sf-order-review__characteristics">
-      <slot name="characteristics">
+      <slot name="characteristics" v-bind="{ characteristics }">
         <SfCharacteristic
           v-for="characteristic in characteristics"
           :key="characteristic.title"
@@ -135,7 +138,7 @@ import {
   SfButton,
   SfCharacteristic,
   SfInput,
-} from "@storefront-ui/vue"
+} from "@storefront-ui/vue";
 export default {
   name: "SfOrderReview",
   components: {
@@ -157,6 +160,10 @@ export default {
       type: Object,
       default: () => ({}),
     },
+    buttonText: {
+      type: String,
+      default: "Edit",
+    },
     characteristics: {
       type: Array,
       default: () => [
@@ -171,7 +178,7 @@ export default {
   data() {
     return {
       promoCode: "",
-    }
+    };
   },
   computed: {
     shipping() {
@@ -185,7 +192,7 @@ export default {
             country: "",
             phoneNumber: "",
             shippingMethod: "",
-          }
+          };
     },
     payment() {
       return this.order.payment
@@ -199,16 +206,16 @@ export default {
             phoneNumber: "",
             paymentMethod: "",
             shippingMethod: "",
-          }
+          };
     },
     shippingMethod() {
-      return this.shipping.shippingMethod
+      return this.shipping.shippingMethod;
     },
     paymentMethod() {
-      return this.payment.paymentMethod
+      return this.payment.paymentMethod;
     },
   },
-}
+};
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/shared/styles/components/templates/SfOrderReview.scss";

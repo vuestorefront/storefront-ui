@@ -1,4 +1,4 @@
-import { SfOrderSummary } from "@storefront-ui/vue"
+import { SfOrderSummary } from "@storefront-ui/vue";
 
 const orderData = {
   shipping: {
@@ -36,7 +36,7 @@ const orderData = {
       sku: "MSD23-345-325",
     },
   ],
-}
+};
 
 const characteristicsData = [
   {
@@ -54,7 +54,7 @@ const characteristicsData = [
     description: "Rest assured, we offer free returns within 30 days",
     icon: "return",
   },
-]
+];
 
 export default {
   title: "Components/Templates/OrderSummary",
@@ -103,8 +103,20 @@ export default {
       description:
         "The array of objects with data filling SfCharacteristics components: title, description and icon",
     },
+    propertiesNames: {
+      control: "object",
+      table: {
+        category: "Props",
+        type: { summary: "array" },
+        defaultValue: {
+          summary: `["Products", "Subtotal", "Shipping", "Total price"]`,
+        },
+      },
+      defaultValue: ["Products", "Subtotal", "Shipping", "Total price"],
+      description: "The array of names for order summary",
+    },
   },
-}
+};
 
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
@@ -114,10 +126,10 @@ const Template = (args, { argTypes }) => ({
     :order-title="orderTitle"
     :order-title-level="orderTitleLevel"
     :order="order"
+    :propertiesNames="propertiesNames"
     :characteristics="characteristics"
-  >
-  </SfOrderSummary>`,
-})
+  />`,
+});
 
-export const Common = Template.bind({})
-Common.args = {}
+export const Common = Template.bind({});
+Common.args = {};
