@@ -54,7 +54,7 @@
           class="
             sf-order-review__content-label sf-order-review__content-shipping
           "
-          >{{ shippingMethod.value }}</span
+          >{{ shippingMethod }}</span
         ><br />
         {{ shipping.streetName }} {{ shipping.apartment }} <br />
         {{ shipping.zipCode }}, {{ shipping.city }}, {{ shipping.country }}
