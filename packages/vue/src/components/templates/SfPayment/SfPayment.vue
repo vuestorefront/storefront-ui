@@ -17,17 +17,7 @@
           sameAsShippingCheckboxLabel,
           billingInputsLabels,
           billingSelectLabel,
-          firstName,
-          lastName,
-          streetName,
-          apartment,
-          city,
-          state,
-          zipCode,
-
           countries,
-          phoneNumber,
-          invoice,
         }"
       >
         <SfCheckbox
