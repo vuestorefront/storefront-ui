@@ -90,7 +90,7 @@ export default {
     return listeners.input && listeners.input(qty);
   },
   handleBlur(listeners) {
-    return listeners.blur;
+    return listeners.blur();
   },
 };
 </script>
