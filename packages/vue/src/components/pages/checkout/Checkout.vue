@@ -134,7 +134,9 @@ export default {
         zipCode: "",
         country: "",
         phoneNumber: "",
-        shippingMethod: "",
+        shippingMethod: {
+          price: "$0.00",
+        },
       },
       payment: {
         sameAsShipping: false,
@@ -295,13 +297,15 @@ export default {
   },
   watch: {
     shipping(newVal, oldVal) {
-      if(newVal.shippingMethod != oldVal.shippingMethod) {
+      if (newVal.shippingMethod != oldVal.shippingMethod) {
         const method = this.shippingMethods.find(
           (method) => method.value === newVal.shippingMethod
         );
-        return method ? newVal.shippingMethod = method : newVal.shippingMethod = { price: "$0.00" };
+        return method
+          ? (newVal.shippingMethod = method)
+          : (newVal.shippingMethod = { price: "$0.00" });
       }
-    }
+    },
   },
   methods: {
     updateStep(next) {
