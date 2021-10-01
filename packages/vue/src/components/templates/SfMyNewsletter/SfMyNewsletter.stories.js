@@ -42,7 +42,7 @@ export default {
       table: {
         category: "Props",
       },
-      defaultValue: "[]",
+      defaultValue: ["Woman", "Man", "Children"],
       description: "Labels for newsletter sections",
     },
     saveChanges: {
@@ -66,6 +66,3 @@ const Template = (args, { argTypes }) => ({
 });
 
 export const Common = Template.bind({});
-Common.args = {
-  newsletterSections: ["Woman", "Man", "Children"],
-};

@@ -17,11 +17,8 @@ export default {
       control: "object",
       table: {
         category: "Props",
-        defaultValue: {
-          summary: "[]",
-        },
       },
-      defaultValue: [],
+      defaultValue: accountData.orders,
       description: "Account data",
     },
     orderHistoryDescription: {
@@ -53,11 +50,15 @@ export default {
       control: "object",
       table: {
         category: "Props",
-        defaultValue: {
-          summary: "[]",
-        },
       },
       description: "Labels for table headers",
+      defaultValue: [
+        "Order ID",
+        "Payment date",
+        "Payment method",
+        "Amount",
+        "Status",
+      ],
     },
   },
 };
@@ -77,13 +78,3 @@ const Template = (args, { argTypes }) => ({
 });
 
 export const Common = Template.bind({});
-Common.args = {
-  orders: accountData.orders,
-  tableHeaders: [
-    "Order ID",
-    "Payment date",
-    "Payment method",
-    "Amount",
-    "Status",
-  ],
-};

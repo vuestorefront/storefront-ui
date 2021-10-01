@@ -66,7 +66,7 @@ export default {
     },
     newsletterSections: {
       type: Array,
-      default: () => [],
+      default: () => ["Woman", "Man", "Children"],
     },
   },
   data() {
