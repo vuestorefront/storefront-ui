@@ -180,5 +180,5 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import "~@storefront-ui/shared/styles/components/templates/my-account/SfMyProfile.scss";
+@import "~@storefront-ui/shared/styles/components/templates/SfMyProfile.scss";
 </style>

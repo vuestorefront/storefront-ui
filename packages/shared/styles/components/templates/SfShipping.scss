@@ -1,4 +1,4 @@
-@import "../../../helpers/";
+@import "../../helpers/";
 .sf-shipping {
   .title {
     --heading-padding: var(--spacer-xl) 0 var(--spacer-lg);
@@ -67,7 +67,7 @@
       }
       &__radio-group {
         flex: 0 0 calc(100% + var(--spacer-sm));
-        margin: 0 calc(var(--spacer-sm) * -1);
+        margin: 0 calc(-1 * var(--spacer-sm));
       }
     }
   }
