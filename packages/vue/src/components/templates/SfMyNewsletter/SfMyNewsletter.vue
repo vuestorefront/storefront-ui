@@ -77,5 +77,5 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import "~@storefront-ui/shared/styles/components/templates/my-account/SfMyNewsletter.scss";
+@import "~@storefront-ui/shared/styles/components/templates/SfMyNewsletter.scss";
 </style>
