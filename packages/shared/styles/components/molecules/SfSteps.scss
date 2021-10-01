@@ -49,7 +49,7 @@
     transform: var(
       --steps-progress-transform,
       scale3d(
-        calc(var(--_steps-progress-active-step) - 0.5),
+        calc(-0.5 + var(--_steps-progress-active-step)),
         1,
         1
       ));

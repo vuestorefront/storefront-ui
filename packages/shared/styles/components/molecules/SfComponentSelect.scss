@@ -53,7 +53,7 @@
     color: var(--component-select-label-color, var(--c-secondary-variant));
     transform: var(
       --component-select-label-transform,
-      translate3d(0, calc(var(--component-select-label-top, 50%) * -1), 0)
+      translate3d(0, calc(-1 * var(--component-select-label-top, 50%)), 0)
     );
     transition: var(
       --component-select-label-transition,
