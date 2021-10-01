@@ -28,15 +28,12 @@
           />
         </SfContentPage>
         <SfContentPage title="Newsletter">
-          <SfMyNewsletter :newsletter-sections="newsletterSections" />
+          <SfMyNewsletter />
         </SfContentPage>
       </SfContentCategory>
       <SfContentCategory title="Order details">
         <SfContentPage title="Order history">
-          <SfOrderHistory
-            :orders="account.orders"
-            :table-headers="tableHeaders"
-          />
+          <SfOrderHistory :orders="account.orders" />
         </SfContentPage>
       </SfContentCategory>
       <SfContentPage title="Log out" />
@@ -109,20 +106,12 @@ export default {
           },
         ],
         orders: [
-          ["#35765", "4th Nov, 2019", "Visa card", "$12.00", "In process"],
-          ["#35766", "4th Nov, 2019", "Paypal", "$12.00", "Finalised"],
-          ["#35768", "4th Nov, 2019", "Mastercard", "$12.00", "Finalised"],
-          ["#35769", "4th Nov, 2019", "Paypal", "$12.00", "Finalised"],
+          ["#45", "23th June, 2021", "Visa card", "$412.00", "Finalised"],
+          ["#46", "26th June, 2021", "Paypal", "$132.00", "Finalised"],
+          ["#47", "28th June, 2021", "Mastercard", "$12.00", "Finalised"],
+          ["#48", "28th June, 2021", "Paypal", "$20.00", "In process"],
         ],
       },
-      newsletterSections: ["Woman", "Man", "Children"],
-      tableHeaders: [
-        "Order ID",
-        "Payment date",
-        "Payment method",
-        "Amount",
-        "Status",
-      ],
       countries,
     };
   },
