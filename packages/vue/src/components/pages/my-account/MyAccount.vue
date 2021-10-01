@@ -28,18 +28,13 @@
           />
         </SfContentPage>
         <SfContentPage title="Newsletter">
-          <SfMyNewsletter
-            tab-title="My newsletter"
-            :tab-description="newsletterDescription"
-            :newsletter-sections="newsletterSections"
-          />
+          <SfMyNewsletter :newsletter-sections="newsletterSections" />
         </SfContentPage>
       </SfContentCategory>
       <SfContentCategory title="Order details">
         <SfContentPage title="Order history">
           <SfOrderHistory
             :orders="account.orders"
-            :order-history-description="orderHistoryDescription"
             :table-headers="tableHeaders"
           />
         </SfContentPage>
@@ -121,10 +116,6 @@ export default {
         ],
       },
       newsletterSections: ["Woman", "Man", "Children"],
-      newsletterDescription:
-        "Set up your newsletter and we will send you information about new products and trends from the sections you selected every week.",
-      orderHistoryDescription:
-        "Check the details and status of your orders in the online store. You can also cancel your order or request a return.",
       tableHeaders: [
         "Order ID",
         "Payment date",
