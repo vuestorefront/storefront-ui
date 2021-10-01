@@ -83,6 +83,7 @@
 </template>
 <script>
 import { SfTabs, SfTable, SfButton } from "@storefront-ui/vue";
+
 export default {
   name: "SfOrderHistory",
   components: {
@@ -97,19 +98,31 @@ export default {
     },
     orders: {
       type: Array,
-      default: () => [],
+      default: () => [
+        ["#35765", "4th Nov, 2019", "Visa card", "$12.00", "In process"],
+        ["#35766", "4th Nov, 2019", "Paypal", "$12.00", "Finalised"],
+        ["#35768", "4th Nov, 2019", "Mastercard", "$12.00", "Finalised"],
+        ["#35769", "4th Nov, 2019", "Paypal", "$12.00", "Finalised"],
+      ],
     },
     tableHeaders: {
       type: Array,
-      default: () => [],
+      default: () => [
+        "Order ID",
+        "Payment date",
+        "Payment method",
+        "Amount",
+        "Status",
+      ],
     },
     orderHistoryDescription: {
       type: String,
-      default: "",
+      default:
+        "Check the details and status of your orders in the online store. You can also cancel your order or request a return.",
     },
     noOrdersDescription: {
       type: String,
-      default: "",
+      default: "You currently have no order history.",
     },
     noOrdersButtonText: {
       type: String,
