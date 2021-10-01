@@ -101,7 +101,7 @@ CSS Custom Properties (or so called CSS variables) are extremely powerful and ha
     padding: 20px 0;
     @include for-desktop {
       padding: 20px;
-      max-width: calc(100% - 216px);
+      max-width: calc(-216px + 100%);
     }
   }
 }
@@ -115,7 +115,7 @@ And how it looks now, thanks to the power of CSS Custom Properties:
   @include for-desktop {
     margin: var(--spacer-base) 0;
     --carousel-padding: var(--spacer-base);
-    --carousel-max-width: calc(100% - 13.5rem);
+    --carousel-max-width: calc(-13.5rem + 100%);
   }
 }
 ```
