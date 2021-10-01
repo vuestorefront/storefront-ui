@@ -49,15 +49,16 @@ export default {
   props: {
     tabTitle: {
       type: String,
-      default: "",
+      default: "My newsletter",
     },
     tabDescription: {
       type: String,
-      default: "",
+      default:
+        "Set up your newsletter and we will send you information about new products and trends from the sections you selected every week.",
     },
     formTitle: {
       type: String,
-      default: "",
+      default: "Sections that interest you",
     },
     buttonText: {
       type: String,

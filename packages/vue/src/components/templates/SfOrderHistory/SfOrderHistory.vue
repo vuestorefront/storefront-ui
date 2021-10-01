@@ -105,11 +105,12 @@ export default {
     },
     orderHistoryDescription: {
       type: String,
-      default: "",
+      default:
+        "Check the details and status of your orders in the online store. You can also cancel your order or request a return.",
     },
     noOrdersDescription: {
       type: String,
-      default: "",
+      default: "You currently have no order history.",
     },
     noOrdersButtonText: {
       type: String,
