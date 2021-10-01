@@ -13,6 +13,7 @@
             <SfShipping
               :value="shipping"
               :shipping-methods="shippingMethods"
+              :countries="countries"
               @input="shipping = $event"
             />
           </SfStep>
@@ -20,6 +21,9 @@
             <SfPayment
               :payment-methods="paymentMethods"
               :shipping="shipping"
+              :countries="countries"
+              :months="months"
+              :years="years"
               @input="payment = $event"
             />
           </SfStep>
@@ -102,6 +106,7 @@ import {
   SfOrderSummary,
   SfOrderReview,
 } from "@storefront-ui/vue";
+import { countries, months, years } from "../../templates/internalData.js";
 export default {
   name: "Checkout",
   components: {
@@ -116,6 +121,9 @@ export default {
   },
   data() {
     return {
+      countries,
+      months,
+      years,
       currentStep: 0,
       steps: [
         "Go to shipping",
@@ -286,7 +294,6 @@ export default {
   },
   computed: {
     getOrder() {
-      console.log(this.shipping);
       return {
         ...this.order,
         ...this.personalDetails,
