@@ -258,5 +258,5 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import "~@storefront-ui/shared/styles/components/templates/checkout/SfShipping.scss";
+@import "~@storefront-ui/shared/styles/components/templates/SfShipping.scss";
 </style>
