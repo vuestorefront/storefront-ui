@@ -345,5 +345,5 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import "~@storefront-ui/shared/styles/components/templates/my-account/SfShippingDetails.scss";
+@import "~@storefront-ui/shared/styles/components/templates/SfShippingDetails.scss";
 </style>
