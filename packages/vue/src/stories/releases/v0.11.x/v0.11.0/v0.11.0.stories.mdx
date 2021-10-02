@@ -5,13 +5,18 @@ import { Meta } from "@storybook/addon-docs/blocks";
 # v0.11.0
 
 v0.11.0 contains API breaking changes and new features.
+This version also contains changes from 0.11.0-rc.1 and 0.11.0-rc.2
+
+## ❗ Breaking Changes
+
+- SfProductCard, SfProductCardHorizontal: rename `isOnWishlist` to `isInWishlist`.
+  Make sure to replace all occurences of this prop to the correct new name.
+- SfRadio: Now reacts to `@change` event instead of `@input`. Make sure to replace `@input` event handlers for SfRadio with `@change`
 
 ## 🚀 Features
 
 - Storefront UI module for Nuxt (@storefront-ui/nuxt)
-- MyAccount page uses templates
-
-## ❗ Refactor/ Breaking Changes
+- Whole new section `templates` with new components to use - Checkout `Components/Templates` for more details.
 
 ## 🐛 Fixes
 
@@ -20,12 +25,12 @@ v0.11.0 contains API breaking changes and new features.
 - shipping step on checkout page and passing data to slot in payment component
 - postcss-calc bug during building projects
 - SfMyNewsletter, SfOrderHistory: added default values for all props
+- Form: email input validation error message
 
 ## 🧹 Chores:
 
 - docs: add embeded YouTube video tutorials
 - docs: create section about integrations with updated TailwindCSS configuration
 - docs: upgrade storybook version to 6.3.8
-- tests: fix bugs on GH actions in Category page (SfPagination and SfSidebar) 
-- fix Form email input validation error message
-
+- tests: fix bugs on GH actions in Category page (SfPagination and SfSidebar)
+- docs: reorganize docs for better readability
