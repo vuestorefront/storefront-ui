@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import Category from "@storefront-ui/vue/src/examples/pages/category/Category";
+import Category from "@storefront-ui/vue/src/components/pages/category/Category";
 
 export default {
   components: {

@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.11.0](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.11.0-rc.2...@storefront-ui/shared@0.11.0) (2021-10-01)
+
+
+### Bug Fixes
+
+* after CR ([396c4a9](https://github.com/vuestorefront/storefront-ui/commit/396c4a9b7ecf49c031395f3f8ee265c8303c44a6))
+* change calc functions to have negative value first ([#2024](https://github.com/vuestorefront/storefront-ui/issues/2024)) ([177036c](https://github.com/vuestorefront/storefront-ui/commit/177036cecd77e17080bf9c6db621751718791b74))
+* reorganized template styles ([0e3eb00](https://github.com/vuestorefront/storefront-ui/commit/0e3eb003f2218d70693f0328b197caba9144f02e))
+* shipping ([8edd533](https://github.com/vuestorefront/storefront-ui/commit/8edd53319f7c6db0fab9e6a8ad860c3a000c1b05))
+* shipping styling ([f4ab5e7](https://github.com/vuestorefront/storefront-ui/commit/f4ab5e7fbccf582af347798ae0a308f08cbefca7))
+* shipping styling ([f27479e](https://github.com/vuestorefront/storefront-ui/commit/f27479e2190cdfa02e8f0ce5488d9d4943691cbd))
+* shipping styling ([97c80fe](https://github.com/vuestorefront/storefront-ui/commit/97c80fe6a7c27cbfe7d0cca3a769248cf6df1e1f))
+* shipping styling ([16fc821](https://github.com/vuestorefront/storefront-ui/commit/16fc8216eeb8d10f54404b08800ac641124dcd07))
+* styling shipping ([ebd3b27](https://github.com/vuestorefront/storefront-ui/commit/ebd3b27ea59b21461445a1ac34ea47a658478c52))
+* styling shipping ([3957be8](https://github.com/vuestorefront/storefront-ui/commit/3957be864add8d73ac4581c365f22dfac8630557))
+
+
+### Features
+
+* confirm ([e372f03](https://github.com/vuestorefront/storefront-ui/commit/e372f03e77533d349cd94a753072d57cbf06da7e))
+* confirm order styles ([e92a817](https://github.com/vuestorefront/storefront-ui/commit/e92a81742410ee2e4ae449ac529e40499811b583))
+* move order review styling to shared package ([4eed80e](https://github.com/vuestorefront/storefront-ui/commit/4eed80e75c1317e17d5d540f84db928691a7282f))
+* styles moved to shared folder ([a28954b](https://github.com/vuestorefront/storefront-ui/commit/a28954be5b918cdc37df30113eda79b6550ac631))
+* styles moved to shared folder ([d9d9f49](https://github.com/vuestorefront/storefront-ui/commit/d9d9f49eb4594988274eedfbffee7dc8ded7dacb))
+
+
+
+
+
 # [0.11.0-rc.2](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.11.0-rc.1...@storefront-ui/shared@0.11.0-rc.2) (2021-09-06)
 
 

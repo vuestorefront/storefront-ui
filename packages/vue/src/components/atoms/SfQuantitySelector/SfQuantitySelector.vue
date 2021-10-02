@@ -11,7 +11,12 @@
       class="sf-button--pure sf-quantity-selector__button"
       data-testid="decrease"
       @click="
-        $options.handleInput(props.qty - 1, listeners, props.min, props.max)
+        $options.handleInput(
+          Number(props.qty) - 1,
+          listeners,
+          props.min,
+          props.max
+        )
       "
     >
       &minus;
@@ -19,7 +24,7 @@
     <component
       :is="injections.components.SfInput"
       type="number"
-      :value="props.qty"
+      :value="Number(props.qty)"
       :disabled="props.disabled"
       class="sf-quantity-selector__input"
       data-testid="sf-quantity-selector input"
@@ -34,7 +39,12 @@
       class="sf-button--pure sf-quantity-selector__button"
       data-testid="increase"
       @click="
-        $options.handleInput(props.qty + 1, listeners, props.min, props.max)
+        $options.handleInput(
+          Number(props.qty) + 1,
+          listeners,
+          props.min,
+          props.max
+        )
       "
     >
       +
@@ -42,8 +52,8 @@
   </div>
 </template>
 <script>
-import SfInput from "../../atoms/SfInput/SfInput.vue"
-import SfButton from "../../atoms/SfButton/SfButton.vue"
+import SfInput from "../../atoms/SfInput/SfInput.vue";
+import SfButton from "../../atoms/SfButton/SfButton.vue";
 
 export default {
   name: "SfQuantitySelector",
@@ -81,18 +91,18 @@ export default {
   },
   handleInput(qty, listeners, min, max) {
     // adjust qty per min/max if needed
-    const minimum = min || 1
+    const minimum = min || 1;
     if (qty < minimum || isNaN(qty)) {
-      qty = minimum
+      qty = minimum;
     } else if (max !== null && qty > max) {
-      qty = max
+      qty = max;
     }
-    return listeners.input && listeners.input(qty)
+    return listeners.input && listeners.input(qty);
   },
   handleBlur(listeners) {
-    return listeners.blur
+    return listeners.blur && listeners.blur();
   },
-}
+};
 </script>
 <style lang="scss">
 @import "~@storefront-ui/shared/styles/components/atoms/SfQuantitySelector.scss";
