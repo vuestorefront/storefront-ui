@@ -21,6 +21,8 @@
       v-if="!loaded && placeholder"
       class="sf-image--placeholder"
       :src="placeholder"
+      :width="width"
+      :height="height"
       alt="Placeholder"
       :width="width"
       :height="height"
@@ -41,6 +43,7 @@
   </div>
 </template>
 <script>
+import placeholder from "../../../../public/assets/storybook/SfImage/placeholder.svg";
 export default {
   name: "SfImage",
   props: {
@@ -70,7 +73,7 @@ export default {
     },
     placeholder: {
       type: String,
-      default: "",
+      default: placeholder,
     },
     loading: {
       type: String,
