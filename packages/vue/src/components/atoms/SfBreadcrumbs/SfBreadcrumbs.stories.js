@@ -3,6 +3,14 @@ import { SfBreadcrumbs } from "@storefront-ui/vue";
 export default {
   title: "Components/Atoms/Breadcrumbs",
   component: SfBreadcrumbs,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "The component which renders a breadcrumb with router links for indicating the level of navigation the user is currently in. It's Vue 2 functional component.",
+      },
+    },
+  },
   argTypes: {
     breadcrumbs: {
       control: "object",

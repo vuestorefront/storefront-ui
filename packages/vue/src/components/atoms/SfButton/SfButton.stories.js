@@ -3,6 +3,14 @@ import { SfButton } from "@storefront-ui/vue";
 export default {
   title: "Components/Atoms/Button",
   component: SfButton,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "The base button component. It's Vue 2 functional component.",
+      },
+    },
+  },
   argTypes: {
     classes: {
       control: {
@@ -23,9 +31,9 @@ export default {
           "color-success",
         ],
       },
-      description: "Modifier classes for button",
+      description: "CSS classes to modify component styling",
       table: {
-        category: "HTML Attributes",
+        category: "CSS modifiers",
       },
     },
     disabled: {
@@ -44,6 +52,8 @@ export default {
     },
     content: {
       control: "text",
+      description:
+        "Type here to fill the button (property only for testing in Storybook)",
     },
     onClick: { action: "Button clicked", table: { category: "Events" } },
   },

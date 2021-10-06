@@ -3,21 +3,46 @@ import { SfArrow, SfIcon } from "@storefront-ui/vue";
 export default {
   title: "Components/Atoms/Arrow",
   component: SfArrow,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "Arrow component for sliders and navigation. It's Vue 2 functional component.",
+      },
+    },
+  },
   argTypes: {
     disabled: {
       control: "boolean",
-      table: { category: "Attributes" },
-      description: "Disable clickable",
-      type: "boolean",
+      table: {
+        category: "Attributes",
+        type: {
+          summary: "boolean",
+        },
+      },
+      description:
+        "Disable clickable. It is passed like any other attribute in Vue functional component.",
     },
     ariaLabel: {
       control: "text",
       table: {
         category: "Attributes",
+        type: {
+          summary: "string",
+        },
       },
+      description:
+        "Aria-label name. It is passed like any other attribute in Vue functional component.",
       defaultValue: "Arrow label",
     },
-    onClick: { action: "clicked", table: { category: "Events" } },
+    click: {
+      action: "click",
+      table: {
+        category: "Events",
+      },
+      description:
+        "Click event. It is passed like any other prop in Vue functional component.",
+    },
     classes: {
       control: {
         type: "select",
@@ -33,8 +58,9 @@ export default {
         ],
       },
       table: {
-        category: "Modifier classes",
+        category: "CSS modifiers",
       },
+      description: "CSS classes to modify component styling",
     },
   },
 };
@@ -42,7 +68,7 @@ export default {
 const Template = (args, { argTypes }) => ({
   components: { SfArrow },
   props: Object.keys(argTypes),
-  template: `<SfArrow :class="classes" :disabled="disabled" :aria-label="ariaLabel" @click="onClick" />`,
+  template: `<SfArrow :class="classes" :disabled="disabled" :aria-label="ariaLabel" @click="click" />`,
 });
 
 export const Common = Template.bind({});

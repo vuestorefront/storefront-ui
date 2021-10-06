@@ -46,7 +46,7 @@ export default {
       default: false,
     },
     /**
-     * Link for "a" tag, when empty it is button.
+     * Link for "a" tag.
      */
     link: {
       type: [String, Object],

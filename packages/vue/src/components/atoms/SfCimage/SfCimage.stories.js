@@ -8,29 +8,32 @@ export default {
   decorators: [
     () => ({
       template: `<div>
-  <div style="margin-bottom: 1rem; font-family: var(--font-family--primary)">
-    <p>This is the image component with <a href="https://cloudinary.com">Cloudinary</a> image optimization support.</p>
-    <p>To optimize the image on demand, see <a href="https://cloudinary-build-url.netlify.app/transformations/basic">Cloudinary url options docs</a> for the full API syntax.</p>
-  </div>
-  <story />
-</div>`,
+        <div style="margin-bottom: 1rem; font-family: var(--font-family--primary)">
+          <p>This is the image component with <a href="https://cloudinary.com">Cloudinary</a> image optimization support.</p>
+          <p>To optimize the image on demand, see <a href="https://cloudinary-build-url.netlify.app/transformations/basic">Cloudinary url options docs</a> for the full API syntax.</p>
+        </div>
+        <story />
+      </div>`,
     }),
   ],
   parameters: {
     docs: {
+      description: {
+        component: "The image component to use with Cloudinary.",
+      },
       source: {
         code: `
-<template>
-  <SfCimage
-    :public-id="publicId"
-    :cloud="cloud"
-    :transformations="transformations"
-    :placeholder="placeholder"
-    :loading="loading"
-    :progressive="progressive"
-    :alt="alt"
-  />
-</template>`,
+          <template>
+            <SfCimage
+              :public-id="publicId"
+              :cloud="cloud"
+              :transformations="transformations"
+              :placeholder="placeholder"
+              :loading="loading"
+              :progressive="progressive"
+              :alt="alt"
+            />
+          </template>`,
       },
     },
   },
@@ -53,13 +56,18 @@ export default {
       control: "object",
       table: {
         category: "Props",
+        type: {
+          summary: "array",
+        },
       },
+      defaultValue: [],
     },
     progressive: {
       control: "boolean",
       table: {
         category: "Props",
       },
+      defaultValue: false,
       description:
         "Whether to generate a JPEG using the progressive (interlaced) JPEG format.",
     },
