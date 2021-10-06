@@ -3,6 +3,14 @@ import { SfInput, SfIcon } from "@storefront-ui/vue";
 export default {
   title: "Components/Atoms/Input",
   component: SfInput,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "The input form field with validation and built-in label animation.",
+      },
+    },
+  },
   argTypes: {
     classes: {
       control: {
@@ -12,6 +20,7 @@ export default {
       table: {
         category: "CSS Modifiers",
       },
+      description: "CSS classes to modify component styling",
     },
     type: {
       control: "text",
@@ -23,12 +32,21 @@ export default {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
     },
     name: {
       control: "text",
       table: {
         category: "Props",
+        defaultValue: {
+          summary: "",
+        },
       },
     },
     errorMessage: {
@@ -36,39 +54,49 @@ export default {
       table: {
         category: "Props",
       },
+      defaultValue: "",
     },
     valid: {
       control: "boolean",
       table: {
         category: "Props",
       },
+      defaultValue: true,
     },
     required: {
       control: "boolean",
       table: {
         category: "Props",
       },
+      defaultValue: false,
     },
     disabled: {
       control: "boolean",
       table: {
         category: "Props",
       },
+      defaultValue: false,
     },
     hasShowPassword: {
       control: "boolean",
       table: {
         category: "Props",
       },
+      defaultValue: false,
     },
     placeholder: {
       control: "text",
       table: {
         category: "Props",
       },
+      defaultValue: "",
     },
     value: {
       control: "text",
+      table: {
+        category: "Props",
+      },
+      defaultValue: "",
     },
     onChange: { action: "input changed!", table: { category: "Events" } },
   },
@@ -136,10 +164,33 @@ ShowPassword.args = {
   hasShowPassword: true,
 };
 
-export const WithPlaceholder = Template.bind({});
+export const WithPlaceholder = (args, { argTypes }) => ({
+  components: { SfInput },
+  props: Object.keys(argTypes),
+  data() {
+    return {
+      inputValue: this.value,
+    };
+  },
+  template: `
+  <SfInput
+    v-model="inputValue"
+    :class="classes"
+    :type="type"
+    :label="label"
+    :name="name"
+    :valid="valid"
+    :error-message="errorMessage"
+    :required="required"
+    :disabled="disabled"
+    :has-show-password="hasShowPassword"
+    placeholder="I'm a placeholder"
+    @change="onChange"
+  />`,
+});
+
 WithPlaceholder.args = {
   ...Common.args,
-  placeholder: "I'm a placeholder",
 };
 
 export const Filled = Template.bind({});

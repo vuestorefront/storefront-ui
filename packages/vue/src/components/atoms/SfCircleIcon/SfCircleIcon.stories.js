@@ -1,7 +1,7 @@
 import { icons } from "@storefront-ui/shared/icons/icons";
 import { SfCircleIcon } from "@storefront-ui/vue";
 import { sizesValues as sizes } from "@storefront-ui/shared/variables/sizes";
-import { iconColorsValues as colors } from "@storefront-ui/shared/variables/colors";
+
 const iconsNames = Object.keys(icons);
 
 export default {

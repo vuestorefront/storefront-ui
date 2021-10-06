@@ -7,6 +7,14 @@ const iconsNames = Object.keys(icons);
 export default {
   title: "Components/Atoms/Icon",
   component: SfIcon,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "The icon with color and size modifiers. It's Vue 2 functional component.",
+      },
+    },
+  },
   argTypes: {
     icon: {
       control: {

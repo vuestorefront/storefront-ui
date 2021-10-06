@@ -44,9 +44,6 @@ export default {
       type: String,
       default: "",
     },
-    /**
-     * Heading description
-     */
     description: {
       type: String,
       default: "",

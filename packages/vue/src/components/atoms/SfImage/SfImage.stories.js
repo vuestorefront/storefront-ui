@@ -3,6 +3,14 @@ import { SfImage } from "@storefront-ui/vue";
 export default {
   title: "Components/Atoms/Image",
   component: SfImage,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "Image accepting string source and an array of srcsets (with breakpoints( and widths) or resolutions)",
+      },
+    },
+  },
   argTypes: {
     srcsets: {
       control: "object",
@@ -33,11 +41,12 @@ export default {
       table: {
         category: "Props",
       },
+      defaultValue: "",
     },
     alt: {
       control: "text",
       table: {
-        category: "Attributes",
+        category: "Props",
       },
     },
     loading: {
@@ -46,7 +55,7 @@ export default {
         options: ["", "lazy", "eager"],
       },
       table: {
-        category: "Attributes",
+        category: "Props",
       },
     },
   },
