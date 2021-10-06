@@ -41,7 +41,7 @@
   </div>
 </template>
 <script>
-import placeholder from "../../../../public/assets/storybook/SfImage/placeholder.svg";
+import imagePlaceholder from "../../../../public/assets/storybook/SfImage/placeholder.svg";
 export default {
   name: "SfImage",
   props: {
@@ -89,7 +89,7 @@ export default {
      */
     placeholder: {
       type: String,
-      default: placeholder,
+      default: imagePlaceholder,
     },
     /**
      * Native loading attribute supported, either "eager", "lazy" or none.
