@@ -10,6 +10,16 @@ const optionsList = [
 export default {
   title: "Components/Molecules/ComponentSelect",
   component: SfComponentSelect,
+  parameters: {
+    docs: {
+      description: {
+        component: "On click input select field with dropdown",
+      },
+    },
+  },
+  decorators: [
+    () => ({ template: '<div style="height: 15em;"><story /></div>' }),
+  ],
   argTypes: {
     classes: {
       control: {
@@ -20,54 +30,86 @@ export default {
           "sf-component-select--no-chevron",
         ],
       },
+      table: {
+        category: "CSS modifiers",
+      },
+      description: "CSS classes to modify component styling",
     },
     label: {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
+      description: "Label text",
     },
     selected: {
       control: "object",
       table: {
         category: "Props",
+        type: {
+          summary: "object",
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
+      defaultValue: { value: "" },
+      description: "Selected item value",
     },
     size: {
       control: "number",
       table: {
         category: "Props",
       },
+      defaultValue: 5,
+      description: "Dropdown items quantity",
     },
     required: {
       control: "boolean",
       table: {
         category: "Props",
       },
+      defaultValue: false,
+      description: "Required attribute",
     },
     valid: {
       control: "boolean",
       table: {
         category: "Props",
       },
+      defaultValue: true,
+      description: "Validate value of form select",
     },
     disabled: {
       control: "boolean",
       table: {
         category: "Props",
       },
+      defaultValue: false,
+      description: "Disabled status of form select",
     },
     errorMessage: {
       control: "text",
       table: {
         category: "Props",
       },
+      defaultValue: "This field is not correct.",
+      description:
+        "Error message value of form select. It will be appeared if `valid` is `true`.",
     },
     persistent: {
       control: "boolean",
       table: {
         category: "Props",
       },
+      defaultValue: false,
+      description: "If true clicking outside will not dismiss the select",
     },
   },
 };

@@ -3,39 +3,61 @@ import { SfDropdown, SfList, SfButton } from "@storefront-ui/vue";
 export default {
   title: "Components/Molecules/Dropdown",
   component: SfDropdown,
+  parameters: {
+    docs: {
+      inlineStories: false,
+      iframeHeight: "25em",
+      parameters: {
+        docs: {
+          description: {
+            component: "Dropdown component",
+          },
+        },
+      },
+    },
+  },
   argTypes: {
     classes: {
       control: {
         type: "select",
         options: ["sf-dropdown--up", ""],
       },
+      table: {
+        category: "CSS modifiers",
+      },
+      description: "CSS classes to modify component styling",
     },
     title: {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
+      description: "Title for dropdown content, visible on mobile.",
     },
     isOpen: {
       control: "boolean",
       table: {
         category: "Props",
       },
+      defaultValue: false,
+      description: "If true dropdown is open.",
     },
     persistent: {
       control: "boolean",
       table: {
         category: "Props",
       },
+      defaultValue: false,
+      description: "If true clicking outside will not dismiss the dropdown.",
     },
     "click:close": { action: "Close dropdown", table: { category: "Events" } },
     "click:open": { action: "Open dropdown", table: { category: "Events" } },
-  },
-  parameters: {
-    docs: {
-      inlineStories: false,
-      iframeHeight: "500px",
-    },
   },
 };
 
