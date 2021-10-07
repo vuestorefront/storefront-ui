@@ -3,6 +3,14 @@ import { SfAddToCart } from "@storefront-ui/vue";
 export default {
   title: "Components/Molecules/AddToCart",
   component: SfAddToCart,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "The Add-to-cart button and quantity input field with maximum stock validation."
+      },
+    },
+  },
   decorators: [
     () => ({ template: '<div style="max-width: 21.25rem"><story /></div>' }),
   ],
@@ -13,13 +21,20 @@ export default {
         category: "Props",
       },
       defaultValue: false,
+      description: "Boolean to indicate whether product can be added to cart",
     },
     qty: {
-      control: "number",
-      defaultValue: 1,
+      control: "number",      
       table: {
         category: "Props",
+        type: {
+          summary: ["string", "number"],
+        },
+        defaultValue: {
+          summary: 1,
+        }
       },
+      description: "Selected quantity"
     },
     click: { action: "Added to cart clicked", table: { category: "Events" } },
     input: { action: "Quantity changed", table: { category: "Events" } },

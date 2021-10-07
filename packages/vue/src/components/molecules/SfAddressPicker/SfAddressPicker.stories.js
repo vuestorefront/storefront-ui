@@ -1,20 +1,30 @@
 import SfAddressPicker from "./SfAddressPicker.vue";
+import SfAddress from "./_internal/SfAddress.vue";
 
 export default {
   title: "Components/Molecules/AddressPicker",
-  component: SfAddressPicker,
+  component: SfAddress,
+  parameters: {
+    docs: {
+      description: {
+        component: "The component for chosing addresses.",
+      },
+    },
+  },
   argTypes: {
     name: {
       control: "text",
       table: {
         category: "Props",
       },
+      description: "Sets name of the address field",
     },
     selected: {
       control: "text",
       table: {
-        category: "Computed",
+        category: "Props",
       },
+      description: "Sets address as chosen by its name",
       defaultValue: "",
     },
     input: { action: "Address picked", table: { category: "Events" } },
@@ -27,12 +37,12 @@ const Template = (args, { argTypes }) => ({
   template: `
   <SfAddressPicker v-model="selected">
     <SfAddress :name="name">
-    <span>{{title}}</span>
-    <span>{{street}}</span>
-    <span>{{postCode}}</span>
-    <span>{{city}}</span>
-    <span>{{country}}</span>
-    <span>{{phone}}</span>
+      <span>{{title}}</span>
+      <span>{{street}}</span>
+      <span>{{postCode}}</span>
+      <span>{{city}}</span>
+      <span>{{country}}</span>
+      <span>{{phone}}</span>
     </SfAddress>
   </SfAddressPicker>`,
 });

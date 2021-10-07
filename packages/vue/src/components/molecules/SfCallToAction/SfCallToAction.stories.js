@@ -4,6 +4,13 @@ import image from "../../../../public/assets/storybook/Home/newsletter.jpg";
 export default {
   title: "Components/Molecules/CallToAction",
   component: SfCallToAction,
+  parameters: {
+    docs: {
+      description: {
+        component: "The call to action component with button and text",
+      },
+    },
+  },
   decorators: [
     () => ({ template: '<div style="max-width:1024px;"><story /></div>' }),
   ],
@@ -12,6 +19,12 @@ export default {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
     },
     buttonText: {
@@ -25,11 +38,18 @@ export default {
       table: {
         category: "Props",
       },
+      defaultValue: "",
     },
     description: {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
     },
     background: {
@@ -72,10 +92,6 @@ const Template = (args, { argTypes }) => ({
 });
 
 export const Common = Template.bind({});
-Common.args = {
-  total: 3,
-  current: 1,
-};
 
 export const WithImage = Template.bind({});
 WithImage.args = {

@@ -4,6 +4,14 @@ import cardImg from "../../../../public/assets/storybook/SfCard/card.jpg";
 export default {
   title: "Components/Molecules/Card",
   component: SfCard,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "The component for displaying information with title, image and action button",
+      },
+    },
+  },
   argTypes: {
     title: {
       control: "text",
@@ -30,6 +38,12 @@ export default {
       },
     },
     buttonText: {
+      control: "text",
+      table: {
+        category: "Props",
+      },
+    },
+    image: {
       control: "text",
       table: {
         category: "Props",

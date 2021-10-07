@@ -7,6 +7,14 @@ const iconsNames = Object.keys(icons);
 export default {
   title: "Components/Molecules/Characteristic",
   component: SfCharacteristic,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "The component with icon and text used for describing product characteristics.",
+      },
+    },
+  },
   argTypes: {
     sizeIcon: {
       control: {
@@ -33,18 +41,33 @@ export default {
       },
       table: {
         category: "Props",
+        type: {
+          summary: ["string", "array"],
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
     },
     title: {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
     },
     description: {
       control: "text",
       table: {
         category: "Props",
+        defaultValue: {
+          summary: "",
+        },
       },
     },
   },
