@@ -3,6 +3,14 @@ import { SfSkeleton } from "@storefront-ui/vue";
 export default {
   title: "Components/Atoms/Skeleton",
   component: SfSkeleton,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "The skeleton of the component to show instead of target component during loading. It's Vue 2 functional component.",
+      },
+    },
+  },
   argTypes: {
     classes: {
       control: {
@@ -15,7 +23,7 @@ export default {
         ],
       },
       table: {
-        category: "Modifier classes",
+        category: "CSS modifiers",
       },
       description:
         "Classes to define component animation. Also animation can be disabled by `sf-skeleton--no-animation` class.",

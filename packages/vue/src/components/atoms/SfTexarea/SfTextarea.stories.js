@@ -3,6 +3,14 @@ import { SfTextarea } from "@storefront-ui/vue";
 export default {
   title: "Components/Atoms/Textarea",
   component: SfTextarea,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "The multi-line text input control. It's Vue 2 functional component.",
+      },
+    },
+  },
   argTypes: {
     value: {
       control: "text",
@@ -15,6 +23,9 @@ export default {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: "string",
+        },
       },
     },
     name: {
@@ -40,12 +51,14 @@ export default {
       table: {
         category: "Props",
       },
+      defaultValue: "",
     },
     maxlength: {
       control: "text",
       table: {
         category: "Props",
       },
+      defaultValue: "",
     },
     wrap: {
       control: "text",
@@ -82,6 +95,14 @@ export default {
     },
     placeholder: {
       control: "text",
+      table: {
+        category: "Props",
+      },
+      defaultValue: "",
+    },
+    readonly: {
+      control: "boolean",
+      defaultValue: false,
       table: {
         category: "Props",
       },

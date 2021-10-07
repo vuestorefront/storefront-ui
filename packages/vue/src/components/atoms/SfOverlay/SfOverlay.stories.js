@@ -5,10 +5,20 @@ export default {
   component: SfOverlay,
   argTypes: {
     transition: {
-      control: "text",
+      control: {
+        type: "select",
+        options: [
+          "sf-collapse-bottom",
+          "sf-collapse-top",
+          "sf-slide-left",
+          "sf-slide-right",
+          "sf-expand",
+        ] 
+      },
       table: {
         category: "Props",
       },
+      defaultValue: "sf-fade",
     },
     visible: {
       control: "boolean",
@@ -22,6 +32,10 @@ export default {
     docs: {
       inlineStories: false,
       iframeHeight: "300px",
+      description: {
+        component:
+          "The fullscreen overlay, emitting click events. It's Vue 2 functional component.",
+      },
     },
   },
 };
