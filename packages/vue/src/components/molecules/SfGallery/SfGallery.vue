@@ -51,6 +51,7 @@
           :key="'img-' + index"
           class="sf-button--pure sf-gallery__item"
           :class="{ 'sf-gallery__item--selected': index === activeIndex }"
+          :aria-label="'Image ' + index"
           @click="go(index)"
         >
           <SfImage
