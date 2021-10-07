@@ -31,7 +31,7 @@
   &__icon {
     --icon-color: var(--c-white);
     --icon-size: 0.875rem;
-    svg {
+    .sf-icon-path {
       display: block;
     }
   }
