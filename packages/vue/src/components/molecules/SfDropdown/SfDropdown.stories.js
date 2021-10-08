@@ -7,12 +7,8 @@ export default {
     docs: {
       inlineStories: false,
       iframeHeight: "25em",
-      parameters: {
-        docs: {
-          description: {
-            component: "Dropdown component",
-          },
-        },
+      description: {
+        component: "Dropdown component",
       },
     },
   },

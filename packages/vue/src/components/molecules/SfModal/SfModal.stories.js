@@ -2,44 +2,78 @@ import { SfModal } from "@storefront-ui/vue";
 export default {
   title: "Components/Molecules/Modal",
   component: SfModal,
+  parameters: {
+    docs: {
+      inlineStories: false,
+      iframeHeight: "300px",
+      description: {
+        component:
+          "Modal component with overlay. Example usage can involve many cases like informative or decision dialogue.",
+      },
+    },
+  },
   argTypes: {
     title: {
       control: "text",
       table: {
         category: "Props",
       },
+      description: "Heading title of the modal",
     },
     visible: {
       control: "boolean",
       table: {
         category: "Props",
+        type: {
+          summary: "boolean",
+        },
+        defaultValue: {
+          summary: false,
+        },
       },
+      description: "Visibility of the modal",
     },
     overlay: {
       control: "boolean",
       table: {
         category: "Props",
       },
+      defaultValue: true,
+      description: "Whether to show the overlay",
     },
     cross: {
       control: "boolean",
       table: {
         category: "Props",
       },
+      defaultValue: true,
+      description: "Cross closing modal button",
     },
     persistent: {
       control: "boolean",
       table: {
         category: "Props",
       },
+      defaultValue: false,
+      description: "If true clicking outside will not dismiss the modal",
+    },
+    transitionOverlay: {
+      control: "text",
+      table: {
+        category: "Props",
+      },
+      defaultValue: "sf-fade",
+      description: "Overlay transition effect",
+    },
+    transitionModal: {
+      control: "text",
+      table: {
+        category: "Props",
+      },
+      defaultValue: "sf-fade",
+      description: "Modal transition effect",
     },
     close: { action: "Close modal clicked", table: { category: "Events" } },
-  },
-  parameters: {
-    docs: {
-      inlineStories: false,
-      iframeHeight: "300px",
-    },
   },
 };
 
