@@ -2,6 +2,13 @@ import { SfSearchBar } from "@storefront-ui/vue";
 export default {
   title: "Components/Molecules/SearchBar",
   component: SfSearchBar,
+  parameters: {
+    docs: {
+      description: {
+        component: "Search bar component with placeholder text and icon.",
+      },
+    },
+  },
   argTypes: {
     classes: {
       control: {
@@ -12,6 +19,10 @@ export default {
           "sf-search-bar--no-icon",
         ],
       },
+      table: {
+        category: "CSS Modifiers",
+      },
+      description: "CSS classes to modify component styling",
     },
     placeholder: {
       control: "text",
@@ -31,23 +42,38 @@ export default {
           summary: null,
         },
       },
+      defaultValue: null,
+      description: "Value that will be displayed in search bar",
+    },
+    icon: {
+      control: "object",
+      table: {
+        category: "Props",
+        type: {
+          summary: "object",
+        },
+        defaultValue: {
+          summary: null,
+        },
+      },
+      defaultValue: {
+        size: "",
+        color: "",
+      },
       description: "Value that will be displayed in search bar",
     },
     iconSize: {
       control: "text",
-      table: {
-        category: "Props",
-      },
       name: "icon.size",
-      description: "Define size of the search icon",
+      description:
+        "Define size of the search icon. Property in icon object prop (for testing purposes).Custom size of the icon. It can be our standard sizes, or `12px` or `1.2rem` or nothing. Standard sizes: `xxs`, `xs`, `sm`, `md`, `lg`, `xl`, `xxl`, `xl3`, `xl4`.",
+      defaultValue: "",
     },
     iconColor: {
       control: "color",
-      table: {
-        category: "Props",
-      },
       name: "icon.color",
-      description: "Define color of the search icon",
+      description:
+        "Define color of the search icon. Property in icon object prop (for testing purposes). Custom color of the icon. It can be according to our standard colors, or legitimate CSS color such as `#fff`, `rgb(255,255,255)`), and `lightgray` or nothing. Standard colors: `white`, `black`, `green-primary`, `green-secondary`, `gray-primary`, `gray-secondary`, `light-primary`, `light-secondary`, `pink-primary`, `pink-secondary`, `yellow-primary`, `yellow-secondary`, `blue-primary`, `blue-secondary`, `accent`.",
     },
     input: { action: "Input changed", table: { category: "Events" } },
     blur: { action: "Not focus anymore", table: { category: "Events" } },

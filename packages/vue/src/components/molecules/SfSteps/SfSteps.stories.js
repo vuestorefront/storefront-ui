@@ -2,6 +2,14 @@ import { SfSteps } from "@storefront-ui/vue";
 export default {
   title: "Components/Molecules/Steps",
   component: SfSteps,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "Stepper component increasing dynamically on click. Used to guide user through defined path.",
+      },
+    },
+  },
   argTypes: {
     canGoBack: {
       control: "boolean",
@@ -11,7 +19,8 @@ export default {
           summary: true,
         },
       },
-      description: "Disable clicking on  a past step",
+      defaultValue: true,
+      description: "Disable clicking on a past step",
     },
     active: {
       control: "number",
@@ -24,15 +33,31 @@ export default {
       },
       description: "Current active step",
     },
+    name: {
+      control: "text",
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: "",
+        },
+      },
+      defaultValue: "",
+      description: "Step's name",
+    },
     steps: {
       control: "array",
       table: {
-        category: "Props",
         defaultValue: {
           summary: "[]",
         },
       },
-      description: "Steps to display",
+      description:
+        "Steps to display (only for testing puropses). Add steps using SfStep component.",
+    },
+    "v-model": {
+      table: {
+        disable: true,
+      },
     },
     change: { action: "Step changed", table: { category: "Events" } },
   },

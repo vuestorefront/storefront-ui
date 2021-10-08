@@ -2,15 +2,27 @@ import { SfReview } from "@storefront-ui/vue";
 export default {
   title: "Components/Molecules/Review",
   component: SfReview,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "Customer review component with author, rating, date and review text.",
+      },
+    },
+  },
   argTypes: {
     author: {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: "string",
+        },
         defaultValue: {
           summary: "",
         },
       },
+      description: "Author of the review",
     },
     date: {
       control: "date",
@@ -25,6 +37,9 @@ export default {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: "string",
+        },
         defaultValue: {
           summary: "",
         },
@@ -47,6 +62,7 @@ export default {
           summary: 5,
         },
       },
+      defaultValue: 5,
     },
     charLimit: {
       control: "number",
@@ -56,6 +72,7 @@ export default {
           summary: 250,
         },
       },
+      defaultValue: 250,
     },
     readMoreText: {
       control: "text",
@@ -65,6 +82,7 @@ export default {
           summary: "Read more",
         },
       },
+      defaultValue: "",
     },
     hideFullText: {
       control: "text",
@@ -74,6 +92,7 @@ export default {
           summary: "Read less",
         },
       },
+      defaultValue: "",
     },
   },
 };

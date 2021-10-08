@@ -62,6 +62,11 @@ export default {
         category: "Props",
       },
     },
+    "v-model": {
+      table: {
+        disable: true,
+      },
+    },
   },
 };
 

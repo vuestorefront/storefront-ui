@@ -7,7 +7,7 @@ export default {
     docs: {
       description: {
         component:
-          "The Add-to-cart button and quantity input field with maximum stock validation."
+          "The Add-to-cart button and quantity input field with maximum stock validation.",
       },
     },
   },
@@ -24,7 +24,7 @@ export default {
       description: "Boolean to indicate whether product can be added to cart",
     },
     qty: {
-      control: "number",      
+      control: "number",
       table: {
         category: "Props",
         type: {
@@ -32,9 +32,14 @@ export default {
         },
         defaultValue: {
           summary: 1,
-        }
+        },
       },
-      description: "Selected quantity"
+      description: "Selected quantity",
+    },
+    "v-model": {
+      table: {
+        disable: true,
+      },
     },
     click: { action: "Added to cart clicked", table: { category: "Events" } },
     input: { action: "Quantity changed", table: { category: "Events" } },

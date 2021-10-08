@@ -12,6 +12,13 @@ const options = [
 export default {
   title: "Components/Molecules/Select",
   component: SfSelect,
+  parameters: {
+    docs: {
+      description: {
+        component: "Native select component.",
+      },
+    },
+  },
   argTypes: {
     classes: {
       control: {
@@ -24,11 +31,15 @@ export default {
           summary: "",
         },
       },
+      description: "CSS classes to modify component styling",
     },
     label: {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: "string",
+        },
         defaultValue: {
           summary: "",
         },
@@ -43,26 +54,35 @@ export default {
           summary: "",
         },
       },
+      defaultValue: "",
       description: "Value selected",
     },
     placeholder: {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: "string",
+        },
         defaultValue: {
           summary: "",
         },
       },
+      defaultValue: "",
       description: "Placeholder",
     },
     errorMessage: {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: "string",
+        },
         defaultValue: {
           summary: "This field is not correct.",
         },
       },
+      defaultValue: "This field is not correct.",
       description:
         "Error message value of form select. It will be appeared if `valid` is `true`.",
     },
@@ -74,6 +94,7 @@ export default {
           summary: false,
         },
       },
+      defaultValue: false,
       description: "Required field?",
     },
     disabled: {
@@ -84,6 +105,7 @@ export default {
           summary: false,
         },
       },
+      defaultValue: false,
       description: "Disabled status of form select",
     },
     valid: {
@@ -94,6 +116,7 @@ export default {
           summary: true,
         },
       },
+      defaultValue: true,
       description: "Validate value of form select",
     },
     input: { action: "Selected", table: { category: "Events" } },

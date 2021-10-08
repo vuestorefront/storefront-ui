@@ -73,6 +73,11 @@ export default {
       defaultValue: "sf-fade",
       description: "Modal transition effect",
     },
+    "v-model": {
+      table: {
+        disable: true,
+      },
+    },
     close: { action: "Close modal clicked", table: { category: "Events" } },
   },
 };

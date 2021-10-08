@@ -21,7 +21,7 @@ export default {
           "sf-chevron--right",
         ],
       },
-      description: "CSS modifiers",
+      description: "CSS classes to modify component styling",
       table: {
         category: "CSS Modifiers",
       },

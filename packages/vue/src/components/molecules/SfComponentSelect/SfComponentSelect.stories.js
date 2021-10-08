@@ -111,6 +111,11 @@ export default {
       defaultValue: false,
       description: "If true clicking outside will not dismiss the select",
     },
+    "v-model": {
+      table: {
+        disable: true,
+      },
+    },
   },
 };
 

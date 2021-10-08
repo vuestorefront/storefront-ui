@@ -3,18 +3,33 @@ import { SfTile } from "@storefront-ui/vue";
 export default {
   title: "Components/Molecules/Tile",
   component: SfTile,
+  parameters: {
+    docs: {
+      description: {
+        component: "Tile component with text and background-image",
+      },
+    },
+  },
   argTypes: {
     title: {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
+      description: "Tile title",
     },
     background: {
       control: "object",
       table: {
         category: "Props",
       },
+      description: "Tile background image",
     },
     link: {
       control: "text",
@@ -22,6 +37,7 @@ export default {
         category: "Props",
       },
     },
+    description: "Tile link",
   },
 };
 
