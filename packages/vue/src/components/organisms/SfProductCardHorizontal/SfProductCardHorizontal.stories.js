@@ -27,6 +27,14 @@ const selectOptions = {
 export default {
   title: "Components/Organisms/ProductCardHorizontal",
   component: SfProductCardHorizontal,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "Product card horizontal component with image, description, rating and add to cart button.",
+      },
+    },
+  },
   decorators: [
     () => ({
       template: `<div style="max-width: 1024px;"><story/></div>`,
@@ -37,67 +45,104 @@ export default {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
+      description: "Product title",
     },
     description: {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
+      description: "Product description",
     },
     image: {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: ["string", "array", "object"],
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
+      description: "Product image. It should be an url of the product",
     },
     imageWidth: {
       control: "number",
       table: {
         category: "Props",
       },
+      defaultValue: 140,
+      description: "Product image width, without unit",
     },
     imageHeight: {
       control: "number",
       table: {
         category: "Props",
       },
+      defaultValue: 200,
+      description: "Product image height, without unit",
     },
     link: {
       control: "text",
       table: {
         category: "Props",
       },
+      defaultValue: "",
+      description: "Link to product page",
     },
     scoreRating: {
       control: "number",
       table: {
         category: "Props",
       },
+      defaultValue: false,
+      description: "Product rating",
     },
     reviewsCount: {
       control: "number",
       table: {
         category: "Props",
       },
+      defaultValue: false,
+      description: "Product reviews count",
     },
     maxRating: {
       control: "number",
       table: {
         category: "Props",
       },
+      defaultValue: 5,
+      description: "Maximum product rating",
     },
     regularPrice: {
       control: "number",
       table: {
         category: "Props",
       },
+      defaultValue: "",
+      description: "Product regular price",
     },
     specialPrice: {
       control: "number",
       table: {
         category: "Props",
       },
+      defaultValue: "",
+      description: "Product special price",
     },
     wishlistIcon: {
       control: "text",
@@ -105,24 +150,25 @@ export default {
         category: "Props",
       },
       defaultValue: "heart",
+      description:
+        "Wish list icon. This is the default icon for product not yet added to wish list. It can be a icon name from our icons list, or array or string as SVG path(s).",
     },
     isInWishlistIcon: {
       control: "text",
       table: {
         category: "Props",
       },
+      defaultValue: "heart_fill",
+      description:
+        "Wish list icon for product which has been added to wish list. This is the icon for product added to wish list.Default visible on mobile.Visible only on hover on desktop. It can be a icon name from our icons list, or array or string as SVG path(s).",
     },
     isInWishlist: {
       control: "boolean",
       table: {
         category: "Props",
       },
-    },
-    showAddToCartButton: {
-      control: "boolean",
-      table: {
-        category: "Props",
-      },
+      defaultValue: false,
+      description: "Status of whether product is on wish list or not",
     },
     qty: {
       control: "number",
@@ -130,7 +176,17 @@ export default {
         category: "Props",
       },
       defaultValue: 1,
+      description: "Selected quantity",
     },
+    linkTag: {
+      control: "text",
+      table: {
+        category: "Props",
+      },
+      defaultValue: "",
+      description: "*Deprecated. Link element tag. Use slot to replace content",
+    },
+
     "click:addToCart": {
       action: "Add-to-cart clicked",
       table: { category: "Events" },
@@ -221,7 +277,6 @@ Common.args = {
   scoreRating: 4,
   maxRating: 5,
   reviewsCount: 7,
-  showAddToCartButton: true,
   image: "assets/storybook/SfProductCardHorizontal/productA.jpg",
 };
 

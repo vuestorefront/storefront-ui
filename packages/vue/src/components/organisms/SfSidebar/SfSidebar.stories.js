@@ -2,6 +2,18 @@ import { SfSidebar } from "@storefront-ui/vue";
 export default {
   title: "Components/Organisms/Sidebar",
   component: SfSidebar,
+  parameters: {
+    docs: {
+      description: {
+        component: "Sidebar component disabling on Cancel button click.",
+      },
+    },
+  },
+  decorators: [
+    () => ({
+      template: '<div style="height: 30em; z-index: -1;"><story /></div>',
+    }),
+  ],
   argTypes: {
     classes: {
       control: {
@@ -11,24 +23,30 @@ export default {
       table: {
         category: "CSS Modifiers",
       },
+      description: "CSS classes to modify component styling",
     },
     title: {
       control: "text",
       table: {
         category: "Props",
       },
+      description: "The sidebar's title",
     },
     subtitle: {
       control: "text",
       table: {
         category: "Props",
       },
+      defaultValue: "",
+      description: "The sidebar's subtitle",
     },
     headingLevel: {
       control: "number",
       table: {
         category: "Props",
       },
+      defaultValue: 3,
+      description: "The heading's level",
     },
     button: {
       control: "boolean",
@@ -36,18 +54,22 @@ export default {
         category: "Props",
       },
       defaultValue: true,
+      description: "The close button",
     },
     visible: {
       control: "boolean",
       table: {
         category: "Props",
       },
+      description: "The sidebar's visibility",
     },
     persistent: {
       control: "boolean",
       table: {
         category: "Props",
       },
+      defaultValue: false,
+      description: "If true clicking outside will not dismiss the sidebar",
     },
     overlay: {
       control: "boolean",
@@ -55,13 +77,9 @@ export default {
         category: "Props",
       },
       defaultValue: true,
+      description: "The overlay's visibility",
     },
     close: { action: "Close sidebar clicked", table: { category: "Events" } },
-  },
-  parameters: {
-    docs: {
-      inlineStories: false,
-    },
   },
 };
 

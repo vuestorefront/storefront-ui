@@ -3,6 +3,16 @@ import { SfOverlay } from "@storefront-ui/vue";
 export default {
   title: "Components/Atoms/Overlay",
   component: SfOverlay,
+  parameters: {
+    docs: {
+      inlineStories: false,
+      iframeHeight: "300px",
+      description: {
+        component:
+          "The fullscreen overlay, emitting click events. It's Vue 2 functional component.",
+      },
+    },
+  },
   argTypes: {
     transition: {
       control: {
@@ -27,16 +37,6 @@ export default {
       },
     },
     click: { action: "Overlay clicked!", table: { category: "Events" } },
-  },
-  parameters: {
-    docs: {
-      inlineStories: false,
-      iframeHeight: "300px",
-      description: {
-        component:
-          "The fullscreen overlay, emitting click events. It's Vue 2 functional component.",
-      },
-    },
   },
 };
 

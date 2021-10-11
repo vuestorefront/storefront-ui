@@ -1,13 +1,13 @@
 <template>
   <div class="sf-store">
-    <!-- @slot Use this slot to change distance element -->
+    <!-- @slot Use this slot to change distance element (in internal component) -->
     <slot name="distance">
       <div v-if="distance" class="sf-store__distance">
         <span>{{ distance }}km</span> away from you
       </div>
     </slot>
     <div :class="{ 'sf-store__media': picture }" @click="centerOn(latlng)">
-      <!-- @slot Use this slot to show media elements -->
+      <!-- @slot Use this slot to show media elements (in internal component) -->
       <slot name="media">
         <SfImage v-if="picture" :src="picture" :alt="`${name} picture`" />
         <SfIcon v-else icon="marker" class="sf-store__icon" />
@@ -15,14 +15,14 @@
     </div>
     <div class="sf-store__info">
       <div class="sf-store__heading">
-        <!-- @slot Use this slot to show heading -->
+        <!-- @slot Use this slot to show heading (in internal component) -->
         <slot name="heading">
           <div class="sf-store__name">
             {{ name }}
           </div>
         </slot>
       </div>
-      <!-- @slot This is the default slot of the component, placed on the right of the picture -->
+      <!-- @slot This is the default slot of the component, placed on the right of the picture (in internal component) -->
       <slot>
         <div v-if="address" class="sf-store__address">
           {{ address }}
@@ -88,42 +88,42 @@ export default {
   },
   props: {
     /**
-     * Name of the store
+     * Name of the store (for internal component)
      */
     latlng: {
       type: Array,
       default: () => [],
     },
     /**
-     * Name of the store
+     * Name of the store (for internal component)
      */
     name: {
       type: String,
       default: "",
     },
     /**
-     * Url of the picture of the store
+     * Url of the picture of the store (for internal component)
      */
     picture: {
       type: String,
       default: null,
     },
     /**
-     * Address of the store
+     * Address of the store (for internal component)
      */
     address: {
       type: String,
       default: "",
     },
     /**
-     * Phone number of the store
+     * Phone number of the store (for internal component)
      */
     phone: {
       type: String,
       default: null,
     },
     /**
-     * Email of the store
+     * Email of the store (for internal component)
      */
     email: {
       type: String,

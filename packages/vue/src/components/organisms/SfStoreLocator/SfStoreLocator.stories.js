@@ -1,8 +1,16 @@
 import { SfStoreLocator } from "@storefront-ui/vue";
+import SfStore from "./_internal/SfStore.vue";
 
 export default {
   title: "Components/Organisms/StoreLocator",
-  component: SfStoreLocator,
+  component: SfStore,
+  parameters: {
+    docs: {
+      description: {
+        component: "Component locating and marking on map using tile data.",
+      },
+    },
+  },
   decorators: [
     () => ({
       template: `<div style="max-width: 1024px;"><story/></div>`,
@@ -19,62 +27,141 @@ export default {
         },
       },
       table: {
-        category: "Props",
+        category: "Props for main component",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "string",
+        },
       },
+      description: "Url of selected tileserver",
     },
     tileServerAttribution: {
-      control: "string",
+      control: "text",
       table: {
-        category: "Props",
+        category: "Props for main component",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ",
+        },
       },
+      defaultValue: "Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ",
+      description: "Attribution line of selected tileserver",
     },
     center: {
       control: "array",
       table: {
-        category: "Props",
+        category: "Props for main component",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: [0, 0],
+        },
       },
+      description:
+        "Initial center of the map, overridden when the user position is captured, supports sync modifier",
     },
     zoom: {
       control: "number",
       table: {
-        category: "Props",
+        category: "Props for main component",
+        type: {
+          summary: "number",
+        },
+        defaultValue: {
+          summary: 6,
+        },
       },
+      defaultValue: 6,
+      description: "Initial zoom of the map",
     },
     maxZoom: {
       control: "number",
       table: {
-        category: "Props",
+        category: "Props for main component",
+        type: {
+          summary: "number",
+        },
+        defaultValue: {
+          summary: 16,
+        },
       },
+      defaultValue: 16,
+      description:
+        "Max zoom allowed, consider tileserver limitation when setting this",
     },
     markerIconSize: {
       control: "array",
       table: {
-        category: "Props",
+        category: "Props for main component",
+        type: {
+          summary: "array",
+        },
+        defaultValue: {
+          summary: [21, 28],
+        },
       },
+      description: "Size of the icon [width, height]",
     },
     markerIconAnchor: {
       control: "array",
       table: {
-        category: "Props",
+        category: "Props for main component",
+        type: {
+          summary: "array",
+        },
+        defaultValue: {
+          summary: [10.5, 0],
+        },
       },
+      defaultValue: [10.5, 0],
+      description: "Position of the anchor in the icon [x, y]",
     },
     mapOptions: {
       control: "object",
       table: {
-        category: "Props",
+        category: "Props for main component",
+        type: {
+          summary: "object",
+        },
+        defaultValue: {
+          summary: "{}",
+        },
       },
+      defaultValue: {},
+      description: "Options to pass to leaflet map",
     },
     tileLayerOptions: {
       control: "object",
       table: {
-        category: "Props",
+        category: "Props for main component",
+        type: {
+          summary: "object",
+        },
+        defaultValue: {
+          summary: "{}",
+        },
       },
+      defaultValue: {},
+      description: "Options to pass to leaflet tile-layer",
     },
     markerOptions: {
       control: "object",
       table: {
-        category: "Props",
+        category: "Props for main component",
+        type: {
+          summary: "object",
+        },
+        defaultValue: {
+          summary: "{}",
+        },
       },
+      defaultValue: {},
+      description: "Options to pass to leaflet marker",
     },
     flyToStoreZoom: {
       control: {
@@ -85,44 +172,16 @@ export default {
         },
       },
       table: {
-        category: "Props",
+        category: "Props for main component",
+        type: {
+          summary: "number",
+        },
+        defaultValue: {
+          summary: "15",
+        },
       },
-    },
-    latlng: {
-      control: "array",
-      table: {
-        category: "SfStore Props",
-      },
-    },
-    address: {
-      control: "string",
-      table: {
-        category: "SfStore Props",
-      },
-    },
-    phone: {
-      control: "string",
-      table: {
-        category: "SfStore Props",
-      },
-    },
-    email: {
-      control: "string",
-      table: {
-        category: "SfStore Props",
-      },
-    },
-    name: {
-      control: "string",
-      table: {
-        category: "SfStore Props",
-      },
-    },
-    picture: {
-      control: "string",
-      table: {
-        category: "SfStore Props",
-      },
+      defaultValue: 15,
+      description: "Zoom to be set when centering map on clicked store",
     },
     "update:zoom": {
       action: "Zoom value updated",
