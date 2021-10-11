@@ -1,0 +1,71 @@
+.sf-fade {
+  &-enter-active,
+  &-leave-active {
+    transition: opacity 0.25s linear;
+  }
+  &-enter,
+  &-leave,
+  &-leave-to {
+    opacity: 0;
+  }
+}
+
+.sf-collapse-bottom {
+  &-enter-active,
+  &-leave-active {
+    transition: transform 0.25s ease-in-out;
+    @include for-desktop {
+      transition: transform 0.35 ease-in-out;
+    }
+  }
+  &-enter,
+  &-leave-to {
+    transform: translate3d(0, 100%, 0);
+  }
+}
+.sf-collapse-top {
+  &-enter-active,
+  &-leave-active {
+    transition: transform 0.25s ease-in-out;
+    @include for-desktop {
+      transition: transform 0.35 ease-in-out;
+    }
+  }
+  &-enter,
+  &-leave-to {
+    transform: translate3d(0, -100%, 0);
+  }
+}
+.sf-slide-left {
+  &-enter-active,
+  &-leave-active {
+    transition: transform 0.4s ease;
+  }
+  &-enter,
+  &-leave-to {
+    transform: translate3d(-100%, 0, 0);
+    transition: transform 0.3s ease-in;
+  }
+}
+
+.sf-slide-right {
+  &-enter-active,
+  &-leave-active {
+    transition: transform 0.4s ease;
+  }
+  &-enter,
+  &-leave-to {
+    transform: translate3d(100%, 0, 0);
+    transition: transform 0.3s ease-in;
+
+  }
+}
+
+.sf-expand {
+  color: rebeccapurple!important;
+  &-enter-active,
+  &-leave-active {
+    transition: height 0.25s ease-in-out;
+    overflow: hidden;
+  }
+}

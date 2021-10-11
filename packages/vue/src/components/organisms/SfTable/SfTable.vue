@@ -18,7 +18,7 @@ export default {
   provide() {
     const table = {};
     Object.defineProperty(table, "updateColumnsCount", {
-      value: this.updateColumnsCount
+      value: this.updateColumnsCount,
     });
     return { table };
   },
@@ -28,8 +28,8 @@ export default {
         "--_table-column-width",
         Math.ceil(columnsCount / 2)
       );
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

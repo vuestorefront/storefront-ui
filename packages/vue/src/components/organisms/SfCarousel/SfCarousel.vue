@@ -1,11 +1,11 @@
 <template>
   <div class="sf-carousel">
-    <div class="sf-carousel__controls">
+    <div ref="controls" class="sf-carousel__controls">
       <!--@slot slot for icon moving to the previous item -->
       <slot name="prev" v-bind="{ go: () => go('prev') }">
         <SfArrow
           aria-label="previous"
-          class="sf-arrow--long"
+          data-testid="carousel-prev-button"
           @click="go('prev')"
         />
       </slot>
@@ -13,7 +13,8 @@
       <slot name="next" v-bind="{ go: () => go('next') }">
         <SfArrow
           aria-label="next"
-          class="sf-arrow--long sf-arrow--right"
+          class="sf-arrow--right"
+          data-testid="carousel-next-button"
           @click="go('next')"
         />
       </slot>
@@ -39,14 +40,14 @@ Vue.component("SfCarouselItem", SfCarouselItem);
 export default {
   name: "SfCarousel",
   components: {
-    SfArrow
+    SfArrow,
   },
   props: {
     /** Carousel options like glide.js (https://glidejs.com/docs/) */
     settings: {
       type: Object,
-      default: () => ({})
-    }
+      default: () => ({}),
+    },
   },
   data() {
     return {
@@ -62,11 +63,11 @@ export default {
             perView: 2,
             peek: {
               before: 0,
-              after: 50
-            }
-          }
-        }
-      }
+              after: 50,
+            },
+          },
+        },
+      },
     };
   },
   computed: {
@@ -78,21 +79,26 @@ export default {
       return {
         ...this.defaultSettings,
         ...this.settings,
-        breakpoints: breakpoints
+        breakpoints: breakpoints,
       };
-    }
+    },
   },
-  mounted: function() {
+  mounted: function () {
     this.$nextTick(() => {
       if (!this.$slots.default) return;
       const glide = new Glide(this.$refs.glide, this.mergedOptions);
+      const size = this.$slots.default.filter((slot) => slot.tag).length;
+      if (size <= glide.settings.perView) {
+        glide.settings.perView = size;
+        glide.settings.rewind = false;
+        this.$refs.controls.style.display = "none";
+      }
       glide.mount();
-      glide.on("run.before", move => {
+      glide.on("run.before", (move) => {
         const { slidePerPage, rewind, type } = this.mergedOptions;
         if (!slidePerPage) return;
         const { perView } = glide.settings;
         if (!perView > 1) return;
-        const size = this.$slots.default.filter(slot => slot.tag).length;
         const { direction } = move;
         let page, newIndex;
         switch (direction) {
@@ -132,8 +138,8 @@ export default {
           this.glide.go(">");
           break;
       }
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

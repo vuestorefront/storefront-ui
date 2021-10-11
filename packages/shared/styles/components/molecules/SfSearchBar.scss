@@ -23,16 +23,19 @@
 .sf-search-bar {
   box-sizing: border-box;
   position: relative;
-  display: flex;
+  display: var(--search-bar-display, flex);
   align-items: center;
   background: var(--search-bar-background);
+  padding: var(--search-bar-padding);
   width: var(--search-bar-width);
   height: var(--search-bar-height, 2rem);
-  &__icon {
-    --icon-size: 1.25rem;
+  &__button {
     position: absolute;
     bottom: var(--spacer-xs);
-    right: 0;
+    right: var(--search-bar-button-right, 0);
+  }
+  &__icon {
+    --icon-size: 1.25rem;
     display: var(--search-bar-icon-display, block);
   }
   &__input {
@@ -40,18 +43,17 @@
     flex-grow: 1;
     background: transparent;
     text-align: var(--search-bar-input-text-align);
-    outline: none;
     width: 100%;
     height: 100%;
     @include font(
       --search-bar-font,
-      var(--font-normal),
-      var(--font-sm),
+      var(--font-weight--normal),
+      var(--font-size--base),
       1.6,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
     @include border(
-      --seach-bar-border,
+      --search-bar-border,
       0 0 2px 0,
       solid,
       var(--c-dark-variant)
@@ -62,6 +64,7 @@
       font: inherit;
     }
     &:focus {
+      --search-bar-border-color: var(--c-primary);
       @include placeholder {
         color: var(--search-bar-placeholder-color-focus, transparent);
       }

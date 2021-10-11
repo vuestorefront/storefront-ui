@@ -1,81 +1,75 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import { storiesOf } from "@storybook/vue";
-import {
-  withKnobs,
-  text,
-  number,
-  optionsKnob as options
-} from "@storybook/addon-knobs";
-import SfSection from "./SfSection.vue";
-const StoriesPlaceholder = {
-  template: `<div style="display: flex; align-items:center; justify-content:center; height: 18.75rem; background-color: #f2f2f2;">
-    [#default slot content]
-  </div>`
+import { SfSection } from "@storefront-ui/vue";
+export default {
+  title: "Components/Molecules/Section",
+  component: SfSection,
+  argTypes: {
+    titleHeading: {
+      control: "text",
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: "",
+        },
+      },
+      description: "Heading title",
+    },
+    subtitleHeading: {
+      control: "text",
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: "",
+        },
+      },
+      description: "Heading subtitle",
+    },
+    levelHeading: {
+      control: "number",
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: 2,
+        },
+      },
+      description: "Heading tag level",
+    },
+  },
 };
-storiesOf("Molecules|Section", module)
-  .addDecorator(withKnobs)
-  .add("Common", () => ({
-    components: { SfSection, StoriesPlaceholder },
-    props: {
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-section--underline": "sf-section--underline"
-          },
-          "sf-section--underline",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        )
-      },
-      titleHeading: {
-        default: text("titleHeading", "Share your look", "Props")
-      },
-      subtitleHeading: {
-        default: text("subtitleHeading", "#YOURLOOK", "Props")
-      },
-      levelHeading: {
-        default: number("level-heading", 2, {}, "Props")
-      }
-    },
-    template: `<SfSection
-      :title-heading="titleHeading"
-      :subtitle-heading="subtitleHeading"
-      :level-heading="levelHeading">
-      <StoriesPlaceholder />
-    </SfSection>`
-  }))
-  .add("[slot] heading", () => ({
-    components: { SfSection, StoriesPlaceholder },
-    props: {
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-section--underline": "sf-section--underline"
-          },
-          "sf-section--underline",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        )
-      },
-      titleHeading: {
-        default: text("titleHeading", "Share your look", "Props")
-      },
-      subtitleHeading: {
-        default: text("subtitleHeading", "#YOURLOOK", "Props")
-      },
-      levelHeading: {
-        default: number("level-heading", 2, {}, "Props")
-      }
-    },
-    template: `<SfSection
-      :title-heading="titleHeading"
-      :subtitle-heading="subtitleHeading"
-      :level-heading="levelHeading">
-      <template #heading="{levelHeading, titleHeading, subtitleHeading}">
-        CUSTOM HEADING
-      </template>
-      <StoriesPlaceholder/>
-    </SfSection>`
-  }));
+
+const Template = (args, { argTypes }) => ({
+  components: { SfSection },
+  props: Object.keys(argTypes),
+  template: `
+  <SfSection
+    :title-heading="titleHeading"
+    :subtitle-heading="subtitleHeading"
+    :level-heading="levelHeading">
+      <div style="display: flex; align-items:center; justify-content:center; height: 18.75rem; background-color: #f2f2f2;">
+        [#default slot content]
+      </div>
+  </SfSection>`,
+});
+
+export const Common = Template.bind({});
+Common.args = {
+  titleHeading: "Share your look",
+  subtitleHeading: "#YOURLOOK",
+};
+
+export const UseHeadingSlot = (args, { argTypes }) => ({
+  components: { SfSection },
+  props: Object.keys(argTypes),
+  template: `
+  <SfSection
+    :title-heading="titleHeading"
+    :subtitle-heading="subtitleHeading"
+    :level-heading="levelHeading">
+    <template #heading="{levelHeading, titleHeading, subtitleHeading}">
+      CUSTOM HEADING
+    </template>
+    <div style="display: flex; align-items:center; justify-content:center; height: 18.75rem; background-color: #f2f2f2;">
+      [#default slot content]
+    </div>
+  </SfSection>`,
+});
+UseHeadingSlot.args = { ...Common.args };

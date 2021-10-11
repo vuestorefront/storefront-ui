@@ -1,107 +1,105 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import { storiesOf } from "@storybook/vue";
-import {
-  withKnobs,
-  text,
-  optionsKnob as options
-} from "@storybook/addon-knobs";
-import SfProperty from "./SfProperty.vue";
-import SfBadge from "../SfBadge/SfBadge.vue";
-storiesOf("Atoms|Property", module)
-  .addDecorator(withKnobs)
-  .add("Common", () => ({
-    components: { SfProperty },
-    props: {
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-property--full-width": "sf-property--full-width",
-            "sf-property--value-in-middle": "sf-property--value-in-middle",
-            "sf-property--large": "sf-property--large",
-            "sf-property--without-suffix": "sf-property--without-suffix"
-          },
+import { SfProperty, SfBadge } from "@storefront-ui/vue";
+
+export default {
+  title: "Components/Atoms/Property",
+  component: SfProperty,
+  argTypes: {
+    classes: {
+      control: {
+        type: "select",
+        options: [
           "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        )
+          "sf-property--full-width",
+          "sf-property--value-in-middle",
+          "sf-property--large",
+          "sf-property--without-suffix",
+        ],
       },
-      name: {
-        default: text("name", "Material", "Props")
+      table: {
+        category: "CSS Modifiers",
       },
-      value: {
-        default: text("value", "Cotton", "Props")
-      }
     },
-    template: `<SfProperty
-        :class="customClass"
-        :name="name"
-        :value="value" />`
-  }))
-  .add("[slot] name", () => ({
-    components: { SfProperty },
-    props: {
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-property--full-width": "sf-property--full-width",
-            "sf-property--value-in-middle": "sf-property--value-in-middle",
-            "sf-property--large": "sf-property--large"
-          },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        )
+    name: {
+      control: "text",
+      table: {
+        category: "Props",
       },
-      name: {
-        default: text("name", "Material", "Props")
-      },
-      value: {
-        default: text("value", "Cotton", "Props")
-      }
     },
-    template: `<SfProperty
-      :class="customClass"
-      :name="name"
-      :value="value">
-      <template #name="{name}">
-        {{name}}:<br>
-      </template>
-    </SfProperty>`
-  }))
-  .add("[slot] value", () => ({
-    components: {
-      SfProperty,
-      SfBadge
-    },
-    props: {
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-property--full-width": "sf-property--full-width",
-            "sf-property--value-in-middle": "sf-property--value-in-middle",
-            "sf-property--large": "sf-property--large"
-          },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        )
+    value: {
+      control: "text",
+      table: {
+        category: "Props",
       },
-      name: {
-        default: text("name", "Material", "Props")
-      },
-      value: {
-        default: text("value", "Cotton", "Props")
-      }
     },
-    template: `<SfProperty
-      :class="customClass"
-      :name="name"
-      :value="value">
-      <template #value="{value}">
-        <SfBadge>{{value}}</SfBadge>
-      </template>
-    </SfProperty>`
-  }));
+  },
+};
+
+const Template = (args, { argTypes }) => ({
+  components: { SfProperty },
+  props: Object.keys(argTypes),
+  template: `<SfProperty :class="classes" :name="name" :value="value" />`,
+});
+
+export const Common = Template.bind({});
+Common.args = {
+  name: "Material",
+  value: "Cotton",
+};
+
+export const FullWidth = Template.bind({});
+FullWidth.args = {
+  ...Common.args,
+  classes: "sf-property--full-width",
+};
+
+export const ValueInMiddle = Template.bind({});
+ValueInMiddle.args = {
+  ...Common.args,
+  classes: "sf-property--value-in-middle",
+};
+
+export const Large = Template.bind({});
+Large.args = {
+  ...Common.args,
+  classes: "sf-property--large",
+};
+
+export const WithouSuffix = Template.bind({});
+WithouSuffix.args = {
+  ...Common.args,
+  classes: "sf-property--without-suffix",
+};
+
+export const WithNameSlot = (args, { argTypes }) => ({
+  components: { SfProperty, SfBadge },
+  props: Object.keys(argTypes),
+  template: `
+  <SfProperty
+    :class="classes"
+    :name="name"
+    :value="value">
+    <template #name="{props}">
+      {{name}}:<br>
+    </template>
+  </SfProperty>`,
+});
+WithNameSlot.args = {
+  ...Common.args,
+};
+
+export const WithValueSlot = (args, { argTypes }) => ({
+  components: { SfProperty, SfBadge },
+  props: Object.keys(argTypes),
+  template: `
+  <SfProperty
+    :class="classes"
+    :name="name"
+    :value="value">
+    <template #value="{props}">
+      <SfBadge>{{value}}</SfBadge>
+    </template>
+  </SfProperty>`,
+});
+WithValueSlot.args = {
+  ...Common.args,
+};

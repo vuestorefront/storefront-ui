@@ -1,6 +1,10 @@
 <template>
-  <section class="sf-banner" :style="style" v-on="isMobile ? $listeners : {}">
-    <div class="sf-banner__container">
+  <section
+    class="sf-banner"
+    :style="style"
+    v-on="isMobileView ? $listeners : {}"
+  >
+    <component :is="wrapper" class="sf-banner__wrapper" :link="link">
       <slot name="subtitle" v-bind="{ subtitle }">
         <h2 v-if="subtitle" class="sf-banner__subtitle">
           {{ subtitle }}
@@ -18,26 +22,30 @@
       </slot>
       <slot name="call-to-action" v-bind="{ buttonText }">
         <SfButton
-          v-if="buttonText"
+          v-if="buttonText && !isMobileView"
+          :link="link"
           class="sf-banner__call-to-action color-secondary"
-          v-on="!isMobile ? $listeners : {}"
+          data-testid="banner-cta-button"
+          v-on="!isMobileView ? $listeners : {}"
         >
           {{ buttonText }}
         </SfButton>
       </slot>
-    </div>
+    </component>
   </section>
 </template>
 <script>
 import SfButton from "../../atoms/SfButton/SfButton.vue";
+import SfLink from "../../atoms/SfLink/SfLink.vue";
 import {
   mapMobileObserver,
-  unMapMobileObserver
+  unMapMobileObserver,
 } from "../../../utilities/mobile-observer";
 export default {
   name: "SfBanner",
   components: {
-    SfButton
+    SfButton,
+    SfLink,
   },
   props: {
     /**
@@ -45,34 +53,44 @@ export default {
      */
     title: {
       type: String,
-      default: ""
+      default: "",
     },
     /**
      * Banner subtitle (at the top)
      */
     subtitle: {
       type: String,
-      default: ""
+      default: "",
     },
     description: {
       type: String,
-      default: ""
+      default: "",
     },
     /** text that will be displayed inside the button. You can replace the button  with "call-to-action" slot */
     buttonText: {
       type: String,
-      default: ""
+      default: "",
+    },
+    /** link to be used in call to action button if necessary */
+    link: {
+      type: String,
+      default: "",
     },
     /** Background color in HEX (eg #FFFFFF) */
     background: {
       type: String,
-      default: ""
+      default: "",
     },
     /** Background image. Influenced by $banner-background-size, $banner-background-position CSS props. */
     image: {
       type: [String, Object],
-      default: ""
-    }
+      default: "",
+    },
+  },
+  data() {
+    return {
+      isMobileView: false,
+    };
   },
   computed: {
     ...mapMobileObserver(),
@@ -85,13 +103,19 @@ export default {
           : `url(${image})`,
         "--_banner-background-desktop-image":
           image.desktop && `url(${image.desktop})`,
-        "--_banner-background-color": background
+        "--_banner-background-color": background,
       };
-    }
+    },
+    wrapper() {
+      return !this.isMobileView ? "div" : this.link ? "SfLink" : "SfButton";
+    },
+  },
+  mounted() {
+    this.isMobileView = this.isMobile;
   },
   beforeDestroy() {
     unMapMobileObserver();
-  }
+  },
 };
 </script>
 <style lang="scss">

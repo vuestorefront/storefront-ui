@@ -1,135 +1,194 @@
 <template>
   <div
-    class="sf-image"
-    :class="{ 'sf-image--has-size': wrapper }"
-    :style="wrapper"
-    v-on="$listeners"
-    @mouseover="overlay = true"
-    @mouseleave="overlay = false"
+    class="sf-image--wrapper"
+    :style="imageStyle"
+    data-testid="image-wrapper"
   >
-    <template v-if="typeof source === 'string'">
+    <img
+      :loading="loading"
+      v-bind="$attrs"
+      :src="src"
+      :srcset="srcset"
+      :sizes="sizes"
+      :class="classes"
+      :width="width"
+      :height="height"
+      :alt="alt"
+      @load="onLoad"
+      v-on="$listeners"
+    />
+    <img
+      v-if="!loaded && placeholder"
+      class="sf-image--placeholder"
+      :src="placeholder"
+      :width="width"
+      :height="height"
+      alt="Placeholder"
+    />
+    <div v-if="$slots.default" class="sf-image--overlay">
+      <slot />
+    </div>
+    <noscript inline-template>
       <img
-        v-if="show"
-        ref="image"
-        :src="source"
+        :src="src"
         :alt="alt"
+        class="sf-image sf-image-loaded"
+        v-bind="$attrs"
         :width="width"
         :height="height"
       />
-    </template>
-    <template v-else>
-      <picture>
-        <source
-          :srcset="source.desktop.url"
-          :media="`(min-width: ${pictureBreakpoint}px)`"
-        />
-        <source
-          :srcset="source.mobile.url"
-          :media="`(max-width: ${pictureBreakpoint}px)`"
-        />
-        <img
-          v-if="show"
-          ref="image"
-          :src="source"
-          :alt="alt"
-          :width="width"
-          :height="height"
-        />
-      </picture>
-    </template>
-    <transition name="fade">
-      <div v-if="showOverlay" class="sf-image__overlay">
-        <slot />
-      </div>
-    </transition>
+    </noscript>
   </div>
 </template>
 <script>
-import lozad from "lozad";
+import imagePlaceholder from "../../../../public/assets/storybook/SfImage/placeholder.svg";
 export default {
   name: "SfImage",
   props: {
+    /**
+     * Main source url for the image
+     */
     src: {
-      type: [String, Object],
-      default: () => ({ mobile: { url: "" }, desktop: { url: "" } })
+      type: String,
+      required: true,
     },
+    /**
+     * Array of images' source, dimension and breakpoints to generate srcset attribute
+     */
+    srcsets: {
+      type: Array,
+      default: () => [],
+      validator: (value) =>
+        value.length === 0 ||
+        value.every((item) => item.resolution && item.src) ||
+        value.every((item) => item.src && item.width),
+    },
+    /**
+     * Alternative text in case image is not loaded. Use empty string " " for decorative-only image and full text otherwise
+     */
     alt: {
       type: String,
-      default: ""
+      required: true,
     },
+    /**
+     * Width of the image
+     */
     width: {
       type: [String, Number],
-      default: undefined
+      default: "",
     },
+    /**
+     * Height of the image
+     */
     height: {
       type: [String, Number],
-      default: undefined
+      default: "",
     },
-    lazy: {
-      type: Boolean,
-      default: true
+    /**
+     * Url source of the image's placeholder while it is loading.
+     */
+    placeholder: {
+      type: String,
+      default: imagePlaceholder,
     },
-    pictureBreakpoint: {
-      type: Number,
-      default: 1024
-    }
+    /**
+     * Native loading attribute supported, either "eager", "lazy" or none.
+     */
+    loading: {
+      type: String,
+      default: "lazy",
+      validator: (value) => ["", "lazy", "eager"].includes(value),
+    },
   },
   data() {
     return {
-      show: false,
-      overlay: false
+      loaded: false,
     };
   },
   computed: {
-    source() {
-      let src = this.src || "";
-      if (typeof src === "object") {
-        if (!src.desktop || !src.mobile) {
-          const object = src.desktop || src.mobile || { url: "" };
-          src = object.url;
-        }
-      }
-      return src;
-    },
-    showOverlay() {
-      return this.$slots.default && this.overlay;
-    },
-    wrapper() {
-      return (
-        this.width &&
-        this.height &&
-        `--_image-width: ${this.width}; --_image-height: ${this.height}`
+    sortedSrcsets() {
+      const arr = [...this.srcsets];
+
+      arr.sort((setA, setB) =>
+        setA.width && setB.width
+          ? Number.parseInt(setA.width) - Number.parseInt(setB.width)
+          : Number.parseInt(setA.resolution) - Number.parseInt(setB.resolution)
       );
-    }
-  },
-  watch: {
-    lazy: {
-      handler(value) {
-        this.show = !value;
-      },
-      immediate: true
-    }
-  },
-  mounted() {
-    if (!this.lazy) {
-      this.show = true;
-      return;
-    }
-    this.lozad();
+      return arr;
+    },
+    srcset() {
+      return this.sortedSrcsets.reduce(
+        (str, set) =>
+          `${this.prefix(str)}${set.src} ${this.srcsetDescriptor(set)}`,
+        ""
+      );
+    },
+    sizes() {
+      const hasBreakpoints = this.sortedSrcsets.every(
+        (set) => set.breakpoint && set.width
+      );
+
+      if (!hasBreakpoints) return null;
+
+      return this.sortedSrcsets.reduce(
+        (str, set) =>
+          `${this.prefix(str)}${this.formatBreakpoint(
+            set.breakpoint
+          )}${this.formatDimension(set.width)}`,
+        ""
+      );
+    },
+    classes() {
+      if (this.loaded) {
+        return "sf-image sf-image-loaded";
+      } else {
+        return "sf-image";
+      }
+    },
+    imageStyle() {
+      return {
+        "--image-width":
+          typeof this.width === "string"
+            ? this.formatDimension(this.width)
+            : `${this.width}px`,
+        "--image-height":
+          typeof this.height === "string"
+            ? this.formatDimension(this.height)
+            : `${this.height}px`,
+      };
+    },
   },
   methods: {
-    lozad() {
-      const vm = this;
-      this.$nextTick(() => {
-        const observer = lozad(vm.$el, {
-          load() {
-            vm.show = true;
-          }
-        });
-        observer.observe();
-      });
-    }
-  }
+    onLoad() {
+      this.loaded = true;
+    },
+    formatResolution(resolution) {
+      return ("" + resolution).endsWith("x") ? resolution : `${resolution}x`;
+    },
+    formatDimension(size) {
+      if (
+        ["%"].includes(`${size}`.slice(-1)) ||
+        ["rem"].includes(`${size}`.slice(-3)) ||
+        ["em", "px", "vw", "vh"].includes(`${size}`.slice(-2)) ||
+        !parseInt(size, 10)
+      ) {
+        return size;
+      } else {
+        return `${size}px`;
+      }
+    },
+    formatBreakpoint(breakpoint) {
+      return breakpoint ? `(max-width: ${breakpoint}px) ` : "";
+    },
+    prefix(str) {
+      return str ? `${str}, ` : "";
+    },
+    srcsetDescriptor(srcset) {
+      return srcset.width
+        ? `${Number.parseInt(srcset.width) || ""}w`
+        : this.formatResolution(srcset.resolution);
+    },
+  },
 };
 </script>
 <style lang="scss">

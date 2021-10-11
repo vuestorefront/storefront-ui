@@ -1,52 +1,36 @@
 @import "../../helpers";
 .sf-pagination {
-  &__list {
-    display: flex;
-    align-items: center;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
+  display: flex;
+  align-items: center;
   &__item {
-    display: flex;
-    align-items: center;
+    --link-text-decoration: none;
+    color: var(--pagination-item-color, var(--c-gray-variant));
+    width: var(--pagination-item-width);
+    height: var(--pagination-item-height);
     margin: var(--pagination-item-margin, 0 var(--spacer-2xs));
-    color: var(--pagination-item-color, var(--c-text-muted));
-  }
-  &__button {
-    padding: var(--pagination-button-padding, 0);
-    margin: var(--pagination-button-margin);
-    background-color: transparent;
-    color: var(--pagination-button-color, var(--text-muted));
     @include font(
       --pagination-font,
-      var(--font-normal),
-      var(--font-lg),
+      var(--font-weight--medium),
+      var(--font-size--lg),
       1.4,
-      var(--font-family-secondary)
-    );
-    @include border(--pagination-button-border, 0 0 1px 0, solid, transparent);
-    outline: none;
-    opacity: var(--pagination-button-opacity);
-    transition: var(
-      --pagination-button-transition,
-      color 150ms ease-in-out,
-      border-color 150ms ease-in-out
-    );
-    cursor: var(--pagination-button-cursor, pointer);
-    &--prev {
-      --pagination-button-margin: 0 var(--spacer-lg) 0 0;
+      var(--font-family--secondary)
+    );  
+    &.prev, &--next {
+      --pagination-item-width: 1.125rem;
+      --pagination-item-height: 1.125rem;
     }
-    &--next {
-      --pagination-button-margin: 0 0 0 var(--spacer-lg);
+    &.prev {
+      --pagination-item-margin: 0 var(--spacer-base) 0 0;
     }
-    &--current {
-      --pagination-button-color: var(--c-text);
-      --pagination-button-border-color: var(--c-text);
+    &.next {
+      --pagination-item-margin: 0 0 0 var(--spacer-base);
     }
-    &:disabled {
-      --pagination-button-opacity: 0.7;
-      --pagination-button-cursor: default;
+    &.current {
+      --pagination-item-color: var(--c-text);
+      cursor: default;
+    }
+    &:hover {
+      --pagination-item-color: var(--c-primary);
     }
   }
   @include for-desktop {

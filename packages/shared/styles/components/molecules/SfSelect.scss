@@ -1,184 +1,110 @@
 @import "../../helpers";
-.sf-select-option {
-  display: block;
-  box-sizing: border-box;
-  padding: var(--select-option-padding, var(--spacer-sm));
-  @include border(--select-option-border, 1px 0 0 0, solid, var(--c-light));
-  background: var(--select-option-background);
-  color: inherit;
-  @include font(
-    --select-option-font,
-    var(--font-light),
-    var(--font-sm),
-    1.2,
-    var(--font-family-primary)
-  );
-  &--is-active {
-    --select-option-background: var(--c-light);
-  }
-  @include for-desktop {
-    --select-option-padding: var(--spacer-xs);
-    &:hover {
-      --select-option-background: rgba(var(--c-gray-base), 0.1);
-    }
-  }
-}
 .sf-select {
   position: relative;
   box-sizing: border-box;
   width: var(--select-width);
-  height: var(--select-height);
-  padding: var(--select-padding, 0 0 calc(var(--font-xs) * 1.2) 0);
+  height: var(--select-height, 4.25rem);
+  padding: var(--select-padding, var(--spacer-sm) 0 var(--spacer-sm) 0);
   color: var(--select-color, var(--c-text));
   cursor: default;
-  outline: none;
   &__label {
     position: absolute;
-    top: var(--select-label-top, 50%);
-    left: var(--select-label-left, var(--spacer-2xs));
-    color: var(--select-label-color, inherit);
-    transform: var(
-      --select-label-transform,
-      translate3d(0, calc(var(--select-label-top, 50%) * -1), 0)
-    );
+    top: var(--select-label-top, 30%);
+    left: var(--select-label-left, 0);
+    padding: 0 0 0 4px;
+    height: 0.625rem;
+    color: var(--select-label-color, var(--c-secondary-variant));
     transition: var(
       --select-label-transition,
       top 150ms linear,
       font-size 150ms linear
     );
+    pointer-events: none;
     @include font(
       --select-label-font,
-      var(--font-normal),
-      var(--font-lg),
+      var(--font-weight--normal),
+      var(--font-size--base),
       1,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
     &::after {
       content: var(--select-label-required);
       color: var(--select-label-color, var(--c-primary));
     }
   }
-  &__chevron {
-    position: absolute;
-    right: var(--spacer-xs);
-    top: 50%;
-    transform: translate3d(0, -50%, 0);
-  }
-  &__selected {
-    --product-option-font-size: var(--font-lg);
-    --select-option-font-size: var(--font-lg);
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    min-height: var(
-      --select-height,
-      calc(
-        calc(
-          var(--spacer-base) + var(--spacer-2xs) +
-          var(--select-label-font-size, var(--font-lg))
-        )
-      )
-    );
-    padding: var(
-      --select-padding,
-      var(--spacer-sm) var(--spacer-lg) var(--spacer-xs) var(--spacer-2xs)
-    );
-    margin: var(--select-margin, 0 0 var(--spacer-xs) 0);
-    background: var(--select-background);
-    color: var(--select-color, var(--c-text));
-    @include border(--select-border, 0, solid, transparent);
-  }
   &__dropdown {
-    box-sizing: border-box;
-    position: var(--select-dropdown-position, fixed);
-    top: var(--select-dropdown-top, auto);
-    left: 0;
-    bottom: var(--select-dropdown-bottom, 0);
-    z-index: var(--select-dropdown-z-index, 1);
     width: 100%;
-    background: var(--select-dropdown-background, var(--c-white));
-    box-shadow: var(
-      --select-dropdown-box-shadow,
-      0 4px 11px rgba(var(--c-dark-base), 0.1)
+    height: 1.625rem;
+    margin: 0 0 var(--spacer-2xs) 0;
+    overflow-y: scroll;
+    box-shadow: none;
+    color: var(--select-dropdown-color, var(--c-secondary-variant));
+    background: var(--c-white);
+    @include border(
+      --select-dropdown-border,
+      0 0 0 0,
+      solid,
+      var(--c-secondary)
+    );    
+  }
+  &__option {
+    background: var(--select-option-background, var(--c-white));
+    @include font(
+      --select-option-font,
+      var(--font-weight--normal),
+      var(--font-size--base),
+      1,
+      var(--font-family--secondary)
     );
   }
-  &__options {
-    overflow: auto;
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    &::-webkit-scrollbar {
-      width: 0;
-    }
+  .sf-select__dropdown:active {
+    --select-label-color: var(--c-text-muted);
+    --select-dropdown-border-color: var(--c-primary);
+    --select-dropdown-color: var(--c-link);
+  }
+  &__label .sf-select__dropdown:active {
+    top: 0;
+  }
+  &::-ms-expand {
+    display: none;
   }
   &__error-message {
-    --select-border-color: var(--c-danger);
     color: var(--select-error-message-color, var(--c-danger));
-    height: calc(var(--font-xs) * 1.2);
+    min-height: var(
+      --select-error-message-height,
+      calc(var(--font-size--xs) * 1.2)
+    );
     @include font(
       --input-error-message-font,
-      var(--font-medium),
-      var(--font-xs),
+      var(--font-weight--medium),
+      var(--font-size--xs),
       1.2,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
   }
-  &__cancel {
-    --button-background: var(--c-light);
-    --button-color: var(--c-dark-variant);
-    &:hover {
-      --button-background: var(--c-light);
-    }
-  }
   &--underlined {
+    --select-dropdown-border-width: 0 0 1px 0;
     --select-border-width: 0 0 1px 0;
     --select-border-color: var(--c-light);
   }
-  &--is-selected {
+  &.is-selected {
     --select-label-top: 0;
-    --select-label-font-size: var(--font-2xs);
+    --select-label-font-size: var(--font-size--xs);
+    --select-dropdown-color: var(--c-secondary-variant);
   }
-  &--is-active {
-    --chevron-color: var(--c-primary);
-    --select-label-color: var(--c-text-muted);
-    --select-border-color: var(--c-primary);
+  &.is-invalid {
+    --select-dropdown-border-color: var(--c-danger);
   }
-  &--is-disabled {
-    --chevron-color: var(--c-text-disabled);
-    --select-color: var(--c-text-disabled);
-    --select-border-color: var(--c-text-disabled);
+  &.is-disabled, select[disabled] {
+    --select-dropdown-color: var(--c-text-disabled);
+    --select-dropdown-border-color: var(--c-text-disabled);
     --select-label-color: var(--c-text-disabled);
+    color: var(--c-text-disabled);
+    .sf-select__dropdown:active {
+      --select-dropdown-border-color: var(--c-text-disabled);
+    }
   }
-  &--is-required {
+  &.is-required {
     --select-label-required: " *";
-  }
-  &-enter-active {
-    animation: var(--select-animation-enter, ssmobile 150ms);
-  }
-  &-leave-active {
-    animation: var(--select-animation-leave, ssmobile 150ms reverse);
-  }
-  @include for-desktop {
-    --select-dropdown-position: absolute;
-    --select-dropdown-top: 100%;
-    --select-dropdown-bottom: auto;
-    --select-animation-enter: ssdesktop 150ms;
-    --select-animation-leave: ssdesktop 150ms reverse;
-  }
-}
-@keyframes ssdesktop {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@keyframes ssmobile {
-  0% {
-    transform: translate(0, 100%);
-  }
-  100% {
-    transform: translate(0, 0);
   }
 }

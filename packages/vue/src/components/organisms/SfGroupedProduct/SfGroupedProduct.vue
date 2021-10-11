@@ -4,14 +4,14 @@
     class="sf-grouped-product"
     :class="{
       glide: hasCarousel,
-      'sf-grouped-product--without-carousel': !hasCarousel
+      'without-carousel': !hasCarousel,
     }"
   >
     <div :class="{ glide__track: true }" data-glide-el="track">
       <ul
         ref="slides"
         :class="{
-          glide__slides: true
+          glide__slides: true,
         }"
       >
         <!-- @slot Slot for Grouped Product Items -->
@@ -30,12 +30,12 @@ export default {
   props: {
     settings: {
       type: Object,
-      default: () => ({})
+      default: () => ({}),
     },
     hasCarousel: {
       type: Boolean,
-      default: true
-    }
+      default: true,
+    },
   },
   data() {
     return {
@@ -50,11 +50,11 @@ export default {
             perView: 2,
             peek: {
               before: 0,
-              after: 50
-            }
-          }
-        }
-      }
+              after: 50,
+            },
+          },
+        },
+      },
     };
   },
   computed: {
@@ -66,9 +66,9 @@ export default {
       return {
         ...this.defaultSettings,
         ...this.settings,
-        breakpoints
+        breakpoints,
       };
-    }
+    },
   },
   watch: {
     hasCarousel(state) {
@@ -77,7 +77,7 @@ export default {
         this.glide = undefined;
       }
       this.glideMount();
-    }
+    },
   },
   mounted() {
     this.$nextTick(this.glideMount);
@@ -87,7 +87,7 @@ export default {
       if (!this.$slots.default || !this.hasCarousel) return;
       const glide = new Glide(this.$refs.glide, this.glideSettings);
       glide.mount();
-      glide.on("run.before", move => {
+      glide.on("run.before", (move) => {
         const { perView, slidePerPage, rewind } = this.glide.settings,
           { index } = this.glide,
           { direction } = move,
@@ -107,8 +107,8 @@ export default {
         move.steps = steps;
       });
       this.glide = glide;
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

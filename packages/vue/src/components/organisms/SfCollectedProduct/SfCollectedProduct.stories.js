@@ -1,508 +1,257 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import { storiesOf } from "@storybook/vue";
-import {
-  withKnobs,
-  object,
-  text,
-  number,
-  optionsKnob as options
-} from "@storybook/addon-knobs";
-import SfButton from "../../atoms/SfButton/SfButton.vue";
-import SfCollectedProduct from "./SfCollectedProduct.vue";
-import SfProperty from "../../atoms/SfProperty/SfProperty.vue";
-storiesOf("Organisms|CollectedProduct", module)
-  .addDecorator(withKnobs)
-  .add("Common", () => ({
-    components: { SfCollectedProduct, SfProperty, SfButton },
-    props: {
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-collected-product--detailed": "sf-collected-product--detailed"
-          },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        )
+import { SfCollectedProduct, SfButton } from "@storefront-ui/vue";
+export default {
+  title: "Components/Organisms/CollectedProduct",
+  component: SfCollectedProduct,
+  argTypes: {
+    classes: {
+      control: {
+        type: "select",
+        options: ["sf-collected-product--detailed", ""],
       },
-      image: {
-        default: object(
-          "image",
-          {
-            mobile: { url: "/assets/storybook/Home/productB.jpg" },
-            desktop: { url: "/assets/storybook/Home/productB.jpg" }
-          },
-          "Props"
-        )
+      table: {
+        category: "CSS Modifiers",
       },
-      imageWidth: {
-        default: number("imageWidth", 140, {}, "Props")
-      },
-      imageHeight: {
-        default: number("imageHeight", 200, {}, "Props")
-      },
-      title: {
-        default: text("title", "Cotton Sweater", "Props")
-      },
-      regularPrice: {
-        default: text("regularPrice", "$10,99", "Props")
-      },
-      specialPrice: {
-        default: text("specialPrice", "$5,09", "Props")
-      }
     },
-    data() {
-      return {
-        productQty: 1
-      };
+    image: {
+      control: "text",
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: "",
+        },
+      },
     },
-    template: `<SfCollectedProduct
-        :qty="productQty"
-        :class="customClass"
-        @input="productQty = $event"
-        :image="image"
-        :image-width="imageWidth"
-        :image-height="imageHeight"
-        :title="title"
-        :regular-price="regularPrice"
-        :special-price="specialPrice"
-    >
-      <template #configuration>
-        <div :style="{margin: '1rem 0 0 0'}">
-          <SfProperty name="Size" value="XS"/>
-          <SfProperty name="Color" value="white"/>
-        </div>
-      </template>
-      <template #actions>
-          <SfButton class="sf-button--text desktop-only">Save for later</SfButton>
-      </template>
-    </SfCollectedProduct>`
-  }))
-  .add("[slot] actions", () => ({
-    components: { SfCollectedProduct, SfProperty },
-    props: {
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-collected-product--detailed": "sf-collected-product--detailed"
-          },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        )
+    imageWidth: {
+      control: "number",
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: 140,
+        },
       },
-      image: {
-        default: object(
-          "image",
-          {
-            mobile: { url: "/assets/storybook/Home/productB.jpg" },
-            desktop: { url: "/assets/storybook/Home/productB.jpg" }
-          },
-          "Props"
-        )
-      },
-      imageWidth: {
-        default: number("imageWidth", 140, {}, "Props")
-      },
-      imageHeight: {
-        default: number("imageHeight", 200, {}, "Props")
-      },
-      title: {
-        default: text("title", "Cotton Sweater", "Props")
-      },
-      regularPrice: {
-        default: text("regularPrice", "$10,99", "Props")
-      },
-      specialPrice: {
-        default: text("specialPrice", "$5,09", "Props")
-      }
     },
-    data() {
-      return {
-        productQty: 1
-      };
+    imageHeight: {
+      control: "number",
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: 200,
+        },
+      },
     },
-    template: `<SfCollectedProduct
-        :qty="productQty"
-        :class="customClass"
-        @input="productQty = $event"
-        :image="image"
-        :image-width="imageWidth"
-        :image-height="imageHeight"
-        :title="title"
-        :regular-price="regularPrice"
-        :special-price="specialPrice"
-    >
-      <template #actions>
-          CUSTOM ACTIONS
-      </template>
-    </SfCollectedProduct>`
-  }))
-  .add("[slot] configuration", () => ({
-    components: { SfCollectedProduct, SfProperty },
-    props: {
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-collected-product--detailed": "sf-collected-product--detailed"
-          },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        )
+    title: {
+      control: "text",
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: "",
+        },
       },
-      image: {
-        default: object(
-          "image",
-          {
-            mobile: { url: "/assets/storybook/Home/productB.jpg" },
-            desktop: { url: "/assets/storybook/Home/productB.jpg" }
-          },
-          "Props"
-        )
-      },
-      imageWidth: {
-        default: number("imageWidth", 140, {}, "Props")
-      },
-      imageHeight: {
-        default: number("imageHeight", 200, {}, "Props")
-      },
-      title: {
-        default: text("title", "Cotton Sweater", "Props")
-      },
-      regularPrice: {
-        default: text("regularPrice", "$10,99", "Props")
-      },
-      specialPrice: {
-        default: text("specialPrice", "$5,09", "Props")
-      }
     },
-    data() {
-      return {
-        productQty: 1
-      };
+    regularPrice: {
+      control: "string",
+      table: {
+        category: "Props",
+      },
     },
-    template: `<SfCollectedProduct
-        :qty="productQty"
-        :class="customClass"
-        @input="productQty = $event"
-        :image="image"
-        :image-width="imageWidth"
-        :image-height="imageHeight"
-        :title="title"
-        :regular-price="regularPrice"
-        :special-price="specialPrice"
-    >
-      <template #configuration>
-        CUSTOM CONFIGURATION
-      </template>
-    </SfCollectedProduct>`
-  }))
-  .add("[slot] remove", () => ({
-    components: { SfCollectedProduct, SfProperty },
-    props: {
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-collected-product--detailed": "sf-collected-product--detailed"
-          },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        )
+    specialPrice: {
+      control: "string",
+      table: {
+        category: "Props",
       },
-      image: {
-        default: object(
-          "image",
-          {
-            mobile: { url: "/assets/storybook/Home/productB.jpg" },
-            desktop: { url: "/assets/storybook/Home/productB.jpg" }
-          },
-          "Props"
-        )
-      },
-      imageWidth: {
-        default: number("imageWidth", 140, {}, "Props")
-      },
-      imageHeight: {
-        default: number("imageHeight", 200, {}, "Props")
-      },
-      title: {
-        default: text("title", "Cotton Sweater", "Props")
-      },
-      regularPrice: {
-        default: text("regularPrice", "$10,99", "Props")
-      },
-      specialPrice: {
-        default: text("specialPrice", "$5,09", "Props")
-      }
     },
-    data() {
-      return {
-        productQty: 1
-      };
+    qty: {
+      control: "number",
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: 1,
+        },
+      },
     },
-    template: `<SfCollectedProduct
-        :qty="productQty"
-        :class="customClass"
-        @input="productQty = $event"
-        :image="image"
-        :image-width="imageWidth"
-        :image-height="imageHeight"
-        :title="title"
-        :regular-price="regularPrice"
-        :special-price="specialPrice"
-    >
-      <template #remove="{ removeHandler }">
-        <button @click="removeHandler">CUSTOM REMOVE</button>
-      </template>
-    </SfCollectedProduct>`
-  }))
-  .add("[slot] image", () => ({
-    components: { SfCollectedProduct, SfProperty },
-    props: {
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-collected-product--detailed": "sf-collected-product--detailed"
-          },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        )
+    link: {
+      control: "text",
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: "",
+        },
       },
-      image: {
-        default: object(
-          "image",
-          {
-            mobile: { url: "/assets/storybook/Home/productB.jpg" },
-            desktop: { url: "/assets/storybook/Home/productB.jpg" }
-          },
-          "Props"
-        )
-      },
-      imageWidth: {
-        default: number("imageWidth", 140, {}, "Props")
-      },
-      imageHeight: {
-        default: number("imageHeight", 200, {}, "Props")
-      },
-      title: {
-        default: text("title", "Cotton Sweater", "Props")
-      },
-      regularPrice: {
-        default: text("regularPrice", "$10,99", "Props")
-      },
-      specialPrice: {
-        default: text("specialPrice", "$5,09", "Props")
-      }
     },
-    data() {
-      return {
-        productQty: 1
-      };
+    input: { action: "Quantity changed", table: { category: "Events" } },
+    "click:remove": {
+      action: "Remove product clicked",
+      table: { category: "Events" },
     },
-    template: `<SfCollectedProduct
-        :qty="productQty"
-        :class="customClass"
-        @input="productQty = $event"
-        :image="image"
-        :image-width="imageWidth"
-        :image-height="imageHeight"
-        :title="title"
-        :regular-price="regularPrice"
-        :special-price="specialPrice"
-    >
-      <template #image="{ image, title }">
-        CUSTOM IMAGE
-      </template>
-    </SfCollectedProduct>`
-  }))
-  .add("[slot] input", () => ({
-    components: { SfCollectedProduct, SfProperty },
-    props: {
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-collected-product--detailed": "sf-collected-product--detailed"
-          },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        )
-      },
-      image: {
-        default: object(
-          "image",
-          {
-            mobile: { url: "/assets/storybook/Home/productB.jpg" },
-            desktop: { url: "/assets/storybook/Home/productB.jpg" }
-          },
-          "Props"
-        )
-      },
-      imageWidth: {
-        default: number("imageWidth", 140, {}, "Props")
-      },
-      imageHeight: {
-        default: number("imageHeight", 200, {}, "Props")
-      },
-      title: {
-        default: text("title", "Cotton Sweater", "Props")
-      },
-      regularPrice: {
-        default: text("regularPrice", "$10,99", "Props")
-      },
-      specialPrice: {
-        default: text("specialPrice", "$5,09", "Props")
-      }
-    },
-    data() {
-      return {
-        productQty: 1
-      };
-    },
-    template: `<SfCollectedProduct
-        :class="customClass"
-        :qty="productQty"
-        @input="productQty = $event"
-        :image="image"
-        :image-width="imageWidth"
-        :image-height="imageHeight"
-        :title="title"
-        :regular-price="regularPrice"
-        :special-price="specialPrice"
-    >
-      <template #input="{ image, title }">
-        CUSTOM INPUT
-      </template>
-    </SfCollectedProduct>`
-  }))
-  .add("[slot] title", () => ({
-    components: { SfCollectedProduct, SfProperty },
-    props: {
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-collected-product--detailed": "sf-collected-product--detailed"
-          },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        )
-      },
-      image: {
-        default: object(
-          "image",
-          {
-            mobile: { url: "/assets/storybook/Home/productB.jpg" },
-            desktop: { url: "/assets/storybook/Home/productB.jpg" }
-          },
-          "Props"
-        )
-      },
-      imageWidth: {
-        default: number("imageWidth", 140, {}, "Props")
-      },
-      imageHeight: {
-        default: number("imageHeight", 200, {}, "Props")
-      },
-      title: {
-        default: text("title", "Cotton Sweater", "Props")
-      },
-      regularPrice: {
-        default: text("regularPrice", "$10,99", "Props")
-      },
-      specialPrice: {
-        default: text("specialPrice", "$5,09", "Props")
-      }
-    },
-    data() {
-      return {
-        productQty: 1
-      };
-    },
-    template: `<SfCollectedProduct
-        :class="customClass"
-        :qty="productQty"
-        @input="productQty = $event"
-        :image="image"
-        :image-width="imageWidth"
-        :image-height="imageHeight"
-        :title="title"
-        :regular-price="regularPrice"
-        :special-price="specialPrice"
-    >
-      <template #title="{ title }">
-        CUSTOM TITLE
-      </template>
-    </SfCollectedProduct>`
-  }))
-  .add("[slot] price", () => ({
-    components: { SfCollectedProduct, SfProperty },
-    props: {
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-collected-product--detailed": "sf-collected-product--detailed"
-          },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        )
-      },
-      image: {
-        default: object(
-          "image",
-          {
-            mobile: { url: "/assets/storybook/Home/productB.jpg" },
-            desktop: { url: "/assets/storybook/Home/productB.jpg" }
-          },
-          "Props"
-        )
-      },
-      imageWidth: {
-        default: number("imageWidth", 140, {}, "Props")
-      },
-      imageHeight: {
-        default: number("imageHeight", 200, {}, "Props")
-      },
-      title: {
-        default: text("title", "Cotton Sweater", "Props")
-      },
-      regularPrice: {
-        default: text("regularPrice", "$10,99", "Props")
-      },
-      specialPrice: {
-        default: text("specialPrice", "$5,09", "Props")
-      }
-    },
-    data() {
-      return {
-        productQty: 1
-      };
-    },
-    template: `<SfCollectedProduct
-        :class="customClass"
-        :qty="productQty"
-        @input="productQty = $event"
-        :image="image"
-        :image-width="imageWidth"
-        :image-height="imageHeight"
-        :title="title"
-        :regular-price="regularPrice"
-        :special-price="specialPrice"
-    >
-      <template #price="{ specialPrice, regularPrice }">
-        CUSTOM PRICE
-      </template>
-    </SfCollectedProduct>`
-  }));
+  },
+};
+
+const Template = (args, { argTypes }) => ({
+  components: { SfCollectedProduct },
+  props: Object.keys(argTypes),
+  template: `
+  <SfCollectedProduct
+    :qty="qty"
+    :class="classes"
+    @input="qty = $event"
+    @click:remove="this['click:remove']"
+    :image="image"
+    :image-width="imageWidth"
+    :image-height="imageHeight"
+    :title="title"
+    :link="link"
+    :regular-price="regularPrice"
+    :special-price="specialPrice"
+  />`,
+});
+
+export const Common = Template.bind({});
+Common.args = {
+  image: "/assets/storybook/Home/productB.jpg",
+  title: "Cotton Sweater Modern Style",
+  regularPrice: "$10,99",
+};
+
+export const WithSpecialPrice = Template.bind({});
+WithSpecialPrice.args = {
+  ...Common.args,
+  specialPrice: "$0,99",
+};
+
+export const WithLink = Template.bind({});
+WithLink.args = {
+  ...Common.args,
+  link: "https://storefrontui.io",
+};
+
+export const UseActionsSlot = (args, { argTypes }) => ({
+  components: { SfCollectedProduct },
+  props: Object.keys(argTypes),
+  template: `
+  <SfCollectedProduct
+    :qty="qty"
+    @input="qty = $event"
+    :image="image"
+    :image-width="imageWidth"
+    :image-height="imageHeight"
+    :title="title"
+    :link="link"
+    :regular-price="regularPrice"
+    :special-price="specialPrice"
+  >
+    <template #actions>
+      CUSTOM ACTIONS
+    </template>
+  </SfCollectedProduct>`,
+});
+UseActionsSlot.args = { ...Common.args };
+
+export const UseConfigurationSlot = (args, { argTypes }) => ({
+  components: { SfCollectedProduct },
+  props: Object.keys(argTypes),
+  template: `
+  <SfCollectedProduct
+    :qty="qty"
+    @input="qty = $event"
+    :image="image"
+    :image-width="imageWidth"
+    :image-height="imageHeight"
+    :title="title"
+    :link="link"
+    :regular-price="regularPrice"
+    :special-price="specialPrice"
+  >
+    <template #configuration>
+      CUSTOM CONFIGURATION
+    </template>
+  </SfCollectedProduct>`,
+});
+UseConfigurationSlot.args = { ...Common.args };
+
+export const UseImageSlot = (args, { argTypes }) => ({
+  components: { SfCollectedProduct },
+  props: Object.keys(argTypes),
+  template: `
+  <SfCollectedProduct
+    :qty="qty"
+    @input="qty = $event"
+    :image="image"
+    :image-width="imageWidth"
+    :image-height="imageHeight"
+    :title="title"
+    :link="link"
+    :regular-price="regularPrice"
+    :special-price="specialPrice"
+  >
+    <template #image>
+      CUSTOM IMAGE
+    </template>
+  </SfCollectedProduct>`,
+});
+UseImageSlot.args = { ...Common.args };
+
+export const UseInputSlot = (args, { argTypes }) => ({
+  components: { SfCollectedProduct },
+  props: Object.keys(argTypes),
+  template: `
+  <SfCollectedProduct
+    :qty="qty"
+    @input="qty = $event"
+    :image="image"
+    :image-width="imageWidth"
+    :image-height="imageHeight"
+    :title="title"
+    :link="link"
+    :regular-price="regularPrice"
+    :special-price="specialPrice"
+  >
+    <template #input>
+      CUSTOM INPUT
+    </template>
+  </SfCollectedProduct>`,
+});
+UseInputSlot.args = { ...Common.args };
+
+export const UseTitleSlot = (args, { argTypes }) => ({
+  components: { SfCollectedProduct },
+  props: Object.keys(argTypes),
+  template: `
+  <SfCollectedProduct
+    :qty="qty"
+    @input="qty = $event"
+    :image="image"
+    :image-width="imageWidth"
+    :image-height="imageHeight"
+    :title="title"
+    :link="link"
+    :regular-price="regularPrice"
+    :special-price="specialPrice"
+  >
+    <template #title>
+      CUSTOM TITLE
+    </template>
+  </SfCollectedProduct>`,
+});
+UseTitleSlot.args = { ...Common.args };
+
+export const UsePriceSlot = (args, { argTypes }) => ({
+  components: { SfCollectedProduct },
+  props: Object.keys(argTypes),
+  template: `
+  <SfCollectedProduct
+    :qty="qty"
+    @input="qty = $event"
+    :image="image"
+    :image-width="imageWidth"
+    :image-height="imageHeight"
+    :title="title"
+    :link="link"
+    :regular-price="regularPrice"
+    :special-price="specialPrice"
+  >
+    <template #price>
+      CUSTOM PRICE
+    </template>
+  </SfCollectedProduct>`,
+});
+UsePriceSlot.args = { ...Common.args };

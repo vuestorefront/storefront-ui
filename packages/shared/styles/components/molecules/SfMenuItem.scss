@@ -1,17 +1,24 @@
 @import "../../helpers";
 .sf-menu-item {
+  --link-text-decoration: none;
+  --button-width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   text-transform: var(--menu-item-text-transform);
   cursor: pointer;
   @include font(
     --menu-item-font,
-    var(--font-normal),
-    var(--font-base),
+    var(--font-weight--normal),
+    var(--font-size--base),
     1.4,
-    var(--font-family-secondary)
+    var(--font-family--secondary)
   );
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
   &__icon {
     --icon-color: var(--c-gray);
     margin: var(--menu-item-icon-margin, 0 var(--spacer-xs) 0 0);
@@ -26,12 +33,13 @@
   }
   &__label {
     color: var(--menu-item-label-color, var(--c-dark-variant));
+    text-align: left;
   }
-  &--is-active {
+  &.is-active {
     --menu-item-label-color: var(--c-primary);
   }
   &:hover {
-    --menu-item-label-color: var(--c-black);
+    --menu-item-label-color: var(--c-primary);
   }
   @include for-desktop {
     --menu-item-mobile-nav-icon-display: none;

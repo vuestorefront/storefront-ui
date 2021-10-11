@@ -13,8 +13,8 @@ export default {
      */
     name: {
       type: String,
-      default: ""
-    }
+      default: "",
+    },
   },
   computed: {
     internalName() {
@@ -31,10 +31,10 @@ export default {
     },
     active() {
       return this.internalName === this.name;
-    }
+    },
   },
-  mounted() {
+  created() {
     this.stepsData.updateSteps(this.name);
-  }
+  },
 };
 </script>

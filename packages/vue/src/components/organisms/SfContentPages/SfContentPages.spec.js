@@ -3,7 +3,7 @@ import SfContentPages from "@/components/organisms/SfContentPages/SfContentPages
 import SfContentPage from "./_internal/SfContentPage.vue";
 const localVue = createLocalVue();
 localVue.component("SfContentPage", SfContentPage, {
-  inject: ["provided"]
+  inject: ["provided"],
 });
 describe("SfContentPages.vue", () => {
   it("renders a component", () => {
@@ -12,9 +12,9 @@ describe("SfContentPages.vue", () => {
       provide: {
         provided() {
           return { active: "true" };
-        }
-      }
+        },
+      },
     });
-    expect(component.contains(".sf-content-pages")).toBe(true);
+    expect(component.classes("sf-content-pages")).toBe(true);
   });
 });

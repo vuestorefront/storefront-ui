@@ -5,15 +5,15 @@
   justify-content: space-between;
   @include font(
     --product-option-font,
-    var(--font-light),
-    var(--font-sm),
+    var(--font-weight--light),
+    var(--font-size--sm),
     normal,
-    var(--font-family-primary)
+    var(--font-family--primary)
   );
   &__color {
     box-sizing: border-box;
-    width: var(--product-option-size, 1.25rem);
-    height: var(--product-option-size, 1.25rem);
+    width: var(--product-option-size, 1.5rem);
+    height: var(--product-option-size, 1.5rem);
     margin: var(--product-option-color-margin, 0 var(--spacer-sm) 0 0);
     @include border(--product-option-border, 0, solid, var(--c-light));
     border-radius: var(--product-option-border-radius);

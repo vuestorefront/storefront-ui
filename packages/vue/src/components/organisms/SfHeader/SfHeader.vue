@@ -1,84 +1,138 @@
 <template>
-  <div
-    class="sf-header"
-    :class="{
-      'sf-header--has-mobile-search': hasMobileSearch,
-      'sf-header--is-sticky': isSticky,
-      'sf-header--is-hidden': !isVisible
-    }"
-  >
-    <div class="sf-header__sticky-container">
-      <header ref="header" class="sf-header__container">
-        <!--@slot Use this slot to replace logo with text or icon-->
+  <div class="sf-header" :class="{ 'is-sticky': sticky, 'is-hidden': hidden }">
+    <div class="sf-header__wrapper">
+      <header ref="header" class="sf-header__header">
+        <!--@slot Use this slot to replace logo with text or image-->
         <slot name="logo" v-bind="{ logo, title }">
-          <SfImage
-            v-if="logo"
-            :src="logo"
-            :alt="title"
-            class="sf-header__logo"
-          />
-          <h1 v-else-if="title" class="sf-header__title">{{ title }}</h1>
-        </slot>
-        <nav class="sf-header__navigation desktop-only">
-          <!--@slot Use this slot to replace default navigation links -->
-          <slot name="navigation" />
-        </nav>
-        <!--@slot Use this slot to replace default search bar-->
-        <slot name="search" v-bind="{ searchPlaceholder }">
-          <SfSearchBar
-            :placeholder="searchPlaceholder"
-            class="sf-header__search"
-            :class="{ 'desktop-only': !hasMobileSearch }"
-          />
-        </slot>
-        <!--@slot Use this slot to replace default header icons with custom content-->
-        <slot
-          name="header-icons"
-          v-bind="{ accountIcon, wishlistIcon, cartIcon }"
-        >
-          <div class="sf-header__icons desktop-only">
-            <SfIcon
-              v-for="icon in headerIcons"
-              :key="icon.name"
-              :icon="icon.icon"
-              :has-badge="isCartEmpty && icon.hasBadge === true"
-              :badge-label="cartItemsQty"
-              size="xs"
-              class="sf-header__icon"
-              :class="{
-                'sf-header__icon--is-active': activeIcon === icon.name
-              }"
-              role="button"
-              :aria-label="icon.name"
-              :aria-pressed="activeIcon === icon.name ? 'true' : 'false'"
-              @click="$emit(`click:${icon.name}`)"
+          <SfLink link="/">
+            <SfImage
+              v-if="logo"
+              :src="logo"
+              :alt="title"
+              :width="logoWidth"
+              :height="logoHeight"
+              class="sf-header__logo"
             />
-          </div>
+            <h1 v-else class="sf-header__title">{{ title }}</h1>
+          </SfLink>
         </slot>
-        <!--@slot Use this slot to replace default header language selector on mobile -->
-        <slot name="language-selector" />
+        <div class="sf-header__aside">
+          <!-- @slot Use this slot for language or currency selector -->
+          <slot name="aside" />
+        </div>
+        <div class="sf-header__actions">
+          <nav
+            class="sf-header__navigation"
+            :class="{ 'is-visible': isNavVisible }"
+          >
+            <slot name="navigation"></slot>
+          </nav>
+          <!--@slot Use this slot to replace default search bar-->
+          <slot name="search" v-bind="{ searchValue, searchPlaceholder }">
+            <SfSearchBar
+              :value="searchValue"
+              :placeholder="searchPlaceholder"
+              aria-label="Search"
+              class="sf-header__search"
+              @input="$emit('change:search', $event)"
+              @enter="$emit('enter:search', $event)"
+            />
+          </slot>
+          <!--@slot Use this slot to replace default header icons with custom content-->
+          <slot
+            name="header-icons"
+            v-bind="{
+              activeIcon,
+              cartHasProducts,
+              cartItemsQty,
+              cartIcon,
+              wishlistIcon,
+              accountIcon,
+            }"
+          >
+            <div class="sf-header__icons">
+              <SfButton
+                v-if="accountIcon"
+                class="sf-button--pure sf-header__action"
+                data-testid="accountIcon"
+                aria-label="Account"
+                @click="$emit('click:account')"
+              >
+                <SfIcon
+                  :icon="accountIcon"
+                  size="1.25rem"
+                  :class="{
+                    'sf-header__icon is-active': activeIcon === 'account',
+                  }"
+                />
+              </SfButton>
+              <SfButton
+                v-if="wishlistIcon"
+                class="sf-button--pure sf-header__action"
+                data-testid="wishlistIcon"
+                aria-label="Wishlist"
+                @click="$emit('click:wishlist')"
+              >
+                <SfIcon
+                  class="sf-header__icon"
+                  :icon="wishlistIcon"
+                  :has-badge="wishlistHasProducts"
+                  :badge-label="wishlistItemsQty"
+                  size="1.25rem"
+                  :class="{
+                    'sf-header__icon is-active': activeIcon === 'wishlist',
+                  }"
+                />
+              </SfButton>
+              <SfButton
+                v-if="cartIcon"
+                class="sf-button--pure sf-header__action"
+                data-testid="cartIcon"
+                aria-label="Cart"
+                @click="$emit('click:cart')"
+              >
+                <SfIcon
+                  class="sf-header__icon"
+                  :icon="cartIcon"
+                  :has-badge="cartHasProducts"
+                  :badge-label="cartItemsQty"
+                  size="1.25rem"
+                  :class="{
+                    'sf-header__icon is-active': activeIcon === 'cart',
+                  }"
+                />
+              </SfButton>
+            </div>
+          </slot>
+        </div>
       </header>
     </div>
-    <div v-show="isSticky" class="sf-header__sticky-holder" :style="height" />
   </div>
 </template>
 <script>
 import Vue from "vue";
 import SfHeaderNavigationItem from "./_internal/SfHeaderNavigationItem.vue";
+import SfHeaderNavigation from "./_internal/SfHeaderNavigation.vue";
+Vue.component("SfHeaderNavigation", SfHeaderNavigation);
+Vue.component("SfHeaderNavigationItem", SfHeaderNavigationItem);
 import {
   mapMobileObserver,
-  unMapMobileObserver
+  unMapMobileObserver,
 } from "../../../utilities/mobile-observer";
-Vue.component("SfHeaderNavigationItem", SfHeaderNavigationItem);
-import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+import { isClient } from "../../../utilities/helpers";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
 import SfSearchBar from "../../molecules/SfSearchBar/SfSearchBar.vue";
+import SfButton from "../../atoms/SfButton/SfButton.vue";
+import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+import SfLink from "../../atoms/SfLink/SfLink.vue";
 export default {
   name: "SfHeader",
   components: {
-    SfIcon,
     SfImage,
-    SfSearchBar
+    SfSearchBar,
+    SfButton,
+    SfIcon,
+    SfLink,
   },
   props: {
     /**
@@ -86,35 +140,49 @@ export default {
      */
     logo: {
       type: [String, Object],
-      default: ""
+      default: "",
+    },
+    /**
+     * Header logo height
+     */
+    logoHeight: {
+      type: Number,
+      default: 35,
+    },
+    /**
+     * Header logo width
+     */
+    logoWidth: {
+      type: Number,
+      default: 34,
     },
     /**
      * Header title
      */
     title: {
       type: String,
-      default: ""
+      default: "",
     },
     /**
      * Header cartIcon (accepts same value as SfIcon)
      */
     cartIcon: {
-      type: [String, Boolean],
-      default: "empty_cart"
+      type: [String, Boolean, Array],
+      default: "empty_cart",
     },
     /**
      * Header wishlistIcon (accepts same value as SfIcon)
      */
     wishlistIcon: {
-      type: [String, Boolean],
-      default: "heart"
+      type: [String, Boolean, Array],
+      default: "heart",
     },
     /**
      * Header accountIcon (accepts same value as SfIcon)
      */
     accountIcon: {
-      type: [String, Boolean],
-      default: "profile"
+      type: [String, Boolean, Array],
+      default: "profile",
     },
     /**
      * Header activeIcon (accepts account, wishlist and cart)
@@ -124,111 +192,91 @@ export default {
       default: "",
       validator(value) {
         return ["", "account", "wishlist", "cart"].includes(value);
-      }
-    },
-    /**
-     * Header search on mobile
-     */
-    hasMobileSearch: {
-      type: Boolean,
-      default: false
-    },
-    /**
-     * Header sticky to top
-     */
-    isSticky: {
-      type: Boolean,
-      default: false
+      },
     },
     /**
      * Header search placeholder
      */
     searchPlaceholder: {
       type: String,
-      default: "Search for items"
+      default: "Search for items",
+    },
+    /**
+     * Header search phrase
+     */
+    searchValue: {
+      type: String,
+      default: "",
+    },
+    /**
+     * Header wishlist items quantity
+     */
+    wishlistItemsQty: {
+      type: [String, Number],
+      default: "0",
     },
     /**
      * Header cart items quantity
      */
     cartItemsQty: {
-      type: String,
-      default: "0"
-    }
+      type: [String, Number],
+      default: "0",
+    },
+    /**
+     * Header sticky to top
+     */
+    isSticky: {
+      type: Boolean,
+      default: false,
+    },
+    /**
+     * Is nav slot visible on mobile view
+     */
+    isNavVisible: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
-      headerIcons: [
-        {
-          conditional: this.accountIcon,
-          icon: this.accountIcon,
-          name: "account",
-          hasBadge: false
-        },
-        {
-          conditional: this.wishlistIcon,
-          icon: this.wishlistIcon,
-          name: "wishlist",
-          hasBadge: false
-        },
-        {
-          conditional: this.cartIcon,
-          icon: this.cartIcon,
-          name: "cart",
-          hasBadge: true
-        }
-      ],
-      isVisible: true,
-      isSearchVisible: true,
+      icons: [],
+      hidden: false,
       sticky: false,
-      scrollDirection: undefined, // false = down, true = up
+      scrollDirection: null,
       lastScrollPosition: 0,
-      animationStart: undefined,
-      animationLong: undefined,
+      animationStart: null,
+      animationLong: null,
       animationDuration: 300,
-      height: {}
     };
   },
   computed: {
     ...mapMobileObserver(),
-    isCartEmpty() {
-      return !!this.cartItemsQty;
-    }
+    cartHasProducts() {
+      return parseInt(this.cartItemsQty, 10) > 0;
+    },
+    wishlistHasProducts() {
+      return parseInt(this.wishlistItemsQty, 10) > 0;
+    },
   },
   watch: {
-    scrollDirection() {
-      if (typeof window === "undefined" || typeof document === "undefined")
-        return;
-      window.cancelAnimationFrame(this.animationLong);
-      this.animationLong = undefined;
-      this.animationStart = undefined;
-      this.animationLong = window.requestAnimationFrame(this.animationHandler);
-    },
-    isMobile: {
+    scrollDirection: {
       handler() {
-        if (typeof window === "undefined" || typeof document === "undefined")
-          return;
-        this.$nextTick(() => {
-          const containerHeight = this.$refs.header;
-          this.height = {
-            height: `${containerHeight.offsetHeight}px`
-          };
-        });
+        if (!isClient) return;
+        window.cancelAnimationFrame(this.animationLong);
+        this.animationLong = null;
+        this.animationStart = null;
+        this.animationLong = window.requestAnimationFrame(
+          this.animationHandler
+        );
       },
-      immediate: true
     },
-    hasMobileSearch: {
-      handler() {
-        this.$nextTick(() => {
-          if (typeof window === "undefined" || typeof document === "undefined")
-            return;
-          const computedContainer = window.getComputedStyle(this.$refs.header);
-          this.height = {
-            height: computedContainer.height
-          };
-        });
+    isSticky: {
+      handler(isSticky) {
+        if (!isClient) return;
+        this.sticky = isSticky;
       },
-      immediate: true
-    }
+      immediate: true,
+    },
   },
   mounted() {
     if (this.isSticky) {
@@ -236,10 +284,12 @@ export default {
     }
   },
   beforeDestroy() {
-    if (this.isSticky) {
-      window.removeEventListener("scroll", this.scrollHandler);
-    }
     unMapMobileObserver();
+    if (this.isSticky) {
+      window.removeEventListener("scroll", this.scrollHandler, {
+        passive: true,
+      });
+    }
   },
   methods: {
     animationHandler(timestamp) {
@@ -251,18 +301,21 @@ export default {
         );
         return;
       }
-      this.isVisible = this.scrollDirection;
+      this.hidden = this.scrollDirection === "down";
     },
     scrollHandler() {
-      if (typeof window === "undefined" || typeof document === "undefined")
-        return;
+      if (!isClient) return;
       const currentScrollPosition =
         window.pageYOffset || document.documentElement.scrollTop;
-      this.scrollDirection = currentScrollPosition < this.lastScrollPosition;
-      this.isSearchVisible = currentScrollPosition <= 0;
+      if (!!this.refs) {
+        if (currentScrollPosition >= this.$refs.header.offsetHeight) {
+          this.scrollDirection =
+            currentScrollPosition < this.lastScrollPosition ? "up" : "down";
+        }
+      }
       this.lastScrollPosition = currentScrollPosition;
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

@@ -1,52 +1,55 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import { storiesOf } from "@storybook/vue";
-import { withKnobs, optionsKnob as options } from "@storybook/addon-knobs";
-import SfChevron from "./SfChevron.vue";
-import SfIcon from "../SfIcon/SfIcon.vue";
-storiesOf("Atoms|Chevron", module)
-  .addDecorator(withKnobs)
-  .add("Common", () => ({
-    components: { SfChevron },
-    props: {
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-chevron--top": "sf-chevron--top",
-            "sf-chevron--left": "sf-chevron--left",
-            "sf-chevron--right": "sf-chevron--right"
-          },
+import { SfChevron, SfIcon } from "@storefront-ui/vue";
+
+export default {
+  title: "Components/Atoms/Chevron",
+  component: SfChevron,
+  argTypes: {
+    classes: {
+      control: {
+        type: "select",
+        options: [
           "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        )
-      }
+          "sf-chevron--top",
+          "sf-chevron--left",
+          "sf-chevron--right",
+        ],
+      },
+      description: "Modifier classes",
+      table: {
+        category: "CSS Modifiers",
+      },
     },
-    template: `<SfChevron
-        :class="customClass" />`
-  }))
-  .add("[slot] default", () => ({
-    components: {
-      SfChevron,
-      SfIcon
-    },
-    props: {
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-chevron--top": "sf-chevron--top",
-            "sf-chevron--left": "sf-chevron--left",
-            "sf-chevron--right": "sf-chevron--right"
-          },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        )
-      }
-    },
-    template: `<SfChevron
-        :class="customClass">
-        <SfIcon icon="chevron_down" size="xxs"/> 
-      </SfChevron>`
-  }));
+  },
+};
+
+const Template = (args, { argTypes }) => ({
+  components: { SfChevron },
+  props: Object.keys(argTypes),
+  template: `<SfChevron :class="classes" />`,
+});
+
+export const Common = Template.bind({});
+
+export const Top = Template.bind({});
+Top.args = {
+  classes: "sf-chevron--top",
+};
+
+export const Right = Template.bind({});
+Right.args = {
+  classes: "sf-chevron--right",
+};
+
+export const Left = Template.bind({});
+Left.args = {
+  classes: "sf-chevron--left",
+};
+
+export const WithDefaultSlot = (args, { argTypes }) => ({
+  components: { SfChevron, SfIcon },
+  props: Object.keys(argTypes),
+  template: `
+  <SfChevron :class="classes">
+    <SfIcon icon="arrow_left" size="14px"/> 
+  </SfChevron>`,
+});

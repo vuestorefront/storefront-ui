@@ -15,6 +15,7 @@
     width: var(--modal-width);
     height: var(--modal-height);
     border: var(--modal-border);
+    max-height: var(--modal-max-height);
     background-color: var(--modal-background, var(--c-white));
     &::-webkit-scrollbar {
       width: 0;
@@ -23,18 +24,18 @@
   &__content {
     overflow-y: auto;
     padding: var(--modal-content-padding, var(--spacer-base) var(--spacer-sm));
+    @include font(
+      --modal-content-font,
+      var(--font-weight--light),
+      var(--font-size--base),
+      1.6,
+      var(--font-family--primary)
+    );
   }
   &__close {
     position: absolute;
     right: var(--modal-close-right, var(--spacer-sm));
     top: var(--modal-close-top, var(--spacer-sm));
-    padding: 0;
-    border: var(--modal-close-border, none);
-    background: var(--modal-close-background, none);
-    cursor: pointer;
-    &:focus {
-      outline: none;
-    }
   }
   @include for-desktop {
     --modal-width: 29.375rem;
@@ -44,6 +45,7 @@
     --modal-right: none;
     --modal-transform: translate3d(-50%, -50%, 0);
     --modal-height: auto;
+    --modal-max-height: 90%;
     --modal-content-padding: var(--spacer-sm) var(--spacer-lg);
   }
 }

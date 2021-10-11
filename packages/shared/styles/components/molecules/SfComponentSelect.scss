@@ -1,0 +1,203 @@
+@import "../../helpers";
+.sf-component-select-option {
+  display: flex;
+  box-sizing: border-box;
+  padding: var(--component-select-option-padding, var(--spacer-sm));
+  @include border(
+    --component-select-option-border,
+    1px 0 0 0,
+    solid,
+    var(--c-light)
+  );
+  background: var(--component-select-option-background);
+  color: inherit;
+  min-height: var(
+    --component-select-height,
+    calc(
+      var(--spacer-base) + var(--spacer-2xs) +
+        var(--component-select-label-font-size, var(--font-size--lg))
+    )
+  );
+  @include font(
+    --component-select-option-font,
+    var(--font-weight--light),
+    var(--font-size--sm),
+    1.2,
+    var(--font-family--primary)
+  );
+  &.is-active {
+    --component-select-option-background: var(--c-light);
+  }
+  @include for-desktop {
+    --component-select-option-padding: var(--spacer-xs);
+    &:hover {
+      --component-select-option-background: rgba(var(--c-gray-base), 0.1);
+    }
+  }
+}
+.sf-component-select {
+  position: relative;
+  box-sizing: border-box;
+  width: var(--component-select-width);
+  height: var(--component-select-height);
+  padding: var(
+    --component-select-padding,
+    0 0 calc(var(--font-size--xs) * 1.2) 0
+  );
+  color: var(--component-select-color, var(--c-text));
+  cursor: default;
+  &__label {
+    position: absolute;
+    top: var(--component-select-label-top, 50%);
+    left: var(--component-select-label-left, 0);
+    color: var(--component-select-label-color, var(--c-secondary-variant));
+    transform: var(
+      --component-select-label-transform,
+      translate3d(0, calc(-1 * var(--component-select-label-top, 50%)), 0)
+    );
+    transition: var(
+      --component-select-label-transition,
+      top 150ms linear,
+      font-size 150ms linear
+    );
+    @include font(
+      --component-select-label-font,
+      var(--font-weight--normal),
+      var(--font-size--lg),
+      1,
+      var(--font-family--secondary)
+    );
+    &::after {
+      content: var(--component-select-label-required);
+      color: var(--component-select-label-color, var(--c-primary));
+    }
+  }
+  &__chevron {
+    --chevron-position: absolute;
+    display: var(--chevron-display, block);
+    right: var(--spacer-xs);
+    top: 50%;
+    transform: translate3d(0, -50%, 0);
+  }
+  &__selected {
+    --product-option-font-size: var(--font-size--lg);
+    --component-select-option-font-size: var(--font-size--lg);
+    box-sizing: border-box;
+    display: flex;
+    align-items: var(--component-select-selected-align-items, center);
+    justify-content: var(
+      --component-select-selected-justify-content,
+      flex-start
+    );
+    padding: var(
+      --component-select-selected-padding,
+      var(--spacer-sm) var(--spacer-lg) var(--spacer-xs) 0
+    );
+    margin: var(--component-select-margin, 0 0 var(--spacer-xs) 0);
+    background: var(--component-select-background);
+    color: var(--component-select-color, var(--c-text));
+    @include border(--component-select-border, 0, solid, transparent);
+  }
+  &__dropdown {
+    box-sizing: border-box;
+    position: var(--component-select-dropdown-position, fixed);
+    top: var(--component-select-dropdown-top, auto);
+    left: 0;
+    bottom: var(--component-select-dropdown-bottom, 0);
+    z-index: var(--component-select-dropdown-z-index, 1);
+    width: 100%;
+    background: var(--component-select-dropdown-background, var(--c-white));
+    box-shadow: var(
+      --component-select-dropdown-box-shadow,
+      0 4px 11px rgba(var(--c-dark-base), 0.1)
+    );
+  }
+  &__options {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    overflow: auto;
+    &::-webkit-scrollbar {
+      width: 0;
+    }
+  }
+  &__error-message {
+    --component-select-border-color: var(--c-danger);
+    color: var(--component-select-error-message-color, var(--c-danger));
+    min-height: var(
+      --component-select-error-message-height,
+      calc(var(--font-size--xs) * 1.2)
+    );
+    @include font(
+      --input-error-message-font,
+      var(--font-weight--medium),
+      var(--font-size--xs),
+      1.2,
+      var(--font-family--secondary)
+    );
+  }
+  &__cancel {
+    --button-background: var(--c-light);
+    --button-color: var(--c-dark-variant);
+    &:hover {
+      --button-background: var(--c-light);
+    }
+  }
+  &--underlined {
+    --component-select-border-width: 0 0 1px 0;
+    --component-select-border-color: var(--c-link);
+  }
+  &.is-selected {
+    --component-select-label-top: 0;
+    --component-select-label-font-size: var(--font-size--xs);
+  }
+  &.is-invalid {
+    --component-select-border-color: var(--c-danger);
+  }
+  &.is-active {
+    --chevron-color: var(--c-primary);
+    --component-select-label-color: var(--c-text);
+    --component-select-border-color: var(--c-primary);
+  }
+  &.is-disabled {
+    --chevron-color: var(--c-text-disabled);
+    --component-select-color: var(--c-text-disabled);
+    --component-select-border-color: var(--c-text-disabled);
+    --component-select-label-color: var(--c-text-disabled);
+  }
+  &.is-required {
+    --component-select-label-required: " *";
+  }
+  &--no-chevron {
+    --chevron-display: none;
+  }
+  &-enter-active {
+    animation: var(--component-select-animation-enter, ssmobile 150ms);
+  }
+  &-leave-active {
+    animation: var(--component-select-animation-leave, ssmobile 150ms reverse);
+  }
+  @include for-desktop {
+    --component-select-dropdown-position: absolute;
+    --component-select-dropdown-top: 100%;
+    --component-select-dropdown-bottom: auto;
+    --component-select-animation-enter: ssdesktop 150ms;
+    --component-select-animation-leave: ssdesktop 150ms reverse;
+  }
+}
+@keyframes ssdesktop {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes ssmobile {
+  0% {
+    transform: translate(0, 100%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}

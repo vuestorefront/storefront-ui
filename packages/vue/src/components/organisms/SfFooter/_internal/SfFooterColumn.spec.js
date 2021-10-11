@@ -5,8 +5,8 @@ import SfFooter from "../SfFooter.vue";
 describe("SfFooterColumn.vue", () => {
   it("renders a component", () => {
     const component = shallowMount(SfFooterColumn, {
-      parentComponent: SfFooter
+      parentComponent: SfFooter,
     });
-    expect(component.contains(".sf-footer-column")).toBe(true);
+    expect(component.classes("sf-footer-column")).toBe(true);
   });
 });

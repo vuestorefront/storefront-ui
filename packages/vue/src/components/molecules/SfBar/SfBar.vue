@@ -1,55 +1,61 @@
 <template>
   <div class="sf-bar">
-    <slot name="back">
-      <div class="sf-bar__icon">
-        <SfIcon
+    <div>
+      <slot name="back">
+        <SfButton
           v-if="back"
-          icon="chevron_left"
-          size="14px"
-          role="button"
           aria-label="back"
+          class="sf-button--pure sf-bar__icon"
+          type="button"
           @click="$emit('click:back')"
-        />
-      </div>
-    </slot>
-    <slot name="title" v-bind="{ title }">
-      <div class="sf-bar__title">{{ title }}</div>
-    </slot>
-    <slot name="close">
-      <div class="sf-bar__icon">
-        <SfIcon
+        >
+          <SfIcon icon="chevron_left" size="0.875rem" />
+        </SfButton>
+      </slot>
+    </div>
+    <div>
+      <slot name="title" v-bind="{ title }">
+        <div class="sf-bar__title">{{ title }}</div>
+      </slot>
+    </div>
+    <div>
+      <slot name="close">
+        <SfButton
           v-if="close"
-          icon="cross"
-          size="14px"
-          role="button"
+          class="sf-button--pure sf-bar__icon"
           aria-label="close"
+          type="button"
           @click="$emit('click:close')"
-        />
-      </div>
-    </slot>
+        >
+          <SfIcon icon="cross" size="14px" />
+        </SfButton>
+      </slot>
+    </div>
   </div>
 </template>
 <script>
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+import SfButton from "../../atoms/SfButton/SfButton.vue";
 export default {
   name: "SfBar",
   components: {
-    SfIcon
+    SfIcon,
+    SfButton,
   },
   props: {
     title: {
       type: String,
-      default: ""
+      default: "",
     },
     back: {
       type: Boolean,
-      default: false
+      default: false,
     },
     close: {
       type: Boolean,
-      default: false
-    }
-  }
+      default: false,
+    },
+  },
 };
 </script>
 <style lang="scss">

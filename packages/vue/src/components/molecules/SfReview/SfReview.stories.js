@@ -1,231 +1,178 @@
-import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, number } from "@storybook/addon-knobs";
-import SfReview from "./SfReview.vue";
-storiesOf("Molecules|Review", module)
-  .addDecorator(withKnobs)
-  .add("Common", () => ({
-    components: { SfReview },
-    props: {
-      author: {
-        default: text("author", "Jane D.Smith", "Props")
+import { SfReview } from "@storefront-ui/vue";
+export default {
+  title: "Components/Molecules/Review",
+  component: SfReview,
+  argTypes: {
+    author: {
+      control: "text",
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: "",
+        },
       },
-      date: {
-        default: text("date", "April 2019", "Props")
-      },
-      message: {
-        default: text(
-          "message",
-          "I was looking for a bright light for the kitchen but wanted some item more modern than a strip light. this one is perfect, very bright and looks great. I can comment on interlation as I had an electrition instal it. Would recommend.",
-          "Props"
-        )
-      },
-      maxRating: {
-        default: number("maxRating", 5, {}, "Props")
-      },
-      rating: {
-        default: number("rating", 4, {}, "Props")
-      },
-      charLimit: {
-        default: number("charLimit", 250, {}, "Props")
-      },
-      readMoreText: {
-        default: text("readMoreText", "Read more", "Props")
-      },
-      hideFullText: {
-        default: text("hideFullText", "Read less", "Props")
-      }
     },
-    template: `<SfReview
-      :author="author"
-      :date="date"
-      :message="message"
-      :max-rating="maxRating"
-      :rating="rating"
-      :char-limit="charLimit"
-      :read-more-text="readMoreText"
-      :hide-full-text="hideFullText" />`
-  }))
-  .add("[slot] icon", () => ({
-    components: { SfReview },
-    props: {
-      author: {
-        default: text("author", "Jane D.Smith", "Props")
+    date: {
+      control: "date",
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: "",
+        },
       },
-      date: {
-        default: text("date", "April 2019", "Props")
-      },
-      message: {
-        default: text(
-          "message",
-          "I was looking for a bright light for the kitchen but wanted some item more modern than a strip light. this one is perfect, very bright and looks great. I can comment on interlation as I had an electrition instal it. Would recommend.",
-          "Props"
-        )
-      },
-      maxRating: {
-        default: number("maxRating", 5, {}, "Props")
-      },
-      rating: {
-        default: number("rating", 4, {}, "Props")
-      },
-      charLimit: {
-        default: number("charLimit", 250, {}, "Props")
-      },
-      readMoreText: {
-        default: text("readMoreText", "Read more", "Props")
-      },
-      hideFullText: {
-        default: text("hideFullText", "Read less", "Props")
-      }
     },
-    template: `<SfReview
-      :author="author"
-      :date="date"
-      :message="message"
-      :max-rating="maxRating"
-      :rating="rating"
-      :char-limit="charLimit"
-      :read-more-text="readMoreText"
-      :hide-full-text="hideFullText">
-      <template #icon>
-        🥑
-      </template>  
-    </SfReview>`
-  }))
-  .add("[slot] author", () => ({
-    components: { SfReview },
-    props: {
-      author: {
-        default: text("author", "Jane D.Smith", "Props")
+    message: {
+      control: "text",
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: "",
+        },
       },
-      date: {
-        default: text("date", "April 2019", "Props")
-      },
-      message: {
-        default: text(
-          "message",
-          "I was looking for a bright light for the kitchen but wanted some item more modern than a strip light. this one is perfect, very bright and looks great. I can comment on interlation as I had an electrition instal it. Would recommend.",
-          "Props"
-        )
-      },
-      maxRating: {
-        default: number("maxRating", 5, {}, "Props")
-      },
-      rating: {
-        default: number("rating", 4, {}, "Props")
-      },
-      charLimit: {
-        default: number("charLimit", 250, {}, "Props")
-      },
-      readMoreText: {
-        default: text("readMoreText", "Read more", "Props")
-      },
-      hideFullText: {
-        default: text("hideFullText", "Read less", "Props")
-      }
     },
-    template: `<SfReview
-      :author="author"
-      :date="date"
-      :message="message"
-      :max-rating="maxRating"
-      :rating="rating"
-      :char-limit="charLimit"
-      :read-more-text="readMoreText"
-      :hide-full-text="hideFullText">
-      <template #author="{author}">
-        CUSTOM AUTHOR
-      </template>  
-    </SfReview>`
-  }))
-  .add("[slot] info", () => ({
-    components: { SfReview },
-    props: {
-      author: {
-        default: text("author", "Jane D.Smith", "Props")
+    rating: {
+      control: "number",
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: false,
+        },
       },
-      date: {
-        default: text("date", "April 2019", "Props")
-      },
-      message: {
-        default: text(
-          "message",
-          "I was looking for a bright light for the kitchen but wanted some item more modern than a strip light. this one is perfect, very bright and looks great. I can comment on interlation as I had an electrition instal it. Would recommend.",
-          "Props"
-        )
-      },
-      maxRating: {
-        default: number("maxRating", 5, {}, "Props")
-      },
-      rating: {
-        default: number("rating", 4, {}, "Props")
-      },
-      charLimit: {
-        default: number("charLimit", 250, {}, "Props")
-      },
-      readMoreText: {
-        default: text("readMoreText", "Read more", "Props")
-      },
-      hideFullText: {
-        default: text("hideFullText", "Read less", "Props")
-      }
     },
-    template: `<SfReview
-      :author="author"
-      :date="date"
-      :message="message"
-      :max-rating="maxRating"
-      :rating="rating"
-      :char-limit="charLimit"
-      :read-more-text="readMoreText"
-      :hide-full-text="hideFullText">
-      <template #info="{rating, maxRating, date}">
-        CUSTOM INFO
-      </template>  
-    </SfReview>`
-  }))
-  .add("[slot] message", () => ({
-    components: { SfReview },
-    props: {
-      author: {
-        default: text("author", "Jane D.Smith", "Props")
+    maxRating: {
+      control: "number",
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: 5,
+        },
       },
-      date: {
-        default: text("date", "April 2019", "Props")
-      },
-      message: {
-        default: text(
-          "message",
-          "I was looking for a bright light for the kitchen but wanted some item more modern than a strip light. this one is perfect, very bright and looks great. I can comment on interlation as I had an electrition instal it. Would recommend.",
-          "Props"
-        )
-      },
-      maxRating: {
-        default: number("maxRating", 5, {}, "Props")
-      },
-      rating: {
-        default: number("rating", 4, {}, "Props")
-      },
-      charLimit: {
-        default: number("charLimit", 250, {}, "Props")
-      },
-      readMoreText: {
-        default: text("readMoreText", "Read more", "Props")
-      },
-      hideFullText: {
-        default: text("hideFullText", "Read less", "Props")
-      }
     },
-    template: `<SfReview
-      :author="author"
-      :date="date"
-      :message="message"
-      :max-rating="maxRating"
-      :rating="rating"
-      :char-limit="charLimit"
-      :read-more-text="readMoreText"
-      :hide-full-text="hideFullText">
-      <template #message="{finalMessage, buttonText}">
-        CUSTOM MESSAGE
-      </template>  
-    </SfReview>`
-  }));
+    charLimit: {
+      control: "number",
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: 250,
+        },
+      },
+    },
+    readMoreText: {
+      control: "text",
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: "Read more",
+        },
+      },
+    },
+    hideFullText: {
+      control: "text",
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: "Read less",
+        },
+      },
+    },
+  },
+};
+
+const Template = (args, { argTypes }) => ({
+  components: { SfReview },
+  props: Object.keys(argTypes),
+  template: `<SfReview
+    :author="author"
+    :date="date"
+    :message="message"
+    :max-rating="maxRating"
+    :rating="rating"
+    :char-limit="charLimit"
+    :read-more-text="readMoreText"
+    :hide-full-text="hideFullText" />`,
+});
+
+export const Common = Template.bind({});
+Common.args = {
+  author: "Jane D.Smith",
+  date: "4 April 2019",
+  message:
+    "I was looking for a bright light for the kitchen but wanted some item more modern than a strip light. this one is perfect, very bright and looks great. I can comment on interlation as I had an electrition instal it. Would recommend.",
+  rating: 4,
+};
+
+export const UseIconSlot = (args, { argTypes }) => ({
+  components: { SfReview },
+  props: Object.keys(argTypes),
+  template: `<SfReview
+    :author="author"
+    :date="date"
+    :message="message"
+    :max-rating="maxRating"
+    :rating="rating"
+    :char-limit="charLimit"
+    :read-more-text="readMoreText"
+    :hide-full-text="hideFullText">
+    <template #icon>
+      🥑
+    </template>  
+  </SfReview>`,
+});
+UseIconSlot.args = { ...Common.args };
+
+export const UseAuthorSlot = (args, { argTypes }) => ({
+  components: { SfReview },
+  props: Object.keys(argTypes),
+  template: `<SfReview
+    :author="author"
+    :date="date"
+    :message="message"
+    :max-rating="maxRating"
+    :rating="rating"
+    :char-limit="charLimit"
+    :read-more-text="readMoreText"
+    :hide-full-text="hideFullText">
+    <template #author>
+      CUSTOM AUTHOR
+    </template>  
+  </SfReview>`,
+});
+UseAuthorSlot.args = { ...Common.args };
+
+export const UseInfoSlot = (args, { argTypes }) => ({
+  components: { SfReview },
+  props: Object.keys(argTypes),
+  template: `<SfReview
+    :author="author"
+    :date="date"
+    :message="message"
+    :max-rating="maxRating"
+    :rating="rating"
+    :char-limit="charLimit"
+    :read-more-text="readMoreText"
+    :hide-full-text="hideFullText">
+    <template #info>
+      CUSTOM INFO
+    </template>  
+  </SfReview>`,
+});
+UseInfoSlot.args = { ...Common.args };
+
+export const UseMessageSlot = (args, { argTypes }) => ({
+  components: { SfReview },
+  props: Object.keys(argTypes),
+  template: `<SfReview
+    :author="author"
+    :date="date"
+    :message="message"
+    :max-rating="maxRating"
+    :rating="rating"
+    :char-limit="charLimit"
+    :read-more-text="readMoreText"
+    :hide-full-text="hideFullText">
+    <template #message>
+      CUSTOM MESSAGE
+    </template>  
+  </SfReview>`,
+});
+UseMessageSlot.args = { ...Common.args };

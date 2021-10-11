@@ -2,10 +2,10 @@
 .sf-content-page {
   @include font(
     --content-pages-content-page-font,
-    var(--font-light),
-    var(--font-base),
+    var(--font-weight--light),
+    var(--font-size--base),
     1.6,
-    var(--font-family-primary)
+    var(--font-family--primary)
   );
 }
 .sf-content-pages {
@@ -18,7 +18,7 @@
     flex: 1;
     margin: var(--content-pages-section-margin, var(--spacer-base) 0);
     transition: var(--content-pages-transition, transform 150ms ease-in-out);
-    &--is-active {
+    &.is-active {
       transform: var(
         --content-pages-section-active-transform,
         translate3d(-100%, 0, 0)
@@ -29,7 +29,7 @@
   &__sidebar {
     box-sizing: border-box;
     overflow-y: auto;
-    height: calc(100vh - 5rem);
+    height: calc(-5rem + 100vh);
   }
   &__sidebar {
     flex: var(--content-pages-sidebar-flex, 0 0 100%);
@@ -44,10 +44,10 @@
     margin: var(--content-pages-sidebar-title-margin, 0 0 var(--spacer-xl) 0);
     @include font(
       --content-pages-sidebar-title-font,
-      var(--font-medium),
+      var(--font-weight--medium),
       var(--h3-font-size),
       1.4,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
   }
   &__category-title {
@@ -57,10 +57,10 @@
     );
     @include font(
       --content-pages-sidebar-category-title-font,
-      var(--font-bold),
-      var(--font-lg),
+      var(--font-weight--bold),
+      var(--font-size--lg),
       1.2,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
   }
   &__list-item {

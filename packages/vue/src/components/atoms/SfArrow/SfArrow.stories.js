@@ -1,72 +1,64 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import { storiesOf } from "@storybook/vue";
-import {
-  withKnobs,
-  text,
-  optionsKnob as options
-} from "@storybook/addon-knobs";
-import SfArrow from "./SfArrow.vue";
-import SfIcon from "../SfIcon/SfIcon.vue";
-storiesOf("Atoms|Arrow", module)
-  .addDecorator(withKnobs)
-  .add("Common", () => ({
-    components: {
-      SfArrow
+import { SfArrow, SfIcon } from "@storefront-ui/vue";
+
+export default {
+  title: "Components/Atoms/Arrow",
+  component: SfArrow,
+  argTypes: {
+    disabled: {
+      control: "boolean",
+      table: { category: "Attributes" },
+      description: "Disable clickable",
+      type: "boolean",
     },
-    props: {
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-arrow--right": "sf-arrow--right",
-            "sf-arrow--top": "sf-arrow--top",
-            "sf-arrow--down": "sf-arrow--down",
-            "sf-arrow--long": "sf-arrow--long",
-            "sf-arrow--transparent": "sf-arrow--transparent",
-            "sf-arrow--rounded": "sf-arrow--rounded",
-            "sf-arrow--no-shadow": "sf-arrow--no-shadow"
-          },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        )
+    ariaLabel: {
+      control: "text",
+      table: {
+        category: "Attributes",
       },
-      ariaLabel: {
-        default: text("ariaLabel", "Arrow Label", "Props")
-      }
+      defaultValue: "Arrow label",
     },
-    template: `<SfArrow
-      :class="customClass" 
-      :aria-label="ariaLabel"
-    />`
-  }))
-  .add("[slot] default", () => ({
-    components: {
-      SfArrow,
-      SfIcon
-    },
-    props: {
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-arrow--right": "sf-arrow--right",
-            "sf-arrow--long": "sf-arrow--long",
-            "sf-arrow--transparent": "sf-arrow--transparent",
-            "sf-arrow--rounded": "sf-arrow--rounded",
-            "sf-arrow--no-shadow": "sf-arrow--no-shadow"
-          },
+    onClick: { action: "clicked", table: { category: "Events" } },
+    classes: {
+      control: {
+        type: "select",
+        options: [
           "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        )
+          "sf-arrow--right",
+          "sf-arrow--long",
+          "sf-arrow--transparent",
+          "sf-arrow--rounded",
+          "sf-arrow--no-shadow",
+          "sf-arrow--top",
+          "sf-arrow--down",
+        ],
       },
-      ariaLabel: {
-        default: text("ariaLabel", "Arrow Label", "Props")
-      }
+      table: {
+        category: "Modifier classes",
+      },
     },
-    template: `<SfArrow
-      :class="customClass" :aria-label="ariaLabel">
-      <SfIcon icon="chevron_left" class="sf-arrow__icon" size="12px" view-box="0 0 24 12"/>
-    </SfArrow>`
-  }));
+  },
+};
+
+const Template = (args, { argTypes }) => ({
+  components: { SfArrow },
+  props: Object.keys(argTypes),
+  template: `<SfArrow :class="classes" :disabled="disabled" :aria-label="ariaLabel" @click="onClick" />`,
+});
+
+export const Common = Template.bind({});
+
+Common.args = { disabled: false };
+
+export const Disabled = Template.bind({});
+
+Disabled.args = { disabled: true };
+
+export const UseDefaultSlot = (args, { argTypes }) => ({
+  components: { SfArrow, SfIcon },
+  props: Object.keys(argTypes),
+  template: `<SfArrow :class="classes" :disabled="disabled" aria-label="Arrow label">
+  <SfIcon icon="arrow_right" class="sf-arrow__icon" size="14px" view-box="0 0 24 12"/>
+</SfArrow>`,
+});
+
+UseDefaultSlot.args = { ...Common.args };

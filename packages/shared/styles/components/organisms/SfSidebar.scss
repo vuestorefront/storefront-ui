@@ -22,10 +22,10 @@
     );
     @include font(
       --sidebar-top,
-      var(--font-light),
-      var(--font-base),
+      var(--font-weight--light),
+      var(--font-size--base),
       1.6,
-      var(--font-family-primary)
+      var(--font-family--primary)
     );
   }
   &__content {
@@ -35,17 +35,19 @@
     box-sizing: border-box;
     width: var(--sidebar-content-width);
     height: 100%;
+    scrollbar-color: var(--c-gray-variant) var(--c-light);
+    scrollbar-width: thin;
     padding: var(
       --sidebar-content-padding,
       var(--spacer-base) var(--spacer-sm)
     );
-    color: var(--sidebar-content-color, vaR(--c-text));
+    color: var(--sidebar-content-color, var(--c-text));
     @include font(
       --sidebar-content-font,
-      var(--font-light),
-      var(--font-base),
+      var(--font-weight--medium),
+      var(--font-size--base),
       1.6,
-      var(--font-family-primary)
+      var(--font-family--secondary)
     );
     &::-webkit-scrollbar {
       width: 0;
@@ -53,9 +55,9 @@
   }
   &__title {
     --heading-title-color: var(--c-dark-variant);
-    --heading-title-font-size: var(--font-xl);
-    --heading-title-font-weight: var(--font-light);
-    --heading-subtitle-font-size: var(--font-xl);
+    --heading-title-font-size: var(--font-size--xl);
+    --heading-title-font-weight: var(--font-weight--semibold);
+    --heading-description-font-size: var(--font-size--xl);
     display: var(--sidebar-title-display);
     margin: var(--sidebar-title, 0 0 var(--spacer-lg) 0);
   }
@@ -66,10 +68,10 @@
     padding: var(--sidebar-bottom-padding, var(--spacer-sm));
     @include font(
       --sidebar-bottom,
-      var(--font-light),
-      var(--font-base),
+      var(--font-weight--light),
+      var(--font-size--base),
       1.6,
-      var(--font-family-primary)
+      var(--font-family--primary)
     );
   }
   &__circle-icon {
@@ -91,8 +93,17 @@
     &--right {
       --sidebar-left: auto;
       --sidebar-right: 0;
-      --sidebar-circle-icon-left: 0;
-      --sidebar-circle-icon-transform: translate3d(-50%, 0, 0);
+      --sidebar-top-padding: var(--spacer-base);
+      --sidebar-circle-icon-top: var(--spacer-sm);
+      --sidebar-content-padding: var(--spacer-base);
+      & .sf-sidebar__circle-icon {
+        --button-background: transparent;
+        --icon-color: var(--c-link);
+        &:hover {
+          --button-box-shadow-opacity: 0;
+        }
+      }
+      --sidebar-circle-icon-transform: translate3d(-25%, 0, 0);
     }
   }
 }

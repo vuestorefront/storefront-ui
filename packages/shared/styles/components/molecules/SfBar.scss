@@ -10,12 +10,15 @@
   background-color: var(--bar-background, var(--c-light));
   @include font(
     --bar-font,
-    var(--font-medium),
-    var(--font-base),
+    var(--font-weight--medium),
+    var(--font-size--base),
     1.6,
-    var(--font-family-secondary)
+    var(--font-family--secondary)
   );
   &__icon {
     --icon-width: 0.875rem;
+    padding: 0;
+    border: 0;
+    background: transparent;
   }
 }

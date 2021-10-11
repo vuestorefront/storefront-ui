@@ -2,6 +2,7 @@
 .sf-top-bar {
   background-color: var(--top-bar-background, var(--c-light));
   &__container {
+    padding: var(--top-bar-padding, 0 var(--spacer-base));
     box-sizing: border-box;
     justify-content: var(--topbar-justify-content, space-between);
     max-width: var(--sf-topbar-width, 77.5rem);
@@ -9,10 +10,10 @@
     margin: 0 auto;
     @include font(
       --bar-font,
-      var(--font-normal),
-      var(--font-xs),
+      var(--font-weight--normal),
+      var(--font-size--sm),
       1.6,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
   }
   &__container,
@@ -21,5 +22,8 @@
   &__center {
     display: flex;
     align-items: center;
+  }
+  @include for-desktop {
+    --top-bar-padding: 0;
   }
 }

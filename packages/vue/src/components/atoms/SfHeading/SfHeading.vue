@@ -1,22 +1,30 @@
-<template>
-  <header class="sf-heading">
+<template functional>
+  <div
+    :class="[data.class, data.staticClass, 'sf-heading']"
+    :style="[data.style, data.staticStyle]"
+    v-bind="data.attrs"
+    v-on="listeners"
+  >
     <!--@slot Heading title. Slot content will replace default <h> tag-->
-    <slot name="title" v-bind="{ title }">
+    <slot name="title" v-bind="{ props }">
       <component
-        :is="`h${level}`"
+        :is="`h${props.level}`"
         class="sf-heading__title"
-        :class="level > 1 && `sf-heading__title--h${level}`"
+        :class="props.level > 1 && $options.headingClass(props.level)"
       >
-        {{ title }}
+        {{ props.title }}
       </component>
     </slot>
-    <!--@slot Heading subtitle. Slot content will replace default <div> tag-->
-    <slot name="subtitle" v-bind="{ subtitle }">
-      <div v-if="hasSubtitle" class="sf-heading__subtitle">
-        {{ subtitle }}
+    <!--@slot Heading description. Slot content will replace default <div> tag-->
+    <slot name="description" v-bind="{ props }">
+      <div
+        v-if="$options.hasDescription(props.description, slots)"
+        class="sf-heading__description"
+      >
+        {{ props.description }}
       </div>
     </slot>
-  </header>
+  </div>
 </template>
 <script>
 export default {
@@ -27,28 +35,42 @@ export default {
      */
     level: {
       type: Number,
-      default: 2
+      default: 2,
     },
     /**
      * Heading title
      */
     title: {
       type: String,
-      default: ""
+      default: "",
     },
     /**
-     * Heading subtitle
+     * Heading description
      */
-    subtitle: {
+    description: {
       type: String,
-      default: ""
+      default: "",
+    },
+  },
+  hasDescription(descriptionProp, slots) {
+    return !!descriptionProp || slots().description;
+  },
+  headingClass(headingLevel) {
+    switch (headingLevel) {
+      case 1:
+        return "h1";
+      case 3:
+        return "h3";
+      case 4:
+        return "h4";
+      case 5:
+        return "h5";
+      case 6:
+        return "h6";
+      default:
+        return "h2";
     }
   },
-  computed: {
-    hasSubtitle() {
-      return !!this.subtitle || this.$slots.hasOwnProperty("subtitle");
-    }
-  }
 };
 </script>
 <style lang="scss">

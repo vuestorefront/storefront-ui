@@ -1,6 +1,6 @@
 <template>
-  <li class="glide__slide sf-hero-item" :style="style">
-    <div class="sf-hero-item__container">
+  <li class="glide__slide sf-hero-item" :style="style" data-testid="hero-item">
+    <component :is="wrapper" class="sf-hero-item__wrapper" :link="link">
       <!--@slot hero item subtitle. Slot content will replace default <h2> tag-->
       <slot name="subtitle" v-bind="{ subtitle }">
         <div v-if="subtitle" class="sf-hero-item__subtitle">{{ subtitle }}</div>
@@ -10,63 +10,92 @@
         <h1 v-if="title" class="sf-hero-item__title">{{ title }}</h1>
       </slot>
       <!--@slot Call to action section. Slot content will replace default SfButton component-->
-      <slot name="call-to-action" v-bind="{ buttonText }">
-        <div v-if="buttonText" class="sf-hero-item__button">
-          <SfButton>
+      <slot name="call-to-action" v-bind="{ buttonText, link }">
+        <div v-if="buttonText && !mobileView" class="sf-hero-item__button">
+          <SfButton :link="link" data-testid="hero-cta-button">
             {{ buttonText }}
           </SfButton>
         </div>
       </slot>
-    </div>
+      <!--@slot hero item withImgTag.
+      Slot dedicated to img tags or other components with this tag (e.g. SfImage, SfCimage) that can be used as images for background.
+      If you want to use this slot, make sure that background and image props are NOT provided.-->
+      <slot name="withImgTag" />
+    </component>
   </li>
 </template>
 <script>
 import SfButton from "../../../atoms/SfButton/SfButton.vue";
+import SfLink from "../../../atoms/SfLink/SfLink.vue";
+import {
+  mapMobileObserver,
+  unMapMobileObserver,
+} from "../../../../utilities/mobile-observer";
 export default {
   name: "SfHeroItem",
   components: {
-    SfButton
+    SfButton,
+    SfLink,
   },
   props: {
     /** Hero item title */
     title: {
       type: String,
-      default: ""
+      default: "",
     },
     /** Hero item subtitle (at the top) */
     subtitle: {
       type: String,
-      default: ""
+      default: "",
     },
     /** text that will be displayed inside the button. You can replace the button  with "call-to-action" slot */
     buttonText: {
       type: String,
-      default: ""
+      default: "",
     },
     /** Background color */
     background: {
       type: String,
-      default: ""
+      default: "",
     },
     /** Background image path */
     image: {
       type: [Object, String],
-      default: ""
-    }
+      default: "",
+    },
+    /** link to be used in button if necessary */
+    link: {
+      type: String,
+      default: "",
+    },
+  },
+  data() {
+    return {
+      mobileView: false,
+    };
   },
   computed: {
+    ...mapMobileObserver(),
     style() {
       const image = this.image;
+      const isImageString = typeof image === "string";
       const background = this.background;
       return {
-        "--_hero-item-background-image": image.mobile
-          ? `url(${image.mobile})`
-          : `url(${image})`,
-        "--_hero-item-background-desktop-image":
-          image.desktop && `url(${image.desktop})`,
-        "--_hero-item-background-color": background
+        "background-image": isImageString
+          ? `url(${image})`
+          : `url(${this.mobileView ? image.mobile : image.desktop})`,
+        "background-color": background,
       };
-    }
-  }
+    },
+    wrapper() {
+      return !this.mobileView ? "div" : this.link ? "SfLink" : "SfButton";
+    },
+  },
+  mounted() {
+    this.mobileView = this.isMobile;
+  },
+  beforeDestroy() {
+    unMapMobileObserver();
+  },
 };
 </script>

@@ -18,7 +18,7 @@
 </template>
 <script>
 export default {
-  name: "SFTopBar"
+  name: "SFTopBar",
 };
 </script>
 <style lang="scss">

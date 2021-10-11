@@ -1,52 +1,43 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import { storiesOf } from "@storybook/vue";
-import SfLoader from "./SfLoader.vue";
-import SfImage from "../SfImage/SfImage.vue";
-storiesOf("Atoms|Loader", module)
-  .add("Common", () => ({
-    components: {
-      SfLoader,
-      SfImage
+import { SfLoader, SfImage } from "@storefront-ui/vue";
+
+export default {
+  title: "Components/Atoms/Loader",
+  component: SfLoader,
+  decorators: [
+    () => ({ template: '<div style="margin: 3em;"><story /></div>' }),
+  ],
+  argTypes: {
+    loading: {
+      control: "boolean",
+      table: {
+        category: "Props",
+      },
     },
-    data() {
-      return {
-        isLoading: true
-      };
-    },
-    mounted() {
-      window.setTimeout(() => {
-        this.isLoading = false;
-      }, 3000);
-    },
-    template: `<div style="width: 236px; height: 366px; border: 1px solid #F2F2F2">
-      <SfLoader
-      :loading="isLoading">
-          <SfImage src="/assets/storybook/SfImage/product-216x326.jpg" />
-      </SfLoader>
-    </div>`
-  }))
-  .add("[slot] loader", () => ({
-    components: {
-      SfLoader,
-      SfImage
-    },
-    data() {
-      return {
-        isLoading: true
-      };
-    },
-    mounted() {
-      window.setTimeout(() => {
-        this.isLoading = false;
-      }, 3000);
-    },
-    template: `<div style="width: 236px; height: 366px; border: 1px solid #F2F2F2">
-      <SfLoader
-        :loading="isLoading">
-        <SfImage src="/assets/storybook/SfImage/product-216x326.jpg" />
-        <template #loader>
-          loading...
-        </template>
-      </SfLoader>
-    </div>`
-  }));
+  },
+};
+
+const Template = (args, { argTypes }) => ({
+  components: { SfLoader, SfImage },
+  props: Object.keys(argTypes),
+  template: `<SfLoader :loading="loading"><SfImage src="/assets/storybook/SfImage/product-216x326.jpg" alt="dress" /></SfLoader>`,
+});
+
+export const Loading = Template.bind({});
+Loading.args = {
+  loading: true,
+};
+
+export const WithLoaderSlot = (args, { argTypes }) => ({
+  components: { SfLoader, SfImage },
+  props: Object.keys(argTypes),
+  template: `
+  <SfLoader
+    :loading="loading">
+    <SfImage src="/assets/storybook/SfImage/product-216x326.jpg" alt="dress" />
+    <template #loader>
+      loading...
+    </template>
+  </SfLoader>`,
+});
+
+WithLoaderSlot.args = { ...Loading.args };

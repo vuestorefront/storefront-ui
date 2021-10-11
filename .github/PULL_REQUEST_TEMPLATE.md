@@ -13,9 +13,9 @@ Closes #
 - [ ] No commented blocks of code left
 - [ ] Run tests and docs
 - [ ] Self code-reviewed
+- [ ] Changes documented 
 
 If applicable:
 
-- [ ] I followed [composition rules](https://docs.storefrontui.io/contributing/coding-guidelines.html#component-rules) for my component
+- [ ] I followed [composition rules](https://docs.storefrontui.io/?path=/story/introduction-contributing-guide-code-guidelines--page) for my component
 - [ ] I tested the component in most common device sizes (can be tested in Storybook [from viewport addon in top menu](https://github.com/storybooks/storybook/tree/master/addons/viewport))
- - [ ] I accept [Individual Contributor License Agreement](https://github.com/DivanteLtd/next/blob/master/CLA.md)

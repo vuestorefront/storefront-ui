@@ -2,32 +2,38 @@
   <div
     class="sf-radio"
     :class="{
-      'sf-radio--is-active': isChecked,
-      'sf-radio--is-disabled': disabled
+      'is-active': isChecked,
+      'is-disabled': disabled,
     }"
   >
-    <input
-      :id="value"
-      type="radio"
-      :name="name"
-      :value="value"
-      :checked="isChecked"
-      :disabled="disabled"
-      class="sf-radio__input"
-      @input="inputHandler"
-    />
-    <label :for="value" class="sf-radio__container">
+    <label class="sf-radio__container">
+      <input
+        v-focus
+        type="radio"
+        :name="name"
+        :value="value"
+        :checked="isChecked"
+        :disabled="disabled"
+        @change="changeHandler"
+        @input="inputHandler"
+      />
       <!-- @slot Custom checkmark markup (bind 'isChecked' boolean, 'disabled' boolean -->
       <slot name="checkmark" v-bind="{ isChecked, disabled }">
         <div
           class="sf-radio__checkmark"
-          :class="{ 'sf-radio__checkmark--is-active': isChecked }"
+          :class="{ 'sf-radio__checkmark is-active': isChecked }"
         ></div>
       </slot>
       <div class="sf-radio__content">
         <!-- @slot Custom label markup (bind 'label' string, 'isChecked' boolean, 'disabled' boolean -->
         <slot name="label" v-bind="{ label, isChecked, disabled }">
           <div v-if="label" class="sf-radio__label">{{ label }}</div>
+        </slot>
+        <!-- @slot Custom details markup (bind 'details' string -->
+        <slot name="details" v-bind="{ details }">
+          <p v-if="details" class="sf-radio__details">
+            {{ details }}
+          </p>
         </slot>
         <!-- @slot Custom description markup (bind 'description' string -->
         <slot name="description" v-bind="{ description }">
@@ -40,52 +46,59 @@
   </div>
 </template>
 <script>
+import { focus } from "../../../utilities/directives";
 export default {
   name: "SfRadio",
+  directives: {
+    focus,
+  },
   model: {
     prop: "selected",
-    event: "input"
+    event: "change",
   },
   props: {
     name: {
       type: String,
-      default: ""
+      default: "",
     },
     value: {
       type: String,
-      default: ""
+      default: "",
     },
     label: {
       type: String,
-      default: ""
+      default: "",
+    },
+    details: {
+      type: String,
+      default: "",
     },
     description: {
       type: String,
-      default: ""
-    },
-    required: {
-      type: Boolean,
-      default: false
+      default: "",
     },
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     selected: {
       type: String,
-      default: ""
-    }
+      default: "",
+    },
   },
   computed: {
     isChecked() {
       return this.value === this.selected;
-    }
+    },
   },
   methods: {
+    changeHandler() {
+      this.$emit("change", this.value);
+    },
     inputHandler() {
       this.$emit("input", this.value);
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

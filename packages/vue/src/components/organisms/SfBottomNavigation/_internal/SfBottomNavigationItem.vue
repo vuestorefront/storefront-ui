@@ -2,9 +2,9 @@
   <div
     class="sf-bottom-navigation-item"
     :class="{
-      'sf-bottom-navigation-item--active': isActive,
-      'sf-bottom-navigation-item--floating': isFloating,
-      'sf-bottom-navigation-item--center': !icon || !label
+      'is-active': isActive,
+      'is-floating': isFloating,
+      center: !icon || !label,
     }"
     v-on="$listeners"
   >
@@ -14,20 +14,22 @@
         :icon="icon"
         icon-color="white"
         icon-size="28px"
+        :aria-label="label"
       />
-      <SfIcon
+      <SfButton
         v-else-if="icon"
-        :icon="currentIcon"
-        :size="iconSize"
-        class="sf-bottom-navigation-item__icon"
-      />
+        class="sf-button--pure sf-bottom-navigation-item__icon"
+        :aria-label="label"
+      >
+        <SfIcon :icon="currentIcon" :size="iconSize" />
+      </SfButton>
     </slot>
     <slot name="label" v-bind="{ label }">
       <div
         v-if="label"
         class="sf-bottom-navigation-item__label"
         :class="{
-          'sf-bottom-navigation-item--has-margin': icon
+          'has-margin': icon,
         }"
       >
         {{ label }}
@@ -38,42 +40,46 @@
 <script>
 import SfIcon from "../../../atoms/SfIcon/SfIcon.vue";
 import SfCircleIcon from "../../../atoms/SfCircleIcon/SfCircleIcon.vue";
+import SfButton from "../../../atoms/SfButton/SfButton.vue";
+import { focus } from "../../../../utilities/directives";
 export default {
   name: "SfBottomNavigationItem",
+  directives: { focus },
   components: {
     SfCircleIcon,
-    SfIcon
+    SfIcon,
+    SfButton,
   },
   props: {
     icon: {
-      type: String,
-      default: ""
+      type: [String, Array],
+      default: "",
     },
     isActive: {
       type: Boolean,
-      default: false
+      default: false,
     },
     iconActive: {
       type: String,
-      default: ""
+      default: "",
     },
     label: {
       type: String,
-      default: ""
+      default: "",
     },
     iconSize: {
       type: String,
-      default: "20px"
+      default: "20px",
     },
     isFloating: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   computed: {
     currentIcon() {
       return this.isActive && this.iconActive ? this.iconActive : this.icon;
-    }
-  }
+    },
+  },
 };
 </script>

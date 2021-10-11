@@ -1,71 +1,93 @@
-import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, select } from "@storybook/addon-knobs";
-import SfAlert from "./SfAlert.vue";
-storiesOf("Molecules|Alert", module)
-  .addDecorator(withKnobs)
-  .add("Common", () => ({
-    components: { SfAlert },
-    props: {
-      message: {
-        default: text("message", "Low in stock", "Props")
+import { SfAlert } from "@storefront-ui/vue";
+
+export default {
+  title: "Components/Molecules/Alert",
+  component: SfAlert,
+  argTypes: {
+    message: {
+      control: "text",
+      table: {
+        category: "Props",
       },
-      type: {
-        default: select(
-          "type",
-          ["info", "success", "warning", "danger"],
-          "info",
-          "Props"
-        )
-      }
+      defaultValue: "",
     },
-    template: `<SfAlert
-      :message="message"
-      :type="type"
-      />`
-  }))
-  .add("[slot] icon", () => ({
-    components: { SfAlert },
-    props: {
-      message: {
-        default: text("message", "Low in stock", "Props")
+    type: {
+      control: {
+        type: "select",
+        options: ["", "secondary", "info", "success", "warning", "danger"],
       },
-      type: {
-        default: select(
-          "type",
-          ["info", "success", "warning", "danger"],
-          "info",
-          "Props"
-        )
-      }
-    },
-    template: `<SfAlert
-      :message="message"
-      :type="type">
-      <template #icon="{icon}">
-        ❤️
-      </template>  
-    </SfAlert>`
-  }))
-  .add("[slot] message", () => ({
-    components: { SfAlert },
-    props: {
-      message: {
-        default: text("message", "Low in stock", "Props")
+      table: {
+        category: "Props",
       },
-      type: {
-        default: select(
-          "type",
-          ["info", "success", "warning", "danger"],
-          "info",
-          "Props"
-        )
-      }
+      defaultValue: "secondary",
     },
-    template: `<SfAlert
-      :message="message"
-      :type="type">
-      <template #message="{message}">
-        CUSTOM MESSAGE
-      </template>  
-    </SfAlert>`
-  }));
+  },
+};
+
+const Template = (args, { argTypes }) => ({
+  components: { SfAlert },
+  props: Object.keys(argTypes),
+  template: `<SfAlert :message="message" :type="type" />`,
+});
+
+export const Default = Template.bind({});
+Default.args = {
+  message: "Low in stock",
+};
+
+export const Secondary = Template.bind({});
+Secondary.args = {
+  ...Default.args,
+  type: "secondary",
+};
+export const Info = Template.bind({});
+Info.args = {
+  ...Default.args,
+  type: "info",
+};
+
+export const Success = Template.bind({});
+Success.args = {
+  ...Default.args,
+  type: "success",
+};
+
+export const Warning = Template.bind({});
+Warning.args = {
+  ...Default.args,
+  type: "warning",
+};
+
+export const Danger = Template.bind({});
+Danger.args = {
+  ...Default.args,
+  type: "danger",
+};
+
+export const WithMessageSlot = (args, { argTypes }) => ({
+  components: { SfAlert },
+  props: Object.keys(argTypes),
+  template: `
+  <SfAlert
+    :message="message"
+    :type="type">
+    <template #message="{message}">
+      CUSTOM MESSAGE
+    </template>  
+  </SfAlert>`,
+});
+
+export const WithIconSlot = (args, { argTypes }) => ({
+  components: { SfAlert },
+  props: Object.keys(argTypes),
+  template: `
+  <SfAlert
+    :message="message"
+    :type="type">
+    <template #icon="{icon}">
+      ❤️
+    </template>  
+  </SfAlert>`,
+});
+
+WithIconSlot.args = { ...Default.args };

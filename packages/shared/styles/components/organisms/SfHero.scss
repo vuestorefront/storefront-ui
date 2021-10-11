@@ -1,90 +1,117 @@
 @import "../../helpers";
 .sf-hero-item {
   display: flex;
-  flex-direction: var(--hero-item-flex-direction, row);
-  align-items: var(--hero-item-align-items, center);
-  justify-content: var(--hero-item-justify-content, flex-start);
+  justify-content: flex-start;
+  position: relative;
   box-sizing: border-box;
-  min-height: var(--hero-item-height, 14rem);
-  width: var(--hero-item-width, 100%);
-  padding: var(--hero-item-padding, var(--spacer-sm));
-  color: var(--hero-item-color, var(--c-text));
-  @include background(
-    --hero-item-background,
-    var(--_hero-item-background-color, transparent),
-    var(--_hero-item-background-image)
-  );
-  &__container {
+  width: 100%;
+  color: var(--c-text);
+  background-repeat: no-repeat;
+  background-size: cover;
+  img {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+  }
+  &__wrapper {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: var(--hero-item-container-width, 50%);
+    justify-content: center;
+    width: 100%;
+    min-height: 14rem;
+    padding: var(--spacer-sm);
+    text-decoration: none;
+    &.sf-button,
+    &.sf-button:hover,
+    &.sf-button:active,
+    &.sf-link {
+      --button-background: transparent;
+      --button-box-shadow-opacity: 0;
+      --button-wrap: normal;
+      text-align: left;
+    }
   }
   &__subtitle {
-    margin: var(--hero-item-subtitle-margin, 0);
-    color: var(--hero-item-subtitle-color, var(--c-gray));
+    margin: 0;
+    color: var(--c-gray);
+    width: 60%;
     @include font(
       --hero-item-subtitle-font,
-      var(--font-normal),
-      var(--font-2xs),
+      var(--font-weight--normal),
+      var(--h6-font-size),
       1.4,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
-    text-transform: var(--hero-item-subtitle-transform, uppercase);
+    text-transform: uppercase;
   }
   &__title {
-    margin: var(--hero-item-title-margin, var(--spacer-xs) 0 0 0);
-    color: var(--hero-item-title-color, var(--c-text));
+    margin: var(--spacer-xs) 0 0 0;
+    color: var(--c-text);
+    width: 60%;
     @include font(
       --hero-item-title-font,
-      var(--font-semibold),
+      var(--font-weight--semibold),
       var(--h2-font-size),
       1.2,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
     letter-spacing: 0.1px;
-    text-transform: var(--hero-item-title-transform, none);
+    text-transform: none;
   }
   &__button {
-    display: var(--hero-item-button-display, none);
+    display: none;
   }
   &--align-right {
-    --hero-item-justify-content: flex-end;
+    justify-content: flex-end;
+  }
+  &--position-bg-top-right {
+    background-position: top right;
+  }
+  &--position-bg-bottom-right {
+    background-position: bottom right;
+  }
+  &--position-bg-bottom-left {
+    background-position: bottom left;
   }
   @include for-desktop {
-    --hero-item-height: 36.625rem;
-    --hero-item-padding: var(--spacer-2xl);
-    --hero-item-background-image: var(
-      --_hero-item-background-desktop-image,
-      var(--_hero-item-background-image)
-    );
+    &__wrapper {
+      width: 50%;
+      min-height: 36.625rem;
+      padding: var(--spacer-2xl);
+    }
+    &__subtitle {
+      width: 100%;
+    }
     &__title {
       --hero-item-font-size: var(--h1-font-size);
-      --hero-item-title-margin: var(--spacer-base) 0 var(--spacer-lg) 0;
+      width: 100%;
+      margin: var(--spacer-base) 0 var(--spacer-lg) 0;
     }
     &__button {
-      --hero-item-button-display: block;
+      display: block;
     }
   }
 }
 .sf-hero {
   position: relative;
-  &__controls {
+  &__control--left, &__control--right {
     position: absolute;
-    top: var(--hero-controls-top, 50%);
+    top: 50%;
     transform: translate3d(0, -50%, 0);
-    display: var(--hero-controls-display, none);
-    box-sizing: border-box;
-    justify-content: var(--hero-controls-justify-content, space-between);
-    width: var(--hero-controls-width, 100%);
-    padding: var(--hero-controls-padding, 0 var(--spacer-sm));
+    display: none;
+    padding: 0 var(--spacer-sm);
+  }
+  &__control--right {
+    right: 0;
   }
   &__bullets {
     position: absolute;
-    bottom: var(--hero-bullets-bottom, var(--spacer-xl));
+    bottom: var(--spacer-xl);
     left: 50%;
     transform: translate3d(-50%, 0, 0);
-    display: var(--hero-bullets-display, none);
+    display: none;
   }
   .glide {
     &__slides {
@@ -92,11 +119,11 @@
     }
   }
   @include for-desktop {
-    &__controls {
-      --hero-controls-display: flex;
+    &__control--left, &__control--right {
+      display: block;
     }
     &__bullets {
-      --hero-bullets-display: flex;
+      display: flex;
     }
   }
 }

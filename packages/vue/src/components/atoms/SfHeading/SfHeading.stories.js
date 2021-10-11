@@ -1,126 +1,101 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import { storiesOf } from "@storybook/vue";
-import {
-  withKnobs,
-  text,
-  number,
-  optionsKnob as options
-} from "@storybook/addon-knobs";
-import SfHeading from "./SfHeading.vue";
-import SfIcon from "../SfIcon/SfIcon.vue";
-storiesOf("Atoms|Heading", module)
-  .addDecorator(withKnobs)
-  .add("Common", () => ({
-    components: { SfHeading },
-    props: {
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-heading--underline": "sf-heading--underline",
-            "sf-heading--left": "sf-heading--left",
-            "sf-heading--right": "sf-heading--right"
-          },
-          "null",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        )
+import { SfHeading, SfIcon } from "@storefront-ui/vue";
+
+export default {
+  title: "Components/Atoms/Heading",
+  component: SfHeading,
+  argTypes: {
+    classes: {
+      control: {
+        type: "select",
+        options: [
+          "",
+          "sf-heading--underline",
+          "sf-heading--left",
+          "sf-heading--right",
+        ],
       },
-      level: {
-        default: number("level", 2, { min: 1, max: 6 }, "Props")
+      table: {
+        category: "CSS Modifiers",
       },
-      title: {
-        default: text("title", "Show how YOU wear it", "Props")
-      },
-      subtitle: {
-        default: text("subtitle", "#YOURLOOK", "Props")
-      }
     },
-    template: `<SfHeading
-      :class="customClass"
-      :level="level"
-      :title="title"
-      :subtitle="subtitle"/>`
-  }))
-  .add("[slot] title", () => ({
-    components: {
-      SfHeading,
-      SfIcon
+    level: {
+      control: {
+        type: "number",
+        range: {
+          min: 1,
+          max: 6,
+        },
+      },
+      table: {
+        category: "Props",
+      },
     },
-    props: {
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-heading--underline": "sf-heading--underline",
-            "sf-heading--left": "sf-heading--left",
-            "sf-heading--right": "sf-heading--right"
-          },
-          "null",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        )
+    title: {
+      control: "text",
+      table: {
+        category: "Props",
       },
-      level: {
-        default: number("level", 2, { min: 1, max: 6 }, "Props")
-      },
-      title: {
-        default: text("title", "Show how YOU wear it", "Props")
-      },
-      subtitle: {
-        default: text("subtitle", "#YOURLOOK", "Props")
-      }
     },
-    template: `<SfHeading
-      :class="customClass"
-      :level="level"
-      :title="title"
-      :subtitle="subtitle">
-      <template #title="{title}">
-        <h2 style="display: flex; align-items: center">
-          <SfIcon icon="heart" size="xxs" style="margin-right: 1rem"/> {{title}}
-        </h2>
-      </template>  
-    </SfHeading>`
-  }))
-  .add("[slot] subtitle", () => ({
-    components: {
-      SfHeading,
-      SfIcon
+    description: {
+      control: "text",
+      table: {
+        category: "Props",
+      },
     },
-    props: {
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-heading--underline": "sf-heading--underline",
-            "sf-heading--left": "sf-heading--left",
-            "sf-heading--right": "sf-heading--right"
-          },
-          "null",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        )
-      },
-      level: {
-        default: number("level", 2, { min: 1, max: 6 }, "Props")
-      },
-      title: {
-        default: text("title", "Show how YOU wear it", "Props")
-      },
-      subtitle: {
-        default: text("subtitle", "#YOURLOOK", "Props")
-      }
-    },
-    template: `<SfHeading
-      :class="customClass"
-      :level="level"
-      :title="title"
-      :subtitle="subtitle">
-      <template #subtitle="{subtitle}">
-        <div style="display: flex; align-items: center">
-          {{subtitle}} <SfIcon icon="notify" size="xxs" style="margin-left: 1rem"/>
-        </div>
-      </template>        
-    </SfHeading>`
-  }));
+  },
+};
+
+const Template = (args, { argTypes }) => ({
+  components: { SfHeading },
+  props: Object.keys(argTypes),
+  template: `
+  <SfHeading
+    :class="classes"
+    :level="level"
+    :title="title"
+    :description="description"
+  />`,
+});
+
+export const Common = Template.bind({});
+Common.args = {
+  level: 3,
+  title: "Share your look",
+  description: "#YOURLOOK",
+};
+
+export const WithLabelSlot = (args, { argTypes }) => ({
+  components: { SfHeading, SfIcon },
+  props: Object.keys(argTypes),
+  template: `
+  <SfHeading
+    :class="classes"
+    :level="level"
+    :title="title"
+    :description="description">
+    <template #title="{title}">
+      <h2 style="display: flex; align-items: center">
+        <SfIcon icon="heart" size="xxs" style="margin-right: 1rem"/> {{title}}
+      </h2>
+    </template>  
+  </SfHeading>`,
+});
+WithLabelSlot.args = { ...Common.args };
+
+export const WithDescriptionSlot = (args, { argTypes }) => ({
+  components: { SfHeading, SfIcon },
+  props: Object.keys(argTypes),
+  template: `
+  <SfHeading
+    :class="classes"
+    :level="level"
+    :title="title"
+    :description="description">
+    <template #description="{description}">
+      <div style="display: flex; align-items: center">
+        {{description}} <SfIcon icon="gift" size="xxs" style="margin-left: 1rem"/>
+      </div>
+    </template>        
+  </SfHeading>`,
+});
+WithDescriptionSlot.args = { ...Common.args };

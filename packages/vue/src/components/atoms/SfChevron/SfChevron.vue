@@ -1,5 +1,10 @@
-<template>
-  <div class="sf-chevron">
+<template functional>
+  <div
+    :class="[data.class, data.staticClass, 'sf-chevron']"
+    :style="[data.style, data.staticStyle]"
+    v-bind="data.attrs"
+    v-on="listeners"
+  >
     <!-- @slot Custom chevron markup -->
     <slot>
       <span class="sf-chevron__bar sf-chevron__bar--left"></span>
@@ -8,8 +13,12 @@
   </div>
 </template>
 <script>
+import { focus } from "../../../utilities/directives";
 export default {
-  name: "SfChevron"
+  name: "SfChevron",
+  directives: {
+    focus,
+  },
 };
 </script>
 <style lang="scss">

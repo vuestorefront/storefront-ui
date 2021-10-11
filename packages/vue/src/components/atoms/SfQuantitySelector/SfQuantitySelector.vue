@@ -1,64 +1,107 @@
-<template>
-  <div class="sf-quantity-selector">
-    <SfButton
-      :disabled="disabled"
-      class="sf-quantity-selector__button"
-      @click="$emit('input', parseInt(qty, 10) - 1)"
-      >-</SfButton
+<template functional>
+  <div
+    :class="[data.class, data.staticClass, 'sf-quantity-selector']"
+    :style="[data.style, data.staticStyle]"
+  >
+    <component
+      :is="injections.components.SfButton"
+      :disabled="
+        props.disabled || Boolean(props.min !== null && props.qty <= props.min)
+      "
+      class="sf-button--pure sf-quantity-selector__button"
+      data-testid="decrease"
+      @click="
+        $options.handleInput(
+          Number(props.qty) - 1,
+          listeners,
+          props.min,
+          props.max
+        )
+      "
     >
-    <SfInput
+      &minus;
+    </component>
+    <component
+      :is="injections.components.SfInput"
       type="number"
-      :value="qty"
-      :aria-label="ariaLabel"
-      :disabled="disabled"
+      :value="Number(props.qty)"
+      :disabled="props.disabled"
       class="sf-quantity-selector__input"
-      @input="$emit('input', parseInt($event, 10))"
+      data-testid="sf-quantity-selector input"
+      @input="$options.handleInput($event, listeners, props.min, props.max)"
+      @blur="$options.handleBlur(listeners)"
     />
-    <SfButton
-      :disabled="disabled"
-      class="sf-quantity-selector__button"
-      @click="$emit('input', parseInt(qty, 10) + 1)"
-      >+</SfButton
+    <component
+      :is="injections.components.SfButton"
+      :disabled="
+        props.disabled || Boolean(props.max !== null && props.qty >= props.max)
+      "
+      class="sf-button--pure sf-quantity-selector__button"
+      data-testid="increase"
+      @click="
+        $options.handleInput(
+          Number(props.qty) + 1,
+          listeners,
+          props.min,
+          props.max
+        )
+      "
     >
+      +
+    </component>
   </div>
 </template>
 <script>
 import SfInput from "../../atoms/SfInput/SfInput.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
+
 export default {
   name: "SfQuantitySelector",
-  components: {
-    SfInput,
-    SfButton
+  inject: {
+    components: {
+      default: {
+        SfInput,
+        SfButton,
+      },
+    },
   },
   model: {
-    prop: "qty"
+    prop: "qty",
   },
   props: {
     /** Quantity */
     qty: {
       type: [Number, String],
-      default: 1
-    },
-    /**
-     * Form input label
-     */
-    ariaLabel: {
-      type: String,
-      default: "quantity"
+      default: 1,
     },
     disabled: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
+    /** Minimum allowed quantity */
+    min: {
+      type: Number,
+      default: null,
+    },
+    /** Maximum allowed quantity */
+    max: {
+      type: Number,
+      default: null,
+    },
   },
-  watch: {
-    qty(val) {
-      if (val < 1 || isNaN(val)) {
-        this.$emit("input", 1);
-      }
+  handleInput(qty, listeners, min, max) {
+    // adjust qty per min/max if needed
+    const minimum = min || 1;
+    if (qty < minimum || isNaN(qty)) {
+      qty = minimum;
+    } else if (max !== null && qty > max) {
+      qty = max;
     }
-  }
+    return listeners.input && listeners.input(qty);
+  },
+  handleBlur(listeners) {
+    return listeners.blur && listeners.blur();
+  },
 };
 </script>
 <style lang="scss">

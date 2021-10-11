@@ -1,599 +1,225 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import { storiesOf } from "@storybook/vue";
-import {
-  withKnobs,
-  text,
-  number,
-  boolean,
-  object
-} from "@storybook/addon-knobs";
-import SfGroupedProduct from "./SfGroupedProduct.vue";
-import SfProperty from "../../atoms/SfProperty/SfProperty.vue";
-storiesOf("Organisms|GroupedProduct", module)
-  .addDecorator(withKnobs)
-  .add("Common", () => ({
-    components: { SfGroupedProduct, SfProperty },
-    props: {
-      settings: {
-        default: object("settings", { type: "slider" }, "Props")
+import { SfGroupedProduct, SfProperty } from "@storefront-ui/vue";
+export default {
+  title: "Components/Organisms/GroupedProduct",
+  component: SfGroupedProduct,
+  argTypes: {
+    settings: {
+      control: "object",
+      table: {
+        category: "Props",
       },
-      hasCarousel: {
-        default: boolean("hasCarousel", false, "Props")
-      },
-      image: {
-        default: object(
-          "image",
-          {
-            mobile: {
-              url: "/assets/storybook/SfGroupedProduct/product-white.png"
-            },
-            desktop: {
-              url: "/assets/storybook/SfGroupedProduct/product-white.png"
-            }
-          },
-          "Props"
-        )
-      },
-      imageWidth: {
-        default: number("imageWidth", 328, {}, "Props")
-      },
-      imageHeight: {
-        default: number("imageHeight", 448, {}, "Props")
-      },
-      imageLazy: {
-        default: boolean("imageLazy", true, "Props")
-      },
-      title: {
-        default: text("title", "Leave white brooch", "Props")
-      },
-      priceRegular: {
-        default: text("priceRegular", "$10,99", "Props")
-      },
-      priceSpecial: {
-        default: text("priceSpecial", "$5,09", "Props")
-      }
     },
-    data() {
-      return {
-        productQty: 1
-      };
-    },
-    template: `<SfGroupedProduct
-        :settings="settings"
-        :has-carousel="hasCarousel"
-        :style="{maxWidth: '500px'}"
-      >
-        <SfGroupedProductItem
-          :qty="productQty"
-          @input="productQty = $event"
-          :image="image"
-          :image-width="imageWidth"
-          :image-height="imageHeight"
-          :image-lazy="imageLazy"
-          :title="title"
-          :price-regular="priceRegular"
-          :price-special="priceSpecial"
-        >
-          <template #details>
-           <div :style="{color: '#A3A5AD', fontSize: '12px'}">MSD23-345-324</div>
-           <SfProperty name="Color" value="White" :style="{margin: 'auto 0 0 0'}" />
-          </template>
-        </SfGroupedProductItem>
-      </SfGroupedProduct>`
-  }))
-  .add("Multiple Products", () => ({
-    components: { SfGroupedProduct, SfProperty },
-    props: {
-      settings: {
-        default: object("settings", { type: "slider" }, "Props")
+    hasCarousel: {
+      control: "boolean",
+      defaultValue: true,
+      table: {
+        category: "Props",
       },
-      hasCarousel: {
-        default: boolean("hasCarousel", true, "Props")
-      }
     },
-    data() {
-      return {
-        products: [
-          {
-            image: {
-              mobile: {
-                url: "/assets/storybook/SfGroupedProduct/product-white.png"
-              },
-              desktop: {
-                url: "/assets/storybook/SfGroupedProduct/product-white.png"
-              }
-            },
-            sku: "MSD23-345-324",
-            title: "Leave white brooch",
-            priceRegular: "$10,99",
-            productQty: 1,
-            attributes: [
-              {
-                name: "color",
-                value: "White"
-              }
-            ]
-          },
-          {
-            image: {
-              mobile: {
-                url: "/assets/storybook/SfGroupedProduct/product-black.png"
-              },
-              desktop: {
-                url: "/assets/storybook/SfGroupedProduct/product-black.png"
-              }
-            },
-            sku: "MSD23-345-324",
-            title: "Leave black brooch",
-            priceRegular: "$10,99",
-            productQty: 1,
-            attributes: [
-              {
-                name: "color",
-                value: "Black"
-              }
-            ]
-          },
-          {
-            image: {
-              mobile: {
-                url: "/assets/storybook/SfGroupedProduct/product-green.png"
-              },
-              desktop: {
-                url: "/assets/storybook/SfGroupedProduct/product-green.png"
-              }
-            },
-            sku: "MSD23-345-324",
-            title: "Leave green brooch",
-            priceRegular: "$10,99",
-            productQty: 1,
-            attributes: [
-              {
-                name: "color",
-                value: "Green"
-              }
-            ]
-          }
-        ]
-      };
-    },
-    template: `<SfGroupedProduct
-        :settings="settings"
-        :has-carousel="hasCarousel"
-        :style="{maxWidth: '500px'}"
+  },
+};
+
+const Template = (args, { argTypes }) => ({
+  components: { SfGroupedProduct, SfProperty },
+  props: Object.keys(argTypes),
+  data() {
+    return {
+      productQty: 1,
+    };
+  },
+  template: `
+  <SfGroupedProduct
+    :settings="settings"
+    :has-carousel="hasCarousel"
+    :style="{maxWidth: '500px'}"
+  >
+    <SfGroupedProductItem
+      :qty="productQty"
+      @input="productQty = $event"
+      :image="image"
+      :image-width="imageWidth"
+      :image-height="imageHeight"
+      :image-lazy="imageLazy"
+      :title="title"
+      :price-regular="priceRegular"
     >
-      <SfGroupedProductItem 
-          v-for="product in products"
-          :key="product.title"
-          :qty="product.productQty"
-          @input="product.productQty = $event"
-          :image="product.image"
-          image-width="328"
-          image-height="448"
-          :title="product.title"
-          :price-regular="product.priceRegular"
-          :price-special="product.priceSpecial"
-      >
-        <template #details>
-          <div :style="{color: '#A3A5AD' }" class="desktop-only">{{product.sku}}</div>
-          <SfProperty v-for="attribute in product.attributes" name="Color" :value="attribute.value" :key="attribute.value" :style="{margin: 'auto 0 0 0'}" class="desktop-only"/>
-        </template>
-      </SfGroupedProductItem>
-    </SfGroupedProduct>`
-  }))
-  .add("[slot] details", () => ({
-    components: { SfGroupedProduct },
-    props: {
-      settings: {
-        default: object("settings", { type: "slider" }, "Props")
-      },
-      hasCarousel: {
-        default: boolean("hasCarousel", false, "Props")
-      },
-      image: {
-        default: object(
-          "image",
-          {
-            mobile: {
-              url: "/assets/storybook/SfGroupedProduct/product-white.png"
-            },
-            desktop: {
-              url: "/assets/storybook/SfGroupedProduct/product-white.png"
-            }
-          },
-          "Props"
-        )
-      },
-      imageWidth: {
-        default: number("imageWidth", 328, {}, "Props")
-      },
-      imageHeight: {
-        default: number("imageHeight", 448, {}, "Props")
-      },
-      imageLazy: {
-        default: boolean("imageLazy", true, "Props")
-      },
-      title: {
-        default: text("title", "Leave white brooch", "Props")
-      },
-      priceRegular: {
-        default: text("priceRegular", "$10,99", "Props")
-      },
-      priceSpecial: {
-        default: text("priceSpecial", "$5,09", "Props")
-      }
-    },
-    data() {
-      return {
-        productQty: 1
-      };
-    },
-    template: `<SfGroupedProduct
-        :settings="settings"
-        :has-carousel="hasCarousel"
-        :style="{maxWidth: '500px'}"
+      <template #details>
+        <div :style="{color: '#72757E', fontSize: 'var(--font-size--base'}">MSD23-345-324</div>
+        <SfProperty name="Color" value="White" :style="{margin: 'auto 0 0 0'}" />
+      </template>
+    </SfGroupedProductItem>
+  </SfGroupedProduct>`,
+});
+
+export const Common = Template.bind({});
+Common.args = {
+  settings: { type: "slider" },
+  image: "/assets/storybook/SfGroupedProduct/product-white.png",
+  imageWidth: 82,
+  imageHeight: 112,
+  imageLazy: true,
+  title: "Leave white brooch",
+  priceRegular: "$10.99",
+};
+
+export const UseConfigurationSlot = (args, { argTypes }) => ({
+  components: { SfGroupedProduct },
+  props: Object.keys(argTypes),
+  data() {
+    return {
+      productQty: 1,
+    };
+  },
+  template: `
+  <SfGroupedProduct
+    :settings="settings"
+    :has-carousel="hasCarousel"
+    :style="{maxWidth: '500px'}"
+  >
+    <SfGroupedProductItem
+      :qty="productQty"
+      @input="productQty = $event"
+      :image="image"
+      :image-width="imageWidth"
+      :image-height="imageHeight"
+      :image-lazy="imageLazy"
+      :title="title"
+      :price-regular="priceRegular"
     >
-      <SfGroupedProductItem
-          :qty="productQty"
-          @input="productQty = $event"
-          :image="image"
-          :image-width="imageWidth"
-          :image-height="imageHeight"
-          :image-lazy="imageLazy"
-          :title="title"
-          :price-regular="priceRegular"
-          :price-special="priceSpecial"
-      >
-        <template #details>
-          CUSTOM DETAILS
-        </template>
-      </SfGroupedProductItem>
-    </SfGroupedProduct>`
-  }))
-  .add("[slot] configuration", () => ({
-    components: { SfGroupedProduct },
-    props: {
-      settings: {
-        default: object("settings", { type: "slider" }, "Props")
-      },
-      hasCarousel: {
-        default: boolean("hasCarousel", false, "Props")
-      },
-      image: {
-        default: object(
-          "image",
-          {
-            mobile: {
-              url: "/assets/storybook/SfGroupedProduct/product-white.png"
-            },
-            desktop: {
-              url: "/assets/storybook/SfGroupedProduct/product-white.png"
-            }
-          },
-          "Props"
-        )
-      },
-      imageWidth: {
-        default: number("imageWidth", 328, {}, "Props")
-      },
-      imageHeight: {
-        default: number("imageHeight", 448, {}, "Props")
-      },
-      imageLazy: {
-        default: boolean("imageLazy", true, "Props")
-      },
-      title: {
-        default: text("title", "Leave white brooch", "Props")
-      },
-      priceRegular: {
-        default: text("priceRegular", "$10,99", "Props")
-      },
-      priceSpecial: {
-        default: text("priceSpecial", "$5,09", "Props")
-      }
-    },
-    data() {
-      return {
-        productQty: 1
-      };
-    },
-    template: `<SfGroupedProduct
-        :settings="settings"
-        :has-carousel="hasCarousel"
-        :style="{maxWidth: '500px'}"
+      <template #configuration>
+        CUSTOM CONFIGURATION
+      </template>
+    </SfGroupedProductItem>
+  </SfGroupedProduct>`,
+});
+UseConfigurationSlot.args = { ...Common.args };
+
+export const UseImageSlot = (args, { argTypes }) => ({
+  components: { SfGroupedProduct },
+  props: Object.keys(argTypes),
+  data() {
+    return {
+      productQty: 1,
+    };
+  },
+  template: `
+  <SfGroupedProduct
+    :settings="settings"
+    :has-carousel="hasCarousel"
+    :style="{maxWidth: '500px'}"
+  >
+    <SfGroupedProductItem
+      :qty="productQty"
+      @input="productQty = $event"
+      :image="image"
+      :image-width="imageWidth"
+      :image-height="imageHeight"
+      :image-lazy="imageLazy"
+      :title="title"
+      :price-regular="priceRegular"
     >
-      <SfGroupedProductItem
-          :qty="productQty"
-          @input="productQty = $event"
-          :image="image"
-          :image-width="imageWidth"
-          :image-height="imageHeight"
-          :image-lazy="imageLazy"
-          :title="title"
-          :price-regular="priceRegular"
-          :price-special="priceSpecial"
-      >
-        <template #configuration>
-          CUSTOM CONFIGURATION
-        </template>
-      </SfGroupedProductItem>
-    </SfGroupedProduct>`
-  }))
-  .add("[slot] image", () => ({
-    components: { SfGroupedProduct },
-    props: {
-      settings: {
-        default: object("settings", { type: "slider" }, "Props")
-      },
-      hasCarousel: {
-        default: boolean("hasCarousel", false, "Props")
-      },
-      image: {
-        default: object(
-          "image",
-          {
-            mobile: {
-              url: "/assets/storybook/SfGroupedProduct/product-white.png"
-            },
-            desktop: {
-              url: "/assets/storybook/SfGroupedProduct/product-white.png"
-            }
-          },
-          "Props"
-        )
-      },
-      imageWidth: {
-        default: number("imageWidth", 328, {}, "Props")
-      },
-      imageHeight: {
-        default: number("imageHeight", 448, {}, "Props")
-      },
-      imageLazy: {
-        default: boolean("imageLazy", true, "Props")
-      },
-      title: {
-        default: text("title", "Leave white brooch", "Props")
-      },
-      priceRegular: {
-        default: text("priceRegular", "$10,99", "Props")
-      },
-      priceSpecial: {
-        default: text("priceSpecial", "$5,09", "Props")
-      }
-    },
-    data() {
-      return {
-        productQty: 1
-      };
-    },
-    template: `<SfGroupedProduct
-        :settings="settings"
-        :has-carousel="hasCarousel"
-        :style="{maxWidth: '500px'}"
+      <template #image="{ image, title, imagePlaceholder, imageLazy, imagePictureBreakpoint }">
+        <div :style="{height: '111px'}">CUSTOM IMAGE</div>
+      </template>
+    </SfGroupedProductItem>
+  </SfGroupedProduct>`,
+});
+UseImageSlot.args = { ...Common.args };
+
+export const UseInputSlot = (args, { argTypes }) => ({
+  components: { SfGroupedProduct },
+  props: Object.keys(argTypes),
+  data() {
+    return {
+      productQty: 1,
+    };
+  },
+  template: `
+  <SfGroupedProduct
+    :settings="settings"
+    :has-carousel="hasCarousel"
+    :style="{maxWidth: '500px'}"
+  >
+    <SfGroupedProductItem
+      :qty="productQty"
+      @input="productQty = $event"
+      :image="image"
+      :image-width="imageWidth"
+      :image-height="imageHeight"
+      :image-lazy="imageLazy"
+      :title="title"
+      :price-regular="priceRegular"
     >
-      <SfGroupedProductItem
-          :qty="productQty"
-          @input="productQty = $event"
-          :image="image"
-          :image-width="imageWidth"
-          :image-height="imageHeight"
-          :image-lazy="imageLazy"
-          :title="title"
-          :price-regular="priceRegular"
-          :price-special="priceSpecial"
-      >
-        <template #image="{ image, title, imagePlaceholder, imageLazy, imagePictureBreakpoint }">
-          <div :style="{height: '111px'}">CUSTOM IMAGE</div>
-        </template>
-      </SfGroupedProductItem>
-    </SfGroupedProduct>`
-  }))
-  .add("[slot] input", () => ({
-    components: { SfGroupedProduct },
-    props: {
-      settings: {
-        default: object("settings", { type: "slider" }, "Props")
-      },
-      hasCarousel: {
-        default: boolean("hasCarousel", false, "Props")
-      },
-      image: {
-        default: object(
-          "image",
-          {
-            mobile: {
-              url: "/assets/storybook/SfGroupedProduct/product-white.png"
-            },
-            desktop: {
-              url: "/assets/storybook/SfGroupedProduct/product-white.png"
-            }
-          },
-          "Props"
-        )
-      },
-      imageWidth: {
-        default: number("imageWidth", 328, {}, "Props")
-      },
-      imageHeight: {
-        default: number("imageHeight", 448, {}, "Props")
-      },
-      imageLazy: {
-        default: boolean("imageLazy", true, "Props")
-      },
-      title: {
-        default: text("title", "Leave white brooch", "Props")
-      },
-      priceRegular: {
-        default: text("priceRegular", "$10,99", "Props")
-      },
-      priceSpecial: {
-        default: text("priceSpecial", "$5,09", "Props")
-      }
-    },
-    data() {
-      return {
-        productQty: 1
-      };
-    },
-    template: `<SfGroupedProduct
-        :settings="settings"
-        :has-carousel="hasCarousel"
-        :style="{maxWidth: '500px'}"
+      <template #input="{ qty }">
+        <div style="position: absolute; bottom: 0; right: 0">
+          CUSTOM INPUT
+        </div>
+      </template>
+    </SfGroupedProductItem>
+  </SfGroupedProduct>`,
+});
+UseInputSlot.args = { ...Common.args };
+
+export const UseTitleSlot = (args, { argTypes }) => ({
+  components: { SfGroupedProduct },
+  props: Object.keys(argTypes),
+  data() {
+    return {
+      productQty: 1,
+    };
+  },
+  template: `
+  <SfGroupedProduct
+    :settings="settings"
+    :has-carousel="hasCarousel"
+    :style="{maxWidth: '500px'}"
+  >
+    <SfGroupedProductItem
+      :qty="productQty"
+      @input="productQty = $event"
+      :image="image"
+      :image-width="imageWidth"
+      :image-height="imageHeight"
+      :image-lazy="imageLazy"
+      :title="title"
+      :price-regular="priceRegular"
     >
-      <SfGroupedProductItem
-          :qty="productQty"
-          @input="productQty = $event"
-          :image="image"
-          :image-width="imageWidth"
-          :image-height="imageHeight"
-          :image-lazy="imageLazy"
-          :title="title"
-          :price-regular="priceRegular"
-          :price-special="priceSpecial"
-      >
-        <template #input="{ qty }">
-          <div style="position: absolute; bottom: 0; right: 0">
-            CUSTOM INPUT
-          </div>
-        </template>
-      </SfGroupedProductItem>
-    </SfGroupedProduct>`
-  }))
-  .add("[slot] title", () => ({
-    components: { SfGroupedProduct },
-    props: {
-      settings: {
-        default: object("settings", { type: "slider" }, "Props")
-      },
-      hasCarousel: {
-        default: boolean("hasCarousel", false, "Props")
-      },
-      image: {
-        default: object(
-          "image",
-          {
-            mobile: {
-              url: "/assets/storybook/SfGroupedProduct/product-white.png"
-            },
-            desktop: {
-              url: "/assets/storybook/SfGroupedProduct/product-white.png"
-            }
-          },
-          "Props"
-        )
-      },
-      imageWidth: {
-        default: number("imageWidth", 328, {}, "Props")
-      },
-      imageHeight: {
-        default: number("imageHeight", 448, {}, "Props")
-      },
-      imageLazy: {
-        default: boolean("imageLazy", true, "Props")
-      },
-      title: {
-        default: text("title", "Leave white brooch", "Props")
-      },
-      priceRegular: {
-        default: text("priceRegular", "$10,99", "Props")
-      },
-      priceSpecial: {
-        default: text("priceSpecial", "$5,09", "Props")
-      }
-    },
-    data() {
-      return {
-        productQty: 1
-      };
-    },
-    template: `<SfGroupedProduct
-        :settings="settings"
-        :has-carousel="hasCarousel"
-        :style="{maxWidth: '500px'}"
+      <template #title="{ title }">
+        CUSTOM TITLE
+      </template>
+    </SfGroupedProductItem>
+  </SfGroupedProduct>`,
+});
+UseTitleSlot.args = { ...Common.args };
+
+export const UsePriceSlot = (args, { argTypes }) => ({
+  components: { SfGroupedProduct },
+  props: Object.keys(argTypes),
+  data() {
+    return {
+      productQty: 1,
+    };
+  },
+  template: `
+  <SfGroupedProduct
+    :settings="settings"
+    :has-carousel="hasCarousel"
+    :style="{maxWidth: '500px'}"
+  >
+    <SfGroupedProductItem
+      :qty="productQty"
+      @input="productQty = $event"
+      :image="image"
+      :image-width="imageWidth"
+      :image-height="imageHeight"
+      :image-lazy="imageLazy"
+      :title="title"
+      :price-regular="priceRegular"
     >
-      <SfGroupedProductItem
-          :qty="productQty"
-          @input="productQty = $event"
-          :image="image"
-          :image-width="imageWidth"
-          :image-height="imageHeight"
-          :image-lazy="imageLazy"
-          :title="title"
-          :price-regular="priceRegular"
-          :price-special="priceSpecial"
-      >
-        <template #title="{ title }">
-          CUSTOM TITLE
-        </template>
-      </SfGroupedProductItem>
-    </SfGroupedProduct>`
-  }))
-  .add("[slot] price", () => ({
-    components: { SfGroupedProduct },
-    props: {
-      settings: {
-        default: object("settings", { type: "slider" }, "Props")
-      },
-      hasCarousel: {
-        default: boolean("hasCarousel", false, "Props")
-      },
-      image: {
-        default: object(
-          "image",
-          {
-            mobile: {
-              url: "/assets/storybook/SfGroupedProduct/product-white.png"
-            },
-            desktop: {
-              url: "/assets/storybook/SfGroupedProduct/product-white.png"
-            }
-          },
-          "Props"
-        )
-      },
-      imageWidth: {
-        default: number("imageWidth", 328, {}, "Props")
-      },
-      imageHeight: {
-        default: number("imageHeight", 448, {}, "Props")
-      },
-      imageLazy: {
-        default: boolean("imageLazy", true, "Props")
-      },
-      title: {
-        default: text("title", "Leave white brooch", "Props")
-      },
-      priceRegular: {
-        default: text("priceRegular", "$10,99", "Props")
-      },
-      priceSpecial: {
-        default: text("priceSpecial", "$5,09", "Props")
-      }
-    },
-    data() {
-      return {
-        productQty: 1
-      };
-    },
-    template: `<SfGroupedProduct
-        :settings="settings"
-        :has-carousel="hasCarousel"
-        :style="{maxWidth: '500px'}"
-    >
-      <SfGroupedProductItem
-          :qty="productQty"
-          @input="productQty = $event"
-          :image="image"
-          :image-width="imageWidth"
-          :image-height="imageHeight"
-          :image-lazy="imageLazy"
-          :title="title"
-          :price-regular="priceRegular"
-          :price-special="priceSpecial"
-      >
-        <template #price="{ priceSpecial, priceRegular }">
-          CUSTOM PRICE
-        </template>
-      </SfGroupedProductItem>
-    </SfGroupedProduct>`
-  }));
+      <template #price="{ priceSpecial, priceRegular }">
+        CUSTOM PRICE
+      </template>
+    </SfGroupedProductItem>
+  </SfGroupedProduct>`,
+});
+UsePriceSlot.args = { ...Common.args };

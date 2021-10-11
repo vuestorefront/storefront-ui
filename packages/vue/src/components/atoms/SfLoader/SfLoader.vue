@@ -1,18 +1,26 @@
-<template>
-  <div class="sf-loader">
-    <transition name="fade" mode="out-in">
+<template functional>
+  <div
+    :ref="data.ref"
+    :class="[data.class, data.staticClass, 'sf-loader']"
+    :style="[data.style, data.staticStyle]"
+    v-bind="data.attrs"
+    v-on="listeners"
+  >
+    <transition name="sf-fade" mode="out-in">
       <!--@slot Slot for the actual content being loaded -->
-      <slot v-if="!loading"></slot>
+      <slot v-if="!props.loading"></slot>
       <div v-else class="sf-loader__overlay">
         <!--@slot Use this slot to replace the loader -->
         <slot name="loader">
           <svg
+            role="img"
             width="38"
             height="38"
             viewBox="0 0 38 38"
             xmlns="http://www.w3.org/2000/svg"
             class="sf-loader__spinner"
           >
+            <title>Loading...</title>
             <g fill="none" fill-rule="evenodd">
               <g transform="translate(1 1)" stroke-width="2">
                 <circle stroke-opacity=".5" cx="18" cy="18" r="18" />
@@ -43,9 +51,9 @@ export default {
      */
     loading: {
       default: true,
-      type: Boolean
-    }
-  }
+      type: Boolean,
+    },
+  },
 };
 </script>
 <style lang="scss">

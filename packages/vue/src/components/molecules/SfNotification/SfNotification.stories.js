@@ -1,246 +1,236 @@
-import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, select } from "@storybook/addon-knobs";
-import SfNotification from "./SfNotification.vue";
-import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
-import {
-  visibilityToggleMixin,
-  withVisibilityToggle
-} from "../../../../config/storybook/decorators";
-storiesOf("Molecules|Notification", module)
-  .addDecorator(withKnobs)
-  .addDecorator(withVisibilityToggle)
-  .add("Common", () => ({
-    components: { SfNotification },
-    props: {
-      title: {
-        default: text("title", "Added to Cart", "Props")
+import { SfNotification, SfIcon } from "@storefront-ui/vue";
+export default {
+  title: "Components/Molecules/Notification",
+  component: SfNotification,
+  argTypes: {
+    title: {
+      control: "text",
+      table: {
+        category: "Props",
       },
-      message: {
-        default: text(
-          "message",
-          "This is informative message for the user.",
-          "Props"
-        )
-      },
-      action: {
-        default: text("action", "View cart", "Props")
-      },
-      type: {
-        default: select(
-          "type",
-          ["info", "success", "warning", "danger"],
-          "info",
-          "Props"
-        )
-      }
+      defaultValue: "",
     },
-    mixins: [visibilityToggleMixin],
-    template: `
-      <SfNotification
-        :visible="visible"
-        :title="title"
-        :message="message"
-        :action="action"
-        :type="type"
-        @click:close="visible = false"
-      />`
-  }))
-  .add("[slot] icon", () => ({
-    components: { SfNotification, SfIcon },
-    props: {
-      title: {
-        default: text("title", "Added to Cart", "Props")
+    message: {
+      control: "text",
+      table: {
+        category: "Props",
       },
-      message: {
-        default: text(
-          "message",
-          "This is informative message for the user.",
-          "Props"
-        )
-      },
-      action: {
-        default: text("action", "View cart", "Props")
-      },
-      type: {
-        default: select(
-          "type",
-          ["info", "success", "warning", "danger"],
-          "info",
-          "Props"
-        )
-      }
+      defaultValue: "",
     },
-    mixins: [visibilityToggleMixin],
-    template: `
-      <SfNotification
-        :visible="visible"
-        :title="title"
-        :message="message"
-        :action="action"
-        :type="type"
-        @click:close="visible = false"
-      >
-        <template #icon="{icon}">
-          <SfIcon icon="heart" color="white"/>
-        </template>
-      </SfNotification>`
-  }))
-  .add("[slot] title", () => ({
-    components: { SfNotification },
-    props: {
-      title: {
-        default: text("title", "Added to Cart", "Props")
+    message: {
+      control: "text",
+      table: {
+        category: "Props",
       },
-      message: {
-        default: text(
-          "message",
-          "This is informative message for the user.",
-          "Props"
-        )
-      },
-      action: {
-        default: text("action", "View cart", "Props")
-      },
-      type: {
-        default: select(
-          "type",
-          ["info", "success", "warning", "danger"],
-          "info",
-          "Props"
-        )
-      }
+      defaultValue: "",
     },
-    mixins: [visibilityToggleMixin],
-    template: `
-      <SfNotification
-        :visible="visible"
-        :title="title"
-        :message="message"
-        :action="action"
-        :type="type"
-      >
-        <template #title="{title}">
-          CUSTOM TITLE
-        </template>
-      </SfNotification>`
-  }))
-  .add("[slot] message", () => ({
-    components: { SfNotification },
-    props: {
-      title: {
-        default: text("title", "Added to Cart", "Props")
+    action: {
+      control: "text",
+      table: {
+        category: "Props",
       },
-      message: {
-        default: text(
-          "message",
-          "This is informative message for the user.",
-          "Props"
-        )
-      },
-      action: {
-        default: text("action", "View cart", "Props")
-      },
-      type: {
-        default: select(
-          "type",
-          ["info", "success", "warning", "danger"],
-          "info",
-          "Props"
-        )
-      }
+      defaultValue: "",
     },
-    mixins: [visibilityToggleMixin],
-    template: `
-      <SfNotification
-        :visible="visible"
-        :title="title"
-        :message="message"
-        :action="action"
-        :type="type"
-        @click:close="visible = false"
-      >
-        <template #message="{message}">
-          CUSTOM MESSAGE
-        </template>
-      </SfNotification>`
-  }))
-  .add("[slot] action", () => ({
-    components: { SfNotification },
-    props: {
-      title: {
-        default: text("title", "Added to Cart", "Props")
+    visible: {
+      control: "boolean",
+      defaultValue: false,
+      table: {
+        category: "Props",
       },
-      message: {
-        default: text(
-          "message",
-          "This is informative message for the user.",
-          "Props"
-        )
-      },
-      action: {
-        default: text("action", "View cart", "Props")
-      },
-      type: {
-        default: select(
-          "type",
-          ["info", "success", "warning", "danger"],
-          "info",
-          "Props"
-        )
-      }
     },
-    mixins: [visibilityToggleMixin],
-    template: `
-      <SfNotification
-        :visible="visible"
-        :title="title"
-        :message="message"
-        :action="action"
-        :type="type"
-        @click:close="visible = false"
-      >
-        <template #action="{action, actionHandler}">
-          CUSTOM ACTION
-        </template>
-      </SfNotification>`
-  }))
-  .add("[slot] close", () => ({
-    components: { SfNotification },
-    props: {
-      title: {
-        default: text("title", "Added to Cart", "Props")
+    persistent: {
+      control: "boolean",
+      defaultValue: false,
+      table: {
+        category: "Props",
       },
-      message: {
-        default: text(
-          "message",
-          "This is informative message for the user.",
-          "Props"
-        )
-      },
-      action: {
-        default: text("action", "View cart", "Props")
-      },
-      type: {
-        default: select(
-          "type",
-          ["info", "success", "warning", "danger"],
-          "info",
-          "Props"
-        )
-      }
     },
-    mixins: [visibilityToggleMixin],
-    template: `
-      <SfNotification
-        :visible="visible"
-        :title="title"
-        :message="message"
-        :action="action"
-        :type="type"
-        @click:close="visible = false"
-      >
-        <template #close="closeHandler">
-          <div style="position: absolute; top: 1rem; right: 1rem">close</div>
-        </template>
-      </SfNotification>`
-  }));
+    type: {
+      control: {
+        type: "select",
+        options: ["", "secondary", "info", "success", "warning", "danger"],
+      },
+      table: {
+        category: "Props",
+      },
+      defaultValue: "secondary",
+    },
+    "click:action": { action: "Action clicked", table: { category: "Events" } },
+    "click:close": {
+      action: "Close notification clicked",
+      table: { category: "Events" },
+    },
+  },
+};
+
+const Template = (args, { argTypes }) => ({
+  components: { SfNotification },
+  props: Object.keys(argTypes),
+  template: `
+  <SfNotification
+    :visible="visible"
+    :persistent="persistent"
+    :title="title"
+    :message="message"
+    :action="action"
+    :type="type"
+    @click:close="this['click:close']"
+    @click:action="this['click:action']"
+  />`,
+});
+
+export const Common = Template.bind({});
+Common.args = {
+  message: "This is an information message",
+  visible: true,
+};
+
+export const WithTitle = Template.bind({});
+WithTitle.args = {
+  ...Common.args,
+  title: "Added to Cart",
+};
+
+export const Secondary = Template.bind({});
+Secondary.args = {
+  ...Common.args,
+  type: "secondary",
+};
+
+export const Info = Template.bind({});
+Info.args = {
+  ...Common.args,
+  type: "info",
+};
+
+export const Success = Template.bind({});
+Success.args = {
+  ...Common.args,
+  type: "success",
+};
+
+export const Warning = Template.bind({});
+Warning.args = {
+  ...Common.args,
+  type: "warning",
+};
+
+export const Danger = Template.bind({});
+Danger.args = {
+  ...Common.args,
+  type: "danger",
+};
+
+export const WithAction = Template.bind({});
+WithAction.args = {
+  ...Common.args,
+  action: "View cart",
+};
+
+export const Persistent = Template.bind({});
+Persistent.args = {
+  ...Common.args,
+  persistent: true,
+};
+
+export const UseIconSlot = (args, { argTypes }) => ({
+  components: { SfNotification, SfIcon },
+  props: Object.keys(argTypes),
+  template: `
+  <SfNotification
+    :visible="visible"
+    :title="title"
+    :message="message"
+    :action="action"
+    :type="type"
+    @click:close="this['click:close']"
+    @click:action="this['click:action']"
+  >
+    <template #icon="{icon}">
+      <SfIcon icon="heart" color="white"/>
+    </template>
+  </SfNotification>`,
+});
+
+UseIconSlot.args = { ...WithTitle.args };
+
+export const UseMessageSlot = (args, { argTypes }) => ({
+  components: { SfNotification },
+  props: Object.keys(argTypes),
+  template: `
+  <SfNotification
+    :visible="visible"
+    :title="title"
+    :message="message"
+    :action="action"
+    :type="type"
+    @click:close="this['click:close']"
+    @click:action="this['click:action']"
+  >
+    <template #message="{message}">
+       CUSTOM MESSAGE
+    </template>
+  </SfNotification>`,
+});
+
+UseMessageSlot.args = { ...WithTitle.args };
+
+export const UseTitleSlot = (args, { argTypes }) => ({
+  components: { SfNotification },
+  props: Object.keys(argTypes),
+  template: `
+  <SfNotification
+    :visible="visible"
+    :title="title"
+    :message="message"
+    :action="action"
+    :type="type"
+    @click:close="this['click:close']"
+    @click:action="this['click:action']"
+  >
+    <template #title="{title}">
+      CUSTOM TITLE
+    </template>
+  </SfNotification>`,
+});
+UseTitleSlot.args = { ...WithTitle.args };
+
+export const UseActionSlot = (args, { argTypes }) => ({
+  components: { SfNotification },
+  props: Object.keys(argTypes),
+  template: `
+  <SfNotification
+    :visible="visible"
+    :title="title"
+    :message="message"
+    :action="action"
+    :type="type"
+    @click:close="this['click:close']"
+    @click:action="this['click:action']"
+  >
+    <template #action="{action, actionHandler}">
+      CUSTOM ACTION
+    </template>
+  </SfNotification>`,
+});
+UseActionSlot.args = { ...WithTitle.args };
+
+export const UseCloseSlot = (args, { argTypes }) => ({
+  components: { SfNotification },
+  props: Object.keys(argTypes),
+  template: `
+  <SfNotification
+    :visible="visible"
+    :title="title"
+    :message="message"
+    :action="action"
+    :type="type"
+    @click:close="this['click:close']"
+    @click:action="this['click:action']"
+  >
+    <template #close="closeHandler">
+      <div style="position: absolute; top: 1rem; right: 1rem">close</div>
+    </template>
+  </SfNotification>`,
+});
+UseCloseSlot.args = { ...WithTitle.args };

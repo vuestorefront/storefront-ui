@@ -12,10 +12,10 @@
       border-radius: 10px;
     }
   }
-  &--is-open {
+  &.is-open {
     --scrollable-max-height: auto;
   }
-  &__button {
+  &__view-all {
     margin: var(--scrollable-button-margin, var(--spacer-sm) 0 0 0);
   }
 }

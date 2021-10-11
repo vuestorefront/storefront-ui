@@ -1,22 +1,22 @@
 @import "../../helpers";
-
 .sf-dropdown {
   position: var(--dropdown-position, fixed);
-  width: var(--dropdown-width, 100%);
   top: var(--dropdown-top);
-  bottom: var(--dropdown-bottom, 0);
-  transform: var(--dropdown-transform);
-  @include for-desktop {
-    position: var(--dropdown-position, absolute);
-    transform: var(--dropdown-transform, translate(0, 100%))
-  }
+  bottom: var(--dropdown-bottom);
+  transform: var(--dropdown-transform);  
   &__container {
-    position: relative;
+    position: var(--dropdown-container-position, relative);
+    top: var(--dropdown-container-top);
+    bottom: var(--dropdown-container-bottom);
+    width: var(--dropdown-container-width, 100%);
     z-index: 1;
     background: var(--dropdown-background, var(--c-white));
     box-shadow: var(--dropdown-box-shadow);
     @include for-desktop {
-    box-shadow: var(--dropdown-box-shadow, 0px 4px 11px rgba(var(--c-dark-base), 0.1));
+      box-shadow: var(
+        --dropdown-box-shadow,
+        0px 4px 11px rgba(var(--c-dark-base), 0.1)
+      );
     }
   }
   &__overlay {
@@ -29,10 +29,10 @@
     color: var(--c-primary);
     @include font(
       --dropdown-title-font,
-      var(--font-normal),
-      var(--font-sm),
+      var(--font-weight--normal),
+      var(--font-size--sm),
       1.2,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
     text-align: center;
   }
@@ -43,17 +43,20 @@
       --button-background: var(--c-light-primary);
     }
   }
-  &__cancel,
   &__title {
     @include for-desktop {
+      --button-display: none;
       display: none;
     }
   }
   &--up {
-    --dropdown-top: 0;
-    --dropdown-bottom: auto;
-    --dropdown-transform: translate(0, -100%);
-    --dropdown-box-shadow: 0px -4px 11px rgba(var(--c-dark-base), 0.1)
+    @include for-desktop {
+      --dropdown-bottom: 0;
+      .sf-dropdown__container {
+        --dropdown-container-position: absolute;
+        --dropdown-container-bottom: 3.125rem;
+      }
+    }
   }
   &-enter-active {
     animation: var(--dropdown-animation-enter, dropdown 150ms);
@@ -64,8 +67,8 @@
 }
 @keyframes dropdown {
   0% {
-      transform: translate3d(0, 100%, 0);
-    }
+    transform: translate3d(0, 100%, 0);
+  }
   100% {
     transform: translate3d(0, 0, 0);
   }

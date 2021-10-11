@@ -3,6 +3,6 @@ import SfGroupedProduct from "@/components/organisms/SfGroupedProduct/SfGroupedP
 describe("SfGroupedProduct.vue", () => {
   it("renders a component", () => {
     const component = shallowMount(SfGroupedProduct);
-    expect(component.contains(".sf-grouped-product")).toBe(true);
+    expect(component.classes("sf-grouped-product")).toBe(true);
   });
 });

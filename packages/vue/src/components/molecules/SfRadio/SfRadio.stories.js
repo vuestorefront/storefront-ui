@@ -1,223 +1,233 @@
-import { storiesOf } from "@storybook/vue";
-import {
-  withKnobs,
-  text,
-  boolean,
-  optionsKnob as options
-} from "@storybook/addon-knobs";
-import SfRadio from "./SfRadio.vue";
-storiesOf("Molecules|Radio", module)
-  .addDecorator(withKnobs)
-  .add("Common", () => ({
-    components: { SfRadio },
-    props: {
-      customClass: {
-        default: options(
-          "CSS Modifiers",
-          { "sf-radio--transparent": "sf-radio--transparent" },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        )
+import { SfRadio } from "@storefront-ui/vue";
+export default {
+  title: "Components/Molecules/Radio",
+  component: SfRadio,
+  argTypes: {
+    classes: {
+      control: {
+        type: "select",
+        options: ["sf-radio--transparent", ""],
       },
-      label: {
-        default: text("label", "Pickup in the store", "Props")
+      table: {
+        category: "CSS Modifiers",
       },
-      description: {
-        default: text(
-          "description",
-          "Novelty! From now on you have the option of picking up an order in the selected InPack parceler. Just remember that in the case of orders paid on delivery, only the card payment will be accepted.",
-          "Props"
-        )
-      },
-      name: {
-        default: text("name", "shipping", "Props")
-      },
-      value: {
-        default: text("value", "store", "Props")
-      },
-      disabled: {
-        default: boolean("disabled", false, "Props")
-      },
-      required: {
-        default: boolean("required", false, "Props")
-      }
+      description: "CSS classes modifiers",
     },
-    data() {
-      return {
-        checked: ""
-      };
+    selected: {
+      control: "text",
+      table: {
+        category: "Props",
+      },
+      defaultValue: "",
+      description: "Value of the selected option",
     },
-    template: `<SfRadio 
-       :class="customClass"
-       :label="label"
-       :description="description"
-       :name="name"
-       :value="value"
-       :disbled="disabled"
-       :required="required"
-       v-model="checked"/>`
-  }))
-  .add("[slot] checkmark", () => ({
-    components: { SfRadio },
-    props: {
-      customClass: {
-        default: options(
-          "CSS Modifiers",
-          { "sf-radio--transparent": "sf-radio--transparent" },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        )
+    name: {
+      control: "text",
+      table: {
+        category: "Props",
       },
-      label: {
-        default: text("label", "Pickup in the store", "Props")
-      },
-      description: {
-        default: text(
-          "description",
-          "Novelty! From now on you have the option of picking up an order in the selected InPack parceler. Just remember that in the case of orders paid on delivery, only the card payment will be accepted.",
-          "Props"
-        )
-      },
-      name: {
-        default: text("name", "shipping", "Props")
-      },
-      value: {
-        default: text("value", "store", "Props")
-      },
-      disabled: {
-        default: boolean("disabled", false, "Props")
-      },
-      required: {
-        default: boolean("required", false, "Props")
-      }
+      defaultValue: "",
+      description: "Name of the option",
     },
-    data() {
-      return {
-        checked: ""
-      };
+    value: {
+      control: "text",
+      table: {
+        category: "Props",
+      },
+      defaultValue: "",
+      description: "Value of the option",
     },
-    template: `<SfRadio 
-       :class="customClass"
-       :label="label"
-       :description="description"
-       :name="name"
-       :value="value"
-       :disbled="disabled"
-       :required="required"
-       v-model="checked">
-       <template #checkmark="{isChecked, disabled}">
-          <div v-if="isChecked">😀</div>
-          <div v-else>😔</div>
-       </template>
-    </SfRadio>`
-  }))
-  .add("[slot] label", () => ({
-    components: { SfRadio },
-    props: {
-      customClass: {
-        default: options(
-          "CSS Modifiers",
-          { "sf-radio--transparent": "sf-radio--transparent" },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        )
+    label: {
+      control: "text",
+      table: {
+        category: "Props",
       },
-      label: {
-        default: text("label", "Pickup in the store", "Props")
-      },
-      description: {
-        default: text(
-          "description",
-          "Novelty! From now on you have the option of picking up an order in the selected InPack parceler. Just remember that in the case of orders paid on delivery, only the card payment will be accepted.",
-          "Props"
-        )
-      },
-      name: {
-        default: text("name", "shipping", "Props")
-      },
-      value: {
-        default: text("value", "store", "Props")
-      },
-      disabled: {
-        default: boolean("disabled", false, "Props")
-      },
-      required: {
-        default: boolean("required", false, "Props")
-      }
+      defaultValue: "",
+      description: "Label for option",
     },
-    data() {
-      return {
-        checked: ""
-      };
+    details: {
+      control: "text",
+      table: {
+        category: "Props",
+      },
+      defaultValue: "",
+      description: "Option details",
     },
-    template: `<SfRadio 
-       :class="customClass"
-       :label="label"
-       :description="description"
-       :name="name"
-       :value="value"
-       :disbled="disabled"
-       :required="required"
-       v-model="checked">
-       <template #label="{label, isChecked, disabled}">
-          CUSTOM LABEL
-       </template>
-    </SfRadio>`
-  }))
-  .add("[slot] description", () => ({
-    components: { SfRadio },
-    props: {
-      customClass: {
-        default: options(
-          "CSS Modifiers",
-          { "sf-radio--transparent": "sf-radio--transparent" },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        )
+    description: {
+      control: "text",
+      table: {
+        category: "Props",
       },
-      label: {
-        default: text("label", "Pickup in the store", "Props")
-      },
-      description: {
-        default: text(
-          "description",
-          "Novelty! From now on you have the option of picking up an order in the selected InPack parceler. Just remember that in the case of orders paid on delivery, only the card payment will be accepted.",
-          "Props"
-        )
-      },
-      name: {
-        default: text("name", "shipping", "Props")
-      },
-      value: {
-        default: text("value", "store", "Props")
-      },
-      disabled: {
-        default: boolean("disabled", false, "Props")
-      },
-      required: {
-        default: boolean("required", false, "Props")
-      }
+      defaultValue: "",
+      description: "Additional description to the radio option to display",
     },
-    data() {
-      return {
-        checked: ""
-      };
+    disabled: {
+      control: "boolean",
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: false,
+        },
+      },
+      defaultValue: "",
+      description: "Indicate if this option is disabled",
     },
-    template: `<SfRadio 
-       :class="customClass"
-       :label="label"
-       :description="description"
-       :name="name"
-       :value="value"
-       :disbled="disabled"
-       :required="required"
-       v-model="checked">
-       <template #description="{description}">
-          CUSTOM DESCRIPTION
-       </template>
-    </SfRadio>`
-  }));
+    required: {
+      control: "boolean",
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: false,
+        },
+      },
+    },
+    change: {
+      action: "Toggle selection: change event",
+      table: { category: "Events" },
+    },
+    input: {
+      action: "Toggle selection: input event",
+      table: { category: "Events" },
+    },
+  },
+};
+
+const Template = (args, { argTypes }) => ({
+  components: { SfRadio },
+  props: Object.keys(argTypes),
+  template: `
+  <SfRadio
+    :class="classes"
+    :label="label"
+    :details="details"
+    :description="description"
+    :name="name"
+    :value="value"
+    :disabled="disabled"
+    :required="required"
+    v-model="selected"
+    @change="change"
+    @input="input"
+  />`,
+});
+
+export const Common = Template.bind({});
+Common.args = {
+  label: "Pickup in the store",
+  details: "Delivery from 4-6 business days",
+  description:
+    "Novelty! From now on you have the option of picking up an order in the selected InPack parceler. Just remember that in the case of orders paid on delivery, only the card payment will be accepted.",
+  name: "Shipping",
+  value: "store",
+};
+
+export const Selected = Template.bind({});
+Selected.args = {
+  ...Common.args,
+  selected: "store",
+};
+
+export const TransparentSelected = Template.bind({});
+TransparentSelected.args = {
+  ...Selected.args,
+  classes: "sf-radio--transparent",
+};
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  ...Common.args,
+  disabled: true,
+};
+
+export const UseCheckmarkSlot = (args, { argTypes }) => ({
+  components: { SfRadio },
+  props: Object.keys(argTypes),
+  template: `
+  <SfRadio
+    :class="classes"
+    :label="label"
+    :details="details"
+    :description="description"
+    :name="name"
+    :value="value"
+    :disabled="disabled"
+    :required="required"
+    @change="change"
+    @input="input"
+  >
+    <template #checkmark="{isChecked, disabled}">
+      <div v-if="isChecked">😀</div>
+      <div v-else>😔</div>
+    </template>
+  </SfRadio>`,
+});
+UseCheckmarkSlot.args = { ...Common.args };
+
+export const UseLabelSlot = (args, { argTypes }) => ({
+  components: { SfRadio },
+  props: Object.keys(argTypes),
+  template: `
+  <SfRadio
+    :class="classes"
+    :label="label"
+    :details="details"
+    :description="description"
+    :name="name"
+    :value="value"
+    :disabled="disabled"
+    :required="required"
+    @change="change"
+    @input="input"
+  >
+    <template #label="{label, isChecked, disabled}">
+      CUSTOM LABEL
+    </template>
+  </SfRadio>`,
+});
+UseLabelSlot.args = { ...Common.args };
+
+export const UseDetailsSlot = (args, { argTypes }) => ({
+  components: { SfRadio },
+  props: Object.keys(argTypes),
+  template: `
+  <SfRadio
+    :class="classes"
+    :label="label"
+    :details="details"
+    :description="description"
+    :name="name"
+    :value="value"
+    :disabled="disabled"
+    :required="required"
+    @change="change"
+    @input="input"
+  >
+    <template #details="{details}">
+      CUSTOM DETAILS
+    </template>
+  </SfRadio>`,
+});
+UseDetailsSlot.args = { ...Common.args };
+
+export const UseDescriptionSlot = (args, { argTypes }) => ({
+  components: { SfRadio },
+  props: Object.keys(argTypes),
+  template: `
+  <SfRadio
+    :class="classes"
+    :label="label"
+    :details="details"
+    :description="description"
+    :name="name"
+    :value="value"
+    :disabled="disabled"
+    :required="required"
+    @change="change"
+    @input="input"
+  >
+    <template #description="{description}">
+      CUSTOM DESCRIPTION
+    </template>
+  </SfRadio>`,
+});
+UseDescriptionSlot.args = { ...Common.args };

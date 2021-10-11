@@ -1,0 +1,46 @@
+ @import "../../helpers";  
+.sf-order-summary {
+  &__heading {
+    --heading-title-margin: 0 0 var(--spacer-xl) 0;
+    --heading-title-font-weight: var(--font-weight--bold);
+    --heading-padding: 0;
+    --heading-title-margin: 0 0 var(--spacer-xl) 0;
+    @include for-desktop {
+      --heading-title-font-weight: var(--font-weight--semibold);
+    }
+  }
+  &__property {
+      margin: var(--spacer-base) 0;
+    --property-name-font-weight: var(--font-weight--medium);
+    --property-value-font-weight: var(--font-weight--bold);
+    &:last-of-type {
+      margin: var(--spacer-base) 0 var(--spacer-xl);
+      --property-name-color: var(--c-text);
+    }
+  } 
+  &__divider {
+    --divider-border-color: var(--c-white);
+    --divider-margin: var(--spacer-xl) 0 0 0;
+  }
+  &__promo-code {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    &-input {
+      --input-background: var(--c-white);
+      --input-label-font-size: var(--font-size--base);
+      flex: 1;
+    }
+    &-button {
+      --button-height: 1.875rem;
+    }  
+  } 
+  &__characteristics {
+    &-item {
+      margin: var(--spacer-base) 0;
+      &:last-of-type {
+        margin: 0;
+      }
+    }
+   }
+}

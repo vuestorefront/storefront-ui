@@ -1,7 +1,16 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import { storiesOf } from "@storybook/vue";
-import SfDivider from "./SfDivider.vue";
-storiesOf("Atoms|Divider", module).add("Common", () => ({
+import { SfDivider } from "@storefront-ui/vue";
+
+export default {
+  title: "Components/Atoms/Divider",
+  component: SfDivider,
+};
+
+const Template = (args, { argTypes }) => ({
   components: { SfDivider },
-  template: `<SfDivider />`
-}));
+  template: `<div style="margin-top:10vh"> 
+		<SfDivider/> 
+	</div>`,
+});
+
+export const Common = Template.bind({});
+Common.args = {};

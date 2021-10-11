@@ -5,19 +5,19 @@ describe("SfContentPage.vue", () => {
     const component = shallowMount({
       template: '<SfContentPage class="sf-content-page" title="jest"/>',
       components: {
-        SfContentPage
+        SfContentPage,
       },
       data() {
         return {
-          items: []
+          items: [],
         };
       },
       provide: {
         provided: {
-          active: "jest"
-        }
-      }
+          active: "jest",
+        },
+      },
     });
-    expect(component.contains(".sf-content-page")).toBe(true);
+    expect(component.classes("sf-content-page")).toBe(true);
   });
 });

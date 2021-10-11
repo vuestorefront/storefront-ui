@@ -7,10 +7,10 @@
   @include border(--grouped-product-item-border, 0, solid, var(--c-light));
   @include font(
     --grouped-product-item-font,
-    var(--font-normal),
-    var(--font-xs),
+    var(--font-weight--normal),
+    var(--font-size--xs),
     1.6,
-    var(--font-family-primary)
+    var(--font-family--primary)
   );
   &__aside {
     position: var(--grouped-product-item-aside-position, relative);
@@ -24,8 +24,7 @@
     }
   }
   &__quantity-selector {
-    --quantity-selector-height: 2.5rem;
-    --quantity-selector-background: var(--c-white);
+    --quantity-selector-background: var(--c-light);
     display: var(--grouped-product-item-quantity-selector-display, flex);
     position: absolute;
     bottom: var(
@@ -55,13 +54,16 @@
     margin: var(--grouped-product-item-info-margin);
   }
   &__title {
-    margin: var(--grouped-product-item-title-margin, var(--spacer-xs) 0);
+    color: var(--grouped-product-item-title-color, var(--c-link));
+    padding: var(--grouped-product-item-title-margin, var(--spacer-xs) 0);
+    display: inline-block;
+    --link-text-decoration: none;
     @include font(
       --grouped-product-item-title-font,
-      var(--font-normal),
-      var(--font-2xs),
+      var(--font-weight--normal),
+      var(--font-size--base),
       1.6,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
   }
   &__price {
@@ -76,7 +78,7 @@
     --grouped-product-item-quantity-selector-transfrom: translate3d(0, 0, 0);
     --grouped-product-item-border-width: 0 0 1px 0;
     --grouped-product-item-flex: 0 0 5.125rem;
-    --grouped-product-item-description-margin: 0 0 0 var(--spacer-lg);
+    --grouped-product-item-description-margin: 0 0 0 var(--spacer-sm);
     --grouped-product-item-price-margin: 0 0 0 auto;
     &__quantity-selector {
       --quantity-selector-background: var(--c-light);
@@ -103,7 +105,7 @@
       }
     }
   }
-  &--without-carousel {
+  &.without-carousel {
     .glide {
       &__slides {
         display: block;
@@ -130,7 +132,7 @@
       --quantity-selector-background: var(--c-light);
     }
   }
-  &--without-quantity {
+  &.without-quantity {
     --grouped-product-item-quantity-selector-display: none;
   }
 }

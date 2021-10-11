@@ -3,6 +3,6 @@ import SfRadio from "./SfRadio.vue";
 describe("SfRadio.vue", () => {
   it("renders a component", () => {
     const component = shallowMount(SfRadio);
-    expect(component.contains(".sf-radio")).toBe(true);
+    expect(component.classes("sf-radio")).toBe(true);
   });
 });

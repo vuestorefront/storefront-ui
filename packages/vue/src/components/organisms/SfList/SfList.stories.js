@@ -1,9 +1,12 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import { storiesOf } from "@storybook/vue";
-import SfList from "./SfList.vue";
-import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem.vue";
-storiesOf("Organisms|List", module).add("Common", () => ({
-  components: { SfList, SfMenuItem },
+import { SfList, SfMenuItem } from "@storefront-ui/vue";
+export default {
+  title: "Components/Organisms/List",
+  component: SfList,
+};
+
+const Template = (args, { argTypes }) => ({
+  components: { SfList },
+  props: Object.keys(argTypes),
   data() {
     return {
       items: [
@@ -13,17 +16,21 @@ storiesOf("Organisms|List", module).add("Common", () => ({
         { label: "Belts", count: "101" },
         { label: "Bag", count: "2" },
         { label: "Trainers", count: "22" },
-        { label: "Sandals", count: "55" }
-      ]
+        { label: "Sandals", count: "55" },
+      ],
     };
   },
-  template: `<SfList :style="{maxWidth: '186px'}">
-      <SfListItem 
-        v-for="item in items" 
-        :key="item.label" 
-        :style="{'--list-item-margin':'24px 0'}"
-      >
-        <SfMenuItem :label="item.label" :count="item.count"/>
-      </SfListItem>
-    </SfList>`
-}));
+  template: `
+  <SfList :style="{maxWidth: '186px'}">
+    <SfListItem 
+      v-for="item in items" 
+      :key="item.label" 
+      :style="{'--list-item-margin':'24px 0'}"
+    >
+      {{item.label}}: {{item.count}}
+    </SfListItem>
+  </SfList>`,
+});
+
+export const Common = Template.bind({});
+Common.args = {};

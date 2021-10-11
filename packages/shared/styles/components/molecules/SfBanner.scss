@@ -2,22 +2,30 @@
 .sf-banner {
   box-sizing: border-box;
   display: var(--banner-display, flex);
-  align-items: var(--banner-align-items, flex-start);
   justify-content: var(--banner-justify-content, flex-start);
-  min-height: var(--banner-height, 14rem);
   width: var(--banner-width, 100%);
-  padding: var(--banner-padding, var(--spacer-xl));
+  min-height: var(--banner-height, 21.4375rem);
   @include background(
     --banner-background,
     var(--_banner-background-color, transparent),
     var(--_banner-background-image)
   );
-  &__container {
+  --banner-background-position: 60%;
+  &__wrapper {
     display: flex;
-    flex: 0 0 var(--banner-container-width, 50%);
-    justify-content: var(--banner-container-justify-content, flex-start);
-    align-items: var(--banner-container-align-items, flex-start);
-    flex-direction: var(--banner-container-flex-direction, column);
+    flex-direction: column;
+    align-items: var(--banner-align-items, flex-start);
+    justify-content: var(--banner-wrapper-justify-content, flex-start);
+    flex-direction: var(--banner-wrapper-flex-direction, column);
+    padding: var(--banner-padding, var(--spacer-xl));
+    flex: 0 0 var(--banner-wrapper-width, 100%);
+    text-decoration: none;
+    &.sf-button,
+    &.sf-button:hover,
+    &.sf-button:active {
+      --button-background: transparent;
+      --button-box-shadow-opacity: 0;
+    }
   }
   &__subtitle {
     margin: var(--banner-subtitle-margin, 0);
@@ -27,58 +35,65 @@
     );
     @include font(
       --banner-subtitle-font,
-      var(--font-normal),
-      var(--font-2xs),
+      var(--font-weight--normal),
+      var(--font-size--base),
       1.4,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
     text-transform: var(--banner-subtitle-text-transform, uppercase);
   }
   &__title {
-    margin: var(--banner-title-margin, 0.6875rem 0 0 0);
+    margin: var(--banner-title-margin, var(--spacer-2xs) 0 0 0);
     color: var(--banner-color, var(--banner-title-color, var(--c-text)));
     @include font(
       --banner-title-font,
-      var(--font-normal),
+      var(--font-weight--normal),
       var(--h2-font-size),
       1.4,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
     text-transform: var(--banner-title-text-transform, uppercase);
   }
   &__description {
-    display: var(--banner-display-description, none);
+    display: var(--banner-description-display, none);
     margin: var(
       --banner-description-margin,
       var(--spacer-sm) 0 var(--spacer-base) 0
     );
     color: var(--banner-color, var(--banner-description-color, var(--c-text)));
+    text-align: var(--banner-description-text-align, left);
     @include font(
       --banner-description-font,
-      var(--font-light),
-      var(--font-base),
+      var(--font-weight--light),
+      var(--font-size--base),
       1.6,
-      var(--font-family-primary)
+      var(--font-family--primary)
     );
   }
   &__call-to-action {
+    --button-color: var(--c-light-variant);
     display: var(--banner-display-call-to-action, none);
   }
   @include for-desktop {
-    align-items: var(--banner-align-items, center);
     --banner-background-image: var(
       --_banner-background-desktop-image,
       var(--_banner-background-image)
     );
-    --banner-display-description: block;
+    --banner-wrapper-width: 50%;
+    --banner-description-display: block;
     --banner-display-call-to-action: block;
-    --banner-title-margin: var(--spacer-base) 0 0 0;
+    --banner-title-margin: var(--spacer-sm) 0 0 0;
     --banner-subtitle-color: var(--c-gray);
-    --banner-title-font-size: var(--h1-font-size);
-    min-height: var(--banner-height, 19rem);
-  }
-  &--right {
-    @include for-desktop {
+    align-items: var(--banner-align-items, center);
+    min-height: var(--banner-height, 25rem);
+    &__wrapper {
+      pointer-events: none;
+    }
+    &__call-to-action {
+      --button-padding: var(--spacer-sm) var(--spacer-xl);
+      pointer-events: auto;
+    }
+    &--right {
       --banner-justify-content: flex-end;
     }
   }

@@ -1,8 +1,8 @@
 <template>
-  <div :class="`color-${type}`" class="sf-alert">
+  <div :class="colorClass" class="sf-alert">
     <!--@slot Custom alert icon. Slot content will replace default icon <SfIcon/> tag.-->
     <slot name="icon" v-bind="{ icon }">
-      <SfIcon :icon="icon" class="sf-alert__icon" />
+      <SfIcon aria-hidden="true" :icon="icon" class="sf-alert__icon" />
     </slot>
     <!--@slot Custom message . Slot content will replace default message <span> tag.-->
     <slot name="message" v-bind="{ message }">
@@ -15,7 +15,7 @@ import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 export default {
   name: "SfAlert",
   components: {
-    SfIcon
+    SfIcon,
   },
   props: {
     /**
@@ -23,7 +23,7 @@ export default {
      */
     message: {
       type: String,
-      default: ""
+      default: "",
     },
     /**
      * Alert type ("secondary", "info", "success", "warning", "danger"). Check "Knobs" section to see how they look like.
@@ -31,12 +31,12 @@ export default {
     type: {
       type: String,
       default: "secondary",
-      validator: function(value) {
+      validator: function (value) {
         return ["secondary", "info", "success", "warning", "danger"].includes(
           value
         );
-      }
-    }
+      },
+    },
   },
   computed: {
     icon() {
@@ -48,8 +48,24 @@ export default {
         default:
           return "info_circle";
       }
-    }
-  }
+    },
+    colorClass() {
+      switch (this.type) {
+        case "secondary":
+          return "color-secondary";
+        case "info":
+          return "color-info";
+        case "success":
+          return "color-success";
+        case "warning":
+          return "color-warning";
+        case "danger":
+          return "color-danger";
+        default:
+          return "color-info";
+      }
+    },
+  },
 };
 </script>
 <style lang="scss">

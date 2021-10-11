@@ -3,6 +3,6 @@ import SfAccordion from "./SfAccordion.vue";
 describe("SfAccordion.vue", () => {
   it("renders a component", () => {
     const component = shallowMount(SfAccordion);
-    expect(component.contains(".sf-accordion")).toBe(true);
+    expect(component.classes("sf-accordion")).toBe(true);
   });
 });

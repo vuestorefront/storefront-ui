@@ -1,303 +1,217 @@
-import { storiesOf } from "@storybook/vue";
-import {
-  withKnobs,
-  text,
-  color,
-  object,
-  optionsKnob as options
-} from "@storybook/addon-knobs";
-import SfBanner from "./SfBanner.vue";
-storiesOf("Molecules|Banner", module)
-  .addDecorator(withKnobs)
-  .add("Common", () => ({
-    components: { SfBanner },
-    props: {
-      customClass: {
-        default: options(
-          "CSS Modifiers",
-          {
-            "sf-banner--right": "sf-banner--right"
-          },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        )
+import { SfBanner } from "@storefront-ui/vue";
+import banner from "../../../../public/assets/storybook/SfBanner/Banner2.jpg";
+
+export default {
+  title: "Components/Molecules/Banner",
+  component: SfBanner,
+  argTypes: {
+    classes: {
+      control: {
+        type: "select",
+        options: ["sf-banner--right", ""],
       },
-      title: {
-        default: text("title", "Eco Sandals", "Props")
+      table: {
+        category: "CSS Modifiers",
       },
-      subtitle: {
-        default: text("subtitle", "Summer shoes", "Props")
-      },
-      description: {
-        default: text(
-          "description",
-          "The collection features formal and casual comfort shoes with a Danish design focus. Made from premium leathers and comfort.",
-          "Props"
-        )
-      },
-      buttonText: {
-        default: text("buttonText", "Shop Now", "Props")
-      },
-      image: {
-        default: object(
-          "image",
-          {
-            mobile: "/assets/storybook/SfBanner/Banner2.jpg",
-            desktop: "/assets/storybook/SfBanner/Banner2.jpg"
-          },
-          "Props"
-        )
-      },
-      background: {
-        default: color("background", "#e1e3e2", "Props")
-      }
     },
-    template: `<div style="max-width: 77.5rem">
-      <SfBanner 
-      :class="customClass"
-      :title="title"
-      :subtitle="subtitle"
-      :description="description"
-      :button-text="buttonText"
-      :image="image"
-      :background="background"
-      />
-    </div>`
-  }))
-  .add("[slot] subtitle", () => ({
-    components: { SfBanner },
-    props: {
-      customClass: {
-        default: options(
-          "CSS Modifiers",
-          {
-            "sf-banner--right": "sf-banner--right"
-          },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        )
+    title: {
+      control: "text",
+      table: {
+        category: "Props",
       },
-      title: {
-        default: text("title", "Eco Sandals", "Props")
-      },
-      subtitle: {
-        default: text("subtitle", "Summer shoes", "Props")
-      },
-      description: {
-        default: text(
-          "description",
-          "The collection features formal and casual comfort shoes with a Danish design focus. Made from premium leathers and comfort.",
-          "Props"
-        )
-      },
-      buttonText: {
-        default: text("buttonText", "Shop Now", "Props")
-      },
-      image: {
-        default: object(
-          "image",
-          {
-            mobile: "/assets/storybook/SfBanner/Banner2.jpg",
-            desktop: "/assets/storybook/SfBanner/Banner2.jpg"
-          },
-          "Props"
-        )
-      },
-      background: {
-        default: color("background", "#e1e3e2", "Props")
-      }
+      defaultValue: "",
     },
-    template: `<div style="max-width: 77.5rem">
-      <SfBanner 
-      :class="customClass"
-      :title="title"
-      :subtitle="subtitle"
-      :description="description"
-      :button-text="buttonText"
-      :image="image"
-      :background="background">
-        <template #subtitle="{subtitle}">
-          <div style="font-size: 1rem">CUSTOM SUBTITLE</div>
-        </template>
-      </SfBanner>
-    </div>`
-  }))
-  .add("[slot] title", () => ({
-    components: { SfBanner },
-    props: {
-      customClass: {
-        default: options(
-          "CSS Modifiers",
-          {
-            "sf-banner--right": "sf-banner--right"
-          },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        )
+    subtitle: {
+      control: "text",
+      table: {
+        category: "Props",
       },
-      title: {
-        default: text("title", "Eco Sandals", "Props")
-      },
-      subtitle: {
-        default: text("subtitle", "Summer shoes", "Props")
-      },
-      description: {
-        default: text(
-          "description",
-          "The collection features formal and casual comfort shoes with a Danish design focus. Made from premium leathers and comfort.",
-          "Props"
-        )
-      },
-      buttonText: {
-        default: text("buttonText", "Shop Now", "Props")
-      },
-      image: {
-        default: object(
-          "image",
-          {
-            mobile: "/assets/storybook/SfBanner/Banner2.jpg",
-            desktop: "/assets/storybook/SfBanner/Banner2.jpg"
-          },
-          "Props"
-        )
-      },
-      background: {
-        default: color("background", "#e1e3e2", "Props")
-      }
+      defaultValue: "",
     },
-    template: `<div style="max-width: 77.5rem">
-      <SfBanner 
-      :class="customClass"
-      :title="title"
-      :subtitle="subtitle"
-      :description="description"
-      :button-text="buttonText"
-      :image="image"
-      :background="background">
-        <template #title="{title}">
-          CUSTOM TITLE
-        </template>
-      </SfBanner>
-    </div>`
-  }))
-  .add("[slot] description", () => ({
-    components: { SfBanner },
-    props: {
-      customClass: {
-        default: options(
-          "CSS Modifiers",
-          {
-            "sf-banner--right": "sf-banner--right"
-          },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        )
+    description: {
+      control: "text",
+      table: {
+        category: "Props",
       },
-      title: {
-        default: text("title", "Eco Sandals", "Props")
-      },
-      subtitle: {
-        default: text("subtitle", "Summer shoes", "Props")
-      },
-      description: {
-        default: text(
-          "description",
-          "The collection features formal and casual comfort shoes with a Danish design focus. Made from premium leathers and comfort.",
-          "Props"
-        )
-      },
-      buttonText: {
-        default: text("buttonText", "Shop Now", "Props")
-      },
-      image: {
-        default: object(
-          "image",
-          {
-            mobile: "/assets/storybook/SfBanner/Banner2.jpg",
-            desktop: "/assets/storybook/SfBanner/Banner2.jpg"
-          },
-          "Props"
-        )
-      },
-      background: {
-        default: color("background", "#e1e3e2", "Props")
-      }
+      defaultValue: "",
     },
-    template: `<div style="max-width: 77.5rem">
-      <SfBanner 
-      :class="customClass"
-      :title="title"
-      :subtitle="subtitle"
-      :description="description"
-      :button-text="buttonText"
-      :image="image"
-      :background="background">
-        <template #description="{description}">
-          CUSTOM DESCRIPTION
-        </template>
-      </SfBanner>
-    </div>`
-  }))
-  .add("[slot] call-to-action", () => ({
-    components: { SfBanner },
-    props: {
-      customClass: {
-        default: options(
-          "CSS Modifiers",
-          {
-            "sf-banner--right": "sf-banner--right"
-          },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        )
+    buttonText: {
+      control: "text",
+      table: {
+        category: "Props",
       },
-      title: {
-        default: text("title", "Eco Sandals", "Props")
-      },
-      subtitle: {
-        default: text("subtitle", "Summer shoes", "Props")
-      },
-      description: {
-        default: text(
-          "description",
-          "The collection features formal and casual comfort shoes with a Danish design focus. Made from premium leathers and comfort.",
-          "Props"
-        )
-      },
-      buttonText: {
-        default: text("buttonText", "Shop Now", "Props")
-      },
-      image: {
-        default: object(
-          "image",
-          {
-            mobile: "/assets/storybook/SfBanner/Banner2.jpg",
-            desktop: "/assets/storybook/SfBanner/Banner2.jpg"
-          },
-          "Props"
-        )
-      },
-      background: {
-        default: color("background", "#e1e3e2", "Props")
-      }
+      defaultValue: "",
     },
-    template: `<div style="max-width: 77.5rem">
-      <SfBanner 
-      :class="customClass"
-      :title="title"
-      :subtitle="subtitle"
-      :description="description"
-      :button-text="buttonText"
-      :image="image"
-      :background="background">
-        <template #call-to-action="{buttonText}">
-          <button>CUSTOM CALL TO ACTION</button>
-        </template>
-      </SfBanner>
-    </div>`
-  }));
+    link: {
+      control: "text",
+      table: {
+        category: "Props",
+      },
+      defaultValue: "",
+    },
+    background: {
+      control: {
+        type: "color",
+      },
+      table: {
+        category: "Props",
+      },
+      defaultValue: "",
+    },
+    image: {
+      control: "text",
+      table: {
+        category: "Props",
+      },
+    },
+    click: {
+      action: "Button clicked!",
+      table: { category: "Events" },
+    },
+  },
+  args: {
+    image: banner,
+  },
+};
+
+const Template = (args, { argTypes }) => ({
+  components: { SfBanner },
+  props: Object.keys(argTypes),
+  template: `
+  <SfBanner 
+    :class="classes"
+    :title="title"
+    :subtitle="subtitle"
+    :description="description"
+    :button-text="buttonText"
+    :link="link"
+    :image="image"
+    :background="background"
+    @click="click"
+  />`,
+});
+
+export const Common = Template.bind({});
+Common.args = {
+  title: "Eco Sandals",
+  subtitle: "Summer shoes",
+  description:
+    "The collection features formal and casual comfort shoes with a Danish design focus. Made from premium leathers and comfort.",
+  buttonText: "Shop Now",
+};
+
+export const OnlyTitle = Template.bind({});
+OnlyTitle.args = {
+  title: "Eco Sandals",
+};
+
+export const OnlyDescription = Template.bind({});
+OnlyDescription.args = {
+  description:
+    "The collection features formal and casual comfort shoes with a Danish design focus. Made from premium leathers and comfort.",
+};
+
+export const OnlySubtitle = Template.bind({});
+OnlySubtitle.args = {
+  subtitle: "Summer shoes",
+};
+
+export const OnlyCallToAction = Template.bind({});
+OnlyCallToAction.args = {
+  buttonText: "Shop Now",
+};
+
+export const WithBackground = Template.bind({});
+WithBackground.args = {
+  background: "#e1e3e2",
+  ...Common.args,
+  image: "",
+};
+
+export const OnTheRight = Template.bind({});
+OnTheRight.args = {
+  ...Common.args,
+  background: "#e1e3e2",
+  classes: "sf-banner--right",
+  image: "",
+};
+
+export const WithTitleSlot = (args, { argTypes }) => ({
+  components: { SfBanner },
+  props: Object.keys(argTypes),
+  template: `
+  <SfBanner 
+  :class="classes"
+  :title="title"
+  :subtitle="subtitle"
+  :description="description"
+  :button-text="buttonText"
+  :link="link"
+  :image="image"
+  :background="background">
+    <template #title="{title}">
+      CUSTOM TITLE
+    </template>
+  </SfBanner>`,
+});
+WithTitleSlot.args = { ...Common.args };
+
+export const WithSubtitleSlot = (args, { argTypes }) => ({
+  components: { SfBanner },
+  props: Object.keys(argTypes),
+  template: `
+  <SfBanner 
+  :class="classes"
+  :title="title"
+  :subtitle="subtitle"
+  :description="description"
+  :button-text="buttonText"
+  :link="link"
+  :image="image"
+  :background="background">
+    <template #subtitle="{subtitle}">
+      <div style="font-size: 1rem">CUSTOM SUBTITLE</div>
+    </template>
+  </SfBanner>`,
+});
+WithSubtitleSlot.args = { ...Common.args };
+
+export const WithDescriptionSlot = (args, { argTypes }) => ({
+  components: { SfBanner },
+  props: Object.keys(argTypes),
+  template: `
+  <SfBanner 
+  :class="classes"
+  :title="title"
+  :subtitle="subtitle"
+  :description="description"
+  :button-text="buttonText"
+  :link="link"
+  :image="image"
+  :background="background">
+    <template #description="{description}">
+      CUSTOM DESCRIPTION
+    </template>
+  </SfBanner>`,
+});
+WithDescriptionSlot.args = { ...Common.args };
+
+export const WithCallToActionSlot = (args, { argTypes }) => ({
+  components: { SfBanner },
+  props: Object.keys(argTypes),
+  template: `
+  <SfBanner 
+  :class="classes"
+  :title="title"
+  :subtitle="subtitle"
+  :description="description"
+  :button-text="buttonText"
+  :link="link"
+  :image="image"
+  :background="background">
+    <template #call-to-action="{buttonText}">
+      <button>CUSTOM CALL TO ACTION</button>
+    </template>
+  </SfBanner>`,
+});
+WithCallToActionSlot.args = { ...Common.args };

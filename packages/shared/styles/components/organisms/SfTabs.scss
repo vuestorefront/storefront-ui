@@ -10,20 +10,21 @@
     justify-content: space-between;
     margin: var(--tabs-title-margin);
     padding: var(--tabs-title-padding, var(--spacer-sm));
+    background: var(--tabs-title-background);
     @include border(--tabs-title-border, 0 0 1px 0, solid, var(--c-light));
-    color: var(--tabs-title-color, var(--c-text));
+    color: var(--tabs-title-color);
     transition: color 150ms ease-in-out;
-    cursor: pointer;
     @include font(
       --tabs-title-font,
-      var(--font-normal),
-      var(--h3-font-size),
+      var(--font-weight--normal),
+      var(--font-size--base),
       1.4,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
-    &--active {
+    &.is-active {
       --tabs-title-border-width: 0;
       --tabs-title-color: var(--c-primary);
+      --chevron-color: var(--c-primary);
       & + .sf-tabs__content {
         --tabs-content-border-width: var(
           --tabs-content-border-width,
@@ -39,10 +40,10 @@
     color: var(--tabs-content-color, var(--c-text));
     @include font(
       --tabs-content-font,
-      var(--font-light),
-      var(--font-base),
+      var(--font-weight--light),
+      var(--font-size--base),
       1.6,
-      var(--font-family-primary)
+      var(--font-family--primary)
     );
     &__tab {
       padding: var(
@@ -50,6 +51,9 @@
         var(--spacer-base) var(--spacer-sm)
       );
     }
+  }
+  &__tab {
+    display: contents;
   }
   &__chevron {
     display: var(--tabs-chevron-display);
@@ -62,10 +66,10 @@
     --tabs-title-padding: var(--spacer-xs) 0;
     --tabs-title-color: var(--c-text-muted);
     --tabs-title-font-size: var(--h4-font-size);
-    --tabs-content-tab-padding: var(--spacer-base) 0;
+    --tabs-content-tab-padding: var(--spacer-xl) 0;
     --tabs-chevron-display: none;
     &__title {
-      &--active {
+      &.is-active {
         --tabs-title-border-width: 0 0 2px 0;
         --tabs-title-border-color: var(--c-text);
         --tabs-title-color: var(--c-text);

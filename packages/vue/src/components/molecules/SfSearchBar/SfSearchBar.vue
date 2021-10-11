@@ -1,47 +1,73 @@
 <template>
   <div class="sf-search-bar">
     <input
+      v-focus
       class="sf-search-bar__input"
       type="search"
       :value="value"
+      v-bind="$attrs"
       :placeholder="placeholder"
-      :aria-label="ariaLabel"
-      @input="$emit('input', $event.target.value)"
-      @keyup.enter="$emit('enter', $event.target.value)"
-      @keyup.esc="$emit('input', '')"
-      @blur="$emit('blur')"
+      v-on="listeners"
     />
     <!-- @slot -->
     <slot name="icon">
-      <span class="sf-search-bar__icon">
-        <SfIcon
-          color="#737680"
-          icon="M19.6679 18.1085L16.0788 14.5457C18.8811 10.9579 18.5864 5.84813 15.3652 2.62884C13.6692 0.933843 11.4063 0 8.99786 0C6.5882 0 4.32646 0.933892 2.63049 2.62884C0.934428 4.32384 0 6.58526 0 8.99222C0 11.4004 0.934477 13.6607 2.63049 15.3556C4.32656 17.0506 6.58938 17.9844 8.99786 17.9844C10.9897 17.9844 12.9568 17.3212 14.5298 16.0677L18.0948 19.6804C18.3157 19.9011 18.5865 20 18.8814 20C19.1762 20 19.4471 19.8771 19.6679 19.6804C20.1107 19.2629 20.1107 18.5507 19.6679 18.1082L19.6679 18.1085ZM15.784 8.99222C15.784 10.8101 15.0714 12.5061 13.7921 13.7836C12.5138 15.061 10.7928 15.7742 8.99779 15.7742C7.20274 15.7742 5.4817 15.062 4.20345 13.7836C2.92516 12.5061 2.21157 10.7861 2.21157 8.99222C2.21157 7.17437 2.92418 5.47833 4.20345 4.20089C5.48174 2.9234 7.20274 2.21025 8.99779 2.21025C10.8168 2.21025 12.5139 2.92242 13.7921 4.20089C15.0704 5.47934 15.784 7.17447 15.784 8.99222Z"
-          view-box="0 0 20 20"
-        />
-      </span>
+      <SfButton
+        class="sf-search-bar__button sf-button--pure"
+        aria-label="Search"
+        @click="$emit('click', value)"
+      >
+        <span v-if="icon" class="sf-search-bar__icon">
+          <SfIcon :color="icon.color" :size="icon.size" icon="search" />
+        </span>
+      </SfButton>
     </slot>
   </div>
 </template>
 <script>
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+import SfButton from "../../atoms/SfButton/SfButton.vue";
+import { focus } from "../../../utilities/directives";
 export default {
   name: "SfSearchBar",
-  components: { SfIcon },
+  directives: {
+    focus,
+  },
+  components: { SfIcon, SfButton },
+  inheritAttrs: false,
   props: {
+    /**
+     * Text for placeholder
+     */
     placeholder: {
       type: String,
-      default: ""
+      default: "",
     },
+    /**
+     * Value that will be displayed in search bar
+     */
     value: {
       type: [Number, String],
-      default: null
+      default: null,
     },
-    ariaLabel: {
-      type: String,
-      default: "Search"
-    }
-  }
+    /**
+     * Object to define icon look. Should have values for color and size
+     */
+    icon: {
+      type: Object,
+      default: () => ({}),
+    },
+  },
+  computed: {
+    listeners() {
+      return {
+        ...this.$listeners,
+        input: (event) => this.$emit("input", event.target.value),
+        "keyup.enter": (event) => this.$emit("input", event.target.value),
+        "keyup.esc": () => this.$emit("input", ""),
+        blur: () => this.$emit("blur"),
+      };
+    },
+  },
 };
 </script>
 <style lang="scss">

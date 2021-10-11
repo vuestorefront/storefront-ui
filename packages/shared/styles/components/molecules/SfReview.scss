@@ -2,10 +2,13 @@
 .sf-review {
   position: relative;
   display: var(--review-display, block);
+  max-width: var(--review-max-width, 343px);
+  padding: var(--review-padding, 0 0 8px);
+  @include border(--review-border, 0 0 1px 0, solid, var(--c-light)); 
   &__icon {
-    --icon-size: 0.85rem;
+    --icon-size: 1.5rem;
     --icon-color: var(--c-primary);
-    margin: var(--review-icon-margin, 0 var(--spacer-xs) 0 0);
+    margin: var(--review-icon-margin, 0 var(--spacer-2xs) 0 0);
   }
   &__author {
     display: flex;
@@ -13,51 +16,54 @@
     color: var(--review-author-color, var(--c-text));
     @include font(
       --review-author-font,
-      var(--font-medium),
-      var(--font-sm),
+      var(--font-weight--normal),
+      var(--font-size--base),
       1.6,
-      var(--font-family-primary)
+      var(--font-family--secondary)
     );
     text-transform: var(--review-author-text-transform, capitalize);
   }
   &__rating {
     display: var(--review-rating-display, inline-block);
+    --icon-size: 16px;
   }
   &__info {
-    margin: var(--review-info-margin, var(--spacer-2xs) 0 0 0);
+    margin: var(--review-info-margin, var(--spacer-xs) 0 0 0);
   }
   &__date {
-    display: inline;
-    margin: var(--review-date-margin, 0 0 0 var(--spacer-xs));
+    display: var(--review-date-display, block);
+    margin: var(--review-date-margin, var(--spacer-xs) 0 var(--spacer-sm) 0);
     text-transform: var(--review-date-text-transform, capitalize);
-    color: var(--review-date-color, var(--c-text));
+    color: var(--review-date-color, var(--c-text-muted));
     @include font(
       --review-date-font,
-      var(--font-normal),
-      var(--font-sm),
+      var(--font-weight--normal),
+      var(--font-size--base),
       1.6,
-      var(--font-family-secondary)
+      var(--font-family--primary)
     );
   }
   &__message {
-    display: var(--review-message-display, inline);
+    display: var(--review-message-display);
     margin: var(--review-message-margin, var(--spacer-sm) 0);
     color: var(--review-message-color, var(--c-text));
     vertical-align: middle;
     @include font(
       --review-message-font,
-      var(--font-light),
-      var(--font-base),
+      var(--font-weight--normal),
+      var(--font-size--base),
       1.6,
-      var(--font-family-primary)
+      var(--font-family--primary)
     );
   }
   &__read-more {
-    margin: 0 0 0 8px;
-    vertical-align: middle;
+    margin: var(--review-read-more-margin, 0 0 0 var(--spacer-xs));
+    --button-padding: 0;
+    --button-font-weight: var(--font-weight--medium);
+    --button-font-size: var(--font-size--sm);
   }
   @include for-desktop {
-    --review-message-display: inline-block;
-    --review-read-more-margin: 0 0 0 var(--spacer-xs);
+    --review-max-width: 33.1875rem;
+    --review-message-display: inline;
   }
 }

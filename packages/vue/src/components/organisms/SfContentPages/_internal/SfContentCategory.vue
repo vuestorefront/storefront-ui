@@ -12,21 +12,21 @@ export default {
      */
     title: {
       type: String,
-      default: ""
-    }
+      default: "",
+    },
   },
   data() {
     return {
-      items: []
+      items: [],
     };
   },
   mounted() {
     const item = {
       title: this.title,
-      items: this.items
+      items: this.items,
     };
     this.$parent.items.push(item);
   },
-  methods: {}
+  methods: {},
 };
 </script>

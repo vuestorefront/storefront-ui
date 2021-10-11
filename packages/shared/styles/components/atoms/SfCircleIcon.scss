@@ -2,76 +2,47 @@
 .sf-circle-icon {
   --icon-color: var(--c-white);
   --button-padding: 0;
-  --icon-size: 1.25rem;
+  --icon-size: 1.5rem;
   --button-size: 3.25rem;
   --button-background: var(--c-primary);
-  --button-transition: box-shadow 300ms ease;
-  --button-box-shadow: 0 4px 4px rgba(var(--c-dark-base), 0.2);
-  border-radius: 100%;
+  --button-border-radius: 100%;
   position: var(--circle-icon-position, relative);
+  --button-box-shadow: 0 0 0 0.3125rem var(--c-primary);
   &:hover {
     --button-background: var(--c-primary);
-    --button-box-shadow: 0 0 0 0.3125rem rgba(var(--c-primary-base), 0.3);
+    --button-box-shadow-opacity: 0.3;
   }
   &:active {
-    --button-transition: box-shadow 150ms ease;
-    --button-box-shadow: 0 0 0 0.5rem rgba(var(--c-primary-base), 0.3);
+    --button-box-shadow: 0 0 0 0.5rem var(--c-primary);
   }
   &:disabled {
-    --button-box-shadow: 0;
+    --button-box-shadow: 0px 4px 11px var(--c-light);
+    --button-box-shadow-opacity: 1;
     --icon-color: var(--c-text-disabled);
-    &:hover {
-      --button-background: var(--c-light);
-    }
+    --button-background: var(--c-light);
   }
-  &__badge {
-    position: absolute;
-    top: var(--circle-icon-badge-top, 0);
-    right: var(--circle-icon-badge-right, 0);
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: var(
-      --circle-icon-badge-width,
-      var(--circle-icon-badge-size, 1.125rem)
-    );
-    min-height: var(
-      --circle-icon-badge-height,
-      var(--circle-icon-badge-size, 1.125rem)
-    );
-    padding: 2px;
-    border-radius: var(--circle-icon-badge-border-radius, 0.625rem);
-    background: var(--circle-icon-badge-background, var(--c-danger));
-    @include font(
-      --circle-icon-badge-font,
-      var(--font-medium),
-      var(--font-2xs),
-      1.4,
-      var(--font-family-primary)
-    );
-    &-enter-active {
-      animation: bounce-in 300ms;
-    }
-    &-leave-active {
-      animation: bounce-in 300ms reverse;
-    }
+  &__icon {
+    --icon-position: static;
   }
   @each $color, $map in $colors-map {
     $primary: map-get($map, "primary");
     $variant: map-get($map, "variant");
     &.color-#{$color} {
       --button-background: var(--c-#{$color});
+      --button-box-shadow: 0 0 0 0.3125rem var(--c-#{$color});
+
       &:hover {
         --button-background: var(--c-#{$color}-lighten);
-        --button-box-shadow: 0
-          0
-          0
-          0.3125rem
-          rgba(var(--c-#{$color}-base), 0.08);
+        --button-box-shadow-opacity: 0.08;
       }
       &:active {
-        --button-box-shadow: 0 0 0 0.5rem rgba(var(--c-#{$color}-base), 0.08);
+        --button-box-shadow: 0 0 0 0.5rem var(--c-#{$color});
+      }
+      &:disabled {
+        --button-box-shadow: 0px 4px 11px var(--c-light);
+        --button-box-shadow-opacity: 1;
+        --icon-color: var(--c-text-disabled);
+        --button-background: var(--c-light);
       }
     }
   }
@@ -81,35 +52,34 @@
     --button-transition: background 150ms ease;
     &:hover {
       --button-background: var(--c-primary);
-      --button-box-shadow: 0;
+      --button-box-shadow: 0 0 0 0.1875rem var(--c-primary);
     }
     &:active {
-      --button-background: var(--c-primary-variant);
+      --button-box-shadow: 0 0 0 0.25rem var(--c-primary);
+    }
+    &:disabled {
+      --button-box-shadow: 0px 4px 11px var(--c-light);
+      --button-box-shadow-opacity: 1;
+      --icon-color: var(--c-text-disabled);
+      --button-background: var(--c-light);
     }
     @each $color, $map in $colors-map {
       $primary: map-get($map, "primary");
       $variant: map-get($map, "variant");
       &.color-#{$color} {
         &:hover {
-          --button-background: var(--c-#{$color});
-          --button-box-shadow: 0;
+          --button-box-shadow: 0 0 0 0.1875rem var(--c-#{$color});
         }
         &:active {
-          --button-background: var(--c-#{$color}-variant);
-          --button-box-shadow: 0;
+          --button-box-shadow: 0 0 0 0.25rem var(--c-#{$color});
+        }
+        &:disabled {
+          --button-box-shadow: 0px 4px 11px var(--c-light);
+          --button-box-shadow-opacity: 1;
+          --icon-color: var(--c-text-disabled);
+          --button-background: var(--c-light);
         }
       }
     }
-  }
-}
-@keyframes bounce-in {
-  0% {
-    transform: scale(0);
-  }
-  50% {
-    transform: scale(1.2);
-  }
-  100% {
-    transform: scale(1);
   }
 }

@@ -1,100 +1,155 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import { storiesOf } from "@storybook/vue";
-import { withKnobs, object, number, boolean } from "@storybook/addon-knobs";
-import SfGallery from "./SfGallery.vue";
-storiesOf("Molecules|Gallery", module)
-  .addDecorator(withKnobs)
-  .add("Common", () => ({
-    components: { SfGallery },
-    props: {
-      enableZoom: {
-        default: boolean("enableZoom", false, "Props")
+import { SfGallery } from "@storefront-ui/vue";
+
+export default {
+  title: "Components/Molecules/Gallery",
+  component: SfGallery,
+  argTypes: {
+    images: {
+      control: "object",
+      table: {
+        category: "Props",
       },
-      images: {
-        default: object(
-          "images",
-          [
-            {
-              alt: "Product A",
-              mobile: {
-                url: "assets/storybook/SfGallery/productA.png"
-              },
-              desktop: {
-                url: "assets/storybook/SfGallery/productA.png"
-              },
-              zoom: {
-                url: "assets/storybook/SfGallery/productA.png"
-              }
-            },
-            {
-              alt: "Product B",
-              mobile: {
-                url: "/assets/storybook/SfGallery/productB.jpg"
-              },
-              desktop: {
-                url: "/assets/storybook/SfGallery/productB.jpg"
-              },
-              zoom: {
-                url: "/assets/storybook/SfGallery/productB.jpg"
-              }
-            },
-            {
-              alt: "Product A",
-              mobile: {
-                url: "assets/storybook/SfGallery/productA.png"
-              },
-              desktop: {
-                url: "assets/storybook/SfGallery/productA.png"
-              },
-              zoom: {
-                url: "assets/storybook/SfGallery/productA.png"
-              }
-            },
-            {
-              alt: "Product B",
-              mobile: {
-                url: "/assets/storybook/SfGallery/productB.jpg"
-              },
-              desktop: {
-                url: "/assets/storybook/SfGallery/productB.jpg"
-              },
-              zoom: {
-                url: "/assets/storybook/SfGallery/productB.jpg"
-              }
-            }
-          ],
-          "Props"
-        )
-      },
-      imageWidth: {
-        default: number("imageWidth", 422, {}, "Props")
-      },
-      imageHeight: {
-        default: number("imageHeight", 664, {}, "Props")
-      },
-      sliderOptions: {
-        default: object(
-          "sliderOptions",
-          {
-            autoplay: false,
-            rewind: true,
-            gap: 0
-          },
-          "Props"
-        )
-      }
     },
-    data() {
-      return {
-        current: 1
-      };
+    imageWidth: {
+      control: "number",
+      table: {
+        category: "Props",
+      },
     },
-    template: `<SfGallery
-      :images="images"
-      :image-width="imageWidth"
-      :image-height="imageHeight"
-      :slider-options="sliderOptions"
-      :current="current"
-      :enable-zoom="enableZoom"
-    />`
-  }));
+    imageHeight: {
+      control: "number",
+      table: {
+        category: "Props",
+      },
+    },
+    thumbWidth: {
+      control: "number",
+      table: {
+        category: "Props",
+      },
+    },
+    thumbHeight: {
+      control: "number",
+      table: {
+        category: "Props",
+      },
+    },
+    current: {
+      control: "number",
+      table: {
+        category: "Props",
+      },
+    },
+    sliderOptions: {
+      control: "object",
+      defaultValue: {
+        type: "slider",
+        autoplay: false,
+        rewind: false,
+        gap: 0,
+      },
+      table: {
+        category: "Props",
+      },
+    },
+    outsideZoom: {
+      control: "boolean",
+      table: {
+        category: "Props",
+      },
+    },
+    enableZoom: {
+      control: "boolean",
+      table: {
+        category: "Props",
+      },
+    },
+    click: { action: "Image clicked", table: { category: "Events" } },
+  },
+};
+
+const Template = (args, { argTypes }) => ({
+  components: { SfGallery },
+  props: Object.keys(argTypes),
+  template: `
+  <SfGallery
+    :images="images"
+    :image-width="imageWidth"
+    :image-height="imageHeight"
+    :slider-options="sliderOptions"
+    :current="current"
+    :enable-zoom="enableZoom"
+    :outsideZoom="outsideZoom"
+  />`,
+});
+
+export const Common = Template.bind({});
+Common.args = {
+  images: [
+    {
+      desktop: {
+        url: "assets/storybook/SfGallery/productA.png",
+      },
+      mobile: {
+        url: "assets/storybook/SfGallery/productA.png",
+      },
+      zoom: {
+        url: "assets/storybook/SfGallery/productA.png",
+      },
+      alt: "Product A",
+    },
+    {
+      desktop: {
+        url: "assets/storybook/SfGallery/productB.jpg",
+      },
+      mobile: {
+        url: "assets/storybook/SfGallery/productB.jpg",
+      },
+      zoom: {
+        url: "assets/storybook/SfGallery/productB.jpg",
+      },
+      alt: "Product B",
+    },
+    {
+      desktop: {
+        url: "assets/storybook/SfGallery/productA.png",
+      },
+      mobile: {
+        url: "assets/storybook/SfGallery/productA.png",
+      },
+      zoom: {
+        url: "assets/storybook/SfGallery/productA.png",
+      },
+      alt: "Product A",
+    },
+    {
+      desktop: {
+        url: "assets/storybook/SfGallery/productB.jpg",
+      },
+      mobile: {
+        url: "assets/storybook/SfGallery/productB.jpg",
+      },
+      zoom: {
+        url: "assets/storybook/SfGallery/productB.jpg",
+      },
+      alt: "Product B",
+    },
+  ],
+  current: 1,
+};
+
+export const WithZoom = Template.bind({});
+WithZoom.args = { ...Common.args, enableZoom: true };
+
+export const WithOutsideZoom = Template.bind({});
+WithOutsideZoom.args = { ...Common.args, enableZoom: true, outsideZoom: true };
+
+export const AutoSlide = Template.bind({});
+AutoSlide.args = {
+  ...Common.args,
+  sliderOptions: {
+    autoplay: true,
+    rewind: true,
+    gap: 0,
+  },
+};

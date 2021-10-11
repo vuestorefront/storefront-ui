@@ -3,6 +3,6 @@ import SfLoader from "./SfLoader.vue";
 describe("SfLoader.vue", () => {
   it("renders a component", () => {
     const component = shallowMount(SfLoader);
-    expect(component.contains(".sf-loader")).toBe(true);
+    expect(component.classes("sf-loader")).toBe(true);
   });
 });

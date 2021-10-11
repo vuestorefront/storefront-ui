@@ -16,7 +16,13 @@
     </div>
     <!--@slot Use this slot to replace bottom button-->
     <slot name="button" v-bind="{ buttonText }">
-      <SfButton v-if="buttonText" class="sf-call-to-action__button">
+      <SfButton
+        v-if="buttonText"
+        :link="link"
+        class="sf-call-to-action__button"
+        data-testid="cta-button"
+        @click="$emit('click')"
+      >
         {{ buttonText }}
       </SfButton>
     </slot>
@@ -27,29 +33,51 @@ import SfButton from "../../atoms/SfButton/SfButton.vue";
 export default {
   name: "SfCallToAction",
   components: {
-    SfButton
+    SfButton,
   },
   props: {
+    /**
+     * CallToAction title.
+     */
     title: {
       type: String,
-      default: ""
+      default: "",
     },
+    /**
+     * Text that will be displayed inside the button.
+     */
     buttonText: {
       type: String,
-      default: ""
+      default: "",
     },
+    /**
+     *  CallToAction link. If it's filled in, changes button tag on a tag.
+     */
+    link: {
+      type: String,
+      default: "",
+    },
+    /**
+     * CallToAction description.
+     */
     description: {
       type: String,
-      default: ""
+      default: "",
     },
+    /**
+     * Background color.
+     */
     background: {
       type: String,
-      default: ""
+      default: "",
     },
+    /**
+     * Background image.
+     */
     image: {
-      type: String,
-      default: ""
-    }
+      type: [String, Object],
+      default: "",
+    },
   },
   computed: {
     style() {
@@ -61,10 +89,10 @@ export default {
           : `url(${image})`,
         "--_call-to-action-background-desktop-image":
           image.desktop && `url(${image.desktop})`,
-        "--_call-to-action-background-color": background
+        "--_call-to-action-background-color": background,
       };
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

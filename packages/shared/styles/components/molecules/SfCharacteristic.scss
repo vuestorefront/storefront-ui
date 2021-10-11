@@ -4,28 +4,28 @@
   align-items: center;
   &__icon {
     --icon-color: var(--c-primary);
-    --icon-size: 1.25rem;
+    --icon-size: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: var(--characteristic-margin, 0 var(--spacer-sm) 0 0);
+    margin: var(--characteristic-margin, 0 var(--spacer-xs) 0 0);
   }
   &__title {
     @include font(
       --characteristic-title-font,
-      var(--font-bold),
+      var(--font-weight--normal),
       var(--h5-font-size),
       1.6,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
   }
   &__description {
     @include font(
       --characteristic-description-font,
-      var(--font-normal),
-      var(--font-2xs),
+      var(--font-weight--normal),
+      var(--font-size--xs),
       1.6,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
   }
 }

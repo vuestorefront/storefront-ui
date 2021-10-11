@@ -1,11 +1,10 @@
-<template>
-  <transition :name="transition">
+<template functional>
+  <transition :name="props.transition">
     <div
-      v-if="visible"
+      v-if="props.visible"
       ref="overlay"
-      class="sf-overlay"
-      :class="[staticClass, className]"
-      @click="$emit('click')"
+      :class="[data.class, data.staticClass, 'sf-overlay']"
+      @click="listeners.click || (() => {})"
     ></div>
   </transition>
 </template>
@@ -18,24 +17,16 @@ export default {
      */
     transition: {
       type: String,
-      default: "fade"
+      default: "sf-fade",
     },
     /**
      * Visibility state
      */
     visible: {
       type: Boolean,
-      default: false
-    }
-  },
-  computed: {
-    staticClass() {
-      return this.$vnode.data.staticClass;
+      default: false,
     },
-    className() {
-      return this.$vnode.data.class;
-    }
-  }
+  },
 };
 </script>
 <style lang="scss">

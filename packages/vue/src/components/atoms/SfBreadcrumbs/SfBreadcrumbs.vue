@@ -1,27 +1,43 @@
-<template>
-  <nav class="sf-breadcrumbs" aria-label="breadcrumb">
+<template functional>
+  <nav
+    :class="[data.class, data.staticClass, 'sf-breadcrumbs']"
+    :style="[data.style, data.staticStyle]"
+    v-bind="data.attrs"
+    aria-label="breadcrumb"
+    v-on="listeners"
+  >
     <ol class="sf-breadcrumbs__list">
       <li
-        v-for="(breadcrumb, i) in breadcrumbs"
+        v-for="(breadcrumb, i) in props.breadcrumbs"
         :key="i"
         class="sf-breadcrumbs__list-item"
-        :aria-current="last === i && 'page'"
+        :aria-current="
+          $options.breadcrumbLast(props.breadcrumbs) === i && 'page'
+        "
       >
-        <template v-if="last !== i">
+        <template v-if="$options.breadcrumbLast(props.breadcrumbs) !== i">
           <!-- @slot Custom markup for previous pages (binds `breadcrumb` object) -->
-          <slot name="link" v-bind="{ breadcrumb, go }">
-            <a class="sf-breadcrumbs__breadcrumb" @click="go(breadcrumb)">{{
-              breadcrumb.text
-            }}</a>
+          <slot name="link" v-bind="{ breadcrumb }">
+            <component
+              :is="injections.components.SfLink"
+              class="sf-breadcrumbs__breadcrumb"
+              :link="breadcrumb.link"
+              :data-testid="breadcrumb.text"
+            >
+              {{ breadcrumb.text }}
+            </component>
           </slot>
         </template>
         <template v-else>
           <!-- @slot Custom markup for current page (binds `breadcrumb` object) -->
           <slot name="current" v-bind="{ breadcrumb }">
-            <span
-              class="sf-breadcrumbs__breadcrumb sf-breadcrumbs__breadcrumb--current"
-              >{{ breadcrumb.text }}</span
+            <component
+              :is="injections.components.SfLink"
+              :link="breadcrumb.link"
+              class="sf-breadcrumbs__breadcrumb current"
             >
+              {{ breadcrumb.text }}
+            </component>
           </slot>
         </template>
       </li>
@@ -29,31 +45,26 @@
   </nav>
 </template>
 <script>
+import SfLink from "../SfLink/SfLink";
 export default {
   name: "SfBreadcrumbs",
+  inject: {
+    components: {
+      default: { SfLink },
+    },
+  },
   props: {
     /**
      * List of breadcrumbs (array of nested objects: `[ { text, route } ]`)
      */
     breadcrumbs: {
       type: Array,
-      default: () => []
-    }
+      default: () => [],
+    },
   },
-  computed: {
-    last() {
-      return this.breadcrumbs.length - 1;
-    }
+  breadcrumbLast(breadcrumbs) {
+    return breadcrumbs.length - 1;
   },
-  methods: {
-    go(breadcrumb) {
-      /**
-       * Event for breadcrumb click, passes `breadcrumb.route` as value
-       * @type {Event}
-       */
-      this.$emit("click", breadcrumb.route);
-    }
-  }
 };
 </script>
 <style lang="scss">

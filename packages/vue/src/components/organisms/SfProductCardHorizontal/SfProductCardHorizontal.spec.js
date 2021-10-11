@@ -3,6 +3,6 @@ import SfProductCardHorizontal from "./SfProductCardHorizontal.vue";
 describe("SfProductCardHorizontal.vue", () => {
   it("renders a component", () => {
     const component = shallowMount(SfProductCardHorizontal);
-    expect(component.contains(".sf-product-card-horizontal")).toBe(true);
+    expect(component.classes("sf-product-card-horizontal")).toBe(true);
   });
 });

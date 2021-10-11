@@ -4,6 +4,7 @@
   flex-direction: var(--gallery-flex-direction, column);
   &__thumbs {
     display: var(--gallery-thumbs-display, flex);
+    flex: var(--gallery-thumbs-flex);
     flex-direction: var(--gallery-thumbs-flex-direction);
     margin: var(--gallery-thumbs-margin, var(--spacer-xs) 0 0 0);
     order: var(--gallery-thumbs-order);
@@ -14,6 +15,7 @@
   }
   &__item {
     display: flex;
+    flex: 0 0 var(--gallery-thumb-width, 10rem);
     margin: var(--gallery-item-margin, 0 var(--spacer-xs) 0 0);
     &:last-child {
       --gallery-item-margin: 0;
@@ -26,20 +28,18 @@
       --gallery-item-cursor: default;
     }
   }
-  &__thumb {
-    width: var(--gallery-thumb-width, calc(var(--_image-width, 10rem) * 1px));
-    height: var(
-      --gallery-thumb-height,
-      calc(var(--_image-height, 10rem) * 1px)
-    );
-  }
   &__stage {
-    width: 100%;
+    flex: 1;
     max-width: var(--gallery-stage-width, 26.375rem);
+  }
+  &__zoom {
+    position: absolute;
+    left: 50%;
+    top: 0;
   }
   .glide {
     &__slide {
-      display: flex;
+      flex: 1;
     }
     &__slides {
       margin: 0;
@@ -47,6 +47,7 @@
   }
   @include for-desktop {
     --gallery-flex-direction: row;
+    --gallery-thumbs-flex: 0 0 var(--gallery-thumb-width, 10rem);
     --gallery-thumbs-flex-direction: column;
     --gallery-thumbs-order: -1;
     --gallery-thumbs-margin: 0 var(--spacer-xs) 0 0;

@@ -8,11 +8,9 @@
       <SfHeading
         :level="levelHeading"
         :title="titleHeading"
-        :subtitle="subtitleHeading"
-        :class="{ 'sf-heading--underline': hasUnderlinedModifier }"
+        :description="subtitleHeading"
       />
     </slot>
-    <!--@slot Section content.-->
     <div class="sf-section__content">
       <!--@slot Section content.-->
       <slot />
@@ -24,7 +22,7 @@ import SfHeading from "../../atoms/SfHeading/SfHeading.vue";
 export default {
   name: "SfSection",
   components: {
-    SfHeading
+    SfHeading,
   },
   props: {
     /**
@@ -32,33 +30,23 @@ export default {
      */
     titleHeading: {
       type: String,
-      default: ""
+      default: "",
     },
     /**
      * Heading subtitle
      */
     subtitleHeading: {
       type: String,
-      default: ""
+      default: "",
     },
     /**
      * Heading tag level
      */
     levelHeading: {
       type: Number,
-      default: 2
-    }
+      default: 2,
+    },
   },
-  data() {
-    return {
-      hasUnderlinedModifier: false
-    };
-  },
-  mounted: function() {
-    this.hasUnderlinedModifier = this.$el.classList.contains(
-      "sf-section--underline"
-    );
-  }
 };
 </script>
 <style lang="scss">

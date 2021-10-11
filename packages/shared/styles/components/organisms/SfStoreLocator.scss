@@ -3,48 +3,57 @@
   display: flex;
   flex-wrap: wrap;
   padding: var(--store-padding, 0 0 var(--spacer-sm) 0);
-  margin: var(--store-margin, var(--spacer-base) 0 0 0);
+  margin: var(--store-margin, var(--spacer-sm) 0 0 0);
   @include border(--store-border, 0 0 1px 0, solid, var(--c-light));
   &__distance {
     flex: var(--store-distance-flex, 0 0 100%);
     order: var(--store-distance-order);
     margin: var(--store-distance-margin, 0 0 var(--spacer-xs) 0);
-    color: var(--c-dark-variant);
+    text-align: var(--store-distance-text-align, left);
+    color: var(--c-text);
     @include font(
       --store-item-distance-font,
-      var(--font-light),
-      var(--font-base),
+      var(--font-weight--normal),
+      var(--font-size--base),
       1.4,
-      var(--font-family-primary)
+      var(--font-family--secondary)
     );
     span {
-      font-weight: var(--font-bold);
+      font-weight: var(--store-distance-span, var(--font-weight--normal));
       color: var(--c-text);
     }
   }
+  &__btn {
+    display: flex;
+    justify-content: flex-start; 
+  }
   &__media {
-    flex: var(--store-media-flex, 0 0 7rem);
+    flex: var(--store-media-flex, 0 0 5.125rem);
+    margin: var(--store-media-margin, 0 var(--spacer-xs) 0 0);
+  }
+  &__icon {
+    margin: var(--store-icon-padding, var(--spacer-xl))
   }
   &__address {
     margin: var(--store-item-addres-margin, 0 0 var(--spacer-base) 0);
-    color: var(--c-dark-variant);
+    color: var(--c-link);
     @include font(
       --store-item-property-font,
-      var(--font-normal),
-      var(--font-xs),
+      var(--font-weight--normal),
+      var(--font-size--base),
       1.4,
-      var(--font-family-secondary)
+      var(--font-family--primary)
     );
   }
   &__name {
-    margin: var(--store-item-name-margin, 0 0 var(--spacer-2xs) 0);
-    color: var(--c-text);
+    margin: var(--store-item-name-margin, 0);
+    color: var(--store-item-name-color, var(--c-text));
     @include font(
       --store-item-property-font,
-      var(--font-normal),
-      var(--font-xs),
+      var(--font-weight--normal),
+      var(--font-size--base),
       1.4,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
   }
   &__property {
@@ -54,23 +63,25 @@
     color: var(--c-dark-variant);
     @include font(
       --store-item-property-font,
-      var(--font-normal),
-      var(--font-xs),
+      var(--font-weight--medium),
+      var(--font-size--xs),
       1.4,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
     &:last-child {
       margin: var(--store-item-property-margin, 0);
     }
   }
-  &__property-icon {
-    --icon-color: var(--c-primary);
-    margin: var(--store-item-property-icon-margin, 0 var(--spacer-sm) 0 0);
+  &__property-link {
+    color: var(--c-link);
+    text-decoration: none;
   }
   @include for-desktop {
-    --store-distance-flex: 0 0 auto;
+    --store-distance-flex: 1 0 0;
     --store-distance-order: 1;
-    --store-distance-margin: 0 0 0 auto;
+    --store-distance-margin: 0 0 0 0;
+    --store-distance-text-align: right;
+    --store-padding: 0 0 var(--spacer-2xs) 0;
   }
 }
 .sf-store-locator {
@@ -82,7 +93,6 @@
   }
   &__list {
     flex: var(--store-locator-list-flex);
-    width: 100%;
     padding: var(--store-locator-list-padding, 0 var(--spacer-sm));
     margin: var(--store-locator-list-margin);
   }
@@ -93,36 +103,41 @@
     height: var(--store-locator-map-height);
   }
   &__map {
-    // Workaround to known bug about min-height / height interaction in Chrome / Firefox
+  // Workaround to known bug about min-height / height interaction in Chrome / Firefox
     position: absolute;
     height: 100%;
+    z-index: 0;
   }
   &__stores {
-    padding: var(--store-locator-stores-padding, var(--spacer-sm));
+    width: var(--store-locator-stores-width, 100%);
+    padding: var(--store-locator-stores-padding, var(--spacer-sm) 0 var(--spacer-sm) var(--spacer-sm));
+    margin: var(--store-locator-stores-margin);
     @include border(
       --store-locator-stores-border,
-      2px 0,
+      0 0 2px 0,
       solid,
-      var(--c-light)
+      var(--c-primary)
     );
-    color: var(--store-locator-store-colot, var(--c-text));
+    color: var(--store-locator-store-color, var(--c-text));
     @include font(
       --store-locator-stores-font,
-      var(--font-normal),
-      var(--font-sm),
+      var(--font-weight--normal),
+      var(--font-size--base),
       1.4,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
     span {
-      font-weight: var(--font-bold);
+      font-weight: var(--font-weight--bold);
       color: var(--c-text);
     }
   }
   @include for-desktop {
+    --store-locator-stores-width: calc(100% - var(--spacer-sm));
+    --store-item-name-color: var(--c-link);
     --store-locator-wrapper-flex-direction: row;
     --store-locator-list-flex: 1;
     --store-locator-list-padding: 0;
-    --store-locator-list-margin: 0 var(--spacer-2xl) 0 0;
+    --store-locator-list-margin: 0 var(--spacer-sm) 0 0;
     --store-locator-map-flex: 1;
     --store-locator-map-height: 46.25rem;
   }

@@ -4,31 +4,42 @@
   box-sizing: border-box;
   width: var(--input-width);
   height: var(--input-height);
+  min-height: var(
+    --input-height,
+    calc(
+      var(--spacer-base) + var(--spacer-2xs) +
+      var(--input-label-font-size, var(--font-size--lg))
+    )
+  );
   &__label {
     position: absolute;
     display: var(--input-label-display);
     top: var(--input-label-top, 50%);
     left: var(--input-label-left);
-    color: var(--input-label-color, inherit);
+    padding: var(--input-label-padding);
+    color: var(--input-label-color, var(--c-link));
+    text-transform: underline;
+    background: var(--input-label-background);
     transform: var(
       --input-label-transform,
-      translate3d(0, calc(var(--input-label-top, 50%) * -1), 0)
+      translate3d(0, calc(-1 * var(--input-label-top, 50%)), 0)
     );
     transition: var(
       --input-label-transition,
       top 150ms linear,
       font-size 150ms linear
     );
+
     &::after {
       content: var(--input-label-required);
-      color: var(--input-label-color, var(--c-primary));
+      color: var(--input-label-color, var(--c-link));
     }
     @include font(
       --input-label-font,
-      var(--font-normal),
-      var(--font-lg),
+      var(--font-weight--normal),
+      var(--font-size--lg),
       1,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
   }
   &__bar {
@@ -53,19 +64,23 @@
   }
   &__error-message {
     color: var(--input-error-message-color, var(--c-danger));
-    height: calc(var(--font-xs) * 1.2);
+    min-height: calc(var(--font-size--xs) * 1.2);
     @include font(
       --input-error-message-font,
-      var(--font-medium),
-      var(--font-xs),
+      var(--font-weight--medium),
+      var(--font-size--xs),
       1.2,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
   }
   &__wrapper,
   input {
+    border-radius: 0;
     width: 100%;
     height: 100%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
   }
   &__wrapper {
     position: relative;
@@ -75,25 +90,24 @@
     display: block;
     box-sizing: border-box;
     padding: var(--input-padding, var(--spacer-sm) 0 var(--spacer-xs) 0);
-    @include border(--input-border, 0 0 1px 0, solid, var(--c-light));
+    @include border(--input-border, 0 0 1px 0, solid, var(--c-link));
     background: var(--input-background);
     color: var(--input-color, var(--c-text));
     @include font(
       --input-font,
-      var(--font-normal),
-      var(--font-lg),
+      var(--font-weight--normal),
+      var(--font-size--lg),
       1,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
     text-align: var(--input-text-align);
-    outline: none;
-    &:focus {
+    &:focus, &:placeholder-shown, &:-webkit-autofill, &:-webkit-autofill:hover, &:-webkit-autofill:focus {
       & ~ * {
         --icon-color: var(--c-primary);
         --input-password-icon-background: var(--c-primary);
         --input-label-top: 0;
         --input-label-color: var(--c-primary);
-        --input-label-font-size: var(--font-2xs);
+        --input-label-font-size: var(--font-size--xs);
         --input-bar-width: 50%;
         --input-error-message-color: var(--c-primary);
       }
@@ -104,6 +118,7 @@
       }
     }
     &:disabled {
+      --input-border-color: var(--c-text-disabled);
       --input-color: var(--c-text-disabled);
       /* add to provide color on iOS */
       -webkit-text-fill-color: var(--c-text-disabled);
@@ -138,10 +153,8 @@
     }
   }
   &__password-icon {
-    --icon-width: var(--input-password-icon-width, 1.375rem);
-    --icon-height: var(--input-password-icon-height, 0.8125rem);
     position: relative;
-    &--hidden {
+    &.hidden {
       --input-password-icon-scaleX: 1;
     }
     &::after {
@@ -156,8 +169,8 @@
       content: "";
     }
   }
-  &--invalid {
-    --input-border-color: var(--c-danger);
+  &.invalid {
+    --input-label-color: var(--c-danger);
     input {
       &:focus {
         & ~ * {
@@ -167,23 +180,24 @@
       }
     }
   }
-  &--has-text,
+  &.has-text,
   input[type="date"] ~ *,
   input[type="time"] ~ *,
   input[type="image"] ~ *,
   input[type="file"] ~ * {
     --input-label-top: 0;
-    --input-label-font-size: var(--font-2xs);
+    --input-label-font-size: var(--font-size--xs);
   }
   &--filled {
     --input-background: var(--c-light);
-    --input-font-size: var(--font-xs);
+    --input-font-size: var(--font-size--xs);
     --input-padding: var(--spacer-xs);
     --input-label-left: var(--spacer-xs);
-    --input-label-font-size: var(--font-xs);
+    --input-label-font-size: var(--font-size--xs);
     --input-label-color: var(--c-secondary-variant);
     --input-label-transition: color 150ms ease;
-    &.sf-input--has-text {
+    --input-border: none;
+    &.has-text {
       --input-label-display: none;
     }
     input {
@@ -191,8 +205,43 @@
         & ~ * {
           --input-bar-width: unset;
           --input-label-top: 50%;
-          --input-label-font-size: var(--font-xs);
+          --input-label-font-size: var(--font-size--xs);
           --input-label-color: var(--c-text);
+        }
+      }
+    }
+  }
+  &--outline {
+    --input-label-left: var(--spacer-sm);
+    --input-padding: var(--spacer-xs) var(--spacer-xs) var(--spacer-xs) var(--spacer-sm);
+    --input-border-color: var(--c-secondary-variant);
+    --input-label-background: var(--c-white);
+    --input-label-font-size: var(--font-size-base);
+    &.sf-input--has-text {
+      --input-label-top: -25%;
+      --input-label-left: var(--spacer-xs);
+      --input-label-padding: 0 var(--spacer-2xs);
+    }
+    &.sf-input--invalid {
+      --input-border-color: var(--c-danger);
+      --input-label-color: var(--c-danger);
+      input {
+        &:focus {
+          & ~ * {
+            --input-label-color: var(--c-danger);
+          }
+        }
+      }
+    }
+    input {
+      --input-border-width: 1px;
+      &:focus {
+        & ~ * {
+          --input-label-top: -25%;
+          --input-label-left: var(--spacer-xs);
+          --input-label-padding: 0 var(--spacer-2xs);
+          --input-bar-width: 0;
+          --input-label-color: var(--c-secondary-variant);
         }
       }
     }

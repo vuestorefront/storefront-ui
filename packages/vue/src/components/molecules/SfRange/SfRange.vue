@@ -1,0 +1,86 @@
+<template>
+  <div ref="range" type="range" class="sf-range" :disabled="disabled">
+    <slot v-bind="$attrs" />
+  </div>
+</template>
+<script>
+import noUiSlider from "nouislider";
+import "nouislider/dist/nouislider.css";
+
+export default {
+  name: "SfRange",
+  props: {
+    /*
+     * Sets the starting values for slider(s), if only one number is given than only one slider appears
+     */
+    value: {
+      type: Array,
+      default: () => [0, 1],
+    },
+    /*
+     * Disabling the slider
+     */
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+    /*
+     * Settings for noUiSlider library
+     */
+    config: {
+      type: Object,
+      default: () => {
+        return {
+          start: [0, 1],
+          range: {
+            min: 0,
+            max: 10,
+          },
+          step: 1,
+        };
+      },
+    },
+  },
+  watch: {
+    config: {
+      handler(newConfig) {
+        if (this.$refs && this.$refs.range && this.$refs.range.noUiSlider) {
+          this.$refs.range.noUiSlider.destroy();
+          const newSlider = this.noUiSliderInit(newConfig);
+          return newSlider;
+        }
+      },
+      deep: true,
+    },
+    value: {
+      handler(values) {
+        if (this.$refs && this.$refs.range && this.$refs.range.noUiSlider) {
+          return this.$refs.range.noUiSlider.set(values);
+        }
+      },
+      immediate: true,
+    },
+  },
+  mounted() {
+    this.noUiSliderInit(this.config);
+  },
+  beforeDestroy() {
+    if (this.$refs && this.$refs.range && this.$refs.range.noUiSlider) {
+      this.$refs.range.noUiSlider.destroy();
+    }
+  },
+  methods: {
+    noUiSliderInit(config) {
+      const configSettings = Object.assign(this.config, config);
+      noUiSlider
+        .create(this.$refs.range, configSettings)
+        .on("change", (values) => {
+          this.$emit("change", values);
+        });
+    },
+  },
+};
+</script>
+<style lang="scss">
+@import "~@storefront-ui/shared/styles/components/molecules/SfRange.scss";
+</style>

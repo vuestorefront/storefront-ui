@@ -1,15 +1,18 @@
 <template>
   <div class="sf-product-card-horizontal">
-    <component
-      :is="linkComponentTag"
-      v-focus
-      :href="linkComponentTag === 'a' ? link : undefined"
-      :to="link && linkComponentTag !== 'a' ? link : undefined"
-      class="sf-product-card-horizontal__link sf-product-card-horizontal__link--image"
-    >
-      <div class="sf-product-card-horizontal__image-wrapper">
-        <!--@slot Use this slot to replace image-->
-        <slot name="image" v-bind="{ image, title }">
+    <div class="sf-product-card-horizontal__image-wrapper">
+      <!--@slot Use this slot to replace image-->
+      <slot
+        name="image"
+        v-bind="{ image, title, link, imageHeight, imageWidth }"
+      >
+        <SfLink
+          :link="link"
+          class="
+            sf-product-card-horizontal__link
+            sf-product-card-horizontal__link--image
+          "
+        >
           <template v-if="Array.isArray(image)">
             <SfImage
               v-for="(picture, key) in image.slice(0, 2)"
@@ -29,24 +32,19 @@
             :width="imageWidth"
             :height="imageHeight"
           />
-        </slot>
-      </div>
-    </component>
+        </SfLink>
+      </slot>
+    </div>
     <div class="sf-product-card-horizontal__main">
       <div class="sf-product-card-horizontal__details">
-        <component
-          :is="linkComponentTag"
-          :href="linkComponentTag === 'a' ? link : undefined"
-          :to="link && linkComponentTag !== 'a' ? link : undefined"
-          class="sf-product-card-horizontal__link"
-        >
-          <!--@slot Use this slot to replace title-->
-          <slot name="title" v-bind="{ title }">
+        <!--@slot Use this slot to replace title-->
+        <slot name="title" v-bind="{ title, link }">
+          <SfLink :link="link" class="sf-product-card-horizontal__link">
             <h3 class="sf-product-card-horizontal__title">
               {{ title }}
             </h3>
-          </slot>
-        </component>
+          </SfLink>
+        </slot>
         <!--@slot Use this slot to replace description-->
         <slot name="description">
           <p class="sf-product-card-horizontal__description desktop-only">
@@ -79,14 +77,15 @@
               :max="maxRating"
               :score="scoreRating"
             />
-            <a
+            <SfButton
               v-if="reviewsCount"
-              class="sf-product-card-horizontal__reviews-count"
+              :aria-label="`Read ${reviewsCount} reviews about ${title}`"
+              class="sf-button--pure sf-product-card-horizontal__reviews-count"
               href="#"
               @click="$emit('click:reviews')"
             >
               ({{ reviewsCount }})
-            </a>
+            </SfButton>
           </div>
         </slot>
         <div class="sf-product-card-horizontal__actions">
@@ -97,21 +96,20 @@
           <!--@slot Use this slot to replace add to cart-->
           <slot name="add-to-cart">
             <SfAddToCart
-              :qty="qty"
+              v-model="itemQuantity"
               class="sf-product-card-horizontal__add-to-cart desktop-only"
               @input="$emit('input', $event)"
-              @click="$emit('click:add-to-cart')"
+              @click="$emit('click:add-to-cart', itemQuantity)"
             />
           </slot>
         </div>
       </div>
-      <button
+      <SfButton
         v-if="wishlistIcon !== false"
-        v-focus
-        :aria-label="ariaLabel"
+        :aria-label="`${ariaLabel} ${title}`"
         :class="wishlistIconClasses"
-        class="mobile-only"
-        @click="toggleIsOnWishlist"
+        class="sf-button--pure smartphone-only"
+        @click="toggleIsInWishlist"
       >
         <!--@slot Use this slot to replace wishlist icon-->
         <slot name="wishlist-icon" v-bind="{ currentWishlistIcon }">
@@ -121,20 +119,18 @@
             data-test="sf-wishlist-icon"
           />
         </slot>
-      </button>
+      </SfButton>
     </div>
   </div>
 </template>
 <script>
-import { focus } from "../../../utilities/directives/focus-directive.js";
 import SfPrice from "../../atoms/SfPrice/SfPrice.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
-import SfProperty from "../../atoms/SfProperty/SfProperty.vue";
+import SfLink from "../../atoms/SfLink/SfLink.vue";
 import SfRating from "../../atoms/SfRating/SfRating.vue";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfAddToCart from "../../molecules/SfAddToCart/SfAddToCart.vue";
-import SfProductOption from "../../molecules/SfProductOption/SfProductOption.vue";
 export default {
   name: "SfProductCardHorizontal",
   components: {
@@ -142,16 +138,9 @@ export default {
     SfRating,
     SfImage,
     SfIcon,
+    SfLink,
     SfButton,
     SfAddToCart,
-    SfProductOption,
-    SfProperty
-  },
-  directives: {
-    focus: focus
-  },
-  model: {
-    prop: "qty"
   },
   props: {
     /**
@@ -159,7 +148,7 @@ export default {
      */
     description: {
       type: String,
-      default: ""
+      default: "",
     },
     /**
      * Product image
@@ -167,93 +156,78 @@ export default {
      */
     image: {
       type: [Array, Object, String],
-      default: ""
+      default: "",
     },
     /**
      * Product image width, without unit
      */
     imageWidth: {
       type: [String, Number],
-      default: 140
+      default: 140,
     },
     /**
      * Product image height, without unit
      */
     imageHeight: {
       type: [String, Number],
-      default: 200
+      default: 200,
     },
     /**
      * Product title
      */
     title: {
       type: String,
-      default: ""
+      default: "",
     },
     /**
      * Link to product page
      */
     link: {
       type: [String, Object],
-      default: ""
+      default: "",
     },
     /**
      * Link element tag
-     * By default it'll be 'router-link' if Vue Router
-     * is available on instance, or 'a' otherwise.
+     * @deprecated will be removed in 1.0.0 use slot to replace content
      */
     linkTag: {
       type: String,
-      default: undefined
+      default: undefined,
     },
     /**
      * Product rating
      */
     scoreRating: {
       type: [Number, Boolean],
-      default: false
+      default: false,
     },
     /**
      * Product reviews count
      */
     reviewsCount: {
       type: [Number, Boolean],
-      default: false
+      default: false,
     },
     /**
      * Maximum product rating
      */
     maxRating: {
       type: [Number, String],
-      default: 5
+      default: 5,
     },
     /**
      * Product regular price
      */
     regularPrice: {
       type: [Number, String],
-      default: null
+      default: null,
     },
     /**
      * Product special price
      */
     specialPrice: {
       type: [Number, String],
-      default: null
-    },
-    /**
-     * isAddedToCart status of whether button is showed, product is added or not
-     */
-    isAddedToCart: {
-      type: Boolean,
-      deafult: false
-    },
-    /**
-     * addToCartDisabled status of whether button is disabled when out of stock
-     */
-    addToCartDisabled: {
-      type: Boolean,
-      default: false
+      default: null,
     },
     /**
      * Wish list icon
@@ -262,38 +236,43 @@ export default {
      */
     wishlistIcon: {
       type: [String, Array, Boolean],
-      default: "heart"
+      default: "heart",
     },
     /**
      * Wish list icon for product which has been added to wish list
      * This is the icon for product added to wish list. Default visible on mobile. Visible only on hover on desktop.
      * It can be a icon name from our icons list, or array or string as SVG path(s).
      */
-    isOnWishlistIcon: {
+    isInWishlistIcon: {
       type: [String, Array],
-      default: "heart_fill"
+      default: "heart_fill",
     },
     /**
      * Status of whether product is on wish list or not
      */
-    isOnWishlist: {
+    isInWishlist: {
       type: Boolean,
-      default: false
+      default: false,
     },
     /**
      * Selected quantity
      */
     qty: {
       type: [Number, String],
-      default: 1
-    }
+      default: 1,
+    },
+  },
+  data() {
+    return {
+      quantity: this.qty,
+    };
   },
   computed: {
     currentWishlistIcon() {
-      return this.isOnWishlist ? this.isOnWishlistIcon : this.wishlistIcon;
+      return this.isInWishlist ? this.isInWishlistIcon : this.wishlistIcon;
     },
     ariaLabel() {
-      return this.isOnWishlist ? "Remove from wishlist" : "Add to wishlist";
+      return this.isInWishlist ? "Remove from wishlist" : "Add to wishlist";
     },
     wishlistIconClasses() {
       const defaultClass = "sf-product-card-horizontal__wishlist-icon";
@@ -301,23 +280,22 @@ export default {
         this.isOnWishlist ? "sf-product-card-horizontal--on-wishlist" : ""
       }`;
     },
-    linkComponentTag() {
-      if (this.linkTag) {
-        return this.linkTag;
-      }
-      if (this.link) {
-        return typeof this.link === "object" || this.$router
-          ? "router-link"
-          : "a";
-      }
-      return "div";
-    }
+    itemQuantity: {
+      get() {
+        return typeof this.quantity === "string"
+          ? Number(this.quantity)
+          : this.quantity;
+      },
+      set(newValue) {
+        this.quantity = newValue;
+      },
+    },
   },
   methods: {
-    toggleIsOnWishlist() {
-      this.$emit("click:wishlist", !this.isOnWishlist);
-    }
-  }
+    toggleIsInWishlist() {
+      this.$emit("click:wishlist", !this.isInWishlist);
+    },
+  },
 };
 </script>
 <style lang="scss">

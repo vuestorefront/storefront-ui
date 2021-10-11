@@ -3,15 +3,15 @@ import SfTopBar from "./SfTopBar.vue";
 describe("SfTopBar", () => {
   it("renders a container element", () => {
     const component = shallowMount(SfTopBar, {});
-    expect(component.contains(".sf-top-bar")).toBe(true);
+    expect(component.classes("sf-top-bar")).toBe(true);
   });
   // Left slot check
   it("renders left slot content when passed", () => {
     const leftContent = "LEFT__CONTENT";
     const component = shallowMount(SfTopBar, {
       slots: {
-        left: leftContent
-      }
+        left: leftContent,
+      },
     });
     expect(component.find(".sf-top-bar__left").text()).toMatch(leftContent);
   });
@@ -20,8 +20,8 @@ describe("SfTopBar", () => {
     const rightContent = "RIGHT__CONTENT";
     const component = shallowMount(SfTopBar, {
       slots: {
-        right: rightContent
-      }
+        right: rightContent,
+      },
     });
     expect(component.find(".sf-top-bar__right").text()).toMatch(rightContent);
   });

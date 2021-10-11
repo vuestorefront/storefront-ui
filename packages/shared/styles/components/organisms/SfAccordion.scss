@@ -1,12 +1,16 @@
 @import "../../helpers";
 .sf-accordion-item {
+  will-change: height;
+  transform: translateZ(0);
+  backface-visibility: hidden;
   &__header {
     display: flex;
     justify-content: var(--accordion-item-header-justify, space-between);
     padding: var(--accordion-item-header-padding, var(--spacer-sm));
-    color: var(--accordion-item-header-color, var(--c-text));
+    color: var(--accordion-item-header-color);
     transition: color 150ms ease-in-out;
-    cursor: pointer;
+    text-align: left;
+    width: 100%;
     @include border(
       --accordion-item-header-border,
       0 0 1px 0,
@@ -15,14 +19,15 @@
     );
     @include font(
       --accordion-item-header-font,
-      var(--font-medium),
-      var(--font-base),
+      var(--font-weight--medium),
+      var(--font-size--base),
       1.4,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
-    &--open {
+    &.is-open {
       --accordion-item-header-border-width: 0;
       --accordion-item-header-color: var(--c-primary);
+      --chevron-color: var(--c-primary);
     }
   }
   &__content {
@@ -39,10 +44,10 @@
     );
     @include font(
       --accordion-item-content-font,
-      var(--font-light),
-      var(--font-base),
+      var(--font-weight--light),
+      var(--font-size--base),
       1.6,
-      var(--font-family-primary)
+      var(--font-family--primary)
     );
   }
   &__chevron {
@@ -52,14 +57,14 @@
   @include for-desktop {
     --accordion-item-header-padding: var(--spacer-xs) 0;
     --accordion-item-header-font-size: var(--h4-font-size);
-    --accordion-item-header-font-weight: var(--font-normal);
+    --accordion-item-header-font-weight: var(--font-weight--normal);
     --accordion-item-header-border-width: 0;
     --accordion-item-content-border-width: 0;
     --accordion-item-content-padding: var(--spacer-base) 0;
   }
 }
 .sf-accordion {
-  &--has-chevron {
+  &.has-chevron {
     --accordion-item-chevron-display: flex;
   }
 }

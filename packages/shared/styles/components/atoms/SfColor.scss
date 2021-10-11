@@ -4,34 +4,30 @@
   position: relative;
   width: var(--color-width, var(--color-size, 2.5rem));
   height: var(--color-height, var(--color-size, 2.5rem));
-  padding: 0;
   background: var(--color-background);
-  border: 0;
   border-radius: var(--color-border-radius);
-  box-shadow: var(--color-box-shadow);
-  transition: transform 150ms linear, box-shadow 150ms linear;
-  cursor: pointer;
+  @include box-shadow(
+    --color-box-shadow,
+    0px,
+    4px,
+    4px,
+    0px,
+    var(--c-black),
+  );
+  --color-box-shadow-opacity: 0;
+  --color-box-shadow-transition-duration: 150ms;
+  transition: transform 150ms linear;
   &__badge {
-    --badge-padding: var(--spacer-xs);
+    --badge-padding: var(--spacer-2xs);
     --badge-border-radius: 100%;
     position: absolute;
-    top: -25%;
-    right: -25%;
-    &-enter-active {
-      animation: bounce-in 300ms;
-    }
-    &-leave-active {
-      animation: bounce-in 300ms reverse;
-    }
   }
   @include for-desktop {
     --color-size: 0.75rem;
-    &--active,
+    &.is-active,
     &:hover {
       transform: scale(1.667);
-    }
-    &:hover {
-      --color-box-shadow: 0px 4px 4px rgba(var(--c-dark-base), 0.25);
+      --color-box-shadow-opacity: 0.25;
     }
     &:active {
       --color-box-shadow: none;

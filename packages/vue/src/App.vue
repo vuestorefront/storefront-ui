@@ -10,8 +10,8 @@ import Playground from "./Playground.vue";
 export default Vue.extend({
   name: "App",
   components: {
-    Playground
-  }
+    Playground,
+  },
 });
 </script>
 <style lang="scss">

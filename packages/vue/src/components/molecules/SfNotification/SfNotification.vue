@@ -1,6 +1,6 @@
 <template>
-  <transition name="fade">
-    <div v-if="visible" class="sf-notification" :class="`color-${type}`">
+  <transition name="sf-fade">
+    <div v-if="visible" class="sf-notification" :class="colorClass">
       <!--@slot Custom notification icon. Slot content will replace default icon.-->
       <slot name="icon" v-bind="{ icon }">
         <SfIcon
@@ -14,7 +14,7 @@
       <div>
         <!--@slot Custom title. Slot content will replace default title.-->
         <slot name="title" v-bind="{ title }">
-          <div v-if="title" class="sf-notification__title mobile-only">
+          <div v-if="title" class="sf-notification__title smartphone-only">
             {{ title }}
           </div>
         </slot>
@@ -26,38 +26,36 @@
         </slot>
         <!--@slot Custom action. Slot content will replace default action.-->
         <slot name="action" v-bind="{ action, actionHandler }">
-          <button
+          <SfButton
             v-if="action"
-            v-focus
-            class="sf-notification__action"
+            class="sf-button--pure sf-notification__action"
             @click="actionHandler"
           >
             {{ action }}
-          </button>
+          </SfButton>
         </slot>
       </div>
       <!--@slot Custom notification close icon. Slot content will replace default close icon.-->
-      <slot name="close" v-bind="{ closeHandler }">
-        <SfIcon
-          class="sf-notification__close"
-          icon="cross"
-          color="white"
+      <slot v-if="!persistent" name="close" v-bind="{ closeHandler }">
+        <SfButton
+          aria-label="Close notification"
+          class="sf-button--pure sf-notification__close"
           @click="closeHandler"
-        />
+        >
+          <SfIcon icon="cross" color="white" />
+        </SfButton>
       </slot>
     </div>
   </transition>
 </template>
 <script>
-import { focus } from "../../../utilities/directives/focus-directive.js";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+import SfButton from "../../atoms/SfButton/SfButton.vue";
 export default {
   name: "SfNotification",
   components: {
-    SfIcon
-  },
-  directives: {
-    focus: focus
+    SfIcon,
+    SfButton,
   },
   props: {
     /**
@@ -65,28 +63,35 @@ export default {
      */
     visible: {
       type: Boolean,
-      default: false
+      default: false,
+    },
+    /**
+     * Persistence of the Notification. Default value is false.
+     */
+    persistent: {
+      type: Boolean,
+      default: false,
     },
     /**
      * Title that will be displayed in Notification.
      */
     title: {
       type: String,
-      default: ""
+      default: "",
     },
     /**
      * Message that will be displayed in Notification.
      */
     message: {
       type: String,
-      default: ""
+      default: "",
     },
     /**
      * Action that will be displayed in Notification.
      */
     action: {
       type: String,
-      default: ""
+      default: "",
     },
     /**
      * Notification type ("secondary", "info", "success", "warning", "danger"). Check "Knobs" section to see how they look like.
@@ -94,12 +99,12 @@ export default {
     type: {
       type: String,
       default: "secondary",
-      validator: function(value) {
+      validator: function (value) {
         return ["secondary", "info", "success", "warning", "danger"].includes(
           value
         );
-      }
-    }
+      },
+    },
   },
   computed: {
     icon() {
@@ -111,7 +116,23 @@ export default {
         default:
           return "info_circle";
       }
-    }
+    },
+    colorClass() {
+      switch (this.type) {
+        case "secondary":
+          return "color-secondary";
+        case "info":
+          return "color-info";
+        case "success":
+          return "color-success";
+        case "warning":
+          return "color-warning";
+        case "danger":
+          return "color-danger";
+        default:
+          return "color-info";
+      }
+    },
   },
   methods: {
     actionHandler() {
@@ -127,8 +148,8 @@ export default {
        * @type {Event}
        */
       this.$emit("click:close");
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

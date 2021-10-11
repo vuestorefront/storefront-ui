@@ -4,16 +4,18 @@
   box-sizing: border-box;
   padding: var(--product-card-horizontal-padding, var(--spacer-xs));
   background-color: var(--product-card-horizontal-background, var(--c-white));
+  --property-value-font-weight: var(--font-weight--normal);
   &__link {
     color: inherit;
     text-decoration: inherit;
     &--image {
-      flex: 0 0 var(--product-card-horizontal-image-width, 5.3125rem);
+      display: block;
+      line-height: 0;
     }
   }
   &__image-wrapper {
+    flex: 0 0 var(--product-card-horizontal-image-width, 5.3125rem);
     position: relative;
-    display: flex;
     &:hover {
       --product-card-horizontal-image-opacity: 1;
       --product-card-horizontal-image-even-opacity: 1;
@@ -58,13 +60,14 @@
   }
   &__title {
     margin: 0;
-    color: var(--c-text);
+    color: var(--c-link);
+    color: var(--product-card-horizontal-title-color, var(--c-link));
     @include font(
       --product-card-horizontal-title-font,
-      var(--font-light),
-      var(--h4-font-size),
+      var(--font-weight--medium),
+      var(--font-size--base),
       1.6,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
   }
   &__description {
@@ -72,12 +75,13 @@
       --product-card-horizontal-description-margin,
       var(--spacer-sm) 0
     );
+    color: var(--product-card-horizontal-description-color, var(--c-text-muted));
     @include font(
       --product-card-horizontal-description-font,
-      var(--font-light),
-      var(--font-base),
+      var(--font-weight--normal),
+      var(--font-size--base),
       1.6,
-      var(--font-family-primary)
+      var(--font-family--primary)
     );
   }
   &__configuration {
@@ -89,12 +93,14 @@
     margin: var(--product-card-horizontal-review-margin, auto 0 0 0);
     @include font(
       --product-card-horizontal-reviews-font,
-      var(--font-light),
-      var(--font-sm),
+      var(--font-weight--light),
+      var(--font-size--sm),
       1.4,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
     &-count {
+      --button-font-size: var(--font-size--sm);
+      --button-font-weight: var(--font-weight--light);
       color: var(--c-text);
       text-decoration: none;
       margin: 0 0 0 var(--spacer-xs);
@@ -111,20 +117,20 @@
     position: absolute;
     top: 0;
     right: 0;
-    padding: 0;
-    background: transparent;
-    border: 0;
-    cursor: pointer;
+  }
+  &:hover {
+    box-shadow: var(--product-card-horizontal-box-shadow, 0px 4px 11px rgba(29, 31, 34, 0.1));
   }
   @include for-desktop {
     --product-card-horizontal-flex-direction: row;
     --product-card-horizontal-image-width: 8.75rem;
-    --product-card-horizontal-padding: 0;
+    --product-card-horizontal-padding: var(--spacer-xs) var(--spacer-sm) var(--spacer-xs) var(--spacer-xs);
     --product-card-horizontal-actions-wrapper: flex-end;
     --product-card-horizontal-review-margin: var(--spacer-xs) 0 0 0;
     --product-card-horizontal-configuration-margin: auto 0 var(--spacer-xs) 0;
     --product-card-horizontal-add-to-cart-margin: auto 0 0 0;
     --product-card-horizontal-actions-margin: var(--spacer-base) 0 0 0;
     --product-card-horizontal-actions-wrapper-margin: 0;
+    --product-card-horizontal-title-font-weight: var(--font-weight--normal);
   }
 }

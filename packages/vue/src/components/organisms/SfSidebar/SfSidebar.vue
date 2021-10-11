@@ -1,13 +1,19 @@
 <template>
   <div class="sf-sidebar" :class="[staticClass, className]">
-    <SfOverlay :visible="visibleOverlay" @click="close" />
+    <SfOverlay :visible="visibleOverlay" />
     <transition :name="transitionName">
-      <aside v-if="visible" class="sf-sidebar__aside">
+      <aside
+        v-if="visible"
+        ref="asideContent"
+        v-focus-trap
+        v-click-outside="checkPersistence"
+        class="sf-sidebar__aside"
+      >
         <!--@slot Use this slot to place content inside the modal bar.-->
         <slot name="bar">
           <SfBar
             :title="title"
-            class="mobile-only"
+            class="smartphone-only"
             :back="true"
             @click:back="close"
           />
@@ -17,6 +23,7 @@
           <SfCircleIcon
             v-if="button"
             icon-size="12px"
+            aria-label="Close sidebar"
             icon="cross"
             class="sf-sidebar__circle-icon desktop-only"
             @click="close"
@@ -28,15 +35,19 @@
             <SfHeading
               v-if="title"
               :title="title"
-              :subtitle="subtitle"
+              :description="subtitle"
               :level="headingLevel"
-              class="sf-heading--left sf-heading--no-underline sf-sidebar__title desktop-only"
+              class="
+                sf-heading--left sf-heading--no-underline
+                sf-sidebar__title
+                desktop-only
+              "
             />
           </slot>
           <!--@slot Use this slot to add sticky top content.-->
           <slot name="content-top" />
         </div>
-        <div ref="content" class="sf-sidebar__content">
+        <div class="sf-sidebar__content">
           <!--@slot Use this slot to add SfSidebar content.-->
           <slot />
         </div>
@@ -49,50 +60,79 @@
   </div>
 </template>
 <script>
+import { focusTrap } from "../../../utilities/directives/";
+import { clickOutside } from "../../../utilities/directives/";
 import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
+import { isClient } from "../../../utilities/helpers";
 import SfBar from "../../molecules/SfBar/SfBar.vue";
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import SfHeading from "../../atoms/SfHeading/SfHeading.vue";
 export default {
   name: "SfSidebar",
+  directives: { focusTrap, clickOutside },
   components: {
     SfBar,
     SfCircleIcon,
     SfOverlay,
-    SfHeading
+    SfHeading,
   },
   props: {
+    /**
+     * The sidebar's title
+     */
     title: {
       type: String,
-      default: ""
+      default: "",
     },
+    /**
+     * The sidebar's subtitle
+     */
     subtitle: {
       type: String,
-      default: ""
+      default: "",
     },
+    /**
+     * The heading's level
+     */
     headingLevel: {
       type: Number,
-      default: 3
+      default: 3,
     },
+    /**
+     * The close button
+     */
     button: {
       type: Boolean,
-      default: true
+      default: true,
     },
+    /**
+     * The sidebar's visibility
+     */
     visible: {
       type: Boolean,
-      default: false
+      default: false,
     },
+    /**
+     * The overlay's visibility
+     */
     overlay: {
       type: Boolean,
-      default: true
-    }
+      default: true,
+    },
+    /**
+     * If true clicking outside will not dismiss the sidebar
+     */
+    persistent: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
       position: "left",
       staticClass: null,
-      className: null
+      className: null,
     };
   },
   computed: {
@@ -100,23 +140,25 @@ export default {
       return this.visible && this.overlay;
     },
     transitionName() {
-      return "slide-" + this.position;
+      return "sf-slide-" + this.position;
     },
     hasTop() {
       return this.$slots.hasOwnProperty("content-top");
     },
     hasBottom() {
       return this.$slots.hasOwnProperty("content-bottom");
-    }
+    },
   },
   watch: {
     visible: {
       handler(value) {
-        if (typeof window === "undefined" || typeof document === "undefined")
-          return;
+        if (!isClient) return;
         if (value) {
           this.$nextTick(() => {
-            disableBodyScroll(this.$refs.content);
+            const sidebarContent = document.getElementsByClassName(
+              "sf-sidebar__content"
+            )[0];
+            disableBodyScroll(sidebarContent);
           });
           document.addEventListener("keydown", this.keydownHandler);
         } else {
@@ -124,8 +166,8 @@ export default {
           document.removeEventListener("keydown", this.keydownHandler);
         }
       },
-      immediate: true
-    }
+      immediate: true,
+    },
   },
   mounted() {
     this.classHandler();
@@ -133,9 +175,15 @@ export default {
   updated() {
     this.classHandler();
   },
+  beforeDestroy() {
+    clearAllBodyScrollLocks();
+  },
   methods: {
     close() {
       this.$emit("close");
+    },
+    checkPersistence() {
+      if (!this.persistent) this.close();
     },
     keydownHandler(e) {
       if (e.key === "Escape" || e.key === "Esc" || e.keyCode === 27) {
@@ -158,8 +206,8 @@ export default {
             ? "right"
             : "left";
       }
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">

@@ -10,10 +10,10 @@
     @include border(--list-item-border, 0, solid, var(--c-light));
     @include font(
       --list-item-font,
-      var(--font-normal),
-      var(--font-sm),
+      var(--font-weight--normal),
+      var(--font-size--base),
       1.4,
-      var(--font-family-secondary)
+      var(--font-family--secondary)
     );
   }
 }

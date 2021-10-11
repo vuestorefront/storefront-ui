@@ -1,41 +1,72 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import { storiesOf } from "@storybook/vue";
-import {
-  withKnobs,
-  text,
-  optionsKnob as options
-} from "@storybook/addon-knobs";
-import SfQuantitySelector from "./SfQuantitySelector.vue";
-storiesOf("Atoms|QuantitySelector", module)
-  .addDecorator(withKnobs)
-  .add("Common", () => ({
-    components: { SfQuantitySelector },
-    data() {
-      return {
-        value: 1
-      };
-    },
-    props: {
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-quantity-selector--secondary": "sf-quantity-selector--secondary"
-          },
+import { SfQuantitySelector } from "@storefront-ui/vue";
+
+export default {
+  title: "Components/Atoms/QuantitySelector",
+  component: SfQuantitySelector,
+  decorators: [
+    () => ({ template: '<div style="max-width: 375px;"><story /></div>' }),
+  ],
+  argTypes: {
+    classes: {
+      control: {
+        type: "select",
+        options: [
           "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        )
+          "sf-quantity-selector--secondary",
+          "sf-quantity-selector--transparent",
+        ],
       },
-      ariaLabel: {
-        default: text("ariaLabel", "Quantity", "Props")
-      }
+      table: {
+        category: "CSS Modifiers",
+      },
     },
-    template: `<div style="max-width: 375px">
-        <SfQuantitySelector
-          v-model="value"
-          :class="customClass"
-          :aria-label="ariaLabel"
-        />
-      </div>`
-  }));
+    qty: {
+      control: "number",
+      table: {
+        category: "Props",
+      },
+      defaultValue: 1,
+    },
+    disabled: {
+      control: "boolean",
+      table: {
+        category: "Props",
+      },
+    },
+    min: {
+      control: "number",
+      defaultValue: null,
+      table: {
+        category: "Props",
+      },
+    },
+    max: {
+      control: "number",
+      defaultValue: null,
+      table: {
+        category: "Props",
+      },
+    },
+  },
+};
+
+const Template = (args, { argTypes }) => ({
+  components: { SfQuantitySelector },
+  props: Object.keys(argTypes),
+  data() {
+    return {
+      inputValue: this.qty,
+    };
+  },
+  template: `
+  <SfQuantitySelector
+    v-model="inputValue"
+    :disabled="disabled"
+    :min="min"
+    :max="max"
+    aria-label="Quantity"
+    :class="classes"
+  />`,
+});
+
+export const Common = Template.bind({});

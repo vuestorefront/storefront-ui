@@ -1,12 +1,11 @@
 <template>
-  <Fragment class="sf-tabs__tab">
+  <div class="sf-tabs__tab">
     <!--@slot Title. Here you should pass a title tab-->
     <slot name="title" v-bind="{ tabClick, isActive, title }">
-      <div
-        role="button"
+      <SfButton
         :aria-pressed="isActive.toString()"
-        class="sf-tabs__title"
-        :class="{ 'sf-tabs__title--active': isActive }"
+        class="sf-button--pure sf-tabs__title"
+        :class="{ 'is-active': isActive }"
         @click="tabClick"
       >
         {{ title }}
@@ -14,51 +13,73 @@
           class="sf-tabs__chevron"
           :class="{ 'sf-chevron--right': !isActive }"
         />
-      </div>
+      </SfButton>
     </slot>
     <div class="sf-tabs__content">
       <div v-if="isActive" class="sf-tabs__content__tab">
-        <!--@slot Default. Here you should pass your tab content -->
-        <slot />
+        <SfScrollable
+          v-if="tabMaxContentHeight"
+          :max-content-height="tabMaxContentHeight"
+          :show-text="tabShowText"
+          :hide-text="tabHideText"
+        >
+          <!--@slot Default. Here you should pass your tab content -->
+          <slot />
+        </SfScrollable>
+        <slot v-else />
       </div>
     </div>
-  </Fragment>
+  </div>
 </template>
 <script>
-import { Fragment } from "vue-fragment";
+import { isClient } from "../../../../utilities/helpers";
 import SfChevron from "../../../atoms/SfChevron/SfChevron.vue";
+import SfButton from "../../../atoms/SfButton/SfButton.vue";
+import SfScrollable from "../../../molecules/SfScrollable/SfScrollable.vue";
 export default {
   name: "SfTab",
   components: {
-    Fragment,
-    SfChevron
+    SfChevron,
+    SfScrollable,
+    SfButton,
   },
+  inject: ["tabConfig"],
   props: {
     /**
      * Tab title.
      */
     title: {
       type: String,
-      default: ""
-    }
+      default: "",
+    },
   },
   data() {
     return {
       isActive: false,
-      desktopMin: 1024
+      desktopMin: 1024,
     };
+  },
+  computed: {
+    tabMaxContentHeight() {
+      return this.tabConfig.tabMaxContentHeight;
+    },
+    tabShowText() {
+      return this.tabConfig.tabShowText;
+    },
+    tabHideText() {
+      return this.tabConfig.tabHideText;
+    },
   },
   methods: {
     tabClick() {
-      if (typeof window === "undefined" || typeof document === "undefined")
-        return;
+      if (!isClient) return;
       const width = Math.max(
         document.documentElement.clientWidth,
         window.innerWidth
       );
       if (this.isActive && width > this.desktopMin) return;
       this.$parent.$emit("toggle", this._uid);
-    }
-  }
+    },
+  },
 };
 </script>

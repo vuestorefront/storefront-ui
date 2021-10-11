@@ -4,8 +4,8 @@ import SfContentPages from "../SfContentPages.vue";
 describe("SfContentCategory.vue", () => {
   it("renders a component", () => {
     const component = shallowMount(SfContentCategory, {
-      parentComponent: SfContentPages
+      parentComponent: SfContentPages,
     });
-    expect(component.contains(".sf-content-category")).toBe(true);
+    expect(component.classes("sf-content-category")).toBe(true);
   });
 });

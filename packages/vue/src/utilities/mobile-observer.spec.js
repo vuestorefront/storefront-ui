@@ -1,7 +1,7 @@
 import {
   mapMobileObserver,
   unMapMobileObserver,
-  onMediaMatch
+  onMediaMatch,
 } from "./mobile-observer";
 describe("mobile observer", () => {
   let addListener;
@@ -23,7 +23,7 @@ describe("mobile observer", () => {
       removeListener = jest.fn();
       window.matchMedia = jest.fn().mockReturnValue({
         addListener,
-        removeListener
+        removeListener,
       });
       instance = mapMobileObserver();
     });
@@ -49,8 +49,8 @@ describe("mobile observer", () => {
         it("initialize", () => {
           expect(instance.mobileObserverIsInitialized.get()).toBe(true);
         });
-        it("calls matchMedia and addListeners", () => {
-          expect(window.matchMedia).toHaveBeenCalledWith("(max-width: 1024px)");
+        it("calls matchMedia and addListener", () => {
+          expect(window.matchMedia).toHaveBeenCalledWith("(max-width: 1023px)");
           expect(addListener).toHaveBeenCalledWith(onMediaMatch);
         });
         it("multiple calls on get do not attach multiple listeners", () => {
@@ -71,7 +71,7 @@ describe("mobile observer", () => {
         it("if clients reach 0", () => {
           unMapMobileObserver();
           expect(instance.isMobile.get()).toEqual(false);
-          expect(window.matchMedia).toHaveBeenCalledWith("(max-width: 1024px)");
+          expect(window.matchMedia).toHaveBeenCalledWith("(max-width: 1023px)");
           expect(removeListener).toHaveBeenCalledWith(onMediaMatch);
         });
       });

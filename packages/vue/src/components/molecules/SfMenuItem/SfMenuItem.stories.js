@@ -1,133 +1,123 @@
-import { storiesOf } from "@storybook/vue";
-import { withKnobs, text } from "@storybook/addon-knobs";
-import SfMenuItem from "./SfMenuItem.vue";
-import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
-storiesOf("Molecules|MenuItem", module)
-  .addDecorator(withKnobs)
-  .add("Common", () => ({
-    components: {
-      SfMenuItem
-    },
-    props: {
-      label: {
-        default: text("label", "Red", "Props")
+import { SfMenuItem, SfIcon } from "@storefront-ui/vue";
+import { icons } from "@storefront-ui/shared/icons/icons";
+const iconsNames = Object.keys(icons);
+
+export default {
+  title: "Components/Molecules/MenuItem",
+  component: SfMenuItem,
+  decorators: [
+    () => ({ template: '<div style="max-width: 300px"><story/></div>' }),
+  ],
+  argTypes: {
+    label: {
+      control: "text",
+      table: {
+        category: "Props",
       },
-      count: {
-        default: text("count", "30", "Props")
-      },
-      icon: {
-        default: text("icon", "chevron_right", "Props")
-      }
     },
-    template: `<div style="max-width: 300px">
-      <SfMenuItem
-      :label="label"
-      :count="count"
-      :icon="icon"/>
-    </div>`
-  }))
-  .add("[slot] icon", () => ({
-    components: {
-      SfMenuItem
-    },
-    props: {
-      label: {
-        default: text("label", "Red", "Props")
+    count: {
+      control: "number",
+      table: {
+        category: "Props",
       },
-      count: {
-        default: text("count", "30", "Props")
-      },
-      icon: {
-        default: text("icon", "chevron_right", "Props")
-      }
     },
-    template: `<div style="max-width: 300px">
-      <SfMenuItem
-        :label="label"
-        :count="count"
-        :icon="icon">
-        <template #icon>
-          ❤️
-        </template>
-      </SfMenuItem>
-    </div>`
-  }))
-  .add("[slot] label", () => ({
-    components: {
-      SfMenuItem
-    },
-    props: {
-      label: {
-        default: text("label", "Red", "Props")
+    icon: {
+      control: {
+        type: "select",
+        options: iconsNames,
       },
-      count: {
-        default: text("count", "30", "Props")
+      table: {
+        category: "Props",
       },
-      icon: {
-        default: text("icon", "chevron_right", "Props")
-      }
+      defaultValue: "chevron_right",
     },
-    template: `<div style="max-width: 300px">
-      <SfMenuItem
-        :label="label"
-        :count="count"
-        :icon="icon">
-        <template #label="{label}">
-          CUSTOM LABEL
-        </template>
-      </SfMenuItem>
-    </div>`
-  }))
-  .add("[slot] count", () => ({
-    components: {
-      SfMenuItem
-    },
-    props: {
-      label: {
-        default: text("label", "Red", "Props")
+    link: {
+      control: "text",
+      table: {
+        category: "Props",
       },
-      count: {
-        default: text("count", "30", "Props")
-      },
-      icon: {
-        default: text("icon", "chevron_right", "Props")
-      }
     },
-    template: `<div style="max-width: 300px">
-      <SfMenuItem
-        :label="label"
-        :count="count"
-        :icon="icon">
-        <template #count="{count}">
-          CUSTOM COUNT
-        </template>
-      </SfMenuItem>
-    </div>`
-  }))
-  .add("[slot] mobile-nav-icon", () => ({
-    components: {
-      SfMenuItem,
-      SfIcon
-    },
-    props: {
-      label: {
-        default: text("label", "Red", "Props")
-      },
-      count: {
-        default: text("count", "30", "Props")
-      },
-      icon: {
-        default: text("icon", "chevron_right", "Props")
-      }
-    },
-    template: `<div style="max-width: 300px">
-      <SfMenuItem
-        :label="label"
-        :count="count"
-        :icon="icon">
-        <template #mobile-nav-icon="{icon}">
-          <SfIcon icon="arrow_right" size="xxs" style="margin-left: 0.625rem"/>
-        </template>
-      </SfMenuItem>
-    </div>`
-  }));
+  },
+};
+
+const Template = (args, { argTypes }) => ({
+  components: { SfMenuItem },
+  props: Object.keys(argTypes),
+  template: `
+  <SfMenuItem
+  :label="label"
+  :count="count"
+  :icon="icon" />`,
+});
+
+export const Common = Template.bind({});
+Common.args = {
+  label: "Red",
+  count: 30,
+};
+
+export const AsLink = Template.bind({});
+AsLink.args = {
+  ...Common.args,
+  link: "https://www.storefrontui.io/",
+};
+
+export const UseIconSlot = (args, { argTypes }) => ({
+  components: { SfMenuItem },
+  props: Object.keys(argTypes),
+  template: `
+  <SfMenuItem
+    :label="label"
+    :count="count"
+    :icon="icon">
+    <template #icon>
+      ❤️
+    </template>
+  </SfMenuItem>`,
+});
+UseIconSlot.args = { ...Common.args };
+
+export const UseMobileNavIconSlot = (args, { argTypes }) => ({
+  components: { SfMenuItem, SfIcon },
+  props: Object.keys(argTypes),
+  template: `
+  <SfMenuItem
+    :label="label"
+    :count="count"
+    :icon="icon">
+    <template #mobile-nav-icon="{icon}">
+      <SfIcon icon="arrow_right" size="xxs" style="margin-left: 0.625rem"/>
+    </template>
+  </SfMenuItem>`,
+});
+UseMobileNavIconSlot.args = { ...Common.args };
+
+export const UseLabelSlot = (args, { argTypes }) => ({
+  components: { SfMenuItem },
+  props: Object.keys(argTypes),
+  template: `
+  <SfMenuItem
+    :label="label"
+    :count="count"
+    :icon="icon">
+    <template #label="{label}">
+      CUSTOM LABEL
+    </template>
+  </SfMenuItem>`,
+});
+UseLabelSlot.args = { ...Common.args };
+
+export const UseCountSlot = (args, { argTypes }) => ({
+  components: { SfMenuItem },
+  props: Object.keys(argTypes),
+  template: `
+  <SfMenuItem
+    :label="label"
+    :count="count"
+    :icon="icon">
+    <template #count="{count}">
+      CUSTOM COUNT
+    </template>
+  </SfMenuItem>`,
+});
+UseCountSlot.args = { ...Common.args };

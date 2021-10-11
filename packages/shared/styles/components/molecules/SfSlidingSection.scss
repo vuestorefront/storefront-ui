@@ -19,16 +19,10 @@
     display: var(--sliding-section-mobile-bar-display, none);
     padding: var(--sliding-section-mobile-bar-padding, var(--spacer-lg) 0);
   }
-  &__close {
-    padding: 0;
-    border: 0;
-    background: transparent;
-    cursor: pointer;
-  }
   &--has-scroll-lock {
     overflow: hidden;
   }
-  &--is-active {
+  &.is-active {
     --sliding-section-static-height: 0;
     --sliding-section-mobile-bar-display: block;
   }

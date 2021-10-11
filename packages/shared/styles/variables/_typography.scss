@@ -1,36 +1,32 @@
 @import "../helpers";
 :root {
   // font-family
-  --font-family-primary: "Roboto", serif;
-  --font-family-secondary: "Raleway", sans-serif;
-  // font-weight
-  --font-light: 300;
-  --font-normal: 400;
-  --font-medium: 500;
-  --font-semibold: 600;
-  --font-bold: 700;
-  --font-extra-bold: 800;
-  --font-black: 900;
+  --font-family--primary: "Roboto", serif;
+  --font-family--secondary: "Raleway", sans-serif;
+  //font-weight
+  --font-weight--light: 300;
+  --font-weight--normal: 400;
+  --font-weight--medium: 500;	
+  --font-weight--semibold: 600;
+  --font-weight--bold: 700;
   // font-size
-  --font-2xs: 0.625rem; //10px
-  --font-xs: 0.75rem; //12px
-  --font-sm: 0.875rem; //14px
-  --font-base: 1rem; //16px
-  --font-lg: 1.125rem; //18px
-  --font-xl: 1.5rem; //24px
+  --font-size--xs: 0.75rem; //12px
+  --font-size--sm: 0.875rem; //14px
+  --font-size--base: 1rem; //16px
+  --font-size--lg: 1.125rem; //18px
   // heading font-size
-  --h1-font-size: 1.375rem; //22px
-  --h2-font-size: 1.375rem; //22px
-  --h3-font-size: 1rem; //16px
-  --h4-font-size: 0.875rem; //14px
-  --h5-font-size: 0.75rem; //12px
-  --h6-font-size: 0.75rem; //12px
+  --h1-font-size: 1.5rem; //24px
+  --h2-font-size: 1.5rem; //24px
+  --h3-font-size: var(--font-size--lg); //18px
+  --h4-font-size: var(--font-size--lg); //18px
+  --h5-font-size: var(--font-size--base); //16px
+  --h6-font-size: var(--font-size--base); //16px
   @include for-desktop {
     --h1-font-size: 2.625rem; //42px
-    --h2-font-size: 2.625rem; //42px
+    --h2-font-size: 2.25rem; //36px
     --h3-font-size: 1.625rem; //26px
-    --h4-font-size: 1.125rem; //18px
-    --h5-font-size: 0.875rem; //14px
-    --h6-font-size: 0.625rem; //10px
-  }
+    --h4-font-size: 1.25rem; //20px
+    --h5-font-size: var(--font-size--base); //16px
+    --h6-font-size: var(--font-size--sm); //14px
+  }	  
 }

@@ -1,61 +1,72 @@
-import { storiesOf } from "@storybook/vue";
-import { withKnobs, text } from "@storybook/addon-knobs";
-import SfProductOption from "./SfProductOption.vue";
-storiesOf("Molecules|ProductOption", module)
-  .addDecorator(withKnobs)
-  .add("Common", () => ({
-    components: { SfProductOption },
-    props: {
-      color: {
-        default: text("color", "red", "Props")
+import { SfProductOption } from "@storefront-ui/vue";
+export default {
+  title: "Components/Molecules/ProductOption",
+  component: SfProductOption,
+  decorators: [
+    () => ({ template: "<div style='max-width: 300px'><story/></div>" }),
+  ],
+  argTypes: {
+    label: {
+      control: "text",
+      description: "Label to assign to the product",
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: "",
+        },
       },
-      label: {
-        default: text("label", "Red", "Props")
-      }
+      defaultValue: "",
     },
-    template: `<div style="max-width: 300px">
-      <SfProductOption
-        :color="color"
-        :label="label"/>
-    </div>`
-  }))
-  .add("[slot] color", () => ({
-    components: { SfProductOption },
-    props: {
-      color: {
-        default: text("color", "red", "Props")
+    color: {
+      control: "color",
+      description: "Product color",
+      defaultValue: "",
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: "",
+        },
       },
-      label: {
-        default: text("label", "Red", "Props")
-      }
     },
-    template: `<div style="max-width: 300px">
-      <SfProductOption
-        :color="color"
-        :label="label">
-        <template #color="{color}">
-          <div :style="{width: '20px', height:'20px', backgroundColor: color, borderRadius: '100%', marginRight: '10px'}"></div>
-        </template>
-      </SfProductOption>
-    </div>`
-  }))
-  .add("[slot] label", () => ({
-    components: { SfProductOption },
-    props: {
-      color: {
-        default: text("color", "red", "Props")
-      },
-      label: {
-        default: text("label", "Red", "Props")
-      }
-    },
-    template: `<div style="max-width: 300px">
-      <SfProductOption
-        :color="color"
-        :label="label">
-        <template #label="{label}">
-          CUSTOM LABEL
-        </template>
-      </SfProductOption>
-    </div>`
-  }));
+  },
+};
+
+const Template = (args, { argTypes }) => ({
+  components: { SfProductOption },
+  props: Object.keys(argTypes),
+  template: `<SfProductOption :color="color" :label="label"/>`,
+});
+
+export const Common = Template.bind({});
+Common.args = {
+  color: "red",
+  label: "Red",
+};
+
+export const UseColorSlot = (args, { argTypes }) => ({
+  components: { SfProductOption },
+  props: Object.keys(argTypes),
+  template: `
+  <SfProductOption
+    :color="color"
+    :label="label">
+    <template #color="{color}">
+      <div :style="{width: '20px', height:'20px', backgroundColor: color, borderRadius: '100%', marginRight: '10px'}"></div>
+    </template>
+  </SfProductOption>`,
+});
+UseColorSlot.args = { ...Common.args };
+
+export const UseLabelSlot = (args, { argTypes }) => ({
+  components: { SfProductOption },
+  props: Object.keys(argTypes),
+  template: `
+  <SfProductOption
+    :color="color"
+    :label="label">
+    <template #label="{label}">
+      CUSTOM LABEL
+    </template>
+  </SfProductOption>`,
+});
+UseLabelSlot.args = { ...Common.args };

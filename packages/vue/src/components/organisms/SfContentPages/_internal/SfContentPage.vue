@@ -13,28 +13,28 @@ export default {
      */
     title: {
       type: String,
-      default: ""
+      default: "",
     },
     /**
-     * Page nav title
+     * Page nav icon
      */
     icon: {
-      type: String,
-      default: ""
-    }
+      type: [String, Array],
+      default: "",
+    },
   },
   inject: ["provided"],
   computed: {
     isActive() {
       return this.provided.active === this.title;
-    }
+    },
   },
   mounted() {
     const item = {
       title: this.title,
-      icon: this.icon
+      icon: this.icon,
     };
     this.$parent.items.push(item);
-  }
+  },
 };
 </script>
