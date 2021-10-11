@@ -1,4 +1,5 @@
 import { SfAccordion, SfList, SfMenuItem, SfButton } from "@storefront-ui/vue";
+import SfAccordionItem from "./_internal/SfAccordionItem.vue"
 
 const accordions = [
   {
@@ -29,7 +30,14 @@ const accordions = [
 
 export default {
   title: "Components/Organisms/Accordion",
-  component: SfAccordion,
+  component: SfAccordionItem,
+  parameters: {
+    docs: {
+      description: {
+        component: "Accordion component. Can be set as one or multiple opened, with or without icon.",
+      },
+    },
+  },
   argTypes: {
     open: {
       control: "text",
@@ -39,6 +47,7 @@ export default {
           summary: "",
         },
       },
+      defaultValue: "",
       description:
         "Opens an accordion item based on title. If 'all' string is passed then all items will be open by default.",
     },
@@ -50,17 +59,22 @@ export default {
           summary: false,
         },
       },
+      defaultValue: false,
       description: "Allows to open multiple accordion items if set to `true`",
     },
     transition: {
       control: "string",
       table: {
         category: "Props",
+        type: {
+          summary: "string",
+        },
         defaultValue: {
           summary: "sf-expand",
         },
       },
-    },
+      description: "Overlay transition effect",
+    },    
     showChevron: {
       control: "boolean",
       table: {
@@ -69,7 +83,19 @@ export default {
           summary: true,
         },
       },
+      defaultValue: true,
       description: "Show chevron icon",
+    },
+    firstOpen: {
+      control: "boolean",
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: false,
+        },
+      },
+      defaultValue: false,
+      description: "Opens the first accordion item if set to 'true'. @deprecated will be removed. Use open prop instead",
     },
     "click:open-header": {
       action: "Open header",
@@ -93,7 +119,8 @@ const Template = (args, { argTypes }) => ({
     :open="open" 
     :multiple="multiple"
     :show-chevron="showChevron"
-    :transition="transition">
+    :transition="transition"
+    :first-open="firstOpen">
     <SfAccordionItem 
       v-for="accordion in accordions" 
       :key="accordion.header" 
@@ -171,6 +198,7 @@ export const controlWithButtons = (args, { argTypes }) => ({
       :multiple="multiple"
       :show-chevron="showChevron"
       :transition="transition"
+      :first-open="firstOpen"
       @click:open-header="change('')"
     >
       <SfAccordionItem 
@@ -207,7 +235,8 @@ export const UseHeaderSlot = (args, { argTypes }) => ({
     :open="open" 
     :multiple="multiple"
     :show-chevron="showChevron"
-    :transition="transition">
+    :transition="transition"
+    :first-open="firstOpen">
     <SfAccordionItem 
       v-for="accordion in accordions" 
       :key="accordion.header" 
