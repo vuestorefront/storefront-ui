@@ -1,8 +1,16 @@
 import { SfHero, SfCimage } from "@storefront-ui/vue";
+import SfHeroItem from "./_internal/SfHeroItem.vue"
 
 export default {
   title: "Components/Organisms/Hero",
-  component: SfHero,
+  component: SfHeroItem,
+  parameters: {
+    docs: {
+      description: {
+        component: "Full-width hero component with autoplay and navigation arrows.",
+      },
+    },
+  },
   argTypes: {
     classes: {
       control: {
@@ -18,12 +26,30 @@ export default {
       table: {
         category: "CSS Modifiers",
       },
+      description: "CSS classes to modify component styling",
     },
     sliderOptions: {
       control: "object",
       table: {
-        category: "Props",
+        category: "Props for main component",
+        defaultValue: {
+          summary: `{
+            type: "slider",
+            rewind: true,
+            autoplay: 5000,
+            perView: 1,
+            gap: 0,
+          }`,
+        },
       },
+      defaultValue: {
+        type: "slider",
+        rewind: true,
+        autoplay: 5000,
+        perView: 1,
+        gap: 0,
+      },
+      description: "Slider options from [glide.js documentation](https://glidejs.com/docs/)."
     },
   },
 };
@@ -33,11 +59,11 @@ const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   data() {
     return {
-      title: "Colorful summer dresses are already in store",
-      image: "/assets/storybook/SfHero/hero.png",
-      subtitle: "Summer Collection 2019",
-      buttonText: "Learn more",
-      background: "#ECEFF1",
+      imageTitle: "Colorful summer dresses are already in store",
+      imageUrl: "/assets/storybook/SfHero/hero.png",
+      imageSubtitle: "Summer Collection 2019",
+      imageButtonText: "Learn more",
+      imageBackground: "#ECEFF1",
     };
   },
   template: `
@@ -46,11 +72,11 @@ const Template = (args, { argTypes }) => ({
   >
     <SfHeroItem
         :class="classes"
-        :title="title"
-        :subtitle="subtitle"
-        :button-text="buttonText"
-        :image="image"
-        :background="background"
+        :title="imageTitle"
+        :subtitle="imageSubtitle"
+        :button-text="imageButtonText"
+        :image="imageUrl"
+        :background="imageBackground"
     />
     <SfHeroItem
         :class="classes"
@@ -74,12 +100,12 @@ export const WithCloudinaryImage = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   data() {
     return {
-      title: "Colorful summer dresses are already in store",
-      subtitle: "Summer Collection 2019",
-      buttonText: "Learn more",
+      imageTitle: "Colorful summer dresses are already in store",
+      imageSubtitle: "Summer Collection 2019",
+      imageButtonText: "Learn more",
       cloud: { cloudName: "demo" },
       alt: "animals",
-      placeholder: "SfHero with SfCimage",
+      placeholder: "blur",
       transformations: [
         {
           resize: {
@@ -98,9 +124,9 @@ export const WithCloudinaryImage = (args, { argTypes }) => ({
   >
     <SfHeroItem
       :class="classes"
-      :title="title"
-      :subtitle="subtitle"
-      :button-text="buttonText"
+      :title="imageTitle"
+      :subtitle="imageSubtitle"
+      :button-text="imageButtonText"
     >
       <template #withImgTag>
         <SfCimage

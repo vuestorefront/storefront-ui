@@ -59,24 +59,37 @@ const categories = [
 export default {
   title: "Components/Organisms/MegaMenu",
   component: SfMegaMenu,
+  parameters: {
+    docs: {
+      description: {
+        component: "MegaMenu component for page navigation.",
+      },
+    },
+  },
   argTypes: {
     title: {
       control: "text",
       table: {
         category: "Props",
       },
+      defaultValue: "",
+      description: "Title of main category, displayed on mobile",
     },
     visible: {
       control: "boolean",
       table: {
         category: "Props",
       },
+      defaultValue: false,
+      description: "Sets mega menu state to visible",
     },
     isAbsolute: {
       control: "boolean",
       table: {
         category: "Props",
       },
+      defaultValue: false,
+      description: "Sets css position to absolute.",
     },
     transitionName: {
       control: "text",
@@ -86,6 +99,20 @@ export default {
           summary: "sf-fade",
         },
       },
+      defaultValue: "sf-fade",
+      description:
+        "Sets transition name. Could be one of [the default ones](https://docs.storefrontui.io/?path=/docs/utilities-transitions-docs--page).",
+    },
+    asideTitle: {
+      control: "text",
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: "sf-fade",
+        },
+      },
+      defaultValue: "",
+      description: "*Depraceted. Sets title for aside column.",
     },
     change: { action: "Active item changed", table: { category: "Events" } },
     close: { action: "Close button clicked", table: { category: "Events" } },
