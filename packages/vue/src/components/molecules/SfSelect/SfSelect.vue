@@ -16,6 +16,7 @@
     <select
       :id="label"
       v-focus
+      v-bind="$attrs"
       :value="value"
       :disabled="disabled"
       class="sf-select__dropdown"
