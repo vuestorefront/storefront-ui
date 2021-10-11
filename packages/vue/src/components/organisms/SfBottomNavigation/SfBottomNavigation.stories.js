@@ -2,6 +2,15 @@ import { SfBottomNavigation, SfCircleIcon, SfIcon } from "@storefront-ui/vue";
 export default {
   title: "Components/Organisms/BottomNavigation",
   component: SfBottomNavigation,
+  parameters: {
+    docs: {
+      inlineStories: false,
+      iframeHeight: "30em",
+      description: {
+        component: "Full-width fixed bottom navigation component with items and circle icon.",
+      },
+    },    
+  },
 };
 
 const Template = (args, { argTypes }) => ({

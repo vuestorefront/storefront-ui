@@ -2,6 +2,13 @@ import { SfCarousel } from "@storefront-ui/vue";
 export default {
   title: "Components/Organisms/Carousel",
   component: SfCarousel,
+  parameters: {
+    docs: {
+      description: {
+        component: "Carousel component with swipe and arrow navigation.",
+      },
+    },
+  },
   argTypes: {
     settings: {
       control: "object",
@@ -12,6 +19,8 @@ export default {
         },
       },
       defaultValue: {},
+      description:
+        "Carousel options after glide.js (https://glidejs.com/docs/)",
     },
   },
 };
