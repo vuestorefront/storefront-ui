@@ -12,12 +12,20 @@ import {
 export default {
   title: "Components/Organisms/Footer",
   component: SfFooter,
+  parameters: {
+    docs: {
+      description: {
+        component: "Footer component.",
+      },
+    },
+  },
   argTypes: {
     open: {
       control: "array",
       table: {
         category: "Props",
       },
+      description: "Opens footer columns on mobile.",
     },
     column: {
       control: "number",
@@ -32,18 +40,19 @@ export default {
       table: {
         category: "Props",
       },
+      defaultValue: true,
+      description: "Multiple footer columns open at the same time on mobile",
     },
     logo: {
       control: "text",
-      table: {
-        category: "Props",
-      },
+      description: "Logo url to show on mobile (only for testing puroposes).",
     },
     title: {
       control: "text",
       table: {
         category: "Props",
       },
+      description: "Title of the column in SfFooterColumn component.",
     },
   },
 };

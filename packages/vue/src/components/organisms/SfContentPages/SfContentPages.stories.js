@@ -44,22 +44,46 @@ const pages = [
 export default {
   title: "Components/Organisms/ContentPages",
   component: SfContentPages,
+  parameters: {
+    docs: {
+      description: {
+        component: "The content pages for static content",
+      },
+    },
+  },
   argTypes: {
     title: {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: "string",
+        },
         defaultValue: {
           summary: "",
         },
       },
       defaultValue: "",
+      description: "Pages title.",
     },
     active: {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
+      defaultValue: "",
+      description: "Active page.",
+    },
+    pages: {
+      control: "array",
+      defaultValue: pages,
+      description: "Pages data (only for testing purposes).",
     },
     "click:change": { action: "Page changed", table: { category: "Events" } },
   },

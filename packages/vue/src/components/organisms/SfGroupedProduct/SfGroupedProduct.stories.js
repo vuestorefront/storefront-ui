@@ -1,19 +1,35 @@
 import { SfGroupedProduct, SfProperty } from "@storefront-ui/vue";
+import SfGroupedProductItem from "./_internal/SfGroupedProductItem.vue";
 export default {
   title: "Components/Organisms/GroupedProduct",
-  component: SfGroupedProduct,
+  component: SfGroupedProductItem,
+  parameters: {
+    docs: {
+      description: {
+        component: "Grouped Product component.",
+      },
+    },
+  },
   argTypes: {
     settings: {
       control: "object",
       table: {
-        category: "Props",
+        category: "Props for main component",
       },
+      description:
+        "Settings for carousel following [glide.js documentation](https://glidejs.com/) ",
     },
     hasCarousel: {
       control: "boolean",
       defaultValue: true,
       table: {
-        category: "Props",
+        category: "Props for main component",
+      },
+      description: "Indicates if the carousel of products is on",
+    },
+    "v-model": {
+      table: {
+        disabled: true,
       },
     },
   },

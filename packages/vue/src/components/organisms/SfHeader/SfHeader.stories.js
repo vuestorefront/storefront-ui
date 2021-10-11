@@ -3,6 +3,13 @@ import { SfHeader, SfLink } from "@storefront-ui/vue";
 export default {
   title: "Components/Organisms/Header",
   component: SfHeader,
+  parameters: {
+    docs: {
+      description: {
+        component: "Grouped Product component.",
+      },
+    },
+  },
   argTypes: {
     classes: {
       control: {
@@ -17,90 +24,144 @@ export default {
       table: {
         category: "CSS Modifiers",
       },
+      description: "CSS classes to modify component styling",
     },
     logo: {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: ["string", "object"],
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
+      description: "Header logo",
     },
     logoHeight: {
       control: "number",
       table: {
         category: "Props",
       },
+      defaultValue: 35,
+      description: "Header logo height",
     },
     logoWidth: {
       control: "number",
       table: {
         category: "Props",
       },
+      defaultValue: 34,
+      description: "Header logo width",
     },
     title: {
       control: "text",
       table: {
         category: "Props",
       },
+      description: "Header title",
     },
     cartIcon: {
       control: "text",
       table: {
         category: "Props",
-        defaultValue: "empty_cart",
+        defaultValue: {
+          summary: "empty_cart",
+        },
       },
+      defaultValue: "empty_cart",
+      description: "Header cartIcon (accepts same value as SfIcon)",
     },
     wishlistIcon: {
       control: "text",
       table: {
         category: "Props",
-        defaultValue: "heart",
+        defaultValue: {
+          summary: "heart",
+        },
       },
+      defaultValue: "heart",
+      description: "Header wishlistIcon (accepts same value as SfIcon)",
     },
     accountIcon: {
       control: "text",
       table: {
         category: "Props",
-        defaultValue: "profile",
+        defaultValue: {
+          summary: "profile",
+        },
       },
+      defaultValue: "profile",
+      description: "Header accountIcon (accepts same value as SfIcon)",
     },
     activeIcon: {
       control: "text",
       table: {
         category: "Props",
-        defaultValue: "",
+        defaultValue: {
+          summary: "profile",
+        },
       },
+      defaultValue: "profile",
+      description: "Header activeIcon (accepts account, wishlist and cart)",
     },
     searchPlaceholder: {
       control: "text",
       table: {
         category: "Props",
-        defaultValue: "Search for items",
+        defaultValue: {
+          summary: "Search for items",
+        },
       },
+      defaultValue: "Search for items",
+      description: "Header search placeholder",
     },
     searchValue: {
       control: "number",
       table: {
         category: "Props",
       },
+      defaultValue: "",
+      description: "Header search phrase",
     },
     cartItemsQty: {
       control: "number",
       table: {
         category: "Props",
-        defaultValue: 0,
+        defaultValue: {
+          summary: 0,
+        },
       },
+      defaultValue: 0,
+      description: "Header cart items quantity",
+    },
+    wishlistItemsQty: {
+      control: "number",
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: 0,
+        },
+      },
+      defaultValue: 0,
+      description: "Header wishlist items quantity",
     },
     isSticky: {
       control: "boolean",
       table: {
         category: "Props",
       },
+      defaultValue: false,
+      description: "Header sticky to top",
     },
     isNavVisible: {
       control: "boolean",
       table: {
         category: "Props",
       },
+      defaultValue: false,
+      description: "Is nav slot visible on mobile view",
     },
     "change:search": {
       action: "Changed search value",
