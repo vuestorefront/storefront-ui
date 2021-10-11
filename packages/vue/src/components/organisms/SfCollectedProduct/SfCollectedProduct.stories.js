@@ -1,4 +1,4 @@
-import { SfCollectedProduct, SfButton } from "@storefront-ui/vue";
+import { SfCollectedProduct } from "@storefront-ui/vue";
 export default {
   title: "Components/Organisms/CollectedProduct",
   component: SfCollectedProduct,
