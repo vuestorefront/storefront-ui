@@ -15,8 +15,12 @@ export default {
   parameters: {
     docs: {
       description: {
+<<<<<<< HEAD
         component:
           "Footer component. Built from main component - SfFooter and internal components -SfFooterColumn.",
+=======
+        component: "Footer component.",
+>>>>>>> 4ab6bf217 (feat: types, descriptions for footer, grouped and collected product)
       },
     },
   },
@@ -59,7 +63,10 @@ export default {
           summary: "",
         },
       },
+<<<<<<< HEAD
       defaultValue: "",
+=======
+>>>>>>> 4ab6bf217 (feat: types, descriptions for footer, grouped and collected product)
       description: "Title of the column in SfFooterColumn component.",
     },
   },

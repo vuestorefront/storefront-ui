@@ -6,8 +6,12 @@ export default {
   parameters: {
     docs: {
       description: {
+<<<<<<< HEAD
         component:
           "Grouped Product component. Built from main component - SfGroupedProduct and internal components - SfGroupedProductItem.",
+=======
+        component: "Grouped Product component.",
+>>>>>>> 4ab6bf217 (feat: types, descriptions for footer, grouped and collected product)
       },
     },
   },
@@ -16,6 +20,7 @@ export default {
       control: "object",
       table: {
         category: "Props for main component",
+<<<<<<< HEAD
         type: {
           summary: "object",
         },
@@ -52,6 +57,9 @@ export default {
           },
         },
       },
+=======
+      },
+>>>>>>> 4ab6bf217 (feat: types, descriptions for footer, grouped and collected product)
       description:
         "Settings for carousel following [glide.js documentation](https://glidejs.com/) ",
     },
@@ -166,7 +174,17 @@ export default {
     },
     "v-model": {
       table: {
+<<<<<<< HEAD
         disable: true,
+=======
+        category: "Props for main component",
+      },
+      description: "Indicates if the carousel of products is on",
+    },
+    "v-model": {
+      table: {
+        disabled: true,
+>>>>>>> 4ab6bf217 (feat: types, descriptions for footer, grouped and collected product)
       },
     },
   },

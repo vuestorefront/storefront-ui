@@ -6,8 +6,12 @@ export default {
   parameters: {
     docs: {
       description: {
+<<<<<<< HEAD
         component:
           "Grouped Product component. Built from main component - SfHeader and internal components - SfHeaderNavigation and SfHeaderNavigationItem.",
+=======
+        component: "Grouped Product component.",
+>>>>>>> 4ab6bf217 (feat: types, descriptions for footer, grouped and collected product)
       },
     },
   },
@@ -30,7 +34,11 @@ export default {
     logo: {
       control: "text",
       table: {
+<<<<<<< HEAD
         category: "Props for main component",
+=======
+        category: "Props",
+>>>>>>> 4ab6bf217 (feat: types, descriptions for footer, grouped and collected product)
         type: {
           summary: ["string", "object"],
         },
@@ -66,7 +74,11 @@ export default {
     cartIcon: {
       control: "text",
       table: {
+<<<<<<< HEAD
         category: "Props for main component",
+=======
+        category: "Props",
+>>>>>>> 4ab6bf217 (feat: types, descriptions for footer, grouped and collected product)
         defaultValue: {
           summary: "empty_cart",
         },
@@ -77,7 +89,11 @@ export default {
     wishlistIcon: {
       control: "text",
       table: {
+<<<<<<< HEAD
         category: "Props for main component",
+=======
+        category: "Props",
+>>>>>>> 4ab6bf217 (feat: types, descriptions for footer, grouped and collected product)
         defaultValue: {
           summary: "heart",
         },
@@ -88,7 +104,11 @@ export default {
     accountIcon: {
       control: "text",
       table: {
+<<<<<<< HEAD
         category: "Props for main component",
+=======
+        category: "Props",
+>>>>>>> 4ab6bf217 (feat: types, descriptions for footer, grouped and collected product)
         defaultValue: {
           summary: "profile",
         },
@@ -99,18 +119,31 @@ export default {
     activeIcon: {
       control: "text",
       table: {
+<<<<<<< HEAD
         category: "Props for main component",
         defaultValue: {
           summary: "account",
         },
       },
       defaultValue: "account",
+=======
+        category: "Props",
+        defaultValue: {
+          summary: "profile",
+        },
+      },
+      defaultValue: "profile",
+>>>>>>> 4ab6bf217 (feat: types, descriptions for footer, grouped and collected product)
       description: "Header activeIcon (accepts account, wishlist and cart)",
     },
     searchPlaceholder: {
       control: "text",
       table: {
+<<<<<<< HEAD
         category: "Props for main component",
+=======
+        category: "Props",
+>>>>>>> 4ab6bf217 (feat: types, descriptions for footer, grouped and collected product)
         defaultValue: {
           summary: "Search for items",
         },
@@ -129,7 +162,11 @@ export default {
     cartItemsQty: {
       control: "number",
       table: {
+<<<<<<< HEAD
         category: "Props for main component",
+=======
+        category: "Props",
+>>>>>>> 4ab6bf217 (feat: types, descriptions for footer, grouped and collected product)
         defaultValue: {
           summary: 0,
         },
@@ -140,7 +177,11 @@ export default {
     wishlistItemsQty: {
       control: "number",
       table: {
+<<<<<<< HEAD
         category: "Props for main component",
+=======
+        category: "Props",
+>>>>>>> 4ab6bf217 (feat: types, descriptions for footer, grouped and collected product)
         defaultValue: {
           summary: 0,
         },
@@ -189,8 +230,13 @@ export default {
           summary: "",
         },
       },
+<<<<<<< HEAD
       defaultValue: "",
       description: "link for header navigation item",
+=======
+      defaultValue: false,
+      description: "Is nav slot visible on mobile view",
+>>>>>>> 4ab6bf217 (feat: types, descriptions for footer, grouped and collected product)
     },
     "change:search": {
       action: "Changed search value",

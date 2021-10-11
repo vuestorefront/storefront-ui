@@ -5,8 +5,12 @@ export default {
   parameters: {
     docs: {
       description: {
+<<<<<<< HEAD
         component:
           "Tile component with image, descriptions and actions for collected product.",
+=======
+        component: "Tile component with image, descriptions and actions for collected product.",
+>>>>>>> 4ab6bf217 (feat: types, descriptions for footer, grouped and collected product)
       },
     },
   },
@@ -32,7 +36,11 @@ export default {
           summary: "",
         },
       },
+<<<<<<< HEAD
       description: "The url of the product image.",
+=======
+      description: "The url of the product image."
+>>>>>>> 4ab6bf217 (feat: types, descriptions for footer, grouped and collected product)
     },
     imageWidth: {
       control: "number",
@@ -74,6 +82,7 @@ export default {
       table: {
         category: "Props",
         type: {
+<<<<<<< HEAD
           summary: ["string", "number"],
         },
         defaultValue: {
@@ -81,6 +90,14 @@ export default {
         },
       },
       defaultValue: "",
+=======
+          summary: ["string", "number"]
+        },
+        defaultValue: {
+          summary: "",
+        },
+      },
+>>>>>>> 4ab6bf217 (feat: types, descriptions for footer, grouped and collected product)
       description: "Product regular price",
     },
     specialPrice: {
@@ -88,10 +105,17 @@ export default {
       table: {
         category: "Props",
         type: {
+<<<<<<< HEAD
           summary: ["string", "number"],
         },
         defaultValue: {
           summary: "null",
+=======
+          summary: ["string", "number"]
+        },
+        defaultValue: {
+          summary: "",
+>>>>>>> 4ab6bf217 (feat: types, descriptions for footer, grouped and collected product)
         },
       },
       defaultValue: "",
@@ -102,7 +126,11 @@ export default {
       table: {
         category: "Props",
         type: {
+<<<<<<< HEAD
           summary: ["string", "number"],
+=======
+          summary: ["string", "number"]
+>>>>>>> 4ab6bf217 (feat: types, descriptions for footer, grouped and collected product)
         },
         defaultValue: {
           summary: 1,
