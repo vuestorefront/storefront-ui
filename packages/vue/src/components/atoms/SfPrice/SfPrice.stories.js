@@ -19,6 +19,9 @@ export default {
         type: {
           summary: ["string", "number"],
         },
+        defaultValue: {
+          summary: "null",
+        },
       },
       description:
         "Regular/old price value. Crossed out if `special` is provided",
@@ -29,6 +32,9 @@ export default {
         category: "Props",
         type: {
           summary: ["string", "number"],
+        },
+        defaultValue: {
+          summary: "null",
         },
       },
       defaultValue: "",

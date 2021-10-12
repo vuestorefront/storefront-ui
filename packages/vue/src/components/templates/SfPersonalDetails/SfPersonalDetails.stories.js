@@ -3,6 +3,14 @@ import { SfPersonalDetails } from "@storefront-ui/vue";
 export default {
   title: "Components/Templates/PersonalDetails",
   component: SfPersonalDetails,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "Component with personal data form. Part of the checkout process.",
+      },
+    },
+  },
   argTypes: {
     value: {
       control: "object",

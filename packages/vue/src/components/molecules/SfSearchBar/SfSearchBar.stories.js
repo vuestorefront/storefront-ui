@@ -39,7 +39,7 @@ export default {
       table: {
         category: "Props",
         defaultValue: {
-          summary: null,
+          summary: "null",
         },
       },
       defaultValue: null,
@@ -53,14 +53,15 @@ export default {
           summary: "object",
         },
         defaultValue: {
-          summary: null,
+          summary: "{}",
         },
       },
       defaultValue: {
         size: "",
         color: "",
       },
-      description: "Value that will be displayed in search bar",
+      description:
+        "Object to define icon look. Should have values for color and size",
     },
     iconSize: {
       control: "text",

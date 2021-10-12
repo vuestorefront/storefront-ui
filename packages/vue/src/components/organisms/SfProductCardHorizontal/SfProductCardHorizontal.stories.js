@@ -132,6 +132,9 @@ export default {
       control: "number",
       table: {
         category: "Props",
+        defaultValue: {
+          summary: "null",
+        },
       },
       defaultValue: "",
       description: "Product regular price",
@@ -140,6 +143,9 @@ export default {
       control: "number",
       table: {
         category: "Props",
+        defaultValue: {
+          summary: "null",
+        },
       },
       defaultValue: "",
       description: "Product special price",

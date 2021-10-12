@@ -5,7 +5,8 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Tile component with image, descriptions and actions for collected product.",
+        component:
+          "Tile component with image, descriptions and actions for collected product.",
       },
     },
   },
@@ -31,7 +32,7 @@ export default {
           summary: "",
         },
       },
-      description: "The url of the product image."
+      description: "The url of the product image.",
     },
     imageWidth: {
       control: "number",
@@ -69,27 +70,28 @@ export default {
       description: "Product title",
     },
     regularPrice: {
-      control: "string",
+      control: "number",
       table: {
         category: "Props",
         type: {
-          summary: ["string", "number"]
+          summary: ["string", "number"],
         },
         defaultValue: {
-          summary: "",
+          summary: "null",
         },
       },
+      defaultValue: "",
       description: "Product regular price",
     },
     specialPrice: {
-      control: "string",
+      control: "number",
       table: {
         category: "Props",
         type: {
-          summary: ["string", "number"]
+          summary: ["string", "number"],
         },
         defaultValue: {
-          summary: "",
+          summary: "null",
         },
       },
       defaultValue: "",
@@ -100,7 +102,7 @@ export default {
       table: {
         category: "Props",
         type: {
-          summary: ["string", "number"]
+          summary: ["string", "number"],
         },
         defaultValue: {
           summary: 1,

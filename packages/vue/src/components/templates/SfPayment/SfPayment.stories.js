@@ -10,6 +10,14 @@ import {
 export default {
   title: "Components/Templates/Payment",
   component: SfPayment,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "Component with form for the billing address and payments. Part of the checkout process.",
+      },
+    },
+  },
   argTypes: {
     paymentMethods: {
       control: "object",

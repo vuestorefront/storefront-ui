@@ -220,7 +220,7 @@ export default {
           summary: "string",
         },
         defaultValue: {
-          summary: "",
+          summary: "null",
         },
       },
       defaultValue: "",
@@ -248,7 +248,7 @@ export default {
           summary: "string",
         },
         defaultValue: {
-          summary: "",
+          summary: "null",
         },
       },
       defaultValue: "",
@@ -262,7 +262,7 @@ export default {
           summary: "string",
         },
         defaultValue: {
-          summary: "",
+          summary: "null",
         },
       },
       defaultValue: "",

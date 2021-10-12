@@ -3,6 +3,14 @@ import { SfMyNewsletter } from "@storefront-ui/vue";
 export default {
   title: "Components/Templates/MyNewsletter",
   component: SfMyNewsletter,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "Component with sign in for newsletter. Part of account. Can be filled with other content.",
+      },
+    },
+  },
   argTypes: {
     tabTitle: {
       control: "text",

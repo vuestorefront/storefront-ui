@@ -107,7 +107,7 @@ export default {
       table: {
         category: "Props",
         defaultValue: {
-          summary: "",
+          summary: "null",
         },
       },
       defaultValue: "",
@@ -118,7 +118,7 @@ export default {
       table: {
         category: "Props",
         defaultValue: {
-          summary: "",
+          summary: "null",
         },
       },
       defaultValue: "",
