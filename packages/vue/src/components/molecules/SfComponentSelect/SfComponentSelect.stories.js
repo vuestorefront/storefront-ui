@@ -13,7 +13,8 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "On click input select field with dropdown",
+        component:
+          "On click input select field with dropdown. Built from main component - SfComponentSelect and internal components - SfComponentSelectOption.",
       },
     },
   },
@@ -38,7 +39,7 @@ export default {
     label: {
       control: "text",
       table: {
-        category: "Props",
+        category: "Props for main component",
         type: {
           summary: "string",
         },
@@ -51,7 +52,7 @@ export default {
     selected: {
       control: "object",
       table: {
-        category: "Props",
+        category: "Props for main component",
         type: {
           summary: "object",
         },
@@ -65,7 +66,7 @@ export default {
     size: {
       control: "number",
       table: {
-        category: "Props",
+        category: "Props for main component",
       },
       defaultValue: 5,
       description: "Dropdown items quantity",
@@ -73,7 +74,7 @@ export default {
     required: {
       control: "boolean",
       table: {
-        category: "Props",
+        category: "Props for main component",
       },
       defaultValue: false,
       description: "Required attribute",
@@ -81,7 +82,7 @@ export default {
     valid: {
       control: "boolean",
       table: {
-        category: "Props",
+        category: "Props for main component",
       },
       defaultValue: true,
       description: "Validate value of form select",
@@ -89,7 +90,7 @@ export default {
     disabled: {
       control: "boolean",
       table: {
-        category: "Props",
+        category: "Props for main component",
       },
       defaultValue: false,
       description: "Disabled status of form select",
@@ -97,7 +98,7 @@ export default {
     errorMessage: {
       control: "text",
       table: {
-        category: "Props",
+        category: "Props for main component",
       },
       defaultValue: "This field is not correct.",
       description:
@@ -106,10 +107,21 @@ export default {
     persistent: {
       control: "boolean",
       table: {
-        category: "Props",
+        category: "Props for main component",
       },
       defaultValue: false,
       description: "If true clicking outside will not dismiss the select",
+    },
+    value: {
+      control: "text",
+      table: {
+        category: "Props for SfComponentSelectOption component",
+        type: {
+          summary: ["string", "number", "object"],
+        },
+      },
+      defaultValue: "",
+      description: "The content of the option",
     },
     "v-model": {
       table: {

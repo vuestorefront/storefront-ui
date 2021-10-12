@@ -20,6 +20,7 @@ export default {
           summary: "string",
         },
       },
+      description: "Message that will be displayed in Alert.",
       defaultValue: "",
     },
     type: {
@@ -30,6 +31,8 @@ export default {
       table: {
         category: "Props",
       },
+      description:
+        "Alert type ('secondary', 'info', 'success', 'warning', 'danger'). Check 'Knobs' section to see how they look like.",
       defaultValue: "secondary",
     },
   },

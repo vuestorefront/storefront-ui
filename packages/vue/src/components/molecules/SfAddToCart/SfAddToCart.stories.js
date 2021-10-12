@@ -34,6 +34,7 @@ export default {
           summary: 1,
         },
       },
+      defaultValue: "",
       description: "Selected quantity",
     },
     "v-model": {

@@ -15,7 +15,8 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Native select component.",
+        component:
+          "Native select component. Built from main component - SfSelect and internal component - SfSelectOption.",
       },
     },
   },
@@ -36,7 +37,7 @@ export default {
     label: {
       control: "text",
       table: {
-        category: "Props",
+        category: "Props for main component",
         type: {
           summary: "string",
         },
@@ -49,7 +50,7 @@ export default {
     value: {
       control: "text",
       table: {
-        category: "Props",
+        category: "Props for main component",
         defaultValue: {
           summary: "",
         },
@@ -60,7 +61,7 @@ export default {
     placeholder: {
       control: "text",
       table: {
-        category: "Props",
+        category: "Props for main component",
         type: {
           summary: "string",
         },
@@ -74,7 +75,7 @@ export default {
     errorMessage: {
       control: "text",
       table: {
-        category: "Props",
+        category: "Props for main component",
         type: {
           summary: "string",
         },
@@ -89,7 +90,7 @@ export default {
     required: {
       control: "boolean",
       table: {
-        category: "Props",
+        category: "Props for main component",
         defaultValue: {
           summary: false,
         },
@@ -100,7 +101,7 @@ export default {
     disabled: {
       control: "boolean",
       table: {
-        category: "Props",
+        category: "Props for main component",
         defaultValue: {
           summary: false,
         },
@@ -111,13 +112,27 @@ export default {
     valid: {
       control: "boolean",
       table: {
-        category: "Props",
+        category: "Props for main component",
         defaultValue: {
           summary: true,
         },
       },
       defaultValue: true,
       description: "Validate value of form select",
+    },
+    value: {
+      control: "text",
+      table: {
+        category: "Props for SfSelectOption component",
+        type: {
+          summary: ["string", "number", "object"],
+        },
+        defaultValue: {
+          summary: "",
+        },
+      },
+      defaultValue: "",
+      description: "Content of the option.",
     },
     input: { action: "Selected", table: { category: "Events" } },
   },

@@ -125,7 +125,7 @@ export default {
     },
     "v-model": {
       table: {
-        disabled: true,
+        disable: true,
       },
     },
   },

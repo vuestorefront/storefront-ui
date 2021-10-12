@@ -103,6 +103,11 @@ export default {
       defaultValue: false,
       description: "Indicates which checkbox is selected.",
     },
+    "v-model": {
+      table: {
+        disable: true,
+      },
+    },
     change: { action: "Selected items changed", table: { category: "Events" } },
   },
 };

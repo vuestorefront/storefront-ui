@@ -7,7 +7,7 @@ export default {
   decorators: [
     () => ({
       template:
-        '<div style="position: relative; min-height: 250px; height: 100vh"><div>Switch to smaller viewport mode to view better</div><story /></div>',
+        '<div style="position: relative; min-height: 250px;"><div>Switch to smaller viewport mode to view better</div><story /></div>',
     }),
   ],
   argTypes: {

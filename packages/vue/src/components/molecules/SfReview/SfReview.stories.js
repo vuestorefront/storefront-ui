@@ -32,6 +32,7 @@ export default {
           summary: "",
         },
       },
+      description: "Date of the review",
     },
     message: {
       control: "text",
@@ -44,6 +45,7 @@ export default {
           summary: "",
         },
       },
+      description: "Message from the reviewer",
     },
     rating: {
       control: "number",
@@ -53,6 +55,7 @@ export default {
           summary: false,
         },
       },
+      description: "Rating from the reviewer",
     },
     maxRating: {
       control: "number",
@@ -63,6 +66,7 @@ export default {
         },
       },
       defaultValue: 5,
+      description: "Max rating for the review",
     },
     charLimit: {
       control: "number",
@@ -73,6 +77,7 @@ export default {
         },
       },
       defaultValue: 250,
+      description: "Char limit for the review",
     },
     readMoreText: {
       control: "text",
@@ -83,6 +88,7 @@ export default {
         },
       },
       defaultValue: "",
+      description: "Read more text for the review",
     },
     hideFullText: {
       control: "text",
@@ -93,6 +99,7 @@ export default {
         },
       },
       defaultValue: "",
+      description: "Hide full text message for the review",
     },
   },
 };

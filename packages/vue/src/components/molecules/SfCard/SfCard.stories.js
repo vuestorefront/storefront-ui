@@ -18,36 +18,43 @@ export default {
       table: {
         category: "Props",
       },
+      description: "Card title",
     },
     titleLevel: {
       control: "number",
       table: {
         category: "Props",
       },
+      description:
+        "Card title level of heading (form 1 as h1 tag to 6 as h6 tag)",
     },
     description: {
       control: "text",
       table: {
         category: "Props",
       },
+      description: "Card description",
     },
     link: {
       control: "text",
       table: {
         category: "Props",
       },
+      description: "Card link",
     },
     buttonText: {
       control: "text",
       table: {
         category: "Props",
       },
+      description: "Text displayed on button",
     },
     image: {
       control: "text",
       table: {
         category: "Props",
       },
+      description: "Card image",
     },
   },
   args: {

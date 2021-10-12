@@ -6,7 +6,7 @@ export default {
     docs: {
       description: {
         component:
-          "Stepper component increasing dynamically on click. Used to guide user through defined path.",
+          "Stepper component increasing dynamically on click. Used to guide user through defined path.Built from main component - SfSteps and internal component - SfStep.",
       },
     },
   },
@@ -14,7 +14,7 @@ export default {
     canGoBack: {
       control: "boolean",
       table: {
-        category: "Props",
+        category: "Props for main component",
         defaultValue: {
           summary: true,
         },
@@ -26,7 +26,7 @@ export default {
       control: "number",
       defaultValue: 0,
       table: {
-        category: "Props",
+        category: "Props for main component",
         defaultValue: {
           summary: 0,
         },
@@ -36,7 +36,7 @@ export default {
     name: {
       control: "text",
       table: {
-        category: "Props",
+        category: "Props for main component",
         defaultValue: {
           summary: "",
         },
@@ -47,12 +47,23 @@ export default {
     steps: {
       control: "array",
       table: {
+        category: "Props for main component",
         defaultValue: {
           summary: "[]",
         },
       },
       description:
         "Steps to display (only for testing puropses). Add steps using SfStep component.",
+    },
+    name: {
+      control: "text",
+      table: {
+        category: "Props for SfStep component",
+        defaultValue: {
+          summary: "",
+        },
+      },
+      description: "Name of the step.",
     },
     "v-model": {
       table: {

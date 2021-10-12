@@ -24,6 +24,7 @@ export default {
       table: {
         category: "Props",
       },
+      description: "One of predefined SfIcon sizes.",
     },
     colorIcon: {
       control: {
@@ -33,6 +34,7 @@ export default {
       table: {
         category: "Props",
       },
+      description: "One of predefined SfIcon colors, default is black.",
     },
     icon: {
       control: {
@@ -48,6 +50,7 @@ export default {
           summary: "",
         },
       },
+      description: "Svg file iconPath",
     },
     title: {
       control: "text",
@@ -60,6 +63,7 @@ export default {
           summary: "",
         },
       },
+      description: "Characteristic title",
     },
     description: {
       control: "text",
@@ -69,6 +73,7 @@ export default {
           summary: "",
         },
       },
+      description: "Characteristic description ",
     },
   },
 };

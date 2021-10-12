@@ -25,11 +25,6 @@ export default {
     SfIcon,
   },
   props: {
-    /**
-     * Name for address.
-     * Each address should have different name.
-     * For example "first", "second", "default".
-     */
     name: {
       type: String,
       default: "",

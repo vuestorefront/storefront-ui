@@ -7,7 +7,8 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "The component for chosing addresses.",
+        component:
+          "The component for chosing addresses.  Built from main component - SfAddressPicker and internal components - SfAddress.",
       },
     },
   },
@@ -15,16 +16,55 @@ export default {
     name: {
       control: "text",
       table: {
-        category: "Props",
+        category: "Props for main component",
       },
       description: "Sets name of the address field",
     },
     selected: {
       control: "text",
       table: {
-        category: "Props",
+        category: "Props for main component",
       },
       description: "Sets address as chosen by its name",
+      defaultValue: "",
+    },
+    name: {
+      control: "text",
+      table: {
+        category: "Props for SfAddress component",
+      },
+      description:
+        "Name for address. Each address should have different name. For example 'first', 'second', 'default'.",
+      defaultValue: "",
+    },
+    title: {
+      control: "text",
+      description: "Title (only for testing puropses)",
+      defaultValue: "",
+    },
+    street: {
+      control: "text",
+      description: "Street (only for testing puropses)",
+      defaultValue: "",
+    },
+    postCode: {
+      control: "text",
+      description: "PostCode (only for testing puropses)",
+      defaultValue: "",
+    },
+    city: {
+      control: "text",
+      description: "City (only for testing puropses)",
+      defaultValue: "",
+    },
+    country: {
+      control: "text",
+      description: "Country (only for testing puropses)",
+      defaultValue: "",
+    },
+    phone: {
+      control: "text",
+      description: "Phone (only for testing puropses)",
       defaultValue: "",
     },
     input: { action: "Address picked", table: { category: "Events" } },

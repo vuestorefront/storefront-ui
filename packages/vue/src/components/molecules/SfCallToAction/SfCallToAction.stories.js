@@ -26,12 +26,14 @@ export default {
           summary: "",
         },
       },
+      description: "CallToAction title.",
     },
     buttonText: {
       control: "text",
       table: {
         category: "Props",
       },
+      description: "Text that will be displayed inside the button.",
     },
     link: {
       control: "text",
@@ -39,6 +41,8 @@ export default {
         category: "Props",
       },
       defaultValue: "",
+      description:
+        "CallToAction link. If it's filled in, changes button tag on a tag.",
     },
     description: {
       control: "text",
@@ -51,18 +55,21 @@ export default {
           summary: "",
         },
       },
+      description: "CallToAction description.",
     },
     background: {
       control: "color",
       table: {
         category: "Props",
       },
+      description: "Background color.",
     },
     image: {
       control: "text",
       table: {
         category: "Props",
       },
+      description: "Background image.",
     },
     click: { action: "Button clicked", table: { category: "Events" } },
   },
