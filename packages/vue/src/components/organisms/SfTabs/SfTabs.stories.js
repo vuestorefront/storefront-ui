@@ -1,31 +1,55 @@
 import { SfTabs, SfButton } from "@storefront-ui/vue";
+import SfTab from "./_internal/SfTab.vue";
+
 export default {
   title: "Components/Organisms/Tabs",
-  component: SfTabs,
+  component: SfTab,
+  parameters: {
+    docs: {
+      inlineStories: false,
+      iframeHeight: "300px",
+      description: {
+        component: "Component with tab-related content.",
+      },
+    },
+  },
   argTypes: {
     tabMaxContentHeight: {
       control: "text",
       table: {
-        category: "Props",
+        category: "Props for main component",
       },
+      description: "Max height of visible content",
     },
     tabShowText: {
       control: "text",
       table: {
-        category: "Props",
+        category: "Props for main component",
       },
+      defaultValue: "show",
+      description: "Text for button showing content",
     },
     tabHideText: {
       control: "text",
       table: {
-        category: "Props",
+        category: "Props for main component",
       },
+      defaultValue: "hide",
+      description: "Text for button hiding content",
     },
     openTab: {
       control: "number",
       table: {
-        category: "Props",
+        category: "Props for main component",
       },
+      description: "Which tab should be open",
+    },
+    title: {
+      control: "text",
+      table: {
+        category: "Props for SfTab component",
+      },
+      description: "Title of the tab",
     },
     "click:tab": {
       action: "Tab clicked",
