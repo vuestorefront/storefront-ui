@@ -45,9 +45,6 @@ export default {
   },
   inject: ["tabConfig"],
   props: {
-    /**
-     * Tab title.
-     */
     title: {
       type: String,
       default: "",

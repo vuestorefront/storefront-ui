@@ -87,44 +87,26 @@ export default {
     focus: focus,
   },
   props: {
-    /**
-     * Name of the store (for internal component)
-     */
     latlng: {
       type: Array,
       default: () => [],
     },
-    /**
-     * Name of the store (for internal component)
-     */
     name: {
       type: String,
       default: "",
     },
-    /**
-     * Url of the picture of the store (for internal component)
-     */
     picture: {
       type: String,
       default: null,
     },
-    /**
-     * Address of the store (for internal component)
-     */
     address: {
       type: String,
       default: "",
     },
-    /**
-     * Phone number of the store (for internal component)
-     */
     phone: {
       type: String,
       default: null,
     },
-    /**
-     * Email of the store (for internal component)
-     */
     email: {
       type: String,
       default: null,

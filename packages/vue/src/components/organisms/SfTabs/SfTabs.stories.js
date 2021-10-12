@@ -9,7 +9,8 @@ export default {
       inlineStories: false,
       iframeHeight: "300px",
       description: {
-        component: "Component with tab-related content.",
+        component:
+          "Component with tab-related content.  Built from main component - SfTabs and internal component - SfTab.",
       },
     },
   },

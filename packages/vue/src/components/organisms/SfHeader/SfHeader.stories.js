@@ -6,7 +6,8 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Grouped Product component.",
+        component:
+          "Grouped Product component. Built from main component - SfHeader and internal components - SfHeaderNavigation and SfHeaderNavigationItem.",
       },
     },
   },
@@ -29,7 +30,7 @@ export default {
     logo: {
       control: "text",
       table: {
-        category: "Props",
+        category: "Props for main component",
         type: {
           summary: ["string", "object"],
         },
@@ -42,7 +43,7 @@ export default {
     logoHeight: {
       control: "number",
       table: {
-        category: "Props",
+        category: "Props for main component",
       },
       defaultValue: 35,
       description: "Header logo height",
@@ -50,7 +51,7 @@ export default {
     logoWidth: {
       control: "number",
       table: {
-        category: "Props",
+        category: "Props for main component",
       },
       defaultValue: 34,
       description: "Header logo width",
@@ -58,14 +59,14 @@ export default {
     title: {
       control: "text",
       table: {
-        category: "Props",
+        category: "Props for main component",
       },
       description: "Header title",
     },
     cartIcon: {
       control: "text",
       table: {
-        category: "Props",
+        category: "Props for main component",
         defaultValue: {
           summary: "empty_cart",
         },
@@ -76,7 +77,7 @@ export default {
     wishlistIcon: {
       control: "text",
       table: {
-        category: "Props",
+        category: "Props for main component",
         defaultValue: {
           summary: "heart",
         },
@@ -87,7 +88,7 @@ export default {
     accountIcon: {
       control: "text",
       table: {
-        category: "Props",
+        category: "Props for main component",
         defaultValue: {
           summary: "profile",
         },
@@ -98,18 +99,18 @@ export default {
     activeIcon: {
       control: "text",
       table: {
-        category: "Props",
+        category: "Props for main component",
         defaultValue: {
-          summary: "profile",
+          summary: "account",
         },
       },
-      defaultValue: "profile",
+      defaultValue: "account",
       description: "Header activeIcon (accepts account, wishlist and cart)",
     },
     searchPlaceholder: {
       control: "text",
       table: {
-        category: "Props",
+        category: "Props for main component",
         defaultValue: {
           summary: "Search for items",
         },
@@ -120,7 +121,7 @@ export default {
     searchValue: {
       control: "number",
       table: {
-        category: "Props",
+        category: "Props for main component",
       },
       defaultValue: "",
       description: "Header search phrase",
@@ -128,7 +129,7 @@ export default {
     cartItemsQty: {
       control: "number",
       table: {
-        category: "Props",
+        category: "Props for main component",
         defaultValue: {
           summary: 0,
         },
@@ -139,7 +140,7 @@ export default {
     wishlistItemsQty: {
       control: "number",
       table: {
-        category: "Props",
+        category: "Props for main component",
         defaultValue: {
           summary: 0,
         },
@@ -150,7 +151,7 @@ export default {
     isSticky: {
       control: "boolean",
       table: {
-        category: "Props",
+        category: "Props for main component",
       },
       defaultValue: false,
       description: "Header sticky to top",
@@ -158,10 +159,38 @@ export default {
     isNavVisible: {
       control: "boolean",
       table: {
-        category: "Props",
+        category: "Props for main component",
       },
       defaultValue: false,
       description: "Is nav slot visible on mobile view",
+    },
+    label: {
+      control: "text",
+      table: {
+        category: "Props for SfHeaderNavigationItem component",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
+      },
+      defaultValue: false,
+      description: "Label for header navigation item",
+    },
+    link: {
+      control: "text",
+      table: {
+        category: "Props for SfHeaderNavigationItem component",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
+      },
+      defaultValue: "",
+      description: "link for header navigation item",
     },
     "change:search": {
       action: "Changed search value",

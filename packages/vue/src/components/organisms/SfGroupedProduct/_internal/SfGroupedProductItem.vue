@@ -78,63 +78,38 @@ export default {
       type: String,
       default: "",
     },
-    /**
-     * Product image width, without unit (for internal component)
-     */
     imageWidth: {
       type: [String, Number],
       default: 328,
     },
-    /**
-     * Product image height, without unit (for internal component)
-     */
     imageHeight: {
       type: [String, Number],
       default: 448,
     },
-    /**
-     * Product image placeholder (for internal component)
-     */
     imagePlaceholder: {
       type: String,
       default: "",
     },
-    /**
-     * Product image picture breakpoint (for internal component)
-     */
     imagePictureBreakpoint: {
       type: Number,
       default: 576,
     },
-    /**
-     * Product title (for internal component)
-     */
     title: {
       type: String,
       default: "",
     },
-    /**
-     * Product regular price (for internal component)
-     */
     priceRegular: {
       type: [Number, String],
       default: "",
     },
-    /**
-     * Product special price (for internal component)
-     */
     priceSpecial: {
       type: [Number, String],
       default: "",
     },
-    /** Product quantity (for internal component) */
     qty: {
       type: [Number, String],
       default: 1,
     },
-    /**
-     * Link to product (for internal component)
-     */
     link: {
       type: [String, Object],
       default: "",

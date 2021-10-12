@@ -1,5 +1,5 @@
 import { SfHero, SfCimage } from "@storefront-ui/vue";
-import SfHeroItem from "./_internal/SfHeroItem.vue"
+import SfHeroItem from "./_internal/SfHeroItem.vue";
 
 export default {
   title: "Components/Organisms/Hero",
@@ -7,7 +7,8 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Full-width hero component with autoplay and navigation arrows.",
+        component:
+          "Full-width hero component with autoplay and navigation arrows. Built from main component - SfHero and internal component - SfHeroItem.",
       },
     },
   },
@@ -49,7 +50,82 @@ export default {
         perView: 1,
         gap: 0,
       },
-      description: "Slider options from [glide.js documentation](https://glidejs.com/docs/)."
+      description:
+        "Slider options from [glide.js documentation](https://glidejs.com/docs/).",
+    },
+    title: {
+      control: "text",
+      table: {
+        category: "Props for SfHeroItem component",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
+      },
+      defaultValue: "",
+      description: "Hero item title (for SfHeroItem component)",
+    },
+    subtitle: {
+      control: "text",
+      table: {
+        category: "Props for SfHeroItem component",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
+      },
+      defaultValue: "",
+      description: "Hero item subtitle at the top (for SfHeroItem component)",
+    },
+    buttonText: {
+      control: "text",
+      table: {
+        category: "Props for SfHeroItem component",
+        defaultValue: {
+          summary: "",
+        },
+      },
+      defaultValue: "",
+      description:
+        "Text that will be displayed inside the button. You can replace the button  with 'call- to - action' slot (for SfHeroItem component)",
+    },
+    background: {
+      control: "text",
+      table: {
+        category: "Props for SfHeroItem component",
+        defaultValue: {
+          summary: "",
+        },
+      },
+      defaultValue: "",
+      description: "Background color (for SfHeroItem component)",
+    },
+    image: {
+      control: "text",
+      table: {
+        category: "Props for SfHeroItem component",
+        defaultValue: {
+          summary: "",
+        },
+      },
+      defaultValue: "",
+      description: "Background image path(for SfHeroItem component)",
+    },
+    link: {
+      control: "text",
+      table: {
+        category: "Props for SfHeroItem component",
+        defaultValue: {
+          summary: "",
+        },
+      },
+      defaultValue: "",
+      description:
+        "Link to be used in button if necessary (for SfHeroItem component)",
     },
   },
 };

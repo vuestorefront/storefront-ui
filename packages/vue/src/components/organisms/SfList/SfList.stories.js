@@ -5,7 +5,8 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Vertical list component.",
+        component:
+          "Vertical list component. Built from main component - SfList and internal component - SfListItem.",
       },
     },
   },

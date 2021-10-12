@@ -38,32 +38,26 @@ export default {
     SfLink,
   },
   props: {
-    /** Hero item title (for SfHeroItem component) */
     title: {
       type: String,
       default: "",
     },
-    /** Hero item subtitle at the top (for SfHeroItem component) */
     subtitle: {
       type: String,
       default: "",
     },
-    /** text that will be displayed inside the button. You can replace the button  with "call-to-action" slot (for SfHeroItem component) */
     buttonText: {
       type: String,
       default: "",
     },
-    /** Background color (for SfHeroItem component) */
     background: {
       type: String,
       default: "",
     },
-    /** Background image path (for SfHeroItem component) */
     image: {
       type: [Object, String],
       default: "",
     },
-    /** link to be used in button if necessary (for SfHeroItem component) */
     link: {
       type: String,
       default: "",

@@ -7,7 +7,8 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Component locating and marking on map using tile data.",
+        component:
+          "Component locating and marking on map using tile data. Built from main component - SfStoreLocator and internal components - SfStoreLocatorItem.",
       },
     },
   },
@@ -182,6 +183,90 @@ export default {
       },
       defaultValue: 15,
       description: "Zoom to be set when centering map on clicked store",
+    },
+    latlng: {
+      control: "array",
+      table: {
+        category: "Props for SfStore component",
+        type: {
+          summary: "array",
+        },
+        defaultValue: {
+          summary: "[]",
+        },
+      },
+      defaultValue: [],
+      description: "Name of the store (for internal component)",
+    },
+    name: {
+      control: "text",
+      table: {
+        category: "Props for SfStore component",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
+      },
+      defaultValue: "",
+      description: "Name of the store (for internal component)",
+    },
+    picture: {
+      control: "text",
+      table: {
+        category: "Props for SfStore component",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
+      },
+      defaultValue: "",
+      description: "Address of the store (for internal component)",
+    },
+    address: {
+      control: "text",
+      table: {
+        category: "Props for SfStore component",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
+      },
+      defaultValue: "",
+      description: "Url of the picture of the store (for internal component)",
+    },
+    phone: {
+      control: "text",
+      table: {
+        category: "Props for SfStore component",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
+      },
+      defaultValue: "",
+      description: "Phone number of the store (for internal component)",
+    },
+    email: {
+      control: "text",
+      table: {
+        category: "Props for SfStore component",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
+      },
+      defaultValue: "",
+      description: "Email of the store (for internal component))",
     },
     "update:zoom": {
       action: "Zoom value updated",

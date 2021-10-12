@@ -1,4 +1,7 @@
+import { icons } from "@storefront-ui/shared/icons/icons";
 import { SfContentPages, SfTabs } from "@storefront-ui/vue";
+const iconsNames = Object.keys(icons);
+
 const pages = [
   {
     title: "About us",
@@ -47,7 +50,8 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "The content pages for static content",
+        component:
+          "The content pages for static content. Built from main component - SfContentPages and internal components - SfContentCategory and SfContentPage.",
       },
     },
   },
@@ -55,7 +59,7 @@ export default {
     title: {
       control: "text",
       table: {
-        category: "Props",
+        category: "Props for main component",
         type: {
           summary: "string",
         },
@@ -69,7 +73,7 @@ export default {
     active: {
       control: "text",
       table: {
-        category: "Props",
+        category: "Props for main component",
         type: {
           summary: "string",
         },
@@ -79,6 +83,24 @@ export default {
       },
       defaultValue: "",
       description: "Active page.",
+    },
+    icon: {
+      control: {
+        type: "select",
+        options: iconsNames,
+      },
+      table: {
+        category: "Props for SfContentPage component",
+        type: {
+          summary: ["string", "array"],
+        },
+        defaultValue: {
+          summary: "",
+        },
+      },
+      defaultValue: "",
+      description:
+        "Sets icon type. Icon SVG path(s). It can be single SVG path(string) or array of SVG paths or icon name from our icons list(such as 'added_to_cart`)",
     },
     pages: {
       control: "array",

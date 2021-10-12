@@ -15,7 +15,8 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Footer component.",
+        component:
+          "Footer component. Built from main component - SfFooter and internal components -SfFooterColumn.",
       },
     },
   },
@@ -50,8 +51,15 @@ export default {
     title: {
       control: "text",
       table: {
-        category: "Props",
+        category: "Props for SfFooterColumn component",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
+      defaultValue: "",
       description: "Title of the column in SfFooterColumn component.",
     },
   },

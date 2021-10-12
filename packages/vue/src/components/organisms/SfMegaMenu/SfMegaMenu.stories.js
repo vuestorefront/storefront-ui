@@ -62,7 +62,8 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "MegaMenu component for page navigation.",
+        component:
+          "MegaMenu component for page navigation. Built from main component - SfMegaMenu and internal component - SfMegaMenuColumn.",
       },
     },
   },
@@ -70,7 +71,7 @@ export default {
     title: {
       control: "text",
       table: {
-        category: "Props",
+        category: "Props for main component",
       },
       defaultValue: "",
       description: "Title of main category, displayed on mobile",
@@ -78,7 +79,7 @@ export default {
     visible: {
       control: "boolean",
       table: {
-        category: "Props",
+        category: "Props for main component",
       },
       defaultValue: false,
       description: "Sets mega menu state to visible",
@@ -86,7 +87,7 @@ export default {
     isAbsolute: {
       control: "boolean",
       table: {
-        category: "Props",
+        category: "Props for main component",
       },
       defaultValue: false,
       description: "Sets css position to absolute.",
@@ -94,7 +95,7 @@ export default {
     transitionName: {
       control: "text",
       table: {
-        category: "Props",
+        category: "Props for main component",
         defaultValue: {
           summary: "sf-fade",
         },
@@ -106,14 +107,26 @@ export default {
     asideTitle: {
       control: "text",
       table: {
-        category: "Props",
+        category: "Props for main component",
         defaultValue: {
-          summary: "sf-fade",
+          summary: "",
         },
       },
       defaultValue: "",
       description: "*Depraceted. Sets title for aside column.",
     },
+    title: {
+      control: "text",
+      table: {
+        category: "Props for SfMegaMenuColumn component",
+        defaultValue: {
+          summary: "",
+        },
+      },
+      defaultValue: "",
+      description: "Title of the column.",
+    },
+
     change: { action: "Active item changed", table: { category: "Events" } },
     close: { action: "Close button clicked", table: { category: "Events" } },
   },

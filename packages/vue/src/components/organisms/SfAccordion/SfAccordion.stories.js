@@ -34,7 +34,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Accordion component. Can be set as one or multiple opened, with or without icon.",
+        component: "Accordion component. Can be set as one or multiple opened, with or without icon. Constructed from main component - SfAccordion and internal components - SfAccordionItem.",
       },
     },
   },
