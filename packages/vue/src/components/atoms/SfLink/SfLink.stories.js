@@ -17,6 +17,7 @@ export default {
       table: {
         category: "Props",
       },
+      description: "Page route",
     },
   },
 };

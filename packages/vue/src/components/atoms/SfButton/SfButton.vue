@@ -37,17 +37,10 @@ export default {
     focus,
   },
   props: {
-    /**
-     * Equivalent of native button disabled attribute,
-     * allows focus for better accessibility
-     */
     disabled: {
       type: Boolean,
       default: false,
     },
-    /**
-     * Link for "a" tag.
-     */
     link: {
       type: [String, Object],
       default: "",

@@ -42,6 +42,8 @@ export default {
       table: {
         category: "Props",
       },
+      description:
+        "Equivalent of native button disabled attribute, allows focus for better accessibility",
     },
     link: {
       control: "text",
@@ -49,11 +51,12 @@ export default {
       table: {
         category: "Props",
       },
+      description: "Link for 'a' tag.",
     },
     content: {
       control: "text",
       description:
-        "Type here to fill the button (property only for testing in Storybook)",
+        "Type here to fill the button (only for testing in Storybook)",
     },
     onClick: { action: "Button clicked", table: { category: "Events" } },
   },

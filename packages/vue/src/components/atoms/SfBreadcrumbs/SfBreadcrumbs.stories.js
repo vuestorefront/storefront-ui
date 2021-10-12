@@ -17,6 +17,8 @@ export default {
       table: {
         category: "Props",
       },
+      description:
+        "List of breadcrumbs (array of nested objects: `[ { text, route } ]`)",
     },
   },
 };

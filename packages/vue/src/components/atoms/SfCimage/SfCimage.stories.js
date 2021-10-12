@@ -60,6 +60,7 @@ export default {
           summary: "array",
         },
       },
+      description: "Transformations of image.",
       defaultValue: [],
     },
     progressive: {

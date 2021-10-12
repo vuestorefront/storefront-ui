@@ -20,6 +20,7 @@ export default {
       table: {
         category: "Props",
       },
+      description: "Shows the loader on top of the existing content",
     },
   },
 };

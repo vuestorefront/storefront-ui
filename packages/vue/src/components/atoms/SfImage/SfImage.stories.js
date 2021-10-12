@@ -17,24 +17,29 @@ export default {
       table: {
         category: "Props",
       },
+      description:
+        "Array of images' source, dimension and breakpoints to generate srcset attribute",
     },
     src: {
       control: "text",
       table: {
         category: "Props",
       },
+      description: "Main source url for the image",
     },
     width: {
       control: "number",
       table: {
         category: "Props",
       },
+      description: "Width of the image",
     },
     height: {
       control: "number",
       table: {
         category: "Props",
       },
+      description: "Height of the image",
     },
     placeholder: {
       control: "text",
@@ -42,12 +47,18 @@ export default {
         category: "Props",
       },
       defaultValue: "",
+      description: "Url source of the image's placeholder while it is loading.",
     },
     alt: {
       control: "text",
       table: {
         category: "Props",
+        defaultValue: {
+          summary: "",
+        },
       },
+      description:
+        "Alternative text in case image is not loaded. Use empty string '' for decorative-only image and full text otherwise",
     },
     loading: {
       control: {
@@ -57,6 +68,8 @@ export default {
       table: {
         category: "Props",
       },
+      description:
+        "Native loading attribute supported, either 'eager', 'lazy' or none.",
     },
   },
 };

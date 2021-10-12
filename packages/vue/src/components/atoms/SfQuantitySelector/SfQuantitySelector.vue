@@ -67,12 +67,10 @@ export default {
       type: Boolean,
       default: false,
     },
-    /** Minimum allowed quantity */
     min: {
       type: Number,
       default: null,
     },
-    /** Maximum allowed quantity */
     max: {
       type: Number,
       default: null,

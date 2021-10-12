@@ -8,10 +8,6 @@
 export default {
   name: "SfSkeleton",
   props: {
-    /**
-     * Defines shape for SfSkeleton.
-     * Available values: "paragraph", "image", "button", "input", "avatar"
-     */
     type: {
       type: String,
       default: "paragraph",

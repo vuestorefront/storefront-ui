@@ -23,18 +23,21 @@ export default {
           "sf-slide-left",
           "sf-slide-right",
           "sf-expand",
-        ] 
+        ],
       },
       table: {
         category: "Props",
       },
       defaultValue: "sf-fade",
+      description:
+        "Transition effect to apply when overlay visibility is changed",
     },
     visible: {
       control: "boolean",
       table: {
         category: "Props",
       },
+      description: "Visibility state",
     },
     click: { action: "Overlay clicked!", table: { category: "Events" } },
   },

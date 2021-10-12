@@ -36,6 +36,9 @@ export default {
         type: {
           summary: "number",
         },
+        defaultValue: {
+          summary: 1,
+        },
       },
       description: "Sets quantity value",
       defaultValue: 1,
@@ -53,14 +56,22 @@ export default {
       defaultValue: null,
       table: {
         category: "Props",
+        defaultValue: {
+          summary: "null",
+        },
       },
+      description: "Minimum allowed quantity.",
     },
     max: {
       control: "number",
       defaultValue: null,
       table: {
         category: "Props",
+        defaultValue: {
+          summary: "null",
+        },
       },
+      description: "Maximum allowed quantity.",
     },
     "v-model": {
       table: {

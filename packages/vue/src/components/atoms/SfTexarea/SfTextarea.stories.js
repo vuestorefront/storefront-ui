@@ -18,6 +18,7 @@ export default {
       table: {
         category: "Props",
       },
+      description: "Current textarea value (`v-model`).",
     },
     label: {
       control: "text",
@@ -27,24 +28,29 @@ export default {
           summary: "string",
         },
       },
+      description: "Textarea label.",
     },
     name: {
       control: "text",
       table: {
         category: "Props",
       },
+      description: "Textarea name.",
     },
     cols: {
       control: "number",
       table: {
         category: "Props",
       },
+      description:
+        "The visible width of the text control. It must be a positive integer. If it is not specified, the default value is 20.",
     },
     rows: {
       control: "number",
       table: {
         category: "Props",
       },
+      description: "The number of visible text lines for the control.",
     },
     minlength: {
       control: "text",
@@ -52,6 +58,8 @@ export default {
         category: "Props",
       },
       defaultValue: "",
+      description:
+        "The minimum number of characters required that the user should enter.",
     },
     maxlength: {
       control: "text",
@@ -59,18 +67,24 @@ export default {
         category: "Props",
       },
       defaultValue: "",
+      description:
+        "The maximum number of characters that the user can enter. If this value isn't specified, the user can enter an unlimited number of characters.",
     },
     wrap: {
       control: "text",
       table: {
         category: "Props",
       },
+      description:
+        "Indicates how the control wraps text. Possible values are soft, hard, off. Default value is soft.",
     },
     errorMessage: {
       control: "text",
       table: {
         category: "Props",
       },
+      description:
+        "Error message for textarea. It appears if `valid` is `false`.",
     },
     valid: {
       control: "boolean",
@@ -78,6 +92,7 @@ export default {
       table: {
         category: "Props",
       },
+      description: "Validate value of textarea.",
     },
     required: {
       control: "boolean",
@@ -85,6 +100,7 @@ export default {
       table: {
         category: "Props",
       },
+      description: "Native textarea required attribute.",
     },
     disabled: {
       control: "boolean",
@@ -92,6 +108,7 @@ export default {
       table: {
         category: "Props",
       },
+      description: "Native textarea disabled attribute.",
     },
     placeholder: {
       control: "text",
@@ -99,6 +116,7 @@ export default {
         category: "Props",
       },
       defaultValue: "",
+      description: "Placeholder for textarea.",
     },
     readonly: {
       control: "boolean",
@@ -106,6 +124,7 @@ export default {
       table: {
         category: "Props",
       },
+      description: "With default false value the textarea is editable.",
     },
     change: { action: "Text area changed", table: { category: "Events" } },
     click: { action: "Text area focus", table: { category: "Events" } },

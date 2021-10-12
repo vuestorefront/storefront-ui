@@ -20,6 +20,8 @@ export default {
           summary: ["string", "number"],
         },
       },
+      description:
+        "Regular/old price value. Crossed out if `special` is provided",
     },
     special: {
       control: "text",
@@ -30,6 +32,7 @@ export default {
         },
       },
       defaultValue: "",
+      description: "Special price value",
     },
   },
 };

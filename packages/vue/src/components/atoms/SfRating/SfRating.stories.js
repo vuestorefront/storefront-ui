@@ -25,6 +25,7 @@ export default {
       table: {
         category: "Props",
       },
+      description: "Maximum score",
     },
     score: {
       control: {
@@ -36,6 +37,7 @@ export default {
       table: {
         category: "Props",
       },
+      description: "Score (obviously must be less than maximum)",
     },
     icon: {
       control: {

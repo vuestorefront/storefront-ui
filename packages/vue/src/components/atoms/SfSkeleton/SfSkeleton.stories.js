@@ -37,6 +37,8 @@ export default {
         category: "Props",
       },
       defaultValue: "paragraph",
+      description:
+        "Defines shape for SfSkeleton. Available values: 'paragraph', 'image', 'button', 'input', 'avatar'",
     },
   },
 };

@@ -35,7 +35,7 @@ export default {
     label: {
       control: "text",
       description:
-        "Type here to fille the badge (property only for testing in Storybook)",
+        "Type here to fille the badge (only for testing in Storybook)",
     },
   },
 };

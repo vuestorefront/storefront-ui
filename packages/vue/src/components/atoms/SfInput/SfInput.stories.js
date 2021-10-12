@@ -27,6 +27,7 @@ export default {
       table: {
         category: "Props",
       },
+      description: "Form input type",
     },
     label: {
       control: "text",
@@ -39,6 +40,7 @@ export default {
           summary: "",
         },
       },
+      description: "Form input label",
     },
     name: {
       control: "text",
@@ -48,13 +50,15 @@ export default {
           summary: "",
         },
       },
+      description: "Form input name",
     },
     errorMessage: {
       control: "text",
       table: {
         category: "Props",
       },
-      defaultValue: "",
+      defaultValue:
+        "Error message value of form input. It will be appeared if `valid` is `true`.",
     },
     valid: {
       control: "boolean",
@@ -62,6 +66,7 @@ export default {
         category: "Props",
       },
       defaultValue: true,
+      description: "Validate value of form input",
     },
     required: {
       control: "boolean",
@@ -69,6 +74,7 @@ export default {
         category: "Props",
       },
       defaultValue: false,
+      description: "Native input required attribute",
     },
     disabled: {
       control: "boolean",
@@ -76,6 +82,7 @@ export default {
         category: "Props",
       },
       defaultValue: false,
+      description: "Native input disabled attribute",
     },
     hasShowPassword: {
       control: "boolean",
@@ -83,13 +90,18 @@ export default {
         category: "Props",
       },
       defaultValue: false,
+      description: "Status of show password icon display",
     },
     placeholder: {
       control: "text",
       table: {
-        category: "Props",
+        defaultValue: {
+          summary: "",
+        },
       },
       defaultValue: "",
+      description:
+        "Native placeholder, can be added, but it's not default component prop.",
     },
     value: {
       control: "text",
@@ -97,6 +109,7 @@ export default {
         category: "Props",
       },
       defaultValue: "",
+      description: "Current input value (`v-model`)",
     },
     onChange: { action: "input changed!", table: { category: "Events" } },
   },
