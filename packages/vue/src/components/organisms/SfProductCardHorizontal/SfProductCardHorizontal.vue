@@ -22,6 +22,7 @@
               :alt="title"
               :width="imageWidth"
               :height="imageHeight"
+              :placeholder="productPlaceholder"
             />
           </template>
           <SfImage
@@ -31,6 +32,7 @@
             :alt="title"
             :width="imageWidth"
             :height="imageHeight"
+            :placeholder="productPlaceholder"
           />
         </SfLink>
       </slot>
@@ -131,6 +133,8 @@ import SfRating from "../../atoms/SfRating/SfRating.vue";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfAddToCart from "../../molecules/SfAddToCart/SfAddToCart.vue";
+import productPlaceholder from "../../../../public/assets/storybook/SfImage/product_placeholder.svg";
+
 export default {
   name: "SfProductCardHorizontal",
   components: {
@@ -265,6 +269,7 @@ export default {
   data() {
     return {
       quantity: this.qty,
+      productPlaceholder,
     };
   },
   computed: {
