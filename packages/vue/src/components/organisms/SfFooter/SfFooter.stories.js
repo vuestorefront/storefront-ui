@@ -24,7 +24,7 @@ export default {
     open: {
       control: "array",
       table: {
-        category: "Props",
+        category: "Props for main component",
       },
       description: "Opens footer columns on mobile.",
     },
@@ -32,14 +32,14 @@ export default {
       control: "number",
       defaultValue: 4,
       table: {
-        category: "Props",
+        category: "Props for main component",
       },
       description: "Number of columns in footer",
     },
     multiple: {
       control: "boolean",
       table: {
-        category: "Props",
+        category: "Props for main component",
       },
       defaultValue: true,
       description: "Multiple footer columns open at the same time on mobile",
