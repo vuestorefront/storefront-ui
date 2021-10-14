@@ -21,8 +21,6 @@
       v-if="!loaded && placeholder"
       class="sf-image--placeholder"
       :src="placeholder"
-      :width="width"
-      :height="height"
       alt="Placeholder"
     />
     <div v-if="$slots.default" class="sf-image--overlay">
@@ -41,7 +39,6 @@
   </div>
 </template>
 <script>
-import imagePlaceholder from "../../../../public/assets/storybook/SfImage/placeholder.svg";
 export default {
   name: "SfImage",
   props: {
@@ -89,7 +86,7 @@ export default {
      */
     placeholder: {
       type: String,
-      default: imagePlaceholder,
+      default: "",
     },
     /**
      * Native loading attribute supported, either "eager", "lazy" or none.
