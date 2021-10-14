@@ -21,7 +21,7 @@ export default {
         },
       },
       description:
-        "Disable clickable. It is passed like any other attribute in Vue functional component.",
+        "Disable click event. It is passed like any other attribute in Vue functional component.",
     },
     ariaLabel: {
       control: "text",

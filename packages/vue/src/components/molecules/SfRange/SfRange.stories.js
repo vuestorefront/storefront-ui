@@ -52,7 +52,7 @@ export default {
       name: "config.start",
       defaultValue: [0, 1],
       description:
-        "Property in config prop object (only for testing purposes).",
+        "Property in config prop object (only for testing purposes). See config prop below.",
     },
     range: {
       control: "object",
@@ -62,21 +62,21 @@ export default {
         max: 10,
       },
       description:
-        "Property in config prop object (only for testing purposes).",
+        "Property in config prop object (only for testing purposes). See config prop below.",
     },
     step: {
       control: "number",
       name: "config.step",
       defaultValue: 1,
       description:
-        "Property in config prop object (only for testing purposes).",
+        "Property in config prop object (only for testing purposes). See config prop below.",
     },
     connect: {
       control: "boolean",
       name: "config.connect",
       defaultValue: true,
       description:
-        "Property in config prop object (only for testing purposes).",
+        "Property in config prop object (only for testing purposes). See config prop below.",
     },
     direction: {
       control: {
@@ -86,7 +86,7 @@ export default {
       name: "config.direction",
       defaultValue: "ltr",
       description:
-        "Property in config prop object (only for testing purposes).",
+        "Property in config prop object (only for testing purposes). See config prop below.",
     },
     orientation: {
       control: {
@@ -113,7 +113,7 @@ export default {
       },
       name: "config.behaviour",
       description:
-        "Property in config prop object (only for testing purposes). For detailed description please see: https://refreshless.com/nouislider/behaviour-option/",
+        "Property in config prop object (only for testing purposes). For detailed description please see: https://refreshless.com/nouislider/behaviour-option/. See config prop below.",
       defaultValue: "tap-drag",
     },
     tooltips: {
@@ -121,20 +121,20 @@ export default {
       name: "config.tooltips",
       defaultValue: true,
       description:
-        "Property in config prop object (only for testing purposes).",
+        "Property in config prop object (only for testing purposes). See config prop below.",
     },
     keyboardSupport: {
       control: "boolean",
       name: "config.keyboardSupport",
       defaultValue: true,
       description:
-        "Property in config prop object (only for testing purposes).",
+        "Property in config prop object (only for testing purposes). See config prop below.",
     },
     format: {
       control: "object",
       name: "config.format",
       description:
-        "Property in config prop object (only for testing purposes). For details of tooltips number formatting please see: https://refreshless.com/nouislider/number-formatting/",
+        "Property in config prop object (only for testing purposes). For details of tooltips number formatting please see: https://refreshless.com/nouislider/number-formatting/. See config prop below.",
       defaultValue: {
         to: function (value) {
           return new Intl.NumberFormat("de-DE", {

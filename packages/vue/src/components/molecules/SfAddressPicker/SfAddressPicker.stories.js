@@ -13,13 +13,6 @@ export default {
     },
   },
   argTypes: {
-    name: {
-      control: "text",
-      table: {
-        category: "Props for main component",
-      },
-      description: "Sets name of the address field",
-    },
     selected: {
       control: "text",
       table: {
@@ -39,32 +32,38 @@ export default {
     },
     title: {
       control: "text",
-      description: "Title (only for testing puropses)",
+      description:
+        "Title (only for testing puropses). For development use default slot in SfAddress component, to change the content.",
       defaultValue: "",
     },
     street: {
       control: "text",
-      description: "Street (only for testing puropses)",
+      description:
+        "Street (only for testing puropses). For development use default slot in SfAddress component, to change the content.",
       defaultValue: "",
     },
     postCode: {
       control: "text",
-      description: "PostCode (only for testing puropses)",
+      description:
+        "PostCode (only for testing puropses). For development use default slot in SfAddress component, to change the content.",
       defaultValue: "",
     },
     city: {
       control: "text",
-      description: "City (only for testing puropses)",
+      description:
+        "City (only for testing puropses). For development use default slot in SfAddress component, to change the content.",
       defaultValue: "",
     },
     country: {
       control: "text",
-      description: "Country (only for testing puropses)",
+      description:
+        "Country (only for testing puropses). For development use default slot in SfAddress component, to change the content.",
       defaultValue: "",
     },
     phone: {
       control: "text",
-      description: "Phone (only for testing puropses)",
+      description:
+        "Phone (only for testing puropses). For development use default slot in SfAddress component, to change the content.",
       defaultValue: "",
     },
     input: { action: "Address picked", table: { category: "Events" } },

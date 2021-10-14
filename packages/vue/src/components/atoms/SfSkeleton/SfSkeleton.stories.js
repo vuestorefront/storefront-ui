@@ -7,7 +7,7 @@ export default {
     docs: {
       description: {
         component:
-          "The skeleton of the component to show instead of target component during loading. It's Vue 2 functional component.",
+          "The skeleton of the component to show instead of target component during loading.",
       },
     },
   },

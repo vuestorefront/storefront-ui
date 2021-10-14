@@ -58,7 +58,7 @@ export default {
         category: "Props",
       },
       defaultValue:
-        "Error message value of form input. It will be appeared if `valid` is `true`.",
+        "Error message value of form input. It appears if `valid` is `false`.",
     },
     valid: {
       control: "boolean",

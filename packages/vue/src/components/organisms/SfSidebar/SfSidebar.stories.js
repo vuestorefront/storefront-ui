@@ -4,16 +4,13 @@ export default {
   component: SfSidebar,
   parameters: {
     docs: {
+      inlineStories: false,
+      iframeHeight: "20em",
       description: {
         component: "Sidebar component disabling on Cancel button click.",
       },
     },
   },
-  decorators: [
-    () => ({
-      template: '<div style="height: 30em; z-index: -1;"><story /></div>',
-    }),
-  ],
   argTypes: {
     classes: {
       control: {

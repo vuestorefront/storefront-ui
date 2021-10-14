@@ -31,12 +31,16 @@ export default {
       control: "text",
       table: {
         category: "Props",
+        defaultValue: {
+          summary: "",
+        },
       },
       description: "Bottom Modal title",
     },
     content: {
       control: "text",
-      description: "Fill to see the content (for testing purposes).",
+      description:
+        "Fill to see the content (for testing purposes). For development use default slot, described below, to change the content.",
     },
     isOpen: {
       control: "boolean",

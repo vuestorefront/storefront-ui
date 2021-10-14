@@ -36,8 +36,8 @@ export default {
       table: {
         category: "Props",
       },
+      description: "Tile link",
     },
-    description: "Tile link",
   },
 };
 

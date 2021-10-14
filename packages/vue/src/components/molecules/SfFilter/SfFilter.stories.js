@@ -62,8 +62,8 @@ export default {
           summary: "",
         },
       },
+      description: "Sets fliter color.",
     },
-    description: "Sets selected state",
     change: { action: "Change color", table: { category: "Events" } },
   },
 };

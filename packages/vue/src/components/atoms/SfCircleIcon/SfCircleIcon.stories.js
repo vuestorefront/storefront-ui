@@ -60,7 +60,7 @@ export default {
       },
       defaultValue: "",
       description:
-        "Custom size of the icon It can be our standard sizes, or 12px or 1.2rem or nothing. Standard sizes: xxs, xs, sm, md, lg, xl, xxl, xl3, xl4.",
+        "Custom size of the icon. It can be one of our standard sizes: xxs, xs, sm, md, lg, xl, xxl, xl3, xl4, or e.g. '12px' or '1.2rem' or nothing.",
     },
     disabled: {
       control: "boolean",

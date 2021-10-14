@@ -52,6 +52,17 @@ export default {
       defaultValue: false,
       description: "If true clicking outside will not dismiss the dropdown.",
     },
+    actionList: {
+      control: "array",
+      defaultValue: [
+        "Add to cart",
+        "Add to compare",
+        "Add to wishlist",
+        "Share",
+      ],
+      description:
+        "Actions values (for testing purposes). For development, you can use default slot to place custom action buttons.",
+    },
     "click:close": { action: "Close dropdown", table: { category: "Events" } },
     "click:open": { action: "Open dropdown", table: { category: "Events" } },
   },
@@ -82,7 +93,6 @@ const Template = (args, { argTypes }) => ({
 export const Common = Template.bind({});
 Common.args = {
   title: "Choose size",
-  actionList: ["Add to cart", "Add to compare", "Add to wishlist", "Share"],
 };
 
 export const Persistent = Template.bind({});

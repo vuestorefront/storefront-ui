@@ -19,6 +19,12 @@ export default {
       control: "text",
       table: {
         category: "Props for main component",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
       description: "Max height of visible content",
     },
@@ -26,6 +32,12 @@ export default {
       control: "text",
       table: {
         category: "Props for main component",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
       defaultValue: "show",
       description: "Text for button showing content",
@@ -34,6 +46,12 @@ export default {
       control: "text",
       table: {
         category: "Props for main component",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
       defaultValue: "hide",
       description: "Text for button hiding content",
@@ -42,6 +60,12 @@ export default {
       control: "number",
       table: {
         category: "Props for main component",
+        type: {
+          summary: "number",
+        },
+        defaultValue: {
+          summary: "1",
+        },
       },
       description: "Which tab should be open",
     },
@@ -49,7 +73,14 @@ export default {
       control: "text",
       table: {
         category: "Props for SfTab component",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
+      defaultValue: "",
       description: "Title of the tab",
     },
     "click:tab": {

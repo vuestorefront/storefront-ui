@@ -151,7 +151,6 @@ const Template = (args, { argTypes }) => ({
       :image="image"
       :image-width="imageWidth"
       :image-height="imageHeight"
-      :image-lazy="imageLazy"
       :title="title"
       :price-regular="priceRegular"
     >
@@ -169,7 +168,6 @@ Common.args = {
   image: "/assets/storybook/SfGroupedProduct/product-white.png",
   imageWidth: 82,
   imageHeight: 112,
-  imageLazy: true,
   title: "Leave white brooch",
   priceRegular: "$10.99",
 };
@@ -194,7 +192,6 @@ export const UseConfigurationSlot = (args, { argTypes }) => ({
       :image="image"
       :image-width="imageWidth"
       :image-height="imageHeight"
-      :image-lazy="imageLazy"
       :title="title"
       :price-regular="priceRegular"
     >
@@ -226,11 +223,10 @@ export const UseImageSlot = (args, { argTypes }) => ({
       :image="image"
       :image-width="imageWidth"
       :image-height="imageHeight"
-      :image-lazy="imageLazy"
       :title="title"
       :price-regular="priceRegular"
     >
-      <template #image="{ image, title, imagePlaceholder, imageLazy, imagePictureBreakpoint }">
+      <template #image="{ image, title, imagePlaceholder, imagePictureBreakpoint }">
         <div :style="{height: '111px'}">CUSTOM IMAGE</div>
       </template>
     </SfGroupedProductItem>
@@ -258,7 +254,6 @@ export const UseInputSlot = (args, { argTypes }) => ({
       :image="image"
       :image-width="imageWidth"
       :image-height="imageHeight"
-      :image-lazy="imageLazy"
       :title="title"
       :price-regular="priceRegular"
     >
@@ -292,7 +287,6 @@ export const UseTitleSlot = (args, { argTypes }) => ({
       :image="image"
       :image-width="imageWidth"
       :image-height="imageHeight"
-      :image-lazy="imageLazy"
       :title="title"
       :price-regular="priceRegular"
     >
@@ -324,7 +318,6 @@ export const UsePriceSlot = (args, { argTypes }) => ({
       :image="image"
       :image-width="imageWidth"
       :image-height="imageHeight"
-      :image-lazy="imageLazy"
       :title="title"
       :price-regular="priceRegular"
     >

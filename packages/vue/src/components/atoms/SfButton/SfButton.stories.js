@@ -56,7 +56,7 @@ export default {
     content: {
       control: "text",
       description:
-        "Type here to fill the button (only for testing in Storybook)",
+        "Type here to fill the button (only for testing in Storybook). For development use default slot, described below, to change the content.",
     },
     onClick: { action: "Button clicked", table: { category: "Events" } },
   },

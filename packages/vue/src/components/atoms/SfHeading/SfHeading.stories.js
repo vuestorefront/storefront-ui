@@ -39,7 +39,8 @@ export default {
         category: "Props",
       },
       defaultValue: 2,
-      description: "Heading level",
+      description:
+        "Heading level from 1 to 6 (like in native heading element).",
     },
     title: {
       control: "text",

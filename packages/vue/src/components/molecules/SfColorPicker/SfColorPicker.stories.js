@@ -1,5 +1,28 @@
 import SfColorPicker from "./SfColorPicker.vue";
 import SfColor from "../../atoms/SfColor/SfColor.vue";
+const colors = [
+  { label: "Sand", value: "sand", color: "#EDCBB9", selected: false },
+  { label: "Mint", value: "mint", color: "#ABD9D8", selected: false },
+  {
+    label: "Light Gray",
+    value: "light gray",
+    color: "#F1F2F3",
+    selected: false,
+  },
+  {
+    label: "Vivid rose",
+    value: "vivid rose",
+    color: "#DB5593",
+    selected: false,
+  },
+  { label: "Peach", value: "peach", color: "#F59F93", selected: false },
+  {
+    label: "Citrus",
+    value: "citrus",
+    color: "#FFEE97",
+    selected: false,
+  },
+];
 
 export default {
   title: "Components/Molecules/ColorPicker",
@@ -23,18 +46,26 @@ export default {
       table: {
         category: "CSS Modifiers",
       },
+      description: "CSS classes to modify component styling",
     },
     label: {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: "string",
+        },
       },
+      defaultValue: "",
+      description: "Label for ColorPicker",
     },
     hasClose: {
       control: "boolean",
       table: {
         category: "Props",
       },
+      description: "Close button state whether show it or not",
+      defaultValue: false,
     },
     isOpen: {
       control: "boolean",
@@ -42,6 +73,13 @@ export default {
       table: {
         category: "Props",
       },
+      description: "ColorPicker is open",
+    },
+    colors: {
+      control: "array",
+      defaultValue: colors,
+      description:
+        "Changing colors (for testing purposes). For development, you can use default slot to place custom color element.",
     },
     "click:toggle": { action: "Toggle isOpen", table: { category: "Events" } },
   },
@@ -66,29 +104,6 @@ export const Common = Template.bind({});
 Common.args = {
   isOpen: true,
   label: "Choose color",
-  colors: [
-    { label: "Sand", value: "sand", color: "#EDCBB9", selected: false },
-    { label: "Mint", value: "mint", color: "#ABD9D8", selected: false },
-    {
-      label: "Light Gray",
-      value: "light gray",
-      color: "#F1F2F3",
-      selected: false,
-    },
-    {
-      label: "Vivid rose",
-      value: "vivid rose",
-      color: "#DB5593",
-      selected: false,
-    },
-    { label: "Peach", value: "peach", color: "#F59F93", selected: false },
-    {
-      label: "Citrus",
-      value: "citrus",
-      color: "#FFEE97",
-      selected: false,
-    },
-  ],
 };
 
 export const IsOpen = Template.bind({});

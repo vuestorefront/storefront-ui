@@ -123,6 +123,11 @@ export default {
       defaultValue: "",
       description: "The content of the option",
     },
+    options: {
+      control: "array",
+      description:
+        "Options values (for testing purposes). For development, you can use default slot to place custom options.",
+    },
     "v-model": {
       table: {
         disable: true,
