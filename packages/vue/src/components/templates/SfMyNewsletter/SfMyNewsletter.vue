@@ -49,15 +49,16 @@ export default {
   props: {
     tabTitle: {
       type: String,
-      default: "",
+      default: "My newsletter",
     },
     tabDescription: {
       type: String,
-      default: "",
+      default:
+        "Set up your newsletter and we will send you information about new products and trends from the sections you selected every week.",
     },
     formTitle: {
       type: String,
-      default: "",
+      default: "Sections that interest you",
     },
     buttonText: {
       type: String,
@@ -65,7 +66,7 @@ export default {
     },
     newsletterSections: {
       type: Array,
-      default: () => [],
+      default: () => ["Woman", "Man", "Children"],
     },
   },
   data() {
@@ -76,5 +77,5 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import "~@storefront-ui/shared/styles/components/templates/my-account/SfMyNewsletter.scss";
+@import "~@storefront-ui/shared/styles/components/templates/SfMyNewsletter.scss";
 </style>

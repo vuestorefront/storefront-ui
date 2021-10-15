@@ -31,6 +31,9 @@
   &__icon {
     --icon-color: var(--c-white);
     --icon-size: 0.875rem;
+    .sf-icon-path {
+      display: block;
+    }
   }
   &.sf-radio {
     --radio-content-margin: 0;

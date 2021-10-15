@@ -24,11 +24,8 @@ export default {
       control: "object",
       table: {
         category: "Props",
-        defaultValue: {
-          summary: "[]",
-        },
       },
-      defaultValue: [],
+      defaultValue: accountData.orders,
       description: "Account data",
     },
     orderHistoryDescription: {
@@ -36,7 +33,8 @@ export default {
       table: {
         category: "Props",
       },
-      defaultValue: "",
+      defaultValue:
+        "Check the details and status of your orders in the online store. You can also cancel your order or request a return.",
       description: "Tab description when there are orders",
     },
     noOrdersDescription: {
@@ -44,7 +42,7 @@ export default {
       table: {
         category: "Props",
       },
-      defaultValue: "",
+      defaultValue: "You currently have no order history.",
       description: "Text when there are no orders",
     },
     noOrdersButtonText: {
@@ -59,11 +57,15 @@ export default {
       control: "object",
       table: {
         category: "Props",
-        defaultValue: {
-          summary: "[]",
-        },
       },
       description: "Labels for table headers",
+      defaultValue: [
+        "Order ID",
+        "Payment date",
+        "Payment method",
+        "Amount",
+        "Status",
+      ],
     },
   },
 };
@@ -83,16 +85,3 @@ const Template = (args, { argTypes }) => ({
 });
 
 export const Common = Template.bind({});
-Common.args = {
-  orders: accountData.orders,
-  orderHistoryDescription:
-    "Check the details and status of your orders in the online store. You can also cancel your order or request a return.",
-  noOrdersDescription: "You currently have no order history.",
-  tableHeaders: [
-    "Order ID",
-    "Payment date",
-    "Payment method",
-    "Amount",
-    "Status",
-  ],
-};

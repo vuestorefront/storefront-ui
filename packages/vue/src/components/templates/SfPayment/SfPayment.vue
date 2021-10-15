@@ -17,7 +17,17 @@
           sameAsShippingCheckboxLabel,
           billingInputsLabels,
           billingSelectLabel,
+          firstName,
+          lastName,
+          streetName,
+          apartment,
+          city,
+          state,
+          zipCode,
+
           countries,
+          phoneNumber,
+          invoice,
         }"
       >
         <SfCheckbox
@@ -497,5 +507,5 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import "~@storefront-ui/shared/styles/components/templates/checkout/SfPayment.scss";
+@import "~@storefront-ui/shared/styles/components/templates/SfPayment.scss";
 </style>

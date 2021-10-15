@@ -11,7 +11,12 @@
       class="sf-button--pure sf-quantity-selector__button"
       data-testid="decrease"
       @click="
-        $options.handleInput(props.qty - 1, listeners, props.min, props.max)
+        $options.handleInput(
+          Number(props.qty) - 1,
+          listeners,
+          props.min,
+          props.max
+        )
       "
     >
       &minus;
@@ -19,7 +24,7 @@
     <component
       :is="injections.components.SfInput"
       type="number"
-      :value="props.qty"
+      :value="Number(props.qty)"
       :disabled="props.disabled"
       class="sf-quantity-selector__input"
       data-testid="sf-quantity-selector input"
@@ -34,7 +39,12 @@
       class="sf-button--pure sf-quantity-selector__button"
       data-testid="increase"
       @click="
-        $options.handleInput(props.qty + 1, listeners, props.min, props.max)
+        $options.handleInput(
+          Number(props.qty) + 1,
+          listeners,
+          props.min,
+          props.max
+        )
       "
     >
       +
@@ -87,7 +97,7 @@ export default {
     return listeners.input && listeners.input(qty);
   },
   handleBlur(listeners) {
-    return listeners.blur;
+    return listeners.blur && listeners.blur();
   },
 };
 </script>

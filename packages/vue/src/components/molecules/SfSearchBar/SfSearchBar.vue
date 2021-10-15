@@ -13,6 +13,7 @@
     <slot name="icon">
       <SfButton
         class="sf-search-bar__button sf-button--pure"
+        aria-label="Search"
         @click="$emit('click', value)"
       >
         <span v-if="icon" class="sf-search-bar__icon">

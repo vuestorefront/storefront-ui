@@ -12,7 +12,7 @@
     >
       <SfContentCategory title="Personal Details">
         <SfContentPage title="My profile" data-testid="my-profile">
-          <MyProfile
+          <SfMyProfile
             :account="account"
             data-testid="my-profile-tabs"
             @update:personal="account = { ...account, ...$event }"
@@ -20,25 +20,20 @@
           />
         </SfContentPage>
         <SfContentPage title="Shipping details" data-testid="shipping-details">
-          <ShippingDetails
+          <SfShippingDetails
             :account="account"
+            :countries="countries"
             data-testid="shipping-details-tabs"
             @update:shipping="account = { ...account, ...$event }"
           />
         </SfContentPage>
-        <SfContentPage title="Loyalty Card">
-          <LoyaltyCard />
-        </SfContentPage>
         <SfContentPage title="Newsletter">
-          <MyNewsletter />
+          <SfMyNewsletter />
         </SfContentPage>
       </SfContentCategory>
       <SfContentCategory title="Order details">
         <SfContentPage title="Order history">
-          <OrderHistory :account="account" />
-        </SfContentPage>
-        <SfContentPage title="My reviews">
-          <MyReviews />
+          <SfOrderHistory :orders="account.orders" />
         </SfContentPage>
       </SfContentCategory>
       <SfContentPage title="Log out" />
@@ -48,24 +43,21 @@
 <script>
 import { SfBreadcrumbs, SfContentPages } from "@storefront-ui/vue";
 import {
-  MyProfile,
-  ShippingDetails,
-  LoyaltyCard,
-  MyNewsletter,
-  OrderHistory,
-  MyReviews,
-} from "./_internal/index.js";
+  SfMyProfile,
+  SfShippingDetails,
+  SfMyNewsletter,
+  SfOrderHistory,
+} from "@storefront-ui/vue";
+import { countries } from "../../templates/internalData.js";
 export default {
   name: "MyAccount",
   components: {
     SfBreadcrumbs,
     SfContentPages,
-    MyProfile,
-    ShippingDetails,
-    LoyaltyCard,
-    MyNewsletter,
-    OrderHistory,
-    MyReviews,
+    SfMyProfile,
+    SfShippingDetails,
+    SfMyNewsletter,
+    SfOrderHistory,
   },
   data() {
     return {
@@ -114,12 +106,13 @@ export default {
           },
         ],
         orders: [
-          ["#35765", "4th Nov, 2019", "Visa card", "$12.00", "In process"],
-          ["#35766", "4th Nov, 2019", "Paypal", "$12.00", "Finalised"],
-          ["#35768", "4th Nov, 2019", "Mastercard", "$12.00", "Finalised"],
-          ["#35769", "4th Nov, 2019", "Paypal", "$12.00", "Finalised"],
+          ["#45", "23th June, 2021", "Visa card", "$412.00", "Finalised"],
+          ["#46", "26th June, 2021", "Paypal", "$132.00", "Finalised"],
+          ["#47", "28th June, 2021", "Mastercard", "$12.00", "Finalised"],
+          ["#48", "28th June, 2021", "Paypal", "$20.00", "In process"],
         ],
       },
+      countries,
     };
   },
   methods: {

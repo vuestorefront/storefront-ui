@@ -9,6 +9,7 @@
           :link="link"
           class="sf-button--pure sf-product-card__link"
           data-testid="product-link"
+          aria-label="Go To Product"
           v-on="$listeners"
         >
           <template v-if="Array.isArray(image)">

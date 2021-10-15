@@ -13,14 +13,17 @@
             <SfShipping
               :value="shipping"
               :shipping-methods="shippingMethods"
+              :countries="countries"
               @input="shipping = $event"
             />
           </SfStep>
           <SfStep name="Payment">
             <SfPayment
-              :value="payment"
               :payment-methods="paymentMethods"
               :shipping="shipping"
+              :countries="countries"
+              :months="months"
+              :years="years"
               @input="payment = $event"
             />
           </SfStep>
@@ -103,6 +106,7 @@ import {
   SfOrderSummary,
   SfOrderReview,
 } from "@storefront-ui/vue";
+import { countries, months, years } from "../../templates/internalData.js";
 export default {
   name: "Checkout",
   components: {
@@ -117,6 +121,9 @@ export default {
   },
   data() {
     return {
+      countries,
+      months,
+      years,
       currentStep: 0,
       steps: [
         "Go to shipping",
@@ -135,7 +142,9 @@ export default {
         zipCode: "",
         country: "",
         phoneNumber: "",
-        shippingMethod: "",
+        shippingMethod: {
+          price: "$0.00",
+        },
       },
       payment: {
         sameAsShipping: false,
@@ -150,48 +159,19 @@ export default {
         phoneNumber: "",
         paymentMethod: "",
         invoice: false,
-        card: {
-          number: "",
-          holder: "",
-          month: "",
-          year: "",
-          cvc: "",
-          keep: false,
-        },
+        cardNumber: "",
+        cardHolder: "",
+        cardMonth: "",
+        cardYear: "",
+        cardCVC: "",
+        cardKeep: false,
       },
       order: {
         password: "",
         createAccount: false,
         firstName: "John",
         lastName: "Dog",
-        email: "john,dog@gmail.com",
-        shipping: {
-          streetName: "Sezame Street",
-          apartment: "24/193A",
-          city: "Wroclaw",
-          zipCode: "53-540",
-          country: "Poland",
-          phoneNumber: "(00)560 123 456",
-          shippingMethod: {
-            isOpen: false,
-            price: "$5.99",
-            delivery: "Delivery from 3 to 7 business days",
-            label: "Pickup in the store",
-            value: "store",
-            description:
-              "Novelty! From now on you have the option of picking up an order in the selected InPack parceled. Just remember that in the case of orders paid on delivery, only the card payment will be accepted.",
-          },
-        },
-        payment: {
-          streetName: "Sezame Street",
-          apartment: "24/193A",
-          city: "Wroclaw",
-          zipCode: "53-540",
-          country: "Poland",
-          phoneNumber: "(00)560 123 456",
-          paymentMethod: "debit",
-          shippingMethod: "home",
-        },
+        email: "john.dog@gmail.com",
         orderItems: [
           {
             title: "Cream Beach Bag",
@@ -320,6 +300,18 @@ export default {
         shipping: { ...this.shipping },
         payment: { ...this.payment },
       };
+    },
+  },
+  watch: {
+    shipping(newVal, oldVal) {
+      if (newVal.shippingMethod != oldVal.shippingMethod) {
+        const method = this.shippingMethods.find(
+          (method) => method.value === newVal.shippingMethod
+        );
+        return method
+          ? (newVal.shippingMethod = method)
+          : (newVal.shippingMethod = { price: "$0.00" });
+      }
     },
   },
   methods: {
