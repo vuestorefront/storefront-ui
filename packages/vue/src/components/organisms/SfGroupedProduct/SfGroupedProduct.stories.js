@@ -16,16 +16,57 @@ export default {
       control: "object",
       table: {
         category: "Props for main component",
+        type: {
+          summary: "object",
+        },
+        defaultValue: {
+          summary: `{
+            type: "slider",
+            rewind: true,
+            gap: 0,
+            slidePerPage: true,
+            breakpoints: {
+              1023: {
+                perView: 2,
+                peek: {
+                  before: 0,
+                  after: 50,
+                },
+              },
+            },
+          }`,
+        },
+      },
+      defaultValue: {
+        type: "slider",
+        rewind: true,
+        gap: 0,
+        slidePerPage: true,
+        breakpoints: {
+          1023: {
+            perView: 2,
+            peek: {
+              before: 0,
+              after: 50,
+            },
+          },
+        },
       },
       description:
         "Settings for carousel following [glide.js documentation](https://glidejs.com/) ",
     },
     hasCarousel: {
       control: "boolean",
-      defaultValue: true,
       table: {
         category: "Props for main component",
+        type: {
+          summary: "boolean",
+        },
+        defaultValue: {
+          summary: "true",
+        },
       },
+      defaultValue: true,
       description: "Indicates if the carousel of products is on",
     },
     image: {

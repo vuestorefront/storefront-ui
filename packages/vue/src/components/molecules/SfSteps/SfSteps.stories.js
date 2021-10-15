@@ -24,13 +24,16 @@ export default {
     },
     active: {
       control: "number",
-      defaultValue: 0,
       table: {
         category: "Props for main component",
+        type: {
+          summary: "number",
+        },
         defaultValue: {
-          summary: 0,
+          summary: "0",
         },
       },
+      defaultValue: 0,
       description: "Current active step",
     },
     name: {
@@ -48,6 +51,9 @@ export default {
       control: "array",
       table: {
         category: "Props for main component",
+        type: {
+          summary: "array",
+        },
         defaultValue: {
           summary: "[]",
         },

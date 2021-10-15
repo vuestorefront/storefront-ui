@@ -25,7 +25,8 @@ export default {
         category: "Props",
       },
       defaultValue: "",
-      description: "Transition effect on opening modal",
+      description:
+        "Transition effect on opening modal. Could be one of [the default ones](https://docs.storefrontui.io/?path=/docs/utilities-transitions-docs--page).",
     },
     title: {
       control: "text",

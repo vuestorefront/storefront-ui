@@ -71,7 +71,7 @@ export default {
       },
       defaultValue: "",
       description:
-        "Error message value of select. It will be appeared if `valid` is `true`.",
+        "Error message value of select. It appears if `valid` is `false`.",
     },
     valid: {
       control: "boolean",

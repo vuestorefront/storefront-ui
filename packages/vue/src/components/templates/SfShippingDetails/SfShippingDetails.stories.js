@@ -47,7 +47,8 @@ export default {
         category: "Props",
       },
       defaultValue: "sf-fade",
-      description: "Transition name",
+      description:
+        "Sets transition name. Could be one of [the default ones](https://docs.storefrontui.io/?path=/docs/utilities-transitions-docs--page).",
     },
     changeAddressDescription: {
       control: "text",

@@ -85,7 +85,7 @@ export default {
       },
       defaultValue: "This field is not correct.",
       description:
-        "Error message value of form select. It will be appeared if `valid` is `true`.",
+        "Error message value of form select. It appears if `valid` is `false`.",
     },
     required: {
       control: "boolean",

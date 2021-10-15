@@ -63,7 +63,8 @@ export default {
         category: "Props",
       },
       defaultValue: "sf-fade",
-      description: "Overlay transition effect",
+      description:
+        "Overlay transition effect. Could be one of [the default ones](https://docs.storefrontui.io/?path=/docs/utilities-transitions-docs--page).",
     },
     transitionModal: {
       control: "text",
@@ -71,7 +72,8 @@ export default {
         category: "Props",
       },
       defaultValue: "sf-fade",
-      description: "Modal transition effect",
+      description:
+        "Modal transition effect. Could be one of [the default ones](https://docs.storefrontui.io/?path=/docs/utilities-transitions-docs--page).",
     },
     "v-model": {
       table: {

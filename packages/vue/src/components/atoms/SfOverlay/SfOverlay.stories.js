@@ -30,7 +30,7 @@ export default {
       },
       defaultValue: "sf-fade",
       description:
-        "Transition effect to apply when overlay visibility is changed",
+        "Transition effect to apply when overlay visibility is changed. Could be one of [the default ones](https://docs.storefrontui.io/?path=/docs/utilities-transitions-docs--page).",
     },
     visible: {
       control: "boolean",

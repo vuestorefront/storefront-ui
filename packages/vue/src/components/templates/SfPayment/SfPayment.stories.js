@@ -33,7 +33,8 @@ export default {
         category: "Props",
       },
       defaultValue: "sf-fade",
-      description: "Transition name for credit card form",
+      description:
+        "Transition name for credit card form. Could be one of [the default ones](https://docs.storefrontui.io/?path=/docs/utilities-transitions-docs--page).",
     },
     billingHeading: {
       control: "text",

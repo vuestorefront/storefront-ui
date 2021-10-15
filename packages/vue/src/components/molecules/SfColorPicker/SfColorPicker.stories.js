@@ -55,6 +55,9 @@ export default {
         type: {
           summary: "string",
         },
+        defaultValue: {
+          summary: "",
+        },
       },
       defaultValue: "",
       description: "Label for ColorPicker",
