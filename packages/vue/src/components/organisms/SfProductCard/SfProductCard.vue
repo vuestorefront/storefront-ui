@@ -182,7 +182,7 @@ import {
   mapMobileObserver,
   unMapMobileObserver,
 } from "../../../utilities/mobile-observer";
-import productPlaceholder from "../../../../public/assets/storybook/SfImage/product_placeholder.svg";
+import productPlaceholder from "../../../../../shared/images/product_placeholder.svg";
 export default {
   name: "SfProductCard",
   components: {
