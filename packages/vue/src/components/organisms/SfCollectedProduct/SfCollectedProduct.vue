@@ -75,7 +75,7 @@
         >Remove</SfButton
       >
     </slot>
-    <slot name="more-actions">
+    <slot name="more-actions" v-bind="{ actionsHandler }">
       <SfButton
         aria-label="More actions"
         class="
@@ -83,6 +83,7 @@
           sf-collected-product__more-actions
           smartphone-only
         "
+        @click="actionsHandler"
       >
         <SfIcon icon="more" size="18px" />
       </SfButton>
@@ -183,6 +184,9 @@ export default {
   methods: {
     removeHandler() {
       this.$emit("click:remove");
+    },
+    actionsHandler() {
+      this.$emit("click:actions");
     },
   },
 };
