@@ -70,7 +70,7 @@ export default {
     },
     placeholder: {
       type: String,
-      default: placeholder,
+      default: "",
     },
     loading: {
       type: String,
