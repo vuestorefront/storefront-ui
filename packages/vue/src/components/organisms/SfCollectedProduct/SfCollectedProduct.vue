@@ -56,37 +56,42 @@
       </slot>
     </div>
     <slot name="remove" v-bind="{ removeHandler }">
-      <SfCircleIcon
-        icon="cross"
-        aria-label="Remove"
-        class="
-          sf-circle-icon--small
-          sf-collected-product__remove sf-collected-product__remove--circle-icon
-        "
-        @click="removeHandler"
-      />
-      <SfButton
-        class="
-          sf-button--text
-          sf-collected-product__remove sf-collected-product__remove--text
-        "
-        data-testid="collected-product-desktop-remove"
-        @click="removeHandler"
-        >Remove</SfButton
-      >
+      <template v-if="hasRemove">
+        <SfCircleIcon
+          icon="cross"
+          aria-label="Remove"
+          class="
+            sf-circle-icon--small
+            sf-collected-product__remove
+            sf-collected-product__remove--circle-icon
+          "
+          @click="removeHandler"
+        />
+        <SfButton
+          class="
+            sf-button--text
+            sf-collected-product__remove sf-collected-product__remove--text
+          "
+          data-testid="collected-product-desktop-remove"
+          @click="removeHandler"
+          >Remove</SfButton
+        >
+      </template>
     </slot>
     <slot name="more-actions" v-bind="{ actionsHandler }">
-      <SfButton
-        aria-label="More actions"
-        class="
-          sf-button--pure
-          sf-collected-product__more-actions
-          smartphone-only
-        "
-        @click="actionsHandler"
-      >
-        <SfIcon icon="more" size="18px" />
-      </SfButton>
+      <template v-if="hasMoreActions">
+        <SfButton
+          aria-label="More actions"
+          class="
+            sf-button--pure
+            sf-collected-product__more-actions
+            smartphone-only
+          "
+          @click="actionsHandler"
+        >
+          <SfIcon icon="more" size="18px" />
+        </SfButton>
+      </template>
     </slot>
   </div>
 </template>
@@ -171,6 +176,14 @@ export default {
     link: {
       type: [String, Object],
       default: "",
+    },
+    hasRemove: {
+      type: Boolean,
+      default: true,
+    },
+    hasMoreActions: {
+      type: Boolean,
+      default: true,
     },
   },
   computed: {
