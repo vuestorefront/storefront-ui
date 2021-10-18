@@ -127,6 +127,26 @@ export default {
         disable: true,
       },
     },
+    hasMoreActions: {
+      control: "boolean",
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: true,
+        },
+      },
+      description: "More actions button visibility",
+    },
+    hasRemove: {
+      control: "boolean",
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: true,
+        },
+      },
+      description: "Remove button visibility",
+    },
     input: { action: "Quantity changed", table: { category: "Events" } },
     "click:remove": {
       action: "Remove product clicked",
@@ -156,6 +176,8 @@ const Template = (args, { argTypes }) => ({
     :link="link"
     :regular-price="regularPrice"
     :special-price="specialPrice"
+    :hasMoreActions="hasMoreActions"
+    :hasRemove="hasRemove"
   />`,
 });
 
@@ -192,6 +214,8 @@ export const UseActionsSlot = (args, { argTypes }) => ({
     :link="link"
     :regular-price="regularPrice"
     :special-price="specialPrice"
+    :special-price="specialPrice"
+    :hasMoreActions="hasMoreActions"
   >
     <template #actions>
       CUSTOM ACTIONS
@@ -214,6 +238,8 @@ export const UseConfigurationSlot = (args, { argTypes }) => ({
     :link="link"
     :regular-price="regularPrice"
     :special-price="specialPrice"
+    :special-price="specialPrice"
+    :hasMoreActions="hasMoreActions"
   >
     <template #configuration>
       CUSTOM CONFIGURATION
@@ -236,6 +262,8 @@ export const UseImageSlot = (args, { argTypes }) => ({
     :link="link"
     :regular-price="regularPrice"
     :special-price="specialPrice"
+    :special-price="specialPrice"
+    :hasMoreActions="hasMoreActions"
   >
     <template #image>
       CUSTOM IMAGE
@@ -258,6 +286,8 @@ export const UseInputSlot = (args, { argTypes }) => ({
     :link="link"
     :regular-price="regularPrice"
     :special-price="specialPrice"
+    :special-price="specialPrice"
+    :hasMoreActions="hasMoreActions"
   >
     <template #input>
       CUSTOM INPUT
@@ -280,6 +310,8 @@ export const UseTitleSlot = (args, { argTypes }) => ({
     :link="link"
     :regular-price="regularPrice"
     :special-price="specialPrice"
+    :special-price="specialPrice"
+    :hasMoreActions="hasMoreActions"
   >
     <template #title>
       CUSTOM TITLE
@@ -302,6 +334,8 @@ export const UsePriceSlot = (args, { argTypes }) => ({
     :link="link"
     :regular-price="regularPrice"
     :special-price="specialPrice"
+    :special-price="specialPrice"
+    :hasMoreActions="hasMoreActions"
   >
     <template #price>
       CUSTOM PRICE
