@@ -50,12 +50,8 @@ export default {
   parameters: {
     docs: {
       description: {
-<<<<<<< HEAD
         component:
           "The content pages for static content. Built from main component - SfContentPages and internal components - SfContentCategory and SfContentPage.",
-=======
-        component: "The content pages for static content",
->>>>>>> 4ab6bf217 (feat: types, descriptions for footer, grouped and collected product)
       },
     },
   },
@@ -63,11 +59,7 @@ export default {
     title: {
       control: "text",
       table: {
-<<<<<<< HEAD
         category: "Props for main component",
-=======
-        category: "Props",
->>>>>>> 4ab6bf217 (feat: types, descriptions for footer, grouped and collected product)
         type: {
           summary: "string",
         },
@@ -81,18 +73,13 @@ export default {
     active: {
       control: "text",
       table: {
-<<<<<<< HEAD
         category: "Props for main component",
-=======
-        category: "Props",
->>>>>>> 4ab6bf217 (feat: types, descriptions for footer, grouped and collected product)
         type: {
           summary: "string",
         },
         defaultValue: {
           summary: "",
         },
-<<<<<<< HEAD
       },
       defaultValue: "",
       description: "Active page.",
@@ -128,11 +115,6 @@ export default {
       },
       defaultValue: "",
       description: "Sets category title.",
-=======
-      },
-      defaultValue: "",
-      description: "Active page.",
->>>>>>> 4ab6bf217 (feat: types, descriptions for footer, grouped and collected product)
     },
     pages: {
       control: "array",

@@ -70,11 +70,7 @@ export default {
     },
     placeholder: {
       type: String,
-<<<<<<< HEAD
       default: placeholder,
-=======
-      default: "",
->>>>>>> 70641facd (Revert "feat: default placeholder for SfImage")
     },
     loading: {
       type: String,
