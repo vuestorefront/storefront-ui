@@ -1,4 +1,4 @@
-import { SfCollectedProduct, SfButton } from "@storefront-ui/vue";
+import { SfCollectedProduct } from "@storefront-ui/vue";
 export default {
   title: "Components/Organisms/CollectedProduct",
   component: SfCollectedProduct,
@@ -83,6 +83,10 @@ export default {
       action: "Remove product clicked",
       table: { category: "Events" },
     },
+    "click:actions": {
+      action: "More actions button clicked",
+      table: { category: "Events" },
+    },
   },
 };
 
@@ -95,6 +99,7 @@ const Template = (args, { argTypes }) => ({
     :class="classes"
     @input="qty = $event"
     @click:remove="this['click:remove']"
+    @click:actions="this['click:actions']"
     :image="image"
     :image-width="imageWidth"
     :image-height="imageHeight"
