@@ -78,90 +78,38 @@ export default {
       type: String,
       default: "",
     },
-<<<<<<< HEAD
-=======
-    /**
-     * Product image width, without unit (for internal component)
-     */
->>>>>>> 4ab6bf217 (feat: types, descriptions for footer, grouped and collected product)
     imageWidth: {
       type: [String, Number],
       default: 328,
     },
-<<<<<<< HEAD
-=======
-    /**
-     * Product image height, without unit (for internal component)
-     */
->>>>>>> 4ab6bf217 (feat: types, descriptions for footer, grouped and collected product)
     imageHeight: {
       type: [String, Number],
       default: 448,
     },
-<<<<<<< HEAD
-=======
-    /**
-     * Product image placeholder (for internal component)
-     */
->>>>>>> 4ab6bf217 (feat: types, descriptions for footer, grouped and collected product)
     imagePlaceholder: {
       type: String,
       default: "",
     },
-<<<<<<< HEAD
-=======
-    /**
-     * Product image picture breakpoint (for internal component)
-     */
->>>>>>> 4ab6bf217 (feat: types, descriptions for footer, grouped and collected product)
     imagePictureBreakpoint: {
       type: Number,
       default: 576,
     },
-<<<<<<< HEAD
-=======
-    /**
-     * Product title (for internal component)
-     */
->>>>>>> 4ab6bf217 (feat: types, descriptions for footer, grouped and collected product)
     title: {
       type: String,
       default: "",
     },
-<<<<<<< HEAD
-=======
-    /**
-     * Product regular price (for internal component)
-     */
->>>>>>> 4ab6bf217 (feat: types, descriptions for footer, grouped and collected product)
     priceRegular: {
       type: [Number, String],
       default: "",
     },
-<<<<<<< HEAD
-=======
-    /**
-     * Product special price (for internal component)
-     */
->>>>>>> 4ab6bf217 (feat: types, descriptions for footer, grouped and collected product)
     priceSpecial: {
       type: [Number, String],
       default: "",
     },
-<<<<<<< HEAD
-=======
-    /** Product quantity (for internal component) */
->>>>>>> 4ab6bf217 (feat: types, descriptions for footer, grouped and collected product)
     qty: {
       type: [Number, String],
       default: 1,
     },
-<<<<<<< HEAD
-=======
-    /**
-     * Link to product (for internal component)
-     */
->>>>>>> 4ab6bf217 (feat: types, descriptions for footer, grouped and collected product)
     link: {
       type: [String, Object],
       default: "",
