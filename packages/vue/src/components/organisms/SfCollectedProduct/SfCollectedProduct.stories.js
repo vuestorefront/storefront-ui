@@ -147,6 +147,26 @@ export default {
       },
       description: "Remove button visibility",
     },
+    hasMoreActions: {
+      control: "boolean",
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: true,
+        },
+      },
+      description: "More actions button visibility",
+    },
+    hasRemove: {
+      control: "boolean",
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: true,
+        },
+      },
+      description: "Remove button visibility",
+    },
     input: { action: "Quantity changed", table: { category: "Events" } },
     "click:remove": {
       action: "Remove product clicked",
