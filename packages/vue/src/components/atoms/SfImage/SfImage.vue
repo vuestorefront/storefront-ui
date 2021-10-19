@@ -1,5 +1,5 @@
 <template>
-  <div
+  <span
     class="sf-image--wrapper"
     :style="imageStyle"
     data-testid="image-wrapper"
@@ -38,7 +38,7 @@
         :height="height"
       />
     </noscript>
-  </div>
+  </span>
 </template>
 <script>
 export default {
