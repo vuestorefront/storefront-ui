@@ -22,6 +22,8 @@
       class="sf-image--placeholder"
       :src="placeholder"
       alt="Placeholder"
+      :width="width"
+      :height="height"
     />
     <div v-if="$slots.default" class="sf-image--overlay">
       <slot />
