@@ -25,6 +25,9 @@ export default {
       control: "array",
       table: {
         category: "Props for main component",
+        defaultValue: {
+          summary: "[]",
+        },
       },
       description: "Opens footer columns on mobile.",
     },

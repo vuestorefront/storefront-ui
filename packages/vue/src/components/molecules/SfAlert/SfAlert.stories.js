@@ -19,6 +19,9 @@ export default {
         type: {
           summary: "string",
         },
+        defaultValue: {
+          summary: "",
+        },
       },
       description: "Message that will be displayed in Alert.",
       defaultValue: "",

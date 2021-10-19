@@ -7,7 +7,7 @@ export default {
     docs: {
       description: {
         component:
-          "Grouped Product component. Built from main component - SfGroupedProduct and internal components - SfGroupedProductItem.",
+          "Grouped Product component. Built from main component - SfGroupedProduct and internal component - SfGroupedProductItem.",
       },
     },
   },
@@ -72,97 +72,102 @@ export default {
     image: {
       control: "text",
       table: {
-        category: "Props for internal component",
+        category: "Props for SfGroupedProductItem component",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
       description: "Image url",
     },
     imageWidth: {
       control: "text",
       table: {
-        category: "Props for internal component",
+        category: "Props for SfGroupedProductItem component",
       },
-      description: "Product image width, without unit (for internal component)",
+      description: "Product image width, without unit",
     },
     imageHeight: {
       control: "text",
       table: {
-        category: "Props for internal component",
+        category: "Props for SfGroupedProductItem component",
       },
-      description:
-        "Product image height, without unit (for internal component)",
+      description: "Product image height, without unit",
     },
     imagePlaceholder: {
       control: "text",
       table: {
-        category: "Props for internal component",
+        category: "Props for SfGroupedProductItem component",
       },
       defaultValue: "",
-      description: "Product image placeholder (for internal component)",
+      description: "Product image placeholder",
     },
     imagePictureBreakpoint: {
       control: "number",
       table: {
-        category: "Props for internal component",
+        category: "Props for SfGroupedProductItem component",
       },
       defaultValue: 576,
-      description: "Product image picture breakpoint (for internal component)",
+      description: "Product image picture breakpoint",
     },
     title: {
       control: "text",
       table: {
-        category: "Props for internal component",
+        category: "Props for SfGroupedProductItem component",
         type: {
           summary: "string",
         },
       },
       defaultValue: "",
-      description: "Product title (for internal component)",
+      description: "Product title",
     },
     priceRegular: {
       control: "text",
       table: {
-        category: "Props for internal component",
+        category: "Props for SfGroupedProductItem component",
         type: {
           summary: ["string", "number"],
         },
       },
       defaultValue: "",
-      description: "Product regular price (for internal component)",
+      description: "Product regular price",
     },
     priceSpecial: {
       control: "text",
       table: {
-        category: "Props for internal component",
+        category: "Props for SfGroupedProductItem component",
         type: {
           summary: ["string", "number"],
         },
       },
       defaultValue: "",
-      description: "Product special price (for internal component)",
+      description: "Product special price",
     },
     qty: {
       control: "number",
       table: {
-        category: "Props for internal component",
+        category: "Props for SfGroupedProductItem component",
         type: {
           summary: ["string", "number"],
         },
         defaultValue: 1,
       },
       defaultValue: 1,
-      description: "Product quantity (for internal component)",
+      description: "Product quantity",
     },
     link: {
       control: "text",
       table: {
-        category: "Props for internal component",
+        category: "Props for SfGroupedProductItem component",
         type: {
           summary: ["string", "object"],
         },
         defaultValue: "",
       },
       defaultValue: "",
-      description: "Link to product (for internal component)",
+      description: "Link to product",
     },
     "v-model": {
       table: {

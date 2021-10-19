@@ -119,6 +119,9 @@ export default {
         type: {
           summary: ["string", "number", "object"],
         },
+        defaultValue: {
+          summary: "",
+        },
       },
       defaultValue: "",
       description: "The content of the option",

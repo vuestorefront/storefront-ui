@@ -30,6 +30,9 @@ export default {
         type: {
           summary: "string",
         },
+        defaultValue: {
+          summary: "",
+        },
       },
       description: "Banner title",
       defaultValue: "",
@@ -41,6 +44,9 @@ export default {
         type: {
           summary: "string",
         },
+        defaultValue: {
+          summary: "",
+        },
       },
       description: "Banner subtitle (at the top)",
       defaultValue: "",
@@ -51,6 +57,9 @@ export default {
         category: "Props",
         type: {
           summary: "string",
+        },
+        defaultValue: {
+          summary: "",
         },
       },
       description: "Text content",

@@ -103,7 +103,7 @@ export default {
         "Sets icon type. Icon SVG path(s). It can be single SVG path(string) or array of SVG paths or icon name from our icons list(such as 'added_to_cart`)",
     },
     title: {
-      control: "string",
+      control: "text",
       table: {
         category: "Props for SfContentCategory component",
         type: {

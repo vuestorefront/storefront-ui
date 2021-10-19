@@ -35,6 +35,9 @@ export default {
         type: {
           summary: "string",
         },
+        defaultValue: {
+          summary: "",
+        }
       },
       description: "Sets property name",
     },
@@ -45,6 +48,9 @@ export default {
         type: {
           summary: "string",
         },
+        defaultValue: {
+          summary: "",
+        }
       },
       description: "Sets property value",
     },

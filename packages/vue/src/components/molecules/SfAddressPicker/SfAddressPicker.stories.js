@@ -17,6 +17,9 @@ export default {
       control: "text",
       table: {
         category: "Props for main component",
+        defaultValue: {
+          summary: "",
+        },
       },
       description: "Sets address as chosen by its name",
       defaultValue: "",

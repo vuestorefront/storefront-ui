@@ -188,6 +188,9 @@ export default {
       control: "text",
       table: {
         category: "Props",
+        defaultValue: {
+          summary: "",
+        },
       },
       defaultValue: "",
       description: "*Deprecated. Link element tag. Use slot to replace content",
