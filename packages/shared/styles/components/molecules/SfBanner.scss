@@ -88,7 +88,7 @@
     min-height: var(--banner-height, 25rem);
     &__wrapper {
       pointer-events: none;
-      &::slotted(*) {
+      & > * {
         pointer-events: initial;
       }
     }
