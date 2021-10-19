@@ -3,8 +3,6 @@ const fs = require("fs");
 const glob = require("glob");
 const path = require("path");
 const sass = require("sass");
-const vueDocs = require("vue-docgen-api");
-const prettier = require("prettier");
 const pathComponentsScssRoot = path.resolve(
   __dirname,
   "../..",
@@ -22,28 +20,40 @@ const pathsVueComponents = glob.sync("*/*/Sf*.vue", {
 function updateComponentStories() {
   const sfComponents = [];
   for (const pathComponentVue of pathsVueComponents) {
-    let componentInfoFull;
+    let componentInfo;
     try {
-      componentInfoFull = getFullComponentInfo(pathComponentVue);
+      componentInfo = getComponentInfo(pathComponentVue);
     } catch (e) {
-      console.warn(`WARN: Skipping component docs generation: ${e.message}`);
+      console.warn(`WARN: Skipping component stories generation: ${e.message}`);
       continue;
     }
-    let resultStory = replacePlaceholdersInTemplate(
-      // TODO: change for proper files 
-      contentTemplateFile,
-      componentInfoFull
-    );
+    const componentPath = getComponentInfoFromPath(pathComponentVue)
+
+    const story = componentInfo.componentInfoFromStories;
+    const cssVariables = componentInfo.componentInfoFromScss.cssVariablesList;
+    const parametersIndexValue = componentInfo.componentInfoFromStories.indexOf('parameters:');
     
+    let resultStory = [
+      story.slice(0, parametersIndexValue + 13), 
+      `
+      {
+        cssprops: ${JSON.stringify(cssVariables)}
+      }
+      `,
+      story.slice(parametersIndexValue + 13)
+    ].join('');    
+    console.log(pathVueComponentsRoot, componentPath.componentType, componentPath.componentName, componentPath.sfComponentName);
     const targetFilepath = path.join(
-      pathsVueComponents,
-      componentInfoFull.componentName.toLowerCase() + ".stories.js"
+      pathVueComponentsRoot,
+      componentPath.componentType,
+      "Sf" + componentPath.componentName,
+      componentPath.sfComponentName + ".stories1.js"
     );
     const success = saveResultComponentStories(targetFilepath, resultStory);
     if (success) {
       sfComponents.push({
-        sfComponentName: componentInfoFull.sfComponentName,
-        componentName: componentInfoFull.componentName,
+        sfComponentName: componentInfo.sfComponentName,
+        componentName: componentInfo.componentName,
         pathComponentVue,
       });
     }
@@ -51,7 +61,7 @@ function updateComponentStories() {
 }
 
 
-function getFullComponentInfo(pathComponentVue) {
+function getComponentInfo(pathComponentVue) {
   const componentInfoFromPath = getComponentInfoFromPath(pathComponentVue);  
   const pathComponentStories = componentInfoFromPath.pathComponentStories;
   let componentInfoFromStories;
@@ -70,9 +80,9 @@ function getFullComponentInfo(pathComponentVue) {
     throw new Error(`Cannot read "${filenameComponentScss}": ${e.message}`);
   }
   return {
-    ...componentInfoFromPath,
-    ...componentInfoFromStories,
-    ...componentInfoFromScss,
+    componentInfoFromPath,
+    componentInfoFromStories,
+    componentInfoFromScss,
   };
 }
 
@@ -84,19 +94,15 @@ function getComponentInfoFromPath(pathComponentVue) {
   const componentName = componentFilename.replace(/Sf(.+)\.vue$/, "$1");
   const sfComponentName = "Sf" + componentName;
   const atomicType = componentDirname.replace(/\/.*/, "");
-  const storybookLink = `${atomicType}-${componentName}--common`.toLowerCase();
   return {
     componentName,
     sfComponentName,
-    pathComponentJs: pathComponentVue.replace(/(.+)\.vue$/, "$1.js"),
     pathComponentScss: sfComponentName + ".scss",
     pathComponentStories: pathComponentVue.replace(
       /(.+)\.vue$/,
       "$1.stories.js"
     ),
-    pathInternalComponents: path.join(componentDirname, "_internal"),
     componentType: atomicType,
-    storybookLink,
   };
 }
 
@@ -175,40 +181,9 @@ function pathInsideComponentsRoot(subPath) {
   return path.join(pathVueComponentsRoot, subPath);
 }
 
-
-// return component description 
-
-function parseComponentFile(contentComponentFile) {
-  const headlines = ["# component-description", "# storybook-iframe-height"];
-  const reString = headlines.join("\\n([\\s\\S]+?)\\s*?") + "\\n([\\s\\S]+)";
-  const regExp = new RegExp(reString, "m");
-  const reResult = regExp.exec(contentComponentFile);
-  if (!reResult) {
-    throw new Error(`RegExp didn't match: /${reString}/${regExp.flags}`);
-  }
-  if (reResult.length !== headlines.length + 1) {
-    throw new Error(
-      "Placeholder count in component file doesn't match " +
-        `(expected ${headlines.length}, found ${reResult.length - 1})`
-    );
-  }
-  return {
-    componentDescription: reResult[1],
-    storybookIFrameHeight: reResult[2].trim(),
-  };
-}
-
 // parse stories
 
 function parseStoriesFile(contentStoriesFile) {
-  // remove non-relevant parts before evaluating the story
-  const nonrelevantParts = [
-    /\.addDecorator\((.+)\)/gm,
-    /\.addParameters\((.+)\)/gm,
-  ];
-  for (const part of nonrelevantParts) {
-    contentStoriesFile = contentStoriesFile.replace(part, "");
-  }
   contentStoriesFile = contentStoriesFile.replace(
     /^(import [\s\S]+?;)$/gm,
     "`$1`;"
@@ -217,54 +192,33 @@ function parseStoriesFile(contentStoriesFile) {
     /components: {([\s\S]+?)},/gm,
     "components: `$1`,"
   );
-  // contentStoriesFile.writeFileSync
-
+  return contentStoriesFile;
 }
 
 
 // parse scss file with extract css variables !!!
 
 function parseScssFile(contentScssFile) {
-  const cssVariables = extractCssVariables(contentScssFile);
-  const cssVariablesList = {};
-  console.log(cssVariables[0]);
-  for (const cssVariable of cssVariables[0]) {
-    console.log(cssVariable[0]);
-    Object.defineProperty(
-      cssVariablesList, 
-      cssVariable[0].toString(), 
-       {
-        value: {
-           value: cssVariable[1].toString(),
-        }
-      },
-    );
-    console.log(cssVariablesList);
-  };  
+  const cssVariables = getVarsArray(contentScssFile);
+  let cssVariablesList = {};
+  for (let cssVariable of cssVariables[0]) {
+    Object.assign(cssVariablesList, {
+      [cssVariable[0]]: {
+        value: cssVariable[1],
+      }
+    })    
+  };
+  for (let cssVariable of cssVariables[1]) {
+    Object.assign(cssVariablesList, {
+      [cssVariable[0]]: {
+        value: cssVariable[1],
+        description: "Overridden other component's CSS variable",
+      }
+    })
+  };
   return {
     cssVariablesList,
   };
-}
-
-// extract css variables !!!
-
-function extractCssVariables(contentScssFile) {
-  // const mediaVars = getMediaArray(contentScssFile);
-  const varsArray = getVarsArray(contentScssFile);
-  // const headConfig = ["NAME", "DEFAULT"];
-  // Object.keys(mediaVars).length > 0
-  //   ? ["NAME", "DEFAULT", "DESKTOP VALUE", "DESCRIPTION"]
-  //   : ["NAME", "DEFAULT", "DESCRIPTION"];
-  let result = varsArray;
-  // varsArray[0].forEach((variable) => {
-  //   result += `- **\`${variable[0]}\`**\n`;
-  // });  
-  // result += `### Overridden other components CSS variables \n`;
-  // result += varsArray[1].length ? "" : `None. \n`;
-  // varsArray[1].forEach((variable) => {
-  //   result += `- **\`${variable[0]}\`**\n`;
-  // });
-  return result;
 }
 
 // getting css vars 
@@ -314,12 +268,11 @@ function getVarsArray(file) {
     }
     variables.push(array);
   });
-
   return variables;
 }
 
 
-// save result in md
+// save result in story
 
 function saveResultComponentStories(targetFilepath, resultStory) {
   const pathWithoutFilename = path.dirname(targetFilepath);
