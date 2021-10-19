@@ -20,7 +20,6 @@ const pathsVueComponents = glob.sync("*/*/Sf*.vue", {
 
 
 function updateComponentStories() {
-  const contentTemplateFile = fs.readFileSync(pathTemplateFile, "utf8");
   const sfComponents = [];
   for (const pathComponentVue of pathsVueComponents) {
     let componentInfoFull;
@@ -171,6 +170,12 @@ function pathInsideComponentsScssRoot(componentInfo) {
   return path.join(pathComponentsScssRoot, namePathInsideComponents);
 }
 
+
+function pathInsideComponentsRoot(subPath) {
+  return path.join(pathVueComponentsRoot, subPath);
+}
+
+
 // return component description 
 
 function parseComponentFile(contentComponentFile) {
@@ -204,8 +209,6 @@ function parseStoriesFile(contentStoriesFile) {
   for (const part of nonrelevantParts) {
     contentStoriesFile = contentStoriesFile.replace(part, "");
   }
-  // prevent the engine from searching actual components by turning the
-  // imports and components list into strings
   contentStoriesFile = contentStoriesFile.replace(
     /^(import [\s\S]+?;)$/gm,
     "`$1`;"
@@ -214,101 +217,8 @@ function parseStoriesFile(contentStoriesFile) {
     /components: {([\s\S]+?)},/gm,
     "components: `$1`,"
   );
-  // Next, we create a JS closure where we define functions which the storybook
-  // definition file expects, e.g. `number`, `text` and the complete `storiesOf`
-  // function object with its `add` method.
-  // Then, we `eval()` the whole .stories-file. It will call our overridden
-  // functions so we can gather the information we need.
-  function evalStoriesFile() {
-    /* eslint-disable no-unused-vars */
-    // some stories use our icons, sizes, etc. so make them available
-    const { icons, sizes, colors } = getSfUiConstants();
-    const dataToggleMixin = (dataKey) => ({
-      data() {
-        return {
-          [dataKey]: true,
-        };
-      },
-    });
-    const visibilityToggleMixin = dataToggleMixin("visible");
-    let storyComponents = "";
-    let storyTemplate = "";
-    let storyData = {};
-    const extractComponents = (data) => (storyComponents = data);
-    const extractTemplate = (template) => (storyTemplate = template);
-    const extractData = (data) => (storyData = data);
-    const extractMixinsData = (data) => (storyData = { ...storyData, ...data });
-    // ignore options: we only use it for CSS modifiers
-    const options = () => null;
-    // store all props
-    const storyProps = new Map();
-    const object = (name, value) => storyProps.set(name, value);
-    const array = (name, value) => storyProps.set(name, value);
-    const number = (name, value) => storyProps.set(name, value);
-    const text = (name, value) => storyProps.set(name, value);
-    const boolean = (name, value) => storyProps.set(name, value);
-    const color = (name, value) => storyProps.set(name, value);
-    const select = (name, _, value) => storyProps.set(name, value);
-    function storiesOf() {
-      // we need a returnable function object so all chained `.add()` calls work
-      const functionObject = {
-        add: function (storyName, storyFn) {
-          // use only "common" stories
-          if (storyName.toLowerCase() !== "common") {
-            return functionObject;
-          }
-          // call the "storyFn" which will call our overridden function definitions from the outer closure for all props
-          const storyFnObject = storyFn();
-          // extract other information directly from the evaluated storyFn
-          const trimmedComponents = storyFnObject.components.replace(/\s/g, "");
-          extractComponents(trimmedComponents);
-          extractTemplate(storyFnObject.template);
-          storyFnObject.data && extractData(storyFnObject.data());
-          (storyFnObject.mixins || []).forEach((mixin) =>
-            extractMixinsData(mixin.data())
-          );
-          // allow chaining
-          return functionObject;
-        },
-      };
-      return functionObject;
-    }
-    /* eslint-enable no-unused-vars */
-    eval(contentStoriesFile);
-    return { storyComponents, storyTemplate, storyData, storyProps };
-  }
-  let {
-    storyComponents,
-    storyTemplate,
-    storyData,
-    storyProps,
-  } = evalStoriesFile();
-  /* insert story data into code block */
-  // generate imports for used components
-  const storyImportsString = storyComponents
-    .split(",")
-    .map((component) => `import { ${component} } from "@storefront-ui/vue";`)
-    .join("\n");
-  // merge props and data from the story into a single data object
-  const componentData = [];
-  for (const [k, v] of Object.entries(storyData)) {
-    componentData.push(`${k}: ${JSON.stringify(v)}`);
-  }
-  for (const [k, v] of storyProps.entries()) {
-    componentData.push(`${k}: ${JSON.stringify(v)}`);
-  }
-  const componentDataString = componentData.join(",\n");
-  const codeBlock = getCommonUsageCodeBlock(
-    storyTemplate,
-    storyImportsString,
-    storyComponents,
-    componentDataString
-  );
-  const prettified = prettier.format(codeBlock, { parser: "vue" });
-  const codeBlockMd = `\`\`\`html\n${prettified}\`\`\``;
-  return {
-    storybookCode: codeBlockMd,
-  };
+  // contentStoriesFile.writeFileSync
+
 }
 
 
@@ -316,8 +226,23 @@ function parseStoriesFile(contentStoriesFile) {
 
 function parseScssFile(contentScssFile) {
   const cssVariables = extractCssVariables(contentScssFile);
+  const cssVariablesList = {};
+  console.log(cssVariables[0]);
+  for (const cssVariable of cssVariables[0]) {
+    console.log(cssVariable[0]);
+    Object.defineProperty(
+      cssVariablesList, 
+      cssVariable[0].toString(), 
+       {
+        value: {
+           value: cssVariable[1].toString(),
+        }
+      },
+    );
+    console.log(cssVariablesList);
+  };  
   return {
-    cssVariables,
+    cssVariablesList,
   };
 }
 
@@ -330,30 +255,27 @@ function extractCssVariables(contentScssFile) {
   // Object.keys(mediaVars).length > 0
   //   ? ["NAME", "DEFAULT", "DESKTOP VALUE", "DESCRIPTION"]
   //   : ["NAME", "DEFAULT", "DESCRIPTION"];
-  let result = "";
-  varsArray[0].forEach((variable) => {
-    result += `- **\`${variable[0]}\`**\n`;
-  });
-  result += `### Overridden other components CSS variables \n`;
-  result += varsArray[1].length ? "" : `None. \n`;
-  varsArray[1].forEach((variable) => {
-    result += `- **\`${variable[0]}\`**\n`;
-  });
+  let result = varsArray;
+  // varsArray[0].forEach((variable) => {
+  //   result += `- **\`${variable[0]}\`**\n`;
+  // });  
+  // result += `### Overridden other components CSS variables \n`;
+  // result += varsArray[1].length ? "" : `None. \n`;
+  // varsArray[1].forEach((variable) => {
+  //   result += `- **\`${variable[0]}\`**\n`;
+  // });
   return result;
 }
 
 // getting css vars 
 
 function getVarsArray(file) {
-  const webpackGlidePath = "~" + nodePathSimplebarIncludes;
-  let contentWithFixedImports = file.replace(webpackGlidePath, "");
-  contentWithFixedImports = contentWithFixedImports.replace(
-    "../../helpers",
-    "../helpers"
+  let contentWithFixedImports = file.replace(
+    /^(@import [\s\S]+?;)$/gm,
+    ""
   );
   const { css } = sass.renderSync({
-    data: file,
-    includePaths: pathsSassIncludes,
+    data: contentWithFixedImports,
     outputStyle: "expanded",
   });
   const text = css.toString();
