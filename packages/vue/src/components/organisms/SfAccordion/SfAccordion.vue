@@ -49,6 +49,7 @@ export default {
   data() {
     return {
       openHeader: this.open,
+      internalMultiple: this.multiple,
     };
   },
   computed: {
@@ -90,7 +91,7 @@ export default {
         }
         // <- TODO remove in 1.0.0
         if (this.open === "all") {
-          this.multiple = true;
+          this.internalMultiple = true;
           this.openHeader = this.$children.map((child) => child.header);
         }
         this.$children.forEach((child) => {
@@ -101,7 +102,7 @@ export default {
       }
     },
     toggleHandler(slotId) {
-      if (!this.multiple && !Array.isArray(this.openHeader)) {
+      if (!this.internalMultiple && !Array.isArray(this.openHeader)) {
         this.$children.forEach((child) => {
           if (child._uid === slotId) {
             child.isOpen = !child.isOpen;

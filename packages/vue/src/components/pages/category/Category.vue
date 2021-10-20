@@ -669,7 +669,6 @@ export default {
     };
   },
   methods: {
-    updateFilter() {},
     clearAllFilters() {
       const filters = Object.keys(this.filters);
       filters.forEach((name) => {
