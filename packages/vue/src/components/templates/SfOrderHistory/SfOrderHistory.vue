@@ -124,5 +124,5 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import "~@storefront-ui/shared/styles/components/templates/my-account/SfOrderHistory.scss";
+@import "~@storefront-ui/shared/styles/components/templates/SfOrderHistory.scss";
 </style>

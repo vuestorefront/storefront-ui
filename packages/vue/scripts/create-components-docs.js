@@ -14,8 +14,7 @@ const pathsVueComponents = glob.sync("*/*/Sf*.vue", {
 });
 
 
-// getting component info from files
-
+// updates stories with css vars info
 
 function updateComponentStories() {
   const sfComponents = [];
@@ -30,19 +29,28 @@ function updateComponentStories() {
     const componentPath = getComponentInfoFromPath(pathComponentVue)
 
     const story = componentInfo.componentInfoFromStories;
+    console.log(typeof story);
     const cssVariables = componentInfo.componentInfoFromScss.cssVariablesList;
     const parametersIndexValue = componentInfo.componentInfoFromStories.indexOf('parameters:');
-    
+    let cssVariablesFixedNames = {}
+    for (let cssVariable in cssVariables) {
+      Object.assign(cssVariablesFixedNames,
+        {
+          [cssVariable.slice(2)]: {
+          ...cssVariables[cssVariable]
+          }
+        }
+      );
+    };
+
     let resultStory = [
       story.slice(0, parametersIndexValue + 13), 
       `
-      {
-        cssprops: ${JSON.stringify(cssVariables)}
-      }
+        cssprops: ${JSON.stringify(cssVariablesFixedNames)}
       `,
       story.slice(parametersIndexValue + 13)
-    ].join('');    
-    console.log(pathVueComponentsRoot, componentPath.componentType, componentPath.componentName, componentPath.sfComponentName);
+    ].join(''); 
+    
     const targetFilepath = path.join(
       pathVueComponentsRoot,
       componentPath.componentType,
@@ -221,15 +229,28 @@ function parseScssFile(contentScssFile) {
   };
 }
 
+const nodePathSimplebarIncludes = "simplebar/dist/";
+const pathsSassIncludes = [
+  path.resolve(__dirname, "../..", "shared/styles/helpers/"),
+  path.resolve(
+    __dirname,
+    "../../..",
+    "node_modules/" + nodePathSimplebarIncludes
+  ),
+];
+
 // getting css vars 
 
 function getVarsArray(file) {
-  let contentWithFixedImports = file.replace(
-    /^(@import [\s\S]+?;)$/gm,
-    ""
+  const webpackGlidePath = "~" + nodePathSimplebarIncludes;
+  let contentWithFixedImports = file.replace(webpackGlidePath, "");
+  contentWithFixedImports = contentWithFixedImports.replace(
+    "../../helpers",
+    "../helpers"
   );
   const { css } = sass.renderSync({
     data: contentWithFixedImports,
+    includePaths: pathsSassIncludes,
     outputStyle: "expanded",
   });
   const text = css.toString();
