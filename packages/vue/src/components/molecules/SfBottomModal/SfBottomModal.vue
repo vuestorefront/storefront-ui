@@ -6,7 +6,7 @@
       @click="close"
     />
     <SfTransition :transition="transition">
-      <nav
+      <div
         v-show="isOpen"
         role="dialog"
         aria-modal="true"
@@ -41,7 +41,7 @@
             >Cancel</SfButton
           >
         </slot>
-      </nav>
+      </div>
     </SfTransition>
   </div>
 </template>
