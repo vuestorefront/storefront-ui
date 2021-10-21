@@ -3,19 +3,29 @@ import { SfColor } from "@storefront-ui/vue";
 export default {
   title: "Components/Atoms/Color",
   component: SfColor,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "The color picker component button. It's Vue 2 functional component.",
+      },
+    },
+  },
   argTypes: {
     color: {
       control: "color",
       table: {
         category: "Props",
       },
+      description: "Sets picker color",
     },
     hasBadge: {
       control: "boolean",
-      defaultValue: false,
+      defaultValue: true,
       table: {
         category: "Props",
       },
+      description: "Use badge for selected state on smartphone mode",
     },
     classes: {
       control: {
@@ -25,6 +35,7 @@ export default {
       table: {
         category: "CSS Modifiers",
       },
+      description: "CSS classes to modify component styling",
     },
     selected: {
       control: "boolean",
@@ -32,6 +43,7 @@ export default {
       table: {
         category: "Props",
       },
+      description: "Sets select value",
     },
     onClick: { action: "toggle selected", table: { category: "Events" } },
   },

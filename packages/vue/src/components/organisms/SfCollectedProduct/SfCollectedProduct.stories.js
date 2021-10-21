@@ -2,6 +2,14 @@ import { SfCollectedProduct } from "@storefront-ui/vue";
 export default {
   title: "Components/Organisms/CollectedProduct",
   component: SfCollectedProduct,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "Tile component with image, descriptions and actions for collected product.",
+      },
+    },
+  },
   argTypes: {
     classes: {
       control: {
@@ -11,15 +19,20 @@ export default {
       table: {
         category: "CSS Modifiers",
       },
+      description: "CSS classes to modify component styling",
     },
     image: {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: "string",
+        },
         defaultValue: {
           summary: "",
         },
       },
+      description: "The url of the product image.",
     },
     imageWidth: {
       control: "number",
@@ -29,6 +42,8 @@ export default {
           summary: 140,
         },
       },
+      defaultValue: 140,
+      description: "Product image width, without unit",
     },
     imageHeight: {
       control: "number",
@@ -38,36 +53,63 @@ export default {
           summary: 200,
         },
       },
+      defaultValue: 200,
+      description: "Product image height, without unit",
     },
     title: {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: "string",
+        },
         defaultValue: {
           summary: "",
         },
       },
+      description: "Product title",
     },
     regularPrice: {
-      control: "string",
+      control: "number",
       table: {
         category: "Props",
+        type: {
+          summary: ["string", "number"],
+        },
+        defaultValue: {
+          summary: "null",
+        },
       },
+      defaultValue: "",
+      description: "Product regular price",
     },
     specialPrice: {
-      control: "string",
+      control: "number",
       table: {
         category: "Props",
+        type: {
+          summary: ["string", "number"],
+        },
+        defaultValue: {
+          summary: "null",
+        },
       },
+      defaultValue: "",
+      description: "Product special price",
     },
     qty: {
       control: "number",
       table: {
         category: "Props",
+        type: {
+          summary: ["string", "number"],
+        },
         defaultValue: {
           summary: 1,
         },
       },
+      defaultValue: 1,
+      description: "Selected quantity",
     },
     link: {
       control: "text",
@@ -77,6 +119,33 @@ export default {
           summary: "",
         },
       },
+      defaultValue: "",
+      description: "Link to product",
+    },
+    "v-model": {
+      table: {
+        disable: true,
+      },
+    },
+    hasMoreActions: {
+      control: "boolean",
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: true,
+        },
+      },
+      description: "More actions button visibility",
+    },
+    hasRemove: {
+      control: "boolean",
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: true,
+        },
+      },
+      description: "Remove button visibility",
     },
     hasMoreActions: {
       control: "boolean",

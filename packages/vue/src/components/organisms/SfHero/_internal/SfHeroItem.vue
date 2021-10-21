@@ -1,15 +1,15 @@
 <template>
   <li class="glide__slide sf-hero-item" :style="style" data-testid="hero-item">
     <component :is="wrapper" class="sf-hero-item__wrapper" :link="link">
-      <!--@slot hero item subtitle. Slot content will replace default <h2> tag-->
+      <!--@slot hero item subtitle. Slot content will replace default <h2> tag (in SfHeroItem component)-->
       <slot name="subtitle" v-bind="{ subtitle }">
         <div v-if="subtitle" class="sf-hero-item__subtitle">{{ subtitle }}</div>
       </slot>
-      <!--@slot hero item title. Slot content will replace default <h1> tag-->
+      <!--@slot hero item title. Slot content will replace default <h1> tag (in SfHeroItem component) -->
       <slot name="title" v-bind="{ title }">
         <h1 v-if="title" class="sf-hero-item__title">{{ title }}</h1>
       </slot>
-      <!--@slot Call to action section. Slot content will replace default SfButton component-->
+      <!--@slot Call to action section. Slot content will replace default SfButton component (in SfHeroItem component) -->
       <slot name="call-to-action" v-bind="{ buttonText, link }">
         <div v-if="buttonText && !mobileView" class="sf-hero-item__button">
           <SfButton :link="link" data-testid="hero-cta-button">
@@ -19,7 +19,7 @@
       </slot>
       <!--@slot hero item withImgTag.
       Slot dedicated to img tags or other components with this tag (e.g. SfImage, SfCimage) that can be used as images for background.
-      If you want to use this slot, make sure that background and image props are NOT provided.-->
+      If you want to use this slot, make sure that background and image props are NOT provided (in SfHeroItem component). -->
       <slot name="withImgTag" />
     </component>
   </li>
@@ -38,32 +38,26 @@ export default {
     SfLink,
   },
   props: {
-    /** Hero item title */
     title: {
       type: String,
       default: "",
     },
-    /** Hero item subtitle (at the top) */
     subtitle: {
       type: String,
       default: "",
     },
-    /** text that will be displayed inside the button. You can replace the button  with "call-to-action" slot */
     buttonText: {
       type: String,
       default: "",
     },
-    /** Background color */
     background: {
       type: String,
       default: "",
     },
-    /** Background image path */
     image: {
       type: [Object, String],
       default: "",
     },
-    /** link to be used in button if necessary */
     link: {
       type: String,
       default: "",

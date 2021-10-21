@@ -95,80 +95,47 @@ export default {
     focus,
   },
   props: {
-    /**
-     * Url of selected tileserver
-     */
     tileServerUrl: {
       type: String,
       default:
         "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}",
     },
-    /**
-     * Attribution line of selected tileserver
-     */
     tileServerAttribution: {
       type: String,
       default: "Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ",
     },
-    /**
-     * Initial center of the map, overridden when the user position is captured, supports sync modifier
-     */
     center: {
       type: [Array, Object],
       default: () => [0, 0],
     },
-    /**
-     * Initial zoom of the map
-     */
     zoom: {
       type: Number,
       default: 6,
     },
-    /**
-     * Max zoom allowed, consider tileserver limitation when setting this
-     */
     maxZoom: {
       type: Number,
       default: 16,
     },
-    /**
-     * Size of the icon [width, height]
-     */
     markerIconSize: {
       type: Array,
       default: () => [21, 28],
     },
-    /**
-     *  Position of the anchor in the icon [x, y]
-     */
     markerIconAnchor: {
       type: Array,
       default: () => [10.5, 0],
     },
-    /**
-     * Options to pass to leaflet map
-     */
     mapOptions: {
       type: Object,
       default: () => ({}),
     },
-    /**
-     * Options to pass to leaflet tile-layer
-     */
     tileLayerOptions: {
       type: Object,
       default: () => ({}),
     },
-    /**
-     * Options to pass to leaflet marker
-     */
     markerOptions: {
       type: Object,
       default: () => ({}),
     },
-    /**
-     * Zoom to be set when centering map on clicked store
-     */
     flyToStoreZoom: {
       type: Number,
       default: 15,

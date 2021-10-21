@@ -18,16 +18,10 @@ export default {
     SfIcon,
   },
   props: {
-    /**
-     * Message that will be displayed in Alert.
-     */
     message: {
       type: String,
       default: "",
     },
-    /**
-     * Alert type ("secondary", "info", "success", "warning", "danger"). Check "Knobs" section to see how they look like.
-     */
     type: {
       type: String,
       default: "secondary",

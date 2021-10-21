@@ -78,51 +78,30 @@ export default {
     SfHeading,
   },
   props: {
-    /**
-     * The sidebar's title
-     */
     title: {
       type: String,
       default: "",
     },
-    /**
-     * The sidebar's subtitle
-     */
     subtitle: {
       type: String,
       default: "",
     },
-    /**
-     * The heading's level
-     */
     headingLevel: {
       type: Number,
       default: 3,
     },
-    /**
-     * The close button
-     */
     button: {
       type: Boolean,
       default: true,
     },
-    /**
-     * The sidebar's visibility
-     */
     visible: {
       type: Boolean,
       default: false,
     },
-    /**
-     * The overlay's visibility
-     */
     overlay: {
       type: Boolean,
       default: true,
     },
-    /**
-     * If true clicking outside will not dismiss the sidebar
-     */
     persistent: {
       type: Boolean,
       default: false,

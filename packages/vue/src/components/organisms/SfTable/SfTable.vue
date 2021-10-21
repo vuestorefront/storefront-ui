@@ -1,5 +1,6 @@
 <template>
   <table class="sf-table">
+    <!-- @slot Slots in every component are available to fill them with proper content -->
     <slot />
   </table>
 </template>
