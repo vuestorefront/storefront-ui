@@ -3,6 +3,47 @@ export default {
   title: "Components/Molecules/Steps",
   component: SfSteps,
   parameters: {
+    cssprops: {
+      "steps-step-color": {
+        value: "var(--c-primary)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "steps-step-cursor": {
+        value: "default",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "step-font": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-weight--normal": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "steps-border-width": {
+        value: "0 0 2px 0",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "steps-step-padding": {
+        value: "0 0 var(--spacer-xs) 0",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-size--base": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "steps-step-after-background": {
+        value: "var(--c-primary)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+
     docs: {
       description: {
         component:

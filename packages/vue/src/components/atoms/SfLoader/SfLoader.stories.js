@@ -4,6 +4,11 @@ export default {
   title: "Components/Atoms/Loader",
   component: SfLoader,
   parameters: {
+    cssprops: {
+      "loader-overlay-background": { value: "var(--c-white)", control: "text" },
+      "loader-spinner-stroke": { value: "var(--c-primary)", control: "text" },
+    },
+
     docs: {
       description: {
         component:

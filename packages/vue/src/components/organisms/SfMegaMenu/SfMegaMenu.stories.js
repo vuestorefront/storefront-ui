@@ -60,6 +60,95 @@ export default {
   title: "Components/Organisms/MegaMenu",
   component: SfMegaMenu,
   parameters: {
+    cssprops: {
+      "mega-menu-column-header-display": { value: "flex", control: "text" },
+      "mega-menu-column-header-padding": {
+        value: "var(--spacer-sm)",
+        control: "text",
+      },
+      "mega-menu-column-header-margin": { value: "0", control: "text" },
+      "mega-menu-column-header-border": {
+        value:
+          "var(--mega-menu-column-header-border-style, solid) var(--mega-menu-column-header-border-color, var(--c-light))",
+        control: "text",
+      },
+      "mega-menu-column-header-border-width": {
+        value: "0 0 1px 0",
+        control: "text",
+      },
+      "mega-menu-column-content-position": {
+        value: "absolute",
+        control: "text",
+      },
+      "mega-menu-column-content-top": { value: "0", control: "text" },
+      "mega-menu-column-content-display": { value: "none", control: "text" },
+      "mega-menu-column-content-transform": {
+        value: "translateX(100%)",
+        control: "text",
+      },
+      "list-item-padding": {
+        value:
+          "var(--spacer-sm) var(--spacer-sm) var(--spacer-sm) var(--spacer-lg)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "list-item-border-width": {
+        value: "0 0 1px 0",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "menu-item-font": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-size--sm": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "list-item-margin": {
+        value: "var(--spacer-sm) 0",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-size--base": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-weight--medium": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "menu-item-text-transform": {
+        value: "uppercase",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-weight--normal": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "mega-menu-height": {
+        value: "auto",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-weight--bold": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "mega-menu-content-transform": {
+        value: "translateX(-100%)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "mega-menu-position": {
+        value: "absolute",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+
     docs: {
       description: {
         component:

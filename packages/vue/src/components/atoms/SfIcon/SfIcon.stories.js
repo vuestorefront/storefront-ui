@@ -8,6 +8,20 @@ export default {
   title: "Components/Atoms/Icon",
   component: SfIcon,
   parameters: {
+    cssprops: {
+      "icon-position": { value: "relative", control: "text" },
+      "icon-width": { value: "var(--icon-size, 1.625rem)", control: "text" },
+      "icon-height": { value: "var(--icon-size, 1.625rem)", control: "text" },
+      "icon-color": { value: "var(--c-black)", control: "text" },
+      "icon-badge-top": { value: "0", control: "text" },
+      "icon-badge-right": { value: "0", control: "text" },
+      "icon-size": {
+        value: "1rem",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+
     docs: {
       description: {
         component:

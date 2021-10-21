@@ -4,6 +4,48 @@ export default {
   title: "Components/Templates/PersonalDetails",
   component: SfPersonalDetails,
   parameters: {
+    cssprops: {
+      "heading-title-font-weight": {
+        value: "var(--font-weight--bold)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "heading-padding": {
+        value: "var(--spacer-xl) 0 var(--spacer-base)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "heading-title-font-size": {
+        value: "var(--h3-font-size)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-width": {
+        value: "25rem",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "characteristic-description-font-size": {
+        value: "var(--font-size--base)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "input-padding": {
+        value: "var(--spacer-sm) 0 var(--spacer-2xs) 0",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "checkbox-font-family": {
+        value: "var(--font-family--primary)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "checkbox-font-size": {
+        value: "var(--font-size--base)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
     docs: {
       description: {
         component:

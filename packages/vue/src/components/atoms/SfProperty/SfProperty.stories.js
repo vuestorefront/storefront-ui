@@ -4,6 +4,49 @@ export default {
   title: "Components/Atoms/Property",
   component: SfProperty,
   parameters: {
+    cssprops: {
+      "property-color": { value: "var(--c-text)", control: "text" },
+      "property-name-margin": {
+        value: "0 var(--spacer-xs) 0 0",
+        control: "text",
+      },
+      "property-name-color": {
+        value: "var(--c-secondary-variant)",
+        control: "text",
+      },
+      "property-name-text-transform": { value: "", control: "text" },
+      "property-name-font": { value: "", control: "text" },
+      "property-name-font-weight": {
+        value: "var(--font-weight--normal)",
+        control: "text",
+      },
+      "property-name-font-size": {
+        value: "var(--font-size--base)",
+        control: "text",
+      },
+      "property-name-font-line-height": { value: "1.2", control: "text" },
+      "property-name-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+      "property-name-content": { value: '":"', control: "text" },
+      "property-value-color": { value: "", control: "text" },
+      "property-value-font": { value: "", control: "text" },
+      "property-value-font-weight": {
+        value: "var(--font-weight--semibold)",
+        control: "text",
+      },
+      "property-value-font-size": {
+        value: "var(--font-size--base)",
+        control: "text",
+      },
+      "property-value-font-line-height": { value: "1.2", control: "text" },
+      "property-value-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+    },
+
     docs: {
       description: {
         component:
@@ -37,7 +80,7 @@ export default {
         },
         defaultValue: {
           summary: "",
-        }
+        },
       },
       description: "Sets property name",
     },
@@ -50,7 +93,7 @@ export default {
         },
         defaultValue: {
           summary: "",
-        }
+        },
       },
       description: "Sets property value",
     },

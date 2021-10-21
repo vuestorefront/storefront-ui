@@ -4,6 +4,14 @@ export default {
   title: "Components/Atoms/Image",
   component: SfImage,
   parameters: {
+    cssprops: {
+      "image-overlay-opacity": {
+        value: "1",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+
     docs: {
       description: {
         component:

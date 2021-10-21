@@ -3,6 +3,60 @@ export default {
   title: "Components/Molecules/SearchBar",
   component: SfSearchBar,
   parameters: {
+    cssprops: {
+      "search-bar-display": { value: "flex", control: "text" },
+      "search-bar-background": { value: "", control: "text" },
+      "search-bar-padding": { value: "", control: "text" },
+      "search-bar-width": { value: "", control: "text" },
+      "search-bar-height": { value: "2rem", control: "text" },
+      "search-bar-button-right": { value: "0", control: "text" },
+      "search-bar-icon-display": { value: "block", control: "text" },
+      "search-bar-input-text-align": { value: "", control: "text" },
+      "search-bar-font": { value: "", control: "text" },
+      "search-bar-font-weight": {
+        value: "var(--font-weight--normal)",
+        control: "text",
+      },
+      "search-bar-font-size": {
+        value: "var(--font-size--base)",
+        control: "text",
+      },
+      "search-bar-font-line-height": { value: "1.6", control: "text" },
+      "search-bar-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+      "search-bar-border": {
+        value:
+          "var(--search-bar-border-style, solid) var(--search-bar-border-color, var(--c-dark-variant))",
+        control: "text",
+      },
+      "search-bar-border-width": { value: "0 0 2px 0", control: "text" },
+      "search-bar-placeholder-color": {
+        value: "var(--c-gray)",
+        control: "text",
+      },
+      "search-bar-placeholder-transition": {
+        value: "color 0.2s ease-in",
+        control: "text",
+      },
+      "search-bar-placeholder-color-focus": {
+        value: "transparent",
+        control: "text",
+      },
+      "search-bar-icon-flex-direction": { value: "row", control: "text" },
+      "icon-size": {
+        value: "1.25rem",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "search-bar-border-color": {
+        value: "var(--c-primary)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+
     docs: {
       description: {
         component: "Search bar component with placeholder text and icon.",

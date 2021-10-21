@@ -5,6 +5,88 @@ export default {
   component: SfTextarea,
   parameters: {
     cssprops: {
+      "textarea-position": { value: "relative", control: "text" },
+      "textarea-resize": { value: "auto", control: "text" },
+      "textarea-color": { value: "", control: "text" },
+      "textarea-font": { value: "", control: "text" },
+      "textarea-font-weight": {
+        value: "var(--font-weight--normal)",
+        control: "text",
+      },
+      "textarea-font-size": {
+        value: "var(--font-size--base)",
+        control: "text",
+      },
+      "textarea-font-line-height": { value: "1", control: "text" },
+      "textarea-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+      "textarea-height": { value: "", control: "text" },
+      "textarea-width": { value: "", control: "text" },
+      "textarea-padding": { value: "var(--spacer-sm)", control: "text" },
+      "textarea-border": {
+        value:
+          "var(--textarea-border-style, solid) var(--textarea-border-color, var(--c-link))",
+        control: "text",
+      },
+      "textarea-border-width": { value: "1px", control: "text" },
+      "textarea-label-font": { value: "", control: "text" },
+      "textarea-label-font-weight": {
+        value: "var(--font-weight--normal)",
+        control: "text",
+      },
+      "textarea-label-font-size": {
+        value: "var(--font-size--base)",
+        control: "text",
+      },
+      "textarea-label-font-line-height": { value: "1", control: "text" },
+      "textarea-label-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+      "textarea-label-position": { value: "absolute", control: "text" },
+      "textarea-label-padding": { value: "var(--spacer-sm)", control: "text" },
+      "textarea-label-top": { value: "", control: "text" },
+      "textarea-label-bottom": { value: "", control: "text" },
+      "textarea-label-left": { value: "0", control: "text" },
+      "textarea-label-right": { value: "", control: "text" },
+      "textarea-label-transform": { value: "", control: "text" },
+      "textarea-label-color": { value: "var(--c-link)", control: "text" },
+      "textarea-label-transition": {
+        value: "transform 150ms linear, font-size 150ms linear",
+        control: "text",
+      },
+      "textarea-label-required": { value: "", control: "text" },
+      "textarea-error-message-color": {
+        value: "var(--c-danger)",
+        control: "text",
+      },
+      "textarea-error-message-font": { value: "", control: "text" },
+      "textarea-error-message-font-weight": {
+        value: "var(--font-weight--medium)",
+        control: "text",
+      },
+      "textarea-error-message-font-size": {
+        value: "var(--font-size--xs)",
+        control: "text",
+      },
+      "textarea-error-message-font-line-height": {
+        value: "1.2",
+        control: "text",
+      },
+      "textarea-error-message-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+      "textarea-border-color": {
+        value: "var(--c-primary)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+
+    cssprops: {
       "textarea-position": { value: "relative" },
       "textarea-resize": { value: "auto" },
       "textarea-color": { value: "" },

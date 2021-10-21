@@ -10,6 +10,100 @@ export default {
   title: "Components/Molecules/BottomModal",
   component: SfBottomModal,
   parameters: {
+    cssprops: {
+      "bottom-modal-position": { value: "fixed", control: "text" },
+      "bottom-modal-width": { value: "100%", control: "text" },
+      "bottom-modal-top": { value: "", control: "text" },
+      "bottom-modal-bottom": { value: "0", control: "text" },
+      "bottom-modal-right": { value: "0", control: "text" },
+      "bottom-modal-transform": { value: "", control: "text" },
+      "bottom-modal-container-padding": { value: "", control: "text" },
+      "bottom-modal-background": { value: "var(--c-white)", control: "text" },
+      "bottom-modal-container-font": { value: "", control: "text" },
+      "bottom-modal-container-font-weight": {
+        value: "var(--font-weight--light)",
+        control: "text",
+      },
+      "bottom-modal-container-font-size": {
+        value: "var(--font-size--base)",
+        control: "text",
+      },
+      "bottom-modal-container-font-line-height": {
+        value: "1.6",
+        control: "text",
+      },
+      "bottom-modal-container-font-family": {
+        value: "var(--font-family--primary)",
+        control: "text",
+      },
+      "bottom-modal-height": { value: "", control: "text" },
+      "bottom-modal-title-padding": {
+        value: "var(--spacer-sm) var(--spacer-lg)",
+        control: "text",
+      },
+      "bottom-modal-title-color": { value: "var(--c-text)", control: "text" },
+      "bottom-modal-title-text-align": { value: "center", control: "text" },
+      "characteristic-description-font": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-size--base": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-weight--semibold": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "list-item-margin": {
+        value: "0 var(--spacer-sm)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-text-transform": {
+        value: "capitalize",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-size--sm": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "heading-title-font": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-weight--normal": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-size--xs": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-weight--bold": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-display": {
+        value: "none",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-background": {
+        value: "var(--_c-light-primary)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-color": {
+        value: "var(--c-text-muted)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+
     docs: {
       inlineStories: false,
       iframeHeight: "300px",
