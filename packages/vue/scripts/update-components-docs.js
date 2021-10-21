@@ -29,7 +29,6 @@ function updateComponentStories() {
     const componentPath = getComponentInfoFromPath(pathComponentVue)
 
     const story = componentInfo.componentInfoFromStories;
-    console.log(typeof story);
     const cssVariables = componentInfo.componentInfoFromScss.cssVariablesList;
     const parametersIndexValue = componentInfo.componentInfoFromStories.indexOf('parameters:');
     let cssVariablesFixedNames = {}
@@ -46,7 +45,7 @@ function updateComponentStories() {
     let resultStory = [
       story.slice(0, parametersIndexValue + 13), 
       `
-        cssprops: ${JSON.stringify(cssVariablesFixedNames)}
+        cssprops: ${JSON.stringify(cssVariablesFixedNames)},
       `,
       story.slice(parametersIndexValue + 13)
     ].join(''); 
@@ -67,7 +66,6 @@ function updateComponentStories() {
     }
   }
 }
-
 
 function getComponentInfo(pathComponentVue) {
   const componentInfoFromPath = getComponentInfoFromPath(pathComponentVue);  
@@ -117,12 +115,10 @@ function getComponentInfoFromPath(pathComponentVue) {
 // get component info from Stories
 
 function getComponentInfoFromStories(pathComponentStories) {
-  // there is no usage section for internal components
   if (pathComponentStories.includes("_internal")) {
     return null;
   }
   const contentStoriesFile = readComponentStories(pathComponentStories);
-  console.log(contentStoriesFile);
   if (!contentStoriesFile) {
     console.warn(
       `WARN: Stories file (${pathComponentStories}) not found. The common usage section in the target Markdown file will render a fallback text.`
@@ -184,7 +180,6 @@ function pathInsideComponentsScssRoot(componentInfo) {
   );
   return path.join(pathComponentsScssRoot, namePathInsideComponents);
 }
-
 
 function pathInsideComponentsRoot(subPath) {
   return path.join(pathVueComponentsRoot, subPath);
