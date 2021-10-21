@@ -48,23 +48,14 @@ export default {
     clickOutside,
   },
   props: {
-    /**
-     * Dropdown is open
-     */
     isOpen: {
       type: Boolean,
       default: false,
     },
-    /**
-     * Title for dropdown content, visible on mobile.
-     */
     title: {
       type: String,
       default: "",
     },
-    /**
-     * If true clicking outside will not dismiss the dropdown
-     */
     persistent: {
       type: Boolean,
       default: false,

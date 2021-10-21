@@ -3,6 +3,14 @@ import { SfPersonalDetails } from "@storefront-ui/vue";
 export default {
   title: "Components/Templates/PersonalDetails",
   component: SfPersonalDetails,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "Component with personal data form. Part of the checkout process.",
+      },
+    },
+  },
   argTypes: {
     value: {
       control: "object",
@@ -87,7 +95,8 @@ export default {
         category: "Props",
       },
       defaultValue: "sf-fade",
-      description: "Transition for input that creates password for account",
+      description:
+        "Transition for input that creates password for account. Could be one of [the default ones](https://docs.storefrontui.io/?path=/docs/utilities-transitions-docs--page).",
     },
     createAccountCheckboxLabel: {
       control: "text",

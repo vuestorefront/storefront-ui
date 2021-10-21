@@ -3,42 +3,62 @@ import { SfImage } from "@storefront-ui/vue";
 export default {
   title: "Components/Atoms/Image",
   component: SfImage,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "Image accepting string source and an array of srcsets (with breakpoints( and widths) or resolutions)",
+      },
+    },
+  },
   argTypes: {
     srcsets: {
       control: "object",
       table: {
         category: "Props",
       },
+      description:
+        "Array of images' source, dimension and breakpoints to generate srcset attribute",
     },
     src: {
       control: "text",
       table: {
         category: "Props",
       },
+      description: "Main source url for the image",
     },
     width: {
       control: "number",
       table: {
         category: "Props",
       },
+      description: "Width of the image",
     },
     height: {
       control: "number",
       table: {
         category: "Props",
       },
+      description: "Height of the image",
     },
     placeholder: {
       control: "text",
       table: {
         category: "Props",
       },
+      defaultValue: "",
+      description: "Url source of the image's placeholder while it is loading.",
     },
     alt: {
       control: "text",
       table: {
-        category: "Attributes",
+        category: "Props",
+        defaultValue: {
+          summary: "",
+        },
       },
+      description:
+        "Alternative text in case image is not loaded. Use empty string '' for decorative-only image and full text otherwise",
     },
     loading: {
       control: {
@@ -46,8 +66,10 @@ export default {
         options: ["", "lazy", "eager"],
       },
       table: {
-        category: "Attributes",
+        category: "Props",
       },
+      description:
+        "Native loading attribute supported, either 'eager', 'lazy' or none.",
     },
   },
 };

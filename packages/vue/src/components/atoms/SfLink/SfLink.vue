@@ -16,9 +16,6 @@ export default {
   name: "SfLink",
   directives: { focus },
   props: {
-    /**
-     * Page route
-     */
     link: {
       type: [String, Object],
       default: "",

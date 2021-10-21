@@ -78,16 +78,10 @@ export default {
     SfBar,
   },
   props: {
-    /**
-     * Pages title
-     */
     title: {
       type: String,
       default: "",
     },
-    /**
-     * Active page
-     */
     active: {
       type: String,
       default: "",

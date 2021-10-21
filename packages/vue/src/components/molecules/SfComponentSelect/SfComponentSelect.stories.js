@@ -10,6 +10,17 @@ const optionsList = [
 export default {
   title: "Components/Molecules/ComponentSelect",
   component: SfComponentSelect,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "On click input select field with dropdown. Built from main component - SfComponentSelect and internal components - SfComponentSelectOption.",
+      },
+    },
+  },
+  decorators: [
+    () => ({ template: '<div style="height: 15em;"><story /></div>' }),
+  ],
   argTypes: {
     classes: {
       control: {
@@ -20,53 +31,109 @@ export default {
           "sf-component-select--no-chevron",
         ],
       },
+      table: {
+        category: "CSS modifiers",
+      },
+      description: "CSS classes to modify component styling",
     },
     label: {
       control: "text",
       table: {
-        category: "Props",
+        category: "Props for main component",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
+      description: "Label text",
     },
     selected: {
       control: "object",
       table: {
-        category: "Props",
+        category: "Props for main component",
+        type: {
+          summary: "object",
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
+      defaultValue: { value: "" },
+      description: "Selected item value",
     },
     size: {
       control: "number",
       table: {
-        category: "Props",
+        category: "Props for main component",
       },
+      defaultValue: 5,
+      description: "Dropdown items quantity",
     },
     required: {
       control: "boolean",
       table: {
-        category: "Props",
+        category: "Props for main component",
       },
+      defaultValue: false,
+      description: "Required attribute",
     },
     valid: {
       control: "boolean",
       table: {
-        category: "Props",
+        category: "Props for main component",
       },
+      defaultValue: true,
+      description: "Validate value of form select",
     },
     disabled: {
       control: "boolean",
       table: {
-        category: "Props",
+        category: "Props for main component",
       },
+      defaultValue: false,
+      description: "Disabled status of form select",
     },
     errorMessage: {
       control: "text",
       table: {
-        category: "Props",
+        category: "Props for main component",
       },
+      defaultValue: "This field is not correct.",
+      description:
+        "Error message value of form select. It appears if `valid` is `false`.",
     },
     persistent: {
       control: "boolean",
       table: {
-        category: "Props",
+        category: "Props for main component",
+      },
+      defaultValue: false,
+      description: "If true clicking outside will not dismiss the select",
+    },
+    value: {
+      control: "text",
+      table: {
+        category: "Props for SfComponentSelectOption component",
+        type: {
+          summary: ["string", "number", "object"],
+        },
+        defaultValue: {
+          summary: "",
+        },
+      },
+      defaultValue: "",
+      description: "The content of the option",
+    },
+    options: {
+      control: "array",
+      description:
+        "Options values (for testing purposes). For development, you can use default slot to place custom options.",
+    },
+    "v-model": {
+      table: {
+        disable: true,
       },
     },
   },

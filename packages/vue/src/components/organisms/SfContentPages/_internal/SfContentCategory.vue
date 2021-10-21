@@ -7,9 +7,6 @@
 export default {
   name: "SfContentCategory",
   props: {
-    /**
-     * Category title
-     */
     title: {
       type: String,
       default: "",

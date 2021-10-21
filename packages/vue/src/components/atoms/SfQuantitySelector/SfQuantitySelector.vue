@@ -69,7 +69,6 @@ export default {
     prop: "qty",
   },
   props: {
-    /** Quantity */
     qty: {
       type: [Number, String],
       default: 1,
@@ -78,12 +77,10 @@ export default {
       type: Boolean,
       default: false,
     },
-    /** Minimum allowed quantity */
     min: {
       type: Number,
       default: null,
     },
-    /** Maximum allowed quantity */
     max: {
       type: Number,
       default: null,

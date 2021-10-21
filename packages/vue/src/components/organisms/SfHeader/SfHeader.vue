@@ -135,58 +135,34 @@ export default {
     SfLink,
   },
   props: {
-    /**
-     * Header logo
-     */
     logo: {
       type: [String, Object],
       default: "",
     },
-    /**
-     * Header logo height
-     */
     logoHeight: {
       type: Number,
       default: 35,
     },
-    /**
-     * Header logo width
-     */
     logoWidth: {
       type: Number,
       default: 34,
     },
-    /**
-     * Header title
-     */
     title: {
       type: String,
       default: "",
     },
-    /**
-     * Header cartIcon (accepts same value as SfIcon)
-     */
     cartIcon: {
       type: [String, Boolean, Array],
       default: "empty_cart",
     },
-    /**
-     * Header wishlistIcon (accepts same value as SfIcon)
-     */
     wishlistIcon: {
       type: [String, Boolean, Array],
       default: "heart",
     },
-    /**
-     * Header accountIcon (accepts same value as SfIcon)
-     */
     accountIcon: {
       type: [String, Boolean, Array],
       default: "profile",
     },
-    /**
-     * Header activeIcon (accepts account, wishlist and cart)
-     */
     activeIcon: {
       type: String,
       default: "",
@@ -194,44 +170,26 @@ export default {
         return ["", "account", "wishlist", "cart"].includes(value);
       },
     },
-    /**
-     * Header search placeholder
-     */
     searchPlaceholder: {
       type: String,
       default: "Search for items",
     },
-    /**
-     * Header search phrase
-     */
     searchValue: {
       type: String,
       default: "",
     },
-    /**
-     * Header wishlist items quantity
-     */
     wishlistItemsQty: {
       type: [String, Number],
       default: "0",
     },
-    /**
-     * Header cart items quantity
-     */
     cartItemsQty: {
       type: [String, Number],
       default: "0",
     },
-    /**
-     * Header sticky to top
-     */
     isSticky: {
       type: Boolean,
       default: false,
     },
-    /**
-     * Is nav slot visible on mobile view
-     */
     isNavVisible: {
       type: Boolean,
       default: false,

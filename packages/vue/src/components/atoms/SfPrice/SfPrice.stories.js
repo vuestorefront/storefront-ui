@@ -3,18 +3,42 @@ import { SfPrice, SfBadge } from "@storefront-ui/vue";
 export default {
   title: "Components/Atoms/Price",
   component: SfPrice,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "The price information component with optional display of previous price. It's Vue 2 functional component.",
+      },
+    },
+  },
   argTypes: {
     regular: {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: ["string", "number"],
+        },
+        defaultValue: {
+          summary: "null",
+        },
       },
+      description:
+        "Regular/old price value. Crossed out if `special` is provided",
     },
     special: {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: ["string", "number"],
+        },
+        defaultValue: {
+          summary: "null",
+        },
       },
+      defaultValue: "",
+      description: "Special price value",
     },
   },
 };
