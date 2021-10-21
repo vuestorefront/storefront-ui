@@ -31,7 +31,6 @@
             <SfConfirmOrder
               :order="getOrder"
               order-title="Order details"
-              :order-title-level="3"
               :properties-names="['Subtotal', 'Shipping', 'Total price']"
               :table-headers="[
                 'Size',

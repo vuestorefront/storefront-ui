@@ -105,37 +105,22 @@ export default {
     SfButton,
   },
   props: {
-    /**
-     * Total number of pages
-     */
     total: {
       type: Number,
       default: 0,
     },
-    /**
-     * Maximum visible pagination items
-     */
     visible: {
       type: Number,
       default: 5,
     },
-    /**
-     * Status of arrows display
-     */
     hasArrows: {
       type: Boolean,
       default: true,
     },
-    /**
-     * Current page number, for non router
-     */
     current: {
       type: Number,
       default: 1,
     },
-    /**
-     * Name of page query param for router
-     */
     pageParamName: {
       type: String,
       default: "page",

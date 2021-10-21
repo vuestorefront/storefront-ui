@@ -23,31 +23,18 @@ export default {
     SfLink,
   },
   props: {
-    /**
-     * Label for card
-     */
     label: {
       type: String,
       default: "",
     },
-    /**
-     * Count for card
-     */
     count: {
       type: [String, Number],
       default: "",
     },
-    /**
-     * Defines background of card.
-     * Can be a string or object with strings to display images for desktop and mobile
-     */
     background: {
       type: [String, Object],
       default: "",
     },
-    /**
-     * Link for category
-     */
     link: {
       type: [String, Object],
       default: "",

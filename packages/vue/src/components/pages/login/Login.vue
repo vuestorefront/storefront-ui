@@ -52,7 +52,7 @@
           <div class="aside">
             <SfHeading
               title="Don't have an account yet?"
-              :level="3"
+              :level="2"
               class="aside__heading"
             />
             <SfButton
@@ -205,6 +205,8 @@ export default {
   margin: 0 0 var(--spacer-xl) 0;
   &__heading {
     --heading-title-color: var(--c-primary);
+    --heading-title-font-size: var(--h3-font-size);
+    --heading-title-font-weight: var(--font-weight--semibold);
     margin: 0 0 var(--spacer-sm) 0;
   }
 }

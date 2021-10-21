@@ -77,51 +77,30 @@ export default {
     SfButton,
   },
   props: {
-    /**
-     * Images list
-     */
     images: {
       type: Array,
       default: () => [],
     },
-    /**
-     * Images width, without unit
-     */
     imageWidth: {
       type: [Number, String],
       default: 422,
     },
-    /**
-     * Images height, without unit
-     */
     imageHeight: {
       type: [Number, String],
       default: 664,
     },
-    /**
-     * Thumb width, without unit
-     */
     thumbWidth: {
       type: [Number, String],
       default: 160,
     },
-    /**
-     * Thumb height, without unit
-     */
     thumbHeight: {
       type: [Number, String],
       default: 160,
     },
-    /**
-     * Initial image number (starting from 1)
-     */
     current: {
       type: Number,
       default: 1,
     },
-    /**
-     * Glide slider options (https://glidejs.com/docs/options/)
-     */
     sliderOptions: {
       type: Object,
       default() {
@@ -133,16 +112,10 @@ export default {
         };
       },
     },
-    /**
-     * Image zoom inside or overlap the stage
-     */
     outsideZoom: {
       type: Boolean,
       default: false,
     },
-    /**
-     * Toogle for image zoom or overlap the stage
-     */
     enableZoom: {
       type: Boolean,
       default: false,

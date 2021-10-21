@@ -3,12 +3,27 @@ import { SfAlert } from "@storefront-ui/vue";
 export default {
   title: "Components/Molecules/Alert",
   component: SfAlert,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "The component for displaying brief information of varying importance to the user, enriched with an icon.",
+      },
+    },
+  },
   argTypes: {
     message: {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
+      description: "Message that will be displayed in Alert.",
       defaultValue: "",
     },
     type: {
@@ -19,6 +34,8 @@ export default {
       table: {
         category: "Props",
       },
+      description:
+        "Alert type ('secondary', 'info', 'success', 'warning', 'danger'). Check 'Knobs' section to see how they look like.",
       defaultValue: "secondary",
     },
   },

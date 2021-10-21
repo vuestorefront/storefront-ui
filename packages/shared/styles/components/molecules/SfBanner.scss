@@ -88,6 +88,9 @@
     min-height: var(--banner-height, 25rem);
     &__wrapper {
       pointer-events: none;
+      & > * {
+        pointer-events: initial;
+      }
     }
     &__call-to-action {
       --button-padding: var(--spacer-sm) var(--spacer-xl);

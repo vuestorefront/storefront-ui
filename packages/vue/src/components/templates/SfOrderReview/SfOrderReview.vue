@@ -154,7 +154,7 @@ export default {
     },
     reviewTitleLevel: {
       type: Number,
-      default: 3,
+      default: 2,
     },
     order: {
       type: Object,
