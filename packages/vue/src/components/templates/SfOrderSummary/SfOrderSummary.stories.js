@@ -81,7 +81,7 @@ export default {
       table: {
         category: "Props",
       },
-      defaultValue: 3,
+      defaultValue: 2,
       description: "Heading text size",
     },
     order: {

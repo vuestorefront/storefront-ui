@@ -10,7 +10,7 @@
         <div class="product__header">
           <SfHeading
             :title="product.name"
-            :level="3"
+            :level="1"
             class="sf-heading--no-underline sf-heading--left"
           />
           <SfIcon
@@ -375,6 +375,7 @@ export default {
   &__header {
     --heading-title-color: var(--c-link);
     --heading-title-font-weight: var(--font-weight--bold);
+    --heading-title-font-size: var(--h3-font-size);
     --heading-padding: 0;
     margin: 0 var(--spacer-sm);
     display: flex;
