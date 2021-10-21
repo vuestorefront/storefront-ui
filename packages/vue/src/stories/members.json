@@ -62,6 +62,22 @@
     "active": true
   },
   {
+    "name": "Anna Musiał",
+    "role": "Maintainer",
+    "work": {
+      "title": "Core Developer",
+      "org": "Vue Storefront",
+      "orgUrl": "https://github.com/vuestorefront"
+    },
+    "location": "Wrocław, Poland",
+    "languages": ["pl", "en"],
+    "socials": {
+      "github": "aniamusial",
+      "twitter": "musialania"
+    },
+    "active": true
+  },
+  {
     "name": "Filip Rakowski",
     "role": "Maintainer",
     "work": {
@@ -160,22 +176,6 @@
     "socials": {
       "github": "EduardDopler",
       "twitter": "quotingeddie"
-    },
-    "active": false
-  },
-  {
-    "name": "Anna Musiał",
-    "role": "Maintainer",
-    "work": {
-      "title": "Frontend Developer",
-      "org": "DivanteLtd",
-      "orgUrl": "https://github.com/DivanteLtd"
-    },
-    "location": "Wrocław, Poland",
-    "languages": ["pl", "en"],
-    "socials": {
-      "github": "aniamusial",
-      "twitter": "musialania"
     },
     "active": false
   },

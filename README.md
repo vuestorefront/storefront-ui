@@ -1,3 +1,5 @@
+![](https://i.ibb.co/Nxxgj7k/SFUI-Primary-Black.png)
+
 # Storefront UI
 
 [![Deploy Docs](https://github.com/vuestorefront/storefront-ui/actions/workflows/deploy-vue-storefront-cloud.yml/badge.svg)](https://github.com/vuestorefront/storefront-ui/actions/workflows/deploy-vue-storefront-cloud.yml)
