@@ -122,6 +122,7 @@ function getComponentInfoFromStories(pathComponentStories) {
     return null;
   }
   const contentStoriesFile = readComponentStories(pathComponentStories);
+  console.log(contentStoriesFile);
   if (!contentStoriesFile) {
     console.warn(
       `WARN: Stories file (${pathComponentStories}) not found. The common usage section in the target Markdown file will render a fallback text.`
