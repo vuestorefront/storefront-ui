@@ -10,6 +10,14 @@ import {
 export default {
   title: "Components/Templates/Payment",
   component: SfPayment,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "Component with form for the billing address and payments. Part of the checkout process.",
+      },
+    },
+  },
   argTypes: {
     paymentMethods: {
       control: "object",
@@ -25,7 +33,8 @@ export default {
         category: "Props",
       },
       defaultValue: "sf-fade",
-      description: "Transition name for credit card form",
+      description:
+        "Transition name for credit card form. Could be one of [the default ones](https://docs.storefrontui.io/?path=/docs/utilities-transitions-docs--page).",
     },
     billingHeading: {
       control: "text",

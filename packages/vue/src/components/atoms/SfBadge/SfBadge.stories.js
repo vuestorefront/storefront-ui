@@ -3,6 +3,14 @@ import { SfBadge, SfIcon } from "@storefront-ui/vue";
 export default {
   title: "Components/Atoms/Badge",
   component: SfBadge,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "Badge component. Place desired content into its default slot. It's Vue 2 functional component.",
+      },
+    },
+  },
   argTypes: {
     classes: {
       control: {
@@ -20,11 +28,14 @@ export default {
         ],
       },
       table: {
-        category: "Modifier classes",
+        category: "CSS modifiers",
       },
+      description: "CSS classes to modify component styling",
     },
     label: {
       control: "text",
+      description:
+        "Type here to fill the badge (only for testing in Storybook). For development use default slot, described below, to change the content.",
     },
   },
 };

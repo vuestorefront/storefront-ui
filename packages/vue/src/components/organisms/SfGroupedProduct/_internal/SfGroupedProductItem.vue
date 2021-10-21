@@ -74,70 +74,42 @@ export default {
     prop: "qty",
   },
   props: {
-    /**
-     * Product image
-     */
     image: {
       type: String,
       default: "",
     },
-    /**
-     * Product image width, without unit
-     */
     imageWidth: {
       type: [String, Number],
       default: 328,
     },
-    /**
-     * Product image height, without unit
-     */
     imageHeight: {
       type: [String, Number],
       default: 448,
     },
-    /**
-     * Product image placeholder
-     */
     imagePlaceholder: {
       type: String,
       default: "",
     },
-    /**
-     * Product image picture breakpoint
-     */
     imagePictureBreakpoint: {
       type: Number,
       default: 576,
     },
-    /**
-     * Product title
-     */
     title: {
       type: String,
       default: "",
     },
-    /**
-     * Product regular price
-     */
     priceRegular: {
       type: [Number, String],
       default: "",
     },
-    /**
-     * Product special price
-     */
     priceSpecial: {
       type: [Number, String],
       default: "",
     },
-    /** Product quantity */
     qty: {
       type: [Number, String],
       default: 1,
     },
-    /**
-     * Link to product
-     */
     link: {
       type: [String, Object],
       default: "",

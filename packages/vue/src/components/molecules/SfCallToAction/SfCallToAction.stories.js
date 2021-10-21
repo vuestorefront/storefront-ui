@@ -4,6 +4,13 @@ import image from "../../../../public/assets/storybook/Home/newsletter.jpg";
 export default {
   title: "Components/Molecules/CallToAction",
   component: SfCallToAction,
+  parameters: {
+    docs: {
+      description: {
+        component: "The call to action component with button and text",
+      },
+    },
+  },
   decorators: [
     () => ({ template: '<div style="max-width:1024px;"><story /></div>' }),
   ],
@@ -12,37 +19,57 @@ export default {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
+      description: "CallToAction title.",
     },
     buttonText: {
       control: "text",
       table: {
         category: "Props",
       },
+      description: "Text that will be displayed inside the button.",
     },
     link: {
       control: "text",
       table: {
         category: "Props",
       },
+      defaultValue: "",
+      description:
+        "CallToAction link. If it's filled in, changes button tag on a tag.",
     },
     description: {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
+      description: "CallToAction description.",
     },
     background: {
       control: "color",
       table: {
         category: "Props",
       },
+      description: "Background color.",
     },
     image: {
       control: "text",
       table: {
         category: "Props",
       },
+      description: "Background image.",
     },
     click: { action: "Button clicked", table: { category: "Events" } },
   },
@@ -72,10 +99,6 @@ const Template = (args, { argTypes }) => ({
 });
 
 export const Common = Template.bind({});
-Common.args = {
-  total: 3,
-  current: 1,
-};
 
 export const WithImage = Template.bind({});
 WithImage.args = {

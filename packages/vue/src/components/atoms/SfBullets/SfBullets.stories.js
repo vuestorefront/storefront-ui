@@ -3,6 +3,14 @@ import { SfBullets } from "@storefront-ui/vue";
 export default {
   title: "Components/Atoms/Bullets",
   component: SfBullets,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "Bullet-style indicator for paginated view containers. It's Vue 2 functional component.",
+      },
+    },
+  },
   argTypes: {
     total: {
       control: {
@@ -10,15 +18,23 @@ export default {
       },
       table: {
         category: "Props",
+        defaultValue: {
+          summary: 0,
+        },
       },
       defaultValue: 0,
+      description: "Number of bullets in total (active + inactive)",
     },
     current: {
       control: "number",
-      defaultValue: 0,
       table: {
         category: "Props",
+        defaultValue: {
+          summary: 0,
+        },
       },
+      defaultValue: 0,
+      description: "Index of the currently active bullet (0-indexed)",
     },
   },
 };

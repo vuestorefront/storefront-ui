@@ -35,44 +35,26 @@ export default {
     SfImage,
   },
   props: {
-    /**
-     * Card image
-     */
     image: {
       type: String,
       default: "",
     },
-    /**
-     * Card title
-     */
     title: {
       type: String,
       default: "",
     },
-    /**
-     * Card title level of heading (form 1 as h1 tag to 6 as h6 tag)
-     */
     titleLevel: {
       type: Number,
       default: 3,
     },
-    /**
-     * Card description
-     */
     description: {
       type: String,
       default: "",
     },
-    /**
-     * Card link
-     */
     link: {
       type: String,
       default: "",
     },
-    /**
-     * Text displayed on button
-     */
     buttonText: {
       type: String,
       default: "",

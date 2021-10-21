@@ -2,6 +2,13 @@ import { SfProductOption } from "@storefront-ui/vue";
 export default {
   title: "Components/Molecules/ProductOption",
   component: SfProductOption,
+  parameters: {
+    docs: {
+      description: {
+        component: "Component with label used as part of product description. ",
+      },
+    },
+  },
   decorators: [
     () => ({ template: "<div style='max-width: 300px'><story/></div>" }),
   ],
@@ -11,6 +18,9 @@ export default {
       description: "Label to assign to the product",
       table: {
         category: "Props",
+        type: {
+          summary: "string",
+        },
         defaultValue: {
           summary: "",
         },
@@ -19,10 +29,13 @@ export default {
     },
     color: {
       control: "color",
-      description: "Product color",
+      description: "Product color, can be any CSS available property",
       defaultValue: "",
       table: {
         category: "Props",
+        type: {
+          summary: "string",
+        },
         defaultValue: {
           summary: "",
         },
