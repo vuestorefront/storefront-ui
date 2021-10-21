@@ -2,6 +2,14 @@ import { SfRange } from "@storefront-ui/vue";
 export default {
   title: "Components/Molecules/Range",
   component: SfRange,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "Range component based on [nouislider library](https://refreshless.com/nouislider/). ",
+      },
+    },
+  },
   argTypes: {
     value: {
       control: {
@@ -11,66 +19,84 @@ export default {
         category: "Props",
       },
       defaultValue: [0, 1],
+      description:
+        "Sets the starting values for slider(s), if only one number is given than only one slider appears",
     },
     disabled: {
       control: "boolean",
       table: {
         category: "Props",
       },
-      description: "Disabled",
+      description: "Sets the state of range to disabled",
     },
-    start: {
-      control: {
-        type: "array",
-      },
-      table: {
-        category: "Props",
-      },
-      defaultValue: [0, 1],
-    },
-    range: {
+    config: {
       control: "object",
       table: {
         category: "Props",
       },
       defaultValue: {
+        start: [0, 1],
+        range: {
+          min: 0,
+          max: 10,
+        },
+        step: 1,
+      },
+      description:
+        "Sets the configuration of range component according to [nouislider library](https://refreshless.com/nouislider/slider-options/). Default config object consists only from basic properties, but can be widen by properties mentioned in above section.",
+    },
+    start: {
+      control: {
+        type: "array",
+      },
+      name: "config.start",
+      defaultValue: [0, 1],
+      description:
+        "Property in config prop object (only for testing purposes). See config prop below.",
+    },
+    range: {
+      control: "object",
+      name: "config.range",
+      defaultValue: {
         min: 0,
         max: 10,
       },
+      description:
+        "Property in config prop object (only for testing purposes). See config prop below.",
     },
     step: {
       control: "number",
-      table: {
-        category: "Props",
-      },
+      name: "config.step",
       defaultValue: 1,
+      description:
+        "Property in config prop object (only for testing purposes). See config prop below.",
     },
     connect: {
       control: "boolean",
-      table: {
-        category: "Props",
-      },
+      name: "config.connect",
       defaultValue: true,
+      description:
+        "Property in config prop object (only for testing purposes). See config prop below.",
     },
     direction: {
       control: {
         type: "radio",
         options: ["ltr", "rtl"],
       },
-      table: {
-        category: "Props",
-      },
+      name: "config.direction",
       defaultValue: "ltr",
+      description:
+        "Property in config prop object (only for testing purposes). See config prop below.",
     },
     orientation: {
       control: {
         type: "radio",
         options: ["horizontal", "vertical"],
       },
-      table: {
-        category: "Props",
-      },
+      name: "config.orientation",
       defaultValue: "horizontal",
+      description:
+        "Property in config prop object (only for testing purposes).",
     },
     behaviour: {
       control: {
@@ -85,34 +111,30 @@ export default {
           "none",
         ],
       },
-      table: {
-        category: "Props",
-      },
+      name: "config.behaviour",
       description:
-        "For detailed description please see: https://refreshless.com/nouislider/behaviour-option/",
+        "Property in config prop object (only for testing purposes). For detailed description please see: https://refreshless.com/nouislider/behaviour-option/. See config prop below.",
       defaultValue: "tap-drag",
     },
     tooltips: {
       control: "boolean",
-      table: {
-        category: "Props",
-      },
+      name: "config.tooltips",
       defaultValue: true,
+      description:
+        "Property in config prop object (only for testing purposes). See config prop below.",
     },
     keyboardSupport: {
       control: "boolean",
-      table: {
-        category: "Props",
-      },
+      name: "config.keyboardSupport",
       defaultValue: true,
+      description:
+        "Property in config prop object (only for testing purposes). See config prop below.",
     },
     format: {
       control: "object",
-      table: {
-        category: "Props",
-      },
+      name: "config.format",
       description:
-        "For details of tooltips number formatting please see: https://refreshless.com/nouislider/number-formatting/",
+        "Property in config prop object (only for testing purposes). For details of tooltips number formatting please see: https://refreshless.com/nouislider/number-formatting/. See config prop below.",
       defaultValue: {
         to: function (value) {
           return new Intl.NumberFormat("de-DE", {

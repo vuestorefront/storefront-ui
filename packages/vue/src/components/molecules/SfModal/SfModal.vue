@@ -67,51 +67,30 @@ export default {
     event: "close",
   },
   props: {
-    /**
-     * Heading title of the modal
-     */
     title: {
       type: String,
       default: "",
     },
-    /**
-     * Visibility of the modal
-     */
     visible: {
       type: Boolean,
       default: false,
     },
-    /**
-     * Cross closing modal button
-     */
     cross: {
       type: Boolean,
       default: true,
     },
-    /**
-     * Whether to show the overlay
-     */
     overlay: {
       type: Boolean,
       default: true,
     },
-    /**
-     * If true clicking outside will not dismiss the modal
-     */
     persistent: {
       type: Boolean,
       default: false,
     },
-    /**
-     * overlay transition effect
-     */
     transitionOverlay: {
       type: String,
       default: "sf-fade",
     },
-    /**
-     * overlay transition effect
-     */
     transitionModal: {
       type: String,
       default: "sf-fade",

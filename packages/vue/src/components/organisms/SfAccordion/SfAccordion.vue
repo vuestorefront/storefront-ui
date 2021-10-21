@@ -12,31 +12,18 @@ Vue.component("SfAccordionItem", SfAccordionItem);
 export default {
   name: "SfAccordion",
   props: {
-    /**
-     * Opens an accordion item based on title. If 'all' string is passed then all items will be open by default.
-     */
     open: {
       type: [String, Array],
       default: "",
     },
-    /**
-     * Opens the first accordion item if set to "true"
-     * @deprecated will be removed in 1.0.0 use open prop instead
-     */
     firstOpen: {
       type: Boolean,
       default: false,
     },
-    /**
-     * Allows to open multiple accordion items if set to "true"
-     */
     multiple: {
       type: Boolean,
       default: false,
     },
-    /**
-     * Overlay transition effect
-     */
     transition: {
       type: String,
       default: "sf-expand",
@@ -49,6 +36,7 @@ export default {
   data() {
     return {
       openHeader: this.open,
+      internalMultiple: this.multiple,
     };
   },
   computed: {
@@ -90,7 +78,7 @@ export default {
         }
         // <- TODO remove in 1.0.0
         if (this.open === "all") {
-          this.multiple = true;
+          this.internalMultiple = true;
           this.openHeader = this.$children.map((child) => child.header);
         }
         this.$children.forEach((child) => {
@@ -101,7 +89,7 @@ export default {
       }
     },
     toggleHandler(slotId) {
-      if (!this.multiple && !Array.isArray(this.openHeader)) {
+      if (!this.internalMultiple && !Array.isArray(this.openHeader)) {
         this.$children.forEach((child) => {
           if (child._uid === slotId) {
             child.isOpen = !child.isOpen;

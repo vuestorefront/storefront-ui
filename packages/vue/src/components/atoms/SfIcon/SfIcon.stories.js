@@ -7,6 +7,14 @@ const iconsNames = Object.keys(icons);
 export default {
   title: "Components/Atoms/Icon",
   component: SfIcon,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "The icon with color and size modifiers. It's Vue 2 functional component.",
+      },
+    },
+  },
   argTypes: {
     icon: {
       control: {
@@ -14,6 +22,8 @@ export default {
         options: iconsNames,
       },
       defaultValue: "",
+      description:
+        "Icon SVG path(s) It can be single SVG path(string) or array of SVG paths or icon name from our icons list(such as 'added_to_cart`)",
     },
     size: {
       control: {
@@ -21,6 +31,8 @@ export default {
         options: sizes,
       },
       defaultValue: "",
+      description:
+        "Custom size of the icon. It can be our standard sizes, or `12px` or `1.2rem` or nothing. Standard sizes: `xxs`, `xs`, `sm`, `md`, `lg`, `xl`, `xxl`, `xl3`, `xl4`.",
     },
     color: {
       control: {
@@ -28,10 +40,14 @@ export default {
         options: colors,
       },
       defaultValue: "",
+      description:
+        "Custom color of the icon. It can be according to our standard colors, or legitimate CSS color such as `#fff`, `rgb(255,255,255)`), and `lightgray` or nothing.Standard colors: `white`, `black`, `green-primary`, `green-secondary`, `gray-primary`, `gray-secondary`, `light-primary`, `light-secondary`, `pink-primary`, `pink-secondary`, `yellow-primary`, `yellow-secondary`, `blue-primary`, `blue-secondary`, `accent`.",
     },
     viewBox: {
       control: "text",
       defaultValue: "0 0 24 24",
+      description:
+        "Custom viewBox size of the icon. It should be according to the standard `min-x min-y width height`. By default it will be `0 0 24 24`.If you use our icons, you don't need to pass this prop at all. Recommendations: try to get your SVG designed with our default viewBox value and reduce the number of props passed to the component.",
     },
     coverage: {
       control: {
@@ -41,7 +57,15 @@ export default {
           max: 1,
           step: 0.1,
         },
-        defaultValue: 1,
+        table: {
+          category: "Props",
+          defaultValue: {
+            summary: "",
+          },
+        },
+        defaultValue: "",
+        description:
+          "The fraction in which the icon is partially collored with --icon-color value and the rest with --icon-color-negative. To be used in SfRating.",
       },
     },
   },

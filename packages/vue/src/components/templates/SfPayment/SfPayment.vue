@@ -17,7 +17,17 @@
           sameAsShippingCheckboxLabel,
           billingInputsLabels,
           billingSelectLabel,
+          firstName,
+          lastName,
+          streetName,
+          apartment,
+          city,
+          state,
+          zipCode,
+
           countries,
+          phoneNumber,
+          invoice,
         }"
       >
         <SfCheckbox
@@ -326,7 +336,7 @@ export default {
     },
     billingHeadingLevel: {
       type: Number,
-      default: 3,
+      default: 2,
     },
     sameAsShippingCheckboxLabel: {
       type: String,
@@ -359,7 +369,7 @@ export default {
     },
     paymentHeadingLevel: {
       type: Number,
-      default: 3,
+      default: 2,
     },
     countries: {
       type: Array,

@@ -22,7 +22,18 @@
           :button-text="banner.buttonText"
           :image="banner.image"
           :class="banner.class"
-        />
+        >
+          <template #title>
+            <SfHeading
+              :title="banner.title"
+              :level="2"
+              class="sf-heading--no-underline sf-heading--left sf-banner__title"
+            />
+          </template>
+          <template #subtitle>
+            <span class="banner-grid__subtitle">{{ banner.subtitle }}</span>
+          </template>
+        </SfBanner>
       </template>
     </SfBannerGrid>
     <SfCallToAction
@@ -86,11 +97,17 @@
     </SfSection>
     <SfBanner
       class="app-banner desktop-only"
-      title="Download our application to your mobile"
       subtitle="fashion to take away"
       image="/assets/storybook/Home/bannerD.png"
       data-testid="application-banner"
     >
+      <template #title>
+        <SfHeading
+          title="Download our application to your mobile"
+          :level="2"
+          class="sf-heading--no-underline sf-heading--left app-banner__title"
+        />
+      </template>
       <template #call-to-action>
         <div class="app-banner__call-to-action">
           <SfButton
@@ -123,6 +140,7 @@ import {
   SfCarousel,
   SfProductCard,
   SfImage,
+  SfHeading,
 } from "@storefront-ui/vue";
 export default {
   name: "Home",
@@ -136,6 +154,7 @@ export default {
     SfCarousel,
     SfProductCard,
     SfImage,
+    SfHeading,
   },
   data() {
     return {
@@ -349,7 +368,7 @@ export default {
   }
 }
 .carousel {
-  margin: 0 calc(var(--spacer-sm) * -1) 0 0;
+  margin: 0 calc(-1 * var(--spacer-sm)) 0 0;
   @include for-desktop {
     margin: 0;
   }
@@ -360,6 +379,13 @@ export default {
 .banner-grid {
   margin: var(--spacer-base) 0;
   --banner-container-width: 50%;
+  &__subtitle {
+    font-weight: var(--font-weight--normal);
+    font-size: var(--font-size--base);
+    font-family: var(--font-family--secondary);
+    color: var(--c-gray);
+    text-transform: uppercase;
+  }
   @include for-desktop {
     margin: var(--spacer-2xl) 0;
   }
@@ -398,14 +424,16 @@ export default {
 }
 .app-banner {
   --banner-container-width: 100%;
-  --banner-title-margin: var(--spacer-base) 0 var(--spacer-xl) 0;
   --banner-padding: 0 var(--spacer-2xl);
-  --banner-title-font-size: var(--h1-font-size);
   --banner-subtitle-font-size: var(--font-size--xl);
-  --banner-title-font-weight: var(--font-weight--semibold);
   --banner-subtitle-font-weight: var(--font-weight--medium);
-  --banner-title-text-transform: capitalize;
   --banner-subtitle-text-transform: capitalize;
+  &__title {
+    --heading-title-margin: var(--spacer-base) 0 var(--spacer-xl) 0;
+    --heading-title-font-size: var(--h1-font-size);
+    --heading-title-font-weight: var(--font-weight--semibold);
+    --heading-title-text-transform: capitalize;
+  }
   display: block;
   min-height: 26.25rem;
   max-width: 65rem;

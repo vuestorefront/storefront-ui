@@ -27,16 +27,10 @@ export default {
       type: Number,
       default: 4,
     },
-    /**
-     * Multiple footer columns open at the same time on mobile
-     */
     multiple: {
       type: Boolean,
       default: true,
     },
-    /**
-     * Footer columns open on mobile
-     */
     open: {
       type: [String, Array],
       default: () => [],

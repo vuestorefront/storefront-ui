@@ -6,7 +6,7 @@
     />
     <div class="navbar section">
       <div class="navbar__aside desktop-only">
-        <SfHeading :level="3" title="Categories" class="navbar__title" />
+        <SfHeading :level="1" title="Categories" class="navbar__title" />
       </div>
       <div class="navbar__main">
         <SfButton
@@ -669,7 +669,6 @@ export default {
     };
   },
   methods: {
-    updateFilter() {},
     clearAllFilters() {
       const filters = Object.keys(this.filters);
       filters.forEach((name) => {
@@ -742,7 +741,7 @@ export default {
   }
   &__title {
     --heading-title-font-weight: var(--font-weight--semibold);
-    --heading-title-font-size: var(--font-size--xl);
+    --heading-title-font-size: var(--h3-font-size);
   }
   &__filters-icon {
     margin: 0 0 0 var(--spacer-2xs);

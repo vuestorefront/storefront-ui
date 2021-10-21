@@ -58,44 +58,26 @@ export default {
     SfButton,
   },
   props: {
-    /**
-     * Visibility of the Notification. Default value is false.
-     */
     visible: {
       type: Boolean,
       default: false,
     },
-    /**
-     * Persistence of the Notification. Default value is false.
-     */
     persistent: {
       type: Boolean,
       default: false,
     },
-    /**
-     * Title that will be displayed in Notification.
-     */
     title: {
       type: String,
       default: "",
     },
-    /**
-     * Message that will be displayed in Notification.
-     */
     message: {
       type: String,
       default: "",
     },
-    /**
-     * Action that will be displayed in Notification.
-     */
     action: {
       type: String,
       default: "",
     },
-    /**
-     * Notification type ("secondary", "info", "success", "warning", "danger"). Check "Knobs" section to see how they look like.
-     */
     type: {
       type: String,
       default: "secondary",

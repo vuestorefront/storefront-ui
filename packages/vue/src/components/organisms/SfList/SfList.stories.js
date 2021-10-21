@@ -2,6 +2,14 @@ import { SfList, SfMenuItem } from "@storefront-ui/vue";
 export default {
   title: "Components/Organisms/List",
   component: SfList,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "Vertical list component. Built from main component - SfList and internal component - SfListItem.",
+      },
+    },
+  },
 };
 
 const Template = (args, { argTypes }) => ({

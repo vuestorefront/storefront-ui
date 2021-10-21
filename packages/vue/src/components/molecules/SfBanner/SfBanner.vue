@@ -48,16 +48,10 @@ export default {
     SfLink,
   },
   props: {
-    /**
-     * Banner title
-     */
     title: {
       type: String,
       default: "",
     },
-    /**
-     * Banner subtitle (at the top)
-     */
     subtitle: {
       type: String,
       default: "",
@@ -66,22 +60,18 @@ export default {
       type: String,
       default: "",
     },
-    /** text that will be displayed inside the button. You can replace the button  with "call-to-action" slot */
     buttonText: {
       type: String,
       default: "",
     },
-    /** link to be used in call to action button if necessary */
     link: {
       type: String,
       default: "",
     },
-    /** Background color in HEX (eg #FFFFFF) */
     background: {
       type: String,
       default: "",
     },
-    /** Background image. Influenced by $banner-background-size, $banner-background-position CSS props. */
     image: {
       type: [String, Object],
       default: "",

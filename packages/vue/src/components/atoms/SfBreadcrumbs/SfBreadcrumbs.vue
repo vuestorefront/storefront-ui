@@ -54,9 +54,6 @@ export default {
     },
   },
   props: {
-    /**
-     * List of breadcrumbs (array of nested objects: `[ { text, route } ]`)
-     */
     breadcrumbs: {
       type: Array,
       default: () => [],
