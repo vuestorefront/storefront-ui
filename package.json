@@ -18,8 +18,7 @@
     "nuxt:build": "cd packages/nuxt && yarn build",
     "nuxt:start": "cd packages/nuxt && yarn start",
     "lhci": "lhci autorun",
-    "lhci:desktop": "lhci autorun --collect.settings.preset=desktop",
-    "update-components-docs": "cd packages/vue/scripts && node update-components-docs.js"
+    "lhci:desktop": "lhci autorun --collect.settings.preset=desktop"
   },
   "repository": {
     "type": "git",
