@@ -7,7 +7,7 @@
     />
     <SfHeading
       title="Page not found"
-      :level="2"
+      :level="1"
       description="We are sorry that we can’t find the page, please go back or try again"
       class="heading sf-heading--no-underline"
     />
@@ -54,6 +54,7 @@ export default {
   --heading-title-margin: 0 0 var(--spacer-sm);
   --heading-title-color: var(--c-primary);
   --heading-title-font-weight: var(--font-weight--semibold);
+  --heading-title-font-size: var(--h2-font-size);
   --heading-description-color: var(--c-text-muted);
   --heading-description-font-size: var(--font-size--base);
   --heading-description-margin: 0 var(--spacer-base);

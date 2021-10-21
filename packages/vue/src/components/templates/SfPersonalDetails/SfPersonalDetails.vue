@@ -137,7 +137,7 @@ export default {
     },
     headingTitleLevel: {
       type: Number,
-      default: 3,
+      default: 2,
     },
     inputsLabels: {
       type: Array,

@@ -40,7 +40,7 @@ export default {
       table: {
         category: "Props",
       },
-      defaultValue: 3,
+      defaultValue: 2,
       description: "Heading number for the first header",
     },
     sameAsShippingCheckboxLabel: {
@@ -88,7 +88,7 @@ export default {
       table: {
         category: "Props",
       },
-      defaultValue: 3,
+      defaultValue: 2,
       description: "Heading number for the second header",
     },
     countries: {
