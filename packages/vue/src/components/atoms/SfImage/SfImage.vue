@@ -44,16 +44,10 @@
 export default {
   name: "SfImage",
   props: {
-    /**
-     * Main source url for the image
-     */
     src: {
       type: String,
       required: true,
     },
-    /**
-     * Array of images' source, dimension and breakpoints to generate srcset attribute
-     */
     srcsets: {
       type: Array,
       default: () => [],
@@ -62,37 +56,22 @@ export default {
         value.every((item) => item.resolution && item.src) ||
         value.every((item) => item.src && item.width),
     },
-    /**
-     * Alternative text in case image is not loaded. Use empty string " " for decorative-only image and full text otherwise
-     */
     alt: {
       type: String,
       required: true,
     },
-    /**
-     * Width of the image
-     */
     width: {
       type: [String, Number],
       default: "",
     },
-    /**
-     * Height of the image
-     */
     height: {
       type: [String, Number],
       default: "",
     },
-    /**
-     * Url source of the image's placeholder while it is loading.
-     */
     placeholder: {
       type: String,
       default: "",
     },
-    /**
-     * Native loading attribute supported, either "eager", "lazy" or none.
-     */
     loading: {
       type: String,
       default: "lazy",

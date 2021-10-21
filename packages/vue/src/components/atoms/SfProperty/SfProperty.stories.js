@@ -3,6 +3,14 @@ import { SfProperty, SfBadge } from "@storefront-ui/vue";
 export default {
   title: "Components/Atoms/Property",
   component: SfProperty,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "The component for listing properties of a product. It's Vue 2 functional component.",
+      },
+    },
+  },
   argTypes: {
     classes: {
       control: {
@@ -18,18 +26,33 @@ export default {
       table: {
         category: "CSS Modifiers",
       },
+      description: "CSS classes to modify component styling",
     },
     name: {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
+      description: "Sets property name",
     },
     value: {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
+      description: "Sets property value",
     },
   },
 };

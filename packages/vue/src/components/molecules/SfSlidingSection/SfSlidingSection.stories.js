@@ -2,6 +2,13 @@ import { SfSlidingSection } from "@storefront-ui/vue";
 export default {
   title: "Components/Molecules/SlidingSection",
   component: SfSlidingSection,
+  parameters: {
+    docs: {
+      description: {
+        component: "Section for content with sliding property.",
+      },
+    },
+  },
   decorators: [
     () => ({
       template: `<div style="max-width: 64rem; margin: auto"><story/></div>`,

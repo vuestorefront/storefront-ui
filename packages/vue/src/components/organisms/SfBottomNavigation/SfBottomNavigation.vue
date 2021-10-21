@@ -1,5 +1,6 @@
 <template>
   <div class="sf-bottom-navigation">
+    <!-- @slot Slot to replace default component -->
     <slot />
   </div>
 </template>

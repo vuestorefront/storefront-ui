@@ -2,12 +2,20 @@ import { SfPagination } from "@storefront-ui/vue";
 export default {
   title: "Components/Molecules/Pagination",
   component: SfPagination,
+  parameters: {
+    docs: {
+      description: {
+        component: "Pagination component with indicators.",
+      },
+    },
+  },
   argTypes: {
     total: {
       control: "number",
       table: {
         category: "Props",
       },
+      description: "Total number of pages",
       defaultValue: 0,
     },
     current: {
@@ -16,6 +24,7 @@ export default {
       table: {
         category: "Props",
       },
+      description: "Current page number, for non router",
     },
     visible: {
       control: "number",
@@ -23,6 +32,7 @@ export default {
       table: {
         category: "Props",
       },
+      description: "Maximum visible pagination items",
     },
     hasArrows: {
       control: "boolean",
@@ -30,6 +40,7 @@ export default {
       table: {
         category: "Props",
       },
+      description: "Status of arrows display",
     },
     pageParamName: {
       control: "text",
@@ -37,6 +48,7 @@ export default {
       table: {
         category: "Props",
       },
+      description: "Name of page query param for router",
     },
     click: { action: "Go to page clicked", table: { category: "Events" } },
   },

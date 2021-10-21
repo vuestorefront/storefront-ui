@@ -147,7 +147,7 @@ export default {
     },
     orderTitleLevel: {
       type: Number,
-      default: 3,
+      default: 2,
     },
     order: {
       type: Object,

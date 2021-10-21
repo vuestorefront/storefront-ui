@@ -12,38 +12,58 @@ import {
 export default {
   title: "Components/Organisms/Footer",
   component: SfFooter,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "Footer component. Built from main component - SfFooter and internal components -SfFooterColumn.",
+      },
+    },
+  },
   argTypes: {
     open: {
       control: "array",
       table: {
-        category: "Props",
+        category: "Props for main component",
+        defaultValue: {
+          summary: "[]",
+        },
       },
+      description: "Opens footer columns on mobile.",
     },
     column: {
       control: "number",
       defaultValue: 4,
       table: {
-        category: "Props",
+        category: "Props for main component",
       },
       description: "Number of columns in footer",
     },
     multiple: {
       control: "boolean",
       table: {
-        category: "Props",
+        category: "Props for main component",
       },
+      defaultValue: true,
+      description: "Multiple footer columns open at the same time on mobile",
     },
     logo: {
       control: "text",
-      table: {
-        category: "Props",
-      },
+      description: "Logo url to show on mobile (only for testing puroposes).",
     },
     title: {
       control: "text",
       table: {
-        category: "Props",
+        category: "Props for SfFooterColumn component",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
+      defaultValue: "",
+      description: "Title of the column in SfFooterColumn component.",
     },
   },
 };

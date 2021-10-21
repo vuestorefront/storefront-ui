@@ -9,25 +9,46 @@ import {
 export default {
   title: "Components/Molecules/BottomModal",
   component: SfBottomModal,
+  parameters: {
+    docs: {
+      inlineStories: false,
+      iframeHeight: "300px",
+      description: {
+        component: "The modal component displaying at the bottom of the page.",
+      },
+    },
+  },
   argTypes: {
     transition: {
       control: "text",
       table: {
         category: "Props",
       },
-      defaultValue: "fade",
+      defaultValue: "",
+      description:
+        "Transition effect on opening modal. Could be one of [the default ones](https://docs.storefrontui.io/?path=/docs/utilities-transitions-docs--page).",
     },
     title: {
       control: "text",
       table: {
         category: "Props",
+        defaultValue: {
+          summary: "",
+        },
       },
+      description: "Bottom Modal title",
+    },
+    content: {
+      control: "text",
+      description:
+        "Fill to see the content (for testing purposes). For development use default slot, described below, to change the content.",
     },
     isOpen: {
       control: "boolean",
       table: {
         category: "Props",
       },
+      description: "Bottom Modal is open",
     },
     "click:close": {
       action: "Close button clicked!",
@@ -37,14 +58,8 @@ export default {
   args: {
     isOpen: true,
     title: "Title",
-    transition: "sf-bottom-modal",
+    transition: "sf-fade",
     content: "Your content",
-  },
-  parameters: {
-    docs: {
-      inlineStories: false,
-      iframeHeight: "300px",
-    },
   },
 };
 
@@ -55,7 +70,7 @@ const Template = (args, { argTypes }) => ({
   <SfBottomModal
   :transition="transition"
   :is-open="isOpen"
-  :title="title"
+  :title="title"  
   @click:close="this['click:close']"> 
       {{content}}
   </SfBottomModal>`,

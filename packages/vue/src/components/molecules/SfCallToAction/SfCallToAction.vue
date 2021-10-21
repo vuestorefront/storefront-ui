@@ -36,44 +36,26 @@ export default {
     SfButton,
   },
   props: {
-    /**
-     * CallToAction title.
-     */
     title: {
       type: String,
       default: "",
     },
-    /**
-     * Text that will be displayed inside the button.
-     */
     buttonText: {
       type: String,
       default: "",
     },
-    /**
-     *  CallToAction link. If it's filled in, changes button tag on a tag.
-     */
     link: {
       type: String,
       default: "",
     },
-    /**
-     * CallToAction description.
-     */
     description: {
       type: String,
       default: "",
     },
-    /**
-     * Background color.
-     */
     background: {
       type: String,
       default: "",
     },
-    /**
-     * Background image.
-     */
     image: {
       type: [String, Object],
       default: "",

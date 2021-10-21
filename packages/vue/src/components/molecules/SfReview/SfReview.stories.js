@@ -2,15 +2,27 @@ import { SfReview } from "@storefront-ui/vue";
 export default {
   title: "Components/Molecules/Review",
   component: SfReview,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "Customer review component with author, rating, date and review text.",
+      },
+    },
+  },
   argTypes: {
     author: {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: "string",
+        },
         defaultValue: {
           summary: "",
         },
       },
+      description: "Author of the review",
     },
     date: {
       control: "date",
@@ -20,15 +32,20 @@ export default {
           summary: "",
         },
       },
+      description: "Date of the review",
     },
     message: {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: "string",
+        },
         defaultValue: {
           summary: "",
         },
       },
+      description: "Message from the reviewer",
     },
     rating: {
       control: "number",
@@ -38,6 +55,7 @@ export default {
           summary: false,
         },
       },
+      description: "Rating from the reviewer",
     },
     maxRating: {
       control: "number",
@@ -47,6 +65,8 @@ export default {
           summary: 5,
         },
       },
+      defaultValue: 5,
+      description: "Max rating for the review",
     },
     charLimit: {
       control: "number",
@@ -56,6 +76,8 @@ export default {
           summary: 250,
         },
       },
+      defaultValue: 250,
+      description: "Char limit for the review",
     },
     readMoreText: {
       control: "text",
@@ -65,6 +87,8 @@ export default {
           summary: "Read more",
         },
       },
+      defaultValue: "",
+      description: "Read more text for the review",
     },
     hideFullText: {
       control: "text",
@@ -74,6 +98,8 @@ export default {
           summary: "Read less",
         },
       },
+      defaultValue: "",
+      description: "Hide full text message for the review",
     },
   },
 };

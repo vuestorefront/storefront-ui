@@ -3,42 +3,61 @@ import { SfGallery } from "@storefront-ui/vue";
 export default {
   title: "Components/Molecules/Gallery",
   component: SfGallery,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "Gallery with one main and few side pictures that user can browse through.",
+      },
+    },
+  },
   argTypes: {
     images: {
       control: "object",
       table: {
         category: "Props",
       },
+      description: "Images list",
     },
     imageWidth: {
       control: "number",
       table: {
         category: "Props",
       },
+      defaultValue: 422,
+      description: "Images width, without unit",
     },
     imageHeight: {
       control: "number",
       table: {
         category: "Props",
       },
+      defaultValue: 664,
+      description: "Images height, without unit",
     },
     thumbWidth: {
       control: "number",
       table: {
         category: "Props",
       },
+      defaultValue: 160,
+      description: "Thumb width, without unit",
     },
     thumbHeight: {
       control: "number",
       table: {
         category: "Props",
       },
+      defaultValue: 160,
+      description: "Thumb height, without unit",
     },
     current: {
       control: "number",
       table: {
         category: "Props",
       },
+      defaultValue: 1,
+      description: "Initial image number (starting from 1)",
     },
     sliderOptions: {
       control: "object",
@@ -51,18 +70,23 @@ export default {
       table: {
         category: "Props",
       },
+      description: "Glide slider options (https://glidejs.com/docs/options/)",
     },
     outsideZoom: {
       control: "boolean",
       table: {
         category: "Props",
       },
+      defaultValue: false,
+      description: "Image zoom inside or overlap the stage",
     },
     enableZoom: {
       control: "boolean",
       table: {
         category: "Props",
       },
+      defaultValue: false,
+      description: "Toogle for image zoom or overlap the stage",
     },
     click: { action: "Image clicked", table: { category: "Events" } },
   },
