@@ -54,10 +54,6 @@ export default {
         description: "Overridden other component's CSS variable",
         control: "text",
       },
-      "h1-font-size": {
-        description: "Overridden other component's CSS variable",
-        control: "text",
-      },
     },
 
     docs: {

@@ -98,10 +98,6 @@ export default {
         description: "Overridden other component's CSS variable",
         control: "text",
       },
-      "font-weight--light": {
-        description: "Overridden other component's CSS variable",
-        control: "text",
-      },
       "button-text-transform": {
         value: "capitalize",
         description: "Overridden other component's CSS variable",

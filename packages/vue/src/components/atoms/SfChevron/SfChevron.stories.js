@@ -16,12 +16,10 @@ export default {
       },
       "chevron-rotate": {
         value: "-45deg",
-        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "chevron-translateY": {
         value: "150%",
-        description: "Overridden other component's CSS variable",
         control: "text",
       },
     },

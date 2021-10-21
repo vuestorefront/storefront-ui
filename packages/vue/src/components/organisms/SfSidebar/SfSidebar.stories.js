@@ -9,21 +9,18 @@ export default {
         description: "Overridden other component's CSS variable",
         control: "text",
       },
-      "heading-title-font": {
-        value: "",
+      "heading-title-font-size": {
+        value: "var(--font-size--xl)",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
-      "font-size--xl": {
+      "heading-title-font-weight": {
+        value: "var(--font-weight--semibold)",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
-      "font-weight--semibold": {
-        description: "Overridden other component's CSS variable",
-        control: "text",
-      },
-      "heading-description-font": {
-        value: "",
+      "heading-description-font-size": {
+        value: "var(--font-size--xl)",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
@@ -34,37 +31,30 @@ export default {
       },
       "sidebar-width": {
         value: "25.5rem",
-        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "sidebar-content-padding": {
         value: "var(--spacer-base) var(--spacer-xl)",
-        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "sidebar-left": {
         value: "auto",
-        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "sidebar-right": {
         value: "0",
-        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "sidebar-top-padding": {
         value: "var(--spacer-base)",
-        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "sidebar-circle-icon-top": {
         value: "var(--spacer-sm)",
-        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "sidebar-circle-icon-transform": {
         value: "translate3d(-25%, 0, 0)",
-        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "button-background": {

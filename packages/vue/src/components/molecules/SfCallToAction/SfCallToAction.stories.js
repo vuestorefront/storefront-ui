@@ -76,7 +76,6 @@ export default {
       },
       "call-to-action-background-position": {
         value: "60%",
-        description: "Overridden other component's CSS variable",
         control: "text",
       },
     },

@@ -15,17 +15,11 @@ export default {
         description: "Overridden other component's CSS variable",
         control: "text",
       },
-      "breadcrumbs-font": {
-        value: "",
-        description: "Overridden other component's CSS variable",
-        control: "text",
-      },
-      "font-size--sm": {
-        description: "Overridden other component's CSS variable",
+      "breadcrumbs-font-size": {
+        value: "var(--font-size--sm)",
         control: "text",
       },
     },
-
     docs: {
       description: {
         component:

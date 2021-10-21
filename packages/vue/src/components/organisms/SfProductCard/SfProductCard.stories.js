@@ -73,14 +73,6 @@ export default {
         description: "Overridden other component's CSS variable",
         control: "text",
       },
-      "font-size--base": {
-        description: "Overridden other component's CSS variable",
-        control: "text",
-      },
-      "font-weight--medium": {
-        description: "Overridden other component's CSS variable",
-        control: "text",
-      },
       "color-picker-position": {
         value: "relative",
         description: "Overridden other component's CSS variable",

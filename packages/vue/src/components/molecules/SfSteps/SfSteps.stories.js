@@ -19,10 +19,6 @@ export default {
         description: "Overridden other component's CSS variable",
         control: "text",
       },
-      "font-weight--normal": {
-        description: "Overridden other component's CSS variable",
-        control: "text",
-      },
       "steps-border-width": {
         value: "0 0 2px 0",
         description: "Overridden other component's CSS variable",
@@ -30,10 +26,6 @@ export default {
       },
       "steps-step-padding": {
         value: "0 0 var(--spacer-xs) 0",
-        description: "Overridden other component's CSS variable",
-        control: "text",
-      },
-      "font-size--base": {
         description: "Overridden other component's CSS variable",
         control: "text",
       },

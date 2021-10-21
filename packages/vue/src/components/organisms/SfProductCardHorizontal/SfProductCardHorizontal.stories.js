@@ -154,20 +154,8 @@ export default {
         description: "Overridden other component's CSS variable",
         control: "text",
       },
-      "font-weight--normal": {
-        description: "Overridden other component's CSS variable",
-        control: "text",
-      },
       "button-font": {
         value: "",
-        description: "Overridden other component's CSS variable",
-        control: "text",
-      },
-      "font-size--sm": {
-        description: "Overridden other component's CSS variable",
-        control: "text",
-      },
-      "font-weight--light": {
         description: "Overridden other component's CSS variable",
         control: "text",
       },

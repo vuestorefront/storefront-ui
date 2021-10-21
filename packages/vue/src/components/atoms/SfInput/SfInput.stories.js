@@ -96,7 +96,6 @@ export default {
       },
       "input-border-color": {
         value: "var(--c-text-disabled)",
-        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "icon-size": {

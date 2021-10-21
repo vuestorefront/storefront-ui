@@ -67,7 +67,6 @@ export default {
       },
       "tabs-title-border-color": {
         value: "var(--c-text)",
-        description: "Overridden other component's CSS variable",
         control: "text",
       },
     },

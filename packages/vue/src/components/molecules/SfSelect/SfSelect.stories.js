@@ -81,17 +81,14 @@ export default {
       },
       "select-dropdown-border-color": {
         value: "var(--c-primary)",
-        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "select-border-width": {
         value: "0 0 1px 0",
-        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "select-border-color": {
         value: "var(--c-light)",
-        description: "Overridden other component's CSS variable",
         control: "text",
       },
     },

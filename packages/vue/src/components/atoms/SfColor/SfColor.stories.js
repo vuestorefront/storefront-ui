@@ -22,7 +22,6 @@ export default {
       },
       "color-box-shadow-transition-duration": {
         value: "150ms",
-        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "badge-padding": {

@@ -12,11 +12,9 @@ export default {
       },
       "font-tile-weight": {
         value: "var(--font-weight--semibold)",
-        description: "Overridden other component's CSS variable",
         control: "text",
       },
     },
-
     docs: {
       description: {
         component: "Tile component with text and background-image",

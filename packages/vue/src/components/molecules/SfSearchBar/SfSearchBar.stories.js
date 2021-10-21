@@ -52,7 +52,6 @@ export default {
       },
       "search-bar-border-color": {
         value: "var(--c-primary)",
-        description: "Overridden other component's CSS variable",
         control: "text",
       },
     },

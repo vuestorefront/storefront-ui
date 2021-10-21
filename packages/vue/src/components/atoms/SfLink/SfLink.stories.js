@@ -18,7 +18,6 @@ export default {
         control: "text",
       },
       "link-text-decoration": { value: "underline", control: "text" },
-      "c-link": { value: "", control: "text" },
     },
 
     docs: {

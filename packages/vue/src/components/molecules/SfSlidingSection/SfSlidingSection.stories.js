@@ -22,7 +22,6 @@ export default {
       },
       "sliding-section-sliding-margin": {
         value: "0 0 0 var(--spacer-lg)",
-        description: "Overridden other component's CSS variable",
         control: "text",
       },
     },

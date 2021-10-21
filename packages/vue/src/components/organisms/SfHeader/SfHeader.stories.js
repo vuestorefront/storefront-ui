@@ -91,14 +91,6 @@ export default {
         description: "Overridden other component's CSS variable",
         control: "text",
       },
-      "font-size--base": {
-        description: "Overridden other component's CSS variable",
-        control: "text",
-      },
-      "font-weight--medium": {
-        description: "Overridden other component's CSS variable",
-        control: "text",
-      },
       "menu-item-text-transform": {
         value: "uppercase",
         description: "Overridden other component's CSS variable",

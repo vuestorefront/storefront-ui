@@ -48,14 +48,6 @@ export default {
         description: "Overridden other component's CSS variable",
         control: "text",
       },
-      "font-size--base": {
-        description: "Overridden other component's CSS variable",
-        control: "text",
-      },
-      "font-weight--semibold": {
-        description: "Overridden other component's CSS variable",
-        control: "text",
-      },
       "list-item-margin": {
         value: "0 var(--spacer-sm)",
         description: "Overridden other component's CSS variable",
@@ -66,24 +58,8 @@ export default {
         description: "Overridden other component's CSS variable",
         control: "text",
       },
-      "font-size--sm": {
-        description: "Overridden other component's CSS variable",
-        control: "text",
-      },
       "heading-title-font": {
         value: "",
-        description: "Overridden other component's CSS variable",
-        control: "text",
-      },
-      "font-weight--normal": {
-        description: "Overridden other component's CSS variable",
-        control: "text",
-      },
-      "font-size--xs": {
-        description: "Overridden other component's CSS variable",
-        control: "text",
-      },
-      "font-weight--bold": {
         description: "Overridden other component's CSS variable",
         control: "text",
       },

@@ -16,8 +16,7 @@ export default {
       "icon-badge-top": { value: "0", control: "text" },
       "icon-badge-right": { value: "0", control: "text" },
       "icon-size": {
-        value: "1rem",
-        description: "Overridden other component's CSS variable",
+        value: "",
         control: "text",
       },
     },

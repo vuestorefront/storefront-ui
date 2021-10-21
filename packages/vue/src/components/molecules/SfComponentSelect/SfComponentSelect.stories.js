@@ -53,13 +53,8 @@ export default {
         description: "Overridden other component's CSS variable",
         control: "text",
       },
-      "font-size--lg": {
-        description: "Overridden other component's CSS variable",
-        control: "text",
-      },
       "component-select-border-color": {
         value: "var(--c-danger)",
-        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "button-background": {
@@ -74,21 +69,14 @@ export default {
       },
       "component-select-border-width": {
         value: "0 0 1px 0",
-        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "component-select-label-top": {
         value: "0",
-        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "component-select-label-font": {
         value: "",
-        description: "Overridden other component's CSS variable",
-        control: "text",
-      },
-      "font-size--xs": {
-        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "chevron-color": {
@@ -98,17 +86,14 @@ export default {
       },
       "component-select-label-color": {
         value: "var(--c-text)",
-        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "component-select-color": {
         value: "var(--c-text-disabled)",
-        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "component-select-label-required": {
         value: '" *"',
-        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "chevron-display": {
@@ -118,27 +103,22 @@ export default {
       },
       "component-select-dropdown-position": {
         value: "absolute",
-        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "component-select-dropdown-top": {
         value: "100%",
-        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "component-select-dropdown-bottom": {
         value: "auto",
-        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "component-select-animation-enter": {
         value: "ssdesktop 150ms",
-        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "component-select-animation-leave": {
         value: "ssdesktop 150ms reverse",
-        description: "Overridden other component's CSS variable",
         control: "text",
       },
     },
