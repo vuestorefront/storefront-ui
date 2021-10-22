@@ -64,22 +64,20 @@ export default {
     },
     coverage: {
       control: {
-        type: "number",
-        range: {
-          min: 0,
-          max: 1,
-          step: 0.1,
-        },
-        table: {
-          category: "Props",
-          defaultValue: {
-            summary: "",
-          },
-        },
-        defaultValue: "",
-        description:
-          "The fraction in which the icon is partially collored with --icon-color value and the rest with --icon-color-negative. To be used in SfRating.",
+        type: "range",
+        min: 0,
+        max: 1,
+        step: 0.1,
       },
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: "1",
+        },
+      },
+      defaultValue: 1,
+      description:
+        "The fraction in which the icon is partially collored with --icon-color value and the rest with --icon-color-negative. To be used in SfRating.",
     },
   },
 };

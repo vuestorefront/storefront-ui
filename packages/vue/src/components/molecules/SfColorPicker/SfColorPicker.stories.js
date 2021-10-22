@@ -137,7 +137,7 @@ export default {
     docs: {
       description: {
         component:
-          "ColorPicker [button](https://docs.storefrontui.io/?path=/story/components-atoms-button--primary) and [color](https://docs.storefrontui.io/?path=/story/components-atoms-color--common)",
+          "ColorPicker component utilizing [SfButton](https://docs.storefrontui.io/?path=/story/components-atoms-button--primary) with slot for [SfColor](https://docs.storefrontui.io/?path=/story/components-atoms-color--common) component",
       },
     },
   },

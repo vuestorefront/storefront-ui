@@ -1,8 +1,6 @@
 import "../styles.scss";
 
 export const parameters = {
-  viewMode: 'docs',
-  previewTabs: { 'storybook/docs/panel': { index: -1 } },
   actions: { argTypesRegex: "^on[A-Z].*" },
   options: {
     storySort: {
