@@ -10,7 +10,7 @@ Customization-first, performance-oriented and elegant UI framework for eCommerce
 
 - [Website](http://storefrontui.io/)
 - [Storybook documentation](http://docs.storefrontui.io/)
-- [How to contribute](https://docs.storefrontui.io/?path=/story/introduction-contributing-guide-become-a-contributor--page)
+- [How to contribute](https://docs.storefrontui.io/?path=/story/contributing-guide-guide-become-a-contributor--page)
 - [Discord server](https://discord.com/invite/TJpdzzN6q5)
 
 
