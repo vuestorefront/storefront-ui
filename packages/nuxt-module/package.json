@@ -4,6 +4,7 @@
   "description": "Storefront UI Module for Nuxt.js",
   "repository": "",
   "private": true,
+  "author": "Jakub Andrzejewski",
   "license": "MIT",
   "contributors": [
     {

@@ -187,7 +187,7 @@ export default {
     },
     headingTitleLevel: {
       type: Number,
-      default: 3,
+      default: 2,
     },
     inputsLabels: {
       type: Array,
@@ -215,7 +215,7 @@ export default {
     },
     methodsHeadingTitleLevel: {
       type: Number,
-      default: 3,
+      default: 2,
     },
   },
   data() {

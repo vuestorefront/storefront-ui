@@ -3,11 +3,11 @@
   .title {
     --heading-padding: var(--spacer-xl) 0 var(--spacer-lg);
     --heading-title-font-weight: var(--font-weight--bold);
+    --heading-title-font-size: var(--h3-font-size);
     &:not(:first-of-type) {
       --heading-padding: var(--spacer-base) 0;
     }
     @include for-desktop {
-      --heading-title-font-size: var(--h3-font-size);
       --heading-title-font-weight: var(--font-weight--semibold);
       --heading-padding: var(--spacer-xl) 0;
     }

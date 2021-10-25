@@ -1,5 +1,6 @@
 <template>
   <div ref="range" type="range" class="sf-range" :disabled="disabled">
+    <!-- @slot Slot to replace default range component. -->
     <slot v-bind="$attrs" />
   </div>
 </template>
@@ -10,23 +11,14 @@ import "nouislider/dist/nouislider.css";
 export default {
   name: "SfRange",
   props: {
-    /*
-     * Sets the starting values for slider(s), if only one number is given than only one slider appears
-     */
     value: {
       type: Array,
       default: () => [0, 1],
     },
-    /*
-     * Disabling the slider
-     */
     disabled: {
       type: Boolean,
       default: false,
     },
-    /*
-     * Settings for noUiSlider library
-     */
     config: {
       type: Object,
       default: () => {
