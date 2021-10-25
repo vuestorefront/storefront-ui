@@ -43,8 +43,7 @@ function updateComponentStories() {
     let resultStory = [
       story.slice(0, parametersIndexValue + 13),
       `
-        cssprops: ${JSON.stringify(cssVariablesFixedNames)},
-      `,
+        cssprops: ${JSON.stringify(cssVariablesFixedNames)},`,
       story.slice(parametersIndexValue + 13),
     ].join("");
 
@@ -122,7 +121,7 @@ function getComponentInfoFromStories(pathComponentStories) {
     );
   }
   try {
-    return parseStoriesFile(contentStoriesFile);
+    return contentStoriesFile;
   } catch (e) {
     console.error(
       `ERROR: Cannot parse "${pathComponentStories}": ${e.message}`
@@ -156,7 +155,32 @@ function readComponentStories(pathComponentStories) {
   if (!fs.existsSync(fullPathComponentStories)) {
     return null;
   }
-  return fs.readFileSync(fullPathComponentStories, "utf8");
+  let story = fs.readFileSync(fullPathComponentStories, "utf8");
+  let storyWithoutCssprops = removeCssprops(story);
+  console.log(storyWithoutCssprops);
+  return storyWithoutCssprops;
+}
+
+// remove cssprops added before
+
+function removeCssprops(story) {
+  let csspropsStartIndex = story.indexOf("cssprops:");
+  if (!csspropsStartIndex) {
+    return story
+  }
+  let storyBegining = story.slice(0, csspropsStartIndex);
+  let storySliced = story.slice(csspropsStartIndex);
+  let csspropsEndIndex = storySliced.search(/}[\s,]*}/); 
+  if (!csspropsEndIndex) {
+    csspropsEndIndex = storySliced.indexOf("{},");
+    return [story.slice(0, csspropsStartIndex), story.slice(csspropsEndIndex + 3)].join("");
+  }
+  let storyEnding = storySliced.slice(csspropsEndIndex);
+  while (storyEnding.startsWith('}' || " " || ",")) {
+    console.log(storyEnding);
+    storyEnding = storyEnding.slice(1);
+  }
+  return [storyBegining, storyEnding].join("");
 }
 
 // read scss
@@ -181,21 +205,7 @@ function pathInsideComponentsRoot(subPath) {
   return path.join(pathVueComponentsRoot, subPath);
 }
 
-// parse stories
-
-function parseStoriesFile(contentStoriesFile) {
-  // contentStoriesFile = contentStoriesFile.replace(
-  //   /^(import [\s\S]+?;)$/gm,
-  //   "`$1`;"
-  // );
-  // contentStoriesFile = contentStoriesFile.replace(
-  //   /components: {([\s\S]+?)},/gm,
-  //   "components: `$1`,"
-  // );
-  return contentStoriesFile;
-}
-
-// parse scss file with extract css variables !!!
+// parse scss file with extract css variables
 
 function parseScssFile(contentScssFile) {
   const cssVariables = getVarsArray(contentScssFile);
