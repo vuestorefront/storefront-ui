@@ -27,6 +27,7 @@ const colors = [
 export default {
   title: "Components/Molecules/ColorPicker",
   component: SfColorPicker,
+  parameters: {},
   decorators: [
     () => ({
       template:

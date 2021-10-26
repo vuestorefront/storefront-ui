@@ -16,7 +16,7 @@ const pathsVueComponents = glob.sync("*/*/Sf*.vue", {
 // updates stories with css vars info
 
 function updateComponentStories() {
-  const sfComponents = [];
+  // const sfComponents = [];
   for (const pathComponentVue of pathsVueComponents) {
     let componentInfo;
     try {
@@ -29,24 +29,8 @@ function updateComponentStories() {
 
     const story = componentInfo.componentInfoFromStories;
     const cssVariables = componentInfo.componentInfoFromScss.cssVariablesList;
-    const parametersIndexValue =
-      componentInfo.componentInfoFromStories.indexOf("parameters:");
-    let cssVariablesFixedNames = {};
-    for (let cssVariable in cssVariables) {
-      Object.assign(cssVariablesFixedNames, {
-        [cssVariable.slice(2)]: {
-          ...cssVariables[cssVariable],
-        },
-      });
-    }
 
-    let resultStory = [
-      story.slice(0, parametersIndexValue + 13),
-      `
-        // do not modify cssprops manually, because they are generated automatically by update-components-docs script
-        cssprops: ${JSON.stringify(cssVariablesFixedNames)},`,
-      story.slice(parametersIndexValue + 13),
-    ].join("");
+    let resultStory = addCssVarsToStory(story, cssVariables, componentInfo)
 
     const targetFilepath = path.join(
       pathVueComponentsRoot,
@@ -55,13 +39,13 @@ function updateComponentStories() {
       componentPath.sfComponentName + ".stories.js"
     );
     const success = saveResultComponentStories(targetFilepath, resultStory);
-    if (success) {
-      sfComponents.push({
-        sfComponentName: componentInfo.sfComponentName,
-        componentName: componentInfo.componentName,
-        pathComponentVue,
-      });
-    }
+    // if (success) {
+    //   sfComponents.push({
+    //     sfComponentName: componentInfo.sfComponentName,
+    //     componentName: componentInfo.componentName,
+    //     pathComponentVue,
+    //   });
+    // }
   }
 }
 
@@ -164,25 +148,12 @@ function readComponentStories(pathComponentStories) {
 // remove cssprops added before
 
 function removeCssprops(story) {
-  let csspropsStartIndex = story.indexOf("// do not");
-  if (!csspropsStartIndex) {
+  let csspropsStartIndex = story.search("cssprops:");
+  if (csspropsStartIndex === -1) {
     return story
-  }
-  let storyBegining = story.slice(0, csspropsStartIndex);
-  let storySliced = story.slice(csspropsStartIndex);
-  let csspropsEndIndex = storySliced.search(/}[\s,]*}/); 
-  let storyWithoutCssprops = "";
-
-  if (!csspropsEndIndex) {
-    csspropsEndIndex = storySliced.indexOf("{},");
-    return storyWithoutCssprops = [story.slice(0, csspropsStartIndex), story.slice(csspropsEndIndex + 3)].join("");
-  } else {
-    let storyEnding = storySliced.slice(csspropsEndIndex);  
-    while(storyEnding.startsWith(" ") || storyEnding.startsWith("}") || storyEnding.startsWith(",")) {
-      storyEnding = storyEnding.slice(1);
-    } 
-    storyWithoutCssprops = [storyBegining, storyEnding].join("");
-  }
+  };
+  let removeRegex = /(\/\/ do not modify)[^]*(\/\/ end of code generated automatically)\n*/
+  let storyWithoutCssprops = story.replace(removeRegex, "")
   return storyWithoutCssprops;
 }
 
@@ -296,6 +267,31 @@ function getVarsArray(file) {
     variables.push(array);
   });
   return variables;
+}
+
+// adding css vars to story 
+
+function addCssVarsToStory(story, cssVars, componentInfo) {
+  const parametersIndexValue =
+    componentInfo.componentInfoFromStories.indexOf("parameters:");
+  let cssVariablesFixedNames = {};
+  for (let cssVar in cssVars) {
+    Object.assign(cssVariablesFixedNames, {
+      [cssVar.slice(2)]: {
+        ...cssVars[cssVar],
+      },
+    });
+  }
+
+  let resultStory = [
+    story.slice(0, parametersIndexValue + 13),
+    `
+      // do not modify cssprops manually, they are generated automatically by update-components-docs script
+        cssprops: ${JSON.stringify(cssVariablesFixedNames)},
+      // end of code generated automatically`,
+    story.slice(parametersIndexValue + 13),
+  ].join("");
+  return resultStory;
 }
 
 // save result in story

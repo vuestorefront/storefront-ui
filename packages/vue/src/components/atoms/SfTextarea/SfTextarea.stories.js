@@ -4,56 +4,6 @@ export default {
   title: "Components/Atoms/Textarea",
   component: SfTextarea,
   parameters: {
-    cssprops: {
-      "textarea-position": { value: "relative" },
-      "textarea-resize": { value: "auto" },
-      "textarea-color": { value: "" },
-      "textarea-font": { value: "" },
-      "textarea-font-weight": { value: "var(--font-weight--normal)" },
-      "textarea-font-size": { value: "var(--font-size--base)" },
-      "textarea-font-line-height": { value: "1" },
-      "textarea-font-family": { value: "var(--font-family--secondary)" },
-      "textarea-height": { value: "" },
-      "textarea-width": { value: "" },
-      "textarea-padding": { value: "var(--spacer-sm)" },
-      "textarea-border": {
-        value:
-          "var(--textarea-border-style, solid) var(--textarea-border-color, var(--c-link))",
-      },
-      "textarea-border-width": { value: "1px" },
-      "textarea-label-font": { value: "" },
-      "textarea-label-font-weight": { value: "var(--font-weight--normal)" },
-      "textarea-label-font-size": { value: "var(--font-size--base)" },
-      "textarea-label-font-line-height": { value: "1" },
-      "textarea-label-font-family": { value: "var(--font-family--secondary)" },
-      "textarea-label-position": { value: "absolute" },
-      "textarea-label-padding": { value: "var(--spacer-sm)" },
-      "textarea-label-top": { value: "" },
-      "textarea-label-bottom": { value: "" },
-      "textarea-label-left": { value: "0" },
-      "textarea-label-right": { value: "" },
-      "textarea-label-transform": { value: "" },
-      "textarea-label-color": { value: "var(--c-link)" },
-      "textarea-label-transition": {
-        value: "transform 150ms linear, font-size 150ms linear",
-      },
-      "textarea-label-required": { value: "" },
-      "textarea-error-message-color": { value: "var(--c-danger)" },
-      "textarea-error-message-font": { value: "" },
-      "textarea-error-message-font-weight": {
-        value: "var(--font-weight--medium)",
-      },
-      "textarea-error-message-font-size": { value: "var(--font-size--xs)" },
-      "textarea-error-message-font-line-height": { value: "1.2" },
-      "textarea-error-message-font-family": {
-        value: "var(--font-family--secondary)",
-      },
-      "textarea-border-color": {
-        value: "var(--c-primary)",
-        description: "Overridden other component's CSS variable",
-      },
-    },
-
     docs: {
       description: {
         component:
