@@ -16,7 +16,6 @@ const pathsVueComponents = glob.sync("*/*/Sf*.vue", {
 // updates stories with css vars info
 
 function updateComponentStories() {
-  // const sfComponents = [];
   for (const pathComponentVue of pathsVueComponents) {
     let componentInfo;
     try {
@@ -30,7 +29,7 @@ function updateComponentStories() {
     const story = componentInfo.componentInfoFromStories;
     const cssVariables = componentInfo.componentInfoFromScss.cssVariablesList;
 
-    let resultStory = addCssVarsToStory(story, cssVariables, componentInfo)
+    let resultStory = addCssVarsToStory(story, cssVariables, componentInfo);
 
     const targetFilepath = path.join(
       pathVueComponentsRoot,
@@ -38,14 +37,7 @@ function updateComponentStories() {
       "Sf" + componentPath.componentName,
       componentPath.sfComponentName + ".stories.js"
     );
-    const success = saveResultComponentStories(targetFilepath, resultStory);
-    // if (success) {
-    //   sfComponents.push({
-    //     sfComponentName: componentInfo.sfComponentName,
-    //     componentName: componentInfo.componentName,
-    //     pathComponentVue,
-    //   });
-    // }
+    saveResultComponentStories(targetFilepath, resultStory);
   }
 }
 
@@ -150,10 +142,11 @@ function readComponentStories(pathComponentStories) {
 function removeCssprops(story) {
   let csspropsStartIndex = story.search("cssprops:");
   if (csspropsStartIndex === -1) {
-    return story
-  };
-  let removeRegex = /(\/\/ do not modify)[^]*(\/\/ end of code generated automatically)\n*/
-  let storyWithoutCssprops = story.replace(removeRegex, "")
+    return story;
+  }
+  let removeRegex =
+    /(\/\/ do not modify)[^]*(\/\/ end of code generated automatically)\n*/;
+  let storyWithoutCssprops = story.replace(removeRegex, "");
   return storyWithoutCssprops;
 }
 
@@ -269,7 +262,7 @@ function getVarsArray(file) {
   return variables;
 }
 
-// adding css vars to story 
+// adding css vars to story
 
 function addCssVarsToStory(story, cssVars, componentInfo) {
   const parametersIndexValue =
