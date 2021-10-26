@@ -43,6 +43,7 @@ function updateComponentStories() {
     let resultStory = [
       story.slice(0, parametersIndexValue + 13),
       `
+        // do not modify cssprops manually, because they are generated automatically by update-components-docs script
         cssprops: ${JSON.stringify(cssVariablesFixedNames)},`,
       story.slice(parametersIndexValue + 13),
     ].join("");
@@ -157,30 +158,32 @@ function readComponentStories(pathComponentStories) {
   }
   let story = fs.readFileSync(fullPathComponentStories, "utf8");
   let storyWithoutCssprops = removeCssprops(story);
-  console.log(storyWithoutCssprops);
   return storyWithoutCssprops;
 }
 
 // remove cssprops added before
 
 function removeCssprops(story) {
-  let csspropsStartIndex = story.indexOf("cssprops:");
+  let csspropsStartIndex = story.indexOf("// do not");
   if (!csspropsStartIndex) {
     return story
   }
   let storyBegining = story.slice(0, csspropsStartIndex);
   let storySliced = story.slice(csspropsStartIndex);
   let csspropsEndIndex = storySliced.search(/}[\s,]*}/); 
+  let storyWithoutCssprops = "";
+
   if (!csspropsEndIndex) {
     csspropsEndIndex = storySliced.indexOf("{},");
-    return [story.slice(0, csspropsStartIndex), story.slice(csspropsEndIndex + 3)].join("");
+    return storyWithoutCssprops = [story.slice(0, csspropsStartIndex), story.slice(csspropsEndIndex + 3)].join("");
+  } else {
+    let storyEnding = storySliced.slice(csspropsEndIndex);  
+    while(storyEnding.startsWith(" ") || storyEnding.startsWith("}") || storyEnding.startsWith(",")) {
+      storyEnding = storyEnding.slice(1);
+    } 
+    storyWithoutCssprops = [storyBegining, storyEnding].join("");
   }
-  let storyEnding = storySliced.slice(csspropsEndIndex);
-  while (storyEnding.startsWith('}' || " " || ",")) {
-    console.log(storyEnding);
-    storyEnding = storyEnding.slice(1);
-  }
-  return [storyBegining, storyEnding].join("");
+  return storyWithoutCssprops;
 }
 
 // read scss
