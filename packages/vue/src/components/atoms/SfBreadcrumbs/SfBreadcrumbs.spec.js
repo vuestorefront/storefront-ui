@@ -4,11 +4,11 @@ const propsData = {
   breadcrumbs: [{ text: "HelloWorld" }],
 };
 describe("SfBreadcrumbs.vue", () => {
-  it("renders the component with default values", () => {
+  it("renders component with defaults", () => {
     const wrapper = shallowMount(SfBreadcrumbs);
     expect(wrapper.classes("sf-breadcrumbs")).toBe(true);
   });
-  it("renders the component with passed props", () => {
+  it("renders component with breadcrumbs prop", () => {
     const wrapper = shallowMount(SfBreadcrumbs, { propsData });
     expect(wrapper.classes("sf-breadcrumbs")).toBe(true);
   });
