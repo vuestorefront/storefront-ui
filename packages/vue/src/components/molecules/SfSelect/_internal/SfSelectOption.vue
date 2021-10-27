@@ -1,5 +1,10 @@
 <template>
-  <option :value="value" class="sf-select__option" tabindex="0">
+  <option
+    :value="value"
+    class="sf-select__option"
+    tabindex="0"
+    :aria-label="value ? false : ''"
+  >
     <!-- @slot Slot to replace select options -->
     <slot />
   </option>
