@@ -96,6 +96,7 @@
     display: var(--product-card-add-button-display, none);
     transform: var(--product-card-add-button-transform);
     opacity: var(--product-card-add-button-opacity, 0);
+    box-shadow: var(--button-box-shadow);
     &:focus {
       --product-card-add-button-opacity: 1;
     }
@@ -151,5 +152,6 @@
     --product-card-add-button-display: flex;
     --product-card-title-margin: var(--spacer-sm) 0 0 0;
     --product-card-margin: var(--spacer-xs) 0;
+    --product-card-add-button-bottom: calc(-3.25rem / 2);
   }
 }
