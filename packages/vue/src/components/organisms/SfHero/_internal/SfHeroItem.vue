@@ -3,11 +3,13 @@
     <component :is="wrapper" class="sf-hero-item__wrapper" :link="link">
       <!--@slot hero item subtitle. Slot content will replace default <h2> tag (in SfHeroItem component)-->
       <slot name="subtitle" v-bind="{ subtitle }">
-        <div v-if="subtitle" class="sf-hero-item__subtitle">{{ subtitle }}</div>
+        <span v-if="subtitle" class="sf-hero-item__subtitle">{{
+          subtitle
+        }}</span>
       </slot>
       <!--@slot hero item title. Slot content will replace default <h1> tag (in SfHeroItem component) -->
       <slot name="title" v-bind="{ title }">
-        <h1 v-if="title" class="sf-hero-item__title">{{ title }}</h1>
+        <span v-if="title" class="sf-hero-item__title">{{ title }}</span>
       </slot>
       <!--@slot Call to action section. Slot content will replace default SfButton component (in SfHeroItem component) -->
       <slot name="call-to-action" v-bind="{ buttonText, link }">
