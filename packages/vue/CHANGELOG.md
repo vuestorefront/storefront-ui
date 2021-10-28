@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.1](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/vue@0.11.0...@storefront-ui/vue@0.11.1) (2021-10-25)
+
+
+### Bug Fixes
+
+* 404 page fix ([f56acc5](https://github.com/vuestorefront/storefront-ui/commit/f56acc563cbefa7394f347aa08312141f09d49be))
+* accordion mutating "multiple" prop ([48d3407](https://github.com/vuestorefront/storefront-ui/commit/48d3407f059958d82204f18cda4d082e704ae8b9))
+* changed headings order ([02d5b84](https://github.com/vuestorefront/storefront-ui/commit/02d5b84d3519ce06f903e0110502cc5ae1f0e64a))
+* div wrapper for bottom modal ([b6a6dfb](https://github.com/vuestorefront/storefront-ui/commit/b6a6dfb9b135aac3370200e50a2dac4722a6abcf))
+* typo ([059f5d4](https://github.com/vuestorefront/storefront-ui/commit/059f5d4330a22b9e1493ed08891ec6535ff5ceea))
+
+
+### Features
+
+* add aria-label to only icon and only image button ([0a5d992](https://github.com/vuestorefront/storefront-ui/commit/0a5d99284a8fdc4c94d5cb48ed27391b57ef200a))
+* added new visibility props for collected product ([#2057](https://github.com/vuestorefront/storefront-ui/issues/2057)) ([44a23ea](https://github.com/vuestorefront/storefront-ui/commit/44a23ea9a2f7a28eb6c00f7d79d0ef077cfdc8f0))
+* default placeholder image ([fb7c1e6](https://github.com/vuestorefront/storefront-ui/commit/fb7c1e6b83cb0285c51a2458079c901c9ae7fd41))
+* descripitions and types for components in storybook docs ([#2038](https://github.com/vuestorefront/storefront-ui/issues/2038)) ([1ab13b7](https://github.com/vuestorefront/storefront-ui/commit/1ab13b77a012f94c1e79c5e8c258540357e45413))
+* different names ([63a3c51](https://github.com/vuestorefront/storefront-ui/commit/63a3c5157a58fc39da9073a1303dcb57dd048dc8))
+* image moved to shared ([5f7c960](https://github.com/vuestorefront/storefront-ui/commit/5f7c9606d2b2a68fd177497857ae366125147b5b))
+* image path changed ([b676d9f](https://github.com/vuestorefront/storefront-ui/commit/b676d9f7a93f32049adf6d10c8cd8e3f6777d921))
+* placeholder for images in product card and product card horizontal ([f5fc590](https://github.com/vuestorefront/storefront-ui/commit/f5fc590a41841ceddf322c78bc1897760a697147))
+* SfCollectedProduct - added missing event handler for More Actions button ([#2043](https://github.com/vuestorefront/storefront-ui/issues/2043)) ([9db35b3](https://github.com/vuestorefront/storefront-ui/commit/9db35b31011518d78a7f1308f97934d13bfdcdc7))
+* update logos ([214c334](https://github.com/vuestorefront/storefront-ui/commit/214c3347fccc696217af6ee43bd992a466eca847))
+
+
+
+
+
 # [0.11.0](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/vue@0.11.0-rc.2...@storefront-ui/vue@0.11.0) (2021-10-01)
 
 

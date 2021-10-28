@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.1](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.11.0...@storefront-ui/shared@0.11.1) (2021-10-25)
+
+
+### Bug Fixes
+
+* centering icon in address picker ([0902c6c](https://github.com/vuestorefront/storefront-ui/commit/0902c6c3f7ae986d1963fd8ed89fb46e0daf6860))
+* change to class selector ([fef901c](https://github.com/vuestorefront/storefront-ui/commit/fef901c579809a009828bc3ad78097e034b5205f))
+* changed headings order ([02d5b84](https://github.com/vuestorefront/storefront-ui/commit/02d5b84d3519ce06f903e0110502cc5ae1f0e64a))
+
+
+### Features
+
+* image moved to shared ([5f7c960](https://github.com/vuestorefront/storefront-ui/commit/5f7c9606d2b2a68fd177497857ae366125147b5b))
+
+
+
+
+
 # [0.11.0](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.11.0-rc.2...@storefront-ui/shared@0.11.0) (2021-10-01)
 
 

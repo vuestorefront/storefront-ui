@@ -94,7 +94,7 @@
             data-testid="product-add-icon"
             @click="onAddToCart"
           >
-            <div class="sf-product-card__add-button--icons">
+            <span class="sf-product-card__add-button--icons">
               <transition
                 v-if="!isAddingToCart && !isAddedToCart"
                 name="sf-pulse"
@@ -119,7 +119,7 @@
                   />
                 </slot>
               </transition>
-            </div>
+            </span>
           </SfCircleIcon>
         </slot>
       </template>
@@ -131,9 +131,9 @@
         data-testid="product-link"
         v-on="$listeners"
       >
-        <h3 class="sf-product-card__title">
+        <span class="sf-product-card__title">
           {{ title }}
-        </h3>
+        </span>
       </SfButton>
     </slot>
     <slot name="price" v-bind="{ specialPrice, regularPrice }">
