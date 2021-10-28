@@ -3,6 +3,13 @@ let observer;
 const isMobileMax = 1023;
 export const onMediaMatch = (e) => {
   if (typeof e.matches === null) return;
+  if (!observer) {
+    observer = Vue.observable({
+      isMobile: false,
+      clients: 0,
+      isInitialized: false,
+    });
+  }
   observer.isMobile = !!e.matches;
 };
 export const setupListener = () => {
