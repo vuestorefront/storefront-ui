@@ -6,7 +6,7 @@
     :class="{ 'sf-component-select-option--is-active': selected === value }"
     tabindex="0"
     :aria-selected="selected === value ? 'true' : 'false'"
-    :aria-label="value ? false : 'none'"
+    :label="value ? false : ''"
     @click="clicked"
     @keyup.space.enter="clicked"
   >
