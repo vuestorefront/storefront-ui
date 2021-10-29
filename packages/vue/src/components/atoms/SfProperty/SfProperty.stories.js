@@ -37,7 +37,7 @@ export default {
         },
         defaultValue: {
           summary: "",
-        }
+        },
       },
       description: "Sets property name",
     },
@@ -50,7 +50,7 @@ export default {
         },
         defaultValue: {
           summary: "",
-        }
+        },
       },
       description: "Sets property value",
     },
