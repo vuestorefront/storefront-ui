@@ -56,6 +56,9 @@ export default {
       control: "text",
       table: {
         category: "Props",
+        defaultValue: {
+          summary: "null",
+        },
       },
       defaultValue: undefined,
       description:
@@ -65,6 +68,9 @@ export default {
       control: "text",
       table: {
         category: "Props",
+        defaultValue: {
+          summary: "null",
+        },
       },
       defaultValue: undefined,
       description:
