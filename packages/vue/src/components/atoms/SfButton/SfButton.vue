@@ -15,7 +15,7 @@
     ]"
     :style="[data.style, data.staticStyle]"
     :aria-disabled="props.disabled"
-    :link="props.link"
+    :link="props.link || null"
     v-bind="data.attrs"
     v-on="!props.disabled ? listeners : {}"
   >
