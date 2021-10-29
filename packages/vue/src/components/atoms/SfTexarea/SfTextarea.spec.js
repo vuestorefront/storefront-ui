@@ -2,15 +2,15 @@ import { shallowMount } from "@vue/test-utils";
 import SfTextarea from "./SfTextarea.vue";
 describe("SfTextarea.vue", () => {
   it("renders component with defaults", () => {
-    const component = shallowMount(SfTextarea);
-    expect(component.classes("sf-textarea")).toBe(true);
+    const wrapper = shallowMount(SfTextarea);
+    expect(wrapper.classes("sf-textarea")).toBe(true);
   });
   it("renders component with value", () => {
-    const component = shallowMount(SfTextarea, {
+    const wrapper = shallowMount(SfTextarea, {
       propsData: {
         value: "text",
       },
     });
-    expect(component.classes("sf-textarea--has-text")).toBe(true);
+    expect(wrapper.classes("sf-textarea--has-text")).toBe(true);
   });
 });

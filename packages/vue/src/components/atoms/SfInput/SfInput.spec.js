@@ -1,7 +1,7 @@
 import { shallowMount } from "@vue/test-utils";
 import SfInput from "./SfInput.vue";
 describe("SfInput.vue", () => {
-  it("renders a input", () => {
+  it("renders component with defaults", () => {
     const wrapper = shallowMount(SfInput);
     expect(wrapper.classes("sf-input")).toBe(true);
   });
@@ -27,5 +27,13 @@ describe("SfInput.vue", () => {
     expect(wrapper.find(".sf-input__error-message").text()).toMatch(
       errorMessage
     );
+  });
+  it("renders input of type password", () => {
+    const wrapper = shallowMount(SfInput, {
+      propsData: {
+        type: "password",
+      },
+    });
+    expect(wrapper.classes("sf-input__password-button")).toBe(true);
   });
 });

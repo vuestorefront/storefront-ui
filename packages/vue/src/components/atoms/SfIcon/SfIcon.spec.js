@@ -33,6 +33,15 @@ describe("SfIcon.vue", () => {
     });
     expect(wrapper.classes(`color-${color}`)).toBe(true);
   });
+  it("fills path according to coverage", () => {
+    const icon = ["account"];
+    const wrapper = shallowMount(SfIcon, {
+      propsData: {
+        coverage: 0.5,
+      },
+    });
+    expect(wrapper.find("path").attributes("fill")).toEqual("url(#0.5)");
+  });
   it("renders viewBox default when not passed", () => {
     const color = "green-primary";
     const wrapper = shallowMount(SfIcon, {
@@ -56,6 +65,14 @@ describe("SfIcon.vue", () => {
     const wrapper = shallowMount(SfIcon, {
       propsData: {
         icon: icon,
+      },
+    });
+    expect(wrapper.classes("sf-icon")).toBe(true);
+  });
+  it("renders custom color when passed", () => {
+    const wrapper = shallowMount(SfIcon, {
+      propsData: {
+        color: "#ffffff",
       },
     });
     expect(wrapper.classes("sf-icon")).toBe(true);
