@@ -15,7 +15,7 @@
     ]"
     :style="[data.style, data.staticStyle]"
     :aria-disabled="props.disabled"
-    :link="props.link || null"
+    :link="props.link"
     v-bind="data.attrs"
     v-on="!props.disabled ? listeners : {}"
   >
@@ -43,7 +43,7 @@ export default {
     },
     link: {
       type: [String, Object],
-      default: "",
+      default: null,
     },
   },
   linkActive(link, disabled) {
