@@ -390,7 +390,7 @@ const Template = (args, { argTypes }) => ({
           style="display: flex; width: fit-content; height: fit-content; padding: inherit;"
         >
           <SfSelectOption v-for="(val, key) in valSelects.options" :key="key" :value="key">
-            <SfProductOption color="black" :label="val"></SfProductOption>
+            {{ val }}
           </SfSelectOption>
         </SfSelect>
       </div>
