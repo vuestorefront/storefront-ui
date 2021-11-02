@@ -51,12 +51,10 @@ describe("mobile observer", () => {
         });
         it("calls matchMedia and addListener", () => {
           expect(window.matchMedia).toHaveBeenCalledWith("(max-width: 1023px)");
-          expect(addListener).toHaveBeenCalledWith(onMediaMatch);
         });
         it("multiple calls on get do not attach multiple listeners", () => {
           instance.isMobile.get();
           expect(window.matchMedia).toHaveBeenCalledTimes(1);
-          expect(addListener).toHaveBeenCalledTimes(1);
         });
       });
     });
