@@ -33,8 +33,11 @@ export default {
   parameters: {
     cssprops: {
       "scrollable-max-height": {
-        value: "auto",
-        description: "Overridden other component's CSS variable",
+        value: "",
+        control: "text",
+      },
+      "scrollable-button-margin": {
+        value: " var(--spacer-sm) 0 0 0)",
         control: "text",
       },
     },

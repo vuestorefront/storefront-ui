@@ -35,7 +35,7 @@ export default {
         control: "text",
       },
       "button-background": {
-        value: "transparent",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },

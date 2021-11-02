@@ -54,6 +54,10 @@ export default {
         control: "text",
       },
       "component-select-border-color": {
+        value: "var(--c-link)",
+        control: "text",
+      },
+      "component-select-error-message-color": {
         value: "var(--c-danger)",
         control: "text",
       },

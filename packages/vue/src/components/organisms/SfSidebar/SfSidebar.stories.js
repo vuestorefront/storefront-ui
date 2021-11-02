@@ -38,23 +38,23 @@ export default {
         control: "text",
       },
       "sidebar-left": {
-        value: "auto",
+        value: "",
         control: "text",
       },
       "sidebar-right": {
-        value: "0",
+        value: "",
         control: "text",
       },
       "sidebar-top-padding": {
-        value: "var(--spacer-base)",
+        value: "",
         control: "text",
       },
       "sidebar-circle-icon-top": {
-        value: "var(--spacer-sm)",
+        value: "",
         control: "text",
       },
       "sidebar-circle-icon-transform": {
-        value: "translate3d(-25%, 0, 0)",
+        value: "",
         control: "text",
       },
       "button-background": {

@@ -44,12 +44,12 @@ export default {
         control: "text",
       },
       "image-width": {
-        value: "auto",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
       "image-height": {
-        value: "2.125rem",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },

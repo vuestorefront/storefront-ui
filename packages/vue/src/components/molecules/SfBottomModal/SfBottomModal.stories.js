@@ -64,7 +64,7 @@ export default {
         control: "text",
       },
       "button-display": {
-        value: "none",
+        value: "inherit",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
@@ -192,7 +192,7 @@ export const Example = (args, { argTypes }) => ({
     </SfButton>
     <SfBottomModal :is-open="open" :title="title" @click:close="open = !open"> 
         <SfList :style="customStyleForContent">
-          <SfListItem v-for="(item, index) in items" :key="index"
+          <SfListItem v-for="(item, index) in items" :key="index + '-' + item.country"
           >
             <SfButton
               :style="{'background': 'transparent', 'color': 'var(--c-text-muted)','--button-box-shadow': 'none'}"

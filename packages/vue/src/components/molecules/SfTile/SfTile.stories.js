@@ -8,10 +8,12 @@ export default {
       "font-tile": {
         value:
           "var(--font-tile-weight, var(--font-weight--bold)) var(--font-tile-size, var(--h3-font-size))/var(--font-tile-line-height, 1.6) var(--font-tile-family, var(--font-family--secondary))",
+        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "font-tile-weight": {
         value: "var(--font-weight--semibold)",
+        description: "Overridden other component's CSS variable",
         control: "text",
       },
     },

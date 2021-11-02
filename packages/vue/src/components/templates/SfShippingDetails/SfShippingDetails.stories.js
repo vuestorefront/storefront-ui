@@ -7,12 +7,12 @@ export default {
   parameters: {
     cssprops: {
       "button-background": {
-        value: "var(--c-light)",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
       "button-color": {
-        value: "var(--c-dark-variant)",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
@@ -22,7 +22,7 @@ export default {
         control: "text",
       },
       "tabs-title-display": {
-        value: "none",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
@@ -32,7 +32,7 @@ export default {
         control: "text",
       },
       "button-width": {
-        value: "100%",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },

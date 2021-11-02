@@ -7,7 +7,7 @@ export default {
   parameters: {
     cssprops: {
       "button-width": {
-        value: "100%",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },

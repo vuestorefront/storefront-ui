@@ -6,7 +6,7 @@ export default {
   parameters: {
     cssprops: {
       "tabs-title-display": {
-        value: "none",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },

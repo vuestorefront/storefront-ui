@@ -51,7 +51,7 @@ export default {
         control: "text",
       },
       "search-bar-border-color": {
-        value: "var(--c-primary)",
+        value: "",
         control: "text",
       },
     },

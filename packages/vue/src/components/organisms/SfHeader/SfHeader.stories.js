@@ -5,10 +5,10 @@ export default {
   component: SfHeader,
   parameters: {
     cssprops: {
-      "header-navigation-item-position": { value: "relative", control: "text" },
-      "header-navigation-item-flex": { value: "0", control: "text" },
+      "header-navigation-item-position": { value: "", control: "text" },
+      "header-navigation-item-flex": { value: "", control: "text" },
       "header-navigation-item-content-position": {
-        value: "fixed",
+        value: "",
         control: "text",
       },
       "header-navigation-item-content-width": {
@@ -20,7 +20,7 @@ export default {
         control: "text",
       },
       "header-navigation-item-menu-item-display": {
-        value: "flex",
+        value: "",
         control: "text",
       },
       "header-navigation-item-menu-item-padding": {
@@ -40,7 +40,7 @@ export default {
         value: "0 0 1px 0",
         control: "text",
       },
-      "header-navigation-item-display": { value: "flex", control: "text" },
+      "header-navigation-item-display": { value: "", control: "text" },
       "header-navigation-item-color": {
         value: "var(--c-dark-variant)",
         control: "text",
@@ -49,7 +49,7 @@ export default {
         value: "calc(var(--spacer-sm) - 1px) var(--spacer-sm)",
         control: "text",
       },
-      "header-navigation-item-margin": { value: "0", control: "text" },
+      "header-navigation-item-margin": { value: "", control: "text" },
       "header-navigation-item-border": {
         value:
           "var(--header-navigation-item-border-style, solid) var(--header-navigation-item-border-color, transparent)",
@@ -80,7 +80,7 @@ export default {
         value: "var(--font-family--secondary)",
         control: "text",
       },
-      "header-navigation-item-width": { value: "100%", control: "text" },
+      "header-navigation-item-width": { value: "", control: "text" },
       "link-text-decoration": {
         value: "var(--header-navigation-item-text-decoration, none) ",
         description: "Overridden other component's CSS variable",
@@ -97,7 +97,7 @@ export default {
         control: "text",
       },
       "header-navigation-item-border-color": {
-        value: "var(--c-primary)",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
@@ -107,18 +107,16 @@ export default {
         control: "text",
       },
       "header-navigation-menu-display": {
-        value: "flex",
-        description: "Overridden other component's CSS variable",
+        value: "",
         control: "text",
       },
       "sidebar-content-padding": {
-        value: "0",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
       "header-navigation-sidebar-display": {
-        value: "none",
-        description: "Overridden other component's CSS variable",
+        value: "",
         control: "text",
       },
       "image-width": {
@@ -127,28 +125,25 @@ export default {
         control: "text",
       },
       "image-height": {
-        value: "var(--header-logo-height, 2.125rem)",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
       "header-navigation-margin": {
-        value: "0 auto 0 var(--spacer-xl)",
-        description: "Overridden other component's CSS variable",
+        value: "",
         control: "text",
       },
       "search-bar-display": {
-        value: "none",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
       "header-search-flex": {
         value: "0 1 19.875rem",
-        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "header-icons-display": {
         value: "flex",
-        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "icon-color": {
@@ -167,38 +162,31 @@ export default {
         control: "text",
       },
       "header-wrapper-position": {
-        value: "fixed",
-        description: "Overridden other component's CSS variable",
+        value: "",
         control: "text",
       },
       "header-wrapper-transform": {
-        value: "translate3d(0, -100%, 0)",
-        description: "Overridden other component's CSS variable",
+        value: "",
         control: "text",
       },
       "header-wrapper-transition": {
         value: "transform 300ms ease-in-out",
-        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "header-box-shadow": {
         value: "0px 4px 11px rgba(29, 31, 34, 0.1)",
-        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "header-icons-margin": {
-        value: "var(--spacer-sm) 0 var(--spacer-sm) 100%",
-        description: "Overridden other component's CSS variable",
+        value: "",
         control: "text",
       },
       "header-icons-order": {
-        value: "-1",
-        description: "Overridden other component's CSS variable",
+        value: "",
         control: "text",
       },
       "header-actions-flex-wrap": {
-        value: "wrap",
-        description: "Overridden other component's CSS variable",
+        value: "",
         control: "text",
       },
     },

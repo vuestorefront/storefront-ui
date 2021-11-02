@@ -14,12 +14,12 @@ export default {
         control: "text",
       },
       "button-size": {
-        value: "4.125rem",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
       "circle-icon-position": {
-        value: "absolute",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },

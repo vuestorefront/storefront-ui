@@ -7,7 +7,18 @@ export default {
     cssprops: {
       "image-overlay-opacity": {
         value: "1",
-        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "image-overlay-padding": {
+        value: "",
+        control: "text",
+      },
+      "image-overlay-background": {
+        value: "rgba(var(--c-dark-base), 0.6)",
+        control: "text",
+      },
+      "image-overlay-color": {
+        value: "var(--c-white)",
         control: "text",
       },
     },

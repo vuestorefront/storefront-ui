@@ -104,7 +104,7 @@ export default {
       },
       "accordion-item-chevron-display": { value: "none", control: "text" },
       "chevron-color": {
-        value: "var(--c-primary)",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },

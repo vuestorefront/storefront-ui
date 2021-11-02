@@ -63,8 +63,7 @@ export default {
         control: "text",
       },
       "checkbox-border-color": {
-        value: "var(--c-danger)",
-        description: "Overridden other component's CSS variable",
+        value: "var(--c-link)",
         control: "text",
       },
     },
