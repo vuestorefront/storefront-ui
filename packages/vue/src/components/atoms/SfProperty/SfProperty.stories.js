@@ -130,8 +130,8 @@ Large.args = {
   classes: "sf-property--large",
 };
 
-export const WithouSuffix = Template.bind({});
-WithouSuffix.args = {
+export const WithoutSuffix = Template.bind({});
+WithoutSuffix.args = {
   ...Common.args,
   classes: "sf-property--without-suffix",
 };

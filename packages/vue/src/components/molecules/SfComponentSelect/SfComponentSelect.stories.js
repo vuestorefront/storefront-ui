@@ -84,7 +84,7 @@ export default {
         control: "text",
       },
       "chevron-color": {
-        value: "var(--c-primary)",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
@@ -93,7 +93,7 @@ export default {
         control: "text",
       },
       "component-select-color": {
-        value: "var(--c-text-disabled)",
+        value: "var(--c-text)",
         control: "text",
       },
       "component-select-label-required": {
@@ -101,7 +101,7 @@ export default {
         control: "text",
       },
       "chevron-display": {
-        value: "none",
+        value: "block",
         description: "Overridden other component's CSS variable",
         control: "text",
       },

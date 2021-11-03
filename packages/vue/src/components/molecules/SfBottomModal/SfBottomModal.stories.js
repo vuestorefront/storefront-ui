@@ -67,7 +67,7 @@ export default {
         control: "text",
       },
       "button-display": {
-        value: "none",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },

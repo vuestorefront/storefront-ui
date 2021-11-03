@@ -143,7 +143,7 @@ export default {
         control: "text",
       },
       "header-icons-display": {
-        value: "flex",
+        value: "none",
         control: "text",
       },
       "icon-color": {

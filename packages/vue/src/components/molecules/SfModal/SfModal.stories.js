@@ -5,32 +5,32 @@ export default {
   parameters: {
     cssprops: {
       "modal-width": {
-        value: "29.375rem",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
       "modal-top": {
-        value: "50%",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
       "modal-left": {
-        value: "50%",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
       "modal-bottom": {
-        value: "none",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
       "modal-right": {
-        value: "none",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
       "modal-transform": {
-        value: "translate3d(-50%, -50%, 0)",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },

@@ -70,7 +70,7 @@ export default {
         control: "text",
       },
       "checkbox-display": {
-        value: "none",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },

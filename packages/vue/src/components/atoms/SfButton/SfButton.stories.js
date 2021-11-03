@@ -31,8 +31,15 @@ export default {
         control: "text",
       },
       "button-border": {
-        value:
-          "var(--button-border-style, solid) var(--button-border-color, var(--c-primary))",
+        value: "",
+        control: "text",
+      },
+      "button-border-style": {
+        value: "",
+        control: "text",
+      },
+      "button-border-color": {
+        value: "",
         control: "text",
       },
       "button-border-width": { value: "0", control: "text" },
@@ -53,13 +60,11 @@ export default {
         control: "text",
       },
       "button-width": {
-        value: "100%",
-        description: "Overridden other component's CSS variable",
+        value: "",
         control: "text",
       },
       "button-border-color": {
         value: "var(--c-primary-variant)",
-        description: "Overridden other component's CSS variable",
         control: "text",
       },
     },

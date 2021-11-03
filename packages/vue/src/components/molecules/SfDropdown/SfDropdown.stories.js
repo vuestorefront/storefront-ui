@@ -13,7 +13,7 @@ export default {
       "dropdown-container-top": { value: "", control: "text" },
       "dropdown-container-bottom": { value: "", control: "text" },
       "dropdown-container-width": { value: "100%", control: "text" },
-      "dropdown-background": { value: "var(--c-white)", control: "text" },
+      "dropdown-background": { value: "", control: "text" },
       "dropdown-box-shadow": { value: "", control: "text" },
       "dropdown-title-padding": {
         value: "var(--spacer-sm) var(--spacer-lg)",
@@ -39,17 +39,17 @@ export default {
         control: "text",
       },
       "button-background": {
-        value: "var(--c-light)",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
       "button-color": {
-        value: "var(--c-text-muted)",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
       "button-display": {
-        value: "none",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },

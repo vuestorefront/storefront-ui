@@ -21,7 +21,7 @@ export default {
         control: "text",
       },
       "button-width": {
-        value: "25rem",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },

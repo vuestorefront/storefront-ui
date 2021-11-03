@@ -36,7 +36,6 @@ export default {
       },
       "color-size": {
         value: "0.75rem",
-        description: "Overridden other component's CSS variable",
         control: "text",
       },
     },

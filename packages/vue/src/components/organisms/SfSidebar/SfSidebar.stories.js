@@ -30,7 +30,7 @@ export default {
         control: "text",
       },
       "sidebar-width": {
-        value: "25.5rem",
+        value: "",
         control: "text",
       },
       "sidebar-content-padding": {
