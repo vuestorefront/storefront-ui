@@ -43,7 +43,7 @@ export default {
     },
     link: {
       type: [String, Object],
-      default: "",
+      default: null,
     },
   },
   linkActive(link, disabled) {
