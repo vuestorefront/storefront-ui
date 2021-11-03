@@ -30,23 +30,14 @@
 export default {
   name: "SfHeading",
   props: {
-    /**
-     * Heading level
-     */
     level: {
       type: Number,
       default: 2,
     },
-    /**
-     * Heading title
-     */
     title: {
       type: String,
       default: "",
     },
-    /**
-     * Heading description
-     */
     description: {
       type: String,
       default: "",

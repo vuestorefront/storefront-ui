@@ -34,27 +34,22 @@ export default {
     SfIcon,
   },
   props: {
-    /** One of predefined SfIcon colors, default is black.  */
     colorIcon: {
       type: String,
       default: "",
     },
-    /** One of predefined SfIcon sizes.  */
     sizeIcon: {
       type: String,
       default: "",
     },
-    /** Svg file iconPath  */
     icon: {
       type: [String, Array],
       default: "",
     },
-    /** Characteristic title  */
     title: {
       type: String,
       default: "",
     },
-    /** Characteristic description  */
     description: {
       type: String,
       default: "",

@@ -9,6 +9,7 @@
           :link="link"
           class="sf-button--pure sf-product-card__link"
           data-testid="product-link"
+          aria-label="Go To Product"
           v-on="$listeners"
         >
           <template v-if="Array.isArray(image)">
@@ -20,6 +21,7 @@
               :alt="title"
               :width="imageWidth"
               :height="imageHeight"
+              :placeholder="productPlaceholder"
             />
           </template>
           <SfImage
@@ -29,6 +31,7 @@
             :alt="title"
             :width="imageWidth"
             :height="imageHeight"
+            :placeholder="productPlaceholder"
           />
         </SfButton>
       </slot>
@@ -91,7 +94,7 @@
             data-testid="product-add-icon"
             @click="onAddToCart"
           >
-            <div class="sf-product-card__add-button--icons">
+            <span class="sf-product-card__add-button--icons">
               <transition
                 v-if="!isAddingToCart && !isAddedToCart"
                 name="sf-pulse"
@@ -116,7 +119,7 @@
                   />
                 </slot>
               </transition>
-            </div>
+            </span>
           </SfCircleIcon>
         </slot>
       </template>
@@ -128,9 +131,9 @@
         data-testid="product-link"
         v-on="$listeners"
       >
-        <h3 class="sf-product-card__title">
+        <span class="sf-product-card__title">
           {{ title }}
-        </h3>
+        </span>
       </SfButton>
     </slot>
     <slot name="price" v-bind="{ specialPrice, regularPrice }">
@@ -179,6 +182,7 @@ import {
   mapMobileObserver,
   unMapMobileObserver,
 } from "../../../utilities/mobile-observer";
+import productPlaceholder from "@storefront-ui/shared/images/product_placeholder.svg";
 export default {
   name: "SfProductCard",
   components: {
@@ -193,62 +197,34 @@ export default {
     SfColor,
   },
   props: {
-    /**
-     * Product image
-     * It should be an url of the product
-     */
     image: {
       type: [Array, Object, String],
       default: "",
     },
-    /**
-     * Product image width, without unit
-     */
     imageWidth: {
       type: [String, Number],
       default: "100%",
     },
-    /**
-     * Product image height, without unit
-     */
     imageHeight: {
       type: [String, Number],
       default: "auto",
     },
-    /**
-     * Badge label
-     */
     badgeLabel: {
       type: String,
       default: "",
     },
-    /**
-     * Badge color
-     * It can be according to our standard colors, or legitimate CSS color such as `#fff`, `rgb(255,255,255)`), and `lightgray` or nothing.
-     * Standard colors: `primary`, `secondary`, `white`, `black`, `accent`, `green-primary`, `green-secondary`, `gray-primary`, `gray-secondary`, `light-primary`, `light-secondary`, `pink-primary`, `pink-secondary`, `yellow-primary`, `yellow-secondary`, `blue-primary`, `blue-secondary`.
-     */
     badgeColor: {
       type: String,
       default: "",
     },
-    /**
-     * Product colors
-     * It should be an array of objects
-     */
     colors: {
       type: Array,
       default: () => [],
     },
-    /**
-     * Product title
-     */
     title: {
       type: String,
       default: "",
     },
-    /**
-     * Link to product page
-     */
     link: {
       type: [String, Object],
       default: "",
@@ -261,83 +237,46 @@ export default {
       type: String,
       default: undefined,
     },
-    /**
-     * Product rating
-     */
     scoreRating: {
       type: [Number, Boolean],
       default: false,
     },
-    /**
-     * Product reviews count
-     */
     reviewsCount: {
       type: [Number, Boolean],
       default: false,
     },
-    /**
-     * Maximum product rating
-     */
     maxRating: {
       type: [Number, String],
       default: 5,
     },
-    /**
-     * Product regular price
-     */
     regularPrice: {
       type: [Number, String],
       default: null,
     },
-    /**
-     * Product special price
-     */
     specialPrice: {
       type: [Number, String],
       default: null,
     },
-    /**
-     * Wish list icon
-     * This is the default icon for product not yet added to wish list.
-     * It can be a icon name from our icons list, or array or string as SVG path(s).
-     */
     wishlistIcon: {
       type: [String, Array, Boolean],
       default: "heart",
     },
-    /**
-     * Wish list icon for product which has been added to wish list
-     * This is the icon for product added to wish list. Default visible on mobile. Visible only on hover on desktop.
-     * It can be a icon name from our icons list, or array or string as SVG path(s).
-     */
     isInWishlistIcon: {
       type: [String, Array],
       default: "heart_fill",
     },
-    /**
-     * Status of whether product is on wish list or not
-     */
     isInWishlist: {
       type: Boolean,
       default: false,
     },
-    /**
-     * Status of showing add to cart button
-     */
     showAddToCartButton: {
       type: Boolean,
       default: false,
     },
-    /**
-     * isAddedToCart status of whether button is showed, product is added or not
-     */
     isAddedToCart: {
       type: Boolean,
       deafult: false,
     },
-    /**
-     * addToCartDisabled status of whether button is disabled when out of stock
-     */
     addToCartDisabled: {
       type: Boolean,
       default: false,
@@ -347,6 +286,7 @@ export default {
     return {
       isAddingToCart: false,
       openColorPicker: false,
+      productPlaceholder,
     };
   },
   computed: {

@@ -2,37 +2,79 @@ import { SfSteps } from "@storefront-ui/vue";
 export default {
   title: "Components/Molecules/Steps",
   component: SfSteps,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "Stepper component increasing dynamically on click. Used to guide user through defined path.Built from main component - SfSteps and internal component - SfStep.",
+      },
+    },
+  },
   argTypes: {
     canGoBack: {
       control: "boolean",
       table: {
-        category: "Props",
+        category: "Props for main component",
         defaultValue: {
           summary: true,
         },
       },
-      description: "Disable clicking on  a past step",
+      defaultValue: true,
+      description: "Disable clicking on a past step",
     },
     active: {
       control: "number",
-      defaultValue: 0,
       table: {
-        category: "Props",
+        category: "Props for main component",
+        type: {
+          summary: "number",
+        },
         defaultValue: {
-          summary: 0,
+          summary: "0",
         },
       },
+      defaultValue: 0,
       description: "Current active step",
+    },
+    name: {
+      control: "text",
+      table: {
+        category: "Props for main component",
+        defaultValue: {
+          summary: "",
+        },
+      },
+      defaultValue: "",
+      description: "Step's name",
     },
     steps: {
       control: "array",
       table: {
-        category: "Props",
+        category: "Props for main component",
+        type: {
+          summary: "array",
+        },
         defaultValue: {
           summary: "[]",
         },
       },
-      description: "Steps to display",
+      description:
+        "Steps to display (only for testing puropses). Add steps using SfStep component.",
+    },
+    name: {
+      control: "text",
+      table: {
+        category: "Props for SfStep component",
+        defaultValue: {
+          summary: "",
+        },
+      },
+      description: "Name of the step.",
+    },
+    "v-model": {
+      table: {
+        disable: true,
+      },
     },
     change: { action: "Step changed", table: { category: "Events" } },
   },

@@ -1,22 +1,179 @@
 import { SfGroupedProduct, SfProperty } from "@storefront-ui/vue";
+import SfGroupedProductItem from "./_internal/SfGroupedProductItem.vue";
 export default {
   title: "Components/Organisms/GroupedProduct",
-  component: SfGroupedProduct,
+  component: SfGroupedProductItem,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "Grouped Product component. Built from main component - SfGroupedProduct and internal component - SfGroupedProductItem.",
+      },
+    },
+  },
   argTypes: {
     settings: {
       control: "object",
       table: {
-        category: "Props",
+        category: "Props for main component",
+        type: {
+          summary: "object",
+        },
+        defaultValue: {
+          summary: `{
+            type: "slider",
+            rewind: true,
+            gap: 0,
+            slidePerPage: true,
+            breakpoints: {
+              1023: {
+                perView: 2,
+                peek: {
+                  before: 0,
+                  after: 50,
+                },
+              },
+            },
+          }`,
+        },
       },
+      defaultValue: {
+        type: "slider",
+        rewind: true,
+        gap: 0,
+        slidePerPage: true,
+        breakpoints: {
+          1023: {
+            perView: 2,
+            peek: {
+              before: 0,
+              after: 50,
+            },
+          },
+        },
+      },
+      description:
+        "Settings for carousel following [glide.js documentation](https://glidejs.com/) ",
     },
     hasCarousel: {
       control: "boolean",
-      defaultValue: true,
       table: {
-        category: "Props",
+        category: "Props for main component",
+        type: {
+          summary: "boolean",
+        },
+        defaultValue: {
+          summary: "true",
+        },
+      },
+      defaultValue: true,
+      description: "Indicates if the carousel of products is on",
+    },
+    image: {
+      control: "text",
+      table: {
+        category: "Props for SfGroupedProductItem component",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
+      },
+      description: "Image url",
+    },
+    imageWidth: {
+      control: "text",
+      table: {
+        category: "Props for SfGroupedProductItem component",
+      },
+      description: "Product image width, without unit",
+    },
+    imageHeight: {
+      control: "text",
+      table: {
+        category: "Props for SfGroupedProductItem component",
+      },
+      description: "Product image height, without unit",
+    },
+    imagePlaceholder: {
+      control: "text",
+      table: {
+        category: "Props for SfGroupedProductItem component",
+      },
+      defaultValue: "",
+      description: "Product image placeholder",
+    },
+    imagePictureBreakpoint: {
+      control: "number",
+      table: {
+        category: "Props for SfGroupedProductItem component",
+      },
+      defaultValue: 576,
+      description: "Product image picture breakpoint",
+    },
+    title: {
+      control: "text",
+      table: {
+        category: "Props for SfGroupedProductItem component",
+        type: {
+          summary: "string",
+        },
+      },
+      defaultValue: "",
+      description: "Product title",
+    },
+    priceRegular: {
+      control: "text",
+      table: {
+        category: "Props for SfGroupedProductItem component",
+        type: {
+          summary: ["string", "number"],
+        },
+      },
+      defaultValue: "",
+      description: "Product regular price",
+    },
+    priceSpecial: {
+      control: "text",
+      table: {
+        category: "Props for SfGroupedProductItem component",
+        type: {
+          summary: ["string", "number"],
+        },
+      },
+      defaultValue: "",
+      description: "Product special price",
+    },
+    qty: {
+      control: "number",
+      table: {
+        category: "Props for SfGroupedProductItem component",
+        type: {
+          summary: ["string", "number"],
+        },
+        defaultValue: 1,
+      },
+      defaultValue: 1,
+      description: "Product quantity",
+    },
+    link: {
+      control: "text",
+      table: {
+        category: "Props for SfGroupedProductItem component",
+        type: {
+          summary: ["string", "object"],
+        },
+        defaultValue: "",
+      },
+      defaultValue: "",
+      description: "Link to product",
+    },
+    "v-model": {
+      table: {
+        disabled: true,
       },
     },
-    input: { action: "Text area input typing", table: { category: "Events" } },
   },
 };
 
@@ -25,72 +182,40 @@ const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   data() {
     return {
-      products: [
-        {
-          productQty: 1,
-          title: "Leave white brooch",
-          priceRegular: "$10.99",
-          image: "/assets/storybook/SfGroupedProduct/product-white.png",
-          imageWidth: 146,
-          imageHeight: 200,
-        },
-        {
-          productQty: 1,
-          title: "Leave green brooch",
-          priceRegular: "$13.89",
-          image: "/assets/storybook/SfGroupedProduct/product-green.png",
-          imageWidth: 146,
-          imageHeight: 200,
-        },
-        {
-          productQty: 1,
-          title: "Leave black brooch",
-          priceRegular: "$9.99",
-          image: "/assets/storybook/SfGroupedProduct/product-black.png",
-          imageWidth: 146,
-          imageHeight: 200,
-        },
-        {
-          productQty: 1,
-          title: "Leave white brooch extra",
-          priceRegular: "$15.99",
-          image: "/assets/storybook/SfGroupedProduct/product-white.png",
-          imageWidth: 146,
-          imageHeight: 200,
-        },
-      ],
+      productQty: 1,
     };
   },
   template: `
   <SfGroupedProduct
     :settings="settings"
     :has-carousel="hasCarousel"
-    :style="{maxWidth: '1140px', margin: 'auto'}"
+    :style="{maxWidth: '500px'}"
   >
     <SfGroupedProductItem
-      v-for="(item, i) in products"
-      :key="i"
-      v-model="item.productQty"
-      @input="input"
-      :image="item.image"
-      :image-width="item.imageWidth"
-      :image-height="item.imageHeight"
-      :image-lazy="imageLazy"
-      :title="item.title"
-      :price-regular="item.priceRegular"
+      :qty="productQty"
+      @input="productQty = $event"
+      :image="image"
+      :image-width="imageWidth"
+      :image-height="imageHeight"
+      :title="title"
+      :price-regular="priceRegular"
     >
       <template #details>
         <div :style="{color: '#72757E', fontSize: 'var(--font-size--base'}">MSD23-345-324</div>
-        <SfProperty name="Color" value="White" :style="{margin: 'auto 0 0 0', width: '110px'}" />
+        <SfProperty name="Color" value="White" :style="{margin: 'auto 0 0 0'}" />
       </template>
-    </SfGroupedProductItem>    
+    </SfGroupedProductItem>
   </SfGroupedProduct>`,
 });
 
 export const Common = Template.bind({});
 Common.args = {
   settings: { type: "slider" },
-  imageLazy: true,
+  image: "/assets/storybook/SfGroupedProduct/product-white.png",
+  imageWidth: 82,
+  imageHeight: 112,
+  title: "Leave white brooch",
+  priceRegular: "$10.99",
 };
 
 export const UseConfigurationSlot = (args, { argTypes }) => ({
@@ -113,7 +238,6 @@ export const UseConfigurationSlot = (args, { argTypes }) => ({
       :image="image"
       :image-width="imageWidth"
       :image-height="imageHeight"
-      :image-lazy="imageLazy"
       :title="title"
       :price-regular="priceRegular"
     >
@@ -145,11 +269,10 @@ export const UseImageSlot = (args, { argTypes }) => ({
       :image="image"
       :image-width="imageWidth"
       :image-height="imageHeight"
-      :image-lazy="imageLazy"
       :title="title"
       :price-regular="priceRegular"
     >
-      <template #image="{ image, title, imagePlaceholder, imageLazy, imagePictureBreakpoint }">
+      <template #image="{ image, title, imagePlaceholder, imagePictureBreakpoint }">
         <div :style="{height: '111px'}">CUSTOM IMAGE</div>
       </template>
     </SfGroupedProductItem>
@@ -177,7 +300,6 @@ export const UseInputSlot = (args, { argTypes }) => ({
       :image="image"
       :image-width="imageWidth"
       :image-height="imageHeight"
-      :image-lazy="imageLazy"
       :title="title"
       :price-regular="priceRegular"
     >
@@ -211,7 +333,6 @@ export const UseTitleSlot = (args, { argTypes }) => ({
       :image="image"
       :image-width="imageWidth"
       :image-height="imageHeight"
-      :image-lazy="imageLazy"
       :title="title"
       :price-regular="priceRegular"
     >
@@ -243,7 +364,6 @@ export const UsePriceSlot = (args, { argTypes }) => ({
       :image="image"
       :image-width="imageWidth"
       :image-height="imageHeight"
-      :image-lazy="imageLazy"
       :title="title"
       :price-regular="priceRegular"
     >

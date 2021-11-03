@@ -2,16 +2,56 @@ import { SfCarousel } from "@storefront-ui/vue";
 export default {
   title: "Components/Organisms/Carousel",
   component: SfCarousel,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "Carousel component with swipe and arrow navigation. Constructed from main component - SfCarousel and internal components - SfCarouselItem.",
+      },
+    },
+  },
   argTypes: {
     settings: {
       control: "object",
       table: {
         category: "Props",
         defaultValue: {
-          summary: `{}`,
+          summary: `{
+            type: "carousel",
+            rewind: true,
+            perView: 4,
+            slidePerPage: true,
+            gap: 0,
+            breakpoints: {
+              1023: {
+                perView: 2,
+                peek: {
+                  before: 0,
+                  after: 50,
+                },
+              },
+            },
+          }`,
         },
       },
-      defaultValue: {},
+      defaultValue: {
+        type: "carousel",
+        rewind: true,
+        perView: 4,
+        slidePerPage: true,
+        gap: 0,
+        breakpoints: {
+          1023: {
+            perView: 2,
+            peek: {
+              before: 0,
+              after: 50,
+            },
+          },
+        },
+      },
+      description:
+        "Carousel options after glide.js (https://glidejs.com/docs/)",
     },
   },
 };

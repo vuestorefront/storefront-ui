@@ -2,34 +2,56 @@ import { SfNotification, SfIcon } from "@storefront-ui/vue";
 export default {
   title: "Components/Molecules/Notification",
   component: SfNotification,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "Component used for informative function e.g. products added to cart or successful login.",
+      },
+    },
+  },
   argTypes: {
     title: {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
       defaultValue: "",
+      description: "Title text visible only on mobile.",
     },
     message: {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
       defaultValue: "",
-    },
-    message: {
-      control: "text",
-      table: {
-        category: "Props",
-      },
-      defaultValue: "",
+      description: "Message displayed in component.",
     },
     action: {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
       defaultValue: "",
+      description: "Action text button displayed in component.",
     },
     visible: {
       control: "boolean",
@@ -37,6 +59,8 @@ export default {
       table: {
         category: "Props",
       },
+      defaultValue: "",
+      description: "Visibility of the Notification. Default value is false.",
     },
     persistent: {
       control: "boolean",
@@ -44,6 +68,8 @@ export default {
       table: {
         category: "Props",
       },
+      defaultValue: "",
+      description: "Persistence of the Notification. Default value is false.",
     },
     type: {
       control: {
@@ -54,6 +80,8 @@ export default {
         category: "Props",
       },
       defaultValue: "secondary",
+      description:
+        "Notification type ('secondary', 'info', 'success', 'warning', 'danger'). Check 'Knobs' section to see how they look like.",
     },
     "click:action": { action: "Action clicked", table: { category: "Events" } },
     "click:close": {

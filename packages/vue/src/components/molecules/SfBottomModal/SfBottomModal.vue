@@ -6,7 +6,7 @@
       @click="close"
     />
     <SfTransition :transition="transition">
-      <nav
+      <div
         v-show="isOpen"
         role="dialog"
         aria-modal="true"
@@ -41,7 +41,7 @@
             >Cancel</SfButton
           >
         </slot>
-      </nav>
+      </div>
     </SfTransition>
   </div>
 </template>
@@ -56,16 +56,10 @@ export default {
   name: "SfBottomModal",
   components: { SfOverlay, SfButton, SfCircleIcon, SfHeading, SfTransition },
   props: {
-    /**
-     * Bottom Modal is open
-     */
     isOpen: {
       type: Boolean,
       default: false,
     },
-    /**
-     * Bottom Modal title
-     */
     title: {
       type: String,
       default: "",

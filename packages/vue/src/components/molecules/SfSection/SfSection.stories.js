@@ -2,6 +2,13 @@ import { SfSection } from "@storefront-ui/vue";
 export default {
   title: "Components/Molecules/Section",
   component: SfSection,
+  parameters: {
+    docs: {
+      description: {
+        component: "Full-width section for content.",
+      },
+    },
+  },
   argTypes: {
     titleHeading: {
       control: "text",
@@ -31,6 +38,7 @@ export default {
           summary: 2,
         },
       },
+      defaultValue: 2,
       description: "Heading tag level",
     },
   },

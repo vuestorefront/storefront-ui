@@ -22,6 +22,7 @@
               :alt="title"
               :width="imageWidth"
               :height="imageHeight"
+              :placeholder="productPlaceholder"
             />
           </template>
           <SfImage
@@ -31,6 +32,7 @@
             :alt="title"
             :width="imageWidth"
             :height="imageHeight"
+            :placeholder="productPlaceholder"
           />
         </SfLink>
       </slot>
@@ -124,13 +126,15 @@
   </div>
 </template>
 <script>
-import SfPrice from "../../atoms/SfPrice/SfPrice.vue"
-import SfIcon from "../../atoms/SfIcon/SfIcon.vue"
-import SfLink from "../../atoms/SfLink/SfLink.vue"
-import SfRating from "../../atoms/SfRating/SfRating.vue"
-import SfImage from "../../atoms/SfImage/SfImage.vue"
-import SfButton from "../../atoms/SfButton/SfButton.vue"
-import SfAddToCart from "../../molecules/SfAddToCart/SfAddToCart.vue"
+import SfPrice from "../../atoms/SfPrice/SfPrice.vue";
+import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+import SfLink from "../../atoms/SfLink/SfLink.vue";
+import SfRating from "../../atoms/SfRating/SfRating.vue";
+import SfImage from "../../atoms/SfImage/SfImage.vue";
+import SfButton from "../../atoms/SfButton/SfButton.vue";
+import SfAddToCart from "../../molecules/SfAddToCart/SfAddToCart.vue";
+import productPlaceholder from "@storefront-ui/shared/images/product_placeholder.svg";
+
 export default {
   name: "SfProductCardHorizontal",
   components: {
@@ -143,120 +147,70 @@ export default {
     SfAddToCart,
   },
   props: {
-    /**
-     * Product description
-     */
     description: {
       type: String,
       default: "",
     },
-    /**
-     * Product image
-     * It should be an url of the product
-     */
     image: {
       type: [Array, Object, String],
       default: "",
     },
-    /**
-     * Product image width, without unit
-     */
     imageWidth: {
       type: [String, Number],
       default: 140,
     },
-    /**
-     * Product image height, without unit
-     */
     imageHeight: {
       type: [String, Number],
       default: 200,
     },
-    /**
-     * Product title
-     */
     title: {
       type: String,
       default: "",
     },
-    /**
-     * Link to product page
-     */
     link: {
       type: [String, Object],
       default: "",
     },
     /**
      * Link element tag
-     * @deprecated will be removed in 1.0.0 use slot to replace content
+     * @deprecated will be removed. Use slot to replace content
      */
     linkTag: {
       type: String,
       default: undefined,
     },
-    /**
-     * Product rating
-     */
     scoreRating: {
       type: [Number, Boolean],
       default: false,
     },
-    /**
-     * Product reviews count
-     */
     reviewsCount: {
       type: [Number, Boolean],
       default: false,
     },
-    /**
-     * Maximum product rating
-     */
     maxRating: {
       type: [Number, String],
       default: 5,
     },
-    /**
-     * Product regular price
-     */
     regularPrice: {
       type: [Number, String],
       default: null,
     },
-    /**
-     * Product special price
-     */
     specialPrice: {
       type: [Number, String],
       default: null,
     },
-    /**
-     * Wish list icon
-     * This is the default icon for product not yet added to wish list.
-     * It can be a icon name from our icons list, or array or string as SVG path(s).
-     */
     wishlistIcon: {
       type: [String, Array, Boolean],
       default: "heart",
     },
-    /**
-     * Wish list icon for product which has been added to wish list
-     * This is the icon for product added to wish list. Default visible on mobile. Visible only on hover on desktop.
-     * It can be a icon name from our icons list, or array or string as SVG path(s).
-     */
     isInWishlistIcon: {
       type: [String, Array],
       default: "heart_fill",
     },
-    /**
-     * Status of whether product is on wish list or not
-     */
     isInWishlist: {
       type: Boolean,
       default: false,
     },
-    /**
-     * Selected quantity
-     */
     qty: {
       type: [Number, String],
       default: 1,
@@ -265,38 +219,39 @@ export default {
   data() {
     return {
       quantity: this.qty,
-    }
+      productPlaceholder,
+    };
   },
   computed: {
     currentWishlistIcon() {
-      return this.isInWishlist ? this.isInWishlistIcon : this.wishlistIcon
+      return this.isInWishlist ? this.isInWishlistIcon : this.wishlistIcon;
     },
     ariaLabel() {
-      return this.isInWishlist ? "Remove from wishlist" : "Add to wishlist"
+      return this.isInWishlist ? "Remove from wishlist" : "Add to wishlist";
     },
     wishlistIconClasses() {
-      const defaultClass = "sf-product-card-horizontal__wishlist-icon"
+      const defaultClass = "sf-product-card-horizontal__wishlist-icon";
       return `${defaultClass} ${
         this.isOnWishlist ? "sf-product-card-horizontal--on-wishlist" : ""
-      }`
+      }`;
     },
     itemQuantity: {
       get() {
         return typeof this.quantity === "string"
           ? Number(this.quantity)
-          : this.quantity
+          : this.quantity;
       },
       set(newValue) {
-        this.quantity = newValue
+        this.quantity = newValue;
       },
     },
   },
   methods: {
     toggleIsInWishlist() {
-      this.$emit("click:wishlist", !this.isInWishlist)
+      this.$emit("click:wishlist", !this.isInWishlist);
     },
   },
-}
+};
 </script>
 <style lang="scss">
 @import "~@storefront-ui/shared/styles/components/organisms/SfProductCardHorizontal.scss";

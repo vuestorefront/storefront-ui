@@ -3,6 +3,89 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.1](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.11.0...@storefront-ui/shared@0.11.1) (2021-10-25)
+
+
+### Bug Fixes
+
+* centering icon in address picker ([0902c6c](https://github.com/vuestorefront/storefront-ui/commit/0902c6c3f7ae986d1963fd8ed89fb46e0daf6860))
+* change to class selector ([fef901c](https://github.com/vuestorefront/storefront-ui/commit/fef901c579809a009828bc3ad78097e034b5205f))
+* changed headings order ([02d5b84](https://github.com/vuestorefront/storefront-ui/commit/02d5b84d3519ce06f903e0110502cc5ae1f0e64a))
+
+
+### Features
+
+* image moved to shared ([5f7c960](https://github.com/vuestorefront/storefront-ui/commit/5f7c9606d2b2a68fd177497857ae366125147b5b))
+
+
+
+
+
+# [0.11.0](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.11.0-rc.2...@storefront-ui/shared@0.11.0) (2021-10-01)
+
+
+### Bug Fixes
+
+* after CR ([396c4a9](https://github.com/vuestorefront/storefront-ui/commit/396c4a9b7ecf49c031395f3f8ee265c8303c44a6))
+* change calc functions to have negative value first ([#2024](https://github.com/vuestorefront/storefront-ui/issues/2024)) ([177036c](https://github.com/vuestorefront/storefront-ui/commit/177036cecd77e17080bf9c6db621751718791b74))
+* reorganized template styles ([0e3eb00](https://github.com/vuestorefront/storefront-ui/commit/0e3eb003f2218d70693f0328b197caba9144f02e))
+* shipping ([8edd533](https://github.com/vuestorefront/storefront-ui/commit/8edd53319f7c6db0fab9e6a8ad860c3a000c1b05))
+* shipping styling ([f4ab5e7](https://github.com/vuestorefront/storefront-ui/commit/f4ab5e7fbccf582af347798ae0a308f08cbefca7))
+* shipping styling ([f27479e](https://github.com/vuestorefront/storefront-ui/commit/f27479e2190cdfa02e8f0ce5488d9d4943691cbd))
+* shipping styling ([97c80fe](https://github.com/vuestorefront/storefront-ui/commit/97c80fe6a7c27cbfe7d0cca3a769248cf6df1e1f))
+* shipping styling ([16fc821](https://github.com/vuestorefront/storefront-ui/commit/16fc8216eeb8d10f54404b08800ac641124dcd07))
+* styling shipping ([ebd3b27](https://github.com/vuestorefront/storefront-ui/commit/ebd3b27ea59b21461445a1ac34ea47a658478c52))
+* styling shipping ([3957be8](https://github.com/vuestorefront/storefront-ui/commit/3957be864add8d73ac4581c365f22dfac8630557))
+
+
+### Features
+
+* confirm ([e372f03](https://github.com/vuestorefront/storefront-ui/commit/e372f03e77533d349cd94a753072d57cbf06da7e))
+* confirm order styles ([e92a817](https://github.com/vuestorefront/storefront-ui/commit/e92a81742410ee2e4ae449ac529e40499811b583))
+* move order review styling to shared package ([4eed80e](https://github.com/vuestorefront/storefront-ui/commit/4eed80e75c1317e17d5d540f84db928691a7282f))
+* styles moved to shared folder ([a28954b](https://github.com/vuestorefront/storefront-ui/commit/a28954be5b918cdc37df30113eda79b6550ac631))
+* styles moved to shared folder ([d9d9f49](https://github.com/vuestorefront/storefront-ui/commit/d9d9f49eb4594988274eedfbffee7dc8ded7dacb))
+
+
+
+
+
+# [0.11.0-rc.2](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.11.0-rc.1...@storefront-ui/shared@0.11.0-rc.2) (2021-09-06)
+
+
+### Bug Fixes
+
+* [#1551](https://github.com/vuestorefront/storefront-ui/issues/1551) and remove component css variables ([5199efc](https://github.com/vuestorefront/storefront-ui/commit/5199efcee6d17d58a36ac7e6e6252a2c6204862d))
+* [#1662](https://github.com/vuestorefront/storefront-ui/issues/1662)/product card size ([#1908](https://github.com/vuestorefront/storefront-ui/issues/1908)) ([07b0283](https://github.com/vuestorefront/storefront-ui/commit/07b0283be096a8a1627d201222746f3adf2d86a4))
+* bottom nav fixed ([c54a080](https://github.com/vuestorefront/storefront-ui/commit/c54a08086a1f2419a3a8774030a0a4e47727e460))
+* change mobile view for slider and adjust story ([e03cae5](https://github.com/vuestorefront/storefront-ui/commit/e03cae535c8d4b1352e6d2283154fb3508799dc9))
+* enable clickable indicate ([6fd3bb8](https://github.com/vuestorefront/storefront-ui/commit/6fd3bb8d36ed9936a67a0f630ada3bd387c563ea))
+* enable label click ([#1912](https://github.com/vuestorefront/storefront-ui/issues/1912)) ([0e490e7](https://github.com/vuestorefront/storefront-ui/commit/0e490e74dc61a298cd3f87c50436b531d7c1fe35))
+* remove component variables for radio text color ([27b8169](https://github.com/vuestorefront/storefront-ui/commit/27b81696bc77d2816fa1de6ce8f4ef96dcb1abd6))
+* remove component variables for SfRadio ([c314b06](https://github.com/vuestorefront/storefront-ui/commit/c314b06d366d3c2614b5bb61d0b930982af3181a))
+* remove css var and menuitem from story ([1442057](https://github.com/vuestorefront/storefront-ui/commit/1442057032fed776ea2b5a3ac51b7fbc701d138e))
+* revert SfGroupedProduct code ([24850b7](https://github.com/vuestorefront/storefront-ui/commit/24850b72e9c5dd1d84723a1f2ac856d273b25a94))
+* revert unnecessary changes ([04e737c](https://github.com/vuestorefront/storefront-ui/commit/04e737c6370d47d283b7a9313088ad8988e869e0))
+* sfheader mobile navigation ([7f40e56](https://github.com/vuestorefront/storefront-ui/commit/7f40e5600dffab4591dfe674508a8ecc1fb88fe8))
+* story products and style ([4b0d1aa](https://github.com/vuestorefront/storefront-ui/commit/4b0d1aadffece478adc01e52d04d60ab18960666))
+
+
+### Features
+
+* add styles for button active state as it is possible now ([46db956](https://github.com/vuestorefront/storefront-ui/commit/46db956fe279b25cdb25626065bee181752d6562))
+* color picker in product card ([e02c489](https://github.com/vuestorefront/storefront-ui/commit/e02c489914788a061544271467222945524ee39b))
+* sfhero with sfcimage ([0969382](https://github.com/vuestorefront/storefront-ui/commit/09693828e871e70af1d572290a82c90481835126))
+* sfskeleton ([aa81f49](https://github.com/vuestorefront/storefront-ui/commit/aa81f49133deeed5042f268f5d3bb0cb347685ba))
+
+
+### Reverts
+
+* Revert "chore(release): publish" ([0b26e7e](https://github.com/vuestorefront/storefront-ui/commit/0b26e7e75940ba8bed7cc5882216f5cf73fbd78a))
+
+
+
+
+
 # [0.11.0-rc.1](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.10.8...@storefront-ui/shared@0.11.0-rc.1) (2021-08-20)
 
 

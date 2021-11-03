@@ -1,26 +1,49 @@
-import { SfProductCard } from "@storefront-ui/vue"
+import { SfProductCard } from "@storefront-ui/vue";
 
 export default {
   title: "Components/Organisms/ProductCard",
   component: SfProductCard,
+  parameters: {
+    docs: {
+      description: {
+        component: "Product card component with image, description and rating.",
+      },
+    },
+  },
   argTypes: {
     title: {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
+      description: "Product title",
     },
     link: {
       control: "text",
       table: {
         category: "Props",
       },
+      defaultValue: "",
+      description: "Link to product page",
     },
     image: {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
+      description: "Product image. It should be an url of the product",
     },
     imageWidth: {
       control: "number",
@@ -28,6 +51,7 @@ export default {
         category: "Props",
       },
       defaultValue: "100%",
+      description: "Product image width, without unit",
     },
     imageHeight: {
       control: "number",
@@ -35,54 +59,84 @@ export default {
         category: "Props",
       },
       defaultValue: "auto",
+      description: "Product image height, without unit",
     },
     badgeLabel: {
       control: "text",
       table: {
         category: "Props",
       },
+      defaultValue: "",
+      description: "Badge label",
     },
     badgeColor: {
       control: "color",
       table: {
         category: "Props",
       },
+      defaultValue: "",
+      description:
+        "Badge color It can be according to our standard colors, or legitimate CSS color such as `#fff`, `rgb(255,255,255)`), and `lightgray` or nothing. Standard colors: `primary`, `secondary`, `white`, `black`, `accent`, `green-primary`, `green-secondary`, `gray-primary`, `gray-secondary`, `light-primary`, `light-secondary`, `pink-primary`, `pink-secondary`, `yellow-primary`, `yellow-secondary`, `blue-primary`, `blue-secondary`.",
     },
     scoreRating: {
       control: "number",
       table: {
         category: "Props",
       },
+      defaultValue: false,
+      description: "Product rating",
     },
     reviewsCount: {
       control: "number",
       table: {
         category: "Props",
       },
+      defaultValue: false,
+      description: "Product reviews count",
     },
     maxRating: {
       control: "number",
       table: {
         category: "Props",
       },
+      defaultValue: 5,
+      description: "Maximum product rating",
     },
     regularPrice: {
       control: "number",
       table: {
         category: "Props",
+        defaultValue: {
+          summary: "null",
+        },
       },
+      defaultValue: "",
+      description: "Product regular price",
     },
     specialPrice: {
       control: "number",
       table: {
         category: "Props",
+        defaultValue: {
+          summary: "null",
+        },
       },
+      defaultValue: "",
+      description: "Product special price",
     },
     colors: {
       control: "object",
       table: {
         category: "Props",
+        type: {
+          summary: "array",
+        },
+        defaultValue: {
+          summary: "[]",
+        },
       },
+      defaultValue: [],
+      description: "Product colors It should be an array of objects",
     },
     wishlistIcon: {
       control: "text",
@@ -90,36 +144,65 @@ export default {
         category: "Props",
       },
       defaultValue: "heart",
+      description:
+        "Wish list icon This is the default icon for product not yet added to wish list. It can be a icon name from our icons list, or array or string as SVG path(s).",
     },
     isInWishlistIcon: {
       control: "text",
       table: {
         category: "Props",
       },
+      defaultValue: "heart_fill",
+      description:
+        "Wish list icon for product which has been added to wish list This is the icon for product added to wish list.Default visible on mobile.Visible only on hover on desktop. It can be a icon name from our icons list, or array or string as SVG path(s).",
     },
     isInWishlist: {
       control: "boolean",
       table: {
         category: "Props",
       },
+      defaultValue: false,
+      description: "Status of whether product is on wish list or not.",
     },
     showAddToCartButton: {
       control: "boolean",
       table: {
         category: "Props",
       },
+      defaultValue: false,
+      description: "Status of showing add to cart button.",
     },
     isAddedToCart: {
       control: "boolean",
       table: {
         category: "Props",
+        defaultValue: {
+          summary: false,
+        },
       },
+      defaultValue: false,
+      description:
+        "isAddedToCart status of whether button is showed, product is added or not.",
     },
     addToCartDisabled: {
       control: "boolean",
       table: {
         category: "Props",
       },
+      defaultValue: false,
+      description:
+        "addToCartDisabled status of whether button is disabled when out of stock.",
+    },
+    linkTag: {
+      control: "text",
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: "",
+        },
+      },
+      defaultValue: "",
+      description: "*deprecated. Link element tag. Use slot to replace content",
     },
     "click:addToCart": {
       action: "Add-to-cart clicked",
@@ -134,7 +217,7 @@ export default {
       table: { category: "Events" },
     },
   },
-}
+};
 
 const Template = (args, { argTypes }) => ({
   components: { SfProductCard },
@@ -164,9 +247,9 @@ const Template = (args, { argTypes }) => ({
     @click:wishlist="this['click:wishlist']"
     @click="handleClick"
   />`,
-})
+});
 
-export const Common = Template.bind({})
+export const Common = Template.bind({});
 Common.args = {
   image: "/assets/storybook/Home/productB.jpg",
   title: "Cotton Sweater",
@@ -174,7 +257,7 @@ Common.args = {
   maxRating: 5,
   reviewsCount: 7,
   showAddToCartButton: true,
-}
+};
 
 export const WithColorPicker = (args, { argTypes }) => ({
   components: { SfProductCard },
@@ -183,11 +266,11 @@ export const WithColorPicker = (args, { argTypes }) => ({
     handleSelectedColor(color) {
       this.colors.map((el) => {
         if (el.label === color.label) {
-          el.selected = !el.selected
+          el.selected = !el.selected;
         } else {
-          el.selected = false
+          el.selected = false;
         }
-      })
+      });
     },
   },
   template: `
@@ -216,7 +299,7 @@ export const WithColorPicker = (args, { argTypes }) => ({
     @click:wishlist="this['click:wishlist']"
     @click:colors="handleSelectedColor"
   />`,
-})
+});
 WithColorPicker.args = {
   ...Common.args,
   colors: [
@@ -236,32 +319,32 @@ WithColorPicker.args = {
       selected: false,
     },
   ],
-}
+};
 
-export const WithLink = Template.bind({})
+export const WithLink = Template.bind({});
 WithLink.args = {
   ...Common.args,
   link: "https://storefrontui.io",
-}
+};
 
-export const WithBadge = Template.bind({})
+export const WithBadge = Template.bind({});
 WithBadge.args = {
   ...Common.args,
   badgeColor: "color-primary",
   badgeLabel: "-50%",
-}
+};
 
-export const AddedToCart = Template.bind({})
+export const AddedToCart = Template.bind({});
 AddedToCart.args = {
   ...Common.args,
   isAddedToCart: true,
-}
+};
 
-export const AddedToWishlist = Template.bind({})
+export const AddedToWishlist = Template.bind({});
 AddedToWishlist.args = {
   ...Common.args,
   isInWishlist: true,
-}
+};
 
 export const WithMultipleImages = Template.bind({
   argTypes: {
@@ -269,20 +352,20 @@ export const WithMultipleImages = Template.bind({
       control: "object",
     },
   },
-})
+});
 WithMultipleImages.args = {
   ...Common.args,
   image: [
     "/assets/storybook/Home/productB.jpg",
     "/assets/storybook/Home/productA.jpg",
   ],
-}
+};
 
-export const WithPriceRange = Template.bind({})
+export const WithPriceRange = Template.bind({});
 WithPriceRange.args = {
   ...Common.args,
   regularPrice: "$3.99 - $19.09",
-}
+};
 
 export const UseImageSlot = (args, { argTypes }) => ({
   components: { SfProductCard },
@@ -316,8 +399,8 @@ export const UseImageSlot = (args, { argTypes }) => ({
       <div :style="{ height: '111px', display: 'flex', alignItems: 'center', justifyContent: 'center'}">CUSTOM IMAGE</div>
     </template>
   </SfProductCard>`,
-})
-UseImageSlot.args = { ...Common.args }
+});
+UseImageSlot.args = { ...Common.args };
 
 export const UseAddToCart = (args, { argTypes }) => ({
   components: { SfProductCard },
@@ -351,8 +434,8 @@ export const UseAddToCart = (args, { argTypes }) => ({
       CUSTOM ADD TO CART
     </template>
   </SfProductCard>`,
-})
-UseAddToCart.args = { ...Common.args }
+});
+UseAddToCart.args = { ...Common.args };
 
 export const UseColorsSlot = (args, { argTypes }) => ({
   components: { SfProductCard },
@@ -373,8 +456,8 @@ export const UseColorsSlot = (args, { argTypes }) => ({
     :regular-price="regularPrice"
     :special-price="specialPrice"
     :wishlist-icon="wishlistIcon"
-    :is-on-wishlist-icon="isOnWishlistIcon"
-    :is-on-wishlist="isOnWishlist"
+    :is-in-wishlist-icon="isInWishlistIcon"
+    :is-in-wishlist="isInWishlist"
     :show-add-to-cart-button="showAddToCartButton"
     :add-to-cart-disabled="addToCartDisabled"
     :is-added-to-cart="isAddedToCart"
@@ -385,8 +468,8 @@ export const UseColorsSlot = (args, { argTypes }) => ({
       <div style="margin-top: var(--spacer-sm);">CUSTOM COLORS</div>
     </template>
   </SfProductCard>`,
-})
-UseColorsSlot.args = { ...Common.args }
+});
+UseColorsSlot.args = { ...Common.args };
 
 export const UseTitleSlot = (args, { argTypes }) => ({
   components: { SfProductCard },
@@ -420,8 +503,8 @@ export const UseTitleSlot = (args, { argTypes }) => ({
       CUSTOM TITLE
     </template>
   </SfProductCard>`,
-})
-UseTitleSlot.args = { ...Common.args }
+});
+UseTitleSlot.args = { ...Common.args };
 
 export const UseWishlistIconSlot = (args, { argTypes }) => ({
   components: { SfProductCard },
@@ -455,8 +538,8 @@ export const UseWishlistIconSlot = (args, { argTypes }) => ({
       CUSTOM WISHLIST ICON
     </template>
   </SfProductCard>`,
-})
-UseWishlistIconSlot.args = { ...Common.args }
+});
+UseWishlistIconSlot.args = { ...Common.args };
 
 export const UsePriceSlot = (args, { argTypes }) => ({
   components: { SfProductCard },
@@ -490,8 +573,8 @@ export const UsePriceSlot = (args, { argTypes }) => ({
       CUSTOM PRICE
     </template>
   </SfProductCard>`,
-})
-UsePriceSlot.args = { ...Common.args }
+});
+UsePriceSlot.args = { ...Common.args };
 
 export const UseReviewsSlot = (args, { argTypes }) => ({
   components: { SfProductCard },
@@ -525,5 +608,5 @@ export const UseReviewsSlot = (args, { argTypes }) => ({
       CUSTOM REVIEWS
     </template>
   </SfProductCard>`,
-})
-UseReviewsSlot.args = { ...Common.args }
+});
+UseReviewsSlot.args = { ...Common.args };

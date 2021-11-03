@@ -2,6 +2,13 @@ import { SfTopBar, SfButton, SfImage } from "@storefront-ui/vue";
 export default {
   title: "Components/Organisms/TopBar",
   component: SfTopBar,
+  parameters: {
+    docs: {
+      description: {
+        component: "Top Bar component with righ or left aligned content.",
+      },
+    },
+  },
 };
 
 const Template = (args, { argTypes }) => ({
