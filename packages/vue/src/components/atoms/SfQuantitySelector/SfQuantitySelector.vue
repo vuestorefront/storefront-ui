@@ -24,7 +24,7 @@
     <component
       :is="injections.components.SfInput"
       type="number"
-      :name="'quantitySelector' + $options.uniqueKey()"
+      :name="$options.uniqueKey()"
       :value="Number(props.qty)"
       :disabled="props.disabled"
       class="sf-quantity-selector__input"
@@ -102,7 +102,7 @@ export default {
   },
   uniqueKey() {
     const key = Math.random().toString(16).slice(2);
-    return key;
+    return "quantitySelector" + key;
   },
 };
 </script>
