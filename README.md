@@ -10,7 +10,7 @@ Customization-first, performance-oriented and elegant UI framework for eCommerce
 
 - [Website](http://storefrontui.io/)
 - [Storybook documentation](http://docs.storefrontui.io/)
-- [How to contribute](https://docs.storefrontui.io/?path=/story/introduction-contributing-guide-become-a-contributor--page)
+- [How to contribute](https://docs.storefrontui.io/?path=/story/contributing-guide-guide-become-a-contributor--page)
 - [Discord server](https://discord.com/invite/TJpdzzN6q5)
 
 
@@ -51,7 +51,7 @@ You can find the stunning designs we are using for Storefront UI components [her
 
 # Contributing
 
-We are currently in the process of building the library. If you want to help in shaping the future of Vue and eCommerce UI's we'd be more than happy if you want to contribute! [Here](https://docs.storefrontui.io/?path=/story/introduction-contributing-guide-become-a-contributor--page) you can find all the required information.
+We are currently in the process of building the library. If you want to help in shaping the future of Vue and eCommerce UI's we'd be more than happy if you want to contribute! [Here](https://docs.storefrontui.io/?path=/story/contributing-guide-guide-become-a-contributor--page) you can find all the required information.
 
 
 # Supporters
@@ -60,5 +60,5 @@ We are currently in the process of building the library. If you want to help in 
 <a href="https://cloudinary.com"><img src="https://camo.githubusercontent.com/451061eb9714c2135705a1ad757017cc943627ca474d8a20e78209214469bf72/68747470733a2f2f6437756d7169637069373236332e636c6f756466726f6e742e6e65742f696d672f70726f647563742f65306364363161372d316336352d343561302d393765652d3737363364646335313533612f39383834313664302d323562632d346264322d623864622d6633343764306131393335642e706e67" height="55px" /></a>
 # Contributing
 
-Read [how to start](https://docs.storefrontui.io/?path=/story/introduction-contributing-guide-become-a-contributor--page) and become a part of our amazing community ;)
+Read [how to start](https://docs.storefrontui.io/?path=/story/contributing-guide-guide-become-a-contributor--page) and become a part of our amazing community ;)
 
