@@ -11,7 +11,10 @@ export default {
   component: SfBottomModal,
   parameters: {
     cssprops: {
-      "bottom-modal-position": { value: "fixed", control: "text" },
+      "bottom-modal-position": {
+        value: "fixed",
+        control: "text",
+      },
       "bottom-modal-width": { value: "100%", control: "text" },
       "bottom-modal-top": { value: "", control: "text" },
       "bottom-modal-bottom": { value: "0", control: "text" },
@@ -64,7 +67,7 @@ export default {
         control: "text",
       },
       "button-display": {
-        value: "inherit",
+        value: "none",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
@@ -192,7 +195,7 @@ export const Example = (args, { argTypes }) => ({
     </SfButton>
     <SfBottomModal :is-open="open" :title="title" @click:close="open = !open"> 
         <SfList :style="customStyleForContent">
-          <SfListItem v-for="(item, index) in items" :key="index + '-' + item.country"
+          <SfListItem v-for="(item, index) in items" :key="index"
           >
             <SfButton
               :style="{'background': 'transparent', 'color': 'var(--c-text-muted)','--button-box-shadow': 'none'}"
