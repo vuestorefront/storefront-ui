@@ -28,12 +28,17 @@ describe("SfInput.vue", () => {
       errorMessage
     );
   });
-  it("renders input of type password", () => {
+  it("switch password visibility when button clicked", () => {
     const wrapper = shallowMount(SfInput, {
       propsData: {
         type: "password",
+        hasShowPassword: true,
       },
     });
-    expect(wrapper.classes("sf-input__password-button")).toBe(true);
+    const passwordButton = wrapper.find(".sf-input__password-button");
+    passwordButton.trigger("click");
+    expect(wrapper.find(".sf-input__password-icon").classes("hidden")).toBe(
+      true
+    );
   });
 });

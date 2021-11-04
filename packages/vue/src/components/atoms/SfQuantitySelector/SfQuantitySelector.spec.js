@@ -27,4 +27,17 @@ describe("SfQuantitySelector.vue", () => {
     });
     expect(wrapper.classes("sf-quantity-selector")).toBe(true);
   });
+  it("will set maximum value when qty > max", () => {
+    const wrapper = shallowMount(SfQuantitySelector, {
+      propsData: {
+        qty: 12,
+        disabled: false,
+        min: 1,
+        max: 10,
+      },
+    });
+    const quantityButton = wrapper.find(".sf-quantity-selector__button");
+    quantityButton.trigger("click");
+    expect(wrapper.classes("sf-quantity-selector")).toBe(true);
+  });
 });
