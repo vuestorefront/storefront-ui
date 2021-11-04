@@ -1,7 +1,6 @@
 import { SfSelect } from "@storefront-ui/vue";
 
 const options = [
-  { value: "" },
   { value: "amaranth", color: "#E52B50", label: "Amaranth" },
   { value: "amber", color: "#FFBF00", label: "Amber" },
   { value: "arctic-lime", color: "#D0FF14", label: "Arctic lime" },

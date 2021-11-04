@@ -112,9 +112,12 @@ export default {
     },
     link: {
       control: "text",
-      defaultValue: "",
+      defaultValue: undefined,
       table: {
         category: "Props",
+        defaultValue: {
+          summary: "null",
+        },
       },
       description: "Link for 'a' tag.",
     },
