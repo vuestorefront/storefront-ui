@@ -7,6 +7,24 @@ export default {
   title: "Components/Organisms/BottomNavigation",
   component: SfBottomNavigationItem,
   parameters: {
+    cssprops: {
+      "icon-color": {
+        value: "var(--c-link)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-size": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "circle-icon-position": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+
     docs: {
       inlineStories: false,
       iframeHeight: "30em",

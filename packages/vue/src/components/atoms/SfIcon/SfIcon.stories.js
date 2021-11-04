@@ -8,6 +8,19 @@ export default {
   title: "Components/Atoms/Icon",
   component: SfIcon,
   parameters: {
+    cssprops: {
+      "icon-position": { value: "relative", control: "text" },
+      "icon-width": { value: "var(--icon-size, 1.625rem)", control: "text" },
+      "icon-height": { value: "var(--icon-size, 1.625rem)", control: "text" },
+      "icon-color": { value: "var(--c-black)", control: "text" },
+      "icon-badge-top": { value: "0", control: "text" },
+      "icon-badge-right": { value: "0", control: "text" },
+      "icon-size": {
+        value: "",
+        control: "text",
+      },
+    },
+
     docs: {
       description: {
         component:
@@ -51,22 +64,20 @@ export default {
     },
     coverage: {
       control: {
-        type: "number",
-        range: {
-          min: 0,
-          max: 1,
-          step: 0.1,
-        },
-        table: {
-          category: "Props",
-          defaultValue: {
-            summary: "",
-          },
-        },
-        defaultValue: "",
-        description:
-          "The fraction in which the icon is partially collored with --icon-color value and the rest with --icon-color-negative. To be used in SfRating.",
+        type: "range",
+        min: 0,
+        max: 1,
+        step: 0.1,
       },
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: "1",
+        },
+      },
+      defaultValue: 1,
+      description:
+        "The fraction in which the icon is partially collored with --icon-color value and the rest with --icon-color-negative. To be used in SfRating.",
     },
   },
 };

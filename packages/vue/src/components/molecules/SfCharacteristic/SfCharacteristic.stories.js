@@ -8,6 +8,57 @@ export default {
   title: "Components/Molecules/Characteristic",
   component: SfCharacteristic,
   parameters: {
+    cssprops: {
+      "characteristic-margin": {
+        value: "0 var(--spacer-xs) 0 0",
+        control: "text",
+      },
+      "characteristic-title-font": { value: "", control: "text" },
+      "characteristic-title-font-weight": {
+        value: "var(--font-weight--normal)",
+        control: "text",
+      },
+      "characteristic-title-font-size": {
+        value: "var(--h5-font-size)",
+        control: "text",
+      },
+      "characteristic-title-font-line-height": {
+        value: "1.6",
+        control: "text",
+      },
+      "characteristic-title-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+      "characteristic-description-font": { value: "", control: "text" },
+      "characteristic-description-font-weight": {
+        value: "var(--font-weight--normal)",
+        control: "text",
+      },
+      "characteristic-description-font-size": {
+        value: "var(--font-size--xs)",
+        control: "text",
+      },
+      "characteristic-description-font-line-height": {
+        value: "1.6",
+        control: "text",
+      },
+      "characteristic-description-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+      "icon-color": {
+        value: "var(--c-primary)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "icon-size": {
+        value: "2rem",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+
     docs: {
       description: {
         component:

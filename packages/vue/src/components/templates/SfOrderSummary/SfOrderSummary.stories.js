@@ -60,6 +60,68 @@ export default {
   title: "Components/Templates/OrderSummary",
   component: SfOrderSummary,
   parameters: {
+    cssprops: {
+      "heading-title-margin": {
+        value: "0 0 var(--spacer-xl) 0",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "heading-title-font-weight": {
+        value: "var(--font-weight--bold)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "heading-padding": {
+        value: "0",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "heading-title-font-size": {
+        value: "var(--h3-font-size)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "property-name-font-weight": {
+        value: "var(--font-weight--medium)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "property-value-font-weight": {
+        value: "var(--font-weight--bold)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "property-name-color": {
+        value: "var(--c-text)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "divider-border-color": {
+        value: "var(--c-white)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "divider-margin": {
+        value: "var(--spacer-xl) 0 0 0",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "input-background": {
+        value: "var(--c-white)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "input-label-font-size": {
+        value: "var(--font-size--base)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-height": {
+        value: "1.875rem",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
     docs: {
       description: {
         component:

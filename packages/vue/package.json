@@ -46,6 +46,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
+    "@ljcl/storybook-addon-cssprops": "^0.1.0",
     "@storybook/addon-a11y": "6.3.8",
     "@storybook/addon-actions": "6.3.8",
     "@storybook/addon-backgrounds": "6.3.8",

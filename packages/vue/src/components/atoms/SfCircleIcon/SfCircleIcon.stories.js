@@ -8,6 +8,60 @@ export default {
   title: "Components/Atoms/CircleIcon",
   component: SfCircleIcon,
   parameters: {
+    cssprops: {
+      "circle-icon-position": { value: "relative", control: "text" },
+      "icon-color": {
+        value: "var(--c-white)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-padding": {
+        value: "0",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "icon-size": {
+        value: "1.5rem",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-size": {
+        value: "3.25rem",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-background": {
+        value: "var(--c-primary)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-border-radius": {
+        value: "100%",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-box-shadow": {
+        value: "0 0 0 0.3125rem var(--c-primary)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-box-shadow-opacity": {
+        value: "0.3",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "icon-position": {
+        value: "static",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-transition": {
+        value: "background 150ms ease",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+
     docs: {
       description: {
         component:

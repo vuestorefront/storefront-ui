@@ -4,6 +4,25 @@ export default {
   title: "Components/Atoms/Bullets",
   component: SfBullets,
   parameters: {
+    cssprops: {
+      "bullet-width": { value: "var(--bullet-size, 0.5rem)", control: "text" },
+      "bullet-height": { value: "var(--bullet-size, 0.5rem)", control: "text" },
+      "bullet-margin": { value: "var(--spacer-2xs)", control: "text" },
+      "bullet-border-radius": { value: "100%", control: "text" },
+      "bullet-background": { value: "var(--c-gray)", control: "text" },
+      "bullet-box-shadow-transition": {
+        value:
+          "opacity var(--bullet-box-shadow-transition-opacity-duration, 200ms) var(--bullet-box-shadow-transition-opacity-timing-function, ease-in-out), box-shadow var(--bullet-box-shadow-transition-box-shadow-duration, 200ms) var(--bullet-box-shadow-transition-box-shadow-timing-function, ease-in-out)",
+        control: "text",
+      },
+      "bullet-box-shadow-opacity": { value: "", control: "text" },
+      "bullet-box-shadow": {
+        value:
+          "var(--bullet-box-shadow-h-offset, 0px) var(--bullet-box-shadow-v-offset, 4px) var(--bullet-box-shadow-blur, 4px) var(--bullet-box-shadow-spread, 0px) var(--bullet-box-shadow-color, var(--c-black))",
+        control: "text",
+      },
+    },
+
     docs: {
       description: {
         component:

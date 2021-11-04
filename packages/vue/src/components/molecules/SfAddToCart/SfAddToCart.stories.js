@@ -4,6 +4,28 @@ export default {
   title: "Components/Molecules/AddToCart",
   component: SfAddToCart,
   parameters: {
+    cssprops: {
+      "add-to-cart-select-quantity-margin": {
+        value: "0 0 0 var(--spacer-xs)",
+        control: "text",
+      },
+      "button-font": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-width": {
+        value: "100%",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "add-to-cart-select-quantity-display": {
+        value: "flex",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+
     docs: {
       description: {
         component:

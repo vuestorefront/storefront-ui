@@ -3,6 +3,35 @@ export default {
   title: "Components/Molecules/Range",
   component: SfRange,
   parameters: {
+    cssprops: {
+      "range-handle-border": {
+        value:
+          "var(--range-handle-border-style, solid) var(--range-handle-border-color, var(--c-primary))",
+        control: "text",
+      },
+      "range-handle-border-width": { value: "1px", control: "text" },
+      "range-tooltip-font": { value: "", control: "text" },
+      "range-tooltip-font-weight": {
+        value: "var(--font-weight--normal)",
+        control: "text",
+      },
+      "range-tooltip-font-size": {
+        value: "var(--font-size--xs)",
+        control: "text",
+      },
+      "range-tooltip-font-line-height": { value: "1.2", control: "text" },
+      "range-tooltip-font-family": {
+        value: "--font-family--secondary",
+        control: "text",
+      },
+      "range-tooltip-border": {
+        value:
+          "var(--range-tooltip-border-style, none) var(--range-tooltip-border-color, var(--c-primary))",
+        control: "text",
+      },
+      "range-tooltip-border-width": { value: "0", control: "text" },
+    },
+
     docs: {
       description: {
         component:

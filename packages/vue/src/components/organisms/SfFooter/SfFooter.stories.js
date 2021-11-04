@@ -13,6 +13,48 @@ export default {
   title: "Components/Organisms/Footer",
   component: SfFooter,
   parameters: {
+    cssprops: {
+      "footer-column-title-font": { value: "", control: "text" },
+      "footer-column-title-font-weight": {
+        value: "var(--font-weight--medium)",
+        control: "text",
+      },
+      "footer-column-title-font-size": {
+        value: "var(--h5-font-size)",
+        control: "text",
+      },
+      "footer-column-title-font-line-height": { value: "1.4", control: "text" },
+      "footer-column-title-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+      "chevron-color": {
+        value: "var(--c-white)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "list-item-margin": {
+        value: "var(--spacer-base) var(--spacer-xs)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "menu-item-label-color": {
+        value: "var(--c-white)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "image-width": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "image-height": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+
     docs: {
       description: {
         component:

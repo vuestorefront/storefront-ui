@@ -4,6 +4,30 @@ export default {
   title: "Components/Molecules/Gallery",
   component: SfGallery,
   parameters: {
+    cssprops: {
+      "gallery-flex-direction": { value: "column", control: "text" },
+      "gallery-thumbs-display": { value: "flex", control: "text" },
+      "gallery-thumbs-flex": { value: "", control: "text" },
+      "gallery-thumbs-flex-direction": { value: "", control: "text" },
+      "gallery-thumbs-margin": {
+        value: "var(--spacer-xs) 0 0 0",
+        control: "text",
+      },
+      "gallery-thumbs-order": { value: "", control: "text" },
+      "gallery-thumb-width": { value: "10rem", control: "text" },
+      "gallery-item-margin": {
+        value: "0 var(--spacer-xs) 0 0",
+        control: "text",
+      },
+      "gallery-item-opacity": { value: "0.5", control: "text" },
+      "gallery-item-transition": {
+        value: "opacity 150ms ease-in-out",
+        control: "text",
+      },
+      "gallery-item-cursor": { value: "pointer", control: "text" },
+      "gallery-stage-width": { value: "26.375rem", control: "text" },
+    },
+
     docs: {
       description: {
         component:

@@ -3,6 +3,54 @@ export default {
   title: "Components/Molecules/Modal",
   component: SfModal,
   parameters: {
+    cssprops: {
+      "modal-width": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "modal-top": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "modal-left": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "modal-bottom": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "modal-right": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "modal-transform": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "modal-height": {
+        value: "auto",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "modal-max-height": {
+        value: "90%",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "modal-content-padding": {
+        value: "var(--spacer-sm) var(--spacer-lg)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+
     docs: {
       inlineStories: false,
       iframeHeight: "300px",
