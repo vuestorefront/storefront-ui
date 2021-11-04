@@ -168,5 +168,5 @@ export {
   SfPayment,
   SfPersonalDetails,
   SfShipping,
-  SfShippingDetails,
+  SfShippingDetails
 };

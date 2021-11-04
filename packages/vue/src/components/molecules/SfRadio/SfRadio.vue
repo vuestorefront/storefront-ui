@@ -19,10 +19,10 @@
       />
       <!-- @slot Custom checkmark markup -->
       <slot name="checkmark" v-bind="{ isChecked, disabled }">
-        <div
+        <span
           class="sf-radio__checkmark"
           :class="{ 'sf-radio__checkmark is-active': isChecked }"
-        ></div>
+        ></span>
       </slot>
       <div class="sf-radio__content">
         <!-- @slot Custom label markup -->
