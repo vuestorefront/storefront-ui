@@ -56,8 +56,11 @@ export default {
       control: "text",
       table: {
         category: "Props",
+        defaultValue: {
+          summary: "null",
+        },
       },
-      defaultValue: "",
+      defaultValue: undefined,
       description:
         "The minimum number of characters required that the user should enter.",
     },
@@ -65,8 +68,11 @@ export default {
       control: "text",
       table: {
         category: "Props",
+        defaultValue: {
+          summary: "null",
+        },
       },
-      defaultValue: "",
+      defaultValue: undefined,
       description:
         "The maximum number of characters that the user can enter. If this value isn't specified, the user can enter an unlimited number of characters.",
     },
