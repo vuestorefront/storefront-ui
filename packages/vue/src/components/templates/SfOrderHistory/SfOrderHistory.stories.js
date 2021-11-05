@@ -5,6 +5,13 @@ export default {
   title: "Components/Templates/OrderHistory",
   component: SfOrderHistory,
   parameters: {
+    cssprops: {
+      "button-width": {
+        value: "100%",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
     docs: {
       description: {
         component: "Component with order history. Part of the account.",

@@ -5,6 +5,33 @@ export default {
   title: "Components/Molecules/Card",
   component: SfCard,
   parameters: {
+    cssprops: {
+      "card-description-font": { value: "", control: "text" },
+      "card-description-font-weight": {
+        value: "var(--font-weight--normal)",
+        control: "text",
+      },
+      "card-description-font-size": {
+        value: "var(--font-size--base)",
+        control: "text",
+      },
+      "card-description-font-line-height": { value: "1.6", control: "text" },
+      "card-description-font-family": {
+        value: "var(--font-family--primary)",
+        control: "text",
+      },
+      "image-width": {
+        value: "100%",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "heading-title-font": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+
     docs: {
       description: {
         component:
