@@ -47,7 +47,7 @@ export default {
     return !!descriptionProp || slots().description;
   },
   headingClass(headingLevel) {
-    return `h${headingLevel}`;
+    return headingLevel < 8 ? `h${headingLevel}` : `h2`;
   },
 };
 </script>
