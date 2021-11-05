@@ -2,7 +2,7 @@ import Vue from "vue";
 let observer;
 const isMobileMax = 1023;
 export const onMediaMatch = (e) => {
-  if (typeof e.matches === null) return;
+  if (typeof e.matches === null || !observer) return;
   observer.isMobile = !!e.matches;
 };
 export const setupListener = () => {
@@ -16,8 +16,7 @@ export const setupListener = () => {
   observer.isMobile =
     Math.max(document.documentElement.clientWidth, window.innerWidth) <=
     isMobileMax;
-  const matchEvent = window.matchMedia(`(max-width: ${isMobileMax}px)`);
-  onMediaMatch(matchEvent);
+  window.matchMedia(`(max-width: ${isMobileMax}px)`).addListener(onMediaMatch);
   observer.isInitialized = true;
 };
 export const tearDownListener = () => {
