@@ -24,10 +24,10 @@
           :class="{ 'sf-radio__checkmark is-active': isChecked }"
         ></span>
       </slot>
-      <div class="sf-radio__content">
+      <p class="sf-radio__content">
         <!-- @slot Custom label markup -->
         <slot name="label" v-bind="{ label, isChecked, disabled }">
-          <div v-if="label" class="sf-radio__label">{{ label }}</div>
+          <span v-if="label" class="sf-radio__label">{{ label }}</span>
         </slot>
         <!-- @slot Custom details markup -->
         <slot name="details" v-bind="{ details }">
@@ -41,7 +41,7 @@
             {{ description }}
           </p>
         </slot>
-      </div>
+      </p>
     </label>
   </div>
 </template>
