@@ -10,7 +10,13 @@ describe("SfTextarea.vue", () => {
       propsData: {
         value: "text",
       },
+      listeners: {
+        input: () => {
+          expect(component.vm.$data.input).toBeTruthy();
+          done();
+        },
+      },
     });
-    expect(wrapper.classes("sf-textarea--has-text")).toBe(true);
+    wrapper.find("textarea").trigger("input");
   });
 });

@@ -14,19 +14,20 @@ describe("SfInput.vue", () => {
     });
     expect(wrapper.find(".sf-input__label").text()).toBe(label);
   });
-  it("renders errorMessage slot with valid is false when passed", () => {
-    const errorMessage = "This field is required";
+  it("emits input when triggered", () => {
     const wrapper = shallowMount(SfInput, {
-      slots: {
-        "error-message": errorMessage,
-      },
       propsData: {
-        valid: false,
+        type: "password",
+        hasShowPassword: true,
+      },
+      listeners: {
+        input: () => {
+          expect(wrapper.vm.$data.input).toBeTruthy();
+          done();
+        },
       },
     });
-    expect(wrapper.find(".sf-input__error-message").text()).toMatch(
-      errorMessage
-    );
+    wrapper.find("input").trigger("input");
   });
   it("switch password visibility when button clicked", () => {
     const wrapper = shallowMount(SfInput, {

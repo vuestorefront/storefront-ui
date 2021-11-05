@@ -16,15 +16,17 @@ describe("SfQuantitySelector.vue", () => {
     });
     expect(wrapper.classes("sf-quantity-selector")).toBe(true);
   });
-  it("renders component with props", () => {
+  it("will set minimum value when qty < min or invalid", () => {
     const wrapper = shallowMount(SfQuantitySelector, {
       propsData: {
-        qty: 2,
+        qty: "sdskdj",
         disabled: false,
-        min: 1,
+        min: 5,
         max: 10,
       },
     });
+    const quantityButton = wrapper.find(".sf-quantity-selector__button");
+    quantityButton.trigger("click");
     expect(wrapper.classes("sf-quantity-selector")).toBe(true);
   });
   it("will set maximum value when qty > max", () => {
