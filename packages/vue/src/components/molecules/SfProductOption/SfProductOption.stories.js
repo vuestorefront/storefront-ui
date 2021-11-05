@@ -3,6 +3,35 @@ export default {
   title: "Components/Molecules/ProductOption",
   component: SfProductOption,
   parameters: {
+    cssprops: {
+      "product-option-font": { value: "", control: "text" },
+      "product-option-font-weight": {
+        value: "var(--font-weight--light)",
+        control: "text",
+      },
+      "product-option-font-size": {
+        value: "var(--font-size--sm)",
+        control: "text",
+      },
+      "product-option-font-line-height": { value: "normal", control: "text" },
+      "product-option-font-family": {
+        value: "var(--font-family--primary)",
+        control: "text",
+      },
+      "product-option-size": { value: "1.5rem", control: "text" },
+      "product-option-color-margin": {
+        value: "0 var(--spacer-sm) 0 0",
+        control: "text",
+      },
+      "product-option-border": {
+        value:
+          "var(--product-option-border-style, solid) var(--product-option-border-color, var(--c-light))",
+        control: "text",
+      },
+      "product-option-border-width": { value: "0", control: "text" },
+      "product-option-border-radius": { value: "", control: "text" },
+    },
+
     docs: {
       description: {
         component: "Component with label used as part of product description. ",

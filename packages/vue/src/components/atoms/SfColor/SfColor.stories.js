@@ -4,6 +4,42 @@ export default {
   title: "Components/Atoms/Color",
   component: SfColor,
   parameters: {
+    cssprops: {
+      "color-width": { value: "var(--color-size, 2.5rem)", control: "text" },
+      "color-height": { value: "var(--color-size, 2.5rem)", control: "text" },
+      "color-background": { value: "", control: "text" },
+      "color-border-radius": { value: "", control: "text" },
+      "color-box-shadow-transition": {
+        value:
+          "opacity var(--color-box-shadow-transition-opacity-duration, 200ms) var(--color-box-shadow-transition-opacity-timing-function, ease-in-out), box-shadow var(--color-box-shadow-transition-box-shadow-duration, 200ms) var(--color-box-shadow-transition-box-shadow-timing-function, ease-in-out)",
+        control: "text",
+      },
+      "color-box-shadow-opacity": { value: "", control: "text" },
+      "color-box-shadow": {
+        value:
+          "var(--color-box-shadow-h-offset, 0px) var(--color-box-shadow-v-offset, 4px) var(--color-box-shadow-blur, 4px) var(--color-box-shadow-spread, 0px) var(--color-box-shadow-color, var(--c-black))",
+        control: "text",
+      },
+      "color-box-shadow-transition-duration": {
+        value: "150ms",
+        control: "text",
+      },
+      "badge-padding": {
+        value: "var(--spacer-2xs)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "badge-border-radius": {
+        value: "100%",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "color-size": {
+        value: "0.75rem",
+        control: "text",
+      },
+    },
+
     docs: {
       description: {
         component:

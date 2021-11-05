@@ -4,6 +4,14 @@ export default {
   title: "Components/Atoms/Overlay",
   component: SfOverlay,
   parameters: {
+    cssprops: {
+      "overlay-z-index": { value: "1", control: "text" },
+      "overlay-background": {
+        value: "rgba(var(--c-gray-base), 0.7)",
+        control: "text",
+      },
+    },
+
     docs: {
       inlineStories: false,
       iframeHeight: "300px",

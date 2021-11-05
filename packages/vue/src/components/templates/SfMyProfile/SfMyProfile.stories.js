@@ -5,6 +5,13 @@ export default {
   title: "Components/Templates/MyProfile",
   component: SfMyProfile,
   parameters: {
+    cssprops: {
+      "button-width": {
+        value: "100%",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
     docs: {
       description: {
         component:

@@ -4,6 +4,107 @@ export default {
   title: "Components/Organisms/ProductCard",
   component: SfProductCard,
   parameters: {
+    cssprops: {
+      "product-card-z-index": { value: "", control: "text" },
+      "product-card-max-width": { value: "10.625rem", control: "text" },
+      "product-card-height": { value: "", control: "text" },
+      "product-card-padding": { value: "var(--spacer-xs)", control: "text" },
+      "product-card-background": { value: "var(--c-white)", control: "text" },
+      "product-card-transition": { value: "", control: "text" },
+      "product-card-box-shadow": { value: "", control: "text" },
+      "product-card-link-margin": { value: "0", control: "text" },
+      "product-card-title-font": { value: "", control: "text" },
+      "product-card-title-font-weight": {
+        value: "var(--font-weight--normal)",
+        control: "text",
+      },
+      "product-card-title-font-size": {
+        value: "var(--h5-font-size)",
+        control: "text",
+      },
+      "product-card-title-font-line-height": { value: "1.6", control: "text" },
+      "product-card-title-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+      "product-card-title-color": { value: "var(--c-link)", control: "text" },
+      "product-card-title-margin": {
+        value: "var(--spacer-xs) 0 0 0",
+        control: "text",
+      },
+      "product-card-image-transition": {
+        value: "opacity 150ms ease-in-out",
+        control: "text",
+      },
+      "product-card-image-opacity": { value: "", control: "text" },
+      "product-card-image-even-opacity": { value: "0", control: "text" },
+      "product-card-badge-top": { value: "var(--spacer-xs)", control: "text" },
+      "product-card-badge-left": { value: "0", control: "text" },
+      "product-card-add-button-right": { value: "1rem", control: "text" },
+      "product-card-add-button-bottom": { value: "0", control: "text" },
+      "product-card-add-button-display": { value: "none", control: "text" },
+      "product-card-add-button-transform": { value: "", control: "text" },
+      "product-card-add-button-opacity": { value: "0", control: "text" },
+      "product-card-margin": { value: "0", control: "text" },
+      "product-card-reviews-count-margin": {
+        value: "0 0 0 var(--spacer-xs)",
+        control: "text",
+      },
+      "product-card-reviews-count-color": {
+        value: "var(--c-text)",
+        control: "text",
+      },
+      "product-card-wishlist-icon-top": {
+        value: "var(--spacer-xs)",
+        control: "text",
+      },
+      "product-card-wishlist-icon-right": {
+        value: "var(--spacer-xs)",
+        control: "text",
+      },
+      "product-card-wishlist-icon-padding": { value: "0", control: "text" },
+      "product-card-wishlist-icon-opacity": { value: "1", control: "text" },
+      "product-card-wishlist-icon-transition": {
+        value: "opacity 150ms ease-in-out",
+        control: "text",
+      },
+      "color-picker-label-font": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "color-picker-position": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "color-picker-justify-content": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "color-picker-padding": {
+        value: "0",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "circle-icon-position": {
+        value: "absolute",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-box-shadow": {
+        value: "0px 4px 11px rgba(29, 31, 34, 0.1)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "icon-color": {
+        value: "var(--c-dark-variant)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+
     docs: {
       description: {
         component: "Product card component with image, description and rating.",

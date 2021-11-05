@@ -3,6 +3,31 @@ export default {
   title: "Components/Organisms/Carousel",
   component: SfCarousel,
   parameters: {
+    cssprops: {
+      "carousel-width": {
+        value: "calc(100% - var(--carousel-controls-size))",
+        control: "text",
+      },
+      "carousel-padding": { value: "", control: "text" },
+      "carousel-controls-position": { value: "absolute", control: "text" },
+      "carousel-controls-top": { value: "50%", control: "text" },
+      "carousel-controls-left": { value: "0", control: "text" },
+      "carousel-controls-transform": {
+        value: "translate3d(0, -50%, 0)",
+        control: "text",
+      },
+      "carousel-controls-display": { value: "none", control: "text" },
+      "carousel-controls-justify-content": {
+        value: "space-between",
+        control: "text",
+      },
+      "carousel-controls-width": { value: "100%", control: "text" },
+      "carousel-controls-size": {
+        value: "15rem",
+        control: "text",
+      },
+    },
+
     docs: {
       description: {
         component:

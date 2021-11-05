@@ -71,6 +71,33 @@ export default {
   title: "Components/Templates/OrderReview",
   component: SfOrderReview,
   parameters: {
+    cssprops: {
+      "heading-title-margin": {
+        value: "0 0 var(--spacer-xl) 0",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "heading-title-font-weight": {
+        value: "var(--font-weight--bold)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "input-background": {
+        value: "var(--c-white)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "input-label-font-size": {
+        value: "var(--font-size--base)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-height": {
+        value: "1.875rem",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
     docs: {
       description: {
         component:

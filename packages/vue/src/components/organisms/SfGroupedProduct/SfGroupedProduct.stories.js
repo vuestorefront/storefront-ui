@@ -4,6 +4,108 @@ export default {
   title: "Components/Organisms/GroupedProduct",
   component: SfGroupedProductItem,
   parameters: {
+    cssprops: {
+      "grouped-product-item-display": { value: "", control: "text" },
+      "grouped-product-item-padding": {
+        value: "var(--spacer-xs)",
+        control: "text",
+      },
+      "grouped-product-item-border": {
+        value:
+          "var(--grouped-product-item-border-style, solid) var(--grouped-product-item-border-color, var(--c-light))",
+        control: "text",
+      },
+      "grouped-product-item-border-width": { value: "0", control: "text" },
+      "grouped-product-item-font": { value: "", control: "text" },
+      "grouped-product-item-font-weight": {
+        value: "var(--font-weight--normal)",
+        control: "text",
+      },
+      "grouped-product-item-font-size": {
+        value: "var(--font-size--xs)",
+        control: "text",
+      },
+      "grouped-product-item-font-line-height": {
+        value: "1.6",
+        control: "text",
+      },
+      "grouped-product-item-font-family": {
+        value: "var(--font-family--primary)",
+        control: "text",
+      },
+      "grouped-product-item-aside-position": {
+        value: "relative",
+        control: "text",
+      },
+      "grouped-product-item-flex": { value: "", control: "text" },
+      "grouped-product-item-image-background": {
+        value: "var(--c-light)",
+        control: "text",
+      },
+      "grouped-product-item-quantity-selector-display": {
+        value: "flex",
+        control: "text",
+      },
+      "grouped-product-item-quantity-selector-bottom": {
+        value: "var(--spacer-sm)",
+        control: "text",
+      },
+      "grouped-product-item-quantity-selector-left": {
+        value: "50%",
+        control: "text",
+      },
+      "grouped-product-item-quantity-selector-right": {
+        value: "",
+        control: "text",
+      },
+      "grouped-product-item-quantity-selector-transfrom": {
+        value: "translate3d(-50%, 0, 0)",
+        control: "text",
+      },
+      "grouped-product-item-quantity-selector-margin": {
+        value: "",
+        control: "text",
+      },
+      "grouped-product-item-description-margin": { value: "", control: "text" },
+      "grouped-product-item-info-margin": { value: "", control: "text" },
+      "grouped-product-item-title-color": {
+        value: "var(--c-link)",
+        control: "text",
+      },
+      "grouped-product-item-title-margin": {
+        value: "var(--spacer-xs) 0",
+        control: "text",
+      },
+      "grouped-product-item-title-font": { value: "", control: "text" },
+      "grouped-product-item-title-font-weight": {
+        value: "var(--font-weight--normal)",
+        control: "text",
+      },
+      "grouped-product-item-title-font-size": {
+        value: "var(--font-size--base)",
+        control: "text",
+      },
+      "grouped-product-item-title-font-line-height": {
+        value: "1.6",
+        control: "text",
+      },
+      "grouped-product-item-title-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+      "grouped-product-item-price-margin": { value: "", control: "text" },
+      "quantity-selector-background": {
+        value: "var(--c-light)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "link-text-decoration": {
+        value: "none",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+
     docs: {
       description: {
         component:

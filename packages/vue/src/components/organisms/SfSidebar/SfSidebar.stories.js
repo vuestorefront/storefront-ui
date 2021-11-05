@@ -3,6 +3,77 @@ export default {
   title: "Components/Organisms/Sidebar",
   component: SfSidebar,
   parameters: {
+    cssprops: {
+      "heading-title-color": {
+        value: "var(--c-dark-variant)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "heading-title-font-size": {
+        value: "var(--font-size--xl)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "heading-title-font-weight": {
+        value: "var(--font-weight--semibold)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "heading-description-font-size": {
+        value: "var(--font-size--xl)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "circle-icon-position": {
+        value: "absolute",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "sidebar-width": {
+        value: "",
+        control: "text",
+      },
+      "sidebar-content-padding": {
+        value: "var(--spacer-base) var(--spacer-xl)",
+        control: "text",
+      },
+      "sidebar-left": {
+        value: "",
+        control: "text",
+      },
+      "sidebar-right": {
+        value: "",
+        control: "text",
+      },
+      "sidebar-top-padding": {
+        value: "",
+        control: "text",
+      },
+      "sidebar-circle-icon-top": {
+        value: "",
+        control: "text",
+      },
+      "sidebar-circle-icon-transform": {
+        value: "",
+        control: "text",
+      },
+      "button-background": {
+        value: "transparent",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "icon-color": {
+        value: "var(--c-link)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-box-shadow-opacity": {
+        value: "0",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+
     docs: {
       inlineStories: false,
       iframeHeight: "20em",
