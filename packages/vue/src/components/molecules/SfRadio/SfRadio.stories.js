@@ -3,6 +3,8 @@ export default {
   title: "Components/Molecules/Radio",
   component: SfRadio,
   parameters: {
+    cssprops: {},
+
     docs: {
       description: {
         component: "Radio button component with label and description.",

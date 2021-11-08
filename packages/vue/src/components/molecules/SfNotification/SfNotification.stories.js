@@ -3,6 +3,80 @@ export default {
   title: "Components/Molecules/Notification",
   component: SfNotification,
   parameters: {
+    cssprops: {
+      "notification-align-items": { value: "center", control: "text" },
+      "notification-max-width": { value: "20.9375rem", control: "text" },
+      "notification-padding": {
+        value: "var(--spacer-sm) var(--spacer-xs)",
+        control: "text",
+      },
+      "notification-box-shadow": {
+        value: "0 4px 11px rgba(var(--c-dark-base), 0.1)",
+        control: "text",
+      },
+      "notification-border-radius": { value: "5px", control: "text" },
+      "notification-background": { value: "", control: "text" },
+      "notification-color": { value: "var(--c-white)", control: "text" },
+      "notification-font": { value: "", control: "text" },
+      "notification-font-weight": {
+        value: "var(--font-weight--medium)",
+        control: "text",
+      },
+      "notification-font-size": {
+        value: "var(--font-size--lg)",
+        control: "text",
+      },
+      "notification-font-line-height": { value: "normal", control: "text" },
+      "notification-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+      "notification-title-display": { value: "block", control: "text" },
+      "notification-title-font": { value: "", control: "text" },
+      "notification-title-font-weight": {
+        value: "var(--font-weight--medium)",
+        control: "text",
+      },
+      "notification-title-font-size": {
+        value: "var(--font-size--lg)",
+        control: "text",
+      },
+      "notification-title-font-line-height": {
+        value: "normal",
+        control: "text",
+      },
+      "notification-title-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+      "notification-action-display": { value: "none", control: "text" },
+      "notification-action-color": { value: "", control: "text" },
+      "notification-action-font": { value: "", control: "text" },
+      "notification-action-text-decoration": {
+        value: "underline",
+        control: "text",
+      },
+      "notification-icon-margin": {
+        value: "0 var(--spacer-xs) 0 0",
+        control: "text",
+      },
+      "notification-close-top": { value: "var(--spacer-xs)", control: "text" },
+      "notification-close-right": {
+        value: "var(--spacer-xs)",
+        control: "text",
+      },
+      "icon-color": {
+        value: "var(--c-white)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "icon-size": {
+        value: "0.85rem",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+
     docs: {
       description: {
         component:

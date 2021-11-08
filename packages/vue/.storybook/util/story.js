@@ -28,6 +28,9 @@ export const params = (StoryComponent) => {
     a11y: {
       disable: true,
     },
+    cssprops: {
+      disable: true,
+    },
     storysource: {
       disable: true,
     },

@@ -29,6 +29,7 @@
         disabled
         :selected="!!placeholder"
         value
+        :label="placeholder"
       >
         <slot name="placeholder" v-bind="{ placeholder }" />
         {{ placeholder }}

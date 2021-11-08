@@ -4,6 +4,8 @@ export default {
   title: "Components/Atoms/Skeleton",
   component: SfSkeleton,
   parameters: {
+    cssprops: {},
+
     docs: {
       description: {
         component:

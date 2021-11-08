@@ -4,6 +4,22 @@ export default {
   title: "Components/Atoms/Breadcrumbs",
   component: SfBreadcrumbs,
   parameters: {
+    cssprops: {
+      "link-color": {
+        value: "var(--c-text-muted)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "link-text-decoration": {
+        value: "none",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "breadcrumbs-font-size": {
+        value: "var(--font-size--sm)",
+        control: "text",
+      },
+    },
     docs: {
       description: {
         component:

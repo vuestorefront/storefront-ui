@@ -102,11 +102,9 @@
       data-testid="application-banner"
     >
       <template #title>
-        <SfHeading
-          title="Download our application to your mobile"
-          :level="2"
-          class="sf-heading--no-underline sf-heading--left app-banner__title"
-        />
+        <span class="app-banner__title"
+          >Download our application to your mobile</span
+        >
       </template>
       <template #call-to-action>
         <div class="app-banner__call-to-action">
@@ -429,10 +427,11 @@ export default {
   --banner-subtitle-font-weight: var(--font-weight--medium);
   --banner-subtitle-text-transform: capitalize;
   &__title {
-    --heading-title-margin: var(--spacer-base) 0 var(--spacer-xl) 0;
-    --heading-title-font-size: var(--h1-font-size);
-    --heading-title-font-weight: var(--font-weight--semibold);
-    --heading-title-text-transform: capitalize;
+    margin: var(--spacer-base) 0 var(--spacer-xl) 0;
+    font-size: var(--h1-font-size);
+    font-family: var(--font-family--secondary);
+    font-weight: var(--font-weight--semibold);
+    text-transform: capitalize;
   }
   display: block;
   min-height: 26.25rem;
