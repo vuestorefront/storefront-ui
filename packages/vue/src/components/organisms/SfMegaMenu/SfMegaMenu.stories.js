@@ -77,13 +77,13 @@ export default {
         control: "text",
       },
       "mega-menu-column-content-position": {
-        value: "absolute",
+        value: "",
         control: "text",
       },
       "mega-menu-column-content-top": { value: "0", control: "text" },
       "mega-menu-column-content-display": { value: "", control: "text" },
       "mega-menu-column-content-transform": {
-        value: "translateX(100%)",
+        value: "",
         control: "text",
       },
       "list-item-padding": {
