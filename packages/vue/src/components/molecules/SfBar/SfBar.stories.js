@@ -4,6 +4,28 @@ export default {
   title: "Components/Molecules/Bar",
   component: SfBar,
   parameters: {
+    cssprops: {
+      "bar-height": { value: "3.125rem", control: "text" },
+      "bar-padding": { value: "0 var(--spacer-base)", control: "text" },
+      "bar-background": { value: "var(--c-light)", control: "text" },
+      "bar-font": { value: "", control: "text" },
+      "bar-font-weight": {
+        value: "var(--font-weight--medium)",
+        control: "text",
+      },
+      "bar-font-size": { value: "var(--font-size--base)", control: "text" },
+      "bar-font-line-height": { value: "1.6", control: "text" },
+      "bar-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+      "icon-width": {
+        value: "0.875rem",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+
     docs: {
       description: {
         component: "The bar component for mobile components.",

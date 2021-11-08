@@ -50,6 +50,99 @@ export default {
   title: "Components/Templates/ConfirmOrder",
   component: SfConfirmOrder,
   parameters: {
+    cssprops: {
+      "heading-padding": {
+        value: "var(--spacer-xl) 0 var(--spacer-base)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "table-row-padding": {
+        value: "var(--spacer-sm) 0 var(--spacer-xs)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "image-width": {
+        value: "2.75rem",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "table-heading-padding": {
+        value: "var(--spacer-sm) 0",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "price-regular-font-size": {
+        value: "var(--font-size--base)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "price-regular-font-weight": {
+        value: "var(--font-weight--normal)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "price-special-font-weight": {
+        value: "var(--font-weight--normal)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "link-color": {
+        value: "var(--c-link)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "link-font-family": {
+        value: "var(--font-family--primary)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "link-font-weight": {
+        value: "var(--font-weight--normal)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "property-name-font-weight": {
+        value: "var(--font-weight--medium)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "property-name-font-size": {
+        value: "var(--font-size--lg)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "property-value-font-weight": {
+        value: "var(--font-weight--bold)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "property-value-font-size": {
+        value: "var(--h4-font-size)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "property-name-color": {
+        value: "var(--c-text)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "divider-border-color": {
+        value: "var(--c-primary)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "divider-width": {
+        value: "100%",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "divider-margin": {
+        value: "0 0 var(--spacer-base) 0",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+
     docs: {
       description: {
         component: "Component with details of the order. Part of checkout",

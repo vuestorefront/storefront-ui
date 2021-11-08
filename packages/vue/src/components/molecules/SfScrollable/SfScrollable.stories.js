@@ -31,6 +31,17 @@ export default {
   title: "Components/Molecules/Scrollable",
   component: SfScrollable,
   parameters: {
+    cssprops: {
+      "scrollable-max-height": {
+        value: "",
+        control: "text",
+      },
+      "scrollable-button-margin": {
+        value: " var(--spacer-sm) 0 0 0)",
+        control: "text",
+      },
+    },
+
     docs: {
       description: {
         component: "Scrollable wrapper with styled bar and toggle button.",

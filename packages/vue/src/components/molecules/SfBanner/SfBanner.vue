@@ -6,19 +6,19 @@
   >
     <component :is="wrapper" class="sf-banner__wrapper" :link="link">
       <slot name="subtitle" v-bind="{ subtitle }">
-        <h2 v-if="subtitle" class="sf-banner__subtitle">
+        <span v-if="subtitle" class="sf-banner__subtitle">
           {{ subtitle }}
-        </h2>
+        </span>
       </slot>
       <slot name="title" v-bind="{ title }">
-        <h1 v-if="title" class="sf-banner__title">
+        <span v-if="title" class="sf-banner__title">
           {{ title }}
-        </h1>
+        </span>
       </slot>
       <slot name="description" v-bind="{ description }">
-        <p v-if="description" class="sf-banner__description">
+        <span v-if="description" class="sf-banner__description">
           {{ description }}
-        </p>
+        </span>
       </slot>
       <slot name="call-to-action" v-bind="{ buttonText }">
         <SfButton
