@@ -224,14 +224,14 @@ function getVarsArray(file) {
   });
   const text = css.toString();
   const patterns = [/var\((\S+)(, (.+))?\)/g, / {2}(--.+):( (.+));/g];
-  const componentName = /.sf-(.+) ?{/g.exec(text)[1].trim();
+  const componentName = /\.sf-([a-z]+-?)+/g.exec(text)[0].trim();
   let variables = [];
   let keys = [];
   let result;
   patterns.forEach((pattern, index) => {
     let array = [];
-    while ((result = pattern.exec(text)) !== null) {
-      if (index === 0 && !result[1].includes(componentName)) {
+    while ((result = pattern.exec(text)) !== null) {   
+      if (index === 0 && !result[1].includes(componentName.slice(4))) {
         continue;
       }
       if (keys.includes(result[1])) continue;
@@ -241,19 +241,22 @@ function getVarsArray(file) {
         const regex = /var\((\S+)(, (\S+))?\)/g;
         let fontVar;
         array.push([font, ""]);
-        while ((fontVar = regex.exec(result[3])) !== null) {
+        while ((fontVar = regex.exec(result[3])) !== null) {          
           keys.push(fontVar[1]);
-          array.push([fontVar[1], fontVar[3]]);
+          array.push([fontVar[1], fontVar[3]]);          
         }
         continue;
       }
       variable.push(result[1]);
-      keys.push(result[1]);
-      if (result[3]) {
+      keys.push(result[1]);      
+      const cssModifiersRegex = new RegExp(`${componentName}--(.+\\s)+`, 'g');
+      
+      const cssModifiers = cssModifiersRegex.exec(result.input);      
+      if (result[3] && !cssModifiers?.input.includes(variable[0])) {
         variable.push(result[3]);
       } else {
         variable.push("");
-      }
+      }      
       array.push(variable);
     }
     variables.push(array);
