@@ -4,6 +4,57 @@ export default {
   title: "Components/Molecules/Dropdown",
   component: SfDropdown,
   parameters: {
+    cssprops: {
+      "dropdown-position": { value: "fixed", control: "text" },
+      "dropdown-top": { value: "", control: "text" },
+      "dropdown-bottom": { value: "", control: "text" },
+      "dropdown-transform": { value: "", control: "text" },
+      "dropdown-container-position": { value: "relative", control: "text" },
+      "dropdown-container-top": { value: "", control: "text" },
+      "dropdown-container-bottom": { value: "", control: "text" },
+      "dropdown-container-width": { value: "100%", control: "text" },
+      "dropdown-background": { value: "", control: "text" },
+      "dropdown-box-shadow": { value: "", control: "text" },
+      "dropdown-title-padding": {
+        value: "var(--spacer-sm) var(--spacer-lg)",
+        control: "text",
+      },
+      "dropdown-title-font": { value: "", control: "text" },
+      "dropdown-title-font-weight": {
+        value: "var(--font-weight--normal)",
+        control: "text",
+      },
+      "dropdown-title-font-size": {
+        value: "var(--font-size--sm)",
+        control: "text",
+      },
+      "dropdown-title-font-line-height": { value: "1.2", control: "text" },
+      "dropdown-title-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+      "dropdown-animation-enter": { value: "dropdown 150ms", control: "text" },
+      "dropdown-animation-leave": {
+        value: "dropdown 150ms reverse",
+        control: "text",
+      },
+      "button-background": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-color": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-display": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+
     docs: {
       inlineStories: false,
       iframeHeight: "25em",

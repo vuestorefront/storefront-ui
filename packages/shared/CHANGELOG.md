@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.2](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.11.1...@storefront-ui/shared@0.11.2) (2021-11-09)
+
+
+### Bug Fixes
+
+* 2063 - replace div inside label elements ([#2087](https://github.com/vuestorefront/storefront-ui/issues/2087)) ([88a061c](https://github.com/vuestorefront/storefront-ui/commit/88a061cd98d4dfe47f0d4bde2fdb97375b3bc88e))
+* display block for product title ([a8288b9](https://github.com/vuestorefront/storefront-ui/commit/a8288b96c4ef4bf986ed9c48fe754aa089211cc7))
+* divs inside buttons removed ([3485068](https://github.com/vuestorefront/storefront-ui/commit/3485068682c194885195ba430b3b6a04fe4b410f))
+
+
+
+
+
 ## [0.11.1](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.11.0...@storefront-ui/shared@0.11.1) (2021-10-25)
 
 

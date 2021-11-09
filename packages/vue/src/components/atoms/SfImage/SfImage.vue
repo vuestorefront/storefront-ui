@@ -1,5 +1,5 @@
 <template>
-  <div
+  <span
     class="sf-image--wrapper"
     :style="imageStyle"
     data-testid="image-wrapper"
@@ -25,9 +25,9 @@
       :width="width"
       :height="height"
     />
-    <div v-if="$slots.default" class="sf-image--overlay">
+    <span v-if="$slots.default" class="sf-image--overlay">
       <slot />
-    </div>
+    </span>
     <noscript inline-template>
       <img
         :src="src"
@@ -38,7 +38,7 @@
         :height="height"
       />
     </noscript>
-  </div>
+  </span>
 </template>
 <script>
 export default {

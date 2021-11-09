@@ -3,6 +3,33 @@ export default {
   title: "Components/Molecules/Steps",
   component: SfSteps,
   parameters: {
+    cssprops: {
+      "steps-step-color": {
+        value: "",
+        control: "text",
+      },
+      "steps-step-cursor": {
+        value: "default",
+        control: "text",
+      },
+      "step-font": {
+        value: "",
+        control: "text",
+      },
+      "steps-border-width": {
+        value: "0 0 2px 0",
+        control: "text",
+      },
+      "steps-step-padding": {
+        value: "0 0 var(--spacer-xs) 0",
+        control: "text",
+      },
+      "steps-step-after-background": {
+        value: "",
+        control: "text",
+      },
+    },
+
     docs: {
       description: {
         component:

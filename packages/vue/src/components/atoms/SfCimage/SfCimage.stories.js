@@ -17,6 +17,8 @@ export default {
     }),
   ],
   parameters: {
+    cssprops: {},
+
     docs: {
       description: {
         component: "The image component to use with Cloudinary.",

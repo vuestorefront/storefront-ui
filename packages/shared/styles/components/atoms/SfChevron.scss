@@ -1,6 +1,7 @@
 @import "../../helpers";
 .sf-chevron {
   position: var(--chevron-position, relative);
+  display: block;
   width: var(--chevron-size, 1.25rem);
   height: var(--chevron-size, 1.25rem);
   cursor: pointer;
