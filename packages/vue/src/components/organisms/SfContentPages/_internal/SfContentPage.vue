@@ -26,7 +26,7 @@ export default {
   inject: ["provided"],
   computed: {
     isActive() {
-      return this.provided.active === this.title;
+      return this.provided.active.toLowerCase() === this.title.toLowerCase();
     },
   },
   mounted() {
