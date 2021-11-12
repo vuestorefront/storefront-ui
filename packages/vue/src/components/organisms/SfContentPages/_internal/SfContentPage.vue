@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isActive" class="sf-content-page">
+  <div :class="{ 'display-none': !isActive }" class="sf-content-page">
     <!-- @slot Custom page markup -->
     <slot />
   </div>

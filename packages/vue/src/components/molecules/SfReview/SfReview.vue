@@ -22,7 +22,11 @@
     <slot name="info" v-bind="{ rating, maxRating, date }">
       <div class="sf-review__info">
         <div :class="{ 'sf-review__rating': rating > 0 && maxRating > 0 }">
-          <SfRating v-if="rating" :max="maxRating" :score="rating" />
+          <SfRating
+            :class="{ 'display-none': !rating }"
+            :max="maxRating"
+            :score="rating"
+          />
         </div>
         <div class="sf-review__date">
           {{ date }}
@@ -31,10 +35,10 @@
     </slot>
     <!-- @slot Review message. Slot content will replace default <div> tag and its inner <span> and <a> tags (bind 'finalMessage' computed property, 'buttonText' computed property). -->
     <slot name="message" v-bind="{ finalMessage, buttonText }">
-      <div v-if="message">
+      <div :class="{ 'display-none': !message }">
         <p class="sf-review__message">{{ finalMessage }}</p>
         <SfButton
-          v-if="showButton"
+          :class="{ 'display-none': !showButton }"
           class="sf-button--text sf-review__read-more"
           @click="toggleMessage"
         >

@@ -41,7 +41,9 @@
       <transition name="sf-fade">
         <!-- @slot Custom error message of form select -->
         <slot v-if="!valid" name="errorMessage" v-bind="{ errorMessage }">
-          <span> {{ errorMessage }} </span>
+          <span :class="{ 'display-none': valid }">
+            {{ errorMessage }}
+          </span>
         </slot>
       </transition>
     </div>

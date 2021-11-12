@@ -37,7 +37,7 @@
       </slot>
       <slot name="colors" v-bind="{ colors }">
         <SfColorPicker
-          v-if="colors.length"
+          :class="{ 'display-none': !colors.length }"
           class="sf-product-card__colors"
           label="Choose color"
           :is-open="!isMobile || openColorPicker"
@@ -55,16 +55,14 @@
       </slot>
       <slot name="badge" v-bind="{ badgeLabel, badgeColor }">
         <SfBadge
-          v-if="badgeLabel"
           class="sf-product-card__badge"
-          :class="badgeColorClass"
+          :class="[badgeColorClass, { 'display-none': !badgeLabel }]"
           >{{ badgeLabel }}</SfBadge
         >
       </slot>
       <SfButton
-        v-if="wishlistIcon !== false"
         :aria-label="`${ariaLabel} ${title}`"
-        :class="wishlistIconClasses"
+        :class="[wishlistIconClasses, { 'display-none': !wishlistIcon }]"
         data-testid="product-wishlist-button"
         @click="toggleIsInWishlist"
       >
@@ -76,7 +74,7 @@
           />
         </slot>
       </SfButton>
-      <template v-if="showAddToCartButton">
+      <template :class="{ 'display-none': !showAddToCartButton }">
         <slot
           name="add-to-cart"
           v-bind="{
@@ -138,7 +136,7 @@
     </slot>
     <slot name="price" v-bind="{ specialPrice, regularPrice }">
       <SfPrice
-        v-if="regularPrice"
+        :class="{ 'display-none': !regularPrice }"
         class="sf-product-card__price"
         :regular="regularPrice"
         :special="specialPrice"
@@ -146,7 +144,7 @@
     </slot>
     <slot name="reviews" v-bind="{ maxRating, scoreRating }">
       <div
-        v-if="typeof scoreRating === 'number'"
+        :class="{ 'display-none': !scoreRating }"
         class="sf-product-card__reviews"
       >
         <SfRating
@@ -155,7 +153,7 @@
           :score="scoreRating"
         />
         <SfButton
-          v-if="reviewsCount"
+          :class="{ 'display-none': !reviewsCount }"
           :aria-label="`Read ${reviewsCount} reviews about ${title}`"
           class="sf-button--pure sf-product-card__reviews-count"
           data-testid="product-review-button"

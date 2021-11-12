@@ -62,7 +62,7 @@
         <!--@slot Use this slot to replace price-->
         <slot name="price" v-bind="{ specialPrice, regularPrice }">
           <SfPrice
-            v-if="regularPrice"
+            :class="{ 'display-none': !regularPrice }"
             class="sf-product-card-horizontal__price"
             :regular="regularPrice"
             :special="specialPrice"
@@ -71,7 +71,7 @@
         <!--@slot Use this slot to replace reviews-->
         <slot name="reviews" v-bind="{ maxRating, scoreRating }">
           <div
-            v-if="typeof scoreRating === 'number'"
+            :class="{ 'display-none': !scoreRating }"
             class="sf-product-card-horizontal__reviews"
           >
             <SfRating
@@ -80,7 +80,7 @@
               :score="scoreRating"
             />
             <SfButton
-              v-if="reviewsCount"
+              :class="{ 'display-none': !reviewsCount }"
               :aria-label="`Read ${reviewsCount} reviews about ${title}`"
               class="sf-button--pure sf-product-card-horizontal__reviews-count"
               href="#"
@@ -107,9 +107,8 @@
         </div>
       </div>
       <SfButton
-        v-if="wishlistIcon !== false"
+        :class="[{ 'display-none': !wishlistIcon }, wishlistIconClasses]"
         :aria-label="`${ariaLabel} ${title}`"
-        :class="wishlistIconClasses"
         class="sf-button--pure smartphone-only"
         @click="toggleIsInWishlist"
       >
