@@ -251,10 +251,14 @@ function getVarsArray(file) {
       keys.push(result[1]);      
       const cssModifiersRegex = new RegExp(`${componentName}--(.+\\s)+`, 'g');
       
-      const cssModifiers = cssModifiersRegex.exec(result.input);      
-      if (result[3] && !cssModifiers?.input.includes(variable[0])) {
+      const cssModifiers = cssModifiersRegex.exec(result.input);
+     
+      if (!!result[3] && (!cssModifiers || !cssModifiers[0].includes(variable[0]))) {
         variable.push(result[3]);
       } else {
+        if (componentName === ".sf-arrow") {
+          console.log(cssModifiers[0], variable[0], result[3])
+        }
         variable.push("");
       }      
       array.push(variable);
