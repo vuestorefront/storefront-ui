@@ -22,11 +22,7 @@
     <slot name="info" v-bind="{ rating, maxRating, date }">
       <div class="sf-review__info">
         <div :class="{ 'sf-review__rating': rating > 0 && maxRating > 0 }">
-          <SfRating
-            :class="{ 'display-none': !rating }"
-            :max="maxRating"
-            :score="rating"
-          />
+          <SfRating v-if="rating" :max="maxRating" :score="rating" />
         </div>
         <div class="sf-review__date">
           {{ date }}

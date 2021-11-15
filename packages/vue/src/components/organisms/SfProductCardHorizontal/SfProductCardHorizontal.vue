@@ -75,6 +75,7 @@
             class="sf-product-card-horizontal__reviews"
           >
             <SfRating
+              v-if="typeof scoreRating === 'number'"
               class="sf-product-card-horizontal__rating"
               :max="maxRating"
               :score="scoreRating"
@@ -107,7 +108,7 @@
         </div>
       </div>
       <SfButton
-        :class="[{ 'display-none': !wishlistIcon }, wishlistIconClasses]"
+        v-if="wishlistIcon !== false"
         :aria-label="`${ariaLabel} ${title}`"
         class="sf-button--pure smartphone-only"
         @click="toggleIsInWishlist"

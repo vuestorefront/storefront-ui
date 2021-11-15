@@ -68,6 +68,7 @@
       >
         <slot name="wishlist-icon" v-bind="{ currentWishlistIcon }">
           <SfIcon
+            v-if="currentWishlistIcon !== false"
             :icon="currentWishlistIcon"
             size="22px"
             data-test="sf-wishlist-icon"
@@ -148,6 +149,7 @@
         class="sf-product-card__reviews"
       >
         <SfRating
+          v-if="typeof scoreRating === 'number'"
           class="sf-product-card__rating"
           :max="maxRating"
           :score="scoreRating"
