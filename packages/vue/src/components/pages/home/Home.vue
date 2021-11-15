@@ -88,9 +88,13 @@
             :key="colKey"
             class="instagram-grid__col"
           >
-            <SfImage :src="image.url" :alt="image.content" width="470">{{
-              image.content
-            }}</SfImage>
+            <SfImage
+              :src="image[1].src"
+              :srcsets="image[0]"
+              :alt="image[1].content"
+              :width="image[1].width"
+              >{{ image[1].content }}</SfImage
+            >
           </div>
         </div>
       </div>
@@ -303,24 +307,80 @@ export default {
       ],
       instagramFeed: [
         [
-          {
-            content: "angelina_trn",
-            url: "/assets/storybook/Home/imageA.png",
-          },
-          {
-            content: "angelina_trn",
-            url: "/assets/storybook/Home/imageB.png",
-          },
+          [
+            [
+              {
+                src: "/assets/storybook/Home/imageAm.webp",
+                width: 162,
+                breakpoint: 1024,
+              },
+              {
+                src: "/assets/storybook/Home/imageAd.webp",
+                width: 470,
+                breakpoint: 2400,
+              },
+            ],
+            {
+              src: "/assets/storybook/Home/imageAd.webp",
+              content: "angelina_trn",
+            },
+          ],
+          [
+            [
+              {
+                src: "/assets/storybook/Home/imageBm.webp",
+                width: 162,
+                breakpoint: 1024,
+              },
+              {
+                src: "/assets/storybook/Home/imageBd.webp",
+                width: 470,
+                breakpoint: 2400,
+              },
+            ],
+            {
+              src: "/assets/storybook/Home/imageBd.webp",
+              content: "angelina_trn",
+            },
+          ],
         ],
         [
-          {
-            content: "angelina_trn",
-            url: "/assets/storybook/Home/imageC.jpg",
-          },
-          {
-            content: "angelina_trn",
-            url: "/assets/storybook/Home/imageD.jpg",
-          },
+          [
+            [
+              {
+                src: "/assets/storybook/Home/imageCm.webp",
+                width: 162,
+                breakpoint: 1024,
+              },
+              {
+                src: "/assets/storybook/Home/imageCd.webp",
+                width: 470,
+                breakpoint: 2400,
+              },
+            ],
+            {
+              src: "/assets/storybook/Home/imageCd.webp",
+              content: "angelina_trn",
+            },
+          ],
+          [
+            [
+              {
+                src: "/assets/storybook/Home/imageDm.webp",
+                width: 162,
+                breakpoint: 1024,
+              },
+              {
+                src: "/assets/storybook/Home/imageDd.webp",
+                width: 470,
+                breakpoint: 2400,
+              },
+            ],
+            {
+              src: "/assets/storybook/Home/imageDd.webp",
+              content: "angelina_trn",
+            },
+          ],
         ],
       ],
     };
@@ -400,6 +460,7 @@ export default {
 .instagram-grid {
   max-width: 60rem;
   margin: 0 auto;
+  position: relative;
   &__row {
     display: flex;
     & + & {
@@ -408,14 +469,30 @@ export default {
         margin: calc(var(--spacer-xl) / 2) 0 0 0;
       }
     }
+    @include for-desktop {
+      &:last-child {
+        .instagram-grid__col:last-child {
+          position: absolute;
+          top: 180px;
+          right: 0;
+        }
+      }
+    }
   }
   &__col {
     flex: 1;
     margin: 0;
+    display: flex;
     & + & {
       margin: 0 0 0 var(--spacer-xs);
       @include for-desktop {
         margin: 0 0 0 calc(var(--spacer-xl) / 2);
+      }
+    }
+    @include for-mobile {
+      justify-content: flex-end;
+      &:last-child {
+        justify-content: flex-start;
       }
     }
   }
