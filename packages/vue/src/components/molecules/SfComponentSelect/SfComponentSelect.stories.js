@@ -242,6 +242,19 @@ export default {
       defaultValue: "",
       description: "The content of the option",
     },
+    cancelLabel: {
+      control: "text",
+      table: {
+        category: "Props for main component",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "Cancel",
+        },
+      },
+      description: "Cancel label text",
+    },
     options: {
       control: "array",
       description:
