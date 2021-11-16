@@ -13,6 +13,7 @@ export default {
   title: "Components/Organisms/Footer",
   component: SfFooter,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "footer-column-title-font": { value: "", control: "text" },
       "footer-column-title-font-weight": {
@@ -44,17 +45,17 @@ export default {
         control: "text",
       },
       "image-width": {
-        value: "",
+        value: "auto",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
       "image-height": {
-        value: "",
+        value: "2.125rem",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component:

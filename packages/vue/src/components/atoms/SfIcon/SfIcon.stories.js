@@ -8,6 +8,7 @@ export default {
   title: "Components/Atoms/Icon",
   component: SfIcon,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "icon-position": { value: "relative", control: "text" },
       "icon-width": { value: "var(--icon-size, 1.625rem)", control: "text" },
@@ -16,11 +17,12 @@ export default {
       "icon-badge-top": { value: "0", control: "text" },
       "icon-badge-right": { value: "0", control: "text" },
       "icon-size": {
-        value: "",
+        value: "1rem",
+        description: "Overridden other component's CSS variable",
         control: "text",
       },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component:

@@ -4,9 +4,10 @@ export default {
   title: "Components/Templates/MyNewsletter",
   component: SfMyNewsletter,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "tabs-title-display": {
-        value: "",
+        value: "none",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
@@ -20,7 +21,13 @@ export default {
         description: "Overridden other component's CSS variable",
         control: "text",
       },
+      "button-width": {
+        value: "100%",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
     },
+    // end of code generated automatically
     docs: {
       description: {
         component:

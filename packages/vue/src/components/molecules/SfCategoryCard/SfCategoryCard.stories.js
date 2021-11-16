@@ -4,8 +4,9 @@ export default {
   title: "Components/Molecules/CategoryCard",
   component: SfCategoryCard,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {},
-
+    // end of code generated automatically
     docs: {
       description: {
         component: "The component for displaying information about categories.",

@@ -3,6 +3,7 @@ export default {
   title: "Components/Molecules/ProductOption",
   component: SfProductOption,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "product-option-font": { value: "", control: "text" },
       "product-option-font-weight": {
@@ -31,7 +32,7 @@ export default {
       "product-option-border-width": { value: "0", control: "text" },
       "product-option-border-radius": { value: "", control: "text" },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component: "Component with label used as part of product description. ",

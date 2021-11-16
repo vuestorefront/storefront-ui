@@ -5,6 +5,7 @@ export default {
   title: "Components/Organisms/Hero",
   component: SfHeroItem,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "hero-item-subtitle-font": { value: "", control: "text" },
       "hero-item-subtitle-font-weight": {
@@ -35,7 +36,7 @@ export default {
         control: "text",
       },
       "button-background": {
-        value: "",
+        value: "transparent",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
@@ -54,8 +55,12 @@ export default {
         description: "Overridden other component's CSS variable",
         control: "text",
       },
+      "h1-font-size": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component:

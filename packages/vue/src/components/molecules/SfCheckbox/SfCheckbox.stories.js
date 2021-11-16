@@ -4,6 +4,7 @@ export default {
   title: "Components/Molecules/Checkbox",
   component: SfCheckbox,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "checkbox-padding": { value: "", control: "text" },
       "checkbox-container-width": { value: "", control: "text" },
@@ -11,19 +12,15 @@ export default {
       "checkbox-display": { value: "flex", control: "text" },
       "checkbox-order": { value: "", control: "text" },
       "checkbox-size": { value: "1.5rem", control: "text" },
-      "checkbox-border": {
-        value:
-          "var(--checkbox-border-style, solid) var(--checkbox-border-color, var(--c-link))",
-        control: "text",
-      },
+      "checkbox-border": { value: "", control: "text" },
       "checkbox-border-width": { value: "1px", control: "text" },
       "checkbox-border-radius": { value: "", control: "text" },
-      "checkbox-background": { value: "transparent", control: "text" },
+      "checkbox-background": { value: "", control: "text" },
       "checkbox-label-margin": {
         value: "0 0 0 var(--spacer-xs)",
         control: "text",
       },
-      "checkbox-label-color": { value: "var(--c-link)", control: "text" },
+      "checkbox-label-color": { value: "", control: "text" },
       "checkbox-font": { value: "", control: "text" },
       "checkbox-font-weight": {
         value: "var(--font-weight--normal)",
@@ -38,11 +35,8 @@ export default {
         value: "var(--font-family--primary)",
         control: "text",
       },
-      "checkbox-message-margin": {
-        value: "var(--spacer-2xs) 0 0 0",
-        control: "text",
-      },
-      "checkbox-message-color": { value: "var(--c-danger)", control: "text" },
+      "checkbox-message-margin": { value: "", control: "text" },
+      "checkbox-message-color": { value: "", control: "text" },
       "checkbox-message-font": { value: "", control: "text" },
       "checkbox-message-font-weight": {
         value: "var(--font-weight--normal)",
@@ -63,11 +57,12 @@ export default {
         control: "text",
       },
       "checkbox-border-color": {
-        value: "var(--c-link)",
+        value: "",
+        description: "Overridden other component's CSS variable",
         control: "text",
       },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component:

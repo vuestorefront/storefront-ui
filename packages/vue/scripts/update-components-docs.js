@@ -256,9 +256,6 @@ function getVarsArray(file) {
       if (!!result[3] && (!cssModifiers || !cssModifiers[0].includes(variable[0]))) {
         variable.push(result[3]);
       } else {
-        if (componentName === ".sf-arrow") {
-          console.log(cssModifiers[0], variable[0], result[3])
-        }
         variable.push("");
       }      
       array.push(variable);
@@ -281,7 +278,6 @@ function addCssVarsToStory(story, cssVars, componentInfo) {
       },
     });
   }
-
   let resultStory = [
     story.slice(0, parametersIndexValue + 13),
     `

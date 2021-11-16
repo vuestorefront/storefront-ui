@@ -5,9 +5,10 @@ export default {
   title: "Components/Molecules/Banner",
   component: SfBanner,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "banner-display": { value: "flex", control: "text" },
-      "banner-justify-content": { value: "flex-start", control: "text" },
+      "banner-justify-content": { value: "", control: "text" },
       "banner-width": { value: "100%", control: "text" },
       "banner-height": { value: "21.4375rem", control: "text" },
       "banner-background": {
@@ -87,6 +88,7 @@ export default {
       "_banner-background-image": { value: "", control: "text" },
       "banner-background-position": {
         value: "60%",
+        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "button-background": {
@@ -115,7 +117,7 @@ export default {
         control: "text",
       },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component:
