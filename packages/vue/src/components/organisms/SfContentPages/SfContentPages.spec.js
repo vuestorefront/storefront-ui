@@ -17,4 +17,20 @@ describe("SfContentPages.vue", () => {
     });
     expect(component.classes("sf-content-pages")).toBe(true);
   });
+
+  it("marks menu-item slot as active when active and page.title casing differs", () => {
+    const component = mount(SfContentPages, {
+      propsData: {
+        active: "My Title",
+      },
+      data() {
+        return {
+          items: [{ title: "my title" }],
+        };
+      },
+    });
+
+    const menuItem = component.find(".sf-content-pages__menu");
+    expect(menuItem.classes()).toContain("is-active");
+  });
 });
