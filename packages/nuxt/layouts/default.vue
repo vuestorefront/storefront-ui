@@ -12,7 +12,7 @@
         <SfButton
           class="sf-button--pure"
         >
-          <SfImage src="/assets/flag.png" width="20" alt="usa_flag"/>
+          <SfImage src="/assets/flag.png" width="20" height="20" alt="usa_flag"/>
         </SfButton>
       </template>
     </SfTopBar>
@@ -81,7 +81,14 @@
       </SfFooterColumn>
       <SfFooterColumn title="Social">
         <div class="footer__socials">
-          <SfImage class="footer__social-image" v-for="item in footer.social" :key="item" :src="'/assets/'+item+'.svg'" width="12" height="12" :alt="`${item}-logo`" />
+          <SfImage 
+            v-for="item in footer.social" 
+            :key="item" :src="'/assets/'+item+'.svg'" 
+            width="32" 
+            height="32" 
+            :alt="`${item}-logo`"
+            class="footer__social-image" 
+          />
         </div>
       </SfFooterColumn>
     </SfFooter>
