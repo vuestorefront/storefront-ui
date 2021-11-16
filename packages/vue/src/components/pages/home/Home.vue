@@ -89,11 +89,18 @@
             class="instagram-grid__col"
           >
             <SfImage
-              :src="image[1].src"
-              :srcsets="image[0]"
-              :alt="image[1].content"
-              :width="image[1].width"
-              >{{ image[1].content }}</SfImage
+              v-if="isMobile"
+              :src="image.mobile.src"
+              :width="image.mobile.width"
+              :alt="image.content"
+              >{{ image.content }}</SfImage
+            >
+            <SfImage
+              v-else
+              :src="image.desktop.src"
+              :width="image.desktop.width"
+              :alt="image.content"
+              >{{ image.content }}</SfImage
             >
           </div>
         </div>
@@ -144,6 +151,11 @@ import {
   SfImage,
   SfHeading,
 } from "@storefront-ui/vue";
+import {
+  mapMobileObserver,
+  unMapMobileObserver,
+} from "../../../utilities/mobile-observer";
+
 export default {
   name: "Home",
   components: {
@@ -307,88 +319,66 @@ export default {
       ],
       instagramFeed: [
         [
-          [
-            [
-              {
-                src: "/assets/storybook/Home/imageAm.webp",
-                width: 162,
-                breakpoint: 1024,
-              },
-              {
-                src: "/assets/storybook/Home/imageAd.webp",
-                width: 470,
-                breakpoint: 2400,
-              },
-            ],
-            {
+          {
+            mobile: {
+              src: "/assets/storybook/Home/imageAm.webp",
+              width: 162,
+            },
+            desktop: {
               src: "/assets/storybook/Home/imageAd.webp",
-              content: "angelina_trn",
+              width: 470,
             },
-          ],
-          [
-            [
-              {
-                src: "/assets/storybook/Home/imageBm.webp",
-                width: 162,
-                breakpoint: 1024,
-              },
-              {
-                src: "/assets/storybook/Home/imageBd.webp",
-                width: 470,
-                breakpoint: 2400,
-              },
-            ],
-            {
+            content: "angelina_trn",
+          },
+          {
+            mobile: {
+              src: "/assets/storybook/Home/imageBm.webp",
+              width: 162,
+            },
+            desktop: {
               src: "/assets/storybook/Home/imageBd.webp",
-              content: "angelina_trn",
+              width: 470,
             },
-          ],
+            content: "angelina_trn",
+          },
         ],
         [
-          [
-            [
-              {
-                src: "/assets/storybook/Home/imageCm.webp",
-                width: 162,
-                breakpoint: 1024,
-              },
-              {
-                src: "/assets/storybook/Home/imageCd.webp",
-                width: 470,
-                breakpoint: 2400,
-              },
-            ],
-            {
+          {
+            mobile: {
+              src: "/assets/storybook/Home/imageCm.webp",
+              width: 162,
+            },
+            desktop: {
               src: "/assets/storybook/Home/imageCd.webp",
-              content: "angelina_trn",
+              width: 470,
             },
-          ],
-          [
-            [
-              {
-                src: "/assets/storybook/Home/imageDm.webp",
-                width: 162,
-                breakpoint: 1024,
-              },
-              {
-                src: "/assets/storybook/Home/imageDd.webp",
-                width: 470,
-                breakpoint: 2400,
-              },
-            ],
-            {
+            content: "angelina_trn",
+          },
+          {
+            mobile: {
+              src: "/assets/storybook/Home/imageDm.webp",
+              width: 162,
+            },
+            desktop: {
               src: "/assets/storybook/Home/imageDd.webp",
-              content: "angelina_trn",
+              width: 470,
             },
-          ],
+            content: "angelina_trn",
+          },
         ],
       ],
     };
+  },
+  computed: {
+    ...mapMobileObserver(),
   },
   methods: {
     toggleWishlist(index) {
       return (this.products[index].isInWishlist =
         !this.products[index].isInWishlist);
+    },
+    beforeDestroy() {
+      unMapMobileObserver();
     },
   },
 };
