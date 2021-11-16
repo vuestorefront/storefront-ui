@@ -8,6 +8,9 @@ const selectors = {
     prevArrowButton: element("hero-prev-button"),
     nextArrowButton: element("hero-next-button"),
     bullets: element("hero-bullets"),
+    bulletFirst: element("bullet-01"),
+    bulletSecond: element("bullet-02"),
+    bulletThird: element("bullet-03"),
     items: element("hero-item"),
   },
   bannerGrid: {
@@ -181,6 +184,9 @@ const selectors = {
   pagination: {
     prevArrow: element('pagination-button-prev'),
     nextArrow: element('pagination-button-next')
+  },
+  accordion: {
+    headerShoes: element('accordion-item-Shoes'),
   },
 
   // Product page

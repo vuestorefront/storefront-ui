@@ -15,6 +15,7 @@
         :aria-expanded="isOpen.toString()"
         :class="{ 'is-open': isOpen }"
         class="sf-button--pure sf-accordion-item__header"
+        :data-testid="'accordion-item-' + header"
         @click="accordionClick"
       >
         {{ header }}
