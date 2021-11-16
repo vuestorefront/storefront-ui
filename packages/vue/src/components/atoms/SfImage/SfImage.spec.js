@@ -1,22 +1,11 @@
 import { shallowMount } from "@vue/test-utils";
 import SfImage from "./SfImage.vue";
 describe("SfImage.vue", () => {
-  it("renders component with defaults", () => {
-    const wrapper = shallowMount(SfImage);
-    expect(wrapper.classes("sf-image--wrapper")).toBe(true);
-  });
-  it("renders component with props", () => {
-    const wrapper = shallowMount(SfImage, {
-      propsData: {
-        alt: "test",
-        src: "test",
-      },
-    });
-    expect(wrapper.classes("sf-image--wrapper")).toBe(true);
-  });
   it("renders component with srcset", () => {
     const wrapper = shallowMount(SfImage, {
       propsData: {
+        src: "/assets/storybook/SfImage/product-109x164.webp",
+        alt: "image",
         srcsets: [
           {
             src: "/assets/storybook/SfImage/product-109x164.webp",
@@ -44,6 +33,8 @@ describe("SfImage.vue", () => {
   it("won't render placeholder when image is loaded", async () => {
     const wrapper = shallowMount(SfImage, {
       propsData: {
+        src: "/assets/storybook/SfImage/product-109x164.webp",
+        alt: "image",
         srcsets: [
           {
             src: "/assets/storybook/SfImage/product-109x164.webp",
@@ -72,6 +63,8 @@ describe("SfImage.vue", () => {
   it("renders component with resolutions", () => {
     const wrapper = shallowMount(SfImage, {
       propsData: {
+        src: "/assets/storybook/SfImage/product-109x164.webp",
+        alt: "image",
         srcsets: [
           {
             src: "/assets/storybook/SfImage/product-109x164.webp",

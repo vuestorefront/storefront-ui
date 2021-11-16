@@ -10,10 +10,15 @@ describe("SfTextarea.vue", () => {
       propsData: {
         value: "text",
       },
-      listeners: {
-        input: () => {
-          expect(component.vm.$data.input).toBeTruthy();
-          done();
+      context: {
+        props: {
+          value: "text",
+        },
+        listeners: {
+          input: () => {
+            expect(wrapper.vm.$data.input).toBeTruthy();
+            done();
+          },
         },
       },
     });

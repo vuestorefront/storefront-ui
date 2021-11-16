@@ -28,21 +28,4 @@ describe("SfCimage.vue", () => {
     });
     expect(wrapper.classes("sf-cimage")).toBe(true);
   });
-  it("throws an error when public id is not provided", () => {
-    expect(() => shallowMount(SfCimage)).toThrow(
-      "PublicId is required to use this component."
-    );
-  });
-  it("throws an error when cloud is not provided", () => {
-    jest.mock("cloudinary-build-url", () => ({
-      getConfig: jest.fn({ cloudName: undefined }),
-    }));
-    expect(() =>
-      shallowMount(SfCimage, {
-        propsData: {
-          publicId: "test",
-        },
-      })
-    ).toThrow("cloudName is required to use this component.");
-  });
 });

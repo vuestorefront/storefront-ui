@@ -20,14 +20,10 @@ describe("SfInput.vue", () => {
         type: "password",
         hasShowPassword: true,
       },
-      listeners: {
-        input: () => {
-          expect(wrapper.vm.$data.input).toBeTruthy();
-          done();
-        },
-      },
     });
-    wrapper.find("input").trigger("input");
+    const input = wrapper.find("input");
+    input.trigger("input");
+    expect(wrapper.emitted("input")).toBeTruthy();
   });
   it("switch password visibility when button clicked", () => {
     const wrapper = shallowMount(SfInput, {
