@@ -22,10 +22,11 @@ describe("Home page", () => {
       .first()
       .click()
       .get(selectors.hero.bullets)
-      .find(selectors.hero.bulletSecond)
+      .find("button")
+      .eq(2)
       .click()
       .get(selectors.hero.items)
-      .eq(1)
+      .eq(2)
       .should("have.class", "glide__slide--active")
   });
   it("test SfBannerGrid component", () => {
