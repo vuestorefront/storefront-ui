@@ -6,6 +6,24 @@ export default {
   title: "Components/Atoms/Rating",
   component: SfRating,
   parameters: {
+    cssprops: {
+      "icon-size": {
+        value: "0.875rem",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "icon-color": {
+        value: "var(--c-primary)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "icon-color-negative": {
+        value: "var(--c-gray-variant)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+
     docs: {
       description: {
         component:

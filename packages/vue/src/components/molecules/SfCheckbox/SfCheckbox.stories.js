@@ -4,6 +4,70 @@ export default {
   title: "Components/Molecules/Checkbox",
   component: SfCheckbox,
   parameters: {
+    cssprops: {
+      "checkbox-padding": { value: "", control: "text" },
+      "checkbox-container-width": { value: "", control: "text" },
+      "checkbox-cursor": { value: "pointer", control: "text" },
+      "checkbox-display": { value: "flex", control: "text" },
+      "checkbox-order": { value: "", control: "text" },
+      "checkbox-size": { value: "1.5rem", control: "text" },
+      "checkbox-border": {
+        value:
+          "var(--checkbox-border-style, solid) var(--checkbox-border-color, var(--c-link))",
+        control: "text",
+      },
+      "checkbox-border-width": { value: "1px", control: "text" },
+      "checkbox-border-radius": { value: "", control: "text" },
+      "checkbox-background": { value: "transparent", control: "text" },
+      "checkbox-label-margin": {
+        value: "0 0 0 var(--spacer-xs)",
+        control: "text",
+      },
+      "checkbox-label-color": { value: "var(--c-link)", control: "text" },
+      "checkbox-font": { value: "", control: "text" },
+      "checkbox-font-weight": {
+        value: "var(--font-weight--normal)",
+        control: "text",
+      },
+      "checkbox-font-size": {
+        value: "var(--font-size--base)",
+        control: "text",
+      },
+      "checkbox-font-line-height": { value: "1.6", control: "text" },
+      "checkbox-font-family": {
+        value: "var(--font-family--primary)",
+        control: "text",
+      },
+      "checkbox-message-margin": {
+        value: "var(--spacer-2xs) 0 0 0",
+        control: "text",
+      },
+      "checkbox-message-color": { value: "var(--c-danger)", control: "text" },
+      "checkbox-message-font": { value: "", control: "text" },
+      "checkbox-message-font-weight": {
+        value: "var(--font-weight--normal)",
+        control: "text",
+      },
+      "checkbox-message-font-size": {
+        value: "var(--font-size--xs)",
+        control: "text",
+      },
+      "checkbox-message-font-line-height": { value: "1.2", control: "text" },
+      "checkbox-message-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+      "icon-size": {
+        value: "1.25rem",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "checkbox-border-color": {
+        value: "var(--c-link)",
+        control: "text",
+      },
+    },
+
     docs: {
       description: {
         component:

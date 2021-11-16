@@ -11,9 +11,9 @@
         </span>
       </slot>
       <slot name="title" v-bind="{ title }">
-        <sapn v-if="title" class="sf-banner__title">
+        <span v-if="title" class="sf-banner__title">
           {{ title }}
-        </sapn>
+        </span>
       </slot>
       <slot name="description" v-bind="{ description }">
         <span v-if="description" class="sf-banner__description">

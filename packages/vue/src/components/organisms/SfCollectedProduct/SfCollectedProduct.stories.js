@@ -3,6 +3,122 @@ export default {
   title: "Components/Organisms/CollectedProduct",
   component: SfCollectedProduct,
   parameters: {
+    cssprops: {
+      "collected-product-width": { value: "", control: "text" },
+      "collected-product-padding": {
+        value: "var(--spacer-xs)",
+        control: "text",
+      },
+      "collected-product-background": { value: "", control: "text" },
+      "collected-product-z-index": { value: "", control: "text" },
+      "collected-product-remove-opacity": { value: "", control: "text" },
+      "collected-product-remove-right": {
+        value: "var(--spacer-xs)",
+        control: "text",
+      },
+      "collected-product-remove-transition": { value: "", control: "text" },
+      "collected-product-remove-top": { value: "", control: "text" },
+      "collected-product-remove-circle-icon-display": {
+        value: "none",
+        control: "text",
+      },
+      "collected-product-remove-circle-icon-transform": {
+        value: "",
+        control: "text",
+      },
+      "collected-product-remove-bottom": {
+        value: "var(--spacer-xs)",
+        control: "text",
+      },
+      "collected-product-remove-text-display": { value: "", control: "text" },
+      "collected-product-image-background": {
+        value: "var(--c-light)",
+        control: "text",
+      },
+      "collected-product-main-margin": {
+        value: "0 0 0 var(--spacer-sm)",
+        control: "text",
+      },
+      "collected-product-main-flex-direction": {
+        value: "column",
+        control: "text",
+      },
+      "collected-product-title-margin": {
+        value: "0 var(--spacer-base) var(--spacer-sm) 0",
+        control: "text",
+      },
+      "collected-product-title-color": {
+        value: "var(--c-link)",
+        control: "text",
+      },
+      "collected-product-title-font": { value: "", control: "text" },
+      "collected-product-title-font-weight": {
+        value: "var(--font-weight--normal)",
+        control: "text",
+      },
+      "collected-product-title-font-size": {
+        value: "var(--font-size--base)",
+        control: "text",
+      },
+      "collected-product-title-font-line-height": {
+        value: "1.6",
+        control: "text",
+      },
+      "collected-product-title-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+      "collected-product-configuration-display": {
+        value: "flex",
+        control: "text",
+      },
+      "collected-product-configuration-justify-content": {
+        value: "flex-end",
+        control: "text",
+      },
+      "collected-product-configuration-align-items": {
+        value: "flex-start",
+        control: "text",
+      },
+      "collected-product-configuration-margin": {
+        value: "1rem 0 0 0",
+        control: "text",
+      },
+      "collected-product-actions-display": { value: "none", control: "text" },
+      "collected-product-actions-justify-content": {
+        value: "flex-end",
+        control: "text",
+      },
+      "collected-product-actions-align-items": {
+        value: "flex-start",
+        control: "text",
+      },
+      "collected-product-box-shadow": {
+        value: "0px 4px 11px rgba(29, 31, 34, 0.1)",
+        control: "text",
+      },
+      "icon-color": {
+        value: "var(--c-white)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "quantity-selector-background": {
+        value: "var(--c-light)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "link-text-decoration": {
+        value: "none",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "collected-product-transition": {
+        value: "box-shadow 150ms ease-in-out",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+
     docs: {
       description: {
         component:
