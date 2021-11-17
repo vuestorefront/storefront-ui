@@ -10,6 +10,133 @@ const optionsList = [
 export default {
   title: "Components/Molecules/ComponentSelect",
   component: SfComponentSelect,
+  parameters: {
+    cssprops: {
+      "component-select-option-padding": {
+        value: "var(--spacer-sm)",
+        control: "text",
+      },
+      "component-select-option-border": {
+        value:
+          "var(--component-select-option-border-style, solid) var(--component-select-option-border-color, var(--c-light))",
+        control: "text",
+      },
+      "component-select-option-border-width": {
+        value: "1px 0 0 0",
+        control: "text",
+      },
+      "component-select-option-background": { value: "", control: "text" },
+      "component-select-option-font": { value: "", control: "text" },
+      "component-select-option-font-weight": {
+        value: "var(--font-weight--light)",
+        control: "text",
+      },
+      "component-select-option-font-size": {
+        value: "var(--font-size--sm)",
+        control: "text",
+      },
+      "component-select-option-font-line-height": {
+        value: "1.2",
+        control: "text",
+      },
+      "component-select-option-font-family": {
+        value: "var(--font-family--primary)",
+        control: "text",
+      },
+      "chevron-position": {
+        value: "absolute",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "product-option-font": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "component-select-border-color": {
+        value: "var(--c-link)",
+        control: "text",
+      },
+      "component-select-error-message-color": {
+        value: "var(--c-danger)",
+        control: "text",
+      },
+      "button-background": {
+        value: "var(--c-light)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-color": {
+        value: "var(--c-dark-variant)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "component-select-border-width": {
+        value: "0 0 1px 0",
+        control: "text",
+      },
+      "component-select-label-top": {
+        value: "0",
+        control: "text",
+      },
+      "component-select-label-font": {
+        value: "",
+        control: "text",
+      },
+      "chevron-color": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "component-select-label-color": {
+        value: "var(--c-text)",
+        control: "text",
+      },
+      "component-select-color": {
+        value: "var(--c-text)",
+        control: "text",
+      },
+      "component-select-label-required": {
+        value: '" *"',
+        control: "text",
+      },
+      "chevron-display": {
+        value: "block",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "component-select-dropdown-position": {
+        value: "absolute",
+        control: "text",
+      },
+      "component-select-dropdown-top": {
+        value: "100%",
+        control: "text",
+      },
+      "component-select-dropdown-bottom": {
+        value: "auto",
+        control: "text",
+      },
+      "component-select-animation-enter": {
+        value: "ssdesktop 150ms",
+        control: "text",
+      },
+      "component-select-animation-leave": {
+        value: "ssdesktop 150ms reverse",
+        control: "text",
+      },
+    },
+
+    docs: {
+      description: {
+        component:
+          "On click input select field with dropdown. Built from main component - SfComponentSelect and internal components - SfComponentSelectOption.",
+      },
+    },
+  },
+  decorators: [
+    () => ({ template: '<div style="height: 15em;"><story /></div>' }),
+  ],
   argTypes: {
     classes: {
       control: {
@@ -20,53 +147,109 @@ export default {
           "sf-component-select--no-chevron",
         ],
       },
+      table: {
+        category: "CSS modifiers",
+      },
+      description: "CSS classes to modify component styling",
     },
     label: {
       control: "text",
       table: {
-        category: "Props",
+        category: "Props for main component",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
+      description: "Label text",
     },
     selected: {
       control: "object",
       table: {
-        category: "Props",
+        category: "Props for main component",
+        type: {
+          summary: "object",
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
+      defaultValue: { value: "" },
+      description: "Selected item value",
     },
     size: {
       control: "number",
       table: {
-        category: "Props",
+        category: "Props for main component",
       },
+      defaultValue: 5,
+      description: "Dropdown items quantity",
     },
     required: {
       control: "boolean",
       table: {
-        category: "Props",
+        category: "Props for main component",
       },
+      defaultValue: false,
+      description: "Required attribute",
     },
     valid: {
       control: "boolean",
       table: {
-        category: "Props",
+        category: "Props for main component",
       },
+      defaultValue: true,
+      description: "Validate value of form select",
     },
     disabled: {
       control: "boolean",
       table: {
-        category: "Props",
+        category: "Props for main component",
       },
+      defaultValue: false,
+      description: "Disabled status of form select",
     },
     errorMessage: {
       control: "text",
       table: {
-        category: "Props",
+        category: "Props for main component",
       },
+      defaultValue: "This field is not correct.",
+      description:
+        "Error message value of form select. It appears if `valid` is `false`.",
     },
     persistent: {
       control: "boolean",
       table: {
-        category: "Props",
+        category: "Props for main component",
+      },
+      defaultValue: false,
+      description: "If true clicking outside will not dismiss the select",
+    },
+    value: {
+      control: "text",
+      table: {
+        category: "Props for SfComponentSelectOption component",
+        type: {
+          summary: ["string", "number", "object"],
+        },
+        defaultValue: {
+          summary: "",
+        },
+      },
+      defaultValue: "",
+      description: "The content of the option",
+    },
+    options: {
+      control: "array",
+      description:
+        "Options values (for testing purposes). For development, you can use default slot to place custom options.",
+    },
+    "v-model": {
+      table: {
+        disable: true,
       },
     },
   },

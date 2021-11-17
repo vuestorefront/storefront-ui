@@ -28,7 +28,7 @@
               <!-- @slot Custom menu-item markup -->
               <slot name="menu-item" v-bind="{ updatePage, page, active }">
                 <SfMenuItem
-                  :class="{ 'is-active': page.title === active }"
+                  :class="{ 'is-active': isPageActive(page) }"
                   :label="page.title"
                   class="sf-content-pages__menu"
                   @click="updatePage(page.title)"
@@ -78,16 +78,10 @@ export default {
     SfBar,
   },
   props: {
-    /**
-     * Pages title
-     */
     title: {
       type: String,
       default: "",
     },
-    /**
-     * Active page
-     */
     active: {
       type: String,
       default: "",
@@ -155,6 +149,9 @@ export default {
        */
       this.$emit("click:change", title);
     },
+    isPageActive (page) {
+      return page.title.toLowerCase() === this.active.toLowerCase();
+    }
   },
 };
 </script>

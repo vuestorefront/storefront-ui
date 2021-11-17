@@ -3,6 +3,19 @@ import { SfLoader, SfImage } from "@storefront-ui/vue";
 export default {
   title: "Components/Atoms/Loader",
   component: SfLoader,
+  parameters: {
+    cssprops: {
+      "loader-overlay-background": { value: "var(--c-white)", control: "text" },
+      "loader-spinner-stroke": { value: "var(--c-primary)", control: "text" },
+    },
+
+    docs: {
+      description: {
+        component:
+          "The Overlay loading spinner, wrapped around elements for indicating long running tasks like image loading. It's Vue 2 functional component.",
+      },
+    },
+  },
   decorators: [
     () => ({ template: '<div style="margin: 3em;"><story /></div>' }),
   ],
@@ -12,6 +25,7 @@ export default {
       table: {
         category: "Props",
       },
+      description: "Shows the loader on top of the existing content",
     },
   },
 };

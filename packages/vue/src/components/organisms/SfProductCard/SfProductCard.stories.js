@@ -3,24 +3,148 @@ import { SfProductCard } from "@storefront-ui/vue";
 export default {
   title: "Components/Organisms/ProductCard",
   component: SfProductCard,
+  parameters: {
+    cssprops: {
+      "product-card-z-index": { value: "", control: "text" },
+      "product-card-max-width": { value: "10.625rem", control: "text" },
+      "product-card-height": { value: "", control: "text" },
+      "product-card-padding": { value: "var(--spacer-xs)", control: "text" },
+      "product-card-background": { value: "var(--c-white)", control: "text" },
+      "product-card-transition": { value: "", control: "text" },
+      "product-card-box-shadow": { value: "", control: "text" },
+      "product-card-link-margin": { value: "0", control: "text" },
+      "product-card-title-font": { value: "", control: "text" },
+      "product-card-title-font-weight": {
+        value: "var(--font-weight--normal)",
+        control: "text",
+      },
+      "product-card-title-font-size": {
+        value: "var(--h5-font-size)",
+        control: "text",
+      },
+      "product-card-title-font-line-height": { value: "1.6", control: "text" },
+      "product-card-title-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+      "product-card-title-color": { value: "var(--c-link)", control: "text" },
+      "product-card-title-margin": {
+        value: "var(--spacer-xs) 0 0 0",
+        control: "text",
+      },
+      "product-card-image-transition": {
+        value: "opacity 150ms ease-in-out",
+        control: "text",
+      },
+      "product-card-image-opacity": { value: "", control: "text" },
+      "product-card-image-even-opacity": { value: "0", control: "text" },
+      "product-card-badge-top": { value: "var(--spacer-xs)", control: "text" },
+      "product-card-badge-left": { value: "0", control: "text" },
+      "product-card-add-button-right": { value: "1rem", control: "text" },
+      "product-card-add-button-bottom": { value: "0", control: "text" },
+      "product-card-add-button-display": { value: "none", control: "text" },
+      "product-card-add-button-transform": { value: "", control: "text" },
+      "product-card-add-button-opacity": { value: "0", control: "text" },
+      "product-card-margin": { value: "0", control: "text" },
+      "product-card-reviews-count-margin": {
+        value: "0 0 0 var(--spacer-xs)",
+        control: "text",
+      },
+      "product-card-reviews-count-color": {
+        value: "var(--c-text)",
+        control: "text",
+      },
+      "product-card-wishlist-icon-top": {
+        value: "var(--spacer-xs)",
+        control: "text",
+      },
+      "product-card-wishlist-icon-right": {
+        value: "var(--spacer-xs)",
+        control: "text",
+      },
+      "product-card-wishlist-icon-padding": { value: "0", control: "text" },
+      "product-card-wishlist-icon-opacity": { value: "1", control: "text" },
+      "product-card-wishlist-icon-transition": {
+        value: "opacity 150ms ease-in-out",
+        control: "text",
+      },
+      "color-picker-label-font": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "color-picker-position": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "color-picker-justify-content": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "color-picker-padding": {
+        value: "0",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "circle-icon-position": {
+        value: "absolute",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-box-shadow": {
+        value: "0px 4px 11px rgba(29, 31, 34, 0.1)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "icon-color": {
+        value: "var(--c-dark-variant)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+
+    docs: {
+      description: {
+        component: "Product card component with image, description and rating.",
+      },
+    },
+  },
   argTypes: {
     title: {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
+      description: "Product title",
     },
     link: {
       control: "text",
       table: {
         category: "Props",
       },
+      defaultValue: "",
+      description: "Link to product page",
     },
     image: {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
+      description: "Product image. It should be an url of the product",
     },
     imageWidth: {
       control: "number",
@@ -28,6 +152,7 @@ export default {
         category: "Props",
       },
       defaultValue: "100%",
+      description: "Product image width, without unit",
     },
     imageHeight: {
       control: "number",
@@ -35,54 +160,84 @@ export default {
         category: "Props",
       },
       defaultValue: "auto",
+      description: "Product image height, without unit",
     },
     badgeLabel: {
       control: "text",
       table: {
         category: "Props",
       },
+      defaultValue: "",
+      description: "Badge label",
     },
     badgeColor: {
       control: "color",
       table: {
         category: "Props",
       },
+      defaultValue: "",
+      description:
+        "Badge color It can be according to our standard colors, or legitimate CSS color such as `#fff`, `rgb(255,255,255)`), and `lightgray` or nothing. Standard colors: `primary`, `secondary`, `white`, `black`, `accent`, `green-primary`, `green-secondary`, `gray-primary`, `gray-secondary`, `light-primary`, `light-secondary`, `pink-primary`, `pink-secondary`, `yellow-primary`, `yellow-secondary`, `blue-primary`, `blue-secondary`.",
     },
     scoreRating: {
       control: "number",
       table: {
         category: "Props",
       },
+      defaultValue: false,
+      description: "Product rating",
     },
     reviewsCount: {
       control: "number",
       table: {
         category: "Props",
       },
+      defaultValue: false,
+      description: "Product reviews count",
     },
     maxRating: {
       control: "number",
       table: {
         category: "Props",
       },
+      defaultValue: 5,
+      description: "Maximum product rating",
     },
     regularPrice: {
       control: "number",
       table: {
         category: "Props",
+        defaultValue: {
+          summary: "null",
+        },
       },
+      defaultValue: "",
+      description: "Product regular price",
     },
     specialPrice: {
       control: "number",
       table: {
         category: "Props",
+        defaultValue: {
+          summary: "null",
+        },
       },
+      defaultValue: "",
+      description: "Product special price",
     },
     colors: {
       control: "object",
       table: {
         category: "Props",
+        type: {
+          summary: "array",
+        },
+        defaultValue: {
+          summary: "[]",
+        },
       },
+      defaultValue: [],
+      description: "Product colors It should be an array of objects",
     },
     wishlistIcon: {
       control: "text",
@@ -90,36 +245,65 @@ export default {
         category: "Props",
       },
       defaultValue: "heart",
+      description:
+        "Wish list icon This is the default icon for product not yet added to wish list. It can be a icon name from our icons list, or array or string as SVG path(s).",
     },
     isInWishlistIcon: {
       control: "text",
       table: {
         category: "Props",
       },
+      defaultValue: "heart_fill",
+      description:
+        "Wish list icon for product which has been added to wish list This is the icon for product added to wish list.Default visible on mobile.Visible only on hover on desktop. It can be a icon name from our icons list, or array or string as SVG path(s).",
     },
     isInWishlist: {
       control: "boolean",
       table: {
         category: "Props",
       },
+      defaultValue: false,
+      description: "Status of whether product is on wish list or not.",
     },
     showAddToCartButton: {
       control: "boolean",
       table: {
         category: "Props",
       },
+      defaultValue: false,
+      description: "Status of showing add to cart button.",
     },
     isAddedToCart: {
       control: "boolean",
       table: {
         category: "Props",
+        defaultValue: {
+          summary: false,
+        },
       },
+      defaultValue: false,
+      description:
+        "isAddedToCart status of whether button is showed, product is added or not.",
     },
     addToCartDisabled: {
       control: "boolean",
       table: {
         category: "Props",
       },
+      defaultValue: false,
+      description:
+        "addToCartDisabled status of whether button is disabled when out of stock.",
+    },
+    linkTag: {
+      control: "text",
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: "",
+        },
+      },
+      defaultValue: "",
+      description: "*deprecated. Link element tag. Use slot to replace content",
     },
     "click:addToCart": {
       action: "Add-to-cart clicked",

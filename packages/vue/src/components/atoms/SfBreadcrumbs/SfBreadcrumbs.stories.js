@@ -3,12 +3,38 @@ import { SfBreadcrumbs } from "@storefront-ui/vue";
 export default {
   title: "Components/Atoms/Breadcrumbs",
   component: SfBreadcrumbs,
+  parameters: {
+    cssprops: {
+      "link-color": {
+        value: "var(--c-text-muted)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "link-text-decoration": {
+        value: "none",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "breadcrumbs-font-size": {
+        value: "var(--font-size--sm)",
+        control: "text",
+      },
+    },
+    docs: {
+      description: {
+        component:
+          "The component which renders a breadcrumb with router links for indicating the level of navigation the user is currently in. It's Vue 2 functional component.",
+      },
+    },
+  },
   argTypes: {
     breadcrumbs: {
       control: "object",
       table: {
         category: "Props",
       },
+      description:
+        "List of breadcrumbs (array of nested objects: `[ { text, route } ]`)",
     },
   },
 };

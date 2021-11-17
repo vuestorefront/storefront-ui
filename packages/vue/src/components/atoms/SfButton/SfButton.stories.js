@@ -3,6 +3,79 @@ import { SfButton } from "@storefront-ui/vue";
 export default {
   title: "Components/Atoms/Button",
   component: SfButton,
+  parameters: {
+    cssprops: {
+      "button-color": { value: "var(--c-light-variant)", control: "text" },
+      "button-size": { value: "var(--button-width)", control: "text" },
+      "button-display": { value: "flex", control: "text" },
+      "button-padding": {
+        value: "var(--spacer-sm) var(--spacer-base)",
+        control: "text",
+      },
+      "button-background": { value: "var(--c-primary)", control: "text" },
+      "button-transition": { value: "background 0.8s", control: "text" },
+      "button-text-transform": { value: "uppercase", control: "text" },
+      "button-text-decoration": { value: "", control: "text" },
+      "button-cursor": { value: "pointer", control: "text" },
+      "button-border-radius": { value: "0", control: "text" },
+      "button-wrap": { value: "nowrap", control: "text" },
+      "button-font": { value: "", control: "text" },
+      "button-font-weight": {
+        value: "var(--font-weight--semibold)",
+        control: "text",
+      },
+      "button-font-size": { value: "var(--font-size--base)", control: "text" },
+      "button-font-line-height": { value: "1.2", control: "text" },
+      "button-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+      "button-border": {
+        value: "",
+        control: "text",
+      },
+      "button-border-style": {
+        value: "",
+        control: "text",
+      },
+      "button-border-color": {
+        value: "",
+        control: "text",
+      },
+      "button-border-width": { value: "0", control: "text" },
+      "button-box-shadow-transition": {
+        value:
+          "opacity var(--button-box-shadow-transition-opacity-duration, 200ms) var(--button-box-shadow-transition-opacity-timing-function, ease-in-out), box-shadow var(--button-box-shadow-transition-box-shadow-duration, 200ms) var(--button-box-shadow-transition-box-shadow-timing-function, ease-in-out)",
+        control: "text",
+      },
+      "button-box-shadow-opacity": { value: "", control: "text" },
+      "button-box-shadow": {
+        value:
+          "var(--button-box-shadow-h-offset, 4px) var(--button-box-shadow-v-offset, 12px) var(--button-box-shadow-blur, 24px) var(--button-box-shadow-spread, 0px) var(--button-box-shadow-color, var(--c-gray))",
+        control: "text",
+      },
+      "link-color": {
+        value: "var(--button-color, var(--c-light-variant))",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-width": {
+        value: "",
+        control: "text",
+      },
+      "button-border-color": {
+        value: "var(--c-primary-variant)",
+        control: "text",
+      },
+    },
+
+    docs: {
+      description: {
+        component:
+          "The base button component. It's Vue 2 functional component.",
+      },
+    },
+  },
   argTypes: {
     classes: {
       control: {
@@ -23,9 +96,9 @@ export default {
           "color-success",
         ],
       },
-      description: "Modifier classes for button",
+      description: "CSS classes to modify component styling",
       table: {
-        category: "HTML Attributes",
+        category: "CSS modifiers",
       },
     },
     disabled: {
@@ -34,16 +107,24 @@ export default {
       table: {
         category: "Props",
       },
+      description:
+        "Equivalent of native button disabled attribute, allows focus for better accessibility",
     },
     link: {
       control: "text",
-      defaultValue: "",
+      defaultValue: undefined,
       table: {
         category: "Props",
+        defaultValue: {
+          summary: "null",
+        },
       },
+      description: "Link for 'a' tag.",
     },
     content: {
       control: "text",
+      description:
+        "Type here to fill the button (only for testing in Storybook). For development use default slot, described below, to change the content.",
     },
     onClick: { action: "Button clicked", table: { category: "Events" } },
   },

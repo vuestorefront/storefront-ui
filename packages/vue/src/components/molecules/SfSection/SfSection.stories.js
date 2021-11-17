@@ -2,6 +2,24 @@ import { SfSection } from "@storefront-ui/vue";
 export default {
   title: "Components/Molecules/Section",
   component: SfSection,
+  parameters: {
+    cssprops: {
+      "section-margin": {
+        value: "calc(var(--spacer-lg) * 2) 0 var(--spacer-lg) 0",
+        control: "text",
+      },
+      "section-content-margin": {
+        value: "calc(var(--spacer-lg) * 2) 0 0 0",
+        control: "text",
+      },
+    },
+
+    docs: {
+      description: {
+        component: "Full-width section for content.",
+      },
+    },
+  },
   argTypes: {
     titleHeading: {
       control: "text",
@@ -31,6 +49,7 @@ export default {
           summary: 2,
         },
       },
+      defaultValue: 2,
       description: "Heading tag level",
     },
   },

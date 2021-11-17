@@ -9,7 +9,7 @@
   >
     <div class="sf-input__wrapper">
       <input
-        :id="name"
+        :id="idWithoutWhitespace"
         v-focus
         v-bind="$attrs"
         :value="value"
@@ -21,7 +21,7 @@
         v-on="listeners"
       />
       <span class="sf-input__bar"></span>
-      <label class="sf-input__label" :for="name">
+      <label v-if="label" class="sf-input__label" :for="name">
         <!-- @slot Custom input label -->
         <slot name="label" v-bind="{ label }">{{ label }}</slot>
       </label>
@@ -73,67 +73,40 @@ export default {
   components: { SfIcon, SfButton },
   inheritAttrs: false,
   props: {
-    /**
-     * Current input value (`v-model`)
-     */
     value: {
       type: [String, Number],
       default: "",
     },
-    /**
-     * Form input label
-     */
     label: {
       type: String,
       default: "",
     },
-    /**
-     * Form input name
-     */
     name: {
       type: String,
       default: "",
     },
-    /**
-     * Form input type
-     */
     type: {
       type: String,
       default: "text",
     },
-    /**
-     * Validate value of form input
-     */
     valid: {
       type: Boolean,
       default: true,
     },
-    /**
-     * Error message value of form input. It will be appeared if `valid` is `true`.
-     */
     errorMessage: {
       type: String,
       default: "",
     },
-    /**
-     * Native input required attribute
-     */
     required: {
       type: Boolean,
       default: false,
       description: "Native input required attribute",
     },
-    /**
-     * Native input disabled attribute
-     */
     disabled: {
       type: Boolean,
       default: false,
       description: "Native input disabled attribute",
     },
-    /**
-     * Status of show password icon display
-     */
     hasShowPassword: {
       type: Boolean,
       default: false,
@@ -155,6 +128,9 @@ export default {
     },
     isPassword() {
       return this.type === "password" && this.hasShowPassword;
+    },
+    idWithoutWhitespace() {
+      return this.name.replace(/\s/g, "");
     },
   },
   watch: {

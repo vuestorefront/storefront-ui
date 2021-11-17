@@ -3,24 +3,53 @@ import { SfTile } from "@storefront-ui/vue";
 export default {
   title: "Components/Molecules/Tile",
   component: SfTile,
+  parameters: {
+    cssprops: {
+      "font-tile": {
+        value:
+          "var(--font-tile-weight, var(--font-weight--bold)) var(--font-tile-size, var(--h3-font-size))/var(--font-tile-line-height, 1.6) var(--font-tile-family, var(--font-family--secondary))",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-tile-weight": {
+        value: "var(--font-weight--semibold)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+    docs: {
+      description: {
+        component: "Tile component with text and background-image",
+      },
+    },
+  },
   argTypes: {
     title: {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
+      description: "Tile title",
     },
     background: {
       control: "object",
       table: {
         category: "Props",
       },
+      description: "Tile background image",
     },
     link: {
       control: "text",
       table: {
         category: "Props",
       },
+      description: "Tile link",
     },
   },
 };

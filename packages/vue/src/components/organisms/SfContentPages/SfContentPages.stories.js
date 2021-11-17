@@ -1,4 +1,7 @@
+import { icons } from "@storefront-ui/shared/icons/icons";
 import { SfContentPages, SfTabs } from "@storefront-ui/vue";
+const iconsNames = Object.keys(icons);
+
 const pages = [
   {
     title: "About us",
@@ -44,22 +47,182 @@ const pages = [
 export default {
   title: "Components/Organisms/ContentPages",
   component: SfContentPages,
+  parameters: {
+    cssprops: {
+      "content-pages-content-page-font": { value: "", control: "text" },
+      "content-pages-content-page-font-weight": {
+        value: "var(--font-weight--light)",
+        control: "text",
+      },
+      "content-pages-content-page-font-size": {
+        value: "var(--font-size--base)",
+        control: "text",
+      },
+      "content-pages-content-page-font-line-height": {
+        value: "1.6",
+        control: "text",
+      },
+      "content-pages-content-page-font-family": {
+        value: "var(--font-family--primary)",
+        control: "text",
+      },
+      "content-pages-height": { value: "100vh", control: "text" },
+      "content-pages-section-margin": {
+        value: "var(--spacer-base) 0",
+        control: "text",
+      },
+      "content-pages-transition": {
+        value: "transform 150ms ease-in-out",
+        control: "text",
+      },
+      "content-pages-section-active-transform": {
+        value: "translate3d(-100%, 0, 0)",
+        control: "text",
+      },
+      "content-pages-sidebar-flex": { value: "0 0 100%", control: "text" },
+      "content-pages-sidebar-padding": { value: "", control: "text" },
+      "content-pages-sidebar-background": { value: "", control: "text" },
+      "content-pages-content-flex": { value: "0 0 100%", control: "text" },
+      "content-pages-content-padding": { value: "", control: "text" },
+      "content-pages-sidebar-title-margin": {
+        value: "0 0 var(--spacer-xl) 0",
+        control: "text",
+      },
+      "content-pages-sidebar-title-font": { value: "", control: "text" },
+      "content-pages-sidebar-title-font-weight": {
+        value: "var(--font-weight--medium)",
+        control: "text",
+      },
+      "content-pages-sidebar-title-font-size": {
+        value: "var(--h3-font-size)",
+        control: "text",
+      },
+      "content-pages-sidebar-title-font-line-height": {
+        value: "1.4",
+        control: "text",
+      },
+      "content-pages-sidebar-title-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+      "content-pages-sidebar-category-title-margin": {
+        value: "var(--spacer-sm) 0",
+        control: "text",
+      },
+      "content-pages-sidebar-category-title-font": {
+        value: "",
+        control: "text",
+      },
+      "content-pages-sidebar-category-title-font-weight": {
+        value: "var(--font-weight--bold)",
+        control: "text",
+      },
+      "content-pages-sidebar-category-title-font-size": {
+        value: "var(--font-size--lg)",
+        control: "text",
+      },
+      "content-pages-sidebar-category-title-font-line-height": {
+        value: "1.2",
+        control: "text",
+      },
+      "content-pages-sidebar-category-title-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+      "list-item-padding": {
+        value: "var(--spacer-sm) var(--spacer-sm) var(--spacer-sm)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "list-item-border-width": {
+        value: "0 0 1px 0",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "list-item-margin": {
+        value: "var(--spacer-base) 0",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "list-item-border": {
+        value: "0",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+
+    docs: {
+      description: {
+        component:
+          "The content pages for static content. Built from main component - SfContentPages and internal components - SfContentCategory and SfContentPage.",
+      },
+    },
+  },
   argTypes: {
     title: {
       control: "text",
       table: {
-        category: "Props",
+        category: "Props for main component",
+        type: {
+          summary: "string",
+        },
         defaultValue: {
           summary: "",
         },
       },
       defaultValue: "",
+      description: "Pages title.",
     },
     active: {
       control: "text",
       table: {
-        category: "Props",
+        category: "Props for main component",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
+      defaultValue: "",
+      description: "Active page.",
+    },
+    icon: {
+      control: {
+        type: "select",
+        options: iconsNames,
+      },
+      table: {
+        category: "Props for SfContentPage component",
+        type: {
+          summary: ["string", "array"],
+        },
+        defaultValue: {
+          summary: "",
+        },
+      },
+      defaultValue: "",
+      description:
+        "Sets icon type. Icon SVG path(s). It can be single SVG path(string) or array of SVG paths or icon name from our icons list(such as 'added_to_cart`)",
+    },
+    title: {
+      control: "text",
+      table: {
+        category: "Props for SfContentCategory component",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
+      },
+      defaultValue: "",
+      description: "Sets category title.",
+    },
+    pages: {
+      control: "array",
+      defaultValue: pages,
+      description: "Pages data (only for testing purposes).",
     },
     "click:change": { action: "Page changed", table: { category: "Events" } },
   },

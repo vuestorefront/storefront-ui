@@ -2,6 +2,15 @@ import { SfRadio } from "@storefront-ui/vue";
 export default {
   title: "Components/Molecules/Radio",
   component: SfRadio,
+  parameters: {
+    cssprops: {},
+
+    docs: {
+      description: {
+        component: "Radio button component with label and description.",
+      },
+    },
+  },
   argTypes: {
     classes: {
       control: {
@@ -11,12 +20,18 @@ export default {
       table: {
         category: "CSS Modifiers",
       },
-      description: "CSS classes modifiers",
+      description: "CSS classes to modify component styling",
     },
     selected: {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
       defaultValue: "",
       description: "Value of the selected option",
@@ -41,6 +56,12 @@ export default {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
       defaultValue: "",
       description: "Label for option",
@@ -49,6 +70,15 @@ export default {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
+      },
+      type: {
+        summary: "string",
       },
       defaultValue: "",
       description: "Option details",
@@ -57,6 +87,12 @@ export default {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
       defaultValue: "",
       description: "Additional description to the radio option to display",
@@ -76,9 +112,18 @@ export default {
       control: "boolean",
       table: {
         category: "Props",
+        type: {
+          summary: "boolean",
+        },
         defaultValue: {
           summary: false,
         },
+      },
+      defaultValue: false,
+    },
+    "v-model": {
+      table: {
+        disable: true,
       },
     },
     change: {
@@ -95,6 +140,11 @@ export default {
 const Template = (args, { argTypes }) => ({
   components: { SfRadio },
   props: Object.keys(argTypes),
+  data() {
+    return {
+      selectedValue: "",
+    };
+  },
   template: `
   <SfRadio
     :class="classes"
@@ -105,7 +155,7 @@ const Template = (args, { argTypes }) => ({
     :value="value"
     :disabled="disabled"
     :required="required"
-    v-model="selected"
+    v-model="selectedValue"
     @change="change"
     @input="input"
   />`,
@@ -119,21 +169,16 @@ Common.args = {
     "Novelty! From now on you have the option of picking up an order in the selected InPack parceler. Just remember that in the case of orders paid on delivery, only the card payment will be accepted.",
   name: "Shipping",
   value: "store",
+  disabled: false,
 };
 
-export const Selected = Template.bind({})
-Selected.args = {
-  ...Common.args,
-  selected: "store",
-};
-
-export const TransparentSelected = Template.bind({})
+export const TransparentSelected = Template.bind({});
 TransparentSelected.args = {
-  ...Selected.args,
+  ...Common.args,
   classes: "sf-radio--transparent",
 };
 
-export const Disabled = Template.bind({})
+export const Disabled = Template.bind({});
 Disabled.args = {
   ...Common.args,
   disabled: true,

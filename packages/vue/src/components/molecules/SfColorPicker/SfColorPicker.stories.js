@@ -1,13 +1,150 @@
 import SfColorPicker from "./SfColorPicker.vue";
 import SfColor from "../../atoms/SfColor/SfColor.vue";
+const colors = [
+  { label: "Sand", value: "sand", color: "#EDCBB9", selected: false },
+  { label: "Mint", value: "mint", color: "#ABD9D8", selected: false },
+  {
+    label: "Light Gray",
+    value: "light gray",
+    color: "#F1F2F3",
+    selected: false,
+  },
+  {
+    label: "Vivid rose",
+    value: "vivid rose",
+    color: "#DB5593",
+    selected: false,
+  },
+  { label: "Peach", value: "peach", color: "#F59F93", selected: false },
+  {
+    label: "Citrus",
+    value: "citrus",
+    color: "#FFEE97",
+    selected: false,
+  },
+];
 
 export default {
   title: "Components/Molecules/ColorPicker",
   component: SfColorPicker,
+  parameters: {
+    cssprops: {
+      "color-picker-position": { value: "absolute", control: "text" },
+      "color-picker-top": { value: "", control: "text" },
+      "color-picker-right": { value: "", control: "text" },
+      "color-picker-bottom": { value: "0", control: "text" },
+      "color-picker-align-items": { value: "flex-end", control: "text" },
+      "color-picker-width": { value: "100%", control: "text" },
+      "color-picker-overflow": { value: "hidden", control: "text" },
+      "color-picker-transform": { value: "", control: "text" },
+      "color-picker-colors-height": { value: "", control: "text" },
+      "color-picker-flex-direction": { value: "row", control: "text" },
+      "color-picker-justify-content": { value: "center", control: "text" },
+      "color-picker-padding": { value: "var(--spacer-xs)", control: "text" },
+      "color-picker-label-margin": {
+        value: "0 0 var(--spacer-xs)",
+        control: "text",
+      },
+      "color-picker-label-color": { value: "var(--c-white)", control: "text" },
+      "color-picker-label-font": { value: "", control: "text" },
+      "color-picker-label-font-weight": {
+        value: "var(--font-weight--bold)",
+        control: "text",
+      },
+      "color-picker-label-font-size": {
+        value: "var(--font-size--sm)",
+        control: "text",
+      },
+      "color-picker-label-font-line-height": { value: "1.2", control: "text" },
+      "color-picker-label-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+      "color-picker-opacity": { value: "0.8", control: "text" },
+      "color-picker-open-padding": { value: "", control: "text" },
+      "color-picker-open-button-transform-origin": {
+        value: "",
+        control: "text",
+      },
+      "color-picker-open-button-transform": { value: "", control: "text" },
+      "color-picker-close-margin": { value: "", control: "text" },
+      "color-picker-height": { value: "100%", control: "text" },
+      "color-picker-animation-transform": {
+        value: "translate3d(0, 100%, 0)",
+        control: "text",
+      },
+      "overlay-z-index": {
+        value: "auto",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "overlay-background": {
+        value: "rgba(var(--c-black-base), 0.8)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-width": {
+        value: "100%",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-padding": {
+        value: "var(--spacer-xs) var(--spacer-sm)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-font": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-text-transform": {
+        value: "capitalize",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "icon-color": {
+        value: "var(--c-white)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "icon-size": {
+        value: "0.875rem",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-background": {
+        value: "transparent",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "color-picker-left": {
+        value: "0",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "open-button-x": {
+        value: "-50%",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "open-button-y": {
+        value: "100%",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+    docs: {
+      description: {
+        component:
+          "ColorPicker component utilizing [SfButton](https://docs.storefrontui.io/?path=/story/components-atoms-button--primary) with slot for [SfColor](https://docs.storefrontui.io/?path=/story/components-atoms-color--common) component",
+      },
+    },
+  },
   decorators: [
     () => ({
       template:
-        '<div style="position: relative; min-height: 250px; height: 100vh"><div>Switch to smaller viewport mode to view better</div><story /></div>',
+        '<div style="position: relative; min-height: 250px;"><div>Switch to smaller viewport mode to view better</div><story /></div>',
     }),
   ],
   argTypes: {
@@ -23,18 +160,29 @@ export default {
       table: {
         category: "CSS Modifiers",
       },
+      description: "CSS classes to modify component styling",
     },
     label: {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
+      defaultValue: "",
+      description: "Label for ColorPicker",
     },
     hasClose: {
       control: "boolean",
       table: {
         category: "Props",
       },
+      description: "Close button state whether show it or not",
+      defaultValue: false,
     },
     isOpen: {
       control: "boolean",
@@ -42,6 +190,13 @@ export default {
       table: {
         category: "Props",
       },
+      description: "ColorPicker is open",
+    },
+    colors: {
+      control: "array",
+      defaultValue: colors,
+      description:
+        "Changing colors (for testing purposes). For development, you can use default slot to place custom color element.",
     },
     "click:toggle": { action: "Toggle isOpen", table: { category: "Events" } },
   },
@@ -66,29 +221,6 @@ export const Common = Template.bind({});
 Common.args = {
   isOpen: true,
   label: "Choose color",
-  colors: [
-    { label: "Sand", value: "sand", color: "#EDCBB9", selected: false },
-    { label: "Mint", value: "mint", color: "#ABD9D8", selected: false },
-    {
-      label: "Light Gray",
-      value: "light gray",
-      color: "#F1F2F3",
-      selected: false,
-    },
-    {
-      label: "Vivid rose",
-      value: "vivid rose",
-      color: "#DB5593",
-      selected: false,
-    },
-    { label: "Peach", value: "peach", color: "#F59F93", selected: false },
-    {
-      label: "Citrus",
-      value: "citrus",
-      color: "#FFEE97",
-      selected: false,
-    },
-  ],
 };
 
 export const IsOpen = Template.bind({});

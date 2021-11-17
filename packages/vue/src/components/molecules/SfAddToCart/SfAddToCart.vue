@@ -34,17 +34,10 @@ export default {
     prop: "qty",
   },
   props: {
-    /**
-     * Boolean to indicate whether product
-     * can be added to cart
-     */
     disabled: {
       type: Boolean,
       default: false,
     },
-    /**
-     * Selected quantity
-     */
     qty: {
       type: [Number, String],
       default: 1,

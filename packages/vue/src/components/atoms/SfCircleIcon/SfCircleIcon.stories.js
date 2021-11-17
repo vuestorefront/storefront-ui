@@ -1,10 +1,74 @@
 import { icons } from "@storefront-ui/shared/icons/icons";
 import { SfCircleIcon } from "@storefront-ui/vue";
+import { sizesValues as sizes } from "@storefront-ui/shared/variables/sizes";
+
 const iconsNames = Object.keys(icons);
 
 export default {
   title: "Components/Atoms/CircleIcon",
   component: SfCircleIcon,
+  parameters: {
+    cssprops: {
+      "circle-icon-position": { value: "relative", control: "text" },
+      "icon-color": {
+        value: "var(--c-white)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-padding": {
+        value: "0",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "icon-size": {
+        value: "1.5rem",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-size": {
+        value: "3.25rem",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-background": {
+        value: "var(--c-primary)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-border-radius": {
+        value: "100%",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-box-shadow": {
+        value: "0 0 0 0.3125rem var(--c-primary)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-box-shadow-opacity": {
+        value: "0.3",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "icon-position": {
+        value: "static",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-transition": {
+        value: "background 150ms ease",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+
+    docs: {
+      description: {
+        component:
+          "The Round hover-animated component with an icon, e.g. usable for major navigation/action items. It's Vue 2 functional component.",
+      },
+    },
+  },
   argTypes: {
     classes: {
       control: {
@@ -21,7 +85,7 @@ export default {
           "color-success",
         ],
       },
-      description: "Modifier classes",
+      description: "CSS classes to modify component styling",
       table: {
         category: "CSS Modifiers",
       },
@@ -34,13 +98,23 @@ export default {
       table: {
         category: "Props",
       },
-      description: "Icon to use",
+      description:
+        "Icon SVG path(s) It can be single SVG path (string) or array of SVG paths or icon name from our icons list (such as 'added_to_cart`)",
     },
     iconSize: {
-      control: "text",
+      control: {
+        type: "select",
+        options: sizes,
+      },
       table: {
         category: "Props",
+        defaultValue: {
+          summary: "",
+        },
       },
+      defaultValue: "",
+      description:
+        "Custom size of the icon. It can be one of our standard sizes: xxs, xs, sm, md, lg, xl, xxl, xl3, xl4, or e.g. '12px' or '1.2rem' or nothing.",
     },
     disabled: {
       control: "boolean",
@@ -48,6 +122,7 @@ export default {
       table: {
         category: "Props",
       },
+      description: "Disables button and sets proper styling.",
     },
     onClick: { action: "Circle icon clicked", table: { category: "Events" } },
   },

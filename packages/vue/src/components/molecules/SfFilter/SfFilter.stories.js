@@ -3,6 +3,85 @@ import { SfFilter } from "@storefront-ui/vue";
 export default {
   title: "Components/Molecules/Filter",
   component: SfFilter,
+  parameters: {
+    cssprops: {
+      "filter-color-margin": {
+        value: "0 var(--spacer-sm) 0 0",
+        control: "text",
+      },
+      "filter-label-display": { value: "flex", control: "text" },
+      "filter-label-align-items": { value: "center", control: "text" },
+      "filter-label-margin": { value: "0", control: "text" },
+      "filter-label-color": { value: "var(--c-link)", control: "text" },
+      "filter-label-font": { value: "", control: "text" },
+      "filter-label-font-weight": {
+        value: "var(--font-weight--normal)",
+        control: "text",
+      },
+      "filter-label-font-size": {
+        value: "var(--font-size--base)",
+        control: "text",
+      },
+      "filter-label-font-line-height": { value: "1.4", control: "text" },
+      "filter-label-font-family": {
+        value: "var(--font-family--primary)",
+        control: "text",
+      },
+      "filter-label-text-decoration": { value: "", control: "text" },
+      "filter-label-transform": { value: "", control: "text" },
+      "filter-count-display": { value: "", control: "text" },
+      "filter-count-margin": {
+        value: "0 var(--spacer-sm) 0 auto",
+        control: "text",
+      },
+      "filter-count-color": { value: "var(--c-text-muted)", control: "text" },
+      "filter-count-font": { value: "", control: "text" },
+      "filter-count-font-weight": {
+        value: "var(--font-weight--normal)",
+        control: "text",
+      },
+      "filter-count-font-size": {
+        value: "var(--font-size--base)",
+        control: "text",
+      },
+      "filter-count-font-line-height": { value: "1.4", control: "text" },
+      "filter-count-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+      "checkbox-order": {
+        value: "1",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "checkbox-border-radius": {
+        value: "100%",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "color-size": {
+        value: "1.5rem",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "checkbox-border-color": {
+        value: "transparent",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "checkbox-display": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+
+    docs: {
+      description: {
+        component: "Filter component with color, name and counter of items.",
+      },
+    },
+  },
   decorators: [
     () => ({ template: '<div style="max-width: 22.875rem"><story/></div>' }),
   ],
@@ -11,25 +90,51 @@ export default {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
+      description: "Label text.",
     },
     count: {
       control: "number",
       table: {
         category: "Props",
+        type: {
+          summary: ["string", "number"],
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
+      description: "The quantity.",
     },
     selected: {
       control: "boolean",
       table: {
         category: "Props",
+        defaultValue: {
+          summary: false,
+        },
       },
+      defaultValue: false,
+      description: "Sets selected state",
     },
     color: {
       control: "color",
       table: {
         category: "Props",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
+      description: "Sets fliter color.",
     },
     change: { action: "Change color", table: { category: "Events" } },
   },

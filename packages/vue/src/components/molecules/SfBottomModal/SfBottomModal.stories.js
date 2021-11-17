@@ -9,25 +9,119 @@ import {
 export default {
   title: "Components/Molecules/BottomModal",
   component: SfBottomModal,
+  parameters: {
+    cssprops: {
+      "bottom-modal-position": {
+        value: "fixed",
+        control: "text",
+      },
+      "bottom-modal-width": { value: "100%", control: "text" },
+      "bottom-modal-top": { value: "", control: "text" },
+      "bottom-modal-bottom": { value: "0", control: "text" },
+      "bottom-modal-right": { value: "0", control: "text" },
+      "bottom-modal-transform": { value: "", control: "text" },
+      "bottom-modal-container-padding": { value: "", control: "text" },
+      "bottom-modal-background": { value: "var(--c-white)", control: "text" },
+      "bottom-modal-container-font": { value: "", control: "text" },
+      "bottom-modal-container-font-weight": {
+        value: "var(--font-weight--light)",
+        control: "text",
+      },
+      "bottom-modal-container-font-size": {
+        value: "var(--font-size--base)",
+        control: "text",
+      },
+      "bottom-modal-container-font-line-height": {
+        value: "1.6",
+        control: "text",
+      },
+      "bottom-modal-container-font-family": {
+        value: "var(--font-family--primary)",
+        control: "text",
+      },
+      "bottom-modal-height": { value: "", control: "text" },
+      "bottom-modal-title-padding": {
+        value: "var(--spacer-sm) var(--spacer-lg)",
+        control: "text",
+      },
+      "bottom-modal-title-color": { value: "var(--c-text)", control: "text" },
+      "bottom-modal-title-text-align": { value: "center", control: "text" },
+      "characteristic-description-font": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "list-item-margin": {
+        value: "0 var(--spacer-sm)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-text-transform": {
+        value: "capitalize",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "heading-title-font": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-display": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-background": {
+        value: "var(--_c-light-primary)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-color": {
+        value: "var(--c-text-muted)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+
+    docs: {
+      inlineStories: false,
+      iframeHeight: "300px",
+      description: {
+        component: "The modal component displaying at the bottom of the page.",
+      },
+    },
+  },
   argTypes: {
     transition: {
       control: "text",
       table: {
         category: "Props",
       },
-      defaultValue: "fade",
+      defaultValue: "",
+      description:
+        "Transition effect on opening modal. Could be one of [the default ones](https://docs.storefrontui.io/?path=/docs/utilities-transitions-docs--page).",
     },
     title: {
       control: "text",
       table: {
         category: "Props",
+        defaultValue: {
+          summary: "",
+        },
       },
+      description: "Bottom Modal title",
+    },
+    content: {
+      control: "text",
+      description:
+        "Fill to see the content (for testing purposes). For development use default slot, described below, to change the content.",
     },
     isOpen: {
       control: "boolean",
       table: {
         category: "Props",
       },
+      description: "Bottom Modal is open",
     },
     "click:close": {
       action: "Close button clicked!",
@@ -37,14 +131,8 @@ export default {
   args: {
     isOpen: true,
     title: "Title",
-    transition: "sf-bottom-modal",
+    transition: "sf-fade",
     content: "Your content",
-  },
-  parameters: {
-    docs: {
-      inlineStories: false,
-      iframeHeight: "300px",
-    },
   },
 };
 
@@ -55,7 +143,7 @@ const Template = (args, { argTypes }) => ({
   <SfBottomModal
   :transition="transition"
   :is-open="isOpen"
-  :title="title"
+  :title="title"  
   @click:close="this['click:close']"> 
       {{content}}
   </SfBottomModal>`,

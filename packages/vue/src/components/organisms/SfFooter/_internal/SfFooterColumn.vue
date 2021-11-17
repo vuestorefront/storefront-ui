@@ -2,9 +2,9 @@
   <div class="sf-footer-column">
     <button v-focus class="sf-footer-column__title" @click="toggle(title)">
       {{ title }}
-      <div class="sf-footer-column__chevron">
+      <span class="sf-footer-column__chevron">
         <SfChevron :class="{ 'sf-chevron--top': isColumnOpen }" />
-      </div>
+      </span>
     </button>
     <transition name="sf-fade">
       <div v-if="isColumnOpen" class="sf-footer-column__content">

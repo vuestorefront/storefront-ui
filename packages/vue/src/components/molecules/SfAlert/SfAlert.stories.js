@@ -3,12 +3,56 @@ import { SfAlert } from "@storefront-ui/vue";
 export default {
   title: "Components/Molecules/Alert",
   component: SfAlert,
+  parameters: {
+    cssprops: {
+      "alert-color": { value: "", control: "text" },
+      "alert-font": { value: "", control: "text" },
+      "alert-font-weight": {
+        value: "var(--font-weight--normal)",
+        control: "text",
+      },
+      "alert-font-size": { value: "var(--font-size--base)", control: "text" },
+      "alert-font-line-height": { value: "1.6", control: "text" },
+      "alert-font-family": {
+        value: "var(--font-family--primary)",
+        control: "text",
+      },
+      "alert-message-margin": {
+        value: "0 0 0 var(--spacer-xs)",
+        control: "text",
+      },
+      "icon-size": {
+        value: "1.25rem",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "icon-color": {
+        value: "var(--c-dark)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+
+    docs: {
+      description: {
+        component:
+          "The component for displaying brief information of varying importance to the user, enriched with an icon.",
+      },
+    },
+  },
   argTypes: {
     message: {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
+      description: "Message that will be displayed in Alert.",
       defaultValue: "",
     },
     type: {
@@ -19,6 +63,8 @@ export default {
       table: {
         category: "Props",
       },
+      description:
+        "Alert type ('secondary', 'info', 'success', 'warning', 'danger'). Check 'Knobs' section to see how they look like.",
       defaultValue: "secondary",
     },
   },

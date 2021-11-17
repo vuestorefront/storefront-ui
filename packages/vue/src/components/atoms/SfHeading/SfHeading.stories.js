@@ -3,6 +3,60 @@ import { SfHeading, SfIcon } from "@storefront-ui/vue";
 export default {
   title: "Components/Atoms/Heading",
   component: SfHeading,
+  parameters: {
+    cssprops: {
+      "heading-padding": { value: "0 0 var(--spacer-xs) 0", control: "text" },
+      "heading-text-align": { value: "center", control: "text" },
+      "heading-title-margin": { value: "0", control: "text" },
+      "heading-title-color": { value: "var(--c-text)", control: "text" },
+      "heading-title-font": { value: "", control: "text" },
+      "heading-title-font-weight": {
+        value: "var(--font-weight--semibold)",
+        control: "text",
+      },
+      "heading-title-font-size": {
+        value: "var(--h1-font-size)",
+        control: "text",
+      },
+      "heading-title-font-line-height": { value: "1.6", control: "text" },
+      "heading-title-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+      "heading-description-margin": {
+        value: "var(--spacer-sm) 0 0",
+        control: "text",
+      },
+      "heading-description-color": { value: "var(--c-text)", control: "text" },
+      "heading-description-font": { value: "", control: "text" },
+      "heading-description-font-weight": {
+        value: "var(--font-weight--normal)",
+        control: "text",
+      },
+      "heading-description-font-size": {
+        value: "var(--font-size--base)",
+        control: "text",
+      },
+      "heading-description-font-line-height": { value: "1.6", control: "text" },
+      "heading-description-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+      "heading-border": {
+        value:
+          "var(--heading-border-style, solid) var(--heading-border-color, var(--c-light))",
+        control: "text",
+      },
+      "heading-border-width": { value: "0 0 1px 0", control: "text" },
+    },
+
+    docs: {
+      description: {
+        component:
+          "The heading component for titles with optional description. It's Vue 2 functional component.",
+      },
+    },
+  },
   argTypes: {
     classes: {
       control: {
@@ -17,6 +71,7 @@ export default {
       table: {
         category: "CSS Modifiers",
       },
+      description: "CSS classes to modify component styling",
     },
     level: {
       control: {
@@ -29,18 +84,29 @@ export default {
       table: {
         category: "Props",
       },
+      defaultValue: 2,
+      description:
+        "Heading level from 1 to 6 (like in native heading element).",
     },
     title: {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: "string",
+        },
       },
+      description: "Heading title",
     },
     description: {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: "string",
+        },
       },
+      description: "Heading description",
     },
   },
 };
@@ -59,7 +125,6 @@ const Template = (args, { argTypes }) => ({
 
 export const Common = Template.bind({});
 Common.args = {
-  level: 3,
   title: "Share your look",
   description: "#YOURLOOK",
 };

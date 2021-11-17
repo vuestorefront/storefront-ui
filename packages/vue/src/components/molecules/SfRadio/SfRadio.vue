@@ -17,36 +17,36 @@
         @change="changeHandler"
         @input="inputHandler"
       />
-      <!-- @slot Custom checkmark markup (bind 'isChecked' boolean, 'disabled' boolean -->
+      <!-- @slot Custom checkmark markup -->
       <slot name="checkmark" v-bind="{ isChecked, disabled }">
-        <div
+        <span
           class="sf-radio__checkmark"
           :class="{ 'sf-radio__checkmark is-active': isChecked }"
-        ></div>
+        ></span>
       </slot>
-      <div class="sf-radio__content">
-        <!-- @slot Custom label markup (bind 'label' string, 'isChecked' boolean, 'disabled' boolean -->
+      <span class="sf-radio__content">
+        <!-- @slot Custom label markup -->
         <slot name="label" v-bind="{ label, isChecked, disabled }">
-          <div v-if="label" class="sf-radio__label">{{ label }}</div>
+          <span v-if="label" class="sf-radio__label">{{ label }}</span>
         </slot>
-        <!-- @slot Custom details markup (bind 'details' string -->
+        <!-- @slot Custom details markup -->
         <slot name="details" v-bind="{ details }">
-          <p v-if="details" class="sf-radio__details">
+          <span v-if="details" class="sf-radio__details">
             {{ details }}
-          </p>
+          </span>
         </slot>
-        <!-- @slot Custom description markup (bind 'description' string -->
+        <!-- @slot Custom description markup -->
         <slot name="description" v-bind="{ description }">
-          <p v-if="description" class="sf-radio__description">
+          <span v-if="description" class="sf-radio__description">
             {{ description }}
-          </p>
+          </span>
         </slot>
-      </div>
+      </span>
     </label>
   </div>
 </template>
 <script>
-import { focus } from "../../../utilities/directives"
+import { focus } from "../../../utilities/directives";
 export default {
   name: "SfRadio",
   directives: {
@@ -88,18 +88,18 @@ export default {
   },
   computed: {
     isChecked() {
-      return this.value === this.selected
+      return this.value === this.selected;
     },
   },
   methods: {
     changeHandler() {
-      this.$emit("change", this.value)
+      this.$emit("change", this.value);
     },
     inputHandler() {
-      this.$emit("input", this.value)
+      this.$emit("input", this.value);
     },
   },
-}
+};
 </script>
 <style lang="scss">
 @import "~@storefront-ui/shared/styles/components/molecules/SfRadio.scss";

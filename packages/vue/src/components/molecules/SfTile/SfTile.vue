@@ -25,23 +25,14 @@ export default {
     SfLink,
   },
   props: {
-    /**
-     * Tile title
-     */
     title: {
       type: String,
       default: "",
     },
-    /**
-     * Tile background image
-     */
     background: {
       type: [String, Object],
       default: "",
     },
-    /**
-     * Link title
-     */
     link: {
       type: String,
       default: "",

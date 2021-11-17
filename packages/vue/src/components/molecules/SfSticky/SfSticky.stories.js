@@ -2,6 +2,19 @@ import { SfSticky } from "@storefront-ui/vue";
 export default {
   title: "Components/Molecules/Sticky",
   component: SfSticky,
+  parameters: {
+    cssprops: {
+      "sticky-position": { value: "sticky", control: "text" },
+      "sticky-top": { value: "0", control: "text" },
+      "sticky-bottom": { value: "auto", control: "text" },
+    },
+
+    docs: {
+      description: {
+        component: "Applies sticky property to the component.",
+      },
+    },
+  },
   decorators: [
     () => ({
       template: `
