@@ -7,9 +7,6 @@ describe("SfTextarea.vue", () => {
   });
   it("renders component with value", () => {
     const wrapper = shallowMount(SfTextarea, {
-      propsData: {
-        value: "text",
-      },
       context: {
         props: {
           value: "text",
