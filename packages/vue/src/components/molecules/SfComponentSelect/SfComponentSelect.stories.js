@@ -282,6 +282,7 @@ const Template = (args, { argTypes }) => ({
     :disabled="disabled"
     :error-message="errorMessage"
     :persistent="persistent"
+    :cancel-label="cancelLabel"
     style="max-width: 30rem"
   >
     <SfComponentSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
@@ -352,6 +353,7 @@ export const UseLabelSlot = (args, { argTypes }) => ({
     :valid="valid"
     :disabled="disabled"
     :error-message="errorMessage" 
+    :cancel-label="cancelLabel"
     :persistent="persistent"       
     >
     <SfComponentSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
@@ -381,6 +383,7 @@ export const UseErrorMessageSlot = (args, { argTypes }) => ({
     :disabled="disabled"
     :error-message="errorMessage"
     :persistent="persistent"
+    :cancel-label="cancelLabel"
     >
     <SfComponentSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
       <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
@@ -407,6 +410,7 @@ export const UseCancelSlot = (args, { argTypes }) => ({
     :disabled="disabled"
     :error-message="errorMessage"
     :persistent="persistent"
+    :cancel-label="cancelLabel"
     >
     <SfComponentSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
       <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
