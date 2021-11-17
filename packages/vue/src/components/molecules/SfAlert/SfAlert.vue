@@ -66,7 +66,4 @@ export default {
 </script>
 <style lang="scss">
 @import "~@storefront-ui/shared/styles/components/molecules/SfAlert.scss";
-.display-none {
-  display: none;
-}
 </style>

@@ -39,7 +39,7 @@
       </slot>
       <slot name="points">
         <div
-          :class="{ 'display-none': firstVisiblePageNumber < 2 }"
+          :class="{ 'display-none': firstVisiblePageNumber <= 2 }"
           class="sf-pagination__item"
         >
           ...
@@ -63,11 +63,11 @@
         </component>
       </slot>
     </template>
-    <template>
+    <template v-if="showLast">
       <slot name="points">
         <div
           :class="{
-            'display-none': !showLast && lastVisiblePageNumber < total - 1,
+            'display-none': lastVisiblePageNumber >= total - 1,
           }"
           class="sf-pagination__item"
         >
