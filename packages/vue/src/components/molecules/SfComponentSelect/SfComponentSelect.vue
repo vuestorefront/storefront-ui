@@ -52,7 +52,7 @@
           >
             <slot />
           </ul>
-          <slot name="cancel" v-bind="{ cancelLabel, cancelHandler }">
+          <slot name="cancel" v-bind="{ cancelLabel, closeHandler }">
             <SfButton
               ref="cancel"
               class="

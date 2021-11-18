@@ -253,6 +253,7 @@ export default {
           summary: "Cancel",
         },
       },
+      defaultValue: "",
       description: "Cancel label text",
     },
     options: {
