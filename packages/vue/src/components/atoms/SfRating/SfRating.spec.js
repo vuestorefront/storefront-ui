@@ -48,4 +48,12 @@ describe("SfRating.vue", () => {
       max - score
     );
   });
+  it("renders component when maximum is 0", () => {
+    const component = shallowMount(SfRating, {
+      propsData: {
+        max: 0,
+      },
+    });
+    expect(component.classes("sf-rating")).toBe(true);
+  });
 });
