@@ -48,6 +48,7 @@ export default {
   title: "Components/Organisms/ContentPages",
   component: SfContentPages,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "content-pages-content-page-font": { value: "", control: "text" },
       "content-pages-content-page-font-weight": {
@@ -150,7 +151,7 @@ export default {
         control: "text",
       },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component:

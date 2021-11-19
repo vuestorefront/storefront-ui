@@ -10,11 +10,9 @@ export default {
   title: "Components/Molecules/BottomModal",
   component: SfBottomModal,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
-      "bottom-modal-position": {
-        value: "fixed",
-        control: "text",
-      },
+      "bottom-modal-position": { value: "fixed", control: "text" },
       "bottom-modal-width": { value: "100%", control: "text" },
       "bottom-modal-top": { value: "", control: "text" },
       "bottom-modal-bottom": { value: "0", control: "text" },
@@ -51,6 +49,14 @@ export default {
         description: "Overridden other component's CSS variable",
         control: "text",
       },
+      "font-size--base": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-weight--semibold": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
       "list-item-margin": {
         value: "0 var(--spacer-sm)",
         description: "Overridden other component's CSS variable",
@@ -61,13 +67,29 @@ export default {
         description: "Overridden other component's CSS variable",
         control: "text",
       },
+      "font-size--sm": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
       "heading-title-font": {
         value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
+      "font-weight--normal": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-size--xs": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-weight--bold": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
       "button-display": {
-        value: "",
+        value: "none",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
@@ -82,7 +104,7 @@ export default {
         control: "text",
       },
     },
-
+    // end of code generated automatically
     docs: {
       inlineStories: false,
       iframeHeight: "300px",

@@ -5,6 +5,7 @@ export default {
   title: "Components/Molecules/CallToAction",
   component: SfCallToAction,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "call-to-action-flex-direction": { value: "column", control: "text" },
       "call-to-action-align-items": { value: "", control: "text" },
@@ -76,10 +77,11 @@ export default {
       },
       "call-to-action-background-position": {
         value: "60%",
+        description: "Overridden other component's CSS variable",
         control: "text",
       },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component: "The call to action component with button and text",

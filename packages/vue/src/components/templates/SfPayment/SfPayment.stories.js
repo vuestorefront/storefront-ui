@@ -11,29 +11,46 @@ export default {
   title: "Components/Templates/Payment",
   component: SfPayment,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
-      "heading-title-font-weight": {
-        value: "var(--font-weight--bold)",
-        description: "Overridden other component's CSS variable",
-        control: "text",
-      },
       "heading-padding": {
         value: "var(--spacer-xl) 0 var(--spacer-lg)",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
-      "heading-title-font-size": {
-        value: "var(--h3-font-size)",
+      "heading-title-font": {
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
-      "select-option-font-size": {
-        value: "var(--font-size--base)",
+      "font-weight--bold": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "h3-font-size": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-weight--semibold": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "select-option-font": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-size--base": {
         description: "Overridden other component's CSS variable",
         control: "text",
       },
       "select-dropdown-color": {
         value: "blue",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-width": {
+        value: "25rem",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
@@ -62,12 +79,8 @@ export default {
         description: "Overridden other component's CSS variable",
         control: "text",
       },
-      "button-width": {
-        value: "25rem",
-        description: "Overridden other component's CSS variable",
-        control: "text",
-      },
     },
+    // end of code generated automatically
     docs: {
       description: {
         component:
