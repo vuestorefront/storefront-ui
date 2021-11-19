@@ -4,16 +4,17 @@ export default {
   title: "Components/Molecules/Dropdown",
   component: SfDropdown,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "dropdown-position": { value: "fixed", control: "text" },
       "dropdown-top": { value: "", control: "text" },
       "dropdown-bottom": { value: "", control: "text" },
       "dropdown-transform": { value: "", control: "text" },
-      "dropdown-container-position": { value: "relative", control: "text" },
+      "dropdown-container-position": { value: "", control: "text" },
       "dropdown-container-top": { value: "", control: "text" },
       "dropdown-container-bottom": { value: "", control: "text" },
       "dropdown-container-width": { value: "100%", control: "text" },
-      "dropdown-background": { value: "", control: "text" },
+      "dropdown-background": { value: "var(--c-white)", control: "text" },
       "dropdown-box-shadow": { value: "", control: "text" },
       "dropdown-title-padding": {
         value: "var(--spacer-sm) var(--spacer-lg)",
@@ -33,28 +34,25 @@ export default {
         value: "var(--font-family--secondary)",
         control: "text",
       },
-      "dropdown-animation-enter": { value: "dropdown 150ms", control: "text" },
-      "dropdown-animation-leave": {
-        value: "dropdown 150ms reverse",
-        control: "text",
-      },
+      "dropdown-animation-enter": { value: "", control: "text" },
+      "dropdown-animation-leave": { value: "", control: "text" },
       "button-background": {
-        value: "",
+        value: "var(--c-light)",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
       "button-color": {
-        value: "",
+        value: "var(--c-text-muted)",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
       "button-display": {
-        value: "",
+        value: "none",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
     },
-
+    // end of code generated automatically
     docs: {
       inlineStories: false,
       iframeHeight: "25em",

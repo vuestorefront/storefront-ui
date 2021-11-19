@@ -4,6 +4,7 @@ export default {
   title: "Components/Atoms/Link",
   component: SfLink,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "link-color": { value: "var(--c-text)", control: "text" },
       "link-font": { value: "", control: "text" },
@@ -18,8 +19,9 @@ export default {
         control: "text",
       },
       "link-text-decoration": { value: "underline", control: "text" },
+      "c-link": { value: "", control: "text" },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component:

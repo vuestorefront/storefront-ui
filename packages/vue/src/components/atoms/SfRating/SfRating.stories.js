@@ -6,6 +6,7 @@ export default {
   title: "Components/Atoms/Rating",
   component: SfRating,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "icon-size": {
         value: "0.875rem",
@@ -23,7 +24,7 @@ export default {
         control: "text",
       },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component:

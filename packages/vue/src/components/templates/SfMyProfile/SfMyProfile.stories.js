@@ -5,6 +5,7 @@ export default {
   title: "Components/Templates/MyProfile",
   component: SfMyProfile,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "button-width": {
         value: "100%",
@@ -12,6 +13,7 @@ export default {
         control: "text",
       },
     },
+    // end of code generated automatically
     docs: {
       description: {
         component:

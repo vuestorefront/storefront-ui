@@ -42,6 +42,7 @@ export default {
   title: "Components/Organisms/BannerGrid",
   component: SfBannerGrid,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "banner-grid-row-display": { value: "block", control: "text" },
       "banner-grid-row-flex": { value: "", control: "text" },
@@ -70,7 +71,7 @@ export default {
         control: "text",
       },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component: "Full width grid made with banners.",

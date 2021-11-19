@@ -5,6 +5,7 @@ export default {
   title: "Components/Organisms/StoreLocator",
   component: SfStore,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "store-padding": { value: "0 0 var(--spacer-sm) 0", control: "text" },
       "store-margin": { value: "var(--spacer-sm) 0 0 0", control: "text" },
@@ -124,7 +125,7 @@ export default {
         control: "text",
       },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component:

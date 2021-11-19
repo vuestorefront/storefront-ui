@@ -4,6 +4,7 @@ export default {
   title: "Components/Organisms/GroupedProduct",
   component: SfGroupedProductItem,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "grouped-product-item-display": { value: "", control: "text" },
       "grouped-product-item-padding": {
@@ -105,7 +106,7 @@ export default {
         control: "text",
       },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component:

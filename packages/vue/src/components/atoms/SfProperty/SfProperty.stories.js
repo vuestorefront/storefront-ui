@@ -4,6 +4,7 @@ export default {
   title: "Components/Atoms/Property",
   component: SfProperty,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "property-color": { value: "var(--c-text)", control: "text" },
       "property-name-margin": {
@@ -29,7 +30,7 @@ export default {
         value: "var(--font-family--secondary)",
         control: "text",
       },
-      "property-name-content": { value: '":"', control: "text" },
+      "property-name-content": { value: "", control: "text" },
       "property-value-color": { value: "", control: "text" },
       "property-value-font": { value: "", control: "text" },
       "property-value-font-weight": {
@@ -46,7 +47,7 @@ export default {
         control: "text",
       },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component:

@@ -67,11 +67,11 @@ export default {
     },
     size: {
       type: String,
-      default: "lg",
+      default: "",
     },
     color: {
       type: String,
-      default: "green-primary",
+      default: "",
     },
     viewBox: {
       type: String,
@@ -88,7 +88,32 @@ export default {
   },
   iconSizeClass(size) {
     const isSFSizes = SF_SIZES.includes(size.trim());
-    return isSFSizes ? `size-${size.trim()}` : "";
+    if (isSFSizes) {
+      switch (size.trim()) {
+        case "xxs":
+          return "size-xxs";
+        case "xs":
+          return "size-xs";
+        case "sm":
+          return "size-sm";
+        case "md":
+          return "size-md";
+        case "lg":
+          return "size-lg";
+        case "xl":
+          return "size-xl";
+        case "xxl":
+          return "size-xxl";
+        case "xl3":
+          return "size-xl3";
+        case "xl4":
+          return "size-xl4";
+        default:
+          return "size-lg";
+      }
+    } else {
+      return "";
+    }
   },
   iconCustomStyle(color, size) {
     const isSFColors = SF_COLORS.includes(color.trim());

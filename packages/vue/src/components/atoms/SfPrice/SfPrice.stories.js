@@ -4,6 +4,7 @@ export default {
   title: "Components/Atoms/Price",
   component: SfPrice,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "price-flex-wrap": { value: "wrap", control: "text" },
       "price-flex-direction": { value: "row", control: "text" },
@@ -58,7 +59,7 @@ export default {
       },
       "price-old-text-decoration": { value: "line-through", control: "text" },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component:
