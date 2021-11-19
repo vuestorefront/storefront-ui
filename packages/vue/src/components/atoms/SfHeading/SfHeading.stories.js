@@ -4,9 +4,10 @@ export default {
   title: "Components/Atoms/Heading",
   component: SfHeading,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "heading-padding": { value: "0 0 var(--spacer-xs) 0", control: "text" },
-      "heading-text-align": { value: "center", control: "text" },
+      "heading-text-align": { value: "", control: "text" },
       "heading-title-margin": { value: "0", control: "text" },
       "heading-title-color": { value: "var(--c-text)", control: "text" },
       "heading-title-font": { value: "", control: "text" },
@@ -42,14 +43,10 @@ export default {
         value: "var(--font-family--secondary)",
         control: "text",
       },
-      "heading-border": {
-        value:
-          "var(--heading-border-style, solid) var(--heading-border-color, var(--c-light))",
-        control: "text",
-      },
-      "heading-border-width": { value: "0 0 1px 0", control: "text" },
+      "heading-border": { value: "", control: "text" },
+      "heading-border-width": { value: "", control: "text" },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component:

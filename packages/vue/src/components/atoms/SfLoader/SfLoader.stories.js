@@ -4,11 +4,12 @@ export default {
   title: "Components/Atoms/Loader",
   component: SfLoader,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "loader-overlay-background": { value: "var(--c-white)", control: "text" },
       "loader-spinner-stroke": { value: "var(--c-primary)", control: "text" },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component:

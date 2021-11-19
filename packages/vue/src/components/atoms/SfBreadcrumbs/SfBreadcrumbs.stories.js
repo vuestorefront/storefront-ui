@@ -4,7 +4,31 @@ export default {
   title: "Components/Atoms/Breadcrumbs",
   component: SfBreadcrumbs,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
+      "breadcrumbs-list-item-before-padding": {
+        value: "0 var(--spacer-sm)",
+        control: "text",
+      },
+      "breadcrumbs-list-item-seperator": { value: '"|"', control: "text" },
+      "breadcrumbs-list-item-before-color": {
+        value: "var(--c-text-muted)",
+        control: "text",
+      },
+      "breadcrumbs-font": { value: "", control: "text" },
+      "breadcrumbs-font-weight": {
+        value: "var(--font-weight--normal)",
+        control: "text",
+      },
+      "breadcrumbs-font-size": {
+        value: "var(--font-size--xs)",
+        control: "text",
+      },
+      "breadcrumbs-font-line-height": { value: "1.6", control: "text" },
+      "breadcrumbs-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
       "link-color": {
         value: "var(--c-text-muted)",
         description: "Overridden other component's CSS variable",
@@ -15,11 +39,8 @@ export default {
         description: "Overridden other component's CSS variable",
         control: "text",
       },
-      "breadcrumbs-font-size": {
-        value: "var(--font-size--sm)",
-        control: "text",
-      },
     },
+    // end of code generated automatically
     docs: {
       description: {
         component:

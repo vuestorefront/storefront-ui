@@ -6,6 +6,7 @@ export default {
   title: "Components/Molecules/MenuItem",
   component: SfMenuItem,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "menu-item-text-transform": { value: "", control: "text" },
       "menu-item-font": { value: "", control: "text" },
@@ -53,7 +54,7 @@ export default {
         control: "text",
       },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component:

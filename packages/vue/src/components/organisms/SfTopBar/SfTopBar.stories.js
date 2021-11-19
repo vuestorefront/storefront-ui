@@ -3,12 +3,13 @@ export default {
   title: "Components/Organisms/TopBar",
   component: SfTopBar,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "top-bar-background": { value: "var(--c-light)", control: "text" },
       "top-bar-padding": { value: "0 var(--spacer-base)", control: "text" },
       "top-bar-height": { value: "2.5rem", control: "text" },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component: "Top Bar component with righ or left aligned content.",
