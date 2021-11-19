@@ -71,7 +71,7 @@ export default {
     },
     color: {
       type: String,
-      default: "green-primary",
+      default: "",
     },
     viewBox: {
       type: String,
