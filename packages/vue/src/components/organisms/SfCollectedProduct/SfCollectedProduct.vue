@@ -49,6 +49,8 @@
         <div class="sf-collected-product__quantity-wrapper">
           <SfQuantitySelector
             :qty="quantity"
+            :min="minQty"
+            :max="maxQty"
             class="sf-collected-product__quantity-selector"
             @input="$emit('input', $event)"
           />
@@ -147,6 +149,14 @@ export default {
     qty: {
       type: [Number, String],
       default: 1,
+    },
+    minQty: {
+      type: Number,
+      default: null,
+    },
+    maxQty: {
+      type: Number,
+      default: null,
     },
     link: {
       type: [String, Object],

@@ -69,9 +69,6 @@ export default {
       default: true,
     },
   },
-  style(color) {
-    return color;
-  },
 };
 </script>
 <style lang="scss">
