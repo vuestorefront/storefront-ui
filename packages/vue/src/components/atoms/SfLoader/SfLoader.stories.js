@@ -34,7 +34,7 @@ const Template = (args, { argTypes }) => ({
   components: { SfLoader, SfImage },
   props: Object.keys(argTypes),
   template: `<SfLoader :loading="loading">
-      <SfImage src="/assets/storybook/SfImage/product-216x326.jpg" alt="dress" width="216" height="326"/>
+      <SfImage src="/assets/storybook/SfImage/product-216x326.jpg" alt="dress" :width="216" :height="326"/>
     </SfLoader>`,
 });
 
@@ -49,7 +49,7 @@ export const WithLoaderSlot = (args, { argTypes }) => ({
   template: `
   <SfLoader
     :loading="loading">
-    <SfImage src="/assets/storybook/SfImage/product-216x326.jpg" alt="dress" width="216" height="326"/>
+    <SfImage src="/assets/storybook/SfImage/product-216x326.jpg" alt="dress" :width="216" :height="326"/>
     <template #loader>
       loading...
     </template>

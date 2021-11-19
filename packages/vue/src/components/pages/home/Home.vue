@@ -92,16 +92,16 @@
               v-if="!isMobile"
               :src="image.url"
               :alt="image.content"
-              width="470"
-              height="470"
+              :width="470"
+              :height="470"
               >{{ image.content }}</SfImage
             >
             <SfImage
               v-else
               :src="image.url"
               :alt="image.content"
-              width="150"
-              height="150"
+              :width="150"
+              :height="150"
               >{{ image.content }}</SfImage
             >
           </div>

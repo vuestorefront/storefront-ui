@@ -12,7 +12,7 @@
         <SfButton
           class="sf-button--pure"
         >
-          <SfImage src="/assets/flag.png" width="20" height="20" alt="usa_flag"/>
+          <SfImage src="/assets/flag.png" :width="20" :height="20" alt="usa_flag"/>
         </SfButton>
       </template>
     </SfTopBar>
@@ -84,8 +84,8 @@
           <SfImage 
             v-for="item in footer.social" 
             :key="item" :src="'/assets/'+item+'.svg'" 
-            width="32" 
-            height="32" 
+            :width="32" 
+            :height="32" 
             :alt="`${item}-logo`"
             class="footer__social-image" 
           />
