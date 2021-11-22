@@ -227,7 +227,18 @@ export default {
       defaultValue: "",
       description: "Current input value (`v-model`)",
     },
-    onChange: { action: "input changed!", table: { category: "Events" } },
+    change: {
+      action: "Change event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description:
+        "Change event emits when input value changes and loses focus. It is passed via v-on='listeners'",
+    },
+    input: {
+      action: "Input event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description:
+        "Input event emits when input value changes. It is passed via v-on='listeners'",
+    },
   },
 };
 
@@ -251,7 +262,8 @@ const Template = (args, { argTypes }) => ({
     :required="required"
     :disabled="disabled"
     :has-show-password="hasShowPassword"
-    @change="onChange"
+    @change="change"
+    @input="input"
   />`,
 });
 

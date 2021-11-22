@@ -81,7 +81,11 @@ export default {
       },
       description: "Sets select value",
     },
-    onClick: { action: "toggle selected", table: { category: "Events" } },
+    click: {
+      action: "toggle selected",
+      table: { category: "Events", type: { summary: null } },
+      description: "Click event. It is passed via v-on='listeners'",
+    },
   },
 };
 
@@ -95,7 +99,7 @@ const Template = (args, { argTypes }) => ({
     :has-badge="hasBadge"
     :aria-label="color"  
     style="margin: 10px;"
-    @click="onClick"
+    @click="click"
     :class="classes" />`,
 });
 

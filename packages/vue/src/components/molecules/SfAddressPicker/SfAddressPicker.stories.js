@@ -103,7 +103,11 @@ export default {
         "Phone (only for testing puropses). For development use default slot in SfAddress component, to change the content.",
       defaultValue: "",
     },
-    input: { action: "Address picked", table: { category: "Events" } },
+    change: {
+      action: "Change event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits change event with name of picked address component",
+    },
   },
 };
 
@@ -111,7 +115,7 @@ const Template = (args, { argTypes }) => ({
   components: { SfAddressPicker },
   props: Object.keys(argTypes),
   template: `
-  <SfAddressPicker v-model="selected">
+  <SfAddressPicker v-model="selected" @change="change">
     <SfAddress :name="name">
       <span>{{title}}</span>
       <span>{{street}}</span>

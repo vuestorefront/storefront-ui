@@ -132,7 +132,7 @@ export default {
         category: "Events",
       },
       description:
-        "Click event. It is the example and can be named differently. It is passed via v-on='listeners'.",
+        "Click event. It is passed via v-on='listeners'.",
     },
   },
 };
