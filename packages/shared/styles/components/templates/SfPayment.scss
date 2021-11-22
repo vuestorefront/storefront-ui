@@ -81,7 +81,7 @@
     color: var(--c-link);
     white-space: nowrap;
     ::v-deep .sf-image {
-      width: 4rem;
+      width: 100%;
     }
     @include for-desktop {
       --radio-container-padding: var(--spacer-sm);
