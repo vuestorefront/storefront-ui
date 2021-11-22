@@ -88,9 +88,20 @@
             :key="colKey"
             class="instagram-grid__col"
           >
-            <SfImage :src="image.url" :alt="image.content" width="470">{{
-              image.content
-            }}</SfImage>
+            <SfImage
+              v-if="isMobile"
+              :src="image.mobile.src"
+              :width="image.mobile.width"
+              :alt="image.content"
+              >{{ image.content }}</SfImage
+            >
+            <SfImage
+              v-else
+              :src="image.desktop.src"
+              :width="image.desktop.width"
+              :alt="image.content"
+              >{{ image.content }}</SfImage
+            >
           </div>
         </div>
       </div>
@@ -140,6 +151,11 @@ import {
   SfImage,
   SfHeading,
 } from "@storefront-ui/vue";
+import {
+  mapMobileObserver,
+  unMapMobileObserver,
+} from "../../../utilities/mobile-observer";
+
 export default {
   name: "Home",
   components: {
@@ -304,31 +320,65 @@ export default {
       instagramFeed: [
         [
           {
+            mobile: {
+              src: "/assets/storybook/Home/imageAm.webp",
+              width: "100%",
+            },
+            desktop: {
+              src: "/assets/storybook/Home/imageAd.webp",
+              width: 470,
+            },
             content: "angelina_trn",
-            url: "/assets/storybook/Home/imageA.png",
           },
           {
+            mobile: {
+              src: "/assets/storybook/Home/imageBm.webp",
+              width: "100%",
+            },
+            desktop: {
+              src: "/assets/storybook/Home/imageBd.webp",
+              width: 470,
+            },
             content: "angelina_trn",
-            url: "/assets/storybook/Home/imageB.png",
           },
         ],
         [
           {
+            mobile: {
+              src: "/assets/storybook/Home/imageCm.webp",
+              width: "100%",
+            },
+            desktop: {
+              src: "/assets/storybook/Home/imageCd.webp",
+              width: 470,
+            },
             content: "angelina_trn",
-            url: "/assets/storybook/Home/imageC.jpg",
           },
           {
+            mobile: {
+              src: "/assets/storybook/Home/imageDm.webp",
+              width: "100%",
+            },
+            desktop: {
+              src: "/assets/storybook/Home/imageDd.webp",
+              width: 470,
+            },
             content: "angelina_trn",
-            url: "/assets/storybook/Home/imageD.jpg",
           },
         ],
       ],
     };
   },
+  computed: {
+    ...mapMobileObserver(),
+  },
   methods: {
     toggleWishlist(index) {
       return (this.products[index].isInWishlist =
         !this.products[index].isInWishlist);
+    },
+    beforeDestroy() {
+      unMapMobileObserver();
     },
   },
 };
@@ -400,6 +450,7 @@ export default {
 .instagram-grid {
   max-width: 60rem;
   margin: 0 auto;
+  position: relative;
   &__row {
     display: flex;
     & + & {
@@ -408,14 +459,30 @@ export default {
         margin: calc(var(--spacer-xl) / 2) 0 0 0;
       }
     }
+    @include for-desktop {
+      &:last-child {
+        .instagram-grid__col:last-child {
+          position: absolute;
+          top: 11.25rem;
+          right: 0;
+        }
+      }
+    }
   }
   &__col {
     flex: 1;
     margin: 0;
+    display: flex;
     & + & {
       margin: 0 0 0 var(--spacer-xs);
       @include for-desktop {
         margin: 0 0 0 calc(var(--spacer-xl) / 2);
+      }
+    }
+    @include for-mobile {
+      justify-content: flex-end;
+      &:last-child {
+        justify-content: flex-start;
       }
     }
   }
