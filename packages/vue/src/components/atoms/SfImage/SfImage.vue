@@ -18,14 +18,17 @@
       v-on="$listeners"
     />
     <img
-      v-if="!loaded && placeholder"
+      :class="{ 'display-none': loaded || (loaded && placeholder) }"
       class="sf-image--placeholder"
       :src="placeholder"
       alt="Placeholder"
       :width="width"
       :height="height"
     />
-    <span v-if="$slots.default" class="sf-image--overlay">
+    <span
+      :class="{ 'display-none': !$slots.default }"
+      class="sf-image--overlay"
+    >
       <slot />
     </span>
     <noscript inline-template>

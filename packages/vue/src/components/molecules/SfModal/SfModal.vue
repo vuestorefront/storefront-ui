@@ -1,7 +1,7 @@
 <template>
   <section class="sf-modal" :class="[staticClass, className]">
     <SfOverlay
-      v-if="overlay"
+      :class="{ 'display-none': !overlay }"
       class="sf-modal__overlay"
       :transition="transitionOverlay"
       :visible="visible"
@@ -9,9 +9,9 @@
     </SfOverlay>
     <transition :name="transitionModal">
       <div
-        v-if="visible"
         v-focus-trap
         v-click-outside="checkPersistence"
+        :class="{ 'display-none': !visible }"
         class="sf-modal__container"
       >
         <!--@slot Use this slot to place content inside the modal bar.-->
@@ -24,7 +24,7 @@
           />
         </slot>
         <SfButton
-          v-if="cross"
+          :class="{ 'display-none': !cross }"
           class="sf-button--pure sf-modal__close desktop-only"
           aria-label="Close modal"
           type="button"

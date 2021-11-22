@@ -2,7 +2,6 @@ import { shallowMount } from "@vue/test-utils";
 import SfHero from "./SfHero.vue";
 import SfHeroItem from "./_internal/SfHeroItem.vue";
 import SfArrow from "../../atoms/SfArrow/SfArrow.vue";
-import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfBullets from "../../atoms/SfBullets/SfBullets.vue";
 const items = [
   {
@@ -125,10 +124,17 @@ describe("SfHero.vue", () => {
       component.destroy();
     });
     it("doesn't render any SfArrow components if only one item passed as prop", () => {
-      expect(component.findAllComponents(SfArrow)).toHaveLength(0);
+      expect(
+        component.find(".sf-hero__control--left").classes("display-none")
+      ).toBe(true);
+      expect(
+        component.find(".sf-hero__control--right").classes("display-none")
+      ).toBe(true);
     });
     it("doesn't render SfBullets component if only one item passed as prop", () => {
-      expect(component.findAllComponents(SfBullets)).toHaveLength(0);
+      expect(component.find(".sf-hero__bullets").classes("display-none")).toBe(
+        true
+      );
     });
   });
   describe("with using default slot", () => {

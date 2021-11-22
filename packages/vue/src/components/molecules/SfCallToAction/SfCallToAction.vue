@@ -3,13 +3,19 @@
     <div class="sf-call-to-action__text-container">
       <!--@slot Use this slot to replace title-->
       <slot name="title" v-bind="{ title }">
-        <h2 v-if="title" class="sf-call-to-action__title">
+        <h2
+          :class="{ 'display-none': !title }"
+          class="sf-call-to-action__title"
+        >
           {{ title }}
         </h2>
       </slot>
       <!--@slot Use this slot to replace description-->
       <slot name="description" v-bind="{ description }">
-        <p v-if="description" class="sf-call-to-action__description">
+        <p
+          :class="{ 'display-none': !description }"
+          class="sf-call-to-action__description"
+        >
           {{ description }}
         </p>
       </slot>
@@ -17,7 +23,7 @@
     <!--@slot Use this slot to replace bottom button-->
     <slot name="button" v-bind="{ buttonText }">
       <SfButton
-        v-if="buttonText"
+        :class="{ 'display-none': !buttonText }"
         :link="link"
         class="sf-call-to-action__button"
         data-testid="cta-button"
