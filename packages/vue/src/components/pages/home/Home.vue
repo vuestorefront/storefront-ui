@@ -322,7 +322,7 @@ export default {
           {
             mobile: {
               src: "/assets/storybook/Home/imageAm.webp",
-              width: 162,
+              width: "100%",
             },
             desktop: {
               src: "/assets/storybook/Home/imageAd.webp",
@@ -333,7 +333,7 @@ export default {
           {
             mobile: {
               src: "/assets/storybook/Home/imageBm.webp",
-              width: 162,
+              width: "100%",
             },
             desktop: {
               src: "/assets/storybook/Home/imageBd.webp",
@@ -346,7 +346,7 @@ export default {
           {
             mobile: {
               src: "/assets/storybook/Home/imageCm.webp",
-              width: 162,
+              width: "100%",
             },
             desktop: {
               src: "/assets/storybook/Home/imageCd.webp",
@@ -357,7 +357,7 @@ export default {
           {
             mobile: {
               src: "/assets/storybook/Home/imageDm.webp",
-              width: 162,
+              width: "100%",
             },
             desktop: {
               src: "/assets/storybook/Home/imageDd.webp",
@@ -463,7 +463,7 @@ export default {
       &:last-child {
         .instagram-grid__col:last-child {
           position: absolute;
-          top: 180px;
+          top: 11.25rem;
           right: 0;
         }
       }
