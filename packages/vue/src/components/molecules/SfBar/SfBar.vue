@@ -3,7 +3,7 @@
     <div>
       <slot name="back">
         <SfButton
-          v-if="back"
+          :class="{ 'display-none': !back }"
           aria-label="back"
           class="sf-button--pure sf-bar__icon"
           type="button"
@@ -21,7 +21,7 @@
     <div>
       <slot name="close">
         <SfButton
-          v-if="close"
+          :class="{ 'display-none': !close }"
           class="sf-button--pure sf-bar__icon"
           aria-label="close"
           type="button"

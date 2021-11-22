@@ -3,6 +3,7 @@ export default {
   title: "Components/Organisms/List",
   component: SfList,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "list-list-style": { value: "none", control: "text" },
       "list-padding": { value: "0", control: "text" },
@@ -31,7 +32,7 @@ export default {
         control: "text",
       },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component:

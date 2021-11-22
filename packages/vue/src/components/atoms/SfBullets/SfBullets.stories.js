@@ -4,6 +4,7 @@ export default {
   title: "Components/Atoms/Bullets",
   component: SfBullets,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "bullet-width": { value: "var(--bullet-size, 0.5rem)", control: "text" },
       "bullet-height": { value: "var(--bullet-size, 0.5rem)", control: "text" },
@@ -22,7 +23,7 @@ export default {
         control: "text",
       },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component:

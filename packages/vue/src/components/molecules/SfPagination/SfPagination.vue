@@ -2,7 +2,10 @@
   <nav class="sf-pagination">
     <!-- @slot Custom markup for previous page button -->
     <slot name="prev" v-bind="{ isDisabled: !canGoPrev, go, prev: getPrev }">
-      <div v-if="hasArrows" class="sf-pagination__item prev">
+      <div
+        :class="{ 'display-none': !hasArrows }"
+        class="sf-pagination__item prev"
+      >
         <component
           :is="componentIs"
           :class="{
@@ -19,13 +22,14 @@
         </component>
       </div>
     </slot>
-    <template v-if="showFirst">
+    <template>
       <slot name="number" v-bind="{ page: 1 }">
         <component
           :is="componentIs"
           class="sf-pagination__item"
           :class="{
             'sf-button--pure': !hasRouter,
+            'display-none': !showFirst,
           }"
           :link="hasRouter ? getLinkTo(1) : null"
           @click="hasRouter ? null : go(1)"
@@ -33,8 +37,13 @@
           1
         </component>
       </slot>
-      <slot v-if="firstVisiblePageNumber > 2" name="points">
-        <div class="sf-pagination__item">...</div>
+      <slot name="points">
+        <div
+          :class="{ 'display-none': firstVisiblePageNumber <= 2 }"
+          class="sf-pagination__item"
+        >
+          ...
+        </div>
       </slot>
     </template>
     <template v-for="page in limitedPageNumbers">
@@ -55,8 +64,15 @@
       </slot>
     </template>
     <template v-if="showLast">
-      <slot v-if="lastVisiblePageNumber < total - 1" name="points">
-        <div class="sf-pagination__item">...</div>
+      <slot name="points">
+        <div
+          :class="{
+            'display-none': lastVisiblePageNumber >= total - 1,
+          }"
+          class="sf-pagination__item"
+        >
+          ...
+        </div>
       </slot>
       <slot name="number" v-bind="{ page: total }">
         <component
@@ -74,7 +90,10 @@
     </template>
     <!-- @slot Custom markup for previous page button -->
     <slot name="next" v-bind="{ isDisabled: !canGoNext, go, next: getNext }">
-      <div v-if="hasArrows" class="sf-pagination__item next">
+      <div
+        :class="{ 'display-none': !hasArrows }"
+        class="sf-pagination__item next"
+      >
         <component
           :is="componentIs"
           :class="{

@@ -32,6 +32,7 @@ export default {
   title: "Components/Organisms/Accordion",
   component: SfAccordionItem,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "accordion-item-header-justify": {
         value: "space-between",
@@ -104,12 +105,12 @@ export default {
       },
       "accordion-item-chevron-display": { value: "none", control: "text" },
       "chevron-color": {
-        value: "",
+        value: "var(--c-primary)",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component:

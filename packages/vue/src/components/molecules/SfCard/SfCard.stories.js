@@ -5,6 +5,7 @@ export default {
   title: "Components/Molecules/Card",
   component: SfCard,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "card-description-font": { value: "", control: "text" },
       "card-description-font-weight": {
@@ -30,8 +31,24 @@ export default {
         description: "Overridden other component's CSS variable",
         control: "text",
       },
+      "font-weight--bold": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "h3-font-size": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-family--secondary": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-weight--semibold": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component:

@@ -3,6 +3,7 @@ export default {
   title: "Components/Molecules/Pagination",
   component: SfPagination,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "pagination-item-color": {
         value: "var(--c-gray-variant)",
@@ -34,7 +35,7 @@ export default {
         control: "text",
       },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component: "Pagination component with indicators.",

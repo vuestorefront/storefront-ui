@@ -22,7 +22,7 @@
         :viewBox="$options.iconViewBox(props.icon, props.viewBox)"
         preserveAspectRatio="none"
       >
-        <defs v-if="props.coverage < 1">
+        <defs :class="{ 'display-none': props.coverage > 1 }">
           <linearGradient :id="props.coverage" x1="0" y1="0" x2="1" y2="0">
             <stop :offset="props.coverage" stop-color="var(--icon-color)" />
             <stop
@@ -84,44 +84,7 @@ export default {
   },
   iconColorClass(color) {
     const isSFColors = SF_COLORS.includes(color.trim());
-    if (isSFColors) {
-      switch (color.trim()) {
-        case "green-primary":
-          return "color-green-primary";
-        case "green-secondary":
-          return "color-green-secondary";
-        case "black":
-          return "color-black";
-        case "dark-secondary":
-          return "color-dark-secondary";
-        case "gray-primary":
-          return "color-gray-primary";
-        case "dark-secondary":
-          return "color-dark-secondary";
-        case "gray-secondary":
-          return "color-gray-secondary";
-        case "light-primary":
-          return "color-light-primary";
-        case "white":
-          return "color-white";
-        case "red-primary":
-          return "color-red-primary";
-        case "red-secondary":
-          return "color-red-secondary";
-        case "yellow-primary":
-          return "color-yellow-primary";
-        case "yellow-secondary":
-          return "color-yellow-secondary";
-        case "blue-primary":
-          return "color-blue-primary";
-        case "blue-secondary":
-          return "color-blue-secondary";
-        default:
-          return "color-green-primary";
-      }
-    } else {
-      return "";
-    }
+    return isSFColors ? `color-${color.trim()}` : "";
   },
   iconSizeClass(size) {
     const isSFSizes = SF_SIZES.includes(size.trim());

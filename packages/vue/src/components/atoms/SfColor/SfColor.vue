@@ -22,7 +22,10 @@
       <slot name="badge" v-bind="{ props }">
         <component
           :is="injections.components.SfBadge"
-          v-if="props.selected && props.hasBadge"
+          :class="{
+            'display-none':
+              !props.hasBadge || (!props.selected && props.hasBadge),
+          }"
           class="sf-color__badge smartphone-only"
         >
           <component
@@ -65,9 +68,6 @@ export default {
       type: Boolean,
       default: true,
     },
-  },
-  style(color) {
-    return color;
   },
 };
 </script>

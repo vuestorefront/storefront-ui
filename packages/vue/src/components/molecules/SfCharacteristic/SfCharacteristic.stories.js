@@ -8,6 +8,7 @@ export default {
   title: "Components/Molecules/Characteristic",
   component: SfCharacteristic,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "characteristic-margin": {
         value: "0 var(--spacer-xs) 0 0",
@@ -58,7 +59,7 @@ export default {
         control: "text",
       },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component:
