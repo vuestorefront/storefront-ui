@@ -8,7 +8,10 @@
         </ul>
       </div>
     </div>
-    <div v-if="numberOfPages > 1" class="sf-hero__control--left">
+    <div
+      :class="{ 'display-none': numberOfPages <= 1 }"
+      class="sf-hero__control--left"
+    >
       <!--@slot slot for icon moving to the previous item -->
       <slot name="prev" v-bind="{ go: () => go('prev') }">
         <SfArrow
@@ -19,7 +22,10 @@
         />
       </slot>
     </div>
-    <div v-if="numberOfPages > 1" class="sf-hero__control--right">
+    <div
+      :class="{ 'display-none': numberOfPages <= 1 }"
+      class="sf-hero__control--right"
+    >
       <!-- @slot slot for icon moving to the next item  -->
       <slot name="next" v-bind="{ go: () => go('next') }">
         <SfArrow
@@ -30,7 +36,10 @@
         />
       </slot>
     </div>
-    <div v-if="numberOfPages > 1" class="sf-hero__bullets">
+    <div
+      :class="{ 'display-none': numberOfPages <= 1 }"
+      class="sf-hero__bullets"
+    >
       <!--@slot custom markup for pagination bullets -->
       <slot name="bullets" v-bind="{ numberOfPages, page, go }">
         <SfBullets

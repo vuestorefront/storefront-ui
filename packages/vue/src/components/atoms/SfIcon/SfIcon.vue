@@ -22,7 +22,7 @@
         :viewBox="$options.iconViewBox(props.icon, props.viewBox)"
         preserveAspectRatio="none"
       >
-        <defs v-if="props.coverage < 1">
+        <defs :class="{ 'display-none': props.coverage > 1 }">
           <linearGradient :id="props.coverage" x1="0" y1="0" x2="1" y2="0">
             <stop :offset="props.coverage" stop-color="var(--icon-color)" />
             <stop

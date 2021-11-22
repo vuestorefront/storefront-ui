@@ -7,7 +7,10 @@
       </span>
     </button>
     <transition name="sf-fade">
-      <div v-if="isColumnOpen" class="sf-footer-column__content">
+      <div
+        :class="{ 'display-none': !isColumnOpen }"
+        class="sf-footer-column__content"
+      >
         <slot />
       </div>
     </transition>

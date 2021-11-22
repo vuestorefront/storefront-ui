@@ -2,7 +2,7 @@
   <div class="sf-store">
     <!-- @slot Use this slot to change distance element (in internal component) -->
     <slot name="distance">
-      <div v-if="distance" class="sf-store__distance">
+      <div :class="{ 'display-none': !distance }" class="sf-store__distance">
         <span>{{ distance }}km</span> away from you
       </div>
     </slot>
@@ -30,11 +30,11 @@
       </div>
       <!-- @slot This is the default slot of the component, placed on the right of the picture (in internal component) -->
       <slot>
-        <div v-if="address" class="sf-store__address">
+        <div :class="{ 'display-none': !address }" class="sf-store__address">
           {{ address }}
         </div>
         <SfCharacteristic
-          v-if="phone"
+          :class="{ 'display-none': !phone }"
           icon="phone"
           size-icon="16px"
           class="sf-store__property"
@@ -50,7 +50,7 @@
           </template>
         </SfCharacteristic>
         <SfCharacteristic
-          v-if="email"
+          :class="{ 'display-none': !email }"
           icon="mail"
           size-icon="16px"
           class="sf-store__property"
