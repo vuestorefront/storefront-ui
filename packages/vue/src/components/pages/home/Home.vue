@@ -78,29 +78,79 @@
       class="share-your-look"
     >
       <div class="instagram-grid">
-        <div
-          v-for="(col, rowKey) in instagramFeed"
-          :key="rowKey"
-          class="instagram-grid__row"
-        >
-          <div
-            v-for="(image, colKey) in col"
-            :key="colKey"
-            class="instagram-grid__col"
-          >
+        <div class="grid__row">
+          <div class="grid__col">
             <SfImage
               v-if="isMobile"
-              :src="image.mobile.src"
-              :width="image.mobile.width"
-              :alt="image.content"
-              >{{ image.content }}</SfImage
+              src="/assets/storybook/Home/imageAm.webp"
+              alt="katherina_trn"
+              :width="140"
+              :height="140"
+              >katherina_trn</SfImage
             >
             <SfImage
               v-else
-              :src="image.desktop.src"
-              :width="image.desktop.width"
-              :alt="image.content"
-              >{{ image.content }}</SfImage
+              src="/assets/storybook/Home/imageAd.webp"
+              alt="katherina_trn"
+              :width="470"
+              :height="470"
+              >katherina_trn</SfImage
+            >
+          </div>
+          <div class="grid__col small">
+            <SfImage
+              v-if="isMobile"
+              src="/assets/storybook/Home/imageBm.webp"
+              alt="katherina_trn"
+              :width="140"
+              :height="140"
+              >katherina_trn</SfImage
+            >
+            <SfImage
+              v-else
+              src="/assets/storybook/Home/imageCd.webp"
+              alt="katherina_trn"
+              :width="470"
+              :height="160"
+              >katherina_trn</SfImage
+            >
+          </div>
+        </div>
+        <div class="grid__row gap">
+          <div class="grid__col small">
+            <SfImage
+              v-if="isMobile"
+              src="/assets/storybook/Home/imageCm.webp"
+              alt="katherina_trn"
+              :width="140"
+              :height="140"
+              >katherina_trn</SfImage
+            >
+            <SfImage
+              v-else
+              src="/assets/storybook/Home/imageBd.webp"
+              alt="katherina_trn"
+              :width="470"
+              :height="160"
+              >katherina_trn</SfImage
+            >
+          </div>
+          <div class="grid__col">
+            <SfImage
+              v-if="isMobile"
+              src="/assets/storybook/Home/imageDm.webp"
+              alt="katherina_trn"
+              :width="140"
+              :height="140"
+              >katherina_trn</SfImage
+            >
+            <SfImage
+              v-else
+              src="/assets/storybook/Home/imageDd.webp"
+              alt="katherina_trn"
+              :width="470"
+              :height="470"
+              >katherina_trn</SfImage
             >
           </div>
         </div>
@@ -124,14 +174,24 @@
             aria-label="Go to Apple Product"
             data-testid="banner-cta-button"
           >
-            <SfImage src="/assets/storybook/Home/apple.png" alt="Apple" />
+            <SfImage
+              src="/assets/storybook/Home/apple.png"
+              alt="Apple"
+              :width="134"
+              :height="44"
+            />
           </SfButton>
           <SfButton
             class="app-banner__button sf-banner__call-to-action"
             aria-label="Go to Google Product"
             data-testid="banner-cta-button"
           >
-            <SfImage src="/assets/storybook/Home/google.png" alt="Google" />
+            <SfImage
+              src="/assets/storybook/Home/google.png"
+              alt="Google"
+              :width="134"
+              :height="44"
+            />
           </SfButton>
         </div>
       </template>
@@ -317,68 +377,18 @@ export default {
           badgeColor: "color-primary",
         },
       ],
-      instagramFeed: [
-        [
-          {
-            mobile: {
-              src: "/assets/storybook/Home/imageAm.webp",
-              width: "100%",
-            },
-            desktop: {
-              src: "/assets/storybook/Home/imageAd.webp",
-              width: 470,
-            },
-            content: "angelina_trn",
-          },
-          {
-            mobile: {
-              src: "/assets/storybook/Home/imageBm.webp",
-              width: "100%",
-            },
-            desktop: {
-              src: "/assets/storybook/Home/imageBd.webp",
-              width: 470,
-            },
-            content: "angelina_trn",
-          },
-        ],
-        [
-          {
-            mobile: {
-              src: "/assets/storybook/Home/imageCm.webp",
-              width: "100%",
-            },
-            desktop: {
-              src: "/assets/storybook/Home/imageCd.webp",
-              width: 470,
-            },
-            content: "angelina_trn",
-          },
-          {
-            mobile: {
-              src: "/assets/storybook/Home/imageDm.webp",
-              width: "100%",
-            },
-            desktop: {
-              src: "/assets/storybook/Home/imageDd.webp",
-              width: 470,
-            },
-            content: "angelina_trn",
-          },
-        ],
-      ],
     };
   },
   computed: {
     ...mapMobileObserver(),
   },
+  beforeDestroy() {
+    unMapMobileObserver();
+  },
   methods: {
     toggleWishlist(index) {
       return (this.products[index].isInWishlist =
         !this.products[index].isInWishlist);
-    },
-    beforeDestroy() {
-      unMapMobileObserver();
     },
   },
 };
@@ -448,41 +458,40 @@ export default {
   display: flex;
 }
 .instagram-grid {
-  max-width: 60rem;
-  margin: 0 auto;
-  position: relative;
+  display: flex;
+  max-height: 20.625rem;
+  width: 100%;
+  justify-content: center;
+  margin: 0;
+  @include for-desktop {
+    max-height: 40.625rem;
+    max-width: 60rem;
+    margin: 0 auto;
+  }
   &__row {
     display: flex;
-    & + & {
-      margin: var(--spacer-xs) 0 0 0;
-      @include for-desktop {
-        margin: calc(var(--spacer-xl) / 2) 0 0 0;
-      }
-    }
+    flex-direction: column;
+  }
+  .gap {
+    margin-left: var(--spacer-xs);
     @include for-desktop {
-      &:last-child {
-        .instagram-grid__col:last-child {
-          position: absolute;
-          top: 11.25rem;
-          right: 0;
-        }
-      }
+      margin-left: var(--spacer-sm);
     }
   }
   &__col {
-    flex: 1;
-    margin: 0;
-    display: flex;
-    & + & {
-      margin: 0 0 0 var(--spacer-xs);
-      @include for-desktop {
-        margin: 0 0 0 calc(var(--spacer-xl) / 2);
+    width: 10rem;
+    height: 10rem;
+    @include for-desktop {
+      &.small {
+        height: 10rem;
       }
+      width: 29.375rem;
+      height: 29.375rem;
     }
-    @include for-mobile {
-      justify-content: flex-end;
-      &:last-child {
-        justify-content: flex-start;
+    & + & {
+      margin-top: var(--spacer-xs);
+      @include for-desktop {
+        margin-top: var(--spacer-sm);
       }
     }
   }

@@ -9,7 +9,13 @@
     <div :class="{ 'sf-store__media': picture }" @click="centerOn(latlng)">
       <!-- @slot Use this slot to show media elements (in internal component) -->
       <slot name="media">
-        <SfImage v-if="picture" :src="picture" :alt="`${name} picture`" />
+        <SfImage
+          v-if="picture"
+          :src="picture"
+          :alt="`${name} picture`"
+          :width="pictureWidth"
+          :height="pictureHeight"
+        />
         <SfIcon v-else icon="marker" class="sf-store__icon" />
       </slot>
     </div>
@@ -68,7 +74,6 @@ import { focus } from "../../../../utilities/directives";
 import SfImage from "../../../atoms/SfImage/SfImage.vue";
 import SfIcon from "../../../atoms/SfIcon/SfIcon.vue";
 import SfCharacteristic from "../../../molecules/SfCharacteristic/SfCharacteristic.vue";
-import SfButton from "../../../atoms/SfButton/SfButton.vue";
 export default {
   name: "SfStore",
   inject: [
@@ -97,6 +102,14 @@ export default {
     },
     picture: {
       type: String,
+      default: null,
+    },
+    pictureWidth: {
+      type: [String, Number],
+      default: null,
+    },
+    pictureHeight: {
+      type: [String, Number],
       default: null,
     },
     address: {
