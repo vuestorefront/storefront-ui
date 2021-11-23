@@ -16,7 +16,6 @@
   }
   &__link {
     --link-text-decoration: var(--header-navigation-item-text-decoration, none);
-    display: none;
   }
   & > &__menu-item{
     --menu-item-font-size: var(--font-size--base);
