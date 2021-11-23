@@ -22,7 +22,10 @@
         />
         <!-- @slot Use this slot to replace label. -->
         <slot name="label" v-bind="{ label }">
-          <div v-if="label" class="sf-color-picker__label smartphone-only">
+          <div
+            :class="{ 'display-none': !label }"
+            class="sf-color-picker__label smartphone-only"
+          >
             {{ label }}
           </div>
         </slot>
@@ -31,7 +34,7 @@
         <!-- @slot Use this slot to replace close button. -->
         <slot name="close" v-bind="{ hasClose, toggle, isOpen }">
           <SfButton
-            v-if="hasClose"
+            :class="{ 'display-none': !hasClose }"
             class="sf-button--text sf-color-picker__close smartphone-only"
             aria-label="Close button"
             :aria-pressed="!isOpen"

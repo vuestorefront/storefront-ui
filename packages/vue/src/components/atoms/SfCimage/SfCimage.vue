@@ -43,11 +43,9 @@ export default {
 
     if (!props.publicId) {
       throw Error("PublicId is required to use this component.");
-      return;
     }
     if ((!props.cloud || !props.cloud.cloudName) && !getConfig().cloudName) {
       throw Error("cloudName is required to use this component.");
-      return;
     }
 
     const progressiveEffect = props.progressive

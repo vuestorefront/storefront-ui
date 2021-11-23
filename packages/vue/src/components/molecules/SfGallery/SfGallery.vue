@@ -28,8 +28,11 @@
       </div>
       <transition name="sf-fade">
         <div
-          v-if="outsideZoom && pictureSelected"
           ref="outSide"
+          :class="{
+            'display-none':
+              !outsideZoom || !pictureSelected || (!outsideZoom && !enableZoom),
+          }"
           :style="{ width: `${imageWidth}px`, height: `${imageHeight}px` }"
         >
           <SfImage

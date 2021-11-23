@@ -4,6 +4,7 @@ export default {
   title: "Components/Atoms/Textarea",
   component: SfTextarea,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "textarea-position": { value: "relative", control: "text" },
       "textarea-resize": { value: "auto", control: "text" },
@@ -25,11 +26,7 @@ export default {
       "textarea-height": { value: "", control: "text" },
       "textarea-width": { value: "", control: "text" },
       "textarea-padding": { value: "var(--spacer-sm)", control: "text" },
-      "textarea-border": {
-        value:
-          "var(--textarea-border-style, solid) var(--textarea-border-color, var(--c-link))",
-        control: "text",
-      },
+      "textarea-border": { value: "", control: "text" },
       "textarea-border-width": { value: "1px", control: "text" },
       "textarea-label-font": { value: "", control: "text" },
       "textarea-label-font-weight": {
@@ -46,22 +43,19 @@ export default {
         control: "text",
       },
       "textarea-label-position": { value: "absolute", control: "text" },
-      "textarea-label-padding": { value: "var(--spacer-sm)", control: "text" },
+      "textarea-label-padding": { value: "", control: "text" },
       "textarea-label-top": { value: "", control: "text" },
       "textarea-label-bottom": { value: "", control: "text" },
       "textarea-label-left": { value: "0", control: "text" },
       "textarea-label-right": { value: "", control: "text" },
       "textarea-label-transform": { value: "", control: "text" },
-      "textarea-label-color": { value: "var(--c-link)", control: "text" },
+      "textarea-label-color": { value: "", control: "text" },
       "textarea-label-transition": {
         value: "transform 150ms linear, font-size 150ms linear",
         control: "text",
       },
       "textarea-label-required": { value: "", control: "text" },
-      "textarea-error-message-color": {
-        value: "var(--c-danger)",
-        control: "text",
-      },
+      "textarea-error-message-color": { value: "", control: "text" },
       "textarea-error-message-font": { value: "", control: "text" },
       "textarea-error-message-font-weight": {
         value: "var(--font-weight--medium)",
@@ -80,10 +74,12 @@ export default {
         control: "text",
       },
       "textarea-border-color": {
-        value: "var(--c-primary)",
+        value: "",
+        description: "Overridden other component's CSS variable",
         control: "text",
       },
     },
+    // end of code generated automatically
     docs: {
       description: {
         component:

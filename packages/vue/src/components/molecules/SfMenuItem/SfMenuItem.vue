@@ -19,7 +19,7 @@
     <!-- @slot -->
     <slot name="mobile-nav-icon" v-bind="{ icon }">
       <SfIcon
-        v-if="icon"
+        :class="{ 'display-none': !icon }"
         :icon="icon"
         class="sf-menu-item__mobile-nav-icon smartphone-only"
         size="14px"

@@ -4,6 +4,7 @@ export default {
   title: "Components/Molecules/Bar",
   component: SfBar,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "bar-height": { value: "3.125rem", control: "text" },
       "bar-padding": { value: "0 var(--spacer-base)", control: "text" },
@@ -25,7 +26,7 @@ export default {
         control: "text",
       },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component: "The bar component for mobile components.",

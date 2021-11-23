@@ -4,6 +4,7 @@ export default {
   title: "Components/Atoms/Overlay",
   component: SfOverlay,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "overlay-z-index": { value: "1", control: "text" },
       "overlay-background": {
@@ -11,7 +12,7 @@ export default {
         control: "text",
       },
     },
-
+    // end of code generated automatically
     docs: {
       inlineStories: false,
       iframeHeight: "300px",

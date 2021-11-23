@@ -3,6 +3,7 @@ export default {
   title: "Components/Molecules/Review",
   component: SfReview,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "review-display": { value: "block", control: "text" },
       "review-max-width": { value: "343px", control: "text" },
@@ -100,8 +101,16 @@ export default {
         description: "Overridden other component's CSS variable",
         control: "text",
       },
+      "font-weight--medium": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-size--sm": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component:

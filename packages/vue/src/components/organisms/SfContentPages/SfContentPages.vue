@@ -16,7 +16,10 @@
           v-for="(category, key) in categories"
           :key="`${category.title}-${key}`"
         >
-          <h2 v-if="category.title" class="sf-content-pages__category-title">
+          <h2
+            :class="{ 'display-none': !category.title }"
+            class="sf-content-pages__category-title"
+          >
             {{ category.title }}
           </h2>
           <SfList class="sf-content-pages__list">
@@ -35,7 +38,7 @@
                 >
                   <template #icon>
                     <SfIcon
-                      v-if="page.icon"
+                      :class="{ 'display-none': !page.icon }"
                       :icon="page.icon"
                       class="sf-menu-item__icon"
                       color="#686d7d"
@@ -149,9 +152,9 @@ export default {
        */
       this.$emit("click:change", title);
     },
-    isPageActive (page) {
+    isPageActive(page) {
       return page.title.toLowerCase() === this.active.toLowerCase();
-    }
+    },
   },
 };
 </script>

@@ -4,6 +4,7 @@ export default {
   title: "Components/Molecules/AddToCart",
   component: SfAddToCart,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "add-to-cart-select-quantity-margin": {
         value: "0 0 0 var(--spacer-xs)",
@@ -11,6 +12,10 @@ export default {
       },
       "button-font": {
         value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-weight--semibold": {
         description: "Overridden other component's CSS variable",
         control: "text",
       },
@@ -25,7 +30,7 @@ export default {
         control: "text",
       },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component:

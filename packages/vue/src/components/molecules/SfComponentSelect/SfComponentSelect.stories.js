@@ -11,6 +11,7 @@ export default {
   title: "Components/Molecules/ComponentSelect",
   component: SfComponentSelect,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "component-select-option-padding": {
         value: "var(--spacer-sm)",
@@ -53,12 +54,13 @@ export default {
         description: "Overridden other component's CSS variable",
         control: "text",
       },
-      "component-select-border-color": {
-        value: "var(--c-link)",
+      "font-size--lg": {
+        description: "Overridden other component's CSS variable",
         control: "text",
       },
-      "component-select-error-message-color": {
+      "component-select-border-color": {
         value: "var(--c-danger)",
+        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "button-background": {
@@ -73,60 +75,75 @@ export default {
       },
       "component-select-border-width": {
         value: "0 0 1px 0",
+        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "component-select-label-top": {
         value: "0",
+        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "component-select-label-font": {
         value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-size--xs": {
+        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "chevron-color": {
-        value: "",
+        value: "var(--c-primary)",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
       "component-select-label-color": {
         value: "var(--c-text)",
+        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "component-select-color": {
-        value: "var(--c-text)",
+        value: "var(--c-text-disabled)",
+        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "component-select-label-required": {
         value: '" *"',
+        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "chevron-display": {
-        value: "block",
+        value: "none",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
       "component-select-dropdown-position": {
         value: "absolute",
+        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "component-select-dropdown-top": {
         value: "100%",
+        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "component-select-dropdown-bottom": {
         value: "auto",
+        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "component-select-animation-enter": {
         value: "ssdesktop 150ms",
+        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "component-select-animation-leave": {
         value: "ssdesktop 150ms reverse",
+        description: "Overridden other component's CSS variable",
         control: "text",
       },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component:
@@ -242,6 +259,20 @@ export default {
       defaultValue: "",
       description: "The content of the option",
     },
+    cancelLabel: {
+      control: "text",
+      table: {
+        category: "Props for main component",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "Cancel",
+        },
+      },
+      defaultValue: "",
+      description: "Cancel label text",
+    },
     options: {
       control: "array",
       description:
@@ -274,6 +305,7 @@ const Template = (args, { argTypes }) => ({
     :disabled="disabled"
     :error-message="errorMessage"
     :persistent="persistent"
+    :cancel-label="cancelLabel"
     style="max-width: 30rem"
     @change="change"
   >
@@ -345,6 +377,7 @@ export const UseLabelSlot = (args, { argTypes }) => ({
     :valid="valid"
     :disabled="disabled"
     :error-message="errorMessage" 
+    :cancel-label="cancelLabel"
     :persistent="persistent"       
     >
     <SfComponentSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
@@ -374,6 +407,7 @@ export const UseErrorMessageSlot = (args, { argTypes }) => ({
     :disabled="disabled"
     :error-message="errorMessage"
     :persistent="persistent"
+    :cancel-label="cancelLabel"
     >
     <SfComponentSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
       <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
@@ -400,6 +434,7 @@ export const UseCancelSlot = (args, { argTypes }) => ({
     :disabled="disabled"
     :error-message="errorMessage"
     :persistent="persistent"
+    :cancel-label="cancelLabel"
     >
     <SfComponentSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
       <SfProductOption :color="option.color" :label="option.label"></SfProductOption>

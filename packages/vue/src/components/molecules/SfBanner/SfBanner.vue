@@ -6,17 +6,23 @@
   >
     <component :is="wrapper" class="sf-banner__wrapper" :link="link">
       <slot name="subtitle" v-bind="{ subtitle }">
-        <span v-if="subtitle" class="sf-banner__subtitle">
+        <span
+          :class="{ 'display-none': !subtitle }"
+          class="sf-banner__subtitle"
+        >
           {{ subtitle }}
         </span>
       </slot>
       <slot name="title" v-bind="{ title }">
-        <span v-if="title" class="sf-banner__title">
+        <span :class="{ 'display-none': !title }" class="sf-banner__title">
           {{ title }}
         </span>
       </slot>
       <slot name="description" v-bind="{ description }">
-        <span v-if="description" class="sf-banner__description">
+        <span
+          :class="{ 'display-none': !description }"
+          class="sf-banner__description"
+        >
           {{ description }}
         </span>
       </slot>

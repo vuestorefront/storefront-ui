@@ -5,6 +5,7 @@ export default {
   title: "Components/Molecules/Card",
   component: SfCard,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "card-description-font": { value: "", control: "text" },
       "card-description-font-weight": {
@@ -30,8 +31,24 @@ export default {
         description: "Overridden other component's CSS variable",
         control: "text",
       },
+      "font-weight--bold": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "h3-font-size": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-family--secondary": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-weight--semibold": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component:
@@ -97,6 +114,8 @@ const Template = (args, { argTypes }) => ({
     :title="title"
     :titleLevel="titleLevel"
     :image="image"
+    :imageWidth="imageWidth"
+    :imageHeight="imageHeight"
     :description="description"
     :link="link"
     :buttonText="buttonText"
@@ -111,6 +130,8 @@ Common.args = {
     "Read how to take care of your baby, see our products available, clothes and suggestions how stay healthy.",
   link: "",
   buttonText: "Learn more",
+  imageWidth: 288,
+  imageHeight: 189,
 };
 
 export const WithDetailsSlot = (args, { argTypes }) => ({
@@ -121,6 +142,8 @@ export const WithDetailsSlot = (args, { argTypes }) => ({
     :title="title"
     :titleLevel="titleLevel"
     :image="image"
+    :imageWidth="imageWidth"
+    :imageHeight="imageHeight"
     :link="link"
     :buttonText="buttonText"
   >
@@ -141,6 +164,8 @@ export const WithActionSlot = (args, { argTypes }) => ({
     :title="title"
     :titleLevel="titleLevel"
     :image="image"
+    :imageWidth="imageWidth"
+    :imageHeight="imageHeight"
     :description="description"
   >
     <template #action="{action}">CUSTOM ACTION</template>

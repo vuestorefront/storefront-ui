@@ -5,6 +5,7 @@ export default {
   title: "Components/Molecules/AddressPicker",
   component: SfAddress,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "address-font": { value: "", control: "text" },
       "address-font-weight": {
@@ -38,7 +39,7 @@ export default {
         control: "text",
       },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component:
@@ -106,7 +107,8 @@ export default {
     change: {
       action: "Change event emitted",
       table: { category: "Events", type: { summary: null } },
-      description: "Emits change event with the name of picked address component",
+      description:
+        "Emits change event with the name of picked address component",
     },
   },
 };

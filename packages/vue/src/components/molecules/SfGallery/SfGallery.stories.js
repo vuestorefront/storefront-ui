@@ -4,6 +4,7 @@ export default {
   title: "Components/Molecules/Gallery",
   component: SfGallery,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "gallery-flex-direction": { value: "column", control: "text" },
       "gallery-thumbs-display": { value: "flex", control: "text" },
@@ -27,7 +28,7 @@ export default {
       "gallery-item-cursor": { value: "pointer", control: "text" },
       "gallery-stage-width": { value: "26.375rem", control: "text" },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component:

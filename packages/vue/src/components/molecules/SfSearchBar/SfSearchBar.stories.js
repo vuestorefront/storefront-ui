@@ -3,6 +3,7 @@ export default {
   title: "Components/Molecules/SearchBar",
   component: SfSearchBar,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "search-bar-display": { value: "flex", control: "text" },
       "search-bar-background": { value: "", control: "text" },
@@ -10,7 +11,7 @@ export default {
       "search-bar-width": { value: "", control: "text" },
       "search-bar-height": { value: "2rem", control: "text" },
       "search-bar-button-right": { value: "0", control: "text" },
-      "search-bar-icon-display": { value: "block", control: "text" },
+      "search-bar-icon-display": { value: "", control: "text" },
       "search-bar-input-text-align": { value: "", control: "text" },
       "search-bar-font": { value: "", control: "text" },
       "search-bar-font-weight": {
@@ -44,18 +45,19 @@ export default {
         value: "transparent",
         control: "text",
       },
-      "search-bar-icon-flex-direction": { value: "row", control: "text" },
+      "search-bar-icon-flex-direction": { value: "", control: "text" },
       "icon-size": {
         value: "1.25rem",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
       "search-bar-border-color": {
-        value: "",
+        value: "var(--c-primary)",
+        description: "Overridden other component's CSS variable",
         control: "text",
       },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component: "Search bar component with placeholder text and icon.",

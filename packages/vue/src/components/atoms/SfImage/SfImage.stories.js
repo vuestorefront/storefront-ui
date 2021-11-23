@@ -4,25 +4,19 @@ export default {
   title: "Components/Atoms/Image",
   component: SfImage,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
-      "image-overlay-opacity": {
-        value: "1",
-        control: "text",
-      },
-      "image-overlay-padding": {
-        value: "",
-        control: "text",
-      },
+      "image-width": { value: "", control: "text" },
+      "image-height": { value: "auto", control: "text" },
+      "image-overlay-padding": { value: "", control: "text" },
       "image-overlay-background": {
         value: "rgba(var(--c-dark-base), 0.6)",
         control: "text",
       },
-      "image-overlay-color": {
-        value: "var(--c-white)",
-        control: "text",
-      },
+      "image-overlay-color": { value: "var(--c-white)", control: "text" },
+      "image-overlay-opacity": { value: "0", control: "text" },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component:
@@ -134,16 +128,16 @@ Common.args = {
 export const WithSrcOnly = Template.bind({});
 WithSrcOnly.args = {
   ...Common.args,
-  width: "",
-  height: "",
+  width: 216,
+  height: 326,
   srcsets: [],
 };
 
 export const WithBreakpoints = Template.bind({});
 WithBreakpoints.args = {
   ...Common.args,
-  width: "",
-  height: "",
+  width: 216,
+  height: 326,
 };
 
 export const WithResolutions = Template.bind({});

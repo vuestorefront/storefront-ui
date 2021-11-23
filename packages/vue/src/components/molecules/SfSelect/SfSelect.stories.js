@@ -12,6 +12,7 @@ export default {
   title: "Components/Molecules/Select",
   component: SfSelect,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "select-width": { value: "", control: "text" },
       "select-height": { value: "4.25rem", control: "text" },
@@ -20,12 +21,9 @@ export default {
         control: "text",
       },
       "select-color": { value: "var(--c-text)", control: "text" },
-      "select-label-top": { value: "30%", control: "text" },
+      "select-label-top": { value: "", control: "text" },
       "select-label-left": { value: "0", control: "text" },
-      "select-label-color": {
-        value: "var(--c-secondary-variant)",
-        control: "text",
-      },
+      "select-label-color": { value: "", control: "text" },
       "select-label-transition": {
         value: "top 150ms linear, font-size 150ms linear",
         control: "text",
@@ -45,16 +43,9 @@ export default {
         control: "text",
       },
       "select-label-required": { value: "", control: "text" },
-      "select-dropdown-color": {
-        value: "var(--c-secondary-variant)",
-        control: "text",
-      },
-      "select-dropdown-border": {
-        value:
-          "var(--select-dropdown-border-style, solid) var(--select-dropdown-border-color, var(--c-secondary))",
-        control: "text",
-      },
-      "select-dropdown-border-width": { value: "0 0 0 0", control: "text" },
+      "select-dropdown-color": { value: "", control: "text" },
+      "select-dropdown-border": { value: "", control: "text" },
+      "select-dropdown-border-width": { value: "", control: "text" },
       "select-option-background": { value: "var(--c-white)", control: "text" },
       "select-option-font": { value: "", control: "text" },
       "select-option-font-weight": {
@@ -79,19 +70,22 @@ export default {
         control: "text",
       },
       "select-dropdown-border-color": {
-        value: "var(--c-primary)",
+        value: "",
+        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "select-border-width": {
-        value: "0 0 1px 0",
+        value: "",
+        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "select-border-color": {
-        value: "var(--c-light)",
+        value: "",
+        description: "Overridden other component's CSS variable",
         control: "text",
       },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component:

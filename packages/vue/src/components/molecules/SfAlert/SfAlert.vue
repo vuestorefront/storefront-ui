@@ -6,7 +6,9 @@
     </slot>
     <!--@slot Custom message . Slot content will replace default message <span> tag.-->
     <slot name="message" v-bind="{ message }">
-      <span v-if="message" class="sf-alert__message">{{ message }}</span>
+      <span :class="{ 'display-none': !message }" class="sf-alert__message">{{
+        message
+      }}</span>
     </slot>
   </div>
 </template>
