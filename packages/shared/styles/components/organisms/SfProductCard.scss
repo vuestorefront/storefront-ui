@@ -93,7 +93,7 @@
     --circle-icon-position: absolute;
     --button-box-shadow: 0px 4px 11px rgba(29, 31, 34, 0.1);
     right: var(--product-card-add-button-right, 1rem);
-    bottom: var(--product-card-add-button-bottom, 0);
+    bottom: var(--product-card-add-button-bottom, -1.5rem);
     display: var(--product-card-add-button-display, none);
     transform: var(--product-card-add-button-transform);
     opacity: var(--product-card-add-button-opacity, 0);
@@ -143,6 +143,9 @@
   &.on-wishlist {
     --product-card-wishlist-icon-opacity: 1;
   }
+  & .has-colors {
+    --product-card-add-button-bottom: 0;
+  }
   @include for-desktop {
     --product-card-max-width: 15.5rem;
     --product-card-padding: var(--spacer-sm);
@@ -153,6 +156,5 @@
     --product-card-add-button-display: flex;
     --product-card-title-margin: var(--spacer-sm) 0 0 0;
     --product-card-margin: var(--spacer-xs) 0;
-    --product-card-add-button-bottom: calc(-3.25rem / 2);
   }
 }
