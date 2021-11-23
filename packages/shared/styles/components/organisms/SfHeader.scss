@@ -63,7 +63,6 @@
         text-transform: uppercase;
         text-decoration: initial;
         text-align: center;
-        white-space: nowrap;
         @include for-desktop {
           padding: var(--header-navigation-item-padding, calc(var(--spacer-lg) - 1px) var(--spacer-sm));
           margin: var(--header-navigation-item-margin, 0);
