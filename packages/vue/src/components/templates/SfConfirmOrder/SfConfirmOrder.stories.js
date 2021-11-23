@@ -50,6 +50,121 @@ export default {
   title: "Components/Templates/ConfirmOrder",
   component: SfConfirmOrder,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "heading-padding": {
+        value: "var(--spacer-xl) 0 var(--spacer-base)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "heading-title-font": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-weight--bold": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "h3-font-size": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-weight--semibold": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "table-row-padding": {
+        value: "var(--spacer-sm) 0 var(--spacer-xs)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "image-width": {
+        value: "2.75rem",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "table-heading-padding": {
+        value: "var(--spacer-sm) 0",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "price-regular-font": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-size--base": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-weight--normal": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "price-special-font": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "link-color": {
+        value: "var(--c-link)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "link-font": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-family--primary": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "property-name-font": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-weight--medium": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-size--lg": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "property-value-font": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "h4-font-size": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "property-name-color": {
+        value: "var(--c-text)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "divider-border-color": {
+        value: "var(--c-primary)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "divider-width": {
+        value: "100%",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "divider-margin": {
+        value: "0 0 var(--spacer-base) 0",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+    // end of code generated automatically
     docs: {
       description: {
         component: "Component with details of the order. Part of checkout",

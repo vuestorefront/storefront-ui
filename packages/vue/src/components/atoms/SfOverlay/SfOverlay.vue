@@ -1,9 +1,13 @@
 <template functional>
   <transition :name="props.transition">
     <div
-      v-if="props.visible"
       ref="overlay"
-      :class="[data.class, data.staticClass, 'sf-overlay']"
+      :class="[
+        data.class,
+        data.staticClass,
+        'sf-overlay',
+        { 'display-none': !props.visible },
+      ]"
       @click="listeners.click || (() => {})"
     ></div>
   </transition>

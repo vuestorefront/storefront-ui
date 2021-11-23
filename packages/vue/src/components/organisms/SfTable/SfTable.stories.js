@@ -3,6 +3,59 @@ export default {
   title: "Components/Organisms/Table",
   component: SfTable,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "table-width": { value: "100%", control: "text" },
+      "table-border-spacing": { value: "0", control: "text" },
+      "table-heading-padding": { value: "", control: "text" },
+      "table-heading-background": { value: "", control: "text" },
+      "table-border-heading": {
+        value:
+          "var(--table-border-heading-style, solid) var(--table-border-heading-color, var(--c-primary))",
+        control: "text",
+      },
+      "table-border-heading-width": { value: "0 0 2px 0", control: "text" },
+      "table-header-font": { value: "", control: "text" },
+      "table-header-font-weight": {
+        value: "var(--font-weight--normal)",
+        control: "text",
+      },
+      "table-header-font-size": {
+        value: "var(--font-size--base)",
+        control: "text",
+      },
+      "table-header-font-line-height": { value: "1.4", control: "text" },
+      "table-header-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+      "table-header-color": { value: "var(--c-text)", control: "text" },
+      "table-row-padding": { value: "", control: "text" },
+      "table-row-background": { value: "", control: "text" },
+      "table-row-box-shadow": { value: "", control: "text" },
+      "table-row-border": { value: "", control: "text" },
+      "table-row-border-width": { value: "", control: "text" },
+      "table-data-color": { value: "var(--c-dark-variant)", control: "text" },
+      "table-data-font": { value: "", control: "text" },
+      "table-data-font-weight": {
+        value: "var(--font-weight--normal)",
+        control: "text",
+      },
+      "table-data-font-size": {
+        value: "var(--font-size--base)",
+        control: "text",
+      },
+      "table-data-font-line-height": { value: "1.6", control: "text" },
+      "table-data-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+      "table-column-flex": { value: "", control: "text" },
+      "table-column-padding": { value: "0", control: "text" },
+      "table-column-text-align": { value: "left", control: "text" },
+      "_table-column-order": { value: "", control: "text" },
+    },
+    // end of code generated automatically
     docs: {
       description: {
         component:

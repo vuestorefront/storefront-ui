@@ -15,7 +15,7 @@
         <!--@slot Use this slot to replace title. -->
         <slot name="title">
           <SfHeading
-            v-if="title"
+            :class="{ 'display-none': !title }"
             :level="3"
             :title="title"
             class="sf-bottom-modal__title"

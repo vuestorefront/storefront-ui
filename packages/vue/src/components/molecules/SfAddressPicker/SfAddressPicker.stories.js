@@ -5,6 +5,41 @@ export default {
   title: "Components/Molecules/AddressPicker",
   component: SfAddress,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "address-font": { value: "", control: "text" },
+      "address-font-weight": {
+        value: "var(--font-weight--normal)",
+        control: "text",
+      },
+      "address-font-size": { value: "var(--font-size--base)", control: "text" },
+      "address-font-line-height": { value: "1.6", control: "text" },
+      "address-font-family": {
+        value: "var(--font-family--primary)",
+        control: "text",
+      },
+      "icon-color": {
+        value: "var(--c-white)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "icon-size": {
+        value: "0.875rem",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "radio-content-margin": {
+        value: "0",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "radio-background": {
+        value: "transparent",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+    // end of code generated automatically
     docs: {
       description: {
         component:

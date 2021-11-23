@@ -1,4 +1,4 @@
-@import "../../helpers/";
+@import "../../helpers";
 .sf-payment {
   .title {
     --heading-padding: var(--spacer-xl) 0 var(--spacer-lg);
@@ -76,12 +76,12 @@
   .payment-method {
     --radio-container-align-items: center;
     --radio-container-padding: var(--spacer-base) var(--spacer-sm) 0;
-    --ratio-content-margin: 0 0 0 var(--spacer-lg);
+    --radio-content-margin: 0 0 0 var(--spacer-lg);
     --radio-background: transparent;
     color: var(--c-link);
     white-space: nowrap;
     ::v-deep .sf-image {
-      width: 3.125rem;
+      width: 100%;
     }
     @include for-desktop {
       --radio-container-padding: var(--spacer-sm);

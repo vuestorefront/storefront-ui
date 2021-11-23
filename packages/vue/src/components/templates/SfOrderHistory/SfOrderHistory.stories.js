@@ -5,6 +5,15 @@ export default {
   title: "Components/Templates/OrderHistory",
   component: SfOrderHistory,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "button-width": {
+        value: "100%",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+    // end of code generated automatically
     docs: {
       description: {
         component: "Component with order history. Part of the account.",

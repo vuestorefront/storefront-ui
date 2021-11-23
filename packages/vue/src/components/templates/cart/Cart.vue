@@ -59,6 +59,8 @@
             <SfImage
               alt="Empty bag"
               class="empty-cart__image"
+              :width="140"
+              :height="200"
               :src="require('@storefront-ui/shared/icons/empty_cart.svg')"
             />
             <SfHeading

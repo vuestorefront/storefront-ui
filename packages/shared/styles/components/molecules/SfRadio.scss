@@ -55,6 +55,7 @@
     margin: 0 0 0 var(--spacer-sm);
   }
   &__details {
+    display: block;
     margin: var(--spacer-xs) 0 0 0;
     color: var(--c-text-muted);
     font-weight: var(--font-weight--light);
@@ -63,6 +64,7 @@
     line-height: 1.2;
   }
   &__description {
+    display: block;
     margin: var(--spacer-xs) 0 0 0;
     font-weight: var(--font-weight--light);
     font-size: var(--font-size--sm);

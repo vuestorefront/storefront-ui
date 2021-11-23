@@ -4,6 +4,73 @@ export default {
   title: "Components/Molecules/Filter",
   component: SfFilter,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "filter-color-margin": { value: "", control: "text" },
+      "filter-label-display": { value: "", control: "text" },
+      "filter-label-align-items": { value: "center", control: "text" },
+      "filter-label-margin": { value: "", control: "text" },
+      "filter-label-color": { value: "", control: "text" },
+      "filter-label-font": { value: "", control: "text" },
+      "filter-label-font-weight": {
+        value: "var(--font-weight--normal)",
+        control: "text",
+      },
+      "filter-label-font-size": {
+        value: "var(--font-size--base)",
+        control: "text",
+      },
+      "filter-label-font-line-height": { value: "1.4", control: "text" },
+      "filter-label-font-family": {
+        value: "var(--font-family--primary)",
+        control: "text",
+      },
+      "filter-label-text-decoration": { value: "", control: "text" },
+      "filter-label-transform": { value: "", control: "text" },
+      "filter-count-display": { value: "", control: "text" },
+      "filter-count-margin": { value: "", control: "text" },
+      "filter-count-color": { value: "", control: "text" },
+      "filter-count-font": { value: "", control: "text" },
+      "filter-count-font-weight": {
+        value: "var(--font-weight--normal)",
+        control: "text",
+      },
+      "filter-count-font-size": {
+        value: "var(--font-size--base)",
+        control: "text",
+      },
+      "filter-count-font-line-height": { value: "1.4", control: "text" },
+      "filter-count-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+      "checkbox-order": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "checkbox-border-radius": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "color-size": {
+        value: "1.5rem",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "checkbox-border-color": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "checkbox-display": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+    // end of code generated automatically
     docs: {
       description: {
         component: "Filter component with color, name and counter of items.",

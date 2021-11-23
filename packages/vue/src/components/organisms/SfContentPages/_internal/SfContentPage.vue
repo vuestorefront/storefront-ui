@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isActive" class="sf-content-page">
+  <div :class="{ 'display-none': !isActive }" class="sf-content-page">
     <!-- @slot Custom page markup -->
     <slot />
   </div>
@@ -26,7 +26,7 @@ export default {
   inject: ["provided"],
   computed: {
     isActive() {
-      return this.provided.active === this.title;
+      return this.provided.active.toLowerCase() === this.title.toLowerCase();
     },
   },
   mounted() {

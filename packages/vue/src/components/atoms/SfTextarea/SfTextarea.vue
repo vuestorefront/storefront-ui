@@ -33,8 +33,10 @@
     <div class="sf-textarea__error-message">
       <transition name="sf-fade">
         <!-- @slot Custom error message -->
-        <slot v-if="!props.valid" name="error-message" v-bind="{ props }">
-          <div>{{ props.errorMessage }}</div>
+        <slot name="error-message" v-bind="{ props }">
+          <div :class="{ 'display-none': props.valid }">
+            {{ props.errorMessage }}
+          </div>
         </slot>
       </transition>
     </div>
@@ -70,11 +72,11 @@ export default {
     },
     maxlength: {
       type: [String, Number],
-      default: "",
+      default: null,
     },
     minlength: {
       type: [String, Number],
-      default: "",
+      default: null,
     },
     wrap: {
       type: String,

@@ -11,6 +11,76 @@ export default {
   title: "Components/Templates/Payment",
   component: SfPayment,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "heading-padding": {
+        value: "var(--spacer-xl) 0 var(--spacer-lg)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "heading-title-font": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-weight--bold": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "h3-font-size": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-weight--semibold": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "select-option-font": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-size--base": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "select-dropdown-color": {
+        value: "blue",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-width": {
+        value: "25rem",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "radio-container-align-items": {
+        value: "center",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "radio-container-padding": {
+        value: "var(--spacer-base) var(--spacer-sm) 0",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "radio-content-margin": {
+        value: "0 0 0 var(--spacer-lg)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "radio-background": {
+        value: "transparent",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-padding": {
+        value: "var(--spacer-base) 0 0 var(--spacer-sm)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+    // end of code generated automatically
     docs: {
       description: {
         component:

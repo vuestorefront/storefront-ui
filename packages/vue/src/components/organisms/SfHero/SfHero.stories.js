@@ -5,6 +5,62 @@ export default {
   title: "Components/Organisms/Hero",
   component: SfHeroItem,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "hero-item-subtitle-font": { value: "", control: "text" },
+      "hero-item-subtitle-font-weight": {
+        value: "var(--font-weight--normal)",
+        control: "text",
+      },
+      "hero-item-subtitle-font-size": {
+        value: "var(--h6-font-size)",
+        control: "text",
+      },
+      "hero-item-subtitle-font-line-height": { value: "1.4", control: "text" },
+      "hero-item-subtitle-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+      "hero-item-title-font": { value: "", control: "text" },
+      "hero-item-title-font-weight": {
+        value: "var(--font-weight--semibold)",
+        control: "text",
+      },
+      "hero-item-title-font-size": {
+        value: "var(--h2-font-size)",
+        control: "text",
+      },
+      "hero-item-title-font-line-height": { value: "1.2", control: "text" },
+      "hero-item-title-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+      "button-background": {
+        value: "transparent",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-box-shadow-opacity": {
+        value: "0",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-wrap": {
+        value: "normal",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "hero-item-font": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "h1-font-size": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+    // end of code generated automatically
     docs: {
       description: {
         component:

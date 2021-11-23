@@ -3,6 +3,39 @@ export default {
   title: "Components/Molecules/Pagination",
   component: SfPagination,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "pagination-item-color": {
+        value: "var(--c-gray-variant)",
+        control: "text",
+      },
+      "pagination-item-width": { value: "", control: "text" },
+      "pagination-item-height": { value: "", control: "text" },
+      "pagination-item-margin": {
+        value: "0 var(--spacer-2xs)",
+        control: "text",
+      },
+      "pagination-font": { value: "", control: "text" },
+      "pagination-font-weight": {
+        value: "var(--font-weight--medium)",
+        control: "text",
+      },
+      "pagination-font-size": {
+        value: "var(--font-size--lg)",
+        control: "text",
+      },
+      "pagination-font-line-height": { value: "1.4", control: "text" },
+      "pagination-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+      "link-text-decoration": {
+        value: "none",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+    // end of code generated automatically
     docs: {
       description: {
         component: "Pagination component with indicators.",

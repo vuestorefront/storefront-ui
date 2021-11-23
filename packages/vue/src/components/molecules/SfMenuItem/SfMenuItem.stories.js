@@ -6,6 +6,55 @@ export default {
   title: "Components/Molecules/MenuItem",
   component: SfMenuItem,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "menu-item-text-transform": { value: "", control: "text" },
+      "menu-item-font": { value: "", control: "text" },
+      "menu-item-font-weight": {
+        value: "var(--font-weight--normal)",
+        control: "text",
+      },
+      "menu-item-font-size": {
+        value: "var(--font-size--base)",
+        control: "text",
+      },
+      "menu-item-font-line-height": { value: "1.4", control: "text" },
+      "menu-item-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+      "menu-item-icon-margin": {
+        value: "0 var(--spacer-xs) 0 0",
+        control: "text",
+      },
+      "menu-item-count-margin": { value: "0 0 0 auto", control: "text" },
+      "menu-item-count-color": { value: "var(--c-gray)", control: "text" },
+      "menu-item-mobile-nav-icon-display": { value: "flex", control: "text" },
+      "menu-item-mobile-nav-icon-margin": {
+        value: "0 0 0 var(--spacer-base)",
+        control: "text",
+      },
+      "menu-item-label-color": {
+        value: "var(--c-dark-variant)",
+        control: "text",
+      },
+      "link-text-decoration": {
+        value: "none",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-width": {
+        value: "100%",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "icon-color": {
+        value: "var(--c-gray)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+    // end of code generated automatically
     docs: {
       description: {
         component:

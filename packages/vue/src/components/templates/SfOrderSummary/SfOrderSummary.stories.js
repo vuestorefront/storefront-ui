@@ -60,6 +60,85 @@ export default {
   title: "Components/Templates/OrderSummary",
   component: SfOrderSummary,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "heading-title-margin": {
+        value: "0 0 var(--spacer-xl) 0",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "heading-title-font": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-weight--bold": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "heading-padding": {
+        value: "0",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "h3-font-size": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-weight--semibold": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "property-name-font": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-weight--medium": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "property-value-font": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "property-name-color": {
+        value: "var(--c-text)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "divider-border-color": {
+        value: "var(--c-white)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "divider-margin": {
+        value: "var(--spacer-xl) 0 0 0",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "input-background": {
+        value: "var(--c-white)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "input-label-font": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-size--base": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-height": {
+        value: "1.875rem",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+    // end of code generated automatically
     docs: {
       description: {
         component:

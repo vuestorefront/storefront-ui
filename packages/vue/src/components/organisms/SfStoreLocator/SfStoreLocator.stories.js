@@ -5,6 +5,127 @@ export default {
   title: "Components/Organisms/StoreLocator",
   component: SfStore,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "store-padding": { value: "0 0 var(--spacer-sm) 0", control: "text" },
+      "store-margin": { value: "var(--spacer-sm) 0 0 0", control: "text" },
+      "store-border": {
+        value:
+          "var(--store-border-style, solid) var(--store-border-color, var(--c-light))",
+        control: "text",
+      },
+      "store-border-width": { value: "0 0 1px 0", control: "text" },
+      "store-distance-flex": { value: "0 0 100%", control: "text" },
+      "store-distance-order": { value: "", control: "text" },
+      "store-distance-margin": {
+        value: "0 0 var(--spacer-xs) 0",
+        control: "text",
+      },
+      "store-distance-text-align": { value: "left", control: "text" },
+      "store-item-distance-font": { value: "", control: "text" },
+      "store-item-distance-font-weight": {
+        value: "var(--font-weight--normal)",
+        control: "text",
+      },
+      "store-item-distance-font-size": {
+        value: "var(--font-size--base)",
+        control: "text",
+      },
+      "store-item-distance-font-line-height": { value: "1.4", control: "text" },
+      "store-item-distance-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+      "store-distance-span": {
+        value: "var(--font-weight--normal)",
+        control: "text",
+      },
+      "store-media-flex": { value: "0 0 5.125rem", control: "text" },
+      "store-media-margin": {
+        value: "0 var(--spacer-xs) 0 0",
+        control: "text",
+      },
+      "store-icon-padding": { value: "var(--spacer-xl)", control: "text" },
+      "store-item-addres-margin": {
+        value: "0 0 var(--spacer-base) 0",
+        control: "text",
+      },
+      "store-item-property-font": { value: "", control: "text" },
+      "store-item-property-font-weight": {
+        value: "var(--font-weight--medium)",
+        control: "text",
+      },
+      "store-item-property-font-size": {
+        value: "var(--font-size--xs)",
+        control: "text",
+      },
+      "store-item-property-font-line-height": { value: "1.4", control: "text" },
+      "store-item-property-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+      "store-item-name-margin": { value: "0", control: "text" },
+      "store-item-name-color": { value: "var(--c-text)", control: "text" },
+      "store-item-property-margin": {
+        value: "0 0 var(--spacer-sm) 0",
+        control: "text",
+      },
+      "store-locator-wrapper-flex-direction": {
+        value: "column-reverse",
+        control: "text",
+      },
+      "store-locator-wrapper-justify-content": {
+        value: "flex-start",
+        control: "text",
+      },
+      "store-locator-wrapper-align-items": {
+        value: "flex-start",
+        control: "text",
+      },
+      "store-locator-list-flex": { value: "", control: "text" },
+      "store-locator-list-padding": {
+        value: "0 var(--spacer-sm)",
+        control: "text",
+      },
+      "store-locator-list-margin": { value: "", control: "text" },
+      "store-locator-map-flex": { value: "0 0 60vh", control: "text" },
+      "store-locator-map-width": { value: "100%", control: "text" },
+      "store-locator-map-height": { value: "", control: "text" },
+      "store-locator-stores-width": { value: "100%", control: "text" },
+      "store-locator-stores-padding": {
+        value: "var(--spacer-sm) 0 var(--spacer-sm) var(--spacer-sm)",
+        control: "text",
+      },
+      "store-locator-stores-margin": { value: "", control: "text" },
+      "store-locator-stores-border": {
+        value:
+          "var(--store-locator-stores-border-style, solid) var(--store-locator-stores-border-color, var(--c-primary))",
+        control: "text",
+      },
+      "store-locator-stores-border-width": {
+        value: "0 0 2px 0",
+        control: "text",
+      },
+      "store-locator-store-color": { value: "var(--c-text)", control: "text" },
+      "store-locator-stores-font": { value: "", control: "text" },
+      "store-locator-stores-font-weight": {
+        value: "var(--font-weight--normal)",
+        control: "text",
+      },
+      "store-locator-stores-font-size": {
+        value: "var(--font-size--base)",
+        control: "text",
+      },
+      "store-locator-stores-font-line-height": {
+        value: "1.4",
+        control: "text",
+      },
+      "store-locator-stores-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+    },
+    // end of code generated automatically
     docs: {
       description: {
         component:
@@ -226,6 +347,34 @@ export default {
       defaultValue: "",
       description: "Address of the store (for internal component)",
     },
+    pictureWidth: {
+      control: "text",
+      table: {
+        category: "Props for SfStore component",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "null",
+        },
+      },
+      defaultValue: "",
+      description: "Picture width (for internal component)",
+    },
+    pictureHeight: {
+      control: "text",
+      table: {
+        category: "Props for SfStore component",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "null",
+        },
+      },
+      defaultValue: "",
+      description: "Picture height (for internal component)",
+    },
     address: {
       control: "text",
       table: {
@@ -299,6 +448,8 @@ const Template = (args, { argTypes }) => ({
       :phone="phone"
       :address="address"
       :picture="picture"
+      :pictureWidth="pictureWidth"
+      :pictureHeight="pictureHeight"
     />
   </SfStoreLocator>`,
 });
@@ -314,6 +465,8 @@ Common.args = {
   email: "example@email.com",
   name: "Store",
   picture: "/assets/storybook/SfStore/storeA.png",
+  pictureWidth: 82,
+  pictureHeight: 112,
 };
 
 export const UseMapLoadingSlot = (args, { argTypes }) => ({
@@ -343,6 +496,8 @@ export const UseMapLoadingSlot = (args, { argTypes }) => ({
       :phone="phone"
       :address="address"
       :picture="picture"
+      :pictureWidth="pictureWidth"
+      :pictureHeight="pictureHeight"
     />
   </SfStoreLocator>`,
 });
@@ -375,6 +530,8 @@ export const UseMarkerIconSlot = (args, { argTypes }) => ({
       :phone="phone"
       :address="address"
       :picture="picture"
+      :pictureWidth="pictureWidth"
+      :pictureHeight="pictureHeight"
     />
   </SfStoreLocator>`,
 });

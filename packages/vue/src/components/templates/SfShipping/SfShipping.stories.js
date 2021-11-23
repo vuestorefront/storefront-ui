@@ -5,6 +5,66 @@ export default {
   title: "Components/Templates/Shipping",
   component: SfShipping,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "heading-padding": {
+        value: "var(--spacer-xl) 0 var(--spacer-lg)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "heading-title-font": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-weight--bold": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "h3-font-size": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-weight--semibold": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "select-option-font": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-size--base": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "select-dropdown-color": {
+        value: "blue",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "radio-container-padding": {
+        value: "var(--spacer-xs)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "radio-description-margin": {
+        value: "0",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-color": {
+        value: "var(--c-primary)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-transition": {
+        value: "color 150ms linear",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+    // end of code generated automatically
     docs: {
       description: {
         component:

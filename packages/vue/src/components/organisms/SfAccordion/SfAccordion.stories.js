@@ -32,6 +32,85 @@ export default {
   title: "Components/Organisms/Accordion",
   component: SfAccordionItem,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "accordion-item-header-justify": {
+        value: "space-between",
+        control: "text",
+      },
+      "accordion-item-header-padding": {
+        value: "var(--spacer-sm)",
+        control: "text",
+      },
+      "accordion-item-header-color": { value: "", control: "text" },
+      "accordion-item-header-border": {
+        value:
+          "var(--accordion-item-header-border-style, solid) var(--accordion-item-header-border-color, var(--c-light))",
+        control: "text",
+      },
+      "accordion-item-header-border-width": {
+        value: "0 0 1px 0",
+        control: "text",
+      },
+      "accordion-item-header-font": { value: "", control: "text" },
+      "accordion-item-header-font-weight": {
+        value: "var(--font-weight--medium)",
+        control: "text",
+      },
+      "accordion-item-header-font-size": {
+        value: "var(--font-size--base)",
+        control: "text",
+      },
+      "accordion-item-header-font-line-height": {
+        value: "1.4",
+        control: "text",
+      },
+      "accordion-item-header-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+      "accordion-item-content-padding": {
+        value: "var(--spacer-base) var(--spacer-sm)",
+        control: "text",
+      },
+      "accordion-item-content-color": {
+        value: "var(--c-text)",
+        control: "text",
+      },
+      "accordion-item-content-border": {
+        value:
+          "var(--accordion-item-content-border-style, solid) var(--accordion-item-content-border-color, var(--c-light))",
+        control: "text",
+      },
+      "accordion-item-content-border-width": {
+        value: "1px 0",
+        control: "text",
+      },
+      "accordion-item-content-font": { value: "", control: "text" },
+      "accordion-item-content-font-weight": {
+        value: "var(--font-weight--light)",
+        control: "text",
+      },
+      "accordion-item-content-font-size": {
+        value: "var(--font-size--base)",
+        control: "text",
+      },
+      "accordion-item-content-font-line-height": {
+        value: "1.6",
+        control: "text",
+      },
+      "accordion-item-content-font-family": {
+        value: "var(--font-family--primary)",
+        control: "text",
+      },
+      "accordion-item-chevron-display": { value: "none", control: "text" },
+      "chevron-color": {
+        value: "var(--c-primary)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+    // end of code generated automatically
     docs: {
       description: {
         component:

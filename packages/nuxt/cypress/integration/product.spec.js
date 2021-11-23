@@ -65,11 +65,14 @@ describe("Product page", () => {
       .click()
       .get(".sf-tabs")
       .find("button")
+      .not(".display-none")
       .first()
       .should("not.have.class", "is-active")
+      .click()
       .get(".sf-tabs")
       .find("button")
-      .eq(1)
+      .not(".display-none")
+      .first()
       .should("have.class", "is-active")
   });
 });

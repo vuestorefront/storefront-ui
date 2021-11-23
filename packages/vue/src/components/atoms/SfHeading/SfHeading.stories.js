@@ -4,6 +4,49 @@ export default {
   title: "Components/Atoms/Heading",
   component: SfHeading,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "heading-padding": { value: "0 0 var(--spacer-xs) 0", control: "text" },
+      "heading-text-align": { value: "", control: "text" },
+      "heading-title-margin": { value: "0", control: "text" },
+      "heading-title-color": { value: "var(--c-text)", control: "text" },
+      "heading-title-font": { value: "", control: "text" },
+      "heading-title-font-weight": {
+        value: "var(--font-weight--semibold)",
+        control: "text",
+      },
+      "heading-title-font-size": {
+        value: "var(--h1-font-size)",
+        control: "text",
+      },
+      "heading-title-font-line-height": { value: "1.6", control: "text" },
+      "heading-title-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+      "heading-description-margin": {
+        value: "var(--spacer-sm) 0 0",
+        control: "text",
+      },
+      "heading-description-color": { value: "var(--c-text)", control: "text" },
+      "heading-description-font": { value: "", control: "text" },
+      "heading-description-font-weight": {
+        value: "var(--font-weight--normal)",
+        control: "text",
+      },
+      "heading-description-font-size": {
+        value: "var(--font-size--base)",
+        control: "text",
+      },
+      "heading-description-font-line-height": { value: "1.6", control: "text" },
+      "heading-description-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+      "heading-border": { value: "", control: "text" },
+      "heading-border-width": { value: "", control: "text" },
+    },
+    // end of code generated automatically
     docs: {
       description: {
         component:

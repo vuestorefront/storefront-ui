@@ -4,6 +4,32 @@ export default {
   title: "Components/Atoms/Badge",
   component: SfBadge,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "badge-width": { value: "", control: "text" },
+      "badge-min-width": { value: "", control: "text" },
+      "badge-height": { value: "", control: "text" },
+      "badge-min-height": { value: "", control: "text" },
+      "badge-padding": { value: "", control: "text" },
+      "badge-background": { value: "", control: "text" },
+      "badge-border": { value: "", control: "text" },
+      "badge-border-radius": { value: "", control: "text" },
+      "badge-color": { value: "var(--c-white)", control: "text" },
+      "badge-text-align": { value: "center", control: "text" },
+      "badge-font": { value: "", control: "text" },
+      "badge-font-weight": {
+        value: "var(--font-weight--semibold)",
+        control: "text",
+      },
+      "badge-font-size": { value: "var(--font-size--xs)", control: "text" },
+      "badge-font-line-height": { value: "1.6", control: "text" },
+      "badge-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+      "badge-line-height": { value: "", control: "text" },
+    },
+    // end of code generated automatically
     docs: {
       description: {
         component:

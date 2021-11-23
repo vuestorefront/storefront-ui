@@ -1,0 +1,29 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Releases/v0.11.x - Latest Minor/v0.11.3 - Latest/Change log" />
+
+# v0.11.3
+
+## ❗ Breaking Changes
+
+## 🔨 Refactors
+
+- atoms: SfColor, SfHeading, SfIcon, SfImage, SfInput, SfOverlay, SfPrice, SfTextarea: `display: none` instead of `v-if`
+- molecules: SfAlert, SfBanner, SfBar, SfBottomModal, SfCallToAction, SfCategoryCard, SfCheckbox, SfColorPicker, SfComponentSelect, SfDropdown, SfFilter, SfGallery, SfMenuItem, SfModal, SfNotification, SfPagination, SfRadio, SfReview, SfSelect, SfTile: `display: none` instead of `v-if`
+- organisms: SfAccordion, SfBottomNavigation, SfCollectedProduct, SfContentPages, SfFooter, SfHeader, SfHero, SfMegaMenu, SfProductCard, SfProductCardHorizontal, SfSidebar, SfStoreLocator, SfTabs: `display: none` instead of `v-if`
+- SfContentPages: Detecting active page regardless of the casing
+
+## 🚀 Features
+- SfCollectedProduct: added max and min prop for quantity selector
+- Atoms: improved unit tests coverage
+- SfCard: new props imageWidth and imageHeight
+- SfStore in SfStoreLocator: new props pictureWidth and pictureHeight
+- SfImage, SfLoader, SfBottomModal, SfFooter, DetailedCart, Error, Home, Cart, ConfirmOrder, Payment: added width and height for images
+
+## 🐛 Fixes
+- Home page: desktop images added to Instagram Feed and styled to fit the designs
+- SfButton: link button was not setup as full width
+- SfComponentSelect: added cancelLabel prop and binding for cancelHandler
+- SfRadio: mutating prop directly error fixed in Storybook
+
+## 🧹 Chores:

@@ -13,6 +13,49 @@ export default {
   title: "Components/Organisms/Footer",
   component: SfFooter,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "footer-column-title-font": { value: "", control: "text" },
+      "footer-column-title-font-weight": {
+        value: "var(--font-weight--medium)",
+        control: "text",
+      },
+      "footer-column-title-font-size": {
+        value: "var(--h5-font-size)",
+        control: "text",
+      },
+      "footer-column-title-font-line-height": { value: "1.4", control: "text" },
+      "footer-column-title-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+      "chevron-color": {
+        value: "var(--c-white)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "list-item-margin": {
+        value: "var(--spacer-base) var(--spacer-xs)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "menu-item-label-color": {
+        value: "var(--c-white)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "image-width": {
+        value: "auto",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "image-height": {
+        value: "2.125rem",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+    // end of code generated automatically
     docs: {
       description: {
         component:
@@ -122,13 +165,22 @@ const Template = (args, { argTypes }) => ({
         </SfList>      
       </SfFooterColumn>
       <SfFooterColumn :title="social.title" class="desktop-only">
-        <SfImage v-for="picture in social.pictures" :key="picture" :src="'/assets/storybook/SfFooter/'+picture+'.svg'" :alt="picture" style="width: 32px; height: 32px; margin-right: 4px;"/>
+        <SfImage 
+          v-for="picture in social.pictures" 
+          :key="picture" 
+          :src="'/assets/storybook/SfFooter/'+picture+'.svg'" 
+          :alt="picture" 
+          :width="32"
+          :height="32"
+          style="width: 32px; height: 32px; margin-right: 4px;"/>
       </SfFooterColumn> 
       <SfFooterColumn title="Language" class="desktop-only">
         <SfButton class="sf-button--pure" style="display: flex; align-self: end; color: white;">
           <SfImage
             src="/assets/storybook/SfFooter/flag.png"
             alt="flag of the USA"
+            :width="20"
+            :height="20"
             style="margin-right: 10px;"
           />
           English
@@ -148,7 +200,13 @@ const Template = (args, { argTypes }) => ({
             Social
           </div>
           <div style="display: flex; justify-content: space-around; width: 100%;  margin-bottom: 32px;">
-            <SfImage v-for="picture in social.pictures" :key="picture" :src="'/assets/storybook/SfFooter/'+picture+'.svg'" :alt="picture"/>
+            <SfImage 
+              v-for="picture in social.pictures" 
+              :key="picture" :src="'/assets/storybook/SfFooter/'+picture+'.svg'" 
+              :alt="picture"
+              :width="32"
+              :height="32"
+            />
           </div>
           <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 38px;">
             <SfInput class="sf-input--outline" type="text" placeholder="Type your email address" style="width: 242px; min-height: auto; height: 32px; font-size: 16px; color: #43464E; background-color: #F1F2F3; --input-border-color: #F1F2F3;"/>
@@ -158,6 +216,8 @@ const Template = (args, { argTypes }) => ({
             <SfImage
               :src="logo"
               :alt="title"
+              :width="20"
+              :height="20"
               class="sf-footer__bottom-logo"
               style="margin-bottom: 38px;"
             />            

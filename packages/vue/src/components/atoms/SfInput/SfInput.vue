@@ -9,7 +9,7 @@
   >
     <div class="sf-input__wrapper">
       <input
-        :id="name"
+        :id="idWithoutWhitespace"
         v-focus
         v-bind="$attrs"
         :value="value"
@@ -21,12 +21,15 @@
         v-on="listeners"
       />
       <span class="sf-input__bar"></span>
-      <label class="sf-input__label" :for="name">
+      <label
+        :class="{ 'display-none': !label }"
+        class="sf-input__label"
+        :for="name"
+      >
         <!-- @slot Custom input label -->
         <slot name="label" v-bind="{ label }">{{ label }}</slot>
       </label>
       <slot
-        v-if="isPassword"
         v-bind="{
           isPasswordVisible,
           switchVisibilityPassword,
@@ -34,6 +37,7 @@
         name="show-password"
       >
         <SfButton
+          :class="{ 'display-none': !isPassword }"
           class="sf-input__password-button"
           type="button"
           aria-label="switch-visibility-password"
@@ -54,8 +58,8 @@
     <div class="sf-input__error-message">
       <transition name="sf-fade">
         <!-- @slot Custom error message of form input -->
-        <slot v-if="!valid" name="error-message" v-bind="{ errorMessage }">
-          <div>{{ errorMessage }}</div></slot
+        <slot name="error-message" v-bind="{ errorMessage }">
+          <div :class="{ 'display-none': valid }">{{ errorMessage }}</div></slot
         >
       </transition>
     </div>
@@ -128,6 +132,9 @@ export default {
     },
     isPassword() {
       return this.type === "password" && this.hasShowPassword;
+    },
+    idWithoutWhitespace() {
+      return this.name.replace(/\s/g, "");
     },
   },
   watch: {

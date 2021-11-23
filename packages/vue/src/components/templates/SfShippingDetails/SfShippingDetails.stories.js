@@ -5,6 +5,40 @@ export default {
   title: "Components/Templates/ShippingDetails",
   component: SfShippingDetails,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "button-background": {
+        value: "var(--c-light)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-color": {
+        value: "var(--c-dark-variant)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "tabs-content-border-width": {
+        value: "0",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "tabs-title-display": {
+        value: "none",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "tabs-content-padding": {
+        value: "0",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-width": {
+        value: "100%",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+    // end of code generated automatically
     docs: {
       description: {
         component:

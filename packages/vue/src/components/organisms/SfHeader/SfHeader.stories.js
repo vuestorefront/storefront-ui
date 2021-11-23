@@ -4,6 +4,191 @@ export default {
   title: "Components/Organisms/Header",
   component: SfHeader,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "header-navigation-item-position": { value: "relative", control: "text" },
+      "header-navigation-item-flex": { value: "", control: "text" },
+      "header-navigation-item-content-position": {
+        value: "fixed",
+        control: "text",
+      },
+      "header-navigation-item-content-width": {
+        value: "100%",
+        control: "text",
+      },
+      "header-navigation-item-text-decoration": {
+        value: "none",
+        control: "text",
+      },
+      "header-navigation-item-menu-item-display": {
+        value: "",
+        control: "text",
+      },
+      "header-navigation-item-menu-item-padding": {
+        value: "",
+        control: "text",
+      },
+      "header-navigation-item-menu-item-margin": { value: "", control: "text" },
+      "header-navigation-item-menu-item-border": { value: "", control: "text" },
+      "header-navigation-item-menu-item-border-width": {
+        value: "",
+        control: "text",
+      },
+      "header-navigation-item-display": { value: "", control: "text" },
+      "header-navigation-item-color": { value: "", control: "text" },
+      "header-navigation-item-padding": { value: "", control: "text" },
+      "header-navigation-item-margin": { value: "", control: "text" },
+      "header-navigation-item-border": { value: "", control: "text" },
+      "header-navigation-item-border-width": { value: "", control: "text" },
+      "header-navigation-item-transition": { value: "", control: "text" },
+      "header-navigation-item-font": { value: "", control: "text" },
+      "header-navigation-item-font-weight": {
+        value: "var(--font-weight--normal)",
+        control: "text",
+      },
+      "header-navigation-item-font-size": {
+        value: "var(--font-size--base)",
+        control: "text",
+      },
+      "header-navigation-item-font-line-height": {
+        value: "1.2",
+        control: "text",
+      },
+      "header-navigation-item-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+      "header-navigation-item-width": { value: "", control: "text" },
+      "link-text-decoration": {
+        value: "var(--header-navigation-item-text-decoration, none) ",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "menu-item-font": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-size--base": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-weight--medium": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "menu-item-text-transform": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "header-navigation-item-border-color": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "link-color": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "header-navigation-menu-display": {
+        value: "flex",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "sidebar-content-padding": {
+        value: "0",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "header-navigation-sidebar-display": {
+        value: "none",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "image-width": {
+        value: "var(--header-logo-width, auto)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "image-height": {
+        value: "var(--header-logo-height, 2.125rem)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "header-navigation-margin": {
+        value: "0 auto 0 var(--spacer-xl)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "search-bar-display": {
+        value: "none",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "header-search-flex": {
+        value: "0 1 19.875rem",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "header-icons-display": {
+        value: "flex",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "icon-color": {
+        value: "var(--c-dark-variant)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "icon-badge-top": {
+        value: "-0.5rem",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "icon-badge-right": {
+        value: "-0.5rem",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "header-wrapper-position": {
+        value: "fixed",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "header-wrapper-transform": {
+        value: "translate3d(0, -100%, 0)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "header-wrapper-transition": {
+        value: "transform 300ms ease-in-out",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "header-box-shadow": {
+        value: "0px 4px 11px rgba(29, 31, 34, 0.1)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "header-icons-margin": {
+        value: "var(--spacer-sm) 0 var(--spacer-sm) 100%",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "header-icons-order": {
+        value: "-1",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "header-actions-flex-wrap": {
+        value: "wrap",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+    // end of code generated automatically
     docs: {
       description: {
         component:
