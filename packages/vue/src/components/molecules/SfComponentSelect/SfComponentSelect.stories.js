@@ -247,6 +247,11 @@ export default {
       description:
         "Options values (for testing purposes). For development, you can use default slot to place custom options.",
     },
+    change: {
+      action: "Change event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits change event when option is chosen",
+    },
     "v-model": {
       table: {
         disable: true,
@@ -270,6 +275,7 @@ const Template = (args, { argTypes }) => ({
     :error-message="errorMessage"
     :persistent="persistent"
     style="max-width: 30rem"
+    @change="change"
   >
     <SfComponentSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
       <SfProductOption :color="option.color" :label="option.label"></SfProductOption>

@@ -125,8 +125,8 @@ export default {
       description: "Disables button and sets proper styling.",
     },
     click: {
-      action: "Circle icon clicked",
-      table: { category: "Events" },
+      action: "Click event emitted",
+      table: { category: "Events", type: { summary: null } },
       description: "Click event. It is passed via v-on='listeners'",
     },
   },

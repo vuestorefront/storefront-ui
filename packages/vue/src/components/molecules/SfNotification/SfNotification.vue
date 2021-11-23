@@ -118,17 +118,9 @@ export default {
   },
   methods: {
     actionHandler() {
-      /**
-       * Event for action button
-       * @type {Event}
-       */
       this.$emit("click:action");
     },
     closeHandler() {
-      /**
-       * Event for close icon
-       * @type {Event}
-       */
       this.$emit("click:close");
     },
   },

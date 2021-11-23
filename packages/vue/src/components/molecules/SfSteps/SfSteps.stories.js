@@ -103,7 +103,11 @@ export default {
         disable: true,
       },
     },
-    change: { action: "Step changed", table: { category: "Events" } },
+    change: {
+      action: "change event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits change event with step value when step is clicked",
+    },
   },
 };
 

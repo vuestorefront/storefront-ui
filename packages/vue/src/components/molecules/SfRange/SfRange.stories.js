@@ -180,7 +180,11 @@ export default {
         },
       },
     },
-    change: { action: "New value", table: { category: "Events" } },
+    change: {
+      action: "change event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits change event when value is changed",
+    },
   },
 };
 

@@ -112,7 +112,16 @@ export default {
       defaultValue: false,
       description: "Toogle for image zoom or overlap the stage",
     },
-    click: { action: "Image clicked", table: { category: "Events" } },
+    click: {
+      action: "click event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits click event when slide is clicked.",
+    },
+    "click:stage": {
+      action: "click:stage event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits click:stage event when main image is clicked.",
+    },
   },
 };
 
@@ -128,6 +137,8 @@ const Template = (args, { argTypes }) => ({
     :current="current"
     :enable-zoom="enableZoom"
     :outsideZoom="outsideZoom"
+    @click="click"
+    @click:stage="this['click:stage']"
   />`,
 });
 

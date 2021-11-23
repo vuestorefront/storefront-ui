@@ -213,7 +213,11 @@ export default {
       defaultValue: "",
       description: "Content of the option.",
     },
-    input: { action: "Selected", table: { category: "Events" } },
+    input: {
+      action: "input event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits input event when option is chosen",
+    },
   },
 };
 
