@@ -172,7 +172,11 @@ export default {
         disable: true,
       },
     },
-    change: { action: "Selected items changed", table: { category: "Events" } },
+    change: {
+      action: "Change event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits change event when checkbox is clicked",
+    },
   },
 };
 

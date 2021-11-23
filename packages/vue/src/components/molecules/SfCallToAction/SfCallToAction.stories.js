@@ -146,7 +146,11 @@ export default {
       },
       description: "Background image.",
     },
-    click: { action: "Button clicked", table: { category: "Events" } },
+    click: {
+      action: "Click event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits change event with name of picked address component",
+    },
   },
   args: {
     title: "Subscribe to Newsletters",

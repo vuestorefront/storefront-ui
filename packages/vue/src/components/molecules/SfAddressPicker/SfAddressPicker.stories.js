@@ -106,7 +106,7 @@ export default {
     change: {
       action: "Change event emitted",
       table: { category: "Events", type: { summary: null } },
-      description: "Emits change event with name of picked address component",
+      description: "Emits change event with the name of picked address component",
     },
   },
 };

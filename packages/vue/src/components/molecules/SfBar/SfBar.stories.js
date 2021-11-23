@@ -72,12 +72,12 @@ export default {
       },
       description: "Sets visibility of close button",
     },
-    clickBack: {
+    "click:back": {
       action: "click:back event emitted",
       table: { category: "Events", type: { summary: null } },
       description: "Emits click:back event when back button is clicked",
     },
-    clickClose: {
+    "click:close": {
       action: "click:close event emitted",
       table: { category: "Events", type: { summary: null } },
       description: "Emits click:close event when close button is clicked",
@@ -93,7 +93,7 @@ export default {
 const Template = (args, { argTypes }) => ({
   components: { SfBar },
   props: Object.keys(argTypes),
-  template: `<SfBar :title="title" :back="back" :close="close" @click:close="clickClose" @click:back="clickBack"/>`,
+  template: `<SfBar :title="title" :back="back" :close="close" @click:close="this['click:close']" @click:back="this['click:back']"/>`,
 });
 
 export const Common = Template.bind({});
