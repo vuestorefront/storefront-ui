@@ -56,6 +56,14 @@ export default {
       defaultValue: 0,
       description: "Index of the currently active bullet (0-indexed)",
     },
+    click: {
+      action: "click",
+      table: {
+        category: "Events",
+      },
+      description:
+        "Click event. Emits when inactive bullet button component is clicked.",
+    },
   },
 };
 
@@ -69,6 +77,7 @@ const Template = (args, { argTypes }) => ({
   },
   methods: {
     handleClick(value) {
+      this.click();
       this.curr = value;
     },
   },

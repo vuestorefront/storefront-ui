@@ -158,10 +158,15 @@ export default {
       description:
         "Notification type ('secondary', 'info', 'success', 'warning', 'danger'). Check 'Knobs' section to see how they look like.",
     },
-    "click:action": { action: "Action clicked", table: { category: "Events" } },
+    "click:action": {
+      action: "click:action event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits click:action event when action slot is clicked",
+    },
     "click:close": {
-      action: "Close notification clicked",
-      table: { category: "Events" },
+      action: "click:close event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits click:close event when close button is clicked",
     },
   },
 };

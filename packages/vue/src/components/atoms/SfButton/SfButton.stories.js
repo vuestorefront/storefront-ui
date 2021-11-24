@@ -111,7 +111,13 @@ export default {
       description:
         "Type here to fill the button (only for testing in Storybook). For development use default slot, described below, to change the content.",
     },
-    onClick: { action: "Button clicked", table: { category: "Events" } },
+    click: {
+      action: "Button clicked",
+      table: {
+        category: "Events",
+      },
+      description: "Click event. It is passed via v-on='listeners'.",
+    },
   },
 };
 
@@ -122,7 +128,7 @@ const Template = (args, { argTypes }) => ({
   <SfButton
     :class="classes"
     :disabled="disabled" 
-    @click="onClick"
+    @click="click"
     :link="link">
       {{content}}
   </SfButton>`,

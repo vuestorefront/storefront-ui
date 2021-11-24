@@ -128,12 +128,14 @@ export default {
       },
     },
     change: {
-      action: "Toggle selection: change event",
+      action: "change event emitted",
       table: { category: "Events" },
+      description: "Emits change event when option is clicked",
     },
     input: {
-      action: "Toggle selection: input event",
+      action: "input event emitted",
       table: { category: "Events" },
+      description: "Emits input event when option is clicked",
     },
   },
 };

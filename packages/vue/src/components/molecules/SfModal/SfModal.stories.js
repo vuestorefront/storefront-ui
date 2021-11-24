@@ -116,7 +116,12 @@ export default {
         disable: true,
       },
     },
-    close: { action: "Close modal clicked", table: { category: "Events" } },
+    close: {
+      action: "close event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description:
+        "Emits close event when clicked on close button or outside modal",
+    },
   },
 };
 

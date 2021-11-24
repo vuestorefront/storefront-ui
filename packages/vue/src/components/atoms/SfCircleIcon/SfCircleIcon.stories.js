@@ -125,7 +125,11 @@ export default {
       },
       description: "Disables button and sets proper styling.",
     },
-    onClick: { action: "Circle icon clicked", table: { category: "Events" } },
+    click: {
+      action: "Click event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Click event. It is passed via v-on='listeners'",
+    },
   },
 };
 
@@ -140,7 +144,7 @@ const Template = (args, { argTypes }) => ({
     aria-label="Go to Home"
     :disabled="disabled"
     :style="{margin: '.5rem'}"
-    @click="onClick"
+    @click="click"
   />`,
 });
 
@@ -201,7 +205,7 @@ export const WithDefaultSlot = (args, { argTypes }) => ({
     :iconSize="iconSize"
     aria-label="Go to Home"
     :disabled="disabled"
-    @click="onClick"
+    @click="click"
   >
     <span style="font-size: 1.5rem; width: 20px; height: 20px; line-height: 0; display: flex; justify-content: center; align-items: center">
       Home

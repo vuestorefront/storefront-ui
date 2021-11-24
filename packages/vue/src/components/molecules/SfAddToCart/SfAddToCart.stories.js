@@ -69,8 +69,16 @@ export default {
         disable: true,
       },
     },
-    click: { action: "Added to cart clicked", table: { category: "Events" } },
-    input: { action: "Quantity changed", table: { category: "Events" } },
+    click: {
+      action: "Click on button event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits click event when add to cart button is clicked",
+    },
+    input: {
+      action: "Input value event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits input event when input value is changed",
+    },
   },
 };
 

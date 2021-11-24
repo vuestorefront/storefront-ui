@@ -215,7 +215,8 @@ export default {
     },
     click: {
       action: "Button clicked!",
-      table: { category: "Events" },
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits click event when button is clicked",
     },
   },
   args: {

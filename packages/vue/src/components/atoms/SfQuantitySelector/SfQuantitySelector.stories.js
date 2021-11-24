@@ -168,6 +168,13 @@ export default {
       },
       description: "Maximum allowed quantity.",
     },
+    blur: {
+      action: "Blur event emitted",
+      table: {
+        category: "Events",
+      },
+      description: "Emits when input field loses focus",
+    },
     "v-model": {
       table: {
         disable: true,
@@ -192,6 +199,7 @@ const Template = (args, { argTypes }) => ({
     :max="max"
     aria-label="Quantity"
     :class="classes"
+    @blur="blur"
   />`,
 });
 

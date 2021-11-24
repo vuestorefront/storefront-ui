@@ -48,7 +48,11 @@ export default {
       },
       description: "Visibility state",
     },
-    click: { action: "Overlay clicked!", table: { category: "Events" } },
+    click: {
+      action: "Overlay clicked",
+      table: { category: "Events", type: { summary: null } },
+      description: "Event emits when clicked on overlay.",
+    },
   },
 };
 

@@ -208,8 +208,11 @@ export default {
       },
       description: "With default false value the textarea is editable.",
     },
-    change: { action: "Text area changed", table: { category: "Events" } },
-    click: { action: "Text area focus", table: { category: "Events" } },
+    change: {
+      action: "Change event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits when textarea value changes and loses focus.",
+    },
   },
 };
 
@@ -236,7 +239,6 @@ const Template = (args, { argTypes }) => ({
     :required="required"
     :disabled="disabled"
     :placeholder="placeholder"
-    @click="click"
     @change="change"
   />`,
 });

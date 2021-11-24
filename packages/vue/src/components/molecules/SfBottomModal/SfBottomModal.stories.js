@@ -147,7 +147,8 @@ export default {
     },
     "click:close": {
       action: "Close button clicked!",
-      table: { category: "Events" },
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits click:close event when close button is clicked",
     },
   },
   args: {
