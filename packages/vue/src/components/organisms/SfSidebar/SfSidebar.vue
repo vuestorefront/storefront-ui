@@ -3,10 +3,10 @@
     <SfOverlay :visible="visibleOverlay" />
     <transition :name="transitionName">
       <aside
+        v-if="visible"
         ref="asideContent"
         v-focus-trap
         v-click-outside="checkPersistence"
-        :class="{ 'display-none': !visible }"
         class="sf-sidebar__aside"
       >
         <!--@slot Use this slot to place content inside the modal bar.-->
