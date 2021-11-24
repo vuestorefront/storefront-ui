@@ -20,9 +20,10 @@
       <template #navigation>
         <SfHeaderNavigationItem
             v-for="(item, i) in navigation"
-            :key="i">
-          <SfLink :link="item.link">{{item.name}}</SfLink>
-        </SfHeaderNavigationItem>
+            :key="`sf-header-navigation-item-${i}`"
+            :link="`/${item.name}`"
+            :label="item.name"
+          />
       </template>
     </SfHeader>    
     <nuxt />
