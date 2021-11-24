@@ -4,7 +4,7 @@
       <template #navigation>
         <SfHeaderNavigationItem
           v-for="(category, key) in shopRootCategories"
-          :key="key"
+          :key="`sf-header-navigation-item-${key}`"
           :link="`/${category}`"
           :label="category"
         />
