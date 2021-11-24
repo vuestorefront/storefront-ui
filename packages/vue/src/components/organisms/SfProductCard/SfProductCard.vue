@@ -1,5 +1,9 @@
 <template>
-  <div class="sf-product-card" data-testid="product-card">
+  <div
+    class="sf-product-card"
+    :class="{ 'has-colors': colors.length }"
+    data-testid="product-card"
+  >
     <div class="sf-product-card__image-wrapper">
       <slot
         name="image"
@@ -87,7 +91,6 @@
         >
           <SfCircleIcon
             class="sf-product-card__add-button"
-            :class="{ 'has-colors': colors.length }"
             :aria-label="`Add to Cart ${title}`"
             :has-badge="showAddedToCartBadge"
             :disabled="addToCartDisabled"
