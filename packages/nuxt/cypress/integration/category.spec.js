@@ -83,7 +83,7 @@ describe("Category page", () => {
       .click()
       .get(".sidebar-filters")
       .children()
-      .should('have.class', 'display-none')
+      .should('have.length', 0)
   });
   it("test List and grid view", () => {
     cy.get(".navbar__view-icon")
