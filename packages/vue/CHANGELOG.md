@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.3](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/vue@0.11.2...@storefront-ui/vue@0.11.3) (2021-11-25)
+
+
+### Bug Fixes
+
+* add images to Instagram Feed on Home Page ([#2107](https://github.com/vuestorefront/storefront-ui/issues/2107)) ([ba943e1](https://github.com/vuestorefront/storefront-ui/commit/ba943e138316bed9e792ede9e5596a085dc929bf))
+* better key values ([77d249e](https://github.com/vuestorefront/storefront-ui/commit/77d249e9a53ae232c17639665f814f1f951a7d48))
+* conflict resolved--no-verify ([7203e1e](https://github.com/vuestorefront/storefront-ui/commit/7203e1e29d773b530fbaf719bc5cd17bb73de1dd))
+* cr fixes ([32945a4](https://github.com/vuestorefront/storefront-ui/commit/32945a4cdb308fb58599709711358b16577c3e24))
+* cr fixes ([a38147a](https://github.com/vuestorefront/storefront-ui/commit/a38147aa98e8161ff75f0152560b8ec8c1f5e4fc))
+* display none instead of v-if ([737d1a3](https://github.com/vuestorefront/storefront-ui/commit/737d1a3f9da3991479ec61528c65fc98396f9784))
+* e2e tests fixed ([d7266de](https://github.com/vuestorefront/storefront-ui/commit/d7266de16251d977a3def43bb7e82a5d319c43ef))
+* moved add to cart button ([a2817e5](https://github.com/vuestorefront/storefront-ui/commit/a2817e545259fad00c5c4ce3e24bd84d3c5e6b6e))
+* passing width and height unified ([5127c4e](https://github.com/vuestorefront/storefront-ui/commit/5127c4e27c160f183ef34cd5ed3f2335dbe76cf6))
+* radio mutationg prop fixed ([4e0f1b2](https://github.com/vuestorefront/storefront-ui/commit/4e0f1b2dbb5c5382427466bd05836d46d2a06300))
+* remove duplicated links ([dc2b332](https://github.com/vuestorefront/storefront-ui/commit/dc2b3326898c09efb433e93dc526b3d866296385))
+* remove header changes ([6fd0d61](https://github.com/vuestorefront/storefront-ui/commit/6fd0d61621740171d3c2b1bd729dba85b684d366))
+* removed default value for color in sficon ([4f75c33](https://github.com/vuestorefront/storefront-ui/commit/4f75c3369fab763787ae72fe3d78009d8ac12854))
+* SfButton as link - full width is not working ([#2100](https://github.com/vuestorefront/storefront-ui/issues/2100)) ([396cd70](https://github.com/vuestorefront/storefront-ui/commit/396cd70155873b930524453dde29cb78bdee3d94))
+* SfComponentSelect - add cancelLabel prop and binding for cancel slot ([#2112](https://github.com/vuestorefront/storefront-ui/issues/2112)) ([a65d88b](https://github.com/vuestorefront/storefront-ui/commit/a65d88b30af85e89a42fe5429cfeeffc18581560))
+* tests ([65fe854](https://github.com/vuestorefront/storefront-ui/commit/65fe854f9e0885a1d0ee0a96777586835f57c201))
+* v-if for overlay sidebar and modal ([48ea19b](https://github.com/vuestorefront/storefront-ui/commit/48ea19bdf18f66a3083da247dcb85e00fa922f78))
+
+
+### Features
+
+* add script to update css vars  ([#2056](https://github.com/vuestorefront/storefront-ui/issues/2056)) ([8f95d84](https://github.com/vuestorefront/storefront-ui/commit/8f95d844d6120a5e7b0756db38b0bbf04f01df83))
+* explicit width and height ([550240f](https://github.com/vuestorefront/storefront-ui/commit/550240fd41a3b7d800a445fef2ba02ec9817a13c))
+
+
+
+
+
 ## [0.11.2](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/vue@0.11.1...@storefront-ui/vue@0.11.2) (2021-11-09)
 
 
