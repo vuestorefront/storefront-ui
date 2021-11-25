@@ -62,18 +62,6 @@ export default {
         description: "Overridden other component's CSS variable",
         control: "text",
       },
-      "font-weight--bold": {
-        description: "Overridden other component's CSS variable",
-        control: "text",
-      },
-      "h3-font-size": {
-        description: "Overridden other component's CSS variable",
-        control: "text",
-      },
-      "font-weight--semibold": {
-        description: "Overridden other component's CSS variable",
-        control: "text",
-      },
       "table-row-padding": {
         value: "var(--spacer-sm) 0 var(--spacer-xs)",
         description: "Overridden other component's CSS variable",
@@ -91,14 +79,6 @@ export default {
       },
       "price-regular-font": {
         value: "",
-        description: "Overridden other component's CSS variable",
-        control: "text",
-      },
-      "font-size--base": {
-        description: "Overridden other component's CSS variable",
-        control: "text",
-      },
-      "font-weight--normal": {
         description: "Overridden other component's CSS variable",
         control: "text",
       },
@@ -126,20 +106,8 @@ export default {
         description: "Overridden other component's CSS variable",
         control: "text",
       },
-      "font-weight--medium": {
-        description: "Overridden other component's CSS variable",
-        control: "text",
-      },
-      "font-size--lg": {
-        description: "Overridden other component's CSS variable",
-        control: "text",
-      },
       "property-value-font": {
         value: "",
-        description: "Overridden other component's CSS variable",
-        control: "text",
-      },
-      "h4-font-size": {
         description: "Overridden other component's CSS variable",
         control: "text",
       },

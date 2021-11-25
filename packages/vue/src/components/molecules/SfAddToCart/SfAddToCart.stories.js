@@ -15,10 +15,6 @@ export default {
         description: "Overridden other component's CSS variable",
         control: "text",
       },
-      "font-weight--semibold": {
-        description: "Overridden other component's CSS variable",
-        control: "text",
-      },
       "button-width": {
         value: "100%",
         description: "Overridden other component's CSS variable",
