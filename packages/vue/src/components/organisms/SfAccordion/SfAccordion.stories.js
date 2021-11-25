@@ -192,11 +192,11 @@ export default {
       description:
         "Opens the first accordion item if set to 'true'. @deprecated will be removed. Use open prop instead",
     },
-    "click:open-header": {
-      action: "Open header",
-      table: { category: "Events" },
+    "click:open": {
+      action: "open-header event emitted",
+      table: { category: "Events", type: { summary: null } },
       description:
-        "This event can be used on SfAccordion when there is a need to open SfAccordionItems programmatically. This example can be found below in a story called `Control With Buttons`",
+        "Emits open-header event when header is opened.",
     },
   },
 };
@@ -215,11 +215,13 @@ const Template = (args, { argTypes }) => ({
     :multiple="multiple"
     :show-chevron="showChevron"
     :transition="transition"
-    :first-open="firstOpen">
+    :first-open="firstOpen"    
+  >
     <SfAccordionItem 
       v-for="accordion in accordions" 
       :key="accordion.header" 
-      :header="accordion.header"
+      :header="accordion.header" 
+      @click:open="this['click:open']"
     >
       <SfList>
         <SfListItem
@@ -280,6 +282,7 @@ export const controlWithButtons = (args, { argTypes }) => ({
   },
   methods: {
     change(headerName) {
+      // this['click:open-header']();
       this.activeHeader = headerName;
     },
   },

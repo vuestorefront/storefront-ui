@@ -108,6 +108,12 @@ export default {
       defaultValue: "",
       description: "Title of the column in SfFooterColumn component.",
     },
+    change: {
+      action: "change event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description:
+        "Emits click event when column title is clicked on mobile mode.It is emitted with the array of opened columns",
+    },
   },
 };
 
@@ -156,6 +162,7 @@ const Template = (args, { argTypes }) => ({
       :open="open"
       :logo="logo"
       :title="title"
+      @change="change"
     >
       <SfFooterColumn v-for="column in columns" :key="column.title" :title="column.title">        
         <SfList>

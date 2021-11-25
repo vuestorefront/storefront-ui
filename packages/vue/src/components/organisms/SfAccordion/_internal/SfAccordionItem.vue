@@ -65,6 +65,7 @@ export default {
   methods: {
     accordionClick() {
       this.$parent.$emit("toggle", this._uid);
+      // this.$emit("click:open", this.header)
     },
   },
 };
