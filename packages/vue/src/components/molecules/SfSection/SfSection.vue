@@ -6,6 +6,7 @@
       v-bind="{ levelHeading, titleHeading, subtitleHeading }"
     >
       <SfHeading
+        v-if="titleHeading || subtitleHeading"
         :level="levelHeading"
         :title="titleHeading"
         :description="subtitleHeading"
