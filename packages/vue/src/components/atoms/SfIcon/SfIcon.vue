@@ -23,7 +23,7 @@
         preserveAspectRatio="none"
       >
         <defs :class="{ 'display-none': props.coverage > 1 }">
-          <linearGradient :id="props.coverage" x1="0" y1="0" x2="1" y2="0">
+          <linearGradient :id="$options.uniqueId()" x1="0" y1="0" x2="1" y2="0">
             <stop :offset="props.coverage" stop-color="var(--icon-color)" />
             <stop
               offset="0"
@@ -146,6 +146,10 @@ export default {
   fillPath(coverage) {
     const fillPathUrl = (index) => `url(#${index})`;
     return coverage === 1 ? "var(--icon-color)" : fillPathUrl(coverage);
+  },
+  uniqueId() {
+    const key = Math.random().toString(16).slice(2);
+    return "linearGradientId-" + key;
   },
 };
 </script>
