@@ -8,10 +8,11 @@ export default {
   title: "Components/Atoms/CircleIcon",
   component: SfCircleIcon,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "circle-icon-position": { value: "relative", control: "text" },
       "icon-color": {
-        value: "var(--c-white)",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
@@ -21,17 +22,17 @@ export default {
         control: "text",
       },
       "icon-size": {
-        value: "1.5rem",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
       "button-size": {
-        value: "3.25rem",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
       "button-background": {
-        value: "var(--c-primary)",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
@@ -41,12 +42,12 @@ export default {
         control: "text",
       },
       "button-box-shadow": {
-        value: "0 0 0 0.3125rem var(--c-primary)",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
       "button-box-shadow-opacity": {
-        value: "0.3",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
@@ -56,12 +57,12 @@ export default {
         control: "text",
       },
       "button-transition": {
-        value: "background 150ms ease",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component:
@@ -124,7 +125,11 @@ export default {
       },
       description: "Disables button and sets proper styling.",
     },
-    onClick: { action: "Circle icon clicked", table: { category: "Events" } },
+    click: {
+      action: "Click event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Click event. It is passed via v-on='listeners'",
+    },
   },
 };
 
@@ -139,7 +144,7 @@ const Template = (args, { argTypes }) => ({
     aria-label="Go to Home"
     :disabled="disabled"
     :style="{margin: '.5rem'}"
-    @click="onClick"
+    @click="click"
   />`,
 });
 
@@ -200,7 +205,7 @@ export const WithDefaultSlot = (args, { argTypes }) => ({
     :iconSize="iconSize"
     aria-label="Go to Home"
     :disabled="disabled"
-    @click="onClick"
+    @click="click"
   >
     <span style="font-size: 1.5rem; width: 20px; height: 20px; line-height: 0; display: flex; justify-content: center; align-items: center">
       Home

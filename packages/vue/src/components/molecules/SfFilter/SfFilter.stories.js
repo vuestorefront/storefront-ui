@@ -4,15 +4,13 @@ export default {
   title: "Components/Molecules/Filter",
   component: SfFilter,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
-      "filter-color-margin": {
-        value: "0 var(--spacer-sm) 0 0",
-        control: "text",
-      },
-      "filter-label-display": { value: "flex", control: "text" },
+      "filter-color-margin": { value: "", control: "text" },
+      "filter-label-display": { value: "", control: "text" },
       "filter-label-align-items": { value: "center", control: "text" },
-      "filter-label-margin": { value: "0", control: "text" },
-      "filter-label-color": { value: "var(--c-link)", control: "text" },
+      "filter-label-margin": { value: "", control: "text" },
+      "filter-label-color": { value: "", control: "text" },
       "filter-label-font": { value: "", control: "text" },
       "filter-label-font-weight": {
         value: "var(--font-weight--normal)",
@@ -30,11 +28,8 @@ export default {
       "filter-label-text-decoration": { value: "", control: "text" },
       "filter-label-transform": { value: "", control: "text" },
       "filter-count-display": { value: "", control: "text" },
-      "filter-count-margin": {
-        value: "0 var(--spacer-sm) 0 auto",
-        control: "text",
-      },
-      "filter-count-color": { value: "var(--c-text-muted)", control: "text" },
+      "filter-count-margin": { value: "", control: "text" },
+      "filter-count-color": { value: "", control: "text" },
       "filter-count-font": { value: "", control: "text" },
       "filter-count-font-weight": {
         value: "var(--font-weight--normal)",
@@ -50,12 +45,12 @@ export default {
         control: "text",
       },
       "checkbox-order": {
-        value: "1",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
       "checkbox-border-radius": {
-        value: "100%",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
@@ -65,7 +60,7 @@ export default {
         control: "text",
       },
       "checkbox-border-color": {
-        value: "transparent",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
@@ -75,7 +70,7 @@ export default {
         control: "text",
       },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component: "Filter component with color, name and counter of items.",
@@ -136,7 +131,11 @@ export default {
       },
       description: "Sets fliter color.",
     },
-    change: { action: "Change color", table: { category: "Events" } },
+    change: {
+      action: "change event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits change event when component is clicked",
+    },
   },
 };
 

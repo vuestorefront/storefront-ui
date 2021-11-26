@@ -3,10 +3,11 @@ export default {
   title: "Components/Molecules/SlidingSection",
   component: SfSlidingSection,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
-      "sliding-section-display": { value: "inline", control: "text" },
+      "sliding-section-display": { value: "", control: "text" },
       "sliding-section-margin": { value: "0", control: "text" },
-      "sliding-section-static-height": { value: "auto", control: "text" },
+      "sliding-section-static-height": { value: "", control: "text" },
       "sliding-section-static-transition": {
         value: "height 150ms ease-in-out",
         control: "text",
@@ -15,17 +16,17 @@ export default {
         value: "0 var(--spacer-xl)",
         control: "text",
       },
-      "sliding-section-mobile-bar-display": { value: "none", control: "text" },
+      "sliding-section-mobile-bar-display": { value: "", control: "text" },
       "sliding-section-mobile-bar-padding": {
         value: "var(--spacer-lg) 0",
         control: "text",
       },
       "sliding-section-sliding-margin": {
-        value: "0 0 0 var(--spacer-lg)",
+        value: "",
         control: "text",
       },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component: "Section for content with sliding property.",

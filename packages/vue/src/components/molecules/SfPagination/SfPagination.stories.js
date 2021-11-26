@@ -3,6 +3,7 @@ export default {
   title: "Components/Molecules/Pagination",
   component: SfPagination,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "pagination-item-color": {
         value: "var(--c-gray-variant)",
@@ -34,7 +35,7 @@ export default {
         control: "text",
       },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component: "Pagination component with indicators.",
@@ -82,7 +83,12 @@ export default {
       },
       description: "Name of page query param for router",
     },
-    click: { action: "Go to page clicked", table: { category: "Events" } },
+    click: {
+      action: "click event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description:
+        "Emits click event with page value when page number is clicked",
+    },
   },
 };
 

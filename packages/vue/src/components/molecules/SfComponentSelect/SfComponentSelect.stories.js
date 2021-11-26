@@ -11,6 +11,7 @@ export default {
   title: "Components/Molecules/ComponentSelect",
   component: SfComponentSelect,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "component-select-option-padding": {
         value: "var(--spacer-sm)",
@@ -54,20 +55,16 @@ export default {
         control: "text",
       },
       "component-select-border-color": {
-        value: "var(--c-link)",
-        control: "text",
-      },
-      "component-select-error-message-color": {
-        value: "var(--c-danger)",
+        value: "",
         control: "text",
       },
       "button-background": {
-        value: "var(--c-light)",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
       "button-color": {
-        value: "var(--c-dark-variant)",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
@@ -93,16 +90,16 @@ export default {
         control: "text",
       },
       "component-select-color": {
-        value: "var(--c-text)",
+        value: "",
         control: "text",
       },
       "component-select-label-required": {
         value: '" *"',
+        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "chevron-display": {
         value: "block",
-        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "component-select-dropdown-position": {
@@ -242,10 +239,29 @@ export default {
       defaultValue: "",
       description: "The content of the option",
     },
+    cancelLabel: {
+      control: "text",
+      table: {
+        category: "Props for main component",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "Cancel",
+        },
+      },
+      defaultValue: "",
+      description: "Cancel label text",
+    },
     options: {
       control: "array",
       description:
         "Options values (for testing purposes). For development, you can use default slot to place custom options.",
+    },
+    change: {
+      action: "Change event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits change event when option is chosen",
     },
     "v-model": {
       table: {
@@ -269,7 +285,9 @@ const Template = (args, { argTypes }) => ({
     :disabled="disabled"
     :error-message="errorMessage"
     :persistent="persistent"
+    :cancel-label="cancelLabel"
     style="max-width: 30rem"
+    @change="change"
   >
     <SfComponentSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
       <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
@@ -339,6 +357,7 @@ export const UseLabelSlot = (args, { argTypes }) => ({
     :valid="valid"
     :disabled="disabled"
     :error-message="errorMessage" 
+    :cancel-label="cancelLabel"
     :persistent="persistent"       
     >
     <SfComponentSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
@@ -368,6 +387,7 @@ export const UseErrorMessageSlot = (args, { argTypes }) => ({
     :disabled="disabled"
     :error-message="errorMessage"
     :persistent="persistent"
+    :cancel-label="cancelLabel"
     >
     <SfComponentSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
       <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
@@ -394,6 +414,7 @@ export const UseCancelSlot = (args, { argTypes }) => ({
     :disabled="disabled"
     :error-message="errorMessage"
     :persistent="persistent"
+    :cancel-label="cancelLabel"
     >
     <SfComponentSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
       <SfProductOption :color="option.color" :label="option.label"></SfProductOption>

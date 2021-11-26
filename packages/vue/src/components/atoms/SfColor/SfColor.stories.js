@@ -4,6 +4,7 @@ export default {
   title: "Components/Atoms/Color",
   component: SfColor,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "color-width": { value: "var(--color-size, 2.5rem)", control: "text" },
       "color-height": { value: "var(--color-size, 2.5rem)", control: "text" },
@@ -22,6 +23,7 @@ export default {
       },
       "color-box-shadow-transition-duration": {
         value: "150ms",
+        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "badge-padding": {
@@ -36,10 +38,11 @@ export default {
       },
       "color-size": {
         value: "0.75rem",
+        description: "Overridden other component's CSS variable",
         control: "text",
       },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component:
@@ -81,7 +84,11 @@ export default {
       },
       description: "Sets select value",
     },
-    onClick: { action: "toggle selected", table: { category: "Events" } },
+    click: {
+      action: "toggle selected",
+      table: { category: "Events", type: { summary: null } },
+      description: "Click event. It is passed via v-on='listeners'",
+    },
   },
 };
 
@@ -95,7 +102,7 @@ const Template = (args, { argTypes }) => ({
     :has-badge="hasBadge"
     :aria-label="color"  
     style="margin: 10px;"
-    @click="onClick"
+    @click="click"
     :class="classes" />`,
 });
 

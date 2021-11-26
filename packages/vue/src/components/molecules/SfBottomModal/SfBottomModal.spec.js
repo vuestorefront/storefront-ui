@@ -4,6 +4,6 @@ import SfBottomModal from "./SfBottomModal.vue";
 describe("SfBottomModal.vue", () => {
   it("renders a component", () => {
     const component = shallowMount(SfBottomModal);
-    expect(component.contains(".sf-bottom-modal")).toBe(true);
+    expect(component.classes("sf-bottom-modal")).toBe(true);
   });
 });

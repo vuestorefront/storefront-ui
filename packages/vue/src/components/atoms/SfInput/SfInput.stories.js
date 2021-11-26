@@ -4,23 +4,21 @@ export default {
   title: "Components/Atoms/Input",
   component: SfInput,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "input-width": { value: "", control: "text" },
       "input-height": { value: "", control: "text" },
       "input-label-display": { value: "", control: "text" },
-      "input-label-top": { value: "50%", control: "text" },
+      "input-label-top": { value: "", control: "text" },
       "input-label-left": { value: "", control: "text" },
       "input-label-padding": { value: "", control: "text" },
-      "input-label-color": { value: "var(--c-link)", control: "text" },
+      "input-label-color": { value: "", control: "text" },
       "input-label-background": { value: "", control: "text" },
       "input-label-transform": {
         value: "translate3d(0, calc(-1 * var(--input-label-top, 50%)), 0)",
         control: "text",
       },
-      "input-label-transition": {
-        value: "top 150ms linear, font-size 150ms linear",
-        control: "text",
-      },
+      "input-label-transition": { value: "", control: "text" },
       "input-label-font": { value: "", control: "text" },
       "input-label-font-weight": {
         value: "var(--font-weight--normal)",
@@ -37,7 +35,7 @@ export default {
       },
       "input-label-required": { value: "", control: "text" },
       "input-bar-display": { value: "block", control: "text" },
-      "input-bar-width": { value: "0", control: "text" },
+      "input-bar-width": { value: "", control: "text" },
       "input-bar-background": { value: "var(--c-primary)", control: "text" },
       "input-error-message-color": {
         value: "var(--c-danger)",
@@ -58,16 +56,9 @@ export default {
         control: "text",
       },
       "input-margin": { value: "0 0 var(--spacer-xs) 0", control: "text" },
-      "input-padding": {
-        value: "var(--spacer-sm) 0 var(--spacer-xs) 0",
-        control: "text",
-      },
-      "input-border": {
-        value:
-          "var(--input-border-style, solid) var(--input-border-color, var(--c-link))",
-        control: "text",
-      },
-      "input-border-width": { value: "0 0 1px 0", control: "text" },
+      "input-padding": { value: "", control: "text" },
+      "input-border": { value: "", control: "text" },
+      "input-border-width": { value: "", control: "text" },
       "input-background": { value: "", control: "text" },
       "input-color": { value: "var(--c-text)", control: "text" },
       "input-font": { value: "", control: "text" },
@@ -95,7 +86,8 @@ export default {
         control: "text",
       },
       "input-border-color": {
-        value: "var(--c-text-disabled)",
+        value: "",
+        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "icon-size": {
@@ -119,7 +111,7 @@ export default {
         control: "text",
       },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component:
@@ -227,7 +219,18 @@ export default {
       defaultValue: "",
       description: "Current input value (`v-model`)",
     },
-    onChange: { action: "input changed!", table: { category: "Events" } },
+    change: {
+      action: "Change event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description:
+        "Change event emits when input value changes and loses focus. It is passed via v-on='listeners'",
+    },
+    input: {
+      action: "Input event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description:
+        "Input event emits when input value changes. It is passed via v-on='listeners'",
+    },
   },
 };
 
@@ -251,7 +254,8 @@ const Template = (args, { argTypes }) => ({
     :required="required"
     :disabled="disabled"
     :has-show-password="hasShowPassword"
-    @change="onChange"
+    @change="change"
+    @input="input"
   />`,
 });
 

@@ -3,6 +3,7 @@ export default {
   title: "Components/Organisms/Carousel",
   component: SfCarousel,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "carousel-width": {
         value: "calc(100% - var(--carousel-controls-size))",
@@ -27,7 +28,7 @@ export default {
         control: "text",
       },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component:

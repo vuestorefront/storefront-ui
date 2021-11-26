@@ -4,6 +4,7 @@ export default {
   title: "Components/Molecules/Bar",
   component: SfBar,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "bar-height": { value: "3.125rem", control: "text" },
       "bar-padding": { value: "0 var(--spacer-base)", control: "text" },
@@ -25,7 +26,7 @@ export default {
         control: "text",
       },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component: "The bar component for mobile components.",
@@ -72,8 +73,16 @@ export default {
       },
       description: "Sets visibility of close button",
     },
-    onBackClick: { action: "Back clicked", table: { category: "Events" } },
-    onCloseClick: { action: "Close clicked", table: { category: "Events" } },
+    "click:back": {
+      action: "click:back event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits click:back event when back button is clicked",
+    },
+    "click:close": {
+      action: "click:close event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits click:close event when close button is clicked",
+    },
   },
   args: {
     title: "Dresses",
@@ -85,7 +94,7 @@ export default {
 const Template = (args, { argTypes }) => ({
   components: { SfBar },
   props: Object.keys(argTypes),
-  template: `<SfBar :title="title" :back="back" :close="close" @click:close="onCloseClick" @click:back="onBackClick"/>`,
+  template: `<SfBar :title="title" :back="back" :close="close" @click:close="this['click:close']" @click:back="this['click:back']"/>`,
 });
 
 export const Common = Template.bind({});

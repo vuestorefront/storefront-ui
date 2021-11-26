@@ -3,33 +3,51 @@ export default {
   title: "Components/Molecules/Steps",
   component: SfSteps,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
-      "steps-step-color": {
-        value: "",
+      "steps-border": {
+        value:
+          "var(--steps-border-style, solid) var(--steps-border-color, var(--c-light))",
         control: "text",
       },
-      "steps-step-cursor": {
-        value: "default",
+      "steps-border-width": { value: "0", control: "text" },
+      "steps-step-background": { value: "", control: "text" },
+      "steps-step-padding": {
+        value: "var(--spacer-sm) var(--spacer-2xs)",
         control: "text",
       },
+      "steps-step-color": { value: "var(--c-link)", control: "text" },
+      "steps-step-cursor": { value: "pointer", control: "text" },
+      "steps-progress-bottom": { value: "-2px", control: "text" },
+      "steps-progress-width": {
+        value: "var(--_steps-progress-width)",
+        control: "text",
+      },
+      "steps-progress-height": { value: "2px", control: "text" },
+      "steps-progress-background": {
+        value: "var(--c-primary)",
+        control: "text",
+      },
+      "steps-progress-transform": {
+        value: "scale3d(calc(-0.5 + var(--_steps-progress-active-step)), 1, 1)",
+        control: "text",
+      },
+      "steps-progress-transition": {
+        value: "transform 150ms ease-in-out",
+        control: "text",
+      },
+      "steps-content-padding": {
+        value: "var(--spacer-base) 0 0 0",
+        control: "text",
+      },
+      "steps-step-after-background": { value: "transparent", control: "text" },
       "step-font": {
         value: "",
-        control: "text",
-      },
-      "steps-border-width": {
-        value: "0 0 2px 0",
-        control: "text",
-      },
-      "steps-step-padding": {
-        value: "0 0 var(--spacer-xs) 0",
-        control: "text",
-      },
-      "steps-step-after-background": {
-        value: "",
+        description: "Overridden other component's CSS variable",
         control: "text",
       },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component:
@@ -103,7 +121,11 @@ export default {
         disable: true,
       },
     },
-    change: { action: "Step changed", table: { category: "Events" } },
+    change: {
+      action: "change event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits change event with step value when step is clicked",
+    },
   },
 };
 

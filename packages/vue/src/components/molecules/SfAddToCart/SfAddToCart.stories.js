@@ -4,6 +4,7 @@ export default {
   title: "Components/Molecules/AddToCart",
   component: SfAddToCart,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "add-to-cart-select-quantity-margin": {
         value: "0 0 0 var(--spacer-xs)",
@@ -25,7 +26,7 @@ export default {
         control: "text",
       },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component:
@@ -64,8 +65,16 @@ export default {
         disable: true,
       },
     },
-    click: { action: "Added to cart clicked", table: { category: "Events" } },
-    input: { action: "Quantity changed", table: { category: "Events" } },
+    click: {
+      action: "Click on button event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits click event when add to cart button is clicked",
+    },
+    input: {
+      action: "Input value event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits input event when input value is changed",
+    },
   },
 };
 

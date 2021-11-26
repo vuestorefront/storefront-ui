@@ -24,7 +24,7 @@
           />
         </slot>
         <SfButton
-          v-if="cross"
+          :class="{ 'display-none': !cross }"
           class="sf-button--pure sf-modal__close desktop-only"
           aria-label="Close modal"
           type="button"

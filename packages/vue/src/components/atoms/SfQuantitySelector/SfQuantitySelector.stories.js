@@ -4,14 +4,12 @@ export default {
   title: "Components/Atoms/QuantitySelector",
   component: SfQuantitySelector,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "quantity-selector-justify-content": { value: "", control: "text" },
       "quantity-selector-height": { value: "3.25rem", control: "text" },
-      "quantity-selector-width": { value: "6.75rem", control: "text" },
-      "quantity-selector-background": {
-        value: "var(--c-light)",
-        control: "text",
-      },
+      "quantity-selector-width": { value: "", control: "text" },
+      "quantity-selector-background": { value: "", control: "text" },
       "quantity-selector-font": { value: "", control: "text" },
       "quantity-selector-font-weight": {
         value: "var(--font-weight--normal)",
@@ -26,28 +24,21 @@ export default {
         value: "var(--font-family--primary)",
         control: "text",
       },
-      "quantity-selector-border": {
-        value:
-          "var(--quantity-selector-border-style, solid) var(--quantity-selector-border-color, var(--c-light))",
-        control: "text",
-      },
-      "quantity-selector-border-width": { value: "0", control: "text" },
-      "quantity-selector-text-shadow": {
-        value: "0px 4px 4px rgba(0, 0, 0, 0.25)",
-        control: "text",
-      },
+      "quantity-selector-border": { value: "", control: "text" },
+      "quantity-selector-border-width": { value: "", control: "text" },
+      "quantity-selector-text-shadow": { value: "", control: "text" },
       "button-height": {
         value: "100%",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
       "button-padding": {
-        value: "var(--spacer-2xs) var(--spacer-xs) 0",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
       "button-background": {
-        value: "transparent",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
@@ -92,22 +83,22 @@ export default {
         control: "text",
       },
       "button-border-radius": {
-        value: "100%",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
       "button-size": {
-        value: "1.625rem",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
       "input-width": {
-        value: "9rem",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component:
@@ -177,6 +168,13 @@ export default {
       },
       description: "Maximum allowed quantity.",
     },
+    blur: {
+      action: "Blur event emitted",
+      table: {
+        category: "Events",
+      },
+      description: "Emits when input field loses focus",
+    },
     "v-model": {
       table: {
         disable: true,
@@ -201,6 +199,7 @@ const Template = (args, { argTypes }) => ({
     :max="max"
     aria-label="Quantity"
     :class="classes"
+    @blur="blur"
   />`,
 });
 

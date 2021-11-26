@@ -4,6 +4,7 @@ export default {
   title: "Components/Organisms/ProductCard",
   component: SfProductCard,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "product-card-z-index": { value: "", control: "text" },
       "product-card-max-width": { value: "10.625rem", control: "text" },
@@ -104,7 +105,7 @@ export default {
         control: "text",
       },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component: "Product card component with image, description and rating.",

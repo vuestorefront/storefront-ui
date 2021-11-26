@@ -9,7 +9,7 @@
     <template #label>
       <slot name="color" v-bind="{ color, selected }">
         <SfColor
-          v-if="color"
+          :class="{ 'display-none': !color }"
           :color="color"
           :has-badge="false"
           :selected="selected"

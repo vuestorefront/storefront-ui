@@ -50,9 +50,15 @@ export default {
   title: "Components/Templates/ConfirmOrder",
   component: SfConfirmOrder,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "heading-padding": {
         value: "var(--spacer-xl) 0 var(--spacer-base)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "heading-title-font": {
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
@@ -71,18 +77,13 @@ export default {
         description: "Overridden other component's CSS variable",
         control: "text",
       },
-      "price-regular-font-size": {
-        value: "var(--font-size--base)",
+      "price-regular-font": {
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
-      "price-regular-font-weight": {
-        value: "var(--font-weight--normal)",
-        description: "Overridden other component's CSS variable",
-        control: "text",
-      },
-      "price-special-font-weight": {
-        value: "var(--font-weight--normal)",
+      "price-special-font": {
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
@@ -91,33 +92,22 @@ export default {
         description: "Overridden other component's CSS variable",
         control: "text",
       },
-      "link-font-family": {
-        value: "var(--font-family--primary)",
+      "link-font": {
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
-      "link-font-weight": {
-        value: "var(--font-weight--normal)",
+      "font-family--primary": {
         description: "Overridden other component's CSS variable",
         control: "text",
       },
-      "property-name-font-weight": {
-        value: "var(--font-weight--medium)",
+      "property-name-font": {
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
-      "property-name-font-size": {
-        value: "var(--font-size--lg)",
-        description: "Overridden other component's CSS variable",
-        control: "text",
-      },
-      "property-value-font-weight": {
-        value: "var(--font-weight--bold)",
-        description: "Overridden other component's CSS variable",
-        control: "text",
-      },
-      "property-value-font-size": {
-        value: "var(--h4-font-size)",
+      "property-value-font": {
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
@@ -142,7 +132,7 @@ export default {
         control: "text",
       },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component: "Component with details of the order. Part of checkout",

@@ -3,54 +3,42 @@ export default {
   title: "Components/Molecules/Modal",
   component: SfModal,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
-      "modal-width": {
-        value: "",
-        description: "Overridden other component's CSS variable",
-        control: "text",
-      },
-      "modal-top": {
-        value: "",
-        description: "Overridden other component's CSS variable",
-        control: "text",
-      },
-      "modal-left": {
-        value: "",
-        description: "Overridden other component's CSS variable",
-        control: "text",
-      },
-      "modal-bottom": {
-        value: "",
-        description: "Overridden other component's CSS variable",
-        control: "text",
-      },
-      "modal-right": {
-        value: "",
-        description: "Overridden other component's CSS variable",
-        control: "text",
-      },
-      "modal-transform": {
-        value: "",
-        description: "Overridden other component's CSS variable",
-        control: "text",
-      },
-      "modal-height": {
-        value: "auto",
-        description: "Overridden other component's CSS variable",
-        control: "text",
-      },
-      "modal-max-height": {
-        value: "90%",
-        description: "Overridden other component's CSS variable",
-        control: "text",
-      },
+      "modal-top": { value: "0", control: "text" },
+      "modal-right": { value: "0", control: "text" },
+      "modal-bottom": { value: "0", control: "text" },
+      "modal-left": { value: "0", control: "text" },
+      "modal-index": { value: "1", control: "text" },
+      "modal-transform": { value: "", control: "text" },
+      "modal-flex-direction": { value: "column", control: "text" },
+      "modal-width": { value: "", control: "text" },
+      "modal-height": { value: "", control: "text" },
+      "modal-border": { value: "", control: "text" },
+      "modal-max-height": { value: "", control: "text" },
+      "modal-background": { value: "var(--c-white)", control: "text" },
       "modal-content-padding": {
-        value: "var(--spacer-sm) var(--spacer-lg)",
-        description: "Overridden other component's CSS variable",
+        value: "var(--spacer-base) var(--spacer-sm)",
         control: "text",
       },
+      "modal-content-font": { value: "", control: "text" },
+      "modal-content-font-weight": {
+        value: "var(--font-weight--light)",
+        control: "text",
+      },
+      "modal-content-font-size": {
+        value: "var(--font-size--base)",
+        control: "text",
+      },
+      "modal-content-font-line-height": { value: "1.6", control: "text" },
+      "modal-content-font-family": {
+        value: "var(--font-family--primary)",
+        control: "text",
+      },
+      "modal-close-right": { value: "var(--spacer-sm)", control: "text" },
+      "modal-close-top": { value: "var(--spacer-sm)", control: "text" },
     },
-
+    // end of code generated automatically
     docs: {
       inlineStories: false,
       iframeHeight: "300px",
@@ -128,7 +116,12 @@ export default {
         disable: true,
       },
     },
-    close: { action: "Close modal clicked", table: { category: "Events" } },
+    close: {
+      action: "close event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description:
+        "Emits close event when clicked on close button or outside modal",
+    },
   },
 };
 

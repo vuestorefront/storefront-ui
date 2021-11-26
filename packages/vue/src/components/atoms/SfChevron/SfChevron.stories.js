@@ -4,26 +4,25 @@ export default {
   title: "Components/Atoms/Chevron",
   component: SfChevron,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "chevron-position": { value: "relative", control: "text" },
       "chevron-size": { value: "1.25rem", control: "text" },
       "chevron-background": { value: "transparent", control: "text" },
       "chevron-color": { value: "var(--c-black)", control: "text" },
-      "chevron-translateX": {
-        value:
-          "0), var(--chevron-translateY, -50%), 0) rotate(var(--chevron-rotate, 45deg)",
-        control: "text",
-      },
+      "chevron-translateX": { value: "", control: "text" },
       "chevron-rotate": {
-        value: "-45deg",
+        value: "",
+        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "chevron-translateY": {
-        value: "150%",
+        value: "",
+        description: "Overridden other component's CSS variable",
         control: "text",
       },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component: "The chevron component. It's Vue 2 functional component.",

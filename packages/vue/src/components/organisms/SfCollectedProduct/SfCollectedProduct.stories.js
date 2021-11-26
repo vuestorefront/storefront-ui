@@ -3,6 +3,7 @@ export default {
   title: "Components/Organisms/CollectedProduct",
   component: SfCollectedProduct,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "collected-product-width": { value: "", control: "text" },
       "collected-product-padding": {
@@ -12,24 +13,18 @@ export default {
       "collected-product-background": { value: "", control: "text" },
       "collected-product-z-index": { value: "", control: "text" },
       "collected-product-remove-opacity": { value: "", control: "text" },
-      "collected-product-remove-right": {
-        value: "var(--spacer-xs)",
-        control: "text",
-      },
+      "collected-product-remove-right": { value: "", control: "text" },
       "collected-product-remove-transition": { value: "", control: "text" },
       "collected-product-remove-top": { value: "", control: "text" },
       "collected-product-remove-circle-icon-display": {
-        value: "none",
+        value: "",
         control: "text",
       },
       "collected-product-remove-circle-icon-transform": {
         value: "",
         control: "text",
       },
-      "collected-product-remove-bottom": {
-        value: "var(--spacer-xs)",
-        control: "text",
-      },
+      "collected-product-remove-bottom": { value: "", control: "text" },
       "collected-product-remove-text-display": { value: "", control: "text" },
       "collected-product-image-background": {
         value: "var(--c-light)",
@@ -39,10 +34,7 @@ export default {
         value: "0 0 0 var(--spacer-sm)",
         control: "text",
       },
-      "collected-product-main-flex-direction": {
-        value: "column",
-        control: "text",
-      },
+      "collected-product-main-flex-direction": { value: "", control: "text" },
       "collected-product-title-margin": {
         value: "0 var(--spacer-base) var(--spacer-sm) 0",
         control: "text",
@@ -86,17 +78,11 @@ export default {
       },
       "collected-product-actions-display": { value: "none", control: "text" },
       "collected-product-actions-justify-content": {
-        value: "flex-end",
+        value: "",
         control: "text",
       },
-      "collected-product-actions-align-items": {
-        value: "flex-start",
-        control: "text",
-      },
-      "collected-product-box-shadow": {
-        value: "0px 4px 11px rgba(29, 31, 34, 0.1)",
-        control: "text",
-      },
+      "collected-product-actions-align-items": { value: "", control: "text" },
+      "collected-product-box-shadow": { value: "", control: "text" },
       "icon-color": {
         value: "var(--c-white)",
         description: "Overridden other component's CSS variable",
@@ -118,7 +104,7 @@ export default {
         control: "text",
       },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component:
@@ -227,6 +213,34 @@ export default {
       defaultValue: 1,
       description: "Selected quantity",
     },
+    minQty: {
+      control: "number",
+      table: {
+        category: "Props",
+        type: {
+          summary: "number",
+        },
+        defaultValue: {
+          summary: "null",
+        },
+      },
+      defaultValue: null,
+      description: "Minimum quantity value",
+    },
+    maxQty: {
+      control: "number",
+      table: {
+        category: "Props",
+        type: {
+          summary: "number",
+        },
+        defaultValue: {
+          summary: "null",
+        },
+      },
+      defaultValue: null,
+      description: "Maximum quantity value",
+    },
     link: {
       control: "text",
       table: {
@@ -310,6 +324,8 @@ const Template = (args, { argTypes }) => ({
     :image-height="imageHeight"
     :title="title"
     :link="link"
+    :minQty="minQty"
+    :maxQty="maxQty"
     :regular-price="regularPrice"
     :special-price="specialPrice"
     :hasMoreActions="hasMoreActions"
@@ -348,6 +364,8 @@ export const UseActionsSlot = (args, { argTypes }) => ({
     :image-height="imageHeight"
     :title="title"
     :link="link"
+    :minQty="minQty"
+    :maxQty="maxQty"
     :regular-price="regularPrice"
     :special-price="specialPrice"
     :special-price="specialPrice"
@@ -372,6 +390,8 @@ export const UseConfigurationSlot = (args, { argTypes }) => ({
     :image-height="imageHeight"
     :title="title"
     :link="link"
+    :minQty="minQty"
+    :maxQty="maxQty"
     :regular-price="regularPrice"
     :special-price="specialPrice"
     :special-price="specialPrice"
@@ -396,6 +416,8 @@ export const UseImageSlot = (args, { argTypes }) => ({
     :image-height="imageHeight"
     :title="title"
     :link="link"
+    :minQty="minQty"
+    :maxQty="maxQty"
     :regular-price="regularPrice"
     :special-price="specialPrice"
     :special-price="specialPrice"
@@ -420,6 +442,8 @@ export const UseInputSlot = (args, { argTypes }) => ({
     :image-height="imageHeight"
     :title="title"
     :link="link"
+    :minQty="minQty"
+    :maxQty="maxQty"
     :regular-price="regularPrice"
     :special-price="specialPrice"
     :special-price="specialPrice"
@@ -444,6 +468,8 @@ export const UseTitleSlot = (args, { argTypes }) => ({
     :image-height="imageHeight"
     :title="title"
     :link="link"
+    :minQty="minQty"
+    :maxQty="maxQty"
     :regular-price="regularPrice"
     :special-price="specialPrice"
     :special-price="specialPrice"
@@ -468,6 +494,8 @@ export const UsePriceSlot = (args, { argTypes }) => ({
     :image-height="imageHeight"
     :title="title"
     :link="link"
+    :minQty="minQty"
+    :maxQty="maxQty"
     :regular-price="regularPrice"
     :special-price="specialPrice"
     :special-price="specialPrice"

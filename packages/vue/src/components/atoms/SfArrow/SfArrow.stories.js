@@ -4,16 +4,17 @@ export default {
   title: "Components/Atoms/Arrow",
   component: SfArrow,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
-      "arrow-justify-content": { value: "center", control: "text" },
+      "arrow-justify-content": { value: "", control: "text" },
       "arrow-icon-transform": { value: "", control: "text" },
       "button-width": {
-        value: "2.75rem",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
       "button-height": {
-        value: "2.75rem",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
@@ -23,22 +24,22 @@ export default {
         control: "text",
       },
       "button-background": {
-        value: "var(--c-light)",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
       "button-transition": {
-        value: "background 150ms linear",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
       "icon-color": {
-        value: "var(--c-dark)",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
       "button-box-shadow": {
-        value: "0px 4px 4px var(--c-black)",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
@@ -58,6 +59,7 @@ export default {
         control: "text",
       },
     },
+    // end of code generated automatically
     docs: {
       description: {
         component: `Arrow component for sliders and navigation. It's Vue 2 functional component. To see css vars used in component please switch to canvas and CSS Custom Properties tab.`,
@@ -89,12 +91,11 @@ export default {
       defaultValue: "Arrow label",
     },
     click: {
-      action: "click",
+      action: "Arrow clicked",
       table: {
         category: "Events",
       },
-      description:
-        "Click event. It is passed like any other prop in Vue functional component.",
+      description: "Click event. It is passed via v-on='listeners'",
     },
     classes: {
       control: {

@@ -5,6 +5,7 @@ export default {
   title: "Components/Organisms/Tabs",
   component: SfTab,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "tabs-title-z-index": { value: "", control: "text" },
       "tabs-title-display": { value: "flex", control: "text" },
@@ -66,10 +67,11 @@ export default {
       },
       "tabs-title-border-color": {
         value: "",
+        description: "Overridden other component's CSS variable",
         control: "text",
       },
     },
-
+    // end of code generated automatically
     docs: {
       inlineStories: false,
       iframeHeight: "300px",

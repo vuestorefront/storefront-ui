@@ -28,19 +28,20 @@ export default {
   title: "Components/Molecules/ColorPicker",
   component: SfColorPicker,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "color-picker-position": { value: "absolute", control: "text" },
       "color-picker-top": { value: "", control: "text" },
       "color-picker-right": { value: "", control: "text" },
-      "color-picker-bottom": { value: "0", control: "text" },
-      "color-picker-align-items": { value: "flex-end", control: "text" },
-      "color-picker-width": { value: "100%", control: "text" },
-      "color-picker-overflow": { value: "hidden", control: "text" },
+      "color-picker-bottom": { value: "", control: "text" },
+      "color-picker-align-items": { value: "", control: "text" },
+      "color-picker-width": { value: "", control: "text" },
+      "color-picker-overflow": { value: "", control: "text" },
       "color-picker-transform": { value: "", control: "text" },
       "color-picker-colors-height": { value: "", control: "text" },
-      "color-picker-flex-direction": { value: "row", control: "text" },
-      "color-picker-justify-content": { value: "center", control: "text" },
-      "color-picker-padding": { value: "var(--spacer-xs)", control: "text" },
+      "color-picker-flex-direction": { value: "", control: "text" },
+      "color-picker-justify-content": { value: "", control: "text" },
+      "color-picker-padding": { value: "", control: "text" },
       "color-picker-label-margin": {
         value: "0 0 var(--spacer-xs)",
         control: "text",
@@ -68,11 +69,8 @@ export default {
       },
       "color-picker-open-button-transform": { value: "", control: "text" },
       "color-picker-close-margin": { value: "", control: "text" },
-      "color-picker-height": { value: "100%", control: "text" },
-      "color-picker-animation-transform": {
-        value: "translate3d(0, 100%, 0)",
-        control: "text",
-      },
+      "color-picker-height": { value: "", control: "text" },
+      "color-picker-animation-transform": { value: "", control: "text" },
       "overlay-z-index": {
         value: "auto",
         description: "Overridden other component's CSS variable",
@@ -119,21 +117,22 @@ export default {
         control: "text",
       },
       "color-picker-left": {
-        value: "0",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
       "open-button-x": {
-        value: "-50%",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
       "open-button-y": {
-        value: "100%",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
     },
+    // end of code generated automatically
     docs: {
       description: {
         component:
@@ -198,7 +197,12 @@ export default {
       description:
         "Changing colors (for testing purposes). For development, you can use default slot to place custom color element.",
     },
-    "click:toggle": { action: "Toggle isOpen", table: { category: "Events" } },
+    "click:toggle": {
+      action: "click:toggle event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description:
+        "Emits click:toggle when open/close button is clicked in mobile mode",
+    },
   },
 };
 

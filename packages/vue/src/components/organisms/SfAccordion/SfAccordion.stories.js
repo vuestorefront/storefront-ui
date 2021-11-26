@@ -32,6 +32,7 @@ export default {
   title: "Components/Organisms/Accordion",
   component: SfAccordionItem,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "accordion-item-header-justify": {
         value: "space-between",
@@ -109,7 +110,7 @@ export default {
         control: "text",
       },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component:

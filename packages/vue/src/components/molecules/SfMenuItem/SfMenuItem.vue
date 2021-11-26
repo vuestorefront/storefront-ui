@@ -19,7 +19,7 @@
     <!-- @slot -->
     <slot name="mobile-nav-icon" v-bind="{ icon }">
       <SfIcon
-        v-if="icon"
+        :class="{ 'display-none': !icon }"
         :icon="icon"
         class="sf-menu-item__mobile-nav-icon smartphone-only"
         size="14px"
@@ -39,30 +39,18 @@ export default {
     SfButton,
   },
   props: {
-    /**
-     * Menu-item label
-     */
     label: {
       type: String,
       default: "",
     },
-    /**
-     * Menu-item icon (visible on mobile)
-     */
     icon: {
       type: [String, Array],
       default: "chevron_right",
     },
-    /**
-     * Menu-item count of items
-     */
     count: {
       type: [String, Number],
       default: "",
     },
-    /**
-     * Menu-item link (if is empty then SfMenuItem is SfButton)
-     */
     link: {
       type: [String, Object],
       default: "",

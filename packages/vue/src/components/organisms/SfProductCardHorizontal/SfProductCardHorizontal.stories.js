@@ -28,6 +28,7 @@ export default {
   title: "Components/Organisms/ProductCardHorizontal",
   component: SfProductCardHorizontal,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "product-card-horizontal-padding": {
         value: "var(--spacer-xs)",
@@ -165,7 +166,7 @@ export default {
         control: "text",
       },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component:

@@ -5,9 +5,10 @@ export default {
   title: "Components/Molecules/Banner",
   component: SfBanner,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "banner-display": { value: "flex", control: "text" },
-      "banner-justify-content": { value: "flex-start", control: "text" },
+      "banner-justify-content": { value: "", control: "text" },
       "banner-width": { value: "100%", control: "text" },
       "banner-height": { value: "21.4375rem", control: "text" },
       "banner-background": {
@@ -115,7 +116,7 @@ export default {
         control: "text",
       },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component:
@@ -213,7 +214,8 @@ export default {
     },
     click: {
       action: "Button clicked!",
-      table: { category: "Events" },
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits click event when button is clicked",
     },
   },
   args: {

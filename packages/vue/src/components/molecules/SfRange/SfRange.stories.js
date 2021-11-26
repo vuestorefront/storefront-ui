@@ -3,6 +3,7 @@ export default {
   title: "Components/Molecules/Range",
   component: SfRange,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "range-handle-border": {
         value:
@@ -31,7 +32,7 @@ export default {
       },
       "range-tooltip-border-width": { value: "0", control: "text" },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component:
@@ -180,7 +181,11 @@ export default {
         },
       },
     },
-    change: { action: "New value", table: { category: "Events" } },
+    change: {
+      action: "change event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits change event when value is changed",
+    },
   },
 };
 

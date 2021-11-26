@@ -4,6 +4,7 @@ export default {
   title: "Components/Atoms/Divider",
   component: SfDivider,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "divider-display": { value: "block", control: "text" },
       "divider-margin": { value: "", control: "text" },
@@ -16,7 +17,7 @@ export default {
       },
       "divider-border-width": { value: "1px", control: "text" },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component: "The divider component. It's Vue 2 functional component.",

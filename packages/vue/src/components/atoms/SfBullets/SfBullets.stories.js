@@ -4,6 +4,7 @@ export default {
   title: "Components/Atoms/Bullets",
   component: SfBullets,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "bullet-width": { value: "var(--bullet-size, 0.5rem)", control: "text" },
       "bullet-height": { value: "var(--bullet-size, 0.5rem)", control: "text" },
@@ -22,7 +23,7 @@ export default {
         control: "text",
       },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component:
@@ -55,6 +56,14 @@ export default {
       defaultValue: 0,
       description: "Index of the currently active bullet (0-indexed)",
     },
+    click: {
+      action: "click",
+      table: {
+        category: "Events",
+      },
+      description:
+        "Click event. Emits when inactive bullet button component is clicked.",
+    },
   },
 };
 
@@ -68,6 +77,7 @@ const Template = (args, { argTypes }) => ({
   },
   methods: {
     handleClick(value) {
+      this.click();
       this.curr = value;
     },
   },

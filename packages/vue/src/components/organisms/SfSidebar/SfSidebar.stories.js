@@ -3,14 +3,54 @@ export default {
   title: "Components/Organisms/Sidebar",
   component: SfSidebar,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
+      "sidebar-top": { value: "", control: "text" },
+      "sidebar-left": { value: "", control: "text" },
+      "sidebar-right": { value: "", control: "text" },
+      "sidebar-bottom": { value: "0", control: "text" },
+      "sidebar-z-index": { value: "1", control: "text" },
+      "sidebar-width": { value: "", control: "text" },
+      "sidebar-background": { value: "var(--c-white)", control: "text" },
+      "sidebar-box-shadow": {
+        value: "0px 4px 11px rgba(29, 31, 34, 0.1)",
+        control: "text",
+      },
+      "sidebar-top-padding": { value: "", control: "text" },
+      "sidebar-content-display": { value: "flex", control: "text" },
+      "sidebar-content-flex-direction": { value: "column", control: "text" },
+      "sidebar-content-width": { value: "", control: "text" },
+      "sidebar-content-padding": { value: "", control: "text" },
+      "sidebar-content-color": { value: "var(--c-text)", control: "text" },
+      "sidebar-content-font": { value: "", control: "text" },
+      "sidebar-content-font-weight": {
+        value: "var(--font-weight--medium)",
+        control: "text",
+      },
+      "sidebar-content-font-size": {
+        value: "var(--font-size--base)",
+        control: "text",
+      },
+      "sidebar-content-font-line-height": { value: "1.6", control: "text" },
+      "sidebar-content-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+      "sidebar-title-display": { value: "", control: "text" },
+      "sidebar-title": { value: "0 0 var(--spacer-lg) 0", control: "text" },
+      "sidebar-bottom-padding": { value: "var(--spacer-sm)", control: "text" },
+      "sidebar-circle-icon-display": { value: "flex", control: "text" },
+      "sidebar-circle-icon-left": { value: "", control: "text" },
+      "sidebar-circle-icon-top": { value: "", control: "text" },
+      "sidebar-circle-icon-right": { value: "0", control: "text" },
+      "sidebar-circle-icon-transform": { value: "", control: "text" },
       "heading-title-color": {
         value: "var(--c-dark-variant)",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
       "heading-title-font-size": {
-        value: "var(--font-size--xl)",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
@@ -29,51 +69,23 @@ export default {
         description: "Overridden other component's CSS variable",
         control: "text",
       },
-      "sidebar-width": {
-        value: "",
-        control: "text",
-      },
-      "sidebar-content-padding": {
-        value: "var(--spacer-base) var(--spacer-xl)",
-        control: "text",
-      },
-      "sidebar-left": {
-        value: "",
-        control: "text",
-      },
-      "sidebar-right": {
-        value: "",
-        control: "text",
-      },
-      "sidebar-top-padding": {
-        value: "",
-        control: "text",
-      },
-      "sidebar-circle-icon-top": {
-        value: "",
-        control: "text",
-      },
-      "sidebar-circle-icon-transform": {
-        value: "",
-        control: "text",
-      },
       "button-background": {
-        value: "transparent",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
       "icon-color": {
-        value: "var(--c-link)",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
       "button-box-shadow-opacity": {
-        value: "0",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
     },
-
+    // end of code generated automatically
     docs: {
       inlineStories: false,
       iframeHeight: "20em",

@@ -5,6 +5,7 @@ export default {
   title: "Components/Organisms/StoreLocator",
   component: SfStore,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "store-padding": { value: "0 0 var(--spacer-sm) 0", control: "text" },
       "store-margin": { value: "var(--spacer-sm) 0 0 0", control: "text" },
@@ -124,7 +125,7 @@ export default {
         control: "text",
       },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component:
@@ -346,6 +347,34 @@ export default {
       defaultValue: "",
       description: "Address of the store (for internal component)",
     },
+    pictureWidth: {
+      control: "text",
+      table: {
+        category: "Props for SfStore component",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "null",
+        },
+      },
+      defaultValue: "",
+      description: "Picture width (for internal component)",
+    },
+    pictureHeight: {
+      control: "text",
+      table: {
+        category: "Props for SfStore component",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "null",
+        },
+      },
+      defaultValue: "",
+      description: "Picture height (for internal component)",
+    },
     address: {
       control: "text",
       table: {
@@ -419,6 +448,8 @@ const Template = (args, { argTypes }) => ({
       :phone="phone"
       :address="address"
       :picture="picture"
+      :pictureWidth="pictureWidth"
+      :pictureHeight="pictureHeight"
     />
   </SfStoreLocator>`,
 });
@@ -434,6 +465,8 @@ Common.args = {
   email: "example@email.com",
   name: "Store",
   picture: "/assets/storybook/SfStore/storeA.png",
+  pictureWidth: 82,
+  pictureHeight: 112,
 };
 
 export const UseMapLoadingSlot = (args, { argTypes }) => ({
@@ -463,6 +496,8 @@ export const UseMapLoadingSlot = (args, { argTypes }) => ({
       :phone="phone"
       :address="address"
       :picture="picture"
+      :pictureWidth="pictureWidth"
+      :pictureHeight="pictureHeight"
     />
   </SfStoreLocator>`,
 });
@@ -495,6 +530,8 @@ export const UseMarkerIconSlot = (args, { argTypes }) => ({
       :phone="phone"
       :address="address"
       :picture="picture"
+      :pictureWidth="pictureWidth"
+      :pictureHeight="pictureHeight"
     />
   </SfStoreLocator>`,
 });

@@ -3,8 +3,9 @@ export default {
   title: "Components/Molecules/Radio",
   component: SfRadio,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {},
-
+    // end of code generated automatically
     docs: {
       description: {
         component: "Radio button component with label and description.",
@@ -127,12 +128,14 @@ export default {
       },
     },
     change: {
-      action: "Toggle selection: change event",
+      action: "change event emitted",
       table: { category: "Events" },
+      description: "Emits change event when option is clicked",
     },
     input: {
-      action: "Toggle selection: input event",
+      action: "input event emitted",
       table: { category: "Events" },
+      description: "Emits input event when option is clicked",
     },
   },
 };
@@ -140,6 +143,11 @@ export default {
 const Template = (args, { argTypes }) => ({
   components: { SfRadio },
   props: Object.keys(argTypes),
+  data() {
+    return {
+      selectedValue: "",
+    };
+  },
   template: `
   <SfRadio
     :class="classes"
@@ -150,7 +158,7 @@ const Template = (args, { argTypes }) => ({
     :value="value"
     :disabled="disabled"
     :required="required"
-    v-model="selected"
+    v-model="selectedValue"
     @change="change"
     @input="input"
   />`,
@@ -164,17 +172,12 @@ Common.args = {
     "Novelty! From now on you have the option of picking up an order in the selected InPack parceler. Just remember that in the case of orders paid on delivery, only the card payment will be accepted.",
   name: "Shipping",
   value: "store",
-};
-
-export const Selected = Template.bind({});
-Selected.args = {
-  ...Common.args,
-  selected: "store",
+  disabled: false,
 };
 
 export const TransparentSelected = Template.bind({});
 TransparentSelected.args = {
-  ...Selected.args,
+  ...Common.args,
   classes: "sf-radio--transparent",
 };
 

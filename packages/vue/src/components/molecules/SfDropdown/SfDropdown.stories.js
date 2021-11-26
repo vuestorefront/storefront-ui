@@ -4,16 +4,17 @@ export default {
   title: "Components/Molecules/Dropdown",
   component: SfDropdown,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "dropdown-position": { value: "fixed", control: "text" },
       "dropdown-top": { value: "", control: "text" },
       "dropdown-bottom": { value: "", control: "text" },
       "dropdown-transform": { value: "", control: "text" },
-      "dropdown-container-position": { value: "relative", control: "text" },
+      "dropdown-container-position": { value: "", control: "text" },
       "dropdown-container-top": { value: "", control: "text" },
       "dropdown-container-bottom": { value: "", control: "text" },
       "dropdown-container-width": { value: "100%", control: "text" },
-      "dropdown-background": { value: "", control: "text" },
+      "dropdown-background": { value: "var(--c-white)", control: "text" },
       "dropdown-box-shadow": { value: "", control: "text" },
       "dropdown-title-padding": {
         value: "var(--spacer-sm) var(--spacer-lg)",
@@ -33,11 +34,8 @@ export default {
         value: "var(--font-family--secondary)",
         control: "text",
       },
-      "dropdown-animation-enter": { value: "dropdown 150ms", control: "text" },
-      "dropdown-animation-leave": {
-        value: "dropdown 150ms reverse",
-        control: "text",
-      },
+      "dropdown-animation-enter": { value: "", control: "text" },
+      "dropdown-animation-leave": { value: "", control: "text" },
       "button-background": {
         value: "",
         description: "Overridden other component's CSS variable",
@@ -54,7 +52,7 @@ export default {
         control: "text",
       },
     },
-
+    // end of code generated automatically
     docs: {
       inlineStories: false,
       iframeHeight: "25em",
@@ -114,20 +112,44 @@ export default {
       description:
         "Actions values (for testing purposes). For development, you can use default slot to place custom action buttons.",
     },
-    "click:close": { action: "Close dropdown", table: { category: "Events" } },
-    "click:open": { action: "Open dropdown", table: { category: "Events" } },
+    "click:close": {
+      action: "click:close event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description:
+        "Emits click:close event when cancel button is clicked or when clicked outside component",
+    },
+    "click:open": {
+      action: "click:open event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits click:open event when trigger button is clicked",
+    },
   },
 };
 
 const Template = (args, { argTypes }) => ({
   components: { SfDropdown, SfList, SfButton },
   props: Object.keys(argTypes),
+  data() {
+    return {
+      isDropdownOpen: this.isOpen,
+    };
+  },
+  methods: {
+    closeHandler() {
+      this.isDropdownOpen = false;
+      this["click:close"]();
+    },
+    openHandler() {
+      this.isDropdownOpen = true;
+      this["click:open"]();
+    },
+  },
   template: `
   <SfDropdown
     :class="classes" 
-    :is-open="isOpen"  
-    @click:open="() => { this['click:open'](); this.isOpen = true }" 
-    @click:close="() => { this['click:close'](); this.isOpen = false }" 
+    :is-open="isDropdownOpen"  
+    @click:open="openHandler"
+    @click:close="closeHandler"
     :persistent="persistent" 
     :title="title"
   >
@@ -149,14 +171,14 @@ Common.args = {
 export const Persistent = Template.bind({});
 Persistent.args = {
   ...Common.args,
-  isOpen: true,
+  isDropdownOpen: true,
   persistent: true,
 };
 
 export const IsOpened = Template.bind({});
 IsOpened.args = {
   ...Common.args,
-  isOpen: true,
+  isDropdownOpen: true,
 };
 
 export const WithUpModifier = Template.bind({});

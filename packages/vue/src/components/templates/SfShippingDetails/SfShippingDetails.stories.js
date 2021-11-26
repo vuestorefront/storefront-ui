@@ -5,6 +5,7 @@ export default {
   title: "Components/Templates/ShippingDetails",
   component: SfShippingDetails,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "button-background": {
         value: "",
@@ -37,6 +38,7 @@ export default {
         control: "text",
       },
     },
+    // end of code generated automatically
     docs: {
       description: {
         component:

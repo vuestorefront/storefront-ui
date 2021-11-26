@@ -5,24 +5,20 @@ export default {
   title: "Components/Templates/Shipping",
   component: SfShipping,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
-      "heading-title-font-weight": {
-        value: "var(--font-weight--bold)",
-        description: "Overridden other component's CSS variable",
-        control: "text",
-      },
       "heading-padding": {
         value: "var(--spacer-xl) 0 var(--spacer-lg)",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
-      "heading-title-font-size": {
-        value: "var(--h3-font-size)",
+      "heading-title-font": {
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
-      "select-option-font-size": {
-        value: "var(--font-size--base)",
+      "select-option-font": {
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
@@ -52,6 +48,7 @@ export default {
         control: "text",
       },
     },
+    // end of code generated automatically
     docs: {
       description: {
         component:

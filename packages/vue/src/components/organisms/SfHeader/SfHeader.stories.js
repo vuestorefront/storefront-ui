@@ -4,6 +4,7 @@ export default {
   title: "Components/Organisms/Header",
   component: SfHeader,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "header-navigation-item-position": { value: "", control: "text" },
       "header-navigation-item-flex": { value: "", control: "text" },
@@ -24,45 +25,22 @@ export default {
         control: "text",
       },
       "header-navigation-item-menu-item-padding": {
-        value: "var(--spacer-sm)",
+        value: "",
         control: "text",
       },
-      "header-navigation-item-menu-item-margin": {
-        value: "0",
-        control: "text",
-      },
-      "header-navigation-item-menu-item-border": {
-        value:
-          "var(--header-navigation-item-menu-item-border-style, solid) var(--header-navigation-item-menu-item-border-color, var(--c-light))",
-        control: "text",
-      },
+      "header-navigation-item-menu-item-margin": { value: "", control: "text" },
+      "header-navigation-item-menu-item-border": { value: "", control: "text" },
       "header-navigation-item-menu-item-border-width": {
-        value: "0 0 1px 0",
+        value: "",
         control: "text",
       },
       "header-navigation-item-display": { value: "", control: "text" },
-      "header-navigation-item-color": {
-        value: "var(--c-dark-variant)",
-        control: "text",
-      },
-      "header-navigation-item-padding": {
-        value: "calc(var(--spacer-sm) - 1px) var(--spacer-sm)",
-        control: "text",
-      },
+      "header-navigation-item-color": { value: "", control: "text" },
+      "header-navigation-item-padding": { value: "", control: "text" },
       "header-navigation-item-margin": { value: "", control: "text" },
-      "header-navigation-item-border": {
-        value:
-          "var(--header-navigation-item-border-style, solid) var(--header-navigation-item-border-color, transparent)",
-        control: "text",
-      },
-      "header-navigation-item-border-width": {
-        value: "0 0 2px 0",
-        control: "text",
-      },
-      "header-navigation-item-transition": {
-        value: "border-color 150ms ease-in-out, color 150ms ease-in-out",
-        control: "text",
-      },
+      "header-navigation-item-border": { value: "", control: "text" },
+      "header-navigation-item-border-width": { value: "", control: "text" },
+      "header-navigation-item-transition": { value: "", control: "text" },
       "header-navigation-item-font": { value: "", control: "text" },
       "header-navigation-item-font-weight": {
         value: "var(--font-weight--normal)",
@@ -92,7 +70,7 @@ export default {
         control: "text",
       },
       "menu-item-text-transform": {
-        value: "uppercase",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
@@ -102,7 +80,7 @@ export default {
         control: "text",
       },
       "link-color": {
-        value: "var(--header-navigation-item-color, var(--c-dark-variant))",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
@@ -171,6 +149,7 @@ export default {
       },
       "header-wrapper-transition": {
         value: "transform 300ms ease-in-out",
+        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "header-box-shadow": {
@@ -190,7 +169,7 @@ export default {
         control: "text",
       },
     },
-
+    // end of code generated automatically
     docs: {
       description: {
         component:
