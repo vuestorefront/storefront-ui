@@ -38,6 +38,14 @@ export default {
       lang: "en",
     },
   },
+  // HTML validator configuration: https://html-validator.nuxtjs.org/
+  htmlValidator: {
+    options: {
+      rules: {
+        'element-required-attributes': 'off',
+      }
+    }
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
