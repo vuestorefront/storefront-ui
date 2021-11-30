@@ -202,6 +202,17 @@ export default {
       defaultValue: ["Products", "Subtotal", "Shipping", "Total price"],
       description: "The array of names for order summary",
     },
+    "click:applyCode": {
+      name: "click:apply-code",
+      action: "click:apply-code event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits click:apply-code event when apply button is clicked",
+    },
+    ["click:apply-code"]: {
+      table: {
+        disable: true,
+      },
+    },
   },
 };
 
@@ -215,6 +226,7 @@ const Template = (args, { argTypes }) => ({
     :order="order"
     :propertiesNames="propertiesNames"
     :characteristics="characteristics"
+    @click:apply-code="this['click:applyCode']"
   />`,
 });
 

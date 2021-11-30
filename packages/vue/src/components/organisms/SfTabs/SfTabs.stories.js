@@ -152,10 +152,10 @@ export default {
       description: "Title of the tab",
     },
     "click:tab": {
-      action: "Tab clicked",
-      table: { category: "Events" },
+      action: "click:tab event emitted",
+      table: { category: "Events", type: { summary: null } },
       description:
-        "This event can be used on SfTabs when there is a need to change tabs in other way than clicking on a particular SfTab. For example by clicking on a button - this example can be found below in a story called `Change Tabs With Buttons`",
+        "Emits click:tab event with index of the tab when active tab is changed",
     },
   },
 };
@@ -236,6 +236,7 @@ export const changeTabsWithButtons = (args, { argTypes }) => ({
   methods: {
     change(tabNumber) {
       this.open = tabNumber;
+      this["click:tab"](this.open);
     },
   },
   template: `<div>

@@ -35,7 +35,7 @@
               aria-label="Search"
               class="sf-header__search"
               @input="$emit('change:search', $event)"
-              @enter="$emit('enter:search', $event)"
+              @keyup.enter="$emit('enter:search', $event)"
             />
           </slot>
           <!--@slot Use this slot to replace default header icons with custom content-->

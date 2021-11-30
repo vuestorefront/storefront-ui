@@ -378,20 +378,29 @@ export default {
       description: "link for header navigation item",
     },
     "change:search": {
-      action: "Changed search value",
-      table: { category: "Events" },
+      action: "change:search event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits change:search event when searchbar value is changed",
+    },
+    "enter:search": {
+      action: "enter:search event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits enter:search event when enter key is pressed",
     },
     "click:cart": {
-      action: "Clicked on cart",
-      table: { category: "Events" },
+      action: "click:cart event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits click:cart event when cart button is clicked",
     },
     "click:wishlist": {
-      action: "Clicked on Wishlist",
-      table: { category: "Events" },
+      action: "click:wishlist event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits click:wishlist event when wishlist button is clicked",
     },
     "click:account": {
-      action: "Clicked on Account",
-      table: { category: "Events" },
+      action: "click:account event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits click:account event when account button is clicked",
     },
   },
 };
@@ -404,6 +413,12 @@ const Template = (args, { argTypes }) => ({
       navigationItems: ["women", "man", "kids"],
       searchValues: "",
     };
+  },
+  methods: {
+    changeHandler(value) {
+      this.searchValues = value;
+      this["change:search"](value);
+    },
   },
   template: `
   <SfHeader
@@ -425,7 +440,8 @@ const Template = (args, { argTypes }) => ({
     @click:cart="this['click:cart']"
     @click:wishlist="this['click:wishlist']"
     @click:account="this['click:account']"
-    @change:search="searchValues = $event"
+    @change:search="changeHandler"
+    @enter:search="this['enter:search']"
 >
   <template #navigation>
     <SfHeaderNavigationItem
