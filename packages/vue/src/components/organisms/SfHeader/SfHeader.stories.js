@@ -6,10 +6,10 @@ export default {
   parameters: {
     // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
-      "header-navigation-item-position": { value: "relative", control: "text" },
+      "header-navigation-item-position": { value: "", control: "text" },
       "header-navigation-item-flex": { value: "", control: "text" },
       "header-navigation-item-content-position": {
-        value: "fixed",
+        value: "",
         control: "text",
       },
       "header-navigation-item-content-width": {
@@ -69,14 +69,6 @@ export default {
         description: "Overridden other component's CSS variable",
         control: "text",
       },
-      "font-size--base": {
-        description: "Overridden other component's CSS variable",
-        control: "text",
-      },
-      "font-weight--medium": {
-        description: "Overridden other component's CSS variable",
-        control: "text",
-      },
       "menu-item-text-transform": {
         value: "",
         description: "Overridden other component's CSS variable",
@@ -93,18 +85,16 @@ export default {
         control: "text",
       },
       "header-navigation-menu-display": {
-        value: "flex",
-        description: "Overridden other component's CSS variable",
+        value: "",
         control: "text",
       },
       "sidebar-content-padding": {
-        value: "0",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
       "header-navigation-sidebar-display": {
-        value: "none",
-        description: "Overridden other component's CSS variable",
+        value: "",
         control: "text",
       },
       "image-width": {
@@ -113,28 +103,25 @@ export default {
         control: "text",
       },
       "image-height": {
-        value: "var(--header-logo-height, 2.125rem)",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
       "header-navigation-margin": {
-        value: "0 auto 0 var(--spacer-xl)",
-        description: "Overridden other component's CSS variable",
+        value: "",
         control: "text",
       },
       "search-bar-display": {
-        value: "none",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
       "header-search-flex": {
         value: "0 1 19.875rem",
-        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "header-icons-display": {
-        value: "flex",
-        description: "Overridden other component's CSS variable",
+        value: "none",
         control: "text",
       },
       "icon-color": {
@@ -153,13 +140,11 @@ export default {
         control: "text",
       },
       "header-wrapper-position": {
-        value: "fixed",
-        description: "Overridden other component's CSS variable",
+        value: "",
         control: "text",
       },
       "header-wrapper-transform": {
-        value: "translate3d(0, -100%, 0)",
-        description: "Overridden other component's CSS variable",
+        value: "",
         control: "text",
       },
       "header-wrapper-transition": {
@@ -169,22 +154,18 @@ export default {
       },
       "header-box-shadow": {
         value: "0px 4px 11px rgba(29, 31, 34, 0.1)",
-        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "header-icons-margin": {
-        value: "var(--spacer-sm) 0 var(--spacer-sm) 100%",
-        description: "Overridden other component's CSS variable",
+        value: "",
         control: "text",
       },
       "header-icons-order": {
-        value: "-1",
-        description: "Overridden other component's CSS variable",
+        value: "",
         control: "text",
       },
       "header-actions-flex-wrap": {
-        value: "wrap",
-        description: "Overridden other component's CSS variable",
+        value: "",
         control: "text",
       },
     },

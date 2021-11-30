@@ -52,12 +52,11 @@ export default {
         control: "text",
       },
       "search-bar-border-color": {
-        value: "var(--c-primary)",
-        description: "Overridden other component's CSS variable",
+        value: "",
         control: "text",
       },
     },
-    // end of code generated automatically
+
     docs: {
       description: {
         component: "Search bar component with placeholder text and icon.",

@@ -22,7 +22,7 @@ export default {
         control: "text",
       },
       "button-width": {
-        value: "100%",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
