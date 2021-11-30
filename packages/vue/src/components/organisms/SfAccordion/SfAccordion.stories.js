@@ -196,7 +196,7 @@ export default {
       action: "open-header event emitted",
       table: { category: "Events", type: { summary: null } },
       description:
-        "Emits open-header event when header is opened.",
+        "Emits open-header event with header name when header is opened.",
     },
   },
 };
@@ -215,13 +215,13 @@ const Template = (args, { argTypes }) => ({
     :multiple="multiple"
     :show-chevron="showChevron"
     :transition="transition"
-    :first-open="firstOpen"    
+    :first-open="firstOpen" 
+    @click:open="this['click:open']"
   >
     <SfAccordionItem 
       v-for="accordion in accordions" 
       :key="accordion.header" 
-      :header="accordion.header" 
-      @click:open="this['click:open']"
+      :header="accordion.header"      
     >
       <SfList>
         <SfListItem
@@ -282,8 +282,8 @@ export const controlWithButtons = (args, { argTypes }) => ({
   },
   methods: {
     change(headerName) {
-      // this['click:open-header']();
       this.activeHeader = headerName;
+      this['click:open'](this.activeHeader);
     },
   },
   template: `
@@ -297,7 +297,7 @@ export const controlWithButtons = (args, { argTypes }) => ({
       :show-chevron="showChevron"
       :transition="transition"
       :first-open="firstOpen"
-      @click:open-header="change('')"
+      @click:open="this['click:open']"
     >
       <SfAccordionItem 
         v-for="accordion in accordions" 
@@ -334,7 +334,9 @@ export const UseHeaderSlot = (args, { argTypes }) => ({
     :multiple="multiple"
     :show-chevron="showChevron"
     :transition="transition"
-    :first-open="firstOpen">
+    :first-open="firstOpen"
+    @click:open="this['click:open']"
+  >
     <SfAccordionItem 
       v-for="accordion in accordions" 
       :key="accordion.header" 
@@ -363,7 +365,11 @@ UseHeaderSlot.parameters = {
     source: {
       code: `
 <template>
-  <SfAccordion transition="sf-expand" showChevron>
+  <SfAccordion 
+    transition="sf-expand" 
+    showChevron 
+    @click:open="this['click:open']"
+  >
     <SfAccordionItem  header="Clothing">
       <template #header="{header, isOpen, accordionClick, showChevron}">
         <div @click="accordionClick" :style="{cursor: 'pointer'}">CUSTOM HEADER</div>
