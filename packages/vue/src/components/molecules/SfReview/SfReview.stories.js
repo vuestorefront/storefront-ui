@@ -101,16 +101,8 @@ export default {
         description: "Overridden other component's CSS variable",
         control: "text",
       },
-      "font-weight--medium": {
-        description: "Overridden other component's CSS variable",
-        control: "text",
-      },
-      "font-size--sm": {
-        description: "Overridden other component's CSS variable",
-        control: "text",
-      },
     },
-    // end of code generated automatically
+
     docs: {
       description: {
         component:
