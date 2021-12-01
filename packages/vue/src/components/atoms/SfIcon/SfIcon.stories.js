@@ -26,7 +26,7 @@ export default {
     docs: {
       description: {
         component:
-          "The icon with color and size modifiers. It's Vue 2 functional component.",
+          "The icon with color and size modifiers.",
       },
     },
   },
