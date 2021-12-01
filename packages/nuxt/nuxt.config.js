@@ -24,7 +24,7 @@ export default {
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [],
+  buildModules: ['@nuxtjs/html-validator'],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
@@ -37,6 +37,14 @@ export default {
     manifest: {
       lang: "en",
     },
+  },
+  // HTML validator configuration: https://html-validator.nuxtjs.org/
+  htmlValidator: {
+    options: {
+      rules: {
+        'element-required-attributes': 'off',
+      }
+    }
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
