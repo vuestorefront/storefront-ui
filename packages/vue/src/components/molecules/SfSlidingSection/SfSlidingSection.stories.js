@@ -23,7 +23,6 @@ export default {
       },
       "sliding-section-sliding-margin": {
         value: "",
-        description: "Overridden other component's CSS variable",
         control: "text",
       },
     },
