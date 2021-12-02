@@ -283,7 +283,6 @@ export const controlWithButtons = (args, { argTypes }) => ({
   methods: {
     change(headerName) {
       this.activeHeader = headerName;
-      this['click:open'](this.activeHeader);
     },
   },
   template: `

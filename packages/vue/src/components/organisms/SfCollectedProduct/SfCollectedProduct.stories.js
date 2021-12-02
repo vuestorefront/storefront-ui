@@ -334,7 +334,7 @@ const Template = (args, { argTypes }) => ({
   <SfCollectedProduct
     :qty="quantity"
     :class="classes"
-    @input="inputHandler($event)"
+    @input="inputHandler"
     @click:remove="this['click:remove']"
     @click:actions="this['click:actions']"
     :image="image"
@@ -376,7 +376,7 @@ export const UseActionsSlot = (args, { argTypes }) => ({
   template: `
   <SfCollectedProduct
     :qty="quantity"
-    @input="inputHandler($event)"
+    @input="inputHandler"
     :image="image"
     :image-width="imageWidth"
     :image-height="imageHeight"
@@ -402,7 +402,7 @@ export const UseConfigurationSlot = (args, { argTypes }) => ({
   template: `
   <SfCollectedProduct
     :qty="quantity"
-    @input="inputHandler($event)"
+    @input="inputHandler"
     :image="image"
     :image-width="imageWidth"
     :image-height="imageHeight"
@@ -428,7 +428,7 @@ export const UseImageSlot = (args, { argTypes }) => ({
   template: `
   <SfCollectedProduct
     :qty="quantity"
-    @input="inputHandler($event)"
+    @input="inputHandler"
     :image="image"
     :image-width="imageWidth"
     :image-height="imageHeight"
@@ -454,7 +454,7 @@ export const UseInputSlot = (args, { argTypes }) => ({
   template: `
   <SfCollectedProduct
     :qty="quantity"
-    @input="inputHandler($event)"
+    @input="inputHandler"
     :image="image"
     :image-width="imageWidth"
     :image-height="imageHeight"
@@ -480,7 +480,7 @@ export const UseTitleSlot = (args, { argTypes }) => ({
   template: `
   <SfCollectedProduct
     :qty="quantity"
-    @input="inputHandler($event)"
+    @input="inputHandler"
     :image="image"
     :image-width="imageWidth"
     :image-height="imageHeight"
@@ -506,7 +506,7 @@ export const UsePriceSlot = (args, { argTypes }) => ({
   template: `
   <SfCollectedProduct
     :qty="quantity"
-    @input="inputHandler($event)"
+    @input="inputHandler"
     :image="image"
     :image-width="imageWidth"
     :image-height="imageHeight"
