@@ -67,7 +67,7 @@ export default {
     },
     link: {
       type: String,
-      default: "",
+      default: null,
     },
     buttonText: {
       type: String,

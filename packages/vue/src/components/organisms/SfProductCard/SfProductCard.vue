@@ -228,7 +228,7 @@ export default {
     },
     link: {
       type: [String, Object],
-      default: "",
+      default: null,
     },
     /**
      * Link element tag
