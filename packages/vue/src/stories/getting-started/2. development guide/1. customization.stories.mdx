@@ -281,12 +281,12 @@ We can use the latest to disable buttons when they're not usable.
   :visible="5"
   @click="page => currentPage = page"
 >
-  <template #prev="{ isDisabled, go }">
-    <button @click="go()" :disabled="isDisabled ? true : false">prev</button>
+  <template #prev="{ go, prev }">
+      <button @click="go(prev)">prev</button>
   </template>
-  <template #next="{ isDisabled, go }">
-    <button @click="go()" :disabled="isDisabled ? true : false">next</button>
-  </template>
+  <template #next="{ go, next }">
+      <button @click="go(next)">next</button>
+    </template>
 </SfPagination>
 ```
 
