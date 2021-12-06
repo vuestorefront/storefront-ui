@@ -5,7 +5,6 @@
     v-bind="data.attrs"
     v-on="listeners"
   >
-    <!--@slot Use this slot to place content inside the badge-->
     <slot />
   </span>
 </template>

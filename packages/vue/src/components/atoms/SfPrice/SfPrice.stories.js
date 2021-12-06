@@ -96,6 +96,35 @@ export default {
       defaultValue: "",
       description: "Special price value",
     },
+    "regular*": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot `regular`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use the `regular` name if you want to use this slot. Use this slot to replace regular price content",
+    },
+    "special*": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot `special`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use the `special` name if you want to use this slot. Use this slot to replace special price content",
+    },
+    old: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace old price content",
+    },
   },
 };
 

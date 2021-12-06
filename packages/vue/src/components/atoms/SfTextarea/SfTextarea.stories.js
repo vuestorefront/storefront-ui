@@ -213,6 +213,22 @@ export default {
       table: { category: "Events", type: { summary: null } },
       description: "Emits when textarea value changes and loses focus.",
     },
+    "label*": {
+      table: {
+        category: "Slots",
+      },
+      description:
+        "Named slot `label`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use the `label` name if you want to use this slot. Use this slot to replace label content",
+    },
+    "error-message": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Custom error message ",
+    },
   },
 };
 
