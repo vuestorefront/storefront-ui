@@ -30,7 +30,7 @@
   &.has-colors { 
     --product-card-add-button-bottom: 0;
     @include for-desktop {
-      --color-picker-top: 1.5rem;
+      --color-picker-top: 0;
       --product-card-link-margin: 1.5rem 0 0 0;
     }
   }
@@ -46,6 +46,7 @@
     text-align: left;  
   }
   &__colors {
+    --color-picker-position: absolute;
     --color-picker-label-font-size: var(--font-size--base);
     --color-picker-label-font-weight: var(--font-weight--medium);
     @include for-desktop {      
@@ -95,6 +96,16 @@
     position: absolute;
     top: var(--product-card-badge-top, var(--spacer-xs));
     left: var(--product-card-badge-left, 0);
+  }
+  &__colors-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: var(--spacer-xs);
+    width: 2.5rem;
+    height:  2.5rem;
+    padding: 0;
+    color: var(--c-white);
   }
   &__add-button {
     --circle-icon-position: absolute;
@@ -160,5 +171,11 @@
     --product-card-add-button-display: flex;
     --product-card-title-margin: var(--spacer-sm) 0 0 0;
     --product-card-margin: var(--spacer-xs) 0;
+    &__colors-badge {
+      margin: var(--spacer-sm) var(--spacer-sm) 0 0;
+      width: 1.25rem;
+      height:  1.25rem;
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    }
   }
 }

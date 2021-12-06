@@ -53,8 +53,15 @@
             :color="color.color"
             :selected="color.selected"
             class="sf-product-card__color"
+            :class="{ 'display-none': i > 3 && showBadge }"
             @click="handleSelectedColor(i)"
           />
+          <SfBadge
+            v-if="showBadge"
+            class="sf-product-card__colors-badge color-secondary"
+          >
+            {{ `+${colors.length - 4}` }}
+          </SfBadge>
         </SfColorPicker>
       </slot>
       <slot name="badge" v-bind="{ badgeLabel, badgeColor }">
@@ -313,6 +320,10 @@ export default {
     wishlistIconClasses() {
       const defaultClass = "sf-button--pure sf-product-card__wishlist-icon";
       return `${defaultClass} ${this.isInWishlist ? "on-wishlist" : ""}`;
+    },
+    showBadge() {
+      console.log(this.colors.length);
+      return this.colors.length > 5;
     },
   },
   beforeDestroy() {
