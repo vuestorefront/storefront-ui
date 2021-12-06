@@ -193,10 +193,9 @@ export default {
         "Opens the first accordion item if set to 'true'. @deprecated will be removed. Use open prop instead",
     },
     "click:open": {
-      action: "open-header event emitted",
+      action: "open event emitted",
       table: { category: "Events", type: { summary: null } },
-      description:
-        "Emits open-header event with header name when header is opened.",
+      description: "Emits open event with header name when header is opened.",
     },
   },
 };
@@ -281,27 +280,31 @@ export const controlWithButtons = (args, { argTypes }) => ({
     };
   },
   methods: {
-    change(headerName) {
+    buttonClick(headerName) {
       this.activeHeader = headerName;
+    },
+    openHeader(openedHeader) {
+      this["click:open"](openedHeader);
+      this.buttonClick();
     },
   },
   template: `
   <div>
-    <SfButton style="display: inline; margin: var(--spacer-xs)" @click="change('Clothing')">open Clothing</SfButton>
-    <SfButton style="display: inline; margin: var(--spacer-xs)" @click="change('Accessories')">open Accessories</SfButton>
-    <SfButton style="display: inline; margin: var(--spacer-xs)" @click="change('Shoes')">open Shoes</SfButton>
+    <SfButton style="display: inline; margin: var(--spacer-xs)" @click="buttonClick('Clothing')">open Clothing</SfButton>
+    <SfButton style="display: inline; margin: var(--spacer-xs)" @click="buttonClick('Accessories')">open Accessories</SfButton>
+    <SfButton style="display: inline; margin: var(--spacer-xs)" @click="buttonClick('Shoes')">open Shoes</SfButton>
     <SfAccordion 
       :open="activeHeader" 
       :multiple="multiple"
       :show-chevron="showChevron"
       :transition="transition"
       :first-open="firstOpen"
-      @click:open="this['click:open']"
+      @click:open="openHeader"
     >
       <SfAccordionItem 
         v-for="accordion in accordions" 
         :key="accordion.header" 
-        :header="accordion.header"
+        :header="accordion.header"        
       >
         <SfList>
           <SfListItem
