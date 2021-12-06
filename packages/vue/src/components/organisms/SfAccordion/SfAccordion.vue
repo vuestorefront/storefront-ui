@@ -16,10 +16,6 @@ export default {
       type: [String, Array],
       default: "",
     },
-    firstOpen: {
-      type: Boolean,
-      default: false,
-    },
     multiple: {
       type: Boolean,
       default: false,
@@ -67,16 +63,6 @@ export default {
   methods: {
     setAsOpen() {
       if (this.$children && this.$children.length) {
-        // TODO remove in 1.0.0 ->
-        if (this.firstOpen) {
-          this.$children[0].isOpen = this.firstOpen;
-          deprecationWarning(
-            this.$options.name,
-            "Prop 'firstOpen' has been deprecated and will be removed in v1.0.0. Use 'open' instead."
-          );
-          return;
-        }
-        // <- TODO remove in 1.0.0
         if (this.open === "all") {
           this.internalMultiple = true;
           this.openHeader = this.$children.map((child) => child.header);

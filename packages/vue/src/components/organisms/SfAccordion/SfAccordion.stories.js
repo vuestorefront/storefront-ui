@@ -177,21 +177,6 @@ export default {
       defaultValue: true,
       description: "Show chevron icon",
     },
-    firstOpen: {
-      control: "boolean",
-      table: {
-        category: "Props",
-        type: {
-          summary: "string",
-        },
-        defaultValue: {
-          summary: false,
-        },
-      },
-      defaultValue: false,
-      description:
-        "Opens the first accordion item if set to 'true'. @deprecated will be removed. Use open prop instead",
-    },
     "click:open-header": {
       action: "Open header",
       table: { category: "Events" },
@@ -214,8 +199,7 @@ const Template = (args, { argTypes }) => ({
     :open="open" 
     :multiple="multiple"
     :show-chevron="showChevron"
-    :transition="transition"
-    :first-open="firstOpen">
+    :transition="transition">
     <SfAccordionItem 
       v-for="accordion in accordions" 
       :key="accordion.header" 
@@ -293,7 +277,6 @@ export const controlWithButtons = (args, { argTypes }) => ({
       :multiple="multiple"
       :show-chevron="showChevron"
       :transition="transition"
-      :first-open="firstOpen"
       @click:open-header="change('')"
     >
       <SfAccordionItem 
@@ -330,8 +313,7 @@ export const UseHeaderSlot = (args, { argTypes }) => ({
     :open="open" 
     :multiple="multiple"
     :show-chevron="showChevron"
-    :transition="transition"
-    :first-open="firstOpen">
+    :transition="transition">
     <SfAccordionItem 
       v-for="accordion in accordions" 
       :key="accordion.header" 
