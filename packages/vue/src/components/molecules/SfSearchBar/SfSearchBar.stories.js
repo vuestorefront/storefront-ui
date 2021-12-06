@@ -52,12 +52,11 @@ export default {
         control: "text",
       },
       "search-bar-border-color": {
-        value: "var(--c-primary)",
-        description: "Overridden other component's CSS variable",
+        value: "",
         control: "text",
       },
     },
-    // end of code generated automatically
+
     docs: {
       description: {
         component: "Search bar component with placeholder text and icon.",
@@ -131,10 +130,33 @@ export default {
       description:
         "Define color of the search icon. Property in icon object prop (for testing purposes). Custom color of the icon. It can be according to our standard colors, or legitimate CSS color such as `#fff`, `rgb(255,255,255)`), and `lightgray` or nothing. Standard colors: `white`, `black`, `green-primary`, `green-secondary`, `gray-primary`, `gray-secondary`, `light-primary`, `light-secondary`, `pink-primary`, `pink-secondary`, `yellow-primary`, `yellow-secondary`, `blue-primary`, `blue-secondary`, `accent`. See icon prop below.",
     },
-    input: { action: "Input changed", table: { category: "Events" } },
-    blur: { action: "Not focus anymore", table: { category: "Events" } },
-    focus: { action: "Focus", table: { category: "Events" } },
-    click: { action: "Button click", table: { category: "Events" } },
+    input: {
+      action: "input event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description:
+        "Emits input event when search value is changed or enter or esc keys are pressed",
+    },
+    blur: {
+      action: "blur event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits blur event when search field loses focus",
+    },
+    focus: {
+      action: "focus input event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description:
+        "Emits focus event when search field gains focus. It is passed via v-on='$listeners'",
+    },
+    click: {
+      action: "click event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits click event when search icon is cicked",
+    },
+    "keyup.esc": {
+      action: "click event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits click event when search icon is cicked",
+    },
   },
 };
 

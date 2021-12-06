@@ -96,10 +96,6 @@ export default {
         description: "Overridden other component's CSS variable",
         control: "text",
       },
-      "font-weight--light": {
-        description: "Overridden other component's CSS variable",
-        control: "text",
-      },
       "button-text-transform": {
         value: "capitalize",
         description: "Overridden other component's CSS variable",
@@ -201,7 +197,12 @@ export default {
       description:
         "Changing colors (for testing purposes). For development, you can use default slot to place custom color element.",
     },
-    "click:toggle": { action: "Toggle isOpen", table: { category: "Events" } },
+    "click:toggle": {
+      action: "click:toggle event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description:
+        "Emits click:toggle when open/close button is clicked in mobile mode",
+    },
   },
 };
 

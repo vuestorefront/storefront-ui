@@ -36,7 +36,7 @@ export default {
         control: "text",
       },
       "button-background": {
-        value: "transparent",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
@@ -52,10 +52,6 @@ export default {
       },
       "hero-item-font": {
         value: "",
-        description: "Overridden other component's CSS variable",
-        control: "text",
-      },
-      "h1-font-size": {
         description: "Overridden other component's CSS variable",
         control: "text",
       },

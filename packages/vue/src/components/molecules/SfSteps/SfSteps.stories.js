@@ -46,14 +46,6 @@ export default {
         description: "Overridden other component's CSS variable",
         control: "text",
       },
-      "font-weight--normal": {
-        description: "Overridden other component's CSS variable",
-        control: "text",
-      },
-      "font-size--base": {
-        description: "Overridden other component's CSS variable",
-        control: "text",
-      },
     },
     // end of code generated automatically
     docs: {
@@ -129,7 +121,11 @@ export default {
         disable: true,
       },
     },
-    change: { action: "Step changed", table: { category: "Events" } },
+    change: {
+      action: "change event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits change event with step value when step is clicked",
+    },
   },
 };
 

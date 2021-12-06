@@ -81,25 +81,18 @@ export default {
         description: "Overridden other component's CSS variable",
         control: "text",
       },
-      "h3-font-size": {
+      "heading-title-font-size": {
+        value: "var(--h3-font-size)",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
-      "font-weight--semibold": {
+      "property-name-font-weight": {
+        value: "var(--font-weight--medium)",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
-      "property-name-font": {
-        value: "",
-        description: "Overridden other component's CSS variable",
-        control: "text",
-      },
-      "font-weight--medium": {
-        description: "Overridden other component's CSS variable",
-        control: "text",
-      },
-      "property-value-font": {
-        value: "",
+      "property-value-font-weight": {
+        value: "var(--font-weight--bold)",
         description: "Overridden other component's CSS variable",
         control: "text",
       },

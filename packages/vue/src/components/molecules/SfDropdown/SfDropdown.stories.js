@@ -37,17 +37,17 @@ export default {
       "dropdown-animation-enter": { value: "", control: "text" },
       "dropdown-animation-leave": { value: "", control: "text" },
       "button-background": {
-        value: "var(--c-light)",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
       "button-color": {
-        value: "var(--c-text-muted)",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
       "button-display": {
-        value: "none",
+        value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
@@ -112,20 +112,44 @@ export default {
       description:
         "Actions values (for testing purposes). For development, you can use default slot to place custom action buttons.",
     },
-    "click:close": { action: "Close dropdown", table: { category: "Events" } },
-    "click:open": { action: "Open dropdown", table: { category: "Events" } },
+    "click:close": {
+      action: "click:close event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description:
+        "Emits click:close event when cancel button is clicked or when clicked outside component",
+    },
+    "click:open": {
+      action: "click:open event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits click:open event when trigger button is clicked",
+    },
   },
 };
 
 const Template = (args, { argTypes }) => ({
   components: { SfDropdown, SfList, SfButton },
   props: Object.keys(argTypes),
+  data() {
+    return {
+      isDropdownOpen: this.isOpen,
+    };
+  },
+  methods: {
+    closeHandler() {
+      this.isDropdownOpen = false;
+      this["click:close"]();
+    },
+    openHandler() {
+      this.isDropdownOpen = true;
+      this["click:open"]();
+    },
+  },
   template: `
   <SfDropdown
     :class="classes" 
-    :is-open="isOpen"  
-    @click:open="() => { this['click:open'](); this.isOpen = true }" 
-    @click:close="() => { this['click:close'](); this.isOpen = false }" 
+    :is-open="isDropdownOpen"  
+    @click:open="openHandler"
+    @click:close="closeHandler"
     :persistent="persistent" 
     :title="title"
   >
@@ -147,14 +171,14 @@ Common.args = {
 export const Persistent = Template.bind({});
 Persistent.args = {
   ...Common.args,
-  isOpen: true,
+  isDropdownOpen: true,
   persistent: true,
 };
 
 export const IsOpened = Template.bind({});
 IsOpened.args = {
   ...Common.args,
-  isOpen: true,
+  isDropdownOpen: true,
 };
 
 export const WithUpModifier = Template.bind({});

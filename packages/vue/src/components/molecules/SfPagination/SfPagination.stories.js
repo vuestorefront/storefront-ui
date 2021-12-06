@@ -83,7 +83,12 @@ export default {
       },
       description: "Name of page query param for router",
     },
-    click: { action: "Go to page clicked", table: { category: "Events" } },
+    click: {
+      action: "click event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description:
+        "Emits click event with page value when page number is clicked",
+    },
   },
 };
 

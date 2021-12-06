@@ -20,7 +20,7 @@ export default {
         value: "var(--spacer-sm) 0 var(--spacer-sm) 0",
         control: "text",
       },
-      "select-color": { value: "var(--c-text)", control: "text" },
+      "select-color": { value: "", control: "text" },
       "select-label-top": { value: "", control: "text" },
       "select-label-left": { value: "0", control: "text" },
       "select-label-color": { value: "", control: "text" },
@@ -71,17 +71,14 @@ export default {
       },
       "select-dropdown-border-color": {
         value: "",
-        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "select-border-width": {
         value: "",
-        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "select-border-color": {
         value: "",
-        description: "Overridden other component's CSS variable",
         control: "text",
       },
     },
@@ -207,7 +204,11 @@ export default {
       defaultValue: "",
       description: "Content of the option.",
     },
-    input: { action: "Selected", table: { category: "Events" } },
+    input: {
+      action: "input event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits input event when option is chosen",
+    },
   },
 };
 

@@ -91,12 +91,11 @@ export default {
       defaultValue: "Arrow label",
     },
     click: {
-      action: "click",
+      action: "Arrow clicked",
       table: {
         category: "Events",
       },
-      description:
-        "Click event. It is passed like any other prop in Vue functional component.",
+      description: "Click event. It is passed via v-on='listeners'",
     },
     classes: {
       control: {

@@ -88,7 +88,6 @@ export default {
       "_banner-background-image": { value: "", control: "text" },
       "banner-background-position": {
         value: "60%",
-        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "button-background": {
@@ -215,7 +214,8 @@ export default {
     },
     click: {
       action: "Button clicked!",
-      table: { category: "Events" },
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits click event when button is clicked",
     },
   },
   args: {
