@@ -334,18 +334,41 @@ export default {
       defaultValue: "",
       description: "*Deprecated. Link element tag. Use slot to replace content",
     },
-
     "click:addToCart": {
-      action: "Add-to-cart clicked",
-      table: { category: "Events" },
+      action: "click:add-to-cart event emitted",
+      table: {
+        category: "Events",
+        type: { summary: null },
+      },
+      description:
+        "Emits click:add-to-cart event when add to cart button is clicked",
     },
     "click:wishlist": {
-      action: "Wishlist clicked",
-      table: { category: "Events" },
+      action: "click:wishlist event emitted",
+      table: {
+        category: "Events",
+        type: { summary: null },
+      },
+      description:
+        "Emits click:wishlist event when add to wishlist button is clicked",
+    },
+    "click:reviews": {
+      action: "click:reviews event emitted",
+      table: {
+        category: "Events",
+        type: { summary: null },
+      },
+      description:
+        "Emits click:reviews event when reviews count button is clicked",
     },
     input: {
-      action: "Quantity changed",
-      table: { category: "Events" },
+      action: "input event emitted",
+      table: {
+        category: "Events",
+        type: { summary: null },
+      },
+      description:
+        "Emits input event when quantity selector's value is changed",
     },
   },
 };
@@ -380,6 +403,7 @@ const Template = (args, { argTypes }) => ({
     :is-in-wishlist="isInWishlist"
     @click:add-to-cart="this['click:addToCart']"
     @click:wishlist="this['click:wishlist']"
+    @click:reviews="this['click:reviews']"
   >
     <template #configuration>
       <div style="display: flex; flex-direction: column; justify-content: flex-end">

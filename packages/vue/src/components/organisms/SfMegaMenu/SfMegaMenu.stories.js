@@ -188,8 +188,16 @@ export default {
       description: "Title of the column.",
     },
 
-    change: { action: "Active item changed", table: { category: "Events" } },
-    close: { action: "Close button clicked", table: { category: "Events" } },
+    change: {
+      action: "change event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits change event when active menu item is changed",
+    },
+    close: {
+      action: "close event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits close event when back button is clicked",
+    },
   },
 };
 
