@@ -68,6 +68,25 @@ export default {
         "Alert type ('secondary', 'info', 'success', 'warning', 'danger'). Check 'Knobs' section to see how they look like.",
       defaultValue: "secondary",
     },
+    "message*": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot `message`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use the `message` name if you want to use this slot. This slot content will replace default message <span> tag",
+    },
+    icon: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "This slot content will replace default icon",
+    },
   },
 };
 

@@ -126,6 +126,36 @@ export default {
       table: { category: "Events", type: { summary: null } },
       description: "Emits change event with step value when step is clicked",
     },
+    default: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Default slot for `SfSteps` component. Slot to replace steps content ",
+    },
+    "steps*": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot `steps`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to customize the steps",
+    },
+    "default*": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Default slot for `SfStep` component. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to customize step in `SfStep` component",
+    },
   },
 };
 

@@ -117,6 +117,45 @@ export default {
       defaultValue: "",
       description: "Menu-item link (if is empty then SfMenuItem is SfButton)",
     },
+    "icon*": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot `icon`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Slot for replacing menu item icon",
+    },
+    "label*": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot `label`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Slot for replacing menu item label",
+    },
+    "count*": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot `count`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Slot for replacing items count ",
+    },
+    "mobile-nav-icon": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace icon on mobile devices",
+    },
   },
 };
 

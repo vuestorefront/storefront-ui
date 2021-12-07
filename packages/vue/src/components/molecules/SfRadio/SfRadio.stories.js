@@ -137,6 +137,45 @@ export default {
       table: { category: "Events" },
       description: "Emits input event when option is clicked",
     },
+    checkmark: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Custom checkmark markup",
+    },
+    "label*": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot `label`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to have custom label",
+    },
+    "details*": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot `details`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to have custom details",
+    },
+    "description*": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot `description`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to have custom description",
+    },
   },
 };
 

@@ -157,6 +157,16 @@ export default {
       table: { category: "Events", type: { summary: null } },
       description: "Emits click event when search icon is cicked",
     },
+    "icon*": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot `icon`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to replace the icon",
+    },
   },
 };
 

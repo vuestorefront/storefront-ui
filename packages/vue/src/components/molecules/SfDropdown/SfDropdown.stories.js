@@ -123,6 +123,43 @@ export default {
       table: { category: "Events", type: { summary: null } },
       description: "Emits click:open event when trigger button is clicked",
     },
+    opener: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace button that opens dropdown",
+    },
+    default: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to place content inside the dropdown",
+    },
+    cancel: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace cancel button",
+    },
+    "title*": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot `title`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to replace title",
+    },
   },
 };
 

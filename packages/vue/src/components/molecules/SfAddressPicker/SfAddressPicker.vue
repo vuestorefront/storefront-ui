@@ -1,6 +1,6 @@
 <template>
   <div class="sf-address-picker">
-    <!--@slot Default. Here you should pass your addresses-->
+    <!--@slot Default. Here you should pass your addresses -->
     <slot />
   </div>
 </template>

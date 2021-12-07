@@ -136,6 +136,36 @@ export default {
       table: { category: "Events", type: { summary: null } },
       description: "Emits change event when component is clicked",
     },
+    "label*": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot `label`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Slot for replacing label element",
+    },
+    "count*": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot `count`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Slot for replacing count element",
+    },
+    "color*": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot `color`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Slot for replacing color element",
+    },
   },
 };
 

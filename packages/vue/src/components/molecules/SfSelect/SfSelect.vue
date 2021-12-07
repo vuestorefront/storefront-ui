@@ -34,7 +34,6 @@
         <slot name="placeholder" v-bind="{ placeholder }" />
         {{ placeholder }}
       </option>
-      <!-- @slot Slot to replace select options -->
       <slot />
     </select>
     <div class="sf-select__error-message">

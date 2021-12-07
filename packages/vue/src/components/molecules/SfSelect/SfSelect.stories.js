@@ -209,6 +209,55 @@ export default {
       table: { category: "Events", type: { summary: null } },
       description: "Emits input event when option is chosen",
     },
+    default: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Slot to place select options",
+    },
+    "default*": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Default slot for `SfSelectOption` component. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to place options in `SfSelect` component",
+    },
+    "label*": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot `label`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to customize the label",
+    },
+    "placeholder*": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot `placeholder`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to customize the placeholder",
+    },
+    "errorMessage*": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot `errorMessage`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to customize the errorMessage",
+    },
   },
 };
 

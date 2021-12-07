@@ -201,6 +201,45 @@ export default {
       defaultValue: "",
       description: "Hide full text message for the review",
     },
+    info: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Review information. Slot content will replace default <div> tag and its inner <div> tags",
+    },
+    icon: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Review icon. Slot content can be replaced by custom icon",
+    },
+    "author*": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot `author`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Review author. Slot content will replace default <div> tag",
+    },
+    "message*": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot `message`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Slot content will replace default <div> tag and its inner <span> and <a> tags.",
+    },
   },
 };
 

@@ -168,6 +168,56 @@ export default {
       table: { category: "Events", type: { summary: null } },
       description: "Emits click:close event when close button is clicked",
     },
+    "title*": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot `title`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk.Custom title. Slot content will replace default title",
+    },
+    "message*": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot `message`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Custom message. Slot content will replace default message",
+    },
+    "action*": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot `action`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Custom action. Slot content will replace default action.",
+    },
+    icon: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Custom notification icon. Slot content will replace default icon",
+    },
+    close: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Custom action. Slot content will replace default close button",
+    },
   },
 };
 

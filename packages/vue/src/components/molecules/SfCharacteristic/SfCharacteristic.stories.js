@@ -130,6 +130,46 @@ export default {
       },
       description: "Characteristic description ",
     },
+    text: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Characteristic text. Slot content will replace default title and description text",
+    },
+    "title*": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot `title`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use the `title` name if you want to use this slot. Use this slot to replace title button",
+    },
+    "description*": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot `description`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use the `description` name if you want to use this slot. Use this slot to replace description button",
+    },
+    "icon*": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot `icon`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use the `icon` name if you want to use this slot. Use this slot to replace icon",
+    },
   },
 };
 

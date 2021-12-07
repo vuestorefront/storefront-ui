@@ -171,6 +171,52 @@ export default {
       table: { category: "Events", type: { summary: null } },
       description: "Emits change event when checkbox is clicked",
     },
+    "show-error-message": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Custom error message",
+    },
+    "show-info-message": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Custom info message",
+    },
+    "show-hint-message": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Custom hint message",
+    },
+    checkmark: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Custom check mark markup",
+    },
+    "label*": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot `label`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use the `label` name if you want to use this slot. Use this slot to replace label",
+    },
   },
 };
 
