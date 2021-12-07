@@ -65,13 +65,7 @@ export default {
   methods: {
     setAccordionItems() {
       if (this.$children && this.$children.length) {
-        this.items = this.$children.map((item) => {
-          return {
-            ...item,
-            id: this._uid,
-          };
-        });
-        console.log(this.items);
+        this.items.push(...this.$children);
       }
     },
     setAsOpen() {
@@ -98,7 +92,7 @@ export default {
           }
         });
       } else {
-        const clickedHeader = this.$children.find((child) => {
+        const clickedHeader = this.items.find((child) => {
           return child._uid === slotId;
         });
         clickedHeader.isOpen = !clickedHeader.isOpen;
