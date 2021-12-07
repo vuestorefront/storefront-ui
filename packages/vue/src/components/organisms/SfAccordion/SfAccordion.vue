@@ -6,7 +6,6 @@
 </template>
 <script>
 import Vue from "vue";
-import { deprecationWarning } from "../../../utilities/helpers";
 import SfAccordionItem from "./_internal/SfAccordionItem.vue";
 Vue.component("SfAccordionItem", SfAccordionItem);
 export default {
@@ -31,6 +30,7 @@ export default {
   },
   data() {
     return {
+      items: [],
       openHeader: this.open,
       internalMultiple: this.multiple,
     };
@@ -53,21 +53,34 @@ export default {
   },
   mounted() {
     this.$on("toggle", this.toggleHandler);
+    this.setAccordionItems();
     this.setAsOpen();
     this.$emit("click:open-header");
   },
   updated() {
+    this.setAccordionItems();
     this.setAsOpen();
     this.$emit("click:open-header");
   },
   methods: {
+    setAccordionItems() {
+      if (this.$children && this.$children.length) {
+        this.items = this.$children.map((item) => {
+          return {
+            ...item,
+            id: this._uid,
+          };
+        });
+        console.log(this.items);
+      }
+    },
     setAsOpen() {
       if (this.$children && this.$children.length) {
         if (this.open === "all") {
           this.internalMultiple = true;
-          this.openHeader = this.$children.map((child) => child.header);
+          this.openHeader = this.items.map((child) => child.header);
         }
-        this.$children.forEach((child) => {
+        this.items.forEach((child) => {
           child.isOpen = Array.isArray(this.openHeader)
             ? this.openHeader.includes(child.header)
             : this.openHeader === child.header;
@@ -76,7 +89,7 @@ export default {
     },
     toggleHandler(slotId) {
       if (!this.internalMultiple && !Array.isArray(this.openHeader)) {
-        this.$children.forEach((child) => {
+        this.items.forEach((child) => {
           if (child._uid === slotId) {
             child.isOpen = !child.isOpen;
             this.openHeader = child.header;
