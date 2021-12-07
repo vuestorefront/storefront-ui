@@ -277,6 +277,11 @@ export default {
         disabled: true,
       },
     },
+    input: {
+      action: "input event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits input event when quantity selector value is changed",
+    },
   },
 };
 
@@ -288,6 +293,12 @@ const Template = (args, { argTypes }) => ({
       productQty: 1,
     };
   },
+  methods: {
+    inputHandler(value) {
+      this.productQty = value;
+      this.input(value);
+    }
+  },
   template: `
   <SfGroupedProduct
     :settings="settings"
@@ -296,7 +307,7 @@ const Template = (args, { argTypes }) => ({
   >
     <SfGroupedProductItem
       :qty="productQty"
-      @input="productQty = $event"
+      @input="inputHandler"
       :image="image"
       :image-width="imageWidth"
       :image-height="imageHeight"
@@ -337,7 +348,7 @@ export const UseConfigurationSlot = (args, { argTypes }) => ({
   >
     <SfGroupedProductItem
       :qty="productQty"
-      @input="productQty = $event"
+      @input="inputHandler"
       :image="image"
       :image-width="imageWidth"
       :image-height="imageHeight"
@@ -368,7 +379,7 @@ export const UseImageSlot = (args, { argTypes }) => ({
   >
     <SfGroupedProductItem
       :qty="productQty"
-      @input="productQty = $event"
+      @input="inputHandler"
       :image="image"
       :image-width="imageWidth"
       :image-height="imageHeight"
@@ -399,7 +410,7 @@ export const UseInputSlot = (args, { argTypes }) => ({
   >
     <SfGroupedProductItem
       :qty="productQty"
-      @input="productQty = $event"
+      @input="inputHandler"
       :image="image"
       :image-width="imageWidth"
       :image-height="imageHeight"
@@ -432,7 +443,7 @@ export const UseTitleSlot = (args, { argTypes }) => ({
   >
     <SfGroupedProductItem
       :qty="productQty"
-      @input="productQty = $event"
+      @input="inputHandler"
       :image="image"
       :image-width="imageWidth"
       :image-height="imageHeight"
@@ -463,7 +474,7 @@ export const UsePriceSlot = (args, { argTypes }) => ({
   >
     <SfGroupedProductItem
       :qty="productQty"
-      @input="productQty = $event"
+      @input="inputHandler"
       :image="image"
       :image-width="imageWidth"
       :image-height="imageHeight"
