@@ -29,10 +29,6 @@
   }
   &.has-colors { 
     --product-card-add-button-bottom: 0;
-    @include for-desktop {
-      --color-picker-top: 0;
-      --product-card-link-margin: 1.5rem 0 0 0;
-    }
   }
   &:active {
     --product-card-box-shadow: 0px 4px 11px rgba(29, 31, 34, 0.1);
