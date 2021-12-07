@@ -225,7 +225,12 @@ export default {
       defaultValue: pages,
       description: "Pages data (only for testing purposes).",
     },
-    "click:change": { action: "Page changed", table: { category: "Events" } },
+    "click:change": {
+      action: "click:change event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description:
+        "Emits click:change event with menu item title when it is clicked",
+    },
   },
 };
 
