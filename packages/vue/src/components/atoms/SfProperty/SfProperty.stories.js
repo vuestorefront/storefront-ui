@@ -98,19 +98,18 @@ export default {
       },
       description: "Sets property value",
     },
-    "name*": {
+    "name ": {
       table: {
         category: "Slots",
       },
-      description:
-        "Named slot `name`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use the `name` name if you want to use this slot. Use this slot to replace property name",
+      description: "Named slot `name`. Use this slot to replace property name",
     },
-    "value*": {
+    "value ": {
       table: {
         category: "Slots",
       },
       description:
-        "Named slot `value`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use the `value` name if you want to use this slot. Use this slot to replace property value",
+        "Named slot `value`. Use this slot to replace property value",
     },
   },
 };

@@ -105,7 +105,7 @@ export default {
       },
       description: "Heading description",
     },
-    "title*": {
+    "title ": {
       table: {
         category: "Slots",
         type: {
@@ -113,9 +113,9 @@ export default {
         },
       },
       description:
-        "Named slot `title`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use the `title` name if you want to use this slot. Use this slot to replace title content",
+        "Named slot `title`. Use this slot to replace title content",
     },
-    "description*": {
+    "description ": {
       table: {
         category: "Slots",
         type: {
@@ -123,7 +123,7 @@ export default {
         },
       },
       description:
-        "Named slot `description`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use the `description` name if you want to use this slot. Use this slot to replace description content",
+        "Named slot `description`. Use this slot to replace description content",
     },
   },
 };

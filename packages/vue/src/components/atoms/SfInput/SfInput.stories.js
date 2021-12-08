@@ -249,15 +249,14 @@ export default {
       },
       description: "Custom show password button",
     },
-    "label*": {
+    "label ": {
       table: {
         category: "Slots",
         type: {
           summary: null,
         },
       },
-      description:
-        "Named slot `label`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use the `label` name if you want to use this slot. Use this slot to replace label content",
+      description: "Named slot `label`. Use this slot to replace label content",
     },
   },
 };
