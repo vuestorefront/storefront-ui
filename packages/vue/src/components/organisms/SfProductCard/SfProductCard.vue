@@ -322,7 +322,6 @@ export default {
       return `${defaultClass} ${this.isInWishlist ? "on-wishlist" : ""}`;
     },
     showBadge() {
-      console.log(this.colors.length);
       return this.colors.length > 5;
     },
   },

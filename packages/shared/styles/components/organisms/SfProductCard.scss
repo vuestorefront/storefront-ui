@@ -102,6 +102,7 @@
     height:  2.5rem;
     padding: 0;
     color: var(--c-white);
+    z-index: 2;
   }
   &__add-button {
     --circle-icon-position: absolute;
