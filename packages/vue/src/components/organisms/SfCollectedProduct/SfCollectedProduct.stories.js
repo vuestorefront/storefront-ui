@@ -313,6 +313,86 @@ export default {
       description:
         "Emits input event when actions button in mobile mode is clicked",
     },
+    "title*": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot `title` for `SfCollectedProduct` component. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to replace title element",
+    },
+    "image*": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot `image` for `SfCollectedProduct` component. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to replace image element",
+    },
+    actions: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfCollectedProduct` component. Use this slot to pass custom actions",
+    },
+    configuration: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfCollectedProduct` component. Use this slot to pass custom configuration",
+    },
+    price: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfCollectedProduct` component. Use this slot to pass custom price element",
+    },
+    input: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfCollectedProduct` component. Use this slot to pass custom input element",
+    },
+    remove: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfCollectedProduct` component. Use this slot to pass custom remove button",
+    },
+    "more-actions": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfCollectedProduct` component. Use this slot to pass other custom actions",
+    },
   },
 };
 

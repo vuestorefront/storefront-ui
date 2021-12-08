@@ -231,6 +231,46 @@ export default {
       description:
         "Emits click:change event with menu item title when it is clicked",
     },
+    default: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Default slot for `SfContentPages` component. Use this slot to place content pages items",
+    },
+    "menu-item": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfContentPages` component. Use this slot to replace menu item element",
+    },
+    "default*": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Default slot for `SfContentCategory` component. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to place categories content",
+    },
+    "default**": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Default slot for `SfContentPage` component. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to place page content",
+    },
   },
 };
 

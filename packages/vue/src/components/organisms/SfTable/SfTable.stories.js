@@ -74,6 +74,56 @@ export default {
       },
       description: "CSS classes to modify component styling",
     },
+    default: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Default slot for `SfTable` component. Use this slot to pass data to your table",
+    },
+    "default*": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Default slot for `SfTableData` component. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to pass data to `<td>` tag",
+    },
+    "default**": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Default slot for `SfTableHeader` component. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to pass data to `<th>` tag",
+    },
+    "default***": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Default slot for `SfTableHeading` component. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to pass data to `<tr>` tag in `<thead>` tag",
+    },
+    "default****": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Default slot for `SfTableRow` component. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to pass data to `<tr>` tag in `<tbody>` tag",
+    },
   },
 };
 

@@ -170,6 +170,61 @@ export default {
       table: { category: "Events", type: { summary: null } },
       description: "Emits close event when close button or overlay is clicked",
     },
+    default: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to add sidebar content",
+    },
+    bar: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to place content inside the modal bar",
+    },
+    "content-top": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to add sticky top content",
+    },
+    "circle-icon": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace close button",
+    },
+    "content-bottom": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to add content to sticky bottom",
+    },
+    "title*": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfSidebar` component. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to replace SfHeading component",
+    },
   },
 };
 

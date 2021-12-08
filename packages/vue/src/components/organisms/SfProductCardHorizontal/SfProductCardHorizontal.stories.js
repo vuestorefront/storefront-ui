@@ -370,6 +370,90 @@ export default {
       description:
         "Emits input event when quantity selector's value is changed",
     },
+    "image*": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot `image`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to replace image element",
+    },
+    "title*": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot `title`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to replace title element",
+    },
+    "description*": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot `description`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to replace description element",
+    },
+    configuration: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to place content inside configuration",
+    },
+    price: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace price element",
+    },
+    reviews: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace reviews element",
+    },
+    actions: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to place content inside actions",
+    },
+    "add-to-cart": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace add to cart button",
+    },
+    "wishlist-icon": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace wishlist icon",
+    },
   },
 };
 

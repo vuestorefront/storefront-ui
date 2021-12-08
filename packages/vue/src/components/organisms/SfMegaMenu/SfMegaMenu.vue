@@ -13,7 +13,6 @@
       />
       <div class="sf-mega-menu__content">
         <div class="sf-mega-menu__menu">
-          <!-- @slot Slot for menu column -->
           <slot />
         </div>
         <div

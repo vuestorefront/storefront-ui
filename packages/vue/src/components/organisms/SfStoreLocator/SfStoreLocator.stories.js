@@ -445,6 +445,76 @@ export default {
       description:
         "Emits update:center event when center of the map is changed",
     },
+    default: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Default slot for `SfStoreLocator` component. Use this slot to show stores cards",
+    },
+    "marker-icon": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfStoreLocator` component. Use this slot to change the icon of the stores, remember to update `markerIconSize` and `markerIconAnchor` accordingly",
+    },
+    "map-loading": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfStoreLocator` component. Use this slot to customize the loading indicator while the map library loads",
+    },
+    "default*": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Default slot for `SfStore` component. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to place information about store",
+    },
+    media: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfStore` component. Use this slot to show media elements",
+    },
+    heading: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfStore` component. Use this slot to replace name element",
+    },
+    distance: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfStore` component. Use this slot to replace distance element",
+    },
   },
 };
 

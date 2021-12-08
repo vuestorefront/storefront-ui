@@ -179,6 +179,86 @@ export default {
       description:
         "Link to be used in button if necessary (for SfHeroItem component)",
     },
+    default: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Default slot for `SfHero` component. Use this slot to pass `SfHeroItems` components",
+    },
+    prev: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfHero` component. Use this slot to pass custom button that moves to the previous item",
+    },
+    next: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfHero` component. Use this slot to pass custom button that moves to the next item",
+    },
+    bullets: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfHero` component. Use this slot to pass custom markup for pagination bullets",
+    },
+    "title*": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot `title` for `SfHeroItem` component. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to replace title element",
+    },
+    "subtitle*": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot `subtitle` for `SfHeroItem` component. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to replace subtitle element",
+    },
+    "call-to-action": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot `all-to-action` for `SfHeroItem` component. Use this slot to replace default SfButton component. ",
+    },
+    withImgTag: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot `withImgTag` for `SfHeroItem` component. Slot dedicated to img tags or other components with this tag (e.g. SfImage, SfCimage) that can be used as images for background. If you want to use this slot, make sure that background and image props are NOT provided (in SfHeroItem component). ",
+    },
   },
 };
 

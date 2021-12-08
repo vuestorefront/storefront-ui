@@ -79,6 +79,46 @@ export default {
       description:
         "Carousel options after glide.js (https://glidejs.com/docs/)",
     },
+    default: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Default slot for `SfCarousel` component. Use this slot to place `SfCarouselItem` elements",
+    },
+    prev: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfCarousel` component. Slot for icon moving to the previous item ",
+    },
+    next: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfCarousel` component. Slot for icon moving to the next item ",
+    },
+    "default*": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Default slot for `SfCarouselItem` component. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to place item's content",
+    },
   },
 };
 

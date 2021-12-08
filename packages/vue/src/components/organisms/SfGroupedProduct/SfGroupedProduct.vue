@@ -14,7 +14,6 @@
           glide__slides: true,
         }"
       >
-        <!-- @slot Slot for Grouped Product Items -->
         <slot />
       </ul>
     </div>

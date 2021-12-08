@@ -115,6 +115,36 @@ export default {
       defaultValue: false,
       description: "Changes icon styling",
     },
+    default: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Default slot for `SfBottomNavigation` component. Use this slot to place `SfBottomNavigationItem` elements",
+    },
+    "label*": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfBottomNavigationItem` component. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to replace label element",
+    },
+    "icon*": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfBottomNavigationItem` component. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to replace icon element",
+    },
   },
 };
 
