@@ -144,12 +144,6 @@ export default {
   },
   methods: {
     updatePage(title) {
-      /**
-       * Active page updated event
-       *
-       * @event click:change
-       * @type String
-       */
       this.$emit("click:change", title);
     },
     isPageActive(page) {

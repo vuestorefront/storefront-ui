@@ -130,6 +130,22 @@ export default {
       defaultValue: 2,
       description: "Heading number for the second header",
     },
+    input: {
+      action: "input event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits input event when one of input fields is changed",
+    },
+    toggleInfo: {
+      name: "toggle-info",
+      action: "toggle-info event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits toggle-info event when info button is clicked",
+    },
+    ["toggle-info"]: {
+      table: {
+        disable: true,
+      },
+    },
   },
 };
 
@@ -146,6 +162,8 @@ const Template = (args, { argTypes }) => ({
     :countries="countries"
     :methodsHeadingTitle="methodsHeadingTitle"
     :methodsHeadingTitleLevel="methodsHeadingTitleLevel"
+    @input="input"
+    @toggle-info="this['toggleInfo']"
   />`,
 });
 

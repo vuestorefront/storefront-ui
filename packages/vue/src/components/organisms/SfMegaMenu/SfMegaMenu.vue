@@ -9,7 +9,7 @@
         :title="active || title"
         :back="true"
         class="sf-mega-menu__bar"
-        @click:back="back()"
+        @click:back="back"
       />
       <div class="sf-mega-menu__content">
         <div class="sf-mega-menu__menu">
