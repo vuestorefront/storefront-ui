@@ -218,7 +218,7 @@ export default {
       },
       description: "Slot to place select options",
     },
-    "default*": {
+    "default ": {
       table: {
         category: "Slots",
         type: {
@@ -226,37 +226,34 @@ export default {
         },
       },
       description:
-        "Default slot for `SfSelectOption` component. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to place options in `SfSelect` component",
+        "Default slot for `SfSelectOption` component. Use this slot to place options in `SfSelect` component",
     },
-    "label*": {
+    "label ": {
       table: {
         category: "Slots",
         type: {
           summary: null,
         },
       },
-      description:
-        "Named slot `label`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to customize the label",
+      description: "Use this slot to customize the label",
     },
-    "placeholder*": {
+    "placeholder ": {
       table: {
         category: "Slots",
         type: {
           summary: null,
         },
       },
-      description:
-        "Named slot `placeholder`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to customize the placeholder",
+      description: "Use this slot to customize the placeholder",
     },
-    "errorMessage*": {
+    "errorMessage ": {
       table: {
         category: "Slots",
         type: {
           summary: null,
         },
       },
-      description:
-        "Named slot `errorMessage`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to customize the errorMessage",
+      description: "Use this slot to customize the errorMessage",
     },
   },
 };

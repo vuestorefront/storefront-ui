@@ -217,35 +217,32 @@ export default {
       table: { category: "Events", type: { summary: null } },
       description: "Emits click event when button is clicked",
     },
-    "title*": {
+    "title ": {
       table: {
         category: "Slots",
         type: {
           summary: null,
         },
       },
-      description:
-        "Named slot `title`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use the `title` name if you want to use this slot. Use this slot to replace title content",
+      description: "Use this slot to replace title content",
     },
-    "subtitle*": {
+    "subtitle ": {
       table: {
         category: "Slots",
         type: {
           summary: null,
         },
       },
-      description:
-        "Named slot `subtitle`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use the `subtitle` name if you want to use this slot. Use this slot to replace subtitle content",
+      description: "Use this slot to replace subtitle content",
     },
-    "description*": {
+    "description ": {
       table: {
         category: "Slots",
         type: {
           summary: null,
         },
       },
-      description:
-        "Named slot `description`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use the `description` name if you want to use this slot. Use this slot to replace description content",
+      description: "Use this slot to replace description content",
     },
     "call-to-action": {
       table: {

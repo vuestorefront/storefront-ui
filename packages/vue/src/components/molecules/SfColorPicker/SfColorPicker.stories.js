@@ -203,15 +203,14 @@ export default {
       description:
         "Emits click:toggle when open/close button is clicked in mobile mode",
     },
-    "label*": {
+    "label ": {
       table: {
         category: "Slots",
         type: {
           summary: null,
         },
       },
-      description:
-        "Named slot `label`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to replace label",
+      description: "Use this slot to replace label",
     },
     default: {
       table: {

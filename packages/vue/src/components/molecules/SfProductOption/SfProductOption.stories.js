@@ -71,25 +71,23 @@ export default {
         },
       },
     },
-    "label*": {
+    "label ": {
       table: {
         category: "Slots",
         type: {
           summary: null,
         },
       },
-      description:
-        "Named slot `label`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to replace label element",
+      description: "Use this slot to replace label element",
     },
-    "color*": {
+    "color ": {
       table: {
         category: "Slots",
         type: {
           summary: null,
         },
       },
-      description:
-        "Named slot `color`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot replace color element",
+      description: "Use this slot replace color element",
     },
   },
 };

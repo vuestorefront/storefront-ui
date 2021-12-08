@@ -120,7 +120,7 @@ export default {
       description:
         "Default slot for `SfAddress` component. Here you should pass address details",
     },
-    "default*": {
+    "default ": {
       table: {
         category: "Slots",
         type: {
@@ -128,7 +128,7 @@ export default {
         },
       },
       description:
-        "Default slot for `SfAddressPicker` component. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to pass addresses in `SfAddress` components",
+        "Default slot for `SfAddressPicker` component. Use this slot to pass addresses in `SfAddress` components",
     },
     icon: {
       table: {
@@ -138,7 +138,7 @@ export default {
         },
       },
       description:
-        "Named slot for `SfAddress` component. Use this slot to have custom checkmark",
+        "Use this slot to have custom checkmark",
     },
   },
 };

@@ -153,25 +153,23 @@ export default {
       table: { category: "Events", type: { summary: null } },
       description: "Emits change event with name of picked address component",
     },
-    "title*": {
+    "title ": {
       table: {
         category: "Slots",
         type: {
           summary: null,
         },
       },
-      description:
-        "Named slot `title`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use the `title` name if you want to use this slot. Use this slot to replace title button",
+      description: "Use this slot to replace title button",
     },
-    "description*": {
+    "description ": {
       table: {
         category: "Slots",
         type: {
           summary: null,
         },
       },
-      description:
-        "Named slot `description`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use the `description` name if you want to use this slot. Use this slot to replace description button",
+      description: "Use this slot to replace description button",
     },
     button: {
       table: {

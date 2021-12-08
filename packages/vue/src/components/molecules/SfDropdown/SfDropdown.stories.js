@@ -150,15 +150,14 @@ export default {
       },
       description: "Use this slot to replace cancel button",
     },
-    "title*": {
+    "title ": {
       table: {
         category: "Slots",
         type: {
           summary: null,
         },
       },
-      description:
-        "Named slot `title`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to replace title",
+      description: "Use this slot to replace title",
     },
   },
 };

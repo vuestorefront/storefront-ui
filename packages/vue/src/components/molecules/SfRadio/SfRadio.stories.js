@@ -146,35 +146,32 @@ export default {
       },
       description: "Custom checkmark markup",
     },
-    "label*": {
+    "label ": {
       table: {
         category: "Slots",
         type: {
           summary: null,
         },
       },
-      description:
-        "Named slot `label`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to have custom label",
+      description: "Use this slot to have custom label",
     },
-    "details*": {
+    "details ": {
       table: {
         category: "Slots",
         type: {
           summary: null,
         },
       },
-      description:
-        "Named slot `details`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to have custom details",
+      description: "Use this slot to have custom details",
     },
-    "description*": {
+    "description ": {
       table: {
         category: "Slots",
         type: {
           summary: null,
         },
       },
-      description:
-        "Named slot `description`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to have custom description",
+      description: "Use this slot to have custom description",
     },
   },
 };

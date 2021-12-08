@@ -136,17 +136,16 @@ export default {
       description:
         "Default slot for `SfSteps` component. Slot to replace steps content ",
     },
-    "steps*": {
+    "steps ": {
       table: {
         category: "Slots",
         type: {
           summary: null,
         },
       },
-      description:
-        "Named slot `steps`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to customize the steps",
+      description: "Use this slot to customize the steps",
     },
-    "default*": {
+    "default ": {
       table: {
         category: "Slots",
         type: {
@@ -154,7 +153,7 @@ export default {
         },
       },
       description:
-        "Default slot for `SfStep` component. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to customize step in `SfStep` component",
+        "Default slot for `SfStep` component. Use this slot to customize step in `SfStep` component",
     },
   },
 };

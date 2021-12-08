@@ -304,17 +304,16 @@ export default {
       },
       description: "Use this slot to place custom error message element",
     },
-    "label*": {
+    "label ": {
       table: {
         category: "Slots",
         type: {
           summary: null,
         },
       },
-      description:
-        "Named slot `label`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to replace label",
+      description: "Use this slot to replace label",
     },
-    "default*": {
+    "default ": {
       table: {
         category: "Slots",
         type: {
@@ -322,7 +321,7 @@ export default {
         },
       },
       description:
-        "Default slot for `SfComponentSelectOption`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to place options in `SfComponentSelect` component",
+        "Default slot for `SfComponentSelectOption`.Use this slot to place options in `SfComponentSelect` component",
     },
   },
 };
