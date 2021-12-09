@@ -40,7 +40,7 @@ describe("SfIcon.vue", () => {
         coverage: 0.5,
       },
     });
-    expect(wrapper.find("path").attributes("fill")).toEqual("url(#0.5)");
+    expect(wrapper.find("stop").attributes("offset")).toEqual("0.5");
   });
   it("renders viewBox default when not passed", () => {
     const color = "green-primary";
