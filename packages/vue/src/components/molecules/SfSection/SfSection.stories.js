@@ -53,6 +53,25 @@ export default {
       defaultValue: 2,
       description: "Heading tag level",
     },
+    default: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Slot to replace section content",
+    },
+    heading: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Slot for section heading, replacing default SfHeading component",
+    },
   },
 };
 

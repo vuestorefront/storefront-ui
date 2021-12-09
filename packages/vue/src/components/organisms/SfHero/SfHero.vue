@@ -3,7 +3,6 @@
     <div ref="glide" class="glide">
       <div class="glide__track" data-glide-el="track">
         <ul class="glide__slides sf-hero__slides">
-          <!--@slot default slot for SfHeroItem tags -->
           <slot />
         </ul>
       </div>
@@ -12,7 +11,6 @@
       :class="{ 'display-none': numberOfPages <= 1 }"
       class="sf-hero__control--left"
     >
-      <!--@slot slot for icon moving to the previous item -->
       <slot name="prev" v-bind="{ go: () => go('prev') }">
         <SfArrow
           class="sf-arrow sf-arrow--transparent"
@@ -26,7 +24,6 @@
       :class="{ 'display-none': numberOfPages <= 1 }"
       class="sf-hero__control--right"
     >
-      <!-- @slot slot for icon moving to the next item  -->
       <slot name="next" v-bind="{ go: () => go('next') }">
         <SfArrow
           class="sf-arrow sf-arrow--right sf-arrow--transparent"
@@ -40,7 +37,6 @@
       :class="{ 'display-none': numberOfPages <= 1 }"
       class="sf-hero__bullets"
     >
-      <!--@slot custom markup for pagination bullets -->
       <slot name="bullets" v-bind="{ numberOfPages, page, go }">
         <SfBullets
           :total="numberOfPages"

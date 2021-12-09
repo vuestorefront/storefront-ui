@@ -112,8 +112,7 @@ export default {
           summary: null,
         },
       },
-      description:
-        "Named slot `title`. Use this slot to replace title content",
+      description: "Named slot `title`. Use this slot to replace title content",
     },
     "description ": {
       table: {

@@ -1,6 +1,5 @@
 <template>
   <div :class="{ 'display-none': !isActive }" class="sf-content-page">
-    <!-- @slot Custom page markup -->
     <slot />
   </div>
 </template>
@@ -8,16 +7,10 @@
 export default {
   name: "SfContentPage",
   props: {
-    /**
-     * Page title
-     */
     title: {
       type: String,
       default: "",
     },
-    /**
-     * Page nav icon
-     */
     icon: {
       type: [String, Array],
       default: "",

@@ -25,8 +25,7 @@ export default {
     // end of code generated automatically
     docs: {
       description: {
-        component:
-          "The icon with color and size modifiers.",
+        component: "The icon with color and size modifiers.",
       },
     },
   },

@@ -156,6 +156,36 @@ export default {
       description:
         "Emits click:tab event with index of the tab when active tab is changed",
     },
+    default: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Default slot for `SfTabs` component. Use this slot to pass your tabs",
+    },
+    "default ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Default slot for `SfTab` component. Use this slot to place tab's content",
+    },
+    "title ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot `title` for `SfTab` component. Use this slot to replace title element",
+    },
   },
 };
 
