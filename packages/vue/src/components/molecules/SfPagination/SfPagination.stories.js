@@ -176,7 +176,7 @@ export const UsePrevSlot = (args, { argTypes }) => ({
   :has-arrows="hasArrows"
   @click="click"
   >
-    <template #prev="{isDisabled, go, prev}">
+    <template #prev="{ go, prev}">
       <button @click="go(prev)">prev</button>
     </template>
   </SfPagination>`,
@@ -194,7 +194,7 @@ export const UseNextSlot = (args, { argTypes }) => ({
   :has-arrows="hasArrows"
   @click="click"
   >
-    <template #next="{isDisabled, go, next}">
+    <template #next="{ go, next}">
       <button @click="go(next)">next</button>
     </template>
   </SfPagination>`,
