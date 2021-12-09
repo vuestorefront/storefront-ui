@@ -28,6 +28,24 @@ export default {
       },
       description: "Shows the loader on top of the existing content",
     },
+    default: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Slot for the actual content being loaded",
+    },
+    loader: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace the loader",
+    },
   },
 };
 

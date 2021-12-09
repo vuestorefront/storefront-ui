@@ -96,6 +96,35 @@ export default {
       defaultValue: "",
       description: "Special price value",
     },
+    "regular ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot `regular`. Use this slot to replace regular price content",
+    },
+    "special ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot `special`. Use this slot to replace special price content",
+    },
+    old: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace old price content",
+    },
   },
 };
 
