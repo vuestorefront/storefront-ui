@@ -205,7 +205,7 @@ export default {
           summary: null,
         },
       },
-      description: "Custom check mark markup",
+      description: "Custom checkmark markup",
     },
     "label ": {
       table: {
