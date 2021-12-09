@@ -268,6 +268,61 @@ export default {
         disable: true,
       },
     },
+    default: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to place content inside select component",
+    },
+    icon: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to place custom icon",
+    },
+    cancel: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to place custom cancel button",
+    },
+    "error-message": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to place custom error message element",
+    },
+    "label ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace label",
+    },
+    "default ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Default slot for `SfComponentSelectOption`.Use this slot to place options in `SfComponentSelect` component",
+    },
   },
 };
 

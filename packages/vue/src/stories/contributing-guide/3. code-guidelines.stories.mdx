@@ -362,33 +362,8 @@ As a result the console will show a warning like the following:
 
 <div class="alert tip">
   <h5>DEPRECATION INFO</h5>
-  <p>Here you can see an example how it looks like in SfAccordion</p>
+  <p>Here you can see an example</p>
 </div>
-
-```js
-props: {
-  /**
-   * Opens the first accordion item if set to "true"
-   * @deprecated will be removed in 1.0.0 use open prop instead
-   */
-  firstOpen: {
-    type: Boolean,
-    default: false
-  },
-}
-```
-
-```js
-// TODO remove in 1.0.0 / BEGIN
-if (this.firstOpen) {
-  this.$children[0].isOpen = this.firstOpen;
-  console.warn(
-    "[StorefrontUI][SfAccordion] Prop 'firstOpen' has been deprecated and will be removed in v1.0.0. Use 'open' instead."
-  );
-  return;
-}
-// <- END
-```
 
 ## Unit tests
 

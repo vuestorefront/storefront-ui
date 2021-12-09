@@ -1,7 +1,6 @@
 <template>
   <section class="sf-call-to-action" :style="style">
     <div class="sf-call-to-action__text-container">
-      <!--@slot Use this slot to replace title-->
       <slot name="title" v-bind="{ title }">
         <h2
           :class="{ 'display-none': !title }"
@@ -10,7 +9,6 @@
           {{ title }}
         </h2>
       </slot>
-      <!--@slot Use this slot to replace description-->
       <slot name="description" v-bind="{ description }">
         <p
           :class="{ 'display-none': !description }"
@@ -20,7 +18,6 @@
         </p>
       </slot>
     </div>
-    <!--@slot Use this slot to replace bottom button-->
     <slot name="button" v-bind="{ buttonText }">
       <SfButton
         :class="{ 'display-none': !buttonText }"

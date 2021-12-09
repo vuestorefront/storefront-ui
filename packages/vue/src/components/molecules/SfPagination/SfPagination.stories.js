@@ -89,6 +89,42 @@ export default {
       description:
         "Emits click event with page value when page number is clicked",
     },
+    prev: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Custom markup for previous page button",
+    },
+    next: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Custom markup for next page button",
+    },
+    number: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Custom markup for number",
+    },
+    points: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Custom markup for points between visible numbers",
+    },
   },
 };
 
