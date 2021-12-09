@@ -1,6 +1,5 @@
 <template>
   <div class="sf-skeleton" :class="classFromProps">
-    <!--@slot use this slot to replace default skeleton -->
     <slot />
   </div>
 </template>
