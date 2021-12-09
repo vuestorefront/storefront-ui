@@ -130,6 +130,16 @@ export default {
       table: { category: "Events", type: { summary: null } },
       description: "Click event. It is passed via v-on='listeners'",
     },
+    default: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Custom content that will replace default icon. Can be used for inlined SVG's",
+    },
   },
 };
 

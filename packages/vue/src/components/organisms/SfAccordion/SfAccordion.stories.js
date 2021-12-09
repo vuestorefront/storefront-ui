@@ -177,11 +177,10 @@ export default {
       defaultValue: true,
       description: "Show chevron icon",
     },
-    "click:open-header": {
-      action: "Open header",
-      table: { category: "Events" },
-      description:
-        "This event can be used on SfAccordion when there is a need to open SfAccordionItems programmatically. This example can be found below in a story called `Control With Buttons`",
+    "click:open": {
+      action: "open event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits open event with header name when header is opened.",
     },
   },
 };
@@ -199,11 +198,13 @@ const Template = (args, { argTypes }) => ({
     :open="open" 
     :multiple="multiple"
     :show-chevron="showChevron"
-    :transition="transition">
+    :transition="transition"
+    @click:open="this['click:open']"
+  >
     <SfAccordionItem 
       v-for="accordion in accordions" 
       :key="accordion.header" 
-      :header="accordion.header"
+      :header="accordion.header"      
     >
       <SfList>
         <SfListItem
@@ -263,26 +264,35 @@ export const controlWithButtons = (args, { argTypes }) => ({
     };
   },
   methods: {
-    change(headerName) {
+    buttonClick(headerName) {
       this.activeHeader = headerName;
+    },
+    openHeader(openedHeader) {
+      this["click:open"](openedHeader);
+      this.buttonClick();
     },
   },
   template: `
   <div>
-    <SfButton style="display: inline; margin: var(--spacer-xs)" @click="change('Clothing')">open Clothing</SfButton>
-    <SfButton style="display: inline; margin: var(--spacer-xs)" @click="change('Accessories')">open Accessories</SfButton>
-    <SfButton style="display: inline; margin: var(--spacer-xs)" @click="change('Shoes')">open Shoes</SfButton>
+    <SfButton style="display: inline; margin: var(--spacer-xs)" @click="buttonClick('Clothing')">open Clothing</SfButton>
+    <SfButton style="display: inline; margin: var(--spacer-xs)" @click="buttonClick('Accessories')">open Accessories</SfButton>
+    <SfButton style="display: inline; margin: var(--spacer-xs)" @click="buttonClick('Shoes')">open Shoes</SfButton>
     <SfAccordion 
       :open="activeHeader" 
       :multiple="multiple"
       :show-chevron="showChevron"
       :transition="transition"
+<<<<<<< HEAD
       @click:open-header="change('')"
+=======
+      :first-open="firstOpen"
+      @click:open="openHeader"
+>>>>>>> develop
     >
       <SfAccordionItem 
         v-for="accordion in accordions" 
         :key="accordion.header" 
-        :header="accordion.header"
+        :header="accordion.header"        
       >
         <SfList>
           <SfListItem
@@ -313,7 +323,14 @@ export const UseHeaderSlot = (args, { argTypes }) => ({
     :open="open" 
     :multiple="multiple"
     :show-chevron="showChevron"
+<<<<<<< HEAD
     :transition="transition">
+=======
+    :transition="transition"
+    :first-open="firstOpen"
+    @click:open="this['click:open']"
+  >
+>>>>>>> develop
     <SfAccordionItem 
       v-for="accordion in accordions" 
       :key="accordion.header" 
@@ -342,7 +359,11 @@ UseHeaderSlot.parameters = {
     source: {
       code: `
 <template>
-  <SfAccordion transition="sf-expand" showChevron>
+  <SfAccordion 
+    transition="sf-expand" 
+    showChevron 
+    @click:open="this['click:open']"
+  >
     <SfAccordionItem  header="Clothing">
       <template #header="{header, isOpen, accordionClick, showChevron}">
         <div @click="accordionClick" :style="{cursor: 'pointer'}">CUSTOM HEADER</div>

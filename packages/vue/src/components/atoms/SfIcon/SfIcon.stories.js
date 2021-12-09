@@ -25,8 +25,7 @@ export default {
     // end of code generated automatically
     docs: {
       description: {
-        component:
-          "The icon with color and size modifiers. It's Vue 2 functional component.",
+        component: "The icon with color and size modifiers.",
       },
     },
   },
@@ -80,6 +79,15 @@ export default {
       defaultValue: 1,
       description:
         "The fraction in which the icon is partially collored with --icon-color value and the rest with --icon-color-negative. To be used in SfRating.",
+    },
+    default: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace icon to custom element",
     },
   },
 };

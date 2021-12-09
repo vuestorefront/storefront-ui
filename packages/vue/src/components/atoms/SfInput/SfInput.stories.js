@@ -231,6 +231,33 @@ export default {
       description:
         "Input event emits when input value changes. It is passed via v-on='listeners'",
     },
+    "error-message": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Custom error message for form input ",
+    },
+    "show-password": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Custom show password button",
+    },
+    "label ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Named slot `label`. Use this slot to replace label content",
+    },
   },
 };
 

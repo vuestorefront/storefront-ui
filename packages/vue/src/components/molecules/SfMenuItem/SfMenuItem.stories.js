@@ -111,10 +111,13 @@ export default {
     },
     link: {
       control: "text",
+      defaultValue: undefined,
       table: {
         category: "Props",
+        defaultValue: {
+          summary: "null",
+        },
       },
-      defaultValue: "",
       description: "Menu-item link (if is empty then SfMenuItem is SfButton)",
     },
   },

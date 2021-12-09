@@ -7,7 +7,6 @@
     <template
       v-for="(_, index) of $options.inactiveLeft(props.total, props.current)"
     >
-      <!--@slot custom icon for inactive bullet -->
       <slot name="inactive" class="sf-bullet" v-bind="{ index, $options }">
         <li :key="index">
           <component
@@ -21,7 +20,6 @@
         </li>
       </slot>
     </template>
-    <!--@slot custom icon for active bullet -->
     <slot name="active">
       <li>
         <component
@@ -35,7 +33,6 @@
     <template
       v-for="(_, index) of $options.inactiveRight(props.total, props.current)"
     >
-      <!--@slot custom icon for inactive bullet -->
       <slot
         name="inactive"
         class="sf-bullet"
