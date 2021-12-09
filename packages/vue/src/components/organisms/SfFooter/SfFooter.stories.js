@@ -114,6 +114,26 @@ export default {
       description:
         "Emits click event when column title is clicked on mobile mode.It is emitted with the array of opened columns",
     },
+    default: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Default slot for `SfFooter` component. Use this slot to place footer content",
+    },
+    "default ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Default slot for `SfFooterColumn` component. Use this slot to footer column content",
+    },
   },
 };
 

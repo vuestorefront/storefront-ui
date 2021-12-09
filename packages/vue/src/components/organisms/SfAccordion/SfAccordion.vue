@@ -1,6 +1,5 @@
 <template>
   <div class="sf-accordion" :class="{ 'has-chevron': showChevron }">
-    <!--@slot default slot to setup SfAccordionItem elements -->
     <slot />
   </div>
 </template>
