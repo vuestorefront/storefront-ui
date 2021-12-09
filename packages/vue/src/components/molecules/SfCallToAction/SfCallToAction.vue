@@ -49,7 +49,7 @@ export default {
     },
     link: {
       type: String,
-      default: "",
+      default: null,
     },
     description: {
       type: String,

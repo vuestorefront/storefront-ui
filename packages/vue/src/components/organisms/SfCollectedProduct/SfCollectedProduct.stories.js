@@ -243,13 +243,13 @@ export default {
     },
     link: {
       control: "text",
+      defaultValue: undefined,
       table: {
         category: "Props",
         defaultValue: {
-          summary: "",
+          summary: "null",
         },
       },
-      defaultValue: "",
       description: "Link to product",
     },
     "v-model": {

@@ -239,8 +239,11 @@ export default {
       control: "text",
       table: {
         category: "Props",
+        defaultValue: {
+          summary: "null",
+        },
       },
-      defaultValue: "",
+      defaultValue: undefined,
       description: "Link to product page",
     },
     scoreRating: {
