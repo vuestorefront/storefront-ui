@@ -156,6 +156,33 @@ export default {
       table: { category: "Events", type: { summary: null } },
       description: "Emits change event with name of picked address component",
     },
+    "title ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace title button",
+    },
+    "description ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace description button",
+    },
+    button: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace bottom button",
+    },
   },
   args: {
     title: "Subscribe to Newsletters",
