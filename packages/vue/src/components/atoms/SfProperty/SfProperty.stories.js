@@ -98,6 +98,19 @@ export default {
       },
       description: "Sets property value",
     },
+    "name ": {
+      table: {
+        category: "Slots",
+      },
+      description: "Named slot `name`. Use this slot to replace property name",
+    },
+    "value ": {
+      table: {
+        category: "Slots",
+      },
+      description:
+        "Named slot `value`. Use this slot to replace property value",
+    },
   },
 };
 

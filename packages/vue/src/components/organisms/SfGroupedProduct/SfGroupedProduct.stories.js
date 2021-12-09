@@ -282,6 +282,76 @@ export default {
       table: { category: "Events", type: { summary: null } },
       description: "Emits input event when quantity selector value is changed",
     },
+    default: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Default slot for `SfGroupedProduct` component. Use this slot to place grouped product items",
+    },
+    "title ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot `title` for `SfGroupedProductItem` component. Use this slot to replace title element",
+    },
+    "image ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot `image` for `SfGroupedProductItem` component. Use this slot to replace image element",
+    },
+    details: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfGroupedProductItem` component. Use this slot to pass custom details",
+    },
+    configuration: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfGroupedProductItem` component. Use this slot to pass custom configuration",
+    },
+    price: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfGroupedProductItem` component. Use this slot to pass custom price element",
+    },
+    input: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfGroupedProductItem` component. Use this slot to replace quantity selector",
+    },
   },
 };
 

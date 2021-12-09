@@ -383,6 +383,96 @@ export default {
       table: { category: "Events", type: { summary: null } },
       description: "Emits click:account event when account button is clicked",
     },
+    "logo ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfHeader` component. Use this slot to replace logo element",
+    },
+    aside: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfHeader` component. Use this slot to pass aside content for example language or currency selector",
+    },
+    navigation: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfHeader` component. Use this slot to pass navigation elements",
+    },
+    search: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfHeader` component. Use this slot to pass search element",
+    },
+    "header-icons": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfHeader` component. Use this slot to replace default icons",
+    },
+    default: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Default slot for `SfHeaderNavigation` component. Use this slot to place navigation elements",
+    },
+    "default ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Default slot for `SfHeaderNavigationItem` component. Use this slot to place navigation items",
+    },
+    "desktop-navigation-item": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfHeaderNavigationItem` component. Use this slot to place desktop navigation",
+    },
+    "mobile-navigation-item": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfHeaderNavigationItem` component. Use this slot to place mobile navigation",
+    },
   },
 };
 
