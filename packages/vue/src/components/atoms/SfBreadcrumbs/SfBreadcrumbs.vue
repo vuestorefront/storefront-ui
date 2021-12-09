@@ -16,7 +16,6 @@
         "
       >
         <template v-if="$options.breadcrumbLast(props.breadcrumbs) !== i">
-          <!-- @slot Custom markup for previous pages (binds `breadcrumb` object) -->
           <slot name="link" v-bind="{ breadcrumb }">
             <component
               :is="injections.components.SfLink"
@@ -29,7 +28,6 @@
           </slot>
         </template>
         <template v-else>
-          <!-- @slot Custom markup for current page (binds `breadcrumb` object) -->
           <slot name="current" v-bind="{ breadcrumb }">
             <component
               :is="injections.components.SfLink"

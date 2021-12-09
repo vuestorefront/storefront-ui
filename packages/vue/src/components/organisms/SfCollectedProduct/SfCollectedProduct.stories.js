@@ -243,13 +243,13 @@ export default {
     },
     link: {
       control: "text",
+      defaultValue: undefined,
       table: {
         category: "Props",
         defaultValue: {
-          summary: "",
+          summary: "null",
         },
       },
-      defaultValue: "",
       description: "Link to product",
     },
     "v-model": {
@@ -312,6 +312,78 @@ export default {
       table: { category: "Events", type: { summary: null } },
       description:
         "Emits input event when actions button in mobile mode is clicked",
+    },
+    "title ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace title element",
+    },
+    "image ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace image element",
+    },
+    actions: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to pass custom actions",
+    },
+    configuration: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to pass custom configuration",
+    },
+    price: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to pass custom price element",
+    },
+    input: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to pass custom input element",
+    },
+    remove: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to pass custom remove button",
+    },
+    "more-actions": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to pass other custom actions",
     },
   },
 };

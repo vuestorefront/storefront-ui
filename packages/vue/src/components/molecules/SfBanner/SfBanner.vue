@@ -72,7 +72,7 @@ export default {
     },
     link: {
       type: String,
-      default: "",
+      default: null,
     },
     background: {
       type: String,

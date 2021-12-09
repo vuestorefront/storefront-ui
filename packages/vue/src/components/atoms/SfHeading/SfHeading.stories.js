@@ -105,6 +105,26 @@ export default {
       },
       description: "Heading description",
     },
+    "title ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot `title`. Use this slot to replace title content",
+    },
+    "description ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot `description`. Use this slot to replace description content",
+    },
   },
 };
 

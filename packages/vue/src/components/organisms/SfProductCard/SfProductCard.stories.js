@@ -130,8 +130,11 @@ export default {
       control: "text",
       table: {
         category: "Props",
+        defaultValue: {
+          summary: "null",
+        },
       },
-      defaultValue: "",
+      defaultValue: undefined,
       description: "Link to product page",
     },
     image: {
@@ -340,6 +343,98 @@ export default {
         type: { summary: null },
       },
       description: "Emits click:colors event when color is chosen",
+    },
+    "image ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace image element",
+    },
+    "colors ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace color picker element",
+    },
+    badge: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace badge element",
+    },
+    "add-to-cart": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace add to cart button",
+    },
+    "add-to-cart-icon": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Use this slot to replace add to cart icon (it's visible before an item will be added to cart)",
+    },
+    "adding-to-cart-icon": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Use this slot to replace add to cart icon (it's visible during adding an item to cart)",
+    },
+    "wishlist-icon": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace wishlist icon",
+    },
+    "title ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace title element",
+    },
+    price: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace price element",
+    },
+    reviews: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace reviews element",
     },
   },
 };

@@ -7,10 +7,8 @@
     v-on="listeners"
   >
     <transition name="sf-fade" mode="out-in">
-      <!--@slot Slot for the actual content being loaded -->
       <slot v-if="!props.loading"></slot>
       <div v-else class="sf-loader__overlay">
-        <!--@slot Use this slot to replace the loader -->
         <slot name="loader">
           <svg
             role="img"

@@ -43,6 +43,15 @@ export default {
       description:
         "Defines shape for SfSkeleton. Available values: 'paragraph', 'image', 'button', 'input', 'avatar'",
     },
+    default: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace default skeleton",
+    },
   },
 };
 
