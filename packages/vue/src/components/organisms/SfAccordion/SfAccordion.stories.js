@@ -207,7 +207,7 @@ export default {
       description:
         "Default slot for `SfAccordion` component. Use this slot to place `SfAccordionItem` elements",
     },
-    "default*": {
+    "default ": {
       table: {
         category: "Slots",
         type: {
@@ -215,9 +215,9 @@ export default {
         },
       },
       description:
-        "Default slot for `SfAccordionItem` component. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to place item's content",
+        "Default slot for `SfAccordionItem` component. Use this slot to place item's content",
     },
-    "header*": {
+    "header ": {
       table: {
         category: "Slots",
         type: {
@@ -225,9 +225,9 @@ export default {
         },
       },
       description:
-        "Named slot for `SfAccordionItem` component. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to replace accordion item header",
+        "Use this slot to replace accordion item header",
     },
-    "additional-info*": {
+    "additional-info ": {
       table: {
         category: "Slots",
         type: {
@@ -235,7 +235,7 @@ export default {
         },
       },
       description:
-        "Named slot for `SfAccordionItem` component. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot for additional information about this item",
+        "Use this slot for additional information about this item",
     },
   },
 };

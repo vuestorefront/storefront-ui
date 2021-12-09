@@ -344,25 +344,23 @@ export default {
       },
       description: "Emits click:colors event when color is chosen",
     },
-    "image*": {
+    "image ": {
       table: {
         category: "Slots",
         type: {
           summary: null,
         },
       },
-      description:
-        "Named slot `image`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to replace image element",
+      description: "Use this slot to replace image element",
     },
-    "colors*": {
+    "colors ": {
       table: {
         category: "Slots",
         type: {
           summary: null,
         },
       },
-      description:
-        "Named slot `colors`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to replace colors element",
+      description: "Use this slot to replace colors element",
     },
     badge: {
       table: {
@@ -411,15 +409,14 @@ export default {
       },
       description: "Use this slot to replace wishlist icon",
     },
-    "title*": {
+    "title ": {
       table: {
         category: "Slots",
         type: {
           summary: null,
         },
       },
-      description:
-        "Named slot `title`. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to replace title element",
+      description: "Use this slot to replace title element",
     },
     price: {
       table: {

@@ -51,7 +51,7 @@ export default {
       description:
         "Default slot for `SfList` component. Use this slot to pass list content",
     },
-    "default*": {
+    "default ": {
       table: {
         category: "Slots",
         type: {
@@ -59,7 +59,7 @@ export default {
         },
       },
       description:
-        "Default slot for `SfListItem` component. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to place list item content",
+        "Default slot for `SfListItem` component. Use this slot to place list item content",
     },
   },
 };

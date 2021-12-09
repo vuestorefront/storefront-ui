@@ -475,7 +475,7 @@ export default {
       description:
         "Named slot for `SfStoreLocator` component. Use this slot to customize the loading indicator while the map library loads",
     },
-    "default*": {
+    "default ": {
       table: {
         category: "Slots",
         type: {
@@ -483,7 +483,7 @@ export default {
         },
       },
       description:
-        "Default slot for `SfStore` component. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to place information about store",
+        "Default slot for `SfStore` component. Use this slot to place information about store",
     },
     media: {
       table: {

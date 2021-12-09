@@ -215,15 +215,14 @@ export default {
       },
       description: "Use this slot to add content to sticky bottom",
     },
-    "title*": {
+    "title ": {
       table: {
         category: "Slots",
         type: {
           summary: null,
         },
       },
-      description:
-        "Named slot for `SfSidebar` component. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to replace SfHeading component",
+      description: "Use this slot to replace SfHeading component",
     },
   },
 };

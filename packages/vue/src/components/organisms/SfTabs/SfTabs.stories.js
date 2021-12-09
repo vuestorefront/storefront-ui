@@ -166,7 +166,7 @@ export default {
       description:
         "Default slot for `SfTabs` component. Use this slot to pass your tabs",
     },
-    "default*": {
+    "default ": {
       table: {
         category: "Slots",
         type: {
@@ -174,9 +174,9 @@ export default {
         },
       },
       description:
-        "Default slot for `SfTab` component. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to place tab's content",
+        "Default slot for `SfTab` component. Use this slot to place tab's content",
     },
-    "title*": {
+    "title ": {
       table: {
         category: "Slots",
         type: {
@@ -184,7 +184,7 @@ export default {
         },
       },
       description:
-        "Named slot `title` for `SfTab` component. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to replace title element",
+        "Named slot `title` for `SfTab` component. Use this slot to replace title element",
     },
   },
 };

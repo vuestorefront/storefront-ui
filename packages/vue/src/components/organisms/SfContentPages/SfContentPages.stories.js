@@ -251,7 +251,7 @@ export default {
       description:
         "Named slot for `SfContentPages` component. Use this slot to replace menu item element",
     },
-    "default*": {
+    "default ": {
       table: {
         category: "Slots",
         type: {
@@ -259,9 +259,9 @@ export default {
         },
       },
       description:
-        "Default slot for `SfContentCategory` component. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to place categories content",
+        "Default slot for `SfContentCategory` component. Use this slot to place categories content",
     },
-    "default**": {
+    "default  ": {
       table: {
         category: "Slots",
         type: {
@@ -269,7 +269,7 @@ export default {
         },
       },
       description:
-        "Default slot for `SfContentPage` component. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to place page content",
+        "Default slot for `SfContentPage` component. Use this slot to place page content",
     },
   },
 };

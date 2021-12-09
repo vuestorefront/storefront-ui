@@ -292,7 +292,7 @@ export default {
       description:
         "Default slot for `SfGroupedProduct` component. Use this slot to place grouped product items",
     },
-    "title*": {
+    "title ": {
       table: {
         category: "Slots",
         type: {
@@ -300,9 +300,9 @@ export default {
         },
       },
       description:
-        "Named slot `title` for `SfGroupedProductItem` component. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to replace title element",
+        "Named slot `title` for `SfGroupedProductItem` component. Use this slot to replace title element",
     },
-    "image*": {
+    "image ": {
       table: {
         category: "Slots",
         type: {
@@ -310,7 +310,7 @@ export default {
         },
       },
       description:
-        "Named slot `image` for `SfGroupedProductItem` component. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to replace image element",
+        "Named slot `image` for `SfGroupedProductItem` component. Use this slot to replace image element",
     },
     details: {
       table: {

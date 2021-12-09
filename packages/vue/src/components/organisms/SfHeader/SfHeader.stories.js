@@ -383,7 +383,7 @@ export default {
       table: { category: "Events", type: { summary: null } },
       description: "Emits click:account event when account button is clicked",
     },
-    "logo*": {
+    "logo ": {
       table: {
         category: "Slots",
         type: {
@@ -391,7 +391,7 @@ export default {
         },
       },
       description:
-        "Named slot `logo` for `SfHeader` component. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to replace logo element",
+        "Named slot for `SfHeader` component. Use this slot to replace logo element",
     },
     aside: {
       table: {
@@ -443,7 +443,7 @@ export default {
       description:
         "Default slot for `SfHeaderNavigation` component. Use this slot to place navigation elements",
     },
-    "default*": {
+    "default ": {
       table: {
         category: "Slots",
         type: {
@@ -451,7 +451,7 @@ export default {
         },
       },
       description:
-        "Default slot for `SfHeaderNavigationItem` component. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to place navigation items",
+        "Default slot for `SfHeaderNavigationItem` component. Use this slot to place navigation items",
     },
     "desktop-navigation-item": {
       table: {

@@ -125,7 +125,7 @@ export default {
       description:
         "Default slot for `SfBottomNavigation` component. Use this slot to place `SfBottomNavigationItem` elements",
     },
-    "label*": {
+    "label ": {
       table: {
         category: "Slots",
         type: {
@@ -133,9 +133,9 @@ export default {
         },
       },
       description:
-        "Named slot for `SfBottomNavigationItem` component. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to replace label element",
+        "Named slot for `SfBottomNavigationItem` component. Use this slot to replace label element",
     },
-    "icon*": {
+    "icon ": {
       table: {
         category: "Slots",
         type: {
@@ -143,7 +143,7 @@ export default {
         },
       },
       description:
-        "Named slot for `SfBottomNavigationItem` component. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to replace icon element",
+        "Named slot for `SfBottomNavigationItem` component. Use this slot to replace icon element",
     },
   },
 };

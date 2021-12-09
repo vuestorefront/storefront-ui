@@ -124,7 +124,7 @@ export default {
       description:
         "Default slot for `SfFooter` component. Use this slot to place footer content",
     },
-    "default*": {
+    "default ": {
       table: {
         category: "Slots",
         type: {
@@ -132,7 +132,7 @@ export default {
         },
       },
       description:
-        "Default slot for `SfFooterColumn` component. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to footer column content",
+        "Default slot for `SfFooterColumn` component. Use this slot to footer column content",
     },
   },
 };

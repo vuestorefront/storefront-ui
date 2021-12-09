@@ -219,7 +219,7 @@ export default {
       description:
         "Named slot for `SfHero` component. Use this slot to pass custom markup for pagination bullets",
     },
-    "title*": {
+    "title ": {
       table: {
         category: "Slots",
         type: {
@@ -227,9 +227,9 @@ export default {
         },
       },
       description:
-        "Named slot `title` for `SfHeroItem` component. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to replace title element",
+        "Named slot for `SfHeroItem` component. Use this slot to replace title element",
     },
-    "subtitle*": {
+    "subtitle ": {
       table: {
         category: "Slots",
         type: {
@@ -237,7 +237,7 @@ export default {
         },
       },
       description:
-        "Named slot `subtitle` for `SfHeroItem` component. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to replace subtitle element",
+        "Named slot for `SfHeroItem` component. Use this slot to replace subtitle element",
     },
     "call-to-action": {
       table: {
