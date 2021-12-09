@@ -106,15 +106,14 @@
   }
   &__add-button {
     --circle-icon-position: absolute;
-    --button-box-shadow: 0px 4px 11px rgba(29, 31, 34, 0.1);
     right: var(--product-card-add-button-right, 1rem);
     bottom: var(--product-card-add-button-bottom, -1.5rem);
     display: var(--product-card-add-button-display, none);
     transform: var(--product-card-add-button-transform);
-    opacity: var(--product-card-add-button-opacity, 0);
-    box-shadow: var(--button-box-shadow);
-    &:focus {
-      --product-card-add-button-opacity: 1;
+    opacity: var(--product-card-add-button-opacity, 0); 
+    & .sf-circle-icon:hover {    
+      --button-box-shadow: 0px 4px 11px rgba(29, 31, 34, 0.1);
+      --button-box-shadow-opacity: 0.3;
     }
   }
   &__price {
