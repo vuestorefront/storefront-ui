@@ -169,13 +169,13 @@ export default {
     },
     link: {
       control: "text",
+      defaultValue: undefined,
       table: {
         category: "Props for SfHeroItem component",
         defaultValue: {
-          summary: "",
+          summary: "null",
         },
       },
-      defaultValue: "",
       description:
         "Link to be used in button if necessary (for SfHeroItem component)",
     },
