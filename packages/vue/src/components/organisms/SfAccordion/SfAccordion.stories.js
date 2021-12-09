@@ -209,8 +209,7 @@ export default {
           summary: null,
         },
       },
-      description:
-        "Use this slot to replace accordion item header",
+      description: "Use this slot to replace accordion item header",
     },
     "additional-info": {
       table: {
@@ -219,8 +218,7 @@ export default {
           summary: null,
         },
       },
-      description:
-        "Use this slot for additional information about this item",
+      description: "Use this slot for additional information about this item",
     },
   },
 };
