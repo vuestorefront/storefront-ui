@@ -27,12 +27,10 @@
       v-on="$options.handleInput(listeners)"
     />
     <label class="sf-textarea__label" :for="props.name">
-      <!-- @slot Custom input label -->
       <slot name="label" v-bind="{ props }">{{ props.label }}</slot>
     </label>
     <div class="sf-textarea__error-message">
       <transition name="sf-fade">
-        <!-- @slot Custom error message -->
         <slot name="error-message" v-bind="{ props }">
           <div :class="{ 'display-none': props.valid }">
             {{ props.errorMessage }}
