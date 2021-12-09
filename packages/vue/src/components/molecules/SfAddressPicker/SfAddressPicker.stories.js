@@ -137,8 +137,7 @@ export default {
           summary: null,
         },
       },
-      description:
-        "Use this slot to have custom checkmark",
+      description: "Use this slot to have custom checkmark",
     },
   },
 };
