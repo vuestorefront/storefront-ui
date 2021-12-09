@@ -126,6 +126,35 @@ export default {
       table: { category: "Events", type: { summary: null } },
       description: "Emits change event with step value when step is clicked",
     },
+    default: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Default slot for `SfSteps` component. Slot to replace steps content ",
+    },
+    "steps ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to customize the steps",
+    },
+    "default ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Default slot for `SfStep` component. Use this slot to customize step in `SfStep` component",
+    },
   },
 };
 

@@ -220,6 +220,42 @@ export default {
       table: { category: "Events", type: { summary: null } },
       description: "Emits click event when button is clicked",
     },
+    "title ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace title content",
+    },
+    "subtitle ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace subtitle content",
+    },
+    "description ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace description content",
+    },
+    "call-to-action": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace call-to-action content",
+    },
   },
   args: {
     image: banner,

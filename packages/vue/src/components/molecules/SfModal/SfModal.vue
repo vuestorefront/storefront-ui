@@ -14,7 +14,6 @@
         v-click-outside="checkPersistence"
         class="sf-modal__container"
       >
-        <!--@slot Use this slot to place content inside the modal bar.-->
         <slot name="modal-bar">
           <SfBar
             class="sf-modal__bar smartphone-only"
@@ -31,13 +30,11 @@
           data-testid="close-button"
           @click="close"
         >
-          <!--@slot Use this slot to place content inside the close button.-->
           <slot name="close">
             <SfIcon icon="cross" size="0.875rem" color="gray-secondary" />
           </slot>
         </SfButton>
         <div ref="content" class="sf-modal__content">
-          <!--@slot Use this slot to place content inside the modal.-->
           <slot />
         </div>
       </div>

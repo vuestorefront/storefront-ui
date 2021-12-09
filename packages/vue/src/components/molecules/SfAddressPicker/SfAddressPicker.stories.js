@@ -110,6 +110,36 @@ export default {
       description:
         "Emits change event with the name of picked address component",
     },
+    default: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Default slot for `SfAddress` component. Here you should pass address details",
+    },
+    "default ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Default slot for `SfAddressPicker` component. Use this slot to pass addresses in `SfAddress` components",
+    },
+    icon: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Use this slot to have custom checkmark",
+    },
   },
 };
 
