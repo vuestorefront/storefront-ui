@@ -7,16 +7,10 @@
 export default {
   name: "SfContentPage",
   props: {
-    /**
-     * Page title
-     */
     title: {
       type: String,
       default: "",
     },
-    /**
-     * Page nav icon
-     */
     icon: {
       type: [String, Array],
       default: "",

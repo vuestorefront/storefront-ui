@@ -217,7 +217,7 @@ export default {
       description:
         "Default slot for `SfAccordionItem` component. Use this slot to place item's content",
     },
-    "header ": {
+    header: {
       table: {
         category: "Slots",
         type: {
@@ -227,7 +227,7 @@ export default {
       description:
         "Use this slot to replace accordion item header",
     },
-    "additional-info ": {
+    "additional-info": {
       table: {
         category: "Slots",
         type: {

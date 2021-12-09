@@ -360,7 +360,7 @@ export default {
           summary: null,
         },
       },
-      description: "Use this slot to replace colors element",
+      description: "Use this slot to replace color picker element",
     },
     badge: {
       table: {
