@@ -111,6 +111,9 @@
     display: var(--product-card-add-button-display, none);
     transform: var(--product-card-add-button-transform);
     opacity: var(--product-card-add-button-opacity, 0); 
+    &:focus {
+      --product-card-add-button-opacity: 1;
+    }
     & .sf-circle-icon:hover {    
       --button-box-shadow: 0px 4px 11px rgba(29, 31, 34, 0.1);
       --button-box-shadow-opacity: 0.3;
