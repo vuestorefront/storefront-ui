@@ -1,6 +1,5 @@
 <template>
   <nav class="sf-pagination">
-    <!-- @slot Custom markup for previous page button -->
     <slot name="prev" v-bind="{ isDisabled: !canGoPrev, go, prev: getPrev }">
       <div
         :class="{ 'display-none': !hasArrows }"
@@ -88,7 +87,6 @@
         </component>
       </slot>
     </template>
-    <!-- @slot Custom markup for previous page button -->
     <slot name="next" v-bind="{ isDisabled: !canGoNext, go, next: getNext }">
       <div
         :class="{ 'display-none': !hasArrows }"

@@ -16,6 +16,17 @@ export default {
       },
     },
   },
+  argTypes: {
+    default: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Place here all content that sticky property applies to",
+    },
+  },
   decorators: [
     () => ({
       template: `

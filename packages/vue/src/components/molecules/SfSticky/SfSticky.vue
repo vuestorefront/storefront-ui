@@ -6,7 +6,6 @@
       'sf-sticky--bound': isBound,
     }"
   >
-    <!-- @slotPlace here all content that sticky property applies to.-->
     <slot />
   </div>
 </template>
