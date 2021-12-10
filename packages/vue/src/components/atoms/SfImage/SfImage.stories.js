@@ -84,6 +84,15 @@ export default {
       description:
         "Native loading attribute supported, either 'eager', 'lazy' or none.",
     },
+    default: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to have custom element on image overlay",
+    },
   },
 };
 

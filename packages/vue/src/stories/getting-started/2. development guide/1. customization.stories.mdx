@@ -272,7 +272,6 @@ Take a look at below example. This is how `SfPagination` component look like out
 Let's say we want to display `prev` and `next` buttons instead of default arrow icons.
 
 In component documentation we can read that it has `next` and `prev` slots. We can use them to add our custom behavior. For every slot you have access to methods and data properties related to it's functionality via slot scope. In our case it would be `go` function that will move forward/backward and `isDisabled` property that tells us if there is a next or previous page.
-We can use the latest to disable buttons when they're not usable.
 
 ```html
 <SfPagination
@@ -281,12 +280,12 @@ We can use the latest to disable buttons when they're not usable.
   :visible="5"
   @click="page => currentPage = page"
 >
-  <template #prev="{ isDisabled, go }">
-    <button @click="go()" :disabled="isDisabled ? true : false">prev</button>
+  <template #prev="{ isDisabled, go, prev }">
+    <button @click="go(prev)" :disabled="isDisabled">prev</button>
   </template>
-  <template #next="{ isDisabled, go }">
-    <button @click="go()" :disabled="isDisabled ? true : false">next</button>
-  </template>
+  <template #next="{ isDisabled, go, next }">
+    <button @click="go(next)" :disabled="isDisabled">next</button>
+    </template>
 </SfPagination>
 ```
 

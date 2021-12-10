@@ -2,7 +2,6 @@
   <div class="sf-header" :class="{ 'is-sticky': sticky, 'is-hidden': hidden }">
     <div class="sf-header__wrapper">
       <header ref="header" class="sf-header__header">
-        <!--@slot Use this slot to replace logo with text or image-->
         <slot name="logo" v-bind="{ logo, title }">
           <SfLink link="/">
             <SfImage
@@ -17,7 +16,6 @@
           </SfLink>
         </slot>
         <div class="sf-header__aside">
-          <!-- @slot Use this slot for language or currency selector -->
           <slot name="aside" />
         </div>
         <div class="sf-header__actions">
@@ -27,7 +25,6 @@
           >
             <slot name="navigation"></slot>
           </nav>
-          <!--@slot Use this slot to replace default search bar-->
           <slot name="search" v-bind="{ searchValue, searchPlaceholder }">
             <SfSearchBar
               :value="searchValue"
@@ -35,10 +32,9 @@
               aria-label="Search"
               class="sf-header__search"
               @input="$emit('change:search', $event)"
-              @enter="$emit('enter:search', $event)"
+              @keyup.enter="$emit('enter:search', $event)"
             />
           </slot>
-          <!--@slot Use this slot to replace default header icons with custom content-->
           <slot
             name="header-icons"
             v-bind="{

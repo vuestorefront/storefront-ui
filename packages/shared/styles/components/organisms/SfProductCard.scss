@@ -25,7 +25,10 @@
     --product-card-wishlist-icon-opacity: 1;
     --product-card-add-button-opacity: 1;
     --product-card-z-index: 1;
-    --product-card-box-shadow: 0px 4px 11px rgba(29, 31, 34, 0.1);
+    --product-card-box-shadow: 0px 4px 11px rgba(29, 31, 34, 0.1);    
+  }
+  &.has-colors { 
+    --product-card-add-button-bottom: 0;
   }
   &:active {
     --product-card-box-shadow: 0px 4px 11px rgba(29, 31, 34, 0.1);
@@ -36,12 +39,13 @@
     line-height: 0;
     text-decoration: none;
     margin: var(--product-card-link-margin, 0);
-    text-align: left;
+    text-align: left;  
   }
   &__colors {
+    --color-picker-position: absolute;
     --color-picker-label-font-size: var(--font-size--base);
     --color-picker-label-font-weight: var(--font-weight--medium);
-    @include for-desktop {
+    @include for-desktop {      
       --color-picker-position: relative;
       --color-picker-justify-content: flex-start;
       --color-picker-padding: 0;
@@ -89,17 +93,30 @@
     top: var(--product-card-badge-top, var(--spacer-xs));
     left: var(--product-card-badge-left, 0);
   }
+  &__colors-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: var(--spacer-xs);
+    width: 2.5rem;
+    height:  2.5rem;
+    padding: 0;
+    color: var(--c-white);
+    z-index: 2;
+  }
   &__add-button {
     --circle-icon-position: absolute;
-    --button-box-shadow: 0px 4px 11px rgba(29, 31, 34, 0.1);
     right: var(--product-card-add-button-right, 1rem);
     bottom: var(--product-card-add-button-bottom, -1.5rem);
     display: var(--product-card-add-button-display, none);
     transform: var(--product-card-add-button-transform);
-    opacity: var(--product-card-add-button-opacity, 0);
-    box-shadow: var(--button-box-shadow);
+    opacity: var(--product-card-add-button-opacity, 0); 
     &:focus {
       --product-card-add-button-opacity: 1;
+    }
+    & .sf-circle-icon:hover {    
+      --button-box-shadow: 0px 4px 11px rgba(29, 31, 34, 0.1);
+      --button-box-shadow-opacity: 0.3;
     }
   }
   &__price {
@@ -156,5 +173,11 @@
     --product-card-add-button-display: flex;
     --product-card-title-margin: var(--spacer-sm) 0 0 0;
     --product-card-margin: var(--spacer-xs) 0;
+    &__colors-badge {
+      margin: var(--spacer-sm) var(--spacer-sm) 0 0;
+      width: 1.25rem;
+      height:  1.25rem;
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    }
   }
 }

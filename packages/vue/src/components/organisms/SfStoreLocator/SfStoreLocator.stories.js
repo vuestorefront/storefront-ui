@@ -418,8 +418,102 @@ export default {
       description: "Email of the store (for internal component))",
     },
     "update:zoom": {
-      action: "Zoom value updated",
-      table: { category: "Events" },
+      action: "update:zoom event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits update:zoom event when map zoom is changed",
+    },
+    "library:loaded": {
+      action: "library:loaded event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description:
+        "Emits library:loaded event when vue2-leaflet library is loaded",
+    },
+    "map:ready": {
+      action: "map:ready event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits map:ready event when map component is ready",
+    },
+    "location:error": {
+      action: "location:error event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description:
+        "Emits location:error event when access to user geolocation is denied",
+    },
+    "update:center": {
+      action: "update:center event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description:
+        "Emits update:center event when center of the map is changed",
+    },
+    default: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Default slot for `SfStoreLocator` component. Use this slot to show stores cards",
+    },
+    "marker-icon": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfStoreLocator` component. Use this slot to change the icon of the stores, remember to update `markerIconSize` and `markerIconAnchor` accordingly",
+    },
+    "map-loading": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfStoreLocator` component. Use this slot to customize the loading indicator while the map library loads",
+    },
+    "default ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Default slot for `SfStore` component. Use this slot to place information about store",
+    },
+    media: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfStore` component. Use this slot to show media elements",
+    },
+    heading: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfStore` component. Use this slot to replace name element",
+    },
+    distance: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfStore` component. Use this slot to replace distance element",
     },
   },
 };
@@ -440,6 +534,10 @@ const Template = (args, { argTypes }) => ({
     :tile-layer-options="tileLayerOptions"
     :marker-options="markerOptions"
     :fly-to-store-zoom="flyToStoreZoom"
+    @library:loaded="this['library:loaded']"
+    @update:zoom="this['update:zoom']"
+    @map:ready="this['map:ready']"
+    @location:error="this['location:error']"
   >
     <SfStore
       :latlng="latlng"
