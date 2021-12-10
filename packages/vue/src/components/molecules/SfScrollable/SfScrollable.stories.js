@@ -80,6 +80,24 @@ export default {
       },
       description: "Text for button hiding content",
     },
+    default: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Slot to place default content",
+    },
+    "view-all": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Slot to replace buttons showing/hiding content",
+    },
   },
 };
 
