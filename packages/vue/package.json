@@ -16,7 +16,7 @@
     "test:dev": "vue-cli-service test:unit --watch",
     "version": "node scripts/version.js",
     "storybook": "start-storybook -s ./public -p 6006",
-    "build-storybook": "update-components-docs && build-storybook -s ./public",
+    "build-storybook": "yarn update-components-docs && build-storybook -s ./public",
     "update-components-docs": "node scripts/update-components-docs.js"
   },
   "main": "./index.js",
