@@ -320,12 +320,7 @@ export const controlWithButtons = (args, { argTypes }) => ({
       :multiple="multiple"
       :show-chevron="showChevron"
       :transition="transition"
-<<<<<<< HEAD
-      @click:open-header="change('')"
-=======
-      :first-open="firstOpen"
       @click:open="openHeader"
->>>>>>> develop
     >
       <SfAccordionItem 
         v-for="accordion in accordions" 
@@ -361,14 +356,9 @@ export const UseHeaderSlot = (args, { argTypes }) => ({
     :open="open" 
     :multiple="multiple"
     :show-chevron="showChevron"
-<<<<<<< HEAD
-    :transition="transition">
-=======
     :transition="transition"
-    :first-open="firstOpen"
     @click:open="this['click:open']"
   >
->>>>>>> develop
     <SfAccordionItem 
       v-for="accordion in accordions" 
       :key="accordion.header" 
