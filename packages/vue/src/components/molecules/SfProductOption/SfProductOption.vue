@@ -1,6 +1,5 @@
 <template>
   <div class="sf-product-option">
-    <!-- @slot Slot to replace color element -->
     <slot name="color" v-bind="{ color }">
       <div
         :class="{ 'display-none': !color }"
@@ -8,7 +7,6 @@
         :style="{ background: color }"
       ></div>
     </slot>
-    <!-- @slot Slot to replace label element -->
     <slot name="label" v-bind="{ label }">
       <div class="sf-product-option__label">{{ label }}</div>
     </slot>

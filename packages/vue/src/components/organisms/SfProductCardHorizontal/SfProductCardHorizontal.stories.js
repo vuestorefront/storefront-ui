@@ -239,8 +239,11 @@ export default {
       control: "text",
       table: {
         category: "Props",
+        defaultValue: {
+          summary: "null",
+        },
       },
-      defaultValue: "",
+      defaultValue: undefined,
       description: "Link to product page",
     },
     scoreRating: {
@@ -334,18 +337,122 @@ export default {
       defaultValue: "",
       description: "*Deprecated. Link element tag. Use slot to replace content",
     },
-
     "click:addToCart": {
-      action: "Add-to-cart clicked",
-      table: { category: "Events" },
+      action: "click:add-to-cart event emitted",
+      table: {
+        category: "Events",
+        type: { summary: null },
+      },
+      description:
+        "Emits click:add-to-cart event when add to cart button is clicked",
     },
     "click:wishlist": {
-      action: "Wishlist clicked",
-      table: { category: "Events" },
+      action: "click:wishlist event emitted",
+      table: {
+        category: "Events",
+        type: { summary: null },
+      },
+      description:
+        "Emits click:wishlist event when add to wishlist button is clicked",
+    },
+    "click:reviews": {
+      action: "click:reviews event emitted",
+      table: {
+        category: "Events",
+        type: { summary: null },
+      },
+      description:
+        "Emits click:reviews event when reviews count button is clicked",
     },
     input: {
-      action: "Quantity changed",
-      table: { category: "Events" },
+      action: "input event emitted",
+      table: {
+        category: "Events",
+        type: { summary: null },
+      },
+      description:
+        "Emits input event when quantity selector's value is changed",
+    },
+    "image ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace image element",
+    },
+    "title ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace title element",
+    },
+    "description ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace description element",
+    },
+    configuration: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to place content inside configuration",
+    },
+    price: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace price element",
+    },
+    reviews: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace reviews element",
+    },
+    actions: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to place content inside actions",
+    },
+    "add-to-cart": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace add to cart button",
+    },
+    "wishlist-icon": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace wishlist icon",
     },
   },
 };
@@ -380,6 +487,7 @@ const Template = (args, { argTypes }) => ({
     :is-in-wishlist="isInWishlist"
     @click:add-to-cart="this['click:addToCart']"
     @click:wishlist="this['click:wishlist']"
+    @click:reviews="this['click:reviews']"
   >
     <template #configuration>
       <div style="display: flex; flex-direction: column; justify-content: flex-end">

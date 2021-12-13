@@ -19,7 +19,6 @@
     v-bind="data.attrs"
     v-on="!props.disabled ? listeners : {}"
   >
-    <!--@slot Use this slot to place content inside the button.-->
     <slot />
   </component>
 </template>

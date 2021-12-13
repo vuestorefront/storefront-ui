@@ -52,6 +52,15 @@ export default {
       },
       description: "Tile link",
     },
+    default: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace title content",
+    },
   },
 };
 

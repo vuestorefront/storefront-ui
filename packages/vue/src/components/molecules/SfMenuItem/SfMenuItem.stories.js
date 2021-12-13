@@ -111,11 +111,50 @@ export default {
     },
     link: {
       control: "text",
+      defaultValue: undefined,
       table: {
         category: "Props",
+        defaultValue: {
+          summary: "null",
+        },
       },
-      defaultValue: "",
       description: "Menu-item link (if is empty then SfMenuItem is SfButton)",
+    },
+    "icon ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Slot for replacing menu item icon",
+    },
+    "label ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Slot for replacing menu item label",
+    },
+    "count ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Slot for replacing items count ",
+    },
+    "mobile-nav-icon": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace icon on mobile devices",
     },
   },
 };
