@@ -60,6 +60,78 @@ export default {
   title: "Components/Templates/OrderSummary",
   component: SfOrderSummary,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "heading-title-margin": {
+        value: "0 0 var(--spacer-xl) 0",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "heading-title-font": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-weight--bold": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "heading-padding": {
+        value: "0",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "heading-title-font-size": {
+        value: "var(--h3-font-size)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "property-name-font-weight": {
+        value: "var(--font-weight--medium)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "property-value-font-weight": {
+        value: "var(--font-weight--bold)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "property-name-color": {
+        value: "var(--c-text)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "divider-border-color": {
+        value: "var(--c-white)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "divider-margin": {
+        value: "var(--spacer-xl) 0 0 0",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "input-background": {
+        value: "var(--c-white)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "input-label-font": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-size--base": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-height": {
+        value: "1.875rem",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+    // end of code generated automatically
     docs: {
       description: {
         component:
@@ -123,6 +195,17 @@ export default {
       defaultValue: ["Products", "Subtotal", "Shipping", "Total price"],
       description: "The array of names for order summary",
     },
+    "click:applyCode": {
+      name: "click:apply-code",
+      action: "click:apply-code event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits click:apply-code event when apply button is clicked",
+    },
+    ["click:apply-code"]: {
+      table: {
+        disable: true,
+      },
+    },
   },
 };
 
@@ -136,6 +219,7 @@ const Template = (args, { argTypes }) => ({
     :order="order"
     :propertiesNames="propertiesNames"
     :characteristics="characteristics"
+    @click:apply-code="this['click:applyCode']"
   />`,
 });
 

@@ -1,5 +1,9 @@
 <template>
-  <div class="sf-product-card" data-testid="product-card">
+  <div
+    class="sf-product-card"
+    :class="{ 'has-colors': colors.length }"
+    data-testid="product-card"
+  >
     <div class="sf-product-card__image-wrapper">
       <slot
         name="image"
@@ -37,7 +41,7 @@
       </slot>
       <slot name="colors" v-bind="{ colors }">
         <SfColorPicker
-          v-if="colors.length"
+          :class="{ 'display-none': !colors.length }"
           class="sf-product-card__colors"
           label="Choose color"
           :is-open="!isMobile || openColorPicker"
@@ -49,34 +53,40 @@
             :color="color.color"
             :selected="color.selected"
             class="sf-product-card__color"
+            :class="{ 'display-none': i > 3 && showBadge }"
             @click="handleSelectedColor(i)"
           />
+          <SfBadge
+            v-if="showBadge"
+            class="sf-product-card__colors-badge color-secondary"
+          >
+            {{ `+${colors.length - 4}` }}
+          </SfBadge>
         </SfColorPicker>
       </slot>
       <slot name="badge" v-bind="{ badgeLabel, badgeColor }">
         <SfBadge
-          v-if="badgeLabel"
           class="sf-product-card__badge"
-          :class="badgeColorClass"
+          :class="[badgeColorClass, { 'display-none': !badgeLabel }]"
           >{{ badgeLabel }}</SfBadge
         >
       </slot>
       <SfButton
-        v-if="wishlistIcon !== false"
         :aria-label="`${ariaLabel} ${title}`"
-        :class="wishlistIconClasses"
+        :class="[wishlistIconClasses, { 'display-none': !wishlistIcon }]"
         data-testid="product-wishlist-button"
         @click="toggleIsInWishlist"
       >
         <slot name="wishlist-icon" v-bind="{ currentWishlistIcon }">
           <SfIcon
+            v-if="currentWishlistIcon !== false"
             :icon="currentWishlistIcon"
             size="22px"
             data-test="sf-wishlist-icon"
           />
         </slot>
       </SfButton>
-      <template v-if="showAddToCartButton">
+      <template :class="{ 'display-none': !showAddToCartButton }">
         <slot
           name="add-to-cart"
           v-bind="{
@@ -138,7 +148,7 @@
     </slot>
     <slot name="price" v-bind="{ specialPrice, regularPrice }">
       <SfPrice
-        v-if="regularPrice"
+        :class="{ 'display-none': !regularPrice }"
         class="sf-product-card__price"
         :regular="regularPrice"
         :special="specialPrice"
@@ -146,16 +156,17 @@
     </slot>
     <slot name="reviews" v-bind="{ maxRating, scoreRating }">
       <div
-        v-if="typeof scoreRating === 'number'"
+        :class="{ 'display-none': !scoreRating }"
         class="sf-product-card__reviews"
       >
         <SfRating
+          v-if="typeof scoreRating === 'number'"
           class="sf-product-card__rating"
           :max="maxRating"
           :score="scoreRating"
         />
         <SfButton
-          v-if="reviewsCount"
+          :class="{ 'display-none': !reviewsCount }"
           :aria-label="`Read ${reviewsCount} reviews about ${title}`"
           class="sf-button--pure sf-product-card__reviews-count"
           data-testid="product-review-button"
@@ -227,7 +238,7 @@ export default {
     },
     link: {
       type: [String, Object],
-      default: "",
+      default: null,
     },
     /**
      * Link element tag
@@ -309,6 +320,9 @@ export default {
     wishlistIconClasses() {
       const defaultClass = "sf-button--pure sf-product-card__wishlist-icon";
       return `${defaultClass} ${this.isInWishlist ? "on-wishlist" : ""}`;
+    },
+    showBadge() {
+      return this.colors.length > 5;
     },
   },
   beforeDestroy() {

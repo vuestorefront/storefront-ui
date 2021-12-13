@@ -30,7 +30,10 @@
         v-html="html"
       ></div>
       <slot name="label">
-        <div v-if="label" class="sf-component-select__label">
+        <div
+          :class="{ 'display-none': !label }"
+          class="sf-component-select__label"
+        >
           {{ label }}
         </div>
       </slot>
@@ -52,7 +55,7 @@
           >
             <slot />
           </ul>
-          <slot name="cancel">
+          <slot name="cancel" v-bind="{ cancelLabel, closeHandler }">
             <SfButton
               ref="cancel"
               class="
@@ -62,7 +65,7 @@
               "
               @click="closeHandler"
             >
-              Cancel
+              {{ cancelLabel }}
             </SfButton>
           </slot>
         </div>
@@ -70,9 +73,8 @@
     </div>
     <div class="sf-component-select__error-message">
       <transition name="sf-fade">
-        <!-- @slot Custom error message of form select -->
-        <slot v-if="!valid" name="error-message" v-bind="{ errorMessage }">
-          <span> {{ errorMessage }} </span>
+        <slot name="error-message" v-bind="{ errorMessage }">
+          <span :class="{ 'display-none': valid }"> {{ errorMessage }} </span>
         </slot>
       </transition>
     </div>
@@ -131,6 +133,10 @@ export default {
     persistent: {
       type: Boolean,
       default: false,
+    },
+    cancelLabel: {
+      type: String,
+      default: "Cancel",
     },
   },
   data() {
@@ -256,6 +262,7 @@ export default {
     },
     closeHandler() {
       this.open = false;
+      this.$emit("click:close");
     },
   },
 };

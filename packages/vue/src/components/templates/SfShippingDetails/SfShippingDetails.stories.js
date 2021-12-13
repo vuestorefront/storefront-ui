@@ -5,6 +5,40 @@ export default {
   title: "Components/Templates/ShippingDetails",
   component: SfShippingDetails,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "button-background": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-color": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "tabs-content-border-width": {
+        value: "0",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "tabs-title-display": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "tabs-content-padding": {
+        value: "0",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-width": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+    // end of code generated automatically
     docs: {
       description: {
         component:
@@ -123,6 +157,44 @@ export default {
       defaultValue: "",
       description: "Shipping tab description",
     },
+    "update:shipping": {
+      action: "update:shipping event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits update:shipping event when update button is clicked",
+    },
+    changeAddress: {
+      name: "change-address",
+      action: "change-address event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits change-address event when change button is clicked",
+    },
+    cancelEditing: {
+      name: "cancel-editing",
+      action: "cancel-editing event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits cancel-editing event when cancel button is clicked",
+    },
+    deleteAddress: {
+      name: "delete-address",
+      action: "delete-address event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits delete-address event when delete button is clicked",
+    },
+    ["change-address"]: {
+      table: {
+        disable: true,
+      },
+    },
+    ["cancel-editing"]: {
+      table: {
+        disable: true,
+      },
+    },
+    ["delete-address"]: {
+      table: {
+        disable: true,
+      },
+    },
   },
 };
 
@@ -144,6 +216,10 @@ const Template = (args, { argTypes }) => ({
     :deleteButtonText="deleteButtonText"
     :addNewAddressButtonText="addNewAddressButtonText"
     :updateAddressButtonText="updateAddressButtonText"
+    @change-address="this['changeAddress']"
+    @update:shipping="this['update:shipping']"
+    @cancel-editing="this['cancelEditing']"
+    @delete-address="this['deleteAddress']"
   />`,
 });
 

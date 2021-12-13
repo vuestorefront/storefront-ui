@@ -34,14 +34,15 @@
         <slot name="placeholder" v-bind="{ placeholder }" />
         {{ placeholder }}
       </option>
-      <!-- @slot Slot to replace select options -->
       <slot />
     </select>
     <div class="sf-select__error-message">
       <transition name="sf-fade">
         <!-- @slot Custom error message of form select -->
-        <slot v-if="!valid" name="errorMessage" v-bind="{ errorMessage }">
-          <span> {{ errorMessage }} </span>
+        <slot name="errorMessage" v-bind="{ errorMessage }">
+          <span :class="{ 'display-none': valid }">
+            {{ errorMessage }}
+          </span>
         </slot>
       </transition>
     </div>

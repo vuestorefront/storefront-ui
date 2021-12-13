@@ -1,6 +1,5 @@
 <template>
   <div class="sf-tabs__tab">
-    <!--@slot Title. Here you should pass a title tab (for internal component) -->
     <slot name="title" v-bind="{ tabClick, isActive, title }">
       <SfButton
         :aria-pressed="isActive.toString()"
@@ -16,14 +15,13 @@
       </SfButton>
     </slot>
     <div class="sf-tabs__content">
-      <div v-if="isActive" class="sf-tabs__content__tab">
+      <div :class="{ 'display-none': !isActive }" class="sf-tabs__content__tab">
         <SfScrollable
           v-if="tabMaxContentHeight"
           :max-content-height="tabMaxContentHeight"
           :show-text="tabShowText"
           :hide-text="tabHideText"
         >
-          <!--@slot Default. Here you should pass your tab content (for internal component) -->
           <slot />
         </SfScrollable>
         <slot v-else />

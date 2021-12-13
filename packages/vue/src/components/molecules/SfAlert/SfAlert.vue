@@ -1,12 +1,12 @@
 <template>
   <div :class="colorClass" class="sf-alert">
-    <!--@slot Custom alert icon. Slot content will replace default icon <SfIcon/> tag.-->
     <slot name="icon" v-bind="{ icon }">
       <SfIcon aria-hidden="true" :icon="icon" class="sf-alert__icon" />
     </slot>
-    <!--@slot Custom message . Slot content will replace default message <span> tag.-->
     <slot name="message" v-bind="{ message }">
-      <span v-if="message" class="sf-alert__message">{{ message }}</span>
+      <span :class="{ 'display-none': !message }" class="sf-alert__message">{{
+        message
+      }}</span>
     </slot>
   </div>
 </template>

@@ -1,10 +1,17 @@
 <template>
   <SfLink class="sf-category-card" :link="link" :style="style">
-    <!--@slot Default. Here you can pass content of your category card-->
     <slot v-bind="{ label, count }">
       <div class="sf-category-card__details">
-        <span v-if="label" class="sf-category-card__label">{{ label }}</span>
-        <span v-if="count" class="sf-category-card__count">{{ count }}</span>
+        <span
+          :class="{ 'display-none': !label }"
+          class="sf-category-card__label"
+          >{{ label }}</span
+        >
+        <span
+          :class="{ 'display-none': !count }"
+          class="sf-category-card__count"
+          >{{ count }}</span
+        >
       </div>
     </slot>
   </SfLink>

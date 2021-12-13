@@ -1,7 +1,7 @@
 {
   "name": "@storefront-ui/root",
   "private": true,
-  "version": "0.11.1",
+  "version": "0.11.4",
   "description": "",
   "main": "index.js",
   "author": "Storefront UI",
@@ -18,7 +18,8 @@
     "nuxt:build": "cd packages/nuxt && yarn build",
     "nuxt:start": "cd packages/nuxt && yarn start",
     "lhci": "lhci autorun",
-    "lhci:desktop": "lhci autorun --collect.settings.preset=desktop"
+    "lhci:desktop": "lhci autorun --collect.settings.preset=desktop",
+    "update-components-docs": "cd packages/vue/scripts && node update-components-docs.js"
   },
   "repository": {
     "type": "git",

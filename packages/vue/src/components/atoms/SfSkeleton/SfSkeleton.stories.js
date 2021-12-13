@@ -4,6 +4,9 @@ export default {
   title: "Components/Atoms/Skeleton",
   component: SfSkeleton,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {},
+    // end of code generated automatically
     docs: {
       description: {
         component:
@@ -39,6 +42,15 @@ export default {
       defaultValue: "paragraph",
       description:
         "Defines shape for SfSkeleton. Available values: 'paragraph', 'image', 'button', 'input', 'avatar'",
+    },
+    default: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace default skeleton",
     },
   },
 };

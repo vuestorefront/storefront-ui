@@ -5,6 +5,50 @@ export default {
   title: "Components/Templates/Shipping",
   component: SfShipping,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "heading-padding": {
+        value: "var(--spacer-xl) 0 var(--spacer-lg)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "heading-title-font": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "select-option-font": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "select-dropdown-color": {
+        value: "blue",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "radio-container-padding": {
+        value: "var(--spacer-xs)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "radio-description-margin": {
+        value: "0",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-color": {
+        value: "var(--c-primary)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-transition": {
+        value: "color 150ms linear",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+    // end of code generated automatically
     docs: {
       description: {
         component:
@@ -86,6 +130,22 @@ export default {
       defaultValue: 2,
       description: "Heading number for the second header",
     },
+    input: {
+      action: "input event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits input event when one of input fields is changed",
+    },
+    toggleInfo: {
+      name: "toggle-info",
+      action: "toggle-info event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits toggle-info event when info button is clicked",
+    },
+    ["toggle-info"]: {
+      table: {
+        disable: true,
+      },
+    },
   },
 };
 
@@ -102,6 +162,8 @@ const Template = (args, { argTypes }) => ({
     :countries="countries"
     :methodsHeadingTitle="methodsHeadingTitle"
     :methodsHeadingTitleLevel="methodsHeadingTitleLevel"
+    @input="input"
+    @toggle-info="this['toggleInfo']"
   />`,
 });
 

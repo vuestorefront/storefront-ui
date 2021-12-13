@@ -8,6 +8,58 @@ export default {
   title: "Components/Molecules/Characteristic",
   component: SfCharacteristic,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "characteristic-margin": {
+        value: "0 var(--spacer-xs) 0 0",
+        control: "text",
+      },
+      "characteristic-title-font": { value: "", control: "text" },
+      "characteristic-title-font-weight": {
+        value: "var(--font-weight--normal)",
+        control: "text",
+      },
+      "characteristic-title-font-size": {
+        value: "var(--h5-font-size)",
+        control: "text",
+      },
+      "characteristic-title-font-line-height": {
+        value: "1.6",
+        control: "text",
+      },
+      "characteristic-title-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+      "characteristic-description-font": { value: "", control: "text" },
+      "characteristic-description-font-weight": {
+        value: "var(--font-weight--normal)",
+        control: "text",
+      },
+      "characteristic-description-font-size": {
+        value: "var(--font-size--xs)",
+        control: "text",
+      },
+      "characteristic-description-font-line-height": {
+        value: "1.6",
+        control: "text",
+      },
+      "characteristic-description-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+      "icon-color": {
+        value: "var(--c-primary)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "icon-size": {
+        value: "2rem",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+    // end of code generated automatically
     docs: {
       description: {
         component:
@@ -77,6 +129,43 @@ export default {
         },
       },
       description: "Characteristic description ",
+    },
+    text: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Characteristic text. Slot content will replace default title and description text",
+    },
+    "title ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace title button",
+    },
+    "description ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace description button",
+    },
+    "icon ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace icon",
     },
   },
 };

@@ -4,6 +4,64 @@ export default {
   title: "Components/Molecules/Checkbox",
   component: SfCheckbox,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "checkbox-padding": { value: "", control: "text" },
+      "checkbox-container-width": { value: "", control: "text" },
+      "checkbox-cursor": { value: "pointer", control: "text" },
+      "checkbox-display": { value: "flex", control: "text" },
+      "checkbox-order": { value: "", control: "text" },
+      "checkbox-size": { value: "1.5rem", control: "text" },
+      "checkbox-border": { value: "", control: "text" },
+      "checkbox-border-width": { value: "1px", control: "text" },
+      "checkbox-border-radius": { value: "", control: "text" },
+      "checkbox-background": { value: "", control: "text" },
+      "checkbox-label-margin": {
+        value: "0 0 0 var(--spacer-xs)",
+        control: "text",
+      },
+      "checkbox-label-color": { value: "", control: "text" },
+      "checkbox-font": { value: "", control: "text" },
+      "checkbox-font-weight": {
+        value: "var(--font-weight--normal)",
+        control: "text",
+      },
+      "checkbox-font-size": {
+        value: "var(--font-size--base)",
+        control: "text",
+      },
+      "checkbox-font-line-height": { value: "1.6", control: "text" },
+      "checkbox-font-family": {
+        value: "var(--font-family--primary)",
+        control: "text",
+      },
+      "checkbox-message-margin": { value: "", control: "text" },
+      "checkbox-message-color": { value: "", control: "text" },
+      "checkbox-message-font": { value: "", control: "text" },
+      "checkbox-message-font-weight": {
+        value: "var(--font-weight--normal)",
+        control: "text",
+      },
+      "checkbox-message-font-size": {
+        value: "var(--font-size--xs)",
+        control: "text",
+      },
+      "checkbox-message-font-line-height": { value: "1.2", control: "text" },
+      "checkbox-message-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+      "icon-size": {
+        value: "1.25rem",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "checkbox-border-color": {
+        value: "",
+        control: "text",
+      },
+    },
+    // end of code generated automatically
     docs: {
       description: {
         component:
@@ -108,7 +166,56 @@ export default {
         disable: true,
       },
     },
-    change: { action: "Selected items changed", table: { category: "Events" } },
+    change: {
+      action: "Change event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits change event when checkbox is clicked",
+    },
+    "show-error-message": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Custom error message",
+    },
+    "show-info-message": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Custom info message",
+    },
+    "show-hint-message": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Custom hint message",
+    },
+    checkmark: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Custom checkmark markup",
+    },
+    "label ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace label",
+    },
   },
 };
 

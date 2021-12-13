@@ -3,6 +3,18 @@ export default {
   title: "Components/Molecules/Section",
   component: SfSection,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "section-margin": {
+        value: "calc(var(--spacer-lg) * 2) 0 var(--spacer-lg) 0",
+        control: "text",
+      },
+      "section-content-margin": {
+        value: "calc(var(--spacer-lg) * 2) 0 0 0",
+        control: "text",
+      },
+    },
+    // end of code generated automatically
     docs: {
       description: {
         component: "Full-width section for content.",
@@ -40,6 +52,25 @@ export default {
       },
       defaultValue: 2,
       description: "Heading tag level",
+    },
+    default: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Slot to replace section content",
+    },
+    heading: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Slot for section heading, replacing default SfHeading component",
     },
   },
 };

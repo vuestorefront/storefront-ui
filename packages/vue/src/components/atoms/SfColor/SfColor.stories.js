@@ -4,6 +4,45 @@ export default {
   title: "Components/Atoms/Color",
   component: SfColor,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "color-width": { value: "var(--color-size, 2.5rem)", control: "text" },
+      "color-height": { value: "var(--color-size, 2.5rem)", control: "text" },
+      "color-background": { value: "", control: "text" },
+      "color-border-radius": { value: "", control: "text" },
+      "color-box-shadow-transition": {
+        value:
+          "opacity var(--color-box-shadow-transition-opacity-duration, 200ms) var(--color-box-shadow-transition-opacity-timing-function, ease-in-out), box-shadow var(--color-box-shadow-transition-box-shadow-duration, 200ms) var(--color-box-shadow-transition-box-shadow-timing-function, ease-in-out)",
+        control: "text",
+      },
+      "color-box-shadow-opacity": { value: "", control: "text" },
+      "color-box-shadow": {
+        value:
+          "var(--color-box-shadow-h-offset, 0px) var(--color-box-shadow-v-offset, 4px) var(--color-box-shadow-blur, 4px) var(--color-box-shadow-spread, 0px) var(--color-box-shadow-color, var(--c-black))",
+        control: "text",
+      },
+      "color-box-shadow-transition-duration": {
+        value: "150ms",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "badge-padding": {
+        value: "var(--spacer-2xs)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "badge-border-radius": {
+        value: "100%",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "color-size": {
+        value: "0.75rem",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+    // end of code generated automatically
     docs: {
       description: {
         component:
@@ -45,7 +84,20 @@ export default {
       },
       description: "Sets select value",
     },
-    onClick: { action: "toggle selected", table: { category: "Events" } },
+    click: {
+      action: "toggle selected",
+      table: { category: "Events", type: { summary: null } },
+      description: "Click event. It is passed via v-on='listeners'",
+    },
+    badge: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use it to replace badge to custom element ",
+    },
   },
 };
 
@@ -59,7 +111,7 @@ const Template = (args, { argTypes }) => ({
     :has-badge="hasBadge"
     :aria-label="color"  
     style="margin: 10px;"
-    @click="onClick"
+    @click="click"
     :class="classes" />`,
 });
 

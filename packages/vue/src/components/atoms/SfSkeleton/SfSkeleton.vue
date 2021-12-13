@@ -1,6 +1,5 @@
 <template>
   <div class="sf-skeleton" :class="classFromProps">
-    <!--@slot use this slot to replace default skeleton -->
     <slot />
   </div>
 </template>
@@ -16,20 +15,7 @@ export default {
   },
   computed: {
     classFromProps() {
-      switch (this.type) {
-        case "paragraph":
-          return "sf-skeleton--paragraph";
-        case "image":
-          return "sf-skeleton--image";
-        case "button":
-          return "sf-skeleton--button";
-        case "input":
-          return "sf-skeleton--input";
-        case "avatar":
-          return "sf-skeleton--avatar";
-        default:
-          return "sf-skeleton--paragraph";
-      }
+      return `sf-skeleton--${this.type}`;
     },
   },
 };

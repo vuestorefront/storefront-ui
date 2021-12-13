@@ -5,6 +5,41 @@ export default {
   title: "Components/Molecules/AddressPicker",
   component: SfAddress,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "address-font": { value: "", control: "text" },
+      "address-font-weight": {
+        value: "var(--font-weight--normal)",
+        control: "text",
+      },
+      "address-font-size": { value: "var(--font-size--base)", control: "text" },
+      "address-font-line-height": { value: "1.6", control: "text" },
+      "address-font-family": {
+        value: "var(--font-family--primary)",
+        control: "text",
+      },
+      "icon-color": {
+        value: "var(--c-white)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "icon-size": {
+        value: "0.875rem",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "radio-content-margin": {
+        value: "0",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "radio-background": {
+        value: "transparent",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+    // end of code generated automatically
     docs: {
       description: {
         component:
@@ -69,7 +104,41 @@ export default {
         "Phone (only for testing puropses). For development use default slot in SfAddress component, to change the content.",
       defaultValue: "",
     },
-    input: { action: "Address picked", table: { category: "Events" } },
+    change: {
+      action: "Change event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description:
+        "Emits change event with the name of picked address component",
+    },
+    default: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Default slot for `SfAddress` component. Here you should pass address details",
+    },
+    "default ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Default slot for `SfAddressPicker` component. Use this slot to pass addresses in `SfAddress` components",
+    },
+    icon: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to have custom checkmark",
+    },
   },
 };
 
@@ -77,7 +146,7 @@ const Template = (args, { argTypes }) => ({
   components: { SfAddressPicker },
   props: Object.keys(argTypes),
   template: `
-  <SfAddressPicker v-model="selected">
+  <SfAddressPicker v-model="selected" @change="change">
     <SfAddress :name="name">
       <span>{{title}}</span>
       <span>{{street}}</span>

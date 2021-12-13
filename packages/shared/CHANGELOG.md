@@ -3,6 +3,55 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.4](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.11.3...@storefront-ui/shared@0.11.4) (2021-12-10)
+
+
+### Bug Fixes
+
+* add to cart on hover and in active state ([#2156](https://github.com/vuestorefront/storefront-ui/issues/2156)) ([225a1c5](https://github.com/vuestorefront/storefront-ui/commit/225a1c52c44c35e3d3a839fcf1b25e9146d8d0e7))
+* badge added to color picker in product card ([#2130](https://github.com/vuestorefront/storefront-ui/issues/2130)) ([5b65987](https://github.com/vuestorefront/storefront-ui/commit/5b65987f7ae3934376d550056f7484c7ca979b60))
+
+
+
+
+
+## [0.11.3](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.11.2...@storefront-ui/shared@0.11.3) (2021-11-25)
+
+
+### Bug Fixes
+
+* cr fixes ([32945a4](https://github.com/vuestorefront/storefront-ui/commit/32945a4cdb308fb58599709711358b16577c3e24))
+* display none instead of v-if ([737d1a3](https://github.com/vuestorefront/storefront-ui/commit/737d1a3f9da3991479ec61528c65fc98396f9784))
+* moved add to cart button ([a2817e5](https://github.com/vuestorefront/storefront-ui/commit/a2817e545259fad00c5c4ce3e24bd84d3c5e6b6e))
+* remove header changes ([6fd0d61](https://github.com/vuestorefront/storefront-ui/commit/6fd0d61621740171d3c2b1bd729dba85b684d366))
+* remove nowrap for header ([dd7f2b3](https://github.com/vuestorefront/storefront-ui/commit/dd7f2b3efcc66f3b6ff8e05e378e01410f1c95c3))
+* SfButton as link - full width is not working ([#2100](https://github.com/vuestorefront/storefront-ui/issues/2100)) ([396cd70](https://github.com/vuestorefront/storefront-ui/commit/396cd70155873b930524453dde29cb78bdee3d94))
+* wrong position and shadow of the cart button ([a232890](https://github.com/vuestorefront/storefront-ui/commit/a232890ab8b5c9ce85c2f25a385d2f9712685c8b))
+* wrong styles in 'sf-header-navigation-item' links ([269ae8c](https://github.com/vuestorefront/storefront-ui/commit/269ae8cda338ca5409a69a85e3edbb8777fae34f))
+
+
+### Features
+
+* add script to update css vars  ([#2056](https://github.com/vuestorefront/storefront-ui/issues/2056)) ([8f95d84](https://github.com/vuestorefront/storefront-ui/commit/8f95d844d6120a5e7b0756db38b0bbf04f01df83))
+* explicit width and height ([550240f](https://github.com/vuestorefront/storefront-ui/commit/550240fd41a3b7d800a445fef2ba02ec9817a13c))
+
+
+
+
+
+## [0.11.2](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.11.1...@storefront-ui/shared@0.11.2) (2021-11-09)
+
+
+### Bug Fixes
+
+* 2063 - replace div inside label elements ([#2087](https://github.com/vuestorefront/storefront-ui/issues/2087)) ([88a061c](https://github.com/vuestorefront/storefront-ui/commit/88a061cd98d4dfe47f0d4bde2fdb97375b3bc88e))
+* display block for product title ([a8288b9](https://github.com/vuestorefront/storefront-ui/commit/a8288b96c4ef4bf986ed9c48fe754aa089211cc7))
+* divs inside buttons removed ([3485068](https://github.com/vuestorefront/storefront-ui/commit/3485068682c194885195ba430b3b6a04fe4b410f))
+
+
+
+
+
 ## [0.11.1](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.11.0...@storefront-ui/shared@0.11.1) (2021-10-25)
 
 

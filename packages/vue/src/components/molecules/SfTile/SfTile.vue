@@ -1,9 +1,8 @@
 <template>
   <SfLink :link="link" class="sf-tile" :style="style">
-    <!-- @slot Use this slot to replace title -->
     <slot name="title" v-bind="{ title }">
       <SfHeading
-        v-if="title"
+        :class="{ 'display-none': !title }"
         class="sf-tile__title"
         :level="3"
         :title="title"

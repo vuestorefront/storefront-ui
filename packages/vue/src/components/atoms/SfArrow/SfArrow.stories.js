@@ -4,10 +4,65 @@ export default {
   title: "Components/Atoms/Arrow",
   component: SfArrow,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "arrow-justify-content": { value: "", control: "text" },
+      "arrow-icon-transform": { value: "", control: "text" },
+      "button-width": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-height": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-padding": {
+        value: "0 0.625rem",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-background": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-transition": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "icon-color": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-box-shadow": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "box-shadow-transition-opacity-duration": {
+        value: "150ms",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-box-shadow-opacity": {
+        value: "0.25",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-border-radius": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+    // end of code generated automatically
     docs: {
       description: {
-        component:
-          "Arrow component for sliders and navigation. It's Vue 2 functional component.",
+        component: `Arrow component for sliders and navigation. It's Vue 2 functional component. To see css vars used in component please switch to canvas and CSS Custom Properties tab.`,
       },
     },
   },
@@ -36,12 +91,20 @@ export default {
       defaultValue: "Arrow label",
     },
     click: {
-      action: "click",
+      action: "Arrow clicked",
       table: {
         category: "Events",
       },
-      description:
-        "Click event. It is passed like any other prop in Vue functional component.",
+      description: "Click event. It is passed via v-on='listeners'",
+    },
+    default: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace arrow icon",
     },
     classes: {
       control: {

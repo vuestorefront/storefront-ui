@@ -7,6 +7,25 @@ export default {
   title: "Components/Organisms/BottomNavigation",
   component: SfBottomNavigationItem,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "icon-color": {
+        value: "var(--c-link)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-size": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "circle-icon-position": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+    // end of code generated automatically
     docs: {
       inlineStories: false,
       iframeHeight: "30em",
@@ -95,6 +114,36 @@ export default {
       },
       defaultValue: false,
       description: "Changes icon styling",
+    },
+    default: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Default slot for `SfBottomNavigation` component. Use this slot to place `SfBottomNavigationItem` elements",
+    },
+    "label ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfBottomNavigationItem` component. Use this slot to replace label element",
+    },
+    "icon ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfBottomNavigationItem` component. Use this slot to replace icon element",
     },
   },
 };

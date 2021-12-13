@@ -31,6 +31,18 @@ export default {
   title: "Components/Molecules/Scrollable",
   component: SfScrollable,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "scrollable-max-height": {
+        value: "var(--_scrollable-max-height, 5rem)",
+        control: "text",
+      },
+      "scrollable-button-margin": {
+        value: "var(--spacer-sm) 0 0 0",
+        control: "text",
+      },
+    },
+    // end of code generated automatically
     docs: {
       description: {
         component: "Scrollable wrapper with styled bar and toggle button.",
@@ -67,6 +79,24 @@ export default {
         },
       },
       description: "Text for button hiding content",
+    },
+    default: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Slot to place default content",
+    },
+    "view-all": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Slot to replace buttons showing/hiding content",
     },
   },
 };

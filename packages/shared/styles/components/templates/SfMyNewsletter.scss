@@ -1,10 +1,10 @@
-@import "../../helpers/";
+@import "../../helpers";
 .sf-my-newsletter {
   .tab-orphan {
     @include for-mobile {
       --tabs-title-display: none;
       --tabs-content-padding: 0;
-      --tabs-conent-border-width: 0;
+      --tabs-content-border-width: 0;
     }
   }
   .form {

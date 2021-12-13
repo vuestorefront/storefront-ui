@@ -4,6 +4,50 @@ export default {
   title: "Components/Atoms/Property",
   component: SfProperty,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "property-color": { value: "var(--c-text)", control: "text" },
+      "property-name-margin": {
+        value: "0 var(--spacer-xs) 0 0",
+        control: "text",
+      },
+      "property-name-color": {
+        value: "var(--c-secondary-variant)",
+        control: "text",
+      },
+      "property-name-text-transform": { value: "", control: "text" },
+      "property-name-font": { value: "", control: "text" },
+      "property-name-font-weight": {
+        value: "var(--font-weight--normal)",
+        control: "text",
+      },
+      "property-name-font-size": {
+        value: "var(--font-size--base)",
+        control: "text",
+      },
+      "property-name-font-line-height": { value: "1.2", control: "text" },
+      "property-name-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+      "property-name-content": { value: "", control: "text" },
+      "property-value-color": { value: "", control: "text" },
+      "property-value-font": { value: "", control: "text" },
+      "property-value-font-weight": {
+        value: "var(--font-weight--semibold)",
+        control: "text",
+      },
+      "property-value-font-size": {
+        value: "var(--font-size--base)",
+        control: "text",
+      },
+      "property-value-font-line-height": { value: "1.2", control: "text" },
+      "property-value-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+    },
+    // end of code generated automatically
     docs: {
       description: {
         component:
@@ -54,6 +98,19 @@ export default {
       },
       description: "Sets property value",
     },
+    "name ": {
+      table: {
+        category: "Slots",
+      },
+      description: "Named slot `name`. Use this slot to replace property name",
+    },
+    "value ": {
+      table: {
+        category: "Slots",
+      },
+      description:
+        "Named slot `value`. Use this slot to replace property value",
+    },
   },
 };
 
@@ -87,8 +144,8 @@ Large.args = {
   classes: "sf-property--large",
 };
 
-export const WithouSuffix = Template.bind({});
-WithouSuffix.args = {
+export const WithoutSuffix = Template.bind({});
+WithoutSuffix.args = {
   ...Common.args,
   classes: "sf-property--without-suffix",
 };

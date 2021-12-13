@@ -4,6 +4,15 @@ export default {
   title: "Components/Atoms/Overlay",
   component: SfOverlay,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "overlay-z-index": { value: "1", control: "text" },
+      "overlay-background": {
+        value: "rgba(var(--c-gray-base), 0.7)",
+        control: "text",
+      },
+    },
+    // end of code generated automatically
     docs: {
       inlineStories: false,
       iframeHeight: "300px",
@@ -39,7 +48,11 @@ export default {
       },
       description: "Visibility state",
     },
-    click: { action: "Overlay clicked!", table: { category: "Events" } },
+    click: {
+      action: "Overlay clicked",
+      table: { category: "Events", type: { summary: null } },
+      description: "Event emits when clicked on overlay.",
+    },
   },
 };
 

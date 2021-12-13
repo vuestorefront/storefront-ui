@@ -3,6 +3,32 @@ export default {
   title: "Components/Organisms/Carousel",
   component: SfCarousel,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "carousel-width": {
+        value: "calc(100% - var(--carousel-controls-size))",
+        control: "text",
+      },
+      "carousel-padding": { value: "", control: "text" },
+      "carousel-controls-position": { value: "absolute", control: "text" },
+      "carousel-controls-top": { value: "50%", control: "text" },
+      "carousel-controls-left": { value: "0", control: "text" },
+      "carousel-controls-transform": {
+        value: "translate3d(0, -50%, 0)",
+        control: "text",
+      },
+      "carousel-controls-display": { value: "none", control: "text" },
+      "carousel-controls-justify-content": {
+        value: "space-between",
+        control: "text",
+      },
+      "carousel-controls-width": { value: "100%", control: "text" },
+      "carousel-controls-size": {
+        value: "15rem",
+        control: "text",
+      },
+    },
+    // end of code generated automatically
     docs: {
       description: {
         component:
@@ -52,6 +78,46 @@ export default {
       },
       description:
         "Carousel options after glide.js (https://glidejs.com/docs/)",
+    },
+    default: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Default slot for `SfCarousel` component. Use this slot to place `SfCarouselItem` elements",
+    },
+    prev: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfCarousel` component. Slot for icon moving to the previous item ",
+    },
+    next: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfCarousel` component. Slot for icon moving to the next item ",
+    },
+    "default ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Default slot for `SfCarouselItem` component. Use this slot to place item's content",
     },
   },
 };

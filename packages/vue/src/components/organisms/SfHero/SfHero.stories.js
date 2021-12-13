@@ -5,6 +5,58 @@ export default {
   title: "Components/Organisms/Hero",
   component: SfHeroItem,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "hero-item-subtitle-font": { value: "", control: "text" },
+      "hero-item-subtitle-font-weight": {
+        value: "var(--font-weight--normal)",
+        control: "text",
+      },
+      "hero-item-subtitle-font-size": {
+        value: "var(--h6-font-size)",
+        control: "text",
+      },
+      "hero-item-subtitle-font-line-height": { value: "1.4", control: "text" },
+      "hero-item-subtitle-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+      "hero-item-title-font": { value: "", control: "text" },
+      "hero-item-title-font-weight": {
+        value: "var(--font-weight--semibold)",
+        control: "text",
+      },
+      "hero-item-title-font-size": {
+        value: "var(--h2-font-size)",
+        control: "text",
+      },
+      "hero-item-title-font-line-height": { value: "1.2", control: "text" },
+      "hero-item-title-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+      "button-background": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-box-shadow-opacity": {
+        value: "0",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-wrap": {
+        value: "normal",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "hero-item-font": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+    // end of code generated automatically
     docs: {
       description: {
         component:
@@ -117,15 +169,95 @@ export default {
     },
     link: {
       control: "text",
+      defaultValue: undefined,
       table: {
         category: "Props for SfHeroItem component",
         defaultValue: {
-          summary: "",
+          summary: "null",
         },
       },
-      defaultValue: "",
       description:
         "Link to be used in button if necessary (for SfHeroItem component)",
+    },
+    default: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Default slot for `SfHero` component. Use this slot to pass `SfHeroItems` components",
+    },
+    prev: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfHero` component. Use this slot to pass custom button that moves to the previous item",
+    },
+    next: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfHero` component. Use this slot to pass custom button that moves to the next item",
+    },
+    bullets: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfHero` component. Use this slot to pass custom markup for pagination bullets",
+    },
+    "title ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfHeroItem` component. Use this slot to replace title element",
+    },
+    "subtitle ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfHeroItem` component. Use this slot to replace subtitle element",
+    },
+    "call-to-action": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot `all-to-action` for `SfHeroItem` component. Use this slot to replace default SfButton component. ",
+    },
+    withImgTag: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot `withImgTag` for `SfHeroItem` component. Slot dedicated to img tags or other components with this tag (e.g. SfImage, SfCimage) that can be used as images for background. If you want to use this slot, make sure that background and image props are NOT provided (in SfHeroItem component). ",
     },
   },
 };

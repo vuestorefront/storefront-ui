@@ -7,7 +7,6 @@
     v-bind="data.attrs"
     v-on="listeners"
   >
-    <!--@slot Use this slot to replace arrow icon-->
     <slot>
       <component
         :is="injections.components.SfIcon"

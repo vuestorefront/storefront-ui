@@ -4,6 +4,29 @@ export default {
   title: "Components/Molecules/AddToCart",
   component: SfAddToCart,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "add-to-cart-select-quantity-margin": {
+        value: "0 0 0 var(--spacer-xs)",
+        control: "text",
+      },
+      "button-font": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-width": {
+        value: "100%",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "add-to-cart-select-quantity-display": {
+        value: "flex",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+    // end of code generated automatically
     docs: {
       description: {
         component:
@@ -42,8 +65,35 @@ export default {
         disable: true,
       },
     },
-    click: { action: "Added to cart clicked", table: { category: "Events" } },
-    input: { action: "Quantity changed", table: { category: "Events" } },
+    click: {
+      action: "Click on button event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits click event when add to cart button is clicked",
+    },
+    input: {
+      action: "Input value event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits input event when input value is changed",
+    },
+    "quantity-select-input": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Custom content that will replace default quantity selector",
+    },
+    "add-to-cart-btn": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Custom content that will replace default Add to cart button design",
+    },
   },
 };
 

@@ -3,6 +3,96 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.4](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/vue@0.11.3...@storefront-ui/vue@0.11.4) (2021-12-10)
+
+
+### Bug Fixes
+
+* added condition to prevent hiding the heading tag when empty ([#2137](https://github.com/vuestorefront/storefront-ui/issues/2137)) ([de59ce9](https://github.com/vuestorefront/storefront-ui/commit/de59ce98e6e1c75d35941253a968e33cd06f1321))
+* added new code examples for customization docs ([#2144](https://github.com/vuestorefront/storefront-ui/issues/2144)) ([843f888](https://github.com/vuestorefront/storefront-ui/commit/843f888d71f950f617e2181154cd56327beaa196))
+* back to regular component instead of functional one ([fb3a8ef](https://github.com/vuestorefront/storefront-ui/commit/fb3a8ef2549169e8af176440873b980900a8b133))
+* badge added to color picker in product card ([#2130](https://github.com/vuestorefront/storefront-ui/issues/2130)) ([5b65987](https://github.com/vuestorefront/storefront-ui/commit/5b65987f7ae3934376d550056f7484c7ca979b60))
+* coverage test ([4791e2e](https://github.com/vuestorefront/storefront-ui/commit/4791e2e62dcadc52a1e29a3a187b00a3f4c07af5))
+* link props default value to null ([6d01ea1](https://github.com/vuestorefront/storefront-ui/commit/6d01ea1c32c11e466b1c96da4ba75ab639ce2e63))
+* remove asterisk from slots names and fix description ([47faea3](https://github.com/vuestorefront/storefront-ui/commit/47faea33cc8b18d9f23fed4ddf1aff33b5a6f4e5))
+* remove font script from docs ([#2154](https://github.com/vuestorefront/storefront-ui/issues/2154)) ([ed6454f](https://github.com/vuestorefront/storefront-ui/commit/ed6454f4281fda77cedf91c35b7bb3fc541dc67c))
+* replace asterisk in slots names and adjust description ([c20600f](https://github.com/vuestorefront/storefront-ui/commit/c20600f447f312fa5b131f4c420cea557bd036c6))
+* replace asterisks in slots names and adjest description ([4af71a7](https://github.com/vuestorefront/storefront-ui/commit/4af71a79a24779d58bf2ca8479512bdd7c3596f7))
+* SfAccordion - memory leak ([#2150](https://github.com/vuestorefront/storefront-ui/issues/2150)) ([a30c0f5](https://github.com/vuestorefront/storefront-ui/commit/a30c0f501d62d29962d9e3596ce667f1c01b816c))
+* slots details updated - molecules ([df0e810](https://github.com/vuestorefront/storefront-ui/commit/df0e8108e5e214a4dfc7b0aa5bfc075bc557045a))
+* small fixes ([054d88e](https://github.com/vuestorefront/storefront-ui/commit/054d88e6d624934ad139af8362b0f02ff51ffca9))
+* static classes ([5e6cbba](https://github.com/vuestorefront/storefront-ui/commit/5e6cbba42485ba84b27fe8e42b10cd5539b59b56))
+* type attribute added to button ([675b98e](https://github.com/vuestorefront/storefront-ui/commit/675b98ea04b2c31a4ba9c824847e1c07b918ac58))
+* unique id for linear gradient ([dc357a5](https://github.com/vuestorefront/storefront-ui/commit/dc357a57bc0f8518ab84d12fc0750d387d36670b))
+
+
+### Features
+
+* added html validator for nuxt ([#2132](https://github.com/vuestorefront/storefront-ui/issues/2132)) ([bd00a49](https://github.com/vuestorefront/storefront-ui/commit/bd00a496fae906d0b8407db5decf07a807e8d199))
+
+
+
+
+
+## [0.11.3](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/vue@0.11.2...@storefront-ui/vue@0.11.3) (2021-11-25)
+
+
+### Bug Fixes
+
+* add images to Instagram Feed on Home Page ([#2107](https://github.com/vuestorefront/storefront-ui/issues/2107)) ([ba943e1](https://github.com/vuestorefront/storefront-ui/commit/ba943e138316bed9e792ede9e5596a085dc929bf))
+* better key values ([77d249e](https://github.com/vuestorefront/storefront-ui/commit/77d249e9a53ae232c17639665f814f1f951a7d48))
+* conflict resolved--no-verify ([7203e1e](https://github.com/vuestorefront/storefront-ui/commit/7203e1e29d773b530fbaf719bc5cd17bb73de1dd))
+* cr fixes ([32945a4](https://github.com/vuestorefront/storefront-ui/commit/32945a4cdb308fb58599709711358b16577c3e24))
+* cr fixes ([a38147a](https://github.com/vuestorefront/storefront-ui/commit/a38147aa98e8161ff75f0152560b8ec8c1f5e4fc))
+* display none instead of v-if ([737d1a3](https://github.com/vuestorefront/storefront-ui/commit/737d1a3f9da3991479ec61528c65fc98396f9784))
+* e2e tests fixed ([d7266de](https://github.com/vuestorefront/storefront-ui/commit/d7266de16251d977a3def43bb7e82a5d319c43ef))
+* moved add to cart button ([a2817e5](https://github.com/vuestorefront/storefront-ui/commit/a2817e545259fad00c5c4ce3e24bd84d3c5e6b6e))
+* passing width and height unified ([5127c4e](https://github.com/vuestorefront/storefront-ui/commit/5127c4e27c160f183ef34cd5ed3f2335dbe76cf6))
+* radio mutationg prop fixed ([4e0f1b2](https://github.com/vuestorefront/storefront-ui/commit/4e0f1b2dbb5c5382427466bd05836d46d2a06300))
+* remove duplicated links ([dc2b332](https://github.com/vuestorefront/storefront-ui/commit/dc2b3326898c09efb433e93dc526b3d866296385))
+* remove header changes ([6fd0d61](https://github.com/vuestorefront/storefront-ui/commit/6fd0d61621740171d3c2b1bd729dba85b684d366))
+* removed default value for color in sficon ([4f75c33](https://github.com/vuestorefront/storefront-ui/commit/4f75c3369fab763787ae72fe3d78009d8ac12854))
+* SfButton as link - full width is not working ([#2100](https://github.com/vuestorefront/storefront-ui/issues/2100)) ([396cd70](https://github.com/vuestorefront/storefront-ui/commit/396cd70155873b930524453dde29cb78bdee3d94))
+* SfComponentSelect - add cancelLabel prop and binding for cancel slot ([#2112](https://github.com/vuestorefront/storefront-ui/issues/2112)) ([a65d88b](https://github.com/vuestorefront/storefront-ui/commit/a65d88b30af85e89a42fe5429cfeeffc18581560))
+* tests ([65fe854](https://github.com/vuestorefront/storefront-ui/commit/65fe854f9e0885a1d0ee0a96777586835f57c201))
+* v-if for overlay sidebar and modal ([48ea19b](https://github.com/vuestorefront/storefront-ui/commit/48ea19bdf18f66a3083da247dcb85e00fa922f78))
+
+
+### Features
+
+* add script to update css vars  ([#2056](https://github.com/vuestorefront/storefront-ui/issues/2056)) ([8f95d84](https://github.com/vuestorefront/storefront-ui/commit/8f95d844d6120a5e7b0756db38b0bbf04f01df83))
+* explicit width and height ([550240f](https://github.com/vuestorefront/storefront-ui/commit/550240fd41a3b7d800a445fef2ba02ec9817a13c))
+
+
+
+
+
+## [0.11.2](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/vue@0.11.1...@storefront-ui/vue@0.11.2) (2021-11-09)
+
+
+### Bug Fixes
+
+* 2063 - replace div inside label elements ([#2087](https://github.com/vuestorefront/storefront-ui/issues/2087)) ([88a061c](https://github.com/vuestorefront/storefront-ui/commit/88a061cd98d4dfe47f0d4bde2fdb97375b3bc88e))
+* attributes id, name and for cant be empty ([c1212dd](https://github.com/vuestorefront/storefront-ui/commit/c1212ddbc1652193b1f845798535456732358f97))
+* badge without div wrapper ([89442ef](https://github.com/vuestorefront/storefront-ui/commit/89442ef1a53f1e259e222003456d0e5d7b53d3bb))
+* button with link ([afafc3c](https://github.com/vuestorefront/storefront-ui/commit/afafc3c519a2755843454237bef8be09f59e895c))
+* conflict resolved ([fd33d6d](https://github.com/vuestorefront/storefront-ui/commit/fd33d6d44c4c0955537197959ffd183a1c87ab70))
+* conflict resolved ([e738142](https://github.com/vuestorefront/storefront-ui/commit/e738142ef7c4595d0c24e9253bfe4bdcb28fec92))
+* default values ([db73359](https://github.com/vuestorefront/storefront-ui/commit/db73359cdcaff4e165af69c6106bf249e348e55c))
+* discord links, become a contributor page ([#2088](https://github.com/vuestorefront/storefront-ui/issues/2088)) ([9f9390a](https://github.com/vuestorefront/storefront-ui/commit/9f9390a36249d7d80945bf63e3b22113d40ffcd6))
+* divs in hero, home and banner ([aa263bd](https://github.com/vuestorefront/storefront-ui/commit/aa263bd7a1b758e1675f4ff3a4441b04f9551b41))
+* divs inside buttons removed ([3485068](https://github.com/vuestorefront/storefront-ui/commit/3485068682c194885195ba430b3b6a04fe4b410f))
+* link default value changed ([d17dac1](https://github.com/vuestorefront/storefront-ui/commit/d17dac1b4de461db668d7ab35d337f105fbd100e))
+* min and maxlength default values null ([2798483](https://github.com/vuestorefront/storefront-ui/commit/2798483612e29e45329679c32e1231ec50e758fa))
+* options elements with atribute label when the value is empty ([#2078](https://github.com/vuestorefront/storefront-ui/issues/2078)) ([bad1875](https://github.com/vuestorefront/storefront-ui/commit/bad18751db54aad726766c4942fc4604c0382cd0))
+* SfArrow layout in storybook and add changelog note ([#2093](https://github.com/vuestorefront/storefront-ui/issues/2093)) ([146d3a0](https://github.com/vuestorefront/storefront-ui/commit/146d3a0b3c0926080e15577d0dfab98b4f6873e0))
+* string moved to uniqueKey ([0a2dd44](https://github.com/vuestorefront/storefront-ui/commit/0a2dd449892ea50c569d1a3da5b2a1df34f9a77f))
+* typo in sfbanner component ([#2092](https://github.com/vuestorefront/storefront-ui/issues/2092)) ([1ec5adf](https://github.com/vuestorefront/storefront-ui/commit/1ec5adf9e031d1bd7a378f1095a46af3095dd44b))
+
+
+
+
+
 ## [0.11.1](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/vue@0.11.0...@storefront-ui/vue@0.11.1) (2021-10-25)
 
 

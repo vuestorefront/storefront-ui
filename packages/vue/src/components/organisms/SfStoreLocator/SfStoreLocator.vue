@@ -5,7 +5,6 @@
         <div class="sf-store-locator__stores">
           Stores found: <span>{{ stores.length }}</span>
         </div>
-        <!-- @slot Use this slot to show stores cards -->
         <slot
           v-bind="{
             centerOn,
@@ -43,7 +42,6 @@
             v-bind="markerOptions"
           >
             <LIcon :icon-size="markerIconSize" :icon-anchor="markerIconAnchor">
-              <!-- @slot Use this slot to change the icon of the stores, remember to update `markerIconSize` and `markerIconAnchor` accordingly-->
               <slot name="marker-icon">
                 <SfIcon
                   v-focus
@@ -55,9 +53,11 @@
             </LIcon>
           </LMarker>
         </LMap>
-        <!-- @slot Use this slot to customise the loading indicator while the map librry loads -->
-        <slot v-if="!mapReady" name="map-loading">
-          <SfLoader class="sf-store-locator__loader" />
+        <slot name="map-loading">
+          <SfLoader
+            :class="{ 'display-none': mapReady }"
+            class="sf-store-locator__loader"
+          />
         </slot>
       </div>
     </div>

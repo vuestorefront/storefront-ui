@@ -15,7 +15,7 @@
         </slot>
         <slot name="price" v-bind="{ specialPrice, regularPrice }">
           <SfPrice
-            v-if="regularPrice"
+            :class="{ 'display-none': !regularPrice }"
             :regular="regularPrice"
             :special="specialPrice"
           />
@@ -49,6 +49,8 @@
         <div class="sf-collected-product__quantity-wrapper">
           <SfQuantitySelector
             :qty="quantity"
+            :min="minQty"
+            :max="maxQty"
             class="sf-collected-product__quantity-selector"
             @input="$emit('input', $event)"
           />
@@ -56,7 +58,7 @@
       </slot>
     </div>
     <slot name="remove" v-bind="{ removeHandler }">
-      <template v-if="hasRemove">
+      <template :class="{ 'display-none': !hasRemove }">
         <SfCircleIcon
           icon="cross"
           aria-label="Remove"
@@ -79,7 +81,7 @@
       </template>
     </slot>
     <slot name="more-actions" v-bind="{ actionsHandler }">
-      <template v-if="hasMoreActions">
+      <template :class="{ 'display-none': !hasMoreActions }">
         <SfButton
           aria-label="More actions"
           class="
@@ -148,9 +150,17 @@ export default {
       type: [Number, String],
       default: 1,
     },
+    minQty: {
+      type: Number,
+      default: null,
+    },
+    maxQty: {
+      type: Number,
+      default: null,
+    },
     link: {
       type: [String, Object],
-      default: "",
+      default: null,
     },
     hasRemove: {
       type: Boolean,

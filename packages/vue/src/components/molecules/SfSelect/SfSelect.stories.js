@@ -12,6 +12,77 @@ export default {
   title: "Components/Molecules/Select",
   component: SfSelect,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "select-width": { value: "", control: "text" },
+      "select-height": { value: "4.25rem", control: "text" },
+      "select-padding": {
+        value: "var(--spacer-sm) 0 var(--spacer-sm) 0",
+        control: "text",
+      },
+      "select-color": { value: "", control: "text" },
+      "select-label-top": { value: "", control: "text" },
+      "select-label-left": { value: "0", control: "text" },
+      "select-label-color": { value: "", control: "text" },
+      "select-label-transition": {
+        value: "top 150ms linear, font-size 150ms linear",
+        control: "text",
+      },
+      "select-label-font": { value: "", control: "text" },
+      "select-label-font-weight": {
+        value: "var(--font-weight--normal)",
+        control: "text",
+      },
+      "select-label-font-size": {
+        value: "var(--font-size--base)",
+        control: "text",
+      },
+      "select-label-font-line-height": { value: "1", control: "text" },
+      "select-label-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+      "select-label-required": { value: "", control: "text" },
+      "select-dropdown-color": { value: "", control: "text" },
+      "select-dropdown-border": { value: "", control: "text" },
+      "select-dropdown-border-width": { value: "", control: "text" },
+      "select-option-background": { value: "var(--c-white)", control: "text" },
+      "select-option-font": { value: "", control: "text" },
+      "select-option-font-weight": {
+        value: "var(--font-weight--normal)",
+        control: "text",
+      },
+      "select-option-font-size": {
+        value: "var(--font-size--base)",
+        control: "text",
+      },
+      "select-option-font-line-height": { value: "1", control: "text" },
+      "select-option-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+      "select-error-message-color": {
+        value: "var(--c-danger)",
+        control: "text",
+      },
+      "select-error-message-height": {
+        value: "calc(var(--font-size--xs) * 1.2)",
+        control: "text",
+      },
+      "select-dropdown-border-color": {
+        value: "",
+        control: "text",
+      },
+      "select-border-width": {
+        value: "",
+        control: "text",
+      },
+      "select-border-color": {
+        value: "",
+        control: "text",
+      },
+    },
+    // end of code generated automatically
     docs: {
       description: {
         component:
@@ -133,7 +204,57 @@ export default {
       defaultValue: "",
       description: "Content of the option.",
     },
-    input: { action: "Selected", table: { category: "Events" } },
+    input: {
+      action: "input event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits input event when option is chosen",
+    },
+    default: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Slot to place select options",
+    },
+    "default ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Default slot for `SfSelectOption` component. Use this slot to place options in `SfSelect` component",
+    },
+    "label ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to customize the label",
+    },
+    "placeholder ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to customize the placeholder",
+    },
+    "errorMessage ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to customize the errorMessage",
+    },
   },
 };
 

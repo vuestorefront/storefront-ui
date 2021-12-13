@@ -6,6 +6,25 @@ export default {
   title: "Components/Atoms/Rating",
   component: SfRating,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "icon-size": {
+        value: "0.875rem",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "icon-color": {
+        value: "var(--c-primary)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "icon-color-negative": {
+        value: "var(--c-gray-variant)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+    // end of code generated automatically
     docs: {
       description: {
         component:
@@ -50,6 +69,26 @@ export default {
       },
       description:
         "It can be single SVG path (string) or array of SVG paths or icon name from our icons list(such as 'star`)",
+    },
+    "icon-positive": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Custom icons that starts from the left side. Provide single icon that will be automatically repeated",
+    },
+    "icon-negative": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Custom icons that are on the right side. Provide single icon that will be automatically repeated ",
     },
   },
 };

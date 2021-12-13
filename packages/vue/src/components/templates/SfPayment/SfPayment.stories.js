@@ -11,6 +11,64 @@ export default {
   title: "Components/Templates/Payment",
   component: SfPayment,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "heading-padding": {
+        value: "var(--spacer-xl) 0 var(--spacer-lg)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "heading-title-font": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "select-option-font": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-size--base": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "select-dropdown-color": {
+        value: "blue",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-width": {
+        value: "25rem",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "radio-container-align-items": {
+        value: "center",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "radio-container-padding": {
+        value: "var(--spacer-base) var(--spacer-sm) 0",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "radio-content-margin": {
+        value: "0 0 0 var(--spacer-lg)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "radio-background": {
+        value: "transparent",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-padding": {
+        value: "var(--spacer-base) 0 0 var(--spacer-sm)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+    // end of code generated automatically
     docs: {
       description: {
         component:
@@ -138,7 +196,7 @@ export default {
       table: {
         category: "Props",
       },
-      defaultValue: "",
+      defaultValue: "Where can I find CVC code",
       description: "Text for button that helps with cvc code",
     },
     expiryDateLabel: {
@@ -157,6 +215,40 @@ export default {
       defaultValue: ["debit", "mastercard", "electron"],
       description: "List of credit cards",
     },
+    sameAsShipping: {
+      name: "same-as-shipping",
+      action: "same-as-shipping event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description:
+        "Emits same-as-shipping event when copy address checkbox is checked/unchecked",
+    },
+    invoice: {
+      action: "invoice event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description:
+        "Emits invoice event when invoice checkbox is checked/unchecked",
+    },
+    findCvc: {
+      name: "find-cvc",
+      action: "find-cvc event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits find-cvc event when cvc code button is clicked",
+    },
+    input: {
+      action: "input event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits input event when one of input fields is changed",
+    },
+    ["same-as-shipping"]: {
+      table: {
+        disable: true,
+      },
+    },
+    ["find-cvc"]: {
+      table: {
+        disable: true,
+      },
+    },
   },
 };
 
@@ -174,6 +266,10 @@ const Template = (args, { argTypes }) => ({
     :cvcCodeButtonText="cvcCodeButtonText"
     :expiryDateLabel="expiryDateLabel"
     :creditCards="creditCards"
+    @same-as-shipping="sameAsShipping"
+    @invoice="invoice"
+    @find-cvc="this['findCvc']"
+    @input="input"
   />`,
 });
 

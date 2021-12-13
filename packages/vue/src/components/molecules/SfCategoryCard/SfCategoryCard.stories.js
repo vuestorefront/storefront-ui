@@ -4,6 +4,9 @@ export default {
   title: "Components/Molecules/CategoryCard",
   component: SfCategoryCard,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {},
+    // end of code generated automatically
     docs: {
       description: {
         component: "The component for displaying information about categories.",
@@ -39,6 +42,15 @@ export default {
       },
       description:
         "Defines background of card. Can be a string or object with strings to display images for desktop and mobile",
+    },
+    default: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Here you can pass content of your category card",
     },
   },
 };

@@ -3,23 +3,19 @@
     <template v-if="bannerGrid === 1">
       <div class="sf-banner-grid__row">
         <div class="sf-banner-grid__col">
-          <!-- @slot Slot for banner image -->
           <slot name="banner-A" />
         </div>
         <div class="sf-banner-grid__col sf-banner-grid__col--medium">
-          <!-- @slot Slot for banner image -->
           <slot name="banner-B" />
         </div>
         <div class="sf-banner-grid__col">
           <div class="sf-banner-grid__row">
             <div class="sf-banner-grid__col">
-              <!-- @slot Slot for banner image -->
               <slot name="banner-C" />
             </div>
           </div>
           <div class="sf-banner-grid__row">
             <div class="sf-banner-grid__col">
-              <!-- @slot Slot for banner image -->
               <slot name="banner-D" />
             </div>
           </div>

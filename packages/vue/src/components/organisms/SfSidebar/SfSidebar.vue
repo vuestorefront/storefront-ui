@@ -9,7 +9,6 @@
         v-click-outside="checkPersistence"
         class="sf-sidebar__aside"
       >
-        <!--@slot Use this slot to place content inside the modal bar.-->
         <slot name="bar">
           <SfBar
             :title="title"
@@ -18,10 +17,9 @@
             @click:back="close"
           />
         </slot>
-        <!--@slot Use this slot to replace close icon.-->
         <slot name="circle-icon" v-bind="{ close, button }">
           <SfCircleIcon
-            v-if="button"
+            :class="{ 'display-none': !button }"
             icon-size="12px"
             aria-label="Close sidebar"
             icon="cross"
@@ -29,11 +27,13 @@
             @click="close"
           />
         </slot>
-        <div v-if="title || hasTop" class="sf-sidebar__top">
-          <!--@slot Use this slot to replace SfHeading component.-->
+        <div
+          :class="{ 'display-none': !title || (!title && !hasTop) }"
+          class="sf-sidebar__top"
+        >
           <slot name="title" v-bind="{ title, subtitle, headingLevel }">
             <SfHeading
-              v-if="title"
+              :class="{ 'display-none': !title }"
               :title="title"
               :description="subtitle"
               :level="headingLevel"
@@ -44,15 +44,12 @@
               "
             />
           </slot>
-          <!--@slot Use this slot to add sticky top content.-->
           <slot name="content-top" />
         </div>
         <div class="sf-sidebar__content">
-          <!--@slot Use this slot to add SfSidebar content.-->
           <slot />
         </div>
-        <!--@slot Use this slot to place content to sticky bottom.-->
-        <div v-if="hasBottom" class="sf-sidebar__bottom">
+        <div :class="{ 'display-none': !hasBottom }" class="sf-sidebar__bottom">
           <slot name="content-bottom" />
         </div>
       </aside>

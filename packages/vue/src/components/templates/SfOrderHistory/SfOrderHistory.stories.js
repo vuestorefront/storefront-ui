@@ -5,6 +5,15 @@ export default {
   title: "Components/Templates/OrderHistory",
   component: SfOrderHistory,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "button-width": {
+        value: "100%",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+    // end of code generated automatically
     docs: {
       description: {
         component: "Component with order history. Part of the account.",
@@ -67,6 +76,47 @@ export default {
         "Status",
       ],
     },
+    downloadAll: {
+      name: "download-all",
+      action: "download-all event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description:
+        "Emits download-all event when download all button is clicked",
+    },
+    noOrders: {
+      name: "no-orders",
+      action: "no-orders event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits no-orders event when no orders button is clicked",
+    },
+    viewDetails: {
+      name: "view-details",
+      action: "view-details event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description:
+        "Emits view-details event when view details button is clicked",
+    },
+    download: {
+      action: "download event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description:
+        "Emits download event when download button is clicked in mobile mode",
+    },
+    ["download-all"]: {
+      table: {
+        disable: true,
+      },
+    },
+    ["no-orders"]: {
+      table: {
+        disable: true,
+      },
+    },
+    ["view-details"]: {
+      table: {
+        disable: true,
+      },
+    },
   },
 };
 
@@ -81,6 +131,10 @@ const Template = (args, { argTypes }) => ({
     :noOrdersDescription="noOrdersDescription"
     :tableHeaders="tableHeaders"
     :noOrdersButtonText="noOrdersButtonText"
+    @download-all="this['downloadAll']"
+    @no-orders="this['noOrders']"
+    @view-details="this['viewDetails']"
+    @download="download"
   />`,
 });
 

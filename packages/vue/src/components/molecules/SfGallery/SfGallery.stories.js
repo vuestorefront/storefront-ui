@@ -4,6 +4,31 @@ export default {
   title: "Components/Molecules/Gallery",
   component: SfGallery,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "gallery-flex-direction": { value: "column", control: "text" },
+      "gallery-thumbs-display": { value: "flex", control: "text" },
+      "gallery-thumbs-flex": { value: "", control: "text" },
+      "gallery-thumbs-flex-direction": { value: "", control: "text" },
+      "gallery-thumbs-margin": {
+        value: "var(--spacer-xs) 0 0 0",
+        control: "text",
+      },
+      "gallery-thumbs-order": { value: "", control: "text" },
+      "gallery-thumb-width": { value: "10rem", control: "text" },
+      "gallery-item-margin": {
+        value: "0 var(--spacer-xs) 0 0",
+        control: "text",
+      },
+      "gallery-item-opacity": { value: "0.5", control: "text" },
+      "gallery-item-transition": {
+        value: "opacity 150ms ease-in-out",
+        control: "text",
+      },
+      "gallery-item-cursor": { value: "pointer", control: "text" },
+      "gallery-stage-width": { value: "26.375rem", control: "text" },
+    },
+    // end of code generated automatically
     docs: {
       description: {
         component:
@@ -88,7 +113,25 @@ export default {
       defaultValue: false,
       description: "Toogle for image zoom or overlap the stage",
     },
-    click: { action: "Image clicked", table: { category: "Events" } },
+    click: {
+      action: "click event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits click event when slide is clicked.",
+    },
+    "click:stage": {
+      action: "click:stage event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits click:stage event when main image is clicked.",
+    },
+    thumbs: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace gallery thumbs buttons",
+    },
   },
 };
 
@@ -104,6 +147,8 @@ const Template = (args, { argTypes }) => ({
     :current="current"
     :enable-zoom="enableZoom"
     :outsideZoom="outsideZoom"
+    @click="click"
+    @click:stage="this['click:stage']"
   />`,
 });
 

@@ -71,6 +71,39 @@ export default {
   title: "Components/Templates/OrderReview",
   component: SfOrderReview,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "heading-title-margin": {
+        value: "0 0 var(--spacer-xl) 0",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "heading-title-font": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-weight--bold": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "input-background": {
+        value: "var(--c-white)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "input-label-font": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-height": {
+        value: "1.875rem",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+    // end of code generated automatically
     docs: {
       description: {
         component:
@@ -130,6 +163,66 @@ export default {
       description:
         "The array of objects with data filling SfCharacteristics components: title, description and icon",
     },
+    "click:personalDetailsEdit": {
+      name: "click:personal-details-edit",
+      action: "click:personal-details-edit event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description:
+        "Emits click:personal-details-edit event when edit button is clicked",
+    },
+    "click:shippingDetailsEdit": {
+      name: "click:shipping-details-edit",
+      action: "click:shipping-details-edit event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description:
+        "Emits click:shipping-details-edit event when edit button is clicked",
+    },
+    "click:billingDetailsEdit": {
+      name: "click:billing-details-edit",
+      action: "click:billing-details-edit event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description:
+        "Emits click:billing-details-edit event when edit button is clicked",
+    },
+    "click:paymentDetailsEdit": {
+      name: "click:payment-details-edit",
+      action: "click:payment-details-edit event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description:
+        "Emits click:payment-details-edit event when edit button is clicked",
+    },
+    "click:promoCodeApply": {
+      name: "click:promo-code-apply",
+      action: "click:promo-code-apply event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description:
+        "Emits click:promo-code-apply event when apply button is clicked",
+    },
+    ["click:personal-details-edit"]: {
+      table: {
+        disable: true,
+      },
+    },
+    ["click:shipping-details-edit"]: {
+      table: {
+        disable: true,
+      },
+    },
+    ["click:billing-details-edit"]: {
+      table: {
+        disable: true,
+      },
+    },
+    ["click:payment-details-edit"]: {
+      table: {
+        disable: true,
+      },
+    },
+    ["click:promo-code-apply"]: {
+      table: {
+        disable: true,
+      },
+    },
   },
 };
 
@@ -143,6 +236,11 @@ const Template = (args, { argTypes }) => ({
     :order="order"
     :buttonText="buttonText"
     :characteristics="characteristics"
+    @click:personal-details-edit="this['click:personalDetailsEdit']"
+    @click:shipping-details-edit="this['click:shippingDetailsEdit']"
+    @click:billing-details-edit="this['click:billingDetailsEdit']"
+    @click:payment-details-edit="this['click:paymentDetailsEdit']"
+    @click:promo-code-apply="this['click:promoCodeApply']"
   />`,
 });
 

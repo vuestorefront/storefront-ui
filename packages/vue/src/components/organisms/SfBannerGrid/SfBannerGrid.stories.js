@@ -42,6 +42,36 @@ export default {
   title: "Components/Organisms/BannerGrid",
   component: SfBannerGrid,
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "banner-grid-row-display": { value: "block", control: "text" },
+      "banner-grid-row-flex": { value: "", control: "text" },
+      "banner-grid-row-margin": { value: "0", control: "text" },
+      "banner-grid-col-display": { value: "block", control: "text" },
+      "banner-grid-col-flex": { value: "", control: "text" },
+      "banner-grid-col-margin": { value: "0", control: "text" },
+      "banner-align-items": {
+        value: "flex-start",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "banner-container-width": {
+        value: "100%",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "banner-description-margin": {
+        value: "var(--spacer-xl) 0",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "banner-height": {
+        value: "510px",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+    // end of code generated automatically
     docs: {
       description: {
         component: "Full width grid made with banners.",
@@ -62,6 +92,42 @@ export default {
         },
       },
       description: "Number of grid for banners.",
+    },
+    "banner-A": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Slot for banner image",
+    },
+    "banner-B": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Slot for banner image",
+    },
+    "banner-C": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Slot for banner image",
+    },
+    "banner-D": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Slot for banner image",
     },
   },
 };

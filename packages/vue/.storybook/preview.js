@@ -17,7 +17,4 @@ export const parameters = {
       ],
     },
   },
-  docs: {
-    disabled: true,
-  }
 };

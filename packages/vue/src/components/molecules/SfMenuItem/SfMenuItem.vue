@@ -6,20 +6,16 @@
     :data-testid="label"
     v-on="$listeners"
   >
-    <!-- @slot for menu item icon-->
     <slot name="icon" />
-    <!-- @slot for menu item label-->
     <slot name="label" v-bind="{ label }">
       <span class="sf-menu-item__label">{{ label }}</span>
     </slot>
-    <!-- @slot for items count -->
     <slot name="count" v-bind="{ count }">
       <span class="sf-menu-item__count">{{ count }}</span>
     </slot>
-    <!-- @slot -->
     <slot name="mobile-nav-icon" v-bind="{ icon }">
       <SfIcon
-        v-if="icon"
+        :class="{ 'display-none': !icon }"
         :icon="icon"
         class="sf-menu-item__mobile-nav-icon smartphone-only"
         size="14px"
@@ -39,33 +35,21 @@ export default {
     SfButton,
   },
   props: {
-    /**
-     * Menu-item label
-     */
     label: {
       type: String,
       default: "",
     },
-    /**
-     * Menu-item icon (visible on mobile)
-     */
     icon: {
       type: [String, Array],
       default: "chevron_right",
     },
-    /**
-     * Menu-item count of items
-     */
     count: {
       type: [String, Number],
       default: "",
     },
-    /**
-     * Menu-item link (if is empty then SfMenuItem is SfButton)
-     */
     link: {
       type: [String, Object],
-      default: "",
+      default: null,
     },
   },
   computed: {

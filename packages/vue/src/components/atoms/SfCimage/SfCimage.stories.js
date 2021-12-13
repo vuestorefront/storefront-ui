@@ -17,6 +17,9 @@ export default {
     }),
   ],
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {},
+    // end of code generated automatically
     docs: {
       description: {
         component: "The image component to use with Cloudinary.",
