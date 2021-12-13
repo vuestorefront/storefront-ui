@@ -118,15 +118,6 @@ export default {
       },
       description: "Click event. It is passed via v-on='listeners'.",
     },
-    default: {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description: "Use this slot to place content inside the button",
-    },
   },
 };
 

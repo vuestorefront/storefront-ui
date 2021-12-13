@@ -64,24 +64,6 @@ export default {
       description:
         "Click event. Emits when inactive bullet button component is clicked.",
     },
-    active: {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description: "Use this slot to replace active bullet",
-    },
-    inactive: {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description: "Use this slot to replace inactive bullet",
-    },
   },
 };
 

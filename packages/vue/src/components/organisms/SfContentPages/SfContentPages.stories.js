@@ -225,52 +225,7 @@ export default {
       defaultValue: pages,
       description: "Pages data (only for testing purposes).",
     },
-    "click:change": {
-      action: "click:change event emitted",
-      table: { category: "Events", type: { summary: null } },
-      description:
-        "Emits click:change event with menu item title when it is clicked",
-    },
-    default: {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description:
-        "Default slot for `SfContentPages` component. Use this slot to place content pages items",
-    },
-    "menu-item": {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description:
-        "Named slot for `SfContentPages` component. Use this slot to replace menu item element",
-    },
-    "default ": {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description:
-        "Default slot for `SfContentCategory` component. Use this slot to place categories content",
-    },
-    "default  ": {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description:
-        "Default slot for `SfContentPage` component. Use this slot to place page content",
-    },
+    "click:change": { action: "Page changed", table: { category: "Events" } },
   },
 };
 

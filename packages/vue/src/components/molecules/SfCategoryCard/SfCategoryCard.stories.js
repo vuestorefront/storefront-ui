@@ -43,15 +43,6 @@ export default {
       description:
         "Defines background of card. Can be a string or object with strings to display images for desktop and mobile",
     },
-    default: {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description: "Here you can pass content of your category card",
-    },
   },
 };
 

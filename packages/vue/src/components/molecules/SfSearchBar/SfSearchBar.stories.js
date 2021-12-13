@@ -157,15 +157,6 @@ export default {
       table: { category: "Events", type: { summary: null } },
       description: "Emits click event when search icon is cicked",
     },
-    "icon ": {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description: "Use this slot to replace the icon",
-    },
   },
 };
 

@@ -26,6 +26,7 @@
         class="sf-input__label"
         :for="name"
       >
+        <!-- @slot Custom input label -->
         <slot name="label" v-bind="{ label }">{{ label }}</slot>
       </label>
       <slot
@@ -56,6 +57,7 @@
     </div>
     <div class="sf-input__error-message">
       <transition name="sf-fade">
+        <!-- @slot Custom error message of form input -->
         <slot name="error-message" v-bind="{ errorMessage }">
           <div :class="{ 'display-none': valid }">{{ errorMessage }}</div></slot
         >

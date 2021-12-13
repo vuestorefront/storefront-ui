@@ -136,33 +136,6 @@ export default {
       table: { category: "Events", type: { summary: null } },
       description: "Emits change event when component is clicked",
     },
-    "label ": {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description: "Slot for replacing label element",
-    },
-    "count ": {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description: "Slot for replacing count element",
-    },
-    "color ": {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description: "Slot for replacing color element",
-    },
   },
 };
 

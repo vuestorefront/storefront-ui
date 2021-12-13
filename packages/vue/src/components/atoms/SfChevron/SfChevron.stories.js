@@ -45,15 +45,6 @@ export default {
         category: "CSS Modifiers",
       },
     },
-    default: {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description: "Use this slot to place custom chevron markup",
-    },
   },
 };
 

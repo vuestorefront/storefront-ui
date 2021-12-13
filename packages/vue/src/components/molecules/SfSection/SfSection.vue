@@ -1,17 +1,18 @@
 <template>
   <section class="sf-section">
+    <!--@slot Slot for section heading, replacing default <sf-heading> component-->
     <slot
       name="heading"
       v-bind="{ levelHeading, titleHeading, subtitleHeading }"
     >
       <SfHeading
-        v-if="titleHeading"
         :level="levelHeading"
         :title="titleHeading"
         :description="subtitleHeading"
       />
     </slot>
     <div class="sf-section__content">
+      <!--@slot Slot to replace section content.-->
       <slot />
     </div>
   </section>

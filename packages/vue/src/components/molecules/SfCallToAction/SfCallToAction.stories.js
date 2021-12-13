@@ -114,13 +114,10 @@ export default {
     },
     link: {
       control: "text",
-      defaultValue: undefined,
       table: {
         category: "Props",
-        defaultValue: {
-          summary: "null",
-        },
       },
+      defaultValue: "",
       description:
         "CallToAction link. If it's filled in, changes button tag on a tag.",
     },
@@ -155,33 +152,6 @@ export default {
       action: "Click event emitted",
       table: { category: "Events", type: { summary: null } },
       description: "Emits change event with name of picked address component",
-    },
-    "title ": {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description: "Use this slot to replace title button",
-    },
-    "description ": {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description: "Use this slot to replace description button",
-    },
-    button: {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description: "Use this slot to replace bottom button",
     },
   },
   args: {

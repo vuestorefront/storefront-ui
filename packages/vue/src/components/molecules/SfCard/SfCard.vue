@@ -7,6 +7,7 @@
       :alt="title"
       class="sf-card__image"
     />
+    <!-- @slot Custom content for heading and description-->
     <slot name="details" v-bind="{ title, description, titleLevel }">
       <div class="sf-card__details">
         <SfHeading
@@ -19,6 +20,7 @@
         </p>
       </div>
     </slot>
+    <!-- @slot Slot content will replace button -->
     <slot name="action">
       <SfButton :link="link" class="sf-card__action" v-on="$listeners">
         {{ buttonText }}
@@ -65,7 +67,7 @@ export default {
     },
     link: {
       type: String,
-      default: null,
+      default: "",
     },
     buttonText: {
       type: String,

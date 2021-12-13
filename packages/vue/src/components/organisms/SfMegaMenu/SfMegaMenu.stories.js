@@ -188,56 +188,8 @@ export default {
       description: "Title of the column.",
     },
 
-    change: {
-      action: "change event emitted",
-      table: { category: "Events", type: { summary: null } },
-      description: "Emits change event when active menu item is changed",
-    },
-    close: {
-      action: "close event emitted",
-      table: { category: "Events", type: { summary: null } },
-      description: "Emits close event when back button is clicked",
-    },
-    default: {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description:
-        "Default slot for `SfMegaMenu` component. Use this slot to pass menu columns",
-    },
-    aside: {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description:
-        "Named slot for `SfMegaMenu` component. Use this slot to place content in aside element",
-    },
-    "default ": {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description:
-        "Default slot for `SfMegaMenuColumn` component. Use this slot to place column's content",
-    },
-    "title ": {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description:
-        "Named slot for `SfMegaMenuColumn` component. Use this slot to replace column's title",
-    },
+    change: { action: "Active item changed", table: { category: "Events" } },
+    close: { action: "Close button clicked", table: { category: "Events" } },
   },
 };
 

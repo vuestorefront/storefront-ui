@@ -151,40 +151,10 @@ export default {
       description: "Title of the tab",
     },
     "click:tab": {
-      action: "click:tab event emitted",
-      table: { category: "Events", type: { summary: null } },
+      action: "Tab clicked",
+      table: { category: "Events" },
       description:
-        "Emits click:tab event with index of the tab when active tab is changed",
-    },
-    default: {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description:
-        "Default slot for `SfTabs` component. Use this slot to pass your tabs",
-    },
-    "default ": {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description:
-        "Default slot for `SfTab` component. Use this slot to place tab's content",
-    },
-    "title ": {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description:
-        "Named slot `title` for `SfTab` component. Use this slot to replace title element",
+        "This event can be used on SfTabs when there is a need to change tabs in other way than clicking on a particular SfTab. For example by clicking on a button - this example can be found below in a story called `Change Tabs With Buttons`",
     },
   },
 };
@@ -265,7 +235,6 @@ export const changeTabsWithButtons = (args, { argTypes }) => ({
   methods: {
     change(tabNumber) {
       this.open = tabNumber;
-      this["click:tab"](this.open);
     },
   },
   template: `<div>

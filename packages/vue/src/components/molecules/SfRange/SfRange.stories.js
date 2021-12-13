@@ -186,15 +186,6 @@ export default {
       table: { category: "Events", type: { summary: null } },
       description: "Emits change event when value is changed",
     },
-    default: {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description: "Slot to replace default range component",
-    },
   },
 };
 

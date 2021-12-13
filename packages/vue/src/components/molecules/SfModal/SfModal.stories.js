@@ -122,33 +122,6 @@ export default {
       description:
         "Emits close event when clicked on close button or outside modal",
     },
-    "close ": {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description: "Use this slot to place content inside the close button",
-    },
-    default: {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description: "Use this slot to place content inside the modal",
-    },
-    "modal-bar": {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description: "Use this slot to place content inside the modal bar",
-    },
   },
 };
 

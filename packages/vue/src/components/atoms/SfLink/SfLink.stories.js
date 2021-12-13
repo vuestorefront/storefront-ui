@@ -37,15 +37,6 @@ export default {
       },
       description: "Page route",
     },
-    default: {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description: "Use this slot to place content for link",
-    },
   },
 };
 

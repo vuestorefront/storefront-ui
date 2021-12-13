@@ -57,25 +57,6 @@ export default {
       description:
         "List of breadcrumbs (array of nested objects: `[ { text, route } ]`)",
     },
-    current: {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description: "Custom markup for current page (binds `breadcrumb` object)",
-    },
-    link: {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description:
-        "Custom markup for previous pages (binds `breadcrumb` object)",
-    },
   },
 };
 

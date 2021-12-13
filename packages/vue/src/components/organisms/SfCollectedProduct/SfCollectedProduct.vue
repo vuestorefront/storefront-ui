@@ -160,7 +160,7 @@ export default {
     },
     link: {
       type: [String, Object],
-      default: null,
+      default: "",
     },
     hasRemove: {
       type: Boolean,

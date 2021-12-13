@@ -1,9 +1,11 @@
 <template>
   <SfRadio v-model="selected" class="sf-address" :value="name" name="groupName">
     <template #label>
+      <!--@slot Default. Here you should pass address details-->
       <slot />
     </template>
     <template #checkmark>
+      <!--@slot Icon. Here you can change default checkmark -->
       <slot name="icon">
         <div class="sf-address__icon-container">
           <SfIcon icon="check" class="sf-address__icon" />

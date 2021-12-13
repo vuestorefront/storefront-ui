@@ -1,10 +1,12 @@
 <template>
   <section class="sf-sliding-section" :class="{ 'is-active': isActive }">
     <div ref="static" class="sf-sliding-section__static">
+      <!-- @slot Use this slot to place static content. -->
       <slot name="static" />
     </div>
     <div class="sf-sliding-section__sliding">
       <div class="sf-sliding-section__mobile-bar">
+        <!-- @slot Use this slot to replace close icon -->
         <slot name="close" v-bind="{ closeHandler }">
           <SfButton
             class="sf-button--pure sf-sliding-section__close"
@@ -15,6 +17,7 @@
           </SfButton>
         </slot>
       </div>
+      <!-- @slot Use this slot to place sliding content. -->
       <slot name="sliding" v-bind="{ isActive }" />
     </div>
   </section>

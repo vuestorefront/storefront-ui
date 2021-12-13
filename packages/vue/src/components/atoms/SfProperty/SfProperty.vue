@@ -5,11 +5,13 @@
     v-bind="data.attrs"
     v-on="listeners"
   >
+    <!-- @slot Use this slot to replace property name -->
     <slot name="name" v-bind="{ props }">
       <span class="sf-property__name">
         {{ props.name }}
       </span>
     </slot>
+    <!-- @slot Use this slot to replace property value -->
     <slot name="value" v-bind="{ props }">
       <span class="sf-property__value">
         {{ props.value }}

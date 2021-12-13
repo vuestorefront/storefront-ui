@@ -18,6 +18,7 @@
     v-on="listeners"
   >
     <transition name="sf-bounce">
+      <!-- @slot Use it to replace badge to custom element -->
       <slot name="badge" v-bind="{ props }">
         <component
           :is="injections.components.SfBadge"

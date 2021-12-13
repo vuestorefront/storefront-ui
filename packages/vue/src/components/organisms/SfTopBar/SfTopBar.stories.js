@@ -16,35 +16,6 @@ export default {
       },
     },
   },
-  argTypes: {
-    left: {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description: "Use this slot to place left content",
-    },
-    center: {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description: "Use this slot to place center content",
-    },
-    right: {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description: "Use this slot to place right content",
-    },
-  },
 };
 
 const Template = (args, { argTypes }) => ({

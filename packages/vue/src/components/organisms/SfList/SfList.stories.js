@@ -40,28 +40,6 @@ export default {
       },
     },
   },
-  argTypes: {
-    default: {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description:
-        "Default slot for `SfList` component. Use this slot to pass list content",
-    },
-    "default ": {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description:
-        "Default slot for `SfListItem` component. Use this slot to place list item content",
-    },
-  },
 };
 
 const Template = (args, { argTypes }) => ({

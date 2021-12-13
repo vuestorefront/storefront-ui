@@ -1,6 +1,7 @@
 <template>
   <div class="sf-carousel">
     <div ref="controls" class="sf-carousel__controls">
+      <!--@slot Slot for icon moving to the previous item -->
       <slot name="prev" v-bind="{ go: () => go('prev') }">
         <SfArrow
           aria-label="previous"
@@ -8,6 +9,7 @@
           @click="go('prev')"
         />
       </slot>
+      <!--@slot Slot for icon moving to the next item -->
       <slot name="next" v-bind="{ go: () => go('next') }">
         <SfArrow
           aria-label="next"
@@ -21,6 +23,7 @@
       <div ref="glide" class="glide">
         <div class="glide__track" data-glide-el="track">
           <ul class="glide__slides sf-carousel__slides">
+            <!--@slot Default slot for SfCarouselItem -->
             <slot />
           </ul>
         </div>

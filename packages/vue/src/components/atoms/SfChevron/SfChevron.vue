@@ -5,6 +5,7 @@
     v-bind="data.attrs"
     v-on="listeners"
   >
+    <!-- @slot Use this slot to place custom chevron markup -->
     <slot>
       <span class="sf-chevron__bar sf-chevron__bar--left"></span>
       <span class="sf-chevron__bar sf-chevron__bar--right"></span>

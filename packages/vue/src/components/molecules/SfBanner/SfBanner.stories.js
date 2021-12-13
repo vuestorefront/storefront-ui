@@ -188,14 +188,11 @@ export default {
     },
     link: {
       control: "text",
-      defaultValue: undefined,
       table: {
         category: "Props",
-        defaultValue: {
-          summary: "null",
-        },
       },
       description: "Link to be used in call to action button if necessary",
+      defaultValue: "",
     },
     background: {
       control: {
@@ -219,42 +216,6 @@ export default {
       action: "Button clicked!",
       table: { category: "Events", type: { summary: null } },
       description: "Emits click event when button is clicked",
-    },
-    "title ": {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description: "Use this slot to replace title content",
-    },
-    "subtitle ": {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description: "Use this slot to replace subtitle content",
-    },
-    "description ": {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description: "Use this slot to replace description content",
-    },
-    "call-to-action": {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description: "Use this slot to replace call-to-action content",
     },
   },
   args: {

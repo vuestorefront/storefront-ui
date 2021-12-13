@@ -89,42 +89,6 @@ export default {
       description:
         "Emits click event with page value when page number is clicked",
     },
-    prev: {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description: "Custom markup for previous page button",
-    },
-    next: {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description: "Custom markup for next page button",
-    },
-    number: {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description: "Custom markup for number",
-    },
-    points: {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description: "Custom markup for points between visible numbers",
-    },
   },
 };
 
@@ -176,7 +140,7 @@ export const UsePrevSlot = (args, { argTypes }) => ({
   :has-arrows="hasArrows"
   @click="click"
   >
-    <template #prev="{ go, prev}">
+    <template #prev="{isDisabled, go, prev}">
       <button @click="go(prev)">prev</button>
     </template>
   </SfPagination>`,
@@ -194,7 +158,7 @@ export const UseNextSlot = (args, { argTypes }) => ({
   :has-arrows="hasArrows"
   @click="click"
   >
-    <template #next="{ go, next}">
+    <template #next="{isDisabled, go, next}">
       <button @click="go(next)">next</button>
     </template>
   </SfPagination>`,

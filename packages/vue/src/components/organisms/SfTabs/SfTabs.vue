@@ -1,5 +1,6 @@
 <template>
   <div v-show="initialTabActivated" class="sf-tabs">
+    <!--@slot Use this slot to pass your tabs-->
     <slot />
   </div>
 </template>

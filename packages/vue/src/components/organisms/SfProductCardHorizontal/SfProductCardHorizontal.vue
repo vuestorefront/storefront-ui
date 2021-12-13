@@ -1,6 +1,7 @@
 <template>
   <div class="sf-product-card-horizontal">
     <div class="sf-product-card-horizontal__image-wrapper">
+      <!--@slot Use this slot to replace image-->
       <slot
         name="image"
         v-bind="{ image, title, link, imageHeight, imageWidth }"
@@ -38,6 +39,7 @@
     </div>
     <div class="sf-product-card-horizontal__main">
       <div class="sf-product-card-horizontal__details">
+        <!--@slot Use this slot to replace title-->
         <slot name="title" v-bind="{ title, link }">
           <SfLink :link="link" class="sf-product-card-horizontal__link">
             <h3 class="sf-product-card-horizontal__title">
@@ -45,16 +47,19 @@
             </h3>
           </SfLink>
         </slot>
+        <!--@slot Use this slot to replace description-->
         <slot name="description">
           <p class="sf-product-card-horizontal__description desktop-only">
             {{ description }}
           </p>
         </slot>
+        <!--@slot Use this slot to place content inside configuration-->
         <div class="sf-product-card-horizontal__configuration">
           <slot name="configuration" />
         </div>
       </div>
       <div class="sf-product-card-horizontal__actions-wrapper">
+        <!--@slot Use this slot to replace price-->
         <slot name="price" v-bind="{ specialPrice, regularPrice }">
           <SfPrice
             :class="{ 'display-none': !regularPrice }"
@@ -63,6 +68,7 @@
             :special="specialPrice"
           />
         </slot>
+        <!--@slot Use this slot to replace reviews-->
         <slot name="reviews" v-bind="{ maxRating, scoreRating }">
           <div
             :class="{ 'display-none': !scoreRating }"
@@ -86,9 +92,11 @@
           </div>
         </slot>
         <div class="sf-product-card-horizontal__actions">
+          <!--@slot Use this slot to place content inside actions-->
           <slot name="actions" />
         </div>
         <div class="sf-product-card-horizontal__add-to-cart">
+          <!--@slot Use this slot to replace add to cart-->
           <slot name="add-to-cart">
             <SfAddToCart
               v-model="itemQuantity"
@@ -105,6 +113,7 @@
         class="sf-button--pure smartphone-only"
         @click="toggleIsInWishlist"
       >
+        <!--@slot Use this slot to replace wishlist icon-->
         <slot name="wishlist-icon" v-bind="{ currentWishlistIcon }">
           <SfIcon
             :icon="currentWishlistIcon"
@@ -160,7 +169,7 @@ export default {
     },
     link: {
       type: [String, Object],
-      default: null,
+      default: "",
     },
     /**
      * Link element tag

@@ -1,8 +1,10 @@
 <template>
   <div class="sf-scrollable" :class="{ 'is-open': !isHidden }">
     <Simplebar ref="content" class="sf-scrollable__content" :style="style">
+      <!-- @slot Slot to replace default content -->
       <slot />
     </Simplebar>
+    <!-- @slot Slot to replace buttons showing/hiding content -->
     <slot name="view-all" v-bind="{ hasScroll, showText, hideText }">
       <SfButton
         v-show="hasScroll"

@@ -6,6 +6,7 @@
     class="sf-link"
     v-on="$listeners"
   >
+    <!-- @slot -->
     <slot />
   </component>
 </template>

@@ -75,25 +75,6 @@ export default {
       table: { category: "Events", type: { summary: null } },
       description: "Emits input event when input value is changed",
     },
-    "quantity-select-input": {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description: "Custom content that will replace default quantity selector",
-    },
-    "add-to-cart-btn": {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description:
-        "Custom content that will replace default Add to cart button design",
-    },
   },
 };
 

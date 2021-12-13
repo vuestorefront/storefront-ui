@@ -14,12 +14,15 @@
         v-click-outside="checkPersistence"
         class="sf-dropdown__container"
       >
+        <!--@slot Use this slot to replace title. -->
         <slot name="title" v-bind="{ title }">
           <div :class="{ 'display-none': !title }" class="sf-dropdown__title">
             {{ title }}
           </div>
         </slot>
+        <!--@slot Use this slot to place content inside the dropdown.-->
         <slot />
+        <!--@slot Use this slot to replace cancel button. -->
         <slot name="cancel">
           <SfButton
             class="sf-button--full-width sf-dropdown__cancel"

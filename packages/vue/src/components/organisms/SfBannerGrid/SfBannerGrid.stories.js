@@ -93,42 +93,6 @@ export default {
       },
       description: "Number of grid for banners.",
     },
-    "banner-A": {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description: "Slot for banner image",
-    },
-    "banner-B": {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description: "Slot for banner image",
-    },
-    "banner-C": {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description: "Slot for banner image",
-    },
-    "banner-D": {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description: "Slot for banner image",
-    },
   },
 };
 

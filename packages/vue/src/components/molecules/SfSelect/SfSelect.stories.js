@@ -209,52 +209,6 @@ export default {
       table: { category: "Events", type: { summary: null } },
       description: "Emits input event when option is chosen",
     },
-    default: {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description: "Slot to place select options",
-    },
-    "default ": {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description:
-        "Default slot for `SfSelectOption` component. Use this slot to place options in `SfSelect` component",
-    },
-    "label ": {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description: "Use this slot to customize the label",
-    },
-    "placeholder ": {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description: "Use this slot to customize the placeholder",
-    },
-    "errorMessage ": {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description: "Use this slot to customize the errorMessage",
-    },
   },
 };
 

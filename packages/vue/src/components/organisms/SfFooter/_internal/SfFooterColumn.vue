@@ -1,16 +1,11 @@
 <template>
   <div class="sf-footer-column">
-    <SfButton
-      v-focus
-      type="button"
-      class="sf-button--pure sf-footer-column__title"
-      @click="toggle(title)"
-    >
+    <button v-focus class="sf-footer-column__title" @click="toggle(title)">
       {{ title }}
       <span class="sf-footer-column__chevron">
         <SfChevron :class="{ 'sf-chevron--top': isColumnOpen }" />
       </span>
-    </SfButton>
+    </button>
     <transition name="sf-fade">
       <div
         :class="{ 'display-none': !isColumnOpen }"
@@ -23,15 +18,11 @@
 </template>
 <script>
 import SfChevron from "../../../atoms/SfChevron/SfChevron.vue";
-import SfButton from "../../../atoms/SfButton/SfButton.vue";
 import { focus } from "../../../../utilities/directives";
 export default {
   name: "SfFooterColumn",
   directives: { focus },
-  components: {
-    SfChevron,
-    SfButton,
-  },
+  components: { SfChevron },
   props: {
     title: {
       type: String,

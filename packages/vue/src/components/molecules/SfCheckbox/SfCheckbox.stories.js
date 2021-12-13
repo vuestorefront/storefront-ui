@@ -171,51 +171,6 @@ export default {
       table: { category: "Events", type: { summary: null } },
       description: "Emits change event when checkbox is clicked",
     },
-    "show-error-message": {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description: "Custom error message",
-    },
-    "show-info-message": {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description: "Custom info message",
-    },
-    "show-hint-message": {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description: "Custom hint message",
-    },
-    checkmark: {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description: "Custom checkmark markup",
-    },
-    "label ": {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description: "Use this slot to replace label",
-    },
   },
 };
 

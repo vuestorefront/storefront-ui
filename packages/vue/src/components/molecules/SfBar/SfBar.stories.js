@@ -83,33 +83,6 @@ export default {
       table: { category: "Events", type: { summary: null } },
       description: "Emits click:close event when close button is clicked",
     },
-    "back ": {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description: "Use this slot to replace back button",
-    },
-    "title ": {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description: "Use this slot to replace title content",
-    },
-    "close ": {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description: "Use this slot to replace close button",
-    },
   },
   args: {
     title: "Dresses",

@@ -89,15 +89,6 @@ export default {
       table: { category: "Events", type: { summary: null } },
       description: "Click event. It is passed via v-on='listeners'",
     },
-    badge: {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description: "Use it to replace badge to custom element ",
-    },
   },
 };
 

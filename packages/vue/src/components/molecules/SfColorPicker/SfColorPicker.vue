@@ -6,6 +6,7 @@
         key="color-picker-button"
         class="sf-color-picker__button smartphone-only"
       >
+        <!-- @slot Use this slot to replace open button. -->
         <slot name="open" v-bind="{ toggle }">
           <SfButton
             class="color-secondary sf-color-picker__button-open"
@@ -19,6 +20,7 @@
           :visible="isOpen"
           class="sf-color-picker__colors__overlay smartphone-only"
         />
+        <!-- @slot Use this slot to replace label. -->
         <slot name="label" v-bind="{ label }">
           <div
             :class="{ 'display-none': !label }"
@@ -27,7 +29,9 @@
             {{ label }}
           </div>
         </slot>
+        <!-- @slot Use this slot to place content inside the color picker.-->
         <slot />
+        <!-- @slot Use this slot to replace close button. -->
         <slot name="close" v-bind="{ hasClose, toggle, isOpen }">
           <SfButton
             :class="{ 'display-none': !hasClose }"

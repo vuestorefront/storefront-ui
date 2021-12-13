@@ -71,24 +71,6 @@ export default {
         },
       },
     },
-    "label ": {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description: "Use this slot to replace label element",
-    },
-    "color ": {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description: "Use this slot replace color element",
-    },
   },
 };
 

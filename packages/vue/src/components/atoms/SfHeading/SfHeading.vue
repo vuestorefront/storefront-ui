@@ -5,6 +5,7 @@
     v-bind="data.attrs"
     v-on="listeners"
   >
+    <!--@slot Heading title. Slot content will replace default <h> tag-->
     <slot name="title" v-bind="{ props }">
       <component
         :is="`h${props.level}`"
@@ -14,6 +15,7 @@
         {{ props.title }}
       </component>
     </slot>
+    <!--@slot Heading description. Slot content will replace default <div> tag-->
     <slot name="description" v-bind="{ props }">
       <div
         :class="{

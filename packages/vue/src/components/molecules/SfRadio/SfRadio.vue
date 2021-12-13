@@ -17,6 +17,7 @@
         @change="changeHandler"
         @input="inputHandler"
       />
+      <!-- @slot Custom checkmark markup -->
       <slot name="checkmark" v-bind="{ isChecked, disabled }">
         <span
           class="sf-radio__checkmark"
@@ -24,16 +25,19 @@
         ></span>
       </slot>
       <span class="sf-radio__content">
+        <!-- @slot Custom label markup -->
         <slot name="label" v-bind="{ label, isChecked, disabled }">
           <span :class="{ 'display-none': !label }" class="sf-radio__label">{{
             label
           }}</span>
         </slot>
+        <!-- @slot Custom details markup -->
         <slot name="details" v-bind="{ details }">
           <span :class="{ 'display-none': !details }" class="sf-radio__details">
             {{ details }}
           </span>
         </slot>
+        <!-- @slot Custom description markup -->
         <slot name="description" v-bind="{ description }">
           <span
             :class="{ 'display-none': !description }"

@@ -63,15 +63,6 @@ export default {
       description:
         "Type here to fill the badge (only for testing in Storybook). For development use default slot, described below, to change the content.",
     },
-    default: {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description: "Use this slot to place content inside the badge",
-    },
   },
 };
 

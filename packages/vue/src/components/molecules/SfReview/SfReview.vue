@@ -1,7 +1,9 @@
 <template>
   <section class="sf-review">
+    <!-- @slot Review author. Slot content will replace default <div> tag (bind 'author' string). -->
     <slot name="author" v-bind="{ author }">
       <div class="sf-review__author">
+        <!-- @slot Review icon. Slot content can be replaced by custom icon. -->
         <slot name="icon">
           <SfIcon class="sf-review__icon">
             <svg viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -16,6 +18,7 @@
         {{ author }}
       </div>
     </slot>
+    <!-- @slot Review information. Slot content will replace default <div> tag and its inner <div> tags (bind 'rating' boolean|number, 'maxRating' number, 'date' string). -->
     <slot name="info" v-bind="{ rating, maxRating, date }">
       <div class="sf-review__info">
         <div :class="{ 'sf-review__rating': rating > 0 && maxRating > 0 }">
@@ -26,6 +29,7 @@
         </div>
       </div>
     </slot>
+    <!-- @slot Review message. Slot content will replace default <div> tag and its inner <span> and <a> tags (bind 'finalMessage' computed property, 'buttonText' computed property). -->
     <slot name="message" v-bind="{ finalMessage, buttonText }">
       <div :class="{ 'display-none': !message }">
         <p class="sf-review__message">{{ finalMessage }}</p>

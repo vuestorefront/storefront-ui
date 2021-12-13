@@ -28,6 +28,7 @@
               :key="`${page.title}-${itemKey}`"
               class="sf-content-pages__list-item"
             >
+              <!-- @slot Custom menu-item markup -->
               <slot name="menu-item" v-bind="{ updatePage, page, active }">
                 <SfMenuItem
                   :class="{ 'is-active': isPageActive(page) }"
@@ -51,6 +52,7 @@
         </div>
       </div>
       <div class="sf-content-pages__content">
+        <!-- @slot Slot for Content Page -->
         <slot />
       </div>
     </section>
@@ -142,6 +144,12 @@ export default {
   },
   methods: {
     updatePage(title) {
+      /**
+       * Active page updated event
+       *
+       * @event click:change
+       * @type String
+       */
       this.$emit("click:change", title);
     },
     isPageActive(page) {

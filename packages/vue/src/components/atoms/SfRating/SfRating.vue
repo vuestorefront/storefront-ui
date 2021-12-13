@@ -5,6 +5,7 @@
     v-bind="data.attrs"
     v-on="listeners"
   >
+    <!--@slot custom icon for finalScore. Provide single icon that will be automatically repeated -->
     <slot
       v-for="index in Math.ceil($options.finalScore(props.score, props.max))"
       name="icon-positive"

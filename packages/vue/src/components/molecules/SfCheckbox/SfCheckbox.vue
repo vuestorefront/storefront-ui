@@ -20,6 +20,7 @@
         class="sf-checkbox__input"
         @change="inputHandler"
       />
+      <!-- @slot Custom check mark markup -->
       <slot name="checkmark" v-bind="{ isChecked, disabled }">
         <span
           class="sf-checkbox__checkmark"
@@ -32,6 +33,7 @@
           />
         </span>
       </slot>
+      <!-- @slot Custom label markup -->
       <slot name="label" v-bind="{ label, isChecked, disabled }">
         <span :class="{ 'display-none': !label }" class="sf-checkbox__label">{{
           label
@@ -40,6 +42,7 @@
     </label>
     <div class="sf-checkbox__message">
       <transition name="sf-fade">
+        <!-- @slot Custom message of form input -->
         <slot
           v-if="!disabled"
           :name="computedMessageSlotName"

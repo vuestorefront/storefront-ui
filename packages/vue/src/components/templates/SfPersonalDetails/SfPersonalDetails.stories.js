@@ -168,24 +168,6 @@ export default {
       defaultValue: "Create Password",
       description: "Label fo password input",
     },
-    input: {
-      action: "input event emitted",
-      table: { category: "Events", type: { summary: null } },
-      description: "Emits input event when one of input fields is changed",
-    },
-    logIn: {
-      name: "log-in",
-      action: "log-in event emitted",
-      table: { category: "Events", type: { summary: null } },
-      description: "Emits log-in event when log in button is clicked",
-    },
-    createAccount: {
-      name: "create-account",
-      action: "create-account event emitted",
-      table: { category: "Events", type: { summary: null } },
-      description:
-        "Emits create-account event when create account checkbox is checked/unchecked",
-    },
   },
 };
 
@@ -205,9 +187,6 @@ const Template = (args, { argTypes }) => ({
     :transition="transition"
     :createAccountCheckboxLabel="createAccountCheckboxLabel"
     :createAccountInputLabel="createAccountInputLabel"
-    @input="input"
-    @log-in="this['logIn']"
-    @create-account="this['createAccount']"
   />`,
 });
 

@@ -1,5 +1,6 @@
 <template>
   <div class="sf-accordion-item">
+    <!-- @slot Slot replacing accordion item header -->
     <slot
       name="header"
       v-bind="{
@@ -18,6 +19,7 @@
         @click="accordionClick"
       >
         {{ header }}
+        <!-- @slot Slot for additional information about this item -->
         <slot name="additional-info" />
         <SfChevron
           tabindex="0"
@@ -29,6 +31,7 @@
     <SfExpand :transition="$parent.transition">
       <div :class="{ 'display-none': !isOpen }">
         <div class="sf-accordion-item__content">
+          <!-- @slot The slot to place the item's content -->
           <slot />
         </div>
       </div>

@@ -6,6 +6,7 @@
     :disabled="props.disabled"
     v-on="listeners"
   >
+    <!--@slot Custom content that will replace default icon. Can be used for inlined SVG's-->
     <slot>
       <component
         :is="injections.components.SfIcon"

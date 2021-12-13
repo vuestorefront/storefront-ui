@@ -65,12 +65,8 @@ export default {
     },
     link: {
       control: "text",
-      defaultValue: undefined,
       table: {
         category: "Props",
-        defaultValue: {
-          summary: "null",
-        },
       },
       description: "Card link",
     },
@@ -87,24 +83,6 @@ export default {
         category: "Props",
       },
       description: "Card image",
-    },
-    details: {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description: "Custom content for heading and description",
-    },
-    action: {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description: "Slot content will replace button",
     },
   },
   args: {

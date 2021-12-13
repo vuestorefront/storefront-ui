@@ -1,5 +1,6 @@
 <template>
   <div ref="range" type="range" class="sf-range" :disabled="disabled">
+    <!-- @slot Slot to replace default range component. -->
     <slot v-bind="$attrs" />
   </div>
 </template>

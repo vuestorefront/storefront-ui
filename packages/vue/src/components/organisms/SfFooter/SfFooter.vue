@@ -20,6 +20,9 @@ Vue.component("SfFooterColumn", SfFooterColumn);
 export default {
   name: "SfFooter",
   props: {
+    /**
+     * Number of footer columns
+     */
     column: {
       type: Number,
       default: 4,

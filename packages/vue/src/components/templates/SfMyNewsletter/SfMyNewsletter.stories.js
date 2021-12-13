@@ -77,28 +77,9 @@ export default {
       defaultValue: ["Woman", "Man", "Children"],
       description: "Labels for newsletter sections",
     },
-    ["saveChanges"]: {
-      name: "save-changes",
-      action: "save-changes event emitted",
-      table: { category: "Events", type: { summary: null } },
-      description:
-        "Emits save-changes event with chosen options when button is clicked",
-    },
-    ["checkboxClicked"]: {
-      name: "checkbox-clicked",
-      action: "checkbox-clicked event emitted",
-      table: { category: "Events", type: { summary: null } },
-      description: "Emits checkbox-clicked event when checkbox is marked",
-    },
-    ["save-changes"]: {
-      table: {
-        disable: true,
-      },
-    },
-    ["checkbox-clicked"]: {
-      table: {
-        disable: true,
-      },
+    saveChanges: {
+      action: "Changes saved",
+      table: { category: "Events" },
     },
   },
 };
@@ -112,8 +93,7 @@ const Template = (args, { argTypes }) => ({
       :form-title="formTitle"
       :newsletter-sections="newsletterSections"
       :buttonText="buttonText"
-      @save-changes="this['saveChanges']"
-      @checkbox-clicked="this['checkboxClicked']"
+      @save-changes="saveChanges"
     />`,
 });
 

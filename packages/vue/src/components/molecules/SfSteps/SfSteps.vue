@@ -1,6 +1,7 @@
 <template>
   <div class="sf-steps">
     <div class="sf-steps__header">
+      <!-- @slot Use this slot to customise the steps -->
       <slot
         v-for="step in parsedSteps"
         name="steps"
@@ -29,7 +30,8 @@
       ></div>
     </div>
     <div class="sf-steps__content">
-      <slot />
+      <!-- @slot Slot to replace step's content -->
+      <slot></slot>
     </div>
   </div>
 </template>

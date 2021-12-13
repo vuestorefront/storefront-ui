@@ -123,15 +123,6 @@ export default {
       table: { category: "Events", type: { summary: null } },
       description: "Emits click:stage event when main image is clicked.",
     },
-    thumbs: {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description: "Use this slot to replace gallery thumbs buttons",
-    },
   },
 };
 

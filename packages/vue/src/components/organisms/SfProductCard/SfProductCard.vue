@@ -1,9 +1,5 @@
 <template>
-  <div
-    class="sf-product-card"
-    :class="{ 'has-colors': colors.length }"
-    data-testid="product-card"
-  >
+  <div class="sf-product-card" data-testid="product-card">
     <div class="sf-product-card__image-wrapper">
       <slot
         name="image"
@@ -53,15 +49,8 @@
             :color="color.color"
             :selected="color.selected"
             class="sf-product-card__color"
-            :class="{ 'display-none': i > 3 && showBadge }"
             @click="handleSelectedColor(i)"
           />
-          <SfBadge
-            v-if="showBadge"
-            class="sf-product-card__colors-badge color-secondary"
-          >
-            {{ `+${colors.length - 4}` }}
-          </SfBadge>
         </SfColorPicker>
       </slot>
       <slot name="badge" v-bind="{ badgeLabel, badgeColor }">
@@ -239,7 +228,7 @@ export default {
     },
     link: {
       type: [String, Object],
-      default: null,
+      default: "",
     },
     /**
      * Link element tag
@@ -321,9 +310,6 @@ export default {
     wishlistIconClasses() {
       const defaultClass = "sf-button--pure sf-product-card__wishlist-icon";
       return `${defaultClass} ${this.isInWishlist ? "on-wishlist" : ""}`;
-    },
-    showBadge() {
-      return this.colors.length > 5;
     },
   },
   beforeDestroy() {

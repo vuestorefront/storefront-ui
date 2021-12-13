@@ -359,119 +359,20 @@ export default {
       description: "link for header navigation item",
     },
     "change:search": {
-      action: "change:search event emitted",
-      table: { category: "Events", type: { summary: null } },
-      description: "Emits change:search event when searchbar value is changed",
-    },
-    "enter:search": {
-      action: "enter:search event emitted",
-      table: { category: "Events", type: { summary: null } },
-      description: "Emits enter:search event when enter key is pressed",
+      action: "Changed search value",
+      table: { category: "Events" },
     },
     "click:cart": {
-      action: "click:cart event emitted",
-      table: { category: "Events", type: { summary: null } },
-      description: "Emits click:cart event when cart button is clicked",
+      action: "Clicked on cart",
+      table: { category: "Events" },
     },
     "click:wishlist": {
-      action: "click:wishlist event emitted",
-      table: { category: "Events", type: { summary: null } },
-      description: "Emits click:wishlist event when wishlist button is clicked",
+      action: "Clicked on Wishlist",
+      table: { category: "Events" },
     },
     "click:account": {
-      action: "click:account event emitted",
-      table: { category: "Events", type: { summary: null } },
-      description: "Emits click:account event when account button is clicked",
-    },
-    "logo ": {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description:
-        "Named slot for `SfHeader` component. Use this slot to replace logo element",
-    },
-    aside: {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description:
-        "Named slot for `SfHeader` component. Use this slot to pass aside content for example language or currency selector",
-    },
-    navigation: {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description:
-        "Named slot for `SfHeader` component. Use this slot to pass navigation elements",
-    },
-    search: {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description:
-        "Named slot for `SfHeader` component. Use this slot to pass search element",
-    },
-    "header-icons": {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description:
-        "Named slot for `SfHeader` component. Use this slot to replace default icons",
-    },
-    default: {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description:
-        "Default slot for `SfHeaderNavigation` component. Use this slot to place navigation elements",
-    },
-    "default ": {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description:
-        "Default slot for `SfHeaderNavigationItem` component. Use this slot to place navigation items",
-    },
-    "desktop-navigation-item": {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description:
-        "Named slot for `SfHeaderNavigationItem` component. Use this slot to place desktop navigation",
-    },
-    "mobile-navigation-item": {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description:
-        "Named slot for `SfHeaderNavigationItem` component. Use this slot to place mobile navigation",
+      action: "Clicked on Account",
+      table: { category: "Events" },
     },
   },
 };
@@ -484,12 +385,6 @@ const Template = (args, { argTypes }) => ({
       navigationItems: ["women", "man", "kids"],
       searchValues: "",
     };
-  },
-  methods: {
-    changeHandler(value) {
-      this.searchValues = value;
-      this["change:search"](value);
-    },
   },
   template: `
   <SfHeader
@@ -511,8 +406,7 @@ const Template = (args, { argTypes }) => ({
     @click:cart="this['click:cart']"
     @click:wishlist="this['click:wishlist']"
     @click:account="this['click:account']"
-    @change:search="changeHandler"
-    @enter:search="this['enter:search']"
+    @change:search="searchValues = $event"
 >
   <template #navigation>
     <SfHeaderNavigationItem

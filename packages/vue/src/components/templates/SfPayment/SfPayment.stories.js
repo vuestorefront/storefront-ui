@@ -196,7 +196,7 @@ export default {
       table: {
         category: "Props",
       },
-      defaultValue: "Where can I find CVC code",
+      defaultValue: "",
       description: "Text for button that helps with cvc code",
     },
     expiryDateLabel: {
@@ -215,40 +215,6 @@ export default {
       defaultValue: ["debit", "mastercard", "electron"],
       description: "List of credit cards",
     },
-    sameAsShipping: {
-      name: "same-as-shipping",
-      action: "same-as-shipping event emitted",
-      table: { category: "Events", type: { summary: null } },
-      description:
-        "Emits same-as-shipping event when copy address checkbox is checked/unchecked",
-    },
-    invoice: {
-      action: "invoice event emitted",
-      table: { category: "Events", type: { summary: null } },
-      description:
-        "Emits invoice event when invoice checkbox is checked/unchecked",
-    },
-    findCvc: {
-      name: "find-cvc",
-      action: "find-cvc event emitted",
-      table: { category: "Events", type: { summary: null } },
-      description: "Emits find-cvc event when cvc code button is clicked",
-    },
-    input: {
-      action: "input event emitted",
-      table: { category: "Events", type: { summary: null } },
-      description: "Emits input event when one of input fields is changed",
-    },
-    ["same-as-shipping"]: {
-      table: {
-        disable: true,
-      },
-    },
-    ["find-cvc"]: {
-      table: {
-        disable: true,
-      },
-    },
   },
 };
 
@@ -266,10 +232,6 @@ const Template = (args, { argTypes }) => ({
     :cvcCodeButtonText="cvcCodeButtonText"
     :expiryDateLabel="expiryDateLabel"
     :creditCards="creditCards"
-    @same-as-shipping="sameAsShipping"
-    @invoice="invoice"
-    @find-cvc="this['findCvc']"
-    @input="input"
   />`,
 });
 

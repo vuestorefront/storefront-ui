@@ -1,5 +1,6 @@
 <template>
   <SfLink class="sf-category-card" :link="link" :style="style">
+    <!--@slot Default. Here you can pass content of your category card-->
     <slot v-bind="{ label, count }">
       <div class="sf-category-card__details">
         <span

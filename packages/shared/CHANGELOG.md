@@ -3,18 +3,6 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [0.11.4](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.11.3...@storefront-ui/shared@0.11.4) (2021-12-10)
-
-
-### Bug Fixes
-
-* add to cart on hover and in active state ([#2156](https://github.com/vuestorefront/storefront-ui/issues/2156)) ([225a1c5](https://github.com/vuestorefront/storefront-ui/commit/225a1c52c44c35e3d3a839fcf1b25e9146d8d0e7))
-* badge added to color picker in product card ([#2130](https://github.com/vuestorefront/storefront-ui/issues/2130)) ([5b65987](https://github.com/vuestorefront/storefront-ui/commit/5b65987f7ae3934376d550056f7484c7ca979b60))
-
-
-
-
-
 ## [0.11.3](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.11.2...@storefront-ui/shared@0.11.3) (2021-11-25)
 
 
