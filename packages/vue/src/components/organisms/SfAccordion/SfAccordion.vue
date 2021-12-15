@@ -20,7 +20,7 @@ export default {
     },
     transition: {
       type: String,
-      default: "sf-expand",
+      default: "",
     },
     showChevron: {
       type: Boolean,
