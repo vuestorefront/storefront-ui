@@ -20,6 +20,14 @@
                 :alt="picture.alt"
                 :width="imageWidth"
                 :height="imageHeight"
+                :sizes="sizes"
+                :provider="provider"
+                :preset="preset"
+                :format="format"
+                :quality="quality"
+                :fit="fit"
+                :modifiers="modifiers"
+                :legacy-format="legacyFormat"
                 @click="$emit('click:stage', { picture, index })"
               />
             </li>
@@ -122,6 +130,38 @@ export default {
     enableZoom: {
       type: Boolean,
       default: false,
+    },
+    sizes: {
+      type: String,
+      default: "",
+    },
+    provider: {
+      type: String,
+      default: "",
+    },
+    preset: {
+      type: String,
+      default: "",
+    },
+    format: {
+      type: String,
+      default: "",
+    },
+    quality: {
+      type: Number,
+      default: null,
+    },
+    fit: {
+      type: String,
+      default: "",
+    },
+    modifiers: {
+      type: Object,
+      default: () => {},
+    },
+    legacyFormat: {
+      type: String,
+      default: "",
     },
   },
   data() {

@@ -4,18 +4,26 @@
     :style="imageStyle"
     data-testid="image-wrapper"
   >
-    <img
+    <component
+      :is="imageComponentTag"
       :loading="loading"
       v-bind="$attrs"
       :src="src"
       :srcset="srcset"
-      :sizes="sizes"
+      :sizes="srcsetsSizes || sizes"
       :class="classes"
       :width="width"
       :height="height"
       :alt="alt"
       @load="onLoad"
       v-on="$listeners"
+      :provider="provider"
+      :preset="preset"
+      :format="format"
+      :quality="quality"
+      :fit="fit"
+      :modifiers="modifiers"
+      :legacyFormat="legacyFormat"
     />
     <img
       :class="{ 'display-none': loaded || (loaded && placeholder) }"
@@ -80,6 +88,43 @@ export default {
       default: "lazy",
       validator: (value) => ["", "lazy", "eager"].includes(value),
     },
+    imageComponent: {
+      type: String,
+      default: "img",
+      validator: (value) => ["img", "nuxt-img", "nuxt-picture"].includes(value),
+    },
+    sizes: {
+      type: String,
+      default: "",
+    },
+    provider: {
+      type: String,
+      default: "",
+    },
+    preset: {
+      type: String,
+      default: "",
+    },
+    format: {
+      type: String,
+      default: "",
+    },
+    quality: {
+      type: Number,
+      default: null,
+    },
+    fit: {
+      type: String,
+      default: "",
+    },
+    modifiers: {
+      type: Object,
+      default: () => {},
+    },
+    legacyFormat: {
+      type: String,
+      default: "",
+    },
   },
   data() {
     return {
@@ -104,7 +149,7 @@ export default {
         ""
       );
     },
-    sizes() {
+    srcsetsSizes() {
       const hasBreakpoints = this.sortedSrcsets.every(
         (set) => set.breakpoint && set.width
       );
@@ -138,9 +183,14 @@ export default {
             : `${this.height}px`,
       };
     },
+    imageComponentTag() {
+      if (!this.$nuxt) return "img";
+      return this.imageComponent;
+    }
   },
   methods: {
     onLoad() {
+      console.log('loaded')
       this.loaded = true;
     },
     formatResolution(resolution) {
@@ -169,7 +219,7 @@ export default {
         ? `${Number.parseInt(srcset.width) || ""}w`
         : this.formatResolution(srcset.resolution);
     },
-  },
+  },  
 };
 </script>
 <style lang="scss">

@@ -7,7 +7,21 @@
     <div class="sf-product-card__image-wrapper">
       <slot
         name="image"
-        v-bind="{ image, title, link, imageHeight, imageWidth }"
+        v-bind="{
+          image,
+          title,
+          link,
+          imageHeight,
+          imageWidth,
+          sizes,
+          provider,
+          preset,
+          format,
+          quality,
+          fit,
+          modifiers,
+          legacyFormat,
+        }"
       >
         <SfButton
           :link="link"
@@ -26,6 +40,14 @@
               :width="imageWidth"
               :height="imageHeight"
               :placeholder="productPlaceholder"
+              :sizes="sizes"
+              :provider="provider"
+              :preset="preset"
+              :format="format"
+              :quality="quality"
+              :fit="fit"
+              :modifiers="modifiers"
+              :legacy-format="legacyFormat"
             />
           </template>
           <SfImage
@@ -291,6 +313,38 @@ export default {
     addToCartDisabled: {
       type: Boolean,
       default: false,
+    },
+    sizes: {
+      type: String,
+      default: "",
+    },
+    provider: {
+      type: String,
+      default: "",
+    },
+    preset: {
+      type: String,
+      default: "",
+    },
+    format: {
+      type: String,
+      default: "",
+    },
+    quality: {
+      type: Number,
+      default: null,
+    },
+    fit: {
+      type: String,
+      default: "",
+    },
+    modifiers: {
+      type: Object,
+      default: () => {},
+    },
+    legacyFormat: {
+      type: String,
+      default: "",
     },
   },
   data() {
