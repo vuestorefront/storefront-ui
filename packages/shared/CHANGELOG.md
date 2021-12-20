@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.5](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.11.4...@storefront-ui/shared@0.11.5) (2021-12-20)
+
+
+### Bug Fixes
+
+* chevron displayed in sf-tabs on desktop ([#2173](https://github.com/vuestorefront/storefront-ui/issues/2173)) ([4477b81](https://github.com/vuestorefront/storefront-ui/commit/4477b8146c8669f0879a5a6a101793f596ab93a1))
+
+
+
+
+
 ## [0.11.4](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.11.3...@storefront-ui/shared@0.11.4) (2021-12-10)
 
 
