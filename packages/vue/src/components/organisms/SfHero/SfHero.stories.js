@@ -63,6 +63,7 @@ export default {
           "Full-width hero component with autoplay and navigation arrows. Built from main component - SfHero and internal component - SfHeroItem.",
       },
     },
+    layout: "fullscreen",
   },
   argTypes: {
     classes: {
