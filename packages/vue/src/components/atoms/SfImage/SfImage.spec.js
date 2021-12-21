@@ -26,6 +26,8 @@ describe("SfImage.vue", () => {
             breakpoint: 768,
           },
         ],
+        width: 216,
+        height: 326,
       },
     });
     expect(wrapper.classes("sf-image--wrapper")).toBe(true);
@@ -55,6 +57,8 @@ describe("SfImage.vue", () => {
             breakpoint: 768,
           },
         ],
+        width: 216,
+        height: 326,
       },
     });
     await wrapper.find("img").trigger("load");
@@ -85,6 +89,8 @@ describe("SfImage.vue", () => {
             resolution: "10px",
           },
         ],
+        width: 216,
+        height: 326,
       },
     });
     expect(wrapper.classes("sf-image--wrapper")).toBe(true);
