@@ -71,11 +71,11 @@ export default {
       default: "",
     },
     imageWidth: {
-      type: [String, Number],
+      type: Number,
       default: 328,
     },
     imageHeight: {
-      type: [String, Number],
+      type: Number,
       default: 448,
     },
     imagePictureBreakpoint: {

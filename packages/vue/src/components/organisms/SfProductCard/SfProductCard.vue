@@ -210,12 +210,12 @@ export default {
       default: "",
     },
     imageWidth: {
-      type: [String, Number],
-      default: "100%",
+      type: Number,
+      default: 216,
     },
     imageHeight: {
-      type: [String, Number],
-      default: "auto",
+      type: Number,
+      default: 326,
     },
     badgeLabel: {
       type: String,
