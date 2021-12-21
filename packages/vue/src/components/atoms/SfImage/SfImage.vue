@@ -72,12 +72,12 @@ export default {
       required: true,
     },
     width: {
-      type: [String, Number],
-      default: "",
+      type: Number,
+      required: true,
     },
     height: {
-      type: [String, Number],
-      default: "",
+      type: Number,
+      required: true,
     },
     placeholder: {
       type: String,

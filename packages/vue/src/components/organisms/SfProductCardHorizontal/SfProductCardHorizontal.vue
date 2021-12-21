@@ -179,11 +179,11 @@ export default {
       default: "",
     },
     imageWidth: {
-      type: [String, Number],
+      type: Number,
       default: 140,
     },
     imageHeight: {
-      type: [String, Number],
+      type: Number,
       default: 200,
     },
     title: {

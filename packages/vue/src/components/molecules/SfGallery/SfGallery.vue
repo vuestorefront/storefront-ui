@@ -94,11 +94,11 @@ export default {
       default: () => [],
     },
     imageWidth: {
-      type: [Number, String],
+      type: Number,
       default: 422,
     },
     imageHeight: {
-      type: [Number, String],
+      type: Number,
       default: 664,
     },
     thumbWidth: {
