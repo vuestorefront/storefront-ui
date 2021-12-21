@@ -15,18 +15,18 @@
       :width="width"
       :height="height"
       :alt="alt"
-      @load="onLoad"
-      v-on="$listeners"
       :provider="provider"
       :preset="preset"
       :format="format"
       :quality="quality"
       :fit="fit"
       :modifiers="modifiers"
-      :legacyFormat="legacyFormat"
+      :legacy-format="legacyFormat"
+      @load="onLoad"
+      v-on="$listeners"      
     />
     <img
-      :class="{ 'display-none': loaded || (loaded && placeholder) }"
+      :class="{ 'display-none': imageComponentTag !== 'img' || (loaded || (loaded && placeholder)) }"
       class="sf-image--placeholder"
       :src="placeholder"
       alt="Placeholder"
@@ -88,7 +88,7 @@ export default {
       default: "lazy",
       validator: (value) => ["", "lazy", "eager"].includes(value),
     },
-    imageComponent: {
+    imageTag: {
       type: String,
       default: "img",
       validator: (value) => ["img", "nuxt-img", "nuxt-picture"].includes(value),
@@ -184,13 +184,12 @@ export default {
       };
     },
     imageComponentTag() {
-      if (!this.$nuxt) return "img";
-      return this.imageComponent;
+      if (!this.$nuxt) return "img";      
+      return this.imageTag;
     }
   },
   methods: {
     onLoad() {
-      console.log('loaded')
       this.loaded = true;
     },
     formatResolution(resolution) {
@@ -219,7 +218,10 @@ export default {
         ? `${Number.parseInt(srcset.width) || ""}w`
         : this.formatResolution(srcset.resolution);
     },
-  },  
+  },
+  created() {
+    if (this.imageComponentTag !== 'img') this.loaded = true;
+  }  
 };
 </script>
 <style lang="scss">

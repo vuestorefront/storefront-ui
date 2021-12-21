@@ -9,6 +9,7 @@
           link,
           imageHeight,
           imageWidth,
+          imageTag,
           sizes,
           provider,
           preset,
@@ -36,6 +37,7 @@
               :width="imageWidth"
               :height="imageHeight"
               :placeholder="productPlaceholder"
+              :image-tag="imageTag"
               :sizes="sizes"
               :provider="provider"
               :preset="preset"
@@ -235,6 +237,10 @@ export default {
     qty: {
       type: [Number, String],
       default: 1,
+    },
+    imageTag: {
+      type: String,
+      default: "",
     },
     sizes: {
       type: String,

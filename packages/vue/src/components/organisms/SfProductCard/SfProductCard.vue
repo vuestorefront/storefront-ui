@@ -13,6 +13,7 @@
           link,
           imageHeight,
           imageWidth,
+          imageTag,
           sizes,
           provider,
           preset,
@@ -40,6 +41,7 @@
               :width="imageWidth"
               :height="imageHeight"
               :placeholder="productPlaceholder"
+              :image-tag="imageTag"
               :sizes="sizes"
               :provider="provider"
               :preset="preset"
@@ -58,6 +60,15 @@
             :width="imageWidth"
             :height="imageHeight"
             :placeholder="productPlaceholder"
+            :image-tag="imageTag"
+            :sizes="sizes"
+            :provider="provider"
+            :preset="preset"
+            :format="format"
+            :quality="quality"
+            :fit="fit"
+            :modifiers="modifiers"
+            :legacy-format="legacyFormat"
           />
         </SfButton>
       </slot>
@@ -313,6 +324,10 @@ export default {
     addToCartDisabled: {
       type: Boolean,
       default: false,
+    },
+    imageTag: {
+      type: String,
+      default: "",
     },
     sizes: {
       type: String,

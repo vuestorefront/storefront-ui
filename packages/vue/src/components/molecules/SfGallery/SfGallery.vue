@@ -20,6 +20,7 @@
                 :alt="picture.alt"
                 :width="imageWidth"
                 :height="imageHeight"
+                :image-tag="imageTag"
                 :sizes="sizes"
                 :provider="provider"
                 :preset="preset"
@@ -130,6 +131,10 @@ export default {
     enableZoom: {
       type: Boolean,
       default: false,
+    },
+    imageTag: {
+      type: String,
+      default: "",
     },
     sizes: {
       type: String,
