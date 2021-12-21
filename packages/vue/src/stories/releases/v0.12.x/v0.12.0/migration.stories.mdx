@@ -34,11 +34,19 @@ import { Meta } from "@storybook/addon-docs/blocks";
       <td>String Number</td>
       <td>Number</td>
     </tr>
+    <tr>
+     <td>placeholder</td>
+      <td>" "</td>
+      <td>default placeholder image</td>
+    </tr>
   </tbody>
 </table>
 
+It's important to have explicit width and height for `SfImage` component.
+
 `Width` and `height` props should be used only for determining explicit width and height of image. 
 If there is a need to add additional styles then it should be done by CSS.
+
 CSS properties that are responsible for changing width and height of SfImage:
 - `--image-width`
 - `--image-height`
