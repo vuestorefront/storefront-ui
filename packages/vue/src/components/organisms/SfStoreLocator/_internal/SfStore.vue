@@ -101,11 +101,11 @@ export default {
       default: null,
     },
     pictureWidth: {
-      type: [String, Number],
+      type: Number,
       default: null,
     },
     pictureHeight: {
-      type: [String, Number],
+      type: Number,
       default: null,
     },
     address: {
