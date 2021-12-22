@@ -12,6 +12,8 @@
     display: var(--banner-grid-col-display, block);
     flex: var(--banner-grid-col-flex);
     margin: var(--banner-grid-col-margin, 0);
+    position: relative;
+    overflow: hidden;
     & + & {
       --banner-grid-col-margin: var(--spacer-sm) 0 0 0;
     }

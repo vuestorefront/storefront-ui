@@ -42,6 +42,15 @@
     );
     text-transform: var(--banner-subtitle-text-transform, uppercase);
   }
+  img {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: inherit;
+    min-height: inherit;
+    object-fit: cover;
+  }
   &__title {
     margin: var(--banner-title-margin, var(--spacer-2xs) 0 0 0);
     color: var(--banner-color, var(--banner-title-color, var(--c-text)));
