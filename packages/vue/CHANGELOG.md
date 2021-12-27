@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.5](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/vue@0.11.4...@storefront-ui/vue@0.11.5) (2021-12-20)
+
+
+### Bug Fixes
+
+* adjusted tabs logic to avoid mutating readonly properties ([#2159](https://github.com/vuestorefront/storefront-ui/issues/2159)) ([6519314](https://github.com/vuestorefront/storefront-ui/commit/6519314793c1ec1e59810a26e3076e6510d7137f))
+* chevron displayed in sf-tabs on desktop ([#2173](https://github.com/vuestorefront/storefront-ui/issues/2173)) ([4477b81](https://github.com/vuestorefront/storefront-ui/commit/4477b8146c8669f0879a5a6a101793f596ab93a1))
+* hotfix for accordion stories ([b09d970](https://github.com/vuestorefront/storefront-ui/commit/b09d9703aa18c1015a75907590adaf1bf0df87a6))
+
+
+
+
+
 ## [0.11.4](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/vue@0.11.3...@storefront-ui/vue@0.11.4) (2021-12-10)
 
 

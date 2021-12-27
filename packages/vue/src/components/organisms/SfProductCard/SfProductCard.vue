@@ -25,7 +25,6 @@
               :alt="title"
               :width="imageWidth"
               :height="imageHeight"
-              :placeholder="productPlaceholder"
             />
           </template>
           <SfImage
@@ -35,7 +34,6 @@
             :alt="title"
             :width="imageWidth"
             :height="imageHeight"
-            :placeholder="productPlaceholder"
           />
         </SfButton>
       </slot>
@@ -193,7 +191,6 @@ import {
   mapMobileObserver,
   unMapMobileObserver,
 } from "../../../utilities/mobile-observer";
-import productPlaceholder from "@storefront-ui/shared/images/product_placeholder.svg";
 export default {
   name: "SfProductCard",
   components: {
@@ -213,12 +210,12 @@ export default {
       default: "",
     },
     imageWidth: {
-      type: [String, Number],
-      default: "100%",
+      type: Number,
+      default: 216,
     },
     imageHeight: {
-      type: [String, Number],
-      default: "auto",
+      type: Number,
+      default: 326,
     },
     badgeLabel: {
       type: String,
@@ -297,7 +294,6 @@ export default {
     return {
       isAddingToCart: false,
       openColorPicker: false,
-      productPlaceholder,
     };
   },
   computed: {
