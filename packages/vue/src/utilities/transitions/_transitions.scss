@@ -62,10 +62,14 @@
 }
 
 .sf-expand {
-  color: rebeccapurple!important;
   &-enter-active,
-  &-leave-active {
-    transition: height 0.25s ease-in-out;
+  &-enter-leave {
+    transition: transform 0.25s ease-in-out;
+    transform: scale3d(1, 1, 1);
     overflow: hidden;
+  }
+  &-enter,
+  &-leave-to {
+    transform: scale3d(1, 0, 1);
   }
 }
