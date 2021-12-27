@@ -44,6 +44,8 @@
   </span>
 </template>
 <script>
+import imagePlaceholder from "@storefront-ui/shared/images/product_placeholder.svg";
+
 export default {
   name: "SfImage",
   props: {
@@ -64,16 +66,16 @@ export default {
       required: true,
     },
     width: {
-      type: [String, Number],
-      default: "",
+      type: Number,
+      required: true,
     },
     height: {
-      type: [String, Number],
-      default: "",
+      type: Number,
+      required: true,
     },
     placeholder: {
       type: String,
-      default: "",
+      default: imagePlaceholder,
     },
     loading: {
       type: String,
