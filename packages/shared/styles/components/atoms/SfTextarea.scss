@@ -13,8 +13,7 @@
       var(--font-family--secondary)
     );
     height: var(--textarea-height);
-    width: var(--textarea-width, 90%);
-    margin:var(--textarea-margin, 7% 10% 7% auto);
+    width: var(--textarea-width);
     padding: var(--textarea-padding, var(--spacer-sm));
     @include border(--textarea-border, 1px, solid, var(--c-link));
     &:focus {
@@ -41,7 +40,6 @@
     &:placeholder-shown {
       & ~ * {
         --textarea-label-padding: 0;
-        --textarea-label-margin:1px;
         --textarea-label-transform: translate3d(0, -1rem, 0);
       }
     }
@@ -56,7 +54,6 @@
     );
     position: var(--textarea-label-position, absolute);
     padding: var(--textarea-label-padding, var(--spacer-sm));
-    margin: var(--textarea-label-margin);
     top: var(--textarea-label-top);
     bottom: var(--textarea-label-bottom);
     left: var(--textarea-label-left, 0);

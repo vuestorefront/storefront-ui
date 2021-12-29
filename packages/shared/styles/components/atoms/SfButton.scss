@@ -3,7 +3,6 @@
   --link-color: var(--button-color, var(--c-light-variant));
   box-sizing: border-box;
   position: relative;
-  margin: var(--button-margin, 1rem);
   width: var(--button-size, var(--button-width));
   height: var(--button-size, var(--button-height));
   display: var(--button-display, flex);
