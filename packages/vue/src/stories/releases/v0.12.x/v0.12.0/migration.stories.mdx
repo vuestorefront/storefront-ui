@@ -63,3 +63,26 @@ Components with SfImage:
 - SfStore (internal component of SfStoreLocator)
 
 All of these components props that are responsible for passing values for width and height of image have to be passed as `Number`
+
+## Transitions
+
+SfExpand component is removed and you can use sf-expand transition instead: 
+```html
+<SfTransition transition="sf-expand">
+  <div v-if="isOpen">
+    <div class="sf-accordion-item__content">
+      <slot />
+    </div>
+  </div>
+</SfTransition>
+```
+or with native transition element: 
+```html
+<transition name="sf-expand">
+  <div v-if="isOpen">
+    <div class="sf-accordion-item__content">
+      <slot />
+    </div>
+  </div>
+</transition>
+```
