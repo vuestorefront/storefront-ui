@@ -163,17 +163,17 @@ export default {
       description: "Label text",
     },
     selected: {
-      control: "object",
+      control: "text",
       table: {
         category: "Props for main component",
         type: {
-          summary: "object",
+          summary: "string",
         },
         defaultValue: {
           summary: "",
         },
       },
-      defaultValue: { value: "" },
+      defaultValue: "",
       description: "Selected item value",
     },
     size: {

@@ -5,10 +5,13 @@
   &__static {
     flex: 1;
     overflow: hidden;
-    height: var(--sliding-section-static-height, auto);
+    transform: var(
+      --sliding-section-static-transform,
+      scale3d(1, 1, 1)
+    );
     transition: var(
       --sliding-section-static-transition,
-      height 150ms ease-in-out
+      transform 150ms ease-in-out
     );
   }
   &__sliding {
@@ -23,7 +26,7 @@
     overflow: hidden;
   }
   &.is-active {
-    --sliding-section-static-height: 0;
+    --sliding-section-static-transform: scale3d(1, 0, 1);
     --sliding-section-mobile-bar-display: block;
   }
   @include for-desktop {
