@@ -29,7 +29,7 @@
       transform 150ms linear,
       font-size 150ms linear
     );
-
+    will-change: font-size;
     &::after {
       content: var(--input-label-required);
       color: var(--input-label-color, var(--c-link));
@@ -192,7 +192,6 @@
     --input-label-left: var(--spacer-xs);
     --input-label-font-size: var(--font-size--xs);
     --input-label-color: var(--c-secondary-variant);
-    --input-label-transition: color 150ms ease;
     --input-border: none;
     &.has-text {
       --input-label-display: none;
@@ -201,9 +200,7 @@
       &:focus {
         & ~ * {
           --input-bar-width: unset;
-          --input-label-top: 50%;
-          --input-label-font-size: var(--font-size--xs);
-          --input-label-color: var(--c-text);
+          --input-label-display: none;
         }
       }
     }
