@@ -12,7 +12,6 @@
       <component
         :is="injections.components.SfIcon"
         :key="`p${index}`"
-        size="0.875rem"
         class="sf-rating__icon"
         :icon="props.icon"
         :coverage="
