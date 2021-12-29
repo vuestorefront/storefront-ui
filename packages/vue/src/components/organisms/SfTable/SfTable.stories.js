@@ -62,6 +62,7 @@ export default {
           "Table component with inner rows, headers and data. Built from main component - SfTable and internal components - SfTableData, SfTableHeader, SfTableHeading, SfTableRow.",
       },
     },
+    layout: "fullscreen",
   },
   argTypes: {
     classes: {

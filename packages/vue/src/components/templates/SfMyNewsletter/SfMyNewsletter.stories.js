@@ -34,6 +34,7 @@ export default {
           "Component with sign in for newsletter. Part of account. Can be filled with other content.",
       },
     },
+    layout: "fullscreen",
   },
   argTypes: {
     tabTitle: {
