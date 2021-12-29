@@ -158,6 +158,7 @@ export default {
           "The content pages for static content. Built from main component - SfContentPages and internal components - SfContentCategory and SfContentPage.",
       },
     },
+    layout: "fullscreen",
   },
   argTypes: {
     title: {
