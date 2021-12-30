@@ -15,6 +15,7 @@ export default {
         component: "Top Bar component with righ or left aligned content.",
       },
     },
+    layout: "fullscreen",
   },
   argTypes: {
     left: {
