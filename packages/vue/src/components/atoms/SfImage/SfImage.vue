@@ -19,7 +19,7 @@
       :preset="preset"
       :format="format"
       :quality="quality"
-      :fit="fit"
+      :fit="conditionalFit"
       :modifiers="modifiers"
       :legacy-format="legacyFormat"
       @load="onLoad"
@@ -52,6 +52,7 @@
   </span>
 </template>
 <script>
+import Vue from 'vue'
 export default {
   name: "SfImage",
   props: {
@@ -95,19 +96,19 @@ export default {
     },
     sizes: {
       type: String,
-      default: "",
+      default: null,
     },
     provider: {
       type: String,
-      default: "",
+      default: null,
     },
     preset: {
       type: String,
-      default: "",
+      default: null,
     },
     format: {
       type: String,
-      default: "",
+      default: null,
     },
     quality: {
       type: Number,
@@ -115,7 +116,7 @@ export default {
     },
     fit: {
       type: String,
-      default: "",
+      default: null,
     },
     modifiers: {
       type: Object,
@@ -123,7 +124,7 @@ export default {
     },
     legacyFormat: {
       type: String,
-      default: "",
+      default: null,
     },
   },
   data() {
@@ -184,9 +185,18 @@ export default {
       };
     },
     imageComponentTag() {
-      if (!this.$nuxt) return "img";      
-      return this.imageTag;
-    }
+      return !this.$nuxt ? "img" : this.imageTag;
+    },
+    conditionalFit() {
+      const fitCheck = () => {
+        if (this.fit) { 
+          return this.fit
+         } else { 
+          console.error('Missing prop fit.')
+        };
+      }
+      return this.imageTag === "img" ? this.fit : fitCheck();
+    },
   },
   methods: {
     onLoad() {
@@ -220,8 +230,8 @@ export default {
     },
   },
   created() {
-    if (this.imageComponentTag !== 'img') this.loaded = true;
-  }  
+    if (this.imageComponentTag !== 'img') this.loaded = true;    
+  },
 };
 </script>
 <style lang="scss">

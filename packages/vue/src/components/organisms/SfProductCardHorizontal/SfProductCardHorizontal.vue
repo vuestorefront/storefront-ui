@@ -56,6 +56,7 @@
             :width="imageWidth"
             :height="imageHeight"
             :placeholder="productPlaceholder"
+            :image-tag="imageTag"
             :sizes="sizes"
             :provider="provider"
             :preset="preset"
