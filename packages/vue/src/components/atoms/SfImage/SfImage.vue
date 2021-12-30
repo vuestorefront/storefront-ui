@@ -7,23 +7,15 @@
     <component
       :is="imageComponentTag"
       :loading="loading"
-      v-bind="$attrs"
+      v-bind="attributes"
       :src="src"
       :srcset="srcset"
-      :sizes="srcsetsSizes || sizes"
       :class="classes"
       :width="width"
       :height="height"
       :alt="alt"
-      :provider="provider"
-      :preset="preset"
-      :format="format"
-      :quality="quality"
-      :fit="conditionalFit"
-      :modifiers="modifiers"
-      :legacy-format="legacyFormat"
       @load="onLoad"
-      v-on="$listeners"      
+      v-on="$listeners"
     />
     <img
       :class="{ 'display-none': imageComponentTag !== 'img' || (loaded || (loaded && placeholder)) }"
@@ -52,7 +44,6 @@
   </span>
 </template>
 <script>
-import Vue from 'vue'
 export default {
   name: "SfImage",
   props: {
@@ -94,37 +85,9 @@ export default {
       default: "img",
       validator: (value) => ["img", "nuxt-img", "nuxt-picture"].includes(value),
     },
-    sizes: {
-      type: String,
-      default: null,
-    },
-    provider: {
-      type: String,
-      default: null,
-    },
-    preset: {
-      type: String,
-      default: null,
-    },
-    format: {
-      type: String,
-      default: null,
-    },
-    quality: {
-      type: Number,
-      default: null,
-    },
-    fit: {
-      type: String,
-      default: null,
-    },
-    modifiers: {
+    nuxtImgConfig: {
       type: Object,
-      default: () => {},
-    },
-    legacyFormat: {
-      type: String,
-      default: null,
+      default: () => ({}),
     },
   },
   data() {
@@ -189,13 +152,16 @@ export default {
     },
     conditionalFit() {
       const fitCheck = () => {
-        if (this.fit) { 
-          return this.fit
+        if (this.nuxtImgConfig.fit) { 
+          return this.nuxtImgConfig.fit
          } else { 
           console.error('Missing prop fit.')
         };
       }
-      return this.imageTag === "img" ? this.fit : fitCheck();
+      return this.imageTag === "img" ? this.nuxtImgConfig.fit : fitCheck();
+    },
+    attributes() {
+      return this.imageTag === "img" ? this.$attrs : { ...this.$attrs, ...this.nuxtImgConfig, sizes: this.srcsetsSizes || this.nuxtImgConfig.sizes }
     },
   },
   methods: {

@@ -10,14 +10,7 @@
           imageHeight,
           imageWidth,
           imageTag,
-          sizes,
-          provider,
-          preset,
-          format,
-          quality,
-          fit,
-          modifiers,
-          legacyFormat,
+          nuxtImgConfig,
         }"
       >
         <SfLink
@@ -38,14 +31,7 @@
               :height="imageHeight"
               :placeholder="productPlaceholder"
               :image-tag="imageTag"
-              :sizes="sizes"
-              :provider="provider"
-              :preset="preset"
-              :format="format"
-              :quality="quality"
-              :fit="fit"
-              :modifiers="modifiers"
-              :legacy-format="legacyFormat"
+              :nuxt-img-config="nuxtImgConfig"
             />
           </template>
           <SfImage
@@ -57,14 +43,7 @@
             :height="imageHeight"
             :placeholder="productPlaceholder"
             :image-tag="imageTag"
-            :sizes="sizes"
-            :provider="provider"
-            :preset="preset"
-            :format="format"
-            :quality="quality"
-            :fit="fit"
-            :modifiers="modifiers"
-            :legacy-format="legacyFormat"
+            :nuxt-img-config="nuxtImgConfig"
           />
         </SfLink>
       </slot>
@@ -243,37 +222,9 @@ export default {
       type: String,
       default: "",
     },
-    sizes: {
-      type: String,
-      default: "",
-    },
-    provider: {
-      type: String,
-      default: "",
-    },
-    preset: {
-      type: String,
-      default: "",
-    },
-    format: {
-      type: String,
-      default: "",
-    },
-    quality: {
-      type: Number,
-      default: null,
-    },
-    fit: {
-      type: String,
-      default: "",
-    },
-    modifiers: {
+    nuxtImgConfig: {
       type: Object,
-      default: () => {},
-    },
-    legacyFormat: {
-      type: String,
-      default: "",
+      default: () => ({}),
     },
   },
   data() {
