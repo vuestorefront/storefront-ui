@@ -176,6 +176,7 @@ export default {
           "Grouped Product component. Built from main component - SfHeader and internal components - SfHeaderNavigation and SfHeaderNavigationItem.",
       },
     },
+    layout: "fullscreen",
   },
   argTypes: {
     classes: {
