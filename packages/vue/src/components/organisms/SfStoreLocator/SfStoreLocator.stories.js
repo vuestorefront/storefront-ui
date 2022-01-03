@@ -132,6 +132,7 @@ export default {
           "Component locating and marking on map using tile data. Built from main component - SfStoreLocator and internal components - SfStoreLocatorItem.",
       },
     },
+    layout: "fullscreen",
   },
   decorators: [
     () => ({

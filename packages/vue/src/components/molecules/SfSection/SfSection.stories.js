@@ -20,6 +20,7 @@ export default {
         component: "Full-width section for content.",
       },
     },
+    layout: "fullscreen",
   },
   argTypes: {
     titleHeading: {

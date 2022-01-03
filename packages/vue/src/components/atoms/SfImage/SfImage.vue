@@ -18,7 +18,10 @@
       v-on="$listeners"
     />
     <img
-      :class="{ 'display-none': imageComponentTag !== 'img' || (loaded || (loaded && placeholder)) }"
+      :class="{
+        'display-none':
+          imageComponentTag !== 'img' || loaded || (loaded && placeholder),
+      }"
       class="sf-image--placeholder"
       :src="placeholder"
       alt="Placeholder"
@@ -44,6 +47,8 @@
   </span>
 </template>
 <script>
+import imagePlaceholder from "@storefront-ui/shared/images/product_placeholder.svg";
+
 export default {
   name: "SfImage",
   props: {
@@ -73,7 +78,7 @@ export default {
     },
     placeholder: {
       type: String,
-      default: "",
+      default: imagePlaceholder,
     },
     loading: {
       type: String,
@@ -152,17 +157,26 @@ export default {
     },
     conditionalFit() {
       const fitCheck = () => {
-        if (this.nuxtImgConfig.fit) { 
-          return this.nuxtImgConfig.fit
-         } else { 
-          console.error('Missing prop fit.')
-        };
-      }
+        if (this.nuxtImgConfig.fit) {
+          return this.nuxtImgConfig.fit;
+        } else {
+          console.error("Missing prop fit.");
+        }
+      };
       return this.imageTag === "img" ? this.nuxtImgConfig.fit : fitCheck();
     },
     attributes() {
-      return this.imageTag === "img" ? this.$attrs : { ...this.$attrs, ...this.nuxtImgConfig, sizes: this.srcsetsSizes || this.nuxtImgConfig.sizes }
+      return this.imageTag === "img"
+        ? this.$attrs
+        : {
+            ...this.$attrs,
+            ...this.nuxtImgConfig,
+            sizes: this.srcsetsSizes || this.nuxtImgConfig.sizes,
+          };
     },
+  },
+  created() {
+    if (this.imageComponentTag !== "img") this.loaded = true;
   },
   methods: {
     onLoad() {
@@ -194,9 +208,6 @@ export default {
         ? `${Number.parseInt(srcset.width) || ""}w`
         : this.formatResolution(srcset.resolution);
     },
-  },
-  created() {
-    if (this.imageComponentTag !== 'img') this.loaded = true;    
   },
 };
 </script>

@@ -19,6 +19,7 @@ export default {
         component: "Component with order history. Part of the account.",
       },
     },
+    layout: "fullscreen",
   },
   argTypes: {
     tabTitle: {
