@@ -1,5 +1,5 @@
 @import "../helpers/colors";
-:root {
+html {
   @include generate-color-variants(--c-black, #1d1f22);
   --c-white: #ffffff;
   // Internal color variables

@@ -20,6 +20,7 @@ export default {
           "Component with profile details, allows to change personal data and password. Part of account.",
       },
     },
+    layout: "fullscreen",
   },
   argTypes: {
     tabsTitles: {

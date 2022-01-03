@@ -62,6 +62,7 @@ export default {
           "Footer component. Built from main component - SfFooter and internal components -SfFooterColumn.",
       },
     },
+    layout: "fullscreen",
   },
   argTypes: {
     open: {

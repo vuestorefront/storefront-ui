@@ -8,6 +8,26 @@ import { Meta } from "@storybook/addon-docs/blocks";
   - [Props changes](#props-changes)
   - [Components with SfImage](#components-with-SfImage)
 
+## `Customization`
+We have changed the way we customize variables. You should use overriding via ```:root{}``` from now on. 
+
+Before:
+```scss
+#app {
+	--font-family--primary: "Raleway", serif;
+}
+
+#__nuxt {
+	--font-family-primary: "Raleway", serif;
+}
+```
+After:
+```scss
+:root {
+	--font-family-primary: "Raleway", serif;
+}
+```
+
 ## `SfImage`
 
 ### Props changes
