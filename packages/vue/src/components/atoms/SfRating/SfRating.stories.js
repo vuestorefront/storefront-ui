@@ -116,6 +116,14 @@ WithIcon.args = {
   icon: "heart",
 };
 
+export const ChangedColors = (args, { argTypes }) => ({
+  components: { SfRating, SfIcon },
+  props: Object.keys(argTypes),
+  template: `
+  <SfRating style="--icon-color: gold; --icon-color-negative: pink;" :max="max" :score="score" :icon="icon" />`,
+});
+ChangedColors.args = { ...Common.args };
+
 export const WithIconPositiveSlot = (args, { argTypes }) => ({
   components: { SfRating, SfIcon },
   props: Object.keys(argTypes),

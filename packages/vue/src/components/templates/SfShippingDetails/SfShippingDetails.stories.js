@@ -45,6 +45,7 @@ export default {
           "Component for managing of shipping details. The element of the account.",
       },
     },
+    layout: "fullscreen",
   },
   argTypes: {
     shippingTabTitle: {
