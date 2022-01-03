@@ -137,10 +137,9 @@ You can override them to shape the look and feel of your project. There are two 
 ```scss
 /*
  * use id of DOM root element
- * vue-cli -> #app
- * nuxt-app -> :root
+ * vue-cli or nuxt-app -> :root
  */
-#app {
+:root {
   --font-family--primary: "Raleway", serif;
 }
 ```
@@ -232,6 +231,10 @@ This code will generate the following variables:
 #### How to override color variables?
 
 <YouTube youTubeId="dwj2snJegYU" />
+<div class="alert tip">
+Please note that since 0.12.0 version of Storefront UI we recommend using <strong>:root</strong> tag to overwrite global styles instead of <strong>#app</strong> tag.  
+</div> 
+
 
 <div class="alert tip">
 
