@@ -5,7 +5,15 @@
       :breadcrumbs="breadcrumbs"
     />
     <div class="product">
-      <SfGallery :images="product.images" class="product__gallery" />
+      <SfGallery 
+        :images="product.images" 
+        class="product__gallery" 
+        image-tag="nuxt-img"
+        :nuxtImgConfig="{
+          format: 'webp',
+          fit: 'cover',
+        }"
+      />
       <div class="product__info">
         <div class="product__header">
           <SfHeading
