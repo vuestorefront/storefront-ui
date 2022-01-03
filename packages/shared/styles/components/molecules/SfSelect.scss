@@ -93,7 +93,7 @@
     --select-border-color: var(--c-light);
   }
   &.is-selected {
-    --select-label-transform: translate3d(0, -200%, 0); 
+    --select-label-transform: var(--select-label-translate3d, translate3d(0, -200%, 0)); 
     --select-label-font-size: var(--font-size--xs);
     --select-dropdown-color: var(--c-secondary-variant);
   }

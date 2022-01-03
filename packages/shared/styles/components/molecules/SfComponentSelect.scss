@@ -149,7 +149,7 @@
     --component-select-border-color: var(--c-link);
   }
   &.is-selected {
-    --component-select-label-transform: translate3d(0, -200%, 0); 
+    --component-select-label-transform: var(--component-select-label-translate3d, translate3d(0, -200%, 0)); 
     --component-select-label-font-size: var(--font-size--xs);
   }
   &.is-invalid {

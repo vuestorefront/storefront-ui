@@ -106,3 +106,67 @@ or with native transition element:
   </div>
 </transition>
 ```
+
+SfInput label transition was changed from `top` property to the `transform`, 
+so now you can configure it by two css custom properties: `--input-label-transform` to set initial state and `--input-label-translate3d` to set final state of the label.
+It is recommended to use `translate3d` property because of performance reasons.
+Similar chabes was made in SfComponentSelect, SfSelect. 
+
+There is also `--input-bar-transform` property added to customize transition of bottom bar and it is set to use `scale3d` property also because of performance reasons. 
+
+In SfSlidingSection `--sliding-section-static-height` was replaced by `--sliding-section-static-transform` property.
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3">CSS custom Properties</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Properties</td>
+      <td>Before</td>
+      <td>v0.12.0</td>
+    </tr>
+    <tr>
+      <td>transition</td>
+      <td>--input-label-top</td>
+      <td>--input-label-transform</td>
+    </tr>
+    <tr>
+      <td>transition</td>
+      <td> - </td>
+      <td>--input-label-translate3d</td>
+    </tr>
+    <tr>
+      <td>transition</td>
+      <td>--component-select-label-top</td>
+      <td>--component-select-transform</td>
+    </tr>
+    <tr>
+      <td>transition</td>
+      <td> - </td>
+      <td>--component-select-translate3d</td>
+    </tr>
+    <tr>
+      <td>transition</td>
+      <td>--select-label-top</td>
+      <td>--select-label-transform</td>
+    </tr>
+    <tr>
+      <td>transition</td>
+      <td> - </td>
+      <td>--select-label-translate3d</td>
+    </tr>
+    <tr>
+      <td>transition</td>
+      <td>--sliding-section-static-height</td>
+      <td>--sliding-section-static-transform</td>
+    </tr>
+    <tr>
+      <td>transition</td>
+      <td> - </td>
+      <td>--sliding-section-static-scale3d</td>
+    </tr>
+  </tbody>
+</table>

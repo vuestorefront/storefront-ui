@@ -100,7 +100,7 @@
       & ~ * {
         --icon-color: var(--c-primary);
         --input-password-icon-background: var(--c-primary);
-        --input-label-transform: translate3d(0, -200%, 0);
+        --input-label-transform: var(--input-label-translate3d, translate3d(0, -200%, 0));
         --input-label-color: var(--c-primary);
         --input-label-font-size: var(--font-size--xs);
         --input-bar-transform: scale3d(1, 1, 1);       
@@ -181,7 +181,7 @@
   input[type="image"] ~ *,
   input[type="file"] ~ * {
     --input-label-font-size: var(--font-size--xs);
-    --input-label-transform: translate3d(0, -200%, 0);
+    --input-label-transform: var(--input-label-translate3d);
   }
   &--filled {
     --input-background: var(--c-light);
@@ -210,7 +210,7 @@
     --input-label-background: var(--c-white);
     --input-label-font-size: var(--font-size-base);
     &.sf-input--has-text {
-      --input-label-transform: translate3d(0, -200%, 0);
+      --input-label-transform: var(--input-label-translate3d);
       --input-label-left: var(--spacer-xs);
       --input-label-padding: 0 var(--spacer-2xs);
     }
@@ -229,7 +229,7 @@
       --input-border-width: 1px;
       &:focus {
         & ~ * {
-          --input-label-transform: translate3d(0, -200%, 0);
+          --input-label-transform: var(--input-label-translate3d);
           --input-label-left: var(--spacer-xs);
           --input-label-padding: 0 var(--spacer-2xs);
           --input-bar-width: 0;

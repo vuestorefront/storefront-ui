@@ -26,7 +26,7 @@
     overflow: hidden;
   }
   &.is-active {
-    --sliding-section-static-transform: scale3d(1, 0, 1);
+    --sliding-section-static-transform: var(--sliding-section-static-scale3d, scale3d(1, 0, 1));
     --sliding-section-mobile-bar-display: block;
   }
   @include for-desktop {
