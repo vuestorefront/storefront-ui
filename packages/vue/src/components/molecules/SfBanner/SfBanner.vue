@@ -1,32 +1,44 @@
 <template>
-  <section class="sf-banner" :style="style" v-on="isMobile ? $listeners : {}">
+  <section
+    class="sf-banner"
+    :style="style"
+    v-on="isMobileView ? $listeners : {}"
+  >
     <component :is="wrapper" class="sf-banner__wrapper" :link="link">
       <slot name="subtitle" v-bind="{ subtitle }">
-        <h2 v-if="subtitle" class="sf-banner__subtitle">
+        <span
+          :class="{ 'display-none': !subtitle }"
+          class="sf-banner__subtitle"
+        >
           {{ subtitle }}
-        </h2>
+        </span>
       </slot>
       <slot name="title" v-bind="{ title }">
-        <h1 v-if="title" class="sf-banner__title">
+        <span :class="{ 'display-none': !title }" class="sf-banner__title">
           {{ title }}
-        </h1>
+        </span>
       </slot>
       <slot name="description" v-bind="{ description }">
-        <p v-if="description" class="sf-banner__description">
+        <span
+          :class="{ 'display-none': !description }"
+          class="sf-banner__description"
+        >
           {{ description }}
-        </p>
+        </span>
       </slot>
       <slot name="call-to-action" v-bind="{ buttonText }">
         <SfButton
-          v-if="buttonText && !isMobile"
+          v-if="buttonText && !isMobileView"
           :link="link"
           class="sf-banner__call-to-action color-secondary"
-          v-on="!isMobile ? $listeners : {}"
+          data-testid="banner-cta-button"
+          v-on="!isMobileView ? $listeners : {}"
         >
           {{ buttonText }}
         </SfButton>
       </slot>
     </component>
+    <slot name="img-tag" />
   </section>
 </template>
 <script>
@@ -43,16 +55,10 @@ export default {
     SfLink,
   },
   props: {
-    /**
-     * Banner title
-     */
     title: {
       type: String,
       default: "",
     },
-    /**
-     * Banner subtitle (at the top)
-     */
     subtitle: {
       type: String,
       default: "",
@@ -61,26 +67,27 @@ export default {
       type: String,
       default: "",
     },
-    /** text that will be displayed inside the button. You can replace the button  with "call-to-action" slot */
     buttonText: {
       type: String,
       default: "",
     },
-    /** link to be used in call to action button if necessary */
     link: {
       type: String,
-      default: "",
+      default: null,
     },
-    /** Background color in HEX (eg #FFFFFF) */
     background: {
       type: String,
       default: "",
     },
-    /** Background image. Influenced by $banner-background-size, $banner-background-position CSS props. */
     image: {
       type: [String, Object],
       default: "",
     },
+  },
+  data() {
+    return {
+      isMobileView: false,
+    };
   },
   computed: {
     ...mapMobileObserver(),
@@ -97,8 +104,11 @@ export default {
       };
     },
     wrapper() {
-      return !this.isMobile ? "div" : this.link ? "SfLink" : "SfButton";
+      return !this.isMobileView ? "div" : this.link ? "SfLink" : "SfButton";
     },
+  },
+  mounted() {
+    this.isMobileView = this.isMobile;
   },
   beforeDestroy() {
     unMapMobileObserver();

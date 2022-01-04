@@ -1,9 +1,8 @@
 <template>
   <SfLink :link="link" class="sf-tile" :style="style">
-    <!-- @slot Use this slot to replace title -->
     <slot name="title" v-bind="{ title }">
       <SfHeading
-        v-if="title"
+        :class="{ 'display-none': !title }"
         class="sf-tile__title"
         :level="3"
         :title="title"
@@ -25,27 +24,23 @@ export default {
     SfLink,
   },
   props: {
-    /**
-     * Tile title
-     */
     title: {
       type: String,
       default: "",
     },
-    /**
-     * Tile background image
-     */
     background: {
       type: [String, Object],
       default: "",
     },
-    /**
-     * Link title
-     */
     link: {
       type: String,
       default: "",
     },
+  },
+  data() {
+    return {
+      isMobileView: false,
+    };
   },
   computed: {
     ...mapMobileObserver(),
@@ -57,11 +52,14 @@ export default {
       } else {
         return {
           background: `url(${
-            this.background[this.isMobile ? "mobile" : "desktop"]
+            this.background[this.isMobileView ? "mobile" : "desktop"]
           })`,
         };
       }
     },
+  },
+  mounted() {
+    this.isMobileView = this.isMobile;
   },
   beforeDestroy() {
     unMapMobileObserver();

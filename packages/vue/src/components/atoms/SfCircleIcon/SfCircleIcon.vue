@@ -6,18 +6,13 @@
     :disabled="props.disabled"
     v-on="listeners"
   >
-    <!--@slot Custom content that will replace default icon. can be used for inlined SVG's-->
     <slot>
       <component
         :is="injections.components.SfIcon"
         aria-hidden="true"
         class="sf-circle-icon__icon"
-        v-bind="data.attrs"
         :icon="props.icon"
-        :color="props.iconColor"
         :size="props.iconSize"
-        :badge-label="props.badgeLabel"
-        :has-badge="props.hasBadge"
       />
     </slot>
   </component>
@@ -39,10 +34,6 @@ export default {
     icon: {
       type: [String, Array],
       default: "home",
-    },
-    iconColor: {
-      type: String,
-      default: "",
     },
     iconSize: {
       type: String,

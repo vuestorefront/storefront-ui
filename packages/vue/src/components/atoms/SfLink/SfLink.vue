@@ -6,7 +6,6 @@
     class="sf-link"
     v-on="$listeners"
   >
-    <!-- @slot -->
     <slot />
   </component>
 </template>
@@ -16,9 +15,6 @@ export default {
   name: "SfLink",
   directives: { focus },
   props: {
-    /**
-     * Page route
-     */
     link: {
       type: [String, Object],
       default: "",

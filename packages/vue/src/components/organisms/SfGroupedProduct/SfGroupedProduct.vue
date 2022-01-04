@@ -14,7 +14,6 @@
           glide__slides: true,
         }"
       >
-        <!-- @slot Slot for Grouped Product Items -->
         <slot />
       </ul>
     </div>
@@ -44,7 +43,6 @@ export default {
         type: "slider",
         rewind: true,
         gap: 0,
-        perView: 2,
         slidePerPage: true,
         breakpoints: {
           1023: {

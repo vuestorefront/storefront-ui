@@ -3,27 +3,113 @@ import { SfBar } from "@storefront-ui/vue";
 export default {
   title: "Components/Molecules/Bar",
   component: SfBar,
+  parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "bar-height": { value: "3.125rem", control: "text" },
+      "bar-padding": { value: "0 var(--spacer-base)", control: "text" },
+      "bar-background": { value: "var(--c-light)", control: "text" },
+      "bar-font": { value: "", control: "text" },
+      "bar-font-weight": {
+        value: "var(--font-weight--medium)",
+        control: "text",
+      },
+      "bar-font-size": { value: "var(--font-size--base)", control: "text" },
+      "bar-font-line-height": { value: "1.6", control: "text" },
+      "bar-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+      "icon-width": {
+        value: "0.875rem",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+    // end of code generated automatically
+    docs: {
+      description: {
+        component: "The bar component for mobile components.",
+      },
+    },
+  },
   argTypes: {
     title: {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
+      description: "Title text",
     },
     back: {
       control: "boolean",
       table: {
         category: "Props",
+        type: {
+          summary: "boolean",
+        },
+        defaultValue: {
+          summary: false,
+        },
       },
+      description: "Sets visibility of back button",
     },
     close: {
       control: "boolean",
       table: {
         category: "Props",
+        type: {
+          summary: "boolean",
+        },
+        defaultValue: {
+          summary: false,
+        },
       },
+      description: "Sets visibility of close button",
     },
-    onBackClick: { action: "Back clicked", table: { category: "Events" } },
-    onCloseClick: { action: "Close clicked", table: { category: "Events" } },
+    "click:back": {
+      action: "click:back event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits click:back event when back button is clicked",
+    },
+    "click:close": {
+      action: "click:close event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits click:close event when close button is clicked",
+    },
+    "back ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace back button",
+    },
+    "title ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace title content",
+    },
+    "close ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace close button",
+    },
   },
   args: {
     title: "Dresses",
@@ -35,7 +121,7 @@ export default {
 const Template = (args, { argTypes }) => ({
   components: { SfBar },
   props: Object.keys(argTypes),
-  template: `<SfBar :title="title" :back="back" :close="close" @click:close="onCloseClick" @click:back="onBackClick"/>`,
+  template: `<SfBar :title="title" :back="back" :close="close" @click:close="this['click:close']" @click:back="this['click:back']"/>`,
 });
 
 export const Common = Template.bind({});

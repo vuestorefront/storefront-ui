@@ -1,8 +1,37 @@
+import { icons } from "@storefront-ui/shared/icons/icons";
 import { SfRating, SfIcon } from "@storefront-ui/vue";
+const iconsNames = Object.keys(icons);
 
 export default {
   title: "Components/Atoms/Rating",
   component: SfRating,
+  parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "icon-size": {
+        value: "0.875rem",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "icon-color": {
+        value: "var(--c-primary)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "icon-color-negative": {
+        value: "var(--c-gray-variant)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+    // end of code generated automatically
+    docs: {
+      description: {
+        component:
+          "The component for displaying score-based user ratings. It's Vue 2 functional component.",
+      },
+    },
+  },
   argTypes: {
     max: {
       control: {
@@ -15,6 +44,7 @@ export default {
       table: {
         category: "Props",
       },
+      description: "Maximum score",
     },
     score: {
       control: {
@@ -23,17 +53,42 @@ export default {
           min: 0,
         },
       },
-      defaultValue: 1,
       table: {
         category: "Props",
       },
+      description: "Score (obviously must be less than maximum)",
     },
     icon: {
-      control: "text",
+      control: {
+        type: "select",
+        options: iconsNames,
+      },
       defaultValue: "star",
       table: {
         category: "Props",
       },
+      description:
+        "It can be single SVG path (string) or array of SVG paths or icon name from our icons list(such as 'star`)",
+    },
+    "icon-positive": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Custom icons that starts from the left side. Provide single icon that will be automatically repeated",
+    },
+    "icon-negative": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Custom icons that are on the right side. Provide single icon that will be automatically repeated ",
     },
   },
 };
@@ -60,6 +115,14 @@ WithIcon.args = {
   ...Common.args,
   icon: "heart",
 };
+
+export const ChangedColors = (args, { argTypes }) => ({
+  components: { SfRating, SfIcon },
+  props: Object.keys(argTypes),
+  template: `
+  <SfRating style="--icon-color: gold; --icon-color-negative: pink;" :max="max" :score="score" :icon="icon" />`,
+});
+ChangedColors.args = { ...Common.args };
 
 export const WithIconPositiveSlot = (args, { argTypes }) => ({
   components: { SfRating, SfIcon },

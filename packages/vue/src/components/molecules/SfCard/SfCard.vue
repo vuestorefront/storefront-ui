@@ -1,7 +1,12 @@
 <template>
   <div class="sf-card">
-    <SfImage :src="image" :alt="title" class="sf-card__image" />
-    <!-- @slot Custom content for heading and description-->
+    <SfImage
+      :width="imageWidth"
+      :height="imageHeight"
+      :src="image"
+      :alt="title"
+      class="sf-card__image"
+    />
     <slot name="details" v-bind="{ title, description, titleLevel }">
       <div class="sf-card__details">
         <SfHeading
@@ -14,7 +19,6 @@
         </p>
       </div>
     </slot>
-    <!-- @slot Slot content will replace button -->
     <slot name="action">
       <SfButton :link="link" class="sf-card__action" v-on="$listeners">
         {{ buttonText }}
@@ -35,44 +39,34 @@ export default {
     SfImage,
   },
   props: {
-    /**
-     * Card image
-     */
     image: {
       type: String,
       default: "",
     },
-    /**
-     * Card title
-     */
+    imageWidth: {
+      type: Number,
+      required: true,
+    },
+    imageHeight: {
+      type: Number,
+      required: true,
+    },
     title: {
       type: String,
       default: "",
     },
-    /**
-     * Card title level of heading (form 1 as h1 tag to 6 as h6 tag)
-     */
     titleLevel: {
       type: Number,
       default: 3,
     },
-    /**
-     * Card description
-     */
     description: {
       type: String,
       default: "",
     },
-    /**
-     * Card link
-     */
     link: {
       type: String,
-      default: "",
+      default: null,
     },
-    /**
-     * Text displayed on button
-     */
     buttonText: {
       type: String,
       default: "",

@@ -29,7 +29,7 @@
   &__sidebar {
     box-sizing: border-box;
     overflow-y: auto;
-    height: calc(100vh - 5rem);
+    height: calc(-5rem + 100vh);
   }
   &__sidebar {
     flex: var(--content-pages-sidebar-flex, 0 0 100%);

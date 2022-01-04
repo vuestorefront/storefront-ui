@@ -1,7 +1,151 @@
+import { icons } from "@storefront-ui/shared/icons/icons";
 import { SfBottomNavigation, SfCircleIcon, SfIcon } from "@storefront-ui/vue";
+import SfBottomNavigationItem from "./_internal/SfBottomNavigationItem.vue";
+const iconsNames = Object.keys(icons);
+
 export default {
   title: "Components/Organisms/BottomNavigation",
-  component: SfBottomNavigation,
+  component: SfBottomNavigationItem,
+  parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "icon-color": {
+        value: "var(--c-link)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-size": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "circle-icon-position": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+    // end of code generated automatically
+    docs: {
+      inlineStories: false,
+      iframeHeight: "30em",
+      description: {
+        component:
+          "Full-width fixed bottom navigation component with items and circle icon.  Constructed from main component - SfBottomNavigation and internal components - SfBottomNavigationItem.",
+      },
+    },
+  },
+  argTypes: {
+    icon: {
+      control: {
+        type: "select",
+        options: iconsNames,
+      },
+      table: {
+        category: "Props for internal component",
+        type: {
+          summary: ["string", "array"],
+        },
+        defaultValue: {
+          summary: "",
+        },
+      },
+      defaultValue: "",
+      description:
+        "Sets icon type. Icon SVG path(s). It can be single SVG path(string) or array of SVG paths or icon name from our icons list(such as 'added_to_cart`)",
+    },
+    isActive: {
+      control: "boolean",
+      table: {
+        category: "Props for internal component",
+        defaultValue: {
+          summary: false,
+        },
+      },
+      defaultValue: false,
+      description: "Sets icon to active",
+    },
+    iconActive: {
+      control: "text",
+      table: {
+        category: "Props for internal component",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
+      },
+      defaultValue: "",
+      description: "The name of the default active icon",
+    },
+    label: {
+      control: "text",
+      table: {
+        category: "Props for internal component",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
+      },
+      defaultValue: "",
+      description: "Label text",
+    },
+    iconSize: {
+      control: "text",
+      table: {
+        category: "Props for internal component",
+        defaultValue: {
+          summary: "20px",
+        },
+      },
+      defaultValue: "20px",
+      description: "Icons size",
+    },
+    isFloating: {
+      control: "boolean",
+      table: {
+        category: "Props for internal component",
+        defaultValue: {
+          summary: false,
+        },
+      },
+      defaultValue: false,
+      description: "Changes icon styling",
+    },
+    default: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Default slot for `SfBottomNavigation` component. Use this slot to place `SfBottomNavigationItem` elements",
+    },
+    "label ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfBottomNavigationItem` component. Use this slot to replace label element",
+    },
+    "icon ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfBottomNavigationItem` component. Use this slot to replace icon element",
+    },
+  },
 };
 
 const Template = (args, { argTypes }) => ({
@@ -27,19 +171,19 @@ const Template = (args, { argTypes }) => ({
         },
       ],
       currentIcon: "heart",
-      label: "Home",
-      icon: "home",
-      iconActive: "home",
+      labelProp: "Home",
+      iconProp: "home",
+      iconActiveProp: "home",
     };
   },
   template: `
   <SfBottomNavigation>
     <SfBottomNavigationItem 
-      :icon="icon" 
-      :label="label"
-      :icon-active="iconActive"
-      :is-active="currentIcon === iconActive"
-      @click="currentIcon = iconActive"
+      :icon="iconProp"
+      :label="labelProp"
+      :icon-active="iconActiveProp"
+      :is-active="currentIcon === iconActiveProp"
+      @click="currentIcon = iconActiveProp"
     />
     <SfBottomNavigationItem
       v-for="(item, key) in items"

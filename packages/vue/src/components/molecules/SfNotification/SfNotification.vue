@@ -1,10 +1,12 @@
 <template>
   <transition name="sf-fade">
-    <div v-if="visible" class="sf-notification" :class="`color-${type}`">
-      <!--@slot Custom notification icon. Slot content will replace default icon.-->
+    <div
+      :class="[{ 'display-none': !visible }, colorClass]"
+      class="sf-notification"
+    >
       <slot name="icon" v-bind="{ icon }">
         <SfIcon
-          v-if="!!icon"
+          :class="{ 'display-none': !icon }"
           class="sf-notification__icon"
           :icon="icon"
           size="lg"
@@ -12,22 +14,24 @@
         />
       </slot>
       <div>
-        <!--@slot Custom title. Slot content will replace default title.-->
         <slot name="title" v-bind="{ title }">
-          <div v-if="title" class="sf-notification__title smartphone-only">
+          <div
+            :class="{ 'display-none': !title }"
+            class="sf-notification__title smartphone-only"
+          >
             {{ title }}
           </div>
         </slot>
-        <!--@slot Custom message. Slot content will replace default message.-->
         <slot name="message" v-bind="{ message }">
-          <span v-if="message" class="sf-notification__message">{{
-            message
-          }}</span>
+          <span
+            :class="{ 'display-none': !message }"
+            class="sf-notification__message"
+            >{{ message }}</span
+          >
         </slot>
-        <!--@slot Custom action. Slot content will replace default action.-->
         <slot name="action" v-bind="{ action, actionHandler }">
           <SfButton
-            v-if="action"
+            :class="{ 'display-none': !action }"
             class="sf-button--pure sf-notification__action"
             @click="actionHandler"
           >
@@ -35,9 +39,9 @@
           </SfButton>
         </slot>
       </div>
-      <!--@slot Custom notification close icon. Slot content will replace default close icon.-->
       <slot name="close" v-bind="{ closeHandler }">
         <SfButton
+          :class="{ 'display-none': persistent }"
           aria-label="Close notification"
           class="sf-button--pure sf-notification__close"
           @click="closeHandler"
@@ -58,37 +62,26 @@ export default {
     SfButton,
   },
   props: {
-    /**
-     * Visibility of the Notification. Default value is false.
-     */
     visible: {
       type: Boolean,
       default: false,
     },
-    /**
-     * Title that will be displayed in Notification.
-     */
+    persistent: {
+      type: Boolean,
+      default: false,
+    },
     title: {
       type: String,
       default: "",
     },
-    /**
-     * Message that will be displayed in Notification.
-     */
     message: {
       type: String,
       default: "",
     },
-    /**
-     * Action that will be displayed in Notification.
-     */
     action: {
       type: String,
       default: "",
     },
-    /**
-     * Notification type ("secondary", "info", "success", "warning", "danger"). Check "Knobs" section to see how they look like.
-     */
     type: {
       type: String,
       default: "secondary",
@@ -110,20 +103,28 @@ export default {
           return "info_circle";
       }
     },
+    colorClass() {
+      switch (this.type) {
+        case "secondary":
+          return "color-secondary";
+        case "info":
+          return "color-info";
+        case "success":
+          return "color-success";
+        case "warning":
+          return "color-warning";
+        case "danger":
+          return "color-danger";
+        default:
+          return "color-info";
+      }
+    },
   },
   methods: {
     actionHandler() {
-      /**
-       * Event for action button
-       * @type {Event}
-       */
       this.$emit("click:action");
     },
     closeHandler() {
-      /**
-       * Event for close icon
-       * @type {Event}
-       */
       this.$emit("click:close");
     },
   },

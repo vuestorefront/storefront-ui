@@ -27,6 +27,153 @@ const selectOptions = {
 export default {
   title: "Components/Organisms/ProductCardHorizontal",
   component: SfProductCardHorizontal,
+  parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "product-card-horizontal-padding": {
+        value: "var(--spacer-xs)",
+        control: "text",
+      },
+      "product-card-horizontal-background": {
+        value: "var(--c-white)",
+        control: "text",
+      },
+      "product-card-horizontal-image-width": {
+        value: "5.3125rem",
+        control: "text",
+      },
+      "product-card-horizontal-image-transition": {
+        value: "opacity 150ms ease-in-out",
+        control: "text",
+      },
+      "product-card-horizontal-image-opacity": { value: "", control: "text" },
+      "product-card-horizontal-image-even-opacity": {
+        value: "0",
+        control: "text",
+      },
+      "product-card-horizontal-flex-direction": {
+        value: "column",
+        control: "text",
+      },
+      "product-card-horizontal-main-padding": {
+        value: "0 0 0 var(--spacer-sm)",
+        control: "text",
+      },
+      "product-card-horizontal-actions-wrapper": {
+        value: "flex-start",
+        control: "text",
+      },
+      "product-card-horizontal-actions-wrapper-margin": {
+        value: "var(--spacer-sm) 0 0 0",
+        control: "text",
+      },
+      "product-card-horizontal-title-color": {
+        value: "var(--c-link)",
+        control: "text",
+      },
+      "product-card-horizontal-title-font": { value: "", control: "text" },
+      "product-card-horizontal-title-font-weight": {
+        value: "var(--font-weight--medium)",
+        control: "text",
+      },
+      "product-card-horizontal-title-font-size": {
+        value: "var(--font-size--base)",
+        control: "text",
+      },
+      "product-card-horizontal-title-font-line-height": {
+        value: "1.6",
+        control: "text",
+      },
+      "product-card-horizontal-title-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+      "product-card-horizontal-description-margin": {
+        value: "var(--spacer-sm) 0",
+        control: "text",
+      },
+      "product-card-horizontal-description-color": {
+        value: "var(--c-text-muted)",
+        control: "text",
+      },
+      "product-card-horizontal-description-font": {
+        value: "",
+        control: "text",
+      },
+      "product-card-horizontal-description-font-weight": {
+        value: "var(--font-weight--normal)",
+        control: "text",
+      },
+      "product-card-horizontal-description-font-size": {
+        value: "var(--font-size--base)",
+        control: "text",
+      },
+      "product-card-horizontal-description-font-line-height": {
+        value: "1.6",
+        control: "text",
+      },
+      "product-card-horizontal-description-font-family": {
+        value: "var(--font-family--primary)",
+        control: "text",
+      },
+      "product-card-horizontal-configuration-margin": {
+        value: "0",
+        control: "text",
+      },
+      "product-card-horizontal-review-margin": {
+        value: "auto 0 0 0",
+        control: "text",
+      },
+      "product-card-horizontal-reviews-font": { value: "", control: "text" },
+      "product-card-horizontal-reviews-font-weight": {
+        value: "var(--font-weight--light)",
+        control: "text",
+      },
+      "product-card-horizontal-reviews-font-size": {
+        value: "var(--font-size--sm)",
+        control: "text",
+      },
+      "product-card-horizontal-reviews-font-line-height": {
+        value: "1.4",
+        control: "text",
+      },
+      "product-card-horizontal-reviews-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+      "product-card-horizontal-actions-margin": { value: "0", control: "text" },
+      "product-card-horizontal-add-to-cart-margin": {
+        value: "0",
+        control: "text",
+      },
+      "product-card-horizontal-box-shadow": {
+        value: "0px 4px 11px rgba(29, 31, 34, 0.1)",
+        control: "text",
+      },
+      "property-value-font": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-font": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "icon-color": {
+        value: "var(--c-dark-variant)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+    // end of code generated automatically
+    docs: {
+      description: {
+        component:
+          "Product card horizontal component with image, description, rating and add to cart button.",
+      },
+    },
+  },
   decorators: [
     () => ({
       template: `<div style="max-width: 1024px;"><story/></div>`,
@@ -37,67 +184,113 @@ export default {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
+      description: "Product title",
     },
     description: {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
+      description: "Product description",
     },
     image: {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: ["string", "array", "object"],
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
+      description: "Product image. It should be an url of the product",
     },
     imageWidth: {
       control: "number",
       table: {
         category: "Props",
       },
+      defaultValue: 140,
+      description: "Product image width, without unit",
     },
     imageHeight: {
       control: "number",
       table: {
         category: "Props",
       },
+      defaultValue: 200,
+      description: "Product image height, without unit",
     },
     link: {
       control: "text",
       table: {
         category: "Props",
+        defaultValue: {
+          summary: "null",
+        },
       },
+      defaultValue: undefined,
+      description: "Link to product page",
     },
     scoreRating: {
       control: "number",
       table: {
         category: "Props",
       },
+      defaultValue: false,
+      description: "Product rating",
     },
     reviewsCount: {
       control: "number",
       table: {
         category: "Props",
       },
+      defaultValue: false,
+      description: "Product reviews count",
     },
     maxRating: {
       control: "number",
       table: {
         category: "Props",
       },
+      defaultValue: 5,
+      description: "Maximum product rating",
     },
     regularPrice: {
       control: "number",
       table: {
         category: "Props",
+        defaultValue: {
+          summary: "null",
+        },
       },
+      defaultValue: "",
+      description: "Product regular price",
     },
     specialPrice: {
       control: "number",
       table: {
         category: "Props",
+        defaultValue: {
+          summary: "null",
+        },
       },
+      defaultValue: "",
+      description: "Product special price",
     },
     wishlistIcon: {
       control: "text",
@@ -105,24 +298,25 @@ export default {
         category: "Props",
       },
       defaultValue: "heart",
+      description:
+        "Wish list icon. This is the default icon for product not yet added to wish list. It can be a icon name from our icons list, or array or string as SVG path(s).",
     },
-    isOnWishlistIcon: {
+    isInWishlistIcon: {
       control: "text",
       table: {
         category: "Props",
       },
+      defaultValue: "heart_fill",
+      description:
+        "Wish list icon for product which has been added to wish list. This is the icon for product added to wish list.Default visible on mobile.Visible only on hover on desktop. It can be a icon name from our icons list, or array or string as SVG path(s).",
     },
-    isOnWishlist: {
+    isInWishlist: {
       control: "boolean",
       table: {
         category: "Props",
       },
-    },
-    showAddToCartButton: {
-      control: "boolean",
-      table: {
-        category: "Props",
-      },
+      defaultValue: false,
+      description: "Status of whether product is on wish list or not",
     },
     qty: {
       control: "number",
@@ -130,14 +324,135 @@ export default {
         category: "Props",
       },
       defaultValue: 1,
+      description: "Selected quantity",
+    },
+    linkTag: {
+      control: "text",
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: "",
+        },
+      },
+      defaultValue: "",
+      description: "*Deprecated. Link element tag. Use slot to replace content",
     },
     "click:addToCart": {
-      action: "Add-to-cart clicked",
-      table: { category: "Events" },
+      action: "click:add-to-cart event emitted",
+      table: {
+        category: "Events",
+        type: { summary: null },
+      },
+      description:
+        "Emits click:add-to-cart event when add to cart button is clicked",
     },
     "click:wishlist": {
-      action: "Wishlist clicked",
-      table: { category: "Events" },
+      action: "click:wishlist event emitted",
+      table: {
+        category: "Events",
+        type: { summary: null },
+      },
+      description:
+        "Emits click:wishlist event when add to wishlist button is clicked",
+    },
+    "click:reviews": {
+      action: "click:reviews event emitted",
+      table: {
+        category: "Events",
+        type: { summary: null },
+      },
+      description:
+        "Emits click:reviews event when reviews count button is clicked",
+    },
+    input: {
+      action: "input event emitted",
+      table: {
+        category: "Events",
+        type: { summary: null },
+      },
+      description:
+        "Emits input event when quantity selector's value is changed",
+    },
+    "image ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace image element",
+    },
+    "title ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace title element",
+    },
+    "description ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace description element",
+    },
+    configuration: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to place content inside configuration",
+    },
+    price: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace price element",
+    },
+    reviews: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace reviews element",
+    },
+    actions: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to place content inside actions",
+    },
+    "add-to-cart": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace add to cart button",
+    },
+    "wishlist-icon": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace wishlist icon",
     },
   },
 };
@@ -166,12 +481,13 @@ const Template = (args, { argTypes }) => ({
     :wishlist-icon="wishlistIcon"
     :reviews-count="reviewsCount"
     :description="description"
-    :qty="qty"
-    @input="quantity = $event"
-    :is-on-wishlist-icon="isOnWishlistIcon"
-    :is-on-wishlist="isOnWishlist"
+    :qty="quantity"
+    @input="input"
+    :is-in-wishlist-icon="isInWishlistIcon"
+    :is-in-wishlist="isInWishlist"
     @click:add-to-cart="this['click:addToCart']"
     @click:wishlist="this['click:wishlist']"
+    @click:reviews="this['click:reviews']"
   >
     <template #configuration>
       <div style="display: flex; flex-direction: column; justify-content: flex-end">
@@ -183,7 +499,7 @@ const Template = (args, { argTypes }) => ({
           style="display: flex; width: fit-content; height: fit-content; padding: inherit;"
         >
           <SfSelectOption v-for="(val, key) in valSelects.options" :key="key" :value="key">
-            <SfProductOption color="black" :label="val"></SfProductOption>
+            {{ val }}
           </SfSelectOption>
         </SfSelect>
       </div>
@@ -192,7 +508,7 @@ const Template = (args, { argTypes }) => ({
         <SfButton
           class="sf-button--text desktop-only"
           @click="$emit('click:add-to-wishlist')"
-          style="margin: 0 0 1rem auto; display: block" 
+          style="margin: 0 0 1rem auto; display: block"
         >
           Save for later
         </SfButton>
@@ -217,7 +533,6 @@ Common.args = {
   scoreRating: 4,
   maxRating: 5,
   reviewsCount: 7,
-  showAddToCartButton: true,
   image: "assets/storybook/SfProductCardHorizontal/productA.jpg",
 };
 
@@ -239,5 +554,5 @@ WithMultipleImages.args = {
 export const AddedToWishlist = Template.bind({});
 AddedToWishlist.args = {
   ...Common.args,
-  isOnWishlist: true,
+  isInWishlist: true,
 };

@@ -1,18 +1,17 @@
 <template>
   <section class="sf-section">
-    <!--@slot Section heading. Slot content will replace default <sf-heading> component-->
     <slot
       name="heading"
       v-bind="{ levelHeading, titleHeading, subtitleHeading }"
     >
       <SfHeading
+        v-if="titleHeading"
         :level="levelHeading"
         :title="titleHeading"
         :description="subtitleHeading"
       />
     </slot>
     <div class="sf-section__content">
-      <!--@slot Section content.-->
       <slot />
     </div>
   </section>
@@ -25,23 +24,14 @@ export default {
     SfHeading,
   },
   props: {
-    /**
-     * Heading title
-     */
     titleHeading: {
       type: String,
       default: "",
     },
-    /**
-     * Heading subtitle
-     */
     subtitleHeading: {
       type: String,
       default: "",
     },
-    /**
-     * Heading tag level
-     */
     levelHeading: {
       type: Number,
       default: 2,

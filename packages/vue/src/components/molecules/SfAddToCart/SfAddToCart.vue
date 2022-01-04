@@ -10,7 +10,6 @@
       />
     </slot>
     <slot name="add-to-cart-btn">
-      <!--@slot Custom content that will replace default Add to cart button design.-->
       <SfButton
         class="sf-add-to-cart__button"
         :disabled="disabled"
@@ -34,17 +33,10 @@ export default {
     prop: "qty",
   },
   props: {
-    /**
-     * Boolean to indicate whether product
-     * can be added to cart
-     */
     disabled: {
       type: Boolean,
       default: false,
     },
-    /**
-     * Selected quantity
-     */
     qty: {
       type: [Number, String],
       default: 1,

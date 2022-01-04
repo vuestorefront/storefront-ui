@@ -1,16 +1,17 @@
+![](https://i.ibb.co/Nxxgj7k/SFUI-Primary-Black.png)
+
 # Storefront UI
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/8371333f-ef98-4d04-bcc4-9f4771d11430/deploy-status)](https://app.netlify.com/sites/storefrontui-storybook/deploys)
+[![Deploy Docs](https://github.com/vuestorefront/storefront-ui/actions/workflows/deploy-vue-storefront-cloud.yml/badge.svg)](https://github.com/vuestorefront/storefront-ui/actions/workflows/deploy-vue-storefront-cloud.yml)
 
 **Current status:** Stable beta!
 
-Customization-first, performance-oriented and elegant UI framework for eCommerce (and not only) based on Vue.js and [Google Retail UX Playbook](https://services.google.com/fh/files/events/pdf_retail_ux_playbook.pdf). Made with ❤️ by [Vue Storefront](https://github.com/DivanteLtd/vue-storefront) team and contributors.
+Customization-first, performance-oriented and elegant UI framework for eCommerce (and not only) based on Vue.js and [Google Retail UX Playbook](https://services.google.com/fh/files/events/pdf_retail_ux_playbook.pdf). Made with ❤️ by [Vue Storefront](https://github.com/vuestorefront) team and contributors.
 
 - [Website](http://storefrontui.io/)
-- [Documentation](http://docs.storefrontui.io/)
-- [How to contribute](https://docs.storefrontui.io/?path=/story/introduction-contributing-guide-become-a-contributor--page)
-- [Storybook](http://docs.storefrontui.io/)
-- [Discord server](https://discord.gg/GS8hqFS)
+- [Storybook documentation](http://docs.storefrontui.io/)
+- [How to contribute](https://docs.storefrontui.io/?path=/story/contributing-guide-guide-become-a-contributor--page)
+- [Discord server](https://discord.com/invite/TJpdzzN6q5)
 
 
 ![](https://i.ibb.co/7ScVptN/123.png)
@@ -50,14 +51,14 @@ You can find the stunning designs we are using for Storefront UI components [her
 
 # Contributing
 
-We are currently in the process of building the library. If you want to help in shaping the future of Vue and eCommerce UI's we'd be more than happy if you want to contribute! [Here](https://docs.storefrontui.io/?path=/story/introduction-contributing-guide-become-a-contributor--page) you can find all the required information.
+We are currently in the process of building the library. If you want to help in shaping the future of Vue and eCommerce UI's we'd be more than happy if you want to contribute! [Here](https://docs.storefrontui.io/?path=/story/contributing-guide-guide-become-a-contributor--page) you can find all the required information.
 
 
 # Supporters
-<a href="https://divante.co"><img src="https://raw.githubusercontent.com/DivanteLtd/storefront-ui/master/packages/vue/docs/assets/logo-divante.svg" alt="divante" height="55px"></a>&nbsp;&nbsp;
+<a href="https://divante.com"><img src="https://www.divante.com/hubfs/raw_assets/public/Divante_March_2021/images/logo-new.svg" alt="divante" height="55px"></a>&nbsp;&nbsp;
 <a href="https://developers.e-com.plus/"><img src="https://developers.e-com.plus/src/assets/img/logo-dark.png" alt="e-com club" height="55px"></a>
 <a href="https://cloudinary.com"><img src="https://camo.githubusercontent.com/451061eb9714c2135705a1ad757017cc943627ca474d8a20e78209214469bf72/68747470733a2f2f6437756d7169637069373236332e636c6f756466726f6e742e6e65742f696d672f70726f647563742f65306364363161372d316336352d343561302d393765652d3737363364646335313533612f39383834313664302d323562632d346264322d623864622d6633343764306131393335642e706e67" height="55px" /></a>
 # Contributing
 
-Read [how to start](https://docs.storefrontui.io/?path=/story/introduction-contributing-guide-become-a-contributor--page) and become a part of our amazing community ;)
+Read [how to start](https://docs.storefrontui.io/?path=/story/contributing-guide-guide-become-a-contributor--page) and become a part of our amazing community ;)
 

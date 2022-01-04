@@ -6,7 +6,6 @@
         key="color-picker-button"
         class="sf-color-picker__button smartphone-only"
       >
-        <!-- @slot Use this slot to replace open button. -->
         <slot name="open" v-bind="{ toggle }">
           <SfButton
             class="color-secondary sf-color-picker__button-open"
@@ -20,18 +19,18 @@
           :visible="isOpen"
           class="sf-color-picker__colors__overlay smartphone-only"
         />
-        <!-- @slot Use this slot to replace label. -->
         <slot name="label" v-bind="{ label }">
-          <div v-if="label" class="sf-color-picker__label smartphone-only">
+          <div
+            :class="{ 'display-none': !label }"
+            class="sf-color-picker__label smartphone-only"
+          >
             {{ label }}
           </div>
         </slot>
-        <!-- @slot Use this slot to place content inside the color picker.-->
         <slot />
-        <!-- @slot Use this slot to replace close button. -->
         <slot name="close" v-bind="{ hasClose, toggle, isOpen }">
           <SfButton
-            v-if="hasClose"
+            :class="{ 'display-none': !hasClose }"
             class="sf-button--text sf-color-picker__close smartphone-only"
             aria-label="Close button"
             :aria-pressed="!isOpen"
@@ -53,23 +52,14 @@ export default {
   name: "SfColorPicker",
   components: { SfIcon, SfButton, SfOverlay },
   props: {
-    /**
-     * ColorPicker is open
-     */
     isOpen: {
       type: Boolean,
       default: false,
     },
-    /**
-     * Label for ColorPicker
-     */
     label: {
       type: String,
       default: "",
     },
-    /**
-     * Close button state whether show it or not
-     */
     hasClose: {
       type: Boolean,
       default: false,

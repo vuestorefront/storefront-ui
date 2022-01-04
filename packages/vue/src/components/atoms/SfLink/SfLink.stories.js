@@ -3,12 +3,48 @@ import SfLink from "./SfLink.vue";
 export default {
   title: "Components/Atoms/Link",
   component: SfLink,
+  parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "link-color": { value: "var(--c-text)", control: "text" },
+      "link-font": { value: "", control: "text" },
+      "link-font-weight": {
+        value: "var(--font-weight--medium)",
+        control: "text",
+      },
+      "link-font-size": { value: "var(--font-size--sm)", control: "text" },
+      "link-font-line-height": { value: "1.4", control: "text" },
+      "link-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+      "link-text-decoration": { value: "underline", control: "text" },
+      "c-link": { value: "", control: "text" },
+    },
+    // end of code generated automatically
+    docs: {
+      description: {
+        component:
+          "The link component with route and nuxt options and slot to pass content.",
+      },
+    },
+  },
   argTypes: {
     link: {
       control: "text",
       table: {
         category: "Props",
       },
+      description: "Page route",
+    },
+    default: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to place content for link",
     },
   },
 };

@@ -15,7 +15,7 @@
     --header-navigation-item-padding: 0;
   }
   &__link {
-    --link-text-decoration: var(--header-navigation-item-text-decoration, none)
+    --link-text-decoration: var(--header-navigation-item-text-decoration, none);
   }
   & > &__menu-item{
     --menu-item-font-size: var(--font-size--base);

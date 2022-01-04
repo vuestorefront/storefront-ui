@@ -2,7 +2,9 @@
   <div class="sf-header-navigation-item" v-on="$listeners">
     <div
       v-if="!isVisibleOnMobile"
-      class="sf-header-navigation-item__item sf-header-navigation-item__item--desktop"
+      class="
+        sf-header-navigation-item__item sf-header-navigation-item__item--desktop
+      "
     >
       <slot name="desktop-navigation-item">
         <SfLink class="sf-header-navigation-item__link" :link="link">{{
@@ -13,7 +15,9 @@
     </div>
     <div
       v-else
-      class="sf-header-navigation-item__item sf-header-navigation-item__item--mobile"
+      class="
+        sf-header-navigation-item__item sf-header-navigation-item__item--mobile
+      "
     >
       <slot name="mobile-navigation-item">
         <SfMenuItem :label="label" class="sf-header-navigation-item__menu-item">
@@ -55,6 +59,9 @@ export default {
     isVisibleOnMobile() {
       return this.isMobile;
     },
+  },
+  beforeDestroy() {
+    unMapMobileObserver();
   },
 };
 </script>

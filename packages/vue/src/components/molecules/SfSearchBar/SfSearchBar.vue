@@ -12,7 +12,7 @@
     @keyup.esc="$emit('input', '')"
     @blur="$emit('blur')"
   >
-    <slot v-bind="$attrs" v-on="$listeners"> </slot>
+    <slot v-bind="$attrs" v-on="$listeners"></slot>
   </SfInput>
 </template>
 <script>
@@ -27,26 +27,28 @@ export default {
   },
   inheritAttrs: false,
   props: {
-    /**
-     * Text for placeholder
-     */
     placeholder: {
       type: String,
       default: "",
     },
-    /**
-     * Value that will be displayed in search bar
-     */
     value: {
       type: [Number, String],
       default: null,
     },
-    /**
-     * Object to define icon look. Should have values for color and size
-     */
     icon: {
       type: Object,
       default: () => ({}),
+    },
+  },
+  computed: {
+    listeners() {
+      return {
+        ...this.$listeners,
+        input: (event) => this.$emit("input", event.target.value),
+        "keyup.enter": (event) => this.$emit("input", event.target.value),
+        "keyup.esc": () => this.$emit("input", ""),
+        blur: () => this.$emit("blur"),
+      };
     },
   },
 };

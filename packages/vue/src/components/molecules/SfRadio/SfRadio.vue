@@ -17,31 +17,32 @@
         @change="changeHandler"
         @input="inputHandler"
       />
-      <!-- @slot Custom checkmark markup (bind 'isChecked' boolean, 'disabled' boolean -->
       <slot name="checkmark" v-bind="{ isChecked, disabled }">
-        <div
+        <span
           class="sf-radio__checkmark"
           :class="{ 'sf-radio__checkmark is-active': isChecked }"
-        ></div>
+        ></span>
       </slot>
-      <div class="sf-radio__content">
-        <!-- @slot Custom label markup (bind 'label' string, 'isChecked' boolean, 'disabled' boolean -->
+      <span class="sf-radio__content">
         <slot name="label" v-bind="{ label, isChecked, disabled }">
-          <div v-if="label" class="sf-radio__label">{{ label }}</div>
+          <span :class="{ 'display-none': !label }" class="sf-radio__label">{{
+            label
+          }}</span>
         </slot>
-        <!-- @slot Custom details markup (bind 'details' string -->
         <slot name="details" v-bind="{ details }">
-          <p v-if="details" class="sf-radio__details">
+          <span :class="{ 'display-none': !details }" class="sf-radio__details">
             {{ details }}
-          </p>
+          </span>
         </slot>
-        <!-- @slot Custom description markup (bind 'description' string -->
         <slot name="description" v-bind="{ description }">
-          <p v-if="description" class="sf-radio__description">
+          <span
+            :class="{ 'display-none': !description }"
+            class="sf-radio__description"
+          >
             {{ description }}
-          </p>
+          </span>
         </slot>
-      </div>
+      </span>
     </label>
   </div>
 </template>
@@ -54,7 +55,7 @@ export default {
   },
   model: {
     prop: "selected",
-    event: "input",
+    event: "change",
   },
   props: {
     name: {

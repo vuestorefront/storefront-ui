@@ -1,0 +1,21 @@
+import { Meta, Props, Preview, Story } from '@storybook/addon-docs/blocks';
+
+import { story, params } from '~storybook-util/story';
+import StaticComponent from './Static'
+
+<Meta title="Components/Pages/Static"
+  component={StaticComponent}
+/>
+
+# Static example page 
+
+
+<Preview>
+  <Story 
+    name='Static' 
+    inline 
+    parameters={params(StaticComponent)}
+  >
+    {story(StaticComponent)}
+  </Story>
+</Preview>

@@ -20,23 +20,26 @@
         class="sf-checkbox__input"
         @change="inputHandler"
       />
-      <!-- @slot Custom check mark markup -->
       <slot name="checkmark" v-bind="{ isChecked, disabled }">
-        <div
+        <span
           class="sf-checkbox__checkmark"
           :class="{ 'sf-checkbox__checkmark is-active': isChecked }"
         >
-          <SfIcon v-if="isChecked" icon="check" color="white" />
-        </div>
+          <SfIcon
+            :class="{ 'display-none': !isChecked }"
+            icon="check"
+            color="white"
+          />
+        </span>
       </slot>
-      <!-- @slot Custom label markup -->
       <slot name="label" v-bind="{ label, isChecked, disabled }">
-        <div v-if="label" class="sf-checkbox__label">{{ label }}</div>
+        <span :class="{ 'display-none': !label }" class="sf-checkbox__label">{{
+          label
+        }}</span>
       </slot>
     </label>
     <div class="sf-checkbox__message">
       <transition name="sf-fade">
-        <!-- @slot Custom message of form input -->
         <slot
           v-if="!disabled"
           :name="computedMessageSlotName"
@@ -76,9 +79,6 @@ export default {
       type: String,
       default: "",
     },
-    /**
-     *  Hint/Required message value of checkbox.
-     */
     hintMessage: {
       type: String,
       default: "Required.",
@@ -87,16 +87,10 @@ export default {
       type: Boolean,
       default: false,
     },
-    /**
-     * Info/success message value of select.
-     */
     infoMessage: {
       type: String,
       default: "",
     },
-    /**
-     * Error message value of select. It will be appeared if `valid` is `true`.
-     */
     errorMessage: {
       type: String,
       default: "This field is not correct.",

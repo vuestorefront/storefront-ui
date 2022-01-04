@@ -4,6 +4,6 @@ import SfTile from "./SfTile.vue";
 describe("SfTile.vue", () => {
   it("renders a component", () => {
     const component = shallowMount(SfTile);
-    expect(component.contains(".sf-tile")).toBe(true);
+    expect(component.classes("sf-tile")).toBe(true);
   });
 });
