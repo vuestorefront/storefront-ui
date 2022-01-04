@@ -29,7 +29,6 @@
       transform 150ms linear,
       font-size 150ms linear
     );
-    will-change: font-size;
     &::after {
       content: var(--input-label-required);
       color: var(--input-label-color, var(--c-link));

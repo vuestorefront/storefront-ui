@@ -25,6 +25,7 @@
         :class="{ 'display-none': !label }"
         class="sf-input__label"
         :for="name"
+        v-will-change="'font-size'"
       >
         <slot name="label" v-bind="{ label }">{{ label }}</slot>
       </label>
@@ -67,10 +68,12 @@
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import { focus } from "../../../utilities/directives";
+import { willChange } from "../../../utilities/directives";
 export default {
   name: "SfInput",
   directives: {
     focus,
+    willChange,
   },
   components: { SfIcon, SfButton },
   inheritAttrs: false,
