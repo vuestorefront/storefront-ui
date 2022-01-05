@@ -217,32 +217,20 @@ export default {
     },
     icon: {
       control: {
-        type: "select",
-        options: iconsNames,
+        type: "object",
       },
       table: {
         category: "Props",
+        type: {
+          summary: "object",
+        },
       },
-    },
-    iconSize: {
-      control: {
-        type: "select",
-        options: sizes,
+      defaultValue: {
+        icon: "",
+        color: "",
+        size: "",
       },
-      table: {
-        category: "Props",
-      },
-      defaultValue: "sm",
-    },
-    iconColor: {
-      control: {
-        type: "select",
-        options: colors,
-      },
-      table: {
-        category: "Props",
-      },
-      defaultValue: "black",
+      description: "The icon configuration object which can have props: icon name, size and color as SfIcon specifies."
     },
     value: {
       control: "text",
@@ -314,8 +302,6 @@ const Template = (args, { argTypes }) => ({
     :required="required"
     :disabled="disabled"
     :icon="icon"
-    :iconSize="iconSize"
-    :iconColor="iconColor"
     :has-show-password="hasShowPassword"
     @change="change"
     @input="input"

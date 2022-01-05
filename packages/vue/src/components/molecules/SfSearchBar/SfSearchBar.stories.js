@@ -111,13 +111,26 @@ export default {
         },
       },
       defaultValue: {
+        icon: "",
         size: "",
         color: "",
       },
-      name: "icon object",
-      description: "Define size of the search icon",
+      name: "icon",
+      description: "Define the type, size and color of the search icon ",
     },
-
+    iconSize: {
+      control: "text",
+      name: "icon.size",
+      description:
+        "Define size of the search icon. Property in icon object prop (for testing purposes).Custom size of the icon. It can be our standard sizes, or `12px` or `1.2rem` or nothing. Standard sizes: `xxs`, `xs`, `sm`, `md`, `lg`, `xl`, `xxl`, `xl3`, `xl4`. See icon prop below.",
+      defaultValue: "",
+    },
+    iconColor: {
+      control: "color",
+      name: "icon.color",
+      description:
+        "Define color of the search icon. Property in icon object prop (for testing purposes). Custom color of the icon. It can be according to our standard colors, or legitimate CSS color such as `#fff`, `rgb(255,255,255)`), and `lightgray` or nothing. Standard colors: `white`, `black`, `green-primary`, `green-secondary`, `gray-primary`, `gray-secondary`, `light-primary`, `light-secondary`, `pink-primary`, `pink-secondary`, `yellow-primary`, `yellow-secondary`, `blue-primary`, `blue-secondary`, `accent`. See icon prop below.",
+    },
     input: {
       action: "input event emitted",
       table: { category: "Events", type: { summary: null } },
@@ -135,16 +148,20 @@ export default {
       description:
         "Emits focus event when search field gains focus. It is passed via v-on='$listeners'",
     },
-    click: {
-      action: "click event emitted",
+    "click:icon": {
+      action: "click:icon event emitted",
       table: { category: "Events", type: { summary: null } },
-      description: "Emits click event when search icon is cicked",
+      description: "Emits click:icon event when search icon is clicked",
     },
-    enter: { action: "Enter pressed", table: { category: "Events" } },
-    "keyup.esc": {
-      action: "click event emitted",
+    escape: {
+      action: "escape event emitted",
       table: { category: "Events", type: { summary: null } },
-      description: "Emits click event when search icon is cicked",
+      description: "Emits escape event when escape button is pressed",
+    },
+    enter: {
+      action: "enter event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits enter event when enter button is pressed",
     },
     "icon ": {
       table: {
@@ -170,21 +187,28 @@ const Template = (args, { argTypes }) => ({
     iconCheck() {
       return this.iconSize || this.iconColor
         ? {
+            icon: this.icon.icon,
             size: this.iconSize,
             color: this.iconColor,
           }
-        : null;
+        : {
+            icon: this.icon.icon,
+            size: this.icon.size,
+            color: this.icon.color,
+          };
     },
   },
   template: `
   <SfSearchBar
-  :icon="icon"
+  :icon="iconCheck"
   :class="classes"
   :placeholder="placeholder"
-  @click="click"
   @blur="blur"
   @focus="focus"
   @input="input"
+  @escape="escape"
+  @enter="enter"
+  @click:icon="this['click:icon']"
   aria-label="Search"
   v-model="searchValue"/>`,
 });

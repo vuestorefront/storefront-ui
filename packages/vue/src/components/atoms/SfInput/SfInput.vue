@@ -30,22 +30,21 @@
       </label>
       <slot
         v-bind="{
-          iconColor,
-          iconSize,
           icon,
           isPasswordVisible,
           switchVisibilityPassword,
         }"
+        name="icon"
       >
         <SfButton
           v-if="icon"
           class="sf-input__button sf-button--pure"
-          @click="$emit('click', value)"
+          @click="$emit('click:icon')"
         >
           <SfIcon
-            :color="iconColor"
-            :size="iconSize"
-            :icon="icon"
+            :color="icon.color"
+            :size="icon.size"
+            :icon="icon.icon"
             class="sf-input__icon"
           >
           </SfIcon>
@@ -54,17 +53,19 @@
           v-else-if="hasShowPassword"
           :class="{ 'display-none': !isPassword }"
           class="sf-input__password-button"
+          type="button"
           aria-label="switch-visibility-password"
           :aria-pressed="isPasswordVisible.toString()"
           @click="switchVisibilityPassword"
         >
           <SfIcon
-            size="1.5rem"
-            icon="show_password"
             class="sf-input__password-icon"
-            :class="{ hidden: !isPasswordVisible }"
-          >
-          </SfIcon>
+            :class="{
+              hidden: !isPasswordVisible,
+            }"
+            icon="show_password"
+            size="1.5rem"
+          ></SfIcon>
         </SfButton>
       </slot>
     </div>
@@ -105,6 +106,10 @@ export default {
       type: String,
       default: "text",
     },
+    icon: {
+      type: Object,
+      default: () => {},
+    },
     valid: {
       type: Boolean,
       default: true,
@@ -116,29 +121,16 @@ export default {
     required: {
       type: Boolean,
       default: false,
+      description: "Native input required attribute",
     },
     disabled: {
       type: Boolean,
       default: false,
+      description: "Native input disabled attribute",
     },
     hasShowPassword: {
       type: Boolean,
       default: false,
-    },
-    /** One of predefined SfIcon colors, default is black.  */
-    iconColor: {
-      type: String,
-      default: "",
-    },
-    /** One of predefined SfIcon sizes.  */
-    iconSize: {
-      type: String,
-      default: "",
-    },
-    /** Svg file iconPath  */
-    icon: {
-      type: [String, Array],
-      default: "",
     },
   },
   data() {

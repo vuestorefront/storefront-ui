@@ -1,18 +1,19 @@
 <template>
   <SfInput
+    v-focus
     class="sf-search-bar"
     type="search"
     name="search"
     :value="value"
     :placeholder="placeholder"
-    :icon="icon.icon"
-    :icon-color="icon.color"
-    :icon-size="icon.size"
+    :icon="icon"
+    v-bind="$attrs"
     @keyup.enter="$emit('enter', $event.target.value)"
-    @keyup.esc="$emit('input', '')"
+    @keyup.esc="$emit('escape', '')"
     @blur="$emit('blur')"
+    @click:icon="$emit('click:icon')"
+    v-on="listeners"
   >
-    <slot v-bind="$attrs" v-on="$listeners"></slot>
   </SfInput>
 </template>
 <script>
@@ -44,7 +45,6 @@ export default {
     listeners() {
       return {
         ...this.$listeners,
-        input: (event) => this.$emit("input", event.target.value),
         "keyup.enter": (event) => this.$emit("input", event.target.value),
         "keyup.esc": () => this.$emit("input", ""),
         blur: () => this.$emit("blur"),
