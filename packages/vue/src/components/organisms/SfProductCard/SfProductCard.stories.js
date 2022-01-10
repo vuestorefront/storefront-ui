@@ -155,7 +155,6 @@ export default {
       table: {
         category: "Props",
       },
-      defaultValue: "100%",
       description: "Product image width, without unit",
     },
     imageHeight: {
@@ -163,7 +162,6 @@ export default {
       table: {
         category: "Props",
       },
-      defaultValue: "auto",
       description: "Product image height, without unit",
     },
     badgeLabel: {

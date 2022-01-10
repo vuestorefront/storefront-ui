@@ -144,6 +144,8 @@ const Template = (args, { argTypes }) => ({
     :images="images"
     :image-width="imageWidth"
     :image-height="imageHeight"
+    :thumb-width="thumbWidth"
+    :thumb-height="thumbHeight"
     :slider-options="sliderOptions"
     :current="current"
     :enable-zoom="enableZoom"

@@ -159,11 +159,9 @@ export default {
     },
     imageWidth: {
       type: Number,
-      default: 140,
     },
     imageHeight: {
       type: Number,
-      default: 200,
     },
     title: {
       type: String,

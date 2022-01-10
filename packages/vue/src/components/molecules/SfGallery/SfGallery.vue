@@ -65,6 +65,8 @@
             :alt="image.alt"
             :width="thumbWidth"
             :height="thumbHeight"
+            :image-tag="thumbImageTag"
+            :nuxt-img-config="thumbNuxtImgConfig"
           />
         </SfButton>
       </slot>
@@ -88,19 +90,15 @@ export default {
     },
     imageWidth: {
       type: Number,
-      default: 422,
     },
     imageHeight: {
       type: Number,
-      default: 664,
     },
     thumbWidth: {
-      type: [Number, String],
-      default: 160,
+      type: Number,
     },
     thumbHeight: {
-      type: [Number, String],
-      default: 160,
+      type: Number,
     },
     current: {
       type: Number,
@@ -127,9 +125,17 @@ export default {
     },
     imageTag: {
       type: String,
-      default: "",
+      default: "img",
     },
     nuxtImgConfig: {
+      type: Object,
+      default: () => ({}),
+    },
+    thumbImageTag: {
+      type: String,
+      default: "img",
+    },
+    thumbNuxtImgConfig: {
       type: Object,
       default: () => ({}),
     },

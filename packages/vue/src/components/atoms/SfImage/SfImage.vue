@@ -11,17 +11,12 @@
       :src="src"
       :srcset="srcset"
       :class="classes"
-      :width="width"
-      :height="height"
       :alt="alt"
       @load="onLoad"
       v-on="$listeners"
     />
     <img
-      :class="{
-        'display-none':
-          imageComponentTag !== 'img' || loaded || (loaded && placeholder),
-      }"
+      :class="{ 'display-none': togglePlaceholder }"
       class="sf-image--placeholder"
       :src="placeholder"
       alt="Placeholder"
@@ -70,11 +65,9 @@ export default {
     },
     width: {
       type: Number,
-      required: true,
     },
     height: {
       type: Number,
-      required: true,
     },
     placeholder: {
       type: String,
@@ -88,7 +81,7 @@ export default {
     imageTag: {
       type: String,
       default: "img",
-      validator: (value) => ["img", "nuxt-img", "nuxt-picture"].includes(value),
+      validator: (value) => ["", "img", "nuxt-img", "nuxt-picture"].includes(value),
     },
     nuxtImgConfig: {
       type: Object,
@@ -118,13 +111,11 @@ export default {
         ""
       );
     },
-    srcsetsSizes() {
+    sizes() {
       const hasBreakpoints = this.sortedSrcsets.every(
         (set) => set.breakpoint && set.width
       );
-
       if (!hasBreakpoints) return null;
-
       return this.sortedSrcsets.reduce(
         (str, set) =>
           `${this.prefix(str)}${this.formatBreakpoint(
@@ -155,23 +146,21 @@ export default {
     imageComponentTag() {
       return !this.$nuxt ? "img" : this.imageTag;
     },
-    conditionalFit() {
-      const fitCheck = () => {
-        if (this.nuxtImgConfig.fit) {
-          return this.nuxtImgConfig.fit;
-        } else {
-          console.error("Missing prop fit.");
-        }
-      };
-      return this.imageTag === "img" ? this.nuxtImgConfig.fit : fitCheck();
+    togglePlaceholder() {
+      return this.imageComponentTag !== 'img' || this.loaded || (this.loaded && this.placeholder);
     },
     attributes() {
-      return this.imageTag === "img"
-        ? this.$attrs
+      return this.imageTag === "img" || this.imageTag === ""
+        ? {
+            ...this.$attrs,
+            sizes: this.sizes,
+            width: this.width ? this.width : console.error(`Missing required prop width.`),
+            height: this.height ? this.height : console.error(`Missing required prop height.`),
+          }
         : {
             ...this.$attrs,
             ...this.nuxtImgConfig,
-            sizes: this.srcsetsSizes || this.nuxtImgConfig.sizes,
+            fit: this.nuxtImgConfig.fit ? this.nuxtImgConfig.fit : console.error("Missing required prop fit."),
           };
     },
   },

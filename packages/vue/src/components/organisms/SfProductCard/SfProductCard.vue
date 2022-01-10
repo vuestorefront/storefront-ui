@@ -225,11 +225,9 @@ export default {
     },
     imageWidth: {
       type: Number,
-      default: 216,
     },
     imageHeight: {
       type: Number,
-      default: 326,
     },
     badgeLabel: {
       type: String,
