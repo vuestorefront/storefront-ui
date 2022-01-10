@@ -8,10 +8,6 @@
     :placeholder="placeholder"
     :icon="icon"
     v-bind="$attrs"
-    @keyup.enter="$emit('enter', $event.target.value)"
-    @keyup.esc="$emit('escape', '')"
-    @blur="$emit('blur')"
-    @click:icon="$emit('click:icon')"
     v-on="listeners"
   >
   </SfInput>
@@ -48,6 +44,7 @@ export default {
         "keyup.enter": (event) => this.$emit("input", event.target.value),
         "keyup.esc": () => this.$emit("input", ""),
         blur: () => this.$emit("blur"),
+        "click:icon": () => this.$emit("click:icon"),
       };
     },
   },

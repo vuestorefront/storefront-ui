@@ -143,7 +143,7 @@ export default {
       description: "Emits blur event when search field loses focus",
     },
     focus: {
-      action: "focus input event emitted",
+      action: "focus event emitted",
       table: { category: "Events", type: { summary: null } },
       description:
         "Emits focus event when search field gains focus. It is passed via v-on='$listeners'",
@@ -152,16 +152,6 @@ export default {
       action: "click:icon event emitted",
       table: { category: "Events", type: { summary: null } },
       description: "Emits click:icon event when search icon is clicked",
-    },
-    escape: {
-      action: "escape event emitted",
-      table: { category: "Events", type: { summary: null } },
-      description: "Emits escape event when escape button is pressed",
-    },
-    enter: {
-      action: "enter event emitted",
-      table: { category: "Events", type: { summary: null } },
-      description: "Emits enter event when enter button is pressed",
     },
     "icon ": {
       table: {
@@ -206,8 +196,6 @@ const Template = (args, { argTypes }) => ({
   @blur="blur"
   @focus="focus"
   @input="input"
-  @escape="escape"
-  @enter="enter"
   @click:icon="this['click:icon']"
   aria-label="Search"
   v-model="searchValue"/>`,
