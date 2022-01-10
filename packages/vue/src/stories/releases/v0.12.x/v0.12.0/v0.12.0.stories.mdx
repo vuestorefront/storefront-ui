@@ -13,6 +13,8 @@ v0.12.0 contains API breaking changes and new features.
 - SfCard, SfGallery, SfCollectedProduct, SfGroupedProductItem, SfProductCard, SfProductCardHorizontal: props types of `imageWidth` and `imageHeight` changed to `Number`
 - SfStore: props types of `pictureWidth` and `pictureHeight` changed to `Number`
 - global: providing overriding by `:root` in projects
+- transitions: remove SfExpand functional component and fix sf-expand css styles 
+- SfInput, SfComponentSelect, SfSelect, SfSlidingSection, SfTextarea: replace transitions using properties affecting performance with `transform` and add `will-change` property to `font-size` when it will be changed 
 
 ## 🚀 Features
 
@@ -22,9 +24,7 @@ v0.12.0 contains API breaking changes and new features.
 
 - SfRating: easier to change color and size of icons by CCS properties 
 - SfTabs: fixed issue with memory leak
-- transitions: remove SfExpand functional component and fix sf-expand css styles 
 - SfTextArea: Bug fix for SfTextarea in form for Mobile view
-- SfInput, SfComponentSelect, SfSelect, SfSlidingSection, SfTextarea: replace transitions using properties affecting performance with `transform` and add `will-change` property to `font-size` when it will be changed 
 
 ## 🧹 Chores:
 

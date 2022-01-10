@@ -35,7 +35,7 @@ After:
 <table>
   <thead>
     <tr>
-      <th colspan="3">Props</th>
+      <th colSpan="3">Props</th>
     </tr>
   </thead>
   <tbody>
@@ -109,8 +109,8 @@ or with native transition element:
 
 SfInput label transition was changed from `top` property to the `transform`, 
 so now you can configure it by two css custom properties: `--input-label-transform` to set initial state and `--input-label-translate3d` to set the state of the label after transition.
-It is recommended to use `translate3d` property because of performance reasons.
-Similar changes was made in SfComponentSelect, SfSelect. 
+It is recommended to use `transform` property because of performance reasons.
+Similar changes was made in SfComponentSelect and SfSelect. 
 
 There is also `--input-bar-transform` property added to customize transition of bottom bar when input is hovered and it is set to use `scale3d` property also because of performance reasons. 
 
@@ -119,7 +119,7 @@ In SfSlidingSection `--sliding-section-static-height` was replaced by `--sliding
 <table>
   <thead>
     <tr>
-      <th colspan="4">CSS custom Properties</th>
+      <th colSpan="4">CSS custom Properties</th>
     </tr>
   </thead>
   <tbody>
