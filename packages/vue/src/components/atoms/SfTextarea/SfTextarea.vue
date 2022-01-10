@@ -26,7 +26,11 @@
       :minlength="props.minlength"
       v-on="$options.handleInput(listeners)"
     />
-    <label class="sf-textarea__label" :for="props.name">
+    <label
+      v-will-change="'font-size'"
+      class="sf-textarea__label"
+      :for="props.name"
+    >
       <slot name="label" v-bind="{ props }">{{ props.label }}</slot>
     </label>
     <div class="sf-textarea__error-message">
@@ -42,10 +46,13 @@
 </template>
 <script>
 import { focus } from "../../../utilities/directives";
+import { willChange } from "../../../utilities/directives";
+
 export default {
   name: "SfTextarea",
   directives: {
     focus,
+    willChange,
   },
   props: {
     value: {

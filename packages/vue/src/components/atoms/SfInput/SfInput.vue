@@ -10,7 +10,7 @@
     <div class="sf-input__wrapper">
       <input
         :id="idWithoutWhitespace"
-        v-focus
+        v-focus        
         v-bind="$attrs"
         :value="value"
         :required="required"
@@ -22,10 +22,10 @@
       />
       <span class="sf-input__bar"></span>
       <label
+        v-will-change="'font-size'"
         :class="{ 'display-none': !label }"
         class="sf-input__label"
-        :for="name"
-        v-will-change="'font-size'"
+        :for="name"        
       >
         <slot name="label" v-bind="{ label }">{{ label }}</slot>
       </label>

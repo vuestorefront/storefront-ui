@@ -60,7 +60,6 @@
       transform 150ms linear,
       font-size 150ms linear
     );
-    will-change: font-size;
     @include font(
       --component-select-label-font,
       var(--font-weight--normal),

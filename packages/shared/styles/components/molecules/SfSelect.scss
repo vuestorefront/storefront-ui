@@ -23,7 +23,6 @@
       transform 150ms linear,
       font-size 150ms linear
     );
-    will-change: font-size;
     pointer-events: none;
     @include font(
       --select-label-font,

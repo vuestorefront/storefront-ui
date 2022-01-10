@@ -8,7 +8,7 @@
       'is-invalid': !valid,
     }"
   >
-    <label :for="label" class="sf-select__label">
+    <label v-will-change="'font-size'" :for="label" class="sf-select__label">
       <slot name="label" :label="label">
         {{ label }}
       </slot>
@@ -50,13 +50,14 @@
 </template>
 <script>
 import { focus } from "../../../utilities/directives";
+import { willChange } from "../../../utilities/directives";
 import SfSelectOption from "./_internal/SfSelectOption.vue";
 import Vue from "vue";
 
 Vue.component("SfSelectOption", SfSelectOption);
 export default {
   name: "SfSelect",
-  directives: { focus },
+  directives: { focus, willChange },
   props: {
     label: {
       type: String,

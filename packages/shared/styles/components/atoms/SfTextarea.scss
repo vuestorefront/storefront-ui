@@ -61,7 +61,6 @@
     transform: var(--textarea-label-transform);
     color: var(--textarea-label-color, var(--c-link));
     transition: var(--textarea-label-transition, transform 150ms linear, font-size 150ms linear);
-    will-change: font-size;
     &::after {
       content: var(--textarea-label-required);
       --textarea-label-color: var(--c-primary);
