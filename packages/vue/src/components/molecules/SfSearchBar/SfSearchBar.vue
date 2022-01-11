@@ -9,6 +9,7 @@
     :icon="icon"
     v-bind="$attrs"
     v-on="listeners"
+    @keyup.enter="$emit('input', value)"
   >
   </SfInput>
 </template>
@@ -41,8 +42,7 @@ export default {
     listeners() {
       return {
         ...this.$listeners,
-        "keyup.enter": (event) => this.$emit("input", event.target.value),
-        "keyup.esc": () => this.$emit("input", ""),
+        "keyup.esc": () => this.$emit("enter:search", ""),
         blur: () => this.$emit("blur"),
         "click:icon": () => this.$emit("click:icon"),
       };
