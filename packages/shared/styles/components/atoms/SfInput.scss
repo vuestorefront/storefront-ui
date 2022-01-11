@@ -154,7 +154,7 @@
     }
   }
   &__icon {
-    --icon-position: absolute;  
+    position: var(--icon-position, absolute);  
     top: 50%;
     right: 0;
      transform: translate3d(0, -50%, 0);

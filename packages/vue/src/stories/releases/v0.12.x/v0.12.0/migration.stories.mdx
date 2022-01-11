@@ -106,3 +106,120 @@ or with native transition element:
   </div>
 </transition>
 ```
+
+## SfSearchbar 
+
+The native input element with SfButton inside was replaced by SfInput component. So now `input` event is emitted by SfInput component and `click` event when icon is pressed was replaced by `click:icon` event.
+
+It is important to notice that you can customize icon in SfSearchbar by passing the `icon` prop like this:
+```
+{ 
+  icon: "search",
+  size: "1.25rem",
+  color: "#43464E",
+}
+```
+
+In order to make this change possible, there are also few fixes in SfInput component. There is new SfIcon component added inside the slot which changed his name from `show-password` to `icon`. You can use `icon` object prop to customize icon, as mentioned previously. 
+Short summary of changes in both components:
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3">Props, slots, events</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Component</td>
+      <td>What was changed</td>
+      <td>Before</td>
+      <td>v0.12.0</td>
+    </tr>
+    <tr>
+      <td>SfInput</td>
+      <td>slot</td>
+      <td>show-password</td>
+      <td>icon</td>
+    </tr>
+    <tr>
+      <td>SfInput</td>
+      <td>prop</td>
+      <td>-</td>
+      <td>icon</td>
+    </tr>
+    <tr>
+      <td>SfSearchbar</td>
+      <td>event</td>
+      <td>click</td>
+      <td>click:icon</td>
+    </tr>
+  </tbody>
+</table>
+
+Following this improvements the css styles are changed, as well. The most of Searchbar CSS custom properties are now removed:
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3">CSS custom properties</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Component</td>
+      <td>Before</td>
+      <td>v0.12.0</td>
+    </tr>
+    <tr>
+      <td>SfSearchbar</td>
+      <td>--search-bar-icon-flex-direction </td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>SfSearchbar</td>
+      <td>--search-bar-padding</td>
+      <td>-</td>
+    </tr>
+    <tr>
+     <td>SfSearchbar</td>
+      <td>--search-bar-button-right</td>
+      <td></td>
+    </tr>
+    <tr>
+     <td>SfSearchbar</td>
+      <td>--search-bar-icon-display</td>
+      <td>-</td>
+    </tr>
+    <tr>
+     <td>SfSearchbar</td>
+      <td>--search-bar-font</td>
+      <td>-</td>
+    </tr>
+    <tr>
+     <td>SfSearchbar</td>
+      <td>--search-bar-placeholder-color</td>
+      <td>-</td>
+    </tr>
+    <tr>
+     <td>SfSearchbar</td>
+      <td>--search-bar-placeholder-transition</td>
+      <td>-</td>
+    </tr>
+    <tr>
+     <td>SfSearchbar</td>
+      <td>--search-bar-border-color</td>
+      <td>-</td>
+    </tr>
+    <tr>
+     <td>SfSearchbar</td>
+      <td>--search-bar-placeholder-color-focus</td>
+      <td>-</td>
+    </tr>
+    <tr>
+     <td>SfInput</td>
+      <td>-</td>
+      <td>--icon-position</td>
+    </tr>
+  </tbody>
+</table>

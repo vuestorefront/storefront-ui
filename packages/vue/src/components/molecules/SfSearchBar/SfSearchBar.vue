@@ -42,9 +42,9 @@ export default {
     listeners() {
       return {
         ...this.$listeners,
-        "keyup.esc": () => this.$emit("enter:search", ""),
+        "keyup.esc": () => this.$emit("input", ""),
         blur: () => this.$emit("blur"),
-        "click:icon": () => this.$emit("click:icon"),
+        "click:icon": () => this.$emit("click:icon", this.value),
       };
     },
   },
