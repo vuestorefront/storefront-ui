@@ -9,7 +9,6 @@
       :loading="loading"
       v-bind="attributes"
       :src="src"
-      :srcset="srcset"
       :class="classes"
       :alt="alt"
       @load="onLoad"
@@ -81,7 +80,8 @@ export default {
     imageTag: {
       type: String,
       default: "img",
-      validator: (value) => ["", "img", "nuxt-img", "nuxt-picture"].includes(value),
+      validator: (value) =>
+        ["", "img", "nuxt-img", "nuxt-picture"].includes(value),
     },
     nuxtImgConfig: {
       type: Object,
@@ -147,20 +147,31 @@ export default {
       return !this.$nuxt ? "img" : this.imageTag;
     },
     togglePlaceholder() {
-      return this.imageComponentTag !== 'img' || this.loaded || (this.loaded && this.placeholder);
+      return (
+        this.imageComponentTag !== "img" ||
+        this.loaded ||
+        (this.loaded && this.placeholder)
+      );
     },
     attributes() {
       return this.imageTag === "img" || this.imageTag === ""
         ? {
             ...this.$attrs,
             sizes: this.sizes,
-            width: this.width ? this.width : console.error(`Missing required prop width.`),
-            height: this.height ? this.height : console.error(`Missing required prop height.`),
+            width: this.width
+              ? this.width
+              : console.error(`Missing required prop width.`),
+            height: this.height
+              ? this.height
+              : console.error(`Missing required prop height.`),
+            srcset: this.srcset,
           }
         : {
             ...this.$attrs,
             ...this.nuxtImgConfig,
-            fit: this.nuxtImgConfig.fit ? this.nuxtImgConfig.fit : console.error("Missing required prop fit."),
+            fit: this.nuxtImgConfig.fit
+              ? this.nuxtImgConfig.fit
+              : console.error("Missing required prop fit."),
           };
     },
   },
