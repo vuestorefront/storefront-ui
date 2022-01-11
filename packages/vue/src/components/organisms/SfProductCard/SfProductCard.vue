@@ -98,7 +98,7 @@
           />
         </slot>
       </SfButton>
-      <template :class="{ 'display-none': !showAddToCartButton }">
+      <div :class="{ 'display-none': !showAddToCartButton }">
         <slot
           name="add-to-cart"
           v-bind="{
@@ -144,7 +144,7 @@
             </span>
           </SfCircleIcon>
         </slot>
-      </template>
+      </div>
     </div>
     <slot name="title" v-bind="{ title, link }">
       <SfButton
