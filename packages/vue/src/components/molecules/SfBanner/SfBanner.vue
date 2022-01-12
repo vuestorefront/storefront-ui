@@ -38,12 +38,22 @@
         </SfButton>
       </slot>
     </component>
-    <slot name="img-tag" />
+    <slot name="img-tag">
+      <SfImage          
+        class="sf-banner__image"
+        :class="{ 'display-none': !imageTag }"
+        :src="image"
+        :alt="title"
+        :image-tag="imageTag"
+        :nuxt-img-config="nuxtImgConfig"
+      />
+    </slot>
   </section>
 </template>
 <script>
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfLink from "../../atoms/SfLink/SfLink.vue";
+import SfImage from "../../atoms/SfImage/SfImage.vue";
 import {
   mapMobileObserver,
   unMapMobileObserver,
@@ -53,6 +63,7 @@ export default {
   components: {
     SfButton,
     SfLink,
+    SfImage,
   },
   props: {
     title: {
@@ -83,6 +94,14 @@ export default {
       type: [String, Object],
       default: "",
     },
+    imageTag: {
+      type: String,
+      default: "",
+    },
+    nuxtImgConfig: {
+      type: Object,
+      default: () => ({}),
+    },
   },
   data() {
     return {
@@ -92,6 +111,7 @@ export default {
   computed: {
     ...mapMobileObserver(),
     style() {
+      if (this.imageTag) return;
       const image = this.image;
       const background = this.background;
       return {

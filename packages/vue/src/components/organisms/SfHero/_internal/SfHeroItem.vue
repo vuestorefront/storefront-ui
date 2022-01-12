@@ -20,13 +20,23 @@
           </SfButton>
         </div>
       </slot>
-      <slot name="withImgTag" />
+      <slot name="withImgTag">
+        <SfImage
+          class="sf-hero-item__image"
+          :class="{ 'display-none': !imageTag }"
+          :src="image"
+          :alt="title"
+          :image-tag="imageTag"
+          :nuxt-img-config="nuxtImgConfig"
+        />
+      </slot>
     </component>
   </li>
 </template>
 <script>
 import SfButton from "../../../atoms/SfButton/SfButton.vue";
 import SfLink from "../../../atoms/SfLink/SfLink.vue";
+import SfImage from "../../../atoms/SfImage/SfImage.vue";
 import {
   mapMobileObserver,
   unMapMobileObserver,
@@ -36,6 +46,7 @@ export default {
   components: {
     SfButton,
     SfLink,
+    SfImage,
   },
   props: {
     title: {
@@ -62,6 +73,14 @@ export default {
       type: String,
       default: null,
     },
+    imageTag: {
+      type: String,
+      default: "",
+    },
+    nuxtImgConfig: {
+      type: Object,
+      default: () => ({}),
+    },
   },
   data() {
     return {
@@ -71,6 +90,7 @@ export default {
   computed: {
     ...mapMobileObserver(),
     style() {
+      if (this.imageTag) return;
       const image = this.image;
       const isImageString = typeof image === "string";
       const background = this.background;
