@@ -90,15 +90,19 @@ export default {
     },
     imageWidth: {
       type: Number,
+      default: null,
     },
     imageHeight: {
       type: Number,
+      default: null,
     },
     thumbWidth: {
       type: Number,
+      default: null,
     },
     thumbHeight: {
       type: Number,
+      default: null,
     },
     current: {
       type: Number,

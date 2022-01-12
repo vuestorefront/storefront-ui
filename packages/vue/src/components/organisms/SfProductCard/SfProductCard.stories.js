@@ -154,14 +154,22 @@ export default {
       control: "number",
       table: {
         category: "Props",
+        defaultValue: {
+          summary: null,
+        },
       },
+      defaultValue: null,
       description: "Product image width, without unit",
     },
     imageHeight: {
       control: "number",
       table: {
         category: "Props",
+        defaultValue: {
+          summary: null,
+        },
       },
+      defaultValue: null,
       description: "Product image height, without unit",
     },
     badgeLabel: {
@@ -475,6 +483,8 @@ Common.args = {
   maxRating: 5,
   reviewsCount: 7,
   showAddToCartButton: true,
+  imageWidth: 216,
+  imageHeight: 326,
 };
 
 export const WithColorPicker = (args, { argTypes }) => ({

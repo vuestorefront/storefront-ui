@@ -64,9 +64,11 @@ export default {
     },
     width: {
       type: Number,
+      default: null,
     },
     height: {
       type: Number,
+      default: null,
     },
     placeholder: {
       type: String,
@@ -132,15 +134,18 @@ export default {
       }
     },
     imageStyle() {
+      const sizeHandler = (size) => {
+        return size === null ? null : `${size}px`;
+      };
       return {
         "--image-width":
           typeof this.width === "string"
             ? this.formatDimension(this.width)
-            : `${this.width}px`,
+            : sizeHandler(this.width),
         "--image-height":
           typeof this.height === "string"
             ? this.formatDimension(this.height)
-            : `${this.height}px`,
+            : sizeHandler(this.height),
       };
     },
     imageComponentTag() {
@@ -186,6 +191,7 @@ export default {
       return ("" + resolution).endsWith("x") ? resolution : `${resolution}x`;
     },
     formatDimension(size) {
+      if (typeof size === null) return;
       if (
         ["%"].includes(`${size}`.slice(-1)) ||
         ["rem"].includes(`${size}`.slice(-3)) ||

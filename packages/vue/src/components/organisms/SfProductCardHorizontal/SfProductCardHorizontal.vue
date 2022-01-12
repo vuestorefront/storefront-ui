@@ -29,7 +29,6 @@
               :alt="title"
               :width="imageWidth"
               :height="imageHeight"
-              :placeholder="productPlaceholder"
               :image-tag="imageTag"
               :nuxt-img-config="nuxtImgConfig"
             />
@@ -41,7 +40,6 @@
             :alt="title"
             :width="imageWidth"
             :height="imageHeight"
-            :placeholder="productPlaceholder"
             :image-tag="imageTag"
             :nuxt-img-config="nuxtImgConfig"
           />
@@ -159,9 +157,11 @@ export default {
     },
     imageWidth: {
       type: Number,
+      default: null,
     },
     imageHeight: {
       type: Number,
+      default: null,
     },
     title: {
       type: String,

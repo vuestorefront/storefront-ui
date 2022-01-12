@@ -49,32 +49,44 @@ export default {
       control: "number",
       table: {
         category: "Props",
+        defaultValue: {
+          summary: null,
+        },
       },
-      defaultValue: 422,
+      defaultValue: null,
       description: "Images width, without unit",
     },
     imageHeight: {
       control: "number",
       table: {
         category: "Props",
+        defaultValue: {
+          summary: null,
+        },
       },
-      defaultValue: 664,
+      defaultValue: null,
       description: "Images height, without unit",
     },
     thumbWidth: {
       control: "number",
       table: {
         category: "Props",
+        defaultValue: {
+          summary: null,
+        },
       },
-      defaultValue: 160,
+      defaultValue: null,
       description: "Thumb width, without unit",
     },
     thumbHeight: {
       control: "number",
       table: {
         category: "Props",
+        defaultValue: {
+          summary: null,
+        },
       },
-      defaultValue: 160,
+      defaultValue: null,
       description: "Thumb height, without unit",
     },
     current: {
@@ -208,6 +220,10 @@ Common.args = {
     },
   ],
   current: 1,
+  imageWidth: 422,
+  imageHeight: 664,
+  thumbWidth: 160,
+  thumbHeight: 160,
 };
 
 export const WithZoom = Template.bind({});
