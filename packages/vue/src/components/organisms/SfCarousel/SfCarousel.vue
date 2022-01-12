@@ -1,15 +1,18 @@
 <template>
   <div class="sf-carousel">
     <div ref="controls" class="sf-carousel__controls">
-      <!--@slot slot for icon moving to the previous item -->
       <slot name="prev" v-bind="{ go: () => go('prev') }">
-        <SfArrow aria-label="previous" @click="go('prev')" />
+        <SfArrow
+          aria-label="previous"
+          data-testid="carousel-prev-button"
+          @click="go('prev')"
+        />
       </slot>
-      <!--@slot slot for icon moving to the next item -->
       <slot name="next" v-bind="{ go: () => go('next') }">
         <SfArrow
           aria-label="next"
           class="sf-arrow--right"
+          data-testid="carousel-next-button"
           @click="go('next')"
         />
       </slot>
@@ -18,7 +21,6 @@
       <div ref="glide" class="glide">
         <div class="glide__track" data-glide-el="track">
           <ul class="glide__slides sf-carousel__slides">
-            <!--@slot default slot for SfCarouselItem tags -->
             <slot />
           </ul>
         </div>
@@ -38,7 +40,6 @@ export default {
     SfArrow,
   },
   props: {
-    /** Carousel options like glide.js (https://glidejs.com/docs/) */
     settings: {
       type: Object,
       default: () => ({}),

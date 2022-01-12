@@ -21,27 +21,18 @@ import SfButton from "../../atoms/SfButton/SfButton.vue";
 export default {
   name: "SfScrollable",
   components: {
-    Simplebar,
     SfButton,
+    Simplebar,
   },
   props: {
-    /*
-     * Maximum height of visible content
-     */
     maxContentHeight: {
       type: String,
       default: "",
     },
-    /*
-     * Text for button showing content
-     */
     showText: {
       type: String,
       default: "Show",
     },
-    /*
-     * Text for button hiding content
-     */
     hideText: {
       type: String,
       default: "Hide",

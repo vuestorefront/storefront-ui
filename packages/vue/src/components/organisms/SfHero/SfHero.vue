@@ -3,37 +3,45 @@
     <div ref="glide" class="glide">
       <div class="glide__track" data-glide-el="track">
         <ul class="glide__slides sf-hero__slides">
-          <!--@slot default slot for SfHeroItem tags -->
           <slot />
         </ul>
       </div>
     </div>
-    <div v-if="numberOfPages > 1" class="sf-hero__control--left">
-      <!--@slot slot for icon moving to the previous item -->
+    <div
+      :class="{ 'display-none': numberOfPages <= 1 }"
+      class="sf-hero__control--left"
+    >
       <slot name="prev" v-bind="{ go: () => go('prev') }">
         <SfArrow
           class="sf-arrow sf-arrow--transparent"
           aria-label="previous"
+          data-testid="hero-prev-button"
           @click.stop="go('prev')"
         />
       </slot>
     </div>
-    <div v-if="numberOfPages > 1" class="sf-hero__control--right">
-      <!-- @slot slot for icon moving to the next item  -->
+    <div
+      :class="{ 'display-none': numberOfPages <= 1 }"
+      class="sf-hero__control--right"
+    >
       <slot name="next" v-bind="{ go: () => go('next') }">
         <SfArrow
           class="sf-arrow sf-arrow--right sf-arrow--transparent"
           aria-label="next"
+          data-testid="hero-next-button"
           @click.stop="go('next')"
         />
       </slot>
     </div>
-    <div v-if="numberOfPages > 1" class="sf-hero__bullets">
-      <!--@slot custom markup for pagination bullets -->
+    <div
+      :class="{ 'display-none': numberOfPages <= 1 }"
+      class="sf-hero__bullets"
+    >
       <slot name="bullets" v-bind="{ numberOfPages, page, go }">
         <SfBullets
           :total="numberOfPages"
           :current="page - 1"
+          data-testid="hero-bullets"
           @click="go($event)"
         />
       </slot>
@@ -54,9 +62,6 @@ export default {
     SfBullets,
   },
   props: {
-    /**
-     * Slider options like glide.js (https://glidejs.com/docs/)
-     */
     sliderOptions: {
       type: Object,
       default: () => ({}),

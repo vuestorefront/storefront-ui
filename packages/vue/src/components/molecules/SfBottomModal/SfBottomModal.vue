@@ -6,22 +6,20 @@
       @click="close"
     />
     <SfTransition :transition="transition">
-      <nav
+      <div
         v-show="isOpen"
         role="dialog"
         aria-modal="true"
         class="sf-bottom-modal__container"
       >
-        <!--@slot Use this slot to replace title. -->
         <slot name="title">
           <SfHeading
-            v-if="title"
+            :class="{ 'display-none': !title }"
             :level="3"
             :title="title"
             class="sf-bottom-modal__title"
           />
         </slot>
-        <!--@slot Use this slot to replace close button for desktop. -->
         <slot name="close-desktop">
           <SfCircleIcon
             class="sf-circle-icon--small sf-bottom-modal__close"
@@ -30,9 +28,7 @@
             @click="close"
           />
         </slot>
-        <!--@slot Use this slot to replace content. -->
         <slot />
-        <!--@slot Use this slot to replace close button for mobile. -->
         <slot name="close-mobile">
           <SfButton
             class="sf-button--full-width sf-bottom-modal__cancel"
@@ -41,7 +37,7 @@
             >Cancel</SfButton
           >
         </slot>
-      </nav>
+      </div>
     </SfTransition>
   </div>
 </template>
@@ -56,16 +52,10 @@ export default {
   name: "SfBottomModal",
   components: { SfOverlay, SfButton, SfCircleIcon, SfHeading, SfTransition },
   props: {
-    /**
-     * Bottom Modal is open
-     */
     isOpen: {
       type: Boolean,
       default: false,
     },
-    /**
-     * Bottom Modal title
-     */
     title: {
       type: String,
       default: "",

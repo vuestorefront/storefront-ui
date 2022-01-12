@@ -9,7 +9,7 @@
   >
     <div class="sf-input__wrapper">
       <input
-        :id="name"
+        :id="idWithoutWhitespace"
         v-focus
         v-bind="$attrs"
         :value="value"
@@ -21,12 +21,14 @@
         v-on="listeners"
       />
       <span class="sf-input__bar"></span>
-      <label class="sf-input__label" :for="name">
-        <!-- @slot Custom input label -->
+      <label
+        :class="{ 'display-none': !label }"
+        class="sf-input__label"
+        :for="name"
+      >
         <slot name="label" v-bind="{ label }">{{ label }}</slot>
       </label>
       <slot
-        v-if="isPassword"
         v-bind="{
           isPasswordVisible,
           switchVisibilityPassword,
@@ -34,6 +36,7 @@
         name="show-password"
       >
         <SfButton
+          :class="{ 'display-none': !isPassword }"
           class="sf-input__password-button"
           type="button"
           aria-label="switch-visibility-password"
@@ -53,9 +56,8 @@
     </div>
     <div class="sf-input__error-message">
       <transition name="sf-fade">
-        <!-- @slot Custom error message of form input -->
-        <slot v-if="!valid" name="error-message" v-bind="{ errorMessage }">
-          <div>{{ errorMessage }}</div></slot
+        <slot name="error-message" v-bind="{ errorMessage }">
+          <div :class="{ 'display-none': valid }">{{ errorMessage }}</div></slot
         >
       </transition>
     </div>
@@ -73,67 +75,40 @@ export default {
   components: { SfIcon, SfButton },
   inheritAttrs: false,
   props: {
-    /**
-     * Current input value (`v-model`)
-     */
     value: {
       type: [String, Number],
       default: "",
     },
-    /**
-     * Form input label
-     */
     label: {
       type: String,
       default: "",
     },
-    /**
-     * Form input name
-     */
     name: {
       type: String,
       default: "",
     },
-    /**
-     * Form input type
-     */
     type: {
       type: String,
       default: "text",
     },
-    /**
-     * Validate value of form input
-     */
     valid: {
       type: Boolean,
       default: true,
     },
-    /**
-     * Error message value of form input. It will be appeared if `valid` is `true`.
-     */
     errorMessage: {
       type: String,
       default: "",
     },
-    /**
-     * Native input required attribute
-     */
     required: {
       type: Boolean,
       default: false,
       description: "Native input required attribute",
     },
-    /**
-     * Native input disabled attribute
-     */
     disabled: {
       type: Boolean,
       default: false,
       description: "Native input disabled attribute",
     },
-    /**
-     * Status of show password icon display
-     */
     hasShowPassword: {
       type: Boolean,
       default: false,
@@ -155,6 +130,9 @@ export default {
     },
     isPassword() {
       return this.type === "password" && this.hasShowPassword;
+    },
+    idWithoutWhitespace() {
+      return this.name.replace(/\s/g, "");
     },
   },
   watch: {

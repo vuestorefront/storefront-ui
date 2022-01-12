@@ -4,7 +4,7 @@
       v-if="props.visible"
       ref="overlay"
       :class="[data.class, data.staticClass, 'sf-overlay']"
-      @click="listeners.click || (() => {})"
+      @click="listeners.click && listeners.click($event)"
     ></div>
   </transition>
 </template>
@@ -12,16 +12,10 @@
 export default {
   name: "SfOverlay",
   props: {
-    /**
-     * Transition effect to apply when overlay visibility is changed
-     */
     transition: {
       type: String,
       default: "sf-fade",
     },
-    /**
-     * Visibility state
-     */
     visible: {
       type: Boolean,
       default: false,

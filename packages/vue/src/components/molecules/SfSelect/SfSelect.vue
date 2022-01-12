@@ -16,6 +16,7 @@
     <select
       :id="label"
       v-focus
+      v-bind="$attrs"
       :value="value"
       :disabled="disabled"
       class="sf-select__dropdown"
@@ -28,6 +29,7 @@
         disabled
         :selected="!!placeholder"
         value
+        :label="placeholder"
       >
         <slot name="placeholder" v-bind="{ placeholder }" />
         {{ placeholder }}
@@ -37,8 +39,10 @@
     <div class="sf-select__error-message">
       <transition name="sf-fade">
         <!-- @slot Custom error message of form select -->
-        <slot v-if="!valid" name="errorMessage" v-bind="{ errorMessage }">
-          <span> {{ errorMessage }} </span>
+        <slot name="errorMessage" v-bind="{ errorMessage }">
+          <span :class="{ 'display-none': valid }">
+            {{ errorMessage }}
+          </span>
         </slot>
       </transition>
     </div>
@@ -54,51 +58,30 @@ export default {
   name: "SfSelect",
   directives: { focus },
   props: {
-    /**
-     * Select field label
-     */
     label: {
       type: String,
       default: "",
     },
-    /**
-     * Required attribute
-     */
     required: {
       type: Boolean,
       default: false,
     },
-    /**
-     * Validate value of form select
-     */
     valid: {
       type: Boolean,
       default: true,
     },
-    /**
-     * Disabled status of form select
-     */
     disabled: {
       type: Boolean,
       default: false,
     },
-    /**
-     * Error message value of form select. It will be appeared if `valid` is `true`.
-     */
     errorMessage: {
       type: String,
       default: "This field is not correct.",
     },
-    /**
-     * Value selected.
-     */
     value: {
       type: String,
       default: "",
     },
-    /**
-     * Adds placeholder
-     */
     placeholder: {
       type: String,
       default: "",

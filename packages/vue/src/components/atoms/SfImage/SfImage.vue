@@ -1,5 +1,9 @@
 <template>
-  <div class="sf-image--wrapper" :style="variables">
+  <span
+    class="sf-image--wrapper"
+    :style="imageStyle"
+    data-testid="image-wrapper"
+  >
     <img
       :loading="loading"
       v-bind="$attrs"
@@ -14,30 +18,41 @@
       v-on="$listeners"
     />
     <img
-      v-if="!loaded && placeholder"
+      :class="{ 'display-none': loaded || (loaded && placeholder) }"
       class="sf-image--placeholder"
       :src="placeholder"
       alt="Placeholder"
+      :width="width"
+      :height="height"
     />
-    <div v-if="$slots.default" class="sf-image--overlay">
+    <span
+      :class="{ 'display-none': !$slots.default }"
+      class="sf-image--overlay"
+    >
       <slot />
-    </div>
-  </div>
+    </span>
+    <noscript inline-template>
+      <img
+        :src="src"
+        :alt="alt"
+        class="sf-image sf-image-loaded"
+        v-bind="$attrs"
+        :width="width"
+        :height="height"
+      />
+    </noscript>
+  </span>
 </template>
 <script>
+import imagePlaceholder from "@storefront-ui/shared/images/product_placeholder.svg";
+
 export default {
   name: "SfImage",
   props: {
-    /**
-     * Main source url for the image
-     */
     src: {
       type: String,
       required: true,
     },
-    /**
-     * Array of images' source, dimension and breakpoints to generate srcset attribute
-     */
     srcsets: {
       type: Array,
       default: () => [],
@@ -46,37 +61,22 @@ export default {
         value.every((item) => item.resolution && item.src) ||
         value.every((item) => item.src && item.width),
     },
-    /**
-     * Alternative text in case image is not loaded. Use empty string " " for decorative-only image and full text otherwise
-     */
     alt: {
       type: String,
       required: true,
     },
-    /**
-     * Width of the image
-     */
     width: {
-      type: [String, Number],
-      default: "",
+      type: Number,
+      required: true,
     },
-    /**
-     * Height of the image
-     */
     height: {
-      type: [String, Number],
-      default: "",
+      type: Number,
+      required: true,
     },
-    /**
-     * Url source of the image's placeholder while it is loading.
-     */
     placeholder: {
       type: String,
-      default: "",
+      default: imagePlaceholder,
     },
-    /**
-     * Native loading attribute supported, either "eager", "lazy" or none.
-     */
     loading: {
       type: String,
       default: "lazy",
@@ -122,15 +122,23 @@ export default {
       );
     },
     classes() {
-      return `sf-image ${this.loaded && "sf-image-loaded"}`;
+      if (this.loaded) {
+        return "sf-image sf-image-loaded";
+      } else {
+        return "sf-image";
+      }
     },
-    variables() {
-      const width =
-        this.width && `--image-width: ${this.formatDimension(this.width)}`;
-      const height =
-        this.width && `--image-height: ${this.formatDimension(this.height)}`;
-
-      return [width, height].filter(Boolean).join(";");
+    imageStyle() {
+      return {
+        "--image-width":
+          typeof this.width === "string"
+            ? this.formatDimension(this.width)
+            : `${this.width}px`,
+        "--image-height":
+          typeof this.height === "string"
+            ? this.formatDimension(this.height)
+            : `${this.height}px`,
+      };
     },
   },
   methods: {
@@ -140,10 +148,17 @@ export default {
     formatResolution(resolution) {
       return ("" + resolution).endsWith("x") ? resolution : `${resolution}x`;
     },
-    formatDimension(width) {
-      return ["em", "px", "vw"].includes(`${width}`.slice(-2))
-        ? width
-        : `${width}px`;
+    formatDimension(size) {
+      if (
+        ["%"].includes(`${size}`.slice(-1)) ||
+        ["rem"].includes(`${size}`.slice(-3)) ||
+        ["em", "px", "vw", "vh"].includes(`${size}`.slice(-2)) ||
+        !parseInt(size, 10)
+      ) {
+        return size;
+      } else {
+        return `${size}px`;
+      }
     },
     formatBreakpoint(breakpoint) {
       return breakpoint ? `(max-width: ${breakpoint}px) ` : "";

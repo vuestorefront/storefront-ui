@@ -2,6 +2,67 @@ import { SfSearchBar } from "@storefront-ui/vue";
 export default {
   title: "Components/Molecules/SearchBar",
   component: SfSearchBar,
+  parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "search-bar-display": { value: "flex", control: "text" },
+      "search-bar-background": { value: "", control: "text" },
+      "search-bar-padding": { value: "", control: "text" },
+      "search-bar-width": { value: "", control: "text" },
+      "search-bar-height": { value: "2rem", control: "text" },
+      "search-bar-button-right": { value: "0", control: "text" },
+      "search-bar-icon-display": { value: "", control: "text" },
+      "search-bar-input-text-align": { value: "", control: "text" },
+      "search-bar-font": { value: "", control: "text" },
+      "search-bar-font-weight": {
+        value: "var(--font-weight--normal)",
+        control: "text",
+      },
+      "search-bar-font-size": {
+        value: "var(--font-size--base)",
+        control: "text",
+      },
+      "search-bar-font-line-height": { value: "1.6", control: "text" },
+      "search-bar-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+      "search-bar-border": {
+        value:
+          "var(--search-bar-border-style, solid) var(--search-bar-border-color, var(--c-dark-variant))",
+        control: "text",
+      },
+      "search-bar-border-width": { value: "0 0 2px 0", control: "text" },
+      "search-bar-placeholder-color": {
+        value: "var(--c-gray)",
+        control: "text",
+      },
+      "search-bar-placeholder-transition": {
+        value: "color 0.2s ease-in",
+        control: "text",
+      },
+      "search-bar-placeholder-color-focus": {
+        value: "transparent",
+        control: "text",
+      },
+      "search-bar-icon-flex-direction": { value: "", control: "text" },
+      "icon-size": {
+        value: "1.25rem",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "search-bar-border-color": {
+        value: "",
+        control: "text",
+      },
+    },
+
+    docs: {
+      description: {
+        component: "Search bar component with placeholder text and icon.",
+      },
+    },
+  },
   argTypes: {
     classes: {
       control: {
@@ -12,6 +73,10 @@ export default {
           "sf-search-bar--no-icon",
         ],
       },
+      table: {
+        category: "CSS Modifiers",
+      },
+      description: "CSS classes to modify component styling",
     },
     placeholder: {
       control: "text",
@@ -28,31 +93,79 @@ export default {
       table: {
         category: "Props",
         defaultValue: {
-          summary: null,
+          summary: "null",
         },
       },
+      defaultValue: null,
       description: "Value that will be displayed in search bar",
+    },
+    icon: {
+      control: "object",
+      table: {
+        category: "Props",
+        type: {
+          summary: "object",
+        },
+        defaultValue: {
+          summary: "{}",
+        },
+      },
+      defaultValue: {
+        size: "",
+        color: "",
+      },
+      description:
+        "Object to define icon look. Should have values for color and size",
     },
     iconSize: {
       control: "text",
-      table: {
-        category: "Props",
-      },
       name: "icon.size",
-      description: "Define size of the search icon",
+      description:
+        "Define size of the search icon. Property in icon object prop (for testing purposes).Custom size of the icon. It can be our standard sizes, or `12px` or `1.2rem` or nothing. Standard sizes: `xxs`, `xs`, `sm`, `md`, `lg`, `xl`, `xxl`, `xl3`, `xl4`. See icon prop below.",
+      defaultValue: "",
     },
     iconColor: {
       control: "color",
-      table: {
-        category: "Props",
-      },
       name: "icon.color",
-      description: "Define color of the search icon",
+      description:
+        "Define color of the search icon. Property in icon object prop (for testing purposes). Custom color of the icon. It can be according to our standard colors, or legitimate CSS color such as `#fff`, `rgb(255,255,255)`), and `lightgray` or nothing. Standard colors: `white`, `black`, `green-primary`, `green-secondary`, `gray-primary`, `gray-secondary`, `light-primary`, `light-secondary`, `pink-primary`, `pink-secondary`, `yellow-primary`, `yellow-secondary`, `blue-primary`, `blue-secondary`, `accent`. See icon prop below.",
     },
-    input: { action: "Input changed", table: { category: "Events" } },
-    blur: { action: "Not focus anymore", table: { category: "Events" } },
-    focus: { action: "Focus", table: { category: "Events" } },
-    click: { action: "Button click", table: { category: "Events" } },
+    input: {
+      action: "input event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description:
+        "Emits input event when search value is changed or enter or esc keys are pressed",
+    },
+    blur: {
+      action: "blur event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits blur event when search field loses focus",
+    },
+    focus: {
+      action: "focus input event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description:
+        "Emits focus event when search field gains focus. It is passed via v-on='$listeners'",
+    },
+    click: {
+      action: "click event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits click event when search icon is cicked",
+    },
+    "keyup.esc": {
+      action: "click event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits click event when search icon is cicked",
+    },
+    "icon ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace the icon",
+    },
   },
 };
 

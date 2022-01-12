@@ -6,11 +6,8 @@
   box-sizing: border-box;
   width: 100%;
   color: var(--c-text);
-  @include background(
-    --hero-item-background,
-    var(--_hero-item-background-color, transparent),
-    var(--_hero-item-background-image)
-  );
+  background-repeat: no-repeat;
+  background-size: cover;
   img {
     position: absolute;
     z-index: -1;
@@ -87,10 +84,6 @@
     &__subtitle {
       width: 100%;
     }
-    --hero-item-background-image: var(
-      --_hero-item-background-desktop-image,
-      var(--_hero-item-background-image)
-    );
     &__title {
       --hero-item-font-size: var(--h1-font-size);
       width: 100%;

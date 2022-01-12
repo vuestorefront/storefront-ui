@@ -28,17 +28,21 @@
       </div>
       <transition name="sf-fade">
         <div
-          v-if="outsideZoom && pictureSelected"
           ref="outSide"
+          :class="{
+            'display-none':
+              !outsideZoom || !pictureSelected || (!outsideZoom && !enableZoom),
+          }"
           :style="{ width: `${imageWidth}px`, height: `${imageHeight}px` }"
         >
           <SfImage
             ref="imgZoom"
             class="sf-gallery__zoom"
-            :src="pictureSelected"
+            :src="pictureSelectedUrl"
             :width="imageWidth"
             :height="imageHeight"
             :lazy="false"
+            :alt="pictureSelected.alt"
           />
         </div>
       </transition>
@@ -50,6 +54,7 @@
           :key="'img-' + index"
           class="sf-button--pure sf-gallery__item"
           :class="{ 'sf-gallery__item--selected': index === activeIndex }"
+          :aria-label="'Image ' + index"
           @click="go(index)"
         >
           <SfImage
@@ -75,51 +80,30 @@ export default {
     SfButton,
   },
   props: {
-    /**
-     * Images list
-     */
     images: {
       type: Array,
       default: () => [],
     },
-    /**
-     * Images width, without unit
-     */
     imageWidth: {
-      type: [Number, String],
+      type: Number,
       default: 422,
     },
-    /**
-     * Images height, without unit
-     */
     imageHeight: {
-      type: [Number, String],
+      type: Number,
       default: 664,
     },
-    /**
-     * Thumb width, without unit
-     */
     thumbWidth: {
       type: [Number, String],
       default: 160,
     },
-    /**
-     * Thumb height, without unit
-     */
     thumbHeight: {
       type: [Number, String],
       default: 160,
     },
-    /**
-     * Initial image number (starting from 1)
-     */
     current: {
       type: Number,
       default: 1,
     },
-    /**
-     * Glide slider options (https://glidejs.com/docs/options/)
-     */
     sliderOptions: {
       type: Object,
       default() {
@@ -131,16 +115,10 @@ export default {
         };
       },
     },
-    /**
-     * Image zoom inside or overlap the stage
-     */
     outsideZoom: {
       type: Boolean,
       default: false,
     },
-    /**
-     * Toogle for image zoom or overlap the stage
-     */
     enableZoom: {
       type: Boolean,
       default: false,
@@ -150,7 +128,7 @@ export default {
     return {
       positionStatic: {},
       eventHover: {},
-      pictureSelected: "",
+      pictureSelected: { alt: "" },
       glide: null,
       activeIndex: this.current - 1,
       style: "",
@@ -166,6 +144,11 @@ export default {
     },
     updatedSliderOptions() {
       return { ...this.sliderOptions, startAt: this.activeIndex };
+    },
+    pictureSelectedUrl() {
+      const { zoom, big, desktop } = this.pictureSelected;
+      const definedPicture = zoom || big || desktop;
+      return definedPicture ? definedPicture.url : "";
     },
   },
   mounted() {
@@ -213,8 +196,7 @@ export default {
     },
     startZoom(picture) {
       if (this.enableZoom) {
-        const { zoom, big, desktop } = picture;
-        this.pictureSelected = (zoom || big || desktop).url;
+        this.pictureSelected = picture;
       }
     },
     moveZoom($event, index) {

@@ -2,6 +2,16 @@ import { SfRadio } from "@storefront-ui/vue";
 export default {
   title: "Components/Molecules/Radio",
   component: SfRadio,
+  parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {},
+    // end of code generated automatically
+    docs: {
+      description: {
+        component: "Radio button component with label and description.",
+      },
+    },
+  },
   argTypes: {
     classes: {
       control: {
@@ -11,12 +21,18 @@ export default {
       table: {
         category: "CSS Modifiers",
       },
-      description: "CSS classes modifiers",
+      description: "CSS classes to modify component styling",
     },
     selected: {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
       defaultValue: "",
       description: "Value of the selected option",
@@ -41,6 +57,12 @@ export default {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
       defaultValue: "",
       description: "Label for option",
@@ -49,6 +71,15 @@ export default {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
+      },
+      type: {
+        summary: "string",
       },
       defaultValue: "",
       description: "Option details",
@@ -57,6 +88,12 @@ export default {
       control: "text",
       table: {
         category: "Props",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
       defaultValue: "",
       description: "Additional description to the radio option to display",
@@ -76,18 +113,65 @@ export default {
       control: "boolean",
       table: {
         category: "Props",
+        type: {
+          summary: "boolean",
+        },
         defaultValue: {
           summary: false,
         },
       },
+      defaultValue: false,
+    },
+    "v-model": {
+      table: {
+        disable: true,
+      },
     },
     change: {
-      action: "Toggle selection: change event",
+      action: "change event emitted",
       table: { category: "Events" },
+      description: "Emits change event when option is clicked",
     },
     input: {
-      action: "Toggle selection: input event",
+      action: "input event emitted",
       table: { category: "Events" },
+      description: "Emits input event when option is clicked",
+    },
+    checkmark: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Custom checkmark markup",
+    },
+    "label ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to have custom label",
+    },
+    "details ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to have custom details",
+    },
+    "description ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to have custom description",
     },
   },
 };
@@ -95,8 +179,13 @@ export default {
 const Template = (args, { argTypes }) => ({
   components: { SfRadio },
   props: Object.keys(argTypes),
+  data() {
+    return {
+      selectedValue: "",
+    };
+  },
   template: `
-  <SfRadio 
+  <SfRadio
     :class="classes"
     :label="label"
     :details="details"
@@ -105,7 +194,7 @@ const Template = (args, { argTypes }) => ({
     :value="value"
     :disabled="disabled"
     :required="required"
-    v-model="selected"
+    v-model="selectedValue"
     @change="change"
     @input="input"
   />`,
@@ -119,17 +208,12 @@ Common.args = {
     "Novelty! From now on you have the option of picking up an order in the selected InPack parceler. Just remember that in the case of orders paid on delivery, only the card payment will be accepted.",
   name: "Shipping",
   value: "store",
-};
-
-export const Selected = Template.bind({});
-Selected.args = {
-  ...Common.args,
-  selected: "store",
+  disabled: false,
 };
 
 export const TransparentSelected = Template.bind({});
 TransparentSelected.args = {
-  ...Selected.args,
+  ...Common.args,
   classes: "sf-radio--transparent",
 };
 
@@ -143,7 +227,7 @@ export const UseCheckmarkSlot = (args, { argTypes }) => ({
   components: { SfRadio },
   props: Object.keys(argTypes),
   template: `
-  <SfRadio 
+  <SfRadio
     :class="classes"
     :label="label"
     :details="details"
@@ -167,7 +251,7 @@ export const UseLabelSlot = (args, { argTypes }) => ({
   components: { SfRadio },
   props: Object.keys(argTypes),
   template: `
-  <SfRadio 
+  <SfRadio
     :class="classes"
     :label="label"
     :details="details"
@@ -190,7 +274,7 @@ export const UseDetailsSlot = (args, { argTypes }) => ({
   components: { SfRadio },
   props: Object.keys(argTypes),
   template: `
-  <SfRadio 
+  <SfRadio
     :class="classes"
     :label="label"
     :details="details"
@@ -213,7 +297,7 @@ export const UseDescriptionSlot = (args, { argTypes }) => ({
   components: { SfRadio },
   props: Object.keys(argTypes),
   template: `
-  <SfRadio 
+  <SfRadio
     :class="classes"
     :label="label"
     :details="details"

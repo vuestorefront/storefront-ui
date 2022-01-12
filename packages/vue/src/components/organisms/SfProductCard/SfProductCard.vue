@@ -1,5 +1,9 @@
 <template>
-  <div class="sf-product-card">
+  <div
+    class="sf-product-card"
+    :class="{ 'has-colors': colors.length }"
+    data-testid="product-card"
+  >
     <div class="sf-product-card__image-wrapper">
       <slot
         name="image"
@@ -8,6 +12,8 @@
         <SfButton
           :link="link"
           class="sf-button--pure sf-product-card__link"
+          data-testid="product-link"
+          aria-label="Go To Product"
           v-on="$listeners"
         >
           <template v-if="Array.isArray(image)">
@@ -31,29 +37,54 @@
           />
         </SfButton>
       </slot>
+      <slot name="colors" v-bind="{ colors }">
+        <SfColorPicker
+          :class="{ 'display-none': !colors.length }"
+          class="sf-product-card__colors"
+          label="Choose color"
+          :is-open="!isMobile || openColorPicker"
+          @click:toggle="toggleColorPicker"
+        >
+          <SfColor
+            v-for="(color, i) in colors"
+            :key="color.value"
+            :color="color.color"
+            :selected="color.selected"
+            class="sf-product-card__color"
+            :class="{ 'display-none': i > 3 && showBadge }"
+            @click="handleSelectedColor(i)"
+          />
+          <SfBadge
+            v-if="showBadge"
+            class="sf-product-card__colors-badge color-secondary"
+          >
+            {{ `+${colors.length - 4}` }}
+          </SfBadge>
+        </SfColorPicker>
+      </slot>
       <slot name="badge" v-bind="{ badgeLabel, badgeColor }">
         <SfBadge
-          v-if="badgeLabel"
           class="sf-product-card__badge"
-          :class="badgeColorClass"
+          :class="[badgeColorClass, { 'display-none': !badgeLabel }]"
           >{{ badgeLabel }}</SfBadge
         >
       </slot>
       <SfButton
-        v-if="wishlistIcon !== false"
         :aria-label="`${ariaLabel} ${title}`"
-        :class="wishlistIconClasses"
-        @click="toggleIsOnWishlist"
+        :class="[wishlistIconClasses, { 'display-none': !wishlistIcon }]"
+        data-testid="product-wishlist-button"
+        @click="toggleIsInWishlist"
       >
         <slot name="wishlist-icon" v-bind="{ currentWishlistIcon }">
           <SfIcon
+            v-if="currentWishlistIcon !== false"
             :icon="currentWishlistIcon"
             size="22px"
             data-test="sf-wishlist-icon"
           />
         </slot>
       </SfButton>
-      <template v-if="showAddToCartButton">
+      <div :class="{ 'display-none': !showAddToCartButton }">
         <slot
           name="add-to-cart"
           v-bind="{
@@ -68,9 +99,10 @@
             :aria-label="`Add to Cart ${title}`"
             :has-badge="showAddedToCartBadge"
             :disabled="addToCartDisabled"
+            data-testid="product-add-icon"
             @click="onAddToCart"
           >
-            <div class="sf-product-card__add-button--icons">
+            <span class="sf-product-card__add-button--icons">
               <transition
                 v-if="!isAddingToCart && !isAddedToCart"
                 name="sf-pulse"
@@ -95,25 +127,26 @@
                   />
                 </slot>
               </transition>
-            </div>
+            </span>
           </SfCircleIcon>
         </slot>
-      </template>
+      </div>
     </div>
     <slot name="title" v-bind="{ title, link }">
       <SfButton
         :link="link"
         class="sf-button--pure sf-product-card__link"
+        data-testid="product-link"
         v-on="$listeners"
       >
-        <h3 class="sf-product-card__title">
+        <span class="sf-product-card__title">
           {{ title }}
-        </h3>
+        </span>
       </SfButton>
     </slot>
     <slot name="price" v-bind="{ specialPrice, regularPrice }">
       <SfPrice
-        v-if="regularPrice"
+        :class="{ 'display-none': !regularPrice }"
         class="sf-product-card__price"
         :regular="regularPrice"
         :special="specialPrice"
@@ -121,18 +154,20 @@
     </slot>
     <slot name="reviews" v-bind="{ maxRating, scoreRating }">
       <div
-        v-if="typeof scoreRating === 'number'"
+        :class="{ 'display-none': !scoreRating }"
         class="sf-product-card__reviews"
       >
         <SfRating
+          v-if="typeof scoreRating === 'number'"
           class="sf-product-card__rating"
           :max="maxRating"
           :score="scoreRating"
         />
         <SfButton
-          v-if="reviewsCount"
+          :class="{ 'display-none': !reviewsCount }"
           :aria-label="`Read ${reviewsCount} reviews about ${title}`"
           class="sf-button--pure sf-product-card__reviews-count"
+          data-testid="product-review-button"
           @click="$emit('click:reviews')"
         >
           ({{ reviewsCount }})
@@ -150,6 +185,12 @@ import SfImage from "../../atoms/SfImage/SfImage.vue";
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfBadge from "../../atoms/SfBadge/SfBadge.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
+import SfColorPicker from "../../molecules/SfColorPicker/SfColorPicker.vue";
+import SfColor from "../../atoms/SfColor/SfColor.vue";
+import {
+  mapMobileObserver,
+  unMapMobileObserver,
+} from "../../../utilities/mobile-observer";
 export default {
   name: "SfProductCard",
   components: {
@@ -160,59 +201,41 @@ export default {
     SfCircleIcon,
     SfBadge,
     SfButton,
+    SfColorPicker,
+    SfColor,
   },
   props: {
-    /**
-     * Product image
-     * It should be an url of the product
-     */
     image: {
       type: [Array, Object, String],
       default: "",
     },
-    /**
-     * Product image width, without unit
-     */
     imageWidth: {
-      type: [String, Number],
+      type: Number,
       default: 216,
     },
-    /**
-     * Product image height, without unit
-     */
     imageHeight: {
-      type: [String, Number],
+      type: Number,
       default: 326,
     },
-    /**
-     * Badge label
-     */
     badgeLabel: {
       type: String,
       default: "",
     },
-    /**
-     * Badge color
-     * It can be according to our standard colors, or legitimate CSS color such as `#fff`, `rgb(255,255,255)`), and `lightgray` or nothing.
-     * Standard colors: `primary`, `secondary`, `white`, `black`, `accent`, `green-primary`, `green-secondary`, `gray-primary`, `gray-secondary`, `light-primary`, `light-secondary`, `pink-primary`, `pink-secondary`, `yellow-primary`, `yellow-secondary`, `blue-primary`, `blue-secondary`.
-     */
     badgeColor: {
       type: String,
       default: "",
     },
-    /**
-     * Product title
-     */
+    colors: {
+      type: Array,
+      default: () => [],
+    },
     title: {
       type: String,
       default: "",
     },
-    /**
-     * Link to product page
-     */
     link: {
       type: [String, Object],
-      default: "",
+      default: null,
     },
     /**
      * Link element tag
@@ -222,83 +245,46 @@ export default {
       type: String,
       default: undefined,
     },
-    /**
-     * Product rating
-     */
     scoreRating: {
       type: [Number, Boolean],
       default: false,
     },
-    /**
-     * Product reviews count
-     */
     reviewsCount: {
       type: [Number, Boolean],
       default: false,
     },
-    /**
-     * Maximum product rating
-     */
     maxRating: {
       type: [Number, String],
       default: 5,
     },
-    /**
-     * Product regular price
-     */
     regularPrice: {
       type: [Number, String],
       default: null,
     },
-    /**
-     * Product special price
-     */
     specialPrice: {
       type: [Number, String],
       default: null,
     },
-    /**
-     * Wish list icon
-     * This is the default icon for product not yet added to wish list.
-     * It can be a icon name from our icons list, or array or string as SVG path(s).
-     */
     wishlistIcon: {
       type: [String, Array, Boolean],
       default: "heart",
     },
-    /**
-     * Wish list icon for product which has been added to wish list
-     * This is the icon for product added to wish list. Default visible on mobile. Visible only on hover on desktop.
-     * It can be a icon name from our icons list, or array or string as SVG path(s).
-     */
-    isOnWishlistIcon: {
+    isInWishlistIcon: {
       type: [String, Array],
       default: "heart_fill",
     },
-    /**
-     * Status of whether product is on wish list or not
-     */
-    isOnWishlist: {
+    isInWishlist: {
       type: Boolean,
       default: false,
     },
-    /**
-     * Status of showing add to cart button
-     */
     showAddToCartButton: {
       type: Boolean,
       default: false,
     },
-    /**
-     * isAddedToCart status of whether button is showed, product is added or not
-     */
     isAddedToCart: {
       type: Boolean,
       deafult: false,
     },
-    /**
-     * addToCartDisabled status of whether button is disabled when out of stock
-     */
     addToCartDisabled: {
       type: Boolean,
       default: false,
@@ -307,9 +293,11 @@ export default {
   data() {
     return {
       isAddingToCart: false,
+      openColorPicker: false,
     };
   },
   computed: {
+    ...mapMobileObserver(),
     isSFColors() {
       return SF_COLORS.includes(this.badgeColor.trim());
     },
@@ -317,22 +305,28 @@ export default {
       return this.isSFColors ? `${this.badgeColor.trim()}` : "";
     },
     currentWishlistIcon() {
-      return this.isOnWishlist ? this.isOnWishlistIcon : this.wishlistIcon;
+      return this.isInWishlist ? this.isInWishlistIcon : this.wishlistIcon;
     },
     showAddedToCartBadge() {
       return !this.isAddingToCart && this.isAddedToCart;
     },
     ariaLabel() {
-      return this.isOnWishlist ? "Remove from wishlist" : "Add to wishlist";
+      return this.isInWishlist ? "Remove from wishlist" : "Add to wishlist";
     },
     wishlistIconClasses() {
       const defaultClass = "sf-button--pure sf-product-card__wishlist-icon";
-      return `${defaultClass} ${this.isOnWishlist ? "on-wishlist" : ""}`;
+      return `${defaultClass} ${this.isInWishlist ? "on-wishlist" : ""}`;
+    },
+    showBadge() {
+      return this.colors.length > 5;
     },
   },
+  beforeDestroy() {
+    unMapMobileObserver();
+  },
   methods: {
-    toggleIsOnWishlist() {
-      this.$emit("click:wishlist", !this.isOnWishlist);
+    toggleIsInWishlist() {
+      this.$emit("click:wishlist", !this.isInWishlist);
     },
     onAddToCart(event) {
       event.preventDefault();
@@ -341,6 +335,21 @@ export default {
         this.isAddingToCart = false;
       }, 1000);
       this.$emit("click:add-to-cart");
+    },
+    handleSelectedColor(colorIndex) {
+      if (this.colors.length > 0) {
+        this.colors.map((color, i) => {
+          if (colorIndex === i) {
+            this.$emit("click:colors", color);
+            if (this.isMobile) {
+              this.toggleColorPicker();
+            }
+          }
+        });
+      }
+    },
+    toggleColorPicker() {
+      this.openColorPicker = !this.openColorPicker;
     },
   },
 };

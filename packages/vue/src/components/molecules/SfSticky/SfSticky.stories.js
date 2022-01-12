@@ -2,6 +2,31 @@ import { SfSticky } from "@storefront-ui/vue";
 export default {
   title: "Components/Molecules/Sticky",
   component: SfSticky,
+  parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "sticky-position": { value: "", control: "text" },
+      "sticky-top": { value: "", control: "text" },
+      "sticky-bottom": { value: "", control: "text" },
+    },
+    // end of code generated automatically
+    docs: {
+      description: {
+        component: "Applies sticky property to the component.",
+      },
+    },
+  },
+  argTypes: {
+    default: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Place here all content that sticky property applies to",
+    },
+  },
   decorators: [
     () => ({
       template: `

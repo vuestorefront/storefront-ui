@@ -20,7 +20,7 @@
     @keyup.down="move(1)"
     @keyup.enter="enter($event)"
   >
-    <div style="position: relative;">
+    <div style="position: relative">
       <div
         ref="sfComponentSelect"
         v-focus
@@ -30,7 +30,10 @@
         v-html="html"
       ></div>
       <slot name="label">
-        <div v-if="label" class="sf-component-select__label">
+        <div
+          :class="{ 'display-none': !label }"
+          class="sf-component-select__label"
+        >
           {{ label }}
         </div>
       </slot>
@@ -52,13 +55,13 @@
           >
             <slot />
           </ul>
-          <slot name="cancel">
+          <slot name="cancel" v-bind="{ cancelLabel, closeHandler }">
             <SfButton
               ref="cancel"
               class="sf-component-select__cancel sf-button--full-width smartphone-only"
               @click="closeHandler"
             >
-              Cancel
+              {{ cancelLabel }}
             </SfButton>
           </slot>
         </div>
@@ -66,9 +69,8 @@
     </div>
     <div class="sf-component-select__error-message">
       <transition name="sf-fade">
-        <!-- @slot Custom error message of form select -->
-        <slot v-if="!valid" name="error-message" v-bind="{ errorMessage }">
-          <span> {{ errorMessage }} </span>
+        <slot name="error-message" v-bind="{ errorMessage }">
+          <span :class="{ 'display-none': valid }"> {{ errorMessage }} </span>
         </slot>
       </transition>
     </div>
@@ -96,61 +98,41 @@ export default {
     event: "change",
   },
   props: {
-    /**
-     * Select field label
-     */
     label: {
       type: String,
       default: "",
     },
-    /**
-     * Selected item value
-     */
     selected: {
       type: [String, Number, Object],
       default: "",
     },
-    /**
-     * Dropdown list size
-     */
     size: {
       type: Number,
       default: 5,
     },
-    /**
-     * Required attribute
-     */
     required: {
       type: Boolean,
       default: false,
     },
-    /**
-     * Validate value of form select
-     */
     valid: {
       type: Boolean,
       default: true,
     },
-    /**
-     * Disabled status of form select
-     */
     disabled: {
       type: Boolean,
       default: false,
     },
-    /**
-     * Error message value of form select. It will be appeared if `valid` is `true`.
-     */
     errorMessage: {
       type: String,
       default: "This field is not correct.",
     },
-    /**
-     * If true clicking outside will not dismiss the select
-     */
     persistent: {
       type: Boolean,
       default: false,
+    },
+    cancelLabel: {
+      type: String,
+      default: "Cancel",
     },
   },
   data() {
@@ -182,7 +164,7 @@ export default {
     },
     maxHeight() {
       if (!this.options.length) return;
-      return `${this.optionHeight * this.options.length}px`;
+      return `${this.optionHeight * (this.size + 0.5)}px`;
     },
     isActive() {
       return this.open;
@@ -276,6 +258,7 @@ export default {
     },
     closeHandler() {
       this.open = false;
+      this.$emit("click:close");
     },
   },
 };

@@ -1,0 +1,47 @@
+@import "../../helpers";
+.sf-my-profile {
+  .form {
+    @include for-desktop {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    &__element {
+      margin: 0 0 var(--spacer-lg) 0;
+      @include for-desktop {
+        flex: 0 0 100%;
+      }
+      &--half {
+        @include for-desktop {
+          flex: 1 1 50%;
+        }
+        &-even {
+          @include for-desktop {
+            padding: 0 0 0 var(--spacer-lg);
+          }
+        }
+      }
+    }
+    &__button {
+      --button-width: 100%;
+      @include for-desktop {
+        --button-width: 17.5rem;
+      }
+    }
+  }
+  .message {
+    margin: 0 0 var(--spacer-xl) 0;
+    color: var(--c-dark-variant);
+  }
+  .notice {
+    margin: var(--spacer-base) 0 0 0;
+    font-size: var(--font-size--sm);
+  }
+  a {
+    color: var(--c-primary);
+    text-decoration: none;
+    &:hover {
+      color: var(--c-text);
+    }
+  }
+}

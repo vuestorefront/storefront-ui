@@ -1,12 +1,12 @@
 @import "../helpers";
-:root {
+html {
   // font-family
   --font-family--primary: "Roboto", serif;
   --font-family--secondary: "Raleway", sans-serif;
   //font-weight
   --font-weight--light: 300;
   --font-weight--normal: 400;
-  --font-weight--medium: 500;	
+  --font-weight--medium: 500;
   --font-weight--semibold: 600;
   --font-weight--bold: 700;
   // font-size
@@ -28,5 +28,5 @@
     --h4-font-size: 1.25rem; //20px
     --h5-font-size: var(--font-size--base); //16px
     --h6-font-size: var(--font-size--sm); //14px
-  }	  
+  }
 }

@@ -121,16 +121,18 @@ export default {
   },
   directives: { clickOutside },
   props: {
-    /**
-     * Header logo
-     */
     logo: {
       type: [String, Object],
       default: "",
     },
-    /**
-     * Header title
-     */
+    logoHeight: {
+      type: Number,
+      default: 35,
+    },
+    logoWidth: {
+      type: Number,
+      default: 34,
+    },
     title: {
       type: String,
       default: "",
@@ -158,16 +160,10 @@ export default {
       type: Number,
       default: 0,
     },
-    /**
-     * Header search placeholder
-     */
     searchPlaceholder: {
       type: String,
       default: "Search for items",
     },
-    /**
-     * Header search phrase
-     */
     searchValue: {
       type: String,
       default: "",
@@ -178,6 +174,14 @@ export default {
     openSidebar: {
       type: [Boolean, String],
       default: true,
+    },
+    wishlistItemsQty: {
+      type: [String, Number],
+      default: "0",
+    },
+    cartItemsQty: {
+      type: [String, Number],
+      default: "0",
     },
   },
   data() {

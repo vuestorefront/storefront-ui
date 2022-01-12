@@ -6,7 +6,6 @@
       'sf-sticky--bound': isBound,
     }"
   >
-    <!-- @slot -->
     <slot />
   </div>
 </template>

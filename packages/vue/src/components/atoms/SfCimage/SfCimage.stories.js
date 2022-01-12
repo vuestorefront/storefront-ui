@@ -3,34 +3,40 @@ import { placeholderTypes } from "./helpers";
 import { RESIZE_TYPES } from "@cld-apis/utils";
 
 export default {
-  title: "Components/Atoms/Cloudinary/Image",
+  title: "Getting Started/Integrations/Cloudinary/Image",
   component: SfCimage,
   decorators: [
     () => ({
       template: `<div>
-  <div style="margin-bottom: 1rem; font-family: var(--font-family--primary)">
-    <p>This is the image component with <a href="https://cloudinary.com">Cloudinary</a> image optimization support.</p>
-    <p>To optimize the image on demand, see <a href="https://cloudinary-build-url.netlify.app/transformations/basic">Cloudinary url options docs</a> for the full API syntax.</p>
-  </div>
-  <story />
-</div>`,
+        <div style="margin-bottom: 1rem; font-family: var(--font-family--primary)">
+          <p>This is the image component with <a href="https://cloudinary.com">Cloudinary</a> image optimization support.</p>
+          <p>To optimize the image on demand, see <a href="https://cloudinary-build-url.netlify.app/transformations/basic">Cloudinary url options docs</a> for the full API syntax.</p>
+        </div>
+        <story />
+      </div>`,
     }),
   ],
   parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {},
+    // end of code generated automatically
     docs: {
+      description: {
+        component: "The image component to use with Cloudinary.",
+      },
       source: {
         code: `
-<template>
-  <SfCimage
-    :public-id="publicId"
-    :cloud="cloud"
-    :transformations="transformations"
-    :placeholder="placeholder"
-    :loading="loading"
-    :progressive="progressive"
-    :alt="alt"
-  />
-</template>`,
+          <template>
+            <SfCimage
+              :public-id="publicId"
+              :cloud="cloud"
+              :transformations="transformations"
+              :placeholder="placeholder"
+              :loading="loading"
+              :progressive="progressive"
+              :alt="alt"
+            />
+          </template>`,
       },
     },
   },
@@ -53,13 +59,19 @@ export default {
       control: "object",
       table: {
         category: "Props",
+        type: {
+          summary: "array",
+        },
       },
+      description: "Transformations of image.",
+      defaultValue: [],
     },
     progressive: {
       control: "boolean",
       table: {
         category: "Props",
       },
+      defaultValue: false,
       description:
         "Whether to generate a JPEG using the progressive (interlaced) JPEG format.",
     },

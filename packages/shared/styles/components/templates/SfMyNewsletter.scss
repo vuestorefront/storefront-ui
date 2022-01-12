@@ -1,0 +1,45 @@
+@import "../../helpers";
+.sf-my-newsletter {
+  .tab-orphan {
+    @include for-mobile {
+      --tabs-title-display: none;
+      --tabs-content-padding: 0;
+      --tabs-content-border-width: 0;
+    }
+  }
+  .form {
+    &__element {
+      margin: 0 0 var(--spacer-base) 0;
+      &:last-child {
+        margin: 0;
+      }
+    }
+    &__checkbox-group {
+      margin: 0 0 var(--spacer-xl) 0;
+    }
+    &__title {
+      margin: 0 0 var(--spacer-base) 0;
+    }
+    &__button {
+      --button-width: 100%;
+      @include for-desktop {
+        --button-width: 17.5rem;
+      }
+    }
+  }
+  .message {
+    margin: 0 0 var(--spacer-xl) 0;
+    color: var(--c-dark-variant);
+  }
+  a {
+    color: var(--c-primary);
+    text-decoration: none;
+    &:hover {
+      color: var(--c-text);
+    }
+  }
+  .notice {
+    margin: var(--spacer-base) 0 0 0;
+    font-size: var(--font-size--xs);
+  }
+}

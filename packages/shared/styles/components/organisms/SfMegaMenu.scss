@@ -62,7 +62,7 @@
   @include for-desktop {
     --mega-menu-height: auto;
   }
-  &__bar {
+  &__bar.sf-bar {
     display: var(--mega-menu-bar-display, flex);
     @include for-desktop {
       display: var(--mega-menu-bar-display, none);

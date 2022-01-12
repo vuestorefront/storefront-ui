@@ -9,10 +9,11 @@
       :placeholder="placeholder"
       v-on="listeners"
     />
-    <!-- @slot -->
     <slot name="icon">
       <SfButton
         class="sf-search-bar__button sf-button--pure"
+        type="button"
+        aria-label="Search"
         @click="$emit('click', value)"
       >
         <span v-if="icon" class="sf-search-bar__icon">
@@ -34,23 +35,14 @@ export default {
   components: { SfIcon, SfButton },
   inheritAttrs: false,
   props: {
-    /**
-     * Text for placeholder
-     */
     placeholder: {
       type: String,
       default: "",
     },
-    /**
-     * Value that will be displayed in search bar
-     */
     value: {
       type: [Number, String],
       default: null,
     },
-    /**
-     * Object to define icon look. Should have values for color and size
-     */
     icon: {
       type: Object,
       default: () => ({}),

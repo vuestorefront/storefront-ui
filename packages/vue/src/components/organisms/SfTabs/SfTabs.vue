@@ -1,6 +1,5 @@
 <template>
   <div v-show="initialTabActivated" class="sf-tabs">
-    <!--@slot Default. Here you should pass your tabs-->
     <slot />
   </div>
 </template>
@@ -12,22 +11,18 @@ Vue.component("SfTab", SfTab);
 export default {
   name: "SfTabs",
   props: {
-    /** Which tab should be open  */
     openTab: {
       type: Number,
       default: 1,
     },
-    /** Max height of visible content  */
     tabMaxContentHeight: {
       type: String,
       default: "",
     },
-    /** Text for button showing content  */
     tabShowText: {
       type: String,
       default: "show",
     },
-    /** Text for button hiding content  */
     tabHideText: {
       type: String,
       default: "hide",
@@ -35,6 +30,7 @@ export default {
   },
   data() {
     return {
+      tabs: [],
       initialTabActivated: false,
     };
   },
@@ -46,20 +42,20 @@ export default {
   },
   mounted() {
     this.$on("toggle", this.toggle);
+    this.tabs.push(...this.$children);
     if (this.openTab) this.openChild();
   },
   methods: {
     toggle(id) {
-      this.$children.forEach((child) => {
-        child.isActive = child._uid === id;
+      this.tabs.forEach((tab) => {
+        tab.isActive = tab._uid === id;
       });
-      const activeTab =
-        this.$children.findIndex((child) => child.isActive === true) + 1;
+      const activeTab = this.tabs.findIndex((tab) => tab.isActive === true) + 1;
       this.$emit("click:tab", activeTab);
     },
     openChild() {
       if (this.openTab < this.$children.length + 1) {
-        this.$children[this.openTab - 1].isActive = true;
+        this.tabs[this.openTab - 1].isActive = true;
         this.initialTabActivated = true;
       }
     },
