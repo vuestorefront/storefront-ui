@@ -1,6 +1,7 @@
 <template>
   <div
     v-click-outside="checkPersistence"
+    v-will-change="'font-size'"
     :aria-expanded="open.toString()"
     :aria-owns="'lbox_' + _uid"
     :aria-label="label"
@@ -31,9 +32,8 @@
       ></div>
       <slot name="label">
         <div
-          v-will-change="'font-size'"
           :class="{ 'display-none': !label }"
-          class="sf-component-select__label"
+          class="sf-component-select__label sf-label"
         >
           {{ label }}
         </div>

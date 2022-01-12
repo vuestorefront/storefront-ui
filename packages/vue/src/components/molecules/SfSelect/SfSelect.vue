@@ -1,5 +1,6 @@
 <template>
   <div
+    v-will-change="'font-size'"
     class="sf-select"
     :class="{
       'is-selected': value || placeholder,
@@ -8,7 +9,7 @@
       'is-invalid': !valid,
     }"
   >
-    <label v-will-change="'font-size'" :for="label" class="sf-select__label">
+    <label :for="label" class="sf-select__label sf-label">
       <slot name="label" :label="label">
         {{ label }}
       </slot>

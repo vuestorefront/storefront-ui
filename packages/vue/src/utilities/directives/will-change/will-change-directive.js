@@ -2,11 +2,12 @@ export const willChange = {
   bind(el, binding) {
     binding.name = "will-change";
     el._willChangeActive = function () {
-      console.log(binding.value);
-      el.style.willChange = binding.value;
+      const label = el.getElementsByClassName("sf-label");
+      label[0].style.willChange = binding.value;
     };
     el._willChangeAuto = function () {
-      el.style.willChange = "auto";
+      const label = el.getElementsByClassName("sf-label");
+      label[0].style.willChange = "auto";
     };
     el.addEventListener("mouseenter", el._willChangeActive);
     el.addEventListener("transitionend", el._willChangeAuto);
