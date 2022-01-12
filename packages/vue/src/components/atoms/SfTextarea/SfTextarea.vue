@@ -42,7 +42,6 @@
 </template>
 <script>
 import { focus } from "../../../utilities/directives";
-
 export default {
   name: "SfTextarea",
   directives: {
