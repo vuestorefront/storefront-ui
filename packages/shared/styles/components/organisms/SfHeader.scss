@@ -8,7 +8,7 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  padding: 0;
+  padding: var(--spacer-2xs);
   background: var(--c-white);
   z-index: 1;
   @include for-desktop {
@@ -79,7 +79,7 @@
     text-decoration: none; 
     @include border(
       --header-menu-item-border, 
-      0 0 1px 0, 
+      0 0 2px 0, 
       solid, 
       transparent
     );

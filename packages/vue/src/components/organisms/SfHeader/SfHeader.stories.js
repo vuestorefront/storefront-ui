@@ -179,6 +179,8 @@ export default {
     },
     // end of code generated automatically
     docs: {
+      inlineStories: false,
+      iframeHeight: "600px",
       description: {
         component:
           "Grouped Product component. Built from main component - SfHeader and internal components - SfHeaderNavigation and SfHeaderNavigationItem.",
@@ -200,7 +202,7 @@ export default {
     logo: {
       control: "text",
       table: {
-        category: "Props for main component",
+        category: "Props",
         type: {
           summary: ["string", "object"],
         },
@@ -213,7 +215,7 @@ export default {
     logoHeight: {
       control: "number",
       table: {
-        category: "Props for main component",
+        category: "Props",
       },
       defaultValue: 35,
       description: "Header logo height",
@@ -221,7 +223,7 @@ export default {
     logoWidth: {
       control: "number",
       table: {
-        category: "Props for main component",
+        category: "Props",
       },
       defaultValue: 34,
       description: "Header logo width",
@@ -229,14 +231,14 @@ export default {
     title: {
       control: "text",
       table: {
-        category: "Props for main component",
+        category: "Props",
       },
       description: "Header title",
     },
     menuItems: {
       control: "object",
       table: {
-        category: "Props for main component",
+        category: "Props",
         defaultValue: {
           summary: "empty_cart",
         },
@@ -247,7 +249,7 @@ export default {
     icons: {
       control: "array",
       table: {
-        category: "Props for main component",
+        category: "Props",
         defaultValue: {
           summary: "heart",
         },
@@ -258,18 +260,18 @@ export default {
     activeIcon: {
       control: "number",
       table: {
-        category: "Props for main component",
+        category: "Props",
         defaultValue: {
           summary: "account",
         },
       },
       defaultValue: "account",
-      description: "Header activeIcon (accepts account, wishlist and cart)",
+      description: "Number of active icon item (counted from 0)",
     },
     searchPlaceholder: {
       control: "text",
       table: {
-        category: "Props for main component",
+        category: "Props",
         defaultValue: {
           summary: "Search for items",
         },
@@ -280,152 +282,120 @@ export default {
     searchValue: {
       control: "number",
       table: {
-        category: "Props for main component",
+        category: "Props",
       },
       defaultValue: "",
       description: "Header search phrase",
     },
     openSidebar: {
-      control: "string",
-      cartItemsQty: {
-        control: "number",
-        table: {
-          category: "Props for main component",
-          defaultValue: {
-            summary: 0,
-          },
+      control: "text",
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: "false",
         },
-        defaultValue: 0,
-        description: "Header cart items quantity",
       },
-      wishlistItemsQty: {
-        control: "number",
-        table: {
-          category: "Props for main component",
-          defaultValue: {
-            summary: 0,
-          },
+      defaultValue: false,
+      description: "Opens sidebar on mobile view",
+    },
+    close: {
+      action: "change:search event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description:
+        "Emits change:search event when searchbar value is changed",
+    },
+    "mouseenter:button": {
+      action: "change:search event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description:
+        "Emits change:search event when searchbar value is changed",
+    },
+    "mouseleave:button": {
+      action: "change:search event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description:
+        "Emits change:search event when searchbar value is changed",
+    },
+    "change:search": {
+      action: "change:search event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description:
+        "Emits change:search event when searchbar value is changed",
+    },
+    "enter:search": {
+      action: "enter:search event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits enter:search event when enter key is pressed",
+    },
+    "click:icon": {
+      action: "click:icon event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits click:icon event when icon is clicked",
+    },
+    "click:button": {
+      action: "click:button event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits click:button event when navigation button is clicked",
+    },
+    "logo ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
         },
-        defaultValue: 0,
-        description: "Header wishlist items quantity",
       },
-      "change:search": {
-        action: "change:search event emitted",
-        table: { category: "Events", type: { summary: null } },
-        description:
-          "Emits change:search event when searchbar value is changed",
-      },
-      "enter:search": {
-        action: "enter:search event emitted",
-        table: { category: "Events", type: { summary: null } },
-        description: "Emits enter:search event when enter key is pressed",
-      },
-      "click:cart": {
-        action: "click:cart event emitted",
-        table: { category: "Events", type: { summary: null } },
-        description: "Emits click:cart event when cart button is clicked",
-      },
-      "click:wishlist": {
-        action: "click:wishlist event emitted",
-        table: { category: "Events", type: { summary: null } },
-        description:
-          "Emits click:wishlist event when wishlist button is clicked",
-      },
-      "click:account": {
-        action: "click:account event emitted",
-        table: { category: "Events", type: { summary: null } },
-        description: "Emits click:account event when account button is clicked",
-      },
-      "logo ": {
-        table: {
-          category: "Slots",
-          type: {
-            summary: null,
-          },
+      description:
+        "Named slot for `SfHeader` component. Use this slot to replace logo element",
+    },
+    aside: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
         },
-        description:
-          "Named slot for `SfHeader` component. Use this slot to replace logo element",
       },
-      aside: {
-        table: {
-          category: "Slots",
-          type: {
-            summary: null,
-          },
+      description:
+        "Named slot for `SfHeader` component. Use this slot to pass aside content for example language or currency selector",
+    },
+    navigation: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
         },
-        description:
-          "Named slot for `SfHeader` component. Use this slot to pass aside content for example language or currency selector",
       },
-      navigation: {
-        table: {
-          category: "Slots",
-          type: {
-            summary: null,
-          },
+      description:
+        "Named slot for `SfHeader` component. Use this slot to pass navigation elements",
+    },
+    search: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
         },
-        description:
-          "Named slot for `SfHeader` component. Use this slot to pass navigation elements",
       },
-      search: {
-        table: {
-          category: "Slots",
-          type: {
-            summary: null,
-          },
+      description:
+        "Named slot for `SfHeader` component. Use this slot to pass search element",
+    },
+    "header-icons": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
         },
-        description:
-          "Named slot for `SfHeader` component. Use this slot to pass search element",
       },
-      "header-icons": {
-        table: {
-          category: "Slots",
-          type: {
-            summary: null,
-          },
+      description:
+        "Named slot for `SfHeader` component. Use this slot to replace default icons",
+    },
+    default: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
         },
-        description:
-          "Named slot for `SfHeader` component. Use this slot to replace default icons",
       },
-      default: {
-        table: {
-          category: "Slots",
-          type: {
-            summary: null,
-          },
-        },
-        description:
-          "Default slot for `SfHeaderNavigation` component. Use this slot to place navigation elements",
-      },
-      "default ": {
-        table: {
-          category: "Slots",
-          type: {
-            summary: null,
-          },
-        },
-        description:
-          "Default slot for `SfHeaderNavigationItem` component. Use this slot to place navigation items",
-      },
-      "desktop-navigation-item": {
-        table: {
-          category: "Slots",
-          type: {
-            summary: null,
-          },
-        },
-        description:
-          "Named slot for `SfHeaderNavigationItem` component. Use this slot to place desktop navigation",
-      },
-      "mobile-navigation-item": {
-        table: {
-          category: "Slots",
-          type: {
-            summary: null,
-          },
-        },
-        description:
-          "Named slot for `SfHeaderNavigationItem` component. Use this slot to place mobile navigation",
-      },
+      description:
+        "Default slot for `SfHeaderNavigation` component. Use this slot to place navigation elements",
     },
   },
 };
@@ -437,6 +407,7 @@ const Template = (args, { argTypes }) => ({
     return {
       searchValues: "",
       activeSidebar: "",
+      activeButton: this.activeIcon,
     };
   },
   watch: {
@@ -456,25 +427,28 @@ const Template = (args, { argTypes }) => ({
       this.searchValues = value;
       this["change:search"](value);
     },
+    acitveIconHandler(icon) {      
+      this["click:icon"](icon);
+      this.activeButton = icon;
+    }
   },
   template: `
-  <SfHeader
-    :class="classes"
-    :title="title"
-    :logo="logo"
-    :menuItems="menuItems"
-    :active-icon="activeIcon"
-    :search-placeholder="searchPlaceholder"
-    :search-value="searchValues"
-    :open-sidebar="activeSidebar"
-    @click:icon-0="this['click:cart']"
-    @click:icon-1="this['click:wishlist']"
-    @click:icon-2="this['click:account']"
-    @close="activeSidebar = false"
-    @change:search="changeHandler"
-    @enter:search="this['enter:search']"
->
-</SfHeader>`,
+    <SfHeader
+      :class="classes"
+      :title="title"
+      :logo="logo"
+      :menuItems="menuItems"
+      :active-icon="activeButton"
+      :search-placeholder="searchPlaceholder"
+      :search-value="searchValues"
+      :open-sidebar="activeSidebar"
+      @click:icon="acitveIconHandler"
+      @close="activeSidebar = false"
+      @change:search="changeHandler"
+      @enter:search="this['enter:search']"
+      @click:button="this['click:button']"
+    >
+    </SfHeader>`,
 });
 
 export const Common = Template.bind({});
@@ -505,6 +479,8 @@ export const WithSfHeaderNavigation = (args, { argTypes }) => ({
       currentCategory: this.openSidebar,
       buttons: this.menuItems.map((item) => item.title),
       categories: this.menuItems,
+      searchValues: "",
+      activeButton: this.activeIcon,
       banners: [
         {
           title: "THE OFFICE LIFE",
@@ -545,6 +521,14 @@ export const WithSfHeaderNavigation = (args, { argTypes }) => ({
         return (this.currentCategory = event);
       }
     },
+    changeHandler(value) {
+      this.searchValues = value;
+      this["change:search"](value);
+    },
+    acitveIconHandler(icon) {
+      this["click:icon"](icon);
+      this.activeButton = icon;
+    }
   },
   template: `
   <div>
@@ -556,11 +540,14 @@ export const WithSfHeaderNavigation = (args, { argTypes }) => ({
       :logo="shopLogo"
       :title="shopName"
       :menuItems="buttons"
-      :active-icon=0
+      :active-icon="activeButton"
       :open-sidebar="currentCategory === 'sidebar'"
       @mouseenter:button="currentCategoryToggle($event)"           
       @click:button="currentCategoryToggle($event)"      
       @close="currentCategoryToggle('')"
+      @click:icon="acitveIconHandler"
+      @change:search="changeHandler"
+      @enter:search="this['enter:search']"
     >    
       <template 
         v-for="(category, index) in categories"

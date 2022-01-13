@@ -14,11 +14,17 @@
     <div class="sf-header__actions">
       <nav class="sf-header__navigation">
         <slot name="navigation">
-          <div v-if="!isVisibleOnMobile" class="sf-header__menu">
+          <div
+            class="sf-header__menu"
+            :class="{ 'display-none': isVisibleOnMobile }"
+          >
             <SfButton
               v-for="(item, i) in menuItems"
               :key="`button-menu-item-${i}`"
-              class="sf-header__menu-item sf-header__menu-item--desktop sf-button--pure"
+              class="
+                sf-header__menu-item sf-header__menu-item--desktop
+                sf-button--pure
+              "
               v-on="$listeners"
               @mouseenter="$emit('mouseenter:button', item)"
               @mouseleave="$emit('mouseleave:button', '')"
@@ -61,7 +67,7 @@
           aria-label="Search"
           class="sf-header__search"
           @input="$emit('change:search', $event)"
-          @enter="$emit('enter:search', $event)"
+          @keyup.enter="$emit('enter:search', $event)"
         />
       </slot>
       <!--@slot Use this slot to replace default header icons with custom content-->
@@ -78,15 +84,18 @@
             v-for="(icon, item) in icons"
             :key="`icon-${item}`"
             class="sf-button--pure sf-header__action"
-            data-testid="'icon-' + item"
-            @click="$emit(`click:icon-${item}`)"
+            :class="`icon-${item}`"
+            :data-testid="`icon-${item}`"
+            @click="$emit('click:icon', item)"
           >
-            <SfIcon
-              :icon="icon"
-              size="1.25rem"
-              class="sf-header__icon"
-              :class="{ 'is-active': activeIcon === item }"
-            />
+            <slot :name="`icon-${item}`" v-bind="{ activeIcon }">
+              <SfIcon
+                :icon="icon"
+                size="1.25rem"
+                class="sf-header__icon"
+                :class="{ 'is-active': activeIcon === item }"
+              />
+            </slot>
           </SfButton>
         </div>
       </slot>
@@ -168,20 +177,9 @@ export default {
       type: String,
       default: "",
     },
-    /**
-     * Open sidebar on mobile view
-     */
     openSidebar: {
       type: [Boolean, String],
       default: true,
-    },
-    wishlistItemsQty: {
-      type: [String, Number],
-      default: "0",
-    },
-    cartItemsQty: {
-      type: [String, Number],
-      default: "0",
     },
   },
   data() {
