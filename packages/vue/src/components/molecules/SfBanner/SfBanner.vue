@@ -38,16 +38,7 @@
         </SfButton>
       </slot>
     </component>
-    <slot name="img-tag">
-      <SfImage          
-        class="sf-banner__image"
-        :class="{ 'display-none': !imageTag }"
-        :src="image"
-        :alt="title"
-        :image-tag="imageTag"
-        :nuxt-img-config="nuxtImgConfig"
-      />
-    </slot>
+    <slot name="img-tag" />
   </section>
 </template>
 <script>
@@ -94,9 +85,21 @@ export default {
       type: [String, Object],
       default: "",
     },
+    alt: {
+      type: String,
+      default: null,
+    },
+    imageWidth: {
+      type: Number,
+      default: null,
+    },
+    imageHeight: {
+      type: Number,
+      default: null,
+    },
     imageTag: {
       type: String,
-      default: "",
+      default: null,
     },
     nuxtImgConfig: {
       type: Object,
@@ -111,9 +114,19 @@ export default {
   computed: {
     ...mapMobileObserver(),
     style() {
-      if (this.imageTag) return;
       const image = this.image;
       const background = this.background;
+      const nuxtImgConvert = (imgUrl) => {
+        return `url(${this.$img(imgUrl, this.nuxtImgConfig)})`;
+      }      
+      if (this.imageTag === "nuxt-img" || this.imageTag === "nuxt-picture") 
+      {
+        return {
+          "--_banner-background-image": image.mobile ? nuxtImgConvert(image.mobile) : nuxtImgConvert(image),
+          "--_banner-background-desktop-image": image.desktop && nuxtImgConvert(image.desktop),
+          "--_banner-background-color": background,
+        }
+      };      
       return {
         "--_banner-background-image": image.mobile
           ? `url(${image.mobile})`

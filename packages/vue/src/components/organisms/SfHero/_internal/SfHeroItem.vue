@@ -20,16 +20,7 @@
           </SfButton>
         </div>
       </slot>
-      <slot name="withImgTag">
-        <SfImage
-          class="sf-hero-item__image"
-          :class="{ 'display-none': !imageTag }"
-          :src="image"
-          :alt="title"
-          :image-tag="imageTag"
-          :nuxt-img-config="nuxtImgConfig"
-        />
-      </slot>
+      <slot name="withImgTag" />
     </component>
   </li>
 </template>
@@ -73,6 +64,18 @@ export default {
       type: String,
       default: null,
     },
+    alt: {
+      type: String,
+      default: null,
+    },
+    imageWidth: {
+      type: Number,
+      default: null,
+    },
+    imageHeight: {
+      type: Number,
+      default: null,
+    },
     imageTag: {
       type: String,
       default: "",
@@ -90,10 +93,22 @@ export default {
   computed: {
     ...mapMobileObserver(),
     style() {
-      if (this.imageTag) return;
       const image = this.image;
       const isImageString = typeof image === "string";
       const background = this.background;
+      const nuxtImgConvert = (imgUrl) => {
+        return `url(${this.$img(imgUrl, this.nuxtImgConfig)})`;
+      };
+      if (this.imageTag === "nuxt-img" || this.imageTag === "nuxt-picture") {
+        return {
+          "background-image": isImageString
+            ? nuxtImgConvert(image)
+            : this.mobileView
+            ? nuxtImgConvert(image.mobile)
+            : nuxtImgConvert(image.desktop),
+          "--_banner-background-color": background,
+        };
+      }
       return {
         "background-image": isImageString
           ? `url(${image})`
