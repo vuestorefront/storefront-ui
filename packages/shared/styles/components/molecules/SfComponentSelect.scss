@@ -147,6 +147,9 @@
     --component-select-border-width: 0 0 1px 0;
     --component-select-border-color: var(--c-link);
   }
+  &--label-right {
+    --component-select-label-left: 85%;
+  }
   &.is-selected {
     --component-select-label-top: 0;
     --component-select-label-font-size: var(--font-size--xs);
