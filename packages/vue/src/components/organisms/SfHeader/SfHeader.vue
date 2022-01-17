@@ -4,7 +4,12 @@
     <slot name="logo" v-bind="{ logo, title }">
       <SfLink link="/">
         <SfImage v-if="logo" :src="logo" :alt="title" class="sf-header__logo" />
-        <h1 v-else class="sf-header__title">{{ title }}</h1>
+        <SfHeading
+          v-else
+          :title="title"
+          :level="1"
+          class="sf-header__title"
+        ></SfHeading>
       </SfLink>
     </slot>
     <div class="sf-header__aside">
@@ -116,6 +121,7 @@ import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfLink from "../../atoms/SfLink/SfLink.vue";
 import SfSidebar from "../../organisms/SfSidebar/SfSidebar";
 import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem";
+import SfHeading from "../../atoms/SfHeading/SfHeading.vue";
 
 export default {
   name: "SfHeader",
@@ -127,6 +133,7 @@ export default {
     SfLink,
     SfSidebar,
     SfMenuItem,
+    SfHeading,
   },
   directives: { clickOutside },
   props: {
@@ -178,8 +185,8 @@ export default {
       default: "",
     },
     openSidebar: {
-      type: [Boolean, String],
-      default: true,
+      type: String,
+      default: "",
     },
   },
   data() {

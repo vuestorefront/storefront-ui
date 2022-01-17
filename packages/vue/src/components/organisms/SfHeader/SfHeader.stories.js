@@ -287,8 +287,8 @@ export default {
       defaultValue: "",
       description: "Header search phrase",
     },
-    openSidebar: {
-      control: "text",
+    isSidebarOpen: {
+      control: "boolean",
       table: {
         category: "Props",
         defaultValue: {
@@ -297,6 +297,17 @@ export default {
       },
       defaultValue: false,
       description: "Opens sidebar on mobile view",
+    },
+    openSidebar: {
+      control: "text",
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: "",
+        },
+      },
+      defaultValue: "",
+      description: "Opens menu in sidebar on mobile view",
     },
     close: {
       action: "change:search event emitted",
@@ -410,18 +421,6 @@ const Template = (args, { argTypes }) => ({
       activeButton: this.activeIcon,
     };
   },
-  watch: {
-    openSidebar: {
-      handler(newValue) {
-        if (newValue === true) {
-          this.activeSidebar = "sidebar";
-        } else {
-          this.activeSidebar = newValue;
-        }
-      },
-      immediate: true,
-    },
-  },
   methods: {
     changeHandler(value) {
       this.searchValues = value;
@@ -443,7 +442,7 @@ const Template = (args, { argTypes }) => ({
       :search-value="searchValues"
       :open-sidebar="activeSidebar"
       @click:icon="acitveIconHandler"
-      @close="activeSidebar = false"
+      @close="activeSidebar = ''"
       @change:search="changeHandler"
       @enter:search="this['enter:search']"
       @click:button="this['click:button']"
@@ -598,12 +597,14 @@ export const WithSfHeaderNavigation = (args, { argTypes }) => ({
         </SfMegaMenu>
       </template>
     </SfHeader>
-    <SfBottomNavigation>
-      <SfBottomNavigationItem
+    <SfBottomNavigation
+      class="smartphone-only"
+    >
+      <SfBottomNavigationItem        
         :icon="'menu'"
         :label="'Menu'"
         icon-size="20px"
-        @click="currentCategoryToggle('sidebar')"
+        @click="currentCategoryToggle('sidebar')"        
       />
     </SfBottomNavigation>
   </div>`,
