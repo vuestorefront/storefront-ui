@@ -64,18 +64,6 @@ export default {
       type: String,
       default: null,
     },
-    alt: {
-      type: String,
-      default: null,
-    },
-    imageWidth: {
-      type: Number,
-      default: null,
-    },
-    imageHeight: {
-      type: Number,
-      default: null,
-    },
     imageTag: {
       type: String,
       default: "",
