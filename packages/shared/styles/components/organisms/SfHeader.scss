@@ -100,7 +100,7 @@
       }    
     }
     &--mobile {
-      --header-menu-item-border-color: var(--c-light); 
+      border-color: var(--c-light); 
       --menu-item-icon-margin: 0 var(--spacer-lg) 0 0;
       padding: var(--spacer-sm);
       width: 100%; 
