@@ -27,7 +27,6 @@
 <script>
 import SfButton from "../../../atoms/SfButton/SfButton.vue";
 import SfLink from "../../../atoms/SfLink/SfLink.vue";
-import SfImage from "../../../atoms/SfImage/SfImage.vue";
 import {
   mapMobileObserver,
   unMapMobileObserver,
@@ -37,7 +36,6 @@ export default {
   components: {
     SfButton,
     SfLink,
-    SfImage,
   },
   props: {
     title: {

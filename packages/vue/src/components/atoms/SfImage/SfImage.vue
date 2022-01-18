@@ -15,7 +15,7 @@
       v-on="$listeners"
     />
     <img
-      :class="{ 'display-none': togglePlaceholder }"
+      :class="{ 'display-none': isPlaceholderVisible }"
       class="sf-image--placeholder"
       :src="placeholder"
       alt="Placeholder"
@@ -151,8 +151,9 @@ export default {
     imageComponentTag() {
       return !this.$nuxt ? "img" : this.imageTag;
     },
-    togglePlaceholder() {
+    isPlaceholderVisible() {
       return (
+        this.imageComponentTag !== "" ||
         this.imageComponentTag !== "img" ||
         this.loaded ||
         (this.loaded && this.placeholder)
@@ -181,7 +182,7 @@ export default {
     },
   },
   created() {
-    if (this.imageComponentTag !== "img") this.loaded = true;
+    if (this.imageComponentTag !== "img" || this.imageComponentTag !== "") this.loaded = true;
   },
   methods: {
     onLoad() {

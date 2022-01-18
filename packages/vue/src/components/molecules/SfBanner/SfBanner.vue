@@ -44,7 +44,6 @@
 <script>
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfLink from "../../atoms/SfLink/SfLink.vue";
-import SfImage from "../../atoms/SfImage/SfImage.vue";
 import {
   mapMobileObserver,
   unMapMobileObserver,
@@ -54,7 +53,6 @@ export default {
   components: {
     SfButton,
     SfLink,
-    SfImage,
   },
   props: {
     title: {
@@ -106,15 +104,17 @@ export default {
       const background = this.background;
       const nuxtImgConvert = (imgUrl) => {
         return `url(${this.$img(imgUrl, this.nuxtImgConfig)})`;
-      }      
-      if (this.imageTag === "nuxt-img" || this.imageTag === "nuxt-picture") 
-      {
+      };
+      if (this.imageTag === "nuxt-img" || this.imageTag === "nuxt-picture") {
         return {
-          "--_banner-background-image": image.mobile ? nuxtImgConvert(image.mobile) : nuxtImgConvert(image),
-          "--_banner-background-desktop-image": image.desktop && nuxtImgConvert(image.desktop),
+          "--_banner-background-image": image.mobile
+            ? nuxtImgConvert(image.mobile)
+            : nuxtImgConvert(image),
+          "--_banner-background-desktop-image":
+            image.desktop && nuxtImgConvert(image.desktop),
           "--_banner-background-color": background,
-        }
-      };      
+        };
+      }
       return {
         "--_banner-background-image": image.mobile
           ? `url(${image.mobile})`
