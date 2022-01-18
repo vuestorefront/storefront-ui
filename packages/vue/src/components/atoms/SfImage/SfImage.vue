@@ -165,10 +165,10 @@ export default {
             sizes: this.sizes,
             width: this.width
               ? this.width
-              : console.error(`Missing required prop width.`),
+              : !this.srcset && console.error(`Missing required prop width.`),
             height: this.height
               ? this.height
-              : console.error(`Missing required prop height.`),
+              : !this.srcset && console.error(`Missing required prop height.`),
             srcset: this.srcset,
           }
         : {
