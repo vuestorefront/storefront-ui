@@ -53,11 +53,11 @@
     color: var(--component-select-label-color, var(--c-secondary-variant));
     transform: var(
       --component-select-label-transform,
-      translate3d(0, calc(-1 * var(--component-select-label-top, 50%)), 0)
+      translate3d(0, -50%, 0)
     );
     transition: var(
       --component-select-label-transition,
-      top 150ms linear,
+      transform 150ms linear,
       font-size 150ms linear
     );
     @include font(
@@ -147,8 +147,11 @@
     --component-select-border-width: 0 0 1px 0;
     --component-select-border-color: var(--c-link);
   }
+  &--label-right {
+    --component-select-label-left: 85%;
+  }
   &.is-selected {
-    --component-select-label-top: 0;
+    --component-select-label-transform: var(--component-select-label-translate3d, translate3d(0, -200%, 0)); 
     --component-select-label-font-size: var(--font-size--xs);
   }
   &.is-invalid {

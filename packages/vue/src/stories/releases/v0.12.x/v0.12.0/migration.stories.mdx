@@ -1,6 +1,6 @@
 import { Meta } from "@storybook/addon-docs/blocks";
 
-<Meta title="Releases/v0.12.x - Latest Minor/v0.12.0/Migration Guide"  />
+<Meta title="Releases/v0.12.x - Latest/v0.12.0/Migration Guide"  />
 
 # v0.12.0 Migration Guide 
 
@@ -35,7 +35,7 @@ After:
 <table>
   <thead>
     <tr>
-      <th colspan="3">Props</th>
+      <th colSpan="3">Props</th>
     </tr>
   </thead>
   <tbody>
@@ -107,6 +107,86 @@ or with native transition element:
 </transition>
 ```
 
+SfInput label transition was changed from `top` property to the `transform`, 
+so now you can configure it by two css custom properties: `--input-label-transform` to set initial state and `--input-label-translate3d` to set the state of the label after transition.
+It is recommended to use `transform` property because of performance reasons.
+Similar changes was made in SfComponentSelect and SfSelect. 
+
+There is also `--input-bar-transform` property added to customize transition of bottom bar when input is hovered and it is set to use `scale3d` property also because of performance reasons. 
+
+In SfSlidingSection `--sliding-section-static-height` was replaced by `--sliding-section-static-transform` property.
+
+
+<table>
+  <thead>
+    <tr>
+      <th colSpan="4">CSS custom Properties</th>
+      </tr>
+  </thead>
+    <tr>
+      <td>Component</td>
+      <td>Usage</td>
+      <td>Before</td>
+      <td>v0.12.0</td>
+    </tr>
+    <tr>
+      <td>SfInput</td>
+      <td>label position before focus</td>
+      <td>--input-label-top</td>
+      <td>--input-label-transform</td>
+    </tr>
+    <tr>
+      <td>SfInput</td>
+      <td>label position on focus</td>
+      <td> - </td>
+      <td>--input-label-translate3d</td>
+    </tr>
+    <tr>
+      <td>SfInput</td>
+      <td>bar width before focus</td>
+      <td> - </td>
+      <td>--input-bar-transform</td>
+    </tr>
+    <tr>
+      <td>SfComponentSelect</td>
+      <td>label position before focus</td>
+      <td>--component-select-label-top</td>
+      <td>--component-select-transform</td>
+    </tr>
+    <tr>
+      <td>SfComponentSelect</td>
+      <td>label position on focus</td>
+      <td> - </td>
+      <td>--component-select-translate3d</td>
+    </tr>
+    <tr>
+      <td>SfSelect</td>
+      <td>label position before focus</td>
+      <td>--select-label-top</td>
+      <td>--select-label-transform</td>
+    </tr>
+    <tr>
+      <td>SfSelect</td>
+      <td>label position on focus</td>
+      <td> - </td>
+      <td>--select-label-translate3d</td>
+    </tr>
+    <tr>
+      <td>SfSlidingSection</td>
+      <td>size of static section before active</td>
+      <td>--sliding-section-static-height</td>
+      <td>--sliding-section-static-transform</td>
+    </tr>
+    <tr>
+      <td>SfSlidingSection</td>
+      <td>size of static section when active</td>
+      <td> - </td>
+      <td>--sliding-section-static-scale3d</td>
+    </tr>    
+  </tbody>
+</table>
+
+
 ## SfSearchbar 
 
 The native input element with SfButton inside was replaced by SfInput component. So now `input` event is emitted by SfInput component and `click` event when icon is pressed was replaced by `click:icon` event.
@@ -126,7 +206,7 @@ Short summary of changes in both components:
 <table>
   <thead>
     <tr>
-      <th colspan="3">Props, slots, events</th>
+      <th colspan="4">Props, slots, events</th>      
     </tr>
   </thead>
   <tbody>
