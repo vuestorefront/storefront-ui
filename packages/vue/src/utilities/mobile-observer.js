@@ -25,7 +25,7 @@ const onMediaMatch = (size, e) => {
     observer.isSmall = size === "small";
   }
 };
-export const setupListener = () => {
+const setupListener = () => {
   if (
     typeof window === "undefined" ||
     typeof document === "undefined" ||
@@ -54,8 +54,9 @@ export const setupListener = () => {
       onMediaMatch(size, window.matchMedia(mediaQueries[size]));
     });
   }
+  observer.isInitialized = true;
 };
-export const tearDownListener = () => {
+const tearDownListener = () => {
   if (
     typeof window !== "undefined" &&
     typeof document !== "undefined" &&
@@ -71,6 +72,7 @@ export const mapMobileObserver = () => {
       isMobileDevice: isMobile(),
       size: "large",
       mediaQueries,
+      isInitialized: false,
     });
   }
   return {
@@ -80,6 +82,11 @@ export const mapMobileObserver = () => {
           setupListener();
         }
         return observer ? observer.isMobileDevice : false;
+      },
+    },
+    mobileObserverIsInitialized: {
+      get() {
+        return observer ? observer.isInitialized : false;
       },
     },
   };
