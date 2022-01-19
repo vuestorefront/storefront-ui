@@ -33,7 +33,7 @@
       <slot name="label">
         <div
           :class="{ 'display-none': !label }"
-          class="sf-component-select__label sf-label"
+          class="sf-component-select__label will-change"
         >
           {{ label }}
         </div>

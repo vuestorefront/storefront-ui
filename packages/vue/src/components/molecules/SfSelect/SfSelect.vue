@@ -9,7 +9,7 @@
       'is-invalid': !valid,
     }"
   >
-    <label :for="label" class="sf-select__label sf-label">
+    <label :for="label" class="sf-select__label will-change">
       <slot name="label" :label="label">
         {{ label }}
       </slot>

@@ -24,7 +24,7 @@
       <span class="sf-input__bar"></span>
       <label
         :class="{ 'display-none': !label }"
-        class="sf-input__label sf-label"
+        class="sf-input__label will-change"
         :for="name"
       >
         <slot name="label" v-bind="{ label }">{{ label }}</slot>
