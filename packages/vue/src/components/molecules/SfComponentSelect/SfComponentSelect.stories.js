@@ -142,6 +142,7 @@ export default {
           "",
           "sf-component-select--underlined",
           "sf-component-select--no-chevron",
+          "sf-component-select--label-right",
         ],
       },
       table: {
@@ -391,6 +392,12 @@ export const NoChevron = Template.bind({});
 NoChevron.args = {
   ...Common.args,
   classes: "sf-component-select--no-chevron",
+};
+
+export const WithLabelOnRight = Template.bind({});
+WithLabelOnRight.args = {
+  ...Common.args,
+  classes: "sf-component-select--label-right",
 };
 
 export const LongOptionsList = Template.bind({});
