@@ -11,12 +11,16 @@ v0.12.0 contains API breaking changes and new features.
 - SfImage: width and height props types changed to `number` and both are required
 - SfCard, SfGallery, SfCollectedProduct, SfGroupedProductItem, SfProductCard, SfProductCardHorizontal: props types of `imageWidth` and `imageHeight` changed to `Number`
 - SfStore: props types of `pictureWidth` and `pictureHeight` changed to `Number`
+- global: providing overriding by `:root` in projects
+- transitions: remove SfExpand functional component and fix sf-expand css styles 
+- SfInput, SfComponentSelect, SfSelect, SfSlidingSection, SfTextarea: replace transitions using properties affecting performance with `transform`
 - global: providing overriding by :root in projects
 - SfLink: required attribute added to the link prop and defined default value of `to` property for `nuxt-link`
 
 ## 🚀 Features
 
 - SfBanner: new slot `img-tag`
+- add `will-change` directive to allow using this property only when it's needed for performance reasons 
 - SfComponentSelect: new modifier for positioning label on the right
 
 ## 🐛 Fixes
