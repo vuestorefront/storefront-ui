@@ -70,11 +70,9 @@ export const mapMobileObserver = () => {
       isSmall: false,
       isMobileDevice: isMobile(),
       size: "large",
-      clients: 0,
       mediaQueries,
     });
   }
-  observer.clients += 1;
   return {
     isMobile: {
       get() {
@@ -84,21 +82,8 @@ export const mapMobileObserver = () => {
         return observer ? observer.isMobileDevice : false;
       },
     },
-    mobileObserverClients: {
-      get() {
-        return observer ? observer.clients : 0;
-      },
-    },
   };
 };
 export const unMapMobileObserver = () => {
-  if (observer) {
-    observer.clients -= 1;
-    if (observer.clients === 0) {
-      observer = null;
-      tearDownListener();
-    }
-  } else {
-    tearDownListener();
-  }
+  tearDownListener();
 };
