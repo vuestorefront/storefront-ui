@@ -33,7 +33,7 @@
           ref="outSide"
           :class="{
             'display-none':
-              !outsideZoom || !pictureSelected || (!outsideZoom && !enableZoom),
+              !outsideZoom || !isZoomStarted || (!outsideZoom && !enableZoom),
           }"
           :style="{ width: `${imageWidth}px`, height: `${imageHeight}px` }"
         >
@@ -45,6 +45,8 @@
             :height="imageHeight"
             :lazy="false"
             :alt="pictureSelected.alt"
+            :image-tag="imageTag"
+            :nuxt-img-config="nuxtImgConfig"
           />
         </div>
       </transition>
@@ -148,10 +150,11 @@ export default {
     return {
       positionStatic: {},
       eventHover: {},
-      pictureSelected: { alt: "" },
       glide: null,
       activeIndex: this.current - 1,
       style: "",
+      pictureSelected: {},
+      isZoomStarted: false,
     };
   },
   computed: {
@@ -170,6 +173,12 @@ export default {
       const definedPicture = zoom || big || desktop;
       return definedPicture ? definedPicture.url : "";
     },
+  },
+  created() {
+    this.pictureSelected =
+      this.imageTag === "" || this.imageTag === "img"
+        ? { alt: "" }
+        : this.images[0];
   },
   mounted() {
     this.$nextTick(() => {
@@ -203,6 +212,10 @@ export default {
       return "";
     },
     go(index) {
+      this.pictureSelected =
+        this.imageTag === "" || this.imageTag === "img"
+          ? { alt: this.images[index].alt }
+          : this.images[index];
       if (!this.glide) return;
       this.activeIndex = index;
       /**
@@ -216,6 +229,7 @@ export default {
     },
     startZoom(picture) {
       if (this.enableZoom) {
+        this.isZoomStarted = true;
         this.pictureSelected = picture;
       }
     },
@@ -243,7 +257,11 @@ export default {
     },
     removeZoom(index) {
       if (this.enableZoom) {
-        this.pictureSelected = "";
+        this.isZoomStarted = false;
+        this.pictureSelected =
+          this.imageTag === "" || this.imageTag === "img"
+            ? { alt: "" }
+            : this.images[this.activeIndex];
         if (this.outsideZoom) return;
         this.$refs.sfGalleryBigImage[index].$el.children[0].style.transform =
           "scale(1)";
