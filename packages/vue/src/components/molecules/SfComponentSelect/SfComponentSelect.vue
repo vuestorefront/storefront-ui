@@ -1,6 +1,7 @@
 <template>
   <div
     v-click-outside="checkPersistence"
+    v-will-change="'font-size'"
     :aria-expanded="open.toString()"
     :aria-owns="'lbox_' + _uid"
     :aria-label="label"
@@ -32,7 +33,7 @@
       <slot name="label">
         <div
           :class="{ 'display-none': !label }"
-          class="sf-component-select__label"
+          class="sf-component-select__label will-change"
         >
           {{ label }}
         </div>
@@ -58,7 +59,11 @@
           <slot name="cancel" v-bind="{ cancelLabel, closeHandler }">
             <SfButton
               ref="cancel"
-              class="sf-component-select__cancel sf-button--full-width smartphone-only"
+              class="
+                sf-component-select__cancel
+                sf-button--full-width
+                smartphone-only
+              "
               @click="closeHandler"
             >
               {{ cancelLabel }}
@@ -82,12 +87,13 @@ import SfChevron from "../../atoms/SfChevron/SfChevron.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import { focus } from "../../../utilities/directives";
+import { willChange } from "../../../utilities/directives";
 import { clickOutside } from "../../../utilities/directives";
 import Vue from "vue";
 Vue.component("SfComponentSelectOption", SfComponentSelectOption);
 export default {
   name: "SfComponentSelect",
-  directives: { focus, clickOutside },
+  directives: { focus, clickOutside, willChange },
   components: {
     SfButton,
     SfChevron,
