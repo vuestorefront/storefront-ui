@@ -164,6 +164,13 @@ export default {
       this.glide = glide;
     });
   },
+  updated() {
+    if (this.glide) {
+      this.$nextTick(() => {
+        this.glide.mount();
+      });      
+    }    
+  },
   beforeDestroy() {
     if (this.glide) {
       this.glide.destroy();
