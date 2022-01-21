@@ -301,26 +301,22 @@ export default {
     close: {
       action: "change:search event emitted",
       table: { category: "Events", type: { summary: null } },
-      description:
-        "Emits change:search event when searchbar value is changed",
+      description: "Emits change:search event when searchbar value is changed",
     },
     "mouseenter:button": {
       action: "change:search event emitted",
       table: { category: "Events", type: { summary: null } },
-      description:
-        "Emits change:search event when searchbar value is changed",
+      description: "Emits change:search event when searchbar value is changed",
     },
     "mouseleave:button": {
       action: "change:search event emitted",
       table: { category: "Events", type: { summary: null } },
-      description:
-        "Emits change:search event when searchbar value is changed",
+      description: "Emits change:search event when searchbar value is changed",
     },
     "change:search": {
       action: "change:search event emitted",
       table: { category: "Events", type: { summary: null } },
-      description:
-        "Emits change:search event when searchbar value is changed",
+      description: "Emits change:search event when searchbar value is changed",
     },
     "enter:search": {
       action: "enter:search event emitted",
@@ -412,16 +408,16 @@ const Template = (args, { argTypes }) => ({
   },
   methods: {
     toggleSidebar() {
-      this.isSidebarActive = !this.isSidebarActive
+      this.isSidebarActive = !this.isSidebarActive;
     },
     changeHandler(value) {
       this.searchValues = value;
       this["change:search"](value);
     },
-    acitveIconHandler(icon) {      
+    acitveIconHandler(icon) {
       this["click:icon"](icon);
       this.activeButton = icon;
-    }
+    },
   },
   template: `
   <div>
@@ -506,12 +502,12 @@ export const WithSfHeaderNavigation = (args, { argTypes }) => ({
     };
   },
   methods: {
-    toggleSidebar() {      
+    toggleSidebar() {
       this.isSidebarActive = !this.isSidebarActive;
     },
     currentCategoryToggle(event) {
-      if (event === '') 
-      {
+      console.log(event);
+      if (!event) {
         this.currentCategory = event;
         this.toggleSidebar();
       } else {
@@ -526,7 +522,7 @@ export const WithSfHeaderNavigation = (args, { argTypes }) => ({
     acitveIconHandler(icon) {
       this["click:icon"](icon);
       this.activeButton = icon;
-    }
+    },
   },
   template: `
   <div>
