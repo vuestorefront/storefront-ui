@@ -1,5 +1,5 @@
 <template>
-  <header ref="header" v-click-outside="closeHandler" class="sf-header">
+  <header ref="header" v-click-outside="clickOutsideHandler" class="sf-header">
     <!--@slot Use this slot to replace logo with text or image-->
     <div class="sf-header__header">
       <slot name="logo" v-bind="{ logo, title }">
@@ -47,18 +47,19 @@
               </SfButton>
             </div>
             <SfSidebar
-              :visible="isVisibleOnMobile && openSidebar"
-              :persistent="true"
+              :visible="isVisibleOnMobile && isMenuOpen"
               :overlay="false"
+              :button="false"
+              :persistent="true"
               class="sf-header__menu--sidebar"
-              @close="$emit('close')"
+              @close="closeHandler"
             >
               <SfMenuItem
                 v-for="(item, i) in menuItems"
                 :key="`menu-item-${i}`"
                 :label="item"
                 class="sf-header__menu-item sf-header__menu-item--mobile"
-                @click="toggleSidebar(item)"
+                @click="clickItem(item)"
               />
             </SfSidebar>
             <div v-if="openContent" class="sf-header__menu-content">
@@ -193,7 +194,7 @@ export default {
       type: String,
       default: "",
     },
-    openSidebar: {
+    isMenuOpen: {
       type: Boolean,
       default: false,
     },
@@ -216,11 +217,15 @@ export default {
     unMapMobileObserver();
   },
   methods: {
-    toggleSidebar(item) {
+    clickItem(item) {
       this.closeHandler();
       this.$emit("click:button", item);
     },
     closeHandler() {
+      this.$emit("close");
+    },
+    clickOutsideHandler() {
+      if (this.isVisibleOnMobile) return;
       this.$emit("close");
     },
   },

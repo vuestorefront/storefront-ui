@@ -58,9 +58,6 @@
     &--sidebar {
       padding: 0;
       display: flex;
-      @include for-desktop {
-        display: none;
-      }
       .sf-sidebar__content {
         --sidebar-content-padding: 0, var(--spacer-sm);
         height: auto; 

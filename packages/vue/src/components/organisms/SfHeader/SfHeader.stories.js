@@ -287,7 +287,7 @@ export default {
       defaultValue: "",
       description: "Header search phrase",
     },
-    openSidebar: {
+    isMenuOpen: {
       control: "boolean",
       table: {
         category: "Props",
@@ -402,13 +402,19 @@ const Template = (args, { argTypes }) => ({
   data() {
     return {
       searchValues: "",
-      isSidebarActive: this.openSidebar,
+      isMenuActive: this.isMenuOpen,
       activeButton: this.activeIcon,
     };
   },
   methods: {
-    toggleSidebar() {
-      this.isSidebarActive = !this.isSidebarActive;
+    toggleMenu() {
+      this.isMenuActive = !this.isMenuActive;
+    },
+    closeMenu() {      
+      this.isMenuActive = false;
+    },
+    openMenu() {
+      this.isMenuActive = true;
     },
     changeHandler(value) {
       this.searchValues = value;
@@ -429,9 +435,9 @@ const Template = (args, { argTypes }) => ({
       :active-icon="activeButton"
       :search-placeholder="searchPlaceholder"
       :search-value="searchValues"
-      :open-sidebar="isSidebarActive"
+      :is-menu-open="isMenuActive"
       @click:icon="acitveIconHandler"
-      @close="isSidebarActive = false"
+      @close="closeMenu"
       @change:search="changeHandler"
       @enter:search="this['enter:search']"
       @click:button="this['click:button']"
@@ -444,7 +450,7 @@ const Template = (args, { argTypes }) => ({
         :icon="'menu'"
         :label="'Menu'"
         icon-size="20px"
-        @click="toggleSidebar"        
+        @click="openMenu"        
       />
     </SfBottomNavigation>
   </div>`,
@@ -475,7 +481,7 @@ export const WithSfHeaderNavigation = (args, { argTypes }) => ({
     return {
       shopLogo: "/assets/logo.svg",
       shopName: "Storefront UI",
-      isSidebarActive: this.openSidebar,
+      isMenuActive: this.isMenuOpen,
       currentCategory: "",
       buttons: this.menuItems.map((item) => item.title),
       categories: this.menuItems,
@@ -502,18 +508,22 @@ export const WithSfHeaderNavigation = (args, { argTypes }) => ({
     };
   },
   methods: {
-    toggleSidebar() {
-      this.isSidebarActive = !this.isSidebarActive;
+    toggleMenu() {
+      this.isMenuActive = !this.isMenuActive;
+    },
+    closeMenu() {
+      this.isMenuActive = false;
+    },
+    openMenu() {
+      this.isMenuActive = true;
     },
     currentCategoryToggle(event) {
-      console.log(event);
       if (!event) {
         this.currentCategory = event;
-        this.toggleSidebar();
+        this.toggleMenu();
       } else {
         this.currentCategory = event;
       }
-      console.log(event, this.currentCategory);
     },
     changeHandler(value) {
       this.searchValues = value;
@@ -535,10 +545,10 @@ export const WithSfHeaderNavigation = (args, { argTypes }) => ({
       :title="shopName"
       :menuItems="buttons"
       :active-icon="activeButton"
-      :open-sidebar="isSidebarActive"
-      @mouseenter:button="currentCategoryToggle($event)"           
+      :is-menu-open="isMenuActive"
+      @mouseenter:button="currentCategoryToggle"           
       @click:button="currentCategoryToggle"      
-      @close="isSidebarActive = false"
+      @close="closeMenu"
       @click:icon="acitveIconHandler"
       @change:search="changeHandler"
       @enter:search="this['enter:search']"
@@ -599,7 +609,7 @@ export const WithSfHeaderNavigation = (args, { argTypes }) => ({
         :icon="'menu'"
         :label="'Menu'"
         icon-size="20px"
-        @click="toggleSidebar"        
+        @click="openMenu"        
       />
     </SfBottomNavigation>
   </div>`,
