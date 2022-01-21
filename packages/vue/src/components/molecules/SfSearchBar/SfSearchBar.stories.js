@@ -1,4 +1,5 @@
 import { SfSearchBar } from "@storefront-ui/vue";
+
 export default {
   title: "Components/Molecules/SearchBar",
   component: SfSearchBar,
@@ -89,7 +90,7 @@ export default {
       description: "Text for placeholder",
     },
     value: {
-      control: "number",
+      control: "text",
       table: {
         category: "Props",
         defaultValue: {
@@ -103,19 +104,19 @@ export default {
       control: "object",
       table: {
         category: "Props",
-        type: {
-          summary: "object",
-        },
         defaultValue: {
-          summary: "{}",
+          icon: null,
+          size: "1.25rem",
+          color: "#43464E",
         },
       },
       defaultValue: {
+        icon: "",
         size: "",
         color: "",
       },
-      description:
-        "Object to define icon look. Should have values for color and size",
+      name: "icon",
+      description: "Define the type, size and color of the search icon ",
     },
     iconSize: {
       control: "text",
@@ -142,20 +143,15 @@ export default {
       description: "Emits blur event when search field loses focus",
     },
     focus: {
-      action: "focus input event emitted",
+      action: "focus event emitted",
       table: { category: "Events", type: { summary: null } },
       description:
         "Emits focus event when search field gains focus. It is passed via v-on='$listeners'",
     },
-    click: {
-      action: "click event emitted",
+    "click:icon": {
+      action: "click:icon event emitted",
       table: { category: "Events", type: { summary: null } },
-      description: "Emits click event when search icon is cicked",
-    },
-    "keyup.esc": {
-      action: "click event emitted",
-      table: { category: "Events", type: { summary: null } },
-      description: "Emits click event when search icon is cicked",
+      description: "Emits click:icon event when search icon is clicked",
     },
     "icon ": {
       table: {
@@ -181,10 +177,15 @@ const Template = (args, { argTypes }) => ({
     iconCheck() {
       return this.iconSize || this.iconColor
         ? {
+            icon: this.icon.icon,
             size: this.iconSize,
             color: this.iconColor,
           }
-        : null;
+        : {
+            icon: this.icon.icon,
+            size: this.icon.size,
+            color: this.icon.color,
+          };
     },
   },
   template: `
@@ -192,10 +193,10 @@ const Template = (args, { argTypes }) => ({
   :icon="iconCheck"
   :class="classes"
   :placeholder="placeholder"
-  @click="click"
   @blur="blur"
   @focus="focus"
   @input="input"
+  @click:icon="this['click:icon']"
   aria-label="Search"
   v-model="searchValue"/>`,
 });
@@ -208,8 +209,11 @@ Common.args = {
 export const WithIcon = Template.bind({});
 WithIcon.args = {
   ...Common.args,
-  iconColor: "#43464E",
-  iconSize: "1.25rem",
+  icon: {
+    icon: "search",
+    color: "#43464E",
+    size: "1.25rem",
+  },
 };
 
 export const WithValue = Template.bind({});

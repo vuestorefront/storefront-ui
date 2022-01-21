@@ -31,12 +31,27 @@
       </label>
       <slot
         v-bind="{
+          icon,
           isPasswordVisible,
           switchVisibilityPassword,
         }"
-        name="show-password"
+        name="icon"
       >
         <SfButton
+          v-if="icon"
+          class="sf-input__button sf-button--pure"
+          @click="$emit('click:icon')"
+        >
+          <SfIcon
+            :color="icon.color"
+            :size="icon.size"
+            :icon="icon.icon"
+            class="sf-input__icon"
+          >
+          </SfIcon>
+        </SfButton>
+        <SfButton
+          v-else-if="hasShowPassword"
           :class="{ 'display-none': !isPassword }"
           class="sf-input__password-button"
           type="button"
@@ -93,6 +108,10 @@ export default {
     type: {
       type: String,
       default: "text",
+    },
+    icon: {
+      type: Object,
+      default: () => {},
     },
     valid: {
       type: Boolean,
@@ -170,6 +189,7 @@ export default {
   },
   methods: {
     switchVisibilityPassword() {
+      if (this.type !== "password") return;
       this.isPasswordVisible = !this.isPasswordVisible;
       this.inputType = this.isPasswordVisible ? "text" : "password";
     },
