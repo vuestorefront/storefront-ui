@@ -287,26 +287,15 @@ export default {
       defaultValue: "",
       description: "Header search phrase",
     },
-    isSidebarOpen: {
+    openSidebar: {
       control: "boolean",
       table: {
         category: "Props",
         defaultValue: {
-          summary: "false",
+          summary: false,
         },
       },
       defaultValue: false,
-      description: "Opens sidebar on mobile view",
-    },
-    openSidebar: {
-      control: "text",
-      table: {
-        category: "Props",
-        defaultValue: {
-          summary: "",
-        },
-      },
-      defaultValue: "",
       description: "Opens menu in sidebar on mobile view",
     },
     close: {
@@ -412,16 +401,19 @@ export default {
 };
 
 const Template = (args, { argTypes }) => ({
-  components: { SfHeader, SfLink },
+  components: { SfHeader, SfLink, SfBottomNavigation },
   props: Object.keys(argTypes),
   data() {
     return {
       searchValues: "",
-      activeSidebar: "",
+      isSidebarActive: this.openSidebar,
       activeButton: this.activeIcon,
     };
   },
   methods: {
+    toggleSidebar() {
+      this.isSidebarActive = !this.isSidebarActive
+    },
     changeHandler(value) {
       this.searchValues = value;
       this["change:search"](value);
@@ -432,6 +424,7 @@ const Template = (args, { argTypes }) => ({
     }
   },
   template: `
+  <div>
     <SfHeader
       :class="classes"
       :title="title"
@@ -440,14 +433,25 @@ const Template = (args, { argTypes }) => ({
       :active-icon="activeButton"
       :search-placeholder="searchPlaceholder"
       :search-value="searchValues"
-      :open-sidebar="activeSidebar"
+      :open-sidebar="isSidebarActive"
       @click:icon="acitveIconHandler"
-      @close="activeSidebar = ''"
+      @close="isSidebarActive = false"
       @change:search="changeHandler"
       @enter:search="this['enter:search']"
       @click:button="this['click:button']"
     >
-    </SfHeader>`,
+    </SfHeader>
+    <SfBottomNavigation
+      class="smartphone-only"
+    >
+      <SfBottomNavigationItem        
+        :icon="'menu'"
+        :label="'Menu'"
+        icon-size="20px"
+        @click="toggleSidebar"        
+      />
+    </SfBottomNavigation>
+  </div>`,
 });
 
 export const Common = Template.bind({});
@@ -475,7 +479,8 @@ export const WithSfHeaderNavigation = (args, { argTypes }) => ({
     return {
       shopLogo: "/assets/logo.svg",
       shopName: "Storefront UI",
-      currentCategory: this.openSidebar,
+      isSidebarActive: this.openSidebar,
+      currentCategory: "",
       buttons: this.menuItems.map((item) => item.title),
       categories: this.menuItems,
       searchValues: "",
@@ -500,25 +505,19 @@ export const WithSfHeaderNavigation = (args, { argTypes }) => ({
       ],
     };
   },
-  watch: {
-    openSidebar: {
-      handler(newValue) {
-        if (newValue === true) {
-          this.currentCategory = "sidebar";
-        } else {
-          this.currentCategory = newValue;
-        }
-      },
-      immediate: true,
-    },
-  },
   methods: {
+    toggleSidebar() {      
+      this.isSidebarActive = !this.isSidebarActive;
+    },
     currentCategoryToggle(event) {
-      if (this.currentCategory === "sidebar" && event === "sidebar") {
-        return (this.currentCategory = "");
+      if (event === '') 
+      {
+        this.currentCategory = event;
+        this.toggleSidebar();
       } else {
-        return (this.currentCategory = event);
+        this.currentCategory = event;
       }
+      console.log(event, this.currentCategory);
     },
     changeHandler(value) {
       this.searchValues = value;
@@ -540,10 +539,10 @@ export const WithSfHeaderNavigation = (args, { argTypes }) => ({
       :title="shopName"
       :menuItems="buttons"
       :active-icon="activeButton"
-      :open-sidebar="currentCategory === 'sidebar'"
+      :open-sidebar="isSidebarActive"
       @mouseenter:button="currentCategoryToggle($event)"           
-      @click:button="currentCategoryToggle($event)"      
-      @close="currentCategoryToggle('')"
+      @click:button="currentCategoryToggle"      
+      @close="isSidebarActive = false"
       @click:icon="acitveIconHandler"
       @change:search="changeHandler"
       @enter:search="this['enter:search']"
@@ -557,7 +556,7 @@ export const WithSfHeaderNavigation = (args, { argTypes }) => ({
           :is-absolute="true"
           :title="category.title"
           :visible="currentCategory === category.title"
-          @close="currentCategoryToggle('sidebar')"                                     
+          @close="currentCategoryToggle"                                     
         >
           <SfMegaMenuColumn
             v-for="(subcategory, subIndex) in category.subcategories"
@@ -604,7 +603,7 @@ export const WithSfHeaderNavigation = (args, { argTypes }) => ({
         :icon="'menu'"
         :label="'Menu'"
         icon-size="20px"
-        @click="currentCategoryToggle('sidebar')"        
+        @click="toggleSidebar"        
       />
     </SfBottomNavigation>
   </div>`,

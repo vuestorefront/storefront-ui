@@ -22,8 +22,8 @@
     margin: var(--spacer-xs) 0;
     z-index: 1;
     .sf-image {
-      width: auto;
-      height: 2.125rem;
+      --image-width: auto;
+      --image-height: 2.125rem;
     }
   }
   &__title {

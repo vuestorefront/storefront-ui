@@ -8,6 +8,8 @@
             v-if="logo"
             :src="logo"
             :alt="title"
+            :width="logoWidth"
+            :height="logoHeight"
             class="sf-header__logo"
           />
           <SfHeading
@@ -56,7 +58,7 @@
                 :key="`menu-item-${i}`"
                 :label="item"
                 class="sf-header__menu-item sf-header__menu-item--mobile"
-                @click="$emit('click:button', item)"
+                @click="toggleSidebar(item)"
               />
             </SfSidebar>
             <div v-if="openContent" class="sf-header__menu-content">
@@ -192,8 +194,8 @@ export default {
       default: "",
     },
     openSidebar: {
-      type: String,
-      default: "",
+      type: Boolean,
+      default: false,
     },
   },
   data() {
@@ -214,6 +216,10 @@ export default {
     unMapMobileObserver();
   },
   methods: {
+    toggleSidebar(item) {
+      this.closeHandler();
+      this.$emit("click:button", item);
+    },
     closeHandler() {
       this.$emit("close");
     },
