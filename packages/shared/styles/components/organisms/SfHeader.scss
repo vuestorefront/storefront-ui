@@ -1,18 +1,21 @@
 @import "../../helpers";
 
 .sf-header {  
-  position: fixed;  
-  width: 100%;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  padding: var(--spacer-2xs);
+  position: relative;  
+  width: 100%;    
   background: var(--c-white);
-  z-index: 1;
-  @include for-desktop {
-    flex-wrap: nowrap;
+  z-index: 1;  
+  &__header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    padding: var(--spacer-2xs);
+    max-width: 77.5rem;
+    @include for-desktop {
+      flex-wrap: nowrap;
+    }
   }
   &__logo {    
     flex: 0 0 auto;
