@@ -62,6 +62,14 @@ export default {
       type: String,
       default: null,
     },
+    imageTag: {
+      type: String,
+      default: "",
+    },
+    nuxtImgConfig: {
+      type: Object,
+      default: () => ({}),
+    },
   },
   data() {
     return {
@@ -74,6 +82,19 @@ export default {
       const image = this.image;
       const isImageString = typeof image === "string";
       const background = this.background;
+      const nuxtImgConvert = (imgUrl) => {
+        return `url(${this.$img(imgUrl, this.nuxtImgConfig)})`;
+      };
+      if (this.imageTag === "nuxt-img" || this.imageTag === "nuxt-picture") {
+        return {
+          "background-image": isImageString
+            ? nuxtImgConvert(image)
+            : this.mobileView
+            ? nuxtImgConvert(image.mobile)
+            : nuxtImgConvert(image.desktop),
+          "--_banner-background-color": background,
+        };
+      }
       return {
         "background-image": isImageString
           ? `url(${image})`

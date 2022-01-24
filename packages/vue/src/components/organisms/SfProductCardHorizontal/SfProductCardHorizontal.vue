@@ -3,11 +3,22 @@
     <div class="sf-product-card-horizontal__image-wrapper">
       <slot
         name="image"
-        v-bind="{ image, title, link, imageHeight, imageWidth }"
+        v-bind="{
+          image,
+          title,
+          link,
+          imageHeight,
+          imageWidth,
+          imageTag,
+          nuxtImgConfig,
+        }"
       >
         <SfLink
           :link="link"
-          class="sf-product-card-horizontal__link sf-product-card-horizontal__link--image"
+          class="
+            sf-product-card-horizontal__link
+            sf-product-card-horizontal__link--image
+          "
         >
           <template v-if="Array.isArray(image)">
             <SfImage
@@ -18,6 +29,8 @@
               :alt="title"
               :width="imageWidth"
               :height="imageHeight"
+              :image-tag="imageTag"
+              :nuxt-img-config="nuxtImgConfig"
             />
           </template>
           <SfImage
@@ -27,6 +40,8 @@
             :alt="title"
             :width="imageWidth"
             :height="imageHeight"
+            :image-tag="imageTag"
+            :nuxt-img-config="nuxtImgConfig"
           />
         </SfLink>
       </slot>
@@ -142,11 +157,11 @@ export default {
     },
     imageWidth: {
       type: Number,
-      default: 140,
+      default: null,
     },
     imageHeight: {
       type: Number,
-      default: 200,
+      default: null,
     },
     title: {
       type: String,
@@ -199,6 +214,14 @@ export default {
     qty: {
       type: [Number, String],
       default: 1,
+    },
+    imageTag: {
+      type: String,
+      default: "",
+    },
+    nuxtImgConfig: {
+      type: Object,
+      default: () => ({}),
     },
   },
   data() {

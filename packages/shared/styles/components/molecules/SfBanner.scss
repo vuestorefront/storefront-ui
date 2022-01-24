@@ -42,7 +42,8 @@
     );
     text-transform: var(--banner-subtitle-text-transform, uppercase);
   }
-  img {
+  img,
+  &__image {
     position: absolute;
     z-index: -1;
     top: 0;

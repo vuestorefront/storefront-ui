@@ -4,9 +4,6 @@ import { Meta } from "@storybook/addon-docs/blocks";
 
 # v0.12.0 Migration Guide 
 
-- [SfImage](#sfimage)
-  - [Props changes](#props-changes)
-  - [Components with SfImage](#components-with-SfImage)
 
 ## `Customization`
 We have changed the way we customize variables. You should use overriding via ```:root{}``` from now on. 
@@ -109,6 +106,7 @@ or with native transition element:
 
 
 ### Props changes
+
 SfInput label transition was changed from `top` property to the `transform`, 
 so now you can configure it by two css custom properties: `--input-label-transform` to set initial state and `--input-label-translate3d` to set the state of the label after transition.
 It is recommended to use `transform` property because of performance reasons.
@@ -117,7 +115,6 @@ Similar changes was made in SfComponentSelect and SfSelect.
 There is also `--input-bar-transform` property added to customize transition of bottom bar when input is hovered and it is set to use `scale3d` property also because of performance reasons. 
 
 In SfSlidingSection `--sliding-section-static-height` was replaced by `--sliding-section-static-transform` property.
-
 
 <table>
   <thead>
@@ -189,7 +186,6 @@ In SfSlidingSection `--sliding-section-static-height` was replaced by `--sliding
   </tbody>
 </table>
 
-
 ## SfSearchbar 
 
 The native input element with SfButton inside was replaced by SfInput component. So now `input` event is emitted by SfInput component and `click` event when icon is pressed was replaced by `click:icon` event.
@@ -209,7 +205,7 @@ Short summary of changes in both components:
 <table>
   <thead>
     <tr>
-      <th colspan="4">Props, slots, events</th>      
+      <th colSpan="4">Props, slots, events</th>      
     </tr>
   </thead>
   <tbody>
@@ -245,7 +241,7 @@ Following this improvements the css styles are changed, as well. The most of SfS
 <table>
   <thead>
     <tr>
-      <th colspan="3">CSS custom properties</th>
+      <th colSpan="3">CSS custom properties</th>
     </tr>
   </thead>
   <tbody>
@@ -255,54 +251,74 @@ Following this improvements the css styles are changed, as well. The most of SfS
       <td>v0.12.0</td>
     </tr>
     <tr>
-      <td>SfSearchbar</td>
-      <td>--search-bar-icon-flex-direction </td>
+      <td>SfImage</td>
       <td>-</td>
+      <td>imageTag</td>
     </tr>
     <tr>
-      <td>SfSearchbar</td>
-      <td>--search-bar-padding</td>
+      <td>SfImage</td>
       <td>-</td>
+      <td>nuxtImgConfig</td>
     </tr>
     <tr>
-     <td>SfSearchbar</td>
-      <td>--search-bar-button-right</td>
-      <td></td>
+      <td>SfGallery</td>
+      <td>-</td>
+      <td>imageTag</td>
+    </tr>
+     <tr>
+      <td>SfGallery</td>
+      <td>-</td>
+      <td>nuxtImgConfig</td>
     </tr>
     <tr>
-     <td>SfSearchbar</td>
-      <td>--search-bar-icon-display</td>
+      <td>SfGallery</td>
       <td>-</td>
+      <td>thumbImageTag</td>
     </tr>
     <tr>
-     <td>SfSearchbar</td>
-      <td>--search-bar-font</td>
+      <td>SfGallery</td>
       <td>-</td>
+      <td>thumbNuxtImgConfig</td>
     </tr>
     <tr>
-     <td>SfSearchbar</td>
-      <td>--search-bar-placeholder-color</td>
+      <td>SfProductCard</td>
       <td>-</td>
+      <td>imageTag</td>
     </tr>
     <tr>
-     <td>SfSearchbar</td>
-      <td>--search-bar-placeholder-transition</td>
+      <td>SfProductCard</td>
       <td>-</td>
+      <td>nuxtImgConfig</td>
     </tr>
     <tr>
-     <td>SfSearchbar</td>
-      <td>--search-bar-border-color</td>
+      <td>SfProductCardHorizontal</td>
       <td>-</td>
+      <td>imageTag</td>
     </tr>
     <tr>
-     <td>SfSearchbar</td>
-      <td>--search-bar-placeholder-color-focus</td>
+      <td>SfProductCardHorizontal</td>
       <td>-</td>
+      <td>nuxtImgConfig</td>
     </tr>
     <tr>
-     <td>SfInput</td>
+     <td>SfBanner</td>
       <td>-</td>
-      <td>--icon-position</td>
+      <td>imageTag</td>
+    </tr>
+     <tr>
+     <td>SfBanner</td>
+      <td>-</td>
+      <td>nuxtImgConfig</td>
+    </tr>
+    <tr>
+     <td>SfHeroItem</td>
+      <td>-</td>
+      <td>imageTag</td>
+    </tr>
+    <tr>
+      <td>SfHeroItem</td>
+      <td>-</td>
+      <td>nuxtImgConfig</td>
     </tr>
   </tbody>
 </table>
@@ -572,6 +588,106 @@ The most of css custom properties was removed, so component should be styled usi
     <tr>
       <td>--header-icon-filter</td>
       <td>-</td>
+    </tr>
+  </tbody>
+  </table>
+
+## Enabling the use of image compression in SFUI components
+
+When using Storefront UI in nuxt project, you can now utilize `nuxt-image` which is powerful utility to use image compression with different providers. 
+First of all, the solition is implemented in `SfImage` component by adding two new props: 
+- `imageTag` which specifies if you want to use `nuxt-img` or `nuxt-picture` components,
+- and `nuxtImgConfig` which allows you to pass configuration settings for nuxt-image module and modifing properties allowed by provider that you use. 
+Similar props are added in components which use images the most: 
+- SfGallery - you can specify settings for main image and thumbs separately using: imageTag and nuxtImgConfig for the first and `thumbImageTag` and `thumbNuxtImgConfig` fpr the latter. 
+- SfProductCard - similar like in `SfImage`,
+- SfProductCardHorizontal - like above,
+- SfBanner - utilizes props like in `SfImage`, but changes image in `background-image` property,
+- SfHero - similarly like `SfBanner`.
+
+In order to use this image compression utility you need to set it up in your nuxt project following the [nuxt-image documentation](https://image.nuxtjs.org/getting-started/installation/). 
+
+<table>
+  <thead>
+    <tr>
+      <th colSpan="3">Props</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Component</td>
+      <td>Before</td>
+      <td>v0.12.0</td>
+    </tr>
+    <tr>
+      <td>SfImage</td>
+      <td>-</td>
+      <td>imageTag</td>
+    </tr>
+    <tr>
+      <td>SfImage</td>
+      <td>-</td>
+      <td>nuxtImgConfig</td>
+    </tr>
+    <tr>
+      <td>SfGallery</td>
+      <td>-</td>
+      <td>imageTag</td>
+    </tr>
+     <tr>
+      <td>SfGallery</td>
+      <td>-</td>
+      <td>nuxtImgConfig</td>
+    </tr>
+    <tr>
+      <td>SfGallery</td>
+      <td>-</td>
+      <td>thumbImageTag</td>
+    </tr>
+    <tr>
+      <td>SfGallery</td>
+      <td>-</td>
+      <td>thumbNuxtImgConfig</td>
+    </tr>
+    <tr>
+      <td>SfProductCard</td>
+      <td>-</td>
+      <td>imageTag</td>
+    </tr>
+    <tr>
+      <td>SfProductCard</td>
+      <td>-</td>
+      <td>nuxtImgConfig</td>
+    </tr>
+    <tr>
+      <td>SfProductCardHorizontal</td>
+      <td>-</td>
+      <td>imageTag</td>
+    </tr>
+    <tr>
+      <td>SfProductCardHorizontal</td>
+      <td>-</td>
+      <td>nuxtImgConfig</td>
+    </tr>
+    <tr>
+     <td>SfBanner</td>
+      <td>-</td>
+      <td>imageTag</td>
+    </tr>
+     <tr>
+     <td>SfBanner</td>
+      <td>-</td>
+      <td>nuxtImgConfig</td>
+    </tr>
+    <tr>
+     <td>SfHeroItem</td>
+      <td>-</td>
+      <td>imageTag</td>
+    </tr>
+    <tr>
+      <td>SfHeroItem</td>
+      <td>-</td>
+      <td>nuxtImgConfig</td>
     </tr>
   </tbody>
 </table>

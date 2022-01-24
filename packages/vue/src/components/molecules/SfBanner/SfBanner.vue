@@ -83,6 +83,14 @@ export default {
       type: [String, Object],
       default: "",
     },
+    imageTag: {
+      type: String,
+      default: null,
+    },
+    nuxtImgConfig: {
+      type: Object,
+      default: () => ({}),
+    },
   },
   data() {
     return {
@@ -94,6 +102,19 @@ export default {
     style() {
       const image = this.image;
       const background = this.background;
+      const nuxtImgConvert = (imgUrl) => {
+        return `url(${this.$img(imgUrl, this.nuxtImgConfig)})`;
+      };
+      if (this.imageTag === "nuxt-img" || this.imageTag === "nuxt-picture") {
+        return {
+          "--_banner-background-image": image.mobile
+            ? nuxtImgConvert(image.mobile)
+            : nuxtImgConvert(image),
+          "--_banner-background-desktop-image":
+            image.desktop && nuxtImgConvert(image.desktop),
+          "--_banner-background-color": background,
+        };
+      }
       return {
         "--_banner-background-image": image.mobile
           ? `url(${image.mobile})`
