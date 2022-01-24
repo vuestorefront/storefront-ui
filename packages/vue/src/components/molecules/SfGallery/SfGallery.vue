@@ -153,7 +153,12 @@ export default {
       glide: null,
       activeIndex: this.current - 1,
       style: "",
-      pictureSelected: { alt: "" },
+      pictureSelected: this.images[0] || {
+        alt: "",
+        zoom: "",
+        big: "",
+        desktop: "",
+      },
       isZoomStarted: false,
     };
   },
@@ -174,9 +179,6 @@ export default {
       definedPicture ? (definedPicture.alt = this.pictureSelected?.alt) : null;
       return definedPicture ? definedPicture : "";
     },
-  },
-  created() {
-    this.pictureSelected = this.images[0];
   },
   mounted() {
     this.$nextTick(() => {
