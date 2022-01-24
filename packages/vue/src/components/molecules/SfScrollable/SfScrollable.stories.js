@@ -115,7 +115,6 @@ const Template = (args, { argTypes }) => ({
     :hide-text="hideText"
     :max-content-height="maxContentHeight"
     style="max-width: 13.75rem"
-    :style="customStyle"
   >
     <SfProductOption 
       v-for="(option, key) in options" 

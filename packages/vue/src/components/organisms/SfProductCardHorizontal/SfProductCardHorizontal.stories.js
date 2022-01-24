@@ -246,10 +246,10 @@ export default {
       table: {
         category: "Props",
         defaultValue: {
-          summary: "null",
+          summary: "undefined",
         },
       },
-      defaultValue: undefined,
+      defaultValue: "",
       description: "Link to product page",
     },
     scoreRating: {

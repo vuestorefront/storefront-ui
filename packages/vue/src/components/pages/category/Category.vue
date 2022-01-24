@@ -100,8 +100,8 @@
             :style="{ '--index': i }"
             :title="product.title"
             :image="product.image"
-            image-height="auto"
-            image-width="100%"
+            :image-height="326"
+            :image-width="216"
             :regular-price="product.price.regular"
             :special-price="product.price.special"
             :max-rating="product.rating.max"
@@ -109,7 +109,7 @@
             :is-in-wishlist="product.isInWishlist"
             :show-add-to-cart-button="true"
             image-tag="nuxt-img"
-            :nuxtImgConfig="{
+            :nuxt-img-config="{
               format: 'webp',
               fit: 'cover',
             }"
@@ -137,8 +137,10 @@
             :reviews-count="product.reviewsCount"
             :score-rating="product.rating.score"
             :is-in-wishlist="product.isInWishlist"
+            :image-height="200"
+            :image-width="140"
             image-tag="nuxt-img"
-            :nuxtImgConfig="{
+            :nuxt-img-config="{
               format: 'webp',
               fit: 'cover',
             }"

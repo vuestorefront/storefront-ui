@@ -119,7 +119,7 @@
           >
             <template #label>
               <div class="sf-checkbox__label">
-                I agree to <SfLink href="#">Terms and conditions</SfLink>
+                I agree to <SfLink link="#">Terms and conditions</SfLink>
               </div>
             </template>
           </SfCheckbox>
