@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.12.0](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.11.5...@storefront-ui/shared@0.12.0) (2022-01-24)
+
+
+### Bug Fixes
+
+* changing color and size of icon ([fc85dec](https://github.com/vuestorefront/storefront-ui/commit/fc85dec52e5eaac9056fdc5fbb8f5a17267d931e))
+* conflict resolved ([552adb0](https://github.com/vuestorefront/storefront-ui/commit/552adb094a168389922e9840225a206688e975da))
+* removed unused lines ([1ad1dce](https://github.com/vuestorefront/storefront-ui/commit/1ad1dcec245faca8f0129463d43fd956c9baef89))
+
+
+### Features
+
+* add nuxt-img api to Sfimage, SfGallery, SfProductCard and SfProductCardHorizontal ([#2174](https://github.com/vuestorefront/storefront-ui/issues/2174)) ([7bb4869](https://github.com/vuestorefront/storefront-ui/commit/7bb4869c6f3b1e314484f781ab66a87285ec64d0))
+* added new modifier for SfComponentSelect ([#2202](https://github.com/vuestorefront/storefront-ui/issues/2202)) ([19d662b](https://github.com/vuestorefront/storefront-ui/commit/19d662b67c02e78d0502e48ab1886b74e50d1b08))
+* banner with img tag ([51fe3fe](https://github.com/vuestorefront/storefront-ui/commit/51fe3feb35e7b909efc1aaf7f14510b0deed3c44))
+* refactor transitions affecting perf ([#2183](https://github.com/vuestorefront/storefront-ui/issues/2183)) ([3a7b03a](https://github.com/vuestorefront/storefront-ui/commit/3a7b03af37f72cd4ab83ce305a4c63ad977c94a5))
+
+
+
+
+
 ## [0.11.5](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.11.4...@storefront-ui/shared@0.11.5) (2021-12-20)
 
 

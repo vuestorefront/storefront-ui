@@ -1,4 +1,4 @@
-import { SfBanner } from "@storefront-ui/vue";
+import { SfBanner, SfCimage } from "@storefront-ui/vue";
 import banner from "../../../../public/assets/storybook/SfBanner/Banner2.jpg";
 
 export default {
@@ -256,6 +256,16 @@ export default {
       },
       description: "Use this slot to replace call-to-action content",
     },
+    "img-tag": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Slot dedicated to `img` tags or other components with this tag (e.g. `SfImage`, `SfCimage`) that can be used as images for background. If you want to use this slot, make sure that `background` and `image` props are NOT provided.",
+    },
   },
   args: {
     image: banner,
@@ -403,3 +413,52 @@ export const WithCallToActionSlot = (args, { argTypes }) => ({
   </SfBanner>`,
 });
 WithCallToActionSlot.args = { ...Common.args };
+
+export const WithImgTagSlot = (args, { argTypes }) => ({
+  components: {
+    SfBanner,
+    SfCimage,
+  },
+  props: Object.keys(argTypes),
+  data() {
+    return {
+      imageTitle: "Colorful summer dresses are already in store",
+      imageSubtitle: "Summer Collection 2019",
+      imageButtonText: "Learn more",
+      cloud: { cloudName: "demo" },
+      alt: "Cat",
+      placeholder: "blur",
+      transformations: [
+        {
+          resize: {
+            width: 1500,
+            height: 400,
+            type: "fill",
+          },
+          gravity: "center",
+        },
+      ],
+    };
+  },
+  template: `
+  <SfBanner 
+    :class="classes"
+    :title="title"
+    :subtitle="subtitle"
+    :description="description"
+    :button-text="buttonText"
+    :link="link"
+    style="--banner-title-color: var(--c-white); --banner-subtitle-color: var(--c-light); --banner-description-color: var(--c-white);"
+  >
+    <template #img-tag>
+      <SfCimage
+        public-id="kitten"
+        :cloud="cloud"
+        :alt="alt"
+        :placeholder="placeholder"
+        :transformations="transformations"
+      />
+    </template>
+  </SfBanner>`,
+});
+WithImgTagSlot.args = { ...Common.args };

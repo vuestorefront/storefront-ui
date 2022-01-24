@@ -7,7 +7,15 @@
     <div class="sf-product-card__image-wrapper">
       <slot
         name="image"
-        v-bind="{ image, title, link, imageHeight, imageWidth }"
+        v-bind="{
+          image,
+          title,
+          link,
+          imageHeight,
+          imageWidth,
+          imageTag,
+          nuxtImgConfig,
+        }"
       >
         <SfButton
           :link="link"
@@ -25,7 +33,8 @@
               :alt="title"
               :width="imageWidth"
               :height="imageHeight"
-              :placeholder="productPlaceholder"
+              :image-tag="imageTag"
+              :nuxt-img-config="nuxtImgConfig"
             />
           </template>
           <SfImage
@@ -35,7 +44,8 @@
             :alt="title"
             :width="imageWidth"
             :height="imageHeight"
-            :placeholder="productPlaceholder"
+            :image-tag="imageTag"
+            :nuxt-img-config="nuxtImgConfig"
           />
         </SfButton>
       </slot>
@@ -86,7 +96,7 @@
           />
         </slot>
       </SfButton>
-      <template :class="{ 'display-none': !showAddToCartButton }">
+      <div :class="{ 'display-none': !showAddToCartButton }">
         <slot
           name="add-to-cart"
           v-bind="{
@@ -133,7 +143,7 @@
             </span>
           </SfCircleIcon>
         </slot>
-      </template>
+      </div>
     </div>
     <slot name="title" v-bind="{ title, link }">
       <SfButton
@@ -194,7 +204,6 @@ import {
   mapMobileObserver,
   unMapMobileObserver,
 } from "../../../utilities/mobile-observer";
-import productPlaceholder from "@storefront-ui/shared/images/product_placeholder.svg";
 export default {
   name: "SfProductCard",
   components: {
@@ -214,12 +223,12 @@ export default {
       default: "",
     },
     imageWidth: {
-      type: [String, Number],
-      default: "100%",
+      type: Number,
+      default: null,
     },
     imageHeight: {
-      type: [String, Number],
-      default: "auto",
+      type: Number,
+      default: null,
     },
     badgeLabel: {
       type: String,
@@ -293,12 +302,19 @@ export default {
       type: Boolean,
       default: false,
     },
+    imageTag: {
+      type: String,
+      default: "",
+    },
+    nuxtImgConfig: {
+      type: Object,
+      default: () => ({}),
+    },
   },
   data() {
     return {
       isAddingToCart: false,
       openColorPicker: false,
-      productPlaceholder,
     };
   },
   computed: {

@@ -3,7 +3,15 @@
     <div class="sf-product-card-horizontal__image-wrapper">
       <slot
         name="image"
-        v-bind="{ image, title, link, imageHeight, imageWidth }"
+        v-bind="{
+          image,
+          title,
+          link,
+          imageHeight,
+          imageWidth,
+          imageTag,
+          nuxtImgConfig,
+        }"
       >
         <SfLink
           :link="link"
@@ -21,7 +29,8 @@
               :alt="title"
               :width="imageWidth"
               :height="imageHeight"
-              :placeholder="productPlaceholder"
+              :image-tag="imageTag"
+              :nuxt-img-config="nuxtImgConfig"
             />
           </template>
           <SfImage
@@ -31,7 +40,8 @@
             :alt="title"
             :width="imageWidth"
             :height="imageHeight"
-            :placeholder="productPlaceholder"
+            :image-tag="imageTag"
+            :nuxt-img-config="nuxtImgConfig"
           />
         </SfLink>
       </slot>
@@ -124,7 +134,6 @@ import SfRating from "../../atoms/SfRating/SfRating.vue";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfAddToCart from "../../molecules/SfAddToCart/SfAddToCart.vue";
-import productPlaceholder from "@storefront-ui/shared/images/product_placeholder.svg";
 
 export default {
   name: "SfProductCardHorizontal",
@@ -147,12 +156,12 @@ export default {
       default: "",
     },
     imageWidth: {
-      type: [String, Number],
-      default: 140,
+      type: Number,
+      default: null,
     },
     imageHeight: {
-      type: [String, Number],
-      default: 200,
+      type: Number,
+      default: null,
     },
     title: {
       type: String,
@@ -206,11 +215,18 @@ export default {
       type: [Number, String],
       default: 1,
     },
+    imageTag: {
+      type: String,
+      default: "",
+    },
+    nuxtImgConfig: {
+      type: Object,
+      default: () => ({}),
+    },
   },
   data() {
     return {
       quantity: this.qty,
-      productPlaceholder,
     };
   },
   computed: {

@@ -1,5 +1,6 @@
 <template>
   <div
+    v-will-change="'font-size'"
     class="sf-input"
     :class="{
       'has-text': !!value,
@@ -23,19 +24,34 @@
       <span class="sf-input__bar"></span>
       <label
         :class="{ 'display-none': !label }"
-        class="sf-input__label"
+        class="sf-input__label will-change"
         :for="name"
       >
         <slot name="label" v-bind="{ label }">{{ label }}</slot>
       </label>
       <slot
         v-bind="{
+          icon,
           isPasswordVisible,
           switchVisibilityPassword,
         }"
-        name="show-password"
+        name="icon"
       >
         <SfButton
+          v-if="icon"
+          class="sf-input__button sf-button--pure"
+          @click="$emit('click:icon')"
+        >
+          <SfIcon
+            :color="icon.color"
+            :size="icon.size"
+            :icon="icon.icon"
+            class="sf-input__icon"
+          >
+          </SfIcon>
+        </SfButton>
+        <SfButton
+          v-else-if="hasShowPassword"
           :class="{ 'display-none': !isPassword }"
           class="sf-input__password-button"
           type="button"
@@ -67,10 +83,12 @@
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import { focus } from "../../../utilities/directives";
+import { willChange } from "../../../utilities/directives";
 export default {
   name: "SfInput",
   directives: {
     focus,
+    willChange,
   },
   components: { SfIcon, SfButton },
   inheritAttrs: false,
@@ -90,6 +108,10 @@ export default {
     type: {
       type: String,
       default: "text",
+    },
+    icon: {
+      type: Object,
+      default: () => {},
     },
     valid: {
       type: Boolean,
@@ -167,6 +189,7 @@ export default {
   },
   methods: {
     switchVisibilityPassword() {
+      if (this.type !== "password") return;
       this.isPasswordVisible = !this.isPasswordVisible;
       this.inputType = this.isPasswordVisible ? "text" : "password";
     },

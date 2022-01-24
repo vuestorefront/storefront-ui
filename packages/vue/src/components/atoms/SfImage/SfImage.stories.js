@@ -44,14 +44,22 @@ export default {
       control: "number",
       table: {
         category: "Props",
+        defaultValue: {
+          summary: null,
+        }
       },
+      defaultValue: null,
       description: "Width of the image",
     },
     height: {
       control: "number",
       table: {
         category: "Props",
+        defaultValue: {
+          summary: null,
+        }
       },
+      defaultValue: null,
       description: "Height of the image",
     },
     placeholder: {
@@ -130,8 +138,6 @@ Common.args = {
       breakpoint: 768,
     },
   ],
-  width: 216,
-  height: 326,
 };
 
 export const WithSrcOnly = Template.bind({});

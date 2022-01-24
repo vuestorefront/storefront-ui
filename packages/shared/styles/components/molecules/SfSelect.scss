@@ -14,9 +14,13 @@
     padding: 0 0 0 4px;
     height: 0.625rem;
     color: var(--select-label-color, var(--c-secondary-variant));
+    transform: var(
+      --select-label-transform,
+      translate3d(0, 0, 0)
+    );
     transition: var(
       --select-label-transition,
-      top 150ms linear,
+      transform 150ms linear,
       font-size 150ms linear
     );
     pointer-events: none;
@@ -88,7 +92,7 @@
     --select-border-color: var(--c-light);
   }
   &.is-selected {
-    --select-label-top: 0;
+    --select-label-transform: var(--select-label-translate3d, translate3d(0, -200%, 0)); 
     --select-label-font-size: var(--font-size--xs);
     --select-dropdown-color: var(--c-secondary-variant);
   }

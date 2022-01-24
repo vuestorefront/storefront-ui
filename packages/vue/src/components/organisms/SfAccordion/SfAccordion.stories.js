@@ -156,7 +156,7 @@ export default {
           summary: "string",
         },
         defaultValue: {
-          summary: "sf-expand",
+          summary: "",
         },
       },
       defaultValue: "",

@@ -107,7 +107,7 @@
         error-message="Please enter a valid email address."
         @blur="emailBlur = false"
       />
-      <SfHeading title="Prices" level="5" />
+      <SfHeading title="Prices" :level="5" />
       <SfRange
         v-model="range"
         class="form__element--range"
@@ -380,6 +380,21 @@ export default {
   }
   &__button {
     --button-width: 100%;
+  }
+  @include for-mobile {
+    #message {
+      padding: var(--spacer-sm);
+      box-sizing: border-box;
+      margin: 1rem 0 1rem 0;
+      width: 100%;
+    }
+    &__element--range {
+      margin: var(--spacer-sm) 0 var(--spacer-2xl);
+    }
+    .sf-button {
+      --button-width: auto;
+      margin-top: var(--spacer-xs);
+    }
   }
   @include for-desktop {
     display: flex;

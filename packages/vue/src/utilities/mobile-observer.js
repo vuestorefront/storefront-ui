@@ -1,11 +1,31 @@
 import Vue from "vue";
 let observer;
-const isMobileMax = 1023;
-export const onMediaMatch = (e) => {
-  if (typeof e.matches === null) return;
-  observer.isMobile = !!e.matches;
+const isMobileMax = 1024;
+const getMaxWidth = (breakpoint) => `(max-width: ${breakpoint - 1}px)`;
+const getMinWidth = (breakpoint) => `(min-width: ${breakpoint}px)`;
+const mediaQueries = {
+  small: getMaxWidth(isMobileMax),
+  large: getMinWidth(isMobileMax),
 };
-export const setupListener = () => {
+const isMobile = () => {
+  if (!process.server && navigator) {
+    if (
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      )
+    )
+      return true;
+  }
+  return false;
+};
+const onMediaMatch = (size, e) => {
+  if (e.matches) {
+    observer.size = size;
+    observer.isMobileDevice = isMobile();
+    observer.isSmall = size === "small";
+  }
+};
+const setupListener = () => {
   if (
     typeof window === "undefined" ||
     typeof document === "undefined" ||
@@ -13,44 +33,55 @@ export const setupListener = () => {
   ) {
     return;
   }
-  observer.isMobile =
-    Math.max(document.documentElement.clientWidth, window.innerWidth) <=
-    isMobileMax;
-  window.matchMedia(`(max-width: ${isMobileMax}px)`).addListener(onMediaMatch);
+
+  for (const size of Object.keys(mediaQueries)) {
+    const matchEvent = window.matchMedia(mediaQueries[size]);
+    onMediaMatch(size, matchEvent);
+
+    try {
+      // Chrome & Firefox
+      matchEvent.addEventListener("change", onMediaMatch.bind(null, size));
+    } catch (e1) {
+      try {
+        // Safari
+        matchEvent.addListener(onMediaMatch.bind(null, size));
+      } catch (e2) {
+        console.error(e2);
+      }
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      onMediaMatch(size, window.matchMedia(mediaQueries[size]));
+    });
+  }
   observer.isInitialized = true;
 };
-export const tearDownListener = () => {
+const tearDownListener = () => {
   if (
     typeof window !== "undefined" &&
     typeof document !== "undefined" &&
     window.matchMedia
   ) {
-    window
-      .matchMedia(`(max-width: ${isMobileMax}px)`)
-      .removeListener(onMediaMatch);
+    window.matchMedia(mediaQueries[observer.size]).removeListener(onMediaMatch);
   }
 };
 export const mapMobileObserver = () => {
   if (!observer) {
     observer = Vue.observable({
-      isMobile: false,
-      clients: 0,
+      isSmall: false,
+      isMobileDevice: isMobile(),
+      size: "large",
+      mediaQueries,
       isInitialized: false,
     });
   }
-  observer.clients += 1;
   return {
     isMobile: {
       get() {
-        if (observer && !observer.isInitialized) {
+        if (observer) {
           setupListener();
         }
-        return observer ? observer.isMobile : false;
-      },
-    },
-    mobileObserverClients: {
-      get() {
-        return observer ? observer.clients : 0;
+        return observer ? observer.isMobileDevice : false;
       },
     },
     mobileObserverIsInitialized: {
@@ -61,13 +92,5 @@ export const mapMobileObserver = () => {
   };
 };
 export const unMapMobileObserver = () => {
-  if (observer) {
-    observer.clients -= 1;
-    if (observer.clients === 0) {
-      observer = null;
-      tearDownListener();
-    }
-  } else {
-    tearDownListener();
-  }
+  tearDownListener();
 };

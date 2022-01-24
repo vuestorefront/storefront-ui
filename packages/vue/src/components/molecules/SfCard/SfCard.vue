@@ -44,12 +44,12 @@ export default {
       default: "",
     },
     imageWidth: {
-      type: [String, Number],
-      default: "",
+      type: Number,
+      required: true,
     },
     imageHeight: {
-      type: [String, Number],
-      default: "",
+      type: Number,
+      required: true,
     },
     title: {
       type: String,

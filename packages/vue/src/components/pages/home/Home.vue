@@ -68,6 +68,13 @@
           :reviews-count="product.reviews"
           :badge-label="product.badgeLabel"
           :badge-color="product.badgeColor"
+          :image-width="216"
+          :image-height="326"
+          image-tag="nuxt-img"
+          :nuxt-img-config="{
+            format: 'webp',
+            fit: 'cover',
+          }"
           @click:wishlist="toggleWishlist(index)"
         />
       </SfCarouselItem>

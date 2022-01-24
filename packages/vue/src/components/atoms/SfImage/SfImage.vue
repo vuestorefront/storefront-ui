@@ -4,21 +4,18 @@
     :style="imageStyle"
     data-testid="image-wrapper"
   >
-    <img
+    <component
+      :is="imageComponentTag"
       :loading="loading"
-      v-bind="$attrs"
+      v-bind="attributes"
       :src="src"
-      :srcset="srcset"
-      :sizes="sizes"
       :class="classes"
-      :width="width"
-      :height="height"
       :alt="alt"
       @load="onLoad"
       v-on="$listeners"
     />
     <img
-      :class="{ 'display-none': loaded || (loaded && placeholder) }"
+      :class="{ 'display-none': isPlaceholderVisible }"
       class="sf-image--placeholder"
       :src="placeholder"
       alt="Placeholder"
@@ -44,6 +41,8 @@
   </span>
 </template>
 <script>
+import imagePlaceholder from "@storefront-ui/shared/images/product_placeholder.svg";
+
 export default {
   name: "SfImage",
   props: {
@@ -64,21 +63,31 @@ export default {
       required: true,
     },
     width: {
-      type: [String, Number],
-      default: "",
+      type: Number,
+      default: null,
     },
     height: {
-      type: [String, Number],
-      default: "",
+      type: Number,
+      default: null,
     },
     placeholder: {
       type: String,
-      default: "",
+      default: imagePlaceholder,
     },
     loading: {
       type: String,
       default: "lazy",
       validator: (value) => ["", "lazy", "eager"].includes(value),
+    },
+    imageTag: {
+      type: String,
+      default: "img",
+      validator: (value) =>
+        ["", "img", "nuxt-img", "nuxt-picture"].includes(value),
+    },
+    nuxtImgConfig: {
+      type: Object,
+      default: () => ({}),
     },
   },
   data() {
@@ -108,9 +117,7 @@ export default {
       const hasBreakpoints = this.sortedSrcsets.every(
         (set) => set.breakpoint && set.width
       );
-
       if (!hasBreakpoints) return null;
-
       return this.sortedSrcsets.reduce(
         (str, set) =>
           `${this.prefix(str)}${this.formatBreakpoint(
@@ -127,17 +134,56 @@ export default {
       }
     },
     imageStyle() {
+      const sizeHandler = (size) => {
+        return size === null ? null : `${size}px`;
+      };
       return {
         "--image-width":
           typeof this.width === "string"
             ? this.formatDimension(this.width)
-            : `${this.width}px`,
+            : sizeHandler(this.width),
         "--image-height":
           typeof this.height === "string"
             ? this.formatDimension(this.height)
-            : `${this.height}px`,
+            : sizeHandler(this.height),
       };
     },
+    imageComponentTag() {
+      return !this.$nuxt ? "img" : this.imageTag;
+    },
+    isPlaceholderVisible() {
+      return (
+        this.imageComponentTag !== "" ||
+        this.imageComponentTag !== "img" ||
+        this.loaded ||
+        (this.loaded && this.placeholder)
+      );
+    },
+    attributes() {
+      return this.imageTag === "img" || this.imageTag === ""
+        ? {
+            ...this.$attrs,
+            sizes: this.sizes,
+            width: this.width
+              ? this.width
+              : !this.srcset && console.error(`Missing required prop width.`),
+            height: this.height
+              ? this.height
+              : !this.srcset && console.error(`Missing required prop height.`),
+            srcset: this.srcset,
+          }
+        : {
+            ...this.$attrs,
+            ...this.nuxtImgConfig,
+            fit: this.nuxtImgConfig.fit
+              ? this.nuxtImgConfig.fit
+              : console.error("Missing required prop fit."),
+          };
+    },
+  },
+  created() {
+    if (this.imageComponentTag !== "img" || this.imageComponentTag !== "")
+      this.loaded = true;
   },
   methods: {
     onLoad() {
@@ -147,6 +193,7 @@ export default {
       return ("" + resolution).endsWith("x") ? resolution : `${resolution}x`;
     },
     formatDimension(size) {
+      if (typeof size === null) return;
       if (
         ["%"].includes(`${size}`.slice(-1)) ||
         ["rem"].includes(`${size}`.slice(-3)) ||

@@ -1,4 +1,8 @@
 import { SfInput, SfIcon } from "@storefront-ui/vue";
+import { sizesValues as sizes } from "@storefront-ui/shared/variables/sizes";
+import { iconColorsValues as colors } from "@storefront-ui/shared/variables/colors";
+import { icons } from "@storefront-ui/shared/icons/icons";
+const iconsNames = Object.keys(icons);
 
 export default {
   title: "Components/Atoms/Input",
@@ -211,6 +215,24 @@ export default {
       description:
         "Native placeholder, can be added, but it's not default component prop.",
     },
+    icon: {
+      control: {
+        type: "object",
+      },
+      table: {
+        category: "Props",
+        type: {
+          summary: "object",
+        },
+      },
+      defaultValue: {
+        icon: "",
+        color: "",
+        size: "",
+      },
+      description:
+        "The icon configuration object which can have props: icon name, size and color as SfIcon specifies.",
+    },
     value: {
       control: "text",
       table: {
@@ -280,6 +302,7 @@ const Template = (args, { argTypes }) => ({
     :error-message="errorMessage"
     :required="required"
     :disabled="disabled"
+    :icon="icon"
     :has-show-password="hasShowPassword"
     @change="change"
     @input="input"
@@ -378,6 +401,9 @@ export const WithLabelSlot = (args, { argTypes }) => ({
     :error-message="errorMessage"
     :required="required"
     :disabled="disabled"
+    :icon="icon"
+    :iconSize="iconSize"
+    :iconColor="iconColor"
     :has-show-password="hasShowPassword"
     @change="onChange"
     >
@@ -415,6 +441,9 @@ export const WithErrorSlot = (args, { argTypes }) => ({
     :error-message="errorMessage"
     :required="required"
     :disabled="disabled"
+    :icon="icon"
+    :iconSize="iconSize"
+    :iconColor="iconColor"
     :has-show-password="hasShowPassword"
     @change="onChange"
     >
