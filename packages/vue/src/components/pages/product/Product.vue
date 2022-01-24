@@ -12,6 +12,16 @@
         :image-height="664"
         :thumb-width="160"
         :thumb-height="160"
+        image-tag="nuxt-img"
+        :nuxt-img-config="{
+          format: 'webp',
+          fit: 'cover',
+        }"
+        thumb-image-tag="nuxt-img"
+        :thumb-nuxt-img-config="{
+          format: 'webp',
+          fit: 'cover',
+        }"
       />
       <div class="product__info">
         <div class="product__header">

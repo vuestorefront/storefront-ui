@@ -182,7 +182,8 @@ export default {
     },
   },
   created() {
-    if (this.imageComponentTag !== "img" || this.imageComponentTag !== "") this.loaded = true;
+    if (this.imageComponentTag !== "img" || this.imageComponentTag !== "")
+      this.loaded = true;
   },
   methods: {
     onLoad() {
