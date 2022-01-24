@@ -68,6 +68,8 @@
           :reviews-count="product.reviews"
           :badge-label="product.badgeLabel"
           :badge-color="product.badgeColor"
+          :image-width="216"
+          :image-height="326"
           @click:wishlist="toggleWishlist(index)"
         />
       </SfCarouselItem>

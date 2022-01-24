@@ -5,7 +5,14 @@
       :breadcrumbs="breadcrumbs"
     />
     <div class="product">
-      <SfGallery :images="product.images" class="product__gallery" />
+      <SfGallery
+        :images="product.images"
+        class="product__gallery"
+        :image-width="422"
+        :image-height="664"
+        :thumb-width="160"
+        :thumb-height="160"
+      />
       <div class="product__info">
         <div class="product__header">
           <SfHeading
