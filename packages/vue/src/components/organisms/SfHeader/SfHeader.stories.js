@@ -515,12 +515,13 @@ export const WithSfHeaderNavigation = (args, { argTypes }) => ({
       this.isMenuActive = false;
     },
     openMenu() {
+      this.currentCategory = "";
       this.isMenuActive = true;
     },
     currentCategoryToggle(event) {
-      if (!event) {
-        this.currentCategory = event;
-        this.toggleMenu();
+      if (!event) {        
+        this.currentCategory = "";
+        this.openMenu();
       } else {
         this.currentCategory = event;
       }

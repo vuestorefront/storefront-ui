@@ -62,7 +62,10 @@
                 @click="clickItem(item)"
               />
             </SfSidebar>
-            <div v-if="openContent" class="sf-header__menu-content">
+            <div
+              class="sf-header__menu-content"
+              :class="{ 'display-none': !openContent }"
+            >
               <template v-for="item in menuItems">
                 <slot :name="item" />
               </template>
