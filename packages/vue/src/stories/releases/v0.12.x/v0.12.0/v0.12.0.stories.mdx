@@ -11,14 +11,21 @@ v0.12.0 contains API breaking changes and new features.
 - SfImage: width and height props types changed to `number` and both are required
 - SfCard, SfGallery, SfCollectedProduct, SfGroupedProductItem, SfProductCard, SfProductCardHorizontal: props types of `imageWidth` and `imageHeight` changed to `Number`
 - SfStore: props types of `pictureWidth` and `pictureHeight` changed to `Number`
+- global: providing overriding by `:root` in projects
+- transitions: remove SfExpand functional component and fix sf-expand css styles 
+- SfInput, SfComponentSelect, SfSelect, SfSlidingSection, SfTextarea: replace transitions using properties affecting performance with `transform`
 - global: providing overriding by :root in projects
 - SfLink: required attribute added to the link prop and defined default value of `to` property for `nuxt-link`
+- SfSearchbar, SfInput: replace native input with SfInput component and add new SfIcon component in SfInput, change events, props and css vars 
 
 ## 🚀 Features
 
+- SfImage, SfGallery, SfProductCard, SfProductCardHorizontal, SfBanner, SfHero: add posibility to use `nuxt-img` and `nuxt-picture` in SfImage component and add props to other components to configure `nuxt-image` module
 - SfBanner: new slot `img-tag`
 - Home, Category, Product pages: add `nuxt-img` props and add `nuxt-image` module in nuxt package
+- add `will-change` directive to allow using this property only when it's needed for performance reasons 
 - SfComponentSelect: new modifier for positioning label on the right
+- Mobile observer: refactor
 
 ## 🐛 Fixes
 
@@ -26,6 +33,7 @@ v0.12.0 contains API breaking changes and new features.
 - SfTabs: fixed issue with memory leak
 - transitions: remove SfExpand functional component and fix sf-expand css styles
 - SfTextArea: Bug fix for SfTextarea in form for Mobile view
+- SfGallery: push new images to gallery not working correctly
 - SfProductCard: Replaced template tag with a div to fix showAddToCartButton prop not working
 
 ## 🧹 Chores:

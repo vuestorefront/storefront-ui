@@ -8,7 +8,8 @@
   color: var(--c-text);
   background-repeat: no-repeat;
   background-size: cover;
-  img {
+  img,
+  &__image {
     position: absolute;
     z-index: -1;
     top: 0;
