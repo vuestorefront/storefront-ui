@@ -108,6 +108,11 @@
             :score-rating="product.rating.score"
             :is-in-wishlist="product.isInWishlist"
             :show-add-to-cart-button="true"
+            image-tag="nuxt-img"
+            :nuxtImgConfig="{
+              format: 'webp',
+              fit: 'cover',
+            }"
             class="products__product-card"
             @click:wishlist="toggleWishlist(i)"
           />
@@ -132,6 +137,11 @@
             :reviews-count="product.reviewsCount"
             :score-rating="product.rating.score"
             :is-in-wishlist="product.isInWishlist"
+            image-tag="nuxt-img"
+            :nuxtImgConfig="{
+              format: 'webp',
+              fit: 'cover',
+            }"
             class="products__product-card-horizontal"
             @click:wishlist="toggleWishlist(i)"
           >
