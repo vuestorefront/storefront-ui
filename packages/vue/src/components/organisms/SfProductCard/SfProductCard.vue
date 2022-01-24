@@ -7,7 +7,15 @@
     <div class="sf-product-card__image-wrapper">
       <slot
         name="image"
-        v-bind="{ image, title, link, imageHeight, imageWidth }"
+        v-bind="{
+          image,
+          title,
+          link,
+          imageHeight,
+          imageWidth,
+          imageTag,
+          nuxtImgConfig,
+        }"
       >
         <SfButton
           :link="link"
@@ -25,6 +33,8 @@
               :alt="title"
               :width="imageWidth"
               :height="imageHeight"
+              :image-tag="imageTag"
+              :nuxt-img-config="nuxtImgConfig"
             />
           </template>
           <SfImage
@@ -34,6 +44,8 @@
             :alt="title"
             :width="imageWidth"
             :height="imageHeight"
+            :image-tag="imageTag"
+            :nuxt-img-config="nuxtImgConfig"
           />
         </SfButton>
       </slot>
@@ -211,11 +223,11 @@ export default {
     },
     imageWidth: {
       type: Number,
-      default: 216,
+      default: null,
     },
     imageHeight: {
       type: Number,
-      default: 326,
+      default: null,
     },
     badgeLabel: {
       type: String,
@@ -288,6 +300,14 @@ export default {
     addToCartDisabled: {
       type: Boolean,
       default: false,
+    },
+    imageTag: {
+      type: String,
+      default: "",
+    },
+    nuxtImgConfig: {
+      type: Object,
+      default: () => ({}),
     },
   },
   data() {
