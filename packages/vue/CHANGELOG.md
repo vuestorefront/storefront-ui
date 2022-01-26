@@ -3,6 +3,43 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.12.0](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/vue@0.11.5...@storefront-ui/vue@0.12.0) (2022-01-24)
+
+
+### Bug Fixes
+
+* console errors in stories ([#2208](https://github.com/vuestorefront/storefront-ui/issues/2208)) ([310bf43](https://github.com/vuestorefront/storefront-ui/commit/310bf439b40bbdbef3315b4116438b3d5d5c0e4c))
+* replace template tag with div SFProductCard ([#2188](https://github.com/vuestorefront/storefront-ui/issues/2188)) ([5dc1e95](https://github.com/vuestorefront/storefront-ui/commit/5dc1e95fff91ea6eb2035ebf554b81c2eb8a4263))
+* **SfGallery:** also mount glide on update ([c33e816](https://github.com/vuestorefront/storefront-ui/commit/c33e8168bf58484c6af8ceae5c0b1fa96d1f594a))
+* bug SfTextArea in Form ([#2178](https://github.com/vuestorefront/storefront-ui/issues/2178)) ([f45a5a3](https://github.com/vuestorefront/storefront-ui/commit/f45a5a322af384932816e427d045d87bf3bf661b))
+* changelog entry ([12da4d0](https://github.com/vuestorefront/storefront-ui/commit/12da4d0d3e6b3bedb819fef45586ddcfd479c8c1))
+* changing color and size of icon ([fc85dec](https://github.com/vuestorefront/storefront-ui/commit/fc85dec52e5eaac9056fdc5fbb8f5a17267d931e))
+* conflict resolved ([7aa6d18](https://github.com/vuestorefront/storefront-ui/commit/7aa6d18e228fb4aa3e6259f8085ce886f152e3c8))
+* conflict resolved ([aa32032](https://github.com/vuestorefront/storefront-ui/commit/aa32032e9aeeee396ab57fcbe1ba921ab863ecd6))
+* conflict resolved ([552adb0](https://github.com/vuestorefront/storefront-ui/commit/552adb094a168389922e9840225a206688e975da))
+* conflict resolved ([85756f4](https://github.com/vuestorefront/storefront-ui/commit/85756f48903a8bc7a2cb9c1915d7599d5b1475be))
+* conflict resolved ([468e1fd](https://github.com/vuestorefront/storefront-ui/commit/468e1fd4020fb51de43cf1c105a179565f93bf57))
+* default value for to property as nuxt-link need to property defined ([d001d4f](https://github.com/vuestorefront/storefront-ui/commit/d001d4ff83721e5be758acb0dbdedff6ec191cf3))
+* fullscreen for particular components ([7226466](https://github.com/vuestorefront/storefront-ui/commit/7226466bf0f58a57cc00d2858310502ba711b6e7))
+* removed padding in pages and templates ([124409c](https://github.com/vuestorefront/storefront-ui/commit/124409ce9ea3bcf798b46a88a013c7235608afd5))
+* required prop added to the link in SfLink component ([46a63c3](https://github.com/vuestorefront/storefront-ui/commit/46a63c3fc9f7cdf15a2b94cd4c97ee00a72d35b5))
+* SfExpand transition to make it more performant ([#2165](https://github.com/vuestorefront/storefront-ui/issues/2165)) ([f3873e5](https://github.com/vuestorefront/storefront-ui/commit/f3873e561653b85ac53f19fdfa2790be6818bc88))
+* width and height props only for explicit width and height ([f7e6fcb](https://github.com/vuestorefront/storefront-ui/commit/f7e6fcb4ccbca9abc5d9bd77b1f7d0a1a4bdbb3f))
+
+
+### Features
+
+* add nuxt-image module and props in pages ([#2187](https://github.com/vuestorefront/storefront-ui/issues/2187)) ([ce89630](https://github.com/vuestorefront/storefront-ui/commit/ce89630be48c1a80d45667a5b16f9be95d551c09))
+* add nuxt-img api to Sfimage, SfGallery, SfProductCard and SfProductCardHorizontal ([#2174](https://github.com/vuestorefront/storefront-ui/issues/2174)) ([7bb4869](https://github.com/vuestorefront/storefront-ui/commit/7bb4869c6f3b1e314484f781ab66a87285ec64d0))
+* added new modifier for SfComponentSelect ([#2202](https://github.com/vuestorefront/storefront-ui/issues/2202)) ([19d662b](https://github.com/vuestorefront/storefront-ui/commit/19d662b67c02e78d0502e48ab1886b74e50d1b08))
+* banner with img tag ([51fe3fe](https://github.com/vuestorefront/storefront-ui/commit/51fe3feb35e7b909efc1aaf7f14510b0deed3c44))
+* placeholder for sfimage ([5182e87](https://github.com/vuestorefront/storefront-ui/commit/5182e874cf2ca8d7df7614375ebca361c61d9922))
+* refactor transitions affecting perf ([#2183](https://github.com/vuestorefront/storefront-ui/issues/2183)) ([3a7b03a](https://github.com/vuestorefront/storefront-ui/commit/3a7b03af37f72cd4ab83ce305a4c63ad977c94a5))
+
+
+
+
+
 ## [0.11.5](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/vue@0.11.4...@storefront-ui/vue@0.11.5) (2021-12-20)
 
 

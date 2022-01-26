@@ -230,7 +230,8 @@ export default {
         color: "",
         size: "",
       },
-      description: "The icon configuration object which can have props: icon name, size and color as SfIcon specifies."
+      description:
+        "The icon configuration object which can have props: icon name, size and color as SfIcon specifies.",
     },
     value: {
       control: "text",

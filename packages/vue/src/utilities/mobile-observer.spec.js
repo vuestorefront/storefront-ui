@@ -34,45 +34,14 @@ describe("mobile observer", () => {
       it("returns isMobile", () => {
         expect(instance.isMobile).toBeDefined();
       });
-      it("increase the clients count", () => {
-        expect(instance.mobileObserverClients.get()).toBe(1);
-        mapMobileObserver();
-        expect(instance.mobileObserverClients.get()).toBe(2);
-        unMapMobileObserver();
-      });
       describe("calling get on isMobile", () => {
         beforeEach(() => {
           window.matchMedia.mockClear();
           addListener.mockClear();
           instance.isMobile.get();
         });
-        it("initialize", () => {
-          expect(instance.mobileObserverIsInitialized.get()).toBe(true);
-        });
-        it("calls matchMedia and addListener", () => {
+        it("calls matchMedia", () => {
           expect(window.matchMedia).toHaveBeenCalledWith("(max-width: 1023px)");
-          expect(addListener).toHaveBeenCalledWith(onMediaMatch);
-        });
-        it("multiple calls on get do not attach multiple listeners", () => {
-          instance.isMobile.get();
-          expect(window.matchMedia).toHaveBeenCalledTimes(1);
-          expect(addListener).toHaveBeenCalledTimes(1);
-        });
-      });
-    });
-    describe("unMapMobileObserver", () => {
-      describe("if observer is defined", () => {
-        it("decrement client by one", () => {
-          // we are adding one more from the one registered in the beforeEAch
-          mapMobileObserver();
-          unMapMobileObserver();
-          expect(instance.mobileObserverClients.get()).toBe(1);
-        });
-        it("if clients reach 0", () => {
-          unMapMobileObserver();
-          expect(instance.isMobile.get()).toEqual(false);
-          expect(window.matchMedia).toHaveBeenCalledWith("(max-width: 1023px)");
-          expect(removeListener).toHaveBeenCalledWith(onMediaMatch);
         });
       });
     });

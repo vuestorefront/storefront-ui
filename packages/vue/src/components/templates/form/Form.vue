@@ -107,7 +107,7 @@
         error-message="Please enter a valid email address."
         @blur="emailBlur = false"
       />
-      <SfHeading title="Prices" level="5" />
+      <SfHeading title="Prices" :level="5" />
       <SfRange
         v-model="range"
         class="form__element--range"

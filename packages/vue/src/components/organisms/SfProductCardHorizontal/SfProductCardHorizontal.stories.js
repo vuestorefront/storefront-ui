@@ -223,16 +223,22 @@ export default {
       control: "number",
       table: {
         category: "Props",
+        defaultValue: {
+          summary: null,
+        },
       },
-      defaultValue: 140,
+      defaultValue: null,
       description: "Product image width, without unit",
     },
     imageHeight: {
       control: "number",
       table: {
         category: "Props",
+        defaultValue: {
+          summary: null,
+        },
       },
-      defaultValue: 200,
+      defaultValue: null,
       description: "Product image height, without unit",
     },
     link: {
@@ -240,10 +246,10 @@ export default {
       table: {
         category: "Props",
         defaultValue: {
-          summary: "null",
+          summary: "undefined",
         },
       },
-      defaultValue: undefined,
+      defaultValue: "",
       description: "Link to product page",
     },
     scoreRating: {
@@ -534,6 +540,8 @@ Common.args = {
   maxRating: 5,
   reviewsCount: 7,
   image: "assets/storybook/SfProductCardHorizontal/productA.jpg",
+  imageWidth: 140,
+  imageHeight: 200,
 };
 
 export const WithMultipleImages = Template.bind({
