@@ -1,6 +1,9 @@
 <template>
   <div class="sf-header-navigation" v-on="$listeners">
-    <div v-if="!isVisibleOnMobile" class="sf-header-navigation__menu">
+    <div
+      :class="{ 'display-none': isVisibleOnMobile }"
+      class="sf-header-navigation__menu"
+    >
       <slot />
     </div>
     <SfSidebar
@@ -30,6 +33,9 @@ export default {
     isVisibleOnMobile() {
       return this.isMobile;
     },
+  },
+  beforeDestroy() {
+    unMapMobileObserver();
   },
 };
 </script>

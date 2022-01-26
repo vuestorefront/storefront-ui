@@ -4,12 +4,11 @@
     <transition :name="transitionName">
       <aside
         v-if="visible"
-        ref="sidebarAside"
+        ref="asideContent"
         v-focus-trap
         v-click-outside="checkPersistence"
         class="sf-sidebar__aside"
       >
-        <!--@slot Use this slot to place content inside the modal bar.-->
         <slot name="bar">
           <SfBar
             :title="title"
@@ -18,10 +17,9 @@
             @click:back="close"
           />
         </slot>
-        <!--@slot Use this slot to replace close icon.-->
         <slot name="circle-icon" v-bind="{ close, button }">
           <SfCircleIcon
-            v-if="button"
+            :class="{ 'display-none': !button }"
             icon-size="12px"
             aria-label="Close sidebar"
             icon="cross"
@@ -29,32 +27,29 @@
             @click="close"
           />
         </slot>
-        <div v-if="title || hasTop" class="sf-sidebar__top">
-          <!--@slot Use this slot to replace SfHeading component.-->
+        <div
+          :class="{ 'display-none': !title || (!title && !hasTop) }"
+          class="sf-sidebar__top"
+        >
           <slot name="title" v-bind="{ title, subtitle, headingLevel }">
             <SfHeading
-              v-if="title"
+              :class="{ 'display-none': !title }"
               :title="title"
               :description="subtitle"
               :level="headingLevel"
-              class="sf-heading--left sf-heading--no-underline sf-sidebar__title desktop-only"
+              class="
+                sf-heading--left sf-heading--no-underline
+                sf-sidebar__title
+                desktop-only
+              "
             />
           </slot>
-          <!--@slot Use this slot to add sticky top content.-->
           <slot name="content-top" />
         </div>
-        <SfScrollable
-          show-text=""
-          hide-text=""
-          :max-content-height="setMaxHeight"
-        >
-          <div ref="content" class="sf-sidebar__content">
-            <!--@slot Use this slot to add SfSidebar content.-->
-            <slot />
-          </div>
-        </SfScrollable>
-        <!--@slot Use this slot to place content to sticky bottom.-->
-        <div v-if="hasBottom" class="sf-sidebar__bottom">
+        <div class="sf-sidebar__content">
+          <slot />
+        </div>
+        <div :class="{ 'display-none': !hasBottom }" class="sf-sidebar__bottom">
           <slot name="content-bottom" />
         </div>
       </aside>
@@ -70,7 +65,6 @@ import SfBar from "../../molecules/SfBar/SfBar.vue";
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import SfHeading from "../../atoms/SfHeading/SfHeading.vue";
-import SfScrollable from "../../molecules/SfScrollable/SfScrollable.vue";
 export default {
   name: "SfSidebar",
   directives: { focusTrap, clickOutside },
@@ -79,54 +73,32 @@ export default {
     SfCircleIcon,
     SfOverlay,
     SfHeading,
-    SfScrollable,
   },
   props: {
-    /**
-     * The sidebar's title
-     */
     title: {
       type: String,
       default: "",
     },
-    /**
-     * The sidebar's subtitle
-     */
     subtitle: {
       type: String,
       default: "",
     },
-    /**
-     * The heading's level
-     */
     headingLevel: {
       type: Number,
       default: 3,
     },
-    /**
-     * The close button
-     */
     button: {
       type: Boolean,
       default: true,
     },
-    /**
-     * The sidebar's visibility
-     */
     visible: {
       type: Boolean,
       default: false,
     },
-    /**
-     * The overlay's visibility
-     */
     overlay: {
       type: Boolean,
       default: true,
     },
-    /**
-     * If true clicking outside will not dismiss the sidebar
-     */
     persistent: {
       type: Boolean,
       default: false,
@@ -137,7 +109,6 @@ export default {
       position: "left",
       staticClass: null,
       className: null,
-      setMaxHeight: "",
     };
   },
   computed: {
@@ -160,10 +131,10 @@ export default {
         if (!isClient) return;
         if (value) {
           this.$nextTick(() => {
-            disableBodyScroll(this.$refs.content);
-            if (this.$slots.default) {
-              this.setMaxHeight = `${this.$refs.sidebarAside.offsetHeight.toString()}px`;
-            }
+            const sidebarContent = document.getElementsByClassName(
+              "sf-sidebar__content"
+            )[0];
+            disableBodyScroll(sidebarContent);
           });
           document.addEventListener("keydown", this.keydownHandler);
         } else {
@@ -173,6 +144,15 @@ export default {
       },
       immediate: true,
     },
+  },
+  mounted() {
+    this.classHandler();
+  },
+  updated() {
+    this.classHandler();
+  },
+  beforeDestroy() {
+    clearAllBodyScrollLocks();
   },
   methods: {
     close() {

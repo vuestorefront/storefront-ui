@@ -17,7 +17,7 @@ export default {
     placeholder: {
       type: String,
       default: "",
-      validator: (value) => !!value || placeholderTypes[value],
+      validator: (value) => !value || placeholderTypes[value],
     },
     cloud: {
       type: Object,
@@ -36,7 +36,6 @@ export default {
     alt: {
       type: String,
       required: true,
-      validator: (value) => value && !!value.trim(),
     },
   },
   render(createElement, context) {
@@ -44,11 +43,9 @@ export default {
 
     if (!props.publicId) {
       throw Error("PublicId is required to use this component.");
-      return;
     }
     if ((!props.cloud || !props.cloud.cloudName) && !getConfig().cloudName) {
       throw Error("cloudName is required to use this component.");
-      return;
     }
 
     const progressiveEffect = props.progressive
@@ -65,14 +62,23 @@ export default {
     };
 
     const placeholderEffects = placeholderTypes[props.placeholder];
+    let src = buildImageUrl(props.publicId, options);
 
-    const image = new Image();
+    if (typeof window !== "undefined" && placeholderEffects) {
+      const image = new Image();
 
-    image.onload = () => {
-      context.parent.$refs.cimage.setAttribute("src", image.src);
-    };
+      image.onload = () => {
+        context.parent.$refs.cimage.setAttribute("src", image.src);
+      };
 
-    image.src = buildImageUrl(props.publicId, options);
+      image.src = src;
+      src = buildImageUrl(props.publicId, {
+        cloud: props.cloud,
+        transformations: {
+          chaining: chaining.concat(placeholderEffects),
+        },
+      });
+    }
 
     return createElement(
       "img",
@@ -80,14 +86,7 @@ export default {
         ...context,
         attrs: {
           ...context.attrs,
-          src: placeholderEffects
-            ? buildImageUrl(props.publicId, {
-                cloud: props.cloud,
-                transformations: {
-                  chaining: chaining.concat(placeholderEffects),
-                },
-              })
-            : image.src,
+          src,
           loading: props.loading,
           alt: props.alt,
         },

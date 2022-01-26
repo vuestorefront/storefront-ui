@@ -15,7 +15,7 @@
         </slot>
         <slot name="price" v-bind="{ specialPrice, regularPrice }">
           <SfPrice
-            v-if="regularPrice"
+            :class="{ 'display-none': !regularPrice }"
             :regular="regularPrice"
             :special="specialPrice"
           />
@@ -48,7 +48,9 @@
       <slot name="input">
         <div class="sf-collected-product__quantity-wrapper">
           <SfQuantitySelector
-            :qty="qty"
+            :qty="quantity"
+            :min="minQty"
+            :max="maxQty"
             class="sf-collected-product__quantity-selector"
             @input="$emit('input', $event)"
           />
@@ -56,25 +58,42 @@
       </slot>
     </div>
     <slot name="remove" v-bind="{ removeHandler }">
-      <SfCircleIcon
-        icon="cross"
-        aria-label="Remove"
-        class="sf-circle-icon--small sf-collected-product__remove sf-collected-product__remove--circle-icon"
-        @click="removeHandler"
-      />
-      <SfButton
-        class="sf-button--text sf-collected-product__remove sf-collected-product__remove--text"
-        @click="removeHandler"
-        >Remove</SfButton
-      >
+      <template :class="{ 'display-none': !hasRemove }">
+        <SfCircleIcon
+          icon="cross"
+          aria-label="Remove"
+          class="
+            sf-circle-icon--small
+            sf-collected-product__remove
+            sf-collected-product__remove--circle-icon
+          "
+          @click="removeHandler"
+        />
+        <SfButton
+          class="
+            sf-button--text
+            sf-collected-product__remove sf-collected-product__remove--text
+          "
+          data-testid="collected-product-desktop-remove"
+          @click="removeHandler"
+          >Remove</SfButton
+        >
+      </template>
     </slot>
-    <slot name="more-actions">
-      <SfButton
-        aria-label="More actions"
-        class="sf-button--pure sf-collected-product__more-actions smartphone-only"
-      >
-        <SfIcon icon="more" size="18px" />
-      </SfButton>
+    <slot name="more-actions" v-bind="{ actionsHandler }">
+      <template :class="{ 'display-none': !hasMoreActions }">
+        <SfButton
+          aria-label="More actions"
+          class="
+            sf-button--pure
+            sf-collected-product__more-actions
+            smartphone-only
+          "
+          @click="actionsHandler"
+        >
+          <SfIcon icon="more" size="18px" />
+        </SfButton>
+      </template>
     </slot>
   </div>
 </template>
@@ -103,72 +122,69 @@ export default {
     prop: "qty",
   },
   props: {
-    /**
-     * Product image
-     * It should be an url of the product
-     */
     image: {
       type: String,
       default: "",
     },
-    /**
-     * Product image width, without unit
-     */
     imageWidth: {
-      type: [String, Number],
+      type: Number,
       default: 140,
     },
-    /**
-     * Product image height, without unit
-     */
     imageHeight: {
-      type: [String, Number],
+      type: Number,
       default: 200,
     },
-    /**
-     * Product title
-     */
     title: {
       type: String,
       default: "",
     },
-    /**
-     * Product regular price
-     */
     regularPrice: {
       type: [Number, String],
       default: null,
     },
-    /**
-     * Product special price
-     */
     specialPrice: {
       type: [Number, String],
       default: null,
     },
-    /**
-     * Selected quantity
-     */
     qty: {
       type: [Number, String],
       default: 1,
     },
-    /**
-     * Link to product
-     */
+    minQty: {
+      type: Number,
+      default: null,
+    },
+    maxQty: {
+      type: Number,
+      default: null,
+    },
     link: {
       type: [String, Object],
-      default: "",
+      default: null,
+    },
+    hasRemove: {
+      type: Boolean,
+      default: true,
+    },
+    hasMoreActions: {
+      type: Boolean,
+      default: true,
     },
   },
   computed: {
     componentIs() {
       return this.link ? "SfLink" : "div";
     },
+    quantity() {
+      return typeof this.qty === "string" ? Number(this.qty) : this.qty;
+    },
   },
   methods: {
     removeHandler() {
       this.$emit("click:remove");
+    },
+    actionsHandler() {
+      this.$emit("click:actions");
     },
   },
 };

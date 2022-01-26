@@ -3,21 +3,109 @@ import { SfArrow, SfIcon } from "@storefront-ui/vue";
 export default {
   title: "Components/Atoms/Arrow",
   component: SfArrow,
+  parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "arrow-justify-content": { value: "", control: "text" },
+      "arrow-icon-transform": { value: "", control: "text" },
+      "button-width": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-height": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-padding": {
+        value: "0 0.625rem",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-background": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-transition": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "icon-color": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-box-shadow": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "box-shadow-transition-opacity-duration": {
+        value: "150ms",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-box-shadow-opacity": {
+        value: "0.25",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-border-radius": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+    // end of code generated automatically
+    docs: {
+      description: {
+        component: `Arrow component for sliders and navigation. It's Vue 2 functional component. To see css vars used in component please switch to canvas and CSS Custom Properties tab.`,
+      },
+    },
+  },
   argTypes: {
     disabled: {
       control: "boolean",
-      table: { category: "Attributes" },
-      description: "Disable clickable",
-      type: "boolean",
+      table: {
+        category: "Attributes",
+        type: {
+          summary: "boolean",
+        },
+      },
+      description:
+        "Disable click event. It is passed like any other attribute in Vue functional component.",
     },
     ariaLabel: {
       control: "text",
       table: {
         category: "Attributes",
+        type: {
+          summary: "string",
+        },
       },
+      description:
+        "Aria-label name. It is passed like any other attribute in Vue functional component.",
       defaultValue: "Arrow label",
     },
-    onClick: { action: "clicked", table: { category: "Events" } },
+    click: {
+      action: "Arrow clicked",
+      table: {
+        category: "Events",
+      },
+      description: "Click event. It is passed via v-on='listeners'",
+    },
+    default: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace arrow icon",
+    },
     classes: {
       control: {
         type: "select",
@@ -33,8 +121,9 @@ export default {
         ],
       },
       table: {
-        category: "Modifier classes",
+        category: "CSS modifiers",
       },
+      description: "CSS classes to modify component styling",
     },
   },
 };
@@ -42,7 +131,7 @@ export default {
 const Template = (args, { argTypes }) => ({
   components: { SfArrow },
   props: Object.keys(argTypes),
-  template: `<SfArrow :class="classes" :disabled="disabled" :aria-label="ariaLabel" @click="onClick" />`,
+  template: `<SfArrow :class="classes" :disabled="disabled" :aria-label="ariaLabel" @click="click" />`,
 });
 
 export const Common = Template.bind({});

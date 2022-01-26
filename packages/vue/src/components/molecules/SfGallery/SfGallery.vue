@@ -20,6 +20,8 @@
                 :alt="picture.alt"
                 :width="imageWidth"
                 :height="imageHeight"
+                :image-tag="imageTag"
+                :nuxt-img-config="nuxtImgConfig"
                 @click="$emit('click:stage', { picture, index })"
               />
             </li>
@@ -28,17 +30,23 @@
       </div>
       <transition name="sf-fade">
         <div
-          v-if="outsideZoom && pictureSelected"
           ref="outSide"
+          :class="{
+            'display-none':
+              !outsideZoom || !isZoomStarted || (!outsideZoom && !enableZoom),
+          }"
           :style="{ width: `${imageWidth}px`, height: `${imageHeight}px` }"
         >
           <SfImage
             ref="imgZoom"
             class="sf-gallery__zoom"
-            :src="pictureSelected"
+            :src="definedPicture.url"
             :width="imageWidth"
             :height="imageHeight"
             :lazy="false"
+            :alt="definedPicture.alt"
+            :image-tag="imageTag"
+            :nuxt-img-config="nuxtImgConfig"
           />
         </div>
       </transition>
@@ -50,6 +58,7 @@
           :key="'img-' + index"
           class="sf-button--pure sf-gallery__item"
           :class="{ 'sf-gallery__item--selected': index === activeIndex }"
+          :aria-label="'Image ' + index"
           @click="go(index)"
         >
           <SfImage
@@ -58,6 +67,8 @@
             :alt="image.alt"
             :width="thumbWidth"
             :height="thumbHeight"
+            :image-tag="thumbImageTag"
+            :nuxt-img-config="thumbNuxtImgConfig"
           />
         </SfButton>
       </slot>
@@ -75,51 +86,30 @@ export default {
     SfButton,
   },
   props: {
-    /**
-     * Images list
-     */
     images: {
       type: Array,
       default: () => [],
     },
-    /**
-     * Images width, without unit
-     */
     imageWidth: {
-      type: [Number, String],
-      default: 422,
+      type: Number,
+      default: null,
     },
-    /**
-     * Images height, without unit
-     */
     imageHeight: {
-      type: [Number, String],
-      default: 664,
+      type: Number,
+      default: null,
     },
-    /**
-     * Thumb width, without unit
-     */
     thumbWidth: {
-      type: [Number, String],
-      default: 160,
+      type: Number,
+      default: null,
     },
-    /**
-     * Thumb height, without unit
-     */
     thumbHeight: {
-      type: [Number, String],
-      default: 160,
+      type: Number,
+      default: null,
     },
-    /**
-     * Initial image number (starting from 1)
-     */
     current: {
       type: Number,
       default: 1,
     },
-    /**
-     * Glide slider options (https://glidejs.com/docs/options/)
-     */
     sliderOptions: {
       type: Object,
       default() {
@@ -131,29 +121,45 @@ export default {
         };
       },
     },
-    /**
-     * Image zoom inside or overlap the stage
-     */
     outsideZoom: {
       type: Boolean,
       default: false,
     },
-    /**
-     * Toogle for image zoom or overlap the stage
-     */
     enableZoom: {
       type: Boolean,
       default: false,
+    },
+    imageTag: {
+      type: String,
+      default: "img",
+    },
+    nuxtImgConfig: {
+      type: Object,
+      default: () => ({}),
+    },
+    thumbImageTag: {
+      type: String,
+      default: "img",
+    },
+    thumbNuxtImgConfig: {
+      type: Object,
+      default: () => ({}),
     },
   },
   data() {
     return {
       positionStatic: {},
       eventHover: {},
-      pictureSelected: "",
       glide: null,
       activeIndex: this.current - 1,
       style: "",
+      pictureSelected: this.images[0] || {
+        alt: "",
+        zoom: "",
+        big: "",
+        desktop: "",
+      },
+      isZoomStarted: false,
     };
   },
   computed: {
@@ -166,6 +172,12 @@ export default {
     },
     updatedSliderOptions() {
       return { ...this.sliderOptions, startAt: this.activeIndex };
+    },
+    definedPicture() {
+      const { zoom, big, desktop } = this.pictureSelected;
+      const definedPicture = zoom || big || desktop;
+      definedPicture ? (definedPicture.alt = this.pictureSelected?.alt) : null;
+      return definedPicture ? definedPicture : "";
     },
   },
   mounted() {
@@ -180,6 +192,13 @@ export default {
       glide.mount();
       this.glide = glide;
     });
+  },
+  updated() {
+    if (this.glide) {
+      this.$nextTick(() => {
+        this.glide.mount();
+      });
+    }
   },
   beforeDestroy() {
     if (this.glide) {
@@ -200,6 +219,7 @@ export default {
       return "";
     },
     go(index) {
+      this.pictureSelected = this.images[index];
       if (!this.glide) return;
       this.activeIndex = index;
       /**
@@ -211,10 +231,9 @@ export default {
         this.glide.go(`=${index}`);
       }
     },
-    startZoom(picture) {
+    startZoom() {
       if (this.enableZoom) {
-        const { zoom, big, desktop } = picture;
-        this.pictureSelected = (zoom || big || desktop).url;
+        this.isZoomStarted = true;
       }
     },
     moveZoom($event, index) {
@@ -241,7 +260,7 @@ export default {
     },
     removeZoom(index) {
       if (this.enableZoom) {
-        this.pictureSelected = "";
+        this.isZoomStarted = false;
         if (this.outsideZoom) return;
         this.$refs.sfGalleryBigImage[index].$el.children[0].style.transform =
           "scale(1)";

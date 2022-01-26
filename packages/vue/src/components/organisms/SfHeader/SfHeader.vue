@@ -2,20 +2,20 @@
   <div class="sf-header" :class="{ 'is-sticky': sticky, 'is-hidden': hidden }">
     <div class="sf-header__wrapper">
       <header ref="header" class="sf-header__header">
-        <!--@slot Use this slot to replace logo with text or image-->
         <slot name="logo" v-bind="{ logo, title }">
           <SfLink link="/">
             <SfImage
               v-if="logo"
               :src="logo"
               :alt="title"
+              :width="logoWidth"
+              :height="logoHeight"
               class="sf-header__logo"
             />
             <h1 v-else class="sf-header__title">{{ title }}</h1>
           </SfLink>
         </slot>
         <div class="sf-header__aside">
-          <!-- @slot Use this slot for language or currency selector -->
           <slot name="aside" />
         </div>
         <div class="sf-header__actions">
@@ -25,7 +25,6 @@
           >
             <slot name="navigation"></slot>
           </nav>
-          <!--@slot Use this slot to replace default search bar-->
           <slot name="search" v-bind="{ searchValue, searchPlaceholder }">
             <SfSearchBar
               :value="searchValue"
@@ -33,10 +32,9 @@
               aria-label="Search"
               class="sf-header__search"
               @input="$emit('change:search', $event)"
-              @enter="$emit('enter:search', $event)"
+              @keyup.enter="$emit('enter:search', $event)"
             />
           </slot>
-          <!--@slot Use this slot to replace default header icons with custom content-->
           <slot
             name="header-icons"
             v-bind="{
@@ -50,9 +48,10 @@
           >
             <div class="sf-header__icons">
               <SfButton
-                v-if="accountIcon"
+                :class="{ 'display-none': !accountIcon }"
                 class="sf-button--pure sf-header__action"
                 data-testid="accountIcon"
+                aria-label="Account"
                 @click="$emit('click:account')"
               >
                 <SfIcon
@@ -64,9 +63,10 @@
                 />
               </SfButton>
               <SfButton
-                v-if="wishlistIcon"
+                :class="{ 'display-none': !wishlistIcon }"
                 class="sf-button--pure sf-header__action"
                 data-testid="wishlistIcon"
+                aria-label="Wishlist"
                 @click="$emit('click:wishlist')"
               >
                 <SfIcon
@@ -81,9 +81,10 @@
                 />
               </SfButton>
               <SfButton
-                v-if="cartIcon"
+                :class="{ 'display-none': !cartIcon }"
                 class="sf-button--pure sf-header__action"
                 data-testid="cartIcon"
+                aria-label="Cart"
                 @click="$emit('click:cart')"
               >
                 <SfIcon
@@ -130,44 +131,34 @@ export default {
     SfLink,
   },
   props: {
-    /**
-     * Header logo
-     */
     logo: {
       type: [String, Object],
       default: "",
     },
-    /**
-     * Header title
-     */
+    logoHeight: {
+      type: Number,
+      default: 35,
+    },
+    logoWidth: {
+      type: Number,
+      default: 34,
+    },
     title: {
       type: String,
       default: "",
     },
-    /**
-     * Header cartIcon (accepts same value as SfIcon)
-     */
     cartIcon: {
       type: [String, Boolean, Array],
       default: "empty_cart",
     },
-    /**
-     * Header wishlistIcon (accepts same value as SfIcon)
-     */
     wishlistIcon: {
       type: [String, Boolean, Array],
       default: "heart",
     },
-    /**
-     * Header accountIcon (accepts same value as SfIcon)
-     */
     accountIcon: {
       type: [String, Boolean, Array],
       default: "profile",
     },
-    /**
-     * Header activeIcon (accepts account, wishlist and cart)
-     */
     activeIcon: {
       type: String,
       default: "",
@@ -175,44 +166,26 @@ export default {
         return ["", "account", "wishlist", "cart"].includes(value);
       },
     },
-    /**
-     * Header search placeholder
-     */
     searchPlaceholder: {
       type: String,
       default: "Search for items",
     },
-    /**
-     * Header search phrase
-     */
     searchValue: {
       type: String,
       default: "",
     },
-    /**
-     * Header wishlist items quantity
-     */
     wishlistItemsQty: {
       type: [String, Number],
       default: "0",
     },
-    /**
-     * Header cart items quantity
-     */
     cartItemsQty: {
       type: [String, Number],
       default: "0",
     },
-    /**
-     * Header sticky to top
-     */
     isSticky: {
       type: Boolean,
       default: false,
     },
-    /**
-     * Is nav slot visible on mobile view
-     */
     isNavVisible: {
       type: Boolean,
       default: false,

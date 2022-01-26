@@ -3,6 +3,37 @@ import { SfAddToCart } from "@storefront-ui/vue";
 export default {
   title: "Components/Molecules/AddToCart",
   component: SfAddToCart,
+  parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "add-to-cart-select-quantity-margin": {
+        value: "0 0 0 var(--spacer-xs)",
+        control: "text",
+      },
+      "button-font": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-width": {
+        value: "100%",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "add-to-cart-select-quantity-display": {
+        value: "flex",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+    // end of code generated automatically
+    docs: {
+      description: {
+        component:
+          "The Add-to-cart button and quantity input field with maximum stock validation.",
+      },
+    },
+  },
   decorators: [
     () => ({ template: '<div style="max-width: 21.25rem"><story /></div>' }),
   ],
@@ -13,16 +44,56 @@ export default {
         category: "Props",
       },
       defaultValue: false,
+      description: "Boolean to indicate whether product can be added to cart",
     },
     qty: {
       control: "number",
-      defaultValue: 1,
       table: {
         category: "Props",
+        type: {
+          summary: ["string", "number"],
+        },
+        defaultValue: {
+          summary: 1,
+        },
+      },
+      defaultValue: 1,
+      description: "Selected quantity",
+    },
+    "v-model": {
+      table: {
+        disable: true,
       },
     },
-    click: { action: "Added to cart clicked", table: { category: "Events" } },
-    input: { action: "Quantity changed", table: { category: "Events" } },
+    click: {
+      action: "Click on button event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits click event when add to cart button is clicked",
+    },
+    input: {
+      action: "Input value event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits input event when input value is changed",
+    },
+    "quantity-select-input": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Custom content that will replace default quantity selector",
+    },
+    "add-to-cart-btn": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Custom content that will replace default Add to cart button design",
+    },
   },
 };
 

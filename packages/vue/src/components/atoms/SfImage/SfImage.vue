@@ -1,43 +1,55 @@
 <template>
-  <div class="sf-image--wrapper" :style="variables">
-    <img
+  <span
+    class="sf-image--wrapper"
+    :style="imageStyle"
+    data-testid="image-wrapper"
+  >
+    <component
+      :is="imageComponentTag"
       :loading="loading"
-      v-bind="$attrs"
+      v-bind="attributes"
       :src="src"
-      :srcset="srcset"
-      :sizes="sizes"
       :class="classes"
-      :width="width"
-      :height="height"
-      :alt="alt && alt.trim()"
+      :alt="alt"
       @load="onLoad"
       v-on="$listeners"
     />
     <img
-      v-if="!loaded && placeholder"
+      :class="{ 'display-none': isPlaceholderVisible }"
       class="sf-image--placeholder"
       :src="placeholder"
       alt="Placeholder"
+      :width="width"
+      :height="height"
     />
-    <div v-if="$slots.default" class="sf-image--overlay">
+    <span
+      :class="{ 'display-none': !$slots.default }"
+      class="sf-image--overlay"
+    >
       <slot />
-    </div>
-  </div>
+    </span>
+    <noscript inline-template>
+      <img
+        :src="src"
+        :alt="alt"
+        class="sf-image sf-image-loaded"
+        v-bind="$attrs"
+        :width="width"
+        :height="height"
+      />
+    </noscript>
+  </span>
 </template>
 <script>
+import imagePlaceholder from "@storefront-ui/shared/images/product_placeholder.svg";
+
 export default {
   name: "SfImage",
   props: {
-    /**
-     * Main source url for the image
-     */
     src: {
       type: String,
       required: true,
     },
-    /**
-     * Array of images' source, dimension and breakpoints to generate srcset attribute
-     */
     srcsets: {
       type: Array,
       default: () => [],
@@ -46,42 +58,36 @@ export default {
         value.every((item) => item.resolution && item.src) ||
         value.every((item) => item.src && item.width),
     },
-    /**
-     * Alternative text in case image is not loaded.
-     */
     alt: {
       type: String,
       required: true,
-      validator: (value) => value && !!value.trim(),
     },
-    /**
-     * Width of the image
-     */
     width: {
-      type: [String, Number],
-      default: "",
+      type: Number,
+      default: null,
     },
-    /**
-     * Height of the image
-     */
     height: {
-      type: [String, Number],
-      default: "",
+      type: Number,
+      default: null,
     },
-    /**
-     * Url source of the image's placeholder while it is loading.
-     */
     placeholder: {
       type: String,
-      default: "",
+      default: imagePlaceholder,
     },
-    /**
-     * Native loading attribute supported, either "eager", "lazy" or none.
-     */
     loading: {
       type: String,
       default: "lazy",
       validator: (value) => ["", "lazy", "eager"].includes(value),
+    },
+    imageTag: {
+      type: String,
+      default: "img",
+      validator: (value) =>
+        ["", "img", "nuxt-img", "nuxt-picture"].includes(value),
+    },
+    nuxtImgConfig: {
+      type: Object,
+      default: () => ({}),
     },
   },
   data() {
@@ -111,9 +117,7 @@ export default {
       const hasBreakpoints = this.sortedSrcsets.every(
         (set) => set.breakpoint && set.width
       );
-
       if (!hasBreakpoints) return null;
-
       return this.sortedSrcsets.reduce(
         (str, set) =>
           `${this.prefix(str)}${this.formatBreakpoint(
@@ -123,16 +127,63 @@ export default {
       );
     },
     classes() {
-      return `sf-image ${this.loaded && "sf-image-loaded"}`;
+      if (this.loaded) {
+        return "sf-image sf-image-loaded";
+      } else {
+        return "sf-image";
+      }
     },
-    variables() {
-      const width =
-        this.width && `--image-width: ${this.formatDimension(this.width)}`;
-      const height =
-        this.width && `--image-height: ${this.formatDimension(this.height)}`;
-
-      return [width, height].filter(Boolean).join(";");
+    imageStyle() {
+      const sizeHandler = (size) => {
+        return size === null ? null : `${size}px`;
+      };
+      return {
+        "--image-width":
+          typeof this.width === "string"
+            ? this.formatDimension(this.width)
+            : sizeHandler(this.width),
+        "--image-height":
+          typeof this.height === "string"
+            ? this.formatDimension(this.height)
+            : sizeHandler(this.height),
+      };
     },
+    imageComponentTag() {
+      return !this.$nuxt ? "img" : this.imageTag;
+    },
+    isPlaceholderVisible() {
+      return (
+        this.imageComponentTag !== "" ||
+        this.imageComponentTag !== "img" ||
+        this.loaded ||
+        (this.loaded && this.placeholder)
+      );
+    },
+    attributes() {
+      return this.imageTag === "img" || this.imageTag === ""
+        ? {
+            ...this.$attrs,
+            sizes: this.sizes,
+            width: this.width
+              ? this.width
+              : !this.srcset && console.error(`Missing required prop width.`),
+            height: this.height
+              ? this.height
+              : !this.srcset && console.error(`Missing required prop height.`),
+            srcset: this.srcset,
+          }
+        : {
+            ...this.$attrs,
+            ...this.nuxtImgConfig,
+            fit: this.nuxtImgConfig.fit
+              ? this.nuxtImgConfig.fit
+              : console.error("Missing required prop fit."),
+          };
+    },
+  },
+  created() {
+    if (this.imageComponentTag !== "img" || this.imageComponentTag !== "")
+      this.loaded = true;
   },
   methods: {
     onLoad() {
@@ -141,10 +192,18 @@ export default {
     formatResolution(resolution) {
       return ("" + resolution).endsWith("x") ? resolution : `${resolution}x`;
     },
-    formatDimension(width) {
-      return ["em", "px", "vw"].includes(`${width}`.slice(-2))
-        ? width
-        : `${width}px`;
+    formatDimension(size) {
+      if (typeof size === null) return;
+      if (
+        ["%"].includes(`${size}`.slice(-1)) ||
+        ["rem"].includes(`${size}`.slice(-3)) ||
+        ["em", "px", "vw", "vh"].includes(`${size}`.slice(-2)) ||
+        !parseInt(size, 10)
+      ) {
+        return size;
+      } else {
+        return `${size}px`;
+      }
     },
     formatBreakpoint(breakpoint) {
       return breakpoint ? `(max-width: ${breakpoint}px) ` : "";

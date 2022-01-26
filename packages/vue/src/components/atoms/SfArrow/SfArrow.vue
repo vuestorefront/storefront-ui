@@ -7,7 +7,6 @@
     v-bind="data.attrs"
     v-on="listeners"
   >
-    <!--@slot Use this slot to replace arrow icon-->
     <slot>
       <component
         :is="injections.components.SfIcon"
@@ -16,7 +15,6 @@
         aria-hidden="true"
         v-bind="data.attrs"
         :class="[data.class, data.staticClass, 'sf-arrow__icon']"
-        v-on="listeners"
       />
     </slot>
   </component>

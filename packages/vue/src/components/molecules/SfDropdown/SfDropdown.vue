@@ -14,13 +14,12 @@
         v-click-outside="checkPersistence"
         class="sf-dropdown__container"
       >
-        <!--@slot Use this slot to replace title. -->
         <slot name="title" v-bind="{ title }">
-          <div v-if="title" class="sf-dropdown__title">{{ title }}</div>
+          <div :class="{ 'display-none': !title }" class="sf-dropdown__title">
+            {{ title }}
+          </div>
         </slot>
-        <!--@slot Use this slot to place content inside the dropdown.-->
         <slot />
-        <!--@slot Use this slot to replace cancel button. -->
         <slot name="cancel">
           <SfButton
             class="sf-button--full-width sf-dropdown__cancel"
@@ -48,23 +47,14 @@ export default {
     clickOutside,
   },
   props: {
-    /**
-     * Dropdown is open
-     */
     isOpen: {
       type: Boolean,
       default: false,
     },
-    /**
-     * Title for dropdown content, visible on mobile.
-     */
     title: {
       type: String,
       default: "",
     },
-    /**
-     * If true clicking outside will not dismiss the dropdown
-     */
     persistent: {
       type: Boolean,
       default: false,

@@ -1,13 +1,21 @@
 <template>
   <div class="sf-footer-column">
-    <button v-focus class="sf-footer-column__title" @click="toggle(title)">
+    <SfButton
+      v-focus
+      type="button"
+      class="sf-button--pure sf-footer-column__title"
+      @click="toggle(title)"
+    >
       {{ title }}
-      <div class="sf-footer-column__chevron">
-        <SfChevron :class="{ 'sf-chevron--top': open }" />
-      </div>
-    </button>
+      <span class="sf-footer-column__chevron">
+        <SfChevron :class="{ 'sf-chevron--top': isColumnOpen }" />
+      </span>
+    </SfButton>
     <transition name="sf-fade">
-      <div v-if="open" class="sf-footer-column__content">
+      <div
+        :class="{ 'display-none': !isColumnOpen }"
+        class="sf-footer-column__content"
+      >
         <slot />
       </div>
     </transition>
@@ -15,24 +23,36 @@
 </template>
 <script>
 import SfChevron from "../../../atoms/SfChevron/SfChevron.vue";
+import SfButton from "../../../atoms/SfButton/SfButton.vue";
 import { focus } from "../../../../utilities/directives";
 export default {
   name: "SfFooterColumn",
   directives: { focus },
-  components: { SfChevron },
+  components: {
+    SfChevron,
+    SfButton,
+  },
   props: {
     title: {
       type: String,
       default: "",
     },
   },
-  computed: {
-    open() {
-      return this.$parent.isOpen.includes(this.title);
+  inject: ["items"],
+  data() {
+    return {
+      isColumnOpen: true,
+    };
+  },
+  watch: {
+    "$parent.isOpen": {
+      handler(newVal) {
+        this.isColumnOpen = newVal.includes(this.title);
+      },
     },
   },
-  mounted() {
-    this.$parent.items.push(this.title);
+  created() {
+    this.items.push(this.title);
   },
   methods: {
     toggle(payload) {

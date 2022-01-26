@@ -42,6 +42,16 @@
     );
     text-transform: var(--banner-subtitle-text-transform, uppercase);
   }
+  img,
+  &__image {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: inherit;
+    min-height: inherit;
+    object-fit: cover;
+  }
   &__title {
     margin: var(--banner-title-margin, var(--spacer-2xs) 0 0 0);
     color: var(--banner-color, var(--banner-title-color, var(--c-text)));
@@ -88,6 +98,9 @@
     min-height: var(--banner-height, 25rem);
     &__wrapper {
       pointer-events: none;
+      & > * {
+        pointer-events: initial;
+      }
     }
     &__call-to-action {
       --button-padding: var(--spacer-sm) var(--spacer-xl);

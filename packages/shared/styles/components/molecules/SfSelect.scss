@@ -14,11 +14,16 @@
     padding: 0 0 0 4px;
     height: 0.625rem;
     color: var(--select-label-color, var(--c-secondary-variant));
+    transform: var(
+      --select-label-transform,
+      translate3d(0, 0, 0)
+    );
     transition: var(
       --select-label-transition,
-      top 150ms linear,
+      transform 150ms linear,
       font-size 150ms linear
     );
+    pointer-events: none;
     @include font(
       --select-label-font,
       var(--font-weight--normal),
@@ -44,7 +49,7 @@
       0 0 0 0,
       solid,
       var(--c-secondary)
-    );
+    );    
   }
   &__option {
     background: var(--select-option-background, var(--c-white));
@@ -87,17 +92,21 @@
     --select-border-color: var(--c-light);
   }
   &.is-selected {
-    --select-label-top: 0;
+    --select-label-transform: var(--select-label-translate3d, translate3d(0, -200%, 0)); 
     --select-label-font-size: var(--font-size--xs);
     --select-dropdown-color: var(--c-secondary-variant);
   }
   &.is-invalid {
     --select-dropdown-border-color: var(--c-danger);
   }
-  &.is-disabled {
+  &.is-disabled, select[disabled] {
     --select-dropdown-color: var(--c-text-disabled);
     --select-dropdown-border-color: var(--c-text-disabled);
     --select-label-color: var(--c-text-disabled);
+    color: var(--c-text-disabled);
+    .sf-select__dropdown:active {
+      --select-dropdown-border-color: var(--c-text-disabled);
+    }
   }
   &.is-required {
     --select-label-required: " *";

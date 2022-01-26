@@ -1,5 +1,6 @@
 <template>
   <div
+    v-will-change="'font-size'"
     class="sf-select"
     :class="{
       'is-selected': value || placeholder,
@@ -8,7 +9,7 @@
       'is-invalid': !valid,
     }"
   >
-    <label :for="label" class="sf-select__label">
+    <label :for="label" class="sf-select__label will-change">
       <slot name="label" :label="label">
         {{ label }}
       </slot>
@@ -16,7 +17,9 @@
     <select
       :id="label"
       v-focus
+      v-bind="$attrs"
       :value="value"
+      :disabled="disabled"
       class="sf-select__dropdown"
       @change="changeHandler"
     >
@@ -27,6 +30,7 @@
         disabled
         :selected="!!placeholder"
         value
+        :label="placeholder"
       >
         <slot name="placeholder" v-bind="{ placeholder }" />
         {{ placeholder }}
@@ -36,8 +40,10 @@
     <div class="sf-select__error-message">
       <transition name="sf-fade">
         <!-- @slot Custom error message of form select -->
-        <slot v-if="!valid" name="errorMessage" v-bind="{ errorMessage }">
-          <span> {{ errorMessage }} </span>
+        <slot name="errorMessage" v-bind="{ errorMessage }">
+          <span :class="{ 'display-none': valid }">
+            {{ errorMessage }}
+          </span>
         </slot>
       </transition>
     </div>
@@ -45,59 +51,39 @@
 </template>
 <script>
 import { focus } from "../../../utilities/directives";
+import { willChange } from "../../../utilities/directives";
 import SfSelectOption from "./_internal/SfSelectOption.vue";
 import Vue from "vue";
 
 Vue.component("SfSelectOption", SfSelectOption);
 export default {
   name: "SfSelect",
-  directives: { focus },
+  directives: { focus, willChange },
   props: {
-    /**
-     * Select field label
-     */
     label: {
       type: String,
       default: "",
     },
-    /**
-     * Required attribute
-     */
     required: {
       type: Boolean,
       default: false,
     },
-    /**
-     * Validate value of form select
-     */
     valid: {
       type: Boolean,
       default: true,
     },
-    /**
-     * Disabled status of form select
-     */
     disabled: {
       type: Boolean,
       default: false,
     },
-    /**
-     * Error message value of form select. It will be appeared if `valid` is `true`.
-     */
     errorMessage: {
       type: String,
       default: "This field is not correct.",
     },
-    /**
-     * Value selected.
-     */
     value: {
       type: String,
       default: "",
     },
-    /**
-     * Adds placeholder
-     */
     placeholder: {
       type: String,
       default: "",

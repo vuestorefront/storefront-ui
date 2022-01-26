@@ -30,6 +30,25 @@ const options = [
 export default {
   title: "Components/Molecules/Scrollable",
   component: SfScrollable,
+  parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "scrollable-max-height": {
+        value: "var(--_scrollable-max-height, 5rem)",
+        control: "text",
+      },
+      "scrollable-button-margin": {
+        value: "var(--spacer-sm) 0 0 0",
+        control: "text",
+      },
+    },
+    // end of code generated automatically
+    docs: {
+      description: {
+        component: "Scrollable wrapper with styled bar and toggle button.",
+      },
+    },
+  },
   argTypes: {
     maxContentHeight: {
       control: "text",
@@ -39,6 +58,7 @@ export default {
           summary: "",
         },
       },
+      description: "Maximum height of visible content",
     },
     showText: {
       control: "text",
@@ -48,6 +68,7 @@ export default {
           summary: "Show",
         },
       },
+      description: "Text for button showing content",
     },
     hideText: {
       control: "text",
@@ -57,6 +78,25 @@ export default {
           summary: "Hide",
         },
       },
+      description: "Text for button hiding content",
+    },
+    default: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Slot to place default content",
+    },
+    "view-all": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Slot to replace buttons showing/hiding content",
     },
   },
 };
@@ -75,7 +115,6 @@ const Template = (args, { argTypes }) => ({
     :hide-text="hideText"
     :max-content-height="maxContentHeight"
     style="max-width: 13.75rem"
-    :style="customStyle"
   >
     <SfProductOption 
       v-for="(option, key) in options" 
@@ -88,7 +127,6 @@ const Template = (args, { argTypes }) => ({
 
 export const Common = Template.bind({});
 Common.args = {
-  customStyle: "",
   showText: "View all colors",
   hideText: "Hide colors",
   maxContentHeight: "6.875rem",

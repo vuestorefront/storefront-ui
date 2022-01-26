@@ -6,7 +6,9 @@
   width: 100%;
   &__image {
     display: block;
-    --image-width: 100%;
+    & .sf-image {
+     width: 100%;
+    }
   }
   &__details {
     background: var(--c-light);

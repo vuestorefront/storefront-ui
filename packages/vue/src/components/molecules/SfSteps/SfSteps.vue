@@ -1,7 +1,6 @@
 <template>
   <div class="sf-steps">
     <div class="sf-steps__header">
-      <!-- @slot Use this slot to customise the steps -->
       <slot
         v-for="step in parsedSteps"
         name="steps"
@@ -17,15 +16,20 @@
             current: step.current,
             'is-disabled': step.disabled,
           }"
+          data-testid="steps-button"
           @click="stepClick(step)"
         >
           <span class="sf-steps__title">{{ step.step }}</span>
         </SfButton>
       </slot>
-      <div class="sf-steps__progress" :style="progress"></div>
+      <div
+        class="sf-steps__progress"
+        :style="progress"
+        data-testid="steps-progress"
+      ></div>
     </div>
     <div class="sf-steps__content">
-      <slot></slot>
+      <slot />
     </div>
   </div>
 </template>
@@ -62,16 +66,10 @@ export default {
     };
   },
   props: {
-    /**
-     * Current active step
-     */
     active: {
       type: Number,
       default: 0,
     },
-    /**
-     * Disable clicking on  a past step
-     */
     canGoBack: {
       type: Boolean,
       default: true,
@@ -109,12 +107,6 @@ export default {
     },
     stepClick({ index, disabled }) {
       if (!disabled) {
-        /**
-         * Active step changed event
-         *
-         * @event 'change'
-         * @type {Number}
-         */
         this.$emit("change", index);
       }
     },
