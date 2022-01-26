@@ -537,7 +537,6 @@ const Template = (args, { argTypes }) => ({
     :fly-to-store-zoom="flyToStoreZoom"
     @library:loaded="this['library:loaded']"
     @update:zoom="this['update:zoom']"
-    @map:ready="this['map:ready']"
     @location:error="this['location:error']"
   >
     <SfStore
