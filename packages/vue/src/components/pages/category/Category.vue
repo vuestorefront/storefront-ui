@@ -41,26 +41,32 @@
         </div>
         <div class="navbar__view">
           <span class="navbar__view-label desktop-only">View</span>
-          <SfIcon
-            class="navbar__view-icon"
-            :color="'#43464E'"
-            icon="tiles"
-            size="12px"
-            role="button"
+          <SfButton
+            class="sf-button--pure"
             aria-label="Change to grid view"
             :aria-pressed="isGridView"
             @click="isGridView = true"
-          />
-          <SfIcon
-            class="navbar__view-icon"
-            :color="'#43464E'"
-            icon="list"
-            size="12px"
-            role="button"
+          >
+            <SfIcon
+              class="navbar__view-icon"
+              :color="'#43464E'"
+              icon="tiles"
+              size="12px"
+            />
+          </SfButton>
+          <SfButton
+            class="sf-button--pure"
             aria-label="Change to list view"
             :aria-pressed="!isGridView"
             @click="isGridView = false"
-          />
+          >
+            <SfIcon
+              class="navbar__view-icon"
+              :color="'#43464E'"
+              icon="list"
+              size="12px"
+            />
+          </SfButton>
         </div>
       </div>
     </div>
