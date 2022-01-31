@@ -181,6 +181,7 @@ Common.args = {
         url: "assets/storybook/SfGallery/productA.png",
       },
       alt: "Product A",
+      placeholder: "https://via.placeholder.com/422x664",
     },
     {
       desktop: {
@@ -193,6 +194,7 @@ Common.args = {
         url: "assets/storybook/SfGallery/productB.jpg",
       },
       alt: "Product B",
+      placeholder: "https://via.placeholder.com/422x664",
     },
     {
       desktop: {
@@ -205,6 +207,7 @@ Common.args = {
         url: "assets/storybook/SfGallery/productA.png",
       },
       alt: "Product A",
+      placeholder: "https://via.placeholder.com/422x664",
     },
     {
       desktop: {
@@ -217,6 +220,7 @@ Common.args = {
         url: "assets/storybook/SfGallery/productB.jpg",
       },
       alt: "Product B",
+      placeholder: "https://via.placeholder.com/422x664",
     },
   ],
   current: 1,
