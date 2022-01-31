@@ -106,6 +106,8 @@
 import Glide from "@glidejs/glide";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
+import imagePlaceholder from "@storefront-ui/shared/images/product_placeholder.svg";
+
 export default {
   name: "SfGallery",
   components: {
@@ -185,6 +187,7 @@ export default {
         zoom: "",
         big: "",
         desktop: "",
+        placeholder: imagePlaceholder,
       },
       isZoomStarted: false,
     };
@@ -204,7 +207,9 @@ export default {
       const { zoom, big, desktop } = this.pictureSelected;
       const definedPicture = zoom || big || desktop;
       definedPicture ? (definedPicture.alt = this.pictureSelected?.alt) : null;
-      definedPicture.placeholder = this.pictureSelected?.placeholder;
+      definedPicture
+        ? (definedPicture.placeholder = this.pictureSelected?.placeholder)
+        : null;
       return definedPicture ? definedPicture : "";
     },
   },
