@@ -63,12 +63,14 @@ export default {
       required: true,
     },
     width: {
-      type: Number,
+      type: [Number, String],
       default: null,
+      validator: (value) => !isNaN(value),
     },
     height: {
-      type: Number,
+      type: [Number, String],
       default: null,
+      validator: (value) => !isNaN(value),
     },
     placeholder: {
       type: String,
@@ -135,17 +137,13 @@ export default {
     },
     imageStyle() {
       const sizeHandler = (size) => {
-        return size === null ? null : `${size}px`;
+        if (size === null) return null;
+        size = Number.parseInt(size);
+        return `${size}px`;
       };
       return {
-        "--image-width":
-          typeof this.width === "string"
-            ? this.formatDimension(this.width)
-            : sizeHandler(this.width),
-        "--image-height":
-          typeof this.height === "string"
-            ? this.formatDimension(this.height)
-            : sizeHandler(this.height),
+        "--image-width": sizeHandler(this.width),
+        "--image-height": sizeHandler(this.height),
       };
     },
     imageComponentTag() {
@@ -175,9 +173,6 @@ export default {
         : {
             ...this.$attrs,
             ...this.nuxtImgConfig,
-            fit: this.nuxtImgConfig.fit
-              ? this.nuxtImgConfig.fit
-              : console.error("Missing required prop fit."),
           };
     },
   },

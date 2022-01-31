@@ -49,7 +49,7 @@ export default {
         }
       },
       defaultValue: null,
-      description: "Width of the image",
+      description: "Width of the image. Could be an integer passed as Number or String type, but values like 'auto' or '100%' are not allowed.",
     },
     height: {
       control: "number",
@@ -60,7 +60,7 @@ export default {
         }
       },
       defaultValue: null,
-      description: "Height of the image",
+      description: "Height of the image. Could be an integer passed as Number or String type, but values like 'auto' or '100%' are not allowed.",
     },
     placeholder: {
       control: "text",
