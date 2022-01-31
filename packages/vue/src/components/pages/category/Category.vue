@@ -42,7 +42,7 @@
         <div class="navbar__view">
           <span class="navbar__view-label desktop-only">View</span>
           <SfButton
-            class="sf-button--pure"
+            class="sf-button--pure navbar__view-button"
             aria-label="Change to grid view"
             :aria-pressed="isGridView"
             @click="isGridView = true"
@@ -55,7 +55,7 @@
             />
           </SfButton>
           <SfButton
-            class="sf-button--pure"
+            class="sf-button--pure navbar__view-button"
             aria-label="Change to list view"
             :aria-pressed="!isGridView"
             @click="isGridView = false"
@@ -828,6 +828,16 @@ export default {
       order: 0;
     }
     &-icon {
+      cursor: pointer;
+      margin: 0 var(--spacer-base) 0 var(--spacer-sm);
+      @include for-desktop {
+        margin: 0 var(--spacer-base) 0 0;
+      }
+      &:last-child {
+        margin: 0;
+      }
+    }
+    &-button {
       cursor: pointer;
       margin: 0 var(--spacer-base) 0 var(--spacer-sm);
       @include for-desktop {
