@@ -118,6 +118,9 @@ export default {
     },
     content: {
       control: "text",
+      table: {
+        category: "Props",
+      },
       description:
         "Type here to fill the button (only for testing in Storybook). For development use default slot, described below, to change the content.",
     },
@@ -169,6 +172,7 @@ Disabled.args = {
 export const Submit = Template.bind({});
 Submit.args = {
   type: "submit",
+  content: "Submit",
   ...Primary.args,
 };
 
