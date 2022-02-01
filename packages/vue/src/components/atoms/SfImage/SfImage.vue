@@ -153,10 +153,10 @@ export default {
     },
     isPlaceholderVisible() {
       return (
-        this.imageComponentTag !== "" ||
-        this.imageComponentTag !== "img" ||
-        this.loaded ||
-        (this.loaded && this.placeholder)
+        this.imageComponentTag === "nuxt-img" ||
+        this.imageComponentTag === "nuxt-picture" ||
+        this.loaded || 
+        (!this.loaded && !this.placeholder)
       );
     },
     attributes() {
@@ -182,8 +182,7 @@ export default {
     },
   },
   created() {
-    if (this.imageComponentTag !== "img" || this.imageComponentTag !== "")
-      this.loaded = true;
+    if (this.imageComponentTag === "nuxt-img" || this.imageComponentTag === "nuxt-picture") this.loaded = true;
   },
   methods: {
     onLoad() {
