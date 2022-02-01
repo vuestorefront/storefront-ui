@@ -19,8 +19,8 @@
       class="sf-image--placeholder"
       :src="placeholder"
       alt="Placeholder"
-      :width="width"
-      :height="height"
+      :width="width || nuxtImgConfig.width"
+      :height="height || nuxtImgConfig.height"
     />
     <span
       :class="{ 'display-none': !$slots.default }"
