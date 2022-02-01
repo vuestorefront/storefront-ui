@@ -136,6 +136,15 @@ export default {
       table: { category: "Events", type: { summary: null } },
       description: "Emits click:stage event when main image is clicked.",
     },
+    "big-image": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace main image element",
+    },
     thumbs: {
       table: {
         category: "Slots",
@@ -144,6 +153,15 @@ export default {
         },
       },
       description: "Use this slot to replace gallery thumbs buttons",
+    },
+    "outside-zoom": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace outside zoom image",
     },
   },
 };

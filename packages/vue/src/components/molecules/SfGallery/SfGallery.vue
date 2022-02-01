@@ -13,7 +13,7 @@
               @mouseout="removeZoom(index)"
             >
               <slot
-                name="big-picture"
+                name="big-image"
                 v-bind="{
                   enableZoom,
                   picture,
