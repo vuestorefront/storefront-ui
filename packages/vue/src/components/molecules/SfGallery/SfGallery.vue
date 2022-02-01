@@ -5,24 +5,22 @@
         <div class="glide__track" data-glide-el="track">
           <ul class="glide__slides">
             <li
-              v-for="(picture, index) in images"
-              :key="'slide-' + index"
-              class="glide__slide"
-              @mouseover="startZoom(picture)"
-              @mousemove="moveZoom($event, index)"
-              @mouseout="removeZoom(index)"
+                v-for="(picture, index) in images"
+                :key="'slide-' + index"
+                class="glide__slide"
+                @mouseover="startZoom(picture)"
+                @mousemove="moveZoom($event, index)"
+                @mouseout="removeZoom(index)"
             >
               <SfImage
-                ref="sfGalleryBigImage"
-                class="sf-gallery__big-image"
-                :class="{ 'sf-gallery__big-image--has-zoom': enableZoom }"
-                :src="picture.desktop.url"
-                :alt="picture.alt"
-                :width="imageWidth"
-                :height="imageHeight"
-                :image-tag="imageTag"
-                :nuxt-img-config="nuxtImgConfig"
-                @click="$emit('click:stage', { picture, index })"
+                  ref="sfGalleryBigImage"
+                  class="sf-gallery__big-image"
+                  :class="{ 'sf-gallery__big-image--has-zoom': enableZoom }"
+                  :src="picture.desktop.url"
+                  :alt="picture.alt"
+                  :width="imageWidth"
+                  :height="imageHeight"
+                  @click="$emit('click:stage', { picture, index })"
               />
             </li>
           </ul>
@@ -30,23 +28,18 @@
       </div>
       <transition name="sf-fade">
         <div
-          ref="outSide"
-          :class="{
-            'display-none':
-              !outsideZoom || !isZoomStarted || (!outsideZoom && !enableZoom),
-          }"
-          :style="{ width: `${imageWidth}px`, height: `${imageHeight}px` }"
+            ref="outSide"
+            v-if="outsideZoom && pictureSelected && !(outsideZoom || enableZoom)"
+            :style="{ width: `${imageWidth}px`, height: `${imageHeight}px` }"
         >
           <SfImage
-            ref="imgZoom"
-            class="sf-gallery__zoom"
-            :src="definedPicture.url"
-            :width="imageWidth"
-            :height="imageHeight"
-            :lazy="false"
-            :alt="definedPicture.alt"
-            :image-tag="imageTag"
-            :nuxt-img-config="nuxtImgConfig"
+              ref="imgZoom"
+              class="sf-gallery__zoom"
+              :src="pictureSelectedUrl"
+              :width="imageWidth"
+              :height="imageHeight"
+              :lazy="false"
+              :alt="pictureSelected.alt"
           />
         </div>
       </transition>
@@ -54,21 +47,19 @@
     <div class="sf-gallery__thumbs">
       <slot name="thumbs" v-bind="{ images, active: activeIndex, go }">
         <SfButton
-          v-for="(image, index) in images"
-          :key="'img-' + index"
-          class="sf-button--pure sf-gallery__item"
-          :class="{ 'sf-gallery__item--selected': index === activeIndex }"
-          :aria-label="'Image ' + index"
-          @click="go(index)"
+            v-for="(image, index) in images"
+            :key="'img-' + index"
+            class="sf-button--pure sf-gallery__item"
+            :class="{ 'sf-gallery__item--selected': index === activeIndex }"
+            :aria-label="'Image ' + index"
+            @click="go(index)"
         >
           <SfImage
-            class="sf-gallery__thumb"
-            :src="image.mobile.url"
-            :alt="image.alt"
-            :width="thumbWidth"
-            :height="thumbHeight"
-            :image-tag="thumbImageTag"
-            :nuxt-img-config="thumbNuxtImgConfig"
+              class="sf-gallery__thumb"
+              :src="image.mobile.url"
+              :alt="image.alt"
+              :width="thumbWidth"
+              :height="thumbHeight"
           />
         </SfButton>
       </slot>
@@ -91,20 +82,20 @@ export default {
       default: () => [],
     },
     imageWidth: {
-      type: Number,
-      default: null,
+      type: [Number, String],
+      default: 422,
     },
     imageHeight: {
-      type: Number,
-      default: null,
+      type: [Number, String],
+      default: 664,
     },
     thumbWidth: {
-      type: Number,
-      default: null,
+      type: [Number, String],
+      default: 160,
     },
     thumbHeight: {
-      type: Number,
-      default: null,
+      type: [Number, String],
+      default: 160,
     },
     current: {
       type: Number,
@@ -129,37 +120,15 @@ export default {
       type: Boolean,
       default: false,
     },
-    imageTag: {
-      type: String,
-      default: "img",
-    },
-    nuxtImgConfig: {
-      type: Object,
-      default: () => ({}),
-    },
-    thumbImageTag: {
-      type: String,
-      default: "img",
-    },
-    thumbNuxtImgConfig: {
-      type: Object,
-      default: () => ({}),
-    },
   },
   data() {
     return {
       positionStatic: {},
       eventHover: {},
+      pictureSelected: { alt: "" },
       glide: null,
       activeIndex: this.current - 1,
       style: "",
-      pictureSelected: this.images[0] || {
-        alt: "",
-        zoom: "",
-        big: "",
-        desktop: "",
-      },
-      isZoomStarted: false,
     };
   },
   computed: {
@@ -173,11 +142,10 @@ export default {
     updatedSliderOptions() {
       return { ...this.sliderOptions, startAt: this.activeIndex };
     },
-    definedPicture() {
+    pictureSelectedUrl() {
       const { zoom, big, desktop } = this.pictureSelected;
       const definedPicture = zoom || big || desktop;
-      definedPicture ? (definedPicture.alt = this.pictureSelected?.alt) : null;
-      return definedPicture ? definedPicture : "";
+      return definedPicture ? definedPicture.url : "";
     },
   },
   mounted() {
@@ -193,13 +161,6 @@ export default {
       this.glide = glide;
     });
   },
-  updated() {
-    if (this.glide) {
-      this.$nextTick(() => {
-        this.glide.mount();
-      });
-    }
-  },
   beforeDestroy() {
     if (this.glide) {
       this.glide.destroy();
@@ -212,14 +173,13 @@ export default {
           return this.$refs.glide.getBoundingClientRect();
         } else {
           return this.$refs.sfGalleryBigImage[
-            index
-          ].$el.getBoundingClientRect();
+              index
+              ].$el.getBoundingClientRect();
         }
       }
       return "";
     },
     go(index) {
-      this.pictureSelected = this.images[index];
       if (!this.glide) return;
       this.activeIndex = index;
       /**
@@ -231,9 +191,9 @@ export default {
         this.glide.go(`=${index}`);
       }
     },
-    startZoom() {
+    startZoom(picture) {
       if (this.enableZoom) {
-        this.isZoomStarted = true;
+        this.pictureSelected = picture;
       }
     },
     moveZoom($event, index) {
@@ -242,28 +202,28 @@ export default {
         if (this.outsideZoom) {
           this.positionStatic = this.positionObject(index);
           this.$refs.imgZoom.$el.children[0].style.cssText =
-            "top: 0; transform: scale(2);";
+              "top: 0; transform: scale(2);";
           this.$refs.imgZoom.$el.children[0].style.transformOrigin = `${
-            $event.clientX - this.positionStatic.x
+              $event.clientX - this.positionStatic.x
           }px ${$event.clientY - this.positionStatic.y}px`;
         } else {
           this.positionStatic = this.positionObject(index);
           this.$refs.sfGalleryBigImage[index].$el.children[0].style.cssText =
-            "top: 0; transform: scale(2);";
+              "top: 0; transform: scale(2);";
           this.$refs.sfGalleryBigImage[
-            index
-          ].$el.children[0].style.transformOrigin = `${
-            $event.clientX - this.positionStatic.x
+              index
+              ].$el.children[0].style.transformOrigin = `${
+              $event.clientX - this.positionStatic.x
           }px ${$event.clientY - this.positionStatic.y}px`;
         }
       }
     },
     removeZoom(index) {
       if (this.enableZoom) {
-        this.isZoomStarted = false;
+        this.pictureSelected = "";
         if (this.outsideZoom) return;
         this.$refs.sfGalleryBigImage[index].$el.children[0].style.transform =
-          "scale(1)";
+            "scale(1)";
       }
     },
   },
