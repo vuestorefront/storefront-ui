@@ -1,9 +1,5 @@
 <template>
-  <span
-    class="sf-image--wrapper"
-    :style="imageStyle"
-    data-testid="image-wrapper"
-  >
+  <span class="sf-image--wrapper" data-testid="image-wrapper">
     <component
       :is="imageComponentTag"
       :loading="loading"
@@ -132,21 +128,6 @@ export default {
       } else {
         return "sf-image";
       }
-    },
-    imageStyle() {
-      const sizeHandler = (size) => {
-        return size === null ? null : `${size}px`;
-      };
-      return {
-        "--image-width":
-          typeof this.width === "string"
-            ? this.formatDimension(this.width)
-            : sizeHandler(this.width),
-        "--image-height":
-          typeof this.height === "string"
-            ? this.formatDimension(this.height)
-            : sizeHandler(this.height),
-      };
     },
     imageComponentTag() {
       return !this.$nuxt ? "img" : this.imageTag;

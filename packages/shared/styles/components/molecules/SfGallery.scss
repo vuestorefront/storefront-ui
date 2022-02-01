@@ -2,6 +2,12 @@
 .sf-gallery {
   display: flex;
   flex-direction: var(--gallery-flex-direction, column);
+  --image-width: 100%;
+  --image-height: 31.25rem;
+  @include for-desktop {
+    --image-width: 26.375rem;
+    --image-height: 41.5rem;
+  }
   &__thumbs {
     display: var(--gallery-thumbs-display, flex);
     flex: var(--gallery-thumbs-flex);
@@ -9,6 +15,8 @@
     margin: var(--gallery-thumbs-margin, var(--spacer-xs) 0 0 0);
     order: var(--gallery-thumbs-order);
     overflow: auto;
+    --image-width: 10rem;
+    --image-height: 10rem;
     &::-webkit-scrollbar {
       width: 0;
     }

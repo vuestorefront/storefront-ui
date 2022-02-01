@@ -48,6 +48,8 @@
   }
   &__image {
     background: var(--collected-product-image-background, var(--c-light));
+    --image-width: 100%;
+    --image-height: auto;
   }
   &__quantity-wrapper {
     position: absolute;

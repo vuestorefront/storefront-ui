@@ -79,6 +79,8 @@
   }
   &__image,
   &__picture {
+    --image-width: 100%;
+    --image-height: auto;
     transition: var(--product-card-image-transition, opacity 150ms ease-in-out);
     opacity: var(--product-card-image-opacity);
     &:nth-child(even) {
