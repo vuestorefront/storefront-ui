@@ -20,8 +20,10 @@
     position: absolute;
   }
 
-  &:not([alt]),
-  &[alt=""] {
+  &:not(picture):not([alt]),
+  &:not(picture)[alt=""],
+  & img:not([alt]),
+  & img[alt=""] {
     outline-color: red;
     outline-width: 1px;
     outline-style: dashed;
