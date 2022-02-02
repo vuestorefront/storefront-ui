@@ -42,6 +42,14 @@ export default {
         value: "5.3125rem",
         control: "text",
       },
+      "product-card-horizontal-image-width": {
+        value: "",
+        control: "text",
+      },
+      "product-card-horizontal-image-height": {
+        value: "",
+        control: "text",
+      },
       "product-card-horizontal-image-transition": {
         value: "opacity 150ms ease-in-out",
         control: "text",

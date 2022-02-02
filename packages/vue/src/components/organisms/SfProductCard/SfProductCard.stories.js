@@ -38,6 +38,8 @@ export default {
         control: "text",
       },
       "product-card-image-opacity": { value: "", control: "text" },
+      "product-card-image-width": { value: "", control: "text" },
+      "product-card-image-height": { value: "", control: "text" },
       "product-card-image-even-opacity": { value: "0", control: "text" },
       "product-card-badge-top": { value: "var(--spacer-xs)", control: "text" },
       "product-card-badge-left": { value: "0", control: "text" },

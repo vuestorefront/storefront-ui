@@ -27,6 +27,22 @@ export default {
       },
       "gallery-item-cursor": { value: "pointer", control: "text" },
       "gallery-stage-width": { value: "26.375rem", control: "text" },
+      "gallery-image-width": {
+        value: "",
+        control: "text",
+      },
+      "gallery-image-height": {
+        value: "",
+        control: "text",
+      },
+      "gallery-thumbs-image-width": {
+        value: "",
+        control: "text",
+      },
+      "gallery-thumbs-image-height": {
+        value: "",
+        control: "text",
+      },
     },
     // end of code generated automatically
     docs: {
