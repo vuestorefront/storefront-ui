@@ -41,26 +41,32 @@
         </div>
         <div class="navbar__view">
           <span class="navbar__view-label desktop-only">View</span>
-          <SfIcon
-            class="navbar__view-icon"
-            :color="'#43464E'"
-            icon="tiles"
-            size="12px"
-            role="button"
+          <SfButton
+            class="sf-button--pure navbar__view-button"
             aria-label="Change to grid view"
             :aria-pressed="isGridView"
             @click="isGridView = true"
-          />
-          <SfIcon
-            class="navbar__view-icon"
-            :color="'#43464E'"
-            icon="list"
-            size="12px"
-            role="button"
+          >
+            <SfIcon
+              class="navbar__view-icon"
+              :color="'#43464E'"
+              icon="tiles"
+              size="12px"
+            />
+          </SfButton>
+          <SfButton
+            class="sf-button--pure navbar__view-button"
             aria-label="Change to list view"
             :aria-pressed="!isGridView"
             @click="isGridView = false"
-          />
+          >
+            <SfIcon
+              class="navbar__view-icon"
+              :color="'#43464E'"
+              icon="list"
+              size="12px"
+            />
+          </SfButton>
         </div>
       </div>
     </div>
@@ -822,6 +828,16 @@ export default {
       order: 0;
     }
     &-icon {
+      cursor: pointer;
+      margin: 0 var(--spacer-base) 0 var(--spacer-sm);
+      @include for-desktop {
+        margin: 0 var(--spacer-base) 0 0;
+      }
+      &:last-child {
+        margin: 0;
+      }
+    }
+    &-button {
       cursor: pointer;
       margin: 0 var(--spacer-base) 0 var(--spacer-sm);
       @include for-desktop {
