@@ -81,18 +81,20 @@
       </template>
     </slot>
     <slot name="more-actions" v-bind="{ actionsHandler }">
-      <template :class="{ 'display-none': !hasMoreActions }">
-        <SfButton
-          aria-label="More actions"
-          class="
-            sf-button--pure
-            sf-collected-product__more-actions
-            smartphone-only
-          "
-          @click="actionsHandler"
-        >
-          <SfIcon icon="more" size="18px" />
-        </SfButton>
+      <template>
+        <div :class="{ 'display-none': !hasMoreActions }">
+          <SfButton
+            aria-label="More actions"
+            class="
+              sf-button--pure
+              sf-collected-product__more-actions
+              smartphone-only
+            "
+            @click="actionsHandler"
+          >
+            <SfIcon icon="more" size="18px" />
+          </SfButton>
+        </div>
       </template>
     </slot>
   </div>
