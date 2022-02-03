@@ -23,8 +23,8 @@
         class="sf-image--placeholder"
         :src="placeholder"
         alt="Placeholder"
-        :width="width"
-        :height="height"
+        :width="width || nuxtImgConfig.width"
+        :height="height || nuxtImgConfig.height"
       />
     </slot>
     <span
