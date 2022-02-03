@@ -46,10 +46,11 @@ export default {
         category: "Props",
         defaultValue: {
           summary: null,
-        }
+        },
       },
       defaultValue: null,
-      description: "Width of the image. Could be an integer passed as Number or String type, but values like 'auto' or '100%' are not allowed.",
+      description:
+        "Width of the image. Could be an integer passed as Number or String type, but values like 'auto' or '100%' are not allowed.",
     },
     height: {
       control: "number",
@@ -57,10 +58,11 @@ export default {
         category: "Props",
         defaultValue: {
           summary: null,
-        }
+        },
       },
       defaultValue: null,
-      description: "Height of the image. Could be an integer passed as Number or String type, but values like 'auto' or '100%' are not allowed.",
+      description:
+        "Height of the image. Could be an integer passed as Number or String type, but values like 'auto' or '100%' are not allowed.",
     },
     placeholder: {
       control: "text",
@@ -100,6 +102,15 @@ export default {
         },
       },
       description: "Use this slot to have custom element on image overlay",
+    },
+    "placeholder ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to have custom placeholder",
     },
   },
 };
