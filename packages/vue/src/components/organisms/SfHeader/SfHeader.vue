@@ -136,11 +136,11 @@ export default {
       default: "",
     },
     logoHeight: {
-      type: Number,
+      type: [Number, String],
       default: 35,
     },
     logoWidth: {
-      type: Number,
+      type: [Number, String],
       default: 34,
     },
     title: {
