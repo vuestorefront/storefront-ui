@@ -10,11 +10,11 @@ module.exports = {
   ],
   addons: [
     "@storybook/addon-essentials",
+    "@ljcl/storybook-addon-cssprops",
     "@storybook/addon-links",
     "@storybook/addon-a11y",
     "@storybook/preset-scss",
-    "@storybook/addon-storysource", 
-    "@ljcl/storybook-addon-cssprops",
+    "@storybook/addon-storysource"
   ],
   webpackFinal: async (config) => {
     config.module.rules.push({
