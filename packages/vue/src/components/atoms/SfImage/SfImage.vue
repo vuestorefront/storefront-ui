@@ -14,14 +14,19 @@
       @load="onLoad"
       v-on="$listeners"
     />
-    <img
-      :class="{ 'display-none': isPlaceholderVisible }"
-      class="sf-image--placeholder"
-      :src="placeholder"
-      alt="Placeholder"
-      :width="width"
-      :height="height"
-    />
+    <slot
+      name="placeholder"
+      v-bind="{ isPlaceholderVisible, placeholder, width, height }"
+    >
+      <img
+        :class="{ 'display-none': isPlaceholderVisible }"
+        class="sf-image--placeholder"
+        :src="placeholder"
+        alt="Placeholder"
+        :width="width"
+        :height="height"
+      />
+    </slot>
     <span
       :class="{ 'display-none': !$slots.default }"
       class="sf-image--overlay"
