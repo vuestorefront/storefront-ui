@@ -1,6 +1,7 @@
 package-lock.json
 .DS_Store
 node_modules
+.history
 
 # local env files
 .env.local
