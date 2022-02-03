@@ -190,14 +190,16 @@ export default {
       table: {
         category: "Props for SfGroupedProductItem component",
       },
-      description: "Product image width, without unit",
+      description:
+        "Product image width, without unit. Could be an integer passed as Number or String type, but values like 'auto' or '100%' are not allowed.",
     },
     imageHeight: {
       control: "text",
       table: {
         category: "Props for SfGroupedProductItem component",
       },
-      description: "Product image height, without unit",
+      description:
+        "Product image height, without unit. Could be an integer passed as Number or String type, but values like 'auto' or '100%' are not allowed.",
     },
     imagePlaceholder: {
       control: "text",
