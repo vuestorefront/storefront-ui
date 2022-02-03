@@ -58,7 +58,7 @@
       </slot>
     </div>
     <slot name="remove" v-bind="{ removeHandler }">
-      <template :class="{ 'display-none': !hasRemove }">
+      <div :class="{ 'display-none': !hasRemove }">
         <SfCircleIcon
           icon="cross"
           aria-label="Remove"
@@ -78,7 +78,7 @@
           @click="removeHandler"
           >Remove</SfButton
         >
-      </template>
+      </div>
     </slot>
     <slot name="more-actions" v-bind="{ actionsHandler }">
       <div :class="{ 'display-none': !hasMoreActions }">
