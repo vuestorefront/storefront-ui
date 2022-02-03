@@ -11,12 +11,14 @@ import { Meta } from "@storybook/addon-docs/blocks";
 
 ## 🐛 Fixes
 
+
 - E2E test for login page fixed 
 - SfImage: removed fit property validation in `nuxtImgConfig` prop, allowed to pass `width` and `height` value as String type and added validation for non Integer values, changed props in all components utilizing SfImage accordingly,
 - SfImage: passing width and height values from `nuxtImgConfig` to placeholder,
 - SfImage: applied red dot outline properly when there is no alt prop passed when component is rendered using `nuxt-picture`,
 - SfShippingDetails, Category: used `SfButton` instead of role="button" in `Category` page and `SfShippingDetails` template
 - SfHero: removed duplicate classes `sf-arrow` from `SfArrow` component
+- SfCollectedProduct: bug with unexpected class behavior in "more-actions" and "remove" element
 - included the local history folder in gitignore
 
 ## 🧹 Chores:
