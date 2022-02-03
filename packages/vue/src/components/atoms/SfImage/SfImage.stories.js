@@ -101,6 +101,15 @@ export default {
       },
       description: "Use this slot to have custom element on image overlay",
     },
+    "placeholder ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to have custom placeholder",
+    },
   },
 };
 
