@@ -23,6 +23,8 @@
   }
   &__image,
   &__picture {
+    --image-width: var(--product-card-horizontal-image-width, 100%);
+    --image-height: var(--product-card-horizontal-image-height, auto);
     transition: var(
       --product-card-horizontal-image-transition,
       opacity 150ms ease-in-out
