@@ -6,24 +6,24 @@ import { Meta } from "@storybook/addon-docs/blocks";
 
 ## 🚀 Features
 
+- SfGallery: added slots for big image and outside zoom, and enabled passing custom placeholder in images prop object
 - SfImage: added slot for placeholder,
-- feat: changed the order of css custom properties addon
 
 ## 🐛 Fixes
 
 - used "SfButton" instead of role="button" in "Category" page and "SfShippingDetails" template
-- E2E test for login page fixed
-- SfImage: removed styles added by width and height props
-- SfProductCard, SfGallery, SfCollectedProduct, SfProductCardHorizontal: added styles for images
-- SfImage: apply red dot outline properly when there is no alt prop passed when component is rendered using `nuxt-picture`,
-- Add `type` attribute to `SfButton`.
+- E2E test for login page fixed,
+- SfImage: removed styles added by width and height props,
 - SfImage: removed fit property validation in `nuxtImgConfig` prop, allowed to pass `width` and `height` value as String type and added validation for non Integer values, changed props in all components utilizing SfImage accordingly,
 - SfImage: passing width and height values from `nuxtImgConfig` to placeholder,
 - SfImage: applied red dot outline properly when there is no alt prop passed when component is rendered using `nuxt-picture`,
-- SfShippingDetails, Category: used `SfButton` instead of role="button" in `Category` page and `SfShippingDetails` template
+- SfImage: apply red dot outline properly when there is no alt prop passed when component is rendered using `nuxt-picture`,
+- SfImage: showing placeholder only when `img` element is used
+- SfProductCard, SfGallery, SfCollectedProduct, SfProductCardHorizontal: added styles for images, 
+- SfButton: added `type` attribute to `SfButton`. 
+- SfShippingDetails, Category: used `SfButton` instead of role="button" in `Category` page and `SfShippingDetails` template, 
 - SfHero: removed duplicate classes `sf-arrow` from `SfArrow` component
 - SfCollectedProduct: bug with unexpected class behavior in "more-actions" and "remove" element
-- included the local history folder in gitignore
 - SfProductCard: new CSS vars - `--product-card-image-width` and `--product-card-image-height`
 - SfGallery: new CSS vars - `--gallery-image-width`, `--gallery-image-height`, `--gallery-thumbs-image-width` and `--gallery-thumbs-image-height`
 - SfCollectedProduct: new CSS vars - `--collected-product-image-width` and `--collected-product-image-height`
@@ -32,4 +32,8 @@ import { Meta } from "@storybook/addon-docs/blocks";
 
 ## 🧹 Chores:
 
+- docs: udpate Storybook to latest release, remove errors in console regarding link value, fix quantity bug in SfCollectedProduct story, remove `@map:ready` event from SfStoreLocator story to get rid of console warn  
+- docs: removed scss files for stories in SfMegaMenu, SfFooter and SfSelect components,
 - docs: added the description for v-modal custom props and events in components stories,
+- docs: changed the order of css custom properties addon
+- included the local history folder in gitignore
