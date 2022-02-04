@@ -88,6 +88,30 @@ export default {
       },
       description: "Card image",
     },
+    imageWidth: {
+      control: "number",
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: null,
+        },
+      },
+      defaultValue: null,
+      description:
+        "Product image width, without unit. Could be an integer passed as Number or String type, but values like 'auto' or '100%' are not allowed.",
+    },
+    imageHeight: {
+      control: "number",
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: null,
+        },
+      },
+      defaultValue: null,
+      description:
+        "Product image height, without unit. Could be an integer passed as Number or String type, but values like 'auto' or '100%' are not allowed.",
+    },
     details: {
       table: {
         category: "Slots",

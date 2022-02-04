@@ -16,6 +16,7 @@
     :style="[data.style, data.staticStyle]"
     :aria-disabled="props.disabled"
     :link="props.link"
+    :type="props.type"
     v-bind="data.attrs"
     v-on="!props.disabled ? listeners : {}"
   >
@@ -39,6 +40,11 @@ export default {
     disabled: {
       type: Boolean,
       default: false,
+    },
+    type: {
+      type: String,
+      default: "button",
+      validator: (value) => ["button", "submit", "reset"].includes(value),
     },
     link: {
       type: [String, Object],
