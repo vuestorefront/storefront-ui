@@ -139,6 +139,20 @@ export default {
       },
       description: "Use this slot to have custom checkmark",
     },
+    "v-model": {
+      control: "text",
+      table: {
+        type: {
+          summary: "text",
+        },
+        category: "v-model",
+        defaultValue: {
+          summary: "",
+        },
+      },
+      defaultValue: "",
+      description: "v-model accepts `selected` prop and emits `change` event",
+    },
   },
 };
 
