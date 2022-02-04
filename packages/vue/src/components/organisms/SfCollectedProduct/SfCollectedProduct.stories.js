@@ -145,7 +145,8 @@ export default {
         },
       },
       defaultValue: 140,
-      description: "Product image width, without unit",
+      description:
+        "Product image width, without unit. Could be an integer passed as Number or String type, but values like 'auto' or '100%' are not allowed.",
     },
     imageHeight: {
       control: "number",
@@ -156,7 +157,8 @@ export default {
         },
       },
       defaultValue: 200,
-      description: "Product image height, without unit",
+      description:
+        "Product image height, without unit. Could be an integer passed as Number or String type, but values like 'auto' or '100%' are not allowed.",
     },
     title: {
       control: "text",
@@ -253,9 +255,18 @@ export default {
       description: "Link to product",
     },
     "v-model": {
+      control: "number",
       table: {
-        disable: true,
+        type: {
+          summary: "number",
+        },
+        category: "v-model",
+        defaultValue: {
+          summary: 1,
+        },
       },
+      defaultValue: 1,
+      description: "v-model accepts `qty` prop and emits native events",
     },
     hasMoreActions: {
       control: "boolean",

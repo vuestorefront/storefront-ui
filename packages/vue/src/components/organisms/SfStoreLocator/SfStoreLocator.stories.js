@@ -360,7 +360,8 @@ export default {
         },
       },
       defaultValue: "",
-      description: "Picture width (for internal component)",
+      description:
+        "Picture width (for internal component). Could be an integer passed as Number or String type, but values like 'auto' or '100%' are not allowed.",
     },
     pictureHeight: {
       control: "text",
@@ -374,7 +375,8 @@ export default {
         },
       },
       defaultValue: "",
-      description: "Picture height (for internal component)",
+      description:
+        "Picture height (for internal component). Could be an integer passed as Number or String type, but values like 'auto' or '100%' are not allowed.",
     },
     address: {
       control: "text",
