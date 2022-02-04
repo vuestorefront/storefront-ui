@@ -30,6 +30,14 @@ export default {
         value: "var(--c-light)",
         control: "text",
       },
+      "collected-product-image-width": {
+        value: "",
+        control: "text",
+      },
+      "collected-product-image-height": {
+        value: "",
+        control: "text",
+      },
       "collected-product-main-margin": {
         value: "0 0 0 var(--spacer-sm)",
         control: "text",
@@ -255,9 +263,18 @@ export default {
       description: "Link to product",
     },
     "v-model": {
+      control: "number",
       table: {
-        disable: true,
+        type: {
+          summary: "number",
+        },
+        category: "v-model",
+        defaultValue: {
+          summary: 1,
+        },
       },
+      defaultValue: 1,
+      description: "v-model accepts `qty` prop and emits native events",
     },
     hasMoreActions: {
       control: "boolean",

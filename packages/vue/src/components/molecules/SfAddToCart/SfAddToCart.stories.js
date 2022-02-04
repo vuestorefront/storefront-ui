@@ -61,9 +61,18 @@ export default {
       description: "Selected quantity",
     },
     "v-model": {
+      control: "number",
       table: {
-        disable: true,
+        type: {
+          summary: "number",
+        },
+        category: "v-model",
+        defaultValue: {
+          summary: 1,
+        },
       },
+      defaultValue: 1,
+      description: "v-model accepts `qty` prop and emits native events",
     },
     click: {
       action: "Click on button event emitted",

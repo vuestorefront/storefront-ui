@@ -11,8 +11,12 @@ import { Meta } from "@storybook/addon-docs/blocks";
 
 ## 🐛 Fixes
 
-
-- E2E test for login page fixed 
+- used "SfButton" instead of role="button" in "Category" page and "SfShippingDetails" template
+- E2E test for login page fixed
+- SfImage: removed styles added by width and height props
+- SfProductCard, SfGallery, SfCollectedProduct, SfProductCardHorizontal: added styles for images
+- SfImage: apply red dot outline properly when there is no alt prop passed when component is rendered using `nuxt-picture`,
+- Add `type` attribute to `SfButton`.
 - SfImage: removed fit property validation in `nuxtImgConfig` prop, allowed to pass `width` and `height` value as String type and added validation for non Integer values, changed props in all components utilizing SfImage accordingly,
 - SfImage: passing width and height values from `nuxtImgConfig` to placeholder,
 - SfImage: applied red dot outline properly when there is no alt prop passed when component is rendered using `nuxt-picture`,
@@ -21,6 +25,12 @@ import { Meta } from "@storybook/addon-docs/blocks";
 - SfCollectedProduct: bug with unexpected class behavior in "more-actions" and "remove" element
 - included the local history folder in gitignore
 - SfImage: fix invalid attribute at `srcset`
+- SfProductCard: new CSS vars - `--product-card-image-width` and `--product-card-image-height`
+- SfGallery: new CSS vars - `--gallery-image-width`, `--gallery-image-height`, `--gallery-thumbs-image-width` and `--gallery-thumbs-image-height`
+- SfCollectedProduct: new CSS vars - `--collected-product-image-width` and `--collected-product-image-height`
+- SfProductCardHorizontal: new CSS vars - `--product-card-horizontal-image-width` and `--product-card-horizontal-image-height`
+
 
 ## 🧹 Chores:
 
+- docs: added the description for v-modal custom props and events in components stories,

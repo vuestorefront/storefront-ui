@@ -265,9 +265,18 @@ export default {
       description: "Emits change event when option is chosen",
     },
     "v-model": {
+      control: "text",
       table: {
-        disable: true,
+        type: {
+          summary: "text",
+        },
+        category: "v-model",
+        defaultValue: {
+          summary: "",
+        },
       },
+      defaultValue: "",
+      description: "v-model accepts `selected` prop and emits `change` event",
     },
     default: {
       table: {
