@@ -19,6 +19,8 @@
   }
   &__image {
     background: var(--grouped-product-item-image-background, var(--c-light));
+    --image-width: var(--grouped-product-image-width, 100%);
+    --image-height: var(--grouped-product-image-height, auto);
     img {
       mix-blend-mode: darken;
     }
