@@ -228,7 +228,8 @@ export default {
         },
       },
       defaultValue: null,
-      description: "Product image width, without unit",
+      description:
+        "Product image width, without unit. Could be an integer passed as Number or String type, but values like 'auto' or '100%' are not allowed.",
     },
     imageHeight: {
       control: "number",
@@ -239,7 +240,8 @@ export default {
         },
       },
       defaultValue: null,
-      description: "Product image height, without unit",
+      description:
+        "Product image height, without unit. Could be an integer passed as Number or String type, but values like 'auto' or '100%' are not allowed.",
     },
     link: {
       control: "text",
