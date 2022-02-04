@@ -1,9 +1,5 @@
 <template>
-  <span
-    class="sf-image--wrapper"
-    :style="imageStyle"
-    data-testid="image-wrapper"
-  >
+  <span class="sf-image--wrapper" data-testid="image-wrapper">
     <component
       :is="imageComponentTag"
       :loading="loading"
@@ -68,12 +64,14 @@ export default {
       required: true,
     },
     width: {
-      type: Number,
+      type: [Number, String],
       default: null,
+      validator: (value) => !isNaN(value),
     },
     height: {
-      type: Number,
+      type: [Number, String],
       default: null,
+      validator: (value) => !isNaN(value),
     },
     placeholder: {
       type: String,
@@ -138,21 +136,6 @@ export default {
         return "sf-image";
       }
     },
-    imageStyle() {
-      const sizeHandler = (size) => {
-        return size === null ? null : `${size}px`;
-      };
-      return {
-        "--image-width":
-          typeof this.width === "string"
-            ? this.formatDimension(this.width)
-            : sizeHandler(this.width),
-        "--image-height":
-          typeof this.height === "string"
-            ? this.formatDimension(this.height)
-            : sizeHandler(this.height),
-      };
-    },
     imageComponentTag() {
       return !this.$nuxt ? "img" : this.imageTag;
     },
@@ -180,9 +163,6 @@ export default {
         : {
             ...this.$attrs,
             ...this.nuxtImgConfig,
-            fit: this.nuxtImgConfig.fit
-              ? this.nuxtImgConfig.fit
-              : console.error("Missing required prop fit."),
           };
     },
   },

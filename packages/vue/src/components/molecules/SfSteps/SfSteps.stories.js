@@ -118,9 +118,18 @@ export default {
       description: "Name of the step.",
     },
     "v-model": {
+      control: "number",
       table: {
-        disable: true,
+        type: {
+          summary: "number",
+        },
+        category: "v-model",
+        defaultValue: {
+          summary: 0,
+        },
       },
+      defaultValue: 0,
+      description: "v-model accepts `active` prop and emits `change` event",
     },
     change: {
       action: "change event emitted",
