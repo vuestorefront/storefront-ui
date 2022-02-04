@@ -1,9 +1,5 @@
 <template>
-  <span
-    class="sf-image--wrapper"
-    :style="imageStyle"
-    data-testid="image-wrapper"
-  >
+  <span class="sf-image--wrapper" data-testid="image-wrapper">
     <component
       :is="imageComponentTag"
       :loading="loading"
@@ -140,26 +136,15 @@ export default {
         return "sf-image";
       }
     },
-    imageStyle() {
-      const sizeHandler = (size) => {
-        if (size === null) return null;
-        size = Number.parseInt(size);
-        return `${size}px`;
-      };
-      return {
-        "--image-width": sizeHandler(this.width),
-        "--image-height": sizeHandler(this.height),
-      };
-    },
     imageComponentTag() {
       return !this.$nuxt ? "img" : this.imageTag;
     },
     isPlaceholderVisible() {
       return (
-        this.imageComponentTag !== "" ||
-        this.imageComponentTag !== "img" ||
+        this.imageComponentTag === "nuxt-img" ||
+        this.imageComponentTag === "nuxt-picture" ||
         this.loaded ||
-        (this.loaded && this.placeholder)
+        (!this.loaded && !this.placeholder)
       );
     },
     attributes() {
@@ -182,7 +167,10 @@ export default {
     },
   },
   created() {
-    if (this.imageComponentTag !== "img" || this.imageComponentTag !== "")
+    if (
+      this.imageComponentTag === "nuxt-img" ||
+      this.imageComponentTag === "nuxt-picture"
+    )
       this.loaded = true;
   },
   methods: {

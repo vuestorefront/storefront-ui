@@ -12,18 +12,32 @@
               @mousemove="moveZoom($event, index)"
               @mouseout="removeZoom(index)"
             >
-              <SfImage
-                ref="sfGalleryBigImage"
-                class="sf-gallery__big-image"
-                :class="{ 'sf-gallery__big-image--has-zoom': enableZoom }"
-                :src="picture.desktop.url"
-                :alt="picture.alt"
-                :width="imageWidth"
-                :height="imageHeight"
-                :image-tag="imageTag"
-                :nuxt-img-config="nuxtImgConfig"
-                @click="$emit('click:stage', { picture, index })"
-              />
+              <slot
+                name="big-image"
+                v-bind="{
+                  enableZoom,
+                  picture,
+                  index,
+                  imageWidth,
+                  imageHeight,
+                  imageTag,
+                  nuxtImgConfig,
+                }"
+              >
+                <SfImage
+                  ref="sfGalleryBigImage"
+                  class="sf-gallery__big-image"
+                  :class="{ 'sf-gallery__big-image--has-zoom': enableZoom }"
+                  :src="picture.desktop.url"
+                  :alt="picture.alt"
+                  :placeholder="picture.placeholder"
+                  :width="imageWidth"
+                  :height="imageHeight"
+                  :image-tag="imageTag"
+                  :nuxt-img-config="nuxtImgConfig"
+                  @click="$emit('click:stage', { picture, index })"
+                />
+              </slot>
             </li>
           </ul>
         </div>
@@ -37,17 +51,29 @@
           }"
           :style="{ width: `${imageWidth}px`, height: `${imageHeight}px` }"
         >
-          <SfImage
-            ref="imgZoom"
-            class="sf-gallery__zoom"
-            :src="definedPicture.url"
-            :width="imageWidth"
-            :height="imageHeight"
-            :lazy="false"
-            :alt="definedPicture.alt"
-            :image-tag="imageTag"
-            :nuxt-img-config="nuxtImgConfig"
-          />
+          <slot
+            name="outside-zoom"
+            v-bind="{
+              definedPicture,
+              imageWidth,
+              imageHeight,
+              imageTag,
+              nuxtImgConfig,
+            }"
+          >
+            <SfImage
+              ref="imgZoom"
+              class="sf-gallery__zoom"
+              :src="definedPicture.url"
+              :width="imageWidth"
+              :height="imageHeight"
+              :lazy="false"
+              :alt="definedPicture.alt"
+              :placeholder="definedPicture.placeholder"
+              :image-tag="imageTag"
+              :nuxt-img-config="nuxtImgConfig"
+            />
+          </slot>
         </div>
       </transition>
     </div>
@@ -65,6 +91,7 @@
             class="sf-gallery__thumb"
             :src="image.mobile.url"
             :alt="image.alt"
+            :placeholder="image.placeholder"
             :width="thumbWidth"
             :height="thumbHeight"
             :image-tag="thumbImageTag"
@@ -79,6 +106,7 @@
 import Glide from "@glidejs/glide";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
+
 export default {
   name: "SfGallery",
   components: {
@@ -158,6 +186,7 @@ export default {
         zoom: "",
         big: "",
         desktop: "",
+        placeholder: "",
       },
       isZoomStarted: false,
     };
@@ -177,6 +206,9 @@ export default {
       const { zoom, big, desktop } = this.pictureSelected;
       const definedPicture = zoom || big || desktop;
       definedPicture ? (definedPicture.alt = this.pictureSelected?.alt) : null;
+      definedPicture
+        ? (definedPicture.placeholder = this.pictureSelected?.placeholder)
+        : null;
       return definedPicture ? definedPicture : "";
     },
   },
