@@ -19,8 +19,8 @@
         class="sf-image--placeholder"
         :src="placeholder"
         alt="Placeholder"
-        :width="width"
-        :height="height"
+        :width="width || nuxtImgConfig.width"
+        :height="height || nuxtImgConfig.height"
       />
     </slot>
     <span
@@ -64,12 +64,14 @@ export default {
       required: true,
     },
     width: {
-      type: Number,
+      type: [Number, String],
       default: null,
+      validator: (value) => !isNaN(value),
     },
     height: {
-      type: Number,
+      type: [Number, String],
       default: null,
+      validator: (value) => !isNaN(value),
     },
     placeholder: {
       type: String,
@@ -161,9 +163,6 @@ export default {
         : {
             ...this.$attrs,
             ...this.nuxtImgConfig,
-            fit: this.nuxtImgConfig.fit
-              ? this.nuxtImgConfig.fit
-              : console.error("Missing required prop fit."),
           };
     },
   },
