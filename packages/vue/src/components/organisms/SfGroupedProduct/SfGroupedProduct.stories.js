@@ -51,6 +51,14 @@ export default {
         value: "var(--spacer-sm)",
         control: "text",
       },
+      "grouped-product-image-width": {
+        value: "",
+        control: "text",
+      },
+      "grouped-product-image-height": {
+        value: "",
+        control: "text",
+      },
       "grouped-product-item-quantity-selector-left": {
         value: "50%",
         control: "text",
