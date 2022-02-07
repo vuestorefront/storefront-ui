@@ -30,6 +30,14 @@ export default {
         value: "var(--c-light)",
         control: "text",
       },
+      "collected-product-image-width": {
+        value: "",
+        control: "text",
+      },
+      "collected-product-image-height": {
+        value: "",
+        control: "text",
+      },
       "collected-product-main-margin": {
         value: "0 0 0 var(--spacer-sm)",
         control: "text",
@@ -456,6 +464,17 @@ WithLink.args = {
 export const UseActionsSlot = (args, { argTypes }) => ({
   components: { SfCollectedProduct },
   props: Object.keys(argTypes),
+  data() {
+    return {
+      quantity: this.qty,
+    };
+  },
+  methods: {
+    inputHandler(quantityValue) {
+      this.quantity = quantityValue;
+      this.input(this.quantity);
+    },
+  },
   template: `
   <SfCollectedProduct
     :qty="quantity"
@@ -482,6 +501,17 @@ UseActionsSlot.args = { ...Common.args };
 export const UseConfigurationSlot = (args, { argTypes }) => ({
   components: { SfCollectedProduct },
   props: Object.keys(argTypes),
+  data() {
+    return {
+      quantity: this.qty,
+    };
+  },
+  methods: {
+    inputHandler(quantityValue) {
+      this.quantity = quantityValue;
+      this.input(this.quantity);
+    },
+  },
   template: `
   <SfCollectedProduct
     :qty="quantity"
@@ -508,6 +538,17 @@ UseConfigurationSlot.args = { ...Common.args };
 export const UseImageSlot = (args, { argTypes }) => ({
   components: { SfCollectedProduct },
   props: Object.keys(argTypes),
+  data() {
+    return {
+      quantity: this.qty,
+    };
+  },
+  methods: {
+    inputHandler(quantityValue) {
+      this.quantity = quantityValue;
+      this.input(this.quantity);
+    },
+  },
   template: `
   <SfCollectedProduct
     :qty="quantity"
@@ -534,6 +575,17 @@ UseImageSlot.args = { ...Common.args };
 export const UseInputSlot = (args, { argTypes }) => ({
   components: { SfCollectedProduct },
   props: Object.keys(argTypes),
+  data() {
+    return {
+      quantity: this.qty,
+    };
+  },
+  methods: {
+    inputHandler(quantityValue) {
+      this.quantity = quantityValue;
+      this.input(this.quantity);
+    },
+  },
   template: `
   <SfCollectedProduct
     :qty="quantity"
@@ -546,7 +598,6 @@ export const UseInputSlot = (args, { argTypes }) => ({
     :minQty="minQty"
     :maxQty="maxQty"
     :regular-price="regularPrice"
-    :special-price="specialPrice"
     :special-price="specialPrice"
     :hasMoreActions="hasMoreActions"
   >
@@ -560,6 +611,17 @@ UseInputSlot.args = { ...Common.args };
 export const UseTitleSlot = (args, { argTypes }) => ({
   components: { SfCollectedProduct },
   props: Object.keys(argTypes),
+  data() {
+    return {
+      quantity: this.qty,
+    };
+  },
+  methods: {
+    inputHandler(quantityValue) {
+      this.quantity = quantityValue;
+      this.input(this.quantity);
+    },
+  },
   template: `
   <SfCollectedProduct
     :qty="quantity"
@@ -572,7 +634,6 @@ export const UseTitleSlot = (args, { argTypes }) => ({
     :minQty="minQty"
     :maxQty="maxQty"
     :regular-price="regularPrice"
-    :special-price="specialPrice"
     :special-price="specialPrice"
     :hasMoreActions="hasMoreActions"
   >
@@ -586,6 +647,17 @@ UseTitleSlot.args = { ...Common.args };
 export const UsePriceSlot = (args, { argTypes }) => ({
   components: { SfCollectedProduct },
   props: Object.keys(argTypes),
+  data() {
+    return {
+      quantity: this.qty,
+    };
+  },
+  methods: {
+    inputHandler(quantityValue) {
+      this.quantity = quantityValue;
+      this.input(this.quantity);
+    },
+  },
   template: `
   <SfCollectedProduct
     :qty="quantity"
@@ -598,7 +670,6 @@ export const UsePriceSlot = (args, { argTypes }) => ({
     :minQty="minQty"
     :maxQty="maxQty"
     :regular-price="regularPrice"
-    :special-price="specialPrice"
     :special-price="specialPrice"
     :hasMoreActions="hasMoreActions"
   >

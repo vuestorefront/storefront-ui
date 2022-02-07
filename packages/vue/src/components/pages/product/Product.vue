@@ -321,21 +321,15 @@ export default {
       breadcrumbs: [
         {
           text: "Home",
-          route: {
-            link: "#",
-          },
+          link: "#",
         },
         {
           text: "Category",
-          route: {
-            link: "#",
-          },
+          link: "#",
         },
         {
           text: "Pants",
-          route: {
-            link: "#",
-          },
+          link: "#",
         },
       ],
       isOpenNotification: false,
