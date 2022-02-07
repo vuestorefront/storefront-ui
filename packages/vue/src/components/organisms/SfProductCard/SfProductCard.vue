@@ -223,11 +223,11 @@ export default {
       default: "",
     },
     imageWidth: {
-      type: Number,
+      type: [Number, String],
       default: null,
     },
     imageHeight: {
-      type: Number,
+      type: [Number, String],
       default: null,
     },
     badgeLabel: {

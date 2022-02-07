@@ -27,6 +27,22 @@ export default {
       },
       "gallery-item-cursor": { value: "pointer", control: "text" },
       "gallery-stage-width": { value: "26.375rem", control: "text" },
+      "gallery-image-width": {
+        value: "",
+        control: "text",
+      },
+      "gallery-image-height": {
+        value: "",
+        control: "text",
+      },
+      "gallery-thumbs-image-width": {
+        value: "",
+        control: "text",
+      },
+      "gallery-thumbs-image-height": {
+        value: "",
+        control: "text",
+      },
     },
     // end of code generated automatically
     docs: {
@@ -54,7 +70,8 @@ export default {
         },
       },
       defaultValue: null,
-      description: "Images width, without unit",
+      description:
+        "Images width, without unit. Could be an integer passed as Number or String type, but values like 'auto' or '100%' are not allowed.",
     },
     imageHeight: {
       control: "number",
@@ -65,7 +82,8 @@ export default {
         },
       },
       defaultValue: null,
-      description: "Images height, without unit",
+      description:
+        "Images height, without unit. Could be an integer passed as Number or String type, but values like 'auto' or '100%' are not allowed.",
     },
     thumbWidth: {
       control: "number",
@@ -76,7 +94,8 @@ export default {
         },
       },
       defaultValue: null,
-      description: "Thumb width, without unit",
+      description:
+        "Thumb width, without unit. Could be an integer passed as Number or String type, but values like 'auto' or '100%' are not allowed.",
     },
     thumbHeight: {
       control: "number",
@@ -87,7 +106,8 @@ export default {
         },
       },
       defaultValue: null,
-      description: "Thumb height, without unit",
+      description:
+        "Thumb height, without unit. Could be an integer passed as Number or String type, but values like 'auto' or '100%' are not allowed.",
     },
     current: {
       control: "number",
@@ -136,6 +156,15 @@ export default {
       table: { category: "Events", type: { summary: null } },
       description: "Emits click:stage event when main image is clicked.",
     },
+    "big-image": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace main image element",
+    },
     thumbs: {
       table: {
         category: "Slots",
@@ -144,6 +173,15 @@ export default {
         },
       },
       description: "Use this slot to replace gallery thumbs buttons",
+    },
+    "outside-zoom": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace outside zoom image",
     },
   },
 };
@@ -181,6 +219,7 @@ Common.args = {
         url: "assets/storybook/SfGallery/productA.png",
       },
       alt: "Product A",
+      placeholder: "https://via.placeholder.com/422x664",
     },
     {
       desktop: {
@@ -193,6 +232,7 @@ Common.args = {
         url: "assets/storybook/SfGallery/productB.jpg",
       },
       alt: "Product B",
+      placeholder: "https://via.placeholder.com/422x664",
     },
     {
       desktop: {
@@ -205,6 +245,7 @@ Common.args = {
         url: "assets/storybook/SfGallery/productA.png",
       },
       alt: "Product A",
+      placeholder: "https://via.placeholder.com/422x664",
     },
     {
       desktop: {
@@ -217,6 +258,7 @@ Common.args = {
         url: "assets/storybook/SfGallery/productB.jpg",
       },
       alt: "Product B",
+      placeholder: "https://via.placeholder.com/422x664",
     },
   ],
   current: 1,

@@ -176,9 +176,18 @@ export default {
       description: "Emits when input field loses focus",
     },
     "v-model": {
+      control: "number",
       table: {
-        disable: true,
+        type: {
+          summary: "number",
+        },
+        category: "v-model",
+        defaultValue: {
+          summary: 1,
+        },
       },
+      defaultValue: 1,
+      description: "v-model accepts `qty` prop and emits native events",
     },
   },
 };
