@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.12.1](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.12.0...@storefront-ui/shared@0.12.1) (2022-02-07)
+
+
+### Bug Fixes
+
+* apply red dot outline when nuxt-picture is used ([#2228](https://github.com/vuestorefront/storefront-ui/issues/2228)) ([8344a80](https://github.com/vuestorefront/storefront-ui/commit/8344a803880b6ece90d98e2ee77f6948349886d7))
+* new css vars for easy overriding ([d457071](https://github.com/vuestorefront/storefront-ui/commit/d457071d95b14c35628681374e97ea00d24c509f))
+* product card horizontal with styles ([e40c5c0](https://github.com/vuestorefront/storefront-ui/commit/e40c5c0b20766e38f12460a4bb18b1888d1cf989))
+* remove styling for images from props ([cd63b53](https://github.com/vuestorefront/storefront-ui/commit/cd63b533bffe63ce76d77619a2e76957d1d30c16))
+* styles for image in grouped product ([cad820c](https://github.com/vuestorefront/storefront-ui/commit/cad820ced67c388da7f3d8defc99911357181849))
+
+
+
+
+
 # [0.12.0](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.11.5...@storefront-ui/shared@0.12.0) (2022-01-24)
 
 
