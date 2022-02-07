@@ -3,6 +3,40 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.12.1](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/vue@0.12.0...@storefront-ui/vue@0.12.1) (2022-02-07)
+
+
+### Bug Fixes
+
+* apply red dot outline when nuxt-picture is used ([#2228](https://github.com/vuestorefront/storefront-ui/issues/2228)) ([8344a80](https://github.com/vuestorefront/storefront-ui/commit/8344a803880b6ece90d98e2ee77f6948349886d7))
+* bugs in Storybook component stories ([#2214](https://github.com/vuestorefront/storefront-ui/issues/2214)) ([800872a](https://github.com/vuestorefront/storefront-ui/commit/800872aaf43642e4bca4dffa8b9d827d1d150876))
+* button missing required type attribute ([9a92ff2](https://github.com/vuestorefront/storefront-ui/commit/9a92ff2baa6e8439f39a177cab46a57d6ed1d3fe))
+* class in <template> results in unexpected behavior [#2239](https://github.com/vuestorefront/storefront-ui/issues/2239) ([#2240](https://github.com/vuestorefront/storefront-ui/issues/2240)) ([15e19c8](https://github.com/vuestorefront/storefront-ui/commit/15e19c87ebfd1967ea63ec21ba67bfc4be699370))
+* included the local history file in gitignore ([06073b2](https://github.com/vuestorefront/storefront-ui/commit/06073b2a088aad143be1abefe31750a56c381ef9))
+* login e2e test fixed ([#2213](https://github.com/vuestorefront/storefront-ui/issues/2213)) ([d705bdb](https://github.com/vuestorefront/storefront-ui/commit/d705bdb6b516bab51107a5ee59000b4858ea988d))
+* pushing new items on every component update ([#2248](https://github.com/vuestorefront/storefront-ui/issues/2248)) ([502504d](https://github.com/vuestorefront/storefront-ui/commit/502504d925be28d21ae3cc782f4db3f637176ac2))
+* remove styling for images from props ([cd63b53](https://github.com/vuestorefront/storefront-ui/commit/cd63b533bffe63ce76d77619a2e76957d1d30c16))
+* sfimage passing sizes to placeholder ([#2237](https://github.com/vuestorefront/storefront-ui/issues/2237)) ([9134339](https://github.com/vuestorefront/storefront-ui/commit/9134339f1fac9c3d9fe95219e0def6edae012559))
+* sfimage props and change sizes prop type in other components ([#2227](https://github.com/vuestorefront/storefront-ui/issues/2227)) ([6c42245](https://github.com/vuestorefront/storefront-ui/commit/6c4224583c4bd960afff025aee581f36d10821ff))
+* **'Category':** create and add 'navbar__view-button' to SfButton [#2220](https://github.com/vuestorefront/storefront-ui/issues/2220) ([cde9045](https://github.com/vuestorefront/storefront-ui/commit/cde904590b285d19d67b3cb49b1ce558b3ea2329))
+* **'SfShippingDetails':** using 'SfButton' instead role=button ([#2220](https://github.com/vuestorefront/storefront-ui/issues/2220)) ([e691b67](https://github.com/vuestorefront/storefront-ui/commit/e691b67f98769dc6fa2aa4368db771bb7f1a8224))
+* **category page:** using 'SfButton' instead role=button ([#2220](https://github.com/vuestorefront/storefront-ui/issues/2220)) ([d1d8657](https://github.com/vuestorefront/storefront-ui/commit/d1d8657fb995d542918f01789bbe8e3e95a32931))
+* **SfHero:** remove duplicated classes (sf-arrow) from SfHero component ([14f445c](https://github.com/vuestorefront/storefront-ui/commit/14f445cdd441fca214e7822e3f2f98a84cb572f8))
+
+
+### Features
+
+* add descriptions for v-mdel custom using ([#2238](https://github.com/vuestorefront/storefront-ui/issues/2238)) ([7ba5157](https://github.com/vuestorefront/storefront-ui/commit/7ba515751c0060512e5b4f82f28ad137ef4ed973))
+* added slot for placeholder ([#2235](https://github.com/vuestorefront/storefront-ui/issues/2235)) ([f6e367f](https://github.com/vuestorefront/storefront-ui/commit/f6e367f747d6c3c1d833de8ac9653e6bc8acefa1))
+* changed the order of css custom properties addon ([#2241](https://github.com/vuestorefront/storefront-ui/issues/2241)) ([06f4c28](https://github.com/vuestorefront/storefront-ui/commit/06f4c287d9f76f5d8bbcec6c6189d538b2828e48))
+* gallery adding slots to sfimage and passing placeholder to images ([#2229](https://github.com/vuestorefront/storefront-ui/issues/2229)) ([91e5313](https://github.com/vuestorefront/storefront-ui/commit/91e53134ae1be73ab6807df93bc474ae81bc6878))
+* update SfButton submit story ([f8f27e9](https://github.com/vuestorefront/storefront-ui/commit/f8f27e9cbda334510735e467867b0749462f1a88))
+* update SfButton submit story ([cc72555](https://github.com/vuestorefront/storefront-ui/commit/cc725552939162f4f21c61a01f836152a1feab0a))
+
+
+
+
+
 # [0.12.0](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/vue@0.11.5...@storefront-ui/vue@0.12.0) (2022-01-24)
 
 
