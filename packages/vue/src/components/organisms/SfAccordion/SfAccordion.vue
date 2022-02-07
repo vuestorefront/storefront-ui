@@ -64,7 +64,7 @@ export default {
   methods: {
     setAccordionItems() {
       if (this.$children && this.$children.length) {
-        this.items.push(...this.$children);
+        this.items = this.$children;
       }
     },
     setAsOpen() {
