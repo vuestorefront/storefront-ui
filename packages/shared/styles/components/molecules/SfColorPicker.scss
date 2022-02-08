@@ -25,11 +25,16 @@
     align-items: center;
     justify-content: var(--color-picker-justify-content, center);
     padding: var(--color-picker-padding, var(--spacer-xs));
-    @include for-mobile {
-      background: var(--color-picker-background, var(--c-black));
+    &__overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      --overlay-z-index: auto;
+      --overlay-background: rgba(var(--c-black-base), 0.8);
     }
   }
   &__label {
+    position: relative;
     flex: 0 0 100%;
     margin: var(--color-picker-label-margin, 0 0 var(--spacer-xs));
     color: var(--color-picker-label-color, var(--c-white));
@@ -42,7 +47,6 @@
     );
     text-align: center;
   }
-  &__colors,
   &__button {
     opacity: var(--color-picker-opacity, 0.8);
   }

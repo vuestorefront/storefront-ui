@@ -43,7 +43,6 @@
       --button-background: var(--c-light-primary);
     }
   }
-  &__cancel,
   &__title {
     @include for-desktop {
       --button-display: none;

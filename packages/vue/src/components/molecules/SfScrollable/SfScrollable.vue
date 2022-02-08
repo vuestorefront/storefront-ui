@@ -21,27 +21,18 @@ import SfButton from "../../atoms/SfButton/SfButton.vue";
 export default {
   name: "SfScrollable",
   components: {
-    Simplebar,
     SfButton,
+    Simplebar,
   },
   props: {
-    /*
-     * Maximum height of visible content
-     */
     maxContentHeight: {
       type: String,
       default: "",
     },
-    /*
-     * Text for button showing content
-     */
     showText: {
       type: String,
       default: "Show",
     },
-    /*
-     * Text for button hiding content
-     */
     hideText: {
       type: String,
       default: "Hide",
@@ -65,9 +56,8 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      this.contentEl = this.$refs.content.$el.querySelector(
-        ".simplebar-content"
-      );
+      this.contentEl =
+        this.$refs.content.$el.querySelector(".simplebar-content");
       if (typeof MutationObserver === "undefined" || !this.contentEl) return;
       const observer = new MutationObserver(this.sizeCalc);
       this.sizeCalc();

@@ -1,0 +1,92 @@
+[
+  {
+    "name": "Good first issue",
+    "color": "#7057FF",
+    "type": "difficulty",
+    "description": "Recommended for first-time contributor or beginner"
+  },
+  {
+    "name": "1. Easy",
+    "color": "#009900",
+    "type": "difficulty",
+    "description": "Easy and small task, good for quick contribution or beginner"
+  },
+  {
+    "name": "3. Medium",
+    "color": "#009900",
+    "type": "difficulty",
+    "description": "Not for beginner, has some logic or API modification"
+  },
+  {
+    "name": "5. Hard",
+    "color": "#006600",
+    "type": "difficulty",
+    "description": "Requires code understanding, complex API logic implementation"
+  },
+  {
+    "name": "10. Extremely hard",
+    "color": "#004D00",
+    "type": "difficulty",
+    "description": "Requires architecture planning, extreme understand about codebase and very complex"
+  },
+  {
+    "name": "Bug",
+    "color": "#D73A4A",
+    "type": "issue",
+    "description": "It's a bug that needs to be taken care of"
+  },
+  {
+    "name": "Blocked",
+    "color": "#ff0000",
+    "type": "status",
+    "description": "Don't touch becauce it's waiting for another issue to complete first"
+  },
+  {
+    "name": "Design",
+    "color": "#f9b57a",
+    "type": "issue",
+    "description": "Related to component design, mainly for designer"
+  },
+  {
+    "name": "Docs",
+    "color": "#abfc20",
+    "type": "issue",
+    "description": "Tasks that involve documentation activities"
+  },
+  {
+    "name": "Feature",
+    "color": "#0D659b",
+    "type": "issue",
+    "description": "New functionalities or improvements for existing components"
+  },
+  {
+    "name": "Help wanted",
+    "color": "#008672",
+    "type": "status",
+    "description": "We want it to be done but we need help from you."
+  },
+  {
+    "name": "Important",
+    "color": "#ea5d2e",
+    "type": "status",
+    "description": "It needs to be done ASAP"
+  },
+  {
+    "name": "Question",
+    "color": "#d876e3",
+    "type": "status",
+    "description": "Further information needed."
+  },
+  {
+    "name": "Refactor",
+    "color": "#FFCCFB",
+    "type": "issue",
+    "description": "Issue requires refactoring existing component"
+  },
+  {
+    "name": "a11y",
+    "color": "#FCCFC7",
+    "type": "issue",
+    "description": "Everything regarding accessibility."
+  }
+]

@@ -1,29 +1,34 @@
 <template>
   <nav class="sf-pagination">
-    <!-- @slot Custom markup for previous page button -->
-    <slot name="prev" v-bind="{ isDisabled: !canGoPrev, prev: getPrev }">
-      <div class="sf-pagination__item prev">
+    <slot name="prev" v-bind="{ isDisabled: !canGoPrev, go, prev: getPrev }">
+      <div
+        :class="{ 'display-none': !hasArrows }"
+        class="sf-pagination__item prev"
+      >
         <component
           :is="componentIs"
-          v-if="canGoPrev"
           :class="{
             'sf-button--pure': !hasRouter,
+            'sf-arrow--transparent': !hasRouter && !canGoPrev,
           }"
           :link="hasRouter ? getLinkTo(getPrev) : null"
+          :disabled="!hasRouter && !canGoPrev ? true : false"
           aria-label="Go to previous page"
+          data-testid="pagination-button-prev"
           @click="hasRouter ? null : go(getPrev)"
         >
           <SfIcon icon="arrow_left" size="1.125rem" />
         </component>
       </div>
     </slot>
-    <template v-if="showFirst">
+    <template>
       <slot name="number" v-bind="{ page: 1 }">
         <component
           :is="componentIs"
           class="sf-pagination__item"
           :class="{
             'sf-button--pure': !hasRouter,
+            'display-none': !showFirst,
           }"
           :link="hasRouter ? getLinkTo(1) : null"
           @click="hasRouter ? null : go(1)"
@@ -31,8 +36,13 @@
           1
         </component>
       </slot>
-      <slot v-if="firstVisiblePageNumber > 2" name="points">
-        <div class="sf-pagination__item">...</div>
+      <slot name="points">
+        <div
+          :class="{ 'display-none': firstVisiblePageNumber <= 2 }"
+          class="sf-pagination__item"
+        >
+          ...
+        </div>
       </slot>
     </template>
     <template v-for="page in limitedPageNumbers">
@@ -53,8 +63,15 @@
       </slot>
     </template>
     <template v-if="showLast">
-      <slot v-if="lastVisiblePageNumber < total - 1" name="points">
-        <div class="sf-pagination__item">...</div>
+      <slot name="points">
+        <div
+          :class="{
+            'display-none': lastVisiblePageNumber >= total - 1,
+          }"
+          class="sf-pagination__item"
+        >
+          ...
+        </div>
       </slot>
       <slot name="number" v-bind="{ page: total }">
         <component
@@ -70,17 +87,21 @@
         </component>
       </slot>
     </template>
-    <!-- @slot Custom markup for previous page button -->
-    <slot name="next" v-bind="{ isDisabled: !canGoNext, next: getNext }">
-      <div class="sf-pagination__item next">
+    <slot name="next" v-bind="{ isDisabled: !canGoNext, go, next: getNext }">
+      <div
+        :class="{ 'display-none': !hasArrows }"
+        class="sf-pagination__item next"
+      >
         <component
           :is="componentIs"
-          v-if="canGoNext"
           :class="{
             'sf-button--pure': !hasRouter,
+            'sf-arrow--transparent': !hasRouter && !canGoNext,
           }"
           :link="hasRouter ? getLinkTo(getNext) : null"
+          :disabled="!hasRouter && !canGoNext ? true : false"
           aria-label="Go to previous next"
+          data-testid="pagination-button-next"
           @click="hasRouter ? null : go(getNext)"
         >
           <SfIcon icon="arrow_right" size="1.125rem" />
@@ -101,37 +122,22 @@ export default {
     SfButton,
   },
   props: {
-    /**
-     * Total number of pages
-     */
     total: {
       type: Number,
       default: 0,
     },
-    /**
-     * Maximum visible pagination items
-     */
     visible: {
       type: Number,
       default: 5,
     },
-    /**
-     * Status of arrows display
-     */
     hasArrows: {
       type: Boolean,
       default: true,
     },
-    /**
-     * Current page number, for non router
-     */
     current: {
       type: Number,
       default: 1,
     },
-    /**
-     * Name of page query param for router
-     */
     pageParamName: {
       type: String,
       default: "page",
@@ -152,16 +158,20 @@ export default {
         : this.current;
     },
     getPrev() {
-      return this.currentPage - 1;
+      return this.currentPage === this.firstVisiblePageNumber
+        ? this.currentPage
+        : this.currentPage - 1;
     },
     canGoPrev() {
-      return this.getPrev > 0;
+      return this.currentPage !== this.firstVisiblePageNumber;
     },
     getNext() {
-      return this.currentPage + 1;
+      return this.currentPage === this.lastVisiblePageNumber
+        ? this.currentPage
+        : this.currentPage + 1;
     },
     canGoNext() {
-      return this.getNext <= this.total;
+      return this.currentPage !== this.lastVisiblePageNumber;
     },
     showFirst() {
       return this.firstVisiblePageNumber > 1;
@@ -202,10 +212,15 @@ export default {
       this.$emit("click", page);
     },
     getLinkTo(page) {
-      return {
-        ...this.$route,
-        query: { ...this.$route.query, [this.pageParamName]: page },
-      };
+      const pageNumber = page.toString();
+      if (this.hasRouter) {
+        return {
+          ...this.$route,
+          query: { ...this.$route.query, [this.pageParamName]: page },
+        };
+      } else {
+        return pageNumber;
+      }
     },
   },
 };

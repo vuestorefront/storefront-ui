@@ -1,7 +1,9 @@
 <template>
-  <tr class="sf-table__heading">
-    <slot />
-  </tr>
+  <thead>
+    <tr class="sf-table__heading">
+      <slot />
+    </tr>
+  </thead>
 </template>
 <script>
 export default {

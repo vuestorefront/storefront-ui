@@ -1,496 +1,638 @@
-import { storiesOf } from "@storybook/vue";
-import {
-  withKnobs,
-  text,
-  number,
-  select,
-  object,
-} from "@storybook/addon-knobs";
-import { SfStoreLocator, SfImage } from "@storefront-ui/vue";
-storiesOf("Organisms|StoreLocator", module)
-  .addDecorator(withKnobs)
-  .add("Common", () => ({
-    components: { SfStoreLocator },
-    props: {
-      tileServerUrl: {
-        default: select(
-          "tileServerUrl",
-          {
-            default:
-              "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}",
-            openstreetmap: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-            wikimedia: "https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}{r}.png",
-          },
-          "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}",
-          "Props"
-        ),
+import { SfStoreLocator } from "@storefront-ui/vue";
+import SfStore from "./_internal/SfStore.vue";
+
+export default {
+  title: "Components/Organisms/StoreLocator",
+  component: SfStore,
+  parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "store-padding": { value: "0 0 var(--spacer-sm) 0", control: "text" },
+      "store-margin": { value: "var(--spacer-sm) 0 0 0", control: "text" },
+      "store-border": {
+        value:
+          "var(--store-border-style, solid) var(--store-border-color, var(--c-light))",
+        control: "text",
       },
-      tileServerAttribution: {
-        default: text("tileServerAttribution", "", "Props"),
+      "store-border-width": { value: "0 0 1px 0", control: "text" },
+      "store-distance-flex": { value: "0 0 100%", control: "text" },
+      "store-distance-order": { value: "", control: "text" },
+      "store-distance-margin": {
+        value: "0 0 var(--spacer-xs) 0",
+        control: "text",
       },
-      center: {
-        default: object("center", [47.5104387, 19.0444433], "Props"),
+      "store-distance-text-align": { value: "left", control: "text" },
+      "store-item-distance-font": { value: "", control: "text" },
+      "store-item-distance-font-weight": {
+        value: "var(--font-weight--normal)",
+        control: "text",
       },
-      zoom: {
-        default: number(
-          "zoom",
-          6,
-          {
-            range: true,
-            min: 1,
-            max: 16,
-            step: 1,
-          },
-          "Props"
-        ),
+      "store-item-distance-font-size": {
+        value: "var(--font-size--base)",
+        control: "text",
       },
-      maxZoom: {
-        default: number(
-          "maxZoom",
-          16,
-          {
-            range: true,
-            min: 1,
-            max: 16,
-            step: 1,
-          },
-          "Props"
-        ),
+      "store-item-distance-font-line-height": { value: "1.4", control: "text" },
+      "store-item-distance-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
       },
-      markerIconSize: {
-        default: object("markerIconSize", [21, 28], "Props"),
+      "store-distance-span": {
+        value: "var(--font-weight--normal)",
+        control: "text",
       },
-      markerIconAnchor: {
-        default: object("markerIconAnchor", [10.5, 0], "Props"),
+      "store-media-flex": { value: "0 0 5.125rem", control: "text" },
+      "store-media-margin": {
+        value: "0 var(--spacer-xs) 0 0",
+        control: "text",
       },
-      mapOptions: {
-        default: object("mapOptions", {}, "Props"),
+      "store-icon-padding": { value: "var(--spacer-xl)", control: "text" },
+      "store-item-addres-margin": {
+        value: "0 0 var(--spacer-base) 0",
+        control: "text",
       },
-      tileLayerOptions: {
-        default: object("tileLayerOptions", {}, "Props"),
+      "store-item-property-font": { value: "", control: "text" },
+      "store-item-property-font-weight": {
+        value: "var(--font-weight--medium)",
+        control: "text",
       },
-      markerOptions: {
-        default: object("markerOptions", {}, "Props"),
+      "store-item-property-font-size": {
+        value: "var(--font-size--xs)",
+        control: "text",
       },
-      flyToStoreZoom: {
-        default: number(
-          "flyToStoreZoom",
-          15,
-          {
-            range: true,
-            min: 1,
-            max: 16,
-            step: 1,
-          },
-          "Props"
-        ),
+      "store-item-property-font-line-height": { value: "1.4", control: "text" },
+      "store-item-property-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
       },
-    },
-    data() {
-      return {
-        stores: [
-          {
-            latlng: [47.4968864, 19.0531093],
-            address: "Budapest, Deák Ferenc u. 19, 1052",
-            phone: "(70) 881 9463",
-            email: "example@email.com",
-            name: "DivWear",
-            picture: {
-              mobile: { url: "/assets/storybook/SfStore/storeA.png" },
-              desktop: { url: "/assets/storybook/SfStore/storeA.png" },
-            },
-          },
-          {
-            latlng: [51.1176696, 17.0183064],
-            address: "Romana Dmowskiego",
-            phone: "(1) 311 9666",
-            email: "example@email.com",
-            name: "Divante Wear",
-            picture: {
-              mobile: { url: "/assets/storybook/SfStore/storeB.png" },
-              desktop: { url: "/assets/storybook/SfStore/storeB.png" },
-            },
-          },
-        ],
-      };
-    },
-    template: `<div style="max-width: 1240px;">
-      <SfStoreLocator
-        :tile-server-url="tileServerUrl"
-        :tile-server-attribution="tileServerAttribution"
-        :center="center"
-        :zoom="zoom"
-        :max-zoom="maxZoom"
-        :marker-icon-size="markerIconSize"
-        :marker-icon-anchor="markerIconAnchor"
-        :map-options="mapOptions"
-        :tile-layer-options="tileLayerOptions"
-        :marker-options="markerOptions"
-        :fly-to-store-zoom="flyToStoreZoom"
-      >
-        <SfStore
-          v-for="(store, key) in stores"
-          :key="key"
-          :latlng="store.latlng"
-          :name="store.name"
-          :email="store.email"
-          :phone="store.phone"
-          :address="store.address"
-          :picture="store.picture"
-        />
-      </SfStoreLocator>
-    </div>`,
-  }))
-  .add("[props] SfStore", () => ({
-    components: { SfStoreLocator },
-    props: {
-      latlng: {
-        default: object("latlng", [47.5104387, 19.0444433], "Props"),
+      "store-item-name-margin": { value: "0", control: "text" },
+      "store-item-name-color": { value: "var(--c-text)", control: "text" },
+      "store-item-property-margin": {
+        value: "0 0 var(--spacer-sm) 0",
+        control: "text",
       },
-      address: {
-        default: text("address", "Budapest, Deák Ferenc u. 19, 1052", "Props"),
+      "store-locator-wrapper-flex-direction": {
+        value: "column-reverse",
+        control: "text",
       },
-      phone: {
-        default: text("phone", "(70) 881 9463", "Props"),
+      "store-locator-wrapper-justify-content": {
+        value: "flex-start",
+        control: "text",
       },
-      email: {
-        default: text("email", "example@email.com", "Props"),
+      "store-locator-wrapper-align-items": {
+        value: "flex-start",
+        control: "text",
       },
-      name: {
-        default: text("name", "Divante Wear", "Props"),
+      "store-locator-list-flex": { value: "", control: "text" },
+      "store-locator-list-padding": {
+        value: "0 var(--spacer-sm)",
+        control: "text",
       },
-      picture: {
-        default: object(
-          "picture",
-          {
-            mobile: { url: "/assets/storybook/SfStore/storeA.png" },
-            desktop: { url: "/assets/storybook/SfStore/storeA.png" },
-          },
-          "Props"
-        ),
+      "store-locator-list-margin": { value: "", control: "text" },
+      "store-locator-map-flex": { value: "0 0 60vh", control: "text" },
+      "store-locator-map-width": { value: "100%", control: "text" },
+      "store-locator-map-height": { value: "", control: "text" },
+      "store-locator-stores-width": { value: "100%", control: "text" },
+      "store-locator-stores-padding": {
+        value: "var(--spacer-sm) 0 var(--spacer-sm) var(--spacer-sm)",
+        control: "text",
+      },
+      "store-locator-stores-margin": { value: "", control: "text" },
+      "store-locator-stores-border": {
+        value:
+          "var(--store-locator-stores-border-style, solid) var(--store-locator-stores-border-color, var(--c-primary))",
+        control: "text",
+      },
+      "store-locator-stores-border-width": {
+        value: "0 0 2px 0",
+        control: "text",
+      },
+      "store-locator-store-color": { value: "var(--c-text)", control: "text" },
+      "store-locator-stores-font": { value: "", control: "text" },
+      "store-locator-stores-font-weight": {
+        value: "var(--font-weight--normal)",
+        control: "text",
+      },
+      "store-locator-stores-font-size": {
+        value: "var(--font-size--base)",
+        control: "text",
+      },
+      "store-locator-stores-font-line-height": {
+        value: "1.4",
+        control: "text",
+      },
+      "store-locator-stores-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
       },
     },
-    data() {
-      return {
-        stores: [
-          {
-            latlng: [47.4968864, 19.0531093],
-            address: "Budapest, Deák Ferenc u. 19, 1052",
-            phone: "(70) 881 9463",
-            email: "example@email.com",
-            name: "Store",
-            picture: {
-              mobile: { url: "/assets/storybook/SfStore/storeA.png" },
-              desktop: { url: "/assets/storybook/SfStore/storeA.png" },
-            },
-          },
-          {
-            latlng: [51.1176696, 17.0183064],
-            address: "Romana Dmowskiego",
-            phone: "(1) 311 9666",
-            email: "example@email.com",
-            name: "Store",
-            picture: {
-              mobile: { url: "/assets/storybook/SfStore/storeB.png" },
-              desktop: { url: "/assets/storybook/SfStore/storeB.png" },
-            },
-          },
-        ],
-      };
-    },
-    template: `<div style="max-width: 1240px;">
-      <SfStoreLocator
-        :center="latlng"
-    >
-      <SfStore
-          :latlng="latlng"
-          :name="name"
-          :email="email"
-          :phone="phone"
-          :address="address"
-          :picture="picture"
-      />
-    </SfStoreLocator>
-  </div>`,
-  }))
-  .add("[slot] default", () => ({
-    components: { SfStoreLocator, SfImage },
-    props: {
-      tileServerUrl: {
-        default: select(
-          "tileServerUrl",
-          {
-            default:
-              "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}",
-            openstreetmap: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-            wikimedia: "https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}{r}.png",
-          },
-          "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}",
-          "Props"
-        ),
-      },
-      tileServerAttribution: {
-        default: text("tileServerAttribution", "", "Props"),
-      },
-      center: {
-        default: object("center", [47.5104387, 19.0444433], "Props"),
-      },
-      zoom: {
-        default: number(
-          "zoom",
-          6,
-          {
-            range: true,
-            min: 1,
-            max: 16,
-            step: 1,
-          },
-          "Props"
-        ),
-      },
-      maxZoom: {
-        default: number(
-          "maxZoom",
-          16,
-          {
-            range: true,
-            min: 1,
-            max: 16,
-            step: 1,
-          },
-          "Props"
-        ),
-      },
-      markerIconSize: {
-        default: object("markerIconSize", [21, 28], "Props"),
-      },
-      markerIconAnchor: {
-        default: object("markerIconAnchor", [10.5, 0], "Props"),
-      },
-      mapOptions: {
-        default: object("mapOptions", {}, "Props"),
-      },
-      tileLayerOptions: {
-        default: object("tileLayerOptions", {}, "Props"),
-      },
-      markerOptions: {
-        default: object("markerOptions", {}, "Props"),
-      },
-      flyToStoreZoom: {
-        default: number(
-          "flyToStoreZoom",
-          15,
-          {
-            range: true,
-            min: 1,
-            max: 16,
-            step: 1,
-          },
-          "Props"
-        ),
+    // end of code generated automatically
+    docs: {
+      description: {
+        component:
+          "Component locating and marking on map using tile data. Built from main component - SfStoreLocator and internal components - SfStoreLocatorItem.",
       },
     },
-    data() {
-      return {
-        stores: [
-          {
-            latlng: [47.4968864, 19.0531093],
-            address: "Budapest, Deák Ferenc u. 19, 1052",
-            phone: "(70) 881 9463",
-            email: "example@email.com",
-            name: "DivWear",
-            picture: {
-              mobile: { url: "/assets/storybook/SfStore/storeA.png" },
-              desktop: { url: "/assets/storybook/SfStore/storeA.png" },
-            },
-          },
-          {
-            latlng: [51.1176696, 17.0183064],
-            address: "Romana Dmowskiego",
-            phone: "(1) 311 9666",
-            email: "example@email.com",
-            name: "Divante Wear",
-            picture: {
-              mobile: { url: "/assets/storybook/SfStore/storeB.png" },
-              desktop: { url: "/assets/storybook/SfStore/storeB.png" },
-            },
-          },
-        ],
-      };
+    layout: "fullscreen",
+  },
+  decorators: [
+    () => ({
+      template: `<div style="max-width: 1024px;"><story/></div>`,
+    }),
+  ],
+  argTypes: {
+    tileServerUrl: {
+      control: {
+        type: "select",
+        options: {
+          default:
+            "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}",
+          openstreetmap: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+        },
+      },
+      table: {
+        category: "Props for main component",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "string",
+        },
+      },
+      description: "Url of selected tileserver",
     },
-    template: `<div style="max-width: 1240px;">
-      <SfStoreLocator
-        :tile-server-url="tileServerUrl"
-        :tile-server-attribution="tileServerAttribution"
-        :center="center"
-        :zoom="zoom"
-        :max-zoom="maxZoom"
-        :marker-icon-size="markerIconSize"
-        :marker-icon-anchor="markerIconAnchor"
-        :map-options="mapOptions"
-        :tile-layer-options="tileLayerOptions"
-        :marker-options="markerOptions"
-        :fly-to-store-zoom="flyToStoreZoom"
-        #default="{centerOn, registerStore, removeStore, userPosition, getGeoDistance}"
-      >
-        <div v-for="(store, key) in stores" :key="key" :style="{padding: '1rem 0'}">
-          <!-- This function is provided by SfStoreLocator, so in a custom component it can be used with 'provide' for the sake of the example is not used in the markup. -->
-          {{registerStore(store)}}
-          <small>{{store.name}}</small>
-          <SfImage  @click="centerOn(store.latlng)":src="store.picture" :width="82" :height="112"/>
-          <small>* click picture to zoom</small>
-        </div>
-      </SfStoreLocator>
-    </div>`,
-  }))
-  .add("[slot] marker-icon", () => ({
-    components: { SfStoreLocator },
-    props: {
-      latlng: {
-        default: object("latlng", [47.5104387, 19.0444433], "Props"),
+    tileServerAttribution: {
+      control: "text",
+      table: {
+        category: "Props for main component",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ",
+        },
       },
-      address: {
-        default: text("address", "Budapest, Deák Ferenc u. 19, 1052", "Props"),
-      },
-      phone: {
-        default: text("phone", "(70) 881 9463", "Props"),
-      },
-      email: {
-        default: text("email", "example@email.com", "Props"),
-      },
-      name: {
-        default: text("name", "Divante Wear", "Props"),
-      },
-      picture: {
-        default: object(
-          "picture",
-          {
-            mobile: { url: "/assets/storybook/SfStore/storeA.png" },
-            desktop: { url: "/assets/storybook/SfStore/storeA.png" },
-          },
-          "Props"
-        ),
-      },
+      defaultValue: "Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ",
+      description: "Attribution line of selected tileserver",
     },
-    data() {
-      return {
-        stores: [
-          {
-            latlng: [47.4968864, 19.0531093],
-            address: "Budapest, Deák Ferenc u. 19, 1052",
-            phone: "(70) 881 9463",
-            email: "example@email.com",
-            name: "Store",
-            picture: {
-              mobile: { url: "/assets/storybook/SfStore/storeA.png" },
-              desktop: { url: "/assets/storybook/SfStore/storeA.png" },
-            },
-          },
-          {
-            latlng: [51.1176696, 17.0183064],
-            address: "Romana Dmowskiego",
-            phone: "(1) 311 9666",
-            email: "example@email.com",
-            name: "Store",
-            picture: {
-              mobile: { url: "/assets/storybook/SfStore/storeB.png" },
-              desktop: { url: "/assets/storybook/SfStore/storeB.png" },
-            },
-          },
-        ],
-      };
+    center: {
+      control: "array",
+      table: {
+        category: "Props for main component",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: [0, 0],
+        },
+      },
+      description:
+        "Initial center of the map, overridden when the user position is captured, supports sync modifier",
     },
-    template: `<div style="max-width: 1240px;">
-      <SfStoreLocator
-        :center="latlng"
-    >
-      <template #marker-icon>
-        <span :style="{fontSize: '36px'}">📪</span>
-      </template>
-      <SfStore
-          :latlng="latlng"
-          :name="name"
-          :email="email"
-          :phone="phone"
-          :address="address"
-          :picture="picture"
-      />
-    </SfStoreLocator>
-    </div>`,
-  }))
-  .add("[slot] map-loading", () => ({
-    components: { SfStoreLocator },
-    props: {
-      latlng: {
-        default: object("latlng", [47.5104387, 19.0444433], "Props"),
+    zoom: {
+      control: "number",
+      table: {
+        category: "Props for main component",
+        type: {
+          summary: "number",
+        },
+        defaultValue: {
+          summary: 6,
+        },
       },
-      address: {
-        default: text("address", "Budapest, Deák Ferenc u. 19, 1052", "Props"),
-      },
-      phone: {
-        default: text("phone", "(70) 881 9463", "Props"),
-      },
-      email: {
-        default: text("email", "example@email.com", "Props"),
-      },
-      name: {
-        default: text("name", "Divante Wear", "Props"),
-      },
-      picture: {
-        default: object(
-          "picture",
-          {
-            mobile: { url: "/assets/storybook/SfStore/storeA.png" },
-            desktop: { url: "/assets/storybook/SfStore/storeA.png" },
-          },
-          "Props"
-        ),
-      },
+      defaultValue: 6,
+      description: "Initial zoom of the map",
     },
-    data() {
-      return {
-        stores: [
-          {
-            latlng: [47.4968864, 19.0531093],
-            address: "Budapest, Deák Ferenc u. 19, 1052",
-            phone: "(70) 881 9463",
-            email: "example@email.com",
-            name: "Store",
-            picture: {
-              mobile: { url: "/assets/storybook/SfStore/storeA.png" },
-              desktop: { url: "/assets/storybook/SfStore/storeA.png" },
-            },
-          },
-          {
-            latlng: [51.1176696, 17.0183064],
-            address: "Romana Dmowskiego",
-            phone: "(1) 311 9666",
-            email: "example@email.com",
-            name: "Store",
-            picture: {
-              mobile: { url: "/assets/storybook/SfStore/storeB.png" },
-              desktop: { url: "/assets/storybook/SfStore/storeB.png" },
-            },
-          },
-        ],
-      };
+    maxZoom: {
+      control: "number",
+      table: {
+        category: "Props for main component",
+        type: {
+          summary: "number",
+        },
+        defaultValue: {
+          summary: 16,
+        },
+      },
+      defaultValue: 16,
+      description:
+        "Max zoom allowed, consider tileserver limitation when setting this",
     },
-    template: `
-      <div style="max-width: 1240px;">
-      <SfStoreLocator
-        :center="latlng"
-    >
-      <template #map-loading>
-        CUSTOM MAP LOADING
-      </template>
-      <SfStore
-          :latlng="latlng"
-          :name="name"
-          :email="email"
-          :phone="phone"
-          :address="address"
-          :picture="picture"
-      />
-    </SfStoreLocator>
-      </div>`,
-  }));
+    markerIconSize: {
+      control: "array",
+      table: {
+        category: "Props for main component",
+        type: {
+          summary: "array",
+        },
+        defaultValue: {
+          summary: [21, 28],
+        },
+      },
+      description: "Size of the icon [width, height]",
+    },
+    markerIconAnchor: {
+      control: "array",
+      table: {
+        category: "Props for main component",
+        type: {
+          summary: "array",
+        },
+        defaultValue: {
+          summary: [10.5, 0],
+        },
+      },
+      defaultValue: [10.5, 0],
+      description: "Position of the anchor in the icon [x, y]",
+    },
+    mapOptions: {
+      control: "object",
+      table: {
+        category: "Props for main component",
+        type: {
+          summary: "object",
+        },
+        defaultValue: {
+          summary: "{}",
+        },
+      },
+      defaultValue: {},
+      description: "Options to pass to leaflet map",
+    },
+    tileLayerOptions: {
+      control: "object",
+      table: {
+        category: "Props for main component",
+        type: {
+          summary: "object",
+        },
+        defaultValue: {
+          summary: "{}",
+        },
+      },
+      defaultValue: {},
+      description: "Options to pass to leaflet tile-layer",
+    },
+    markerOptions: {
+      control: "object",
+      table: {
+        category: "Props for main component",
+        type: {
+          summary: "object",
+        },
+        defaultValue: {
+          summary: "{}",
+        },
+      },
+      defaultValue: {},
+      description: "Options to pass to leaflet marker",
+    },
+    flyToStoreZoom: {
+      control: {
+        type: "number",
+        range: {
+          min: 1,
+          max: 16,
+        },
+      },
+      table: {
+        category: "Props for main component",
+        type: {
+          summary: "number",
+        },
+        defaultValue: {
+          summary: "15",
+        },
+      },
+      defaultValue: 15,
+      description: "Zoom to be set when centering map on clicked store",
+    },
+    latlng: {
+      control: "array",
+      table: {
+        category: "Props for SfStore component",
+        type: {
+          summary: "array",
+        },
+        defaultValue: {
+          summary: "[]",
+        },
+      },
+      defaultValue: [],
+      description: "Name of the store (for internal component)",
+    },
+    name: {
+      control: "text",
+      table: {
+        category: "Props for SfStore component",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
+      },
+      defaultValue: "",
+      description: "Name of the store (for internal component)",
+    },
+    picture: {
+      control: "text",
+      table: {
+        category: "Props for SfStore component",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "null",
+        },
+      },
+      defaultValue: "",
+      description: "Address of the store (for internal component)",
+    },
+    pictureWidth: {
+      control: "text",
+      table: {
+        category: "Props for SfStore component",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "null",
+        },
+      },
+      defaultValue: "",
+      description:
+        "Picture width (for internal component). Could be an integer passed as Number or String type, but values like 'auto' or '100%' are not allowed.",
+    },
+    pictureHeight: {
+      control: "text",
+      table: {
+        category: "Props for SfStore component",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "null",
+        },
+      },
+      defaultValue: "",
+      description:
+        "Picture height (for internal component). Could be an integer passed as Number or String type, but values like 'auto' or '100%' are not allowed.",
+    },
+    address: {
+      control: "text",
+      table: {
+        category: "Props for SfStore component",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
+      },
+      defaultValue: "",
+      description: "Url of the picture of the store (for internal component)",
+    },
+    phone: {
+      control: "text",
+      table: {
+        category: "Props for SfStore component",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "null",
+        },
+      },
+      defaultValue: "",
+      description: "Phone number of the store (for internal component)",
+    },
+    email: {
+      control: "text",
+      table: {
+        category: "Props for SfStore component",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "null",
+        },
+      },
+      defaultValue: "",
+      description: "Email of the store (for internal component))",
+    },
+    "update:zoom": {
+      action: "update:zoom event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits update:zoom event when map zoom is changed",
+    },
+    "library:loaded": {
+      action: "library:loaded event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description:
+        "Emits library:loaded event when vue2-leaflet library is loaded",
+    },
+    "map:ready": {
+      action: "map:ready event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits map:ready event when map component is ready",
+    },
+    "location:error": {
+      action: "location:error event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description:
+        "Emits location:error event when access to user geolocation is denied",
+    },
+    "update:center": {
+      action: "update:center event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description:
+        "Emits update:center event when center of the map is changed",
+    },
+    default: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Default slot for `SfStoreLocator` component. Use this slot to show stores cards",
+    },
+    "marker-icon": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfStoreLocator` component. Use this slot to change the icon of the stores, remember to update `markerIconSize` and `markerIconAnchor` accordingly",
+    },
+    "map-loading": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfStoreLocator` component. Use this slot to customize the loading indicator while the map library loads",
+    },
+    "default ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Default slot for `SfStore` component. Use this slot to place information about store",
+    },
+    media: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfStore` component. Use this slot to show media elements",
+    },
+    heading: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfStore` component. Use this slot to replace name element",
+    },
+    distance: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfStore` component. Use this slot to replace distance element",
+    },
+  },
+};
+
+const Template = (args, { argTypes }) => ({
+  components: { SfStoreLocator },
+  props: Object.keys(argTypes),
+  template: `
+  <SfStoreLocator
+    :tile-server-url="tileServerUrl"
+    :tile-server-attribution="tileServerAttribution"
+    :center="center"
+    :zoom="zoom"
+    :max-zoom="maxZoom"
+    :marker-icon-size="markerIconSize"
+    :marker-icon-anchor="markerIconAnchor"
+    :map-options="mapOptions"
+    :tile-layer-options="tileLayerOptions"
+    :marker-options="markerOptions"
+    :fly-to-store-zoom="flyToStoreZoom"
+    @library:loaded="this['library:loaded']"
+    @update:zoom="this['update:zoom']"
+    @location:error="this['location:error']"
+  >
+    <SfStore
+      :latlng="latlng"
+      :name="name"
+      :email="email"
+      :phone="phone"
+      :address="address"
+      :picture="picture"
+      :pictureWidth="pictureWidth"
+      :pictureHeight="pictureHeight"
+    />
+  </SfStoreLocator>`,
+});
+
+export const Common = Template.bind({});
+Common.args = {
+  center: [47.5104387, 19.0444433],
+  markerIconSize: [21, 28],
+  markerIconAnchor: [10.5, 0],
+  latlng: [47.4968864, 19.0531093],
+  address: "Budapest, Deák Ferenc u. 19, 1052",
+  phone: "(70) 881 9463",
+  email: "example@email.com",
+  name: "Store",
+  picture: "/assets/storybook/SfStore/storeA.png",
+  pictureWidth: 82,
+  pictureHeight: 112,
+};
+
+export const UseMapLoadingSlot = (args, { argTypes }) => ({
+  components: { SfStoreLocator },
+  props: Object.keys(argTypes),
+  template: `
+  <SfStoreLocator
+    :tile-server-url="tileServerUrl"
+    :tile-server-attribution="tileServerAttribution"
+    :center="center"
+    :zoom="zoom"
+    :max-zoom="maxZoom"
+    :marker-icon-size="markerIconSize"
+    :marker-icon-anchor="markerIconAnchor"
+    :map-options="mapOptions"
+    :tile-layer-options="tileLayerOptions"
+    :marker-options="markerOptions"
+    :fly-to-store-zoom="flyToStoreZoom"
+  >
+    <template #map-loading>
+      CUSTOM MAP LOADING
+    </template>
+    <SfStore
+      :latlng="latlng"
+      :name="name"
+      :email="email"
+      :phone="phone"
+      :address="address"
+      :picture="picture"
+      :pictureWidth="pictureWidth"
+      :pictureHeight="pictureHeight"
+    />
+  </SfStoreLocator>`,
+});
+UseMapLoadingSlot.args = { ...Common.args };
+
+export const UseMarkerIconSlot = (args, { argTypes }) => ({
+  components: { SfStoreLocator },
+  props: Object.keys(argTypes),
+  template: `
+  <SfStoreLocator
+    :tile-server-url="tileServerUrl"
+    :tile-server-attribution="tileServerAttribution"
+    :center="center"
+    :zoom="zoom"
+    :max-zoom="maxZoom"
+    :marker-icon-size="markerIconSize"
+    :marker-icon-anchor="markerIconAnchor"
+    :map-options="mapOptions"
+    :tile-layer-options="tileLayerOptions"
+    :marker-options="markerOptions"
+    :fly-to-store-zoom="flyToStoreZoom"
+  >
+    <template #marker-icon>
+      <span :style="{fontSize: '36px'}">📪</span>
+    </template>
+    <SfStore
+      :latlng="latlng"
+      :name="name"
+      :email="email"
+      :phone="phone"
+      :address="address"
+      :picture="picture"
+      :pictureWidth="pictureWidth"
+      :pictureHeight="pictureHeight"
+    />
+  </SfStoreLocator>`,
+});
+UseMarkerIconSlot.args = { ...Common.args };

@@ -56,13 +56,7 @@
         --button-background: var(--c-light) radial-gradient(circle, transparent 40%, var(--c-text-disabled) 1%) center/15000%;
       }
     }
-  }
-  &.sf-link { 
-    --button-width: var(--spacer-3xl);
-  }
-  &.sf-link { 
-    --button-width: var(--spacer-3xl);
-  }
+  }   
   &:hover {
     --button-box-shadow-opacity: 0.25;
     --button-background: var(--c-primary) radial-gradient(circle, transparent 1%, var(--c-primary-variant) 1%) center/15000%;
@@ -73,12 +67,6 @@
     --button-transition: background 0s ;
     --button-text-decoration: underline;
   background-size: 100%;
-  }
-  &:disabled {
-    --button-background: var(--c-light);
-    --button-color: var(--c-text-disabled);
-    --button-cursor: default;
-    --button-box-shadow: none;
   }
   &--pure {
     --button-padding: 0;
@@ -107,11 +95,6 @@
       --button-background: transparent;
       --button-transition: color 150ms linear;
     }
-    &:disabled {
-      --button-border-color: var(--c-light);
-      --button-background: transparent;
-      --button-color: var(--c-text-disabled);
-    }
     @each $color, $map in $colors-map {
       $primary: map-get($map, "primary");
       &.color-#{$color} {
@@ -127,7 +110,7 @@
     --button-border-width: 0;
     --button-padding: 0;
     --button-background: transparent;
-    --button-color: var(--c-info);
+    --button-color: var(--c-text);
     --button-text-transform: none;
     --button-text-decoration: underline;
     --button-font-size: var(--font-size--sm);
@@ -136,16 +119,11 @@
     display: inline;
     &:hover {
       --button-background: transparent;
-      --button-color: var(--c-black);
+      --button-color: var(--c-primary);
     }
     &:active {
       --button-color: var(--c-gray);
-      --button-background: transparent;
-    }
-    &:disabled {
-      --button-background: transparent;
-      --button-color: var(--c-gray-variant);
-    }
+    }       
     @each $color, $map in $colors-map {
       $primary: map-get($map, "primary");
       &.color-#{$color} {
@@ -157,12 +135,25 @@
           --button-color: var(--c-gray);
           --button-background: transparent;
         }
-        &:disabled {
-          &:hover {
-            --button-color: var(--c-text-muted);
-          }
-        }
       }
+    }
+  }  
+  &.is-disabled--button,
+  &.is-disabled--button:hover,
+  &.is-disabled--button:active {
+    --button-color: var(--c-text-disabled);
+    --button-border-color: transparent;
+    --button-background: var(--c-light);
+    --button-box-shadow: none;
+    pointer-events: none;
+    cursor: default;
+    &.sf-button--text {
+      --button-background: transparent;
+      --button-color: var(--c-gray-variant);
+    }
+    &.sf-button--outline {
+      --button-border-color: var(--c-light);
+      --button-background: transparent;
     }
   }
   &--underlined {
@@ -196,5 +187,30 @@
     &--pure, &--text {
       --button-padding: 0;
     }
+  }
+}
+.sf-link {
+  --button-width: var(--spacer-3xl);
+  &.is-disabled--link,
+  &.is-disabled--link:hover { 
+    --button-box-shadow: none;
+    --button-border-color: transparent;
+    --button-background: var(--c-light); 
+    pointer-events: none;      
+    cursor: default;
+    &.sf-button {
+      --button-color: var(--c-text-disabled);
+      &--text {
+        --button-background: transparent;
+        --link-color: var(--c-gray-variant); 
+      }      
+    }
+    &.sf-button--outline {
+      --button-border-color: var(--c-light);
+      --button-background: transparent;
+    }
+  }
+  &.sf-button--full-width {
+    --button-width: 100%;
   }
 }

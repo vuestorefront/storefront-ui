@@ -1,0 +1,176 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+import pkg from "../../../package.json";
+import { YouTube } from 'mdx-embed';
+
+<Meta title="Getting Started/Installation" />
+
+<style>{`
+  a {
+    color: #5ECE7B !important;
+  }
+
+  .alert {
+    background: #efeded;
+    padding: 1rem;
+    margin: 0.5rem 0 1rem;
+  }
+
+  .tip {
+    border-left: 5px solid #5ECE7B;
+  }
+
+	.warning {
+		border-left: 5px solid #ffc107;
+		background-color: #fff4d5;
+	}
+
+	.heading {
+    font-size: 16px;
+    --mediumdark: '#999999';
+    color: #999;
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: 5px;
+		margin-top:10px;
+  }
+  .mdx-embed {
+    width: 80%;
+    text-align: center;
+    margin: 2.5rem auto;
+  }
+`}</style>
+
+# Installation
+
+<div class="heading">
+  Version
+  <a
+    href={`?path=/story/releases-v${pkg.version.replaceAll(
+      ".",
+      "-"
+    )}-change-log--page`}
+  >
+    {pkg.version}
+  </a>
+</div>
+
+<ul class="toc">
+  <li>
+    <a href="#install-custom-font">Install custom font</a>
+  </li>
+  <li>
+    <a href="#using-with-nuxt">Using with Nuxt</a>
+  </li>
+  <li>
+    <a href="#customization">Customization</a>
+  </li>
+</ul>
+
+<YouTube youTubeId="e2ysjL5G77Y" />
+
+Storefront UI is installed as a dependency to your project:
+
+```bash
+npm install --save @storefront-ui/vue
+# or
+yarn add @storefront-ui/vue
+```
+
+Once the library is installed, you need to import its **root stylesheet**. It contains _global_ styles and SCSS variables. **Component styles** are automatically imported as part of `.vue` files for each component.
+
+We recommend putting it in your `main.js` or the root component of your application.
+
+```js
+import "@storefront-ui/vue/styles.scss";
+```
+
+That's all! Now you can import any of Storefront UI components like this:
+
+```js
+import { SfComponentName } from "@storefront-ui/vue";
+```
+
+<div class="alert warning">
+
+For best extendability and performance we ship Storefront UI as (unpackaged) source code which requires **webpack** in your project to use the library.
+
+Storefront UI is working out of the box with **Nuxt** and **Vue CLI 2 & 3**!
+In order to use it in custom projects you need the following webpack loaders: `css-loader@>1.0.1`, `scss-loader`, `sass-loader`, `vue-loader`
+
+</div>
+
+## Install custom font
+
+StorefrontUI bases on [Raleway](https://fonts.google.com/specimen/Raleway) and [Roboto](https://fonts.google.com/specimen/Roboto) font styles. To include it in your project,
+you need to add following `link` tags inside the `<head>` element of your main `.html` file in a Vue project.
+
+```html
+<link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+<link
+  rel="preconnect"
+  href="https://fonts.gstatic.com"
+  crossorigin="anonymous"
+/>
+<link
+  rel="preload"
+  href="https://fonts.googleapis.com/css?family=Raleway:300,400,400i,500,600,700|Roboto:300,300i,400,400i,500,700&display=swap"
+  as="fetch"
+  crossorigin="anonymous"
+/>
+```
+
+This will make sure your font is loaded efficiently and won't affect the page initial load performance. And don't forget to use `display` property at the end of url, with chosen value to display font-faces properly utilizing [`font-display`](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display) CSS property.
+
+
+For Nuxt.js project, you can add the following to the `head` section of `nuxt.config.js` (or a specific page component).
+
+```js
+export default {
+  head: {
+    meta: [
+      {
+        rel: "preconnect",
+        href: "https://fonts.gstatic.com/",
+        crossorigin: "anonymous",
+      },
+      {
+        rel: "preload",
+        as: "style",
+        href:
+          "https://fonts.googleapis.com/css?family=Raleway:300,400,400i,500,600,700|Roboto:300,300i,400,400i,500,700&display=swap",
+        crossorigin: "anonymous",
+      },
+      {
+        rel: "stylesheet",
+        href:
+          "https://fonts.googleapis.com/css?family=Raleway:300,400,400i,500,600,700|Roboto:300,300i,400,400i,500,700&display=swap",
+        media: "print",
+        onload: "this.media='all'",
+      },
+    ],
+  },
+};
+```
+
+## Using with Nuxt
+
+<YouTube youTubeId="XEewlVJIkwA" />
+
+To use Storefront UI in a Nuxt project you need to include it's transpilation during build process using nuxt.config.js or your alternative webpack config.
+For example in Nuxt 2-edge all you have to do is to add `/^@storefront-ui/` to the [transpile.build](https://nuxtjs.org/api/configuration-build/#transpile) array e.g.
+
+```
+module.exports = {
+	build: {
+		transpile: [/^@storefront-ui/],
+	},
+}
+```
+
+Make sure that you already have all required webpack loaders.
+
+## Customization
+
+<YouTube youTubeId="iBN5jEcJHoY" />
+
+Storefront UI is very flexible in terms of customization. You can read [here](/?path=/story/getting-started-development-guide-css-customization--page) about its capabilities.

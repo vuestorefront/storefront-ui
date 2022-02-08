@@ -52,7 +52,10 @@
       );
     }
   }
-  &__chevron {
+  &__tab {
+    display: contents;
+  }
+  &__chevron, .sf-chevron {
     display: var(--tabs-chevron-display);
   }
   @include for-desktop {
@@ -64,7 +67,9 @@
     --tabs-title-color: var(--c-text-muted);
     --tabs-title-font-size: var(--h4-font-size);
     --tabs-content-tab-padding: var(--spacer-xl) 0;
-    --tabs-chevron-display: none;
+    &__chevron, .sf-chevron {
+      --tabs-chevron-display: none;
+    }
     &__title {
       &.is-active {
         --tabs-title-border-width: 0 0 2px 0;

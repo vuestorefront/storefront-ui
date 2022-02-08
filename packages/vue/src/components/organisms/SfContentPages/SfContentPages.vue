@@ -16,7 +16,10 @@
           v-for="(category, key) in categories"
           :key="`${category.title}-${key}`"
         >
-          <h2 v-if="category.title" class="sf-content-pages__category-title">
+          <h2
+            :class="{ 'display-none': !category.title }"
+            class="sf-content-pages__category-title"
+          >
             {{ category.title }}
           </h2>
           <SfList class="sf-content-pages__list">
@@ -25,17 +28,16 @@
               :key="`${page.title}-${itemKey}`"
               class="sf-content-pages__list-item"
             >
-              <!-- @slot Custom menu-item markup -->
               <slot name="menu-item" v-bind="{ updatePage, page, active }">
                 <SfMenuItem
-                  :class="{ 'is-active': page.title === active }"
+                  :class="{ 'is-active': isPageActive(page) }"
                   :label="page.title"
                   class="sf-content-pages__menu"
                   @click="updatePage(page.title)"
                 >
                   <template #icon>
                     <SfIcon
-                      v-if="page.icon"
+                      :class="{ 'display-none': !page.icon }"
                       :icon="page.icon"
                       class="sf-menu-item__icon"
                       color="#686d7d"
@@ -49,7 +51,6 @@
         </div>
       </div>
       <div class="sf-content-pages__content">
-        <!-- @slot Slot for Content Page -->
         <slot />
       </div>
     </section>
@@ -78,16 +79,10 @@ export default {
     SfBar,
   },
   props: {
-    /**
-     * Pages title
-     */
     title: {
       type: String,
       default: "",
     },
-    /**
-     * Active page
-     */
     active: {
       type: String,
       default: "",
@@ -147,13 +142,10 @@ export default {
   },
   methods: {
     updatePage(title) {
-      /**
-       * Active page updated event
-       *
-       * @event click:change
-       * @type String
-       */
       this.$emit("click:change", title);
+    },
+    isPageActive(page) {
+      return page.title.toLowerCase() === this.active.toLowerCase();
     },
   },
 };

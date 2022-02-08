@@ -68,18 +68,6 @@ describe("SfHero.vue", () => {
     it("renders SfBullets component", () => {
       expect(component.findAllComponents(SfBullets)).toHaveLength(1);
     });
-    it("calls #go with 'prev' when clicked on left arrow", () => {
-      jest.spyOn(component.vm, "go");
-      expect(component.vm.go).not.toHaveBeenCalled();
-      component.findAllComponents(SfArrow).at(0).trigger("click");
-      expect(component.vm.go).toHaveBeenCalledWith("prev");
-    });
-    it("calls #go with 'next' when clicked on right arrow", () => {
-      jest.spyOn(component.vm, "go");
-      expect(component.vm.go).not.toHaveBeenCalled();
-      component.findAllComponents(SfArrow).at(1).trigger("click");
-      expect(component.vm.go).toHaveBeenCalledWith("next");
-    });
   });
   describe("with 'prev' and 'next' slots populated", () => {
     let component;
@@ -136,10 +124,17 @@ describe("SfHero.vue", () => {
       component.destroy();
     });
     it("doesn't render any SfArrow components if only one item passed as prop", () => {
-      expect(component.findAllComponents(SfArrow)).toHaveLength(0);
+      expect(
+        component.find(".sf-hero__control--left").classes("display-none")
+      ).toBe(true);
+      expect(
+        component.find(".sf-hero__control--right").classes("display-none")
+      ).toBe(true);
     });
     it("doesn't render SfBullets component if only one item passed as prop", () => {
-      expect(component.findAllComponents(SfBullets)).toHaveLength(0);
+      expect(component.find(".sf-hero__bullets").classes("display-none")).toBe(
+        true
+      );
     });
   });
   describe("with using default slot", () => {

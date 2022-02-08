@@ -1,11 +1,10 @@
-<template>
-  <transition :name="transition">
+<template functional>
+  <transition :name="props.transition">
     <div
-      v-if="visible"
+      v-if="props.visible"
       ref="overlay"
-      class="sf-overlay"
-      :class="[staticClass, className]"
-      @click="$emit('click')"
+      :class="[data.class, data.staticClass, 'sf-overlay']"
+      @click="listeners.click && listeners.click($event)"
     ></div>
   </transition>
 </template>
@@ -13,27 +12,13 @@
 export default {
   name: "SfOverlay",
   props: {
-    /**
-     * Transition effect to apply when overlay visibility is changed
-     */
     transition: {
       type: String,
       default: "sf-fade",
     },
-    /**
-     * Visibility state
-     */
     visible: {
       type: Boolean,
       default: false,
-    },
-  },
-  computed: {
-    staticClass() {
-      return this.$vnode.data.staticClass;
-    },
-    className() {
-      return this.$vnode.data.class;
     },
   },
 };

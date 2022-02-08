@@ -1,6 +1,7 @@
 @import "../../helpers";
 .sf-chevron {
   position: var(--chevron-position, relative);
+  display: block;
   width: var(--chevron-size, 1.25rem);
   height: var(--chevron-size, 1.25rem);
   cursor: pointer;
@@ -31,7 +32,7 @@
         var(--chevron-translateX, 0),
         var(--chevron-translateY, -50%)
       )
-        rotate(calc(var(--chevron-rotate, 45deg) * -1));
+        rotate(calc(-1 * var(--chevron-rotate, 45deg)));
     }
   }
   &--top {

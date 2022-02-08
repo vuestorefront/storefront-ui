@@ -20,4 +20,29 @@ describe("SfContentPage.vue", () => {
     });
     expect(component.classes("sf-content-page")).toBe(true);
   });
+  it("compares page title and provided active with different casing correctly", () => {
+    const testClass = "visible-when-active";
+    const component = shallowMount(SfContentPage, {
+      slots: {
+        default: `<div class="${testClass}" />`,
+      },
+      propsData: {
+        title: "My Title",
+      },
+      provide: {
+        provided: {
+          active: "my title",
+        },
+      },
+      parentComponent: {
+        data() {
+          return {
+            items: [],
+          };
+        },
+      },
+    });
+    const testDiv = component.find(`.${testClass}`);
+    expect(testDiv.exists()).toBe(true);
+  });
 });

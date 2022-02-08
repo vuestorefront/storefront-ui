@@ -1,175 +1,247 @@
-import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, select } from "@storybook/addon-knobs";
 import { icons } from "@storefront-ui/shared/icons/icons";
 import { sizesValues as sizes } from "@storefront-ui/shared/variables/sizes";
 import { iconColorsValues as colors } from "@storefront-ui/shared/variables/colors";
 import { SfCharacteristic } from "@storefront-ui/vue";
 const iconsNames = Object.keys(icons);
-storiesOf("Molecules|Characteristic", module)
-  .addDecorator(withKnobs)
-  .add("Common", () => ({
-    components: { SfCharacteristic },
-    props: {
-      title: {
-        default: text("title", "Safety", "Props"),
+
+export default {
+  title: "Components/Molecules/Characteristic",
+  component: SfCharacteristic,
+  parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "characteristic-margin": {
+        value: "0 var(--spacer-xs) 0 0",
+        control: "text",
       },
-      description: {
-        default: text(
-          "description",
-          "It carefully packaged with a personal touch",
-          "Props"
-        ),
+      "characteristic-title-font": { value: "", control: "text" },
+      "characteristic-title-font-weight": {
+        value: "var(--font-weight--normal)",
+        control: "text",
       },
-      icon: {
-        default: select("icon", iconsNames, "safety", "Props"),
+      "characteristic-title-font-size": {
+        value: "var(--h5-font-size)",
+        control: "text",
       },
-      sizeIcon: {
-        default: select("sizeIcon", ["", ...sizes], "", "Props"),
+      "characteristic-title-font-line-height": {
+        value: "1.6",
+        control: "text",
       },
-      colorIcon: {
-        default: select("colorIcon", ["", ...colors], "", "Props"),
+      "characteristic-title-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
       },
-    },
-    template: `<SfCharacteristic 
-      :title="title"
-      :description="description"
-      :icon="icon"
-      :size-icon="sizeIcon"
-      :color-icon="colorIcon"/>`,
-  }))
-  .add("[slot] icon", () => ({
-    components: { SfCharacteristic },
-    props: {
-      title: {
-        default: text("title", "Safety", "Props"),
+      "characteristic-description-font": { value: "", control: "text" },
+      "characteristic-description-font-weight": {
+        value: "var(--font-weight--normal)",
+        control: "text",
       },
-      description: {
-        default: text(
-          "description",
-          "It carefully packaged with a personal touch",
-          "Props"
-        ),
+      "characteristic-description-font-size": {
+        value: "var(--font-size--xs)",
+        control: "text",
       },
-      icon: {
-        default: select("icon", iconsNames, "info_shield", "Props"),
+      "characteristic-description-font-line-height": {
+        value: "1.6",
+        control: "text",
       },
-      sizeIcon: {
-        default: select("sizeIcon", ["", ...sizes], "", "Props"),
+      "characteristic-description-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
       },
-      colorIcon: {
-        default: select("colorIcon", ["", ...colors], "", "Props"),
+      "icon-color": {
+        value: "var(--c-primary)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
       },
-    },
-    template: `<SfCharacteristic 
-      :title="title"
-      :description="description"
-      :icon="icon"
-      :size-icon="sizeIcon"
-      :color-icon="colorIcon">
-      <template #icon="{colorIcon, sizeIcon, icon}">
-        ❤️
-      </template>
-    </SfCharacteristic>`,
-  }))
-  .add("[slot] text", () => ({
-    components: { SfCharacteristic },
-    props: {
-      title: {
-        default: text("title", "Safety", "Props"),
-      },
-      description: {
-        default: text(
-          "description",
-          "It carefully packaged with a personal touch",
-          "Props"
-        ),
-      },
-      icon: {
-        default: select("icon", iconsNames, "info_shield", "Props"),
-      },
-      sizeIcon: {
-        default: select("sizeIcon", ["", ...sizes], "", "Props"),
-      },
-      colorIcon: {
-        default: select("colorIcon", ["", ...colors], "", "Props"),
+      "icon-size": {
+        value: "2rem",
+        description: "Overridden other component's CSS variable",
+        control: "text",
       },
     },
-    template: `<SfCharacteristic 
-      :title="title"
-      :description="description"
-      :icon="icon"
-      :size-icon="sizeIcon"
-      :color-icon="colorIcon">
-      <template #text="{title, description}">
-        CUSTOM TEXT
-      </template>
-    </SfCharacteristic>`,
-  }))
-  .add("[slot] title", () => ({
-    components: { SfCharacteristic },
-    props: {
-      title: {
-        default: text("title", "Safety", "Props"),
-      },
+    // end of code generated automatically
+    docs: {
       description: {
-        default: text(
-          "description",
-          "It carefully packaged with a personal touch",
-          "Props"
-        ),
-      },
-      icon: {
-        default: select("icon", iconsNames, "info_shield", "Props"),
-      },
-      sizeIcon: {
-        default: select("sizeIcon", ["", ...sizes], "", "Props"),
-      },
-      colorIcon: {
-        default: select("colorIcon", ["", ...colors], "", "Props"),
+        component:
+          "The component with icon and text used for describing product characteristics.",
       },
     },
-    template: `<SfCharacteristic 
-      :title="title"
-      :description="description"
-      :icon="icon"
-      :size-icon="sizeIcon"
-      :color-icon="colorIcon">
-      <template #title="{title}">
-        CUSTOM TITLE
-      </template>
-    </SfCharacteristic>`,
-  }))
-  .add("[slot] description", () => ({
-    components: { SfCharacteristic },
-    props: {
-      title: {
-        default: text("title", "Safety", "Props"),
+  },
+  argTypes: {
+    sizeIcon: {
+      control: {
+        type: "select",
+        options: sizes,
       },
-      description: {
-        default: text(
-          "description",
-          "It carefully packaged with a personal touch",
-          "Props"
-        ),
+      table: {
+        category: "Props",
       },
-      icon: {
-        default: select("icon", iconsNames, "info_shield", "Props"),
-      },
-      sizeIcon: {
-        default: select("sizeIcon", ["", ...sizes], "", "Props"),
-      },
-      colorIcon: {
-        default: select("colorIcon", ["", ...colors], "", "Props"),
-      },
+      description: "One of predefined SfIcon sizes.",
     },
-    template: `<SfCharacteristic 
-      :title="title"
-      :description="description"
-      :icon="icon"
-      :size-icon="sizeIcon"
-      :color-icon="colorIcon">
-      <template #description="{description}">
-        CUSTOM DESCRIPTION
-      </template>
-    </SfCharacteristic>`,
-  }));
+    colorIcon: {
+      control: {
+        type: "select",
+        options: colors,
+      },
+      table: {
+        category: "Props",
+      },
+      description: "One of predefined SfIcon colors, default is black.",
+    },
+    icon: {
+      control: {
+        type: "select",
+        options: iconsNames,
+      },
+      table: {
+        category: "Props",
+        type: {
+          summary: ["string", "array"],
+        },
+        defaultValue: {
+          summary: "",
+        },
+      },
+      description: "Svg file iconPath",
+    },
+    title: {
+      control: "text",
+      table: {
+        category: "Props",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
+      },
+      description: "Characteristic title",
+    },
+    description: {
+      control: "text",
+      table: {
+        category: "Props",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
+      },
+      description: "Characteristic description ",
+    },
+    text: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Characteristic text. Slot content will replace default title and description text",
+    },
+    "title ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace title button",
+    },
+    "description ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace description button",
+    },
+    "icon ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to replace icon",
+    },
+  },
+};
+
+const Template = (args, { argTypes }) => ({
+  components: { SfCharacteristic },
+  props: Object.keys(argTypes),
+  template: `
+  <SfCharacteristic 
+  :title="title"
+  :description="description"
+  :icon="icon"
+  :size-icon="sizeIcon"
+  :color-icon="colorIcon"
+  />`,
+});
+export const Common = Template.bind({});
+Common.args = {
+  description: "It carefully packaged with a personal touch",
+  title: "Safety",
+};
+
+export const WithIcon = Template.bind({});
+WithIcon.args = {
+  ...Common.args,
+  icon: "safety",
+};
+
+export const UseIconSlot = (args, { argTypes }) => ({
+  components: { SfCharacteristic },
+  props: Object.keys(argTypes),
+  template: `
+  <SfCharacteristic 
+    :title="title"
+    :description="description"
+    :icon="icon"
+    :size-icon="sizeIcon"
+    :color-icon="colorIcon"
+  >
+    <template #icon="{colorIcon, sizeIcon, icon}">
+      ❤️
+    </template>
+  </SfCharacteristic>`,
+});
+UseIconSlot.args = { ...Common.args };
+
+export const UseTextSlot = (args, { argTypes }) => ({
+  components: { SfCharacteristic },
+  props: Object.keys(argTypes),
+  template: `
+  <SfCharacteristic 
+    :title="title"
+    :description="description"
+    :icon="icon"
+    :size-icon="sizeIcon"
+    :color-icon="colorIcon">
+    <template #text="{title, description}">
+      CUSTOM TEXT
+    </template>
+  </SfCharacteristic>`,
+});
+UseTextSlot.args = { ...WithIcon.args };
+
+export const UseDescriptionSlot = (args, { argTypes }) => ({
+  components: { SfCharacteristic },
+  props: Object.keys(argTypes),
+  template: `
+  <SfCharacteristic 
+    :title="title"
+    :description="description"
+    :icon="icon"
+    :size-icon="sizeIcon"
+    :color-icon="colorIcon">
+    <template #description="{description}">
+      CUSTOM DESCRIPTION
+    </template>
+  </SfCharacteristic>`,
+});
+UseDescriptionSlot.args = { ...WithIcon.args };

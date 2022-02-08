@@ -31,14 +31,8 @@
     flex: var(--store-media-flex, 0 0 5.125rem);
     margin: var(--store-media-margin, 0 var(--spacer-xs) 0 0);
   }
-  &__info {
-    display: flex;
-    flex-direction: column;
-  }
-  &__heading,
-  &__address {
-    display: flex;
-    justify-content: flex-start;
+  &__icon {
+    margin: var(--store-icon-padding, var(--spacer-xl))
   }
   &__address {
     margin: var(--store-item-addres-margin, 0 0 var(--spacer-base) 0);

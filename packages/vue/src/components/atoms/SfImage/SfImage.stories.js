@@ -1,250 +1,225 @@
-import { storiesOf } from "@storybook/vue";
-import {
-  withKnobs,
-  text,
-  boolean,
-  number,
-  object,
-} from "@storybook/addon-knobs";
 import { SfImage } from "@storefront-ui/vue";
-storiesOf("Atoms|Image", module)
-  .addDecorator(withKnobs)
-  .add("Common", () => ({
-    components: { SfImage },
-    props: {
-      srcset: {
-        default: object(
-          "srcset",
-          [
-            {
-              src: `/assets/storybook/SfImage/product-109x164.webp`,
-              media: `(max-width: 480px)`,
-              type: `image/webp`,
-            },
-            {
-              src: `/assets/storybook/SfImage/product-109x164.webp`,
-              media: `(min-width: 480px) and (max-width: 720px)`,
-              type: `image/webp`,
-            },
-            {
-              src: `/assets/storybook/SfImage/product-216x326.jpg`,
-              media: `(min-width: 1240px)`,
-              type: `image/jpg`,
-            },
-          ],
-          "Props"
-        ),
-      },
-      src: {
-        default: text(
-          "src",
-          "/assets/storybook/SfImage/product-216x326.jpg",
-          "Props"
-        ),
-      },
-      alt: {
-        default: text("alt", "Vila stripe maxi shirt dress", "Props"),
-      },
-      width: {
-        default: number("width", 216, {}, "Props"),
-      },
-      height: {
-        default: number("height", 326, {}, "Props"),
-      },
-      lazy: {
-        default: boolean("lazy", true, "Props"),
-      },
-      rootMargin: {
-        default: text("rootMargin", "0px", "Props"),
-      },
-      threshold: {
-        default: number("threshold", 0, {}, "Props"),
-      },
-    },
-    template: `<SfImage
-        :src="src"
-        :alt="alt"
-        :lazy="lazy"
-        :rootMargin="rootMargin"
-        :threshold="threshold"
-      />`,
-  }))
-  .add("Without width and height", () => ({
-    components: { SfImage },
-    props: {
-      src: {
-        default: text(
-          "src",
-          "/assets/storybook/SfImage/product-216x326.jpg",
-          "Props"
-        ),
-      },
-      alt: {
-        default: text("alt", "Vila stripe maxi shirt dress", "Props"),
-      },
-      lazy: {
-        default: boolean("lazy", true, "Props"),
-      },
 
-      rootMargin: {
-        default: text("rootMargin", "0px", "Props"),
+export default {
+  title: "Components/Atoms/Image",
+  component: SfImage,
+  parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "image-width": { value: "", control: "text" },
+      "image-height": { value: "auto", control: "text" },
+      "image-overlay-padding": { value: "", control: "text" },
+      "image-overlay-background": {
+        value: "rgba(var(--c-dark-base), 0.6)",
+        control: "text",
       },
-      threshold: {
-        default: number("threshold", 0, {}, "Props"),
+      "image-overlay-color": { value: "var(--c-white)", control: "text" },
+      "image-overlay-opacity": { value: "0", control: "text" },
+    },
+    // end of code generated automatically
+    docs: {
+      description: {
+        component:
+          "Image accepting string source and an array of srcsets (with breakpoints( and widths) or resolutions)",
       },
     },
-    template: `<SfImage
-        :src="src"
-        :srcset="srcset"
-        :alt="alt"
-        :lazy="lazy"
-        :sizes="sizes"
-        :rootMargin="rootMargin"
-        :threshold="threshold"
-      />`,
-  }))
-  .add("With src", () => ({
-    components: { SfImage },
-    props: {
-      src: {
-        default: text(
-          "src",
-          "/assets/storybook/SfImage/product-216x326.jpg",
-          "Props"
-        ),
+  },
+  argTypes: {
+    srcsets: {
+      control: "object",
+      table: {
+        category: "Props",
       },
-      alt: {
-        default: text("alt", "Vila stripe maxi shirt dress", "Props"),
-      },
-      lazy: {
-        default: boolean("lazy", true, "Props"),
-      },
-      rootMargin: {
-        default: text("rootMargin", "", "Props"),
-      },
-      threshold: {
-        default: number("threshold", 0, {}, "Props"),
-      },
+      description:
+        "Array of images' source, dimension and breakpoints to generate srcset attribute",
     },
-    template: `<SfImage
-        :src="src"
-        :srcset="srcset"
-        :alt="alt"
-        :lazy="lazy"
-        :rootMargin="rootMargin"
-        :threshold="threshold"
-      />`,
-  }))
-  .add("With srcset as string", () => ({
-    components: { SfImage },
-    props: {
-      srcset: {
-        default: text(
-          "srcset",
-          "/assets/storybook/SfImage/product-109x164.jpg 109w, /assets/storybook/SfImage/product-216x326.jpg 216w",
-          "Props"
-        ),
+    src: {
+      control: "text",
+      table: {
+        category: "Props",
       },
-      src: {
-        default: text(
-          "src",
-          "/assets/storybook/SfImage/product-216x326.jpg",
-          "Props"
-        ),
-      },
-      sizes: {
-        default: text("sizes", "(max-width: 1024px) 109px, 216px", "Props"),
-      },
-      alt: {
-        default: text("alt", "Vila stripe maxi shirt dress", "Props"),
-      },
-      lazy: {
-        default: boolean("lazy", true, "Props"),
-      },
-      rootMargin: {
-        default: text("rootMargin", "0px", "Props"),
-      },
-      threshold: {
-        default: number("threshold", 0, {}, "Props"),
-      },
+      description: "Main source url for the image",
     },
-    template: `<SfImage
-        :src="src"
-        :alt="alt"
-        :lazy="lazy"
-        :rootMargin="rootMargin"
-        :threshold="threshold"
-      />`,
-  }))
-  .add("Without width and height", () => ({
-    components: { SfImage },
-    props: {
-      src: {
-        default: text(
-          "src",
-          "/assets/storybook/SfImage/product-216x326.jpg",
-          "Props"
-        ),
+    width: {
+      control: "number",
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: null,
+        },
       },
-      alt: {
-        default: text("alt", "Vila stripe maxi shirt dress", "Props"),
-      },
-      lazy: {
-        default: boolean("lazy", true, "Props"),
-      },
-      rootMargin: {
-        default: text("rootMargin", "0px", "Props"),
-      },
-      threshold: {
-        default: number("threshold", 0, {}, "Props"),
-      },
+      defaultValue: null,
+      description:
+        "Width of the image. Could be an integer passed as Number or String type, but values like 'auto' or '100%' are not allowed.",
     },
-    template: `<SfImage
-        :src="src"
-        :alt="alt"
-        :lazy="lazy"
-        :rootMargin="rootMargin"
-        :threshold="threshold"
-      />`,
-  }))
-  .add("[slot] default", () => ({
-    components: { SfImage },
-    props: {
-      src: {
-        default: text(
-          "src",
-          "/assets/storybook/SfImage/product-216x326.jpg",
-          "Props"
-        ),
+    height: {
+      control: "number",
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: null,
+        },
       },
-      alt: {
-        default: text("alt", "Vila stripe maxi shirt dress", "Props"),
-      },
-      width: {
-        default: number("width", 216, {}, "Props"),
-      },
-      height: {
-        default: number("height", 326, {}, "Props"),
-      },
-      lazy: {
-        default: boolean("lazy", true, "Props"),
-      },
-      rootMargin: {
-        default: text("rootMargin", "0px", "Props"),
-      },
-      threshold: {
-        default: number("threshold", 0, {}, "Props"),
-      },
+      defaultValue: null,
+      description:
+        "Height of the image. Could be an integer passed as Number or String type, but values like 'auto' or '100%' are not allowed.",
     },
-    template: `<SfImage
-      :src="src"
-      :alt="alt"
-      :width="width"
-      :height="height"
-      :lazy="lazy"
-      :rootMargin="rootMargin"
-      :threshold="threshold"
-    >
-      CUSTOM OVERLAY CONTENT
-    </SfImage>`,
-  }));
+    placeholder: {
+      control: "text",
+      table: {
+        category: "Props",
+      },
+      defaultValue: "",
+      description: "Url source of the image's placeholder while it is loading.",
+    },
+    alt: {
+      control: "text",
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: "",
+        },
+      },
+      description:
+        "Alternative text in case image is not loaded. Use empty string '' for decorative-only image and full text otherwise",
+    },
+    loading: {
+      control: {
+        type: "select",
+        options: ["", "lazy", "eager"],
+      },
+      table: {
+        category: "Props",
+      },
+      description:
+        "Native loading attribute supported, either 'eager', 'lazy' or none.",
+    },
+    default: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to have custom element on image overlay",
+    },
+    "placeholder ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Use this slot to have custom placeholder",
+    },
+  },
+};
+
+const Template = (args, { argTypes }) => ({
+  components: { SfImage },
+  props: Object.keys(argTypes),
+  template: `
+  <SfImage
+    :src="src"
+    :srcsets="srcsets"
+    :width="width"
+    :height="height"
+    :alt="alt"
+  />`,
+});
+
+export const Common = Template.bind({});
+Common.args = {
+  src: "/assets/storybook/SfImage/product-216x326.jpg",
+  alt: "Vila stripe maxi shirt dress",
+  srcsets: [
+    {
+      src: "/assets/storybook/SfImage/product-109x164.webp",
+      width: 109,
+      breakpoint: 480,
+    },
+    {
+      src: "/assets/storybook/SfImage/product-216x326.jpg",
+      width: 1200,
+      breakpoint: 1200,
+    },
+    {
+      src: "/assets/storybook/SfImage/product-109x164.webp",
+      width: "400px",
+      breakpoint: 768,
+    },
+  ],
+};
+
+export const WithSrcOnly = Template.bind({});
+WithSrcOnly.args = {
+  ...Common.args,
+  width: 216,
+  height: 326,
+  srcsets: [],
+};
+
+export const WithBreakpoints = Template.bind({});
+WithBreakpoints.args = {
+  ...Common.args,
+  width: 216,
+  height: 326,
+};
+
+export const WithResolutions = Template.bind({});
+WithResolutions.args = {
+  ...WithSrcOnly.args,
+  srcsets: [
+    {
+      src: "/assets/storybook/SfImage/product-109x164.webp",
+      resolution: 1,
+    },
+    {
+      src: "/assets/storybook/SfImage/product-216x326.jpg",
+      resolution: 1.5,
+    },
+    {
+      src: "/assets/storybook/SfImage/product-109x164.webp",
+      resolution: 2,
+    },
+  ],
+};
+
+export const WithPlaceholder = Template.bind({});
+WithPlaceholder.args = {
+  ...WithSrcOnly.args,
+  placeholder:
+    "https://res.cloudinary.com/mayashavin/image/upload/e_pixelate/v1607977495/StorefrontUI/product-216x326.jpg",
+};
+
+export const WithAccessibility = Template.bind({});
+WithAccessibility.args = {
+  ...WithSrcOnly.args,
+};
+WithAccessibility.decorators = [
+  () => ({
+    template: `<div>
+    <p>
+      <span style="color:#b40e01">Red</span> highlight when no Alt text found.
+    </p>
+    <story />
+  </div>`,
+  }),
+];
+
+export const UseOverlaySlot = (args, { argTypes }) => ({
+  components: { SfImage },
+  props: Object.keys(argTypes),
+  template: `
+  <SfImage
+    :src="src"
+    :srcsets="srcsets"
+    :width="width"
+    :height="height"
+    :alt="alt"
+  >{{textOverlay}}</SfImage>`,
+});
+UseOverlaySlot.args = {
+  ...WithSrcOnly.args,
+  textOverlay: "Custom overlay",
+};

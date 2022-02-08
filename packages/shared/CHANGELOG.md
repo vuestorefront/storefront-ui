@@ -3,6 +3,472 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.12.1](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.12.0...@storefront-ui/shared@0.12.1) (2022-02-07)
+
+
+### Bug Fixes
+
+* apply red dot outline when nuxt-picture is used ([#2228](https://github.com/vuestorefront/storefront-ui/issues/2228)) ([8344a80](https://github.com/vuestorefront/storefront-ui/commit/8344a803880b6ece90d98e2ee77f6948349886d7))
+* new css vars for easy overriding ([d457071](https://github.com/vuestorefront/storefront-ui/commit/d457071d95b14c35628681374e97ea00d24c509f))
+* product card horizontal with styles ([e40c5c0](https://github.com/vuestorefront/storefront-ui/commit/e40c5c0b20766e38f12460a4bb18b1888d1cf989))
+* remove styling for images from props ([cd63b53](https://github.com/vuestorefront/storefront-ui/commit/cd63b533bffe63ce76d77619a2e76957d1d30c16))
+* styles for image in grouped product ([cad820c](https://github.com/vuestorefront/storefront-ui/commit/cad820ced67c388da7f3d8defc99911357181849))
+
+
+
+
+
+# [0.12.0](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.11.5...@storefront-ui/shared@0.12.0) (2022-01-24)
+
+
+### Bug Fixes
+
+* changing color and size of icon ([fc85dec](https://github.com/vuestorefront/storefront-ui/commit/fc85dec52e5eaac9056fdc5fbb8f5a17267d931e))
+* conflict resolved ([552adb0](https://github.com/vuestorefront/storefront-ui/commit/552adb094a168389922e9840225a206688e975da))
+* removed unused lines ([1ad1dce](https://github.com/vuestorefront/storefront-ui/commit/1ad1dcec245faca8f0129463d43fd956c9baef89))
+
+
+### Features
+
+* add nuxt-img api to Sfimage, SfGallery, SfProductCard and SfProductCardHorizontal ([#2174](https://github.com/vuestorefront/storefront-ui/issues/2174)) ([7bb4869](https://github.com/vuestorefront/storefront-ui/commit/7bb4869c6f3b1e314484f781ab66a87285ec64d0))
+* added new modifier for SfComponentSelect ([#2202](https://github.com/vuestorefront/storefront-ui/issues/2202)) ([19d662b](https://github.com/vuestorefront/storefront-ui/commit/19d662b67c02e78d0502e48ab1886b74e50d1b08))
+* banner with img tag ([51fe3fe](https://github.com/vuestorefront/storefront-ui/commit/51fe3feb35e7b909efc1aaf7f14510b0deed3c44))
+* refactor transitions affecting perf ([#2183](https://github.com/vuestorefront/storefront-ui/issues/2183)) ([3a7b03a](https://github.com/vuestorefront/storefront-ui/commit/3a7b03af37f72cd4ab83ce305a4c63ad977c94a5))
+
+
+
+
+
+## [0.11.5](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.11.4...@storefront-ui/shared@0.11.5) (2021-12-20)
+
+
+### Bug Fixes
+
+* chevron displayed in sf-tabs on desktop ([#2173](https://github.com/vuestorefront/storefront-ui/issues/2173)) ([4477b81](https://github.com/vuestorefront/storefront-ui/commit/4477b8146c8669f0879a5a6a101793f596ab93a1))
+
+
+
+
+
+## [0.11.4](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.11.3...@storefront-ui/shared@0.11.4) (2021-12-10)
+
+
+### Bug Fixes
+
+* add to cart on hover and in active state ([#2156](https://github.com/vuestorefront/storefront-ui/issues/2156)) ([225a1c5](https://github.com/vuestorefront/storefront-ui/commit/225a1c52c44c35e3d3a839fcf1b25e9146d8d0e7))
+* badge added to color picker in product card ([#2130](https://github.com/vuestorefront/storefront-ui/issues/2130)) ([5b65987](https://github.com/vuestorefront/storefront-ui/commit/5b65987f7ae3934376d550056f7484c7ca979b60))
+
+
+
+
+
+## [0.11.3](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.11.2...@storefront-ui/shared@0.11.3) (2021-11-25)
+
+
+### Bug Fixes
+
+* cr fixes ([32945a4](https://github.com/vuestorefront/storefront-ui/commit/32945a4cdb308fb58599709711358b16577c3e24))
+* display none instead of v-if ([737d1a3](https://github.com/vuestorefront/storefront-ui/commit/737d1a3f9da3991479ec61528c65fc98396f9784))
+* moved add to cart button ([a2817e5](https://github.com/vuestorefront/storefront-ui/commit/a2817e545259fad00c5c4ce3e24bd84d3c5e6b6e))
+* remove header changes ([6fd0d61](https://github.com/vuestorefront/storefront-ui/commit/6fd0d61621740171d3c2b1bd729dba85b684d366))
+* remove nowrap for header ([dd7f2b3](https://github.com/vuestorefront/storefront-ui/commit/dd7f2b3efcc66f3b6ff8e05e378e01410f1c95c3))
+* SfButton as link - full width is not working ([#2100](https://github.com/vuestorefront/storefront-ui/issues/2100)) ([396cd70](https://github.com/vuestorefront/storefront-ui/commit/396cd70155873b930524453dde29cb78bdee3d94))
+* wrong position and shadow of the cart button ([a232890](https://github.com/vuestorefront/storefront-ui/commit/a232890ab8b5c9ce85c2f25a385d2f9712685c8b))
+* wrong styles in 'sf-header-navigation-item' links ([269ae8c](https://github.com/vuestorefront/storefront-ui/commit/269ae8cda338ca5409a69a85e3edbb8777fae34f))
+
+
+### Features
+
+* add script to update css vars  ([#2056](https://github.com/vuestorefront/storefront-ui/issues/2056)) ([8f95d84](https://github.com/vuestorefront/storefront-ui/commit/8f95d844d6120a5e7b0756db38b0bbf04f01df83))
+* explicit width and height ([550240f](https://github.com/vuestorefront/storefront-ui/commit/550240fd41a3b7d800a445fef2ba02ec9817a13c))
+
+
+
+
+
+## [0.11.2](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.11.1...@storefront-ui/shared@0.11.2) (2021-11-09)
+
+
+### Bug Fixes
+
+* 2063 - replace div inside label elements ([#2087](https://github.com/vuestorefront/storefront-ui/issues/2087)) ([88a061c](https://github.com/vuestorefront/storefront-ui/commit/88a061cd98d4dfe47f0d4bde2fdb97375b3bc88e))
+* display block for product title ([a8288b9](https://github.com/vuestorefront/storefront-ui/commit/a8288b96c4ef4bf986ed9c48fe754aa089211cc7))
+* divs inside buttons removed ([3485068](https://github.com/vuestorefront/storefront-ui/commit/3485068682c194885195ba430b3b6a04fe4b410f))
+
+
+
+
+
+## [0.11.1](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.11.0...@storefront-ui/shared@0.11.1) (2021-10-25)
+
+
+### Bug Fixes
+
+* centering icon in address picker ([0902c6c](https://github.com/vuestorefront/storefront-ui/commit/0902c6c3f7ae986d1963fd8ed89fb46e0daf6860))
+* change to class selector ([fef901c](https://github.com/vuestorefront/storefront-ui/commit/fef901c579809a009828bc3ad78097e034b5205f))
+* changed headings order ([02d5b84](https://github.com/vuestorefront/storefront-ui/commit/02d5b84d3519ce06f903e0110502cc5ae1f0e64a))
+
+
+### Features
+
+* image moved to shared ([5f7c960](https://github.com/vuestorefront/storefront-ui/commit/5f7c9606d2b2a68fd177497857ae366125147b5b))
+
+
+
+
+
+# [0.11.0](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.11.0-rc.2...@storefront-ui/shared@0.11.0) (2021-10-01)
+
+
+### Bug Fixes
+
+* after CR ([396c4a9](https://github.com/vuestorefront/storefront-ui/commit/396c4a9b7ecf49c031395f3f8ee265c8303c44a6))
+* change calc functions to have negative value first ([#2024](https://github.com/vuestorefront/storefront-ui/issues/2024)) ([177036c](https://github.com/vuestorefront/storefront-ui/commit/177036cecd77e17080bf9c6db621751718791b74))
+* reorganized template styles ([0e3eb00](https://github.com/vuestorefront/storefront-ui/commit/0e3eb003f2218d70693f0328b197caba9144f02e))
+* shipping ([8edd533](https://github.com/vuestorefront/storefront-ui/commit/8edd53319f7c6db0fab9e6a8ad860c3a000c1b05))
+* shipping styling ([f4ab5e7](https://github.com/vuestorefront/storefront-ui/commit/f4ab5e7fbccf582af347798ae0a308f08cbefca7))
+* shipping styling ([f27479e](https://github.com/vuestorefront/storefront-ui/commit/f27479e2190cdfa02e8f0ce5488d9d4943691cbd))
+* shipping styling ([97c80fe](https://github.com/vuestorefront/storefront-ui/commit/97c80fe6a7c27cbfe7d0cca3a769248cf6df1e1f))
+* shipping styling ([16fc821](https://github.com/vuestorefront/storefront-ui/commit/16fc8216eeb8d10f54404b08800ac641124dcd07))
+* styling shipping ([ebd3b27](https://github.com/vuestorefront/storefront-ui/commit/ebd3b27ea59b21461445a1ac34ea47a658478c52))
+* styling shipping ([3957be8](https://github.com/vuestorefront/storefront-ui/commit/3957be864add8d73ac4581c365f22dfac8630557))
+
+
+### Features
+
+* confirm ([e372f03](https://github.com/vuestorefront/storefront-ui/commit/e372f03e77533d349cd94a753072d57cbf06da7e))
+* confirm order styles ([e92a817](https://github.com/vuestorefront/storefront-ui/commit/e92a81742410ee2e4ae449ac529e40499811b583))
+* move order review styling to shared package ([4eed80e](https://github.com/vuestorefront/storefront-ui/commit/4eed80e75c1317e17d5d540f84db928691a7282f))
+* styles moved to shared folder ([a28954b](https://github.com/vuestorefront/storefront-ui/commit/a28954be5b918cdc37df30113eda79b6550ac631))
+* styles moved to shared folder ([d9d9f49](https://github.com/vuestorefront/storefront-ui/commit/d9d9f49eb4594988274eedfbffee7dc8ded7dacb))
+
+
+
+
+
+# [0.11.0-rc.2](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.11.0-rc.1...@storefront-ui/shared@0.11.0-rc.2) (2021-09-06)
+
+
+### Bug Fixes
+
+* [#1551](https://github.com/vuestorefront/storefront-ui/issues/1551) and remove component css variables ([5199efc](https://github.com/vuestorefront/storefront-ui/commit/5199efcee6d17d58a36ac7e6e6252a2c6204862d))
+* [#1662](https://github.com/vuestorefront/storefront-ui/issues/1662)/product card size ([#1908](https://github.com/vuestorefront/storefront-ui/issues/1908)) ([07b0283](https://github.com/vuestorefront/storefront-ui/commit/07b0283be096a8a1627d201222746f3adf2d86a4))
+* bottom nav fixed ([c54a080](https://github.com/vuestorefront/storefront-ui/commit/c54a08086a1f2419a3a8774030a0a4e47727e460))
+* change mobile view for slider and adjust story ([e03cae5](https://github.com/vuestorefront/storefront-ui/commit/e03cae535c8d4b1352e6d2283154fb3508799dc9))
+* enable clickable indicate ([6fd3bb8](https://github.com/vuestorefront/storefront-ui/commit/6fd3bb8d36ed9936a67a0f630ada3bd387c563ea))
+* enable label click ([#1912](https://github.com/vuestorefront/storefront-ui/issues/1912)) ([0e490e7](https://github.com/vuestorefront/storefront-ui/commit/0e490e74dc61a298cd3f87c50436b531d7c1fe35))
+* remove component variables for radio text color ([27b8169](https://github.com/vuestorefront/storefront-ui/commit/27b81696bc77d2816fa1de6ce8f4ef96dcb1abd6))
+* remove component variables for SfRadio ([c314b06](https://github.com/vuestorefront/storefront-ui/commit/c314b06d366d3c2614b5bb61d0b930982af3181a))
+* remove css var and menuitem from story ([1442057](https://github.com/vuestorefront/storefront-ui/commit/1442057032fed776ea2b5a3ac51b7fbc701d138e))
+* revert SfGroupedProduct code ([24850b7](https://github.com/vuestorefront/storefront-ui/commit/24850b72e9c5dd1d84723a1f2ac856d273b25a94))
+* revert unnecessary changes ([04e737c](https://github.com/vuestorefront/storefront-ui/commit/04e737c6370d47d283b7a9313088ad8988e869e0))
+* sfheader mobile navigation ([7f40e56](https://github.com/vuestorefront/storefront-ui/commit/7f40e5600dffab4591dfe674508a8ecc1fb88fe8))
+* story products and style ([4b0d1aa](https://github.com/vuestorefront/storefront-ui/commit/4b0d1aadffece478adc01e52d04d60ab18960666))
+
+
+### Features
+
+* add styles for button active state as it is possible now ([46db956](https://github.com/vuestorefront/storefront-ui/commit/46db956fe279b25cdb25626065bee181752d6562))
+* color picker in product card ([e02c489](https://github.com/vuestorefront/storefront-ui/commit/e02c489914788a061544271467222945524ee39b))
+* sfhero with sfcimage ([0969382](https://github.com/vuestorefront/storefront-ui/commit/09693828e871e70af1d572290a82c90481835126))
+* sfskeleton ([aa81f49](https://github.com/vuestorefront/storefront-ui/commit/aa81f49133deeed5042f268f5d3bb0cb347685ba))
+
+
+### Reverts
+
+* Revert "chore(release): publish" ([0b26e7e](https://github.com/vuestorefront/storefront-ui/commit/0b26e7e75940ba8bed7cc5882216f5cf73fbd78a))
+
+
+
+
+
+# [0.11.0-rc.1](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.10.8...@storefront-ui/shared@0.11.0-rc.1) (2021-08-20)
+
+
+### Bug Fixes
+
+* bottom nav fixed ([9afc96e](https://github.com/vuestorefront/storefront-ui/commit/9afc96e23a4104b50a049aada06ca33a12d81b47))
+* enable label click ([#1912](https://github.com/vuestorefront/storefront-ui/issues/1912)) ([04c7cb6](https://github.com/vuestorefront/storefront-ui/commit/04c7cb6c833791495d1262649652a5db2ae58e6a))
+
+
+### Features
+
+* [#881](https://github.com/vuestorefront/storefront-ui/issues/881) update SfProductCard styling ([b7dd4de](https://github.com/vuestorefront/storefront-ui/commit/b7dd4decd2141d9bf3ad95b208c43a87ca875f65))
+* add styles for button active state as it is possible now ([9e57f0d](https://github.com/vuestorefront/storefront-ui/commit/9e57f0deb841a5adeefeab29ebefedc73c3bf4a1))
+
+
+
+
+
+
+## [0.10.8](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.10.7...@storefront-ui/shared@0.10.8) (2021-07-05)
+
+
+### Bug Fixes
+
+* conflict resolved ([c15c393](https://github.com/vuestorefront/storefront-ui/commit/c15c393b714b02f617a3c9ab7825282e41ba32db))
+* conflict resolved ([fb0ca6b](https://github.com/vuestorefront/storefront-ui/commit/fb0ca6b866f8a52962cb91b7e02df00592fb89c9))
+* multilined text aligned to left ([fc3f8da](https://github.com/vuestorefront/storefront-ui/commit/fc3f8da2459bd37a6181b44eda787ee334f68ee6))
+* removed background css vars ([bb845e8](https://github.com/vuestorefront/storefront-ui/commit/bb845e81d5fb44d7d7bd49c16dce5bf1c6538fb6))
+
+
+## [0.10.71](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.10.7...@storefront-ui/shared@0.10.71) (2021-06-24)
+
+**Note:** Version bump only for package @storefront-ui/shared
+
+
+
+
+
+## [0.10.7](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.10.6...@storefront-ui/shared@0.10.7) (2021-06-22)
+
+
+### Bug Fixes
+
+* [#1796](https://github.com/vuestorefront/storefront-ui/issues/1796) add text-aling left to accordion header ([96e552e](https://github.com/vuestorefront/storefront-ui/commit/96e552e401e4474343d92a57996b599e602a2c65))
+* sfrange after CR ([31d9c66](https://github.com/vuestorefront/storefront-ui/commit/31d9c66c1cfb03f9f007d093775e2368f935c0da))
+
+
+### Features
+
+*  sfsidebar without js ([#1825](https://github.com/vuestorefront/storefront-ui/issues/1825)) ([cc06ba7](https://github.com/vuestorefront/storefront-ui/commit/cc06ba73aea5c8e355e821a305bf24677b9ef768))
+* add new range component, new lib and add to form example ([fb98400](https://github.com/vuestorefront/storefront-ui/commit/fb98400a643af1de3926f40c5b2135fa75dfb921))
+* revoke modal and sidebar ([e3e5fa6](https://github.com/vuestorefront/storefront-ui/commit/e3e5fa61e5379c0a88f27f17c32ecdf44cb06e2b))
+* SfModal without js ([#1817](https://github.com/vuestorefront/storefront-ui/issues/1817)) ([9c04310](https://github.com/vuestorefront/storefront-ui/commit/9c043103698ebbb9a5533084696bf1ba4b698a34))
+
+
+
+
+
+## [0.10.6](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.10.5...@storefront-ui/shared@0.10.6) (2021-05-18)
+
+
+### Bug Fixes
+
+* remove css vars for background img ([a003b9e](https://github.com/vuestorefront/storefront-ui/commit/a003b9ec51524c49c8f53deb3a4c45ac1d9c1168))
+
+
+### Features
+
+* [#1763](https://github.com/vuestorefront/storefront-ui/issues/1763) add styling for scrollbar ([fe1026c](https://github.com/vuestorefront/storefront-ui/commit/fe1026c498d9af44d5bf95a2e2bb40752e97f6d2))
+* [#1763](https://github.com/vuestorefront/storefront-ui/issues/1763) fix SfScrollable and SfTabs ([06accc5](https://github.com/vuestorefront/storefront-ui/commit/06accc53b96f118d1c85e2c168ded66932c8b1d8))
+* [#1763](https://github.com/vuestorefront/storefront-ui/issues/1763) make scrollbar thinner ([0cda21a](https://github.com/vuestorefront/storefront-ui/commit/0cda21a294f7c0b46224262312d13fcb6a233de5))
+* [#1763](https://github.com/vuestorefront/storefront-ui/issues/1763) remove simplebar-vue from SfScrollabe ([71286fc](https://github.com/vuestorefront/storefront-ui/commit/71286fc3fa7ec8421577665abd4531aef0c3b641))
+* [#1763](https://github.com/vuestorefront/storefront-ui/issues/1763) remove unnecessary scrollbar styling ([dcba903](https://github.com/vuestorefront/storefront-ui/commit/dcba90323eac32f587b499885b86bbdc13017746))
+* [#1763](https://github.com/vuestorefront/storefront-ui/issues/1763) remove unused code ([85e2e5c](https://github.com/vuestorefront/storefront-ui/commit/85e2e5c07ea74b7715997dc93fd43aada6350a38))
+* [#1763](https://github.com/vuestorefront/storefront-ui/issues/1763) revoke simplebar library due to issues with overflow ([8e3eacd](https://github.com/vuestorefront/storefront-ui/commit/8e3eacdffbda96e3377aaa02d328fdd4704dd7cd))
+* [#1763](https://github.com/vuestorefront/storefront-ui/issues/1763) use variables for static values ([f8f30dc](https://github.com/vuestorefront/storefront-ui/commit/f8f30dcb4f794c7ea29a00961d5b2c14dd82855e))
+
+
+
+
+
+## [0.10.5](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.10.4...@storefront-ui/shared@0.10.5) (2021-04-19)
+
+
+### Bug Fixes
+
+* sfgallery main image ([e42c327](https://github.com/vuestorefront/storefront-ui/commit/e42c327c8ab455e97ce2eb109eaa4cdf78f183ab))
+* sfmegamenu add sfbar class ([#1777](https://github.com/vuestorefront/storefront-ui/issues/1777)) ([26bd270](https://github.com/vuestorefront/storefront-ui/commit/26bd270f760d947dac9fd775c3db115547e4472f))
+
+
+
+
+
+## [0.10.4](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.10.3...@storefront-ui/shared@0.10.4) (2021-03-22)
+
+
+### Bug Fixes
+
+* Possible to open SfSelect when it is disabled  ([#1740](https://github.com/vuestorefront/storefront-ui/issues/1740)) ([7ac97f8](https://github.com/vuestorefront/storefront-ui/commit/7ac97f82f51c38ee7cf7315c2c87b4e030ed0663))
+* SfProductCard - picture and title shouldn't be only links ([#1708](https://github.com/vuestorefront/storefront-ui/issues/1708)) ([686935f](https://github.com/vuestorefront/storefront-ui/commit/686935f43d13fd485405f1e2c6e6667a7e748fba))
+
+
+
+
+
+## [0.10.3](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.10.3...@storefront-ui/shared@0.10.3) (2021-02-16)
+
+**Note:** Version bump only for package @storefront-ui/shared
+
+
+
+
+
+## [0.10.3](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.10.2...@storefront-ui/shared@0.10.3) (2021-02-16)
+
+**Note:** Version bump only for package @storefront-ui/shared
+
+
+
+
+
+## [0.10.2](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.10.1...@storefront-ui/shared@0.10.2) (2021-02-04)
+
+**Note:** Version bump only for package @storefront-ui/shared
+
+
+
+
+
+## [0.10.1](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.10.0...@storefront-ui/shared@0.10.1) (2021-02-02)
+
+
+### Bug Fixes
+
+* [#1652](https://github.com/vuestorefront/storefront-ui/issues/1652) alt text should accept empty value ([ab49aa5](https://github.com/vuestorefront/storefront-ui/commit/ab49aa5ed708410aadb3b70edd79a0c1b0cb30bd))
+* another changelogs fix ([0fcf933](https://github.com/vuestorefront/storefront-ui/commit/0fcf933f75d45fa2c345638be67ba49469c5ac3d))
+* carousel fixed ([e57da66](https://github.com/vuestorefront/storefront-ui/commit/e57da66e72e3e8b24d6403dd35f059c29c71fd13))
+* pointer events removed ([#1650](https://github.com/vuestorefront/storefront-ui/issues/1650)) ([0a1b495](https://github.com/vuestorefront/storefront-ui/commit/0a1b4959c6f4dd5317154e6b752eda3d1165b789))
+
+
+
+
+
+# [0.10.0](https://github.com/AdamPawlinski/storefront-ui-adam/compare/@storefront-ui/shared@0.9.1...@storefront-ui/shared@0.10.0) (2021-01-13)
+
+### Bug Fixes
+
+* active chevron ([a90f63b](https://github.com/AdamPawlinski/storefront-ui-adam/commit/a90f63b4bf63c0a1caf81eb6d405637f94519f4a))
+* add -webkit-autofill pseudoclass to fix label behaviour ([ef2f5bf](https://github.com/AdamPawlinski/storefront-ui-adam/commit/ef2f5bf9b37a3b2a45b0ee782bb75fe65f0903dc))
+* add font-family to text overlay ([0c410c4](https://github.com/AdamPawlinski/storefront-ui-adam/commit/0c410c440dc653be24bdfd52f600b035351b6893))
+* add mobile observer ([f57acb5](https://github.com/AdamPawlinski/storefront-ui-adam/commit/f57acb53238b2e790e9d1901d0317d517d67f134))
+* add mobile observer to sfheader ([a4fd8b9](https://github.com/AdamPawlinski/storefront-ui-adam/commit/a4fd8b93292036d25bec19d79d09dccd58ab085e))
+* add other autofill pseudoclasses ([3972085](https://github.com/AdamPawlinski/storefront-ui-adam/commit/39720859367fc58ef6b7cb123c48ca612e6190c2))
+* add placeholder & overlay ([63e64a4](https://github.com/AdamPawlinski/storefront-ui-adam/commit/63e64a48ba87b3184c0cb3d6d0af47eebb8530e1))
+* add scrollable to sidebar instead of webkit-scrollbar ([a06b9ab](https://github.com/AdamPawlinski/storefront-ui-adam/commit/a06b9abf1fce54d966b6dffa71449fb316c6ae63))
+* add typography, sficon stories ([9583f42](https://github.com/AdamPawlinski/storefront-ui-adam/commit/9583f42ffb1c6c0d2acb6abae402f941bb6a9243))
+* add width to slide inner element ([ec9f1d0](https://github.com/AdamPawlinski/storefront-ui-adam/commit/ec9f1d0eb46eee2ac969124ae375419a1bc2e7d1))
+* added disabled style for transparent arrow ([#1464](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1464)) ([eb0e604](https://github.com/AdamPawlinski/storefront-ui-adam/commit/eb0e6044abfdcb82fbfd6444e7342c702dc13ca3))
+* adjust to new design, use background mixin, after CR ([24cd1f1](https://github.com/AdamPawlinski/storefront-ui-adam/commit/24cd1f1805c04aaad0b42752d5caee6347290edd))
+* adjusted to new design ([a8aaa94](https://github.com/AdamPawlinski/storefront-ui-adam/commit/a8aaa9460585c2112afbb76a6bec29dd9551c92d))
+* after CR remove css vars and unnecessary styling ([dafa653](https://github.com/AdamPawlinski/storefront-ui-adam/commit/dafa65354c80ccccf3265692dd0f15154d6bf63a))
+* after CR style fixes ([f71f421](https://github.com/AdamPawlinski/storefront-ui-adam/commit/f71f4216edf521260e1f9fb01eb197c541003040))
+* background mixin removed ([#1459](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1459)) ([8d55672](https://github.com/AdamPawlinski/storefront-ui-adam/commit/8d556721ca32f0538700ddb243b557d1ab0eea07))
+* border color change ([#1503](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1503)) ([8661f82](https://github.com/AdamPawlinski/storefront-ui-adam/commit/8661f82310acdf435fe5dbf047d6668b7b4a4edc))
+* change after CR ([285bc3e](https://github.com/AdamPawlinski/storefront-ui-adam/commit/285bc3e7d98dc4b2883b877fb92a5a8dec04525c))
+* changes after CR and icon style ([de151aa](https://github.com/AdamPawlinski/storefront-ui-adam/commit/de151aa23f226cc78a1607f15e1b1060f0f6e9f3))
+* checkbox and review fixed ([9799247](https://github.com/AdamPawlinski/storefront-ui-adam/commit/97992470bb2bda693c1804998fd9fead0da7e44e))
+* checkbox in filter fixed ([bc7ab3c](https://github.com/AdamPawlinski/storefront-ui-adam/commit/bc7ab3cb2f71470c37a1753d9a10c9eaf6bf73dc))
+* circle icon disable state ([#1463](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1463)) ([2645214](https://github.com/AdamPawlinski/storefront-ui-adam/commit/264521415b0ad8d8476682484c46f43f6816ab44))
+* class names fixed ([209af2d](https://github.com/AdamPawlinski/storefront-ui-adam/commit/209af2d638426226d633de19ea2d3f5f65ac7e2e))
+* collectedproduct two elements move to component, after CR ([fd6dcbb](https://github.com/AdamPawlinski/storefront-ui-adam/commit/fd6dcbbec08682ead109290c9ab7121314ada970))
+* color and background for remove btn ([#1487](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1487)) ([ec02d0c](https://github.com/AdamPawlinski/storefront-ui-adam/commit/ec02d0c831157d6adc4cd0245193cf5904952ac7))
+* color fixed ([#1476](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1476)) ([57bcdab](https://github.com/AdamPawlinski/storefront-ui-adam/commit/57bcdab0dbcbdfdb4b97f46a1a43bd90477be360))
+* comment deleted ([b9fb457](https://github.com/AdamPawlinski/storefront-ui-adam/commit/b9fb457d29f3eaa6a5541de64a7cc12bc2023773))
+* configuration of fonts outside SFUI lib [#1540](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1540) ([e03608d](https://github.com/AdamPawlinski/storefront-ui-adam/commit/e03608d6bd283b2da14db698375ff936baa06ba6))
+* conflict resolved ([f592276](https://github.com/AdamPawlinski/storefront-ui-adam/commit/f59227640f0f7dfe7d952355932427341031ccf5))
+* conflict resolved ([53a37b4](https://github.com/AdamPawlinski/storefront-ui-adam/commit/53a37b4058435099fa3bb698cfcbc50a2bf5997b))
+* conflict resolved ([48126db](https://github.com/AdamPawlinski/storefront-ui-adam/commit/48126dba45d34d52a923840f433613ce8e0534e5))
+* conflict resolved ([d2cfca4](https://github.com/AdamPawlinski/storefront-ui-adam/commit/d2cfca44c865b21771e8415b5ac17f9a3d399d31))
+* conflict resolved ([7078734](https://github.com/AdamPawlinski/storefront-ui-adam/commit/70787348749869604a6d57d56fd8709e12fe1fda))
+* conflict resolved ([840bf72](https://github.com/AdamPawlinski/storefront-ui-adam/commit/840bf72475bdd01f0575acf8acf3503f95f7796a))
+* conflict resolved ([7627972](https://github.com/AdamPawlinski/storefront-ui-adam/commit/76279723c3d0a90c63de4858e87e7c23ee4137fc))
+* conflict resolved ([31dc1b2](https://github.com/AdamPawlinski/storefront-ui-adam/commit/31dc1b2042f990815f4341f8461652999de46c2e))
+* conflict resolved ([15369a6](https://github.com/AdamPawlinski/storefront-ui-adam/commit/15369a6dd7dcb75515bbb28370be929268a75780))
+* conflict resolved in bottom nav ([83c2494](https://github.com/AdamPawlinski/storefront-ui-adam/commit/83c2494e2d44c3f3cf2c9c6c64291505a8199141))
+* conflict resolved in molecules ([239bca9](https://github.com/AdamPawlinski/storefront-ui-adam/commit/239bca9a93ae9fad44e3615001dae26e4cde72c3))
+* conflicts resolved ([166c1cb](https://github.com/AdamPawlinski/storefront-ui-adam/commit/166c1cb9db6521b9236dd2c87556bb799a8d614a))
+* conflicts resolved ([95c950f](https://github.com/AdamPawlinski/storefront-ui-adam/commit/95c950fe6176331ea555c9f26304480104687448))
+* cr fixes ([c027f55](https://github.com/AdamPawlinski/storefront-ui-adam/commit/c027f559810249e9b3f629877dc07df9b9307070))
+* cr fixes ([b087522](https://github.com/AdamPawlinski/storefront-ui-adam/commit/b0875228049c890377ddf7c0a10ecdc5fb310810))
+* deleted display none for placeholder ([#1460](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1460)) ([2bf00b5](https://github.com/AdamPawlinski/storefront-ui-adam/commit/2bf00b59340a8b807962802ecdce8310e3b22f23))
+* develop merged ([ea7b6cc](https://github.com/AdamPawlinski/storefront-ui-adam/commit/ea7b6cc3e05ed704076673ea002d5f9267711e50))
+* docs updated and added mixin for all views ([2750b9d](https://github.com/AdamPawlinski/storefront-ui-adam/commit/2750b9dc74b9199af04c63967c4352e3bee8994a))
+* fix versions in package json ([8dca19a](https://github.com/AdamPawlinski/storefront-ui-adam/commit/8dca19a4fe80e46590343ec951f10b873b62f0ab))
+* fixes with fonts vars ([2d5ca71](https://github.com/AdamPawlinski/storefront-ui-adam/commit/2d5ca71479f7cea29d47a8ee6ff539f5fdf0316d))
+* fixes with fonts vars ([a8697b4](https://github.com/AdamPawlinski/storefront-ui-adam/commit/a8697b47070492306162617b23516904a61c9c7d))
+* font fixes - review radio and checkbox ([9b4f977](https://github.com/AdamPawlinski/storefront-ui-adam/commit/9b4f977f4bbe4f719fd3fa9590bd60ddd407b4b4))
+* fonts in SfTextarea and add SfTextarea to form example ([#1501](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1501)) ([72fabca](https://github.com/AdamPawlinski/storefront-ui-adam/commit/72fabca3372ea125b880d2c674a12af0f7f74a16))
+* img adjusted to mobile view ([324ddf8](https://github.com/AdamPawlinski/storefront-ui-adam/commit/324ddf863495ea735887fca7e5115a69b4da9f60))
+* input conflict resolved ([0c4e442](https://github.com/AdamPawlinski/storefront-ui-adam/commit/0c4e442423ec0dd7d2008041e6acbb327ff434c4))
+* opacity removed ([#1508](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1508)) ([4dc0930](https://github.com/AdamPawlinski/storefront-ui-adam/commit/4dc0930088ed906c9b7679a6e38cc34990b7d0c3))
+* remove unneccesary css ([395e405](https://github.com/AdamPawlinski/storefront-ui-adam/commit/395e4052b79c05fcd425311f1bc756b9dd9e7024))
+* remove unnecessary line ([32a7e2a](https://github.com/AdamPawlinski/storefront-ui-adam/commit/32a7e2a1adc55eab97de315ef64971c626d50abd))
+* selected color for desktop ([68e2612](https://github.com/AdamPawlinski/storefront-ui-adam/commit/68e2612b43b8e1b090bb91f0a5f0322815dd4028))
+* separate arrows without pointer events ([bddd381](https://github.com/AdamPawlinski/storefront-ui-adam/commit/bddd381179949756ead4131d9d5d12c8a6d179fb))
+* sf-tile ([932caf9](https://github.com/AdamPawlinski/storefront-ui-adam/commit/932caf99abc2e189ca775d6e29ffc8a892dcc08a))
+* SfButton native link in disabled state ([#1383](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1383)) ([55fbdad](https://github.com/AdamPawlinski/storefront-ui-adam/commit/55fbdad284ab2221857e7c2415aaeda321c60ead))
+* SfGallery error with enableZoom ([#1439](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1439)) ([0be714e](https://github.com/AdamPawlinski/storefront-ui-adam/commit/0be714e46ffd3eeada6a65e571d6718cd9337b58))
+* sfgroupproduct with sfimage ([f9c52f1](https://github.com/AdamPawlinski/storefront-ui-adam/commit/f9c52f19c4e1bba1fb8fbd599f6cc08f5ec63f57))
+* sfselect remove outline property ([157b911](https://github.com/AdamPawlinski/storefront-ui-adam/commit/157b911e817b419ab0664905a60a7095b4384712))
+* size of images ([e67d44e](https://github.com/AdamPawlinski/storefront-ui-adam/commit/e67d44e2dc5f6f0dd9ce93ecefa25f6c45fe7230))
+* storie of SfDropdown, css ([c5710a6](https://github.com/AdamPawlinski/storefront-ui-adam/commit/c5710a655c74a3e05cf4c896e1df0a64f977b0e2))
+* txt classes fixed ([65b49e0](https://github.com/AdamPawlinski/storefront-ui-adam/commit/65b49e06945bb8d3b33de7369e20baf09bd4e585))
+* update SfProductCard spacing and title ([30b2813](https://github.com/AdamPawlinski/storefront-ui-adam/commit/30b2813579503905950f4b489c5cb834d10eb917))
+* wip scrollbar without static height ([81b1fe1](https://github.com/AdamPawlinski/storefront-ui-adam/commit/81b1fe12d149cde487d7f25af851afbbd5e231ec))
+
+
+### Features
+
+* add Cloudinary image comp ([75b74de](https://github.com/AdamPawlinski/storefront-ui-adam/commit/75b74deedc206ae7a3ba7ae8a131245b6ea2f8dc))
+* sfooter adjust to new design ([6fdfaf0](https://github.com/AdamPawlinski/storefront-ui-adam/commit/6fdfaf0394ccdedbd7469ab8f529b2d14ff7b0fc))
+* **wip:** footer add new styling ([6b27b98](https://github.com/AdamPawlinski/storefront-ui-adam/commit/6b27b98beaef06f2708e2db5280ec6033ed16272))
+* add scrollbar to sfsidebar, maxheight calc ([a351510](https://github.com/AdamPawlinski/storefront-ui-adam/commit/a351510ac9c22707ac7ae971819caf44bade9e97))
+* add scrollbar to sidebar on firefox ([209095b](https://github.com/AdamPawlinski/storefront-ui-adam/commit/209095ba13e6a9c378cfb8d0a1c82dd017e1d58b))
+* card component ([6473707](https://github.com/AdamPawlinski/storefront-ui-adam/commit/647370796ca5f4dabfa2541de62f76fe806e64e5))
+* category card ([c663fe3](https://github.com/AdamPawlinski/storefront-ui-adam/commit/c663fe3e6772e75f698e2cdf7bc8ae33214f0075))
+* classes for typography and colors ([c79e6c5](https://github.com/AdamPawlinski/storefront-ui-adam/commit/c79e6c59a350be48d518953873735817d7632ae3))
+* cr fixes ([5062ea1](https://github.com/AdamPawlinski/storefront-ui-adam/commit/5062ea18523bbd1dc3f62ff6ab8316eaa0e4ff09))
+* line-height added ([2306f34](https://github.com/AdamPawlinski/storefront-ui-adam/commit/2306f34db69a57a8523c6f2a031ac485ab018aa9))
+* move utility classes from helpers to global ([0ee56f2](https://github.com/AdamPawlinski/storefront-ui-adam/commit/0ee56f28d3ac30a1b3aa3737b04c024ad3ac8b6c))
+* scrollbar in sidebar for chrome added ([d6f61f3](https://github.com/AdamPawlinski/storefront-ui-adam/commit/d6f61f3590648a52d81639b08a43562121e19a6a))
+* SfBanner adding prop for button link ([#1515](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1515)) ([7feafda](https://github.com/AdamPawlinski/storefront-ui-adam/commit/7feafda7ec0f6d0e1d3f3fc4576bea971aebffb5))
+* SfHero add link prop and wrapper for component ([#1528](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1528)) ([b28b8c9](https://github.com/AdamPawlinski/storefront-ui-adam/commit/b28b8c9c507b00e534d9a59d4815db13538ee68b))
+* spacings added ([e03dd65](https://github.com/AdamPawlinski/storefront-ui-adam/commit/e03dd6564755afec69e8b7073cd0bfbbeb27bd02))
+* unique class names ([216771f](https://github.com/AdamPawlinski/storefront-ui-adam/commit/216771f269d08a48f185d3ddb779ec95f5e0f4c4))
+
+
+## [0.9.2](https://github.com/AdamPawlinski/storefront-ui-adam/compare/@storefront-ui/shared@0.9.1...@storefront-ui/shared@0.9.2) (2020-11-13)
+
+
+### Bug Fixes
+
+* active chevron ([a90f63b](https://github.com/AdamPawlinski/storefront-ui-adam/commit/a90f63b4bf63c0a1caf81eb6d405637f94519f4a))
+* added disabled style for transparent arrow ([#1464](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1464)) ([eb0e604](https://github.com/AdamPawlinski/storefront-ui-adam/commit/eb0e6044abfdcb82fbfd6444e7342c702dc13ca3))
+* background mixin removed ([#1459](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1459)) ([8d55672](https://github.com/AdamPawlinski/storefront-ui-adam/commit/8d556721ca32f0538700ddb243b557d1ab0eea07))
+* border color change ([#1503](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1503)) ([8661f82](https://github.com/AdamPawlinski/storefront-ui-adam/commit/8661f82310acdf435fe5dbf047d6668b7b4a4edc))
+* checkbox and review fixed ([9799247](https://github.com/AdamPawlinski/storefront-ui-adam/commit/97992470bb2bda693c1804998fd9fead0da7e44e))
+* checkbox in filter fixed ([bc7ab3c](https://github.com/AdamPawlinski/storefront-ui-adam/commit/bc7ab3cb2f71470c37a1753d9a10c9eaf6bf73dc))
+* circle icon disable state ([#1463](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1463)) ([2645214](https://github.com/AdamPawlinski/storefront-ui-adam/commit/264521415b0ad8d8476682484c46f43f6816ab44))
+* collectedproduct two elements move to component, after CR ([fd6dcbb](https://github.com/AdamPawlinski/storefront-ui-adam/commit/fd6dcbbec08682ead109290c9ab7121314ada970))
+* color and background for remove btn ([#1487](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1487)) ([ec02d0c](https://github.com/AdamPawlinski/storefront-ui-adam/commit/ec02d0c831157d6adc4cd0245193cf5904952ac7))
+* color fixed ([#1476](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1476)) ([57bcdab](https://github.com/AdamPawlinski/storefront-ui-adam/commit/57bcdab0dbcbdfdb4b97f46a1a43bd90477be360))
+* comment deleted ([b9fb457](https://github.com/AdamPawlinski/storefront-ui-adam/commit/b9fb457d29f3eaa6a5541de64a7cc12bc2023773))
+* conflict resolved ([15369a6](https://github.com/AdamPawlinski/storefront-ui-adam/commit/15369a6dd7dcb75515bbb28370be929268a75780))
+* conflict resolved in bottom nav ([83c2494](https://github.com/AdamPawlinski/storefront-ui-adam/commit/83c2494e2d44c3f3cf2c9c6c64291505a8199141))
+* conflict resolved in molecules ([239bca9](https://github.com/AdamPawlinski/storefront-ui-adam/commit/239bca9a93ae9fad44e3615001dae26e4cde72c3))
+* conflicts resolved ([166c1cb](https://github.com/AdamPawlinski/storefront-ui-adam/commit/166c1cb9db6521b9236dd2c87556bb799a8d614a))
+* deleted display none for placeholder ([#1460](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1460)) ([2bf00b5](https://github.com/AdamPawlinski/storefront-ui-adam/commit/2bf00b59340a8b807962802ecdce8310e3b22f23))
+* develop merged ([ea7b6cc](https://github.com/AdamPawlinski/storefront-ui-adam/commit/ea7b6cc3e05ed704076673ea002d5f9267711e50))
+* docs updated and added mixin for all views ([2750b9d](https://github.com/AdamPawlinski/storefront-ui-adam/commit/2750b9dc74b9199af04c63967c4352e3bee8994a))
+* fixes with fonts vars ([2d5ca71](https://github.com/AdamPawlinski/storefront-ui-adam/commit/2d5ca71479f7cea29d47a8ee6ff539f5fdf0316d))
+* fixes with fonts vars ([a8697b4](https://github.com/AdamPawlinski/storefront-ui-adam/commit/a8697b47070492306162617b23516904a61c9c7d))
+* font fixes - review radio and checkbox ([9b4f977](https://github.com/AdamPawlinski/storefront-ui-adam/commit/9b4f977f4bbe4f719fd3fa9590bd60ddd407b4b4))
+* fonts in SfTextarea and add SfTextarea to form example ([#1501](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1501)) ([72fabca](https://github.com/AdamPawlinski/storefront-ui-adam/commit/72fabca3372ea125b880d2c674a12af0f7f74a16))
+* input conflict resolved ([0c4e442](https://github.com/AdamPawlinski/storefront-ui-adam/commit/0c4e442423ec0dd7d2008041e6acbb327ff434c4))
+* opacity removed ([#1508](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1508)) ([4dc0930](https://github.com/AdamPawlinski/storefront-ui-adam/commit/4dc0930088ed906c9b7679a6e38cc34990b7d0c3))
+* remove unnecessary line ([32a7e2a](https://github.com/AdamPawlinski/storefront-ui-adam/commit/32a7e2a1adc55eab97de315ef64971c626d50abd))
+* selected color for desktop ([68e2612](https://github.com/AdamPawlinski/storefront-ui-adam/commit/68e2612b43b8e1b090bb91f0a5f0322815dd4028))
+* SfButton native link in disabled state ([#1383](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1383)) ([55fbdad](https://github.com/AdamPawlinski/storefront-ui-adam/commit/55fbdad284ab2221857e7c2415aaeda321c60ead))
+* SfGallery error with enableZoom ([#1439](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1439)) ([0be714e](https://github.com/AdamPawlinski/storefront-ui-adam/commit/0be714e46ffd3eeada6a65e571d6718cd9337b58))
+* txt classes fixed ([65b49e0](https://github.com/AdamPawlinski/storefront-ui-adam/commit/65b49e06945bb8d3b33de7369e20baf09bd4e585))
+
+
+### Features
+
+* classes for typography and colors ([c79e6c5](https://github.com/AdamPawlinski/storefront-ui-adam/commit/c79e6c59a350be48d518953873735817d7632ae3))
+* cr fixes ([5062ea1](https://github.com/AdamPawlinski/storefront-ui-adam/commit/5062ea18523bbd1dc3f62ff6ab8316eaa0e4ff09))
+* line-height added ([2306f34](https://github.com/AdamPawlinski/storefront-ui-adam/commit/2306f34db69a57a8523c6f2a031ac485ab018aa9))
+* SfBanner adding prop for button link ([#1515](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1515)) ([7feafda](https://github.com/AdamPawlinski/storefront-ui-adam/commit/7feafda7ec0f6d0e1d3f3fc4576bea971aebffb5))
+* SfHero add link prop and wrapper for component ([#1528](https://github.com/AdamPawlinski/storefront-ui-adam/issues/1528)) ([b28b8c9](https://github.com/AdamPawlinski/storefront-ui-adam/commit/b28b8c9c507b00e534d9a59d4815db13538ee68b))
+* spacings added ([e03dd65](https://github.com/AdamPawlinski/storefront-ui-adam/commit/e03dd6564755afec69e8b7073cd0bfbbeb27bd02))
+* unique class names ([216771f](https://github.com/AdamPawlinski/storefront-ui-adam/commit/216771f269d08a48f185d3ddb779ec95f5e0f4c4))
+
+
+
+
+
 ## [0.9.1](https://github.com/AdamPawlinski/storefront-ui-adam/compare/@storefront-ui/shared@0.9.0...@storefront-ui/shared@0.9.1) (2020-10-02)
 
 

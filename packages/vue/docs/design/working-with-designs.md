@@ -1,5 +1,7 @@
 # How to work with our Figma designs
 
+Our designs you can find [here](https://www.figma.com/file/N0Ct95cSAoODNv7zYS01ng/Storefront-UI-%7C-Design-System?node-id=127%3A1054).
+
 While working with our figma designs there are two concepts that you need to be familiar with:
 
 1. All of the components (not always with the names same as in a code) can be found under 'components' section in left bottom corner.

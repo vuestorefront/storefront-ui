@@ -1,908 +1,534 @@
-import { storiesOf } from "@storybook/vue";
-import {
-  withKnobs,
-  text,
-  select,
-  boolean,
-  object,
-  optionsKnob as options,
-} from "@storybook/addon-knobs";
-import {
-  SfHeader,
-  SfLink,
-  SfMegaMenu,
-  SfList,
-  SfMenuItem,
-  SfBottomNavigation,
-} from "@storefront-ui/vue";
-storiesOf("Organisms|Header", module)
-  .addDecorator(withKnobs)
-  .add("Common", () => ({
-    components: { SfHeader, SfLink },
-    props: {
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-header--has-mobile-search": "sf-header--has-mobile-search",
-            "sf-header--has-mobile-navigation":
-              "sf-header--has-mobile-navigation",
-            "sf-header--multiline": "sf-header--multiline",
-          },
+import { SfHeader, SfLink } from "@storefront-ui/vue";
+
+export default {
+  title: "Components/Organisms/Header",
+  component: SfHeader,
+  parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "header-navigation-item-position": { value: "", control: "text" },
+      "header-navigation-item-flex": { value: "", control: "text" },
+      "header-navigation-item-content-position": {
+        value: "",
+        control: "text",
+      },
+      "header-navigation-item-content-width": {
+        value: "100%",
+        control: "text",
+      },
+      "header-navigation-item-text-decoration": {
+        value: "none",
+        control: "text",
+      },
+      "header-navigation-item-menu-item-display": {
+        value: "",
+        control: "text",
+      },
+      "header-navigation-item-menu-item-padding": {
+        value: "",
+        control: "text",
+      },
+      "header-navigation-item-menu-item-margin": { value: "", control: "text" },
+      "header-navigation-item-menu-item-border": { value: "", control: "text" },
+      "header-navigation-item-menu-item-border-width": {
+        value: "",
+        control: "text",
+      },
+      "header-navigation-item-display": { value: "", control: "text" },
+      "header-navigation-item-color": { value: "", control: "text" },
+      "header-navigation-item-padding": { value: "", control: "text" },
+      "header-navigation-item-margin": { value: "", control: "text" },
+      "header-navigation-item-border": { value: "", control: "text" },
+      "header-navigation-item-border-width": { value: "", control: "text" },
+      "header-navigation-item-transition": { value: "", control: "text" },
+      "header-navigation-item-font": { value: "", control: "text" },
+      "header-navigation-item-font-weight": {
+        value: "var(--font-weight--normal)",
+        control: "text",
+      },
+      "header-navigation-item-font-size": {
+        value: "var(--font-size--base)",
+        control: "text",
+      },
+      "header-navigation-item-font-line-height": {
+        value: "1.2",
+        control: "text",
+      },
+      "header-navigation-item-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
+      },
+      "header-navigation-item-width": { value: "", control: "text" },
+      "link-text-decoration": {
+        value: "var(--header-navigation-item-text-decoration, none) ",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "menu-item-font": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "menu-item-text-transform": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "header-navigation-item-border-color": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "link-color": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "header-navigation-menu-display": {
+        value: "",
+        control: "text",
+      },
+      "sidebar-content-padding": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "header-navigation-sidebar-display": {
+        value: "",
+        control: "text",
+      },
+      "image-width": {
+        value: "var(--header-logo-width, auto)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "image-height": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "header-navigation-margin": {
+        value: "",
+        control: "text",
+      },
+      "search-bar-display": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "header-search-flex": {
+        value: "0 1 19.875rem",
+        control: "text",
+      },
+      "header-icons-display": {
+        value: "none",
+        control: "text",
+      },
+      "icon-color": {
+        value: "var(--c-dark-variant)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "icon-badge-top": {
+        value: "-0.5rem",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "icon-badge-right": {
+        value: "-0.5rem",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "header-wrapper-position": {
+        value: "",
+        control: "text",
+      },
+      "header-wrapper-transform": {
+        value: "",
+        control: "text",
+      },
+      "header-wrapper-transition": {
+        value: "transform 300ms ease-in-out",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "header-box-shadow": {
+        value: "0px 4px 11px rgba(29, 31, 34, 0.1)",
+        control: "text",
+      },
+      "header-icons-margin": {
+        value: "",
+        control: "text",
+      },
+      "header-icons-order": {
+        value: "",
+        control: "text",
+      },
+      "header-actions-flex-wrap": {
+        value: "",
+        control: "text",
+      },
+    },
+    // end of code generated automatically
+    docs: {
+      description: {
+        component:
+          "Grouped Product component. Built from main component - SfHeader and internal components - SfHeaderNavigation and SfHeaderNavigationItem.",
+      },
+    },
+    layout: "fullscreen",
+  },
+  argTypes: {
+    classes: {
+      control: {
+        type: "select",
+        options: [
           "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        ),
-      },
-      title: {
-        default: text("title", "Storefront UI", "Props"),
-      },
-      logo: {
-        default: object(
-          "logo",
-          {
-            mobile: { url: "/assets/logo.svg" },
-            desktop: { url: "/assets/logo.svg" },
-          },
-          "Props"
-        ),
-      },
-      activeIcon: {
-        default: select(
-          "activeIcon",
-          ["", "account", "wishlist", "cart"],
-          "account",
-          "Props"
-        ),
-      },
-      isSticky: {
-        default: boolean("isSticky", true, "Props"),
-      },
-      searchPlaceholder: {
-        default: text("searchPlaceholder", "Search for items", "Props"),
-      },
-      cartIcon: {
-        default: text("cartIcon", "empty_cart", "Props"),
-      },
-      wishlistIcon: {
-        default: text("wishlistIcon", "heart", "Props"),
-      },
-      accountIcon: {
-        default: text("accountIcon", "profile", "Props"),
-      },
-      cartItemsQty: {
-        default: text("cartItemsQty", "0", "Props"),
-      },
-      wishlistItemsQty: {
-        default: text("wishlistItemsQty", "0", "Props"),
-      },
-    },
-    data() {
-      return {
-        isMobile: false,
-        navigation: ["women", "man", "kids"],
-        searchValue: "",
-      };
-    },
-    computed: {
-      spacer() {
-        return;
-      },
-    },
-    mounted() {
-      this.isMobile =
-        Math.max(document.documentElement.clientWidth, window.innerWidth) <=
-        1023;
-      window.matchMedia("(max-width: 1023px)").addListener(this.mobileHandler);
-    },
-    beforeDestroy() {
-      window
-        .matchMedia("(max-width: 1023px)")
-        .removeListener(this.mobileHandler);
-    },
-    methods: {
-      alert(label) {
-        alert(label);
-      },
-      mobileHandler(event) {
-        this.isMobile = event.matches;
-      },
-    },
-    template: `<div>
-      <SfHeader
-          :class="customClass"
-          :title="title"
-          :logo="logo"
-          :active-icon="activeIcon"
-          :search-placeholder="searchPlaceholder"
-          :search-value="searchValue"
-          :cart-icon="cartIcon"
-          :wishlist-icon="wishlistIcon"
-          :is-sticky="isSticky"
-          :account-icon="accountIcon"
-          :style="spacer"
-          :cart-items-qty="cartItemsQty"
-          :wishlist-items-qty="wishlistItemsQty"
-          @click:cart="alert('@click:cart')"
-          @click:wishlist="alert('@click:wishlist')"
-          @click:account="alert('@click:account')"
-          @change:search="searchValue = $event"
-      >
-        <template #navigation>
-          <SfHeaderNavigationItem
-            v-for="item in navigation"
-            :key="item">
-            <template slot="desktop-navigation-item">
-              <SfLink href="#">{{item}}</SfLink>
-            </template>
-          </SfHeaderNavigationItem>
-        </template>
-      </SfHeader>
-      <div style="display: flex; align-items: center; justify-content: center; height: 155vh; background-color: #f2f2f2;">
-        [page content]
-      </div>
-    </div>`,
-  }))
-  .add("With SfHeaderNavigation", () => ({
-    components: {
-      SfHeader,
-      SfList,
-      SfBottomNavigation,
-      SfMegaMenu,
-      SfLink,
-      SfMenuItem,
-    },
-    data() {
-      return {
-        shopLogo: "/assets/logo.svg",
-        shopName: "Storefront UI",
-        isVisible: true,
-        currentCategory: "",
-        categories: [
-          {
-            title: "Clothing",
-            link: "/clothing",
-            subcategories: [
-              {
-                title: "Skirts",
-                link: "/skirts",
-                subcategories: [
-                  {
-                    title: "Long",
-                    link: "/long",
-                  },
-                  {
-                    title: "Short",
-                    link: "/short",
-                  },
-                ],
-              },
-              {
-                title: "Sweaters",
-                link: "/sweaters",
-                subcategories: [
-                  {
-                    title: "Long",
-                    link: "/long",
-                  },
-                  {
-                    title: "Short",
-                    link: "/short",
-                  },
-                ],
-              },
-              {
-                title: "Dresses",
-                link: "/dresses",
-                subcategories: [
-                  {
-                    title: "Long",
-                    link: "/long",
-                  },
-                  {
-                    title: "Short",
-                    link: "/short",
-                  },
-                ],
-              },
-            ],
-          },
-          {
-            title: "Accesories",
-            link: "/accesories",
-            subcategories: [
-              {
-                title: "Bags & Purses",
-                link: "/skirts",
-                subcategories: [
-                  {
-                    title: "Long",
-                    link: "/long",
-                  },
-                  {
-                    title: "Short",
-                    link: "/short",
-                  },
-                ],
-              },
-              {
-                title: "Belts",
-                link: "/belts",
-                subcategories: [
-                  {
-                    title: "Long",
-                    link: "/long",
-                  },
-                  {
-                    title: "Short",
-                    link: "/short",
-                  },
-                ],
-              },
-              {
-                title: "Gloves",
-                link: "/gloves",
-                subcategories: [
-                  {
-                    title: "Long",
-                    link: "/long",
-                  },
-                  {
-                    title: "Short",
-                    link: "/short",
-                  },
-                ],
-              },
-            ],
-          },
-          {
-            title: "Shoes",
-            link: "/shoes",
-            subcategories: [
-              {
-                title: "Boots",
-                link: "/boots",
-                subcategories: [
-                  {
-                    title: "Long",
-                    link: "/long",
-                  },
-                  {
-                    title: "Short",
-                    link: "/short",
-                  },
-                ],
-              },
-              {
-                title: "Heels",
-                link: "/heels",
-                subcategories: [
-                  {
-                    title: "Long",
-                    link: "/long",
-                  },
-                  {
-                    title: "Short",
-                    link: "/short",
-                  },
-                ],
-              },
-              {
-                title: "Flat shoes",
-                link: "/flat",
-                subcategories: [
-                  {
-                    title: "Long",
-                    link: "/long",
-                  },
-                  {
-                    title: "Short",
-                    link: "/short",
-                  },
-                ],
-              },
-            ],
-          },
+          "sf-header--has-mobile-search",
+          "sf-header--has-mobile-navigation",
+          "sf-header--multiline",
         ],
-        searchValue: "",
-      };
+      },
+      table: {
+        category: "CSS Modifiers",
+      },
+      description: "CSS classes to modify component styling",
     },
-    methods: {
-      changeVisibility() {
-        this.isVisible = !this.isVisible;
+    logo: {
+      control: "text",
+      table: {
+        category: "Props for main component",
+        type: {
+          summary: ["string", "object"],
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
+      description: "Header logo",
     },
-    template: `
-    <div>
-      <SfHeader
-      :logo="shopLogo"
-      :title="shopName"
-      active-icon="account"
-      is-sticky
-      is-nav-visible
-      >
-        <template #navigation>
-          <SfHeaderNavigation
-            :is-visible-on-mobile="isVisible"
-            @close="isVisible = false"
-          >
-            <SfHeaderNavigationItem 
-              v-for="(category, index) in categories"
-              :key="index"
-              :label="category.title"
-              @mouseenter="currentCategory = category.title"
-              @mouseleave="currentCategory = ''"
-              @click="currentCategory = category.title"
-            >
-              <SfMegaMenu
-                :is-absolute="true"
-                :visible="currentCategory === category.title"
-                :title="category.title"
-                @close="currentCategory = ''"
-              >
-                <SfMegaMenuColumn
-                  v-for="(subcategory, subIndex) in category.subcategories"
-                  :key="subIndex"
-                  :title="subcategory.title"
-                >
-                  <SfList>
-                    <SfListItem
-                      v-for="(subcategoryChild,
-                      childIndex) in subcategory.subcategories"
-                      :key="childIndex"
-                    >
-                      <SfMenuItem :label="subcategoryChild.title">
-                        <SfLink :link="subcategoryChild.link">
-                          {{ subcategoryChild.title }}
-                        </SfLink>
-                      </SfMenuItem>
-                    </SfListItem>
-                  </SfList>
-                </SfMegaMenuColumn>
-              </SfMegaMenu>
-            </SfHeaderNavigationItem>
-          </SfHeaderNavigation>
-        </template>
-      </SfHeader>
-      <SfBottomNavigation>
-        <SfBottomNavigationItem
-          :icon="'menu'"
-          :label="'Menu'"
-          icon-size="20px"
-          @click="changeVisibility"
-        />
-      </SfBottomNavigation>
-    </div>`,
-  }))
-  .add("[slot] navigation", () => ({
-    components: { SfHeader, SfLink },
-    props: {
-      title: {
-        default: text("title", "Storefront UI", "Props"),
+    logoHeight: {
+      control: "number",
+      table: {
+        category: "Props for main component",
       },
-      logo: {
-        default: object(
-          "logo",
-          {
-            mobile: { url: "/assets/logo.svg" },
-            desktop: { url: "/assets/logo.svg" },
-          },
-          "Props"
-        ),
-      },
-      activeIcon: {
-        default: select(
-          "activeIcon",
-          ["", "account", "wishlist", "cart"],
-          "account",
-          "Props"
-        ),
-      },
-      hasMobileSearch: {
-        default: boolean("hasMobileSearch", false, "Props"),
-      },
-      searchPlaceholder: {
-        default: text("searchPlaceholder", "Search for items", "Props"),
-      },
-      cartIcon: {
-        default: text("cartIcon", "empty_cart", "Props"),
-      },
-      wishlistIcon: {
-        default: text("wishlistIcon", "heart", "Props"),
-      },
-      accountIcon: {
-        default: text("accountIcon", "profile", "Props"),
-      },
-      cartItemsQty: {
-        default: text("cartItemsQty", "0", "Props"),
-      },
-      wishlistItemsQty: {
-        default: text("wishlistItemsQty", "0", "Props"),
-      },
+      defaultValue: 35,
+      description:
+        "Header logo height. Could be an integer passed as Number or String type, but values like 'auto' or '100%' are not allowed.",
     },
-    data() {
-      return {
-        isMobile: false,
-        navigation: ["women", "man", "kids"],
-        searchValue: "",
-      };
+    logoWidth: {
+      control: "number",
+      table: {
+        category: "Props for main component",
+      },
+      defaultValue: 34,
+      description:
+        "Header logo width. Could be an integer passed as Number or String type, but values like 'auto' or '100%' are not allowed.",
     },
-    computed: {
-      spacer() {
-        return this.isMobile
-          ? { margin: "auto", padding: "0 1.25rem" }
-          : { margin: "auto", padding: "0 2.5rem" };
+    title: {
+      control: "text",
+      table: {
+        category: "Props for main component",
       },
+      description: "Header title",
     },
-    mounted() {
-      this.isMobile =
-        Math.max(document.documentElement.clientWidth, window.innerWidth) <=
-        1023;
-      window.matchMedia("(max-width: 1023px)").addListener(this.mobileHandler);
+    cartIcon: {
+      control: "text",
+      table: {
+        category: "Props for main component",
+        defaultValue: {
+          summary: "empty_cart",
+        },
+      },
+      defaultValue: "empty_cart",
+      description: "Header cartIcon (accepts same value as SfIcon)",
     },
-    beforeDestroy() {
-      window
-        .matchMedia("(max-width: 1023px)")
-        .removeListener(this.mobileHandler);
+    wishlistIcon: {
+      control: "text",
+      table: {
+        category: "Props for main component",
+        defaultValue: {
+          summary: "heart",
+        },
+      },
+      defaultValue: "heart",
+      description: "Header wishlistIcon (accepts same value as SfIcon)",
     },
-    methods: {
-      alert(label) {
-        alert(label);
+    accountIcon: {
+      control: "text",
+      table: {
+        category: "Props for main component",
+        defaultValue: {
+          summary: "profile",
+        },
       },
-      mobileHandler(event) {
-        this.isMobile = event.matches;
-      },
+      defaultValue: "profile",
+      description: "Header accountIcon (accepts same value as SfIcon)",
     },
-    template: `<SfHeader
-        :title="title"
-        :logo="logo"
-        :active-icon="activeIcon"
-        :has-mobile-search="hasMobileSearch"
-        :search-placeholder="searchPlaceholder"
-        :search-value="searchValue"
-        :cart-icon="cartIcon"
-        :wishlist-icon="wishlistIcon"
-        :account-icon="accountIcon"
-        :style="spacer"
-        :cart-items-qty="cartItemsQty"
-        :wishlist-items-qty="wishlistItemsQty"
-        @click:cart="alert('@click:cart')"
-        @click:wishlist="alert('@click:wishlist')"
-        @click:account="alert('@click:account')"
-        @change:search="searchValue = $event"
-    >
-      <template #navigation>
-        <SfLink link="/">CUSTOM NAVIGATION</SfLink>
-      </template>
-    </SfHeader>`,
-  }))
-  .add("[slot] logo", () => ({
-    components: { SfHeader },
-    props: {
-      title: {
-        default: text("title", "Storefront UI", "Props"),
+    activeIcon: {
+      control: "text",
+      table: {
+        category: "Props for main component",
+        defaultValue: {
+          summary: "account",
+        },
       },
-      logo: {
-        default: object(
-          "logo",
-          {
-            mobile: { url: "/assets/logo.svg" },
-            desktop: { url: "/assets/logo.svg" },
-          },
-          "Props"
-        ),
-      },
-      activeIcon: {
-        default: select(
-          "activeIcon",
-          ["", "account", "wishlist", "cart"],
-          "account",
-          "Props"
-        ),
-      },
-      hasMobileSearch: {
-        default: boolean("hasMobileSearch", false, "Props"),
-      },
-      searchPlaceholder: {
-        default: text("searchPlaceholder", "Search for items", "Props"),
-      },
-      cartIcon: {
-        default: text("cartIcon", "empty_cart", "Props"),
-      },
-      wishlistIcon: {
-        default: text("wishlistIcon", "heart", "Props"),
-      },
-      accountIcon: {
-        default: text("accountIcon", "profile", "Props"),
-      },
-      cartItemsQty: {
-        default: text("cartItemsQty", "0", "Props"),
-      },
-      wishlistItemsQty: {
-        default: text("wishlistItemsQty", "0", "Props"),
-      },
+      defaultValue: "account",
+      description: "Header activeIcon (accepts account, wishlist and cart)",
     },
-    data() {
-      return {
-        isMobile: false,
-        navigation: ["women", "man", "kids"],
-        searchValue: "",
-      };
+    searchPlaceholder: {
+      control: "text",
+      table: {
+        category: "Props for main component",
+        defaultValue: {
+          summary: "Search for items",
+        },
+      },
+      defaultValue: "Search for items",
+      description: "Header search placeholder",
     },
-    computed: {
-      spacer() {
-        return this.isMobile
-          ? { margin: "auto", padding: "0 1.25rem" }
-          : { margin: "auto", padding: "0 2.5rem" };
+    searchValue: {
+      control: "number",
+      table: {
+        category: "Props for main component",
       },
+      defaultValue: "",
+      description: "Header search phrase",
     },
-    mounted() {
-      this.isMobile =
-        Math.max(document.documentElement.clientWidth, window.innerWidth) <=
-        1023;
-      window.matchMedia("(max-width: 1023px)").addListener(this.mobileHandler);
+    cartItemsQty: {
+      control: "number",
+      table: {
+        category: "Props for main component",
+        defaultValue: {
+          summary: 0,
+        },
+      },
+      defaultValue: 0,
+      description: "Header cart items quantity",
     },
-    beforeDestroy() {
-      window
-        .matchMedia("(max-width: 1023px)")
-        .removeListener(this.mobileHandler);
+    wishlistItemsQty: {
+      control: "number",
+      table: {
+        category: "Props for main component",
+        defaultValue: {
+          summary: 0,
+        },
+      },
+      defaultValue: 0,
+      description: "Header wishlist items quantity",
     },
-    methods: {
-      alert(label) {
-        alert(label);
+    isSticky: {
+      control: "boolean",
+      table: {
+        category: "Props for main component",
       },
-      mobileHandler(event) {
-        this.isMobile = event.matches;
-      },
+      defaultValue: false,
+      description: "Header sticky to top",
     },
-    template: `<SfHeader
-        :title="title"
-        :logo="logo"
-        :active-icon="activeIcon"
-        :has-mobile-search="hasMobileSearch"
-        :search-placeholder="searchPlaceholder"
-        :search-value="searchValue"
-        :cart-icon="cartIcon"
-        :wishlist-icon="wishlistIcon"
-        :account-icon="accountIcon"
-        :style="spacer"
-        :cart-items-qty="cartItemsQty"
-        :wishlist-items-qty="wishlistItemsQty"
-        @click:cart="alert('@click:cart')"
-        @click:wishlist="alert('@click:wishlist')"
-        @click:account="alert('@click:account')"
-        @change:search="searchValue = $event"
-    >
-      <template #logo="{logo,title}">
-        CUSTOM LOGO
-      </template>
-      <template #navigation>
-        <SfHeaderNavigationItem
-            v-for="item in navigation"
-            :key="item">
-          <a href="#" :style="{ display: 'flex',alignItems: 'center',height: '100%' }">{{item}}</a>
-        </SfHeaderNavigationItem>
-      </template>
-    </SfHeader>`,
-  }))
-  .add("[slot] search", () => ({
-    components: { SfHeader },
-    props: {
-      title: {
-        default: text("title", "Storefront UI", "Props"),
+    isNavVisible: {
+      control: "boolean",
+      table: {
+        category: "Props for main component",
       },
-      logo: {
-        default: object(
-          "logo",
-          {
-            mobile: { url: "/assets/logo.svg" },
-            desktop: { url: "/assets/logo.svg" },
-          },
-          "Props"
-        ),
-      },
-      activeIcon: {
-        default: select(
-          "activeIcon",
-          ["", "account", "wishlist", "cart"],
-          "account",
-          "Props"
-        ),
-      },
-      hasMobileSearch: {
-        default: boolean("hasMobileSearch", false, "Props"),
-      },
-      searchPlaceholder: {
-        default: text("searchPlaceholder", "Search for items", "Props"),
-      },
-      cartIcon: {
-        default: text("cartIcon", "empty_cart", "Props"),
-      },
-      wishlistIcon: {
-        default: text("wishlistIcon", "heart", "Props"),
-      },
-      accountIcon: {
-        default: text("accountIcon", "profile", "Props"),
-      },
-      cartItemsQty: {
-        default: text("cartItemsQty", "0", "Props"),
-      },
-      wishlistItemsQty: {
-        default: text("wishlistItemsQty", "0", "Props"),
-      },
+      defaultValue: false,
+      description: "Is nav slot visible on mobile view",
     },
-    data() {
-      return {
-        isMobile: false,
-        navigation: ["women", "man", "kids"],
-        searchValue: "",
-      };
+    label: {
+      control: "text",
+      table: {
+        category: "Props for SfHeaderNavigationItem component",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
+      },
+      defaultValue: false,
+      description: "Label for header navigation item",
     },
-    computed: {
-      spacer() {
-        return this.isMobile
-          ? { margin: "auto", padding: "0 1.25rem" }
-          : { margin: "auto", padding: "0 2.5rem" };
+    link: {
+      control: "text",
+      table: {
+        category: "Props for SfHeaderNavigationItem component",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
       },
+      defaultValue: "",
+      description: "link for header navigation item",
     },
-    mounted() {
-      this.isMobile =
-        Math.max(document.documentElement.clientWidth, window.innerWidth) <=
-        1023;
-      window.matchMedia("(max-width: 1023px)").addListener(this.mobileHandler);
+    "change:search": {
+      action: "change:search event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits change:search event when searchbar value is changed",
     },
-    beforeDestroy() {
-      window
-        .matchMedia("(max-width: 1023px)")
-        .removeListener(this.mobileHandler);
+    "enter:search": {
+      action: "enter:search event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits enter:search event when enter key is pressed",
     },
-    methods: {
-      alert(label) {
-        alert(label);
-      },
-      mobileHandler(event) {
-        this.isMobile = event.matches;
-      },
+    "click:cart": {
+      action: "click:cart event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits click:cart event when cart button is clicked",
     },
-    template: `<SfHeader
-        :title="title"
-        :logo="logo"
-        :active-icon="activeIcon"
-        :has-mobile-search="hasMobileSearch"
-        :search-placeholder="searchPlaceholder"
-        :search-value="searchValue"
-        :cart-icon="cartIcon"
-        :wishlist-icon="wishlistIcon"
-        :account-icon="accountIcon"
-        :style="spacer"
-        :cart-items-qty="cartItemsQty"
-        :wishlist-items-qty="wishlistItemsQty"
-        @click:cart="alert('@click:cart')"
-        @click:wishlist="alert('@click:wishlist')"
-        @click:account="alert('@click:account')"
-        @change:search="searchValue = $event"
-    >
-      <template #search>
-        <div :style="{margin: '0 0 0 auto'}">CUSTOM SEARCH</div>
-      </template>
-      <template #navigation>
-        <SfHeaderNavigationItem
-            v-for="item in navigation"
-            :key="item">
-          <a href="#" :style="{ display: 'flex',alignItems: 'center',height: '100%' }">{{item}}</a>
-        </SfHeaderNavigationItem>
-      </template>
-    </SfHeader>`,
-  }))
-  .add("[slot] header-icons", () => ({
-    components: { SfHeader },
-    props: {
-      title: {
-        default: text("title", "Storefront UI", "Props"),
-      },
-      logo: {
-        default: object(
-          "logo",
-          {
-            mobile: { url: "/assets/logo.svg" },
-            desktop: { url: "/assets/logo.svg" },
-          },
-          "Props"
-        ),
-      },
-      activeIcon: {
-        default: select(
-          "activeIcon",
-          ["", "account", "wishlist", "cart"],
-          "account",
-          "Props"
-        ),
-      },
-      hasMobileSearch: {
-        default: boolean("hasMobileSearch", false, "Props"),
-      },
-      searchPlaceholder: {
-        default: text("searchPlaceholder", "Search for items", "Props"),
-      },
-      cartIcon: {
-        default: text("cartIcon", "empty_cart", "Props"),
-      },
-      wishlistIcon: {
-        default: text("wishlistIcon", "heart", "Props"),
-      },
-      accountIcon: {
-        default: text("accountIcon", "profile", "Props"),
-      },
-      cartItemsQty: {
-        default: text("cartItemsQty", "0", "Props"),
-      },
-      wishlistItemsQty: {
-        default: text("wishlistItemsQty", "0", "Props"),
-      },
+    "click:wishlist": {
+      action: "click:wishlist event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits click:wishlist event when wishlist button is clicked",
     },
-    data() {
-      return {
-        isMobile: false,
-        navigation: ["women", "man", "kids"],
-        searchValue: "",
-      };
+    "click:account": {
+      action: "click:account event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits click:account event when account button is clicked",
     },
-    computed: {
-      spacer() {
-        return this.isMobile
-          ? { margin: "auto", padding: "0 1.25rem" }
-          : { margin: "auto", padding: "0 2.5rem" };
+    "logo ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
       },
+      description:
+        "Named slot for `SfHeader` component. Use this slot to replace logo element",
     },
-    mounted() {
-      this.isMobile =
-        Math.max(document.documentElement.clientWidth, window.innerWidth) <=
-        1023;
-      window.matchMedia("(max-width: 1023px)").addListener(this.mobileHandler);
+    aside: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfHeader` component. Use this slot to pass aside content for example language or currency selector",
     },
-    beforeDestroy() {
-      window
-        .matchMedia("(max-width: 1023px)")
-        .removeListener(this.mobileHandler);
+    navigation: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfHeader` component. Use this slot to pass navigation elements",
     },
-    methods: {
-      alert(label) {
-        alert(label);
+    search: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
       },
-      mobileHandler(event) {
-        this.isMobile = event.matches;
-      },
+      description:
+        "Named slot for `SfHeader` component. Use this slot to pass search element",
     },
-    template: `<SfHeader
-        :title="title"
-        :logo="logo"
-        :active-icon="activeIcon"
-        :has-mobile-search="hasMobileSearch"
-        :search-placeholder="searchPlaceholder"
-        :search-value="searchValue"
-        :cart-icon="cartIcon"
-        :wishlist-icon="wishlistIcon"
-        :account-icon="accountIcon"
-        :style="spacer"
-        :cart-items-qty="cartItemsQty"
-        :wishlist-items-qty="wishlistItemsQty"
-        @click:cart="alert('@click:cart')"
-        @click:wishlist="alert('@click:wishlist')"
-        @click:account="alert('@click:account')"
-        @change:search="searchValue = $event"
-    >
-      <template #header-icons="{ accountIcon, wishlistIcon, cartIcon }">
-        <div :style="{margin: '0 0 0 1.25rem'}">CUSTOM HEADER ICONS</div>
-      </template>
-      <template #navigation>
-        <SfHeaderNavigationItem
-            v-for="item in navigation"
-            :key="item">
-          <a href="#" :style="{ display: 'flex',alignItems: 'center',height: '100%' }">{{item}}</a>
-        </SfHeaderNavigationItem>
-      </template>
-    </SfHeader>`,
-  }))
-  .add("[slot] aside", () => ({
-    components: { SfHeader, SfLink },
-    props: {
-      title: {
-        default: text("title", "Storefront UI", "Props"),
+    "header-icons": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
       },
-      logo: {
-        default: object(
-          "logo",
-          {
-            mobile: { url: "/assets/logo.svg" },
-            desktop: { url: "/assets/logo.svg" },
-          },
-          "Props"
-        ),
-      },
-      activeIcon: {
-        default: select(
-          "activeIcon",
-          ["", "account", "wishlist", "cart"],
-          "account",
-          "Props"
-        ),
-      },
-      hasMobileSearch: {
-        default: boolean("hasMobileSearch", false, "Props"),
-      },
-      searchPlaceholder: {
-        default: text("searchPlaceholder", "Search for items", "Props"),
-      },
-      cartIcon: {
-        default: text("cartIcon", "empty_cart", "Props"),
-      },
-      wishlistIcon: {
-        default: text("wishlistIcon", "heart", "Props"),
-      },
-      accountIcon: {
-        default: text("accountIcon", "profile", "Props"),
-      },
-      cartItemsQty: {
-        default: text("cartItemsQty", "0", "Props"),
-      },
-      wishlistItemsQty: {
-        default: text("wishlistItemsQty", "0", "Props"),
-      },
+      description:
+        "Named slot for `SfHeader` component. Use this slot to replace default icons",
     },
-    data() {
-      return {
-        isMobile: false,
-        navigation: ["women", "man", "kids"],
-        searchValue: "",
-      };
-    },
-    computed: {
-      spacer() {
-        return this.isMobile
-          ? { margin: "auto", padding: "0 1.25rem" }
-          : { margin: "auto", padding: "0 2.5rem" };
+    default: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
       },
+      description:
+        "Default slot for `SfHeaderNavigation` component. Use this slot to place navigation elements",
     },
-    mounted() {
-      this.isMobile =
-        Math.max(document.documentElement.clientWidth, window.innerWidth) <=
-        1023;
-      window.matchMedia("(max-width: 1023px)").addListener(this.mobileHandler);
-    },
-    beforeDestroy() {
-      window
-        .matchMedia("(max-width: 1023px)")
-        .removeListener(this.mobileHandler);
-    },
-    methods: {
-      alert(label) {
-        alert(label);
+    "default ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
       },
-      mobileHandler(event) {
-        this.isMobile = event.matches;
-      },
+      description:
+        "Default slot for `SfHeaderNavigationItem` component. Use this slot to place navigation items",
     },
-    template: `<SfHeader
-        :title="title"
-        :logo="logo"
-        :active-icon="activeIcon"
-        :has-mobile-search="hasMobileSearch"
-        :search-placeholder="searchPlaceholder"
-        :search-value="searchValue"
-        :cart-items-qty="cartItemsQty"
-        :wishlist-items-qty="wishlistItemsQty"
-        @change:search="searchValue = $event"
-        class="sf-header--has-mobile-search sf-header--has-mobile-navigation"
-    >
-      <template #aside>
-        <div :style="{margin: '0 0 0 1rem'}" class="smartphone-only">ASIDE</div>
-      </template>
-      <template #navigation>
-        <SfHeaderNavigationItem
-            v-for="item in navigation"
-            :key="item">
-          <SfLink href="#">{{item}}</SfLink>
-        </SfHeaderNavigationItem>
-      </template>
-    </SfHeader>`,
-  }));
+    "desktop-navigation-item": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfHeaderNavigationItem` component. Use this slot to place desktop navigation",
+    },
+    "mobile-navigation-item": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfHeaderNavigationItem` component. Use this slot to place mobile navigation",
+    },
+  },
+};
+
+const Template = (args, { argTypes }) => ({
+  components: { SfHeader, SfLink },
+  props: Object.keys(argTypes),
+  data() {
+    return {
+      navigationItems: ["women", "man", "kids"],
+      searchValues: "",
+    };
+  },
+  methods: {
+    changeHandler(value) {
+      this.searchValues = value;
+      this["change:search"](value);
+    },
+  },
+  template: `
+  <SfHeader
+    :class="classes"
+    :title="title"
+    :logo="logo"
+    :logoHeight="logoHeight"
+    :logoWidth="logoWidth"
+    :active-icon="activeIcon"
+    :search-placeholder="searchPlaceholder"
+    :search-value="searchValues"
+    :cart-icon="cartIcon"
+    :wishlist-icon="wishlistIcon"
+    :is-sticky="isSticky"
+    :is-nav-visible="isNavVisible"
+    :account-icon="accountIcon"
+    :cart-items-qty="cartItemsQty"
+    :wishlist-items-qty="wishlistItemsQty"
+    @click:cart="this['click:cart']"
+    @click:wishlist="this['click:wishlist']"
+    @click:account="this['click:account']"
+    @change:search="changeHandler"
+    @enter:search="this['enter:search']"
+>
+  <template #navigation>
+    <SfHeaderNavigationItem
+      v-for="item in navigationItems"
+      :key="item"
+      :label="item"
+    />
+  </template>
+</SfHeader>`,
+});
+
+export const Common = Template.bind({});
+Common.args = {
+  title: "Storefront UI",
+  logo: "/assets/logo.svg",
+};

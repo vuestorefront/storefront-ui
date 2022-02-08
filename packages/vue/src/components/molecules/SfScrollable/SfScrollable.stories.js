@@ -1,180 +1,173 @@
-import { storiesOf } from "@storybook/vue";
-import { withKnobs, text } from "@storybook/addon-knobs";
 import { SfScrollable, SfProductOption } from "@storefront-ui/vue";
-storiesOf("Molecules|Scrollable", module)
-  .addDecorator(withKnobs)
-  .add("Common", () => ({
-    components: { SfScrollable, SfProductOption },
-    props: {
-      showText: {
-        default: text("showText", "View all colors", "Props"),
+
+const options = [
+  {
+    color: "red",
+    label: "Red",
+  },
+  {
+    color: "blue",
+    label: "Blue",
+  },
+  {
+    color: "green",
+    label: "Green",
+  },
+  {
+    color: "black",
+    label: "Black",
+  },
+  {
+    color: "navy",
+    label: "Navy",
+  },
+  {
+    color: "pink",
+    label: "Pink",
+  },
+];
+
+export default {
+  title: "Components/Molecules/Scrollable",
+  component: SfScrollable,
+  parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "scrollable-max-height": {
+        value: "var(--_scrollable-max-height, 5rem)",
+        control: "text",
       },
-      hideText: {
-        default: text("hideText", "Hide colors", "Props"),
-      },
-      maxContentHeight: {
-        default: text("maxContentHeight", "6.875rem", "Props"),
-      },
-    },
-    data() {
-      return {
-        options: [
-          {
-            color: "red",
-            label: "Red",
-          },
-          {
-            color: "blue",
-            label: "Blue",
-          },
-          {
-            color: "green",
-            label: "Green",
-          },
-          {
-            color: "black",
-            label: "Black",
-          },
-          {
-            color: "navy",
-            label: "Navy",
-          },
-          {
-            color: "pink",
-            label: "Pink",
-          },
-        ],
-      };
-    },
-    template: `<SfScrollable 
-        :show-text="showText" 
-        :hide-text="hideText"
-        :max-content-height="maxContentHeight"
-        style="max-width: 13.75rem"
-      >
-        <SfProductOption 
-          v-for="(option, key) in options" 
-          :key="option.color" 
-          :color="option.color" 
-          :label="option.label"
-          :style="{marginBottom: key < options.length - 1 ? '8px' : undefined}"/>
-      </SfScrollable>`,
-  }))
-  .add("Content height by CSS", () => ({
-    components: { SfScrollable, SfProductOption },
-    props: {
-      showText: {
-        default: text("showText", "View all colors", "Props"),
-      },
-      hideText: {
-        default: text("hideText", "Hide colors", "Props"),
+      "scrollable-button-margin": {
+        value: "var(--spacer-sm) 0 0 0",
+        control: "text",
       },
     },
-    data() {
-      return {
-        options: [
-          {
-            color: "red",
-            label: "Red",
-          },
-          {
-            color: "blue",
-            label: "Blue",
-          },
-          {
-            color: "green",
-            label: "Green",
-          },
-          {
-            color: "black",
-            label: "Black",
-          },
-          {
-            color: "navy",
-            label: "Navy",
-          },
-          {
-            color: "pink",
-            label: "Pink",
-          },
-        ],
-      };
-    },
-    template: `<SfScrollable
-      :show-text="showText"
-      :hide-text="hideText"
-      style="max-width: 13.75rem; --max-height: 1.375rem"
-    >
-      <SfProductOption
-        v-for="(option, key) in options"
-        :key="option.color"
-        :color="option.color"
-        :label="option.label"
-        :style="{marginBottom: key < options.length - 1 ? '8px' : undefined}"/>
-    </SfScrollable>`,
-  }))
-  .add("button slot", () => ({
-    components: { SfScrollable, SfProductOption },
-    props: {
-      showText: {
-        default: text("showText", "View all colors", "Props"),
-      },
-      hideText: {
-        default: text("hideText", "Hide colors", "Props"),
-      },
-      maxContentHeight: {
-        default: text("maxContentHeight", "6.875rem", "Props"),
+    // end of code generated automatically
+    docs: {
+      description: {
+        component: "Scrollable wrapper with styled bar and toggle button.",
       },
     },
-    data() {
-      return {
-        isHidden: true,
-        options: [
-          {
-            color: "red",
-            label: "Red",
-          },
-          {
-            color: "blue",
-            label: "Blue",
-          },
-          {
-            color: "green",
-            label: "Green",
-          },
-          {
-            color: "black",
-            label: "Black",
-          },
-          {
-            color: "navy",
-            label: "Navy",
-          },
-          {
-            color: "pink",
-            label: "Pink",
-          },
-        ],
-      };
+  },
+  argTypes: {
+    maxContentHeight: {
+      control: "text",
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: "",
+        },
+      },
+      description: "Maximum height of visible content",
     },
-    template: `<SfScrollable 
-        :show-text="showText" 
-        :hide-text="hideText"
-        :max-content-height="maxContentHeight"
-        :class="{ 'sf-scrollable--is-open': !isHidden }"
-        style="max-width: 13.75rem"
-      >
-        <SfProductOption 
-          v-for="(option, key) in options" 
-          :key="option.color" 
-          :color="option.color" 
-          :label="option.label"
-          :style="{marginBottom: key < options.length - 1 ? '8px' : undefined}"/>
-          <template #view-all> 
-            <button  @click="isHidden = !isHidden">
-              <span v-if="isHidden" >{{showText}}</span>
-              <span v-else>{{hideText}}</span>
-            </button>
-          </template>
-      </SfScrollable>`,
-  }));
+    showText: {
+      control: "text",
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: "Show",
+        },
+      },
+      description: "Text for button showing content",
+    },
+    hideText: {
+      control: "text",
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: "Hide",
+        },
+      },
+      description: "Text for button hiding content",
+    },
+    default: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Slot to place default content",
+    },
+    "view-all": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Slot to replace buttons showing/hiding content",
+    },
+  },
+};
+
+const Template = (args, { argTypes }) => ({
+  components: { SfScrollable, SfProductOption },
+  props: Object.keys(argTypes),
+  data() {
+    return {
+      options,
+    };
+  },
+  template: `
+  <SfScrollable 
+    :show-text="showText" 
+    :hide-text="hideText"
+    :max-content-height="maxContentHeight"
+    style="max-width: 13.75rem"
+  >
+    <SfProductOption 
+      v-for="(option, key) in options" 
+      :key="option.color" 
+      :color="option.color" 
+      :label="option.label"
+      :style="{marginBottom: key < options.length - 1 ? '8px' : undefined}"/>
+  </SfScrollable>`,
+});
+
+export const Common = Template.bind({});
+Common.args = {
+  showText: "View all colors",
+  hideText: "Hide colors",
+  maxContentHeight: "6.875rem",
+};
+
+export const WithCSSHeight = Template.bind({});
+WithCSSHeight.args = {
+  ...Common.args,
+  maxContentHeight: "",
+  customStyle: "--max-height: 6.875rem;",
+};
+
+export const UseButtonSlot = (args, { argTypes }) => ({
+  components: { SfScrollable, SfProductOption },
+  props: Object.keys(argTypes),
+  data() {
+    return {
+      options,
+      isHidden: true,
+    };
+  },
+  template: `
+  <SfScrollable 
+    :show-text="showText" 
+    :hide-text="hideText"
+    :max-content-height="maxContentHeight"
+    :class="{ 'sf-scrollable--is-open': !isHidden }"
+    style="max-width: 13.75rem"
+  >
+    <SfProductOption 
+      v-for="(option, key) in options" 
+      :key="option.color" 
+      :color="option.color" 
+      :label="option.label"
+      :style="{marginBottom: key < options.length - 1 ? '8px' : undefined}"/>
+      <template #view-all> 
+        <button  @click="isHidden = !isHidden">
+          <span v-if="isHidden" >{{showText}}</span>
+          <span v-else>{{hideText}}</span>
+        </button>
+      </template>
+  </SfScrollable>`,
+});
+UseButtonSlot.args = { ...Common.args };

@@ -1,17 +1,7 @@
-package-lock.json
 .DS_Store
 node_modules
 /dist
-/src/Playground.vue
 storybook-static
-
-# auto-generated docs
-docs/.vuepress/dist
-docs/components
-
-# auto-generated index
-/index.js
-/storiesOf.js
 
 # local env files
 .env.local
@@ -21,6 +11,7 @@ docs/components
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 
 # Editor directories and files
 .idea
@@ -29,5 +20,4 @@ yarn-error.log*
 *.ntvs*
 *.njsproj
 *.sln
-*.sw*
-
+*.sw?

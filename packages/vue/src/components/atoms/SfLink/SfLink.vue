@@ -6,7 +6,6 @@
     class="sf-link"
     v-on="$listeners"
   >
-    <!-- @slot -->
     <slot />
   </component>
 </template>
@@ -16,12 +15,9 @@ export default {
   name: "SfLink",
   directives: { focus },
   props: {
-    /**
-     * Page route
-     */
     link: {
       type: [String, Object],
-      default: "",
+      required: true,
     },
   },
   computed: {
@@ -34,7 +30,9 @@ export default {
       return this.isExternal || !this.$router;
     },
     urlTag() {
-      return this.isNativeLinkTag ? { href: this.link } : { to: this.link };
+      return this.isNativeLinkTag
+        ? { href: this.link }
+        : { to: this.link || "" };
     },
     linkComponentTag() {
       const routerLink = this.$nuxt ? "nuxt-link" : "router-link";

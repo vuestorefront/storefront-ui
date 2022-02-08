@@ -1,14 +1,11 @@
 <template>
   <li class="glide__slide sf-grouped-product-item">
     <div class="sf-grouped-product-item__aside">
-      <!-- @slot Custom image markup -->
       <slot
         name="image"
         v-bind="{
           image,
           title,
-          imagePlaceholder,
-          imageLazy,
           imagePictureBreakpoint,
         }"
       >
@@ -17,15 +14,12 @@
           :alt="title"
           :width="imageWidth"
           :height="imageHeight"
-          :placeholder="imagePlaceholder"
-          :lazy="imageLazy"
           :image-picture-breakpoint="imagePictureBreakpoint"
           class="sf-grouped-product-item__image"
         />
       </slot>
     </div>
     <div class="sf-grouped-product-item__description">
-      <!-- @slot Custom title markup -->
       <slot name="title" v-bind="{ title }">
         <div class="sf-grouped-product-item__title-wraper">
           <SfLink :link="link" class="sf-grouped-product-item__title">{{
@@ -33,13 +27,10 @@
           }}</SfLink>
         </div>
       </slot>
-      <!-- @slot Custom details markup -->
       <slot name="details" />
     </div>
-    <!-- @slot Custom configuration markup -->
     <slot name="configuration" />
     <div class="sf-grouped-product-item__info">
-      <!-- @slot Custom price markup -->
       <slot name="price" v-bind="{ priceSpecial, priceRegular }">
         <SfPrice
           :regular="priceRegular"
@@ -48,7 +39,6 @@
         />
       </slot>
     </div>
-    <!-- @slot Custom input markup -->
     <slot name="input" v-bind="{ qty }">
       <SfQuantitySelector
         :qty="qty"
@@ -76,77 +66,38 @@ export default {
     prop: "qty",
   },
   props: {
-    /**
-     * Product image
-     */
     image: {
-      type: [String, Object],
-      default: "",
-    },
-    /**
-     * Product image width, without unit
-     */
-    imageWidth: {
-      type: [String, Number],
-      default: 328,
-    },
-    /**
-     * Product image height, without unit
-     */
-    imageHeight: {
-      type: [String, Number],
-      default: 448,
-    },
-    /**
-     * Product image placeholder
-     */
-    imagePlaceholder: {
       type: String,
       default: "",
     },
-    /**
-     * Product image lazy loading
-     */
-    imageLazy: {
-      type: Boolean,
-      default: true,
+    imageWidth: {
+      type: [Number, String],
+      default: 328,
     },
-    /**
-     * Product image picture breakpoint
-     */
+    imageHeight: {
+      type: [Number, String],
+      default: 448,
+    },
     imagePictureBreakpoint: {
       type: Number,
       default: 576,
     },
-    /**
-     * Product title
-     */
     title: {
       type: String,
       default: "",
     },
-    /**
-     * Product regular price
-     */
     priceRegular: {
       type: [Number, String],
       default: "",
     },
-    /**
-     * Product special price
-     */
     priceSpecial: {
       type: [Number, String],
       default: "",
     },
-    /** Product quantity */
     qty: {
       type: [Number, String],
       default: 1,
     },
-    /**
-     * Link to product
-     */
     link: {
       type: [String, Object],
       default: "",

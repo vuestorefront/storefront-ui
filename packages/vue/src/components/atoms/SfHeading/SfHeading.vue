@@ -1,19 +1,27 @@
-<template>
-  <div class="sf-heading">
-    <!--@slot Heading title. Slot content will replace default <h> tag-->
-    <slot name="title" v-bind="{ title }">
+<template functional>
+  <div
+    :class="[data.class, data.staticClass, 'sf-heading']"
+    :style="[data.style, data.staticStyle]"
+    v-bind="data.attrs"
+    v-on="listeners"
+  >
+    <slot name="title" v-bind="{ props }">
       <component
-        :is="`h${level}`"
+        :is="`h${props.level}`"
         class="sf-heading__title"
-        :class="level > 1 && `h${level}`"
+        :class="props.level > 1 && $options.headingClass(props.level)"
       >
-        {{ title }}
+        {{ props.title }}
       </component>
     </slot>
-    <!--@slot Heading description. Slot content will replace default <div> tag-->
-    <slot name="description" v-bind="{ description }">
-      <div v-if="hasDescription" class="sf-heading__description">
-        {{ description }}
+    <slot name="description" v-bind="{ props }">
+      <div
+        :class="{
+          'display-none': !$options.hasDescription(props.description, slots),
+        }"
+        class="sf-heading__description"
+      >
+        {{ props.description }}
       </div>
     </slot>
   </div>
@@ -22,32 +30,24 @@
 export default {
   name: "SfHeading",
   props: {
-    /**
-     * Heading level
-     */
     level: {
       type: Number,
       default: 2,
     },
-    /**
-     * Heading title
-     */
     title: {
       type: String,
       default: "",
     },
-    /**
-     * Heading description
-     */
     description: {
       type: String,
       default: "",
     },
   },
-  computed: {
-    hasDescription() {
-      return !!this.description || this.$slots.hasOwnProperty("description");
-    },
+  hasDescription(descriptionProp, slots) {
+    return !!descriptionProp || slots().description;
+  },
+  headingClass(headingLevel) {
+    return headingLevel <= 6 ? `h${headingLevel}` : `h2`;
   },
 };
 </script>

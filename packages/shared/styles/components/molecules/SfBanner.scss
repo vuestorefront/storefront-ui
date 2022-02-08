@@ -2,23 +2,30 @@
 .sf-banner {
   box-sizing: border-box;
   display: var(--banner-display, flex);
-  align-items: var(--banner-align-items, flex-start);
   justify-content: var(--banner-justify-content, flex-start);
-  min-height: var(--banner-height, 21.4375rem);
   width: var(--banner-width, 100%);
-  padding: var(--banner-padding, var(--spacer-xl));
+  min-height: var(--banner-height, 21.4375rem);
   @include background(
     --banner-background,
     var(--_banner-background-color, transparent),
     var(--_banner-background-image)
   );
   --banner-background-position: 60%;
-  &__container {
+  &__wrapper {
     display: flex;
-    flex: 0 0 var(--banner-container-width, 70%);
-    justify-content: var(--banner-container-justify-content, flex-start);
-    align-items: var(--banner-container-align-items, flex-start);
-    flex-direction: var(--banner-container-flex-direction, column);
+    flex-direction: column;
+    align-items: var(--banner-align-items, flex-start);
+    justify-content: var(--banner-wrapper-justify-content, flex-start);
+    flex-direction: var(--banner-wrapper-flex-direction, column);
+    padding: var(--banner-padding, var(--spacer-xl));
+    flex: 0 0 var(--banner-wrapper-width, 100%);
+    text-decoration: none;
+    &.sf-button,
+    &.sf-button:hover,
+    &.sf-button:active {
+      --button-background: transparent;
+      --button-box-shadow-opacity: 0;
+    }
   }
   &__subtitle {
     margin: var(--banner-subtitle-margin, 0);
@@ -35,6 +42,16 @@
     );
     text-transform: var(--banner-subtitle-text-transform, uppercase);
   }
+  img,
+  &__image {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: inherit;
+    min-height: inherit;
+    object-fit: cover;
+  }
   &__title {
     margin: var(--banner-title-margin, var(--spacer-2xs) 0 0 0);
     color: var(--banner-color, var(--banner-title-color, var(--c-text)));
@@ -48,12 +65,13 @@
     text-transform: var(--banner-title-text-transform, uppercase);
   }
   &__description {
-    display: var(--banner-display-description, none);
+    display: var(--banner-description-display, none);
     margin: var(
       --banner-description-margin,
       var(--spacer-sm) 0 var(--spacer-base) 0
     );
     color: var(--banner-color, var(--banner-description-color, var(--c-text)));
+    text-align: var(--banner-description-text-align, left);
     @include font(
       --banner-description-font,
       var(--font-weight--light),
@@ -63,22 +81,30 @@
     );
   }
   &__call-to-action {
+    --button-color: var(--c-light-variant);
     display: var(--banner-display-call-to-action, none);
   }
   @include for-desktop {
-    align-items: var(--banner-align-items, center);
     --banner-background-image: var(
       --_banner-background-desktop-image,
       var(--_banner-background-image)
     );
-    --banner-container-width: 50%;
-    --banner-display-description: block;
+    --banner-wrapper-width: 50%;
+    --banner-description-display: block;
     --banner-display-call-to-action: block;
     --banner-title-margin: var(--spacer-sm) 0 0 0;
     --banner-subtitle-color: var(--c-gray);
+    align-items: var(--banner-align-items, center);
     min-height: var(--banner-height, 25rem);
+    &__wrapper {
+      pointer-events: none;
+      & > * {
+        pointer-events: initial;
+      }
+    }
     &__call-to-action {
       --button-padding: var(--spacer-sm) var(--spacer-xl);
+      pointer-events: auto;
     }
     &--right {
       --banner-justify-content: flex-end;

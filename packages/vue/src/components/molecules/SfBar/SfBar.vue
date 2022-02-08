@@ -3,9 +3,10 @@
     <div>
       <slot name="back">
         <SfButton
-          v-if="back"
+          :class="{ 'display-none': !back }"
           aria-label="back"
           class="sf-button--pure sf-bar__icon"
+          type="button"
           @click="$emit('click:back')"
         >
           <SfIcon icon="chevron_left" size="0.875rem" />
@@ -20,9 +21,10 @@
     <div>
       <slot name="close">
         <SfButton
-          v-if="close"
+          :class="{ 'display-none': !close }"
           class="sf-button--pure sf-bar__icon"
           aria-label="close"
+          type="button"
           @click="$emit('click:close')"
         >
           <SfIcon icon="cross" size="14px" />

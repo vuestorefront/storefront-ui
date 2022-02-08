@@ -35,6 +35,8 @@
     box-sizing: border-box;
     width: var(--sidebar-content-width);
     height: 100%;
+    scrollbar-color: var(--c-gray-variant) var(--c-light);
+    scrollbar-width: thin;
     padding: var(
       --sidebar-content-padding,
       var(--spacer-base) var(--spacer-sm)

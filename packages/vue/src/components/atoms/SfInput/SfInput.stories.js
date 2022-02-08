@@ -1,335 +1,461 @@
-import { storiesOf } from "@storybook/vue";
-import {
-  withKnobs,
-  text,
-  boolean,
-  optionsKnob as options,
-} from "@storybook/addon-knobs";
 import { SfInput, SfIcon } from "@storefront-ui/vue";
-storiesOf("Atoms|Input", module)
-  .addDecorator(withKnobs)
-  .add("Common", () => ({
-    components: { SfInput },
-    props: {
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-input--filled": "sf-input--filled",
-            "sf-input--outline": "sf-input--outline",
-          },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        ),
+import { sizesValues as sizes } from "@storefront-ui/shared/variables/sizes";
+import { iconColorsValues as colors } from "@storefront-ui/shared/variables/colors";
+import { icons } from "@storefront-ui/shared/icons/icons";
+const iconsNames = Object.keys(icons);
+
+export default {
+  title: "Components/Atoms/Input",
+  component: SfInput,
+  parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "input-width": { value: "", control: "text" },
+      "input-height": { value: "", control: "text" },
+      "input-label-display": { value: "", control: "text" },
+      "input-label-top": { value: "", control: "text" },
+      "input-label-left": { value: "", control: "text" },
+      "input-label-padding": { value: "", control: "text" },
+      "input-label-color": { value: "", control: "text" },
+      "input-label-background": { value: "", control: "text" },
+      "input-label-transform": {
+        value: "translate3d(0, calc(-1 * var(--input-label-top, 50%)), 0)",
+        control: "text",
       },
-      type: {
-        default: text("type", "text", "Props"),
+      "input-label-transition": { value: "", control: "text" },
+      "input-label-font": { value: "", control: "text" },
+      "input-label-font-weight": {
+        value: "var(--font-weight--normal)",
+        control: "text",
       },
-      label: {
-        default: text("label", "First name", "Props"),
+      "input-label-font-size": {
+        value: "var(--font-size--lg)",
+        control: "text",
       },
-      name: {
-        default: text("name", "first-name", "Props"),
+      "input-label-font-line-height": { value: "1", control: "text" },
+      "input-label-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
       },
-      errorMessage: {
-        default: text("errorMessage", "Required.", "Props"),
+      "input-label-required": { value: "", control: "text" },
+      "input-bar-display": { value: "block", control: "text" },
+      "input-bar-width": { value: "", control: "text" },
+      "input-bar-background": { value: "var(--c-primary)", control: "text" },
+      "input-error-message-color": {
+        value: "var(--c-danger)",
+        control: "text",
       },
-      valid: {
-        default: boolean("valid", true, "Props"),
+      "input-error-message-font": { value: "", control: "text" },
+      "input-error-message-font-weight": {
+        value: "var(--font-weight--medium)",
+        control: "text",
       },
-      required: {
-        default: boolean("required", true, "Props"),
+      "input-error-message-font-size": {
+        value: "var(--font-size--xs)",
+        control: "text",
       },
-      disabled: {
-        default: boolean("disabled", false, "Props"),
+      "input-error-message-font-line-height": { value: "1.2", control: "text" },
+      "input-error-message-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
       },
-      hasShowPassword: {
-        default: boolean("hasShowPassword", false, "Props"),
+      "input-margin": { value: "0 0 var(--spacer-xs) 0", control: "text" },
+      "input-padding": { value: "", control: "text" },
+      "input-border": { value: "", control: "text" },
+      "input-border-width": { value: "", control: "text" },
+      "input-background": { value: "", control: "text" },
+      "input-color": { value: "var(--c-text)", control: "text" },
+      "input-font": { value: "", control: "text" },
+      "input-font-weight": {
+        value: "var(--font-weight--normal)",
+        control: "text",
       },
-      placeholder: {
-        default: text("placeholder", "", "Props"),
+      "input-font-size": { value: "var(--font-size--lg)", control: "text" },
+      "input-font-line-height": { value: "1", control: "text" },
+      "input-font-family": {
+        value: "var(--font-family--secondary)",
+        control: "text",
       },
-    },
-    data() {
-      return {
+      "input-text-align": { value: "", control: "text" },
+      "input-icon-top": { value: "50%", control: "text" },
+      "input-icon-right": { value: "var(--spacer-xs)", control: "text" },
+      "input-password-icon-background": {
+        value: "var(--c-black)",
+        control: "text",
+      },
+      "input-password-icon-scaleX": { value: "0)", control: "text" },
+      "icon-color": {
+        value: "var(--c-primary)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "input-border-color": {
         value: "",
-      };
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "icon-size": {
+        value: "12px",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-padding": {
+        value: "0",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-background": {
+        value: "transparent",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-box-shadow": {
+        value: "none",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
     },
-    template: `<div style="padding: 10px">
-      <SfInput
-        v-model="value"
-        :type="type"
-        :label="label"
-        :name="name"
-        :valid="valid"
-        :error-message="errorMessage"
-        :required="required"
-        :disabled="disabled"
-        :has-show-password="hasShowPassword"
-        :class="customClass"
-        :placeholder="placeholder"
+    // end of code generated automatically
+    docs: {
+      description: {
+        component:
+          "The input form field with validation and built-in label animation.",
+      },
+    },
+  },
+  argTypes: {
+    classes: {
+      control: {
+        type: "select",
+        options: ["", "sf-input--filled", "sf-input--outline"],
+      },
+      table: {
+        category: "CSS Modifiers",
+      },
+      description: "CSS classes to modify component styling",
+    },
+    type: {
+      control: "text",
+      table: {
+        category: "Props",
+      },
+      description: "Form input type",
+    },
+    label: {
+      control: "text",
+      table: {
+        category: "Props",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
+      },
+      description: "Form input label",
+    },
+    name: {
+      control: "text",
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: "",
+        },
+      },
+      description: "Form input name",
+    },
+    errorMessage: {
+      control: "text",
+      table: {
+        category: "Props",
+      },
+      defaultValue:
+        "Error message value of form input. It appears if `valid` is `false`.",
+    },
+    valid: {
+      control: "boolean",
+      table: {
+        category: "Props",
+      },
+      defaultValue: true,
+      description: "Validate value of form input",
+    },
+    required: {
+      control: "boolean",
+      table: {
+        category: "Props",
+      },
+      defaultValue: false,
+      description: "Native input required attribute",
+    },
+    disabled: {
+      control: "boolean",
+      table: {
+        category: "Props",
+      },
+      defaultValue: false,
+      description: "Native input disabled attribute",
+    },
+    hasShowPassword: {
+      control: "boolean",
+      table: {
+        category: "Props",
+      },
+      defaultValue: false,
+      description: "Status of show password icon display",
+    },
+    placeholder: {
+      control: "text",
+      table: {
+        defaultValue: {
+          summary: "",
+        },
+      },
+      defaultValue: "",
+      description:
+        "Native placeholder, can be added, but it's not default component prop.",
+    },
+    icon: {
+      control: {
+        type: "object",
+      },
+      table: {
+        category: "Props",
+        type: {
+          summary: "object",
+        },
+      },
+      defaultValue: {
+        icon: "",
+        color: "",
+        size: "",
+      },
+      description:
+        "The icon configuration object which can have props: icon name, size and color as SfIcon specifies.",
+    },
+    value: {
+      control: "text",
+      table: {
+        category: "Props",
+      },
+      defaultValue: "",
+      description: "Current input value (`v-model`)",
+    },
+    change: {
+      action: "Change event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description:
+        "Change event emits when input value changes and loses focus. It is passed via v-on='listeners'",
+    },
+    input: {
+      action: "Input event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description:
+        "Input event emits when input value changes. It is passed via v-on='listeners'",
+    },
+    "error-message": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Custom error message for form input ",
+    },
+    "show-password": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Custom show password button",
+    },
+    "label ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description: "Named slot `label`. Use this slot to replace label content",
+    },
+  },
+};
+
+const Template = (args, { argTypes }) => ({
+  components: { SfInput },
+  props: Object.keys(argTypes),
+  data() {
+    return {
+      inputValue: this.value,
+    };
+  },
+  template: `
+  <SfInput
+    v-model="inputValue"
+    :class="classes"
+    :type="type"
+    :label="label"
+    :name="name"
+    :valid="valid"
+    :error-message="errorMessage"
+    :required="required"
+    :disabled="disabled"
+    :icon="icon"
+    :has-show-password="hasShowPassword"
+    @change="change"
+    @input="input"
+  />`,
+});
+
+export const Common = Template.bind({});
+Common.args = {
+  type: "text",
+  label: "First name",
+  name: "name",
+};
+
+export const WithError = Template.bind({});
+WithError.args = {
+  ...Common.args,
+  errorMessage: "Required",
+  valid: false,
+};
+
+export const Invalid = Template.bind({});
+Invalid.args = {
+  ...WithError.args,
+};
+
+export const AsRequired = Template.bind({});
+AsRequired.args = {
+  ...Common.args,
+  required: true,
+};
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  ...Common.args,
+  disabled: true,
+};
+
+export const ShowPassword = Template.bind({});
+ShowPassword.args = {
+  ...Common.args,
+  type: "password",
+  hasShowPassword: true,
+};
+
+export const WithPlaceholder = (args, { argTypes }) => ({
+  components: { SfInput },
+  props: Object.keys(argTypes),
+  data() {
+    return {
+      inputValue: this.value,
+    };
+  },
+  template: `
+  <SfInput
+    v-model="inputValue"
+    :class="classes"
+    :type="type"
+    :label="label"
+    :name="name"
+    :valid="valid"
+    :error-message="errorMessage"
+    :required="required"
+    :disabled="disabled"
+    :has-show-password="hasShowPassword"
+    placeholder="I'm a placeholder"
+    @change="onChange"
+  />`,
+});
+
+WithPlaceholder.args = {
+  ...Common.args,
+};
+
+export const Filled = Template.bind({});
+Filled.args = {
+  ...Common.args,
+  classes: "sf-input--filled",
+  value: "Storefront",
+};
+
+export const WithLabelSlot = (args, { argTypes }) => ({
+  components: { SfInput, SfIcon },
+  props: Object.keys(argTypes),
+  data() {
+    return {
+      inputValue: this.value,
+    };
+  },
+  template: `
+  <SfInput
+    v-model="inputValue"
+    :type="type"
+    :label="label"
+    :name="name"
+    :valid="valid"
+    :error-message="errorMessage"
+    :required="required"
+    :disabled="disabled"
+    :icon="icon"
+    :iconSize="iconSize"
+    :iconColor="iconColor"
+    :has-show-password="hasShowPassword"
+    @change="onChange"
+    >
+    <template #label="{label}">
+      <SfIcon 
+        icon="heart_fill" 
+        size="10px" 
+        :style="disabled ? {'--icon-color': 'var(--c-text-disabled)'} : ''"
+        style="margin-right: 4px; display: inline-block"
       />
-    </div>`,
-  }))
-  .add("[slot] label", () => ({
-    components: {
-      SfInput,
-      SfIcon,
-    },
-    props: {
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-input--filled": "sf-input--filled",
-            "sf-input--outline": "sf-input--outline",
-          },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        ),
-      },
-      type: {
-        default: text("type", "text", "Props"),
-      },
-      label: {
-        default: text("label", "First name", "Props"),
-      },
-      name: {
-        default: text("name", "first-name", "Props"),
-      },
-      errorMessage: {
-        default: text("errorMessage", "Required.", "Props"),
-      },
-      valid: {
-        default: boolean("valid", true, "Props"),
-      },
-      required: {
-        default: boolean("required", true, "Props"),
-      },
-      disabled: {
-        default: boolean("disabled", false, "Props"),
-      },
-      hasShowPassword: {
-        default: boolean("hasShowPassword", false, "Props"),
-      },
-    },
-    data() {
-      return {
-        value: "",
-      };
-    },
-    template: `<SfInput
-        v-model="value"
-        :type="type"
-        :label="label"
-        :name="name"
-        :valid="valid"
-        :error-message="errorMessage"
-        :required="required"
-        :disabled="disabled"
-        :has-show-password="hasShowPassword"
-        >
-      <template #label="{label}">
-            <SfIcon 
-              icon="heart_fill" 
-              size="10px" 
-              :style="disabled ? {'--icon-color': 'var(--c-text-disabled)'} : ''"
-              style="margin-right: 4px; display: inline-block"
-            />{{label}}
-      </template>
-    </SfInput>`,
-  }))
-  .add("[slot] error-message", () => ({
-    components: {
-      SfInput,
-      SfIcon,
-    },
-    props: {
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-input--filled": "sf-input--filled",
-            "sf-input--outline": "sf-input--outline",
-          },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        ),
-      },
-      type: {
-        default: text("type", "text", "Props"),
-      },
-      label: {
-        default: text("label", "First name", "Props"),
-      },
-      name: {
-        default: text("name", "first-name", "Props"),
-      },
-      errorMessage: {
-        default: text("errorMessage", "Required.", "Props"),
-      },
-      valid: {
-        default: boolean("valid", false, "Props"),
-      },
-      required: {
-        default: boolean("required", false, "Props"),
-      },
-      disabled: {
-        default: boolean("disabled", false, "Props"),
-      },
-      hasShowPassword: {
-        default: boolean("hasShowPassword", false, "Props"),
-      },
-    },
-    data() {
-      return {
-        value: "Adam",
-      };
-    },
-    template: `<SfInput
-      v-model="value"
-      :type="type"
-      :label="label"
-      :name="name"
-      :valid="valid"
-      :error-message="errorMessage"
-      :required="required"
-      :disabled="disabled"
-      :has-show-password="hasShowPassword"
-      >
-      <template #error-message="{errorMessage}">
-        <div>
-          <SfIcon icon="info_shield" size="10px" color="#E22326" style="margin-right: 4px; display: inline-block"/> 
-          CUSTOM ERROR MESSAGE
-        </div>
-      </template>
-    </SfInput>`,
-  }))
-  .add("[slot] with password icon", () => ({
-    components: {
-      SfInput,
-      SfIcon,
-    },
-    props: {
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-input--filled": "sf-input--filled",
-            "sf-input--outline": "sf-input--outline",
-          },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        ),
-      },
-      type: {
-        default: text("type", "password", "Props"),
-      },
-      label: {
-        default: text("label", "First name", "Props"),
-      },
-      name: {
-        default: text("name", "first-name", "Props"),
-      },
-      errorMessage: {
-        default: text("errorMessage", "Required.", "Props"),
-      },
-      valid: {
-        default: boolean("valid", true, "Props"),
-      },
-      required: {
-        default: boolean("required", false, "Props"),
-      },
-      disabled: {
-        default: boolean("disabled", false, "Props"),
-      },
-      hasShowPassword: {
-        default: boolean("hasShowPassword", true, "Props"),
-      },
-    },
-    data() {
-      return {
-        value: "Adam",
-      };
-    },
-    template: `<SfInput
-      v-model="value"
-      :type="type"
-      :label="label"
-      :name="name"
-      :valid="valid"
-      :error-message="errorMessage"
-      :required="required"
-      :disabled="disabled"
-      :has-show-password="hasShowPassword"
-      >
-      <template #error-message="{errorMessage}">
-        <div style="display: flex; align-items: center">
-          <SfIcon icon="info_shield" size="0.875rem" color="#E22326" style="margin-right: 4px; display: inline-block"/>
-          <span>CUSTOM ERROR MESSAGE</span>
-        </div>
-      </template>
-    </SfInput>`,
-  }))
-  .add("with modifier --filled", () => ({
-    components: { SfInput },
-    props: {
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-input--filled": "sf-input--filled",
-            "sf-input--outline": "sf-input--outline",
-          },
-          "sf-input--filled",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        ),
-      },
-      type: {
-        default: text("type", "text", "Props"),
-      },
-      label: {
-        default: text("label", "First name", "Props"),
-      },
-      name: {
-        default: text("name", "first-name", "Props"),
-      },
-      errorMessage: {
-        default: text("errorMessage", "Required.", "Props"),
-      },
-      valid: {
-        default: boolean("valid", true, "Props"),
-      },
-      required: {
-        default: boolean("required", false, "Props"),
-      },
-      disabled: {
-        default: boolean("disabled", false, "Props"),
-      },
-      hasShowPassword: {
-        default: boolean("hasShowPassword", false, "Props"),
-      },
-    },
-    data() {
-      return {
-        value: "",
-      };
-    },
-    template: `<SfInput
-      v-model="value"
-      :type="type"
-      :label="label"
-      :name="name"
-      :valid="valid"
-      :error-message="errorMessage"
-      :required="required"
-      :disabled="disabled"
-      :has-show-password="hasShowPassword"
-      :class="customClass"
-      />`,
-  }));
+      {{label}}
+    </template>
+  </SfInput>`,
+});
+
+WithLabelSlot.args = {
+  ...Common.args,
+};
+
+export const WithErrorSlot = (args, { argTypes }) => ({
+  components: { SfInput, SfIcon },
+  props: Object.keys(argTypes),
+  data() {
+    return {
+      inputValue: this.value,
+    };
+  },
+  template: `
+  <SfInput
+    v-model="inputValue"
+    :type="type"
+    :label="label"
+    :name="name"
+    :valid="valid"
+    :error-message="errorMessage"
+    :required="required"
+    :disabled="disabled"
+    :icon="icon"
+    :iconSize="iconSize"
+    :iconColor="iconColor"
+    :has-show-password="hasShowPassword"
+    @change="onChange"
+    >
+    <template #error-message="{errorMessage}">
+      <div>
+        <SfIcon icon="info_shield" size="10px" color="#E22326" style="margin-right: 4px; display: inline-block"/> 
+        CUSTOM ERROR MESSAGE
+      </div>
+    </template>
+  </SfInput>`,
+});
+
+WithErrorSlot.args = {
+  ...Invalid.args,
+};

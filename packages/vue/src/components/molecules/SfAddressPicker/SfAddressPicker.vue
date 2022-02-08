@@ -1,6 +1,5 @@
 <template>
   <div class="sf-address-picker">
-    <!--@slot Default. Here you should pass your addresses-->
     <slot />
   </div>
 </template>
@@ -11,6 +10,10 @@ import Vue from "vue";
 Vue.component("SfAddress", SfAddress);
 export default {
   name: "SfAddressPicker",
+  model: {
+    prop: "selected",
+    event: "change",
+  },
   props: {
     selected: {
       type: String,
@@ -19,7 +22,7 @@ export default {
   },
   data() {
     return {
-      checked: this.selected,
+      selectedValue: this.selected,
     };
   },
   provide() {
@@ -28,13 +31,19 @@ export default {
       setSelectedValue: this.setSelectedValue,
     };
   },
+  watch: {
+    selected(newVal) {
+      this.selectedValue = newVal;
+    },
+  },
   methods: {
     getSelectedValue() {
-      return this.checked;
+      return this.selectedValue;
     },
     setSelectedValue(newVal) {
       const newValue = newVal;
-      this.checked = newValue;
+      this.selectedValue = newValue;
+      this.$emit("change", newValue);
     },
   },
 };

@@ -1,139 +1,207 @@
-import { storiesOf } from "@storybook/vue";
-import { withKnobs, text } from "@storybook/addon-knobs";
+import { icons } from "@storefront-ui/shared/icons/icons";
 import { SfBottomNavigation, SfCircleIcon, SfIcon } from "@storefront-ui/vue";
-storiesOf("Organisms|BottomNavigation", module)
-  .addDecorator(withKnobs)
-  .add("Common", () => ({
-    components: { SfBottomNavigation, SfCircleIcon, SfIcon },
-    props: {
-      label: {
-        default: text("label", "Home", "Props"),
+import SfBottomNavigationItem from "./_internal/SfBottomNavigationItem.vue";
+const iconsNames = Object.keys(icons);
+
+export default {
+  title: "Components/Organisms/BottomNavigation",
+  component: SfBottomNavigationItem,
+  parameters: {
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "icon-color": {
+        value: "var(--c-link)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
       },
-      icon: {
-        default: text("icon", "home", "Props"),
+      "button-size": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
       },
-      iconActive: {
-        default: text("iconActive", "home", "Props"),
-      },
-    },
-    data() {
-      return {
-        items: [
-          {
-            icon: "menu",
-            iconActive: "menu",
-            label: "Menu",
-          },
-          {
-            icon: "heart",
-            iconActive: "heart",
-            label: "Heart",
-          },
-          {
-            icon: "account",
-            iconActive: "account",
-            label: "Profile",
-          },
-        ],
-        currentIcon: "heart",
-      };
-    },
-    template: `<SfBottomNavigation>
-      <SfBottomNavigationItem 
-        :icon="icon" 
-        :label="label"
-        :icon-active="iconActive"
-        :is-active="currentIcon === iconActive"
-        @click="currentIcon = iconActive"
-      />
-      <SfBottomNavigationItem
-        v-for="(item, key) in items"
-        :key="key"
-        :icon="item.icon" 
-        :icon-active="item.iconActive"
-        :label="item.label"
-        icon-size="20px"
-        :is-active="currentIcon === item.iconActive"
-        @click="currentIcon = item.iconActive"
-      />
-      <SfBottomNavigationItem
-        label="Basket"
-        icon="add_to_cart"     
-        is-floating
-        />
-    </SfBottomNavigation>`,
-  }))
-  .add("Icons only", () => ({
-    components: { SfBottomNavigation, SfCircleIcon, SfIcon },
-    props: {
-      label: {
-        default: text("label", "Home", "Props"),
-      },
-      icon: {
-        default: text("icon", "home", "Props"),
+      "circle-icon-position": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
       },
     },
-    data() {
-      return {
-        items: [{ icon: "menu" }, { icon: "heart" }, { icon: "profile" }],
-      };
-    },
-    template: `<SfBottomNavigation>
-      <SfBottomNavigationItem
-        :icon="icon"
-      />
-      <SfBottomNavigationItem
-        v-for="(item, key) in items"
-        :key="key"
-        :icon="item.icon"
-        :label="item.label"
-        icon-size="20px"
-      />
-      <SfBottomNavigationItem
-        icon="add_to_cart"
-      >
-        <template #icon>
-          <SfCircleIcon>
-            <SfIcon
-              icon="add_to_cart"
-              color="white"
-              size="25px"
-              :style="{margin: '0 0 0 -2px'}"
-            />
-          </SfCircleIcon>
-        </template>
-      </SfBottomNavigationItem>
-    </SfBottomNavigation>`,
-  }))
-  .add("Labels only", () => ({
-    components: { SfBottomNavigation, SfCircleIcon, SfIcon },
-    props: {
-      label: {
-        default: text("label", "Home", "Props"),
-      },
-      icon: {
-        default: text("icon", "home", "Props"),
+    // end of code generated automatically
+    docs: {
+      inlineStories: false,
+      iframeHeight: "30em",
+      description: {
+        component:
+          "Full-width fixed bottom navigation component with items and circle icon.  Constructed from main component - SfBottomNavigation and internal components - SfBottomNavigationItem.",
       },
     },
-    data() {
-      return {
-        items: [{ label: "Menu" }, { label: "Heart" }, { label: "Profile" }],
-      };
+  },
+  argTypes: {
+    icon: {
+      control: {
+        type: "select",
+        options: iconsNames,
+      },
+      table: {
+        category: "Props for internal component",
+        type: {
+          summary: ["string", "array"],
+        },
+        defaultValue: {
+          summary: "",
+        },
+      },
+      defaultValue: "",
+      description:
+        "Sets icon type. Icon SVG path(s). It can be single SVG path(string) or array of SVG paths or icon name from our icons list(such as 'added_to_cart`)",
     },
-    template: `<SfBottomNavigation>
-      <SfBottomNavigationItem
-        :label="label"
+    isActive: {
+      control: "boolean",
+      table: {
+        category: "Props for internal component",
+        defaultValue: {
+          summary: false,
+        },
+      },
+      defaultValue: false,
+      description: "Sets icon to active",
+    },
+    iconActive: {
+      control: "text",
+      table: {
+        category: "Props for internal component",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
+      },
+      defaultValue: "",
+      description: "The name of the default active icon",
+    },
+    label: {
+      control: "text",
+      table: {
+        category: "Props for internal component",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
+      },
+      defaultValue: "",
+      description: "Label text",
+    },
+    iconSize: {
+      control: "text",
+      table: {
+        category: "Props for internal component",
+        defaultValue: {
+          summary: "20px",
+        },
+      },
+      defaultValue: "20px",
+      description: "Icons size",
+    },
+    isFloating: {
+      control: "boolean",
+      table: {
+        category: "Props for internal component",
+        defaultValue: {
+          summary: false,
+        },
+      },
+      defaultValue: false,
+      description: "Changes icon styling",
+    },
+    default: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Default slot for `SfBottomNavigation` component. Use this slot to place `SfBottomNavigationItem` elements",
+    },
+    "label ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfBottomNavigationItem` component. Use this slot to replace label element",
+    },
+    "icon ": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfBottomNavigationItem` component. Use this slot to replace icon element",
+    },
+  },
+};
+
+const Template = (args, { argTypes }) => ({
+  components: { SfBottomNavigation },
+  props: Object.keys(argTypes),
+  data() {
+    return {
+      items: [
+        {
+          icon: "menu",
+          iconActive: "menu",
+          label: "Menu",
+        },
+        {
+          icon: "heart",
+          iconActive: "heart",
+          label: "Heart",
+        },
+        {
+          icon: "account",
+          iconActive: "account",
+          label: "Profile",
+        },
+      ],
+      currentIcon: "heart",
+      labelProp: "Home",
+      iconProp: "home",
+      iconActiveProp: "home",
+    };
+  },
+  template: `
+  <SfBottomNavigation>
+    <SfBottomNavigationItem 
+      :icon="iconProp"
+      :label="labelProp"
+      :icon-active="iconActiveProp"
+      :is-active="currentIcon === iconActiveProp"
+      @click="currentIcon = iconActiveProp"
+    />
+    <SfBottomNavigationItem
+      v-for="(item, key) in items"
+      :key="key"
+      :icon="item.icon" 
+      :icon-active="item.iconActive"
+      :label="item.label"
+      icon-size="20px"
+      :is-active="currentIcon === item.iconActive"
+      @click="currentIcon = item.iconActive"
+    />
+    <SfBottomNavigationItem
+      label="Basket"
+      icon="add_to_cart"     
+      is-floating
       />
-      <SfBottomNavigationItem
-        v-for="(item, key) in items"
-        :key="key"
-        :icon="item.icon"
-        :label="item.label"
-        icon-size="20px"
-      />
-      <SfBottomNavigationItem
-        label="Basket"
-      >
-      </SfBottomNavigationItem>
-    </SfBottomNavigation>`,
-  }));
+  </SfBottomNavigation>`,
+});
+
+export const Common = Template.bind({});
+Common.args = {};

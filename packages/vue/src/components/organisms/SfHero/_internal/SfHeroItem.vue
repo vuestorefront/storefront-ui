@@ -1,72 +1,116 @@
 <template>
-  <li class="glide__slide sf-hero-item" :style="style">
-    <div class="sf-hero-item__container">
-      <!--@slot hero item subtitle. Slot content will replace default <h2> tag-->
+  <li class="glide__slide sf-hero-item" :style="style" data-testid="hero-item">
+    <component :is="wrapper" class="sf-hero-item__wrapper" :link="link">
       <slot name="subtitle" v-bind="{ subtitle }">
-        <div v-if="subtitle" class="sf-hero-item__subtitle">{{ subtitle }}</div>
+        <span
+          :class="{ 'display-none': !subtitle }"
+          class="sf-hero-item__subtitle"
+          >{{ subtitle }}</span
+        >
       </slot>
-      <!--@slot hero item title. Slot content will replace default <h1> tag-->
       <slot name="title" v-bind="{ title }">
-        <h1 v-if="title" class="sf-hero-item__title">{{ title }}</h1>
+        <span :class="{ 'display-none': !title }" class="sf-hero-item__title">{{
+          title
+        }}</span>
       </slot>
-      <!--@slot Call to action section. Slot content will replace default SfButton component-->
-      <slot name="call-to-action" v-bind="{ buttonText }">
-        <div v-if="buttonText" class="sf-hero-item__button">
-          <SfButton>
+      <slot name="call-to-action" v-bind="{ buttonText, link }">
+        <div v-if="buttonText && !mobileView" class="sf-hero-item__button">
+          <SfButton :link="link" data-testid="hero-cta-button">
             {{ buttonText }}
           </SfButton>
         </div>
       </slot>
-    </div>
+      <slot name="withImgTag" />
+    </component>
   </li>
 </template>
 <script>
 import SfButton from "../../../atoms/SfButton/SfButton.vue";
+import SfLink from "../../../atoms/SfLink/SfLink.vue";
+import {
+  mapMobileObserver,
+  unMapMobileObserver,
+} from "../../../../utilities/mobile-observer";
 export default {
   name: "SfHeroItem",
   components: {
     SfButton,
+    SfLink,
   },
   props: {
-    /** Hero item title */
     title: {
       type: String,
       default: "",
     },
-    /** Hero item subtitle (at the top) */
     subtitle: {
       type: String,
       default: "",
     },
-    /** text that will be displayed inside the button. You can replace the button  with "call-to-action" slot */
     buttonText: {
       type: String,
       default: "",
     },
-    /** Background color */
     background: {
       type: String,
       default: "",
     },
-    /** Background image path */
     image: {
       type: [Object, String],
       default: "",
     },
+    link: {
+      type: String,
+      default: null,
+    },
+    imageTag: {
+      type: String,
+      default: "",
+    },
+    nuxtImgConfig: {
+      type: Object,
+      default: () => ({}),
+    },
+  },
+  data() {
+    return {
+      mobileView: false,
+    };
   },
   computed: {
+    ...mapMobileObserver(),
     style() {
       const image = this.image;
+      const isImageString = typeof image === "string";
       const background = this.background;
+      const nuxtImgConvert = (imgUrl) => {
+        return `url(${this.$img(imgUrl, this.nuxtImgConfig)})`;
+      };
+      if (this.imageTag === "nuxt-img" || this.imageTag === "nuxt-picture") {
+        return {
+          "background-image": isImageString
+            ? nuxtImgConvert(image)
+            : this.mobileView
+            ? nuxtImgConvert(image.mobile)
+            : nuxtImgConvert(image.desktop),
+          "--_banner-background-color": background,
+        };
+      }
       return {
-        "--_hero-item-background-image": image.mobile
-          ? `url(${image.mobile})`
-          : `url(${image})`,
-        "--_hero-item-background-desktop-image":
-          image.desktop && `url(${image.desktop})`,
-        "--_hero-item-background-color": background,
+        "background-image": isImageString
+          ? `url(${image})`
+          : `url(${this.mobileView ? image.mobile : image.desktop})`,
+        "background-color": background,
       };
     },
+    wrapper() {
+      return !this.mobileView ? "div" : this.link ? "SfLink" : "SfButton";
+    },
+  },
+  mounted() {
+    this.mobileView = this.isMobile;
+  },
+  beforeDestroy() {
+    unMapMobileObserver();
   },
 };
 </script>

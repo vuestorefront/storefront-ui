@@ -1,6 +1,7 @@
 {
   "name": "@storefront-ui/vue",
-  "version": "0.9.1",
+  "version": "0.12.1",
+  "license": "MIT",
   "scripts": {
     "serve": "yarn create-index-files && vue-cli-service serve",
     "build": "yarn create-index-files && vue-cli-service build --target lib --name storefront-ui ./src/index.js",
@@ -8,16 +9,15 @@
     "lint": "vue-cli-service lint",
     "copy-components": "node scripts/copy-components.js",
     "create-index-files": "node scripts/create-index-files.js",
-    "docs:build": "yarn docs:vuecomponents && vuepress build docs",
-    "docs:dev": "yarn docs:vuecomponents && vuepress dev docs",
-    "docs:vuecomponents": "node scripts/create-vue-components-docs.js",
+    "docs:build": "build-storybook",
     "postinstall": "node scripts/create-index-files.js",
     "precommit": "lint-staged",
     "prepublish": "yarn create-index-files",
-    "storybook:build": "yarn create-index-files && vue-cli-service storybook:build -s ./public -c config/storybook",
-    "storybook:serve": "yarn create-index-files && vue-cli-service storybook:serve -s ./public -p 6006 -c config/storybook",
     "test:dev": "vue-cli-service test:unit --watch",
-    "version": "node scripts/version.js"
+    "version": "node scripts/version.js",
+    "storybook": "start-storybook -s ./public -p 6006",
+    "build-storybook": "yarn update-components-docs && build-storybook -s ./public",
+    "update-components-docs": "node scripts/update-components-docs.js"
   },
   "main": "./index.js",
   "module": "./index.js",
@@ -31,30 +31,36 @@
   ],
   "dependencies": {
     "@glidejs/glide": "^3.3.0",
-    "@storefront-ui/shared": "0.9.1",
+    "@storefront-ui/shared": "0.12.1",
     "body-scroll-lock": "^3.0.1",
+    "cloudinary-build-url": "^0.1.1",
     "core-js": "^3.6.5",
+    "glob": "^7.1.4",
     "hammerjs": "^2.0.8",
     "leaflet": "^1.5.1",
-    "lozad": "^1.14.0",
-    "node-sass": "^4.13.1",
-    "sass-loader": "^8.0.2",
+    "nouislider": "^15.2.0",
+    "sass": "^1.32.13",
+    "sass-loader": "^10.0.3",
     "simplebar-vue": "^1.4.0",
-    "vue-drag-drop": "^1.1.4",
-    "vue-fragment": "^1.5.1",
+    "vue": "^2.6.12",
     "vue2-leaflet": "^2.5.2"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
-    "@storybook/addon-a11y": "^5.3.18",
-    "@storybook/addon-actions": ">=5.3.0",
-    "@storybook/addon-backgrounds": "^5.3.18",
-    "@storybook/addon-knobs": ">=5.3.0",
-    "@storybook/addon-links": ">=5.3.0",
-    "@storybook/addon-notes": ">=5.3.0",
-    "@storybook/addon-storysource": "^5.2.4",
-    "@storybook/addon-viewport": "^5.1.9",
-    "@storybook/vue": ">=5.3.0",
+    "@ljcl/storybook-addon-cssprops": "^1.0.0",
+    "@storybook/addon-a11y": "6.4.14",
+    "@storybook/addon-actions": "6.4.14",
+    "@storybook/addon-backgrounds": "6.4.14",
+    "@storybook/addon-essentials": "6.4.14",
+    "@storybook/addon-links": "6.4.14",
+    "@storybook/addon-notes": ">=5.3.21",
+    "@storybook/addon-storysource": "6.4.14",
+    "@storybook/addon-viewport": "6.4.14",
+    "@storybook/addons": "6.4.14",
+    "@storybook/api": "6.4.14",
+    "@storybook/components": "6.4.14",
+    "@storybook/preset-scss": "^1.0.3",
+    "@storybook/vue": "6.4.14",
     "@testing-library/jest-dom": "^5.11.1",
     "@types/jest": "^25.2.1",
     "@vue/babel-preset-app": "^4.3.1",
@@ -63,9 +69,7 @@
     "@vue/cli-plugin-unit-jest": "^4.3.0",
     "@vue/cli-service": "^4.3.1",
     "@vue/eslint-config-prettier": "^6.0.0",
-    "@vue/test-utils": "^1.0.0-beta.33",
-    "@vuepress/plugin-register-components": "^1.0.0-rc.1",
-    "axios": "^0.19.2",
+    "@vue/test-utils": "^1.1.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.2",
     "babel-loader": "^8.0.5",
@@ -75,16 +79,12 @@
     "jest": "^25.3.0",
     "lint-staged": "^10.0.7",
     "markdown-loader": "^5.0.0",
+    "mdx-embed": "^0.0.19",
     "prettier": "^2.0.4",
-    "storybook-addon-vue-info": "^1.2.2",
-    "vue-cli-plugin-storybook": "~1.2.2",
+    "style-loader": "^2.0.0",
     "vue-docgen-api": "^3.22.3",
-    "vue-template-compiler": "^2.6.8",
-    "vuepress": "^1.4.1",
+    "vue-template-compiler": "^2.6.11",
     "webpack-dev-middleware": "3.7.2"
-  },
-  "peerDependencies": {
-    "vue": "^2.6.x"
   },
   "lint-staged": {
     "*.{js,vue}": "vue-cli-service lint --fix"
@@ -99,5 +99,8 @@
     "*.vue",
     "*.scss",
     "*.css"
-  ]
+  ],
+  "storybook": {
+    "url": "https://docs.storefrontui.io/"
+  }
 }

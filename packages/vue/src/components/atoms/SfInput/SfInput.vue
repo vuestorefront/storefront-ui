@@ -1,5 +1,6 @@
 <template>
   <div
+    v-will-change="'font-size'"
     class="sf-input"
     :class="{
       'has-text': !!value,
@@ -9,7 +10,7 @@
   >
     <div class="sf-input__wrapper">
       <input
-        :id="name"
+        :id="idWithoutWhitespace"
         v-focus
         v-bind="$attrs"
         :value="value"
@@ -21,19 +22,37 @@
         v-on="listeners"
       />
       <span class="sf-input__bar"></span>
-      <label class="sf-input__label" :for="name">
-        <!-- @slot Custom input label -->
+      <label
+        :class="{ 'display-none': !label }"
+        class="sf-input__label will-change"
+        :for="name"
+      >
         <slot name="label" v-bind="{ label }">{{ label }}</slot>
       </label>
       <slot
-        v-if="isPassword"
         v-bind="{
+          icon,
           isPasswordVisible,
           switchVisibilityPassword,
         }"
-        name="show-password"
+        name="icon"
       >
         <SfButton
+          v-if="icon"
+          class="sf-input__button sf-button--pure"
+          @click="$emit('click:icon')"
+        >
+          <SfIcon
+            :color="icon.color"
+            :size="icon.size"
+            :icon="icon.icon"
+            class="sf-input__icon"
+          >
+          </SfIcon>
+        </SfButton>
+        <SfButton
+          v-else-if="hasShowPassword"
+          :class="{ 'display-none': !isPassword }"
           class="sf-input__password-button"
           type="button"
           aria-label="switch-visibility-password"
@@ -53,9 +72,8 @@
     </div>
     <div class="sf-input__error-message">
       <transition name="sf-fade">
-        <!-- @slot Custom error message of form input -->
-        <slot v-if="!valid" name="error-message" v-bind="{ errorMessage }">
-          <div>{{ errorMessage }}</div></slot
+        <slot name="error-message" v-bind="{ errorMessage }">
+          <div :class="{ 'display-none': valid }">{{ errorMessage }}</div></slot
         >
       </transition>
     </div>
@@ -65,75 +83,54 @@
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import { focus } from "../../../utilities/directives";
+import { willChange } from "../../../utilities/directives";
 export default {
   name: "SfInput",
   directives: {
     focus,
+    willChange,
   },
   components: { SfIcon, SfButton },
   inheritAttrs: false,
   props: {
-    /**
-     * Current input value (`v-model`)
-     */
     value: {
       type: [String, Number],
       default: "",
     },
-    /**
-     * Form input label
-     */
     label: {
       type: String,
       default: "",
     },
-    /**
-     * Form input name
-     */
     name: {
       type: String,
       default: "",
     },
-    /**
-     * Form input type
-     */
     type: {
       type: String,
       default: "text",
     },
-    /**
-     * Validate value of form input
-     */
+    icon: {
+      type: Object,
+      default: () => {},
+    },
     valid: {
       type: Boolean,
       default: true,
     },
-    /**
-     * Error message value of form input. It will be appeared if `valid` is `true`.
-     */
     errorMessage: {
       type: String,
       default: "",
     },
-    /**
-     * Native input required attribute
-     */
     required: {
       type: Boolean,
       default: false,
       description: "Native input required attribute",
     },
-    /**
-     * Native input disabled attribute
-     */
     disabled: {
       type: Boolean,
       default: false,
       description: "Native input disabled attribute",
     },
-    /**
-     * Status of show password icon display
-     */
     hasShowPassword: {
       type: Boolean,
       default: false,
@@ -155,6 +152,9 @@ export default {
     },
     isPassword() {
       return this.type === "password" && this.hasShowPassword;
+    },
+    idWithoutWhitespace() {
+      return this.name.replace(/\s/g, "");
     },
   },
   watch: {
@@ -189,6 +189,7 @@ export default {
   },
   methods: {
     switchVisibilityPassword() {
+      if (this.type !== "password") return;
       this.isPasswordVisible = !this.isPasswordVisible;
       this.inputType = this.isPasswordVisible ? "text" : "password";
     },

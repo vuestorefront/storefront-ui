@@ -16,14 +16,3 @@ $desktop-xxl-min: 1920px;
     @content;
   }
 }
-// Visibility helpers
-.smartphone-only {
-  @include for-desktop {
-    display: none !important;
-  }
-}
-.desktop-only {
-  @include for-mobile {
-    display: none !important;
-  }
-}
