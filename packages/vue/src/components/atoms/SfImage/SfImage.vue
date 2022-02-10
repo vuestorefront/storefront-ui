@@ -138,7 +138,7 @@ export default {
       }
     },
     imageComponentTag() {
-      return !this.$nuxt ? "img" : this.imageTag;
+      return !this.$nuxt ? "img" : this.imageTag || "img";
     },
     isPlaceholderVisible() {
       return (
