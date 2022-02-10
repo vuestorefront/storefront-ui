@@ -213,7 +213,8 @@ export default {
         category: "Props for main component",
       },
       defaultValue: 35,
-      description: "Header logo height",
+      description:
+        "Header logo height. Could be an integer passed as Number or String type, but values like 'auto' or '100%' are not allowed.",
     },
     logoWidth: {
       control: "number",
@@ -221,7 +222,8 @@ export default {
         category: "Props for main component",
       },
       defaultValue: 34,
-      description: "Header logo width",
+      description:
+        "Header logo width. Could be an integer passed as Number or String type, but values like 'auto' or '100%' are not allowed.",
     },
     title: {
       control: "text",
