@@ -192,7 +192,7 @@ const Template = (args, { argTypes }) => ({
     <template>
       <SfList>
         <SfListItem v-for="(action, key) in actionList" :key="key">
-          <SfButton class="sf-button--full-width sf-button--underlined color-primary" @click.stop="isOpen = false">{{ action }}</SfButton>
+          <SfButton class="sf-button--full-width sf-button--underlined color-primary" @click.stop="isDropdownOpen = false">{{ action }}</SfButton>
         </SfListItem>
       </SfList>
     </template> 
@@ -207,14 +207,14 @@ Common.args = {
 export const Persistent = Template.bind({});
 Persistent.args = {
   ...Common.args,
-  isDropdownOpen: true,
+  isOpen: true,
   persistent: true,
 };
 
 export const IsOpened = Template.bind({});
 IsOpened.args = {
   ...Common.args,
-  isDropdownOpen: true,
+  isOpen: true,
 };
 
 export const WithUpModifier = Template.bind({});
