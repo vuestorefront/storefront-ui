@@ -20,13 +20,13 @@
         v-for="(product, index) in products"
         :key="index"
         class="table__row"
-        data-testid="product-table-row"
+        :data-testid="dataTestDisplay('product-table-row')"
       >
         <SfTableData class="table__image">
           <SfImage
             :src="product.image"
             :alt="product.title"
-            data-testid="product-image-table-data"
+            :data-testid="dataTestDisplay('product-image-table-data')"
           />
         </SfTableData>
         <SfTableData class="table__data"
@@ -35,7 +35,7 @@
 
         <SfTableData
           class="table__description"
-          data-testid="product-description-table-data"
+          :data-testid="dataTestDisplay('product-description-table-data')"
         >
           <div class="product-title">{{ product.title }}</div>
           <div class="product-sku">{{ product.sku }}</div>
@@ -122,6 +122,8 @@ import {
   SfProperty,
   SfLink,
 } from "@storefront-ui/vue";
+import { dataTestDisplay } from "../../../utilities/helpers";
+
 export default {
   name: "ReviewOrder",
   components: {
@@ -201,6 +203,9 @@ export default {
       const total = subtotal + (isNaN(shipping) ? 0 : shipping);
       return "$" + total.toFixed(2);
     },
+  },
+  methods: {
+    dataTestDisplay,
   },
 };
 </script>

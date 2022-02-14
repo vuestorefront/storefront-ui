@@ -6,7 +6,7 @@
         key="edit-address"
         :open-tab="1"
         class="tab-orphan"
-        data-testid="shipping-details-tabs"
+        :data-testid="dataTestDisplay('shipping-details-tabs')"
       >
         <SfTab :title="changeAddressTabTitle">
           <slot name="change-address-description">
@@ -28,9 +28,7 @@
                 name="lastName"
                 :label="inputsLabels[1]"
                 required
-                class="
-                  form__element form__element--half form__element--half-even
-                "
+                class="form__element form__element--half form__element--half-even"
               />
               <SfInput
                 v-model="streetName"
@@ -58,9 +56,7 @@
                 name="state"
                 :label="inputsLabels[5]"
                 required
-                class="
-                  form__element form__element--half form__element--half-even
-                "
+                class="form__element form__element--half form__element--half-even"
               />
               <SfInput
                 v-model="zipCode"
@@ -74,14 +70,8 @@
                 name="country"
                 :label="selectLabel"
                 required
-                class="
-                  sf-component-select--underlined
-                  form__select
-                  form__element
-                  form__element--half
-                  form__element--half-even
-                "
-                data-testid="country"
+                class="sf-component-select--underlined form__select form__element form__element--half form__element--half-even"
+                :data-testid="dataTestDisplay('country')"
               >
                 <SfComponentSelectOption
                   v-for="countryOption in countries"
@@ -101,7 +91,7 @@
               <SfButton
                 v-if="updateAddressButtonText"
                 class="action-button"
-                data-testid="update-address-button"
+                :data-testid="dataTestDisplay('update-address-button')"
                 @click="updateAddress"
               >
                 {{ updateAddressButtonText }}</SfButton
@@ -109,7 +99,7 @@
               <SfButton
                 v-if="cancelButtonText"
                 class="action-button color-secondary cancel-button"
-                data-testid="update-address-button"
+                :data-testid="dataTestDisplay('update-address-button')"
                 @click="cancelEditing"
               >
                 {{ cancelButtonText }}</SfButton
@@ -131,7 +121,7 @@
                 v-for="(shipping, key) in account.shipping"
                 :key="shipping.streetName + shipping.apartment"
                 class="shipping"
-                data-testid="shipping-address-list-item"
+                :data-testid="dataTestDisplay('shipping-address-list-item')"
               >
                 <div class="shipping__content">
                   <slot name="shipping-details">
@@ -160,7 +150,7 @@
                   </SfButton>
                   <SfButton
                     v-if="changeButtonText"
-                    data-testid="change-address"
+                    :data-testid="dataTestDisplay('change-address')"
                     @click="changeAddress(key)"
                   >
                     {{ changeButtonText }}
@@ -168,7 +158,7 @@
                   <SfButton
                     v-if="deleteButtonText"
                     class="shipping__button-delete desktop-only"
-                    data-testid="delete-address"
+                    :data-testid="dataTestDisplay('delete-address')"
                     @click="deleteAddress(key)"
                   >
                     {{ deleteButtonText }}
@@ -180,7 +170,7 @@
           <SfButton
             v-if="addNewAddressButtonText"
             class="action-button"
-            data-testid="add-new-address"
+            :data-testid="dataTestDisplay('add-new-address')"
             @click="changeAddress(-1)"
           >
             {{ addNewAddressButtonText }}</SfButton
@@ -198,6 +188,8 @@ import {
   SfComponentSelect,
   SfIcon,
 } from "@storefront-ui/vue";
+import { dataTestDisplay } from "../../../utilities/helpers";
+
 export default {
   name: "SfShippingDetails",
   components: {
@@ -341,6 +333,7 @@ export default {
       account.shipping.splice(index, 1);
       this.$emit("delete-address", index);
     },
+    dataTestDisplay,
   },
 };
 </script>

@@ -78,16 +78,12 @@
     <div class="actions">
       <SfButton
         class="sf-button--full-width actions__button"
-        data-testid="next-button"
+        :data-testid="dataTestDisplay('next-button')"
         @click="currentStep++"
         >{{ steps[currentStep] }}</SfButton
       >
       <SfButton
-        class="
-          sf-button--full-width sf-button--underlined
-          actions__button
-          smartphone-only
-        "
+        class="sf-button--full-width sf-button--underlined actions__button smartphone-only"
         @click="currentStep--"
         >Go back</SfButton
       >
@@ -106,6 +102,8 @@ import {
   SfOrderReview,
 } from "@storefront-ui/vue";
 import { countries, months, years } from "../../templates/internalData.js";
+import { dataTestDisplay } from "../../../utilities/helpers";
+
 export default {
   name: "Checkout",
   components: {
@@ -320,6 +318,7 @@ export default {
         this.currentStep = next;
       }
     },
+    dataTestDisplay,
   },
 };
 </script>

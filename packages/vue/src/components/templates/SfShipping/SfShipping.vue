@@ -66,15 +66,9 @@
         <SfSelect
           v-model="country"
           :placeholder="selectLabel"
-          class="
-            form__element
-            form__element--half
-            form__element--half-even
-            form__select
-            sf-select--underlined
-          "
+          class="form__element form__element--half form__element--half-even form__select sf-select--underlined"
           :valid="true"
-          data-testid="country"
+          :data-testid="dataTestDisplay('country')"
           @input="updateField('country', $event)"
         >
           <SfSelectOption
@@ -163,6 +157,8 @@ import {
   SfSelect,
   SfRadio,
 } from "@storefront-ui/vue";
+import { dataTestDisplay } from "../../../utilities/helpers";
+
 export default {
   name: "SfShipping",
   components: {
@@ -254,6 +250,7 @@ export default {
         [fieldName]: fieldValue,
       });
     },
+    dataTestDisplay,
   },
 };
 </script>

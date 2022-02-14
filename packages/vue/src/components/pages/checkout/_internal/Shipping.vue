@@ -1,5 +1,5 @@
 <template>
-  <div data-testid="shipping">
+  <div :data-testid="dataTestDisplay('shipping')">
     <SfHeading
       title="Shipping"
       :level="3"
@@ -63,15 +63,9 @@
       <SfSelect
         v-model="country"
         placeholder="Country"
-        class="
-          form__element
-          form__element--half
-          form__element--half-even
-          form__select
-          sf-select--underlined
-        "
+        class="form__element form__element--half form__element--half-even form__select sf-select--underlined"
         :valid="true"
-        data-testid="country"
+        :data-testid="dataTestDisplay('country')"
         @input="updateField('country', $event)"
       >
         <SfSelectOption
@@ -98,7 +92,10 @@
       class="sf-heading--left sf-heading--no-underline title"
     />
     <div class="form">
-      <div class="form__radio-group" data-testid="shipping-method">
+      <div
+        class="form__radio-group"
+        :data-testid="dataTestDisplay('shipping-method')"
+      >
         <SfRadio
           v-for="item in shippingMethods"
           :key="item.value"
@@ -149,6 +146,8 @@ import {
   SfSelect,
   SfRadio,
 } from "@storefront-ui/vue";
+import { dataTestDisplay } from "../../../utilities/helpers";
+
 export default {
   name: "Shipping",
   components: {
@@ -253,6 +252,7 @@ export default {
         [fieldName]: fieldValue,
       });
     },
+    dataTestDisplay,
   },
 };
 </script>

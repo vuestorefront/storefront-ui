@@ -21,7 +21,7 @@
               :is="injections.components.SfLink"
               class="sf-breadcrumbs__breadcrumb"
               :link="breadcrumb.link"
-              :data-testid="breadcrumb.text"
+              :data-testid="$options.dataTestDisplay(breadcrumb.text)"
             >
               {{ breadcrumb.text }}
             </component>
@@ -44,6 +44,7 @@
 </template>
 <script>
 import SfLink from "../SfLink/SfLink";
+import { dataTestDisplay } from "../../../utilities/helpers";
 export default {
   name: "SfBreadcrumbs",
   inject: {
@@ -60,6 +61,7 @@ export default {
   breadcrumbLast(breadcrumbs) {
     return breadcrumbs.length - 1;
   },
+  dataTestDisplay,
 };
 </script>
 <style lang="scss">

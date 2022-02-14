@@ -3,7 +3,7 @@
     <div class="log-in">
       <SfButton
         class="log-in__button sf-button--full-width color-secondary"
-        data-testid="login-button"
+        :data-testid="dataTestDisplay('login-button')"
         >Log into your account</SfButton
       >
       <p class="log-in__info">or fill the details below:</p>
@@ -58,7 +58,7 @@
           name="createAccount"
           label="I want to create an account"
           class="form__checkbox"
-          data-testid="create-account-checkbox"
+          :data-testid="dataTestDisplay('create-account-checkbox')"
         />
       </div>
       <transition name="sf-fade">
@@ -70,7 +70,7 @@
           label="Create Password"
           class="form__element"
           required
-          data-testid="create-password-input"
+          :data-testid="dataTestDisplay('create-password-input')"
         />
       </transition>
     </div>
@@ -84,6 +84,8 @@ import {
   SfHeading,
   SfCharacteristic,
 } from "@storefront-ui/vue";
+import { dataTestDisplay } from "../../../utilities/helpers";
+
 export default {
   name: "PersonalDetails",
   components: {
@@ -138,6 +140,7 @@ export default {
         [fieldName]: fieldValue,
       });
     },
+    dataTestDisplay,
   },
 };
 </script>

@@ -2,7 +2,7 @@
   <div
     class="sf-product-card"
     :class="{ 'has-colors': colors.length }"
-    data-testid="product-card"
+    :data-testid="dataTestDisplay('product-card')"
   >
     <div class="sf-product-card__image-wrapper">
       <slot
@@ -20,7 +20,7 @@
         <SfButton
           :link="link"
           class="sf-button--pure sf-product-card__link"
-          data-testid="product-link"
+          :data-testid="dataTestDisplay('product-link')"
           aria-label="Go To Product"
           v-on="$listeners"
         >
@@ -84,7 +84,7 @@
       <SfButton
         :aria-label="`${ariaLabel} ${title}`"
         :class="[wishlistIconClasses, { 'display-none': !wishlistIcon }]"
-        data-testid="product-wishlist-button"
+        :data-testid="dataTestDisplay('product-wishlist-button')"
         @click="toggleIsInWishlist"
       >
         <slot name="wishlist-icon" v-bind="{ currentWishlistIcon }">
@@ -111,7 +111,7 @@
             :aria-label="`Add to Cart ${title}`"
             :has-badge="showAddedToCartBadge"
             :disabled="addToCartDisabled"
-            data-testid="product-add-icon"
+            :data-testid="dataTestDisplay('product-add-icon')"
             @click="onAddToCart"
           >
             <span class="sf-product-card__add-button--icons">
@@ -148,7 +148,7 @@
       <SfButton
         :link="link"
         class="sf-button--pure sf-product-card__link"
-        data-testid="product-link"
+        :data-testid="dataTestDisplay('product-link')"
         v-on="$listeners"
       >
         <span class="sf-product-card__title">
@@ -179,7 +179,7 @@
           :class="{ 'display-none': !reviewsCount }"
           :aria-label="`Read ${reviewsCount} reviews about ${title}`"
           class="sf-button--pure sf-product-card__reviews-count"
-          data-testid="product-review-button"
+          :data-testid="dataTestDisplay('product-review-button')"
           @click="$emit('click:reviews')"
         >
           ({{ reviewsCount }})
@@ -203,6 +203,8 @@ import {
   mapMobileObserver,
   unMapMobileObserver,
 } from "../../../utilities/mobile-observer";
+import { dataTestDisplay } from "../../../utilities/helpers";
+
 export default {
   name: "SfProductCard",
   components: {
@@ -364,6 +366,7 @@ export default {
             if (this.isMobile) {
               this.toggleColorPicker();
             }
+            dataTestDisplay;
           }
         });
       }
@@ -371,6 +374,7 @@ export default {
     toggleColorPicker() {
       this.openColorPicker = !this.openColorPicker;
     },
+    dataTestDisplay,
   },
 };
 </script>

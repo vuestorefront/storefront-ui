@@ -62,19 +62,12 @@
         <SfCircleIcon
           icon="cross"
           aria-label="Remove"
-          class="
-            sf-circle-icon--small
-            sf-collected-product__remove
-            sf-collected-product__remove--circle-icon
-          "
+          class="sf-circle-icon--small sf-collected-product__remove sf-collected-product__remove--circle-icon"
           @click="removeHandler"
         />
         <SfButton
-          class="
-            sf-button--text
-            sf-collected-product__remove sf-collected-product__remove--text
-          "
-          data-testid="collected-product-desktop-remove"
+          class="sf-button--text sf-collected-product__remove sf-collected-product__remove--text"
+          :data-testid="dataTestDisplay('collected-product-desktop-remove')"
           @click="removeHandler"
           >Remove</SfButton
         >
@@ -84,11 +77,7 @@
       <div :class="{ 'display-none': !hasMoreActions }">
         <SfButton
           aria-label="More actions"
-          class="
-            sf-button--pure
-            sf-collected-product__more-actions
-            smartphone-only
-          "
+          class="sf-button--pure sf-collected-product__more-actions smartphone-only"
           @click="actionsHandler"
         >
           <SfIcon icon="more" size="18px" />
@@ -106,6 +95,8 @@ import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfQuantitySelector from "../../atoms/SfQuantitySelector/SfQuantitySelector.vue";
 import SfLink from "../../atoms/SfLink/SfLink.vue";
 import SfProperty from "../../atoms/SfProperty/SfProperty.vue";
+import { dataTestDisplay } from "../../../utilities/helpers";
+
 export default {
   name: "SfCollectedProduct",
   components: {
@@ -186,6 +177,7 @@ export default {
     actionsHandler() {
       this.$emit("click:actions");
     },
+    dataTestDisplay,
   },
 };
 </script>

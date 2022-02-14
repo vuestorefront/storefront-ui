@@ -16,7 +16,7 @@
             current: step.current,
             'is-disabled': step.disabled,
           }"
-          data-testid="steps-button"
+          :data-testid="dataTestDisplay('steps-button')"
           @click="stepClick(step)"
         >
           <span class="sf-steps__title">{{ step.step }}</span>
@@ -25,7 +25,7 @@
       <div
         class="sf-steps__progress"
         :style="progress"
-        data-testid="steps-progress"
+        :data-testid="dataTestDisplay('steps-progress')"
       ></div>
     </div>
     <div class="sf-steps__content">
@@ -37,7 +37,9 @@
 import Vue from "vue";
 import SfStep from "./_internal/SfStep.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
+import { dataTestDisplay } from "../../../utilities/helpers";
 Vue.component("SfStep", SfStep);
+
 export default {
   name: "SfSteps",
   components: {
@@ -110,6 +112,7 @@ export default {
         this.$emit("change", index);
       }
     },
+    dataTestDisplay,
   },
 };
 </script>

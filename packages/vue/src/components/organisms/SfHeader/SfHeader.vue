@@ -50,7 +50,7 @@
               <SfButton
                 :class="{ 'display-none': !accountIcon }"
                 class="sf-button--pure sf-header__action"
-                data-testid="accountIcon"
+                :data-testid="dataTestDisplay('accountIcon')"
                 aria-label="Account"
                 @click="$emit('click:account')"
               >
@@ -65,7 +65,7 @@
               <SfButton
                 :class="{ 'display-none': !wishlistIcon }"
                 class="sf-button--pure sf-header__action"
-                data-testid="wishlistIcon"
+                :data-testid="dataTestDisplay('wishlistIcon')"
                 aria-label="Wishlist"
                 @click="$emit('click:wishlist')"
               >
@@ -83,7 +83,7 @@
               <SfButton
                 :class="{ 'display-none': !cartIcon }"
                 class="sf-button--pure sf-header__action"
-                data-testid="cartIcon"
+                :data-testid="dataTestDisplay('cartIcon')"
                 aria-label="Cart"
                 @click="$emit('click:cart')"
               >
@@ -109,6 +109,8 @@
 import Vue from "vue";
 import SfHeaderNavigationItem from "./_internal/SfHeaderNavigationItem.vue";
 import SfHeaderNavigation from "./_internal/SfHeaderNavigation.vue";
+import { dataTestDisplay } from "../../../utilities/helpers";
+
 Vue.component("SfHeaderNavigation", SfHeaderNavigation);
 Vue.component("SfHeaderNavigationItem", SfHeaderNavigationItem);
 import {
@@ -269,6 +271,7 @@ export default {
       }
       this.lastScrollPosition = currentScrollPosition;
     },
+    dataTestDisplay,
   },
 };
 </script>

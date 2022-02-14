@@ -4,10 +4,7 @@
       <SfHeading
         :title="orderTitle"
         :level="orderTitleLevel"
-        class="
-          sf-heading--left sf-heading--no-underline
-          sf-confirm-order__heading
-        "
+        class="sf-heading--left sf-heading--no-underline sf-confirm-order__heading"
       />
     </slot>
     <slot name="table" v-bind="{ tableHeaders, orderItems }">
@@ -32,7 +29,7 @@
           v-for="(product, index) in orderItems"
           :key="index"
           class="sf-confirm-order__table-row"
-          data-testid="product-table-row"
+          :data-testid="dataTestDisplay('product-table-row')"
         >
           <SfTableData class="sf-confirm-order__table-image">
             <SfImage
@@ -41,7 +38,7 @@
               :alt="product.title"
               :width="82"
               :height="124"
-              data-testid="product-image-table-data"
+              :data-testid="dataTestDisplay('product-image-table-data')"
             />
             <SfImage
               v-else
@@ -49,7 +46,7 @@
               :alt="product.title"
               :width="44"
               :height="66"
-              data-testid="product-image-table-data"
+              :data-testid="dataTestDisplay('product-image-table-data')"
             />
           </SfTableData>
           <SfTableData class="sf-confirm-order__table-data"
@@ -57,7 +54,7 @@
           </SfTableData>
           <SfTableData
             class="sf-confirm-order__table-description"
-            data-testid="product-description-table-data"
+            :data-testid="dataTestDisplay('product-description-table-data')"
           >
             <div class="sf-confirm-order__product-title">
               {{ product.title }}
@@ -89,10 +86,7 @@
         <SfProperty
           :name="propertiesNames[0]"
           :value="subtotal"
-          class="
-            sf-property--full-width
-            sf-confirm-order__property sf-confirm-order__property-subtotal
-          "
+          class="sf-property--full-width sf-confirm-order__property sf-confirm-order__property-subtotal"
         >
         </SfProperty>
         <SfProperty
@@ -105,10 +99,7 @@
         <SfProperty
           :name="propertiesNames[2]"
           :value="total"
-          class="
-            sf-property--full-width sf-property--large
-            sf-confirm-order__property-total
-          "
+          class="sf-property--full-width sf-property--large sf-confirm-order__property-total"
         >
         </SfProperty>
         <slot name="checkbox" v-bind="{ terms }">
@@ -143,6 +134,8 @@ import {
   mapMobileObserver,
   unMapMobileObserver,
 } from "../../../utilities/mobile-observer";
+import { dataTestDisplay } from "../../../utilities/helpers";
+
 export default {
   name: "SfConfirmOrder",
   components: {
@@ -216,6 +209,9 @@ export default {
   },
   beforeDestroy() {
     unMapMobileObserver();
+  },
+  methods: {
+    dataTestDisplay,
   },
 };
 </script>

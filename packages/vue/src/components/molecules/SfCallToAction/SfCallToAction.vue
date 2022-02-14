@@ -23,7 +23,7 @@
         :class="{ 'display-none': !buttonText }"
         :link="link"
         class="sf-call-to-action__button"
-        data-testid="cta-button"
+        :data-testid="dataTestDisplay('cta-button')"
         @click="$emit('click')"
       >
         {{ buttonText }}
@@ -33,6 +33,8 @@
 </template>
 <script>
 import SfButton from "../../atoms/SfButton/SfButton.vue";
+import { dataTestDisplay } from "../../../utilities/helpers";
+
 export default {
   name: "SfCallToAction",
   components: {
@@ -77,6 +79,9 @@ export default {
         "--_call-to-action-background-color": background,
       };
     },
+  },
+  methods: {
+    dataTestDisplay,
   },
 };
 </script>

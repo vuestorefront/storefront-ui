@@ -7,7 +7,7 @@
       'has-error': !valid,
       'is-required': required,
     }"
-    :data-testid="name"
+    :data-testid="dataTestDisplay('name')"
   >
     <label class="sf-checkbox__container">
       <input
@@ -54,6 +54,8 @@
 <script>
 import SfIcon from "../../atoms/SfIcon/SfIcon";
 import { focus } from "../../../utilities/directives";
+import { dataTestDisplay } from "../../../utilities/helpers";
+
 export default {
   name: "SfCheckbox",
   directives: {
@@ -163,6 +165,7 @@ export default {
         return "";
       }
     },
+    dataTestDisplay,
   },
 };
 </script>

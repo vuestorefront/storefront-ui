@@ -14,7 +14,7 @@
             class="sf-button--pure sf-bullet"
             type="button"
             :aria-label="'Go to slide ' + (index + 1)"
-            :data-testid="'bullet-' + (index + 1)"
+            :data-testid="dataTestDisplay('bullet-' + (index + 1))"
             @click="listeners.click && listeners.click(index)"
           ></component>
         </li>
@@ -52,9 +52,11 @@
             "
             class="sf-button--pure sf-bullet"
             :data-testid="
-              'bullet-' +
-              $options.inactiveLeft(props.total, props.current) +
-              (2 + index)
+              dataTestDisplay(
+                'bullet-' +
+                  $options.inactiveLeft(props.total, props.current) +
+                  (2 + index)
+              )
             "
             @click="
               listeners.click &&
@@ -70,6 +72,7 @@
 </template>
 <script>
 import SfButton from "../SfButton/SfButton.vue";
+import { dataTestDisplay } from "../../../utilities/helpers";
 export default {
   name: "SfBullets",
   inject: {
@@ -93,6 +96,7 @@ export default {
   inactiveLeft(total, current) {
     return total - (total - 1 - current) - 1;
   },
+  dataTestDisplay,
 };
 </script>
 <style lang="scss">

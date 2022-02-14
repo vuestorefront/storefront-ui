@@ -167,7 +167,7 @@
       class="app-banner desktop-only"
       subtitle="fashion to take away"
       image="/assets/storybook/Home/bannerD.png"
-      data-testid="application-banner"
+      :data-testid="dataTestDisplay('application-banner')"
     >
       <template #title>
         <span class="app-banner__title"
@@ -179,7 +179,7 @@
           <SfButton
             class="app-banner__button sf-banner__call-to-action"
             aria-label="Go to Apple Product"
-            data-testid="banner-cta-button"
+            :data-testid="dataTestDisplay('banner-cta-button')"
           >
             <SfImage
               src="/assets/storybook/Home/apple.png"
@@ -191,7 +191,7 @@
           <SfButton
             class="app-banner__button sf-banner__call-to-action"
             aria-label="Go to Google Product"
-            data-testid="banner-cta-button"
+            :data-testid="dataTestDisplay('banner-cta-button')"
           >
             <SfImage
               src="/assets/storybook/Home/google.png"
@@ -222,6 +222,7 @@ import {
   mapMobileObserver,
   unMapMobileObserver,
 } from "../../../utilities/mobile-observer";
+import { dataTestDisplay } from "../../../utilities/helpers";
 
 export default {
   name: "Home",
@@ -397,6 +398,7 @@ export default {
       return (this.products[index].isInWishlist =
         !this.products[index].isInWishlist);
     },
+    dataTestDisplay,
   },
 };
 </script>

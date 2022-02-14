@@ -14,7 +14,7 @@
           :link="hasRouter ? getLinkTo(getPrev) : null"
           :disabled="!hasRouter && !canGoPrev ? true : false"
           aria-label="Go to previous page"
-          data-testid="pagination-button-prev"
+          :data-testid="dataTestDisplay('pagination-button-prev')"
           @click="hasRouter ? null : go(getPrev)"
         >
           <SfIcon icon="arrow_left" size="1.125rem" />
@@ -101,7 +101,7 @@
           :link="hasRouter ? getLinkTo(getNext) : null"
           :disabled="!hasRouter && !canGoNext ? true : false"
           aria-label="Go to previous next"
-          data-testid="pagination-button-next"
+          :data-testid="dataTestDisplay('pagination-button-next')"
           @click="hasRouter ? null : go(getNext)"
         >
           <SfIcon icon="arrow_right" size="1.125rem" />
@@ -114,6 +114,8 @@
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfLink from "../../atoms/SfLink/SfLink.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
+import { dataTestDisplay } from "../../../utilities/helpers";
+
 export default {
   name: "SfPagination",
   components: {
@@ -222,6 +224,7 @@ export default {
         return pageNumber;
       }
     },
+    dataTestDisplay,
   },
 };
 </script>

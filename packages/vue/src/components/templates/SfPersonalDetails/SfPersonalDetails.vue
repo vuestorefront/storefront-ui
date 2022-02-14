@@ -4,7 +4,7 @@
       <slot name="log-in" v-bind="{ buttonText, logInInfo }">
         <SfButton
           class="log-in__button sf-button--full-width color-secondary"
-          data-testid="login-button"
+          :data-testid="dataTestDisplay('login-button')"
           @click="$emit('log-in')"
           >{{ buttonText }}</SfButton
         >
@@ -81,7 +81,7 @@
             name="createAccount"
             :label="createAccountCheckboxLabel"
             class="form__checkbox"
-            data-testid="create-account-checkbox"
+            :data-testid="dataTestDisplay('create-account-checkbox')"
             @change="$emit('create-account', createAccount)"
           />
           <transition :name="transition">
@@ -93,7 +93,7 @@
               :label="createAccountInputLabel"
               class="form__element"
               required
-              data-testid="create-password-input"
+              :data-testid="dataTestDisplay('create-password-input')"
             />
           </transition>
         </slot>
@@ -109,6 +109,8 @@ import {
   SfHeading,
   SfCharacteristic,
 } from "@storefront-ui/vue";
+import { dataTestDisplay } from "../../../utilities/helpers";
+
 export default {
   name: "SfPersonalDetails",
   components: {
@@ -206,6 +208,7 @@ export default {
         [fieldName]: fieldValue,
       });
     },
+    dataTestDisplay,
   },
 };
 </script>

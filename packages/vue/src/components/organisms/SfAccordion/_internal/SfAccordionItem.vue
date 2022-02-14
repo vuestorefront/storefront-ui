@@ -14,7 +14,7 @@
         :aria-expanded="isOpen.toString()"
         :class="{ 'is-open': isOpen }"
         class="sf-button--pure sf-accordion-item__header"
-        :data-testid="'accordion-item-' + header"
+        :data-testid="dataTestDisplay(`accordion-item-${header}`)"
         @click="accordionClick"
       >
         {{ header }}
@@ -40,6 +40,8 @@ import { focus } from "../../../../utilities/directives";
 import SfTransition from "../../../../utilities/transitions/component/SfTransition";
 import SfChevron from "../../../atoms/SfChevron/SfChevron.vue";
 import SfButton from "../../../atoms/SfButton/SfButton.vue";
+import { dataTestDisplay } from "../../../../utilities/helpers";
+
 export default {
   name: "SfAccordionItem",
   directives: { focus },
@@ -63,6 +65,7 @@ export default {
     accordionClick() {
       this.$parent.$emit("toggle", this._uid);
     },
+    dataTestDisplay,
   },
 };
 </script>

@@ -1,5 +1,8 @@
 <template>
-  <span class="sf-image--wrapper" data-testid="image-wrapper">
+  <span
+    class="sf-image--wrapper"
+    :data-testid="dataTestDisplay('image-wrapper')"
+  >
     <component
       :is="imageComponentTag"
       :loading="loading"
@@ -43,6 +46,7 @@
 </template>
 <script>
 import imagePlaceholder from "@storefront-ui/shared/images/product_placeholder.svg";
+import { dataTestDisplay } from "../../../utilities/helpers";
 
 export default {
   name: "SfImage",
@@ -204,6 +208,7 @@ export default {
         ? `${Number.parseInt(srcset.width) || ""}w`
         : this.formatResolution(srcset.resolution);
     },
+    dataTestDisplay,
   },
 };
 </script>

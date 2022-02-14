@@ -1,13 +1,10 @@
 <template>
-  <div class="sf-order-review" data-testid="review">
+  <div class="sf-order-review" :data-testid="dataTestDisplay('review')">
     <slot name="heading" v-bind="{ reviewTitle, reviewTitleLevel }">
       <SfHeading
         :title="reviewTitle"
         :level="reviewTitleLevel"
-        class="
-          sf-heading--left sf-heading--no-underline
-          sf-order-review__heading
-        "
+        class="sf-heading--left sf-heading--no-underline sf-order-review__heading"
       />
     </slot>
     <slot name="personal-details" v-bind="{ order, shipping, buttonText }">
@@ -15,7 +12,7 @@
         <p class="sf-order-review__title">Personal details</p>
         <SfButton
           class="sf-button--text"
-          data-testid="personal-edit-button"
+          :data-testid="dataTestDisplay('personal-edit-button')"
           @click="$emit('click:personal-details-edit', 0)"
           >{{ buttonText }}
         </SfButton>
@@ -43,7 +40,7 @@
         <p class="sf-order-review__title">Shipping details</p>
         <SfButton
           class="sf-button--text"
-          data-testid="shipping-edit-button"
+          :data-testid="dataTestDisplay('shipping-edit-button')"
           @click="$emit('click:shipping-details-edit', 1)"
         >
           {{ buttonText }}
@@ -51,9 +48,7 @@
       </div>
       <p class="sf-order-review__content">
         <span
-          class="
-            sf-order-review__content-label sf-order-review__content-shipping
-          "
+          class="sf-order-review__content-label sf-order-review__content-shipping"
           >{{ shippingMethod.value }}</span
         ><br />
         {{ shipping.streetName }} {{ shipping.apartment }} <br />
@@ -65,7 +60,7 @@
         <p class="sf-order-review__title">Billing address</p>
         <SfButton
           class="sf-button--text"
-          data-testid="billing-edit-button"
+          :data-testid="dataTestDisplay('billing-edit-button')"
           @click="$emit('click:billing-details-edit', 2)"
         >
           {{ buttonText }}
@@ -92,7 +87,7 @@
         <p class="sf-order-review__title">Payment method</p>
         <SfButton
           class="sf-button--text"
-          data-testid="payment-edit-button"
+          :data-testid="dataTestDisplay('payment-edit-button')"
           @click="$emit('click:payment-details-edit', 2)"
         >
           {{ buttonText }}
@@ -110,7 +105,7 @@
         />
         <SfButton
           class="sf-order-review__promo-code-button"
-          data-testid="apply-button"
+          :data-testid="dataTestDisplay('apply-button')"
           @click="$emit('click:promo-code-apply')"
         >
           Apply
@@ -139,6 +134,8 @@ import {
   SfCharacteristic,
   SfInput,
 } from "@storefront-ui/vue";
+import { dataTestDisplay } from "../../../utilities/helpers";
+
 export default {
   name: "SfOrderReview",
   components: {
@@ -214,6 +211,9 @@ export default {
     paymentMethod() {
       return this.payment.paymentMethod;
     },
+  },
+  methods: {
+    dataTestDisplay,
   },
 };
 </script>

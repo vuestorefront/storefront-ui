@@ -4,7 +4,7 @@
       <slot name="prev" v-bind="{ go: () => go('prev') }">
         <SfArrow
           aria-label="previous"
-          data-testid="carousel-prev-button"
+          :data-testid="dataTestDisplay('carousel-prev-button')"
           @click="go('prev')"
         />
       </slot>
@@ -12,7 +12,7 @@
         <SfArrow
           aria-label="next"
           class="sf-arrow--right"
-          data-testid="carousel-next-button"
+          :data-testid="dataTestDisplay('carousel-next-button')"
           @click="go('next')"
         />
       </slot>
@@ -33,6 +33,8 @@ import Vue from "vue";
 import SfCarouselItem from "./_internal/SfCarouselItem.vue";
 import SfArrow from "../../atoms/SfArrow/SfArrow.vue";
 import Glide from "@glidejs/glide";
+import { dataTestDisplay } from "../../../utilities/helpers";
+
 Vue.component("SfCarouselItem", SfCarouselItem);
 export default {
   name: "SfCarousel",
@@ -135,6 +137,7 @@ export default {
           break;
       }
     },
+    dataTestDisplay,
   },
 };
 </script>

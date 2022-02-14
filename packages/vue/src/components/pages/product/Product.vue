@@ -51,7 +51,7 @@
             </div>
             <SfButton
               class="sf-button--text"
-              data-testid="read-all-reviews"
+              :data-testid="dataTestDisplay('read-all-reviews')"
               @click="changeTab(2)"
             >
               Read all reviews
@@ -191,6 +191,8 @@ import {
   SfBreadcrumbs,
   SfNotification,
 } from "@storefront-ui/vue";
+import { dataTestDisplay } from "../../../utilities/helpers";
+
 export default {
   name: "Product",
   components: {
@@ -359,6 +361,7 @@ export default {
         .scrollIntoView({ behavior: "smooth", block: "end" });
       this.openTab = tabNumber;
     },
+    dataTestDisplay,
   },
 };
 </script>

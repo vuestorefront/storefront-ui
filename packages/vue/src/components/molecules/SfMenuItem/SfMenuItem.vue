@@ -3,7 +3,7 @@
     :is="componentIs"
     class="sf-menu-item"
     v-bind="bind"
-    :data-testid="label"
+    :data-testid="dataTestDisplay('label')"
     v-on="$listeners"
   >
     <slot name="icon" />
@@ -27,6 +27,8 @@
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfLink from "../../atoms/SfLink/SfLink.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
+import { dataTestDisplay } from "../../../utilities/helpers";
+
 export default {
   name: "SfMenuItem",
   components: {
@@ -65,6 +67,9 @@ export default {
     componentIs() {
       return this.link ? "SfLink" : "SfButton";
     },
+  },
+  methods: {
+    dataTestDisplay,
   },
 };
 </script>

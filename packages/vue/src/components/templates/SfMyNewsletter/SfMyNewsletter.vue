@@ -1,6 +1,6 @@
 <template>
   <SfTabs :open-tab="1" class="sf-my-newsletter tab-orphan">
-    <SfTab :title="tabTitle" data-testid="newsletter-tab">
+    <SfTab :title="tabTitle" :data-testid="dataTestDisplay('newsletter-tab')">
       <slot name="tab-description" v-bind="{ tabDescription }">
         <p class="message">
           {{ tabDescription }}
@@ -25,7 +25,7 @@
         <slot name="form-button" v-bind="{ buttonText }">
           <SfButton
             class="form__button"
-            data-testid="save-changes-button"
+            :data-testid="dataTestDisplay('save-changes-button')"
             @click="$emit('save-changes', newsletter)"
             >{{ buttonText }}</SfButton
           >
@@ -43,6 +43,8 @@
 </template>
 <script>
 import { SfTabs, SfCheckbox, SfButton } from "@storefront-ui/vue";
+import { dataTestDisplay } from "../../../utilities/helpers";
+
 export default {
   name: "SfMyNewsletter",
   components: { SfTabs, SfCheckbox, SfButton },
@@ -73,6 +75,9 @@ export default {
     return {
       newsletter: [],
     };
+  },
+  methods: {
+    dataTestDisplay,
   },
 };
 </script>

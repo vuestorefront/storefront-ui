@@ -15,10 +15,7 @@
       >
         <SfLink
           :link="link"
-          class="
-            sf-product-card-horizontal__link
-            sf-product-card-horizontal__link--image
-          "
+          class="sf-product-card-horizontal__link sf-product-card-horizontal__link--image"
         >
           <template v-if="Array.isArray(image)">
             <SfImage
@@ -119,7 +116,7 @@
           <SfIcon
             :icon="currentWishlistIcon"
             size="19px"
-            data-test="sf-wishlist-icon"
+            :data-test="dataTestDisplay('sf-wishlist-icon')"
           />
         </slot>
       </SfButton>
@@ -134,6 +131,7 @@ import SfRating from "../../atoms/SfRating/SfRating.vue";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfAddToCart from "../../molecules/SfAddToCart/SfAddToCart.vue";
+import { dataTestDisplay } from "../../../utilities/helpers";
 
 export default {
   name: "SfProductCardHorizontal",
@@ -257,6 +255,7 @@ export default {
     toggleIsInWishlist() {
       this.$emit("click:wishlist", !this.isInWishlist);
     },
+    dataTestDisplay,
   },
 };
 </script>

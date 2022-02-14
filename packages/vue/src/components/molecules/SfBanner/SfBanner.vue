@@ -31,7 +31,7 @@
           v-if="buttonText && !isMobileView"
           :link="link"
           class="sf-banner__call-to-action color-secondary"
-          data-testid="banner-cta-button"
+          :data-testid="dataTestDisplay('banner-cta-button')"
           v-on="!isMobileView ? $listeners : {}"
         >
           {{ buttonText }}
@@ -44,6 +44,7 @@
 <script>
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfLink from "../../atoms/SfLink/SfLink.vue";
+import { dataTestDisplay } from "../../../utilities/helpers";
 import {
   mapMobileObserver,
   unMapMobileObserver,
@@ -133,6 +134,9 @@ export default {
   },
   beforeDestroy() {
     unMapMobileObserver();
+  },
+  methods: {
+    dataTestDisplay,
   },
 };
 </script>

@@ -13,7 +13,7 @@
       '--color-background': props.color,
     }"
     :aria-pressed="props.selected.toString()"
-    :data-testid="props.color"
+    :data-testid="dataTestDisplay(props.color)"
     v-bind="data.attrs"
     v-on="listeners"
   >
@@ -43,6 +43,7 @@
 import SfBadge from "../SfBadge/SfBadge.vue";
 import SfIcon from "../SfIcon/SfIcon.vue";
 import SfButton from "../SfButton/SfButton.vue";
+import { dataTestDisplay } from "../../../utilities/helpers";
 export default {
   name: "SfColor",
   inject: {
@@ -68,6 +69,7 @@ export default {
       default: true,
     },
   },
+  dataTestDisplay,
 };
 </script>
 <style lang="scss">

@@ -27,7 +27,7 @@
           class="sf-button--pure sf-modal__close desktop-only"
           aria-label="Close modal"
           type="button"
-          data-testid="close-button"
+          :data-testid="dataTestDisplay('close-button')"
           @click="close"
         >
           <slot name="close">
@@ -50,6 +50,8 @@ import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
 import { focusTrap } from "../../../utilities/directives";
 import { clickOutside } from "../../../utilities/directives";
 import { isClient } from "../../../utilities/helpers";
+import { dataTestDisplay } from "../../../utilities/helpers";
+
 export default {
   name: "SfModal",
   directives: { focusTrap, clickOutside },
@@ -141,6 +143,7 @@ export default {
         this.className = this.$vnode.data.class;
       }
     },
+    dataTestDisplay,
   },
 };
 </script>

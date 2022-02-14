@@ -4,10 +4,7 @@
       <SfHeading
         :title="orderTitle"
         :level="orderTitleLevel"
-        class="
-          sf-heading--left sf-heading--no-underline
-          sf-order-summary__heading
-        "
+        class="sf-heading--left sf-heading--no-underline sf-order-summary__heading"
       />
     </slot>
     <div class="highlighted highlighted--total">
@@ -24,35 +21,23 @@
         <SfProperty
           :name="propertiesNames[0]"
           :value="totalItems"
-          class="
-            sf-property--full-width sf-property--large
-            sf-order-summary__property
-          "
+          class="sf-property--full-width sf-property--large sf-order-summary__property"
         />
         <SfProperty
           :name="propertiesNames[1]"
           :value="subtotal"
-          class="
-            sf-property--full-width sf-property--large
-            sf-order-summary__property
-          "
+          class="sf-property--full-width sf-property--large sf-order-summary__property"
         />
         <SfProperty
           :name="propertiesNames[2]"
           :value="shippingMethod.price"
-          class="
-            sf-property--full-width sf-property--large
-            sf-order-summary__property
-          "
+          class="sf-property--full-width sf-property--large sf-order-summary__property"
         />
         <SfDivider class="sf-order-summary__divider" />
         <SfProperty
           :name="propertiesNames[3]"
           :value="total"
-          class="
-            sf-property--full-width sf-property--large
-            sf-order-summary__property
-          "
+          class="sf-property--full-width sf-property--large sf-order-summary__property"
         />
       </slot>
     </div>
@@ -66,7 +51,7 @@
         />
         <SfButton
           class="sf-order-summary__promo-code-button"
-          data-testid="apply-button"
+          :data-testid="dataTestDisplay('apply-button')"
           @click="$emit('click:apply-code')"
         >
           Apply
@@ -99,6 +84,8 @@ import {
   SfCharacteristic,
   SfInput,
 } from "@storefront-ui/vue";
+import { dataTestDisplay } from "../../../utilities/helpers";
+
 export default {
   name: "SfOrderSummary",
   components: {
@@ -173,6 +160,9 @@ export default {
       const total = subtotal + (isNaN(shipping) ? 0 : shipping);
       return "$" + total.toFixed(2);
     },
+  },
+  methods: {
+    dataTestDisplay,
   },
 };
 </script>

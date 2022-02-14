@@ -1,5 +1,5 @@
 <template>
-  <div data-testid="review">
+  <div :data-testid="dataTestDisplay('review')">
     <SfHeading
       title="Order review"
       :level="3"
@@ -9,7 +9,7 @@
       <p class="review__title">Personal details</p>
       <SfButton
         class="sf-button--text"
-        data-testid="personal-edit-button"
+        :data-testid="dataTestDisplay('personal-edit-button')"
         @click="$emit('click:edit', 0)"
         >Edit
       </SfButton>
@@ -31,7 +31,7 @@
       <p class="review__title">Shipping details</p>
       <SfButton
         class="sf-button--text"
-        data-testid="shipping-edit-button"
+        :data-testid="dataTestDisplay('shipping-edit-button')"
         @click="$emit('click:edit', 1)"
       >
         Edit
@@ -50,7 +50,7 @@
       <p class="review__title">Billing address</p>
       <SfButton
         class="sf-button--text"
-        data-testid="billing-edit-button"
+        :data-testid="dataTestDisplay('billing-edit-button')"
         @click="$emit('click:edit', 2)"
       >
         Edit
@@ -73,7 +73,7 @@
       <p class="review__title">Payment method</p>
       <SfButton
         class="sf-button--text"
-        data-testid="payment-edit-button"
+        :data-testid="dataTestDisplay('payment-edit-button')"
         @click="$emit('click:edit', 2)"
       >
         Edit
@@ -89,7 +89,7 @@
       />
       <SfButton
         class="promo-code__button"
-        data-testid="apply-button"
+        :data-testid="dataTestDisplay('apply-button')"
         @click="$emit('click:apply')"
       >
         Apply
@@ -115,6 +115,8 @@ import {
   SfCharacteristic,
   SfInput,
 } from "@storefront-ui/vue";
+import { dataTestDisplay } from "../../../utilities/helpers";
+
 export default {
   name: "OrderReview",
   components: {
@@ -167,6 +169,9 @@ export default {
       );
       return method ? method : { label: "" };
     },
+  },
+  methods: {
+    dataTestDisplay,
   },
 };
 </script>

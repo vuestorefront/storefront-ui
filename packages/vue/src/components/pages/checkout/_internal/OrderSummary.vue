@@ -37,7 +37,7 @@
       />
       <SfButton
         class="promo-code__button"
-        data-testid="apply-button"
+        :data-testid="dataTestDisplay('apply-button')"
         @click="$emit('click:apply')"
       >
         Apply
@@ -79,6 +79,8 @@ import {
   SfCharacteristic,
   SfInput,
 } from "@storefront-ui/vue";
+import { dataTestDisplay } from "../../../utilities/helpers";
+
 export default {
   name: "OrderSummary",
   components: {
@@ -168,6 +170,9 @@ export default {
       const total = subtotal + (isNaN(shipping) ? 0 : shipping);
       return "$" + total.toFixed(2);
     },
+  },
+  methods: {
+    dataTestDisplay,
   },
 };
 </script>

@@ -11,7 +11,7 @@
           v-if="isLogIn"
           key="log-in"
           class="modal-content"
-          data-testid="login-modal"
+          :data-testid="dataTestDisplay('login-modal')"
         >
           <form class="form" @submit.prevent="() => false">
             <SfInput
@@ -38,14 +38,14 @@
             <SfButton
               type="submit"
               class="sf-button--full-width form__submit"
-              data-testid="log-in-button"
+              :data-testid="dataTestDisplay('log-in-button')"
             >
               Log In
             </SfButton>
           </form>
           <SfButton
             class="sf-button--text action-button"
-            data-testid="forgotten-password-button"
+            :data-testid="dataTestDisplay('forgotten-password-button')"
           >
             Forgotten password?
           </SfButton>
@@ -57,7 +57,7 @@
             />
             <SfButton
               class="sf-button--text"
-              data-testid="register-now-button"
+              :data-testid="dataTestDisplay('register-now-button')"
               @click="isLogIn = false"
             >
               Register now
@@ -68,7 +68,7 @@
           v-else
           key="sign-up"
           class="modal-content"
-          data-testid="signin-modal"
+          :data-testid="dataTestDisplay('signin-modal')"
         >
           <form class="form" @submit.prevent="() => false">
             <SfInput
@@ -100,14 +100,14 @@
             <SfButton
               type="submit"
               class="sf-button--full-width form__submit"
-              data-testid="create-acount-button"
+              :data-testid="dataTestDisplay('create-acount-button')"
             >
               Create an account
             </SfButton>
           </form>
           <SfButton
             class="sf-button--text action-button"
-            data-testid="log-in-account"
+            :data-testid="dataTestDisplay('log-in-account')"
             @click="isLogIn = true"
           >
             or Log In To Your Account
@@ -117,7 +117,7 @@
     </SfModal>
     <SfButton
       class="open-button"
-      data-testid="open-modal-button"
+      :data-testid="dataTestDisplay('open-modal-button')"
       @click="toggleModal"
     >
       Open Modal
@@ -132,6 +132,8 @@ import {
   SfCheckbox,
   SfHeading,
 } from "@storefront-ui/vue";
+import { dataTestDisplay } from "../../../utilities/helpers";
+
 export default {
   name: "Login",
   components: {
@@ -172,6 +174,7 @@ export default {
     toggleModal() {
       this.openModal = !this.openModal;
     },
+    dataTestDisplay,
   },
 };
 </script>

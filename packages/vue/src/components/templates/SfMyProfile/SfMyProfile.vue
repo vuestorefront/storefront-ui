@@ -35,7 +35,7 @@
           />
           <SfButton
             class="form__button"
-            data-testid="save-changes-button"
+            :data-testid="dataTestDisplay('save-changes-button')"
             @click="updatePersonal"
           >
             {{ saveButtonText }}
@@ -91,7 +91,7 @@
           />
           <SfButton
             class="form__button"
-            data-testid="update-password-button"
+            :data-testid="dataTestDisplay('update-password-button')"
             @click="updatePassword"
           >
             {{ updateButtonText }}
@@ -103,6 +103,8 @@
 </template>
 <script>
 import { SfTabs, SfInput, SfButton } from "@storefront-ui/vue";
+import { dataTestDisplay } from "../../../utilities/helpers";
+
 export default {
   name: "SfMyProfile",
   components: {
@@ -177,6 +179,7 @@ export default {
       this.$emit("update:password", password);
     },
   },
+  dataTestDisplay,
 };
 </script>
 <style lang="scss" scoped>

@@ -6,7 +6,7 @@
       'has-text': !!value,
       invalid: !valid,
     }"
-    :data-testid="name"
+    :data-testid="dataTestDisplay('name')"
   >
     <div class="sf-input__wrapper">
       <input
@@ -84,6 +84,8 @@ import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import { focus } from "../../../utilities/directives";
 import { willChange } from "../../../utilities/directives";
+import { dataTestDisplay } from "../../../utilities/helpers";
+
 export default {
   name: "SfInput",
   directives: {
@@ -193,6 +195,7 @@ export default {
       this.isPasswordVisible = !this.isPasswordVisible;
       this.inputType = this.isPasswordVisible ? "text" : "password";
     },
+    dataTestDisplay,
   },
 };
 </script>

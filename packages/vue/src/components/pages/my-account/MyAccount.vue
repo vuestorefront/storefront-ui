@@ -11,19 +11,25 @@
       @click:change="changeActivePage"
     >
       <SfContentCategory title="Personal Details">
-        <SfContentPage title="My profile" data-testid="my-profile">
+        <SfContentPage
+          title="My profile"
+          :data-testid="dataTestDisplay('my-profile')"
+        >
           <SfMyProfile
             :account="account"
-            data-testid="my-profile-tabs"
+            :data-testid="dataTestDisplay('my-profile-tabs')"
             @update:personal="account = { ...account, ...$event }"
             @update:password="account = { ...account, ...$event }"
           />
         </SfContentPage>
-        <SfContentPage title="Shipping details" data-testid="shipping-details">
+        <SfContentPage
+          title="Shipping details"
+          :data-testid="dataTestDisplay('shipping-details')"
+        >
           <SfShippingDetails
             :account="account"
             :countries="countries"
-            data-testid="shipping-details-tabs"
+            :data-testid="dataTestDisplay('shipping-details-tabs')"
             @update:shipping="account = { ...account, ...$event }"
           />
         </SfContentPage>
@@ -49,6 +55,8 @@ import {
   SfOrderHistory,
 } from "@storefront-ui/vue";
 import { countries } from "../../templates/internalData.js";
+import { dataTestDisplay } from "../../../utilities/helpers";
+
 export default {
   name: "MyAccount",
   components: {
@@ -119,6 +127,7 @@ export default {
       }
       this.activePage = title;
     },
+    dataTestDisplay,
   },
 };
 </script>

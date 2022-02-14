@@ -9,7 +9,7 @@
         props.disabled || Boolean(props.min !== null && props.qty <= props.min)
       "
       class="sf-button--pure sf-quantity-selector__button"
-      data-testid="decrease"
+      :data-testid="$options.dataTestDisplay('decrease')"
       @click="
         $options.handleInput(
           Number(props.qty) - 1,
@@ -28,7 +28,7 @@
       :value="Number(props.qty)"
       :disabled="props.disabled"
       class="sf-quantity-selector__input"
-      data-testid="sf-quantity-selector input"
+      :data-testid="$options.dataTestDisplay('sf-quantity-selector input')"
       @input="$options.handleInput($event, listeners, props.min, props.max)"
       @blur="$options.handleBlur(listeners)"
     />
@@ -38,7 +38,7 @@
         props.disabled || Boolean(props.max !== null && props.qty >= props.max)
       "
       class="sf-button--pure sf-quantity-selector__button"
-      data-testid="increase"
+      :data-testid="$options.dataTestDisplay('increase')"
       @click="
         $options.handleInput(
           Number(props.qty) + 1,
@@ -55,6 +55,7 @@
 <script>
 import SfInput from "../../atoms/SfInput/SfInput.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
+import { dataTestDisplay } from "../../../utilities/helpers";
 
 export default {
   name: "SfQuantitySelector",
@@ -104,6 +105,7 @@ export default {
     const key = Math.random().toString(16).slice(2);
     return "quantitySelector" + key;
   },
+  dataTestDisplay,
 };
 </script>
 <style lang="scss">

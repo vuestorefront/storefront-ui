@@ -1,5 +1,5 @@
 <template>
-  <div class="sf-payment" data-testid="payment">
+  <div class="sf-payment" :data-testid="dataTestDisplay('payment')">
     <slot
       name="billing-heading"
       v-bind="{ billingHeading, billingHeadingLevel }"
@@ -105,15 +105,9 @@
           v-model="country"
           :value="country"
           :placeholder="billingSelectLabel"
-          class="
-            form__element
-            form__element--half
-            form__element--half-even
-            form__select
-            sf-select--underlined
-          "
+          class="form__element form__element--half form__element--half-even form__select sf-select--underlined"
           required
-          data-testid="country"
+          :data-testid="dataTestDisplay('country')"
           @change="updateField('country', $event)"
         >
           <SfSelectOption
@@ -155,7 +149,10 @@
     </slot>
     <div class="form">
       <slot name="payment-form" v-bind="{ paymentMethods }">
-        <div class="payment-methods" data-testid="payment-methods">
+        <div
+          class="payment-methods"
+          :data-testid="dataTestDisplay('payment-methods')"
+        >
           <slot name="payment-methods">
             <SfRadio
               v-for="item in paymentMethods"
@@ -218,11 +215,7 @@
               />
               <div class="credit-card-form__group">
                 <span
-                  class="
-                    credit-card-form__label
-                    credit-card-form__label--small
-                    credit-card-form__label--required
-                  "
+                  class="credit-card-form__label credit-card-form__label--small credit-card-form__label--required"
                   >{{ expiryDateLabel }}</span
                 >
                 <div class="credit-card-form__element">
@@ -230,12 +223,7 @@
                     v-model="cardMonth"
                     :value="cardMonth"
                     label="Month"
-                    class="
-                      credit-card-form__input
-                      credit-card-form__input--with-spacer
-                      form__select
-                      sf-select--underlined
-                    "
+                    class="credit-card-form__input credit-card-form__input--with-spacer form__select sf-select--underlined"
                     @change="updateField('cardMonth', $event)"
                   >
                     <SfSelectOption
@@ -250,11 +238,7 @@
                     v-model="cardYear"
                     :value="cardYear"
                     label="Year"
-                    class="
-                      credit-card-form__input
-                      form__select
-                      sf-select--underlined
-                    "
+                    class="credit-card-form__input form__select sf-select--underlined"
                     @change="updateField('cardYear', $event)"
                   >
                     <SfSelectOption
@@ -274,11 +258,7 @@
                   type="number"
                   label="Code CVC"
                   name="cardCVC"
-                  class="
-                    credit-card-form__input
-                    credit-card-form__input--small
-                    credit-card-form__input--with-spacer
-                  "
+                  class="credit-card-form__input credit-card-form__input--small credit-card-form__input--with-spacer"
                   @input="updateField('cardCVC', $event)"
                 />
                 <SfButton
@@ -312,6 +292,8 @@ import {
   SfImage,
   SfCheckbox,
 } from "@storefront-ui/vue";
+import { dataTestDisplay } from "../../../utilities/helpers";
+
 export default {
   name: "SfPayment",
   components: {
@@ -505,6 +487,7 @@ export default {
         [fieldName]: fieldValue,
       });
     },
+    dataTestDisplay,
   },
 };
 </script>

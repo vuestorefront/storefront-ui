@@ -2,9 +2,9 @@
   <SfTabs
     class="sf-order-history"
     :open-tab="1"
-    data-testid="order-history-tabs"
+    :data-testid="dataTestDisplay('order-history-tabs')"
   >
-    <SfTab :title="tabTitle" data-testid="my-orders">
+    <SfTab :title="tabTitle" :data-testid="dataTestDisplay('my-orders')">
       <slot
         name="order-history-description"
         v-bind="{ orderHistoryDescription }"
@@ -36,7 +36,7 @@
                     <span class="smartphone-only">Download</span>
                     <SfButton
                       class="desktop-only sf-button--text orders__download-all"
-                      data-testid="download-all-button"
+                      :data-testid="dataTestDisplay('download-all-button')"
                       @click="$emit('download-all')"
                       >Download all
                     </SfButton>
@@ -67,7 +67,7 @@
                     >
                     <SfButton
                       class="sf-button--text desktop-only"
-                      data-testid="view-details-button"
+                      :data-testid="dataTestDisplay('view-details-button')"
                       @click="$emit('view-details')"
                       >View details</SfButton
                     >
@@ -83,6 +83,7 @@
 </template>
 <script>
 import { SfTabs, SfTable, SfButton } from "@storefront-ui/vue";
+import { dataTestDisplay } from "../../../utilities/helpers";
 
 export default {
   name: "SfOrderHistory",
@@ -133,6 +134,9 @@ export default {
     ordersHistory() {
       return this.orders;
     },
+  },
+  methods: {
+    dataTestDisplay,
   },
 };
 </script>
