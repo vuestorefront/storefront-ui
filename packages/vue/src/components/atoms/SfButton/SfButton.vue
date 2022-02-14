@@ -59,6 +59,4 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-@import "~@storefront-ui/shared/styles/components/atoms/SfButton.scss";
-</style>
+<style lang="scss" src="./SfButton.scss"></style>

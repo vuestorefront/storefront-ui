@@ -1,0 +1,44 @@
+@import "../../../css/helpers";
+
+.sf-card {
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  &__image {
+    display: block;
+    & .sf-image {
+      width: 100%;
+    }
+  }
+  &__details {
+    background: var(--c-light);
+    text-align: center;
+    padding: var(--spacer-sm) var(--spacer-sm) var(--spacer-lg);
+  }
+  &__title {
+    padding: 0 0 var(--spacer-sm);
+    --heading-title-font-weight: var(--font-weight--bold);
+    --heading-title-font-size: var(--h3-font-size);
+    --heading-title-font-family: var(--font-family--secondary);
+  }
+  &__description {
+    margin: 0;
+    color: var(--c-link);
+    @include font(
+      --card-description-font,
+      var(--font-weight--normal),
+      var(--font-size--base),
+      1.6,
+      var(--font-family--primary)
+    );
+  }
+  &__action {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -1.5625rem);
+  }
+  @include for-desktop {
+    width: 23.375rem;
+    --heading-title-font-weight: var(--font-weight--semibold);
+  }
+}

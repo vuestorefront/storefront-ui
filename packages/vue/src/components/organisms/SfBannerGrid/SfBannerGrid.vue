@@ -57,6 +57,4 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-@import "~@storefront-ui/shared/styles/components/organisms/SfBannerGrid.scss";
-</style>
+<style lang="scss" src="./SfBannerGrid.scss"></style>

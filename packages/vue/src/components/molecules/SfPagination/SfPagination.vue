@@ -225,6 +225,4 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-@import "~@storefront-ui/shared/styles/components/molecules/SfPagination.scss";
-</style>
+<style lang="scss" src="./SfPagination.scss"></style>

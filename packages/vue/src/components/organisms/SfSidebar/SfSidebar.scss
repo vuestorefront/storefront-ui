@@ -1,0 +1,109 @@
+@import "../../../css/helpers";
+.sf-sidebar {
+  &__aside {
+    position: fixed;
+    top: var(--sidebar-top, 0);
+    left: var(--sidebar-left, 0);
+    right: var(--sidebar-right, 0);
+    bottom: var(--sidebar-bottom, 0);
+    z-index: var(--sidebar-z-index, 1);
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: var(--sidebar-width);
+    height: 100%;
+    background-color: var(--sidebar-background, var(--c-white));
+    box-shadow: var(--sidebar-box-shadow, 0px 4px 11px rgba(29, 31, 34, 0.1));
+  }
+  &__top {
+    padding: var(
+      --sidebar-top-padding,
+      var(--spacer-sm) var(--spacer-sm) 0 var(--spacer-sm)
+    );
+    @include font(
+      --sidebar-top,
+      var(--font-weight--light),
+      var(--font-size--base),
+      1.6,
+      var(--font-family--primary)
+    );
+  }
+  &__content {
+    overflow: auto;
+    display: var(--sidebar-content-display, flex);
+    flex-direction: var(--sidebar-content-flex-direction, column);
+    box-sizing: border-box;
+    width: var(--sidebar-content-width);
+    height: 100%;
+    scrollbar-color: var(--c-gray-variant) var(--c-light);
+    scrollbar-width: thin;
+    padding: var(
+      --sidebar-content-padding,
+      var(--spacer-base) var(--spacer-sm)
+    );
+    color: var(--sidebar-content-color, var(--c-text));
+    @include font(
+      --sidebar-content-font,
+      var(--font-weight--medium),
+      var(--font-size--base),
+      1.6,
+      var(--font-family--secondary)
+    );
+    &::-webkit-scrollbar {
+      width: 0;
+    }
+  }
+  &__title {
+    --heading-title-color: var(--c-dark-variant);
+    --heading-title-font-size: var(--font-size--xl);
+    --heading-title-font-weight: var(--font-weight--semibold);
+    --heading-description-font-size: var(--font-size--xl);
+    display: var(--sidebar-title-display);
+    margin: var(--sidebar-title, 0 0 var(--spacer-lg) 0);
+  }
+  &__bottom {
+    position: sticky;
+    top: 0;
+    bottom: auto;
+    padding: var(--sidebar-bottom-padding, var(--spacer-sm));
+    @include font(
+      --sidebar-bottom,
+      var(--font-weight--light),
+      var(--font-size--base),
+      1.6,
+      var(--font-family--primary)
+    );
+  }
+  &__circle-icon {
+    --circle-icon-position: absolute;
+    z-index: 1;
+    display: var(--sidebar-circle-icon-display, flex);
+    left: var(--sidebar-circle-icon-left);
+    top: var(--sidebar-circle-icon-top, var(--spacer-xl));
+    right: var(--sidebar-circle-icon-right, 0);
+    transform: var(--sidebar-circle-icon-transform, translate3d(50%, 0, 0));
+  }
+  @include for-desktop {
+    --sidebar-width: 25.5rem;
+    --sidebar-top-padding: var(--spacer-xl) var(--spacer-xl) var(--spacer-sm)
+      var(--spacer-xl);
+    --sidebar-content-padding: var(--spacer-base) var(--spacer-xl);
+    --sidebar-bottom-padding: var(--spacer-sm) var(--spacer-xl) var(--spacer-xl)
+      var(--spacer-xl);
+    &--right {
+      --sidebar-left: auto;
+      --sidebar-right: 0;
+      --sidebar-top-padding: var(--spacer-base);
+      --sidebar-circle-icon-top: var(--spacer-sm);
+      --sidebar-content-padding: var(--spacer-base);
+      & .sf-sidebar__circle-icon {
+        --button-background: transparent;
+        --icon-color: var(--c-link);
+        &:hover {
+          --button-box-shadow-opacity: 0;
+        }
+      }
+      --sidebar-circle-icon-transform: translate3d(-25%, 0, 0);
+    }
+  }
+}

@@ -11,6 +11,4 @@ export default {
   name: "SfBottomNavigation",
 };
 </script>
-<style lang="scss">
-@import "~@storefront-ui/shared/styles/components/organisms/SfBottomNavigation.scss";
-</style>
+<style lang="scss" src="./SfBottomNavigation.scss"></style>

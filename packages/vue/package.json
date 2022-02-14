@@ -32,6 +32,7 @@
   "dependencies": {
     "@glidejs/glide": "^3.3.0",
     "@storefront-ui/shared": "0.12.1",
+    "@vue/eslint-config-typescript": "^10.0.0",
     "body-scroll-lock": "^3.0.1",
     "cloudinary-build-url": "^0.1.1",
     "core-js": "^3.6.5",

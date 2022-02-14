@@ -1,0 +1,94 @@
+@import "../../../css/helpers";
+
+.sf-skeleton {
+  box-sizing: border-box;
+  width: 100%;
+  background: var(--c-text-disabled);
+  position: relative;
+  overflow: hidden;
+  margin: var(--spacer-xs) 0;
+  z-index: 0;
+  &--avatar {
+    border-radius: 100%;
+    width: 6.25rem;
+    height: 6.25rem;
+  }
+  &--paragraph {
+    height: 1rem;
+  }
+  &--button {
+    height: 3.125rem;
+    width: 10.5rem;
+  }
+  &--image {
+    height: 22.625rem;
+    width: 13.5rem;
+  }
+  &--input {
+    height: 1.875rem;
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    animation: left-to-right 2.5s linear infinite;
+    background-image: linear-gradient(
+      90deg,
+      var(--c-text-disabled) 0px,
+      var(--c-light) var(--spacer-xl),
+      var(--c-text-disabled) var(--spacer-2xl)
+    );
+  }
+  &--fade {
+    &:before {
+      animation: fade 2.5s linear infinite;
+      background-image: none;
+      background-color: var(--c-light);
+    }
+  }
+  &--pulsate {
+    &:before {
+      background-image: none;
+    }
+    animation: pulsate 2.5s linear infinite;
+  }
+  &--no-animation {
+    &:before {
+      animation: none;
+      background: var(--c-text-disabled);
+    }
+  }
+}
+
+@keyframes left-to-right {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes fade {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+}
+
+@keyframes pulsate {
+  0%,
+  100% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(0.95);
+  }
+}

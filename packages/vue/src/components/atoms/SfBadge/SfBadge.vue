@@ -13,6 +13,4 @@ export default {
   name: "SfBadge",
 };
 </script>
-<style lang="scss">
-@import "~@storefront-ui/shared/styles/components/atoms/SfBadge.scss";
-</style>
+<style lang="scss" src="./SfBadge.scss"></style>

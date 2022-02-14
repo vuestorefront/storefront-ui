@@ -144,6 +144,4 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-@import "~@storefront-ui/shared/styles/components/molecules/SfModal.scss";
-</style>
+<style lang="scss" src="./SfModal.scss"></style>

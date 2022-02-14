@@ -68,6 +68,4 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-@import "~@storefront-ui/shared/styles/components/molecules/SfMenuItem.scss";
-</style>
+<style lang="scss" src="./SfMenuItem.scss"></style>

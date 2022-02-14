@@ -1,0 +1,49 @@
+@import "../../../css/helpers";
+.sf-property {
+  display: flex;
+  color: var(--property-color, var(--c-text));
+  &__name {
+    margin: var(--property-name-margin, 0 var(--spacer-xs) 0 0);
+    color: var(--property-name-color, var(--c-secondary-variant));
+    text-transform: var(--property-name-text-transform);
+    @include font(
+      --property-name-font,
+      var(--font-weight--normal),
+      var(--font-size--base),
+      1.2,
+      var(--font-family--secondary)
+    );
+    &::after {
+      content: var(--property-name-content, ":");
+    }
+  }
+  &__value {
+    color: var(--property-value-color);
+    @include font(
+      --property-value-font,
+      var(--font-weight--semibold),
+      var(--font-size--base),
+      1.2,
+      var(--font-family--secondary)
+    );
+  }
+  &--large {
+    --property-name-font-size: var(--font-size--lg);
+    --property-name-font-weight: var(--font-weight--medium);
+    --property-value-font-size: var(--font-size--lg);
+    --property-value-font-weight: var(--font-weight--semibold);
+  }
+  &--full-width {
+    justify-content: space-between;
+    width: 100%;
+  }
+  &--value-in-middle {
+    .sf-property__name,
+    .sf-property__value {
+      flex: 1;
+    }
+  }
+  &--without-suffix {
+    --property-name-content: "";
+  }
+}

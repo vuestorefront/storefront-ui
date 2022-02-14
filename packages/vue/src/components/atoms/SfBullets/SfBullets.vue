@@ -95,6 +95,4 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-@import "~@storefront-ui/shared/styles/components/atoms/SfBullets.scss";
-</style>
+<style lang="scss" src="./SfBullets.scss"></style>

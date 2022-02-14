@@ -186,6 +186,4 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-@import "~@storefront-ui/shared/styles/components/organisms/SfSidebar.scss";
-</style>
+<style lang="scss" src="./SfSidebar.scss"></style>

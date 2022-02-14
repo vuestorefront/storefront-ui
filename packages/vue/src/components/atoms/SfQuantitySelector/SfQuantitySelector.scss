@@ -1,0 +1,64 @@
+@import "../../../css/helpers";
+.sf-quantity-selector {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: var(--quantity-selector-justify-content);
+  box-sizing: border-box;
+  height: var(--quantity-selector-height, 3.25rem);
+  width: var(--quantity-selector-width, 6.75rem);
+  background: var(--quantity-selector-background, var(--c-light));
+  @include font(
+    --quantity-selector-font,
+    var(--font-weight--normal),
+    var(--font-size--lg),
+    1.6,
+    var(--font-family--primary)
+  );
+  @include border(--quantity-selector-border, 0, solid, var(--c-light));
+  &__button {
+    --button-height: 100%;
+    --button-padding: var(--spacer-2xs) var(--spacer-xs) 0;
+    --button-background: transparent;
+    --button-color: var(--c-text);
+    &:hover {
+      --button-background: transparent;
+      --button-box-shadow: none;
+      text-shadow: var(
+        --quantity-selector-text-shadow,
+        0px 4px 4px rgba(0, 0, 0, 0.25)
+      );
+    }
+  }
+  &__input {
+    --input-bar-display: none;
+    --input-height: var(--quantity-selector-height, 3.25rem);
+    --input-padding: 0;
+    --input-margin: 0;
+    --input-border: 0;
+    --input-text-align: center;
+    & input {
+      font-family: inherit;
+    }
+  }
+  &--secondary {
+    --quantity-selector-background: transparent;
+    --quantity-selector-border-width: 0 0 1px 0;
+    --quantity-selector-width: 100%;
+    --quantity-selector-justify-content: center;
+    --quantity-selector-text-shadow: none;
+    .sf-quantity-selector__button {
+      --button-background: var(--c-light);
+      --button-border-radius: 100%;
+      --button-padding: 0;
+      --button-size: 1.625rem;
+      flex: none;
+    }
+    .sf-quantity-selector__input {
+      --input-width: 9rem;
+    }
+  }
+  &--transparent {
+    --quantity-selector-background: transparent;
+  }
+}

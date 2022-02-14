@@ -1,0 +1,10 @@
+@import "../../../css/helpers";
+.sf-rating {
+  display: flex;
+  --icon-color: var(--c-primary);
+  --icon-color-negative: var(--c-gray-variant);
+  --icon-size: 0.875rem;
+  &__icon--negative {
+    --icon-color: var(--icon-color-negative);
+  }
+}

@@ -1,0 +1,73 @@
+@import "../../../css/helpers";
+.sf-notification {
+  position: relative;
+  display: flex;
+  align-items: var(--notification-align-items, center);
+  box-sizing: border-box;
+  max-width: var(--notification-max-width, 20.9375rem);
+  padding: var(--notification-padding, var(--spacer-sm) var(--spacer-xs));
+  box-shadow: var(
+    --notification-box-shadow,
+    0 4px 11px rgba(var(--c-dark-base), 0.1)
+  );
+  border-radius: var(--notification-border-radius, 5px);
+  background: var(--notification-background);
+  color: var(--notification-color, var(--c-white));
+  @include font(
+    --notification-font,
+    var(--font-weight--medium),
+    var(--font-size--lg),
+    normal,
+    var(--font-family--secondary)
+  );
+  &__title {
+    display: var(--notification-title-display, block);
+    @include font(
+      --notification-title-font,
+      var(--font-weight--medium),
+      var(--font-size--lg),
+      normal,
+      var(--font-family--secondary)
+    );
+    &::after {
+      content: " ";
+    }
+    @include for-desktop {
+      &::after {
+        content: none;
+      }
+    }
+  }
+  &__message {
+    display: block;
+  }
+  &__action {
+    display: var(--notification-action-display, none);
+    color: var(--notification-action-color);
+    font: var(--notification-action-font, inherit);
+    text-decoration: var(--notification-action-text-decoration, underline);
+  }
+  &__icon {
+    --icon-color: var(--c-white);
+    margin: var(--notification-icon-margin, 0 var(--spacer-xs) 0 0);
+  }
+  &__close {
+    --icon-size: 0.85rem;
+    position: absolute;
+    top: var(--notification-close-top, var(--spacer-xs));
+    right: var(--notification-close-right, var(--spacer-xs));
+  }
+  @include for-desktop {
+    --notification-max-width: 100%;
+    --notification-icon-margin: 0 var(--spacer-base) 0 0;
+    --notification-action-display: inline;
+    --notification-close-top: auto;
+    --notification-close-right: var(--spacer-sm);
+  }
+  @each $color, $map in $colors-map {
+    $primary: map-get($map, "primary");
+    &.color-#{$color} {
+      --notification-background: #{$primary};
+    }
+  }
+}

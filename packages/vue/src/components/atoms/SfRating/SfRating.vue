@@ -69,6 +69,4 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-@import "~@storefront-ui/shared/styles/components/atoms/SfRating.scss";
-</style>
+<style lang="scss" src="./SfRating.scss"></style>

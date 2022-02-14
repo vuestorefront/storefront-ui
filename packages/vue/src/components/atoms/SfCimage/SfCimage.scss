@@ -1,0 +1,10 @@
+@import "../../../css/helpers";
+
+.sf-cimage {
+  &:not([alt]),
+  &[alt=""] {
+    outline-color: red;
+    outline-width: 1px;
+    outline-style: dashed;
+  }
+}

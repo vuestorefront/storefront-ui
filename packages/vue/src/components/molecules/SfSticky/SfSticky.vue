@@ -138,6 +138,4 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-@import "~@storefront-ui/shared/styles/components/molecules/SfSticky.scss";
-</style>
+<style lang="scss" src="./SfSticky.scss"></style>

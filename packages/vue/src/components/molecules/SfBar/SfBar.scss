@@ -1,0 +1,24 @@
+@import "../../../css/helpers";
+.sf-bar {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: var(--bar-height, 3.125rem);
+  flex: 0 0 var(--bar-height, 3.125rem);
+  padding: var(--bar-padding, 0 var(--spacer-base));
+  background-color: var(--bar-background, var(--c-light));
+  @include font(
+    --bar-font,
+    var(--font-weight--medium),
+    var(--font-size--base),
+    1.6,
+    var(--font-family--secondary)
+  );
+  &__icon {
+    --icon-width: 0.875rem;
+    padding: 0;
+    border: 0;
+    background: transparent;
+  }
+}

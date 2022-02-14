@@ -1,0 +1,128 @@
+@import "../../../css/helpers";
+
+.sf-color-picker {
+  box-sizing: border-box;
+  position: var(--color-picker-position, absolute);
+  z-index: 1;
+  top: var(--color-picker-top);
+  @include for-mobile {
+    right: var(--color-picker-right);
+    bottom: var(--color-picker-bottom, 0);
+    align-items: var(--color-picker-align-items, flex-end);
+    display: flex;
+    width: var(--color-picker-width, 100%);
+    overflow: var(--color-picker-overflow, hidden);
+    transform: var(--color-picker-transform);
+  }
+  &__colors {
+    box-sizing: border-box;
+    display: flex;
+    width: 100%;
+    height: var(--color-picker-colors-height);
+    flex-direction: var(--color-picker-flex-direction, row);
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+    justify-content: var(--color-picker-justify-content, center);
+    padding: var(--color-picker-padding, var(--spacer-xs));
+    &__overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      --overlay-z-index: auto;
+      --overlay-background: rgba(var(--c-black-base), 0.8);
+    }
+  }
+  &__label {
+    position: relative;
+    flex: 0 0 100%;
+    margin: var(--color-picker-label-margin, 0 0 var(--spacer-xs));
+    color: var(--color-picker-label-color, var(--c-white));
+    @include font(
+      --color-picker-label-font,
+      var(--font-weight--bold),
+      var(--font-size--sm),
+      1.2,
+      var(--font-family--secondary)
+    );
+    text-align: center;
+  }
+  &__button {
+    opacity: var(--color-picker-opacity, 0.8);
+  }
+  &__button {
+    --button-width: 100%;
+    --button-padding: var(--spacer-xs) var(--spacer-sm);
+    --button-font-weight: var(--font-weight--light);
+    --button-text-transform: capitalize;
+    width: 100%;
+    padding: var(--color-picker-open-padding);
+  }
+  &__button-open {
+    transform-origin: var(--color-picker-open-button-transform-origin);
+    transform: var(--color-picker-open-button-transform);
+  }
+  &__close {
+    --icon-color: var(--c-white);
+    --icon-size: 0.875rem;
+    --button-padding: 0;
+    --button-width: initial;
+    --button-background: transparent;
+    margin: var(--color-picker-close-margin);
+  }
+  @include for-mobile {
+    &--active {
+      --color-picker-colors-height: 100%;
+      height: var(--color-picker-height, 100%);
+    }
+    &-enter-active,
+    &-leave-active {
+      transition: transform 0.35s ease;
+    }
+    &-enter {
+      transform: var(
+        --color-picker-animation-transform,
+        translate3d(0, 100%, 0)
+      );
+    }
+    &-leave-to {
+      transform: var(
+        --color-picker-animation-transform,
+        translate3d(0, 100%, 0)
+      );
+    }
+    &--vertical {
+      --color-picker-padding: var(--spacer-base);
+      --color-picker-align-items: center;
+      --color-picker-width: auto;
+      --color-picker-open-padding: var(--spacer-2xl) 0;
+      --color-picker-close-margin: var(--spacer-xs) 0 0 0;
+      --color-picker-right: 0;
+      --color-picker-justify-content: flex-start;
+      --color-picker-flex-direction: column;
+      --color-picker-transform: translate(0, -50%);
+      --color-picker-bottom: auto;
+      --color-picker-overflow: none;
+      --color-picker-top: 50%;
+      --color-picker-colors-height: initial;
+      --color-picker-height: inherit;
+      --color-picker-animation-transform: translate3d(100%, 0, 0);
+      --color-picker-open-button-transform-origin: bottom right;
+      --color-picker-open-button-transform: rotate(-90deg)
+        translate(
+          calc(
+            var(--open-button-x, 50%) + calc(var(--button-height, 2.5rem) / 2)
+          ),
+          var(--open-button-y, 0)
+        );
+    }
+    &--left {
+      --color-picker-left: 0;
+      --color-picker-right: unset;
+      --color-picker-animation-transform: translate3d(-90%, 0, 0);
+      --color-picker-open-button-transform-origin: bottom left;
+      --open-button-x: -50%;
+      --open-button-y: 100%;
+    }
+  }
+}

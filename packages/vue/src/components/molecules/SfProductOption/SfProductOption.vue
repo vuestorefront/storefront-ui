@@ -27,6 +27,4 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-@import "~@storefront-ui/shared/styles/components/molecules/SfProductOption.scss";
-</style>
+<style lang="scss" src="./SfProductOption.scss"></style>

@@ -141,6 +141,4 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-@import "~@storefront-ui/shared/styles/components/atoms/SfIcon.scss";
-</style>
+<style lang="scss" src="./SfIcon.scss"></style>

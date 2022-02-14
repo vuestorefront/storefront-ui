@@ -1,0 +1,70 @@
+@import "../../../css/helpers";
+
+.sf-bottom-modal {
+  position: var(--bottom-modal-position, fixed);
+  width: var(--bottom-modal-width, 100%);
+  top: var(--bottom-modal-top);
+  bottom: var(--bottom-modal-bottom, 0);
+  right: var(--bottom-modal-right, 0);
+  transform: var(--bottom-modal-transform);
+  --characteristic-description-font-size: var(--font-size--base);
+  @include for-mobile {
+    --characteristic-description-font-weight: var(--font-weight--semibold);
+  }
+  @include for-desktop {
+    --list-item-margin: 0 var(--spacer-sm);
+    --button-text-transform: capitalize;
+    --characteristic-description-font-size: var(--font-size--sm);
+  }
+  &__container {
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+    padding: var(--bottom-modal-container-padding);
+    background: var(--bottom-modal-background, var(--c-white));
+    @include font(
+      --bottom-modal-container-font,
+      var(--font-weight--light),
+      var(--font-size--base),
+      1.6,
+      var(--font-family--primary)
+    );
+    @include for-desktop {
+      height: var(--bottom-modal-height);
+      padding: var(
+        --bottom-modal-container-padding,
+        var(--spacer-base) var(--spacer-2xl)
+      );
+    }
+  }
+  &__title {
+    --heading-title-font-weight: var(--font-weight--normal);
+    padding: var(
+      --bottom-modal-title-padding,
+      var(--spacer-sm) var(--spacer-lg)
+    );
+    color: var(--bottom-modal-title-color, var(--c-text));
+    text-align: var(--bottom-modal-title-text-align, center);
+    @include for-mobile {
+      --heading-title-font-size: var(--font-size--xs);
+      --heading-title-font-weight: var(--font-weight--bold);
+    }
+  }
+  &__close {
+    --button-display: none;
+    position: absolute;
+    top: var(--spacer-xs);
+    right: var(--spacer-xs);
+    @include for-desktop {
+      --button-display: flex;
+    }
+  }
+  &__cancel {
+    --button-display: flex;
+    --button-background: var(--_c-light-primary);
+    --button-color: var(--c-text-muted);
+    @include for-desktop {
+      --button-display: none;
+    }
+  }
+}

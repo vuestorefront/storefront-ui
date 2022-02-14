@@ -48,6 +48,4 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-@import "~@storefront-ui/shared/styles/components/molecules/SfAddressPicker.scss";
-</style>
+<style lang="scss" src="./SfAddressPicker.scss"></style>

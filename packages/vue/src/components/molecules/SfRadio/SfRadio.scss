@@ -1,0 +1,107 @@
+@import "../../../css/helpers";
+.sf-radio {
+  display: flex;
+  transition: background-color 0.25s cubic-bezier(1, 0.5, 0.8, 1);
+  &__label {
+    display: flex;
+    font-weight: var(--font-weight--normal);
+    font-size: var(--font-size--base);
+    font-family: var(--font-family--primary);
+    line-height: normal;
+    color: var(--c-text);
+  }
+  &__checkmark {
+    box-sizing: border-box;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: solid var(--c-gray-variant);
+    border-width: 1px;
+    border-radius: 100%;
+    transition: border 0.25s cubic-bezier(1, 0.5, 0.8, 1);
+    &.is-active {
+      border-width: 9px;
+      border-color: var(--c-primary);
+    }
+  }
+  input {
+    position: absolute;
+    opacity: 0;
+    left: -1000%;
+    width: 1px;
+    height: 1px;
+    &[style*="outline: none"]:focus + .sf-radio__checkmark {
+      outline: none;
+    }
+    &:focus + .sf-radio__checkmark {
+      outline-color: -webkit-focus-ring-color;
+      outline-style: auto;
+    }
+  }
+  &__container {
+    position: relative;
+    display: flex;
+    align-items: normal;
+    flex: 1;
+    padding: var(--spacer-sm) var(--spacer-lg) var(--spacer-sm) var(--spacer-sm);
+    cursor: pointer;
+  }
+  &:hover {
+    .sf-radio__checkmark {
+      border-color: var(--c-black);
+    }
+  }
+  &__content {
+    flex: 1;
+    margin: 0 0 0 var(--spacer-sm);
+  }
+  &__details {
+    display: block;
+    margin: var(--spacer-xs) 0 0 0;
+    color: var(--c-text-muted);
+    font-weight: var(--font-weight--light);
+    font-size: var(--font-size--sm);
+    font-family: var(--font-family--primary);
+    line-height: 1.2;
+  }
+  &__description {
+    display: block;
+    margin: var(--spacer-xs) 0 0 0;
+    font-weight: var(--font-weight--light);
+    font-size: var(--font-size--sm);
+    font-family: var(--font-family--primary);
+    line-height: 1.6;
+    color: var(--c-text);
+  }
+  &.is-active {
+    background: var(--c-light);
+  }
+  &.is-disabled {
+    .sf-radio__checkmark {
+      border-color: var(--c-text-disabled);
+    }
+    .sf-radio__container {
+      cursor: default;
+    }
+    &:hover {
+      .sf-radio__checkmark {
+        border-color: var(--c-text-disabled);
+      }
+    }
+
+    .sf-radio__label,
+    .sf-radio__details,
+    .sf-radio__description {
+      color: var(--c-text-disabled);
+    }
+  }
+  &--transparent {
+    &.is-active {
+      background: transparent;
+    }
+  }
+  @include for-desktop {
+    .sf-radio__container {
+      padding: var(--spacer-sm);
+    }
+  }
+}

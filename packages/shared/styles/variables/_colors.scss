@@ -2,24 +2,31 @@
 html {
   @include generate-color-variants(--c-black, #1d1f22);
   --c-white: #ffffff;
+
+  $sf-colors: (
+    green-primary: #5ece7b,
+    green-secondary: #9ee2b0,
+    dark-primary: #1d1f22,
+    dark-secondary: #43464e,
+    gray-primary: #72757e,
+    gray-secondary: #8d8f9a,
+    gray-accent: #e0e0e1,
+    light-primary: #f1f2f3,
+    light-secondary: #ffffff,
+    red-primary: #d12727,
+    red-secondary: #fcede8,
+    yellow-primary: #ecc713,
+    yellow-secondary: #f6e389,
+    blue-primary: #0468db,
+    blue-secondary: #e1f4fe,
+  ) !default;
+
   // Internal color variables
   /* Should NOT be used directly for theming or component styles */
-  @include generate-color-variants(--_c-green-primary, #5ece7b);
-  @include generate-color-variants(--_c-green-secondary, #9ee2b0);
-  @include generate-color-variants(--_c-dark-primary, #1d1f22);
-  @include generate-color-variants(--_c-dark-secondary, #43464E);
-  @include generate-color-variants(--_c-gray-primary, #72757E);
-  @include generate-color-variants(--_c-gray-secondary, #8D8F9A);
-  @include generate-color-variants(--_c-gray-accent, #e0e0e1);
-  @include generate-color-variants(--_c-light-primary, #f1f2f3);
-  @include generate-color-variants(--_c-light-secondary, #ffffff);
-  @include generate-color-variants(--_c-red-primary, #d12727);
-  @include generate-color-variants(--_c-red-secondary, #fcede8);
-  @include generate-color-variants(--_c-yellow-primary, #ecc713);
-  @include generate-color-variants(--_c-yellow-secondary, #f6e389);
-  @include generate-color-variants(--_c-blue-primary, #0468DB);
-  @include generate-color-variants(--_c-blue-secondary, #e1f4fe);
 
+  @each $color-name, $color-value in $sf-colors {
+    @include generate-color-variants(--_c-#{$color-name}, $color-value);
+  }
   /* Theme color variables */
   // Body and text defaults
   --c-body: var(--_c-light-secondary);

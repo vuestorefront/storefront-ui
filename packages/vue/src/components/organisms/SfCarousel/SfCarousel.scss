@@ -1,0 +1,46 @@
+@import "../../../css/helpers";
+.sf-carousel {
+  position: relative;
+  &__wrapper {
+    max-width: var(
+      --carousel-width,
+      calc(100% - var(--carousel-controls-size))
+    );
+    padding: var(--carousel-padding);
+    margin: auto;
+    overflow: hidden;
+  }
+  &__slides {
+    margin: 0;
+  }
+  &__controls {
+    position: var(--carousel-controls-position, absolute);
+    top: var(--carousel-controls-top, 50%);
+    left: var(--carousel-controls-left, 0);
+    transform: var(--carousel-controls-transform, translate3d(0, -50%, 0));
+    display: var(--carousel-controls-display, none);
+    justify-content: var(--carousel-controls-justify-content, space-between);
+    width: var(--carousel-controls-width, 100%);
+  }
+  .glide {
+    &__track,
+    &__slides,
+    &__slide {
+      overflow: unset;
+    }
+    &__slide {
+      display: flex;
+      justify-content: center;
+      & > * {
+        flex: 1;
+      }
+    }
+    &__slides {
+      margin: 0;
+    }
+  }
+  @include for-desktop {
+    --carousel-controls-size: 15rem;
+    --carousel-controls-display: flex;
+  }
+}

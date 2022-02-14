@@ -1,0 +1,32 @@
+@import "../../../css/helpers";
+.sf-color {
+  box-sizing: border-box;
+  position: relative;
+  width: var(--color-width, var(--color-size, 2.5rem));
+  height: var(--color-height, var(--color-size, 2.5rem));
+  background: var(--color-background);
+  border-radius: var(--color-border-radius);
+  @include box-shadow(--color-box-shadow, 0px, 4px, 4px, 0px, var(--c-black));
+  --color-box-shadow-opacity: 0;
+  --color-box-shadow-transition-duration: 150ms;
+  transition: transform 150ms linear;
+  &__badge {
+    --badge-padding: var(--spacer-2xs);
+    --badge-border-radius: 100%;
+    position: absolute;
+  }
+  @include for-desktop {
+    --color-size: 0.75rem;
+    &.is-active,
+    &:hover {
+      transform: scale(1.667);
+      --color-box-shadow-opacity: 0.25;
+    }
+    &:active {
+      --color-box-shadow: none;
+    }
+  }
+  &--rounded {
+    --color-border-radius: 100%;
+  }
+}

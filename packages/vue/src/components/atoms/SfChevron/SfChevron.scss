@@ -1,0 +1,63 @@
+@import "../../../css/helpers";
+.sf-chevron {
+  position: var(--chevron-position, relative);
+  display: block;
+  width: var(--chevron-size, 1.25rem);
+  height: var(--chevron-size, 1.25rem);
+  cursor: pointer;
+  &__bar {
+    position: absolute;
+    top: 50%;
+    background: var(--chevron-background, transparent);
+    transition: transform 300ms cubic-bezier(0.25, 1.7, 0.35, 0.8);
+    &:after {
+      content: "";
+      display: block;
+      width: calc(var(--chevron-size, 1.25rem) / 2);
+      height: calc(var(--chevron-size, 1.25rem) / 10);
+      background: var(--chevron-color, var(--c-black));
+    }
+    &--left {
+      left: calc(var(--chevron-size, 1.25rem) / 10);
+      transform: translate3d(
+          var(--chevron-translateX, 0),
+          var(--chevron-translateY, -50%),
+          0
+        )
+        rotate(var(--chevron-rotate, 45deg));
+    }
+    &--right {
+      right: calc(var(--chevron-size, 1.25rem) / 10);
+      transform: translate(
+          var(--chevron-translateX, 0),
+          var(--chevron-translateY, -50%)
+        )
+        rotate(calc(-1 * var(--chevron-rotate, 45deg)));
+    }
+  }
+  &--top {
+    --chevron-rotate: -45deg;
+  }
+  &--left {
+    .sf-chevron__bar--left {
+      --chevron-rotate: 45deg;
+      --chevron-translateY: 150%;
+    }
+    .sf-chevron__bar--right {
+      --chevron-rotate: 45deg;
+      --chevron-translateX: -60%;
+      --chevron-translateY: -150%;
+    }
+  }
+  &--right {
+    .sf-chevron__bar--left {
+      --chevron-rotate: 45deg;
+      --chevron-translateX: 60%;
+      --chevron-translateY: -150%;
+    }
+    .sf-chevron__bar--right {
+      --chevron-rotate: 45deg;
+      --chevron-translateY: 150%;
+    }
+  }
+}

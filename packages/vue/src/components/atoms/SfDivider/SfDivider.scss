@@ -1,0 +1,8 @@
+@import "../../../css/helpers";
+.sf-divider {
+  display: var(--divider-display, block);
+  margin: var(--divider-margin);
+  max-width: var(--divider-max-width);
+  width: var(--divider-width);
+  @include border(--divider-border, 1px, solid, var(--c-light));
+}

@@ -43,6 +43,4 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-@import "~@storefront-ui/shared/styles/components/atoms/SfPrice.scss";
-</style>
+<style lang="scss" src="./SfPrice.scss"></style>

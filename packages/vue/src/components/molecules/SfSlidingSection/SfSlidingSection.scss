@@ -1,0 +1,37 @@
+@import "../../../css/helpers";
+.sf-sliding-section {
+  display: var(--sliding-section-display, inline);
+  margin: var(--sliding-section-margin, 0);
+  &__static {
+    flex: 1;
+    overflow: hidden;
+    transform: var(--sliding-section-static-transform, scale3d(1, 1, 1));
+    transition: var(
+      --sliding-section-static-transition,
+      transform 150ms ease-in-out
+    );
+  }
+  &__sliding {
+    flex: 1;
+    padding: var(--sliding-section-sliding-padding, 0 var(--spacer-xl));
+  }
+  &__mobile-bar {
+    display: var(--sliding-section-mobile-bar-display, none);
+    padding: var(--sliding-section-mobile-bar-padding, var(--spacer-lg) 0);
+  }
+  &--has-scroll-lock {
+    overflow: hidden;
+  }
+  &.is-active {
+    --sliding-section-static-transform: var(
+      --sliding-section-static-scale3d,
+      scale3d(1, 0, 1)
+    );
+    --sliding-section-mobile-bar-display: block;
+  }
+  @include for-desktop {
+    --sliding-section-display: flex;
+    --sliding-section-sliding-margin: 0 0 0 var(--spacer-lg);
+    --sliding-section-mobile-bar-display: none;
+  }
+}

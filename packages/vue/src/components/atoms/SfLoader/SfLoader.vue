@@ -51,6 +51,4 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-@import "~@storefront-ui/shared/styles/components/atoms/SfLoader.scss";
-</style>
+<style lang="scss" src="./SfLoader.scss"></style>

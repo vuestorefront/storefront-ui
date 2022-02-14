@@ -50,6 +50,4 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-@import "~@storefront-ui/shared/styles/components/molecules/SfSearchBar.scss";
-</style>
+<style lang="scss" src="./SfSearchBar.scss"></style>

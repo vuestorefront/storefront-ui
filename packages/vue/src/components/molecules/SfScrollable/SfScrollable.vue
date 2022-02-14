@@ -73,6 +73,4 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-@import "~@storefront-ui/shared/styles/components/molecules/SfScrollable.scss";
-</style>
+<style lang="scss" src="./SfScrollable.scss"></style>

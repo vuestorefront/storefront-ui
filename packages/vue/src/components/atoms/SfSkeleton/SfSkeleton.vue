@@ -20,6 +20,4 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-@import "~@storefront-ui/shared/styles/components/atoms/SfSkeleton.scss";
-</style>
+<style lang="scss" src="./SfSkeleton.scss"></style>

@@ -91,6 +91,4 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-@import "~@storefront-ui/shared/styles/components/molecules/SfDropdown.scss";
-</style>
+<style lang="scss" src="./SfDropdown.scss"></style>

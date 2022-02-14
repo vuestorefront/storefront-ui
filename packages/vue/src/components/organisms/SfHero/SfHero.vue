@@ -126,6 +126,4 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-@import "~@storefront-ui/shared/styles/components/organisms/SfHero.scss";
-</style>
+<style lang="scss" src="./SfHero.scss"></style>

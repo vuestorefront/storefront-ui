@@ -1,0 +1,19 @@
+@import "../../../css/helpers";
+.sf-list {
+  list-style: var(--list-list-style, none);
+  padding: var(--list-padding, 0);
+  margin: var(--list-margin, 0);
+  .sf-list__item {
+    margin: var(--list-item-margin, 0);
+    padding: var(--list-item-padding, 0);
+    color: var(--list-item-color, var(--c-text));
+    @include border(--list-item-border, 0, solid, var(--c-light));
+    @include font(
+      --list-item-font,
+      var(--font-weight--normal),
+      var(--font-size--base),
+      1.4,
+      var(--font-family--secondary)
+    );
+  }
+}

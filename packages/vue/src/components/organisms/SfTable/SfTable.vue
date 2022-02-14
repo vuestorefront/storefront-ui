@@ -32,6 +32,4 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-@import "~@storefront-ui/shared/styles/components/organisms/SfTable.scss";
-</style>
+<style lang="scss" src="./SfTable.scss"></style>

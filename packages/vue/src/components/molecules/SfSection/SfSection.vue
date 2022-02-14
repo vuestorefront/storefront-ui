@@ -39,6 +39,4 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-@import "~@storefront-ui/shared/styles/components/molecules/SfSection.scss";
-</style>
+<style lang="scss" src="./SfSection.scss"></style>

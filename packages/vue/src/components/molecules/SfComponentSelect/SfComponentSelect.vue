@@ -28,8 +28,9 @@
         tabindex="0"
         class="sf-component-select__selected sf-component-select-option"
         v-on="$listeners"
-        v-html="html"
-      ></div>
+      >
+        {{ html }}
+      </div>
       <slot name="label">
         <div
           :class="{ 'display-none': !label }"
@@ -269,6 +270,4 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-@import "~@storefront-ui/shared/styles/components/molecules/SfComponentSelect.scss";
-</style>
+<style lang="scss" src="./SfComponentSelect.scss"></style>

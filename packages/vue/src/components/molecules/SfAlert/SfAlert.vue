@@ -62,6 +62,4 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-@import "~@storefront-ui/shared/styles/components/molecules/SfAlert.scss";
-</style>
+<style lang="scss" src="./SfAlert.scss"></style>

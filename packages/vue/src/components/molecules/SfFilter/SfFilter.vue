@@ -55,6 +55,4 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-@import "~@storefront-ui/shared/styles/components/molecules/SfFilter.scss";
-</style>
+<style lang="scss" src="./SfFilter.scss"></style>

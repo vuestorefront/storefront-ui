@@ -110,6 +110,4 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-@import "~@storefront-ui/shared/styles/components/organisms/SfGroupedProduct.scss";
-</style>
+<style lang="scss" src="./SfGroupedProduct.scss"></style>
