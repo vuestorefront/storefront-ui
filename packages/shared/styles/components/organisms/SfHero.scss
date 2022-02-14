@@ -63,6 +63,17 @@
   }
   &__button {
     display: none;
+    --button-width: var(--hero-item-button-width);
+    --button-height: var(--hero-item-button-height);
+    --button-padding: var(--hero-item-button-padding);
+    --button-color: var(--hero-item-button-color);
+    --button-transition: var(--hero-item-button-transition);
+    --button-background: var(--hero-item-button-background);
+    --button-cursor: var(--hero-item-button-cursor);
+    --button-wrap: var(--hero-item-button-wrap);
+    --button-text-transform: var(--hero-item-button-text-transform);
+    --button-text-decoration: var(--hero-item-button-text-decoration);
+    --button-border-radius: var(--hero-item-button-border-radius);
   }
   &--align-right {
     justify-content: flex-end;

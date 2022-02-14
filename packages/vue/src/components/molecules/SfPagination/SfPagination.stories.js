@@ -131,13 +131,18 @@ export default {
 const Template = (args, { argTypes }) => ({
   components: { SfPagination },
   props: Object.keys(argTypes),
+  data() {
+    return {
+      currentPage: this.current,
+    };
+  },
   template: `
   <SfPagination
-  :current="current"
+  :current="currentPage"
   :visible="visible"
   :total="total"
   :has-arrows="hasArrows"
-  @click="(current) => { this.click(current); this.current = current }"
+  @click="(current) => { this.click(current); this.currentPage = current }"
   />`,
 });
 
@@ -152,13 +157,18 @@ WithoutArrows.args = { ...Common.args, hasArrows: false };
 export const UsePointsSlot = (args, { argTypes }) => ({
   components: { SfPagination },
   props: Object.keys(argTypes),
+  data() {
+    return {
+      currentPage: this.current,
+    };
+  },
   template: `
   <SfPagination
-  :current="current"
+  :current="currentPage"
   :visible="visible"
   :total="total"
   :has-arrows="hasArrows"
-  @click="click"
+  @click="(current) => { this.click(current); this.currentPage = current }"
   >
     <template #points >🎉</template>
   </SfPagination>`,
@@ -168,13 +178,18 @@ UsePointsSlot.args = { ...Common.args };
 export const UsePrevSlot = (args, { argTypes }) => ({
   components: { SfPagination },
   props: Object.keys(argTypes),
+  data() {
+    return {
+      currentPage: this.current,
+    };
+  },
   template: `
   <SfPagination
-  :current="current"
+  :current="currentPage"
   :visible="visible"
   :total="total"
   :has-arrows="hasArrows"
-  @click="click"
+  @click="(current) => { this.click(current); this.currentPage = current }"
   >
     <template #prev="{ go, prev}">
       <button @click="go(prev)">prev</button>
@@ -186,13 +201,18 @@ UsePrevSlot.args = { ...Common.args };
 export const UseNextSlot = (args, { argTypes }) => ({
   components: { SfPagination },
   props: Object.keys(argTypes),
+  data() {
+    return {
+      currentPage: this.current,
+    };
+  },
   template: `
   <SfPagination
-  :current="current"
+  :current="currentPage"
   :visible="visible"
   :total="total"
   :has-arrows="hasArrows"
-  @click="click"
+  @click="(current) => { this.click(current); this.currentPage = current }"
   >
     <template #next="{ go, next}">
       <button @click="go(next)">next</button>
@@ -204,18 +224,25 @@ UseNextSlot.args = { ...Common.args };
 export const UseNumberSlot = (args, { argTypes }) => ({
   components: { SfPagination },
   props: Object.keys(argTypes),
+  data() {
+    return {
+      currentPage: this.current,
+    };
+  },
   template: `
   <SfPagination
-  :current="current"
+  :current="currentPage"
   :visible="visible"
   :total="total"
-  :has-arrows="hasArrows"
-  @click="click"
+  :has-arrows="hasArrows"  
   >
-    <template #number="{page}">
+    <template #number="{ page, currentPage, go }">
       <button 
         class="sf-pagination__item"
-        :class="{'current': current === page}">{{page}}</button>
+        :class="{current: currentPage === page}"
+      >
+        {{page}}
+      </button>
     </template>
   </SfPagination>`,
 });
