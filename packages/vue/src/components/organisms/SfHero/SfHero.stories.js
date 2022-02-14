@@ -55,6 +55,50 @@ export default {
         description: "Overridden other component's CSS variable",
         control: "text",
       },
+      "--hero-item-button-width": {
+        value: "",
+        control: "text",
+      },
+      "--hero-item-button-height": {
+        value: "",
+        control: "text",
+      },
+      "--hero-item-button-padding": {
+        value: "",
+        control: "text",
+      },
+      "--hero-item-button-color": {
+        value: "",
+        control: "text",
+      },
+      "--hero-item-button-transition": {
+        value: "",
+        control: "text",
+      },
+      "--hero-item-button-background": {
+        value: "",
+        control: "text",
+      },
+      "--hero-item-button-cursor": {
+        value: "",
+        control: "text",
+      },
+      "--hero-item-button-wrap": {
+        value: "",
+        control: "text",
+      },
+      "--hero-item-button-text-transform": {
+        value: "",
+        control: "text",
+      },
+      "--hero-item-button-text-decoration": {
+        value: "",
+        control: "text",
+      },
+      "--hero-item-button-border-radius": {
+        value: "",
+        control: "text",
+      },
     },
     // end of code generated automatically
     docs: {
