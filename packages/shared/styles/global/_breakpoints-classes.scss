@@ -1,12 +1,14 @@
 @import "../helpers/breakpoints";
 // Visibility classes
-.smartphone-only {
-  @include for-desktop {
-    display: none !important;
-  }
-}
-.desktop-only {
-  @include for-mobile {
-    display: none !important;
-  }
-}
+// @mixin generate-breakpoint-classes($resolution: 1024px) {
+//   .smartphone-only{
+//     @include for-desktop($resolution) {
+//       display: none !important;
+//     }
+//   }
+//   .desktop-only {
+//     @include for-mobile($resolution) {
+//       display: none !important;
+//     }
+//   }
+// } 
