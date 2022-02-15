@@ -6,6 +6,7 @@
       v-bind="attributes"
       :src="src"
       :class="classes"
+      :style="styles"
       :alt="alt"
       @load="onLoad"
       v-on="$listeners"
@@ -153,18 +154,27 @@ export default {
         ? {
             ...this.$attrs,
             sizes: this.sizes,
-            width: this.width
-              ? this.width
-              : !this.srcset && console.error(`Missing required prop width.`),
-            height: this.height
-              ? this.height
-              : !this.srcset && console.error(`Missing required prop height.`),
             srcset: this.srcset,
           }
         : {
             ...this.$attrs,
             ...this.nuxtImgConfig,
           };
+    },
+    styles() {
+      this.width
+        ? this.width
+        : !this.srcset && console.error(`Missing required prop width.`);
+      this.height
+        ? this.height
+        : !this.srcset && console.error(`Missing required prop height.`);
+      const sizeHandler = (size) => {
+        return size === null ? null : `${size}px`;
+      };
+      return {
+        "--_image-width": sizeHandler(this.width),
+        "--_image-height": sizeHandler(this.height),
+      };
     },
   },
   created() {
