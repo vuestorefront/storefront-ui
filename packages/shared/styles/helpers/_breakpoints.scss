@@ -16,7 +16,7 @@ $desktop-xxl-min: 1920px;
     @content;
   }
 }
-@mixin generate-breakpoint-classes($resolution: 1024px) {
+@mixin generate-breakpoint-classes($resolution: $desktop-min) {
   .smartphone-only{
     @include for-desktop($resolution) {
       display: none !important;
