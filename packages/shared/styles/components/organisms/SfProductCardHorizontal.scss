@@ -55,10 +55,7 @@
   &__actions-wrapper {
     flex: 1;
     align-items: var(--product-card-horizontal-actions-wrapper, flex-start);
-    margin: var(
-      --product-card-horizontal-actions-wrapper-margin,
-      var(--spacer-sm) 0 0 0
-    );
+    margin: var(--product-card-horizontal-actions-wrapper-margin);
   }
   &__title {
     margin: 0;
@@ -117,7 +114,7 @@
   &__wishlist-icon {
     --icon-color: var(--c-dark-variant);
     position: absolute;
-    top: 0;
+    bottom: 0;
     right: 0;
   }
   &:hover {
