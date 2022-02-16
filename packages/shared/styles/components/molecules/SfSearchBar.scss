@@ -12,7 +12,6 @@
   box-sizing: border-box;
   position: relative;
   display: var(--search-bar-display, flex);
-  flex-grow: 1; 
   align-items: center;
   background: var(--search-bar-background, transparent);       
   text-align: var(--search-bar-input-text-align);
