@@ -14,7 +14,7 @@
             class="sf-button--pure sf-bullet"
             type="button"
             :aria-label="'Go to slide ' + (index + 1)"
-            :data-testid="dataTestDisplay('bullet-' + (index + 1))"
+            :data-testid="$options.dataTestDisplay('bullet-' + (index + 1))"
             @click="listeners.click && listeners.click(index)"
           ></component>
         </li>
@@ -52,7 +52,7 @@
             "
             class="sf-button--pure sf-bullet"
             :data-testid="
-              dataTestDisplay(
+              $options.dataTestDisplay(
                 'bullet-' +
                   $options.inactiveLeft(props.total, props.current) +
                   (2 + index)

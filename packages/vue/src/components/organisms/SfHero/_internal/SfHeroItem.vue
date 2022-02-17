@@ -1,5 +1,9 @@
 <template>
-  <li class="glide__slide sf-hero-item" :style="style" data-testid="hero-item">
+  <li
+    class="glide__slide sf-hero-item"
+    :style="style"
+    :data-testid="dataTestDisplay('hero-item')"
+  >
     <component :is="wrapper" class="sf-hero-item__wrapper" :link="link">
       <slot name="subtitle" v-bind="{ subtitle }">
         <span
@@ -15,7 +19,10 @@
       </slot>
       <slot name="call-to-action" v-bind="{ buttonText, link }">
         <div v-if="buttonText && !mobileView" class="sf-hero-item__button">
-          <SfButton :link="link" data-testid="hero-cta-button">
+          <SfButton
+            :link="link"
+            :data-testid="dataTestDisplay('hero-cta-button')"
+          >
             {{ buttonText }}
           </SfButton>
         </div>
@@ -27,6 +34,8 @@
 <script>
 import SfButton from "../../../atoms/SfButton/SfButton.vue";
 import SfLink from "../../../atoms/SfLink/SfLink.vue";
+import { dataTestDisplay } from "../../../../utilities/helpers";
+
 import {
   mapMobileObserver,
   unMapMobileObserver,
@@ -111,6 +120,9 @@ export default {
   },
   beforeDestroy() {
     unMapMobileObserver();
+  },
+  methods: {
+    dataTestDisplay,
   },
 };
 </script>

@@ -13,7 +13,7 @@
       '--color-background': props.color,
     }"
     :aria-pressed="props.selected.toString()"
-    :data-testid="dataTestDisplay(props.color)"
+    :data-testid="$options.dataTestDisplay(props.color)"
     v-bind="data.attrs"
     v-on="listeners"
   >

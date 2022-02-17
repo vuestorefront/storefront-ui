@@ -15,7 +15,7 @@
         <SfArrow
           class="sf-arrow--transparent"
           aria-label="previous"
-          data-testid="hero-prev-button"
+          :data-testid="dataTestDisplay('hero-prev-button')"
           @click.stop="go('prev')"
         />
       </slot>
@@ -28,7 +28,7 @@
         <SfArrow
           class="sf-arrow--right sf-arrow--transparent"
           aria-label="next"
-          data-testid="hero-next-button"
+          :data-testid="dataTestDisplay('hero-next-button')"
           @click.stop="go('next')"
         />
       </slot>
@@ -41,7 +41,7 @@
         <SfBullets
           :total="numberOfPages"
           :current="page - 1"
-          data-testid="hero-bullets"
+          :data-testid="dataTestDisplay('hero-bullets')"
           @click="go($event)"
         />
       </slot>
@@ -54,6 +54,8 @@ import SfHeroItem from "./_internal/SfHeroItem.vue";
 import SfArrow from "../../atoms/SfArrow/SfArrow.vue";
 import SfBullets from "../../atoms/SfBullets/SfBullets.vue";
 import Glide from "@glidejs/glide";
+import { dataTestDisplay } from "../../../utilities/helpers";
+
 Vue.component("SfHeroItem", SfHeroItem);
 export default {
   name: "SfHero",
@@ -123,6 +125,7 @@ export default {
           break;
       }
     },
+    dataTestDisplay,
   },
 };
 </script>
