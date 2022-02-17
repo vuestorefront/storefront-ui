@@ -56,15 +56,19 @@
     </transition>
   </div>
 </template>
-<script>
+<script lang="ts">
+import { PropType } from "vue";
+import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
+
+import { SfSidebarData, SfSidebarProps } from "./SfSidebar.model";
 import { focusTrap } from "../../../utilities/directives/";
 import { clickOutside } from "../../../utilities/directives/";
-import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
 import { isClient } from "../../../utilities/helpers";
 import SfBar from "../../molecules/SfBar/SfBar.vue";
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import SfHeading from "../../atoms/SfHeading/SfHeading.vue";
+
 export default {
   name: "SfSidebar",
   directives: { focusTrap, clickOutside },
@@ -76,35 +80,35 @@ export default {
   },
   props: {
     title: {
-      type: String,
+      type: String as PropType<SfSidebarProps["title"]>,
       default: "",
     },
     subtitle: {
-      type: String,
+      type: String as PropType<SfSidebarProps["subtitle"]>,
       default: "",
     },
     headingLevel: {
-      type: Number,
+      type: Number as PropType<SfSidebarProps["headingLevel"]>,
       default: 3,
     },
     button: {
-      type: Boolean,
+      type: Boolean as PropType<SfSidebarProps["button"]>,
       default: true,
     },
     visible: {
-      type: Boolean,
+      type: Boolean as PropType<SfSidebarProps["visible"]>,
       default: false,
     },
     overlay: {
-      type: Boolean,
+      type: Boolean as PropType<SfSidebarProps["overlay"]>,
       default: true,
     },
     persistent: {
-      type: Boolean,
+      type: Boolean as PropType<SfSidebarProps["persistant"]>,
       default: false,
     },
   },
-  data() {
+  data(): SfSidebarData {
     return {
       position: "left",
       staticClass: null,
@@ -134,7 +138,7 @@ export default {
             const sidebarContent = document.getElementsByClassName(
               "sf-sidebar__content"
             )[0];
-            disableBodyScroll(sidebarContent);
+            if (sidebarContent) disableBodyScroll(sidebarContent);
           });
           document.addEventListener("keydown", this.keydownHandler);
         } else {

@@ -25,6 +25,7 @@
                 }"
               >
                 <SfImage
+                  v-if="picture.desktop.url && picture.alt"
                   ref="sfGalleryBigImage"
                   class="sf-gallery__big-image"
                   :class="{ 'sf-gallery__big-image--has-zoom': enableZoom }"
@@ -61,10 +62,10 @@
               nuxtImgConfig,
             }"
           >
-            <SfImage
+            <!-- <SfImage
               ref="imgZoom"
               class="sf-gallery__zoom"
-              :src="definedPicture.url"
+              :src="definedPicture"
               :width="imageWidth"
               :height="imageHeight"
               :lazy="false"
@@ -72,7 +73,7 @@
               :placeholder="definedPicture.placeholder"
               :image-tag="imageTag"
               :nuxt-img-config="nuxtImgConfig"
-            />
+            /> -->
           </slot>
         </div>
       </transition>
@@ -102,10 +103,23 @@
     </div>
   </div>
 </template>
-<script>
+<script lang="ts">
 import Glide from "@glidejs/glide";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
+import {
+  SfGalleryData,
+  SfGalleryProps,
+  SfGalleryImage,
+} from "./SfGallery.model";
+
+interface GalleryImage {
+  placeholder: string;
+  alt: string;
+  mobile: {
+    url: string;
+  };
+}
 
 export default {
   name: "SfGallery",
@@ -174,7 +188,7 @@ export default {
       default: () => ({}),
     },
   },
-  data() {
+  data(): SfGalleryData {
     return {
       positionStatic: {},
       eventHover: {},
@@ -187,6 +201,9 @@ export default {
         big: "",
         desktop: "",
         placeholder: "",
+        mobile: {
+          url: "",
+        },
       },
       isZoomStarted: false,
     };
@@ -202,7 +219,7 @@ export default {
     updatedSliderOptions() {
       return { ...this.sliderOptions, startAt: this.activeIndex };
     },
-    definedPicture() {
+    definedPicture(): SfGalleryImage {
       const { zoom, big, desktop } = this.pictureSelected;
       const definedPicture = zoom || big || desktop;
       definedPicture ? (definedPicture.alt = this.pictureSelected?.alt) : null;

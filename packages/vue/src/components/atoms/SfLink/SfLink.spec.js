@@ -15,9 +15,14 @@ const router = new VueRouter({
 
 describe("SfLink.vue", () => {
   it("renders component with defaults", () => {
-    const wrapper = shallowMount(SfLink);
+    const wrapper = shallowMount(SfLink, {
+      propsData: {
+        link: "/",
+      },
+    });
     expect(wrapper.classes("sf-link")).toBe(true);
   });
+
   it("renders component with internal link", () => {
     const wrapper = mount(SfLink, {
       localVue,

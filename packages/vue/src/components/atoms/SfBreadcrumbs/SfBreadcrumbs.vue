@@ -27,9 +27,11 @@
             </component>
           </slot>
         </template>
+
         <template v-else>
           <slot name="current" v-bind="{ breadcrumb }">
             <component
+              v-if="breadcrumb.link"
               :is="injections.components.SfLink"
               :link="breadcrumb.link"
               class="sf-breadcrumbs__breadcrumb current"
@@ -44,6 +46,7 @@
 </template>
 <script>
 import SfLink from "../SfLink/SfLink";
+
 export default {
   name: "SfBreadcrumbs",
   inject: {

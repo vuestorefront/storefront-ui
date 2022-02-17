@@ -105,11 +105,11 @@ const Template = (args, { argTypes }) => ({
   <SfMyProfile
     :tabs-titles="tabsTitles"
     :account="account"
-    :personalInputsLabels="personalInputsLabels"
-    :passwordInputsLabels="passwordInputsLabels"
-    :saveButtonText="saveButtonText"
-    :updateButtonText="updateButtonText"
-    :personalDataDescription="personalDataDescription"
+    :personal-inputs-labels="personalInputsLabels"
+    :password-inputs-labels="passwordInputsLabels"
+    :save-button-text="saveButtonText"
+    :update-button-text="updateButtonText"
+    :personal-data-description="personalDataDescription"
     @update:personal="this['update:personal']"
     @update:password="this['update:password']"
   />`,

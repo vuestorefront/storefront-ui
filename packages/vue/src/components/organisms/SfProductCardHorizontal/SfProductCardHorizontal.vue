@@ -14,6 +14,7 @@
         }"
       >
         <SfLink
+          v-if="link"
           :link="link"
           class="
             sf-product-card-horizontal__link
@@ -49,8 +50,12 @@
     <div class="sf-product-card-horizontal__main">
       <div class="sf-product-card-horizontal__details">
         <slot name="title" v-bind="{ title, link }">
-          <SfLink :link="link" class="sf-product-card-horizontal__link">
-            <h3 class="sf-product-card-horizontal__title">
+          <SfLink
+            v-if="link"
+            :link="link"
+            class="sf-product-card-horizontal__link"
+          >
+            <h3 class="sf-product-card-horizontal__title" v-if="title">
               {{ title }}
             </h3>
           </SfLink>

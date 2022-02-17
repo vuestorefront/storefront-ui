@@ -103,6 +103,7 @@
 </template>
 <script>
 import { SfTabs, SfInput, SfButton } from "@storefront-ui/vue";
+
 export default {
   name: "SfMyProfile",
   components: {

@@ -36,9 +36,9 @@
   </section>
 </template>
 <script lang="ts">
-import Vue, { PropType } from "vue";
-
-import { SfBannerProps } from "./SfBanner.model";
+// import Vue, { PropType } from "vue";
+// import { SfBannerProps } from "./SfBanner.model";
+import Vue from "vue";
 import { SfButton, SfLink } from "../../atoms";
 
 import {

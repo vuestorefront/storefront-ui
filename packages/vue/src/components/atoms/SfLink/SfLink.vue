@@ -9,32 +9,35 @@
     <slot />
   </component>
 </template>
-<script>
+<script lang="ts">
+import Vue, { PropType } from "vue";
+
 import { focus } from "../../../utilities/directives";
+import { SfLinkProps } from "./SfLink.model";
 export default {
   name: "SfLink",
   directives: { focus },
   props: {
     link: {
-      type: [String, Object],
+      type: [String, Object] as PropType<SfLinkProps["link"]>,
       required: true,
     },
   },
   computed: {
-    isExternal() {
+    isExternal(): boolean {
       return (
         typeof this.link === "string" && this.link.search(/(^\/|^#)/g) === -1
       );
     },
-    isNativeLinkTag() {
+    isNativeLinkTag(): string {
       return this.isExternal || !this.$router;
     },
-    urlTag() {
+    urlTag(): Object {
       return this.isNativeLinkTag
         ? { href: this.link }
         : { to: this.link || "" };
     },
-    linkComponentTag() {
+    linkComponentTag(): string {
       const routerLink = this.$nuxt ? "nuxt-link" : "router-link";
       return this.isNativeLinkTag ? "a" : routerLink;
     },

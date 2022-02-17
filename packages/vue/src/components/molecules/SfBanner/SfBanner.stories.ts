@@ -1,6 +1,7 @@
 import { SfBanner } from "./";
 import { SfCimage } from "../../atoms/SfCimage";
 // import banner from "../../../../public/assets/storybook/SfBanner/Banner2.jpg";
+const banner = "banner2.jpg";
 
 export default {
   title: "Components/Molecules/Banner",
