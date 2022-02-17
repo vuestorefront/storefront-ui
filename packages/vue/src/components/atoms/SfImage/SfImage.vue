@@ -114,6 +114,7 @@ export default {
       return arr;
     },
     srcset() {
+      if (this.sortedSrcsets.length === 0) return null;
       return this.sortedSrcsets.reduce(
         (str, set) =>
           `${this.prefix(str)}${set.src} ${this.srcsetDescriptor(set)}`,
@@ -141,7 +142,7 @@ export default {
       }
     },
     imageComponentTag() {
-      return !this.$nuxt ? "img" : this.imageTag;
+      return !this.$nuxt ? "img" : this.imageTag || "img";
     },
     isPlaceholderVisible() {
       return (
