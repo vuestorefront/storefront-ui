@@ -178,8 +178,8 @@ export default {
       };
       this.$emit("update:password", password);
     },
+    dataTestDisplay,
   },
-  dataTestDisplay,
 };
 </script>
 <style lang="scss" scoped>
