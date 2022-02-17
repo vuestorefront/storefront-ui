@@ -6,17 +6,19 @@ $desktop-l-min: 1200px;
 $desktop-xl-min: 1440px;
 $desktop-xxl-min: 1920px;
 // Media mixins
-@mixin for-mobile($resolution: $desktop-min) {
+$breakpoint: $desktop-min !default;
+
+@mixin for-mobile($resolution: $breakpoint) {
   @media (max-width: $resolution - 1px) {
     @content;
   }
 }
-@mixin for-desktop($resolution: $desktop-min) {
+@mixin for-desktop($resolution: $breakpoint) {
   @media (min-width: $resolution) {
     @content;
   }
 }
-@mixin generate-breakpoint-classes($resolution: $desktop-min) {
+@mixin generate-breakpoint-classes($resolution: $breakpoint) {
   .smartphone-only{
     @include for-desktop($resolution) {
       display: none !important;
