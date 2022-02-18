@@ -13,7 +13,13 @@
     />
     <slot
       name="placeholder"
-      v-bind="{ isPlaceholderVisible, placeholder, width, height }"
+      v-bind="{
+        isPlaceholderVisible,
+        placeholder,
+        width,
+        height,
+        nuxtImgConfig,
+      }"
     >
       <img
         :class="{ 'display-none': isPlaceholderVisible }"
@@ -164,7 +170,8 @@ export default {
     styles() {
       if (!this.width && !this.srcset) {
         console.error(`Missing required prop width.`);
-      } else if (!this.height && !this.srcset) {
+      }
+      if (!this.height && !this.srcset) {
         console.error(`Missing required prop height.`);
       }
       const sizeHandler = (size) => {
