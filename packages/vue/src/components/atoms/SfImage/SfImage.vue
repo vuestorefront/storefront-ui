@@ -162,12 +162,11 @@ export default {
           };
     },
     styles() {
-      this.width
-        ? this.width
-        : !this.srcset && console.error(`Missing required prop width.`);
-      this.height
-        ? this.height
-        : !this.srcset && console.error(`Missing required prop height.`);
+      if (!this.width && !this.srcset) {
+        console.error(`Missing required prop width.`);
+      } else if (!this.height && !this.srcset) {
+        console.error(`Missing required prop height.`);
+      }
       const sizeHandler = (size) => {
         return size === null ? null : `${size}px`;
       };
