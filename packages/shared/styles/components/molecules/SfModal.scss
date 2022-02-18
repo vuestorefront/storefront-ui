@@ -31,6 +31,7 @@
       1.6,
       var(--font-family--primary)
     );
+    height: var(--modal-content-height);
   }
   &__close {
     position: absolute;
@@ -47,5 +48,6 @@
     --modal-height: auto;
     --modal-max-height: 90%;
     --modal-content-padding: var(--spacer-sm) var(--spacer-lg);
+    --modal-content-height: 100%;
   }
 }

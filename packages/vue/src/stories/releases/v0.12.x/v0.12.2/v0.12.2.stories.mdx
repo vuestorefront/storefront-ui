@@ -11,6 +11,7 @@ import { Meta } from "@storybook/addon-docs/blocks";
 `--hero-item-button-cursor`, `--hero-item-button-wrap`, `--hero-item-button-text-transform`, `--hero-item-button-text-decoration`, 
 `--hero-item-button-border-radius`)
 - feat: change the docs tab to the first place in toolbar
+- SfModal: new CSS var - `--modal-content-height`
 
 
 ## 🐛 Fixes
@@ -19,10 +20,12 @@ import { Meta } from "@storybook/addon-docs/blocks";
 - SfImage: when rendered on nuxt it has `image-tag` set to `img` as default, 
 - SfGroupedProduct: fixed issue with display on mobile view,
 - Nuxt Detailed Cart page not found fixed,
+- SfProductCardHorizontal: adjusted position of wishlist icon
 - add timeout options to cypress configuration,
 - SfImage: add internal custom properties `--_image-width` and `--_image-height` to set props height and width properly and allow to overwrite them by custom properties  `--image-width` and `--image-height` when needed, 
 - Nuxt module: exclude core-js from transpiling process
 
 ## 🧹 Chores:
 
-docs: mutating props error in following stories: SfAddressPicker, SfAddToCart, SfColorPicker, SfComponentSelect, SfDropdown, SfCheckbox, SfPagination, SfContentPages,
+- docs: changed date format to text in SfReview component story,  
+- docs: mutating props error in following stories: SfAddressPicker, SfAddToCart, SfColorPicker, SfComponentSelect, SfDropdown, SfCheckbox, SfPagination, SfContentPages,

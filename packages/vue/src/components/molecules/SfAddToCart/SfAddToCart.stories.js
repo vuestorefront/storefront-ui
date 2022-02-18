@@ -112,7 +112,7 @@ const Template = (args, { argTypes }) => ({
   data() {
     return {
       quantity: this.qty,
-    }
+    };
   },
   template: `<SfAddToCart v-model="quantity" :disabled="disabled"  @click="click" @input="input" />`,
 });
@@ -129,7 +129,7 @@ export const WithAddToCartSlot = (args, { argTypes }) => ({
   data() {
     return {
       quantity: this.qty,
-    }
+    };
   },
   template: `
   <SfAddToCart 
