@@ -6,13 +6,13 @@ $desktop-l-min: 1200px;
 $desktop-xl-min: 1440px;
 $desktop-xxl-min: 1920px;
 // Media mixins
-@mixin for-mobile {
-  @media (max-width: $desktop-min - 1px) {
+@mixin for-mobile($resolution: $desktop-min) {
+  @media (max-width: $resolution - 1px) {
     @content;
   }
 }
-@mixin for-desktop {
-  @media (min-width: $desktop-min) {
+@mixin for-desktop($resolution: $desktop-min) {
+  @media (min-width: $resolution) {
     @content;
   }
 }
