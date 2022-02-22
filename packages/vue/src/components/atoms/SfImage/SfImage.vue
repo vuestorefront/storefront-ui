@@ -163,6 +163,8 @@ export default {
           }
         : {
             ...this.$attrs,
+            width: this.width ? this.width : null,
+            height: this.height ? this.height : null,
             ...this.nuxtImgConfig,
           };
     },
