@@ -6,13 +6,20 @@
       v-bind="attributes"
       :src="src"
       :class="classes"
+      :style="styles"
       :alt="alt"
       @load="onLoad"
       v-on="$listeners"
     />
     <slot
       name="placeholder"
-      v-bind="{ isPlaceholderVisible, placeholder, width, height }"
+      v-bind="{
+        isPlaceholderVisible,
+        placeholder,
+        width,
+        height,
+        nuxtImgConfig,
+      }"
     >
       <img
         :class="{ 'display-none': isPlaceholderVisible }"
@@ -153,18 +160,35 @@ export default {
         ? {
             ...this.$attrs,
             sizes: this.sizes,
-            width: this.width
-              ? this.width
-              : !this.srcset && console.error(`Missing required prop width.`),
-            height: this.height
-              ? this.height
-              : !this.srcset && console.error(`Missing required prop height.`),
             srcset: this.srcset,
           }
         : {
             ...this.$attrs,
             ...this.nuxtImgConfig,
           };
+    },
+    styles() {
+      if (
+        !this.width &&
+        !this.srcset &&
+        (this.imageTag === "img" || this.imageTag === "")
+      ) {
+        console.error(`Missing required prop width.`);
+      }
+      if (
+        !this.height &&
+        !this.srcset &&
+        (this.imageTag === "img" || this.imageTag === "")
+      ) {
+        console.error(`Missing required prop height.`);
+      }
+      const sizeHandler = (size) => {
+        return size === null ? null : `${size}px`;
+      };
+      return {
+        "--_image-width": sizeHandler(this.width),
+        "--_image-height": sizeHandler(this.height),
+      };
     },
   },
   created() {
