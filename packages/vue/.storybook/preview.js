@@ -17,4 +17,10 @@ export const parameters = {
       ],
     },
   },
+  previewTabs: {
+    'storybook/docs/panel': {
+      index: -1
+    }
+  },
+  viewMode: 'docs'
 };

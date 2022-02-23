@@ -159,8 +159,13 @@ export default {
 const Template = (args, { argTypes }) => ({
   components: { SfAddressPicker },
   props: Object.keys(argTypes),
+  data() {
+    return {
+      checked: this.selected,
+    };
+  },
   template: `
-  <SfAddressPicker v-model="selected" @change="change">
+  <SfAddressPicker v-model="checked" @change="change">
     <SfAddress :name="name">
       <span>{{title}}</span>
       <span>{{street}}</span>
