@@ -32,7 +32,7 @@
         <slot name="close-mobile">
           <SfButton
             class="sf-button--full-width sf-bottom-modal__cancel"
-            aria-label="Close"
+            :aria-label="'Close'"
             @click="close"
             >Cancel</SfButton
           >

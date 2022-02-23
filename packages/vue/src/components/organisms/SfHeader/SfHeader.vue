@@ -51,7 +51,7 @@
                 :class="{ 'display-none': !accountIcon }"
                 class="sf-button--pure sf-header__action"
                 data-testid="accountIcon"
-                aria-label="Account"
+                :aria-label="'Account'"
                 @click="$emit('click:account')"
               >
                 <SfIcon
@@ -66,7 +66,7 @@
                 :class="{ 'display-none': !wishlistIcon }"
                 class="sf-button--pure sf-header__action"
                 data-testid="wishlistIcon"
-                aria-label="Wishlist"
+                :aria-label="'Wishlist'"
                 @click="$emit('click:wishlist')"
               >
                 <SfIcon
@@ -84,7 +84,7 @@
                 :class="{ 'display-none': !cartIcon }"
                 class="sf-button--pure sf-header__action"
                 data-testid="cartIcon"
-                aria-label="Cart"
+                :aria-label="'Cart'"
                 @click="$emit('click:cart')"
               >
                 <SfIcon

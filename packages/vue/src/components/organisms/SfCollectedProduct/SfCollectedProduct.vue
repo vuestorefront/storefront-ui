@@ -83,7 +83,7 @@
     <slot name="more-actions" v-bind="{ actionsHandler }">
       <div :class="{ 'display-none': !hasMoreActions }">
         <SfButton
-          aria-label="More actions"
+          :aria-label="'More actions'"
           class="
             sf-button--pure
             sf-collected-product__more-actions
