@@ -875,11 +875,7 @@ export default {
     },
     handleSelectedColor(color, index) {
       this.products[index].colors.map((el) => {
-        if (el.label === color.label) {
-          el.selected = !el.selected;
-        } else {
-          el.selected = false;
-        }
+        el.selected = el.label === color.label ? !el.selected : false;
       });
     },
   },
