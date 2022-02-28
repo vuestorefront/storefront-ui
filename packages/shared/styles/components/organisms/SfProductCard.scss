@@ -108,8 +108,9 @@
   }
   &__add-button {
     --circle-icon-position: absolute;
+    z-index: 10;
     right: var(--product-card-add-button-right, 1rem);
-    bottom: var(--product-card-add-button-bottom, -1.5rem);
+    bottom: var(--product-card-add-button-bottom, 0rem);
     display: var(--product-card-add-button-display, none);
     transform: var(--product-card-add-button-transform);
     opacity: var(--product-card-add-button-opacity, 0); 
