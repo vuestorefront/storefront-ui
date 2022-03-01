@@ -165,6 +165,19 @@ export default {
       defaultValue: true,
       description: "The overlay's visibility",
     },
+    position: {
+      control: "text",
+      table: {
+        category: "Props",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "left",
+        },
+      },
+      description: "Animation class name based on position value",
+    },
     close: {
       action: "close event emitted",
       table: { category: "Events", type: { summary: null } },
@@ -241,6 +254,7 @@ const Template = (args, { argTypes }) => ({
     :overlay="overlay"
     :class="classes"
     :persistent="persistent"
+    :position="position"
   >
     Total items: 0
   </SfSidebar>`,
@@ -256,6 +270,7 @@ export const OnTheRight = Template.bind({});
 OnTheRight.args = {
   ...Common.args,
   classes: "sf-sidebar--right",
+  position: "right",
 };
 
 export const NoOverlay = Template.bind({});

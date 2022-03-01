@@ -1,9 +1,9 @@
 <template>
-  <div class="sf-sidebar" :class="[staticClass, className]">
+  <div class="sf-sidebar">
     <SfOverlay :visible="visibleOverlay" />
-    <transition :name="transitionName">
+    <transition :name="transitionName" appear>
       <aside
-        v-if="visible"
+        v-if="visible && isOpen"
         ref="asideContent"
         v-focus-trap
         v-click-outside="checkPersistence"
@@ -103,12 +103,15 @@ export default {
       type: Boolean,
       default: false,
     },
+    position: {
+      type: String,
+      default: "left",
+    },
   },
   data() {
     return {
-      position: "left",
-      staticClass: null,
-      className: null,
+      transition: this.position,
+      isOpen: this.visible,
     };
   },
   computed: {
@@ -116,7 +119,7 @@ export default {
       return this.visible && this.overlay;
     },
     transitionName() {
-      return "sf-slide-" + this.position;
+      return "sf-slide-" + this.transition;
     },
     hasTop() {
       return this.$slots.hasOwnProperty("content-top");
@@ -130,6 +133,8 @@ export default {
       handler(value) {
         if (!isClient) return;
         if (value) {
+          this.isOpen = true;
+          this.transition = this.position;
           this.$nextTick(() => {
             const sidebarContent = document.getElementsByClassName(
               "sf-sidebar__content"
@@ -140,22 +145,27 @@ export default {
         } else {
           clearAllBodyScrollLocks();
           document.removeEventListener("keydown", this.keydownHandler);
+          this.isOpen = false;
         }
       },
       immediate: true,
     },
-  },
-  mounted() {
-    this.classHandler();
-  },
-  updated() {
-    this.classHandler();
+    isOpen: {
+      // handle out animation for async load component
+      handler(value) {
+        if (!isClient) return;
+        if (!value) {
+          this.transition = this.position === "right" ? "left" : "right";
+        }
+      },
+    },
   },
   beforeDestroy() {
     clearAllBodyScrollLocks();
   },
   methods: {
     close() {
+      this.isOpen = false;
       this.$emit("close");
     },
     checkPersistence() {
@@ -164,23 +174,6 @@ export default {
     keydownHandler(e) {
       if (e.key === "Escape" || e.key === "Esc" || e.keyCode === 27) {
         this.close();
-      }
-    },
-    classHandler() {
-      let update = false;
-      if (this.staticClass !== this.$vnode.data.staticClass) {
-        this.staticClass = this.$vnode.data.staticClass;
-        update = true;
-      }
-      if (this.className !== this.$vnode.data.class) {
-        this.className = this.$vnode.data.class;
-        update = true;
-      }
-      if (update) {
-        this.position =
-          [this.staticClass, this.className].toString().search("--right") > -1
-            ? "right"
-            : "left";
       }
     },
   },
