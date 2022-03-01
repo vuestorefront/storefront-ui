@@ -10,9 +10,7 @@
         "http://localhost/product/index.html",
         "http://localhost/detailed-cart/index.html",
         "http://localhost/static/index.html",
-        "http://localhost/login/index.html",
-        "http://localhost/myaccount/index.html",
-        "http://localhost/thankYou/index.html"
+        "http://localhost/login/index.html"
       ]
     },
     "upload": {
