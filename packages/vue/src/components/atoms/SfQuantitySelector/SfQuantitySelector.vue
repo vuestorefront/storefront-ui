@@ -2,13 +2,13 @@
   <div
     :class="[data.class, data.staticClass, 'sf-quantity-selector']"
     :style="[data.style, data.staticStyle]"
+    :aria-label="props.ariaLabel"
   >
     <component
       :is="injections.components.SfButton"
       :disabled="
         props.disabled || Boolean(props.min !== null && props.qty <= props.min)
       "
-      :aria-label="props.ariaLabel"
       class="sf-button--pure sf-quantity-selector__button"
       data-testid="decrease"
       @click="
@@ -28,7 +28,6 @@
       :name="$options.uniqueKey()"
       :value="Number(props.qty)"
       :disabled="props.disabled"
-      :aria-label="props.ariaLabel"
       class="sf-quantity-selector__input"
       data-testid="sf-quantity-selector input"
       @input="$options.handleInput($event, listeners, props.min, props.max)"
