@@ -1,4 +1,4 @@
-import { shallowMount, mount } from "@vue/test-utils";
+import { shallowMount } from "@vue/test-utils";
 import SfDevice from "./SfDevice.vue";
 
 describe("SfDevice.vue", () => {
@@ -22,8 +22,8 @@ describe("SfDevice.vue", () => {
     });
     expect(component.find(".sf-device__tablet").exists()).toBe(true);
   });
-  it("morphs after click", (done) => {
-    const component = mount(SfDevice, {
+  it("switches device after click", (done) => {
+    const component = shallowMount(SfDevice, {
       propsData: {
         device: "tablet",
         switchOnClick: true,
@@ -35,8 +35,8 @@ describe("SfDevice.vue", () => {
       done();
     });
   });
-  it("device switch after interval", (done) => {
-    const component = mount(SfDevice, {
+  it("switches device after interval", (done) => {
+    const component = shallowMount(SfDevice, {
       propsData: {
         device: "tablet",
         switchInterval: 1,
