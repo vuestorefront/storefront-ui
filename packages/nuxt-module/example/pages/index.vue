@@ -81,12 +81,7 @@
             :key="colKey"
             class="instagram-grid__col"
           >
-            <SfImage v-if="!isMobile" :src="image.url" :alt="image.content" :width="470" :height="470">
-              {{
-                image.content
-              }}
-            </SfImage>
-            <SfImage v-else :src="image.url" :alt="image.content" :width="150" :height="150">
+            <SfImage class="instagram-grid__image" :src="image.url" :alt="image.content" :width="470" :height="470">
               {{
                 image.content
               }}
@@ -424,6 +419,12 @@ export default {
       @include for-desktop {
         margin: 0 0 0 calc(var(--spacer-xl) / 2);
       }
+    }
+  }
+  &__image {
+    --image-width: 9.375rem;
+    @include for-desktop {
+      --image-width: 29.375rem;
     }
   }
 }

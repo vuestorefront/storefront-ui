@@ -42,6 +42,7 @@
   &__item {
     display: var(--header-navigation-item-display, flex);
     &--desktop {
+      display: none;
       & > *:not(.sf-mega-menu) {
         --link-color: var(--header-navigation-item-color, var(--c-dark-variant));
         box-sizing: border-box;
@@ -64,6 +65,7 @@
         text-decoration: initial;
         text-align: center;
         @include for-desktop {
+          display: block;
           padding: var(--header-navigation-item-padding, calc(var(--spacer-lg) - 1px) var(--spacer-sm));
           margin: var(--header-navigation-item-margin, 0);
         }
@@ -86,6 +88,11 @@
         margin: var(--header-navigation-item-menu-item-margin, 0);
         @include border(--header-navigation-item-menu-item-border, 0 0 1px 0, solid, var(--c-light));
       }
+       @include for-desktop {
+          display: none;
+          padding: var(--header-navigation-item-padding, calc(var(--spacer-lg) - 1px) var(--spacer-sm));
+          margin: var(--header-navigation-item-margin, 0);
+        }
     }
   }
   
