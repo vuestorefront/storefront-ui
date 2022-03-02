@@ -35,6 +35,7 @@ import SfCharacteristic from "./src/components/molecules/SfCharacteristic/SfChar
 import SfCheckbox from "./src/components/molecules/SfCheckbox/SfCheckbox.vue";
 import SfColorPicker from "./src/components/molecules/SfColorPicker/SfColorPicker.vue";
 import SfComponentSelect from "./src/components/molecules/SfComponentSelect/SfComponentSelect.vue";
+import SfDevice from "./src/components/molecules/SfDevice/SfDevice.vue";
 import SfDropdown from "./src/components/molecules/SfDropdown/SfDropdown.vue";
 import SfFilter from "./src/components/molecules/SfFilter/SfFilter.vue";
 import SfGallery from "./src/components/molecules/SfGallery/SfGallery.vue";
@@ -121,6 +122,7 @@ export {
   SfCheckbox,
   SfColorPicker,
   SfComponentSelect,
+  SfDevice,
   SfDropdown,
   SfFilter,
   SfGallery,

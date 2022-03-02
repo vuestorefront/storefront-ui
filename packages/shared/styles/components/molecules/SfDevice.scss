@@ -1,0 +1,117 @@
+.sf-device {
+  &, * {
+    box-sizing: border-box;
+  }
+
+  &__desktop, &__laptop, &__tablet, &__mobile {
+    margin: 0 auto 40px;
+    position: relative;
+  }
+
+  &__desktop, &__laptop, &__tablet, &__mobile, &__tablet &__screen {
+    transition-property: all;
+    transition-duration: 0.25s;
+    transition-timing-function: ease-in-out;
+  }
+
+  &__screen {
+    background: #333;
+    width: 100%;
+  }
+
+  &__mobile {
+    background: #111;
+    width: 100px;
+    height: 196px;
+    border-radius: 15px;
+    padding: 15px 7px;
+  }
+  &__mobile &__screen {
+    height: 75%;
+  }
+  &__mobile:before {
+    content: " ";
+    background: #222;
+    display: block;
+    width: 20px;
+    height: 5px;
+    margin: 0 auto 15px auto;
+    border-radius: 2px;
+  }
+  &__mobile:after {
+    content: " ";
+    display: block;
+    background: #222;
+    width: 20px;
+    height: 20px;
+    margin: 7px auto 8px;
+    border-radius: 10px;
+  }
+
+  &__tablet {
+    display: block;
+    background: #111;
+    width: 295px;
+    height: 380px;
+    padding: 20px 25px;
+    border-radius: 10px;
+  }
+  &__tablet &__screen {
+    height: 88%;
+  }
+  &__tablet:before {
+    content: " ";
+    background: #222;
+    display: block;
+    width: 5px;
+    height: 5px;
+    margin: 0 auto 15px auto;
+    border-radius: 2px;
+  }
+  &__tablet:after {
+    content: " ";
+    display: block;
+    background: #222;
+    width: 15px;
+    height: 15px;
+    margin: 11px auto 8px;
+    border-radius: 10px;
+  }
+
+  &__laptop {
+    display: block;
+    background: #111;
+    width: 600px;
+    height: 380px;
+    padding: 30px 30px 10px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+  &__laptop &__screen {
+    width: 100%;
+    height: 90%;
+  }
+  &__laptop:before {
+    content: " ";
+    background: #222;
+    display: block;
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    left: 48%;
+    top: 10px;
+    border-radius: 4px;
+  }
+  &__laptop:after {
+    content: " ";
+    background: #666;
+    display: block;
+    width: 130%;
+    position: relative;
+    top: 20px;
+    margin-left: -15%;
+    height: 35px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+}
