@@ -42,7 +42,6 @@
   &__item {
     display: var(--header-navigation-item-display, flex);
     &--desktop {
-      display: none;
       & > *:not(.sf-mega-menu) {
         --link-color: var(--header-navigation-item-color, var(--c-dark-variant));
         box-sizing: border-box;
