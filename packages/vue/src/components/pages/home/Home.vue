@@ -87,38 +87,30 @@
       <div class="instagram-grid">
         <div class="grid__row">
           <div class="grid__col">
-            <SfImage
-              v-if="isMobile"
+            <SfListItem
               src="/assets/storybook/Home/imageAm.webp"
+              class="grid__col-image--am"
               alt="katherina_trn"
-              :width="140"
-              :height="140"
-              >katherina_trn</SfImage
+              >katherina_trn</SfListItem
             >
             <SfImage
-              v-else
               src="/assets/storybook/Home/imageAd.webp"
+              class="grid__col-image--ad"
               alt="katherina_trn"
-              :width="470"
-              :height="470"
               >katherina_trn</SfImage
             >
           </div>
           <div class="grid__col small">
             <SfImage
-              v-if="isMobile"
+              class="grid__col-image--bm"
               src="/assets/storybook/Home/imageBm.webp"
               alt="katherina_trn"
-              :width="140"
-              :height="140"
               >katherina_trn</SfImage
             >
             <SfImage
-              v-else
+              class="grid__col-image--cd"
               src="/assets/storybook/Home/imageCd.webp"
               alt="katherina_trn"
-              :width="470"
-              :height="160"
               >katherina_trn</SfImage
             >
           </div>
@@ -126,25 +118,21 @@
         <div class="grid__row gap">
           <div class="grid__col small">
             <SfImage
-              v-if="isMobile"
+              class="grid__col-image--cm"
               src="/assets/storybook/Home/imageCm.webp"
               alt="katherina_trn"
-              :width="140"
-              :height="140"
               >katherina_trn</SfImage
             >
             <SfImage
-              v-else
+              class="grid__col-image--bd"
               src="/assets/storybook/Home/imageBd.webp"
               alt="katherina_trn"
-              :width="470"
-              :height="160"
               >katherina_trn</SfImage
             >
           </div>
           <div class="grid__col">
             <SfImage
-              v-if="isMobile"
+              class="grid__col-image--dm"
               src="/assets/storybook/Home/imageDm.webp"
               alt="katherina_trn"
               :width="140"
@@ -152,11 +140,9 @@
               >katherina_trn</SfImage
             >
             <SfImage
-              v-else
+              class="grid__col-image--dd"
               src="/assets/storybook/Home/imageDd.webp"
               alt="katherina_trn"
-              :width="470"
-              :height="470"
               >katherina_trn</SfImage
             >
           </div>
@@ -386,12 +372,6 @@ export default {
       ],
     };
   },
-  computed: {
-    ...mapMobileObserver(),
-  },
-  beforeDestroy() {
-    unMapMobileObserver();
-  },
   methods: {
     toggleWishlist(index) {
       return (this.products[index].isInWishlist =
@@ -500,6 +480,39 @@ export default {
       @include for-desktop {
         margin-top: var(--spacer-sm);
       }
+    }
+  }
+}
+
+.grid {
+  &__col-image {
+    &--am {
+      --image-width: 8.75rem;
+      --image-height: 8.75rem;
+    }
+    &--ad {
+      --image-width: 29.375rem;
+      --image-height: 29.375rem;
+    }
+    &--bm {
+      --image-width: 8.75rem;
+      --image-height: 8.75rem;
+    }
+    &--bd {
+      --image-width: 29.375rem;
+      --image-height: 10rem;
+    }
+    &--cm {
+      --image-width: 8.75rem;
+      --image-height: 8.75rem;
+    }
+    &--cd {
+      --image-width: 29.375rem;
+      --image-height: 10rem;
+    }
+    &--dd {
+      --image-width: 29.375rem;
+      --image-height: 29.375rem;
     }
   }
 }
