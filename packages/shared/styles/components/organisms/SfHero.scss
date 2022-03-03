@@ -63,7 +63,6 @@
     text-transform: none;
   }
   &__button {
-    display: none;
     --button-width: var(--hero-item-button-width);
     --button-height: var(--hero-item-button-height);
     --button-padding: var(--hero-item-button-padding);
@@ -75,6 +74,7 @@
     --button-text-transform: var(--hero-item-button-text-transform);
     --button-text-decoration: var(--hero-item-button-text-decoration);
     --button-border-radius: var(--hero-item-button-border-radius);
+    display: none;
   }
   &--align-right {
     justify-content: flex-end;
@@ -89,6 +89,7 @@
     background-position: bottom left;
   }
   @include for-desktop {
+    display: block;
     background-image: var(--hero-item-background-image);
     &__wrapper {
       width: 50%;
@@ -102,9 +103,6 @@
       --hero-item-font-size: var(--h1-font-size);
       width: 100%;
       margin: var(--spacer-base) 0 var(--spacer-lg) 0;
-    }
-    &__button {
-      display: block;
     }
   }
 }

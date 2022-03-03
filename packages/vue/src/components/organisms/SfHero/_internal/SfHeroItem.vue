@@ -14,11 +14,14 @@
         }}</span>
       </slot>
       <slot name="call-to-action" v-bind="{ buttonText, link }">
-        <div v-if="buttonText" class="sf-hero-item__button">
-          <SfButton :link="link" data-testid="hero-cta-button">
-            {{ buttonText }}
-          </SfButton>
-        </div>
+        <SfButton
+          v-if="buttonText"
+          :link="link"
+          data-testid="hero-cta-button"
+          class="sf-hero-item__button"
+        >
+          {{ buttonText }}
+        </SfButton>
       </slot>
       <slot name="withImgTag" />
     </component>
