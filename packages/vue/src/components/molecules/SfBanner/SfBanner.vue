@@ -1,9 +1,5 @@
 <template>
-  <section
-    class="sf-banner"
-    :style="style"
-    v-on="isMobileView ? $listeners : {}"
-  >
+  <section class="sf-banner" :style="style" v-on="$listeners">
     <component :is="wrapper" class="sf-banner__wrapper" :link="link">
       <slot name="subtitle" v-bind="{ subtitle }">
         <span
@@ -28,11 +24,11 @@
       </slot>
       <slot name="call-to-action" v-bind="{ buttonText }">
         <SfButton
-          v-if="buttonText && !isMobileView"
+          v-if="buttonText"
           :link="link"
           class="sf-banner__call-to-action color-secondary"
           data-testid="banner-cta-button"
-          v-on="!isMobileView ? $listeners : {}"
+          v-on="$listeners"
         >
           {{ buttonText }}
         </SfButton>
@@ -44,10 +40,6 @@
 <script>
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfLink from "../../atoms/SfLink/SfLink.vue";
-import {
-  mapMobileObserver,
-  unMapMobileObserver,
-} from "../../../utilities/mobile-observer";
 export default {
   name: "SfBanner",
   components: {
@@ -92,13 +84,7 @@ export default {
       default: () => ({}),
     },
   },
-  data() {
-    return {
-      isMobileView: false,
-    };
-  },
   computed: {
-    ...mapMobileObserver(),
     style() {
       const image = this.image;
       const background = this.background;
@@ -125,14 +111,8 @@ export default {
       };
     },
     wrapper() {
-      return !this.isMobileView ? "div" : this.link ? "SfLink" : "SfButton";
+      return this.link ? "SfLink" : "SfButton";
     },
-  },
-  mounted() {
-    this.isMobileView = this.isMobile;
-  },
-  beforeDestroy() {
-    unMapMobileObserver();
   },
 };
 </script>

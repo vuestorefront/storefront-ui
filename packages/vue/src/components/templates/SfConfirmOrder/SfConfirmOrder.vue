@@ -13,8 +13,7 @@
     <slot name="table" v-bind="{ tableHeaders, orderItems }">
       <SfTable class="sf-table--bordered sf-confirm-order__table">
         <SfTableHeading class="sf-confirm-order__table-row">
-          <SfTableHeader
-            class="sf-confirm-order__table-header sf-confirm-order__table-image"
+          <SfTableHeader class="sf-confirm-order__table-header"
             >Item</SfTableHeader
           >
           <SfTableHeader
@@ -34,21 +33,11 @@
           class="sf-confirm-order__table-row"
           data-testid="product-table-row"
         >
-          <SfTableData class="sf-confirm-order__table-image">
+          <SfTableData>
             <SfImage
-              v-if="!isMobile"
+              class="sf-confirm-order__table-image"
               :src="product.image"
               :alt="product.title"
-              :width="82"
-              :height="124"
-              data-testid="product-image-table-data"
-            />
-            <SfImage
-              v-else
-              :src="product.image"
-              :alt="product.title"
-              :width="44"
-              :height="66"
               data-testid="product-image-table-data"
             />
           </SfTableData>
@@ -139,10 +128,6 @@ import {
   SfProperty,
   SfLink,
 } from "@storefront-ui/vue";
-import {
-  mapMobileObserver,
-  unMapMobileObserver,
-} from "../../../utilities/mobile-observer";
 export default {
   name: "SfConfirmOrder",
   components: {
@@ -212,10 +197,6 @@ export default {
       const total = subtotal + (isNaN(shipping) ? 0 : shipping);
       return "$" + total.toFixed(2);
     },
-    ...mapMobileObserver(),
-  },
-  beforeDestroy() {
-    unMapMobileObserver();
   },
 };
 </script>

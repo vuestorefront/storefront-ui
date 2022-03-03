@@ -27,10 +27,6 @@
 <script>
 import SfButton from "../../../atoms/SfButton/SfButton.vue";
 import SfLink from "../../../atoms/SfLink/SfLink.vue";
-import {
-  mapMobileObserver,
-  unMapMobileObserver,
-} from "../../../../utilities/mobile-observer";
 export default {
   name: "SfHeroItem",
   components: {
@@ -71,13 +67,7 @@ export default {
       default: () => ({}),
     },
   },
-  data() {
-    return {
-      mobileView: false,
-    };
-  },
   computed: {
-    ...mapMobileObserver(),
     style() {
       const image = this.image;
       const isImageString = typeof image === "string";
@@ -87,30 +77,30 @@ export default {
       };
       if (this.imageTag === "nuxt-img" || this.imageTag === "nuxt-picture") {
         return {
-          "background-image": isImageString
+          "--hero-item-background-image": isImageString
             ? nuxtImgConvert(image)
-            : this.mobileView
-            ? nuxtImgConvert(image.mobile)
-            : nuxtImgConvert(image.desktop),
+            : {
+                "--hero-item-background-image-mobile": nuxtImgConvert(
+                  image.mobile
+                ),
+                "--hero-item-background-image": nuxtImgConvert(image.desktop),
+              },
           "--_banner-background-color": background,
         };
       }
       return {
         "background-image": isImageString
           ? `url(${image})`
-          : `url(${this.mobileView ? image.mobile : image.desktop})`,
+          : {
+              "--hero-item-background-image-mobile": image.mobile,
+              "--hero-item-background-image": image.desktop,
+            },
         "background-color": background,
       };
     },
     wrapper() {
-      return !this.mobileView ? "div" : this.link ? "SfLink" : "SfButton";
+      return this.link ? "SfLink" : "SfButton";
     },
-  },
-  mounted() {
-    this.mobileView = this.isMobile;
-  },
-  beforeDestroy() {
-    unMapMobileObserver();
   },
 };
 </script>

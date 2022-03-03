@@ -173,7 +173,7 @@ export default {
     docs: {
       description: {
         component:
-          "Grouped Product component. Built from main component - SfHeader and internal components - SfHeaderNavigation and SfHeaderNavigationItem.",
+          "Grouped Product component. Built from main component - SfHeader and internal component - SfHeaderNavigationItem.",
       },
     },
     layout: "fullscreen",
@@ -435,16 +435,6 @@ export default {
       },
       description:
         "Named slot for `SfHeader` component. Use this slot to replace default icons",
-    },
-    default: {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description:
-        "Default slot for `SfHeaderNavigation` component. Use this slot to place navigation elements",
     },
     "default ": {
       table: {
