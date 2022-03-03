@@ -54,7 +54,7 @@
           :class="{ 'display-none': !colors.length }"
           class="sf-product-card__colors"
           label="Choose color"
-          :is-open="!isMobile || openColorPicker"
+          :is-open="openColorPicker"
           @click:toggle="toggleColorPicker"
         >
           <SfColor
@@ -199,10 +199,6 @@ import SfBadge from "../../atoms/SfBadge/SfBadge.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfColorPicker from "../../molecules/SfColorPicker/SfColorPicker.vue";
 import SfColor from "../../atoms/SfColor/SfColor.vue";
-import {
-  mapMobileObserver,
-  unMapMobileObserver,
-} from "../../../utilities/mobile-observer";
 export default {
   name: "SfProductCard",
   components: {
@@ -317,7 +313,6 @@ export default {
     };
   },
   computed: {
-    ...mapMobileObserver(),
     isSFColors() {
       return SF_COLORS.includes(this.badgeColor.trim());
     },
@@ -341,9 +336,6 @@ export default {
       return this.colors.length > 5;
     },
   },
-  beforeDestroy() {
-    unMapMobileObserver();
-  },
   methods: {
     toggleIsInWishlist() {
       this.$emit("click:wishlist", !this.isInWishlist);
@@ -361,9 +353,7 @@ export default {
         this.colors.map((color, i) => {
           if (colorIndex === i) {
             this.$emit("click:colors", color);
-            if (this.isMobile) {
-              this.toggleColorPicker();
-            }
+            this.toggleColorPicker();
           }
         });
       }
