@@ -15,6 +15,7 @@
     transform: var(--color-picker-transform);
   }
   &__colors {
+    position: relative;
     box-sizing: border-box;
     display: flex;
     width: 100%;
@@ -93,7 +94,7 @@
     }
     &--vertical {
       --color-picker-padding: var(--spacer-base);
-      --color-picker-align-items: center;
+      --color-picker-align-items: start;
       --color-picker-width: auto;
       --color-picker-open-padding: var(--spacer-2xl) 0;
       --color-picker-close-margin: var(--spacer-xs) 0 0 0;
