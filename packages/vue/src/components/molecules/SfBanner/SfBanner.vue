@@ -22,17 +22,7 @@
           {{ description }}
         </span>
       </slot>
-      <slot name="call-to-action" v-bind="{ buttonText }">
-        <SfButton
-          v-if="buttonText && !isMobileView"
-          :link="link"
-          class="sf-banner__call-to-action color-secondary"
-          data-testid="banner-cta-button"
-          v-on="!isMobileView ? $listeners : {}"
-        >
-          {{ buttonText }}
-        </SfButton>
-      </slot>
+      <slot name="call-to-action" v-bind="{ buttonText }" />
     </component>
     <div class="sf-banner__wrapper-desktop" :link="link">
       <slot name="subtitle" v-bind="{ subtitle }">
@@ -58,11 +48,11 @@
       </slot>
       <slot name="call-to-action" v-bind="{ buttonText }">
         <SfButton
-          v-if="buttonText && !isMobileView"
+          v-if="buttonText"
           :link="link"
           class="sf-banner__call-to-action color-secondary"
           data-testid="banner-cta-button"
-          v-on="!isMobileView ? $listeners : {}"
+          v-on="$listeners"
         >
           {{ buttonText }}
         </SfButton>
