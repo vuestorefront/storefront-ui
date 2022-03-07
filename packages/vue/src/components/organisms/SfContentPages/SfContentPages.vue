@@ -66,6 +66,10 @@ import SfList from "../SfList/SfList.vue";
 import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfBar from "../../molecules/SfBar/SfBar.vue";
+import {
+  mapMobileObserver,
+  unMapMobileObserver,
+} from "../../../utilities/mobile-observer";
 export default {
   name: "SfContentPages",
   components: {
@@ -90,6 +94,7 @@ export default {
     };
   },
   computed: {
+    ...mapMobileObserver(),
     categories() {
       const items = [];
       const orphans = { items: [] };
@@ -115,6 +120,18 @@ export default {
     isActive() {
       return this.active.length > 0;
     },
+  },
+  watch: {
+    isMobile(mobile) {
+      if (mobile) {
+        this.$emit("click:change", "");
+        return;
+      }
+      this.$emit("click:change", this.categories[0].items[0].title);
+    },
+  },
+  beforeDestroy() {
+    unMapMobileObserver();
   },
   provide() {
     const provided = {};

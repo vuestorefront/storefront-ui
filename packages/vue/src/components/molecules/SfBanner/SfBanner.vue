@@ -135,7 +135,7 @@ export default {
       };
     },
     wrapper() {
-      return !this.isMobileView ? "div" : this.link ? "SfLink" : "SfButton";
+      return this.link ? "SfLink" : "SfButton";
     },
   },
 };

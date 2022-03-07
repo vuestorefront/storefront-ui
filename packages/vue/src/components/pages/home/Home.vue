@@ -58,7 +58,7 @@
       >
         <SfProductCard
           :image="product.image"
-          :colors="!isMobile ? product.colors : []"
+          :colors="product.colors"
           :title="product.title"
           :regular-price="product.price.regular"
           :special-price="product.price.special"

@@ -1,9 +1,6 @@
 <template>
   <li class="glide__slide sf-hero-item" :style="style" data-testid="hero-item">
-    <div
-      class="sf-hero-item__wrapper sf-hero-item__wrapper--desktop"
-      :link="link"
-    >
+    <div class="sf-hero-item__wrapper sf-hero-item__wrapper--desktop">
       <slot name="subtitle" v-bind="{ subtitle }">
         <span
           :class="{ 'display-none': !subtitle }"
