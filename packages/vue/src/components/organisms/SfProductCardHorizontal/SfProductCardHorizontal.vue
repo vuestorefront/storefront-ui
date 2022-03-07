@@ -112,7 +112,11 @@
       <SfButton
         v-if="wishlistIcon !== false"
         :aria-label="`${ariaLabel} ${title}`"
-        class="sf-button--pure smartphone-only"
+        class="
+          sf-button--pure
+          smartphone-only
+          sf-product-card-horizontal__wishlist-icon
+        "
         @click="toggleIsInWishlist"
       >
         <slot name="wishlist-icon" v-bind="{ currentWishlistIcon }">
@@ -235,12 +239,6 @@ export default {
     },
     ariaLabel() {
       return this.isInWishlist ? "Remove from wishlist" : "Add to wishlist";
-    },
-    wishlistIconClasses() {
-      const defaultClass = "sf-product-card-horizontal__wishlist-icon";
-      return `${defaultClass} ${
-        this.isOnWishlist ? "sf-product-card-horizontal--on-wishlist" : ""
-      }`;
     },
     itemQuantity: {
       get() {

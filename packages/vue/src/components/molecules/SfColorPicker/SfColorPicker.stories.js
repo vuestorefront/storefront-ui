@@ -245,13 +245,18 @@ export default {
 const Template = (args, { argTypes }) => ({
   components: { SfColorPicker, SfColor },
   props: Object.keys(argTypes),
+  data() {
+    return {
+      opened: this.isOpen,
+    };
+  },
   template: `
   <SfColorPicker
     :class="classes"
     :label="label"
     :has-close="hasClose"
-    :isOpen="isOpen"
-    @click:toggle="() => {this['click:toggle'](); this.isOpen = !this.isOpen}"
+    :isOpen="opened"
+    @click:toggle="() => {this['click:toggle'](); this.opened = !this.opened}"
   >
     <SfColor style="margin: 0.4375rem" v-for="color in colors" :key="color.value" :color="color.color" :selected="color.selected" @click="color.selected = !color.selected"/>
   </SfColorPicker>`,
