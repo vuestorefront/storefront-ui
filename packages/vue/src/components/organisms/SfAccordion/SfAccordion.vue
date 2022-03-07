@@ -96,6 +96,11 @@ export default {
           return child._uid === slotId;
         });
         clickedHeader.isOpen = !clickedHeader.isOpen;
+        this.openHeader = this.items.reduce(
+          (openHeaders, item) =>
+            item.isOpen ? [...openHeaders, item.header] : openHeaders,
+          []
+        );
         this.$emit("click:open", clickedHeader.isOpen);
       }
       if (this.headersAreClosed) {
