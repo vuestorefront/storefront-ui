@@ -278,11 +278,16 @@ export default {
 const Template = (args, { argTypes }) => ({
   components: { SfContentPages, SfTabs },
   props: Object.keys(argTypes),
+  data() {
+    return {
+      opened: this.active,
+    };
+  },
   template: `
   <SfContentPages
     :title="title"
-    :active="active"
-    @click:change="(active) => { this['click:change'](active); this.active = active }"
+    :active="opened"
+    @click:change="(active) => { this['click:change'](active); this.opened = active }"
   >
   <SfContentPage v-for="(page, key) in pages" :key="page.title+key" :title="page.title">
     <SfTabs v-if="page.tabs" :open-tab="1">
@@ -308,11 +313,16 @@ HasActive.args = {
 export const WithCategories = (args, { argTypes }) => ({
   components: { SfContentPages, SfTabs },
   props: Object.keys(argTypes),
+  data() {
+    return {
+      opened: this.active,
+    };
+  },
   template: `
   <SfContentPages
     :title="title"
-    :active="active"
-    @click:change="(active) => { this['click:change'](active); this.active = active }"
+    :active="opened"
+    @click:change="(active) => { this['click:change'](active); this.opened = active }"
   >
   <SfContentPage v-for="(page, key) in pages" :key="page.title+key" :title="page.title">
     <SfTabs v-if="page.tabs" :open-tab="1">
@@ -330,11 +340,16 @@ WithCategories.args = {
 export const WithCategoryIcon = (args, { argTypes }) => ({
   components: { SfContentPages, SfTabs },
   props: Object.keys(argTypes),
+  data() {
+    return {
+      opened: this.active,
+    };
+  },
   template: `
   <SfContentPages
     :title="title"
-    :active="active"
-    @click:change="(active) => { this['click:change'](active); this.active = active }"
+    :active="opened"
+    @click:change="(active) => { this['click:change'](active); this.opened = active }"
   >
     <SfContentPage v-for="(page, key) in pages" :key="page.title+key" :title="page.title" :icon="page.icon">
     <SfTabs v-if="page.tabs" :open-tab="1">
@@ -396,13 +411,18 @@ WithCategoryIcon.args = {
 export const UseMenuItemSlot = (args, { argTypes }) => ({
   components: { SfContentPages, SfTabs },
   props: Object.keys(argTypes),
+  data() {
+    return {
+      opened: this.active,
+    };
+  },
   template: `
   <SfContentPages
     :title="title"
-    :active="active"
-    @click:change="(active) => { this['click:change'](active); this.active = active }"
+    :active="opened"
+    @click:change="(active) => { this['click:change'](active); this.opened = active }"
   >
-  <template #menu-item="{ updatePage, page, active }">
+  <template #menu-item="{ updatePage, page, opened }">
     <button @click="updatePage(page.title)">{{page.title}}</button>
   </template>
   <SfContentPage v-for="(page, key) in pages" :key="page.title+key" :title="page.title">

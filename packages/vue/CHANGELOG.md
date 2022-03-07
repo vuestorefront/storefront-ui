@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.12.2](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/vue@0.12.1...@storefront-ui/vue@0.12.2) (2022-02-23)
+
+
+### Bug Fixes
+
+* add timeout options to cypress config ([#2257](https://github.com/vuestorefront/storefront-ui/issues/2257)) ([6424fab](https://github.com/vuestorefront/storefront-ui/commit/6424fab503a35b03d5c51f624293be190a1292b1))
+* adding width and height when nuxt-img is used ([#2278](https://github.com/vuestorefront/storefront-ui/issues/2278)) ([75c2cf0](https://github.com/vuestorefront/storefront-ui/commit/75c2cf0291947bbaf504812e4f7e555778df9cf1))
+* changed date prop format to text in story ([#2265](https://github.com/vuestorefront/storefront-ui/issues/2265)) ([e47a683](https://github.com/vuestorefront/storefront-ui/commit/e47a683b43b72eae8c59a4ead7130535fa440e15))
+* exclude transpiling core-js from nuxt module ([#2266](https://github.com/vuestorefront/storefront-ui/issues/2266)) ([3e50d96](https://github.com/vuestorefront/storefront-ui/commit/3e50d96d0221d4eac908da7393ba7430e097aa98))
+* image-tag set to img for sfimage on nuxt ([#2253](https://github.com/vuestorefront/storefront-ui/issues/2253)) ([46b559a](https://github.com/vuestorefront/storefront-ui/commit/46b559a7d315c24297abb53494da9340c9e04c30))
+* mutating props error in stories ([#2256](https://github.com/vuestorefront/storefront-ui/issues/2256)) ([627de5c](https://github.com/vuestorefront/storefront-ui/commit/627de5c671a68215637a2a69e8abf728ea4b6a4b))
+* SfImage setting properties by props and custom properties when it's needed ([#2269](https://github.com/vuestorefront/storefront-ui/issues/2269)) ([d0640a1](https://github.com/vuestorefront/storefront-ui/commit/d0640a1298dc2e6ee0c01c7fb13f78e16e7e7b3f))
+* SfProductCardHorizontal - adjusted position of wishlist icon ([#2270](https://github.com/vuestorefront/storefront-ui/issues/2270)) ([aee5c89](https://github.com/vuestorefront/storefront-ui/commit/aee5c89a552f6b4c48d966e554928e34d460708c))
+* **sfgroupedproduct:** fix invalid styles for mobile view ([#2252](https://github.com/vuestorefront/storefront-ui/issues/2252)) ([129f15b](https://github.com/vuestorefront/storefront-ui/commit/129f15b7d25dbf41086a1ca3f9da3ff1baec7f51))
+* **srcset:** 'srcset' had an invalid attribute [#2216](https://github.com/vuestorefront/storefront-ui/issues/2216) ([e9d29ff](https://github.com/vuestorefront/storefront-ui/commit/e9d29ff52805a0cdb0aebee737b09eb1614a8622))
+
+
+### Features
+
+* allow setting height of SfModal content ([#2274](https://github.com/vuestorefront/storefront-ui/issues/2274)) ([9dbc345](https://github.com/vuestorefront/storefront-ui/commit/9dbc34557892c442c3b4d71248c92574fee53577))
+* change the docs tab to the first place in toolbar ([#2246](https://github.com/vuestorefront/storefront-ui/issues/2246)) ([9de2906](https://github.com/vuestorefront/storefront-ui/commit/9de2906054ede9ca10d057b6122980730d3142bb))
+* SfHero easier button customisation by css vars ([#2259](https://github.com/vuestorefront/storefront-ui/issues/2259)) ([174d1bb](https://github.com/vuestorefront/storefront-ui/commit/174d1bb651f060f5123314227c7fca85332b063d))
+
+
+
+
+
 ## [0.12.1](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/vue@0.12.0...@storefront-ui/vue@0.12.1) (2022-02-07)
 
 
