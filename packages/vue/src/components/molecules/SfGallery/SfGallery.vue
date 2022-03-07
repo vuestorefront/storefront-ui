@@ -184,7 +184,9 @@ export default {
       pictureSelected: this.images[0] || {
         alt: "",
         zoom: "",
-        big: "",
+        big: {
+          url: "",
+        },
         desktop: "",
         placeholder: "",
       },
