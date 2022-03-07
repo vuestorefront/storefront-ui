@@ -44,8 +44,8 @@
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
-    "@vue/cli-plugin-eslint": "^4.3.1",
     "@lhci/cli": "^0.8.0",
+    "@vue/cli-plugin-eslint": "^4.3.1",
     "file-save": "^0.2.0",
     "fse": "^4.0.1",
     "glob": "^7.1.4",
