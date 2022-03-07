@@ -88,7 +88,7 @@
         <div class="grid__row">
           <div class="grid__col">
             <SfImage
-              v-if="isMobile"
+              class="smartphone-only"
               src="/assets/storybook/Home/imageAm.webp"
               alt="katherina_trn"
               :width="140"
@@ -96,7 +96,7 @@
               >katherina_trn</SfImage
             >
             <SfImage
-              v-else
+              class="desktop-only"
               src="/assets/storybook/Home/imageAd.webp"
               alt="katherina_trn"
               :width="470"
@@ -106,7 +106,7 @@
           </div>
           <div class="grid__col small">
             <SfImage
-              v-if="isMobile"
+              class="smartphone-only"
               src="/assets/storybook/Home/imageBm.webp"
               alt="katherina_trn"
               :width="140"
@@ -114,7 +114,7 @@
               >katherina_trn</SfImage
             >
             <SfImage
-              v-else
+              class="desktop-only"
               src="/assets/storybook/Home/imageCd.webp"
               alt="katherina_trn"
               :width="470"
@@ -126,7 +126,7 @@
         <div class="grid__row gap">
           <div class="grid__col small">
             <SfImage
-              v-if="isMobile"
+              class="smartphone-only"
               src="/assets/storybook/Home/imageCm.webp"
               alt="katherina_trn"
               :width="140"
@@ -134,7 +134,7 @@
               >katherina_trn</SfImage
             >
             <SfImage
-              v-else
+              class="desktop-only"
               src="/assets/storybook/Home/imageBd.webp"
               alt="katherina_trn"
               :width="470"
@@ -144,7 +144,7 @@
           </div>
           <div class="grid__col">
             <SfImage
-              v-if="isMobile"
+              class="smartphone-only"
               src="/assets/storybook/Home/imageDm.webp"
               alt="katherina_trn"
               :width="140"
@@ -152,7 +152,7 @@
               >katherina_trn</SfImage
             >
             <SfImage
-              v-else
+              class="desktop-only"
               src="/assets/storybook/Home/imageDd.webp"
               alt="katherina_trn"
               :width="470"
@@ -218,10 +218,6 @@ import {
   SfImage,
   SfHeading,
 } from "@storefront-ui/vue";
-import {
-  mapMobileObserver,
-  unMapMobileObserver,
-} from "../../../utilities/mobile-observer";
 
 export default {
   name: "Home",
@@ -385,12 +381,6 @@ export default {
         },
       ],
     };
-  },
-  computed: {
-    ...mapMobileObserver(),
-  },
-  beforeDestroy() {
-    unMapMobileObserver();
   },
   methods: {
     toggleWishlist(index) {
