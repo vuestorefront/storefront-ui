@@ -4,7 +4,6 @@
       <slot />
     </div>
     <SfSidebar
-      :visible="isVisibleOnMobile"
       :persistent="true"
       class="sf-header-navigation__sidebar"
       @close="$emit('close')"
