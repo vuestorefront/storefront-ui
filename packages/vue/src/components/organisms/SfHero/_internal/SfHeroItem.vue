@@ -1,6 +1,6 @@
 <template>
   <li class="glide__slide sf-hero-item" :style="style" data-testid="hero-item">
-    <component :is="wrapper" class="sf-hero-item__wrapper" :link="link">
+    <div class="sf-hero-item__wrapper sf-hero-item__wrapper--desktop">
       <slot name="subtitle" v-bind="{ subtitle }">
         <span
           :class="{ 'display-none': !subtitle }"
@@ -14,11 +14,33 @@
         }}</span>
       </slot>
       <slot name="call-to-action" v-bind="{ buttonText, link }">
-        <div v-if="buttonText && !mobileView" class="sf-hero-item__button">
-          <SfButton :link="link" data-testid="hero-cta-button">
-            {{ buttonText }}
-          </SfButton>
-        </div>
+        <SfButton
+          v-if="buttonText"
+          :link="link"
+          class="sf-hero-item__button"
+          data-testid="hero-cta-button"
+        >
+          {{ buttonText }}
+        </SfButton>
+      </slot>
+      <slot name="withImgTag" />
+    </div>
+    <component
+      :is="wrapper"
+      class="sf-hero-item__wrapper sf-hero-item__wrapper--mobile"
+      :link="link"
+    >
+      <slot name="subtitle" v-bind="{ subtitle }">
+        <span
+          :class="{ 'display-none': !subtitle }"
+          class="sf-hero-item__subtitle"
+          >{{ subtitle }}</span
+        >
+      </slot>
+      <slot name="title" v-bind="{ title }">
+        <span :class="{ 'display-none': !title }" class="sf-hero-item__title">{{
+          title
+        }}</span>
       </slot>
       <slot name="withImgTag" />
     </component>
@@ -27,10 +49,6 @@
 <script>
 import SfButton from "../../../atoms/SfButton/SfButton.vue";
 import SfLink from "../../../atoms/SfLink/SfLink.vue";
-import {
-  mapMobileObserver,
-  unMapMobileObserver,
-} from "../../../../utilities/mobile-observer";
 export default {
   name: "SfHeroItem",
   components: {
@@ -71,13 +89,7 @@ export default {
       default: () => ({}),
     },
   },
-  data() {
-    return {
-      mobileView: false,
-    };
-  },
   computed: {
-    ...mapMobileObserver(),
     style() {
       const image = this.image;
       const isImageString = typeof image === "string";
@@ -87,30 +99,30 @@ export default {
       };
       if (this.imageTag === "nuxt-img" || this.imageTag === "nuxt-picture") {
         return {
-          "background-image": isImageString
+          "--hero-item-background-image": isImageString
             ? nuxtImgConvert(image)
-            : this.mobileView
-            ? nuxtImgConvert(image.mobile)
-            : nuxtImgConvert(image.desktop),
+            : {
+                "--hero-item-background-image-mobile": nuxtImgConvert(
+                  image.mobile
+                ),
+                "--hero-item-background-image": nuxtImgConvert(image.desktop),
+              },
           "--_banner-background-color": background,
         };
       }
       return {
-        "background-image": isImageString
+        "--hero-item-background-image": isImageString
           ? `url(${image})`
-          : `url(${this.mobileView ? image.mobile : image.desktop})`,
+          : {
+              "--hero-item-background-image-mobile": image.mobile,
+              "--hero-item-background-image": image.desktop,
+            },
         "background-color": background,
       };
     },
     wrapper() {
-      return !this.mobileView ? "div" : this.link ? "SfLink" : "SfButton";
+      return this.link ? "SfLink" : "SfButton";
     },
-  },
-  mounted() {
-    this.mobileView = this.isMobile;
-  },
-  beforeDestroy() {
-    unMapMobileObserver();
   },
 };
 </script>
