@@ -7,8 +7,7 @@ describe("Home page", () => {
   it("test SfHero component", () => {
     cy.get(selectors.hero.items)
       .first()
-      .wait(5000)
-      .should("have.class", "glide__slide--active")
+      .should("be.visible")
       .get(selectors.hero.prevArrowButton)
       .click({ multiple: true })
       .get(selectors.hero.items)
@@ -28,8 +27,7 @@ describe("Home page", () => {
       .click()
       .get(selectors.hero.items)
       .eq(2)
-      .wait(5000)
-      .should("have.class", "glide__slide--active")
+      .should("be.visible")
   });
   it("test SfBannerGrid component", () => {
     cy.get(selectors.bannerGrid.ctaButton)
