@@ -26,6 +26,7 @@ describe("Home page", () => {
       .find("button")
       .last()
       .click()
+      .wait(5000)
       .get(selectors.hero.items)
       .last()
       .should("be.visible")
