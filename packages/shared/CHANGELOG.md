@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.12.3](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.12.2...@storefront-ui/shared@0.12.3) (2022-03-08)
+
+
+### Bug Fixes
+
+* the align-items property to start to make all the colors visible ([#2304](https://github.com/vuestorefront/storefront-ui/issues/2304)) ([057d449](https://github.com/vuestorefront/storefront-ui/commit/057d4498f9fa3c8b6ea51829d97115004f9cc07f))
+
+
+
+
+
 ## [0.12.2](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.12.1...@storefront-ui/shared@0.12.2) (2022-02-23)
 
 
