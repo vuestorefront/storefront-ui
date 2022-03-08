@@ -6,6 +6,7 @@
   display: block;
   width: 12.375rem;
   height: 9.0625rem;
+  background: var(--category-card-background, var(--category-card-background-mobile));
   &__details {
     box-sizing: border-box;
     position: absolute;
@@ -24,6 +25,7 @@
   @include for-desktop {
     width: 18.4375rem;
     height: 13.875rem;
+    background: var(--category-card-background);
     &__details {
       padding: var(--spacer-sm) var(--spacer-xs);
     }

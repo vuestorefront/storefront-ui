@@ -1,16 +1,14 @@
 <template>
   <div id="error">
     <SfImage
-      v-if="!isMobile"
-      class="image"
+      class="image desktop-only"
       :src="require('@storefront-ui/shared/icons/error.svg')"
       alt="Page Not Found"
       :width="412"
       :height="412"
     />
     <SfImage
-      v-else
-      class="image"
+      class="image--mobile smartphone-only"
       :src="require('@storefront-ui/shared/icons/error.svg')"
       alt="Page Not Found"
       :width="230"
@@ -34,19 +32,9 @@
 </template>
 <script>
 import { SfButton, SfImage, SfHeading } from "@storefront-ui/vue";
-import {
-  mapMobileObserver,
-  unMapMobileObserver,
-} from "../../../utilities/mobile-observer";
 export default {
   name: "Error",
   components: { SfButton, SfImage, SfHeading },
-  computed: {
-    ...mapMobileObserver(),
-  },
-  beforeDestroy() {
-    unMapMobileObserver();
-  },
 };
 </script>
 <style lang="scss" scoped>

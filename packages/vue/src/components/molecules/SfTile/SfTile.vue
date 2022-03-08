@@ -11,10 +11,6 @@
   </SfLink>
 </template>
 <script>
-import {
-  mapMobileObserver,
-  unMapMobileObserver,
-} from "../../../utilities/mobile-observer";
 import SfHeading from "../../atoms/SfHeading/SfHeading.vue";
 import SfLink from "../../atoms/SfLink/SfLink.vue";
 export default {
@@ -37,32 +33,19 @@ export default {
       default: "",
     },
   },
-  data() {
-    return {
-      isMobileView: false,
-    };
-  },
   computed: {
-    ...mapMobileObserver(),
     style() {
       if (typeof this.background === String) {
         return {
-          background: `url('${this.background}')`,
+          "--tile-background": `url('${this.background}')`,
         };
       } else {
         return {
-          background: `url(${
-            this.background[this.isMobileView ? "mobile" : "desktop"]
-          })`,
+          "--tile-background": `url(${this.background["desktop"]})`,
+          "--tile-background-mobile": `url(${this.background["mobile"]})`,
         };
       }
     },
-  },
-  mounted() {
-    this.isMobileView = this.isMobile;
-  },
-  beforeDestroy() {
-    unMapMobileObserver();
   },
 };
 </script>
