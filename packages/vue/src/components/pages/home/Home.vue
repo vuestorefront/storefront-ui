@@ -1,6 +1,6 @@
 <template>
   <div id="home">
-    <SfHero class="hero">
+    <SfHero class="hero" :slider-options="{ autoplay: false }">
       <SfHeroItem
         v-for="(img, index) in heroes"
         :key="index"
@@ -58,6 +58,7 @@
       >
         <SfProductCard
           :image="product.image"
+          :colors="product.colors"
           :title="product.title"
           :regular-price="product.price.regular"
           :special-price="product.price.special"
@@ -76,6 +77,7 @@
             fit: 'cover',
           }"
           @click:wishlist="toggleWishlist(index)"
+          @click:colors="handleSelectedColor($event, index)"
         />
       </SfCarouselItem>
     </SfCarousel>
@@ -88,7 +90,7 @@
         <div class="grid__row">
           <div class="grid__col">
             <SfImage
-              v-if="isMobile"
+              class="smartphone-only"
               src="/assets/storybook/Home/imageAm.webp"
               alt="katherina_trn"
               :width="140"
@@ -96,7 +98,7 @@
               >katherina_trn</SfImage
             >
             <SfImage
-              v-else
+              class="desktop-only"
               src="/assets/storybook/Home/imageAd.webp"
               alt="katherina_trn"
               :width="470"
@@ -106,7 +108,7 @@
           </div>
           <div class="grid__col small">
             <SfImage
-              v-if="isMobile"
+              class="smartphone-only"
               src="/assets/storybook/Home/imageBm.webp"
               alt="katherina_trn"
               :width="140"
@@ -114,7 +116,7 @@
               >katherina_trn</SfImage
             >
             <SfImage
-              v-else
+              class="desktop-only"
               src="/assets/storybook/Home/imageCd.webp"
               alt="katherina_trn"
               :width="470"
@@ -126,7 +128,7 @@
         <div class="grid__row gap">
           <div class="grid__col small">
             <SfImage
-              v-if="isMobile"
+              class="smartphone-only"
               src="/assets/storybook/Home/imageCm.webp"
               alt="katherina_trn"
               :width="140"
@@ -134,7 +136,7 @@
               >katherina_trn</SfImage
             >
             <SfImage
-              v-else
+              class="desktop-only"
               src="/assets/storybook/Home/imageBd.webp"
               alt="katherina_trn"
               :width="470"
@@ -144,7 +146,7 @@
           </div>
           <div class="grid__col">
             <SfImage
-              v-if="isMobile"
+              class="smartphone-only"
               src="/assets/storybook/Home/imageDm.webp"
               alt="katherina_trn"
               :width="140"
@@ -152,7 +154,7 @@
               >katherina_trn</SfImage
             >
             <SfImage
-              v-else
+              class="desktop-only"
               src="/assets/storybook/Home/imageDd.webp"
               alt="katherina_trn"
               :width="470"
@@ -218,10 +220,6 @@ import {
   SfImage,
   SfHeading,
 } from "@storefront-ui/vue";
-import {
-  mapMobileObserver,
-  unMapMobileObserver,
-} from "../../../utilities/mobile-observer";
 
 export default {
   name: "Home",
@@ -312,6 +310,22 @@ export default {
           reviews: 8,
           badgeLabel: "",
           badgeColor: "color-primary",
+          colors: [
+            { label: "Sand", value: "sand", color: "#EDCBB9", selected: false },
+            { label: "Mint", value: "mint", color: "#ABD9D8", selected: false },
+            {
+              label: "Vivid rose",
+              value: "vivid rose",
+              color: "#DB5593",
+              selected: false,
+            },
+            {
+              label: "Peach",
+              value: "peach",
+              color: "#F59F93",
+              selected: false,
+            },
+          ],
         },
         {
           title: "Cream Beach Bag",
@@ -322,6 +336,33 @@ export default {
           reviews: 8,
           badgeLabel: "-50%",
           badgeColor: "color-primary",
+          colors: [
+            {
+              label: "Green",
+              value: "green",
+              color: "#AAAA00",
+              selected: false,
+            },
+            { label: "Blue", value: "blue", color: "#0099AA", selected: false },
+            {
+              label: "Vivid red",
+              value: "vivid red",
+              color: "#aa1100",
+              selected: false,
+            },
+            {
+              label: "Peach",
+              value: "peach",
+              color: "#F59F93",
+              selected: false,
+            },
+            {
+              label: "Citrus",
+              value: "citrus",
+              color: "#FFEE97",
+              selected: false,
+            },
+          ],
         },
         {
           title: "Cream Beach Bag",
@@ -332,6 +373,28 @@ export default {
           reviews: 8,
           badgeLabel: "",
           badgeColor: "color-primary",
+          colors: [
+            {
+              label: "Vivid rose",
+              value: "vivid rose",
+              color: "#DB5593",
+              selected: false,
+            },
+            { label: "Mint", value: "mint", color: "#ABD9D8", selected: false },
+            {
+              label: "Peach",
+              value: "peach",
+              color: "#F59F93",
+              selected: false,
+            },
+            {
+              label: "Citrus",
+              value: "citrus",
+              color: "#FFEE97",
+              selected: false,
+            },
+            { label: "Sand", value: "sand", color: "#EDCBB9", selected: false },
+          ],
         },
         {
           title: "Cream Beach Bag",
@@ -342,6 +405,28 @@ export default {
           reviews: 8,
           badgeLabel: "",
           badgeColor: "color-primary",
+          colors: [
+            {
+              label: "Peach",
+              value: "peach",
+              color: "#F59F93",
+              selected: false,
+            },
+            {
+              label: "Citrus",
+              value: "citrus",
+              color: "#FFEE97",
+              selected: false,
+            },
+            { label: "Sand", value: "sand", color: "#EDCBB9", selected: false },
+            { label: "Mint", value: "mint", color: "#ABD9D8", selected: false },
+            {
+              label: "Vivid rose",
+              value: "vivid rose",
+              color: "#DB5593",
+              selected: false,
+            },
+          ],
         },
         {
           title: "Cream Beach Bag",
@@ -352,6 +437,28 @@ export default {
           reviews: 8,
           badgeLabel: "-10%",
           badgeColor: "color-primary",
+          colors: [
+            { label: "Sand", value: "sand", color: "#EDCBB9", selected: false },
+            { label: "Mint", value: "mint", color: "#ABD9D8", selected: false },
+            {
+              label: "Vivid rose",
+              value: "vivid rose",
+              color: "#DB5593",
+              selected: false,
+            },
+            {
+              label: "Peach",
+              value: "peach",
+              color: "#F59F93",
+              selected: false,
+            },
+            {
+              label: "Citrus",
+              value: "citrus",
+              color: "#FFEE97",
+              selected: false,
+            },
+          ],
         },
         {
           title: "Cream Beach Bag",
@@ -362,6 +469,21 @@ export default {
           reviews: 8,
           badgeLabel: "",
           badgeColor: "color-primary",
+          colors: [
+            { label: "Sand", value: "sand", color: "#EDCBB9", selected: false },
+            {
+              label: "Peach",
+              value: "peach",
+              color: "#F59F93",
+              selected: false,
+            },
+            {
+              label: "Citrus",
+              value: "citrus",
+              color: "#FFEE97",
+              selected: false,
+            },
+          ],
         },
         {
           title: "Cream Beach Bag",
@@ -372,6 +494,28 @@ export default {
           reviews: 8,
           badgeLabel: "",
           badgeColor: "color-primary",
+          colors: [
+            { label: "Sand", value: "sand", color: "#EDCBB9", selected: false },
+            { label: "Mint", value: "mint", color: "#ABD9D8", selected: false },
+            {
+              label: "Vivid rose",
+              value: "vivid rose",
+              color: "#DB5593",
+              selected: false,
+            },
+            {
+              label: "Peach",
+              value: "peach",
+              color: "#F59F93",
+              selected: false,
+            },
+            {
+              label: "Citrus",
+              value: "citrus",
+              color: "#FFEE97",
+              selected: false,
+            },
+          ],
         },
         {
           title: "Cream Beach Bag",
@@ -382,20 +526,41 @@ export default {
           reviews: 8,
           badgeLabel: "",
           badgeColor: "color-primary",
+          colors: [
+            { label: "Sand", value: "sand", color: "#EDCBB9", selected: false },
+            { label: "Mint", value: "mint", color: "#ABD9D8", selected: false },
+            {
+              label: "Vivid rose",
+              value: "vivid rose",
+              color: "#DB5593",
+              selected: false,
+            },
+            {
+              label: "Peach",
+              value: "peach",
+              color: "#F59F93",
+              selected: false,
+            },
+            {
+              label: "Citrus",
+              value: "citrus",
+              color: "#FFEE97",
+              selected: false,
+            },
+          ],
         },
       ],
     };
-  },
-  computed: {
-    ...mapMobileObserver(),
-  },
-  beforeDestroy() {
-    unMapMobileObserver();
   },
   methods: {
     toggleWishlist(index) {
       return (this.products[index].isInWishlist =
         !this.products[index].isInWishlist);
+    },
+    handleSelectedColor(color, index) {
+      this.products[index].colors.map((el) => {
+        el.selected = el.label === color.label ? !el.selected : false;
+      });
     },
   },
 };
