@@ -26,6 +26,28 @@
       --button-background: transparent;
       --button-box-shadow-opacity: 0;
     }
+    @include for-desktop {
+      display: none;
+    }
+  }
+  &__wrapper-desktop {
+    display: flex;
+    flex-direction: column;
+    align-items: var(--banner-align-items, flex-start);
+    justify-content: var(--banner-wrapper-justify-content, flex-start);
+    flex-direction: var(--banner-wrapper-flex-direction, column);
+    padding: var(--banner-padding, var(--spacer-xl));
+    flex: 0 0 var(--banner-wrapper-width, 100%);
+    text-decoration: none;
+    &.sf-button,
+    &.sf-button:hover,
+    &.sf-button:active {
+      --button-background: transparent;
+      --button-box-shadow-opacity: 0;
+    }
+    @include for-mobile {
+      display: none;
+    }
   }
   &__subtitle {
     margin: var(--banner-subtitle-margin, 0);
