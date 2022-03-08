@@ -40,10 +40,10 @@ describe("Home page", () => {
       .click()
   });
   it("test SfCarousel component", () => {
-    cy.get(".sf-carousel-item:not(.glide__slide--clone)")
-      .first()
-      .should("have.class", "glide__slide--active")
-      .get(selectors.carousel.productCard)
+    cy.get(".sf-carousel")
+      .find(".glide__slide--active")
+      .its('length')
+      .should('eq', 1)
       .get(selectors.carousel.prevArrowButton)
       .click({ multiple: true })
       .get(".sf-carousel-item.glide__slide--clone")
