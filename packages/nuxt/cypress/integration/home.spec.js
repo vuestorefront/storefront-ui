@@ -26,10 +26,9 @@ describe("Home page", () => {
       .find("button")
       .last()
       .click()
-      .wait(5000)
       .get(selectors.hero.items)
-      .last()
-      .should("be.visible")
+      .first()
+      .should("not.be.visible")
   });
   it("test SfBannerGrid component", () => {
     cy.get(selectors.bannerGrid.ctaButton)
