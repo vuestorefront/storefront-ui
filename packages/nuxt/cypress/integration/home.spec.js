@@ -41,9 +41,9 @@ describe("Home page", () => {
   });
   it("test SfCarousel component", () => {
     cy.get(".sf-carousel")
-      .find(".glide__slide--active")
+      .find(".sf-carousel-item")
       .its('length')
-      .should('eq', 1)
+      .should('be.gte', 8)
       .get(selectors.carousel.prevArrowButton)
       .click({ multiple: true })
       .get(".sf-carousel-item.glide__slide--clone")
