@@ -24,10 +24,10 @@ describe("Home page", () => {
       .click()
       .get(selectors.hero.bullets)
       .find("button")
-      .eq(2)
+      .last()
       .click()
       .get(selectors.hero.items)
-      .eq(2)
+      .last()
       .should("be.visible")
   });
   it("test SfBannerGrid component", () => {
