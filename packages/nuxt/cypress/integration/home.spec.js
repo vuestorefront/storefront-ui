@@ -31,7 +31,7 @@ describe("Home page", () => {
       .first()
       .should("not.be.visible")
       .last()
-      .should("not.be.visible")
+      .should("be.visible")
   });
   it("test SfBannerGrid component", () => {
     cy.get(selectors.bannerGrid.ctaButton)
