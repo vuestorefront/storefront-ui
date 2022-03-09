@@ -24,7 +24,7 @@ describe("Home page", () => {
       .click()
       .get(selectors.hero.bullets)
       .find("button")
-      .last()
+      .eq(1)
       .click({ multiple: true })
       .get(".sf-hero")
       .find(selectors.hero.items)
