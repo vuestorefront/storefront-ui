@@ -121,13 +121,6 @@ export default {
       return this.active.length > 0;
     },
   },
-  provide() {
-    const provided = {};
-    Object.defineProperty(provided, "active", {
-      get: () => this.active,
-    });
-    return { provided };
-  },
   watch: {
     isMobile(mobile) {
       if (mobile) {
@@ -139,6 +132,13 @@ export default {
   },
   beforeDestroy() {
     unMapMobileObserver();
+  },
+  provide() {
+    const provided = {};
+    Object.defineProperty(provided, "active", {
+      get: () => this.active,
+    });
+    return { provided };
   },
   methods: {
     updatePage(title) {
