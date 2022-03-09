@@ -28,9 +28,7 @@ describe("Home page", () => {
       .click({ multiple: true })
       .get(".sf-hero")
       .find(selectors.hero.items)
-      .first()
-      .should("not.be.visible")
-      .last()
+      .eq(1)
       .should("be.visible")
   });
   it("test SfBannerGrid component", () => {
