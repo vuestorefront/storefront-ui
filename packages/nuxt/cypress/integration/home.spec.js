@@ -25,7 +25,11 @@ describe("Home page", () => {
       .get(selectors.hero.bullets)
       .find("button")
       .last()
-      .click()
+      .click({ multiple: true })
+      .get(".sf-hero")
+      .find(selectors.hero.items)
+      .last()
+      .should("be.visible")
   });
   it("test SfBannerGrid component", () => {
     cy.get(selectors.bannerGrid.ctaButton)
