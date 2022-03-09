@@ -29,7 +29,7 @@ describe("Home page", () => {
       .get(".sf-hero")
       .find(selectors.hero.items)
       .last()
-      .should("be.visible")
+      .should("not.be.visible")
   });
   it("test SfBannerGrid component", () => {
     cy.get(selectors.bannerGrid.ctaButton)
