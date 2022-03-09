@@ -28,8 +28,8 @@ describe("Home page", () => {
       .click({ multiple: true })
       .get(".sf-hero")
       .find(selectors.hero.items)
-      .eq(1)
-      .should("be.visible")
+      .first()
+      .should("not.be.visible")
       .last()
       .should("not.be.visible")
   });
