@@ -320,7 +320,7 @@ export const controlWithButtons = (args, { argTypes }) => ({
       :multiple="multiple"
       :show-chevron="showChevron"
       :transition="transition"
-      @click:open="openHeader"
+      @click:open-header="change('')"
     >
       <SfAccordionItem 
         v-for="accordion in accordions" 
