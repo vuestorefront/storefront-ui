@@ -130,7 +130,6 @@ function readComponentStories(pathComponentStories) {
   if (!fs.existsSync(fullPathComponentStories)) {
     return null;
   }
-  console.log(fullPathComponentStories);
   let story = fs.readFileSync(fullPathComponentStories, "utf8");
   let storyWithoutCssprops = removeCssprops(story);
   return storyWithoutCssprops;
