@@ -3,6 +3,7 @@
   color: var(--c-white);
   box-sizing: border-box;
   &__title {
+    --heading-title-color: var(--c-white);
     color: var(--c-white);
     display: flex;
     justify-content: space-between;

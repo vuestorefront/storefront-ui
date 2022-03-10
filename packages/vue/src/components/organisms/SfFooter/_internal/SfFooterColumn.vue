@@ -3,7 +3,7 @@
     <SfButton
       v-focus
       type="button"
-      class="sf-button--pure sf-footer-column__title"
+      class="sf-button--pure sf-footer-column__title smartphone-only"
       @click="toggle(title)"
     >
       {{ title }}
@@ -11,6 +11,11 @@
         <SfChevron :class="{ 'sf-chevron--top': isColumnOpen }" />
       </span>
     </SfButton>
+    <SfHeading
+      class="sf-footer-column__title desktop-only"
+      :title="title"
+      :level="5"
+    />
     <transition name="sf-fade">
       <div
         :class="{ 'display-none': !isColumnOpen }"
@@ -24,6 +29,7 @@
 <script>
 import SfChevron from "../../../atoms/SfChevron/SfChevron.vue";
 import SfButton from "../../../atoms/SfButton/SfButton.vue";
+import SfHeading from "../../../atoms/SfHeading/SfHeading.vue";
 import { focus } from "../../../../utilities/directives";
 export default {
   name: "SfFooterColumn",
@@ -31,6 +37,7 @@ export default {
   components: {
     SfChevron,
     SfButton,
+    SfHeading,
   },
   props: {
     title: {

@@ -62,7 +62,6 @@ export default {
   },
   methods: {
     toggle(payload) {
-      if (!this.isMobile) return;
       if (!this.multiple) {
         this.isOpen = [payload];
       } else if (this.isOpen.includes(payload)) {
