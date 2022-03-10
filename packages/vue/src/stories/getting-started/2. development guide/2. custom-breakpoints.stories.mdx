@@ -1,0 +1,52 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+import pkg from "../../../../package.json";
+
+<Meta title="Getting Started/Development Guide/Custom breakpoints" />
+
+# Custom breakpoints
+
+There are predefined breakpoint in Storefront UI but it is possible to define your own breakpoints for components.
+You can decide if you want to change all breakpoints or only chosen ones.
+
+## Predefined breakpoints
+
+Predefined breakpoints in Storefront UI:
+
+```css
+$mobile-max: 767px;
+$tablet-min: 768px;
+$tablet-max: 1023px;
+$desktop-min: 1024px;
+$desktop-l-min: 1200px;
+$desktop-xl-min: 1440px;
+$desktop-xxl-min: 1920px;
+```
+
+Breakpoint between desktop and mobile view:
+
+```css
+$breakpoint: $desktop-min; // 1024px
+```
+
+## How to change breakpoints
+
+You need to follow 3 steps:
+
+1. Create a new file called `_variables.scss` in `assets/scss` folder. 
+If you don't have these folders you can create them too.
+
+2. Define your own breakpoints in the creadted file.
+It can look like this example:
+
+```css
+$breakpoint: 600px;
+```
+
+3. Add a path to your custom breakpoints in `nuxt.config.js`
+
+```js
+styleResources: {
+    scss: [..., '~/assets/scss/_variables.scss']
+}
+```
+
