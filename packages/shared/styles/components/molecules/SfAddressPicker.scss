@@ -58,7 +58,7 @@
       background: var(--c-primary);
     }
   }
-  @include for-desktop {
+  @include for-desktop($breakpoint)  {
     width: 23.375rem;
   }
 }

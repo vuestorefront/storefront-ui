@@ -264,7 +264,7 @@ export default {
   &:not(:first-of-type) {
     --heading-padding: var(--spacer-base) 0;
   }
-  @include for-desktop {
+  @include for-desktop($breakpoint) {
     --heading-title-font-size: var(--h3-font-size);
     --heading-title-font-weight: var(--font-weight--semibold);
     --heading-padding: var(--spacer-xl) 0;
@@ -300,13 +300,13 @@ export default {
     }
     ::v-deep .sf-radio__container {
       --radio-container-padding: var(--spacer-xs);
-      @include for-desktop {
+      @include for-desktop($breakpoint) {
         --radio-container-padding: var(--spacer-xs) var(--spacer-xs)
           var(--spacer-xs) var(--spacer-sm);
       }
     }
   }
-  @include for-desktop {
+  @include for-desktop($breakpoint) {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -348,7 +348,7 @@ export default {
     font-weight: var(--font-weight--normal);
     display: flex;
     width: 10.625rem;
-    @include for-desktop {
+    @include for-desktop($breakpoint) {
       font-weight: var(--font-weight--light);
     }
   }
@@ -365,7 +365,7 @@ export default {
       }
     }
   }
-  @include for-desktop {
+  @include for-desktop($breakpoint) {
     &__label {
       justify-content: space-between;
     }

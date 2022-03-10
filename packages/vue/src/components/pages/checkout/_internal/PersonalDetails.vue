@@ -146,7 +146,7 @@ export default {
 .title {
   --heading-padding: var(--spacer-xl) 0 var(--spacer-base);
   --heading-title-font-weight: var(--font-weight--bold);
-  @include for-desktop {
+  @include for-desktop($breakpoint) {
     --heading-title-font-size: var(--h3-font-size);
     --heading-title-font-weight: var(--font-weight--semibold);
     --heading-padding: var(--spacer-xl) 0;
@@ -158,13 +158,13 @@ export default {
     color: var(--c-dark-variant);
     font: var(--font-weight--medium) var(--font-size--base) / 1.6
       var(--font-family--secondary);
-    @include for-desktop {
+    @include for-desktop($breakpoint) {
       font-weight: var(--font-weight--normal);
     }
   }
   &__button {
     margin: var(--spacer-xl) 0 var(--spacer-base) 0;
-    @include for-desktop {
+    @include for-desktop($breakpoint) {
       margin: var(--spacer-xl) 0;
       --button-width: 25rem;
     }
@@ -181,7 +181,7 @@ export default {
     --characteristic-description-font-size: var(--font-size--base);
     margin: 0 0 var(--spacer-base) var(--spacer-2xs);
   }
-  @include for-desktop {
+  @include for-desktop($breakpoint) {
     width: 37.5rem;
     display: flex;
     flex-wrap: wrap;
@@ -219,11 +219,11 @@ export default {
     &--secondary {
       margin: var(--spacer-base) 0;
     }
-    @include for-desktop {
+    @include for-desktop($breakpoint) {
       --button-width: 25rem;
     }
   }
-  @include for-desktop {
+  @include for-desktop($breakpoint) {
     display: flex;
     flex-wrap: wrap;
     align-items: center;

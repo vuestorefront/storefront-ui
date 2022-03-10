@@ -21,7 +21,7 @@
     font-weight: var(--font-weight--medium);
     color: var(--c-white);
   }
-  @include for-desktop {
+  @include for-desktop($breakpoint)  {
     width: 18.4375rem;
     height: 13.875rem;
     &__details {

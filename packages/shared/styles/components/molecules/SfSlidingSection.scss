@@ -29,7 +29,7 @@
     --sliding-section-static-transform: var(--sliding-section-static-scale3d, scale3d(1, 0, 1));
     --sliding-section-mobile-bar-display: block;
   }
-  @include for-desktop {
+  @include for-desktop($breakpoint)  {
     --sliding-section-display: flex;
     --sliding-section-sliding-margin: 0 0 0 var(--spacer-lg);
     --sliding-section-mobile-bar-display: none;

@@ -83,7 +83,7 @@
     right: var(--sidebar-circle-icon-right, 0);
     transform: var(--sidebar-circle-icon-transform, translate3d(50%, 0, 0));
   }
-  @include for-desktop {
+  @include for-desktop($breakpoint)  {
     --sidebar-width: 25.5rem;
     --sidebar-top-padding: var(--spacer-xl) var(--spacer-xl) var(--spacer-sm)
       var(--spacer-xl);

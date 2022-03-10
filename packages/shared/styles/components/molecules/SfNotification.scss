@@ -32,7 +32,7 @@
     &::after {
       content: " ";
     }
-    @include for-desktop {
+    @include for-desktop($breakpoint)  {
       &::after {
         content: none;
       }
@@ -57,7 +57,7 @@
     top: var(--notification-close-top, var(--spacer-xs));
     right: var(--notification-close-right, var(--spacer-xs));
   }
-  @include for-desktop {
+  @include for-desktop($breakpoint)  {
     --notification-max-width: 100%;
     --notification-icon-margin: 0 var(--spacer-base) 0 0;
     --notification-action-display: inline;

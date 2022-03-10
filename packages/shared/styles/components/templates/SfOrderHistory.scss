@@ -7,13 +7,13 @@
     &__button {
       --button-width: 100%;
       margin: var(--spacer-2xl) 0 0 0;
-      @include for-desktop {
+      @include for-desktop($breakpoint)  {
         --button-width: 17.375rem;
       }
     }
   }
   .orders {
-    @include for-desktop {
+    @include for-desktop($breakpoint)  {
       &__element {
         &--right {
           text-align: right;

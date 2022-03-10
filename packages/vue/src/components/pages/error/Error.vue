@@ -59,7 +59,7 @@ export default {
   align-items: center;
   width: 100%;
   padding: 0 var(--spacer-sm);
-  @include for-desktop {
+  @include for-desktop($breakpoint) {
     margin: 0 auto;
     max-width: 1272px;
   }
@@ -67,7 +67,7 @@ export default {
 .image {
   --image-width: 14.375rem;
   padding: var(--spacer-xl) 0 var(--spacer-sm);
-  @include for-desktop {
+  @include for-desktop($breakpoint) {
     --image-width: 25.75rem;
   }
 }
@@ -80,7 +80,7 @@ export default {
   --heading-description-font-size: var(--font-size--base);
   --heading-description-margin: 0 var(--spacer-base);
   --heading-description-font-family: var(--font-family--primary);
-  @include for-desktop {
+  @include for-desktop($breakpoint) {
     --heading-description-margin: 0;
   }
 }
@@ -96,7 +96,7 @@ export default {
       margin: var(--spacer-sm) 0;
     }
   }
-  @include for-desktop {
+  @include for-desktop($breakpoint) {
     margin: var(--spacer-lg) 0 0 0;
     &__button {
       --button-width: 25rem;

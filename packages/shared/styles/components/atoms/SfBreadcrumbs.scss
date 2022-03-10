@@ -37,7 +37,7 @@
       cursor: default;
     }
   }
-  @include for-desktop {
+  @include for-desktop($breakpoint)  {
     --breadcrumbs-font-size: var(--font-size--sm);
   }
 }

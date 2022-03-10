@@ -209,7 +209,7 @@ export default {
 .title {
   --heading-padding: var(--spacer-xl) 0 var(--spacer-base);
   --heading-title-font-weight: var(--font-weight--bold);
-  @include for-desktop {
+  @include for-desktop($breakpoint) {
     --heading-title-font-size: var(--h3-font-size);
     --heading-title-font-weight: var(--font-weight--semibold);
     --heading-padding: var(--spacer-xl) 0;
@@ -235,7 +235,7 @@ export default {
     --image-width: 2.75rem;
     text-align: left;
   }
-  @include for-desktop {
+  @include for-desktop($breakpoint) {
     margin: 0 0 var(--spacer-base) 0;
     --table-heading-padding: var(--spacer-sm) 0;
     &__header {
@@ -277,7 +277,7 @@ export default {
 .product-sku {
   font-family: var(--font-family--primary);
   color: var(--c-text-muted);
-  @include for-desktop {
+  @include for-desktop($breakpoint) {
     margin-top: var(--spacer-sm);
   }
 }
@@ -313,7 +313,7 @@ export default {
     margin: 0 0 var(--spacer-xl) 0;
     --property-name-color: var(--c-text);
   }
-  @include for-desktop {
+  @include for-desktop($breakpoint) {
     margin: 0 0 var(--spacer-sm) 0;
     &__subtotal {
       margin: var(--spacer-xl) 0 var(--spacer-base);

@@ -885,7 +885,7 @@ export default {
 @import "~@storefront-ui/vue/styles";
 #category {
   box-sizing: border-box;
-  @include for-desktop {
+  @include for-desktop($breakpoint) {
     max-width: 1240px;
     margin: 0 auto;
   }
@@ -893,7 +893,7 @@ export default {
 .main {
   &.section {
     padding: var(--spacer-xs);
-    @include for-desktop {
+    @include for-desktop($breakpoint) {
       padding: 0;
     }
   }
@@ -907,12 +907,12 @@ export default {
   display: flex;
   border: 1px solid var(--c-light);
   border-width: 0 0 1px 0;
-  @include for-desktop {
+  @include for-desktop($breakpoint) {
     border-width: 1px 0 1px 0;
   }
   &.section {
     padding: var(--spacer-sm);
-    @include for-desktop {
+    @include for-desktop($breakpoint) {
       padding: 0;
     }
   }
@@ -932,7 +932,7 @@ export default {
     flex: 1;
     display: flex;
     padding: 0;
-    @include for-desktop {
+    @include for-desktop($breakpoint) {
       padding: var(--spacer-xs) var(--spacer-xl);
     }
   }
@@ -943,7 +943,7 @@ export default {
   &__filters-icon {
     margin: 0 0 0 var(--spacer-2xs);
     order: 1;
-    @include for-desktop {
+    @include for-desktop($breakpoint) {
       margin: 0 var(--spacer-xs) 0 0;
       order: 0;
     }
@@ -955,7 +955,7 @@ export default {
     --button-text-decoration: none;
     --button-color: var(--c-link);
     --button-font-weight: var(--font-weight--normal);
-    @include for-mobile {
+    @include for-mobile($breakpoint) {
       --button-font-weight: var(--font-weight--medium);
       margin-right: var(--spacer-sm);
       order: 1;
@@ -974,7 +974,7 @@ export default {
     font-family: var(--font-family--secondary);
     font-weight: var(--font-weight--normal);
     color: var(--c-text-muted);
-    @include for-desktop {
+    @include for-desktop($breakpoint) {
       margin: 0 var(--spacer-2xs) 0 0;
     }
   }
@@ -993,7 +993,7 @@ export default {
   &__counter {
     font-family: var(--font-family--secondary);
     margin: auto;
-    @include for-desktop {
+    @include for-desktop($breakpoint) {
       margin: auto 0 auto auto;
     }
   }
@@ -1002,14 +1002,14 @@ export default {
     order: -1;
     align-items: center;
     margin: 0;
-    @include for-desktop {
+    @include for-desktop($breakpoint) {
       margin: 0 0 0 var(--spacer-2xl);
       order: 0;
     }
     &-icon {
       cursor: pointer;
       margin: 0 var(--spacer-base) 0 var(--spacer-sm);
-      @include for-desktop {
+      @include for-desktop($breakpoint) {
         margin: 0 var(--spacer-base) 0 0;
       }
       &:last-child {
@@ -1019,7 +1019,7 @@ export default {
     &-button {
       cursor: pointer;
       margin: 0 var(--spacer-base) 0 var(--spacer-sm);
-      @include for-desktop {
+      @include for-desktop($breakpoint) {
         margin: 0 var(--spacer-base) 0 0;
       }
       &:last-child {
@@ -1052,7 +1052,7 @@ export default {
 .sidebar-filters {
   --sidebar-title-display: none;
   --sidebar-top-padding: 0;
-  @include for-desktop {
+  @include for-desktop($breakpoint) {
     --sidebar-content-padding: 0 var(--spacer-xl);
     --sidebar-bottom-padding: 0 var(--spacer-xl);
   }
@@ -1076,7 +1076,7 @@ export default {
   }
   &__grid {
     justify-content: center;
-    @include for-desktop {
+    @include for-desktop($breakpoint) {
       justify-content: space-between;
     }
   }
@@ -1089,7 +1089,7 @@ export default {
       margin: var(--spacer-2xs) 0 var(--spacer-xs);
     }
     flex: 1 1 50%;
-    @include for-desktop {
+    @include for-desktop($breakpoint) {
       margin-bottom: 0;
       --product-card-max-width: 50%;
       --product-card-title-margin: var(--spacer-base) 0 0 0;
@@ -1118,7 +1118,7 @@ export default {
     justify-content: center;
     margin: var(--spacer-base) 0;
   }
-  @include for-desktop {
+  @include for-desktop($breakpoint) {
     margin: var(--spacer-sm) 0 0 var(--spacer-sm);
     &__pagination {
       justify-content: flex-start;
@@ -1176,7 +1176,7 @@ export default {
     &:last-child {
       border-bottom: 0;
     }
-    @include for-desktop {
+    @include for-desktop($breakpoint) {
       --checkbox-padding: 0;
       margin: var(--spacer-sm) 0;
       border: 0;

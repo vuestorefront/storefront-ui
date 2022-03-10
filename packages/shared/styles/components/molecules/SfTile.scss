@@ -25,7 +25,7 @@
   &:active {
     box-shadow: 0px 4px 11px rgba(29, 31, 34, 0.1);
   }
-  @include for-desktop {
+  @include for-desktop($breakpoint)  {
     --font-tile-weight: var(--font-weight--semibold);
     width: 16rem;
     height: 30.625rem;

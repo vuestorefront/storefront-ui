@@ -58,7 +58,7 @@
   &__chevron, .sf-chevron {
     display: var(--tabs-chevron-display);
   }
-  @include for-desktop {
+  @include for-desktop($breakpoint)  {
     --tabs-title-z-index: 1;
     --tabs-content-order: 1;
     --tabs-title-flex: 0 0 auto;

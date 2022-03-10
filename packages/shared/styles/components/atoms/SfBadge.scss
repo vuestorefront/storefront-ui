@@ -38,7 +38,7 @@
       --badge-background: #{$primary};
     }
   }
-  @include for-desktop {
+  @include for-desktop($breakpoint)  {
     &--number {
       --badge-padding: 1px var(--spacer-2xs);
     }

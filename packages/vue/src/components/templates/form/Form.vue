@@ -358,7 +358,7 @@ export default {
 #form-template {
   box-sizing: border-box;
   padding: 0 var(--spacer-sm);
-  @include for-desktop {
+  @include for-desktop($breakpoint) {
     padding: 0 var(--spacer-sm);
     max-width: 870px;
     margin: 0 auto;
@@ -381,7 +381,7 @@ export default {
   &__button {
     --button-width: 100%;
   }
-  @include for-mobile {
+  @include for-mobile($breakpoint) {
     #message {
       padding: var(--spacer-sm);
       box-sizing: border-box;
@@ -396,7 +396,7 @@ export default {
       margin-top: var(--spacer-xs);
     }
   }
-  @include for-desktop {
+  @include for-desktop($breakpoint) {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;

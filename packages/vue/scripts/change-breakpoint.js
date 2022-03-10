@@ -35,7 +35,6 @@ function addBreakpointValue(file, value) {
   });  
   const addBreakpoint = mixin => {
     const valueString = !!value ? value.toString().concat('px') : '$breakpoint';
-    console.log(value, valueString)
     return mixin.includes('for-desktop') ? `for-desktop(${valueString}) ` : `for-mobile(${valueString}) `
   }
   let result = 

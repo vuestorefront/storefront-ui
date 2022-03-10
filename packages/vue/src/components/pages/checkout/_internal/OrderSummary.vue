@@ -178,7 +178,7 @@ export default {
   --heading-title-font-weight: var(--font-weight--bold);
   --heading-padding: 0;
   --heading-title-margin: 0 0 var(--spacer-xl) 0;
-  @include for-desktop {
+  @include for-desktop($breakpoint) {
     --heading-title-font-weight: var(--font-weight--semibold);
   }
 }

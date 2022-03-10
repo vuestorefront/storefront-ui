@@ -14,7 +14,7 @@
   &-enter-active,
   &-leave-active {
     transition: transform 0.25s ease-in-out;
-    @include for-desktop {
+    @include for-desktop($breakpoint) {
       transition: transform 0.35 ease-in-out;
     }
   }
@@ -27,7 +27,7 @@
   &-enter-active,
   &-leave-active {
     transition: transform 0.25s ease-in-out;
-    @include for-desktop {
+    @include for-desktop($breakpoint) {
       transition: transform 0.35 ease-in-out;
     }
   }

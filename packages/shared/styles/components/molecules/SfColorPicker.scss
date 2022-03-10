@@ -5,7 +5,7 @@
   position: var(--color-picker-position, absolute);
   z-index: 1;
   top: var(--color-picker-top);
-  @include for-mobile {
+  @include for-mobile($breakpoint)  {
     right: var(--color-picker-right);
     bottom: var(--color-picker-bottom, 0);
     align-items: var(--color-picker-align-items, flex-end);
@@ -71,7 +71,7 @@
     --button-background: transparent;
     margin: var(--color-picker-close-margin);
   }
-  @include for-mobile {
+  @include for-mobile($breakpoint)  {
     &--active {
       --color-picker-colors-height: 100%;
       height: var(--color-picker-height, 100%);

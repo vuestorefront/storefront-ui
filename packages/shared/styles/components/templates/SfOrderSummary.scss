@@ -6,7 +6,7 @@
     --heading-padding: 0;
     --heading-title-margin: 0 0 var(--spacer-xl) 0;
     --heading-title-font-size: var(--h3-font-size);
-    @include for-desktop {
+    @include for-desktop($breakpoint)  {
       --heading-title-font-weight: var(--font-weight--semibold);
     }
   }

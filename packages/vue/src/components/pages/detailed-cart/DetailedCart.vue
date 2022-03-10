@@ -229,7 +229,7 @@ export default {
 @import "~@storefront-ui/vue/styles";
 #detailed-cart {
   box-sizing: border-box;
-  @include for-desktop {
+  @include for-desktop($breakpoint) {
     max-width: 1272px;
     margin: 0 auto;
     padding: 0 var(--spacer-sm);
@@ -241,7 +241,7 @@ export default {
 .detailed-cart {
   &__main {
     padding: 0 var(--spacer-sm);
-    @include for-desktop {
+    @include for-desktop($breakpoint) {
       padding: 0;
     }
   }
@@ -251,7 +251,7 @@ export default {
     background: var(--c-light);
     padding: var(--spacer-base) var(--spacer-sm);
   }
-  @include for-desktop {
+  @include for-desktop($breakpoint) {
     display: flex;
     &__main {
       flex: 1;
@@ -281,10 +281,10 @@ export default {
     align-items: flex-start;
     flex: 2;
   }
-  @include for-mobile {
+  @include for-mobile($breakpoint) {
     --collected-product-remove-bottom: var(--spacer-sm);
   }
-  @include for-desktop {
+  @include for-desktop($breakpoint) {
     --collected-product-padding: var(--spacer-lg) 0;
   }
 }
@@ -320,7 +320,7 @@ export default {
     --image-width: 13.1875rem;
     margin: var(--spacer-2xl) 0;
   }
-  @include for-desktop {
+  @include for-desktop($breakpoint) {
     &__image {
       --image-width: 22rem;
     }

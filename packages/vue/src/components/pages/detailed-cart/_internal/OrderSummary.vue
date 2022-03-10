@@ -165,14 +165,14 @@ export default {
 .title {
   --heading-title-font-weight: var(--font-weight--bold);
   --heading-title-font-size: var(--h4-font-size);
-  @include for-desktop {
+  @include for-desktop($breakpoint) {
     --heading-title-margin: 0 0 var(--spacer-2xl) 0;
     --heading-title-font-weight: var(--font-weight--semibold);
   }
 }
 .property {
   margin: var(--spacer-base) 0;
-  @include for-mobile {
+  @include for-mobile($breakpoint) {
     --property-name-font-size: var(--font-size--base);
     --property-value-font-size: var(--font-size--lg);
     --property-value-font-weight: var(--font-weight--semibold);
@@ -181,7 +181,7 @@ export default {
     }
   }
   &:last-of-type {
-    @include for-desktop {
+    @include for-desktop($breakpoint) {
       margin: var(--spacer-base) 0 var(--spacer-2xl) 0;
     }
   }
@@ -189,7 +189,7 @@ export default {
 .divider {
   --divider-border-color: var(--c-white);
   --divider-margin: var(--spacer-lg) 0 0 0;
-  @include for-desktop {
+  @include for-desktop($breakpoint) {
     --divider-margin: calc(var(--spacer-base) * 2) 0 0 0;
   }
 }

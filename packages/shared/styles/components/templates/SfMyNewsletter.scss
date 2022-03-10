@@ -1,7 +1,7 @@
 @import "../../helpers";
 .sf-my-newsletter {
   .tab-orphan {
-    @include for-mobile {
+    @include for-mobile($breakpoint)  {
       --tabs-title-display: none;
       --tabs-content-padding: 0;
       --tabs-content-border-width: 0;
@@ -22,7 +22,7 @@
     }
     &__button {
       --button-width: 100%;
-      @include for-desktop {
+      @include for-desktop($breakpoint)  {
         --button-width: 17.5rem;
       }
     }

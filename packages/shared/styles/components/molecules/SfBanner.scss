@@ -84,7 +84,7 @@
     --button-color: var(--c-light-variant);
     display: var(--banner-display-call-to-action, none);
   }
-  @include for-desktop {
+  @include for-desktop($breakpoint)  {
     --banner-background-image: var(
       --_banner-background-desktop-image,
       var(--_banner-background-image)

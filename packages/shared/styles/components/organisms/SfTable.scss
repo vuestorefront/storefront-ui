@@ -55,7 +55,7 @@
   &--no-border {
     --table-row-border-width: 0;
   }
-  @include for-desktop {
+  @include for-desktop($breakpoint)  {
     --table-row-padding: var(--spacer-sm) var(--spacer-sm);
     --table-heading-padding: var(--spacer-sm) var(--spacer-sm);
     --table-heading-background: transparent;

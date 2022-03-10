@@ -87,7 +87,7 @@
   &--position-bg-bottom-left {
     background-position: bottom left;
   }
-  @include for-desktop {
+  @include for-desktop($breakpoint)  {
     &__wrapper {
       width: 50%;
       min-height: 36.625rem;
@@ -130,7 +130,7 @@
       margin: 0;
     }
   }
-  @include for-desktop {
+  @include for-desktop($breakpoint)  {
     &__control--left, &__control--right {
       display: block;
     }

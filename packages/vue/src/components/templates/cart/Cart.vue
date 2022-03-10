@@ -192,7 +192,7 @@ export default {
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
 #cart {
-  @include for-desktop {
+  @include for-desktop($breakpoint) {
     & > * {
       --sidebar-bottom-padding: var(--spacer-base);
       --sidebar-content-padding: var(--spacer-base);
@@ -238,12 +238,12 @@ export default {
   &__image {
     --image-width: 13.1875rem;
     margin: 0 0 var(--spacer-xl) 0;
-    @include for-desktop {
+    @include for-desktop($breakpoint) {
       --image-width: 23.3125rem;
       margin: 0 0 var(--spacer-2xl) 0;
     }
   }
-  @include for-desktop {
+  @include for-desktop($breakpoint) {
     --heading-title-font-size: var(--font-size--xl);
     --heading-title-margin: 0 0 var(--spacer-sm) 0;
   }
@@ -284,7 +284,7 @@ export default {
   &:hover {
     --cp-save-opacity: 1;
     --cp-compare-opacity: 1;
-    @include for-desktop {
+    @include for-desktop($breakpoint) {
       .collected-product__properties {
         display: none;
       }

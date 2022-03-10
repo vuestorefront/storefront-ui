@@ -182,7 +182,7 @@
       }
     }
   }
-  @include for-desktop {
+  @include for-desktop($breakpoint)  {
     --button-padding: var(--spacer-sm) var(--spacer-lg);
     &--pure, &--text {
       --button-padding: 0;
