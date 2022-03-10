@@ -11,11 +11,6 @@
 <script>
 import Vue from "vue";
 import SfFooterColumn from "./_internal/SfFooterColumn.vue";
-import {
-  mapMobileObserver,
-  unMapMobileObserver,
-} from "../../../utilities/mobile-observer";
-
 Vue.component("SfFooterColumn", SfFooterColumn);
 export default {
   name: "SfFooter",
@@ -43,22 +38,6 @@ export default {
       isOpen: [],
       items: [],
     };
-  },
-  computed: {
-    ...mapMobileObserver(),
-  },
-  watch: {
-    isMobile: {
-      handler(mobile) {
-        this.$nextTick(() => {
-          this.isOpen = mobile ? [...this.open] : [...this.items];
-        });
-      },
-      immediate: true,
-    },
-  },
-  beforeDestroy() {
-    unMapMobileObserver();
   },
   methods: {
     toggle(payload) {

@@ -18,7 +18,9 @@
     />
     <transition name="sf-fade">
       <div
-        :class="{ 'display-none': !isColumnOpen }"
+        :class="{
+          'sf-footer-column__content--hidden-on-mobile': !isColumnOpen,
+        }"
         class="sf-footer-column__content"
       >
         <slot />
