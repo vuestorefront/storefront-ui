@@ -11,7 +11,6 @@ const pathVueComponentsRoot = path.resolve(__dirname, "..", "src/components");
 const pathsVueComponents = glob.sync("*/*/Sf*.vue", {
   cwd: pathVueComponentsRoot,
 });
-
 // updates stories with css vars info
 
 function updateComponentStories() {
@@ -131,6 +130,7 @@ function readComponentStories(pathComponentStories) {
   if (!fs.existsSync(fullPathComponentStories)) {
     return null;
   }
+  console.log(fullPathComponentStories);
   let story = fs.readFileSync(fullPathComponentStories, "utf8");
   let storyWithoutCssprops = removeCssprops(story);
   return storyWithoutCssprops;
