@@ -17,6 +17,7 @@ const pathsStyleFiles = glob.sync("*/Sf*.scss", {
 });
 const styleFiles = pathsStyleFiles.map(file => path.join(styleSrcPath, file));
 const vueFiles = pathsVueFiles.map(file => path.join(srcPath, file));
+const transitionFile = path.join(__dirname, "..", "/src/utilities/transitions/_transitions.scss");
 
 function updateBreakpoint() {
   for (const file of styleFiles) {
@@ -25,6 +26,7 @@ function updateBreakpoint() {
   for (const file of vueFiles) {
     addBreakpointValue(file, breakpointValue);
   }
+  addBreakpointValue(transitionFile, breakpointValue);
 }
 
 function addBreakpointValue(file, value) {    
