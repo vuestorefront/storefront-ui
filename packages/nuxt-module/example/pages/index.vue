@@ -81,12 +81,12 @@
             :key="colKey"
             class="instagram-grid__col"
           >
-            <SfImage v-if="!isMobile" :src="image.url" :alt="image.content" :width="470" :height="470">
+            <SfImage class="desktop-only" :src="image.url" :alt="image.content" :width="470" :height="470">
               {{
                 image.content
               }}
             </SfImage>
-            <SfImage v-else :src="image.url" :alt="image.content" :width="150" :height="150">
+            <SfImage class="smartphone-only" :src="image.url" :alt="image.content" :width="150" :height="150">
               {{
                 image.content
               }}
@@ -145,10 +145,6 @@ import {
   SfProductCard,
   SfImage
 } from '@storefront-ui/vue'
-import {
-  mapMobileObserver,
-  unMapMobileObserver,
-} from "../../../vue/src/utilities/mobile-observer";
 export default {
   name: 'Home',
   components: {
@@ -333,17 +329,11 @@ export default {
       ]
     }
   },
-  computed: {
-    ...mapMobileObserver(),
-  },
   methods: {
     toggleWishlist (index) {
       return (this.products[index].isOnWishlist =
         !this.products[index].isOnWishlist)
     }
-  },
-   beforeDestroy() {
-    unMapMobileObserver();
   },
 }
 </script>

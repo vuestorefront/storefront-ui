@@ -111,10 +111,6 @@ import SfHeaderNavigationItem from "./_internal/SfHeaderNavigationItem.vue";
 import SfHeaderNavigation from "./_internal/SfHeaderNavigation.vue";
 Vue.component("SfHeaderNavigation", SfHeaderNavigation);
 Vue.component("SfHeaderNavigationItem", SfHeaderNavigationItem);
-import {
-  mapMobileObserver,
-  unMapMobileObserver,
-} from "../../../utilities/mobile-observer";
 import { isClient } from "../../../utilities/helpers";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
 import SfSearchBar from "../../molecules/SfSearchBar/SfSearchBar.vue";
@@ -204,7 +200,6 @@ export default {
     };
   },
   computed: {
-    ...mapMobileObserver(),
     cartHasProducts() {
       return parseInt(this.cartItemsQty, 10) > 0;
     },
@@ -238,7 +233,6 @@ export default {
     }
   },
   beforeDestroy() {
-    unMapMobileObserver();
     if (this.isSticky) {
       window.removeEventListener("scroll", this.scrollHandler, {
         passive: true,
