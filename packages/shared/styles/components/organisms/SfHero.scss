@@ -6,6 +6,7 @@
   box-sizing: border-box;
   width: 100%;
   color: var(--c-text);
+  background-image: var(--hero-item-background-image, var(--hero-item-background-image-mobile));
   background-repeat: no-repeat;
   background-size: cover;
   img,
@@ -32,6 +33,16 @@
       --button-box-shadow-opacity: 0;
       --button-wrap: normal;
       text-align: left;
+    }
+    &--desktop {
+      @include for-mobile {
+        display: none;
+      }
+    }
+    &--mobile {
+      @include for-desktop {
+        display: none;
+      }
     }
   }
   &__subtitle {
@@ -88,6 +99,7 @@
     background-position: bottom left;
   }
   @include for-desktop($breakpoint)  {
+    background-image: var(--hero-item-background-image);
     &__wrapper {
       width: 50%;
       min-height: 36.625rem;

@@ -162,7 +162,10 @@
   &.on-wishlist {
     --product-card-wishlist-icon-opacity: 1;
   }
-  @include for-desktop($breakpoint)  {
+  & .has-colors {
+    --product-card-add-button-bottom: 0;
+  }
+  @include for-desktop($breakpoint) {
     --product-card-max-width: 15.5rem;
     --product-card-padding: var(--spacer-sm);
     --product-card-transition: box-shadow 150ms ease-in-out;

@@ -28,7 +28,12 @@
     }
     &-image {
       --image-width: 2.75rem;
+      --image-height: 4.125rem;
       text-align: left;
+      @include for-desktop {
+        --image-width: 5.125rem;
+        --image-height: 7.75rem;
+      }
     }
     @include for-desktop($breakpoint)  {
       margin: 0 0 var(--spacer-base) 0;

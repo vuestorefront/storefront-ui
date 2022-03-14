@@ -1,6 +1,7 @@
 @import "../../helpers";
 .sf-tile {
   position: relative;
+  background: var(--tile-background, var(--tile-background-mobile));
   display: block;
   width: 6.25rem;
   height: 7.5rem;
@@ -27,6 +28,7 @@
   }
   @include for-desktop($breakpoint)  {
     --font-tile-weight: var(--font-weight--semibold);
+    background: var(--tile-background);
     width: 16rem;
     height: 30.625rem;
     
