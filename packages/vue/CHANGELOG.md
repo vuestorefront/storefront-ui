@@ -25,9 +25,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * color picker on category page ([15d9fe5](https://github.com/vuestorefront/storefront-ui/commit/15d9fe5c0e5eb1960d55020f4974ac638082f1c1))
 
 
-
-
-
 ## [0.12.2](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/vue@0.12.1...@storefront-ui/vue@0.12.2) (2022-02-23)
 
 
