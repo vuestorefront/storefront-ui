@@ -1,5 +1,8 @@
 <template>
-  <div class="sf-sidebar">
+  <div
+    class="sf-sidebar"
+    :class="{ 'sf-sidebar--right': position === 'right' }"
+  >
     <SfOverlay :visible="visibleOverlay" />
     <transition :name="transitionName" appear>
       <aside

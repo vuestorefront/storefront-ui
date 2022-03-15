@@ -95,16 +95,6 @@ export default {
     },
   },
   argTypes: {
-    classes: {
-      control: {
-        type: "select",
-        options: ["sf-sidebar--right", ""],
-      },
-      table: {
-        category: "CSS Modifiers",
-      },
-      description: "CSS classes to modify component styling",
-    },
     title: {
       control: "text",
       table: {
@@ -252,7 +242,6 @@ const Template = (args, { argTypes }) => ({
     :heading-level="headingLevel"
     :button="button"
     :overlay="overlay"
-    :class="classes"
     :persistent="persistent"
     :position="position"
   >
@@ -269,7 +258,6 @@ Common.args = {
 export const OnTheRight = Template.bind({});
 OnTheRight.args = {
   ...Common.args,
-  classes: "sf-sidebar--right",
   position: "right",
 };
 
