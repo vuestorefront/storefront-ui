@@ -285,7 +285,6 @@ export const UseTitleSlot = (args, { argTypes }) => ({
     :heading-level="headingLevel"
     :button="button"
     :overlay="overlay"
-    :class="classes"
     :persistent="persistent"
   >
     <template #title="{title, subtitle, headingLevel}">
@@ -308,7 +307,6 @@ export const UseCircleIconSlot = (args, { argTypes }) => ({
     :heading-level="headingLevel"
     :button="button"
     :overlay="overlay"
-    :class="classes"
     :persistent="persistent"
   >
     <template #circle-icon="{close}">

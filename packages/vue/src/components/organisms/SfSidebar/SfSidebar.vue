@@ -109,6 +109,7 @@ export default {
     position: {
       type: String,
       default: "left",
+      validator: (value) => ["left", "right"].includes(value),
     },
   },
   data() {
