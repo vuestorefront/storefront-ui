@@ -109,16 +109,16 @@ export default {
               },
           "--_banner-background-color": background,
         };
+      } else {
+        return {
+          "--hero-item-background-image": isImageString
+            ? `url(${image})`
+            : `url(${image.desktop})`,
+          "--hero-item-background-image-mobile":
+            image.mobile && `url(${image.mobile})`,
+          "background-color": background,
+        };
       }
-      return {
-        "--hero-item-background-image": isImageString
-          ? `url(${image})`
-          : {
-              "--hero-item-background-image-mobile": image.mobile,
-              "--hero-item-background-image": image.desktop,
-            },
-        "background-color": background,
-      };
     },
     wrapper() {
       return this.link ? "SfLink" : "SfButton";
