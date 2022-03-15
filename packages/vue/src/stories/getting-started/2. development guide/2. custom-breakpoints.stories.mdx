@@ -3,6 +3,19 @@ import pkg from "../../../../package.json";
 
 <Meta title="Getting Started/Development Guide/Custom breakpoints" />
 
+<style>{`
+    .alert {
+        background: #efeded;
+        padding: 1rem;
+        margin: 0.5rem 0 1rem;
+    }
+    .warning {
+        border-left: 5px solid #ffc107;
+        background-color: #fff4d5;
+    }
+`}</style>
+
+
 # Custom breakpoints
 
 There are predefined breakpoint in Storefront UI but it is possible to define your own breakpoints for components.
@@ -58,11 +71,14 @@ To effectively change the breakpoint in a Vue project you can utlize `change-bre
 ```
 yarn change-breakpoint 800
 ```
- 
+You should pass the value of breakpoint without any unit. 
+
 If you want to go back to default setting, just pass command without any value:
 ```
 yarn change-breakpoint
 ```
 <div class="alert warning">
+
 Please, be aware that removing `node_modules` folder will cause resetting `$breakpoint` to default value so you will need to run the command with chosen breakpoint once again. 
+
 </div> 
