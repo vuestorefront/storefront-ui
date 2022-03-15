@@ -125,7 +125,11 @@ export default {
     },
     iconPaths() {
       if (this.isSFIcons) {
-        return this.iconFile.paths;
+        return this.iconFile.hasOwnProperty("paths")
+          ? this.iconFile.paths
+          : Array.isArray(this.iconFile)
+          ? this.iconFile
+          : [this.iconFile];
       } else {
         return Array.isArray(this.icon) ? this.icon : [this.icon];
       }
