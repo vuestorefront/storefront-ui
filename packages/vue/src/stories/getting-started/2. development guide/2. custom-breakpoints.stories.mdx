@@ -30,6 +30,8 @@ $breakpoint: $desktop-min; // 1024px
 
 ## How to change breakpoints
 
+### In the Nuxt project
+
 You need to follow 3 steps:
 
 1. Create a new file called `_variables.scss` in `assets/scss` folder. 
@@ -50,3 +52,17 @@ styleResources: {
 }
 ```
 
+### In the Vue project
+
+To effectively change the breakpoint in a Vue project you can utlize `change-breakpoint` script by running it inside `node_modules/@storefront-ui/vue` folder in your project, like this:
+```
+yarn change-breakpoint 800
+```
+ 
+If you want to go back to default setting, just pass command without any value:
+```
+yarn change-breakpoint
+```
+<div class="alert warning">
+Please, be aware that removing `node_modules` folder will cause resetting `$breakpoint` to default value so you will need to run the command with chosen breakpoint once again. 
+</div> 
