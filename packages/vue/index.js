@@ -82,6 +82,7 @@ import SfPayment from "./src/components/templates/SfPayment/SfPayment.vue";
 import SfPersonalDetails from "./src/components/templates/SfPersonalDetails/SfPersonalDetails.vue";
 import SfShipping from "./src/components/templates/SfShipping/SfShipping.vue";
 import SfShippingDetails from "./src/components/templates/SfShippingDetails/SfShippingDetails.vue";
+import SfToast from "./src/components/molecules/SfToast/SfToast.vue";
 
 export {
   SfArrow,
@@ -166,5 +167,6 @@ export {
   SfPayment,
   SfPersonalDetails,
   SfShipping,
-  SfShippingDetails
+  SfShippingDetails,
+  SfToast,
 };

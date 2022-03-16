@@ -1,0 +1,56 @@
+@import "../../helpers";
+.sf-toast-container {
+  position: var(--toast-container-position, fixed);
+  display: flex;
+  top: var(--toast-container-top, 0);
+  bottom: var(--toast-container-bottom, 0);
+  left: var(--toast-container-left, 0);
+  right: var(--toast-container-right, 0);
+  z-index: var(--toast-z-index, 5);
+  pointer-events: none;
+  &--top {
+    flex-direction: column;
+  }
+  &--bottom {
+    flex-direction: column-reverse;
+  }
+}
+.sf-toast {
+  display: inline-flex;
+  color: var(--toast-color, var(--c-white));
+  background-color: var(--toast-background-color);
+  pointer-events: auto;
+  padding: var(--toast-padding, var(--spacer-xs) var(--spacer-base));
+  box-shadow: var(
+    --toast-box-shadow,
+    0 4px 11px rgba(var(--c-dark-base), 0.1)
+  );
+  border-radius: var(--toast-border-radius, 5px);
+  opacity: var(--toast-opacity, 0.8);
+  animation-duration: var(--toast-animation-duration, .5s);
+  @include font(
+    --alert-font,
+    var(--font-weight--normal),
+    var(--font-size--sm),
+    1.6,
+    var(--font-family--primary)
+  );
+  &__message {
+    margin: var(--toast-message-margin, 0);
+  }
+  @each $color, $map in $colors-map {
+    $primary: map-get($map, "primary");
+    &.color-#{$color} {
+      --toast-background-color: #{$primary};
+    }
+  }
+  &--top, &--bottom {
+    align-self: center;
+  }
+  &--top-right, &--bottom-right {
+      align-self: flex-end;
+  }
+  &--top-left, &--bottom-left {
+      align-self: flex-start;
+  }
+}
