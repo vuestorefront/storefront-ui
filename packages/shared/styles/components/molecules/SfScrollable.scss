@@ -1,14 +1,30 @@
 @import "../../helpers";
 .sf-scrollable {
   &__content {
-    overflow-y: scroll;
+    overflow-y: auto;
     max-height: var(
       --scrollable-max-height,
       var(--_scrollable-max-height, 5rem)
     );
   }
-  ::-webkit-scrollbar-thumb:hover {
-  background: #555; 
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+scrollbar-color: var(--c-text-muted) transparent;
+scrollbar-width: thin;
+::-webkit-scrollbar-thumb {
+  background: var(--c-text-muted);
+  border-radius: 0.625rem;
+  &:hover {
+    background: var(--c-link); 
+  }
+}
+&:hover {
+  ::-webkit-scrollbar {
+    width: 0.3125rem;
+    height: 0.3125rem;
+  }
 }
   &.is-open {
     --scrollable-max-height: auto;
