@@ -197,7 +197,6 @@ export const Example = (args, { argTypes }) => ({
   },
   data() {
     return {
-      isMobile: false,
       open: this.isOpen,
       items: [
         { country: "Poland", language: "Polish" },
@@ -205,24 +204,6 @@ export const Example = (args, { argTypes }) => ({
         { country: "Poland", language: "Polish" },
       ],
     };
-  },
-  computed: {
-    customStyleForContent() {
-      return this.isMobile ? {} : { display: "flex" };
-    },
-  },
-  mounted() {
-    this.isMobile =
-      Math.max(document.documentElement.clientWidth, window.innerWidth) <= 1023;
-    window.matchMedia("(max-width: 1023px)").addListener(this.mobileHandler);
-  },
-  beforeDestroy() {
-    window.matchMedia("(max-width: 1023px)").removeListener(this.mobileHandler);
-  },
-  methods: {
-    mobileHandler(event) {
-      this.isMobile = event.matches;
-    },
   },
   template: `<div>
     <SfButton :style="{'background': 'transparent', padding: 0, '--button-box-shadow': 'none'}" @click="open = !open">
