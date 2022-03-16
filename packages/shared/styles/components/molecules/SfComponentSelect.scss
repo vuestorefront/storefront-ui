@@ -28,7 +28,7 @@
   &.is-active {
     --component-select-option-background: var(--c-light);
   }
-  @include for-desktop($breakpoint)  {
+  @include for-desktop {
     --component-select-option-padding: var(--spacer-xs);
     &:hover {
       --component-select-option-background: rgba(var(--c-gray-base), 0.1);
@@ -180,7 +180,7 @@
   &-leave-active {
     animation: var(--component-select-animation-leave, ssmobile 150ms reverse);
   }
-  @include for-desktop($breakpoint)  {
+  @include for-desktop {
     --component-select-dropdown-position: absolute;
     --component-select-dropdown-top: 100%;
     --component-select-dropdown-bottom: auto;

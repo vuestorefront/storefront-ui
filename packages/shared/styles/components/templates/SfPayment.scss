@@ -8,7 +8,7 @@
       --heading-padding: var(--spacer-xl) 0;
       border-bottom: 2px solid var(--c-light);
     }
-    @include for-desktop($breakpoint)  {
+    @include for-desktop {
       --heading-title-font-weight: var(--font-weight--semibold);
       --heading-padding: var(--spacer-xl) 0;
     }
@@ -39,7 +39,7 @@
         color: var(--c-link);
       }
     }
-    @include for-desktop($breakpoint)  {
+    @include for-desktop {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
@@ -65,7 +65,7 @@
     border-bottom: solid 2px var(--c-light);
     padding: 0 0 var(--spacer-base) 0;
     margin-bottom: var(--spacer-lg);
-    @include for-desktop($breakpoint)  {
+    @include for-desktop {
       display: flex;
       justify-content: space-between;
       margin-bottom: var(--spacer-xl);
@@ -83,7 +83,7 @@
     ::v-deep .sf-image {
       width: 100%;
     }
-    @include for-desktop($breakpoint)  {
+    @include for-desktop {
       --radio-container-padding: var(--spacer-sm);
     }
   }
@@ -114,7 +114,7 @@
       flex: 1;
       padding: 0 0 var(--spacer-sm) 0;
     }
-    @include for-desktop($breakpoint)  {
+    @include for-desktop {
       width: 38.125rem;
       &__element {
         display: flex;

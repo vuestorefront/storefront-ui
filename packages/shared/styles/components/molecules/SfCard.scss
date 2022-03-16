@@ -37,7 +37,7 @@
     left: 50%;
     transform: translate(-50%, -1.5625rem);
   }
-  @include for-desktop($breakpoint)  {
+  @include for-desktop {
     width: 23.375rem;
     --heading-title-font-weight: var(--font-weight--semibold);
   }

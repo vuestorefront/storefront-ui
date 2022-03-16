@@ -38,7 +38,7 @@
     right: var(--modal-close-right, var(--spacer-sm));
     top: var(--modal-close-top, var(--spacer-sm));
   }
-  @include for-desktop($breakpoint)  {
+  @include for-desktop {
     --modal-width: 29.375rem;
     --modal-top: 50%;
     --modal-left: 50%;

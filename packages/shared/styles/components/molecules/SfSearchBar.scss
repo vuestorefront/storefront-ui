@@ -54,7 +54,7 @@
       justify-content: center;
     }
   }
-  @include for-desktop($breakpoint)  {
+  @include for-desktop {
     --search-bar-width: 20rem;
   }
 }

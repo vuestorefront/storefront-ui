@@ -39,7 +39,7 @@
       margin: 0;
     }
   }
-  @include for-desktop($breakpoint)  {
+  @include for-desktop {
     --carousel-controls-size: 15rem;
     --carousel-controls-display: flex;
   }

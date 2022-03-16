@@ -120,7 +120,7 @@
   &:hover {
     box-shadow: var(--product-card-horizontal-box-shadow, 0px 4px 11px rgba(29, 31, 34, 0.1));
   }
-  @include for-desktop($breakpoint)  {
+  @include for-desktop {
     --product-card-horizontal-flex-direction: row;
     --product-card-horizontal-image-width: 8.75rem;
     --product-card-horizontal-padding: var(--spacer-xs) var(--spacer-sm) var(--spacer-xs) var(--spacer-xs);

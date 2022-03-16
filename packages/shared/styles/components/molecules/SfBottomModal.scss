@@ -8,10 +8,10 @@
   right: var(--bottom-modal-right, 0);
   transform: var(--bottom-modal-transform);
   --characteristic-description-font-size: var(--font-size--base);
-  @include for-mobile($breakpoint)  {
+  @include for-mobile {
     --characteristic-description-font-weight: var(--font-weight--semibold);
   }
-  @include for-desktop($breakpoint)  {
+  @include for-desktop {
     --list-item-margin: 0 var(--spacer-sm);
     --button-text-transform: capitalize;
     --characteristic-description-font-size: var(--font-size--sm);
@@ -29,7 +29,7 @@
       1.6,
       var(--font-family--primary)
     );
-    @include for-desktop($breakpoint)  {
+    @include for-desktop {
       height: var(--bottom-modal-height);
       padding: var(
         --bottom-modal-container-padding,
@@ -45,7 +45,7 @@
     );
     color: var(--bottom-modal-title-color, var(--c-text));
     text-align: var(--bottom-modal-title-text-align, center);
-    @include for-mobile($breakpoint)  {
+    @include for-mobile {
       --heading-title-font-size: var(--font-size--xs);
       --heading-title-font-weight: var(--font-weight--bold);
     }
@@ -55,7 +55,7 @@
     position: absolute;
     top: var(--spacer-xs);
     right: var(--spacer-xs);
-    @include for-desktop($breakpoint)  {
+    @include for-desktop {
       --button-display: flex;
     }
   }
@@ -63,7 +63,7 @@
     --button-display: flex;
     --button-background: var(--_c-light-primary);
     --button-color: var(--c-text-muted);
-    @include for-desktop($breakpoint)  {
+    @include for-desktop {
       --button-display: none;
     }
   }

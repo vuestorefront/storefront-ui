@@ -62,7 +62,7 @@
   &__content {
     padding: var(--steps-content-padding, var(--spacer-base) 0 0 0);
   }
-  @include for-desktop($breakpoint)  {
+  @include for-desktop {
     --steps-step-color: var(--c-text-muted);
     &__header {
       box-shadow: none;

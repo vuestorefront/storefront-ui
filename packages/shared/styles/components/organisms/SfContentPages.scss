@@ -67,7 +67,7 @@
     --list-item-padding: var(--spacer-sm) var(--spacer-sm) var(--spacer-sm);
     --list-item-border-width: 0 0 1px 0;
   }
-  @include for-desktop($breakpoint)  {
+  @include for-desktop {
     --content-pages-section-active-transform: translate3d(0, 0, 0);
     --content-pages-sidebar-flex: 0 0 26.875rem;
     --content-pages-sidebar-background: var(--c-light);

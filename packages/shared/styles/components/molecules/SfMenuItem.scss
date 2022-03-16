@@ -41,7 +41,7 @@
   &:hover {
     --menu-item-label-color: var(--c-primary);
   }
-  @include for-desktop($breakpoint)  {
+  @include for-desktop {
     --menu-item-mobile-nav-icon-display: none;
   }
 }

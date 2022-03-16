@@ -20,7 +20,7 @@
 			flex-direction: column;
 			justify-content: space-between;
 			align-items: flex-end;
-			@include for-desktop($breakpoint)  {
+			@include for-desktop {
 				flex-direction: row;
 				justify-content: flex-end;
 				align-items: center;
@@ -32,7 +32,7 @@
 			&:hover {
 				--button-background: var(--_c-light-primary);
 			}
-			@include for-desktop($breakpoint)  {
+			@include for-desktop {
 				margin: 0 0 0 var(--spacer-base);
 			}
 		}
@@ -44,29 +44,29 @@
 		}
 	}
 	.tab-orphan {
-		@include for-mobile($breakpoint)  {
+		@include for-mobile {
 			--tabs-content-border-width: 0;
 			--tabs-title-display: none;
 			--tabs-content-padding: 0;
 		}
 	}
 	.form {
-		@include for-desktop($breakpoint)  {
+		@include for-desktop {
 			display: flex;
 			flex-wrap: wrap;
 			align-items: center;
 		}
 		&__element {
 			margin: 0 0 var(--spacer-base) 0;
-			@include for-desktop($breakpoint)  {
+			@include for-desktop {
 				flex: 0 0 100%;
 			}
 			&--half {
-				@include for-desktop($breakpoint)  {
+				@include for-desktop {
 					flex: 1 1 50%;
 				}
 				&-even {
-					@include for-desktop($breakpoint)  {
+					@include for-desktop {
 						padding: 0 0 0 var(--spacer-lg);
 					}
 				}
@@ -81,13 +81,13 @@
 	}
 	.action-button {
 		--button-width: 100%;
-		@include for-desktop($breakpoint)  {
+		@include for-desktop {
 			--button-width: auto;
 		}
 	}
 	.cancel-button {
 		margin-top: var(--spacer-sm);
-		@include for-desktop($breakpoint)  {
+		@include for-desktop {
 			margin: 0 0 0 var(--spacer-xl);
 		}
 	}

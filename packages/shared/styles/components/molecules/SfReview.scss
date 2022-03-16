@@ -62,7 +62,7 @@
     --button-font-weight: var(--font-weight--medium);
     --button-font-size: var(--font-size--sm);
   }
-  @include for-desktop($breakpoint)  {
+  @include for-desktop {
     --review-max-width: 33.1875rem;
     --review-message-display: inline;
   }

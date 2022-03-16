@@ -66,7 +66,7 @@
   &__price {
     margin: var(--grouped-product-item-price-margin);
   }
-  @include for-desktop($breakpoint)  {
+  @include for-desktop {
     --grouped-product-item-display: flex;
     --grouped-product-item-aside-position: static;
     --grouped-product-item-quantity-selector-bottom: var(--spacer-xs);
@@ -93,7 +93,7 @@
       margin: 0; // todo: fix this this issues global
     }
   }
-  @include for-desktop($breakpoint)  {
+  @include for-desktop {
     .glide {
       &__slides {
         display: block;

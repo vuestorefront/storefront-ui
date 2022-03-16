@@ -1,22 +1,22 @@
 @import "../../helpers";
 .sf-my-profile {
   .form {
-    @include for-desktop($breakpoint)  {
+    @include for-desktop {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
     }
     &__element {
       margin: 0 0 var(--spacer-lg) 0;
-      @include for-desktop($breakpoint)  {
+      @include for-desktop {
         flex: 0 0 100%;
       }
       &--half {
-        @include for-desktop($breakpoint)  {
+        @include for-desktop {
           flex: 1 1 50%;
         }
         &-even {
-          @include for-desktop($breakpoint)  {
+          @include for-desktop {
             padding: 0 0 0 var(--spacer-lg);
           }
         }
@@ -24,7 +24,7 @@
     }
     &__button {
       --button-width: 100%;
-      @include for-desktop($breakpoint)  {
+      @include for-desktop {
         --button-width: 17.5rem;
       }
     }

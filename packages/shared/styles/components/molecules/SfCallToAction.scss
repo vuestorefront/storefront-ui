@@ -52,7 +52,7 @@
       var(--font-family--primary)
     );
   }
-  @include for-desktop($breakpoint)  {
+  @include for-desktop {
     --call-to-action-description-font-size: var(--font-size--lg);
     --call-to-action-title-margin: 0 0 var(--spacer-xs) 0;
     --call-to-action-flex-direction: row;

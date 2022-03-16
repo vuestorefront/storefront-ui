@@ -23,7 +23,7 @@
     display: flex;
     align-items: center;
   }
-  @include for-desktop($breakpoint)  {
+  @include for-desktop {
     --top-bar-padding: 0;
   }
 }

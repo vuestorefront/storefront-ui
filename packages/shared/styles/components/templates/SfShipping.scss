@@ -7,7 +7,7 @@
     &:not(:first-of-type) {
       --heading-padding: var(--spacer-base) 0;
     }
-    @include for-desktop($breakpoint)  {
+    @include for-desktop {
       --heading-title-font-weight: var(--font-weight--semibold);
       --heading-padding: var(--spacer-xl) 0;
     }
@@ -42,13 +42,13 @@
       }
       ::v-deep .sf-radio__container {
         --radio-container-padding: var(--spacer-xs);
-        @include for-desktop($breakpoint)  {
+        @include for-desktop {
           --radio-container-padding: var(--spacer-xs) var(--spacer-xs)
             var(--spacer-xs) var(--spacer-sm);
         }
       }
     }
-    @include for-desktop($breakpoint)  {
+    @include for-desktop {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
@@ -90,7 +90,7 @@
       font-weight: var(--font-weight--normal);
       display: flex;
       width: 10.625rem;
-      @include for-desktop($breakpoint)  {
+      @include for-desktop {
         font-weight: var(--font-weight--light);
       }
     }
@@ -107,7 +107,7 @@
         }
       }
     }
-    @include for-desktop($breakpoint)  {
+    @include for-desktop {
       &__label {
         justify-content: space-between;
       }

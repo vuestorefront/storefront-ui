@@ -76,7 +76,7 @@
     color: var(--c-link);
     text-decoration: none;
   }
-  @include for-desktop($breakpoint)  {
+  @include for-desktop {
     --store-distance-flex: 1 0 0;
     --store-distance-order: 1;
     --store-distance-margin: 0 0 0 0;
@@ -131,7 +131,7 @@
       color: var(--c-text);
     }
   }
-  @include for-desktop($breakpoint)  {
+  @include for-desktop {
     --store-locator-stores-width: calc(100% - var(--spacer-sm));
     --store-item-name-color: var(--c-link);
     --store-locator-wrapper-flex-direction: row;

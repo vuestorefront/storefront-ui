@@ -86,7 +86,7 @@
       var(--font-family--secondary)
     );
   }
-  @include for-desktop($breakpoint)  {
+  @include for-desktop {
     --collected-product-width: 21.875rem;
     --collected-product-padding: var(--spacer-xs);
     --collected-product-remove-top: var(--spacer-xs);

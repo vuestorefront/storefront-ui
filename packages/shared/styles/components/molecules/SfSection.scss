@@ -7,7 +7,7 @@
   &__content {
     margin: var(--section-content-margin, calc(var(--spacer-lg) * 2) 0 0 0);
   }
-  @include for-desktop($breakpoint)  {
+  @include for-desktop {
     --section-margin: var(--spacer-3xl) 0;
     --section-content-margin: var(--spacer-2xl) 0 0 0;
   }

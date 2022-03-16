@@ -98,7 +98,7 @@
   &--position-bg-bottom-left {
     background-position: bottom left;
   }
-  @include for-desktop($breakpoint)  {
+  @include for-desktop {
     background-image: var(--hero-item-background-image);
     &__wrapper {
       width: 50%;
@@ -142,7 +142,7 @@
       margin: 0;
     }
   }
-  @include for-desktop($breakpoint)  {
+  @include for-desktop {
     &__control--left, &__control--right {
       display: block;
     }

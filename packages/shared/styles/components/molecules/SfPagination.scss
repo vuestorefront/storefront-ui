@@ -33,7 +33,7 @@
       --pagination-item-color: var(--c-primary);
     }
   }
-  @include for-desktop($breakpoint)  {
+  @include for-desktop {
     --pagination-item-margin: 0 var(--spacer-xs);
   }
 }

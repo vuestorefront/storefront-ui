@@ -22,7 +22,7 @@
     --badge-border-radius: 100%;
     position: absolute;
   }
-  @include for-desktop($breakpoint)  {
+  @include for-desktop {
     --color-size: 0.75rem;
     &.is-active,
     &:hover {

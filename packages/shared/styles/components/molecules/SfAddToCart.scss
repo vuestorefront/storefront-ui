@@ -14,7 +14,7 @@
     flex: none;
     margin: var(--add-to-cart-select-quantity-margin, 0 0 0 var(--spacer-xs));
   }
-  @include for-desktop($breakpoint)  {
+  @include for-desktop {
     --add-to-cart-select-quantity-display: flex;
   }
 }

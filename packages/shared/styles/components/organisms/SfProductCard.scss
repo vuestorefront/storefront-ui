@@ -45,7 +45,7 @@
     --color-picker-position: absolute;
     --color-picker-label-font-size: var(--font-size--base);
     --color-picker-label-font-weight: var(--font-weight--medium);
-    @include for-desktop($breakpoint)  {      
+    @include for-desktop {      
       --color-picker-position: relative;
       --color-picker-justify-content: flex-start;
       --color-picker-padding: 0;
@@ -55,7 +55,7 @@
   &__color {
     margin: var(--spacer-xs);
     pointer-events: visible;
-    @include for-desktop($breakpoint)  {
+    @include for-desktop {
       margin: var(--spacer-sm) var(--spacer-sm) 0 0;
     }
   }
@@ -165,7 +165,7 @@
   & .has-colors {
     --product-card-add-button-bottom: 0;
   }
-  @include for-desktop($breakpoint) {
+  @include for-desktop{
     --product-card-max-width: 15.5rem;
     --product-card-padding: var(--spacer-sm);
     --product-card-transition: box-shadow 150ms ease-in-out;

@@ -45,7 +45,7 @@
       var(--font-family--secondary)
     );
   }
-  @include for-desktop($breakpoint)  {
+  @include for-desktop {
     --heading-padding: 0;
     --heading-border: 0;
     --heading-text-align: center;

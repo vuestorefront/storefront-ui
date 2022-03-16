@@ -3,7 +3,7 @@
   position: var(--header-navigation-item-position, relative);
   display: flex;
   flex: var(--header-navigation-item-flex, 0);
-  @include for-desktop($breakpoint)  {
+  @include for-desktop {
     --header-navigation-item-flex: 1;
     --header-navigation-item-position: static
   }
@@ -63,7 +63,7 @@
         text-transform: uppercase;
         text-decoration: initial;
         text-align: center;
-        @include for-desktop($breakpoint)  {
+        @include for-desktop {
           padding: var(--header-navigation-item-padding, calc(var(--spacer-lg) - 1px) var(--spacer-sm));
           margin: var(--header-navigation-item-margin, 0);
         }
@@ -100,14 +100,14 @@
   display: none;
   &__menu {
     display: var(--header-navigation-menu-display, none);
-    @include for-desktop($breakpoint)  {
+    @include for-desktop {
       --header-navigation-menu-display: flex;
     }
   }
   &__sidebar {
     --sidebar-content-padding: 0;
     display: var(--header-navigation-sidebar-display, flex);
-    @include for-desktop($breakpoint)  {
+    @include for-desktop {
       --header-navigation-sidebar-display: none;
     }
   }
@@ -131,7 +131,7 @@
     padding: var(--header-padding, 0 var(--spacer-sm));
     max-width: var(--header-width, 77.5rem);
     margin: var(--header-margin,0 auto);
-    @include for-desktop($breakpoint)  {
+    @include for-desktop {
       flex-wrap: var(--header-flex-wrap, nowrap);
     }
   }
@@ -153,7 +153,7 @@
     flex-wrap: var(--header-actions-flex-wrap, wrap);
     align-items: center;
     justify-content: flex-end;
-    @include for-desktop($breakpoint)  {
+    @include for-desktop {
       flex-wrap: var(--header-actions-flex-wrap, nowrap);
     }
   }
@@ -161,7 +161,7 @@
     order: 1;    
     flex: 0 0 calc(100% + var(--spacer-sm) * 2);
     margin: var(--header-navigation-margin, 0 calc(var(--spacer-sm) * -1));
-    @include for-desktop($breakpoint)  {
+    @include for-desktop {
       display: flex;
       --header-navigation-margin: 0 auto 0 var(--spacer-xl);
       order: 0;
@@ -170,7 +170,7 @@
     &.is-visible {
       display: flex;
       --link-text-decoration: none;
-      @include for-mobile($breakpoint)  {
+      @include for-mobile {
         flex-direction: column;      
       }
     }
@@ -179,7 +179,7 @@
     --search-bar-display: none;
     flex: var(--header-search-flex, 0 0 100%);
     margin: var(--spacer-xs) 0;
-    @include for-desktop($breakpoint)  {
+    @include for-desktop {
       --search-bar-display: flex;
       --header-search-flex: 0 1 19.875rem;
     }
@@ -188,7 +188,7 @@
     order: var(--header-icons-order);
     display: var(--header-icons-display, none);
     margin: var(--header-icons-margin);
-    @include for-desktop($breakpoint)  {
+    @include for-desktop {
       --header-icons-display: flex;
       margin:  var(--header-icons-margin, var(--spacer-sm) 0);
     }
@@ -221,7 +221,7 @@
   &--has-mobile-search,
   &--has-mobile-navigation{
     --header-box-shadow: 0px 4px 11px rgba(29, 31, 34, 0.1);
-    @include for-desktop($breakpoint)  {
+    @include for-desktop {
       --header-box-shadow: none;
     }
   }
@@ -231,7 +231,7 @@
     }
   }
   &--has-mobile-navigation {
-    @include for-mobile($breakpoint) {
+    @include for-mobile{
       .sf-header__navigation {
         display: flex;  
         flex-direction: column;
@@ -239,7 +239,7 @@
     }    
   }
   &--multiline {
-    @include for-desktop($breakpoint) {
+    @include for-desktop{
       --header-icons-margin: var(--spacer-sm) 0 var(--spacer-sm) 100%;
       --header-icons-order: -1;
       --header-actions-flex-wrap: wrap;

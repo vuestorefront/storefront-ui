@@ -54,7 +54,7 @@
     display: var(--accordion-item-chevron-display, none);
     flex: 0 0 auto;
   }
-  @include for-desktop($breakpoint)  {
+  @include for-desktop {
     --accordion-item-header-padding: var(--spacer-xs) 0;
     --accordion-item-header-font-size: var(--h4-font-size);
     --accordion-item-header-font-weight: var(--font-weight--normal);

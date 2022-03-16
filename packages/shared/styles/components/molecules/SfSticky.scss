@@ -1,6 +1,6 @@
 @import "../../helpers";
 .sf-sticky {
-  @include for-desktop($breakpoint)  {
+  @include for-desktop {
     position: var(--sticky-position, sticky);
     top: var(--sticky-top, 0);
     bottom: var(--sticky-bottom, auto);

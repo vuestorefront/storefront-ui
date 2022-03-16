@@ -99,7 +99,7 @@
       background: transparent;
     }
   }
-  @include for-desktop($breakpoint)  {
+  @include for-desktop {
     .sf-radio__container {
       padding: var(--spacer-sm);
     }

@@ -18,7 +18,7 @@
       --banner-grid-col-margin: var(--spacer-sm) 0 0 0;
     }
   }
-  @include for-desktop($breakpoint)  {
+  @include for-desktop {
     --banner-grid-row-display: flex;
     --banner-grid-row-flex: 0 0 100%;
     --banner-grid-col-display: flex;

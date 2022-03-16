@@ -39,7 +39,7 @@
     --list-item-margin: var(--spacer-base) var(--spacer-xs);
     --menu-item-label-color: var(--c-white);
   }
-  @include for-desktop($breakpoint)  {
+  @include for-desktop {
     margin: 0 0 var(--spacer-xl) 0;
     padding: var(--spacer-sm) 0;
     background: var(--c-secondary);
@@ -76,7 +76,7 @@
       padding: var(--spacer-xl) 0 0 0;
     }
   }  
-  @include for-desktop($breakpoint)  {       
+  @include for-desktop {       
     padding: var(--spacer-2xl) 10%;
     &__container {
       display: grid;

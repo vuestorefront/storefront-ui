@@ -43,7 +43,7 @@
     --filter-count-color: var(--c-primary);
     --filter-label-color: var(--c-primary);
   }
-  @include for-desktop($breakpoint)  {
+  @include for-desktop {
     --checkbox-border-radius: 0;
     --checkbox-border-color: var(--c-text-muted);
     --checkbox-order: 0;
@@ -59,7 +59,7 @@
     }
   }
   &.is-color {
-    @include for-desktop($breakpoint)  {
+    @include for-desktop {
       --checkbox-display: none;
       --filter-label-display: none;
       --filter-count-display: none;
