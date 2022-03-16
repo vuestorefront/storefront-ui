@@ -1,17 +1,15 @@
-@import "~simplebar/dist/simplebar.min";
 @import "../../helpers";
 .sf-scrollable {
   &__content {
+    overflow-y: scroll;
     max-height: var(
       --scrollable-max-height,
       var(--_scrollable-max-height, 5rem)
     );
-    .simplebar-scrollbar:before {
-      width: 4px;
-      background: var(--c-gray-variant);
-      border-radius: 10px;
-    }
   }
+  ::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
   &.is-open {
     --scrollable-max-height: auto;
   }
