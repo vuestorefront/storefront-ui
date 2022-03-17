@@ -1,4 +1,4 @@
-import { icons } from "@storefront-ui/shared/icons/icons";
+import { icons } from "@storefront-ui/vue/icons/icons";
 import { SfCircleIcon } from "@storefront-ui/vue";
 import { sizesValues as sizes } from "@storefront-ui/shared/variables/sizes";
 

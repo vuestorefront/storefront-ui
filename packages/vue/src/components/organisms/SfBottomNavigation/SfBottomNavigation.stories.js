@@ -1,4 +1,4 @@
-import { icons } from "@storefront-ui/shared/icons/icons";
+import { icons } from "@storefront-ui/vue/icons/icons";
 import { SfBottomNavigation, SfCircleIcon, SfIcon } from "@storefront-ui/vue";
 import SfBottomNavigationItem from "./_internal/SfBottomNavigationItem.vue";
 const iconsNames = Object.keys(icons);
