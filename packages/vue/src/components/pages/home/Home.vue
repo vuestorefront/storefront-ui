@@ -1,6 +1,6 @@
 <template>
   <div id="home">
-    <SfHero class="hero">
+    <SfHero class="hero" :slider-options="{ autoplay: false }">
       <SfHeroItem
         v-for="(img, index) in heroes"
         :key="index"

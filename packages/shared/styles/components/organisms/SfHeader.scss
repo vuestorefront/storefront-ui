@@ -73,7 +73,7 @@
         }
       }
       @include for-mobile {
-        display: none;
+        --header-navigation-item-menu-item-display: none;
       }
     }
     &--mobile {
@@ -90,7 +90,7 @@
         @include border(--header-navigation-item-menu-item-border, 0 0 1px 0, solid, var(--c-light));
       }
       @include for-desktop {
-        display: none;
+        --header-navigation-item-menu-item-display: none;
       }
     }
   }
