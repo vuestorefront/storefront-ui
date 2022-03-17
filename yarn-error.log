@@ -1,0 +1,31 @@
+Arguments: 
+  /Users/Ania/.nvm/versions/node/v14.18.0/bin/node /Users/Ania/.nvm/versions/node/v14.18.0/bin/yarn create nuxt-app .
+
+PATH: 
+  /Users/Ania/.rvm/gems/ruby-2.2.2/bin:/Users/Ania/.rvm/gems/ruby-2.2.2@global/bin:/Users/Ania/.rvm/rubies/ruby-2.2.2/bin:/Users/Ania/.nvm/versions/node/v14.18.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Users/Ania/.rvm/bin
+
+Yarn version: 
+  1.22.15
+
+Node version: 
+  14.18.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  SyntaxError: /Users/Ania/Desktop/sfui2/package.json: Unexpected end of JSON input
+      at JSON.parse (<anonymous>)
+      at /Users/Ania/.nvm/versions/node/v14.18.0/lib/node_modules/yarn/lib/cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (/Users/Ania/.nvm/versions/node/v14.18.0/lib/node_modules/yarn/lib/cli.js:310:30)
+      at /Users/Ania/.nvm/versions/node/v14.18.0/lib/node_modules/yarn/lib/cli.js:321:13
+
+npm manifest: 
+  
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
