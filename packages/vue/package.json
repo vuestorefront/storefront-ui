@@ -40,7 +40,6 @@
     "nouislider": "^15.2.0",
     "sass": "^1.32.13",
     "sass-loader": "^10.0.3",
-    "simplebar-vue": "^1.4.0",
     "vue": "^2.6.12",
     "vue2-leaflet": "^2.5.2"
   },
