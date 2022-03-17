@@ -1,4 +1,4 @@
-import { icons } from "@storefront-ui/shared/icons/icons";
+import { icons } from "@storefront-ui/vue/icons/icons";
 import { SfRating, SfIcon } from "@storefront-ui/vue";
 const iconsNames = Object.keys(icons);
 
