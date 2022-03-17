@@ -25,6 +25,7 @@ scrollbar-width: thin;
     width: 0.3125rem;
     height: 0.3125rem;
   }
+  scrollbar-color: var(--c-secondary-darken) transparent;
 }
   &.is-open {
     --scrollable-max-height: auto;
