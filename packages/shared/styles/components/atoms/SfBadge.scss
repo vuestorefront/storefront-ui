@@ -39,7 +39,6 @@
     }
   }
   @include for-desktop {
-    display: none;
     &--number {
       --badge-padding: 1px var(--spacer-2xs);
     }

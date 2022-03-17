@@ -11,6 +11,7 @@ const pathVueComponentsRoot = path.resolve(__dirname, "..", "src/components");
 const pathsVueComponents = glob.sync("*/*/Sf*.vue", {
   cwd: pathVueComponentsRoot,
 });
+
 // updates stories with css vars info
 
 function updateComponentStories() {
