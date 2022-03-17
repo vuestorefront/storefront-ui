@@ -126,21 +126,21 @@ export default {
 @import "~@storefront-ui/vue/styles";
 #my-account {
   box-sizing: border-box;
-  @include for-desktop($breakpoint) {
+  @include for-desktop {
     max-width: 1272px;
     padding: 0 var(--spacer-sm);
     margin: 0 auto;
   }
 }
 .my-account {
-  @include for-mobile($breakpoint) {
+  @include for-mobile {
     --content-pages-sidebar-category-title-font-weight: var(
       --font-weight--normal
     );
     --content-pages-sidebar-category-title-margin: var(--spacer-sm)
       var(--spacer-sm) var(--spacer-sm) var(--spacer-base);
   }
-  @include for-desktop($breakpoint) {
+  @include for-desktop {
     --content-pages-sidebar-category-title-margin: var(--spacer-xl) 0 0 0;
   }
 }

@@ -366,19 +366,19 @@ export default {
 @import "~@storefront-ui/vue/styles";
 #product {
   box-sizing: border-box;
-  @include for-desktop($breakpoint) {
+  @include for-desktop {
     max-width: 1272px;
     padding: 0 var(--spacer-sm);
     margin: 0 auto;
   }
 }
 .product {
-  @include for-desktop($breakpoint) {
+  @include for-desktop {
     display: flex;
   }
   &__info {
     margin: var(--spacer-xs) auto;
-    @include for-desktop($breakpoint) {
+    @include for-desktop {
       max-width: 32.625rem;
       margin: 0 0 0 7.5rem;
     }
@@ -391,7 +391,7 @@ export default {
     margin: 0 var(--spacer-sm);
     display: flex;
     justify-content: space-between;
-    @include for-desktop($breakpoint) {
+    @include for-desktop {
       --heading-title-font-weight: var(--font-weight--semibold);
       margin: 0 auto;
     }
@@ -402,7 +402,7 @@ export default {
   &__price-and-rating {
     margin: 0 var(--spacer-sm) var(--spacer-base);
     align-items: center;
-    @include for-desktop($breakpoint) {
+    @include for-desktop {
       display: flex;
       justify-content: space-between;
       margin: var(--spacer-sm) 0 var(--spacer-lg) 0;
@@ -438,7 +438,7 @@ export default {
   }
   &__select-size {
     margin: 0 var(--spacer-sm);
-    @include for-desktop($breakpoint) {
+    @include for-desktop {
       margin: 0;
     }
   }
@@ -462,7 +462,7 @@ export default {
   }
   &__add-to-cart {
     margin: var(--spacer-base) var(--spacer-sm) 0;
-    @include for-desktop($breakpoint) {
+    @include for-desktop {
       margin-top: var(--spacer-2xl);
     }
   }
@@ -478,7 +478,7 @@ export default {
   &__tabs {
     margin: var(--spacer-lg) auto var(--spacer-2xl);
     --tabs-title-font-size: var(--font-size--lg);
-    @include for-desktop($breakpoint) {
+    @include for-desktop {
       margin-top: var(--spacer-2xl);
     }
   }

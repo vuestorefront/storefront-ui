@@ -327,7 +327,7 @@ export default {
 @import "~@storefront-ui/vue/styles";
 #checkout {
   box-sizing: border-box;
-  @include for-desktop($breakpoint) {
+  @include for-desktop {
     padding: 0 var(--spacer-sm);
     max-width: 1272px;
     margin: 0 auto;
@@ -335,7 +335,7 @@ export default {
 }
 .checkout {
   --steps-content-padding: 0 var(--spacer-sm);
-  @include for-desktop($breakpoint) {
+  @include for-desktop {
     --steps-content-padding: 0;
     display: flex;
   }
@@ -343,13 +343,13 @@ export default {
     ::v-deep .sf-steps__step.is-done {
       --steps-step-color: var(--c-primary);
     }
-    @include for-desktop($breakpoint) {
+    @include for-desktop {
       flex: 1;
       padding: var(--spacer-xl) 0 0 0;
     }
   }
   &__aside {
-    @include for-desktop($breakpoint) {
+    @include for-desktop {
       flex: 0 0 26.8125rem;
       margin: 0 0 0 var(--spacer-base);
     }
@@ -358,7 +358,7 @@ export default {
       width: 100%;
       background: var(--c-light);
       padding: var(--spacer-base) var(--spacer-sm) var(--spacer-xl);
-      @include for-desktop($breakpoint) {
+      @include for-desktop {
         padding: var(--spacer-xl);
       }
     }
@@ -374,7 +374,7 @@ export default {
   &__button {
     margin-bottom: var(--spacer-sm);
   }
-  @include for-desktop($breakpoint) {
+  @include for-desktop {
     position: relative;
     box-shadow: none;
     padding: 0;

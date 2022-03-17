@@ -419,7 +419,7 @@ export default {
     --heading-padding: var(--spacer-xl) 0;
     border-bottom: 2px solid var(--c-light);
   }
-  @include for-desktop($breakpoint) {
+  @include for-desktop {
     --heading-title-font-size: var(--h3-font-size);
     --heading-title-font-weight: var(--font-weight--semibold);
     --heading-padding: var(--spacer-xl) 0;
@@ -451,7 +451,7 @@ export default {
       color: var(--c-link);
     }
   }
-  @include for-desktop($breakpoint) {
+  @include for-desktop {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -477,7 +477,7 @@ export default {
   border-bottom: solid 2px var(--c-light);
   padding: 0 0 var(--spacer-base) 0;
   margin-bottom: var(--spacer-lg);
-  @include for-desktop($breakpoint) {
+  @include for-desktop {
     display: flex;
     justify-content: space-between;
     margin-bottom: var(--spacer-xl);
@@ -495,7 +495,7 @@ export default {
   ::v-deep .sf-image {
     width: 3.125rem;
   }
-  @include for-desktop($breakpoint) {
+  @include for-desktop {
     --radio-container-padding: var(--spacer-sm);
   }
 }
@@ -526,7 +526,7 @@ export default {
     flex: 1;
     padding: 0 0 var(--spacer-sm) 0;
   }
-  @include for-desktop($breakpoint) {
+  @include for-desktop {
     width: 38.125rem;
     &__element {
       display: flex;

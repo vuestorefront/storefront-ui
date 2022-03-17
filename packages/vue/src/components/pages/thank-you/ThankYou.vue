@@ -119,7 +119,7 @@ export default {
 @import "~@storefront-ui/vue/styles";
 #thank-you {
   box-sizing: border-box;
-  @include for-desktop($breakpoint) {
+  @include for-desktop {
     max-width: 1272px;
     padding: 0 var(--spacer-sm);
     margin: 0 auto;
@@ -127,7 +127,7 @@ export default {
 }
 .heading {
   --heading-padding: var(--spacer-base) 0;
-  @include for-desktop($breakpoint) {
+  @include for-desktop {
     --heading-padding: var(--spacer-sm) 0 var(--spacer-xs) 0;
   }
 }
@@ -136,7 +136,7 @@ export default {
   color: var(--c-link);
   font: var(--font-weight--normal) var(--font-size--base) / 1.6
     var(--font-family--primary);
-  @include for-desktop($breakpoint) {
+  @include for-desktop {
     font-weight: var(--font-weight--light);
     font-size: var(--font-size--sm);
     margin-bottom: var(--spacer-lg);
@@ -147,7 +147,7 @@ export default {
   --heading-title-font-size: var(--h2-font-size);
   --heading-title-font-weight: var(--font-weight--semibold);
   --call-to-action-text-container-width: 50%;
-  @include for-desktop($breakpoint) {
+  @include for-desktop {
     margin: 0 0 var(--spacer-2xl) 0;
   }
   &__order-number {
@@ -155,7 +155,7 @@ export default {
     flex-direction: column;
     font: var(--font-weight--light) var(--font-size--sm) / 1.4
       var(--font-family--primary);
-    @include for-desktop($breakpoint) {
+    @include for-desktop {
       flex-direction: row;
       font-size: var(--font-size--normal);
     }
@@ -165,7 +165,7 @@ export default {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  @include for-desktop($breakpoint) {
+  @include for-desktop {
     flex-direction: row;
     padding: 0;
     background: var(--c-light);
@@ -174,7 +174,7 @@ export default {
 .order {
   background: var(--c-light);
   padding-bottom: var(--spacer-sm);
-  @include for-desktop($breakpoint) {
+  @include for-desktop {
     width: 100%;
     padding: var(--spacer-xl) var(--spacer-xl) var(--spacer-2xl)
       var(--spacer-2xl);
@@ -182,7 +182,7 @@ export default {
   &__heading {
     --heading-title-font-weight: var(--font-weight--bold);
     --heading-title-font-size: var(--h3-font-size);
-    @include for-desktop($breakpoint) {
+    @include for-desktop {
       --heading-title-color: var(--c-link);
       --heading-title-font-weight: var(--font-weight--semibold);
     }
@@ -190,7 +190,7 @@ export default {
   &__heading,
   &__paragraph,
   &__contact {
-    @include for-mobile($breakpoint) {
+    @include for-mobile {
       margin: 0;
       padding-left: var(--spacer-sm);
       padding-right: var(--spacer-sm);
@@ -200,7 +200,7 @@ export default {
     padding-bottom: var(--spacer-base);
     --heading-title-font-size: var(--font-size--lg);
     --heading-title-font-weight: var(--font-weight--medium);
-    @include for-desktop($breakpoint) {
+    @include for-desktop {
       --heading-title-font-size: var(--font-size--base);
       --heading-title-font-weight: var(--font-weight--normal);
       padding: 0 var(--spacer-sm);
@@ -211,7 +211,7 @@ export default {
   &__notifications-button {
     --button-width: calc(100% - var(--spacer-lg));
     margin: 0 auto;
-    @include for-desktop($breakpoint) {
+    @include for-desktop {
       margin: var(--spacer-xl) 0 0 0;
     }
   }
@@ -220,7 +220,7 @@ export default {
   color: var(--c-dark-variant);
   font: var(--font-weight--light) var(--font-size--base) / 1.6
     var(--font-family--secondary);
-  @include for-desktop($breakpoint) {
+  @include for-desktop {
     font-weight: var(--font-weight--normal);
     font-size: var(--font-size--sm);
   }
@@ -231,7 +231,7 @@ export default {
   }
   &__email {
     margin: var(--spacer-sm) 0 0 0;
-    @include for-desktop($breakpoint) {
+    @include for-desktop {
       margin-bottom: var(--spacer-sm);
     }
   }
@@ -246,7 +246,7 @@ export default {
   --heading-title-font-weight: var(--font-weight--bold);
   --heading-title-font-size: var(--h3-font-size);
   padding: 0 var(--spacer-sm);
-  @include for-desktop($breakpoint) {
+  @include for-desktop {
     --heading-title-color: var(--c-link);
     --heading-title-font-weight: var(--font-weight--semibold);
     width: 100%;
@@ -259,19 +259,19 @@ export default {
 }
 .feedback-button {
   margin: var(--spacer-xl) 0 var(--spacer-sm) 0;
-  @include for-desktop($breakpoint) {
+  @include for-desktop {
     margin: var(--spacer-base) 0 0 0;
   }
 }
 .back-button {
   --button-width: calc(100% - var(--spacer-lg));
   margin: 0 auto var(--spacer-sm) auto;
-  @include for-desktop($breakpoint) {
+  @include for-desktop {
     margin: var(--spacer-xl) auto;
   }
 }
 .button-size {
-  @include for-desktop($breakpoint) {
+  @include for-desktop {
     --button-width: 25rem;
   }
 }

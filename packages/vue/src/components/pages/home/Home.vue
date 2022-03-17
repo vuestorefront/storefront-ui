@@ -570,7 +570,7 @@ export default {
 #home {
   box-sizing: border-box;
   padding: 0 var(--spacer-sm);
-  @include for-desktop($breakpoint) {
+  @include for-desktop {
     padding: 0 var(--spacer-sm);
     max-width: 1272px;
     margin: 0 auto;
@@ -591,7 +591,7 @@ export default {
   &__paragraph {
     margin-bottom: var(--spacer-xs);
   }
-  @include for-desktop($breakpoint) {
+  @include for-desktop {
     border: none;
     justify-content: center;
     font-weight: var(--font-weight--semibold);
@@ -599,7 +599,7 @@ export default {
 }
 .carousel {
   margin: 0 calc(-1 * var(--spacer-sm)) 0 0;
-  @include for-desktop($breakpoint) {
+  @include for-desktop {
     margin: 0;
   }
   &__item {
@@ -616,13 +616,13 @@ export default {
     color: var(--c-gray);
     text-transform: uppercase;
   }
-  @include for-desktop($breakpoint) {
+  @include for-desktop {
     margin: var(--spacer-2xl) 0;
   }
 }
 .share-your-look {
   --heading-title-font-weight: var(--font-weight--semibold);
-  @include for-desktop($breakpoint) {
+  @include for-desktop {
     --section-margin: var(--spacer-2xl) 0;
   }
 }
@@ -635,7 +635,7 @@ export default {
   width: 100%;
   justify-content: center;
   margin: 0;
-  @include for-desktop($breakpoint) {
+  @include for-desktop {
     max-height: 40.625rem;
     max-width: 60rem;
     margin: 0 auto;
@@ -646,14 +646,14 @@ export default {
   }
   .gap {
     margin-left: var(--spacer-xs);
-    @include for-desktop($breakpoint) {
+    @include for-desktop {
       margin-left: var(--spacer-sm);
     }
   }
   &__col {
     width: 10rem;
     height: 10rem;
-    @include for-desktop($breakpoint) {
+    @include for-desktop {
       &.small {
         height: 10rem;
       }
@@ -662,7 +662,7 @@ export default {
     }
     & + & {
       margin-top: var(--spacer-xs);
-      @include for-desktop($breakpoint) {
+      @include for-desktop {
         margin-top: var(--spacer-sm);
       }
     }

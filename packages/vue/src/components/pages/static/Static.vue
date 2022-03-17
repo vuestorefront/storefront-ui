@@ -147,7 +147,7 @@ export default {
 @import "~@storefront-ui/vue/styles";
 #static {
   box-sizing: border-box;
-  @include for-desktop($breakpoint) {
+  @include for-desktop {
     max-width: 1272px;
     padding: 0 var(--spacer-sm);
     margin: 0 auto;
@@ -162,7 +162,7 @@ export default {
     margin: 0 0 var(--spacer-sm) 0;
   }
   &--without-tab {
-    @include for-mobile($breakpoint) {
+    @include for-mobile {
       padding: 0 var(--spacer-sm);
     }
   }
