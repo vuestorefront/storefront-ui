@@ -4,6 +4,9 @@ import { Meta } from "@storybook/addon-docs/blocks";
 
 # v0.12.4
 
+## ❗ Breaking Changes
+- SfSidebar: new `position` prop is added for positioning sidebar. Available values are `left` and `right`. When prop isn't set, default value is `left`
+
 ## 🚀 Features
 
 - SfScrollable: replaced plugin with native solution
@@ -16,6 +19,8 @@ import { Meta } from "@storybook/addon-docs/blocks";
 - one footer for nuxt pages,
 - SfHero: image passed as object doesn't appear, 
 - SfCollectedProduct: removed issue of input function in story and removed duplicate props
+- SfFooter: removed mobile observer
+- SfSidebar: add `position` prop and fix animation loading for async component
 
 ## 🧹 Chores:
 
