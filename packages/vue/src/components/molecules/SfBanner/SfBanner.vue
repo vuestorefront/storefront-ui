@@ -52,7 +52,7 @@
           :link="link"
           class="sf-banner__call-to-action color-secondary"
           :data-testid="dataTestDisplay('banner-cta-button')"
-          v-on="!isMobileView ? $listeners : {}"
+          v-on="$listeners"
         >
           {{ buttonText }}
         </SfButton>

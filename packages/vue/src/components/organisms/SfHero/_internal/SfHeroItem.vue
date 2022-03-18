@@ -1,5 +1,9 @@
 <template>
-  <li class="glide__slide sf-hero-item" :style="style" data-testid="hero-item">
+  <li
+    class="glide__slide sf-hero-item"
+    :style="style"
+    :data-testid="dataTestDisplay('hero-item')"
+  >
     <div class="sf-hero-item__wrapper sf-hero-item__wrapper--desktop">
       <slot name="subtitle" v-bind="{ subtitle }">
         <span
@@ -18,7 +22,7 @@
           v-if="buttonText"
           :link="link"
           class="sf-hero-item__button"
-          data-testid="hero-cta-button"
+          :data-testid="dataTestDisplay('hero-cta-button')"
         >
           {{ buttonText }}
         </SfButton>
