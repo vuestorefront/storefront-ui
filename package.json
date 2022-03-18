@@ -1,13 +1,14 @@
 {
   "name": "@storefront-ui/root",
   "private": true,
-  "version": "0.12.2",
+  "version": "0.12.3",
   "description": "",
   "main": "index.js",
   "author": "Storefront UI",
   "license": "MIT",
   "scripts": {
     "create-component": "node ./scripts/create-component.js",
+    "playground": "cd packages/vue && yarn run serve",
     "storybook": "cd packages/vue && yarn storybook",
     "vue-docs:dev": "cd packages/vue && yarn docs:dev",
     "create-gitlog": "node ./scripts/changelog.js",
@@ -19,7 +20,8 @@
     "nuxt:start": "cd packages/nuxt && yarn start",
     "lhci": "lhci autorun",
     "lhci:desktop": "lhci autorun --collect.settings.preset=desktop",
-    "update-components-docs": "cd packages/vue/scripts && node update-components-docs.js"
+    "update-components-docs": "cd packages/vue/scripts && node update-components-docs.js",
+    "change-breakpoint": "node packages/vue/scripts/change-breakpoint.js"
   },
   "repository": {
     "type": "git",
@@ -43,8 +45,8 @@
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
-    "@vue/cli-plugin-eslint": "^4.3.1",
     "@lhci/cli": "^0.8.0",
+    "@vue/cli-plugin-eslint": "^4.3.1",
     "file-save": "^0.2.0",
     "fse": "^4.0.1",
     "glob": "^7.1.4",

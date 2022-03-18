@@ -4,7 +4,10 @@
       <SfHeading
         :title="orderTitle"
         :level="orderTitleLevel"
-        class="sf-heading--left sf-heading--no-underline sf-confirm-order__heading"
+        class="
+          sf-heading--left sf-heading--no-underline
+          sf-confirm-order__heading
+        "
       />
     </slot>
     <slot name="table" v-bind="{ tableHeaders, orderItems }">
@@ -33,19 +36,11 @@
         >
           <SfTableData class="sf-confirm-order__table-image">
             <SfImage
-              v-if="!isMobile"
+              class="sf-confirm-order__table-image"
               :src="product.image"
               :alt="product.title"
               :width="82"
               :height="124"
-              :data-testid="dataTestDisplay('product-image-table-data')"
-            />
-            <SfImage
-              v-else
-              :src="product.image"
-              :alt="product.title"
-              :width="44"
-              :height="66"
               :data-testid="dataTestDisplay('product-image-table-data')"
             />
           </SfTableData>
@@ -86,7 +81,10 @@
         <SfProperty
           :name="propertiesNames[0]"
           :value="subtotal"
-          class="sf-property--full-width sf-confirm-order__property sf-confirm-order__property-subtotal"
+          class="
+            sf-property--full-width
+            sf-confirm-order__property sf-confirm-order__property-subtotal
+          "
         >
         </SfProperty>
         <SfProperty
@@ -99,7 +97,10 @@
         <SfProperty
           :name="propertiesNames[2]"
           :value="total"
-          class="sf-property--full-width sf-property--large sf-confirm-order__property-total"
+          class="
+            sf-property--full-width sf-property--large
+            sf-confirm-order__property-total
+          "
         >
         </SfProperty>
         <slot name="checkbox" v-bind="{ terms }">
@@ -130,10 +131,6 @@ import {
   SfProperty,
   SfLink,
 } from "@storefront-ui/vue";
-import {
-  mapMobileObserver,
-  unMapMobileObserver,
-} from "../../../utilities/mobile-observer";
 import { dataTestDisplay } from "../../../utilities/helpers";
 
 export default {
@@ -205,10 +202,6 @@ export default {
       const total = subtotal + (isNaN(shipping) ? 0 : shipping);
       return "$" + total.toFixed(2);
     },
-    ...mapMobileObserver(),
-  },
-  beforeDestroy() {
-    unMapMobileObserver();
   },
   methods: {
     dataTestDisplay,

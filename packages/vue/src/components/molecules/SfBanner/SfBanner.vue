@@ -1,10 +1,30 @@
 <template>
-  <section
-    class="sf-banner"
-    :style="style"
-    v-on="isMobileView ? $listeners : {}"
-  >
+  <section class="sf-banner" :style="style" v-on="$listeners">
     <component :is="wrapper" class="sf-banner__wrapper" :link="link">
+      <slot name="subtitle" v-bind="{ subtitle }">
+        <span
+          :class="{ 'display-none': !subtitle }"
+          class="sf-banner__subtitle"
+        >
+          {{ subtitle }}
+        </span>
+      </slot>
+      <slot name="title" v-bind="{ title }">
+        <span :class="{ 'display-none': !title }" class="sf-banner__title">
+          {{ title }}
+        </span>
+      </slot>
+      <slot name="description" v-bind="{ description }">
+        <span
+          :class="{ 'display-none': !description }"
+          class="sf-banner__description"
+        >
+          {{ description }}
+        </span>
+      </slot>
+      <slot name="call-to-action" v-bind="{ buttonText }" />
+    </component>
+    <div class="sf-banner__wrapper-desktop" :link="link">
       <slot name="subtitle" v-bind="{ subtitle }">
         <span
           :class="{ 'display-none': !subtitle }"
@@ -28,7 +48,7 @@
       </slot>
       <slot name="call-to-action" v-bind="{ buttonText }">
         <SfButton
-          v-if="buttonText && !isMobileView"
+          v-if="buttonText"
           :link="link"
           class="sf-banner__call-to-action color-secondary"
           :data-testid="dataTestDisplay('banner-cta-button')"
@@ -37,7 +57,7 @@
           {{ buttonText }}
         </SfButton>
       </slot>
-    </component>
+    </div>
     <slot name="img-tag" />
   </section>
 </template>
@@ -45,10 +65,6 @@
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfLink from "../../atoms/SfLink/SfLink.vue";
 import { dataTestDisplay } from "../../../utilities/helpers";
-import {
-  mapMobileObserver,
-  unMapMobileObserver,
-} from "../../../utilities/mobile-observer";
 export default {
   name: "SfBanner",
   components: {
@@ -93,13 +109,7 @@ export default {
       default: () => ({}),
     },
   },
-  data() {
-    return {
-      isMobileView: false,
-    };
-  },
   computed: {
-    ...mapMobileObserver(),
     style() {
       const image = this.image;
       const background = this.background;
@@ -126,14 +136,8 @@ export default {
       };
     },
     wrapper() {
-      return !this.isMobileView ? "div" : this.link ? "SfLink" : "SfButton";
+      return this.link ? "SfLink" : "SfButton";
     },
-  },
-  mounted() {
-    this.isMobileView = this.isMobile;
-  },
-  beforeDestroy() {
-    unMapMobileObserver();
   },
   methods: {
     dataTestDisplay,

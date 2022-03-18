@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.12.3](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/vue@0.12.2...@storefront-ui/vue@0.12.3) (2022-03-08)
+
+
+### Bug Fixes
+
+* accordion closing headers when multiple is used ([#2306](https://github.com/vuestorefront/storefront-ui/issues/2306)) ([5d3bb15](https://github.com/vuestorefront/storefront-ui/commit/5d3bb159c5bf64b9451103c58e9c0f8775a2c86b))
+* add url property to big image in pictureSelected ([#2298](https://github.com/vuestorefront/storefront-ui/issues/2298)) ([6163045](https://github.com/vuestorefront/storefront-ui/commit/61630454e624631c2c0ce1212f60b16a80110ef2))
+* color element ([3d3c3e0](https://github.com/vuestorefront/storefront-ui/commit/3d3c3e0ae6daccbd5607e80dccca709b284bf6a5))
+* conflict resolved ([897b815](https://github.com/vuestorefront/storefront-ui/commit/897b815b29d45b2b0e2b6aec7307fd7b3e621796))
+* conflict resolved ([6240ddf](https://github.com/vuestorefront/storefront-ui/commit/6240ddf323edd24c30e98d2c321d4e3f25198669))
+* cr fixes ([e16aeb5](https://github.com/vuestorefront/storefront-ui/commit/e16aeb5d4a4c2b18b9a7a17b0c7c1dca9e9d1206))
+* one color ([df5fde9](https://github.com/vuestorefront/storefront-ui/commit/df5fde91f55779f8e92d287ebc11f95e73ea0579))
+* one color only ([b9086a1](https://github.com/vuestorefront/storefront-ui/commit/b9086a183cf2d5897b91ba4253a05519a7e65d24))
+* the align-items property to start to make all the colors visible ([#2304](https://github.com/vuestorefront/storefront-ui/issues/2304)) ([057d449](https://github.com/vuestorefront/storefront-ui/commit/057d4498f9fa3c8b6ea51829d97115004f9cc07f))
+
+
+### Features
+
+* color picker added to home ([7ace72a](https://github.com/vuestorefront/storefront-ui/commit/7ace72aa92d4d44769f91e8e25a5d7f0657ccee5))
+* color picker on category page ([15d9fe5](https://github.com/vuestorefront/storefront-ui/commit/15d9fe5c0e5eb1960d55020f4974ac638082f1c1))
+
+
 ## [0.12.2](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/vue@0.12.1...@storefront-ui/vue@0.12.2) (2022-02-23)
 
 
