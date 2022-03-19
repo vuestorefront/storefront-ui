@@ -1,5 +1,13 @@
 name: Run tests
-on: [push, pull_request]
+on: 
+  push:
+    branches:
+      - master
+      - develop
+  pull_request: 
+    branches:
+      - master
+      - develop
 
 jobs:
   prepare_dependencies:

@@ -1,19 +1,23 @@
 import { shallowMount } from "@vue/test-utils";
 import SfIcon from "./SfIcon.vue";
+const icon = {
+  viewBox: "0 0 24 24",
+  paths: [
+    "M12.014 2c3.413 0 6.19 2.645 6.19 5.895 0 2.204-1.273 4.132-3.124 5.125 3.76 1.157 6.537 4.297 6.884 8.209.116.991-1.851 1.047-1.909.11-.405-3.912-3.934-6.887-8.041-6.887-4.166 0-7.637 2.975-8.042 6.887-.116.937-2.083.881-1.967-.11.405-3.857 3.182-7.052 6.884-8.21-1.852-.99-3.124-2.92-3.124-5.124C5.765 4.645 8.6 2 12.014 2zm0 1.873c-2.372 0-4.282 1.818-4.282 4.022 0 2.259 1.91 4.078 4.282 4.078 2.314 0 4.222-1.818 4.222-4.078 0-2.204-1.909-4.022-4.223-4.022z",
+  ],
+};
+
 describe("SfIcon.vue", () => {
   it("renders a component with defaults", () => {
     const wrapper = shallowMount(SfIcon);
     expect(wrapper.classes("sf-icon")).toBe(true);
   });
-  it("renders path when passed", () => {
-    const path =
-      "M10 0C4.48561 0 0 4.48561 0 10C0 15.5144 4.48561 20 10 20C15.5144 20 20 15.5144 20 10C20 4.48561 15.5144 0 10 0ZM10 1.46341C14.7237 1.46341 18.5366 5.27634 18.5366 10C18.5366 14.7237 14.7237 18.5366 10 18.5366C5.27634 18.5366 1.46341 14.7237 1.46341 10C1.46341 5.27634 5.27634 1.46341 10 1.46341ZM10 2.68293C9.59605 2.68293 9.26829 3.01068 9.26829 3.41463V10C9.26829 10.2706 9.41597 10.5059 9.63415 10.6326L14.9161 13.6814C15.2658 13.8834 15.7126 13.7643 15.9146 13.4146C16.1166 13.065 15.9975 12.6181 15.6478 12.4161L10.7317 9.58078V3.41468C10.7317 3.01073 10.404 2.68298 10 2.68298V2.68293Z";
-    const wrapper = shallowMount(SfIcon, {
-      propsData: {
-        icon: path,
-      },
-    });
-    expect(wrapper.find("path").attributes("d")).toEqual(path);
+  it("renders path when passed", async () => {
+    const wrapper = shallowMount(SfIcon);
+    wrapper.setData({ iconFile: icon });
+    wrapper.setData({ isLoaded: false });
+    await wrapper.vm.$nextTick();
+    expect(wrapper.find("path").attributes("d")).toEqual(icon.paths[0]);
   });
   it("renders sf-size when passed", () => {
     const size = "sm";
@@ -33,22 +37,22 @@ describe("SfIcon.vue", () => {
     });
     expect(wrapper.classes(`color-${color}`)).toBe(true);
   });
-  it("fills path according to coverage", () => {
-    const icon = ["account"];
+  it("fills path according to coverage", async () => {
     const wrapper = shallowMount(SfIcon, {
       propsData: {
         coverage: 0.5,
       },
     });
+    wrapper.setData({ iconFile: icon });
+    wrapper.setData({ isLoaded: false });
+    await wrapper.vm.$nextTick();
     expect(wrapper.find("stop").attributes("offset")).toEqual("0.5");
   });
-  it("renders viewBox default when not passed", () => {
-    const color = "green-primary";
-    const wrapper = shallowMount(SfIcon, {
-      propsData: {
-        color: color,
-      },
-    });
+  it("renders viewBox default when not passed", async () => {
+    const wrapper = shallowMount(SfIcon);
+    wrapper.setData({ iconFile: icon });
+    wrapper.setData({ isLoaded: false });
+    await wrapper.vm.$nextTick();
     expect(wrapper.find("svg").attributes("viewBox")).toEqual("0 0 24 24");
   });
   it("renders viewBox when passed", () => {
@@ -58,15 +62,10 @@ describe("SfIcon.vue", () => {
         viewBox: viewBox,
       },
     });
-    expect(wrapper.find("svg").attributes("viewBox")).toEqual(viewBox);
+    expect(wrapper.vm.iconViewBox).toBe(viewBox);
   });
   it("renders viewBox when passed as array", () => {
-    const icon = ["account"];
-    const wrapper = shallowMount(SfIcon, {
-      propsData: {
-        icon: icon,
-      },
-    });
+    const wrapper = shallowMount(SfIcon);
     expect(wrapper.classes("sf-icon")).toBe(true);
   });
   it("renders custom color when passed", () => {
