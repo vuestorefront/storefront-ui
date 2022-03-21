@@ -15,6 +15,12 @@ export default {
     },
   },
   argTypes: {
+    default: {
+      control: "text",
+      description: "Slot content",
+      defaultValue:
+        '<iframe src="https://voices.org.ua/en/" style="pointer-events: none;" width="100%" height="100%" role="presentation" title=""></iframe>',
+    },
     detectDevice: {
       control: "boolean",
       table: {
@@ -98,7 +104,7 @@ const Template = (args, { argTypes }) => ({
       :phone-scale="phoneScale"
       :tablet-scale="tabletScale"
       :laptop-scale="laptopScale">
-      <iframe src="https://voices.org.ua/en/" style="pointer-events: none;" width="100%" height="100%" role="presentation" title=""></iframe>
+      ${args.default}
     </SfDevice>`,
 });
 
