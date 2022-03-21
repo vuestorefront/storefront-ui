@@ -1,56 +1,76 @@
 @import "../../helpers";
-.sf-toast-container {
-  position: var(--toast-container-position, fixed);
+.sf-toast {
+  position: var(--toast-position, fixed);
   display: flex;
-  top: var(--toast-container-top, 0);
-  bottom: var(--toast-container-bottom, 0);
-  left: var(--toast-container-left, 0);
-  right: var(--toast-container-right, 0);
+  top: var(--toast-top, 0);
+  bottom: var(--toast-bottom, 0);
+  left: var(--toast-left, 0);
+  right: var(--toast-right, 0);
   z-index: var(--toast-z-index, 5);
   pointer-events: none;
+  @include for-mobile {
+    --toast-border-radius: 0;
+    --toast-padding: var(--spacer-base);
+    --toast-left: 0;
+    --toast-right:  0;
+    --toast-position-item: block;
+    text-align: center;
+  }
   &--top {
     flex-direction: column;
+    @include for-mobile {
+      --toast-top: 0;
+    }
   }
   &--bottom {
     flex-direction: column-reverse;
-  }
-}
-.sf-toast {
-  display: inline-flex;
-  color: var(--toast-color, var(--c-white));
-  background-color: var(--toast-background-color);
-  pointer-events: auto;
-  padding: var(--toast-padding, var(--spacer-xs) var(--spacer-base));
-  box-shadow: var(
-    --toast-box-shadow,
-    0 4px 11px rgba(var(--c-dark-base), 0.1)
-  );
-  border-radius: var(--toast-border-radius, 5px);
-  opacity: var(--toast-opacity, 0.8);
-  animation-duration: var(--toast-animation-duration, .5s);
-  @include font(
-    --alert-font,
-    var(--font-weight--normal),
-    var(--font-size--sm),
-    1.6,
-    var(--font-family--primary)
-  );
-  &__message {
-    margin: var(--toast-message-margin, 0);
-  }
-  @each $color, $map in $colors-map {
-    $primary: map-get($map, "primary");
-    &.color-#{$color} {
-      --toast-background-color: #{$primary};
+    @include for-mobile {
+      --toast-bottom: 0;
     }
   }
-  &--top, &--bottom {
-    align-self: center;
-  }
-  &--top-right, &--bottom-right {
+  &__item {
+    display:  var(--toast-position-item, inline-flex);
+    color: var(--toast-color, var(--c-white));
+    background-color: var(--toast-background-color);
+    pointer-events: auto;
+    padding: var(--toast-padding, var(--spacer-xs) var(--spacer-base));
+    margin: var(--toast-bottom-margin, 0 0 var(--spacer-xs) 0);
+    box-shadow: var(
+      --toast-box-shadow,
+      0 4px 11px rgba(var(--c-dark-base), 0.1)
+    );
+    border-radius: var(--toast-border-radius, 5px);
+    opacity: var(--toast-opacity, 0.8);
+    @include font(
+      --toast-font,
+      var(--font-weight--normal),
+      var(--font-size--sm),
+      1.6,
+      var(--font-family--primary)
+    );
+    @each $color, $map in $colors-map {
+      $primary: map-get($map, "primary");
+      &.color-#{$color} {
+        --toast-background-color: #{$primary};
+      }
+    }
+    &--top, &--bottom {
+      align-self: center;
+      @include for-mobile {
+        align-self: inherit;
+      }
+    }
+    &--top-right, &--bottom-right {
       align-self: flex-end;
-  }
-  &--top-left, &--bottom-left {
+      @include for-mobile {
+        align-self: inherit;
+      }
+    }
+    &--top-left, &--bottom-left {
       align-self: flex-start;
+      @include for-mobile {
+        align-self: inherit;
+      }
+    }
   }
 }

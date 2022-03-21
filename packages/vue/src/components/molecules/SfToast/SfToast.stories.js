@@ -94,7 +94,21 @@ export default {
 const Template = (args, { argTypes }) => ({
   components: { SfToast },
   props: Object.keys(argTypes),
-  template: `<SfToast style="position: absolute; top: 10px; bottom: 10px;margin: 0 100px" :message="message" :type="type" :position="position"/>`,
+  template: `
+    <SfToast 
+      style="position: absolute; top: 20px; bottom: 10px;margin: 0 100px;" 
+      :position="position"
+      :transition="transition"
+    >
+      <SfToastItem
+        message="Toast example message"
+        :type="type"
+      />
+      <SfToastItem
+        message="Toast example message"
+        :type="type"
+      />
+    </SfToast>`,
 });
 
 export const Default = Template.bind({});
@@ -147,28 +161,38 @@ export const WithBottomPosition = Template.bind({});
 WithBottomPosition.args = {
   ...Default.args,
   position: "bottom",
+  transition: "sf-collapse-bottom",
 };
 
 export const WithBottomLeftPosition = Template.bind({});
 WithBottomLeftPosition.args = {
   ...Default.args,
   position: "bottom-left",
+  transition: "sf-collapse-bottom",
 };
 
 export const WithBottomRightPosition = Template.bind({});
 WithBottomRightPosition.args = {
   ...Default.args,
   position: "bottom-right",
+  transition: "sf-collapse-bottom",
 };
 
-export const WithMessageSlot = (args, { argTypes }) => ({
+export const WithDefaultSlot = (args, { argTypes }) => ({
   components: { SfToast },
   props: Object.keys(argTypes),
   template: `
-  <SfToast
-    style="position: absolute; top: 10px; bottom: 10px;"
-    :message="message"
-    :type="type">
-      CUSTOM MESSAGE 
-  </SfToast>`,
+    <SfToast
+      style="position: absolute; top: 10px; bottom: 10px; margin: 0 100px;"
+      :position="position"
+    >
+      <SfToastItem
+        type="success"
+        message="CUSTOM SLOT"
+      >
+        <template #default="{ message }">
+          <p style="background: lightpink; color: white; width: 300px; top: 10px; bottom: 10px; padding:10px; text-align: center">{{ message }}<p>
+        </template>
+      </SfToastItem>
+    </SfToast>`,
 });
