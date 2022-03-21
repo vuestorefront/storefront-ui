@@ -83,8 +83,6 @@ export default {
       } else {
         this.device = "laptop";
       }
-    } else {
-      this.device = "laptop";
     }
 
     if (this.switchInterval > 0 && !this.switchOnClick) {
