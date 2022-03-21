@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.13.0](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/vue@0.12.3...@storefront-ui/vue@0.13.0) (2022-03-21)
+
+
+### Bug Fixes
+
+* **SfSidebar:** fixed lazy loaded animation ([#2299](https://github.com/vuestorefront/storefront-ui/issues/2299)) ([a6144af](https://github.com/vuestorefront/storefront-ui/commit/a6144af3924ebfcb0fac49a3d9928be56535009c))
+* added changes in the latest changelog ([e7bb474](https://github.com/vuestorefront/storefront-ui/commit/e7bb474fa45f4b3efd4419db47b29142713eaffe))
+* conflict resolved ([704d9f8](https://github.com/vuestorefront/storefront-ui/commit/704d9f8b239e86a13e82393aba14ec986f5e5a93))
+* hotfix for leftovers merge conflicts ([8dfa688](https://github.com/vuestorefront/storefront-ui/commit/8dfa6882eb595cb718392c01e44c57007e287770))
+* sfCollectedProduct issue of input function in story ([c2b21f7](https://github.com/vuestorefront/storefront-ui/commit/c2b21f77a6c9e0e63fa1c910df7f8455f10c523b))
+* sfhero image passed as objects ([#2335](https://github.com/vuestorefront/storefront-ui/issues/2335)) ([e26d803](https://github.com/vuestorefront/storefront-ui/commit/e26d8039170b35ccfa41ef50b1e80d742ba66920))
+
+
+### Features
+
+* add mixins to change breakpoint and generate classes ([#2271](https://github.com/vuestorefront/storefront-ui/issues/2271)) ([7a3f1e8](https://github.com/vuestorefront/storefront-ui/commit/7a3f1e88f2d675453eb9b1bf17b93fb78af1cb02))
+* change gh action workflow ([#2323](https://github.com/vuestorefront/storefront-ui/issues/2323)) ([df20593](https://github.com/vuestorefront/storefront-ui/commit/df20593a9b70eedb92de7800ff36edcf12e94ec4))
+* isMobile removed from SfMegaMenu ([#2337](https://github.com/vuestorefront/storefront-ui/issues/2337)) ([3c373ed](https://github.com/vuestorefront/storefront-ui/commit/3c373ed21c95d751f235010ad5a66f63c7fb1c42))
+* lazy load SfIcon component ([#2307](https://github.com/vuestorefront/storefront-ui/issues/2307)) ([f3ebc81](https://github.com/vuestorefront/storefront-ui/commit/f3ebc81c8c6fc2b22316a6cb5e6e3419b666547c))
+* removed SfSlidingSection from the lib ([#2334](https://github.com/vuestorefront/storefront-ui/issues/2334)) ([47e5706](https://github.com/vuestorefront/storefront-ui/commit/47e570600e7fdc2749eba90bd35311488742b64c))
+* removed simplebar and replaced it with native solution ([5321c8a](https://github.com/vuestorefront/storefront-ui/commit/5321c8aaa4d09af3f1bd363459261b1404051fa4))
+* removed simplebar and replaced it with native solution ([#2336](https://github.com/vuestorefront/storefront-ui/issues/2336)) ([baa30df](https://github.com/vuestorefront/storefront-ui/commit/baa30df97875e1801c99b3e39ffe4c3db9020d2c))
+* storybook composition - allowing adding SFUI stories to third party projects ([#2260](https://github.com/vuestorefront/storefront-ui/issues/2260)) ([d5b646a](https://github.com/vuestorefront/storefront-ui/commit/d5b646a6344e0ab4f5dad214458662af7c8bbd57))
+
+
+
+
+
 ## [0.12.3](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/vue@0.12.2...@storefront-ui/vue@0.12.3) (2022-03-08)
 
 

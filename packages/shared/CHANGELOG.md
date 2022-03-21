@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.13.0](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.12.3...@storefront-ui/shared@0.13.0) (2022-03-21)
+
+
+### Bug Fixes
+
+* chevron displayed in tabs on desktop ([a122012](https://github.com/vuestorefront/storefront-ui/commit/a1220123f503b3b1a3eb71d824b207659424236b))
+
+
+### Features
+
+* add mixins to change breakpoint and generate classes ([#2271](https://github.com/vuestorefront/storefront-ui/issues/2271)) ([7a3f1e8](https://github.com/vuestorefront/storefront-ui/commit/7a3f1e88f2d675453eb9b1bf17b93fb78af1cb02))
+* hover styled for ff ([b604cfe](https://github.com/vuestorefront/storefront-ui/commit/b604cfee90623cec24f62be055a966c3880aa196))
+* lazy load SfIcon component ([#2307](https://github.com/vuestorefront/storefront-ui/issues/2307)) ([f3ebc81](https://github.com/vuestorefront/storefront-ui/commit/f3ebc81c8c6fc2b22316a6cb5e6e3419b666547c))
+* removed simplebar and replaced it with native solution ([5321c8a](https://github.com/vuestorefront/storefront-ui/commit/5321c8aaa4d09af3f1bd363459261b1404051fa4))
+* styling for scrollbar in scrollable ([4aa504a](https://github.com/vuestorefront/storefront-ui/commit/4aa504a1e6a572afd8a0f290c83e8bb1e0c8ece6))
+
+
+
+
+
 ## [0.12.3](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.12.2...@storefront-ui/shared@0.12.3) (2022-03-08)
 
 
