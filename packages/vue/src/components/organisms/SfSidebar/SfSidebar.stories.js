@@ -95,16 +95,6 @@ export default {
     },
   },
   argTypes: {
-    classes: {
-      control: {
-        type: "select",
-        options: ["sf-sidebar--right", ""],
-      },
-      table: {
-        category: "CSS Modifiers",
-      },
-      description: "CSS classes to modify component styling",
-    },
     title: {
       control: "text",
       table: {
@@ -164,6 +154,19 @@ export default {
       },
       defaultValue: true,
       description: "The overlay's visibility",
+    },
+    position: {
+      control: "text",
+      table: {
+        category: "Props",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "left",
+        },
+      },
+      description: "Animation class name based on position value",
     },
     close: {
       action: "close event emitted",
@@ -239,8 +242,8 @@ const Template = (args, { argTypes }) => ({
     :heading-level="headingLevel"
     :button="button"
     :overlay="overlay"
-    :class="classes"
     :persistent="persistent"
+    :position="position"
   >
     Total items: 0
   </SfSidebar>`,
@@ -255,7 +258,7 @@ Common.args = {
 export const OnTheRight = Template.bind({});
 OnTheRight.args = {
   ...Common.args,
-  classes: "sf-sidebar--right",
+  position: "right",
 };
 
 export const NoOverlay = Template.bind({});
@@ -282,7 +285,6 @@ export const UseTitleSlot = (args, { argTypes }) => ({
     :heading-level="headingLevel"
     :button="button"
     :overlay="overlay"
-    :class="classes"
     :persistent="persistent"
   >
     <template #title="{title, subtitle, headingLevel}">
@@ -305,7 +307,6 @@ export const UseCircleIconSlot = (args, { argTypes }) => ({
     :heading-level="headingLevel"
     :button="button"
     :overlay="overlay"
-    :class="classes"
     :persistent="persistent"
   >
     <template #circle-icon="{close}">
