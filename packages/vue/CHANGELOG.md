@@ -27,10 +27,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * removed simplebar and replaced it with native solution ([#2336](https://github.com/vuestorefront/storefront-ui/issues/2336)) ([baa30df](https://github.com/vuestorefront/storefront-ui/commit/baa30df97875e1801c99b3e39ffe4c3db9020d2c))
 * storybook composition - allowing adding SFUI stories to third party projects ([#2260](https://github.com/vuestorefront/storefront-ui/issues/2260)) ([d5b646a](https://github.com/vuestorefront/storefront-ui/commit/d5b646a6344e0ab4f5dad214458662af7c8bbd57))
 
-
-
-
-
 ## [0.12.3](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/vue@0.12.2...@storefront-ui/vue@0.12.3) (2022-03-08)
 
 

@@ -3,6 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+
 # [0.13.0](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.12.3...@storefront-ui/shared@0.13.0) (2022-03-21)
 
 
@@ -18,9 +19,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * lazy load SfIcon component ([#2307](https://github.com/vuestorefront/storefront-ui/issues/2307)) ([f3ebc81](https://github.com/vuestorefront/storefront-ui/commit/f3ebc81c8c6fc2b22316a6cb5e6e3419b666547c))
 * removed simplebar and replaced it with native solution ([5321c8a](https://github.com/vuestorefront/storefront-ui/commit/5321c8aaa4d09af3f1bd363459261b1404051fa4))
 * styling for scrollbar in scrollable ([4aa504a](https://github.com/vuestorefront/storefront-ui/commit/4aa504a1e6a572afd8a0f290c83e8bb1e0c8ece6))
-
-
-
 
 
 ## [0.12.3](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.12.2...@storefront-ui/shared@0.12.3) (2022-03-08)
