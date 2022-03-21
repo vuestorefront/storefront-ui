@@ -110,21 +110,27 @@ const Template = (args, { argTypes }) => ({
 
 export const Common = Template.bind({});
 
-export const SwitchIntervalOnClick = Template.bind({});
-SwitchIntervalOnClick.args = {
-  switchOnClick: true,
-  switchInterval: 1000,
-};
-
 export const SwitchOnClickWithScale = Template.bind({});
 SwitchOnClickWithScale.args = {
+  default:
+    '<img src="https://voices.org.ua/wp-content/themes/voices-2021/img/logo_en.svg" style="width: 100%; height: 100%" />',
   switchOnClick: true,
   phoneScale: 0.5,
   tabletScale: 0.8,
 };
 
+export const SwitchOnClickToggleInterval = Template.bind({});
+SwitchOnClickToggleInterval.args = {
+  default:
+    '<img src="https://voices.org.ua/wp-content/themes/voices-2021/img/logo_en.svg" style="width: 100%; height: 100%" />',
+  switchOnClick: true,
+  switchInterval: 1000,
+};
+
 export const SwitchOnClickSwitchableDevicesOnly = Template.bind({});
 SwitchOnClickSwitchableDevicesOnly.args = {
+  default:
+    '<img src="https://voices.org.ua/wp-content/themes/voices-2021/img/logo_en.svg" style="width: 100%; height: 100%" />',
   switchOnClick: true,
   defaultDevice: "laptop",
   switchableDevices: ["tablet", "laptop"],
