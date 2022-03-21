@@ -9,7 +9,7 @@
 </template>
 
 <script>
-const allowedDevices = ["mobile", "tablet", "laptop"];
+const allowedDevices = ["phone", "tablet", "laptop"];
 
 export default {
   name: "SfDevice",
@@ -40,7 +40,7 @@ export default {
         return propValue.every((element) => allowedDevices.includes(element));
       },
     },
-    mobileScale: {
+    phoneScale: {
       type: Number,
       default: 1,
     },
@@ -63,7 +63,7 @@ export default {
   computed: {
     cssVars() {
       return {
-        "--mobile-scale": this.mobileScale,
+        "--phone-scale": this.phoneScale,
         "--tablet-scale": this.tabletScale,
         "--laptop-scale": this.laptopScale,
       };
@@ -75,7 +75,7 @@ export default {
   mounted() {
     if (this.detectDevice && typeof window.matchMedia !== "undefined") {
       if (window.matchMedia("only screen and (max-width: 480px)").matches) {
-        this.device = "mobile";
+        this.device = "phone";
       } else if (
         window.matchMedia("only screen and (max-width: 768px)").matches
       ) {

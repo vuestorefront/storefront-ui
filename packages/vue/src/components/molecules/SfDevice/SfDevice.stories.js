@@ -25,7 +25,7 @@ export default {
     defaultDevice: {
       control: {
         type: "select",
-        options: ["mobile", "tablet", "laptop"],
+        options: ["phone", "tablet", "laptop"],
       },
       table: {
         category: "Props",
@@ -33,7 +33,7 @@ export default {
           summary: null,
         },
       },
-      defaultValue: "mobile",
+      defaultValue: "phone",
       description: "Default device to show (may be overriden by detectDevice)",
     },
     switchOnClick: {
@@ -58,15 +58,15 @@ export default {
           summary: null,
         },
       },
-      defaultValue: ["mobile", "tablet", "laptop"],
+      defaultValue: ["phone", "tablet", "laptop"],
       description: "Devices that will be switched between",
     },
-    mobileScale: {
+    phoneScale: {
       control: "number",
       table: {
         category: "Props",
       },
-      description: "Scale factor for mobile device (f.ex: 0.5 for 50%)",
+      description: "Scale factor for phone device (f.ex: 0.5 for 50%)",
     },
     tabletScale: {
       control: "number",
@@ -95,7 +95,7 @@ const Template = (args, { argTypes }) => ({
       :switchable-devices="switchableDevices"
       :switch-on-click="switchOnClick"
       :switch-interval="switchInterval"
-      :mobile-scale="mobileScale"
+      :phone-scale="phoneScale"
       :tablet-scale="tabletScale"
       :laptop-scale="laptopScale">
       <iframe src="https://voices.org.ua/en/" style="pointer-events: none;" width="100%" height="100%" role="presentation" title=""></iframe>
@@ -113,13 +113,13 @@ SwitchIntervalOnClick.args = {
 export const SwitchOnClickWithScale = Template.bind({});
 SwitchOnClickWithScale.args = {
   switchOnClick: true,
-  mobileScale: 0.5,
+  phoneScale: 0.5,
   tabletScale: 0.8,
 };
 
 export const SwitchOnClickSwitchableDevicesOnly = Template.bind({});
 SwitchOnClickSwitchableDevicesOnly.args = {
   switchOnClick: true,
-  defaultDevice: "tablet",
+  defaultDevice: "laptop",
   switchableDevices: ["tablet", "laptop"],
 };

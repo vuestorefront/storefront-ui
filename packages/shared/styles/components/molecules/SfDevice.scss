@@ -3,12 +3,12 @@
     box-sizing: border-box;
   }
 
-  &__laptop, &__tablet, &__mobile {
+  &__phone, &__tablet, &__laptop  {
     margin: 0 auto var(--spacer-xl);
     position: relative;
   }
 
-  &__laptop, &__tablet, &__mobile, &__tablet &__screen {
+  &__phone, &__tablet, &__laptop, &__tablet &__screen {
     transition-property: all;
     transition-duration: 0.25s;
     transition-timing-function: ease-in-out;
@@ -19,34 +19,34 @@
     width: 100%;
   }
 
-  &__mobile {
+  &__phone {
     background: #111;
-    width: calc(12.117rem * var(--mobile-scale));
-    height: calc(23.75rem * var(--mobile-scale));
-    border-radius: calc(1.818rem * var(--mobile-scale));
-    padding: calc(1.818rem * var(--mobile-scale)) calc(0.848rem * var(--mobile-scale));
+    width: calc(12.117rem * var(--phone-scale));
+    height: calc(23.75rem * var(--phone-scale));
+    border-radius: calc(1.818rem * var(--phone-scale));
+    padding: calc(1.818rem * var(--phone-scale)) calc(0.848rem * var(--phone-scale));
   }
-  &__mobile &__screen {
+  &__phone &__screen {
     height: 75%;
-    zoom: var(--mobile-scale);
+    zoom: var(--phone-scale);
   }
-  &__mobile:before {
+  &__phone:before {
     content: " ";
     background: #222;
     display: block;
-    width: calc(2.423rem * var(--mobile-scale));
-    height: calc(0.606rem * var(--mobile-scale));
-    margin: 0 auto calc(1.818rem * var(--mobile-scale)) auto;
-    border-radius: calc(0.008rem * var(--mobile-scale));
+    width: calc(2.423rem * var(--phone-scale));
+    height: calc(0.606rem * var(--phone-scale));
+    margin: 0 auto calc(1.818rem * var(--phone-scale)) auto;
+    border-radius: calc(0.008rem * var(--phone-scale));
   }
-  &__mobile:after {
+  &__phone:after {
     content: " ";
     display: block;
     background: #222;
-    width: calc(2.423rem * var(--mobile-scale));
-    height: calc(2.423rem * var(--mobile-scale));
-    margin: calc(0.848rem * var(--mobile-scale)) auto calc(0.969rem * var(--mobile-scale));
-    border-radius: calc(1.212rem * var(--mobile-scale));
+    width: calc(2.423rem * var(--phone-scale));
+    height: calc(2.423rem * var(--phone-scale));
+    margin: calc(0.848rem * var(--phone-scale)) auto calc(0.969rem * var(--phone-scale));
+    border-radius: calc(1.212rem * var(--phone-scale));
   }
 
   &__tablet {
