@@ -14,18 +14,6 @@ const allowedDevices = ["mobile", "tablet", "laptop"];
 export default {
   name: "SfDevice",
   props: {
-    mobileScale: {
-      type: Number,
-      default: 1,
-    },
-    tabletScale: {
-      type: Number,
-      default: 1,
-    },
-    laptopScale: {
-      type: Number,
-      default: 1,
-    },
     detectDevice: {
       type: Boolean,
       default: false,
@@ -37,13 +25,6 @@ export default {
         return allowedDevices.includes(propValue);
       },
     },
-    switchableDevices: {
-      type: Array,
-      default: () => allowedDevices,
-      validator: (propValue) => {
-        return propValue.every((element) => allowedDevices.includes(element));
-      },
-    },
     switchOnClick: {
       type: Boolean,
       default: false,
@@ -51,6 +32,25 @@ export default {
     switchInterval: {
       type: Number,
       default: 0,
+    },
+    switchableDevices: {
+      type: Array,
+      default: () => allowedDevices,
+      validator: (propValue) => {
+        return propValue.every((element) => allowedDevices.includes(element));
+      },
+    },
+    mobileScale: {
+      type: Number,
+      default: 1,
+    },
+    tabletScale: {
+      type: Number,
+      default: 1,
+    },
+    laptopScale: {
+      type: Number,
+      default: 1,
     },
   },
   data: function () {

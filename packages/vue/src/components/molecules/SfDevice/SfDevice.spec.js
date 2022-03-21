@@ -14,7 +14,7 @@ describe("SfDevice.vue", () => {
     });
     expect(component.find(".slotMessage").exists()).toBe(true);
   });
-  it("renders tablet device", () => {
+  it("renders default device", () => {
     const component = shallowMount(SfDevice, {
       propsData: {
         defaultDevice: "tablet",
@@ -42,6 +42,19 @@ describe("SfDevice.vue", () => {
     });
     component.vm.$nextTick(() => {
       expect(component.find(".sf-device__tablet").exists()).toBe(true);
+      done();
+    });
+  });
+  it("switches device between switchable devices only", (done) => {
+    const component = shallowMount(SfDevice, {
+      propsData: {
+        switchableDevices: ["laptop"],
+        switchOnClick: true,
+      },
+    });
+    component.find(".sf-device__screen").trigger("click");
+    component.vm.$nextTick(() => {
+      expect(component.find(".sf-device__laptop").exists()).toBe(true);
       done();
     });
   });

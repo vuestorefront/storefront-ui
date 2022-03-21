@@ -15,10 +15,17 @@ export default {
     },
   },
   argTypes: {
+    detectDevice: {
+      control: "boolean",
+      table: {
+        category: "Props",
+      },
+      description: "Whether to auto detect device via media query",
+    },
     defaultDevice: {
       control: {
         type: "select",
-        options: Object.values(SfDevice.data().devices),
+        options: ["mobile", "tablet", "laptop"],
       },
       table: {
         category: "Props",
@@ -26,15 +33,8 @@ export default {
           summary: null,
         },
       },
-      defaultValue: null,
-      description: "Default device to show",
-    },
-    detectDevice: {
-      control: "boolean",
-      table: {
-        category: "Props",
-      },
-      description: "Whether to auto detect device via media query",
+      defaultValue: "mobile",
+      description: "Default device to show (may be overriden by detectDevice)",
     },
     switchOnClick: {
       control: "boolean",
@@ -50,6 +50,38 @@ export default {
       },
       description: "Milliseconds before automatically switching devices",
     },
+    switchableDevices: {
+      control: "array",
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: null,
+        },
+      },
+      defaultValue: ["mobile", "tablet", "laptop"],
+      description: "Devices that will be switched between",
+    },
+    mobileScale: {
+      control: "number",
+      table: {
+        category: "Props",
+      },
+      description: "Scale factor for mobile device (f.ex: 0.5 for 50%)",
+    },
+    tabletScale: {
+      control: "number",
+      table: {
+        category: "Props",
+      },
+      description: "Scale factor for tablet device (f.ex: 0.8 for 80%)",
+    },
+    laptopScale: {
+      control: "number",
+      table: {
+        category: "Props",
+      },
+      description: "Scale factor for laptop device (f.ex: 1.0 for 100%)",
+    },
   },
 };
 
@@ -58,15 +90,36 @@ const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
     <SfDevice
-      :device="device"
+      :detect-device="detectDevice"
+      :default-device="defaultDevice"
+      :switchable-devices="switchableDevices"
       :switch-on-click="switchOnClick"
-      :switch-interval="switchInterval">
+      :switch-interval="switchInterval"
+      :mobile-scale="mobileScale"
+      :tablet-scale="tabletScale"
+      :laptop-scale="laptopScale">
       <iframe src="https://voices.org.ua/en/" style="pointer-events: none;" width="100%" height="100%" role="presentation" title=""></iframe>
     </SfDevice>`,
 });
 
 export const Common = Template.bind({});
-Common.args = {
-  device: "tablet",
+
+export const SwitchIntervalOnClick = Template.bind({});
+SwitchIntervalOnClick.args = {
   switchOnClick: true,
+  switchInterval: 1000,
+};
+
+export const SwitchOnClickWithScale = Template.bind({});
+SwitchOnClickWithScale.args = {
+  switchOnClick: true,
+  mobileScale: 0.5,
+  tabletScale: 0.8,
+};
+
+export const SwitchOnClickSwitchableDevicesOnly = Template.bind({});
+SwitchOnClickSwitchableDevicesOnly.args = {
+  switchOnClick: true,
+  defaultDevice: "tablet",
+  switchableDevices: ["tablet", "laptop"],
 };
