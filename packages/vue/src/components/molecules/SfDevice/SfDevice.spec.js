@@ -17,7 +17,7 @@ describe("SfDevice.vue", () => {
   it("renders tablet device", () => {
     const component = shallowMount(SfDevice, {
       propsData: {
-        device: "tablet",
+        defaultDevice: "tablet",
       },
     });
     expect(component.find(".sf-device__tablet").exists()).toBe(true);
@@ -25,25 +25,23 @@ describe("SfDevice.vue", () => {
   it("switches device after click", (done) => {
     const component = shallowMount(SfDevice, {
       propsData: {
-        device: "tablet",
         switchOnClick: true,
       },
     });
     component.find(".sf-device__screen").trigger("click");
     component.vm.$nextTick(() => {
-      expect(component.find(".sf-device__laptop").exists()).toBe(true);
+      expect(component.find(".sf-device__tablet").exists()).toBe(true);
       done();
     });
   });
   it("switches device after interval", (done) => {
     const component = shallowMount(SfDevice, {
       propsData: {
-        device: "tablet",
         switchInterval: 1,
       },
     });
     component.vm.$nextTick(() => {
-      expect(component.find(".sf-device__laptop").exists()).toBe(true);
+      expect(component.find(".sf-device__tablet").exists()).toBe(true);
       done();
     });
   });

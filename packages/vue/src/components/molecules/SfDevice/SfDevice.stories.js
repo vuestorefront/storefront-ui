@@ -15,7 +15,7 @@ export default {
     },
   },
   argTypes: {
-    device: {
+    defaultDevice: {
       control: {
         type: "select",
         options: Object.values(SfDevice.data().devices),
@@ -27,7 +27,14 @@ export default {
         },
       },
       defaultValue: null,
-      description: "Default device to show, or auto detect via media query",
+      description: "Default device to show",
+    },
+    detectDevice: {
+      control: "boolean",
+      table: {
+        category: "Props",
+      },
+      description: "Whether to auto detect device via media query",
     },
     switchOnClick: {
       control: "boolean",

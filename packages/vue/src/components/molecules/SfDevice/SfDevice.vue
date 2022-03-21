@@ -1,26 +1,47 @@
 <template>
-  <div class="sf-device">
-    <div class="sf-device__wrapper">
-      <div class="sf-device__morph" @click="clicked">
-        <div class="sf-device__screen">
-          <slot />
-        </div>
+  <div class="sf-device" :style="cssVars">
+    <div :class="cssClass" @click="clicked">
+      <div class="sf-device__screen">
+        <slot />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-const devices = ["mobile", "tablet", "laptop", "detect"];
+const allowedDevices = ["mobile", "tablet", "laptop"];
 
 export default {
   name: "SfDevice",
   props: {
-    device: {
+    mobileScale: {
+      type: Number,
+      default: 1,
+    },
+    tabletScale: {
+      type: Number,
+      default: 1,
+    },
+    laptopScale: {
+      type: Number,
+      default: 1,
+    },
+    detectDevice: {
+      type: Boolean,
+      default: false,
+    },
+    defaultDevice: {
       type: String,
-      default: "detect",
+      default: allowedDevices[0],
       validator: (propValue) => {
-        return devices.includes(propValue);
+        return allowedDevices.includes(propValue);
+      },
+    },
+    switchableDevices: {
+      type: Array,
+      default: () => allowedDevices,
+      validator: (propValue) => {
+        return propValue.every((element) => allowedDevices.includes(element));
       },
     },
     switchOnClick: {
@@ -34,40 +55,37 @@ export default {
   },
   data: function () {
     return {
-      i: 0,
-      morphEl: null,
       intervalID: -1,
-      devices: devices,
-      classes: ["sf-device__mobile", "sf-device__tablet", "sf-device__laptop"],
+      devices: this.switchableDevices,
+      device: this.defaultDevice,
     };
   },
+  computed: {
+    cssVars() {
+      return {
+        "--mobile-scale": this.mobileScale,
+        "--tablet-scale": this.tabletScale,
+        "--laptop-scale": this.laptopScale,
+      };
+    },
+    cssClass() {
+      return `sf-device__${this.device}`;
+    },
+  },
   mounted() {
-    this.morphEl = this.$el.querySelector(".sf-device__morph");
-
-    if (this.device === "detect") {
-      if (typeof window.matchMedia !== "undefined") {
-        const isMobile = window.matchMedia(
-          "only screen and (max-width: 480px)"
-        ).matches;
-        const isTablet = window.matchMedia(
-          "only screen and (max-width: 768px)"
-        ).matches;
-
-        if (isMobile) {
-          this.i = 0;
-        } else if (isTablet) {
-          this.i = 1;
-        } else {
-          this.i = 2;
-        }
+    if (this.detectDevice && typeof window.matchMedia !== "undefined") {
+      if (window.matchMedia("only screen and (max-width: 480px)").matches) {
+        this.device = "mobile";
+      } else if (
+        window.matchMedia("only screen and (max-width: 768px)").matches
+      ) {
+        this.device = "tablet";
       } else {
-        this.i = 2;
+        this.device = "laptop";
       }
     } else {
-      this.i = this.devices.indexOf(this.device);
+      this.device = "laptop";
     }
-
-    this.morphEl.classList.add(this.classes[this.i]);
 
     if (this.switchInterval > 0 && !this.switchOnClick) {
       this.toggleMorph();
@@ -91,15 +109,10 @@ export default {
       }
     },
     morph() {
-      this.morphEl.className = "";
-
-      if (this.i > this.classes.length - 2) {
-        this.i = 0;
-      } else {
-        this.i++;
-      }
-
-      this.morphEl.classList.add(this.classes[this.i]);
+      this.device =
+        this.devices[
+          (this.devices.indexOf(this.device) + 1) % this.devices.length
+        ];
     },
   },
 };
