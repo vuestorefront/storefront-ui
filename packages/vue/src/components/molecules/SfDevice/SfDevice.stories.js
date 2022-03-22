@@ -1,6 +1,7 @@
 import { SfDevice } from "@storefront-ui/vue";
+import { defaultDevices, defaultDeviceNames } from "./SfDevice.vue";
 
-export default {
+let config = {
   title: "Components/Molecules/Device",
   component: SfDevice,
   parameters: {
@@ -9,8 +10,9 @@ export default {
     // end of code generated automatically
     docs: {
       description: {
-        component:
-          "The component for showing content in a representation of a user device (phone/tablet/laptop)",
+        component: `The component for showing content in a representation of a user device (${defaultDeviceNames.join(
+          "/"
+        )})`,
       },
     },
   },
@@ -31,7 +33,7 @@ export default {
     defaultDevice: {
       control: {
         type: "select",
-        options: ["phone", "tablet", "laptop"],
+        options: defaultDeviceNames,
       },
       table: {
         category: "Props",
@@ -56,7 +58,7 @@ export default {
       },
       description: "Milliseconds before automatically switching devices",
     },
-    switchableDevices: {
+    switchDevices: {
       control: "array",
       table: {
         category: "Props",
@@ -64,32 +66,29 @@ export default {
           summary: null,
         },
       },
-      defaultValue: ["phone", "tablet", "laptop"],
+      defaultValue: defaultDeviceNames,
       description: "Devices that will be switched between",
-    },
-    phoneScale: {
-      control: "number",
-      table: {
-        category: "Props",
-      },
-      description: "Scale factor for phone device (f.ex: 0.5 for 50%)",
-    },
-    tabletScale: {
-      control: "number",
-      table: {
-        category: "Props",
-      },
-      description: "Scale factor for tablet device (f.ex: 0.8 for 80%)",
-    },
-    laptopScale: {
-      control: "number",
-      table: {
-        category: "Props",
-      },
-      description: "Scale factor for laptop device (f.ex: 1.0 for 100%)",
     },
   },
 };
+
+let scaleProps = [];
+defaultDevices.forEach((device) => {
+  config.argTypes[`${device.name}Scale`] = {
+    control: { type: "range", min: 0.1, max: 1.0, step: 0.1 },
+    table: {
+      category: "Props",
+    },
+    defaultValue: 1,
+    description: `Scale factor for ${device.name} device (f.ex: ${
+      device.scale
+    } for ${device.scale * 100}%)`,
+  };
+
+  scaleProps.push(`:${device.name}-scale="${device.name}Scale"`);
+});
+
+export default config;
 
 const Template = (args, { argTypes }) => ({
   components: { SfDevice },
@@ -98,12 +97,10 @@ const Template = (args, { argTypes }) => ({
     <SfDevice
       :detect-device="detectDevice"
       :default-device="defaultDevice"
-      :switchable-devices="switchableDevices"
+      :switch-devices="switchDevices"
       :switch-on-click="switchOnClick"
       :switch-interval="switchInterval"
-      :phone-scale="phoneScale"
-      :tablet-scale="tabletScale"
-      :laptop-scale="laptopScale">
+      ${scaleProps.join("\n")}>
       ${args.default}
     </SfDevice>`,
 });
@@ -133,5 +130,5 @@ SwitchOnClickSwitchableDevicesOnly.args = {
     '<img src="https://voices.org.ua/wp-content/themes/voices-2021/img/logo_en.svg" style="width: 100%; height: 100%" />',
   switchOnClick: true,
   defaultDevice: "laptop",
-  switchableDevices: ["tablet", "laptop"],
+  switchDevices: ["tablet", "laptop"],
 };

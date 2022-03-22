@@ -45,10 +45,10 @@ describe("SfDevice.vue", () => {
       done();
     });
   });
-  it("switches device between switchable devices only", (done) => {
+  it("switches device between allowed devices only", (done) => {
     const component = shallowMount(SfDevice, {
       propsData: {
-        switchableDevices: ["laptop"],
+        switchDevices: ["laptop"],
         switchOnClick: true,
       },
     });

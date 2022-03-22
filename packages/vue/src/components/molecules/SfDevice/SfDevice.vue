@@ -9,9 +9,27 @@
 </template>
 
 <script>
-const allowedDevices = ["phone", "tablet", "laptop"];
+export const defaultDevices = [
+  {
+    name: "phone",
+    mediaQuery: "only screen and (max-width: 480px)",
+    scale: 0.5,
+  },
+  {
+    name: "tablet",
+    mediaQuery: "only screen and (max-width: 768px)",
+    scale: 0.8,
+  },
+  {
+    name: "laptop",
+    mediaQuery: "only screen",
+    scale: 1.0,
+  },
+];
 
-export default {
+export const defaultDeviceNames = defaultDevices.map((device) => device.name);
+
+let config = {
   name: "SfDevice",
   props: {
     detectDevice: {
@@ -20,9 +38,9 @@ export default {
     },
     defaultDevice: {
       type: String,
-      default: allowedDevices[0],
+      default: defaultDevices[0].name,
       validator: (propValue) => {
-        return allowedDevices.includes(propValue);
+        return defaultDevices.find((device) => device.name === propValue);
       },
     },
     switchOnClick: {
@@ -33,56 +51,46 @@ export default {
       type: Number,
       default: 0,
     },
-    switchableDevices: {
+    switchDevices: {
       type: Array,
-      default: () => allowedDevices,
+      default: () => defaultDeviceNames,
       validator: (propValue) => {
-        return propValue.every((element) => allowedDevices.includes(element));
+        return propValue.every((value) =>
+          defaultDevices.find((device) => device.name === value)
+        );
       },
-    },
-    phoneScale: {
-      type: Number,
-      default: 1,
-    },
-    tabletScale: {
-      type: Number,
-      default: 1,
-    },
-    laptopScale: {
-      type: Number,
-      default: 1,
     },
   },
   data: function () {
     return {
       intervalID: -1,
-      devices: this.switchableDevices,
-      device: this.defaultDevice,
+      devices: defaultDevices.filter((device) =>
+        this.switchDevices.includes(device.name)
+      ),
+      device: defaultDevices.find(
+        (device) => this.defaultDevice === device.name
+      ),
     };
   },
   computed: {
     cssVars() {
-      return {
-        "--phone-scale": this.phoneScale,
-        "--tablet-scale": this.tabletScale,
-        "--laptop-scale": this.laptopScale,
-      };
+      let scaleObj = {};
+      defaultDeviceNames.forEach((deviceName) => {
+        scaleObj[`--${deviceName}-scale`] = this[`${deviceName}Scale`];
+      });
+      return scaleObj;
     },
     cssClass() {
-      return `sf-device__${this.device}`;
+      return `sf-device__${this.device.name}`;
     },
   },
   mounted() {
     if (this.detectDevice && typeof window.matchMedia !== "undefined") {
-      if (window.matchMedia("only screen and (max-width: 480px)").matches) {
-        this.device = "phone";
-      } else if (
-        window.matchMedia("only screen and (max-width: 768px)").matches
-      ) {
-        this.device = "tablet";
-      } else {
-        this.device = "laptop";
-      }
+      this.devices.forEach((device) => {
+        if (window.matchMedia(device.mediaQuery).matches) {
+          this.device = device;
+        }
+      });
     }
 
     if (this.switchInterval > 0 && !this.switchOnClick) {
@@ -114,6 +122,13 @@ export default {
     },
   },
 };
+defaultDevices.forEach((device) => {
+  config.props[`${device.name}Scale`] = {
+    type: Number,
+    default: 1.0,
+  };
+});
+export default config;
 </script>
 <style lang="scss">
 @import "~@storefront-ui/shared/styles/components/molecules/SfDevice.scss";
