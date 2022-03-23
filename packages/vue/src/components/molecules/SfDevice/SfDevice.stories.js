@@ -1,12 +1,16 @@
 import { SfDevice } from "@storefront-ui/vue";
 import { defaultDevices, defaultDeviceNames } from "./SfDevice.vue";
 
-let config = {
+export default {
   title: "Components/Molecules/Device",
   component: SfDevice,
   parameters: {
     // do not modify cssprops manually, they are generated automatically by update-components-docs script
-    cssprops: {},
+    cssprops: {
+      "device-phone-scale": { value: "1", control: "text" },
+      "device-tablet-scale": { value: "1", control: "text" },
+      "device-laptop-scale": { value: "1", control: "text" },
+    },
     // end of code generated automatically
     docs: {
       description: {
@@ -58,7 +62,7 @@ let config = {
       },
       description: "Milliseconds before automatically switching devices",
     },
-    switchDevices: {
+    switchFilter: {
       control: "array",
       table: {
         category: "Props",
@@ -72,24 +76,6 @@ let config = {
   },
 };
 
-let scaleProps = [];
-defaultDevices.forEach((device) => {
-  config.argTypes[`${device.name}Scale`] = {
-    control: { type: "range", min: 0.1, max: 1.0, step: 0.1 },
-    table: {
-      category: "Props",
-    },
-    defaultValue: 1,
-    description: `Scale factor for ${device.name} device (f.ex: ${
-      device.scale
-    } for ${device.scale * 100}%)`,
-  };
-
-  scaleProps.push(`:${device.name}-scale="${device.name}Scale"`);
-});
-
-export default config;
-
 const Template = (args, { argTypes }) => ({
   components: { SfDevice },
   props: Object.keys(argTypes),
@@ -97,10 +83,9 @@ const Template = (args, { argTypes }) => ({
     <SfDevice
       :detect-device="detectDevice"
       :default-device="defaultDevice"
-      :switch-devices="switchDevices"
+      :switch-filter="switchFilter"
       :switch-on-click="switchOnClick"
-      :switch-interval="switchInterval"
-      ${scaleProps.join("\n")}>
+      :switch-interval="switchInterval">
       ${args.default}
     </SfDevice>`,
 });
@@ -124,11 +109,11 @@ SwitchOnClickToggleInterval.args = {
   switchInterval: 1000,
 };
 
-export const SwitchOnClickSwitchableDevicesOnly = Template.bind({});
-SwitchOnClickSwitchableDevicesOnly.args = {
+export const SwitchOnClickFilteredDevicesOnly = Template.bind({});
+SwitchOnClickFilteredDevicesOnly.args = {
   default:
     '<img src="https://voices.org.ua/wp-content/themes/voices-2021/img/logo_en.svg" style="width: 100%; height: 100%" />',
   switchOnClick: true,
   defaultDevice: "laptop",
-  switchDevices: ["tablet", "laptop"],
+  switchFilter: ["tablet", "laptop"],
 };

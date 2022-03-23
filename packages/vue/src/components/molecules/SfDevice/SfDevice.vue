@@ -1,5 +1,5 @@
 <template>
-  <div class="sf-device" :style="cssVars">
+  <div class="sf-device">
     <div :class="cssClass" @click="clicked">
       <div class="sf-device__screen">
         <slot />
@@ -13,23 +13,20 @@ export const defaultDevices = [
   {
     name: "phone",
     mediaQuery: "only screen and (max-width: 480px)",
-    scale: 0.5,
   },
   {
     name: "tablet",
     mediaQuery: "only screen and (max-width: 768px)",
-    scale: 0.8,
   },
   {
     name: "laptop",
     mediaQuery: "only screen",
-    scale: 1.0,
   },
 ];
 
 export const defaultDeviceNames = defaultDevices.map((device) => device.name);
 
-let config = {
+export default {
   name: "SfDevice",
   props: {
     detectDevice: {
@@ -38,9 +35,11 @@ let config = {
     },
     defaultDevice: {
       type: String,
-      default: defaultDevices[0].name,
+      default: defaultDeviceNames[0],
       validator: (propValue) => {
-        return defaultDevices.find((device) => device.name === propValue);
+        return defaultDeviceNames.find(
+          (deviceName) => deviceName === propValue
+        );
       },
     },
     switchOnClick: {
@@ -51,12 +50,12 @@ let config = {
       type: Number,
       default: 0,
     },
-    switchDevices: {
+    switchFilter: {
       type: Array,
       default: () => defaultDeviceNames,
       validator: (propValue) => {
         return propValue.every((value) =>
-          defaultDevices.find((device) => device.name === value)
+          defaultDeviceNames.find((deviceName) => deviceName === value)
         );
       },
     },
@@ -65,7 +64,7 @@ let config = {
     return {
       intervalID: -1,
       devices: defaultDevices.filter((device) =>
-        this.switchDevices.includes(device.name)
+        this.switchFilter.includes(device.name)
       ),
       device: defaultDevices.find(
         (device) => this.defaultDevice === device.name
@@ -73,13 +72,6 @@ let config = {
     };
   },
   computed: {
-    cssVars() {
-      let scaleObj = {};
-      defaultDeviceNames.forEach((deviceName) => {
-        scaleObj[`--${deviceName}-scale`] = this[`${deviceName}Scale`];
-      });
-      return scaleObj;
-    },
     cssClass() {
       return `sf-device__${this.device.name}`;
     },
@@ -122,13 +114,6 @@ let config = {
     },
   },
 };
-defaultDevices.forEach((device) => {
-  config.props[`${device.name}Scale`] = {
-    type: Number,
-    default: 1.0,
-  };
-});
-export default config;
 </script>
 <style lang="scss">
 @import "~@storefront-ui/shared/styles/components/molecules/SfDevice.scss";
