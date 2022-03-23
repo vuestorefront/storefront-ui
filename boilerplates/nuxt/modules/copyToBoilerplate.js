@@ -1,4 +1,3 @@
-const chokidar = require('chokidar')
 const fse = require('fs-extra')
 
 export default function (moduleOptions) {
