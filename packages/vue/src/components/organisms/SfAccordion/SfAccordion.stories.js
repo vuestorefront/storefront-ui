@@ -305,10 +305,6 @@ export const controlWithButtons = (args, { argTypes }) => ({
     buttonClick(headerName) {
       this.activeHeader = headerName;
     },
-    openHeader(openedHeader) {
-      this["click:open"](openedHeader);
-      this.buttonClick();
-    },
   },
   template: `
   <div>
@@ -320,7 +316,7 @@ export const controlWithButtons = (args, { argTypes }) => ({
       :multiple="multiple"
       :show-chevron="showChevron"
       :transition="transition"
-      @click:open-header="change('')"
+      @click:open="this['click:open']"
     >
       <SfAccordionItem 
         v-for="accordion in accordions" 
