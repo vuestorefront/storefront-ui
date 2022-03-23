@@ -17,8 +17,24 @@ export default {
         description: "Overridden other component's CSS variable",
         control: "text",
       },
+      "font-weight--bold": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "h3-font-size": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-weight--semibold": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
       "select-option-font": {
         value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-size--base": {
         description: "Overridden other component's CSS variable",
         control: "text",
       },

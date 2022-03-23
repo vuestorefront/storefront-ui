@@ -8,11 +8,6 @@ export default {
   parameters: {
     // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
-      "icon-size": {
-        value: "0.875rem",
-        description: "Overridden other component's CSS variable",
-        control: "text",
-      },
       "icon-color": {
         value: "var(--c-primary)",
         description: "Overridden other component's CSS variable",
@@ -20,6 +15,11 @@ export default {
       },
       "icon-color-negative": {
         value: "var(--c-gray-variant)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "icon-size": {
+        value: "0.875rem",
         description: "Overridden other component's CSS variable",
         control: "text",
       },

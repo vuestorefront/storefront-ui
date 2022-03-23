@@ -47,18 +47,6 @@ export default {
         value: "flex",
         control: "text",
       },
-      "grouped-product-item-quantity-selector-bottom": {
-        value: "var(--spacer-sm)",
-        control: "text",
-      },
-      "grouped-product-image-width": {
-        value: "",
-        control: "text",
-      },
-      "grouped-product-image-height": {
-        value: "",
-        control: "text",
-      },
       "grouped-product-item-quantity-selector-left": {
         value: "50%",
         control: "text",
@@ -103,6 +91,20 @@ export default {
         control: "text",
       },
       "grouped-product-item-price-margin": { value: "", control: "text" },
+      "grouped-product-item-quantity-selector-bottom": {
+        value: "var(--spacer-sm)",
+        control: "text",
+      },
+      "image-width": {
+        value: "var(--grouped-product-image-width, 100%)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "image-height": {
+        value: "var(--grouped-product-image-height, auto)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
       "quantity-selector-background": {
         value: "var(--c-light)",
         description: "Overridden other component's CSS variable",

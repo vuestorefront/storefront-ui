@@ -6,8 +6,8 @@ export default {
   parameters: {
     // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
-      "image-width": { value: "", control: "text" },
-      "image-height": { value: "auto", control: "text" },
+      "image-width": { value: "var(--_image-width)", control: "text" },
+      "image-height": { value: "var(--_image-height, auto)", control: "text" },
       "image-overlay-padding": { value: "", control: "text" },
       "image-overlay-background": {
         value: "rgba(var(--c-dark-base), 0.6)",

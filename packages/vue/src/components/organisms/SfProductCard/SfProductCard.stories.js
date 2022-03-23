@@ -33,18 +33,18 @@ export default {
         value: "var(--spacer-xs) 0 0 0",
         control: "text",
       },
+      "product-card-image-width": { value: "100%", control: "text" },
+      "product-card-image-height": { value: "auto", control: "text" },
       "product-card-image-transition": {
         value: "opacity 150ms ease-in-out",
         control: "text",
       },
       "product-card-image-opacity": { value: "", control: "text" },
-      "product-card-image-width": { value: "", control: "text" },
-      "product-card-image-height": { value: "", control: "text" },
       "product-card-image-even-opacity": { value: "0", control: "text" },
       "product-card-badge-top": { value: "var(--spacer-xs)", control: "text" },
       "product-card-badge-left": { value: "0", control: "text" },
       "product-card-add-button-right": { value: "1rem", control: "text" },
-      "product-card-add-button-bottom": { value: "0", control: "text" },
+      "product-card-add-button-bottom": { value: "-1.5rem", control: "text" },
       "product-card-add-button-display": { value: "none", control: "text" },
       "product-card-add-button-transform": { value: "", control: "text" },
       "product-card-add-button-opacity": { value: "0", control: "text" },
@@ -71,23 +71,41 @@ export default {
         value: "opacity 150ms ease-in-out",
         control: "text",
       },
+      "color-picker-position": {
+        value: "absolute",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
       "color-picker-label-font": {
         value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
-      "color-picker-position": {
-        value: "",
+      "font-size--base": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-weight--medium": {
         description: "Overridden other component's CSS variable",
         control: "text",
       },
       "color-picker-justify-content": {
-        value: "",
+        value: "flex-start",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
       "color-picker-padding": {
         value: "0",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "image-width": {
+        value: "var(--product-card-image-width, 100%)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "image-height": {
+        value: "var(--product-card-image-height, auto)",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
@@ -98,6 +116,11 @@ export default {
       },
       "button-box-shadow": {
         value: "0px 4px 11px rgba(29, 31, 34, 0.1)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-box-shadow-opacity": {
+        value: "0.3",
         description: "Overridden other component's CSS variable",
         control: "text",
       },

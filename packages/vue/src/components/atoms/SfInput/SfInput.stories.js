@@ -13,16 +13,16 @@ export default {
       "input-width": { value: "", control: "text" },
       "input-height": { value: "", control: "text" },
       "input-label-display": { value: "", control: "text" },
-      "input-label-top": { value: "", control: "text" },
+      "input-label-top": { value: "50%", control: "text" },
       "input-label-left": { value: "", control: "text" },
       "input-label-padding": { value: "", control: "text" },
       "input-label-color": { value: "", control: "text" },
       "input-label-background": { value: "", control: "text" },
-      "input-label-transform": {
-        value: "translate3d(0, calc(-1 * var(--input-label-top, 50%)), 0)",
+      "input-label-transform": { value: "", control: "text" },
+      "input-label-transition": {
+        value: "transform 150ms linear, font-size 150ms linear",
         control: "text",
       },
-      "input-label-transition": { value: "", control: "text" },
       "input-label-font": { value: "", control: "text" },
       "input-label-font-weight": {
         value: "var(--font-weight--normal)",
@@ -41,6 +41,7 @@ export default {
       "input-bar-display": { value: "block", control: "text" },
       "input-bar-width": { value: "", control: "text" },
       "input-bar-background": { value: "var(--c-primary)", control: "text" },
+      "input-bar-transform": { value: "scale3d(0, 1, 1)", control: "text" },
       "input-error-message-color": {
         value: "var(--c-danger)",
         control: "text",
@@ -77,6 +78,7 @@ export default {
         control: "text",
       },
       "input-text-align": { value: "", control: "text" },
+      "input-label-translate3d": { value: "", control: "text" },
       "input-icon-top": { value: "50%", control: "text" },
       "input-icon-right": { value: "var(--spacer-xs)", control: "text" },
       "input-password-icon-background": {

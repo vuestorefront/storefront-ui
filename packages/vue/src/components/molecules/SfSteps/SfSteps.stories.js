@@ -46,6 +46,14 @@ export default {
         description: "Overridden other component's CSS variable",
         control: "text",
       },
+      "font-weight--normal": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-size--base": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
     },
     // end of code generated automatically
     docs: {

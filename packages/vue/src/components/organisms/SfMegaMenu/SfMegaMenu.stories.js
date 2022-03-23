@@ -96,8 +96,20 @@ export default {
         description: "Overridden other component's CSS variable",
         control: "text",
       },
+      "font-size--sm": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
       "list-item-margin": {
         value: "var(--spacer-sm) 0",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-size--base": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-weight--medium": {
         description: "Overridden other component's CSS variable",
         control: "text",
       },
@@ -106,16 +118,27 @@ export default {
         description: "Overridden other component's CSS variable",
         control: "text",
       },
+      "font-weight--normal": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
       "mega-menu-height": {
         value: "auto",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-weight--bold": {
+        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "mega-menu-content-transform": {
-        value: "",
+        value: "translateX(-100%)",
+        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "mega-menu-position": {
-        value: "",
+        value: "absolute",
+        description: "Overridden other component's CSS variable",
         control: "text",
       },
     },

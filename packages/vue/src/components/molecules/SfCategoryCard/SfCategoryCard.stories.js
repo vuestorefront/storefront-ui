@@ -5,7 +5,12 @@ export default {
   component: SfCategoryCard,
   parameters: {
     // do not modify cssprops manually, they are generated automatically by update-components-docs script
-    cssprops: {},
+    cssprops: {
+      "category-card-background": {
+        value: "var(--category-card-background-mobile)",
+        control: "text",
+      },
+    },
     // end of code generated automatically
     docs: {
       description: {

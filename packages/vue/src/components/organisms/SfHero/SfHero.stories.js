@@ -7,6 +7,7 @@ export default {
   parameters: {
     // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
+      "hero-item-background-image": { value: "", control: "text" },
       "hero-item-subtitle-font": { value: "", control: "text" },
       "hero-item-subtitle-font-weight": {
         value: "var(--font-weight--normal)",
@@ -35,8 +36,19 @@ export default {
         value: "var(--font-family--secondary)",
         control: "text",
       },
+      "hero-item-button-width": { value: "", control: "text" },
+      "hero-item-button-height": { value: "", control: "text" },
+      "hero-item-button-padding": { value: "", control: "text" },
+      "hero-item-button-color": { value: "", control: "text" },
+      "hero-item-button-transition": { value: "", control: "text" },
+      "hero-item-button-background": { value: "", control: "text" },
+      "hero-item-button-cursor": { value: "", control: "text" },
+      "hero-item-button-wrap": { value: "", control: "text" },
+      "hero-item-button-text-transform": { value: "", control: "text" },
+      "hero-item-button-text-decoration": { value: "", control: "text" },
+      "hero-item-button-border-radius": { value: "", control: "text" },
       "button-background": {
-        value: "",
+        value: "transparent",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
@@ -50,53 +62,58 @@ export default {
         description: "Overridden other component's CSS variable",
         control: "text",
       },
+      "button-width": {
+        value: "var(--hero-item-button-width)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-height": {
+        value: "var(--hero-item-button-height)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-padding": {
+        value: "var(--hero-item-button-padding)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-color": {
+        value: "var(--hero-item-button-color)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-transition": {
+        value: "var(--hero-item-button-transition)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-cursor": {
+        value: "var(--hero-item-button-cursor)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-text-transform": {
+        value: "var(--hero-item-button-text-transform)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-text-decoration": {
+        value: "var(--hero-item-button-text-decoration)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "button-border-radius": {
+        value: "var(--hero-item-button-border-radius)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
       "hero-item-font": {
         value: "",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
-      "--hero-item-button-width": {
-        value: "",
-        control: "text",
-      },
-      "--hero-item-button-height": {
-        value: "",
-        control: "text",
-      },
-      "--hero-item-button-padding": {
-        value: "",
-        control: "text",
-      },
-      "--hero-item-button-color": {
-        value: "",
-        control: "text",
-      },
-      "--hero-item-button-transition": {
-        value: "",
-        control: "text",
-      },
-      "--hero-item-button-background": {
-        value: "",
-        control: "text",
-      },
-      "--hero-item-button-cursor": {
-        value: "",
-        control: "text",
-      },
-      "--hero-item-button-wrap": {
-        value: "",
-        control: "text",
-      },
-      "--hero-item-button-text-transform": {
-        value: "",
-        control: "text",
-      },
-      "--hero-item-button-text-decoration": {
-        value: "",
-        control: "text",
-      },
-      "--hero-item-button-border-radius": {
-        value: "",
+      "h1-font-size": {
+        description: "Overridden other component's CSS variable",
         control: "text",
       },
     },

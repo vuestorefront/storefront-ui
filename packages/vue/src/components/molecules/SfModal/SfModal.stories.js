@@ -17,7 +17,6 @@ export default {
       "modal-border": { value: "", control: "text" },
       "modal-max-height": { value: "", control: "text" },
       "modal-background": { value: "var(--c-white)", control: "text" },
-      "modal-content-height": { value: "", control: "text" },
       "modal-content-padding": {
         value: "var(--spacer-base) var(--spacer-sm)",
         control: "text",
@@ -36,6 +35,7 @@ export default {
         value: "var(--font-family--primary)",
         control: "text",
       },
+      "modal-content-height": { value: "", control: "text" },
       "modal-close-right": { value: "var(--spacer-sm)", control: "text" },
       "modal-close-top": { value: "var(--spacer-sm)", control: "text" },
     },

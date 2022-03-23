@@ -14,10 +14,11 @@ export default {
       "tabs-title-padding": { value: "var(--spacer-sm)", control: "text" },
       "tabs-title-background": { value: "", control: "text" },
       "tabs-title-border": {
-        value: "",
+        value:
+          "var(--tabs-title-border-style, solid) var(--tabs-title-border-color, var(--c-light))",
         control: "text",
       },
-      "tabs-title-border-width": { value: "", control: "text" },
+      "tabs-title-border-width": { value: "0 0 1px 0", control: "text" },
       "tabs-title-color": { value: "", control: "text" },
       "tabs-title-font": { value: "", control: "text" },
       "tabs-title-font-weight": {
@@ -66,7 +67,7 @@ export default {
         control: "text",
       },
       "tabs-title-border-color": {
-        value: "",
+        value: "var(--c-text)",
         description: "Overridden other component's CSS variable",
         control: "text",
       },

@@ -25,6 +25,7 @@ export default {
       "carousel-controls-width": { value: "100%", control: "text" },
       "carousel-controls-size": {
         value: "15rem",
+        description: "Overridden other component's CSS variable",
         control: "text",
       },
     },

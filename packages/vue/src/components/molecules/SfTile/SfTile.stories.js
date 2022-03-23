@@ -6,6 +6,10 @@ export default {
   parameters: {
     // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
+      "tile-background": {
+        value: "var(--tile-background-mobile)",
+        control: "text",
+      },
       "font-tile": {
         value:
           "var(--font-tile-weight, var(--font-weight--bold)) var(--font-tile-size, var(--h3-font-size))/var(--font-tile-line-height, 1.6) var(--font-tile-family, var(--font-family--secondary))",

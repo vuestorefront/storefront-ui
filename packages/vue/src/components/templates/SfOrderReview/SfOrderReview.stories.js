@@ -97,6 +97,10 @@ export default {
         description: "Overridden other component's CSS variable",
         control: "text",
       },
+      "font-size--base": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
       "button-height": {
         value: "1.875rem",
         description: "Overridden other component's CSS variable",

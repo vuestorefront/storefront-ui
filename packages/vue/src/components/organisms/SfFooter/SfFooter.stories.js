@@ -29,6 +29,12 @@ export default {
         value: "var(--font-family--secondary)",
         control: "text",
       },
+      "footer-column-content-display": { value: "block", control: "text" },
+      "heading-title-color": {
+        value: "var(--c-white)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
       "chevron-color": {
         value: "var(--c-white)",
         description: "Overridden other component's CSS variable",
@@ -45,12 +51,12 @@ export default {
         control: "text",
       },
       "image-width": {
-        value: "",
+        value: "auto",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
       "image-height": {
-        value: "",
+        value: "2.125rem",
         description: "Overridden other component's CSS variable",
         control: "text",
       },

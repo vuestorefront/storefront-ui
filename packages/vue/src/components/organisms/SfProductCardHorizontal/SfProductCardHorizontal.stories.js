@@ -42,12 +42,8 @@ export default {
         value: "5.3125rem",
         control: "text",
       },
-      "product-card-horizontal-image-width": {
-        value: "",
-        control: "text",
-      },
       "product-card-horizontal-image-height": {
-        value: "",
+        value: "auto",
         control: "text",
       },
       "product-card-horizontal-image-transition": {
@@ -72,7 +68,7 @@ export default {
         control: "text",
       },
       "product-card-horizontal-actions-wrapper-margin": {
-        value: "var(--spacer-sm) 0 0 0",
+        value: "",
         control: "text",
       },
       "product-card-horizontal-title-color": {
@@ -163,8 +159,30 @@ export default {
         description: "Overridden other component's CSS variable",
         control: "text",
       },
+      "font-weight--normal": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "image-width": {
+        value: "var(--product-card-horizontal-image-width, 100%)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "image-height": {
+        value: "var(--product-card-horizontal-image-height, auto)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
       "button-font": {
         value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-size--sm": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-weight--light": {
         description: "Overridden other component's CSS variable",
         control: "text",
       },

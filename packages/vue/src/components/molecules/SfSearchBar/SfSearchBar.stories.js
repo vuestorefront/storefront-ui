@@ -6,6 +6,89 @@ export default {
   parameters: {
     // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
+      "search-bar-width": { value: "", control: "text" },
+      "search-bar-height": { value: "2rem", control: "text" },
+      "search-bar-display": { value: "flex", control: "text" },
+      "search-bar-background": { value: "transparent", control: "text" },
+      "search-bar-input-text-align": { value: "", control: "text" },
+      "search-bar-border": {
+        value:
+          "var(--search-bar-border-style, solid) var(--search-bar-border-color, var(--c-secondary-variant))",
+        control: "text",
+      },
+      "search-bar-border-width": { value: "0 0 1px 0", control: "text" },
+      "input-width": {
+        value: "var(--search-bar-width)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "input-height": {
+        value: "var(--search-bar-height, 2rem)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "input-margin": {
+        value: "0",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "input-padding": {
+        value: "0",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "input-border-width": {
+        value: "0",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "input-font": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-base": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "input-label-font": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-sm": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "input-label-color": {
+        value: "var(--c-secondary-variant)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "input-label-transition": {
+        value: "0.2s ease-in",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "input-icon-left": {
+        value: "unset",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "input-icon-transition": {
+        value: "none",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "input-label-display": {
+        value: "none",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+    // end of code generated automatically
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
       "search-bar-display": { value: "flex", control: "text" },
       "search-bar-background": { value: "", control: "text" },
       "search-bar-padding": { value: "", control: "text" },

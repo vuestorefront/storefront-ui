@@ -21,6 +21,45 @@ export default {
         value: "var(--font-family--primary)",
         control: "text",
       },
+      "heading-title-font": {
+        value: "",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-weight--bold": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "h3-font-size": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-family--secondary": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "font-weight--semibold": {
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+    },
+    // end of code generated automatically
+    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    cssprops: {
+      "card-description-font": { value: "", control: "text" },
+      "card-description-font-weight": {
+        value: "var(--font-weight--normal)",
+        control: "text",
+      },
+      "card-description-font-size": {
+        value: "var(--font-size--base)",
+        control: "text",
+      },
+      "card-description-font-line-height": { value: "1.6", control: "text" },
+      "card-description-font-family": {
+        value: "var(--font-family--primary)",
+        control: "text",
+      },
       "image-width": {
         value: "100%",
         description: "Overridden other component's CSS variable",

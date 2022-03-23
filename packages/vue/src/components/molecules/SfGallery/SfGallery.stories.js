@@ -7,6 +7,8 @@ export default {
     // do not modify cssprops manually, they are generated automatically by update-components-docs script
     cssprops: {
       "gallery-flex-direction": { value: "column", control: "text" },
+      "gallery-image-width": { value: "100%", control: "text" },
+      "gallery-image-height": { value: "31.25rem", control: "text" },
       "gallery-thumbs-display": { value: "flex", control: "text" },
       "gallery-thumbs-flex": { value: "", control: "text" },
       "gallery-thumbs-flex-direction": { value: "", control: "text" },
@@ -15,6 +17,8 @@ export default {
         control: "text",
       },
       "gallery-thumbs-order": { value: "", control: "text" },
+      "gallery-thumbs-image-width": { value: "10rem", control: "text" },
+      "gallery-thumbs-image-height": { value: "10rem", control: "text" },
       "gallery-thumb-width": { value: "10rem", control: "text" },
       "gallery-item-margin": {
         value: "0 var(--spacer-xs) 0 0",
@@ -27,20 +31,14 @@ export default {
       },
       "gallery-item-cursor": { value: "pointer", control: "text" },
       "gallery-stage-width": { value: "26.375rem", control: "text" },
-      "gallery-image-width": {
-        value: "",
+      "image-width": {
+        value: "var(--gallery-image-width, 100%)",
+        description: "Overridden other component's CSS variable",
         control: "text",
       },
-      "gallery-image-height": {
-        value: "",
-        control: "text",
-      },
-      "gallery-thumbs-image-width": {
-        value: "",
-        control: "text",
-      },
-      "gallery-thumbs-image-height": {
-        value: "",
+      "image-height": {
+        value: "var(--gallery-image-height, 31.25rem)",
+        description: "Overridden other component's CSS variable",
         control: "text",
       },
     },

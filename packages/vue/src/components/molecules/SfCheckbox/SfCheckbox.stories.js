@@ -58,6 +58,7 @@ export default {
       },
       "checkbox-border-color": {
         value: "",
+        description: "Overridden other component's CSS variable",
         control: "text",
       },
     },

@@ -88,6 +88,7 @@ export default {
       "_banner-background-image": { value: "", control: "text" },
       "banner-background-position": {
         value: "60%",
+        description: "Overridden other component's CSS variable",
         control: "text",
       },
       "button-background": {

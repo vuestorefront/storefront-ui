@@ -37,17 +37,17 @@ export default {
       "dropdown-animation-enter": { value: "", control: "text" },
       "dropdown-animation-leave": { value: "", control: "text" },
       "button-background": {
-        value: "",
+        value: "var(--c-light)",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
       "button-color": {
-        value: "",
+        value: "var(--c-text-muted)",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
       "button-display": {
-        value: "",
+        value: "none",
         description: "Overridden other component's CSS variable",
         control: "text",
       },

@@ -30,14 +30,8 @@ export default {
         value: "var(--c-light)",
         control: "text",
       },
-      "collected-product-image-width": {
-        value: "",
-        control: "text",
-      },
-      "collected-product-image-height": {
-        value: "",
-        control: "text",
-      },
+      "collected-product-image-width": { value: "100%", control: "text" },
+      "collected-product-image-height": { value: "auto", control: "text" },
       "collected-product-main-margin": {
         value: "0 0 0 var(--spacer-sm)",
         control: "text",
@@ -93,6 +87,16 @@ export default {
       "collected-product-box-shadow": { value: "", control: "text" },
       "icon-color": {
         value: "var(--c-white)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "image-width": {
+        value: "var(--collected-product-image-width, 100%)",
+        description: "Overridden other component's CSS variable",
+        control: "text",
+      },
+      "image-height": {
+        value: "var(--collected-product-image-height, auto)",
         description: "Overridden other component's CSS variable",
         control: "text",
       },
