@@ -18,7 +18,6 @@
     "@nuxtjs/storybook": "^4.3.0",
     "@storybook/addon-a11y": "^6.4.19",
     "@storybook/addon-console": "^1.2.3",
-    "@storybook/addon-events": "^6.2.9",
     "@storybook/addon-links": "^6.4.19",
     "core-js": "^3.19.3",
     "fs-extra": "^10.0.1",

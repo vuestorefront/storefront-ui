@@ -1,0 +1,31 @@
+import { Meta, Props, Preview, Story, ArgsTable } from '@storybook/addon-docs/blocks';
+
+import SfButton from '../../components/SfButton'
+
+<Meta title="SfButton"
+  component={SfButton}
+  argTypes={{
+    label: {
+      name: 'Badge Content',
+      description: 'Text shown by Badge',
+      control: {
+        type: 'text'
+      }
+    }
+  }}
+/>
+
+# SfButton component 
+
+
+<Preview>
+  <Story 
+    name='Common' 
+    inline 
+    parameters={params(SfButton)}
+  >
+    {story(SfButton)}
+  </Story>
+</Preview>
+<Source id="sfbutton--common" />
+<ArgsTable of={SfButton} />
