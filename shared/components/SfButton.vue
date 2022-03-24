@@ -4,8 +4,8 @@
 
 <script>
 export default {
-    setup() {
-        return {}
-    },
+	setup () {
+		return {}
+	}
 }
 </script>

@@ -51,5 +51,22 @@ export default {
         autoprefixer: {}
       }
     }
+  },
+  storybook: {
+    addons: [
+      'storybook-dark-mode',
+      '@storybook/addon-console',
+      'storybook-addon-export-to-codesandbox',
+      '@storybook/addon-links',
+      'storybook-addon-designs',
+      '@storybook/addon-a11y',
+      '@storybook/addon-events'
+    ],
+    stories: [
+      '~/stories/*.stories.mdx'
+    ],
+    webpackFinal(config) {
+      return config
+    }
   }
 }
