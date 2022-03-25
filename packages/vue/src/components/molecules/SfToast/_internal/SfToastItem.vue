@@ -1,14 +1,20 @@
 <template>
-  <transition :name="$parent.transition" appear>
-    <slot v-bind="{ message }">
-      <output
-        role="status"
-        class="sf-toast__item"
-        :class="[`color-${type}`, `sf-toast__item--${$parent.position}`]"
-      >
+  <transition
+    :name="$parent.transition"
+    appear
+    @after-enter="hide"
+    @after-leave="leave"
+  >
+    <output
+      v-if="isVisible"
+      role="status"
+      class="sf-toast__item"
+      :class="[`color-${type}`, `sf-toast__item--${$parent.position}`]"
+    >
+      <slot v-bind="{ message }">
         {{ message }}
-      </output>
-    </slot>
+      </slot>
+    </output>
   </transition>
 </template>
 
@@ -28,6 +34,24 @@ export default {
           value
         );
       },
+    },
+  },
+  data() {
+    return {
+      isVisible: true,
+    };
+  },
+  beforeDestroy() {
+    this.$el.remove();
+  },
+  methods: {
+    hide() {
+      setTimeout(() => {
+        this.isVisible = false;
+      }, this.$parent.duration);
+    },
+    leave() {
+      this.$destroy();
     },
   },
 };

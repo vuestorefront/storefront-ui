@@ -31,6 +31,10 @@ export default {
       type: String,
       default: "sf-collapse-top",
     },
+    duration: {
+      type: Number,
+      default: 1000,
+    },
   },
   computed: {
     positionClass() {

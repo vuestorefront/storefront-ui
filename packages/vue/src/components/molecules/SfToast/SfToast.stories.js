@@ -4,9 +4,13 @@ export default {
   title: "Components/Molecules/Toast",
   component: SfToast,
   parameters: {
-    // do not modify cssprops manually, they are generated automatically by update-components-docs script
+    // do not modify cssprops manually, they are generated automatically  by update-components-docs script
     cssprops: {
-      "toast-color": { value: "", control: "text" },
+      "toast-background-color": { value: "", control: "text" },
+      "toast-color": {
+        value: "var(--c-white)",
+        control: "text",
+      },
       "toast-font": { value: "", control: "text" },
       "toast-font-weight": {
         value: "var(--font-weight--normal)",
@@ -18,11 +22,22 @@ export default {
         value: "var(--font-family--primary)",
         control: "text",
       },
-      "toast-message-margin": {
-        value: "0 0 0 var(--spacer-xs)",
+      "toast-padding": {
+        value: "var(--spacer-xs) var(--spacer-base)",
         control: "text",
       },
-      "toast-container-position": { value: "", control: "text" },
+      "toast-bottom-margin": {
+        value: "0 0 var(--spacer-xs) 0",
+        control: "text",
+      },
+      "toast-opacity": { value: "", control: "text" },
+      "toast-border-radius": { value: "", control: "text" },
+      "toast-position": { value: "", control: "text" },
+      "toast-top": { value: "", control: "text" },
+      "toast-bottom": { value: "", control: "text" },
+      "toast-left": { value: "", control: "text" },
+      "toast-right": { value: "", control: "text" },
+      "toast-z-index": { value: "", control: "text" },
     },
     // end of code generated automatically
     docs: {
@@ -77,6 +92,34 @@ export default {
       description:
         "Toast position ('top', 'top-left', 'top-right', 'bottom', 'bottom-right', 'bottom-left'). Check 'Knobs' section to see how they look like.",
       defaultValue: "top",
+    },
+    transition: {
+      control: "text",
+      table: {
+        category: "Props",
+        type: {
+          summary: "string",
+        },
+        defaultValue: {
+          summary: "",
+        },
+      },
+      description: "Transition name that will be applied in Toast.",
+      defaultValue: "sf-collapse-top",
+    },
+    duration: {
+      control: "text",
+      table: {
+        category: "Props",
+        type: {
+          summary: "number",
+        },
+        defaultValue: {
+          summary: "",
+        },
+      },
+      description: "Duration time that will be applied in Toast.",
+      defaultValue: "2000",
     },
     default: {
       table: {
@@ -185,13 +228,14 @@ export const WithDefaultSlot = (args, { argTypes }) => ({
     <SfToast
       style="position: absolute; top: 10px; bottom: 10px; margin: 0 100px;"
       :position="position"
+      :transition="transition"
     >
       <SfToastItem
         type="success"
         message="CUSTOM SLOT"
       >
         <template #default="{ message }">
-          <p style="background: lightpink; color: white; width: 300px; top: 10px; bottom: 10px; padding:10px; text-align: center">{{ message }}<p>
+          <p style="color: white; width: 300px; margin: 0; text-align: center">{{ message }}</p>
         </template>
       </SfToastItem>
     </SfToast>`,

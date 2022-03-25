@@ -29,7 +29,7 @@
     }
   }
   &__item {
-    display:  var(--toast-position-item, inline-flex);
+    display: inline-flex;
     color: var(--toast-color, var(--c-white));
     background-color: var(--toast-background-color);
     pointer-events: auto;
