@@ -1,11 +1,16 @@
 <template>
-<button>Hello world</button>
+<button>{{text}}</button>
 </template>
 
 <script>
-export default {
-	setup () {
-		return {}
+	export default {
+		props: {
+			text: {
+				default: "click here"
+			}
+		},
+		setup () {
+			return {}
+		}
 	}
-}
 </script>

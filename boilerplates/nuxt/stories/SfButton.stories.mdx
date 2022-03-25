@@ -1,13 +1,13 @@
-import { Meta, Props, Preview, Story, ArgsTable } from '@storybook/addon-docs/blocks';
+import { Meta, Props, Preview, Canvas, Story, ArgsTable, Source } from '@storybook/addon-docs/blocks';
 
-import SfButton from '../../components/SfButton'
+import SfButton from '../components/SfButton'
 
-<Meta title="SfButton"
+<Meta title="MDX/SfButton"
   component={SfButton}
   argTypes={{
-    label: {
-      name: 'Badge Content',
-      description: 'Text shown by Badge',
+    text: {
+      name: 'SfButton Content',
+      description: 'Text shown by SfButton',
       control: {
         type: 'text'
       }
@@ -17,15 +17,10 @@ import SfButton from '../../components/SfButton'
 
 # SfButton component 
 
+## Usage
 
-<Preview>
-  <Story 
-    name='Common' 
-    inline 
-    parameters={params(SfButton)}
-  >
-    {story(SfButton)}
-  </Story>
-</Preview>
-<Source id="sfbutton--common" />
+SfButton component is used as the button element with SFUI styling. 
+
 <ArgsTable of={SfButton} />
+<Source dark id="sfbutton--page" />
+
