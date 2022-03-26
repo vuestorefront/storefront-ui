@@ -9,6 +9,18 @@ module.exports = {
   ],
   theme: {
     extend: {
+      borderRadius: {
+        'none': '0',
+        'md': '6px',
+        'xl': '12px',
+        'full': '80px'
+      },
+      boxShadow: {
+        default: '0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06)',
+        'md': '0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -1px rgba(0, 0, 0, 0.06)',
+        'lg': '0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05)',
+        'xl': '0px 20px 25px -5px rgba(0, 0, 0, 0.1), 0px 10px 10px -5px rgba(0, 0, 0, 0.04)'
+      },
       colors: {
         'brand': '#02C652',
         'gray': {
@@ -83,6 +95,44 @@ module.exports = {
           100: '#FEF9C3',
           50: '#FEFCE8'
         }
+      },
+      fontFamily: {
+        'headings': 'Red Hat Display',
+        'body': 'Red Hat Text'
+      },
+      fontSize: {
+        'lg': '18px',
+        'base': '16px',
+        'sm': '14px',
+        'xs': '12px'
+      },
+      fontWeight: {
+        'normal': '400',
+        'medium': '500',
+        'bold': '700'
+      },
+      screens: {
+      // => @media (min-width: 1536px, max-width: 1608px) { ... }
+        '2xl': { min: '1536px', max: '1608px' },
+        'xl': '1280px',
+        'lg': '1024px',
+        'md': '768px',
+        'sm': '640px',
+        'xs': '0px'
+      },
+      spacing: {
+        'px': '1px',
+        '0.5': '0.125rem',
+        '1': '0.25rem',
+        '1.5': '0.375rem',
+        '2': '0.5rem',
+        '3': '0.75rem',
+        '4': '1.25rem',
+        '6': '1.5rem',
+        '8': '2rem',
+        '10': '2.5rem',
+        '20': '5rem',
+        '40': '10rem'
       }
     }
   },
