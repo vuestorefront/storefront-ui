@@ -2,7 +2,7 @@ const fse = require('fs-extra')
 const chokidar = require('chokidar')
 
 export default function (moduleOptions) {
-  const baseDir = '../../shared'
+  const baseDir = '/../../shared'
   const targetDir = this.options.srcDir
 
   const copyFiles = () => {
