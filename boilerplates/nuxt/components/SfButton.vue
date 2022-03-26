@@ -1,13 +1,15 @@
 <template>
-<div>
-<button class="button-lg">Hello world</button>
-</div>
+  <div>
+    <button class="button-lg">
+      Hello world
+    </button>
+  </div>
 </template>
 
 <script>
 export default {
-    setup() {
-        return {}
-    },
+  setup () {
+    return {}
+  }
 }
 </script>
