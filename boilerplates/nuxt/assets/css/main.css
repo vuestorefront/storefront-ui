@@ -41,4 +41,25 @@
     .link-xs {
         @apply text-xs font-normal underline;
     }
+    .icon-xs {
+        @apply w-4 h-4;
+    }
+    .icon-sm {
+        @apply w-5 h-5;
+    }
+    .icon-base {
+        @apply w-6 h-6;
+    }
+    .icon-lg {
+        @apply w-10 h-10;
+    }
+    .icon-xl {
+        @apply w-14 h-14;
+    }
+    .icon-2xl {
+        @apply w-24 h-24;
+    }
+    .icon-3xl {
+        @apply w-48 h-48;
+    }
 }
