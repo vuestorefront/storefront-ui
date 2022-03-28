@@ -1,13 +1,19 @@
 <template>
-<div>
-<button class="button-lg">Hello world</button>
-</div>
+  <div>
+    <button v-focus class="button-lg outline-violet">
+      Hello world
+    </button>
+  </div>
 </template>
 
 <script>
+import { focus } from '../utils/focus-directive.js'
 export default {
-    setup() {
-        return {}
-    },
+  directives: {
+    focus
+  },
+  setup () {
+    return {}
+  }
 }
 </script>
