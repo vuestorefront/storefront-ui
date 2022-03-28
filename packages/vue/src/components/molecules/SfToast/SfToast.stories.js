@@ -6,37 +6,38 @@ export default {
   parameters: {
     // do not modify cssprops manually, they are generated automatically  by update-components-docs script
     cssprops: {
-      "toast-background-color": { value: "", control: "text" },
-      "toast-color": {
+      "toast-item-background-color": { value: "", control: "text" },
+      "toast-item-color": {
         value: "var(--c-white)",
         control: "text",
       },
-      "toast-font": { value: "", control: "text" },
-      "toast-font-weight": {
+      "toast-item-font": { value: "", control: "text" },
+      "toast-item-font-weight": {
         value: "var(--font-weight--normal)",
         control: "text",
       },
-      "toast-font-size": { value: "var(--font-size--base)", control: "text" },
-      "toast-font-line-height": { value: "1.6", control: "text" },
-      "toast-font-family": {
+      "toast-item-font-size": {
+        value: "var(--font-size--base)",
+        control: "text",
+      },
+      "toast-item-font-line-height": { value: "1.6", control: "text" },
+      "toast-item-font-family": {
         value: "var(--font-family--primary)",
         control: "text",
       },
-      "toast-padding": {
+      "toast-item-padding": {
         value: "var(--spacer-xs) var(--spacer-base)",
         control: "text",
       },
-      "toast-bottom-margin": {
+      "toast-item-bottom-margin": {
         value: "0 0 var(--spacer-xs) 0",
         control: "text",
       },
-      "toast-opacity": { value: "", control: "text" },
-      "toast-border-radius": { value: "", control: "text" },
+      "toast-item-opacity": { value: "", control: "text" },
+      "toast-item-border-radius": { value: "", control: "text" },
+      "toast-item-display": { value: "", control: "text" },
       "toast-position": { value: "", control: "text" },
-      "toast-top": { value: "", control: "text" },
-      "toast-bottom": { value: "", control: "text" },
-      "toast-left": { value: "", control: "text" },
-      "toast-right": { value: "", control: "text" },
+      "toast-padding": { value: "0", control: "text" },
       "toast-z-index": { value: "", control: "text" },
     },
     // end of code generated automatically
@@ -47,6 +48,11 @@ export default {
       },
     },
   },
+  decorators: [
+    () => ({
+      template: "<div style='height: 70px; margin: 0 100px'><story/></div>",
+    }),
+  ],
   argTypes: {
     message: {
       control: "text",
@@ -139,7 +145,7 @@ const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
     <SfToast 
-      style="position: absolute; top: 20px; bottom: 10px;margin: 0 100px;" 
+      style="position: absolute;" 
       :position="position"
       :transition="transition"
     >

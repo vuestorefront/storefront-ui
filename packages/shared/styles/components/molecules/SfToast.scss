@@ -2,47 +2,34 @@
 .sf-toast {
   position: var(--toast-position, fixed);
   display: flex;
-  top: var(--toast-top, 0);
-  bottom: var(--toast-bottom, 0);
-  left: var(--toast-left, 0);
-  right: var(--toast-right, 0);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--toast-padding, var(--spacer-2xl));
   z-index: var(--toast-z-index, 5);
   pointer-events: none;
-  @include for-mobile {
-    --toast-border-radius: 0;
-    --toast-padding: var(--spacer-base);
-    --toast-left: 0;
-    --toast-right:  0;
-    --toast-position-item: block;
-    text-align: center;
-  }
   &--top {
     flex-direction: column;
-    @include for-mobile {
-      --toast-top: 0;
-    }
   }
   &--bottom {
     flex-direction: column-reverse;
-    @include for-mobile {
-      --toast-bottom: 0;
-    }
   }
   &__item {
-    display: inline-flex;
-    color: var(--toast-color, var(--c-white));
-    background-color: var(--toast-background-color);
+    display: var(--toast-item-display, inline-flex); ;
+    color: var(--toast-item-color, var(--c-white));
+    background-color: var(--toast-item-background-color);
     pointer-events: auto;
-    padding: var(--toast-padding, var(--spacer-xs) var(--spacer-base));
-    margin: var(--toast-bottom-margin, 0 0 var(--spacer-xs) 0);
+    padding: var(--toast-item-padding, var(--spacer-xs) var(--spacer-base));
+    margin: var(--toast-item-bottom-margin, 0 0 var(--spacer-xs) 0);
     box-shadow: var(
-      --toast-box-shadow,
+      --toast-item-box-shadow,
       0 4px 11px rgba(var(--c-dark-base), 0.1)
     );
-    border-radius: var(--toast-border-radius, 5px);
-    opacity: var(--toast-opacity, 0.8);
+    border-radius: var(--toast-item-border-radius, 5px);
+    opacity: var(--toast--item-opacity, 0.8);
     @include font(
-      --toast-font,
+      --toast-item-font,
       var(--font-weight--normal),
       var(--font-size--sm),
       1.6,
@@ -51,24 +38,27 @@
     @each $color, $map in $colors-map {
       $primary: map-get($map, "primary");
       &.color-#{$color} {
-        --toast-background-color: #{$primary};
+        --toast-item-background-color: #{$primary};
       }
     }
     &--top, &--bottom {
       align-self: center;
-      @include for-mobile {
-        align-self: inherit;
-      }
     }
     &--top-right, &--bottom-right {
       align-self: flex-end;
-      @include for-mobile {
-        align-self: inherit;
-      }
     }
     &--top-left, &--bottom-left {
       align-self: flex-start;
-      @include for-mobile {
+    }
+  }
+  @include for-mobile {
+    --toast-padding: 0;
+    --toast-border-radius: 0;
+    --toast-item-padding: var(--spacer-base);
+    --toast-item-display: block;
+    &__item {
+      text-align: center;
+      &--top-right, &--bottom-right, &--top, &--bottom, &--top-left, &--bottom-left {
         align-self: inherit;
       }
     }
