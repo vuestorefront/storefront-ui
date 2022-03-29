@@ -1,5 +1,5 @@
 <template>
-<button>Hello world</button>
+<button class="sf-button">Hello world</button>
 </template>
 
 <script>
