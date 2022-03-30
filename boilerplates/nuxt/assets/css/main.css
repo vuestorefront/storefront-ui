@@ -21,15 +21,6 @@
 }
 
 @layer components {
-    .button-lg {
-        @apply text-lg font-medium uppercase;
-    }
-    .button-base {
-        @apply text-base font-medium uppercase;
-    }
-    .button-sm {
-        @apply text-sm font-medium uppercase;
-    }
     .link-lg {
         @apply text-lg font-normal underline;
     }
