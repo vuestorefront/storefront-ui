@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SfButton.vue render component correctly 1`] = `<button class="sf-button">Hello world</button>`;
