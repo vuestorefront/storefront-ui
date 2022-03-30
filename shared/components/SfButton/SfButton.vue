@@ -7,13 +7,10 @@
 </template>
 
 <script>
-import { focus } from '../utils/focus-directive.js'
+import { focus } from '../../utils/focus-directive.js'
 export default {
   directives: {
     focus
-  },
-  setup () {
-    return {}
   }
 }
 </script>
