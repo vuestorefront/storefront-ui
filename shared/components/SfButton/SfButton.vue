@@ -1,14 +1,10 @@
 <template>
-<button>{{text}}</button>
+	<button>Button</button>
 </template>
 
 <script>
 	export default {
-		props: {
-			text: {
-				default: "click here"
-			}
-		},
+		name: "SfButton",
 		setup () {
 			return {}
 		}

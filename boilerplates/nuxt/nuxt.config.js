@@ -56,9 +56,9 @@ export default {
     addons: [
     ],
     stories: [
-      '~/stories/*.stories.mdx'
+      '~/stories/**/*.stories.js'
     ],
-    webpackFinal(config) {
+    webpackFinal (config) {
       return config
     }
   }
