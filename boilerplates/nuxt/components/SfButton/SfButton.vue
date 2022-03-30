@@ -1,5 +1,7 @@
 <template>
-<button class="sf-button">Hello world</button>
+<div>
+<button class="button-lg">Hello world</button>
+</div>
 </template>
 
 <script>

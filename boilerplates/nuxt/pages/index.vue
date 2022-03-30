@@ -1,9 +1,15 @@
 <template>
-  <div>Hello nuxt</div>
+  <SfButton />
 </template>
 
 <script>
+import SfButton from '../components/SfButton/SfButton.vue'
 export default {
-  name: 'IndexPage'
+  name: 'IndexPage',
+  setup () {
+    return {
+      SfButton
+    }
+  }
 }
 </script>
