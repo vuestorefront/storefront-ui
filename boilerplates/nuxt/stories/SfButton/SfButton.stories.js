@@ -1,7 +1,7 @@
-import { SfButton } from "../../components/SfButton/SfButton";
+import { SfButton } from "../../components/SfButton/SfButton.vue";
 
 export default {
-  title: "UI components/Button",
+  title: "SFUI Components/Button",
   component: SfButton,
   parameters: {
     docs: {
@@ -63,6 +63,8 @@ const Template = (args, { argTypes }) => ({
   template: `
   <div>
     <SfButton :class="sm" />
+    <SfButton :class="base" />
+    <SfButton :class="lg" />
   </div>`
 });
 
@@ -74,6 +76,8 @@ const SecondaryButton = (args, { argTypes }) => ({
   template: `
   <div>
     <SfButton :class="sm" />
+    <SfButton :class="base" />
+    <SfButton :class="lg" />
   </div>`
 });
 export const Secondary = SecondaryButton.bind({});
@@ -83,7 +87,9 @@ const TertiaryButton = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
   <div>
-    <SfButton :class="sm" ></SfButton>
+    <SfButton :class="sm" />
+    <SfButton :class="base" />
+    <SfButton :class="lg" />
   </div>`
 });
 export const Tertiary = TertiaryButton.bind({});
@@ -94,6 +100,8 @@ const DisabledButton = (args, { argTypes }) => ({
   template: `
   <div>
     <SfButton :class="sm" />
+    <SfButton :class="base" />
+    <SfButton :class="lg" />
   </div>`
 });
 export const Disabled = DisabledButton.bind({});

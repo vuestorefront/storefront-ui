@@ -1,7 +1,7 @@
-import { SfButton } from "../../components/SfButton/SfButton";
+import { SfButton } from "../../components/SfButton/SfButton.vue";
 
 export default {
-  title: "Button",
+  title: "SFUI Components/Button",
   component: SfButton,
   parameters: {
     docs: {
