@@ -17,9 +17,9 @@ export default function (moduleOptions) {
 
   copyFiles()
 
-  chokidar.watch([baseDir]).on('all', (event) => {
+  chokidar.watch([baseDir]).on('all', async (event) => {
     if (event === 'add' || event === 'change' || event === 'unlink') {
-      copyFiles()
+      await copyFiles()
     }
   })
 }
