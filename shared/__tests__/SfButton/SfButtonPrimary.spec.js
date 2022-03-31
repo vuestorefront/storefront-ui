@@ -1,15 +1,13 @@
 import { shallowMount } from '@vue/test-utils'
-import SfButton from './../../components/SfButton'
+import SfButtonPrimary from '../../components/SfButton/SfButtonPrimary.vue'
+
 let wrapper
 
 describe('SfButton.vue', () => {
   beforeEach(() => {
-    wrapper = shallowMount(SfButton)
+    wrapper = shallowMount(SfButtonPrimary)
   })
   it('render component correctly', () => {
     expect(wrapper.html()).toMatchSnapshot()
-  })
-  it('renders component with defaults', () => {
-    expect(wrapper.classes('sf-button')).toBe(true)
   })
 })

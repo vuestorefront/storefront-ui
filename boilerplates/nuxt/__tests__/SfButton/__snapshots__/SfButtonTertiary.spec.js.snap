@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SfButtonTertiary.vue render component correctly 1`] = `<button class="p-2 text-base font-medium leading-6 text-green-500 uppercase bg-transparent rounded-md hover:bg-green-100 active:bg-green-200 disabled:bg-transparent hover:text-green-600 active:text-green-700 disabled:text-gray-500 disabled:opacity-50 font-body"></button>`;
