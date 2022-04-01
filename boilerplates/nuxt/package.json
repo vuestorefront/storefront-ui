@@ -14,9 +14,7 @@
     "lint": "yarn lint:js",
     "lintfix": "yarn lint:js --fix",
     "storybook": "nuxt storybook",
-    "storybook-build": "nuxt storybook build",
-    "storybook-docs": "start-storybook --docs --no-manager-cache",
-    "build-storybook-docs": "build-storybook --docs"
+    "storybook-build": "nuxt storybook build"
   },
   "dependencies": {
     "@nuxtjs/composition-api": "^0.32.0",
