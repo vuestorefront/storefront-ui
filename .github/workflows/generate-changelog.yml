@@ -18,7 +18,7 @@ jobs:
         fetch-depth: 0
     - uses: BobAnkh/auto-generate-changelog@master
       with:
-        REPO_NAME: 'vuestorefront/sfui2>'
+        REPO_NAME: 'vuestorefront/sfui2'
         ACCESS_TOKEN: ${{secrets.GITHUB_TOKEN}}
         PATH: 'CHANGELOG.md'
         COMMIT_MESSAGE: 'docs(CHANGELOG): update changelog notes'
