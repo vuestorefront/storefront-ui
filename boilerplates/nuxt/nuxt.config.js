@@ -32,8 +32,6 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
-    // https://go.nuxtjs.dev/tailwindcss
-    '@nuxtjs/tailwindcss',
     '@nuxt/postcss8'
   ],
 
@@ -50,6 +48,16 @@ export default {
         tailwindcss: {},
         autoprefixer: {}
       }
+    }
+  },
+  storybook: {
+    addons: [
+    ],
+    stories: [
+      '~/stories/**/*.stories.js'
+    ],
+    webpackFinal (config) {
+      return config
     }
   }
 }
