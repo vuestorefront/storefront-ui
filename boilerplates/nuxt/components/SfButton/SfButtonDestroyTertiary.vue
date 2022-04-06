@@ -1,6 +1,6 @@
 <template>
   <button
-    class="bg-transparent hover:bg-rose-100 active:bg-rose-200 disabled:bg-transparent text-rose-600 hover:text-rose-700 active:text-rose-800 disabled:text-gray-500 disabled:opacity-50 uppercase px-[16px] py-2 rounded-md font-body text-base font-medium leading-6"
+    class="bg-transparent hover:bg-rose-100 active:bg-rose-200 disabled:bg-transparent text-rose-600 hover:text-rose-700 active:text-rose-800 disabled:text-gray-500 disabled:opacity-50 font-body text-base font-medium leading-6 uppercase px-[16px] py-2 rounded-md"
   >
     <slot />
   </button>
