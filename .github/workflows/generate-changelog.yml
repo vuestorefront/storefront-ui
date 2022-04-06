@@ -7,7 +7,6 @@ on:
     branches:
         - master
         - develop    
-        - 41-feat/create-changelog
 
 jobs:
   generate-changelog:
@@ -20,6 +19,6 @@ jobs:
       with:
         REPO_NAME: 'vuestorefront/sfui2'
         ACCESS_TOKEN: ${{secrets.GITHUB_TOKEN}}
-        PATH: 'CHANGELOG.md'
+        PATH: 'shared/CHANGELOG.md'
         COMMIT_MESSAGE: 'docs(CHANGELOG): update changelog notes'
         TYPE: 'feat:Feature,fix:Bug Fixes,chore:Chore,docs:Documentation,refactor:Refactor,perf:Performance Improvements'
