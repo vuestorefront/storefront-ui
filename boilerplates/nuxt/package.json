@@ -12,10 +12,13 @@
     "test:update-snapshot": "yarn test --u",
     "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
     "lint": "yarn lint:js",
-    "lintfix": "yarn lint:js --fix"
+    "lintfix": "yarn lint:js --fix",
+    "storybook": "nuxt storybook",
+    "storybook-build": "nuxt storybook build"
   },
   "dependencies": {
     "@nuxtjs/composition-api": "^0.32.0",
+    "@nuxtjs/storybook": "^4.3.0",
     "core-js": "^3.19.3",
     "fs-extra": "^10.0.1",
     "nuxt": "^2.15.8",
