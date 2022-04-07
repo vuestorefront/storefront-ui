@@ -133,6 +133,21 @@ module.exports = {
         '10': '2.5rem',
         '20': '5rem',
         '40': '10rem'
+      },
+      keyframes: {
+        spin: {
+          'from': {
+            transform: 'rotate:(0deg)',
+            'transform-origin': 'bottom right'
+          },
+          'to': {
+            transform: 'rotate(360deg)',
+            'transform-origin': 'bottom right'
+          }
+        }
+      },
+      animation: {
+        spin: 'spin 1s linear infinite'
       }
     }
   },

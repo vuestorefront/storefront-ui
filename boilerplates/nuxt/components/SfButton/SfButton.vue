@@ -1,12 +1,13 @@
 <template>
-  <button>Button</button>
+<div>
+<button class="button-lg">Hello world</button>
+</div>
 </template>
 
 <script>
 export default {
-  name: 'SfButton',
-  setup () {
-    return {}
-  }
+    setup() {
+        return {}
+    },
 }
 </script>
