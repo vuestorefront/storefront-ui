@@ -145,7 +145,7 @@ module.exports = {
             'transform-origin': 'bottom right'
           }
         },
-        'spin-l': {
+        'linear-loader': {
           '0%': {
             left: '-150%',
             width: '100%'
@@ -158,7 +158,7 @@ module.exports = {
       },
       animation: {
         spin: 'spin 1s linear infinite',
-        'spin-l': 'spin-l 1.5s ease-in infinite'
+        'linear-loader': 'linear-loader 1.5s ease-in infinite'
       }
     }
   },
