@@ -144,10 +144,21 @@ module.exports = {
             transform: 'rotate(360deg)',
             'transform-origin': 'bottom right'
           }
+        },
+        'spin-l': {
+          '0%': {
+            left: '-150%',
+            width: '100%'
+          },
+          '100%': {
+            left: '100%',
+            width: '10%'
+          }
         }
       },
       animation: {
-        spin: 'spin 1s linear infinite'
+        spin: 'spin 1s linear infinite',
+        'spin-l': 'spin-l 1.5s ease-in infinite'
       }
     }
   },

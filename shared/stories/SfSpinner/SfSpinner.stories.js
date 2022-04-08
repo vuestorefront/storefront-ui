@@ -1,4 +1,5 @@
 import SfSpinner from "../../components/SfSpinner/SfSpinner.vue";
+import SfSpinnerLinear from "../../components/SfSpinner/SfSpinnerLinear.vue";
 
 export default {
   title: "SFUI Components/Spinner",
@@ -25,3 +26,14 @@ const Template = (args, { argTypes }) => ({
 });
 
 export const Common = Template.bind({});
+
+const Linear = (args, { argTypes }) => ({
+  components: { SfSpinnerLinear },
+  props: Object.keys(argTypes),
+  template: `
+  <div>
+    <SfSpinnerLinear />
+  </div>`
+});
+
+export const SpinnerLinear = Linear.bind({});
