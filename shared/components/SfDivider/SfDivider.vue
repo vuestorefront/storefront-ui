@@ -4,9 +4,6 @@
 
 <script>
 export default {
-  name: "SfDivider",
-  setup() {
-    return {}
-  },
+  name: "SfDivider"
 }
 </script>
