@@ -1,12 +1,11 @@
 <template>
   <div>
-    <button class="button-lg">
-      Hello world
+    <button class="button-lg">Hello world
     </button>
   </div>
 </template>
 
-<script>
+<script>  
 export default {
   setup () {
     return {}
