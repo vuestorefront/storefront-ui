@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils'
-import SfButton from './../../components/SfButton'
+import SfButton from './../../components/SfButton/SfButton'
 let wrapper
 
 describe('SfButton.vue', () => {
@@ -8,8 +8,5 @@ describe('SfButton.vue', () => {
   })
   it('render component correctly', () => {
     expect(wrapper.html()).toMatchSnapshot()
-  })
-  it('renders component with defaults', () => {
-    expect(wrapper.classes('sf-button')).toBe(true)
   })
 })
