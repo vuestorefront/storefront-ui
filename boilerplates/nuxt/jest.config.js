@@ -3,7 +3,7 @@ module.exports = {
   moduleFileExtensions: ['js', 'json', 'vue'],
   transform: {
     '^.+\\.js$': 'babel-jest',
-    '^.+\\.vue$': '@vue/vue2-jest'
+    '.*\\.(vue)$': '@vue/vue2-jest'
   },
   transformIgnorePatterns: ['/node_modules/'],
   moduleNameMapper: {
