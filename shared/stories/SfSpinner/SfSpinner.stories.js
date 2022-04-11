@@ -4,8 +4,8 @@ import SfSpinnerLinear from "../../components/SfSpinner/SfSpinnerLinear.vue";
 export default {
   title: "SFUI Components/Spinner",
   component: SfSpinner,
-  parameters: {
-    docs: {
+  parameters: {    
+    docs: {      
       description: {
         component:
           "The component to show users that loading is underway of content. [link to component docs on the page]",
