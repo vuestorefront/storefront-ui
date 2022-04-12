@@ -49,5 +49,15 @@ export default {
         autoprefixer: {}
       }
     }
+  },
+  storybook: {
+    addons: [
+    ],
+    stories: [
+      '~/stories/**/*.stories.js'
+    ],
+    webpackFinal (config) {
+      return config
+    }
   }
 }

@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SfDivider.vue render component correctly 1`] = `<hr class="h-px bg-gray-200 w-80">`;
