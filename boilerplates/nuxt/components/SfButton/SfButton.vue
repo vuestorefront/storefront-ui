@@ -3,7 +3,6 @@
     <button v-focus class="button-lg outline-violet">
       Hello world
     </button>
-    <input v-focus type="text" class="outline-violet">
   </div>
 </template>
 
