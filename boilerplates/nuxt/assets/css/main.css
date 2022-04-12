@@ -63,4 +63,7 @@
     .icon-3xl {
         @apply w-48 h-48;
     }
+    .outline-violet:focus {
+        @apply outline outline-4 outline-offset-2 outline-violet-400;
+    }
 }
