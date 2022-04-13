@@ -2,7 +2,7 @@ const fse = require('fs-extra')
 const chokidar = require('chokidar')
 
 export default function (moduleOptions) {
-  const baseDir = '../../shared'
+  const baseDir = '../../shared/src'
   const targetDir = this.options.srcDir
 
   const copyFiles = async () => {
@@ -17,9 +17,9 @@ export default function (moduleOptions) {
 
   copyFiles()
 
-  chokidar.watch([baseDir]).on('all', async (event) => {
+  chokidar.watch([baseDir], { ignoreInitial: true }).on('all', (event) => {
     if (event === 'add' || event === 'change' || event === 'unlink') {
-      await copyFiles()
+      copyFiles()
     }
   })
 }
