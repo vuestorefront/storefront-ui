@@ -1,0 +1,45 @@
+<template>
+  <div class="grid max-w-xs grid-cols-[1fr_24px] gap-x-2.5">
+    <label for="checkbox-left" class="text-gray-900 cursor-pointer font-body peer-required:after:content-['*'] peer-disabled:text-gray-900/40 peer-disabled:cursor-not-allowed">Label</label>
+    <input
+      id="checkbox-left"
+      :indeterminate="indeterminate"
+      type="checkbox"
+      :name="name"
+      :value="value"
+      :required="required"
+      :disabled="disabled"
+      class="peer w-[18px] h-[18px] border border-2 border-gray-500 rounded-sm appearance-none cursor-pointer hover:border-primary-500 checked:bg-primary-500 checked:bg-checked-checkbox checked:border-primary-500 disabled:border-gray-500/50 disabled:cursor-not-allowed invalid:border-negative-600"
+      :class="{'bg-indeterminate-checkbox border-primary-500': indeterminate}"
+    >
+    <span class="hidden col-start-1 mt-1 text-sm font-medium peer-invalid:block text-negative-600 font-body">Error message</span>
+    <span class="col-start-1 mt-1 text-xs text-gray-500 peer-disabled:text-gray-500/50 font-body">Help text</span>
+    <span class="hidden col-start-1 mt-1 text-xs text-gray-500 peer-required:block font-body">*Required</span>
+  </div>
+</template>
+<script>
+export default {
+  props: {
+    name: {
+      type: String,
+      required: true,
+    },
+    value: {
+      type: [String, Boolean],
+      default: "",
+    },
+    required: {
+      type: Boolean,
+      default: false,
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+    indeterminate: {
+      type: Boolean,
+      default: false,
+    },
+  },
+}
+</script>
