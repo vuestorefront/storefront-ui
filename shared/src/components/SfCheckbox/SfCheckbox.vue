@@ -2,23 +2,32 @@
   <div class="grid max-w-xs grid-cols-[24px_1fr] gap-x-2.5">
     <input
       id="checkbox-left"
+      v-focus
       :indeterminate="indeterminate"
       type="checkbox"
       :name="name"
       :value="value"
       :required="required"
       :disabled="disabled"
-      class="peer w-[18px] h-[18px] border border-2 border-gray-500 rounded-sm appearance-none cursor-pointer hover:border-primary-500 checked:bg-checked-checkbox checked:border-primary-500 disabled:border-gray-500/50 disabled:cursor-not-allowed invalid:border-negative-600"
+      class="peer w-[18px] h-[18px] border border-2 border-gray-500 rounded-sm appearance-none cursor-pointer hover:border-primary-500 checked:bg-checked-checkbox checked:border-primary-500 disabled:border-gray-500/50 disabled:cursor-not-allowed invalid:border-negative-600 outline-violet"
       :class="{'bg-indeterminate-checkbox border-primary-500': indeterminate}"
     >
-    <label for="checkbox-left" class="text-gray-900 cursor-pointer font-body peer-required:after:content-['*'] peer-disabled:text-gray-900/40 peer-disabled:cursor-not-allowed">Label</label>
+    <label
+      for="checkbox-left"
+      class="text-gray-900 cursor-pointer font-body peer-required:after:content-['*'] peer-disabled:text-gray-900/40 peer-disabled:cursor-not-allowed"
+    >Label</label>
     <span class="hidden col-start-2 mt-1 text-sm font-medium peer-invalid:block text-negative-600 font-body">Error message</span>
     <span class="col-start-2 mt-1 text-xs text-gray-500 peer-disabled:text-gray-500/50 font-body">Help text</span>
     <span class="hidden col-start-2 mt-1 text-xs text-gray-500 peer-required:block font-body">*Required</span>
   </div>
 </template>
 <script>
+import { focus } from '../../utils/focus-directive.js'
+
 export default {
+  directives: {
+    focus
+  },
   props: {
     name: {
       type: String,
@@ -40,6 +49,6 @@ export default {
       type: Boolean,
       default: false,
     },
-  },
+  }
 }
 </script>
