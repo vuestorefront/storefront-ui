@@ -105,15 +105,3 @@ We are building Storefront UI based on the following 6 fundamentals:
 # Design
 
 Storefront UI 2 was made to make developer-designer work easier for both. You can find the stunning designs we are using [here](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%9F%9B%A0-SFUI-2.0-%7C-Development?node-id=10066%3A27483).
-
-# Supporters
-
-<a href="https://divante.com">
-       <img src="https://www.divante.com/hubfs/raw_assets/public/Divante_March_2021/images/logo-new.svg" alt="divante" height="55px"></a>
-       &nbsp;&nbsp;
-<a href="https://developers.e-com.plus/">
-       <img src="https://developers.e-com.plus/src/assets/img/logo-dark.png" alt="e-com club" height="55px">
-</a>
-<a href="https://cloudinary.com">
-       <img src="https://camo.githubusercontent.com/451061eb9714c2135705a1ad757017cc943627ca474d8a20e78209214469bf72/68747470733a2f2f6437756d7169637069373236332e636c6f756466726f6e742e6e65742f696d672f70726f647563742f65306364363161372d316336352d343561302d393765652d3737363364646335313533612f39383834313664302d323562632d346264322d623864622d6633343764306131393335642e706e67" height="55px" />
-</a>
