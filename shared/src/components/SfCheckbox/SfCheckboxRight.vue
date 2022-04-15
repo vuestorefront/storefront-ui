@@ -1,6 +1,9 @@
 <template>
   <div class="grid max-w-xs grid-cols-[1fr_24px] gap-x-2.5">
-    <label for="checkbox-left" class="text-gray-900 cursor-pointer font-body peer-required:after:content-['*'] peer-disabled:text-gray-900/40 peer-disabled:cursor-not-allowed">Label</label>
+    <label
+      for="checkbox-left"
+      class="text-gray-900 cursor-pointer font-body peer-required:after:content-['*'] peer-disabled:text-gray-900/40 peer-disabled:cursor-not-allowed"
+    >Label</label>
     <input
       id="checkbox-left"
       v-focus
