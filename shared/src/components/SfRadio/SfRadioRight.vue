@@ -1,5 +1,9 @@
 <template>
-  <div class="grid max-w-xs grid-cols-[24px_1fr] gap-x-2.5">
+  <div class="grid max-w-xs grid-cols-[1fr_24px] gap-x-2.5">
+    <label
+      :for="name"
+      class="text-gray-900 cursor-pointer leading-6 text-base peer-required:after:content-['*'] peer-disabled:text-gray-900/40 peer-disabled:cursor-not-allowed font-body"
+    > Label</label>
     <input
       :id="name"
       v-focus
@@ -10,13 +14,9 @@
       :disabled="disabled"
       :required="required"
     >
-    <label
-      :for="name"
-      class="text-gray-900 cursor-pointer leading-6 text-base peer-required:after:content-['*'] peer-disabled:text-gray-900/40 peer-disabled:cursor-not-allowed font-body"
-    > Label</label>
-    <span class="col-start-2 mt-1 text-xs text-gray-500 peer-disabled:text-gray-500/50 font-body">Help text</span>
-    <span class="hidden col-start-2 mt-1 text-xs text-gray-500 peer-required:block font-body">*Required</span>
-    <span class="hidden col-start-2 mt-1 text-sm font-medium peer-invalid:block text-negative-600 font-body">Error message</span>
+    <span class="col-start-1 mt-1 text-xs text-gray-500 peer-disabled:text-gray-500/50 font-body">Help text</span>
+    <span class="hidden col-start-1 mt-1 text-xs text-gray-500 peer-required:block font-body">*Required</span>
+    <span class="hidden col-start-1 mt-1 text-sm font-medium peer-invalid:block text-negative-600 font-body">Error message</span>
   </div>
 </template>
 
