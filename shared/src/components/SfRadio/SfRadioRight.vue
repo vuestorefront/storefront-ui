@@ -8,7 +8,7 @@
       :id="name"
       v-focus
       type="radio"
-      class="peer w-[20px] h-[20px] cursor-pointer appearance-none rounded-full border-2 border-gray-500 hover:border-primary-500 checked:bg-primary-500 checked:border-primary-500 checked:shadow-m-inset disabled:cursor-not-allowed disabled:border-gray-500/50 invalid:border-negative-600"
+      class="peer w-[20px] h-[20px] cursor-pointer appearance-none rounded-full border-2 border-gray-500 hover:border-primary-500 checked:bg-primary-500 checked:border-primary-500 checked:shadow-inset disabled:cursor-not-allowed disabled:border-gray-500/50 invalid:border-negative-600"
       :name="name"
       :value="value"
       :disabled="disabled"
@@ -21,30 +21,30 @@
 </template>
 
 <script>
-// import { focus } from '../../utils/focus-directive.js'
+import { focus } from '../../utils/focus-directive.js'
 export default {
-  name: "SfRadio",
+  name: 'SfRadio',
   directives: {
-    focus,
+    focus
   },
   props: {
     name: {
       type: String,
-      default: ""
+      default: ''
     },
     value: {
       type: String,
-      default: "",
+      default: ''
     },
     disabled: {
       type: Boolean,
-      default: false,
+      default: false
     },
     required: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
-  setup() {},
+  setup() {}
 }
 </script>
