@@ -59,6 +59,6 @@ const InvalidCheckbox = (args, { argTypes }) => ({
   components: { SfCheckbox },
   props: Object.keys(argTypes),
   template: `
-    <SfCheckbox name="checkbox" :required="true" />`
+    <SfCheckbox name="checkbox" :valid="false" />`
 })
 export const Invalid = InvalidCheckbox.bind({})
