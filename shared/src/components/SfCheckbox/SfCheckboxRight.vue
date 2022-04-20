@@ -9,7 +9,6 @@
       :value="value"
       :required="required"
       :disabled="disabled"
-      :valid="valid"
       class="col-start-2 peer w-[18px] h-[18px] border-2 border-gray-500 rounded-sm appearance-none cursor-pointer hover:border-primary-500 checked:bg-primary-500 checked:bg-checked-checkbox bg-center checked:border-primary-500 disabled:border-gray-500/50 disabled:cursor-not-allowed outline-violet"
       :class="{'bg-indeterminate-checkbox border-primary-500': indeterminate, 'border-negative-600': !valid}"
     >

@@ -6,7 +6,6 @@
       :indeterminate="indeterminate"
       type="checkbox"
       :name="name"
-      :value="value"
       :required="required"
       :disabled="disabled"
       :valid="valid"
