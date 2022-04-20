@@ -28,7 +28,7 @@ const DisabledRadio = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
     <SfRadio 
-      name="radio"
+      name="radio-1"
       :disabled="true"
     />`
 })
@@ -40,7 +40,7 @@ const RequiredRadio = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
     <SfRadio 
-      name="radio"
+      name="radio-2"
       :required="true"
     />`
 })
@@ -51,6 +51,30 @@ const RadioRight = (args, { argTypes }) => ({
   components: { SfRadioRight },
   props: Object.keys(argTypes),
   template: `
-    <SfRadioRight name="radio" />`
+    <SfRadioRight name="radio-right" />`
 })
 export const Right = RadioRight.bind({})
+
+const DisabledRadioRight = (args, { argTypes }) => ({
+  components: { SfRadioRight },
+  props: Object.keys(argTypes),
+  template: `
+    <SfRadioRight 
+      name="radio-right-1"
+      :disabled="true"
+    />`
+})
+
+export const Disabled_Right = DisabledRadioRight.bind({})
+
+const RequiredRadioRight = (args, { argTypes }) => ({
+  components: { SfRadioRight },
+  props: Object.keys(argTypes),
+  template: `
+    <SfRadioRight 
+      name="radio-right-2"
+      :required="true"
+    />`
+})
+
+export const Required_Right = RequiredRadioRight.bind({})
