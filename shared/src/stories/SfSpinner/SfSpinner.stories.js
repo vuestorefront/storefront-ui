@@ -22,6 +22,11 @@ const Template = (args, { argTypes }) => ({
   template: `
   <div>
     <SfSpinner />
+    <SfSpinner />
+    <SfSpinner />
+    <SfSpinner />
+    <SfSpinner />
+    <SfSpinner />
   </div>`
 });
 
