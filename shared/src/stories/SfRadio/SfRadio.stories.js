@@ -1,5 +1,5 @@
 import SfRadio from '../../components/SfRadio/SfRadio.vue'
-import SfRadioRight from '../../components/Sfradio/SfRadioRight.vue'
+import SfRadioRight from '../../components/SfRadio/SfRadioRight.vue'
 
 export default {
   title: 'SFUI Components/Radio',
@@ -47,6 +47,19 @@ const RequiredRadio = (args, { argTypes }) => ({
 
 export const Required = RequiredRadio.bind({})
 
+const InvalidRadio = (args, { argTypes }) => ({
+  components: { SfRadio },
+  props: Object.keys(argTypes),
+  template: `
+    <SfRadio 
+      name="radio-2"
+      :invalid="true"
+    />`
+})
+
+export const Invalid = InvalidRadio.bind({})
+
+
 const RadioRight = (args, { argTypes }) => ({
   components: { SfRadioRight },
   props: Object.keys(argTypes),
@@ -54,6 +67,7 @@ const RadioRight = (args, { argTypes }) => ({
     <SfRadioRight name="radio-right" />`
 })
 export const Right = RadioRight.bind({})
+
 
 const DisabledRadioRight = (args, { argTypes }) => ({
   components: { SfRadioRight },

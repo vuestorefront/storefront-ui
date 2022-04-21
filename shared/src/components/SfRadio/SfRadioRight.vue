@@ -4,11 +4,12 @@
       id="radio2"
       v-focus
       type="radio"
-      class="peer w-[20px] h-[20px] cursor-pointer appearance-none rounded-full border-2 border-gray-500 hover:border-primary-500 checked:bg-primary-500 checked:border-primary-500 checked:shadow-inset disabled:cursor-not-allowed disabled:border-gray-500/50 invalid:border-negative-600"
       :name="name"
       :value="value"
       :disabled="disabled"
       :required="required"
+      class="peer w-[20px] h-[20px] cursor-pointer appearance-none rounded-full border-2 border-gray-500 hover:border-primary-500 checked:bg-primary-500 checked:border-primary-500 checked:shadow-inset disabled:cursor-not-allowed disabled:border-gray-500/50"
+      :class="{'border-negative-600': invalid }"
     >
     <label
       for="radio2"
@@ -16,7 +17,10 @@
     > Label</label>
     <span class="col-start-1 mt-1 text-xs text-gray-500 peer-disabled:text-gray-500/50 font-body">Help text</span>
     <span class="hidden col-start-1 mt-1 text-xs text-gray-500 peer-required:block font-body">*Required</span>
-    <span class="hidden col-span-2 col-start-1 mt-1 text-sm font-medium peer-invalid:block text-negative-600 font-body">Error message</span>
+    <span
+      class="col-span-2 col-start-1 mt-1 text-sm font-medium peer-invalid:block text-negative-600 font-body"
+      :class="{'hidden': !invalid }"
+    >Error message</span>
   </div>
 </template>
 
@@ -41,6 +45,10 @@ export default {
       default: false
     },
     required: {
+      type: Boolean,
+      default: false
+    },
+    invalid: {
       type: Boolean,
       default: false
     }
