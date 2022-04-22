@@ -16,7 +16,7 @@
     @apply font-medium font-headings xs:text-xl sm:text-2xl;
   }
   h4 {
-    @apply font-bold font-headings xs:text-base sm:text-base uppercase;
+    @apply font-bold uppercase font-headings xs:text-base sm:text-base;
   }
 }
 
@@ -57,4 +57,11 @@
     .outline-violet:focus {
         @apply outline outline-4 outline-offset-2 outline-violet-400;
     }
+    .progress-linear::-webkit-progress-bar {
+        @apply bg-gray-200;
+      }
+    .progress-linear::-webkit-progress-value {
+        @apply bg-primary-600 transition-[width] ease-[cubic-bezier(.4,0,.6,1)] duration-200;
+      }
+      
 }
