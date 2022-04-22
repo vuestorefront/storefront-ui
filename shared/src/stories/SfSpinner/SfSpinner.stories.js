@@ -1,54 +1,46 @@
-import SfSpinner from "../../components/SfSpinner/SfSpinner.vue";
-import SfSpinnerLinear from "../../components/SfSpinner/SfSpinnerLinear.vue";
+import SfSpinnerSm from '../../components/SfSpinner/SfSpinnerSm.vue'
+import SfSpinnerBase from '../../components/SfSpinner/SfSpinnerBase.vue'
+import SfSpinnerLg from '../../components/SfSpinner/SfSpinnerLg.vue'
+import SfSpinnerXl from '../../components/SfSpinner/SfSpinnerXl.vue'
+import SfSpinner2xl from '../../components/SfSpinner/SfSpinner2xl.vue'
+import SfSpinner3xl from '../../components/SfSpinner/SfSpinner3xl.vue'
+import SfSpinnerLinear from '../../components/SfSpinner/SfSpinnerLinear.vue'
 
 export default {
-  title: "SFUI Components/Spinner",
-  component: SfSpinner,
-  parameters: {    
-    docs: {      
+  title: 'SFUI Components/Spinner',
+  component: SfSpinnerBase,
+  parameters: {
+    docs: {
       description: {
         component:
-          "The component to show users that loading is underway of content. [link to component docs on the page]",
-      },
-    },
-  },
-  argTypes: {
-  },
-};
+          'The component to show users that loading is underway of content. [link to component docs on the page]'
+      }
+    }
+  }
+}
 
 const Template = (args, { argTypes }) => ({
-  components: { SfSpinner },
+  components: {
+    SfSpinnerSm,
+    SfSpinnerBase,
+    SfSpinnerLg,
+    SfSpinnerXl,
+    SfSpinner2xl,
+    SfSpinner3xl
+  },
   props: Object.keys(argTypes),
   template: `
   <div>
-    <div class="relative h-4 mb-2">
-      <div class="absolute w-4 h-4 bg-transparent border-2 border-gray-200 rounded-3xl"></div>
-      <div class="absolute w-[10px] h-[10px] bg-transparent border-2 border-transparent rounded-tl-xl animate-spin border-t-primary-600"></div>
-    </div>
-    <div class="relative h-6 mb-2">
-      <div class="absolute w-6 h-6 bg-transparent border-2 border-gray-200 rounded-full"></div>
-      <div class="absolute w-3 h-3 bg-transparent border-2 border-transparent rounded-tl-full animate-spin border-t-primary-600"></div>
-    </div>    
-    <div class="relative h-10 mb-2">
-      <div class="absolute w-10 h-10 bg-transparent border-2 border-gray-200 rounded-full"></div>
-      <div class="absolute w-5 h-5 bg-transparent border-2 border-transparent rounded-tl-full animate-spin border-t-primary-600"></div>
-    </div>
-    <div class="relative h-14 mb-2">
-      <div class="absolute w-14 h-14 bg-transparent border-[3px] border-gray-200 rounded-full"></div>
-      <div class="absolute w-7 h-7 bg-transparent border-[3px] border-transparent rounded-tl-full animate-spin border-t-primary-600"></div>
-    </div>
-    <div class="relative h-24 mb-4">
-      <div class="absolute w-24 h-24 bg-transparent border-4 border-gray-200 rounded-full"></div>
-      <div class="absolute w-12 h-12 bg-transparent border-4 border-transparent rounded-tl-full animate-spin border-t-primary-600"></div>
-    </div>
-    <div class="relative h-48">
-      <div class="absolute w-48 h-48 bg-transparent border-8 border-gray-200 rounded-[9999px]"></div>
-      <div class="absolute w-24 h-24 bg-transparent border-8 border-transparent rounded-tl-[9999px] animate-spin border-t-primary-600"></div>
-    </div>
+    <SfSpinnerSm class="h-4 mb-2" />
+    <SfSpinnerBase class="h-6 mb-2" /> 
+    <SfSpinnerLg class="h-10 mb-2" />
+    <SfSpinnerXl class="h-14 mb-2" />
+    <SfSpinner2xl class="h-24 mb-4" />
+    <SfSpinner3xl class="h-48" />
   </div>`
 });
 
-export const Common = Template.bind({});
+export const Common = Template.bind({})
 
 const Linear = (args, { argTypes }) => ({
   components: { SfSpinnerLinear },
@@ -57,6 +49,6 @@ const Linear = (args, { argTypes }) => ({
   <div>
     <SfSpinnerLinear />
   </div>`
-});
+})
 
-export const SpinnerLinear = Linear.bind({});
+export const SpinnerLinear = Linear.bind({})
