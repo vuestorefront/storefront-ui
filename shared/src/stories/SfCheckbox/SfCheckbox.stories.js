@@ -12,13 +12,53 @@ export default {
       }
     }
   },
+  argTypes: {
+    required: {
+      control: "boolean",
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: false,
+        },
+      },
+      defaultValue: false,
+      description: "Required field",
+    },
+    disabled: {
+      control: "boolean",
+      defaultValue: false,
+      table: {
+        category: "Props",
+      },
+      description: "Disables checkbox",
+    },
+    indeterminate: {
+      control: "boolean",
+      table: {
+        category: "Props",
+        defaultValue: {
+          summary: false,
+        },
+      },
+      defaultValue: false,
+      description: "Indeterminate state for checkbox",
+    },
+    valid: {
+      control: "boolean",
+      defaultValue: false,
+      table: {
+        category: "Props",
+      },
+      description: "",
+    },
+  }
 }
 
 const Template = (args, { argTypes }) => ({
   components: { SfCheckbox },
   props: Object.keys(argTypes),
   template: `
-    <SfCheckbox name="checkbox" />`
+    <SfCheckbox name="checkbox" :disabled="disabled" :required="required" :indeterminate="indeterminate" :valid="valid" />`
 })
 
 export const Common = Template.bind({})
@@ -27,38 +67,6 @@ const CheckboxRight = (args, { argTypes }) => ({
   components: { SfCheckboxRight },
   props: Object.keys(argTypes),
   template: `
-    <SfCheckboxRight name="checkbox" />`
+    <SfCheckboxRight name="checkbox" :disabled="disabled" :required="required" :indeterminate="indeterminate" :valid="valid" />`
 })
 export const Right = CheckboxRight.bind({})
-
-const RequiredCheckbox = (args, { argTypes }) => ({
-  components: { SfCheckbox },
-  props: Object.keys(argTypes),
-  template: `
-    <SfCheckbox name="checkbox" :required="true" />`
-})
-export const Required = RequiredCheckbox.bind({})
-
-const IndeterminateCheckbox = (args, { argTypes }) => ({
-  components: { SfCheckbox },
-  props: Object.keys(argTypes),
-  template: `
-    <SfCheckbox name="checkbox" :indeterminate="true" />`
-})
-export const Indeterminate = IndeterminateCheckbox.bind({})
-
-const DisabledButton = (args, { argTypes }) => ({
-  components: { SfCheckbox },
-  props: Object.keys(argTypes),
-  template: `
-    <SfCheckbox name="checkbox" :disabled="true" />`
-})
-export const Disabled = DisabledButton.bind({})
-
-const InvalidCheckbox = (args, { argTypes }) => ({
-  components: { SfCheckbox },
-  props: Object.keys(argTypes),
-  template: `
-    <SfCheckbox name="checkbox" :valid="false" />`
-})
-export const Invalid = InvalidCheckbox.bind({})
