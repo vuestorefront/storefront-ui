@@ -1,14 +1,29 @@
-import SfButtonPrimary from "../../components/SfButton/SfButtonPrimary.vue";
-import SfButtonSecondary from "../../components/SfButton/SfButtonSecondary.vue";
-import SfButtonTertiary from "../../components/SfButton/SfButtonTertiary.vue";
-import SfButtonDestroy from "../../components/SfButton/SfButtonDestroy.vue";
-import SfButtonDestroySecondary from "../../components/SfButton/SfButtonDestroySecondary.vue";
-import SfButtonDestroyTertiary from "../../components/SfButton/SfButtonDestroyTertiary.vue";
-import SfButtonRounded from "../../components/SfButton/SfButtonRounded.vue";
+import ButtonPrimary from "../../components/SfButton/Primary/ButtonPrimary.vue";
+import ButtonPrimarySmall from "../../components/SfButton/Primary/ButtonPrimarySmall.vue";
+import ButtonPrimaryLarge from "../../components/SfButton/Primary/ButtonPrimaryLarge.vue";
+import ButtonSecondary from "../../components/SfButton/Secondary/ButtonSecondary.vue";
+import ButtonSecondarySmall from "../../components/SfButton/Secondary/ButtonSecondarySmall.vue";
+import ButtonSecondaryLarge from "../../components/SfButton/Secondary/ButtonSecondaryLarge.vue";
+import ButtonTertiary from "../../components/SfButton/Tertiary/ButtonTertiary.vue";
+import ButtonTertiarySmall from "../../components/SfButton/Tertiary/ButtonTertiarySmall.vue";
+import ButtonTertiaryLarge from "../../components/SfButton/Tertiary/ButtonTertiaryLarge.vue";
+import ButtonDestroy from "../../components/SfButton/Primary/Destroy/ButtonDestroy.vue";
+import ButtonDestroySmall from "../../components/SfButton/Primary/Destroy/ButtonDestroySmall.vue";
+import ButtonDestroyLarge from "../../components/SfButton/Primary/Destroy/ButtonDestroyLarge.vue";
+import ButtonDestroySecondary from "../../components/SfButton/Secondary/Destroy/ButtonDestroySecondary.vue";
+import ButtonDestroySecondarySmall from "../../components/SfButton/Secondary/Destroy/ButtonDestroySecondarySmall.vue";
+import ButtonDestroySecondaryLarge from "../../components/SfButton/Secondary/Destroy/ButtonDestroySecondaryLarge.vue";
+import ButtonDestroyTertiary from "../../components/SfButton/Tertiary/Destroy/ButtonDestroyTertiary.vue";
+import ButtonTertiaryDestroySmall from "../../components/SfButton/Tertiary/Destroy/ButtonTertiaryDestroySmall.vue";
+import ButtonTertiaryDestroyLarge from "../../components/SfButton/Tertiary/Destroy/ButtonTertiaryDestroyLarge.vue";
+import ButtonIconLeft from "../../components/SfButton/Primary/Icon/ButtonPrimaryIconLeft.vue";
+import ButtonIconRight from "../../components/SfButton/Primary/Icon/ButtonPrimaryIconRight.vue";
+import ButtonIcons from "../../components/SfButton/Primary/Icon/ButtonPrimaryIcons.vue";
+
 
 export default {
   title: "SFUI Components/Button",
-  component: SfButtonPrimary,
+  component: ButtonPrimary,
   parameters: {
     docs: {
       description: {
@@ -18,27 +33,14 @@ export default {
     },
   },
   argTypes: {
-    sm: {
-      control: "text",
-      defaultValue: "leading-5 px-3 py-[6px] text-sm",
+    disabled: {
+      control: "boolean",
+      defaultValue: false,
       table: {
-        category: "Sizes",
-        defaultValue: {
-          summary: "leading-5 px-3 py-[6px] text-sm",
-        },
+        category: "Props",
       },
-      description: "",
-    },
-    lg: {
-      control: "text",
-      defaultValue: "px-6 py-3",
-      table: {
-        category: "Sizes",
-        defaultValue: {
-          summary: "px-6 py-3",
-        },
-      },
-      description: "",
+      description:
+        "Native button disabled attribute",
     },
     default: {
       table: {
@@ -53,110 +55,108 @@ export default {
 };
 
 const Template = (args, { argTypes }) => ({
-  components: { SfButtonPrimary },
+  components: { ButtonPrimary, ButtonPrimarySmall, ButtonPrimaryLarge },
   props: Object.keys(argTypes),
   template: `
   <div>
-    <SfButtonPrimary class="leading-5 px-3 py-[6px] text-sm">Hello</SfButtonPrimary>
-    <SfButtonPrimary>Hello</SfButtonPrimary>
-    <SfButtonPrimary class="px-6 py-3">Hello</SfButtonPrimary>
+    <ButtonPrimarySmall :disabled="disabled">Hello</ButtonPrimarySmall>
+    <ButtonPrimary :disabled="disabled">Hello</ButtonPrimary>
+    <ButtonPrimaryLarge :disabled="disabled">Hello</ButtonPrimaryLarge>
   </div>`
 });
 
 export const Primary = Template.bind({});
 
 const SecondaryButton = (args, { argTypes }) => ({
-  components: { SfButtonSecondary },
+  components: { ButtonSecondary, ButtonSecondarySmall, ButtonSecondaryLarge },
   props: Object.keys(argTypes),
   template: `
   <div>
-    <SfButtonSecondary class="leading-5 px-3 py-[6px] text-sm">Hello</SfButtonSecondary>
-    <SfButtonSecondary>Hello</SfButtonSecondary>
-    <SfButtonSecondary class="px-6 py-3">Hello</SfButtonSecondary>
+    <ButtonSecondarySmall :disabled="disabled">Hello</ButtonSecondarySmall>
+    <ButtonSecondary :disabled="disabled">Hello</ButtonSecondary>
+    <ButtonSecondaryLarge :disabled="disabled">Hello</ButtonSecondaryLarge>
   </div>`
 });
 export const Secondary = SecondaryButton.bind({});
 
 const TertiaryButton = (args, { argTypes }) => ({
-  components: { SfButtonTertiary },
+  components: { ButtonTertiary, ButtonTertiarySmall, ButtonTertiaryLarge },
   props: Object.keys(argTypes),
   template: `
   <div>
-    <SfButtonTertiary class="leading-5 px-3 py-[6px] text-sm">Hello</SfButtonTertiary>
-    <SfButtonTertiary>Hello</SfButtonTertiary>
-    <SfButtonTertiary class="px-6 py-3">Hello</SfButtonTertiary>
+    <ButtonTertiarySmall :disabled="disabled">Hello</ButtonTertiarySmall>
+    <ButtonTertiary :disabled="disabled">Hello</ButtonTertiary>
+    <ButtonTertiaryLarge :disabled="disabled">Hello</ButtonTertiaryLarge>
   </div>`
 });
 export const Tertiary = TertiaryButton.bind({});
 
-const DisabledButton = (args, { argTypes }) => ({
-  components: { SfButtonPrimary },
-  props: Object.keys(argTypes),
-  template: `
-  <div>
-    <SfButtonPrimary :disabled="true" class="leading-5 px-3 py-[6px] text-sm">Hello</SfButtonPrimary>
-    <SfButtonPrimary :disabled="true">Hello</SfButtonPrimary>
-    <SfButtonPrimary :disabled="true" class="px-6 py-3">Hello</SfButtonPrimary>
-  </div>`
-});
-export const Disabled = DisabledButton.bind({});
-
 const DestroyButton = (args, { argTypes }) => ({
-  components: { SfButtonDestroy },
+  components: { ButtonDestroy, ButtonDestroySmall, ButtonDestroyLarge },
   props: Object.keys(argTypes),
   template: `
   <div>
-    <SfButtonDestroy class="leading-5 px-3 py-[6px] text-sm">Hello</SfButtonDestroy>
-    <SfButtonDestroy>Hello</SfButtonDestroy>
-    <SfButtonDestroy class="px-6 py-3">Hello</SfButtonDestroy>
+    <ButtonDestroySmall :disabled="disabled">Hello</ButtonDestroySmall>
+    <ButtonDestroy :disabled="disabled">Hello</ButtonDestroy>
+    <ButtonDestroyLarge :disabled="disabled">Hello</ButtonDestroyLarge>
   </div>`
 });
 export const Destroy = DestroyButton.bind({});
 
 const DestroySecondaryButton = (args, { argTypes }) => ({
-  components: { SfButtonDestroySecondary },
+  components: { ButtonDestroySecondary, ButtonDestroySecondarySmall, ButtonDestroySecondaryLarge },
   props: Object.keys(argTypes),
   template: `
   <div>
-    <SfButtonDestroySecondary class="leading-5 px-3 py-[6px] text-sm">Hello</SfButtonDestroySecondary>
-    <SfButtonDestroySecondary>Hello</SfButtonDestroySecondary>
-    <SfButtonDestroySecondary class="px-6 py-3">Hello</SfButtonDestroySecondary>
+    <ButtonDestroySecondarySmall :disabled="disabled">Hello</ButtonDestroySecondarySmall>
+    <ButtonDestroySecondary :disabled="disabled">Hello</ButtonDestroySecondary>
+    <ButtonDestroySecondaryLarge :disabled="disabled">Hello</ButtonDestroySecondaryLarge>
   </div>`
 });
 export const DestroySecondary = DestroySecondaryButton.bind({});
 
 const DestroyTertiaryButton = (args, { argTypes }) => ({
-  components: { SfButtonDestroyTertiary },
+  components: { ButtonDestroyTertiary, ButtonTertiaryDestroySmall, ButtonTertiaryDestroyLarge },
   props: Object.keys(argTypes),
   template: `
   <div>
-    <SfButtonDestroyTertiary class="leading-5 px-3 py-[6px] text-sm">Hello</SfButtonDestroyTertiary>
-    <SfButtonDestroyTertiary>Hello</SfButtonDestroyTertiary>
-    <SfButtonDestroyTertiary class="px-6 py-3">Hello</SfButtonDestroyTertiary>
+    <ButtonTertiaryDestroySmall :disabled="disabled">Hello</ButtonTertiaryDestroySmall>
+    <ButtonDestroyTertiary :disabled="disabled">Hello</ButtonDestroyTertiary>
+    <ButtonTertiaryDestroyLarge :disabled="disabled">Hello</ButtonTertiaryDestroyLarge>
   </div>`
 });
 export const DestroyTertiary = DestroyTertiaryButton.bind({});
 
-const RoundedButton = (args, { argTypes }) => ({
-  components: { SfButtonRounded },
+const IconButton = (args, { argTypes }) => ({
+  components: { 
+    ButtonIconLeft,
+    ButtonIconRight,
+    ButtonIcons
+  },
   props: Object.keys(argTypes),
   template: `
-  <div>
-    <SfButtonRounded class="p-[7px]"> 
-      <svg class="w-[16px] fill-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <div class="flex gap-x-3">
+    <ButtonIconLeft :disabled="disabled"> 
+      <svg class="w-4 fill-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"/>
       </svg> 
-    </SfButtonRounded>
-    <SfButtonRounded> 
+      <span class="ml-[10px]">Hello</span>
+    </ButtonIconLeft>
+    <ButtonIcons :disabled="disabled">  
       <svg class="w-4 fill-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"/>
       </svg>
-    </SfButtonRounded>
-    <SfButtonRounded class="p-[14px]">  
+      <span class="mx-[10px]">Hello</span>
       <svg class="w-4 fill-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"/>
       </svg>
-    </SfButtonRounded>
+    </ButtonIcons>
+    <ButtonIconRight :disabled="disabled">
+      <span class="mr-[10px]">Hello</span>
+      <svg class="w-4 fill-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"/>
+      </svg>
+    </ButtonIconRight>
   </div>`
 });
-export const Rounded = RoundedButton.bind({});
+export const WithIcons = IconButton.bind({});
