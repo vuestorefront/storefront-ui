@@ -238,7 +238,7 @@ export const WithDefaultSlot = (args, { argTypes }) => ({
   <SfButton
     :class="classes"
     :disabled="disabled"
-    @click="onClick"
+    @click="click"
     :link="link">
     :aria-label="ariaLabel"
     <template>

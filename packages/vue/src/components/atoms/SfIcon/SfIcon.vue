@@ -5,7 +5,7 @@
     :style="iconCustomStyle"
     v-on="$listeners"
   >
-    <slot v-bind="{ viewBox, iconPaths, icon }">
+    <slot v-if="!isLoaded" v-bind="{ viewBox, iconPaths, icon }">
       <svg
         class="sf-icon-path"
         :viewBox="iconViewBox"
@@ -38,10 +38,8 @@
   </span>
 </template>
 <script>
-import icons from "@storefront-ui/shared/icons/icons";
 import { iconColorsValues as SF_COLORS } from "@storefront-ui/shared/variables/colors";
 import { sizesValues as SF_SIZES } from "@storefront-ui/shared/variables/sizes";
-const SF_ICONS = Object.keys(icons);
 export default {
   name: "SfIcon",
   props: {
@@ -65,6 +63,12 @@ export default {
       type: [String, Number],
       default: 1,
     },
+  },
+  data() {
+    return {
+      iconFile: null,
+      isLoaded: false,
+    };
   },
   computed: {
     isSFColors() {
@@ -112,18 +116,20 @@ export default {
       };
     },
     isSFIcons() {
-      if (typeof this.icon === "string") {
-        return SF_ICONS.includes(this.icon.trim());
-      } else return null;
+      return typeof this.icon === "string" && this.iconFile ? true : null;
     },
     iconViewBox() {
       return this.isSFIcons
-        ? icons[this.icon].viewBox || this.viewBox
+        ? this.iconFile.viewBox || this.viewBox
         : this.viewBox;
     },
     iconPaths() {
       if (this.isSFIcons) {
-        return icons[this.icon].paths;
+        return this.iconFile.hasOwnProperty("paths")
+          ? this.iconFile.paths
+          : Array.isArray(this.iconFile)
+          ? this.iconFile
+          : [this.iconFile];
       } else {
         return Array.isArray(this.icon) ? this.icon : [this.icon];
       }
@@ -132,6 +138,29 @@ export default {
       return this.coverage === 1
         ? "var(--icon-color)"
         : this.fillPathUrl(this._uid);
+    },
+  },
+  watch: {
+    icon: {
+      immediate: true,
+      handler: function (value) {
+        if (value) {
+          // checks if icon file name passed, otherwise load icon path
+          if (!new RegExp("[A-Z]+[0-9]+").test(value)) {
+            this.isLoaded = true;
+            import(
+              /* webpackChunkName: "icon-[request]" */ `@storefront-ui/shared/icons/${value}`
+            )
+              .then((module) => module.default)
+              .then((icon) => {
+                this.iconFile = icon;
+                this.isLoaded = false;
+              });
+          } else {
+            this.iconFile = value;
+          }
+        }
+      },
     },
   },
   methods: {

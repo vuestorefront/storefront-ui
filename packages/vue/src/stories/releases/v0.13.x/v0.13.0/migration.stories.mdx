@@ -1,0 +1,14 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Releases/v0.13.x - Latest/v0.13.0/Migration Guide" />
+
+# v0.13.0 Migration Guide 
+
+## Removal of mobile observer
+The biggest change we did in this version is the removal of conditional content rendering via mobile observer and isMobile. Therefore if you import this util into your project, it should be replaced with CSS styling. Otherwise, it can break your components render on different viewports.
+
+## Removal of SfSlidingSection
+We have decided to remove SfSlidingSection from the library. This component was built as a nice to have, but it required a lot of JS to work, while we are heading into more CSS only solutions. Replace this component in your applications with some more native solutions.
+
+
+
