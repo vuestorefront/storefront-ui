@@ -12,11 +12,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * outside zoom image size and position ([#2382](https://github.com/vuestorefront/storefront-ui/issues/2382)) ([f28be03](https://github.com/vuestorefront/storefront-ui/commit/f28be03ab247af0a571dfe2a6b915264d73d9466))
 * show desktop images in background ([#2372](https://github.com/vuestorefront/storefront-ui/issues/2372)) ([0525bcd](https://github.com/vuestorefront/storefront-ui/commit/0525bcd5d6d35064927f6e467c6a7a2bb7975b61))
 
-
-
-
-
-
 # [0.13.0](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.12.3...@storefront-ui/shared@0.13.0) (2022-03-21)
 
 
