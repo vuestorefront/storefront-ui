@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils'
-import SfRadioRight from '../../components/SfRadio/SfRadiRight.vue'
+import SfRadioRight from '../../components/SfRadio/SfRadioRight.vue'
 
 let wrapper
 

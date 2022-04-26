@@ -1,5 +1,10 @@
 import SfRadio from '../../components/SfRadio/SfRadio.vue'
 import SfRadioRight from '../../components/SfRadio/SfRadioRight.vue'
+import SfRadioTile from '../../components/SfRadio/SfRadioTile.vue'
+import SfRadioMultiline from '../../components/SfRadio/SfRadioMultiline.vue'
+import SfRadioDense from '../../components/SfRadio/SfRadioDense.vue'
+import SfRadioGroup from '../../components/SfRadio/SfRadioGroup.vue'
+import SfRadioGroupTile from '../../components/SfRadio/SfRadioGroupTile.vue'
 
 export default {
   title: 'SFUI Components/Radio',
@@ -11,84 +16,134 @@ export default {
           'The base radio component. [link to component docs on the page]'
       }
     }
+  },
+  argTypes: {
+    name: {
+      control: 'text',
+      table: {
+        category: 'Props'
+      },
+      defaultValue: 'radio',
+      description: 'Checkbox name'
+    },
+    value: {
+      control: 'text',
+      table: {
+        category: 'Props',
+        defaultValue: {
+          summary: ''
+        }
+      },
+      defaultValue: '',
+      description: 'Value selected.'
+    },
+    required: {
+      control: 'boolean',
+      table: {
+        category: 'Props',
+        defaultValue: {
+          summary: false
+        }
+      },
+      defaultValue: false,
+      description: 'Required field.'
+    },
+    disabled: {
+      control: 'boolean',
+      defaultValue: false,
+      table: {
+        category: 'Props'
+      },
+      description: 'Disables radio.'
+    },
+    invalid: {
+      control: 'boolean',
+      table: {
+        category: 'Props',
+        defaultValue: {
+          summary: false
+        }
+      },
+      defaultValue: false,
+      description: 'Shows error message value of radio group when true.'
+    }
   }
+
 }
 
 const Template = (args, { argTypes }) => ({
   components: { SfRadio },
   props: Object.keys(argTypes),
   template: `
-    <SfRadio name="radio" />`
+    <SfRadio 
+      :name="name"
+      :value="value"
+      :disabled="disabled"   
+      :invalid="invalid"  
+      :required="required" 
+    />`
 })
 
 export const Common = Template.bind({})
-
-const DisabledRadio = (args, { argTypes }) => ({
-  components: { SfRadio },
-  props: Object.keys(argTypes),
-  template: `
-    <SfRadio 
-      name="radio-1"
-      :disabled="true"
-    />`
-})
-
-export const Disabled = DisabledRadio.bind({})
-
-const RequiredRadio = (args, { argTypes }) => ({
-  components: { SfRadio },
-  props: Object.keys(argTypes),
-  template: `
-    <SfRadio 
-      name="radio-2"
-      :required="true"
-    />`
-})
-
-export const Required = RequiredRadio.bind({})
-
-const InvalidRadio = (args, { argTypes }) => ({
-  components: { SfRadio },
-  props: Object.keys(argTypes),
-  template: `
-    <SfRadio 
-      name="radio-2"
-      :invalid="true"
-    />`
-})
-
-export const Invalid = InvalidRadio.bind({})
-
+Common.args = {
+  name: 'radio',
+  value: 'store'
+}
 
 const RadioRight = (args, { argTypes }) => ({
   components: { SfRadioRight },
   props: Object.keys(argTypes),
   template: `
-    <SfRadioRight name="radio-right" />`
+    <SfRadioRight 
+      name="radio-right"
+      :value="value"
+      :disabled="disabled"   
+      :invalid="invalid"  
+      :required="required" 
+    />`
 })
 export const Right = RadioRight.bind({})
 
-
-const DisabledRadioRight = (args, { argTypes }) => ({
-  components: { SfRadioRight },
+const RadioTile = (args, { argTypes }) => ({
+  components: { SfRadioTile },
   props: Object.keys(argTypes),
   template: `
-    <SfRadioRight 
-      name="radio-right-1"
-      :disabled="true"
-    />`
+    <SfRadioTile name="radio-tile" />`
 })
+export const Tile = RadioTile.bind({})
 
-export const Disabled_Right = DisabledRadioRight.bind({})
-
-const RequiredRadioRight = (args, { argTypes }) => ({
-  components: { SfRadioRight },
+const RadioMultiline = (args, { argTypes }) => ({
+  components: { SfRadioMultiline },
   props: Object.keys(argTypes),
   template: `
-    <SfRadioRight 
-      name="radio-right-2"
-      :required="true"
-    />`
+    <SfRadioMultiline name="radio-multiline" />`
 })
 
-export const Required_Right = RequiredRadioRight.bind({})
+export const Multiline = RadioMultiline .bind({})
+
+const RadioDense = (args, { argTypes }) => ({
+  components: { SfRadioDense },
+  props: Object.keys(argTypes),
+  template: `
+    <SfRadioDense name="radio-dense" />`
+})
+
+export const Dense = RadioDense.bind({})
+
+const RadioGroup = (args, { argTypes }) => ({
+  components: { SfRadioGroup },
+  props: Object.keys(argTypes),
+  template: `
+    <SfRadioGroup />`
+})
+
+export const Group = RadioGroup.bind({})
+
+const RadioGroupTile = (args, { argTypes }) => ({
+  components: { SfRadioGroupTile },
+  props: Object.keys(argTypes),
+  template: `
+    <SfRadioGroupTile />`
+})
+
+export const Group_Tile = RadioGroupTile.bind({})

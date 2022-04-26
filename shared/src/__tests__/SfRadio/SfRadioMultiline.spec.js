@@ -1,12 +1,12 @@
 import { shallowMount } from '@vue/test-utils'
-import SfRadioRight from '../../components/SfRadio/SfRadioRight.vue'
+import SfRadioMultiline from '../../components/SfRadio/SfRadioMultiline.vue'
 
 let wrapper
 
-describe('SfRadioRight.vue', () => {
-  const name = 'radio'
+describe('SfRadioDense.vue', () => {
+  const name = 'radio-multiline'
   beforeEach(() => {
-    wrapper = shallowMount(SfRadioRight, {
+    wrapper = shallowMount(SfRadioMultiline, {
       propsData: {
         name
       }

@@ -1,12 +1,12 @@
 import { shallowMount } from '@vue/test-utils'
-import SfRadioRight from '../../components/SfRadio/SfRadioRight.vue'
+import SfRadioTile from '../../components/SfRadio/SfRadioTile.vue'
 
 let wrapper
 
-describe('SfRadioRight.vue', () => {
-  const name = 'radio'
+describe('SfRadioDense.vue', () => {
+  const name = 'radio-tile'
   beforeEach(() => {
-    wrapper = shallowMount(SfRadioRight, {
+    wrapper = shallowMount(SfRadioTile, {
       propsData: {
         name
       }

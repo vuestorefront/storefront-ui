@@ -1,5 +1,5 @@
 <template>
-  <div class="grid max-w-xs  grid-cols-[1fr_24px] grid-flow-col-dense gap-x-2.5 pt-2 pb-2">
+  <div class="grid max-w-xs grid-cols-[24px_1fr] gap-x-2.5 pt-2 pb-2 pl-4 pr-4 hover:bg-gray-100 rounded-md">
     <input
       :id="`radio${_uid}`"
       v-focus
@@ -13,9 +13,9 @@
     >
     <label
       :for="`radio${_uid}`"
-      class="col-start-1 text-gray-900 cursor-pointer text-base peer-required:after:content-['*'] peer-disabled:text-gray-900/40 peer-disabled:cursor-not-allowed font-body"
+      class="text-gray-900 cursor-pointer text-base peer-required:after:content-['*'] peer-disabled:text-gray-900/40 peer-disabled:cursor-not-allowed font-body"
     > Label</label>
-    <span class="hidden col-start-1 mt-1 text-xs text-gray-500 peer-required:block font-body">*Required</span>
+    <span class="hidden col-start-2 mt-1 text-xs text-gray-500 peer-required:block font-body">*Required</span>
   </div>
 </template>
 
