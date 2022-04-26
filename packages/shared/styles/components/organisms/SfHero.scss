@@ -6,7 +6,7 @@
   box-sizing: border-box;
   width: 100%;
   color: var(--c-text);
-  background-image: var(--hero-item-background-image, var(--hero-item-background-image-mobile));
+  background-image: var(--hero-item-background-image-mobile);
   background-repeat: no-repeat;
   background-size: cover;
   img,

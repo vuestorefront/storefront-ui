@@ -19,18 +19,4 @@ describe("Static page", () => {
       .get(".sf-tabs__content__tab")
       .contains("This privacy policy")
   });
-  it("test Content pages list", () => {
-    cy.get(".sf-content-pages__list-item")
-      .its('length')
-      .should('eq', 7)
-      .get(".sf-content-pages__list-item")
-      .eq(1)
-      .click()
-      .get(".sf-content-page")
-      .not('.display-none') 
-      .find("button")
-      .first()
-      .contains('Size guide')
-      .and("have.class", "is-active")
-  });
 });

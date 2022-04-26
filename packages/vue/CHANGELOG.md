@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.13.1](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/vue@0.13.0...@storefront-ui/vue@0.13.1) (2022-04-26)
+
+
+### Bug Fixes
+
+* added changes in changelog entry ([ee8b95d](https://github.com/vuestorefront/storefront-ui/commit/ee8b95d3703299029aab909b6b2d5d37be4b6410))
+* bullets console error ([633c499](https://github.com/vuestorefront/storefront-ui/commit/633c4993103bd4848d4487ae5e5b3aa28474c5c7))
+* change style and heroitem to show mobile images ([#2371](https://github.com/vuestorefront/storefront-ui/issues/2371)) ([d348a64](https://github.com/vuestorefront/storefront-ui/commit/d348a645fcf0350d0f45a72dc5a9a512186824df))
+* input console errors ([d86fc28](https://github.com/vuestorefront/storefront-ui/commit/d86fc281f58dc322438aa6c09e5e451532816e9b))
+* outside zoom image size and position ([#2382](https://github.com/vuestorefront/storefront-ui/issues/2382)) ([f28be03](https://github.com/vuestorefront/storefront-ui/commit/f28be03ab247af0a571dfe2a6b915264d73d9466))
+* sfbottommodal story ([#2375](https://github.com/vuestorefront/storefront-ui/issues/2375)) ([7b800cc](https://github.com/vuestorefront/storefront-ui/commit/7b800ccf01813c6252d72722d3bd96439e69a2c9))
+* show desktop images in background ([#2372](https://github.com/vuestorefront/storefront-ui/issues/2372)) ([0525bcd](https://github.com/vuestorefront/storefront-ui/commit/0525bcd5d6d35064927f6e467c6a7a2bb7975b61))
+* the issue of change is not defined in accordion ([#2347](https://github.com/vuestorefront/storefront-ui/issues/2347)) ([d72115b](https://github.com/vuestorefront/storefront-ui/commit/d72115b5efa397583dad05a345b259b1e5abdf67))
+* the issue of onClick not defined in button ([a679252](https://github.com/vuestorefront/storefront-ui/commit/a67925228ba77295ad9b82c306b479cef1c51723))
+
+
+### Features
+
+* added new website ([#2368](https://github.com/vuestorefront/storefront-ui/issues/2368)) ([378754f](https://github.com/vuestorefront/storefront-ui/commit/378754f967d47c239da0934bdbff3bc5d0175e35))
+
 # [0.13.0](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/vue@0.12.3...@storefront-ui/vue@0.13.0) (2022-03-21)
 
 
