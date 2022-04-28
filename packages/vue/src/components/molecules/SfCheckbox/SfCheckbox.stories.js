@@ -242,6 +242,7 @@ const Template = (args, { argTypes }) => ({
     style="--checkbox-container-width: 15rem;"
     :name="name"      
     :label="label"
+    :hintMessage="hintMessage"
     :required="required"
     :error-message="errorMessage"
     :valid="valid"
@@ -255,6 +256,7 @@ export const Common = Template.bind({});
 Common.args = {
   name: "shipping",
   label: "I want to create an account",
+  hintMessage: "Required.",
 };
 
 export const Selected = Template.bind({});
@@ -308,6 +310,7 @@ export const UseCheckmarkSlot = (args, { argTypes }) => ({
     style="--checkbox-container-width: 15rem;"
     :name="name"
     :label="label"
+    :hintMessage="hintMessage"
     :required="required"
     :error-message="errorMessage"
     :valid="valid"
