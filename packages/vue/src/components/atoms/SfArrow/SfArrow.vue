@@ -3,6 +3,7 @@
     :is="injections.components.SfButton"
     :class="[data.class, data.staticClass, 'sf-arrow']"
     :style="[data.style, data.staticStyle]"
+    :aria-label="props.ariaLabel"
     type="button"
     v-bind="data.attrs"
     v-on="listeners"
@@ -27,6 +28,12 @@ export default {
   inject: {
     components: {
       default: { SfButton, SfIcon },
+    },
+  },
+  props: {
+    ariaLabel: {
+      type: String,
+      default: "Arrow label",
     },
   },
 };
