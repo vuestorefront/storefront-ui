@@ -23,10 +23,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 * added new website ([#2368](https://github.com/vuestorefront/storefront-ui/issues/2368)) ([378754f](https://github.com/vuestorefront/storefront-ui/commit/378754f967d47c239da0934bdbff3bc5d0175e35))
 
-
-
-
-
 # [0.13.0](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/vue@0.12.3...@storefront-ui/vue@0.13.0) (2022-03-21)
 
 

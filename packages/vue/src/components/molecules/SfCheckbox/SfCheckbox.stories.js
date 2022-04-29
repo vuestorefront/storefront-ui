@@ -239,6 +239,7 @@ const Template = (args, { argTypes }) => ({
   template: `
   <SfCheckbox 
     v-model="checked"
+    style="--checkbox-container-width: 15rem;"
     :name="name"      
     :label="label"
     :hintMessage="hintMessage"
@@ -305,6 +306,7 @@ export const UseCheckmarkSlot = (args, { argTypes }) => ({
   template: `
   <SfCheckbox 
     v-model="checked"
+    style="--checkbox-container-width: 15rem;"
     :name="name"
     :label="label"
     :hintMessage="hintMessage"
@@ -335,6 +337,7 @@ export const UseErrorMessageSlot = (args, { argTypes }) => ({
   template: `
   <SfCheckbox 
     v-model="checked"
+    style="--checkbox-container-width: 15rem;"
     :name="name"      
     :label="label"
     :hint-message="hintMessage"
