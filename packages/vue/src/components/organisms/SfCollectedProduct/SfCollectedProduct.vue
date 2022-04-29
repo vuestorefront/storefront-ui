@@ -61,7 +61,7 @@
       <div :class="{ 'display-none': !hasRemove }">
         <SfCircleIcon
           icon="cross"
-          aria-label="Remove"
+          :aria-label="'Remove'"
           class="
             sf-circle-icon--small
             sf-collected-product__remove
