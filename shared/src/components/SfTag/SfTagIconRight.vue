@@ -3,13 +3,12 @@
     <slot>
       Label
     </slot>
-    <div class="w-4 h-4 ml-2 bg-black rounded-full">
-    </div>
+    <div class="w-4 h-4 ml-2 bg-black rounded-full" />
   </div>
 </template>
 
 <script>
 export default {
-  name: "SfTagDotRight"
+  name: "SfTagIconRight"
 }
 </script>
