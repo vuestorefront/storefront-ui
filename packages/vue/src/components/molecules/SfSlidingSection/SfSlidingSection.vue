@@ -8,7 +8,7 @@
         <slot name="close" v-bind="{ closeHandler }">
           <SfButton
             class="sf-button--pure sf-sliding-section__close"
-            :aria-label="'Close'"
+            aria-label="Close"
             @click="closeHandler"
           >
             <SfIcon icon="cross" size="14px" />
