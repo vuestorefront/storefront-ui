@@ -214,7 +214,7 @@ const Template = (args, { argTypes }) => ({
     :disabled="disabled"
     :min="min"
     :max="max"
-    :aria-label="Quantity"
+    :aria-label="ariaLabel"
     :class="classes"
     @blur="blur"
   />`,
