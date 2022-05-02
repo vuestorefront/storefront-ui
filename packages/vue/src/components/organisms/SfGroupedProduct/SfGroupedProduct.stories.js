@@ -430,6 +430,12 @@ export const UseConfigurationSlot = (args, { argTypes }) => ({
       productQty: 1,
     };
   },
+  methods: {
+    inputHandler(value) {
+      this.productQty = value;
+      this.input(value);
+    },
+  },
   template: `
   <SfGroupedProduct
     :settings="settings"
@@ -461,6 +467,12 @@ export const UseImageSlot = (args, { argTypes }) => ({
       productQty: 1,
     };
   },
+  methods: {
+    inputHandler(value) {
+      this.productQty = value;
+      this.input(value);
+    },
+  },
   template: `
   <SfGroupedProduct
     :settings="settings"
@@ -491,6 +503,12 @@ export const UseInputSlot = (args, { argTypes }) => ({
     return {
       productQty: 1,
     };
+  },
+  methods: {
+    inputHandler(value) {
+      this.productQty = value;
+      this.input(value);
+    },
   },
   template: `
   <SfGroupedProduct
@@ -525,6 +543,12 @@ export const UseTitleSlot = (args, { argTypes }) => ({
       productQty: 1,
     };
   },
+  methods: {
+    inputHandler(value) {
+      this.productQty = value;
+      this.input(value);
+    },
+  },
   template: `
   <SfGroupedProduct
     :settings="settings"
@@ -555,6 +579,12 @@ export const UsePriceSlot = (args, { argTypes }) => ({
     return {
       productQty: 1,
     };
+  },
+  methods: {
+    inputHandler(value) {
+      this.productQty = value;
+      this.input(value);
+    },
   },
   template: `
   <SfGroupedProduct
