@@ -256,6 +256,7 @@ export const Common = Template.bind({});
 Common.args = {
   name: "shipping",
   label: "I want to create an account",
+  hintMessage: "Required.",
 };
 
 export const Selected = Template.bind({});
