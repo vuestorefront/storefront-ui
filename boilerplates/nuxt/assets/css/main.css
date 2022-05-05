@@ -16,7 +16,7 @@
     @apply font-medium font-headings xs:text-xl sm:text-2xl;
   }
   h4 {
-    @apply font-bold font-headings xs:text-base sm:text-base uppercase;
+    @apply font-bold uppercase font-headings xs:text-base sm:text-base;
   }
 }
 
@@ -56,5 +56,10 @@
     }
     .outline-violet:focus {
         @apply outline outline-4 outline-offset-2 outline-violet-400;
+    }
+    .stopped-animation {
+        @media screen and (prefers-reduced-motion: reduce) {
+            animation-play-state: paused !important;
+        }
     }
 }
