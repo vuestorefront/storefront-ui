@@ -1,5 +1,5 @@
 <template>
-  <div class="grid max-w-xs grid-cols-[24px_1fr] gap-x-2.5 pt-2 pb-2">
+  <div class="grid max-w-xs grid-cols-[24px_1fr] gap-x-2.5 py-3.5">
     <input
       :id="`radio${_uid}`"
       v-focus
@@ -8,7 +8,7 @@
       :value="value"
       :disabled="disabled"
       :required="required"
-      class="peer w-[20px] h-[20px] cursor-pointer appearance-none rounded-full border-2 border-gray-500 hover:border-primary-500 checked:bg-primary-500 checked:border-primary-500 checked:shadow-inset disabled:cursor-not-allowed disabled:border-gray-500/50"
+      class="peer w-[20px] h-[20px] cursor-pointer appearance-none rounded-full border-2 border-gray-500 hover:border-primary-500 checked:bg-primary-500 checked:border-primary-500 checked:shadow-inset disabled:cursor-not-allowed disabled:border-gray-500/50 outline-violet"
       :class="{'border-negative-600': invalid }"
     >
     <label
@@ -48,7 +48,6 @@ export default {
       type: Boolean,
       default: false
     }
-  },
-  setup () {}
+  }
 }
 </script>

@@ -24,7 +24,6 @@ export default {
   name: 'SfRadioGroupTile',
   components: {
     SfRadioTile
-  },
-  setup () {}
+  }
 }
 </script>

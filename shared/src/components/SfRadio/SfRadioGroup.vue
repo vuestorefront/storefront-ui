@@ -24,7 +24,6 @@ export default {
   name: 'SfRadioGroup',
   components: {
     SfRadio
-  },
-  setup () {}
+  }
 }
 </script>

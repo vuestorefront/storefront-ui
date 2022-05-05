@@ -24,7 +24,7 @@ export default {
         category: 'Props'
       },
       defaultValue: 'radio',
-      description: 'Checkbox name'
+      description: 'Radio name'
     },
     value: {
       control: 'text',
