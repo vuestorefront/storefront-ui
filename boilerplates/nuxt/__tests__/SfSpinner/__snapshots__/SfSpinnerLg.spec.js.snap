@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SfSpinnerLg.vue render component correctly 1`] = `
+<div role="presentation" aria-live="polite" aria-busy="true" class="relative h-10">
+  <div class="absolute w-10 h-10 bg-transparent border-2 border-gray-200 rounded-full"></div>
+  <div class="absolute w-5 h-5 bg-transparent border-2 border-transparent rounded-tl-full animate-spin border-t-primary-600"></div>
+</div>
+`;

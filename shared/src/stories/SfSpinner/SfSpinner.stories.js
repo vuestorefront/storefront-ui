@@ -31,12 +31,12 @@ const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
   <div>
-    <SfSpinnerSm class="h-4 mb-2" />
-    <SfSpinnerBase class="h-6 mb-2" /> 
-    <SfSpinnerLg class="h-10 mb-2" />
-    <SfSpinnerXl class="h-14 mb-2" />
-    <SfSpinner2xl class="h-24 mb-4" />
-    <SfSpinner3xl class="h-48" />
+    <SfSpinnerSm class="mb-2" />
+    <SfSpinnerBase class="mb-2" /> 
+    <SfSpinnerLg class="mb-2" />
+    <SfSpinnerXl class="mb-2" />
+    <SfSpinner2xl class="mb-4" />
+    <SfSpinner3xl />
   </div>`
 });
 
