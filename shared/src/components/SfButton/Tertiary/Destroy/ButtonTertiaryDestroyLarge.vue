@@ -11,7 +11,7 @@
 import { focus } from '../../../../utils/focus-directive.js'
 
 export default {
-  name: 'SfButtonDestroyTertiary',
+  name: 'ButtonTertiaryDestroyLarge',
   directives: {
     focus
   }

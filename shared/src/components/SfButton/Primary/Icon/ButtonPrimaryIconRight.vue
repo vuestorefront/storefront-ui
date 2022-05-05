@@ -12,7 +12,7 @@
 import { focus } from '../../../../utils/focus-directive.js'
 
 export default {
-  name: 'SfButtonPrimaryIconLeft',
+  name: 'ButtonPrimaryIconRight',
   directives: {
     focus
   },

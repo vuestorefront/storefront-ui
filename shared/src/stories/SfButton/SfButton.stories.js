@@ -1,58 +1,57 @@
-import ButtonPrimary from "../../components/SfButton/Primary/ButtonPrimary.vue";
-import ButtonPrimarySmall from "../../components/SfButton/Primary/ButtonPrimarySmall.vue";
-import ButtonPrimaryLarge from "../../components/SfButton/Primary/ButtonPrimaryLarge.vue";
-import ButtonSecondary from "../../components/SfButton/Secondary/ButtonSecondary.vue";
-import ButtonSecondarySmall from "../../components/SfButton/Secondary/ButtonSecondarySmall.vue";
-import ButtonSecondaryLarge from "../../components/SfButton/Secondary/ButtonSecondaryLarge.vue";
-import ButtonTertiary from "../../components/SfButton/Tertiary/ButtonTertiary.vue";
-import ButtonTertiarySmall from "../../components/SfButton/Tertiary/ButtonTertiarySmall.vue";
-import ButtonTertiaryLarge from "../../components/SfButton/Tertiary/ButtonTertiaryLarge.vue";
-import ButtonDestroy from "../../components/SfButton/Primary/Destroy/ButtonDestroy.vue";
-import ButtonDestroySmall from "../../components/SfButton/Primary/Destroy/ButtonDestroySmall.vue";
-import ButtonDestroyLarge from "../../components/SfButton/Primary/Destroy/ButtonDestroyLarge.vue";
-import ButtonDestroySecondary from "../../components/SfButton/Secondary/Destroy/ButtonDestroySecondary.vue";
-import ButtonDestroySecondarySmall from "../../components/SfButton/Secondary/Destroy/ButtonDestroySecondarySmall.vue";
-import ButtonDestroySecondaryLarge from "../../components/SfButton/Secondary/Destroy/ButtonDestroySecondaryLarge.vue";
-import ButtonDestroyTertiary from "../../components/SfButton/Tertiary/Destroy/ButtonDestroyTertiary.vue";
-import ButtonTertiaryDestroySmall from "../../components/SfButton/Tertiary/Destroy/ButtonTertiaryDestroySmall.vue";
-import ButtonTertiaryDestroyLarge from "../../components/SfButton/Tertiary/Destroy/ButtonTertiaryDestroyLarge.vue";
-import ButtonIconLeft from "../../components/SfButton/Primary/Icon/ButtonPrimaryIconLeft.vue";
-import ButtonIconRight from "../../components/SfButton/Primary/Icon/ButtonPrimaryIconRight.vue";
-import ButtonIcons from "../../components/SfButton/Primary/Icon/ButtonPrimaryIcons.vue";
-
+import ButtonPrimary from '../../components/SfButton/Primary/ButtonPrimary.vue'
+import ButtonPrimarySmall from '../../components/SfButton/Primary/ButtonPrimarySmall.vue'
+import ButtonPrimaryLarge from '../../components/SfButton/Primary/ButtonPrimaryLarge.vue'
+import ButtonSecondary from '../../components/SfButton/Secondary/ButtonSecondary.vue'
+import ButtonSecondarySmall from '../../components/SfButton/Secondary/ButtonSecondarySmall.vue'
+import ButtonSecondaryLarge from '../../components/SfButton/Secondary/ButtonSecondaryLarge.vue'
+import ButtonTertiary from '../../components/SfButton/Tertiary/ButtonTertiary.vue'
+import ButtonTertiarySmall from '../../components/SfButton/Tertiary/ButtonTertiarySmall.vue'
+import ButtonTertiaryLarge from '../../components/SfButton/Tertiary/ButtonTertiaryLarge.vue'
+import ButtonPrimaryDestroy from '../../components/SfButton/Primary/Destroy/ButtonPrimaryDestroy.vue'
+import ButtonPrimaryDestroySmall from '../../components/SfButton/Primary/Destroy/ButtonPrimaryDestroySmall.vue'
+import ButtonPrimaryDestroyLarge from '../../components/SfButton/Primary/Destroy/ButtonPrimaryDestroyLarge.vue'
+import ButtonSecondaryDestroy from '../../components/SfButton/Secondary/Destroy/ButtonSecondaryDestroy.vue'
+import ButtonSecondaryDestroySmall from '../../components/SfButton/Secondary/Destroy/ButtonSecondaryDestroySmall.vue'
+import ButtonSecondaryDestroyLarge from '../../components/SfButton/Secondary/Destroy/ButtonSecondaryDestroyLarge.vue'
+import ButtonTertiaryDestroy from '../../components/SfButton/Tertiary/Destroy/ButtonTertiaryDestroy.vue'
+import ButtonTertiaryDestroySmall from '../../components/SfButton/Tertiary/Destroy/ButtonTertiaryDestroySmall.vue'
+import ButtonTertiaryDestroyLarge from '../../components/SfButton/Tertiary/Destroy/ButtonTertiaryDestroyLarge.vue'
+import ButtonIconLeft from '../../components/SfButton/Primary/Icon/ButtonPrimaryIconLeft.vue'
+import ButtonIconRight from '../../components/SfButton/Primary/Icon/ButtonPrimaryIconRight.vue'
+import ButtonIcons from '../../components/SfButton/Primary/Icon/ButtonPrimaryIcons.vue'
 
 export default {
-  title: "SFUI Components/Button",
+  title: 'SFUI Components/Button',
   component: ButtonPrimary,
   parameters: {
     docs: {
       description: {
         component:
-          "The base button component. [link to component docs on the page]",
-      },
-    },
+          'The base button component. [link to component docs on the page]'
+      }
+    }
   },
   argTypes: {
     disabled: {
-      control: "boolean",
+      control: 'boolean',
       defaultValue: false,
       table: {
-        category: "Props",
+        category: 'Props'
       },
       description:
-        "Native button disabled attribute",
+        'Native button disabled attribute'
     },
     default: {
       table: {
-        category: "Slots",
+        category: 'Slots',
         type: {
-          summary: null,
-        },
+          summary: null
+        }
       },
-      description: "Use this slot to place content inside the button",
-    },
-  },
-};
+      description: 'Use this slot to place content inside the button'
+    }
+  }
+}
 
 const Template = (args, { argTypes }) => ({
   components: { ButtonPrimary, ButtonPrimarySmall, ButtonPrimaryLarge },
@@ -63,9 +62,9 @@ const Template = (args, { argTypes }) => ({
     <ButtonPrimary :disabled="disabled">Hello</ButtonPrimary>
     <ButtonPrimaryLarge :disabled="disabled">Hello</ButtonPrimaryLarge>
   </div>`
-});
+})
 
-export const Primary = Template.bind({});
+export const Primary = Template.bind({})
 
 const SecondaryButton = (args, { argTypes }) => ({
   components: { ButtonSecondary, ButtonSecondarySmall, ButtonSecondaryLarge },
@@ -76,8 +75,8 @@ const SecondaryButton = (args, { argTypes }) => ({
     <ButtonSecondary :disabled="disabled">Hello</ButtonSecondary>
     <ButtonSecondaryLarge :disabled="disabled">Hello</ButtonSecondaryLarge>
   </div>`
-});
-export const Secondary = SecondaryButton.bind({});
+})
+export const Secondary = SecondaryButton.bind({})
 
 const TertiaryButton = (args, { argTypes }) => ({
   components: { ButtonTertiary, ButtonTertiarySmall, ButtonTertiaryLarge },
@@ -88,47 +87,47 @@ const TertiaryButton = (args, { argTypes }) => ({
     <ButtonTertiary :disabled="disabled">Hello</ButtonTertiary>
     <ButtonTertiaryLarge :disabled="disabled">Hello</ButtonTertiaryLarge>
   </div>`
-});
-export const Tertiary = TertiaryButton.bind({});
+})
+export const Tertiary = TertiaryButton.bind({})
 
 const DestroyButton = (args, { argTypes }) => ({
-  components: { ButtonDestroy, ButtonDestroySmall, ButtonDestroyLarge },
+  components: { ButtonPrimaryDestroy, ButtonPrimaryDestroySmall, ButtonPrimaryDestroyLarge },
   props: Object.keys(argTypes),
   template: `
   <div>
-    <ButtonDestroySmall :disabled="disabled">Hello</ButtonDestroySmall>
-    <ButtonDestroy :disabled="disabled">Hello</ButtonDestroy>
-    <ButtonDestroyLarge :disabled="disabled">Hello</ButtonDestroyLarge>
+    <ButtonPrimaryDestroySmall :disabled="disabled">Hello</ButtonPrimaryDestroySmall>
+    <ButtonPrimaryDestroy :disabled="disabled">Hello</ButtonPrimaryDestroy>
+    <ButtonPrimaryDestroyLarge :disabled="disabled">Hello</ButtonPrimaryDestroyLarge>
   </div>`
-});
-export const Destroy = DestroyButton.bind({});
+})
+export const DestroyPrimary = DestroyButton.bind({})
 
 const DestroySecondaryButton = (args, { argTypes }) => ({
-  components: { ButtonDestroySecondary, ButtonDestroySecondarySmall, ButtonDestroySecondaryLarge },
+  components: { ButtonSecondaryDestroy, ButtonSecondaryDestroySmall, ButtonSecondaryDestroyLarge },
   props: Object.keys(argTypes),
   template: `
   <div>
-    <ButtonDestroySecondarySmall :disabled="disabled">Hello</ButtonDestroySecondarySmall>
-    <ButtonDestroySecondary :disabled="disabled">Hello</ButtonDestroySecondary>
-    <ButtonDestroySecondaryLarge :disabled="disabled">Hello</ButtonDestroySecondaryLarge>
+    <ButtonSecondaryDestroySmall :disabled="disabled">Hello</ButtonSecondaryDestroySmall>
+    <ButtonSecondaryDestroy :disabled="disabled">Hello</ButtonSecondaryDestroy>
+    <ButtonSecondaryDestroyLarge :disabled="disabled">Hello</ButtonSecondaryDestroyLarge>
   </div>`
-});
-export const DestroySecondary = DestroySecondaryButton.bind({});
+})
+export const DestroySecondary = DestroySecondaryButton.bind({})
 
 const DestroyTertiaryButton = (args, { argTypes }) => ({
-  components: { ButtonDestroyTertiary, ButtonTertiaryDestroySmall, ButtonTertiaryDestroyLarge },
+  components: { ButtonTertiaryDestroy, ButtonTertiaryDestroySmall, ButtonTertiaryDestroyLarge },
   props: Object.keys(argTypes),
   template: `
   <div>
     <ButtonTertiaryDestroySmall :disabled="disabled">Hello</ButtonTertiaryDestroySmall>
-    <ButtonDestroyTertiary :disabled="disabled">Hello</ButtonDestroyTertiary>
+    <ButtonTertiaryDestroy :disabled="disabled">Hello</ButtonTertiaryDestroy>
     <ButtonTertiaryDestroyLarge :disabled="disabled">Hello</ButtonTertiaryDestroyLarge>
   </div>`
-});
-export const DestroyTertiary = DestroyTertiaryButton.bind({});
+})
+export const DestroyTertiary = DestroyTertiaryButton.bind({})
 
 const IconButton = (args, { argTypes }) => ({
-  components: { 
+  components: {
     ButtonIconLeft,
     ButtonIconRight,
     ButtonIcons
@@ -158,5 +157,5 @@ const IconButton = (args, { argTypes }) => ({
       </svg>
     </ButtonIconRight>
   </div>`
-});
-export const WithIcons = IconButton.bind({});
+})
+export const PriamryWithIcons = IconButton.bind({})

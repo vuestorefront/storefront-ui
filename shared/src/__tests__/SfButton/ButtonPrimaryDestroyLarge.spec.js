@@ -1,11 +1,11 @@
 import { shallowMount } from '@vue/test-utils'
-import ButtonDestroyLarge from '../../components/SfButton/Primary/Destroy/ButtonDestroyLarge.vue'
+import ButtonPrimaryDestroyLarge from '../../components/SfButton/Primary/Destroy/ButtonPrimaryDestroyLarge.vue'
 
 let wrapper
 
-describe('ButtonDestroyLarge.vue', () => {
+describe('ButtonPrimaryDestroyLarge.vue', () => {
   beforeEach(() => {
-    wrapper = shallowMount(ButtonDestroyLarge)
+    wrapper = shallowMount(ButtonPrimaryDestroyLarge)
   })
   it('render component correctly', () => {
     expect(wrapper.html()).toMatchSnapshot()
