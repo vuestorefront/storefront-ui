@@ -9,11 +9,11 @@ export const focus = {
         el.focus()
       }
     }
-    el.addEventListener('mousedown', el._mouseHandler)
+    window.addEventListener('mousedown', el._mouseHandler)
     el.addEventListener('keyup', el._keyHandler)
   },
   unbind (el) {
-    el.removeEventListener('mousedown', el._mouseHandler)
+    window.removeEventListener('mousedown', el._mouseHandler)
     el.removeEventListener('keyup', el._keyHandler)
   }
 }
