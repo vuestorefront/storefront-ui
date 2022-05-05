@@ -8,7 +8,7 @@
       :value="value"
       :disabled="disabled"
       :required="required"
-      class="peer w-[20px] h-[20px] cursor-pointer appearance-none rounded-full border-2 border-gray-500 hover:border-primary-500 checked:bg-primary-500 checked:border-primary-500 checked:shadow-inset disabled:cursor-not-allowed disabled:border-gray-500/50 outline-violet"
+      class="peer w-[20px] h-[20px] mt-px cursor-pointer appearance-none rounded-full border-2 border-gray-500 hover:border-primary-500 checked:bg-primary-500 checked:border-primary-500 checked:shadow-inset disabled:cursor-not-allowed disabled:border-gray-500/50 outline-violet"
       :class="{'border-negative-600': invalid }"
     >
     <label
