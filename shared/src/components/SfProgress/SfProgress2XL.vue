@@ -1,12 +1,15 @@
 <template>
-  <div>
+  <div
+    role="progressbar"
+    :aria-valuenow="value"
+    aria-valuemin="0"
+    aria-valuemax="100"
+    aria-label="Loading"
+  >
     <svg
-      id="svg"
       width="96"
       height="96"
       stroke-width="4"
-      stroke="#e6e6e6"
-      class="-rotate-90"
       viewPort="0 0 24 24"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
@@ -16,24 +19,24 @@
           r="44"
           cx="48"
           cy="48"
+          stroke="#e6e6e6"
           fill="none"
           stroke-dasharray="276.32, 276.32"
+          class="origin-center rotate-[-90deg]"
         />
         <circle
-          id="bar"
           r="44"
           cx="48"
           cy="48"
-          stroke-width="4"
           stroke="#16A34A"
           fill="none"
           :stroke-dasharray="`${276.32 * (value / 100)}` + ', 276.32'"
-          class="transition-all ease-in-out duration-[600ms]"
+          class="transition-all ease-in-out duration-[600ms] origin-center rotate-[-90deg]"
         />
         <text
           text-anchor="middle"
           alignment-baseline="central"
-          class="font-medium origin-center rotate-[90deg] fill-gray-900 font-body stroke-black stroke-0"
+          class="font-medium origin-center stroke-0 fill-gray-900 font-body stroke-black"
           x="50%"
           y="50%"
         >{{ value }}%</text>
@@ -45,7 +48,7 @@
 <script>
 
 export default {
-  name: 'SfProgress',
+  name: 'SfProgress2XL',
   props: {
     value: {
       type: Number,

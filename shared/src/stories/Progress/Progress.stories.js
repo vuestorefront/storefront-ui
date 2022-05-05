@@ -90,9 +90,15 @@ const LinearProgress = (args, { argTypes }) => ({
     this.loadProgress();
   },
   template: `
-  <div class="flex flex-col gap-y-4">
-    <SfProgressLinear :value="progressValue" />
-    <SfProgressLinear :value="progressValue" />
-  </div>`
+  <div>
+    <SfProgressLinear :value="progressValue" class="mb-5" />
+    <progress
+      :value="progressValue"
+      max="100"
+      aria-label="Loading"
+      class="h-6 progress-linear"
+    />
+  </div>
+  `
 });
 export const Linear = LinearProgress.bind({});

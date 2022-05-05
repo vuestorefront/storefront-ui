@@ -1,18 +1,22 @@
 <template>
   <div class="flex items-center">
     <progress
+      id="progressbar"
       :value="value"
       max="100"
       class="h-6 progress-linear"
     />
-    <span class="ml-1 text-xs font-medium font-body">{{ value }}%</span>
+    <label
+      for="progressbar"
+      class="ml-1 text-xs font-medium font-body"
+    >{{ value }}%</label>
   </div>
 </template>
 
 <script>
 
 export default {
-  name: 'SfProgress',
+  name: 'SfProgressLinear',
   props: {
     value: {
       type: Number,
