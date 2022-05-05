@@ -17,6 +17,13 @@ export default {
       },
     },
   },
+  argTypes: {
+    value: {
+      control: "number",
+      defaultValue: "0",
+      description: "Progress value",
+    },
+  }
 };
 
 const Template = (args, { argTypes }) => ({
