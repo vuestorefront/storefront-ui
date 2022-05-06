@@ -1,6 +1,7 @@
 # v0.0.1
 
 ## 🚀 Features:
+- Spinner component created with stories and tests 
 
 ## 🐛 Fixes:
 
