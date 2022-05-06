@@ -83,6 +83,8 @@
     </div>
     Hello nuxt
     <SfDivider />
+    <SfCheckbox name="checkbox" />
+    <SfCheckboxRight name="checkbox" />
   </div>
 </template>
 
@@ -102,6 +104,8 @@ import SfProgress2XL from '../components/SfProgress/SfProgress2XL.vue'
 import SfProgressLG from '../components/SfProgress/SfProgressLG.vue'
 import SfProgressSM from '../components/SfProgress/SfProgressSM.vue'
 import SfProgressLinear from '../components/SfProgress/SfProgressLinear.vue'
+import SfCheckbox from '../components/SfCheckbox/SfCheckbox.vue'
+import SfCheckboxRight from '../components/SfCheckbox/SfCheckboxRight.vue'
 
 export default {
   name: 'IndexPage',
@@ -133,6 +137,8 @@ export default {
     }, 1000)
 
     return {
+      SfCheckbox,
+      SfCheckboxRight,
       SfButtonPrimary,
       SfButtonSecondary,
       SfButtonTertiary,
