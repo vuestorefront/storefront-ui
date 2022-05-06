@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils'
-import ButtonPrimaryIcons from '../../components/SfButton/Primary/Icon/ButtonPrimaryIcons.vue'
+import ButtonPrimaryIcons from '../../components/Button/Primary/Icon/ButtonPrimaryIcons.vue'
 
 let wrapper
 

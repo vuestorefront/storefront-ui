@@ -1,10 +1,10 @@
 import { shallowMount } from '@vue/test-utils'
-import ButtonSecondary from '../../components/SfButton/Secondary/ButtonSecondary.vue'
+import ButtonTertiary from '../../components/Button/Tertiary/ButtonTertiary.vue'
 let wrapper
 
-describe('ButtonSecondary.vue', () => {
+describe('ButtonTertiary.vue', () => {
   beforeEach(() => {
-    wrapper = shallowMount(ButtonSecondary)
+    wrapper = shallowMount(ButtonTertiary)
   })
   it('render component correctly', () => {
     expect(wrapper.html()).toMatchSnapshot()
