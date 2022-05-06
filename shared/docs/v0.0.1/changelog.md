@@ -2,6 +2,8 @@
 
 ## 🚀 Features:
 - Spinner component created with stories and tests 
+- Tag component created with tests and stories 
+- Sheet component created
 
 ## 🐛 Fixes:
 
