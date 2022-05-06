@@ -1,11 +1,11 @@
 import { shallowMount } from '@vue/test-utils'
-import ButtonPrimaryIconLeft from '../../components/SfButton/Primary/Icon/ButtonPrimaryIconLeft.vue'
+import ButtonPrimaryLarge from '../../components/Button/Primary/ButtonPrimaryLarge.vue'
 
 let wrapper
 
 describe('SfButton.vue', () => {
   beforeEach(() => {
-    wrapper = shallowMount(ButtonPrimaryIconLeft)
+    wrapper = shallowMount(ButtonPrimaryLarge)
   })
   it('render component correctly', () => {
     expect(wrapper.html()).toMatchSnapshot()

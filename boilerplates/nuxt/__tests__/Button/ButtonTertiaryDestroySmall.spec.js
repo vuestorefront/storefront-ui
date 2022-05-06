@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils'
-import ButtonDestroyTertiarySmall from '../../components/SfButton/Tertiary/Destroy/ButtonTertiaryDestroySmall.vue'
+import ButtonDestroyTertiarySmall from '../../components/Button/Tertiary/Destroy/ButtonTertiaryDestroySmall.vue'
 
 let wrapper
 
