@@ -1,6 +1,7 @@
 # v0.0.1
 
 ## 🚀 Features:
+- Tag component created with tests and stories 
 - Sheet component created
 
 ## 🐛 Fixes:
