@@ -138,12 +138,10 @@ module.exports = {
       keyframes: {
         spin: {
           'from': {
-            transform: 'rotate:(0deg)',
-            'transform-origin': 'bottom right'
+            transform: 'rotate:(0deg)'
           },
           'to': {
-            transform: 'rotate(360deg)',
-            'transform-origin': 'bottom right'
+            transform: 'rotate(360deg)'
           }
         },
         'linear-loader': {
@@ -158,7 +156,7 @@ module.exports = {
         }
       },
       animation: {
-        spin: 'spin 1s linear infinite',
+        spin: 'spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite',
         'linear-loader': 'linear-loader 1.5s ease-in infinite'
       }
     }

@@ -1,6 +1,7 @@
 <template>
   <div
     class="relative h-6"
+    role="progressbar"
   >
     <div
       class="sr-only"
@@ -9,7 +10,10 @@
       loading...
     </div>
     <div class="absolute w-6 h-6 bg-transparent border-2 border-gray-200 rounded-full" />
-    <div class="w-3 h-3 bg-transparent border-2 border-transparent rounded-tl-full stopped-animation before:absolute animate-spin border-t-primary-600" />
+    <div class="absolute w-6 h-6 bg-transparent border-2 rounded-[50%] is-animation-stopped animate-spin border-t-primary-600" />
+    <div class="absolute w-6 h-6 bg-transparent border-2 rounded-[50%] is-animation-stopped animate-spin animation-delay-1 border-t-primary-600 border-x-transparent border-b-transparent" />
+    <div class="absolute w-6 h-6 bg-transparent border-2 rounded-[50%] is-animation-stopped animate-spin animation-delay-2 border-t-primary-600 border-x-transparent border-b-transparent" />
+    <div class="absolute w-6 h-6 bg-transparent border-2 rounded-[50%] is-animation-stopped animate-spin animation-delay-3 border-t-primary-600 border-x-transparent border-b-transparent" />
   </div> 
 </template>
 

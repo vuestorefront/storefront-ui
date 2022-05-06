@@ -9,7 +9,10 @@
       loading...
     </div>
     <div class="absolute w-48 h-48 bg-transparent border-8 border-gray-200 rounded-[100%]" />
-    <div class="stopped-animation absolute w-24 h-24 bg-transparent border-8 border-transparent rounded-tl-[100%] animate-spin border-t-primary-600" />
+    <div class="absolute w-48 h-48 bg-transparent border-8 rounded-[50%] is-animation-stopped animate-spin border-t-primary-600" />
+    <div class="absolute w-48 h-48 bg-transparent border-8 rounded-[50%] is-animation-stopped animate-spin animation-delay-1 border-t-primary-600 border-x-transparent border-b-transparent" />
+    <div class="absolute w-48 h-48 bg-transparent border-8 rounded-[50%] is-animation-stopped animate-spin animation-delay-2 border-t-primary-600 border-x-transparent border-b-transparent" />
+    <div class="absolute w-48 h-48 bg-transparent border-8 rounded-[50%] is-animation-stopped animate-spin animation-delay-3 border-t-primary-600 border-x-transparent border-b-transparent" />
   </div>
 </template>
 
