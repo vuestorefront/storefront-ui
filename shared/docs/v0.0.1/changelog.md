@@ -2,6 +2,7 @@
 
 ## 🚀 Features:
 - Tag component created with tests and stories 
+- Sheet component created
 
 ## 🐛 Fixes:
 
