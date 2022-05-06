@@ -1,10 +1,10 @@
 import { shallowMount } from '@vue/test-utils'
-import SfTagDotLeft from '../../components/SfTag/SfTagDotLeft.vue'
+import SfTagIconLeft from '../../components/SfTag/SfTagIconLeft.vue'
 let wrapper
 
-describe('SfTagDotLeft.vue', () => {
+describe('SfTagIconLeft.vue', () => {
   beforeEach(() => {
-    wrapper = shallowMount(SfTagDotLeft)
+    wrapper = shallowMount(SfTagIconLeft)
   })
   it('render component correctly', () => {
     expect(wrapper.html()).toMatchSnapshot()

@@ -1,14 +1,16 @@
 
-import SfTag from '../../components/SfTag/SfTag.vue';
-import SfTagDot from '../../components/SfTag/SfTagDot'
-import SfTagDotLeft from '../../components/SfTag/SfTagDotLeft'
-import SfTagDotRight from '../../components/SfTag/SfTagDotRight'
+import SfTag from '../../components/SfTag/SfTag'
+import SfTagIcon from '../../components/SfTag/SfTagIcon'
+import SfTagIconLeft from '../../components/SfTag/SfTagIconLeft'
+import SfTagIconRight from '../../components/SfTag/SfTagIconRight'
 
 export default {
   title: 'SFUI Components/Tag',
   component: SfTag,
-  parameters: {
+  parameters: {    
     docs: {
+      inlineStories: false,
+      iframeHeight: '100px',
       description: {
         component:
           'The tag component. [link to component docs on the page]',
@@ -26,29 +28,29 @@ const Template = (args, { argTypes }) => ({
 
 export const Common = Template.bind({})
 
-const TagDot = (args, { argTypes }) => ({
-  components: { SfTagDot },
+const TagIcon = (args, { argTypes }) => ({
+  components: { SfTagIcon },
   template: `
-    <SfTagDot />
+    <SfTagIcon />
     `
 })
 
-export const Dot = TagDot.bind({})
+export const Icon = TagIcon.bind({})
 
-const TagDotLeft = (args, { argTypes }) => ({
-  components: { SfTagDotLeft },
+const TagIconLeft = (args, { argTypes }) => ({
+  components: { SfTagIconLeft },
   template: `
-    <SfTagDotLeft />
+    <SfTagIconLeft />
     `
 })
 
-export const DotLeft = TagDotLeft.bind({})
+export const IconLeft = TagIconLeft.bind({})
 
-const TagDotRight = (args, { argTypes }) => ({
-  components: { SfTagDotRight },
+const TagIconRight = (args, { argTypes }) => ({
+  components: { SfTagIconRight },
   template: `
-    <SfTagDotRight />
+    <SfTagIconRight />
     `
 })
 
-export const DotRight = TagDotRight.bind({})
+export const IconRight = TagIconRight.bind({})
