@@ -5,7 +5,9 @@ export default {
   component: SfSheet,
   parameters: {
     docs: {
-      description: {
+      inlineStories: false,
+      iframeHeight: "200px",
+      description: {        
         component:
           "The sheet component. [link to component docs on the page]",
       },
