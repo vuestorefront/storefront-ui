@@ -69,6 +69,8 @@
     </div>
     Hello nuxt
     <SfDivider />
+    <SfCheckbox name="checkbox" />
+    <SfCheckboxRight name="checkbox" />
   </div>
 </template>
 
@@ -81,6 +83,8 @@ import SfButtonDestroySecondary from '../components/SfButton/SfButtonDestroySeco
 import SfButtonDestroyTertiary from '../components/SfButton/SfButtonDestroyTertiary.vue'
 import SfButtonRounded from '../components/SfButton/SfButtonRounded.vue'
 import SfDivider from '../components/SfDivider/SfDivider.vue'
+import SfCheckbox from '../components/SfCheckbox/SfCheckbox.vue'
+import SfCheckboxRight from '../components/SfCheckbox/SfCheckboxRight.vue'
 
 export default {
   name: 'IndexPage',
@@ -97,6 +101,8 @@ export default {
   setup () {
     const onClick = () => console.log('Clicked button')
     return {
+      SfCheckbox,
+      SfCheckboxRight,
       SfButtonPrimary,
       SfButtonSecondary,
       SfButtonTertiary,
