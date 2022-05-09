@@ -1,24 +1,22 @@
-<template functional>
+<template>
   <nav
-    :class="[data.class, data.staticClass, 'sf-breadcrumbs']"
-    :style="[data.style, data.staticStyle]"
-    v-bind="data.attrs"
-    :aria-label="props.ariaLabel"
-    v-on="listeners"
+    :class="[$attrs.class, $attrs.staticClass, 'sf-breadcrumbs']"
+    :style="[$attrs.style, $attrs.staticStyle]"
+    v-bind="$attrs"
+    :aria-label="ariaLabel"
+    v-on="$listeners"
   >
     <ol class="sf-breadcrumbs__list">
       <li
-        v-for="(breadcrumb, i) in props.breadcrumbs"
+        v-for="(breadcrumb, i) in breadcrumbs"
         :key="i"
         class="sf-breadcrumbs__list-item"
-        :aria-current="
-          $options.breadcrumbLast(props.breadcrumbs) === i && 'page'
-        "
+        :aria-current="breadcrumbLast(breadcrumbs) === i && 'page'"
       >
-        <template v-if="$options.breadcrumbLast(props.breadcrumbs) !== i">
+        <template v-if="breadcrumbLast(breadcrumbs) !== i">
           <slot name="link" v-bind="{ breadcrumb }">
             <component
-              :is="injections.components.SfLink"
+              :is="components.SfLink"
               class="sf-breadcrumbs__breadcrumb"
               :link="breadcrumb.link"
               :data-testid="breadcrumb.text"
@@ -30,7 +28,7 @@
         <template v-else>
           <slot name="current" v-bind="{ breadcrumb }">
             <component
-              :is="injections.components.SfLink"
+              :is="components.SfLink"
               :link="breadcrumb.link"
               class="sf-breadcrumbs__breadcrumb current"
             >
@@ -43,14 +41,12 @@
   </nav>
 </template>
 <script>
-import SfLink from "../SfLink/SfLink";
+import { SfLink } from "@storefront-ui/vue";
 export default {
   name: "SfBreadcrumbs",
-  inject: {
     components: {
       default: { SfLink },
     },
-  },
   props: {
     breadcrumbs: {
       type: Array,
@@ -61,11 +57,18 @@ export default {
       default: "breadcrumb",
     },
   },
-  breadcrumbLast(breadcrumbs) {
-    return breadcrumbs.length - 1;
+  computed: {
+    components() {
+      return { SfLink }
+    }
   },
+  methods: {
+    breadcrumbLast(breadcrumbs) {
+      return breadcrumbs.length - 1;
+    },
+  }
 };
 </script>
 <style lang="scss">
-@import "~@storefront-ui/shared/styles/components/atoms/SfBreadcrumbs.scss";
+@import "@storefront-ui/shared/styles/components/atoms/SfBreadcrumbs.scss";
 </style>

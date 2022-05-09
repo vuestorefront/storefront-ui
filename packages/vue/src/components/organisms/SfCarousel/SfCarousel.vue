@@ -123,6 +123,9 @@ export default {
       this.glide = glide;
     });
   },
+  beforeDestroy() {
+    this.glide.destroy();
+  },
   methods: {
     go(direct) {
       if (!this.glide) return;
