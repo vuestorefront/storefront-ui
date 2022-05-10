@@ -245,7 +245,7 @@ export const UseIconSlot = (args, { argTypes }) => ({
   template: `
   <SfSearchBar
     :placeholder="placeholder"
-    @click="click"
+    @click:icon="this['click:icon']"
     @blur="blur"
     @focus="focus"
     @input="input"
