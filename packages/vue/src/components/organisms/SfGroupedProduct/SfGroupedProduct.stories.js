@@ -362,7 +362,7 @@ export default {
       description:
         "Named slot for `SfGroupedProductItem` component. Use this slot to pass custom price element",
     },
-    input: {
+    "input ": {
       table: {
         category: "Slots",
         type: {
