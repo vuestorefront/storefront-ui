@@ -57,6 +57,20 @@
     .outline-violet:focus {
         @apply outline outline-4 outline-offset-2 outline-violet-400;
     }
+    .is-animation-stopped {
+        @media screen and (prefers-reduced-motion: reduce) {
+            animation-play-state: paused !important;
+        }
+    }
+    .animation-delay-1 {
+        animation-delay: -0.45s !important;
+    }
+    .animation-delay-2 {
+        animation-delay: -0.30s !important;
+    }
+    .animation-delay-3 {
+        animation-delay: -0.15s !important;
+    }
     .progress-linear::-webkit-progress-bar {
         @apply bg-gray-200;
       }
