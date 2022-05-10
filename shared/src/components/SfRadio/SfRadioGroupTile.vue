@@ -9,8 +9,12 @@
     <SfRadioTile
       name="radio-group-tile-1"
       :invalid="true"
+      value="one"
     />
-    <SfRadioTile name="radio-group-tile-2" />
+    <SfRadioTile
+      name="radio-group-tile-2"
+      value="two"
+    />
     <span
       id="errorMessage"
       class="block col-span-2 mt-1 text-sm font-medium text-negative-600 font-body"

@@ -23,7 +23,7 @@
 <script>
 import { focus } from '../../utils/focus-directive.js'
 export default {
-  name: 'SfRadio',
+  name: 'SfRadioMultiline',
   directives: {
     focus
   },

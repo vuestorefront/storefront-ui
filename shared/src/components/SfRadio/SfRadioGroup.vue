@@ -9,8 +9,12 @@
     <SfRadio
       name="radio-group-1"
       :invalid="true"
+      value="one"
     />
-    <SfRadio name="radio-group-2" />
+    <SfRadio
+      name="radio-group-2"
+      value="two"
+    />
     <span
       id="errorMessage"
       class="block col-span-2 mt-1 text-sm font-medium text-negative-600 font-body"
