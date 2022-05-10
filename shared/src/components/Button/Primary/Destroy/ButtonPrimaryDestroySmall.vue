@@ -14,6 +14,12 @@ export default {
   name: 'ButtonPrimaryDestroySmall',
   directives: {
     focus
+  },
+  props: {
+    disabled: {
+      type: Boolean,
+      default: false
+    }
   }
 }
 </script>

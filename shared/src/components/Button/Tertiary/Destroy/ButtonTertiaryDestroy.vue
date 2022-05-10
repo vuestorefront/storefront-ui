@@ -14,6 +14,12 @@ export default {
   name: 'ButtonTertiaryDestroy',
   directives: {
     focus
+  },
+  props: {
+    disabled: {
+      type: Boolean,
+      default: false
+    }
   }
 }
 </script>

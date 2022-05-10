@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SfTag.vue render component correctly 1`] = `
+<div class="absolute flex px-3 py-1 text-sm font-normal text-gray-600 bg-gray-100 rounded-md font-body direction-row">
+  Label
+</div>
+`;
