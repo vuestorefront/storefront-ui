@@ -30,7 +30,7 @@
           cy="96"
           stroke="#16A34A"
           fill="none"
-          :stroke-dasharray="`${552.64 * (value / 100)}` + ', 552.64'"
+          :stroke-dasharray="`${552.64 * (value / 100)}, 552.64`"
           class="transition-all ease-in-out duration-[600ms] origin-center rotate-[-90deg]"
         />
         <text

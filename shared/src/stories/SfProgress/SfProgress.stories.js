@@ -103,7 +103,7 @@ const LinearProgress = (args, { argTypes }) => ({
       :value="progressValue"
       max="100"
       aria-label="Loading"
-      class="h-6 progress-linear"
+      class="h-1 progress-linear"
     />
   </div>
   `

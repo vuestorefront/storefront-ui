@@ -29,7 +29,7 @@
         cy="10"
         stroke="#16A34A"
         fill="none"
-        :stroke-dasharray="`${57.556 * (value / 100)}` + ', 57.556'"
+        :stroke-dasharray="`${57.556 * (value / 100)}, 57.556`"
         class="transition-all ease-in-out duration-[600ms]"
       />
     </svg>
