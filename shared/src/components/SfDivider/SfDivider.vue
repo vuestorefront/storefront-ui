@@ -1,5 +1,5 @@
 <template>
-  <hr class="h-px bg-gray-200 w-80"/>
+  <hr class="h-px bg-gray-200 w-80">
 </template>
 
 <script>
