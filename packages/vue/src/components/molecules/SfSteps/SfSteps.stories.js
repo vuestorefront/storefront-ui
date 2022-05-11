@@ -179,6 +179,7 @@ const Template = (args, { argTypes }) => ({
   methods: {
     stepHandler(value) {
       this.currentStepIndex = value;
+      this.change(value);
     },
   },
   template: `
@@ -212,6 +213,7 @@ export const NoGoBack = (args, { argTypes }) => ({
   methods: {
     stepHandler(value) {
       this.currentStepIndex = value;
+      this.change(value);
     },
   },
   template: `
