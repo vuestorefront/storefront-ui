@@ -1,46 +1,44 @@
 <template>
   <div>
     <p>Progress Linear</p>
-    <SfProgressLinear class="mb-5" :value="value" />
+    <ProgressLinear class="mb-5" :value="value" />
     <p>Progress SM</p>
-    <SfProgressSM :value="value" />
-    <p>Progress Base</p>
-    <SfProgressBase :value="value" />
+    <ProgressSm :value="value" />
+    <!-- <p>Progress Base</p>
+    <ProgressBase :value="value" /> -->
     <p>Progress LG</p>
-    <SfProgressLG :value="value" />
+    <ProgressLg :value="value" />
     <p>Progress XL</p>
-    <SfProgressXL :value="value" />
+    <ProgressXl :value="value" />
     <p>Progress 2XL</p>
-    <SfProgress2XL :value="value" />
+    <Progress2Xl :value="value" />
     <p>Progress 3XL</p>
-    <SfProgress3XL :value="value" />
+    <Progress3Xl :value="value" />
     Hello nuxt
-    <SfDivider />
-    <SfCheckbox name="checkbox" />
-    <SfCheckboxRight name="checkbox" />
+    <DividerBase />
   </div>
 </template>
 
 <script>
 import { ref } from '@nuxtjs/composition-api'
-import SfDivider from '../components/SfDivider/SfDivider.vue'
-import SfProgress3XL from '../components/SfProgress/SfProgress3XL.vue'
-import SfProgressXL from '../components/SfProgress/SfProgressXL.vue'
-import SfProgress2XL from '../components/SfProgress/SfProgress2XL.vue'
-import SfProgressLG from '../components/SfProgress/SfProgressLG.vue'
-import SfProgressSM from '../components/SfProgress/SfProgressSM.vue'
-import SfProgressLinear from '../components/SfProgress/SfProgressLinear.vue'
+import DividerBase from '../components/Divider/DividerBase.vue'
+import Progress3Xl from '../components/Progress/Progress3Xl.vue'
+import ProgressXl from '../components/Progress/ProgressXl.vue'
+import Progress2Xl from '../components/Progress/Progress2Xl.vue'
+import ProgressLg from '../components/Progress/ProgressLg.vue'
+import ProgressSm from '../components/Progress/ProgressSm.vue'
+import ProgressLinear from '../components/Progress/ProgressLinear.vue'
 
 export default {
   name: 'IndexPage',
   components: {
-    SfDivider,
-    SfProgressXL,
-    SfProgress2XL,
-    SfProgressLG,
-    SfProgressSM,
-    SfProgress3XL,
-    SfProgressLinear
+    DividerBase,
+    ProgressXl,
+    Progress2Xl,
+    ProgressLg,
+    ProgressSm,
+    Progress3Xl,
+    ProgressLinear
   },
   setup () {
     const value = ref(0)

@@ -3,7 +3,7 @@ import ButtonPrimaryIconLeft from '../../components/Button/Primary/Icon/ButtonPr
 
 let wrapper
 
-describe('SfButton.vue', () => {
+describe('ButtonPrimaryIconLeft.vue', () => {
   beforeEach(() => {
     wrapper = shallowMount(ButtonPrimaryIconLeft)
   })
