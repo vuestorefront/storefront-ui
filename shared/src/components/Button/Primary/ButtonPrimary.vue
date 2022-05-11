@@ -10,6 +10,7 @@
 
 <script>
 import { focus } from '../../../utils/focus-directive.js'
+
 export default {
   name: 'ButtonPrimary',
   directives: {
