@@ -58,12 +58,12 @@
     <div class="flex items-center m-10 gap-x-8">
       <SfButtonRounded aria-label="Dot button" @click="onClick">
         <svg class="w-4 fill-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"/>
+          <path d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" />
         </svg>
       </SfButtonRounded>
       <SfButtonRounded aria-label="Dot button" :disabled="true" @click="onClick">
         <svg class="w-4 fill-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"/>
+          <path d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" />
         </svg>
       </SfButtonRounded>
     </div>
@@ -71,6 +71,12 @@
     <SfDivider />
     <SfCheckbox name="checkbox" />
     <SfCheckboxRight name="checkbox" />
+    <div class="flex items-center m-10 gap-x-8">
+      <SfTooltip />
+    </div>
+    <div class="flex items-center m-10 gap-x-8">
+      <SfTooltipBottom />
+    </div>
   </div>
 </template>
 
@@ -85,6 +91,8 @@ import SfButtonRounded from '../components/SfButton/SfButtonRounded.vue'
 import SfDivider from '../components/SfDivider/SfDivider.vue'
 import SfCheckbox from '../components/SfCheckbox/SfCheckbox.vue'
 import SfCheckboxRight from '../components/SfCheckbox/SfCheckboxRight.vue'
+import SfTooltip from '../components/SfTooltip/SfTooltip.vue'
+import SfTooltipBottom from '../components/SfTooltip/SfTooltipBottom.vue'
 
 export default {
   name: 'IndexPage',
@@ -96,7 +104,9 @@ export default {
     SfButtonDestroy,
     SfButtonDestroySecondary,
     SfButtonDestroyTertiary,
-    SfButtonRounded
+    SfButtonRounded,
+    SfTooltip,
+    SfTooltipBottom
   },
   setup () {
     const onClick = () => console.log('Clicked button')
@@ -110,7 +120,9 @@ export default {
       SfButtonDestroySecondary,
       SfButtonDestroyTertiary,
       SfButtonRounded,
-      onClick
+      onClick,
+      SfTooltip,
+      SfTooltipBottom
     }
   }
 }
