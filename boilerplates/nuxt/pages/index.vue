@@ -77,6 +77,9 @@
     <div class="flex items-center m-10 gap-x-8">
       <SfTooltipBottom />
     </div>
+    <div class="flex items-center m-10 gap-x-8">
+      <SfTooltipRight />
+    </div>
   </div>
 </template>
 
@@ -93,6 +96,7 @@ import SfCheckbox from '../components/SfCheckbox/SfCheckbox.vue'
 import SfCheckboxRight from '../components/SfCheckbox/SfCheckboxRight.vue'
 import SfTooltip from '../components/SfTooltip/SfTooltip.vue'
 import SfTooltipBottom from '../components/SfTooltip/SfTooltipBottom.vue'
+import SfTooltipRight from '../components/SfTooltip/SfTooltipRight.vue'
 
 export default {
   name: 'IndexPage',
@@ -106,7 +110,8 @@ export default {
     SfButtonDestroyTertiary,
     SfButtonRounded,
     SfTooltip,
-    SfTooltipBottom
+    SfTooltipBottom,
+    SfTooltipRight
   },
   setup () {
     const onClick = () => console.log('Clicked button')
