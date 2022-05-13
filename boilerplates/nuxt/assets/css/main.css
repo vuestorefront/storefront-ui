@@ -57,6 +57,11 @@
     .outline-violet:focus {
         @apply outline outline-4 outline-offset-2 outline-violet-400;
     }
+    .remove-chevron {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+    }
     .is-animation-stopped {
         @media screen and (prefers-reduced-motion: reduce) {
             animation-play-state: paused !important;
