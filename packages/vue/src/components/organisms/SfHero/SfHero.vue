@@ -69,7 +69,7 @@ export default {
   },
   data() {
     return {
-      glide: null,
+      glide: undefined,
       defaultOptions: {
         type: "slider",
         rewind: true,
@@ -102,10 +102,14 @@ export default {
     if (this.numberOfPages > 1) {
       this.$nextTick(() => {
         if (!this.$slots.default) return;
-        const glide = new Glide(this.$refs.glide, this.mergedOptions);
-        glide.mount();
-        this.glide = glide;
+        this.glide = new Glide(this.$refs.glide, this.mergedOptions);
+        this.glide.mount();
       });
+    }
+  },
+  beforeDestroy() {
+    if (this.glide) {
+      this.glide.destroy();
     }
   },
   methods: {

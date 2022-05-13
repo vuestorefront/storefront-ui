@@ -81,12 +81,17 @@ export default {
   mounted() {
     this.$nextTick(this.glideMount);
   },
+  beforeDestroy() {
+    if (this.glide) {
+      this.glide.destroy();
+    }
+  },
   methods: {
     glideMount() {
       if (!this.$slots.default || !this.hasCarousel) return;
-      const glide = new Glide(this.$refs.glide, this.glideSettings);
-      glide.mount();
-      glide.on("run.before", (move) => {
+      this.glide = new Glide(this.$refs.glide, this.glideSettings);
+      this.glide.mount();
+      this.glide.on("run.before", (move) => {
         const { perView, slidePerPage, rewind } = this.glide.settings,
           { index } = this.glide,
           { direction } = move,
@@ -105,7 +110,6 @@ export default {
         move.direction = "=";
         move.steps = steps;
       });
-      this.glide = glide;
     },
   },
 };
