@@ -1,10 +1,10 @@
 import { shallowMount } from '@vue/test-utils'
-import SfBreadcrumbs from '../../components/SfBreadcrumbs/SfBreadcrumbs.vue'
+import BreadcrumbsBase from '../../components/Breadcrumbs/BreadcrumbsBase.vue'
 let wrapper
 
-describe('SfBreadcrumbs.vue', () => {
+describe('BreadcrumbsBase.vue', () => {
   beforeEach(() => {
-    wrapper = shallowMount(SfBreadcrumbs)
+    wrapper = shallowMount(BreadcrumbsBase)
   })
   it('render component correctly', () => {
     expect(wrapper.html()).toMatchSnapshot()

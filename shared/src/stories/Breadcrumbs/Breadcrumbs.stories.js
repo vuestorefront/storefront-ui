@@ -1,9 +1,9 @@
 
-import SfBreadcrumbs from "../../components/SfBreadcrumbs/SfBreadcrumbs.vue";
+import BreadcrumbsBase from "../../components/Breadcrumbs/BreadcrumbsBase.vue";
 
 export default {
   title: "SFUI Components/Breadcrumbs",
-  component: SfBreadcrumbs,
+  component: BreadcrumbsBase,
   parameters: {
     docs: {
       description: {
@@ -15,9 +15,9 @@ export default {
 };
 
 const Template = (args, { argTypes }) => ({
-  components: { SfBreadcrumbs },
+  components: { BreadcrumbsBase },
   template: `
-    <SfBreadcrumbs />
+    <BreadcrumbsBase />
     `
 });
 
