@@ -22,6 +22,10 @@ module.exports = {
         'lg': '0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05)',
         'xl': '0px 20px 25px -5px rgba(0, 0, 0, 0.1), 0px 10px 10px -5px rgba(0, 0, 0, 0.04)'
       },
+      backgroundImage: {
+        'checked-checkbox': 'linear-gradient(-45deg,transparent 65%, #02BB4D 65.99%),linear-gradient(45deg,transparent 75%, #02BB4D 75.99%),linear-gradient(-45deg, #02BB4D 40%,transparent 40.99%),linear-gradient(45deg, #02BB4D 30%, white 30.99%, white 40%,transparent 40.99%),linear-gradient(-45deg, white 50%, #02BB4D 50.99%)',
+        'indeterminate-checkbox': 'linear-gradient(90deg,transparent 80%, #02BB4D 80%),linear-gradient(-90deg,transparent 80%, #02BB4D 80%),linear-gradient(0deg, #02BB4D 43%, white 43%, white 57%, #02BB4D 57%)'
+      },
       colors: {
         'brand': '#02C652',
         'gray': {
@@ -134,6 +138,30 @@ module.exports = {
         '10': '2.5rem',
         '20': '5rem',
         '40': '10rem'
+      },
+      keyframes: {
+        spin: {
+          'from': {
+            transform: 'rotate:(0deg)'
+          },
+          'to': {
+            transform: 'rotate(360deg)'
+          }
+        },
+        'linear-loader': {
+          '0%': {
+            left: '-150%',
+            width: '100%'
+          },
+          '100%': {
+            left: '100%',
+            width: '10%'
+          }
+        }
+      },
+      animation: {
+        spin: 'spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite',
+        'linear-loader': 'linear-loader 1.5s ease-in infinite'
       }
     }
   },

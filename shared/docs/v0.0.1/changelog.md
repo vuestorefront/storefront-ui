@@ -1,7 +1,12 @@
 # v0.0.1
 
 ## 🚀 Features:
-- create breadcrumbs component
+- create Breadcrumbs component
+- Select component with stories and tests added 
+- add VueUse package
+- Spinner component created with stories and tests 
+- Tag component created with tests and stories 
+- Sheet component created
 
 ## 🐛 Fixes:
 
