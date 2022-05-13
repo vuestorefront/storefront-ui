@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProgressLinear.vue render component correctly 1`] = `<div class="flex items-center"><progress id="progressbar" max="100" class="h-6 progress-linear" value="0"></progress> <label for="progressbar" class="ml-1 text-xs font-medium font-body">0%</label></div>`;

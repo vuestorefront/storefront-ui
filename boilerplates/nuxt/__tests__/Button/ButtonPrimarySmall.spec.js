@@ -3,7 +3,7 @@ import ButtonPrimarySmall from '../../components/Button/Primary/ButtonPrimarySma
 
 let wrapper
 
-describe('SfButton.vue', () => {
+describe('ButtonPrimarySmall.vue', () => {
   beforeEach(() => {
     wrapper = shallowMount(ButtonPrimarySmall)
   })
