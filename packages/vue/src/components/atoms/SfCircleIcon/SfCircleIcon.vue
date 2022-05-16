@@ -3,6 +3,7 @@
     :is="injections.components.SfButton"
     :class="[data.class, data.staticClass, 'sf-circle-icon']"
     v-bind="data.attrs"
+    :aria-label="props.ariaLabel"
     :disabled="props.disabled"
     v-on="listeners"
   >
@@ -42,6 +43,10 @@ export default {
     disabled: {
       type: Boolean,
       default: false,
+    },
+    ariaLabel: {
+      type: String,
+      default: "button-icon",
     },
   },
 };

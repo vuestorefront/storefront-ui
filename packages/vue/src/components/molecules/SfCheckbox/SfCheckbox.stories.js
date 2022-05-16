@@ -239,6 +239,7 @@ const Template = (args, { argTypes }) => ({
   template: `
   <SfCheckbox 
     v-model="checked"
+    style="--checkbox-container-width: 15rem;"
     :name="name"      
     :label="label"
     :hintMessage="hintMessage"
@@ -255,6 +256,7 @@ export const Common = Template.bind({});
 Common.args = {
   name: "shipping",
   label: "I want to create an account",
+  hintMessage: "Required.",
 };
 
 export const Selected = Template.bind({});
@@ -305,6 +307,7 @@ export const UseCheckmarkSlot = (args, { argTypes }) => ({
   template: `
   <SfCheckbox 
     v-model="checked"
+    style="--checkbox-container-width: 15rem;"
     :name="name"
     :label="label"
     :hintMessage="hintMessage"
@@ -335,6 +338,7 @@ export const UseErrorMessageSlot = (args, { argTypes }) => ({
   template: `
   <SfCheckbox 
     v-model="checked"
+    style="--checkbox-container-width: 15rem;"
     :name="name"      
     :label="label"
     :hint-message="hintMessage"

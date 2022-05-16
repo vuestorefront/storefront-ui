@@ -25,7 +25,7 @@
         <component
           :is="injections.components.SfButton"
           v-bind="data.attrs"
-          aria-label="Current slide"
+          :aria-label="'Current slide'"
           class="sf-button--pure sf-bullet is-active"
         ></component>
       </li>
@@ -88,10 +88,24 @@ export default {
     },
   },
   inactiveRight(total, current) {
-    return total - 1 - current;
+    if (current >= total) {
+      console.error(
+        "Wrong value for the 'current' prop. This prop cannot be greater than or equal the 'total' value prop"
+      );
+      return total - 1;
+    } else {
+      return total - 1 - current;
+    }
   },
   inactiveLeft(total, current) {
-    return total - (total - 1 - current) - 1;
+    if (current >= total) {
+      console.error(
+        "Wrong value for the 'current' prop. This prop cannot be greater than or equal the 'total' value prop"
+      );
+      return total - (total - 1) - 1;
+    } else {
+      return total - (total - 1 - current) - 1;
+    }
   },
 };
 </script>

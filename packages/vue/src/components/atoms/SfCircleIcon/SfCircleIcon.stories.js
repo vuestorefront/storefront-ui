@@ -1,4 +1,4 @@
-import { icons } from "@storefront-ui/shared/icons/icons";
+import { icons } from "@storefront-ui/vue/icons/icons";
 import { SfCircleIcon } from "@storefront-ui/vue";
 import { sizesValues as sizes } from "@storefront-ui/shared/variables/sizes";
 
@@ -151,7 +151,7 @@ const Template = (args, { argTypes }) => ({
     :class="classes"
     :icon="icon" 
     :iconSize="iconSize"
-    aria-label="Go to Home"
+    :aria-label="ariaLabel"
     :disabled="disabled"
     :style="{margin: '.5rem'}"
     @click="click"
@@ -213,7 +213,7 @@ export const WithDefaultSlot = (args, { argTypes }) => ({
     :class="classes"
     :icon="icon" 
     :iconSize="iconSize"
-    aria-label="Go to Home"
+    :aria-label="ariaLabel"
     :disabled="disabled"
     @click="click"
   >
