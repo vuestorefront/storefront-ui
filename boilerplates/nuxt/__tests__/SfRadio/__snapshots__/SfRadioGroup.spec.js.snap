@@ -1,8 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`SfRadioDense.vue render component correctly 1`] = `
-<fieldset aria-required="true" aria-invalid="true" aria-describedby="errorMessage" role="radiogroup" class="flex flex-col" name="radio-group">
-  <sfradio-stub name="radio-group-1" value="one" invalid="true"></sfradio-stub>
-  <sfradio-stub name="radio-group-2" value="two"></sfradio-stub> <span id="errorMessage" class="block col-span-2 mt-1 text-sm font-medium text-negative-600 font-body">Error message</span>
-</fieldset>
-`;

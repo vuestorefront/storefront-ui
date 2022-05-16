@@ -8,8 +8,11 @@
       :value="value"
       :disabled="disabled"
       :required="required"
+      :checked="isChecked"
       class="peer w-[20px] h-[20px] mt-px cursor-pointer appearance-none rounded-full border-2 border-gray-500 hover:border-primary-500 checked:bg-primary-500 checked:border-primary-500 checked:shadow-inset disabled:cursor-not-allowed disabled:border-gray-500/50 outline-violet"
       :class="{'border-negative-600': invalid }"
+      @change="changeHandler"
+      @input="inputHandler"
     >
     <label
       :for="`radio${_uid}`"
@@ -20,11 +23,16 @@
 </template>
 
 <script>
+import { computed } from '@vue/composition-api'
 import { focus } from '../../utils/focus-directive.js'
 export default {
   name: 'SfRadioTile',
   directives: {
     focus
+  },
+  model: {
+    prop: 'selected',
+    event: 'change'
   },
   props: {
     name: {
@@ -46,6 +54,27 @@ export default {
     invalid: {
       type: Boolean,
       default: false
+    },
+    selected: {
+      type: String,
+      default: ''
+    }
+  },
+  setup (props, { emit }) {
+    const changeHandler = () => {
+      emit('change', props.value)
+    }
+
+    const inputHandler = () => {
+      emit('input', props.value)
+    }
+
+    const isChecked = computed(() => props.value === props.selected)
+
+    return {
+      changeHandler,
+      inputHandler,
+      isChecked
     }
   }
 }

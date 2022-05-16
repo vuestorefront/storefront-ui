@@ -18,6 +18,7 @@ module.exports = {
   collectCoverage: true,
   collectCoverageFrom: ['<rootDir>/components/**/*.vue'],
   coverageDirectory: './coverage/',
+  coverageReporters: ['text', 'html'],
   coverageThreshold: {
     global: {
       lines: 80
