@@ -1,19 +1,19 @@
 import { Meta } from "@storybook/addon-docs/blocks";
 
-<Meta title="Releases/v0.12.x - Latest/v0.12.4 - Latest/Change log" />
+<Meta title="Releases/v0.13.x - Latest/v0.13.0/Change log" />
 
-# v0.12.4
+# v0.13.0
 
 ## ❗ Breaking Changes
+
 - SfSidebar: new `position` prop is added for positioning sidebar. Available values are `left` and `right`. When prop isn't set, default value is `left`
+- removed SfSlidingSection and mobile observer
 
 ## 🚀 Features
 
 - add the possibility to change breakpoint by mixins and configuration in Nuxt and by script in Vue projects 
 - SfScrollable: replaced plugin with native solution
 - SfScrollable: added styling for native scrollbar
-
-
 - SfIcon: added lazy loading feature for icons
 
 ## 🐛 Fixes
@@ -28,7 +28,6 @@ import { Meta } from "@storybook/addon-docs/blocks";
 ## 🧹 Chores:
 
 - gh action workflow change to run tests on push/pull to develop and master branches
-- global: removed SfSlidingSection
 - SfProductCard, SfMegaMenu, SfFooter, SfContentPages: removed `isMobile`,
 - global: removed SfSlidingSection and mobile observer
 - docs: added example to use playground and update command
