@@ -17,6 +17,7 @@
     :aria-disabled="props.disabled"
     :link="props.link"
     :type="props.type"
+    :aria-label="props.ariaLabel"
     v-bind="data.attrs"
     v-on="!props.disabled ? listeners : {}"
   >
@@ -49,6 +50,10 @@ export default {
     link: {
       type: [String, Object],
       default: null,
+    },
+    ariaLabel: {
+      type: String,
+      default: "button",
     },
   },
   linkActive(link, disabled) {
