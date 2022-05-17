@@ -1,12 +1,12 @@
-import SfRadio from '../../components/SfRadio/SfRadio.vue'
-import SfRadioRight from '../../components/SfRadio/SfRadioRight.vue'
-import SfRadioTile from '../../components/SfRadio/SfRadioTile.vue'
-import SfRadioMultiline from '../../components/SfRadio/SfRadioMultiline.vue'
-import SfRadioDense from '../../components/SfRadio/SfRadioDense.vue'
+import RadioBase from '../../components/Radio/RadioBase.vue'
+import RadioRight from '../../components/Radio/RadioRight.vue'
+import RadioTile from '../../components/Radio/RadioTile.vue'
+import RadioMultiline from '../../components/Radio/RadioMultiline.vue'
+import RadioDense from '../../components/Radio/RadioDense.vue'
 
 export default {
   title: 'SFUI Components/Radio',
-  component: SfRadio,
+  component: RadioBase,
   parameters: {
     docs: {
       description: {
@@ -16,6 +16,14 @@ export default {
     }
   },
   argTypes: {
+    id: {
+      control: 'text',
+      table: {
+        category: 'Props'
+      },
+      defaultValue: 'radio-1',
+      description: 'Radio identifier'
+    },
     name: {
       control: 'text',
       table: {
@@ -76,7 +84,7 @@ export default {
           summary: false
         }
       },
-      defaultValue: false,
+      defaultValue: true,
       description: 'Shows error message value of radio group when true.'
     }
   }
@@ -84,21 +92,21 @@ export default {
 }
 
 const Template = (args, { argTypes }) => ({
-  components: { SfRadio },
+  components: { RadioBase },
   props: Object.keys(argTypes),
   data() {
     return {
-      selected: ''
+      selectedValue: ''
     }
   },
   methods: {
     changeValue(value) {
-      this.selected = value
+      this.selectedValue = value
     }
   },
   computed: {
     isInvalid() {
-      return this.selected === ''
+      return this.selectedValue === ''
     }
   },
   template: `
@@ -109,22 +117,24 @@ const Template = (args, { argTypes }) => ({
       role="radiogroup"
       class="flex flex-col"
     >
-      <SfRadio
+      <RadioBase
+        id="radio-1"
         name="radio-group-1"
         :invalid="isInvalid"
         value="one"
         :disabled="disabled"   
         :required="required" 
-        :selected="selected"
-        @change="selectedValue => changeValue(selectedValue)"
+        :selected="selectedValue"
+        @change="newValue => changeValue(newValue)"
       />
-      <SfRadio
+      <RadioBase
+        id="radio-2"
         name="radio-group-2"
         value="two"
         :disabled="disabled"   
         :required="required" 
-        :selected="selected"
-        @change="selectedValue => changeValue(selectedValue)"
+        :selected="selectedValue"
+        @change="newValue => changeValue(newValue)"
       />
       <span
         id="errorMessage"
@@ -136,22 +146,22 @@ const Template = (args, { argTypes }) => ({
 
 export const Common = Template.bind({})
 
-const RadioRight = (args, { argTypes }) => ({
-  components: { SfRadioRight },
+const Radio_Right = (args, { argTypes }) => ({
+  components: { RadioRight },
   props: Object.keys(argTypes),
   data() {
     return {
-      selected: ''
+      selectedValue: ''
     }
   },
   methods: {
     changeValue(value) {
-      this.selected = value
+      this.selectedValue = value
     }
   },
   computed: {
     isInvalid() {
-      return this.selected === ''
+      return this.selectedValue === ''
     }
   },
   template: `
@@ -162,22 +172,24 @@ const RadioRight = (args, { argTypes }) => ({
       role="radiogroup"
       class="flex flex-col"
   >
-    <SfRadioRight
+    <RadioRight
+      id="radio-3"
       name="radio-right-group-1"
       :invalid="isInvalid"
       value="one"
       :disabled="disabled"   
       :required="required" 
-      :selected="selected"
-      @change="selectedValue => changeValue(selectedValue)"
+      :selected="selectedValue"
+      @change="newValue => changeValue(newValue)"
     />
-    <SfRadioRight
+    <RadioRight
+      id="radio-4"
       name="radio-right-group-2"
       value="two"
       :disabled="disabled"   
       :required="required" 
-      :selected="selected"
-      @change="selectedValue => changeValue(selectedValue)"
+      :selected="selectedValue"
+      @change="newValue => changeValue(newValue)"
     />
     <span
       id="errorMessage"
@@ -186,24 +198,24 @@ const RadioRight = (args, { argTypes }) => ({
     >Error message</span>
   </fieldset>`
 })
-export const Right = RadioRight.bind({})
+export const Right = Radio_Right.bind({})
 
-const RadioTile = (args, { argTypes }) => ({
-  components: { SfRadioTile },
+const Radio_Tile = (args, { argTypes }) => ({
+  components: { RadioTile },
   props: Object.keys(argTypes),
   data() {
     return {
-      selected: ''
+      selectedValue: ''
     }
   },
   methods: {
     changeValue(value) {
-      this.selected = value
+      this.selectedValue = value
     }
   },
   computed: {
     isInvalid() {
-      return this.selected === ''
+      return this.selectedValue === ''
     }
   },
   template: `
@@ -214,22 +226,24 @@ const RadioTile = (args, { argTypes }) => ({
       role="radiogroup"
       class="flex flex-col"
     >
-      <SfRadioTile
+      <RadioTile
+        id="radio-5"
         name="radio-tile-group-1"
         :invalid="isInvalid"
         value="one"
         :disabled="disabled"   
         :required="required" 
-        :selected="selected"
-        @change="selectedValue => changeValue(selectedValue)"
+        :selected="selectedValue"
+        @change="newValue => changeValue(newValue)"
       />
-      <SfRadioTile
+      <RadioTile
+        id="radio-6"
         name="radio-tile-group-2"
         value="two"
         :disabled="disabled"   
         :required="required" 
-        :selected="selected"
-        @change="selectedValue => changeValue(selectedValue)"
+        :selected="selectedValue"
+        @change="newValue => changeValue(newValue)"
       />
       <span
         id="errorMessage"
@@ -238,24 +252,24 @@ const RadioTile = (args, { argTypes }) => ({
       >Error message</span>
   </fieldset>`
 })
-export const Tile = RadioTile.bind({})
+export const Tile = Radio_Tile.bind({})
 
-const RadioMultiline = (args, { argTypes }) => ({
-  components: { SfRadioMultiline },
+const Radio_Multiline = (args, { argTypes }) => ({
+  components: { RadioMultiline },
   props: Object.keys(argTypes),
   data() {
     return {
-      selected: ''
+      selectedValue: ''
     }
   },
   methods: {
     changeValue(value) {
-      this.selected = value
+      this.selectedValue = value
     }
   },
   computed: {
     isInvalid() {
-      return this.selected === ''
+      return this.selectedValue === ''
     }
   },
   template: `
@@ -266,22 +280,24 @@ const RadioMultiline = (args, { argTypes }) => ({
       role="radiogroup"
       class="flex flex-col"
     >
-      <SfRadioMultiline
+      <RadioMultiline
+        id="radio-7"
         name="radio-multiline-group-1"
         :invalid="isInvalid"
         value="one"
         :disabled="disabled"   
         :required="required" 
-        :selected="selected"
-        @change="selectedValue => changeValue(selectedValue)"
+        :selected="selectedValue"
+        @change="newValue => changeValue(newValue)"
       />
-      <SfRadioMultiline
+      <RadioMultiline
+        id="radio-8"
         name="radio-multiline-group-2"
         value="two"
         :disabled="disabled"   
         :required="required" 
-        :selected="selected"
-        @change="selectedValue => changeValue(selectedValue)"
+        :selected="selectedValue"
+        @change="newValue => changeValue(newValue)"
       />
       <span
         id="errorMessage"
@@ -291,24 +307,24 @@ const RadioMultiline = (args, { argTypes }) => ({
   </fieldset>`
 })
 
-export const Multiline = RadioMultiline .bind({})
+export const Multiline = Radio_Multiline .bind({})
 
-const RadioDense = (args, { argTypes }) => ({
-  components: { SfRadioDense },
+const Radio_Dense = (args, { argTypes }) => ({
+  components: { RadioDense },
   props: Object.keys(argTypes),
   data() {
     return {
-      selected: ''
+      selectedValue: ''
     }
   },
   methods: {
     changeValue(value) {
-      this.selected = value
+      this.selectedValue = value
     }
   },
   computed: {
     isInvalid() {
-      return this.selected === ''
+      return this.selectedValue === ''
     }
   },
   template: `
@@ -319,22 +335,24 @@ const RadioDense = (args, { argTypes }) => ({
       role="radiogroup"
       class="flex flex-col"
     >
-      <SfRadioDense
+      <RadioDense
+        id="radio-9"
         name="radio-dense-group-1"
         :invalid="isInvalid"
         value="one"
         :disabled="disabled"   
         :required="required" 
-        :selected="selected"
-        @change="selectedValue => changeValue(selectedValue)"
+        :selected="selectedValue"
+        @change="newValue => changeValue(newValue)"
       />
-      <SfRadioDense
+      <RadioDense
+        id="radio-10"
         name="radio-dense-group-2"
         value="two"
         :disabled="disabled"   
         :required="required" 
-        :selected="selected"
-        @change="selectedValue => changeValue(selectedValue)"
+        :selected="selectedValue"
+        @change="newValue => changeValue(newValue)"
       />
       <span
         id="errorMessage"
@@ -344,5 +362,5 @@ const RadioDense = (args, { argTypes }) => ({
   </fieldset>`
 })
 
-export const Dense = RadioDense.bind({})
+export const Dense = Radio_Dense.bind({})
 
