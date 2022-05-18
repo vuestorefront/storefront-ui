@@ -7,13 +7,13 @@ import TagIconRight from '../../components/Tag/TagIconRight'
 export default {
   title: 'SFUI Components/Tag',
   component: TagBase,
-  parameters: {
+  parameters: {    
     docs: {
       inlineStories: false,
       iframeHeight: '100px',
       description: {
         component:
-          'The tag component. [link to component docs on the page]'
+          'The tag component. [link to component docs on the page]',
       }
     }
   }
