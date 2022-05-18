@@ -1,56 +1,56 @@
 
-import TagBase from '../../components/Tag/TagBase'
-import TagIcon from '../../components/Tag/TagIcon'
-import TagIconLeft from '../../components/Tag/TagIconLeft'
-import TagIconRight from '../../components/Tag/TagIconRight'
+import Tooltip from '../../components/Tooltip/Tooltip.vue'
+import TooltipBottom from '../../components/Tooltip/TooltipBottom'
+import TooltipLeft from '../../components/Tooltip/TooltipLeft'
+import TooltipRight from '../../components/Tooltip/TooltipRight'
 
 export default {
-  title: 'SFUI Components/Tag',
-  component: TagBase,
-  parameters: {    
+  title: 'SFUI Components/Tooltip',
+  component: Tooltip,
+  parameters: {
     docs: {
       inlineStories: false,
-      iframeHeight: '100px',
+      iframeHeight: '300px',
       description: {
         component:
-          'The tag component. [link to component docs on the page]',
+          'The tag component. [link to component docs on the page]'
       }
     }
   }
 }
 
 const Template = () => ({
-  components: { TagBase },
+  components: { Tooltip },
   template: `
-    <TagBase />
+    <Tooltip class="my-12"/>
     `
 })
 
 export const Common = Template.bind({})
 
-const TagWithIcon = () => ({
-  components: { TagIcon },
+const TooltipOnBottom = () => ({
+  components: { TooltipBottom },
   template: `
-    <TagIcon />
+    <TooltipBottom class="my-12" />
     `
 })
 
-export const Icon = TagWithIcon.bind({})
+export const Bottom = TooltipOnBottom.bind({})
 
-const TagWithIconLeft = () => ({
-  components: { TagIconLeft },
+const TooltipOnLeft = () => ({
+  components: { TooltipLeft },
   template: `
-    <TagIconLeft />
+    <TooltipLeft class="my-12" />
     `
 })
 
-export const IconLeft = TagWithIconLeft.bind({})
+export const Left = TooltipOnLeft.bind({})
 
-const TagWithIconRight = (args, { argTypes }) => ({
-  components: { TagIconRight },
+const TooltipOnRight = () => ({
+  components: { TooltipRight },
   template: `
-    <TagIconRight />
+    <TooltipRight class="my-12" />
     `
 })
 
-export const IconRight = TagWithIconRight.bind({})
+export const Right = TooltipOnRight.bind({})
