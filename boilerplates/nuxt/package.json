@@ -29,23 +29,26 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.16.3",
+    "@babel/preset-env": "^7.16.11",
     "@nuxt/postcss8": "^1.1.3",
     "@nuxtjs/eslint-config": "^8.0.0",
     "@nuxtjs/eslint-module": "^3.0.2",
     "@nuxtjs/tailwindcss": "^4.2.1",
     "@vue/test-utils": "^1.1.3",
     "@vue/vue2-jest": "^27.0.0-alpha.4",
-    "babel-core": "^7.0.0-bridge.0",
-    "@babel/preset-env": "^7.16.11",
-    "babel-jest": "^27.5.1",
-    "jest": "^27.5.1",
-    "jest-serializer-vue": "^2.0.2",
-    "vue-template-compiler": "^2.6.14",
+    "@vueuse/components": "^8.3.1",
+    "@vueuse/core": "^8.3.1",
+    "@vueuse/nuxt": "^8.3.1",
     "autoprefixer": "^10.4.4",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^27.5.1",
     "eslint": "^8.4.1",
     "eslint-plugin-nuxt": "^3.1.0",
     "eslint-plugin-vue": "^8.2.0",
+    "jest": "^27.5.1",
+    "jest-serializer-vue": "^2.0.2",
     "postcss": "^8.4.12",
-    "tailwindcss": "^3.0.23"
+    "tailwindcss": "^3.0.23",
+    "vue-template-compiler": "^2.6.14"
   }
 }

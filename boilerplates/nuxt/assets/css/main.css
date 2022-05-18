@@ -57,4 +57,33 @@
     .outline-violet:focus {
         @apply outline outline-4 outline-offset-2 outline-violet-400;
     }
+    .remove-chevron {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+    }
+    .is-animation-stopped {
+        @media screen and (prefers-reduced-motion: reduce) {
+            animation-play-state: paused !important;
+        }
+    }
+    .animation-delay-1 {
+        animation-delay: -0.45s !important;
+    }
+    .animation-delay-2 {
+        animation-delay: -0.30s !important;
+    }
+    .animation-delay-3 {
+        animation-delay: -0.15s !important;
+    }
+    .progress-linear::-webkit-progress-bar {
+        @apply bg-gray-200;
+      }
+    .progress-linear::-webkit-progress-value {
+        @apply bg-primary-600 transition-[width] ease-[cubic-bezier(.4,0,.6,1)] duration-200;
+      }
+    .progress-linear::-moz-progress-bar {
+        @apply bg-primary-600;
+      }
+      
 }
