@@ -22,6 +22,7 @@
       :disabled="disabled"
       :aria-invalid="!valid"
       :aria-required="required"
+      :aria-describedby="errorMessage ? `${label}-error` : null"
       class="sf-select__dropdown"
       @change="changeHandler"
     >
@@ -43,7 +44,11 @@
       <transition name="sf-fade">
         <!-- @slot Custom error message of form select -->
         <slot name="errorMessage" v-bind="{ errorMessage }">
-          <span :class="{ 'display-none': valid }">
+          <span
+            :id="`${label}-error`"
+            :class="{ 'display-none': valid }"
+            aria-live="assertive"
+          >
             {{ errorMessage }}
           </span>
         </slot>
