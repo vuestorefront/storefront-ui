@@ -1,12 +1,12 @@
 
-import Tooltip from '../../components/Tooltip/Tooltip.vue'
+import TooltipBase from '../../components/Tooltip/TooltipBase.vue'
 import TooltipBottom from '../../components/Tooltip/TooltipBottom'
 import TooltipLeft from '../../components/Tooltip/TooltipLeft'
 import TooltipRight from '../../components/Tooltip/TooltipRight'
 
 export default {
   title: 'SFUI Components/Tooltip',
-  component: Tooltip,
+  component: TooltipBase,
   parameters: {
     docs: {
       inlineStories: false,
@@ -20,9 +20,9 @@ export default {
 }
 
 const Template = () => ({
-  components: { Tooltip },
+  components: { TooltipBase, TooltipRight },
   template: `
-    <Tooltip class="my-12"/>
+    <TooltipBase class="my-12" />
     `
 })
 
