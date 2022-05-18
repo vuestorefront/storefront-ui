@@ -20,6 +20,8 @@
       v-bind="$attrs"
       :value="value"
       :disabled="disabled"
+      :aria-invalid="!valid"
+      :aria-required="required"
       class="sf-select__dropdown"
       @change="changeHandler"
     >

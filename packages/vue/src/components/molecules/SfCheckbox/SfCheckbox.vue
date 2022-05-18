@@ -18,6 +18,8 @@
         :checked="isChecked"
         :disabled="disabled"
         class="sf-checkbox__input"
+        :aria-invalid="!valid"
+        :aria-required="required"
         @change="inputHandler"
       />
       <slot name="checkmark" v-bind="{ isChecked, disabled }">
