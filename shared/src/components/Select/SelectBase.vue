@@ -78,9 +78,9 @@ export default {
       default: false
     }
   },
-  setup(props) { 
-    const selected = ref(props.value); 
-    return { selected } 
+  setup (props) {
+    const selected = ref(props.value)
+    return { selected }
   }
 }
 </script>

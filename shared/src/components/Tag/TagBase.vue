@@ -8,6 +8,6 @@
 
 <script>
 export default {
-  name: "TagBase"
+  name: 'TagBase'
 }
 </script>

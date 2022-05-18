@@ -4,6 +4,6 @@
 
 <script>
 export default {
-  name: "DividerBase"
+  name: 'DividerBase'
 }
 </script>
