@@ -23,8 +23,8 @@
 </template>
 
 <script>
-import { computed } from '@vue/composition-api'
-import { focus } from '../../utils/focus-directive.js'
+import { computed } from '@vue/composition-api';
+import { focus } from '../../utils/focus-directive.js';
 export default {
   name: 'RadioTile',
   directives: {
@@ -64,22 +64,22 @@ export default {
       default: ''
     }
   },
-  setup (props, { emit }) {
+  setup(props, { emit }) {
     const changeHandler = () => {
-      emit('change', props.value)
-    }
+      emit('change', props.value);
+    };
 
     const inputHandler = () => {
-      emit('input', props.value)
-    }
+      emit('input', props.value);
+    };
 
-    const isChecked = computed(() => props.value === props.selected)
+    const isChecked = computed(() => props.value === props.selected);
 
     return {
       changeHandler,
       inputHandler,
       isChecked
-    }
+    };
   }
-}
+};
 </script>

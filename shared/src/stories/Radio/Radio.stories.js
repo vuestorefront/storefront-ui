@@ -1,8 +1,8 @@
-import RadioGroupBase from '../../components/Radio/RadioGroupBase.vue'
-import RadioGroupRight from '../../components/Radio/RadioGroupRight.vue'
-import RadioGroupTile from '../../components/Radio/RadioGroupTile.vue'
-import RadioGroupMultiline from '../../components/Radio/RadioGroupMultiline.vue'
-import RadioGroupDense from '../../components/Radio/RadioGroupDense.vue'
+import RadioGroupBase from '../../components/Radio/RadioGroupBase.vue';
+import RadioGroupRight from '../../components/Radio/RadioGroupRight.vue';
+import RadioGroupTile from '../../components/Radio/RadioGroupTile.vue';
+import RadioGroupMultiline from '../../components/Radio/RadioGroupMultiline.vue';
+import RadioGroupDense from '../../components/Radio/RadioGroupDense.vue';
 
 export default {
   title: 'SFUI Components/Radio',
@@ -89,7 +89,7 @@ export default {
     }
   }
 
-}
+};
 
 const Template = (args, { argTypes }) => ({
   components: { RadioGroupBase },
@@ -99,9 +99,9 @@ const Template = (args, { argTypes }) => ({
     :disabled="disabled"   
     :required="required"  
   />`
-})
+});
 
-export const Common = Template.bind({})
+export const Common = Template.bind({});
 
 const RadioRight = (args, { argTypes }) => ({
   components: { RadioGroupRight },
@@ -111,8 +111,8 @@ const RadioRight = (args, { argTypes }) => ({
     :disabled="disabled"   
     :required="required"  
   />`
-})
-export const Right = RadioRight.bind({})
+});
+export const Right = RadioRight.bind({});
 
 const RadioTile = (args, { argTypes }) => ({
   components: { RadioGroupTile },
@@ -122,8 +122,8 @@ const RadioTile = (args, { argTypes }) => ({
     :disabled="disabled"   
     :required="required"  
   />`
-})
-export const Tile = RadioTile.bind({})
+});
+export const Tile = RadioTile.bind({});
 
 const RadioMultiline = (args, { argTypes }) => ({
   components: { RadioGroupMultiline },
@@ -133,9 +133,9 @@ const RadioMultiline = (args, { argTypes }) => ({
     :disabled="disabled"   
     :required="required"  
   />`
-})
+});
 
-export const Multiline = RadioMultiline .bind({})
+export const Multiline = RadioMultiline.bind({});
 
 const RadioDense = (args, { argTypes }) => ({
   components: { RadioGroupDense },
@@ -145,7 +145,6 @@ const RadioDense = (args, { argTypes }) => ({
     :disabled="disabled"   
     :required="required"  
   />`
-})
+});
 
-export const Dense = RadioDense.bind({})
-
+export const Dense = RadioDense.bind({});

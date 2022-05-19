@@ -34,8 +34,8 @@
 </template>
 
 <script>
-import { computed, ref } from '@vue/composition-api'
-import RadioRight from './RadioRight.vue'
+import { computed, ref } from '@vue/composition-api';
+import RadioRight from './RadioRight.vue';
 export default {
   name: 'RadioGroupRight',
   components: {
@@ -51,19 +51,19 @@ export default {
       default: false
     }
   },
-  setup () {
-    const selectedValue = ref('')
+  setup() {
+    const selectedValue = ref('');
     const changeValue = (value) => {
-       selectedValue.value = value
-    }
+       selectedValue.value = value;
+    };
 
-    const isInvalid = computed(() => selectedValue.value === '')
+    const isInvalid = computed(() => selectedValue.value === '');
 
     return {
       changeValue,
       selectedValue,
       isInvalid
-    }
+    };
   }
-}
+};
 </script>
