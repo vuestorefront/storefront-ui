@@ -52,8 +52,8 @@
 </template>
 
 <script>
-import { ref } from '@nuxtjs/composition-api'
-import { focus } from '../../utils/focus-directive.js'
+import { ref } from '@nuxtjs/composition-api';
+import { focus } from '../../utils/focus-directive.js';
 
 export default {
   name: 'SelectBase',
@@ -78,9 +78,9 @@ export default {
       default: false
     }
   },
-  setup (props) {
-    const selected = ref(props.value)
-    return { selected }
+  setup(props) {
+    const selected = ref(props.value);
+    return { selected };
   }
-}
+};
 </script>

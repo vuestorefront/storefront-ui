@@ -57,14 +57,14 @@ export default {
       default: false
     }
   },
-  setup (_, { emit }) {
+  setup(_, { emit }) {
     const close = () => {
-      emit('close')
-    }
+      emit('close');
+    };
 
     return {
       close
-    }
+    };
   }
-}
+};
 </script>

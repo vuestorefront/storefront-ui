@@ -10,5 +10,5 @@
 <script>
 export default {
   name: 'TagIconLeft'
-}
+};
 </script>

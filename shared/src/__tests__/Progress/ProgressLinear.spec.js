@@ -1,13 +1,13 @@
-import { shallowMount } from '@vue/test-utils'
-import ProgressLinear from '../../components/Progress/ProgressLinear.vue'
+import { shallowMount } from '@vue/test-utils';
+import ProgressLinear from '../../components/Progress/ProgressLinear.vue';
 
-let wrapper
+let wrapper;
 
 describe('ProgressLinear.vue', () => {
   beforeEach(() => {
-    wrapper = shallowMount(ProgressLinear)
-  })
+    wrapper = shallowMount(ProgressLinear);
+  });
   it('render component correctly', () => {
-    expect(wrapper.html()).toMatchSnapshot()
-  })
-})
+    expect(wrapper.html()).toMatchSnapshot();
+  });
+});

@@ -17,12 +17,12 @@ module.exports = {
     'comma-dangle': ['error', 'never'],
     'quotes': ['error', 'single'],
     'no-trailing-spaces': ['error'],
-    'semi': ['error', 'never'],
+    'semi': ['error', 'always'],
     'eol-last': ['error', 'always'],
-    'space-before-function-paren': ['error', 'always']
+    'space-before-function-paren': ['error', 'never']
   },
   parserOptions: {
     parser: '@babel/eslint-parser',
     requireConfigFile: false
   }
-}
+};
