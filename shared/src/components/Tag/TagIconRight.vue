@@ -9,6 +9,6 @@
 
 <script>
 export default {
-  name: "TagIconRight"
-}
+  name: 'TagIconRight'
+};
 </script>

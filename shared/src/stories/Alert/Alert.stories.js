@@ -1,11 +1,11 @@
 
-import AlertBase from '../../components/Alert/AlertBase.vue'
-import AlertSimple from '../../components/Alert/AlertSimple.vue'
-import AlertMultiline from '../../components/Alert/AlertMultiline.vue'
-import AlertPositive from '../../components/Alert/AlertPositive.vue'
-import AlertWarning from '../../components/Alert/AlertWarning.vue'
-import AlertError from '../../components/Alert/AlertError.vue'
-import AlertWithButton from '../../components/Alert/AlertWithButton.vue'
+import AlertBase from '../../components/Alert/AlertBase.vue';
+import AlertSimple from '../../components/Alert/AlertSimple.vue';
+import AlertMultiline from '../../components/Alert/AlertMultiline.vue';
+import AlertPositive from '../../components/Alert/AlertPositive.vue';
+import AlertWarning from '../../components/Alert/AlertWarning.vue';
+import AlertError from '../../components/Alert/AlertError.vue';
+import AlertWithButton from '../../components/Alert/AlertWithButton.vue';
 
 export default {
   title: 'SFUI Components/Alert',
@@ -28,7 +28,7 @@ export default {
       description: 'Persistence of the Alert. Default value is false.'
     }
   }
-}
+};
 
 const Template = (args, { argTypes }) => ({
   components: { AlertBase },
@@ -36,9 +36,9 @@ const Template = (args, { argTypes }) => ({
   template: `
     <AlertBase :persistent="persistent" />
     `
-})
+});
 
-export const Common = Template.bind({})
+export const Common = Template.bind({});
 
 const PositiveAlert = (args, { argTypes }) => ({
   components: { AlertPositive },
@@ -46,9 +46,9 @@ const PositiveAlert = (args, { argTypes }) => ({
   template: `
   <AlertPositive />
   `
-})
+});
 
-export const Positive = PositiveAlert.bind({})
+export const Positive = PositiveAlert.bind({});
 
 const SimpleAlert = (args, { argTypes }) => ({
   components: { AlertSimple },
@@ -56,9 +56,9 @@ const SimpleAlert = (args, { argTypes }) => ({
   template: `
   <AlertSimple />
   `
-})
+});
 
-export const Simple = SimpleAlert.bind({})
+export const Simple = SimpleAlert.bind({});
 
 const WarningAlert = (args, { argTypes }) => ({
   components: { AlertWarning },
@@ -66,9 +66,9 @@ const WarningAlert = (args, { argTypes }) => ({
   template: `
   <AlertWarning />
   `
-})
+});
 
-export const Warning = WarningAlert.bind({})
+export const Warning = WarningAlert.bind({});
 
 
 const ErrorAlert = (args, { argTypes }) => ({
@@ -77,9 +77,9 @@ const ErrorAlert = (args, { argTypes }) => ({
   template: `
   <AlertError />
   `
-})
+});
 
-export const Error = ErrorAlert.bind({})
+export const Error = ErrorAlert.bind({});
 
 const MultilineAlert = (args, { argTypes }) => ({
   components: { AlertMultiline },
@@ -87,9 +87,9 @@ const MultilineAlert = (args, { argTypes }) => ({
   template: `
   <AlertMultiline />
   `
-})
+});
 
-export const Multiline = MultilineAlert.bind({})
+export const Multiline = MultilineAlert.bind({});
 
 const Alert_With_Button = (args, { argTypes }) => ({
   components: { AlertWithButton },
@@ -97,7 +97,7 @@ const Alert_With_Button = (args, { argTypes }) => ({
   template: `
   <AlertWithButton />
   `
-})
+});
 
-export const WithButton = Alert_With_Button.bind({})
+export const WithButton = Alert_With_Button.bind({});
 

@@ -34,5 +34,5 @@
 <script>
 export default {
   name: 'Spinner3Xl'
-}
+};
 </script>

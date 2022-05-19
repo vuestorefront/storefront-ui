@@ -29,11 +29,11 @@
       class="absolute w-6 h-6 bg-transparent border-2 rounded-[50%] is-animation-stopped animate-spin animation-delay-3 border-t-primary-600 border-x-transparent border-b-transparent"
       aria-hidden="true"
     />
-  </div> 
+  </div>
 </template>
 
 <script>
 export default {
   name: 'SpinnerBase'
-}
+};
 </script>

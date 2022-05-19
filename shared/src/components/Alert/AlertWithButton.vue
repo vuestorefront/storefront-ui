@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import { focus } from '../../utils/focus-directive.js'
+import { focus } from '../../utils/focus-directive.js';
 export default {
   name: 'AlertWithButton',
   directives: {
@@ -52,14 +52,14 @@ export default {
       default: false
     }
   },
-  setup (_, { emit }) {
+  setup(_, { emit }) {
     const close = () => {
-      emit('close')
-    }
+      emit('close');
+    };
 
     return {
       close
-    }
+    };
   }
-}
+};
 </script>

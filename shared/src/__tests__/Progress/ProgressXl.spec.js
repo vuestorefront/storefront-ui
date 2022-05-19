@@ -1,13 +1,13 @@
-import { shallowMount } from '@vue/test-utils'
-import ProgressXl from '../../components/Progress/ProgressXl.vue'
+import { shallowMount } from '@vue/test-utils';
+import ProgressXl from '../../components/Progress/ProgressXl.vue';
 
-let wrapper
+let wrapper;
 
 describe('ProgressXl.vue', () => {
   beforeEach(() => {
-    wrapper = shallowMount(ProgressXl)
-  })
+    wrapper = shallowMount(ProgressXl);
+  });
   it('render component correctly', () => {
-    expect(wrapper.html()).toMatchSnapshot()
-  })
-})
+    expect(wrapper.html()).toMatchSnapshot();
+  });
+});

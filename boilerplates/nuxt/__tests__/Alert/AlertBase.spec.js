@@ -1,19 +1,19 @@
-import { shallowMount } from '@vue/test-utils'
-import AlertBase from '../../components/Alert/AlertBase.vue'
+import { shallowMount } from '@vue/test-utils';
+import AlertBase from '../../components/Alert/AlertBase.vue';
 
-let wrapper
+let wrapper;
 
 describe('AlertBase.vue', () => {
   beforeEach(() => {
-    wrapper = shallowMount(AlertBase)
-  })
+    wrapper = shallowMount(AlertBase);
+  });
   it('render component correctly', () => {
-    expect(wrapper.html()).toMatchSnapshot()
-  })
+    expect(wrapper.html()).toMatchSnapshot();
+  });
   it('should emit close event on close', () => {
-    wrapper.vm.close()
+    wrapper.vm.close();
     wrapper.vm.$nextTick(() => {
-      expect(wrapper.emitted()['close']).toBeTruthy()
-    })
-  })
-})
+      expect(wrapper.emitted()['close']).toBeTruthy();
+    });
+  });
+});
