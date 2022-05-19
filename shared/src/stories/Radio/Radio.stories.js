@@ -1,12 +1,12 @@
-import RadioBase from '../../components/Radio/RadioBase.vue'
-import RadioRight from '../../components/Radio/RadioRight.vue'
-import RadioTile from '../../components/Radio/RadioTile.vue'
-import RadioMultiline from '../../components/Radio/RadioMultiline.vue'
-import RadioDense from '../../components/Radio/RadioDense.vue'
+import RadioGroupBase from '../../components/Radio/RadioGroupBase.vue'
+import RadioGroupRight from '../../components/Radio/RadioGroupRight.vue'
+import RadioGroupTile from '../../components/Radio/RadioGroupTile.vue'
+import RadioGroupMultiline from '../../components/Radio/RadioGroupMultiline.vue'
+import RadioGroupDense from '../../components/Radio/RadioGroupDense.vue'
 
 export default {
   title: 'SFUI Components/Radio',
-  component: RadioBase,
+  component: RadioGroupBase,
   parameters: {
     docs: {
       description: {
@@ -92,275 +92,60 @@ export default {
 }
 
 const Template = (args, { argTypes }) => ({
-  components: { RadioBase },
+  components: { RadioGroupBase },
   props: Object.keys(argTypes),
-  data() {
-    return {
-      selectedValue: ''
-    }
-  },
-  methods: {
-    changeValue(value) {
-      this.selectedValue = value
-    }
-  },
-  computed: {
-    isInvalid() {
-      return this.selectedValue === ''
-    }
-  },
   template: `
-    <fieldset
-      aria-required="true"
-      aria-invalid="true"
-      aria-describedby="errorMessage"
-      role="radiogroup"
-      class="flex flex-col"
-    >
-      <RadioBase
-        id="radio-1"
-        name="radio-group-1"
-        :invalid="isInvalid"
-        value="one"
-        :disabled="disabled"   
-        :required="required" 
-        :selected="selectedValue"
-        @change="newValue => changeValue(newValue)"
-      />
-      <RadioBase
-        id="radio-2"
-        name="radio-group-2"
-        value="two"
-        :disabled="disabled"   
-        :required="required" 
-        :selected="selectedValue"
-        @change="newValue => changeValue(newValue)"
-      />
-      <span
-        id="errorMessage"
-        class="block col-span-2 mt-1 text-sm font-medium text-negative-600 font-body"
-        :class="{'hidden': !isInvalid }"
-      >Error message</span>
-  </fieldset>`
+  <RadioGroupBase 
+    :disabled="disabled"   
+    :required="required"  
+  />`
 })
 
 export const Common = Template.bind({})
 
-const Radio_Right = (args, { argTypes }) => ({
-  components: { RadioRight },
+const RadioRight = (args, { argTypes }) => ({
+  components: { RadioGroupRight },
   props: Object.keys(argTypes),
-  data() {
-    return {
-      selectedValue: ''
-    }
-  },
-  methods: {
-    changeValue(value) {
-      this.selectedValue = value
-    }
-  },
-  computed: {
-    isInvalid() {
-      return this.selectedValue === ''
-    }
-  },
   template: `
-    <fieldset
-      aria-required="true"
-      aria-invalid="true"
-      aria-describedby="errorMessage"
-      role="radiogroup"
-      class="flex flex-col"
-  >
-    <RadioRight
-      id="radio-3"
-      name="radio-right-group-1"
-      :invalid="isInvalid"
-      value="one"
-      :disabled="disabled"   
-      :required="required" 
-      :selected="selectedValue"
-      @change="newValue => changeValue(newValue)"
-    />
-    <RadioRight
-      id="radio-4"
-      name="radio-right-group-2"
-      value="two"
-      :disabled="disabled"   
-      :required="required" 
-      :selected="selectedValue"
-      @change="newValue => changeValue(newValue)"
-    />
-    <span
-      id="errorMessage"
-      class="block col-span-2 mt-1 text-sm font-medium text-negative-600 font-body"
-      :class="{'hidden': !isInvalid }"
-    >Error message</span>
-  </fieldset>`
+  <RadioGroupRight
+    :disabled="disabled"   
+    :required="required"  
+  />`
 })
-export const Right = Radio_Right.bind({})
+export const Right = RadioRight.bind({})
 
-const Radio_Tile = (args, { argTypes }) => ({
-  components: { RadioTile },
+const RadioTile = (args, { argTypes }) => ({
+  components: { RadioGroupTile },
   props: Object.keys(argTypes),
-  data() {
-    return {
-      selectedValue: ''
-    }
-  },
-  methods: {
-    changeValue(value) {
-      this.selectedValue = value
-    }
-  },
-  computed: {
-    isInvalid() {
-      return this.selectedValue === ''
-    }
-  },
   template: `
-    <fieldset
-      aria-required="true"
-      aria-invalid="true"
-      aria-describedby="errorMessage"
-      role="radiogroup"
-      class="flex flex-col"
-    >
-      <RadioTile
-        id="radio-5"
-        name="radio-tile-group-1"
-        :invalid="isInvalid"
-        value="one"
-        :disabled="disabled"   
-        :required="required" 
-        :selected="selectedValue"
-        @change="newValue => changeValue(newValue)"
-      />
-      <RadioTile
-        id="radio-6"
-        name="radio-tile-group-2"
-        value="two"
-        :disabled="disabled"   
-        :required="required" 
-        :selected="selectedValue"
-        @change="newValue => changeValue(newValue)"
-      />
-      <span
-        id="errorMessage"
-        class="block col-span-2 mt-1 text-sm font-medium text-negative-600 font-body"
-        :class="{'hidden': !isInvalid }"
-      >Error message</span>
-  </fieldset>`
+  <RadioGroupTile 
+    :disabled="disabled"   
+    :required="required"  
+  />`
 })
-export const Tile = Radio_Tile.bind({})
+export const Tile = RadioTile.bind({})
 
-const Radio_Multiline = (args, { argTypes }) => ({
-  components: { RadioMultiline },
+const RadioMultiline = (args, { argTypes }) => ({
+  components: { RadioGroupMultiline },
   props: Object.keys(argTypes),
-  data() {
-    return {
-      selectedValue: ''
-    }
-  },
-  methods: {
-    changeValue(value) {
-      this.selectedValue = value
-    }
-  },
-  computed: {
-    isInvalid() {
-      return this.selectedValue === ''
-    }
-  },
   template: `
-    <fieldset
-      aria-required="true"
-      aria-invalid="true"
-      aria-describedby="errorMessage"
-      role="radiogroup"
-      class="flex flex-col"
-    >
-      <RadioMultiline
-        id="radio-7"
-        name="radio-multiline-group-1"
-        :invalid="isInvalid"
-        value="one"
-        :disabled="disabled"   
-        :required="required" 
-        :selected="selectedValue"
-        @change="newValue => changeValue(newValue)"
-      />
-      <RadioMultiline
-        id="radio-8"
-        name="radio-multiline-group-2"
-        value="two"
-        :disabled="disabled"   
-        :required="required" 
-        :selected="selectedValue"
-        @change="newValue => changeValue(newValue)"
-      />
-      <span
-        id="errorMessage"
-        class="block col-span-2 mt-1 text-sm font-medium text-negative-600 font-body"
-        :class="{'hidden': !isInvalid }"
-      >Error message</span>
-  </fieldset>`
+  <RadioGroupMultiline
+    :disabled="disabled"   
+    :required="required"  
+  />`
 })
 
-export const Multiline = Radio_Multiline .bind({})
+export const Multiline = RadioMultiline .bind({})
 
-const Radio_Dense = (args, { argTypes }) => ({
-  components: { RadioDense },
+const RadioDense = (args, { argTypes }) => ({
+  components: { RadioGroupDense },
   props: Object.keys(argTypes),
-  data() {
-    return {
-      selectedValue: ''
-    }
-  },
-  methods: {
-    changeValue(value) {
-      this.selectedValue = value
-    }
-  },
-  computed: {
-    isInvalid() {
-      return this.selectedValue === ''
-    }
-  },
   template: `
-    <fieldset
-      aria-required="true"
-      aria-invalid="true"
-      aria-describedby="errorMessage"
-      role="radiogroup"
-      class="flex flex-col"
-    >
-      <RadioDense
-        id="radio-9"
-        name="radio-dense-group-1"
-        :invalid="isInvalid"
-        value="one"
-        :disabled="disabled"   
-        :required="required" 
-        :selected="selectedValue"
-        @change="newValue => changeValue(newValue)"
-      />
-      <RadioDense
-        id="radio-10"
-        name="radio-dense-group-2"
-        value="two"
-        :disabled="disabled"   
-        :required="required" 
-        :selected="selectedValue"
-        @change="newValue => changeValue(newValue)"
-      />
-      <span
-        id="errorMessage"
-        class="block col-span-2 mt-1 text-sm font-medium text-negative-600 font-body"
-        :class="{'hidden': !isInvalid }"
-      >Error message</span>
-  </fieldset>`
+  <RadioGroupDense 
+    :disabled="disabled"   
+    :required="required"  
+  />`
 })
 
-export const Dense = Radio_Dense.bind({})
+export const Dense = RadioDense.bind({})
 
