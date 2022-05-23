@@ -1,20 +1,20 @@
 <template>
   <div id="playground">
     <SfButton>
-      {{ 'Add to cart' }}
+      {{ "Add to cart" }}
     </SfButton>
   </div>
 </template>
 
 <script>
-import SfButton from "../src/components/atoms/SfButton/SfButton.vue"
+import SfButton from "../src/components/atoms/SfButton/SfButton.vue";
 
 // Use this component to play with other components
 // (such as those you have generated using `yarn run create-component`).
 export default {
   components: {
-    SfButton
-  }
+    SfButton,
+  },
 };
 
 // Note: To serve this file run `yarn run serve`
