@@ -11,10 +11,10 @@ module.exports = {
   theme: {
     extend: {
       boxShadow: {
-        default: '0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06)',
-        'md': '0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -1px rgba(0, 0, 0, 0.06)',
-        'lg': '0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05)',
-        'xl': '0px 20px 25px -5px rgba(0, 0, 0, 0.1), 0px 10px 10px -5px rgba(0, 0, 0, 0.04)'
+        'base': '0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06)',
+        'medium': '0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -1px rgba(0, 0, 0, 0.06)',
+        'large': '0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05)',
+        'extra-large': '0px 20px 25px -5px rgba(0, 0, 0, 0.1), 0px 10px 10px -5px rgba(0, 0, 0, 0.04)'
       },
       backgroundImage: {
         'checked-checkbox': 'linear-gradient(-45deg,transparent 65%, #02BB4D 65.99%),linear-gradient(45deg,transparent 75%, #02BB4D 75.99%),linear-gradient(-45deg, #02BB4D 40%,transparent 40.99%),linear-gradient(45deg, #02BB4D 30%, white 30.99%, white 40%,transparent 40.99%),linear-gradient(-45deg, white 50%, #02BB4D 50.99%)',
@@ -101,15 +101,15 @@ module.exports = {
       },
       screens: {
       // => @media (min-width: 1536px, max-width: 1608px) { ... }
-        '2xl': { min: '1536px', max: '1920px' },
-        'xl': { min: '1280px', max: '1366px' },
-        'lg': '1024px',
-        'md': '768px',
-        'sm': '640px',
-        'xs': { min: '360px', max: '376px' }
+        '2-extra-large': { min: '1536px', max: '1920px' },
+        'extra-large': { min: '1280px', max: '1366px' },
+        'large': '1024px',
+        'medium': '768px',
+        'small': '640px',
+        'extra-small': { min: '360px', max: '376px' }
       },
       keyframes: {
-        spin: {
+        'spin-base': {
           'from': {
             transform: 'rotate:(0deg)'
           },
@@ -129,7 +129,7 @@ module.exports = {
         }
       },
       animation: {
-        spin: 'spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite',
+        'spin-base': 'spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite',
         'linear-loader': 'linear-loader 1.5s ease-in infinite'
       }
     }

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AlertPositive.vue render component correctly 1`] = `
-<div role="alert" class="flex flex-wrap items-center justify-between w-[360px] min-h-[56px] pl-4 pr-4 pt-2 pb-2 rounded-md shadow-md bg-primary-100 border border-primary-400">
+<div role="alert" class="flex flex-wrap items-center justify-between w-[360px] min-h-[56px] pl-4 pr-4 pt-2 pb-2 rounded-md shadow-medium bg-primary-100 border border-primary-400">
   <div class="flex items-center gap-2"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 fill-primary-600">
       <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10.7071 16.2929C10.3166 16.6834 9.68342 16.6834 9.29289 16.2929L5.70549 12.7055C5.31586 12.3159 5.31586 11.6841 5.70549 11.2945C6.09474 10.9053 6.7257 10.9048 7.11549 11.2935L10 14.17L16.5829 7.4971C16.9744 7.1056 17.6099 7.10712 18 7.5C18.3882 7.89092 18.3874 8.52255 17.9979 8.9121L10.7071 16.2929Z"></path>
       <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10.7071 16.2929C10.3166 16.6834 9.68342 16.6834 9.29289 16.2929L5.70549 12.7055C5.31586 12.3159 5.31586 11.6841 5.70549 11.2945C6.09474 10.9053 6.7257 10.9048 7.11549 11.2935L10 14.17L16.5829 7.4971C16.9744 7.1056 17.6099 7.10712 18 7.5C18.3882 7.89092 18.3874 8.52255 17.9979 8.9121L10.7071 16.2929Z"></path>
