@@ -1,13 +1,13 @@
-import { shallowMount } from '@vue/test-utils'
-import ButtonPrimarySmall from '../../components/Button/Primary/ButtonPrimarySmall.vue'
+import { shallowMount } from '@vue/test-utils';
+import ButtonPrimarySmall from '../../components/Button/Primary/ButtonPrimarySmall.vue';
 
-let wrapper
+let wrapper;
 
 describe('ButtonPrimarySmall.vue', () => {
   beforeEach(() => {
-    wrapper = shallowMount(ButtonPrimarySmall)
-  })
+    wrapper = shallowMount(ButtonPrimarySmall);
+  });
   it('render component correctly', () => {
-    expect(wrapper.html()).toMatchSnapshot()
-  })
-})
+    expect(wrapper.html()).toMatchSnapshot();
+  });
+});

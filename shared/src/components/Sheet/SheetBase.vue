@@ -4,6 +4,6 @@
 
 <script>
 export default {
-  name: "SheetBase"
-}
+  name: 'SheetBase'
+};
 </script>

@@ -2,7 +2,8 @@ module.exports = {
   root: true,
   env: {
     browser: true,
-    node: true
+    node: true,
+    jest: true
   },
   parserOptions: {
     parser: '@babel/eslint-parser',
@@ -15,5 +16,8 @@ module.exports = {
   plugins: [
   ],
   // add your custom rules here
-  rules: {}
-}
+  rules: {
+    'space-before-function-paren': ['error', 'never'],
+    semi: ['error', 'always']
+  }
+};

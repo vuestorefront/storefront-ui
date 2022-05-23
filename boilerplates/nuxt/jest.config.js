@@ -1,11 +1,13 @@
 module.exports = {
+  setupFiles: [
+    '<rootDir>/__tests__/setup.js'
+  ],
   testEnvironment: 'jsdom',
   moduleFileExtensions: ['js', 'json', 'vue'],
   transform: {
     '^.+\\.js$': 'babel-jest',
     '.*\\.(vue)$': '@vue/vue2-jest'
   },
-  transformIgnorePatterns: ['/node_modules/'],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/$1',
     '^~/(.*)$': '<rootDir>/$1',
