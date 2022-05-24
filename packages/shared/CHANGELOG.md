@@ -11,9 +11,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * color primary with better contrast ratio ([#2413](https://github.com/vuestorefront/storefront-ui/issues/2413)) ([2d8892f](https://github.com/vuestorefront/storefront-ui/commit/2d8892fd87500ff8055a7ae28f623623b2834722))
 
 
-
-
-
 ## [0.13.1](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.13.0...@storefront-ui/shared@0.13.1) (2022-04-26)
 
 

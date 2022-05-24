@@ -21,9 +21,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * update-components-docs regex ([#2352](https://github.com/vuestorefront/storefront-ui/issues/2352)) ([5595859](https://github.com/vuestorefront/storefront-ui/commit/5595859ff8348a4d591d05121370eeca953e0c9f))
 
 
-
-
-
 ## [0.13.1](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/vue@0.13.0...@storefront-ui/vue@0.13.1) (2022-04-26)
 
 
