@@ -234,7 +234,7 @@ export const Example = (args, { argTypes }) => ({
       <SfImage :width="20" :height="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAM2SURBVDiNrZT/S9tHGMdflyZmjTbYsMxKsTqduBBT42wbNc32wZHqEseE1uovVYq0c6BI9z8Mxn4pusHcRlgs+6FFGTqNtE0n7fqFBpv1g5lzbkS3iWzSoStmIOaT3H4Y6ZouFNb2gePu3sf7xfPcHY9QFEVPjqhzHn0nMrt4oKjI0rW2tgHA7t0F/LmxOVJoyY9ubkY+zuXTPSpomr1FSzrub22nhoTQde0ptgBgMOgpLS3ClL+zu3Rf8ZCWdNwPBr9ofiyw6IWmCZ3YMVnteNG0tPQbNTXl/LDwKwB2eylzsWUqK/eiqnEAk9lsngqHw+M5galk9YTVavZJCd/FlqmqKkFV49hs+zAaDahqnHqXDVWN43RWsGuXicuHjhCqavAPrCQmMhx9pswzZ9p9g4NfcvDQy6RTKaLRRXp6fAQC09jtZeTl6bl1a55jx15lbOwbACpOnSA/bweAb9TvbWk/3XNRD+B7o+HC2bNjuN3VrK7+werqPTo6mwgEpmlstLO+vomqxuntfZPh4Uk8HgdbW9tUnDqB2WzKJHceKBSexr5+KcTQ6bdb+fSTKcrK9lBeXszMzF26uo5w7txlrNZCapwVXAlHOd6hMDp6DZmW9K3N8lxae3B/UtAvPO6+4NF2pXts9BptbW7Gx28C0Npaz9TUbZpbDnLp4iwATa/XMvP1XTweB9dvxPjgtb2YDP++q/F5S1AcdvdLgP37y5mbW0KnE9jtZcRiy7xSV8m30Z8AcLlsRCIL/8CuxwD4avK9h0sGQBx290u/30UoFMHrrSMcjgKgKE6uXlVpaLATiXxPOi1x1duI3F6gtvYl5ud/5l3j7+wUMht4svv9bCVzIEDKzFogpXwwZ7Tj6/MYZSrbp2laTuCThv7HDwMj2xsb3c8CZrBYgvrFjz67IyTPBCgFURRF0WualtA0TT7lSCiKotcDbCz90nkvFJ58muysfm8ngMj0w4GVxISQ+J6w1OnBkoK3soAA4XB4XAjh/18wKUNer7ctsxePduxQKNS88vn5C+lkMv9xIJ3B8FfJyc4Ov99/6WH9P8BMDKwkekEcEFJm/QApxAjIO4MlBcO5fH8D9mJwJg0giNMAAAAASUVORK5CYII=" alt="Flag of the USA"/>
     </SfButton>
     <SfBottomModal :is-open="open" :title="title" @click:close="open = !open"> 
-        <SfList :style="customStyleForContent">
+        <SfList>
           <SfListItem v-for="(item, index) in items" :key="index"
           >
             <SfButton

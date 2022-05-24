@@ -32,7 +32,7 @@
           <SfButton
             :class="{ 'display-none': !hasClose }"
             class="sf-button--text sf-color-picker__close smartphone-only"
-            aria-label="Close button"
+            :aria-label="'Close button'"
             :aria-pressed="!isOpen"
             @click="toggle"
           >

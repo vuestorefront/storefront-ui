@@ -276,7 +276,7 @@ export const AutoSlide = Template.bind({});
 AutoSlide.args = {
   ...Common.args,
   sliderOptions: {
-    autoplay: true,
+    autoplay: 3000,
     rewind: true,
     gap: 0,
   },

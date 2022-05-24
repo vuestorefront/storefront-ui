@@ -1,8 +1,4 @@
 import { SfInput, SfIcon } from "@storefront-ui/vue";
-import { sizesValues as sizes } from "@storefront-ui/shared/variables/sizes";
-import { iconColorsValues as colors } from "@storefront-ui/shared/variables/colors";
-import { icons } from "@storefront-ui/vue/icons/icons";
-const iconsNames = Object.keys(icons);
 
 export default {
   title: "Components/Atoms/Input",
@@ -347,6 +343,13 @@ ShowPassword.args = {
   ...Common.args,
   type: "password",
   hasShowPassword: true,
+  label: "Password",
+  name: "password",
+  icon: {
+    icon: "show_password",
+    color: "black",
+    size: "18px",
+  },
 };
 
 export const WithPlaceholder = (args, { argTypes }) => ({
@@ -370,7 +373,7 @@ export const WithPlaceholder = (args, { argTypes }) => ({
     :disabled="disabled"
     :has-show-password="hasShowPassword"
     placeholder="I'm a placeholder"
-    @change="onChange"
+    @change="change"
   />`,
 });
 
@@ -404,10 +407,8 @@ export const WithLabelSlot = (args, { argTypes }) => ({
     :required="required"
     :disabled="disabled"
     :icon="icon"
-    :iconSize="iconSize"
-    :iconColor="iconColor"
     :has-show-password="hasShowPassword"
-    @change="onChange"
+    @change="change"
     >
     <template #label="{label}">
       <SfIcon 
@@ -444,10 +445,8 @@ export const WithErrorSlot = (args, { argTypes }) => ({
     :required="required"
     :disabled="disabled"
     :icon="icon"
-    :iconSize="iconSize"
-    :iconColor="iconColor"
     :has-show-password="hasShowPassword"
-    @change="onChange"
+    @change="change"
     >
     <template #error-message="{errorMessage}">
       <div>
