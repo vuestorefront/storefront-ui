@@ -57,6 +57,14 @@ export default {
       description:
         "List of breadcrumbs (array of nested objects: `[ { text, route } ]`)",
     },
+    ariaLabel: {
+      control: "text",
+      defaultValue: "breadcrumbs",
+      table: {
+        category: "Props",
+      },
+      description: "Attribute for 'aria-label' tag.",
+    },
     current: {
       table: {
         category: "Slots",
@@ -82,7 +90,7 @@ export default {
 const Template = (args, { argTypes }) => ({
   components: { SfBreadcrumbs },
   props: Object.keys(argTypes),
-  template: `<SfBreadcrumbs :breadcrumbs="breadcrumbs" />`,
+  template: `<SfBreadcrumbs :breadcrumbs="breadcrumbs" :aria-label="ariaLabel"/>`,
 });
 
 export const Common = Template.bind({});

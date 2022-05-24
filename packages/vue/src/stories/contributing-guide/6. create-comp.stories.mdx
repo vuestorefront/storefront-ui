@@ -4,7 +4,7 @@ import { Meta } from "@storybook/addon-docs/blocks";
 
 <style>{`
   a {
-    color: #5ECE7B !important;
+    color: #018937 !important;
   }
 
   .alert {
@@ -14,7 +14,7 @@ import { Meta } from "@storybook/addon-docs/blocks";
   }
 
   .tip {
-    border-left: 5px solid #5ECE7B;
+    border-left: 5px solid #018937;
   }
 
 	.warning {
@@ -107,9 +107,29 @@ in `packages/vue/scripts/component-template` folder.
 ## Running tests
 
 You should test your component by importing it inside `packages/vue/src/Playground.vue`,
-then running `yarn run serve`.
+then running `yarn playground`.
 
 Or do `yarn test:unit` to run all the unit tests.
+
+**Usage:**
+
+Inside template
+```html
+<div id="playground">
+  <SfButton>{{ 'Add to cart' }}</SfButton>
+</div>
+```
+
+Inside script
+```js
+import SfButton from "./components/atoms/SfButton/SfButton.vue"
+
+export default {
+  components: {
+    SfButton
+  }
+}
+```
 
 ## Export components
 

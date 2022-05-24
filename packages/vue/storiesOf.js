@@ -47,7 +47,6 @@ const SfScrollable = require("./src/components/molecules/SfScrollable/SfScrollab
 const SfSearchBar = require("./src/components/molecules/SfSearchBar/SfSearchBar.stories.js");
 const SfSection = require("./src/components/molecules/SfSection/SfSection.stories.js");
 const SfSelect = require("./src/components/molecules/SfSelect/SfSelect.stories.js");
-const SfSlidingSection = require("./src/components/molecules/SfSlidingSection/SfSlidingSection.stories.js");
 const SfSteps = require("./src/components/molecules/SfSteps/SfSteps.stories.js");
 const SfSticky = require("./src/components/molecules/SfSticky/SfSticky.stories.js");
 const SfTile = require("./src/components/molecules/SfTile/SfTile.stories.js");
@@ -120,7 +119,6 @@ module.exports = {
   SfSearchBar,
   SfSection,
   SfSelect,
-  SfSlidingSection,
   SfSteps,
   SfSticky,
   SfTile,

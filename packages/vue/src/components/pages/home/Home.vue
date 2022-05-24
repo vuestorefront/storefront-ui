@@ -1,6 +1,6 @@
 <template>
   <div id="home">
-    <SfHero class="hero">
+    <SfHero class="hero" :slider-options="{ autoplay: false }">
       <SfHeroItem
         v-for="(img, index) in heroes"
         :key="index"
@@ -180,7 +180,7 @@
         <div class="app-banner__call-to-action">
           <SfButton
             class="app-banner__button sf-banner__call-to-action"
-            aria-label="Go to Apple Product"
+            :aria-label="'Go to Apple Product'"
             data-testid="banner-cta-button"
           >
             <SfImage
@@ -192,7 +192,7 @@
           </SfButton>
           <SfButton
             class="app-banner__button sf-banner__call-to-action"
-            aria-label="Go to Google Product"
+            :aria-label="'Go to Google Product'"
             data-testid="banner-cta-button"
           >
             <SfImage

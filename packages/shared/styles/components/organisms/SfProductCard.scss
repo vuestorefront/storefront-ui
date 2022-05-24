@@ -163,6 +163,9 @@
   &.on-wishlist {
     --product-card-wishlist-icon-opacity: 1;
   }
+  & .has-colors {
+    --product-card-add-button-bottom: 0;
+  }
   @include for-desktop {
     --product-card-max-width: 15.5rem;
     --product-card-padding: var(--spacer-sm);

@@ -99,26 +99,25 @@ export default {
       };
       if (this.imageTag === "nuxt-img" || this.imageTag === "nuxt-picture") {
         return {
-          "--hero-item-background-image": isImageString
+          "--hero-item-background-image-mobile": isImageString
             ? nuxtImgConvert(image)
-            : {
-                "--hero-item-background-image-mobile": nuxtImgConvert(
-                  image.mobile
-                ),
-                "--hero-item-background-image": nuxtImgConvert(image.desktop),
-              },
+            : image.mobile && nuxtImgConvert(image.mobile),
+          "--hero-item-background-image": isImageString
+            ? `url(${image})`
+            : nuxtImgConvert(image.desktop),
           "--_banner-background-color": background,
         };
+      } else {
+        return {
+          "--hero-item-background-image-mobile": isImageString
+            ? `url(${image})`
+            : image.mobile && `url(${image.mobile})`,
+          "--hero-item-background-image": isImageString
+            ? `url(${image})`
+            : `url(${image.desktop})`,
+          "background-color": background,
+        };
       }
-      return {
-        "--hero-item-background-image": isImageString
-          ? `url(${image})`
-          : {
-              "--hero-item-background-image-mobile": image.mobile,
-              "--hero-item-background-image": image.desktop,
-            },
-        "background-color": background,
-      };
     },
     wrapper() {
       return this.link ? "SfLink" : "SfButton";

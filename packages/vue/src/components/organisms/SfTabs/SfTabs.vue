@@ -30,7 +30,6 @@ export default {
   },
   data() {
     return {
-      tabs: [],
       initialTabActivated: false,
     };
   },
@@ -42,20 +41,20 @@ export default {
   },
   mounted() {
     this.$on("toggle", this.toggle);
-    this.tabs.push(...this.$children);
     if (this.openTab) this.openChild();
   },
   methods: {
     toggle(id) {
-      this.tabs.forEach((tab) => {
-        tab.isActive = tab._uid === id;
+      this.$children.forEach((child) => {
+        child.isActive = child._uid === id;
       });
-      const activeTab = this.tabs.findIndex((tab) => tab.isActive === true) + 1;
+      const activeTab =
+        this.$children.findIndex((child) => child.isActive === true) + 1;
       this.$emit("click:tab", activeTab);
     },
     openChild() {
       if (this.openTab < this.$children.length + 1) {
-        this.tabs[this.openTab - 1].isActive = true;
+        this.$children[this.openTab - 1].isActive = true;
         this.initialTabActivated = true;
       }
     },

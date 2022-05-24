@@ -1,7 +1,7 @@
 {
   "name": "@storefront-ui/root",
   "private": true,
-  "version": "0.12.2",
+  "version": "0.13.1",
   "description": "",
   "main": "index.js",
   "author": "Storefront UI",
@@ -20,7 +20,8 @@
     "nuxt:start": "cd packages/nuxt && yarn start",
     "lhci": "lhci autorun",
     "lhci:desktop": "lhci autorun --collect.settings.preset=desktop",
-    "update-components-docs": "cd packages/vue/scripts && node update-components-docs.js"
+    "update-components-docs": "cd packages/vue/scripts && node update-components-docs.js",
+    "change-breakpoint": "node packages/vue/scripts/change-breakpoint.js"
   },
   "repository": {
     "type": "git",

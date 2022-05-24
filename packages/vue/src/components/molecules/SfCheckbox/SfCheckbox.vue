@@ -18,6 +18,11 @@
         :checked="isChecked"
         :disabled="disabled"
         class="sf-checkbox__input"
+        :aria-invalid="!valid"
+        :aria-required="required"
+        :aria-describedby="
+          errorMessage ? `${nameWithoutWhitespace}-error` : null
+        "
         @change="inputHandler"
       />
       <slot name="checkmark" v-bind="{ isChecked, disabled }">
@@ -45,8 +50,14 @@
           :name="computedMessageSlotName"
           v-bind="{ computedMessage }"
         >
-          <div :class="computedMessageClass">{{ computedMessage }}</div></slot
-        >
+          <div
+            :id="`${nameWithoutWhitespace}-error`"
+            :class="computedMessageClass"
+            aria-live="assertive"
+          >
+            {{ computedMessage }}
+          </div>
+        </slot>
       </transition>
     </div>
   </div>
@@ -136,6 +147,9 @@ export default {
         "sf-checkbox__message--info",
         this.required ? "sf-checkbox__message--hint" : ""
       );
+    },
+    nameWithoutWhitespace() {
+      return this.name.replace(/\s/g, "");
     },
   },
   methods: {

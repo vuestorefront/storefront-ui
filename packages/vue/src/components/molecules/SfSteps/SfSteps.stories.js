@@ -171,12 +171,23 @@ export default {
 const Template = (args, { argTypes }) => ({
   components: { SfSteps },
   props: Object.keys(argTypes),
+  data() {
+    return {
+      currentStepIndex: 0,
+    };
+  },
+  methods: {
+    stepHandler(value) {
+      this.currentStepIndex = value;
+      this.change(value);
+    },
+  },
   template: `
   <SfSteps
-    :active="active"
+    :active="currentStepIndex"
     :steps="steps" 
     :can-go-back="canGoBack"
-    @change="change"
+    @change="stepHandler"
   >
     <SfStep v-for="(step, key) in steps" :key="key" :name="step">
       <div style="display: flex; align-items:center; justify-content:center; height: 18.75rem; background-color: #f2f2f2;">
@@ -191,9 +202,35 @@ Common.args = {
   steps: ["Details", "Shipping", "Payment", "Review"],
 };
 
-export const NoGoBack = Template.bind({});
+export const NoGoBack = (args, { argTypes }) => ({
+  components: { SfSteps },
+  props: Object.keys(argTypes),
+  data() {
+    return {
+      currentStepIndex: 1,
+    };
+  },
+  methods: {
+    stepHandler(value) {
+      this.currentStepIndex = value;
+      this.change(value);
+    },
+  },
+  template: `
+  <SfSteps
+    :active="currentStepIndex"
+    :steps="steps" 
+    :can-go-back="canGoBack"
+    @change="stepHandler"
+  >
+    <SfStep v-for="(step, key) in steps" :key="key" :name="step">
+      <div style="display: flex; align-items:center; justify-content:center; height: 18.75rem; background-color: #f2f2f2;">
+        [#default slot content] {{step}}
+      </div>
+    </SfStep>
+  </SfSteps>`,
+});
 NoGoBack.args = {
   ...Common.args,
-  active: 1,
   canGoBack: false,
 };

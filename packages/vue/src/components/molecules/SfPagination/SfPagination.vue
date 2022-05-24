@@ -13,7 +13,7 @@
           }"
           :link="hasRouter ? getLinkTo(getPrev) : null"
           :disabled="!hasRouter && !canGoPrev ? true : false"
-          aria-label="Go to previous page"
+          :aria-label="'Go to previous page'"
           data-testid="pagination-button-prev"
           @click="hasRouter ? null : go(getPrev)"
         >
@@ -100,7 +100,7 @@
           }"
           :link="hasRouter ? getLinkTo(getNext) : null"
           :disabled="!hasRouter && !canGoNext ? true : false"
-          aria-label="Go to previous next"
+          :aria-label="'Go to previous next'"
           data-testid="pagination-button-next"
           @click="hasRouter ? null : go(getNext)"
         >
