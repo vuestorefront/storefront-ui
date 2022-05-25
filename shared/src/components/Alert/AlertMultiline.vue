@@ -1,7 +1,7 @@
 <template>
   <div
     role="alert"
-    class="flex flex-wrap justify-between w-[360px] min-h-[56px] pl-4 pr-4 pt-3.5 pb-3.5 rounded-md shadow-md bg-secondary-100 border border-secondary-400"
+    class="flex flex-wrap justify-between w-[360px] min-h-[56px] pl-4 pr-4 pt-3.5 pb-3.5 rounded-md shadow-medium bg-secondary-100 border border-secondary-400"
   >
     <div class="flex gap-2">
       <svg
