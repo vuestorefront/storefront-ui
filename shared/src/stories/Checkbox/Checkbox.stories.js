@@ -1,5 +1,5 @@
-import CheckboxBase from '../../components/Checkbox/CheckboxBase.vue'
-import CheckboxRight from '../../components/Checkbox/CheckboxRight.vue'
+import CheckboxBase from '../../components/Checkbox/CheckboxBase.vue';
+import CheckboxRight from '../../components/Checkbox/CheckboxRight.vue';
 
 export default {
   title: 'SFUI Components/Checkbox',
@@ -14,59 +14,59 @@ export default {
   },
   argTypes: {
     required: {
-      control: "boolean",
+      control: 'boolean',
       table: {
-        category: "Props",
+        category: 'Props',
         defaultValue: {
-          summary: false,
-        },
+          summary: false
+        }
       },
       defaultValue: false,
-      description: "Required field",
+      description: 'Required field'
     },
     disabled: {
-      control: "boolean",
+      control: 'boolean',
       defaultValue: false,
       table: {
-        category: "Props",
+        category: 'Props'
       },
-      description: "Disables checkbox",
+      description: 'Disables checkbox'
     },
     indeterminate: {
-      control: "boolean",
+      control: 'boolean',
       table: {
-        category: "Props",
+        category: 'Props',
         defaultValue: {
-          summary: false,
-        },
+          summary: false
+        }
       },
       defaultValue: false,
-      description: "Indeterminate state for checkbox",
+      description: 'Indeterminate state for checkbox'
     },
     valid: {
-      control: "boolean",
+      control: 'boolean',
       defaultValue: false,
       table: {
-        category: "Props",
+        category: 'Props'
       },
-      description: "",
-    },
+      description: ''
+    }
   }
-}
+};
 
 const Template = (args, { argTypes }) => ({
   components: { CheckboxBase },
   props: Object.keys(argTypes),
   template: `
     <CheckboxBase name="checkbox" :disabled="disabled" :required="required" :indeterminate="indeterminate" :valid="valid" />`
-})
+});
 
-export const Common = Template.bind({})
+export const Common = Template.bind({});
 
 const CheckboxOnRight = (args, { argTypes }) => ({
   components: { CheckboxRight },
   props: Object.keys(argTypes),
   template: `
     <CheckboxRight name="checkbox" :disabled="disabled" :required="required" :indeterminate="indeterminate" :valid="valid" />`
-})
-export const Right = CheckboxOnRight.bind({})
+});
+export const Right = CheckboxOnRight.bind({});

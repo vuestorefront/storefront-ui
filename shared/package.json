@@ -8,7 +8,7 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint --ext .vue ."
+    "lint": "eslint --ext .js,.vue ."
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",

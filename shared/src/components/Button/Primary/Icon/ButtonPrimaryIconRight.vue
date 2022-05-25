@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { focus } from '../../../../utils/focus-directive.js'
+import { focus } from '../../../../utils/focus-directive.js';
 
 export default {
   name: 'ButtonPrimaryIconRight',
@@ -22,5 +22,5 @@ export default {
       default: false
     }
   }
-}
+};
 </script>

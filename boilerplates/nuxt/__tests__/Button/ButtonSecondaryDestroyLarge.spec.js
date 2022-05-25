@@ -1,13 +1,13 @@
-import { shallowMount } from '@vue/test-utils'
-import ButtonDestroySecondaryLarge from '../../components/Button/Secondary/Destroy/ButtonSecondaryDestroyLarge.vue'
+import { shallowMount } from '@vue/test-utils';
+import ButtonDestroySecondaryLarge from '../../components/Button/Secondary/Destroy/ButtonSecondaryDestroyLarge.vue';
 
-let wrapper
+let wrapper;
 
 describe('ButtonDestroySecondaryLarge.vue', () => {
   beforeEach(() => {
-    wrapper = shallowMount(ButtonDestroySecondaryLarge)
-  })
+    wrapper = shallowMount(ButtonDestroySecondaryLarge);
+  });
   it('render component correctly', () => {
-    expect(wrapper.html()).toMatchSnapshot()
-  })
-})
+    expect(wrapper.html()).toMatchSnapshot();
+  });
+});

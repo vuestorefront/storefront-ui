@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { focus } from '../../../../utils/focus-directive.js'
+import { focus } from '../../../../utils/focus-directive.js';
 
 export default {
   name: 'ButtonTertiaryDestroySmall',
@@ -21,5 +21,5 @@ export default {
       default: false
     }
   }
-}
+};
 </script>
