@@ -223,7 +223,7 @@ function getVarsArray(file) {
     outputStyle: "expanded",
   });
   const text = css.toString();
-  const patterns = [/var\((\S+)(, (.+))?\)/g, / {2}(--.+):( (.+));/g];
+  const patterns = [/var\((\S+?(?=\)|,))(,\s*(var\(.+?\)|.+?(?=\))))?\)/g, / {2}(--.+):( (.+));/g];
   const componentName = /\.sf-([a-z]+-?)+/g.exec(text)[0].trim();
   let variables = [];
   let keys = [];

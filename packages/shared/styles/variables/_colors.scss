@@ -4,7 +4,7 @@ html {
   --c-white: #ffffff;
   // Internal color variables
   /* Should NOT be used directly for theming or component styles */
-  @include generate-color-variants(--_c-green-primary, #5ece7b);
+  @include generate-color-variants(--_c-green-primary, #018937);
   @include generate-color-variants(--_c-green-secondary, #9ee2b0);
   @include generate-color-variants(--_c-dark-primary, #1d1f22);
   @include generate-color-variants(--_c-dark-secondary, #43464E);

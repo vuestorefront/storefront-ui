@@ -25,7 +25,7 @@
         <SfButton
           :class="{ 'display-none': !cross }"
           class="sf-button--pure sf-modal__close desktop-only"
-          aria-label="Close modal"
+          :aria-label="'Close modal'"
           type="button"
           data-testid="close-button"
           @click="close"
