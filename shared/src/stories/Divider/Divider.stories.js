@@ -1,17 +1,17 @@
 
-import DividerBase from "../../components/Divider/DividerBase.vue";
+import DividerBase from '../../components/Divider/DividerBase.vue';
 
 export default {
-  title: "SFUI Components/Divider",
+  title: 'SFUI Components/Divider',
   component: DividerBase,
   parameters: {
     docs: {
       description: {
         component:
-          "The divider component. [link to component docs on the page]",
-      },
-    },
-  },
+          'The divider component. [link to component docs on the page]'
+      }
+    }
+  }
 };
 
 const Template = () => ({

@@ -1,58 +1,58 @@
-import SelectBase from "../../components/Select/SelectBase.vue";
+import SelectBase from '../../components/Select/SelectBase.vue';
 
 export default {
-  title: "SFUI Components/Select",
-  component: SelectBase,  
-  parameters: { 
+  title: 'SFUI Components/Select',
+  component: SelectBase,
+  parameters: {
     docs: {
       description: {
         component:
-          "The base select component. [link to component docs on the page]",
-      },
-    },
+          'The base select component. [link to component docs on the page]'
+      }
+    }
   },
   argTypes: {
     value: {
-      control: "text",
+      control: 'text',
       table: {
-        category: "Props",
+        category: 'Props',
         defaultValue: {
-          summary: "",
-        },
+          summary: ''
+        }
       },
-      defaultValue: "",
-      description: "Value selected.",
+      defaultValue: '',
+      description: 'Value selected.'
     },
     required: {
-      control: "boolean",
+      control: 'boolean',
       table: {
-        category: "Props",
+        category: 'Props',
         defaultValue: {
-          summary: false,
-        },
+          summary: false
+        }
       },
       defaultValue: false,
-      description: "Required field.",
+      description: 'Required field.'
     },
     disabled: {
-      control: "boolean",
+      control: 'boolean',
       defaultValue: false,
       table: {
-        category: "Props",
+        category: 'Props'
       },
-      description: "Disables select.",
+      description: 'Disables select.'
     },
     invalid: {
-      control: "boolean",
+      control: 'boolean',
       table: {
-        category: "Props",
+        category: 'Props',
         defaultValue: {
-          summary: false,
-        },
+          summary: false
+        }
       },
       defaultValue: false,
-      description: "Shows error message value of form select when true.",
-    },
+      description: 'Shows error message value of form select when true.'
+    }
   }
 };
 
@@ -83,6 +83,6 @@ const RequiredSelect = (args, { argTypes }) => ({
 export const Required = RequiredSelect.bind({});
 Required.args = {
   ...Primary.args,
-  required: true,
+  required: true
 };
 

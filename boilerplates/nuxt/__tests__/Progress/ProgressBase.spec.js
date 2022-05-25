@@ -1,13 +1,13 @@
-import { shallowMount } from '@vue/test-utils'
-import ProgressBase from '../../components/Progress/ProgressBase.vue'
+import { shallowMount } from '@vue/test-utils';
+import ProgressBase from '../../components/Progress/ProgressBase.vue';
 
-let wrapper
+let wrapper;
 
 describe('ProgressBase.vue', () => {
   beforeEach(() => {
-    wrapper = shallowMount(ProgressBase)
-  })
+    wrapper = shallowMount(ProgressBase);
+  });
   it('render component correctly', () => {
-    expect(wrapper.html()).toMatchSnapshot()
-  })
-})
+    expect(wrapper.html()).toMatchSnapshot();
+  });
+});

@@ -10,17 +10,12 @@ module.exports = {
   ],
   theme: {
     extend: {
-      borderRadius: {
-        'none': '0',
-        'md': '6px',
-        'xl': '12px',
-        'full': '80px'
-      },
       boxShadow: {
-        default: '0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06)',
-        'md': '0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -1px rgba(0, 0, 0, 0.06)',
-        'lg': '0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05)',
-        'xl': '0px 20px 25px -5px rgba(0, 0, 0, 0.1), 0px 10px 10px -5px rgba(0, 0, 0, 0.04)'
+        'base': '0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06)',
+        'inset': '0 0 0 2px rgba(255,255,255, 1) inset,0 0 0 rgba(255,255,255, 1) inset',
+        'medium': '0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -1px rgba(0, 0, 0, 0.06)',
+        'large': '0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05)',
+        'extra-large': '0px 20px 25px -5px rgba(0, 0, 0, 0.1), 0px 10px 10px -5px rgba(0, 0, 0, 0.04)'
       },
       backgroundImage: {
         'star-filled': "url('../../assets/star.svg')",
@@ -107,42 +102,17 @@ module.exports = {
         'headings': 'Red Hat Display',
         'body': 'Red Hat Text'
       },
-      fontSize: {
-        'lg': '18px',
-        'base': '16px',
-        'sm': '14px',
-        'xs': '12px'
-      },
-      fontWeight: {
-        'normal': '400',
-        'medium': '500',
-        'bold': '700'
-      },
       screens: {
       // => @media (min-width: 1536px, max-width: 1608px) { ... }
-        '2xl': { min: '1536px', max: '1608px' },
-        'xl': '1280px',
-        'lg': '1024px',
-        'md': '768px',
-        'sm': '640px',
-        'xs': '0px'
-      },
-      spacing: {
-        'px': '1px',
-        '0.5': '0.125rem',
-        '1': '0.25rem',
-        '1.5': '0.375rem',
-        '2': '0.5rem',
-        '3': '0.75rem',
-        '4': '1.25rem',
-        '6': '1.5rem',
-        '8': '2rem',
-        '10': '2.5rem',
-        '20': '5rem',
-        '40': '10rem'
+        '2-extra-large': { min: '1536px', max: '1920px' },
+        'extra-large': { min: '1280px', max: '1366px' },
+        'large': '1024px',
+        'medium': '768px',
+        'small': '640px',
+        'extra-small': { min: '360px', max: '376px' }
       },
       keyframes: {
-        spin: {
+        'spin-base': {
           'from': {
             transform: 'rotate:(0deg)'
           },
@@ -162,10 +132,10 @@ module.exports = {
         }
       },
       animation: {
-        spin: 'spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite',
+        'spin-base': 'spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite',
         'linear-loader': 'linear-loader 1.5s ease-in infinite'
       }
     }
   },
   plugins: []
-}
+};
