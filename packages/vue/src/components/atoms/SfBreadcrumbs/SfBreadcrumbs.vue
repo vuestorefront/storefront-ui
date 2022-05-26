@@ -3,7 +3,7 @@
     :class="[data.class, data.staticClass, 'sf-breadcrumbs']"
     :style="[data.style, data.staticStyle]"
     v-bind="data.attrs"
-    aria-label="breadcrumb"
+    :aria-label="props.ariaLabel"
     v-on="listeners"
   >
     <ol class="sf-breadcrumbs__list">
@@ -55,6 +55,10 @@ export default {
     breadcrumbs: {
       type: Array,
       default: () => [],
+    },
+    ariaLabel: {
+      type: String,
+      default: "breadcrumb",
     },
   },
   breadcrumbLast(breadcrumbs) {

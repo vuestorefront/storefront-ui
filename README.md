@@ -11,7 +11,9 @@
 </p>
 
 <p align="center">
+<a href="https://github.com/vuestorefront/storefront-ui">
     <img alt="GitHub Repository Stars Count" src="https://img.shields.io/github/stars/vuestorefront/storefront-ui?style=social" />
+  </a>
     <a href="https://twitter.com/storefrontui">
         <img alt="Follow Us on Twitter" src="https://img.shields.io/twitter/follow/storefrontui?style=social" />
     </a>
