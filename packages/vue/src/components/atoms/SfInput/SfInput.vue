@@ -19,6 +19,11 @@
         :name="name"
         :class="{ 'sf-input--is-password': isPassword }"
         :type="inputType"
+        :aria-invalid="!valid"
+        :aria-required="required"
+        :aria-describedby="
+          errorMessage ? `${nameWithoutWhitespace}-error` : null
+        "
         v-on="listeners"
       />
       <span class="sf-input__bar"></span>
@@ -73,8 +78,14 @@
     <div class="sf-input__error-message">
       <transition name="sf-fade">
         <slot name="error-message" v-bind="{ errorMessage }">
-          <div :class="{ 'display-none': valid }">{{ errorMessage }}</div></slot
-        >
+          <div
+            :id="`${nameWithoutWhitespace}-error`"
+            :class="{ 'display-none': valid }"
+            aria-live="assertive"
+          >
+            {{ errorMessage }}
+          </div>
+        </slot>
       </transition>
     </div>
   </div>

@@ -4,7 +4,7 @@ import logo from "../public/assets/storybook/logo.png";
 export default create({
   base: "light",
 
-  colorPrimary: "#5ECE7B",
+  colorPrimary: "#018937",
   colorSecondary: "#5ECE7B",
 
   appBg: "white",
