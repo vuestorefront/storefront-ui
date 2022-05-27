@@ -275,8 +275,10 @@ export default {
         this.eventHover = $event;
         if (this.outsideZoom) {
           this.positionStatic = this.positionObject(index);
-          this.$refs.imgZoom.$el.children[0].style.cssText =
-            "top: 0; transform: scale(2);";
+          this.$refs.outSide.style.cssText = `position: absolute; left: ${
+            $event.clientX - this.positionStatic.x
+          }px; top: ${$event.clientY - this.positionStatic.y}px; z-index: 1;`;
+          this.$refs.imgZoom.$el.children[0].style.cssText = `transform: scale(2); width: 300px; height: auto;`;
           this.$refs.imgZoom.$el.children[0].style.transformOrigin = `${
             $event.clientX - this.positionStatic.x
           }px ${$event.clientY - this.positionStatic.y}px`;
