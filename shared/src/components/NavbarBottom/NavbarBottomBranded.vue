@@ -1,5 +1,5 @@
 <template>
-  <nav>
+  <nav class="fixed bottom-0 w-full">
     <ul class="grid grid-flow-col bg-brand auto-cols-fr justify-items-stretch">
       <slot>
         <li class="flex">
