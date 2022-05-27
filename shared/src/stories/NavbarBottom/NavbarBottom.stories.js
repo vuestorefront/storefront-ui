@@ -39,9 +39,9 @@ const Template = () => ({
     `
 })
 
-export const Common = Template.bind({})
+export const Base = Template.bind({})
 
-const CommonNavbarWithIcon = (args, { argTypes }) => ({
+const BaseNavbarWithIcon = (args, { argTypes }) => ({
   components: { NavbarBottom },
   props: Object.keys(argTypes),
   template: `
@@ -185,7 +185,7 @@ const CommonNavbarWithIcon = (args, { argTypes }) => ({
 </NavbarBottom>
 `
 })
-export const NavbarWithIcon = CommonNavbarWithIcon.bind({})
+export const NavbarWithIcon = BaseNavbarWithIcon.bind({})
 
 const NavbarSmallWithCounter = (args, { argTypes }) => ({
   components: { NavbarBottom },

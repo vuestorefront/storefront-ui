@@ -26,7 +26,7 @@ const Template = () => ({
     `
 });
 
-export const Common = Template.bind({});
+export const Base = Template.bind({});
 
 const TagWithIcon = () => ({
   components: { TagIcon },

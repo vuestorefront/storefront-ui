@@ -40,7 +40,7 @@ const Template = (args, { argTypes }) => ({
   </div>`
 })
 
-export const Common = Template.bind({});
+export const Base = Template.bind({});
 
 const Linear = (args, { argTypes }) => ({
   components: { SpinnerLinear },

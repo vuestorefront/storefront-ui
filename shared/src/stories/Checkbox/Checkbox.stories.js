@@ -61,7 +61,7 @@ const Template = (args, { argTypes }) => ({
     <CheckboxBase name="checkbox" :disabled="disabled" :required="required" :indeterminate="indeterminate" :valid="valid" />`
 });
 
-export const Common = Template.bind({});
+export const Base = Template.bind({});
 
 const CheckboxOnRight = (args, { argTypes }) => ({
   components: { CheckboxRight },

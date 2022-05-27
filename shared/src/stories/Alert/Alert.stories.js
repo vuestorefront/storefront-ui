@@ -38,7 +38,7 @@ const Template = (args, { argTypes }) => ({
     `
 });
 
-export const Common = Template.bind({});
+export const Base = Template.bind({});
 
 const PositiveAlert = (args, { argTypes }) => ({
   components: { AlertPositive },
