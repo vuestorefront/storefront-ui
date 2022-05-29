@@ -101,7 +101,7 @@ const Template = (args, { argTypes }) => ({
   />`
 });
 
-export const Common = Template.bind({});
+export const Base = Template.bind({});
 
 const RadioRight = (args, { argTypes }) => ({
   components: { RadioGroupRight },
