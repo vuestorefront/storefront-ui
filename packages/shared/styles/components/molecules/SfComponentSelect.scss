@@ -149,6 +149,9 @@
   }
   &--label-right {
     --component-select-label-left: 85%;
+    @include for-mobile {
+      --component-select-label-left: 70%;
+    }
   }
   &.is-selected {
     --component-select-label-transform: var(--component-select-label-translate3d, translate3d(0, -200%, 0)); 
