@@ -13,19 +13,19 @@
       aria-hidden="true"
     />
     <div
-      class="absolute w-14 h-14 bg-transparent border-[3px] rounded-[50%] is-animation-stopped animate-spin border-t-primary-600"
+      class="absolute w-14 h-14 bg-transparent border-[3px] rounded-[50%] is-animation-stopped animate-spin-base border-t-primary-600"
       aria-hidden="true"
     />
     <div
-      class="absolute w-14 h-14 bg-transparent border-[3px] rounded-[50%] is-animation-stopped animate-spin animation-delay-1 border-t-primary-600 border-x-transparent border-b-transparent"
+      class="absolute w-14 h-14 bg-transparent border-[3px] rounded-[50%] is-animation-stopped animate-spin-base animation-delay-1 border-t-primary-600 border-x-transparent border-b-transparent"
       aria-hidden="true"
     />
     <div
-      class="absolute w-14 h-14 bg-transparent border-[3px] rounded-[50%] is-animation-stopped animate-spin animation-delay-2 border-t-primary-600 border-x-transparent border-b-transparent"
+      class="absolute w-14 h-14 bg-transparent border-[3px] rounded-[50%] is-animation-stopped animate-spin-base animation-delay-2 border-t-primary-600 border-x-transparent border-b-transparent"
       aria-hidden="true"
     />
     <div
-      class="absolute w-14 h-14 bg-transparent border-[3px] rounded-[50%] is-animation-stopped animate-spin animation-delay-3 border-t-primary-600 border-x-transparent border-b-transparent"
+      class="absolute w-14 h-14 bg-transparent border-[3px] rounded-[50%] is-animation-stopped animate-spin-base animation-delay-3 border-t-primary-600 border-x-transparent border-b-transparent"
       aria-hidden="true"
     />
   </div>
@@ -34,5 +34,5 @@
 <script>
 export default {
   name: 'SpinnerXl'
-}
+};
 </script>

@@ -1,13 +1,13 @@
-import { shallowMount } from '@vue/test-utils'
-import ButtonPrimaryDestroy from '../../components/Button/Primary/Destroy/ButtonPrimaryDestroy.vue'
+import { shallowMount } from '@vue/test-utils';
+import ButtonPrimaryDestroy from '../../components/Button/Primary/Destroy/ButtonPrimaryDestroy.vue';
 
-let wrapper
+let wrapper;
 
 describe('ButtonPrimaryDestroy.vue', () => {
   beforeEach(() => {
-    wrapper = shallowMount(ButtonPrimaryDestroy)
-  })
+    wrapper = shallowMount(ButtonPrimaryDestroy);
+  });
   it('render component correctly', () => {
-    expect(wrapper.html()).toMatchSnapshot()
-  })
-})
+    expect(wrapper.html()).toMatchSnapshot();
+  });
+});

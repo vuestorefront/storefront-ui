@@ -8,6 +8,6 @@
 
 <script>
 export default {
-  name: "TagIcon"
-}
+  name: 'TagIcon'
+};
 </script>

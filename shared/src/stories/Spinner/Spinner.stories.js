@@ -1,10 +1,10 @@
-import SpinnerSm from '../../components/Spinner/SpinnerSm.vue'
-import SpinnerBase from '../../components/Spinner/SpinnerBase.vue'
-import SpinnerLg from '../../components/Spinner/SpinnerLg.vue'
-import SpinnerXl from '../../components/Spinner/SpinnerXl.vue'
-import Spinner2Xl from '../../components/Spinner/Spinner2Xl.vue'
-import Spinner3Xl from '../../components/Spinner/Spinner3Xl.vue'
-import SpinnerLinear from '../../components/Spinner/SpinnerLinear.vue'
+import SpinnerSm from '../../components/Spinner/SpinnerSm.vue';
+import SpinnerBase from '../../components/Spinner/SpinnerBase.vue';
+import SpinnerLg from '../../components/Spinner/SpinnerLg.vue';
+import SpinnerXl from '../../components/Spinner/SpinnerXl.vue';
+import Spinner2Xl from '../../components/Spinner/Spinner2Xl.vue';
+import Spinner3Xl from '../../components/Spinner/Spinner3Xl.vue';
+import SpinnerLinear from '../../components/Spinner/SpinnerLinear.vue';
 
 export default {
   title: 'SFUI Components/Spinner',
@@ -17,7 +17,7 @@ export default {
       }
     }
   }
-}
+};
 
 const Template = (args, { argTypes }) => ({
   components: {
@@ -38,9 +38,9 @@ const Template = (args, { argTypes }) => ({
     <Spinner2Xl class="mb-4" />
     <Spinner3Xl />
   </div>`
-});
+})
 
-export const Common = Template.bind({})
+export const Common = Template.bind({});
 
 const Linear = (args, { argTypes }) => ({
   components: { SpinnerLinear },
@@ -49,6 +49,6 @@ const Linear = (args, { argTypes }) => ({
   <div>
     <SpinnerLinear />
   </div>`
-})
+});
 
-export const LinearSpinner = Linear.bind({})
+export const LinearSpinner = Linear.bind({});

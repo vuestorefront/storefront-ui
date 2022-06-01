@@ -25,38 +25,38 @@
   </div>
 </template>
 <script>
-import { focus } from '../../utils/focus-directive.js'
+import { focus } from '../../utils/focus-directive.js';
 
 export default {
-  name: "CheckboxRight",
+  name: 'CheckboxRight',
   directives: {
     focus
   },
   props: {
     name: {
       type: String,
-      required: true,
+      required: true
     },
     value: {
       type: [String, Boolean],
-      default: "",
+      default: ''
     },
     required: {
       type: Boolean,
-      default: false,
+      default: false
     },
     disabled: {
       type: Boolean,
-      default: false,
+      default: false
     },
     indeterminate: {
       type: Boolean,
-      default: false,
+      default: false
     },
     valid: {
       type: Boolean,
-      default: true,
-    },
-  },
-}
+      default: true
+    }
+  }
+};
 </script>
