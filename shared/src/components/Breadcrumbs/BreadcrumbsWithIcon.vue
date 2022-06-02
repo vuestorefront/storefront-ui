@@ -108,7 +108,7 @@ export default {
     const dropdown = ref(null);
     const dropdownOpened = ref(false);
     const padding = 40;
-    const breadcrumbsList = ref(structuredClone(props.breadcrumbs));
+    const breadcrumbsList = ref([...props.breadcrumbs]);
     const dropdownList = ref([]);
     const firstBreadcrumbItem = computed(() => nav.value?.children[0]?.children[1]?.clientWidth);
     const firstElementWidth = ref(0);
