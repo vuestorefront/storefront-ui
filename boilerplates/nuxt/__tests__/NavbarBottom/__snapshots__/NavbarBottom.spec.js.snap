@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`NavbarBottom.vue render component correctly 1`] = `
-<nav name="checkbox">
+<nav class="fixed bottom-0 w-full" name="checkbox">
   <ul class="grid grid-flow-col bg-white auto-cols-fr justify-items-stretch">
     <li class="flex"><a href="#" class="flex flex-col items-center justify-center flex-1 pt-3 pb-1 group hover:bg-primary-100 active:bg-primary-100"><svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" clip-rule="evenodd" d="M11.4928 2.29289C11.8834 1.90237 12.5165 1.90237 12.9071 2.29289L21.9071 11.2929C22.2976 11.6834 22.2976 12.3166 21.9071 12.7071C21.5165 13.0976 20.8834 13.0976 20.4928 12.7071L20.2 12.4142V20C20.2 21.1046 19.3045 22 18.2 22H6.19995C5.09538 22 4.19995 21.1046 4.19995 20V12.4142L3.90706 12.7071C3.51653 13.0976 2.88337 13.0976 2.49284 12.7071C2.10232 12.3166 2.10232 11.6834 2.49284 11.2929L11.4928 2.29289ZM6.19995 10.4142V20H9.19995V16C9.19995 14.8954 10.0954 14 11.2 14H13.2C14.3045 14 15.2 14.8954 15.2 16V20H18.2V10.4142L12.2 4.41421L6.19995 10.4142ZM13.2 20V16H11.2V20H13.2Z" class="fill-primary-500 group-hover:fill-primary-600 group-active:fill-primary-600"></path>
