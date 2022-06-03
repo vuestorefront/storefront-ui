@@ -147,5 +147,5 @@
 
 export default {
   name: 'NavbarBottomBranded'
-}
+};
 </script>

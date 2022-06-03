@@ -54,7 +54,7 @@ export default {
   setup() {
     const selectedValue = ref('');
     const changeValue = (value) => {
-       selectedValue.value = value;
+      selectedValue.value = value;
     };
 
     const isInvalid = computed(() => selectedValue.value === '');

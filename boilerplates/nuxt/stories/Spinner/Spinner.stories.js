@@ -38,7 +38,7 @@ const Template = (args, { argTypes }) => ({
     <Spinner2Xl class="mb-4" />
     <Spinner3Xl />
   </div>`
-})
+});
 
 export const Base = Template.bind({});
 

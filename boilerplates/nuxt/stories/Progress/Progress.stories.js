@@ -34,7 +34,7 @@ const Template = (args, { argTypes }) => ({
     ProgressXl,
     Progress2Xl,
     Progress3Xl
-},
+  },
   props: Object.keys(argTypes),
   data() {
     return {

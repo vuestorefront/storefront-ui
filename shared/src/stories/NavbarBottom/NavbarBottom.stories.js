@@ -1,7 +1,7 @@
 
-import NavbarBottom from '../../components/NavbarBottom/NavbarBottom.vue'
-import NavbarBottomBranded from '../../components/NavbarBottom/NavbarBottomBranded.vue'
-import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
+import NavbarBottom from '../../components/NavbarBottom/NavbarBottom.vue';
+import NavbarBottomBranded from '../../components/NavbarBottom/NavbarBottomBranded.vue';
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 
 export default {
   title: 'SFUI Components/NavbarBottom',
@@ -30,16 +30,16 @@ export default {
       description: 'Use this slot to place content inside the NavbarBottom. Content should be wrapped in `<li>` tags'
     }
   }
-}
+};
 
 const Template = () => ({
   components: { NavbarBottom },
   template: `
     <NavbarBottom />
     `
-})
+});
 
-export const Base = Template.bind({})
+export const Base = Template.bind({});
 
 const BaseNavbarWithIcon = (args, { argTypes }) => ({
   components: { NavbarBottom },
@@ -184,8 +184,8 @@ const BaseNavbarWithIcon = (args, { argTypes }) => ({
   </li>
 </NavbarBottom>
 `
-})
-export const NavbarWithIcon = BaseNavbarWithIcon.bind({})
+});
+export const NavbarWithIcon = BaseNavbarWithIcon.bind({});
 
 const NavbarSmallWithCounter = (args, { argTypes }) => ({
   components: { NavbarBottom },
@@ -330,8 +330,8 @@ const NavbarSmallWithCounter = (args, { argTypes }) => ({
   </li>
 </NavbarBottom>
 `
-})
-export const SmallNavbarWithCounter = NavbarSmallWithCounter.bind({})
+});
+export const SmallNavbarWithCounter = NavbarSmallWithCounter.bind({});
 
 const NavbarSmallWithIcon = (args, { argTypes }) => ({
   components: { NavbarBottom },
@@ -476,17 +476,17 @@ const NavbarSmallWithIcon = (args, { argTypes }) => ({
   </li>
 </NavbarBottom>
 `
-})
-export const SmallNavbarWithIcon = NavbarSmallWithIcon.bind({})
+});
+export const SmallNavbarWithIcon = NavbarSmallWithIcon.bind({});
 
 const BrandedNavbar = () => ({
   components: { NavbarBottomBranded },
   template: `
     <NavbarBottomBranded />
     `
-})
+});
 
-export const NavbarBranded = BrandedNavbar.bind({})
+export const NavbarBranded = BrandedNavbar.bind({});
 
 const BrandedNavbarWithIcon = () => ({
   components: { NavbarBottomBranded },
@@ -631,9 +631,9 @@ const BrandedNavbarWithIcon = () => ({
   </li>
 </NavbarBottomBranded>
 `
-})
+});
 
-export const NavbarBrandedWithIcon = BrandedNavbarWithIcon.bind({})
+export const NavbarBrandedWithIcon = BrandedNavbarWithIcon.bind({});
 
 const BrandedNavbarSmall = () => ({
   components: { NavbarBottomBranded },
@@ -774,9 +774,9 @@ const BrandedNavbarSmall = () => ({
   </li>
 </NavbarBottomBranded>
 `
-})
+});
 
-export const SmallNavbarBranded = BrandedNavbarSmall.bind({})
+export const SmallNavbarBranded = BrandedNavbarSmall.bind({});
 
 const BrandedNavbarSmallWithIcon = () => ({
   components: { NavbarBottomBranded },
@@ -914,6 +914,6 @@ const BrandedNavbarSmallWithIcon = () => ({
   </li>
     </NavbarBottomBranded>
     `
-})
+});
 
-export const SmallNavbarBrandedWithIcon = BrandedNavbarSmallWithIcon.bind({})
+export const SmallNavbarBrandedWithIcon = BrandedNavbarSmallWithIcon.bind({});
