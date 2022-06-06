@@ -20,6 +20,7 @@
     :aria-label="props.ariaLabel"
     v-bind="data.attrs"
     v-on="!props.disabled ? listeners : {}"
+    :type="$options.setType(props.type, props.link)"
   >
     <slot />
   </component>
@@ -55,12 +56,23 @@ export default {
       type: String,
       default: "button",
     },
+    type: {
+      type: String,
+      default: null
+    }
   },
   linkActive(link, disabled) {
     return link && disabled;
   },
   buttonActive(link, disabled) {
     return !link && disabled;
+  },
+  setType(type, link) {
+    if (type === null && !link) {
+      return 'button'
+    } else {
+      return type;
+    }
   },
 };
 </script>
