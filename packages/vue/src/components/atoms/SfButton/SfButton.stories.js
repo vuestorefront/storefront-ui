@@ -239,8 +239,9 @@ export const WithDefaultSlot = (args, { argTypes }) => ({
     :class="classes"
     :disabled="disabled"
     @click="click"
-    :link="link">
+    :link="link"
     :aria-label="ariaLabel"
+  >
     <template>
       <div v-html="content"/>
     </template>
