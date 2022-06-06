@@ -57,8 +57,8 @@ export default {
     stories: [
       '~/stories/**/*.stories.js'
     ],
-    webpackFinal (config) {
-      return config
+    webpackFinal(config) {
+      return config;
     }
   }
-}
+};

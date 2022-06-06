@@ -19,7 +19,9 @@ module.exports = {
     'no-trailing-spaces': ['error'],
     'semi': ['error', 'always'],
     'eol-last': ['error', 'always'],
-    'space-before-function-paren': ['error', 'never']
+    'space-before-function-paren': ['error', 'never'],
+    'indent': [2, 2],
+    'no-unneeded-ternary': ['error', { 'defaultAssignment': false }]
   },
   parserOptions: {
     parser: '@babel/eslint-parser',

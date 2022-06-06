@@ -86,7 +86,7 @@ export default {
     const dropdownList = ref([]);
     const firstBreadcrumbItem = computed(() => nav.value?.children[0]?.children[1]?.clientWidth);
     const firstElementWidth = ref(0);
-    const showDots = computed(() => breadcrumbsList.value.length === props.breadcrumbs.length ? false : true);
+    const showDots = computed(() => breadcrumbsList.value.length !== props.breadcrumbs.length);
 
     onClickOutside(dropdown, () => dropdownOpened.value = false);
 
