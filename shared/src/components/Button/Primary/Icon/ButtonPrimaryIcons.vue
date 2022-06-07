@@ -2,7 +2,7 @@
   <button
     v-focus
     :disabled="disabled"
-    class="inline-flex items-center justify-center cursor-pointer bg-green-500 hover:bg-green-600 active:bg-green-700 disabled:bg-gray-200 text-white disabled:text-gray-500 disabled:opacity-50 uppercase font-body text-base font-medium px-[14px] py-2 rounded-md shadow-base hover:shadow-medium disabled:shadow-none disabled:cursor-not-allowed outline-violet"
+    class="inline-flex items-center justify-center cursor-pointer bg-primary-500 hover:bg-primary-600 active:bg-primary-700 disabled:bg-gray-200 text-white disabled:text-gray-500 disabled:opacity-50 uppercase font-body text-base font-medium px-[14px] py-2 rounded-md shadow-base hover:shadow-medium disabled:shadow-none disabled:cursor-not-allowed outline-violet"
   >
     <slot />
   </button>
