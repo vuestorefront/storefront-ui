@@ -1,0 +1,59 @@
+<template>
+  <fieldset
+    v-focus
+    class="inline-flex rounded-md rating focus-within:outline focus-within:outline-4 focus-within:outline-offset-2 focus-within:outline-violet-400"
+  >
+    <input
+      aria-label="Rating star 1 of 5"
+      type="radio"
+      name="rating-1"
+      value="1"
+      class="w-6 h-6 appearance-none cursor-pointer star-input"
+      @change="$emit('rating-changed', value)"
+    >
+    <input
+      aria-label="Rating star 2 of 5"
+      type="radio"
+      name="rating-1"
+      value="2"
+      class="w-6 h-6 appearance-none cursor-pointer star-input"
+      checked
+      @change="$emit('rating-changed', value)"
+    >
+    <input
+      aria-label="Rating star 3 of 5"
+      type="radio"
+      name="rating-1"
+      value="3"
+      class="w-6 h-6 appearance-none cursor-pointer star-input"
+      @change="$emit('rating-changed', value)"
+    >
+    <input
+      aria-label="Rating star 4 of 5"
+      type="radio"
+      name="rating-1"
+      value="4"
+      class="w-6 h-6 appearance-none cursor-pointer star-input"
+      @change="$emit('rating-changed', value)"
+    >
+    <input
+      aria-label="Rating star 5 of 5"
+      type="radio"
+      name="rating-1"
+      value="5"
+      class="w-6 h-6 appearance-none cursor-pointer star-input"
+      @change="$emit('rating-changed', value)"
+    >
+  </fieldset>
+</template>
+
+<script>
+import { focus } from '../../utils/focus-directive.js';
+
+export default {
+  name: 'RatingButton',
+  directives: {
+    focus
+  }
+};
+</script>
