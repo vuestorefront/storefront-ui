@@ -84,7 +84,22 @@
     }
     .progress-linear::-moz-progress-bar {
         @apply bg-primary-600;
-    }      
+      }
+    .star-input {
+        background-color: #71717A;
+        -webkit-mask:  url("../star-outline.svg");
+        mask: url("../star-outline.svg");
+        opacity: 0.5;
+    }
+    .star-input:hover, 
+    .star-input:checked,
+    .rating:hover .star-input:not(.rating .star-input:hover ~ .star-input), 
+    .rating .star-input:not(.rating .star-input:checked ~ .star-input) {
+        background-color: #02BB4D;
+        -webkit-mask:  url("../star.svg");
+        mask: url("../star.svg");
+        opacity: 1;
+    }
     .breadcrumb-item:nth-of-type(1n+3) {
         @apply before:content-['/'] before:mx-2;
      }
