@@ -1,6 +1,7 @@
 # v0.0.1
 
 ## 🚀 Features:
+- Rating component created with test and stories
 - create Breadcrumbs component
 - Select component with stories and tests added 
 - add VueUse package
