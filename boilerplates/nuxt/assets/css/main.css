@@ -57,10 +57,11 @@
     .outline-violet:focus {
         @apply outline outline-4 outline-offset-2 outline-violet-400;
     }
-    .remove-chevron {
+    .remove-default-styling,
+    .remove-default-styling::-webkit-search-cancel-button {
         -webkit-appearance: none;
         -moz-appearance: none;
-        appearance: none;
+        appearance: none;        
     }
     .is-animation-stopped {
         @media screen and (prefers-reduced-motion: reduce) {

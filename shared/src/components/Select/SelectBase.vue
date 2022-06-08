@@ -9,7 +9,7 @@
         :invalid="invalid"
         :required="required"
         :disabled="disabled"
-        class="disabled:cursor-not-allowed z-10 remove-chevron order-2 peer py-3 pl-[16px] pr-3.5 m-px required:m-0 invalid:m-0 active:m-0 text-gray-900 bg-transparent border border-gray-300 rounded-md hover:border-primary-400 active:border-2 active:border-primary-500 disabled:bg-gray-100 disabled:opacity-50  disabled:text-gray-900/40 disabled:border-gray-200 invalid:border-negative-600 invalid:border-2 outline-violet"
+        class="disabled:cursor-not-allowed z-10 remove-default-styling order-2 peer py-3 pl-[16px] pr-3.5 m-px required:m-0 invalid:m-0 active:m-0 text-gray-900 bg-transparent border border-gray-300 rounded-md hover:border-primary-400 active:border-2 active:border-primary-500 disabled:bg-gray-100 disabled:opacity-50  disabled:text-gray-900/40 disabled:border-gray-200 invalid:border-negative-600 invalid:border-2 outline-violet"
       >
         <option
           :selected="selected === value"
