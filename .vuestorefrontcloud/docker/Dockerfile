@@ -6,10 +6,11 @@ COPY . .
 
 RUN cd boilerplates/nuxt \
   && yarn \
-  && yarn storybook-build 
-
-COPY --from=build /var/www/.nuxt-storybook.storybook /var/www/boilerplates/nuxt/.storybook
+  && yarn build-storybook \
+  && npm i npx \
+  && npx sb extract
 
 FROM nginx
 
 COPY .vuestorefrontcloud/docker/default.conf /etc/nginx/conf.d/default.conf
+COPY --from=build /var/www/packages/vue/storybook-static /usr/share/nginx/html
