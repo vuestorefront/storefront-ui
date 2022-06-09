@@ -5,10 +5,12 @@ let wrapper;
 
 describe('RadioDense.vue', () => {
   const name = 'radio-dense';
+  const id = 'radio-2';
   beforeEach(() => {
     wrapper = shallowMount(RadioDense, {
       propsData: {
-        name
+        name,
+        id
       }
     });
   });
