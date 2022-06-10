@@ -38,7 +38,6 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxtjs/composition-api/module',
-    '~/modules/copyToBoilerplate.js',
     '@vueuse/nuxt'
   ],
 
