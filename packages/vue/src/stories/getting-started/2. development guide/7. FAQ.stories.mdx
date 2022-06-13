@@ -91,7 +91,64 @@ Be sure you are using vue-cli version 3 or above
 
 ## 5. How to setup pagination using SFUI component. 
 
-Setting pagination for your ecommerce project depends on using the routing. 
+Setting pagination for your ecommerce project depends on using the routing. With SfPagination component you can make most things done automatically. 
+Using props you can set following values:
+- total number of pages
+- maximum number of visible pages at a time
+- if pagination has visible arrow buttons 
+- what is the current open page 
+- and finally parameter name for routing which is by default `page` 
+
+If you use routing it is detected in component and SfLink component is used to change pages. When page or arrow is clicked the number of the page is added to the query and following that proper page is shown: 
+like in this example: `https://demo-ct.vuestorefront.io/c/sale?page=2` after `sale` part of url you have `page` parameter (which is default) set to `2` what cause opening the second page with products from the `sale` category page.
+In order that to work you need to have routing properly configured. 
+Using Vuestorefront you can implement pagination like this: 
+```
+<template>
+  <SfPagination
+    class="desktop-only"
+    v-show="pagination.totalPages > 1"
+    :current="pagination.currentPage"
+    :total="pagination.totalPages"
+    :visible="5"
+  />
+
+  <div
+    v-show="pagination.totalPages > 1"
+    class="products__show-on-page"
+  >
+    <span class="products__show-on-page__label">{{ $t('Show on page') }}</span>
+    <LazyHydrate on-interaction>
+      <SfSelect
+        :value="pagination && pagination.itemsPerPage ? pagination.itemsPerPage.toString() : ''"
+        class="products__items-per-page"
+        @input="th.changeItemsPerPage"
+      >
+        <SfSelectOption
+          v-for="option in pagination.pageOptions"
+          :key="option"
+          :value="option"
+          class="products__items-per-page__option"
+        >
+          {{ option }}
+        </SfSelectOption>
+      </SfSelect>
+    </LazyHydrate>
+  </div>
+</template>
+<script>
+  import { SfPagination } from '@storefront-ui/vue';
+  setup(props, context) {
+    const pagination = computed(() => facetGetters.getPagination(result.value));
+    return {
+      pagination,
+    };
+  }
+</script>
+```
+But if your project doesn't utilize router you can implement SFUI pagination different way. 
+ 
+
 
 ## 6. There are SfSelect and SfSelectComponent components available in SFUI, what is the difference?
 
