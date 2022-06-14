@@ -2,7 +2,6 @@
   <div
     :class="[data.class, data.staticClass, 'sf-quantity-selector']"
     :style="[data.style, data.staticStyle]"
-    :aria-label="props.ariaLabel"
   >
     <component
       :is="injections.components.SfButton"
@@ -86,10 +85,6 @@ export default {
     max: {
       type: Number,
       default: null,
-    },
-    ariaLabel: {
-      type: String,
-      default: "Quantity",
     },
   },
   handleInput(qty, listeners, min, max) {
