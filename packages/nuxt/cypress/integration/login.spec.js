@@ -16,6 +16,7 @@ describe("Login/signin page", () => {
       .type("password")
       .should("have.class", "has-text")
       .get(".sf-input__password-button")
+      .not('.display-none')
       .click()
       .should("not.have.class", "hidden")
       .get(`${selectors.login.rememberCheckbox} input`)
