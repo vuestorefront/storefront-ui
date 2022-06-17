@@ -12,14 +12,6 @@ describe("SfBreadcrumbs.vue", () => {
     const wrapper = shallowMount(SfBreadcrumbs, { propsData });
     expect(wrapper.classes("sf-breadcrumbs")).toBe(true);
   });
-  it("renders component with aria-label prop", () => {
-    const wrapper = shallowMount(SfBreadcrumbs, {
-      propsData: {
-        ariaLabel: "breadcrums test",
-      },
-    });
-    expect(wrapper.attributes("aria-label")).toBe("breadcrums test");
-  });
   it("renders breadcrumbs text", () => {
     const msg = "HelloWorld";
     const wrapper = shallowMount(SfBreadcrumbs, { propsData });
