@@ -24,6 +24,7 @@
       :required="props.required"
       :maxlength="props.maxlength"
       :minlength="props.minlength"
+      :readonly="props.readonly"
       v-on="$options.handleInput(listeners)"
     />
     <label class="sf-textarea__label" :for="props.name">
