@@ -5,7 +5,7 @@ export const clickOutside = {
     el._outsideClickHandler = function (event) {
       if (!el.contains(event.target)) {
         event.stopPropagation();
-        closeHandler();
+        closeHandler(event);
       }
     };
     document.addEventListener("mousedown", el._outsideClickHandler);
