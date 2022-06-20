@@ -254,6 +254,7 @@ const Template = (args, { argTypes }) => ({
     :required="required"
     :disabled="disabled"
     :placeholder="placeholder"
+    :readonly="readonly"
     @change="change"
   />`,
 });
