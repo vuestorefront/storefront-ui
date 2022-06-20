@@ -24,7 +24,7 @@
           <SfCircleIcon
             :class="{ 'display-none': !button }"
             icon-size="12px"
-            :aria-label="'Close sidebar'"
+            aria-label="Close sidebar"
             icon="cross"
             class="sf-sidebar__circle-icon desktop-only"
             @click="close"
