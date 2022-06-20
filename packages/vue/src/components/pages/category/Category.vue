@@ -11,7 +11,7 @@
       <div class="navbar__main">
         <SfButton
           class="sf-button--text navbar__filters-button"
-          :aria-label="'Filters'"
+          aria-label="Filters"
           @click="isFilterSidebarOpen = true"
         >
           <SfIcon
@@ -43,7 +43,7 @@
           <span class="navbar__view-label desktop-only">View</span>
           <SfButton
             class="sf-button--pure navbar__view-button"
-            :aria-label="'Change to grid view'"
+            aria-label="Change to grid view"
             :aria-pressed="isGridView"
             @click="isGridView = true"
           >
@@ -56,7 +56,7 @@
           </SfButton>
           <SfButton
             class="sf-button--pure navbar__view-button"
-            :aria-label="'Change to list view'"
+            aria-label="Change to list view"
             :aria-pressed="!isGridView"
             @click="isGridView = false"
           >

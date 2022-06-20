@@ -151,7 +151,7 @@ const Template = (args, { argTypes }) => ({
     :class="classes"
     :icon="icon" 
     :iconSize="iconSize"
-    :aria-label="ariaLabel"
+    aria-label="Go to Home"
     :disabled="disabled"
     :style="{margin: '.5rem'}"
     @click="click"
@@ -213,7 +213,7 @@ export const WithDefaultSlot = (args, { argTypes }) => ({
     :class="classes"
     :icon="icon" 
     :iconSize="iconSize"
-    :aria-label="ariaLabel"
+    aria-label="Go to Home"
     :disabled="disabled"
     @click="click"
   >

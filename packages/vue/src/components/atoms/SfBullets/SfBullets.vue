@@ -25,7 +25,7 @@
         <component
           :is="injections.components.SfButton"
           v-bind="data.attrs"
-          :aria-label="'Current slide'"
+          aria-label="Current slide"
           class="sf-button--pure sf-bullet is-active"
         ></component>
       </li>

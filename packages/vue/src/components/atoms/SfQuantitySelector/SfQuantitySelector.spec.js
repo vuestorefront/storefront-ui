@@ -42,12 +42,4 @@ describe("SfQuantitySelector.vue", () => {
     quantityButton.trigger("click");
     expect(wrapper.classes("sf-quantity-selector")).toBe(true);
   });
-  it("renders component as SfQuantitySelector with aria-label", () => {
-    const wrapper = shallowMount(SfQuantitySelector, {
-      propsData: {
-        ariaLabel: "Quantity test",
-      },
-    });
-    expect(wrapper.attributes("aria-label")).toBe("Quantity test");
-  });
 });
