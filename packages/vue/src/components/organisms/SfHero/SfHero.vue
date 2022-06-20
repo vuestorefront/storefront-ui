@@ -14,7 +14,7 @@
       <slot name="prev" v-bind="{ go: () => go('prev') }">
         <SfArrow
           class="sf-arrow--transparent"
-          :aria-label="'previous'"
+          aria-label="previous"
           data-testid="hero-prev-button"
           @click.stop="go('prev')"
         />
@@ -27,7 +27,7 @@
       <slot name="next" v-bind="{ go: () => go('next') }">
         <SfArrow
           class="sf-arrow--right sf-arrow--transparent"
-          :aria-label="'next'"
+          aria-label="next"
           data-testid="hero-next-button"
           @click.stop="go('next')"
         />
