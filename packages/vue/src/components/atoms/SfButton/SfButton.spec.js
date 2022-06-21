@@ -38,14 +38,6 @@ describe("SfButton.vue", () => {
     });
     expect(wrapper.classes("is-disabled--link")).toBe(true);
   });
-  it("renders component as button with aria-label", () => {
-    const wrapper = shallowMount(SfButton, {
-      propsData: {
-        ariaLabel: "Go to ...",
-      },
-    });
-    expect(wrapper.attributes("aria-label")).toBe("Go to ...");
-  });
   it("renders content via default slot", () => {
     const msg = "HelloWorld";
     const wrapper = shallowMount(SfButton, {

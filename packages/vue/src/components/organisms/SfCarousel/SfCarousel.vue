@@ -3,14 +3,14 @@
     <div ref="controls" class="sf-carousel__controls">
       <slot name="prev" v-bind="{ go: () => go('prev') }">
         <SfArrow
-          :aria-label="'previous'"
+          aria-label="previous"
           data-testid="carousel-prev-button"
           @click="go('prev')"
         />
       </slot>
       <slot name="next" v-bind="{ go: () => go('next') }">
         <SfArrow
-          :aria-label="'next'"
+          aria-label="next"
           class="sf-arrow--right"
           data-testid="carousel-next-button"
           @click="go('next')"

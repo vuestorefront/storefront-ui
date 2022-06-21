@@ -3,7 +3,7 @@
     <slot name="quantity-select-input" v-bind="{ qty }">
       <SfQuantitySelector
         :qty="qty"
-        :aria-label="'Quantity'"
+        aria-label="Quantity"
         :disabled="disabled"
         class="sf-add-to-cart__select-quantity"
         @input="$emit('input', $event)"

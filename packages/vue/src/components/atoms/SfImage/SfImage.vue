@@ -148,12 +148,7 @@ export default {
       return !this.$nuxt ? "img" : this.imageTag || "img";
     },
     isPlaceholderVisible() {
-      return (
-        this.imageComponentTag === "nuxt-img" ||
-        this.imageComponentTag === "nuxt-picture" ||
-        this.loaded ||
-        (!this.loaded && !this.placeholder)
-      );
+      return this.loaded || (!this.loaded && !this.placeholder);
     },
     attributes() {
       return this.imageTag === "img" || this.imageTag === ""
@@ -192,13 +187,6 @@ export default {
         "--_image-height": sizeHandler(this.height),
       };
     },
-  },
-  created() {
-    if (
-      this.imageComponentTag === "nuxt-img" ||
-      this.imageComponentTag === "nuxt-picture"
-    )
-      this.loaded = true;
   },
   methods: {
     onLoad() {

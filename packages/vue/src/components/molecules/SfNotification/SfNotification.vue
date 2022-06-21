@@ -42,7 +42,7 @@
       <slot name="close" v-bind="{ closeHandler }">
         <SfButton
           :class="{ 'display-none': persistent }"
-          :aria-label="'Close notification'"
+          aria-label="Close notification"
           class="sf-button--pure sf-notification__close"
           @click="closeHandler"
         >
