@@ -158,4 +158,4 @@ const IconButton = (args, { argTypes }) => ({
     </ButtonIconRight>
   </div>`
 });
-export const PriamryWithIcons = IconButton.bind({});
+export const PrimaryWithIcons = IconButton.bind({});
