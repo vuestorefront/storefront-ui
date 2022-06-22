@@ -5,10 +5,12 @@ let wrapper;
 
 describe('RadioDense.vue', () => {
   const name = 'radio-tile';
+  const id = 'radio-5';
   beforeEach(() => {
     wrapper = shallowMount(RadioTile, {
       propsData: {
-        name
+        name,
+        id
       }
     });
   });

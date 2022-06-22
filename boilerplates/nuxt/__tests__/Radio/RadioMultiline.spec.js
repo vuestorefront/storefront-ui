@@ -5,10 +5,12 @@ let wrapper;
 
 describe('RadioDense.vue', () => {
   const name = 'radio-multiline';
+  const id = 'radio-3';
   beforeEach(() => {
     wrapper = shallowMount(RadioMultiline, {
       propsData: {
-        name
+        name,
+        id
       }
     });
   });

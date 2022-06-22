@@ -30,9 +30,9 @@ const Template = (args, { argTypes }) => ({
     `
 });
 
-export const Common = Template.bind({});
+export const Base = Template.bind({});
 
-Common.args = {
+Base.args = {
   breadcrumbs: [
     { name: 'Home', link: '/' },
     { name: 'Electronics', link: '/' },
