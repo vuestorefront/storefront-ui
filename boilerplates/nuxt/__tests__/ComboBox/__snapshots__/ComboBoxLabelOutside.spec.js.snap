@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ComboBoxLabelOutside.vue render component correctly 1`] = `
+<div class="relative max-w-[320px] combobox combobox-list">
+  <div class="inline-flex w-full border rounded-md hover:border-primary-500 focus-within:border-2 focus-within:border-primary-500 focus-within:p-0 active:border-2 p-[1px] active:p-0"><input id="combobox-input" type="text" role="combobox" placeholder="" aria-autocomplete="list" aria-expanded="false" aria-controls="listbox" class="flex-1 py-2 pl-4 text-gray-900 rounded-md disabled:text-gray-900/40 peer font-body outline-violet disabled:cursor-not-allowed"> <label for="combobox-input" class="text-xs -translate-y-4 font-medium pl-0 text-gray-500 absolute top-0 peer-required:after:content-['*']">
+      Label
+    </label>
+    <!----> <button aria-label="Open list" aria-expanded="false" aria-controls="listbox" class="pr-3 rounded-md group disabled:cursor-not-allowed outline-violet disabled:bg-gray-100/50"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" class="transition-transform duration-500 ease-in-out fill-gray-500 group-disabled:fill-gray-500/50">
+        <path d="M7.82034 15.0014C7.43065 15.3903 6.79962 15.3899 6.41034 15.0006C6.02077 14.6111 6.02077 13.9794 6.41034 13.5899L10.9979 9.00237C11.3884 8.61184 12.0215 8.61184 12.4121 9.00237L16.9996 13.5899C17.3891 13.9794 17.3891 14.6111 16.9996 15.0006C16.6103 15.3899 15.9793 15.3903 15.5896 15.0014L11.705 11.1253L7.82034 15.0014Z"></path>
+        <path d="M7.82034 15.0014C7.43065 15.3903 6.79962 15.3899 6.41034 15.0006C6.02077 14.6111 6.02077 13.9794 6.41034 13.5899L10.9979 9.00237C11.3884 8.61184 12.0215 8.61184 12.4121 9.00237L16.9996 13.5899C17.3891 13.9794 17.3891 14.6111 16.9996 15.0006C16.6103 15.3899 15.9793 15.3903 15.5896 15.0014L11.705 11.1253L7.82034 15.0014Z"></path>
+      </svg></button>
+  </div>
+  <ul id="listbox" role="listbox" aria-label="List of colors" class="absolute w-full mt-1 overflow-y-auto bg-white rounded-md shadow-md font-body top-100 max-h-60 hidden">
+    <!---->
+    <li>
+      <div class="flex justify-center py-6">
+        <spinnerlg-stub></spinnerlg-stub>
+      </div>
+    </li>
+  </ul>
+  <!----> <span class="block text-xs text-gray-500 font-body">Help text</span>
+  <!---->
+</div>
+`;

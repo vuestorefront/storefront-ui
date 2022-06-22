@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SpinnerLg.vue render component correctly 1`] = `
-<div class="relative h-10">
+<div class="relative w-10 h-10">
   <div role="alert" class="sr-only">
     loading...
   </div>
