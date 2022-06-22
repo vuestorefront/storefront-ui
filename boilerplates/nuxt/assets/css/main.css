@@ -6,6 +6,9 @@
 @tailwind utilities;
 
 @layer base {
+  body {
+    @apply caret-primary-500;
+  }
   h1 {
     @apply font-bold font-headings extra-small:text-3xl sm:text-6xl;
   }
