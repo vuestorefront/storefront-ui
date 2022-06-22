@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative h-48"
+    class="relative w-48 h-48"
   >
     <div
       class="sr-only"

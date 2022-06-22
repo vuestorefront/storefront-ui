@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative h-6"
+    class="relative w-6 h-6"
     role="progressbar"
   >
     <div
