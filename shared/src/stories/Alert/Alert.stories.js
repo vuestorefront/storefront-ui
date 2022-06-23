@@ -2,9 +2,6 @@
 import AlertBase from '../../components/Alert/AlertBase.vue';
 import AlertSimple from '../../components/Alert/AlertSimple.vue';
 import AlertMultiline from '../../components/Alert/AlertMultiline.vue';
-import AlertPositive from '../../components/Alert/AlertPositive.vue';
-import AlertWarning from '../../components/Alert/AlertWarning.vue';
-import AlertError from '../../components/Alert/AlertError.vue';
 import AlertWithButton from '../../components/Alert/AlertWithButton.vue';
 
 export default {
@@ -26,6 +23,16 @@ export default {
         category: 'Props'
       },
       description: 'Persistence of the Alert. Default value is false.'
+    },
+    type: {
+      control: 'select',
+      defaultValue: 'info',
+      options: ['info', 'positive', 'warning', 'error'],
+      table: {
+        category: 'Props'
+      },
+      description:
+        'Type of alert. Changes border, background and color of icon'
     }
   }
 };
@@ -34,70 +41,38 @@ const Template = (args, { argTypes }) => ({
   components: { AlertBase },
   props: Object.keys(argTypes),
   template: `
-    <AlertBase :persistent="persistent" />
+    <AlertBase :persistent="persistent" :type="type" />
     `
 });
 
 export const Base = Template.bind({});
 
-const PositiveAlert = (args, { argTypes }) => ({
-  components: { AlertPositive },
-  props: Object.keys(argTypes),
-  template: `
-  <AlertPositive />
-  `
-});
-
-export const Positive = PositiveAlert.bind({});
-
 const SimpleAlert = (args, { argTypes }) => ({
   components: { AlertSimple },
   props: Object.keys(argTypes),
   template: `
-  <AlertSimple />
+  <AlertSimple :type="type" />
   `
 });
 
 export const Simple = SimpleAlert.bind({});
 
-const WarningAlert = (args, { argTypes }) => ({
-  components: { AlertWarning },
-  props: Object.keys(argTypes),
-  template: `
-  <AlertWarning />
-  `
-});
-
-export const Warning = WarningAlert.bind({});
-
-
-const ErrorAlert = (args, { argTypes }) => ({
-  components: { AlertError },
-  props: Object.keys(argTypes),
-  template: `
-  <AlertError />
-  `
-});
-
-export const Error = ErrorAlert.bind({});
-
 const MultilineAlert = (args, { argTypes }) => ({
   components: { AlertMultiline },
   props: Object.keys(argTypes),
   template: `
-  <AlertMultiline />
+  <AlertMultiline :type="type" />
   `
 });
 
 export const Multiline = MultilineAlert.bind({});
 
-const Alert_With_Button = (args, { argTypes }) => ({
+const WithButtonAlert = (args, { argTypes }) => ({
   components: { AlertWithButton },
   props: Object.keys(argTypes),
   template: `
-  <AlertWithButton />
+  <AlertWithButton :type="type" />
   `
 });
 
-export const WithButton = Alert_With_Button.bind({});
-
+export const WithButton = WithButtonAlert.bind({});

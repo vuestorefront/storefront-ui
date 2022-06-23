@@ -1,12 +1,24 @@
 <template>
   <div
     role="alert"
-    class="flex flex-wrap items-center justify-between w-[360px] min-h-[56px] pl-4 pr-4 pt-2 pb-2 rounded-md shadow-medium bg-secondary-100 border border-secondary-400"
+    class="flex flex-wrap items-center justify-between w-[360px] min-h-[56px] pl-4 pr-4 pt-2 pb-2 rounded-md shadow-medium border"
+    :class="{
+      'bg-secondary-100 border-secondary-400': type === 'info',
+      'bg-primary-100 border-primary-400': type === 'positive',
+      'bg-warning-100 border-warning-500': type === 'warning',
+      'bg-negative-100 border-negative-400': type === 'error',
+    }"
   >
     <div class="flex items-center gap-2">
       <svg
         aria-hidden="true"
-        class="w-6 h-6 fill-secondary-800"
+        class="w-6 h-6"
+        :class="{
+          'fill-secondary-800': type === 'info',
+          'fill-primary-600': type === 'positive',
+          'fill-warning-700': type === 'warning',
+          'fill-negative-700': type === 'error',
+        }"
         viewBox="0 0 24 24"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -35,7 +47,13 @@
     >
       <svg
         aria-hidden="true"
-        class="w-6 h-6 fill-secondary-800"
+        class="w-6 h-6"
+        :class="{
+          'fill-secondary-800': type === 'info',
+          'fill-primary-600': type === 'positive',
+          'fill-warning-700': type === 'warning',
+          'fill-negative-700': type === 'error',
+        }"
         viewBox="0 0 24 24"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -52,6 +70,13 @@
 export default {
   name: 'AlertBase',
   props: {
+    type: {
+      type: String,
+      default: 'info',
+      validator(value) {
+        return ['info', 'positive', 'warning', 'error'].includes(value);
+      }
+    },
     persistent: {
       type: Boolean,
       default: false

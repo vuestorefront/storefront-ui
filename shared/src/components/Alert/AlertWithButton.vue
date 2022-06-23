@@ -1,12 +1,24 @@
 <template>
   <div
     role="alert"
-    class="flex flex-wrap items-center justify-between w-[360px] min-h-[56px] pl-4 pr-4 pt-2 pb-2 rounded-md shadow-medium bg-secondary-100 border border-secondary-400"
+    class="flex flex-wrap items-center justify-between w-[360px] min-h-[56px] pl-4 pr-4 pt-2 pb-2 rounded-md shadow-medium border"
+    :class="{
+      'bg-secondary-100 border-secondary-400': type === 'info',
+      'bg-primary-100 border-primary-400': type === 'positive',
+      'bg-warning-100 border-warning-500': type === 'warning',
+      'bg-negative-100 border-negative-400': type === 'error',
+    }"
   >
     <div class="flex items-center gap-2">
       <svg
         aria-hidden="true"
-        class="w-6 h-6 fill-secondary-800"
+        class="w-6 h-6"
+        :class="{
+          'fill-secondary-800': type === 'info',
+          'fill-primary-600': type === 'positive',
+          'fill-warning-700': type === 'warning',
+          'fill-negative-700': type === 'error',
+        }"
         viewBox="0 0 24 24"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -30,8 +42,14 @@
     </div>
     <button
       v-focus
-      class="inline-flex items-center justify-center p-2 text-base font-medium bg-transparent rounded-md cursor-pointer text-secondary-800 hover:bg-secondary-200 active:bg-secondary-300 hover:text-secondary-900 active:text-secondary-900 font-body outline-violet"
-      :class="{'hidden': persistent }"
+      class="inline-flex items-center justify-center p-2 text-base font-medium bg-transparent rounded-md cursor-pointer font-body outline-violet"
+      :class="{
+        'hidden': persistent,
+        'text-secondary-800 hover:bg-secondary-200 active:bg-secondary-300 hover:text-secondary-900 active:text-secondary-900': type === 'info',
+        'text-primary-800 hover:bg-primary-200 active:bg-primary-300 hover:text-primary-900 active:text-primary-900': type === 'positive',
+        'text-warning-800 hover:bg-warning-200 active:bg-warning-300 hover:text-warning-900 active:text-warning-900': type === 'warning',
+        'text-negative-800 hover:bg-negative-200 active:bg-negative-300 hover:text-negative-900 active:text-negative-900': type === 'error',
+      }"
       @click="close"
     >
       BUTTON
@@ -47,6 +65,10 @@ export default {
     focus
   },
   props: {
+    type: {
+      type: String,
+      default: 'info'
+    },
     persistent: {
       type: Boolean,
       default: false
