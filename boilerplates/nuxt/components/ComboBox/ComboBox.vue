@@ -1,7 +1,7 @@
 <template>
   <div class="relative max-w-[320px] combobox combobox-list">
     <div
-      class="inline-flex w-full border rounded-md hover:border-primary-500 active:border-2 p-[1px] focus-within:border-2 focus-within:border-primary-500 focus-within:p-0 active:p-0"
+      class="inline-flex w-full border-gray-300 border rounded-md hover:border-primary-400 active:border-2 p-[1px] focus-within:border-2 focus-within:border-primary-500 focus-within:p-0 active:p-0"
       :class="{'border-negative-600 border-2': invalid, 'bg-gray-100/50 cursor-not-allowed border-gray-200/50 hover:border-gray-200/50': disabled}"
     >
       <input
@@ -25,7 +25,7 @@
       >
       <label
         for="combobox-input"
-        class="pl-4 text-gray-500 font-normal absolute top-0 translate-y-[50%] pointer-events-none peer-active:translate-y-1 peer-active:text-xs peer-active:font-medium peer-focus:font-medium peer-focus:translate-y-1 peer-focus:text-xs peer-required:after:content-['*'] transition-all ease-in-out"
+        class="pl-4 text-gray-500 font-normal absolute top-0 translate-y-[55%] pointer-events-none peer-active:translate-y-1 peer-active:text-xs peer-active:font-medium peer-focus:font-medium peer-focus:translate-y-1 peer-focus:text-xs peer-required:after:content-['*'] transition-all ease-in-out"
         :class="{'text-xs translate-y-1 font-medium': comboboxValue || placeholder, 'text-gray-500/50': disabled}"
       >
         Label

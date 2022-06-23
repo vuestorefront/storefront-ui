@@ -1,7 +1,7 @@
 <template>
   <div class="relative max-w-[320px] combobox combobox-list">
     <div
-      class="inline-flex w-full border rounded-md hover:border-primary-500 focus-within:border-2 focus-within:border-primary-500 focus-within:p-0 active:border-2 p-[1px] active:p-0"
+      class="inline-flex w-full border rounded-md border-gray-300 hover:border-primary-400 focus-within:border-2 focus-within:border-primary-500 focus-within:p-0 active:border-2 p-[1px] active:p-0"
       :class="{'border-negative-600 border-2': invalid, 'bg-gray-100/50 cursor-not-allowed border-gray-200/50 hover:border-gray-200/50': disabled}"
     >
       <input
