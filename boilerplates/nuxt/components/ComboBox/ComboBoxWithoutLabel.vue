@@ -91,7 +91,7 @@
         >
           <button
             v-focus
-            class="w-full px-4 py-3 text-left outline-violet"
+            class="w-full px-3 py-2 mx-1 my-1 text-left rounded-md outline-violet"
             @click="selectOption(option)"
           >
             {{ option }}
