@@ -24,8 +24,8 @@
       >
       <label
         for="combobox-input"
-        class="text-xs -translate-y-4 font-medium pl-0 text-gray-500 absolute top-0 peer-required:after:content-['*']"
-        :class="{'text-gray-500/50': disabled}"
+        class="text-sm -translate-y-5 font-medium pl-0 text-gray-500 absolute top-0 peer-required:after:content-['*']"
+        :class="{'text-gray-900/40': disabled}"
       >
         Label
       </label>
