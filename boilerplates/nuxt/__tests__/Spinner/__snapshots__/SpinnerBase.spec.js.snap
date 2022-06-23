@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SpinnerBase.vue render component correctly 1`] = `
-<div role="progressbar" class="relative h-6">
+<div role="progressbar" class="relative w-6 h-6">
   <div role="alert" class="sr-only">
     loading...
   </div>
