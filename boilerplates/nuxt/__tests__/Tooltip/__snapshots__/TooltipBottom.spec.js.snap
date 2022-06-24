@@ -2,7 +2,7 @@
 
 exports[`TooltipBottom.vue render component correctly 1`] = `
 <div class="relative flex flex-col items-center group">
-  <buttonprimary-stub aria-describedby="tooltip-bottom">
+  <buttonprimary-stub type="primary" size="medium" aria-describedby="tooltip-bottom">
     Hover me
   </buttonprimary-stub>
   <div id="tooltip-bottom" role="tooltip" class="absolute bottom-0 justify-center items-center hidden -mb-12 group-hover:flex z-50 bg-gray-500 font-body font-medium text-white text-sm leading-5 rounded-md px-3 py-1.5">

@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import ButtonPrimary from '../Button/Primary/ButtonPrimary.vue';
+import ButtonPrimary from '../Button/ButtonBase.vue';
 export default {
   name: 'TooltipBottom',
   components: {

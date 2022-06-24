@@ -8,7 +8,7 @@ exports[`TooltipRight.vue render component correctly 1`] = `
     </div>
     <div class="w-2 h-2 -ml-1 rotate-45 bg-gray-500"></div>
   </div>
-  <buttonprimary-stub aria-describedby="tooltip-right" class="ml-28">
+  <buttonprimary-stub type="primary" size="medium" aria-describedby="tooltip-right" class="ml-28">
     Hover me
   </buttonprimary-stub>
 </div>
