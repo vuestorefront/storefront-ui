@@ -10,12 +10,14 @@
       </div>
       <div class="w-2 h-2 -ml-1 rotate-45 bg-gray-500" />
     </div>
-    <ButtonPrimary
-      aria-describedby="tooltip-right"
-      class="ml-28"
-    >
-      Hover me
-    </ButtonPrimary>
+    <slot>
+      <ButtonPrimary
+        aria-describedby="tooltip-right"
+        class="ml-28"
+      >
+        Hover me
+      </ButtonPrimary>
+    </slot>
   </div>
 </template>
 

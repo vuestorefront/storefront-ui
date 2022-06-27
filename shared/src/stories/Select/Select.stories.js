@@ -52,6 +52,35 @@ export default {
       },
       defaultValue: false,
       description: 'Shows error message value of form select when true.'
+    },
+    options: {
+      control: 'object',
+      defaultValue: [],
+      description: 'Array of strings'
+    },
+    label: {
+      control: 'text',
+      table: {
+        category: 'Props'
+      },
+      defaultValue: '',
+      description: 'Select label'
+    },
+    helpText: {
+      control: 'text',
+      table: {
+        category: 'Props'
+      },
+      defaultValue: '',
+      description: 'Help text that can be visible below select'
+    },
+    errorText: {
+      control: 'text',
+      table: {
+        category: 'Props'
+      },
+      defaultValue: '',
+      description: 'Text that displays below invalid select'
     }
   }
 };
@@ -63,26 +92,24 @@ const Template = (args, { argTypes }) => ({
     <SelectBase 
       :value="value"
       :disabled="disabled"   
-      :invalid="invalid"   
+      :invalid="invalid"
+      :options="options"
+      :label="label"
+      :help-text="helpText"
+      :error-text="errorText"
     />`
 });
 
-export const Primary = Template.bind({});
+export const Base = Template.bind({});
 
-const RequiredSelect = (args, { argTypes }) => ({
-  components: { SelectBase },
-  props: Object.keys(argTypes),
-  template: `
-    <SelectBase 
-      :value="value"
-      :disabled="disabled"   
-      :invalid="invalid"  
-      :required="required" 
-    />`
-});
-export const Required = RequiredSelect.bind({});
-Required.args = {
-  ...Primary.args,
-  required: true
+Base.args = {
+  options: [
+    'option 1',
+    'option 2',
+    'option 3'
+  ],
+  invalid: false,
+  label: 'Label',
+  helpText: 'Help text',
+  errorText: 'error text'
 };
-

@@ -1,8 +1,10 @@
 <template>
   <div class="relative flex items-center group">
-    <ButtonPrimary aria-describedby="tooltip-left">
-      Hover me
-    </ButtonPrimary>
+    <slot>
+      <ButtonPrimary aria-describedby="tooltip-left">
+        Hover me
+      </ButtonPrimary>
+    </slot>
     <div
       id="tooltip-left"
       role="tooltip"
