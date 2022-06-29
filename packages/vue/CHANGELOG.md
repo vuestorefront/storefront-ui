@@ -23,10 +23,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 * Revert "#2261 - Configurable aria-label attributes (#2286)" ([3382c05](https://github.com/vuestorefront/storefront-ui/commit/3382c054ef5836c9bd9280c4346160054dc708c7)), closes [#2261](https://github.com/vuestorefront/storefront-ui/issues/2261) [#2286](https://github.com/vuestorefront/storefront-ui/issues/2286)
 
-
-
-
-
 ## [0.13.2](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/vue@0.13.1...@storefront-ui/vue@0.13.2) (2022-05-24)
 
 
