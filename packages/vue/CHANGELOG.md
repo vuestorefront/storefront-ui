@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.13.3](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/vue@0.13.2...@storefront-ui/vue@0.13.3) (2022-06-29)
+
+
+### Bug Fixes
+
+*  remove conditions for placeholder in sfimage ([#2452](https://github.com/vuestorefront/storefront-ui/issues/2452)) ([9c69d01](https://github.com/vuestorefront/storefront-ui/commit/9c69d0100f0070d2fc6047304799adb4d7393ee2))
+* apply pre-commit modifications ([#2353](https://github.com/vuestorefront/storefront-ui/issues/2353)) ([e64b5c7](https://github.com/vuestorefront/storefront-ui/commit/e64b5c7b4e407f773e10fa02dbadd8232da36ff8))
+* e2e test for login page ([#2444](https://github.com/vuestorefront/storefront-ui/issues/2444)) ([b0eef69](https://github.com/vuestorefront/storefront-ui/commit/b0eef693147d6a137a9ec1f804de0d964d99ff25))
+* event passed to closeHandler in click outside directive ([#2442](https://github.com/vuestorefront/storefront-ui/issues/2442)) ([f070c32](https://github.com/vuestorefront/storefront-ui/commit/f070c322852ee69ad5cff425811b9018e032a0d7))
+* lint fixes ([d31446f](https://github.com/vuestorefront/storefront-ui/commit/d31446f528a54e83f4a831128da179e77f864f86))
+* sfbutton with default slot story ([#2429](https://github.com/vuestorefront/storefront-ui/issues/2429)) ([59d11cf](https://github.com/vuestorefront/storefront-ui/commit/59d11cf496af6928082555ef3700c3cd385c393c))
+* SfGallery outside zoom ([#2422](https://github.com/vuestorefront/storefront-ui/issues/2422)) ([2f91ac7](https://github.com/vuestorefront/storefront-ui/commit/2f91ac7913989593e70376569aace2f4fdfa4fd6))
+* sfgtextarea readonly prop ([#2439](https://github.com/vuestorefront/storefront-ui/issues/2439)) ([ee4735c](https://github.com/vuestorefront/storefront-ui/commit/ee4735c0e6e56194c827d74eff86dc574da6b9f8))
+* sfinput showinf password ([7402013](https://github.com/vuestorefront/storefront-ui/commit/74020139d1049ef1746d9413e2762bfbf054c42d))
+
+
+### Reverts
+
+* Revert "#2261 - Configurable aria-label attributes (#2286)" ([3382c05](https://github.com/vuestorefront/storefront-ui/commit/3382c054ef5836c9bd9280c4346160054dc708c7)), closes [#2261](https://github.com/vuestorefront/storefront-ui/issues/2261) [#2286](https://github.com/vuestorefront/storefront-ui/issues/2286)
+
+
+
+
+
 ## [0.13.2](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/vue@0.13.1...@storefront-ui/vue@0.13.2) (2022-05-24)
 
 
