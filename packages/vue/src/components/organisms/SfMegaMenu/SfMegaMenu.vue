@@ -5,12 +5,15 @@
       class="sf-mega-menu"
       :class="[{ 'is-active': active }, { 'is-absolute': isAbsolute }]"
     >
-      <SfBar
-        :title="active || title"
-        :back="true"
-        class="sf-mega-menu__bar"
-        @click:back="back"
-      />
+      <slot name="menubar">
+        <SfBar
+          :title="active || title"
+          :back="true"
+          class="sf-mega-menu__bar"
+          @click:back="back"
+          @click:close="close"
+        />
+      </slot>
       <div class="sf-mega-menu__content">
         <div class="sf-mega-menu__menu">
           <slot />
@@ -88,6 +91,12 @@ export default {
       this.$emit("change", payload);
     },
     back() {
+      if (!this.active) {
+        this.$emit("close");
+      }
+      this.active = "";
+    },
+    close() {
       if (!this.active) {
         this.$emit("close");
       }
