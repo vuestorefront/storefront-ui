@@ -118,12 +118,12 @@
       v-if="invalid"
       class="block text-sm font-medium text-negative-600 font-body"
     > {{ errorText }}
-</span>
+    </span>
     <span
       class="block text-xs text-gray-500 font-body"
       :class="{'opacity-50': disabled}"
     > {{ helpText }}
-</span>
+    </span>
     <span
       v-if="required"
       class="block mt-4 text-sm text-gray-500 font-body"
@@ -144,7 +144,7 @@ export default {
     SpinnerLg
   },
   props: {
-label: {
+    label: {
       type: String,
       default: ''
     },
@@ -177,7 +177,7 @@ label: {
       default: ''
     }
   },
-  setup(props, {emit}) {
+  setup(props, { emit }) {
     const isListOpened = ref(false);
     const comboboxValue = ref(props.options[0]);
     const comboboxList = ref(null);
