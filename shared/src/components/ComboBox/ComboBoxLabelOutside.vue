@@ -1,7 +1,7 @@
 <template>
   <div class="relative max-w-[320px] combobox combobox-list">
     <div
-      class="inline-flex w-full border border-gray-300 rounded-md hover:border-primary-400 focus-within:border-2 focus-within:border-primary-500 focus-within:p-0 active:border-2 p-[1px] active:p-0"
+      class="inline-flex items-center w-full border border-gray-300 rounded-md hover:border-primary-400 focus-within:border-2 focus-within:border-primary-500 focus-within:p-0 active:border-2 p-[1px] active:p-0"
       :class="{'border-negative-600 border-2': invalid, 'bg-gray-100/50 cursor-not-allowed border-gray-200/50 hover:border-gray-200/50': disabled}"
     >
       <input
@@ -53,34 +53,24 @@
           />
         </svg>
       </button>
-      <button
-        v-focus
-        :disabled="disabled"
-        aria-label="Open list"
-        :aria-expanded="`${isListOpened}`"
-        aria-controls="listbox"
-        class="pr-3 rounded-md group disabled:cursor-not-allowed outline-violet disabled:bg-gray-100/50"
-        @click="isListOpened = !isListOpened"
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+        focusable="false"
+        class="mr-3 transition-transform duration-500 ease-in-out fill-gray-500 group-disabled:fill-gray-500/50"
+        :class="{'rotate-180': !isListOpened}"
       >
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true"
-          focusable="false"
-          class="transition-transform duration-500 ease-in-out fill-gray-500 group-disabled:fill-gray-500/50"
-          :class="{'rotate-180': !isListOpened}"
-        >
-          <path
-            d="M7.82034 15.0014C7.43065 15.3903 6.79962 15.3899 6.41034 15.0006C6.02077 14.6111 6.02077 13.9794 6.41034 13.5899L10.9979 9.00237C11.3884 8.61184 12.0215 8.61184 12.4121 9.00237L16.9996 13.5899C17.3891 13.9794 17.3891 14.6111 16.9996 15.0006C16.6103 15.3899 15.9793 15.3903 15.5896 15.0014L11.705 11.1253L7.82034 15.0014Z"
-          />
-          <path
-            d="M7.82034 15.0014C7.43065 15.3903 6.79962 15.3899 6.41034 15.0006C6.02077 14.6111 6.02077 13.9794 6.41034 13.5899L10.9979 9.00237C11.3884 8.61184 12.0215 8.61184 12.4121 9.00237L16.9996 13.5899C17.3891 13.9794 17.3891 14.6111 16.9996 15.0006C16.6103 15.3899 15.9793 15.3903 15.5896 15.0014L11.705 11.1253L7.82034 15.0014Z"
-          />
-        </svg>
-      </button>
+        <path
+          d="M7.82034 15.0014C7.43065 15.3903 6.79962 15.3899 6.41034 15.0006C6.02077 14.6111 6.02077 13.9794 6.41034 13.5899L10.9979 9.00237C11.3884 8.61184 12.0215 8.61184 12.4121 9.00237L16.9996 13.5899C17.3891 13.9794 17.3891 14.6111 16.9996 15.0006C16.6103 15.3899 15.9793 15.3903 15.5896 15.0014L11.705 11.1253L7.82034 15.0014Z"
+        />
+        <path
+          d="M7.82034 15.0014C7.43065 15.3903 6.79962 15.3899 6.41034 15.0006C6.02077 14.6111 6.02077 13.9794 6.41034 13.5899L10.9979 9.00237C11.3884 8.61184 12.0215 8.61184 12.4121 9.00237L16.9996 13.5899C17.3891 13.9794 17.3891 14.6111 16.9996 15.0006C16.6103 15.3899 15.9793 15.3903 15.5896 15.0014L11.705 11.1253L7.82034 15.0014Z"
+        />
+      </svg>
     </div>
     <ul
       id="listbox"
