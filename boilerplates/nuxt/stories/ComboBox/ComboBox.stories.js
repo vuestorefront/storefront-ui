@@ -142,6 +142,12 @@ const Template = (args, { argTypes }) => ({
 
 export const Base = Template.bind({});
 
+Base.args = {
+  label: 'Label',
+  helpText: 'Help text',
+  errorText: 'error text'
+};
+
 export const WithPlaceholder = (args, { argTypes }) => ({
   components: { ComboBox },
   props: Object.keys(argTypes),
@@ -159,6 +165,7 @@ export const WithPlaceholder = (args, { argTypes }) => ({
 });
 
 WithPlaceholder.args = {
+  ...Base.args,
   placeholder: 'Placeholder text',
   colors
 };
@@ -180,6 +187,7 @@ export const LabelOutside = (args, { argTypes }) => ({
 });
 
 LabelOutside.args = {
+  ...Base.args,
   colors
 };
 
@@ -200,5 +208,6 @@ export const WithoutLabel = (args, { argTypes }) => ({
 });
 
 WithoutLabel.args = {
+  ...Base.args,
   colors
 };
