@@ -183,6 +183,7 @@ export const LabelOutside = (args, { argTypes }) => ({
     :label="label"
     :help-text="helpText"
     :error-text="errorText"
+    class="mt-3"
   />`
 });
 
