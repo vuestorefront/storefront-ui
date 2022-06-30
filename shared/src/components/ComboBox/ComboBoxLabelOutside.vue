@@ -27,7 +27,7 @@
         class="text-sm -translate-y-5 font-medium pl-0 text-gray-500 absolute top-0 peer-required:after:content-['*']"
         :class="{'text-gray-900/40': disabled}"
       >
-        Label
+        {{ label }}
       </label>
       <button
         v-if="isRemoveButtonVisible"
@@ -124,11 +124,13 @@
     <span
       v-if="invalid"
       class="block text-sm font-medium text-negative-600 font-body"
-    >Error</span>
+    > {{ errorText }}
+</span>
     <span
       class="block text-xs text-gray-500 font-body"
       :class="{'opacity-50': disabled}"
-    >Help text</span>
+    > {{ helpText }}
+</span>
     <span
       v-if="required"
       class="block mt-4 text-sm text-gray-500 font-body"
@@ -149,6 +151,18 @@ export default {
     SpinnerLg
   },
   props: {
+label: {
+      type: String,
+      default: ''
+    },
+    helpText: {
+      type: String,
+      default: ''
+    },
+    errorText: {
+      type: String,
+      default: ''
+    },
     disabled: {
       type: Boolean,
       default: false

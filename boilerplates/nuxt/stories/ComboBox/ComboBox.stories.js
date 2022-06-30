@@ -59,7 +59,7 @@ export default {
       table: {
         category: 'Props'
       },
-      description: 'Disables select.'
+      description: 'Disables combo box.'
     },
     invalid: {
       control: 'boolean',
@@ -70,7 +70,7 @@ export default {
         }
       },
       defaultValue: false,
-      description: 'Shows error message value of form select when true.'
+      description: 'Shows error message when invalid.'
     },
     placeholder: {
       control: 'text',
@@ -81,7 +81,31 @@ export default {
           summary: ''
         }
       },
-      description: 'Input placeholder'
+      description: 'Combo box placeholder'
+    },
+    label: {
+      control: 'text',
+      table: {
+        category: 'Props'
+      },
+      defaultValue: '',
+      description: 'Combo box label'
+    },
+    helpText: {
+      control: 'text',
+      table: {
+        category: 'Props'
+      },
+      defaultValue: '',
+      description: 'Help text that can be visible below combo box'
+    },
+    errorText: {
+      control: 'text',
+      table: {
+        category: 'Props'
+      },
+      defaultValue: '',
+      description: 'Text that displays below invalid combo box'
     }
   }
 };
@@ -109,6 +133,9 @@ const Template = (args, { argTypes }) => ({
       :disabled="disabled"
       :invalid="invalid"
       :placeholder="placeholder"
+      :label="label"
+      :help-text="helpText"
+      :error-text="errorText"
     />
    `
 });
@@ -125,6 +152,9 @@ export const WithPlaceholder = (args, { argTypes }) => ({
     :disabled="disabled"
     :invalid="invalid"
     :placeholder="placeholder"
+    :label="label"
+    :help-text="helpText"
+    :error-text="errorText"
   />`
 });
 
@@ -143,6 +173,9 @@ export const LabelOutside = (args, { argTypes }) => ({
     :disabled="disabled"
     :invalid="invalid"
     :placeholder="placeholder"
+    :label="label"
+    :help-text="helpText"
+    :error-text="errorText"
   />`
 });
 
@@ -160,6 +193,9 @@ export const WithoutLabel = (args, { argTypes }) => ({
     :disabled="disabled"
     :invalid="invalid"
     :placeholder="placeholder"
+    :label="label"
+    :help-text="helpText"
+    :error-text="errorText"
   />`
 });
 

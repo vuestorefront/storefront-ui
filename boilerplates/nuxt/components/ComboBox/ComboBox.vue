@@ -28,7 +28,7 @@
         class="pl-4 text-gray-500 font-normal absolute top-0 translate-y-[55%] pointer-events-none peer-active:translate-y-1 peer-active:text-xs peer-active:font-medium peer-focus:font-medium peer-focus:translate-y-1 peer-focus:text-xs peer-required:after:content-['*'] transition-all ease-in-out"
         :class="{'text-xs translate-y-1 font-medium': comboboxValue || placeholder, 'text-gray-500/50': disabled}"
       >
-        Label
+        {{ label }}
       </label>
       <button
         v-if="isRemoveButtonVisible"
@@ -125,11 +125,13 @@
     <span
       v-if="invalid"
       class="block text-sm font-medium text-negative-600 font-body"
-    >Error</span>
+    > {{ errorText }}
+    </span>
     <span
       class="block text-xs mt-[2px] text-gray-500 font-body"
       :class="{'opacity-50': disabled}"
-    >Help text</span>
+    > {{ helpText }}
+    </span>
     <span
       v-if="required"
       class="block mt-4 text-sm text-gray-500 font-body"
@@ -150,6 +152,18 @@ export default {
     SpinnerLg
   },
   props: {
+    label: {
+      type: String,
+      default: ''
+    },
+    helpText: {
+      type: String,
+      default: ''
+    },
+    errorText: {
+      type: String,
+      default: ''
+    },
     disabled: {
       type: Boolean,
       default: false
@@ -171,7 +185,7 @@ export default {
       default: ''
     }
   },
-  setup(props, {emit}) {
+  setup(props, { emit }) {
     const isListOpened = ref(false);
     const comboboxValue = ref('');
     const comboboxList = ref(null);
