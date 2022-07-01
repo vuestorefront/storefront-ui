@@ -32,7 +32,12 @@
         for="select"
         class="peer-required:after:content-['*'] peer-required:after:text-sm order-1 mt-2 text-sm text-gray-500 peer-disabled:text-gray-500/50 peer-disabled:cursor-not-allowed font-medium"
       >{{ label }}</label>
-      <span class="order-3 hidden mt-1 text-sm font-medium peer-invalid:block text-negative-600 peer-disabled:cursor-not-allowed">{{ errorMessage }}</span>
+      <span
+        class="order-3 mt-1 text-sm font-medium text-negative-600 peer-disabled:cursor-not-allowed"
+        :class="invalid ? 'block' : 'hidden'"
+      >
+        {{ errorText }}
+      </span>
       <span class="order-4 mt-1 text-xs text-gray-500 peer-disabled:text-gray-500/50 peer-disabled:cursor-not-allowed">{{ helpText }}</span>
       <span class="order-5 hidden mt-1 text-xs text-gray-500 peer-required:block peer-disabled:cursor-not-allowed">*Required</span>
     </div>

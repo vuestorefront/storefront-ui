@@ -19,7 +19,7 @@
     <span
       :class="{'hidden': !invalid}"
       class="block col-start-1 mt-1 text-sm font-medium text-negative-600 font-body"
-    >{{ errorMessage }}</span>
+    >{{ errorText }}</span>
     <span class="col-start-1 mt-1 text-xs text-gray-500 peer-disabled:text-gray-500/50 font-body">{{ helpText }}</span>
     <span class="hidden col-start-1 mt-1 text-xs text-gray-500 peer-required:block font-body">*Required</span>
   </div>
@@ -55,7 +55,7 @@ export default {
     },
     invalid: {
       type: Boolean,
-      default: true
+      default: false
     },
     label: {
       type: String,

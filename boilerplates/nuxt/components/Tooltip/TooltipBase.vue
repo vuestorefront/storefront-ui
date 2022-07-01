@@ -26,7 +26,7 @@ export default {
   props: {
     label: {
       type: String,
-      default: 'Tooltip text'
+      default: ''
     }
   }
 };

@@ -95,6 +95,7 @@ const Template = (args, { argTypes }) => ({
       :invalid="invalid"
       :options="options"
       :label="label"
+      :required="required"
       :help-text="helpText"
       :error-text="errorText"
     />`
@@ -109,7 +110,8 @@ Base.args = {
     'option 3'
   ],
   invalid: false,
+  required: false,
   label: 'Label',
   helpText: 'Help text',
-  errorText: 'error text'
+  errorText: 'Error text'
 };
