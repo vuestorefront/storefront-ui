@@ -2,7 +2,7 @@
   <div class="relative max-w-[320px] combobox combobox-list">
     <div
       class="inline-flex items-center w-full border border-gray-300 rounded-md hover:border-primary-400 focus-within:border-2 focus-within:border-primary-500 focus-within:p-0 active:border-2 p-[1px] active:p-0"
-      :class="{'border-negative-600 border-2': invalid, 'bg-gray-100/50 cursor-not-allowed border-gray-200/50 hover:border-gray-200/50': disabled}"
+      :class="{'!border-negative-600 border-2': invalid, 'bg-gray-100/50 cursor-not-allowed border-gray-200/50 hover:border-gray-200/50': disabled}"
     >
       <input
         id="combobox-input"
@@ -21,20 +21,24 @@
         @focus="isListOpened = true"
         @change="$emit('selected', comboboxValue)"
         @input="$emit('selected', comboboxValue)"
+        @keyup.esc="removeSelectedOption"
       >
-      <label
-        for="combobox-input"
-        class="text-sm -translate-y-5 font-medium pl-0 text-gray-500 absolute top-0 peer-required:after:content-['*']"
-        :class="{'text-gray-900/40': disabled}"
-      >
-        {{ label }}
-      </label>
+      <slot name="label">
+        <label
+          v-if="label"
+          for="combobox-input"
+          class="text-sm -translate-y-5 font-medium pl-0 text-gray-500 absolute top-0 peer-required:after:content-['*']"
+          :class="{'text-gray-900/40': disabled}"
+        >
+          {{ label }}
+        </label>
+      </slot>
       <button
         v-if="isRemoveButtonVisible"
         v-focus
         :aria-label="`Remove ${comboboxValue}`"
         :disabled="disabled"
-        class="mr-2 rounded-md group outline-violet disabled:cursor-not-allowed disabled:bg-gray-100/50"
+        class="absolute right-0 mr-10 rounded-md group outline-violet disabled:cursor-not-allowed disabled:bg-gray-100/50"
         @click="removeSelectedOption"
       >
         <svg
@@ -61,7 +65,7 @@
         xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"
         focusable="false"
-        class="mr-3 transition-transform duration-500 ease-in-out fill-gray-500 group-disabled:fill-gray-500/50"
+        class="absolute right-0 mr-3 transition-transform duration-500 ease-in-out pointer-events-none fill-gray-500 group-disabled:fill-gray-500/50"
         :class="{'rotate-180': !isListOpened}"
       >
         <path
@@ -172,11 +176,15 @@ export default {
     placeholder: {
       type: String,
       default: ''
+    },
+    value: {
+      type: String,
+      default: ''
     }
   },
-  setup(props, {emit}) {
+  setup(props, { emit }) {
     const isListOpened = ref(false);
-    const comboboxValue = ref('');
+    const comboboxValue = ref(props.value);
     const comboboxList = ref(null);
     const filteredOptions = computed(() => props.options.filter(el => el.toLowerCase().includes(comboboxValue.value.toLowerCase())));
     const isRemoveButtonVisible = computed(() => !filteredOptions.value.indexOf(comboboxValue.value));

@@ -1,7 +1,6 @@
 
 import ComboBox from '../../components/ComboBox/ComboBox.vue';
 import ComboBoxLabelOutside from '../../components/ComboBox/ComboBoxLabelOutside.vue';
-import ComboBoxWithoutLabel from '../../components/ComboBox/ComboBoxWithoutLabel.vue';
 
 const colors = [
   'red',
@@ -106,6 +105,14 @@ export default {
       },
       defaultValue: '',
       description: 'Text that displays below invalid combo box'
+    },
+    value: {
+      control: 'text',
+      table: {
+        category: 'Props'
+      },
+      defaultValue: '',
+      description: 'Combo box value'
     }
   }
 };
@@ -136,6 +143,7 @@ const Template = (args, { argTypes }) => ({
       :label="label"
       :help-text="helpText"
       :error-text="errorText"
+      :value="value"
     />
    `
 });
@@ -145,7 +153,8 @@ export const Base = Template.bind({});
 Base.args = {
   label: 'Label',
   helpText: 'Help text',
-  errorText: 'error text'
+  errorText: 'error text',
+  value: ''
 };
 
 export const WithPlaceholder = (args, { argTypes }) => ({
@@ -161,6 +170,7 @@ export const WithPlaceholder = (args, { argTypes }) => ({
     :label="label"
     :help-text="helpText"
     :error-text="errorText"
+    :value="value"
   />`
 });
 
@@ -183,6 +193,7 @@ export const LabelOutside = (args, { argTypes }) => ({
     :label="label"
     :help-text="helpText"
     :error-text="errorText"
+    :value="value"
     class="mt-3"
   />`
 });
@@ -193,10 +204,10 @@ LabelOutside.args = {
 };
 
 export const WithoutLabel = (args, { argTypes }) => ({
-  components: { ComboBoxWithoutLabel },
+  components: { ComboBoxLabelOutside },
   props: Object.keys(argTypes),
   template: `
-  <ComboBoxWithoutLabel
+  <ComboBoxLabelOutside
     :options="colors" 
     :required="required"
     :disabled="disabled"
@@ -205,10 +216,13 @@ export const WithoutLabel = (args, { argTypes }) => ({
     :label="label"
     :help-text="helpText"
     :error-text="errorText"
+    :value="value"
   />`
 });
 
 WithoutLabel.args = {
   ...Base.args,
-  colors
+  colors,
+  label: '',
+  value: 'red'
 };

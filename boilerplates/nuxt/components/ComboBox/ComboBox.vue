@@ -1,8 +1,8 @@
 <template>
   <div class="relative max-w-[320px] combobox combobox-list">
     <div
-      class="inline-flex items-center w-full border-gray-300 border rounded-md hover:border-primary-400 active:border-2 p-[1px] focus-within:border-2 focus-within:border-primary-500 focus-within:p-0 active:p-0"
-      :class="{'border-negative-600 border-2': invalid, 'bg-gray-100/50 cursor-not-allowed border-gray-200/50 hover:border-gray-200/50': disabled}"
+      class="inline-flex items-center w-full border border-gray-300 rounded-md hover:border-primary-400 active:border-2 p-[1px] focus-within:border-2 focus-within:border-primary-500 focus-within:p-0 active:p-0"
+      :class="{'!border-negative-600 border-2': invalid, 'bg-gray-100/50 cursor-not-allowed border-gray-200/50 hover:border-gray-200/50': disabled}"
     >
       <input
         id="combobox-input"
@@ -22,20 +22,23 @@
         @focus="isListOpened = true"
         @change="$emit('selected', comboboxValue)"
         @input="$emit('selected', comboboxValue)"
+        @keyup.esc="removeSelectedOption"
       >
-      <label
-        for="combobox-input"
-        class="pl-4 text-gray-500 font-normal absolute top-0 translate-y-[55%] pointer-events-none peer-active:translate-y-1 peer-active:text-xs peer-active:font-medium peer-focus:font-medium peer-focus:translate-y-1 peer-focus:text-xs peer-required:after:content-['*'] transition-all ease-in-out"
-        :class="{'text-xs translate-y-1 font-medium': comboboxValue || placeholder, 'text-gray-500/50': disabled}"
-      >
-        {{ label }}
-      </label>
+      <slot name="label">
+        <label
+          for="combobox-input"
+          class="pl-4 text-gray-500 font-normal absolute top-0 translate-y-[55%] pointer-events-none peer-active:translate-y-1 peer-active:text-xs peer-active:font-medium peer-focus:font-medium peer-focus:translate-y-1 peer-focus:text-xs peer-required:after:content-['*'] transition-all ease-in-out"
+          :class="{'text-xs translate-y-1 font-medium': comboboxValue || placeholder, 'text-gray-500/50': disabled}"
+        >
+          {{ label }}
+        </label>
+      </slot>
       <button
         v-if="isRemoveButtonVisible"
         v-focus
         :aria-label="`Remove ${comboboxValue}`"
         :disabled="disabled"
-        class="mr-2 rounded-md group outline-violet disabled:cursor-not-allowed disabled:bg-gray-100/50"
+        class="absolute right-0 mr-10 rounded-md group outline-violet disabled:cursor-not-allowed disabled:bg-gray-100/50"
         @click="removeSelectedOption"
       >
         <svg
@@ -62,7 +65,7 @@
         xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"
         focusable="false"
-        class="mr-3 transition-transform duration-500 ease-in-out fill-gray-500 group-disabled:fill-gray-500/50"
+        class="absolute right-0 mr-3 transition-transform duration-500 ease-in-out pointer-events-none fill-gray-500 group-disabled:fill-gray-500/50"
         :class="{'rotate-180': !isListOpened}"
       >
         <path
@@ -77,7 +80,7 @@
       id="listbox"
       ref="comboboxList"
       role="listbox"
-      aria-label="Lost of colors"
+      aria-label="List of colors"
       class="absolute w-full mt-1 overflow-y-auto bg-white rounded-md shadow-md font-body top-100 max-h-60"
       :class="{'hidden': !isListOpened}"
     >
@@ -173,11 +176,15 @@ export default {
     placeholder: {
       type: String,
       default: ''
+    },
+    value: {
+      type: String,
+      default: ''
     }
   },
   setup(props, { emit }) {
     const isListOpened = ref(false);
-    const comboboxValue = ref('');
+    const comboboxValue = ref(props.value);
     const comboboxList = ref(null);
     const filteredOptions = computed(() => props.options.filter(el => el.toLowerCase().includes(comboboxValue.value.toLowerCase())));
     const isRemoveButtonVisible = computed(() => !filteredOptions.value.indexOf(comboboxValue.value));
