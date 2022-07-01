@@ -38,6 +38,24 @@ export default {
       },
       description:
         'Type of alert. Changes border, background and color of icon'
+    },
+    header: {
+      control: 'text',
+      defaultValue: '',
+      table: {
+        category: 'Props'
+      },
+      description:
+        'Header of alert'
+    },
+    description: {
+      control: 'text',
+      defaultValue: '',
+      table: {
+        category: 'Props'
+      },
+      description:
+        'Description of alert'
     }
   }
 };
@@ -46,8 +64,19 @@ const Template = (args, { argTypes }) => ({
   components: { AlertBase },
   props: Object.keys(argTypes),
   template: `
-    <AlertBase :icon="icon" :persistent="persistent" :type="type" />
+    <AlertBase 
+      :header="header"
+      :description="description"
+      :icon="icon"
+      :persistent="persistent"
+      :type="type"
+    />
     `
 });
 
 export const Base = Template.bind({});
+
+Base.args = {
+  header: 'Header',
+  description: 'Informative text'
+};

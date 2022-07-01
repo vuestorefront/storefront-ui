@@ -42,8 +42,8 @@
         </svg>
       </slot>
       <div class="flex flex-col flex-shrink text-gray-900 font-body">
-        <span class="text-lg font-medium">Header</span>
-        <span class="text-base font-normal leading-6">Informative text</span>
+        <span class="text-lg font-medium">{{ header }}</span>
+        <span class="text-base font-normal leading-6">{{ description }}</span>
       </div>
     </div>
     <slot name="button">
@@ -89,6 +89,14 @@ export default {
     icon: {
       type: Boolean,
       default: true
+    },
+    header: {
+      type: String,
+      default: ''
+    },
+    description: {
+      type: String,
+      default: ''
     }
   },
   setup(_, { emit }) {
