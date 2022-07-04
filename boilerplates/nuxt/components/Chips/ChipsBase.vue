@@ -1,0 +1,45 @@
+<template>
+  <div
+    class="pl-1 pr-2 py-1 rounded-full group text-gray-900 bg-white border-2 border-gray-200 font-body font-normal text-sm inline-flex items-center align-center w-max cursor-pointer hover:bg-primary-100 hover:border-primary-400 active:bg-primary-200 active:border-primary-700 transition duration-300 ease"
+    :class="{ 'bg-gray-200 opacity-50 pointer-events-none' : disabled}"
+  >
+    <slot />
+    <button v-focus class="bg-transparent hover ml-1.5" :class="{'hidden': persistent }">
+      <svg
+        class="fill-gray-500 group-hover:fill-primary-600 transition duration-300 ease"
+        width="16"
+        height="16"
+        viewBox="0 0 16 16"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8.00016 1.33325C4.3135 1.33325 1.3335 4.31325 1.3335 7.99992C1.3335 11.6866 4.3135 14.6666 8.00016 14.6666C11.6868 14.6666 14.6668 11.6866 14.6668 7.99992C14.6668 4.31325 11.6868 1.33325 8.00016 1.33325ZM10.8635 9.92325C11.1231 10.1828 11.1231 10.6037 10.8635 10.8633C10.6039 11.1228 10.1831 11.1228 9.9235 10.8633L8.00016 8.93992L6.07683 10.8633C5.81726 11.1228 5.3964 11.1228 5.13683 10.8633C4.87726 10.6037 4.87726 10.1828 5.13683 9.92325L7.06016 7.99992L5.13683 6.07659C4.87726 5.81701 4.87726 5.39616 5.13683 5.13659C5.3964 4.87701 5.81726 4.87701 6.07683 5.13659L8.00016 7.05992L9.9235 5.13659C10.1831 4.87701 10.6039 4.87701 10.8635 5.13659C11.1231 5.39616 11.1231 5.81701 10.8635 6.07659L8.94016 7.99992L10.8635 9.92325Z"
+        />
+        <path
+          d="M8.00016 1.33325C4.3135 1.33325 1.3335 4.31325 1.3335 7.99992C1.3335 11.6866 4.3135 14.6666 8.00016 14.6666C11.6868 14.6666 14.6668 11.6866 14.6668 7.99992C14.6668 4.31325 11.6868 1.33325 8.00016 1.33325ZM10.8635 9.92325C11.1231 10.1828 11.1231 10.6037 10.8635 10.8633C10.6039 11.1228 10.1831 11.1228 9.9235 10.8633L8.00016 8.93992L6.07683 10.8633C5.81726 11.1228 5.3964 11.1228 5.13683 10.8633C4.87726 10.6037 4.87726 10.1828 5.13683 9.92325L7.06016 7.99992L5.13683 6.07659C4.87726 5.81701 4.87726 5.39616 5.13683 5.13659C5.3964 4.87701 5.81726 4.87701 6.07683 5.13659L8.00016 7.05992L9.9235 5.13659C10.1831 4.87701 10.6039 4.87701 10.8635 5.13659C11.1231 5.39616 11.1231 5.81701 10.8635 6.07659L8.94016 7.99992L10.8635 9.92325Z"
+        />
+      </svg>
+    </button>
+  </div>
+</template>
+<script>
+import { focus } from '../../utils/focus-directive.js';
+
+export default {
+  name: 'ChipsBase',
+  directives: {
+    focus
+  },
+  props: {
+    persistent: {
+      type: Boolean,
+      default: false
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    }
+  }
+};
+</script>
