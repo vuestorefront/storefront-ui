@@ -7,6 +7,7 @@ exports[`BreadcrumbsBase.vue render component correctly 1`] = `
       <!---->
       <ul class="bg-white rounded-md shadow-md p-[16px] absolute top-100 left-0 flex-col text-base text-gray-900 hidden"></ul>
     </li>
+    <!---->
   </ol>
 </nav>
 `;

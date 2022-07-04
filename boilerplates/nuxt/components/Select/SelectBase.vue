@@ -19,33 +19,26 @@
           --Please choose an option--
         </option>
         <option
+          v-for="(option, key) in options"
+          :key="`${option}-${key}`"
           :selected="selected === value"
           class="font-[Arial] bg-gray-300"
           value="option1"
         >
-          Option 1
-        </option>
-        <option
-          :selected="selected === value"
-          class="font-[Arial] bg-gray-300"
-          value="option2"
-        >
-          Option 2
-        </option>
-        <option
-          :selected="selected === value"
-          class="font-[Arial] bg-gray-300"
-          value="option3"
-        >
-          Option 3
+          {{ option }}
         </option>
       </select>
       <label
         for="select"
         class="peer-required:after:content-['*'] peer-required:after:text-sm order-1 mt-2 text-sm text-gray-500 peer-disabled:text-gray-500/50 peer-disabled:cursor-not-allowed font-medium"
-      >Label</label>
-      <span class="order-3 hidden mt-1 text-sm font-medium peer-invalid:block text-negative-600 peer-disabled:cursor-not-allowed">Error message</span>
-      <span class="order-4 mt-1 text-xs text-gray-500 peer-disabled:text-gray-500/50 peer-disabled:cursor-not-allowed">Help text</span>
+      >{{ label }}</label>
+      <span
+        class="order-3 mt-1 text-sm font-medium text-negative-600 peer-disabled:cursor-not-allowed"
+        :class="invalid ? 'block' : 'hidden'"
+      >
+        {{ errorText }}
+      </span>
+      <span class="order-4 mt-1 text-xs text-gray-500 peer-disabled:text-gray-500/50 peer-disabled:cursor-not-allowed">{{ helpText }}</span>
       <span class="order-5 hidden mt-1 text-xs text-gray-500 peer-required:block peer-disabled:cursor-not-allowed">*Required</span>
     </div>
   </div>
@@ -76,6 +69,22 @@ export default {
     invalid: {
       type: Boolean,
       default: false
+    },
+    options: {
+      type: Array,
+      default: () => []
+    },
+    label: {
+      type: String,
+      default: ''
+    },
+    helpText: {
+      type: String,
+      default: ''
+    },
+    errorText: {
+      type: String,
+      default: ''
     }
   },
   setup(props) {

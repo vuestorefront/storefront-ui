@@ -43,7 +43,7 @@
 
 <script>
 import { toRefs } from '@nuxtjs/composition-api';
-import ButtonBase from '../Button/Primary/ButtonPrimary.vue';
+import ButtonBase from '../Button/ButtonBase.vue';
 import { focus } from '../../utils/focus-directive.js';
 export default {
   name: 'SearchBase',
