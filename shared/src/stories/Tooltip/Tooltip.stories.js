@@ -16,40 +16,58 @@ export default {
           'The tag component. [link to component docs on the page]'
       }
     }
+  },
+  argTypes: {
+    label: {
+      control: 'text',
+      table: {
+        category: 'Props'
+      },
+      defaultValue: '',
+      description: 'Tooltip label'
+    }
   }
 };
 
-const Template = () => ({
+const Template = (args, { argTypes }) => ({
   components: { TooltipBase, TooltipRight },
+  props: Object.keys(argTypes),
   template: `
-    <TooltipBase class="my-12" />
+    <TooltipBase class="my-12" :label="label" />
     `
 });
 
 export const Base = Template.bind({});
 
-const TooltipOnBottom = () => ({
+Base.args = {
+  label: 'Label text'
+};
+
+const TooltipOnBottom = (args, { argTypes }) => ({
   components: { TooltipBottom },
+  props: Object.keys(argTypes),
   template: `
-    <TooltipBottom class="my-12" />
+    <TooltipBottom class="my-12" :label="label" />
     `
 });
 
 export const Bottom = TooltipOnBottom.bind({});
 
-const TooltipOnLeft = () => ({
+const TooltipOnLeft = (args, { argTypes }) => ({
   components: { TooltipLeft },
+  props: Object.keys(argTypes),
   template: `
-    <TooltipLeft class="my-12" />
+    <TooltipLeft class="my-12" :label="label" />
     `
 });
 
 export const Left = TooltipOnLeft.bind({});
 
-const TooltipOnRight = () => ({
+const TooltipOnRight = (args, { argTypes }) => ({
   components: { TooltipRight },
+  props: Object.keys(argTypes),
   template: `
-    <TooltipRight class="my-12" />
+    <TooltipRight class="my-12" :label="label" />
     `
 });
 

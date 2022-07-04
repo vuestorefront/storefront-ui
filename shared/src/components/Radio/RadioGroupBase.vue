@@ -29,7 +29,7 @@
       id="radio-base-error"
       class="block col-span-2 mt-1 text-sm font-medium text-negative-600 font-body"
       :class="{'hidden': !isInvalid }"
-    >Error message</span>
+    >{{ errorMessage }}</span>
   </fieldset>
 </template>
 
@@ -49,10 +49,18 @@ export default {
     required: {
       type: Boolean,
       default: false
+    },
+    errorMessage: {
+      type: String,
+      default: 'Error message'
+    },
+    selected: {
+      type: String,
+      default: 'one'
     }
   },
-  setup() {
-    const selectedValue = ref('');
+  setup(props) {
+    const selectedValue = ref(props.selected);
     const changeValue = (value) => {
       selectedValue.value = value;
     };

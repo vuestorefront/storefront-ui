@@ -1,9 +1,4 @@
-import SpinnerSm from '../../components/Spinner/SpinnerSm.vue';
 import SpinnerBase from '../../components/Spinner/SpinnerBase.vue';
-import SpinnerLg from '../../components/Spinner/SpinnerLg.vue';
-import SpinnerXl from '../../components/Spinner/SpinnerXl.vue';
-import Spinner2Xl from '../../components/Spinner/Spinner2Xl.vue';
-import Spinner3Xl from '../../components/Spinner/Spinner3Xl.vue';
 import SpinnerLinear from '../../components/Spinner/SpinnerLinear.vue';
 
 export default {
@@ -15,40 +10,48 @@ export default {
         component:
           'The component to show users that loading is underway of content. [link to component docs on the page]'
       }
+    },
+    argTypes: {
+      size: {
+        control: 'select',
+        defaultValue: 'medium',
+        options: ['sm', 'base', 'lg', 'xl', '2xl', '3xl'],
+        table: {
+          category: 'Props'
+        },
+        description:
+          'Size of spinner. Changes border size, width and height of component'
+      }
     }
   }
 };
 
 const Template = (args, { argTypes }) => ({
   components: {
-    SpinnerSm,
-    SpinnerBase,
-    SpinnerLg,
-    SpinnerXl,
-    Spinner2Xl,
-    Spinner3Xl
+    SpinnerBase
   },
   props: Object.keys(argTypes),
   template: `
   <div>
-    <SpinnerSm class="mb-2" />
-    <SpinnerBase class="mb-2" /> 
-    <SpinnerLg class="mb-2" />
-    <SpinnerXl class="mb-2" />
-    <Spinner2Xl class="mb-4" />
-    <Spinner3Xl />
+    <SpinnerBase size="sm" class="mb-2" />
+    <SpinnerBase :size="size" class="mb-2" /> 
+    <SpinnerBase size="lg" class="mb-2" />
+    <SpinnerBase size="xl" class="mb-2" />
+    <SpinnerBase size="2xl" class="mb-4" />
+    <SpinnerBase size="3xl" />
   </div>`
 });
 
 export const Base = Template.bind({});
 
+Base.args = {
+  size: 'base'
+};
+
 const Linear = (args, { argTypes }) => ({
   components: { SpinnerLinear },
   props: Object.keys(argTypes),
-  template: `
-  <div>
-    <SpinnerLinear />
-  </div>`
+  template: '<SpinnerLinear />'
 });
 
 export const LinearSpinner = Linear.bind({});

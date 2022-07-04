@@ -1,10 +1,10 @@
 import { shallowMount } from '@vue/test-utils';
-import SpinnerLg from '../../components/Spinner/SpinnerLg.vue';
+import AccordionBase from '../../components/Accordion/AccordionBase.vue';
 let wrapper;
 
-describe('SpinnerLg.vue', () => {
+describe('AccordionBase.vue', () => {
   beforeEach(() => {
-    wrapper = shallowMount(SpinnerLg);
+    wrapper = shallowMount(AccordionBase);
   });
   it('render component correctly', () => {
     expect(wrapper.html()).toMatchSnapshot();

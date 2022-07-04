@@ -1,8 +1,10 @@
 <template>
   <div class="relative flex items-center group">
-    <ButtonPrimary aria-describedby="tooltip-left">
-      Hover me
-    </ButtonPrimary>
+    <slot>
+      <ButtonBase aria-describedby="tooltip-left">
+        Hover me
+      </ButtonBase>
+    </slot>
     <div
       id="tooltip-left"
       role="tooltip"
@@ -10,18 +12,24 @@
     >
       <div class="w-2 h-2 -mr-1 rotate-45 bg-gray-500" />
       <div class="relative z-10 whitespace-no-wrap bg-gray-500 font-body font-medium text-white text-sm leading-5 rounded-md px-3 py-1.5">
-        Tooltip text
+        {{ label }}
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import ButtonPrimary from '../Button/ButtonBase.vue';
+import ButtonBase from '../Button/ButtonBase.vue';
 export default {
-  name: 'TooltiptLeft',
+  name: 'TooltipLeft',
   components: {
-    ButtonPrimary
+    ButtonBase
+  },
+  props: {
+    label: {
+      type: String,
+      default: ''
+    }
   }
 };
 </script>
