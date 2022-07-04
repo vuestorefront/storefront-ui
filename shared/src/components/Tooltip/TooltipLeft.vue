@@ -1,9 +1,9 @@
 <template>
   <div class="relative flex items-center group">
     <slot>
-      <ButtonPrimary aria-describedby="tooltip-left">
+      <ButtonBase aria-describedby="tooltip-left">
         Hover me
-      </ButtonPrimary>
+      </ButtonBase>
     </slot>
     <div
       id="tooltip-left"
@@ -19,11 +19,11 @@
 </template>
 
 <script>
-import ButtonPrimary from '../Button/Primary/ButtonPrimary.vue';
+import ButtonBase from '../Button/ButtonBase.vue';
 export default {
-  name: 'TooltiptLeft',
+  name: 'TooltipLeft',
   components: {
-    ButtonPrimary
+    ButtonBase
   },
   props: {
     label: {

@@ -11,22 +11,22 @@
       <div class="w-2 h-2 -ml-1 rotate-45 bg-gray-500" />
     </div>
     <slot>
-      <ButtonPrimary
+      <ButtonBase
         aria-describedby="tooltip-right"
         class="ml-28"
       >
         Hover me
-      </ButtonPrimary>
+      </ButtonBase>
     </slot>
   </div>
 </template>
 
 <script>
-import ButtonPrimary from '../Button/Primary/ButtonPrimary.vue';
+import ButtonBase from '../Button/ButtonBase.vue';
 export default {
-  name: 'TooltiptRight',
+  name: 'TooltipRight',
   components: {
-    ButtonPrimary
+    ButtonBase
   },
   props: {
     label: {
