@@ -10,10 +10,82 @@ exports[`ComboBoxLabelOutside.vue render component correctly 1`] = `
     </svg>
   </div>
   <ul id="listbox" role="listbox" aria-label="List of colors" class="absolute w-full mt-1 overflow-y-auto bg-white rounded-md shadow-md font-body top-100 max-h-60 hidden">
+    <li role="option"><button class="w-full px-3 py-2 mx-1 my-1 text-left rounded-md outline-violet">
+        red
+      </button></li>
+    <li role="option"><button class="w-full px-3 py-2 mx-1 my-1 text-left rounded-md outline-violet">
+        red-orange
+      </button></li>
+    <li role="option"><button class="w-full px-3 py-2 mx-1 my-1 text-left rounded-md outline-violet">
+        orange
+      </button></li>
+    <li role="option"><button class="w-full px-3 py-2 mx-1 my-1 text-left rounded-md outline-violet">
+        yellow
+      </button></li>
+    <li role="option"><button class="w-full px-3 py-2 mx-1 my-1 text-left rounded-md outline-violet">
+        yellow-green
+      </button></li>
+    <li role="option"><button class="w-full px-3 py-2 mx-1 my-1 text-left rounded-md outline-violet">
+        green
+      </button></li>
+    <li role="option"><button class="w-full px-3 py-2 mx-1 my-1 text-left rounded-md outline-violet">
+        sky blue
+      </button></li>
+    <li role="option"><button class="w-full px-3 py-2 mx-1 my-1 text-left rounded-md outline-violet">
+        blue
+      </button></li>
+    <li role="option"><button class="w-full px-3 py-2 mx-1 my-1 text-left rounded-md outline-violet">
+        violet
+      </button></li>
+    <li role="option"><button class="w-full px-3 py-2 mx-1 my-1 text-left rounded-md outline-violet">
+        brown
+      </button></li>
+    <li role="option"><button class="w-full px-3 py-2 mx-1 my-1 text-left rounded-md outline-violet">
+        black
+      </button></li>
+    <li role="option"><button class="w-full px-3 py-2 mx-1 my-1 text-left rounded-md outline-violet">
+        white
+      </button></li>
+    <li role="option"><button class="w-full px-3 py-2 mx-1 my-1 text-left rounded-md outline-violet">
+        gray
+      </button></li>
+    <li role="option"><button class="w-full px-3 py-2 mx-1 my-1 text-left rounded-md outline-violet">
+        magenta
+      </button></li>
+    <li role="option"><button class="w-full px-3 py-2 mx-1 my-1 text-left rounded-md outline-violet">
+        pink
+      </button></li>
+    <li role="option"><button class="w-full px-3 py-2 mx-1 my-1 text-left rounded-md outline-violet">
+        light-blue
+      </button></li>
+    <li role="option"><button class="w-full px-3 py-2 mx-1 my-1 text-left rounded-md outline-violet">
+        aqua-green
+      </button></li>
+    <li role="option"><button class="w-full px-3 py-2 mx-1 my-1 text-left rounded-md outline-violet">
+        jade-green
+      </button></li>
+    <li role="option"><button class="w-full px-3 py-2 mx-1 my-1 text-left rounded-md outline-violet">
+        peach
+      </button></li>
+    <li role="option"><button class="w-full px-3 py-2 mx-1 my-1 text-left rounded-md outline-violet">
+        golden-yellow
+      </button></li>
+    <li role="option"><button class="w-full px-3 py-2 mx-1 my-1 text-left rounded-md outline-violet">
+        yellow-orange
+      </button></li>
+    <li role="option"><button class="w-full px-3 py-2 mx-1 my-1 text-left rounded-md outline-violet">
+        mahogany
+      </button></li>
+    <li role="option"><button class="w-full px-3 py-2 mx-1 my-1 text-left rounded-md outline-violet">
+        tan
+      </button></li>
+    <li role="option"><button class="w-full px-3 py-2 mx-1 my-1 text-left rounded-md outline-violet">
+        light brown
+      </button></li>
     <!---->
     <li>
       <div class="flex justify-center py-6">
-        <spinnerlg-stub></spinnerlg-stub>
+        <spinnerbase-stub size="lg"></spinnerbase-stub>
       </div>
     </li>
   </ul>
