@@ -94,6 +94,7 @@
             v-focus
             class="w-full px-3 py-2 mx-1 my-1 text-left rounded-md outline-violet"
             @click="selectOption(option)"
+            @keydown.tab="handleTab(i)"
           >
             {{ option }}
           </button>
@@ -102,16 +103,20 @@
           <div
             class="w-full px-4 py-3 text-left font-body"
           >
-            <span>No data to display</span>
-            <span class="block mt-1 text-sm text-gray-500">Additional information</span>
+            <slot name="no-data">
+              <span>No data to display</span>
+              <span class="block mt-1 text-sm text-gray-500">Additional information</span>
+            </slot>
           </div>
         </li>
         <li v-if="!options.length > 0">
-          <div
-            class="flex justify-center py-6"
-          >
-            <SpinnerLg />
-          </div>
+          <slot name="loader">
+            <div
+              class="flex justify-center py-6"
+            >
+              <SpinnerBase size="lg" />
+            </div>
+          </slot>
         </li>
       </slot>
     </ul>
@@ -135,14 +140,14 @@
 import { ref, computed } from '@nuxtjs/composition-api';
 import { onClickOutside } from '@vueuse/core';
 import { focus } from '../../utils/focus-directive.js';
-import SpinnerLg from '../Spinner/SpinnerLg.vue';
+import SpinnerBase from '../Spinner/SpinnerBase.vue';
 
 export default {
   directives: {
     focus
   },
   components: {
-    SpinnerLg
+    SpinnerBase
   },
   props: {
     label: {
@@ -180,14 +185,17 @@ export default {
     value: {
       type: String,
       default: ''
+    },
+    filteredOptions: {
+      type: Array,
+      required: true
     }
   },
   setup(props, { emit }) {
     const isListOpened = ref(false);
     const comboboxValue = ref(props.value);
     const comboboxList = ref(null);
-    const filteredOptions = computed(() => props.options.filter(el => el.toLowerCase().includes(comboboxValue.value.toLowerCase())));
-    const isRemoveButtonVisible = computed(() => !filteredOptions.value.indexOf(comboboxValue.value));
+    const isRemoveButtonVisible = computed(() => !props.filteredOptions.indexOf(comboboxValue.value));
 
     const removeSelectedOption = () => {
       comboboxValue.value = '';
@@ -199,16 +207,22 @@ export default {
       emit('selected', comboboxValue.value);
     };
 
+    const handleTab = (optionIndex) => {
+      if (optionIndex + 1 === props.filteredOptions.length) {
+        isListOpened.value = false;
+      }
+    };
+
     onClickOutside(comboboxList, () => isListOpened.value = false);
 
     return {
       isListOpened,
       comboboxValue,
       comboboxList,
-      filteredOptions,
       isRemoveButtonVisible,
       removeSelectedOption,
-      selectOption
+      selectOption,
+      handleTab
     };
   }
 };

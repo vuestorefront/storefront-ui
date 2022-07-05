@@ -123,6 +123,9 @@ const Template = (args, { argTypes }) => ({
   methods: {
     delayOptionsLoad() {
       setTimeout(() => this.delayedColors = colors, 5000);
+    },
+    filterOptions(comboboxValue) {
+      return this.delayedColors.filter(el => el.toLowerCase().includes(comboboxValue.toLowerCase()));
     }
   },
   mounted() {
@@ -130,7 +133,8 @@ const Template = (args, { argTypes }) => ({
   },
   data() {
     return {
-      delayedColors: []
+      delayedColors: [],
+      inputValue: ''
     };
   },
   template: `
@@ -143,7 +147,10 @@ const Template = (args, { argTypes }) => ({
       :label="label"
       :help-text="helpText"
       :error-text="errorText"
-      :value="value"
+      :value="inputValue"
+      :filtered-options="filterOptions(inputValue)"
+      @change="(val) => inputValue = val"
+      @selected="(val) => inputValue = val"
     />
    `
 });
@@ -153,13 +160,22 @@ export const Base = Template.bind({});
 Base.args = {
   label: 'Label',
   helpText: 'Help text',
-  errorText: 'error text',
-  value: ''
+  errorText: 'error text'
 };
 
 export const WithPlaceholder = (args, { argTypes }) => ({
   components: { ComboBox },
   props: Object.keys(argTypes),
+  methods: {
+    filterOptions(comboboxValue) {
+      return this.colors.filter(el => el.toLowerCase().includes(comboboxValue.toLowerCase()));
+    }
+  },
+  data() {
+    return {
+      inputValue: ''
+    };
+  },
   template: `
   <ComboBox 
     :options="colors" 
@@ -170,7 +186,10 @@ export const WithPlaceholder = (args, { argTypes }) => ({
     :label="label"
     :help-text="helpText"
     :error-text="errorText"
-    :value="value"
+    :value="inputValue"
+    :filtered-options="filterOptions(inputValue)"
+    @change="(val) => inputValue = val"
+    @selected="(val) => inputValue = val"
   />`
 });
 
@@ -183,6 +202,16 @@ WithPlaceholder.args = {
 export const LabelOutside = (args, { argTypes }) => ({
   components: { ComboBoxLabelOutside },
   props: Object.keys(argTypes),
+  methods: {
+    filterOptions(comboboxValue) {
+      return this.colors.filter(el => el.toLowerCase().includes(comboboxValue.toLowerCase()));
+    }
+  },
+  data() {
+    return {
+      inputValue: ''
+    };
+  },
   template: `
   <ComboBoxLabelOutside
     :options="colors" 
@@ -193,7 +222,10 @@ export const LabelOutside = (args, { argTypes }) => ({
     :label="label"
     :help-text="helpText"
     :error-text="errorText"
-    :value="value"
+    :value="inputValue"
+    :filtered-options="filterOptions(inputValue)"
+    @change="(val) => inputValue = val"
+    @selected="(val) => inputValue = val"
     class="mt-3"
   />`
 });
@@ -206,6 +238,16 @@ LabelOutside.args = {
 export const WithoutLabel = (args, { argTypes }) => ({
   components: { ComboBoxLabelOutside },
   props: Object.keys(argTypes),
+  methods: {
+    filterOptions(comboboxValue) {
+      return this.colors.filter(el => el.toLowerCase().includes(comboboxValue.toLowerCase()));
+    }
+  },
+  data() {
+    return {
+      inputValue: 'red'
+    };
+  },
   template: `
   <ComboBoxLabelOutside
     :options="colors" 
@@ -216,13 +258,15 @@ export const WithoutLabel = (args, { argTypes }) => ({
     :label="label"
     :help-text="helpText"
     :error-text="errorText"
-    :value="value"
+    :value="inputValue"
+    :filtered-options="filterOptions(inputValue)"
+    @change="(val) => inputValue = val"
+    @selected="(val) => inputValue = val"
   />`
 });
 
 WithoutLabel.args = {
   ...Base.args,
   colors,
-  label: '',
-  value: 'red'
+  label: ''
 };

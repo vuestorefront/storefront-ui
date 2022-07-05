@@ -1,7 +1,7 @@
 <template>
   <div class="relative max-w-[320px] combobox combobox-list">
     <div
-      class="inline-flex items-center w-full border border-gray-300 rounded-md hover:border-primary-400 active:border-2 p-[1px] focus-within:border-2 focus-within:border-primary-500 focus-within:p-0 active:p-0"
+      class="inline-flex items-center w-full border border-gray-300 rounded-md hover:border-primary-400 focus-within:border-2 focus-within:border-primary-500 focus-within:p-0 active:border-2 p-[1px] active:p-0"
       :class="{'!border-negative-600 border-2': invalid, 'bg-gray-100/50 cursor-not-allowed border-gray-200/50 hover:border-gray-200/50': disabled}"
     >
       <input
@@ -10,8 +10,7 @@
         v-focus
         :disabled="disabled"
         :required="required"
-        class="flex-1 py-3 pl-4 rounded-md peer font-body text-gray-900 disabled:text-gray-900/40 outline-violet active:pt-[18px] active:pb-[6px] focus:pt-[18px] focus:pb-[6px] disabled:cursor-not-allowed"
-        :class="{'pt-[18px] pb-[6px]': comboboxValue || placeholder}"
+        class="flex-1 py-2 pl-4 text-gray-900 rounded-md disabled:text-gray-900/40 peer font-body outline-violet disabled:cursor-not-allowed"
         type="text"
         role="combobox"
         :placeholder="placeholder"
@@ -26,9 +25,10 @@
       >
       <slot name="label">
         <label
+          v-if="label"
           for="combobox-input"
-          class="pl-4 text-gray-500 font-normal absolute top-0 translate-y-[55%] pointer-events-none peer-active:translate-y-1 peer-active:text-xs peer-active:font-medium peer-focus:font-medium peer-focus:translate-y-1 peer-focus:text-xs peer-required:after:content-['*'] transition-all ease-in-out"
-          :class="{'text-xs translate-y-1 font-medium': comboboxValue || placeholder, 'text-gray-500/50': disabled}"
+          class="text-sm -translate-y-5 font-medium pl-0 text-gray-500 absolute top-0 peer-required:after:content-['*']"
+          :class="{'text-gray-900/40': disabled}"
         >
           {{ label }}
         </label>
@@ -94,6 +94,7 @@
             v-focus
             class="w-full px-3 py-2 mx-1 my-1 text-left rounded-md outline-violet"
             @click="selectOption(option)"
+            @keydown.tab="handleTab(i)"
           >
             {{ option }}
           </button>
@@ -102,16 +103,20 @@
           <div
             class="w-full px-4 py-3 text-left font-body"
           >
-            <span>No data to display</span>
-            <span class="block mt-1 text-sm text-gray-500">Additional information</span>
+            <slot name="no-data">
+              <span>No data to display</span>
+              <span class="block mt-1 text-sm text-gray-500">Additional information</span>
+            </slot>
           </div>
         </li>
         <li v-if="!options.length > 0">
-          <div
-            class="flex justify-center py-6"
-          >
-            <SpinnerLg />
-          </div>
+          <slot name="loader">
+            <div
+              class="flex justify-center py-6"
+            >
+              <SpinnerBase size="lg" />
+            </div>
+          </slot>
         </li>
       </slot>
     </ul>
@@ -121,7 +126,7 @@
     > {{ errorText }}
     </span>
     <span
-      class="block text-xs mt-[2px] text-gray-500 font-body"
+      class="block text-xs text-gray-500 font-body"
       :class="{'opacity-50': disabled}"
     > {{ helpText }}
     </span>
@@ -135,14 +140,14 @@
 import { ref, computed } from '@nuxtjs/composition-api';
 import { onClickOutside } from '@vueuse/core';
 import { focus } from '../../utils/focus-directive.js';
-import SpinnerLg from '../Spinner/SpinnerLg.vue';
+import SpinnerBase from '../Spinner/SpinnerBase.vue';
 
 export default {
   directives: {
     focus
   },
   components: {
-    SpinnerLg
+    SpinnerBase
   },
   props: {
     label: {
@@ -180,14 +185,17 @@ export default {
     value: {
       type: String,
       default: ''
+    },
+    filteredOptions: {
+      type: Array,
+      required: true
     }
   },
   setup(props, { emit }) {
     const isListOpened = ref(false);
     const comboboxValue = ref(props.value);
     const comboboxList = ref(null);
-    const filteredOptions = computed(() => props.options.filter(el => el.toLowerCase().includes(comboboxValue.value.toLowerCase())));
-    const isRemoveButtonVisible = computed(() => !filteredOptions.value.indexOf(comboboxValue.value));
+    const isRemoveButtonVisible = computed(() => !props.filteredOptions.indexOf(comboboxValue.value));
 
     const removeSelectedOption = () => {
       comboboxValue.value = '';
@@ -199,16 +207,22 @@ export default {
       emit('selected', comboboxValue.value);
     };
 
+    const handleTab = (optionIndex) => {
+      if (optionIndex + 1 === props.filteredOptions.length) {
+        isListOpened.value = false;
+      }
+    };
+
     onClickOutside(comboboxList, () => isListOpened.value = false);
 
     return {
       isListOpened,
       comboboxValue,
       comboboxList,
-      filteredOptions,
       isRemoveButtonVisible,
       removeSelectedOption,
-      selectOption
+      selectOption,
+      handleTab
     };
   }
 };
