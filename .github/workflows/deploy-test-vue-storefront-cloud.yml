@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - develop
+      - fix/test-instance
 
 jobs:
   build:
