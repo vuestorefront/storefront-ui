@@ -1,13 +1,16 @@
 <template>
   <div
-    class="pl-1 pr-2 py-1 rounded-full group text-gray-900 bg-white border-2 border-primary-500 font-body font-normal text-sm inline-flex items-center align-center w-max cursor-pointer transition duration-300 ease hover:shadow-medium outline-violet"
+    class="pl-1 pr-2 py-1 rounded-full group text-gray-900 bg-white border-2 border-primary-500 font-body font-normal text-sm inline-flex items-center align-center w-max cursor-pointer transition duration-300 ease"
   >
     <slot />
-    <button v-focus class="bg-transparent hover ml-1.5" :class="{'hidden': persistent }" @click="$emit('chips-close')">
+    <button
+      v-focus
+      class="bg-transparent hover ml-1.5"
+      :class="{'hidden': persistent }"
+      @click="$emit('chips-close')"
+    >
       <svg
         class="fill-gray-500 group-hover:fill-primary-600 group-active:fill-primary-700 transition duration-300 ease"
-        aria-label="Close selected chip"
-        focusable="false"
         width="16"
         height="16"
         viewBox="0 0 16 16"
