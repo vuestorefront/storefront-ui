@@ -1,9 +1,9 @@
 <template>
-  <div class="flex flex-col font-body">
+  <div class="flex flex-col w-full font-body">
     <ButtonBase
       type="secondary"
       size="large"
-      class="group normal-case !text-gray-900 border-none !rounded-none !shadow-none hover:shadow-none hover:!text-primary-600 p-4 !justify-between w-80"
+      class="group normal-case !text-gray-900 border-none !rounded-none !shadow-none hover:shadow-none hover:!text-primary-600 p-4 !justify-between"
       :aria-expanded="expanded"
       :aria-controls="'content-' + uid"
       @click="$emit('toggle')"
@@ -26,7 +26,7 @@
     </ButtonBase>
     <div
       :id="'content-' + uid"
-      class="px-4 py-2 text-gray-500 w-80"
+      class="px-4 py-2 text-gray-500"
       :class="{ 'hidden': !expanded }"
     >
       <slot v-bind="{ expanded }" />
