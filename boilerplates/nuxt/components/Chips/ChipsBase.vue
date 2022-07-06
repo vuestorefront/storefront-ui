@@ -1,12 +1,11 @@
 <template>
   <div
-    class="pl-1 pr-2 py-1 rounded-full group text-gray-900 bg-white border-2 border-gray-200 font-body font-normal text-sm inline-flex items-center align-center w-max cursor-pointer hover:bg-primary-100 hover:border-primary-400 active:bg-primary-200 active:border-primary-700 transition duration-300 ease"
-    :class="{ 'bg-gray-200 opacity-50 pointer-events-none' : disabled}"
+    class="pl-1 pr-2 py-1 rounded-full group text-gray-900 bg-white border-2 border-primary-500 font-body font-normal text-sm inline-flex items-center align-center w-max cursor-pointer transition duration-300 ease"
   >
     <slot />
-    <button v-focus class="bg-transparent hover ml-1.5" :class="{'hidden': persistent }">
+    <button v-focus class="bg-transparent hover ml-1.5" :class="{'hidden': persistent }" @click="$emit('chips-close')">
       <svg
-        class="fill-gray-500 group-hover:fill-primary-600 transition duration-300 ease"
+        class="fill-gray-500 group-hover:fill-primary-600 group-active:fill-primary-700 transition duration-300 ease"
         width="16"
         height="16"
         viewBox="0 0 16 16"
@@ -30,16 +29,6 @@ export default {
   name: 'ChipsBase',
   directives: {
     focus
-  },
-  props: {
-    persistent: {
-      type: Boolean,
-      default: false
-    },
-    disabled: {
-      type: Boolean,
-      default: false
-    }
   }
 };
 </script>
