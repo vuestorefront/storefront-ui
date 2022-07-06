@@ -1,5 +1,4 @@
 import ChipsBase from '../../components/Chips/ChipsBase.vue';
-import SpinnerBase from '../../components/Spinner/SpinnerBase.vue';
 
 export default {
   title: 'SFUI Components/Chips',
@@ -45,16 +44,3 @@ const Template = (args, { argTypes }) => ({
 });
 
 export const Base = Template.bind({});
-
-const WithLoading = (args, { argTypes }) => ({
-  components: { ChipsBase, SpinnerBase },
-  props: Object.keys(argTypes),
-  template: `
-  <ChipsBase :persistent="true" :disabled="true">
-  <SpinnerBase class="mr-2" />
-  Loading
-  </ChipsBase>
-  `
-});
-
-export const Loading = WithLoading.bind({});
