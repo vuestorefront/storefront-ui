@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col onFocus" role="search">
     <div
-      class="flex h-10 peer w-80"
+      class="flex h-10 peer"
     >
       <div class="relative">
         <input
@@ -94,7 +94,7 @@
 
 <script>
 import { ref, computed } from '@nuxtjs/composition-api';
-import ButtonBase from '../Button/Primary/ButtonPrimary.vue';
+import ButtonBase from '../Button/ButtonBase.vue';
 import SheetBase from '../Sheet/SheetBase.vue';
 import SpinnerLg from '../Spinner/SpinnerLg.vue';
 import { focus } from '../../utils/focus-directive.js';

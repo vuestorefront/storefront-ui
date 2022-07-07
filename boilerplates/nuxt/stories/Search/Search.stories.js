@@ -2,7 +2,7 @@ import SearchBase from '../../components/Search/SearchBase.vue';
 import SearchWithoutButton from '../../components/Search/SearchWithoutButton.vue';
 import SearchWithoutButtonWithRightIcon from '../../components/Search/SearchWithoutButtonWithRightIcon.vue';
 import SearchWithoutButtonWithAutocomplete from '../../components/Search/SearchWithoutButtonWithAutocomplete.vue';
-import ButtonPrimaryIcons from '../../components/Button/Primary/Icon/ButtonPrimaryIcons.vue';
+import ButtonPrimaryIcons from '../../components/Button/ButtonIcons.vue';
 import SearchBaseWithAutocomplete from '../../components/Search/SearchBaseWithAutocomplete.vue';
 
 import { focus } from '../../utils/focus-directive.js';
@@ -108,6 +108,7 @@ const Template = (args, { argTypes }) => ({
         :value="value"
         :disabled="disabled"
         :placeholder="placeholder"
+        class="w-80"
       />
     `
 });
@@ -122,6 +123,7 @@ const WithIconButton = (args, { argTypes }) => ({
       :value="value"
       :disabled="disabled"
       :placeholder="placeholder"
+      class="w-80"
     >
       <ButtonPrimaryIcons
         aria-label="search"
@@ -200,6 +202,7 @@ const BaseAutocomplete = (args, { argTypes }) => ({
       @input.native="handleValue"
       @click:cancel="clearValue"
       @input="setValue"
+      class="w-80"
     >
       <template #apple>
         {{''}}
@@ -247,6 +250,7 @@ const NoButton = (args, { argTypes }) => ({
       :value="value"
       :disabled="disabled"
       :placeholder="placeholder"
+      class="w-80"
     />
     `
 });
@@ -269,6 +273,7 @@ const NoButtonWithRightSearchIcon = (args, { argTypes }) => ({
         :value="value"
         :disabled="disabled"
         :placeholder="placeholder"
+        class="w-80"
       />
     `
 });
@@ -321,13 +326,14 @@ const WithoutButtonAutocomplete = (args, { argTypes }) => ({
   template: `
       <SearchWithoutButtonWithAutocomplete 
         :value="inputValue"
-      :disabled="disabled"
-      :searchResults="searchHints"
-      :placeholder="placeholder"
-      :loading="loadState"
-      @input.native="handleValue"
-      @click:cancel="clearValue"
-      @input="setValue"
+        :disabled="disabled"
+        :searchResults="searchHints"
+        :placeholder="placeholder"
+        :loading="loadState"
+        @input.native="handleValue"
+        @click:cancel="clearValue"
+        @input="setValue"
+        class="w-80"
       >
         <template #apple>
           {{''}}
