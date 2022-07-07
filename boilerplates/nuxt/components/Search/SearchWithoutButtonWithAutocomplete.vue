@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col onFocus" role="search">
     <div
-      class="relative flex h-10 peer w-80"
+      class="relative flex h-10 peer"
     >
       <input
         v-model="inputValue"

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex h-10 w-80"
+    class="flex h-10"
     role="search"
   >
     <div class="relative">
@@ -9,7 +9,7 @@
         v-focus
         type="search"
         :disabled="disabled"
-        class="w-full h-10 pl-4 text-gray-900 border border-gray-200 disabled:bg-gray-100 disabled:pointer-events-none disabled:opacity-50 peer rounded-l-md hover:border-primary-500 active:border-2 active:border-r-0 focus:border-primary-500 focus:border-2 remove-default-styling outline-violet"
+        class="w-full h-10 pl-4 text-gray-900 border border-gray-200 disabled:bg-gray-100 disabled:pointer-events-none disabled:opacity-50 peer rounded-l-md hover:border-primary-500 active:border-2 active:border-r-0 focus:border-primary-500 focus:border-2 focus:border-r-0 remove-default-styling outline-violet"
         :placeholder="placeholder"
         aria-label="search"
       >
