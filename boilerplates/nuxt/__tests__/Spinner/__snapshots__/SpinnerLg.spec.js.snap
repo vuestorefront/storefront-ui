@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SpinnerLg.vue render component correctly 1`] = `
+<div class="relative w-10 h-10">
+  <div role="alert" class="sr-only">
+    loading...
+  </div>
+  <div aria-hidden="true" class="absolute w-10 h-10 bg-transparent border-2 border-gray-200 rounded-full"></div>
+  <div aria-hidden="true" class="absolute w-10 h-10 bg-transparent border-2 rounded-[50%] is-animation-stopped animate-spin-base border-t-primary-600"></div>
+  <div aria-hidden="true" class="absolute w-10 h-10 bg-transparent border-2 rounded-[50%] is-animation-stopped animate-spin-base animation-delay-1 border-t-primary-600 border-x-transparent border-b-transparent"></div>
+  <div aria-hidden="true" class="absolute w-10 h-10 bg-transparent border-2 rounded-[50%] is-animation-stopped animate-spin-base animation-delay-2 border-t-primary-600 border-x-transparent border-b-transparent"></div>
+  <div aria-hidden="true" class="absolute w-10 h-10 bg-transparent border-2 rounded-[50%] is-animation-stopped animate-spin-base animation-delay-3 border-t-primary-600 border-x-transparent border-b-transparent"></div>
+</div>
+`;

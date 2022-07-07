@@ -8,11 +8,11 @@
       v-focus
       :disabled="disabled"
       type="search"
-      class="h-10 pl-12 text-gray-900 border border-gray-200 rounded-md disabled:bg-gray-100 disabled:pointer-events-none disabled:opacity-50 active:-mx-px w-80 peer hover:border-primary-500 active:border-2 focus:border-primary-500 focus:border-2 remove-default-styling outline-violet"
+      class="h-10 pl-4 text-gray-900 border border-gray-200 rounded-md disabled:bg-gray-100 disabled:pointer-events-none disabled:opacity-50 active:-mx-px w-80 peer hover:border-primary-500 active:border-2 remove-default-styling outline-violet"
       placeholder="search text"
     >
     <span
-      class="absolute hidden fill-gray-500 top-2 right-2"
+      class="absolute hidden fill-gray-500 top-2 right-12"
       :class="{ '!flex': !!inputValue }"
       @click="inputValue = ''"
     >
@@ -28,7 +28,7 @@
     </span>
     <slot>
       <span
-        class="absolute pointer-events-none fill-gray-500 top-2 left-4"
+        class="absolute pointer-events-none fill-gray-500 top-2 right-4"
         :class="{ 'opacity-50': disabled }"
       >
         <svg
@@ -51,7 +51,7 @@
 import { toRefs } from '@nuxtjs/composition-api';
 import { focus } from '../../utils/focus-directive.js';
 export default {
-  name: 'SearchWithoutButton',
+  name: 'SearchWithoutButtonWithRightIcon',
   directives: {
     focus
   },
