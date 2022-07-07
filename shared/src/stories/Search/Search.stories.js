@@ -1,7 +1,7 @@
 
 import SearchBase from '../../components/Search/SearchBase.vue';
 import SearchWithoutButton from '../../components/Search/SearchWithoutButton.vue';
-import ButtonPrimaryIcons from '../../components/Button/Primary/Icon/ButtonPrimaryIcons.vue';
+import ButtonPrimaryIcons from '../../components/Button/ButtonIcons.vue';
 import { focus } from '../../utils/focus-directive.js';
 
 export default {

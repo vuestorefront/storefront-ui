@@ -5,10 +5,12 @@ let wrapper;
 
 describe('RadioBase.vue', () => {
   const name = 'radio-base';
+  const id = 'radio-1';
   beforeEach(() => {
     wrapper = shallowMount(RadioBase, {
       propsData: {
-        name
+        name,
+        id
       }
     });
   });

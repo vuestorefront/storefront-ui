@@ -2,13 +2,13 @@
 
 exports[`TooltipLeft.vue render component correctly 1`] = `
 <div class="relative flex items-center group">
-  <buttonprimary-stub aria-describedby="tooltip-left">
+  <buttonbase-stub type="primary" size="medium" aria-describedby="tooltip-left">
     Hover me
-  </buttonprimary-stub>
+  </buttonbase-stub>
   <div id="tooltip-left" role="tooltip" class="absolute left-0 items-center hidden ml-32 group-hover:flex">
     <div class="w-2 h-2 -mr-1 rotate-45 bg-gray-500"></div>
     <div class="relative z-10 whitespace-no-wrap bg-gray-500 font-body font-medium text-white text-sm leading-5 rounded-md px-3 py-1.5">
-      Tooltip text
+
     </div>
   </div>
 </div>

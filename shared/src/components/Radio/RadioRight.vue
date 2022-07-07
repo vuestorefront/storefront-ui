@@ -17,7 +17,7 @@
     <label
       :for="id"
       class="col-start-1 text-gray-900 cursor-pointer text-base peer-required:after:content-['*'] peer-disabled:text-gray-900/40 peer-disabled:cursor-not-allowed font-body"
-    > Label</label>
+    > {{ label }}</label>
     <span class="hidden col-start-1 mt-1 text-xs text-gray-500 peer-required:block font-body">*Required</span>
   </div>
 </template>
@@ -42,6 +42,10 @@ export default {
     name: {
       type: String,
       default: ''
+    },
+    label: {
+      type: String,
+      default: 'Label'
     },
     value: {
       type: String,

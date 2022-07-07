@@ -1,6 +1,5 @@
 
 import BreadcrumbsBase from '../../components/Breadcrumbs/BreadcrumbsBase.vue';
-import BreadcrumbsWithIcon from '../../components/Breadcrumbs/BreadcrumbsWithIcon.vue';
 
 export default {
   title: 'SFUI Components/Breadcrumbs',
@@ -18,6 +17,17 @@ export default {
       control: 'object',
       defaultValue: [],
       description: 'Array of objects. Objects need to have `name` and `link` keys'
+    },
+    required: {
+      control: 'boolean',
+      table: {
+        category: 'Props',
+        defaultValue: {
+          summary: false
+        }
+      },
+      defaultValue: false,
+      description: 'Visibility of home icon'
     }
   }
 };
@@ -26,13 +36,13 @@ const Template = (args, { argTypes }) => ({
   components: { BreadcrumbsBase },
   props: Object.keys(argTypes),
   template: `
-    <BreadcrumbsBase :breadcrumbs="breadcrumbs" />
+    <BreadcrumbsBase :with-icon="false" :breadcrumbs="breadcrumbs" />
     `
 });
 
-export const Common = Template.bind({});
+export const Base = Template.bind({});
 
-Common.args = {
+Base.args = {
   breadcrumbs: [
     { name: 'Home', link: '/' },
     { name: 'Electronics', link: '/' },
@@ -43,10 +53,10 @@ Common.args = {
 };
 
 const BreadcrumbsIcon = (args, { argTypes }) => ({
-  components: { BreadcrumbsWithIcon },
+  components: { BreadcrumbsBase },
   props: Object.keys(argTypes),
   template: `
-    <BreadcrumbsWithIcon :breadcrumbs="breadcrumbs" />
+    <BreadcrumbsBase :with-icon="true" :breadcrumbs="breadcrumbs" />
     `
 });
 

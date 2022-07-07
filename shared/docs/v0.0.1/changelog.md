@@ -9,6 +9,7 @@
 - Tag component created with tests and stories 
 - Sheet component created
 - Search component with stories and tests added
+- Quantity Selector component with stories and test
 
 ## 🐛 Fixes:
 
