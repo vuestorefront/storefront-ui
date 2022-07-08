@@ -25,10 +25,9 @@
   &__content {
     display: var(--footer-column-content-display, block);
     &--hidden-on-mobile {
-      --footer-column-content-display: none;
-      @include for-desktop {
-      --footer-column-content-display: block;
-    }
+      @include for-mobile {
+        --footer-column-content-display: none;
+      }
     }
   }
 

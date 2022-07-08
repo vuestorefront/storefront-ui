@@ -257,7 +257,7 @@ const Template = (args, { argTypes }) => ({
 
 export const Common = Template.bind({});
 Common.args = {
-  open: ["About us", "Help", "Social"],
+  open: ["About us", "Help"],
   title: "Storefront UI",
   logo: "/assets/logo.svg",
 };
