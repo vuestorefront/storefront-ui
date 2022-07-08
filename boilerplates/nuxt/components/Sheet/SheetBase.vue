@@ -1,5 +1,7 @@
 <template>
-  <div class="absolute h-24 bg-white rounded-md shadow-medium w-80" />
+  <div class="absolute bg-white rounded-md empty:h-24 shadow-medium w-80">
+    <slot />
+  </div>
 </template>
 
 <script>

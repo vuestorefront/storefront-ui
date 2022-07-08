@@ -1,16 +1,17 @@
 <template>
   <div
-    class="flex h-10 w-80"
+    class="flex h-10"
     role="search"
   >
-    <div class="relative w-70">
+    <div class="relative">
       <input
         v-model="inputValue"
         v-focus
         type="search"
         :disabled="disabled"
-        class="h-10 pl-4 text-gray-900 border border-gray-200 disabled:bg-gray-100 disabled:pointer-events-none disabled:opacity-50 peer active:-mx-px rounded-l-md hover:border-primary-500 active:border-2 remove-default-styling outline-violet"
-        placeholder="search text"
+        class="w-full h-10 pl-4 text-gray-900 border border-gray-200 disabled:bg-gray-100 disabled:pointer-events-none disabled:opacity-50 peer rounded-l-md hover:border-primary-500 active:border-2 active:border-r-0 focus:border-primary-500 focus:border-2 focus:border-r-0 remove-default-styling outline-violet"
+        :placeholder="placeholder"
+        aria-label="search"
       >
       <span
         class="absolute hidden fill-gray-500 top-2 right-2"
@@ -30,9 +31,10 @@
     </div>
     <slot>
       <ButtonBase
-        class="rounded-l-none !shadow-none hover:!shadow-none"
+        class="rounded-l-none !shadow-none hover:!shadow-none w-25"
         :disabled="disabled"
         :class="{ '!bg-gray-200': disabled }"
+        type="submit"
         @click="$emit('click', inputValue)"
       >
         Search
@@ -61,6 +63,10 @@ export default {
     disabled: {
       type: Boolean,
       default: false
+    },
+    placeholder: {
+      type: String,
+      default: ''
     }
   },
   setup(props) {
