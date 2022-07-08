@@ -28,7 +28,7 @@
         <a class="block py-1 my-2 text-lg font-medium leading-7 text-gray-900 underline font-body" href="/">Help center</a>
         <span class="text-sm font-normal leading-5 text-gray-500 font-body">Find answers online anytime</span>
       </div>
-      <div class="mx-auto my-4 text-center">
+      <div class="mx-auto my-4 text-center large:my-0">
         <svg
           class="block mx-auto"
           width="40"

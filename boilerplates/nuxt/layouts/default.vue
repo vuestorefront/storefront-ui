@@ -1,6 +1,6 @@
 <template>
   <div>
-    <HeaderBase />
+    <NavbarTop />
     <Nuxt />
     <FooterBase :categories="footerCategories" />
     <NavbarBottom class="small:hidden" />
@@ -10,14 +10,14 @@
 <script>
 import NavbarBottom from '../components/NavbarBottom/NavbarBottomBranded.vue';
 import FooterBase from '../components/FooterBase.vue';
-import HeaderBase from '../components/HeaderBase.vue';
+import NavbarTop from '../components/NavbarTop/NavbarTopBrandedCounter.vue';
 
 export default {
   name: 'DefaultLayout',
   components: {
     NavbarBottom,
     FooterBase,
-    HeaderBase
+    NavbarTop
   },
   setup() {
     const footerCategories = [
