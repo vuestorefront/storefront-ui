@@ -113,15 +113,15 @@
         @apply font-medium text-gray-900 no-underline;
      }
     .chips-small {
-        @apply leading-5 px-3 py-[6px] text-sm;
+        @apply w-4 h-4;
     }
 
     .chips-base {
-        @apply px-4 py-2;
+        @apply w-4 h-4;
     }
 
     .chips-large {
-        @apply px-6 py-3;
+        @apply w-5 h-5;
     }
     .quantity-selector-base {
         @apply w-40 h-10;
