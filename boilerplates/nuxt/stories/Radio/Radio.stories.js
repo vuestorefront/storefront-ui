@@ -2,7 +2,6 @@ import RadioGroupBase from '../../components/Radio/RadioGroupBase.vue';
 import RadioGroupRight from '../../components/Radio/RadioGroupRight.vue';
 import RadioGroupTile from '../../components/Radio/RadioGroupTile.vue';
 import RadioGroupMultiline from '../../components/Radio/RadioGroupMultiline.vue';
-import RadioGroupDense from '../../components/Radio/RadioGroupDense.vue';
 
 export default {
   title: 'SFUI Components/Radio',
@@ -75,17 +74,6 @@ export default {
         category: 'Props'
       },
       description: 'Disables radio.'
-    },
-    invalid: {
-      control: 'boolean',
-      table: {
-        category: 'Props',
-        defaultValue: {
-          summary: false
-        }
-      },
-      defaultValue: true,
-      description: 'Shows error message value of radio group when true.'
     }
   }
 
@@ -98,10 +86,15 @@ const Template = (args, { argTypes }) => ({
   <RadioGroupBase 
     :disabled="disabled"   
     :required="required"  
+    :selected="selected"
   />`
 });
 
 export const Base = Template.bind({});
+
+Base.args = {
+  selected: 'one'
+};
 
 const RadioRight = (args, { argTypes }) => ({
   components: { RadioGroupRight },
@@ -109,7 +102,8 @@ const RadioRight = (args, { argTypes }) => ({
   template: `
   <RadioGroupRight
     :disabled="disabled"   
-    :required="required"  
+    :required="required"
+    :selected="selected"
   />`
 });
 export const Right = RadioRight.bind({});
@@ -120,10 +114,15 @@ const RadioTile = (args, { argTypes }) => ({
   template: `
   <RadioGroupTile 
     :disabled="disabled"   
-    :required="required"  
+    :required="required"
+    :selected="selected"
   />`
 });
 export const Tile = RadioTile.bind({});
+
+Tile.args = {
+  selected: 'two'
+};
 
 const RadioMultiline = (args, { argTypes }) => ({
   components: { RadioGroupMultiline },
@@ -131,20 +130,9 @@ const RadioMultiline = (args, { argTypes }) => ({
   template: `
   <RadioGroupMultiline
     :disabled="disabled"   
-    :required="required"  
+    :required="required"
+    :selected="selected"
   />`
 });
 
 export const Multiline = RadioMultiline.bind({});
-
-const RadioDense = (args, { argTypes }) => ({
-  components: { RadioGroupDense },
-  props: Object.keys(argTypes),
-  template: `
-  <RadioGroupDense 
-    :disabled="disabled"   
-    :required="required"  
-  />`
-});
-
-export const Dense = RadioDense.bind({});

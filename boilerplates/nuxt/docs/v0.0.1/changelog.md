@@ -2,6 +2,8 @@
 
 ## 🚀 Features:
 
+- add autocomplete to Search component
+
 ## 🐛 Fixes:
 
 ## 📓 Docs:

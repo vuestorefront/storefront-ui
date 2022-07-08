@@ -1,3 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SheetBase.vue render component correctly 1`] = `<div class="absolute h-24 bg-white rounded-md shadow-medium w-80"></div>`;
+exports[`SheetBase.vue render component correctly 1`] = `<div class="absolute bg-white rounded-md empty:h-24 shadow-medium w-80"></div>`;

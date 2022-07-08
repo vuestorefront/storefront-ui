@@ -51,6 +51,7 @@ const Template = (args, { argTypes }) => ({
     }
   },
   template: `
+  <div class="w-80">
     <AccordionBase
       :expanded="opened"
       :buttonText="buttonText"
@@ -58,6 +59,7 @@ const Template = (args, { argTypes }) => ({
     >
       Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
     </AccordionBase>
+  </div>
     `
 });
 
@@ -81,6 +83,7 @@ const LeftChevron = (args, { argTypes }) => ({
     }
   },
   template: `
+  <div class="w-80">
     <AccordionBase
       :expanded="opened"
       :buttonText="buttonText"
@@ -96,6 +99,7 @@ const LeftChevron = (args, { argTypes }) => ({
       </template>
       Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
     </AccordionBase>
+  </div>
     `
 });
 
@@ -126,7 +130,7 @@ const Multiple = (args, { argTypes }) => ({
     }
   },
   template: `
-    <div>
+    <div class="w-80">
       <AccordionBase
         :expanded="opened.acc1"
         :buttonText="buttonText1"
