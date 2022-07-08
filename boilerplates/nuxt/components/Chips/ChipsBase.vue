@@ -1,6 +1,7 @@
 <template>
   <div
-    class="pl-1 pr-2 py-1 rounded-full group text-gray-900 bg-white border-2 border-primary-500 font-body font-normal text-sm inline-flex items-center align-center w-max cursor-pointer transition duration-300 ease hover:shadow-medium outline-violet"
+    class="pl-1 pr-2 py-1 rounded-full group text-gray-900 bg-white border-2 border-primary-500 font-body font-normal text-sm inline-flex items-center align-center w-max cursor-pointer transition duration-300 ease outline-violet"
+    :class="[chipsSize]"
   >
     <slot />
     <button v-focus class="bg-transparent hover ml-1.5" :class="{'hidden': persistent }" @click="$emit('chips-close')">
@@ -25,12 +26,41 @@
   </div>
 </template>
 <script>
+import { computed } from '@nuxtjs/composition-api';
 import { focus } from '../../utils/focus-directive.js';
 
 export default {
   name: 'ChipsBase',
   directives: {
     focus
+  },
+  props: {
+    size: {
+      type: String,
+      default: 'medium',
+      validator(value) {
+        return [
+          'small',
+          'medium',
+          'large'
+        ].includes(value);
+      }
+    }
+  },
+  setup(props) {
+    const chipsSize = computed(() => {
+      switch (props.size) {
+        case 'small':
+          return 'chips-small';
+        case 'large':
+          return 'chips-large';
+        default:
+          return 'chips-base';
+      }
+    });
+    return {
+      chipsSize
+    };
   }
 };
 </script>

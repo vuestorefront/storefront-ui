@@ -110,4 +110,15 @@
      .breadcrumb-item:last-child > a {
         @apply font-medium text-gray-900 no-underline;
      }
+    .chips-small {
+        @apply leading-5 px-3 py-[6px] text-sm;
+    }
+
+    .chips-base {
+        @apply px-4 py-2;
+    }
+
+    .chips-large {
+        @apply px-6 py-3;
+    }
 }
