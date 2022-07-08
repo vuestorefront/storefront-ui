@@ -17,6 +17,25 @@ export default {
     layout: 'fullscreen'
   },
   argTypes: {
+    searchDisabled: {
+      control: 'boolean',
+      defaultValue: false,
+      table: {
+        category: 'Props'
+      },
+      description: 'Disables search.'
+    },
+    searchValue: {
+      control: 'text',
+      defaultValue: '',
+      table: {
+        category: 'Props',
+        defaultValue: {
+          summary: ''
+        }
+      },
+      description: 'Value for search'
+    },
     logo: {
       table: {
         category: 'Slots',
@@ -52,41 +71,45 @@ export default {
         }
       },
       description: 'Use this slot to place content inside default icons'
-    },
+    }
   }
 }
 
-const Template = () => ({
+const Template = (args, { argTypes }) => ({
   components: { NavbarTop },
+  props: Object.keys(argTypes),
   template: `
-    <NavbarTop />
+    <NavbarTop :searchDisabled="searchDisabled" :searchValue="searchValue" />
     `
 });
 
 export const Base = Template.bind({});
 
-const NavbarTopWithCounter = () => ({
+const NavbarTopWithCounter = (args, { argTypes }) => ({
   components: { NavbarTopCounter },
+  props: Object.keys(argTypes),
   template: `
-    <NavbarTopCounter />
+    <NavbarTopCounter :searchDisabled="searchDisabled" :searchValue="searchValue" />
     `
 });
 
 export const WithCounter = NavbarTopWithCounter.bind({});
 
-const NavbarBranded = () => ({
+const NavbarBranded = (args, { argTypes }) => ({
   components: { NavbarTopBranded },
+  props: Object.keys(argTypes),
   template: `
-    <NavbarTopBranded />
+    <NavbarTopBranded :searchDisabled="searchDisabled" :searchValue="searchValue" />
     `
 });
 
 export const Branded = NavbarBranded.bind({});
 
-const NavbarBrandedWithCounter = () => ({
+const NavbarBrandedWithCounter = (args, { argTypes }) => ({
   components: { NavbarTopBrandedCounter },
+  props: Object.keys(argTypes),
   template: `
-    <NavbarTopBrandedCounter />
+    <NavbarTopBrandedCounter :searchDisabled="searchDisabled" :searchValue="searchValue" />
     `
 });
 
