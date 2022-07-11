@@ -1,12 +1,13 @@
 <template>
   <div
-    class="rounded-full group pl-0.5 pr-1 py-0.5 text-gray-900 bg-white border-2 border-primary-500 font-body font-normal text-sm inline-flex items-center align-center w-max cursor-pointer transition duration-300 ease outline-violet"
+    class="rounded-full group pl-0.5 pr-1 py-0.5 text-gray-900 bg-white border-2 border-primary-500 font-body font-normal inline-flex items-center align-center w-max cursor-pointer transition duration-300 ease outline-violet"
+    :class="{'bg-gray-100 border-gray-200 opacity-50 cursor-not-allowed' : disabled}"
   >
-    <div class="mr-1">
-      <slot name="chips-icon" />
+    <div class="mr-1" :class="chipsIconSize">
+      <slot name="icon" />
     </div>
-    <span>{{ value }}</span>
-    <button v-focus class="bg-transparent hover ml-1.5" @click="$emit('chips-close')">
+    <span :class="chipsFontSize">{{ value }}</span>
+    <button v-if="!disabled" v-focus class="bg-transparent hover ml-1.5" @click="$emit('chips-close')">
       <svg
         class="fill-gray-500 group-hover:fill-primary-600 group-active:fill-primary-700 transition duration-300 ease"
         :class="[chipsSize]"
@@ -50,21 +51,47 @@ export default {
           'large'
         ].includes(value);
       }
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
   },
   setup(props) {
     const chipsSize = computed(() => {
       switch (props.size) {
         case 'small':
-          return 'chips-small';
+          return 'w-4 h-4';
         case 'large':
-          return 'chips-large';
+          return 'w-5 h-5';
         default:
-          return 'chips-base';
+          return 'w-4 h-4';
+      }
+    });
+    const chipsIconSize = computed(() => {
+      switch (props.size) {
+        case 'small':
+          return 'w-5 h-5';
+        case 'large':
+          return 'w-7 h-7';
+        default:
+          return 'w-6 h-6';
+      }
+    });
+    const chipsFontSize = computed(() => {
+      switch (props.size) {
+        case 'small':
+          return 'text-sm';
+        case 'large':
+          return 'text-base';
+        default:
+          return 'text-sm';
       }
     });
     return {
-      chipsSize
+      chipsSize,
+      chipsIconSize,
+      chipsFontSize
     };
   }
 };

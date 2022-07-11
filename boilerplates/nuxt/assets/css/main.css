@@ -112,17 +112,6 @@
     .breadcrumb-item:last-child > a {
         @apply font-medium text-gray-900 no-underline;
      }
-    .chips-small {
-        @apply w-4 h-4;
-    }
-
-    .chips-base {
-        @apply w-4 h-4;
-    }
-
-    .chips-large {
-        @apply w-5 h-5;
-    }
     .quantity-selector-base {
         @apply w-40 h-10;
     }
