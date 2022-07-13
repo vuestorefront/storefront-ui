@@ -24,7 +24,7 @@ jobs:
       - name: Build and publish docker image
         uses: elgohr/Publish-Docker-Github-Action@master
         with:
-          name: sfui-storefrontcloud-io/vue-storefront:${{ steps.get_version.outputs.VERSION }}
+          name: sfui-demo-storefrontcloud-io/vue-storefront:${{ steps.get_version.outputs.VERSION }}
           registry: registry.storefrontcloud.io
           username: ${{ secrets.CLOUD_USERNAME }}
           password: ${{ secrets.CLOUD_PASSWORD }}
