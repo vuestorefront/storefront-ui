@@ -51,7 +51,7 @@ jobs:
           initial_status: in_progress
       - name: Deploy to demo.storefrontui.io
         run: |
-          if curl -s -H 'X-User-Id: ${{ secrets.CLOUD_USERNAME }}'  -H 'X-Api-Key: ${{ secrets.CLOUD_PASSWORD }}' -H 'Content-Type: application/json' -X POST -d '{"front_version":"${{ steps.get_version.outputs.VERSION }}"}' https://farmer.vuestorefront.cloud/instance/sfui-demo-europe-west1-gcp-storefrontcloud-io | grep -q '{"code":200}'; then
+          if curl -s -H 'X-User-Id: ${{ secrets.CLOUD_USERNAME }}'  -H 'X-Api-Key: ${{ secrets.CLOUD_PASSWORD }}' -H 'Content-Type: application/json' -X PATCH -d '{"front_version":"${{ steps.get_version.outputs.VERSION }}"}' https://farmer.vuestorefront.cloud/instance/sfui-demo-europe-west1-gcp-storefrontcloud-io | grep -q '{"code":200}'; then
             echo "Instance updated"
           else
             echo "Something went wrong during the update process..."
