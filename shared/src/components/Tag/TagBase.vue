@@ -1,5 +1,5 @@
 <template>
-  <div class="absolute flex px-3 py-1 text-sm font-normal text-gray-600 bg-gray-100 rounded-md font-body direction-row">
+  <div class="inline-flex px-3 py-1 text-sm font-normal text-gray-600 bg-gray-100 rounded-md font-body direction-row">
     <slot>
       Label
     </slot>
