@@ -8,6 +8,8 @@ export default {
   component: NavbarBottom,
   parameters: {
     docs: {
+      inlineStories: false,
+      iframeHeight: '300px',
       description: {
         component:
           'The Navbar Bottom component. [link to component docs on the page]'
