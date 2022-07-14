@@ -5,8 +5,8 @@ WORKDIR /var/www
 COPY . .
 
 RUN cd boilerplates/nuxt \
-  && yarn \
-  && yarn run generate
+  && yarn \ 
+  && yarn generate
 
 FROM nginx
 
