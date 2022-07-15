@@ -85,7 +85,7 @@ export default {
     },
     quantityInStock: {
       type: [Number, String],
-      default: '1'
+      default: 5
     },
     minQuantity: {
       type: [Number, String],

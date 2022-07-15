@@ -35,11 +35,11 @@ export default {
     },
     quantityInStock: {
       control: 'number',
-      defaultValue: '1',
+      defaultValue: '5',
       table: {
         category: 'Props',
         defaultValue: {
-          summary: '1'
+          summary: '5'
         }
       },
       description: 'Input value'
