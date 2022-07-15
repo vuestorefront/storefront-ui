@@ -7,7 +7,7 @@ export default {
     docs: {
       description: {
         component:
-          'The checkbox component. [link to component docs on the page]'
+          'The chips component. [link to component docs on the page]'
       }
     }
   },
