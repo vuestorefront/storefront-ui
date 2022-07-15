@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import { getCurrentInstance } from '@nuxtjs/composition-api';
+import { getCurrentInstance, ref, onMounted } from '@nuxtjs/composition-api';
 import ButtonBase from '../Button/ButtonBase.vue';
 
 export default {
@@ -54,7 +54,12 @@ export default {
     }
   },
   setup() {
-    const uid = getCurrentInstance().uid;
+    const uid = ref(null);
+
+    onMounted(() => {
+      uid.value = getCurrentInstance().uid;
+    });
+
     return {
       uid
     };
