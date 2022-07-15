@@ -39,7 +39,7 @@ export default {
       table: {
         category: 'Props',
         defaultValue: {
-          summary: '0'
+          summary: '5'
         }
       },
       description: 'Input value'

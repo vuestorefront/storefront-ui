@@ -10,5 +10,5 @@ RUN cd boilerplates/nuxt \
 
 FROM nginx
 
-COPY .vuestorefrontcloud/docker/default.conf /etc/nginx/conf.d/default.conf
+COPY .vuestorefrontcloud/test/docker/default.conf /etc/nginx/conf.d/default.conf
 COPY --from=build var/www/boilerplates/nuxt/storybook-static /usr/share/nginx/html
