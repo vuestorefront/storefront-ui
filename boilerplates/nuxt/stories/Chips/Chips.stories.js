@@ -17,7 +17,7 @@ export default {
       table: {
         category: 'Props'
       },
-      defaultValue: 'Text',
+      defaultValue: 'Label',
       description: 'Chips value'
     },
     size: {
