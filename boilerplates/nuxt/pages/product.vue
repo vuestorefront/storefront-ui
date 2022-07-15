@@ -2,8 +2,11 @@
   <div>
     <BreadcrumbsBase :breadcrumbs="breadcrumbs" class="px-4 my-4" />
     <div class="large:grid large:grid-cols-[minmax(615px,_1fr)_minmax(315px,_613px)]">
-      <GalleryBase :gallery-images="galleryImages" />
+      <GalleryBase :gallery-images="galleryImages" class="px-4" />
       <div class="p-4 bg-white border-gray-100 rounded-md justify-self-start medium:p-6 large:p-4 large:mx-4 extra-large:p-6 shadow-large large:sticky large:self-start large:top-0">
+        <TagIconLeft class="hidden mb-4 large:inline-flex">
+          -50%
+        </TagIconLeft>
         <h1 class="mb-1 text-lg font-bold leading-6 text-gray-900">
           Mini Foldable Drone with HD Camera FPV Wifi RC Quadcopter
         </h1>
@@ -18,6 +21,14 @@
           </li>
         </ul>
         <DividerBase class="my-4" />
+        <QuantitySelector
+          v-model="quantity"
+          class="w-full mb-8"
+          :quantity-in-stock="quantityInStock"
+          :min-quantity="minQuantity"
+          :disabled="false"
+          size="lg"
+        />
         <ButtonBase class="w-full">
           <svg
             class="mr-2"
@@ -38,8 +49,16 @@
           <ButtonBase
             type="tertiary"
             size="small"
+            class="mr-4"
           >
-            <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg
+              class="mr-2"
+              width="21"
+              height="20"
+              viewBox="0 0 21 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <path fill-rule="evenodd" clip-rule="evenodd" d="M17.1673 3.33366H12.834C12.5007 2.33366 11.584 1.66699 10.5007 1.66699C9.41732 1.66699 8.50065 2.33366 8.16732 3.33366H3.83398C3.33398 3.33366 3.00065 3.66699 3.00065 4.16699C3.00065 4.66699 3.33398 5.00033 3.83398 5.00033H8.16732C8.50065 6.00033 9.41732 6.66699 10.5007 6.66699C11.584 6.66699 12.5007 6.00033 12.834 5.00033H17.1673C17.6673 5.00033 18.0006 4.66699 18.0006 4.16699C18.0006 3.66699 17.6673 3.33366 17.1673 3.33366ZM10.5007 5.00033C10.0006 5.00033 9.66732 4.66699 9.66732 4.16699C9.66732 3.66699 10.0006 3.33366 10.5007 3.33366C11.0007 3.33366 11.334 3.66699 11.334 4.16699C11.334 4.66699 11.0007 5.00033 10.5007 5.00033Z" fill="#02BB4D" />
               <path fill-rule="evenodd" clip-rule="evenodd" d="M6.53517 6.5276C6.36306 6.10782 5.95434 5.83366 5.50065 5.83366C5.04696 5.83366 4.63825 6.10782 4.46614 6.5276L1.33398 14.167C1.33398 16.5003 3.16732 18.3337 5.50065 18.3337C7.83398 18.3337 9.66732 16.5003 9.66732 14.167L6.53517 6.5276ZM3.00065 14.167L5.50065 7.50033L8.00065 14.167H3.00065Z" fill="#02BB4D" />
               <path fill-rule="evenodd" clip-rule="evenodd" d="M14.3719 6.57211C14.5503 6.12611 14.9823 5.83366 15.4627 5.83366C15.9393 5.83366 16.3687 6.12171 16.5496 6.56275L19.6673 14.167C19.6673 16.5003 17.834 18.3337 15.5006 18.3337C13.1673 18.3337 11.334 16.5003 11.334 14.167L14.3719 6.57211ZM15.5006 7.50033L13.0007 14.167H18.0006L15.5006 7.50033Z" fill="#02BB4D" />
@@ -51,7 +70,14 @@
             type="tertiary"
             size="small"
           >
-            <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg
+              class="mr-2"
+              width="21"
+              height="20"
+              viewBox="0 0 21 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <path fill-rule="evenodd" clip-rule="evenodd" d="M16.8861 4.15855C14.6861 2.65855 11.9694 3.35855 10.5028 5.07522C9.03612 3.35855 6.31945 2.65022 4.11945 4.15855C2.95278 4.95855 2.21945 6.30855 2.16945 7.73355C2.05278 10.9669 4.91945 13.5586 9.29445 17.5336L9.37778 17.6086C10.0111 18.1836 10.9861 18.1836 11.6194 17.6002L11.7111 17.5169C16.0861 13.5502 18.9445 10.9586 18.8361 7.72522C18.7861 6.30855 18.0528 4.95855 16.8861 4.15855ZM10.5861 16.2919L10.5028 16.3752L10.4194 16.2919C6.45278 12.7002 3.83612 10.3252 3.83612 7.91689C3.83612 6.25022 5.08612 5.00022 6.75278 5.00022C8.03612 5.00022 9.28612 5.82522 9.72778 6.96689H11.2861C11.7194 5.82522 12.9694 5.00022 14.2528 5.00022C15.9194 5.00022 17.1694 6.25022 17.1694 7.91689C17.1694 10.3252 14.5528 12.7002 10.5861 16.2919Z" fill="#02BB4D" />
             </svg>
 
@@ -96,7 +122,7 @@
               <span>
                 Free 30-Day returns.
               </span>
-              <a class="underline" href="/">Details</a>
+              <a class="underline" aria-label="Check details for returns" href="/">Details</a>
             </div>
           </li>
         </ul>
@@ -111,6 +137,7 @@
         <SelectBase
           :options="selectOptions"
           label="Feature with long descriptions"
+          class="w-full large:w-96"
         />
         <DividerBase class="my-4" />
         <AccordionBase
@@ -156,6 +183,26 @@
           class="mb-2"
           @toggle="openedAccordions.acc2 = !openedAccordions.acc2"
         >
+          <table class="w-full mb-4 mt-2 rounded-md table-fixed border-hidden shadow-[0_0_0_1px_rgb(228,228,231,1)]">
+            <tbody>
+              <tr>
+                <td class="py-2 pl-4">
+                  Return within
+                </td>
+                <td class="py-2 pl-4">
+                  30 days after item is delivered
+                </td>
+              </tr>
+              <tr class="border border-t-gray-200">
+                <td class="py-2 pl-4">
+                  Returnable to store?
+                </td>
+                <td class="py-2 pl-4">
+                  Yes
+                </td>
+              </tr>
+            </tbody>
+          </table>
           <span class="block">
             Most items sold & shipped can be returned for free, either to a store or by mail. We handle the delivery, returns and customer service for these items. Items purchased in store or items picked up or delivered from a store can only be returned to a store.
           </span>
@@ -180,13 +227,21 @@
           class="my-4"
           @toggle="openedAccordions.acc3 = !openedAccordions.acc3"
         >
-          <span class="block">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-          </span>
+          <CustomerReview
+            v-for="({title, value, time, user, verified, text}, i) in customerReviews"
+            :key="`${title}-${i}`"
+            :title="title"
+            :value="value"
+            :time="time"
+            :user="user"
+            :verified="verified"
+            :text="text"
+            class="mt-2 mb-4"
+          />
           <ButtonBase
             type="tertiary"
             size="small"
-            class="mt-4"
+            class="mt-2"
           >
             <span class="mr-2">See all reviews</span>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -202,21 +257,7 @@
       <span class="block p-4 text-lg font-medium leading-7 font-body">
         Recommended with this product
       </span>
-      <div class="flex overflow-x-auto">
-        <ProductCard
-          v-for="({image, alt, max, value, reviews, label, price, oldPrice}, i) in productCards"
-          :key="i"
-          :image="require(`~/assets/images/${image}.png`)"
-          :alt="alt"
-          :label="label"
-          :max="max"
-          :value="value"
-          :reviews="reviews"
-          :price="price"
-          :old-price="oldPrice"
-          class="mx-1"
-        />
-      </div>
+      <RecommendedProducts :recommended-products="productCards" />
     </div>
   </div>
 </template>
@@ -229,8 +270,11 @@ import DividerBase from '../components/Divider/DividerBase.vue';
 import SelectBase from '../components/Select/SelectBase.vue';
 import AccordionBase from '../components/Accordion/AccordionBase.vue';
 import ButtonBase from '../components/Button/ButtonBase.vue';
-import ProductCard from '../components/ProductCard.vue';
 import GalleryBase from '../components/GalleryBase.vue';
+import QuantitySelector from '../components/QuantitySelector/QuantitySelector.vue';
+import RecommendedProducts from '../components/RecommendedProducts.vue';
+import CustomerReview from '../components/CustomerReview.vue';
+import TagIconLeft from '../components/Tag/TagIconLeft.vue';
 
 export default {
   name: 'ProductPage',
@@ -241,8 +285,11 @@ export default {
     SelectBase,
     AccordionBase,
     ButtonBase,
-    ProductCard,
-    GalleryBase
+    GalleryBase,
+    RecommendedProducts,
+    QuantitySelector,
+    CustomerReview,
+    TagIconLeft
   },
   setup() {
     const breadcrumbs = [
@@ -269,6 +316,9 @@ export default {
       acc2: true,
       acc3: true
     });
+    const quantity = ref(0);
+    const quantityInStock = ref(999);
+    const minQuantity = ref(0);
 
     const productCards = [
       {
@@ -281,7 +331,7 @@ export default {
       },
       {
         image: 'product2',
-        alt: 'product 1',
+        alt: 'product 2',
         reviews: 10,
         value: 5,
         label: 'The standard chunk of Lorem Ipsum',
@@ -290,7 +340,7 @@ export default {
       },
       {
         image: 'product3',
-        alt: 'product 1',
+        alt: 'product 3',
         reviews: 10,
         value: 3,
         label: 'The standard chunk of Lorem Ipsum',
@@ -298,7 +348,7 @@ export default {
       },
       {
         image: 'product4',
-        alt: 'product 1',
+        alt: 'product 4',
         reviews: 10,
         value: 5,
         label: 'The standard chunk of Lorem Ipsum',
@@ -306,7 +356,7 @@ export default {
       },
       {
         image: 'product5',
-        alt: 'product 1',
+        alt: 'product 5',
         reviews: 10,
         value: 5,
         label: 'The standard chunk of Lorem Ipsum',
@@ -315,7 +365,7 @@ export default {
       },
       {
         image: 'product1',
-        alt: 'product 1',
+        alt: 'product 6',
         reviews: 10,
         value: 3,
         label: 'The standard chunk of Lorem Ipsum',
@@ -323,7 +373,7 @@ export default {
       },
       {
         image: 'product2',
-        alt: 'product 1',
+        alt: 'product 7',
         reviews: 10,
         value: 5,
         label: 'The standard chunk of Lorem Ipsum',
@@ -332,7 +382,7 @@ export default {
       },
       {
         image: 'product3',
-        alt: 'product 1',
+        alt: 'product 8',
         reviews: 10,
         value: 3,
         label: 'The standard chunk of Lorem Ipsum',
@@ -340,7 +390,7 @@ export default {
       },
       {
         image: 'product4',
-        alt: 'product 1',
+        alt: 'product 9',
         reviews: 10,
         value: 5,
         label: 'The standard chunk of Lorem Ipsum',
@@ -348,7 +398,7 @@ export default {
       },
       {
         image: 'product5',
-        alt: 'product 1',
+        alt: 'product 10',
         reviews: 10,
         value: 5,
         label: 'The standard chunk of Lorem Ipsum',
@@ -358,10 +408,52 @@ export default {
     ];
 
     const galleryImages = [
-      { src: 'thumb1.png', alt: 'Picture of sth' },
-      { src: 'thumb2.png', alt: 'Picture of sth' },
-      { src: 'thumb3.png', alt: 'Picture of sth' },
-      { src: 'thumb4.png', alt: 'Picture of sth' }
+      { src: 'thumb1', alt: 'Picture of sth 1' },
+      { src: 'thumb2', alt: 'Picture of sth 2' },
+      { src: 'thumb3', alt: 'Picture of sth 3' },
+      { src: 'thumb4', alt: 'Picture of sth 4' }
+    ];
+
+    const customerReviews = [
+      {
+        title: 'A solid keyboard/trackpad combo, but expensive',
+        value: 5,
+        time: '16 hours ago',
+        user: 'username',
+        verified: true,
+        text: "I originally got my iPad with the Smart Keyboard Folio, which was fine, but never really that useful. This Magic Keyboard is much better in pretty much every way. It has *much* better key switches that actually feel nice to type on, it's backlit making it much nicer to use in the dark, and the trackpad is really decent for its limited size. My only complaints are that it's quite heavy, and the material shows grime really easily (similar to the other Smart Keyboard Folio). I really wish Apple would make a version of this keyboard with either a leather or fabric exterior. If you pay the full $300 MSRP for this keyboard, it may not be worth that price, but at a discount this is a very useful and well-made accessory that has genuinely improve. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+      },
+      {
+        title: 'Who knew a trackpad would be so...',
+        value: 5,
+        time: '16 days ago',
+        user: 'username',
+        verified: true,
+        text: 'I never knew a trackpad on an iPad would be so useful. The typing experience and the backlit keys are an improvement from the older gen keyboard. The trackpad is smooth and it contains a lot of gestures that are used on the MacBooks. Overall this purchase was amazing and hopefully a newer version is released that allows for an easier writing experience for use with the Apple Pencil'
+      },
+      {
+        title: 'Not worth the money',
+        value: 5,
+        time: '16 days ago',
+        user: 'username',
+        verified: true,
+        text: "I have not even used it as it is too cumbersome. It seems to have been a waste of money for me since I am retired and can't go anywhere but home to use it. I don't need the keyboard at home as I have my Big Mac with the keyboard."
+      },
+      {
+        value: 5,
+        time: '16 days ago',
+        user: 'username',
+        verified: true,
+        text: 'PERFECT!'
+      },
+      {
+        title: 'Magic keyboard , Excellent',
+        value: 5,
+        time: '16 days ago',
+        user: 'username',
+        verified: true,
+        text: 'Excellent'
+      }
     ];
 
     return {
@@ -370,7 +462,11 @@ export default {
       selectOptions,
       openedAccordions,
       productCards,
-      galleryImages
+      galleryImages,
+      quantity,
+      quantityInStock,
+      minQuantity,
+      customerReviews
     };
   }
 };

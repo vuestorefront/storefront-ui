@@ -1,9 +1,9 @@
 <template>
   <div class="flex overflow-x-auto">
-    <!-- <ProductCard
+    <ProductCard
       v-for="({image, alt, max, value, reviews, label, price, oldPrice}, i) in recommendedProducts"
-      :key="i"
-      :image="require(`~/assets/images/${image}.png`)"
+      :key="`${label}-${i}`"
+      :image="require(`~/assets/images/${image}.webp`)"
       :alt="alt"
       :label="label"
       :max="max"
@@ -12,14 +12,18 @@
       :price="price"
       :old-price="oldPrice"
       class="mx-1"
-    /> -->
+    />
   </div>
 </template>
 
 <script>
+import ProductCard from './ProductCard.vue';
 
 export default {
   name: 'RecommendedProducts',
+  components: {
+    ProductCard
+  },
   props: {
     recommendedProducts: {
       type: Array,

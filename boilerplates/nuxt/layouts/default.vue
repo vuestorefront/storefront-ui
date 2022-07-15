@@ -22,8 +22,8 @@ export default {
   setup() {
     const footerCategories = [
       {
-        title: 'How to buy',
-        subtitles: [
+        category: 'How to buy',
+        subcategories: [
           'Payment methods',
           'Order pickup',
           'Purchase status',
@@ -32,8 +32,8 @@ export default {
         ]
       },
       {
-        title: 'Help',
-        subtitles: [
+        category: 'Help',
+        subcategories: [
           'Help centers',
           'Security & fraud',
           'Feedback',
@@ -41,8 +41,8 @@ export default {
         ]
       },
       {
-        title: 'Services',
-        subtitles: [
+        category: 'Services',
+        subcategories: [
           'Gift cards',
           'Order pickup',
           'Purchase status',
@@ -51,8 +51,8 @@ export default {
         ]
       },
       {
-        title: 'About',
-        subtitles: [
+        category: 'About',
+        subcategories: [
           'About us',
           'Order pickup',
           'Purchase status',
