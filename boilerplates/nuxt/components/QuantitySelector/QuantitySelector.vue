@@ -160,3 +160,17 @@ export default {
   }
 };
 </script>
+<style scoped>
+.quantity-selector-base {
+  @apply w-40 h-10;
+}
+.quantity-selector-base button {
+  @apply w-10 h-10;
+}
+.quantity-selector-large {
+  @apply w-40 h-12;
+  }
+.quantity-selector-large button {
+  @apply w-12 h-12;
+}
+</style>

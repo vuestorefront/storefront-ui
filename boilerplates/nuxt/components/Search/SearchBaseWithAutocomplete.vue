@@ -5,8 +5,8 @@
     >
       <div class="relative">
         <input
-          v-focus
           v-model="inputValue"
+          v-focus
           type="search"
           :disabled="disabled"
           class="w-full h-10 pl-4 text-gray-900 border border-gray-200 disabled:bg-gray-100 disabled:pointer-events-none disabled:opacity-50 peer rounded-l-md hover:border-primary-500 active:border-2 active:border-r-0 remove-default-styling outline-violet"
@@ -159,3 +159,11 @@ export default {
   }
 };
 </script>
+<style scoped>
+.onFocus:focus-within div:nth-child(2) {
+  display: flex ;
+}
+.onFocus:focus-within input {
+  @apply border-2 border-primary-500;
+}
+</style>

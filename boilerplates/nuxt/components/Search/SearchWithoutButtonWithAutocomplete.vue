@@ -161,3 +161,11 @@ export default {
   }
 };
 </script>
+<style scoped>
+.onFocus:focus-within div:nth-child(2) {
+  display: flex ;
+}
+.onFocus:focus-within input {
+  @apply border-2 border-primary-500;
+}
+</style>

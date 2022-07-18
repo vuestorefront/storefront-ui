@@ -57,3 +57,20 @@ export default {
   }
 };
 </script>
+<style scoped>
+.star-input {
+  background-color: #71717A;
+  -webkit-mask:  url("../../assets/star-outline.svg");
+  mask: url("../../assets/star-outline.svg");
+  opacity: 0.5;
+}
+.star-input:hover,
+.star-input:checked,
+.rating:hover .star-input:not(.rating .star-input:hover ~ .star-input),
+.rating .star-input:not(.rating .star-input:checked ~ .star-input) {
+  background-color: #02BB4D;
+  -webkit-mask:  url("../../assets/star.svg");
+  mask: url("../../assets/star.svg");
+  opacity: 1;
+}
+</style>
