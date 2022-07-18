@@ -9,7 +9,10 @@
       @click="$emit('toggle')"
     >
       {{ buttonText }}
-      <slot name="header" v-bind="{ expanded }">
+      <slot
+        name="header"
+        v-bind="{ expanded }"
+      >
         <svg
           class="w-6 h-6 transition-transform fill-gray-500 group-hover:fill-primary-600 group-active:fill-primary-700"
           viewBox="0 0 24 24"
@@ -21,14 +24,18 @@
         </svg>
       </slot>
     </ButtonBase>
-    <div :id="'content-' + uid" class="px-4 py-2 text-gray-500" :class="{ 'hidden': !expanded }">
+    <div
+      :id="'content-' + uid"
+      class="px-4 py-2 text-gray-500"
+      :class="{ 'hidden': !expanded }"
+    >
       <slot v-bind="{ expanded }" />
     </div>
   </div>
 </template>
 
 <script>
-import { getCurrentInstance } from '@nuxtjs/composition-api';
+import { getCurrentInstance, ref, onMounted } from '@nuxtjs/composition-api';
 import ButtonBase from '../Button/ButtonBase.vue';
 
 export default {
@@ -47,7 +54,12 @@ export default {
     }
   },
   setup() {
-    const uid = getCurrentInstance().uid;
+    const uid = ref(null);
+
+    onMounted(() => {
+      uid.value = getCurrentInstance().uid;
+    });
+
     return {
       uid
     };
