@@ -1,7 +1,7 @@
 <template>
   <div
     class="rounded-full group pl-0.5 pr-1 py-0.5 text-gray-900 bg-white border-2 border-primary-500 font-body font-normal inline-flex items-center align-center w-max cursor-pointer transition duration-300 ease outline-violet"
-    :class="{'bg-gray-100 border-gray-200 opacity-50 cursor-not-allowed' : disabled}"
+    :class="{'pr-3 bg-gray-100 border-gray-200 opacity-50 cursor-not-allowed' : disabled}"
   >
     <div class="mr-1" :class="chipsIconSize">
       <slot name="icon" />
