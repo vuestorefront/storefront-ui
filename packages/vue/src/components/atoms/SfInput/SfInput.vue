@@ -59,7 +59,7 @@
           :class="{ 'display-none': !isPassword }"
           class="sf-input__password-button"
           type="button"
-          aria-label="switch-visibility-password"
+          :aria-label="'switch-visibility-password'"
           :aria-pressed="isPasswordVisible.toString()"
           @click="switchVisibilityPassword"
         >
