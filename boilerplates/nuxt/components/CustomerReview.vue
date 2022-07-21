@@ -18,16 +18,14 @@
       </TagIconLeft>
     </div>
     <span
-      ref="content"
       class="block my-2 text-sm font-normal leading-5 text-gray-900 font-body"
-      :class="{'extra-small:max-h-[300px] max-h-[140px] overflow-hidden': !reviewExpanded}"
     >
-      {{ text }}
+      {{ textTooLong ? text : shortenText }}
     </span>
     <button
-      class="hidden mb-2 text-sm font-normal leading-5 text-gray-900 underline font-body"
-      :class="{'block': contentHeight >= 299, 'small:block': contentHeight >= 139}"
-      @click="reviewExpanded = true"
+      v-if="readMoreVisible"
+      class="mb-2 text-sm font-normal leading-5 text-gray-900 underline font-body"
+      @click="textTooLong = true; readMoreVisible = false"
     >
       Read more
     </button>
@@ -68,8 +66,7 @@
 </template>
 
 <script>
-import { ref } from '@nuxtjs/composition-api';
-import { useElementSize } from '@vueuse/core';
+import { ref, computed } from '@nuxtjs/composition-api';
 import RatingBase from '../components/Rating/RatingBase.vue';
 import TagIconLeft from '../components/Tag/TagIconLeft.vue';
 
@@ -122,18 +119,25 @@ export default {
     }
   },
   setup(props) {
-    const content = ref(null);
-    const { height: contentHeight } = useElementSize(content);
-    const reviewExpanded = ref(false);
+    const textTooLong = ref(false);
+    const readMoreVisible = ref(false);
     const likesCounter = ref(props.likes);
     const dislikesCounter = ref(props.dislikes);
+    const shortenText = computed(() => {
+      if (props.text.length <= 740) {
+        return props.text;
+      } else {
+        readMoreVisible.value = true;
+        return props.text.substring(0, 740) + '...';
+      }
+    });
 
     return {
-      content,
-      contentHeight,
-      reviewExpanded,
+      textTooLong,
       likesCounter,
-      dislikesCounter
+      dislikesCounter,
+      shortenText,
+      readMoreVisible
     };
   }
 };

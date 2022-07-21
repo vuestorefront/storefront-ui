@@ -5,14 +5,19 @@
       <GalleryBase :gallery-images="galleryImages" class="px-4" />
       <div class="p-4 bg-white border-gray-100 rounded-md justify-self-start medium:p-6 large:p-4 large:mx-4 extra-large:p-6 shadow-large large:sticky large:self-start large:top-0">
         <TagIconLeft class="hidden mb-4 large:inline-flex">
-          -50%
+          {{ productSale }}
         </TagIconLeft>
         <h1 class="mb-1 text-lg font-bold leading-6 text-gray-900">
-          Mini Foldable Drone with HD Camera FPV Wifi RC Quadcopter
+          {{ productName }}
         </h1>
-        <span class="mr-2 text-3xl font-bold font-body text-secondary-700">$2,345.99</span>
-        <span class="text-base font-normal text-gray-500 line-through font-body">$3,132.99</span>
-        <RatingBase class="mt-1" :value="4.5" :max="5" :reviews="10" />
+        <span class="mr-2 text-3xl font-bold font-body text-secondary-700">{{ price.new }}</span>
+        <span class="text-base font-normal text-gray-500 line-through font-body">{{ price.old }}</span>
+        <div class="flex items-center mt-1">
+          <RatingBase :value="productRating.score" :max="5" :reviews="productRating.reviews" />
+          <a href="#customer-reviews" class="block ml-2 text-xs font-normal leading-4 text-gray-500 underline font-body">
+            {{ productRating.reviews }} reviews
+          </a>
+        </div>
         <ul class="my-4">
           <li v-for="(option, key) in productOptions" :key="`${option}-${key}`">
             <span class="text-sm leading-5 text-gray-900 font-body">
@@ -21,31 +26,13 @@
           </li>
         </ul>
         <DividerBase class="my-4" />
-        <QuantitySelector
-          v-model="quantity"
-          class="w-full mb-8"
+        <AddToCart
+          :product-quantity="quantity"
           :quantity-in-stock="quantityInStock"
           :min-quantity="minQuantity"
-          :disabled="false"
-          size="lg"
+          :disabled="quantityInStock === 0"
         />
-        <ButtonBase class="w-full">
-          <svg
-            class="mr-2"
-            width="25"
-            height="24"
-            viewBox="0 0 25 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path d="M18.2002 22C17.0956 22 16.2002 21.1046 16.2002 20C16.2002 18.8954 17.0956 18 18.2002 18C19.3048 18 20.2002 18.8954 20.2002 20C20.2002 21.1046 19.3048 22 18.2002 22Z" fill="white" />
-            <path d="M10.2002 22C9.09563 22 8.2002 21.1046 8.2002 20C8.2002 18.8954 9.09563 18 10.2002 18C11.3048 18 12.2002 18.8954 12.2002 20C12.2002 21.1046 11.3048 22 10.2002 22Z" fill="white" />
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 3C1.5 2.44772 1.94772 2 2.5 2H4.80673C5.97087 2 6.98094 2.80352 7.24271 3.93785L7.48782 5H20.0788C21.7053 5 22.8987 6.52847 22.5042 8.10634L20.7542 15.1063C20.476 16.2193 19.476 17 18.3288 17H10.1933C9.02913 17 8.01906 16.1965 7.75729 15.0621L5.29393 4.38757C5.24157 4.1607 5.03956 4 4.80673 4H2.5C1.94772 4 1.5 3.55228 1.5 3ZM7.94936 7L9.70607 14.6124C9.75843 14.8393 9.96044 15 10.1933 15H18.3288C18.5583 15 18.7583 14.8439 18.8139 14.6213L20.5639 7.62127C20.6428 7.30569 20.4041 7 20.0788 7H7.94936Z" fill="white" />
-          </svg>
-
-          Add to cart
-        </ButtonBase>
-        <div class="flex justify-center mt-4">
+        <div class="flex justify-center mt-4 2-extra-large:mt-9">
           <ButtonBase
             type="tertiary"
             size="small"
@@ -127,18 +114,20 @@
           </li>
         </ul>
       </div>
-      <div class="px-4">
+      <div id="shopping-options" class="px-4">
         <DividerBase class="my-4" />
         <div class="flex justify-between">
-          <span class="block text-base font-medium leading-6 text-gray-900 font-body">Size</span>
+          <span class="block mb-2 text-base font-medium leading-6 text-gray-900 font-body">Size</span>
           <a class="text-sm font-normal leading-5 text-gray-500 underline font-body" href="/">Size chart</a>
         </div>
-        <span class="block text-base font-medium leading-6 text-gray-900 font-body">Color</span>
+        <ChipsBase v-for="(size, i) in sizes" :key="`${size}-${i}`" :value="size" class="mr-2" />
         <SelectBase
           :options="selectOptions"
           label="Feature with long descriptions"
-          class="w-full large:w-96"
+          class="w-full my-4 large:w-96"
         />
+        <span class="block mb-2 text-base font-medium leading-6 text-gray-900 font-body">Color</span>
+        <ChipsBase v-for="(color, i) in colors" :key="`${color}-${i}`" :value="color" class="mr-2" />
         <DividerBase class="my-4" />
         <AccordionBase
           :expanded="openedAccordions.acc1"
@@ -222,6 +211,7 @@
         </AccordionBase>
         <DividerBase class="my-4" />
         <AccordionBase
+          id="customer-reviews"
           :expanded="openedAccordions.acc3"
           button-text="Customer reviews"
           class="my-4"
@@ -259,6 +249,22 @@
       </span>
       <RecommendedProducts :recommended-products="productCards" />
     </div>
+    <a
+      href="#shopping-options"
+      class="medium:hidden mb-20 inline-flex items-center justify-center rounded-md cursor-pointer font-body disabled:cursor-not-allowed fixed bottom-0 left-[50%] translate-x-[-50%] py-3 pl-2 pr-4 font-medium text-white uppercase bg-primary-500 hover:bg-primary-600 active:bg-primary-700 disabled:bg-gray-200 disabled:text-gray-500 disabled:opacity-50 shadow-base hover:shadow-medium disabled:shadow-none"
+    >
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.7002 22C16.5956 22 15.7002 21.1046 15.7002 20C15.7002 18.8954 16.5956 18 17.7002 18C18.8048 18 19.7002 18.8954 19.7002 20C19.7002 21.1046 18.8048 22 17.7002 22Z" fill="white" />
+        <path d="M9.7002 22C8.59563 22 7.7002 21.1046 7.7002 20C7.7002 18.8954 8.59563 18 9.7002 18C10.8048 18 11.7002 18.8954 11.7002 20C11.7002 21.1046 10.8048 22 9.7002 22Z" fill="white" />
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M1 3C1 2.44772 1.44772 2 2 2H4.30673C5.47087 2 6.48094 2.80352 6.74271 3.93785L6.98782 5H19.5788C21.2053 5 22.3987 6.52847 22.0042 8.10634L20.2542 15.1063C19.976 16.2193 18.976 17 17.8288 17H9.69327C8.52913 17 7.51906 16.1965 7.25729 15.0621L4.79393 4.38757C4.74157 4.1607 4.53956 4 4.30673 4H2C1.44772 4 1 3.55228 1 3ZM7.44936 7L9.20607 14.6124C9.25843 14.8393 9.46044 15 9.69327 15H17.8288C18.0583 15 18.2583 14.8439 18.3139 14.6213L20.0639 7.62127C20.1428 7.30569 19.9041 7 19.5788 7H7.44936Z" fill="white" />
+      </svg>
+      <span class="mx-2 text-base font-medium leading-6 text-white font-body">
+        {{ price.new }}
+      </span>
+      <span class="text-xs font-normal leading-4 text-white line-through font-body">
+        {{ price.old }}
+      </span>
+    </a>
   </div>
 </template>
 
@@ -271,10 +277,11 @@ import SelectBase from '../components/Select/SelectBase.vue';
 import AccordionBase from '../components/Accordion/AccordionBase.vue';
 import ButtonBase from '../components/Button/ButtonBase.vue';
 import GalleryBase from '../components/GalleryBase.vue';
-import QuantitySelector from '../components/QuantitySelector/QuantitySelector.vue';
 import RecommendedProducts from '../components/RecommendedProducts.vue';
 import CustomerReview from '../components/CustomerReview.vue';
 import TagIconLeft from '../components/Tag/TagIconLeft.vue';
+import ChipsBase from '../components/Chips/ChipsBase.vue';
+import AddToCart from '../components/AddToCart.vue';
 
 export default {
   name: 'ProductPage',
@@ -287,11 +294,19 @@ export default {
     ButtonBase,
     GalleryBase,
     RecommendedProducts,
-    QuantitySelector,
+    AddToCart,
+    // QuantitySelector,
     CustomerReview,
-    TagIconLeft
+    TagIconLeft,
+    ChipsBase
   },
   setup() {
+    const productName = 'Mini Foldable Drone with HD Camera FPV Wifi RC Quadcopter';
+    const productSale = '-50%';
+    const productRating = {
+      score: 4.5,
+      reviews: 123
+    };
     const breadcrumbs = [
       { name: 'Home', link: '/' },
       { name: 'Electronics', link: '/' },
@@ -316,9 +331,30 @@ export default {
       acc2: true,
       acc3: true
     });
+    const price = {
+      new: '$2,345.99',
+      old: '$3,132.99'
+    };
     const quantity = ref(0);
     const quantityInStock = ref(999);
     const minQuantity = ref(0);
+    const colors = [
+      'Navy',
+      'Dark Blue',
+      'Classic',
+      'Light Blue',
+      'Washed'
+    ];
+    const sizes = [
+      'xs',
+      's',
+      'm',
+      'l',
+      'xl',
+      '2xl',
+      '3xl',
+      '4xl'
+    ];
 
     const productCards = [
       {
@@ -457,6 +493,8 @@ export default {
     ];
 
     return {
+      productName,
+      productSale,
       breadcrumbs,
       productOptions,
       selectOptions,
@@ -466,7 +504,11 @@ export default {
       quantity,
       quantityInStock,
       minQuantity,
-      customerReviews
+      customerReviews,
+      colors,
+      sizes,
+      price,
+      productRating
     };
   }
 };
