@@ -30,7 +30,11 @@
       Read more
     </button>
     <div class="flex">
-      <button class="inline-flex items-center mr-4 text-sm font-normal leading-5 text-gray-500" @click="likesCounter++">
+      <button
+        class="inline-flex items-center mr-4 text-sm font-normal leading-5 text-gray-500"
+        :aria-label="`Current likes - ${likesCounter} for ${title}. Click to increment`"
+        @click="likesCounter++"
+      >
         <svg
           width="32"
           height="32"
@@ -44,7 +48,11 @@
 
         ({{ likesCounter }})
       </button>
-      <button class="inline-flex items-center text-sm font-normal leading-5 text-gray-500" @click="dislikesCounter++">
+      <button
+        class="inline-flex items-center text-sm font-normal leading-5 text-gray-500"
+        :aria-label="`Current dislikes - ${dislikesCounter} for ${title}. Click to decrement`"
+        @click="dislikesCounter++"
+      >
         <svg
           width="32"
           height="32"
