@@ -60,18 +60,15 @@ const Template = (args, { argTypes }) => ({
   components: { ButtonBase },
   props: Object.keys(argTypes),
   template: `
-  <div>
-    <ButtonBase size="small" :type="type" :disabled="disabled">Hello</ButtonBase>
     <ButtonBase :size="size" :type="type" :disabled="disabled">Hello</ButtonBase>
-    <ButtonBase size="large" :type="type" :disabled="disabled">Hello</ButtonBase>
-  </div>
   `
 });
 
 export const Base = Template.bind({});
 
 Base.args = {
-  size: 'medium'
+  size: 'medium',
+  type: 'primary'
 };
 
 const IconButton = (args, { argTypes }) => ({
@@ -83,43 +80,44 @@ const IconButton = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
   <div class="flex gap-x-3">
-    <ButtonIconLeft :type="type" :disabled="disabled"> 
-      <svg v-if="!type.includes('destroy')" class="w-4" :class="type === 'primary' ? 'fill-white' : 'fill-primary-500'" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <ButtonIconLeft :type="type" :size="size" :disabled="disabled"> 
+      <svg v-if="!type.includes('destroy')" class="w-4" :class="disabled ? 'fill-gray-500' : type === 'primary' ? 'fill-white' : 'fill-primary-500'" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"/>
       </svg> 
-      <svg v-else class="w-4" :class="type === 'destroy-primary' ? 'fill-white' : 'fill-red-500'" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg v-else class="w-4" :class="disabled ? 'fill-gray-500' : type === 'destroy-primary' ? 'fill-white' : 'fill-red-500'" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"/>
       </svg> 
       <span class="ml-[10px]">Hello</span>
     </ButtonIconLeft>
-    <ButtonIcons :type="type" :disabled="disabled">  
-      <svg v-if="!type.includes('destroy')" class="w-4" :class="type === 'primary' ? 'fill-white' : 'fill-primary-500'" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <ButtonIcons :type="type" :size="size" :disabled="disabled">  
+      <svg v-if="!type.includes('destroy')" class="w-4" :class="disabled ? 'fill-gray-500' : type === 'primary' ? 'fill-white' : 'fill-primary-500'" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"/>
       </svg> 
-      <svg v-else class="w-4" :class="type === 'destroy-primary' ? 'fill-white' : 'fill-red-500'" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg v-else class="w-4" :class="disabled ? 'fill-gray-500' : type === 'destroy-primary' ? 'fill-white' : 'fill-red-500'" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"/>
       </svg> 
       <span class="mx-[10px]">Hello</span>
-      <svg v-if="!type.includes('destroy')" class="w-4" :class="type === 'primary' ? 'fill-white' : 'fill-primary-500'" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg v-if="!type.includes('destroy')" class="w-4" :class="disabled ? 'fill-gray-500' : type === 'primary' ? 'fill-white' : 'fill-primary-500'" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"/>
       </svg> 
-      <svg v-else class="w-4" :class="type === 'destroy-primary' ? 'fill-white' : 'fill-red-500'" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg v-else class="w-4" :class="disabled ? 'fill-gray-500' : type === 'destroy-primary' ? 'fill-white' : 'fill-red-500'" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"/>
       </svg> 
     </ButtonIcons>
-    <ButtonIconRight :type="type" :disabled="disabled">
+    <ButtonIconRight :type="type" :size="size" :disabled="disabled">
       <span class="mr-[10px]">Hello</span>
-      <svg v-if="!type.includes('destroy')" class="w-4" :class="type === 'primary' ? 'fill-white' : 'fill-primary-500'" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg v-if="!type.includes('destroy')" class="w-4" :class="disabled ? 'fill-gray-500' : type === 'primary' ? 'fill-white' : 'fill-primary-500'" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"/>
       </svg> 
-      <svg v-else class="w-4" :class="type === 'destroy-primary' ? 'fill-white' : 'fill-red-500'" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg v-else class="w-4" :class="disabled ? 'fill-gray-500' : type === 'destroy-primary' ? 'fill-white' : 'fill-red-500'" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"/>
       </svg> 
     </ButtonIconRight>
   </div>`
 });
-export const PrimaryWithIcons = IconButton.bind({});
+export const WithIcons = IconButton.bind({});
 
-PrimaryWithIcons.args = {
-  type: 'primary'
+WithIcons.args = {
+  type: 'primary',
+  size: 'medium'
 };

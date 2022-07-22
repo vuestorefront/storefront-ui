@@ -104,12 +104,16 @@ module.exports = {
       },
       screens: {
       // => @media (min-width: 1536px, max-width: 1608px) { ... }
-        '2-extra-large': { min: '1536px', max: '1920px' },
-        'extra-large': { min: '1280px', max: '1366px' },
+        '4-extra-large': '1920px',
+        '3-extra-large': '1536px',
+        '2-extra-large': '1366px',
+        'extra-large': '1280px',
         'large': '1024px',
         'medium': '768px',
         'small': '640px',
-        'extra-small': { min: '360px', max: '376px' }
+        'extra-small': '376px',
+        '2-extra-small': '360px'
+
       },
       keyframes: {
         'spin-base': {
