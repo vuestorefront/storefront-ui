@@ -1,5 +1,4 @@
 import CheckboxBase from '../../components/Checkbox/CheckboxBase.vue';
-import CheckboxRight from '../../components/Checkbox/CheckboxRight.vue';
 
 export default {
   title: 'SFUI Components/Checkbox',
@@ -74,6 +73,14 @@ export default {
       },
       defaultValue: '',
       description: 'Text that displays below invalid checkbox'
+    },
+    rightCheckbox: {
+      control: 'boolean',
+      defaultValue: false,
+      table: {
+        category: 'Props'
+      },
+      description: 'If true description is on the left and checkbox is on the right.'
     }
   }
 };
@@ -82,7 +89,17 @@ const Template = (args, { argTypes }) => ({
   components: { CheckboxBase },
   props: Object.keys(argTypes),
   template: `
-    <CheckboxBase name="checkbox" :label="label" :help-text="helpText" :error-text="errorText" :disabled="disabled" :required="required" :indeterminate="indeterminate" :invalid="invalid" />`
+    <CheckboxBase 
+      name="checkbox" 
+      :label="label" 
+      :help-text="helpText" 
+      :error-text="errorText" 
+      :disabled="disabled" 
+      :required="required" 
+      :indeterminate="indeterminate" 
+      :invalid="invalid" 
+      :rightCheckbox="rightCheckbox"
+    />`
 });
 
 export const Base = Template.bind({});
@@ -92,16 +109,4 @@ Base.args = {
   label: 'Label',
   helpText: 'Help text',
   errorText: 'error text'
-};
-
-const CheckboxOnRight = (args, { argTypes }) => ({
-  components: { CheckboxRight },
-  props: Object.keys(argTypes),
-  template: `
-    <CheckboxRight name="checkbox" :label="label" :help-text="helpText" :error-text="errorText" :disabled="disabled" :required="required" :indeterminate="indeterminate" :invalid="invalid" />`
-});
-export const Right = CheckboxOnRight.bind({});
-
-Right.args = {
-  ...Base.args
 };

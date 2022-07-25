@@ -10,13 +10,29 @@ export default {
           'The rating button component. [link to component docs on the page]'
       }
     }
+  },
+  argTypes: {
+    max: {
+      control: 'number',
+      table: {
+        category: 'Props',
+        defaultValue: {
+          summary: '5'
+        }
+      },
+      defaultValue: 5,
+      description: 'Amount of rating stars.'
+    }
   }
 };
 
-const Template = () => ({
+const Template = (args, { argTypes }) => ({
   components: { RatingButton },
+  props: Object.keys(argTypes),
   template: `
-      <RatingButton />
+      <RatingButton 
+        :max="max"
+      />
     `
 });
 

@@ -46,6 +46,18 @@ export default {
       },
       defaultValue: 0,
       description: 'Reviews counter.'
+    },
+    size: {
+      control: 'select',
+      options: ['xs', 'sm', 'base', 'lg', 'xl', '2xl'],
+      defaultValue: 'base',
+      table: {
+        category: 'Props',
+        defaultValue: {
+          summary: 'base'
+        }
+      },
+      description: 'Change size of the component'
     }
   }
 };
@@ -58,6 +70,7 @@ const Template = (args, { argTypes }) => ({
       :value="value"
       :max="max"
       :reviews="reviews"
+      :size="size"
     />
     `
 });
@@ -71,6 +84,7 @@ const WithValue = (args, { argTypes }) => ({
     <RatingWithValue 
       :value="value"
       :reviews="reviews"
+      :size="size"
     />
     `
 });

@@ -34,7 +34,6 @@
         class="rounded-l-none !shadow-none hover:!shadow-none w-25"
         :disabled="disabled"
         :class="{ '!bg-gray-200': disabled }"
-        type="submit"
         @click="$emit('click', inputValue)"
       >
         Search

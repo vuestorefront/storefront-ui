@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative w-10 h-1 overflow-hidden"
+    class="relative h-1 overflow-hidden"
   >
     <div
       class="sr-only"
@@ -9,7 +9,7 @@
       loading...
     </div>
     <div
-      class="absolute w-10 h-1 bg-gray-200"
+      class="absolute w-full h-1 bg-gray-200"
       aria-hidden="true"
     />
     <div

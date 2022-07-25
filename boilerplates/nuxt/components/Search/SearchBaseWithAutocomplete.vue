@@ -34,7 +34,6 @@
           class="rounded-l-none !shadow-none hover:!shadow-none w-25"
           :disabled="disabled"
           :class="{ '!bg-gray-200': disabled }"
-          type="submit"
           @click="$emit('click', inputValue)"
         >
           Search
@@ -44,9 +43,10 @@
     <SheetBase
       class="relative hidden mt-1 min-h-[100px]"
     >
-      <SpinnerLg
+      <SpinnerBase
         v-if="loadingSpinnerVisible"
         class="m-auto"
+        size="lg"
       />
       <ul
         v-else
@@ -96,7 +96,7 @@
 import { ref, computed } from '@nuxtjs/composition-api';
 import ButtonBase from '../Button/ButtonBase.vue';
 import SheetBase from '../Sheet/SheetBase.vue';
-import SpinnerLg from '../Spinner/SpinnerLg.vue';
+import SpinnerBase from '../Spinner/SpinnerBase.vue';
 import { focus } from '../../utils/focus-directive.js';
 
 export default {
@@ -107,7 +107,7 @@ export default {
   components: {
     ButtonBase,
     SheetBase,
-    SpinnerLg
+    SpinnerBase
   },
   props: {
     value: {

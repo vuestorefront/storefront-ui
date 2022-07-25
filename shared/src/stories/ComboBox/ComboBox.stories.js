@@ -134,7 +134,7 @@ const Template = (args, { argTypes }) => ({
   data() {
     return {
       delayedColors: [],
-      inputValue: ''
+      inputValue: this.value
     };
   },
   template: `

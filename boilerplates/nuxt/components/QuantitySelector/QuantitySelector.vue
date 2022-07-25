@@ -50,7 +50,7 @@
         </svg>
       </ButtonBase>
     </div>
-    <div v-if="!disabled" class="text-xs font-normal font-body">
+    <div v-if="!disabled" class="mt-1 text-xs font-normal text-center font-body">
       <span class="font-medium">
         {{ qtyInStock }}
       </span>

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative flex h-10 w-80"
+    class="relative flex h-10"
     role="search"
   >
     <input
@@ -8,8 +8,9 @@
       v-focus
       :disabled="disabled"
       type="search"
-      class="h-10 pl-12 text-gray-900 border border-gray-200 rounded-md disabled:bg-gray-100 disabled:pointer-events-none disabled:opacity-50 active:-mx-px w-80 peer hover:border-primary-500 active:border-2 focus:border-primary-500 focus:border-2 remove-default-styling outline-violet"
-      placeholder="search text"
+      class="w-full h-10 pl-12 text-gray-900 border border-gray-200 rounded-md disabled:bg-gray-100 disabled:pointer-events-none disabled:opacity-50 peer hover:border-primary-500 active:border-2 focus:border-primary-500 focus:border-2 remove-default-styling outline-violet"
+      :placeholder="placeholder"
+      aria-label="search"
     >
     <span
       class="absolute hidden fill-gray-500 top-2 right-2"
@@ -63,6 +64,10 @@ export default {
     disabled: {
       type: Boolean,
       default: false
+    },
+    placeholder: {
+      type: String,
+      default: ''
     }
   },
   setup(props) {

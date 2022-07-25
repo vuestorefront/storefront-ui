@@ -56,6 +56,9 @@ export default {
     options: {
       control: 'object',
       defaultValue: [],
+      table: {
+        category: 'Props'
+      },
       description: 'Array of strings'
     },
     label: {

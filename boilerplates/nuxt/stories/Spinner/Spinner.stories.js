@@ -33,12 +33,7 @@ const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
   <div>
-    <SpinnerBase size="sm" class="mb-2" />
     <SpinnerBase :size="size" class="mb-2" /> 
-    <SpinnerBase size="lg" class="mb-2" />
-    <SpinnerBase size="xl" class="mb-2" />
-    <SpinnerBase size="2xl" class="mb-4" />
-    <SpinnerBase size="3xl" />
   </div>`
 });
 
@@ -51,7 +46,7 @@ Base.args = {
 const Linear = (args, { argTypes }) => ({
   components: { SpinnerLinear },
   props: Object.keys(argTypes),
-  template: '<SpinnerLinear />'
+  template: '<SpinnerLinear class="w-10" />'
 });
 
 export const LinearSpinner = Linear.bind({});

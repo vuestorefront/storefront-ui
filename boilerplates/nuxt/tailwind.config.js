@@ -21,7 +21,8 @@ module.exports = {
         'star-filled': "url('../../assets/star.svg')",
         'star-outline': "url('../../assets/star-outline.svg')",
         'checked-checkbox': 'linear-gradient(-45deg,transparent 65%, #02BB4D 65.99%),linear-gradient(45deg,transparent 75%, #02BB4D 75.99%),linear-gradient(-45deg, #02BB4D 40%,transparent 40.99%),linear-gradient(45deg, #02BB4D 30%, white 30.99%, white 40%,transparent 40.99%),linear-gradient(-45deg, white 50%, #02BB4D 50.99%)',
-        'indeterminate-checkbox': 'linear-gradient(90deg,transparent 80%, #02BB4D 80%),linear-gradient(-90deg,transparent 80%, #02BB4D 80%),linear-gradient(0deg, #02BB4D 43%, white 43%, white 57%, #02BB4D 57%)'
+        'indeterminate-checkbox': 'linear-gradient(90deg,transparent 80%, #02BB4D 80%),linear-gradient(-90deg,transparent 80%, #02BB4D 80%),linear-gradient(0deg, #02BB4D 43%, white 43%, white 57%, #02BB4D 57%)',
+        'indeterminate-disabled-checkbox': 'linear-gradient(90deg,transparent 80%, #b8b8bc 80%),linear-gradient(-90deg,transparent 80%, #b8b8bc 80%),linear-gradient(0deg, #b8b8bc 43%, white 43%, white 57%, #b8b8bc 57%)'
       },
       colors: {
         'brand': '#02C652',

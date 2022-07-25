@@ -18,7 +18,7 @@ export default {
       defaultValue: [],
       description: 'Array of objects. Objects need to have `name` and `link` keys'
     },
-    required: {
+    withIcon: {
       control: 'boolean',
       table: {
         category: 'Props',
@@ -36,7 +36,7 @@ const Template = (args, { argTypes }) => ({
   components: { BreadcrumbsBase },
   props: Object.keys(argTypes),
   template: `
-    <BreadcrumbsBase :with-icon="false" :breadcrumbs="breadcrumbs" />
+    <BreadcrumbsBase :with-icon="withIcon" :breadcrumbs="withIcon ? withIconBreadcrumbs : breadcrumbs " />
     `
 });
 
@@ -49,21 +49,8 @@ Base.args = {
     { name: 'iPad & Tablets', link: '/' },
     { name: 'Apple iPad Accessories', link: '/' },
     { name: 'iPad Keyboards', link: '/' }
-  ]
-};
-
-const BreadcrumbsIcon = (args, { argTypes }) => ({
-  components: { BreadcrumbsBase },
-  props: Object.keys(argTypes),
-  template: `
-    <BreadcrumbsBase :with-icon="true" :breadcrumbs="breadcrumbs" />
-    `
-});
-
-export const WithIcon = BreadcrumbsIcon.bind({});
-
-WithIcon.args = {
-  breadcrumbs: [
+  ],
+  withIconBreadcrumbs: [
     { name: 'Electronics', link: '/' },
     { name: 'iPad & Tablets', link: '/' },
     { name: 'Apple iPad Accessories', link: '/' },

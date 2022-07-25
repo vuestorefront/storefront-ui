@@ -1,5 +1,8 @@
 <template>
-  <div class="grid max-w-xs grid-cols-[24px_1fr] gap-x-2.5">
+  <div
+    class="relative grid max-w-xs grid-cols-[24px_1fr] gap-x-2.5"
+    :class="{ 'right-checkbox': rightCheckbox }"
+  >
     <input
       id="checkbox-left"
       v-focus
@@ -9,19 +12,26 @@
       :required="required"
       :disabled="disabled"
       :invalid="invalid"
-      class="peer w-[18px] h-[18px] border-2 border-gray-500 rounded-sm appearance-none cursor-pointer hover:border-primary-500 checked:bg-checked-checkbox checked:border-primary-500 disabled:border-gray-500/50 disabled:cursor-not-allowed outline-violet"
-      :class="{'bg-indeterminate-checkbox border-primary-500': indeterminate, 'border-negative-600': invalid}"
+      class="peer flex self-center w-[18px] h-[18px] border-2 border-gray-500 rounded-sm appearance-none cursor-pointer hover:border-primary-500 checked:bg-checked-checkbox checked:border-primary-500 disabled:border-gray-500/50 disabled:cursor-not-allowed outline-violet"
+      :class="{'bg-indeterminate-checkbox border-primary-500': indeterminate, '!border-[#b8b8bc] bg-indeterminate-disabled-checkbox': indeterminate && disabled, 'border-negative-600': invalid, 'col-start-[end-col] row-start-[start-row]': rightCheckbox }"
     >
     <label
       for="checkbox-left"
-      class="text-gray-900 cursor-pointer font-body peer-required:after:content-['*'] peer-disabled:text-gray-900/40 peer-disabled:cursor-not-allowed"
+      class="text-gray-900 flex self-center cursor-pointer font-body peer-required:after:content-['*'] peer-disabled:text-gray-900/40 peer-disabled:cursor-not-allowed"
+      :class="{ '!col-start-[start-col] row-start-[start-row] col-end-[end-col]': rightCheckbox }"
     >{{ label }}</label>
     <span
-      :class="{'hidden': !invalid}"
-      class="block col-start-2 mt-1 text-sm font-medium text-negative-600 font-body"
+      :class="{ 'hidden': !invalid, '!col-start-[start-col] col-end-[end-col]': rightCheckbox }"
+      class="block col-start-2 mt-0.5 text-sm font-medium text-negative-600 font-body"
     >{{ errorText }}</span>
-    <span class="col-start-2 mt-1 text-xs text-gray-500 peer-disabled:text-gray-500/50 font-body">{{ helpText }}</span>
-    <span class="hidden col-start-2 mt-1 text-xs text-gray-500 peer-required:block font-body">*Required</span>
+    <span
+      class="col-start-2 mt-0.5 text-xs text-gray-500 peer-disabled:text-gray-500/50 font-body"
+      :class="{ '!col-start-[start-col]': rightCheckbox }"
+    >{{ helpText }}</span>
+    <span
+      class="hidden col-start-1 mt-4 text-xs text-gray-500 peer-required:block peer-disabled:opacity-50 font-body"
+      :class="{ '!col-start-[start-col] col-end-[end-col]': rightCheckbox }"
+    >*Required</span>
   </div>
 </template>
 <script>
@@ -55,7 +65,7 @@ export default {
     },
     invalid: {
       type: Boolean,
-      default: true
+      default: false
     },
     label: {
       type: String,
@@ -68,6 +78,10 @@ export default {
     errorText: {
       type: String,
       default: ''
+    },
+    rightCheckbox: {
+      type: Boolean,
+      default: false
     }
   }
 };

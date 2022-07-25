@@ -239,7 +239,7 @@ const BaseAutocomplete = (args, { argTypes }) => ({
 export const BaseWithAutocomplete = BaseAutocomplete.bind({});
 
 BaseWithAutocomplete.args = {
-  searchHints: searchingHints
+  searchResults: searchingHints
 }
 
 const NoButton = (args, { argTypes }) => ({

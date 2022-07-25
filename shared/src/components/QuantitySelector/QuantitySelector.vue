@@ -17,27 +17,12 @@
         :aria-disabled="quantity === min || disabled"
         @click.native="Number(quantity -= 1)"
       >
-        <svg
-          class="w-6 h-6"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M5 13H19C19.5523 13 20 12.5523 20 12C20 11.4477 19.5523 11 19 11H5C4.44772 11 4 11.4477 4 12C4 12.5523 4.44772 13 5 13Z"
-          />
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M5 13H19C19.5523 13 20 12.5523 20 12C20 11.4477 19.5523 11 19 11H5C4.44772 11 4 11.4477 4 12C4 12.5523 4.44772 13 5 13Z"
-          />
+        <svg class="w-6 h-6" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M5 13H19C19.5523 13 20 12.5523 20 12C20 11.4477 19.5523 11 19 11H5C4.44772 11 4 11.4477 4 12C4 12.5523 4.44772 13 5 13Z" />
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M5 13H19C19.5523 13 20 12.5523 20 12C20 11.4477 19.5523 11 19 11H5C4.44772 11 4 11.4477 4 12C4 12.5523 4.44772 13 5 13Z" />
         </svg>
       </ButtonBase>
-      <div
-        class="flex h-full"
-        :class="disabledStyle"
-      >
+      <div class="flex h-full" :class="disabledStyle">
         <input
           id="quantity-selector"
           ref="input"
@@ -62,20 +47,13 @@
         :aria-disabled="quantity === qtyInStock || disabled"
         @click.native="Number(quantity += 1)"
       >
-        <svg
-          class="w-6 h-6"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
+        <svg class="w-6 h-6" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path d="M11 11V5C11 4.44772 11.4477 4 12 4C12.5523 4 13 4.44772 13 5V11H19C19.5523 11 20 11.4477 20 12C20 12.5523 19.5523 13 19 13H13V19C13 19.5523 12.5523 20 12 20C11.4477 20 11 19.5523 11 19V13H5C4.44772 13 4 12.5523 4 12C4 11.4477 4.44772 11 5 11H11Z" />
           <path d="M11 11V5C11 4.44772 11.4477 4 12 4C12.5523 4 13 4.44772 13 5V11H19C19.5523 11 20 11.4477 20 12C20 12.5523 19.5523 13 19 13H13V19C13 19.5523 12.5523 20 12 20C11.4477 20 11 19.5523 11 19V13H5C4.44772 13 4 12.5523 4 12C4 11.4477 4.44772 11 5 11H11Z" />
         </svg>
       </ButtonBase>
     </div>
-    <div
-      v-if="!disabled"
-      class="text-xs font-normal font-body"
-    >
+    <div v-if="!disabled" class="mt-1 text-xs font-normal text-center font-body">
       <span class="font-medium">
         {{ qtyInStock }}
       </span>
@@ -83,10 +61,7 @@
         in stock
       </span>
     </div>
-    <div
-      v-else
-      class="text-xs font-medium font-body text-negative-600"
-    >
+    <div v-else class="text-xs font-medium font-body text-negative-600">
       <span>
         Out of stock
       </span>
@@ -136,6 +111,19 @@ export default {
     }
   },
   setup(props, { emit }) {
+<<<<<<< HEAD
+    const quantitySelectorSize = computed(() => {
+      switch (props.size) {
+        case 'base':
+          return 'quantity-selector-base';
+        case 'lg':
+          return 'quantity-selector-large';
+        default:
+          return 'quantity-selector-base';
+      }
+    });
+=======
+>>>>>>> 926b060d6dedf1d8e6025ac630d96abc75ab751b
     const qtyInStock = computed(() => {
       return Number(props.quantityInStock);
     });
@@ -151,7 +139,7 @@ export default {
       () => {
         if (disabledState.value === true) {
           emit('input', '-');
-        }
+        };
       }
     );
     const quantity = computed({

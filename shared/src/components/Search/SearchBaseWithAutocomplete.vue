@@ -1,17 +1,20 @@
 <template>
-  <div class="flex flex-col onFocus">
+  <div
+    class="flex flex-col onFocus"
+    role="search"
+  >
     <div
-      class="flex h-10 peer w-80"
+      class="flex h-10 peer"
     >
       <div class="relative">
         <input
+          v-model="inputValue"
           v-focus
-          :value="inputValue"
           type="search"
           :disabled="disabled"
           class="w-full h-10 pl-4 text-gray-900 border border-gray-200 disabled:bg-gray-100 disabled:pointer-events-none disabled:opacity-50 peer rounded-l-md hover:border-primary-500 active:border-2 active:border-r-0 remove-default-styling outline-violet"
-          placeholder="search text"
-          @input="handleSearching"
+          :placeholder="placeholder"
+          aria-label="search"
         >
         <span
           class="absolute hidden fill-gray-500 top-2 right-2"
@@ -43,11 +46,12 @@
     <SheetBase
       class="relative hidden mt-1 min-h-[100px]"
     >
-      <SpinnerLg
-        v-if="!loaded"
+      <SpinnerBase
+        v-if="loadingSpinnerVisible"
         class="m-auto"
+        size="lg"
       />
-      <template v-else-if="loaded">
+      <template v-else>
         <ul
           id="listbox"
           class="w-80"
@@ -60,46 +64,35 @@
             class="px-4 py-2 text-base text-normal hover:bg-primary-100 active:bg-gray-100"
             role="option"
           >
-            <button
-              v-focus
-              class="flex items-center outline-violet"
-              @click="autocompleteHandler(term)"
+            <slot
+              :name="term.result.replace(/( )+/g, '-')"
+              v-bind="{ term }"
             >
-              <slot
-                :name="term.result.trim().replace(/( )+/g, '-')"
-                v-bind="{ term }"
+              <svg
+                class="w-6 h-6 mr-2 fill-gray-500"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <svg
-                  class="w-6 h-6 mr-2 fill-gray-500"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" />
-                </svg>
-              </slot>
-              <span class="flex flex-col items-start">
-                <span>{{ term.result }}</span>
-                <span class="text-sm text-gray-500">{{ term.description }}</span>
-              </span>
+                <path d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" />
+              </svg>
+            </slot>
+            <span class="flex flex-col items-start">
+              <span>{{ term.result }}</span>
+              <span class="text-sm text-gray-500">{{ term.description }}</span>
+            </span>
             </button>
           </li>
         </ul>
       </template>
-      <div
-        v-else-if="value === undefined"
-        class="flex items-start px-4 py-2 text-base text-normal hover:bg-primary-100 active:bg-gray-100 outline-violet"
-      >
-        <slot name="default-search" />
-      </div>
     </SheetBase>
   </div>
 </template>
 
 <script>
-import { ref, toRef, computed } from '@nuxtjs/composition-api';
-import ButtonBase from '../Button/Primary/ButtonPrimary.vue';
+import { ref, computed } from '@nuxtjs/composition-api';
+import ButtonBase from '../Button/ButtonBase.vue';
 import SheetBase from '../Sheet/SheetBase.vue';
-import SpinnerLg from '../Spinner/SpinnerLg.vue';
+import SpinnerBase from '../Spinner/SpinnerBase.vue';
 import { focus } from '../../utils/focus-directive.js';
 
 export default {
@@ -110,7 +103,7 @@ export default {
   components: {
     ButtonBase,
     SheetBase,
-    SpinnerLg
+    SpinnerBase
   },
   props: {
     value: {
@@ -121,49 +114,43 @@ export default {
       type: Boolean,
       default: false
     },
+    placeholder: {
+      type: String,
+      default: ''
+    },
     searchResults: {
       type: Array,
       default: () => []
+    },
+    loading: {
+      type: Boolean,
+      default: false
     }
   },
   setup(props, { emit }) {
-    const inputValue = ref(props.value);
-    const found = ref([]);
-    const searchTerms = toRef(props, 'searchResults');
-    const loaded = computed(() => !!searchTerms.value);
+    let inputValue = computed(() => props.value);
+    const loadingSpinnerVisible = computed(() => props.loading);
+    let found = computed(() => props.searchResults);
+    const selected = ref('');
 
-    const handleSearching = (e) => {
-      emit('input', e);
-      inputValue.value = e.target.value;
-      const text = e.target.value;
-      if (text === '') {
-        found.value = [];
-        return;
-      }
-      const reg = new RegExp(text);
-      found.value = searchTerms.value.filter(function(term) {
-        if (term.result.match(reg)) {
-          return term;
-        }
-      });
-    };
     const handleCancel = () => {
       emit('click:cancel');
-      inputValue.value = '';
-      found.value = [];
+      inputValue = '';
+      found = [];
     };
     const autocompleteHandler = (term) => {
       emit('input', term.result);
-      inputValue.value = term.result;
-      found.value = [];
+      selected.value = term.result;
+      inputValue = term.result;
+      found = [];
     };
     return {
       inputValue,
       found,
-      handleSearching,
       handleCancel,
       autocompleteHandler,
-      loaded
+      selected,
+      loadingSpinnerVisible
     };
   }
 };

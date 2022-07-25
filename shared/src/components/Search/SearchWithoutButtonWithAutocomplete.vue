@@ -1,16 +1,16 @@
 <template>
-  <div class="flex flex-col onFocus">
+  <div class="flex flex-col onFocus" role="search">
     <div
-      class="relative flex h-10 peer w-80"
+      class="relative flex h-10 peer"
     >
       <input
+        v-model="inputValue"
         v-focus
-        :value="inputValue"
         type="search"
         :disabled="disabled"
         class="w-full h-10 pl-12 text-gray-900 border border-gray-200 rounded-md disabled:bg-gray-100 disabled:pointer-events-none disabled:opacity-50 peer hover:border-primary-500 active:border-2 remove-default-styling outline-violet"
-        placeholder="search text"
-        @input="handleSearching"
+        :placeholder="placeholder"
+        aria-label="search"
       >
       <span
         class="absolute hidden fill-gray-500 top-2 right-2"
@@ -49,8 +49,10 @@
     <SheetBase
       class="relative hidden mt-1 min-h-[100px]"
     >
-      <SpinnerLg
-        v-if="!loaded"
+      <SpinnerBase
+        v-if="loadingSpinnerVisible"
+        class="m-auto"
+        size="lg"
       />
       <ul
         v-else
@@ -61,13 +63,15 @@
       >
         <li
           v-for="term in found"
-          :key="term"
+          :id="'listbox-' + term.result"
+          :key="term.result"
           class="px-4 py-2 text-base text-normal hover:bg-primary-100 active:bg-gray-100"
           role="option"
+          :aria-selected="selected === term.result"
         >
           <button
             v-focus
-            class="flex items-center outline-violet"
+            class="flex items-center w-full outline-violet"
             @click="autocompleteHandler(term)"
           >
             <slot
@@ -94,9 +98,9 @@
 </template>
 
 <script>
-import { ref, toRef, computed } from '@nuxtjs/composition-api';
+import { ref, computed } from '@nuxtjs/composition-api';
 import SheetBase from '../Sheet/SheetBase.vue';
-import SpinnerLg from '../Spinner/SpinnerLg.vue';
+import SpinnerBase from '../Spinner/SpinnerBase.vue';
 import { focus } from '../../utils/focus-directive.js';
 
 export default {
@@ -106,7 +110,7 @@ export default {
   },
   components: {
     SheetBase,
-    SpinnerLg
+    SpinnerBase
   },
   props: {
     value: {
@@ -120,45 +124,40 @@ export default {
     searchResults: {
       type: Array,
       default: () => []
+    },
+    placeholder: {
+      type: String,
+      default: ''
+    },
+    loading: {
+      type: Boolean,
+      default: false
     }
   },
   setup(props, { emit }) {
-    const inputValue = ref(props.value);
-    const found = ref([]);
-    const searchTerms = toRef(props, 'searchResults');
-    const loaded = computed(() => !!searchTerms.value);
+    let inputValue = computed(() => props.value);
+    const loadingSpinnerVisible = computed(() => props.loading);
+    let found = computed(() => props.searchResults);
+    const selected = ref('');
 
-    const handleSearching = (e) => {
-      emit('input', e);
-      inputValue.value = e.target.value;
-      const text = e.target.value;
-      if (text === '') {
-        found.value = [];
-      }
-      let reg = new RegExp(text);
-      found.value = searchTerms.value.filter(function(term) {
-        if (term.result.match(reg)) {
-          return term;
-        }
-      });
-    };
     const handleCancel = () => {
       emit('click:cancel');
-      inputValue.value = '';
-      found.value = [];
+      inputValue = '';
+      found = [];
     };
     const autocompleteHandler = (term) => {
       emit('input', term.result);
-      inputValue.value = term.result;
-      found.value = [];
+      selected.value = term.result;
+      inputValue = term.result;
+      found = [];
     };
     return {
       inputValue,
       found,
-      handleSearching,
       handleCancel,
       autocompleteHandler,
-      loaded
+      selected,
+      loadingSpinnerVisible
     };
   }
 };

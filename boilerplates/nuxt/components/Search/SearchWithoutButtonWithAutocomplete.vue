@@ -49,9 +49,10 @@
     <SheetBase
       class="relative hidden mt-1 min-h-[100px]"
     >
-      <SpinnerLg
+      <SpinnerBase
         v-if="loadingSpinnerVisible"
         class="m-auto"
+        size="lg"
       />
       <ul
         v-else
@@ -99,7 +100,7 @@
 <script>
 import { ref, computed } from '@nuxtjs/composition-api';
 import SheetBase from '../Sheet/SheetBase.vue';
-import SpinnerLg from '../Spinner/SpinnerLg.vue';
+import SpinnerBase from '../Spinner/SpinnerBase.vue';
 import { focus } from '../../utils/focus-directive.js';
 
 export default {
@@ -109,7 +110,7 @@ export default {
   },
   components: {
     SheetBase,
-    SpinnerLg
+    SpinnerBase
   },
   props: {
     value: {

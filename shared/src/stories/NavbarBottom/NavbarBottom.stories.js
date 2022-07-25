@@ -49,7 +49,6 @@ const BaseNavbarWithIcon = (args, { argTypes }) => ({
   <li class="flex">
     <a
       href="#"
-      href="#"
       class="flex flex-col flex-1 items-center justify-center pt-3 pb-1 group hover:bg-primary-100 active:bg-primary-100"
     >
       <svg
@@ -195,7 +194,6 @@ const NavbarSmallWithCounter = (args, { argTypes }) => ({
     <li class="flex">
       <a
         href="#"
-        href="#"
         aria-label="Home"
         class="flex-1 flex flex-col items-center justify-center px-[26px] py-[14px] group hover:bg-primary-100 active:bg-primary-100"
       >
@@ -340,7 +338,6 @@ const NavbarSmallWithIcon = (args, { argTypes }) => ({
   <NavbarBottom>
   <li class="flex">
     <a
-      href="#"
       href="#"
       aria-label="Home"
       class="flex-1 flex flex-col items-center justify-center px-[26px] py-[14px] group hover:bg-primary-100 active:bg-primary-100"
@@ -495,7 +492,6 @@ const BrandedNavbarWithIcon = () => ({
     <li class="flex">
       <a
         href="#"
-        href="#"
         class="flex-1 flex flex-col items-center justify-center pt-3 pb-1 group hover:bg-primary-600 active:bg-primary-600"
       >
       <svg
@@ -641,7 +637,6 @@ const BrandedNavbarSmall = () => ({
   <NavbarBottomBranded>
     <li class="flex">
       <a
-        href="#"
         href="#"
         aria-label="Home"
         class="flex flex-1 flex-col items-center justify-center px-[26px] py-[14px] group hover:bg-primary-600 active:bg-primary-600"
