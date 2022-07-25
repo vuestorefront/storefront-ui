@@ -149,3 +149,11 @@ export default {
   }
 };
 </script>
+<style scoped>
+.breadcrumb-item:nth-of-type(1n+3) {
+  @apply before:content-['/'] before:mx-2;
+}
+.breadcrumb-item:last-child > a {
+  @apply font-medium text-gray-900 no-underline;
+}
+</style>

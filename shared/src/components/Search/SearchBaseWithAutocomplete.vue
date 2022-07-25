@@ -48,7 +48,12 @@
         class="m-auto"
       />
       <template v-else-if="loaded">
-        <ul id="listbox" class="w-80" tabindex="0" role="listbox">
+        <ul
+          id="listbox"
+          class="w-80"
+          tabindex="0"
+          role="listbox"
+        >
           <li
             v-for="term in found"
             :key="term.result"
@@ -163,3 +168,11 @@ export default {
   }
 };
 </script>
+<style scoped>
+.onFocus:focus-within div:nth-child(2) {
+  display: flex ;
+}
+.onFocus:focus-within input {
+  @apply border-2 border-primary-500;
+}
+</style>

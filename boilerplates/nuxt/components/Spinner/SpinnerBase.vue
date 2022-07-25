@@ -101,3 +101,19 @@ export default {
   }
 };
 </script>
+<style scoped>
+.is-animation-stopped {
+  @media screen and (prefers-reduced-motion: reduce) {
+      animation-play-state: paused !important;
+  }
+}
+.animation-delay-1 {
+  animation-delay: -0.45s !important;
+}
+.animation-delay-2 {
+  animation-delay: -0.30s !important;
+}
+.animation-delay-3 {
+  animation-delay: -0.15s !important;
+}
+</style>

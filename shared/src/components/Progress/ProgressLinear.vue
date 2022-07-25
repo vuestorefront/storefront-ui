@@ -4,7 +4,7 @@
       id="progressbar"
       :value="value"
       max="100"
-      class="h-6 progress-linear"
+      class="progress-linear"
     />
     <label
       for="progressbar"
@@ -25,3 +25,14 @@ export default {
   }
 };
 </script>
+<style scoped>
+.progress-linear::-webkit-progress-bar {
+  @apply bg-gray-200;
+}
+.progress-linear::-webkit-progress-value {
+  @apply bg-primary-600 transition-[width] ease-[cubic-bezier(.4,0,.6,1)] duration-200;
+}
+.progress-linear::-moz-progress-bar {
+  @apply bg-primary-600;
+}
+</style>

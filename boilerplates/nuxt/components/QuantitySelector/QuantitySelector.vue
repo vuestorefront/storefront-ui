@@ -1,11 +1,12 @@
 <template>
-  <div class="relative flex flex-col items-center remove-default-styling" :class="quantitySelectorSize">
+  <div class="relative flex flex-col items-center w-40 remove-default-styling" :class="size === 'base' ? 'h-10' : 'h-12'">
     <div
       class="flex items-center justify-between border border-gray-300 rounded-md"
       :class="{ 'bg-gray-200 opacity-50 ': disabled }"
     >
       <ButtonBase
         class="rounded-r-none fill-primary-500 disabled:fill-gray-500/50 disabled:pointer-events-none"
+        :class="size === 'base' ? 'w-10 h-10' : 'h-12 w-12'"
         type="tertiary"
         :disabled="quantity === min || disabled"
         aria-controls="quantity-selector"
@@ -107,16 +108,6 @@ export default {
     }
   },
   setup(props, { emit }) {
-    const quantitySelectorSize = computed(() => {
-      switch (props.size) {
-        case 'base':
-          return 'quantity-selector-base';
-        case 'lg':
-          return 'quantity-selector-large';
-        default:
-          return 'quantity-selector-base';
-      }
-    });
     const qtyInStock = computed(() => {
       return Number(props.quantityInStock);
     });
@@ -150,7 +141,6 @@ export default {
       }
     });
     return {
-      quantitySelectorSize,
       quantity,
       qtyInStock,
       min,

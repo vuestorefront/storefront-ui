@@ -98,13 +98,8 @@ const LinearProgress = (args, { argTypes }) => ({
   },
   template: `
   <div>
-    <ProgressLinear :value="progressValue" class="mb-5" />
-    <progress
-      :value="progressValue"
-      max="100"
-      aria-label="Loading"
-      class="h-1 progress-linear"
-    />
+    <ProgressLinear :value="progressValue" class="mb-5 h-6" />
+    <ProgressLinear :value="progressValue" class="mb-5 h-1" />
   </div>
   `
 });
