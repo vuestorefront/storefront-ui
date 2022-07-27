@@ -11,7 +11,7 @@
     <div
       class="relative"
     >
-      <slot name="image">
+      <slot name="image" v-bind="{ label, link, image, alt, outOfStock, badge, }">
         <a
           v-focus
           :href="link"
@@ -51,7 +51,7 @@
           </svg>
         </TagBadge>
       </slot>
-      <slot name="buttons">
+      <slot name="buttons" v-bind="{ outOfStock, inCart }">
         <div
           class="absolute bottom-0 left-0 right-0 flex items-center m-2"
         >
@@ -74,7 +74,7 @@
               <path d="M11.8001 14.6654C11.0637 14.6654 10.4668 14.0684 10.4668 13.332C10.4668 12.5957 11.0637 11.9987 11.8001 11.9987C12.5365 11.9987 13.1334 12.5957 13.1334 13.332C13.1334 14.0684 12.5365 14.6654 11.8001 14.6654Z" fill="#16A34A" />
             </svg>
           </TagIconLeft>
-          <slot name="compare-button">
+          <slot name="compare-button" v-bind="{ label, size }">
             <button
               v-focus
               class="border border-gray-200 rounded-full p-[4px] ml-auto mr-2 group hover:bg-primary-100 hover:border-primary-300 active:border-primary-400 active:bg-primary-200 outline-violet"
@@ -135,7 +135,7 @@
         </div>
       </slot>
     </div>
-    <slot name="details">
+    <slot name="details" v-bind="{ size, outOfStock, price, oldPrice }">
       <div
         class="border-gray-200 border-t-[1px]"
         :class="{
@@ -168,7 +168,7 @@
             </span>
           </div>
         </slot>
-        <slot name="middle">
+        <slot name="middle" v-bind="{ label, link, size }">
           <a
             v-focus
             :href="link"
@@ -178,7 +178,7 @@
             {{ label }}
           </a>
         </slot>
-        <slot name="bottom">
+        <slot name="bottom" v-bind="{ maxRatingValue, reviews, ratingValue }">
           <RatingBase
             :max="maxRatingValue"
             :reviews="reviews"
@@ -186,13 +186,13 @@
             size="xs"
           />
         </slot>
-        <slot name="description">
-          <div v-if="description && size === 'lg'">
+        <slot name="description" v-bind="{ description, shippingDetails, returnsDetails }">
+          <div v-if="description && size === 'lg'" class="mt-2">
             <span class="text-sm font-normal leading-5 text-gray-700 font-body">
-              There are many variations of passages of Lorem Ipsum available
+              {{ description }}
             </span>
             <ul>
-              <li class="flex items-center">
+              <li class="flex items-center my-2">
                 <svg
                   width="16"
                   height="16"
@@ -211,8 +211,8 @@
                     fill="#71717A"
                   />
                 </svg>
-                <span class="text-sm font-normal leading-5 text-gray-700 font-body">
-                  Free shipping, arrives by Thu, Apr 7
+                <span class="ml-2 text-sm font-normal leading-5 text-gray-700 font-body">
+                  {{ shippingDetails }}
                 </span>
               </li>
               <li class="flex items-center">
@@ -244,16 +244,17 @@
                     fill="#71717A"
                   />
                 </svg>
-                <span class="text-sm font-normal leading-5 text-gray-700 font-body">
-                  Free 30-Day returns
+                <span class="ml-2 text-sm font-normal leading-5 text-gray-700 font-body">
+                  {{ returnsDetails }}
                 </span>
               </li>
             </ul>
           </div>
         </slot>
-        <slot name="add-button">
+        <slot name="add-button" v-bind="{ label, outOfStock, }">
           <ButtonBase
             v-if="!outOfStock"
+            :aria-label="`Add to cart ${label}`"
             size="small"
             :class="{
               'mt-2': size === 'xs' || size === 'sm',
@@ -364,6 +365,14 @@ export default {
       type: String,
       default: ''
     },
+    shippingDetails: {
+      type: String,
+      default: ''
+    },
+    returnsDetails: {
+      type: String,
+      default: ''
+    },
     outOfStock: {
       type: Boolean,
       default: false
@@ -407,13 +416,6 @@ export default {
 </script>
 <style scoped>
 .image-link:focus::after {
-  @apply outline outline-4 outline-offset-2 outline-violet-400 rounded-md;
-    content: "";
-    height: 95%;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 93%;
-    z-index: 99999;
+  @apply outline outline-4 outline-offset-2 outline-violet-400 rounded-md h-[95%] z-[2] absolute top-[10px] content-[''] right-[10px] w-[93%];
 }
 </style>

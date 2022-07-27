@@ -1,6 +1,6 @@
 import ProductCard from '../../components/ProductCard/ProductCard.vue';
 import ProductCardWithButton from '../../components/ProductCard/ProductCardWithButton.vue';
-import productCardImg from '../../assets/css/images/product-280x280.png';
+import productCardImg from '../../assets/css/images/product-280x280.webp';
 
 export default {
   title: 'SFUI Components/ProductCard',
@@ -84,7 +84,25 @@ export default {
         category: 'Props'
       },
       description:
-        'Product description'
+        'Product description. Visible only on `lg` size'
+    },
+    shippingDetails: {
+      control: 'text',
+      defaultValue: '',
+      table: {
+        category: 'Props'
+      },
+      description:
+        'Details about shipping. Visible only on `lg` size and with product description filled in'
+    },
+    returnsDetails: {
+      control: 'text',
+      defaultValue: '',
+      table: {
+        category: 'Props'
+      },
+      description:
+        'Details about returns. Visible only on `lg` size and with product description filled in'
     },
     size: {
       control: 'radio',
@@ -105,7 +123,7 @@ export default {
         category: 'Props'
       },
       description:
-        'Is product in stock'
+        'Shows if product is out of stock'
     },
     ratingValue: {
       control: 'number',
@@ -142,15 +160,6 @@ export default {
       },
       description:
         'Shows number of product added to cart'
-    },
-    default: {
-      table: {
-        category: 'Slots',
-        type: {
-          summary: null
-        }
-      },
-      description: 'Use this slot to place content inside the button'
     }
   },
   args: {
@@ -177,6 +186,8 @@ const Template = (args, { argTypes }) => ({
         :ratingValue="ratingValue"
         :maxRatingValue="maxRatingValue"
         :reviews="reviews"
+        :shippingDetails="shippingDetails"
+        :returnsDetails="returnsDetails"
     />
     `
 });
@@ -192,7 +203,10 @@ Base.args = {
   inCart: 0,
   outOfStock: false,
   ratingValue: 4,
-  maxRatingValue: 5
+  maxRatingValue: 5,
+  description: 'There are many variations of passages of Lorem Ipsum available',
+  shippingDetails: 'Free shipping, arrives by Thu, Apr 7',
+  returnsDetails: 'Free 30-Day returns'
 };
 
 const PCWithButton = (args, { argTypes }) => ({
@@ -214,6 +228,8 @@ const PCWithButton = (args, { argTypes }) => ({
         :ratingValue="ratingValue"
         :maxRatingValue="maxRatingValue"
         :reviews="reviews"
+        :shippingDetails="shippingDetails"
+        :returnsDetails="returnsDetails"
       />
     `
 });

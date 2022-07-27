@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ProductCard.vue render component correctly 1`] = `
-<a href="/" aria-label="Go to " class="block overflow-hidden border border-gray-200 rounded-md hover:shadow-lg w-[230px]">
+<a href="/" aria-label="Go to " class="block overflow-hidden border border-gray-200 rounded-md hover:shadow-lg outline-violet w-[230px]">
   <div class="relative"><img src="" alt="" loading="lazy" width="230" height="230" class="w-full h-auto rounded-md">
     <!---->
     <!---->
