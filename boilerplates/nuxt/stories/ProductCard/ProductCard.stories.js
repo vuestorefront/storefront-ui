@@ -1,6 +1,6 @@
 import ProductCard from '../../components/ProductCard/ProductCard.vue';
 import ProductCardWithButton from '../../components/ProductCard/ProductCardWithButton.vue';
-import productCardImg from '../../assets/css/images/product-280x280.webp';
+import productCardImg from '../../assets/images/product-280x280.webp';
 
 export default {
   title: 'SFUI Components/ProductCard',
