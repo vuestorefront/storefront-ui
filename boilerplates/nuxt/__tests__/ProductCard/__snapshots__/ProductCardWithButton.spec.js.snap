@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductCardWithButton.vue render component correctly 1`] = `
+<div class="block overflow-hidden border border-gray-200 rounded-md hover:shadow-lg w-[230px]">
+  <div class="relative"><a href="/" aria-label="Go to "><img src="" alt="" loading="lazy" width="230" height="230" class="rounded-md"></a>
+    <!---->
+    <div class="absolute bottom-0 left-0 right-0 flex items-center m-2">
+      <!----> <button aria-labe="Add to compare " class="border border-gray-200 rounded-full p-[4px] ml-auto mr-2 group hover:bg-primary-100 hover:border-primary-300 active:border-primary-400 active:bg-primary-200"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="fill-primary-500 group-hover:fill-primary-600 group-active:fill-primary-700">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M16.6666 3.33464H12.3333C12 2.33464 11.0833 1.66797 9.99998 1.66797C8.91665 1.66797 7.99998 2.33464 7.66665 3.33464H3.33331C2.83331 3.33464 2.49998 3.66797 2.49998 4.16797C2.49998 4.66797 2.83331 5.0013 3.33331 5.0013H7.66665C7.99998 6.0013 8.91665 6.66797 9.99998 6.66797C11.0833 6.66797 12 6.0013 12.3333 5.0013H16.6666C17.1666 5.0013 17.5 4.66797 17.5 4.16797C17.5 3.66797 17.1666 3.33464 16.6666 3.33464ZM9.99998 5.0013C9.49998 5.0013 9.16665 4.66797 9.16665 4.16797C9.16665 3.66797 9.49998 3.33464 9.99998 3.33464C10.5 3.33464 10.8333 3.66797 10.8333 4.16797C10.8333 4.66797 10.5 5.0013 9.99998 5.0013Z"></path>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M6.03449 6.52857C5.86238 6.1088 5.45367 5.83464 4.99998 5.83464C4.54629 5.83464 4.13757 6.1088 3.96546 6.52857L0.833313 14.168C0.833313 16.5013 2.66665 18.3346 4.99998 18.3346C7.33331 18.3346 9.16665 16.5013 9.16665 14.168L6.03449 6.52857ZM2.49998 14.168L4.99998 7.5013L7.49998 14.168H2.49998Z"></path>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M13.8713 6.57309C14.0497 6.12709 14.4816 5.83464 14.962 5.83464C15.4387 5.83464 15.8681 6.12268 16.0489 6.56373L19.1666 14.168C19.1666 16.5013 17.3333 18.3346 15 18.3346C12.6666 18.3346 10.8333 16.5013 10.8333 14.168L13.8713 6.57309ZM15 7.5013L12.5 14.168H17.5L15 7.5013Z"></path>
+        </svg></button> <button aria-labe="Add to wishlist " class="border border-gray-200 rounded-full p-[4px] group hover:bg-primary-100 hover:border-primary-300 active:border-primary-400 active:bg-primary-200"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="fill-primary-500 group-hover:fill-primary-600 group-active:fill-primary-700">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M16.3868 4.15758C14.1868 2.65758 11.4701 3.35758 10.0035 5.07424C8.53679 3.35758 5.82012 2.64924 3.62012 4.15758C2.45345 4.95758 1.72012 6.30758 1.67012 7.73258C1.55345 10.9659 4.42012 13.5576 8.79512 17.5326L8.87845 17.6076C9.51179 18.1826 10.4868 18.1826 11.1201 17.5992L11.2118 17.5159C15.5868 13.5492 18.4451 10.9576 18.3368 7.72424C18.2868 6.30758 17.5535 4.95758 16.3868 4.15758ZM10.0868 16.2909L10.0035 16.3742L9.92012 16.2909C5.95345 12.6992 3.33679 10.3242 3.33679 7.91591C3.33679 6.24924 4.58679 4.99924 6.25345 4.99924C7.53679 4.99924 8.78679 5.82424 9.22845 6.96591H10.7868C11.2201 5.82424 12.4701 4.99924 13.7535 4.99924C15.4201 4.99924 16.6701 6.24924 16.6701 7.91591C16.6701 10.3242 14.0535 12.6992 10.0868 16.2909Z"></path>
+        </svg></button>
+    </div>
+  </div>
+  <div class="border-gray-200 border-t-[1px] p-4">
+    <div class="flex items-baseline"><span class="font-bold font-headings text-lg leading-6 text-gray-900"></span> <span class="text-xs font-normal leading-4 text-gray-500 line-through ml-2">
+
+          </span></div> <a href="/" class="block my-1 font-normal font-body hover:text-primary-600 hover:underline active:text-primary-700 text-sm leading-5">
+
+    </a>
+    <ratingbase-stub value="0" max="5" reviews="0" size="xs"></ratingbase-stub>
+    <!---->
+    <buttonbase-stub type="primary" size="small" class="mt-4"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M14.7501 18.3346C13.8297 18.3346 13.0835 17.5884 13.0835 16.668C13.0835 15.7475 13.8297 15.0013 14.7501 15.0013C15.6706 15.0013 16.4168 15.7475 16.4168 16.668C16.4168 17.5884 15.6706 18.3346 14.7501 18.3346Z" fill="white"></path>
+        <path d="M8.08348 18.3346C7.163 18.3346 6.41681 17.5884 6.41681 16.668C6.41681 15.7475 7.163 15.0013 8.08348 15.0013C9.00395 15.0013 9.75014 15.7475 9.75014 16.668C9.75014 17.5884 9.00395 18.3346 8.08348 18.3346Z" fill="white"></path>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M0.833313 2.5013C0.833313 2.04106 1.20641 1.66797 1.66665 1.66797H3.58892C4.55904 1.66797 5.40076 2.33757 5.6189 3.28285L5.82316 4.16797H16.3157C17.671 4.16797 18.6655 5.44169 18.3368 6.75658L16.8785 12.5899C16.6466 13.5173 15.8133 14.168 14.8573 14.168H8.0777C7.10759 14.168 6.26586 13.4984 6.04772 12.5531L3.99492 3.65761C3.95129 3.46856 3.78295 3.33464 3.58892 3.33464H1.66665C1.20641 3.33464 0.833313 2.96154 0.833313 2.5013ZM6.20778 5.83464L7.67171 12.1783C7.71533 12.3674 7.88368 12.5013 8.0777 12.5013H14.8573C15.0485 12.5013 15.2152 12.3712 15.2616 12.1857L16.7199 6.35236C16.7856 6.08938 16.5867 5.83464 16.3157 5.83464H6.20778Z" fill="white"></path>
+      </svg> <span class="ml-2">Add</span></buttonbase-stub>
+  </div>
+</div>
+`;
