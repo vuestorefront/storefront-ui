@@ -1,8 +1,9 @@
 <template>
   <a
+    v-focus
     :href="link"
     :aria-label="`Go to ${label}`"
-    class="block overflow-hidden border border-gray-200 rounded-md hover:shadow-lg"
+    class="block overflow-hidden border border-gray-200 rounded-md hover:shadow-lg outline-violet"
     :class="{
       'w-[148px]': size === 'xs',
       'w-[180px]': size === 'sm',
@@ -150,6 +151,7 @@
 
 <script>
 import { computed } from '@nuxtjs/composition-api';
+import { focus } from '../../utils/focus-directive.js';
 import RatingBase from '../Rating/RatingBase.vue';
 import TagIconLeft from '../Tag/TagIconLeft.vue';
 import TagBadge from '../Tag/TagBadge.vue';
@@ -160,6 +162,9 @@ export default {
     RatingBase,
     TagIconLeft,
     TagBadge
+  },
+  directives: {
+    focus
   },
   props: {
     image: {

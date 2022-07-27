@@ -13,8 +13,10 @@
     >
       <slot name="image">
         <a
+          v-focus
           :href="link"
           :aria-label="`Go to ${label}`"
+          class="image-link outline-violet"
         >
           <img
             class="rounded-md"
@@ -74,8 +76,9 @@
           </TagIconLeft>
           <slot name="compare-button">
             <button
-              class="border border-gray-200 rounded-full p-[4px] ml-auto mr-2 group hover:bg-primary-100 hover:border-primary-300 active:border-primary-400 active:bg-primary-200"
-              :aria-labe="`Add to compare ${label}`"
+              v-focus
+              class="border border-gray-200 rounded-full p-[4px] ml-auto mr-2 group hover:bg-primary-100 hover:border-primary-300 active:border-primary-400 active:bg-primary-200 outline-violet"
+              :aria-label="`Add to compare ${label}`"
               :class="{'hidden': size === 'sm' || size === 'xs'}"
               @click="$emit('add-to-compare')"
             >
@@ -107,9 +110,10 @@
           </slot>
           <slot name="wishlist-button">
             <button
-              :aria-labe="`Add to wishlist ${label}`"
+              v-focus
+              :aria-label="`Add to wishlist ${label}`"
               :class="{'hidden': size === 'sm' || size === 'xs'}"
-              class="border border-gray-200 rounded-full p-[4px] group hover:bg-primary-100 hover:border-primary-300 active:border-primary-400 active:bg-primary-200"
+              class="border border-gray-200 rounded-full p-[4px] group hover:bg-primary-100 hover:border-primary-300 active:border-primary-400 active:bg-primary-200 outline-violet"
               @click="$emit('add-to-wishlist')"
             >
               <svg
@@ -166,8 +170,9 @@
         </slot>
         <slot name="middle">
           <a
+            v-focus
             :href="link"
-            class="block my-1 font-normal font-body hover:text-primary-600 hover:underline active:text-primary-700"
+            class="block my-1 font-normal font-body hover:text-primary-600 hover:underline active:text-primary-700 outline-violet"
             :class="size === 'lg' ? 'text-base leading-6' : 'text-sm leading-5'"
           >
             {{ label }}
@@ -297,6 +302,7 @@
 
 <script>
 import { computed } from '@nuxtjs/composition-api';
+import { focus } from '../../utils/focus-directive.js';
 import RatingBase from '../Rating/RatingBase.vue';
 import ButtonBase from '../Button/ButtonBase.vue';
 import TagIconLeft from '../Tag/TagIconLeft.vue';
@@ -309,6 +315,9 @@ export default {
     ButtonBase,
     TagIconLeft,
     TagBadge
+  },
+  directives: {
+    focus
   },
   props: {
     image: {
@@ -396,3 +405,15 @@ export default {
   }
 };
 </script>
+<style scoped>
+.image-link:focus::after {
+  @apply outline outline-4 outline-offset-2 outline-violet-400 rounded-md;
+    content: "";
+    height: 95%;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 93%;
+    z-index: 99999;
+}
+</style>
