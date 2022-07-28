@@ -23,7 +23,7 @@
           :key="`${option}-${key}`"
           :selected="selected === value"
           class="font-[Arial] bg-gray-300"
-          value="option1"
+          :value="option"
         >
           {{ option }}
         </option>
