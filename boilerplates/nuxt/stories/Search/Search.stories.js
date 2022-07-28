@@ -87,15 +87,6 @@ export default {
         }
       },
       description: 'Placeholder value'
-    },
-    loading: {
-      control: 'boolean',
-      defaultValue: false,
-      table: {
-        category: 'Props'
-      },
-      description:
-        'Loading autocomplete hints state'
     }
   }
 };
@@ -168,7 +159,7 @@ const BaseAutocomplete = (args, { argTypes }) => ({
       }
       const text = term.toLowerCase();
       const reg = new RegExp(text);
-      this.searchHints = searchingHints.filter(function (val) {
+      this.searchHints = searchingHints.filter(function(val) {
         val.result.trim().toLowerCase();
         if (val.result.match(reg)) {
           return val;
@@ -240,7 +231,19 @@ export const BaseWithAutocomplete = BaseAutocomplete.bind({});
 
 BaseWithAutocomplete.args = {
   searchResults: searchingHints
-}
+};
+
+BaseWithAutocomplete.argTypes = {
+  loading: {
+    control: 'boolean',
+    defaultValue: false,
+    table: {
+      category: 'Props'
+    },
+    description:
+      'Loading autocomplete hints state'
+  }
+};
 
 const NoButton = (args, { argTypes }) => ({
   components: { SearchWithoutButton },
@@ -299,7 +302,7 @@ const WithoutButtonAutocomplete = (args, { argTypes }) => ({
       }
       const text = term.toLowerCase();
       const reg = new RegExp(text);
-      this.searchHints = searchingHints.filter(function (val) {
+      this.searchHints = searchingHints.filter(function(val) {
         val.result.trim().toLowerCase();
         if (val.result.match(reg)) {
           return val;
@@ -354,4 +357,16 @@ export const WithoutButtonWithAutocomplete = WithoutButtonAutocomplete.bind({});
 
 WithoutButtonWithAutocomplete.args = {
   searchResults: searchingHints
+};
+
+WithoutButtonWithAutocomplete.argTypes = {
+  loading: {
+    control: 'boolean',
+    defaultValue: false,
+    table: {
+      category: 'Props'
+    },
+    description:
+      'Loading autocomplete hints state'
+  }
 };
