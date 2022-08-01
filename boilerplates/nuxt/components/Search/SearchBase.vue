@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import { toRefs } from '@nuxtjs/composition-api';
+import { ref } from '@nuxtjs/composition-api';
 import ButtonBase from '../Button/ButtonBase.vue';
 import { focus } from '../../utils/focus-directive.js';
 export default {
@@ -69,7 +69,7 @@ export default {
     }
   },
   setup(props) {
-    const inputValue = toRefs(props.value);
+    const inputValue = ref(props.value);
     return {
       inputValue
     };
