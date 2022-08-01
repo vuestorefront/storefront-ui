@@ -6,7 +6,7 @@
       'text-xs': size === 'xs',
       'text-sm': size === 'sm',
       'text-base': size === 'base',
-      'text-lg': size === 'lg' || 'xl' || '2xl'
+      'text-lg': size === 'lg' || size === 'xl' || size === '2xl'
     }"
   >
     <svg

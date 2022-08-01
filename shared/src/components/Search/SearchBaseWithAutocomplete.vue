@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="flex flex-col onFocus"
-    role="search"
-  >
+  <div class="flex flex-col onFocus" role="search">
     <div
       class="flex h-10 peer"
     >
@@ -51,18 +48,26 @@
         class="m-auto"
         size="lg"
       />
-      <template v-else>
-        <ul
-          id="listbox"
-          class="w-80"
-          tabindex="0"
-          role="listbox"
+      <ul
+        v-else
+        id="listbox"
+        class="w-80"
+        tabindex="0"
+        role="listbox"
+        :aria-activedescendant="'listbox-' + selected"
+      >
+        <li
+          v-for="term in found"
+          :id="'listbox-' + term.result"
+          :key="term.result"
+          class="px-4 py-2 text-base text-normal hover:bg-primary-100 active:bg-gray-100"
+          role="option"
+          :aria-selected="selected === term.result"
         >
-          <li
-            v-for="term in found"
-            :key="term.result"
-            class="px-4 py-2 text-base text-normal hover:bg-primary-100 active:bg-gray-100"
-            role="option"
+          <button
+            v-focus
+            class="flex items-center w-full outline-violet"
+            @click="autocompleteHandler(term)"
           >
             <slot
               :name="term.result.replace(/( )+/g, '-')"
@@ -80,10 +85,9 @@
               <span>{{ term.result }}</span>
               <span class="text-sm text-gray-500">{{ term.description }}</span>
             </span>
-            </button>
-          </li>
-        </ul>
-      </template>
+          </button>
+        </li>
+      </ul>
     </SheetBase>
   </div>
 </template>

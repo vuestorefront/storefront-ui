@@ -53,38 +53,38 @@ export default {
   setup(props) {
     const buttonType = computed(() => {
       switch (props.type) {
-      case 'secondary':
-        return 'button-secondary';
-      case 'tertiary':
-        return 'button-tertiary';
-      case 'destroy-primary':
-        return 'button-destroy-primary';
-      case 'destroy-secondary':
-        return 'button-destroy-secondary';
-      case 'destroy-tertiary':
-        return 'button-destroy-tertiary';
-      default:
-        return 'button-primary';
+        case 'secondary':
+          return 'button-secondary';
+        case 'tertiary':
+          return 'button-tertiary';
+        case 'destroy-primary':
+          return 'button-destroy-primary';
+        case 'destroy-secondary':
+          return 'button-destroy-secondary';
+        case 'destroy-tertiary':
+          return 'button-destroy-tertiary';
+        default:
+          return 'button-primary';
       }
     });
     const buttonSize = computed(() => {
       if (props.type.includes('tertiary')) {
         switch (props.size) {
-        case 'small':
-          return 'button-small-tertiary';
-        case 'large':
-          return 'button-large-tertiary';
-        default:
-          return 'button-medium-tertiary';
+          case 'small':
+            return 'button-small-tertiary';
+          case 'large':
+            return 'button-large-tertiary';
+          default:
+            return 'button-medium-tertiary';
         }
       } else {
         switch (props.size) {
-        case 'small':
-          return 'button-small';
-        case 'large':
-          return 'button-large';
-        default:
-          return 'button-medium';
+          case 'small':
+            return 'button-small';
+          case 'large':
+            return 'button-large';
+          default:
+            return 'button-medium';
         }
       }
     });

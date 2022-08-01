@@ -3,7 +3,7 @@
 exports[`TagIconRight.vue render component correctly 1`] = `
 <div class="inline-flex items-center font-normal rounded-md font-body direction-row bg-gray-100 fill-gray-600 text-gray-600 px-3 py-1.5 text-sm"><span class="mr-2">
     Label
-  </span> <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5">
-    <path d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"></path>
-  </svg></div>
+  </span>
+  <div class="w-5 h-5"></div>
+</div>
 `;

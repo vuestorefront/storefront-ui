@@ -70,7 +70,14 @@ const Template = (args, { argTypes }) => ({
       :label="label"
       :type="type"
       :size="size"
-    />
+    >
+      <svg
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" />
+      </svg>
+    </TagBase>
     `
 });
 
@@ -84,7 +91,14 @@ const TagWithIcon = (args, { argTypes }) => ({
       :label="label"
       :type="type"
       :size="size"
-    />
+    >
+      <svg
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" />
+      </svg>
+    </TagIcon>
     `
 });
 
@@ -98,7 +112,14 @@ const TagWithIconLeft = (args, { argTypes }) => ({
       :label="label"
       :type="type"
       :size="size"
-    />
+    >
+      <svg
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" />
+      </svg>
+    </TagIconLeft>
     `
 });
 
@@ -112,7 +133,14 @@ const TagWithIconRight = (args, { argTypes }) => ({
       :label="label"
       :type="type"
       :size="size"
-    />
+    >
+      <svg
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" />
+      </svg>
+    </TagIconRight>
     `
 });
 
@@ -127,31 +155,14 @@ const TagBadgeMode = (args, { argTypes }) => ({
       :type="type"
       :size="size"
     >
-      <template>
-        <svg
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" />
-        </svg>
-      </template>
+      <svg
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" />
+      </svg>
     </TagBadge>
     `
 });
 
 export const BadgeVariant = TagBadgeMode.bind({});
-
-BadgeVariant.argTypes = {
-  size: {
-    control: 'radio',
-    options: ['base', 'sm', 'xs'],
-    defaultValue: 'base',
-    table: {
-      category: 'Props',
-      defaultValue: {
-        summary: 'base'
-      }
-    },
-    description: 'Change size of the component'
-  }
-}

@@ -18,7 +18,7 @@
           'text-base font-medium': headerSize === 'base',
         }"
       >
-        {{ buttonText }}
+        {{ headerText }}
       </span>
       <slot name="header" v-bind="{ expanded, chevronLeft }">
         <svg
@@ -33,7 +33,11 @@
         </svg>
       </slot>
     </ButtonBase>
-    <div :id="'content-' + uid" class="px-4 py-2 text-gray-500" :class="{ 'hidden': !expanded }">
+    <div
+      :id="'content-' + uid"
+      class="px-4 py-2 text-gray-500"
+      :class="{ 'hidden': !expanded }"
+    >
       <slot v-bind="{ expanded }" />
     </div>
   </div>
@@ -53,7 +57,7 @@ export default {
       type: Boolean,
       default: true
     },
-    buttonText: {
+    headerText: {
       type: String,
       default: ''
     },

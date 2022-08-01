@@ -4,7 +4,7 @@
     :class="{ 'right-checkbox': rightCheckbox }"
   >
     <input
-      id="checkbox-left"
+      id="checkbox"
       v-focus
       :indeterminate="indeterminate"
       type="checkbox"
@@ -16,7 +16,7 @@
       :class="{'bg-indeterminate-checkbox border-primary-500': indeterminate, '!border-[#b8b8bc] bg-indeterminate-disabled-checkbox': indeterminate && disabled, 'border-negative-600': invalid, 'col-start-[end-col] row-start-[start-row]': rightCheckbox }"
     >
     <label
-      for="checkbox-left"
+      for="checkbox"
       class="text-gray-900 flex self-center cursor-pointer font-body peer-required:after:content-['*'] peer-disabled:text-gray-900/40 peer-disabled:cursor-not-allowed"
       :class="{ '!col-start-[start-col] row-start-[start-row] col-end-[end-col]': rightCheckbox }"
     >{{ label }}</label>
@@ -86,3 +86,9 @@ export default {
   }
 };
 </script>
+<style scoped>
+  .right-checkbox {
+    grid-template-columns: [start-col] 1fr [end-col] 24px !important; 
+    grid-template-rows: [start-row] 1fr [end-row] 1fr;
+  }
+</style>

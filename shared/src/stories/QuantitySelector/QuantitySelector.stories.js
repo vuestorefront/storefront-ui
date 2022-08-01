@@ -39,7 +39,7 @@ export default {
       table: {
         category: 'Props',
         defaultValue: {
-          summary: '0'
+          summary: '5'
         }
       },
       description: 'Input value'
@@ -66,6 +66,17 @@ export default {
         }
       },
       description: 'Change size of component'
+    },
+    emptyStockMsg: {
+      control: 'text',
+      defaultValue: 'Out of stock',
+      table: {
+        category: 'Props',
+        defaultValue: {
+          summary: 'Out of stock'
+        }
+      },
+      description: 'Message appearing when stock is empty'
     }
   }
 };
@@ -96,6 +107,7 @@ const Template = (args, { argTypes }) => ({
       :minQuantity="minQuantity"
       :disabled="disabledState"
       :size="size"
+      :emptyStockMsg="emptyStockMsg"
     />
     </div>
     `

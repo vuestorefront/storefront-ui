@@ -1,11 +1,8 @@
 import SearchBase from '../../components/Search/SearchBase.vue';
 import SearchWithoutButton from '../../components/Search/SearchWithoutButton.vue';
-import SearchWithoutButtonWithRightIcon from '../../components/Search/SearchWithoutButtonWithRightIcon.vue';
 import SearchWithoutButtonWithAutocomplete from '../../components/Search/SearchWithoutButtonWithAutocomplete.vue';
 import ButtonPrimaryIcons from '../../components/Button/ButtonIcons.vue';
 import SearchBaseWithAutocomplete from '../../components/Search/SearchBaseWithAutocomplete.vue';
-
-import { focus } from '../../utils/focus-directive.js';
 
 const searchingHints = [
   {
@@ -92,10 +89,25 @@ export default {
       control: 'boolean',
       defaultValue: false,
       table: {
-        category: 'Props'
+        category: 'Props',
+        defaultValue: {
+          summary: false
+        }
       },
       description:
         'Loading autocomplete hints state'
+    },
+    innerIconRight: {
+      control: 'boolean',
+      defaultValue: false,
+      table: {
+        category: 'Props',
+        defaultValue: {
+          summary: false
+        }
+      },
+      description:
+        'Changes where is the inner icon displayed.'
     }
   }
 };
@@ -251,34 +263,12 @@ const NoButton = (args, { argTypes }) => ({
       :disabled="disabled"
       :placeholder="placeholder"
       class="w-80"
+      :innerIconRight="innerIconRight"
     />
     `
 });
 
 export const WithoutButton = NoButton.bind({});
-
-const NoButtonWithRightSearchIcon = (args, { argTypes }) => ({
-  components: { SearchWithoutButtonWithRightIcon },
-  props: Object.keys(argTypes),
-  data() {
-    return {
-      inputValue: this.value
-    };
-  },
-  directives: {
-    focus
-  },
-  template: `
-      <SearchWithoutButtonWithRightIcon
-        :value="value"
-        :disabled="disabled"
-        :placeholder="placeholder"
-        class="w-80"
-      />
-    `
-});
-
-export const WithoutButtonAndWithRightIcon = NoButtonWithRightSearchIcon.bind({});
 
 const WithoutButtonAutocomplete = (args, { argTypes }) => ({
   components: { SearchWithoutButtonWithAutocomplete },
@@ -330,6 +320,7 @@ const WithoutButtonAutocomplete = (args, { argTypes }) => ({
         :searchResults="searchHints"
         :placeholder="placeholder"
         :loading="loadState"
+        :innerIconRight="innerIconRight"
         @input.native="handleValue"
         @click:cancel="clearValue"
         @input="setValue"

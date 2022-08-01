@@ -25,7 +25,7 @@ export default {
       description:
         'Toggling expand accordion state'
     },
-    buttonText: {
+    headerText: {
       control: 'text',
       defaultValue: '',
       table: {
@@ -76,10 +76,10 @@ const Template = (args, { argTypes }) => ({
   <div class="w-80">
     <AccordionBase
       :expanded="opened"
-      :buttonText="buttonText"
+      :header-text="headerText"
       @toggle="handleExpanded"
-      :chevronLeft="chevronLeft"
-      :headerSize="headerSize"
+      :chevron-left="chevronLeft"
+      :header-size="headerSize"
     >
       Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
     </AccordionBase>
@@ -90,7 +90,7 @@ const Template = (args, { argTypes }) => ({
 export const Base = Template.bind({});
 
 Base.args = {
-  buttonText: 'Accordion Header'
+  headerText: 'Accordion Header'
 };
 
 const Multiple = (args, { argTypes }) => ({
@@ -103,9 +103,9 @@ const Multiple = (args, { argTypes }) => ({
         acc2: true,
         acc3: true
       },
-      buttonText1: 'Accordion Header 1',
-      buttonText2: 'Accordion Header 2',
-      buttonText3: 'Accordion Header 3'
+      headerText1: 'Accordion Header 1',
+      headerText2: 'Accordion Header 2',
+      headerText3: 'Accordion Header 3'
     };
   },
   methods: {
@@ -114,33 +114,33 @@ const Multiple = (args, { argTypes }) => ({
     }
   },
   template: `
-    <div class="w-80">
+    <div :class="{'w-[350px]': headerSize === 'xl',  'w-80': headerSize === 'bold' || 'lg' || 'base'}">
       <AccordionBase
         :expanded="opened.acc1"
-        :buttonText="buttonText1"
+        :header-text="headerText1"
         @toggle="opened.acc1 = !opened.acc1"
         class="mb-2"
-        :chevronLeft="chevronLeft"
-        :headerSize="headerSize"
+        :chevron-left="chevronLeft"
+        :header-size="headerSize"
       >
         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
       </AccordionBase>
       <AccordionBase
         :expanded="opened.acc2"
-        :buttonText="buttonText2"
+        :header-text="headerText2"
         @toggle="opened.acc2 = !opened.acc2"
         class="mb-2"
-        :chevronLeft="chevronLeft"
-        :headerSize="headerSize"
+        :chevron-left="chevronLeft"
+        :header-size="headerSize"
       >
         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
       </AccordionBase>
       <AccordionBase
         :expanded="opened.acc3"
-        :buttonText="buttonText3"
+        :header-text="headerText3"
         @toggle="opened.acc3 = !opened.acc3"
-        :chevronLeft="chevronLeft"
-        :headerSize="headerSize"
+        :chevron-left="chevronLeft"
+        :header-size="headerSize"
       >
         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
       </AccordionBase>

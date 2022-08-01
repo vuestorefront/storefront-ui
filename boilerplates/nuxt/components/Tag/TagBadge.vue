@@ -2,9 +2,8 @@
   <div
     class="flex direction-row"
     :class="{
-      'h-6 text-xs': size === 'xs',
-      'h-7 text-sm': size === 'sm',
-      'h-9 text-base': size === 'base'
+      'h-6 text-xs': size === 'sm',
+      'h-8 text-sm': size === 'base'
     }"
   >
     <div
@@ -20,9 +19,8 @@
     >
       <span
         :class="{
-          'w-4 h-4 my-1 mx-1.5': size === 'xs',
-          'w-5 h-5 my-1 mx-1.5': size === 'sm',
-          'w-6 h-6 m-2': size === 'base'
+          'w-4 h-4 m-1 mr-1.5': size === 'sm',
+          'w-5 h-5 m-1.5': size === 'base'
         }"
       >
         <slot v-bind="{ type, size }" />
@@ -38,9 +36,8 @@
         'border-l-warning-600': type === 'warning',
         'border-l-negative-600': type === 'error',
         'border-gray-500 opacity-50': type === 'disabled',
-        'border-b-[24px] border-l-[10px]': size === 'xs',
-        'border-b-[28px] border-l-[12px]': size === 'sm',
-        'border-b-[36px] border-l-[16px]': size === 'base'
+        'border-b-[24px] border-l-[12px]': size === 'sm',
+        'border-b-[32px] border-l-[16px]': size === 'base'
       }"
     />
   </div>
@@ -74,8 +71,7 @@ export default {
       validator(value) {
         return [
           'base',
-          'sm',
-          'xs'
+          'sm'
         ].includes(value);
       }
     }

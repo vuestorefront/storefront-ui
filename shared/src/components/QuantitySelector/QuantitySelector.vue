@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="relative flex flex-col items-center w-40 remove-default-styling"
-    :class="size === 'base' ? 'h-10' : 'h-12'"
-  >
+  <div class="relative flex flex-col items-center w-40 remove-default-styling" :class="size === 'base' ? 'h-10' : 'h-12'">
     <div
       class="flex items-center justify-between border border-gray-300 rounded-md"
       :class="{ 'bg-gray-200 opacity-50 ': disabled }"
@@ -40,6 +37,7 @@
       </div>
       <ButtonBase
         class="rounded-l-none fill-primary-500 disabled:fill-gray-500/50 disabled:pointer-events-none"
+        :class="size === 'base' ? 'w-10 h-10' : 'h-12 w-12'"
         type="tertiary"
         :disabled="quantity === qtyInStock || disabled"
         aria-controls="quantity-selector"
@@ -63,7 +61,7 @@
     </div>
     <div v-else class="text-xs font-medium font-body text-negative-600">
       <span>
-        Out of stock
+        {{ emptyStockMsg }}
       </span>
     </div>
   </div>
@@ -108,22 +106,13 @@ export default {
           'lg'
         ].includes(value);
       }
+    },
+    emptyStockMsg: {
+      type: String,
+      default: 'Out of stock'
     }
   },
   setup(props, { emit }) {
-<<<<<<< HEAD
-    const quantitySelectorSize = computed(() => {
-      switch (props.size) {
-        case 'base':
-          return 'quantity-selector-base';
-        case 'lg':
-          return 'quantity-selector-large';
-        default:
-          return 'quantity-selector-base';
-      }
-    });
-=======
->>>>>>> 926b060d6dedf1d8e6025ac630d96abc75ab751b
     const qtyInStock = computed(() => {
       return Number(props.quantityInStock);
     });

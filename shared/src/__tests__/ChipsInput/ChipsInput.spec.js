@@ -1,11 +1,11 @@
 import { shallowMount } from '@vue/test-utils';
-import ChipsBase from '../../components/Chips/ChipsBase.vue';
+import ChipsInput from '../../components/ChipsInput/ChipsInput.vue';
 
 let wrapper;
 
-describe('ChipsBase.vue', () => {
+describe('ChipsInput.vue', () => {
   beforeEach(() => {
-    wrapper = shallowMount(ChipsBase);
+    wrapper = shallowMount(ChipsInput);
   });
   it('render component correctly', () => {
     expect(wrapper.html()).toMatchSnapshot();

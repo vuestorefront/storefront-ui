@@ -18,7 +18,7 @@
           'text-base font-medium': headerSize === 'base',
         }"
       >
-        {{ buttonText }}
+        {{ headerText }}
       </span>
       <slot name="header" v-bind="{ expanded, chevronLeft }">
         <svg
@@ -57,7 +57,7 @@ export default {
       type: Boolean,
       default: true
     },
-    buttonText: {
+    headerText: {
       type: String,
       default: ''
     },
