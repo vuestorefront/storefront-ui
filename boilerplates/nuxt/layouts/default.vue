@@ -1,20 +1,36 @@
 <template>
   <div>
-    <NavbarTop :search-disabled="false" :search-value="searchValue">
+    <NavbarTop>
       <template #logo>
         <a
           href="#"
-          class="flex flex-col items-center justify-center flex-1 pt-3 pb-1 group hover:bg-primary-600 active:bg-primary-600"
+          class="flex items-center justify-center flex-1 group hover:bg-primary-600 active:bg-primary-600"
           aria-label="Go to home page"
         >
+          <svg
+            width="40"
+            height="40"
+            viewBox="0 0 40 40"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="block 2-extra-small:hidden small:block large:hidden 2-extra-large:!hidden"
+          >
+            <path
+              d="M17.7971 1.34583C17.4443 1.56777 17.0981 1.91798 16.4058 2.61841C15.7134 3.31875 15.3671 3.66908 15.1478 4.02596C14.4217 5.20721 14.4217 6.7031 15.1478 7.88435C15.3671 8.24118 15.7132 8.59132 16.4053 9.29148L16.4057 9.29183C17.0981 9.99226 17.4443 10.3425 17.7971 10.5645C18.9648 11.299 20.4436 11.299 21.6112 10.5645C21.9641 10.3425 22.3103 9.99233 23.0026 9.2919C23.695 8.59147 24.0412 8.24125 24.2606 7.88435C24.9867 6.7031 24.9867 5.20721 24.2606 4.02596C24.0412 3.66905 23.695 3.31885 23.0027 2.61843C22.3103 1.918 21.9641 1.56777 21.6112 1.34583C20.4436 0.611289 18.9648 0.61128 17.7971 1.34583Z"
+              fill="white"
+            />
+            <path
+              d="M22.3525 23.2588L30.409 15.1087C30.7428 14.771 31.1391 14.5031 31.5752 14.3204C32.0113 14.1376 32.4788 14.0436 32.9508 14.0436C33.4229 14.0436 33.8903 14.1376 34.3264 14.3204C34.7625 14.5031 35.1588 14.771 35.4926 15.1086L39.5409 19.204C39.5166 19.2286 19.7705 39.204 19.7705 39.204L0 19.204C0.0536375 19.1499 2.24251 16.9356 4.09096 15.0656C4.42457 14.7281 4.82064 14.4604 5.25655 14.2777C5.69245 14.0951 6.15966 14.0011 6.63148 14.0011C7.10331 14.0011 7.5705 14.0952 8.00638 14.2779C8.44226 14.4606 8.83828 14.7284 9.17184 15.066L17.2709 23.2591C17.6046 23.5966 18.0007 23.8644 18.4367 24.047C18.8726 24.2297 19.3399 24.3237 19.8118 24.3236C20.2836 24.3236 20.7509 24.2296 21.1868 24.0469C21.6228 23.8641 22.0189 23.5964 22.3525 23.2588Z"
+              fill="white"
+            />
+          </svg>
           <svg
             width="205"
             height="28"
             viewBox="0 0 205 28"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            alt="Vue Storefront logo"
-            role="img"
+            class="hidden 2-extra-small:block small:hidden large:block 2-extra-large:!block"
           >
             <path
               d="M150.233 11.1347H147.583V14.2543H150.233V23.3588H153.934V14.2543H157.109V11.1347H153.934V10.4647C153.934 10.0027 154.078 9.65995 154.368 9.43642C154.657 9.21296 155.084 9.10123 155.647 9.10123C155.879 9.10067 156.112 9.11225 156.343 9.13592C156.6 9.16515 156.856 9.20761 157.109 9.26314V6.16665C156.804 6.09418 156.495 6.04018 156.184 6.00494C155.839 5.96053 155.492 5.93736 155.144 5.93555C153.56 5.93568 152.346 6.32079 151.501 7.09087C150.656 7.86116 150.233 8.96265 150.233 10.3953V11.1347Z"
@@ -90,7 +106,7 @@
       <template #menu>
         <nav class="hidden medium:block">
           <ul class="flex justify-center">
-            <li v-for="(category, i) in navCategories" :key="`${category}-${i}`" class="hidden px-2 2-extra-large:flex">
+            <li v-for="(category, i) in navCategories" :key="`${category}-${i}`" class="hidden px-2 large:flex">
               <a
                 v-focus
                 href="/"
@@ -99,7 +115,7 @@
                 {{ category }}
               </a>
             </li>
-            <li class="flex items-center 2-extra-large:hidden">
+            <li class="flex items-center large:hidden">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M3 17C3 17.5523 3.44772 18 4 18H20C20.5523 18 21 17.5523 21 17C21 16.4477 20.5523 16 20 16H4C3.44772 16 3 16.4477 3 17ZM3 12C3 12.5523 3.44772 13 4 13H20C20.5523 13 21 12.5523 21 12C21 11.4477 20.5523 11 20 11H4C3.44772 11 3 11.4477 3 12ZM4 6C3.44772 6 3 6.44772 3 7C3 7.55228 3.44772 8 4 8H20C20.5523 8 21 7.55228 21 7C21 6.44772 20.5523 6 20 6H4Z" fill="white" />
                 <path d="M3 17C3 17.5523 3.44772 18 4 18H20C20.5523 18 21 17.5523 21 17C21 16.4477 20.5523 16 20 16H4C3.44772 16 3 16.4477 3 17ZM3 12C3 12.5523 3.44772 13 4 13H20C20.5523 13 21 12.5523 21 12C21 11.4477 20.5523 11 20 11H4C3.44772 11 3 11.4477 3 12ZM4 6C3.44772 6 3 6.44772 3 7C3 7.55228 3.44772 8 4 8H20C20.5523 8 21 7.55228 21 7C21 6.44772 20.5523 6 20 6H4Z" fill="white" />
@@ -115,8 +131,11 @@
           </ul>
         </nav>
       </template>
+      <template #search>
+        <SearchWithoutButtonWithRightIcon class="hidden w-full small:block justify-self-end" :value="searchValue" placeholder="Search" :disabled="false" />
+      </template>
       <template #icons>
-        <li class="hidden medium:block">
+        <li class="hidden small:block">
           <button
             v-focus
             aria-label="Cart"
@@ -149,7 +168,7 @@
             </span>
           </button>
         </li>
-        <li class="hidden mx-1 medium:block">
+        <li class="hidden mx-1 small:block">
           <button
             v-focus
             aria-label="Wishlist"
@@ -224,6 +243,7 @@
 import NavbarBottom from '../components/NavbarBottom/NavbarBottomBranded.vue';
 import FooterBase from '../components/FooterBase.vue';
 import NavbarTop from '../components/NavbarTop/NavbarTopBrandedCounter.vue';
+import SearchWithoutButtonWithRightIcon from '../components/Search/SearchWithoutButtonWithRightIcon.vue';
 import { focus } from '../utils/focus-directive.js';
 
 export default {
@@ -231,7 +251,8 @@ export default {
   components: {
     NavbarBottom,
     FooterBase,
-    NavbarTop
+    NavbarTop,
+    SearchWithoutButtonWithRightIcon
   },
   directives: {
     focus

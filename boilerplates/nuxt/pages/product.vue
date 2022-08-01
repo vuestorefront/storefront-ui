@@ -1,6 +1,6 @@
 <template>
   <div>
-    <BreadcrumbsBase :breadcrumbs="breadcrumbs" class="px-4 my-4" />
+    <!-- <BreadcrumbsBase :breadcrumbs="breadcrumbs" class="px-4 my-4" /> -->
     <div class="large:grid large:grid-cols-[minmax(615px,_1fr)_minmax(315px,_613px)]">
       <GalleryBase :gallery-images="galleryImages" class="px-4" />
       <div class="p-4 bg-white border-gray-100 rounded-md justify-self-start medium:p-6 large:p-4 large:mx-4 extra-large:p-6 shadow-large large:sticky large:self-start large:top-0">
@@ -124,7 +124,7 @@
         <SelectBase
           :options="selectOptions"
           label="Feature with long descriptions"
-          class="w-full my-4 large:w-96"
+          class="w-full my-4 medium:w-80 large:w-96"
         />
         <span class="block mb-2 text-base font-medium leading-6 text-gray-900 font-body">Color</span>
         <ChipsBase v-for="(color, i) in colors" :key="`${color}-${i}`" :value="color" class="mr-2" />
@@ -270,7 +270,7 @@
 
 <script>
 import { ref } from '@nuxtjs/composition-api';
-import BreadcrumbsBase from '../components/Breadcrumbs/BreadcrumbsBase.vue';
+// import BreadcrumbsBase from '../components/Breadcrumbs/BreadcrumbsBase.vue';
 import RatingBase from '../components/Rating/RatingBase.vue';
 import DividerBase from '../components/Divider/DividerBase.vue';
 import SelectBase from '../components/Select/SelectBase.vue';
@@ -286,7 +286,7 @@ import AddToCart from '../components/AddToCart.vue';
 export default {
   name: 'ProductPage',
   components: {
-    BreadcrumbsBase,
+    // BreadcrumbsBase,
     RatingBase,
     DividerBase,
     SelectBase,
@@ -295,7 +295,6 @@ export default {
     GalleryBase,
     RecommendedProducts,
     AddToCart,
-    // QuantitySelector,
     CustomerReview,
     TagIconLeft,
     ChipsBase
