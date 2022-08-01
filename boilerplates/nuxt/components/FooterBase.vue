@@ -1,7 +1,7 @@
 <template>
   <footer class="mb-[56px] small:mb-0 pt-10 bg-gray-100">
     <div class="grid grid-cols-[1fr_1fr] medium:grid-cols-[1fr_1fr_1fr_1fr] px-4 medium:px-6 pb-10">
-      <div v-for="({category, subcategories}, i) in categories" :key="`${category}-${i}`" class="min-w-[172px]">
+      <div v-for="({category, subcategories}, i) in categories" :key="`${category}-${i}`" class="min-w-[120px] extra-small:min-w-[172px]">
         <div class="pb-2 text-lg font-medium leading-7 text-gray-900 font-body">
           {{ category }}
         </div>

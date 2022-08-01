@@ -101,6 +101,7 @@ const Template = (args, { argTypes }) => ({
       :required="required"
       :help-text="helpText"
       :error-text="errorText"
+      class="w-80"
     />`
 });
 
