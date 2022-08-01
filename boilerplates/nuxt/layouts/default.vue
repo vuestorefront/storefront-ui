@@ -30,6 +30,7 @@
             viewBox="0 0 205 28"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            alt="Vue Storefront logo"
             class="hidden 2-extra-small:block small:hidden large:block 2-extra-large:!block"
           >
             <path
