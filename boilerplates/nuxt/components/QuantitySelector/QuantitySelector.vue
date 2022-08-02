@@ -37,6 +37,7 @@
       </div>
       <ButtonBase
         class="rounded-l-none fill-primary-500 disabled:fill-gray-500/50 disabled:pointer-events-none"
+        :class="size === 'base' ? 'w-10 h-10' : 'h-12 w-12'"
         type="tertiary"
         :disabled="quantity === qtyInStock || disabled"
         aria-controls="quantity-selector"
@@ -60,7 +61,7 @@
     </div>
     <div v-else class="text-xs font-medium font-body text-negative-600">
       <span>
-        Out of stock
+        {{ emptyStockMsg }}
       </span>
     </div>
   </div>
@@ -105,6 +106,10 @@ export default {
           'lg'
         ].includes(value);
       }
+    },
+    emptyStockMsg: {
+      type: String,
+      default: 'Out of stock'
     }
   },
   setup(props, { emit }) {

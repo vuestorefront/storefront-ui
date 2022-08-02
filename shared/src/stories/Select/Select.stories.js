@@ -56,6 +56,9 @@ export default {
     options: {
       control: 'object',
       defaultValue: [],
+      table: {
+        category: 'Props'
+      },
       description: 'Array of strings'
     },
     label: {
@@ -98,6 +101,7 @@ const Template = (args, { argTypes }) => ({
       :required="required"
       :help-text="helpText"
       :error-text="errorText"
+      class="w-80"
     />`
 });
 

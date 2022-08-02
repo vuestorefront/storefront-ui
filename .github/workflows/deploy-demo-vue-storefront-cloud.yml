@@ -75,3 +75,13 @@ jobs:
           description: Unfortunately, the instance hasn't been updated.
           state: "failure"
           deployment_id: ${{ steps.deployment.outputs.deployment_id }}
+  tests:
+    steps:
+    - uses: actions/checkout@v2
+
+    - uses: SpeedCurve-Metrics/speedcurve-test-action@v1.2.1
+      with:
+        api_key: ${{ secrets.SPEEDCURVE_API_KEY }}
+        url_id: 
+          750101
+          

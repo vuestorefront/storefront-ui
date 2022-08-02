@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex items-center h-6 text-base font-normal pointer-events-none fill-warning-500 font-body"
+    class="flex items-center h-6 font-normal pointer-events-none fill-warning-500 font-body"
   >
     <svg
       v-for="fill in filled"
@@ -60,7 +60,7 @@
         'text-xs': size === 'xs',
         'text-sm': size === 'sm',
         'text-base': size === 'base',
-        'text-lg': size === 'lg' || 'xl' || '2xl'
+        'text-lg': size === 'lg' || size === 'xl' || size === '2xl'
       }"
     >
       ({{ reviews }})

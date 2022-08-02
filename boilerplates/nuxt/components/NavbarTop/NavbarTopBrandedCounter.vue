@@ -1,5 +1,5 @@
 <template>
-  <header class="grid grid-cols-[min-content_min-content_1fr] small:grid-cols-[min-content_min-content_minmax(250px,_1fr)_max-content] w-full items-center grid-flow-col bg-brand py-2 px-4 medium:px-10 medium:py-5">
+  <header class="grid grid-cols-[min-content_min-content_1fr] small:grid-cols-[min-content_min-content_min_content] w-full items-center grid-flow-col bg-brand py-2 pl-4 p-2 medium:px-4 small:py-5 2-extra-large:!px-10">
     <slot name="logo">
       <a
         v-focus
@@ -105,7 +105,7 @@
         </svg>
       </a>
     </slot>
-    <div class="items-center mx-4 medium:mx-10">
+    <div class="items-center mx-4">
       <slot name="menu">
         <nav>
           <ul class="justify-center hidden px-2 large:flex">
@@ -167,7 +167,7 @@
     <slot name="search">
       <SearchWithoutButtonWithRightIcon class="hidden w-full small:block justify-self-end medium:ml-10" :value="value" placeholder="Search" :disabled="isSearchDisabled" />
     </slot>
-    <ul class="flex items-center self-end justify-self-end medium:ml-10">
+    <ul class="flex items-center justify-self-end small:ml-4">
       <slot name="icons">
         <li>
           <button

@@ -1,11 +1,11 @@
 import { shallowMount } from '@vue/test-utils';
-import ChipsBase from '../../components/Chips/ChipsBase.vue';
+import ProductCard from '../../components/ProductCard/ProductCard.vue';
 
 let wrapper;
 
-describe('ChipsBase.vue', () => {
+describe('ProductCard.vue', () => {
   beforeEach(() => {
-    wrapper = shallowMount(ChipsBase);
+    wrapper = shallowMount(ProductCard);
   });
   it('render component correctly', () => {
     expect(wrapper.html()).toMatchSnapshot();

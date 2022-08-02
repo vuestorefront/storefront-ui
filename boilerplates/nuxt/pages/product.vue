@@ -1,12 +1,14 @@
 <template>
   <div>
-    <BreadcrumbsBase :breadcrumbs="breadcrumbs" class="px-4 my-4" />
+    <!-- <BreadcrumbsBase :breadcrumbs="breadcrumbs" class="px-4 my-4" /> -->
     <div class="large:grid large:grid-cols-[minmax(615px,_1fr)_minmax(315px,_613px)]">
       <GalleryBase :gallery-images="galleryImages" class="px-4" />
       <div class="p-4 bg-white border-gray-100 rounded-md justify-self-start medium:p-6 large:p-4 large:mx-4 extra-large:p-6 shadow-large large:sticky large:self-start large:top-0">
-        <TagIconLeft class="hidden mb-4 large:inline-flex">
-          {{ productSale }}
-        </TagIconLeft>
+        <TagBadge class="hidden mb-4 large:inline-flex" :label="productSale" type="info">
+          <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11.0684 1.68739C11.0684 0.835179 9.97087 0.513987 9.48747 1.22047C5.05273 7.70266 11.3548 7.99449 11.3548 11.1455C11.3548 12.4213 10.3125 13.4537 9.03271 13.4368C7.77337 13.4207 6.77148 12.3709 6.77148 11.1115V8.04963C6.77148 7.27262 5.82367 6.89557 5.28799 7.45881C4.32943 8.46572 3.33398 10.1906 3.33398 12.2914C3.33398 16.0823 6.41807 19.1664 10.209 19.1664C13.9999 19.1664 17.084 16.0823 17.084 12.2914C17.084 6.19374 11.0684 5.38056 11.0684 1.68739Z" fill="white"/>
+          </svg>
+        </TagBadge>
         <h1 class="mb-1 text-lg font-bold leading-6 text-gray-900">
           {{ productName }}
         </h1>
@@ -120,19 +122,31 @@
           <span class="block mb-2 text-base font-medium leading-6 text-gray-900 font-body">Size</span>
           <a class="text-sm font-normal leading-5 text-gray-500 underline font-body" href="/">Size chart</a>
         </div>
-        <ChipsBase v-for="(size, i) in sizes" :key="`${size}-${i}`" :value="size" class="mr-2" />
+        <ChipsInput v-for="(size, i) in sizes" :key="`${size}-${i}`" :value="size" class="mr-2" />
         <SelectBase
           :options="selectOptions"
           label="Feature with long descriptions"
-          class="w-full my-4 large:w-96"
+          class="w-full my-4 medium:w-80 large:w-96"
         />
         <span class="block mb-2 text-base font-medium leading-6 text-gray-900 font-body">Color</span>
-        <ChipsBase v-for="(color, i) in colors" :key="`${color}-${i}`" :value="color" class="mr-2" />
+        <ChipsInput v-for="(color, i) in colors" :key="`${color}-${i}`" :value="color.name" class="mr-2">
+          <template #icon>
+            <svg
+              class="w-full h-full fill-gray-500"
+              :class="color.value"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"/>
+            </svg>
+          </template>
+        </ChipsInput>
         <DividerBase class="my-4" />
         <AccordionBase
           :expanded="openedAccordions.acc1"
-          button-text="Product details"
+          header-text="Product details"
           class="!w-full"
+          header-size="xl"
           @toggle="openedAccordions.acc1 = !openedAccordions.acc1"
         >
           <span>
@@ -168,8 +182,9 @@
         <DividerBase class="my-4" />
         <AccordionBase
           :expanded="openedAccordions.acc2"
-          button-text="Delivery and returns"
+          header-text="Delivery and returns"
           class="mb-2"
+          header-size="xl"
           @toggle="openedAccordions.acc2 = !openedAccordions.acc2"
         >
           <table class="w-full mb-4 mt-2 rounded-md table-fixed border-hidden shadow-[0_0_0_1px_rgb(228,228,231,1)]">
@@ -213,8 +228,9 @@
         <AccordionBase
           id="customer-reviews"
           :expanded="openedAccordions.acc3"
-          button-text="Customer reviews"
+          header-text="Customer reviews"
           class="my-4"
+          header-size="xl"
           @toggle="openedAccordions.acc3 = !openedAccordions.acc3"
         >
           <CustomerReview
@@ -270,7 +286,7 @@
 
 <script>
 import { ref } from '@nuxtjs/composition-api';
-import BreadcrumbsBase from '../components/Breadcrumbs/BreadcrumbsBase.vue';
+// import BreadcrumbsBase from '../components/Breadcrumbs/BreadcrumbsBase.vue';
 import RatingBase from '../components/Rating/RatingBase.vue';
 import DividerBase from '../components/Divider/DividerBase.vue';
 import SelectBase from '../components/Select/SelectBase.vue';
@@ -279,14 +295,14 @@ import ButtonBase from '../components/Button/ButtonBase.vue';
 import GalleryBase from '../components/GalleryBase.vue';
 import RecommendedProducts from '../components/RecommendedProducts.vue';
 import CustomerReview from '../components/CustomerReview.vue';
-import TagIconLeft from '../components/Tag/TagIconLeft.vue';
-import ChipsBase from '../components/Chips/ChipsBase.vue';
+import TagBadge from '../components/Tag/TagBadge.vue';
+import ChipsInput from '../components/ChipsInput/ChipsInput.vue';
 import AddToCart from '../components/AddToCart.vue';
 
 export default {
   name: 'ProductPage',
   components: {
-    BreadcrumbsBase,
+    // BreadcrumbsBase,
     RatingBase,
     DividerBase,
     SelectBase,
@@ -295,10 +311,9 @@ export default {
     GalleryBase,
     RecommendedProducts,
     AddToCart,
-    // QuantitySelector,
     CustomerReview,
-    TagIconLeft,
-    ChipsBase
+    TagBadge,
+    ChipsInput
   },
   setup() {
     const productName = 'Mini Foldable Drone with HD Camera FPV Wifi RC Quadcopter';
@@ -339,11 +354,26 @@ export default {
     const quantityInStock = ref(999);
     const minQuantity = ref(0);
     const colors = [
-      'Navy',
-      'Dark Blue',
-      'Classic',
-      'Light Blue',
-      'Washed'
+      {
+        name: 'Navy',
+        value: 'black'
+      },
+      {
+        name: 'Dark Blue',
+        value: 'fill-sky-700'
+      },
+      {
+        name: 'Classic',
+        value: 'fill-gray-500 opacity-50'
+      },
+      {
+        name: 'Light Blue',
+        value: 'fill-blue-300'
+      },
+      {
+        name: 'Washed',
+        value: 'fill-blue-100'
+      }
     ];
     const sizes = [
       'xs',

@@ -10,7 +10,7 @@
       :required="required"
       :checked="isChecked"
       class="w-5 h-5 mt-px border-2 border-gray-500 rounded-full appearance-none cursor-pointer peer hover:border-primary-500 checked:bg-primary-500 checked:border-primary-500 checked:shadow-inset disabled:cursor-not-allowed disabled:border-gray-500/50 outline-violet"
-      :class="{'border-negative-600': invalid }"
+      :class="{'border-negative-600': invalid, '!border-gray-500 opacity-50': disabled, '!border-gray-500 !bg-gray-500 opacity-50': isChecked & disabled }"
       @change="changeHandler"
       @input="inputHandler"
     >

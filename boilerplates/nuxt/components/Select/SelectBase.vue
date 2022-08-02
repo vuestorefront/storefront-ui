@@ -1,5 +1,5 @@
 <template>
-  <div class="relative w-80">
+  <div class="relative">
     <div class="after:absolute box-border flex flex-col font-body after:pointer-events-none after:content-['<>'] after:top-[42px] after:right-[14px] after:rotate-90 after:font-base after:text-xl after:text-gray-500 after:z-0">
       <select
         id="select"
@@ -23,7 +23,7 @@
           :key="`${option}-${key}`"
           :selected="selected === value"
           class="font-[Arial] bg-gray-300"
-          value="option1"
+          :value="option"
         >
           {{ option }}
         </option>

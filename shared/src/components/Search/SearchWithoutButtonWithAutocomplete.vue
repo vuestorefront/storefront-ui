@@ -9,12 +9,13 @@
         type="search"
         :disabled="disabled"
         class="w-full h-10 pl-12 text-gray-900 border border-gray-200 rounded-md disabled:bg-gray-100 disabled:pointer-events-none disabled:opacity-50 peer hover:border-primary-500 active:border-2 remove-default-styling outline-violet"
+        :class="{ '!pl-4': innerIconRight }"
         :placeholder="placeholder"
         aria-label="search"
       >
       <span
         class="absolute hidden fill-gray-500 top-2 right-2"
-        :class="{'!flex': !!inputValue}"
+        :class="{ '!flex': !!inputValue, '!right-12': innerIconRight }"
         @click="handleCancel"
       >
         <svg
@@ -30,7 +31,7 @@
       <slot>
         <span
           class="absolute pointer-events-none fill-gray-500 top-2 left-4"
-          :class="{ 'opacity-50': disabled }"
+          :class="{ 'opacity-50': disabled, 'left-auto !right-4': innerIconRight }"
         >
           <svg
             width="24"
@@ -130,6 +131,10 @@ export default {
       default: ''
     },
     loading: {
+      type: Boolean,
+      default: false
+    },
+    innerIconRight: {
       type: Boolean,
       default: false
     }
