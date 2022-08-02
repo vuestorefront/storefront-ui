@@ -76,8 +76,10 @@ jobs:
           state: "failure"
           deployment_id: ${{ steps.deployment.outputs.deployment_id }}
   tests:
+    runs-on: ubuntu-latest
+    needs: deploy
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v1
 
     - uses: SpeedCurve-Metrics/speedcurve-test-action@v1.2.1
       with:
