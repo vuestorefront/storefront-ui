@@ -37,7 +37,6 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    '@nuxtjs/composition-api/module',
     '@vueuse/nuxt'
   ],
 
@@ -48,13 +47,20 @@ export default {
         tailwindcss: {},
         autoprefixer: {}
       }
+    },
+    extend(config) {
+      config.module.rules.push({
+        test: /\.mjs$/,
+        include: /node_modules/,
+        type: 'javascript/auto'
+      });
     }
   },
   storybook: {
     addons: [
     ],
     stories: [
-      '~/stories/**/*.stories.js'
+      '~/components/**/*.stories.js'
     ],
     webpackFinal(config) {
       return config;

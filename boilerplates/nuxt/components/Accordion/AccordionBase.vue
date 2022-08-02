@@ -44,8 +44,8 @@
 </template>
 
 <script>
-import { getCurrentInstance, ref, onMounted } from '@nuxtjs/composition-api';
-import ButtonBase from '../Button/ButtonBase.vue';
+import { getCurrentInstance, ref, onMounted } from '@vue/composition-api';
+import ButtonBase from '../Button/ButtonBase/ButtonBase.vue';
 
 export default {
   name: 'AccordionBase',

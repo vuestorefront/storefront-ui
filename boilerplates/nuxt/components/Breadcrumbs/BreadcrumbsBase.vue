@@ -88,7 +88,7 @@
   </nav>
 </template>
 <script>
-import { ref, watch, computed } from '@nuxtjs/composition-api';
+import { ref, watch, computed } from '@vue/composition-api';
 import { useElementSize, useWindowSize, onClickOutside } from '@vueuse/core';
 import { focus } from '../../utils/focus-directive.js';
 

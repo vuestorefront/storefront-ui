@@ -28,7 +28,7 @@
   </div>
 </template>
 <script>
-import { computed } from '@nuxtjs/composition-api';
+import { computed } from '@vue/composition-api';
 import { focus } from '../../utils/focus-directive.js';
 
 export default {

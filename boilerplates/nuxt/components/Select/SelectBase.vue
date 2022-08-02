@@ -45,7 +45,7 @@
 </template>
 
 <script>
-import { ref } from '@nuxtjs/composition-api';
+import { ref } from '@vue/composition-api';
 import { focus } from '../../utils/focus-directive.js';
 
 export default {

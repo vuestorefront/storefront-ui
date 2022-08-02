@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import RatingBase from '../components/Rating/RatingBase.vue';
+import RatingBase from './Rating/RatingBase/RatingBase.vue';
 
 export default {
   name: 'ProductCard',

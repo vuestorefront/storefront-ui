@@ -68,8 +68,8 @@
 </template>
 
 <script>
-import { computed, ref, watchEffect } from '@nuxtjs/composition-api';
-import ButtonBase from '../Button/ButtonBase.vue';
+import { computed, ref, watchEffect } from '@vue/composition-api';
+import ButtonBase from '../Button/ButtonBase/ButtonBase.vue';
 import { focus } from '../../utils/focus-directive.js';
 
 export default {

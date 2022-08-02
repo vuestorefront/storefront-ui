@@ -6,7 +6,7 @@
       <div class="p-4 bg-white border-gray-100 rounded-md justify-self-start medium:p-6 large:p-4 large:mx-4 extra-large:p-6 shadow-large large:sticky large:self-start large:top-0">
         <TagBadge class="hidden mb-4 large:inline-flex" :label="productSale" type="info">
           <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path d="M11.0684 1.68739C11.0684 0.835179 9.97087 0.513987 9.48747 1.22047C5.05273 7.70266 11.3548 7.99449 11.3548 11.1455C11.3548 12.4213 10.3125 13.4537 9.03271 13.4368C7.77337 13.4207 6.77148 12.3709 6.77148 11.1115V8.04963C6.77148 7.27262 5.82367 6.89557 5.28799 7.45881C4.32943 8.46572 3.33398 10.1906 3.33398 12.2914C3.33398 16.0823 6.41807 19.1664 10.209 19.1664C13.9999 19.1664 17.084 16.0823 17.084 12.2914C17.084 6.19374 11.0684 5.38056 11.0684 1.68739Z" fill="white"/>
+            <path d="M11.0684 1.68739C11.0684 0.835179 9.97087 0.513987 9.48747 1.22047C5.05273 7.70266 11.3548 7.99449 11.3548 11.1455C11.3548 12.4213 10.3125 13.4537 9.03271 13.4368C7.77337 13.4207 6.77148 12.3709 6.77148 11.1115V8.04963C6.77148 7.27262 5.82367 6.89557 5.28799 7.45881C4.32943 8.46572 3.33398 10.1906 3.33398 12.2914C3.33398 16.0823 6.41807 19.1664 10.209 19.1664C13.9999 19.1664 17.084 16.0823 17.084 12.2914C17.084 6.19374 11.0684 5.38056 11.0684 1.68739Z" fill="white" />
           </svg>
         </TagBadge>
         <h1 class="mb-1 text-lg font-bold leading-6 text-gray-900">
@@ -137,7 +137,7 @@
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"/>
+              <path d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" />
             </svg>
           </template>
         </ChipsInput>
@@ -285,17 +285,17 @@
 </template>
 
 <script>
-import { ref } from '@nuxtjs/composition-api';
+import { ref } from '@vue/composition-api';
 // import BreadcrumbsBase from '../components/Breadcrumbs/BreadcrumbsBase.vue';
-import RatingBase from '../components/Rating/RatingBase.vue';
+import RatingBase from '../components/Rating/RatingBase/RatingBase.vue';
 import DividerBase from '../components/Divider/DividerBase.vue';
 import SelectBase from '../components/Select/SelectBase.vue';
 import AccordionBase from '../components/Accordion/AccordionBase.vue';
-import ButtonBase from '../components/Button/ButtonBase.vue';
+import ButtonBase from '../components/Button/ButtonBase/ButtonBase.vue';
 import GalleryBase from '../components/GalleryBase.vue';
 import RecommendedProducts from '../components/RecommendedProducts.vue';
 import CustomerReview from '../components/CustomerReview.vue';
-import TagBadge from '../components/Tag/TagBadge.vue';
+import TagBadge from '../components/Tag/TagBadge/TagBadge.vue';
 import ChipsInput from '../components/ChipsInput/ChipsInput.vue';
 import AddToCart from '../components/AddToCart.vue';
 
