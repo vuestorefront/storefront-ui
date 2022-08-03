@@ -16,5 +16,5 @@ jobs:
           api_key: ${{ secrets.SPEEDCURVE_API_KEY }}
           url_id: 
             750101
-            note: commit ${{ github.event.deployment.sha }} from deployment ${{ github.event.deployment_status.deployment.url }}
+          note: commit ${{ github.event.deployment.sha }} from deployment ${{ github.event.deployment_status.deployment.url }}
           
