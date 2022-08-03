@@ -1,4 +1,4 @@
-name: Speedcurve performance test
+name: "Speedcurve performance test"
 on:
   deployment_status
 
