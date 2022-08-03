@@ -8,8 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 'Wait for container deployed on VSF Cloud to come online'
-          run: 'sleep 300'
-          shell: 'bash'
+        run: 'sleep 300'
+        shell: 'bash'
       - name: 'Ask SpeedCurve to run performance tests'
         uses: SpeedCurve-Metrics/speedcurve-test-action@v1.2.1
         with:
