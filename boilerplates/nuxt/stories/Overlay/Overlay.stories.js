@@ -9,7 +9,7 @@ export default {
     docs: {
       description: {
         component:
-          'The divider component. [link to component docs on the page]'
+          'The overlay component. [link to component docs on the page]'
       }
     }
   }
