@@ -1,0 +1,20 @@
+name: Speedcurve performance test
+on:
+  deployment_status
+
+jobs:  
+  speedcurve:
+    if: github.event.deployment_status.state == 'success'
+    runs-on: ubuntu-latest
+    steps:
+    - name: 'Wait for container deployed on VSF Cloud to come online'
+        run: 'sleep 300'
+        shell: 'bash'
+    - name: 'Ask SpeedCurve to run performance tests'
+      uses: SpeedCurve-Metrics/speedcurve-test-action@v1.2.1
+      with:
+        api_key: ${{ secrets.SPEEDCURVE_API_KEY }}
+        url_id: 
+          750101
+          note: commit ${{ github.event.deployment.sha }}
+          
