@@ -45,10 +45,11 @@ jobs:
         name: Create GitHub deployment
         id: deployment
         with:
-          token: "${{ github.token }}"
+          deployment_status_token: ${{ secrets.DEPLOYMENT_PERSONAL_ACCESS_TOKEN }}
+          token: ${{ deployment_status_token }}
           target_url: https://demo.storefrontui.io
           environment: production
-          initial_status: in_progress
+          initial_status: in_progress          
       - name: Deploy to demo.storefrontui.io
         run: |
           if curl -s -H 'X-User-Id: ${{ secrets.CLOUD_USERNAME }}'  -H 'X-Api-Key: ${{ secrets.CLOUD_PASSWORD }}' -H 'Content-Type: application/json' -X PATCH -d '{"front_version":"${{ steps.get_version.outputs.VERSION }}"}' https://farmer.vuestorefront.cloud/instance/sfui-demo-europe-west1-gcp-storefrontcloud-io | grep -q '"code":200'; then
@@ -61,27 +62,19 @@ jobs:
         if: success()
         uses: chrnorm/deployment-status@releases/v1
         with:
-          token: "${{ github.token }}"
+          deployment_status_token: ${{ secrets.DEPLOYMENT_PERSONAL_ACCESS_TOKEN }}
+          token: "${{ deployment_status_token }}"
           target_url: https://demo.storefrontui.io
           state: "success"
           description: Congratulations! The deploy is done.
-          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
+          
       - name: Update deployment status (failure)
         if: failure()
         uses: chrnorm/deployment-status@releases/v1
         with:
-          token: "${{ github.token }}"
+          deployment_status_token: ${{ secrets.DEPLOYMENT_PERSONAL_ACCESS_TOKEN }}
+          token: "${{ deployment_status_token }}"
           target_url: https://demo.storefrontui.io
           description: Unfortunately, the instance hasn't been updated.
           state: "failure"
           deployment_id: ${{ steps.deployment.outputs.deployment_id }}
-  tests:
-    steps:
-    - uses: actions/checkout@v2
-
-    - uses: SpeedCurve-Metrics/speedcurve-test-action@v1.2.1
-      with:
-        api_key: ${{ secrets.SPEEDCURVE_API_KEY }}
-        url_id: 
-          750101
-          
