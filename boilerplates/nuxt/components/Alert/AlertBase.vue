@@ -1,7 +1,7 @@
 <template>
   <div
     role="alert"
-    class="flex flex-wrap justify-between w-[360px] min-h-[56px] pl-4 pr-4 pt-3.5 pb-3.5 rounded-md shadow-medium border"
+    class="flex flex-wrap justify-between min-h-[3.5rem] pl-4 pr-4 pt-3.5 pb-3.5 rounded-md shadow-medium border"
     :class="{
       'bg-secondary-100 border-secondary-400': type === 'info',
       'bg-primary-100 border-primary-400': type === 'positive',

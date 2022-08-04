@@ -70,6 +70,7 @@ const Template = (args, { argTypes }) => ({
       :icon="icon"
       :persistent="persistent"
       :type="type"
+      class="small:w-[22.5rem]"
     />
     `
 });
