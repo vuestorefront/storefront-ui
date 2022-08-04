@@ -1,5 +1,5 @@
 <template>
-  <div class="relative max-w-[320px] combobox combobox-list">
+  <div class="relative max-w-[20rem] combobox combobox-list">
     <div
       class="inline-flex items-center w-full border border-gray-300 rounded-md hover:border-primary-400 active:border-2 p-[1px] focus-within:border-2 focus-within:border-primary-500 focus-within:p-0 active:p-0"
       :class="{'!border-negative-600 border-2': invalid, 'bg-gray-100/50 cursor-not-allowed border-gray-200/50 hover:border-gray-200/50': disabled}"
@@ -10,8 +10,8 @@
         v-focus
         :disabled="disabled"
         :required="required"
-        class="flex-1 py-3 pl-4 rounded-md peer font-body text-gray-900 disabled:text-gray-900/40 outline-violet active:pt-[18px] active:pb-[6px] focus:pt-[18px] focus:pb-[6px] disabled:cursor-not-allowed"
-        :class="{'pt-[18px] pb-[6px]': comboboxValue || placeholder}"
+        class="flex-1 py-3 pl-4 rounded-md peer font-body text-gray-900 disabled:text-gray-900/40 outline-violet active:pt-[1.125rem] active:pb-[0.375rem] focus:pt-[1.125rem] focus:pb-[0.375rem] disabled:cursor-not-allowed"
+        :class="{'pt-[1.125rem] pb-[0.375rem]': comboboxValue || placeholder, '!py-2': labelOutside || !label }"
         type="text"
         role="combobox"
         :placeholder="placeholder"
@@ -26,9 +26,10 @@
       >
       <slot name="label">
         <label
+          v-if="label"
           for="combobox-input"
           class="pl-4 text-gray-500 font-normal absolute top-0 translate-y-[55%] pointer-events-none peer-active:translate-y-1 peer-active:text-xs peer-active:font-medium peer-focus:font-medium peer-focus:translate-y-1 peer-focus:text-xs peer-required:after:content-['*'] transition-all ease-in-out"
-          :class="{'text-xs translate-y-1 font-medium': comboboxValue || placeholder, 'text-gray-500/50': disabled}"
+          :class="{'text-xs translate-y-1 font-medium': comboboxValue || placeholder, 'text-gray-500/50': disabled, '!-translate-y-5 !text-sm pl-0 transition-none': labelOutside}"
         >
           {{ label }}
         </label>
@@ -126,7 +127,7 @@
     > {{ errorText }}
     </span>
     <span
-      class="block text-xs mt-[2px] text-gray-500 font-body"
+      class="block text-xs mt-[0.125rem] text-gray-500 font-body"
       :class="{'opacity-50': disabled}"
     > {{ helpText }}
     </span>
@@ -153,6 +154,10 @@ export default {
     label: {
       type: String,
       default: ''
+    },
+    labelOutside: {
+      type: Boolean,
+      default: false
     },
     helpText: {
       type: String,

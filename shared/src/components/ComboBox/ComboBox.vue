@@ -11,7 +11,7 @@
         :disabled="disabled"
         :required="required"
         class="flex-1 py-3 pl-4 rounded-md peer font-body text-gray-900 disabled:text-gray-900/40 outline-violet active:pt-[18px] active:pb-[6px] focus:pt-[18px] focus:pb-[6px] disabled:cursor-not-allowed"
-        :class="{'pt-[18px] pb-[6px]': comboboxValue || placeholder}"
+        :class="{'pt-[18px] pb-[6px]': comboboxValue || placeholder, '!py-2': labelOutside || !label }"
         type="text"
         role="combobox"
         :placeholder="placeholder"
@@ -26,9 +26,10 @@
       >
       <slot name="label">
         <label
+          v-if="label"
           for="combobox-input"
           class="pl-4 text-gray-500 font-normal absolute top-0 translate-y-[55%] pointer-events-none peer-active:translate-y-1 peer-active:text-xs peer-active:font-medium peer-focus:font-medium peer-focus:translate-y-1 peer-focus:text-xs peer-required:after:content-['*'] transition-all ease-in-out"
-          :class="{'text-xs translate-y-1 font-medium': comboboxValue || placeholder, 'text-gray-500/50': disabled}"
+          :class="{'text-xs translate-y-1 font-medium': comboboxValue || placeholder, 'text-gray-500/50': disabled, '!-translate-y-5 !text-sm pl-0 transition-none': labelOutside}"
         >
           {{ label }}
         </label>
@@ -153,6 +154,10 @@ export default {
     label: {
       type: String,
       default: ''
+    },
+    labelOutside: {
+      type: Boolean,
+      default: false
     },
     helpText: {
       type: String,

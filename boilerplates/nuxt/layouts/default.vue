@@ -236,12 +236,12 @@
     </NavbarTop>
     <Nuxt />
     <FooterBase :categories="footerCategories" />
-    <NavbarBottom class="small:hidden" />
+    <NavbarBottom class="small:hidden" type="secondary" />
   </div>
 </template>
 
 <script>
-import NavbarBottom from '../components/NavbarBottom/NavbarBottomBranded.vue';
+import NavbarBottom from '../components/NavbarBottom/NavbarBottom.vue';
 import FooterBase from '../components/FooterBase.vue';
 import NavbarTop from '../components/NavbarTop/NavbarTopBrandedCounter.vue';
 import SearchWithoutButtonWithRightIcon from '../components/Search/SearchWithoutButtonWithRightIcon.vue';

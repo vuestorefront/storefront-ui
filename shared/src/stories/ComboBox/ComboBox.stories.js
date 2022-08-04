@@ -1,6 +1,5 @@
 
 import ComboBox from '../../components/ComboBox/ComboBox.vue';
-import ComboBoxLabelOutside from '../../components/ComboBox/ComboBoxLabelOutside.vue';
 
 const colors = [
   'red',
@@ -113,6 +112,17 @@ export default {
       },
       defaultValue: '',
       description: 'Combo box value'
+    },
+    labelOutside: {
+      control: 'boolean',
+      table: {
+        category: 'Props',
+        defaultValue: {
+          summary: false
+        }
+      },
+      defaultValue: false,
+      description: 'Move label position over the input field.'
     }
   }
 };
@@ -149,6 +159,7 @@ const Template = (args, { argTypes }) => ({
       :error-text="errorText"
       :value="inputValue"
       :filtered-options="filterOptions(inputValue)"
+      :labelOutside="labelOutside"
       @change="(val) => inputValue = val"
       @selected="(val) => inputValue = val"
     />
@@ -160,113 +171,5 @@ export const Base = Template.bind({});
 Base.args = {
   label: 'Label',
   helpText: 'Help text',
-  errorText: 'error text'
-};
-
-export const WithPlaceholder = (args, { argTypes }) => ({
-  components: { ComboBox },
-  props: Object.keys(argTypes),
-  methods: {
-    filterOptions(comboboxValue) {
-      return this.colors.filter(el => el.toLowerCase().includes(comboboxValue.toLowerCase()));
-    }
-  },
-  data() {
-    return {
-      inputValue: ''
-    };
-  },
-  template: `
-  <ComboBox 
-    :options="colors" 
-    :required="required"
-    :disabled="disabled"
-    :invalid="invalid"
-    :placeholder="placeholder"
-    :label="label"
-    :help-text="helpText"
-    :error-text="errorText"
-    :value="inputValue"
-    :filtered-options="filterOptions(inputValue)"
-    @change="(val) => inputValue = val"
-    @selected="(val) => inputValue = val"
-  />`
-});
-
-WithPlaceholder.args = {
-  ...Base.args,
-  placeholder: 'Placeholder text',
-  colors
-};
-
-export const LabelOutside = (args, { argTypes }) => ({
-  components: { ComboBoxLabelOutside },
-  props: Object.keys(argTypes),
-  methods: {
-    filterOptions(comboboxValue) {
-      return this.colors.filter(el => el.toLowerCase().includes(comboboxValue.toLowerCase()));
-    }
-  },
-  data() {
-    return {
-      inputValue: ''
-    };
-  },
-  template: `
-  <ComboBoxLabelOutside
-    :options="colors" 
-    :required="required"
-    :disabled="disabled"
-    :invalid="invalid"
-    :placeholder="placeholder"
-    :label="label"
-    :help-text="helpText"
-    :error-text="errorText"
-    :value="inputValue"
-    :filtered-options="filterOptions(inputValue)"
-    @change="(val) => inputValue = val"
-    @selected="(val) => inputValue = val"
-    class="mt-3"
-  />`
-});
-
-LabelOutside.args = {
-  ...Base.args,
-  colors
-};
-
-export const WithoutLabel = (args, { argTypes }) => ({
-  components: { ComboBoxLabelOutside },
-  props: Object.keys(argTypes),
-  methods: {
-    filterOptions(comboboxValue) {
-      return this.colors.filter(el => el.toLowerCase().includes(comboboxValue.toLowerCase()));
-    }
-  },
-  data() {
-    return {
-      inputValue: 'red'
-    };
-  },
-  template: `
-  <ComboBoxLabelOutside
-    :options="colors" 
-    :required="required"
-    :disabled="disabled"
-    :invalid="invalid"
-    :placeholder="placeholder"
-    :label="label"
-    :help-text="helpText"
-    :error-text="errorText"
-    :value="inputValue"
-    :filtered-options="filterOptions(inputValue)"
-    @change="(val) => inputValue = val"
-    @selected="(val) => inputValue = val"
-  />`
-});
-
-WithoutLabel.args = {
-  ...Base.args,
-  colors,
-  label: ''
+  errorText: 'error text',
 };
