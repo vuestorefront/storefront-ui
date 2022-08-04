@@ -45,8 +45,7 @@ jobs:
         name: Create GitHub deployment
         id: deployment
         with:
-          deployment_status_token: ${{ secrets.DEPLOYMENT_PERSONAL_ACCESS_TOKEN }}
-          token: ${{ deployment_status_token }}
+          token: ${{ secrets.DEPLOYMENT_PERSONAL_ACCESS_TOKEN }}
           target_url: https://demo.storefrontui.io
           environment: production
           initial_status: in_progress          
@@ -62,8 +61,7 @@ jobs:
         if: success()
         uses: chrnorm/deployment-status@releases/v1
         with:
-          deployment_status_token: ${{ secrets.DEPLOYMENT_PERSONAL_ACCESS_TOKEN }}
-          token: "${{ deployment_status_token }}"
+          token: "${{ secrets.DEPLOYMENT_PERSONAL_ACCESS_TOKEN }}"
           target_url: https://demo.storefrontui.io
           state: "success"
           description: Congratulations! The deploy is done.
@@ -72,8 +70,7 @@ jobs:
         if: failure()
         uses: chrnorm/deployment-status@releases/v1
         with:
-          deployment_status_token: ${{ secrets.DEPLOYMENT_PERSONAL_ACCESS_TOKEN }}
-          token: "${{ deployment_status_token }}"
+          token: "${{ secrets.DEPLOYMENT_PERSONAL_ACCESS_TOKEN }}"
           target_url: https://demo.storefrontui.io
           description: Unfortunately, the instance hasn't been updated.
           state: "failure"
