@@ -1,5 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 import BreadcrumbsBase from './BreadcrumbsBase.vue';
+
 let wrapper;
 
 describe('BreadcrumbsBase.vue', () => {

@@ -1,5 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 import SelectBase from './SelectBase.vue';
+
 let wrapper;
 
 describe('SelectBase.vue', () => {

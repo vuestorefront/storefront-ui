@@ -1,4 +1,3 @@
-
 import AlertBase from './AlertBase.vue';
 
 export default {
@@ -8,56 +7,56 @@ export default {
     docs: {
       description: {
         component:
-          'The alert component. [link to component docs on the page]'
-      }
-    }
+          'The alert component. [link to component docs on the page]',
+      },
+    },
   },
   argTypes: {
     persistent: {
       control: 'boolean',
       defaultValue: false,
       table: {
-        category: 'Props'
+        category: 'Props',
       },
-      description: 'Persistence of the Alert. Default value is false.'
+      description: 'Persistence of the Alert. Default value is false.',
     },
     icon: {
       control: 'boolean',
       defaultValue: false,
       table: {
-        category: 'Props'
+        category: 'Props',
       },
-      description: 'Visibility of icon.'
+      description: 'Visibility of icon.',
     },
     type: {
       control: 'select',
       defaultValue: 'info',
       options: ['info', 'positive', 'warning', 'error'],
       table: {
-        category: 'Props'
+        category: 'Props',
       },
       description:
-        'Type of alert. Changes border, background and color of icon'
+        'Type of alert. Changes border, background and color of icon',
     },
     header: {
       control: 'text',
       defaultValue: '',
       table: {
-        category: 'Props'
+        category: 'Props',
       },
       description:
-        'Header of alert'
+        'Header of alert',
     },
     description: {
       control: 'text',
       defaultValue: '',
       table: {
-        category: 'Props'
+        category: 'Props',
       },
       description:
-        'Description of alert'
-    }
-  }
+        'Description of alert',
+    },
+  },
 };
 
 const Template = (args, { argTypes }) => ({
@@ -72,12 +71,12 @@ const Template = (args, { argTypes }) => ({
       :type="type"
       class="small:w-[22.5rem]"
     />
-    `
+    `,
 });
 
 export const Base = Template.bind({});
 
 Base.args = {
   header: 'Header',
-  description: 'Informative text'
+  description: 'Informative text',
 };

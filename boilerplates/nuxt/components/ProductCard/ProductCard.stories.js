@@ -9,100 +9,100 @@ export default {
     docs: {
       description: {
         component:
-          'The product card component. [link to component docs on the page]'
-      }
-    }
+          'The product card component. [link to component docs on the page]',
+      },
+    },
   },
   argTypes: {
     label: {
       control: 'text',
       defaultValue: '',
       table: {
-        category: 'Props'
+        category: 'Props',
       },
       description:
-        'Label for product card'
+        'Label for product card',
     },
     image: {
       control: 'text',
       defaultValue: '',
       table: {
-        category: 'Props'
+        category: 'Props',
       },
       description:
-        'Image of product'
+        'Image of product',
     },
     alt: {
       control: 'text',
       defaultValue: '',
       table: {
-        category: 'Props'
+        category: 'Props',
       },
       description:
-        'Alt text for product image'
+        'Alt text for product image',
     },
     link: {
       control: 'text',
       defaultValue: '/',
       table: {
-        category: 'Props'
+        category: 'Props',
       },
       description:
-        'Link for a tag to product site'
+        'Link for a tag to product site',
     },
     badge: {
       control: 'text',
       defaultValue: '',
       table: {
-        category: 'Props'
+        category: 'Props',
       },
       description:
-        'Text visible on a top badge'
+        'Text visible on a top badge',
     },
     price: {
       control: 'text',
       defaultValue: '',
       table: {
-        category: 'Props'
+        category: 'Props',
       },
       description:
-        'Product price'
+        'Product price',
     },
     oldPrice: {
       control: 'text',
       defaultValue: '',
       table: {
-        category: 'Props'
+        category: 'Props',
       },
       description:
-        'Old product price'
+        'Old product price',
     },
     description: {
       control: 'text',
       defaultValue: '',
       table: {
-        category: 'Props'
+        category: 'Props',
       },
       description:
-        'Product description. Visible only on `lg` size'
+        'Product description. Visible only on `lg` size',
     },
     shippingDetails: {
       control: 'text',
       defaultValue: '',
       table: {
-        category: 'Props'
+        category: 'Props',
       },
       description:
-        'Details about shipping. Visible only on `lg` size and with product description filled in'
+        'Details about shipping. Visible only on `lg` size and with product description filled in',
     },
     returnsDetails: {
       control: 'text',
       defaultValue: '',
       table: {
-        category: 'Props'
+        category: 'Props',
       },
       description:
-        'Details about returns. Visible only on `lg` size and with product description filled in'
+        'Details about returns. Visible only on `lg` size and with product description filled in',
     },
     size: {
       control: 'radio',
@@ -111,60 +111,60 @@ export default {
       table: {
         category: 'Props',
         defaultValue: {
-          summary: 'base'
-        }
+          summary: 'base',
+        },
       },
-      description: 'Size of product card'
+      description: 'Size of product card',
     },
     outOfStock: {
       control: 'boolean',
       defaultValue: false,
       table: {
-        category: 'Props'
+        category: 'Props',
       },
       description:
-        'Shows if product is out of stock'
+        'Shows if product is out of stock',
     },
     ratingValue: {
       control: 'number',
       defaultValue: '',
       table: {
-        category: 'Props'
+        category: 'Props',
       },
       description:
-        'Rating value for product'
+        'Rating value for product',
     },
     maxRatingValue: {
       control: 'number',
       defaultValue: 5,
       table: {
-        category: 'Props'
+        category: 'Props',
       },
       description:
-        'Maximum number of rating stars'
+        'Maximum number of rating stars',
     },
     reviews: {
       control: 'number',
       defaultValue: 0,
       table: {
-        category: 'Props'
+        category: 'Props',
       },
       description:
-        'Number of reviews for product'
+        'Number of reviews for product',
     },
     inCart: {
       control: 'number',
       defaultValue: '',
       table: {
-        category: 'Props'
+        category: 'Props',
       },
       description:
-        'Shows number of product added to cart'
-    }
+        'Shows number of product added to cart',
+    },
   },
   args: {
-    image: productCardImg
-  }
+    image: productCardImg,
+  },
 };
 
 const Template = (args, { argTypes }) => ({
@@ -189,7 +189,7 @@ const Template = (args, { argTypes }) => ({
         :shippingDetails="shippingDetails"
         :returnsDetails="returnsDetails"
     />
-    `
+    `,
 });
 
 export const Base = Template.bind({});
@@ -206,7 +206,7 @@ Base.args = {
   maxRatingValue: 5,
   description: 'There are many variations of passages of Lorem Ipsum available',
   shippingDetails: 'Free shipping, arrives by Thu, Apr 7',
-  returnsDetails: 'Free 30-Day returns'
+  returnsDetails: 'Free 30-Day returns',
 };
 
 const PCWithButton = (args, { argTypes }) => ({
@@ -231,12 +231,12 @@ const PCWithButton = (args, { argTypes }) => ({
         :shippingDetails="shippingDetails"
         :returnsDetails="returnsDetails"
       />
-    `
+    `,
 });
 
 export const WithButton = PCWithButton.bind({});
 
 WithButton.args = {
-  ...Base.args
+  ...Base.args,
 
 };

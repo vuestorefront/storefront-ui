@@ -16,7 +16,12 @@
         >
       </button>
     </div>
-    <img src="~/assets/images/gallery/gallery.webp" alt="product 1" width="668" height="691">
+    <img
+      src="~/assets/images/gallery/gallery.webp"
+      alt="product 1"
+      width="668"
+      height="691"
+    >
   </div>
 </template>
 
@@ -27,8 +32,8 @@ export default {
   props: {
     galleryImages: {
       type: Array,
-      default: () => []
-    }
-  }
+      default: () => [],
+    },
+  },
 };
 </script>

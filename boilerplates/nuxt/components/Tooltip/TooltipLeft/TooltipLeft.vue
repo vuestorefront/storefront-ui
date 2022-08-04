@@ -11,7 +11,10 @@
       class="absolute left-0 items-center hidden ml-32 group-hover:flex"
     >
       <div class="w-2 h-2 -mr-1 rotate-45 bg-gray-500" />
-      <div class="relative z-10 whitespace-no-wrap bg-gray-500 font-body font-medium text-white text-sm leading-5 rounded-md px-3 py-1.5">
+      <div
+        class="relative z-10 whitespace-no-wrap bg-gray-500 font-body
+      font-medium text-white text-sm leading-5 rounded-md px-3 py-1.5"
+      >
         {{ label }}
       </div>
     </div>
@@ -20,16 +23,17 @@
 
 <script>
 import ButtonBase from '../../Button/ButtonBase/ButtonBase.vue';
+
 export default {
   name: 'TooltipLeft',
   components: {
-    ButtonBase
+    ButtonBase,
   },
   props: {
     label: {
       type: String,
-      default: ''
-    }
-  }
+      default: '',
+    },
+  },
 };
 </script>

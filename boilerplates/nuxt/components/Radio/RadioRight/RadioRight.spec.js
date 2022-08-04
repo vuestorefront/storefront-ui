@@ -10,8 +10,8 @@ describe('RadioRight.vue', () => {
     wrapper = shallowMount(RadioRight, {
       propsData: {
         name,
-        id
-      }
+        id,
+      },
     });
   });
   it('render component correctly', () => {

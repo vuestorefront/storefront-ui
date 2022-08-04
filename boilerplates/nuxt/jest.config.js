@@ -1,17 +1,17 @@
 module.exports = {
   setupFiles: [
-    '<rootDir>/jest.setup.js'
+    '<rootDir>/jest.setup.js',
   ],
   testEnvironment: 'jsdom',
   moduleFileExtensions: ['js', 'json', 'vue'],
   transform: {
     '.*\\.js$': 'babel-jest',
-    '.*\\.(vue)$': '@vue/vue2-jest'
+    '.*\\.(vue)$': '@vue/vue2-jest',
   },
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/$1',
     '^~/(.*)$': '<rootDir>/$1',
-    '^vue$': 'vue/dist/vue.common.js'
+    '^vue$': 'vue/dist/vue.common.js',
   },
   snapshotSerializers: ['jest-serializer-vue'],
   testMatch: ['<rootDir>/components/**/*.spec.js'],
@@ -21,7 +21,7 @@ module.exports = {
   coverageReporters: ['text', 'html'],
   coverageThreshold: {
     global: {
-      lines: 80
-    }
-  }
+      lines: 80,
+    },
+  },
 };

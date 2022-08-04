@@ -1,5 +1,9 @@
 <template>
-  <header class="grid grid-cols-[min-content_min-content_1fr] small:grid-cols-[min-content_min-content_minmax(250px,_1fr)_max-content] w-full items-center grid-flow-col bg-brand py-2 px-4 medium:px-10 medium:py-5">
+  <header
+    class="grid grid-cols-[min-content_min-content_1fr]
+  small:grid-cols-[min-content_min-content_minmax(250px,_1fr)_max-content] w-full items-center
+  grid-flow-col bg-brand py-2 px-4 medium:px-10 medium:py-5"
+  >
     <slot name="logo">
       <a
         v-focus
@@ -7,6 +11,7 @@
         class="flex items-center rounded-md outline-violet"
         aria-label="VSF Homepage"
       >
+        <!-- eslint-disable max-len -->
         <svg
           width="40"
           height="40"
@@ -25,6 +30,9 @@
             fill="white"
           />
         </svg>
+        <!-- eslint-enable max-len -->
+
+        <!-- eslint-disable max-len -->
         <svg
           width="205"
           height="28"
@@ -103,6 +111,8 @@
             fill="white"
           />
         </svg>
+        <!-- eslint-enable max-len -->
+
       </a>
     </slot>
     <div class="items-center mx-4 medium:mx-10">
@@ -113,7 +123,8 @@
               <a
                 v-focus
                 href="/"
-                class="p-2 text-base font-medium text-white bg-transparent rounded-md cursor-pointer font-body hover:bg-green-600 active:bg-green-600 outline-violet"
+                class="p-2 text-base font-medium text-white bg-transparent rounded-md cursor-pointer font-body
+                hover:bg-green-600 active:bg-green-600 outline-violet"
               >
                 Men
               </a>
@@ -122,7 +133,8 @@
               <a
                 v-focus
                 href="/"
-                class="p-2 text-base font-medium text-white bg-transparent rounded-md cursor-pointer font-body hover:bg-green-600 active:bg-green-600 outline-violet"
+                class="p-2 text-base font-medium text-white bg-transparent rounded-md cursor-pointer
+                font-body hover:bg-green-600 active:bg-green-600 outline-violet"
               >
                 Women
               </a>
@@ -131,7 +143,8 @@
               <a
                 v-focus
                 href="/"
-                class="p-2 text-base font-medium text-white bg-transparent rounded-md cursor-pointer font-body hover:bg-green-600 active:bg-green-600 outline-violet"
+                class="p-2 text-base font-medium text-white bg-transparent rounded-md cursor-pointer
+                font-body hover:bg-green-600 active:bg-green-600 outline-violet"
               >
                 Kids
               </a>
@@ -140,8 +153,12 @@
         </nav>
         <button
           v-focus
-          class="group inline-flex large:hidden items-center justify-center pr-[16px] pl-[14px] py-2 text-base font-medium text-white bg-transparent rounded-md cursor-pointer hover:bg-primary-600 active:bg-primary-600 disabled:bg-transparent disabled:text-gray-500 disabled:opacity-50 font-body outline-violet"
+          class="group inline-flex large:hidden items-center justify-center pr-[16px] pl-[14px] py-2
+          text-base font-medium text-white bg-transparent rounded-md cursor-pointer hover:bg-primary-600
+          active:bg-primary-600 disabled:bg-transparent disabled:text-gray-500 disabled:opacity-50
+          font-body outline-violet"
         >
+          <!-- eslint-disable max-len -->
           <svg
             width="25"
             height="24"
@@ -157,6 +174,7 @@
               d="M3.66675 17C3.66675 17.5523 4.11446 18 4.66675 18H20.6667C21.219 18 21.6667 17.5523 21.6667 17C21.6667 16.4477 21.219 16 20.6667 16H4.66675C4.11446 16 3.66675 16.4477 3.66675 17ZM3.66675 12C3.66675 12.5523 4.11446 13 4.66675 13H20.6667C21.219 13 21.6667 12.5523 21.6667 12C21.6667 11.4477 21.219 11 20.6667 11H4.66675C4.11446 11 3.66675 11.4477 3.66675 12ZM4.66675 6C4.11446 6 3.66675 6.44772 3.66675 7C3.66675 7.55228 4.11446 8 4.66675 8H20.6667C21.219 8 21.6667 7.55228 21.6667 7C21.6667 6.44772 21.219 6 20.6667 6H4.66675Z"
             />
           </svg>
+          <!-- eslint-enable max-len -->
 
           <span class="ml-2 whitespace-nowrap">
             Menu
@@ -165,7 +183,12 @@
       </slot>
     </div>
     <slot name="search">
-      <SearchWithoutButtonWithRightIcon class="hidden w-full small:block justify-self-end medium:ml-10" :value="value" placeholder="Search" :disabled="isSearchDisabled" />
+      <SearchWithoutButtonWithRightIcon
+        class="hidden w-full small:block justify-self-end medium:ml-10"
+        :value="value"
+        placeholder="Search"
+        :disabled="isSearchDisabled"
+      />
     </slot>
     <ul class="flex items-center self-end justify-self-end medium:ml-10">
       <slot name="icons">
@@ -173,9 +196,13 @@
           <button
             v-focus
             aria-label="Cart"
-            class="inline-flex items-center justify-center p-2 text-base font-medium text-green-500 bg-transparent rounded-md cursor-pointer hover:bg-green-600 active:bg-green-600 disabled:bg-transparent hover:text-green-600 active:text-green-700 disabled:text-gray-500 disabled:opacity-50 font-body outline-violet"
+            class="inline-flex items-center justify-center p-2 text-base font-medium text-green-500 bg-transparent
+            rounded-md cursor-pointer hover:bg-green-600 active:bg-green-600 disabled:bg-transparent
+            hover:text-green-600 active:text-green-700 disabled:text-gray-500 disabled:opacity-50 font-body
+            outline-violet"
           >
             <span class="relative">
+              <!-- eslint-disable max-len -->
               <svg
                 width="24"
                 height="24"
@@ -196,6 +223,9 @@
                   d="M1 3C1 2.44772 1.44772 2 2 2H4.30673C5.47087 2 6.48094 2.80352 6.74271 3.93785L6.98782 5H19.5788C21.2053 5 22.3987 6.52847 22.0042 8.10634L20.2542 15.1063C19.976 16.2193 18.976 17 17.8288 17H9.69327C8.52913 17 7.51906 16.1965 7.25729 15.0621L4.79393 4.38757C4.74157 4.1607 4.53956 4 4.30673 4H2C1.44772 4 1 3.55228 1 3ZM7.44936 7L9.20607 14.6124C9.25843 14.8393 9.46044 15 9.69327 15H17.8288C18.0583 15 18.2583 14.8439 18.3139 14.6213L20.0639 7.62127C20.1428 7.30569 19.9041 7 19.5788 7H7.44936Z"
                 />
               </svg>
+              <!-- eslint-enable max-len -->
+
+              <!-- eslint-disable max-len -->
               <svg
                 class="absolute bottom-5 left-5"
                 width="12"
@@ -209,6 +239,8 @@
                   fill="white"
                 />
               </svg>
+              <!-- eslint-enable max-len -->
+
             </span>
           </button>
         </li>
@@ -216,9 +248,13 @@
           <button
             v-focus
             aria-label="Wishlist"
-            class="inline-flex items-center justify-center p-2 text-base font-medium text-green-500 bg-transparent rounded-md cursor-pointer hover:bg-green-600 active:bg-green-600 disabled:bg-transparent hover:text-green-600 active:text-green-700 disabled:text-gray-500 disabled:opacity-50 font-body outline-violet"
+            class="inline-flex items-center justify-center p-2 text-base font-medium text-green-500
+            bg-transparent rounded-md cursor-pointer hover:bg-green-600 active:bg-green-600
+            disabled:bg-transparent hover:text-green-600 active:text-green-700 disabled:text-gray-500
+            disabled:opacity-50 font-body outline-violet"
           >
             <span class="relative">
+              <!-- eslint-disable max-len -->
               <svg
                 width="24"
                 height="24"
@@ -233,6 +269,9 @@
                   d="M19.6641 4.99065C17.0241 3.19065 13.7641 4.03065 12.0041 6.09065C10.2441 4.03065 6.98412 3.18065 4.34412 4.99065C2.94412 5.95065 2.06412 7.57065 2.00412 9.28065C1.86412 13.1607 5.30412 16.2707 10.5541 21.0407L10.6541 21.1307C11.4141 21.8207 12.5841 21.8207 13.3441 21.1207L13.4541 21.0207C18.7041 16.2607 22.1341 13.1507 22.0041 9.27065C21.9441 7.57065 21.0641 5.95065 19.6641 4.99065ZM12.1041 19.5507L12.0041 19.6507L11.9041 19.5507C7.14412 15.2407 4.00412 12.3907 4.00412 9.50065C4.00412 7.50065 5.50412 6.00065 7.50412 6.00065C9.04412 6.00065 10.5441 6.99065 11.0741 8.36065H12.9441C13.4641 6.99065 14.9641 6.00065 16.5041 6.00065C18.5041 6.00065 20.0041 7.50065 20.0041 9.50065C20.0041 12.3907 16.8641 15.2407 12.1041 19.5507Z"
                 />
               </svg>
+              <!-- eslint-enable max-len -->
+
+              <!-- eslint-disable max-len -->
               <svg
                 class="absolute bottom-5 left-5"
                 width="12"
@@ -246,6 +285,8 @@
                   fill="white"
                 />
               </svg>
+              <!-- eslint-enable max-len -->
+
             </span>
           </button>
         </li>
@@ -253,8 +294,11 @@
           <button
             v-focus
             aria-label="Log in"
-            class="inline-flex items-center justify-center p-2 text-base font-medium text-white bg-transparent rounded-md cursor-pointer group hover:bg-green-600 active:bg-green-600 disabled:bg-transparent disabled:text-gray-500 disabled:opacity-50 font-body outline-violet"
+            class="inline-flex items-center justify-center p-2 text-base font-medium text-white
+            bg-transparent rounded-md cursor-pointer group hover:bg-green-600 active:bg-green-600
+            disabled:bg-transparent disabled:text-gray-500 disabled:opacity-50 font-body outline-violet"
           >
+            <!-- eslint-disable max-len -->
             <svg
               width="24"
               height="24"
@@ -270,6 +314,8 @@
                 d="M19.8 22C19.2 22 18.8 21.6 18.8 21C18.8 17.5 15.9 14.6 12.4 14.6C8.9 14.6 6 17.5 6 21C6 21.6 5.6 22 5 22C4.4 22 4 21.6 4 21C4 16.4 7.8 12.6 12.4 12.6C17 12.6 20.8 16.4 20.8 21C20.8 21.6 20.3 22 19.8 22Z"
               />
             </svg>
+            <!-- eslint-enable max-len -->
+
             <span class="hidden ml-2 whitespace-nowrap large:block">
               Log in
             </span>
@@ -282,23 +328,27 @@
 
 <script>
 import { ref } from '@vue/composition-api';
-import { focus } from '../../../utils/focus-directive.js';
+import focus from '../../../utils/focus-directive';
+
 import SearchWithoutButtonWithRightIcon from '../../Search/SearchWithoutButtonWithRightIcon/SearchWithoutButtonWithRightIcon.vue';
 
 export default {
   name: 'NavbarTopBranded',
   directives: {
-    focus
+    focus,
+  },
+  component: {
+    SearchWithoutButtonWithRightIcon,
   },
   props: {
     searchDisabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     searchValue: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
   setup(props) {
     const value = ref(props.searchValue);
@@ -307,8 +357,7 @@ export default {
     return {
       value,
       isSearchDisabled,
-      SearchWithoutButtonWithRightIcon
     };
-  }
+  },
 };
 </script>

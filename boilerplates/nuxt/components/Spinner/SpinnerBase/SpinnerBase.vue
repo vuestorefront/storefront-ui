@@ -7,7 +7,7 @@
       'w-10 h-10': size === 'lg',
       'w-14 h-14': size === 'xl',
       'w-24 h-24': size === '2xl',
-      'w-48 h-48': size === '3xl',
+      'w-48 h-48': size === '3xl'
     }"
     role="progressbar"
   >
@@ -24,7 +24,7 @@
         'w-10 h-10 border-2': size === 'lg',
         'w-14 h-14 border-[3px]': size === 'xl',
         'w-24 h-24 border-4': size === '2xl',
-        'w-48 h-48 border-8': size === '3xl',
+        'w-48 h-48 border-8': size === '3xl'
       }"
       class="absolute bg-transparent border-gray-200 rounded-full"
       aria-hidden="true"
@@ -36,7 +36,7 @@
         'w-10 h-10 border-2': size === 'lg',
         'w-14 h-14 border-[3px]': size === 'xl',
         'w-24 h-24 border-4': size === '2xl',
-        'w-48 h-48 border-8': size === '3xl',
+        'w-48 h-48 border-8': size === '3xl'
       }"
       class="absolute bg-transparent rounded-[50%] is-animation-stopped animate-spin-base border-t-primary-600"
       aria-hidden="true"
@@ -48,9 +48,11 @@
         'w-10 h-10 border-2': size === 'lg',
         'w-14 h-14 border-[3px]': size === 'xl',
         'w-24 h-24 border-4': size === '2xl',
-        'w-48 h-48 border-8': size === '3xl',
+        'w-48 h-48 border-8': size === '3xl'
       }"
-      class="absolute bg-transparent rounded-[50%] is-animation-stopped animate-spin-base animation-delay-1 border-t-primary-600 border-x-transparent border-b-transparent"
+      class="absolute bg-transparent rounded-[50%] is-animation-stopped
+      animate-spin-base animation-delay-1 border-t-primary-600 border-x-transparent
+      border-b-transparent"
       aria-hidden="true"
     />
     <div
@@ -60,9 +62,11 @@
         'w-10 h-10 border-2': size === 'lg',
         'w-14 h-14 border-[3px]': size === 'xl',
         'w-24 h-24 border-4': size === '2xl',
-        'w-48 h-48 border-8': size === '3xl',
+        'w-48 h-48 border-8': size === '3xl'
       }"
-      class="absolute bg-transparent rounded-[50%] is-animation-stopped animate-spin-base animation-delay-2 border-t-primary-600 border-x-transparent border-b-transparent"
+      class="absolute bg-transparent rounded-[50%] is-animation-stopped
+      animate-spin-base animation-delay-2 border-t-primary-600 border-x-transparent
+      border-b-transparent"
       aria-hidden="true"
     />
     <div
@@ -72,9 +76,10 @@
         'w-10 h-10 border-2': size === 'lg',
         'w-14 h-14 border-[3px]': size === 'xl',
         'w-24 h-24 border-4': size === '2xl',
-        'w-48 h-48 border-8': size === '3xl',
+        'w-48 h-48 border-8': size === '3xl'
       }"
-      class="absolute bg-transparent rounded-[50%] is-animation-stopped animate-spin-base animation-delay-3 border-t-primary-600 border-x-transparent border-b-transparent"
+      class="absolute bg-transparent rounded-[50%] is-animation-stopped animate-spin-base
+      animation-delay-3 border-t-primary-600 border-x-transparent border-b-transparent"
       aria-hidden="true"
     />
   </div>
@@ -94,13 +99,14 @@ export default {
           'lg',
           'xl',
           '2xl',
-          '3xl'
+          '3xl',
         ].includes(value);
-      }
-    }
-  }
+      },
+    },
+  },
 };
 </script>
+
 <style scoped>
 .is-animation-stopped {
   @media screen and (prefers-reduced-motion: reduce) {
@@ -108,12 +114,12 @@ export default {
   }
 }
 .animation-delay-1 {
-  animation-delay: -0.45s !important;
+  animation-delay: -.45s !important;
 }
 .animation-delay-2 {
-  animation-delay: -0.30s !important;
+  animation-delay: -.30s !important;
 }
 .animation-delay-3 {
-  animation-delay: -0.15s !important;
+  animation-delay: -.15s !important;
 }
 </style>

@@ -1,5 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 import SearchBase from './SearchBase.vue';
+
 let wrapper;
 
 describe('SearchBase.vue', () => {

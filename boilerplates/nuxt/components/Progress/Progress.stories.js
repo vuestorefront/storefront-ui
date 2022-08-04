@@ -2,7 +2,7 @@ import Progress3Xl from './Progress3Xl/Progress3Xl.vue';
 import ProgressXl from './ProgressXl/ProgressXl.vue';
 import Progress2Xl from './Progress2Xl/Progress2Xl.vue';
 import ProgressLg from './ProgressLg/ProgressLg.vue';
-import ProgressSm from './/ProgressSm/ProgressSm.vue';
+import ProgressSm from './ProgressSm/ProgressSm.vue';
 import ProgressBase from './ProgressBase/ProgressBase.vue';
 import ProgressLinear from './ProgressLinear/ProgressLinear.vue';
 
@@ -13,17 +13,17 @@ export default {
     docs: {
       description: {
         component:
-          'The progress component. [link to component docs on the page]'
-      }
-    }
+          'The progress component. [link to component docs on the page]',
+      },
+    },
   },
   argTypes: {
     value: {
       control: 'number',
       defaultValue: '0',
-      description: 'Progress value'
-    }
-  }
+      description: 'Progress value',
+    },
+  },
 };
 
 const Template = (args, { argTypes }) => ({
@@ -33,12 +33,12 @@ const Template = (args, { argTypes }) => ({
     ProgressLg,
     ProgressXl,
     Progress2Xl,
-    Progress3Xl
+    Progress3Xl,
   },
   props: Object.keys(argTypes),
   data() {
     return {
-      progressValue: 0
+      progressValue: 0,
     };
   },
   methods: {
@@ -47,13 +47,13 @@ const Template = (args, { argTypes }) => ({
         if (this.progressValue >= 100) {
           this.clearProgress();
         } else {
-          this.progressValue = this.progressValue + 10;
+          this.progressValue += 10;
         }
       }, 1000);
     },
     clearProgress() {
       clearInterval(this.loadProgress);
-    }
+    },
   },
   mounted() {
     this.loadProgress();
@@ -66,7 +66,7 @@ const Template = (args, { argTypes }) => ({
     <ProgressXl :value="progressValue" />
     <Progress2Xl :value="progressValue" />
     <Progress3Xl :value="progressValue" />
-  </div>`
+  </div>`,
 });
 
 export const Progress = Template.bind({});
@@ -76,7 +76,7 @@ const LinearProgress = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   data() {
     return {
-      progressValue: 0
+      progressValue: 0,
     };
   },
   methods: {
@@ -85,13 +85,13 @@ const LinearProgress = (args, { argTypes }) => ({
         if (this.progressValue >= 100) {
           this.clearProgress();
         } else {
-          this.progressValue = this.progressValue + 10;
+          this.progressValue += 10;
         }
       }, 1000);
     },
     clearProgress() {
       clearInterval(this.loadProgress);
-    }
+    },
   },
   mounted() {
     this.loadProgress();
@@ -101,6 +101,6 @@ const LinearProgress = (args, { argTypes }) => ({
     <ProgressLinear :value="progressValue" class="mb-5 h-6" />
     <ProgressLinear :value="progressValue" class="mb-5 h-1" />
   </div>
-  `
+  `,
 });
 export const Linear = LinearProgress.bind({});

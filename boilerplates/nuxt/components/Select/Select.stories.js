@@ -7,9 +7,9 @@ export default {
     docs: {
       description: {
         component:
-          'The base select component. [link to component docs on the page]'
-      }
-    }
+          'The base select component. [link to component docs on the page]',
+      },
+    },
   },
   argTypes: {
     value: {
@@ -17,75 +17,75 @@ export default {
       table: {
         category: 'Props',
         defaultValue: {
-          summary: ''
-        }
+          summary: '',
+        },
       },
       defaultValue: '',
-      description: 'Value selected.'
+      description: 'Value selected.',
     },
     required: {
       control: 'boolean',
       table: {
         category: 'Props',
         defaultValue: {
-          summary: false
-        }
+          summary: false,
+        },
       },
       defaultValue: false,
-      description: 'Required field.'
+      description: 'Required field.',
     },
     disabled: {
       control: 'boolean',
       defaultValue: false,
       table: {
-        category: 'Props'
+        category: 'Props',
       },
-      description: 'Disables select.'
+      description: 'Disables select.',
     },
     invalid: {
       control: 'boolean',
       table: {
         category: 'Props',
         defaultValue: {
-          summary: false
-        }
+          summary: false,
+        },
       },
       defaultValue: false,
-      description: 'Shows error message value of form select when true.'
+      description: 'Shows error message value of form select when true.',
     },
     options: {
       control: 'object',
       defaultValue: [],
       table: {
-        category: 'Props'
+        category: 'Props',
       },
-      description: 'Array of strings'
+      description: 'Array of strings',
     },
     label: {
       control: 'text',
       table: {
-        category: 'Props'
+        category: 'Props',
       },
       defaultValue: '',
-      description: 'Select label'
+      description: 'Select label',
     },
     helpText: {
       control: 'text',
       table: {
-        category: 'Props'
+        category: 'Props',
       },
       defaultValue: '',
-      description: 'Help text that can be visible below select'
+      description: 'Help text that can be visible below select',
     },
     errorText: {
       control: 'text',
       table: {
-        category: 'Props'
+        category: 'Props',
       },
       defaultValue: '',
-      description: 'Text that displays below invalid select'
-    }
-  }
+      description: 'Text that displays below invalid select',
+    },
+  },
 };
 
 const Template = (args, { argTypes }) => ({
@@ -102,7 +102,7 @@ const Template = (args, { argTypes }) => ({
       :help-text="helpText"
       :error-text="errorText"
       class="w-80"
-    />`
+    />`,
 });
 
 export const Base = Template.bind({});
@@ -111,11 +111,11 @@ Base.args = {
   options: [
     'option 1',
     'option 2',
-    'option 3'
+    'option 3',
   ],
   invalid: false,
   required: false,
   label: 'Label',
   helpText: 'Help text',
-  errorText: 'Error text'
+  errorText: 'Error text',
 };

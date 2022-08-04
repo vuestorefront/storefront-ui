@@ -22,13 +22,13 @@ import ProductCard from './ProductCard.vue';
 export default {
   name: 'RecommendedProducts',
   components: {
-    ProductCard
+    ProductCard,
   },
   props: {
     recommendedProducts: {
       type: Array,
-      default: () => []
-    }
-  }
+      default: () => [],
+    },
+  },
 };
 </script>

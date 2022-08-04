@@ -1,4 +1,3 @@
-
 import DividerBase from './DividerBase.vue';
 
 export default {
@@ -8,17 +7,17 @@ export default {
     docs: {
       description: {
         component:
-          'The divider component. [link to component docs on the page]'
-      }
-    }
-  }
+          'The divider component. [link to component docs on the page]',
+      },
+    },
+  },
 };
 
 const Template = () => ({
   components: { DividerBase },
   template: `
     <DividerBase />
-    `
+    `,
 });
 
 export const Base = Template.bind({});

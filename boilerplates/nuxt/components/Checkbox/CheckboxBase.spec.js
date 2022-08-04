@@ -8,8 +8,8 @@ describe('CheckboxBase.vue', () => {
   beforeEach(() => {
     wrapper = shallowMount(CheckboxBase, {
       propsData: {
-        name
-      }
+        name,
+      },
     });
   });
   it('render component correctly', () => {

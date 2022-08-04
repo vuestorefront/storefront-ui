@@ -10,72 +10,72 @@ export default {
     docs: {
       description: {
         component:
-          'The base radio component. [link to component docs on the page]'
-      }
-    }
+          'The base radio component. [link to component docs on the page]',
+      },
+    },
   },
   argTypes: {
     id: {
       control: 'text',
       table: {
-        category: 'Props'
+        category: 'Props',
       },
       defaultValue: 'radio-1',
-      description: 'Radio identifier'
+      description: 'Radio identifier',
     },
     name: {
       control: 'text',
       table: {
-        category: 'Props'
+        category: 'Props',
       },
       defaultValue: 'radio',
-      description: 'Radio name'
+      description: 'Radio name',
     },
     value: {
       control: 'text',
       table: {
         category: 'Props',
         defaultValue: {
-          summary: ''
-        }
+          summary: '',
+        },
       },
       defaultValue: '',
-      description: 'Value selected.'
+      description: 'Value selected.',
     },
     selected: {
       control: 'text',
       table: {
         category: 'Props',
         type: {
-          summary: 'string'
+          summary: 'string',
         },
         defaultValue: {
-          summary: ''
-        }
+          summary: '',
+        },
       },
       defaultValue: '',
-      description: 'Value of the selected option'
+      description: 'Value of the selected option',
     },
     required: {
       control: 'boolean',
       table: {
         category: 'Props',
         defaultValue: {
-          summary: false
-        }
+          summary: false,
+        },
       },
       defaultValue: false,
-      description: 'Required field.'
+      description: 'Required field.',
     },
     disabled: {
       control: 'boolean',
       defaultValue: false,
       table: {
-        category: 'Props'
+        category: 'Props',
       },
-      description: 'Disables radio.'
-    }
-  }
+      description: 'Disables radio.',
+    },
+  },
 
 };
 
@@ -87,13 +87,13 @@ const Template = (args, { argTypes }) => ({
     :disabled="disabled"
     :required="required"
     :selected="selected"
-  />`
+  />`,
 });
 
 export const Base = Template.bind({});
 
 Base.args = {
-  selected: 'one'
+  selected: 'one',
 };
 
 const RadioRight = (args, { argTypes }) => ({
@@ -104,7 +104,7 @@ const RadioRight = (args, { argTypes }) => ({
     :disabled="disabled"
     :required="required"
     :selected="selected"
-  />`
+  />`,
 });
 export const Right = RadioRight.bind({});
 
@@ -116,12 +116,12 @@ const RadioTile = (args, { argTypes }) => ({
     :disabled="disabled"
     :required="required"
     :selected="selected"
-  />`
+  />`,
 });
 export const Tile = RadioTile.bind({});
 
 Tile.args = {
-  selected: 'two'
+  selected: 'two',
 };
 
 const RadioMultiline = (args, { argTypes }) => ({
@@ -132,7 +132,7 @@ const RadioMultiline = (args, { argTypes }) => ({
     :disabled="disabled"
     :required="required"
     :selected="selected"
-  />`
+  />`,
 });
 
 export const Multiline = RadioMultiline.bind({});

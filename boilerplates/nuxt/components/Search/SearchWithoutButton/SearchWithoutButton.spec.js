@@ -1,5 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 import SearchWithoutButton from './SearchWithoutButton.vue';
+
 let wrapper;
 
 describe('SearchWithoutButton.vue', () => {

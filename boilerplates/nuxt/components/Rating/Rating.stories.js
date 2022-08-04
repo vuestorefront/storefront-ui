@@ -1,4 +1,3 @@
-
 import RatingBase from './RatingBase/RatingBase.vue';
 import RatingWithValue from './RatingWithValue/RatingWithValue.vue';
 
@@ -9,9 +8,9 @@ export default {
     docs: {
       description: {
         component:
-          'The rating component. [link to component docs on the page]'
-      }
-    }
+          'The rating component. [link to component docs on the page]',
+      },
+    },
   },
   argTypes: {
     value: {
@@ -19,33 +18,33 @@ export default {
       table: {
         category: 'Props',
         defaultValue: {
-          summary: '0'
-        }
+          summary: '0',
+        },
       },
       defaultValue: 0,
-      description: 'Current reviews value.'
+      description: 'Current reviews value.',
     },
     max: {
       control: 'number',
       table: {
         category: 'Props',
         defaultValue: {
-          summary: '5'
-        }
+          summary: '5',
+        },
       },
       defaultValue: 5,
-      description: 'Max value of the review.'
+      description: 'Max value of the review.',
     },
     reviews: {
       control: 'number',
       table: {
         category: 'Props',
         defaultValue: {
-          summary: '0'
-        }
+          summary: '0',
+        },
       },
       defaultValue: 0,
-      description: 'Reviews counter.'
+      description: 'Reviews counter.',
     },
     size: {
       control: 'select',
@@ -54,12 +53,12 @@ export default {
       table: {
         category: 'Props',
         defaultValue: {
-          summary: 'base'
-        }
+          summary: 'base',
+        },
       },
-      description: 'Change size of the component'
-    }
-  }
+      description: 'Change size of the component',
+    },
+  },
 };
 
 const Template = (args, { argTypes }) => ({
@@ -72,7 +71,7 @@ const Template = (args, { argTypes }) => ({
       :reviews="reviews"
       :size="size"
     />
-    `
+    `,
 });
 
 export const Base = Template.bind({});
@@ -86,7 +85,7 @@ const WithValue = (args, { argTypes }) => ({
       :reviews="reviews"
       :size="size"
     />
-    `
+    `,
 });
 
 export const WithNumberValue = WithValue.bind({});

@@ -8,8 +8,8 @@ export default {
     docs: {
       description: {
         component:
-          'The component to show users that loading is underway of content. [link to component docs on the page]'
-      }
+          'The component to show users that loading is underway of content. [link to component docs on the page]',
+      },
     },
     argTypes: {
       size: {
@@ -17,36 +17,36 @@ export default {
         defaultValue: 'medium',
         options: ['sm', 'base', 'lg', 'xl', '2xl', '3xl'],
         table: {
-          category: 'Props'
+          category: 'Props',
         },
         description:
-          'Size of spinner. Changes border size, width and height of component'
-      }
-    }
-  }
+          'Size of spinner. Changes border size, width and height of component',
+      },
+    },
+  },
 };
 
 const Template = (args, { argTypes }) => ({
   components: {
-    SpinnerBase
+    SpinnerBase,
   },
   props: Object.keys(argTypes),
   template: `
   <div>
     <SpinnerBase :size="size" class="mb-2" />
-  </div>`
+  </div>`,
 });
 
 export const Base = Template.bind({});
 
 Base.args = {
-  size: 'base'
+  size: 'base',
 };
 
 const Linear = (args, { argTypes }) => ({
   components: { SpinnerLinear },
   props: Object.keys(argTypes),
-  template: '<SpinnerLinear class="w-10" />'
+  template: '<SpinnerLinear class="w-10" />',
 });
 
 export const LinearSpinner = Linear.bind({});

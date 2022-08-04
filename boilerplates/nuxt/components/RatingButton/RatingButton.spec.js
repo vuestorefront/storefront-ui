@@ -1,5 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 import RatingButton from './RatingButton.vue';
+
 let wrapper;
 
 describe('RatingButton.vue', () => {

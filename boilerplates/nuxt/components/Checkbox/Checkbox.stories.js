@@ -7,9 +7,9 @@ export default {
     docs: {
       description: {
         component:
-          'The checkbox component. [link to component docs on the page]'
-      }
-    }
+          'The checkbox component. [link to component docs on the page]',
+      },
+    },
   },
   argTypes: {
     required: {
@@ -17,72 +17,72 @@ export default {
       table: {
         category: 'Props',
         defaultValue: {
-          summary: false
-        }
+          summary: false,
+        },
       },
       defaultValue: false,
-      description: 'Required field'
+      description: 'Required field',
     },
     disabled: {
       control: 'boolean',
       defaultValue: false,
       table: {
-        category: 'Props'
+        category: 'Props',
       },
-      description: 'Disables checkbox'
+      description: 'Disables checkbox',
     },
     indeterminate: {
       control: 'boolean',
       table: {
         category: 'Props',
         defaultValue: {
-          summary: false
-        }
+          summary: false,
+        },
       },
       defaultValue: false,
-      description: 'Indeterminate state for checkbox'
+      description: 'Indeterminate state for checkbox',
     },
     invalid: {
       control: 'boolean',
       defaultValue: false,
       table: {
-        category: 'Props'
+        category: 'Props',
       },
-      description: 'Invalid state'
+      description: 'Invalid state',
     },
     label: {
       control: 'text',
       table: {
-        category: 'Props'
+        category: 'Props',
       },
       defaultValue: '',
-      description: 'Checkbox label'
+      description: 'Checkbox label',
     },
     helpText: {
       control: 'text',
       table: {
-        category: 'Props'
+        category: 'Props',
       },
       defaultValue: '',
-      description: 'Help text that can be visible below checkbox'
+      description: 'Help text that can be visible below checkbox',
     },
     errorText: {
       control: 'text',
       table: {
-        category: 'Props'
+        category: 'Props',
       },
       defaultValue: '',
-      description: 'Text that displays below invalid checkbox'
+      description: 'Text that displays below invalid checkbox',
     },
     rightCheckbox: {
       control: 'boolean',
       defaultValue: false,
       table: {
-        category: 'Props'
+        category: 'Props',
       },
-      description: 'If true description is on the left and checkbox is on the right.'
-    }
-  }
+      description: 'If true description is on the left and checkbox is on the right.',
+    },
+  },
 };
 
 const Template = (args, { argTypes }) => ({
@@ -99,7 +99,7 @@ const Template = (args, { argTypes }) => ({
       :indeterminate="indeterminate"
       :invalid="invalid"
       :rightCheckbox="rightCheckbox"
-    />`
+    />`,
 });
 
 export const Base = Template.bind({});
@@ -108,5 +108,5 @@ Base.args = {
   invalid: false,
   label: 'Label',
   helpText: 'Help text',
-  errorText: 'error text'
+  errorText: 'error text',
 };

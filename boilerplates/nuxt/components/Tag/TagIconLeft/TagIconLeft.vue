@@ -18,7 +18,7 @@
         'w-5 h-5': size === 'base'
       }"
     >
-      <slot v-bind="{ type, size }" />
+      <slot v-bind="{type, size}" />
     </div>
     <span class="ml-2"> {{ label }} </span>
   </div>
@@ -30,7 +30,7 @@ export default {
   props: {
     label: {
       type: String,
-      default: 'Label'
+      default: 'Label',
     },
     type: {
       type: String,
@@ -42,9 +42,9 @@ export default {
           'positive',
           'warning',
           'error',
-          'disabled'
+          'disabled',
         ].includes(value);
-      }
+      },
     },
     size: {
       type: String,
@@ -52,10 +52,10 @@ export default {
       validator(value) {
         return [
           'base',
-          'sm'
+          'sm',
         ].includes(value);
-      }
-    }
-  }
+      },
+    },
+  },
 };
 </script>

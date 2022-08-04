@@ -1,4 +1,3 @@
-
 import ComboBox from './ComboBox.vue';
 
 const colors = [
@@ -25,7 +24,7 @@ const colors = [
   'yellow-orange',
   'mahogany',
   'tan',
-  'light brown'
+  'light brown',
 ];
 
 export default {
@@ -35,9 +34,9 @@ export default {
     docs: {
       description: {
         component:
-          'The combo box component. [link to component docs on the page]'
-      }
-    }
+          'The combo box component. [link to component docs on the page]',
+      },
+    },
   },
   argTypes: {
     required: {
@@ -45,30 +44,30 @@ export default {
       table: {
         category: 'Props',
         defaultValue: {
-          summary: false
-        }
+          summary: false,
+        },
       },
       defaultValue: false,
-      description: 'Required field.'
+      description: 'Required field.',
     },
     disabled: {
       control: 'boolean',
       defaultValue: false,
       table: {
-        category: 'Props'
+        category: 'Props',
       },
-      description: 'Disables combo box.'
+      description: 'Disables combo box.',
     },
     invalid: {
       control: 'boolean',
       table: {
         category: 'Props',
         defaultValue: {
-          summary: false
-        }
+          summary: false,
+        },
       },
       defaultValue: false,
-      description: 'Shows error message when invalid.'
+      description: 'Shows error message when invalid.',
     },
     placeholder: {
       control: 'text',
@@ -76,55 +75,55 @@ export default {
       table: {
         category: 'Props',
         defaultValue: {
-          summary: ''
-        }
+          summary: '',
+        },
       },
-      description: 'Combo box placeholder'
+      description: 'Combo box placeholder',
     },
     label: {
       control: 'text',
       table: {
-        category: 'Props'
+        category: 'Props',
       },
       defaultValue: '',
-      description: 'Combo box label'
+      description: 'Combo box label',
     },
     helpText: {
       control: 'text',
       table: {
-        category: 'Props'
+        category: 'Props',
       },
       defaultValue: '',
-      description: 'Help text that can be visible below combo box'
+      description: 'Help text that can be visible below combo box',
     },
     errorText: {
       control: 'text',
       table: {
-        category: 'Props'
+        category: 'Props',
       },
       defaultValue: '',
-      description: 'Text that displays below invalid combo box'
+      description: 'Text that displays below invalid combo box',
     },
     value: {
       control: 'text',
       table: {
-        category: 'Props'
+        category: 'Props',
       },
       defaultValue: '',
-      description: 'Combo box value'
+      description: 'Combo box value',
     },
     labelOutside: {
       control: 'boolean',
       table: {
         category: 'Props',
         defaultValue: {
-          summary: false
-        }
+          summary: false,
+        },
       },
       defaultValue: false,
-      description: 'Move label position over the input field.'
-    }
-  }
+      description: 'Move label position over the input field.',
+    },
+  },
 };
 
 const Template = (args, { argTypes }) => ({
@@ -132,11 +131,11 @@ const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   methods: {
     delayOptionsLoad() {
-      setTimeout(() => this.delayedColors = colors, 5000);
+      setTimeout(() => { this.delayedColors = colors; }, 5000);
     },
     filterOptions(comboboxValue) {
-      return this.delayedColors.filter(el => el.toLowerCase().includes(comboboxValue.toLowerCase()));
-    }
+      return this.delayedColors.filter((el) => el.toLowerCase().includes(comboboxValue.toLowerCase()));
+    },
   },
   mounted() {
     this.delayOptionsLoad();
@@ -144,7 +143,7 @@ const Template = (args, { argTypes }) => ({
   data() {
     return {
       delayedColors: [],
-      inputValue: this.value
+      inputValue: this.value,
     };
   },
   template: `
@@ -163,7 +162,7 @@ const Template = (args, { argTypes }) => ({
       @change="(val) => inputValue = val"
       @selected="(val) => inputValue = val"
     />
-   `
+   `,
 });
 
 export const Base = Template.bind({});
@@ -171,5 +170,5 @@ export const Base = Template.bind({});
 Base.args = {
   label: 'Label',
   helpText: 'Help text',
-  errorText: 'error text'
+  errorText: 'error text',
 };

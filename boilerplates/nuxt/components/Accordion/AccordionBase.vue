@@ -3,7 +3,8 @@
     <ButtonBase
       type="secondary"
       size="large"
-      class="relative h-11 group normal-case !text-gray-900 border-none !rounded-none !shadow-none hover:shadow-none hover:!text-primary-600 hover:bg-gray-100 active:!text-gray-900 p-4 !justify-between"
+      class="relative h-11 group normal-case !text-gray-900 border-none !rounded-none !shadow-none
+      hover:shadow-none hover:!text-primary-600 hover:bg-gray-100 active:!text-gray-900 p-4 !justify-between"
       :aria-expanded="expanded"
       :aria-controls="'content-' + uid"
       @click="$emit('toggle')"
@@ -15,12 +16,13 @@
           'text-2xl font-bold': headerSize === 'xl',
           'text-lg font-bold': headerSize === 'bold',
           'text-lg font-medium': headerSize === 'lg',
-          'text-base font-medium': headerSize === 'base',
+          'text-base font-medium': headerSize === 'base'
         }"
       >
         {{ headerText }}
       </span>
-      <slot name="header" v-bind="{ expanded, chevronLeft }">
+      <slot name="header" v-bind="{expanded, chevronLeft}">
+        <!-- eslint-disable max-len -->
         <svg
           width="24"
           height="24"
@@ -31,14 +33,15 @@
         >
           <path d="M11.2407 15.1143C11.6398 15.5798 12.3601 15.5798 12.7592 15.1143L16.585 10.6508C17.141 10.0021 16.6801 9 15.8257 9H8.17417C7.31982 9 6.85891 10.0021 7.41492 10.6508L11.2407 15.1143Z" />
         </svg>
+        <!-- eslint-enable max-len -->
       </slot>
     </ButtonBase>
     <div
       :id="'content-' + uid"
       class="px-4 py-2 text-gray-500"
-      :class="{ 'hidden': !expanded }"
+      :class="{'hidden': !expanded}"
     >
-      <slot v-bind="{ expanded }" />
+      <slot v-bind="{expanded}" />
     </div>
   </div>
 </template>
@@ -50,20 +53,20 @@ import ButtonBase from '../Button/ButtonBase/ButtonBase.vue';
 export default {
   name: 'AccordionBase',
   components: {
-    ButtonBase
+    ButtonBase,
   },
   props: {
     expanded: {
       type: Boolean,
-      default: true
+      default: true,
     },
     headerText: {
       type: String,
-      default: ''
+      default: '',
     },
     chevronLeft: {
       type: Boolean,
-      default: false
+      default: false,
     },
     headerSize: {
       type: String,
@@ -73,10 +76,10 @@ export default {
           'base',
           'lg',
           'bold',
-          'xl'
+          'xl',
         ].includes(value);
-      }
-    }
+      },
+    },
   },
   setup() {
     const uid = ref(null);
@@ -86,8 +89,8 @@ export default {
     });
 
     return {
-      uid
+      uid,
     };
-  }
+  },
 };
 </script>

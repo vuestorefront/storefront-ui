@@ -1,5 +1,9 @@
 <template>
-  <a href="/" :aria-label="`Go to ${label}`" class="min-w-[148px] large:min-w-[180px] border border-gray-200 rounded-md">
+  <a
+    href="/"
+    :aria-label="`Go to ${label}`"
+    class="min-w-[148px] large:min-w-[180px] border border-gray-200 rounded-md"
+  >
     <img
       class="w-full rounded-md"
       :src="image"
@@ -26,41 +30,41 @@ import RatingBase from './Rating/RatingBase/RatingBase.vue';
 export default {
   name: 'ProductCard',
   components: {
-    RatingBase
+    RatingBase,
   },
   props: {
     image: {
       type: String,
-      default: ''
+      default: '',
     },
     alt: {
       type: String,
-      default: ''
+      default: '',
     },
     value: {
       type: Number,
-      default: 0
+      default: 0,
     },
     max: {
       type: Number,
-      default: 5
+      default: 5,
     },
     reviews: {
       type: Number,
-      default: 0
+      default: 0,
     },
     label: {
       type: String,
-      default: ''
+      default: '',
     },
     price: {
       type: String,
-      default: ''
+      default: '',
     },
     oldPrice: {
       type: String,
-      default: ''
-    }
-  }
+      default: '',
+    },
+  },
 };
 </script>

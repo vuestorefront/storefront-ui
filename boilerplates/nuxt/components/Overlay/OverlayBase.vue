@@ -4,6 +4,6 @@
 
 <script>
 export default {
-  name: 'OverlayBase'
+  name: 'OverlayBase',
 };
 </script>

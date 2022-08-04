@@ -1,5 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 import ComboBox from './ComboBox.vue';
+
 let wrapper;
 
 describe('ComboBox.vue', () => {
@@ -27,13 +28,13 @@ describe('ComboBox.vue', () => {
     'yellow-orange',
     'mahogany',
     'tan',
-    'light brown'
+    'light brown',
   ];
   beforeEach(() => {
     wrapper = shallowMount(ComboBox, {
       propsData: {
-        filteredOptions
-      }
+        filteredOptions,
+      },
     });
   });
   it('render component correctly', () => {

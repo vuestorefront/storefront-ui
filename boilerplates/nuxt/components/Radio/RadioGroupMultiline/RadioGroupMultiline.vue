@@ -28,7 +28,7 @@
     <span
       id="radio-multiline-error"
       class="block col-span-2 mt-1 text-sm font-medium text-negative-600 font-body"
-      :class="{'hidden': !isInvalid }"
+      :class="{'hidden': !isInvalid}"
     >{{ errorMessage }}</span>
   </fieldset>
 </template>
@@ -36,24 +36,25 @@
 <script>
 import { computed, ref } from '@vue/composition-api';
 import RadioMultiline from '../RadioMultiline/RadioMultiline.vue';
+
 export default {
   name: 'RadioGroupMultiline',
   components: {
-    RadioMultiline
+    RadioMultiline,
   },
   props: {
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     required: {
       type: Boolean,
-      default: false
+      default: false,
     },
     errorMessage: {
       type: String,
-      default: 'Error message'
-    }
+      default: 'Error message',
+    },
   },
   setup() {
     const selectedValue = ref('one');
@@ -66,8 +67,8 @@ export default {
     return {
       changeValue,
       selectedValue,
-      isInvalid
+      isInvalid,
     };
-  }
+  },
 };
 </script>

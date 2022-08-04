@@ -7,8 +7,13 @@ exports[`SpinnerBase.vue render component correctly 1`] = `
   </div>
   <div aria-hidden="true" class="absolute bg-transparent border-gray-200 rounded-full w-6 h-6 border-2"></div>
   <div aria-hidden="true" class="absolute bg-transparent rounded-[50%] is-animation-stopped animate-spin-base border-t-primary-600 w-6 h-6 border-2"></div>
-  <div aria-hidden="true" class="absolute bg-transparent rounded-[50%] is-animation-stopped animate-spin-base animation-delay-1 border-t-primary-600 border-x-transparent border-b-transparent w-6 h-6 border-2"></div>
-  <div aria-hidden="true" class="absolute bg-transparent rounded-[50%] is-animation-stopped animate-spin-base animation-delay-2 border-t-primary-600 border-x-transparent border-b-transparent w-6 h-6 border-2"></div>
-  <div aria-hidden="true" class="absolute bg-transparent rounded-[50%] is-animation-stopped animate-spin-base animation-delay-3 border-t-primary-600 border-x-transparent border-b-transparent w-6 h-6 border-2"></div>
+  <div aria-hidden="true" class="absolute bg-transparent rounded-[50%] is-animation-stopped
+    animate-spin-base animation-delay-1 border-t-primary-600 border-x-transparent
+    border-b-transparent w-6 h-6 border-2"></div>
+  <div aria-hidden="true" class="absolute bg-transparent rounded-[50%] is-animation-stopped
+    animate-spin-base animation-delay-2 border-t-primary-600 border-x-transparent
+    border-b-transparent w-6 h-6 border-2"></div>
+  <div aria-hidden="true" class="absolute bg-transparent rounded-[50%] is-animation-stopped animate-spin-base
+    animation-delay-3 border-t-primary-600 border-x-transparent border-b-transparent w-6 h-6 border-2"></div>
 </div>
 `;

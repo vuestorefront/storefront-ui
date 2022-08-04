@@ -7,9 +7,9 @@ export default {
     docs: {
       description: {
         component:
-          'The rating button component. [link to component docs on the page]'
-      }
-    }
+          'The rating button component. [link to component docs on the page]',
+      },
+    },
   },
   argTypes: {
     max: {
@@ -17,13 +17,13 @@ export default {
       table: {
         category: 'Props',
         defaultValue: {
-          summary: '5'
-        }
+          summary: '5',
+        },
       },
       defaultValue: 5,
-      description: 'Amount of rating stars.'
-    }
-  }
+      description: 'Amount of rating stars.',
+    },
+  },
 };
 
 const Template = (args, { argTypes }) => ({
@@ -33,7 +33,7 @@ const Template = (args, { argTypes }) => ({
       <RatingButton
         :max="max"
       />
-    `
+    `,
 });
 
 export const Base = Template.bind({});

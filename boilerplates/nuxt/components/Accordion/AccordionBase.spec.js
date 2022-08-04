@@ -1,5 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 import AccordionBase from './AccordionBase.vue';
+
 let wrapper;
 
 describe('AccordionBase.vue', () => {

@@ -1,4 +1,3 @@
-
 import BreadcrumbsBase from './BreadcrumbsBase.vue';
 
 export default {
@@ -8,28 +7,28 @@ export default {
     docs: {
       description: {
         component:
-          'The breadcrumbs component. [link to component docs on the page]'
-      }
-    }
+          'The breadcrumbs component. [link to component docs on the page]',
+      },
+    },
   },
   argTypes: {
     breadcrumbs: {
       control: 'object',
       defaultValue: [],
-      description: 'Array of objects. Objects need to have `name` and `link` keys'
+      description: 'Array of objects. Objects need to have `name` and `link` keys',
     },
     withIcon: {
       control: 'boolean',
       table: {
         category: 'Props',
         defaultValue: {
-          summary: false
-        }
+          summary: false,
+        },
       },
       defaultValue: false,
-      description: 'Visibility of home icon'
-    }
-  }
+      description: 'Visibility of home icon',
+    },
+  },
 };
 
 const Template = (args, { argTypes }) => ({
@@ -37,7 +36,7 @@ const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
     <BreadcrumbsBase :with-icon="withIcon" :breadcrumbs="withIcon ? withIconBreadcrumbs : breadcrumbs " />
-    `
+    `,
 });
 
 export const Base = Template.bind({});
@@ -48,12 +47,12 @@ Base.args = {
     { name: 'Electronics', link: '/' },
     { name: 'iPad & Tablets', link: '/' },
     { name: 'Apple iPad Accessories', link: '/' },
-    { name: 'iPad Keyboards', link: '/' }
+    { name: 'iPad Keyboards', link: '/' },
   ],
   withIconBreadcrumbs: [
     { name: 'Electronics', link: '/' },
     { name: 'iPad & Tablets', link: '/' },
     { name: 'Apple iPad Accessories', link: '/' },
-    { name: 'iPad Keyboards', link: '/' }
-  ]
+    { name: 'iPad Keyboards', link: '/' },
+  ],
 };

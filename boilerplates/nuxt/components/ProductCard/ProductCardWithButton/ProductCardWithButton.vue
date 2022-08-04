@@ -5,13 +5,13 @@
       'w-[148px]': size === 'xs',
       'w-[180px]': size === 'sm',
       'w-[230px]': size === 'base',
-      'w-[280px]': size === 'lg',
+      'w-[280px]': size === 'lg'
     }"
   >
     <div
       class="relative"
     >
-      <slot name="image" v-bind="{ label, link, image, alt, outOfStock, badge, }">
+      <slot name="image" v-bind="{label, link, image, alt, outOfStock, badge}">
         <a
           v-focus
           :href="link"
@@ -37,6 +37,7 @@
           :label="`${badge}`"
           class="absolute top-0 left-0"
         >
+          <!-- eslint-disable max-len -->
           <svg
             width="20"
             height="20"
@@ -49,9 +50,10 @@
               fill="white"
             />
           </svg>
+          <!-- eslint-enable max-len -->
         </TagBadge>
       </slot>
-      <slot name="buttons" v-bind="{ outOfStock, inCart }">
+      <slot name="buttons" v-bind="{outOfStock, inCart}">
         <div
           class="absolute bottom-0 left-0 right-0 flex items-center m-2"
         >
@@ -61,6 +63,7 @@
             :type="outOfStock ? 'error' : 'positive'"
             :label="outOfStock ? 'Out of stock' : `${inCart} in cart`"
           >
+            <!-- eslint-disable max-len -->
             <svg
               v-if="!outOfStock"
               width="16"
@@ -69,19 +72,28 @@
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M1.33329 1.33203C0.965103 1.33203 0.666626 1.63051 0.666626 1.9987C0.666626 2.36689 0.965103 2.66536 1.33329 2.66536H2.87111C3.02633 2.66536 3.16101 2.7725 3.19591 2.92374L4.83815 10.0401C5.01266 10.7963 5.68604 11.332 6.46214 11.332H11.8858C12.6506 11.332 13.3173 10.8115 13.5028 10.0696L14.6694 5.40292C14.9324 4.35101 14.1368 3.33203 13.0525 3.33203H4.65851L4.4951 2.62393C4.32059 1.86771 3.64721 1.33203 2.87111 1.33203H1.33329ZM8.41815 9.70082C8.54959 9.84336 8.72699 9.92187 8.91107 9.92187L8.92415 9.92188C9.1149 9.92188 9.29898 9.82946 9.42375 9.67969L12.5127 6.03055C12.7756 5.72439 12.7559 5.24663 12.4732 4.9688C12.1909 4.68373 11.7503 4.70517 11.4941 5.01168L8.89129 8.09038L7.64255 6.73629C7.37328 6.44398 6.93297 6.44398 6.6634 6.73629C6.39383 7.02827 6.39383 7.50573 6.6634 7.79804L8.41815 9.70082Z" fill="#16A34A" />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M1.33329 1.33203C0.965103 1.33203 0.666626 1.63051 0.666626 1.9987C0.666626 2.36689 0.965103 2.66536 1.33329 2.66536H2.87111C3.02633 2.66536 3.16101 2.7725 3.19591 2.92374L4.83815 10.0401C5.01266 10.7963 5.68604 11.332 6.46214 11.332H11.8858C12.6506 11.332 13.3173 10.8115 13.5028 10.0696L14.6694 5.40292C14.9324 4.35101 14.1368 3.33203 13.0525 3.33203H4.65851L4.4951 2.62393C4.32059 1.86771 3.64721 1.33203 2.87111 1.33203H1.33329ZM8.41815 9.70082C8.54959 9.84336 8.72699 9.92187 8.91107 9.92187L8.92415 9.92188C9.1149 9.92188 9.29898 9.82946 9.42375 9.67969L12.5127 6.03055C12.7756 5.72439 12.7559 5.24663 12.4732 4.9688C12.1909 4.68373 11.7503 4.70517 11.4941 5.01168L8.89129 8.09038L7.64255 6.73629C7.37328 6.44398 6.93297 6.44398 6.6634 6.73629C6.39383 7.02827 6.39383 7.50573 6.6634 7.79804L8.41815 9.70082Z"
+                fill="#16A34A"
+              />
               <path d="M6.46676 14.6654C5.73038 14.6654 5.13342 14.0684 5.13342 13.332C5.13342 12.5957 5.73038 11.9987 6.46676 11.9987C7.20314 11.9987 7.80009 12.5957 7.80009 13.332C7.80009 14.0684 7.20314 14.6654 6.46676 14.6654Z" fill="#16A34A" />
               <path d="M11.8001 14.6654C11.0637 14.6654 10.4668 14.0684 10.4668 13.332C10.4668 12.5957 11.0637 11.9987 11.8001 11.9987C12.5365 11.9987 13.1334 12.5957 13.1334 13.332C13.1334 14.0684 12.5365 14.6654 11.8001 14.6654Z" fill="#16A34A" />
             </svg>
+            <!-- eslint-enable max-len -->
           </TagIconLeft>
-          <slot name="compare-button" v-bind="{ label, size }">
+          <slot name="compare-button" v-bind="{label, size}">
             <button
               v-focus
-              class="border border-gray-200 rounded-full p-[4px] ml-auto mr-2 group hover:bg-primary-100 hover:border-primary-300 active:border-primary-400 active:bg-primary-200 outline-violet"
+              class="border border-gray-200 rounded-full p-[4px] ml-auto mr-2 group
+              hover:bg-primary-100 hover:border-primary-300 active:border-primary-400
+              active:bg-primary-200 outline-violet"
               :aria-label="`Add to compare ${label}`"
               :class="{'hidden': size === 'sm' || size === 'xs'}"
               @click="$emit('add-to-compare')"
             >
+              <!-- eslint-disable max-len -->
               <svg
                 width="20"
                 height="20"
@@ -106,6 +118,7 @@
                   d="M13.8713 6.57309C14.0497 6.12709 14.4816 5.83464 14.962 5.83464C15.4387 5.83464 15.8681 6.12268 16.0489 6.56373L19.1666 14.168C19.1666 16.5013 17.3333 18.3346 15 18.3346C12.6666 18.3346 10.8333 16.5013 10.8333 14.168L13.8713 6.57309ZM15 7.5013L12.5 14.168H17.5L15 7.5013Z"
                 />
               </svg>
+              <!-- eslint-enable max-len -->
             </button>
           </slot>
           <slot name="wishlist-button">
@@ -113,9 +126,11 @@
               v-focus
               :aria-label="`Add to wishlist ${label}`"
               :class="{'hidden': size === 'sm' || size === 'xs'}"
-              class="border border-gray-200 rounded-full p-[4px] group hover:bg-primary-100 hover:border-primary-300 active:border-primary-400 active:bg-primary-200 outline-violet"
+              class="border border-gray-200 rounded-full p-[4px] group hover:bg-primary-100
+              hover:border-primary-300 active:border-primary-400 active:bg-primary-200 outline-violet"
               @click="$emit('add-to-wishlist')"
             >
+              <!-- eslint-disable max-len -->
               <svg
                 width="20"
                 height="20"
@@ -130,17 +145,18 @@
                   d="M16.3868 4.15758C14.1868 2.65758 11.4701 3.35758 10.0035 5.07424C8.53679 3.35758 5.82012 2.64924 3.62012 4.15758C2.45345 4.95758 1.72012 6.30758 1.67012 7.73258C1.55345 10.9659 4.42012 13.5576 8.79512 17.5326L8.87845 17.6076C9.51179 18.1826 10.4868 18.1826 11.1201 17.5992L11.2118 17.5159C15.5868 13.5492 18.4451 10.9576 18.3368 7.72424C18.2868 6.30758 17.5535 4.95758 16.3868 4.15758ZM10.0868 16.2909L10.0035 16.3742L9.92012 16.2909C5.95345 12.6992 3.33679 10.3242 3.33679 7.91591C3.33679 6.24924 4.58679 4.99924 6.25345 4.99924C7.53679 4.99924 8.78679 5.82424 9.22845 6.96591H10.7868C11.2201 5.82424 12.4701 4.99924 13.7535 4.99924C15.4201 4.99924 16.6701 6.24924 16.6701 7.91591C16.6701 10.3242 14.0535 12.6992 10.0868 16.2909Z"
                 />
               </svg>
+              <!-- eslint-enable max-len -->
             </button>
           </slot>
         </div>
       </slot>
     </div>
-    <slot name="details" v-bind="{ size, outOfStock, price, oldPrice }">
+    <slot name="details" v-bind="{size, outOfStock, price, oldPrice}">
       <div
         class="border-gray-200 border-t-[1px]"
         :class="{
           'p-2': size === 'xs' || size === 'sm',
-          'p-4': size === 'base' || size === 'lg',
+          'p-4': size === 'base' || size === 'lg'
         }"
       >
         <slot name="top">
@@ -155,7 +171,7 @@
               :class="[
                 {
                   'text-lg leading-6': size === 'base' || size === 'lg',
-                  'text-xs leading-4': size === 'sm' || size === 'xs',
+                  'text-xs leading-4': size === 'sm' || size === 'xs'
                 },
                 oldPrice ? 'text-secondary-700' : 'text-gray-900'
               ]"
@@ -168,17 +184,18 @@
             </span>
           </div>
         </slot>
-        <slot name="middle" v-bind="{ label, link, size }">
+        <slot name="middle" v-bind="{label, link, size}">
           <a
             v-focus
             :href="link"
-            class="block my-1 font-normal font-body hover:text-primary-600 hover:underline active:text-primary-700 outline-violet"
+            class="block my-1 font-normal font-body hover:text-primary-600 hover:underline
+            active:text-primary-700 outline-violet"
             :class="size === 'lg' ? 'text-base leading-6' : 'text-sm leading-5'"
           >
             {{ label }}
           </a>
         </slot>
-        <slot name="bottom" v-bind="{ maxRatingValue, reviews, ratingValue }">
+        <slot name="bottom" v-bind="{maxRatingValue, reviews, ratingValue}">
           <RatingBase
             :max="maxRatingValue"
             :reviews="reviews"
@@ -186,13 +203,14 @@
             size="xs"
           />
         </slot>
-        <slot name="description" v-bind="{ description, shippingDetails, returnsDetails }">
+        <slot name="description" v-bind="{description, shippingDetails, returnsDetails}">
           <div v-if="description && size === 'lg'" class="mt-2">
             <span class="text-sm font-normal leading-5 text-gray-700 font-body">
               {{ description }}
             </span>
             <ul>
               <li class="flex items-center my-2">
+                <!-- eslint-disable max-len -->
                 <svg
                   width="16"
                   height="16"
@@ -211,11 +229,14 @@
                     fill="#71717A"
                   />
                 </svg>
+                <!-- eslint-enable max-len -->
+
                 <span class="ml-2 text-sm font-normal leading-5 text-gray-700 font-body">
                   {{ shippingDetails }}
                 </span>
               </li>
               <li class="flex items-center">
+                <!-- eslint-disable max-len -->
                 <svg
                   width="16"
                   height="16"
@@ -244,6 +265,8 @@
                     fill="#71717A"
                   />
                 </svg>
+                <!-- eslint-enable max-len -->
+
                 <span class="ml-2 text-sm font-normal leading-5 text-gray-700 font-body">
                   {{ returnsDetails }}
                 </span>
@@ -251,7 +274,7 @@
             </ul>
           </div>
         </slot>
-        <slot name="add-button" v-bind="{ label, outOfStock, }">
+        <slot name="add-button" v-bind="{label, outOfStock}">
           <ButtonBase
             v-if="!outOfStock"
             :aria-label="`Add to cart ${label}`"
@@ -262,6 +285,7 @@
             }"
             @click="$emit('add')"
           >
+            <!-- eslint-disable max-len -->
             <svg
               width="20"
               height="20"
@@ -284,6 +308,8 @@
                 fill="white"
               />
             </svg>
+            <!-- eslint-enable max-len -->
+
             <span class="ml-2">Add</span>
           </ButtonBase>
           <ButtonBase
@@ -303,7 +329,8 @@
 
 <script>
 import { computed } from '@vue/composition-api';
-import { focus } from '../../../utils/focus-directive.js';
+import focus from '../../../utils/focus-directive';
+
 import RatingBase from '../../Rating/RatingBase/RatingBase.vue';
 import ButtonBase from '../../Button/ButtonBase/ButtonBase.vue';
 import TagIconLeft from '../../Tag/TagIconLeft/TagIconLeft.vue';
@@ -315,71 +342,71 @@ export default {
     RatingBase,
     ButtonBase,
     TagIconLeft,
-    TagBadge
+    TagBadge,
   },
   directives: {
-    focus
+    focus,
   },
   props: {
     image: {
       type: String,
-      default: ''
+      default: '',
     },
     alt: {
       type: String,
-      default: ''
+      default: '',
     },
     link: {
       type: String,
-      default: '/'
+      default: '/',
     },
     ratingValue: {
       type: Number,
-      default: 0
+      default: 0,
     },
     maxRatingValue: {
       type: Number,
-      default: 5
+      default: 5,
     },
     reviews: {
       type: Number,
-      default: 0
+      default: 0,
     },
     label: {
       type: String,
-      default: ''
+      default: '',
     },
     price: {
       type: String,
-      default: ''
+      default: '',
     },
     oldPrice: {
       type: String,
-      default: ''
+      default: '',
     },
     badge: {
       type: String,
-      default: ''
+      default: '',
     },
     description: {
       type: String,
-      default: ''
+      default: '',
     },
     shippingDetails: {
       type: String,
-      default: ''
+      default: '',
     },
     returnsDetails: {
       type: String,
-      default: ''
+      default: '',
     },
     outOfStock: {
       type: Boolean,
-      default: false
+      default: false,
     },
     inCart: {
       type: Number,
-      default: 0
+      default: 0,
     },
     size: {
       type: String,
@@ -389,10 +416,10 @@ export default {
           'xs',
           'sm',
           'base',
-          'lg'
+          'lg',
         ].includes(value);
-      }
-    }
+      },
+    },
   },
   setup(props) {
     const imageDimensions = computed(() => {
@@ -409,13 +436,15 @@ export default {
     });
 
     return {
-      imageDimensions
+      imageDimensions,
     };
-  }
+  },
 };
 </script>
+
 <style scoped>
 .image-link:focus::after {
-  @apply outline outline-4 outline-offset-2 outline-violet-400 rounded-md h-[95%] z-[2] absolute top-[10px] content-[''] right-[10px] w-[93%];
+  @apply outline outline-4 outline-offset-2 outline-violet-400 rounded-md h-[95%] z-[2]
+  absolute top-[10px] content-[''] right-[10px] w-[93%];
 }
 </style>

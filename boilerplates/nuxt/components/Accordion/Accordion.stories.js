@@ -1,4 +1,3 @@
-
 import AccordionBase from './AccordionBase.vue';
 
 export default {
@@ -8,9 +7,9 @@ export default {
     docs: {
       description: {
         component:
-          'The accordion component. [link to component docs on the page]'
-      }
-    }
+          'The accordion component. [link to component docs on the page]',
+      },
+    },
   },
   argTypes: {
     expanded: {
@@ -19,29 +18,29 @@ export default {
       table: {
         category: 'Props',
         defaultValue: {
-          summary: true
-        }
+          summary: true,
+        },
       },
       description:
-        'Toggling expand accordion state'
+        'Toggling expand accordion state',
     },
     headerText: {
       control: 'text',
       defaultValue: '',
       table: {
-        category: 'Props'
+        category: 'Props',
       },
       description:
-        'Text of accordion button button'
+        'Text of accordion button button',
     },
     chevronLeft: {
       control: 'boolean',
       defaultValue: false,
       table: {
-        category: 'Props'
+        category: 'Props',
       },
       description:
-        'Accordion with chevron on the left'
+        'Accordion with chevron on the left',
     },
     headerSize: {
       control: 'radio',
@@ -50,13 +49,13 @@ export default {
       table: {
         category: 'Props',
         defaultValue: {
-          summary: 'lg'
-        }
+          summary: 'lg',
+        },
       },
       description:
-        'Accordion with chevron on the left'
-    }
-  }
+        'Accordion with chevron on the left',
+    },
+  },
 };
 
 const Template = (args, { argTypes }) => ({
@@ -64,13 +63,13 @@ const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   data() {
     return {
-      opened: this.expanded
+      opened: this.expanded,
     };
   },
   methods: {
     handleExpanded() {
       this.opened = !this.opened;
-    }
+    },
   },
   template: `
   <div class="w-80">
@@ -84,13 +83,13 @@ const Template = (args, { argTypes }) => ({
       Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
     </AccordionBase>
   </div>
-    `
+    `,
 });
 
 export const Base = Template.bind({});
 
 Base.args = {
-  headerText: 'Accordion Header'
+  headerText: 'Accordion Header',
 };
 
 const Multiple = (args, { argTypes }) => ({
@@ -101,17 +100,17 @@ const Multiple = (args, { argTypes }) => ({
       opened: {
         acc1: true,
         acc2: true,
-        acc3: true
+        acc3: true,
       },
       headerText1: 'Accordion Header 1',
       headerText2: 'Accordion Header 2',
-      headerText3: 'Accordion Header 3'
+      headerText3: 'Accordion Header 3',
     };
   },
   methods: {
     handleExpanded() {
       this.opened = !this.opened;
-    }
+    },
   },
   template: `
     <div :class="{'w-[350px]': headerSize === 'xl',  'w-80': headerSize === 'bold' || 'lg' || 'base'}">
@@ -145,7 +144,7 @@ const Multiple = (args, { argTypes }) => ({
         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
       </AccordionBase>
     </div>
-    `
+    `,
 });
 
 export const MultipleAccordions = Multiple.bind({});

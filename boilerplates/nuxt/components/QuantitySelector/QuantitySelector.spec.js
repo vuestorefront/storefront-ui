@@ -1,5 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 import QuantitySelector from './QuantitySelector.vue';
+
 let wrapper;
 
 describe('QuantitySelector.vue', () => {

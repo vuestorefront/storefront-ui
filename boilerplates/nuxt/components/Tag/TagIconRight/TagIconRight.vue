@@ -1,7 +1,7 @@
 <template>
   <div
     class="inline-flex items-center font-normal rounded-md font-body direction-row"
-     :class="{
+    :class="{
       'bg-gray-100 fill-gray-600 text-gray-600': type === 'base',
       'bg-secondary-100 fill-secondary-800 text-secondary-800': type === 'info',
       'bg-primary-100 fill-primary-600 text-primary-600': type === 'positive',
@@ -21,7 +21,7 @@
         'w-5 h-5': size === 'base'
       }"
     >
-      <slot v-bind="{ type, size }" />
+      <slot v-bind="{type, size}" />
     </div>
   </div>
 </template>
@@ -32,7 +32,7 @@ export default {
   props: {
     label: {
       type: String,
-      default: 'Label'
+      default: 'Label',
     },
     type: {
       type: String,
@@ -44,9 +44,9 @@ export default {
           'positive',
           'warning',
           'error',
-          'disabled'
+          'disabled',
         ].includes(value);
-      }
+      },
     },
     size: {
       type: String,
@@ -54,10 +54,10 @@ export default {
       validator(value) {
         return [
           'base',
-          'sm'
+          'sm',
         ].includes(value);
-      }
-    }
-  }
+      },
+    },
+  },
 };
 </script>

@@ -3,7 +3,8 @@
     v-focus
     :disabled="disabled"
     :class="[buttonType, buttonSize]"
-    class="inline-flex items-center justify-center rounded-md cursor-pointer font-body disabled:cursor-not-allowed outline-violet"
+    class="inline-flex items-center justify-center rounded-md cursor-pointer font-body
+    disabled:cursor-not-allowed outline-violet"
     v-on="$listeners"
   >
     <slot />
@@ -12,12 +13,12 @@
 
 <script>
 import { computed } from '@vue/composition-api';
-import { focus } from '../../../utils/focus-directive.js';
+import focus from '../../../utils/focus-directive';
 
 export default {
   name: 'ButtonPrimaryIcons',
   directives: {
-    focus
+    focus,
   },
   props: {
     type: {
@@ -30,13 +31,13 @@ export default {
           'tertiary',
           'destroy-primary',
           'destroy-secondary',
-          'destroy-tertiary'
+          'destroy-tertiary',
         ].includes(value);
-      }
+      },
     },
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     size: {
       type: String,
@@ -45,10 +46,10 @@ export default {
         return [
           'small',
           'medium',
-          'large'
+          'large',
         ].includes(value);
-      }
-    }
+      },
+    },
   },
   setup(props) {
     const buttonType = computed(() => {
@@ -91,47 +92,45 @@ export default {
 
     return {
       buttonType,
-      buttonSize
+      buttonSize,
     };
-  }
+  },
 };
 </script>
+
 <style scoped>
 .button-primary {
-  @apply font-medium text-white uppercase bg-primary-500 hover:bg-primary-600 active:bg-primary-700 disabled:bg-gray-200 disabled:text-gray-500 disabled:opacity-50 shadow-base hover:shadow-medium disabled:shadow-none;
+  @apply font-medium text-white uppercase bg-primary-500 hover:bg-primary-600
+  active:bg-primary-700 disabled:bg-gray-200 disabled:text-gray-500
+  disabled:opacity-50 shadow-base hover:shadow-medium disabled:shadow-none;
 }
 .button-secondary {
-  @apply font-medium uppercase bg-white border border-gray-200 hover:border-primary-300 active:border-primary-400 disabled:border-0 hover:bg-green-100 active:bg-green-200 disabled:bg-gray-200 text-primary-500 hover:text-primary-600 active:text-primary-700 disabled:text-gray-500 disabled:opacity-50 shadow-base hover:shadow-medium disabled:shadow-none;
+  @apply font-medium uppercase bg-white border border-gray-200
+  hover:border-primary-300 active:border-primary-400 disabled:border-0 hover:bg-green-100
+   active:bg-green-200 disabled:bg-gray-200 text-primary-500 hover:text-primary-600
+   active:text-primary-700 disabled:text-gray-500
+   disabled:opacity-50 shadow-base hover:shadow-medium disabled:shadow-none;
 }
 .button-tertiary {
-  @apply font-normal bg-transparent text-primary-500 hover:bg-green-100 active:bg-green-200 disabled:bg-transparent hover:text-primary-600 active:text-primary-700 disabled:text-gray-500 disabled:opacity-50;
+  @apply font-normal bg-transparent text-primary-500 hover:bg-green-100
+  active:bg-green-200 disabled:bg-transparent hover:text-primary-600
+  active:text-primary-700 disabled:text-gray-500 disabled:opacity-50;
 }
 .button-destroy-primary {
-  @apply text-base font-medium text-white uppercase bg-rose-600 hover:bg-rose-700 active:bg-rose-800 disabled:bg-gray-200 disabled:text-gray-500 disabled:opacity-50 shadow-base hover:shadow-medium disabled:shadow-none;
+  @apply text-base font-medium text-white uppercase bg-rose-600 hover:bg-rose-700
+  active:bg-rose-800 disabled:bg-gray-200 disabled:text-gray-500
+  disabled:opacity-50 shadow-base hover:shadow-medium disabled:shadow-none;
 }
 .button-destroy-secondary {
-  @apply text-base font-medium uppercase bg-white border border-rose-400 disabled:border-0 hover:bg-rose-100 active:bg-rose-200 disabled:bg-gray-200 text-rose-600 hover:text-rose-600 active:text-rose-700 disabled:text-gray-500 disabled:opacity-50 shadow-base hover:shadow-medium disabled:shadow-none;
+  @apply text-base font-medium uppercase bg-white border border-rose-400
+  disabled:border-0 hover:bg-rose-100 active:bg-rose-200 disabled:bg-gray-200
+  text-rose-600 hover:text-rose-600 active:text-rose-700 disabled:text-gray-500
+  disabled:opacity-50 shadow-base hover:shadow-medium disabled:shadow-none;
 }
 .button-destroy-tertiary {
-  @apply text-base font-medium bg-transparent hover:bg-rose-100 active:bg-rose-200 disabled:bg-transparent text-rose-600 hover:text-rose-700 active:text-rose-800 disabled:text-gray-500 disabled:opacity-50;
-}
-.button-small {
-  @apply leading-5 px-3 py-[6px] text-sm;
-}
-.button-medium {
-  @apply px-4 py-2;
-}
-.button-large {
-  @apply px-6 py-3;
-}
-.button-small-tertiary {
-  @apply leading-5 p-[6px] text-sm;
-}
-.button-medium-tertiary {
-  @apply p-2;
-}
-.button-large-tertiary {
-  @apply p-3;
+  @apply text-base font-medium bg-transparent hover:bg-rose-100 active:bg-rose-200
+  disabled:bg-transparent text-rose-600 hover:text-rose-700 active:text-rose-800
+  disabled:text-gray-500 disabled:opacity-50;
 }
 .button-small {
   @apply leading-5 py-[6px] px-2 text-sm;
