@@ -1,6 +1,6 @@
 module.exports = {
   setupFiles: [
-    '<rootDir>/__tests__/setup.js'
+    '<rootDir>/jest.setup.js'
   ],
   testEnvironment: 'jsdom',
   moduleFileExtensions: ['js', 'json', 'vue'],
@@ -14,7 +14,7 @@ module.exports = {
     '^vue$': 'vue/dist/vue.common.js'
   },
   snapshotSerializers: ['jest-serializer-vue'],
-  testMatch: ['<rootDir>/**/__tests__/**/*.spec.js'],
+  testMatch: ['<rootDir>/components/**/*.spec.js'],
   collectCoverage: true,
   collectCoverageFrom: ['<rootDir>/components/**/*.vue'],
   coverageDirectory: './coverage/',

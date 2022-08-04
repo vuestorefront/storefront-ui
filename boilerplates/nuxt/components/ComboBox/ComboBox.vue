@@ -138,10 +138,10 @@
   </div>
 </template>
 <script>
-import { ref, computed } from '@nuxtjs/composition-api';
+import { ref, computed } from '@vue/composition-api';
 import { onClickOutside } from '@vueuse/core';
 import { focus } from '../../utils/focus-directive.js';
-import SpinnerBase from '../Spinner/SpinnerBase.vue';
+import SpinnerBase from '../Spinner/SpinnerBase/SpinnerBase.vue';
 
 export default {
   directives: {

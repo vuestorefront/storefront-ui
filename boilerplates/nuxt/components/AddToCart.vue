@@ -30,9 +30,9 @@
 </template>
 
 <script>
-import { ref } from '@nuxtjs/composition-api';
-import QuantitySelector from '../components/QuantitySelector/QuantitySelector.vue';
-import ButtonBase from '../components/Button/ButtonBase.vue';
+import { ref } from '@vue/composition-api';
+import QuantitySelector from './QuantitySelector/QuantitySelector.vue';
+import ButtonBase from './Button/ButtonBase/ButtonBase.vue';
 
 export default {
   name: 'AddToCart',

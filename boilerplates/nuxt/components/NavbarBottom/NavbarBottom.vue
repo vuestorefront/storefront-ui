@@ -191,7 +191,6 @@
 </template>
 
 <script>
-
 export default {
   name: 'NavbarBottom',
   props: {

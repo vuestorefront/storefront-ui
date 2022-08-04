@@ -243,8 +243,8 @@
 <script>
 import NavbarBottom from '../components/NavbarBottom/NavbarBottom.vue';
 import FooterBase from '../components/FooterBase.vue';
-import NavbarTop from '../components/NavbarTop/NavbarTopBrandedCounter.vue';
-import SearchWithoutButtonWithRightIcon from '../components/Search/SearchWithoutButtonWithRightIcon.vue';
+import NavbarTop from '../components/NavbarTop/NavbarTopBrandedCounter/NavbarTopBrandedCounter.vue';
+import SearchWithoutButtonWithRightIcon from '../components/Search/SearchWithoutButtonWithRightIcon/SearchWithoutButtonWithRightIcon.vue';
 import { focus } from '../utils/focus-directive.js';
 
 export default {

@@ -79,9 +79,9 @@
 </template>
 
 <script>
-import { ref, computed } from '@nuxtjs/composition-api';
-import RatingBase from '../components/Rating/RatingBase.vue';
-import TagIconLeft from '../components/Tag/TagIconLeft.vue';
+import { ref, computed } from '@vue/composition-api';
+import RatingBase from './Rating/RatingBase/RatingBase.vue';
+import TagIconLeft from './Tag/TagIconLeft/TagIconLeft.vue';
 
 export default {
   name: 'CustomerReview',

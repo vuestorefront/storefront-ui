@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import { getCurrentInstance } from '@nuxtjs/composition-api';
+import { getCurrentInstance } from '@vue/composition-api';
 import { focus } from '../../utils/focus-directive.js';
 
 export default {
