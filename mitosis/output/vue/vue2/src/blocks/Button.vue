@@ -8,7 +8,9 @@
   >
     {{ text }}
   </a>
-  <button v-bind="attributes" v-else>{{ text }}</button>
+  <button v-bind="attributes" class="text-white flex-1 mt-28" v-else>
+    {{ text }}
+  </button>
 </template>
 <script>
 export default {

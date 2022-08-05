@@ -22,7 +22,9 @@ export default function Button(props: ButtonProps) {
           </a>
         </>
       ) : (
-        <button {...props.attributes}>{props.text}</button>
+        <button {...props.attributes} className="text-white flex-1 mt-28">
+          {props.text}
+        </button>
       )}
     </>
   );

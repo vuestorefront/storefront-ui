@@ -47,5 +47,7 @@ function Button(props) {
     role: "button",
     href: props.link,
     target: props.openLinkInNewTab ? "_blank" : void 0
-  }), props.text)) : /* @__PURE__ */ React.createElement("button", __spreadValues({}, props.attributes), props.text));
+  }), props.text)) : /* @__PURE__ */ React.createElement("button", __spreadProps(__spreadValues({}, props.attributes), {
+    className: "text-white flex-1 mt-28"
+  }), props.text));
 }
