@@ -1,0 +1,31 @@
+{
+  "name": "@vsf-react/ui",
+  "version": "0.0.1",
+  "scripts": {
+    "build": "mitosis build",
+    "dev": "watch 'yarn run build' ./src ./overrides"
+  },
+  "exports": {
+    ".": "./output/react/src/index.js"
+  },
+  "dependencies": {
+    "@builder.io/mitosis": "dev",
+    "@builder.io/mitosis-cli": "dev",
+    "seedrandom": "^3.0.5"
+  },
+  "devDependencies": {
+    "@builder.io/eslint-plugin-mitosis": "^0.0.1",
+    "@types/node-fetch": "^2.5.12",
+    "@typescript-eslint/eslint-plugin": "^5.27.1",
+    "@typescript-eslint/parser": "^5.27.1",
+    "watch": "^1.0.2",
+    "eslint": "^8.17.0",
+    "prettier": "^2.5.0",
+    "typescript": "^4.7.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "peerDependencies": {
+
+  }
+}
