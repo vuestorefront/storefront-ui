@@ -65,7 +65,7 @@ jobs:
           target_url: https://demo.storefrontui.io
           state: "success"
           description: Congratulations! The deploy is done.
-          
+          deployment_id: ${{ steps.deployment.outputs.deployment_id }}          
       - name: Update deployment status (failure)
         if: failure()
         uses: chrnorm/deployment-status@releases/v1
