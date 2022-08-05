@@ -4,6 +4,23 @@
 
 ## Development
 
+### Mitosis
+Make sure Mitosis components are generated. Go to:
+```sh
+cd PROJECT_ROOT/mitosis
+yarn dev
+```
+This will generate output on start and will keep running watching changes if mitosis files.
+
+If you only want to generate components use:
+
+```sh
+cd PROJECT_ROOT/mitosis
+yarn build
+```
+
+### Remix
+
 From your terminal:
 
 ```sh
