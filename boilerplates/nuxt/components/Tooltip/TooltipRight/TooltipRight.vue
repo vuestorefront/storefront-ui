@@ -23,16 +23,17 @@
 
 <script>
 import ButtonBase from '../../Button/ButtonBase/ButtonBase.vue';
+
 export default {
   name: 'TooltipRight',
   components: {
-    ButtonBase
+    ButtonBase,
   },
   props: {
     label: {
       type: String,
-      default: ''
-    }
-  }
+      default: '',
+    },
+  },
 };
 </script>

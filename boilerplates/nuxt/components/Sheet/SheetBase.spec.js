@@ -1,5 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 import SheetBase from './SheetBase.vue';
+
 let wrapper;
 
 describe('SheetBase.vue', () => {

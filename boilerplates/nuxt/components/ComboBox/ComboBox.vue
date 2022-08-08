@@ -1,8 +1,12 @@
 <template>
   <div class="relative max-w-[20rem] combobox combobox-list">
     <div
-      class="inline-flex items-center w-full border border-gray-300 rounded-md hover:border-primary-400 active:border-2 p-[1px] focus-within:border-2 focus-within:border-primary-500 focus-within:p-0 active:p-0"
-      :class="{'!border-negative-600 border-2': invalid, 'bg-gray-100/50 cursor-not-allowed border-gray-200/50 hover:border-gray-200/50': disabled}"
+      class="inline-flex items-center w-full border border-gray-300 rounded-md hover:border-primary-400
+      active:border-2 p-[1px] focus-within:border-2 focus-within:border-primary-500 focus-within:p-0 active:p-0"
+      :class="{
+        '!border-negative-600 border-2': invalid,
+        'bg-gray-100/50 cursor-not-allowed border-gray-200/50 hover:border-gray-200/50': disabled
+      }"
     >
       <input
         id="combobox-input"
@@ -10,8 +14,9 @@
         v-focus
         :disabled="disabled"
         :required="required"
-        class="flex-1 py-3 pl-4 rounded-md peer font-body text-gray-900 disabled:text-gray-900/40 outline-violet active:pt-[1.125rem] active:pb-[0.375rem] focus:pt-[1.125rem] focus:pb-[0.375rem] disabled:cursor-not-allowed"
-        :class="{'pt-[1.125rem] pb-[0.375rem]': comboboxValue || placeholder, '!py-2': labelOutside || !label }"
+        class="flex-1 py-3 pl-4 rounded-md peer font-body text-gray-900 disabled:text-gray-900/40 outline-violet
+        active:pt-[1.125rem] active:pb-[0.375rem] focus:pt-[1.125rem] focus:pb-[0.375rem] disabled:cursor-not-allowed"
+        :class="{'pt-[1.125rem] pb-[0.375rem]': comboboxValue || placeholder, '!py-2': labelOutside || !label}"
         type="text"
         role="combobox"
         :placeholder="placeholder"
@@ -28,8 +33,14 @@
         <label
           v-if="label"
           for="combobox-input"
-          class="pl-4 text-gray-500 font-normal absolute top-0 translate-y-[55%] pointer-events-none peer-active:translate-y-1 peer-active:text-xs peer-active:font-medium peer-focus:font-medium peer-focus:translate-y-1 peer-focus:text-xs peer-required:after:content-['*'] transition-all ease-in-out"
-          :class="{'text-xs translate-y-1 font-medium': comboboxValue || placeholder, 'text-gray-500/50': disabled, '!-translate-y-5 !text-sm pl-0 transition-none': labelOutside}"
+          class="pl-4 text-gray-500 font-normal absolute top-0 translate-y-[55%] pointer-events-none
+          peer-active:translate-y-1 peer-active:text-xs peer-active:font-medium peer-focus:font-medium
+          peer-focus:translate-y-1 peer-focus:text-xs peer-required:after:content-['*'] transition-all ease-in-out"
+          :class="{
+            'text-xs translate-y-1 font-medium': comboboxValue || placeholder,
+            'text-gray-500/50': disabled,
+            '!-translate-y-5 !text-sm pl-0 transition-none': labelOutside
+          }"
         >
           {{ label }}
         </label>
@@ -39,9 +50,11 @@
         v-focus
         :aria-label="`Remove ${comboboxValue}`"
         :disabled="disabled"
-        class="absolute right-0 mr-10 rounded-md group outline-violet disabled:cursor-not-allowed disabled:bg-gray-100/50"
+        class="absolute right-0 mr-10 rounded-md group outline-violet disabled:cursor-not-allowed
+        disabled:bg-gray-100/50"
         @click="removeSelectedOption"
       >
+        <!-- eslint-disable max-len -->
         <svg
           width="24"
           height="24"
@@ -57,7 +70,9 @@
             d="M12 2C6.47 2 2 6.47 2 12C2 17.53 6.47 22 12 22C17.53 22 22 17.53 22 12C22 6.47 17.53 2 12 2ZM16.295 14.885C16.6844 15.2744 16.6844 15.9056 16.295 16.295C15.9056 16.6844 15.2744 16.6844 14.885 16.295L12 13.41L9.115 16.295C8.72564 16.6844 8.09436 16.6844 7.705 16.295C7.31564 15.9056 7.31564 15.2744 7.705 14.885L10.59 12L7.705 9.115C7.31564 8.72564 7.31564 8.09436 7.705 7.705C8.09436 7.31564 8.72564 7.31564 9.115 7.705L12 10.59L14.885 7.705C15.2744 7.31564 15.9056 7.31564 16.295 7.705C16.6844 8.09436 16.6844 8.72564 16.295 9.115L13.41 12L16.295 14.885Z"
           />
         </svg>
+        <!-- eslint-enable max-len -->
       </button>
+      <!-- eslint-disable max-len -->
       <svg
         width="24"
         height="24"
@@ -76,6 +91,7 @@
           d="M7.82034 15.0014C7.43065 15.3903 6.79962 15.3899 6.41034 15.0006C6.02077 14.6111 6.02077 13.9794 6.41034 13.5899L10.9979 9.00237C11.3884 8.61184 12.0215 8.61184 12.4121 9.00237L16.9996 13.5899C17.3891 13.9794 17.3891 14.6111 16.9996 15.0006C16.6103 15.3899 15.9793 15.3903 15.5896 15.0014L11.705 11.1253L7.82034 15.0014Z"
         />
       </svg>
+      <!-- eslint-enable max-len -->
     </div>
     <ul
       id="listbox"
@@ -137,64 +153,67 @@
     >*Required</span>
   </div>
 </template>
+
 <script>
 import { ref, computed } from '@vue/composition-api';
 import { onClickOutside } from '@vueuse/core';
-import { focus } from '../../utils/focus-directive.js';
+import focus from '../../utils/focus-directive';
+
 import SpinnerBase from '../Spinner/SpinnerBase/SpinnerBase.vue';
 
 export default {
+  name: 'ComboBox',
   directives: {
-    focus
+    focus,
   },
   components: {
-    SpinnerBase
+    SpinnerBase,
   },
   props: {
     label: {
       type: String,
-      default: ''
+      default: '',
     },
     labelOutside: {
       type: Boolean,
-      default: false
+      default: false,
     },
     helpText: {
       type: String,
-      default: ''
+      default: '',
     },
     errorText: {
       type: String,
-      default: ''
+      default: '',
     },
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     required: {
       type: Boolean,
-      default: false
+      default: false,
     },
     invalid: {
       type: Boolean,
-      default: false
+      default: false,
     },
     options: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     placeholder: {
       type: String,
-      default: ''
+      default: '',
     },
     value: {
       type: String,
-      default: ''
+      default: '',
     },
     filteredOptions: {
       type: Array,
-      required: true
-    }
+      required: true,
+    },
   },
   setup(props, { emit }) {
     const isListOpened = ref(false);
@@ -218,7 +237,7 @@ export default {
       }
     };
 
-    onClickOutside(comboboxList, () => isListOpened.value = false);
+    onClickOutside(comboboxList, () => { isListOpened.value = false; });
 
     return {
       isListOpened,
@@ -227,8 +246,8 @@ export default {
       isRemoveButtonVisible,
       removeSelectedOption,
       selectOption,
-      handleTab
+      handleTab,
     };
-  }
+  },
 };
 </script>

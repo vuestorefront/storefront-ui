@@ -21,6 +21,6 @@
 
 <script>
 export default {
-  name: 'SpinnerLinear'
+  name: 'SpinnerLinear',
 };
 </script>

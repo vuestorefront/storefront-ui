@@ -9,14 +9,21 @@
       :disabled="disabled"
       :required="required"
       :checked="isChecked"
-      class="w-5 h-5 mt-px border-2 border-gray-500 rounded-full appearance-none cursor-pointer peer hover:border-primary-500 checked:bg-primary-500 checked:border-primary-500 checked:shadow-inset disabled:cursor-not-allowed disabled:border-gray-500/50 outline-violet"
-      :class="{'border-negative-600': invalid, '!border-gray-500 opacity-50': disabled, '!border-gray-500 !bg-gray-500 opacity-50': isChecked & disabled }"
+      class="w-5 h-5 mt-px border-2 border-gray-500 rounded-full appearance-none cursor-pointer
+      peer hover:border-primary-500 checked:bg-primary-500 checked:border-primary-500
+      checked:shadow-inset disabled:cursor-not-allowed disabled:border-gray-500/50 outline-violet"
+      :class="{
+        'border-negative-600': invalid,
+        '!border-gray-500 opacity-50': disabled,
+        '!border-gray-500 !bg-gray-500 opacity-50': isChecked & disabled
+      }"
       @change="changeHandler"
       @input="inputHandler"
     >
     <label
       :for="id"
-      class="text-gray-900 cursor-pointer text-base peer-required:after:content-['*'] peer-disabled:text-gray-900/40 peer-disabled:cursor-not-allowed font-body"
+      class="text-gray-900 cursor-pointer text-base peer-required:after:content-['*']
+      peer-disabled:text-gray-900/40 peer-disabled:cursor-not-allowed font-body"
     > Label</label>
     <span class="col-start-2 mt-1 text-xs text-gray-500 peer-disabled:text-gray-500/50 font-body">Help text</span>
     <span class="hidden col-start-2 mt-1 text-xs text-gray-500 peer-required:block font-body">*Required</span>
@@ -25,45 +32,46 @@
 
 <script>
 import { computed } from '@vue/composition-api';
-import { focus } from '../../../utils/focus-directive.js';
+import focus from '../../../utils/focus-directive';
+
 export default {
   name: 'RadioMultiline',
   directives: {
-    focus
+    focus,
   },
   model: {
     prop: 'selected',
-    event: 'change'
+    event: 'change',
   },
   props: {
     id: {
       type: String,
-      required: true
+      required: true,
     },
     name: {
       type: String,
-      default: ''
+      default: '',
     },
     value: {
       type: String,
-      default: ''
+      default: '',
     },
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     required: {
       type: Boolean,
-      default: false
+      default: false,
     },
     invalid: {
       type: Boolean,
-      default: false
+      default: false,
     },
     selected: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
   setup(props, { emit }) {
     const changeHandler = () => {
@@ -79,8 +87,8 @@ export default {
     return {
       changeHandler,
       inputHandler,
-      isChecked
+      isChecked,
     };
-  }
+  },
 };
 </script>

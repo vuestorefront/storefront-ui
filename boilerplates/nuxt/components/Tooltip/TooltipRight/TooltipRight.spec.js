@@ -1,5 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 import TooltipRight from './TooltipRight.vue';
+
 let wrapper;
 
 describe('TooltipRight.vue', () => {

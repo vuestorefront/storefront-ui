@@ -1,4 +1,3 @@
-/* eslint-disable quote-props */
 module.exports = {
   content: [
     './components/**/*.{js,vue,ts}',
@@ -6,27 +5,30 @@ module.exports = {
     './layouts/**/**.vue',
     './pages/**/*.vue',
     './plugins/**/*.{js,ts}',
-    './nuxt.config.{js,ts}'
+    './nuxt.config.{js,ts}',
   ],
   theme: {
     extend: {
       boxShadow: {
-        'base': '0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06)',
-        'inset': '0 0 0 2px rgba(255,255,255, 1) inset,0 0 0 rgba(255,255,255, 1) inset',
-        'medium': '0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -1px rgba(0, 0, 0, 0.06)',
-        'large': '0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05)',
-        'extra-large': '0px 20px 25px -5px rgba(0, 0, 0, 0.1), 0px 10px 10px -5px rgba(0, 0, 0, 0.04)'
+        base: '0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06)',
+        inset: '0 0 0 2px rgba(255,255,255, 1) inset,0 0 0 rgba(255,255,255, 1) inset',
+        medium: '0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -1px rgba(0, 0, 0, 0.06)',
+        large: '0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05)',
+        'extra-large': '0px 20px 25px -5px rgba(0, 0, 0, 0.1), 0px 10px 10px -5px rgba(0, 0, 0, 0.04)',
       },
       backgroundImage: {
         'star-filled': "url('../../assets/star.svg')",
         'star-outline': "url('../../assets/star-outline.svg')",
+        // eslint-disable-next-line max-len
         'checked-checkbox': 'linear-gradient(-45deg,transparent 65%, #02BB4D 65.99%),linear-gradient(45deg,transparent 75%, #02BB4D 75.99%),linear-gradient(-45deg, #02BB4D 40%,transparent 40.99%),linear-gradient(45deg, #02BB4D 30%, white 30.99%, white 40%,transparent 40.99%),linear-gradient(-45deg, white 50%, #02BB4D 50.99%)',
+        // eslint-disable-next-line max-len
         'indeterminate-checkbox': 'linear-gradient(90deg,transparent 80%, #02BB4D 80%),linear-gradient(-90deg,transparent 80%, #02BB4D 80%),linear-gradient(0deg, #02BB4D 43%, white 43%, white 57%, #02BB4D 57%)',
-        'indeterminate-disabled-checkbox': 'linear-gradient(90deg,transparent 80%, #b8b8bc 80%),linear-gradient(-90deg,transparent 80%, #b8b8bc 80%),linear-gradient(0deg, #b8b8bc 43%, white 43%, white 57%, #b8b8bc 57%)'
+        // eslint-disable-next-line max-len
+        'indeterminate-disabled-checkbox': 'linear-gradient(90deg,transparent 80%, #b8b8bc 80%),linear-gradient(-90deg,transparent 80%, #b8b8bc 80%),linear-gradient(0deg, #b8b8bc 43%, white 43%, white 57%, #b8b8bc 57%)',
       },
       colors: {
-        'brand': '#02C652',
-        'gray': {
+        brand: '#02C652',
+        gray: {
           900: '#18181B',
           800: '#27272A',
           700: '#3F3F46',
@@ -36,9 +38,9 @@ module.exports = {
           300: '#D4D4D8',
           200: '#E4E4E7',
           100: '#F4F4F5',
-          50: '#FAFAFA'
+          50: '#FAFAFA',
         },
-        'primary': {
+        primary: {
           900: '#14532D',
           800: '#166534',
           700: '#15803D',
@@ -48,9 +50,9 @@ module.exports = {
           300: '#86EFAC',
           200: '#BBF7D0',
           100: '#DCFCE7',
-          50: '#F0FDF4'
+          50: '#F0FDF4',
         },
-        'secondary': {
+        secondary: {
           900: '#420CA9',
           800: '#531ED3',
           700: '#6131DD',
@@ -60,9 +62,9 @@ module.exports = {
           300: '#C4B5FD',
           200: '#DDD6FE',
           100: '#EDE9FE',
-          50: '#F5F3FF'
+          50: '#F5F3FF',
         },
-        'positive': {
+        positive: {
           900: '#14532D',
           800: '#166534',
           700: '#15803D',
@@ -72,9 +74,9 @@ module.exports = {
           300: '#86EFAC',
           200: '#BBF7D0',
           100: '#DCFCE7',
-          50: '#F0FDF4'
+          50: '#F0FDF4',
         },
-        'negative': {
+        negative: {
           900: '#881337',
           800: '#9F1239',
           700: '#BE123C',
@@ -84,9 +86,9 @@ module.exports = {
           300: '#FDA4AF',
           200: '#FECDD3',
           100: '#FFE4E6',
-          50: '#FFF1F2'
+          50: '#FFF1F2',
         },
-        'warning': {
+        warning: {
           900: '#713F12',
           800: '#854D0E',
           700: '#A16207',
@@ -96,12 +98,12 @@ module.exports = {
           300: '#FDE047',
           200: '#FEF08A',
           100: '#FEF9C3',
-          50: '#FEFCE8'
-        }
+          50: '#FEFCE8',
+        },
       },
       fontFamily: {
-        'headings': 'Red Hat Display',
-        'body': 'Red Hat Text'
+        headings: 'Red Hat Display',
+        body: 'Red Hat Text',
       },
       screens: {
       // => @media (min-width: 1536px, max-width: 1608px) { ... }
@@ -109,38 +111,38 @@ module.exports = {
         '3-extra-large': '1536px',
         '2-extra-large': '1366px',
         'extra-large': '1280px',
-        'large': '1024px',
-        'medium': '768px',
-        'small': '640px',
+        large: '1024px',
+        medium: '768px',
+        small: '640px',
         'extra-small': '376px',
-        '2-extra-small': '360px'
+        '2-extra-small': '360px',
 
       },
       keyframes: {
         'spin-base': {
-          'from': {
-            transform: 'rotate:(0deg)'
+          from: {
+            transform: 'rotate:(0deg)',
           },
-          'to': {
-            transform: 'rotate(360deg)'
-          }
+          to: {
+            transform: 'rotate(360deg)',
+          },
         },
         'linear-loader': {
           '0%': {
             left: '-150%',
-            width: '100%'
+            width: '100%',
           },
           '100%': {
             left: '100%',
-            width: '10%'
-          }
-        }
+            width: '10%',
+          },
+        },
       },
       animation: {
         'spin-base': 'spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite',
-        'linear-loader': 'linear-loader 1.5s ease-in infinite'
-      }
-    }
+        'linear-loader': 'linear-loader 1.5s ease-in infinite',
+      },
+    },
   },
-  plugins: []
+  plugins: [],
 };

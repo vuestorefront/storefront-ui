@@ -14,7 +14,7 @@
         'bg-primary-600': type === 'positive',
         'bg-warning-600': type === 'warning',
         'bg-negative-600': type === 'error',
-        'bg-gray-500 opacity-50': type === 'disabled',
+        'bg-gray-500 opacity-50': type === 'disabled'
       }"
     >
       <span
@@ -23,7 +23,7 @@
           'w-5 h-5 m-1.5': size === 'base'
         }"
       >
-        <slot v-bind="{ type, size }" />
+        <slot v-bind="{type, size}" />
       </span>
       <span class="m-1.5" :class="$slots.default ? 'ml-0' : 'ml-3'"> {{ label }} </span>
     </div>
@@ -49,7 +49,7 @@ export default {
   props: {
     label: {
       type: String,
-      default: 'Label'
+      default: 'Label',
     },
     type: {
       type: String,
@@ -61,9 +61,9 @@ export default {
           'positive',
           'warning',
           'error',
-          'disabled'
+          'disabled',
         ].includes(value);
-      }
+      },
     },
     size: {
       type: String,
@@ -71,10 +71,10 @@ export default {
       validator(value) {
         return [
           'base',
-          'sm'
+          'sm',
         ].includes(value);
-      }
-    }
-  }
+      },
+    },
+  },
 };
 </script>

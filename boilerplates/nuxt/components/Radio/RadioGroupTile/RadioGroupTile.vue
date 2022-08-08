@@ -28,7 +28,7 @@
     <span
       id="radio-tile-error"
       class="block col-span-2 mt-1 text-sm font-medium text-negative-600 font-body"
-      :class="{'hidden': !isInvalid }"
+      :class="{'hidden': !isInvalid}"
     >{{ errorMessage }}</span>
   </fieldset>
 </template>
@@ -36,28 +36,29 @@
 <script>
 import { computed, ref } from '@vue/composition-api';
 import RadioTile from '../RadioTile/RadioTile.vue';
+
 export default {
   name: 'RadioGroupTile',
   components: {
-    RadioTile
+    RadioTile,
   },
   props: {
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     required: {
       type: Boolean,
-      default: false
+      default: false,
     },
     errorMessage: {
       type: String,
-      default: 'Error message'
+      default: 'Error message',
     },
     selected: {
       type: String,
-      default: 'one'
-    }
+      default: 'one',
+    },
   },
   setup(props) {
     const selectedValue = ref(props.selected);
@@ -70,8 +71,8 @@ export default {
     return {
       changeValue,
       selectedValue,
-      isInvalid
+      isInvalid,
     };
-  }
+  },
 };
 </script>

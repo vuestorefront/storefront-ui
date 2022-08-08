@@ -9,10 +9,10 @@ export default {
       iframeHeight: '200px',
       description: {
         component:
-          'The sheet component. [link to component docs on the page]'
-      }
-    }
-  }
+          'The sheet component. [link to component docs on the page]',
+      },
+    },
+  },
 };
 
 const Template = () => ({
@@ -21,7 +21,7 @@ const Template = () => ({
     <div class="relative">
       <SheetBase />
     </div>
-    `
+    `,
 });
 
 export const Base = Template.bind({});

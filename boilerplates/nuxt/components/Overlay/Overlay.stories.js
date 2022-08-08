@@ -1,5 +1,4 @@
-
-import ButtonBase from '../../components/Button/ButtonBase/ButtonBase.vue';
+import ButtonBase from '../Button/ButtonBase/ButtonBase.vue';
 import OverlayBase from './OverlayBase.vue';
 
 export default {
@@ -9,17 +8,17 @@ export default {
     docs: {
       description: {
         component:
-          'The overlay component. [link to component docs on the page]'
-      }
-    }
-  }
+          'The overlay component. [link to component docs on the page]',
+      },
+    },
+  },
 };
 
 const Template = () => ({
   components: { ButtonBase, OverlayBase },
   data() {
     return {
-      visible: false
+      visible: false,
     };
   },
   template: `
@@ -29,7 +28,7 @@ const Template = () => ({
     </OverlayBase>
     <ButtonBase v-if="visible" class="absolute top-1/2" @click="visible=false">Close overlay</ButtonBase>
 </div>
-    `
+    `,
 });
 
 export const Base = Template.bind({});

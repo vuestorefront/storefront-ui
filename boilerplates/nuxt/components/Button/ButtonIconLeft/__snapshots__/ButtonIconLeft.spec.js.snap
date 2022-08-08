@@ -1,3 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ButtonIconLeft.vue render component correctly 1`] = `<button class="inline-flex items-center justify-center rounded-md cursor-pointer font-body disabled:cursor-not-allowed outline-violet button-primary button-medium"></button>`;
+exports[`ButtonIconLeft.vue render component correctly 1`] = `
+<button class="inline-flex items-center justify-center rounded-md cursor-pointer font-body disabled:cursor-not-allowed
+  outline-violet button-primary button-medium"></button>
+`;

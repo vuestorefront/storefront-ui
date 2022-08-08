@@ -1,5 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 import TagIcon from './TagIcon.vue';
+
 let wrapper;
 
 describe('TagIcon.vue', () => {

@@ -7,6 +7,7 @@
           class="flex items-center justify-center flex-1 group hover:bg-primary-600 active:bg-primary-600"
           aria-label="Go to home page"
         >
+          <!-- eslint-disable max-len -->
           <svg
             width="40"
             height="40"
@@ -24,6 +25,9 @@
               fill="white"
             />
           </svg>
+          <!-- eslint-enable max-len -->
+
+          <!-- eslint-disable max-len -->
           <svg
             width="205"
             height="28"
@@ -102,6 +106,8 @@
               fill="white"
             />
           </svg>
+          <!-- eslint-enable max-len -->
+
         </a>
       </template>
       <template #menu>
@@ -111,20 +117,31 @@
               <a
                 v-focus
                 href="/"
-                class="p-2 text-base font-medium text-white bg-transparent rounded-md cursor-pointer whitespace-nowrap font-body hover:bg-green-600 active:bg-green-600 outline-violet"
+                class="p-2 text-base font-medium text-white bg-transparent rounded-md cursor-pointer
+                whitespace-nowrap font-body hover:bg-green-600 active:bg-green-600 outline-violet"
               >
                 {{ category }}
               </a>
             </li>
             <li class="flex items-center large:hidden">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- eslint-disable max-len -->
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <path d="M3 17C3 17.5523 3.44772 18 4 18H20C20.5523 18 21 17.5523 21 17C21 16.4477 20.5523 16 20 16H4C3.44772 16 3 16.4477 3 17ZM3 12C3 12.5523 3.44772 13 4 13H20C20.5523 13 21 12.5523 21 12C21 11.4477 20.5523 11 20 11H4C3.44772 11 3 11.4477 3 12ZM4 6C3.44772 6 3 6.44772 3 7C3 7.55228 3.44772 8 4 8H20C20.5523 8 21 7.55228 21 7C21 6.44772 20.5523 6 20 6H4Z" fill="white" />
                 <path d="M3 17C3 17.5523 3.44772 18 4 18H20C20.5523 18 21 17.5523 21 17C21 16.4477 20.5523 16 20 16H4C3.44772 16 3 16.4477 3 17ZM3 12C3 12.5523 3.44772 13 4 13H20C20.5523 13 21 12.5523 21 12C21 11.4477 20.5523 11 20 11H4C3.44772 11 3 11.4477 3 12ZM4 6C3.44772 6 3 6.44772 3 7C3 7.55228 3.44772 8 4 8H20C20.5523 8 21 7.55228 21 7C21 6.44772 20.5523 6 20 6H4Z" fill="white" />
               </svg>
+              <!-- eslint-enable max-len -->
+
               <a
                 v-focus
                 href="/"
-                class="p-2 text-base font-medium text-white bg-transparent rounded-md cursor-pointer whitespace-nowrap font-body hover:bg-green-600 active:bg-green-600 outline-violet"
+                class="p-2 text-base font-medium text-white bg-transparent rounded-md
+                cursor-pointer whitespace-nowrap font-body hover:bg-green-600 active:bg-green-600 outline-violet"
               >
                 {{ navCategories[0] }}
               </a>
@@ -133,16 +150,26 @@
         </nav>
       </template>
       <template #search>
-        <SearchWithoutButtonWithRightIcon class="hidden w-full small:block justify-self-end" :value="searchValue" placeholder="Search" :disabled="false" />
+        <SearchWithoutButtonWithRightIcon
+          class="hidden w-full small:block justify-self-end"
+          :value="searchValue"
+          placeholder="Search"
+          :disabled="false"
+        />
       </template>
       <template #icons>
         <li class="hidden small:block">
           <button
             v-focus
             aria-label="Cart"
-            class="inline-flex items-center justify-center p-2 text-base font-medium text-green-500 bg-transparent rounded-md cursor-pointer group hover:bg-primary-600 active:bg-primary-600 disabled:bg-transparent hover:text-green-600 active:text-green-700 disabled:text-gray-500 disabled:opacity-50 font-body outline-violet"
+            class="inline-flex items-center justify-center p-2 text-base font-medium
+            text-green-500 bg-transparent rounded-md cursor-pointer group
+             hover:bg-primary-600 active:bg-primary-600 disabled:bg-transparent
+             hover:text-green-600 active:text-green-700 disabled:text-gray-500
+             disabled:opacity-50 font-body outline-violet"
           >
             <span class="relative">
+              <!-- eslint-disable max-len -->
               <svg
                 width="24"
                 height="24"
@@ -163,7 +190,14 @@
                   d="M1 3C1 2.44772 1.44772 2 2 2H4.30673C5.47087 2 6.48094 2.80352 6.74271 3.93785L6.98782 5H19.5788C21.2053 5 22.3987 6.52847 22.0042 8.10634L20.2542 15.1063C19.976 16.2193 18.976 17 17.8288 17H9.69327C8.52913 17 7.51906 16.1965 7.25729 15.0621L4.79393 4.38757C4.74157 4.1607 4.53956 4 4.30673 4H2C1.44772 4 1 3.55228 1 3ZM7.44936 7L9.20607 14.6124C9.25843 14.8393 9.46044 15 9.69327 15H17.8288C18.0583 15 18.2583 14.8439 18.3139 14.6213L20.0639 7.62127C20.1428 7.30569 19.9041 7 19.5788 7H7.44936Z"
                 />
               </svg>
-              <span class="absolute bottom-[14px] left-2 px-1 py-[2px] text-[8px] leading-[8px] bg-white rounded-lg font-body text-gray-900 font-medium border-2 border-brand group-hover:border-primary-600 group-active:border-primary-600">
+              <!-- eslint-enable max-len -->
+
+              <span
+                class="absolute bottom-[14px] left-2 px-1 py-[2px] text-[8px]
+              leading-[8px] bg-white rounded-lg font-body text-gray-900
+              font-medium border-2 border-brand group-hover:border-primary-600
+              group-active:border-primary-600"
+              >
                 123
               </span>
             </span>
@@ -173,9 +207,14 @@
           <button
             v-focus
             aria-label="Wishlist"
-            class="inline-flex items-center justify-center p-2 text-base font-medium text-green-500 bg-transparent rounded-md cursor-pointer hover:bg-green-600 active:bg-green-600 disabled:bg-transparent hover:text-green-600 active:text-green-700 disabled:text-gray-500 disabled:opacity-50 font-body outline-violet"
+            class="inline-flex items-center justify-center p-2 text-base font-medium
+            text-green-500 bg-transparent rounded-md cursor-pointer hover:bg-green-600
+            active:bg-green-600 disabled:bg-transparent hover:text-green-600
+            active:text-green-700 disabled:text-gray-500 disabled:opacity-50
+            font-body outline-violet"
           >
             <span class="relative">
+              <!-- eslint-disable max-len -->
               <svg
                 width="24"
                 height="24"
@@ -190,6 +229,9 @@
                   d="M19.6641 4.99065C17.0241 3.19065 13.7641 4.03065 12.0041 6.09065C10.2441 4.03065 6.98412 3.18065 4.34412 4.99065C2.94412 5.95065 2.06412 7.57065 2.00412 9.28065C1.86412 13.1607 5.30412 16.2707 10.5541 21.0407L10.6541 21.1307C11.4141 21.8207 12.5841 21.8207 13.3441 21.1207L13.4541 21.0207C18.7041 16.2607 22.1341 13.1507 22.0041 9.27065C21.9441 7.57065 21.0641 5.95065 19.6641 4.99065ZM12.1041 19.5507L12.0041 19.6507L11.9041 19.5507C7.14412 15.2407 4.00412 12.3907 4.00412 9.50065C4.00412 7.50065 5.50412 6.00065 7.50412 6.00065C9.04412 6.00065 10.5441 6.99065 11.0741 8.36065H12.9441C13.4641 6.99065 14.9641 6.00065 16.5041 6.00065C18.5041 6.00065 20.0041 7.50065 20.0041 9.50065C20.0041 12.3907 16.8641 15.2407 12.1041 19.5507Z"
                 />
               </svg>
+              <!-- eslint-enable max-len -->
+
+              <!-- eslint-disable max-len -->
               <svg
                 class="absolute bottom-5 left-5"
                 width="12"
@@ -203,6 +245,8 @@
                   fill="white"
                 />
               </svg>
+              <!-- eslint-enable max-len -->
+
             </span>
           </button>
         </li>
@@ -210,8 +254,12 @@
           <button
             v-focus
             aria-label="Log in"
-            class="inline-flex items-center justify-center p-2 text-base font-medium text-white bg-transparent rounded-md cursor-pointer group hover:bg-green-600 active:bg-green-600 disabled:bg-transparent disabled:text-gray-500 disabled:opacity-50 font-body outline-violet"
+            class="inline-flex items-center justify-center p-2 text-base
+             font-medium text-white bg-transparent rounded-md cursor-pointer
+             group hover:bg-green-600 active:bg-green-600 disabled:bg-transparent
+              disabled:text-gray-500 disabled:opacity-50 font-body outline-violet"
           >
+            <!-- eslint-disable max-len -->
             <svg
               width="24"
               height="24"
@@ -227,6 +275,8 @@
                 d="M19.8 22C19.2 22 18.8 21.6 18.8 21C18.8 17.5 15.9 14.6 12.4 14.6C8.9 14.6 6 17.5 6 21C6 21.6 5.6 22 5 22C4.4 22 4 21.6 4 21C4 16.4 7.8 12.6 12.4 12.6C17 12.6 20.8 16.4 20.8 21C20.8 21.6 20.3 22 19.8 22Z"
               />
             </svg>
+            <!-- eslint-enable max-len -->
+
             <span class="hidden ml-2 whitespace-nowrap large:block">
               Log in
             </span>
@@ -245,7 +295,7 @@ import NavbarBottom from '../components/NavbarBottom/NavbarBottom.vue';
 import FooterBase from '../components/FooterBase.vue';
 import NavbarTop from '../components/NavbarTop/NavbarTopBrandedCounter/NavbarTopBrandedCounter.vue';
 import SearchWithoutButtonWithRightIcon from '../components/Search/SearchWithoutButtonWithRightIcon/SearchWithoutButtonWithRightIcon.vue';
-import { focus } from '../utils/focus-directive.js';
+import focus from '../utils/focus-directive';
 
 export default {
   name: 'DefaultLayout',
@@ -253,10 +303,10 @@ export default {
     NavbarBottom,
     FooterBase,
     NavbarTop,
-    SearchWithoutButtonWithRightIcon
+    SearchWithoutButtonWithRightIcon,
   },
   directives: {
-    focus
+    focus,
   },
   setup() {
     const footerCategories = [
@@ -267,8 +317,8 @@ export default {
           'Order pickup',
           'Purchase status',
           'Track orders',
-          'Returns'
-        ]
+          'Returns',
+        ],
       },
       {
         category: 'Help',
@@ -276,8 +326,8 @@ export default {
           'Help centers',
           'Security & fraud',
           'Feedback',
-          'Contact'
-        ]
+          'Contact',
+        ],
       },
       {
         category: 'Services',
@@ -286,8 +336,8 @@ export default {
           'Order pickup',
           'Purchase status',
           'Track orders',
-          'Returns'
-        ]
+          'Returns',
+        ],
       },
       {
         category: 'About',
@@ -296,21 +346,21 @@ export default {
           'Order pickup',
           'Purchase status',
           'Track orders',
-          'Returns'
-        ]
-      }
+          'Returns',
+        ],
+      },
     ];
     const navCategories = [
       'All products',
       'Details',
-      'Pickup & Delivery'
+      'Pickup & Delivery',
     ];
     const searchValue = '';
     return {
       footerCategories,
       navCategories,
-      searchValue
+      searchValue,
     };
-  }
+  },
 };
 </script>

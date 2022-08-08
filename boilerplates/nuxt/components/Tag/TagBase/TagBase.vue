@@ -22,7 +22,7 @@ export default {
   props: {
     label: {
       type: String,
-      default: 'Label'
+      default: 'Label',
     },
     type: {
       type: String,
@@ -34,9 +34,9 @@ export default {
           'positive',
           'warning',
           'error',
-          'disabled'
+          'disabled',
         ].includes(value);
-      }
+      },
     },
     size: {
       type: String,
@@ -44,10 +44,10 @@ export default {
       validator(value) {
         return [
           'base',
-          'sm'
+          'sm',
         ].includes(value);
-      }
-    }
-  }
+      },
+    },
+  },
 };
 </script>

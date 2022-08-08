@@ -1,4 +1,3 @@
-
 import QuantitySelector from './QuantitySelector.vue';
 
 export default {
@@ -8,9 +7,9 @@ export default {
     docs: {
       description: {
         component:
-          'The Quantity Selector component. [link to component docs on the page]'
-      }
-    }
+          'The Quantity Selector component. [link to component docs on the page]',
+      },
+    },
   },
   argTypes: {
     value: {
@@ -19,19 +18,19 @@ export default {
       table: {
         category: 'Props',
         defaultValue: {
-          summary: '1'
-        }
+          summary: '1',
+        },
       },
-      description: 'Input value'
+      description: 'Input value',
     },
     disabled: {
       control: 'boolean',
       defaultValue: false,
       table: {
-        category: 'Props'
+        category: 'Props',
       },
       description:
-        'Native input disabled attribute'
+        'Native input disabled attribute',
     },
     quantityInStock: {
       control: 'number',
@@ -39,10 +38,10 @@ export default {
       table: {
         category: 'Props',
         defaultValue: {
-          summary: '5'
-        }
+          summary: '5',
+        },
       },
-      description: 'Input value'
+      description: 'Input value',
     },
     minQuantity: {
       control: 'number',
@@ -50,10 +49,10 @@ export default {
       table: {
         category: 'Props',
         defaultValue: {
-          summary: '1'
-        }
+          summary: '1',
+        },
       },
-      description: 'Input value'
+      description: 'Input value',
     },
     size: {
       control: 'radio',
@@ -62,10 +61,10 @@ export default {
       table: {
         category: 'Props',
         defaultValue: {
-          summary: 'base'
-        }
+          summary: 'base',
+        },
       },
-      description: 'Change size of component'
+      description: 'Change size of component',
     },
     emptyStockMsg: {
       control: 'text',
@@ -73,12 +72,12 @@ export default {
       table: {
         category: 'Props',
         defaultValue: {
-          summary: 'Out of stock'
-        }
+          summary: 'Out of stock',
+        },
       },
-      description: 'Message appearing when stock is empty'
-    }
-  }
+      description: 'Message appearing when stock is empty',
+    },
+  },
 };
 
 const Template = (args, { argTypes }) => ({
@@ -88,7 +87,7 @@ const Template = (args, { argTypes }) => ({
     return {
       quantity: this.value,
       disabledState: this.disabled,
-      inStock: this.quantityInStock
+      inStock: this.quantityInStock,
     };
   },
   watch: {
@@ -96,8 +95,8 @@ const Template = (args, { argTypes }) => ({
       handler(newVal) {
         if (newVal <= 0) { this.disabledState = true; }
       },
-      immediate: true
-    }
+      immediate: true,
+    },
   },
   template: `
   <div>
@@ -110,7 +109,7 @@ const Template = (args, { argTypes }) => ({
       :emptyStockMsg="emptyStockMsg"
     />
     </div>
-    `
+    `,
 });
 
 export const Base = Template.bind({});

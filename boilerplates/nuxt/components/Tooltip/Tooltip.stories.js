@@ -1,4 +1,3 @@
-
 import TooltipBase from './TooltipBase/TooltipBase.vue';
 import TooltipBottom from './TooltipBottom/TooltipBottom.vue';
 import TooltipLeft from './TooltipLeft/TooltipLeft.vue';
@@ -13,20 +12,20 @@ export default {
       iframeHeight: '300px',
       description: {
         component:
-          'The tag component. [link to component docs on the page]'
-      }
-    }
+          'The tag component. [link to component docs on the page]',
+      },
+    },
   },
   argTypes: {
     label: {
       control: 'text',
       table: {
-        category: 'Props'
+        category: 'Props',
       },
       defaultValue: '',
-      description: 'Tooltip label'
-    }
-  }
+      description: 'Tooltip label',
+    },
+  },
 };
 
 const Template = (args, { argTypes }) => ({
@@ -34,13 +33,13 @@ const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
     <TooltipBase class="my-12" :label="label" />
-    `
+    `,
 });
 
 export const Base = Template.bind({});
 
 Base.args = {
-  label: 'Label text'
+  label: 'Label text',
 };
 
 const TooltipOnBottom = (args, { argTypes }) => ({
@@ -48,7 +47,7 @@ const TooltipOnBottom = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
     <TooltipBottom class="my-12" :label="label" />
-    `
+    `,
 });
 
 export const Bottom = TooltipOnBottom.bind({});
@@ -58,7 +57,7 @@ const TooltipOnLeft = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
     <TooltipLeft class="my-12" :label="label" />
-    `
+    `,
 });
 
 export const Left = TooltipOnLeft.bind({});
@@ -68,7 +67,7 @@ const TooltipOnRight = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
     <TooltipRight class="my-12" :label="label" />
-    `
+    `,
 });
 
 export const Right = TooltipOnRight.bind({});

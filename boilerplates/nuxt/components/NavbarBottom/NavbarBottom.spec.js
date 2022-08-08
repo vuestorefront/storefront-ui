@@ -8,8 +8,8 @@ describe('NavbarBottom.vue', () => {
   beforeEach(() => {
     wrapper = shallowMount(NavbarBottom, {
       propsData: {
-        name
-      }
+        name,
+      },
     });
   });
   it('render component correctly', () => {

@@ -1,4 +1,3 @@
-
 import TagBase from './TagBase/TagBase.vue';
 import TagIcon from './TagIcon/TagIcon.vue';
 import TagIconLeft from './TagIconLeft/TagIconLeft.vue';
@@ -12,9 +11,9 @@ export default {
     docs: {
       description: {
         component:
-          'The tag component. [link to component docs on the page]'
-      }
-    }
+          'The tag component. [link to component docs on the page]',
+      },
+    },
   },
   argTypes: {
     label: {
@@ -22,11 +21,11 @@ export default {
       table: {
         category: 'Props',
         defaultValue: {
-          summary: 'Label'
-        }
+          summary: 'Label',
+        },
       },
       defaultValue: 'Label',
-      description: 'Label text.'
+      description: 'Label text.',
     },
     type: {
       control: 'select',
@@ -36,16 +35,16 @@ export default {
         'positive',
         'warning',
         'error',
-        'disabled'
+        'disabled',
       ],
       table: {
         category: 'Props',
         defaultValue: {
-          summary: 'base'
-        }
+          summary: 'base',
+        },
       },
       defaultValue: 'base',
-      description: 'Tag type.'
+      description: 'Tag type.',
     },
     size: {
       control: 'radio',
@@ -54,12 +53,12 @@ export default {
       table: {
         category: 'Props',
         defaultValue: {
-          summary: 'base'
-        }
+          summary: 'base',
+        },
       },
-      description: 'Change size of the component'
-    }
-  }
+      description: 'Change size of the component',
+    },
+  },
 };
 
 const Template = (args, { argTypes }) => ({
@@ -71,14 +70,17 @@ const Template = (args, { argTypes }) => ({
       :type="type"
       :size="size"
     >
-      <svg
+      <!-- eslint-disable max-len -->
+<svg
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" />
       </svg>
+<!-- eslint-enable max-len -->
+
     </TagBase>
-    `
+    `,
 });
 
 export const Base = Template.bind({});
@@ -92,14 +94,17 @@ const TagWithIcon = (args, { argTypes }) => ({
       :type="type"
       :size="size"
     >
-      <svg
+      <!-- eslint-disable max-len -->
+<svg
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" />
       </svg>
+<!-- eslint-enable max-len -->
+
     </TagIcon>
-    `
+    `,
 });
 
 export const Icon = TagWithIcon.bind({});
@@ -113,14 +118,17 @@ const TagWithIconLeft = (args, { argTypes }) => ({
       :type="type"
       :size="size"
     >
-      <svg
+      <!-- eslint-disable max-len -->
+<svg
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" />
       </svg>
+<!-- eslint-enable max-len -->
+
     </TagIconLeft>
-    `
+    `,
 });
 
 export const IconLeft = TagWithIconLeft.bind({});
@@ -134,14 +142,17 @@ const TagWithIconRight = (args, { argTypes }) => ({
       :type="type"
       :size="size"
     >
-      <svg
+      <!-- eslint-disable max-len -->
+<svg
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" />
       </svg>
+<!-- eslint-enable max-len -->
+
     </TagIconRight>
-    `
+    `,
 });
 
 export const IconRight = TagWithIconRight.bind({});
@@ -155,14 +166,17 @@ const TagBadgeMode = (args, { argTypes }) => ({
       :type="type"
       :size="size"
     >
-      <svg
+      <!-- eslint-disable max-len -->
+<svg
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" />
       </svg>
+<!-- eslint-enable max-len -->
+
     </TagBadge>
-    `
+    `,
 });
 
 export const BadgeVariant = TagBadgeMode.bind({});

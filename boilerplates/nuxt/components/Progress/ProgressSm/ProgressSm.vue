@@ -6,6 +6,7 @@
     aria-valuemax="100"
     aria-label="Loading"
   >
+    <!-- eslint-disable max-len -->
     <svg
       width="20"
       height="20"
@@ -33,6 +34,7 @@
         class="transition-all ease-in-out duration-[600ms]"
       />
     </svg>
+    <!-- eslint-enable max-len -->
   </div>
 </template>
 
@@ -43,8 +45,8 @@ export default {
   props: {
     value: {
       type: Number,
-      default: 0
-    }
-  }
+      default: 0,
+    },
+  },
 };
 </script>

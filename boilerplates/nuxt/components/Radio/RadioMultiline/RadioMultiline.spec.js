@@ -10,8 +10,8 @@ describe('RadioDense.vue', () => {
     wrapper = shallowMount(RadioMultiline, {
       propsData: {
         name,
-        id
-      }
+        id,
+      },
     });
   });
   it('render component correctly', () => {

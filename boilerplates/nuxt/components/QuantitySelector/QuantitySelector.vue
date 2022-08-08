@@ -1,8 +1,11 @@
 <template>
-  <div class="relative flex flex-col items-center w-40 remove-default-styling" :class="size === 'base' ? 'h-10' : 'h-12'">
+  <div
+    class="relative flex flex-col items-center w-40 remove-default-styling"
+    :class="size === 'base' ? 'h-10' : 'h-12'"
+  >
     <div
       class="flex items-center justify-between border border-gray-300 rounded-md"
-      :class="{ 'bg-gray-200 opacity-50 ': disabled }"
+      :class="{'bg-gray-200 opacity-50 ': disabled}"
     >
       <ButtonBase
         class="rounded-r-none fill-primary-500 disabled:fill-gray-500/50 disabled:pointer-events-none"
@@ -14,10 +17,12 @@
         :aria-disabled="quantity === min || disabled"
         @click.native="Number(quantity -= 1)"
       >
+        <!-- eslint-disable max-len -->
         <svg class="w-6 h-6" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" clip-rule="evenodd" d="M5 13H19C19.5523 13 20 12.5523 20 12C20 11.4477 19.5523 11 19 11H5C4.44772 11 4 11.4477 4 12C4 12.5523 4.44772 13 5 13Z" />
           <path fill-rule="evenodd" clip-rule="evenodd" d="M5 13H19C19.5523 13 20 12.5523 20 12C20 11.4477 19.5523 11 19 11H5C4.44772 11 4 11.4477 4 12C4 12.5523 4.44772 13 5 13Z" />
         </svg>
+        <!-- eslint-enable max-len -->
       </ButtonBase>
       <div class="flex h-full" :class="disabledStyle">
         <input
@@ -45,10 +50,12 @@
         :aria-disabled="quantity === qtyInStock || disabled"
         @click.native="Number(quantity += 1)"
       >
+        <!-- eslint-disable max-len -->
         <svg class="w-6 h-6" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path d="M11 11V5C11 4.44772 11.4477 4 12 4C12.5523 4 13 4.44772 13 5V11H19C19.5523 11 20 11.4477 20 12C20 12.5523 19.5523 13 19 13H13V19C13 19.5523 12.5523 20 12 20C11.4477 20 11 19.5523 11 19V13H5C4.44772 13 4 12.5523 4 12C4 11.4477 4.44772 11 5 11H11Z" />
           <path d="M11 11V5C11 4.44772 11.4477 4 12 4C12.5523 4 13 4.44772 13 5V11H19C19.5523 11 20 11.4477 20 12C20 12.5523 19.5523 13 19 13H13V19C13 19.5523 12.5523 20 12 20C11.4477 20 11 19.5523 11 19V13H5C4.44772 13 4 12.5523 4 12C4 11.4477 4.44772 11 5 11H11Z" />
         </svg>
+        <!-- eslint-enable max-len -->
       </ButtonBase>
     </div>
     <div v-if="!disabled" class="mt-1 text-xs font-normal text-center font-body">
@@ -68,34 +75,36 @@
 </template>
 
 <script>
-import { computed, ref, watchEffect } from '@vue/composition-api';
+import {
+  computed, ref, watchEffect, watch,
+} from '@vue/composition-api';
 import ButtonBase from '../Button/ButtonBase/ButtonBase.vue';
-import { focus } from '../../utils/focus-directive.js';
+import focus from '../../utils/focus-directive';
 
 export default {
   name: 'QuantitySelector',
   components: {
-    ButtonBase
+    ButtonBase,
   },
   directives: {
-    focus
+    focus,
   },
   props: {
     value: {
       type: [Number, String],
-      default: 1
+      default: 1,
     },
     quantityInStock: {
       type: [Number, String],
-      default: 5
+      default: 5,
     },
     minQuantity: {
       type: [Number, String],
-      default: 1
+      default: 1,
     },
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     size: {
       type: String,
@@ -103,55 +112,51 @@ export default {
       validator(value) {
         return [
           'base',
-          'lg'
+          'lg',
         ].includes(value);
-      }
+      },
     },
     emptyStockMsg: {
       type: String,
-      default: 'Out of stock'
-    }
+      default: 'Out of stock',
+    },
   },
   setup(props, { emit }) {
-    const qtyInStock = computed(() => {
-      return Number(props.quantityInStock);
-    });
-    const min = computed(() => {
-      return Number(props.minQuantity);
-    });
+    const min = computed(() => Number(props.minQuantity));
     const disabledState = ref(props.disabled);
     const input = ref(null);
     const disabledStyle = ref({
-      'after:content-["-"] after:absolute after:top-[50%] after:-translate-y-1/2 after:left-[50%] after:font-medium after:text-gray-900 after:opacity-40': disabledState.value
+      'after:content-["-"] after:absolute after:top-[50%] after:-translate-y-1/2 after:left-[50%] after:font-medium after:text-gray-900 after:opacity-40': disabledState.value,
     });
     watchEffect(
       () => {
         if (disabledState.value === true) {
           emit('input', '-');
-        };
-      }
-    );
-    const quantity = computed({
-      get() {
-        return Number(props.value);
-      },
-      set(qty) {
-        if (qty > qtyInStock.value) {
-          qty = qtyInStock.value;
-        } else if (qty < min.value) {
-          qty = min.value;
-        } else {
-          emit('input', qty);
         }
+      },
+    );
+
+    const quantity = ref(Number(props.value));
+    const qtyInStock = computed(() => Number(props.quantityInStock));
+    const quantityNumber = computed(() => Number(props.value));
+    watch(quantityNumber, (quantityNumberValue) => {
+      if (quantityNumberValue > qtyInStock.value) {
+        quantity.value = qtyInStock.value;
+      } else if (quantityNumberValue < min.value) {
+        quantity.value = min.value;
+      } else {
+        emit('input', quantity.value);
       }
-    });
+    }, { immediate: true });
+
     return {
+      quantityNumber,
       quantity,
       qtyInStock,
       min,
       input,
-      disabledStyle
+      disabledStyle,
     };
-  }
+  },
 };
 </script>

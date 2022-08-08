@@ -1,19 +1,21 @@
-export const focus = {
+const focus = {
   bind: (el) => {
-    el._mouseHandler = function() {
+    el.mouseHandler = () => {
       el.style.outline = 'none';
     };
-    el._keyHandler = function(e) {
+    el.keyHandler = (e) => {
       el.style.outline = '';
       if (e.code === 'Tab') {
         el.focus();
       }
     };
-    window.addEventListener('mousedown', el._mouseHandler);
-    el.addEventListener('keyup', el._keyHandler);
+    window.addEventListener('mousedown', el.mouseHandler);
+    el.addEventListener('keyup', el.keyHandler);
   },
   unbind(el) {
-    window.removeEventListener('mousedown', el._mouseHandler);
-    el.removeEventListener('keyup', el._keyHandler);
-  }
+    window.removeEventListener('mousedown', el.mouseHandler);
+    el.removeEventListener('keyup', el.keyHandler);
+  },
 };
+
+export default focus;

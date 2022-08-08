@@ -8,10 +8,10 @@
       'w-[148px]': size === 'xs',
       'w-[180px]': size === 'sm',
       'w-[230px]': size === 'base',
-      'w-[280px]': size === 'lg',
+      'w-[280px]': size === 'lg'
     }"
   >
-    <slot name="image" v-bind="{ image, alt, outOfStock, badge, size }">
+    <slot name="image" v-bind="{image, alt, outOfStock, badge, size}">
       <div class="relative">
         <img
           class="w-full h-auto rounded-md"
@@ -21,7 +21,7 @@
           :width="imageDimensions"
           :height="imageDimensions"
           :class="{
-            'opacity-50': outOfStock,
+            'opacity-50': outOfStock
           }"
         >
         <slot name="badge">
@@ -32,6 +32,7 @@
             :label="`${badge}`"
             class="absolute top-0 left-0"
           >
+            <!-- eslint-disable max-len -->
             <svg
               width="20"
               height="20"
@@ -44,6 +45,8 @@
                 fill="white"
               />
             </svg>
+            <!-- eslint-enable max-len -->
+
           </TagBadge>
         </slot>
         <TagIconLeft
@@ -53,6 +56,7 @@
           :label="outOfStock ? 'Out of stock' : `${inCart} in cart`"
           class="absolute bottom-0 left-0 m-2"
         >
+          <!-- eslint-disable max-len -->
           <svg
             v-if="!outOfStock"
             width="16"
@@ -76,15 +80,17 @@
               fill="#16A34A"
             />
           </svg>
+          <!-- eslint-enable max-len -->
+
         </TagIconLeft>
       </div>
     </slot>
-    <slot name="details" v-bind="{ size, maxRatingValue, reviews, ratingValue, label }">
+    <slot name="details" v-bind="{size, maxRatingValue, reviews, ratingValue, label}">
       <div
         class="border-gray-200 border-t-[1px] flex flex-col"
         :class="{
           'p-2': size === 'xs' || size === 'sm',
-          'p-4': size === 'base' || size === 'lg',
+          'p-4': size === 'base' || size === 'lg'
         }"
       >
         <slot name="top">
@@ -101,22 +107,23 @@
             :class="[
               size === 'lg' ? 'text-base leading-6' : 'text-sm leading-5',
               {
-                'my-1': size === 'xs' || size == 'sm',
+                'my-1': size === 'xs' || size === 'sm',
                 'mt-1 mb-2': size === 'base',
-                'mb-1 -order-1': size === 'lg',
+                'mb-1 -order-1': size === 'lg'
               }
             ]"
           >
             {{ label }}
           </span>
         </slot>
-        <slot name="description" class="mt-2" v-bind="{ description, size, shippingDetails, returnsDetails }">
+        <slot name="description" class="mt-2" v-bind="{description, size, shippingDetails, returnsDetails}">
           <div v-if="description && size === 'lg'" class="mt-2">
             <span class="text-sm font-normal leading-5 text-gray-700 font-body">
               {{ description }}
             </span>
             <ul>
               <li class="flex items-center my-2">
+                <!-- eslint-disable max-len -->
                 <svg
                   width="16"
                   height="16"
@@ -135,6 +142,8 @@
                     fill="#71717A"
                   />
                 </svg>
+                <!-- eslint-enable max-len -->
+
                 <span
                   class="ml-2 text-sm font-normal leading-5 text-gray-700 font-body"
                 >
@@ -142,6 +151,7 @@
                 </span>
               </li>
               <li class="flex items-center">
+                <!-- eslint-disable max-len -->
                 <svg
                   width="16"
                   height="16"
@@ -170,6 +180,8 @@
                     fill="#71717A"
                   />
                 </svg>
+                <!-- eslint-enable max-len -->
+
                 <span class="ml-2 text-sm font-normal leading-5 text-gray-700 font-body">
                   {{ returnsDetails }}
                 </span>
@@ -184,13 +196,13 @@
             'mt-4': size === 'lg'
           }"
         >
-          <slot name="bottom" v-bind="{ price, oldPrice, size }">
+          <slot name="bottom" v-bind="{price, oldPrice, size}">
             <span
               class="font-bold font-headings"
               :class="[
                 {
                   'text-lg leading-6': size === 'base' || size === 'lg',
-                  'text-xs leading-4': size === 'sm' || size === 'xs',
+                  'text-xs leading-4': size === 'sm' || size === 'xs'
                 },
                 oldPrice ? 'text-secondary-700' : 'text-gray-900'
               ]"
@@ -209,7 +221,8 @@
 
 <script>
 import { computed } from '@vue/composition-api';
-import { focus } from '../../../utils/focus-directive.js';
+import focus from '../../../utils/focus-directive';
+
 import RatingBase from '../../Rating/RatingBase/RatingBase.vue';
 import TagIconLeft from '../../Tag/TagIconLeft/TagIconLeft.vue';
 import TagBadge from '../../Tag/TagBadge/TagBadge.vue';
@@ -219,71 +232,71 @@ export default {
   components: {
     RatingBase,
     TagIconLeft,
-    TagBadge
+    TagBadge,
   },
   directives: {
-    focus
+    focus,
   },
   props: {
     image: {
       type: String,
-      default: ''
+      default: '',
     },
     alt: {
       type: String,
-      default: ''
+      default: '',
     },
     link: {
       type: String,
-      default: '/'
+      default: '/',
     },
     ratingValue: {
       type: Number,
-      default: 0
+      default: 0,
     },
     maxRatingValue: {
       type: Number,
-      default: 5
+      default: 5,
     },
     reviews: {
       type: Number,
-      default: 0
+      default: 0,
     },
     label: {
       type: String,
-      default: ''
+      default: '',
     },
     price: {
       type: String,
-      default: ''
+      default: '',
     },
     oldPrice: {
       type: String,
-      default: ''
+      default: '',
     },
     badge: {
       type: String,
-      default: ''
+      default: '',
     },
     description: {
       type: String,
-      default: ''
+      default: '',
     },
     shippingDetails: {
       type: String,
-      default: ''
+      default: '',
     },
     returnsDetails: {
       type: String,
-      default: ''
+      default: '',
     },
     outOfStock: {
       type: Boolean,
-      default: false
+      default: false,
     },
     inCart: {
       type: Number,
-      default: 0
+      default: 0,
     },
     size: {
       type: String,
@@ -293,10 +306,10 @@ export default {
           'xs',
           'sm',
           'base',
-          'lg'
+          'lg',
         ].includes(value);
-      }
-    }
+      },
+    },
   },
   setup(props) {
     const imageDimensions = computed(() => {
@@ -313,8 +326,8 @@ export default {
     });
 
     return {
-      imageDimensions
+      imageDimensions,
     };
-  }
+  },
 };
 </script>

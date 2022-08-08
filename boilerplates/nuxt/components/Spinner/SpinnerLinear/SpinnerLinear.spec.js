@@ -1,5 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 import SpinnerLinear from './SpinnerLinear.vue';
+
 let wrapper;
 
 describe('SpinnerLinear.vue', () => {
