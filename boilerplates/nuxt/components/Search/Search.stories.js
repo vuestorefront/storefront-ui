@@ -85,18 +85,6 @@ export default {
       },
       description: 'Placeholder value',
     },
-    loading: {
-      control: 'boolean',
-      defaultValue: false,
-      table: {
-        category: 'Props',
-        defaultValue: {
-          summary: false,
-        },
-      },
-      description:
-        'Loading autocomplete hints state',
-    },
     innerIconRight: {
       control: 'boolean',
       defaultValue: false,
