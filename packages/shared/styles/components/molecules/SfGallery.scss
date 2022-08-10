@@ -68,5 +68,9 @@
         --gallery-item-margin: 0;
       }
     }
+    &__thumbs {
+      overflow-y: scroll;
+      height: var(--gallery-image-height);
+    }
   }
 }
