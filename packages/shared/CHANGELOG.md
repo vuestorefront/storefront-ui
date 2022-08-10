@@ -10,10 +10,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 * SfGallery outside zoom ([#2422](https://github.com/vuestorefront/storefront-ui/issues/2422)) ([2f91ac7](https://github.com/vuestorefront/storefront-ui/commit/2f91ac7913989593e70376569aace2f4fdfa4fd6))
 
-
-
-
-
 ## [0.13.2](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.13.1...@storefront-ui/shared@0.13.2) (2022-05-24)
 
 
