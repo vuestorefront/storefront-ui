@@ -43,8 +43,8 @@
         name="icon"
       >
         <SfButton
-          v-if="icon"
           class="sf-input__button sf-button--pure"
+          :class="{ 'display-none': !icon.icon || isPassword }"
           @click="$emit('click:icon')"
         >
           <SfIcon
@@ -56,7 +56,6 @@
           </SfIcon>
         </SfButton>
         <SfButton
-          v-else-if="hasShowPassword"
           :class="{ 'display-none': !isPassword }"
           class="sf-input__password-button"
           type="button"
@@ -70,7 +69,8 @@
               hidden: !isPasswordVisible,
             }"
             icon="show_password"
-            size="1.5rem"
+            size="18px"
+            color="black"
           ></SfIcon>
         </SfButton>
       </slot>
@@ -122,7 +122,9 @@ export default {
     },
     icon: {
       type: Object,
-      default: () => {},
+      default: () => {
+        return { icon: "" };
+      },
     },
     valid: {
       type: Boolean,

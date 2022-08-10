@@ -343,11 +343,6 @@ ShowPassword.args = {
   hasShowPassword: true,
   label: "Password",
   name: "password",
-  icon: {
-    icon: "show_password",
-    color: "black",
-    size: "18px",
-  },
 };
 
 export const WithPlaceholder = (args, { argTypes }) => ({
