@@ -148,12 +148,7 @@ export default {
       return !this.$nuxt ? "img" : this.imageTag || "img";
     },
     isPlaceholderVisible() {
-      return (
-        this.imageComponentTag === "nuxt-img" ||
-        this.imageComponentTag === "nuxt-picture" ||
-        this.loaded ||
-        (!this.loaded && !this.placeholder)
-      );
+      return this.loaded || (!this.loaded && !this.placeholder);
     },
     attributes() {
       return this.imageTag === "img" || this.imageTag === ""
@@ -175,14 +170,14 @@ export default {
         !this.srcset &&
         (this.imageTag === "img" || this.imageTag === "")
       ) {
-        console.error(`Missing required prop width.`);
+        console.warn(`Missing required prop width.`);
       }
       if (
         !this.height &&
         !this.srcset &&
         (this.imageTag === "img" || this.imageTag === "")
       ) {
-        console.error(`Missing required prop height.`);
+        console.warn(`Missing required prop height.`);
       }
       const sizeHandler = (size) => {
         return size === null ? null : `${size}px`;
@@ -192,13 +187,6 @@ export default {
         "--_image-height": sizeHandler(this.height),
       };
     },
-  },
-  created() {
-    if (
-      this.imageComponentTag === "nuxt-img" ||
-      this.imageComponentTag === "nuxt-picture"
-    )
-      this.loaded = true;
   },
   methods: {
     onLoad() {
