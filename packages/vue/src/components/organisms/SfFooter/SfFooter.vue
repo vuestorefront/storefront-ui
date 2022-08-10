@@ -35,7 +35,7 @@ export default {
   },
   data() {
     return {
-      isOpen: [],
+      isOpen: this.open,
       items: [],
     };
   },
