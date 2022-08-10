@@ -58,6 +58,7 @@ export default {
       handler(newVal) {
         this.isColumnOpen = newVal.includes(this.title);
       },
+      immediate: true,
     },
   },
   created() {

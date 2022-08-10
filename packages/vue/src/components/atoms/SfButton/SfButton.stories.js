@@ -116,6 +116,14 @@ export default {
       },
       description: "Link for 'a' tag.",
     },
+    ariaLabel: {
+      control: "text",
+      defaultValue: "button",
+      table: {
+        category: "Props",
+      },
+      description: "Attribute for 'aria-label' tag.",
+    },
     content: {
       control: "text",
       description:
@@ -148,6 +156,7 @@ const Template = (args, { argTypes }) => ({
     :class="classes"
     :disabled="disabled" 
     :type="type"
+    :aria-label="ariaLabel"
     @click="click"
     :link="link">
       {{content}}
@@ -171,6 +180,12 @@ Submit.args = {
   type: "submit",
   ...Primary.args,
   content: "Submit",
+};
+
+export const AriaLabel = Template.bind({});
+AriaLabel.args = {
+  ariaLabel: "button",
+  ...Primary.args,
 };
 
 export const AsLink = Template.bind({});
@@ -225,6 +240,7 @@ export const WithDefaultSlot = (args, { argTypes }) => ({
     :disabled="disabled"
     @click="click"
     :link="link">
+    :aria-label="ariaLabel"
     <template>
       <div v-html="content"/>
     </template>
