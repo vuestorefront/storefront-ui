@@ -11,6 +11,9 @@
     v-on="listeners"
     @keyup.enter="$emit('input', value)"
   >
+    <template #icon>
+      <slot name="icon" v-bind="{ icon }" />
+    </template>
   </SfInput>
 </template>
 <script>
