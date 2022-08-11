@@ -35,14 +35,6 @@
     </a>
 </p>
 
-## Links
-
-- 🖥 WebSite: http://storefrontui.io/
-- 📘 Documentation: http://docs.storefrontui2.io/
-- 👥 Discord Community: https://discord.gg/vuestorefront/
-- 🐦 Twitter: https://twitter.com/StorefrontUI
-- 🎥 YouTube: https://www.youtube.com/c/VueStorefront
-
 ---
 
 # #TechForUkraine
