@@ -1,0 +1,14 @@
+{
+  "extends": "@sfui/typescript-config/base.json",
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "strict": false,
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "types": [
+      "node"
+    ]
+  }
+}
