@@ -1,4 +1,4 @@
-import Button from '~/output/blocks/Button.lite';
+import Button from './../output/blocks/Button.lite';
 
 export default function Index() {
   return (

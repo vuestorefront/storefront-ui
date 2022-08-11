@@ -563,25 +563,6 @@ video {
   flex: 1 1 0%;
 }
 
-.rounded {
-  border-radius: 0.25rem;
-}
-
-.bg-blue-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
-}
-
-.py-2 {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-}
-
-.px-4 {
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
 .text-center {
   text-align: center;
 }
@@ -1318,8 +1299,3 @@ $core-plugins-word-break: true;
 $core-plugins-width: true;
 
 $core-plugins-z-index: true;
-
-.hover\:bg-blue-700:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(29 78 216 / var(--tw-bg-opacity));
-}
