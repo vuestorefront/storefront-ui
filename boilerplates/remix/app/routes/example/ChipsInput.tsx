@@ -8,25 +8,13 @@ function Icon() {
   );
 }
 
-function Button({ click = () => {} }) {
-  return <button onClick={click}>close</button>;
-}
-
 export default function ExampleChipsInput() {
   return (
-    <div className="ml-4 mt-4">
+    <div className="m-4">
       <ChipsInput
-        disabled={true}
         value={"Label"}
         handleChipClose={console.log}
         slotIcon={<Icon />}
-      />
-      <ChipsInput
-        disabled={false}
-        value={"Label"}
-        handleChipClose={console.log}
-        slotIcon={<Icon />}
-        slotClose={<Button click={console.log}/>}
       />
     </div>
   );
