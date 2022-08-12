@@ -14,7 +14,7 @@ export interface ChipsInputProps {
   disabled?: boolean;
   slotIcon?: any;
   slotClose?: any;
-  handleChipClose?: (e?: MouseEvent) => void;
+  handleChipClose?: (e?: Event) => void;
 }
 
 const DEFAULT_VALUES = {
@@ -83,7 +83,7 @@ export default function ChipsInput(props: ChipsInputProps) {
     get valueClass(): string {
       return state.useValue ? "!pr-0. " : "";
     },
-    close(event: MouseEvent) {
+    close(event: Event) {
       props.handleChipClose && props.handleChipClose(event);
     },
   });
