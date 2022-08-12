@@ -2,6 +2,7 @@
   "content": [
     "./app/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,vue,ts}",
+    "./output/**/*.{js,vue,ts}",
     "./stories/**/*.{js,ts}",
     "./layouts/**/**.vue",
     "./pages/**/*.vue",
@@ -139,6 +140,5 @@
         "linear-loader": "linear-loader 1.5s ease-in infinite"
       }
     }
-  },
-  "plugins": []
+  }
 }

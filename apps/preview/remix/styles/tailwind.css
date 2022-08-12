@@ -561,8 +561,8 @@ video {
   display: flex;
 }
 
-.border{
-  border-width: 1px;
+.flex-1{
+  flex: 1 1 0%;
 }
 
 .text-center{

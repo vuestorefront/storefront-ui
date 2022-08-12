@@ -2,6 +2,4 @@
 
 const config = require('@sfui/tailwind-config/index.json');
 
-module.exports = {
-  ...config
-};
+module.exports = config;

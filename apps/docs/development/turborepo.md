@@ -18,11 +18,11 @@ Install dependencies.
 yarn
 ```
 
-Run pipeline.
+Run pipeline on root directory
 
 ```bash
-yarn turbo run dev # run dev mode
-yarn turbo run build # run build mode
+yarn dev # run dev mode
+yarn build # run build mode
 ```
 
 Ports:

@@ -1,3 +1,5 @@
+@use "sass:map";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -277,8 +279,8 @@ $theme-cursor: (
   not-allowed: not-allowed,
 );
 
-$theme-width: map-merge(
-  map-merge(
+$theme-width: map.merge(
+  map.merge(
     $theme-spacing,
     (
       auto: auto,
@@ -316,8 +318,8 @@ $theme-width: map-merge(
   )
 );
 
-$theme-height: map-merge(
-  map-merge(
+$theme-height: map.merge(
+  map.merge(
     $theme-spacing,
     (
       auto: auto,
@@ -361,14 +363,11 @@ $theme-max-height: (
 
 $theme-padding: $theme-spacing;
 
-$theme-margin: map-merge(
-  map-merge(
-    $theme-spacing,
-    (
-      auto: auto,
-    )
-  ),
-  negative-map($theme-spacing)
+$theme-margin: map.merge(
+  $theme-spacing,
+  (
+    auto: auto,
+  )
 );
 
 $theme-object-position: (

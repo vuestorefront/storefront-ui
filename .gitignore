@@ -39,3 +39,4 @@ lib/*
 lib/
 output
 output/*
+apps/preview/remix/.cache

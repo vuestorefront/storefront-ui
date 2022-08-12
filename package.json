@@ -13,6 +13,7 @@
     "prepare": "husky install",
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
+    "dev:nuxt": "we need only for nuxt script and for remix and for mitosis",
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint:fix",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",

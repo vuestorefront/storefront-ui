@@ -13,7 +13,7 @@ export default function Button(props: ButtonProps) {
       <Show
         when={props.link}
         else={
-          <button {...props.attributes} className="text-white flex-1 mt-28">
+          <button {...props.attributes} className="border">
             {props.text}
           </button>
         }
