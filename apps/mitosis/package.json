@@ -1,0 +1,22 @@
+{
+  "name": "@sfui/mitosis",
+  "version": "0.0.0",
+  "scripts": {
+    "build": "mitosis build",
+    "dev": "watch 'yarn run build' ./src ./overrides"
+  },
+  "dependencies": {
+    "@builder.io/mitosis": "dev",
+    "@builder.io/mitosis-cli": "dev",
+    "seedrandom": "^3.0.5",
+    "vue-loader": "^16.1.0",
+    "vue-template-compiler": "^2.7.8"
+  },
+  "devDependencies": {
+    "@builder.io/eslint-plugin-mitosis": "^0.0.1",
+    "@types/node-fetch": "^2.5.12",
+    "@typescript-eslint/eslint-plugin": "^5.27.1",
+    "@typescript-eslint/parser": "^5.27.1",
+    "watch": "^1.0.2"
+  }
+}

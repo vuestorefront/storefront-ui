@@ -1,0 +1,11 @@
+{
+  "name": "@sfui/tailwind-config",
+  "version": "0.0.0",
+  "private": true,
+  "main": "index.json",
+  "files": [
+    "index.json",
+    "index.scss",
+    "reset.scss"
+  ]
+}

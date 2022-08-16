@@ -1,0 +1,19 @@
+{
+  "name": "@sfui/preview-nuxt",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt dev --port=3001",
+    "build": "nuxt build",
+    "start": "node .output/server/index.mjs"
+  },
+  "devDependencies": {
+    "@sfui/example-style": "*",
+    "autoprefixer": "^10.4.8",
+    "nuxt": "npm:nuxt3@latest",
+    "postcss": "^8.4.16",
+    "sass": "^1.54.4",
+    "sass-loader": "^13.0.2",
+    "tailwindcss": "^3.1.8"
+  }
+}

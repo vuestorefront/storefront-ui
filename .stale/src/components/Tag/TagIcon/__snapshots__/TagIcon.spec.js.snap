@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TagIcon.vue render component correctly 1`] = `
+<div class="inline-flex items-center text-sm font-normal rounded-md font-body direction-row bg-gray-100 fill-gray-600 p-1.5">
+  <div class="w-5 h-5"></div>
+</div>
+`;

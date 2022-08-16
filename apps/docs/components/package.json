@@ -1,0 +1,15 @@
+{
+  "name": "@sfui/docs",
+  "version": "0.0.0",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "dev": "vitepress dev --port=8000",
+    "build": "vitepress build",
+    "serve": "vitepress serve"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.1.8",
+    "vitepress": "^1.0.0-alpha.4"
+  }
+}

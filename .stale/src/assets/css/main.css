@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700&family=Red+Hat+Text:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply caret-primary-500;
+  }
+  h1 {
+    @apply font-bold font-headings extra-small:text-3xl sm:text-6xl;
+  }
+  h2 {
+    @apply font-bold font-headings extra-small:text-2xl sm:text-4xl;
+  }
+  h3 {
+    @apply font-medium font-headings extra-small:text-xl sm:text-2xl;
+  }
+  h4 {
+    @apply font-bold uppercase font-headings extra-small:text-base sm:text-base;
+  }
+}
+
+@layer components {
+    .link-lg {
+        @apply text-lg font-normal underline;
+    }
+    .link-base {
+        @apply text-base font-normal underline;
+    }
+    .link-sm {
+        @apply text-sm font-normal underline;
+    }
+    .link-xs {
+        @apply text-xs font-normal underline;
+    }
+    .icon-xs {
+        @apply w-4 h-4;
+    }
+    .icon-sm {
+        @apply w-5 h-5;
+    }
+    .icon-base {
+        @apply w-6 h-6;
+    }
+    .icon-lg {
+        @apply w-10 h-10;
+    }
+    .icon-xl {
+        @apply w-14 h-14;
+    }
+    .icon-2xl {
+        @apply w-24 h-24;
+    }
+    .icon-3xl {
+        @apply w-48 h-48;
+    }
+    .outline-violet:focus {
+        @apply outline outline-4 outline-offset-2 outline-violet-400;
+    }
+    .remove-default-styling,
+    .remove-default-styling::-webkit-search-cancel-button,
+    .remove-default-styling input[type=number]::-webkit-inner-spin-button,
+    .remove-default-styling input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;    
+    }
+}
