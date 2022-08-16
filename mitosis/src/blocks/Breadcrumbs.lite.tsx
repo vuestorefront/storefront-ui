@@ -28,20 +28,20 @@ export default function Breadcrumbs(props: BreadcrumbsProps) {
     get useWithIcon() {
       return props.withIcon || DEFAULT_VALUES.withIcon;
     },
-    get showDots() {
+    get showDots(): boolean {
       return state.breadcrumbsList.length !== state.useBreadcrumbs.length;
-    },
-    get firstBreadcrumbItem() {
-      return navRef.children[0]?.children[1]?.clientWidth;
-    },
-    get dropdownOpenedClass() {
-      return state.dropdownOpened ? "flex" : "hidden";
-    },
-    get breadcrumbsWidth() {
-      return navRef?.offsetWidth || 0;
     },
     get padding() {
       return 40;
+    },
+    get dropdownOpenedClass(): string {
+      return state.dropdownOpened ? "flex" : "hidden";
+    },
+    firstBreadcrumbItem() {
+      return navRef?.children[0]?.children[1]?.clientWidth || 0;
+    },
+    breadcrumbsWidth() {
+      return navRef?.offsetWidth || 0;
     },
     breadcrumbsList: [] as Breadcrumb[],
     dropdownOpened: false,
@@ -70,7 +70,9 @@ export default function Breadcrumbs(props: BreadcrumbsProps) {
   });
 
   onUpdate(() => {
-    if (state.newWindowWidth <= state.breadcrumbsWidth + state.padding) {
+    const breadcrumbsWidth = state.breadcrumbsWidth(),
+      firstBreadcrumbItem = state.firstBreadcrumbItem();
+    if (state.newWindowWidth <= breadcrumbsWidth + state.padding) {
       const removedItemFromBreadcrumbs = state.breadcrumbsList[0];
 
       if (removedItemFromBreadcrumbs) {
@@ -78,9 +80,9 @@ export default function Breadcrumbs(props: BreadcrumbsProps) {
         state.dropdownList = [removedItemFromBreadcrumbs, ...state.dropdownList];
       }
     }
-    if (state.newWindowWidth - state.padding > state.breadcrumbsWidth + state.firstElementWidth + state.padding) {
-      if (state.firstElementWidth !== state.firstBreadcrumbItem) {
-        state.firstElementWidth = state.firstBreadcrumbItem;
+    if (state.newWindowWidth - state.padding > breadcrumbsWidth + state.firstElementWidth + state.padding) {
+      if (state.firstElementWidth !== firstBreadcrumbItem) {
+        state.firstElementWidth = firstBreadcrumbItem;
       }
       const removedItemFromDropdown = state.dropdownList[0];
       if (removedItemFromDropdown) {
