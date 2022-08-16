@@ -70,9 +70,9 @@ export default function Breadcrumbs(props: BreadcrumbsProps) {
   });
 
   onUpdate(() => {
-    const breadcrumbsWidth = state.breadcrumbsWidth(),
-      firstBreadcrumbItem = state.firstBreadcrumbItem();
-    if (state.newWindowWidth <= breadcrumbsWidth + state.padding) {
+    const breadcrumbsWidthVal = state.breadcrumbsWidth(),
+      firstBreadcrumbItemVal = state.firstBreadcrumbItem();
+    if (state.newWindowWidth <= breadcrumbsWidthVal + state.padding) {
       const removedItemFromBreadcrumbs = state.breadcrumbsList[0];
 
       if (removedItemFromBreadcrumbs) {
@@ -80,9 +80,9 @@ export default function Breadcrumbs(props: BreadcrumbsProps) {
         state.dropdownList = [removedItemFromBreadcrumbs, ...state.dropdownList];
       }
     }
-    if (state.newWindowWidth - state.padding > breadcrumbsWidth + state.firstElementWidth + state.padding) {
-      if (state.firstElementWidth !== firstBreadcrumbItem) {
-        state.firstElementWidth = firstBreadcrumbItem;
+    if (state.newWindowWidth - state.padding > breadcrumbsWidthVal + state.firstElementWidth + state.padding) {
+      if (state.firstElementWidth !== firstBreadcrumbItemVal) {
+        state.firstElementWidth = firstBreadcrumbItemVal;
       }
       const removedItemFromDropdown = state.dropdownList[0];
       if (removedItemFromDropdown) {
