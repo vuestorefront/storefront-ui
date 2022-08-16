@@ -1,4 +1,4 @@
-import { Show, useStore, useRef, useState, For, onMount, onUnMount } from "@builder.io/mitosis";
+import { Show, useStore, useRef, For, onUnMount, onUpdate, onMount } from "@builder.io/mitosis";
 
 export type Breadcrumb = {
   name: string;
@@ -17,50 +17,86 @@ const DEFAULT_VALUES = {
 };
 
 export default function Breadcrumbs(props: BreadcrumbsProps) {
+  // TODO focus directive
+
   const navRef = useRef<HTMLElement>(null);
   const dropdownRef = useRef<HTMLUListElement>(null);
-  const [dropdownOpened, setDropdownOpened] = useState(false);
-  const padding = 40;
-  const [dropdownList, setDropdownList] = useState<Breadcrumb[]>([]);
-  const [firstElementWidth, setFirstElementWidth] = useState(0);
-
-  // const handleDropdownClickOutside = (e: MouseEvent) => {
-  //   console.log(e, dropdownRef)
-  //   if(e.target !== dropdownRef) {
-  //     setDropdownOpened(false)
-  //   }
-  // };
-  
-  // onMount(() => {
-  //   document.addEventListener('click', handleDropdownClickOutside)
-  // })
-  // onUnMount(() => {
-  //   document.removeEventListener('click', handleDropdownClickOutside)
-  // })
-
   const state = useStore({
-    get breadcrumbs() {
+    get useBreadcrumbs() {
       return props.breadcrumbs || DEFAULT_VALUES.breadcrumbs;
     },
-    get withIcon() {
+    get useWithIcon() {
       return props.withIcon || DEFAULT_VALUES.withIcon;
     },
-    get breadcrumbsList() {
-      return [...state.breadcrumbs];
-    },
     get showDots() {
-      return state.breadcrumbsList.length !== state.breadcrumbs.length;
+      return state.breadcrumbsList.length !== state.useBreadcrumbs.length;
     },
     get firstBreadcrumbItem() {
-      return null //navRef.children[0]?.children[1]?.clientWidth;
+      return navRef.children[0]?.children[1]?.clientWidth;
     },
     get dropdownOpenedClass() {
-      return dropdownOpened ? "flex" : "hidden";
+      return state.dropdownOpened ? "flex" : "hidden";
     },
+    get breadcrumbsWidth() {
+      return navRef?.offsetWidth || 0;
+    },
+    get padding() {
+      return 40;
+    },
+    breadcrumbsList: [] as Breadcrumb[],
+    dropdownOpened: false,
+    dropdownList: [] as Breadcrumb[],
+    firstElementWidth: 0,
+    newWindowWidth: 0,
   });
-  // TODO focus directive
-  // TODO watch WindowWidth (onUpdate)
-  // TODO on-click-outside
+
+  function handleDropdownClickOutside(e: Event) {
+    if (!dropdownRef.contains(e.target as Node)) {
+      state.dropdownOpened = false;
+    }
+  }
+
+  function handleButtonClick(e:Event){
+    e.stopPropagation();
+    state.dropdownOpened = true;
+  }
+
+  function onWindowResize () {
+    // TODO debounce calls with requestIdleCallback or requestAnimationFrame
+    state.newWindowWidth = window.innerWidth
+  }
+  onMount(() => {
+    state.breadcrumbsList = state.useBreadcrumbs.slice(0);
+    state.newWindowWidth = window.innerWidth;
+    document.addEventListener("click", handleDropdownClickOutside, true);
+    window.addEventListener("resize", onWindowResize);
+  });
+
+  onUpdate(() => {
+    if (state.newWindowWidth <= state.breadcrumbsWidth + state.padding) {
+      const removedItemFromBreadcrumbs = state.breadcrumbsList[0];
+
+      if (removedItemFromBreadcrumbs) {
+        state.breadcrumbsList = state.breadcrumbsList.slice(1);
+        state.dropdownList = [removedItemFromBreadcrumbs, ...state.dropdownList];
+      }
+    }
+    if (state.newWindowWidth - state.padding > state.breadcrumbsWidth + state.firstElementWidth + state.padding) {
+      if (state.firstElementWidth !== state.firstBreadcrumbItem) {
+        state.firstElementWidth = state.firstBreadcrumbItem;
+      }
+      const removedItemFromDropdown = state.dropdownList[0];
+      if (removedItemFromDropdown) {
+        state.dropdownList = state.dropdownList.slice(1);
+        state.breadcrumbsList = [removedItemFromDropdown, ...state.breadcrumbsList];
+      }
+    }
+  }, [state.newWindowWidth]);
+
+  onUnMount(() => {
+    document.removeEventListener("click", handleDropdownClickOutside, true);
+    window.removeEventListener("resize", onWindowResize);
+  });
 
   return (
     <>
@@ -72,7 +108,7 @@ export default function Breadcrumbs(props: BreadcrumbsProps) {
                 <button
                   class="flex leading-5 relative peer after:content-['/'] after:mx-2 outline-violet rounded-sm"
                   aria-label="Show previous categories"
-                  onClick={() => setDropdownOpened(true)}
+                  onClick={(e)=>handleButtonClick(e)}
                 >
                   <svg
                     class="hover:fill-primary-600 fill-gray-500"
@@ -89,9 +125,9 @@ export default function Breadcrumbs(props: BreadcrumbsProps) {
                   ref={dropdownRef}
                   className={`bg-white rounded-md shadow-md p-[16px] absolute top-100 left-0 flex-col text-base text-gray-900 ${state.dropdownOpenedClass}`}
                 >
-                  <For each={dropdownList}>
-                    {(item) => (
-                      <li aria-label={item.name} class="py-2">
+                  <For each={state.dropdownList}>
+                    {(item, index) => (
+                      <li aria-label={item.name} class="py-2" key={index}>
                         <a
                           href={item.link}
                           class="leading-5 align-middle rounded-sm whitespace-nowrap hover:text-primary-600 hover:underline active:font-medium active:text-gray-900 active:no-underline outline-violet"
@@ -105,9 +141,10 @@ export default function Breadcrumbs(props: BreadcrumbsProps) {
               </div>
             </Show>
           </li>
-          <Show when={!state.showDots && state.withIcon}>
+          <Show when={!state.showDots && state.useWithIcon}>
             <li aria-label="Home" class="relative breadcrumb-item">
-              <Show when={!props.slotIcon} else={<div>{props.slotIcon}</div>}>
+              <>{props.slotIcon}</>
+              <Show when={!props.slotIcon}>
                 <a
                   href="/"
                   class="leading-5 rounded-sm whitespace-nowrap hover:underline active:font-medium active:text-gray-900 active:no-underline outline-violet"
@@ -131,8 +168,8 @@ export default function Breadcrumbs(props: BreadcrumbsProps) {
             </li>
           </Show>
           <For each={state.breadcrumbsList}>
-            {(item) => (
-              <li aria-label={item.name} class="relative breadcrumb-item">
+            {(item, index) => (
+              <li aria-label={item.name} class="relative breadcrumb-item" key={index}>
                 <a
                   href={item.link}
                   class="leading-5 rounded-sm whitespace-nowrap hover:text-primary-600 hover:underline active:font-medium active:text-gray-900 active:no-underline outline-violet"
