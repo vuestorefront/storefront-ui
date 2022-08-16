@@ -48,28 +48,25 @@ export default function Breadcrumbs(props: BreadcrumbsProps) {
     dropdownList: [] as Breadcrumb[],
     firstElementWidth: 0,
     newWindowWidth: 0,
+    handleDropdownClickOutside(e: Event) {
+      if (!dropdownRef.contains(e.target as Node)) {
+        state.dropdownOpened = false;
+      }
+    },
+    handleButtonClick(e: Event) {
+      e.stopPropagation();
+      state.dropdownOpened = true;
+    },
+    onWindowResize() {
+      state.newWindowWidth = window.innerWidth;
+    },
   });
 
-  function handleDropdownClickOutside(e: Event) {
-    if (!dropdownRef.contains(e.target as Node)) {
-      state.dropdownOpened = false;
-    }
-  }
-
-  function handleButtonClick(e:Event){
-    e.stopPropagation();
-    state.dropdownOpened = true;
-  }
-
-  function onWindowResize () {
-    // TODO debounce calls with requestIdleCallback or requestAnimationFrame
-    state.newWindowWidth = window.innerWidth
-  }
   onMount(() => {
     state.breadcrumbsList = state.useBreadcrumbs.slice(0);
     state.newWindowWidth = window.innerWidth;
-    document.addEventListener("click", handleDropdownClickOutside, true);
-    window.addEventListener("resize", onWindowResize);
+    document.addEventListener("click", state.handleDropdownClickOutside, true);
+    window.addEventListener("resize", state.onWindowResize);
   });
 
   onUpdate(() => {
@@ -94,8 +91,8 @@ export default function Breadcrumbs(props: BreadcrumbsProps) {
   }, [state.newWindowWidth]);
 
   onUnMount(() => {
-    document.removeEventListener("click", handleDropdownClickOutside, true);
-    window.removeEventListener("resize", onWindowResize);
+    document.removeEventListener("click", state.handleDropdownClickOutside, true);
+    window.removeEventListener("resize", state.onWindowResize);
   });
 
   return (
@@ -108,7 +105,7 @@ export default function Breadcrumbs(props: BreadcrumbsProps) {
                 <button
                   class="flex leading-5 relative peer after:content-['/'] after:mx-2 outline-violet rounded-sm"
                   aria-label="Show previous categories"
-                  onClick={(e)=>handleButtonClick(e)}
+                  onClick={(e) => state.handleButtonClick(e)}
                 >
                   <svg
                     class="hover:fill-primary-600 fill-gray-500"
