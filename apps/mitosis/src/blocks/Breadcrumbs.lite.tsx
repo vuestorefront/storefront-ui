@@ -148,7 +148,7 @@ export default function Breadcrumbs(props: BreadcrumbsProps) {
             </Show>
           </li>
           <Show when={!state.showDots && state.useWithIcon}>
-            <li aria-label="Home" class={`relative ${state.breadCrumbItemClass}`}>
+            <li aria-label="Home" class={`relative breadcrumb-item ${state.breadCrumbItemClass}`}>
               <>{props.slotIcon}</>
               <Show when={!props.slotIcon}>
                 <a
@@ -175,7 +175,7 @@ export default function Breadcrumbs(props: BreadcrumbsProps) {
           </Show>
           <For each={state.breadcrumbsList}>
             {(item, index) => (
-              <li aria-label={item.name} class={`relative ${state.breadCrumbItemClass}`} key={index}>
+              <li aria-label={item.name} class={`relative breadcrumb-item ${state.breadCrumbItemClass}`} key={index}>
                 <a
                   href={item.link}
                   class="leading-5 rounded-sm whitespace-nowrap hover:text-primary-600 hover:underline active:font-medium active:text-gray-900 active:no-underline outline-violet"
