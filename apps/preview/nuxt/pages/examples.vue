@@ -18,5 +18,5 @@ import { useRouter } from 'vue-router';
 const router = useRouter();
 
 const isOpen = ref();
-// const isDocs = computed(() => currentRoute.value.query.docs)
+const isDocs = computed(() => currentRoute.value.query.docs)
 </script>
