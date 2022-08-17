@@ -1,0 +1,81 @@
+.e-page {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+
+    &-component {
+        padding: 20px;
+        flex: 1;
+        overflow: auto;
+    }
+
+    &-controls {
+        // TODO: do draggabble controls container
+        border-top: 1px solid rgb(205, 205, 205);
+        height: 30vh;
+        padding: 20px;
+        overflow: auto;
+    }
+
+    &-examples {
+        position: relative;
+        height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+        display: flex;
+        font-size: 16px;
+
+        .sidebar {
+            position: relative;
+            flex-shrink: 0;
+            width: 230px;
+            padding: 20px;
+            background-color: rgb(246, 249, 252);
+            -webkit-box-shadow: inset -6px 0px 24px -22px rgba(66, 68, 90, 1);
+            -moz-box-shadow: inset -6px 0px 24px -22px rgba(66, 68, 90, 1);
+            box-shadow: inset -6px 0px 24px -22px rgba(66, 68, 90, 1);
+
+            &-collapsed{
+                margin-left: -170px;
+                color: transparent;
+                pointer-events: none;
+                text-indent: -9999px;
+            }
+
+            &-toggle {
+                position: absolute;
+                right: 20px;
+                top: 20px;
+                pointer-events: auto;
+                color: #000;
+
+                &-collapsed {
+                    transform: rotate(180deg);
+                }
+            }
+
+            &-heading {
+                margin-bottom: 10px;
+                font-weight: bold;
+            }
+
+            &-list{
+                font-size: 14px;
+                list-style: disc;
+                padding-left: 14px;
+
+                a {
+                    &.active,
+                    &.router-link-active{
+                        text-decoration: underline;
+                        color: #48bb78;
+                    }
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+}

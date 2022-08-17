@@ -1,0 +1,5 @@
+{
+  "watch": ["_common", "_server"],
+  "ext": "ts",
+  "exec": "rm -rf lib && npx -p typescript tsc --declaration --emitDeclarationOnly --outDir lib"
+}
