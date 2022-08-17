@@ -93,13 +93,12 @@ export default function ChipsInput(props: ChipsInputProps) {
         class={`rounded-full group pl-0.5 pr-1 py-0.5 text-gray-900 bg-white border-2 border-primary-500 font-body font-normal inline-flex items-center align-center w-max cursor-pointer transition duration-300 ease outline-violet ${state.disabledClass} ${state.valueClass}`}
       >
         <div class={state.chipsIconSize}>
-          <Show when={props.slotIcon}>
-            {props.slotIcon}
-          </Show>
+          <>{props.slotIcon}</>
         </div>
         <Show when={!!state.useValue}>
           <span class={`ml-1 ${state.chipsFontSize}`}>{state.useValue}</span>
         </Show>
+        <>{props.slotClose}</>
         <Show when={!props.slotClose && !state.useDisabled}>
           <button
             class={`bg-transparent ${state.chipsButtonSpacing} ${state.hideButton}`}
@@ -115,9 +114,6 @@ export default function ChipsInput(props: ChipsInputProps) {
               <path d="M12.1964 4.74332C12.456 4.48375 12.456 4.0629 12.1964 3.80332C11.9368 3.54375 11.516 3.54375 11.2564 3.80332L7.99975 7.05999L4.74308 3.80332C4.4835 3.54375 4.06265 3.54375 3.80308 3.80332C3.5435 4.0629 3.5435 4.48375 3.80308 4.74332L7.05975 7.99999L3.80308 11.2567C3.5435 11.5162 3.5435 11.9371 3.80308 12.1967C4.06265 12.4562 4.4835 12.4562 4.74308 12.1967L7.99975 8.93999L11.2564 12.1967C11.516 12.4562 11.9368 12.4562 12.1964 12.1967C12.456 11.9371 12.456 11.5162 12.1964 11.2567L8.93975 7.99999L12.1964 4.74332Z" />
             </svg>
           </button>
-        </Show>
-        <Show when={props.slotClose} name="close">
-          <div>{props.slotClose}</div>
         </Show>
       </div>
     </>

@@ -1,4 +1,4 @@
-import ChipsInput from "~/output/blocks/ChipsInput.lite";
+import ChipsInput from "../../output/blocks/ChipsInput.lite";
 
 function Icon() {
   return (

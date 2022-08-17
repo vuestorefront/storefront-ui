@@ -15,7 +15,7 @@ export default function Index() {
           <h2 className="sidebar-heading">Components</h2>
           <ul className="sidebar-list">
             <li><NavLink to="/examples/componentExample">Component Example Link</NavLink></li>
-            <li><NavLink to="/examples/some">Some other component</NavLink></li>
+            <li><NavLink to="/examples/chipsinput">ChipsInput</NavLink></li>
           </ul>
         </div>
       }
