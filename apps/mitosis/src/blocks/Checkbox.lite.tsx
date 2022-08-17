@@ -1,4 +1,4 @@
-import { useStore, onUpdate, useRef, onMount } from '@builder.io/mitosis';
+import { useStore } from '@builder.io/mitosis';
 
 export interface CheckboxProps {
   name: string;
@@ -20,7 +20,7 @@ const DEFAULT_VALUES = {
   errorText: '',
 };
 
-export default function Breadcrumbs(props: CheckboxProps) {
+export default function Checkbox(props: CheckboxProps) {
   const state = useStore({
     get useValue() {
       return props.value || DEFAULT_VALUES.value;
@@ -53,14 +53,12 @@ export default function Breadcrumbs(props: CheckboxProps) {
         .join(' ');
     },
   });
-  const inputRef = useRef<HTMLInputElement>(null);
 
   return (
     <div
       class={`sfui-checkbox relative grid max-w-xs grid-cols-[24px_1fr] gap-x-2.5 right-checkbox ${state.rightCheckboxClasses}`}
     >
       <input
-        ref={inputRef}
         id={`checkbox-${props.name}`}
         indeterminate={props.indeterminate}
         type="checkbox"
