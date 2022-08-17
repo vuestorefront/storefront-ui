@@ -5,7 +5,7 @@
       <h2 class="sidebar-heading">Components</h2>
       <ul class="sidebar-list">
         <li><NuxtLink to="/examples/componentExample">Component Example Link</NuxtLink></li>
-        <li><NuxtLink to="/examples/some">Some other component</NuxtLink></li>
+        <li><NuxtLink to="/examples/breadcrumbs">Breadcrumbs</NuxtLink></li>
       </ul>
     </div>
     <NuxtPage />
@@ -15,8 +15,8 @@
 <script setup>
 import { ref, computed } from 'vue';
 import { useRouter } from 'vue-router';
-const { currentRoute } = useRouter();
+const router = useRouter();
 
 const isOpen = ref();
-const isDocs = computed(() => currentRoute.value.query.docs)
+// const isDocs = computed(() => currentRoute.value.query.docs)
 </script>

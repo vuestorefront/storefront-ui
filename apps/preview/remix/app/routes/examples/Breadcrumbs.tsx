@@ -1,4 +1,4 @@
-import Breadcrumbs from "~/output/blocks/Breadcrumbs.lite";
+import Breadcrumbs from "../../output/blocks/Breadcrumbs.lite";
 
 function Icon() {
   return (

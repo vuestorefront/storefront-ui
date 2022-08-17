@@ -1,4 +1,4 @@
-import { Show, useStore, useRef, For, onUnMount, onUpdate, onMount } from "@builder.io/mitosis";
+import { Show, useStore, useRef, For, onUnMount, onUpdate, onMount } from '@builder.io/mitosis';
 
 export type Breadcrumb = {
   name: string;
@@ -35,7 +35,7 @@ export default function Breadcrumbs(props: BreadcrumbsProps) {
       return 40;
     },
     get dropdownOpenedClass(): string {
-      return state.dropdownOpened ? "flex" : "hidden";
+      return state.dropdownOpened ? 'flex' : 'hidden';
     },
     firstBreadcrumbItem() {
       return navRef?.children[0]?.children[1]?.clientWidth || 0;
@@ -43,8 +43,11 @@ export default function Breadcrumbs(props: BreadcrumbsProps) {
     breadcrumbsWidth() {
       return navRef?.offsetWidth || 0;
     },
-    get breadCrumbItemClass(){
-      return "[&:nth-of-type(1n+3)]:before:content-['/'] [&:nth-of-type(1n+3)]:before:mx-2 [&:last-child>a]:font-medium [&:last-child>a]:text-gray-900 [&:last-child>a]:!no-underline"
+    offsetLeft() {
+      return navRef?.offsetLeft || 0;
+    },
+    get breadCrumbItemClass() {
+      return "[&:nth-of-type(1n+3)]:before:content-['/'] [&:nth-of-type(1n+3)]:before:mx-2 [&:last-child>a]:font-medium [&:last-child>a]:text-gray-900 [&:last-child>a]:!no-underline";
     },
     breadcrumbsList: [] as Breadcrumb[],
     dropdownOpened: false,
@@ -52,7 +55,7 @@ export default function Breadcrumbs(props: BreadcrumbsProps) {
     firstElementWidth: 0,
     newWindowWidth: 0,
     handleDropdownClickOutside(e: Event) {
-      if (!dropdownRef.contains(e.target as Node)) {
+      if (!dropdownRef?.contains(e.target as Node)) {
         state.dropdownOpened = false;
       }
     },
@@ -68,14 +71,15 @@ export default function Breadcrumbs(props: BreadcrumbsProps) {
   onMount(() => {
     state.breadcrumbsList = state.useBreadcrumbs.slice(0);
     state.newWindowWidth = window.innerWidth;
-    document.addEventListener("click", state.handleDropdownClickOutside, true);
-    window.addEventListener("resize", state.onWindowResize);
+    document.addEventListener('click', state.handleDropdownClickOutside, true);
+    window.addEventListener('resize', state.onWindowResize);
   });
 
   onUpdate(() => {
     const breadcrumbsWidthVal = state.breadcrumbsWidth(),
-      firstBreadcrumbItemVal = state.firstBreadcrumbItem();
-    if (state.newWindowWidth <= breadcrumbsWidthVal + state.padding) {
+      firstBreadcrumbItemVal = state.firstBreadcrumbItem(),
+      offsetLeftVal = state.offsetLeft();
+    if (state.newWindowWidth <= breadcrumbsWidthVal + state.padding + offsetLeftVal) {
       const removedItemFromBreadcrumbs = state.breadcrumbsList[0];
 
       if (removedItemFromBreadcrumbs) {
@@ -83,7 +87,7 @@ export default function Breadcrumbs(props: BreadcrumbsProps) {
         state.dropdownList = [removedItemFromBreadcrumbs, ...state.dropdownList];
       }
     }
-    if (state.newWindowWidth - state.padding > breadcrumbsWidthVal + state.firstElementWidth + state.padding) {
+    if (state.newWindowWidth - state.padding > breadcrumbsWidthVal + state.firstElementWidth + state.padding + offsetLeftVal) {
       if (state.firstElementWidth !== firstBreadcrumbItemVal) {
         state.firstElementWidth = firstBreadcrumbItemVal;
       }
@@ -96,8 +100,8 @@ export default function Breadcrumbs(props: BreadcrumbsProps) {
   }, [state.newWindowWidth]);
 
   onUnMount(() => {
-    document.removeEventListener("click", state.handleDropdownClickOutside, true);
-    window.removeEventListener("resize", state.onWindowResize);
+    document.removeEventListener('click', state.handleDropdownClickOutside, true);
+    window.removeEventListener('resize', state.onWindowResize);
   });
 
   return (
