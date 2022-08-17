@@ -71,7 +71,7 @@ export default function Checkbox(props: CheckboxProps) {
       <label
         htmlFor={`checkbox-${props.name}`}
         class={
-          `text-gray-900 flex self-center cursor-pointer font-body peer-required:after:content-['*']peer-disabled:text-gray-900/40 peer-disabled:cursor-not-allowed` +
+          `text-gray-900 flex self-center cursor-pointer font-body peer-required:after:content-['*'] peer-disabled:text-gray-900/40 peer-disabled:cursor-not-allowed` +
           ' ' +
           (props.rightCheckbox ? '!col-start-[start-col] row-start-[start-row] col-end-[end-col]' : '')
         }
