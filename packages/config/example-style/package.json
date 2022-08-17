@@ -1,0 +1,8 @@
+{
+  "name": "@sfui/example-style",
+  "version": "0.0.0",
+  "main": "index.scss",
+  "files": [
+    "index.scss"
+  ]
+}

@@ -28,65 +28,65 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ env.cache-name }}-${{ hashFiles('./yarn.lock') }}
           path: |
             ${{ steps.yarn-cache-dir-path.outputs.dir }}
-            boilerplates/nuxt/node_modules
+            apps/preview/nuxt/node_modules
 
       - name: Install dependencies
-        run: cd boilerplates/nuxt; yarn --prefer-offline --pure-lockfile
+        run: cd apps/preview/nuxt; yarn --prefer-offline --pure-lockfile
 
-  lint:
-    name: Lint
-    runs-on: ubuntu-latest
-    needs: [cache]
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+  # lint:
+  #   name: Lint
+  #   runs-on: ubuntu-latest
+  #   needs: [cache]
+  #   steps:
+  #     - name: Checkout repository
+  #       uses: actions/checkout@v2
 
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
+  #     - name: Get yarn cache directory path
+  #       id: yarn-cache-dir-path
+  #       run: echo "::set-output name=dir::$(yarn cache dir)"
 
-      - name: Configure Yarn cache
-        uses: actions/cache@v2
-        with:
-          key: ${{ runner.os }}-yarn-${{ env.cache-name }}-${{ hashFiles('./yarn.lock') }}
-          path: |
-            ${{ steps.yarn-cache-dir-path.outputs.dir }}
-            boilerplates/nuxt/node_modules
+  #     - name: Configure Yarn cache
+  #       uses: actions/cache@v2
+  #       with:
+  #         key: ${{ runner.os }}-yarn-${{ env.cache-name }}-${{ hashFiles('./yarn.lock') }}
+  #         path: |
+  #           ${{ steps.yarn-cache-dir-path.outputs.dir }}
+  #           apps/preview/nuxt/node_modules
 
-      - name: Install dependencies
-        run: cd boilerplates/nuxt; yarn --prefer-offline --pure-lockfile
+  #     - name: Install dependencies
+  #       run: cd apps/preview/nuxt; yarn --prefer-offline --pure-lockfile
 
-      - name: Run linters
-        run: cd boilerplates/nuxt; yarn lint
+  #     - name: Run linters
+  #       run: cd apps/preview/nuxt; yarn lint
 
-  test:
-    name: Jest tests
-    runs-on: ubuntu-latest
-    needs: [cache]
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+  # test:
+  #   name: Jest tests
+  #   runs-on: ubuntu-latest
+  #   needs: [cache]
+  #   steps:
+  #     - name: Checkout repository
+  #       uses: actions/checkout@v2
 
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
+  #     - name: Get yarn cache directory path
+  #       id: yarn-cache-dir-path
+  #       run: echo "::set-output name=dir::$(yarn cache dir)"
 
-      - name: Configure Yarn cache
-        uses: actions/cache@v2
-        with:
-          key: ${{ runner.os }}-yarn-${{ env.cache-name }}-${{ hashFiles('./yarn.lock') }}
-          path: |
-            ${{ steps.yarn-cache-dir-path.outputs.dir }}
-            boilerplates/nuxt/node_modules
+  #     - name: Configure Yarn cache
+  #       uses: actions/cache@v2
+  #       with:
+  #         key: ${{ runner.os }}-yarn-${{ env.cache-name }}-${{ hashFiles('./yarn.lock') }}
+  #         path: |
+  #           ${{ steps.yarn-cache-dir-path.outputs.dir }}
+  #           apps/preview/nuxt/node_modules
 
-      - name: Install dependencies
-        run: cd boilerplates/nuxt; yarn --prefer-offline --pure-lockfile
+  #     - name: Install dependencies
+  #       run: cd apps/preview/nuxt; yarn --prefer-offline --pure-lockfile
 
-      - name: Run tests with coverage
-        run: cd boilerplates/nuxt; yarn test
+  #     - name: Run tests with coverage
+  #       run: cd apps/preview/nuxt; yarn test
 
-      - name: Upload coverage report
-        uses: actions/upload-artifact@v2
-        with:
-          name: coverage-report
-          path: boilerplates/nuxt/coverage/
+  #     - name: Upload coverage report
+  #       uses: actions/upload-artifact@v2
+  #       with:
+  #         name: coverage-report
+  #         path: apps/preview/nuxt/coverage/

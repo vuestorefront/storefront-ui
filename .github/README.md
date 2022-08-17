@@ -35,17 +35,10 @@
     </a>
 </p>
 
-## Links
-
-- 🖥  WebSite: http://storefrontui.io/
-- 📘  Documentation: http://docs.storefrontui2.io/
-- 👥  Discord Community: https://discord.gg/vuestorefront/
-- 🐦  Twitter: https://twitter.com/StorefrontUI
-- 🎥  YouTube: https://www.youtube.com/c/VueStorefront
-
----------
+---
 
 # #TechForUkraine
+
 <div align="center">
 <p>
        <img src="https://user-images.githubusercontent.com/1626923/155853691-d6d0a541-d3b9-40bf-b8f5-2d38303e9e49.png" />
@@ -74,28 +67,28 @@
         </div>
           </div>
 
-  ---------
+---
 
 # Storefront UI 2
 
 <p align="center">
 
 **Current status:** Under construction, not suitable for production.<br />
-Accessible, performance-oriented and elegant out-of-the-box UI framework for eCommerce (and not only). 
+Accessible, performance-oriented and elegant out-of-the-box UI framework for eCommerce (and not only).
 <br /><br />
-       Made with ❤️ by <a href="https://github.com/vuestorefront" target="_blank">Vue Storefront</a> team and contributors.
-       </p>
+Made with ❤️ by <a href="https://github.com/vuestorefront" target="_blank">Vue Storefront</a> team and contributors.
 
+</p>
 
 # What makes it unique?
 
 StorefrontUI 2 was designed specifically for ecommerce. You can create stunning shops in a blink of an eye with these accessible, performsant, drop-in-ready components and the boilerplating system.
 
-
 ## Here are the key characteristics of Storefront UI:
 
 We are building Storefront UI based on the following 6 fundamentals:
-- **Customization**: You have full access to the code snippets. You can change whatever you like, we make it easier for you. 
+
+- **Customization**: You have full access to the code snippets. You can change whatever you like, we make it easier for you.
 - **Accessibility**: Every component is compliant with AA level of WCAG standard.
 - **Performance**: You're using only what you need for your project, even if it's just one component. No JS, no complicated logic, just plain UI as it's best.
 - **Best practices**: Storefront UI components follow best practices in terms of design and core.
