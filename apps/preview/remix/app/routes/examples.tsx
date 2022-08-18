@@ -8,7 +8,7 @@ export default function Index() {
   return (
     <div className="e-page-examples">
       {!isDocs &&
-        <div className={`sidebar ${isOpen ? 'sidebar-collapsed' : ''}`}>
+        <div className={`sidebar ${isOpen ? '' : 'sidebar-collapsed'}`}>
           <button
             className={`sidebar-toggle ${isOpen && 'sidebar-toggle-collapsed'}`}
             onClick={() => setIsOpen(!isOpen)}>&lt;&lt;</button>

@@ -41,3 +41,4 @@ output
 output/*
 !apps/preview/nuxt/output
 apps/preview/remix/.cache
+apps/preview/remix/app/styles
