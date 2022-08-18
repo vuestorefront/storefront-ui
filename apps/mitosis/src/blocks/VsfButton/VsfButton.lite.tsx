@@ -20,14 +20,23 @@ export const VsfButtonVariants = Object.freeze({
 type VsfButtonVariantsKeys = keyof typeof VsfButtonVariants;
 export interface VsfButtonProps {
   attributes?: any;
-  content?: JSX.Element;
+  children: Element | Element[] | string;
   link?: string;
   size?: VsfButtonSizesKeys;
   variant?: VsfButtonVariantsKeys;
 }
 
+const DEFAULT_VALUES = {
+  variant: VsfButtonVariants.primary,
+  size: VsfButtonSizes.base,
+  children: 'Hello'
+};
+
 export default function VsfButton(props: VsfButtonProps) {
   const state = useStore({
+    get useChildren() {
+        return props.children || DEFAULT_VALUES.children
+    },
     get buttonSize() {
       switch (props.size) {
           case VsfButtonSizes.sm:
@@ -63,13 +72,13 @@ export default function VsfButton(props: VsfButtonProps) {
       <Show
         when={props.link}
         else={
-          <button {...props.attributes} className={state.buttonClasses}>
-            {props.content}
+          <button className={state.buttonClasses}>
+            {state.useChildren}
           </button>
         }
       >
-        <a {...props.attributes} role="button" href={props.link} className={state.buttonClasses}>
-          {props.content}
+        <a role="button" href={props.link} className={state.buttonClasses}>
+          {state.useChildren}
         </a>
       </Show>
     </>
