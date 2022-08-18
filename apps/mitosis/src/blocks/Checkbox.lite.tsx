@@ -1,8 +1,8 @@
-import { useStore } from '@builder.io/mitosis';
+import { useStore, useMetadata } from '@builder.io/mitosis';
 
 export interface CheckboxProps {
   name: string;
-  value?: string | boolean;
+  value?: string | number | boolean;
   required?: boolean;
   disabled?: boolean;
   indeterminate?: boolean;
@@ -11,6 +11,11 @@ export interface CheckboxProps {
   helpText?: string;
   errorText?: string;
   rightCheckbox?: boolean;
+  checked: boolean;
+  trueValue?: any;
+  falseValue?: any;
+  onChange?: (...args: any[]) => void;
+  modelValue?: any;
 }
 
 const DEFAULT_VALUES = {
@@ -18,6 +23,8 @@ const DEFAULT_VALUES = {
   label: '',
   helpText: '',
   errorText: '',
+  trueValue: true,
+  falseValue: false,
 };
 
 export default function Checkbox(props: CheckboxProps) {
@@ -33,6 +40,12 @@ export default function Checkbox(props: CheckboxProps) {
     },
     get useErrorText() {
       return props.errorText || DEFAULT_VALUES.errorText;
+    },
+    get useTrueValue() {
+      return props.trueValue || DEFAULT_VALUES.trueValue;
+    },
+    get useFalseValue() {
+      return props.falseValue || DEFAULT_VALUES.falseValue;
     },
     get rightCheckboxClasses() {
       return props.rightCheckbox
@@ -52,6 +65,17 @@ export default function Checkbox(props: CheckboxProps) {
         .filter(Boolean)
         .join(' ');
     },
+    onChange(event: InputEvent) {
+      /* IF-vue */
+      if ((event.target as HTMLInputElement).checked) {
+        state.$emit('update:modelValue', state.useTrueValue);
+      } else {
+        state.$emit('update:modelValue', state.useFalseValue);
+      }
+      /* ENDIF-vue */
+
+      props.onChange && props.onChange(event);
+    },
   });
 
   return (
@@ -59,6 +83,7 @@ export default function Checkbox(props: CheckboxProps) {
       class={`sfui-checkbox relative grid max-w-xs grid-cols-[24px_1fr] gap-x-2.5 right-checkbox ${state.rightCheckboxClasses}`}
     >
       <input
+        checked={props.checked}
         id={`checkbox-${props.name}`}
         indeterminate={props.indeterminate}
         type="checkbox"
@@ -67,6 +92,7 @@ export default function Checkbox(props: CheckboxProps) {
         disabled={props.disabled}
         invalid={props.invalid}
         class={state.inputClasses}
+        onChange={(e) => state.onChange(e)}
       />
       <label
         htmlFor={`checkbox-${props.name}`}
