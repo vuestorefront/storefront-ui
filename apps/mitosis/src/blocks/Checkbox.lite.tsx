@@ -2,7 +2,7 @@ import { useStore, useMetadata } from '@builder.io/mitosis';
 
 export interface CheckboxProps {
   name: string;
-  value?: string | number | boolean;
+  value?: string | string[] | number;
   required?: boolean;
   disabled?: boolean;
   indeterminate?: boolean;
@@ -57,10 +57,32 @@ export default function Checkbox(props: CheckboxProps) {
     },
     onChange(event: InputEvent) {
       /* IF-vue */
-      state.$emit('update:modelValue', (event.target as HTMLInputElement).checked);
+      let isChecked = (event.target as HTMLInputElement).checked;
+      if (Array.isArray(props.modelValue)) {
+        let newValue = [...props.modelValue];
+        if (isChecked) {
+          newValue.push(state.useValue);
+        } else {
+          newValue.splice(newValue.indexOf(state.useValue), 1);
+        }
+        state.$emit('update:modelValue', newValue);
+      } else {
+        state.$emit('update:modelValue', isChecked);
+      }
       /* ENDIF-vue */
 
       props.onChange && props.onChange(event);
+    },
+    get isChecked(): boolean {
+      /* IF-vue */
+      if (Array.isArray(props.modelValue)) {
+        return state.modelValue.includes(state.useValue);
+      }
+      return props.modelValue === true;
+      /* ENDIF-vue */
+      /* IF-react */
+      return props.checked
+      /* ENDIF-react */
     },
   });
 
@@ -69,7 +91,7 @@ export default function Checkbox(props: CheckboxProps) {
       class={`sfui-checkbox relative grid max-w-xs grid-cols-[24px_1fr] gap-x-2.5 right-checkbox ${state.rightCheckboxClasses}`}
     >
       <input
-        checked={props.checked}
+        checked={state.isChecked}
         id={`checkbox-${props.name}`}
         indeterminate={props.indeterminate}
         type="checkbox"
@@ -79,6 +101,7 @@ export default function Checkbox(props: CheckboxProps) {
         invalid={props.invalid}
         class={state.inputClasses}
         onChange={(e) => state.onChange(e)}
+        value={state.useValue}
       />
       <label
         htmlFor={`checkbox-${props.name}`}

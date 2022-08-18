@@ -3,6 +3,9 @@
     <div class="e-page-component">
       <Checkbox v-model="toggle" name="custom" label="label"></Checkbox>
       {{ toggle }}
+      <Checkbox v-model="arrayData" name="checkbox1" label="checkbox1" value="checkbox1"></Checkbox>
+      <Checkbox v-model="arrayData" name="checkbox2" label="checkbox2" value="checkbox2"></Checkbox>
+      {{ arrayData }}
     </div>
     <div class="e-page-controls"></div>
   </div>
@@ -20,6 +23,7 @@ export default defineComponent({
   data() {
     return {
       toggle: false,
+      arrayData: []
     };
   },
 });
