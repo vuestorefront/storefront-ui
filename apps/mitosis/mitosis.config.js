@@ -1,6 +1,7 @@
 const seedrandom = require('seedrandom')
 const rng = seedrandom('vue-sdk-seed')
 const ifPlugin = require('./plugins/if-plugin');
+const vueModelPlugin = require('./plugins/vue-model-plugin');
 
 const getSeededId = () => {
   const rngVal = rng()
@@ -14,11 +15,13 @@ module.exports = {
     vue3: {
       plugins: [
         ifPlugin({ type: ['vue', 'vue3'] }),
+        vueModelPlugin
       ],
     },
     vue2: {
       plugins: [
         ifPlugin({ type: ['vue', 'vue2'] }),
+        vueModelPlugin
       ],
     },
     vue: {

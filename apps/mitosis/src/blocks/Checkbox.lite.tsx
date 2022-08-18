@@ -1,5 +1,12 @@
 import { useStore, useMetadata } from '@builder.io/mitosis';
 
+useMetadata({
+  vueModel: {
+    prop: 'modelValue',
+    event: 'onChange',
+  },
+});
+
 export interface CheckboxProps {
   name: string;
   value?: string | string[] | number;
@@ -55,33 +62,18 @@ export default function Checkbox(props: CheckboxProps) {
         .filter(Boolean)
         .join(' ');
     },
-    onChange(event: InputEvent) {
-      /* IF-vue */
-      let isChecked = (event.target as HTMLInputElement).checked;
-      if (Array.isArray(props.modelValue)) {
-        let newValue = [...props.modelValue];
-        if (isChecked) {
-          newValue.push(state.useValue);
-        } else {
-          newValue.splice(newValue.indexOf(state.useValue), 1);
-        }
-        state.$emit('update:modelValue', newValue);
-      } else {
-        state.$emit('update:modelValue', isChecked);
-      }
-      /* ENDIF-vue */
-
+    onChangeHandler(event: InputEvent) {
       props.onChange && props.onChange(event);
     },
     get isChecked(): boolean {
       /* IF-vue */
       if (Array.isArray(props.modelValue)) {
-        return state.modelValue.includes(state.useValue);
+        return props.modelValue.includes(state.useValue);
       }
       return props.modelValue === true;
       /* ENDIF-vue */
       /* IF-react */
-      return props.checked
+      return props.checked;
       /* ENDIF-react */
     },
   });
@@ -91,6 +83,7 @@ export default function Checkbox(props: CheckboxProps) {
       class={`sfui-checkbox relative grid max-w-xs grid-cols-[24px_1fr] gap-x-2.5 right-checkbox ${state.rightCheckboxClasses}`}
     >
       <input
+        v-model={'modelValue'}
         checked={state.isChecked}
         id={`checkbox-${props.name}`}
         indeterminate={props.indeterminate}
@@ -100,7 +93,7 @@ export default function Checkbox(props: CheckboxProps) {
         disabled={props.disabled}
         invalid={props.invalid}
         class={state.inputClasses}
-        onChange={(e) => state.onChange(e)}
+        onChange={(e) => state.onChangeHandler(e)}
         value={state.useValue}
       />
       <label
