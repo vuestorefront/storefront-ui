@@ -12,8 +12,6 @@ export interface CheckboxProps {
   errorText?: string;
   rightCheckbox?: boolean;
   checked: boolean;
-  trueValue?: any;
-  falseValue?: any;
   onChange?: (...args: any[]) => void;
   modelValue?: any;
 }
@@ -23,8 +21,6 @@ const DEFAULT_VALUES = {
   label: '',
   helpText: '',
   errorText: '',
-  trueValue: true,
-  falseValue: false,
 };
 
 export default function Checkbox(props: CheckboxProps) {
@@ -40,12 +36,6 @@ export default function Checkbox(props: CheckboxProps) {
     },
     get useErrorText() {
       return props.errorText || DEFAULT_VALUES.errorText;
-    },
-    get useTrueValue() {
-      return props.trueValue || DEFAULT_VALUES.trueValue;
-    },
-    get useFalseValue() {
-      return props.falseValue || DEFAULT_VALUES.falseValue;
     },
     get rightCheckboxClasses() {
       return props.rightCheckbox
@@ -67,11 +57,7 @@ export default function Checkbox(props: CheckboxProps) {
     },
     onChange(event: InputEvent) {
       /* IF-vue */
-      if ((event.target as HTMLInputElement).checked) {
-        state.$emit('update:modelValue', state.useTrueValue);
-      } else {
-        state.$emit('update:modelValue', state.useFalseValue);
-      }
+      state.$emit('update:modelValue', (event.target as HTMLInputElement).checked);
       /* ENDIF-vue */
 
       props.onChange && props.onChange(event);
