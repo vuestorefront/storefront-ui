@@ -30,7 +30,7 @@ const DEFAULT_VALUES = {
   errorText: '',
 };
 
-export default function Checkbox(props: CheckboxProps) {
+export default function VsfCheckbox(props: CheckboxProps) {
   const state = useStore({
     get useValue() {
       return props.value || DEFAULT_VALUES.value;

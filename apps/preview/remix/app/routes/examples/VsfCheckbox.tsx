@@ -1,10 +1,10 @@
-import Checkbox from '../../output/blocks/Checkbox.lite';
+import VsfCheckbox from '../../output/blocks/VsfCheckbox/VsfCheckbox.lite';
 
 export default function Index() {
   return (
     <div className="e-page">
       <div className="e-page-component">
-        <Checkbox
+        <VsfCheckbox
           name={'custom'}
           value={'value'}
           label={'label'}
