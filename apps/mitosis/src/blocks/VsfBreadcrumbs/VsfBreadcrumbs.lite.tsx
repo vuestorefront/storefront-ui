@@ -16,7 +16,7 @@ const DEFAULT_VALUES = {
   withIcon: false,
 };
 
-export default function Breadcrumbs(props: BreadcrumbsProps) {
+export default function VsfBreadcrumbs(props: BreadcrumbsProps) {
   // TODO focus directive
 
   const navRef = useRef<HTMLElement>(null);

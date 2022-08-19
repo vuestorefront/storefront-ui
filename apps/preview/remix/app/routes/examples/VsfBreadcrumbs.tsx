@@ -1,4 +1,4 @@
-import Breadcrumbs from "../../output/blocks/Breadcrumbs.lite";
+import VsfBreadcrumbs from "../../output/blocks/VsfBreadcrumbs/VsfBreadcrumbs.lite";
 
 function Icon() {
   return (
@@ -26,10 +26,10 @@ function Icon() {
   );
 }
 
-export default function ExampleBreadcrumbs() {
+export default function ExampleVsfBreadcrumbs() {
   return (
     <div className="ml-4 mt-4">
-      <Breadcrumbs
+      <VsfBreadcrumbs
         breadcrumbs={[
           { name: "Page 1", link: "/page1" },
           { name: "Page 2", link: "/page1" },
@@ -40,7 +40,7 @@ export default function ExampleBreadcrumbs() {
         ]}
       />
       <br />
-      <Breadcrumbs
+      <VsfBreadcrumbs
         withIcon={true}
         breadcrumbs={[
           { name: "Page 2", link: "/page1" },

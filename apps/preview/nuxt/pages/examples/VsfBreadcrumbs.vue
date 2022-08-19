@@ -1,7 +1,7 @@
 <template>
   <div class="e-page">
     <div class="e-page-component">
-      <Breadcrumbs :breadcrumbs="breadcrumbs" />
+      <VsfBreadcrumbs :breadcrumbs="breadcrumbs" />
     </div>
     <div class="e-page-controls"></div>
   </div>
@@ -9,12 +9,12 @@
 
 <script>
 import { defineComponent } from "vue";
-import Breadcrumbs from "../../output/blocks/Breadcrumbs.vue";
+import VsfBreadcrumbs from "../../output/blocks/VsfBreadcrumbs/VsfBreadcrumbs.vue";
 
 export default defineComponent({
-  name: 'BreadcrumbsExample',
+  name: 'VsfBreadcrumbsExample',
   components: {
-    Breadcrumbs
+    VsfBreadcrumbs
   },
   data() {
     return {
