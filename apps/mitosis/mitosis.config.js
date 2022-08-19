@@ -1,7 +1,6 @@
 const seedrandom = require('seedrandom')
 const rng = seedrandom('vue-sdk-seed')
 const ifPlugin = require('./plugins/if-plugin');
-const vueModelPlugin = require('./plugins/vue-model-plugin');
 const vueComputedProxy = require('./plugins/vueProxy');
 
 const getSeededId = () => {
@@ -15,11 +14,13 @@ module.exports = {
   options: {
     vue3: {
       plugins: [
+        ifPlugin({ type: ['vue', 'vue3'] }),
         vueComputedProxy({ type: ['vue', 'vue3'] }),
       ],
     },
     vue2: {
       plugins: [
+        ifPlugin({ type: ['vue', 'vue2'] }),
         vueComputedProxy({ type: ['vue', 'vue2'] }),
       ],
     },
@@ -27,7 +28,10 @@ module.exports = {
       cssNamespace: getSeededId,
     },
     react: {
-      plugins: [vueComputedProxy({ type: 'react' })],
+      plugins: [
+        ifPlugin({ type: 'react' }),
+        vueComputedProxy({ type: 'react' })
+      ],
       transpiler: {
         languages: 'ts',
       },
