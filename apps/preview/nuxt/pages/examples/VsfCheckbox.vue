@@ -22,8 +22,8 @@ export default defineComponent({
   },
   data() {
     return {
-      toggle: false,
-      arrayData: []
+      toggle: true,
+      arrayData: ['checkbox2']
     };
   },
 });

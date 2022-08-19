@@ -32,16 +32,16 @@ const DEFAULT_VALUES = {
 
 export default function VsfCheckbox(props: CheckboxProps) {
   const state = useStore({
-    get useValue() {
+    get useValueProp() {
       return props.value || DEFAULT_VALUES.value;
     },
-    get useLabel() {
+    get useLabelProp() {
       return props.label || DEFAULT_VALUES.label;
     },
-    get useHelpText() {
+    get useHelpTextProp() {
       return props.helpText || DEFAULT_VALUES.helpText;
     },
-    get useErrorText() {
+    get useErrorTextProp() {
       return props.errorText || DEFAULT_VALUES.errorText;
     },
     get rightCheckboxClasses() {
@@ -66,12 +66,6 @@ export default function VsfCheckbox(props: CheckboxProps) {
       props.onChange && props.onChange(event);
     },
     get isChecked(): boolean {
-      /* IF-vue */
-      if (Array.isArray(props.modelValue)) {
-        return props.modelValue.includes(state.useValue);
-      }
-      return props.modelValue === true;
-      /* ENDIF-vue */
       /* IF-react */
       return props.checked;
       /* ENDIF-react */
@@ -83,7 +77,7 @@ export default function VsfCheckbox(props: CheckboxProps) {
       class={`sfui-checkbox relative grid max-w-xs grid-cols-[24px_1fr] gap-x-2.5 right-checkbox ${state.rightCheckboxClasses}`}
     >
       <input
-        v-model={'modelValue'}
+        v-model={props.modelValue}
         checked={state.isChecked}
         id={`checkbox-${props.name}`}
         indeterminate={props.indeterminate}
@@ -94,7 +88,7 @@ export default function VsfCheckbox(props: CheckboxProps) {
         invalid={props.invalid}
         class={state.inputClasses}
         onChange={(e) => state.onChangeHandler(e)}
-        value={state.useValue}
+        value={state.useValueProp}
       />
       <label
         htmlFor={`checkbox-${props.name}`}
@@ -104,7 +98,7 @@ export default function VsfCheckbox(props: CheckboxProps) {
           (props.rightCheckbox ? '!col-start-[start-col] row-start-[start-row] col-end-[end-col]' : '')
         }
       >
-        {state.useLabel}
+        {state.useLabelProp}
       </label>
       <span
         class={
@@ -115,7 +109,7 @@ export default function VsfCheckbox(props: CheckboxProps) {
           (props.rightCheckbox ? '!col-start-[start-col] col-end-[end-col]' : '')
         }
       >
-        {state.useErrorText}
+        {state.useErrorTextProp}
       </span>
       <span
         class={
@@ -124,7 +118,7 @@ export default function VsfCheckbox(props: CheckboxProps) {
           (props.rightCheckbox ? '!col-start-[start-col]' : '')
         }
       >
-        {state.useHelpText}
+        {state.useHelpTextProp}
       </span>
       <span
         class={

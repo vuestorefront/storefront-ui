@@ -1,8 +1,7 @@
 const traverse = require('traverse');
 const { isMitosisNode } = require('@builder.io/mitosis');
 
-
-const PROXY_PREFIX = '$proxy_'
+const PROXY_PREFIX = '$proxy_';
 
 function proxyName(prop) {
   return PROXY_PREFIX + prop;
@@ -21,7 +20,7 @@ function getNameFromProxy(proxy) {
 // });
 
 function proxyFn(proxy) {
-  const propName = getNameFromProxy(proxy)
+  const propName = getNameFromProxy(proxy);
   return `
   ${proxy}: {
     get: function() {return this.${propName}},
@@ -41,18 +40,22 @@ module.exports = () => ({
       const model = json.meta.useMetadata?.vueModel;
       if (model && model.event && model.prop) {
         const proxyModelName = proxyName(model.prop);
+
         // const proxyModelFn = proxyComputed(proxyModelName, model.prop);
 
         // json.state[proxyModelName] = proxyModelFn;
-        // console.log(json.state);
 
+        // console.log(node);
         traverse(json).forEach((node) => {
           if (isMitosisNode(node)) {
-            const vModelNode = node.properties.hasOwnProperty('v-model');
+            const vModelNode = node.properties.hasOwnProperty('v-model') || node.bindings.hasOwnProperty('v-model');
             if (vModelNode) {
+              // update v-model binding to proxy property
               node.properties['v-model'] = proxyModelName;
               const event = model.event;
+              // remove event listener and possible binding
               delete node.bindings[event];
+              delete node.bindings['v-model'];
             }
           }
         });
@@ -67,8 +70,10 @@ module.exports = () => ({
       if (hasVModel) {
         const proxyProperty = hasVModel[1];
         const proxyFnString = proxyFn(proxyProperty);
+        // inject proxy v-model to computed
         code = code.replace(/computed:\s*{/, 'computed: {' + proxyFnString);
-        console.log(code);
+        // inject v-model prop
+        code = code.replace(/props:\s*\[/, `props: ["${getNameFromProxy(proxyProperty)}" ,`);
       }
       return code;
     },
