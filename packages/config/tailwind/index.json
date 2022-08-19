@@ -140,5 +140,8 @@
         "linear-loader": "linear-loader 1.5s ease-in infinite"
       }
     }
+  },
+  "corePlugins": {
+    "preflight": false
   }
 }

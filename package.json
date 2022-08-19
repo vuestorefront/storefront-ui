@@ -21,19 +21,19 @@
     "clean:total": "npx rimraf ./**/node_modules && rimraf ./**/.cache && rimraf ./**/.turbo && rm yarn.lock"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-node": "^5.1.1",
-    "commitizen": "^4.2.5",
     "@commitlint/cli": "^13.2.1",
     "@commitlint/config-conventional": "^13.2.0",
     "@sfui/typescript-config": "*",
+    "babel-cli": "^6.26.0",
+    "babel-preset-node": "^5.1.1",
+    "commitizen": "^4.2.5",
     "husky": "^7.0.4",
-    "prettier": "latest",
-    "turbo": "latest",
-    "typescript": "^4.7.4",
     "nodemon": "^2.0.19",
+    "prettier": "latest",
     "tailwindcss": "^3.1.8",
-    "ts-node-dev": "^2.0.0"
+    "ts-node-dev": "^2.0.0",
+    "turbo": "latest",
+    "typescript": "^4.7.4"
   },
   "engines": {
     "npm": ">=7.0.0",
