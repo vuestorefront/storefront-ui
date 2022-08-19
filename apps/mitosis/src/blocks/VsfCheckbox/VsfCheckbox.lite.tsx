@@ -66,6 +66,14 @@ export default function VsfCheckbox(props: CheckboxProps) {
     onChangeHandler(event: InputEvent) {
       props.onChange && props.onChange(event);
     },
+    get vueProxyValue() {
+      return {
+        get: function () {
+          return props.modelValue
+        },
+        set: function (value) { state.$emit('update:modelValue', value) }
+      };
+    },
     get isChecked(): boolean {
       /* IF-react */
       return props.checked;
@@ -78,7 +86,7 @@ export default function VsfCheckbox(props: CheckboxProps) {
       class={`sfui-checkbox relative grid max-w-xs grid-cols-[24px_1fr] gap-x-2.5 right-checkbox ${state.rightCheckboxClasses}`}
     >
       <input
-        v-model={props.modelValue}
+        v-model="vueProxyValue"
         checked={state.isChecked}
         id={`checkbox-${props.name}`}
         indeterminate={props.indeterminate}
