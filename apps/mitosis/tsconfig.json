@@ -4,6 +4,7 @@
     "jsx": "preserve",
     "jsxImportSource": "@builder.io/mitosis",
     "forceConsistentCasingInFileNames": true,
+    "jsx": "preserve",
   },
   "include": [
     "src"

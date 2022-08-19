@@ -13,19 +13,20 @@ module.exports = {
   targets: ['react', 'vue2', 'vue3'],
   options: {
     vue3: {
+      cssNamespace: getSeededId, 
+      transpiler: { format: 'esm' },
       plugins: [
         ifPlugin({ type: ['vue', 'vue3'] }),
         vueComputedProxy({ type: ['vue', 'vue3'] }),
       ],
     },
     vue2: {
+      cssNamespace: getSeededId, 
+      transpiler: { format: 'esm' },
       plugins: [
         ifPlugin({ type: ['vue', 'vue2'] }),
         vueComputedProxy({ type: ['vue', 'vue2'] }),
       ],
-    },
-    vue: {
-      cssNamespace: getSeededId,
     },
     react: {
       plugins: [
@@ -34,6 +35,7 @@ module.exports = {
       ],
       transpiler: {
         languages: 'ts',
+        format: 'esm'
       },
     },
   },

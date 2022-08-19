@@ -6,6 +6,8 @@
   "files": [
     "index.json",
     "index.scss",
-    "reset.scss"
+    "reset.scss",
+    "tailwind.scss",
+    "components/**/*.css"
   ]
 }
