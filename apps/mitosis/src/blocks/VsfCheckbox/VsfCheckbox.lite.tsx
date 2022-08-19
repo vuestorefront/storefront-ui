@@ -18,7 +18,7 @@ export interface CheckboxProps {
   helpText?: string;
   errorText?: string;
   rightCheckbox?: boolean;
-  checked: boolean;
+  checked?: boolean;
   onChange?: (...args: any[]) => void;
   modelValue?: any;
 }
