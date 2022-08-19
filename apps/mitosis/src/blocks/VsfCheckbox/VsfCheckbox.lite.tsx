@@ -1,11 +1,5 @@
-import { useStore, useMetadata } from '@builder.io/mitosis';
-
-useMetadata({
-  vueModel: {
-    prop: 'modelValue',
-    event: 'onChange',
-  },
-});
+import { useStore } from '@builder.io/mitosis';
+import {  } from '@builder.io/mitosis';
 
 export interface CheckboxProps {
   name: string;
