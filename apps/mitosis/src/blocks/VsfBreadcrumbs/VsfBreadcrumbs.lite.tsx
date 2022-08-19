@@ -35,9 +35,6 @@ export default function VsfBreadcrumbs(props: BreadcrumbsProps) {
       //TODO: use css-variable when tokens migrated
       return 40;
     },
-    get dropdownOpenedClass(): string {
-      return state.dropdownOpened ? 'flex' : 'hidden';
-    },
     firstBreadcrumbItem() {
       return navRef?.children[0]?.children[1]?.clientWidth || 0;
     },
@@ -70,7 +67,8 @@ export default function VsfBreadcrumbs(props: BreadcrumbsProps) {
   });
 
   onMount(() => {
-    if(typeof window === undefined) return; 
+    // TODO ssr support
+    if (typeof window === undefined) return;
     state.breadcrumbsList = state.useBreadcrumbs.slice(0);
     state.newWindowWidth = window.innerWidth;
     document.addEventListener('click', state.handleDropdownClickOutside, true);
@@ -89,7 +87,10 @@ export default function VsfBreadcrumbs(props: BreadcrumbsProps) {
         state.dropdownList = [removedItemFromBreadcrumbs, ...state.dropdownList];
       }
     }
-    if (state.newWindowWidth - state.padding > breadcrumbsWidthVal + state.firstElementWidth + state.padding + offsetLeftVal) {
+    if (
+      state.newWindowWidth - state.padding >
+      breadcrumbsWidthVal + state.firstElementWidth + state.padding + offsetLeftVal
+    ) {
       if (state.firstElementWidth !== firstBreadcrumbItemVal) {
         state.firstElementWidth = firstBreadcrumbItemVal;
       }
@@ -129,23 +130,25 @@ export default function VsfBreadcrumbs(props: BreadcrumbsProps) {
                     <path d="M12 14C10.8965 14 10 13.1035 10 12C10 10.8965 10.8965 10 12 10C13.1035 10 14 10.8965 14 12C14 13.1035 13.1035 14 12 14ZM16 12C16 13.1035 16.8965 14 18 14C19.1035 14 20 13.1035 20 12C20 10.8965 19.1035 10 18 10C16.8965 10 16 10.8965 16 12ZM8 12C8 10.8965 7.1035 10 6 10C4.8965 10 4 10.8965 4 12C4 13.1035 4.8965 14 6 14C7.1035 14 8 13.1035 8 12Z" />
                   </svg>
                 </button>
-                <ul
-                  ref={dropdownRef}
-                  className={`bg-white rounded-md shadow-md p-[16px] absolute top-100 left-0 flex-col text-base text-gray-900 ${state.dropdownOpenedClass}`}
-                >
-                  <For each={state.dropdownList}>
-                    {(item, index) => (
-                      <li aria-label={item.name} class="py-2" key={index}>
-                        <a
-                          href={item.link}
-                          class="leading-5 align-middle rounded-sm whitespace-nowrap hover:text-primary-600 hover:underline active:font-medium active:text-gray-900 active:no-underline outline-violet"
-                        >
-                          {item.name}
-                        </a>
-                      </li>
-                    )}
-                  </For>
-                </ul>
+                <Show when={state.dropdownOpened}>
+                  <ul
+                    ref={dropdownRef}
+                    className={`bg-white rounded-md shadow-md p-[16px] absolute top-100 left-0 flex-col text-base text-gray-900 z-10`}
+                  >
+                    <For each={state.dropdownList}>
+                      {(item, index) => (
+                        <li aria-label={item.name} class="py-2" key={index}>
+                          <a
+                            href={item.link}
+                            class="leading-5 align-middle rounded-sm whitespace-nowrap hover:text-primary-600 hover:underline active:font-medium active:text-gray-900 active:no-underline outline-violet"
+                          >
+                            {item.name}
+                          </a>
+                        </li>
+                      )}
+                    </For>
+                  </ul>
+                </Show>
               </div>
             </Show>
           </li>
