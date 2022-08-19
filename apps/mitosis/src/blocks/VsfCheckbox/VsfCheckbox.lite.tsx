@@ -1,5 +1,4 @@
 import { useStore } from '@builder.io/mitosis';
-import {  } from '@builder.io/mitosis';
 
 export interface CheckboxProps {
   name: string;
