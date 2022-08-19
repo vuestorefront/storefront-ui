@@ -22,14 +22,14 @@ export default function VsfBreadcrumbs(props: BreadcrumbsProps) {
   const navRef = useRef<HTMLElement>(null);
   const dropdownRef = useRef<HTMLUListElement>(null);
   const state = useStore({
-    get useBreadcrumbs() {
+    get useBreadcrumbsProp() {
       return props.breadcrumbs || DEFAULT_VALUES.breadcrumbs;
     },
-    get useWithIcon() {
+    get useWithIconProp() {
       return props.withIcon || DEFAULT_VALUES.withIcon;
     },
     get showDots(): boolean {
-      return state.breadcrumbsList.length !== state.useBreadcrumbs.length;
+      return state.breadcrumbsList.length !== state.useBreadcrumbsProp.length;
     },
     get padding() {
       //TODO: use css-variable when tokens migrated
@@ -69,7 +69,7 @@ export default function VsfBreadcrumbs(props: BreadcrumbsProps) {
   onMount(() => {
     // TODO ssr support
     if (typeof window === undefined) return;
-    state.breadcrumbsList = state.useBreadcrumbs.slice(0);
+    state.breadcrumbsList = state.useBreadcrumbsProp.slice(0);
     state.newWindowWidth = window.innerWidth;
     document.addEventListener('click', state.handleDropdownClickOutside, true);
     window.addEventListener('resize', state.onWindowResize);
@@ -152,7 +152,7 @@ export default function VsfBreadcrumbs(props: BreadcrumbsProps) {
               </div>
             </Show>
           </li>
-          <Show when={!state.showDots && state.useWithIcon}>
+          <Show when={!state.showDots && state.useWithIconProp}>
             <li aria-label="Home" class={`relative breadcrumb-item ${state.breadCrumbItemClass}`}>
               <>{props.slotIcon}</>
               <Show when={!props.slotIcon}>
