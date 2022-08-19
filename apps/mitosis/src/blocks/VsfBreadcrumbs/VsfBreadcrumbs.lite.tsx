@@ -32,6 +32,7 @@ export default function VsfBreadcrumbs(props: BreadcrumbsProps) {
       return state.breadcrumbsList.length !== state.useBreadcrumbs.length;
     },
     get padding() {
+      //TODO: use css-variable when tokens migrated
       return 40;
     },
     get dropdownOpenedClass(): string {
