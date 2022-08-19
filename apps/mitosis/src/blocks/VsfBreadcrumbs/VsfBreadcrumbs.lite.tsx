@@ -44,9 +44,6 @@ export default function VsfBreadcrumbs(props: BreadcrumbsProps) {
     offsetLeft() {
       return navRef?.offsetLeft || 0;
     },
-    get breadCrumbItemClass() {
-      return "[&:nth-of-type(1n+3)]:before:content-['/'] [&:nth-of-type(1n+3)]:before:mx-2 [&:last-child>a]:font-medium [&:last-child>a]:text-gray-900 [&:last-child>a]:!no-underline";
-    },
     breadcrumbsList: [] as Breadcrumb[],
     dropdownOpened: false,
     dropdownList: [] as Breadcrumb[],
@@ -152,7 +149,7 @@ export default function VsfBreadcrumbs(props: BreadcrumbsProps) {
             </Show>
           </li>
           <Show when={!state.showDots && state.useWithIconProp}>
-            <li aria-label="Home" class={`relative breadcrumb-item ${state.breadCrumbItemClass}`}>
+            <li aria-label="Home" class="relative breadcrumb-item">
               <>{props.slotIcon}</>
               <Show when={!props.slotIcon}>
                 <a
@@ -179,7 +176,7 @@ export default function VsfBreadcrumbs(props: BreadcrumbsProps) {
           </Show>
           <For each={state.breadcrumbsList}>
             {(item, index) => (
-              <li aria-label={item.name} class={`relative breadcrumb-item ${state.breadCrumbItemClass}`} key={index}>
+              <li aria-label={item.name} class="relative breadcrumb-item" key={index}>
                 <a
                   href={item.link}
                   class="leading-5 rounded-sm whitespace-nowrap hover:text-primary-600 hover:underline active:font-medium active:text-gray-900 active:no-underline outline-violet"
