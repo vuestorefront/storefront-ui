@@ -1233,13 +1233,13 @@
     ts-pattern "^3.3.5"
 
 "@builder.io/mitosis-cli@dev":
-  version "0.0.17-45"
-  resolved "https://registry.yarnpkg.com/@builder.io/mitosis-cli/-/mitosis-cli-0.0.17-45.tgz#63f7f4b951bf9dc2e58ccb6800a058afdcaaf2d2"
-  integrity sha512-U6cnyUTDAzihOSyxbQE0wyEAZTnm8o8mJRi0f2cKxePEiI5kh+IP+LPrO/xNXL+LouxFizA6UNwhPwcQKllSYA==
+  version "0.0.17-88"
+  resolved "https://registry.yarnpkg.com/@builder.io/mitosis-cli/-/mitosis-cli-0.0.17-88.tgz#dde736d622d8fa3e1eab0cb855c0cf170aace3f0"
+  integrity sha512-cQeEibSILvz64sqs+ni/9i7Fi4NxJlgwYIjF3LHXR1VORyjD3nNPKWV9v4MSJXJdC7BTWHDvusx8KoBPwYR2CQ==
   dependencies:
     "@babel/core" "^7.17.8"
     "@babel/preset-typescript" "^7.16.7"
-    "@builder.io/mitosis" "0.0.56-49"
+    "@builder.io/mitosis" "0.0.56-97"
     "@vue/compiler-sfc" "^3.1.5"
     babel-preset-solid "^1.3.13"
     chalk "^4.1.0"
@@ -1258,10 +1258,10 @@
     vue-template-es2015-compiler "^1.9.1"
     vue-template-validator "^1.1.5"
 
-"@builder.io/mitosis@0.0.56-49", "@builder.io/mitosis@dev":
-  version "0.0.56-49"
-  resolved "https://registry.yarnpkg.com/@builder.io/mitosis/-/mitosis-0.0.56-49.tgz#84dcaa10144195312235cb9177e8139c69e8ec2f"
-  integrity sha512-ExYHsBmisM2QojSu/THX5EIh47dTxnDItZMlgGFuoYi6FdyZucwLtYsUkThlSdp6351R6oHf1a4trx03O7sitQ==
+"@builder.io/mitosis@0.0.56-97", "@builder.io/mitosis@dev":
+  version "0.0.56-97"
+  resolved "https://registry.yarnpkg.com/@builder.io/mitosis/-/mitosis-0.0.56-97.tgz#58c2aac312a5afc4d96d453ac4e62158911a1e91"
+  integrity sha512-QAl35FyW+uTxjolZeEl82VS6/3ulBj2GUv0XQYRuHoRW7AePPvoZjxgxSUL9gSu9IaggFwEWpya4z/HH3XBHNA==
   dependencies:
     "@angular/compiler" "^11.2.11"
     "@babel/core" "7.14.5"
@@ -1280,6 +1280,7 @@
     dedent "^0.7.0"
     fp-ts "^2.11.10"
     globby "^11.0.2"
+    hash-sum "^2.0.0"
     json5 "^2.1.3"
     liquidjs "9.6.0"
     lodash "^4.17.20"
@@ -1761,19 +1762,19 @@
     semver "^7.3.5"
     tar "^6.1.11"
 
-"@marko/babel-utils@^5.21.1":
-  version "5.21.2"
-  resolved "https://registry.yarnpkg.com/@marko/babel-utils/-/babel-utils-5.21.2.tgz#0c2b92df68b16bf363c708c0867bb891524e2c48"
-  integrity sha512-V+EUmFB+VO7IAUciKb5Rm8CWsl2TCZ/cP5w/n4ot0oxRb4zxD6h+5IcSzjKVseKa9qzcgi+VImJ7QJUwHdFmpg==
+"@marko/babel-utils@^5.21.3":
+  version "5.21.3"
+  resolved "https://registry.yarnpkg.com/@marko/babel-utils/-/babel-utils-5.21.3.tgz#f16d76b82eea898665591b59dfce0c3ad7f38f2b"
+  integrity sha512-2h36mVSOL1dEHBLgnFK9c/GsS0myqsCTNqLcVT2QrLJzSnKx2fubVUT5nd28DCfWRw5UGZu09o+OON5MOUG0Tw==
   dependencies:
     "@babel/runtime" "^7.16.0"
     jsesc "^3.0.2"
     relative-import-path "^1.0.0"
 
-"@marko/compiler@^5.22.4", "@marko/compiler@^5.22.5":
-  version "5.22.5"
-  resolved "https://registry.yarnpkg.com/@marko/compiler/-/compiler-5.22.5.tgz#970fc00e73f89c7ca97771cec9fcdf50faac200f"
-  integrity sha512-zl/lcFWUCOn4FDdWsCe1WrLk7EUWIX7NsxR7J9Wg84hX40gkGtY8+pmeIDC1jdcuJG90q7w8jby5/i+H0VqVoQ==
+"@marko/compiler@^5.22.4", "@marko/compiler@^5.22.6":
+  version "5.22.6"
+  resolved "https://registry.yarnpkg.com/@marko/compiler/-/compiler-5.22.6.tgz#703a75b9eb1e5fcc4332dbf7212905506e888f6f"
+  integrity sha512-lCSuw4NRfiEFK5RldsnGOXYHY6kGniUVXQBOU9IepthsY/BmnOULfV5/1Dmgq7hPzG5VZB0U/I0bS6vu3EBS+Q==
   dependencies:
     "@babel/code-frame" "^7.16.0"
     "@babel/core" "^7.16.0"
@@ -1785,7 +1786,7 @@
     "@babel/runtime" "^7.16.0"
     "@babel/traverse" "^7.16.0"
     "@babel/types" "^7.16.0"
-    "@marko/babel-utils" "^5.21.1"
+    "@marko/babel-utils" "^5.21.3"
     complain "^1.6.0"
     he "^1.2.0"
     htmljs-parser "^5.1.3"
@@ -1799,13 +1800,13 @@
     strip-ansi "^6.0.0"
     strip-json-comments "^3.1.1"
 
-"@marko/translator-default@^5.21.3", "@marko/translator-default@^5.21.4":
-  version "5.21.4"
-  resolved "https://registry.yarnpkg.com/@marko/translator-default/-/translator-default-5.21.4.tgz#80c9daccccfcea1637140e114c5f66b374cf6bb9"
-  integrity sha512-htYzogGiqtGKKTbBNalEBCwNAP3tK9G8wFxkTFgoNp1XVNSGnOflXFSErt0rO5850bEZnps8x5Xvh3+TxYVyDQ==
+"@marko/translator-default@^5.21.4", "@marko/translator-default@^5.21.5":
+  version "5.21.5"
+  resolved "https://registry.yarnpkg.com/@marko/translator-default/-/translator-default-5.21.5.tgz#fb0d02075517c4411f51253d4c68c6f7f3b765f9"
+  integrity sha512-6Q2rj9fk+B47Y5Wbcv81SQolv2p0GyyfITNeRCAIhbEHl/KngENtU5ZdoyJT6QKUIf8HIPthKtykKS6R5wlkDA==
   dependencies:
     "@babel/runtime" "^7.16.0"
-    "@marko/babel-utils" "^5.21.1"
+    "@marko/babel-utils" "^5.21.3"
     escape-string-regexp "^4.0.0"
     magic-string "^0.25.7"
     self-closing-tags "^1.0.1"
@@ -7316,9 +7317,9 @@ html-tags@^3.1.0:
   integrity sha512-vy7ClnArOZwCnqZgvv+ddgHgJiAFXe3Ge9ML5/mBctVJoUoYPCdxVucOywjDARn6CVoh3dRSFdPHy2sX80L0Wg==
 
 htmljs-parser@^5.1.3:
-  version "5.1.3"
-  resolved "https://registry.yarnpkg.com/htmljs-parser/-/htmljs-parser-5.1.3.tgz#a206d3911ac6666c34314afdb6c291a0e5b5d35c"
-  integrity sha512-QRDhh0OSA70KcVJBcZHLTvtUbTCMWHUm2KjSvNhbkidmTKlE6mN0owL6R+onvKF8iG4gQJbIrNYw7JEgK8BDHQ==
+  version "5.1.4"
+  resolved "https://registry.yarnpkg.com/htmljs-parser/-/htmljs-parser-5.1.4.tgz#958e544377c1fbbefc17726e9d3652e85e5bde4c"
+  integrity sha512-Jwcg9fU3VrRNqVzIuF+Thkn1cyYsARsYIQg1QxdURfCJMrazJGOtg1/8InxdOZXT+nESR4UfIediPc5m0std9w==
 
 http-cache-semantics@^4.0.0:
   version "4.1.0"
@@ -8653,12 +8654,12 @@ markdown-extensions@^1.0.0:
   integrity sha512-WWC0ZuMzCyDHYCasEGs4IPvLyTGftYwh6wIEOULOF0HXcqZlhwRzrK0w2VUlxWA98xnvb/jszw4ZSkJ6ADpM6Q==
 
 marko@^5.21.7:
-  version "5.21.8"
-  resolved "https://registry.yarnpkg.com/marko/-/marko-5.21.8.tgz#49b5c6b4596964c5d7a8dcf49fadaa0a10f3cc35"
-  integrity sha512-SwlAqfRtdz+2f7CcwSyV1BQ3x4xbJXhJkgCIpiCVYpq/xLwOEOYkzkh9JIQ3ZJ9bJK08mD2oFDfmhG4VNamQ0A==
+  version "5.21.9"
+  resolved "https://registry.yarnpkg.com/marko/-/marko-5.21.9.tgz#16f347bb46dc0131da670990f2161cc96cea08a3"
+  integrity sha512-gdaBVgJ9cn+sZ8GwIHc0+l+WbkDlrB1eD29bSlsjjklBV7bBqFEW7/y+s3plUcxFZcLakCrWXu+tEE2VfQPJEw==
   dependencies:
-    "@marko/compiler" "^5.22.5"
-    "@marko/translator-default" "^5.21.3"
+    "@marko/compiler" "^5.22.6"
+    "@marko/translator-default" "^5.21.5"
     app-module-path "^2.2.0"
     argly "^1.2.0"
     browser-refresh-client "1.1.4"
@@ -10598,10 +10599,15 @@ postcss@^8.1.10, postcss@^8.4.13, postcss@^8.4.14, postcss@^8.4.16:
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
 
-preact@^10.0.0, preact@^10.1.0:
+preact@^10.0.0:
   version "10.10.2"
   resolved "https://registry.yarnpkg.com/preact/-/preact-10.10.2.tgz#3460d456d84c4701af33ac37e9bd3054271d5b1e"
   integrity sha512-GUXSsfwq4NKhlLYY5ctfNE0IjFk7Xo4952yPI8yMkXdhzeQmQ+FahZITe7CeHXMPyKBVQ8SoCmGNIy9TSOdhgQ==
+
+preact@^10.1.0:
+  version "10.10.3"
+  resolved "https://registry.yarnpkg.com/preact/-/preact-10.10.3.tgz#ea82c5dce85c8a85d541f0110507b2de195ed711"
+  integrity sha512-Gwwh0o531izatQQZu0yEX4mtfxVYsZJ4TT/o2VK3UZ/UuAWAWFnzsEfpZvad32vY3TKoRnSY2WqiDz2rH/viWQ==
 
 prelude-ls@^1.2.1:
   version "1.2.1"
@@ -12584,9 +12590,9 @@ ufo@^0.8.3, ufo@^0.8.4, ufo@^0.8.5:
   integrity sha512-e4+UtA5IRO+ha6hYklwj6r7BjiGMxS0O+UaSg9HbaTefg4kMkzj4tXzEBajRR+wkxf+golgAWKzLbytCUDMJAA==
 
 uglify-js@^3.5.1:
-  version "3.16.3"
-  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.16.3.tgz#94c7a63337ee31227a18d03b8a3041c210fd1f1d"
-  integrity sha512-uVbFqx9vvLhQg0iBaau9Z75AxWJ8tqM9AV890dIZCLApF4rTcyHwmAvLeEdYRs+BzYWu8Iw81F79ah0EfTXbaw==
+  version "3.17.0"
+  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.17.0.tgz#55bd6e9d19ce5eef0d5ad17cd1f587d85b180a85"
+  integrity sha512-aTeNPVmgIMPpm1cxXr2Q/nEbvkmV8yq66F3om7X3P/cvOXQ0TMQ64Wk63iyT1gPlmdmGzjGpyLh1f3y8MZWXGg==
 
 unbox-primitive@^1.0.2:
   version "1.0.2"
