@@ -37,4 +37,3 @@ Alert component is using `role='alert'`. When this role is added to an element, 
 
 ## Source code
 
-<<<../mitosis/src/blocks/Button.lite.tsx
