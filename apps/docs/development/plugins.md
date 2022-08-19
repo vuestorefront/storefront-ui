@@ -30,11 +30,11 @@ Bind v-model inside mitosis component
 
 example
 
-1. Create getter method that returns an getter/setter object - name variable with `$vueProxy` prefix
+1. Create getter method that returns an getter/setter object - name variable with `vueProxy` prefix
 
 ```js
 const state = useState({
-  get $vueProxyValue() {
+  get vueProxyValue() {
     return {
       get: function () {
         return props.modelValue;
@@ -54,7 +54,7 @@ const state = useState({
 return (
   /* ... */
   <input
-    v-model="$vueProxyValue"
+    v-model="vueProxyValue"
     
   />
 )
