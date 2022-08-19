@@ -19,23 +19,24 @@ export const VsfButtonVariants = Object.freeze({
 
 type VsfButtonVariantsKeys = keyof typeof VsfButtonVariants;
 export interface VsfButtonProps {
-  attributes?: any;
   children: Element | Element[] | string;
   link?: string;
   size?: VsfButtonSizesKeys;
   variant?: VsfButtonVariantsKeys;
+  disabled?: boolean;
 }
 
 const DEFAULT_VALUES = {
+  children: 'Button',
   variant: VsfButtonVariants.primary,
   size: VsfButtonSizes.base,
-  children: 'Hello'
+  disabled: false,
 };
 
 export default function VsfButton(props: VsfButtonProps) {
   const state = useStore({
-    get useChildren() {
-        return props.children || DEFAULT_VALUES.children
+    get useDisabled() {
+        return props.disabled || DEFAULT_VALUES.disabled;
     },
     get buttonSize() {
       switch (props.size) {
@@ -64,7 +65,7 @@ export default function VsfButton(props: VsfButtonProps) {
       }
     },
     get buttonClasses() {
-      return 'inline-flex items-center justify-center border rounded-md cursor-pointer font-body disabled:cursor-not-allowed outline-violet'
+      return `inline-flex items-center justify-center border rounded-md cursor-pointer font-body disabled:cursor-not-allowed outline-violet ${state.buttonVariants} ${state.buttonSize}`
     }
   });
   return (
@@ -72,13 +73,13 @@ export default function VsfButton(props: VsfButtonProps) {
       <Show
         when={props.link}
         else={
-          <button className={state.buttonClasses}>
-            {state.useChildren}
+          <button className={state.buttonClasses} disabled={props.disabled}>
+            {props.children}
           </button>
         }
       >
         <a role="button" href={props.link} className={state.buttonClasses}>
-          {state.useChildren}
+          {props.children}
         </a>
       </Show>
     </>
