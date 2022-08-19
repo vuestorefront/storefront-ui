@@ -10,7 +10,7 @@
 import Breadcrumbs from "../../../../mitosis/output/vue/vue2/src/blocks/Breadcrumbs.vue";
 
 export default {
-  name: "bread-crumbs",
+  name: "Breadcrumbs",
   components: {
     Breadcrumbs,
   },

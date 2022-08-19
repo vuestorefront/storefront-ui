@@ -70,6 +70,7 @@ export default function VsfBreadcrumbs(props: BreadcrumbsProps) {
   });
 
   onMount(() => {
+    if(typeof window === undefined) return; 
     state.breadcrumbsList = state.useBreadcrumbs.slice(0);
     state.newWindowWidth = window.innerWidth;
     document.addEventListener('click', state.handleDropdownClickOutside, true);
