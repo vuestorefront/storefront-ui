@@ -1,5 +1,5 @@
 const traverse = require('traverse');
-const VUE_PROXY_REGEX = new RegExp(/(vueProxy.+)\(\) \{\s*return \{\s([\s\S]+?)\s+\};/, 'gm');
+const VUE_PROXY_REGEX = new RegExp(/($vueProxy.+)\(\) \{\s*return \{\s([\s\S]+?)\s+\};/, 'gm');
 
 module.exports =
   ({ type = '' }) =>
@@ -8,7 +8,7 @@ module.exports =
         pre: (json) => {
           traverse(json).forEach(function (item) {
             if (!type.includes('vue')) {
-              const vueProxyState = Object.keys(item?.state || {}).find(a => a.includes('vueProxy'));
+              const vueProxyState = Object.keys(item?.state || {}).find(a => a.includes('$vueProxy'));
               if (vueProxyState) {
                 delete item.state[vueProxyState]
               }
