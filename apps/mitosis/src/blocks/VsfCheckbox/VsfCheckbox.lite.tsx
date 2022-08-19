@@ -1,5 +1,5 @@
 import { useStore } from '@builder.io/mitosis';
-
+import { classStringFromArray } from '../../functions/propUtils';
 export interface CheckboxProps {
   name: string;
   value?: string | string[] | number;
@@ -44,7 +44,7 @@ export default function VsfCheckbox(props: CheckboxProps) {
         : '';
     },
     get inputClasses() {
-      return [
+      return classStringFromArray([
         'peer flex self-center w-[18px] h-[18px] border-2 border-gray-500 rounded-sm appearance-none cursor-pointer',
         'hover:border-primary-500 checked:bg-checked-checkbox checked:border-primary-500 disabled:border-gray-500/50',
         'disabled:cursor-not-allowed outline-violet',
@@ -52,19 +52,19 @@ export default function VsfCheckbox(props: CheckboxProps) {
         props.invalid ? '!border-negative-600' : '',
         props.indeterminate && props.disabled ? '!border-[#b8b8bc] bg-indeterminate-disabled-checkbox ' : '',
         props.rightCheckbox ? 'col-start-[end-col] row-start-[start-row] ' : '',
-      ]
-        .filter(Boolean)
-        .join(' ');
+      ]);
     },
     onChangeHandler(event: InputEvent) {
       props.onChange && props.onChange(event);
     },
-    get $vueProxyValue() {
+    get vueProxyValue() {
       return {
         get: function () {
-          return props.modelValue
+          return props.modelValue;
         },
-        set: function (value) { state.$emit('update:modelValue', value) }
+        set: function (value) {
+          state.$emit('update:modelValue', value);
+        },
       };
     },
     get isChecked(): boolean {
@@ -79,7 +79,7 @@ export default function VsfCheckbox(props: CheckboxProps) {
       class={`sfui-checkbox relative grid max-w-xs grid-cols-[24px_1fr] gap-x-2.5 right-checkbox ${state.rightCheckboxClasses}`}
     >
       <input
-        v-model="$vueProxyValue"
+        v-model="vueProxyValue"
         checked={state.isChecked}
         id={`checkbox-${props.name}`}
         indeterminate={props.indeterminate}
@@ -94,40 +94,35 @@ export default function VsfCheckbox(props: CheckboxProps) {
       />
       <label
         htmlFor={`checkbox-${props.name}`}
-        class={
-          `text-gray-900 flex self-center cursor-pointer font-body peer-required:after:content-['*'] peer-disabled:text-gray-900/40 peer-disabled:cursor-not-allowed` +
-          ' ' +
-          (props.rightCheckbox ? '!col-start-[start-col] row-start-[start-row] col-end-[end-col]' : '')
-        }
+        class={classStringFromArray([
+          `text-gray-900 flex self-center cursor-pointer font-body peer-required:after:content-['*'] peer-disabled:text-gray-900/40 peer-disabled:cursor-not-allowed`,
+          props.rightCheckbox ? '!col-start-[start-col] row-start-[start-row] col-end-[end-col]' : '',
+        ])}
       >
         {state.useLabelProp}
       </label>
       <span
-        class={
-          `block col-start-2 mt-0.5 text-sm font-medium text-negative-600 font-body ` +
-          ' ' +
-          (!props.invalid ? 'hidden' : '') +
-          ' ' +
-          (props.rightCheckbox ? '!col-start-[start-col] col-end-[end-col]' : '')
-        }
+        class={classStringFromArray([
+          `block col-start-2 mt-0.5 text-sm font-medium text-negative-600 font-body`,
+          !props.invalid ? 'hidden' : '',
+          props.rightCheckbox ? '!col-start-[start-col] col-end-[end-col]' : '',
+        ])}
       >
         {state.useErrorTextProp}
       </span>
       <span
-        class={
-          `col-start-2 mt-0.5 text-xs text-gray-500 peer-disabled:text-gray-500/50 font-body` +
-          ' ' +
-          (props.rightCheckbox ? '!col-start-[start-col]' : '')
-        }
+        class={classStringFromArray([
+          `col-start-2 mt-0.5 text-xs text-gray-500 peer-disabled:text-gray-500/50 font-body`,
+          props.rightCheckbox ? '!col-start-[start-col]' : '',
+        ])}
       >
         {state.useHelpTextProp}
       </span>
       <span
-        class={
-          `hidden col-start-1 mt-4 text-xs text-gray-500 peer-required:block peer-disabled:opacity-50 font-body` +
-          ' ' +
-          (props.rightCheckbox ? '!col-start-[start-col] col-end-[end-col]' : '')
-        }
+        class={classStringFromArray([
+          `hidden col-start-1 mt-4 text-xs text-gray-500 peer-required:block peer-disabled:opacity-50 font-body`,
+          props.rightCheckbox ? '!col-start-[start-col] col-end-[end-col]' : '',
+        ])}
       >
         *Required
       </span>
