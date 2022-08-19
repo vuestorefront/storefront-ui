@@ -10,12 +10,12 @@ module.exports = {
   files: 'src/**',
   targets: ['react', 'vue2', 'vue3'],
   options: {
-    vue: {
-      cssNamespace: getSeededId,
-    },
+    vue2: { cssNamespace: getSeededId, transpiler: { format: 'esm' } },
+    vue3: { cssNamespace: getSeededId, transpiler: { format: 'esm' } },
     react: {
       transpiler: {
         languages: 'ts',
+        format: 'esm'
       },
     },
   },
