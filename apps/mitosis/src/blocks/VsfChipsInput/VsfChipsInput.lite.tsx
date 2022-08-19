@@ -1,4 +1,4 @@
-import { Show, useStore,  } from "@builder.io/mitosis";
+import { Show, useStore } from "@builder.io/mitosis";
 
 export const SizeTypes = Object.freeze({
   SMALL: "small",

@@ -1,7 +1,7 @@
 <template>
   <div class="e-page">
     <div class="e-page-component">
-      <ChipsInput value="Label" :handleChipClose="($event)=>handleChipClose()">
+      <VsfChipsInput value="Label" :handleChipClose="($event)=>handleChipClose()">
         <template #icon>
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="w-full h-full fill-gray-500">
             <path
@@ -9,7 +9,7 @@
             ></path>
           </svg>
         </template>
-      </ChipsInput>
+      </VsfChipsInput>
     </div>
     <div class="e-page-controls"></div>
   </div>
@@ -17,16 +17,16 @@
 
 <script>
 import { defineComponent } from 'vue';
-import ChipsInput from '../../output/blocks/ChipsInput.vue';
+import VsfChipsInput from '../../output/blocks/VsfChipsInput/VsfChipsInput.vue';
 
 export default defineComponent({
   name: 'Chipsinput',
   components: {
-    ChipsInput,
+    VsfChipsInput,
   },
   methods: {
     handleChipClose() {
-      console.log('Clicked');
+      console.log('VsfChipsInput Clicked');
     },
   },
 });

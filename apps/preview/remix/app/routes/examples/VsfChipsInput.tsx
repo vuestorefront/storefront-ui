@@ -1,4 +1,4 @@
-import ChipsInput from "../../output/blocks/ChipsInput.lite";
+import VsfChipsInput from "../../output/blocks/VsfChipsInput/VsfChipsInput.lite";
 
 function Icon() {
   return (
@@ -8,10 +8,10 @@ function Icon() {
   );
 }
 
-export default function ExampleChipsInput() {
+export default function ExampleVsfChipsInput() {
   return (
     <div className="m-4">
-      <ChipsInput
+      <VsfChipsInput
         value={"Label"}
         handleChipClose={console.log}
         slotIcon={<Icon />}
