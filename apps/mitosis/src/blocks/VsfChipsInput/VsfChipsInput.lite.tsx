@@ -25,17 +25,17 @@ const DEFAULT_VALUES = {
 
 export default function ChipsInput(props: ChipsInputProps) {
   const state = useStore({
-    get useSize(){
+    get useSizeProp(){
       return props.size || DEFAULT_VALUES.size
     },
-    get useValue(){
+    get useValueProp(){
       return props.value || DEFAULT_VALUES.value
     },
-    get useDisabled(){
+    get useDisabledProp(){
       return props.disabled || DEFAULT_VALUES.disabled
     },
     get chipsSize() {
-      switch (state.useSize) {
+      switch (state.useSizeProp) {
         case SizeTypes.SMALL:
           return "w-4 h-4";
         case SizeTypes.LARGE:
@@ -45,7 +45,7 @@ export default function ChipsInput(props: ChipsInputProps) {
       }
     },
     get chipsIconSize() {
-      switch (state.useSize) {
+      switch (state.useSizeProp) {
         case SizeTypes.SMALL:
           return "w-5 h-5";
         case SizeTypes.LARGE:
@@ -55,7 +55,7 @@ export default function ChipsInput(props: ChipsInputProps) {
       }
     },
     get chipsFontSize() {
-      switch (state.useSize) {
+      switch (state.useSizeProp) {
         case SizeTypes.SMALL:
           return "text-sm";
         case SizeTypes.LARGE:
@@ -65,7 +65,7 @@ export default function ChipsInput(props: ChipsInputProps) {
       }
     },
     get chipsButtonSpacing() {
-      switch (state.useSize) {
+      switch (state.useSizeProp) {
         case SizeTypes.SMALL:
           return "ml-2 mr-1";
         case SizeTypes.LARGE:
@@ -75,13 +75,13 @@ export default function ChipsInput(props: ChipsInputProps) {
       }
     },
     get hideButton():string {
-      return !state.useValue ? "hidden" : "block";
+      return !state.useValueProp ? "hidden" : "block";
     },
     get disabledClass(): string {
-      return state.useDisabled ? "!pr-3 bg-gray-100 border-gray-200 opacity-50 !cursor-not-allowed" : "";
+      return state.useDisabledProp ? "!pr-3 bg-gray-100 border-gray-200 opacity-50 !cursor-not-allowed" : "";
     },
     get valueClass(): string {
-      return state.useValue ? "!pr-0. " : "";
+      return state.useValueProp ? "!pr-0. " : "";
     },
     close(event: Event) {
       props.handleChipClose && props.handleChipClose(event);
@@ -95,18 +95,18 @@ export default function ChipsInput(props: ChipsInputProps) {
         <div class={state.chipsIconSize}>
           <>{props.slotIcon}</>
         </div>
-        <Show when={!!state.useValue}>
-          <span class={`ml-1 ${state.chipsFontSize}`}>{state.useValue}</span>
+        <Show when={!!state.useValueProp}>
+          <span class={`ml-1 ${state.chipsFontSize}`}>{state.useValueProp}</span>
         </Show>
         <>{props.slotClose}</>
-        <Show when={!props.slotClose && !state.useDisabled}>
+        <Show when={!props.slotClose && !state.useDisabledProp}>
           <button
             class={`bg-transparent ${state.chipsButtonSpacing} ${state.hideButton}`}
             onClick={(event) => state.close(event)}
           >
             <svg
               class={`first-letter:transition duration-300 fill-gray-500 group-hover:fill-primary-600 group-active:fill-primary-700 ease ${state.chipsSize}`}
-              aria-label={`Close ${state.useValue} chip`}
+              aria-label={`Close ${state.useValueProp} chip`}
               viewBox="0 0 16 16"
               xmlns="http://www.w3.org/2000/svg"
             >
