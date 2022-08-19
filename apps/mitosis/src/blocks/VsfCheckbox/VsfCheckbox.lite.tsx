@@ -31,6 +31,7 @@ const DEFAULT_VALUES = {
 };
 
 export default function VsfCheckbox(props: CheckboxProps) {
+  // TODO Refactor: get rid of 'id' prop - wrap <input/> in <label>
   const state = useStore({
     get useValueProp() {
       return props.value || DEFAULT_VALUES.value;
