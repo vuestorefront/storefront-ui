@@ -1,7 +1,7 @@
 <template>
   <div class="e-page">
     <div class="e-page-component">
-      <VsfChipsInput value="Label" :handleChipClose="($event)=>handleChipClose()">
+      <VsfChipsInput :value="valueModel" :size="sizeModel" :disabled="disabledModel" :handleChipClose="handleChipClose">
         <template #icon>
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="w-full h-full fill-gray-500">
             <path
@@ -11,23 +11,57 @@
         </template>
       </VsfChipsInput>
     </div>
-    <div class="e-page-controls"></div>
+    <div class="e-page-controls">
+      <table>
+        <tbody>
+          <tr>
+            <td>Size</td>
+            <td>
+              <div v-for="variant in SizeTypes" :key="variant">
+                <label>
+                  {{ variant }}
+                  <input v-model="sizeModel" type="radio" name="size" :value="variant" />
+                </label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Disabled</td>
+            <td>
+              <input v-model="disabledModel" type="checkbox" />
+            </td>
+          </tr>
+          <tr>
+            <td>Value</td>
+            <td>
+              <input v-model="valueModel" type="text" />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </template>
 
 <script>
-import { defineComponent } from 'vue';
-import VsfChipsInput from '../../output/blocks/VsfChipsInput/VsfChipsInput.vue';
+import { defineComponent, ref } from 'vue';
+import VsfChipsInput, { SizeTypes } from '../../output/blocks/VsfChipsInput/VsfChipsInput.vue';
 
 export default defineComponent({
   name: 'Chipsinput',
   components: {
     VsfChipsInput,
   },
-  methods: {
-    handleChipClose() {
-      console.log('VsfChipsInput Clicked');
-    },
+  setup() {
+    return {
+      sizeModel: ref(SizeTypes.LARGE),
+      disabledModel: ref(false),
+      valueModel: ref('Label'),
+      SizeTypes,
+      handleChipClose() {
+        console.log('VsfChipsInput Clicked');
+      },
+    };
   },
 });
 </script>

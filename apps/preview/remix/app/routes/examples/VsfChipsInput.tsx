@@ -1,4 +1,5 @@
-import VsfChipsInput from "../../output/blocks/VsfChipsInput/VsfChipsInput.lite";
+import { useState } from 'react';
+import VsfChipsInput, { SizeTypes, ChipsInputProps } from '../../output/blocks/VsfChipsInput/VsfChipsInput.lite';
 
 function Icon() {
   return (
@@ -9,13 +10,70 @@ function Icon() {
 }
 
 export default function ExampleVsfChipsInput() {
+  const [formData, setFormData] = useState({
+    size: SizeTypes.MEDIUM,
+    disabled: false,
+    value: 'Label',
+  } as Partial<ChipsInputProps>);
+
+  function onClickHandler() {
+    console.log('VsfCHipsInputClicked!');
+  }
   return (
-    <div className="m-4">
-      <VsfChipsInput
-        value={"Label"}
-        handleChipClose={console.log}
-        slotIcon={<Icon />}
-      />
+    <div className="e-page">
+      <div className="e-page-component">
+        <VsfChipsInput
+          value={formData.value}
+          disabled={formData.disabled}
+          size={formData.size}
+          handleChipClose={onClickHandler}
+          slotIcon={<Icon />}
+        />
+      </div>
+      <div className="e-page-controls">
+        <table>
+          <tbody>
+            <tr>
+              <td>Variant</td>
+              <td>
+                {Object.values(SizeTypes).map((variant: string) => {
+                  return (
+                    <label key={variant} style={{ display: 'block' }}>
+                      {variant}
+                      <input
+                        onChange={(e) => setFormData({ ...formData, size: e.target.value })}
+                        type="radio"
+                        name="size"
+                        value={variant}
+                      />
+                    </label>
+                  );
+                })}
+              </td>
+            </tr>
+            <tr>
+              <td>Disabled</td>
+              <td>
+                <input
+                  onChange={(e) => setFormData({ ...formData, disabled: e.target.checked })}
+                  value={formData.disabled}
+                  type="checkbox"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>Value</td>
+              <td>
+                <input
+                  onInput={(e) => setFormData({ ...formData, value: e.target.value })}
+                  value={formData.value}
+                  type="text"
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

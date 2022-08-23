@@ -4,7 +4,7 @@
       <button class="sidebar-toggle" :class="isOpen && 'sidebar-toggle-collapsed'" @click="isOpen = !isOpen">&lt;&lt;</button>
       <h2 class="sidebar-heading">Components</h2>
       <ul class="sidebar-list" >
-        <li v-for="component in components"><NuxtLink :to="`/examples/${component}`">{{component}}</NuxtLink></li>
+        <li v-for="(component,idx) in components" :key="idx"><NuxtLink :to="`/examples/${component}`">{{component}}</NuxtLink></li>
       </ul>
     </div>
     <NuxtPage />
