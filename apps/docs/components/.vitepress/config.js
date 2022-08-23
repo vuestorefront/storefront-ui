@@ -30,6 +30,7 @@ export default {
         collapsed: true,
         items: [
           { text: 'Alert', link: '/components/alert' },
+          { text: 'Checkbox', link: '/components/checkbox' },
           { text: 'Breadcrumbs', link: '/components/breadcrumbs' },
         ]
       },
