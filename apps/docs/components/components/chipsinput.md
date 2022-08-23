@@ -1,6 +1,6 @@
-# Alert component
+# ChipsInput component
 
-The Alert component is a notification that keeps people informed of the status of the system and which may or not require the user respond.
+The ChipsInput component is used to convey small pieces of information. `close` button makes the ChipsInput interactive, allowing user interaction.
 
 <PlaygroundWrapper component="ChipsInput"/>
 
@@ -27,11 +27,11 @@ See the design on [Figma]()
 
 | Event name |            Trigger             |
 | ---------- | :----------------------------: |
-| close      | emits on clicking close button | // TODO
+| close      | emits on clicking close button |
 
 ## Accessibility notes
 
-// TODO
+Component uses `aria-label` to indicate close button.
 
 ## Source code
 

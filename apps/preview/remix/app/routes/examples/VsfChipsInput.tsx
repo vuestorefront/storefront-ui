@@ -17,7 +17,7 @@ export default function ExampleVsfChipsInput() {
   } as Partial<ChipsInputProps>);
 
   function onClickHandler() {
-    console.log('VsfCHipsInputClicked!');
+    console.log('VsfChipsInput Clicked!');
   }
   return (
     <div className="e-page">

@@ -84,6 +84,9 @@ export default function ChipsInput(props: ChipsInputProps) {
       return state.useValueProp ? "!pr-0. " : "";
     },
     close(event: Event) {
+      /* IF-vue */
+      state.$emit("close", event);
+      /* ENDIF-vue */
       props.handleChipClose && props.handleChipClose(event);
     },
   });

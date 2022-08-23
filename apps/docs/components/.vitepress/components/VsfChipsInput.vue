@@ -147,6 +147,7 @@ export default {
 
   methods: {
     close(event) {
+      this.$emit("close", event);
       this.handleChipClose && this.handleChipClose(event);
     },
     _classStringToObject(str) {

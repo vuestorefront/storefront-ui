@@ -10,6 +10,6 @@ export default {
     app.component('PlaygroundWrapper', PlaygroundWrapper),
     app.component('AlertBase', AlertBase),
     app.component('Checkbox', VsfCheckbox),
-    app.component('ChipsInput', VsfChipsInput),
+    app.component('ChipsInput', VsfChipsInput)
   }
 }

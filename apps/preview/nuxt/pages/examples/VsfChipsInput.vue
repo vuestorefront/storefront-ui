@@ -1,7 +1,7 @@
 <template>
   <div class="e-page">
     <div class="e-page-component">
-      <VsfChipsInput :value="valueModel" :size="sizeModel" :disabled="disabledModel" :handleChipClose="handleChipClose">
+      <VsfChipsInput :value="valueModel" :size="sizeModel" :disabled="disabledModel" @close="handleChipClose">
         <template #icon>
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="w-full h-full fill-gray-500">
             <path
