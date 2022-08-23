@@ -29,7 +29,8 @@ export default {
         collapsible: true,
         collapsed: true,
         items: [
-          { text: 'Alert', link: '/components/alert' }
+          { text: 'Alert', link: '/components/alert' },
+          { text: 'Breadcrumbs', link: '/components/breadcrumbs' },
         ]
       },
       {
