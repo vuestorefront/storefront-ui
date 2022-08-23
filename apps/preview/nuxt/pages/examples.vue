@@ -4,16 +4,8 @@
       <button class="sidebar-toggle" :class="isOpen && 'sidebar-toggle-collapsed'"
         @click="isOpen = !isOpen">&lt;&lt;</button>
       <h2 class="sidebar-heading">Components</h2>
-      <ul class="sidebar-list">
-        <li>
-          <NuxtLink to="/examples/componentExample">Component Example Link</NuxtLink>
-        </li>
-        <li>
-          <NuxtLink to="/examples/some">Some other component</NuxtLink>
-        </li>
-        <li>
-          <NuxtLink to="/examples/VsfButton">Button</NuxtLink>
-        </li>
+      <ul class="sidebar-list" >
+        <li v-for="component in components" :key="component"><NuxtLink :to="`/examples/${component}`">{{component}}</NuxtLink></li>
       </ul>
     </div>
     <NuxtPage />
@@ -26,5 +18,6 @@ import { useRouter } from 'vue-router';
 const { currentRoute } = useRouter();
 
 const isOpen = ref();
-const isDocs = computed(() => currentRoute.value.query.docs)
+const isDocs = computed(() => currentRoute.value.query.docs);
+const components = ['VsfProgress', 'VsfButton'].sort(); //Generate component list, because we need sorted list
 </script>

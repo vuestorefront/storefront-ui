@@ -3,7 +3,7 @@
   "compilerOptions": {
     "jsxImportSource": "@builder.io/mitosis",
     "forceConsistentCasingInFileNames": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
   },
   "include": [
     "src"

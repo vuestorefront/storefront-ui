@@ -5,15 +5,14 @@
   "sideEffects": false,
   "scripts": {
     "build": "run-s \"build:*\"",
-    "build:css": "yarn generate:css -- --minify && yarn example:css",
+    "build:css": "yarn tailwind:css -- --minify && yarn example:css",
     "build:remix": "remix build",
     "dev": "PORT=3002 run-p \"dev:*\"",
-    "dev:css": "npm run generate:css -- --watch",
-    "dev:example.css": "npm run example:css:watch",
+    "dev:tailwind.css": "yarn tailwind:css --watch",
+    "dev:example.css": "yarn example:css --watch",
     "dev:remix": "remix dev",
-    "generate:css": "npx tailwindcss -i ./styles/tailwind.scss -o ./app/tailwind.css",
-    "example:css": "sass --no-source-map ../../../node_modules/@sfui/example-style/index.scss:./app/example.css",
-    "example:css:watch": "sass --no-source-map --watch ../../../node_modules/@sfui/example-style/index.scss:./app/example.css",
+    "tailwind:css": "npx tailwindcss -i ./styles/tailwind.scss -o ./app/styles/tailwind.css",
+    "example:css": "sass --no-source-map ../../../node_modules/@sfui/example-style/index.scss:./app/styles/example.css",
     "start": "remix-serve build"
   },
   "dependencies": {
