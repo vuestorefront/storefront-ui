@@ -18,26 +18,19 @@ export default function Index() {
 
   return (
     <div className="e-page-examples">
-      {!isDocs && (
+      {!isDocs &&
         <div className={`sidebar ${isOpen ? '' : 'sidebar-collapsed'}`}>
           <button
             className={`sidebar-toggle ${isOpen && 'sidebar-toggle-collapsed'}`}
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            &lt;&lt;
-          </button>
+            onClick={() => setIsOpen(!isOpen)}>&lt;&lt;</button>
           <h2 className="sidebar-heading">Components</h2>
           <ul className="sidebar-list">
-            {components.map((component) => {
-              return (
-                <li key={component}>
-                  <NavLink to={`/examples/${component}`}>{component}</NavLink>
-                </li>
-              );
+            {components.map(component => {
+              return <li key={component}><NavLink to={`/examples/${component}`}>{component}</NavLink></li>
             })}
           </ul>
         </div>
-      )}
+      }
       <Outlet />
     </div>
   );
