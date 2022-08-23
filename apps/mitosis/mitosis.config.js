@@ -2,7 +2,7 @@ const seedrandom = require('seedrandom')
 const rng = seedrandom('vue-sdk-seed')
 const ifPlugin = require('./plugins/if-plugin');
 const vueComputedProxy = require('./plugins/vueProxy');
-const vueIfSlot = require('./plugins/vueIfSlot');
+const vueConditionalSlot = require('./plugins/vueConditionalSlot');
 
 const getSeededId = () => {
   const rngVal = rng()
@@ -19,7 +19,7 @@ module.exports = {
       plugins: [
         ifPlugin({ type: ['vue', 'vue3'] }),
         vueComputedProxy({ type: ['vue', 'vue3'] }),
-        vueIfSlot({ type: ['vue', 'vue3'] }),
+        vueConditionalSlot({ type: ['vue', 'vue3'] }),
       ],
     },
     vue2: {
@@ -28,7 +28,7 @@ module.exports = {
       plugins: [
         ifPlugin({ type: ['vue', 'vue2'] }),
         vueComputedProxy({ type: ['vue', 'vue2'] }),
-        vueIfSlot({ type: ['vue', 'vue2'] }),
+        vueConditionalSlot({ type: ['vue', 'vue2'] }),
       ],
     },
     react: {
