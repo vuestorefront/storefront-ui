@@ -1,9 +1,7 @@
-export function validator(
-  valid,value, defaultValue
-) {
+export function validator(valid, value, defaultValue) {
   if (!value) return defaultValue;
-  return (valid).includes(value) ? value : defaultValue;
-};
+  return valid.includes(value) ? value : defaultValue;
+}
 
 // keep it typed when supported
 // export function validator<T>(
