@@ -77,7 +77,8 @@
 <script>
 import { defineAsyncComponent } from "vue";
 
-import { classStringFromArray } from "../../functions/domUtils";
+import { classStringFromArray } from "@sfui/mitosis/src/functions/domUtils";
+
 const DEFAULT_VALUES = {
   value: "",
   label: "",

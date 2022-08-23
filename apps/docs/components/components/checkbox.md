@@ -1,6 +1,6 @@
-# Alert component
+# Checkbox component
 
-The Chechbox component is an input element of type checkbox that allows to turn single values on and off.
+The Checkbox component is an input element of type checkbox that allows to turn single values on and off.
 
 <PlaygroundWrapper component="Checkbox"/>
 
