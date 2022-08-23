@@ -11,6 +11,18 @@ module.exports =
     json: {
       pre: (json) => {
         traverse(json).forEach(function (item) {
+          // parse <Slot> prop slot name to string
+          if (item.name === 'Slot') {
+            const hasSlotProps = hasSlot(item.bindings.name?.code);
+            if (hasSlotProps) {
+              hasSlotProps.forEach((slot) => {
+                const slotName = slot.replace('props.slot', '').toLowerCase();
+                delete item.bindings.name;
+                item.properties['name'] = slotName;
+              });
+            }
+          }
+          // replaces 'props.slotName' property with Vue' '$slots.name' propery in template conditional parts
           if (item.bindings?.when?.code) {
             const hasSlotProps = hasSlot(item.bindings.when.code);
             if (hasSlotProps) {
