@@ -54,7 +54,7 @@ export default defineComponent({
   },
   setup() {
     return {
-      sizeModel: ref(SizeTypes.LARGE),
+      sizeModel: ref(SizeTypes.MEDIUM),
       disabledModel: ref(false),
       valueModel: ref('Label'),
       SizeTypes,
