@@ -1,8 +1,8 @@
-# Alert component
+# Breadcrumbs component
 
 A breadcrumb trail consists of a list of links to the parent pages of the current page in hierarchical order. It helps users find their place.
 
-<PlaygroundWrapper component="AlertBase"/>
+<PlaygroundWrapper component="Breadcrumbs"/>
 
 ## Figma design
 
@@ -34,4 +34,4 @@ The Breadcrumbs component uses `aria-label`to indicate navigation type and page.
 
 ## Source code
 
-<<<../mitosis/src/blocks/Button.lite.tsx
+<<<../../mitosis/src/blocks/VsfBreadcrumbs/VsfBreadcrumbs.lite.tsx

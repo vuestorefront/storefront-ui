@@ -36,5 +36,3 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 Alert component is using `role='alert'`. When this role is added to an element, the browser will send out an accessible alert event to assistive technology products which can then notify the user.
 
 ## Source code
-
-<<<../mitosis/src/blocks/Button.lite.tsx
