@@ -23,5 +23,4 @@ const components = Object.keys(files).map((file) => file.match(/([\w\d_-]*)\.?[^
 
 const isOpen = ref();
 const isDocs = computed(() => currentRoute.value.query.docs);
-const components = ['VsfProgress', 'VsfCheckbox', 'VsfBreadcrumbs'].sort(); //Generate component list, because we need sorted list
 </script>
