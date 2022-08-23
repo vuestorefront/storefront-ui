@@ -12,7 +12,3 @@ export function validator(valid, value, defaultValue) {
 //   if (!value) return defaultValue;
 //   return (valid as unknown as T[]).includes(value) ? value : defaultValue;
 // };
-
-export function classStringFromArray(classes: string[]) {
-  return classes.filter(Boolean).join(' ');
-}

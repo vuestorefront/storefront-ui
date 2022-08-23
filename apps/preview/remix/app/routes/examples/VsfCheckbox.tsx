@@ -43,7 +43,7 @@ export default function Index() {
               <td>Label</td>
               <td>
                 <input
-                  onInput={(e) => setForm((prev) => ({ ...prev, label: e.target.value }))}
+                  onInput={(e) => setForm({ ...form, label: e.target.value })}
                   value={form.label}
                   type="text"
                 />
@@ -54,7 +54,7 @@ export default function Index() {
               <td>
                 <label>
                   <input
-                    onChange={(e) => setForm((prev) => ({ ...prev, disabled: e.target.checked }))}
+                    onChange={(e) => setForm({ ...form, disabled: e.target.checked })}
                     value={form.disabled}
                     type="checkbox"
                   />
@@ -66,7 +66,7 @@ export default function Index() {
               <td>
                 <label>
                   <input
-                    onChange={(e) => setForm((prev) => ({ ...prev, indeterminate: e.target.checked }))}
+                    onChange={(e) => setForm({ ...form, indeterminate: e.target.checked })}
                     value={form.indeterminate}
                     type="checkbox"
                   />
@@ -78,7 +78,7 @@ export default function Index() {
               <td>
                 <label>
                   <input
-                    onChange={(e) => setForm((prev) => ({ ...prev, invalid: e.target.checked }))}
+                    onChange={(e) => setForm({ ...form, invalid: e.target.checked })}
                     value={form.invalid}
                     type="checkbox"
                   />
@@ -90,7 +90,7 @@ export default function Index() {
               <td>
                 <label>
                   <input
-                    onChange={(e) => setForm((prev) => ({ ...prev, rightCheckbox: e.target.checked }))}
+                    onChange={(e) => setForm({ ...form, rightCheckbox: e.target.checked })}
                     value={form.rightCheckbox}
                     type="checkbox"
                   />
@@ -102,7 +102,7 @@ export default function Index() {
               <td>
                 <label>
                   <input
-                    onChange={(e) => setForm((prev) => ({ ...prev, required: e.target.checked }))}
+                    onChange={(e) => setForm({ ...form, required: e.target.checked })}
                     value={form.required}
                     type="checkbox"
                   />
@@ -113,7 +113,7 @@ export default function Index() {
               <td>Help Text</td>
               <td>
                 <input
-                  onInput={(e) => setForm((prev) => ({ ...prev, helpText: e.target.value }))}
+                  onInput={(e) => setForm({ ...form, helpText: e.target.value })}
                   value={form.helpText}
                   type="text"
                 />
@@ -123,7 +123,7 @@ export default function Index() {
               <td>Error Text</td>
               <td>
                 <input
-                  onInput={(e) => setForm((prev) => ({ ...prev, errorText: e.target.value }))}
+                  onInput={(e) => setForm({ ...form, errorText: e.target.value })}
                   value={form.errorText}
                   type="text"
                 />

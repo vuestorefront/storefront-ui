@@ -1,5 +1,5 @@
 import { useStore } from '@builder.io/mitosis';
-import { classStringFromArray } from '../../functions/propUtils';
+import { classStringFromArray } from '../../functions/domUtils';
 export interface CheckboxProps {
   name: string;
   value?: string | string[] | number;
