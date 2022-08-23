@@ -4,8 +4,9 @@ import { useState } from "react";
 export default function Index() {
   const [isOpen, setIsOpen] = useState(true);
   const [searchParams] = useSearchParams();
-  const isDocs = searchParams.get("docs");
-  const components = ['VsfProgress'].sort(); //Generate component list, because we need sorted list
+  const isDocs = searchParams.get('docs');
+  const components = ['VsfProgress', 'VsfCheckbox', 'VsfBreadcrumbs'].sort(); //Generate component list, because we need sorted list
+
   return (
     <div className="e-page-examples">
       {!isDocs &&
