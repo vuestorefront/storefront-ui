@@ -72,7 +72,11 @@ export default function VsfRatingBase(props: VsfRatingBaseProps) {
 
   return (
     <>
-      <div class="flex items-center h-6 font-normal pointer-events-none fill-warning-500 font-body">
+      <div
+        class="flex items-center h-6 font-normal pointer-events-none fill-warning-500 font-body"
+        role="img"
+        aria-label={`Rating: ${state.useValueProp} out of ${state.useMaxProp} stars`}
+      >
         <For each={[...Array(state.filled)]}>
           {(_, index) => (
             <svg
