@@ -1,4 +1,4 @@
-import { Show, useStore, For, onUnMount, onUpdate, onMount } from '@builder.io/mitosis';
+import { Show, useStore } from '@builder.io/mitosis';
 
 export const VsfRatingWithValueVariants = Object.freeze({
   xs: 'xs',
