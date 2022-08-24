@@ -1,75 +1,62 @@
 <template>
   <div class="e-page">
     <div class="e-page-component">
-      <VsfProgress :value="propValue" :variant="variantModel" :type="typeModel" />
+      <VsfProgress :value="valueModel" :variant="variantModel" :type="typeModel" :label="labelModel" />
     </div>
     <div class="e-page-controls">
-      <table>
-      <tr>
-        <td>Value</td>
-        <td>
-          <input
-            v-model="propValue"
-            type="range"
-            min="0"
-            max="100"
-            step="1"
-          >
-        </td>
-      </tr>
-      <tr>
-        <td>Size</td>
-        <td>
-          <div v-for="variant in VsfProgressVariants" :key="variant">
-            <label>
-              {{ variant }}
-              <input
-                v-model="variantModel"
-                type="radio"
-                name="size"
-                :value="variant"
-              >
-            </label>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td>Type</td>
-        <td>
-          <div v-for="progressType in VsfProgressTypes" :key="progressType">
-            <label>
-              {{ progressType }}
-              <input
-                v-model="typeModel"
-                type="radio"
-                name="size"
-                :value="progressType"
-              >
-            </label>
-          </div>
-        </td>
-      </tr>
-    </table>
+      <Controls v-bind="controlsAttrs"/>
     </div>
   </div>
 </template>
 
-<script>
-import { ref } from '@vue/composition-api';
+<script lang="ts">
+import { ref } from 'vue';
 // eslint-disable-next-line import/no-relative-packages, import/no-unresolved
 import VsfProgress, { VsfProgressVariants, VsfProgressTypes } from '../../output/blocks/VsfProgress/VsfProgress.vue';
+import Controls, { prepareControls } from '../../components/utils/Controls.vue';
 
 export default {
   name: 'VsfProgressExample',
-  components: { VsfProgress },
+  components: { VsfProgress, Controls },
   setup() {
-    return {
-      VsfProgressVariants,
-      VsfProgressTypes,
-      propValue: ref(0),
-      variantModel: ref(),
-      typeModel: ref(),
-    };
-  },
+    return prepareControls([
+        {
+          title: 'Label',
+          type: 'text',
+          modelName: 'labelModel',
+          description: 'Prop used only to set aria-label attribute',
+          propDefaultValue: 'Loading',
+          propType: 'string',
+        },
+        {
+          title: 'Value',
+          type: 'range',
+          modelName: 'valueModel',
+          propDefaultValue: 0,
+          propType: 'number'
+        },
+        {
+          title: 'Variant',
+          type: 'select',
+          modelName: 'variantModel',
+          options: Object.keys(VsfProgressVariants),
+          propDefaultValue: VsfProgressVariants.base,
+          propType: 'VsfProgressVariants'
+        },
+        {
+          title: 'Type',
+          type: 'select',
+          modelName: 'typeModel',
+          options: Object.keys(VsfProgressTypes),
+          propDefaultValue: VsfProgressTypes.circle,
+          propType: 'VsfProgressTypes'
+        },
+      ], {
+        labelModel: ref(),
+        valueModel: ref(),
+        variantModel: ref(),
+        typeModel: ref(),
+      })
+  }
 };
 </script>
