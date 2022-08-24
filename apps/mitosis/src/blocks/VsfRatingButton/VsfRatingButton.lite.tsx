@@ -12,11 +12,11 @@ export const VsfRatingButtonVariants = Object.freeze({
 type VsfRatingButtonVariantsKeys = keyof typeof VsfRatingButtonVariants;
 
 export interface VsfRatingButtonProps {
+  size?: VsfRatingButtonVariantsKeys;
   max?: number;
+  disabled?: boolean;
   onChange?: (...args: any[]) => void;
   modelValue?: any;
-  disabled?: boolean;
-  size: VsfRatingButtonVariantsKeys;
 }
 
 const DEFAULT_VALUES = {
@@ -27,12 +27,12 @@ const DEFAULT_VALUES = {
 export default function VsfRatingButton(props: VsfRatingButtonProps) {
   const state = useStore({
     get useMaxProp() {
-      return props.max || DEFAULT_VALUES.max;
+      return Number(props.max) || DEFAULT_VALUES.max;
     },
     get useSizeProp() {
       return props.size || DEFAULT_VALUES.size;
     },
-    get sizeClass(): string {
+    get sizeClass() {
       return {
         xs: 'h-4 w-4',
         sm: 'h-5 w-5',
@@ -42,7 +42,7 @@ export default function VsfRatingButton(props: VsfRatingButtonProps) {
         '2xl': 'h-20 w-20',
       }[state.useSizeProp];
     },
-    onChangeHandler(item) {
+    onChangeHandler(item: number) {
       /* IF-vue */
       state.$emit('rating-changed', item);
       /* ENDIF-vue */
@@ -75,6 +75,7 @@ export default function VsfRatingButton(props: VsfRatingButtonProps) {
               class={`appearance-none cursor-pointer star-input ${state.sizeClass}`}
               onChange={() => state.onChangeHandler(item)}
               disabled={props.disabled}
+              defaultChecked={props.modelValue === item}
             />
           )}
         </For>
