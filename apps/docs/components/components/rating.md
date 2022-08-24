@@ -1,6 +1,6 @@
-# RAting component
+# Rating component
 
-Rating presents the average grade graphically and textually.
+The Rating component presents the average grade graphically and textually.
 
 <PlaygroundWrapper component="Rating"/>
 
