@@ -126,7 +126,7 @@ export const prepareControls = (
   });
 
   return {
-    bind: {
+    controlsAttrs: {
       controls,
       ...on
     },

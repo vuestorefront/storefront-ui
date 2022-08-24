@@ -4,7 +4,7 @@
       <VsfProgress :value="valueModel" :variant="variantModel" :type="typeModel" :label="labelModel" />
     </div>
     <div class="e-page-controls">
-      <Controls v-bind="bind"/>
+      <Controls v-bind="controlsAttrs"/>
     </div>
   </div>
 </template>

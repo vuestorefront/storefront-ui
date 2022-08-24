@@ -19,7 +19,7 @@
       <div>radioModel2 - {{ radioModel2 }}</div>
     </div>
     <div class="e-page-controls">
-      <Controls v-bind="bind"/>
+      <Controls v-bind="controlsAttrs"/>
     </div>
   </div>
 </template>
