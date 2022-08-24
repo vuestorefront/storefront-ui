@@ -12,8 +12,7 @@
     &-controls {
         // TODO: do draggabble controls container
         border-top: 1px solid rgb(205, 205, 205);
-        height: 40vh;
-        padding: 20px;
+        height: 50vh;
         overflow: auto;
     }
 
@@ -28,7 +27,7 @@
         .sidebar {
             position: relative;
             flex-shrink: 0;
-            width: 230px;
+            width: 200px;
             padding: 20px;
             background-color: rgb(246, 249, 252);
             -webkit-box-shadow: inset -6px 0px 24px -22px rgba(66, 68, 90, 1);
@@ -36,7 +35,7 @@
             box-shadow: inset -6px 0px 24px -22px rgba(66, 68, 90, 1);
 
             &-collapsed{
-                margin-left: -170px;
+                margin-left: -140px;
                 color: transparent;
                 pointer-events: none;
                 text-indent: -9999px;
@@ -74,6 +73,134 @@
                     &:hover {
                         text-decoration: underline;
                     }
+                }
+            }
+        }
+    }
+
+    .controls {
+        $borderColor: rgb(244 244 245);
+
+        .heading {
+            padding: 4px 10px;
+
+            &-wrapper {
+                background-color: rgb(244 244 245);
+            }
+        }
+        table {
+            width: 100%;
+            font-size: 15px;
+        }
+
+        thead {
+            td {
+                padding: 4px 10px;
+                border-bottom: 1px solid $borderColor;
+                border-right: 1px solid $borderColor;
+            }
+        }
+
+        select,
+        input[type="range"],
+        input[type="text"] {
+            min-width: 200px;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        select,
+        input[type="text"] {
+            border: 1px solid rgb(229, 231, 235);
+        }
+
+        .value {
+            vertical-align: middle;
+            padding: 6px 10px;
+        }
+
+        .description,
+        .required,
+        .propType,
+        .propDefaultValue {
+            padding-left: 10px;
+            padding-right: 10px;
+            font-size: 13px;
+        }
+
+        .propType span{
+            font-size: 11px;
+            border-radius: 3px;
+            padding: 2px 4px;
+            display: inline-block;
+            background-color: rgb(244 244 245);
+            font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New;
+        }
+
+        .description{
+            width: 100%;
+            color:rgb(145, 145, 145);
+        }
+
+        .props {
+            td {
+                border-bottom: 1px solid $borderColor;
+                border-left: 1px solid $borderColor;
+
+                &:first-child {
+                    padding: 4px 10px;
+                    font-size: 13px;
+                    white-space: nowrap;
+                    border-left: none;
+                }
+            }
+        }
+
+
+        .switch {
+            &-wrapper {
+                display: flex;
+                align-items: center;
+            }
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 24px;
+
+            input {
+                display: none;
+
+                &:checked + .slider {
+                    background-color: rgb(2, 187, 77);
+
+                    &:before {
+                        -webkit-transform: translateX(36px);
+                        -ms-transform: translateX(36px);
+                        transform: translateX(36px);
+                    }
+                }
+            }
+
+            .slider {
+                background-color: rgb(212 212 216);
+                position: absolute;
+                cursor: pointer;
+                inset: 0;
+                -webkit-transition: .4s;
+                transition: .4s;
+                border-radius: 24px;
+
+                &:before {
+                    position: absolute;
+                    content: "";
+                    height: 16px;
+                    width: 16px;
+                    left: 4px;
+                    bottom: 4px;
+                    background-color: white;
+                    -webkit-transition: .4s;
+                    transition: .4s;
+                    border-radius: 50%;
                 }
             }
         }
