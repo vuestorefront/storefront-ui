@@ -1,5 +1,5 @@
 export interface VsfSheetProps {
-  children?: Element;
+  children?: Element | Element[] | string;
 }
 
 export default function VsfSheet(props: VsfSheetProps) {
