@@ -20,5 +20,5 @@ const { currentRoute } = useRouter();
 
 const isOpen = ref();
 const isDocs = computed(() => currentRoute.value.query.docs);
-const components = ['VsfProgress', 'VsfCheckbox', 'VsfBreadcrumbs'].sort(); //Generate component list, because we need sorted list
+const components = ['VsfProgress', 'VsfCheckbox', 'VsfBreadcrumbs', 'VsfRating'].sort(); //Generate component list, because we need sorted list
 </script>
