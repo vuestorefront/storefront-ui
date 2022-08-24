@@ -18,7 +18,9 @@ import { ref, computed } from 'vue';
 import { useRouter } from 'vue-router';
 const { currentRoute } = useRouter();
 
+const files = import.meta.glob('./examples/*.vue');
+const components = Object.keys(files).map((file) => file.match(/([\w\d_-]*)\.?[^\\\/]*$/i)[1]).sort()
+
 const isOpen = ref();
 const isDocs = computed(() => currentRoute.value.query.docs);
-const components = ['VsfProgress', 'VsfCheckbox', 'VsfBreadcrumbs', 'VsfRating'].sort(); //Generate component list, because we need sorted list
 </script>
