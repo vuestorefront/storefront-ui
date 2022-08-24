@@ -1,38 +1,29 @@
-import { useState } from "react";
 import VsfSheet from '../../output/blocks/VsfSheet/VsfSheet.lite';
+import Controls, { prepareControls } from '../../components/utils/Controls';
 
 export default function VsfSheetExample() {
-  const [hasSlot, setHasSlot] = useState(false);
+  const { state, controls } = prepareControls([
+    {
+      title: 'defaultSlot',
+      type: 'text',
+      modelName: 'defaultSlot',
+      description: 'Default slot',
+      propDefaultValue: 'false',
+      propType: 'string',
+    }
+  ], {
+    defaultSlot: ''
+  });
   
   return (
     <div className="e-page">
       <div className="e-page-component">
         <VsfSheet>
-          {<div>
-            <p>Default slot</p>
-            <p>Default slot</p>
-            <p>Default slot</p>
-            <p>Default slot</p>
-          </div>}
+          {state.get.defaultSlot}
         </VsfSheet>
       </div>
       <div className="e-page-controls">
-        <table>
-          <tbody>
-            <tr>
-              <td>Has slot</td>
-              <td>
-                <label>
-                  <input
-                    onChange={(e) => setHasSlot(e.target.checked)}
-                    value={hasSlot}
-                    type="checkbox"
-                  />
-                </label>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <Controls {...{ state, controls }} />
       </div>
     </div>
   );
