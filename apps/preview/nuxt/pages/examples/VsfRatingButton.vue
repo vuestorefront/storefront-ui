@@ -25,11 +25,11 @@ export default defineComponent({
       [
         {
           title: 'size',
-          type: 'radio',
+          type: 'select',
           modelName: 'sizeModel',
           propDefaultValue: VsfRatingButtonVariants.base,
-          options: VsfRatingButtonVariants,
-          propType: "String",
+          options: Object.keys(VsfRatingButtonVariants),
+          propType: "VsfRatingButtonVariants",
         },
         {
           title: 'max',

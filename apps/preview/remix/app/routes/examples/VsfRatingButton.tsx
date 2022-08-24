@@ -6,32 +6,30 @@ export default function VsfRatingButtonExample() {
     [
       {
         title: 'size',
-        type: 'radio',
+        type: 'select',
         modelName: 'sizeModel',
-        options: Object.keys(VsfRatingButtonVariants),
         propDefaultValue: VsfRatingButtonVariants.base,
-        propType: 'String',
+        options: Object.keys(VsfRatingButtonVariants),
+        propType: "VsfRatingButtonVariants",
       },
       {
         title: 'max',
         type: 'range',
         modelName: 'maxModel',
         propDefaultValue: 5,
-        propType: 'Number',
-        options: [
-          {
-            bind: {
-              min: 3,
-              max: 10,
-            },
+        propType: "Number",
+        options: [{
+          bind: {
+            min: 3,
+            max: 10,
           },
-        ],
+        }],
       },
       {
         title: 'disabled',
         type: 'checkbox',
         modelName: 'disabledModel',
-        propType: 'Boolean',
+        propType: "Boolean",
         propDefaultValue: false,
       },
       {
@@ -39,14 +37,15 @@ export default function VsfRatingButtonExample() {
         type: 'number',
         modelName: 'valueModel',
         propDefaultValue: 0,
-        propType: 'Number',
+        propType: "Number",
+        description: "v-model prop",
         options: [
-          {
-            bind: {
-              min: 0,
-            },
+        {
+          bind: {
+            min: 0,
           },
-        ],
+        },
+      ],
       },
     ],
     {
