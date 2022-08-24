@@ -15,11 +15,6 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 | type      | String   | `base`        | `sm`, `base`, `lg`, `xl`, `2xl`, `3xl`|
 | variant   | String   | `base`        | `base`, `linear`                      |
 
-
-## Accessibility notes
-
-Pressing the Space key triggers a button.
-
 ## Source code
 
 <<<../../mitosis/src/blocks/VsfSpinner/VsfSpinner.lite.tsx
