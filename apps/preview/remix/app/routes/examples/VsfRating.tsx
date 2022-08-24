@@ -1,9 +1,4 @@
-import { useState } from 'react';
-import VsfRatingBase, {
-  VsfRatingBaseVariants,
-  VsfRatingBaseProps,
-} from '../../output/blocks/VsfRating/VsfRatingBase.lite';
-import VsfRatingWithValue from '../../output/blocks/VsfRating/VsfRatingWithValue.lite';
+import VsfRating, { VsfRatingVariants, VsfRatingTypes } from '../../output/blocks/VsfRating/VsfRating.lite';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 
 export default function ExampleVsfRating() {
@@ -60,32 +55,36 @@ export default function ExampleVsfRating() {
         title: 'size',
         type: 'select',
         modelName: 'sizeModel',
-        options: Object.keys(VsfRatingBaseVariants),
-        propDefaultValue: VsfRatingBaseVariants.base,
-        propType: 'VsfRatingBaseVariants',
+        options: Object.keys(VsfRatingVariants),
+        propDefaultValue: VsfRatingVariants.base,
+        propType: 'VsfRatingVariants',
+      },
+      {
+        title: 'type',
+        type: 'select',
+        modelName: 'typeModel',
+        options: Object.keys(VsfRatingTypes),
+        propDefaultValue: VsfRatingTypes.base,
+        propType: 'VsfRatingTypes',
       },
     ],
     {
       valueModel: 3,
       maxModel: 5,
       reviewsModel: 0,
-      sizeModel: VsfRatingBaseVariants.base,
+      sizeModel: VsfRatingVariants.base,
+      typeModel: VsfRatingTypes.base,
     },
   );
   return (
     <div className="e-page">
       <div className="e-page-component">
-        <VsfRatingBase
+        <VsfRating
           value={state.get.valueModel}
           max={state.get.maxModel}
           reviews={state.get.reviewsModel}
           size={state.get.sizeModel}
-        />
-        <VsfRatingWithValue
-          value={state.get.valueModel}
-          max={state.get.maxModel}
-          reviews={state.get.reviewsModel}
-          size={state.get.sizeModel}
+          type={state.get.typeModel}
         />
       </div>
       <div className="e-page-controls">

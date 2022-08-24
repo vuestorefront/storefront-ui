@@ -1,8 +1,7 @@
 <template>
   <div class="e-page">
     <div class="e-page-component">
-      <VsfRatingBase :value="valueModel" :max="maxModel" :size="sizeModel" :reviews="reviewsModel" />
-      <VsfRatingWithValue :value="valueModel" :max="maxModel" :reviews="reviewsModel" :size="sizeModel" />
+      <VsfRating :value="valueModel" :max="maxModel" :size="sizeModel" :reviews="reviewsModel" :type="typeModel" />
     </div>
     <div class="e-page-controls">
       <Controls v-bind="controlsAttrs" />
@@ -12,15 +11,13 @@
 
 <script>
 import { defineComponent, ref } from 'vue';
-import VsfRatingBase, { VsfRatingBaseVariants } from '../../output/blocks/VsfRating/VsfRatingBase.vue';
-import VsfRatingWithValue from '../../output/blocks/VsfRating/VsfRatingWithValue.vue';
+import VsfRating, { VsfRatingTypes, VsfRatingVariants } from '../../output/blocks/VsfRating/VsfRating.vue';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
 
 export default defineComponent({
   name: 'VsfRatingExample',
   components: {
-    VsfRatingBase,
-    VsfRatingWithValue,
+    VsfRating,
     Controls,
   },
   setup() {
@@ -77,16 +74,25 @@ export default defineComponent({
           title: 'size',
           type: 'select',
           modelName: 'sizeModel',
-          options: Object.keys(VsfRatingBaseVariants),
-          propDefaultValue: VsfRatingBaseVariants.base,
-          propType: 'VsfRatingBaseVariants',
+          options: Object.keys(VsfRatingVariants),
+          propDefaultValue: VsfRatingVariants.base,
+          propType: 'VsfRatingVariants',
+        },
+        {
+          title: 'type',
+          type: 'select',
+          modelName: 'typeModel',
+          options: Object.keys(VsfRatingTypes),
+          propDefaultValue: VsfRatingTypes.base,
+          propType: 'VsfRatingTypes',
         },
       ],
       {
         valueModel: ref(3),
         maxModel: ref(5),
         reviewsModel: ref(0),
-        sizeModel: ref(VsfRatingBaseVariants.base),
+        sizeModel: ref(VsfRatingVariants.base),
+        typeModel: ref(VsfRatingTypes.base)
       },
     );
   },

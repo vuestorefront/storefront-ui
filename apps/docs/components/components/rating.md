@@ -13,6 +13,7 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 | Prop name    | Type     | Default value | Possible values                        |
 | ------------ | -------- | ------------- | -------------------------------------- |
 | size         | String   | 'base'        | 'xs','sm','base','lg','xl,'2xl'        |
+| type         | String   | 'base'        | 'base','withValue'                     |
 | value        | Number   | 0             |                                        |
 | max          | Number   | 5             |                                        |
 | reviews      | Number   | 0             |                                        |
@@ -35,4 +36,4 @@ Component implements `role="img"` and `aria-label` property with value `Rating: 
 
 ## Source code
 
-<<<../../mitosis/src/blocks/VsfRating/VsfRatingBase.lite.tsx
+<<<../../mitosis/src/blocks/VsfRating/VsfRating.lite.tsx
