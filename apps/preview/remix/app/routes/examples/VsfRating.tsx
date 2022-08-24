@@ -33,6 +33,7 @@ export default function ExampleVsfRating() {
                         type="radio"
                         name="size"
                         value={variant}
+                        defaultChecked={ variant === formData.size }
                       />
                     </label>
                   );
