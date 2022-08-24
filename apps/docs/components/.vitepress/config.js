@@ -32,6 +32,7 @@ export default {
           { text: 'Alert', link: '/components/alert' },
           { text: 'Checkbox', link: '/components/checkbox' },
           { text: 'Breadcrumbs', link: '/components/breadcrumbs' },
+          { text: 'Divider', link: '/components/divider' },
         ]
       },
       {
