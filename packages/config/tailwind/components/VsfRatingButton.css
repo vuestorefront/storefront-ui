@@ -1,0 +1,22 @@
+.star-input {
+  background-color: #71717A;
+  /* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+  -webkit-mask: url("../assets/star-outline.svg");
+  /* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+  mask: url("../assets/star-outline.svg");
+  opacity: 0.8;
+}
+.star-input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.star-input:hover:not([disabled]),
+.rating:hover .star-input:not(.rating .star-input:hover ~ .star-input):not([disabled]),
+.rating .star-input:not(.rating .star-input:checked ~ .star-input) {
+  background-color: #02BB4D;
+  /* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+  -webkit-mask: url("../assets/star.svg");
+  /* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+  mask: url("../assets/star.svg");
+  opacity: 1;
+}
