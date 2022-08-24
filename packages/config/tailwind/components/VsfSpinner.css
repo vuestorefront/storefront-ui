@@ -1,0 +1,14 @@
+.is-animation-stopped {
+  @media screen and (prefers-reduced-motion: reduce) {
+    animation-play-state: paused !important;
+  }
+}
+.animation-delay-1 {
+  animation-delay: -.45s !important;
+}
+.animation-delay-2 {
+  animation-delay: -.30s !important;
+}
+.animation-delay-3 {
+  animation-delay: -.15s !important;
+}
