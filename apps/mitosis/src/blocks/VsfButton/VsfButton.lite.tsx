@@ -1,4 +1,5 @@
 import { Show, useStore } from '@builder.io/mitosis';
+import { classStringFromArray } from '../../functions/domUtils';
 
 export const VsfButtonSizes = Object.freeze({
     'sm': 'sm',
@@ -38,35 +39,18 @@ export default function VsfButton(props: VsfButtonProps) {
     get useDisabled() {
         return props.disabled || DEFAULT_VALUES.disabled;
     },
-    get buttonSize() {
-      switch (props.size) {
-          case VsfButtonSizes.sm:
-              return 'leading-5 px-3 py-[6px] text-sm';
-          case VsfButtonSizes.lg:
-              return 'px-6 py-3';
-          default:
-              return 'px-4 py-2';
-      }
-    },
-    get buttonVariants() {
-      switch (props.variant) {
-          case VsfButtonVariants.secondary:
-              return 'font-medium uppercase bg-white border border-gray-200 hover:border-primary-300 active:border-primary-400 disabled:border-0 hover:bg-green-100 active:bg-green-200 disabled:bg-gray-200 text-primary-500 hover:text-primary-600 active:text-primary-700 disabled:text-gray-500 disabled:opacity-50 shadow-base hover:shadow-medium disabled:shadow-none';
-          case VsfButtonVariants.tertiary:
-              return 'font-normal bg-transparent text-primary-500 hover:bg-green-100 active:bg-green-200 disabled:bg-transparent hover:text-primary-600 active:text-primary-700 disabled:text-gray-500 disabled:opacity-50';
-          case VsfButtonVariants['destroy-primary']:
-            return 'text-base font-medium text-white uppercase bg-rose-600 hover:bg-rose-700 active:bg-rose-800 disabled:bg-gray-200 disabled:text-gray-500 disabled:opacity-50 shadow-base hover:shadow-medium disabled:shadow-none';
-          case VsfButtonVariants['destroy-secondary']:
-            return 'text-base font-medium uppercase bg-white border border-rose-400 disabled:border-0 hover:bg-rose-100 active:bg-rose-200 disabled:bg-gray-200 text-rose-600 hover:text-rose-600 active:text-rose-700 disabled:text-gray-500 disabled:opacity-50 shadow-base hover:shadow-medium disabled:shadow-none';
-          case VsfButtonVariants['destroy-tertiary']:
-            return 'text-base font-medium bg-transparent hover:bg-rose-100 active:bg-rose-200 disabled:bg-transparent text-rose-600 hover:text-rose-700 active:text-rose-800 disabled:text-gray-500 disabled:opacity-50';
-          default:
-              return 'font-medium text-white uppercase bg-primary-500 hover:bg-primary-600 active:bg-primary-700 disabled:bg-gray-200 disabled:text-gray-500 disabled:opacity-50 shadow-base hover:shadow-medium disabled:shadow-none;';
-      }
-    },
     get buttonClasses() {
-      return `inline-flex items-center justify-center border rounded-md cursor-pointer font-body disabled:cursor-not-allowed outline-violet ${state.buttonVariants} ${state.buttonSize}`
-    }
+      return classStringFromArray(['inline-flex items-center justify-center border rounded-md cursor-pointer font-body disabled:cursor-not-allowed outline-violet disabled:text-gray-500 disabled:opacity-50',
+      props.size === VsfButtonSizes.sm ? 'leading-5 px-3 py-[6px] text-sm' : props.size === VsfButtonSizes.base ? 'px-4 py-2' : 'px-6 py-3',
+      props.variant === VsfButtonVariants.tertiary || props.variant === VsfButtonVariants['destroy-tertiary'] ? 'font-normal bg-transparent disabled:bg-transparent' : 'font-medium uppercase shadow-base disabled:bg-gray-200 disabled:shadow-none',
+      props.variant === VsfButtonVariants.primary ? 'bg-primary-500 text-white hover:bg-primary-600 hover:shadow-medium active:bg-primary-700' : '',
+      props.variant === VsfButtonVariants.secondary ? 'bg-white border border-gray-200 text-primary-500 hover:border-primary-300 hover:bg-green-100 hover:text-primary-600 hover:shadow-medium active:border-primary-400 active:bg-green-200 active:text-primary-700 ' : '',
+      props.variant === VsfButtonVariants.tertiary ? 'bg-transparent text-primary-500 hover:bg-green-100 hover:text-primary-600 active:text-primary-700 active:bg-green-200' : '',
+      props.variant === VsfButtonVariants['destroy-primary'] ? 'text-base text-white bg-rose-600 hover:bg-rose-700 active:bg-rose-800 hover:shadow-medium' : '',
+      props.variant === VsfButtonVariants['destroy-secondary'] ? 'text-base bg-white border border-rose-400 disabled:border-0 hover:bg-rose-100 active:bg-rose-200 text-rose-600 hover:text-rose-600 active:text-rose-700 hover:shadow-medium' : '',
+      props.variant === VsfButtonVariants['destroy-tertiary'] ? 'text-base hover:bg-rose-100 active:bg-rose-200 text-rose-600 hover:text-rose-700 active:text-rose-800' : '',
+  ]);
+    },
   });
   return (
     <>
