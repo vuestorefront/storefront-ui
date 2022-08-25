@@ -7,7 +7,7 @@ type ControlOptionBind = {
 };
 type Controls = {
   title: string;
-  type: 'range' | 'radio' | 'checkbox' | 'text' | 'select' | 'boolean';
+  type: 'range' | 'radio' | 'checkbox' | 'text' | 'select' | 'boolean' | 'json';
   modelName: string;
   description?: string;
   propDefaultValue?: string | number | boolean;
@@ -49,6 +49,10 @@ export default function Controls(props: ControlsProps) {
 
   function handleOnChangeValue<T = HTMLFormElement>(e: ChangeEvent<T>, name: string) {
     setState({ [name]: (e.target as unknown as HTMLFormElement).value });
+  };
+
+  function handleJsonOnChangeValue<T = HTMLFormElement>(e: ChangeEvent<T>, name: string) {
+    setState({ [name]: JSON.parse((e.target as unknown as HTMLFormElement).value) });
   };
 
   function handleCheckbox(
@@ -136,7 +140,16 @@ export default function Controls(props: ControlsProps) {
                             className="flex items-center"
                           >
                             <label className="flex items-center">
-                              {control.type === 'range' || control.type === 'text'
+                              {control.type === "json" 
+                                ? <textarea 
+                                  rows={10}
+                                  {...(option as ControlOptionBind).bind}
+                                  className="border rounded-md"
+                                  value={JSON.stringify(props.state.get[control.modelName], undefined, 2) as string}
+                                  onChange={(e) => handleJsonOnChangeValue(e, control.modelName)}
+                                  >
+                                  </textarea>:
+                              control.type === 'range' || control.type === 'text'
                                 ? <input
                                   {...(option as ControlOptionBind).bind}
                                   value={props.state.get[control.modelName] as number | string}

@@ -1,136 +1,110 @@
-import VsfCheckbox, { CheckboxProps } from '../../output/blocks/VsfCheckbox/VsfCheckbox.lite';
-import { useEffect, useState } from 'react';
+import VsfCheckbox from '../../output/blocks/VsfCheckbox/VsfCheckbox.lite';
+import Controls, { prepareControls } from '../../components/utils/Controls';
+
 export default function Index() {
-  const [form, setForm] = useState({
-    disabled: false,
-    label: 'Label',
-    errorText: 'Some error occured!',
-    helpText: 'Help text!',
-    indeterminate: false,
-    invalid: false,
-    name: 'checkbox',
-    required: false,
-    rightCheckbox: false,
-    value: '',
-  } as Partial<CheckboxProps>);
-
-  const [checked, setChecked] = useState(true);
-
+  const { state, controls } = prepareControls(
+    [
+      {
+        title: 'Name',
+        type: 'text',
+        modelName: 'nameModel',
+        propDefaultValue: '',
+        propType: 'string',
+        isRequired: true,
+      },
+      {
+        title: 'Value',
+        type: 'text',
+        modelName: 'valueModel',
+        propDefaultValue: '',
+        propType: 'string',
+      },
+      {
+        title: 'Required',
+        type: 'boolean',
+        modelName: 'requiredModel',
+        propType: 'boolean',
+      },
+      {
+        title: 'Disabled',
+        type: 'boolean',
+        modelName: 'disabledModel',
+        propType: 'boolean',
+      },
+      {
+        title: 'Indeterminate',
+        type: 'boolean',
+        modelName: 'indeterminateModel',
+        propType: 'boolean',
+      },
+      {
+        title: 'Invalid',
+        type: 'boolean',
+        modelName: 'invalidModel',
+        propType: 'boolean',
+      },
+      {
+        title: 'RightCheckbox',
+        type: 'boolean',
+        modelName: 'rightCheckboxModel',
+        propType: 'boolean',
+      },
+      {
+        title: 'Label',
+        type: 'text',
+        modelName: 'labelModel',
+        propType: 'string',
+      },
+      {
+        title: 'HelpText',
+        type: 'text',
+        modelName: 'helpTextModel',
+        propType: 'string',
+      },
+      {
+        title: 'ErrorText',
+        type: 'text',
+        modelName: 'errorTextModel',
+        propType: 'string',
+      },
+    ],
+    {
+      nameModel: 'checkbox-1',
+      valueModel: '',
+      requiredModel: false,
+      disabledModel: false,
+      indeterminateModel: false,
+      invalidModel: false,
+      rightCheckboxModel: false,
+      labelModel: 'Label',
+      helpTextModel: 'help',
+      errorTextModel: 'error',
+      toggle: false,
+      checked: ['Mike'],
+    },
+  );
   return (
     <div className="e-page">
       <div className="e-page-component">
         <p>Single Checkbox</p>
         <VsfCheckbox
-          name={form.name!}
-          value={form.value}
-          label={form.label}
-          indeterminate={form.indeterminate}
-          required={form.required}
-          disabled={form.disabled}
-          rightCheckbox={form.rightCheckbox}
-          invalid={form.invalid}
-          errorText={form.errorText}
-          helpText={form.helpText}
-          onChange={() => setChecked(!checked)}
-          checked={checked}
+          name={state.get.nameModel!}
+          value={state.get.valueModel}
+          label={state.get.labelModel}
+          indeterminate={state.get.indeterminateModel}
+          required={state.get.requiredModel}
+          disabled={state.get.disabledModel}
+          rightCheckbox={state.get.rightCheckboxModel}
+          invalid={state.get.invalidModel}
+          errorText={state.get.errorTextModel}
+          helpText={state.get.helpTextModel}
+          onChange={() => state.set({ ...state.get, toggle: !state.get.toggle })}
+          checked={state.get.toggle}
         />
-        <div>Toggled: {checked.toString()}</div>
+        <div>Toggled: {state.get.toggle.toString()}</div>
       </div>
       <div className="e-page-controls">
-        <table>
-          <tbody>
-            <tr>
-              <td>Label</td>
-              <td>
-                <input
-                  onInput={(e) => setForm({ ...form, label: e.target.value })}
-                  value={form.label}
-                  type="text"
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>Disabled</td>
-              <td>
-                <label>
-                  <input
-                    onChange={(e) => setForm({ ...form, disabled: e.target.checked })}
-                    value={form.disabled}
-                    type="checkbox"
-                  />
-                </label>
-              </td>
-            </tr>
-            <tr>
-              <td>Indeterminate</td>
-              <td>
-                <label>
-                  <input
-                    onChange={(e) => setForm({ ...form, indeterminate: e.target.checked })}
-                    value={form.indeterminate}
-                    type="checkbox"
-                  />
-                </label>
-              </td>
-            </tr>
-            <tr>
-              <td>Invalid</td>
-              <td>
-                <label>
-                  <input
-                    onChange={(e) => setForm({ ...form, invalid: e.target.checked })}
-                    value={form.invalid}
-                    type="checkbox"
-                  />
-                </label>
-              </td>
-            </tr>
-            <tr>
-              <td>Right Checkbox</td>
-              <td>
-                <label>
-                  <input
-                    onChange={(e) => setForm({ ...form, rightCheckbox: e.target.checked })}
-                    value={form.rightCheckbox}
-                    type="checkbox"
-                  />
-                </label>
-              </td>
-            </tr>
-            <tr>
-              <td>Required</td>
-              <td>
-                <label>
-                  <input
-                    onChange={(e) => setForm({ ...form, required: e.target.checked })}
-                    value={form.required}
-                    type="checkbox"
-                  />
-                </label>
-              </td>
-            </tr>
-            <tr>
-              <td>Help Text</td>
-              <td>
-                <input
-                  onInput={(e) => setForm({ ...form, helpText: e.target.value })}
-                  value={form.helpText}
-                  type="text"
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>Error Text</td>
-              <td>
-                <input
-                  onInput={(e) => setForm({ ...form, errorText: e.target.value })}
-                  value={form.errorText}
-                  type="text"
-                />
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <Controls {...{ state, controls }} />
       </div>
     </div>
   );
