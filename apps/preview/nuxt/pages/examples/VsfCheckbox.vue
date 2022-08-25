@@ -145,19 +145,5 @@ export default defineComponent({
       },
     );
   },
-  // data() {
-  //   return {
-  //     toggle: true,
-  //     checked: ['Mike'],
-  //     labelModel: 'Label',
-  //     disabledModel: false,
-  //     invalidModel: false,
-  //     indeterminateModel: false,
-  //     requiredModel: false,
-  //     rightCheckboxModel: false,
-  //     helpTextModel: 'help',
-  //     errorTextModel: 'error',
-  //   };
-  // },
 });
 </script>
