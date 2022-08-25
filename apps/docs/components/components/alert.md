@@ -10,13 +10,15 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 ## Props
 
-| Prop name   | Type    | Default value | Possible values                        |
-| ----------- | ------- | ------------- | -------------------------------------- |
-| header      | String  | ''            |                                        |
-| description | String  | ''            |                                        |
-| type        | String  | 'info'        | 'positive', 'warning', 'error', 'info' |
-| persistent  | Boolean | ''            |                                        |
-| icon        | Boolean | ''            |                                        |
+| Prop name             | Type                | Default value | Possible values                        |
+|-----------------------|---------------------|---------------|----------------------------------------|
+| header                | String              | ''            |                                        |
+| description           | String              | ''            |                                        |
+| type                  | `VsfAlertTypesKeys` | `info`        | `positive`, `warning`, `error`, `info` |
+| persistent            | Boolean             | `false`       |                                        |
+| slotIcon              | Element             | ''            |                                        |
+| slotButton            | Element             | ''            |                                        |
+| handleCloseClick      | () => void          | ''            |                                        |
 
 ## Slots
 
@@ -36,3 +38,5 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 Alert component is using `role='alert'`. When this role is added to an element, the browser will send out an accessible alert event to assistive technology products which can then notify the user.
 
 ## Source code
+
+<<<../../mitosis/src/blocks/VsfAlert/VsfAlert.lite.tsx

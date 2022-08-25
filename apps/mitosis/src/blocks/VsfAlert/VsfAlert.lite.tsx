@@ -16,8 +16,8 @@ export interface VsfAlertProps {
   defaultButton?: boolean
   header?: string
   description?: string
-  slotIcon?: any
-  slotButton?: any
+  slotIcon?: Element | Element[] | string
+  slotButton?: Element | Element[] | string
   handleCloseClick?: () => void
 }
 
@@ -51,16 +51,12 @@ export default function VsfAlert(props: VsfAlertProps) {
       ]);
     },
     get closeIconClasses() {
-      switch (props.type) {
-        case VsfAlertTypes.positive:
-          return 'fill-primary-600'
-        case VsfAlertTypes.warning:
-          return 'fill-warning-700'
-        case VsfAlertTypes.error:
-          return 'fill-negative-700'
-        default:
-          return 'fill-secondary-800'
-      }
+      return classStringFromArray([
+        props.type === VsfAlertTypes.positive && 'fill-primary-600',
+        props.type === VsfAlertTypes.warning && 'fill-warning-700',
+        props.type === VsfAlertTypes.error && 'fill-negative-700',
+        props.type === VsfAlertTypes.info && 'fill-secondary-800',
+      ]);
     },
     close() {
       /* IF-vue */
