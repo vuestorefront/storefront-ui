@@ -60,7 +60,7 @@ export default function VsfTooltip(props: VsfTooltipProps) {
         {props.children}
         <div
           role="tooltip"
-          class={`w-max max-w-xs absolute justify-center items-center hidden mb-14 group-hover:flex z-50 bg-gray-500 font-body font-medium text-white text-sm leading-5 rounded-md px-3 py-1.5 ${state.tooltipClass}`}
+          class={`w-max max-w-[50ch] absolute justify-center items-center hidden mb-14 group-hover:flex z-50 bg-gray-500 font-body font-medium text-white text-sm leading-5 rounded-md px-3 py-1.5 ${state.tooltipClass}`}
         >
           <div>{state.useLabelProp}</div>
           <div class={`absolute w-2 h-2 rotate-45 bg-gray-500 ${state.tooltipCaretClass}`}></div>
