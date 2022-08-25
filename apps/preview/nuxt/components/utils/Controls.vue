@@ -54,13 +54,22 @@
                 class="flex items-center"
               >
                 <label class="flex items-center">
+                  <textarea
+                    rows="10"
+                    v-if="control.type === 'json'"
+                    v-bind="options.bind"
+                    :value="JSON.stringify(proxyModels[control.modelName], undefined, 2)"
+                    @input="proxyModels[control.modelName] = JSON.parse($event.target.value)"
+                    :name="`${control.title}-${index}`"
+                  >
+                  </textarea>
                   <input
-                    v-if="control.type === 'range'"
+                    v-else-if="control.type === 'range'"
                     v-bind="options.bind"
                     v-model="proxyModels[control.modelName]"
                     :type="control.type"
                     :name="`${control.title}-${index}`"
-                  >
+                  />
                   <input
                     v-else-if="control.type === 'text'"
                     v-bind="options.bind"
@@ -68,15 +77,15 @@
                     class="border rounded-md"
                     :type="control.type"
                     :name="`${control.title}-${index}`"
-                  >
+                  />
                   <input
                     v-else
                     v-bind="options.bind"
                     v-model="proxyModels[control.modelName]"
-                    :value="options.value || options.label || typeof options === 'string' && options"
+                    :value="options.value || options.label || (typeof options === 'string' && options)"
                     :type="control.type"
                     :name="`${control.title}-${index}`"
-                  >
+                  />
                   <span v-if="options.hasOwnProperty('label')" class="pl-2">{{ options.label }}</span>
                   <span v-else-if="typeof options === 'string'" class="pl-2">{{ options }}</span>
                 </label>
@@ -99,7 +108,7 @@ import { toRefs, computed, reactive, Ref, defineComponent, PropType } from 'vue'
 type RefValueUnknown = Ref<unknown>;
 type Controls = {
   title: string;
-  type: 'range' | 'radio' | 'checkbox' | 'text' | 'select' | 'boolean';
+  type: 'range' | 'radio' | 'checkbox' | 'text' | 'select' | 'boolean' | 'number' | 'json';
   modelName: string;
   model?: RefValueUnknown,
   description?: string;
