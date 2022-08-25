@@ -34,6 +34,7 @@ export default defineComponent({
           type: 'json',
           modelName: 'breadcrumbsModel',
           propType: 'VsfBreadcrumbType[]',
+          propDefaultValue : '[]'
         },
       ],
       {

@@ -15,6 +15,7 @@ export default function ExampleVsfBreadcrumbs() {
         type: 'json',
         modelName: 'breadcrumbsModel',
         propType: 'VsfBreadcrumbType[]',
+        propDefaultValue : '[]'
       },
     ],
     {
