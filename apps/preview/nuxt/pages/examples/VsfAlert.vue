@@ -51,7 +51,7 @@ export default {
         },
         {
           title: 'Persistent',
-          type: 'checkbox',
+          type: 'boolean',
           modelName: 'persistentModel',
           propDefaultValue: false,
           propType: 'boolean',
@@ -72,14 +72,14 @@ export default {
         },
         {
           title: 'DefaultIcon',
-          type: 'checkbox',
+          type: 'boolean',
           modelName: 'defaultIconModel',
           propDefaultValue: true,
           propType: 'boolean',
         },
         {
           title: 'DefaultButton',
-          type: 'checkbox',
+          type: 'boolean',
           modelName: 'defaultButtonModel',
           propDefaultValue: true,
           propType: 'boolean',
