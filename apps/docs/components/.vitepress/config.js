@@ -36,6 +36,8 @@ export default {
           { text: 'Divider', link: '/components/divider' },
           { text: 'Sheet', link: '/components/sheet' },
           { text: 'Spinner', link: '/components/spinner' },
+          { text: 'Rating', link: '/components/rating' },
+          { text: 'RatingButton', link: '/components/ratingbutton' },
         ]
       },
       {
