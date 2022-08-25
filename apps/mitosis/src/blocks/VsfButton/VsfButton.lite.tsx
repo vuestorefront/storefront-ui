@@ -20,7 +20,9 @@ export const VsfButtonVariants = Object.freeze({
 
 type VsfButtonVariantsKeys = keyof typeof VsfButtonVariants;
 export interface VsfButtonProps {
-  children: Element | Element[] | string;
+  children: any;
+  slotPrefix: any;
+  slotSuffix: any;
   link?: string;
   size?: VsfButtonSizesKeys;
   variant?: VsfButtonVariantsKeys;
@@ -47,8 +49,8 @@ export default function VsfButton(props: VsfButtonProps) {
       props.variant === VsfButtonVariants.secondary ? 'bg-white border border-gray-200 text-primary-500 hover:border-primary-300 hover:bg-green-100 hover:text-primary-600 hover:shadow-medium active:border-primary-400 active:bg-green-200 active:text-primary-700 ' : '',
       props.variant === VsfButtonVariants.tertiary ? 'bg-transparent text-primary-500 hover:bg-green-100 hover:text-primary-600 active:text-primary-700 active:bg-green-200' : '',
       props.variant === VsfButtonVariants['destroy-primary'] ? 'text-base text-white bg-rose-600 hover:bg-rose-700 active:bg-rose-800 hover:shadow-medium' : '',
-      props.variant === VsfButtonVariants['destroy-secondary'] ? 'text-base bg-white border border-rose-400 disabled:border-0 hover:bg-rose-100 active:bg-rose-200 text-rose-600 hover:text-rose-600 active:text-rose-700 hover:shadow-medium' : '',
-      props.variant === VsfButtonVariants['destroy-tertiary'] ? 'text-base hover:bg-rose-100 active:bg-rose-200 text-rose-600 hover:text-rose-700 active:text-rose-800' : '',
+      props.variant === VsfButtonVariants['destroy-secondary'] ? 'text-base text-rose-600 bg-white border border-rose-400 disabled:border-0 hover:bg-rose-100 active:bg-rose-200 hover:text-rose-600 active:text-rose-700 hover:shadow-medium' : '',
+      props.variant === VsfButtonVariants['destroy-tertiary'] ? 'text-base text-rose-600 hover:bg-rose-100 hover:text-rose-700 active:bg-rose-200 active:text-rose-800' : '',
   ]);
     },
   });
@@ -57,13 +59,17 @@ export default function VsfButton(props: VsfButtonProps) {
       <Show
         when={props.link}
         else={
-          <button className={state.buttonClasses} disabled={props.disabled}>
+          <button className={state.buttonClasses} disabled={state.useDisabled}>
+            {props.slotPrefix}
             {props.children}
+            {props.slotSuffix}
           </button>
         }
       >
         <a role="button" href={props.link} className={state.buttonClasses}>
-          {props.children}
+            {props.slotPrefix}
+            {props.children}
+            {props.slotSuffix}
         </a>
       </Show>
     </>

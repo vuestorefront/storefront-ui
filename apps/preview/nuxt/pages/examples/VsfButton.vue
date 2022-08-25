@@ -1,64 +1,87 @@
 <template>
     <div class="e-page">
         <div class="e-page-component">
-            <VsfButton :size="sizeModel" :variant="variantModel" :disabled="disabledModel">Hello</VsfButton>
+            <VsfButton :size="sizeModel" :variant="variantModel" :link="linkModel" :disabled="disabledModel">
+            {{ childrenModel }}
+            </VsfButton>
         </div>
         <div class="e-page-controls">
-            <table>
-                <tr>
-                    <td>Size</td>
-                    <td>
-                        <div v-for="size in VsfButtonSizes" :key="size">
-                            <label>
-                                {{ size }}
-                                <input v-model="sizeModel" type="radio" name="size" :value="size">
-                            </label>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Variant</td>
-                    <td>
-                        <div v-for="variant in VsfButtonVariants" :key="variant">
-                            <label>
-                                {{ variant }}
-                                <input v-model="variantModel" type="radio" name="variant" :value="variant">
-                            </label>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Disabled</td>
-                    <td>
-                        <label>
-                            {{ disabled }}
-                            <input v-model="disabledModel" type="checkbox" name="disabled" :value="disabled">
-                        </label>
-                    </td>
-                </tr>
-            </table>
+            <Controls v-bind="controlsAttrs"/>
         </div>
     </div>
 </template>
 
 <script>
 import { defineComponent } from "vue";
-import VsfButton, { VsfButtonVariants, VsfButtonSizes } from '../../output/blocks/VsfButton/VsfButton.vue'
+import VsfButton from '../../output/blocks/VsfButton/VsfButton.vue'
+import Controls, { prepareControls } from '../../components/utils/Controls.vue';
 
 export default defineComponent({
     name: 'VsfButtonExample',
     components: {
-        VsfButton
+        VsfButton,
+        Controls
     },
     setup() {
-        return {
-            VsfButtonVariants,
-            VsfButtonSizes,
-            propValue: ref(0),
-            variantModel: ref(),
-            disabledModel: ref(),
-            sizeModel: ref(''),
-        };
-    },
-});
+    return prepareControls([
+        {
+          title: 'Content',
+          type: 'text',
+          modelName: 'childrenModel',
+        },
+        {
+          title: 'Link',
+          type: 'text',
+          modelName: 'linkModel',
+        },
+        {
+          title: 'Variant',
+          type: 'select',
+          modelName: 'variantModel',
+          options: [
+          {
+            label: 'Primary',
+            value: 'primary',
+          },{
+            label: 'Secondary',
+            value: 'secondary',
+          },
+          {
+            label: 'Tertiary',
+            value: 'tertiary',
+          },
+          {
+            label: 'Destroy Primary',
+            value: 'destroy-primary',
+          },
+          {
+            label: 'Destroy Secondary',
+            value: 'destroy-secondary',
+          },
+          {
+            label: 'Destroy Tertiary',
+            value: 'destroy-tertiary',
+          }
+          ],
+        },
+        {
+          title: 'Size',
+          type: 'select',
+          modelName: 'sizeModel',
+          options: ['sm', 'base', 'lg'],
+        },
+        {
+          title: 'Disabled',
+          type: 'boolean',
+          modelName: 'disabledModel',
+        },
+      ], {
+        childrenModel: ref('Hello'),
+        linkModel: ref(),
+        disabledModel: ref(false),
+        variantModel: ref('primary'),
+        sizeModel: ref('base'),
+      })
+   }
+  });
 </script>
