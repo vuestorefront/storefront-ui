@@ -46,7 +46,7 @@ export default defineComponent({
         },
         {
           title: 'disabled',
-          type: 'checkbox',
+          type: 'boolean',
           modelName: 'disabledModel',
           propType: "Boolean",
           propDefaultValue: false,

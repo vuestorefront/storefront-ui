@@ -27,7 +27,7 @@ export default function VsfRatingButtonExample() {
       },
       {
         title: 'disabled',
-        type: 'checkbox',
+        type: 'boolean',
         modelName: 'disabledModel',
         propType: "Boolean",
         propDefaultValue: false,
