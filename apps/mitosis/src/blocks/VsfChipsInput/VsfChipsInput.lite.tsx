@@ -1,15 +1,15 @@
-import { Show, useStore } from "@builder.io/mitosis";
+import { Show, useStore } from '@builder.io/mitosis';
 
-export const SizeTypes = Object.freeze({
-  SMALL: "small",
-  MEDIUM: "medium",
-  LARGE: "large",
-})
+export const VsfChipsInputVariants = Object.freeze({
+  small: 'small',
+  medium: 'medium',
+  large: 'large',
+});
 
-export type SizeType = typeof SizeTypes[keyof typeof SizeTypes];
+export type VsfChipsInputVariantsKeys = keyof typeof VsfChipsInputVariants;
 
-export interface ChipsInputProps {
-  size?: SizeType;
+export interface VsfChipsInputProps {
+  size?: VsfChipsInputVariantsKeys;
   value?: any;
   disabled?: boolean;
   slotIcon?: any;
@@ -18,74 +18,74 @@ export interface ChipsInputProps {
 }
 
 const DEFAULT_VALUES = {
-  size: SizeTypes.MEDIUM,
+  size: VsfChipsInputVariants.medium,
   disabled: false,
-  value: "",
+  value: '',
 };
 
-export default function ChipsInput(props: ChipsInputProps) {
+export default function VsfChipsInput(props: VsfChipsInputProps) {
   const state = useStore({
-    get useSizeProp(){
-      return props.size || DEFAULT_VALUES.size
+    get useSizeProp() {
+      return props.size || DEFAULT_VALUES.size;
     },
-    get useValueProp(){
-      return props.value || DEFAULT_VALUES.value
+    get useValueProp() {
+      return props.value || DEFAULT_VALUES.value;
     },
-    get useDisabledProp(){
-      return props.disabled || DEFAULT_VALUES.disabled
+    get useDisabledProp() {
+      return props.disabled || DEFAULT_VALUES.disabled;
     },
     get chipsSize() {
       switch (state.useSizeProp) {
-        case SizeTypes.SMALL:
-          return "w-4 h-4";
-        case SizeTypes.LARGE:
-          return "w-5 h-5";
+        case VsfChipsInputVariants.small:
+          return 'w-4 h-4';
+        case VsfChipsInputVariants.large:
+          return 'w-5 h-5';
         default:
-          return "w-4 h-4";
+          return 'w-4 h-4';
       }
     },
     get chipsIconSize() {
       switch (state.useSizeProp) {
-        case SizeTypes.SMALL:
-          return "w-5 h-5";
-        case SizeTypes.LARGE:
-          return "w-8 h-8";
+        case VsfChipsInputVariants.small:
+          return 'w-5 h-5';
+        case VsfChipsInputVariants.large:
+          return 'w-8 h-8';
         default:
-          return "w-6 h-6";
+          return 'w-6 h-6';
       }
     },
     get chipsFontSize() {
       switch (state.useSizeProp) {
-        case SizeTypes.SMALL:
-          return "text-sm";
-        case SizeTypes.LARGE:
-          return "text-base";
+        case VsfChipsInputVariants.small:
+          return 'text-sm';
+        case VsfChipsInputVariants.large:
+          return 'text-base';
         default:
-          return "text-sm";
+          return 'text-sm';
       }
     },
     get chipsButtonSpacing() {
       switch (state.useSizeProp) {
-        case SizeTypes.SMALL:
-          return "ml-2 mr-1";
-        case SizeTypes.LARGE:
-          return "ml-3 mr-1.5";
+        case VsfChipsInputVariants.small:
+          return 'ml-2 mr-1';
+        case VsfChipsInputVariants.large:
+          return 'ml-3 mr-1.5';
         default:
-          return "ml-2.5 mr-1";
+          return 'ml-2.5 mr-1';
       }
     },
-    get hideButton():string {
-      return !state.useValueProp ? "hidden" : "block";
+    get hideButton(): string {
+      return !state.useValueProp ? 'hidden' : 'block';
     },
     get disabledClass(): string {
-      return state.useDisabledProp ? "!pr-3 bg-gray-100 border-gray-200 opacity-50 !cursor-not-allowed" : "";
+      return state.useDisabledProp ? '!pr-3 bg-gray-100 border-gray-200 opacity-50 !cursor-not-allowed' : '';
     },
     get valueClass(): string {
-      return state.useValueProp ? "!pr-0. " : "";
+      return state.useValueProp ? '!pr-0. ' : '';
     },
     close(event: Event) {
       /* IF-vue */
-      state.$emit("close", event);
+      state.$emit('close', event);
       /* ENDIF-vue */
       props.handleChipClose && props.handleChipClose(event);
     },

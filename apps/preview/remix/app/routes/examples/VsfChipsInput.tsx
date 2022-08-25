@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import VsfChipsInput, { SizeTypes, ChipsInputProps } from '../../output/blocks/VsfChipsInput/VsfChipsInput.lite';
+import VsfChipsInput, { VsfChipsInputVariants } from '../../output/blocks/VsfChipsInput/VsfChipsInput.lite';
+import Controls, { prepareControls } from '../../components/utils/Controls';
 
 function Icon() {
   return (
@@ -10,11 +10,37 @@ function Icon() {
 }
 
 export default function ExampleVsfChipsInput() {
-  const [formData, setFormData] = useState({
-    size: SizeTypes.MEDIUM,
-    disabled: false,
-    value: 'Label',
-  } as Partial<ChipsInputProps>);
+  const { state, controls } = prepareControls(
+    [
+      {
+        title: 'Value',
+        type: 'text',
+        modelName: 'valueModel',
+        propDefaultValue: '',
+        propType: 'string',
+      },
+      {
+        title: 'Size',
+        type: 'select',
+        modelName: 'sizeModel',
+        options: Object.keys(VsfChipsInputVariants),
+        propDefaultValue: VsfChipsInputVariants.medium,
+        propType: 'VsfChipsInputVariants',
+      },
+      {
+        title: 'Disabled',
+        type: 'checkbox',
+        modelName: 'disabledModel',
+        propDefaultValue: 'false',
+        propType: 'boolean',
+      },
+    ],
+    {
+      valueModel: 'Label',
+      disabledModel: false,
+      sizeModel: VsfChipsInputVariants.medium,
+    },
+  );
 
   function onClickHandler() {
     console.log('VsfChipsInput Clicked!');
@@ -23,56 +49,15 @@ export default function ExampleVsfChipsInput() {
     <div className="e-page">
       <div className="e-page-component">
         <VsfChipsInput
-          value={formData.value}
-          disabled={formData.disabled}
-          size={formData.size}
+          value={state.get.valueModel}
+          disabled={state.get.disabledModel}
+          size={state.get.sizeModel}
           handleChipClose={onClickHandler}
           slotIcon={<Icon />}
         />
       </div>
       <div className="e-page-controls">
-        <table>
-          <tbody>
-            <tr>
-              <td>Variant</td>
-              <td>
-                {Object.values(SizeTypes).map((variant: string) => {
-                  return (
-                    <label key={variant} style={{ display: 'block' }}>
-                      {variant}
-                      <input
-                        onChange={(e) => setFormData({ ...formData, size: e.target.value })}
-                        type="radio"
-                        name="size"
-                        value={variant}
-                      />
-                    </label>
-                  );
-                })}
-              </td>
-            </tr>
-            <tr>
-              <td>Disabled</td>
-              <td>
-                <input
-                  onChange={(e) => setFormData({ ...formData, disabled: e.target.checked })}
-                  value={formData.disabled}
-                  type="checkbox"
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>Value</td>
-              <td>
-                <input
-                  onInput={(e) => setFormData({ ...formData, value: e.target.value })}
-                  value={formData.value}
-                  type="text"
-                />
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <Controls {...{ state, controls }} />
       </div>
     </div>
   );

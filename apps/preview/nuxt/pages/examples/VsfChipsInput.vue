@@ -12,56 +12,57 @@
       </VsfChipsInput>
     </div>
     <div class="e-page-controls">
-      <table>
-        <tbody>
-          <tr>
-            <td>Size</td>
-            <td>
-              <div v-for="variant in SizeTypes" :key="variant">
-                <label>
-                  {{ variant }}
-                  <input v-model="sizeModel" type="radio" name="size" :value="variant" />
-                </label>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>Disabled</td>
-            <td>
-              <input v-model="disabledModel" type="checkbox" />
-            </td>
-          </tr>
-          <tr>
-            <td>Value</td>
-            <td>
-              <input v-model="valueModel" type="text" />
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <Controls v-bind="controlsAttrs"/>
     </div>
   </div>
 </template>
 
 <script>
 import { defineComponent, ref } from 'vue';
-import VsfChipsInput, { SizeTypes } from '../../output/blocks/VsfChipsInput/VsfChipsInput.vue';
+import VsfChipsInput, { VsfChipsInputVariants } from '../../output/blocks/VsfChipsInput/VsfChipsInput.vue';
+import Controls, { prepareControls } from '../../components/utils/Controls.vue';
 
 export default defineComponent({
   name: 'Chipsinput',
   components: {
     VsfChipsInput,
+    Controls,
   },
   setup() {
-    return {
-      sizeModel: ref(SizeTypes.MEDIUM),
-      disabledModel: ref(false),
-      valueModel: ref('Label'),
-      SizeTypes,
-      handleChipClose() {
-        console.log('VsfChipsInput Clicked');
+    return prepareControls(
+      [
+        {
+          title: 'Value',
+          type: 'text',
+          modelName: 'valueModel',
+          propDefaultValue: '',
+          propType: 'string',
+        },
+        {
+          title: 'Size',
+          type: 'select',
+          modelName: 'sizeModel',
+          options: Object.keys(VsfChipsInputVariants),
+          propDefaultValue: VsfChipsInputVariants.medium,
+          propType: 'VsfChipsInputVariants',
+        },
+        {
+          title: 'Disabled',
+          type: 'checkbox',
+          modelName: 'disabledModel',
+          propDefaultValue: 'false',
+          propType: 'boolean',
+        },
+      ],
+      {
+        sizeModel: ref(),
+        valueModel: ref('Label'),
+        disabledModel: ref(),
+        handleChipClose() {
+          console.log('VsfChipsInput Clicked');
+        },
       },
-    };
+    );
   },
 });
 </script>
