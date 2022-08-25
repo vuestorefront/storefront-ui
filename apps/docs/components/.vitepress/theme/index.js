@@ -16,6 +16,7 @@ export default {
     app.component('Breadcrumbs', VsfBreadcrumbs),
     app.component('Rating', VsfRating),
     app.component('RatingButton', VsfRatingButton),
+    app.component('ChipsInput', VsfChipsInput),
     app.component('Tooltip', VsfTooltip)
   }
 }
