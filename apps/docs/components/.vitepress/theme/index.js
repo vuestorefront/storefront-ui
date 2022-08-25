@@ -3,7 +3,7 @@ import PlaygroundWrapper from '../components/PlaygroundWrapper.vue'
 import AlertBase from '../components/AlertBase.vue'
 import VsfCheckbox from '../components/VsfCheckbox.vue'
 import VsfBreadcrumbs from '../components/VsfBreadcrumbs.vue'
-import VsfChipsInput from '../components/VsfChipsInput.vue'
+import VsfRating from '../components/VsfRating.vue'
 
 export default {
   ...Theme,
@@ -12,6 +12,7 @@ export default {
     app.component('AlertBase', AlertBase),
     app.component('Checkbox', VsfCheckbox),
     app.component('Breadcrumbs', VsfBreadcrumbs),
+    app.component('Rating', VsfRating),
     app.component('ChipsInput', VsfChipsInput)
   }
 }
