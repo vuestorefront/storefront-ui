@@ -6,7 +6,7 @@ export default function ExampleVsfBreadcrumbs() {
     [
       {
         title: 'WithIcon',
-        type: 'checkbox',
+        type: 'boolean',
         modelName: 'withIconModel',
         propType: 'boolean',
       },

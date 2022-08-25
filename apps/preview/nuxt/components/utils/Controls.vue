@@ -55,8 +55,8 @@
               >
                 <label class="flex items-center">
                   <textarea
-                    rows="10"
                     v-if="control.type === 'json'"
+                    rows="10"
                     v-bind="options.bind"
                     :value="JSON.stringify(proxyModels[control.modelName], undefined, 2)"
                     @input="proxyModels[control.modelName] = JSON.parse($event.target.value)"
