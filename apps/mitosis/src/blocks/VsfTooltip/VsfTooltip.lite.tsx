@@ -1,4 +1,5 @@
 import { useStore } from '@builder.io/mitosis';
+import { classStringFromArray } from '../../functions/domUtils';
 
 export const VsfTooltipTypes = Object.freeze({
   top: 'top',
@@ -43,13 +44,13 @@ export default function VsfTooltip(props: VsfTooltipProps) {
     get tooltipCaretClass() {
       switch (state.useTypeProp) {
         case VsfTooltipTypes.bottom:
-          return 'bottom-full -mb-1';
+          return 'after:left-1/2 after:bottom-[100%] after:-translate-x-1/2 after:border-x-transparent after:border-t-transparent after:border-b-gray-500';
         case VsfTooltipTypes.left:
-          return 'left-full -ml-1';
+          return 'after:top-1/2  after:left-[100%]   after:-translate-y-1/2 after:border-y-transparent after:border-r-transparent after:border-l-gray-500';
         case VsfTooltipTypes.right:
-          return 'left-0 -ml-1';
+          return 'after:top-1/2  after:right-[100%]  after:-translate-y-1/2 after:border-y-transparent after:border-l-transparent after:border-r-gray-500';
         default:
-          return 'bottom-0 -mb-1';
+          return 'after:left-1/2 after:top-[100%]    after:-translate-x-1/2 after:border-x-transparent after:border-b-transparent after:border-t-gray-500';
       }
     },
   });
@@ -60,10 +61,14 @@ export default function VsfTooltip(props: VsfTooltipProps) {
         {props.children}
         <div
           role="tooltip"
-          class={`w-max max-w-[50ch] absolute justify-center items-center hidden mb-14 group-hover:flex z-50 bg-gray-500 font-body font-medium text-white text-sm leading-5 rounded-md px-3 py-1.5 ${state.tooltipClass}`}
+          class={classStringFromArray([
+            'w-max max-w-[50ch] absolute justify-center items-center hidden group-hover:flex z-50 bg-gray-500 font-body font-medium text-white text-sm leading-5 rounded-md px-3 py-1.5 shadow-sm',
+            state.tooltipClass,
+            `after:content-[''] after:absolute after:border-4`,
+            state.tooltipCaretClass,
+          ])}
         >
           <div>{state.useLabelProp}</div>
-          <div class={`absolute w-2 h-2 rotate-45 bg-gray-500 ${state.tooltipCaretClass}`}></div>
         </div>
       </div>
     </>
