@@ -1,4 +1,4 @@
-import VsfBreadcrumbs from "../../output/blocks/VsfBreadcrumbs/VsfBreadcrumbs.lite";
+import VsfBreadcrumbs from '../../output/blocks/VsfBreadcrumbs/VsfBreadcrumbs.lite';
 
 function Icon() {
   return (
@@ -6,7 +6,7 @@ function Icon() {
       href="/"
       className="leading-5 rounded-sm whitespace-nowrap hover:underline active:font-medium
           active:text-gray-900 active:no-underline outline-violet"
-      style={{ outline: "none" }}
+      style={{ outline: 'none' }}
     >
       <svg
         width="20"
@@ -28,29 +28,31 @@ function Icon() {
 
 export default function ExampleVsfBreadcrumbs() {
   return (
-    <div className="ml-4 mt-4">
-      <VsfBreadcrumbs
-        breadcrumbs={[
-          { name: "Page 1", link: "/page1" },
-          { name: "Page 2", link: "/page1" },
-          { name: "Page 3", link: "/page1" },
-          { name: "Page 4", link: "/page1" },
-          { name: "Page 5", link: "/page1" },
-          { name: "Page 6", link: "/page1" },
-        ]}
-      />
-      <br />
-      <VsfBreadcrumbs
-        withIcon={true}
-        breadcrumbs={[
-          { name: "Page 2", link: "/page1" },
-          { name: "Page 3", link: "/page1" },
-          { name: "Page 4", link: "/page1" },
-          { name: "Page 5", link: "/page1" },
-          { name: "Page 6", link: "/page1" },
-        ]}
-        slotIcon={<Icon />}
-      />
+    <div className="e-page">
+      <div className="e-page-component">
+        <VsfBreadcrumbs
+          breadcrumbs={[
+            { name: 'Page 1', link: '/page1' },
+            { name: 'Page 2', link: '/page1' },
+            { name: 'Page 3', link: '/page1' },
+            { name: 'Page 4', link: '/page1' },
+            { name: 'Page 5', link: '/page1' },
+            { name: 'Page 6', link: '/page1' },
+          ]}
+        />
+        <br />
+        <VsfBreadcrumbs
+          withIcon={true}
+          breadcrumbs={[
+            { name: 'Page 2', link: '/page1' },
+            { name: 'Page 3', link: '/page1' },
+            { name: 'Page 4', link: '/page1' },
+            { name: 'Page 5', link: '/page1' },
+            { name: 'Page 6', link: '/page1' },
+          ]}
+          slotIcon={<Icon />}
+        />
+      </div>
     </div>
   );
 }
