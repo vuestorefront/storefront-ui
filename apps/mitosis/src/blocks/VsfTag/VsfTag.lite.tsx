@@ -1,4 +1,5 @@
 import { useStore, Show } from '@builder.io/mitosis';
+import { classStringFromArray } from '../../functions/domUtils';
 
 export const VsfTagVariants = Object.freeze({
     base: 'base',
@@ -21,8 +22,8 @@ type VsfTagSizesKeys = keyof typeof VsfTagSizes;
 export interface VsfTagProps {
     variant: VsfTagVariantsKeys,
     size: VsfTagSizesKeys,
-    slotBefore: any,
-    slotAfter: any,
+    slotPrefix: any,
+    slotSuffix: any,
     children: any,
     badge: Boolean
 }
@@ -45,22 +46,15 @@ export default function VsfTag(props: VsfTagProps) {
             return props.badge || DEFAULT_VALUES.badge
         },
         get tagVariants() {
-            switch (state.useVariantProp) {
-                case VsfTagVariants.base:
-                    return 'bg-gray-100 text-gray-600'
-                case VsfTagVariants.info:
-                    return 'bg-secondary-100 text-secondary-800'
-                case VsfTagVariants.positive:
-                    return 'bg-primary-100 text-primary-600'
-                case VsfTagVariants.warning:
-                    return 'bg-warning-100 text-warning-700'
-                case VsfTagVariants.error:
-                    return 'bg-negative-100 text-negative-700'
-                case VsfTagVariants.disabled:
-                    return 'bg-gray-100 text-gray-500 opacity-50'
-                default:
-                    return 'bg-gray-100 text-gray-600'
-            }
+            return classStringFromArray([
+                'inline-flex font-normal rounded-md font-body items-center',
+                state.useVariantProp === VsfTagVariants.base ? 'bg-gray-100 text-gray-600' : '',
+                state.useVariantProp === VsfTagVariants.info ? 'bg-secondary-100 text-secondary-800' : '',
+                state.useVariantProp === VsfTagVariants.positive ? 'bg-primary-100 text-primary-600' : '',
+                state.useVariantProp === VsfTagVariants.warning ? 'bg-warning-100 text-warning-700' : '',
+                state.useVariantProp === VsfTagVariants.error ? 'bg-negative-100 text-negative-700' : '',
+                state.useVariantProp === VsfTagVariants.disabled ? 'bg-gray-100 text-gray-500 opacity-50' : '',
+            ]);
         },
         get tagSizes() {
             switch (state.useSizeProp) {
@@ -74,40 +68,32 @@ export default function VsfTag(props: VsfTagProps) {
             return state.useSizeProp === 'sm' ? 'border-b-[24px] border-l-[12px]' : 'border-b-[32px] border-l-[16px]'
         },
         get badgeBorderColors() {
-            switch (state.useVariantProp) {
-            case VsfTagVariants.base:
-                return 'border-l-gray-600'
-            case VsfTagVariants.info:
-                return 'border-l-secondary-800'
-            case VsfTagVariants.positive:
-                return 'border-l-primary-600'
-            case VsfTagVariants.warning:
-                return 'border-l-warning-600'
-            case VsfTagVariants.error:
-                return 'border-l-negative-600'
-            case VsfTagVariants.disabled:
-                return 'border-gray-500 opacity-50'
-            default:
-                return 'border-l-gray-600'
-            }
+            return classStringFromArray([
+                'border-t-0 border-b-transparent border-t-transparent bg-transparent',
+                state.useVariantProp === VsfTagVariants.base ? 'border-l-gray-600' : '',
+                state.useVariantProp === VsfTagVariants.info ? 'border-l-secondary-800' : '',
+                state.useVariantProp === VsfTagVariants.positive ? 'border-l-primary-600' : '',
+                state.useVariantProp === VsfTagVariants.warning ? 'border-l-warning-600' : '',
+                state.useVariantProp === VsfTagVariants.error ? 'border-l-negative-600' : '',
+                state.useVariantProp === VsfTagVariants.disabled ? 'border-gray-500 opacity-50' : '',
+            ]);
         },
         get badgeColors() {
-            switch (state.useVariantProp) {
-            case VsfTagVariants.base:
-                return 'bg-gray-600'
-            case VsfTagVariants.info:
-                return 'bg-secondary-800'
-            case VsfTagVariants.positive:
-                return 'bg-primary-600'
-            case VsfTagVariants.warning:
-                return 'bg-warning-600'
-            case VsfTagVariants.error:
-                return 'bg-negative-600'
-            case VsfTagVariants.disabled:
-                return 'bg-gray-500 opacity-50'
-            default:
-                return 'bg-gray-600'
-            }
+            return classStringFromArray([
+                'inline-flex items-center font-medium text-white fill-white font-body direction-row',
+                state.useVariantProp === VsfTagVariants.base ? 'bg-gray-600' : '',
+                state.useVariantProp === VsfTagVariants.info ? 'bg-secondary-800' : '',
+                state.useVariantProp === VsfTagVariants.positive ? 'bg-primary-600' : '',
+                state.useVariantProp === VsfTagVariants.warning ? 'bg-warning-600' : '',
+                state.useVariantProp === VsfTagVariants.error ? 'bg-negative-600' : '',
+                state.useVariantProp === VsfTagVariants.disabled ? 'bg-gray-500 opacity-50' : '',
+            ]);
+        },
+        get slotClasses() {
+            return classStringFromArray([
+                props.slotPrefix ? 'mr-1' : props.slotSuffix ? 'ml-1' : '',
+                state.useSizeProp === VsfTagSizes.sm ? 'w-4 h-4' : 'w-5 h-5',
+            ]);
         }
     });
     return (
@@ -118,29 +104,33 @@ export default function VsfTag(props: VsfTagProps) {
                         className={`${state.useSizeProp === 'sm' ? 'h-6 text-xs' : 'h-8 text-sm'} flex direction-row`}
                     >
                         <div
-                            className={`${state.badgeColors} inline-flex items-center font-medium text-white fill-white font-body direction-row`}
+                            className={`${state.badgeColors}`}
                         >
-                            <Show when={props.slotBefore}>
+                            <Show when={props.slotPrefix}>
                                 <span
                                     className={`${state.useSizeProp === 'sm' ? 'w-4 h-4' : 'w-5 h-5'} flex direction-row ml-2`}
                                 >
-                                    {props.slotBefore}
+                                    {props.slotPrefix}
                                 </span>
                             </Show>
                             <span className="mx-2"> {props.children} </span>
                         </div>
                         <div
-                            className={`border-t-0 border-b-transparent border-t-transparent bg-transparent ${state.badgeBorderColors} ${state.badgeSizes}`}
+                            className={`${state.badgeBorderColors} ${state.badgeSizes}`}
                         ></div>
                     </div>
                 </div>
             }>
                 <div
-                    className={`${state.tagVariants} ${state.tagSizes} inline-flex font-normal rounded-md font-body items-center`}
+                    className={`${state.tagVariants} ${state.tagSizes}`}
                 >
-                    <div className={props.slotBefore ? 'mr-1' : ''}>{props.slotBefore}</div>
-                    {props.children}
-                    <div className={props.slotAfter ? 'ml-1' : ''}>{props.slotAfter}</div>
+                    <Show when={props.slotPrefix}>
+                        <div className={state.slotClasses}>{props.slotPrefix}</div>
+                    </Show>
+                        {props.children}
+                    <Show when={props.slotSuffix}>
+                        <div className={state.slotClasses}>{props.slotSuffix}</div>
+                    </Show>
                 </div>
             </Show>
         </>

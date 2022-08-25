@@ -21,8 +21,8 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 | Slot name |            Description            |
 | --------- | :-------------------------------: |
-| icon      |     replaces the default icon     |
-| button    | replaces the default close button |
+| prefix      |   content will be displayed before default slot    |
+| suffix    |    content will be displayed after default slot      |
 
 
 ## Source code

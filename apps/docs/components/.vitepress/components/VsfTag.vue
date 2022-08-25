@@ -7,11 +7,11 @@
         )
       "
     >
-      <div :class="_classStringToObject(slotBefore ? 'mr-1' : '')">
+      <div :class="_classStringToObject(slotPrefix ? 'mr-1' : '')">
         <slot name="before" />
       </div>
       <slot />
-      <div :class="_classStringToObject(slotAfter ? 'ml-1' : '')">
+      <div :class="_classStringToObject(slotSuffix ? 'ml-1' : '')">
         <slot name="after" />
       </div>
     </div>
@@ -35,7 +35,7 @@
             )
           "
         >
-          <template v-if="slotBefore">
+          <template v-if="slotPrefix">
             <span
               :class="
                 _classStringToObject(
@@ -86,7 +86,7 @@ const DEFAULT_VALUES = {
 export default {
   name: "vsf-tag",
 
-  props: ["size", "variant", "badge", "slotBefore", "slotAfter"],
+  props: ["size", "variant", "badge", "slotPrefix", "slotSuffix"],
 
   computed: {
     useSizeProp() {
