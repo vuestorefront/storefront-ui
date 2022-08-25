@@ -5,24 +5,23 @@
       role="tooltip"
       :class="
         _classStringToObject(
-          `w-max max-w-xs absolute justify-center items-center hidden mb-14 group-hover:flex z-50 bg-gray-500 font-body font-medium text-white text-sm leading-5 rounded-md px-3 py-1.5 ${tooltipClass}`
+          classStringFromArray([
+            'w-max max-w-[50ch] absolute justify-center items-center hidden group-hover:flex z-50 bg-gray-500 font-body font-medium text-white text-sm leading-5 rounded-md px-3 py-1.5 shadow-sm',
+            tooltipClass,
+            `after:content-[''] after:absolute after:border-4`,
+            tooltipCaretClass,
+          ])
         )
       "
     >
       <div>{{ useLabelProp }}</div>
-      <div
-        :class="
-          _classStringToObject(
-            `absolute w-2 h-2 rotate-45 bg-gray-500 ${tooltipCaretClass}`
-          )
-        "
-      ></div>
     </div>
   </div>
 </template>
 <script>
 import { defineAsyncComponent } from "vue";
 
+import { classStringFromArray } from "../../functions/domUtils";
 export const VsfTooltipTypes = Object.freeze({
   top: "top",
   bottom: "bottom",
@@ -38,6 +37,8 @@ export default {
   name: "vsf-tooltip",
 
   props: ["label", "type"],
+
+  data: () => ({ classStringFromArray }),
 
   computed: {
     useLabelProp() {
@@ -64,16 +65,16 @@ export default {
     tooltipCaretClass() {
       switch (this.useTypeProp) {
         case VsfTooltipTypes.bottom:
-          return "bottom-full -mb-1";
+          return "after:left-1/2 after:bottom-[100%] after:-translate-x-1/2 after:border-x-transparent after:border-t-transparent after:border-b-gray-500";
 
         case VsfTooltipTypes.left:
-          return "left-full -ml-1";
+          return "after:top-1/2  after:left-[100%]   after:-translate-y-1/2 after:border-y-transparent after:border-r-transparent after:border-l-gray-500";
 
         case VsfTooltipTypes.right:
-          return "left-0 -ml-1";
+          return "after:top-1/2  after:right-[100%]  after:-translate-y-1/2 after:border-y-transparent after:border-l-transparent after:border-r-gray-500";
 
         default:
-          return "bottom-0 -mb-1";
+          return "after:left-1/2 after:top-[100%]    after:-translate-x-1/2 after:border-x-transparent after:border-b-transparent after:border-t-gray-500";
       }
     },
   },
