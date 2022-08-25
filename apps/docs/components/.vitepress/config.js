@@ -34,6 +34,7 @@ export default {
           { text: 'Breadcrumbs', link: '/components/breadcrumbs' },
           { text: 'Divider', link: '/components/divider' },
           { text: 'Sheet', link: '/components/sheet' },
+          { text: 'Spinner', link: '/components/spinner' },
         ]
       },
       {
