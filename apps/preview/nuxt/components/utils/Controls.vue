@@ -108,7 +108,7 @@ import { toRefs, computed, reactive, Ref, defineComponent, PropType } from 'vue'
 type RefValueUnknown = Ref<unknown>;
 type Controls = {
   title: string;
-  type: 'range' | 'radio' | 'checkbox' | 'text' | 'select' | 'boolean' | 'number' | 'json';
+  type: 'range' | 'radio' | 'checkbox' | 'text' | 'select' | 'boolean' | 'json';
   modelName: string;
   model?: RefValueUnknown,
   description?: string;

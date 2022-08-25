@@ -7,7 +7,7 @@ type ControlOptionBind = {
 };
 type Controls = {
   title: string;
-  type: 'range' | 'radio' | 'checkbox' | 'text' | 'select' | 'boolean' | 'number' | 'json';
+  type: 'range' | 'radio' | 'checkbox' | 'text' | 'select' | 'boolean' | 'json';
   modelName: string;
   description?: string;
   propDefaultValue?: string | number | boolean;
