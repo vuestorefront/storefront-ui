@@ -1,7 +1,7 @@
 <template>
   <div class="e-page">
     <div class="e-page-component">
-      <VsfSelect :value="valueModel" :options="optionsModel" label="Select your favorite fruit" helpText="Help text"/>
+      <VsfSelect v-model="selected" :value="valueModel" :options="optionsModel" label="Select your favorite fruit" helpText="Help text"/>
     </div>
   </div>
 </template>
@@ -19,6 +19,7 @@ export default defineComponent({
   },
   setup() {
     return {
+        selected: ref(''),
         valueModel: ref(''),
         optionsModel: ref([
             {

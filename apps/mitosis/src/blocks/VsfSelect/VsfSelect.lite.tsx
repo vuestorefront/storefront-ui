@@ -53,7 +53,7 @@ export default function VsfSelect(props: SelectProps) {
     get useHelpText() {
       return props.helpText || DEFAULT_VALUES.helpText;
     },
-    get useRequiredrText() {
+    get useRequiredText() {
       return props.requiredText || DEFAULT_VALUES.requiredText;
     },
     get usePlaceholderText() {
@@ -73,13 +73,19 @@ export default function VsfSelect(props: SelectProps) {
 
   return (
     <div className="relative">
-     <div className="after:absolute box-border flex flex-col font-body after:pointer-events-noneafter:content-['<>'] after:top-[42px] after:right-[10px] after:rotate-90 after:font-base after:text-xl after:text-gray-500 after:z-0">
+    <div
+      className="after:absolute box-border flex flex-col font-body after:pointer-events-none
+        after:content-['<>'] after:top-[42px] after:right-[14px] after:rotate-90
+        after:font-base after:text-xl after:text-gray-500 after:z-0"
+    >
       <select
         id="select"
-        v-model="vueProxyValue"
-        required={state.useRequired}
-        disabled={state.useDisabled}
+        ref="select"
+        v-focus
+        value={selected}
         invalid={state.useInvalid}
+        required={state.useRequiredText}
+        disabled={state.useDisabled}
         className="disabled:cursor-not-allowed remove-default-styling order-2
           peer py-3 pl-[16px] pr-3.5 m-px required:m-0 invalid:m-0 active:m-0
           text-gray-900 bg-transparent border border-gray-300 rounded-md
@@ -88,32 +94,33 @@ export default function VsfSelect(props: SelectProps) {
           disabled:border-gray-200 invalid:border-negative-600 invalid:border-2 outline-violet"
       >
         <option
+          selected={selected === state.useValue}
           className="font-[Arial] bg-gray-300"
+          disabled={true}
           value=""
-          selected
         >
-          { state.usePlaceholderText }
+          --Please choose an option--
         </option>
-        {(state.useOptions || [{}]).map((option) =>
-        <option
-          selected={props.modelValue === option.value}
-          key={option.value}
-          className="font-[Arial] bg-gray-300"
-          value={option.value}
-        >
-          {option.label}
-        </option>
-        )}
+        {props.options?.map((option, index) => <option key={index}>{option.label}</option> )}
+        {/*  */}
       </select>
       <label
         for="select"
         className="peer-required:after:content-['*'] peer-required:after:text-sm order-1 mt-2 text-sm
         text-gray-500 peer-disabled:text-gray-500/50 peer-disabled:cursor-not-allowed font-medium"
-      >{ state.useLabel }
-      </label>
-      <span className={state.errorTextClasses}>{ state.useErrorText }</span>
-      <span className="order-4 mt-1 text-xs text-gray-500 peer-disabled:text-gray-500/50 peer-disabled:cursor-not-allowed">{state.useHelpText }</span>
-      <span className="order-5 hidden mt-1 text-xs text-gray-500 peer-required:block peer-disabled:cursor-not-allowed">state.useRequiredText</span>
+      >{ state.useLabel }</label>
+      <span
+        className="order-3 mt-1 text-sm font-medium text-negative-600 peer-disabled:cursor-not-allowed"
+        className={state.useInvalid? 'block' : 'hidden'}
+      >
+        { state.useErrorText }
+      </span>
+      <span
+        class="order-4 mt-1 text-xs text-gray-500 peer-disabled:text-gray-500/50 peer-disabled:cursor-not-allowed"
+      >{ state.useHelpText }</span>
+      <span
+        class="order-5 hidden mt-1 text-xs text-gray-500 peer-required:block peer-disabled:cursor-not-allowed"
+      >*Required</span>
     </div>
   </div>
   );
