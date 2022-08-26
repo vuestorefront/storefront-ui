@@ -15,7 +15,7 @@ export default function VsfAlertExample() {
       title: 'Persistent',
       type: 'boolean',
       modelName: 'persistentModel',
-      propDefaultValue: false,
+      propDefaultValue: 'false',
       propType: 'boolean',
     },
     {
@@ -31,20 +31,6 @@ export default function VsfAlertExample() {
       modelName: 'descriptionModel',
       propDefaultValue: '',
       propType: 'string',
-    },
-    {
-      title: 'DefaultIcon',
-      type: 'boolean',
-      modelName: 'defaultIconModel',
-      propDefaultValue: true,
-      propType: 'boolean',
-    },
-    {
-      title: 'DefaultButton',
-      type: 'boolean',
-      modelName: 'defaultButtonModel',
-      propDefaultValue: true,
-      propType: 'boolean',
     },
     {
       title: 'SlotIcon',
@@ -65,9 +51,7 @@ export default function VsfAlertExample() {
     persistentModel: false,
     headerModel: '',
     descriptionModel: '',
-    defaultIconModel: true,
     slotIconModel: '',
-    defaultButtonModel: true,
     slotButtonModel: '',
   });
   
@@ -81,9 +65,7 @@ export default function VsfAlertExample() {
           persistent={state.get.persistentModel}
           header={state.get.headerModel}
           description={state.get.descriptionModel}
-          defaultIcon={state.get.defaultIconModel}
           slotIcon={state.get.slotIconModel}
-          defaultButton={state.get.defaultButtonModel}
           slotButton={state.get.slotButtonModel}
           handleCloseClick={closeClick}
         />

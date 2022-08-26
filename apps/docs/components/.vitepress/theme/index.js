@@ -9,6 +9,7 @@ import VsfTooltip from '../components/VsfTooltip.vue'
 import VsfDivider from '../components/VsfDivider.vue'
 import VsfSheet from '../components/VsfSheet.vue'
 import VsfSpinner from '../components/VsfSpinner.vue'
+import VsfChipsInput from '../components/VsfChipsInput.vue'
 
 export default {
   ...Theme,

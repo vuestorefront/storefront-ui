@@ -8,7 +8,7 @@
     "
   >
     <div class="flex gap-2">
-      <template v-if="useDefaultIconProp">
+      <template v-if="!$slots.icon">
         <div name="icon">
           <template v-if="useTypeProp === VsfAlertTypes.info">
             <svg
@@ -108,7 +108,7 @@
       </div>
     </div>
 
-    <template v-if="useDefaultButtonProp">
+    <template v-if="!$slots.button">
       <button
           :class="
           _classStringToObject(`w-6 h-6 ${usePersistentProp && 'hidden'}`)
@@ -150,8 +150,6 @@ export const VsfAlertTypes = Object.freeze({
 const DEFAULT_VALUES = {
   type: VsfAlertTypes.info,
   persistent: false,
-  defaultIcon: true,
-  defaultButton: true,
 };
 
 export default {
@@ -160,8 +158,6 @@ export default {
   props: [
     "type",
     "persistent",
-    "defaultIcon",
-    "defaultButton",
     "handleCloseClick",
     "slotIcon",
     "header",
@@ -178,12 +174,6 @@ export default {
     usePersistentProp() {
       return this.persistent ?? DEFAULT_VALUES.persistent;
     },
-    useDefaultIconProp() {
-      return this.defaultIcon ?? DEFAULT_VALUES.defaultIcon;
-    },
-    useDefaultButtonProp() {
-      return this.defaultButton ?? DEFAULT_VALUES.defaultButton;
-    },
     typeClasses() {
       return classStringFromArray([
         this.type === VsfAlertTypes.positive &&
@@ -197,19 +187,12 @@ export default {
       ]);
     },
     closeIconClasses() {
-      switch (this.type) {
-        case VsfAlertTypes.positive:
-          return "fill-primary-600";
-
-        case VsfAlertTypes.warning:
-          return "fill-warning-700";
-
-        case VsfAlertTypes.error:
-          return "fill-negative-700";
-
-        default:
-          return "fill-secondary-800";
-      }
+      return classStringFromArray([
+        this.type === VsfAlertTypes.positive && "fill-primary-600",
+        this.type === VsfAlertTypes.warning && "fill-warning-700",
+        this.type === VsfAlertTypes.error && "fill-negative-700",
+        this.type === VsfAlertTypes.info && "fill-secondary-800",
+      ]);
     },
   },
 

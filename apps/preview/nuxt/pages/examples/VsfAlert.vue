@@ -10,10 +10,10 @@
         :defaultButton="defaultButtonModel"
         @close="closeClick"
       >
-        <template #icon v-if="!defaultIconModel">
+        <template #icon v-if="slotIconModel">
           {{ slotIconModel }}
         </template>
-        <template #button v-if="!defaultButtonModel">
+        <template #button v-if="slotButtonModel">
           {{ slotButtonModel }}
         </template>
       </VsfAlert>
@@ -71,20 +71,6 @@ export default {
           propType: 'string',
         },
         {
-          title: 'DefaultIcon',
-          type: 'boolean',
-          modelName: 'defaultIconModel',
-          propDefaultValue: true,
-          propType: 'boolean',
-        },
-        {
-          title: 'DefaultButton',
-          type: 'boolean',
-          modelName: 'defaultButtonModel',
-          propDefaultValue: true,
-          propType: 'boolean',
-        },
-        {
           title: 'SlotIcon',
           type: 'text',
           modelName: 'slotIconModel',
@@ -103,9 +89,7 @@ export default {
         persistentModel: ref(false),
         headerModel: ref(''),
         descriptionModel: ref(''),
-        defaultIconModel: ref(true),
         slotIconModel: ref(''),
-        defaultButtonModel: ref(true),
         slotButtonModel: ref(''),
       })
     }

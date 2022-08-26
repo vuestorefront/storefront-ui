@@ -10,15 +10,15 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 ## Props
 
-| Prop name             | Type                | Default value | Possible values                        |
-|-----------------------|---------------------|---------------|----------------------------------------|
-| header                | String              | ''            |                                        |
-| description           | String              | ''            |                                        |
-| type                  | `VsfAlertTypesKeys` | `info`        | `positive`, `warning`, `error`, `info` |
-| persistent            | Boolean             | `false`       |                                        |
-| slotIcon              | Element             | ''            |                                        |
-| slotButton            | Element             | ''            |                                        |
-| handleCloseClick      | () => void          | ''            |                                        |
+| Prop name             | Type                       | Default value | Possible values                        |
+|-----------------------|----------------------------|---------------|----------------------------------------|
+| header                | String                     | ''            |                                        |
+| description           | String                     | ''            |                                        |
+| type                  | `VsfAlertTypesKeys`        | `info`        | `positive`, `warning`, `error`, `info` |
+| persistent            | Boolean                    | `false`       |                                        |
+| slotIcon              | Element, Element[], string | ''            |                                        |
+| slotButton            | Element, Element[], string | ''            |                                        |
+| handleCloseClick      | () => void                 | ''            |                                        |
 
 ## Slots
 

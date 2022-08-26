@@ -12,8 +12,6 @@ type VsfAlertTypesKeys = keyof typeof VsfAlertTypes;
 export interface VsfAlertProps {
   type?: VsfAlertTypesKeys
   persistent?: boolean
-  defaultIcon?: boolean
-  defaultButton?: boolean
   header?: string
   description?: string
   slotIcon?: Element | Element[] | string
@@ -24,8 +22,6 @@ export interface VsfAlertProps {
 const DEFAULT_VALUES = {
   type: VsfAlertTypes.info,
   persistent: false,
-  defaultIcon: true,
-  defaultButton: true
 };
 
 export default function VsfAlert(props: VsfAlertProps) {
@@ -35,12 +31,6 @@ export default function VsfAlert(props: VsfAlertProps) {
     },
     get usePersistentProp() {
       return props.persistent ?? DEFAULT_VALUES.persistent
-    },
-    get useDefaultIconProp() {
-      return props.defaultIcon ?? DEFAULT_VALUES.defaultIcon
-    },
-    get useDefaultButtonProp() {
-      return props.defaultButton ?? DEFAULT_VALUES.defaultButton
     },
     get typeClasses() {
       return classStringFromArray([
@@ -74,7 +64,7 @@ export default function VsfAlert(props: VsfAlertProps) {
       >
         <div class="flex gap-2">
           <Show
-            when={state.useDefaultIconProp}
+            when={!props.slotIcon}
             else={
               <div class="icon" name="icon">{props.slotIcon}</div>
             }
@@ -140,7 +130,7 @@ export default function VsfAlert(props: VsfAlertProps) {
           </div>
         </div>
         <Show
-          when={state.useDefaultButtonProp}
+          when={!props.slotButton}
           else={
             <div class="button">{props.slotButton}</div>
           }
