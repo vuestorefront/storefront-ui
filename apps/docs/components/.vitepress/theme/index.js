@@ -6,6 +6,7 @@ import VsfBreadcrumbs from '../components/VsfBreadcrumbs.vue'
 import VsfRating from '../components/VsfRating.vue'
 import VsfRatingButton from '../components/VsfRatingButton.vue'
 import VsfTooltip from '../components/VsfTooltip.vue'
+import VsfOverlay from '../components/VsfOverlay.vue'
 import VsfDivider from '../components/VsfDivider.vue'
 import VsfSheet from '../components/VsfSheet.vue'
 import VsfSpinner from '../components/VsfSpinner.vue'
@@ -23,6 +24,7 @@ export default {
     app.component('RatingButton', VsfRatingButton),
     app.component('ChipsInput', VsfChipsInput),
     app.component('Tooltip', VsfTooltip),
+    app.component('Overlay', VsfOverlay),
     app.component('Divider', VsfDivider),
     app.component('Sheet', VsfSheet),
     app.component('Spinner', VsfSpinner)

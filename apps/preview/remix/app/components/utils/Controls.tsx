@@ -127,6 +127,7 @@ export default function Controls(props: ControlsProps) {
                           value={props.state.get[control.modelName] as string}
                           onChange={(e) => props.state.set({ ...props.state.get, [control.modelName]: !props.state.get[control.modelName] })}
                           type="checkbox"
+                          defaultChecked={props.state.get[control.modelName] === true}
                         />
                         <span className="slider" />
                       </label>
