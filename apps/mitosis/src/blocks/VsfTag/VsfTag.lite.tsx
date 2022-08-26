@@ -22,8 +22,8 @@ type VsfTagSizesKeys = keyof typeof VsfTagSizes;
 export interface VsfTagProps {
     variant: VsfTagVariantsKeys,
     size: VsfTagSizesKeys,
-    slotPrefix: any,
-    slotSuffix: any,
+    slotPrefix?: any,
+    slotSuffix?: any,
     children: any,
     badge: Boolean
 }
@@ -89,12 +89,6 @@ export default function VsfTag(props: VsfTagProps) {
                 state.useVariantProp === VsfTagVariants.disabled ? 'bg-gray-500 opacity-50' : '',
             ]);
         },
-        get slotClasses() {
-            return classStringFromArray([
-                props.slotPrefix ? 'mr-1' : props.slotSuffix ? 'ml-1' : '',
-                state.useSizeProp === VsfTagSizes.sm ? 'w-4 h-4' : 'w-5 h-5',
-            ]);
-        }
     });
     return (
         <>
@@ -125,11 +119,15 @@ export default function VsfTag(props: VsfTagProps) {
                     className={`${state.tagVariants} ${state.tagSizes}`}
                 >
                     <Show when={props.slotPrefix}>
-                        <div className={state.slotClasses}>{props.slotPrefix}</div>
+                        <div className={`${state.useSizeProp === VsfTagSizes.sm ? 'w-4 h-4' : 'w-5 h-5'} mr-1`}>
+                            <>{props.slotPrefix}</>
+                        </div>
                     </Show>
                         {props.children}
                     <Show when={props.slotSuffix}>
-                        <div className={state.slotClasses}>{props.slotSuffix}</div>
+                        <div className={`${state.useSizeProp === VsfTagSizes.sm ? 'w-4 h-4' : 'w-5 h-5'} ml-1`}>
+                            <>{props.slotSuffix}</>
+                        </div>
                     </Show>
                 </div>
             </Show>
