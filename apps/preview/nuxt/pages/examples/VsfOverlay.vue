@@ -1,13 +1,7 @@
 <template>
   <div class="e-page">
     <div class="e-page-component relative">
-      <VsfOverlay @click="show = !show" v-show="show" :absolute="absoluteModel"/>
-      <button
-        @click="show = !show"
-        class="p-4 font-semibold text-sm bg-primary-600 text-white rounded-none shadow-sm uppercase"
-      >
-        Toggle overlay
-      </button>
+      <VsfOverlay @click="visibleModel = !visibleModel" :absolute="absoluteModel" :visible="visibleModel"/>
     </div>
     <div class="e-page-controls">
       <Controls v-bind="controlsAttrs" />
@@ -30,6 +24,12 @@ export default defineComponent({
     return prepareControls(
       [
         {
+          title: 'Visible',
+          type: 'boolean',
+          propType: "boolean",
+          modelName: 'visibleModel',
+        },
+        {
           title: 'Absolute',
           type: 'boolean',
           propType: "boolean",
@@ -38,8 +38,8 @@ export default defineComponent({
         },
       ],
       {
-        absoluteModel: ref(),
-        show: ref(false),
+        visibleModel: ref(true),
+        absoluteModel: ref(true),
       },
     );
   },
