@@ -20,9 +20,9 @@ export const VsfButtonVariants = Object.freeze({
 
 type VsfButtonVariantsKeys = keyof typeof VsfButtonVariants;
 export interface VsfButtonProps {
-  children: any;
-  slotPrefix: any;
-  slotSuffix: any;
+  children: Element | Element | string;
+  slotPrefix: Element | Element[] | string;
+  slotSuffix: Element | Element[] | string;
   link?: string;
   size?: VsfButtonSizesKeys;
   variant?: VsfButtonVariantsKeys;
