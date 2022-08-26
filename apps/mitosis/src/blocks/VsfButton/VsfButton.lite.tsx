@@ -1,5 +1,6 @@
 import { Show, useStore } from '@builder.io/mitosis';
 import { classStringFromArray } from '../../functions/domUtils';
+import { SlotType } from '../../functions/types';
 
 export const VsfButtonSizes = Object.freeze({
     'sm': 'sm',
@@ -20,9 +21,9 @@ export const VsfButtonVariants = Object.freeze({
 
 type VsfButtonVariantsKeys = keyof typeof VsfButtonVariants;
 export interface VsfButtonProps {
-  children: Element | Element | string;
-  slotPrefix: Element | Element[] | string;
-  slotSuffix: Element | Element[] | string;
+  children: SlotType;
+  slotPrefix: SlotType;
+  slotSuffix: SlotType;
   link?: string;
   size?: VsfButtonSizesKeys;
   variant?: VsfButtonVariantsKeys;
