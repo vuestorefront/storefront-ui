@@ -33,17 +33,17 @@ const DEFAULT_VALUES = {
     variant: VsfTagVariants.base,
     size: VsfTagSizes.base,
     badge: false
-  };
+};
 
 export default function VsfTag(props: VsfTagProps) {
     const state = useStore({
-        get useSizeProp(){
+        get useSizeProp() {
             return props.size || DEFAULT_VALUES.size
         },
-        get useVariantProp(){
+        get useVariantProp() {
             return props.variant || DEFAULT_VALUES.variant
         },
-        get useBadgeProp(){
+        get useBadgeProp() {
             return props.badge || DEFAULT_VALUES.badge
         },
         get tagVariants() {
@@ -120,18 +120,18 @@ export default function VsfTag(props: VsfTagProps) {
                     className={`${state.tagVariants} ${state.tagSizes}`}
                 >
                     <Show when={props.slotPrefix}>
-                        <div className={`${state.useSizeProp === VsfTagSizes.sm ? 'w-4 h-4' : 'w-5 h-5'} mr-1`}>
+                        <div className={`${state.useSizeProp === VsfTagSizes.sm ? 'w-4 h-4' : 'w-5 h-5'} mr-1 flex`}>
                             <>{props.slotPrefix}</>
                         </div>
                     </Show>
-                        {props.children}
+                    {props.children}
                     <Show when={props.slotSuffix}>
-                        <div className={`${state.useSizeProp === VsfTagSizes.sm ? 'w-4 h-4' : 'w-5 h-5'} ml-1`}>
+                        <div className={`${state.useSizeProp === VsfTagSizes.sm ? 'w-4 h-4' : 'w-5 h-5'} ml-1 flex`}>
                             <>{props.slotSuffix}</>
                         </div>
                     </Show>
                 </div>
             </Show>
         </>
-  );
+    );
 }

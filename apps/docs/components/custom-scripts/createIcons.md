@@ -1,0 +1,39 @@
+# createIcons script
+
+Script job is to generate `mitosis`/`vue`/`react` components out of svg icon files.
+
+
+## How it works?
+
+It looks for every svg file in given directory `input` then mangle them and place them in `output` directory, during work it can optimize svg so component are smaller, using [svgo](https://github.com/svg/svgo) plugin.
+
+NOTE: If `output` directory does not exists it will be created
+
+## CLI params
+
+| Param name            | Type         | Default value | Possible values                        |
+|-----------------------|--------------|---------------|----------------------------------------|
+| framework             | String       | `mitosis`     | `vue`, `react`, `mitosis`              |
+| input                 | String       | `./assets`    |                                        |
+| output                | String       | `./`          |                                        |
+| relativePathToIconBase| String       | `../`         |                                        |
+| optimize              | Boolean      | `true`        | `true`, `false`                        |
+
+## Description params
+
+### `framework`
+Determines what kind of component icon will be produced
+
+### `input`
+Path to directory with `*.svg` files
+
+### `output`
+Path to directory where generated components will be placed
+
+### `relativePathToIconBase`
+Path used inside generated component to `VsfBaseIcon` component
+
+Source code(vue): `import VsfIconBase, { VsfIconSize } from '${relativePathToIconBase}VsfIconBase/VsfIconBase';`
+
+### `optimize`
+Optimizing svg file with [svgo](https://github.com/svg/svgo)

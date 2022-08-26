@@ -1,25 +1,25 @@
 <template>
   <div class="e-page">
     <div class="e-page-component">
+      <div class="mb-2">
         <VsfTag :size="sizeModel" :variant="variantModel" :badge="badgeModel">Hello</VsfTag>
-        <br/>
+      </div>
+      <div class="mb-2">
         <VsfTag style="margin: 1rem auto" :size="sizeModel" :variant="variantModel" :badge="badgeModel">
-            <template #prefix>
-                <svg width="100%" height="100%" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M18.3334 9.99935C18.3334 14.6017 14.6025 18.3327 10.0001 18.3327C5.39771 18.3327 1.66675 14.6017 1.66675 9.99935C1.66675 5.39698 5.39771 1.66602 10.0001 1.66602C14.6025 1.66602 18.3334 5.39698 18.3334 9.99935Z"/>
-                </svg>
-            </template>
+          <template #prefix>
+            <VsfIconDot class="vsf-icon-full"/>
+          </template>
           <span>Hello</span>
         </VsfTag>
-        <br/>
+      <div class="mb-2">
+      </div>
         <VsfTag :size="sizeModel" :variant="variantModel" :badge="badgeModel">
-            <span>Hello</span>
-            <template #suffix>
-                <svg width="100%" height="100%" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M18.3334 9.99935C18.3334 14.6017 14.6025 18.3327 10.0001 18.3327C5.39771 18.3327 1.66675 14.6017 1.66675 9.99935C1.66675 5.39698 5.39771 1.66602 10.0001 1.66602C14.6025 1.66602 18.3334 5.39698 18.3334 9.99935Z"/>
-                </svg>
-            </template>
+          <span>Hello</span>
+          <template #suffix>
+            <VsfIconDot class="vsf-icon-full"/>
+          </template>
         </VsfTag>
+      </div>
     </div>
     <div class="e-page-controls">
       <Controls v-bind="controlsAttrs"/>
@@ -31,47 +31,49 @@
 import { defineComponent } from "vue";
 import VsfTag, { VsfTagVariants, VsfTagSizes } from '../../output/blocks/VsfTag/VsfTag.vue';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
+import VsfIconDot from '../../output/blocks/VsfIcons/VsfIconDot.vue';
 
 export default defineComponent({
   name: 'ComponentExample',
   components: {
     VsfTag,
-    Controls
+    Controls,
+    VsfIconDot
   },
   setup() {
     return prepareControls([
       {
-      title: 'Variant',
-      type: 'select',
-      modelName: 'variantModel',
-      options: Object.keys(VsfTagVariants),
-      propDefaultValue: VsfTagVariants.base,
-      propType: 'string'
-    },
-    {
-      title: 'Size',
-      type: 'select',
-      modelName: 'sizeModel',
-      options: Object.keys(VsfTagSizes),
-      propDefaultValue: VsfTagSizes.base,
-      propType: 'string'
-    },
-    {
-      title: 'Badge',
-      type: 'boolean',
-      modelName: 'badgeModel',
-      description: '',
-      propDefaultValue: 'false',
-      propType: 'boolean',
-    },
-    ], {
-      VsfTagVariants,
-      VsfTagSizes,
-      sizeModel: ref(),
-      variantModel: ref(),
-      badgeModel: ref()
-    }
-)
+        title: 'Variant',
+        type: 'select',
+        modelName: 'variantModel',
+        options: Object.keys(VsfTagVariants),
+        propDefaultValue: VsfTagVariants?.base,
+        propType: 'string'
+      },
+      {
+        title: 'Size',
+        type: 'select',
+        modelName: 'sizeModel',
+        options: Object.keys(VsfTagSizes),
+        propDefaultValue: VsfTagSizes?.base,
+        propType: 'string'
+      },
+      {
+        title: 'Badge',
+        type: 'boolean',
+        modelName: 'badgeModel',
+        description: '',
+        propDefaultValue: 'false',
+        propType: 'boolean',
+      },
+      ], {
+        VsfTagVariants,
+        VsfTagSizes,
+        sizeModel: ref(),
+        variantModel: ref(),
+        badgeModel: ref()
+      }
+    )
   },
 });
 </script>
