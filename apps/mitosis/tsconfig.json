@@ -1,6 +1,7 @@
 {
   "extends": "@sfui/typescript-config/base.json",
   "compilerOptions": {
+    "jsx": "preserve",
     "jsxImportSource": "@builder.io/mitosis",
     "forceConsistentCasingInFileNames": true,
     "jsx": "preserve",

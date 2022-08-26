@@ -14,6 +14,7 @@ export default {
     app.component('Checkbox', VsfCheckbox),
     app.component('Breadcrumbs', VsfBreadcrumbs),
     app.component('Rating', VsfRating),
-    app.component('RatingButton', VsfRatingButton)
+    app.component('RatingButton', VsfRatingButton),
+    app.component('ChipsInput', VsfChipsInput)
   }
 }

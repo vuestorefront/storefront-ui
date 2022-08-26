@@ -1,12 +1,12 @@
 import { Show, useStore, useRef, For, onUnMount, onUpdate, onMount } from '@builder.io/mitosis';
 
-export type Breadcrumb = {
+export type VsfBreadcrumbType = {
   name: string;
   link: string;
 };
 
-export interface BreadcrumbsProps {
-  breadcrumbs?: Breadcrumb[];
+export interface VsfBreadcrumbsProps {
+  breadcrumbs?: VsfBreadcrumbType[];
   withIcon?: boolean;
   slotIcon?: any;
 }
@@ -16,7 +16,7 @@ const DEFAULT_VALUES = {
   withIcon: false,
 };
 
-export default function VsfBreadcrumbs(props: BreadcrumbsProps) {
+export default function VsfBreadcrumbs(props: VsfBreadcrumbsProps) {
   // TODO focus directive
 
   const navRef = useRef<HTMLElement>(null);
@@ -70,6 +70,10 @@ export default function VsfBreadcrumbs(props: BreadcrumbsProps) {
     document.addEventListener('click', state.handleDropdownClickOutside, true);
     window.addEventListener('resize', state.onWindowResize);
   });
+  onUpdate(() => {
+    state.breadcrumbsList = state.useBreadcrumbsProp.slice(0);
+    state.newWindowWidth = window.innerWidth;
+  }, [props.breadcrumbs]);
 
   onUpdate(() => {
     const breadcrumbsWidthVal = state.breadcrumbsWidth(),

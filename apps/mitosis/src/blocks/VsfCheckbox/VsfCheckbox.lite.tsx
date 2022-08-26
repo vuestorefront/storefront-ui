@@ -1,6 +1,6 @@
 import { useStore } from '@builder.io/mitosis';
 import { classStringFromArray } from '../../functions/domUtils';
-export interface CheckboxProps {
+export interface VsfCheckboxProps {
   name: string;
   value?: string | string[] | number;
   required?: boolean;
@@ -23,7 +23,7 @@ const DEFAULT_VALUES = {
   errorText: '',
 };
 
-export default function VsfCheckbox(props: CheckboxProps) {
+export default function VsfCheckbox(props: VsfCheckboxProps) {
   // TODO Refactor: get rid of 'id' prop - wrap <input/> in <label>
   const state = useStore({
     get useValueProp() {
