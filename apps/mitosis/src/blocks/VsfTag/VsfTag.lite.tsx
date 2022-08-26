@@ -1,5 +1,6 @@
 import { useStore, Show } from '@builder.io/mitosis';
 import { classStringFromArray } from '../../functions/domUtils';
+import type { SlotAndChildrenType } from '../../functions/types';
 
 export const VsfTagVariants = Object.freeze({
     base: 'base',
@@ -22,9 +23,9 @@ type VsfTagSizesKeys = keyof typeof VsfTagSizes;
 export interface VsfTagProps {
     variant: VsfTagVariantsKeys,
     size: VsfTagSizesKeys,
-    slotPrefix?: any,
-    slotSuffix?: any,
-    children: any,
+    slotPrefix?: SlotAndChildrenType,
+    slotSuffix?: SlotAndChildrenType,
+    children: SlotAndChildrenType,
     badge: Boolean
 }
 
@@ -48,12 +49,12 @@ export default function VsfTag(props: VsfTagProps) {
         get tagVariants() {
             return classStringFromArray([
                 'inline-flex font-normal rounded-md font-body items-center',
-                state.useVariantProp === VsfTagVariants.base ? 'bg-gray-100 text-gray-600' : '',
-                state.useVariantProp === VsfTagVariants.info ? 'bg-secondary-100 text-secondary-800' : '',
-                state.useVariantProp === VsfTagVariants.positive ? 'bg-primary-100 text-primary-600' : '',
-                state.useVariantProp === VsfTagVariants.warning ? 'bg-warning-100 text-warning-700' : '',
-                state.useVariantProp === VsfTagVariants.error ? 'bg-negative-100 text-negative-700' : '',
-                state.useVariantProp === VsfTagVariants.disabled ? 'bg-gray-100 text-gray-500 opacity-50' : '',
+                state.useVariantProp === VsfTagVariants.base && 'bg-gray-100 text-gray-600',
+                state.useVariantProp === VsfTagVariants.info && 'bg-secondary-100 text-secondary-800',
+                state.useVariantProp === VsfTagVariants.positive && 'bg-primary-100 text-primary-600',
+                state.useVariantProp === VsfTagVariants.warning && 'bg-warning-100 text-warning-700',
+                state.useVariantProp === VsfTagVariants.error && 'bg-negative-100 text-negative-700',
+                state.useVariantProp === VsfTagVariants.disabled && 'bg-gray-100 text-gray-500 opacity-50',
             ]);
         },
         get tagSizes() {
@@ -70,23 +71,23 @@ export default function VsfTag(props: VsfTagProps) {
         get badgeBorderColors() {
             return classStringFromArray([
                 'border-t-0 border-b-transparent border-t-transparent bg-transparent',
-                state.useVariantProp === VsfTagVariants.base ? 'border-l-gray-600' : '',
-                state.useVariantProp === VsfTagVariants.info ? 'border-l-secondary-800' : '',
-                state.useVariantProp === VsfTagVariants.positive ? 'border-l-primary-600' : '',
-                state.useVariantProp === VsfTagVariants.warning ? 'border-l-warning-600' : '',
-                state.useVariantProp === VsfTagVariants.error ? 'border-l-negative-600' : '',
-                state.useVariantProp === VsfTagVariants.disabled ? 'border-gray-500 opacity-50' : '',
+                state.useVariantProp === VsfTagVariants.base && 'border-l-gray-600',
+                state.useVariantProp === VsfTagVariants.info && 'border-l-secondary-800',
+                state.useVariantProp === VsfTagVariants.positive && 'border-l-primary-600',
+                state.useVariantProp === VsfTagVariants.warning && 'border-l-warning-600',
+                state.useVariantProp === VsfTagVariants.error && 'border-l-negative-600',
+                state.useVariantProp === VsfTagVariants.disabled && 'border-gray-500 opacity-50',
             ]);
         },
         get badgeColors() {
             return classStringFromArray([
                 'inline-flex items-center font-medium text-white fill-white font-body direction-row',
-                state.useVariantProp === VsfTagVariants.base ? 'bg-gray-600' : '',
-                state.useVariantProp === VsfTagVariants.info ? 'bg-secondary-800' : '',
-                state.useVariantProp === VsfTagVariants.positive ? 'bg-primary-600' : '',
-                state.useVariantProp === VsfTagVariants.warning ? 'bg-warning-600' : '',
-                state.useVariantProp === VsfTagVariants.error ? 'bg-negative-600' : '',
-                state.useVariantProp === VsfTagVariants.disabled ? 'bg-gray-500 opacity-50' : '',
+                state.useVariantProp === VsfTagVariants.base && 'bg-gray-600',
+                state.useVariantProp === VsfTagVariants.info && 'bg-secondary-800',
+                state.useVariantProp === VsfTagVariants.positive && 'bg-primary-600',
+                state.useVariantProp === VsfTagVariants.warning && 'bg-warning-600',
+                state.useVariantProp === VsfTagVariants.error && 'bg-negative-600',
+                state.useVariantProp === VsfTagVariants.disabled && 'bg-gray-500 opacity-50',
             ]);
         },
     });
