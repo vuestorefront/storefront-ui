@@ -38,6 +38,7 @@ export default {
           { text: 'Rating', link: '/components/rating' },
           { text: 'RatingButton', link: '/components/ratingbutton' },
           { text: 'ChipsInput', link: '/components/chipsinput' },
+          { text: 'Tooltip', link: '/components/tooltip' },
         ]
       },
       {
