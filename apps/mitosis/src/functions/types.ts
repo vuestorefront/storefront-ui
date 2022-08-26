@@ -1,1 +1,1 @@
-export type SlotAndChildrenType = Element | Element[] | string;
+export type SlotType = Element | Element[] | string;

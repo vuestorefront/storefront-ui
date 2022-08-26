@@ -1,6 +1,6 @@
 import { useStore, Show } from '@builder.io/mitosis';
 import { classStringFromArray } from '../../functions/domUtils';
-import type { SlotAndChildrenType } from '../../functions/types';
+import type { SlotType } from '../../functions/types';
 
 export const VsfTagVariants = Object.freeze({
     base: 'base',
@@ -23,9 +23,9 @@ type VsfTagSizesKeys = keyof typeof VsfTagSizes;
 export interface VsfTagProps {
     variant: VsfTagVariantsKeys,
     size: VsfTagSizesKeys,
-    slotPrefix?: SlotAndChildrenType,
-    slotSuffix?: SlotAndChildrenType,
-    children: SlotAndChildrenType,
+    slotPrefix?: SlotType,
+    slotSuffix?: SlotType,
+    children: SlotType,
     badge: Boolean
 }
 
