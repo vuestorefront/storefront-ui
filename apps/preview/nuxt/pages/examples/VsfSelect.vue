@@ -43,7 +43,7 @@ export default defineComponent({
           propDefaultValue: '',
           propType: 'string'
         },
-        // TODO: Add array type for static data in Controls
+        // TODO: Add array type for JSON data in Controls
         {
           title: 'Options',
           type: 'text',
