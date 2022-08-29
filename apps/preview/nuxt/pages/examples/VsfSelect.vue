@@ -1,7 +1,10 @@
 <template>
   <div class="e-page">
     <div class="e-page-component">
-      <VsfSelect v-model="selected" :value="valueModel" :options="optionsModel" label="Select your favorite fruit" helpText="Help text"/>
+      <VsfSelect v-model="selected" :value="valueModel" :invalid="invalidModel" :disabled="disabledModel" :required="requiredModel" :options="optionsModel" :label="labelModel" :placeholderText="placeholderTextModel" :requiredText="requiredTextModel" :helpText="helpTextModel" :errorText="errorTextModel"/>
+    </div>
+    <div class="e-page-controls">
+      <Controls v-bind="controlsAttrs"/>
     </div>
   </div>
 </template>
@@ -18,9 +21,86 @@ export default defineComponent({
     Controls,
   },
   setup() {
-    return {
+    return prepareControls([
+        {
+          title: 'Name',
+          type: 'text',
+          modelName: 'textModel',
+          propDefaultValue: '',
+          propType: 'string'
+        },
+        {
+          title: 'Value',
+          type: 'text',
+          modelName: 'valueModel',
+          propDefaultValue: '',
+          propType: 'string',
+        },
+        {
+          title: 'Label',
+          type: 'text',
+          modelName: 'labelModel',
+          propDefaultValue: '',
+          propType: 'string'
+        },
+        // TODO: Add array type for static data in Controls
+        {
+          title: 'Options',
+          type: 'text',
+          modelName: 'optionsModel',
+          propDefaultValue: [],
+          propType: 'SelectOption[] '
+        },
+        {
+          title: 'Required',
+          type: 'boolean',
+          modelName: 'requiredModel',
+          propDefaultValue: false,
+        },
+        {
+          title: 'Disabled',
+          type: 'boolean',
+          modelName: 'disabledModel',
+          propDefaultValue: false,
+        },
+        {
+          title: 'Invalid',
+          type: 'boolean',
+          modelName: 'invalidModel',
+          propDefaultValue: false,
+        },
+        {
+          title: 'Placeholder text',
+          type: 'text',
+          modelName: 'placeholderTextModel',
+          propDefaultValue: '--Please choose an option--'
+        },
+        {
+          title: 'Required text',
+          type: 'text',
+          modelName: 'requiredTextModel',
+          propDefaultValue: '*Required'
+        },
+        {
+          title: 'Help text',
+          type: 'text',
+          modelName: 'helpTextModel',
+          propDefaultValue: 'Help text'
+        },
+        {
+          title: 'Error text',
+          type: 'text',
+          modelName: 'errorTextModel',
+          propDefaultValue: 'Error text'
+        }
+    ],
+    {
         selected: ref(''),
         valueModel: ref(''),
+        labelModel: ref('Select your favorite fruit'),
+        requiredModel: ref(false),
+        invalidModel: ref(false),
+        disabledModel: ref(false),
         optionsModel: ref([
             {
                 label: "Apple",
@@ -35,7 +115,11 @@ export default defineComponent({
                 value: "grapes"
             }
         ]),
-      }
+        placeholderTextModel: ref('--Please choose an option--'),
+        requiredTextModel: ref('*Required'),
+        helpTextModel: ref(''),
+        errorTextMode: ref('')
+      })
   },
 });
 </script>

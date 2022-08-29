@@ -99,6 +99,7 @@ export default defineComponent({
   components: {
     VsfCheckbox,
   },
+  // TODO: Replace with Controls component
   data() {
     return {
       toggle: true,

@@ -1,4 +1,4 @@
-import { useStore, useState } from '@builder.io/mitosis';
+import { useStore } from '@builder.io/mitosis';
 import { classStringFromArray } from '../../functions/domUtils';
 
 export type SelectOption = {
@@ -6,6 +6,7 @@ export type SelectOption = {
     value?: string
 }
 export interface SelectProps {
+  name: string;
   value?: string | string[] | number;
   required?: boolean;
   disabled?: boolean;
@@ -17,6 +18,7 @@ export interface SelectProps {
   helpText?: string;
   errorText?: string;
   modelValue?: any;
+  onChange?: (...args: any[]) => void;
 }
 
 const DEFAULT_VALUES = {
@@ -28,8 +30,8 @@ const DEFAULT_VALUES = {
   invalid: false,
   placeholderText: '--Please choose an option--',
   requiredText: '*Required',
-  helpText: '',
-  errorText: '',
+  helpText: 'Help text',
+  errorText: 'Error text',
 };
 
 export default function VsfSelect(props: SelectProps) {
@@ -69,39 +71,53 @@ export default function VsfSelect(props: SelectProps) {
     get useOptions() {
       return props.options || DEFAULT_VALUES.options;
     },
+    onChangeHandler(event: InputEvent) {
+      props.onChange && props.onChange(event);
+    },
+    get vueProxyValue() {
+      return {
+        get: function () {
+          return props.modelValue;
+        },
+        set: function (value) {
+          state.$emit('update:modelValue', value);
+        },
+      };
+    },
   });
 
   return (
     <div className="relative">
     <div
       className="after:absolute box-border flex flex-col font-body after:pointer-events-none
-        after:content-['<>'] after:top-[42px] after:right-[14px] after:rotate-90
+        after:content-['<>'] after:top-10 after:right-[14px] after:rotate-90
         after:font-base after:text-xl after:text-gray-500 after:z-0"
     >
       <select
-        id="select"
-        ref="select"
-        v-focus
-        value={selected}
+        v-model="vueProxyValue"
+        id={`select-${props.name}`}
+        value={state.useValue}
         invalid={state.useInvalid}
-        required={state.useRequiredText}
+        required={state.useRequired}
         disabled={state.useDisabled}
+        aria-invalid={state.useInvalid}
         className="disabled:cursor-not-allowed remove-default-styling order-2
           peer py-3 pl-[16px] pr-3.5 m-px required:m-0 invalid:m-0 active:m-0
           text-gray-900 bg-transparent border border-gray-300 rounded-md
           hover:border-primary-400 active:border-2 active:border-primary-500
           disabled:bg-gray-100 disabled:opacity-50  disabled:text-gray-900/40
           disabled:border-gray-200 invalid:border-negative-600 invalid:border-2 outline-violet"
+          onChange={(e) => state.onChangeHandler(e)}
       >
         <option
           className="font-[Arial] bg-gray-300"
           disabled={true}
+          hidden={true}
           value=""
         >
-          --Please choose an option--
+          {state.usePlaceholderText}
         </option>
-        {props.options?.map((option, index) => <option key={index}>{option.label}</option> )}
-        {/*  */}
+        {props.options?.map((option, index) => <option className="font-[Arial] bg-gray-300" key={index}>{option.label}</option> )}
       </select>
       <label
         for="select"
@@ -116,7 +132,7 @@ export default function VsfSelect(props: SelectProps) {
       >{ state.useHelpText }</span>
       <span
         class="order-5 hidden mt-1 text-xs text-gray-500 peer-required:block peer-disabled:cursor-not-allowed"
-      >*Required</span>
+      >{state.useRequiredText}</span>
     </div>
   </div>
   );
