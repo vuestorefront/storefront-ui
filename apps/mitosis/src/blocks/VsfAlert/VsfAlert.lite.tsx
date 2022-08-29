@@ -14,7 +14,7 @@ export interface VsfAlertProps {
   persistent?: boolean
   header?: string
   description?: string
-  slotIcon?: Element | Element[] | string
+  slotIcon?: Element | Element[] | string // TODO: replace with SlotType after Button merge
   slotButton?: Element | Element[] | string
   handleCloseClick?: () => void
 }
