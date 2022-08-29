@@ -1,4 +1,4 @@
-import VsfSwitch from '../../output/blocks/VsfSwitch/VsfSwitch.lite';
+import VsfSwitch, { VsfSwitchVariants } from '../../output/blocks/VsfSwitch/VsfSwitch.lite';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 
 export default function Index() {
@@ -18,6 +18,14 @@ export default function Index() {
         modelName: 'valueModel',
         propDefaultValue: '',
         propType: 'string',
+      },
+      {
+        title: 'Size',
+        type: 'select',
+        modelName: 'sizeModel',
+        options: Object.keys(VsfSwitchVariants),
+        propDefaultValue: VsfSwitchVariants.base,
+        propType: 'VsfSwitchVariants',
       },
       {
         title: 'Required',
@@ -65,6 +73,7 @@ export default function Index() {
     {
       nameModel: 'checkbox-1',
       valueModel: '',
+      sizeModel: '',
       requiredModel: false,
       disabledModel: false,
       invalidModel: false,
@@ -88,6 +97,7 @@ export default function Index() {
           invalid={state.get.invalidModel}
           errorText={state.get.errorTextModel}
           helpText={state.get.helpTextModel}
+          size={state.get.sizeModel}
           onChange={() => state.set({ ...state.get, toggle: !state.get.toggle })}
           checked={state.get.toggle}
         />

@@ -15,6 +15,7 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 | name         | String   | ''            |                                        |
 | value        | String   | ''            |                                        |
 | label        | String   | ''            |                                        |
+| size         | String   | 'base'        | 'sm','base'                            |
 | helpText     | String   | ''            |                                        |
 | errorText    | String   | ''            |                                        |
 | rightCheckbox| Boolean  | false         |                                        |

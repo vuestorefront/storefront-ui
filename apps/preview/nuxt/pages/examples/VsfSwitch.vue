@@ -11,6 +11,7 @@
         :invalid="invalidModel"
         :required="requiredModel"
         :rightCheckbox="rightCheckboxModel"
+        :size="sizeModel"
       />
     </div>
     <div class="e-page-controls">
@@ -20,7 +21,7 @@
 </template>
 
 <script>
-import VsfSwitch from '../../output/blocks/VsfSwitch/VsfSwitch.vue';
+import VsfSwitch, { VsfSwitchVariants } from '../../output/blocks/VsfSwitch/VsfSwitch.vue';
 import { defineComponent } from 'vue';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
 
@@ -47,6 +48,14 @@ export default defineComponent({
           modelName: 'valueModel',
           propDefaultValue: '',
           propType: 'string',
+        },
+        {
+          title: 'Size',
+          type: 'select',
+          modelName: 'sizeModel',
+          options: Object.keys(VsfSwitchVariants),
+          propDefaultValue: VsfSwitchVariants.base,
+          propType: 'VsfSwitchVariants',
         },
         {
           title: 'Required',
@@ -98,6 +107,7 @@ export default defineComponent({
         disabledModel: ref(),
         invalidModel: ref(),
         rightCheckboxModel: ref(),
+        sizeModel: ref(),
         labelModel: ref('Label'),
         helpTextModel: ref('help'),
         errorTextModel: ref('error'),
