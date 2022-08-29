@@ -1,4 +1,4 @@
-import { useStore } from '@builder.io/mitosis';
+import { useStore, For } from '@builder.io/mitosis';
 import { classStringFromArray } from '../../functions/domUtils';
 
 export type SelectOption = {
@@ -40,8 +40,8 @@ export default function VsfSelect(props: SelectProps) {
     get useValue() {
       return props.value || DEFAULT_VALUES.value;
     },
-    get useInvalid() {
-      return props.invalid || DEFAULT_VALUES.invalid;
+    get useOptions() {
+      return props.options || DEFAULT_VALUES.options
     },
     get useRequired() {
       return props.required || DEFAULT_VALUES.required;
@@ -99,8 +99,7 @@ export default function VsfSelect(props: SelectProps) {
         value={state.useValue}
         required={state.useRequired}
         disabled={state.useDisabled}
-        aria-invalid={state.useInvalid}
-        aria-required={state.useRequired}
+        selected={state.useValue}
         className="disabled:cursor-not-allowed remove-default-styling order-2
           peer py-3 pl-[16px] pr-3.5 m-px required:m-0 invalid:m-0 active:m-0
           text-gray-900 bg-transparent border border-gray-300 rounded-md
@@ -112,28 +111,20 @@ export default function VsfSelect(props: SelectProps) {
         <option
           className="font-[Arial] bg-gray-300"
           disabled={true}
-          hidden={true}
           value=""
-          selected={true}
         >
           {state.usePlaceholderText}
         </option>
-        {props.options?.map((option, index) => <option className="font-[Arial] bg-gray-300" key={index} selected={option.value === state.useValue}>{option.label}</option> )}
+        <For each={state.useOptions}>
+        {(option, index) => (
+        <option className="font-[Arial] bg-gray-300" key={index} value={option.value}>{option.label}</option> 
+        )}
+        </For>
       </select>
-      <label
-        for="select"
-        className="peer-required:after:content-['*'] peer-required:after:text-sm order-1 mt-2 text-sm
-        text-gray-500 peer-disabled:text-gray-500/50 peer-disabled:cursor-not-allowed font-medium"
-      >{ state.useLabel }</label>
-      <span className={state.errorTextClasses}>
-        { state.useErrorText }
-      </span>
-      <span
-        class="order-4 mt-1 text-xs text-gray-500 peer-disabled:text-gray-500/50 peer-disabled:cursor-not-allowed"
-      >{ state.useHelpText }</span>
-      <span
-        class="order-5 hidden mt-1 text-xs text-gray-500 peer-required:block peer-disabled:cursor-not-allowed"
-      >{state.useRequiredText}</span>
+      <label htmlFor={`select-${props.name}`} className="peer-required:after:content-['*'] peer-required:after:text-sm order-1 mt-2 text-sm text-gray-500 peer-disabled:text-gray-500/50 peer-disabled:cursor-not-allowed font-medium">{ state.useLabel }</label>
+      <span className={state.errorTextClasses}>{ state.useErrorText }</span>
+      <span class="order-4 mt-1 text-xs text-gray-500 peer-disabled:text-gray-500/50 peer-disabled:cursor-not-allowed">{ state.useHelpText }</span>
+      <span class="order-5 hidden mt-1 text-xs text-gray-500 peer-required:block peer-disabled:cursor-not-allowed">{state.useRequiredText}</span>
     </div>
   </div>
   );
