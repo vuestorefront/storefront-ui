@@ -63,7 +63,7 @@ const DEFAULT_VALUES = {
 };
 
 export default {
-  name: "chips-input",
+  name: "vsf-chips-input",
 
   props: [
     "size",

@@ -42,4 +42,4 @@ Selected option is marked with `aria-selected`.
 
 ## Source code
 
-<<<../../mitosis/src/blocks/VsfCheckbox/VsfSelect.lite.tsx
+<<<../../mitosis/src/blocks/VsfSelect/VsfSelect.lite.tsx

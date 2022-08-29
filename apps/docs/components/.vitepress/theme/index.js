@@ -2,6 +2,7 @@ import Theme from 'vitepress/theme'
 import PlaygroundWrapper from '../components/PlaygroundWrapper.vue'
 import AlertBase from '../components/AlertBase.vue'
 import VsfCheckbox from '../components/VsfCheckbox.vue'
+import VsfChipsInput from '../components/VsfChipsInput.vue'
 import VsfBreadcrumbs from '../components/VsfBreadcrumbs.vue'
 import VsfRating from '../components/VsfRating.vue'
 import VsfRatingButton from '../components/VsfRatingButton.vue'
@@ -19,8 +20,8 @@ export default {
     app.component('ChipsInput', VsfChipsInput),
     app.component('Overlay', VsfOverlay)
     app.component('Rating', VsfRating),
-    app.component('RatingButton', VsfRatingButton)
+    app.component('RatingButton', VsfRatingButton),
     app.component('Select', VsfSelect),
-    app.component('Tooltip', VsfTooltip),
+    app.component('Tooltip', VsfTooltip)
   }
 }

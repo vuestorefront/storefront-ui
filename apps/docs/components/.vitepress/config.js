@@ -30,16 +30,17 @@ export default {
         collapsed: true,
         items: [
           { text: 'Alert', link: '/components/alert' },
-          { text: 'Checkbox', link: '/components/checkbox' },
           { text: 'Breadcrumbs', link: '/components/breadcrumbs' },
+          { text: 'Checkbox', link: '/components/checkbox' },
+          { text: 'ChipsInput', link: '/components/chipsinput' },
           { text: 'Divider', link: '/components/divider' },
-          { text: 'Sheet', link: '/components/sheet' },
-          { text: 'Spinner', link: '/components/spinner' },
           { text: 'Rating', link: '/components/rating' },
           { text: 'RatingButton', link: '/components/ratingbutton' },
-          { text: 'ChipsInput', link: '/components/chipsinput' },
           { text: 'Tooltip', link: '/components/tooltip' },
           { text: 'Overlay', link: '/components/overlay' },
+          { text: 'Select', link: '/components/select' },
+          { text: 'Sheet', link: '/components/sheet' },
+          { text: 'Spinner', link: '/components/spinner' },
         ]
       },
       {
