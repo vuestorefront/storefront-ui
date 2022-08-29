@@ -19,7 +19,6 @@ module.exports = {
       plugins: [
         ifPlugin({ type: ['vue', 'vue3'] }),
         vueComputedProxy({ type: ['vue', 'vue3'] }),
-        vueConditionalSlot({ type: ['vue', 'vue3'] }),
       ],
     },
     vue2: {
@@ -28,7 +27,6 @@ module.exports = {
       plugins: [
         ifPlugin({ type: ['vue', 'vue2'] }),
         vueComputedProxy({ type: ['vue', 'vue2'] }),
-        vueConditionalSlot({ type: ['vue', 'vue2'] }),
       ],
     },
     react: {
