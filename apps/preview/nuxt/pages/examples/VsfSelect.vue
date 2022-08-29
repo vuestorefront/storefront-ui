@@ -118,7 +118,7 @@ export default defineComponent({
         placeholderTextModel: ref('--Please choose an option--'),
         requiredTextModel: ref('*Required'),
         helpTextModel: ref(''),
-        errorTextMode: ref('')
+        errorTextModel: ref('')
       })
   },
 });

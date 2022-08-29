@@ -15,20 +15,19 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 | name         | String   | ''            |                                        |
 | value        | String   | ''            |                                        |
 | label        | String   | ''            |                                        |
-| helpText     | String   | ''            |                                        |
-| errorText    | String   | ''            |                                        |
-| rightCheckbox| Boolean  | false         |                                        |
-| indeterminate| Boolean  | false         |                                        |
-| invalid      | Boolean  | false         |                                        |
 | disabled     | Boolean  | false         |                                        |
+| invalid      | Boolean  | false         |                                        |
 | required     | Boolean  | false         |                                        |
-| modelValue   | Any      | ''            |                                        |
+| options      | SelectOption[]  | []         |                                        |
+| placeholderText      | string  | '--Please choose an option--'         |                                        |
+| requiredText      | string  | '*Required'         |                                        |
+| helpText     | string  | 'Help text'         |                                        |
+| errorText    | string  | 'Error text'         |                                        |
+| modelValue   | Any      | undefined           |                                        |
 
 ## Slots
 
-| Slot name |            Description            |
-| --------- | :-------------------------------: |
-|           |                                   |
+No slots available
 
 ## Events
 
@@ -38,7 +37,8 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 ## Accessibility notes
 
-Pressing the Space key triggers a button.
+Keyboard users can use `tab`, open select with `space` and select options using `arrows`.
+Selected option is marked with `aria-selected`.
 
 ## Source code
 

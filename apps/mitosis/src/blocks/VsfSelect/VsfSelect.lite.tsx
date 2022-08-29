@@ -97,10 +97,10 @@ export default function VsfSelect(props: SelectProps) {
         v-model="vueProxyValue"
         id={`select-${props.name}`}
         value={state.useValue}
-        invalid={state.useInvalid}
         required={state.useRequired}
         disabled={state.useDisabled}
         aria-invalid={state.useInvalid}
+        aria-required={state.useRequired}
         className="disabled:cursor-not-allowed remove-default-styling order-2
           peer py-3 pl-[16px] pr-3.5 m-px required:m-0 invalid:m-0 active:m-0
           text-gray-900 bg-transparent border border-gray-300 rounded-md
@@ -114,10 +114,11 @@ export default function VsfSelect(props: SelectProps) {
           disabled={true}
           hidden={true}
           value=""
+          selected={true}
         >
           {state.usePlaceholderText}
         </option>
-        {props.options?.map((option, index) => <option className="font-[Arial] bg-gray-300" key={index}>{option.label}</option> )}
+        {props.options?.map((option, index) => <option className="font-[Arial] bg-gray-300" key={index} selected={option.value === state.useValue}>{option.label}</option> )}
       </select>
       <label
         for="select"
