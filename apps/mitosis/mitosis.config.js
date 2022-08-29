@@ -2,7 +2,6 @@ const seedrandom = require('seedrandom')
 const rng = seedrandom('vue-sdk-seed')
 const ifPlugin = require('./plugins/if-plugin');
 const vueComputedProxy = require('./plugins/vueProxy');
-const vueConditionalSlot = require('./plugins/vueConditionalSlot');
 
 const getSeededId = () => {
   const rngVal = rng()
