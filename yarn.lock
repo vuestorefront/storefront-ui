@@ -1232,7 +1232,7 @@
     "@babel/types" "7.12.6"
     ts-pattern "^3.3.5"
 
-"@builder.io/mitosis-cli@^dev":
+"@builder.io/mitosis-cli@dev":
   version "0.0.17-95"
   resolved "https://registry.yarnpkg.com/@builder.io/mitosis-cli/-/mitosis-cli-0.0.17-95.tgz#ac760d6989b5337a84c8f499bb17296b67a6fb95"
   integrity sha512-Ju/5eVcm/8sHugSkfj5IxvS47akMEv9yyAK8xWB9Ps42xV4rw7NxWULYEuAOWPZm+Zlquf0jOWcwQYJa56+5BQ==
