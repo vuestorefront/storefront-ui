@@ -43,13 +43,19 @@ export default defineComponent({
           propDefaultValue: '',
           propType: 'string'
         },
-        // TODO: Add array type for JSON data in Controls
         {
           title: 'Options',
-          type: 'text',
+          type: 'json',
           modelName: 'optionsModel',
-          propDefaultValue: [],
-          propType: 'SelectOption[] '
+          propDefaultValue: '[]',
+          propType: 'VsfSelectOption[] '
+        },
+        {
+          title: 'Breadcrumbs',
+          type: 'json',
+          modelName: 'breadcrumbsModel',
+          propType: 'VsfBreadcrumbType[]',
+          propDefaultValue : '[]'
         },
         {
           title: 'Required',

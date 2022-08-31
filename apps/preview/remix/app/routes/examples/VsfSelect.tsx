@@ -27,12 +27,11 @@ export default function VsfSelectExample() {
           propDefaultValue: '',
           propType: 'string'
         },
-        // TODO: Add array type for static data in Controls
         {
           title: 'Options',
-          type: 'text',
+          type: 'json',
           modelName: 'optionsModel',
-          propDefaultValue: [],
+          propDefaultValue: '[]',
           propType: 'SelectOption[] '
         },
         {

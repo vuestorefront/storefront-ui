@@ -1,18 +1,18 @@
 import { useStore, For } from '@builder.io/mitosis';
 import { classStringFromArray } from '../../functions/domUtils';
 
-export type SelectOption = {
+export type VsfSelectOption = {
     label?: string
     value?: string
 }
-export interface SelectProps {
+export interface VsfSelectProps {
   name: string;
   value?: string | string[] | number;
   required?: boolean;
   disabled?: boolean;
   invalid?: boolean;
   label?: string;
-  options?: SelectOption[];
+  options?: VsfSelectOption[];
   placeholderText?: string;
   requiredText?: string;
   helpText?: string;
@@ -34,7 +34,7 @@ const DEFAULT_VALUES = {
   errorText: 'Error text',
 };
 
-export default function VsfSelect(props: SelectProps) {
+export default function VsfSelect(props: VsfSelectProps) {
   // TODO Refactor: get rid of 'id' prop - wrap <input/> in <label>
   const state = useStore({
     get useValue() {
@@ -67,9 +67,6 @@ export default function VsfSelect(props: SelectProps) {
     get errorTextClasses() {
         return classStringFromArray(['order-3 mt-1 text-sm font-medium text-negative-600 peer-disabled:cursor-not-allowed',
     props.invalid ? 'block' : 'hidden' ]);
-    },
-    get useOptions() {
-      return props.options || DEFAULT_VALUES.options;
     },
     onChangeHandler(event: InputEvent) {
       props.onChange && props.onChange(event);
