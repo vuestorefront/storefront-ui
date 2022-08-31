@@ -11,6 +11,7 @@ import VsfDivider from '../components/VsfDivider.vue'
 import VsfSheet from '../components/VsfSheet.vue'
 import VsfSpinner from '../components/VsfSpinner.vue'
 import VsfChipsInput from '../components/VsfChipsInput.vue'
+import VsfSwitch from '../components/VsfSwitch.vue'
 
 export default {
   ...Theme,
@@ -27,6 +28,7 @@ export default {
     app.component('Overlay', VsfOverlay),
     app.component('Divider', VsfDivider),
     app.component('Sheet', VsfSheet),
-    app.component('Spinner', VsfSpinner)
+    app.component('Spinner', VsfSpinner),
+    app.component('Switch', VsfSwitch)
   }
 }

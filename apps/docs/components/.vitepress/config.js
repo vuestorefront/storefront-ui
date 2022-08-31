@@ -41,6 +41,7 @@ export default {
           { text: 'Tag', link: '/components/tag' },
           { text: 'Tooltip', link: '/components/tooltip' },
           { text: 'Overlay', link: '/components/overlay' },
+          { text: 'Switch', link: '/components/switch' },
         ]
       },
       {
