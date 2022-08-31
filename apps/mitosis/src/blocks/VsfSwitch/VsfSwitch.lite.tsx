@@ -1,17 +1,25 @@
 import { useStore } from '@builder.io/mitosis';
 import { classStringFromArray } from '../../functions/domUtils';
-export interface VsfCheckboxProps {
+
+export const VsfSwitchVariants = Object.freeze({
+  sm: 'sm',
+  base: 'base',
+});
+
+export type VsfSwitchVariantsKeys = keyof typeof VsfSwitchVariants;
+
+export interface VsfSwtichProps {
   name: string;
   value?: string | string[] | number;
   required?: boolean;
   disabled?: boolean;
-  indeterminate?: boolean;
   invalid?: boolean;
   label?: string;
   helpText?: string;
   errorText?: string;
   rightCheckbox?: boolean;
   checked?: boolean;
+  size?: VsfSwitchVariantsKeys;
   onChange?: (...args: any[]) => void;
   modelValue?: any;
 }
@@ -21,9 +29,10 @@ const DEFAULT_VALUES = {
   label: '',
   helpText: '',
   errorText: '',
+  size: VsfSwitchVariants.base,
 };
 
-export default function VsfCheckbox(props: VsfCheckboxProps) {
+export default function VsfSwtich(props: VsfSwtichProps) {
   // TODO Refactor: get rid of 'id' prop - wrap <input/> in <label>
   const state = useStore({
     get useValueProp() {
@@ -38,21 +47,34 @@ export default function VsfCheckbox(props: VsfCheckboxProps) {
     get useErrorTextProp() {
       return props.errorText || DEFAULT_VALUES.errorText;
     },
+    get useSizeProp() {
+      return props.size || DEFAULT_VALUES.size;
+    },
     get rightCheckboxClasses() {
       return props.rightCheckbox
-        ? 'grid-rows-[[start-row]_1fr_[end-row]_1fr] grid-cols-[[start-col]_1fr_[end-col]_24px_!important]'
+        ? 'grid-rows-[[start-row]_1fr_[end-row]_1fr] grid-cols-[[start-col]_1fr_[end-col]_36px_!important]'
         : '';
     },
     get inputClasses() {
       return classStringFromArray([
-        'peer flex self-center w-[18px] h-[18px] border-2 border-gray-500 rounded-sm appearance-none cursor-pointer',
-        'hover:border-primary-500 checked:bg-checked-checkbox checked:border-primary-500 disabled:border-gray-500/50',
-        'disabled:cursor-not-allowed outline-violet',
-        props.indeterminate ? 'bg-indeterminate-checkbox border-primary-500 ' : '',
-        props.invalid ? '!border-negative-600' : '',
-        props.indeterminate && props.disabled ? '!border-[#b8b8bc] bg-indeterminate-disabled-checkbox ' : '',
+        `after:content['']`,
+        'peer flex self-center disabled:cursor-not-allowed outline-violet rounded-full appearance-none cursor-pointer relative',
+        'border-gray-500 bg-white', // base styles
+        'after:bg-gray-500 after:absolute after:top-1/2 after:left-1/4 after:-translate-x-1/2 after:-translate-y-1/2 after:rounded-full after:transition-transform', //after styles
+        'active:checked:!bg-primary-700 active:checked:border-transparent', // active styles
+        'checked:border-primary-500 checked:bg-primary-500 checked:after:!bg-white checked:after:translate-x-3/4', // checked
+        'hover:checked:after:bg-white hover:checked:border-primary-600 hover:checked:!bg-primary-600', // checked:hover
+        'disabled:!border-gray-500/50 disabled:checked:!border-transparent disabled:checked:!bg-gray-500/50 disabled:checked:after:!bg-white disabled:after:!bg-gray-500/50', // disabled
+        props.invalid
+          ? 'border-negative-600 after:bg-negative-600 active:border-negative-700 active:after:bg-negative-700'
+          : 'hover:border-primary-600 hover:after:bg-primary-600 active:after:bg-primary-700 active:border-primary-700',
         props.rightCheckbox ? 'col-start-[end-col] row-start-[start-row] ' : '',
       ]);
+    },
+    get sizeClass(): string {
+      return state.useSizeProp === VsfSwitchVariants.base
+        ? 'w-[36px] h-[20px] border-2 after:w-[13px] after:h-[13px]'
+        : 'w-[30px] h-[17px] border-[1.5px] after:w-[11px] after:h-[11px]';
     },
     onChangeHandler(event: InputEvent) {
       props.onChange && props.onChange(event);
@@ -75,20 +97,18 @@ export default function VsfCheckbox(props: VsfCheckboxProps) {
   });
 
   return (
-    <div
-      class={`sfui-checkbox relative grid max-w-xs grid-cols-[24px_1fr] gap-x-2.5 right-checkbox ${state.rightCheckboxClasses}`}
-    >
+    <div class={`relative grid max-w-xs grid-cols-[36px_1fr] gap-x-2.5 right-checkbox ${state.rightCheckboxClasses}`}>
       <input
         v-model="vueProxyValue"
         checked={state.isChecked}
         id={`checkbox-${props.name}`}
-        indeterminate={props.indeterminate}
         type="checkbox"
+        role="switch"
         name={props.name}
         required={props.required}
         disabled={props.disabled}
         invalid={props.invalid}
-        class={state.inputClasses}
+        class={classStringFromArray([state.inputClasses, state.sizeClass])}
         onChange={(e) => state.onChangeHandler(e)}
         value={state.useValueProp}
       />
@@ -103,7 +123,7 @@ export default function VsfCheckbox(props: VsfCheckboxProps) {
       </label>
       <span
         class={classStringFromArray([
-          `block col-start-2 mt-0.5 text-sm font-medium text-negative-600 font-body`,
+          `block col-start-2 mt-0.5 text-sm font-medium text-negative-600 font-body peer-disabled:text-gray-500/50`,
           !props.invalid ? 'hidden' : '',
           props.rightCheckbox ? '!col-start-[start-col] col-end-[end-col]' : '',
         ])}

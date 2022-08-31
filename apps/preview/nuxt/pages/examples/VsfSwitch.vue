@@ -1,8 +1,7 @@
 <template>
   <div class="e-page">
     <div class="e-page-component">
-      <p>Single Checkbox</p>
-      <VsfCheckbox
+      <VsfSwitch
         v-model="toggle"
         :name="nameModel"
         :label="labelModel"
@@ -10,40 +9,10 @@
         :helpText="helpTextModel"
         :errorText="errorTextModel"
         :invalid="invalidModel"
-        :indeterminate="indeterminateModel"
         :required="requiredModel"
         :rightCheckbox="rightCheckboxModel"
-      ></VsfCheckbox>
-      <div>Toggled: {{ toggle }}</div>
-      <br />
-      <p>Multiple Checkboxes</p>
-      <VsfCheckbox
-        v-model="checked"
-        name="jack"
-        label="Jack"
-        value="Jack"
-        :disabled="disabledModel"
-        :helpText="helpTextModel"
-        :errorText="errorTextModel"
-        :invalid="invalidModel"
-        :indeterminate="indeterminateModel"
-        :required="requiredModel"
-        :rightCheckbox="rightCheckboxModel"
+        :size="sizeModel"
       />
-      <VsfCheckbox
-        v-model="checked"
-        name="mike"
-        label="Mike"
-        value="Mike"
-        :disabled="disabledModel"
-        :helpText="helpTextModel"
-        :errorText="errorTextModel"
-        :invalid="invalidModel"
-        :indeterminate="indeterminateModel"
-        :required="requiredModel"
-        :rightCheckbox="rightCheckboxModel"
-      />
-      <div>Checked: {{ checked }}</div>
     </div>
     <div class="e-page-controls">
       <Controls v-bind="controlsAttrs" />
@@ -52,14 +21,14 @@
 </template>
 
 <script>
-import VsfCheckbox from '../../output/blocks/VsfCheckbox/VsfCheckbox.vue';
+import VsfSwitch, { VsfSwitchVariants } from '../../output/blocks/VsfSwitch/VsfSwitch.vue';
 import { defineComponent } from 'vue';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
 
 export default defineComponent({
-  name: 'VsfCheckboxExample',
+  name: 'VsfSwitchExample',
   components: {
-    VsfCheckbox,
+    VsfSwitch,
     Controls,
   },
   setup() {
@@ -81,6 +50,14 @@ export default defineComponent({
           propType: 'string',
         },
         {
+          title: 'Size',
+          type: 'select',
+          modelName: 'sizeModel',
+          options: Object.keys(VsfSwitchVariants),
+          propDefaultValue: VsfSwitchVariants.base,
+          propType: 'VsfSwitchVariants',
+        },
+        {
           title: 'Required',
           type: 'boolean',
           modelName: 'requiredModel',
@@ -90,12 +67,6 @@ export default defineComponent({
           title: 'Disabled',
           type: 'boolean',
           modelName: 'disabledModel',
-          propType: 'boolean',
-        },
-        {
-          title: 'Indeterminate',
-          type: 'boolean',
-          modelName: 'indeterminateModel',
           propType: 'boolean',
         },
         {
@@ -130,18 +101,17 @@ export default defineComponent({
         },
       ],
       {
-        nameModel: ref('checkbox-1'),
+        nameModel: ref('name-1'),
         valueModel: ref(),
         requiredModel: ref(),
         disabledModel: ref(),
-        indeterminateModel: ref(),
         invalidModel: ref(),
         rightCheckboxModel: ref(),
+        sizeModel: ref(),
         labelModel: ref('Label'),
         helpTextModel: ref('help'),
         errorTextModel: ref('error'),
         toggle: ref(),
-        checked: ref(['Mike']),
       },
     );
   },

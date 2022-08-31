@@ -38,6 +38,11 @@ export default {
           { text: 'Spinner', link: '/components/spinner' },
           { text: 'Rating', link: '/components/rating' },
           { text: 'RatingButton', link: '/components/ratingbutton' },
+          { text: 'ChipsInput', link: '/components/chipsinput' },          
+          { text: 'Tag', link: '/components/tag' },
+          { text: 'Tooltip', link: '/components/tooltip' },
+          { text: 'Overlay', link: '/components/overlay' },
+          { text: 'Switch', link: '/components/switch' },
         ]
       },
       {

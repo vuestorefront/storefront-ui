@@ -1,4 +1,4 @@
-import VsfCheckbox from '../../output/blocks/VsfCheckbox/VsfCheckbox.lite';
+import VsfSwitch, { VsfSwitchVariants } from '../../output/blocks/VsfSwitch/VsfSwitch.lite';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 
 export default function Index() {
@@ -20,6 +20,14 @@ export default function Index() {
         propType: 'string',
       },
       {
+        title: 'Size',
+        type: 'select',
+        modelName: 'sizeModel',
+        options: Object.keys(VsfSwitchVariants),
+        propDefaultValue: VsfSwitchVariants.base,
+        propType: 'VsfSwitchVariants',
+      },
+      {
         title: 'Required',
         type: 'boolean',
         modelName: 'requiredModel',
@@ -29,12 +37,6 @@ export default function Index() {
         title: 'Disabled',
         type: 'boolean',
         modelName: 'disabledModel',
-        propType: 'boolean',
-      },
-      {
-        title: 'Indeterminate',
-        type: 'boolean',
-        modelName: 'indeterminateModel',
         propType: 'boolean',
       },
       {
@@ -71,37 +73,34 @@ export default function Index() {
     {
       nameModel: 'checkbox-1',
       valueModel: '',
+      sizeModel: '',
       requiredModel: false,
       disabledModel: false,
-      indeterminateModel: false,
       invalidModel: false,
       rightCheckboxModel: false,
       labelModel: 'Label',
       helpTextModel: 'help',
       errorTextModel: 'error',
       toggle: false,
-      checked: ['Mike'],
     },
   );
   return (
     <div className="e-page">
       <div className="e-page-component">
-        <p>Single Checkbox</p>
-        <VsfCheckbox
+        <VsfSwitch
           name={state.get.nameModel!}
           value={state.get.valueModel}
           label={state.get.labelModel}
-          indeterminate={state.get.indeterminateModel}
           required={state.get.requiredModel}
           disabled={state.get.disabledModel}
           rightCheckbox={state.get.rightCheckboxModel}
           invalid={state.get.invalidModel}
           errorText={state.get.errorTextModel}
           helpText={state.get.helpTextModel}
+          size={state.get.sizeModel}
           onChange={() => state.set({ ...state.get, toggle: !state.get.toggle })}
           checked={state.get.toggle}
         />
-        <div>Toggled: {state.get.toggle.toString()}</div>
       </div>
       <div className="e-page-controls">
         <Controls {...{ state, controls }} />
