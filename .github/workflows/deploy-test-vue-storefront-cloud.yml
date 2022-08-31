@@ -2,7 +2,7 @@ name: Deploy Test env
 on:
   push:
     branches:
-      - develop
+      - main
 
 jobs:
   build:
