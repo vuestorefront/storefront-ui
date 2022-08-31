@@ -1,67 +1,77 @@
 import VsfButton, { VsfButtonProps, VsfButtonSizes, VsfButtonVariants } from '../../output/blocks/VsfButton/VsfButton.lite';
-import { useState } from 'react';
+import Controls, { prepareControls } from '../../components/utils/Controls';
 
 export default function Index() {
-  const [formData, setFormData] = useState({
-    variant: VsfButtonVariants.primary,
-    size: VsfButtonSizes.base,
-    disabled: false
-  } as Partial<VsfButtonProps>);
-
+  const { state, controls } = prepareControls(
+    [
+      {
+        title: 'Content',
+        type: 'text',
+        modelName: 'childrenModel',
+      },
+      {
+        title: 'Link',
+        type: 'text',
+        modelName: 'linkModel',
+      },
+      {
+          title: 'Variant',
+          type: 'select',
+          modelName: 'variantModel',
+          options: [
+          {
+            label: 'Primary',
+            value: 'primary',
+          },{
+            label: 'Secondary',
+            value: 'secondary',
+          },
+          {
+            label: 'Tertiary',
+            value: 'tertiary',
+          },
+          {
+            label: 'Destroy Primary',
+            value: 'destroy-primary',
+          },
+          {
+            label: 'Destroy Secondary',
+            value: 'destroy-secondary',
+          },
+          {
+            label: 'Destroy Tertiary',
+            value: 'destroy-tertiary',
+          }
+          ],
+        },
+        {
+          title: 'Size',
+          type: 'select',
+          modelName: 'sizeModel',
+          options: ['sm', 'base', 'lg'],
+        },
+        {
+          title: 'Disabled',
+          type: 'boolean',
+          modelName: 'disabledModel',
+        },
+    ],
+    {
+        childrenModel: 'Hello',
+        linkModel: '',
+        disabledModel: false,
+        variantModel: 'primary',
+        sizeModel: 'base',
+    });
   return (
     <div className="e-page">
       <div className="e-page-component">
-        <VsfButton size={formData.size} variant={formData.variant} disabled={formData.disabled}>Hello</VsfButton>
+        <VsfButton size={state.get.sizeModel} variant={state.get.variantModel} disabled={state.get.disabledModel}>
+          { state.get.childrenModel }
+        </VsfButton>
       </div>
       <div className="e-page-controls">
-        <table>
-          <tbody>
-            <tr>
-              <td>Variant</td>
-              <td>
-                {Object.keys(VsfButtonVariants).map((variant: string) => {
-                  return <label key={variant}>
-                    {variant}
-                    <input
-                      onChange={(e) => setFormData({ ...formData, variant: e.target.value })}
-                      type="radio"
-                      name="variant"
-                      value={variant}
-                    />
-                  </label>
-                })}
-              </td>
-            </tr>
-            <tr>
-              <td>Size</td>
-              <td>
-                {Object.keys(VsfButtonSizes).map((size: string) => {
-                  return <label key={size}>
-                    {size}
-                    <input
-                      onChange={(e) => setFormData({ ...formData, size: e.target.value })}
-                      type="radio"
-                      name="size"
-                      value={size}
-                    />
-                  </label>
-                })}
-              </td>
-            </tr>
-            <tr>
-              <td>Disabled</td>
-              <td>
-                <label>
-                  <input
-                    onChange={(e) => setFormData(() => ({ disabled: e.target.checked }))}
-                    value={formData.disabled}
-                    type="checkbox"
-                  />
-                </label>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <Controls {...{ state, controls }} />
       </div>
     </div>
   );
