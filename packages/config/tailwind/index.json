@@ -4,10 +4,9 @@
     "./components/**/*.{js,vue,ts}",
     "./output/**/*.{js,vue,ts}",
     "./stories/**/*.{js,ts}",
-    "./layouts/**/**.vue",
+    "./layouts/**/*.vue",
     "./pages/**/*.vue",
-    "./plugins/**/*.{js,ts}",
-    "./nuxt.config.{js,ts}"
+    "./**/*.vue"
   ],
   "theme": {
     "extend": {

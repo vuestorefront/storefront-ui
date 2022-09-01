@@ -1,13 +1,6 @@
 import VsfChipsInput, { VsfChipsInputVariants } from '../../output/blocks/VsfChipsInput/VsfChipsInput.lite';
 import Controls, { prepareControls } from '../../components/utils/Controls';
-
-function Icon() {
-  return (
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="w-full h-full fill-gray-500">
-      <path d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"></path>
-    </svg>
-  );
-}
+import VsfIconDot from '../../output/blocks/VsfIcons/VsfIconDot';
 
 export default function ExampleVsfChipsInput() {
   const { state, controls } = prepareControls(
@@ -53,7 +46,7 @@ export default function ExampleVsfChipsInput() {
           disabled={state.get.disabledModel}
           size={state.get.sizeModel}
           handleChipClose={onClickHandler}
-          slotIcon={<Icon />}
+          slotPrefix={<VsfIconDot className="vsf-icon-full" />}
         />
       </div>
       <div className="e-page-controls">

@@ -12,10 +12,6 @@ module.exports =
               if (vueProxyState) {
                 delete item.state[vueProxyState]
               }
-              const vModelProp = Object.keys(item || {}).includes('v-model');
-              if (vModelProp) {
-                delete item['v-model'];
-              }
             }
           });
           return json;
