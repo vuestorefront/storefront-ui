@@ -109,20 +109,20 @@ export default function ControlsExample() {
   return (
     <div className="e-page">
       <div className="e-page-component">
-        <b>Text</b>
+        <strong>Text</strong>
         <div>textModel - {state.get.textModel}</div>
-        <b>Boolean</b>
+        <strong>Boolean</strong>
         <div>booleanModel - {state.get.booleanModel.toString()}</div>
-        <b>Range</b>
+        <strong>Range</strong>
         <div>rangeModel - {state.get.rangeModel.toString()}</div>
-        <b>Select</b>
+        <strong>Select</strong>
         <div>selectModel - {state.get.selectModel}</div>
         <div>selectModel2 - {state.get.selectModel2}</div>
-        <b>Checkbox</b>
+        <strong>Checkbox</strong>
         <div>checkboxModel - {JSON.stringify(state.get.checkboxModel)}</div>
         <div>checkboxModel2 - {JSON.stringify(state.get.checkboxModel2)}</div>
         <div>checkboxModelTrueFalse - {JSON.stringify(state.get.checkboxModelTrueFalse)}</div>
-        <b>Radio</b>
+        <strong>Radio</strong>
         <div>radioModel - {state.get.radioModel}</div>
         <div>radioModel2 - {state.get.radioModel2}</div>
       </div>

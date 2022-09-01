@@ -5,15 +5,15 @@
         Controls
       </h1>
     </div>
-    <table>
+    <table aria-label="Controls table">
       <thead>
         <tr>
-          <td>PropName</td>
-          <td>Value</td>
-          <td>Type</td>
-          <td>DefaultValue</td>
-          <td>Required</td>
-          <td>Description</td>
+          <th>PropName</th>
+          <th>Value</th>
+          <th>Type</th>
+          <th>DefaultValue</th>
+          <th>Required</th>
+          <th>Description</th>
         </tr>
       </thead>
       <tbody>
