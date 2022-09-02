@@ -2,6 +2,7 @@ const seedrandom = require('seedrandom')
 const rng = seedrandom('vue-sdk-seed')
 const ifPlugin = require('./plugins/if-plugin');
 const vueComputedProxy = require('./plugins/vueProxy');
+const removeVueAttrs = require('./plugins/removeVueAttrs');
 
 const getSeededId = () => {
   const rngVal = rng()
@@ -13,30 +14,30 @@ module.exports = {
   targets: ['react', 'vue2', 'vue3'],
   options: {
     vue3: {
-      cssNamespace: getSeededId, 
-      transpiler: { format: 'esm' },
+      cssNamespace: getSeededId,
+      transpiler: { format: 'esm', languages: ['ts'] },
       plugins: [
         ifPlugin({ type: ['vue', 'vue3'] }),
         vueComputedProxy({ type: ['vue', 'vue3'] }),
+        removeVueAttrs({ type: ['vue', 'vue3'] })
       ],
     },
     vue2: {
-      cssNamespace: getSeededId, 
-      transpiler: { format: 'esm' },
+      cssNamespace: getSeededId,
+      transpiler: { format: 'esm', languages: ['ts'] },
       plugins: [
         ifPlugin({ type: ['vue', 'vue2'] }),
         vueComputedProxy({ type: ['vue', 'vue2'] }),
+        removeVueAttrs({ type: ['vue', 'vue2'] })
       ],
     },
     react: {
       plugins: [
         ifPlugin({ type: 'react' }),
-        vueComputedProxy({ type: 'react' })
+        vueComputedProxy({ type: 'react' }),
+        removeVueAttrs({ type: 'react' })
       ],
-      transpiler: {
-        languages: 'ts',
-        format: 'esm'
-      },
+      transpiler: { format: 'esm', languages: ['ts'] },
     },
   },
 }

@@ -1,5 +1,6 @@
 import VsfTag, { VsfTagVariants, VsfTagSizes } from '../../output/blocks/VsfTag/VsfTag.lite';
 import Controls, { prepareControls } from '../../components/utils/Controls';
+import VsfIconDot from '../../output/blocks/VsfIcons/VsfIconDot';
 
 export default function VsfTagExample() {
   const { state, controls } = prepareControls([
@@ -35,39 +36,35 @@ export default function VsfTagExample() {
   return (
     <div className="e-page">
       <div className="e-page-component">
-        <VsfTag 
-          variant={state.get.variantModel} 
-          size={state.get.sizeModel}
-          badge={state.get.badgeModel}
-        >
-          Hello
-        </VsfTag>
-        <br/>
-        <VsfTag 
-          variant={state.get.variantModel} 
-          size={state.get.sizeModel} 
-          badge={state.get.badgeModel}
-          slotPrefix={
-            <svg width="100%" height="100%" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path d="M18.3334 9.99935C18.3334 14.6017 14.6025 18.3327 10.0001 18.3327C5.39771 18.3327 1.66675 14.6017 1.66675 9.99935C1.66675 5.39698 5.39771 1.66602 10.0001 1.66602C14.6025 1.66602 18.3334 5.39698 18.3334 9.99935Z"/>
-            </svg>
-          }
-        >
-          Hello
-        </VsfTag>
-        <br/>
-        <VsfTag 
-          variant={state.get.variantModel} 
-          size={state.get.sizeModel} 
-          badge={state.get.badgeModel}
-          slotSuffix={
-            <svg width="100%" height="100%" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path d="M18.3334 9.99935C18.3334 14.6017 14.6025 18.3327 10.0001 18.3327C5.39771 18.3327 1.66675 14.6017 1.66675 9.99935C1.66675 5.39698 5.39771 1.66602 10.0001 1.66602C14.6025 1.66602 18.3334 5.39698 18.3334 9.99935Z"/>
-            </svg>
-          }
-        >
-          Hello
-        </VsfTag>
+        <div className="mb-2">
+          <VsfTag
+            variant={state.get.variantModel}
+            size={state.get.sizeModel}
+            badge={state.get.badgeModel}
+          >
+            Hello
+          </VsfTag>
+        </div>
+        <div className="mb-2">
+          <VsfTag
+            variant={state.get.variantModel}
+            size={state.get.sizeModel}
+            badge={state.get.badgeModel}
+            slotPrefix={<VsfIconDot className="vsf-icon-full" />}
+          >
+            Hello
+          </VsfTag>
+        </div>
+        <div className="mb-2">
+          <VsfTag
+            variant={state.get.variantModel}
+            size={state.get.sizeModel}
+            badge={state.get.badgeModel}
+            slotSuffix={<VsfIconDot className="vsf-icon-full" />}
+          >
+            Hello
+          </VsfTag>
+        </div>
       </div>
       <div className="e-page-controls">
         <Controls {...{ state, controls }} />

@@ -13,7 +13,7 @@ export default {
       { icon: 'github', link: 'https://github.com/vuestorefront/sfui2' },
     ],
     sidebar: [
-      { 
+      {
         text: 'Guide',
         link: '/guide/',
         items: []
@@ -24,25 +24,37 @@ export default {
         items: []
       },
       {
+        text: 'Custom Scripts',
+        link: '/custom-scripts',
+        items: [
+          { text: 'createIcons', link: '/custom-scripts/createIcons' },
+        ]
+      },
+      {
         text: 'Components',
         link: '/components',
         collapsible: true,
         collapsed: true,
         items: [
           { text: 'Alert', link: '/components/alert' },
-          { text: 'Checkbox', link: '/components/checkbox' },
           { text: 'Breadcrumbs', link: '/components/breadcrumbs' },
+          { text: 'Checkbox', link: '/components/checkbox' },
+          { text: 'ChipsInput', link: '/components/chipsinput' },
           { text: 'Button', link: '/components/button' },
           { text: 'Divider', link: '/components/divider' },
+          { text: 'Icon', link: '/components/icon' },
+          { text: 'IconBase', link: '/components/iconBase' },
           { text: 'Sheet', link: '/components/sheet' },
           { text: 'Spinner', link: '/components/spinner' },
           { text: 'Rating', link: '/components/rating' },
           { text: 'RatingButton', link: '/components/ratingbutton' },
-          { text: 'ChipsInput', link: '/components/chipsinput' },          
           { text: 'Tag', link: '/components/tag' },
           { text: 'Tooltip', link: '/components/tooltip' },
           { text: 'Overlay', link: '/components/overlay' },
           { text: 'Switch', link: '/components/switch' },
+          { text: 'Select', link: '/components/select' },
+          { text: 'Sheet', link: '/components/sheet' },
+          { text: 'Spinner', link: '/components/spinner' },
         ]
       },
       {
@@ -51,7 +63,7 @@ export default {
         collapsible: true,
         collapsed: true,
         items: [
-          { text: '0.0.1', link: '/changelog/0.0.1'}
+          { text: '0.0.1', link: '/changelog/0.0.1' }
         ]
       }
     ],

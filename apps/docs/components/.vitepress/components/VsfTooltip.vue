@@ -20,7 +20,6 @@
 </template>
 <script>
 import { defineAsyncComponent } from "vue";
-
 import { classStringFromArray } from "@sfui/mitosis/src/functions/domUtils";
 export const VsfTooltipTypes = Object.freeze({
   top: "top",

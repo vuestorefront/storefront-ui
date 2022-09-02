@@ -4,9 +4,7 @@ WORKDIR /var/www
 
 COPY . .
 
-RUN cd boilerplates/nuxt \
-  && yarn \
-  && yarn storybook-build 
+RUN  yarn \ && yarn dev
 
 FROM nginx
 
