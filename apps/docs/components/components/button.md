@@ -10,13 +10,15 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 ## Props
 
-| Prop name      | Type    | Default value | Possible values                        |
-| -----------    | ------- | ------------- | -------------------------------------- |
-| variant        | String  | 'primary'     | 'primary', 'secondary', 'tertiary','destroy-primary','destroy-secondary', 'destroy-tertiary'   |
-| size           | String  | 'base'        | 'sm', 'base', 'lg'                     |
-| children       | any | 'Hello'        | Any slotted content                                       |
-| disabled       | Boolean | false            |  false || true                                      |
-| link           | String | null            |  '/my-cool-page'                                      |
+| Prop name  | Type                    | Default value   | Possible values                                                                              |
+|------------|-------------------------|-----------------|----------------------------------------------------------------------------------------------|
+| variant    | `VsfButtonVariantsKeys` | `primary`       | `primary`, `secondary`, `tertiary`,`destroy-primary`,`destroy-secondary`, `destroy-tertiary` |
+| size       | `VsfButtonSizesKeys`    | `base`          | `sm`, `base`, `lg`                                                                           |
+| slotPrefix | `SlotType`              |                 | Left side slotted content                                                                    |
+| children   | `SlotType`              | `Hello`         | Default slotted content                                                                      |
+| slotSuffix | `SlotType`              |                 | Right side slotted content                                                                   |
+| disabled   | `Boolean`               | false           | false                                                                                        |
+| link       | `String`                |                 | '/my-cool-page'                                                                              |
 
 ## Slots
 

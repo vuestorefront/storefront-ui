@@ -1,87 +1,116 @@
 <template>
-    <div class="e-page">
-        <div class="e-page-component">
-            <VsfButton :size="sizeModel" :variant="variantModel" :link="linkModel" :disabled="disabledModel">
-            {{ childrenModel }}
-            </VsfButton>
-        </div>
-        <div class="e-page-controls">
-            <Controls v-bind="controlsAttrs"/>
-        </div>
+  <div class="e-page">
+    <div class="e-page-component">
+      <VsfButton :size="sizeModel" :variant="variantModel" :link="linkModel" :disabled="disabledModel">
+        <template #prefix v-if="leftIconModel">
+          <VsfIconVsfDiamond />
+        </template>
+        <template #default v-if="iconModel">
+          <VsfIconVsfDiamond />
+        </template>
+        {{ childrenModel }}
+        <template #suffix v-if="rightIconModel">
+          <VsfIconVsfDiamond />
+        </template>
+      </VsfButton>
     </div>
+    <div class="e-page-controls">
+      <Controls v-bind="controlsAttrs"/>
+    </div>
+  </div>
 </template>
 
 <script>
 import { defineComponent } from "vue";
-import VsfButton from '../../output/blocks/VsfButton/VsfButton.vue'
+import VsfButton, { VsfButtonVariants, VsfButtonSizes } from '../../output/blocks/VsfButton/VsfButton.vue'
+import  { VsfIconVsfDiamond } from "../../output/blocks/VsfIcons/vue";
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
 
 export default defineComponent({
     name: 'VsfButtonExample',
     components: {
-        VsfButton,
-        Controls
+      VsfButton,
+      VsfIconVsfDiamond,
+      Controls
     },
     setup() {
     return prepareControls([
-        {
-          title: 'Content',
-          type: 'text',
-          modelName: 'childrenModel',
-        },
-        {
-          title: 'Link',
-          type: 'text',
-          modelName: 'linkModel',
-        },
-        {
-          title: 'Variant',
-          type: 'select',
-          modelName: 'variantModel',
-          options: [
+      {
+        title: 'Content',
+        type: 'text',
+        modelName: 'childrenModel',
+      },
+      {
+        title: 'Link',
+        type: 'text',
+        modelName: 'linkModel',
+      },
+      {
+        title: 'Variant',
+        type: 'select',
+        modelName: 'variantModel',
+        options: [
           {
             label: 'Primary',
-            value: 'primary',
+            value: VsfButtonVariants.primary,
           },{
             label: 'Secondary',
-            value: 'secondary',
+            value: VsfButtonVariants.secondary,
           },
           {
             label: 'Tertiary',
-            value: 'tertiary',
+            value: VsfButtonVariants.tertiary,
           },
           {
             label: 'Destroy Primary',
-            value: 'destroy-primary',
+            value: VsfButtonVariants["destroy-primary"],
           },
           {
             label: 'Destroy Secondary',
-            value: 'destroy-secondary',
+            value: VsfButtonVariants["destroy-secondary"],
           },
           {
             label: 'Destroy Tertiary',
-            value: 'destroy-tertiary',
+            value: VsfButtonVariants["destroy-tertiary"],
           }
-          ],
-        },
-        {
-          title: 'Size',
-          type: 'select',
-          modelName: 'sizeModel',
-          options: ['sm', 'base', 'lg'],
-        },
-        {
-          title: 'Disabled',
-          type: 'boolean',
-          modelName: 'disabledModel',
-        },
-      ], {
-        childrenModel: ref('Hello'),
-        linkModel: ref(),
-        disabledModel: ref(false),
-        variantModel: ref('primary'),
-        sizeModel: ref('base'),
-      })
+        ],
+      },
+      {
+        title: 'Size',
+        type: 'select',
+        modelName: 'sizeModel',
+        options: [VsfButtonSizes.sm, VsfButtonSizes.base, VsfButtonSizes.lg],
+      },
+      {
+        title: 'Disabled',
+        type: 'boolean',
+        modelName: 'disabledModel',
+      },
+      {
+        title: 'Icon',
+        type: 'boolean',
+        modelName: 'iconModel',
+      },
+      {
+        title: 'Left Icon',
+        type: 'boolean',
+        modelName: 'leftIconModel',
+      },
+      {
+        title: 'Right Icon',
+        type: 'boolean',
+        modelName: 'rightIconModel',
+      },
+    ], {
+      childrenModel: ref('Hello'),
+      linkModel: ref(),
+      disabledModel: ref(false),
+      iconModel: ref(false),
+      leftIconModel: ref(false),
+      rightIconModel: ref(false),
+      variantModel: ref(VsfButtonVariants.primary),
+      sizeModel: ref(VsfButtonSizes.base),
+    })
    }
   });
 </script>
