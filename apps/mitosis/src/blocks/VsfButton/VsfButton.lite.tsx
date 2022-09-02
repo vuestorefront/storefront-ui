@@ -3,9 +3,9 @@ import { classStringFromArray } from '../../functions/domUtils';
 import { SlotType } from '../../functions/types';
 
 export const VsfButtonSizes = Object.freeze({
-    'sm': 'sm',
-    'base': 'base',
-    'lg': 'lg',
+  'sm': 'sm',
+  'base': 'base',
+  'lg': 'lg',
 });
 
 type VsfButtonSizesKeys = keyof typeof VsfButtonSizes;
@@ -39,8 +39,8 @@ const DEFAULT_VALUES = {
 
 export default function VsfButton(props: VsfButtonProps) {
   const state = useStore({
-    get useDisabled() {
-        return props.disabled || DEFAULT_VALUES.disabled;
+    get useDisabledProp() {
+      return props.disabled || DEFAULT_VALUES.disabled;
     },
     get buttonClasses() {
       return classStringFromArray(['inline-flex items-center justify-center border rounded-md cursor-pointer font-body disabled:cursor-not-allowed outline-violet disabled:text-gray-500 disabled:opacity-50',
@@ -60,7 +60,7 @@ export default function VsfButton(props: VsfButtonProps) {
       <Show
         when={props.link}
         else={
-          <button className={state.buttonClasses} disabled={state.useDisabled}>
+          <button className={state.buttonClasses} disabled={state.useDisabledProp}>
             {props.slotPrefix}
             {props.children}
             {props.slotSuffix}
@@ -68,9 +68,9 @@ export default function VsfButton(props: VsfButtonProps) {
         }
       >
         <a role="button" href={props.link} className={state.buttonClasses}>
-            {props.slotPrefix}
-            {props.children}
-            {props.slotSuffix}
+          {props.slotPrefix}
+          {props.children}
+          {props.slotSuffix}
         </a>
       </Show>
     </>

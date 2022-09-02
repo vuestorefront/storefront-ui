@@ -1,4 +1,4 @@
-import VsfButton, { VsfButtonProps, VsfButtonSizes, VsfButtonVariants } from '../../output/blocks/VsfButton/VsfButton.lite';
+import VsfButton, { VsfButtonSizes, VsfButtonVariants } from '../../output/blocks/VsfButton/VsfButton.lite';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 
 export default function Index() {
@@ -60,13 +60,18 @@ export default function Index() {
         childrenModel: 'Hello',
         linkModel: '',
         disabledModel: false,
-        variantModel: 'primary',
-        sizeModel: 'base',
+        variantModel: VsfButtonVariants.primary,
+        sizeModel: VsfButtonSizes.base,
     });
   return (
     <div className="e-page">
       <div className="e-page-component">
-        <VsfButton size={state.get.sizeModel} variant={state.get.variantModel} disabled={state.get.disabledModel}>
+        <VsfButton
+          size={state.get.sizeModel}
+          variant={state.get.variantModel}
+          disabled={state.get.disabledModel}
+          link={state.get.linkModel}
+        >
           { state.get.childrenModel }
         </VsfButton>
       </div>
