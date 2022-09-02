@@ -1,20 +1,20 @@
 <template>
   <div class="e-page">
     <div class="e-page-component">
-      <b>Text</b>
+      <strong>Text</strong>
       <div>textModel - {{ textModel }}</div>
-      <b>Boolean</b>
+      <strong>Boolean</strong>
       <div>booleanModel - {{ booleanModel }}</div>
-      <b>Range</b>
+      <strong>Range</strong>
       <div>rangeModel - {{ rangeModel }}</div>
-      <b>Select</b>
+      <strong>Select</strong>
       <div>selectModel - {{ selectModel }}</div>
       <div>selectModel2 - {{ selectModel2 }}</div>
-      <b>Checkbox</b>
+      <strong>Checkbox</strong>
       <div>checkboxModel - {{ checkboxModel }}</div>
       <div>checkboxModel2 - {{ checkboxModel2 }}</div>
       <div>checkboxModelTrueFalse - {{ checkboxModelTrueFalse }}</div>
-      <b>Radio</b>
+      <strong>Radio</strong>
       <div>radioModel - {{ radioModel }}</div>
       <div>radioModel2 - {{ radioModel2 }}</div>
     </div>

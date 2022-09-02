@@ -5,7 +5,7 @@ type ControlOptionBind = {
   label?: string;
   value?: string | number;
 };
-type Controls = {
+type ControlsType = {
   title: string;
   type: 'range' | 'radio' | 'checkbox' | 'text' | 'select' | 'boolean' | 'json';
   modelName: string;
@@ -18,17 +18,16 @@ type Controls = {
 
 type Model = string | boolean | number | string[];
 export type ControlsProps = {
-  controls?: Controls;
+  controls?: ControlsType;
   state: {
     get: Record<string, Model>,
     set: React.Dispatch<React.SetStateAction<Record<string, Model>>>
   }
 }
-export const prepareControls = (controls: Controls, models: Record<string, Model>): ControlsProps => {
+export const prepareControls = (controls: ControlsType, models: Record<string, Model>): ControlsProps => {
   const [formData, setFormData] = useState(models);
-  controls.map(control => {
+  controls.forEach(control => {
     control.isRequired = false;
-    return control;
   });
   return {
     controls,
@@ -49,11 +48,11 @@ export default function Controls(props: ControlsProps) {
 
   function handleOnChangeValue<T = HTMLFormElement>(e: ChangeEvent<T>, name: string) {
     setState({ [name]: (e.target as unknown as HTMLFormElement).value });
-  };
+  }
 
   function handleJsonOnChangeValue<T = HTMLFormElement>(e: ChangeEvent<T>, name: string) {
     setState({ [name]: JSON.parse((e.target as unknown as HTMLFormElement).value) });
-  };
+  }
 
   function handleCheckbox(
     e: ChangeEvent<HTMLInputElement>,
@@ -88,15 +87,15 @@ export default function Controls(props: ControlsProps) {
           Controls
         </h1>
       </div>
-      <table>
+      <table aria-label="Controls table">
         <thead>
           <tr>
-            <td>PropName</td>
-            <td>Value</td>
-            <td>Type</td>
-            <td>DefaultValue</td>
-            <td>Required</td>
-            <td>Description</td>
+            <th>PropName</th>
+            <th>Value</th>
+            <th>Type</th>
+            <th>DefaultValue</th>
+            <th>Required</th>
+            <th>Description</th>
           </tr>
         </thead>
         <tbody>
@@ -113,7 +112,7 @@ export default function Controls(props: ControlsProps) {
                         onChange={(e) =>
                           handleOnChangeValue<HTMLSelectElement>(e, control.modelName)
                         }>
-                        {(control?.options || [{}] as NonNullable<Controls[number]['options']>).map((option, optionIndex) => <option
+                        {(control?.options || [{}] as NonNullable<ControlsType[number]['options']>).map((option, optionIndex) => <option
                           key={`${control.title}-${index}-${optionIndex}`}
                           value={(option as ControlOptionBind).value || (option as ControlOptionBind).label || option as string}
                         >
@@ -134,42 +133,42 @@ export default function Controls(props: ControlsProps) {
                       <span className="ml-2">{props.state.get[control.modelName].toString()}</span>
                     </div>;
                     default:
-                      return (control?.options || [{}] as NonNullable<Controls[number]['options']>).map(
+                      return (control?.options || [{}] as NonNullable<ControlsType[number]['options']>).map(
                         (option, optionIndex) =>
                           <div
                             key={`${control.title}-${index}-${optionIndex}`}
                             className="flex items-center"
                           >
                             <label className="flex items-center">
-                              {control.type === "json" 
-                                ? <textarea 
+                              {control.type === "json"
+                                ? <textarea
                                   rows={10}
                                   {...(option as ControlOptionBind).bind}
                                   className="border rounded-md"
                                   value={JSON.stringify(props.state.get[control.modelName], undefined, 2) as string}
                                   onChange={(e) => handleJsonOnChangeValue(e, control.modelName)}
-                                  >
-                                  </textarea>:
-                              control.type === 'range' || control.type === 'text'
-                                ? <input
-                                  {...(option as ControlOptionBind).bind}
-                                  value={props.state.get[control.modelName] as number | string}
-                                  className="border rounded-md"
-                                  type={control.type}
-                                  onChange={(e) => handleOnChangeValue(e, control.modelName)}
-                                />
-                                : <input
-                                  {...(option as ControlOptionBind).bind}
-                                  value={checkboxValue(option)}
-                                  type={control.type}
-                                  onChange={(e) => {
-                                    control.type === 'checkbox'
-                                      && handleCheckbox(e, control.modelName, props.state.get[control.modelName] as string | [])
-                                    control.type === 'radio'
-                                      && handleOnChangeValue(e, control.modelName)
-                                  }}
-                                  name={`${control.title}-${index}`}
-                                />
+                                >
+                                </textarea> :
+                                control.type === 'range' || control.type === 'text'
+                                  ? <input
+                                    {...(option as ControlOptionBind).bind}
+                                    value={props.state.get[control.modelName] as number | string}
+                                    className="border rounded-md"
+                                    type={control.type}
+                                    onChange={(e) => handleOnChangeValue(e, control.modelName)}
+                                  />
+                                  : <input
+                                    {...(option as ControlOptionBind).bind}
+                                    value={checkboxValue(option)}
+                                    type={control.type}
+                                    onChange={(e) => {
+                                      control.type === 'checkbox'
+                                        && handleCheckbox(e, control.modelName, props.state.get[control.modelName] as string | [])
+                                      control.type === 'radio'
+                                        && handleOnChangeValue(e, control.modelName)
+                                    }}
+                                    name={`${control.title}-${index}`}
+                                  />
                               }
                               {option.hasOwnProperty('label') &&
                                 <span className={`pl-2`}>{(option as ControlOptionBind).label}</span>}

@@ -1,12 +1,11 @@
-import { NavLink, Outlet, useParams, useSearchParams } from '@remix-run/react';
+import { NavLink, Outlet, useSearchParams, useLoaderData } from '@remix-run/react';
 import { useState } from 'react';
 import { json } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
 import fs from '../utils/files.server'
 
 export async function loader() {
   const filenames = fs.readdirSync('./app/routes/examples');
-  const components = filenames.map((file) => file.match(/([\w\d_-]*)\.?[^\\\/]*$/i)[1]).sort()
+  const components = filenames.map((file) => file?.match(/([\w\d_-]*)\.?[^\\\/]*$/i)?.[1]).sort()
   return json(components);
 }
 

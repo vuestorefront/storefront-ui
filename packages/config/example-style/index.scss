@@ -103,6 +103,7 @@
         }
 
         thead {
+            th,
             td {
                 padding: 4px 10px;
                 border-bottom: 1px solid $borderColor;
@@ -143,7 +144,7 @@
             padding: 2px 4px;
             display: inline-block;
             background-color: rgb(244 244 245);
-            font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New;
+            font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New, sans-serif;
         }
 
         .description{

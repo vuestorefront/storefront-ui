@@ -172,7 +172,7 @@ fs.readdir(inputDirectoryPath, function (err, files) {
                 vueExports += `export { default as ${componentName} } from './${componentName}.vue';\n`;
                 reactExports += `export { default as ${componentName} } from './${componentName}.lite.tsx';\n`;
             }
-        };
+        }
         if (vueExports) {
             fsPromise.writeFile(`${outputDirectoryPath}vue.ts`, vueExports);
         }
