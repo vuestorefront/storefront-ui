@@ -18,8 +18,8 @@ export const VsfButtonVariants = Object.freeze({
   'destroy-secondary': 'destroy-secondary',
   'destroy-tertiary': 'destroy-tertiary'
 });
-
 type VsfButtonVariantsKeys = keyof typeof VsfButtonVariants;
+
 export interface VsfButtonProps {
   children?: SlotType;
   slotPrefix?: SlotType;
@@ -66,11 +66,11 @@ export default function VsfButton(props: VsfButtonProps) {
             disabled={state.useDisabledProp}
           >
             <Show when={props.slotPrefix}>
-              <div class="pr-[10px]">{props.slotPrefix}</div>
+              <div>{props.slotPrefix}</div>
             </Show>
             {props.children}
             <Show when={props.slotSuffix}>
-              <div class="pl-[10px]">{props.slotSuffix}</div>
+              <div>{props.slotSuffix}</div>
             </Show>
           </button>
         }
@@ -81,11 +81,11 @@ export default function VsfButton(props: VsfButtonProps) {
           className={state.buttonClasses}
         >
           <Show when={props.slotPrefix}>
-            <div class="pr-[10px]">{props.slotPrefix}</div>
+            <div>{props.slotPrefix}</div>
           </Show>
           {props.children}
           <Show when={props.slotSuffix}>
-            <div class="pl-[10px]">{props.slotSuffix}</div>
+            <div>{props.slotSuffix}</div>
           </Show>
         </a>
       </Show>

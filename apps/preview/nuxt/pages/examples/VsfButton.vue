@@ -3,14 +3,14 @@
     <div class="e-page-component">
       <VsfButton :size="sizeModel" :variant="variantModel" :link="linkModel" :disabled="disabledModel">
         <template #prefix v-if="leftIconModel">
-          <VsfIconVsfDiamond />
+          <VsfIconVsfDiamond class="pr-2.5" />
         </template>
         <template #default v-if="iconModel">
           <VsfIconVsfDiamond />
         </template>
         {{ childrenModel }}
         <template #suffix v-if="rightIconModel">
-          <VsfIconVsfDiamond />
+          <VsfIconVsfDiamond class="pl-2.5" />
         </template>
       </VsfButton>
     </div>
