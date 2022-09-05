@@ -15,29 +15,31 @@ module.exports = {
   options: {
     vue3: {
       cssNamespace: getSeededId,
-      transpiler: { format: 'esm', languages: ['ts'] },
+      typescript: true,
+      transpiler: { format: 'esm' },
       plugins: [
         ifPlugin({ type: ['vue', 'vue3'] }),
         vueComputedProxy({ type: ['vue', 'vue3'] }),
         removeVueAttrs({ type: ['vue', 'vue3'] })
       ],
     },
-    vue2: {
-      cssNamespace: getSeededId,
-      transpiler: { format: 'esm', languages: ['ts'] },
-      plugins: [
-        ifPlugin({ type: ['vue', 'vue2'] }),
-        vueComputedProxy({ type: ['vue', 'vue2'] }),
-        removeVueAttrs({ type: ['vue', 'vue2'] })
-      ],
-    },
+    // vue2: {
+    //   cssNamespace: getSeededId,
+    //   typescript: true,
+    //   transpiler: { format: 'esm' },
+    //   plugins: [
+    //     ifPlugin({ type: ['vue', 'vue2'] }),
+    //     vueComputedProxy({ type: ['vue', 'vue2'] }),
+    //     removeVueAttrs({ type: ['vue', 'vue2'] })
+    //   ],
+    // },
     react: {
       plugins: [
         ifPlugin({ type: 'react' }),
         vueComputedProxy({ type: 'react' }),
         removeVueAttrs({ type: 'react' })
       ],
-      transpiler: { format: 'esm', languages: ['ts'] },
+      typescript: true,
     },
   },
 }
