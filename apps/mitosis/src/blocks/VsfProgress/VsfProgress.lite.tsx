@@ -56,7 +56,7 @@ export interface VsfProgressProps {
     variant?: VsfProgressVariantsKeys,
     type?: VsfProgressTypesKeys,
 }
-const DEFAULT_VALUES = {
+const DEFAULT_VALUES: Required<VsfProgressProps> = {
     value: 0,
     label: 'Loading',
     variant: VsfProgressVariants.base,
