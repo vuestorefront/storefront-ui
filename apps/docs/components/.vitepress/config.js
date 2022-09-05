@@ -36,6 +36,7 @@ export default {
         collapsible: true,
         collapsed: true,
         items: [
+          { text: 'ChipsFilter', link: '/components/chipsfilter' },
           { text: 'Alert', link: '/components/alert' },
           { text: 'Breadcrumbs', link: '/components/breadcrumbs' },
           { text: 'Checkbox', link: '/components/checkbox' },
