@@ -1,0 +1,6 @@
+.chips-filter__wrapper .chips-filter__thumb {
+  @apply peer-checked:opacity-100 peer-disabled:opacity-20;
+}
+.chips-filter__wrapper .chips-filter__label {
+  @apply peer-disabled:text-opacity-40;
+}
