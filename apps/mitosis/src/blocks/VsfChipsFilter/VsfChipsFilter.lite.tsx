@@ -48,7 +48,7 @@ export default function VsfChipsFilter(props: VsfChipsFilterProps) {
     get thumbClass(): string {
       return classStringFromArray([
         'chips-filter__thumb',
-        'rounded-full overflow-hidden flex opacity-50 ',
+        'rounded-full flex opacity-50 ',
         props.size === VsfChipsFilterVariants.sm ? 'h-5 w-5' : 'h-6 w-6',
       ]);
     },
@@ -69,7 +69,7 @@ export default function VsfChipsFilter(props: VsfChipsFilterProps) {
 
   return (
     <>
-      <label class='chips-filter inline-flex'>
+      <label class='chips-filter inline-flex rounded-full '>
         <input
           v-model="vueProxyValue"
           type={state.useTypeProp}
