@@ -90,8 +90,8 @@ export default function Index() {
           variant={state.get.variantModel}
           disabled={state.get.disabledModel}
           link={state.get.linkModel}
-          slotPrefix={state.get.leftIconModel && <VsfIconVsfDiamond className="pr-2.5" />}
-          slotSuffix={state.get.rightIconModel && <VsfIconVsfDiamond className="pl-2.5" />}
+          slotPrefix={state.get.leftIconModel && <VsfIconVsfDiamond />}
+          slotSuffix={state.get.rightIconModel && <VsfIconVsfDiamond />}
           children={state.get.iconModel}
         >
           { state.get.iconModel && <VsfIconVsfDiamond /> }

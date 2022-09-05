@@ -66,11 +66,11 @@ export default function VsfButton(props: VsfButtonProps) {
             disabled={state.useDisabledProp}
           >
             <Show when={props.slotPrefix}>
-              <div>{props.slotPrefix}</div>
+              <span className="pr-2.5">{props.slotPrefix}</span>
             </Show>
             {props.children}
             <Show when={props.slotSuffix}>
-              <div>{props.slotSuffix}</div>
+              <span className="pl-2.5">{props.slotSuffix}</span>
             </Show>
           </button>
         }
@@ -81,11 +81,11 @@ export default function VsfButton(props: VsfButtonProps) {
           className={state.buttonClasses}
         >
           <Show when={props.slotPrefix}>
-            <div>{props.slotPrefix}</div>
+            <span className="pr-2.5">{props.slotPrefix}</span>
           </Show>
           {props.children}
           <Show when={props.slotSuffix}>
-            <div>{props.slotSuffix}</div>
+            <span className="pl-2.5">{props.slotSuffix}</span>
           </Show>
         </a>
       </Show>
