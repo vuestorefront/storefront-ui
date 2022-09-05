@@ -7,4 +7,4 @@ after: "sidebar[\\w-\\s\\n,'/\\[\\]\\{\\}:]+Components[\\w:\\[\\s\\n,'/]+items:\
 <%
   DocsName = name.replace('Vsf', '')
 %>
-{ text: <%= DocsName %>, link: '/components/<%= h.changeCase.lower(DocsName) %>' },
+{ text: '<%= DocsName %>', link: '/components/<%= h.changeCase.lower(DocsName) %>' },
