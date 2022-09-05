@@ -1,26 +1,52 @@
 <template>
   <template v-if="link">
-    <a
-      role="button"
-      :href="link"
-      :class="_classStringToObject(this.buttonClasses)"
-    >
-      <slot></slot>
+    <a role="button" :href="link" :class="_classStringToObject(buttonClasses)">
+      <template v-if="$slots.prefix">
+        <span class="pr-2"><slot name="prefix" /></span>
+      </template>
+
+      <slot />
+
+      <template v-if="$slots.suffix">
+        <span class="pl-2"><slot name="suffix" /></span>
+      </template>
     </a>
   </template>
 
   <template v-else>
     <button
-      :disabled="disabled"
-      :class="_classStringToObject(this.buttonClasses)"
+        :disabled="useDisabledProp"
+        :class="_classStringToObject(buttonClasses)"
     >
-      <slot></slot>
+      <template v-if="$slots.prefix">
+        <span class="pr-2"><slot name="prefix" /></span>
+      </template>
+
+      <slot />
+
+      <template v-if="$slots.suffix">
+        <span class="pl-2"><slot name="suffix" /></span>
+      </template>
     </button>
   </template>
 </template>
-<script>
-import { defineAsyncComponent } from "vue";
 
+<script lang="ts">
+type VsfButtonSizesKeys = keyof typeof VsfButtonSizes;
+type VsfButtonVariantsKeys = keyof typeof VsfButtonVariants;
+export interface VsfButtonProps {
+  children?: SlotType;
+  slotPrefix?: SlotType;
+  slotSuffix?: SlotType;
+  link?: string;
+  size?: VsfButtonSizesKeys;
+  variant?: VsfButtonVariantsKeys;
+  disabled?: boolean;
+}
+
+import { classStringFromArray } from "@sfui/mitosis/src/functions/domUtils";
+import { SlotType } from "@sfui/mitosis/src/functions/types";
+import { validator } from "@sfui/mitosis/src/functions/propUtils";
 export const VsfButtonSizes = Object.freeze({
   sm: "sm",
   base: "base",
@@ -34,8 +60,11 @@ export const VsfButtonVariants = Object.freeze({
   "destroy-secondary": "destroy-secondary",
   "destroy-tertiary": "destroy-tertiary",
 });
-const DEFAULT_VALUES = {
+const DEFAULT_VALUES: Required<VsfButtonProps> = {
   children: "Button",
+  slotPrefix: "",
+  slotSuffix: "",
+  link: "",
   variant: VsfButtonVariants.primary,
   size: VsfButtonSizes.base,
   disabled: false,
@@ -44,47 +73,54 @@ const DEFAULT_VALUES = {
 export default {
   name: "vsf-button",
 
-  props: ["disabled", "size", "variant", "link"],
+  props: ["disabled", "size", "variant", "slotPrefix", "slotSuffix", "link"],
 
   computed: {
-    useDisabled() {
-      return this.disabled || DEFAULT_VALUES.disabled;
+    defaults() {
+      return DEFAULT_VALUES;
     },
-    buttonSize() {
-      switch (this.size) {
-        case VsfButtonSizes.sm:
-          return "leading-5 px-3 py-[6px] text-sm";
-
-        case VsfButtonSizes.lg:
-          return "px-6 py-3";
-
-        default:
-          return "px-4 py-2";
-      }
+    useDisabledProp() {
+      return this.disabled || this.defaults.disabled;
     },
-    buttonVariants() {
-      switch (this.variant) {
-        case VsfButtonVariants.secondary:
-          return "font-medium uppercase bg-white border border-gray-200 hover:border-primary-300 active:border-primary-400 disabled:border-0 hover:bg-green-100 active:bg-green-200 disabled:bg-gray-200 text-primary-500 hover:text-primary-600 active:text-primary-700 disabled:text-gray-500 disabled:opacity-50 shadow-base hover:shadow-medium disabled:shadow-none";
-
-        case VsfButtonVariants.tertiary:
-          return "font-normal bg-transparent text-primary-500 hover:bg-green-100 active:bg-green-200 disabled:bg-transparent hover:text-primary-600 active:text-primary-700 disabled:text-gray-500 disabled:opacity-50";
-
-        case VsfButtonVariants["destroy-primary"]:
-          return "text-base font-medium text-white uppercase bg-rose-600 hover:bg-rose-700 active:bg-rose-800 disabled:bg-gray-200 disabled:text-gray-500 disabled:opacity-50 shadow-base hover:shadow-medium disabled:shadow-none";
-
-        case VsfButtonVariants["destroy-secondary"]:
-          return "text-base font-medium uppercase bg-white border border-rose-400 disabled:border-0 hover:bg-rose-100 active:bg-rose-200 disabled:bg-gray-200 text-rose-600 hover:text-rose-600 active:text-rose-700 disabled:text-gray-500 disabled:opacity-50 shadow-base hover:shadow-medium disabled:shadow-none";
-
-        case VsfButtonVariants["destroy-tertiary"]:
-          return "text-base font-medium bg-transparent hover:bg-rose-100 active:bg-rose-200 disabled:bg-transparent text-rose-600 hover:text-rose-700 active:text-rose-800 disabled:text-gray-500 disabled:opacity-50";
-
-        default:
-          return "font-medium text-white uppercase bg-primary-500 hover:bg-primary-600 active:bg-primary-700 disabled:bg-gray-200 disabled:text-gray-500 disabled:opacity-50 shadow-base hover:shadow-medium disabled:shadow-none;";
-      }
+    useSizeProp() {
+      return validator(
+          Object.keys(VsfButtonSizes),
+          this.size,
+          this.defaults.size
+      );
+    },
+    useVariantProp() {
+      return validator(
+          Object.keys(VsfButtonVariants),
+          this.variant,
+          this.defaults.variant
+      );
     },
     buttonClasses() {
-      return `inline-flex items-center justify-center border rounded-md cursor-pointer font-body disabled:cursor-not-allowed outline-violet ${this.buttonVariants} ${this.buttonSize}`;
+      return classStringFromArray([
+        "inline-flex items-center justify-center border rounded-md cursor-pointer font-body disabled:cursor-not-allowed outline-violet disabled:text-gray-500 disabled:opacity-50",
+        this.useSizeProp === VsfButtonSizes.sm
+            ? "leading-5 px-3 py-[6px] text-sm"
+            : this.useSizeProp === VsfButtonSizes.base
+                ? "px-4 py-2"
+                : "px-6 py-3",
+        this.useVariantProp === VsfButtonVariants.tertiary ||
+        this.useVariantProp === VsfButtonVariants["destroy-tertiary"]
+            ? "font-normal bg-transparent disabled:bg-transparent"
+            : "font-medium uppercase shadow-base disabled:bg-gray-200 disabled:shadow-none",
+        this.useVariantProp === VsfButtonVariants.primary &&
+        "bg-primary-500 text-white hover:bg-primary-600 hover:shadow-medium active:bg-primary-700",
+        this.useVariantProp === VsfButtonVariants.secondary &&
+        "bg-white border border-gray-200 text-primary-500 hover:border-primary-300 hover:bg-green-100 hover:text-primary-600 hover:shadow-medium active:border-primary-400 active:bg-green-200 active:text-primary-700 ",
+        this.useVariantProp === VsfButtonVariants.tertiary &&
+        "bg-transparent text-primary-500 hover:bg-green-100 hover:text-primary-600 active:text-primary-700 active:bg-green-200",
+        this.useVariantProp === VsfButtonVariants["destroy-primary"] &&
+        "text-base text-white bg-rose-600 hover:bg-rose-700 active:bg-rose-800 hover:shadow-medium",
+        this.useVariantProp === VsfButtonVariants["destroy-secondary"] &&
+        "text-base text-rose-600 bg-white border border-rose-400 disabled:border-0 hover:bg-rose-100 active:bg-rose-200 hover:text-rose-600 active:text-rose-700 hover:shadow-medium",
+        this.useVariantProp === VsfButtonVariants["destroy-tertiary"] &&
+        "text-base text-rose-600 hover:bg-rose-100 hover:text-rose-700 active:bg-rose-200 active:text-rose-800",
+      ]);
     },
   },
 
