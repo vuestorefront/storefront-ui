@@ -22,7 +22,8 @@
     "createMitosisIcons": "yarn node createIcons input=apps/mitosis/assets/ output=apps/mitosis/src/blocks/VsfIcons/",
     "createVueIcons": "yarn node createIcons framework=vue input=apps/mitosis/assets/ output=apps/preview/nuxt/components/VsfIcons/ relativePathToIconBase=../../output/blocks/",
     "createReactIcons": "yarn node createIcons framework=react input=apps/mitosis/assets/ output=apps/preview/remix/app/components/VsfIcons/ relativePathToIconBase=../../output/blocks/",
-    "hygen": "./node_modules/.bin/hygen"
+    "hygen": "./node_modules/.bin/hygen",
+    "component": "yarn hygen component"
   },
   "devDependencies": {
     "@commitlint/cli": "^13.2.1",

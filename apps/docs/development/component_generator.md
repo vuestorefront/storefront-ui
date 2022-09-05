@@ -4,10 +4,10 @@ run command from project root:
 
 ```console
 // create new component
-foo@bar:~$ yarn hygen component new --name <VsfComponentName> [--variants]
+foo@bar:~$ yarn component new --name <VsfComponentName> [--variants]
 
 // command help - output not formatted correctly due to `hygen` issue
-foo@bar:~$ yarn hygen component help 
+foo@bar:~$ yarn component help 
 ```
 `--variants` flag generates optional object of TS types in component
 
