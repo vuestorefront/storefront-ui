@@ -36,12 +36,12 @@ export default {
         collapsible: true,
         collapsed: true,
         items: [
-          { text: 'ChipsFilter', link: '/components/chipsfilter' },
           { text: 'Alert', link: '/components/alert' },
           { text: 'Breadcrumbs', link: '/components/breadcrumbs' },
-          { text: 'Checkbox', link: '/components/checkbox' },
-          { text: 'ChipsInput', link: '/components/chipsinput' },
           { text: 'Button', link: '/components/button' },
+          { text: 'Checkbox', link: '/components/checkbox' },
+          { text: 'ChipsFilter', link: '/components/chipsfilter' },
+          { text: 'ChipsInput', link: '/components/chipsinput' },
           { text: 'Divider', link: '/components/divider' },
           { text: 'Icon', link: '/components/icon' },
           { text: 'IconBase', link: '/components/iconBase' },
@@ -56,7 +56,7 @@ export default {
           { text: 'Select', link: '/components/select' },
           { text: 'Sheet', link: '/components/sheet' },
           { text: 'Spinner', link: '/components/spinner' },
-        ]
+        ].sort((a, b) => a.text.localeCompare(b.text)),
       },
       {
         text: 'Changelog',
