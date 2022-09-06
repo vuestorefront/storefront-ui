@@ -2,7 +2,7 @@ name: Deploy Test Nuxt
 on:
   push:
     branches:
-      - main
+      - CLOUD-1263
 
 jobs:
   build:
