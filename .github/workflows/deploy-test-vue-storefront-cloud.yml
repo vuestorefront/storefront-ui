@@ -1,4 +1,4 @@
-name: Deploy Test env
+name: Deploy Test Nuxt
 on:
   push:
     branches:

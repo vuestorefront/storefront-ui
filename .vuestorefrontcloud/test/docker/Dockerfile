@@ -4,9 +4,9 @@ WORKDIR /var/www
 
 COPY . .
 
-RUN  yarn \ && yarn dev
+RUN  yarn install \
+  && yarn build
 
-FROM nginx
+WORKDIR /var/www/apps/preview/nuxt
 
-COPY .vuestorefrontcloud/test/docker/default.conf /etc/nginx/conf.d/default.conf
-COPY --from=build var/www/boilerplates/nuxt/storybook-static /usr/share/nginx/html
+CMD ["yarn", "serve"]
