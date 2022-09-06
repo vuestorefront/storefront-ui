@@ -32,7 +32,7 @@ export interface VsfFooterProps {
   bottomLinks: VsfLinkType[]; 
 }
 
-const DEFAULT_VALUES = {
+const DEFAULT_VALUES: Required<VsfFooterProps> = {
   categories: [],
   socialMedia: [],
   companyName: '',
