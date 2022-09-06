@@ -8,4 +8,4 @@ append: true
 <%
   DocsName = name.replace('Vsf', '')
 %>
-app.component('<%= DocsName %>', <%= name %>),
+app.component('<%= DocsName %>', <%= name %>);
