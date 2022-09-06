@@ -32,7 +32,7 @@ export interface VsfFooterProps {
   bottomLinks: VsfLinkType[]; 
 }
 
-const DEFAULT_VALUES = {
+const DEFAULT_VALUES: Required<VsfFooterProps>  = {
   categories: [],
   socialMedia: [],
   companyName: '',
@@ -79,7 +79,7 @@ return (
               </div>}
           </For>
         </div>
-        <div class="py-10 large:flex border-t-[1px] border-gray-200">
+        <div class="py-10 large:flex border-t border-gray-200">
           <For each={state.useVsfContactOptionsProp}>{(element, index) => 
             <div className="mx-auto my-4 text-center" key={`${element.label}-${index}`}>
               <Show when={index === 0}>
