@@ -69,7 +69,7 @@ export default function VsfChipsFilter(props: VsfChipsFilterProps) {
 
   return (
     <>
-      <label class='chips-filter inline-flex rounded-full '>
+      <label class='chips-filter inline-flex rounded-full outline-offset-2 outline-violet-400 focus-within:outline'>
         <input
           v-model="vueProxyValue"
           type={state.useTypeProp}
