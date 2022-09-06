@@ -42,6 +42,7 @@ export default function VsfChipsFilter(props: VsfChipsFilterProps) {
         'peer-checked:ring-2 peer-checked:ring-primary-500 peer-hover:ring-primary-500 peer-active:ring-primary-500',
         'peer-hover:bg-primary-100 peer-active:bg-primary-200',
         'peer-disabled:cursor-not-allowed peer-disabled:bg-gray-100/50 peer-disabled:ring-1 peer-disabled:ring-gray-200/50',
+        'outline-offset-2 outline-violet-400 peer-focus:outline',
         state.sizeClass,
       ]);
     },
@@ -69,11 +70,11 @@ export default function VsfChipsFilter(props: VsfChipsFilterProps) {
 
   return (
     <>
-      <label class='chips-filter inline-flex rounded-full outline-offset-2 outline-violet-400 focus-within:outline'>
+      <label class='chips-filter inline-flex rounded-full relative'>
         <input
           v-model="vueProxyValue"
           type={state.useTypeProp}
-          class="hidden peer"
+          class="peer appearance-none outline-none absolute"
           disabled={props.disabled}
           onChange={(e) => state.onChangeHandler(e)}
           value={props.value}
