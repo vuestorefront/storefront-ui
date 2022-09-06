@@ -2,17 +2,30 @@
   "$schema": "https://turborepo.org/schema.json",
   "pipeline": {
     "@sfui/types#build": {
-      "outputs": ["lib/**"]
+      "outputs": [
+        "lib/**"
+      ]
     },
     "@sfui/preview-nuxt#build": {
-      "dependsOn": ["@sfui/types#build", "@sfui/mitosis#build"]
+      "dependsOn": [
+        "@sfui/types#build",
+        "@sfui/mitosis#build"
+      ]
     },
     "@sfui/preview-remix#build": {
-      "dependsOn": ["@sfui/types#build", "@sfui/mitosis#build"]
+      "dependsOn": [
+        "@sfui/types#build",
+        "@sfui/mitosis#build"
+      ]
     },
     "build": {
-      "dependsOn": ["^build"],
-      "outputs": ["dist/**"]
+      "cache": false,
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        "dist/**"
+      ]
     },
     "lint": {
       "outputs": []

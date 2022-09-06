@@ -41,6 +41,7 @@ export default {
           { text: 'Breadcrumbs', link: '/components/breadcrumbs' },
           { text: 'Checkbox', link: '/components/checkbox' },
           { text: 'ChipsInput', link: '/components/chipsinput' },
+          { text: 'Button', link: '/components/button' },
           { text: 'Divider', link: '/components/divider' },
           { text: 'Icon', link: '/components/icon' },
           { text: 'IconBase', link: '/components/iconBase' },

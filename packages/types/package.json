@@ -6,6 +6,9 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon",
-    "build": "nodemon"
+    "build": "eval $(dot-json ./nodemon.json exec)"
+  },
+  "devDependencies": {
+    "dot-json": "^1.2.2"
   }
 }
