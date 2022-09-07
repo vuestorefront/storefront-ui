@@ -5,12 +5,13 @@
         :size="variantModel"
         :disabled="disabledModel"
         :label="labelModel"
-        :thumbColor="thumbColorModel"
         :type="typeModel"
-        :noThumb="noThumbModel"
         v-model="modelValue"
         value="one"
       >
+        <template #thumb v-if="!noThumbModel">
+          <VsfIconDot class="vsf-icon-full" />
+        </template>
       </VsfChipsFilter>
     </div>
     <div class="e-page-controls">
@@ -36,6 +37,12 @@ export default {
     return {
       ...prepareControls(
         [
+          {
+            title: 'Label',
+            type: 'text',
+            modelName: 'labelModel',
+            propType: 'string',
+          },
           {
             title: 'Variant',
             type: 'select',
@@ -63,33 +70,7 @@ export default {
             type: 'boolean',
             modelName: 'noThumbModel',
             propType: 'boolean',
-          },
-          {
-            title: 'Label',
-            type: 'text',
-            modelName: 'labelModel',
-            propType: 'string',
-          },
-          {
-            title: 'Thumb Color',
-            type: 'select',
-            modelName: 'thumbColorModel',
-            options: [
-              {
-                label: 'default',
-                value: 'black',
-              },
-              {
-                label: 'red',
-                value: 'red',
-              },
-              {
-                label: 'gradient',
-                value: 'linear-gradient(90deg, rgba(0,36,0,1) 0%, rgba(9,121,74,1) 47%, rgba(0,212,255,1) 100%)',
-              },
-            ],
-            propType: '---',
-            description: 'Only for demonstration purpose',
+            description: 'Only for demonstration purposes',
           },
         ],
         {
@@ -97,8 +78,7 @@ export default {
           disabledModel: ref(),
           labelModel: ref('Label'),
           typeModel: ref(''),
-          thumbColorModel: ref(''),
-          noThumbModel: ref(''),
+          noThumbModel: ref(false),
           modelValue: ref(),
         },
       ),
