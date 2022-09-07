@@ -18,10 +18,6 @@ export interface VsfChipsInputProps {
   handleChipClose?: (e?: Event) => void;
 }
 
-const DEFAULT_VALUES = {
-  size: VsfChipsInputVariants.base,
-};
-
 // TODO: refactor, no important, no borders, icon changed so spacings as well
 export default function VsfChipsInput(props: VsfChipsInputProps) {
   const state = useStore({

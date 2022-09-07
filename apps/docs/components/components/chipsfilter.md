@@ -16,9 +16,7 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 | type                  | String                     | checkbox      | checkbox, radio                        |
 | label                 | String                     |               |                         |
 | disabled              | Boolean                    |               |                         |
-| noThumb               | Boolean                    |               |                         |
 | value                 | Any                        |               |                         |
-| thumbColor            | String                     | #000          |                         |
 
 
 ## Slots
