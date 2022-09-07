@@ -1,8 +1,12 @@
 .chip {
   @apply relative inline-flex items-center ring-1 ring-gray-200 ring-inset rounded-full cursor-pointer bg-white
 }
+.chip.chip--primary {
+  /* react does not respect classNames order */
+  @apply ring-2 ring-primary-500
+}
 .chip.chip--disabled {
-  @apply cursor-not-allowed bg-gray-100/50 ring-1 ring-gray-200/50
+  @apply cursor-not-allowed bg-gray-100/50 !ring-1 !ring-gray-200/50
 }
 .chip.chip--disabled .chip__content {
   @apply text-opacity-40;
