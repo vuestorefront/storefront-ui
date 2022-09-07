@@ -116,18 +116,16 @@ export default function VsfGallery(props: VsfGalleryProps) {
               {(image, index) => (
                 <div
                   key={index}
-                  class={classStringFromArray([
-                    'gallery__image snap-center snap-always basis-full shrink-0 grow',
-                    state.activeIndex === index ? 'is-active_' : '',
-                    props.contain ? 'object-contain' : 'object-cover',
-                  ])}
+                  class="gallery__image snap-center snap-always basis-full shrink-0 grow"
                 >
                   <img
                     draggable={false}
                     src={image}
                     alt=""
-                    class="gallery__image__img w-full h-full"
-                    css={{ objectFit: 'inherit' }}
+                    class={classStringFromArray([
+                      'gallery__image__img w-full h-full',
+                      props.contain ? 'object-contain' : 'object-cover',
+                    ])}
                   />
                 </div>
               )}
