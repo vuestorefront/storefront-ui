@@ -28,11 +28,11 @@ export default function VsfChipsFilter(props: VsfChipsFilterProps) {
     get sizeClass() {
       switch (props.size) {
         case VsfChipsFilterVariants.sm:
-          return 'text-sm h-7 p-1';
+          return 'text-sm h-7 pl-1 pr-1.5';
         case VsfChipsFilterVariants.lg:
-          return 'text-base h-10 p-2 gap-0.5';
+          return 'text-base h-10 pl-2 pr-2.5 gap-0.5';
         default:
-          return 'text-sm h-8 p-1';
+          return 'text-sm h-8 pl-1 pr-1.5';
       }
     },
     get wrapperClass(): string {
@@ -49,7 +49,7 @@ export default function VsfChipsFilter(props: VsfChipsFilterProps) {
     get thumbClass(): string {
       return classStringFromArray([
         'chips-filter__thumb',
-        'rounded-full flex opacity-50 ',
+        'rounded-full flex opacity-50 -mr-0.5',
         props.size === VsfChipsFilterVariants.sm ? 'h-5 w-5' : 'h-6 w-6',
       ]);
     },
@@ -96,7 +96,7 @@ export default function VsfChipsFilter(props: VsfChipsFilterProps) {
             </div>
           </Show>
           <Show when={props.label}>
-            <span class="chips-filter__label font-normal ml-1.5 mr-2 first-of-type:mx-2 text-gray-900">
+            <span class="chips-filter__label font-normal mr-2 ml-1.5 relative left-0.5 text-gray-900">
               {props.label}
             </span>
           </Show>
