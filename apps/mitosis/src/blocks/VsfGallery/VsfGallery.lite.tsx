@@ -1,4 +1,4 @@
-import { useStore, For, Show, useState, onMount, onUnMount, useRef } from '@builder.io/mitosis';
+import { useStore, For, Show, onMount, onUnMount, useRef, onUpdate } from '@builder.io/mitosis';
 import { classStringFromArray, clamp, lerp } from '../../functions/domUtils';
 
 export interface GalleryImageType {
@@ -43,30 +43,26 @@ export default function VsfGallery(props: VsfGalleryProps) {
 
     offsetPosition: 0,
     activeIndex: 0,
-    get imgPosition(): number {
-      return state.activeIndex + state.offsetPosition;
-    },
-    moveHandler(startPosition: number, ev: PointerEvent) {
-      if (!draggableRef) return;
-      const rect = draggableRef.getBoundingClientRect();
-      state.offsetPosition = lerp(state.offsetPosition, (startPosition - ev.offsetX) / rect.width, 0.04);
-    },
+    imgPosition: 0,
+    isDragging: false,
+
     pointerHandler(e: PointerEvent) {
       if (!draggableRef) return;
       draggableRef.setPointerCapture(e.pointerId);
-      const pointerEventMethod = (event: PointerEvent) => state.moveHandler(e.offsetX, event);
+      state.isDragging = true;
+
+      const rect = draggableRef.getBoundingClientRect();
+      const pointerEventMethod = (event: PointerEvent) => {
+        state.offsetPosition = lerp(state.offsetPosition, (e.offsetX - event.offsetX) / rect.width, 0.04);
+      };
+      
       draggableRef.addEventListener('pointermove', pointerEventMethod);
 
       draggableRef.addEventListener(
         'pointerup',
         () => {
+          state.isDragging = false;
           draggableRef.removeEventListener('pointermove', pointerEventMethod);
-          // calculate prev/next index depending on current move position
-          const stopVal = state.offsetPosition > 0 ? Math.ceil(state.imgPosition) : Math.floor(state.imgPosition);
-          // clamp value
-          state.activeIndex = clamp(stopVal, 0, state.allImages.length - 1);
-          // reset move offset value
-          state.offsetPosition = 0;
         },
         { once: true },
       );
@@ -76,9 +72,25 @@ export default function VsfGallery(props: VsfGalleryProps) {
   onMount(() => {
     draggableRef?.addEventListener('pointerdown', state.pointerHandler);
   });
+
   onUnMount(() => {
-    draggableRef?.removeEventListener('pointermove', state.pointerHandler);
+    draggableRef?.removeEventListener('pointerdown', state.pointerHandler);
   });
+
+  onUpdate(() => {
+    if (!state.isDragging) {
+      // calculate prev/next index depending on current move position
+      const stopVal = state.offsetPosition > 0 ? Math.ceil(state.imgPosition) : Math.floor(state.imgPosition);
+      // clamp value
+      state.activeIndex = clamp(stopVal, 0, state.allImages.length - 1);
+      // reset move offset value
+      state.offsetPosition = 0;
+    }
+  }, [state.isDragging]);
+
+  onUpdate(() => {
+    state.imgPosition = state.activeIndex + state.offsetPosition;
+  }, [state.activeIndex, state.offsetPosition]);
 
   return (
     <>
@@ -103,6 +115,7 @@ export default function VsfGallery(props: VsfGalleryProps) {
             <For each={state.allImages}>
               {(image, index) => (
                 <div
+                  key={index}
                   class={classStringFromArray([
                     'gallery__image snap-center snap-always basis-full shrink-0 grow',
                     state.activeIndex === index ? 'is-active_' : '',
@@ -129,6 +142,7 @@ export default function VsfGallery(props: VsfGalleryProps) {
                 <For each={state.allThumbnails}>
                   {(thumbnail, index) => (
                     <button
+                      key={index}
                       class={classStringFromArray([
                         'gallery__thumbnail shrink-0 pb-1 border-b-4 snap-start cursor-pointer',
                         state.activeIndex === index ? 'border-primary-500' : 'border-transparent',
@@ -146,6 +160,7 @@ export default function VsfGallery(props: VsfGalleryProps) {
               <For each={state.allThumbnails}>
                 {(_, index) => (
                   <button
+                    key={index}
                     class={classStringFromArray([
                       'flex-grow h-1 cursor-pointer',
                       state.activeIndex === index ? 'bg-primary-500' : 'bg-gray-200',
