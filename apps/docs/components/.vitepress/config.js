@@ -55,6 +55,7 @@ export default {
           { text: 'Select', link: '/components/select' },
           { text: 'Sheet', link: '/components/sheet' },
           { text: 'Spinner', link: '/components/spinner' },
+          { text: 'Footer', link: '/components/footer' },
         ]
       },
       {
