@@ -108,7 +108,7 @@ export default function VsfProductCardVertical(props: VsfProductCardVerticalProp
     get useAddToCartLabelProp() {
       return props.addToCartLabel || DEFAULT_VALUES.addToCartLabel
     },
-    get useWishlistLabelProp() {
+    get useSeeSimilarLabelProp() {
       return props.seeSimilarLabel || DEFAULT_VALUES.seeSimilarLabel
     },
     get imageDimensions() {
@@ -314,15 +314,17 @@ export default function VsfProductCardVertical(props: VsfProductCardVerticalProp
         </div>
         <Show when={state.useWithButtonProp}>
           <Show when={!state.useOutOfStockProp} else={
+            // TODO: replace button tag with VsfButton
             <button
-              className='flex items-center mt-4 text-white bg-primary-600'
+              className='inline-flex items-center justify-center rounded-md cursor-pointer font-body disabled:cursor-not-allowed outline-violet disabled:text-gray-500 disabled:opacity-50 leading-5 px-3 py-[6px] text-sm bg-white border border-gray-200 text-primary-500 hover:border-primary-300 hover:bg-green-100 hover:text-primary-600 hover:shadow-medium active:border-primary-400 active:bg-green-200 active:text-primary-700 '
               onClick={(event) => state.seeSimilar(event)}
             >
-              {state.useWishlistLabelProp}
+              {state.useSeeSimilarLabelProp}
             </button>
           }>
+            {/* TODO: replace button tag with VsfButton */}
             <button
-              className='flex items-center text-white bg-primary-600'
+              className='inline-flex items-center justify-center border rounded-md cursor-pointer font-body disabled:cursor-not-allowed outline-violet disabled:text-gray-500 disabled:opacity-50 leading-5 px-3 py-[6px] text-sm bg-primary-500 text-white hover:bg-primary-600 hover:shadow-medium active:bg-primary-700'
               onClick={(event) => state.addToCart(event)}
             >
               <VsfIconBasket 
