@@ -65,16 +65,6 @@ export default function VsfRating(props: VsfRatingProps) {
     get ratingValue() {
       return Math.min(state.useValueProp, state.useMaxProp);
     },
-    get sizeClass() {
-      return {
-        xs: 'h-4 w-4',
-        sm: 'h-5 w-5',
-        base: 'h-6 w-6',
-        lg: 'h-10 w-10',
-        xl: 'h-12 w-12',
-        '2xl': 'h-20 w-20',
-      }[state.useSizeProp];
-    },
     get textClass() {
       return {
         xs: 'text-xs',
@@ -101,22 +91,22 @@ export default function VsfRating(props: VsfRatingProps) {
           when={state.isBaseType}
           else={
             <>
-              <VsfIconStar aria-hidden="true" class={`${state.sizeClass} text-warning-500`} />
+              <VsfIconStar aria-hidden="true" size={state.useSizeProp} className="text-warning-500" />
               <span class="mx-1">{state.ratingValue}</span>
             </>
           }
         >
           <For each={[...Array(state.filled)]}>
             {(_, index) => (
-              <VsfIconStar key={index} aria-hidden="true" class={`${state.sizeClass} text-warning-500`} />
+              <VsfIconStar key={index} aria-hidden="true" size={state.useSizeProp} className="text-warning-500" />
             )}
           </For>
           <Show when={state.isPartiallyFilled}>
-            <VsfIconStarPartiallyFilled aria-hidden="true" class={`${state.sizeClass} text-warning-500`} />
+            <VsfIconStarPartiallyFilled aria-hidden="true" size={state.useSizeProp} className="text-warning-500" />
           </Show>
           <For each={[...Array(state.empty)]}>
             {(_, index) => (
-              <VsfIconStarOutline key={index} aria-hidden="true" class={`${state.sizeClass} opacity-50 text-gray-500`} />
+              <VsfIconStarOutline key={index} aria-hidden="true" size={state.useSizeProp} className="text-gray-500 opacity-50" />
             )}
           </For>
         </Show>
