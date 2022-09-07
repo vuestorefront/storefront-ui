@@ -14,26 +14,28 @@ import VsfDivider from '../components/VsfDivider.vue'
 import VsfSheet from '../components/VsfSheet.vue'
 import VsfSpinner from '../components/VsfSpinner.vue'
 import VsfSwitch from '../components/VsfSwitch.vue'
+import VsfGallery from '../components/VsfGallery.vue'
 
 export default {
   ...Theme,
   enhanceApp({ app }) {
-    app.component('PlaygroundWrapper', PlaygroundWrapper),
-    app.component('Alert', VsfAlert),
-    app.component('Breadcrumbs', VsfBreadcrumbs),
-    app.component('Checkbox', VsfCheckbox),
-    app.component('Overlay', VsfOverlay),
-    app.component('Rating', VsfRating),
-    app.component('Tooltip', VsfTooltip),
-    app.component('RatingButton', VsfRatingButton),
-    app.component('Select', VsfSelect),
-    app.component('ChipsInput', VsfChipsInput),
-    app.component('Tooltip', VsfTooltip),
-    app.component('Overlay', VsfOverlay),
-    app.component('Divider', VsfDivider),
-    app.component('Sheet', VsfSheet),
-    app.component('Spinner', VsfSpinner),
-    app.component('Switch', VsfSwitch),
-    app.component('Button', VsfButton)
+    app.component('PlaygroundWrapper', PlaygroundWrapper);
+    app.component('Alert', VsfAlert);
+    app.component('Breadcrumbs', VsfBreadcrumbs);
+    app.component('Checkbox', VsfCheckbox);
+    app.component('Overlay', VsfOverlay);
+    app.component('Rating', VsfRating);
+    app.component('Tooltip', VsfTooltip);
+    app.component('RatingButton', VsfRatingButton);
+    app.component('Select', VsfSelect);
+    app.component('ChipsInput', VsfChipsInput);
+    app.component('Tooltip', VsfTooltip);
+    app.component('Overlay', VsfOverlay);
+    app.component('Divider', VsfDivider);
+    app.component('Sheet', VsfSheet);
+    app.component('Spinner', VsfSpinner);
+    app.component('Switch', VsfSwitch);
+    app.component('Button', VsfButton);
+    app.component('Gallery', VsfGallery);
   }
 }
