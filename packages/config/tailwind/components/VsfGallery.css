@@ -39,17 +39,3 @@
 .gallery.gallery--thumbs-bottom .gallery__thumbnail {
   @apply h-16 w-auto;
 }
-
-
-/* .gallery__image { 
-  transform: translateX(-100%);
-}
-
-.gallery__image.is-active ~ .gallery__image  {
-  transform: translateX(100%);
-}
-
-.gallery__image.is-active {
-  opacity: 1;
-  transform: translateX(0%);
-} */
