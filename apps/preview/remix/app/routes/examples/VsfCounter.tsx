@@ -5,6 +5,12 @@ export default function VsfCounterExample() {
   const { state, controls } = prepareControls(
     [
       {
+        title: 'Value',
+        type: 'text',
+        modelName: 'valueModel',
+        propType: 'string',
+      },
+      {
         title: 'Variant',
         type: 'select',
         modelName: 'variantModel',
@@ -28,6 +34,7 @@ export default function VsfCounterExample() {
       },
     ],
     {
+      valueModel: '123',
       variantModel: '',
       pillModel: false,
       fillModel: 'bg-white',
@@ -38,7 +45,7 @@ export default function VsfCounterExample() {
     <div className="e-page">
       <div className="e-page-component">
         <VsfCounter size={state.get.variantModel} pill={state.get.pillModel} className={state.get.fillModel}>
-          123
+          {state.get.valueModel}
         </VsfCounter>
       </div>
       <div className="e-page-controls">

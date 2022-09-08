@@ -1,7 +1,7 @@
 <template>
   <div class="e-page">
     <div class="e-page-component">
-      <VsfCounter :size="variantModel" :pill="pillModel" :class="fillModel"> 123 </VsfCounter>
+      <VsfCounter :size="variantModel" :pill="pillModel" :class="fillModel">{{ valueModel }}</VsfCounter>
     </div>
     <div class="e-page-controls">
       <Controls v-bind="controlsAttrs" />
@@ -25,6 +25,12 @@ export default {
       ...prepareControls(
         [
           {
+            title: 'Value',
+            type: 'text',
+            modelName: 'valueModel',
+            propType: 'string',
+          },
+          {
             title: 'Variant',
             type: 'select',
             modelName: 'variantModel',
@@ -42,15 +48,23 @@ export default {
             title: 'Fill color',
             type: 'select',
             modelName: 'fillModel',
-            options: ['bg-white', 'bg-gray-100', 'bg-primary-200', 'bg-primary-200', 'bg-warning-200', 'bg-negative-200'],
+            options: [
+              'bg-white',
+              'bg-gray-100',
+              'bg-primary-200',
+              'bg-primary-200',
+              'bg-warning-200',
+              'bg-negative-200',
+            ],
             propType: '---',
-            description: "Only for demonstration purposes, background is controlled by custom class"
+            description: 'Only for demonstration purposes, background is controlled by custom class',
           },
         ],
         {
+          valueModel: ref('123'),
           variantModel: ref(VsfCounterVariants.base),
           pillModel: ref(false),
-          fillModel: ref('bg-white')
+          fillModel: ref('bg-white'),
         },
       ),
     };
