@@ -1,9 +1,9 @@
 <template>
   <div class="e-page">
     <div class="e-page-component">
-      <VsfChipsInput :value="valueModel" :size="sizeModel" :disabled="disabledModel" @close="handleChipClose">
+      <VsfChipsInput :label="labelModel" :size="sizeModel" :disabled="disabledModel" @close="handleChipClose">
         <template #prefix>
-          <VsfIconDot class="vsf-icon-full"/>
+          <VsfIconDot class="vsf-icon-full text-gray-500"/>
         </template>
       </VsfChipsInput>
     </div>
@@ -30,9 +30,9 @@ export default defineComponent({
     return prepareControls(
       [
         {
-          title: 'Value',
+          title: 'Label',
           type: 'text',
-          modelName: 'valueModel',
+          modelName: 'labelModel',
           propDefaultValue: '',
           propType: 'string',
         },
@@ -41,20 +41,20 @@ export default defineComponent({
           type: 'select',
           modelName: 'sizeModel',
           options: Object.keys(VsfChipsInputVariants),
-          propDefaultValue: VsfChipsInputVariants.medium,
+          propDefaultValue: VsfChipsInputVariants.base,
           propType: 'VsfChipsInputVariants',
         },
         {
           title: 'Disabled',
-          type: 'checkbox',
+          type: 'boolean',
           modelName: 'disabledModel',
           propDefaultValue: 'false',
           propType: 'boolean',
         },
       ],
       {
-        sizeModel: ref(),
-        valueModel: ref('Label'),
+        sizeModel: ref(VsfChipsInputVariants.base),
+        labelModel: ref('Label'),
         disabledModel: ref(),
         handleChipClose() {
           console.log('VsfChipsInput Clicked');
