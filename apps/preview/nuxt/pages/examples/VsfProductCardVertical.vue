@@ -34,7 +34,7 @@
 import { defineComponent } from "vue";
 import VsfProductCardVertical, { VsfProductCardVerticalSizes } from '../../output/blocks/VsfProductCardVertical/VsfProductCardVertical.vue'
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
-import img from '../../assets/images/product-card.webp';
+import productImage from '../../assets/images/product-card.webp';
 
 export default defineComponent({
   name: 'VsfProductCardVerticalExample',
@@ -137,7 +137,7 @@ export default defineComponent({
       },
     ],
       {
-        imageModel: img,
+        imageModel: productImage,
         altModel: ref('Product image'),
         labelModel: ref('The standard chunk of Lorem Ipsum'),
         priceModel: ref('$2,345.99'),

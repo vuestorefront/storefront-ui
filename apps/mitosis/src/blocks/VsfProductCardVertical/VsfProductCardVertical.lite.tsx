@@ -44,7 +44,7 @@ const DEFAULT_VALUES = {
   link: '/',
   ratingValue: 0,
   maxRatingValue: 0,
-  reviews: 0,
+  reviews: -1,
   label: '',
   price: '',
   oldPrice: '',
@@ -163,19 +163,19 @@ export default function VsfProductCardVertical(props: VsfProductCardVerticalProp
     },
     addToCart(event: Event) {
       /* IF-vue */
-      state.$emit('close', event);
+      state.$emit('addToCart', event);
       /* ENDIF-vue */
       props.handleAddToCart && props.handleAddToCart(event);
     },
     addToWishlist(event: Event) {
       /* IF-vue */
-      state.$emit('close', event);
+      state.$emit('addToWishlist', event);
       /* ENDIF-vue */
       props.handleAddToWishlist && props.handleAddToWishlist(event);
     },
     seeSimilar(event: Event) {
       /* IF-vue */
-      state.$emit('close', event);
+      state.$emit('seeSimilar', event);
       /* ENDIF-vue */
       props.handleSeeSimilar && props.handleSeeSimilar(event);
     },
@@ -210,7 +210,7 @@ export default function VsfProductCardVertical(props: VsfProductCardVerticalProp
             </VsfTag>
           </div>
           <div
-            className="absolute bottom-0 left-0 right-0 flex items-center m-2"
+            className="absolute bottom-0 left-0 right-0 flex items-end m-2"
           >
             <Show when={state.useOutOfStockProp || state.useInCartProp > 0}>
               <VsfTag
@@ -227,6 +227,7 @@ export default function VsfProductCardVertical(props: VsfProductCardVerticalProp
             </Show>
             <button
               class="right-0 ml-auto bg-white border border-gray-200 rounded-full px-1 pb-1 pt-0 group hover:bg-primary-100 hover:border-primary-300 active:border-primary-400 active:bg-primary-200"
+              aria-label={`Add ${state.useLabelProp} to wishlist`}
               onClick={(event) => state.addToWishlist(event)}
             >
               <VsfIconFavoritesOutline 
@@ -237,11 +238,11 @@ export default function VsfProductCardVertical(props: VsfProductCardVerticalProp
           </div>
         </div>
         <div
-          className={`${state.useWithButtonProp ? state.detailsPadding : 'mb-2'} border-gray-200 border-t-[1px] flex flex-col`}
+          className={`${state.useWithButtonProp ? state.detailsPadding : ''} border-gray-200 border-t flex flex-col`}
         >
           <a
             href={state.useLinkProp}
-            className={`${state.labelClasses}`}
+            className={`${state.labelClasses} pb-1`}
           >
             {state.useLabelProp}
           </a>
@@ -271,13 +272,13 @@ export default function VsfProductCardVertical(props: VsfProductCardVerticalProp
             when={state.useDescriptionProp && state.useSizeProp === 'base' || state.useSizeProp === 'lg'} 
           >
             <Show when={!state.useWithButtonProp} else={
-              <span className='order-3 mt-2 text-sm font-normal leading-5 text-gray-700 font-body'>
+              <span className={`${state.useSizeProp === 'base' ? 'text-xs' : 'text-sm'} order-3 mt-2 font-normal leading-5 text-gray-700 font-body`}>
                 {state.useDescriptionProp}
               </span>
             }>
               <a 
                 href={state.useLinkProp}
-                className={`${state.useSizeProp === VsfProductCardVerticalSizes.sm || state.useSizeProp === VsfProductCardVerticalSizes.xs ? 'px-2' : 'px-4'} block mt-2 text-sm font-normal leading-5 text-gray-700 font-body`}
+                className={`${state.useSizeProp === VsfProductCardVerticalSizes.sm || state.useSizeProp === VsfProductCardVerticalSizes.xs ? 'px-2' : 'px-4'} block pt-2 text-sm font-normal leading-5 text-gray-700 font-body`}
               >
                 {state.useDescriptionProp}
               </a>
@@ -285,7 +286,7 @@ export default function VsfProductCardVertical(props: VsfProductCardVerticalProp
           </Show>
           <Show when={!state.useWithButtonProp} else={
             <div
-              className={`flex items-baseline order-1`}
+              className={`flex items-baseline order-1 mb-1`}
             >
               <span
                 className={state.priceClasses}
@@ -298,7 +299,7 @@ export default function VsfProductCardVertical(props: VsfProductCardVerticalProp
             </div>
           }>
             <a
-              className={`${state.useSizeProp === VsfProductCardVerticalSizes.sm || state.useSizeProp === VsfProductCardVerticalSizes.xs ? 'px-2' : 'px-4'} flex items-baseline`}
+              className={`${state.useSizeProp === VsfProductCardVerticalSizes.sm || state.useSizeProp === VsfProductCardVerticalSizes.xs ? 'px-2 pt-1 pb-2' : 'px-4 py-4'} flex items-baseline`}
               href={state.useLinkProp}
             >
               <span
@@ -314,17 +315,17 @@ export default function VsfProductCardVertical(props: VsfProductCardVerticalProp
         </div>
         <Show when={state.useWithButtonProp}>
           <Show when={!state.useOutOfStockProp} else={
-            // TODO: replace button tag with VsfButton
+            // TODO: replace button tag with VsfButton when there is a possibility to use named slots in mitosis
             <button
-              className='inline-flex items-center justify-center rounded-md cursor-pointer font-body disabled:cursor-not-allowed outline-violet disabled:text-gray-500 disabled:opacity-50 leading-5 px-3 py-[6px] text-sm bg-white border border-gray-200 text-primary-500 hover:border-primary-300 hover:bg-green-100 hover:text-primary-600 hover:shadow-medium active:border-primary-400 active:bg-green-200 active:text-primary-700 '
+              className={`${state.useSizeProp === VsfProductCardVerticalSizes.sm || state.useSizeProp === VsfProductCardVerticalSizes.xs ? 'mb-2 mx-2' : 'mb-4 mx-4'} inline-flex items-center justify-center rounded-md cursor-pointer font-body uppercase disabled:cursor-not-allowed outline-violet disabled:text-gray-500 disabled:opacity-50 leading-5 px-3 py-[6px] text-sm bg-white border border-gray-200 text-primary-500 hover:border-primary-300 hover:bg-green-100 hover:text-primary-600 hover:shadow-medium active:border-primary-400 active:bg-green-200 active:text-primary-700`}
               onClick={(event) => state.seeSimilar(event)}
             >
               {state.useSeeSimilarLabelProp}
             </button>
           }>
-            {/* TODO: replace button tag with VsfButton */}
+            {/* TODO: replace button tag with VsfButton when there is a possibility to use named slots in mitosis */}
             <button
-              className='inline-flex items-center justify-center border rounded-md cursor-pointer font-body disabled:cursor-not-allowed outline-violet disabled:text-gray-500 disabled:opacity-50 leading-5 px-3 py-[6px] text-sm bg-primary-500 text-white hover:bg-primary-600 hover:shadow-medium active:bg-primary-700'
+              className={`${state.useSizeProp === VsfProductCardVerticalSizes.sm || state.useSizeProp === VsfProductCardVerticalSizes.xs ? 'mb-2 mx-2' : 'mb-4 mx-4'} inline-flex items-center justify-center border rounded-md cursor-pointer font-body uppercase disabled:cursor-not-allowed outline-violet disabled:text-gray-500 disabled:opacity-50 leading-5 px-3 py-[6px] text-sm bg-primary-500 text-white hover:bg-primary-600 hover:shadow-medium active:bg-primary-700`}
               onClick={(event) => state.addToCart(event)}
             >
               <VsfIconBasket 

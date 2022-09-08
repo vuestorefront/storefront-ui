@@ -1,6 +1,6 @@
 import VsfProductCardVertical, { VsfProductCardVerticalSizes } from '../../output/blocks/VsfProductCardVertical/VsfProductCardVertical.lite';
 import Controls, { prepareControls } from '../../components/utils/Controls';
-import img from '../../images/product-card.webp';
+import productImage from '../../images/product-card.webp';
 
 export default function VsfProductCardVerticalExample() {
   const { state, controls } = prepareControls(
@@ -93,13 +93,13 @@ export default function VsfProductCardVerticalExample() {
       },
     ],
     {
-      imageModel: img,
-      altModel: '',
+      imageModel: productImage,
+      altModel: 'Product image',
       labelModel: 'The standard chunk of Lorem Ipsum',
       priceModel: '$2,345.99',
       oldPriceModel: '$3,132.99',
       sizeModel: 'base',
-      linkModel: '',
+      linkModel: '/',
       badgeModel: '-30%',
       outOfStockModel: false,
       inCartModel: 0,
@@ -107,7 +107,9 @@ export default function VsfProductCardVerticalExample() {
       ratingValueModel: 0,
       maxRatingValueModel: 5,
       reviewsModel: 0,
-      withButtonModel: true
+      withButtonModel: true,
+      addToCartLabelModel: 'Add',
+      seeSimilarLabelModel: 'See similar',
     },
   );
   function handleAddToCart() {
