@@ -1,20 +1,20 @@
 import Theme from 'vitepress/theme';
 import PlaygroundWrapper from '../components/PlaygroundWrapper.vue';
-import VsfAlert from '../components/VsfAlert.vue';
-import VsfCheckbox from '../components/VsfCheckbox.vue';
-import VsfChipsInput from '../components/VsfChipsInput.vue';
-import VsfBreadcrumbs from '../components/VsfBreadcrumbs.vue';
-import VsfButton from '../components/VsfButton.vue';
-import VsfRating from '../components/VsfRating.vue';
-import VsfRatingButton from '../components/VsfRatingButton.vue';
-import VsfSelect from '../components/VsfSelect.vue';
-import VsfTooltip from '../components/VsfTooltip.vue';
-import VsfOverlay from '../components/VsfOverlay.vue';
-import VsfDivider from '../components/VsfDivider.vue';
-import VsfSheet from '../components/VsfSheet.vue';
-import VsfSpinner from '../components/VsfSpinner.vue';
-import VsfSwitch from '../components/VsfSwitch.vue';
-import VsfChipsFilter from '../components/VsfChipsFilter.vue';
+import VsfAlert from '../output/blocks/VsfAlert/VsfAlert.vue';
+import VsfCheckbox from '../output/blocks/VsfCheckbox/VsfCheckbox.vue';
+import VsfChipsInput from '../output/blocks/VsfChipsInput/VsfChipsInput.vue';
+import VsfBreadcrumbs from '../output/blocks/VsfBreadcrumbs/VsfBreadcrumbs.vue';
+import VsfButton from '../output/blocks/VsfButton/VsfButton.vue';
+import VsfRating from '../output/blocks/VsfRating/VsfRating.vue';
+import VsfRatingButton from '../output/blocks/VsfRatingButton/VsfRatingButton.vue';
+import VsfSelect from '../output/blocks/VsfSelect/VsfSelect.vue';
+import VsfTooltip from '../output/blocks/VsfTooltip/VsfTooltip.vue';
+import VsfOverlay from '../output/blocks/VsfOverlay/VsfOverlay.vue';
+import VsfDivider from '../output/blocks/VsfDivider/VsfDivider.vue';
+import VsfSheet from '../output/blocks/VsfSheet/VsfSheet.vue';
+import VsfSpinner from '../output/blocks/VsfSpinner/VsfSpinner.vue';
+import VsfSwitch from '../output/blocks/VsfSwitch/VsfSwitch.vue';
+import VsfChipsFilter from '../output/blocks/VsfChipsFilter/VsfChipsFilter.vue';
 
 export default {
   ...Theme,
