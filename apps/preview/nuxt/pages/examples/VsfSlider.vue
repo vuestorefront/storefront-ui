@@ -2,10 +2,13 @@
 <template>
   <div class="e-page">
     <div class="e-page-component">
-      <VsfSlider>
+      <VsfSlider
+        :hasChevrons="hasChevronsModel"
+        :hasScrollbar="hasScrollbarModel"
+      >
         <div
-          class="bg-gray-300 w-[200px] h-[300px] flex justify-center items-center"
-          v-for="index in 5"
+          class="bg-gray-300 w-[148px] h-[148px] flex justify-center items-center"
+          v-for="index in 10"
           :key="index"
         >
           {{ index }}
@@ -32,8 +35,23 @@ export default {
   setup() {
     return {
       ...prepareControls([
+        {
+          title: 'hasChevrons',
+          type: 'boolean',
+          modelName: 'hasChevronsModel',
+          propDefaultValue: 'true',
+          propType: 'boolean',
+        },
+        {
+          title: 'hasScrollbar',
+          type: 'boolean',
+          modelName: 'hasScrollbarModel',
+          propDefaultValue: 'true',
+          propType: 'boolean',
+        },
           ], {
-        variantModel: ref()
+        hasChevronsModel: ref(true),
+        hasScrollbarModel: ref(true),
       })
     }
   }

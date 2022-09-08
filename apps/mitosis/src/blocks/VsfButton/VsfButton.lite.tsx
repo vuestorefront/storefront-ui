@@ -29,6 +29,8 @@ export interface VsfButtonProps {
   size?: VsfButtonSizesKeys;
   variant?: VsfButtonVariantsKeys;
   disabled?: boolean;
+  classes?: string;
+  onClick?: () => void;
 }
 
 const DEFAULT_VALUES: Required<VsfButtonProps> = {
@@ -39,29 +41,31 @@ const DEFAULT_VALUES: Required<VsfButtonProps> = {
   variant: VsfButtonVariants.primary,
   size: VsfButtonSizes.base,
   disabled: false,
+  classes: '',
+  onClick: () => {},
 };
 
 export default function VsfButton(props: VsfButtonProps) {
   const state = useStore({
-    get defaults(): Required<VsfButtonProps> {
-      return DEFAULT_VALUES
-    },
     get useDisabledProp() {
-      return props.disabled || state.defaults.disabled;
+      return props.disabled || DEFAULT_VALUES.disabled;
     },
     get useSizeProp(): VsfButtonSizesKeys {
       return validator(
         Object.keys(VsfButtonSizes),
         props.size,
-        state.defaults.size
+        DEFAULT_VALUES.size
       );
     },
     get useVariantProp(): VsfButtonVariantsKeys {
       return validator(
         Object.keys(VsfButtonVariants),
         props.variant,
-        state.defaults.variant
+        DEFAULT_VALUES.variant
       );
+    },
+    get useClassesProps(): string {
+      return props.classes ?? DEFAULT_VALUES.classes
     },
     get buttonClasses() {
       return classStringFromArray(['inline-flex items-center justify-center border rounded-md cursor-pointer font-body disabled:cursor-not-allowed outline-violet disabled:text-gray-500 disabled:opacity-50',
@@ -73,6 +77,7 @@ export default function VsfButton(props: VsfButtonProps) {
         state.useVariantProp === VsfButtonVariants['destroy-primary'] && 'text-base text-white bg-rose-600 hover:bg-rose-700 active:bg-rose-800 hover:shadow-medium',
         state.useVariantProp === VsfButtonVariants['destroy-secondary'] && 'text-base text-rose-600 bg-white border border-rose-400 disabled:border-0 hover:bg-rose-100 active:bg-rose-200 hover:text-rose-600 active:text-rose-700 hover:shadow-medium',
         state.useVariantProp === VsfButtonVariants['destroy-tertiary'] && 'text-base text-rose-600 hover:bg-rose-100 hover:text-rose-700 active:bg-rose-200 active:text-rose-800',
+        state.useClassesProps,
       ]);
     },
   });
@@ -85,6 +90,7 @@ export default function VsfButton(props: VsfButtonProps) {
           <button
             className={state.buttonClasses}
             disabled={state.useDisabledProp}
+            onClick={() => props.onClick && props.onClick()}
           >
             <Show when={props.slotPrefix}>
               <span className="pr-2">{props.slotPrefix}</span>
