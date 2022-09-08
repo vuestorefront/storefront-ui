@@ -31,9 +31,9 @@ export default function VsfSlider(props: VsfSliderProps) {
     },
     go(direct: string) {
       if (direct === 'next') {
-        sliderRef.scrollLeft += sliderRef?.children[0]?.getBoundingClientRect()?.width + 16
+        sliderRef.scrollLeft += sliderRef?.children[0]?.getBoundingClientRect()?.width
       } else {
-        sliderRef.scrollLeft -= sliderRef?.children[0]?.getBoundingClientRect()?.width + 16
+        sliderRef.scrollLeft -= sliderRef?.children[0]?.getBoundingClientRect()?.width
       }
     },
     setChevrons(e: UIEvent<HTMLElement>) {
