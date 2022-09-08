@@ -62,7 +62,7 @@ export default function VsfSlider(props: VsfSliderProps) {
         <div
           ref={sliderRef}
           className={classStringFromArray([
-            'slider-items-container grid grid-flow-col overflow-x-auto overscroll-contain scroll-smooth snap-x gap-4',
+            'slider-items-container grid grid-flow-col overflow-x-auto overscroll-contain scroll-smooth snap-x gap-4 pb-3',
             !state.useHasScrollbarProp && 'no-scrollbar',
           ])}
           onScroll={(e) => state.setChevrons(e)}
