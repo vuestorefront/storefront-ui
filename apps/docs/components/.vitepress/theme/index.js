@@ -14,10 +14,13 @@ import VsfDivider from '../components/VsfDivider.vue'
 import VsfSheet from '../components/VsfSheet.vue'
 import VsfSpinner from '../components/VsfSpinner.vue'
 import VsfSwitch from '../components/VsfSwitch.vue'
+import VsfSlider from '../components/VsfSlider.vue'
 
 export default {
   ...Theme,
   enhanceApp({ app }) {
+
+app.component('Slider', VsfSlider),
     app.component('PlaygroundWrapper', PlaygroundWrapper),
     app.component('Alert', VsfAlert),
     app.component('Breadcrumbs', VsfBreadcrumbs),

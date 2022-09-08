@@ -36,6 +36,8 @@ export default {
         collapsible: true,
         collapsed: true,
         items: [
+
+          { text: 'Slider', link: '/components/slider' },
           { text: 'Alert', link: '/components/alert' },
           { text: 'Breadcrumbs', link: '/components/breadcrumbs' },
           { text: 'Checkbox', link: '/components/checkbox' },
