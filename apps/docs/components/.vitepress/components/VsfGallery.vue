@@ -6,47 +6,42 @@
           'gallery h-full flex relative scroll-smooth',
           thumbsLeft ? 'gallery--thumbs-left' : 'gallery--thumbs-bottom',
           !hasBulletControl ? 'gap-4' : '',
-        ])
+        ]),
       )
     "
   >
     <div
-      class="gallery__images relative overflow-hidden w-full cursor-grab touch-none"
+      class="gallery__images relative overflow-hidden w-full cursor-grab active:cursor-grabbing touch-none"
       ref="draggableRef"
     >
       <slot name="image" />
 
       <template v-if="counter">
-        <div
-          class="absolute right-2 top-2 z-10 text-xs text-gray-600 font-normal px-2 py-1 pointer-events-none"
-        >
+        <div class="absolute right-2 top-2 z-10 text-xs text-gray-600 font-normal px-2 py-1 pointer-events-none">
           {{ `${activeIndex + 1} of ${allImages.length}` }}
         </div>
       </template>
 
       <div
-        class="gallery__images__wrapper flex _overflow-x-auto snap-x snap-mandatory h-full max-h-[700px] scrollbar-hidden transition-transform"
+        class="gallery__images__wrapper flex _overflow-x-auto snap-x snap-mandatory h-full max-h-[700px] scrollbar-hidden transition-transform will-change-transform"
         :style="{
-          transform: `translateX(-${imgPosition * 100}%)`,
+          transform: `translate3d(-${imgPosition * 100}%,0,0)`,
         }"
       >
         <template :key="index" v-for="(image, index) in allImages">
-          <div
-            :class="
-              _classStringToObject(
-                classStringFromArray([
-                  'gallery__image snap-center snap-always basis-full shrink-0 grow',
-                  activeIndex === index ? 'is-active_' : '',
-                  contain ? 'object-contain' : 'object-cover',
-                ])
-              )
-            "
-          >
+          <div class="gallery__image snap-center snap-always basis-full shrink-0 grow">
             <img
               alt=""
-              class="gallery__image__img w-full h-full img-20351ewpue7"
               :draggable="false"
               :src="image"
+              :class="
+                _classStringToObject(
+                  classStringFromArray([
+                    'gallery__image__img w-full h-full',
+                    contain ? 'object-contain' : 'object-cover',
+                  ]),
+                )
+              "
             />
           </div>
         </template>
@@ -60,9 +55,9 @@
               :class="
                 _classStringToObject(
                   classStringFromArray([
-                    'flex-grow h-1 cursor-pointer',
+                    'flex-grow h-1 cursor-pointer transition-colors',
                     activeIndex === index ? 'bg-primary-500' : 'bg-gray-200',
-                  ])
+                  ]),
                 )
               "
               @click="activeIndex = index"
@@ -72,19 +67,15 @@
       </template>
 
       <template v-else>
-        <div
-          class="gallery__thumbnails scroll-pl-4 snap-both snap-mandatory flex gap-2 overflow-auto scrollbar-hidden"
-        >
+        <div class="gallery__thumbnails scroll-pl-4 snap-both snap-mandatory flex gap-2 overflow-auto scrollbar-hidden">
           <template :key="index" v-for="(thumbnail, index) in allThumbnails">
             <button
               :class="
                 _classStringToObject(
                   classStringFromArray([
-                    'gallery__thumbnail shrink-0 pb-1 border-b-4 snap-start cursor-pointer',
-                    activeIndex === index
-                      ? 'border-primary-500'
-                      : 'border-transparent',
-                  ])
+                    'gallery__thumbnail shrink-0 pb-1 border-b-4 snap-start cursor-pointer transition-colors',
+                    activeIndex === index ? 'border-primary-500' : 'border-transparent',
+                  ]),
                 )
               "
               @click="activeIndex = index"
@@ -105,61 +96,48 @@ export interface GalleryImageType {
 }
 export interface VsfGalleryProps {
   images: Array<GalleryImageType | string>;
-  control?: "thumbs" | "bullets";
+  control?: 'thumbs' | 'bullets';
   thumbsLeft?: boolean;
   contain?: boolean;
   counter?: boolean;
   slotImage?: any;
 }
 
-import { classStringFromArray, clamp, lerp } from "@sfui/mitosis/src/functions/domUtils";
+import { classStringFromArray, clamp, lerp } from '../../functions/domUtils';
 const DEFAULT_VALUES = {
   images: [] as Array<GalleryImageType | string>,
 };
 
 export default {
-  name: "vsf-gallery",
+  name: 'vsf-gallery',
 
-  props: ["images", "control", "thumbsLeft", "slotImage", "counter", "contain"],
+  props: ['images', 'control', 'thumbsLeft', 'slotImage', 'counter', 'contain'],
 
   data: () => ({
     offsetPosition: 0,
     activeIndex: 0,
-    imgPosition: 0,
     isDragging: false,
     classStringFromArray,
   }),
 
   mounted() {
-    this.$refs.draggableRef?.addEventListener(
-      "pointerdown",
-      this.pointerHandler
-    );
+    this.$refs.draggableRef?.addEventListener('pointerdown', this.pointerHandler);
   },
 
   watch: {
     onUpdateHook0() {
       if (!this.isDragging) {
         // calculate prev/next index depending on current move position
-        const stopVal =
-          this.offsetPosition > 0
-            ? Math.ceil(this.imgPosition)
-            : Math.floor(this.imgPosition); // clamp value
+        const stopVal = this.offsetPosition > 0 ? Math.ceil(this.imgPosition) : Math.floor(this.imgPosition); // clamp value
 
         this.activeIndex = clamp(stopVal, 0, this.allImages.length - 1); // reset move offset value
 
         this.offsetPosition = 0;
       }
     },
-    onUpdateHook1() {
-      this.imgPosition = this.activeIndex + this.offsetPosition;
-    },
   },
   unmounted() {
-    this.$refs.draggableRef?.removeEventListener(
-      "pointerdown",
-      this.pointerHandler
-    );
+    this.$refs.draggableRef?.removeEventListener('pointerdown', this.pointerHandler);
   },
 
   computed: {
@@ -167,29 +145,26 @@ export default {
       return Array.isArray(this.images) ? this.images : DEFAULT_VALUES.images;
     },
     hasBulletControl() {
-      return this.control === "bullets";
+      return this.control === 'bullets';
     },
     allImages() {
       return this.useImagesProp.map((img) => {
-        if (typeof img === "string") return img;
+        if (typeof img === 'string') return img;
         return img.src;
       });
     },
     allThumbnails() {
       return this.useImagesProp.map((img) => {
-        if (typeof img === "string") return img;
+        if (typeof img === 'string') return img;
         return img.thumbnail || img.src;
       });
+    },
+    imgPosition() {
+      return this.activeIndex + this.offsetPosition;
     },
     onUpdateHook0() {
       return {
         0: this.isDragging,
-      };
-    },
-    onUpdateHook1() {
-      return {
-        0: this.activeIndex,
-        1: this.offsetPosition,
       };
     },
   },
@@ -202,34 +177,25 @@ export default {
       const rect = this.$refs.draggableRef.getBoundingClientRect();
 
       const pointerEventMethod = (event) => {
-        this.offsetPosition = lerp(
-          this.offsetPosition,
-          (e.offsetX - event.offsetX) / rect.width,
-          0.04
-        );
+        /* @ts-ignore */
+        this.offsetPosition = lerp(this.offsetPosition, (e.offsetX - event.offsetX) / rect.width, 0.02);
       };
 
+      this.$refs.draggableRef.addEventListener('pointermove', pointerEventMethod);
       this.$refs.draggableRef.addEventListener(
-        "pointermove",
-        pointerEventMethod
-      );
-      this.$refs.draggableRef.addEventListener(
-        "pointerup",
+        'pointerup',
         () => {
           this.isDragging = false;
-          this.$refs.draggableRef.removeEventListener(
-            "pointermove",
-            pointerEventMethod
-          );
+          this.$refs.draggableRef.removeEventListener('pointermove', pointerEventMethod);
         },
         {
           once: true,
-        }
+        },
       );
     },
     _classStringToObject(str) {
       const obj = {};
-      if (typeof str !== "string") {
+      if (typeof str !== 'string') {
         return obj;
       }
       const classNames = str.trim().split(/\s+/);
@@ -241,9 +207,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.img-20351ewpue7 {
-  object-fit: inherit;
-}
-</style>

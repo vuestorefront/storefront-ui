@@ -41,9 +41,11 @@ export default function VsfGallery(props: VsfGalleryProps) {
       });
     },
 
-    offsetPosition: 0,
+    offsetPosition: 0 as any,
     activeIndex: 0,
-    imgPosition: 0,
+    get imgPosition(): number {
+      return state.activeIndex + (state.offsetPosition as number)
+    },
     isDragging: false,
 
     pointerHandler(e: PointerEvent) {
@@ -53,7 +55,14 @@ export default function VsfGallery(props: VsfGalleryProps) {
 
       const rect = draggableRef.getBoundingClientRect();
       const pointerEventMethod = (event: PointerEvent) => {
-        state.offsetPosition = lerp(state.offsetPosition, (e.offsetX - event.offsetX) / rect.width, 0.04);
+        /* IF-vue */
+        /* @ts-ignore */
+        state.offsetPosition = lerp(state.offsetPosition, (e.offsetX - event.offsetX) / rect.width, 0.02);
+        /* ENDIF-vue */
+
+        /* IF-react */
+        state.offsetPosition = (prev: number) => lerp(prev, (e.offsetX - event.offsetX) / rect.width, 0.02);
+        /* ENDIF-react */
       };
       
       draggableRef.addEventListener('pointermove', pointerEventMethod);
@@ -88,10 +97,6 @@ export default function VsfGallery(props: VsfGalleryProps) {
     }
   }, [state.isDragging]);
 
-  onUpdate(() => {
-    state.imgPosition = state.activeIndex + state.offsetPosition;
-  }, [state.activeIndex, state.offsetPosition]);
-
   return (
     <>
       <div
@@ -101,7 +106,7 @@ export default function VsfGallery(props: VsfGalleryProps) {
           !state.hasBulletControl ? 'gap-4' : '',
         ])}
       >
-        <div class="gallery__images relative overflow-hidden w-full cursor-grab touch-none" ref={draggableRef}>
+        <div class="gallery__images relative overflow-hidden w-full cursor-grab active:cursor-grabbing touch-none" ref={draggableRef}>
           {props.slotImage}
           <Show when={props.counter}>
             <div class="absolute right-2 top-2 z-10 text-xs text-gray-600 font-normal px-2 py-1 pointer-events-none">{`${
@@ -109,8 +114,8 @@ export default function VsfGallery(props: VsfGalleryProps) {
             } of ${state.allImages.length}`}</div>
           </Show>
           <div
-            class="gallery__images__wrapper flex _overflow-x-auto snap-x snap-mandatory h-full max-h-[700px] scrollbar-hidden transition-transform"
-            style={{ transform: `translateX(-${state.imgPosition * 100}%)` }}
+            class="gallery__images__wrapper flex _overflow-x-auto snap-x snap-mandatory h-full max-h-[700px] scrollbar-hidden transition-transform will-change-transform"
+            style={{ transform: `translate3d(-${state.imgPosition * 100}%,0,0)` }}
           >
             <For each={state.allImages}>
               {(image, index) => (
@@ -142,7 +147,7 @@ export default function VsfGallery(props: VsfGalleryProps) {
                     <button
                       key={index}
                       class={classStringFromArray([
-                        'gallery__thumbnail shrink-0 pb-1 border-b-4 snap-start cursor-pointer',
+                        'gallery__thumbnail shrink-0 pb-1 border-b-4 snap-start cursor-pointer transition-colors',
                         state.activeIndex === index ? 'border-primary-500' : 'border-transparent',
                       ])}
                       onClick={() => (state.activeIndex = index)}
@@ -160,7 +165,7 @@ export default function VsfGallery(props: VsfGalleryProps) {
                   <button
                     key={index}
                     class={classStringFromArray([
-                      'flex-grow h-1 cursor-pointer',
+                      'flex-grow h-1 cursor-pointer transition-colors',
                       state.activeIndex === index ? 'bg-primary-500' : 'bg-gray-200',
                     ])}
                     onClick={() => (state.activeIndex = index)}
