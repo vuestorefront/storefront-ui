@@ -13,7 +13,7 @@ See the design on [Figma]()
 | Prop name   | Type    | Default value | Possible values                        |
 | ----------- | ------- | ------------- | -------------------------------------- |
 | size        | String  | 'medium'      | 'small', 'medium', 'large'             |
-| value       | String  | ''            |                    |
+| label       | String  | ''            |                    |
 | disabled    | Boolean | false         |                    |
 
 ## Slots

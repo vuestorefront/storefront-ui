@@ -6,9 +6,9 @@ export default function ExampleVsfChipsInput() {
   const { state, controls } = prepareControls(
     [
       {
-        title: 'Value',
+        title: 'Label',
         type: 'text',
-        modelName: 'valueModel',
+        modelName: 'labelModel',
         propDefaultValue: '',
         propType: 'string',
       },
@@ -17,21 +17,21 @@ export default function ExampleVsfChipsInput() {
         type: 'select',
         modelName: 'sizeModel',
         options: Object.keys(VsfChipsInputVariants),
-        propDefaultValue: VsfChipsInputVariants.medium,
+        propDefaultValue: VsfChipsInputVariants.base,
         propType: 'VsfChipsInputVariants',
       },
       {
         title: 'Disabled',
-        type: 'checkbox',
+        type: 'boolean',
         modelName: 'disabledModel',
         propDefaultValue: 'false',
         propType: 'boolean',
       },
     ],
     {
-      valueModel: 'Label',
+      labelModel: 'Label',
       disabledModel: false,
-      sizeModel: VsfChipsInputVariants.medium,
+      sizeModel: VsfChipsInputVariants.base,
     },
   );
 
@@ -42,11 +42,11 @@ export default function ExampleVsfChipsInput() {
     <div className="e-page">
       <div className="e-page-component">
         <VsfChipsInput
-          value={state.get.valueModel}
+          label={state.get.labelModel}
           disabled={state.get.disabledModel}
           size={state.get.sizeModel}
           handleChipClose={onClickHandler}
-          slotPrefix={<VsfIconDot className="vsf-icon-full" />}
+          slotPrefix={<VsfIconDot className="vsf-icon-full text-gray-500" />}
         />
       </div>
       <div className="e-page-controls">
