@@ -2,6 +2,7 @@ import { Show, useStore, For } from '@builder.io/mitosis';
 import VsfIconStar from '../VsfIcons/VsfIconStar.lite';
 import VsfIconStarOutline from '../VsfIcons/VsfIconStarOutline.lite';
 import VsfIconStarPartiallyFilled from '../VsfIcons/VsfIconStarPartiallyFilled.lite';
+import VsfCounter from '../VsfCounter/VsfCounter.lite'
 
 export const VsfRatingVariants = Object.freeze({
   xs: 'xs',
@@ -9,7 +10,6 @@ export const VsfRatingVariants = Object.freeze({
   base: 'base',
   lg: 'lg',
   xl: 'xl',
-  '2xl': '2xl',
 });
 
 export const VsfRatingTypes = Object.freeze({
@@ -31,7 +31,6 @@ export interface VsfRatingProps {
 const DEFAULT_VALUES = {
   value: 0,
   max: 5,
-  reviews: 0,
   size: VsfRatingVariants.base,
   type: VsfRatingTypes.base,
 };
@@ -43,9 +42,6 @@ export default function VsfRating(props: VsfRatingProps) {
     },
     get useMaxProp() {
       return Number(props.max) || DEFAULT_VALUES.max;
-    },
-    get useReviewsProp() {
-      return Number(props.reviews) || DEFAULT_VALUES.reviews;
     },
     get useSizeProp() {
       return props.size || DEFAULT_VALUES.size;
@@ -64,6 +60,15 @@ export default function VsfRating(props: VsfRatingProps) {
     },
     get ratingValue() {
       return Math.min(state.useValueProp, state.useMaxProp);
+    },
+    get ratingSize() {
+      return {
+        xs: 'base',
+        sm: 'base',
+        base: 'lg',
+        lg: 'xl',
+        xl: '2xl',
+      }[state.useSizeProp];
     },
     get textClass() {
       return {
@@ -92,7 +97,7 @@ export default function VsfRating(props: VsfRatingProps) {
           else={
             <>
               <VsfIconStar aria-hidden="true" size={state.useSizeProp} className="text-warning-500" />
-              <span class="mx-1">{state.ratingValue}</span>
+              <span class="ml-1">{state.ratingValue}</span>
             </>
           }
         >
@@ -110,8 +115,8 @@ export default function VsfRating(props: VsfRatingProps) {
             )}
           </For>
         </Show>
-        <Show when={state.useReviewsProp >= 0}>
-          <span class={`text-gray-500 ` + (state.isBaseType ? 'ml-1' : '')}>({state.useReviewsProp})</span>
+        <Show when={props.reviews}>
+          <VsfCounter size={state.ratingSize} className="ml-1">{props.reviews}</VsfCounter>
         </Show>
       </div>
     </>
