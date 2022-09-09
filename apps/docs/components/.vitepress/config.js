@@ -58,6 +58,7 @@ export default {
           { text: 'Sheet', link: '/components/sheet' },
           { text: 'Spinner', link: '/components/spinner' },
           { text: 'Footer', link: '/components/footer' },
+          { text: 'Gallery', link: '/components/gallery' },
         ].sort((a, b) => a.text.localeCompare(b.text)),
       },
       {
