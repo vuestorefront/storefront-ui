@@ -21,7 +21,7 @@ const DEFAULT_VALUES: Required<VsfSliderProps> = {
 export default function VsfSlider(props: VsfSliderProps) {
   const sliderRef = useRef<HTMLElement>(null);
   const state = useStore({
-    prevChevronVisibility: true,
+    prevChevronVisibility: false,
     nextChevronVisibility: true,
     get useHasChevronsProp() {
       return props.hasChevrons ?? DEFAULT_VALUES.hasChevrons
@@ -50,13 +50,16 @@ export default function VsfSlider(props: VsfSliderProps) {
         <Show when={state.useHasChevronsProp}>
           <VsfButton
             classes={classStringFromArray([
+              'slider-button w-12 h-12',
               !state.prevChevronVisibility && 'invisible',
             ])}
             variant={"secondary"}
             isRoundedFull={true}
             onClick={() => state.go('prev')}
           >
-            <VsfIconChevronLeft />
+            <span className='w-6 h-6'>
+              <VsfIconChevronLeft className='slider-chevron' />
+            </span>
           </VsfButton>
         </Show>
         <div
@@ -72,13 +75,16 @@ export default function VsfSlider(props: VsfSliderProps) {
         <Show when={state.useHasChevronsProp}>
           <VsfButton
             classes={classStringFromArray([
+              'slider-button w-12-h12',
               !state.nextChevronVisibility && 'invisible',
             ])}
             variant={"secondary"}
             isRoundedFull={true}
             onClick={() => state.go('next')}
           >
-            <VsfIconChevronRight />
+            <span className='w-6 h-6'>
+              <VsfIconChevronRight className='slider-chevron' />
+            </span>
           </VsfButton>
         </Show>
       </div>

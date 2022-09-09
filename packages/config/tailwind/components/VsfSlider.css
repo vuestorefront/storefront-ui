@@ -1,6 +1,15 @@
 .slider-items-container > * {
   scroll-snap-align: start;
 }
+.slider-button:hover .slider-chevron {
+  @apply text-primary-600;
+}
+.slider-button:active .slider-chevron {
+  @apply text-primary-700;
+}
+.slider-chevron {
+  @apply text-gray-500;
+}
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
