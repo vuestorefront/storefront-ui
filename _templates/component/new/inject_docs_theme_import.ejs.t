@@ -5,4 +5,4 @@ skip_if: 'import <%= name %>'
 before: "export"
 prepend: true
 ---
-import <%= name %> from '../components/<%= name %>.vue'
+import <%= name %> from '../output/blocks/<%= name %>/<%= name %>.vue'

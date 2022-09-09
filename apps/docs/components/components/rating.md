@@ -12,7 +12,7 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 | Prop name    | Type     | Default value | Possible values                        |
 | ------------ | -------- | ------------- | -------------------------------------- |
-| size         | String   | 'base'        | 'xs','sm','base','lg','xl,'2xl'        |
+| size         | String   | 'base'        | 'xs','sm','base','lg','xl,             |
 | type         | String   | 'base'        | 'base','withValue'                     |
 | value        | Number   | 0             |                                        |
 | max          | Number   | 5             |                                        |

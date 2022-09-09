@@ -16,10 +16,12 @@ import VsfSpinner from '../output/blocks/VsfSpinner/VsfSpinner.vue';
 import VsfSwitch from '../output/blocks/VsfSwitch/VsfSwitch.vue';
 import VsfChipsFilter from '../output/blocks/VsfChipsFilter/VsfChipsFilter.vue';
 import VsfGallery from '../output/blocks/VsfGallery/VsfGallery.vue';
+import VsfCounter from '../output/blocks/VsfCounter/VsfCounter.vue';
 
 export default {
   ...Theme,
   enhanceApp({ app }) {
+    app.component('Counter', VsfCounter);
     app.component('PlaygroundWrapper', PlaygroundWrapper);
     app.component('Alert', VsfAlert);
     app.component('Breadcrumbs', VsfBreadcrumbs);

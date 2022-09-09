@@ -36,6 +36,7 @@ export default {
         collapsible: true,
         collapsed: true,
         items: [
+          { text: 'Counter', link: '/components/counter' },
           { text: 'Alert', link: '/components/alert' },
           { text: 'Breadcrumbs', link: '/components/breadcrumbs' },
           { text: 'Button', link: '/components/button' },

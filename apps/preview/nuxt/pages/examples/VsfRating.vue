@@ -90,7 +90,7 @@ export default defineComponent({
       {
         valueModel: ref(3),
         maxModel: ref(5),
-        reviewsModel: ref(0),
+        reviewsModel: ref(10),
         sizeModel: ref(VsfRatingVariants.base),
         typeModel: ref(VsfRatingTypes.base)
       },
