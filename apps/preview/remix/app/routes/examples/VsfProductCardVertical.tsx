@@ -1,6 +1,8 @@
 import VsfProductCardVertical, { VsfProductCardVerticalSizes } from '../../output/blocks/VsfProductCardVertical/VsfProductCardVertical.lite';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import productImage from '../../images/product-card.webp';
+import VsfTag from '../../output/blocks/VsfTag/VsfTag';
+import VsfIconHot from '../../output/blocks/VsfIcons/VsfIconHot.lite';
 
 export default function VsfProductCardVerticalExample() {
   const { state, controls } = prepareControls(
@@ -50,12 +52,6 @@ export default function VsfProductCardVerticalExample() {
         modelName: 'linkModel',
       },
       {
-        title: 'badge',
-        type: 'text',
-        propType: "string",
-        modelName: 'badgeModel',
-      },
-      {
         title: 'description',
         type: 'text',
         propType: "string",
@@ -100,7 +96,6 @@ export default function VsfProductCardVerticalExample() {
       oldPriceModel: '$3,132.99',
       sizeModel: 'base',
       linkModel: '/',
-      badgeModel: '-30%',
       outOfStockModel: false,
       inCartModel: 0,
       descriptionModel: 'There are many variations of passages of Lorem Ipsum available',
@@ -132,7 +127,6 @@ export default function VsfProductCardVerticalExample() {
           oldPrice={state.get.oldPriceModel}
           size={state.get.sizeModel}
           link={state.get.linkModel}
-          badge={state.get.badgeModel}
           outOfStock={state.get.outOfStockModel}
           inCart={state.get.inCartModel}
           description={state.get.descriptionModel}
@@ -145,6 +139,18 @@ export default function VsfProductCardVerticalExample() {
           handleAddToCart={handleAddToCart}
           handleAddToWishlist={handleAddToWishlist}
           handleSeeSimilar={handleSeeSimilar}
+          slotBadge={<VsfTag
+            badge={true}
+            size={state.get.sizeModel === 'lg' || state.get.sizeModel === 'base' ? 'base' : 'sm'}
+            variant='info'
+          >
+            <VsfIconHot
+              size={state.get.sizeModel === 'lg' || state.get.sizeModel === 'base' ? 'base' : 'xs'}
+            />
+            <span>
+              -30%
+            </span>
+          </VsfTag>}
         />
       </div>
       <div className="e-page-controls">

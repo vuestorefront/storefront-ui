@@ -9,7 +9,6 @@
         :oldPrice="oldPriceModel"
         :size="sizeModel"
         :link="linkModel"
-        :badge="badgeModel"
         :outOfStock="outOfStockModel"
         :inCart="inCartModel"
         :description="descriptionModel"
@@ -22,7 +21,22 @@
         @seeSimilar="handleSeeSimilar"
         @addToCart="handleAddToCart"
         @addToWishlist="handleAddToWishlist"
-      />
+      >
+        <template #badge>
+          <VsfTag
+              :badge="true"
+              :size="sizeModel === 'lg' || sizeModel === 'base' ? 'base' : 'sm'"
+              variant='info'
+            >
+              <VsfIconHot
+                :size="sizeModel === 'lg' || sizeModel === 'base' ? 'base' : 'xs'"
+              />
+              <span>
+                -30%
+              </span>
+            </VsfTag>
+        </template>
+      </VsfProductCardVertical>
     </div>
     <div class="e-page-controls">
       <Controls v-bind="controlsAttrs" />
@@ -35,12 +49,17 @@ import { defineComponent } from "vue";
 import VsfProductCardVertical, { VsfProductCardVerticalSizes } from '../../output/blocks/VsfProductCardVertical/VsfProductCardVertical.vue'
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
 import productImage from '../../assets/images/product-card.webp';
+import VsfTag from '../../output/blocks/VsfTag/VsfTag';
+import VsfIconHot from '../../output/blocks/VsfIcons/VsfIconHot.vue';
+
 
 export default defineComponent({
   name: 'VsfProductCardVerticalExample',
   components: {
     VsfProductCardVertical,
     Controls,
+    VsfTag,
+    VsfIconHot,
   },
   setup() {
     const handleAddToCart = () => console.log('Added to cart!');
@@ -94,12 +113,6 @@ export default defineComponent({
         modelName: 'linkModel',
       },
       {
-        title: 'badge',
-        type: 'text',
-        propType: "string",
-        modelName: 'badgeModel',
-      },
-      {
         title: 'description',
         type: 'text',
         propType: "string",
@@ -144,7 +157,6 @@ export default defineComponent({
         oldPriceModel: ref('$3,132.99'),
         sizeModel: ref('sm'),
         linkModel: ref('/'),
-        badgeModel: ref('30%'),
         outOfStockModel: ref(false),
         inCartModel: ref(0),
         descriptionModel: ref('There are many variations of passages of Lorem Ipsum available'),

@@ -2,9 +2,9 @@ import { useStore, Show } from '@builder.io/mitosis';
 import VsfRating from '../VsfRating/VsfRating.lite';
 import VsfTag from '../VsfTag/VsfTag.lite';
 import { classStringFromArray } from '../../functions/domUtils';
-import VsfIconHot from '../VsfIcons/VsfIconHot.lite';
 import VsfIconFavoritesOutline from '../VsfIcons/VsfIconFavoritesOutline.lite';
 import VsfIconBasket from '../VsfIcons/VsfIconBasket.lite';
+import { SlotType } from '../../functions/types';
 
 export const VsfProductCardVerticalSizes = Object.freeze({
   xs: 'xs',
@@ -25,7 +25,7 @@ export interface VsfProductCardVerticalProps {
   label: string;
   price: string;
   oldPrice: string;
-  badge: string;
+  slotBadge?: SlotType;
   description: string;
   outOfStock: boolean;
   inCart: number;
@@ -48,7 +48,6 @@ const DEFAULT_VALUES = {
   label: '',
   price: '',
   oldPrice: '',
-  badge: '',
   description: '',
   outOfStock: false,
   inCart: 0,
@@ -86,9 +85,6 @@ export default function VsfProductCardVertical(props: VsfProductCardVerticalProp
     },
     get useOldPriceProp() {
       return props.oldPrice || DEFAULT_VALUES.oldPrice
-    },
-    get useBadgeProp() {
-      return props.badge || DEFAULT_VALUES.badge
     },
     get useDescriptionProp() {
       return props.description || DEFAULT_VALUES.description
@@ -131,13 +127,13 @@ export default function VsfProductCardVertical(props: VsfProductCardVerticalProp
     get productCardWidth() {
       switch (state.useSizeProp) {
         case VsfProductCardVerticalSizes.xs:
-          return `w-[148px]`;
+          return `max-w-[148px]`;
         case VsfProductCardVerticalSizes.sm:
-          return `w-[180px]`;
+          return `max-w-[180px]`;
         case VsfProductCardVerticalSizes.lg:
-          return `w-[280px]`;
+          return `max-w-[280px]`;
         default:
-          return `w-[230px]`;
+          return `max-w-[230px]`;
       }
     },
     get labelClasses():string {
@@ -189,7 +185,7 @@ export default function VsfProductCardVertical(props: VsfProductCardVerticalProp
         <div className='relative'>
           <a href={state.useLinkProp}>
             <img
-              className={`${state.useOutOfStockProp ? 'opacity-50' : 'opacity-100' } w-full h-auto rounded-md`}
+              className={`${state.useOutOfStockProp ? 'opacity-50' : 'opacity-100' } w-full h-auto object-fit rounded-md`}
               src={state.useImageProp}
               alt={state.useAltProp}
               loading="lazy"
@@ -198,16 +194,7 @@ export default function VsfProductCardVertical(props: VsfProductCardVerticalProp
             />
           </a>
           <div className={`${state.useSizeProp === 'lg' || state.useSizeProp === 'base' ? 'top-0' : '-top-1'} absolute left-0`}>
-            <VsfTag
-              badge={true}
-              size={state.useSizeProp === 'lg' || state.useSizeProp === 'base' ? 'base' : 'sm'}
-              variant='info'
-            >
-              <VsfIconHot
-                size={state.useSizeProp === 'lg' || state.useSizeProp === 'base' ? 'base' : 'xs'}
-              />
-              {state.useBadgeProp}
-            </VsfTag>
+            {props.slotBadge}
           </div>
           <div
             className="absolute bottom-0 left-0 right-0 flex items-end m-2"
@@ -221,7 +208,7 @@ export default function VsfProductCardVertical(props: VsfProductCardVerticalProp
                 {
                   (state.useOutOfStockProp)
                     ? <span> Out of stock </span> 
-                    : <span> {state.useInCartProp} in cart </span> 
+                    : <span> {`${state.useInCartProp} `} in cart </span> 
                 }
               </VsfTag>
             </Show>
