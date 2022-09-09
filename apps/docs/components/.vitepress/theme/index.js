@@ -15,6 +15,7 @@ import VsfSheet from '../output/blocks/VsfSheet/VsfSheet.vue';
 import VsfSpinner from '../output/blocks/VsfSpinner/VsfSpinner.vue';
 import VsfSwitch from '../output/blocks/VsfSwitch/VsfSwitch.vue';
 import VsfChipsFilter from '../output/blocks/VsfChipsFilter/VsfChipsFilter.vue';
+import VsfGallery from '../output/blocks/VsfGallery/VsfGallery.vue';
 
 export default {
   ...Theme,
@@ -37,5 +38,6 @@ export default {
     app.component('Switch', VsfSwitch);
     app.component('Button', VsfButton);
     app.component('ChipsFilter', VsfChipsFilter);
+    app.component('Gallery', VsfGallery);
   },
 };
