@@ -50,10 +50,10 @@ export default function VsfSlider(props: VsfSliderProps) {
         <Show when={state.useHasChevronsProp}>
           <VsfButton
             classes={classStringFromArray([
-              'w-12 h-12 rounded-full',
               !state.prevChevronVisibility && 'invisible',
             ])}
             variant={"secondary"}
+            isRoundedFull={true}
             onClick={() => state.go('prev')}
           >
             <VsfIconChevronLeft />
@@ -72,10 +72,10 @@ export default function VsfSlider(props: VsfSliderProps) {
         <Show when={state.useHasChevronsProp}>
           <VsfButton
             classes={classStringFromArray([
-              'w-12 h-12 rounded-full',
               !state.nextChevronVisibility && 'invisible',
             ])}
             variant={"secondary"}
+            isRoundedFull={true}
             onClick={() => state.go('next')}
           >
             <VsfIconChevronRight />
