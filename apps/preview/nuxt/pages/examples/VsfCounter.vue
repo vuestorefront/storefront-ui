@@ -52,7 +52,6 @@ export default {
               'bg-white',
               'bg-gray-100',
               'bg-primary-200',
-              'bg-primary-200',
               'bg-warning-200',
               'bg-negative-200',
             ],
