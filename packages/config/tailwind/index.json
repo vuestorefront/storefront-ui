@@ -137,6 +137,10 @@
       "animation": {
         "spin-base": "spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite",
         "linear-loader": "linear-loader 1.5s ease-in infinite"
+      },
+      "fontSize": {
+        "2xs": ["10px", "11px"],
+        "3xs": ["8px", "8px"]
       }
     }
   },

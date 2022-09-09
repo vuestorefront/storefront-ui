@@ -71,7 +71,7 @@ export default function ExampleVsfRating() {
     {
       valueModel: 3,
       maxModel: 5,
-      reviewsModel: 0,
+      reviewsModel: 10,
       sizeModel: VsfRatingVariants.base,
       typeModel: VsfRatingTypes.base,
     },
