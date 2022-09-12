@@ -44,11 +44,18 @@ export default function VsfSearchExample() {
         propType: 'string',
         modelName: 'placeholderModel',
       },
+      {
+        title: 'Name',
+        type: 'text',
+        propType: 'string',
+        modelName: 'nameModel',
+      },
     ],
     {
       disabledModel: false,
       placeholderModel: 'Search',
       submitTextModel: 'Search',
+      nameModel: 'q',
       value: '',
       slotSubmit: false,
       slotPrefix: false,
@@ -73,6 +80,7 @@ export default function VsfSearchExample() {
           placeholder={state.get.placeholderModel}
           disabled={state.get.disabledModel}
           submitText={state.get.submitTextModel}
+          name={state.get.nameModel}
           slotPrefix={state.get.slotPrefix ? <VsfIconSearch /> : null}
           slotSuffix={state.get.slotSuffix ? <VsfIconSearch /> : null}
           slotSubmit={state.get.slotSubmit ? <VsfIconSearch /> : null}

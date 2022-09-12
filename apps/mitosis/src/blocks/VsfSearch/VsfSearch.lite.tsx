@@ -15,10 +15,18 @@ export interface VsfSearchProps {
   modelValue?: string;
   value?: string;
   submitText?: string;
+  name?: string;
+}
+
+const DEFAULT_VALUES: Partial<Required<VsfSearchProps>> = {
+  name: "search",
 }
 
 export default function VsfSearch(props: VsfSearchProps) {
   const state = useStore({
+    get useNameProp() {
+      return props.name || DEFAULT_VALUES.name;
+    },
     clear(event?: PointerEvent) {
       event?.preventDefault();
       /* IF-vue */
@@ -53,7 +61,7 @@ export default function VsfSearch(props: VsfSearchProps) {
       aria-disabled={props.disabled ? 'true' : 'false'}
       role="search"
       class={classStringFromArray(['flex', props.disabled ? 'cursor-not-allowed' : ''])}
-      onSubmit={e => props.onSubmit?.(e)}
+      onSubmit={(e) => props.onSubmit?.(e)}
     >
       <div
         class={classStringFromArray([
@@ -73,7 +81,7 @@ export default function VsfSearch(props: VsfSearchProps) {
         <input
           role="searchbox"
           type="search"
-          name="search"
+          name={state.useNameProp}
           placeholder={props.placeholder}
           disabled={props.disabled}
           value={state.useValueProp}
@@ -86,7 +94,7 @@ export default function VsfSearch(props: VsfSearchProps) {
         <span class="peer-placeholder-shown:hidden inline-block ml-2">
           <button
             type="reset"
-            onClick={e=>state.clear(e)}
+            onClick={(e) => state.clear(e)}
             disabled={props.disabled}
             class="disabled:cursor-not-allowed flex items-center justify-center rounded-full"
           >

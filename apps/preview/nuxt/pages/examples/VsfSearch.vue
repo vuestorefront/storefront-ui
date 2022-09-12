@@ -8,6 +8,7 @@
         :placeholder="placeholderModel"
         :disabled="disabledModel"
         :submitText="submitTextModel"
+        :name="nameModel"
       >
         <template #prefix v-if="slotPrefix">
           <VsfIconSearch></VsfIconSearch>
@@ -88,11 +89,18 @@ export default {
             propType: 'string',
             modelName: 'placeholderModel',
           },
+          {
+            title: 'Name',
+            type: 'text',
+            propType: 'string',
+            modelName: 'nameModel',
+          },
         ],
         {
           disabledModel: ref(false),
           placeholderModel: ref('Search'),
           submitTextModel: ref('Search'),
+          nameModel: ref('q'),
           value: ref(''),
           slotSubmit: ref(false),
           slotPrefix: ref(false),
