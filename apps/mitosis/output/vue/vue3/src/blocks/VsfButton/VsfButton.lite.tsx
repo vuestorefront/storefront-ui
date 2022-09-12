@@ -15,8 +15,10 @@
 
   <template v-else>
     <button
-      :disabled="useDisabledProp"
+      :type="type"
       :class="_classStringToObject(buttonClasses)"
+      :disabled="disabled"
+      @click="onClick && onClick($event)"
     >
       <template v-if="$slots.prefix">
         <span class="pr-2"><slot name="prefix" /></span>
@@ -41,7 +43,14 @@ export interface VsfButtonProps {
   link?: string;
   size?: VsfButtonSizesKeys;
   variant?: VsfButtonVariantsKeys;
+  isRoundedFull?: boolean;
   disabled?: boolean;
+  classes?: string;
+  onClick?: (e?: Event) => void;
+  type?: "reset" | "button" | "submit";
+  tile?: boolean;
+  icon?: boolean;
+  className?: string;
 }
 
 import { classStringFromArray } from "../../functions/domUtils";
@@ -67,43 +76,65 @@ const DEFAULT_VALUES: Required<VsfButtonProps> = {
   link: "",
   variant: VsfButtonVariants.primary,
   size: VsfButtonSizes.base,
+  isRoundedFull: false,
   disabled: false,
+  classes: "",
+  onClick: () => {},
+  type: "button",
+  tile: false,
+  icon: false,
+  className: "",
 };
 
 export default {
   name: "vsf-button",
 
-  props: ["disabled", "size", "variant", "slotPrefix", "slotSuffix", "link"],
+  props: [
+    "size",
+    "variant",
+    "icon",
+    "tile",
+    "isRoundedFull",
+    "classes",
+    "className",
+    "type",
+    "disabled",
+    "onClick",
+    "slotPrefix",
+    "slotSuffix",
+    "link",
+  ],
 
   computed: {
-    defaults() {
-      return DEFAULT_VALUES;
-    },
-    useDisabledProp() {
-      return this.disabled || this.defaults.disabled;
-    },
     useSizeProp() {
       return validator(
         Object.keys(VsfButtonSizes),
         this.size,
-        this.defaults.size
+        DEFAULT_VALUES.size
       );
     },
     useVariantProp() {
       return validator(
         Object.keys(VsfButtonVariants),
         this.variant,
-        this.defaults.variant
+        DEFAULT_VALUES.variant
       );
     },
     buttonClasses() {
       return classStringFromArray([
-        "inline-flex items-center justify-center border rounded-md cursor-pointer font-body disabled:cursor-not-allowed outline-violet disabled:text-gray-500 disabled:opacity-50",
+        "inline-flex items-center justify-center cursor-pointer font-body disabled:cursor-not-allowed outline-violet disabled:text-gray-500 disabled:opacity-50",
         this.useSizeProp === VsfButtonSizes.sm
-          ? "leading-5 px-3 py-[6px] text-sm"
+          ? "leading-5 p-1.5 text-sm"
           : this.useSizeProp === VsfButtonSizes.base
-          ? "px-4 py-2"
-          : "px-6 py-3",
+          ? "p-2"
+          : "p-3",
+        !this.icon &&
+          (this.useSizeProp === VsfButtonSizes.sm
+            ? "px-2"
+            : this.useSizeProp === VsfButtonSizes.base
+            ? "px-4"
+            : "px-6"),
+        !this.tile && (this.isRoundedFull ? "rounded-full" : "rounded-md"),
         this.useVariantProp === VsfButtonVariants.tertiary ||
         this.useVariantProp === VsfButtonVariants["destroy-tertiary"]
           ? "font-normal bg-transparent disabled:bg-transparent"
@@ -120,6 +151,8 @@ export default {
           "text-base text-rose-600 bg-white border border-rose-400 disabled:border-0 hover:bg-rose-100 active:bg-rose-200 hover:text-rose-600 active:text-rose-700 hover:shadow-medium",
         this.useVariantProp === VsfButtonVariants["destroy-tertiary"] &&
           "text-base text-rose-600 hover:bg-rose-100 hover:text-rose-700 active:bg-rose-200 active:text-rose-800",
+        this.classes || "",
+        this.className || "",
       ]);
     },
   },
