@@ -19,7 +19,7 @@ export interface VsfSearchProps {
 
 export default function VsfSearch(props: VsfSearchProps) {
   const state = useStore({
-    clear(event?: Event) {
+    clear(event?: PointerEvent) {
       event?.preventDefault();
       /* IF-vue */
       state.$emit('update:modelValue', '');
@@ -53,7 +53,7 @@ export default function VsfSearch(props: VsfSearchProps) {
       aria-disabled={props.disabled ? 'true' : 'false'}
       role="search"
       class={classStringFromArray(['flex', props.disabled ? 'cursor-not-allowed' : ''])}
-      onSubmit={props.onSubmit}
+      onSubmit={e => props.onSubmit?.(e)}
     >
       <div
         class={classStringFromArray([
@@ -86,7 +86,7 @@ export default function VsfSearch(props: VsfSearchProps) {
         <span class="peer-placeholder-shown:hidden inline-block ml-2">
           <button
             type="reset"
-            onClick={state.clear}
+            onClick={e=>state.clear(e)}
             disabled={props.disabled}
             class="disabled:cursor-not-allowed flex items-center justify-center rounded-full"
           >

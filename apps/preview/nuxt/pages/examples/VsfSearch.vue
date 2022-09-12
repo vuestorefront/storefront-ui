@@ -4,8 +4,8 @@
       <VsfSearch
         @submit.prevent="submitHandler"
         @clear="clearHandler"
-        v-model="text"
-        placeholder="Search"
+        v-model="value"
+        :placeholder="placeholderModel"
         :disabled="disabledModel"
         :submitText="submitTextModel"
       >
@@ -15,7 +15,7 @@
         <template #suffix v-if="slotSuffix">
           <VsfIconSearch></VsfIconSearch>
         </template>
-        <template #submit v-if="submitIcon">
+        <template #submit v-if="slotSubmit">
           <VsfIconSearch></VsfIconSearch>
         </template>
       </VsfSearch>
@@ -73,7 +73,7 @@ export default {
             title: 'Submit with icon',
             type: 'boolean',
             propType: '---',
-            modelName: 'submitIcon',
+            modelName: 'slotSubmit',
             description: "Only for demonstration purposes, Icon is injected via 'submit' slot",
           },
           {
@@ -82,13 +82,19 @@ export default {
             propType: 'string',
             modelName: 'submitTextModel',
           },
+          {
+            title: 'Placeholder',
+            type: 'text',
+            propType: 'string',
+            modelName: 'placeholderModel',
+          },
         ],
         {
-          withSubmitModel: ref(true),
           disabledModel: ref(false),
+          placeholderModel: ref('Search'),
           submitTextModel: ref('Search'),
-          text: ref('example'),
-          submitIcon: ref(false),
+          value: ref(''),
+          slotSubmit: ref(false),
           slotPrefix: ref(false),
           slotSuffix: ref(false),
         },
