@@ -21,6 +21,20 @@
         <template #submit v-if="slotSubmit">
           <VsfIconSearch></VsfIconSearch>
         </template>
+        <template #results>
+          <div class="bg-white top-1 relative rounded-md font-body text-base text-center p-3 shadow-md border border-gray-100">
+            <p>
+              This panel is not a part of&nbsp;<code
+                class="text-xs rounded bg-yellow-100 border border-yellow-300 py-0.5 px-1"
+              >VsfSearch</code
+              >&nbsp;component
+            </p>
+            <p>
+              Content is injected via&nbsp;
+              <code class="text-xs rounded bg-yellow-100 border border-yellow-300 py-0.5 px-1">#results</code>&nbsp;slot
+            </p>
+          </div>
+        </template>
       </VsfSearch>
     </div>
     <div class="e-page-controls">
