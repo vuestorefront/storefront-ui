@@ -1,7 +1,11 @@
 import { Show, useStore } from "@builder.io/mitosis";
 import { classStringFromArray } from "../../functions/domUtils";
 import VsfIconInfo from '../VsfIcons/VsfIconInfo.lite';
+import VsfIconCheckCircle from "../VsfIcons/VsfIconCheckCircle.lite";
+import VsfIconWarning from "../VsfIcons/VsfIconWarning.lite";
+import VsfIconError from "../VsfIcons/VsfIconError.lite";
 import VsfIconClose from '../VsfIcons/VsfIconClose.lite';
+import type { SlotType } from "../../functions/types";
 
 export const VsfAlertTypes = Object.freeze({
   'info': 'info',
@@ -12,18 +16,23 @@ export const VsfAlertTypes = Object.freeze({
 type VsfAlertTypesKeys = keyof typeof VsfAlertTypes;
 
 export interface VsfAlertProps {
-  type?: VsfAlertTypesKeys
-  persistent?: boolean
-  header?: string
-  description?: string
-  slotIcon?: Element | Element[] | string // TODO: replace with SlotType after Button merge
-  slotButton?: Element | Element[] | string
-  handleCloseClick?: () => void
+  type?: VsfAlertTypesKeys;
+  persistent?: boolean;
+  header?: string;
+  description?: string;
+  slotIcon?: SlotType;
+  slotButton?: SlotType;
+  handleCloseClick?: () => void;
 }
 
-const DEFAULT_VALUES = {
+const DEFAULT_VALUES: Required<VsfAlertProps> = {
   type: VsfAlertTypes.info,
   persistent: false,
+  header: 'Header',
+  description: 'Description',
+  slotIcon: '',
+  slotButton: '',
+  handleCloseClick: () => {},
 };
 
 export default function VsfAlert(props: VsfAlertProps) {
@@ -69,7 +78,10 @@ export default function VsfAlert(props: VsfAlertProps) {
             when={!props.slotIcon}
             else={<div>{props.slotIcon}</div>}
           >
-            <VsfIconInfo class={state.iconClasses} />
+            {state.useTypeProp === VsfAlertTypes.info && <VsfIconInfo class={state.iconClasses} />}
+            {state.useTypeProp === VsfAlertTypes.positive && <VsfIconCheckCircle class={state.iconClasses} />}
+            {state.useTypeProp === VsfAlertTypes.warning && <VsfIconWarning class={state.iconClasses} />}
+            {state.useTypeProp === VsfAlertTypes.error && <VsfIconError class={state.iconClasses} />}
           </Show>
           <div class="flex flex-col flex-shrink text-gray-900 font-body">
             <span class="text-lg font-medium">{props.header}</span>
@@ -79,7 +91,12 @@ export default function VsfAlert(props: VsfAlertProps) {
         <Show
           when={!props.slotButton}
           else={
-            <div class="button">{props.slotButton}</div>
+            <div
+              class="button"
+              onClick={() => state.close()}
+            >
+              {props.slotButton}
+            </div>
           }
         >
           <button
