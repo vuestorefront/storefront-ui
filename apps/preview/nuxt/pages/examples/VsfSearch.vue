@@ -7,8 +7,10 @@
         v-model="value"
         :placeholder="placeholderModel"
         :disabled="disabledModel"
+        :required="requiredModel"
         :submitText="submitTextModel"
         :name="nameModel"
+        :autocomplete="autocompleteModel"
       >
         <template #prefix v-if="slotPrefix">
           <VsfIconSearch></VsfIconSearch>
@@ -20,7 +22,6 @@
           <VsfIconSearch></VsfIconSearch>
         </template>
       </VsfSearch>
-      {{ text }}
     </div>
     <div class="e-page-controls">
       <Controls v-bind="controlsAttrs" />
@@ -55,6 +56,12 @@ export default {
             type: 'boolean',
             propType: 'boolean',
             modelName: 'disabledModel',
+          },
+          {
+            title: 'required',
+            type: 'boolean',
+            propType: 'boolean',
+            modelName: 'requiredModel',
           },
           {
             title: 'Prefix icon',
@@ -95,12 +102,21 @@ export default {
             propType: 'string',
             modelName: 'nameModel',
           },
+          {
+            title: 'Autocomplete',
+            type: 'select',
+            propType: 'string',
+            options: ['on', 'off'],
+            modelName: 'autocompleteModel',
+          },
         ],
         {
           disabledModel: ref(false),
+          requiredModel: ref(false),
           placeholderModel: ref('Search'),
           submitTextModel: ref('Search'),
           nameModel: ref('q'),
+          autocompleteModel: ref('off'),
           value: ref(''),
           slotSubmit: ref(false),
           slotPrefix: ref(false),

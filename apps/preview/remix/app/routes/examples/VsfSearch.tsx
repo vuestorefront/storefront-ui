@@ -12,6 +12,12 @@ export default function VsfSearchExample() {
         modelName: 'disabledModel',
       },
       {
+        title: 'required',
+        type: 'boolean',
+        propType: 'boolean',
+        modelName: 'requiredModel',
+      },
+      {
         title: 'Prefix icon',
         type: 'boolean',
         propType: '---',
@@ -50,12 +56,21 @@ export default function VsfSearchExample() {
         propType: 'string',
         modelName: 'nameModel',
       },
+      {
+        title: 'Autocomplete',
+        type: 'select',
+        propType: 'string',
+        options: ['on', 'off'],
+        modelName: 'autocompleteModel',
+      },
     ],
     {
       disabledModel: false,
+      requiredModel: false,
       placeholderModel: 'Search',
       submitTextModel: 'Search',
       nameModel: 'q',
+      autocompleteModel: 'off',
       value: '',
       slotSubmit: false,
       slotPrefix: false,
@@ -79,6 +94,7 @@ export default function VsfSearchExample() {
           onClear={clearHandler}
           placeholder={state.get.placeholderModel}
           disabled={state.get.disabledModel}
+          required={state.get.requiredModel}
           submitText={state.get.submitTextModel}
           name={state.get.nameModel}
           slotPrefix={state.get.slotPrefix ? <VsfIconSearch /> : null}
@@ -86,6 +102,7 @@ export default function VsfSearchExample() {
           slotSubmit={state.get.slotSubmit ? <VsfIconSearch /> : null}
           value={state.get.value}
           onInput={(event) => state.set({ ...state.get, value: event.target.value })}
+          autocomplete={state.get.autocompleteModel}
         ></VsfSearch>
       </div>
       <div className="e-page-controls">

@@ -16,11 +16,13 @@ export interface VsfSearchProps {
   value?: string;
   submitText?: string;
   name?: string;
+  required?: boolean;
+  autocomplete?: string;
 }
 
 const DEFAULT_VALUES: Partial<Required<VsfSearchProps>> = {
-  name: "search",
-}
+  name: 'search',
+};
 
 export default function VsfSearch(props: VsfSearchProps) {
   const state = useStore({
@@ -58,8 +60,8 @@ export default function VsfSearch(props: VsfSearchProps) {
 
   return (
     <form
-      aria-disabled={props.disabled ? 'true' : 'false'}
       role="search"
+      aria-disabled={props.disabled ? 'true' : 'false'}
       class={classStringFromArray(['flex', props.disabled ? 'cursor-not-allowed' : ''])}
       onSubmit={(e) => props.onSubmit?.(e)}
     >
@@ -86,6 +88,8 @@ export default function VsfSearch(props: VsfSearchProps) {
           disabled={props.disabled}
           value={state.useValueProp}
           onInput={(e) => state.onInputHandler(e)}
+          required={props.required}
+          autocomplete={props.autocomplete}
           class={classStringFromArray([
             'peer outline-none bg-transparent text-gray-900 appearance-none placeholder:text-gray-500 font-body text-base block w-full ',
             'disabled:placeholder:text-opacity-50 disabled:text-opacity-50 disabled:cursor-not-allowed',
