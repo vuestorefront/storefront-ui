@@ -18,6 +18,7 @@ import VsfChipsFilter from '../output/blocks/VsfChipsFilter/VsfChipsFilter.vue';
 import VsfGallery from '../output/blocks/VsfGallery/VsfGallery.vue';
 import VsfCounter from '../output/blocks/VsfCounter/VsfCounter.vue';
 import VsfSlider from '../output/blocks/VsfSlider/VsfSlider.vue';
+import VsfSearch from '../output/blocks/VsfSearch/VsfSearch.vue';
 
 export default {
   ...Theme,
@@ -43,5 +44,6 @@ export default {
     app.component('ChipsFilter', VsfChipsFilter);
     app.component('Gallery', VsfGallery);
     app.component('Slider', VsfSlider);
+    app.component('Search', VsfSearch);
   },
 };
