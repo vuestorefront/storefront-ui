@@ -1,0 +1,1 @@
+export type SlotType = Element | Element[] | string;
