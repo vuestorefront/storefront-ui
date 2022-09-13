@@ -97,9 +97,9 @@ export default function VsfSearchExample() {
     e.preventDefault();
     console.log('Search Submit: ', e);
   }
-  function clearHandler(e: PointerEvent) {
+  function resetHandler(e: PointerEvent) {
     state.set({ ...state.get, value: '' });
-    console.log('Search Clear: ', e);
+    console.log('Search Reset: ', e);
   }
 
   return (
@@ -107,7 +107,7 @@ export default function VsfSearchExample() {
       <div className="e-page-component">
         <VsfSearch
           onSubmit={submitHandler}
-          onClear={clearHandler}
+          onReset={resetHandler}
           placeholder={state.get.placeholderModel}
           disabled={state.get.disabledModel}
           required={state.get.requiredModel}

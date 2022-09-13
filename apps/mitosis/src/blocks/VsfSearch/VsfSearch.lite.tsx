@@ -13,7 +13,7 @@ export interface VsfSearchProps {
   slotResults?: SlotType;
   onInput?: (...args: any[]) => void;
   onSubmit?: (...args: any[]) => void;
-  onClear?: (...args: any[]) => void;
+  onReset?: (...args: any[]) => void;
   modelValue?: string;
   value?: string;
   submitText?: string;
@@ -31,14 +31,14 @@ export default function VsfSearch(props: VsfSearchProps) {
     get useNameProp() {
       return props.name || DEFAULT_VALUES.name;
     },
-    clear(event?: PointerEvent) {
+    onResetHandler(event?: PointerEvent) {
       event?.preventDefault();
       /* IF-vue */
       state.$emit('update:modelValue', '');
-      state.$emit('clear', event);
+      state.$emit('reset', event);
       /* ENDIF-vue */
       /* IF-react */
-      props.onClear && props.onClear(event);
+      props.onReset && props.onReset(event);
       /* ENDIF-react */
     },
     get useValueProp() {
@@ -101,7 +101,7 @@ export default function VsfSearch(props: VsfSearchProps) {
           <span class="peer-placeholder-shown:hidden inline-block ml-2">
             <button
               type="reset"
-              onClick={(e) => state.clear(e)}
+              onClick={(e) => state.onResetHandler(e)}
               disabled={props.disabled}
               class="disabled:cursor-not-allowed flex items-center justify-center rounded-full"
             >

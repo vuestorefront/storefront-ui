@@ -3,7 +3,7 @@
     <div class="e-page-component">
       <VsfSearch
         @submit.prevent="submitHandler"
-        @clear="clearHandler"
+        @reset="resetHandler"
         v-model="value"
         :placeholder="placeholderModel"
         :disabled="disabledModel"
@@ -60,8 +60,8 @@ export default {
       submitHandler(e) {
         console.log('Search Submit: ', e);
       },
-      clearHandler(e) {
-        console.log('Search Clear: ', e);
+      resetHandler(e) {
+        console.log('Search Reset: ', e);
       },
       ...prepareControls(
         [

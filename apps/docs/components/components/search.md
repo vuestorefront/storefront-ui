@@ -35,7 +35,7 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 | Event name        |            Trigger             |
 | ----------------- | :----------------------------: |
 | update:modelValue | triggers v-model update event  |
-| clear             | clear button event             |
+| reset             | reset button event             |
 | submit            | submit form event              |
 
 ## Accessibility notes
