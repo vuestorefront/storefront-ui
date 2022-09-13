@@ -17,21 +17,30 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - name: Configure Yarn cache
-        uses: actions/cache@v2
+      - name: Install Node.js
+        uses: actions/setup-node@v3
         with:
-          key: ${{ runner.os }}-yarn-${{ env.cache-name }}-${{ hashFiles('./yarn.lock') }}
-          path: |
-            ${{ steps.yarn-cache-dir-path.outputs.dir }}
-            apps/preview/nuxt/node_modules
-
+          node-version-file: '.node-version'
+          cache: 'yarn'
       - name: Install dependencies
-        run: cd apps/preview/nuxt; yarn --prefer-offline --pure-lockfile
+        run: yarn --frozen-lockfile
+
+  build:
+    name: Build all packages
+    runs-on: ubuntu-latest
+    needs: [cache]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.node-version'
+          cache: 'yarn'
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+      - name: Run build
+        run: yarn build
 
   # lint:
   #   name: Lint
