@@ -185,7 +185,7 @@ export default function VsfProductCardVertical(props: VsfProductCardVerticalProp
         <div className='relative'>
           <a href={state.useLinkProp}>
             <img
-              className={`${state.useOutOfStockProp ? 'opacity-50' : 'opacity-100' } w-full h-auto object-fit rounded-md`}
+              className={`${state.useOutOfStockProp ? 'opacity-50' : 'opacity-100' } w-full object-cover aspect-square`}
               src={state.useImageProp}
               alt={state.useAltProp}
               loading="lazy"
