@@ -71,7 +71,7 @@ export default function VsfSearch(props: VsfSearchProps) {
         <div
           class={classStringFromArray([
             'group',
-            'relative flex-1 flex items-center pl-4 py-2 pr-2',
+            'relative flex-1 flex items-center p-2',
             'ring-1 ring-gray-200 ring-inset',
             'rounded-l-md',
             'only:rounded-r-md text-gray-500',
@@ -81,7 +81,7 @@ export default function VsfSearch(props: VsfSearchProps) {
           ])}
         >
           <Show when={props.slotPrefix}>
-            <span class="mr-2 inline-flex">{props.slotPrefix}</span>
+            <span class="ml-2 inline-flex">{props.slotPrefix}</span>
           </Show>
           <input
             role="searchbox"
@@ -94,7 +94,7 @@ export default function VsfSearch(props: VsfSearchProps) {
             required={props.required}
             autocomplete={props.autocomplete}
             class={classStringFromArray([
-              'peer outline-none bg-transparent text-gray-900 appearance-none placeholder:text-gray-500 font-body text-base block w-full ',
+              'peer ml-2 outline-none bg-transparent text-gray-900 appearance-none placeholder:text-gray-500 font-body text-base block w-full ',
               'disabled:placeholder:text-opacity-50 disabled:text-opacity-50 disabled:cursor-not-allowed',
             ])}
           />
