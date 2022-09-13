@@ -71,6 +71,7 @@ export default {
           { text: 'Spinner', link: '/components/spinner' },
           { text: 'Tag', link: '/components/tag' },
           { text: 'Tooltip', link: '/components/tooltip' },
+          { text: 'NavbarBottom', link: '/components/navbarbottom' },
         ].sort((a, b) => a.text.localeCompare(b.text)),
       },
       {
