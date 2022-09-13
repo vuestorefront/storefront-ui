@@ -14,7 +14,7 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 |-----------------------|----------------------------|---------------    |----------------------------------|
 | items                 | Array of objects (keys: label, icon, tag, link) | []             |                   |
 | withLabels            | Boolean                    | `false`            |                                      |
-| variant               | String                     | `primary`      | `positive`, `secondary`                |
+| variant               | String                     | `primary`      | `primary`, `secondary`                |
 | absolutePosition       | Boolean                    | `false`       |                                        |
 
 ## Slots
