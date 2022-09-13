@@ -22,14 +22,14 @@ export default function VsfAlertExample() {
       title: 'Header',
       type: 'text',
       modelName: 'headerModel',
-      propDefaultValue: '',
+      propDefaultValue: 'Header',
       propType: 'string',
     },
     {
       title: 'Description',
       type: 'text',
       modelName: 'descriptionModel',
-      propDefaultValue: '',
+      propDefaultValue: 'Description',
       propType: 'string',
     },
     {
@@ -49,8 +49,8 @@ export default function VsfAlertExample() {
   ], {
     typeModel: VsfAlertTypes.info,
     persistentModel: false,
-    headerModel: '',
-    descriptionModel: '',
+    headerModel: 'Header',
+    descriptionModel: 'Description',
     slotIconModel: '',
     slotButtonModel: '',
   });

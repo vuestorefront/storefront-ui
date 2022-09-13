@@ -60,14 +60,14 @@ export default {
           title: 'Header',
           type: 'text',
           modelName: 'headerModel',
-          propDefaultValue: '',
+          propDefaultValue: 'Header',
           propType: 'string',
         },
         {
           title: 'Description',
           type: 'text',
           modelName: 'descriptionModel',
-          propDefaultValue: '',
+          propDefaultValue: 'Description',
           propType: 'string',
         },
         {
@@ -87,8 +87,8 @@ export default {
       ], {
         typeModel: ref(VsfAlertTypes.info),
         persistentModel: ref(false),
-        headerModel: ref(''),
-        descriptionModel: ref(''),
+        headerModel: ref('Header'),
+        descriptionModel: ref('Description'),
         slotIconModel: ref(''),
         slotButtonModel: ref(''),
       })
