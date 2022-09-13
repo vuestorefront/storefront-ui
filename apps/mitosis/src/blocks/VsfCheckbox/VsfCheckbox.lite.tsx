@@ -1,4 +1,4 @@
-import { useStore, Show } from '@builder.io/mitosis';
+import { useStore, Show, onUpdate, useRef, onInit } from '@builder.io/mitosis';
 import { classStringFromArray } from '../../functions/domUtils';
 export interface VsfCheckboxProps {
   name: string;
@@ -50,6 +50,13 @@ export default function VsfCheckbox(props: VsfCheckboxProps) {
       };
     },
   });
+  const inputRef = useRef<HTMLInputElement>(null);
+  onUpdate(() => {
+    /* IF-react */
+    inputRef.indeterminate = Boolean(props.indeterminate);
+
+    /* ENDIF-react */
+  }, [props.indeterminate]);
 
   return (
     <div class="py-2">
@@ -63,6 +70,7 @@ export default function VsfCheckbox(props: VsfCheckboxProps) {
         <span class="p-1">
           <input
             v-model="vueProxyValue"
+            ref={inputRef}
             type="checkbox"
             class={state.inputClasses}
             disabled={props.disabled}

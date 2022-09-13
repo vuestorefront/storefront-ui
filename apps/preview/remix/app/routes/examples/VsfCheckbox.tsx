@@ -70,7 +70,7 @@ export default function Index() {
       valueModel: '',
       requiredModel: false,
       disabledModel: false,
-      indeterminateModel: false,
+      indeterminateModel: true,
       invalidModel: false,
       reverseModel: false,
       labelModel: 'Label',

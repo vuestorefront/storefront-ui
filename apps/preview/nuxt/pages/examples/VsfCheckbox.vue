@@ -100,7 +100,7 @@ export default defineComponent({
         valueModel: ref(),
         requiredModel: ref(),
         disabledModel: ref(),
-        indeterminateModel: ref(),
+        indeterminateModel: ref(false),
         invalidModel: ref(),
         reverseModel: ref(),
         labelModel: ref('Label'),
