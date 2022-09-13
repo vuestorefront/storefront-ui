@@ -62,14 +62,14 @@ export default function VsfCounter(props: VsfCounterProps) {
     },
     get pillClass() {
       return props.pill
-        ? 'py-0.5 ring-1 ring-gray-200 ring-inset rounded-full text-gray-900'
+        ? `${props.size === VsfCounterVariants.xs || props.size === VsfCounterVariants.sm ? 'ring-0' : 'ring-1 ring-gray-200 ring-inset'} py-0.5 rounded-full text-gray-900`
         : `before:content-['('] after:content-[')'] text-gray-500`;
     },
   });
 
   return (
     <div
-      class={`inline-flex relative items-center font-body ${state.fontSizeClass} ${state.pillClass} ${state.pillSpacingClass} ${state.fontWeightClass} ${props.className || ''}`}
+      class={`inline-flex items-center font-body ${state.fontSizeClass} ${state.pillClass} ${state.pillSpacingClass} ${state.fontWeightClass} ${props.className || ''}`}
     >
       {props.children}
     </div>
