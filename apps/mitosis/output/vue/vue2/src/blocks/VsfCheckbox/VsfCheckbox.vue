@@ -1,141 +1,143 @@
 <template>
-  <div
-    :class="
-      _classStringToObject(
-        `sfui-checkbox relative grid max-w-xs grid-cols-[24px_1fr] gap-x-2.5 right-checkbox ${rightCheckboxClasses}`
-      )
-    "
-  >
-    <input
-      v-model="vueProxyValue"
-      type="checkbox"
-      :checked="isChecked"
-      :id="`checkbox-${name}`"
-      :indeterminate="indeterminate"
-      :name="name"
-      :required="required"
-      :disabled="disabled"
-      :invalid="invalid"
-      :class="_classStringToObject(inputClasses)"
-      @input="onChangeHandler($event)"
-      :value="useValueProp"
-    />
+  <div class="py-2">
     <label
-      :htmlFor="`checkbox-${name}`"
       :class="
         _classStringToObject(
           classStringFromArray([
-            `text-gray-900 flex self-center cursor-pointer font-body peer-required:after:content-['*'] peer-disabled:text-gray-900/40 peer-disabled:cursor-not-allowed`,
-            rightCheckbox
-              ? '!col-start-[start-col] row-start-[start-row] col-end-[end-col]'
-              : '',
+            'flex w-full items-center gap-2',
+            disabled ? 'cursor-not-allowed' : 'cursor-pointer',
+            reverse ? 'flex-row-reverse justify-between' : 'flex-row',
           ])
         )
       "
     >
-      {{ useLabelProp }}
+      <span class="p-1">
+        <input
+          v-model="vueProxyValue"
+          type="checkbox"
+          ref="inputRef"
+          :class="_classStringToObject(inputClasses)"
+          :disabled="disabled"
+          :required="required"
+          :indeterminate="indeterminate"
+          :invalid="invalid"
+          :checked="checked"
+          @input="onChangeHandler($event)"
+          :value="value"
+        />
+      </span>
+      <span
+        :class="
+          _classStringToObject(
+            classStringFromArray([
+              'text-gray-900 font-body text-base',
+              disabled && 'text-opacity-40',
+              required && `after:content-['*']`,
+            ])
+          )
+        "
+      >
+        {{ label }}
+      </span>
     </label>
-    <span
+    <div
+      :class="
+        _classStringToObject(classStringFromArray([reverse ? 'ml-0' : 'ml-8']))
+      "
+    >
+      <div
+        v-if="invalid && errorText"
+        :class="
+          _classStringToObject(
+            classStringFromArray([
+              'mt-0.5 text-sm font-medium font-body',
+              disabled ? 'text-gray-500/50' : 'text-negative-600',
+            ])
+          )
+        "
+      >
+        {{ errorText }}
+      </div>
+
+      <div
+        v-if="helpText"
+        :class="
+          _classStringToObject(
+            classStringFromArray([
+              'mt-0.5 text-xs font-body text-gray-500',
+              disabled && 'text-opacity-50',
+            ])
+          )
+        "
+      >
+        {{ helpText }}
+      </div>
+    </div>
+
+    <div
+      v-if="required && requiredText"
       :class="
         _classStringToObject(
           classStringFromArray([
-            `block col-start-2 mt-0.5 text-sm font-medium text-negative-600 font-body`,
-            !invalid ? 'hidden' : '',
-            rightCheckbox ? '!col-start-[start-col] col-end-[end-col]' : '',
+            'mt-4 text-sm text-gray-500 font-body',
+            disabled && 'text-opacity-50',
           ])
         )
       "
     >
-      {{ useErrorTextProp }}
-    </span>
-    <span
-      :class="
-        _classStringToObject(
-          classStringFromArray([
-            `col-start-2 mt-0.5 text-xs text-gray-500 peer-disabled:text-gray-500/50 font-body`,
-            rightCheckbox ? '!col-start-[start-col]' : '',
-          ])
-        )
-      "
-    >
-      {{ useHelpTextProp }}
-    </span>
-    <span
-      :class="
-        _classStringToObject(
-          classStringFromArray([
-            `hidden col-start-1 mt-4 text-xs text-gray-500 peer-required:block peer-disabled:opacity-50 font-body`,
-            rightCheckbox ? '!col-start-[start-col] col-end-[end-col]' : '',
-          ])
-        )
-      "
-    >
-      *Required
-    </span>
+      {{ requiredText }}
+    </div>
   </div>
 </template>
 
 <script>
 import { classStringFromArray } from "../../functions/domUtils";
-const DEFAULT_VALUES = {
-  value: "",
-  label: "",
-  helpText: "",
-  errorText: "",
-};
 
 export default {
   name: "vsf-checkbox",
 
   props: [
-    "value",
-    "label",
-    "helpText",
-    "errorText",
-    "rightCheckbox",
-    "indeterminate",
-    "invalid",
     "disabled",
+    "invalid",
+    "className",
     "onChange",
     "modelValue",
-    "checked",
-    "name",
+    "indeterminate",
+    "reverse",
     "required",
+    "checked",
+    "value",
+    "label",
+    "errorText",
+    "helpText",
+    "requiredText",
   ],
 
   data: () => ({ classStringFromArray }),
 
+  watch: {
+    onUpdateHook0() {
+      /* IF-react */
+      this.$refs.inputRef.indeterminate = Boolean(this.indeterminate);
+      /* ENDIF-react */
+    },
+  },
+
   computed: {
-    useValueProp() {
-      return this.value || DEFAULT_VALUES.value;
-    },
-    useLabelProp() {
-      return this.label || DEFAULT_VALUES.label;
-    },
-    useHelpTextProp() {
-      return this.helpText || DEFAULT_VALUES.helpText;
-    },
-    useErrorTextProp() {
-      return this.errorText || DEFAULT_VALUES.errorText;
-    },
-    rightCheckboxClasses() {
-      return this.rightCheckbox
-        ? "grid-rows-[[start-row]_1fr_[end-row]_1fr] grid-cols-[[start-col]_1fr_[end-col]_24px_!important]"
-        : "";
-    },
     inputClasses() {
       return classStringFromArray([
-        "peer flex self-center w-[18px] h-[18px] border-2 border-gray-500 rounded-sm appearance-none cursor-pointer",
-        "hover:border-primary-500 checked:bg-checked-checkbox checked:border-primary-500 disabled:border-gray-500/50",
-        "disabled:cursor-not-allowed outline-violet",
-        this.indeterminate
-          ? "bg-indeterminate-checkbox border-primary-500 "
-          : "",
-        this.invalid ? "!border-negative-600" : "",
-        this.indeterminate && this.disabled
-          ? "!border-[#b8b8bc] bg-indeterminate-disabled-checkbox "
-          : "",
-        this.rightCheckbox ? "col-start-[end-col] row-start-[start-row] " : "",
+        "peer flex self-center w-4 h-4 border-2 rounded-sm appearance-none cursor-pointer disabled:cursor-not-allowed outline-violet",
+        "text-gray-500",
+        "hover:checked:text-primary-600 active:checked:text-primary-700 checked:text-primary-500 checked:!border-transparent ",
+        "checked:bg-checked-checkbox-current border-current",
+        "indeterminate:bg-indeterminate-checkbox-current",
+        "indeterminate:text-primary-500",
+        this.disabled
+          ? "disabled:!text-[#b8b8bc]"
+          : this.invalid
+          ? "border-negative-500 hover:border-negative-600 active:border-negative-700"
+          : "hover:text-primary-600 active:text-primary-700",
+        this.className,
       ]);
     },
     vueProxyValue() {
@@ -148,10 +150,10 @@ export default {
         },
       };
     },
-    isChecked() {
-      /* IF-react */
-      return this.checked;
-      /* ENDIF-react */
+    onUpdateHook0() {
+      return {
+        0: this.indeterminate,
+      };
     },
   },
 
