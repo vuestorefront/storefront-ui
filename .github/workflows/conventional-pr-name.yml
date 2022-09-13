@@ -10,16 +10,13 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
       - name: Setup node
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version-file: '.node-version'
           cache: 'yarn'
-
       - name: Install dependencies
         run: yarn --frozen-lockfile
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-
       - uses: JulienKode/pull-request-name-linter-action@v0.1.2

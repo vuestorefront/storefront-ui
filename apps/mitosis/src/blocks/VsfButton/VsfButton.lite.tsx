@@ -72,7 +72,7 @@ export default function VsfButton(props: VsfButtonProps) {
       );
     },
     get buttonClasses() {
-      return classStringFromArray(['inline-flex items-center justify-center cursor-pointer font-body disabled:cursor-not-allowed outline-violet disabled:text-gray-500 disabled:opacity-50',
+      return classStringFromArray(['inline-flex items-center justify-center cursor-pointer font-body disabled:cursor-not-allowed outline-violet-500 disabled:text-gray-500 disabled:opacity-50',
         state.useSizeProp === VsfButtonSizes.sm ? 'leading-5 p-1.5 text-sm' : state.useSizeProp === VsfButtonSizes.base ? 'p-2' : 'p-3',
         !props.icon && (state.useSizeProp === VsfButtonSizes.sm ? 'px-2': state.useSizeProp === VsfButtonSizes.base ? 'px-4' : 'px-6'),
         !props.tile && (props.isRoundedFull ? 'rounded-full' : 'rounded-md'),
