@@ -1,4 +1,4 @@
-import { useStore, Show, onUpdate, useRef, onInit } from '@builder.io/mitosis';
+import { useStore, Show, onUpdate, useRef } from '@builder.io/mitosis';
 import { classStringFromArray } from '../../functions/domUtils';
 export interface VsfCheckboxProps {
   value?: string | string[] | number;
