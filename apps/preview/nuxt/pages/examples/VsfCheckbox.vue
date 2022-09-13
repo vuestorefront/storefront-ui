@@ -1,49 +1,18 @@
 <template>
   <div class="e-page">
     <div class="e-page-component">
-      <p>Single Checkbox</p>
       <VsfCheckbox
         v-model="toggle"
-        :name="nameModel"
-        :label="labelModel"
+        :label="`${labelModel} [${toggle}]`"
         :disabled="disabledModel"
         :helpText="helpTextModel"
         :errorText="errorTextModel"
+        :requiredText="requiredTextModel"
         :invalid="invalidModel"
         :indeterminate="indeterminateModel"
         :required="requiredModel"
-        :rightCheckbox="rightCheckboxModel"
+        :reverse="reverseModel"
       ></VsfCheckbox>
-      <div>Toggled: {{ toggle }}</div>
-      <br />
-      <p>Multiple Checkboxes</p>
-      <VsfCheckbox
-        v-model="checked"
-        name="jack"
-        label="Jack"
-        value="Jack"
-        :disabled="disabledModel"
-        :helpText="helpTextModel"
-        :errorText="errorTextModel"
-        :invalid="invalidModel"
-        :indeterminate="indeterminateModel"
-        :required="requiredModel"
-        :rightCheckbox="rightCheckboxModel"
-      />
-      <VsfCheckbox
-        v-model="checked"
-        name="mike"
-        label="Mike"
-        value="Mike"
-        :disabled="disabledModel"
-        :helpText="helpTextModel"
-        :errorText="errorTextModel"
-        :invalid="invalidModel"
-        :indeterminate="indeterminateModel"
-        :required="requiredModel"
-        :rightCheckbox="rightCheckboxModel"
-      />
-      <div>Checked: {{ checked }}</div>
     </div>
     <div class="e-page-controls">
       <Controls v-bind="controlsAttrs" />
@@ -65,14 +34,6 @@ export default defineComponent({
   setup() {
     return prepareControls(
       [
-        {
-          title: 'Name',
-          type: 'text',
-          modelName: 'nameModel',
-          propDefaultValue: '',
-          propType: 'string',
-          isRequired: true,
-        },
         {
           title: 'Value',
           type: 'text',
@@ -105,9 +66,9 @@ export default defineComponent({
           propType: 'boolean',
         },
         {
-          title: 'RightCheckbox',
+          title: 'Reverse',
           type: 'boolean',
-          modelName: 'rightCheckboxModel',
+          modelName: 'reverseModel',
           propType: 'boolean',
         },
         {
@@ -128,20 +89,25 @@ export default defineComponent({
           modelName: 'errorTextModel',
           propType: 'string',
         },
+        {
+          title: 'RequiredText',
+          type: 'text',
+          modelName: 'requiredTextModel',
+          propType: 'string',
+        },
       ],
       {
-        nameModel: ref('checkbox-1'),
         valueModel: ref(),
         requiredModel: ref(),
         disabledModel: ref(),
         indeterminateModel: ref(),
         invalidModel: ref(),
-        rightCheckboxModel: ref(),
+        reverseModel: ref(),
         labelModel: ref('Label'),
-        helpTextModel: ref('help'),
-        errorTextModel: ref('error'),
-        toggle: ref(),
-        checked: ref(['Mike']),
+        helpTextModel: ref('Help Text'),
+        errorTextModel: ref('Error Message'),
+        requiredTextModel: ref('*Required'),
+        toggle: ref(false),
       },
     );
   },
