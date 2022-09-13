@@ -2,14 +2,15 @@ import { useStore, Show } from '@builder.io/mitosis';
 import { classStringFromArray } from '../../functions/domUtils';
 import VsfIconCancel from '../VsfIcons/VsfIconCancel.lite';
 import VsfButton from '../VsfButton/VsfButton.lite';
+import { SlotType } from '../../functions/types';
 
 export interface VsfSearchProps {
   placeholder?: string;
   disabled?: boolean;
-  slotPrefix: any;
-  slotSuffix: any;
-  slotSubmit: any;
-  slotResults: any;
+  slotPrefix?: SlotType;
+  slotSuffix?: SlotType;
+  slotSubmit?: SlotType;
+  slotResults?: SlotType;
   onInput?: (...args: any[]) => void;
   onSubmit?: (...args: any[]) => void;
   onClear?: (...args: any[]) => void;
