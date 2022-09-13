@@ -1,7 +1,6 @@
 import { useStore, Show, onUpdate, useRef, onInit } from '@builder.io/mitosis';
 import { classStringFromArray } from '../../functions/domUtils';
 export interface VsfCheckboxProps {
-  name: string;
   value?: string | string[] | number;
   required?: boolean;
   disabled?: boolean;
