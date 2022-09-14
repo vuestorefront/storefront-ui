@@ -19,8 +19,11 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 | slotSuffix | `SlotType`              |                 | Right side slotted content                                                                  |
 | disabled   | `Boolean`               | false           | false                                                                                       |
 | link       | `String`                |                 | '/my-cool-page'                                                                             |
-| classes    | `String`                |                 |                                                                              |
-| onClick    | () => void              |                 |                                                                              |
+| classes    | `String`                |                 |                                                                                             |
+| onClick    | () => void              |                 |                                                                                             |
+| type       | `String`                |                 | `reset`, `button`, `submit`                                                                 |
+| tile       | `Boolean`               |                 |                                                                                             |
+| icon       | `Boolean`               |                 |                                                                                             |
 
 ## Slots
 
