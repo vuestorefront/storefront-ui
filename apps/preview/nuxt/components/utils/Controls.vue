@@ -82,7 +82,6 @@
                     v-else
                     v-bind="options.bind"
                     v-model="proxyModels[control.modelName]"
-                    :value="options.value || options.label || (typeof options === 'string' && options)"
                     :type="control.type"
                     :name="`${control.title}-${index}`"
                   />
