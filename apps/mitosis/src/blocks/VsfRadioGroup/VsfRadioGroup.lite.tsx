@@ -73,7 +73,7 @@ export default function VsfRadioGroup(props: VsfRadioGroupProps) {
     },
     get additionalTextClasses(): string {
       return classStringFromArray([
-        'flex flex-col mt-1 text-xs text-gray-500 peer-disabled:text-gray-500/50 font-body',
+        'flex flex-col text-xs text-gray-500 peer-disabled:text-gray-500/50 font-body',
         state.useVariantProp === VsfRadioGroupVariants.tile && 'pl-4',
       ]);
     }
