@@ -19,10 +19,12 @@ import VsfGallery from '../output/blocks/VsfGallery/VsfGallery.vue';
 import VsfCounter from '../output/blocks/VsfCounter/VsfCounter.vue';
 import VsfSlider from '../output/blocks/VsfSlider/VsfSlider.vue';
 import VsfRadio from '../output/blocks/VsfRadio/VsfRadio.vue'
+import VsfRadioGroup from '../output/blocks/VsfRadioGroup/VsfRadioGroup.vue'
 export default {
   ...Theme,
   enhanceApp({ app }) {
 
+    app.component('RadioGroup', VsfRadioGroup);
     app.component('Radio', VsfRadio);
     app.component('Counter', VsfCounter);
     app.component('PlaygroundWrapper', PlaygroundWrapper);
