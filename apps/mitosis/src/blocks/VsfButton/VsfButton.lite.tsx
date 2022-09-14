@@ -86,7 +86,7 @@ export default function VsfButton(props: VsfButtonProps) {
       }
     },
     get buttonClasses() {
-      return classStringFromArray(['inline-flex items-center justify-center border cursor-pointer font-body disabled:cursor-not-allowed outline-violet disabled:text-gray-500 disabled:opacity-50',
+      return classStringFromArray(['inline-flex items-center justify-center cursor-pointer font-body disabled:cursor-not-allowed outline-violet disabled:text-gray-500 disabled:opacity-50',
         state.sizeClasses,
         state.useVariantProp === VsfButtonVariants.tertiary || state.useVariantProp === VsfButtonVariants['destroy-tertiary'] ? 'font-normal bg-transparent disabled:bg-transparent' : 'font-medium uppercase shadow-base disabled:bg-gray-200 disabled:shadow-none',
         state.useVariantProp === VsfButtonVariants.primary && 'bg-primary-500 text-white hover:bg-primary-600 hover:shadow-medium active:bg-primary-700',
