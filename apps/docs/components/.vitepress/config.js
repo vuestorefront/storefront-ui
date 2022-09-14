@@ -36,6 +36,8 @@ export default {
         collapsible: true,
         collapsed: true,
         items: [
+
+          { text: 'Radio', link: '/components/radio' },
           { text: 'Counter', link: '/components/counter' },
           { text: 'Slider', link: '/components/slider' },
           { text: 'Alert', link: '/components/alert' },

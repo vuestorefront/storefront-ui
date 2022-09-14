@@ -18,10 +18,12 @@ import VsfChipsFilter from '../output/blocks/VsfChipsFilter/VsfChipsFilter.vue';
 import VsfGallery from '../output/blocks/VsfGallery/VsfGallery.vue';
 import VsfCounter from '../output/blocks/VsfCounter/VsfCounter.vue';
 import VsfSlider from '../output/blocks/VsfSlider/VsfSlider.vue';
-
+import VsfRadio from '../output/blocks/VsfRadio/VsfRadio.vue'
 export default {
   ...Theme,
   enhanceApp({ app }) {
+
+    app.component('Radio', VsfRadio);
     app.component('Counter', VsfCounter);
     app.component('PlaygroundWrapper', PlaygroundWrapper);
     app.component('Alert', VsfAlert);
