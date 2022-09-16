@@ -120,14 +120,14 @@ type Controls = {
     value?: string | undefined
   } | string)[]
 }[];
-export const prepareControls = (
+export function prepareControls<T extends Record<string, RefValueUnknown>>(
   controlsObject: Controls,
-  models: Record<string, RefValueUnknown>
-) => {
-  const on: Record<string, (e: KeyboardEvent) => void> = {};
+  models: T
+) {
+  const on: Record<string, (e: string | number | boolean | []) => void> = {};
   const controls = controlsObject.map((control) => {
     control.isRequired = false;
-    on[`onUpdate:${control.modelName}`] = (e: KeyboardEvent) => {
+    on[`onUpdate:${control.modelName}`] = (e: string | number | boolean | []) => {
       models[control.modelName].value = e;
     };
     return { ...control, model: models[control.modelName] };
