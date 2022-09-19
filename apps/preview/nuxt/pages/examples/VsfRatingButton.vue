@@ -34,7 +34,7 @@ export default defineComponent({
           type: 'select',
           modelName: 'sizeModel',
           propDefaultValue: VsfRatingButtonVariants.base,
-          options: [Object.keys(VsfRatingButtonVariants)],
+          options: Object.keys(VsfRatingButtonVariants),
           propType: 'VsfRatingButtonVariants',
         },
         {
