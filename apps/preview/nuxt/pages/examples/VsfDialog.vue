@@ -1,7 +1,7 @@
 <template>
   <div class="e-page">
     <div class="e-page-component">
-      <VsfDialog v-model="openModel" :closeable="closeableModel">
+      <VsfDialog v-model="openModel" :disableClose="disableClose">
         <section>
           Header<br>
           Some cool dialog text here
@@ -34,7 +34,7 @@ export default {
     VsfButton
   },
   setup() {
-    const { openModel, closeableModel, controlsAttrs } = prepareControls([{
+    const { openModel, disableClose, controlsAttrs } = prepareControls([{
       title: 'Open Dialog',
       type: 'boolean',
       modelName: 'openModel',
@@ -42,11 +42,11 @@ export default {
     }, {
       title: 'Close button',
       type: 'boolean',
-      modelName: 'closeableModel',
-      propDefaultValue: true
+      modelName: 'disableClose',
+      propDefaultValue: false
     }], {
       openModel: ref(false),
-      closeableModel: ref(true)
+      disableClose: ref(false)
     });
 
     return {
@@ -59,7 +59,7 @@ export default {
       VsfButtonVariants,
       controlsAttrs,
       openModel,
-      closeableModel
+      disableClose
     }
   }
 };

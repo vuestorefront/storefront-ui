@@ -12,27 +12,27 @@ export default function VsfAlertExample() {
   }, {
     title: 'Close button',
     type: 'boolean',
-    modelName: 'closeableModel',
+    modelName: 'disableClose',
     propDefaultValue: true
   }], {
     openModel: false,
-    closeableModel: true
+    disableClose: false
   });
 
-  const closeable = useRef(state.get.closeableModel)
+  const disableClose = useRef(state.get.disableClose)
 
   useEffect(() => {
-    closeable.current = state.get.closeableModel;
-  }, [state.get.closeableModel])
+    disableClose.current = state.get.disableClose;
+  }, [state.get.disableClose])
 
   return (
     <div className="e-page">
       <div className="e-page-component">
         <VsfDialog
           open={state.get.openModel}
-          closeable={state.get.closeableModel}
+          disableClose={state.get.disableClose}
           onClose={() => {
-            state.set({ closeableModel: closeable.current, openModel: false })
+            state.set({ disableClose: disableClose.current, openModel: false })
           }}
           classes={'flex flex-col'}
         >

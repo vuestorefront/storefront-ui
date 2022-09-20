@@ -20,6 +20,7 @@ import VsfCounter from '../output/blocks/VsfCounter/VsfCounter.vue';
 import VsfSlider from '../output/blocks/VsfSlider/VsfSlider.vue';
 import VsfDialog from '../output/blocks/VsfDialog/VsfDialog.vue';
 import VsfSearch from '../output/blocks/VsfSearch/VsfSearch.vue';
+import VsfNavBarTop from '../output/blocks/VsfNavBarTop/VsfNavBarTop.vue';
 
 export default {
   ...Theme,

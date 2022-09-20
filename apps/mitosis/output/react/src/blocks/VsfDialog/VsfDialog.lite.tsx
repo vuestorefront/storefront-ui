@@ -7,20 +7,20 @@ export interface VsfDialogProps {
   open?: boolean;
 
   classes?: string;
-  closeable?: boolean;
+  disableClose?: boolean;
   onClose?: (isClosed: boolean) => boolean;
 }
 
 import { SlotType } from "../../functions/types";
 import VsfButton from "../VsfButton/VsfButton.lite";
 import VsfIconClose from "../VsfIcons/VsfIconClose.lite";
-const DEFAULT_VALUES: Required<VsfDialogProps> = {
+const DEFAULT_VALUES: Omit<
+  Required<VsfDialogProps>,
+  "open" | "disableClose"
+> = {
   children: "",
 
-  open: false,
-
   classes: "",
-  closeable: true,
   onClose: (isClosed) => isClosed,
 };
 
@@ -30,12 +30,8 @@ export default function VsfDialog(props: VsfDialogProps) {
     return props.classes ?? DEFAULT_VALUES.classes;
   }
 
-  function useClosableProp() {
-    return props.closeable ?? DEFAULT_VALUES.closeable;
-  }
-
   function useOpenProp() {
-    return props.open ?? DEFAULT_VALUES.open;
+    return props.open;
   }
 
   function toggleDialog() {
@@ -50,21 +46,13 @@ export default function VsfDialog(props: VsfDialogProps) {
   }
 
   function clickHandler(ev) {
-    const rect = dialogRef.current.getBoundingClientRect();
-    const isOutsideDialog =
-      ev.clientY < rect.top ||
-      ev.clientY > rect.top + rect.height ||
-      ev.clientX < rect.left ||
-      ev.clientX > rect.left + rect.width;
-
-    if (isOutsideDialog) {
+    if (ev.target === dialogRef.current) {
       handleCloseDialog();
     }
   }
 
   useEffect(() => {
     toggleDialog();
-    dialogRef.current.addEventListener("click", clickHandler);
   }, []);
 
   useEffect(() => {
@@ -74,20 +62,14 @@ export default function VsfDialog(props: VsfDialogProps) {
     });
   });
 
-  useEffect(() => {
-    return () => {
-      // TODO: cannot remove listener in vue because there is no `beforeUnmount` hook :/
-      dialogRef.current.removeEventListener("click", clickHandler);
-    };
-  }, []);
-
   return (
     <dialog
       ref={dialogRef}
       className={`backdrop:bg-gray-500 backdrop:opacity-50 p-0 shadow-extra-large rounded-xl`}
+      onClick={(e) => clickHandler(e)}
     >
       <div className={`p-6 lg:p-10 relative ${useClassesProp()}`}>
-        {useClosableProp() ? (
+        {props.disableClose ? (
           <>
             <VsfButton
               classes="rounded-full top-2 right-2 absolute"

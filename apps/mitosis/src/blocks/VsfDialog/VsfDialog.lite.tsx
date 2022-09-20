@@ -12,20 +12,16 @@ export interface VsfDialogProps {
   modelValue?: boolean;
   /* ENDIF-vue */
   classes?: string;
-  closeable?: boolean;
+  disableClose?: boolean;
   onClose?: (isClosed: boolean) => boolean;
 }
 
-const DEFAULT_VALUES: Required<VsfDialogProps> = {
+const DEFAULT_VALUES: Omit<Required<VsfDialogProps>, 'open' | 'disableClose'> = {
   children: '',
-  /* IF-react */
-  open: false,
-  /* ENDIF-react */
   /* IF-vue */
   modelValue: false,
   /* ENDIF-vue */
   classes: '',
-  closeable: true,
   onClose: (isClosed) => isClosed,
 };
 
@@ -35,15 +31,12 @@ export default function VsfDialog(props: VsfDialogProps) {
     get useClassesProp() {
       return props.classes ?? DEFAULT_VALUES.classes;
     },
-    get useClosableProp() {
-      return props.closeable ?? DEFAULT_VALUES.closeable;
-    },
     get useOpenProp() {
       /* IF-vue */
-      return props.modelValue ?? DEFAULT_VALUES.modelValue;
+      return props.modelValue;
       /* ENDIF-vue */
       /* IF-react */
-      return props.open ?? DEFAULT_VALUES.open;
+      return props.open;
       /* ENDIF-react */
     },
     toggleDialog() {
@@ -58,25 +51,14 @@ export default function VsfDialog(props: VsfDialogProps) {
       props.onClose && props.onClose(false);
     },
     clickHandler(ev: MouseEvent) {
-      const rect = dialogRef.getBoundingClientRect();
-      const isOutsideDialog = ev.clientY < rect.top
-        || ev.clientY > rect.top + rect.height
-        || ev.clientX < rect.left
-        || ev.clientX > rect.left + rect.width;
-      if (isOutsideDialog) {
-        state.handleCloseDialog()
+      if (ev.target === dialogRef) {
+        state.handleCloseDialog();
       }
     }
   });
 
   onMount(() => {
     state.toggleDialog();
-    dialogRef.addEventListener('click', state.clickHandler);
-  })
-
-  onUnMount(() => {
-    // TODO: cannot remove listener in vue because there is no `beforeUnmount` hook :/
-    dialogRef.removeEventListener('click', state.clickHandler);
   })
 
   onUpdate(() => {
@@ -86,9 +68,13 @@ export default function VsfDialog(props: VsfDialogProps) {
     })
   })
 
-  return <dialog ref={dialogRef} class={`backdrop:bg-gray-500 backdrop:opacity-50 p-0 shadow-extra-large rounded-xl`}>
+  return <dialog
+    ref={dialogRef}
+    class={`backdrop:bg-gray-500 backdrop:opacity-50 p-0 shadow-extra-large rounded-xl`}
+    onClick={(e) => state.clickHandler(e)}
+  >
     <div class={`p-6 lg:p-10 relative ${state.useClassesProp}`}>
-      <Show when={state.useClosableProp}>
+      <Show when={props.disableClose}>
         <VsfButton
           classes="rounded-full top-2 right-2 absolute"
           onClick={() => state.handleCloseDialog()}
