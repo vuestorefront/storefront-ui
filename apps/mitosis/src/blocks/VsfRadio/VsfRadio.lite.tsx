@@ -99,18 +99,18 @@ export default function VsfRadio(props: VsfRadioProps) {
     },
     get inputClasses(): string {
       return classStringFromArray([
-        'w-5 h-5 mt-px border-2 border-gray-500 rounded-full appearance-none cursor-pointer hover:border-primary-600 hover:checked:bg-primary-600 checked:bg-primary-700 checked:border-primary-700 checked:shadow-inset outline-violet',
+        'w-5 h-5 my-1 border-2 border-gray-500 rounded-full appearance-none cursor-pointer hover:border-primary-600 hover:checked:bg-primary-600 checked:bg-primary-700 checked:border-primary-700 checked:shadow-inset',
         state.useVariantProp !== VsfRadioVariants.base && 'disabled:border-gray-500/50',
         state.useInvalidProp && 'border-negative-600 hover:border-negative-600 checked:border-negative-700',
         state.useDisabledProp && '!border-gray-500 opacity-50 cursor-not-allowed',
-        state.useAlignmentProp === VsfRadioAlignment.right && 'col-start-2',
+        state.useAlignmentProp === VsfRadioAlignment.left && 'ml-1 mr-2',
         state.isChecked() && state.useDisabledProp && '!border-gray-500 !bg-gray-500 opacity-50',
       ]);
     },
     get labelClasses(): string {
       return classStringFromArray([
-        'grid text-gray-900 cursor-pointer text-base peer-required:after:content-[\'*\'] disabled:text-gray-900/40 font-body',
-        state.useAlignmentProp === VsfRadioAlignment.right ? 'grid-cols-[1fr_24px] grid-flow-dense' : 'grid-cols-[24px_1fr]',
+        'flex flex-wrap items-center text-gray-900 cursor-pointer text-base peer-required:after:content-[\'*\'] disabled:text-gray-900/40 font-body',
+        state.useAlignmentProp === VsfRadioAlignment.right && 'flex-row-reverse justify-between',
         state.useDisabledProp && '!border-gray-500 opacity-50 cursor-not-allowed',
         state.useSizeProp === VsfRadioSize.lg && 'py-4',
         state.useSizeProp === VsfRadioSize.base && 'py-2',
@@ -120,8 +120,8 @@ export default function VsfRadio(props: VsfRadioProps) {
     },
     get helpTextClasses(): string {
       return classStringFromArray([
-        'w-max text-xs text-gray-500 peer-disabled:text-gray-500/50 grid',
-        state.useAlignmentProp === VsfRadioAlignment.right ? 'grid-cols-[1fr_24px]' : 'grid-cols-[24px_1fr] contents',
+        'w-full text-xs text-gray-500 peer-disabled:text-gray-500/50',
+        state.useAlignmentProp === VsfRadioAlignment.left && 'ml-8',
         state.useDisabledProp && 'opacity-50',
       ]);
     },
@@ -154,7 +154,7 @@ export default function VsfRadio(props: VsfRadioProps) {
         <div className={state.helpTextClasses}>
           <span
             className={classStringFromArray([
-              state.useAlignmentProp === 'left' && 'col-start-2',
+              state.useAlignmentProp === 'left' && '',
           ])}
           >
             {state.useHelpTextProp}
