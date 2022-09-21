@@ -15,7 +15,8 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 | max          | Number   | 5             |                                        |
 | size         | String   | 'base'        | 'xs','sm','base','lg','xl,'2xl'        |
 | disabled     | Boolean  | false         |                                        |
-| modelValue   | Number   | null          |                                        |
+| modelValue   | Number   |               |                                        |
+| name         | String   |               |                                        |
 
 ## Slots
 

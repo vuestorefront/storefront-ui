@@ -1,10 +1,16 @@
 <template>
   <div class="e-page">
     <div class="e-page-component">
-      <VsfRatingButton v-model="valueModel" :max="maxModel" :size="sizeModel" :disabled="disabledModel" />
+      <VsfRatingButton
+        v-model="valueModel"
+        :max="maxModel"
+        :size="sizeModel"
+        :disabled="disabledModel"
+        :name="nameModel"
+      />
     </div>
     <div class="e-page-controls">
-      <Controls v-bind="controlsAttrs"/>
+      <Controls v-bind="controlsAttrs" />
     </div>
   </div>
 </template>
@@ -18,7 +24,7 @@ export default defineComponent({
   name: 'VsfRatingButtonExample',
   components: {
     VsfRatingButton,
-    Controls
+    Controls,
   },
   setup() {
     return prepareControls(
@@ -29,49 +35,59 @@ export default defineComponent({
           modelName: 'sizeModel',
           propDefaultValue: VsfRatingButtonVariants.base,
           options: Object.keys(VsfRatingButtonVariants),
-          propType: "VsfRatingButtonVariants",
+          propType: 'VsfRatingButtonVariants',
         },
         {
           title: 'max',
           type: 'range',
           modelName: 'maxModel',
           propDefaultValue: 5,
-          propType: "Number",
-          options: [{
-            bind: {
-              min: 3,
-              max: 10,
+          propType: 'Number',
+          options: [
+            {
+              bind: {
+                min: 3,
+                max: 10,
+              },
             },
-          }],
+          ],
         },
         {
           title: 'disabled',
           type: 'boolean',
           modelName: 'disabledModel',
-          propType: "Boolean",
+          propType: 'Boolean',
           propDefaultValue: false,
         },
         {
-          title: 'modelValue',
-          type: 'number',
+          title: 'Name',
+          type: 'text',
+          modelName: 'nameModel',
+          propType: 'string',
+        },
+        {
+          title: 'Value',
+          type: 'range',
           modelName: 'valueModel',
           propDefaultValue: 0,
-          propType: "Number",
-          description: "v-model prop",
+          propType: 'Number',
+          description: 'v-model prop',
           options: [
-          {
-            bind: {
-              min: 0,
+            {
+              bind: {
+                min: 0,
+                max: 10,
+              },
             },
-          },
-        ],
+          ],
         },
       ],
       {
-        sizeModel: ref(),
+        sizeModel: ref(VsfRatingButtonVariants.base),
         maxModel: ref(5),
         disabledModel: ref(),
-        valueModel: ref(1),
+        valueModel: ref(3),
+        nameModel: ref(''),
       },
     );
   },

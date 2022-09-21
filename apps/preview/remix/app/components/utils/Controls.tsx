@@ -163,9 +163,8 @@ export default function Controls(props: ControlsProps) {
                                     type={control.type}
                                     onChange={(e) => {
                                       control.type === 'checkbox'
-                                        && handleCheckbox(e, control.modelName, props.state.get[control.modelName] as string | [])
-                                      control.type === 'radio'
-                                        && handleOnChangeValue(e, control.modelName)
+                                        ? handleCheckbox(e, control.modelName, props.state.get[control.modelName] as string | [])
+                                        : handleOnChangeValue(e, control.modelName)
                                     }}
                                     name={`${control.title}-${index}`}
                                   />
