@@ -40,6 +40,8 @@ export default {
           { text: 'Counter', link: '/components/counter' },
           { text: 'Slider', link: '/components/slider' },
           { text: 'Alert', link: '/components/alert' },
+          { text: 'Accordion', link: '/components/accordion' },
+          { text: 'Checkbox', link: '/components/checkbox' },
           { text: 'Breadcrumbs', link: '/components/breadcrumbs' },
           { text: 'Button', link: '/components/button' },
           { text: 'Checkbox', link: '/components/checkbox' },

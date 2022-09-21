@@ -19,7 +19,7 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 | Slot name |            Description            |
 | --------- | :-------------------------------: |
-| defaul    |     tooltip base component        |
+| default   |     tooltip base component        |
 
 ## Events
 
