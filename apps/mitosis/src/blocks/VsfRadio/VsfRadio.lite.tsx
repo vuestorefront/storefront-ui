@@ -99,19 +99,19 @@ export default function VsfRadio(props: VsfRadioProps) {
     },
     get inputClasses(): string {
       return classStringFromArray([
-        'w-5 h-5 mt-px border-2 border-gray-500 rounded-full appearance-none cursor-pointer peer hover:border-primary-600 checked:bg-primary-600 checked:border-primary-700 checked:shadow-inset disabled:cursor-not-allowed outline-violet',
+        'w-5 h-5 mt-px border-2 border-gray-500 rounded-full appearance-none cursor-pointer hover:border-primary-600 checked:bg-primary-700 checked:border-primary-700 checked:shadow-inset outline-violet',
         state.useVariantProp !== VsfRadioVariants.base && 'disabled:border-gray-500/50',
         state.useInvalidProp && 'border-negative-600 hover:border-negative-600 checked:border-negative-700',
-        state.useDisabledProp && '!border-gray-500 opacity-50',
+        state.useDisabledProp && '!border-gray-500 opacity-50 cursor-not-allowed',
         state.useAlignmentProp === VsfRadioAlignment.right && 'col-start-2',
         state.isChecked() && state.useDisabledProp && '!border-gray-500 !bg-gray-500 opacity-50',
       ]);
     },
     get labelClasses(): string {
       return classStringFromArray([
-        'grid text-gray-900 cursor-pointer text-base peer-required:after:content-[\'*\'] peer-disabled:text-gray-900/40 peer-disabled:cursor-not-allowed font-body',
+        'grid text-gray-900 cursor-pointer text-base peer-required:after:content-[\'*\'] disabled:text-gray-900/40 font-body',
         state.useAlignmentProp === VsfRadioAlignment.right ? 'grid-cols-[1fr_24px] grid-flow-dense' : 'grid-cols-[24px_1fr]',
-        state.useDisabledProp && '!border-gray-500 opacity-50',
+        state.useDisabledProp && '!border-gray-500 opacity-50 cursor-not-allowed',
         state.useSizeProp === VsfRadioSize.lg && 'py-4',
         state.useSizeProp === VsfRadioSize.base && 'py-2',
         state.useSizeProp === VsfRadioSize.sm && 'py-1',
