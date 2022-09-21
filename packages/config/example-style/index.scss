@@ -65,6 +65,7 @@
             &-heading {
                 margin-bottom: 10px;
                 font-weight: bold;
+                padding-right: 30px;
             }
 
             &-list{
@@ -72,6 +73,7 @@
                 list-style: disc;
                 padding-left: 14px;
 
+                li,
                 a {
                     &.active,
                     &.router-link-active{

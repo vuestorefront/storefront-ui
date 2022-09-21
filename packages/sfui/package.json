@@ -1,0 +1,14 @@
+{
+  "name": "@sfui/sfui",
+  "version": "0.0.0",
+  "exports": {
+    "./*": "./*"
+  },
+  "styles": "styles/index.scss",
+  "files": [
+    "**/*.js",
+    "**/*.ts",
+    "**/*.vue",
+    "**/*.tsx"
+  ]
+}

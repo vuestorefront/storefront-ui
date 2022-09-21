@@ -22,36 +22,103 @@ const outputDirectoryPath = path.join(__dirname, getArgValue('output') ?? './');
 const relativePathToIconBasePath = getArgValue('relativePathToIconBase') ?? '../';
 const framework = getArgValue('framework') ?? 'mitosis'; //vue, react, mitosis
 
-
-const vueIcon = (name, content, attributes) => `<template>
-    <VsfIconBase :size="size" aria-label="${name}" ${attributes} content="${content}"/>
-</template>
-<script>
-import VsfIconBase, { VsfIconSize } from '${relativePathToIconBasePath}VsfIconBase/VsfIconBase';
-export default /*#__PURE__*/ {
-    name: "vsf-icon-${name}",
-    components: {VsfIconBase},
-    props: {
-        size: {
-            type: String,
-            default: VsfIconSize.base
-        },
-        content: {
-            type: String,
-            default: ''
-        }
-    }
-};
-</script>`;
-
-const reactIcon = (name, camelCaseName, content, attributes) => `import VsfIconBase, { VsfIconSize } from '${relativePathToIconBasePath}VsfIconBase/VsfIconBase.lite';
-
-export interface VsfIcon${camelCaseName}Props {
-    size?: keyof typeof VsfIconSize,
+// https://github.com/preactjs/preact-compat/issues/222
+const attributesMap = {
+    'accent-height': 'accentHeight',
+    'alignment-baseline': 'alignmentBaseline',
+    'arabic-form': 'arabicForm',
+    'baseline-shift': 'baselineShift',
+    'cap-height': 'capHeight',
+    'clip-path': 'clipPath',
+    'clip-rule': 'clipRule',
+    'color-interpolation': 'colorInterpolation',
+    'color-interpolation-filters': 'colorInterpolationFilters',
+    'color-profile': 'colorProfile',
+    'color-rendering': 'colorRendering',
+    'fill-opacity': 'fillOpacity',
+    'fill-rule': 'fillRule',
+    'flood-color': 'floodColor',
+    'flood-opacity': 'floodOpacity',
+    'font-family': 'fontFamily',
+    'font-size': 'fontSize',
+    'font-size-adjust': 'fontSizeAdjust',
+    'font-stretch': 'fontStretch',
+    'font-style': 'fontStyle',
+    'font-variant': 'fontVariant',
+    'font-weight': 'fontWeight',
+    'glyph-name': 'glyphName',
+    'glyph-orientation-horizontal': 'glyphOrientationHorizontal',
+    'glyph-orientation-vertical': 'glyphOrientationVertical',
+    'horiz-adv-x': 'horizAdvX',
+    'horiz-origin-x': 'horizOriginX',
+    'marker-end': 'markerEnd',
+    'marker-mid': 'markerMid',
+    'marker-start': 'markerStart',
+    'overline-position': 'overlinePosition',
+    'overline-thickness': 'overlineThickness',
+    'panose-1': 'panose1',
+    'paint-order': 'paintOrder',
+    'stop-color': 'stopColor',
+    'stop-opacity': 'stopOpacity',
+    'strikethrough-position': 'strikethroughPosition',
+    'strikethrough-thickness': 'strikethroughThickness',
+    'stroke-dasharray': 'strokeDasharray',
+    'stroke-dashoffset': 'strokeDashoffset',
+    'stroke-linecap': 'strokeLinecap',
+    'stroke-linejoin': 'strokeLinejoin',
+    'stroke-miterlimit': 'strokeMiterlimit',
+    'stroke-opacity': 'strokeOpacity',
+    'stroke-width': 'strokeWidth',
+    'text-anchor': 'textAnchor',
+    'text-decoration': 'textDecoration',
+    'text-rendering': 'textRendering',
+    'underline-position': 'underlinePosition',
+    'underline-thickness': 'underlineThickness',
+    'unicode-bidi': 'unicodeBidi',
+    'unicode-range': 'unicodeRange',
+    'units-per-em': 'unitsPerEm',
+    'v-ideographic': 'vIdeographic',
+    'v-alphabetic': 'vAlphabetic',
+    'v-hanging': 'vHanging',
+    'v-mathematical': 'vMathematical',
+    'vert-adv-y': 'vertAdvY',
+    'vert-origin-x': 'vertOriginX',
+    'vert-origin-y': 'vertOriginY',
+    'word-spacing': 'wordSpacing',
+    'writing-mode': 'writingMode',
+    'x-height': 'xHeight'
 }
 
-export default function VsfIcon${camelCaseName}(props: VsfIcon${camelCaseName}Props = { size: VsfIconSize.base }, ...rest) {
-    return <VsfIconBase size={props.size} aria-label="${name}" ${attributes} {...rest} content={<>${content}</>} />
+const vueIcon = (name, content, attributes) => `
+<template>
+    <VsfIconBase :size="size" aria-label="${name}" ${attributes} content="${content}"/>
+</template>
+<script lang="ts" setup>
+import { PropType } from 'vue';
+import VsfIconBase from '../VsfIconBase/VsfIconBase.vue';
+import { VsfIconSizeEnum } from '../VsfIconBase/types';
+
+defineProps({
+    size: {
+        type: String as PropType<VsfIconSizeEnum>,
+        default: VsfIconSizeEnum.base
+    }
+});
+</script>`;
+
+const reactIcon = (name, camelCaseName, content, attributes) => `
+import type { VsfIconProps } from '${relativePathToIconBasePath}VsfIcons/types';
+import VsfIconBase from '${relativePathToIconBasePath}VsfIconBase';
+import { VsfIconSizeEnum } from '${relativePathToIconBasePath}VsfIconBase/types';
+
+export default function VsfIcon${camelCaseName}({
+    className = '',
+    size = VsfIconSizeEnum.base,
+    ariaLabel = '${name}'
+}: VsfIconProps) {
+    return <VsfIconBase className={className} size={size} ariaLabel={ariaLabel} ${attributes}>
+        <>${content}</>
+    </VsfIconBase>;
 }`;
 
 // Rewrite if possible to using separate vue and react components, because e.g in react we cant pass style prop to inline styles, because we cant use `...rest` therefore we need to define every possible attrs
@@ -123,7 +190,7 @@ const getSvg = async (svgName, doOptimiziation) => {
     }
 };
 
-fs.readdir(inputDirectoryPath, function (err, files) {
+fs.readdir(inputDirectoryPath, async function (err, files) {
     if (err) {
         return console.log('Unable to get icons directory: ' + err);
     }
@@ -131,15 +198,14 @@ fs.readdir(inputDirectoryPath, function (err, files) {
 
     console.log(`Creating ${framework} icons 🎉 ...`);
 
-
-
     if (!fs.existsSync(outputDirectoryPath)) {
         fs.mkdirSync(outputDirectoryPath);
     }
 
-    let vueExports = '';
-    let reactExports = '';
-    files.forEach(async function (file) {
+    const vueExports = [];
+    const reactExports = [];
+
+    for await (const file of files) {
         const splitFileName = file.split('.');
         if (splitFileName[splitFileName.length - 1] === 'svg') {
             const {
@@ -148,38 +214,61 @@ fs.readdir(inputDirectoryPath, function (err, files) {
                 content,
                 attrs
             } = await getSvg(file, doOptimiziation);
+
             const capitializedCamelCaseName = capitalize(camelize(fileName));
             const attributes = `viewBox="${attrs.viewBox ?? '0 0 24 24'}"`;
 
             const componentName = `VsfIcon${capitializedCamelCaseName}`;
             if (framework === 'vue') {
-                fsPromise.writeFile(
+                await fsPromise.writeFile(
                     `${outputDirectoryPath}${componentName}.vue`,
                     vueIcon(name, content, attributes)
                 );
-                vueExports += `export { default as ${componentName} } from './${componentName}.vue';\n`;
+                vueExports.push(componentName);
             } else if (framework === 'react') {
-                fsPromise.writeFile(
+                let parsedAttributesContent = content;
+                for (let attr in attributesMap) {
+                    parsedAttributesContent = parsedAttributesContent.replaceAll(attr, attributesMap[attr]);
+                }
+                await fsPromise.writeFile(
                     `${outputDirectoryPath}${componentName}.tsx`,
-                    reactIcon(name, capitializedCamelCaseName, content, attributes)
+                    reactIcon(name, capitializedCamelCaseName, parsedAttributesContent, attributes)
                 );
-                reactExports += `export { default as ${componentName} } from './${componentName}.tsx';\n`;
+                reactExports.push(componentName);
             } else if (framework === 'mitosis') {
-                fsPromise.writeFile(
+                await fsPromise.writeFile(
                     `${outputDirectoryPath}${componentName}.lite.tsx`,
                     mitosisIcon(name, capitializedCamelCaseName, content, attributes)
                 )
-                vueExports += `export { default as ${componentName} } from './${componentName}.vue';\n`;
-                reactExports += `export { default as ${componentName} } from './${componentName}.lite.tsx';\n`;
+                vueExports.push(componentName);
+                reactExports.push(componentName);
             }
         }
-        if (vueExports) {
-            fsPromise.writeFile(`${outputDirectoryPath}vue.ts`, vueExports);
-        }
-        if (reactExports) {
-            fsPromise.writeFile(`${outputDirectoryPath}react.ts`, reactExports);
-        }
-    });
+    };
+
+    const createVueIndexFiles = (fileName = 'index') => {
+        let vueExportsString = ''
+        vueExports.sort().forEach(component => {
+            vueExportsString += `export { default as ${component} } from './${component}.vue';\n`;
+        });
+        fsPromise.writeFile(`${outputDirectoryPath}${fileName}.ts`, vueExportsString);
+    }
+
+    const createReactIndexFiles = (fileName = 'index') => {
+        let reactExportsString = '';
+        reactExports.sort().forEach(component => {
+            reactExportsString += `export { default as ${component} } from './${component}';\n`;
+        });
+        fsPromise.writeFile(`${outputDirectoryPath}${fileName}.ts`, reactExportsString);
+    }
+    if (vueExports.length) {
+        createVueIndexFiles(framework === 'mitosis' ? 'vue' : undefined);
+    }
+    if (reactExports.length) {
+        createReactIndexFiles(framework === 'mitosis' ? 'react' : undefined)
+    }
 
     console.log(`Creating icons has finished`);
 });
+
+

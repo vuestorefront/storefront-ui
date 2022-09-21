@@ -7,6 +7,6 @@ COPY . .
 RUN  yarn install \
   && yarn build
 
-WORKDIR /var/www/apps/preview/remix
+WORKDIR /var/www/apps/preview/nuxt
 
 CMD ["yarn", "serve"]

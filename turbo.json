@@ -18,7 +18,7 @@
         "@sfui/mitosis#build"
       ]
     },
-    "@sfui/preview-remix#build": {
+    "@sfui/preview-next#build": {
       "dependsOn": [
         "@sfui/types#build",
         "@sfui/mitosis#build"

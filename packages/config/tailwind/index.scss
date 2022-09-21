@@ -4,17 +4,7 @@
 @import 'tailwind.scss';
 @import 'reset.scss';
 
-@import 'components/VsfAccordion.css';
-@import 'components/VsfBreadcrumbs.css';
-@import 'components/VsfChipsFilter.css';
-@import 'components/VsfGallery.css';
-@import 'components/VsfIcons.css';
-@import 'components/VsfProgress.css';
-@import 'components/VsfRatingButton.css';
-@import 'components/VsfSearch.css';
-@import 'components/VsfSelect.css';
-@import 'components/VsfChipsFilter.css';
-@import 'components/VsfGallery.css';
-@import 'components/VsfSlider.css';
-@import 'components/VsfSpinner.css';
+@import '../../sfui/styles/index.scss';
 
+
+// TODO: proper setup of tokens and colors, eg. outlineFocus should be taken from secondary-400 not outline-violet

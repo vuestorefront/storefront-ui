@@ -1,0 +1,1 @@
+1. We currently cant use https://vuejs.org/api/sfc-script-setup.html#typescript-only-features because of bug not being able to import types, its problematic when we wants use type from child component https://github.com/vuejs/core/issues/4294

@@ -1,4 +1,4 @@
-name: Deploy Test Remix/Next
+name: Deploy Test Nuxt/Next
 on:
   push:
     branches:
@@ -48,7 +48,7 @@ jobs:
           token: ${{ secrets.DEPLOYMENT_PERSONAL_ACCESS_TOKEN }}
           target_url: https://test-next.storefrontui.io
           environment: production
-          initial_status: in_progress          
+          initial_status: in_progress
       - name: Deploy to test-next.storefrontui.io
         run: |
           if curl -s -H 'X-User-Id: ${{ secrets.CLOUD_USERNAME }}'  -H 'X-Api-Key: ${{ secrets.CLOUD_PASSWORD }}' -H 'Content-Type: application/json' -X PATCH -d '{"front_version":"${{ steps.get_version.outputs.VERSION }}"}' https://farmer.vuestorefront.cloud/instance/sfui-test-remix-europe-west1-gcp-storefrontcloud-io | grep -q '"code":200'; then
@@ -65,7 +65,7 @@ jobs:
           target_url: https://test-next.storefrontui.io
           state: "success"
           description: Congratulations! The deploy is done.
-          deployment_id: ${{ steps.deployment.outputs.deployment_id }}          
+          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
       - name: Update deployment status (failure)
         if: failure()
         uses: chrnorm/deployment-status@releases/v1
