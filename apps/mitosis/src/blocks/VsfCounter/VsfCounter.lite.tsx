@@ -68,10 +68,10 @@ export default function VsfCounter(props: VsfCounterProps) {
   });
 
   return (
-    <div
+    <span
       class={`inline-flex items-center font-body ${state.fontSizeClass} ${state.pillClass} ${state.pillSpacingClass} ${state.fontWeightClass} ${props.className || ''}`}
     >
       {props.children}
-    </div>
+    </span>
   );
 }
