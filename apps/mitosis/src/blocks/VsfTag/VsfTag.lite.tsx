@@ -81,7 +81,7 @@ export default function VsfTag(props: VsfTagProps) {
         },
         get badgeColors() {
             return classStringFromArray([
-                'inline-flex items-center font-medium text-white fill-white font-body direction-row',
+                'inline-flex items-center font-medium text-white fill-white font-body',
                 state.useVariantProp === VsfTagVariants.base && 'bg-gray-600',
                 state.useVariantProp === VsfTagVariants.info && 'bg-secondary-800',
                 state.useVariantProp === VsfTagVariants.positive && 'bg-primary-600',
@@ -96,14 +96,14 @@ export default function VsfTag(props: VsfTagProps) {
             <Show when={!state.useBadgeProp} else={
                 <div className='inline-flex items-center'>
                     <div
-                        className={`${state.useSizeProp === 'sm' ? 'h-6 text-xs' : 'h-8 text-sm'} flex direction-row`}
+                        className={`${state.useSizeProp === 'sm' ? 'h-6 text-xs' : 'h-8 text-sm'} flex`}
                     >
                         <div
                             className={`${state.badgeColors}`}
                         >
                             <Show when={props.slotPrefix}>
                                 <span
-                                    className={`${state.useSizeProp === 'sm' ? 'w-4 h-4' : 'w-5 h-5'} flex direction-row ml-2`}
+                                    className={`${state.useSizeProp === 'sm' ? 'w-4 h-4' : 'w-5 h-5'} flex ml-2`}
                                 >
                                     {props.slotPrefix}
                                 </span>

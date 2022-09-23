@@ -48,7 +48,7 @@
 import { defineComponent } from "vue";
 import VsfProductCardVertical, { VsfProductCardVerticalSizes } from '../../output/blocks/VsfProductCardVertical/VsfProductCardVertical.vue'
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
-import productImage from '../../assets/images/product-card.webp';
+import productImage from '../../assets/fixture/product-card.webp';
 import VsfTag from '../../output/blocks/VsfTag/VsfTag';
 import VsfIconHot from '../../output/blocks/VsfIcons/VsfIconHot.vue';
 

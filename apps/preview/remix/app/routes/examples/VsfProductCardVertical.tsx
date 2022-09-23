@@ -1,6 +1,6 @@
 import VsfProductCardVertical, { VsfProductCardVerticalSizes } from '../../output/blocks/VsfProductCardVertical/VsfProductCardVertical.lite';
 import Controls, { prepareControls } from '../../components/utils/Controls';
-import productImage from '../../images/product-card.webp';
+import productImage from '../../fixture/product-card.webp';
 import VsfTag from '../../output/blocks/VsfTag/VsfTag';
 import VsfIconHot from '../../output/blocks/VsfIcons/VsfIconHot.lite';
 
