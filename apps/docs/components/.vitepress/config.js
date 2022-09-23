@@ -39,6 +39,7 @@ export default {
           { text: 'Search', link: '/components/search' },
           { text: 'Counter', link: '/components/counter' },
           { text: 'Slider', link: '/components/slider' },
+          { text: 'NavBarTop', link: '/components/navbartop' },
           { text: 'Alert', link: '/components/alert' },
           { text: 'Accordion', link: '/components/accordion' },
           { text: 'Checkbox', link: '/components/checkbox' },
