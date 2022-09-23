@@ -55,6 +55,7 @@ export default {
           { text: 'Gallery', link: '/components/gallery' },
           { text: 'Icon', link: '/components/icon' },
           { text: 'IconBase', link: '/components/iconBase' },
+          { text: 'ListItemMenu', link: '/components/listitemmenu' },
           { text: 'Overlay', link: '/components/overlay' },
           { text: 'Rating', link: '/components/rating' },
           { text: 'RatingButton', link: '/components/ratingbutton' },
