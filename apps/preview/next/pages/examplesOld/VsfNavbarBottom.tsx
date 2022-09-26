@@ -33,11 +33,43 @@ export default function VsfNavbarBottomExample() {
             propDefaultValue: true,
             propType: 'boolean'
         },
+        {
+          title: 'basketDot',
+          type: 'boolean',
+          modelName: 'basketDotModel',
+          propDefaultValue: true,
+          propType: 'boolean'
+        },
+        {
+          title: 'basketCounterValue',
+          type: 'text',
+          modelName: 'basketCounterValueModel',
+          propDefaultValue: true,
+          propType: 'number'
+        },
+        {
+          title: 'favouritesDot',
+          type: 'boolean',
+          modelName: 'favouritesDotModel',
+          propDefaultValue: true,
+          propType: 'boolean'
+        },
+        {
+          title: 'favouritesCounterValue',
+          type: 'text',
+          modelName: 'favouritesCounterValueModel',
+          propDefaultValue: true,
+          propType: 'number'
+        },
       ],
       {
         withLabelsModel: true,
         variantModel: 'primary',
         absolutePositionModel: true,
+        basketDotModel: false,
+        basketCounterValueModel: null,
+        favouritesDotModel: false,
+        favouritesCounterValueModel: null,
         itemsModel: [
           {
             label: 'Home',
@@ -83,6 +115,10 @@ export default function VsfNavbarBottomExample() {
           absolutePosition={state.get.absolutePositionModel} 
           items={state.get.itemsModel}
           withLabels={state.get.withLabelsModel}
+          basketDot={state.get.basketDotModel}
+          basketCounterValue={state.get.basketCounterValueModel}
+          favouritesDot={state.get.favouritesDotModel}
+          favouritesCounterValue={state.get.favouritesCounterValueModel}
           onClick={onClickHandler}
         />
       </div>

@@ -1,5 +1,6 @@
 import { useStore, For, Show } from '@builder.io/mitosis'
 import VsfButton from '../VsfButton/VsfButton.lite';
+import VsfCounter from '../VsfCounter/VsfCounter.lite';
 import VsfIconHome from '../VsfIcons/VsfIconHome.lite';
 import VsfIconBasket from '../VsfIcons/VsfIconBasket.lite';
 import VsfIconSearch from '../VsfIcons/VsfIconSearch.lite';
@@ -24,6 +25,10 @@ export interface VsfNavbarBottomProps {
   absolutePosition: boolean,
   items: item[],
   withLabels: boolean;
+  basketCounterValue?: string | number | null,
+  basketDot: boolean,
+  favouritesCounterValue?: string | number | null, 
+  favouritesDot: boolean, 
   onClick?: (...args: any[]) => void;
 }
 const DEFAULT_VALUES = {
@@ -39,7 +44,7 @@ export default function VsfNavbarBottom(props: VsfNavbarBottomProps) {
       return props.variant || DEFAULT_VALUES.variant
     },
     get useAbsolutePositionProp() {
-      return props.absolutePosition || DEFAULT_VALUES.absolutePosition
+      return props.absolutePosition ?? DEFAULT_VALUES.absolutePosition
     },
     get useItemsProp() {
       return props.items || DEFAULT_VALUES.items
@@ -47,7 +52,18 @@ export default function VsfNavbarBottom(props: VsfNavbarBottomProps) {
     get useWithLabelsProp() {
       return props.withLabels || DEFAULT_VALUES.withLabels
     },
-
+    get useBasketCounterValue() {
+      return props.basketCounterValue || DEFAULT_VALUES.basketCounterValue
+    }, 
+    get useBasketDot() {
+      return props.basketDot ?? DEFAULT_VALUES.basketDot
+    },
+    get useFavouritesCounterValue() {
+      return props.favouritesCounterValue || DEFAULT_VALUES.favouritesCounterValue
+    },
+    get useFavouritesDot() {
+      return props.favouritesDot || DEFAULT_VALUES.favouritesDot
+    }, 
     get iconsClass(): string {
       return state.useVariantProp === 'secondary' ? 'text-white' : 'text-black group-hover:text-primary-600 group-active:text-primary-700'
     },
@@ -80,7 +96,28 @@ export default function VsfNavbarBottom(props: VsfNavbarBottomProps) {
                   <VsfIconHome className={iconsClass} />
                 </Show>
                 <Show when={state.isIcon("basket", item.icon)}>
-                  <VsfIconBasket className={iconsClass} />
+                  <span class="inline-block relative">
+                    <VsfIconBasket className={iconsClass} />
+                    <Show when={!state.useBasketCounterValue}
+                      else={
+                        <VsfCounter
+                          className={`${state.useVariantProp === 'primary' ? 'bg-secondary-700 border-2 border-white' : 'bg-white border-2 border-brand group-hover:border-green-600 group-active:border-green-700'} absolute  -top-2 -right-2`}
+                          size="xs"
+                          pill={true}
+                        >
+                          <span className={`${state.useVariantProp === 'primary' ? 'text-white ' : 'text-gray-900'}`}>
+                            {state.useBasketCounterValue}
+                          </span>
+                        </VsfCounter>
+                      }
+                    >
+                      <Show when={state.useBasketDot}>
+                        <div
+                          className={`${state.useVariantProp === 'primary' ? 'bg-secondary-700' : 'bg-white'} absolute w-3 h-3  -top-2 -right-2 rounded-full`}
+                        />
+                      </Show>
+                    </Show>
+                  </span>
                 </Show>
                 <Show when={state.isIcon("search", item.icon)}>
                   <VsfIconSearch className={iconsClass} />
@@ -89,8 +126,29 @@ export default function VsfNavbarBottom(props: VsfNavbarBottomProps) {
                   <VsfIconMenu className={iconsClass} />
                 </Show>
                 <Show when={state.isIcon("favorites", item.icon)}>
-                  <VsfIconFavoritesOutline className={iconsClass} />
-                </Show>
+                  <span class="inline-block relative">
+                    <VsfIconFavoritesOutline className={iconsClass} />
+                    <Show when={!state.useFavouritesCounterValue}
+                      else={
+                        <VsfCounter
+                          className={`${state.useVariantProp === 'primary' ? 'bg-secondary-700 border-2 border-white' : 'bg-white border-2 border-brand group-hover:border-green-600 group-active:border-green-700'} absolute -top-2 -right-2`}
+                          size="xs"
+                          pill={true}
+                        >
+                          <span className={`${state.useVariantProp === 'primary' ? 'text-white ' : 'text-gray-900'}`}>
+                            {state.useFavouritesCounterValue}
+                          </span>
+                        </VsfCounter>
+                      }
+                    >
+                      <Show when={state.useFavouritesDot}>
+                        <div
+                          className={`${state.useVariantProp === 'primary' ? 'bg-secondary-700' : 'bg-white'} absolute w-3 h-3 -top-2 -right-2 rounded-full`}
+                        />
+                      </Show>
+                    </Show>
+                  </span>
+                </Show>         
                 <Show when={state.useWithLabelsProp}>
                   <span
                     className={`${state.useVariantProp === 'primary' ? 'text-gray-900 group-hover:text-primary-600 group-active:text-primary-700' : 'text-white'} text-xs mt-0.5 font-medium`}

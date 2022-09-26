@@ -6,6 +6,10 @@
         :absolute-position="absolutePositionModel" 
         :items="itemsModel"
         :withLabels="withLabelsModel"
+        :basketDot="basketDotModel"
+        :basketCounterValue="basketCounterValueModel"
+        :favouritesDot="favouritesDotModel"
+        :favouritesCounterValue="favouritesCounterValueModel"
         @click="handleClick"
       />
     </div>
@@ -60,10 +64,42 @@ export default {
             propDefaultValue: true,
             propType: 'boolean'
         },
+        {
+            title: 'basketDot',
+            type: 'boolean',
+            modelName: 'basketDotModel',
+            propDefaultValue: true,
+            propType: 'boolean'
+        },
+        {
+            title: 'basketCounterValue',
+            type: 'text',
+            modelName: 'basketCounterValueModel',
+            propDefaultValue: true,
+            propType: 'number'
+        },
+        {
+            title: 'favouritesDot',
+            type: 'boolean',
+            modelName: 'favouritesDotModel',
+            propDefaultValue: true,
+            propType: 'boolean'
+        },
+        {
+            title: 'favouritesCounterValue',
+            type: 'text',
+            modelName: 'favouritesCounterValueModel',
+            propDefaultValue: true,
+            propType: 'number'
+        },
       ], {
         withLabelsModel: ref(true),
         variantModel: ref('primary'),
         absolutePositionModel: ref(true),
+        basketDotModel: ref(false),
+        basketCounterValueModel: ref(null),
+        favouritesDotModel: ref(false),
+        favouritesCounterValueModel: ref(null),
         itemsModel: ref([
           {
             label: 'Home',
