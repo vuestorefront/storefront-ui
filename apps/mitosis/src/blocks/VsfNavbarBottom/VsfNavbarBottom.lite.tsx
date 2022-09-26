@@ -49,7 +49,7 @@ export default function VsfNavbarBottom(props: VsfNavbarBottomProps) {
     },
 
     get iconsClass(): string {
-      return state.useVariantProp === 'secondary' ? 'text-white' : 'text-primary-500'
+      return state.useVariantProp === 'secondary' ? 'text-white' : 'text-black group-hover:text-primary-600 group-active:text-primary-700'
     },
     onClickHandler(label: string) {
       /* IF-vue */
@@ -66,13 +66,13 @@ export default function VsfNavbarBottom(props: VsfNavbarBottomProps) {
       <ul
         className={`grid grid-flow-col bg-white auto-cols-fr justify-items-stretch ${state.useVariantProp === VsfNavbarBottomVariants.secondary ? 'bg-brand' : 'bg-white'}`}
       >
-        <For each={state.useItemsProp}>{(item, index) => 
-          <li className='flex' key={`${item.label}-${index}`}>
-            <Show when={item.tag === 'link'} else={
+        <For each={state.useItemsProp}>{
+          (item, index) =>
+            <li className='flex' key={`${item.label}-${index}`}>
               <VsfButton
                 link={item.link}
                 aria-label={!state.useWithLabelsProp ? `Go to ${item.label}` : undefined}
-                className={`${state.useVariantProp === 'primary' ? 'hover:bg-primary-100 active:bg-primary-100' : 'hover:bg-primary-600 active:bg-primary-600'} flex flex-col items-center justify-center flex-1 pt-3 pb-1 group rounded-none`}
+                className={`${state.useVariantProp === 'primary' ? 'hover:bg-primary-100 active:bg-primary-200' : 'hover:!bg-primary-600 active:!bg-primary-700'} flex flex-col items-center justify-center flex-1 pt-3 pb-1 group rounded-none`}
                 onClick={() => state.onClickHandler(item.label)}
                 variant="tertiary"
               >
@@ -93,17 +93,16 @@ export default function VsfNavbarBottom(props: VsfNavbarBottomProps) {
                 </Show>
                 <Show when={state.useWithLabelsProp}>
                   <span
-                    className={`${state.useVariantProp === 'primary' ? 'text-primary-500 group-hover:text-primary-600 group-active:text-primary-600' : 'text-white'} text-xs mt-0.5 font-medium`}
+                    className={`${state.useVariantProp === 'primary' ? 'text-gray-900 group-hover:text-primary-600 group-active:text-primary-700' : 'text-white'} text-xs mt-0.5 font-medium`}
                   >
                     { item.label }
                   </span>
                 </Show>
-              </VsfButton>
-            }>            
-          </Show>
-        </li>}
-      </For>
-    </ul>
-  </nav>
+              </VsfButton>    
+            </li>
+          }
+        </For>
+      </ul>
+    </nav>
   )
 }  
