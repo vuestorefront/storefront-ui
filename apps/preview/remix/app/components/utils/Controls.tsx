@@ -29,6 +29,7 @@ export const prepareControls = (controls: ControlsType, models: Record<string, M
   controls.forEach(control => {
     control.isRequired = false;
   });
+
   return {
     controls,
     state: {
@@ -123,10 +124,10 @@ export default function Controls(props: ControlsProps) {
                     case "boolean": return <div className="switch-wrapper">
                       <label className="switch">
                         <input
+                          checked={props.state.get[control.modelName] as boolean}
                           value={props.state.get[control.modelName] as string}
                           onChange={(e) => props.state.set({ ...props.state.get, [control.modelName]: !props.state.get[control.modelName] })}
                           type="checkbox"
-                          defaultChecked={props.state.get[control.modelName] === true}
                         />
                         <span className="slider" />
                       </label>
@@ -163,9 +164,8 @@ export default function Controls(props: ControlsProps) {
                                     type={control.type}
                                     onChange={(e) => {
                                       control.type === 'checkbox'
-                                        && handleCheckbox(e, control.modelName, props.state.get[control.modelName] as string | [])
-                                      control.type === 'radio'
-                                        && handleOnChangeValue(e, control.modelName)
+                                        ? handleCheckbox(e, control.modelName, props.state.get[control.modelName] as string | [])
+                                        : handleOnChangeValue(e, control.modelName)
                                     }}
                                     name={`${control.title}-${index}`}
                                   />

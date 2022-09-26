@@ -18,9 +18,11 @@ import VsfChipsFilter from '../output/blocks/VsfChipsFilter/VsfChipsFilter.vue';
 import VsfGallery from '../output/blocks/VsfGallery/VsfGallery.vue';
 import VsfCounter from '../output/blocks/VsfCounter/VsfCounter.vue';
 import VsfSlider from '../output/blocks/VsfSlider/VsfSlider.vue';
+import VsfDialog from '../output/blocks/VsfDialog/VsfDialog.vue';
 import VsfSearch from '../output/blocks/VsfSearch/VsfSearch.vue';
-import VsfRadio from '../output/blocks/VsfRadio/VsfRadio.vue'
-import VsfRadioGroup from '../output/blocks/VsfRadioGroup/VsfRadioGroup.vue'
+import VsfNavBarTop from '../output/blocks/VsfNavBarTop/VsfNavBarTop.vue';
+import VsfRadio from '../output/blocks/VsfRadio/VsfRadio.vue';
+import VsfRadioGroup from '../output/blocks/VsfRadioGroup/VsfRadioGroup.vue';
 
 export default {
   ...Theme,
@@ -29,6 +31,8 @@ export default {
     app.component('RadioGroup', VsfRadioGroup);
     app.component('Radio', VsfRadio);
     app.component('Counter', VsfCounter);
+    app.component('NavBarTop', VsfNavBarTop);
+    app.component('Dialog', VsfDialog);
     app.component('PlaygroundWrapper', PlaygroundWrapper);
     app.component('Alert', VsfAlert);
     app.component('Breadcrumbs', VsfBreadcrumbs);

@@ -3,17 +3,11 @@ const tailwindConfig = require('@sfui/tailwind-config/index.json');
 
 export default defineNuxtConfig({
     tailwindcss: {
-        config: tailwindConfig
+        config: tailwindConfig,
+        cssPath: '~/assets/tailwind.scss',         
     },
-    buildModules: ["@nuxtjs/tailwindcss"],
-    content: [
-        "./components/**/*.{js,vue,ts}",
-        "./**/*.vue",
-        "./plugins/**/*.{js,ts}",
-        "./nuxt.config.{js,ts}",
-    ],
+    buildModules: ["@nuxtjs/tailwindcss"],    
     css: [
-        '~/assets/tailwind.scss',
         '@sfui/example-style/index.scss'
-    ],
+    ],   
 });

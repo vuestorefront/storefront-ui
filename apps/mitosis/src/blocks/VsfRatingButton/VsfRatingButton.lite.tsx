@@ -17,6 +17,8 @@ export interface VsfRatingButtonProps {
   disabled?: boolean;
   onChange?: (...args: any[]) => void;
   modelValue?: any;
+  value?: any;
+  name?: string;
 }
 
 const DEFAULT_VALUES = {
@@ -26,13 +28,13 @@ const DEFAULT_VALUES = {
 
 export default function VsfRatingButton(props: VsfRatingButtonProps) {
   const state = useStore({
-    get useMaxProp() {
+    get useMaxProp(): number {
       return Number(props.max) || DEFAULT_VALUES.max;
     },
-    get useSizeProp() {
+    get useSizeProp(): string {
       return props.size || DEFAULT_VALUES.size;
     },
-    get sizeClass() {
+    get sizeClass(): string {
       return {
         xs: 'h-4 w-4',
         sm: 'h-5 w-5',
@@ -62,7 +64,20 @@ export default function VsfRatingButton(props: VsfRatingButtonProps) {
 
   return (
     <>
-      <fieldset class="inline-flex rounded-md rating focus-within:outline focus-within:outline-4 focus-within:outline-offset-2 focus-within:outline-violet-400">
+      <fieldset
+        disabled={props.disabled}
+        class="inline-flex rounded-md rating focus-within:outline focus-within:outline-2 focus-within:outline-violet-400"
+      >
+        <input
+          type="radio"
+          class="appearance-none hidden star-input"
+          value="0"
+          v-model="vueProxyValue"
+          checked={props.value == 0}
+          name={props.name}
+          readOnly
+          aria-label={`Rating star 0 of ${state.useMaxProp}`}
+        />
         <For each={[...Array(state.useMaxProp).keys()].map((i) => i + 1)}>
           {(item, index) => (
             <input
@@ -70,12 +85,12 @@ export default function VsfRatingButton(props: VsfRatingButtonProps) {
               key={`star-${item}+${index}`}
               aria-label={`Rating star ${item} of ${state.useMaxProp}`}
               type="radio"
-              name="rating-1"
+              name={props.name}
               value={item}
               class={`appearance-none cursor-pointer star-input ${state.sizeClass}`}
               onChange={() => state.onChangeHandler(item)}
               disabled={props.disabled}
-              defaultChecked={props.modelValue === item}
+              checked={props.value == item}
             />
           )}
         </For>
