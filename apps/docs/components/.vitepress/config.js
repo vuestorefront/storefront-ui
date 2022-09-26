@@ -37,6 +37,8 @@ export default {
         collapsed: true,
         items: [
           { text: 'Search', link: '/components/search' },
+          { text: 'RadioGroup', link: '/components/radiogroup' },
+          { text: 'Radio', link: '/components/radio' },
           { text: 'Counter', link: '/components/counter' },
           { text: 'Slider', link: '/components/slider' },
           { text: 'NavBarTop', link: '/components/navbartop' },
