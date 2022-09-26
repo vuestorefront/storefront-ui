@@ -1,4 +1,5 @@
 import { useStore, For, Show } from '@builder.io/mitosis'
+import VsfButton from '../VsfButton/VsfButton.lite';
 import VsfIconHome from '../VsfIcons/VsfIconHome.lite';
 import VsfIconBasket from '../VsfIcons/VsfIconBasket.lite';
 import VsfIconSearch from '../VsfIcons/VsfIconSearch.lite';
@@ -46,11 +47,18 @@ export default function VsfNavbarBottom(props: VsfNavbarBottomProps) {
     get useWithLabelsProp() {
       return props.withLabels || DEFAULT_VALUES.withLabels
     },
+
+    get iconsClass(): string {
+      return state.useVariantProp === 'secondary' ? 'text-white' : 'text-primary-500'
+    },
     onClickHandler(label: string) {
       /* IF-vue */
       state.$emit('click', label);
       /* ENDIF-vue */
       props.onClick && props.onClick(label);
+    },
+    isIcon(name: string, item: string) {
+      return item.toLowerCase() === name
     },
   });
   return (
@@ -61,28 +69,28 @@ export default function VsfNavbarBottom(props: VsfNavbarBottomProps) {
         <For each={state.useItemsProp}>{(item, index) => 
           <li className='flex' key={`${item.label}-${index}`}>
             <Show when={item.tag === 'link'} else={
-              <button
-                aria-label={!state.useWithLabelsProp ? `Go to ${item.label}` : null}
-                className={`${state.useVariantProp === 'primary' ? 'hover:bg-primary-100 active:bg-primary-100' : 'hover:bg-primary-600 active:bg-primary-600'} flex flex-col items-center justify-center flex-1 pt-3 pb-1 group`}
+              <VsfButton
+                link={item.link}
+                aria-label={!state.useWithLabelsProp ? `Go to ${item.label}` : undefined}
+                className={`${state.useVariantProp === 'primary' ? 'hover:bg-primary-100 active:bg-primary-100' : 'hover:bg-primary-600 active:bg-primary-600'} flex flex-col items-center justify-center flex-1 pt-3 pb-1 group rounded-none`}
                 onClick={() => state.onClickHandler(item.label)}
+                variant="tertiary"
               >
-                <span className={`${state.useVariantProp === 'secondary' ? 'text-white' : 'text-primary-500'}`} >
-                  <Show when={item.icon.toLowerCase() === "home"}>
-                    <VsfIconHome />
-                  </Show>
-                  <Show when={item.icon.toLowerCase() === "basket"}>
-                    <VsfIconBasket />
-                  </Show>
-                  <Show when={item.icon.toLowerCase() === "search"}>
-                    <VsfIconSearch />
-                  </Show>
-                  <Show when={item.icon.toLowerCase() === "menu"}>
-                    <VsfIconMenu />
-                  </Show>
-                  <Show when={item.icon.toLowerCase() === "favorites"}>
-                    <VsfIconFavoritesOutline />
-                  </Show>
-                </span>
+                <Show when={state.isIcon("home", item.icon)}>
+                  <VsfIconHome className={iconsClass} />
+                </Show>
+                <Show when={state.isIcon("basket", item.icon)}>
+                  <VsfIconBasket className={iconsClass} />
+                </Show>
+                <Show when={state.isIcon("search", item.icon)}>
+                  <VsfIconSearch className={iconsClass} />
+                </Show>
+                <Show when={state.isIcon("menu", item.icon)}>
+                  <VsfIconMenu className={iconsClass} />
+                </Show>
+                <Show when={state.isIcon("favorites", item.icon)}>
+                  <VsfIconFavoritesOutline className={iconsClass} />
+                </Show>
                 <Show when={state.useWithLabelsProp}>
                   <span
                     className={`${state.useVariantProp === 'primary' ? 'text-primary-500 group-hover:text-primary-600 group-active:text-primary-600' : 'text-white'} text-xs mt-0.5 font-medium`}
@@ -90,38 +98,8 @@ export default function VsfNavbarBottom(props: VsfNavbarBottomProps) {
                     { item.label }
                   </span>
                 </Show>
-              </button>
-            }>
-            <a
-              href={item.link}
-              aria-label={!state.useWithLabelsProp ? `Go to ${item.label}` : null}
-              className={`${state.useVariantProp === 'primary' ? 'hover:bg-primary-100 active:bg-primary-100' : 'hover:bg-primary-600 active:bg-primary-600'} flex flex-col items-center justify-center flex-1 pt-3 pb-1 group`}
-            >
-              <span className={`${state.useVariantProp === 'secondary' ? 'text-white' : 'text-primary-500'}`} >
-                <Show when={item.icon.toLowerCase() === "home"}>
-                  <VsfIconHome />
-                </Show>
-                <Show when={item.icon.toLowerCase() === "basket"}>
-                  <VsfIconBasket />
-                </Show>
-                <Show when={item.icon.toLowerCase() === "search"}>
-                  <VsfIconSearch />
-                </Show>
-                <Show when={item.icon.toLowerCase() === "menu"}>
-                  <VsfIconMenu />
-                </Show>
-                <Show when={item.icon.toLowerCase() === "favorites"}>
-                  <VsfIconFavoritesOutline />
-                </Show>
-              </span>
-              <Show when={state.useWithLabelsProp}>
-                <span
-                  className={`${state.useVariantProp === 'primary' ? 'text-primary-500 group-hover:text-primary-600 group-active:text-primary-600' : 'text-white'} text-xs mt-0.5 font-medium`}
-                >
-                  { item.label }
-                </span>
-              </Show>
-            </a>
+              </VsfButton>
+            }>            
           </Show>
         </li>}
       </For>
