@@ -5,14 +5,6 @@ export default function Index() {
   const { state, controls } = prepareControls(
     [
       {
-        title: 'Name',
-        type: 'text',
-        modelName: 'nameModel',
-        propDefaultValue: '',
-        propType: 'string',
-        isRequired: true,
-      },
-      {
         title: 'Value',
         type: 'text',
         modelName: 'valueModel',
@@ -44,9 +36,9 @@ export default function Index() {
         propType: 'boolean',
       },
       {
-        title: 'RightCheckbox',
+        title: 'Reverse',
         type: 'boolean',
-        modelName: 'rightCheckboxModel',
+        modelName: 'reverseModel',
         propType: 'boolean',
       },
       {
@@ -67,41 +59,44 @@ export default function Index() {
         modelName: 'errorTextModel',
         propType: 'string',
       },
+      {
+        title: 'RequiredText',
+        type: 'text',
+        modelName: 'requiredTextModel',
+        propType: 'string',
+      },
     ],
     {
-      nameModel: 'checkbox-1',
       valueModel: '',
       requiredModel: false,
       disabledModel: false,
-      indeterminateModel: false,
+      indeterminateModel: true,
       invalidModel: false,
-      rightCheckboxModel: false,
+      reverseModel: false,
       labelModel: 'Label',
-      helpTextModel: 'help',
-      errorTextModel: 'error',
+      helpTextModel: 'Help Text',
+      errorTextModel: 'Error Message',
+      requiredTextModel: '*Required',
       toggle: false,
-      checked: ['Mike'],
     },
   );
   return (
     <div className="e-page">
       <div className="e-page-component">
-        <p>Single Checkbox</p>
         <VsfCheckbox
-          name={state.get.nameModel!}
           value={state.get.valueModel}
-          label={state.get.labelModel}
+          label={`${state.get.labelModel} [${state.get.toggle.toString()}]`}
           indeterminate={state.get.indeterminateModel}
           required={state.get.requiredModel}
           disabled={state.get.disabledModel}
-          rightCheckbox={state.get.rightCheckboxModel}
+          reverse={state.get.reverseModel}
           invalid={state.get.invalidModel}
           errorText={state.get.errorTextModel}
           helpText={state.get.helpTextModel}
+          requiredText={state.get.requiredTextModel}
           onChange={() => state.set({ ...state.get, toggle: !state.get.toggle })}
           checked={state.get.toggle}
         />
-        <div>Toggled: {state.get.toggle.toString()}</div>
       </div>
       <div className="e-page-controls">
         <Controls {...{ state, controls }} />

@@ -12,12 +12,12 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 | Prop name    | Type     | Default value | Possible values                        |
 | ------------ | -------- | ------------- | -------------------------------------- |
-| name         | String   | ''            |                                        |
 | value        | String   | ''            |                                        |
 | label        | String   | ''            |                                        |
 | helpText     | String   | ''            |                                        |
 | errorText    | String   | ''            |                                        |
-| rightCheckbox| Boolean  | false         |                                        |
+| requiredText | String   | ''            |                                        |
+| reverse      | Boolean  | false         |                                        |
 | indeterminate| Boolean  | false         |                                        |
 | invalid      | Boolean  | false         |                                        |
 | disabled     | Boolean  | false         |                                        |
