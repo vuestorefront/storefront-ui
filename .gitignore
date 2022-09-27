@@ -38,8 +38,6 @@ yarn-error.log*
 lib/*
 lib/
 !apps/preview/nuxt/output
-apps/preview/remix/.cache
-apps/preview/remix/app/styles
 apps/mitosis/src/blocks/VsfIcons
 apps/docs/components/.vitepress/dist
 !apps/docs/components/.vitepress/output

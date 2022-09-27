@@ -10,7 +10,7 @@
     "packages/config/*"
   ],
   "scripts": {
-    "postinstall": "yarn createMitosisIcons",
+    "postinstall": "concurrently \"yarn createMitosisIcons\" \"yarn createVueIcons\" \"yarn createReactIcons\"",
     "prepare": "husky install",
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
@@ -20,8 +20,8 @@
     "clean": "npx rimraf ./**/node_modules && rm yarn.lock",
     "clean:total": "npx rimraf ./**/node_modules && rimraf ./**/.cache && rimraf ./**/.turbo && rm yarn.lock",
     "createMitosisIcons": "yarn node createIcons input=apps/mitosis/assets/ output=apps/mitosis/src/blocks/VsfIcons/",
-    "createVueIcons": "yarn node createIcons framework=vue input=apps/mitosis/assets/ output=apps/preview/nuxt/components/VsfIcons/ relativePathToIconBase=../../output/blocks/",
-    "createReactIcons": "yarn node createIcons framework=react input=apps/mitosis/assets/ output=apps/preview/remix/app/components/VsfIcons/ relativePathToIconBase=../../output/blocks/",
+    "createVueIcons": "yarn node createIcons framework=vue input=packages/sfui/assets/ output=packages/sfui/frameworks/vue/components/VsfIcons/",
+    "createReactIcons": "yarn node createIcons framework=react input=packages/sfui/assets/ output=packages/sfui/frameworks/react/components/VsfIcons/",
     "hygen": "./node_modules/.bin/hygen",
     "component": "yarn hygen component"
   },
@@ -32,6 +32,7 @@
     "babel-cli": "^6.26.0",
     "babel-preset-node": "^5.1.1",
     "commitizen": "^4.2.5",
+    "concurrently": "^7.4.0",
     "husky": "^7.0.4",
     "hygen": "^6.2.8",
     "nodemon": "^2.0.19",

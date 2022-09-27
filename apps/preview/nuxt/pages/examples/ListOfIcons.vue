@@ -14,21 +14,15 @@
 </template>
 
 <script>
-import VsfIconBase, { VsfIconSize } from '../../output/blocks/VsfIconBase/VsfIconBase.vue';
-import * as AllVsfIcons from '../../output/blocks/VsfIcons/vue';
+import { VsfIconSizeEnum } from '@sfui/sfui/frameworks/vue/components/VsfIcons/types';
+import * as AllVsfIcons from '@sfui/sfui/frameworks/vue/components/VsfIcons/index';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
 import { ref } from 'vue';
 
-const files = import.meta.glob('../../output/blocks//VsfIcons/*.vue');
-let componentsNames = Object.keys(files).map(file => {
-  const arrayPath = file.split('/');
-  return arrayPath[arrayPath.length - 1].split('.')[0]
-});
-
+const componentsNames = Object.keys(AllVsfIcons);
 export default {
   name: 'VsfSpinnerExample',
   components: {
-    VsfIconBase,
     Controls,
     ...(componentsNames.reduce((prev, curr) => ({...prev, [`${curr}`]: AllVsfIcons[`${curr}`]}), {}))
   },
@@ -36,7 +30,6 @@ export default {
     const copied = ref('');
     return {
       componentsNames,
-      VsfIconSize,
       copied,
       copyToClipboard: (componentName) => {
         navigator.clipboard.writeText(componentName);
@@ -52,7 +45,7 @@ export default {
           modelName: 'sizeModel',
           propDefaultValue: 'VsfIconSize.base',
           propType: 'VsfIconSize',
-          options: Object.keys(VsfIconSize)
+          options: Object.keys(VsfIconSizeEnum)
         },
         {
           title: 'color',
@@ -62,7 +55,7 @@ export default {
           options: ['black', 'red', 'blue', 'green']
         },
       ], {
-        sizeModel: ref(VsfIconSize.base),
+        sizeModel: ref(VsfIconSizeEnum.base),
         colorModel: ref('black'),
       })
     }

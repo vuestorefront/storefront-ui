@@ -9,6 +9,8 @@
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^5.3.2",
+    "@sfui/tailwind-config": "*",
+    "@sfui/sfui": "*",
     "@sfui/example-style": "*",
     "autoprefixer": "^10.4.8",
     "nuxt": "npm:nuxt3@latest",

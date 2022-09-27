@@ -7,7 +7,7 @@ run command from project root:
 foo@bar:~$ yarn component new --name <VsfComponentName> [--variants]
 
 // command help - output not formatted correctly due to `hygen` issue
-foo@bar:~$ yarn component help 
+foo@bar:~$ yarn component help
 ```
 `--variants` flag generates optional object of TS types in component
 
@@ -16,7 +16,7 @@ Generator templates are stored in the `_templates` directory in the root path.
 Created files
 - `apps/mitosis/component/blocks/<VsfComponent>/<VsfComponent>.lite.tsx`
 - `apps/preview/nuxt/.../examples/<VsfComponent>.vue`
-- `apps/preview/remix/.../examples/<VsfComponent>.tsx`
+- `apps/preview/next/.../examples/<VsfComponent>.tsx`
 - `apps/docs/components/.vitepress/components/<Component>.vue`
 - `apps/docs/components/components/<component>.md`
 
