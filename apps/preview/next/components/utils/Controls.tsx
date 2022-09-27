@@ -17,7 +17,7 @@ type ControlsType = {
   options?: (ControlOptionBind | string)[]
 }[];
 type Enum = Record<string | number, string | number>
-type Model = string | boolean | number | (string | Record<string, unknown> | Enum)[];
+type Model = string | boolean | number | Enum | (string | Record<string, unknown>)[];
 type Models = Record<string, Model>;
 export type ControlsProps<T extends Models> = {
   controls?: ControlsType;
