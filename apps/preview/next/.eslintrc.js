@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['next/core-web-vitals', '@vsf-react/eslint-config'],
+  extends: ['next/core-web-vitals', '@sfui/eslint-config'],
   parserOptions: {
     project: './tsconfig.json',
     tsconfigRootDir: __dirname,
