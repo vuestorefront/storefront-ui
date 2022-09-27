@@ -83,7 +83,7 @@ watch(
                         aria-label="Show previous categories"
                         @click.stop="handleButtonClick()"
                     >
-                        <VsfIconMoreHorizontal :size="VsfIconSizeEnum.sm" class="hvsf-breadcrumbs__item-button-icon"/>
+                        <VsfIconMoreHorizontal :size="VsfIconSizeEnum.sm" class="vsf-breadcrumbs__item-button-icon"/>
                     </button>
                     <ul
                         v-if="dropdownOpened"
