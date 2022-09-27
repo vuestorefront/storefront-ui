@@ -1,6 +1,6 @@
 import type { VsfDividerProps } from './types';
-import classnames from 'classnames';
+import classNames from 'classnames';
 
 export default function VsfDivider({ className, ...attributes }: VsfDividerProps) {
-  return <hr className={classnames('vsf-divider', className)} {...attributes} />;
+  return <hr className={classNames('vsf-divider', className)} {...attributes} />;
 }
