@@ -12,5 +12,5 @@ defineProps({
 </script>
 
 <template>
-  <div v-if="visible" :class="{ 'vsf-overlay': true, 'vsf-overlay--absolute': absolute }" />
+  <div v-if="visible" :class="['vsf-overlay' , {'vsf-overlay--absolute': absolute} ]" />
 </template>
