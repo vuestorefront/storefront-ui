@@ -2,8 +2,8 @@
   <div class="e-page">
     <div class="e-page-component">
       <div>
-        Icon imported directly from <br>
-        <VsfIconArrowDown :style="{ 'color': colorModel }" :size="sizeModel"/>
+        Icon imported directly from <br />
+        <VsfIconArrowDown :style="{ color: colorModel }" :size="sizeModel" />
       </div>
     </div>
     <div class="e-page-controls">
@@ -21,31 +21,34 @@ export default {
   name: 'VsfIconExample',
   components: {
     VsfIconArrowDown,
-    Controls
+    Controls,
   },
   setup() {
     return {
-      ...prepareControls([
+      ...prepareControls(
+        [
+          {
+            title: 'size',
+            type: 'select',
+            modelName: 'sizeModel',
+            propDefaultValue: 'VsfIconSize.base',
+            propType: 'VsfIconSize',
+            options: Object.keys(VsfIconSizeEnum),
+          },
+          {
+            title: 'color',
+            type: 'select',
+            modelName: 'colorModel',
+            description: 'Its not a prop just example that by setting color on parent, icons changes its color',
+            options: ['black', 'red', 'blue', 'green'],
+          },
+        ],
         {
-          title: 'size',
-          type: 'select',
-          modelName: 'sizeModel',
-          propDefaultValue: 'VsfIconSize.base',
-          propType: 'VsfIconSize',
-          options: Object.keys(VsfIconSizeEnum)
+          sizeModel: ref(VsfIconSizeEnum.base),
+          colorModel: ref('black'),
         },
-        {
-          title: 'color',
-          type: 'select',
-          modelName: 'colorModel',
-          description: 'Its not a prop just example that by setting color on parent, icons changes its color',
-          options: ['black', 'red', 'blue', 'green']
-        },
-      ], {
-        sizeModel: ref(VsfIconSizeEnum.base),
-        colorModel: ref('black'),
-      })
-    }
-  }
+      ),
+    };
+  },
 };
 </script>
