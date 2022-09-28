@@ -1,4 +1,8 @@
-import VsfButton, { VsfButtonSizes, VsfButtonVariants } from '@sfui/sfui/frameworks/react/components/VsfButton';
+import VsfButton, {
+  VsfButtonSizes,
+  VsfButtonVariants,
+  VsfButtonColors,
+} from '@sfui/sfui/frameworks/react/components/VsfButton';
 import { VsfIconVsfDiamond } from '@sfui/sfui/frameworks/react/components/VsfIcons';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
@@ -12,46 +16,28 @@ const Example = () => {
         modelName: 'childrenModel',
       },
       {
-        title: 'Link',
+        title: 'Href',
         type: 'text',
-        modelName: 'linkModel',
+        modelName: 'hrefModel',
+        description: 'Change <button> to <anchor> tag with `href` link',
       },
       {
         title: 'Variant',
         type: 'select',
         modelName: 'variantModel',
-        options: [
-          {
-            label: 'Primary',
-            value: VsfButtonVariants.primary,
-          },
-          {
-            label: 'Secondary',
-            value: VsfButtonVariants.secondary,
-          },
-          {
-            label: 'Tertiary',
-            value: VsfButtonVariants.tertiary,
-          },
-          {
-            label: 'Destroy Primary',
-            value: VsfButtonVariants['destroy-primary'],
-          },
-          {
-            label: 'Destroy Secondary',
-            value: VsfButtonVariants['destroy-secondary'],
-          },
-          {
-            label: 'Destroy Tertiary',
-            value: VsfButtonVariants['destroy-tertiary'],
-          },
-        ],
+        options: Object.keys(VsfButtonVariants),
       },
       {
         title: 'Size',
         type: 'select',
         modelName: 'sizeModel',
-        options: [VsfButtonSizes.sm, VsfButtonSizes.base, VsfButtonSizes.lg],
+        options: Object.keys(VsfButtonSizes),
+      },
+      {
+        title: 'Color',
+        type: 'select',
+        modelName: 'colorModel',
+        options: Object.keys(VsfButtonColors),
       },
       {
         title: 'Disabled',
@@ -62,16 +48,19 @@ const Example = () => {
         title: 'With Icon',
         type: 'boolean',
         modelName: 'icon',
+        description: 'Example with icon content',
       },
       {
         title: 'Left Icon',
         type: 'boolean',
         modelName: 'leftIconModel',
+        description: 'slotPrefix',
       },
       {
         title: 'Right Icon',
         type: 'boolean',
         modelName: 'rightIconModel',
+        description: 'slotSuffix',
       },
       {
         title: 'Tile',
@@ -86,24 +75,32 @@ const Example = () => {
         description: 'Adjust button paddings for icons',
       },
       {
-        title: 'Circle',
+        title: 'Rounded',
         type: 'boolean',
-        modelName: 'circleModel',
+        modelName: 'roundedModel',
         description: 'Full rounded borders',
+      },
+      {
+        title: 'Block',
+        type: 'boolean',
+        modelName: 'blockModel',
+        description: 'Full container width',
       },
     ],
     {
       childrenModel: 'Hello',
-      linkModel: '',
+      hrefModel: '',
       disabledModel: false,
       icon: false,
       leftIconModel: false,
       rightIconModel: false,
-      variantModel: VsfButtonVariants.primary,
+      variantModel: VsfButtonVariants.contained,
       sizeModel: VsfButtonSizes.base,
+      colorModel: VsfButtonColors.primary,
       tileModel: false,
       iconModel: false,
-      circleModel: false,
+      roundedModel: false,
+      blockModel: false,
     },
   );
 
@@ -113,13 +110,15 @@ const Example = () => {
         <VsfButton
           size={state.get.sizeModel}
           variant={state.get.variantModel}
+          color={state.get.colorModel}
           disabled={state.get.disabledModel}
-          href={state.get.linkModel}
+          href={state.get.hrefModel}
           slotPrefix={state.get.leftIconModel && <VsfIconVsfDiamond />}
           slotSuffix={state.get.rightIconModel && <VsfIconVsfDiamond />}
           tile={state.get.tileModel}
           icon={state.get.iconModel}
-          circle={state.get.circleModel}
+          rounded={state.get.roundedModel}
+          block={state.get.blockModel}
         >
           {state.get.icon && <VsfIconVsfDiamond />}
           {!state.get.icon && state.get.childrenModel}

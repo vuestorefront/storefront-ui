@@ -6,14 +6,24 @@ export enum VsfButtonSizes {
   lg = 'lg',
 }
 
-
-export enum VsfButtonVariants {
+export enum VsfButtonColors {
   primary = 'primary',
   secondary = 'secondary',
-  tertiary = 'tertiary',
+  gray = 'gray',
+  positive = 'positive',
+  negative = 'negative',
+  warning = 'warning',
 }
+
+export enum VsfButtonVariants {
+  contained = 'contained',
+  outlined = 'outlined',
+  plain = 'plain',
+}
+
 export type VsfButtonSizesKeys = keyof typeof VsfButtonSizes;
 export type VsfButtonVariantsKeys = keyof typeof VsfButtonVariants;
+export type VsfButtonColorsKeys = keyof typeof VsfButtonColors;
 
 type VsfButtonType =
   | ({ tag: 'button' } & HTMLAttributes<HTMLButtonElement>)
@@ -26,11 +36,13 @@ export type VsfButtonProps = {
   slotSuffix?: ReactNode;
   size?: VsfButtonSizesKeys;
   variant?: VsfButtonVariantsKeys;
-  circle?: boolean;
+  color?: VsfButtonColorsKeys;
+  rounded?: boolean;
   disabled?: boolean;
   tile?: boolean;
   icon?: boolean;
   tag?: ElementType;
   href?: string;
-  onClick?: MouseEvent;
+  block?: boolean;
+  onClick?: (e: MouseEvent) => void;
 };

@@ -7,11 +7,13 @@ const VsfButton = forwardRef<unknown, VsfButtonProps>(
   (
     {
       size = 'base',
-      variant = 'primary',
-      circle,
+      variant = 'contained',
+      color = 'primary',
+      rounded,
       disabled,
       tile,
       icon,
+      block,
       tag: Tag = 'button',
       onClick,
       children,
@@ -28,32 +30,31 @@ const VsfButton = forwardRef<unknown, VsfButtonProps>(
     const buttonClasses = classNames('vsf-button', {
       'vsf-button--disabled': disabled,
       'vsf-button--link': Tag === 'a',
-      'vsf-button--circle': circle,
+      'vsf-button--rounded': rounded,
       'vsf-button--tile': tile,
       'vsf-button--icon': icon,
+      'vsf-button--block': block,
 
       'vsf-button--base': size === 'base',
       'vsf-button--sm': size === 'sm',
       'vsf-button--lg': size === 'lg',
 
-      'vsf-button--primary': variant === 'primary',
-      'vsf-button--secondary': variant === 'secondary',
-      'vsf-button--tertiary': variant === 'tertiary',
-      'vsf-button--destroy-primary': variant === 'destroy-primary',
-      'vsf-button--destroy-secondary': variant === 'destroy-secondary',
-      'vsf-button--destroy-tertiary': variant === 'destroy-tertiary',
+      'vsf-button--primary': color === 'primary',
+      'vsf-button--negative': color === 'negative',
+      'vsf-button--warning': color === 'warning',
+      'vsf-button--gray': color === 'gray',
+      'vsf-button--secondary': color === 'secondary',
+      'vsf-button--positive': color === 'positive',
+
+      'vsf-button--contained': variant === 'contained',
+      'vsf-button--outlined': variant === 'outlined',
+      'vsf-button--plain': variant === 'plain',
     });
-    const onCLickHandler = (e: MouseEvent) => {
-      if (disabled) {
-        e.preventDefault();
-      } else {
-        onClick(e);
-      }
-    };
+
     return (
       <Tag
         className={buttonClasses}
-        onClick={onCLickHandler}
+        onClick={onClick}
         ref={ref}
         role={Tag === 'a' ? 'button' : undefined}
         disabled={disabled}
