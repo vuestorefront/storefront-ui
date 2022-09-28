@@ -1,13 +1,6 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
-  extends: [
-    'airbnb',
-    'eslint-config-airbnb-typescript',
-    '@remix-run/eslint-config',
-    '@remix-run/eslint-config/node',
-    'eslint-plugin-vue',
-    '@builder.io/eslint-plugin-mitosis',
-  ],
+  extends: ['prettier'],
   plugins: ['prettier'],
   settings: {
     'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],
