@@ -19,7 +19,14 @@ const Example = () => {
         title: 'Href',
         type: 'text',
         modelName: 'hrefModel',
-        description: 'Change <button> to <anchor> tag with `href` link',
+        description: 'Change <button> to <a> tag with `href` attribute',
+      },
+      {
+        title: 'Tag',
+        type: 'select',
+        modelName: 'tagModel',
+        options: ['button', 'a'],
+        description: 'Explicitly set component tag',
       },
       {
         title: 'Variant',
@@ -101,6 +108,7 @@ const Example = () => {
       iconModel: false,
       roundedModel: false,
       blockModel: false,
+      tagModel: 'button',
     },
   );
 
@@ -119,6 +127,7 @@ const Example = () => {
           icon={state.get.iconModel}
           rounded={state.get.roundedModel}
           block={state.get.blockModel}
+          tag={state.get.tagModel}
         >
           {state.get.icon && <VsfIconVsfDiamond />}
           {!state.get.icon && state.get.childrenModel}

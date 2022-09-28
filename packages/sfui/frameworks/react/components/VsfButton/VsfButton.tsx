@@ -1,6 +1,5 @@
-import { forwardRef, useCallback } from 'react';
+import { forwardRef } from 'react';
 import type { VsfButtonProps } from './types';
-import { VsfButtonSizes } from './types';
 import classNames from 'classnames';
 
 const VsfButton = forwardRef<unknown, VsfButtonProps>(
