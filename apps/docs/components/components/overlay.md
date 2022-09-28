@@ -19,6 +19,7 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 | Slot name |            Description            |
 | --------- | :-------------------------------: |
+| default   | default slot for optional content |
 
 
 ## Events
