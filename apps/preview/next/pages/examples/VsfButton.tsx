@@ -4,6 +4,7 @@ import VsfButton, {
   VsfButtonColors,
 } from '@sfui/sfui/frameworks/react/components/VsfButton';
 import { VsfIconVsfDiamond } from '@sfui/sfui/frameworks/react/components/VsfIcons';
+import { ElementType } from 'react';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 
@@ -127,7 +128,7 @@ const Example = () => {
           icon={state.get.iconModel}
           rounded={state.get.roundedModel}
           block={state.get.blockModel}
-          tag={state.get.tagModel}
+          tag={state.get.tagModel as ElementType}
         >
           {state.get.icon && <VsfIconVsfDiamond />}
           {!state.get.icon && state.get.childrenModel}
