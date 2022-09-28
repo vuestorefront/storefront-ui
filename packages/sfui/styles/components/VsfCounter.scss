@@ -1,0 +1,73 @@
+.vsf-counter {
+  @apply inline-flex items-center font-body;
+
+  &__font {
+    &-size {
+      &--xs {
+        @apply text-3xs;
+      }
+      &--sm {
+        @apply text-2xs;
+      }
+      &--base {
+        @apply text-xs;
+      }
+      &--lg {
+        @apply text-sm;
+      }
+      &--xl {
+        @apply text-base;
+      }
+      &--2xl {
+        @apply text-lg;
+      }
+    }
+    &-weight {
+      &--xs,
+      &--sm,
+      &--pill {
+        @apply font-medium;
+      }
+      &--base,
+      &--lg,
+      &--xl,
+      &--2xl {
+        @apply font-normal;
+      }
+    }
+  }
+
+  &__pill {
+    &-size {
+      &--xs,
+      &--sm {
+        @apply ring-0;
+      }
+      &--base,
+      &--lg,
+      &--xl,
+      &--2xl {
+        @apply ring-1 ring-gray-200 ring-inset py-0.5 rounded-full text-gray-900;
+      }
+    }
+    &-brackets {
+      @apply before:content-['('] after:content-[')'] text-gray-500;
+    }
+    &-spacing {
+      &--xs,
+      &--sm {
+        @apply px-1;
+      }
+      &--base {
+        @apply px-2;
+      }
+      &--lg {
+        @apply px-2.5;
+      }
+      &--xl,
+      &--2xl {
+        @apply px-3;
+      }
+    }
+  }
+}
