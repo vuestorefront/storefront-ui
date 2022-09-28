@@ -1,11 +1,17 @@
 <template>
   <div class="e-page">
     <div class="e-page-component--icons">
-      <div v-for="componentName in componentsNames" class="inline-block border cursor-pointer" :data-tooltip="componentName" @click="copyToClipboard(componentName)">
-        <component v-bind:is="componentName" :size="sizeModel" :style="{ 'color': colorModel }"/>
+      <div
+        v-for="componentName in componentsNames"
+        :key="componentName"
+        class="inline-block border cursor-pointer"
+        :data-tooltip="componentName"
+        @click="copyToClipboard(componentName)"
+      >
+        <component :is="componentName" :size="sizeModel" :style="{ color: colorModel }" />
       </div>
 
-      <div class="mt-5 p-6" v-if="copied">Component name ({{copied}}) has been copied to clipboard</div>
+      <div v-if="copied" class="mt-5 p-6">Component name ({{ copied }}) has been copied to clipboard</div>
     </div>
     <div class="e-page-controls">
       <Controls v-bind="controlsAttrs" />
@@ -24,7 +30,7 @@ export default {
   name: 'VsfSpinnerExample',
   components: {
     Controls,
-    ...(componentsNames.reduce((prev, curr) => ({...prev, [`${curr}`]: AllVsfIcons[`${curr}`]}), {}))
+    ...componentsNames.reduce((prev, curr) => ({ ...prev, [`${curr}`]: AllVsfIcons[`${curr}`] }), {}),
   },
   setup() {
     const copied = ref('');
@@ -35,30 +41,33 @@ export default {
         navigator.clipboard.writeText(componentName);
         copied.value = componentName;
         setTimeout(() => {
-          copied.value = ''
-        }, 1000)
+          copied.value = '';
+        }, 1000);
       },
-      ...prepareControls([
+      ...prepareControls(
+        [
+          {
+            title: 'size',
+            type: 'select',
+            modelName: 'sizeModel',
+            propDefaultValue: 'VsfIconSize.base',
+            propType: 'VsfIconSize',
+            options: Object.keys(VsfIconSizeEnum),
+          },
+          {
+            title: 'color',
+            type: 'select',
+            modelName: 'colorModel',
+            description: 'Its not a prop just example that by setting color on parent, icons changes its color',
+            options: ['black', 'red', 'blue', 'green'],
+          },
+        ],
         {
-          title: 'size',
-          type: 'select',
-          modelName: 'sizeModel',
-          propDefaultValue: 'VsfIconSize.base',
-          propType: 'VsfIconSize',
-          options: Object.keys(VsfIconSizeEnum)
+          sizeModel: ref(VsfIconSizeEnum.base),
+          colorModel: ref('black'),
         },
-        {
-          title: 'color',
-          type: 'select',
-          modelName: 'colorModel',
-          description: 'Its not a prop just example that by setting color on parent, icons changes its color',
-          options: ['black', 'red', 'blue', 'green']
-        },
-      ], {
-        sizeModel: ref(VsfIconSizeEnum.base),
-        colorModel: ref('black'),
-      })
-    }
-  }
+      ),
+    };
+  },
 };
 </script>
