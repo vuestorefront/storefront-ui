@@ -67,7 +67,7 @@ export default defineComponent ({
             },
           ],
         {
-          valueModel: ref('1'),
+          valueModel: ref('123'),
           sizeModel: ref<VsfCounterSizesKeys>('base'),
           pillModel: ref<boolean>(false),
           fillModel: ref<string>('bg-white'),
