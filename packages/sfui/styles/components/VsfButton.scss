@@ -1,0 +1,61 @@
+.vsf-button {
+  $this: &;
+
+  @apply inline-flex items-center justify-center cursor-pointer font-body outline-violet font-medium uppercase;
+  @apply rounded-md;
+  @apply text-base;
+
+  &--circle {
+    @apply rounded-full;
+  }
+  &--tile {
+    @apply rounded-none;
+  }
+  // TODO change paddings to fixed size
+  &--icon {
+    &#{$this}--sm {
+      @apply px-1.5;
+    }
+    &#{$this}--base {
+      @apply px-2;
+    }
+    &#{$this}--lg {
+      @apply px-3;
+    }
+  }
+  &--sm {
+    @apply leading-5 text-sm h-8 px-2;
+  }
+  &--base {
+    @apply h-10 px-4;
+  }
+  &--lg {
+    @apply h-12 px-6;
+  }
+  &--disabled {
+    @apply cursor-not-allowed text-gray-500 opacity-50 bg-gray-200 shadow-none;
+  }
+  &#{$this}--tertiary,
+  &#{$this}--destroy-tertiary {
+    @apply bg-transparent;
+  }
+
+  &--primary:not(.vsf-button--disabled) {
+    @apply bg-primary-500 text-white hover:bg-primary-600 hover:shadow-medium active:bg-primary-700 shadow-base;
+  }
+  &--secondary:not(.vsf-button--disabled) {
+    @apply bg-white border border-gray-200 text-primary-500 hover:border-primary-300 hover:bg-green-100 hover:text-primary-600 hover:shadow-medium active:border-primary-400 active:bg-green-200 active:text-primary-700;
+  }
+  &--tertiary:not(.vsf-button--disabled) {
+    @apply text-primary-500 hover:bg-green-100 hover:text-primary-600 active:text-primary-700 active:bg-green-200;
+  }
+  &--destroy-primary:not(.vsf-button--disabled) {
+    @apply text-white bg-rose-600 hover:bg-rose-700 active:bg-rose-800 hover:shadow-medium;
+  }
+  &--destroy-secondary:not(.vsf-button--disabled) {
+    @apply text-rose-600 bg-white border border-rose-400 disabled:border-0 hover:bg-rose-100 active:bg-rose-200 hover:text-rose-600 active:text-rose-700 hover:shadow-medium;
+  }
+  &--destroy-tertiary:not(.vsf-button--disabled) {
+    @apply text-rose-600 hover:bg-rose-100 hover:text-rose-700 active:bg-rose-200 active:text-rose-800;
+  }
+}
