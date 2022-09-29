@@ -11,7 +11,9 @@ export default function VsfCounter({
     className,
     'vsf-counter',
     `vsf-counter--${size}`,
-    pill ? `vsf-counter__pill vsf-counter__pill--${size}` : 'vsf-counter__pill--brackets',
+    {
+      'vsf-counter--pill': pill,
+    }
   ]);
   return (
     <span className={classes}>
