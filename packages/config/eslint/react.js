@@ -27,15 +27,7 @@ module.exports = {
     ],
     'react/react-in-jsx-scope': 'off',
     'import/no-extraneous-dependencies': 0,
-    'react/jsx-props-no-spreading': [
-      'error',
-      {
-        html: 'enforce',
-        custom: 'ignore',
-        explicitSpread: 'ignore',
-        exceptions: [],
-      },
-    ],
+    'react/jsx-props-no-spreading': 'off',
     'jsx-a11y/anchor-is-valid': [
       'error',
       {
@@ -44,6 +36,7 @@ module.exports = {
         aspects: ['invalidHref', 'preferButton'],
       },
     ],
+    'react/jsx-no-bind': 'off',
     'prettier/prettier': 'error',
   },
 };
