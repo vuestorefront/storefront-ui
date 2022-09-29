@@ -7,19 +7,14 @@ export default function VsfCounter({
   children,
   className,
  }: VsfCounterProps): JSX.Element {
+  const classes = classNames([
+    className,
+    'vsf-counter',
+    `vsf-counter--${size}`,
+    pill ? `vsf-counter__pill vsf-counter__pill--${size}` : 'vsf-counter__pill--brackets',
+  ]);
   return (
-    <span className={classNames([
-      className,
-      'vsf-counter',
-      `vsf-counter__font-size--${size}`,
-      `vsf-counter__font-weight--${size}`,
-      `${pill ?
-        `vsf-counter__font-weight--pill
-        vsf-counter__pill-size--${size}
-        vsf-counter__pill-spacing--${size}` :
-        'vsf-counter__pill-brackets'
-      }`
-    ])}>
+    <span className={classes}>
       {children}
     </span>
   );

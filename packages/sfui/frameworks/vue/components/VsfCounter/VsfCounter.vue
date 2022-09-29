@@ -1,33 +1,26 @@
-<script setup lang="ts">
-  import type { PropType } from "vue";
-  import type { VsfCounterSizesKeys } from "./types";
+<script setup lang='ts'>
+import { computed, PropType } from 'vue';
+import type { VsfCounterSizesKeys } from './types';
 
-  defineProps({
-    size: {
-      type: String as PropType<VsfCounterSizesKeys>,
-      default: 'base',
-    },
-    pill: {
-      type: Boolean,
-      default: false,
-    },
-  });
+const props = defineProps({
+  size: {
+    type: String as PropType<VsfCounterSizesKeys>,
+    default: 'base',
+  },
+  pill: {
+    type: Boolean,
+    default: false,
+  },
+});
+const classes = computed(() => [
+  'vsf-counter',
+  `vsf-counter--${props.size}`,
+  props.pill ? `vsf-counter__pill vsf-counter__pill--${props.size}` : 'vsf-counter__pill--brackets',
+]);
 </script>
 
 <template>
-  <span
-    :class="[
-      'vsf-counter',
-      `vsf-counter__font-size--${size}`,
-      `vsf-counter__font-weight--${size}`,
-      `${pill ?
-        `vsf-counter__font-weight--pill
-         vsf-counter__pill-size--${size}
-         vsf-counter__pill-spacing--${size}` :
-        'vsf-counter__pill-brackets'
-      }`,
-    ]"
-  >
+  <span :class="classes">
     <slot />
   </span>
 </template>
