@@ -12,7 +12,7 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 | Prop name  | Type                    | Default value | Possible values                                                   |
 | ---------- | ----------------------- | ------------- | ----------------------------------------------------------------- |
-| variant    | `VsfButtonVariantsKeys` | `contained`   | `contained`, `outlined`, `plain`                                  |
+| variant    | `VsfButtonVariantsKeys` | `primary`     | `primary`, `secondary`, `tertiary`                                |
 | color      | `VsfButtonColorsKeys`   | `primary`     | `primary`, `secondary`, `gray`, `positive`, `negative`, `warning` |
 | size       | `VsfButtonSizesKeys`    | `base`        | `sm`, `base`, `lg`                                                |
 | slotPrefix | `SlotType`              |               | Left side slotted content                                         |

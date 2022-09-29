@@ -6,7 +6,7 @@ const VsfButton = forwardRef<unknown, VsfButtonProps>(
   (
     {
       size = 'base',
-      variant = 'contained',
+      variant = 'primary',
       color = 'primary',
       rounded,
       disabled,
@@ -45,9 +45,9 @@ const VsfButton = forwardRef<unknown, VsfButtonProps>(
       'vsf-button--secondary': color === 'secondary',
       'vsf-button--positive': color === 'positive',
 
-      'vsf-button--contained': variant === 'contained',
-      'vsf-button--outlined': variant === 'outlined',
-      'vsf-button--plain': variant === 'plain',
+      'vsf-button--variant-primary': variant === 'primary',
+      'vsf-button--variant-secondary': variant === 'secondary',
+      'vsf-button--variant-tertiary': variant === 'tertiary',
     });
 
     return (

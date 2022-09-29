@@ -16,9 +16,9 @@ export enum VsfButtonColors {
 }
 
 export enum VsfButtonVariants {
-  contained = 'contained',
-  outlined = 'outlined',
-  plain = 'plain',
+  primary = 'primary',
+  secondary = 'secondary',
+  tertiary = 'tertiary',
 }
 
 export type VsfButtonSizesKeys = keyof typeof VsfButtonSizes;

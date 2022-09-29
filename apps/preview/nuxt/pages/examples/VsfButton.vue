@@ -143,7 +143,7 @@ export default defineComponent({
         icon: ref(false),
         leftIconModel: ref(false),
         rightIconModel: ref(false),
-        variantModel: ref(VsfButtonVariants.contained),
+        variantModel: ref(VsfButtonVariants.primary),
         sizeModel: ref(VsfButtonSizes.base),
         colorModel: ref(VsfButtonColors.primary),
         tileModel: ref(),

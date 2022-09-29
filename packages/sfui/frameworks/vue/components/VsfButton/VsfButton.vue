@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed, PropType, toRef, ref } from 'vue';
+import { computed, PropType, toRef } from 'vue';
 import {
   VsfButtonSizesKeys,
   VsfButtonSizes,
@@ -15,7 +15,7 @@ const props = defineProps({
   },
   variant: {
     type: String as PropType<VsfButtonVariantsKeys>,
-    default: VsfButtonVariants.contained,
+    default: VsfButtonVariants.primary,
   },
   color: {
     type: String as PropType<VsfButtonColorsKeys>,
@@ -86,9 +86,9 @@ const buttonClasses = computed(() => [
     'vsf-button--secondary': props.color === 'secondary',
     'vsf-button--positive': props.color === 'positive',
 
-    'vsf-button--contained': props.variant === 'contained',
-    'vsf-button--outlined': props.variant === 'outlined',
-    'vsf-button--plain': props.variant === 'plain',
+    'vsf-button--variant-primary': props.variant === 'primary',
+    'vsf-button--variant-secondary': props.variant === 'secondary',
+    'vsf-button--variant-tertiary': props.variant === 'tertiary',
   },
 ]);
 </script>

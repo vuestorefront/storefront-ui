@@ -102,7 +102,7 @@ const Example = () => {
       icon: false,
       leftIconModel: false,
       rightIconModel: false,
-      variantModel: VsfButtonVariants.contained,
+      variantModel: VsfButtonVariants.primary,
       sizeModel: VsfButtonSizes.base,
       colorModel: VsfButtonColors.primary,
       tileModel: false,

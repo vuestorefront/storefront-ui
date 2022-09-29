@@ -29,7 +29,7 @@
   &#{$this}--disabled,
   &:disabled {
     @apply text-gray-500 opacity-50 bg-gray-200 shadow-none pointer-events-none ring-0;
-    &#{$this}--plain {
+    &#{$this}--variant-tertiary {
       @apply bg-transparent;
     }
   }
@@ -46,7 +46,7 @@
   }
 
   /* variants */
-  &--contained:not(.vsf-button--disabled) {
+  &--variant-primary:not(.vsf-button--disabled) {
     @apply text-white hover:shadow-medium shadow-base;
     &#{$this}--primary {
       @apply bg-primary-500 hover:bg-primary-600 active:bg-primary-700;
@@ -67,8 +67,8 @@
       @apply bg-positive-600 hover:bg-positive-700 active:bg-positive-800;
     }
   }
-  &--outlined:not(.vsf-button--disabled),
-  &--plain:not(.vsf-button--disabled) {
+  &--variant-secondary:not(.vsf-button--disabled),
+  &--variant-tertiary:not(.vsf-button--disabled) {
     &#{$this}--primary {
       @apply text-primary-600 hover:bg-primary-100 active:bg-primary-200 active:text-primary-700;
     }
@@ -88,7 +88,7 @@
       @apply text-positive-600 hover:bg-positive-100 active:bg-positive-200 hover:text-positive-700 active:text-positive-800;
     }
   }
-  &--outlined:not(.vsf-button--disabled) {
+  &--variant-secondary:not(.vsf-button--disabled) {
     @apply ring-1 hover:shadow-medium active:shadow shadow;
     &#{$this}--primary {
       @apply ring-primary-300 active:ring-primary-400;
