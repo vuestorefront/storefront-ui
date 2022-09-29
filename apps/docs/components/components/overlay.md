@@ -10,26 +10,38 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 ## Props
 
-| Prop name   | Type    | Default value | Possible values                        |
-| ----------- | ------- | ------------- | -------------------------------------- |
-| visible     | Boolean | false         |                                        |
-| absolute    | Boolean | false         |                                        |
+| Prop name | Type    | Default value | Possible values |
+| --------- | ------- | ------------- | --------------- |
+| visible   | Boolean | false         |                 |
+| absolute  | Boolean | false         |                 |
+
+### React only:
+
+| Prop name | Type        | Default value | Possible values |
+| --------- | ----------- | ------------- | --------------- |
+| children  | `ReactNode` |               |                 |
+| className | `String`    |               |                 |
+| onClick   | `Function`  |               |                 |
 
 ## Slots
+
+### Vue only:
 
 | Slot name |            Description            |
 | --------- | :-------------------------------: |
 | default   | default slot for optional content |
 
-
 ## Events
 
-| Event name |            Trigger             |
-| ---------- | :----------------------------: |
-| click      | emits on component clicking    |
+### Vue only:
+
+| Event name |           Trigger           |
+| ---------- | :-------------------------: |
+| click      | emits on component clicking |
 
 ## Accessibility notes
 
 ## Source code
 
-<<<../../mitosis/src/blocks/VsfOverlay/VsfOverlay.lite.tsx
+<<<../../../packages/sfui/frameworks/vue/components/VsfOverlay/VsfOverlay.vue
+<<< ../../../packages/sfui/frameworks/react/components/VsfOverlay/VsfOverlay.tsx

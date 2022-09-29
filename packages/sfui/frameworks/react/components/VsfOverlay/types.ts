@@ -1,7 +1,9 @@
-import type { HTMLAttributes, MouseEvent, AriaAttributes } from 'react';
+import type { MouseEvent, ReactNode } from 'react';
 
-export interface VsfOverlayProps extends HTMLAttributes<HTMLDivElement> {
+export interface VsfOverlayProps {
   visible?: boolean;
   absolute?: boolean;
   onClick?: (e: MouseEvent) => void;
+  children?: ReactNode;
+  className?: string;
 }
