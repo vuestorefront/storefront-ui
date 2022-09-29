@@ -91,7 +91,7 @@ export default function VsfTag(props: VsfTagProps) {
 
   function badgeColors() {
     return classStringFromArray([
-      "inline-flex items-center font-medium text-white fill-white font-body direction-row",
+      "inline-flex items-center font-medium text-white fill-white font-body",
       useVariantProp() === VsfTagVariants.base && "bg-gray-600",
       useVariantProp() === VsfTagVariants.info && "bg-secondary-800",
       useVariantProp() === VsfTagVariants.positive && "bg-primary-600",
@@ -138,7 +138,7 @@ export default function VsfTag(props: VsfTagProps) {
           <div
             className={`${
               useSizeProp() === "sm" ? "h-6 text-xs" : "h-8 text-sm"
-            } flex direction-row`}
+            } flex`}
           >
             <div className={`${badgeColors()}`}>
               {props.slotPrefix ? (
@@ -146,7 +146,7 @@ export default function VsfTag(props: VsfTagProps) {
                   <span
                     className={`${
                       useSizeProp() === "sm" ? "w-4 h-4" : "w-5 h-5"
-                    } flex direction-row ml-2`}
+                    } flex ml-2`}
                   >
                     {props.slotPrefix}
                   </span>

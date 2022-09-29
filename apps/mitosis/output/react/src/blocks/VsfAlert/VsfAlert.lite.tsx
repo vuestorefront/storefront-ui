@@ -1,19 +1,21 @@
 import * as React from "react";
-
+import type { SlotType } from "../../functions/types";
 type VsfAlertTypesKeys = keyof typeof VsfAlertTypes;
 export interface VsfAlertProps {
   type?: VsfAlertTypesKeys;
   persistent?: boolean;
   header?: string;
   description?: string;
-  slotIcon?: Element | Element[] | string; // TODO: replace with SlotType after Button merge
-
-  slotButton?: Element | Element[] | string;
+  slotIcon?: SlotType;
+  slotButton?: SlotType;
   handleCloseClick?: () => void;
 }
 
 import { classStringFromArray } from "../../functions/domUtils";
 import VsfIconInfo from "../VsfIcons/VsfIconInfo.lite";
+import VsfIconCheckCircle from "../VsfIcons/VsfIconCheckCircle.lite";
+import VsfIconWarning from "../VsfIcons/VsfIconWarning.lite";
+import VsfIconError from "../VsfIcons/VsfIconError.lite";
 import VsfIconClose from "../VsfIcons/VsfIconClose.lite";
 export const VsfAlertTypes = Object.freeze({
   info: "info",
@@ -21,9 +23,14 @@ export const VsfAlertTypes = Object.freeze({
   warning: "warning",
   error: "error",
 });
-const DEFAULT_VALUES = {
+const DEFAULT_VALUES: Required<VsfAlertProps> = {
   type: VsfAlertTypes.info,
   persistent: false,
+  header: "Header",
+  description: "Description",
+  slotIcon: "",
+  slotButton: "",
+  handleCloseClick: () => {},
 };
 
 export default function VsfAlert(props: VsfAlertProps) {
@@ -70,7 +77,18 @@ export default function VsfAlert(props: VsfAlertProps) {
         <div className="flex gap-2">
           {!props.slotIcon ? (
             <>
-              <VsfIconInfo className={iconClasses()} />
+              {useTypeProp() === VsfAlertTypes.info ? (
+                <VsfIconInfo className={iconClasses()} />
+              ) : null}
+              {useTypeProp() === VsfAlertTypes.positive ? (
+                <VsfIconCheckCircle className={iconClasses()} />
+              ) : null}
+              {useTypeProp() === VsfAlertTypes.warning ? (
+                <VsfIconWarning className={iconClasses()} />
+              ) : null}
+              {useTypeProp() === VsfAlertTypes.error ? (
+                <VsfIconError className={iconClasses()} />
+              ) : null}
             </>
           ) : (
             <div>{props.slotIcon}</div>
@@ -95,7 +113,9 @@ export default function VsfAlert(props: VsfAlertProps) {
             </button>
           </>
         ) : (
-          <div className="button">{props.slotButton}</div>
+          <div className="button" onClick={(event) => close()}>
+            {props.slotButton}
+          </div>
         )}
       </div>
     </>
