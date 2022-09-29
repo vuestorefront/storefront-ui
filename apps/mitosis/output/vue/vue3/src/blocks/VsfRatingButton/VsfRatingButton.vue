@@ -10,6 +10,7 @@
       v-model="vueProxyValue"
       :checked="value == 0"
       :name="name"
+      :readOnly="true"
       :aria-label="`Rating star 0 of ${useMaxProp}`"
     />
     <template

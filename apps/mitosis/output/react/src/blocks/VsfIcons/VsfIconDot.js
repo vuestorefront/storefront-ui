@@ -1,22 +1,32 @@
 import * as React from "react";
-import VsfIconBase from "../VsfIconBase/VsfIconBase.js";
-const DEFAULT_VALUES = {
-  size: "base"
-};
-function VsfIconDot(props) {
-  function useContent() {
-    return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("path", {
-      d: "M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10Z"
-    }));
-  }
-  return /* @__PURE__ */ React.createElement(VsfIconBase, {
-    viewBox: "0 0 24 24",
-    className: props.className || "",
-    size: props.size || DEFAULT_VALUES.size,
-    ariaLabel: props.ariaLabel || "dot",
-    content: useContent()
-  });
+
+export interface VsfIconDotProps {
+  size?: "xs" | "sm" | "base" | "lg" | "xl" | "2xl" | "3xl";
+  className?: string;
+  ariaLabel?: string;
 }
-export {
-  VsfIconDot as default
+
+import VsfIconBase from "../VsfIconBase/VsfIconBase.lite";
+const DEFAULT_VALUES = {
+  size: "base",
 };
+
+export default function VsfIconDot(props: VsfIconDotProps) {
+  function useContent() {
+    return (
+      <>
+        <path d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10Z" />
+      </>
+    );
+  }
+
+  return (
+    <VsfIconBase
+      viewBox="0 0 24 24"
+      className={props.className || ""}
+      size={props.size || DEFAULT_VALUES.size}
+      ariaLabel={props.ariaLabel || "dot"}
+      content={useContent()}
+    />
+  );
+}
