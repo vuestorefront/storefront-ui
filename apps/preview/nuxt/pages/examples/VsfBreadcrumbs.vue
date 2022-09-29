@@ -10,11 +10,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, resolveComponent } from 'vue';
-import Controls, { prepareControls } from '../../components/utils/Controls.vue';
+import { computed, defineComponent, ref, resolveComponent } from 'vue';
 import VsfBreadcrumbs from '@sfui/sfui/frameworks/vue/components/VsfBreadcrumbs/VsfBreadcrumbs.vue';
 import type { VsfBreadcrumbType } from '@sfui/sfui/frameworks/vue/components/VsfBreadcrumbs/types';
-import { computed } from '@vue/reactivity';
+import Controls, { prepareControls } from '../../components/utils/Controls.vue';
 
 export default defineComponent({
   name: 'VsfBreadcrumbsExample',
