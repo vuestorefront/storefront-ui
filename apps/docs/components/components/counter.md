@@ -14,11 +14,17 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 |-----------|-------------------|---------------|---------------------------------------|
 | size      | `VsfCounterSizes` | `base`        | `xs`, `sm`, `base`, `lg`, `xl`, `2xl` |
 | pill      | `Boolean`         | `false`       |                                       |
+
+### React only:
+
+| Prop name | Type              | Default value | Possible values                       |
+|-----------|-------------------|---------------|---------------------------------------|
 | children  | `ReactNode`       |               |                                       |
 | className | `String`          |               |                                       |
 
-
 ## Slots
+
+### Vue only:
 
 | Slot name |            Description            |
 | --------- | :-------------------------------: |
