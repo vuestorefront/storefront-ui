@@ -17,9 +17,9 @@ const Example = () => {
         modelName: 'childrenModel',
       },
       {
-        title: 'Href',
+        title: 'Link',
         type: 'text',
-        modelName: 'hrefModel',
+        modelName: 'linkModel',
         description: 'Change <button> to <a> tag with `href` attribute',
       },
       {
@@ -97,7 +97,7 @@ const Example = () => {
     ],
     {
       childrenModel: 'Hello',
-      hrefModel: '',
+      linkModel: '',
       disabledModel: false,
       icon: false,
       leftIconModel: false,
@@ -121,7 +121,7 @@ const Example = () => {
           variant={state.get.variantModel}
           color={state.get.colorModel}
           disabled={state.get.disabledModel}
-          href={state.get.hrefModel}
+          link={state.get.linkModel}
           slotPrefix={state.get.leftIconModel && <VsfIconVsfDiamond />}
           slotSuffix={state.get.rightIconModel && <VsfIconVsfDiamond />}
           tile={state.get.tileModel}

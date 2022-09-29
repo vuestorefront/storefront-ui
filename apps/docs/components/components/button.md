@@ -19,7 +19,7 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 | children   | `SlotType`              | `Hello`       | Default slotted content                                           |
 | slotSuffix | `SlotType`              |               | Right side slotted content                                        |
 | disabled   | `Boolean`               | false         | false                                                             |
-| href       | `String`                |               | '/my-cool-page'                                                   |
+| link       | `String`                |               | '/my-cool-page'                                                   |
 | onClick    | () => void              |               |                                                                   |
 | tile       | `Boolean`               |               |                                                                   |
 | icon       | `Boolean`               |               |                                                                   |
@@ -39,7 +39,7 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 Button component is using `role='button'`. When this role is added to an element, the browser will send out an accessible alert event to assistive technology products which can then notify the user.
 
-Button component can be render as `<button />` or `<a />` if `href` prop is provided.
+Button component can be render as `<button />` or `<a />` if `link` prop is provided.
 
 ## Source code
 

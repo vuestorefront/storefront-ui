@@ -5,7 +5,7 @@
         :size="sizeModel"
         :variant="variantModel"
         :color="colorModel"
-        :href="hrefModel"
+        :link="linkModel"
         :disabled="disabledModel"
         :tile="tileModel"
         :icon="iconModel"
@@ -58,9 +58,9 @@ export default defineComponent({
           modelName: 'childrenModel',
         },
         {
-          title: 'Href',
+          title: 'Link',
           type: 'text',
-          modelName: 'hrefModel',
+          modelName: 'linkModel',
           description: 'Change <button> to <a> tag with `href` attribute',
         },
         {
@@ -138,7 +138,7 @@ export default defineComponent({
       ],
       {
         childrenModel: ref('Hello'),
-        hrefModel: ref(''),
+        linkModel: ref(''),
         disabledModel: ref(false),
         icon: ref(false),
         leftIconModel: ref(false),

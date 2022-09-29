@@ -42,7 +42,7 @@ export type VsfButtonProps = {
   tile?: boolean;
   icon?: boolean;
   tag?: ElementType;
-  href?: string;
+  link?: string;
   block?: boolean;
   onClick?: (e: MouseEvent) => void;
 };

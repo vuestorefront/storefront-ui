@@ -18,12 +18,12 @@ const VsfButton = forwardRef<unknown, VsfButtonProps>(
       children,
       slotPrefix,
       slotSuffix,
-      href,
+      link,
       ...attributes
     },
     ref,
   ) => {
-    if (href && Tag === 'button') {
+    if (link && Tag === 'button') {
       Tag = 'a';
     }
     const buttonClasses = classNames('vsf-button', {
@@ -57,7 +57,7 @@ const VsfButton = forwardRef<unknown, VsfButtonProps>(
         ref={ref}
         role={Tag === 'a' ? 'button' : undefined}
         disabled={disabled}
-        {...(href ? { href } : {})}
+        {...(link ? { href: link } : {})}
         {...attributes}
       >
         {slotPrefix}
