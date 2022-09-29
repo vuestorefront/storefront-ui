@@ -1,16 +1,12 @@
 import { MouseEvent as ReactMouseEvent, useEffect, useRef, useState } from 'react';
-import { VsfIconHome, VsfIconMoreHorizontal } from '../../components/VsfIcons';
 import Link from 'next/link';
+import { VsfIconHome, VsfIconMoreHorizontal } from '../VsfIcons';
 import useClickOutside from '../../hooks/useClickOutside';
 
-import type { VsfBreadcrumbsProps, VsfBreadcrumbType } from './types';
+import type { VsfBreadcrumbsProps } from './types';
 import { VsfIconSizeEnum } from '../VsfIconBase/types';
 
-export default function VsfBreadcrumbs({
-  slotIcon,
-  breadcrumbs = [],
-  withIcon = false,
-}: VsfBreadcrumbsProps): JSX.Element {
+function VsfBreadcrumbs({ slotIcon, breadcrumbs = [], withIcon = false }: VsfBreadcrumbsProps): JSX.Element {
   const navRef = useRef<HTMLElement>(null);
   const dropdownRef = useRef<HTMLLIElement>(null);
   const [dropdownOpened, setDropdownOpened] = useState(false);
@@ -26,10 +22,8 @@ export default function VsfBreadcrumbs({
   const onWindowResize = (): void => {
     setNewWindowWidth(window.innerWidth);
   };
-  const visibleBreadcrumbs = (breadcrumbs: VsfBreadcrumbType[], dropdownLength: number) =>
-    breadcrumbs.slice(0, breadcrumbs.length - dropdownLength);
-  const dropdownBreadcrumbs = (breadcrumbs: VsfBreadcrumbType[], dropdownLength: number) =>
-    breadcrumbs.slice(breadcrumbs.length - dropdownLength, breadcrumbs.length);
+  const visibleBreadcrumbs = () => breadcrumbs.slice(0, breadcrumbs.length - dropdownLength);
+  const dropdownBreadcrumbs = () => breadcrumbs.slice(breadcrumbs.length - dropdownLength, breadcrumbs.length);
 
   useClickOutside(dropdownRef, () => {
     setDropdownOpened(false);
@@ -71,7 +65,7 @@ export default function VsfBreadcrumbs({
               </button>
               {dropdownOpened ? (
                 <ul className="vsf-breadcrumbs__dropdown-list">
-                  {dropdownBreadcrumbs(breadcrumbs, dropdownLength).map(({ name, link }, index) => (
+                  {dropdownBreadcrumbs().map(({ name, link }) => (
                     <li className="vsf-breadcrumbs__dropdown-list-item" aria-label={name} key={name}>
                       {/* TODO: remove this link and make it possible to adjust from outside */}
                       <Link href={link}>
@@ -93,7 +87,7 @@ export default function VsfBreadcrumbs({
             </Link>
           </li>
         ) : null}
-        {visibleBreadcrumbs(breadcrumbs, dropdownLength).map(({ name, link }, index) => (
+        {visibleBreadcrumbs().map(({ name, link }) => (
           <li className="vsf-breadcrumbs__item" aria-label={name} key={name}>
             <Link href={link}>
               <a className="vsf-breadcrumbs__item-button">{name}</a>
@@ -104,3 +98,5 @@ export default function VsfBreadcrumbs({
     </nav>
   );
 }
+
+export default VsfBreadcrumbs;

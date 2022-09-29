@@ -6,7 +6,8 @@
     "dev": "rimraf .next && next dev -p 3002",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:fix": "next lint --fix"
   },
   "dependencies": {
     "@tanstack/react-query": "^4.2.3",
@@ -19,16 +20,13 @@
   "devDependencies": {
     "@savvywombat/tailwindcss-grid-areas": "^2.1.0",
     "@sfui/sfui": "*",
+    "@sfui/eslint-config": "*",
     "@sfui/example-style": "*",
     "@sfui/tailwind-config": "*",
     "@types/node": "18.7.14",
     "@types/react": "18.0.18",
     "@types/react-dom": "18.0.6",
     "autoprefixer": "^10.4.8",
-    "eslint-config-next": "12.2.5",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-airbnb-typescript": "^17.0.0",
     "postcss": "^8.4.16",
     "postcss-import": "^15.0.0",
     "postcss-watcher": "^2.0.0",

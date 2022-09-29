@@ -1,5 +1,5 @@
-const defineNuxtConfig = require('nuxt').defineNuxtConfig;
-const tailwindConfig = require('@sfui/tailwind-config/index.json');
+import { defineNuxtConfig } from 'nuxt/config';
+import * as tailwindConfig from '@sfui/tailwind-config/index.json';
 
 export default defineNuxtConfig({
   tailwindcss: {

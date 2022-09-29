@@ -16,7 +16,6 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
 const { currentRoute } = useRouter();
 
 const files = import.meta.glob('./examples/*.vue');
