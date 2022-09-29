@@ -3,28 +3,26 @@ import VsfIconArrowDown from '@sfui/sfui/frameworks/react/components/VsfIcons/Vs
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 
-function Example() {
-  const { state, controls } = prepareControls(
+const Example = () => {
+  const { state, controls } = prepareControls<{ size: VsfIconSizeEnum; colorExample: string }>(
     [
       {
-        title: 'size',
         type: 'select',
-        modelName: 'sizeModel',
+        modelName: 'size',
         propDefaultValue: 'VsfIconSize.base',
         propType: 'VsfIconSize',
-        options: Object.keys(VsfIconSizeEnum),
+        options: Object.keys(VsfIconSizeEnum)
       },
       {
-        title: 'color',
         type: 'select',
-        modelName: 'colorModel',
+        modelName: 'colorExample',
         description: 'Its not a prop just example that by setting color on parent, icons changes its color',
-        options: ['black', 'red', 'blue', 'green'],
+        options: ['black', 'red', 'blue', 'green']
       },
     ],
     {
-      sizeModel: VsfIconSizeEnum.base,
-      colorModel: 'black',
+      size: VsfIconSizeEnum.base,
+      colorExample: 'black',
     },
   );
   return (
@@ -32,8 +30,8 @@ function Example() {
       <div className="e-page-component">
         <div>
           Icon imported directly from `@sfui/sfui/frameworks/react/VsfIcons` <br />
-          <div style={{ color: state.get.colorModel }}>
-            <VsfIconArrowDown size={state.get.sizeModel} />
+          <div style={{ 'color': state.get.colorExample }}>
+            <VsfIconArrowDown size={state.get.size} />
           </div>
         </div>
       </div>

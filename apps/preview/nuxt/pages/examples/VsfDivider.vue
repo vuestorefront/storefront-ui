@@ -20,10 +20,5 @@ export default defineComponent({
     VsfDivider,
     Controls,
   },
-  setup() {
-    return {
-      ...prepareControls([], {}),
-    };
-  },
 });
 </script>

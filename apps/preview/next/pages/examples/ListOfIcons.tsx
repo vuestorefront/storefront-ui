@@ -1,4 +1,4 @@
-import { useState, createElement } from 'react';
+import { useState, createElement, useState, createElement } from 'react';
 import { VsfIconSizeEnum } from '@sfui/sfui/frameworks/react/components/VsfIcons/types';
 import * as AllVsfIcons from '@sfui/sfui/frameworks/react/components/VsfIcons';
 import useSWR from 'swr';
@@ -18,34 +18,31 @@ function Example() {
     }, 1000);
   };
 
-  const { state, controls } = prepareControls(
+  const { state, controls } = prepareControls<{ size: VsfIconSizeEnum; colorExample: string }>(
     [
       {
-        title: 'size',
         type: 'select',
-        modelName: 'sizeModel',
+        modelName: 'size',
         propDefaultValue: 'VsfIconSize.base',
         propType: 'VsfIconSize',
         options: Object.keys(VsfIconSizeEnum),
       },
       {
-        title: 'color',
         type: 'select',
-        modelName: 'colorModel',
+        modelName: 'colorExample',
         description: 'Its not a prop just example that by setting color on parent, icons changes its color',
         options: ['black', 'red', 'blue', 'green'],
       },
     ],
     {
-      sizeModel: VsfIconSizeEnum.base,
-      colorModel: 'black',
+      size: VsfIconSizeEnum.base,
+      colorExample: 'black',
     },
   );
   return (
     <div className="e-page">
       <div className="e-page-component--icons">
         {componentsNames.map((componentName) => (
-          // eslint-disable-next-line jsx-a11y/no-static-element-interactions,jsx-a11y/click-events-have-key-events
           <div
             key={componentName}
             className="inline-block border cursor-pointer"
