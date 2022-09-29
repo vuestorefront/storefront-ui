@@ -15,6 +15,7 @@
     "@sfui/example-style": "*",
     "autoprefixer": "^10.4.8",
     "eslint-plugin-vue": "^9.3.0",
+    "eslint-config-prettier": "^8.3.0",
     "nuxt": "npm:nuxt3@latest",
     "postcss": "^8.4.16",
     "sass": "^1.54.4",
