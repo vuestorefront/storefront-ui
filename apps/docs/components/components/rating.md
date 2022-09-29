@@ -10,25 +10,14 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 ## Props
 
-| Prop name    | Type     | Default value | Possible values                        |
-| ------------ | -------- | ------------- | -------------------------------------- |
-| size         | String   | 'base'        | 'xs','sm','base','lg','xl,             |
-| type         | String   | 'base'        | 'base','withValue'                     |
-| value        | Number   | 0             |                                        |
-| max          | Number   | 5             |                                        |
-| reviews      | Number   | 0             |                                        |
-
-## Slots
-
-| Slot name |            Description            |
-| --------- | :-------------------------------: |
-|           |                                   |
-
-## Events
-
-| Event name        |            Trigger             |
-| ----------------- | :----------------------------: |
-|                   |                                |
+| Prop name     | Type      | Default value | Possible values            |
+| ------------- | --------- | ------------- | -------------------------- |
+| size          | `String`  | `base`        | `xs`,`sm`,`base`,`lg`,`xl` |
+| type          | `String`  | `base`        | `base`,`withValue`         |
+| value         | `Number`  | 0             |                            |
+| max           | `Number`  | 5             |                            |
+| count         | `Number`  | 0             |                            |
+| halfIncrement | `Boolean` | false         |                            |
 
 ## Accessibility notes
 
@@ -36,4 +25,5 @@ Component implements `role="img"` and `aria-label` property with value `Rating: 
 
 ## Source code
 
-<<<../../mitosis/src/blocks/VsfRating/VsfRating.lite.tsx
+<<<../../../packages/sfui/frameworks/vue/components/VsfRating/VsfRating.vue
+<<< ../../../packages/sfui/frameworks/react/components/VsfRating/VsfRating.tsx
