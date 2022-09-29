@@ -1,4 +1,4 @@
-<script setup lang='ts'>
+<script setup lang="ts">
 import { computed, PropType } from 'vue';
 import type { VsfCounterSizesKeys } from './types';
 
@@ -15,7 +15,9 @@ const props = defineProps({
 const classes = computed(() => [
   'vsf-counter',
   `vsf-counter--${props.size}`,
-  props.pill ? `vsf-counter__pill vsf-counter__pill--${props.size}` : 'vsf-counter__pill--brackets',
+  {
+    'vsf-counter--pill': props.pill,
+  },
 ]);
 </script>
 
