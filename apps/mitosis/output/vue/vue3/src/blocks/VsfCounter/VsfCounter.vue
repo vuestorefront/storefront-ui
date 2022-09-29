@@ -1,15 +1,15 @@
 <template>
-  <div
+  <span
     :class="
       _classStringToObject(
-        `inline-flex relative items-center font-body ${fontSizeClass} ${pillClass} ${pillSpacingClass} ${fontWeightClass} ${
+        `inline-flex items-center font-body ${fontSizeClass} ${pillClass} ${pillSpacingClass} ${fontWeightClass} ${
           className || ''
         }`
       )
     "
   >
     <slot />
-  </div>
+  </span>
 </template>
 
 <script lang="ts">
@@ -90,7 +90,12 @@ export default {
     },
     pillClass() {
       return this.pill
-        ? "py-0.5 ring-1 ring-gray-200 ring-inset rounded-full text-gray-900"
+        ? `${
+            this.size === VsfCounterVariants.xs ||
+            this.size === VsfCounterVariants.sm
+              ? "ring-0"
+              : "ring-1 ring-gray-200 ring-inset"
+          } py-0.5 rounded-full text-gray-900`
         : `before:content-['('] after:content-[')'] text-gray-500`;
     },
   },

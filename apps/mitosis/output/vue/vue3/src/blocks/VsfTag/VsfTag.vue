@@ -38,9 +38,7 @@
       <div
         :class="
           _classStringToObject(
-            `${
-              useSizeProp === 'sm' ? 'h-6 text-xs' : 'h-8 text-sm'
-            } flex direction-row`
+            `${useSizeProp === 'sm' ? 'h-6 text-xs' : 'h-8 text-sm'} flex`
           )
         "
       >
@@ -49,9 +47,7 @@
             <span
               :class="
                 _classStringToObject(
-                  `${
-                    useSizeProp === 'sm' ? 'w-4 h-4' : 'w-5 h-5'
-                  } flex direction-row ml-2`
+                  `${useSizeProp === 'sm' ? 'w-4 h-4' : 'w-5 h-5'} flex ml-2`
                 )
               "
             >
@@ -165,7 +161,7 @@ export default {
     },
     badgeColors() {
       return classStringFromArray([
-        "inline-flex items-center font-medium text-white fill-white font-body direction-row",
+        "inline-flex items-center font-medium text-white fill-white font-body",
         this.useVariantProp === VsfTagVariants.base && "bg-gray-600",
         this.useVariantProp === VsfTagVariants.info && "bg-secondary-800",
         this.useVariantProp === VsfTagVariants.positive && "bg-primary-600",

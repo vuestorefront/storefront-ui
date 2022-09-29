@@ -75,17 +75,22 @@ export default function VsfCounter(props: VsfCounterProps) {
 
   function pillClass() {
     return props.pill
-      ? "py-0.5 ring-1 ring-gray-200 ring-inset rounded-full text-gray-900"
+      ? `${
+          props.size === VsfCounterVariants.xs ||
+          props.size === VsfCounterVariants.sm
+            ? "ring-0"
+            : "ring-1 ring-gray-200 ring-inset"
+        } py-0.5 rounded-full text-gray-900`
       : `before:content-['('] after:content-[')'] text-gray-500`;
   }
 
   return (
-    <div
-      className={`inline-flex relative items-center font-body ${fontSizeClass()} ${pillClass()} ${pillSpacingClass()} ${fontWeightClass()} ${
+    <span
+      className={`inline-flex items-center font-body ${fontSizeClass()} ${pillClass()} ${pillSpacingClass()} ${fontWeightClass()} ${
         props.className || ""
       }`}
     >
       {props.children}
-    </div>
+    </span>
   );
 }

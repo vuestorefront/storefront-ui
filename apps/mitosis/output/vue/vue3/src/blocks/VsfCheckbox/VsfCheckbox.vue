@@ -4,14 +4,14 @@
       :class="
         _classStringToObject(
           classStringFromArray([
-            'flex w-full items-center gap-2',
+            'flex w-full items-center',
             disabled ? 'cursor-not-allowed' : 'cursor-pointer',
             reverse ? 'flex-row-reverse justify-between' : 'flex-row',
           ])
         )
       "
     >
-      <span class="p-1">
+      <span class="p-[3px]">
         <input
           v-model="vueProxyValue"
           type="checkbox"
@@ -30,7 +30,7 @@
         :class="
           _classStringToObject(
             classStringFromArray([
-              'text-gray-900 font-body text-base',
+              'text-gray-900 font-body text-base ml-2',
               disabled && 'text-opacity-40',
               required && `after:content-['*']`,
             ])
@@ -142,7 +142,7 @@ export default {
   computed: {
     inputClasses() {
       return classStringFromArray([
-        "peer flex self-center w-4 h-4 border-2 rounded-sm appearance-none cursor-pointer disabled:cursor-not-allowed outline-violet",
+        "peer flex self-center w-[18px] h-[18px] border-2 rounded-sm appearance-none cursor-pointer disabled:cursor-not-allowed outline-violet",
         "text-gray-500",
         "hover:checked:text-primary-600 active:checked:text-primary-700 checked:text-primary-500 checked:!border-transparent ",
         "checked:bg-checked-checkbox-current border-current",

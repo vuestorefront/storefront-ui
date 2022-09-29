@@ -7,6 +7,8 @@ export interface VsfRatingButtonProps {
   disabled?: boolean;
   onChange?: (...args: any[]) => void;
   modelValue?: any;
+  value?: any;
+  name?: string;
 }
 
 export const VsfRatingButtonVariants = Object.freeze({
@@ -48,20 +50,32 @@ export default function VsfRatingButton(props: VsfRatingButtonProps) {
 
   return (
     <>
-      <fieldset className="inline-flex rounded-md rating focus-within:outline focus-within:outline-4 focus-within:outline-offset-2 focus-within:outline-violet-400">
+      <fieldset
+        className="inline-flex rounded-md rating focus-within:outline focus-within:outline-2 focus-within:outline-violet-400"
+        disabled={props.disabled}
+      >
+        <input
+          type="radio"
+          className="appearance-none hidden star-input"
+          value="0"
+          checked={props.value == 0}
+          name={props.name}
+          aria-label={`Rating star 0 of ${useMaxProp()}`}
+        />
+
         {[...Array(useMaxProp()).keys()]
           .map((i) => i + 1)
           ?.map((item, index) => (
             <input
               type="radio"
-              name="rating-1"
               key={`star-${item}+${index}`}
               aria-label={`Rating star ${item} of ${useMaxProp()}`}
+              name={props.name}
               value={item}
               className={`appearance-none cursor-pointer star-input ${sizeClass()}`}
               onChange={(event) => onChangeHandler(item)}
               disabled={props.disabled}
-              defaultChecked={props.modelValue === item}
+              checked={props.value == item}
             />
           ))}
       </fieldset>
