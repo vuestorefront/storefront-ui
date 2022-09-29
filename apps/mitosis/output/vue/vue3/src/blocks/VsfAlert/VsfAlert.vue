@@ -9,9 +9,29 @@
   >
     <div class="flex gap-2">
       <template v-if="!$slots.icon">
-        <vsf-icon-info
-          :class="_classStringToObject(iconClasses)"
-        ></vsf-icon-info>
+        <template v-if="useTypeProp === VsfAlertTypes.info">
+          <vsf-icon-info
+            :class="_classStringToObject(iconClasses)"
+          ></vsf-icon-info>
+        </template>
+
+        <template v-if="useTypeProp === VsfAlertTypes.positive">
+          <vsf-icon-check-circle
+            :class="_classStringToObject(iconClasses)"
+          ></vsf-icon-check-circle>
+        </template>
+
+        <template v-if="useTypeProp === VsfAlertTypes.warning">
+          <vsf-icon-warning
+            :class="_classStringToObject(iconClasses)"
+          ></vsf-icon-warning>
+        </template>
+
+        <template v-if="useTypeProp === VsfAlertTypes.error">
+          <vsf-icon-error
+            :class="_classStringToObject(iconClasses)"
+          ></vsf-icon-error>
+        </template>
       </template>
 
       <template v-else>
@@ -37,26 +57,31 @@
     </template>
 
     <template v-else>
-      <div class="button"><slot name="button" /></div>
+      <div class="button" @click="close()">
+        <slot name="button" />
+      </div>
     </template>
   </div>
 </template>
 
 <script lang="ts">
+import type { SlotType } from "../../functions/types";
 type VsfAlertTypesKeys = keyof typeof VsfAlertTypes;
 export interface VsfAlertProps {
   type?: VsfAlertTypesKeys;
   persistent?: boolean;
   header?: string;
   description?: string;
-  slotIcon?: Element | Element[] | string; // TODO: replace with SlotType after Button merge
-
-  slotButton?: Element | Element[] | string;
+  slotIcon?: SlotType;
+  slotButton?: SlotType;
   handleCloseClick?: () => void;
 }
 
 import { classStringFromArray } from "../../functions/domUtils";
 import VsfIconInfo from "../VsfIcons/VsfIconInfo.vue";
+import VsfIconCheckCircle from "../VsfIcons/VsfIconCheckCircle.vue";
+import VsfIconWarning from "../VsfIcons/VsfIconWarning.vue";
+import VsfIconError from "../VsfIcons/VsfIconError.vue";
 import VsfIconClose from "../VsfIcons/VsfIconClose.vue";
 export const VsfAlertTypes = Object.freeze({
   info: "info",
@@ -64,14 +89,25 @@ export const VsfAlertTypes = Object.freeze({
   warning: "warning",
   error: "error",
 });
-const DEFAULT_VALUES = {
+const DEFAULT_VALUES: Required<VsfAlertProps> = {
   type: VsfAlertTypes.info,
   persistent: false,
+  header: "Header",
+  description: "Description",
+  slotIcon: "",
+  slotButton: "",
+  handleCloseClick: () => {},
 };
 
 export default {
   name: "vsf-alert",
-  components: { "vsf-icon-info": VsfIconInfo, "vsf-icon-close": VsfIconClose },
+  components: {
+    "vsf-icon-info": VsfIconInfo,
+    "vsf-icon-check-circle": VsfIconCheckCircle,
+    "vsf-icon-warning": VsfIconWarning,
+    "vsf-icon-error": VsfIconError,
+    "vsf-icon-close": VsfIconClose,
+  },
   props: [
     "type",
     "persistent",
@@ -81,6 +117,8 @@ export default {
     "description",
     "slotButton",
   ],
+
+  data: () => ({ VsfAlertTypes }),
 
   computed: {
     useTypeProp() {
