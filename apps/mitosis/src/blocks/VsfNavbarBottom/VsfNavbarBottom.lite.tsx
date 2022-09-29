@@ -1,6 +1,5 @@
 import { useStore, For, Show } from '@builder.io/mitosis'
 import VsfButton from '../VsfButton/VsfButton.lite';
-import VsfCounter from '../VsfCounter/VsfCounter.lite';
 import VsfIconHome from '../VsfIcons/VsfIconHome.lite';
 import VsfIconBasket from '../VsfIcons/VsfIconBasket.lite';
 import VsfIconSearch from '../VsfIcons/VsfIconSearch.lite';
@@ -100,15 +99,7 @@ export default function VsfNavbarBottom(props: VsfNavbarBottomProps) {
                     <VsfIconBasket className={iconsClass} />
                     <Show when={!state.useBasketCounterValue}
                       else={
-                        <VsfCounter
-                          className={`${state.useVariantProp === 'primary' ? 'bg-secondary-700 border-2 border-white' : 'bg-white border-2 border-brand group-hover:border-green-600 group-active:border-green-700'} absolute  -top-2 -right-2`}
-                          size="xs"
-                          pill={true}
-                        >
-                          <span className={`${state.useVariantProp === 'primary' ? 'text-white ' : 'text-gray-900'}`}>
-                            {state.useBasketCounterValue}
-                          </span>
-                        </VsfCounter>
+                      <div>Counter</div>
                       }
                     >
                       <Show when={state.useBasketDot}>
@@ -130,15 +121,7 @@ export default function VsfNavbarBottom(props: VsfNavbarBottomProps) {
                     <VsfIconFavoritesOutline className={iconsClass} />
                     <Show when={!state.useFavouritesCounterValue}
                       else={
-                        <VsfCounter
-                          className={`${state.useVariantProp === 'primary' ? 'bg-secondary-700 border-2 border-white' : 'bg-white border-2 border-brand group-hover:border-green-600 group-active:border-green-700'} absolute -top-2 -right-2`}
-                          size="xs"
-                          pill={true}
-                        >
-                          <span className={`${state.useVariantProp === 'primary' ? 'text-white ' : 'text-gray-900'}`}>
-                            {state.useFavouritesCounterValue}
-                          </span>
-                        </VsfCounter>
+                      <div>Counter</div>
                       }
                     >
                       <Show when={state.useFavouritesDot}>

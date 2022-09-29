@@ -1,7 +1,6 @@
 import { useStore, Show } from '@builder.io/mitosis';
 import { SlotType } from '../../functions/types';
 import { classStringFromArray } from '../../functions/domUtils';
-import VsfCounter from '../VsfCounter/VsfCounter.lite'
 
 export const VsfListItemMenuSize = Object.freeze({
   'sm': 'sm',
@@ -129,13 +128,13 @@ export default function VsfListItemMenu(props: VsfListItemMenuProps) {
                 <span class={`flex flex-wrap ${state.useSelectedProp ? 'font-medium' : ''}`}>
                   {state.usePrimaryTextProp}
                   <Show when={state.useCounterProp && !state.useSecondaryTextProp}>
-                    <VsfCounter className="ml-2 group-disabled:opacity-40" size={'lg'}>{state.useCounterProp}</VsfCounter>
+                    <div className="ml-2 group-disabled:opacity-40" size={'lg'}>{state.useCounterProp}</div>
                   </Show>
                 </span>
                 <span class={`text-left ${state.useTruncatedTextProp ? 'truncate' : ''}`}>
                   {state.useSecondaryTextProp}
                   <Show when={state.useCounterProp && state.useSecondaryTextProp}>
-                    <VsfCounter className="ml-2 group-disabled:opacity-40" size={'lg'}>{state.useCounterProp}</VsfCounter>
+                    <div className="ml-2 group-disabled:opacity-40" size={'lg'}>{state.useCounterProp}</div>
                   </Show>
                 </span>
               </span>              
@@ -164,13 +163,13 @@ export default function VsfListItemMenu(props: VsfListItemMenuProps) {
               <span class={`flex flex-wrap ${state.useSelectedProp ? 'font-medium' : ''}`}>
                 {state.usePrimaryTextProp}
                 <Show when={state.useCounterProp && !state.useSecondaryTextProp}>
-                  <VsfCounter className="ml-2 group-disabled:opacity-40" size={'lg'}>{state.useCounterProp}</VsfCounter>
+                  <div className="ml-2 group-disabled:opacity-40" size={'lg'}>{state.useCounterProp}</div>
                 </Show>
               </span>
               <span class={`text-left ${state.useTruncatedTextProp ? 'truncate' : ''}`}>
                 {state.useSecondaryTextProp}
                 <Show when={state.useCounterProp && state.useSecondaryTextProp}>
-                  <VsfCounter className="ml-2 group-disabled:opacity-40" size={'lg'}>{state.useCounterProp}</VsfCounter>
+                  <div className="ml-2 group-disabled:opacity-40" size={'lg'}>{state.useCounterProp}</div>
                 </Show>
               </span>
             </span>            

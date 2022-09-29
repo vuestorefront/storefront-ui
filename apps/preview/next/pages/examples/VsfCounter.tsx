@@ -3,7 +3,7 @@ import { VsfCounterSizes } from "@sfui/sfui/frameworks/react/components/VsfCount
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 
-const Example = () => {
+function Example() {
   const { state, controls } = prepareControls(
     [
       {

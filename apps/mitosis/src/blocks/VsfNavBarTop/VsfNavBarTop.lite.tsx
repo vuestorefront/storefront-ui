@@ -9,7 +9,6 @@ import VsfIconMenu from "../VsfIcons/VsfIconMenu.lite";
 import VsfIconLogoVsf from "../VsfIcons/VsfIconLogoVsf.lite";
 import VsfIconLogoVsfWithName from "../VsfIcons/VsfIconLogoVsfWithName.lite";
 import VsfButton from "../VsfButton/VsfButton.lite";
-import VsfCounter from "../VsfCounter/VsfCounter.lite";
 import VsfSearch from "../VsfSearch/VsfSearch.lite";
 
 export const VsfNavBarTopThemeVariants = Object.freeze({
@@ -244,15 +243,7 @@ export default function VsfNavBarTop(props: VsfNavBarTopProps) {
                       /> 
                     }                  
                   >
-                    <VsfCounter 
-                      className={`${state.useThemeVariantProp === 'default' ? 'bg-secondary-700 border-2 border-white' : 'bg-white border-2 border-brand group-hover:border-green-600 group-active:border-green-700'} absolute top-0.5 right-0.5`}
-                      size="xs" 
-                      pill={true}
-                    > 
-                      <span className={`${state.useThemeVariantProp === 'default' ? 'text-white ' : 'text-gray-900'}`}>
-                        {state.useBasketCounterValue}
-                      </span>
-                    </VsfCounter>
+                    <div>Counter</div>
                   </Show>                
                 </VsfButton>
             </li>
@@ -270,15 +261,7 @@ export default function VsfNavBarTop(props: VsfNavBarTopProps) {
                       /> 
                     }
                   >
-                    <VsfCounter 
-                      className={`${state.useThemeVariantProp === 'default' ? 'bg-secondary-700 border-2 border-white' : 'bg-white border-2 border-brand group-hover:border-green-600 group-active:border-green-700'} absolute top-0.5 right-0.5`}
-                      size="xs" 
-                      pill={true}
-                    >
-                      <span className={`${state.useThemeVariantProp === 'default' ? 'text-white ' : 'text-gray-900'}`}>
-                        {state.useFavouritesCounterValue}
-                      </span>
-                    </VsfCounter>
+                    <div>Counter</div>
                   </Show>
                 </VsfButton>                
             </li>

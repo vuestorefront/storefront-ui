@@ -2,7 +2,6 @@ import { Show, useStore, For } from '@builder.io/mitosis';
 import VsfIconStar from '../VsfIcons/VsfIconStar.lite';
 import VsfIconStarOutline from '../VsfIcons/VsfIconStarOutline.lite';
 import VsfIconStarPartiallyFilled from '../VsfIcons/VsfIconStarPartiallyFilled.lite';
-import VsfCounter from '../VsfCounter/VsfCounter.lite'
 
 export const VsfRatingVariants = Object.freeze({
   xs: 'xs',
@@ -116,7 +115,7 @@ export default function VsfRating(props: VsfRatingProps) {
           </For>
         </Show>
         <Show when={props.reviews}>
-          <VsfCounter size={state.ratingSize} className="ml-1">{props.reviews}</VsfCounter>
+          <div>Counter</div>
         </Show>
       </div>
     </>

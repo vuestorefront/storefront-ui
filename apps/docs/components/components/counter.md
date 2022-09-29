@@ -10,9 +10,12 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 ## Props
 
-| Prop name             | Type                       | Default value | Possible values                        |
-|-----------------------|----------------------------|---------------|----------------------------------------|
-| size                  | VsfCounterVariants         | 'base'        | 'xs', 'sm', 'base', 'lg', 'xl', '2xl'  |
+| Prop name | Type              | Default value | Possible values                       |
+|-----------|-------------------|---------------|---------------------------------------|
+| size      | `VsfCounterSizes` | `base`        | `xs`, `sm`, `base`, `lg`, `xl`, `2xl` |
+| pill      | `Boolean`         | `false`       |                                       |
+| children  | `ReactNode`       |               |                                       |
+| className | `String`          |               |                                       |
 
 
 ## Slots
@@ -32,4 +35,5 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 ## Source code
 
-<<<../../mitosis/src/blocks/VsfCounter/VsfCounter.lite.tsx
+<<<../../../packages/sfui/frameworks/vue/components/VsfCounter/VsfCounter.vue
+<<< ../../../packages/sfui/frameworks/react/components/VsfCounter/VsfCounter.tsx

@@ -16,7 +16,7 @@ import VsfSpinner from '../output/blocks/VsfSpinner/VsfSpinner.vue';
 import VsfSwitch from '../output/blocks/VsfSwitch/VsfSwitch.vue';
 import VsfChipsFilter from '../output/blocks/VsfChipsFilter/VsfChipsFilter.vue';
 import VsfGallery from '../output/blocks/VsfGallery/VsfGallery.vue';
-import VsfCounter from '../output/blocks/VsfCounter/VsfCounter.vue';
+import VsfCounter from '@sfui/sfui/frameworks/vue/components/VsfCounter/VsfCounter.vue';
 import VsfSlider from '../output/blocks/VsfSlider/VsfSlider.vue';
 import VsfDialog from '../output/blocks/VsfDialog/VsfDialog.vue';
 import VsfSearch from '../output/blocks/VsfSearch/VsfSearch.vue';
