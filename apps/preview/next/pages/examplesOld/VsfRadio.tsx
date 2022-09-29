@@ -1,4 +1,4 @@
-import VsfRadio, { VsfRadioVariants, VsfRadioAlignment, VsfRadioSize } from '../../output/blocks/VsfRadio/VsfRadio.lite';
+import VsfRadio, { VsfRadioVariants, VsfRadioAlignment, VsfRadioSize } from '../../output/blocks/VsfRadio/VsfRadio.lite.tsx';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examplesOld';
 

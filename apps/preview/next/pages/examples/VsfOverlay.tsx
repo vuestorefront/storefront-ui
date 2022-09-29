@@ -2,7 +2,7 @@ import VsfOverlay from '@sfui/sfui/frameworks/react/components/VsfOverlay';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 
-const Example = () => {
+function Example() {
   const { state, controls } = prepareControls(
     [
       {
@@ -26,6 +26,7 @@ const Example = () => {
     },
   );
   function onClickHandler() {
+    // eslint-disable-next-line no-console
     console.log('VsfOverlay clicked!');
   }
   return (
@@ -38,7 +39,7 @@ const Example = () => {
       </div>
     </div>
   );
-};
+}
 
 Example.getLayout = ExamplePageLayout;
 export default Example;

@@ -23,16 +23,6 @@ module.exports = {
         removeVueAttrs({ type: ['vue', 'vue3'] })
       ],
     },
-    // vue2: {
-    //   cssNamespace: getSeededId,
-    //   typescript: true,
-    //   transpiler: { format: 'esm' },
-    //   plugins: [
-    //     ifPlugin({ type: ['vue', 'vue2'] }),
-    //     vueComputedProxy({ type: ['vue', 'vue2'] }),
-    //     removeVueAttrs({ type: ['vue', 'vue2'] })
-    //   ],
-    // },
     react: {
       plugins: [
         ifPlugin({ type: 'react' }),

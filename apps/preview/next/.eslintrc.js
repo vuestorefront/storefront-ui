@@ -5,6 +5,7 @@ module.exports = {
     tsconfigRootDir: __dirname,
   },
   rules: {
+    'react/jsx-no-bind': 'off',
     'react/react-in-jsx-scope': 'off',
     'import/no-extraneous-dependencies': 0,
     'react/jsx-props-no-spreading': [

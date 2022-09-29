@@ -60,7 +60,6 @@ export default function VsfRatingButton(props: VsfRatingButtonProps) {
           value="0"
           checked={props.value == 0}
           name={props.name}
-          readOnly={true}
           aria-label={`Rating star 0 of ${useMaxProp()}`}
         />
 

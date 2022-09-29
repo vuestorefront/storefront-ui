@@ -1,5 +1,7 @@
 import * as React from "react";
-
-export default function ErrorBoundary(props: any) {
-  return <></>;
+function ErrorBoundary(props) {
+  return /* @__PURE__ */ React.createElement(React.Fragment, null);
 }
+export {
+  ErrorBoundary as default
+};
