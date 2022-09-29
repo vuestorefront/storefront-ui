@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "build": "mitosis build",
-    "dev": "watch 'yarn run build' ./src ./overrides"
+    "dev:legacy": "watch 'yarn run build' ./src ./overrides"
   },
   "dependencies": {
     "@builder.io/mitosis": "dev",

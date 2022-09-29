@@ -1,7 +1,17 @@
 <template>
   <fieldset
-    class="inline-flex rounded-md rating focus-within:outline focus-within:outline-4 focus-within:outline-offset-2 focus-within:outline-violet-400"
+    class="inline-flex rounded-md rating focus-within:outline focus-within:outline-2 focus-within:outline-violet-400"
+    :disabled="disabled"
   >
+    <input
+      type="radio"
+      class="appearance-none hidden star-input"
+      value="0"
+      v-model="vueProxyValue"
+      :checked="value == 0"
+      :name="name"
+      :aria-label="`Rating star 0 of ${useMaxProp}`"
+    />
     <template
       :key="`star-${item}+${index}`"
       v-for="(item, index) in [...Array(useMaxProp).keys()].map((i) => i + 1)"
@@ -9,8 +19,8 @@
       <input
         v-model="vueProxyValue"
         type="radio"
-        name="rating-1"
         :aria-label="`Rating star ${item} of ${useMaxProp}`"
+        :name="name"
         :value="item"
         :class="
           _classStringToObject(
@@ -19,7 +29,7 @@
         "
         @input="onChangeHandler(item)"
         :disabled="disabled"
-        :defaultChecked="modelValue === item"
+        :checked="value == item"
       />
     </template>
   </fieldset>
@@ -33,6 +43,8 @@ export interface VsfRatingButtonProps {
   disabled?: boolean;
   onChange?: (...args: any[]) => void;
   modelValue?: any;
+  value?: any;
+  name?: string;
 }
 
 export const VsfRatingButtonVariants = Object.freeze({
@@ -51,7 +63,7 @@ const DEFAULT_VALUES = {
 export default {
   name: "vsf-rating-button",
 
-  props: ["max", "size", "onChange", "modelValue", "disabled"],
+  props: ["max", "size", "onChange", "modelValue", "disabled", "value", "name"],
 
   computed: {
     useMaxProp() {
