@@ -1,0 +1,30 @@
+.vsf-rating {
+  @apply flex items-center pointer-events-none font-body font-medium;
+
+  &--xs {
+    @apply text-xs;
+  }
+  &--sm {
+    @apply text-sm;
+  }
+  &--base {
+    @apply text-base;
+  }
+  &--lg,
+  &--xl {
+    @apply text-lg;
+  }
+
+  &__star-filled,
+  &__star-partial {
+    @apply text-warning-500;
+  }
+  &__star-empty {
+    @apply text-gray-500 opacity-50;
+  }
+
+  &__count,
+  &__value {
+    @apply ml-1;
+  }
+}

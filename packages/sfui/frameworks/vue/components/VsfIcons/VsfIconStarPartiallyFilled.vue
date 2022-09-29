@@ -9,7 +9,7 @@ import { VsfIconSizeEnum } from '../VsfIconBase/types';
 
 defineProps({
     size: {
-        type: String as PropType<VsfIconSizeEnum>,
+        type: String as PropType<keyof typeof VsfIconSizeEnum>,
         default: VsfIconSizeEnum.base
     }
 });

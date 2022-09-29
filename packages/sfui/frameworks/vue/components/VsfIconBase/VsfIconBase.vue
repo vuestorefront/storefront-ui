@@ -8,14 +8,15 @@ defineProps({
     required: true,
   },
   size: {
-    type: String as PropType<VsfIconSizeEnum>,
-    default: VsfIconSizeEnum.base
-  }
-})
+    type: String as PropType<keyof typeof VsfIconSizeEnum>,
+    default: VsfIconSizeEnum.base,
+  },
+});
 </script>
 
 <template>
-  <svg role="img"
+  <svg
+    role="img"
     xmlns="http://www.w3.org/2000/svg"
     v-html="content"
     class="vsf-icon"

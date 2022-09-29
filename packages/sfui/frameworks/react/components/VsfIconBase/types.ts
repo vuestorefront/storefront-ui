@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 export interface VsfIconBaseProps {
   children?: ReactNode;
-  size?: VsfIconSizeEnum;
+  size?: keyof typeof VsfIconSizeEnum;
   viewBox: string;
   className?: string;
   ariaLabel?: string;
