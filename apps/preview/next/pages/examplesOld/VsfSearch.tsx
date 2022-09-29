@@ -1,6 +1,6 @@
-import VsfSearch from '../../output/blocks/VsfSearch/VsfSearch.lite';
+import VsfSearch from '../../output/blocks/VsfSearch/VsfSearch';
 import Controls, { prepareControls } from '../../components/utils/Controls';
-import VsfIconSearch from '../../output/blocks/VsfIcons/VsfIconSearch.lite';
+import VsfIconSearch from '../../output/blocks/VsfIcons/VsfIconSearch';
 import { ExamplePageLayout } from '../examplesOld';
 
 function ResultsPanel() {

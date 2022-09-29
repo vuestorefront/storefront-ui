@@ -1,8 +1,8 @@
 
-import VsfNavBarTop, { VsfNavBarTopThemeVariants } from '../../output/blocks/VsfNavBarTop/VsfNavBarTop.lite'
+import VsfNavBarTop, { VsfNavBarTopThemeVariants } from '../../output/blocks/VsfNavBarTop/VsfNavBarTop'
 import Controls, { prepareControls } from '../../components/utils/Controls';
-import VsfSearch from '../../output/blocks/VsfSearch/VsfSearch.lite';
-import VsfIconSearch from '../../output/blocks/VsfIcons/VsfIconSearch.lite'
+import VsfSearch from '../../output/blocks/VsfSearch/VsfSearch';
+import VsfIconSearch from '../../output/blocks/VsfIcons/VsfIconSearch'
 import { ExamplePageLayout } from '../examplesOld';
 
 const Example = () => {

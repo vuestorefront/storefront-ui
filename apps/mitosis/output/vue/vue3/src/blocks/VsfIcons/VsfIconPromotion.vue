@@ -15,14 +15,14 @@ export interface VsfIconPromotionProps {
   ariaLabel?: string;
 }
 
-import VsfIconBase from "../VsfIconBase/VsfIconBase.vue";
+import VsfIconBase from "../VsfIconBase/VsfIconBase";
 const DEFAULT_VALUES = {
   size: "base",
 };
 
 export default {
   name: "vsf-icon-promotion",
-  components: { "vsf-icon-base": VsfIconBase },
+  components: { VsfIconBase: VsfIconBase },
   props: ["className", "size", "ariaLabel"],
 
   data: () => ({ DEFAULT_VALUES }),

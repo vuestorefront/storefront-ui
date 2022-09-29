@@ -1,7 +1,7 @@
 import { useRef, useStore, onMount, onUpdate, Show, onUnMount } from '@builder.io/mitosis';
 import { SlotType } from '../../functions/types';
-import VsfButton from '../VsfButton/VsfButton.lite';
-import VsfIconClose from '../VsfIcons/VsfIconClose.lite';
+import VsfButton from '../VsfButton/VsfButton';
+import VsfIconClose from '../VsfIcons/VsfIconClose';
 
 export interface VsfDialogProps {
   children?: SlotType;

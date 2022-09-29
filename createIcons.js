@@ -123,7 +123,7 @@ export default function VsfIcon${camelCaseName}({
 
 // Rewrite if possible to using separate vue and react components, because e.g in react we cant pass style prop to inline styles, because we cant use `...rest` therefore we need to define every possible attrs
 const mitosisIcon = (name, camelCaseName, content, attributes) => `import { useStore } from '@builder.io/mitosis'
-import VsfIconBase from "../VsfIconBase/VsfIconBase.lite";
+import VsfIconBase from "../VsfIconBase/VsfIconBase";
 
 export interface VsfIcon${camelCaseName}Props {
   size?: "xs" | "sm" | "base" | "lg" | "xl" | "2xl" | "3xl",
@@ -237,7 +237,7 @@ fs.readdir(inputDirectoryPath, async function (err, files) {
                 reactExports.push(componentName);
             } else if (framework === 'mitosis') {
                 await fsPromise.writeFile(
-                    `${outputDirectoryPath}${componentName}.lite.tsx`,
+                    `${outputDirectoryPath}${componentName}.tsx`,
                     mitosisIcon(name, capitializedCamelCaseName, content, attributes)
                 )
                 vueExports.push(componentName);

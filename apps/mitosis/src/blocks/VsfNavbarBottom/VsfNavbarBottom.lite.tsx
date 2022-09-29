@@ -1,11 +1,11 @@
 import { useStore, For, Show } from '@builder.io/mitosis'
-import VsfButton from '../VsfButton/VsfButton.lite';
-import VsfCounter from '../VsfCounter/VsfCounter.lite';
-import VsfIconHome from '../VsfIcons/VsfIconHome.lite';
-import VsfIconBasket from '../VsfIcons/VsfIconBasket.lite';
-import VsfIconSearch from '../VsfIcons/VsfIconSearch.lite';
-import VsfIconMenu from '../VsfIcons/VsfIconMenu.lite';
-import VsfIconFavoritesOutline from '../VsfIcons/VsfIconFavoritesOutline.lite';
+import VsfButton from '../VsfButton/VsfButton';
+import VsfCounter from '../VsfCounter/VsfCounter';
+import VsfIconHome from '../VsfIcons/VsfIconHome';
+import VsfIconBasket from '../VsfIcons/VsfIconBasket';
+import VsfIconSearch from '../VsfIcons/VsfIconSearch';
+import VsfIconMenu from '../VsfIcons/VsfIconMenu';
+import VsfIconFavoritesOutline from '../VsfIcons/VsfIconFavoritesOutline';
 
 export const VsfNavbarBottomVariants = Object.freeze({
   'primary': 'primary',
@@ -27,8 +27,8 @@ export interface VsfNavbarBottomProps {
   withLabels: boolean;
   basketCounterValue?: string | number | null,
   basketDot: boolean,
-  favouritesCounterValue?: string | number | null, 
-  favouritesDot: boolean, 
+  favouritesCounterValue?: string | number | null,
+  favouritesDot: boolean,
   onClick?: (...args: any[]) => void;
 }
 const DEFAULT_VALUES = {
@@ -54,7 +54,7 @@ export default function VsfNavbarBottom(props: VsfNavbarBottomProps) {
     },
     get useBasketCounterValue() {
       return props.basketCounterValue || DEFAULT_VALUES.basketCounterValue
-    }, 
+    },
     get useBasketDot() {
       return props.basketDot ?? DEFAULT_VALUES.basketDot
     },
@@ -63,7 +63,7 @@ export default function VsfNavbarBottom(props: VsfNavbarBottomProps) {
     },
     get useFavouritesDot() {
       return props.favouritesDot || DEFAULT_VALUES.favouritesDot
-    }, 
+    },
     get iconsClass(): string {
       return state.useVariantProp === 'secondary' ? 'text-white' : 'text-black group-hover:text-primary-600 group-active:text-primary-700'
     },
@@ -148,19 +148,19 @@ export default function VsfNavbarBottom(props: VsfNavbarBottomProps) {
                       </Show>
                     </Show>
                   </span>
-                </Show>         
+                </Show>
                 <Show when={state.useWithLabelsProp}>
                   <span
                     className={`${state.useVariantProp === 'primary' ? 'text-gray-900 group-hover:text-primary-600 group-active:text-primary-700' : 'text-white'} text-xs mt-0.5 font-medium`}
                   >
-                    { item.label }
+                    {item.label}
                   </span>
                 </Show>
-              </VsfButton>    
+              </VsfButton>
             </li>
-          }
+        }
         </For>
       </ul>
     </nav>
   )
-}  
+}

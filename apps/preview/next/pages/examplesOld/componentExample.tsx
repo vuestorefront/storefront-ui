@@ -1,4 +1,4 @@
-import Button from '../../output/blocks/Button.lite';
+import Button from '../../output/blocks/Button';
 import { ExamplePageLayout } from '../examplesOld';
 
 const Example = () => {

@@ -145,7 +145,7 @@ export interface VsfListItemMenuProps {
 
 import { SlotType } from "../../functions/types";
 import { classStringFromArray } from "../../functions/domUtils";
-import VsfCounter from "../VsfCounter/VsfCounter.vue";
+import VsfCounter from "../VsfCounter/VsfCounter";
 export const VsfListItemMenuSize = Object.freeze({
   sm: "sm",
   base: "base",
@@ -164,7 +164,7 @@ const DEFAULT_VALUES: Required<VsfListItemMenuProps> = {
 
 export default {
   name: "vsf-list-item-menu",
-  components: { "vsf-counter": VsfCounter },
+  components: { VsfCounter: VsfCounter },
   props: [
     "link",
     "size",
@@ -175,8 +175,6 @@ export default {
     "truncatedText",
     "disabled",
     "handleClick",
-    "slotPrefix",
-    "slotSuffix",
   ],
 
   computed: {

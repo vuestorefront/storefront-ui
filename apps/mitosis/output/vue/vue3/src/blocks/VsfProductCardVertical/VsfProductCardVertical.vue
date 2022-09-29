@@ -276,12 +276,12 @@ export interface VsfProductCardVerticalProps {
   handleSeeSimilar: (e?: Event) => void;
 }
 
-import VsfRating from "../VsfRating/VsfRating.vue";
-import VsfTag from "../VsfTag/VsfTag.vue";
-import VsfButton from "../VsfButton/VsfButton.vue";
+import VsfRating from "../VsfRating/VsfRating";
+import VsfTag from "../VsfTag/VsfTag";
+import VsfButton from "../VsfButton/VsfButton";
 import { classStringFromArray } from "../../functions/domUtils";
-import VsfIconFavoritesOutline from "../VsfIcons/VsfIconFavoritesOutline.vue";
-import VsfIconBasket from "../VsfIcons/VsfIconBasket.vue";
+import VsfIconFavoritesOutline from "../VsfIcons/VsfIconFavoritesOutline";
+import VsfIconBasket from "../VsfIcons/VsfIconBasket";
 import { SlotType } from "../../functions/types";
 export const VsfProductCardVerticalSizes = Object.freeze({
   xs: "xs",
@@ -311,11 +311,11 @@ const DEFAULT_VALUES = {
 export default {
   name: "vsf-product-card-vertical",
   components: {
-    "vsf-tag": VsfTag,
-    "vsf-button": VsfButton,
-    "vsf-icon-favorites-outline": VsfIconFavoritesOutline,
-    "vsf-rating": VsfRating,
-    "vsf-icon-basket": VsfIconBasket,
+    VsfTag: VsfTag,
+    VsfButton: VsfButton,
+    VsfIconFavoritesOutline: VsfIconFavoritesOutline,
+    VsfRating: VsfRating,
+    VsfIconBasket: VsfIconBasket,
   },
   props: [
     "image",
@@ -334,7 +334,6 @@ export default {
     "withButton",
     "addToCartLabel",
     "seeSimilarLabel",
-    "slotBadge",
   ],
 
   data: () => ({ VsfProductCardVerticalSizes }),

@@ -1,4 +1,4 @@
-import VsfTooltip, { VsfTooltipTypes } from '~/output/blocks/VsfTooltip/VsfTooltip.lite';
+import VsfTooltip, { VsfTooltipTypes } from '~/output/blocks/VsfTooltip/VsfTooltip';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examplesOld';
 

@@ -1,5 +1,5 @@
 
-import VsfSelect from '~/output/blocks/VsfSelect/VsfSelect.lite';
+import VsfSelect from '~/output/blocks/VsfSelect/VsfSelect';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { useState } from 'react';
 import { ExamplePageLayout } from '../examplesOld';

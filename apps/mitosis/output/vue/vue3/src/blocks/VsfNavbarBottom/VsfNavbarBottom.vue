@@ -207,13 +207,13 @@ export interface VsfNavbarBottomProps {
   onClick?: (...args: any[]) => void;
 }
 
-import VsfButton from "../VsfButton/VsfButton.vue";
-import VsfCounter from "../VsfCounter/VsfCounter.vue";
-import VsfIconHome from "../VsfIcons/VsfIconHome.vue";
-import VsfIconBasket from "../VsfIcons/VsfIconBasket.vue";
-import VsfIconSearch from "../VsfIcons/VsfIconSearch.vue";
-import VsfIconMenu from "../VsfIcons/VsfIconMenu.vue";
-import VsfIconFavoritesOutline from "../VsfIcons/VsfIconFavoritesOutline.vue";
+import VsfButton from "../VsfButton/VsfButton";
+import VsfCounter from "../VsfCounter/VsfCounter";
+import VsfIconHome from "../VsfIcons/VsfIconHome";
+import VsfIconBasket from "../VsfIcons/VsfIconBasket";
+import VsfIconSearch from "../VsfIcons/VsfIconSearch";
+import VsfIconMenu from "../VsfIcons/VsfIconMenu";
+import VsfIconFavoritesOutline from "../VsfIcons/VsfIconFavoritesOutline";
 export const VsfNavbarBottomVariants = Object.freeze({
   primary: "primary",
   secondary: "secondary",
@@ -228,13 +228,13 @@ const DEFAULT_VALUES = {
 export default {
   name: "vsf-navbar-bottom",
   components: {
-    "vsf-button": VsfButton,
-    "vsf-icon-home": VsfIconHome,
-    "vsf-icon-basket": VsfIconBasket,
-    "vsf-counter": VsfCounter,
-    "vsf-icon-search": VsfIconSearch,
-    "vsf-icon-menu": VsfIconMenu,
-    "vsf-icon-favorites-outline": VsfIconFavoritesOutline,
+    VsfButton: VsfButton,
+    VsfIconHome: VsfIconHome,
+    VsfIconBasket: VsfIconBasket,
+    VsfCounter: VsfCounter,
+    VsfIconSearch: VsfIconSearch,
+    VsfIconMenu: VsfIconMenu,
+    VsfIconFavoritesOutline: VsfIconFavoritesOutline,
   },
   props: [
     "variant",

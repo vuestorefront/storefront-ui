@@ -55,7 +55,6 @@ export default {
     "modelValue",
     "onChange",
     "value",
-    "slotThumb",
     "label",
   ],
 

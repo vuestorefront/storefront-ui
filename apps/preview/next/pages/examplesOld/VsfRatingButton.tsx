@@ -1,4 +1,4 @@
-import VsfRatingButton, { VsfRatingButtonVariants } from '~/output/blocks/VsfRatingButton/VsfRatingButton.lite';
+import VsfRatingButton, { VsfRatingButtonVariants } from '~/output/blocks/VsfRatingButton/VsfRatingButton';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examplesOld';
 

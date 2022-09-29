@@ -1,4 +1,4 @@
-import VsfButton, { VsfButtonSizes, VsfButtonVariants } from '../../output/blocks/VsfButton/VsfButton.lite';
+import VsfButton, { VsfButtonSizes, VsfButtonVariants } from '../../output/blocks/VsfButton/VsfButton';
 import { VsfIconVsfDiamond } from "../../output/blocks/VsfIcons/react";
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examplesOld';

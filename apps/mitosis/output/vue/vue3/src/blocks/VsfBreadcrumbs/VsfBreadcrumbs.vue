@@ -84,8 +84,8 @@ export interface VsfBreadcrumbsProps {
   slotIcon?: any;
 }
 
-import VsfIconHome from "../VsfIcons/VsfIconHome.vue";
-import VsfIconMoreHorizontal from "../VsfIcons/VsfIconMoreHorizontal.vue";
+import VsfIconHome from "../VsfIcons/VsfIconHome";
+import VsfIconMoreHorizontal from "../VsfIcons/VsfIconMoreHorizontal";
 const DEFAULT_VALUES = {
   breadcrumbs: [],
   withIcon: false,
@@ -94,10 +94,10 @@ const DEFAULT_VALUES = {
 export default {
   name: "vsf-breadcrumbs",
   components: {
-    "vsf-icon-more-horizontal": VsfIconMoreHorizontal,
-    "vsf-icon-home": VsfIconHome,
+    VsfIconMoreHorizontal: VsfIconMoreHorizontal,
+    VsfIconHome: VsfIconHome,
   },
-  props: ["breadcrumbs", "withIcon", "slotIcon"],
+  props: ["breadcrumbs", "withIcon"],
 
   data: () => ({
     breadcrumbsList: [],

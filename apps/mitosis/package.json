@@ -6,8 +6,8 @@
     "dev:legacy": "watch 'yarn run build' ./src ./overrides"
   },
   "dependencies": {
-    "@builder.io/mitosis": "dev",
-    "@builder.io/mitosis-cli": "dev",
+    "@builder.io/mitosis": "0.0.68",
+    "@builder.io/mitosis-cli": "0.0.29",
     "seedrandom": "^3.0.5",
     "vue-loader": "^16.1.0",
     "vue-template-compiler": "^2.7.8"

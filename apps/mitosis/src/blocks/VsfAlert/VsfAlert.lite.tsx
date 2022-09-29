@@ -1,10 +1,10 @@
 import { Show, useStore } from "@builder.io/mitosis";
 import { classStringFromArray } from "../../functions/domUtils";
-import VsfIconInfo from '../VsfIcons/VsfIconInfo.lite';
+import VsfIconInfo from '../VsfIcons/VsfIconInfo';
 import VsfIconCheckCircle from "../VsfIcons/VsfIconCheckCircle.lite";
 import VsfIconWarning from "../VsfIcons/VsfIconWarning.lite";
 import VsfIconError from "../VsfIcons/VsfIconError.lite";
-import VsfIconClose from '../VsfIcons/VsfIconClose.lite';
+import VsfIconClose from '../VsfIcons/VsfIconClose';
 import type { SlotType } from "../../functions/types";
 
 export const VsfAlertTypes = Object.freeze({
@@ -32,7 +32,7 @@ const DEFAULT_VALUES: Required<VsfAlertProps> = {
   description: 'Description',
   slotIcon: '',
   slotButton: '',
-  handleCloseClick: () => {},
+  handleCloseClick: () => { },
 };
 
 export default function VsfAlert(props: VsfAlertProps) {

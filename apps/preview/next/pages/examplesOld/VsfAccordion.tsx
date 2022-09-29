@@ -1,4 +1,4 @@
-import VsfAccordion, { VsfAccordionHeaderSize } from '../../output/blocks/VsfAccordion/VsfAccordion.lite';
+import VsfAccordion, { VsfAccordionHeaderSize } from '../../output/blocks/VsfAccordion/VsfAccordion';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examplesOld';
 

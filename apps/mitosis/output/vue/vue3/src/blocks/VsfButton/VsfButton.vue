@@ -100,8 +100,6 @@ export default {
     "type",
     "disabled",
     "onClick",
-    "slotPrefix",
-    "slotSuffix",
     "link",
   ],
 

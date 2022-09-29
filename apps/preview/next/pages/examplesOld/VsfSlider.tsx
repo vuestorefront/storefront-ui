@@ -1,4 +1,4 @@
-import VsfSlider from '../../output/blocks/VsfSlider/VsfSlider.lite';
+import VsfSlider from '../../output/blocks/VsfSlider/VsfSlider';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examplesOld';
 

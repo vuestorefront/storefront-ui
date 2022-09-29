@@ -1,4 +1,4 @@
-import VsfNavbarBottom, { VsfNavbarBottomVariants } from '~/output/blocks/VsfNavbarBottom/VsfNavbarBottom.lite';
+import VsfNavbarBottom, { VsfNavbarBottomVariants } from '~/output/blocks/VsfNavbarBottom/VsfNavbarBottom';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examplesOld';
 

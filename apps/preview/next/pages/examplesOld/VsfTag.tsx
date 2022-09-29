@@ -1,4 +1,4 @@
-import VsfTag, { VsfTagVariants, VsfTagSizes } from '../../output/blocks/VsfTag/VsfTag.lite';
+import VsfTag, { VsfTagVariants, VsfTagSizes } from '../../output/blocks/VsfTag/VsfTag';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import VsfIconDot from '../../output/blocks/VsfIcons/VsfIconDot';
 import { ExamplePageLayout } from '../examplesOld';

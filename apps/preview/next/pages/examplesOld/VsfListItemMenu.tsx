@@ -1,4 +1,4 @@
-import VsfListItemMenu, { VsfListItemMenuSize } from '../../output/blocks/VsfListItemMenu/VsfListItemMenu.lite';
+import VsfListItemMenu, { VsfListItemMenuSize } from '../../output/blocks/VsfListItemMenu/VsfListItemMenu';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import VsfIconDot from '../../output/blocks/VsfIcons/VsfIconDot';
 import VsfIconChevronRight from '../../output/blocks/VsfIcons/VsfIconChevronRight';

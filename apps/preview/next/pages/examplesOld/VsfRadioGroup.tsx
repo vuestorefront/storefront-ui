@@ -1,4 +1,4 @@
-import VsfRadioGroup, { VsfRadioGroupVariants, VsfRadioGroupDirection } from '../../output/blocks/VsfRadioGroup/VsfRadioGroup.lite';
+import VsfRadioGroup, { VsfRadioGroupVariants, VsfRadioGroupDirection } from '../../output/blocks/VsfRadioGroup/VsfRadioGroup';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import VsfRadio, { VsfRadioVariants } from "../../output/blocks/VsfRadio/VsfRadio";
 import { ExamplePageLayout } from '../examplesOld';

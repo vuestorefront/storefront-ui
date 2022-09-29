@@ -1,4 +1,4 @@
-import VsfOverlay from '~/output/blocks/VsfOverlay/VsfOverlay.lite';
+import VsfOverlay from '~/output/blocks/VsfOverlay/VsfOverlay';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examplesOld';
 

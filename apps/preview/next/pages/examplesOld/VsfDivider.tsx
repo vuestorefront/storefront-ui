@@ -1,4 +1,4 @@
-import VsfDivider from '../../output/blocks/VsfDivider/VsfDivider.lite';
+import VsfDivider from '../../output/blocks/VsfDivider/VsfDivider';
 import { ExamplePageLayout } from '../examplesOld';
 
 const Example = () => {

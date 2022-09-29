@@ -1,7 +1,7 @@
 import { useStore, Show } from '@builder.io/mitosis';
 import { classStringFromArray } from '../../functions/domUtils';
-import VsfIconCancel from '../VsfIcons/VsfIconCancel.lite';
-import VsfButton from '../VsfButton/VsfButton.lite';
+import VsfIconCancel from '../VsfIcons/VsfIconCancel';
+import VsfButton from '../VsfButton/VsfButton';
 import { SlotType } from '../../functions/types';
 
 export interface VsfSearchProps {

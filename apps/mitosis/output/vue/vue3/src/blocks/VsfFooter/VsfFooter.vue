@@ -139,14 +139,14 @@ export interface VsfFooterProps {
   bottomLinks: VsfLinkType[];
 }
 
-import VsfIconHelp from "../VsfIcons/VsfIconHelp.vue";
-import VsfIconChat from "../VsfIcons/VsfIconChat.vue";
-import VsfIconPhone from "../VsfIcons/VsfIconPhone.vue";
-import VsfIconFacebook from "../VsfIcons/VsfIconFacebook.vue";
-import VsfIconTwitter from "../VsfIcons/VsfIconTwitter.vue";
-import VsfIconInstagram from "../VsfIcons/VsfIconInstagram.vue";
-import VsfIconPinterest from "../VsfIcons/VsfIconPinterest.vue";
-import VsfIconYouTube from "../VsfIcons/VsfIconYoutube.vue";
+import VsfIconHelp from "../VsfIcons/VsfIconHelp";
+import VsfIconChat from "../VsfIcons/VsfIconChat";
+import VsfIconPhone from "../VsfIcons/VsfIconPhone";
+import VsfIconFacebook from "../VsfIcons/VsfIconFacebook";
+import VsfIconTwitter from "../VsfIcons/VsfIconTwitter";
+import VsfIconInstagram from "../VsfIcons/VsfIconInstagram";
+import VsfIconPinterest from "../VsfIcons/VsfIconPinterest";
+import VsfIconYouTube from "../VsfIcons/VsfIconYoutube";
 const DEFAULT_VALUES: Required<VsfFooterProps> = {
   categories: [],
   socialMedia: [],
@@ -158,14 +158,14 @@ const DEFAULT_VALUES: Required<VsfFooterProps> = {
 export default {
   name: "vsf-footer",
   components: {
-    "vsf-icon-help": VsfIconHelp,
-    "vsf-icon-chat": VsfIconChat,
-    "vsf-icon-phone": VsfIconPhone,
-    "vsf-icon-facebook": VsfIconFacebook,
-    "vsf-icon-twitter": VsfIconTwitter,
-    "vsf-icon-pinterest": VsfIconPinterest,
-    "vsf-icon-you-tube": VsfIconYouTube,
-    "vsf-icon-instagram": VsfIconInstagram,
+    VsfIconHelp: VsfIconHelp,
+    VsfIconChat: VsfIconChat,
+    VsfIconPhone: VsfIconPhone,
+    VsfIconFacebook: VsfIconFacebook,
+    VsfIconTwitter: VsfIconTwitter,
+    VsfIconPinterest: VsfIconPinterest,
+    VsfIconYouTube: VsfIconYouTube,
+    VsfIconInstagram: VsfIconInstagram,
   },
   props: [
     "categories",

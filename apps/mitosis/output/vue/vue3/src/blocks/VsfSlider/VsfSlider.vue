@@ -76,9 +76,9 @@ const DEFAULT_VALUES: Required<VsfSliderProps> = {
 export default {
   name: "vsf-slider",
   components: {
-    "vsf-button": VsfButton,
-    "vsf-icon-chevron-left": VsfIconChevronLeft,
-    "vsf-icon-chevron-right": VsfIconChevronRight,
+    VsfButton: VsfButton,
+    VsfIconChevronLeft: VsfIconChevronLeft,
+    VsfIconChevronRight: VsfIconChevronRight,
   },
   props: ["hasChevrons", "hasScrollbar"],
 

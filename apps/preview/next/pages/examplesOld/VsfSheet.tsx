@@ -1,4 +1,4 @@
-import VsfSheet from '../../output/blocks/VsfSheet/VsfSheet.lite';
+import VsfSheet from '../../output/blocks/VsfSheet/VsfSheet';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examplesOld';
 
