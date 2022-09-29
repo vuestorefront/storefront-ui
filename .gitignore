@@ -37,6 +37,7 @@ yarn-error.log*
 .nuxt
 lib/*
 lib/
+apps/docs/components/.vitepress/.temp
 !apps/preview/nuxt/output
 apps/mitosis/src/blocks/VsfIcons
 apps/docs/components/.vitepress/dist

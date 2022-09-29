@@ -1,7 +1,7 @@
 import VsfListItemMenu, { VsfListItemMenuSize } from '../../output/blocks/VsfListItemMenu/VsfListItemMenu';
 import Controls, { prepareControls } from '../../components/utils/Controls';
-import VsfIconDot from '../../output/blocks/VsfIcons/VsfIconDot';
-import VsfIconChevronRight from '../../output/blocks/VsfIcons/VsfIconChevronRight';
+import VsfIconDot from '../../output/blocks/VsfIcons/VsfIconDot.lite';
+import VsfIconChevronRight from '../../output/blocks/VsfIcons/VsfIconChevronRight.lite';
 import { ExamplePageLayout } from '../examplesOld';
 
 const Example = () => {

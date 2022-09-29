@@ -255,9 +255,10 @@ fs.readdir(inputDirectoryPath, async function (err, files) {
     }
 
     const createReactIndexFiles = (fileName = 'index') => {
+        let isMitosis = framework === 'mitosis';
         let reactExportsString = '';
         reactExports.sort().forEach(component => {
-            reactExportsString += `export { default as ${component} } from './${component}';\n`;
+            reactExportsString += `export { default as ${component} } from './${component}${isMitosis ? '.lite' : ''}';\n`;
         });
         fsPromise.writeFile(`${outputDirectoryPath}${fileName}.ts`, reactExportsString);
     }

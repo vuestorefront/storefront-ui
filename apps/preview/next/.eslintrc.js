@@ -4,7 +4,4 @@ module.exports = {
     project: './tsconfig.json',
     tsconfigRootDir: __dirname,
   },
-  rules: {
-    'prettier/prettier': 'error',
-  },
 };
