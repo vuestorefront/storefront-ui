@@ -1,7 +1,7 @@
 <template>
   <div class="e-page">
     <div class="e-page-component relative">
-      <VsfOverlay @click="visibleModel = !visibleModel" :absolute="absoluteModel" :visible="visibleModel"/>
+      <VsfOverlay @click="onClickHandler" :absolute="absoluteModel" :visible="visibleModel" />
     </div>
     <div class="e-page-controls">
       <Controls v-bind="controlsAttrs" />
@@ -11,8 +11,8 @@
 
 <script>
 import { defineComponent, ref } from 'vue';
-import VsfOverlay from '../../output/blocks/VsfOverlay/VsfOverlay.vue';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
+import VsfOverlay from '@sfui/sfui/frameworks/vue/components/VsfOverlay/VsfOverlay.vue';
 
 export default defineComponent({
   name: 'VsfOverlayExample',
@@ -26,20 +26,24 @@ export default defineComponent({
         {
           title: 'Visible',
           type: 'boolean',
-          propType: "boolean",
+          propType: 'boolean',
           modelName: 'visibleModel',
         },
         {
           title: 'Absolute',
           type: 'boolean',
-          propType: "boolean",
+          propType: 'boolean',
           modelName: 'absoluteModel',
-          description: "Set `position:absolute` to component"
+          description:
+            'Set `position:absolute` to component (require `position:relative` style attribute in parent component)',
         },
       ],
       {
-        visibleModel: ref(true),
-        absoluteModel: ref(true),
+        visibleModel: ref(false),
+        absoluteModel: ref(false),
+        onClickHandler() {
+          console.log('VsfOverlay clicked!');
+        },
       },
     );
   },

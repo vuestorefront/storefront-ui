@@ -1,6 +1,6 @@
-import VsfOverlay from '~/output/blocks/VsfOverlay/VsfOverlay.lite';
+import VsfOverlay from '@sfui/sfui/frameworks/react/components/VsfOverlay';
 import Controls, { prepareControls } from '../../components/utils/Controls';
-import { ExamplePageLayout } from '../examplesOld';
+import { ExamplePageLayout } from '../examples';
 
 const Example = () => {
   const { state, controls } = prepareControls(
@@ -8,7 +8,7 @@ const Example = () => {
       {
         title: 'Visible',
         type: 'boolean',
-        propType: "boolean",
+        propType: 'boolean',
         modelName: 'visibleModel',
       },
       {
@@ -16,19 +16,18 @@ const Example = () => {
         type: 'boolean',
         propType: 'boolean',
         modelName: 'absoluteModel',
-        description: 'Set `position:absolute` to component',
+        description:
+          'Set `position:absolute` to component (require `position:relative` style attribute in parent component)',
       },
     ],
     {
-      absoluteModel: true,
-      visibleModel: true,
+      absoluteModel: false,
+      visibleModel: false,
     },
   );
   function onClickHandler() {
-    console.log('VsfOverlay clicked!')
-    state.set({ ...state.get, show: false });
+    console.log('VsfOverlay clicked!');
   }
-
   return (
     <div className="e-page">
       <div className="e-page-component relative">
@@ -39,7 +38,7 @@ const Example = () => {
       </div>
     </div>
   );
-}
+};
 
 Example.getLayout = ExamplePageLayout;
 export default Example;

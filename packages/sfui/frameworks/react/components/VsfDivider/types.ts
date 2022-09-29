@@ -1,3 +1,3 @@
-import type { HTMLAttributes } from 'react';
-
-export interface VsfDividerProps extends HTMLAttributes<HTMLHRElement> {}
+export interface VsfDividerProps {
+  className?: string;
+}
