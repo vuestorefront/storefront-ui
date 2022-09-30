@@ -1,8 +1,6 @@
 # Accordion component
 
-The Accordion component is built on native `details` html element. Click on header triggers expanding below seated content passed inside by the prop. 
-
-<PlaygroundWrapper component="VsfAccordion" class="flex w-[15rem] h-20" header="Header" description="description" :icon="true"/>
+The Accordion component is built on native `details` html element. Click on header triggers expanding below seated content passed inside by the prop.
 
 ## Figma design
 

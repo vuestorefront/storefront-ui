@@ -116,9 +116,7 @@ export default function VsfIcon${camelCaseName}({
     size = VsfIconSizeEnum.base,
     ariaLabel = '${name}'
 }: VsfIconProps) {
-    return <VsfIconBase className={className} size={size} ariaLabel={ariaLabel} ${attributes}>
-        <>${content}</>
-    </VsfIconBase>;
+    return <VsfIconBase className={className} size={size} ariaLabel={ariaLabel} ${attributes}>${content}</VsfIconBase>;
 }`;
 
 // Rewrite if possible to using separate vue and react components, because e.g in react we cant pass style prop to inline styles, because we cant use `...rest` therefore we need to define every possible attrs
@@ -190,6 +188,17 @@ const getSvg = async (svgName, doOptimiziation) => {
     }
 };
 
+const counteTags = (content) => {
+    const regex = /<([a-z]+)(?=[\s>])(?:[^>=]|='[^']*'|="[^"]*"|=[^'"\s]*)*\s?\/?>/gi;
+    let m;
+    let count = 0;
+    do {
+        m = regex.exec(content);
+        if (m) count++;
+    } while (m);
+    return count;
+}
+
 fs.readdir(inputDirectoryPath, async function (err, files) {
     if (err) {
         return console.log('Unable to get icons directory: ' + err);
@@ -226,13 +235,16 @@ fs.readdir(inputDirectoryPath, async function (err, files) {
                 );
                 vueExports.push(componentName);
             } else if (framework === 'react') {
-                let parsedAttributesContent = content;
+                let parsedContent = content;
                 for (let attr in attributesMap) {
-                    parsedAttributesContent = parsedAttributesContent.replaceAll(attr, attributesMap[attr]);
+                    parsedContent = parsedContent.replaceAll(attr, attributesMap[attr]);
                 }
+
+                parsedContent = counteTags(parsedContent) <= 1 ? parsedContent : `<>${parsedContent}</>`
+
                 await fsPromise.writeFile(
                     `${outputDirectoryPath}${componentName}.tsx`,
-                    reactIcon(name, capitializedCamelCaseName, parsedAttributesContent, attributes)
+                    reactIcon(name, capitializedCamelCaseName, parsedContent, attributes)
                 );
                 reactExports.push(componentName);
             } else if (framework === 'mitosis') {
@@ -255,9 +267,10 @@ fs.readdir(inputDirectoryPath, async function (err, files) {
     }
 
     const createReactIndexFiles = (fileName = 'index') => {
+        let isMitosis = framework === 'mitosis';
         let reactExportsString = '';
         reactExports.sort().forEach(component => {
-            reactExportsString += `export { default as ${component} } from './${component}';\n`;
+            reactExportsString += `export { default as ${component} } from './${component}${isMitosis ? '.lite' : ''}';\n`;
         });
         fsPromise.writeFile(`${outputDirectoryPath}${fileName}.ts`, reactExportsString);
     }

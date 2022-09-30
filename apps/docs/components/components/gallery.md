@@ -2,8 +2,6 @@
 
 Gallery with one main and few side pictures that user can browse through.
 
-<PlaygroundWrapper component="Gallery"/>
-
 ## Figma design
 
 See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%9F%9B%A0-SFUI-2.0-%7C-Development?node-id=15495%3A56848)

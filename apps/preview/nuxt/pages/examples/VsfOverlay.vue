@@ -1,7 +1,7 @@
 <template>
   <div class="e-page">
     <div class="e-page-component relative">
-      <VsfOverlay @click="onClickHandler" :absolute="absoluteModel" :visible="visibleModel" />
+      <VsfOverlay :absolute="absoluteModel" :visible="visibleModel" @click="onClickHandler" />
     </div>
     <div class="e-page-controls">
       <Controls v-bind="controlsAttrs" />

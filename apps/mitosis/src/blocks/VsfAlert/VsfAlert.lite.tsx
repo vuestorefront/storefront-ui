@@ -32,7 +32,7 @@ const DEFAULT_VALUES: Required<VsfAlertProps> = {
   description: 'Description',
   slotIcon: '',
   slotButton: '',
-  handleCloseClick: () => {},
+  handleCloseClick: () => { },
 };
 
 export default function VsfAlert(props: VsfAlertProps) {

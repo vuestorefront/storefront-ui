@@ -9,5 +9,11 @@
     "types": [
       "vite/client",
     ]
-  }
+  },
+  "exclude": [
+    "node_modules",
+    "output",
+    "pages/examplesOld",
+    "pages/examples/ListOfIcons.vue",
+  ]
 }

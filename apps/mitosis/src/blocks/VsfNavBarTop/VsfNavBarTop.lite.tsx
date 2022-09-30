@@ -25,9 +25,9 @@ export interface VsfNavBarTopProps {
   searchRequired?: boolean,
   searchAutocomplete?: string,
   themeVariant?: VsfNavBarTopThemeVariantsKeys;
-  navData?: {text: string, link: string}[],
+  navData?: { text: string, link: string }[],
   basketCounterValue?: string | number | null,
-  favouritesCounterValue?: string | number | null,  
+  favouritesCounterValue?: string | number | null,
   logoLink?: string,
   loginText?: string,
   slotLogo?: SlotType,
@@ -58,7 +58,7 @@ export default function VsfNavBarTop(props: VsfNavBarTopProps) {
   const state = useStore({
     get useSearchDisabledProp() {
       return props.searchDisabled ?? DEFAULT_VALUES.searchDisabled
-    }, 
+    },
     get useSearchValueProp() {
       return props.searchValue || DEFAULT_VALUES.searchValue
     },
@@ -109,7 +109,7 @@ export default function VsfNavBarTop(props: VsfNavBarTopProps) {
       return state.useThemeVariantProp === 'default' ? 'text-gray-900 group-hover:text-green-600 hover:text-green-600 group-active:text-green-700 active:text-green-700' : 'text-white group-hover:bg-green-600 hover:bg-green-600 group-active:bg-green-700 active:bg-green-700'
     },
     get variantBackgroundCLass(): string {
-      return state.useThemeVariantProp === 'default' ? '' : 'hover:bg-green-600 active:bg-green-700' 
+      return state.useThemeVariantProp === 'default' ? '' : 'hover:bg-green-600 active:bg-green-700'
     },
     onMenuClickHandler(event: Event) {
       /* IF-vue */
@@ -150,22 +150,22 @@ export default function VsfNavBarTop(props: VsfNavBarTopProps) {
     <>
       <header
         class={state.headerClass}
-      > 
+      >
         <>{props.slotLogo}</>
         <Show when={!props.slotLogo}>
           <a
             href={state.useLogoLink}
             class="flex items-center rounded-md outline-violet"
             aria-label="VSF Homepage"
-          > 
-            <div class="block large:hidden w-10 h-10">           
-              <VsfIconLogoVsf 
+          >
+            <div class="block large:hidden w-10 h-10">
+              <VsfIconLogoVsf
                 className={`${state.useThemeVariantProp === 'default' ? 'text-brand' : 'text-white'} vsf-icon-full`}
               />
             </div>
             <div className="hidden large:block w-[205px] h-[28px]">
-              <VsfIconLogoVsfWithName 
-                className={`${state.useThemeVariantProp === 'default' ? 'text-brand' : 'text-white'} vsf-icon-full`} 
+              <VsfIconLogoVsfWithName
+                className={`${state.useThemeVariantProp === 'default' ? 'text-brand' : 'text-white'} vsf-icon-full`}
               />
             </div>
           </a>
@@ -178,14 +178,14 @@ export default function VsfNavBarTop(props: VsfNavBarTopProps) {
                 <For
                   each={state.useNavData}
                 >
-                  {(navItem, index) => 
+                  {(navItem, index) =>
                     <li class="mr-1 last-of-type:mr-0" key={index}>
-                      <VsfButton 
-                        link={navItem.link}                        
+                      <VsfButton
+                        link={navItem.link}
                         variant="tertiary"
                         className={`${state.variantClass} group`}
                       >
-                        <span class={state.variantClass}>{navItem.text}</span>                    
+                        <span class={state.variantClass}>{navItem.text}</span>
                       </VsfButton>
                     </li>
                   }
@@ -199,7 +199,7 @@ export default function VsfNavBarTop(props: VsfNavBarTopProps) {
               variant="tertiary"
               className={`${state.variantClass} group inline-flex large:hidden items-center justify-center pr-[16px] pl-[14px] py-2 text-base font-medium  bg-transparent rounded-md cursor-pointer hover:bg-green-100 active:bg-green-200 disabled:bg-transparent hover:text-green-600 active:text-green-700 disabled:text-gray-500 disabled:opacity-50 font-body outline-violet`}
               onClick={(event) => state.onMenuClickHandler(event)}
-            >                
+            >
               {/* TODO add VsfIconMenu in slotPrefix when it will be possible  */}
               <VsfIconMenu
                 className={state.variantClass}
@@ -211,9 +211,9 @@ export default function VsfNavBarTop(props: VsfNavBarTopProps) {
           </Show>
         </div>
         <>{props.slotSearch}</>
-        <Show when={!props.slotSearch}>          
-          <VsfSearch      
-            class="hidden small:block justify-self-end medium:ml-10"        
+        <Show when={!props.slotSearch}>
+          <VsfSearch
+            class="hidden small:block justify-self-end medium:ml-10"
             value={state.useSearchValueProp}
             v-model="vueProxyValue"
             placeholder={"Search"}
@@ -231,64 +231,64 @@ export default function VsfNavBarTop(props: VsfNavBarTopProps) {
           <>{props.slotIcons}</>
           <Show when={!props.slotIcons}>
             <li>
-                <VsfButton
-                  variant="tertiary"
-                  aria-label="Cart"
-                  className={`${state.variantClass} group relative inline-flex items-center justify-center !px-2 w-10 h-10 text-base font-medium  bg-transparent rounded-md cursor-pointer hover:bg-green-100 active:bg-green-200 disabled:bg-transparent hover:text-green-600 active:text-green-700 disabled:text-gray-500 disabled:opacity-50 font-body outline-violet`}
-                >                
-                  <VsfIconBasket class={state.variantClass} size="base"/>
-                  <Show when={state.useBasketCounterValue}
-                    else={
-                      <div
-                        className={`${state.useThemeVariantProp === 'default' ? 'bg-secondary-700' : 'bg-white'} absolute w-3 h-3 top-0.5 right-0.5 rounded-full`}
-                      /> 
-                    }                  
+              <VsfButton
+                variant="tertiary"
+                aria-label="Cart"
+                className={`${state.variantClass} group relative inline-flex items-center justify-center !px-2 w-10 h-10 text-base font-medium  bg-transparent rounded-md cursor-pointer hover:bg-green-100 active:bg-green-200 disabled:bg-transparent hover:text-green-600 active:text-green-700 disabled:text-gray-500 disabled:opacity-50 font-body outline-violet`}
+              >
+                <VsfIconBasket class={state.variantClass} size="base" />
+                <Show when={state.useBasketCounterValue}
+                  else={
+                    <div
+                      className={`${state.useThemeVariantProp === 'default' ? 'bg-secondary-700' : 'bg-white'} absolute w-3 h-3 top-0.5 right-0.5 rounded-full`}
+                    />
+                  }
+                >
+                  <VsfCounter
+                    className={`${state.useThemeVariantProp === 'default' ? 'bg-secondary-700 border-2 border-white' : 'bg-white border-2 border-brand group-hover:border-green-600 group-active:border-green-700'} absolute top-0.5 right-0.5`}
+                    size="xs"
+                    pill={true}
                   >
-                    <VsfCounter 
-                      className={`${state.useThemeVariantProp === 'default' ? 'bg-secondary-700 border-2 border-white' : 'bg-white border-2 border-brand group-hover:border-green-600 group-active:border-green-700'} absolute top-0.5 right-0.5`}
-                      size="xs" 
-                      pill={true}
-                    > 
-                      <span className={`${state.useThemeVariantProp === 'default' ? 'text-white ' : 'text-gray-900'}`}>
-                        {state.useBasketCounterValue}
-                      </span>
-                    </VsfCounter>
-                  </Show>                
-                </VsfButton>
+                    <span className={`${state.useThemeVariantProp === 'default' ? 'text-white ' : 'text-gray-900'}`}>
+                      {state.useBasketCounterValue}
+                    </span>
+                  </VsfCounter>
+                </Show>
+              </VsfButton>
             </li>
             <li class="mx-1">
-                <VsfButton
-                  variant="tertiary"
-                  aria-label="Wishlist"
-                  className={`${state.variantClass} group relative inline-flex items-center justify-center !px-2 w-10 h-10 text-base font-medium  bg-transparent rounded-md cursor-pointer hover:bg-green-100 active:bg-green-200 disabled:bg-transparent hover:text-green-600 active:text-green-700 disabled:text-gray-500 disabled:opacity-50 font-body outline-violet`}
-                >                
-                <VsfIconFavoritesOutline class={state.variantClass} size="base"/> 
-                  <Show when={state.useFavouritesCounterValue}
-                    else={
-                      <div
-                        className={`${state.useThemeVariantProp === 'default' ? 'bg-secondary-700' : 'bg-white'} absolute w-3 h-3 top-0.5 right-0.5 rounded-full`}
-                      /> 
-                    }
+              <VsfButton
+                variant="tertiary"
+                aria-label="Wishlist"
+                className={`${state.variantClass} group relative inline-flex items-center justify-center !px-2 w-10 h-10 text-base font-medium  bg-transparent rounded-md cursor-pointer hover:bg-green-100 active:bg-green-200 disabled:bg-transparent hover:text-green-600 active:text-green-700 disabled:text-gray-500 disabled:opacity-50 font-body outline-violet`}
+              >
+                <VsfIconFavoritesOutline class={state.variantClass} size="base" />
+                <Show when={state.useFavouritesCounterValue}
+                  else={
+                    <div
+                      className={`${state.useThemeVariantProp === 'default' ? 'bg-secondary-700' : 'bg-white'} absolute w-3 h-3 top-0.5 right-0.5 rounded-full`}
+                    />
+                  }
+                >
+                  <VsfCounter
+                    className={`${state.useThemeVariantProp === 'default' ? 'bg-secondary-700 border-2 border-white' : 'bg-white border-2 border-brand group-hover:border-green-600 group-active:border-green-700'} absolute top-0.5 right-0.5`}
+                    size="xs"
+                    pill={true}
                   >
-                    <VsfCounter 
-                      className={`${state.useThemeVariantProp === 'default' ? 'bg-secondary-700 border-2 border-white' : 'bg-white border-2 border-brand group-hover:border-green-600 group-active:border-green-700'} absolute top-0.5 right-0.5`}
-                      size="xs" 
-                      pill={true}
-                    >
-                      <span className={`${state.useThemeVariantProp === 'default' ? 'text-white ' : 'text-gray-900'}`}>
-                        {state.useFavouritesCounterValue}
-                      </span>
-                    </VsfCounter>
-                  </Show>
-                </VsfButton>                
+                    <span className={`${state.useThemeVariantProp === 'default' ? 'text-white ' : 'text-gray-900'}`}>
+                      {state.useFavouritesCounterValue}
+                    </span>
+                  </VsfCounter>
+                </Show>
+              </VsfButton>
             </li>
             <li>
               <VsfButton
                 variant="tertiary"
                 aria-label="Log in"
                 className={`${state.variantClass} group inline-flex items-center justify-center p-2 text-base font-medium bg-transparent rounded-md cursor-pointer group hover:bg-green-100 active:bg-green-200 disabled:bg-transparent hover:text-green-600 active:text-green-700 disabled:text-gray-500 disabled:opacity-50 font-body outline-violet`}
-              > 
-                <VsfIconPerson className={state.variantClass} />                
+              >
+                <VsfIconPerson className={state.variantClass} />
                 <span class={`${state.variantClass} hidden ml-2 whitespace-nowrap large:block`}>
                   {state.useLoginText}
                 </span>
