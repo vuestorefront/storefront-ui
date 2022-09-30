@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
-import type { VsfButtonProps } from './types';
 import classNames from 'classnames';
+import type { VsfButtonProps } from './types';
 
 const VsfButton = forwardRef<unknown, VsfButtonProps>(
   (
@@ -23,8 +23,9 @@ const VsfButton = forwardRef<unknown, VsfButtonProps>(
     },
     ref,
   ) => {
+    let TagInternal = Tag;
     if (link && Tag === 'button') {
-      Tag = 'a';
+      TagInternal = 'a';
     }
     const buttonClasses = classNames('vsf-button', {
       'vsf-button--disabled': disabled,
@@ -51,7 +52,7 @@ const VsfButton = forwardRef<unknown, VsfButtonProps>(
     });
 
     return (
-      <Tag
+      <TagInternal
         className={buttonClasses}
         onClick={onClick}
         ref={ref}
@@ -63,7 +64,7 @@ const VsfButton = forwardRef<unknown, VsfButtonProps>(
         {slotPrefix}
         {children}
         {slotSuffix}
-      </Tag>
+      </TagInternal>
     );
   },
 );
