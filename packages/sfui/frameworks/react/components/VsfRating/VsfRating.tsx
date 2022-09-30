@@ -43,19 +43,19 @@ export default function VsfRating({
       <div role="img" className={classes} aria-label={`Rating: ${value} out of ${max} stars`} {...attributes}>
         {variant === 'withValue' ? (
           <>
-            <VsfIconStar aria-hidden="true" className="vsf-rating__star-filled" size={size} />
+            <VsfIconStar aria-hidden="true" className="vsf-rating__star-filled" />
             <span className="vsf-rating__value">{value}</span>
           </>
         ) : (
           <>
             {[...Array(filled)].map((_, index) => (
-              <VsfIconStar aria-hidden="true" className="vsf-rating__star-filled" key={index} size={size} />
+              <VsfIconStar aria-hidden="true" className="vsf-rating__star-filled" key={index} />
             ))}
             {Boolean(partiallyFilled) && (
-              <VsfIconStarPartiallyFilled aria-hidden="true" className="vsf-rating__star-partial" size={size} />
+              <VsfIconStarPartiallyFilled aria-hidden="true" className="vsf-rating__star-partial" />
             )}
             {[...Array(empty)].map((_, index) => (
-              <VsfIconStarOutline aria-hidden="true" className="vsf-rating__star-empty" key={index} size={size} />
+              <VsfIconStarOutline aria-hidden="true" className="vsf-rating__star-empty" key={index} />
             ))}
           </>
         )}

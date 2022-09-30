@@ -49,30 +49,13 @@ const classes = computed(() => [
 <template>
   <div role="img" :ariaLabel="`Rating: ${value} out of ${max} stars`" :class="classes">
     <template v-if="variant === 'withValue'">
-      <VsfIconStar aria-hidden="true" class="vsf-rating__star-filled" :size="size" />
+      <VsfIconStar aria-hidden="true" class="vsf-rating__star-filled" />
       <span class="vsf-rating__value">{{ value }}</span>
     </template>
     <template v-else>
-      <VsfIconStar
-        v-for="index in filled"
-        aria-hidden="true"
-        class="vsf-rating__star-filled"
-        :key="index"
-        :size="size"
-      />
-      <VsfIconStarPartiallyFilled
-        v-if="partiallyFilled"
-        aria-hidden="true"
-        class="vsf-rating__star-partial"
-        :size="size"
-      />
-      <VsfIconStarOutline
-        v-for="index in empty"
-        aria-hidden="true"
-        class="vsf-rating__star-empty"
-        :key="index"
-        :size="size"
-      />
+      <VsfIconStar v-for="index in filled" aria-hidden="true" class="vsf-rating__star-filled" :key="index" />
+      <VsfIconStarPartiallyFilled v-if="partiallyFilled" aria-hidden="true" class="vsf-rating__star-partial" />
+      <VsfIconStarOutline v-for="index in empty" aria-hidden="true" class="vsf-rating__star-empty" :key="index" />
     </template>
   </div>
 </template>
