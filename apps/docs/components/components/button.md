@@ -10,26 +10,39 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 ## Props
 
-| Prop name  | Type                    | Default value   | Possible values                                                                             |
-|------------|-------------------------|-----------------|---------------------------------------------------------------------------------------------|
-| variant    | `VsfButtonVariantsKeys` | `primary`       | `primary`, `secondary`, `tertiary`,`destroy-primary`,`destroy-secondary`, `destroy-tertiary` |
-| size       | `VsfButtonSizesKeys`    | `base`          | `sm`, `base`, `lg`                                                                          |
-| slotPrefix | `SlotType`              |                 | Left side slotted content                                                                   |
-| children   | `SlotType`              | `Hello`         | Default slotted content                                                                     |
-| slotSuffix | `SlotType`              |                 | Right side slotted content                                                                  |
-| disabled   | `Boolean`               | false           | false                                                                                       |
-| link       | `String`                |                 | '/my-cool-page'                                                                             |
-| classes    | `String`                |                 |                                                                                             |
-| onClick    | () => void              |                 |                                                                                             |
-| type       | `String`                |                 | `reset`, `button`, `submit`                                                                 |
-| tile       | `Boolean`               |                 |                                                                                             |
-| icon       | `Boolean`               |                 |                                                                                             |
+| Prop name | Type                    | Default value | Possible values                                                   |
+| --------- | ----------------------- | ------------- | ----------------------------------------------------------------- |
+| variant   | `VsfButtonVariantsKeys` | `primary`     | `primary`, `secondary`, `tertiary`                                |
+| color     | `VsfButtonColorsKeys`   | `primary`     | `primary`, `secondary`, `gray`, `positive`, `negative`, `warning` |
+| size      | `VsfButtonSizesKeys`    | `base`        | `sm`, `base`, `lg`                                                |
+| tag       | `String`                | `button`      | `button`, `a`                                                     |
+| link      | `String`                |               | `/my-cool-page`                                                   |
+| tile      | `Boolean`               |               |                                                                   |
+| disabled  | `Boolean`               |               |                                                                   |
+| icon      | `Boolean`               |               |                                                                   |
+| rounded   | `Boolean`               |               |                                                                   |
+| block     | `Boolean`               |               |                                                                   |
+
+### React only:
+
+| Prop name  | Type        | Default value | Possible values            |
+| ---------- | ----------- | ------------- | -------------------------- |
+| children   | `ReactNode` |               |                            |
+| className  | `String`    |               |                            |
+| slotPrefix | `ReactNode` |               | Left side slotted content  |
+| children   | `ReactNode` |               | Default slotted content    |
+| slotSuffix | `ReactNode` |               | Right side slotted content |
+| onClick    | `Function`  |               |                            |
 
 ## Slots
 
-| Slot name |            Description            |
-| --------- | :-------------------------------: |
-| default   |     replaces the default content    |
+### Vue only:
+
+| Slot name |         Description          |
+| --------- | :--------------------------: |
+| prefix    |     before default slot      |
+| default   | replaces the default content |
+| suffix    |      after default slot      |
 
 ## Accessibility notes
 
@@ -39,4 +52,5 @@ Button component can be render as `<button />` or `<a />` if `link` prop is prov
 
 ## Source code
 
-<<<../../mitosis/src/blocks/VsfButton/VsfButton.lite.tsx
+<<<../../../packages/sfui/frameworks/vue/components/VsfButton/VsfButton.vue
+<<< ../../../packages/sfui/frameworks/react/components/VsfButton/VsfButton.tsx
