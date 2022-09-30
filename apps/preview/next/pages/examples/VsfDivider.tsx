@@ -2,7 +2,7 @@ import VsfDivider from '@sfui/sfui/frameworks/react/components/VsfDivider';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 
-const Example = () => {
+function Example() {
   const { state, controls } = prepareControls([], {});
   return (
     <div className="e-page">
@@ -14,7 +14,7 @@ const Example = () => {
       </div>
     </div>
   );
-};
+}
 
 Example.getLayout = ExamplePageLayout;
 export default Example;

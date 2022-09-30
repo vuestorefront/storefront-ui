@@ -1,8 +1,7 @@
 # RatingButton component
 
-RatingButton is icon-based group component, used for input a numeric value. 
+RatingButton is icon-based group component, used for input a numeric value.
 
-<PlaygroundWrapper component="RatingButton"/>
 
 ## Figma design
 

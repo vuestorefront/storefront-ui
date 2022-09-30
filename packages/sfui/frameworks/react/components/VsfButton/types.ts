@@ -1,4 +1,4 @@
-import type { HTMLAttributes, ReactNode, ElementType } from 'react';
+import type { ReactNode, ElementType } from 'react';
 
 export enum VsfButtonSizes {
   sm = 'sm',
@@ -24,11 +24,6 @@ export enum VsfButtonVariants {
 export type VsfButtonSizesKeys = keyof typeof VsfButtonSizes;
 export type VsfButtonVariantsKeys = keyof typeof VsfButtonVariants;
 export type VsfButtonColorsKeys = keyof typeof VsfButtonColors;
-
-type VsfButtonType =
-  | ({ tag: 'button' } & HTMLAttributes<HTMLButtonElement>)
-  | ({ tag?: 'a'; href: string } & HTMLAttributes<HTMLAnchorElement>)
-  | never;
 
 export type VsfButtonProps = {
   children?: ReactNode;

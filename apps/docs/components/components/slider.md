@@ -1,5 +1,4 @@
 #  Slider component
-<PlaygroundWrapper component="Slider"/>
 
 ## Figma design
 

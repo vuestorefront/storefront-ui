@@ -10,13 +10,11 @@ export default function VsfOverlay({
   ...attributes
 }: VsfOverlayProps) {
   const overlayClasses = classNames('vsf-overlay', absolute && 'vsf-overlay--absolute', className);
-  return (
-    <>
-      {visible && (
-        <div onClick={onClick} className={overlayClasses} {...attributes}>
-          {children}
-        </div>
-      )}
-    </>
-  );
+
+  return visible ? (
+    // eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions
+    <div onClick={onClick} className={overlayClasses} {...attributes}>
+      {children}
+    </div>
+  ) : null;
 }

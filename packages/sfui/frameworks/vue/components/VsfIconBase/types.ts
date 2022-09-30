@@ -1,6 +1,6 @@
 export interface VsfIconBaseProps {
   content: string;
-  size?: keyof typeof VsfIconSizeEnum;
+  size?: VsfIconSizeEnum;
 }
 export enum VsfIconSizeEnum {
   xs = 'xs',

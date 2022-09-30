@@ -5,14 +5,19 @@
   "scripts": {
     "dev": "nuxt dev --port=3001",
     "build": "nuxt build",
-    "serve": "node .output/server/index.mjs"
+    "serve": "node .output/server/index.mjs",
+    "lint": "eslint --ext .ts,.js,.vue .",
+    "lint:fix": "eslint --fix --ext .ts,.js,.vue ."
   },
   "devDependencies": {
+    "@nuxtjs/eslint-config-typescript": "^11.0.0",
     "@nuxtjs/tailwindcss": "^5.3.2",
-    "@sfui/tailwind-config": "*",
-    "@sfui/sfui": "*",
+    "@sfui/eslint-config": "*",
     "@sfui/example-style": "*",
+    "@sfui/sfui": "*",
+    "@sfui/tailwind-config": "*",
     "autoprefixer": "^10.4.8",
+    "eslint-plugin-nuxt": "^4.0.0",
     "nuxt": "npm:nuxt3@latest",
     "postcss": "^8.4.16",
     "sass": "^1.54.4",

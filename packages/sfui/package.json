@@ -5,12 +5,23 @@
     "./*": "./*"
   },
   "styles": "styles/index.scss",
+  "scripts": {
+    "lint": "concurrently \"yarn lint:react\" \"yarn lint:vue\"",
+    "lint:fix": "concurrently \"yarn lint:react:fix\" \"yarn lint:vue:fix\"",
+    "lint:react": "eslint --ext .ts,.tsx \"frameworks/react/**\"",
+    "lint:vue": "eslint --ext .ts,.vue \"frameworks/vue/**\"",
+    "lint:react:fix": "eslint --fix --ext .ts,.tsx \"frameworks/react/**/*\"",
+    "lint:vue:fix": "eslint --fix --ext .ts,.vue \"frameworks/vue/**/*\""
+  },
   "files": [
     "**/*.js",
     "**/*.ts",
     "**/*.vue",
     "**/*.tsx"
   ],
+  "devDependencies": {
+    "@sfui/eslint-config": "*"
+  },
   "peerDependencies": {
     "classnames": "^2.3.2"
   }

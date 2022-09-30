@@ -22,4 +22,3 @@ export enum VsfButtonVariants {
 export type VsfButtonSizesKeys = keyof typeof VsfButtonSizes;
 export type VsfButtonVariantsKeys = keyof typeof VsfButtonVariants;
 export type VsfButtonColorsKeys = keyof typeof VsfButtonColors;
-

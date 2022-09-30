@@ -120,9 +120,9 @@ export default function VsfProductCardVertical(props: VsfProductCardVerticalProp
           return 230;
       }
     },
-    get detailsPadding():string {
+    get detailsPadding(): string {
       return classStringFromArray([
-        state.useSizeProp === VsfProductCardVerticalSizes.xs || state.useSizeProp === VsfProductCardVerticalSizes.sm ? 'p-2' : 'p-4' ,
+        state.useSizeProp === VsfProductCardVerticalSizes.xs || state.useSizeProp === VsfProductCardVerticalSizes.sm ? 'p-2' : 'p-4',
       ])
     },
     get productCardWidth() {
@@ -145,11 +145,11 @@ export default function VsfProductCardVertical(props: VsfProductCardVerticalProp
     },
     get isBase(): boolean {
       return state.useSizeProp === VsfProductCardVerticalSizes.base
-    },    
+    },
     get isLg(): boolean {
       return state.useSizeProp === VsfProductCardVerticalSizes.lg
     },
-    get labelClasses():string {
+    get labelClasses(): string {
       return classStringFromArray([
         'block font-normal font-body',
         state.useSizeProp === VsfProductCardVerticalSizes.lg ? 'text-base' : 'text-sm',
@@ -160,13 +160,13 @@ export default function VsfProductCardVertical(props: VsfProductCardVerticalProp
         !state.useWithButtonProp && state.isXs && 'px-2 pt-2'
       ]);
     },
-    get priceClasses():string {
+    get priceClasses(): string {
       return classStringFromArray([
         'font-bold font-headings',
         (state.isXs || state.isSm) && 'text-xs leading-4',
         (state.isBase || state.isLg) && 'text-lg leading-6',
         state.useOldPriceProp ? 'text-secondary-700' : 'text-gray-900'
-    ]);
+      ]);
     },
     addToCart(event: Event) {
       /* IF-vue */
@@ -194,7 +194,7 @@ export default function VsfProductCardVertical(props: VsfProductCardVerticalProp
     },
   });
 
-    return (
+  return (
     <>
       <div
         className={`${state.productCardWidth} overflow-hidden border border-gray-200 rounded-md hover:shadow-lg`}
@@ -202,7 +202,7 @@ export default function VsfProductCardVertical(props: VsfProductCardVerticalProp
         <div className='relative'>
           <a href={state.useLinkProp}>
             <img
-              className={`${state.useOutOfStockProp ? 'opacity-50' : 'opacity-100' } w-full object-cover aspect-square`}
+              className={`${state.useOutOfStockProp ? 'opacity-50' : 'opacity-100'} w-full object-cover aspect-square`}
               src={state.useImageProp}
               alt={state.useAltProp}
               loading="lazy"
@@ -224,8 +224,8 @@ export default function VsfProductCardVertical(props: VsfProductCardVerticalProp
               >
                 {
                   (state.useOutOfStockProp)
-                    ? <span> Out of stock </span> 
-                      : <span> {`${state.useInCartProp} in cart`}</span> 
+                    ? <span> Out of stock </span>
+                    : <span> {`${state.useInCartProp} in cart`}</span>
                 }
               </VsfTag>
             </Show>
@@ -237,7 +237,7 @@ export default function VsfProductCardVertical(props: VsfProductCardVerticalProp
               onClick={(event) => state.addToWishlist(event)}
               icon={true}
             >
-              <VsfIconFavoritesOutline 
+              <VsfIconFavoritesOutline
                 size='sm'
               />
             </VsfButton>
@@ -262,8 +262,8 @@ export default function VsfProductCardVertical(props: VsfProductCardVerticalProp
               />
             </div>
           }>
-            <a 
-              href={state.useLinkProp} 
+            <a
+              href={state.useLinkProp}
               className={`${state.useSizeProp === VsfProductCardVerticalSizes.sm || state.useSizeProp === VsfProductCardVerticalSizes.xs ? 'px-2' : 'px-4'} block`}
             >
               <VsfRating
@@ -274,21 +274,21 @@ export default function VsfProductCardVertical(props: VsfProductCardVerticalProp
               />
             </a>
           </Show>
-          <Show 
-            when={state.useDescriptionProp && state.useSizeProp === 'base' || state.useSizeProp === 'lg'} 
+          <Show
+            when={state.useDescriptionProp && state.useSizeProp === 'base' || state.useSizeProp === 'lg'}
           >
             <Show when={!state.useWithButtonProp} else={
               <span className={`${state.useSizeProp === 'base' ? 'text-xs' : 'text-sm'} order-3 mt-2 font-normal leading-5 text-gray-700 font-body`}>
                 {state.useDescriptionProp}
               </span>
             }>
-              <a 
+              <a
                 href={state.useLinkProp}
                 className={`${state.useSizeProp === VsfProductCardVerticalSizes.sm || state.useSizeProp === VsfProductCardVerticalSizes.xs ? 'px-2' : 'px-4'} block pt-2 text-sm font-normal leading-5 text-gray-700 font-body`}
               >
                 {state.useDescriptionProp}
               </a>
-              </Show>
+            </Show>
           </Show>
           <Show when={!state.useWithButtonProp} else={
             <div
@@ -334,8 +334,8 @@ export default function VsfProductCardVertical(props: VsfProductCardVerticalProp
               className={`${state.useSizeProp === VsfProductCardVerticalSizes.sm || state.useSizeProp === VsfProductCardVerticalSizes.xs ? 'mb-2 mx-2' : 'mb-4 mx-4'} inline-flex items-center justify-center border rounded-md cursor-pointer font-body uppercase disabled:cursor-not-allowed outline-violet disabled:text-gray-500 disabled:opacity-50 leading-5 px-3 py-[6px] text-sm bg-primary-500 text-white hover:bg-primary-600 hover:shadow-medium active:bg-primary-700`}
               onClick={(event) => state.addToCart(event)}
             >
-              <VsfIconBasket 
-                size='sm' 
+              <VsfIconBasket
+                size='sm'
               />
               <span class="ml-2">
                 {state.useAddToCartLabelProp}

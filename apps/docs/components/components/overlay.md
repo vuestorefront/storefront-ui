@@ -2,8 +2,6 @@
 
 The Overlay is an helper component to other components. It acts as a background for displayed modals, popups, etc.
 
-<PlaygroundWrapper component="Overlay"/>
-
 ## Figma design
 
 See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%9F%9B%A0-SFUI-2.0-%7C-Development?node-id=10966%3A18410)
