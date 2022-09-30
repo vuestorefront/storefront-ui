@@ -39,8 +39,8 @@ export interface VsfDialogProps {
 }
 
 import { SlotType } from "../../functions/types";
-import VsfButton from "../VsfButton/VsfButton";
-import VsfIconClose from "../VsfIcons/VsfIconClose";
+import VsfButton from "../VsfButton/VsfButton.vue";
+import VsfIconClose from "../VsfIcons/VsfIconClose.vue";
 const DEFAULT_VALUES: Omit<
   Required<VsfDialogProps>,
   "open" | "disableClose"
@@ -55,7 +55,7 @@ const DEFAULT_VALUES: Omit<
 
 export default {
   name: "vsf-dialog",
-  components: { VsfButton: VsfButton, VsfIconClose: VsfIconClose },
+  components: { "vsf-button": VsfButton, "vsf-icon-close": VsfIconClose },
   props: ["classes", "modelValue", "onClose", "disableClose"],
 
   mounted() {

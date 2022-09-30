@@ -1,10 +1,10 @@
 import { useStore, Show } from '@builder.io/mitosis';
-import VsfRating from '../VsfRating/VsfRating';
-import VsfTag from '../VsfTag/VsfTag';
-import VsfButton from '../VsfButton/VsfButton';
+import VsfRating from '../VsfRating/VsfRating.lite';
+import VsfTag from '../VsfTag/VsfTag.lite';
+import VsfButton from '../VsfButton/VsfButton.lite';
 import { classStringFromArray } from '../../functions/domUtils';
-import VsfIconFavoritesOutline from '../VsfIcons/VsfIconFavoritesOutline';
-import VsfIconBasket from '../VsfIcons/VsfIconBasket';
+import VsfIconFavoritesOutline from '../VsfIcons/VsfIconFavoritesOutline.lite';
+import VsfIconBasket from '../VsfIcons/VsfIconBasket.lite';
 import { SlotType } from '../../functions/types';
 
 export const VsfProductCardVerticalSizes = Object.freeze({

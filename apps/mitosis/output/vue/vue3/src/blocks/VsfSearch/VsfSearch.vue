@@ -102,8 +102,8 @@ export interface VsfSearchProps {
 }
 
 import { classStringFromArray } from "../../functions/domUtils";
-import VsfIconCancel from "../VsfIcons/VsfIconCancel";
-import VsfButton from "../VsfButton/VsfButton";
+import VsfIconCancel from "../VsfIcons/VsfIconCancel.vue";
+import VsfButton from "../VsfButton/VsfButton.vue";
 import { SlotType } from "../../functions/types";
 const DEFAULT_VALUES: Partial<Required<VsfSearchProps>> = {
   name: "search",
@@ -111,16 +111,20 @@ const DEFAULT_VALUES: Partial<Required<VsfSearchProps>> = {
 
 export default {
   name: "vsf-search",
-  components: { VsfIconCancel: VsfIconCancel, VsfButton: VsfButton },
+  components: { "vsf-icon-cancel": VsfIconCancel, "vsf-button": VsfButton },
   props: [
     "name",
     "modelValue",
     "disabled",
     "onSubmit",
+    "slotPrefix",
     "placeholder",
     "required",
     "autocomplete",
+    "slotSuffix",
+    "slotSubmit",
     "submitText",
+    "slotResults",
   ],
 
   data: () => ({ classStringFromArray }),

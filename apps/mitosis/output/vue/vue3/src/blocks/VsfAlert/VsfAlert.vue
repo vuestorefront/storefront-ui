@@ -78,11 +78,11 @@ export interface VsfAlertProps {
 }
 
 import { classStringFromArray } from "../../functions/domUtils";
-import VsfIconInfo from "../VsfIcons/VsfIconInfo";
+import VsfIconInfo from "../VsfIcons/VsfIconInfo.vue";
 import VsfIconCheckCircle from "../VsfIcons/VsfIconCheckCircle.vue";
 import VsfIconWarning from "../VsfIcons/VsfIconWarning.vue";
 import VsfIconError from "../VsfIcons/VsfIconError.vue";
-import VsfIconClose from "../VsfIcons/VsfIconClose";
+import VsfIconClose from "../VsfIcons/VsfIconClose.vue";
 export const VsfAlertTypes = Object.freeze({
   info: "info",
   positive: "positive",
@@ -102,13 +102,21 @@ const DEFAULT_VALUES: Required<VsfAlertProps> = {
 export default {
   name: "vsf-alert",
   components: {
-    VsfIconInfo: VsfIconInfo,
-    VsfIconCheckCircle: VsfIconCheckCircle,
-    VsfIconWarning: VsfIconWarning,
-    VsfIconError: VsfIconError,
-    VsfIconClose: VsfIconClose,
+    "vsf-icon-info": VsfIconInfo,
+    "vsf-icon-check-circle": VsfIconCheckCircle,
+    "vsf-icon-warning": VsfIconWarning,
+    "vsf-icon-error": VsfIconError,
+    "vsf-icon-close": VsfIconClose,
   },
-  props: ["type", "persistent", "handleCloseClick", "header", "description"],
+  props: [
+    "type",
+    "persistent",
+    "handleCloseClick",
+    "slotIcon",
+    "header",
+    "description",
+    "slotButton",
+  ],
 
   data: () => ({ VsfAlertTypes }),
 

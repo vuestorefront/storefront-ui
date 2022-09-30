@@ -1,4 +1,5 @@
-import VsfAlert, { VsfAlertTypes } from '../../output/blocks/VsfAlert/VsfAlert';
+
+import VsfAlert, { VsfAlertTypes } from '../../output/blocks/VsfAlert/VsfAlert.lite';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examplesOld';
 

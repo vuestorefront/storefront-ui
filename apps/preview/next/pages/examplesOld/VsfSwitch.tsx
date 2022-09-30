@@ -1,4 +1,4 @@
-import VsfSwitch, { VsfSwitchVariants } from '../../output/blocks/VsfSwitch/VsfSwitch';
+import VsfSwitch, { VsfSwitchVariants } from '../../output/blocks/VsfSwitch/VsfSwitch.lite';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examplesOld';
 

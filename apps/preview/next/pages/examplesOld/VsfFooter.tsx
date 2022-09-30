@@ -1,4 +1,4 @@
-import VsfFooter from '~/output/blocks/VsfFooter/VsfFooter';
+import VsfFooter from '~/output/blocks/VsfFooter/VsfFooter.lite';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examplesOld';
 

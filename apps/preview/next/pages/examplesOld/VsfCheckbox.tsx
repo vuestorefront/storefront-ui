@@ -1,4 +1,4 @@
-import VsfCheckbox from '../../output/blocks/VsfCheckbox/VsfCheckbox';
+import VsfCheckbox from '../../output/blocks/VsfCheckbox/VsfCheckbox.lite';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examplesOld';
 

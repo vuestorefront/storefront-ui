@@ -1,7 +1,7 @@
 import { Show, useStore, useRef, onMount, onUpdate } from '@builder.io/mitosis';
 import { validator } from '../../functions/propUtils';
 import { SlotType } from '../../functions/types';
-import VsfIconTriangleUp from '../VsfIcons/VsfIconTriangleUp';
+import VsfIconTriangleUp from '../VsfIcons/VsfIconTriangleUp.lite';
 
 export const VsfAccordionHeaderSize = Object.freeze({
   'base': 'base',

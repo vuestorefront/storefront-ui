@@ -59,7 +59,7 @@ export interface VsfAccordionProps {
 
 import { validator } from "../../functions/propUtils";
 import { SlotType } from "../../functions/types";
-import VsfIconTriangleUp from "../VsfIcons/VsfIconTriangleUp";
+import VsfIconTriangleUp from "../VsfIcons/VsfIconTriangleUp.vue";
 export const VsfAccordionHeaderSize = Object.freeze({
   base: "base",
   lg: "lg",
@@ -73,8 +73,15 @@ const DEFAULT_VALUES = {
 
 export default {
   name: "vsf-accordion",
-  components: { VsfIconTriangleUp: VsfIconTriangleUp },
-  props: ["chevronLeft", "headerSize", "open", "title"],
+  components: { "vsf-icon-triangle-up": VsfIconTriangleUp },
+  props: [
+    "chevronLeft",
+    "headerSize",
+    "open",
+    "slotPrefix",
+    "title",
+    "slotSuffix",
+  ],
 
   computed: {
     useChevronLeftProp() {

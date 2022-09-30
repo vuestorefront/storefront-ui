@@ -1,6 +1,6 @@
 import Controls, { prepareControls } from '../../components/utils/Controls';
-import VsfDialog from '~/output/blocks/VsfDialog/VsfDialog';
-import VsfButton from '~/output/blocks/VsfButton/VsfButton';
+import VsfDialog from '~/output/blocks/VsfDialog/VsfDialog.lite';
+import VsfButton from '~/output/blocks/VsfButton/VsfButton.lite';
 import { useEffect, useRef } from 'react';
 import { ExamplePageLayout } from '../examplesOld';
 

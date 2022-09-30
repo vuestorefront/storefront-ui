@@ -284,7 +284,7 @@ export interface VsfNavBarTopProps {
 
 import { SlotType } from "../../functions/types";
 import { classStringFromArray } from "../../functions/domUtils";
-import VsfIconBasket from "../VsfIcons/VsfIconBasket";
+import VsfIconBasket from "../VsfIcons/VsfIconBasket.vue";
 import VsfIconFavoritesOutline from "../VsfIcons/VsfIconFavoritesOutline.vue";
 import VsfIconPerson from "../VsfIcons/VsfIconPerson.vue";
 import VsfIconMenu from "../VsfIcons/VsfIconMenu.vue";
@@ -314,15 +314,15 @@ const DEFAULT_VALUES = {
 export default {
   name: "vsf-nav-bar-top",
   components: {
-    VsfIconLogoVsf: VsfIconLogoVsf,
-    VsfIconLogoVsfWithName: VsfIconLogoVsfWithName,
-    VsfButton: VsfButton,
-    VsfIconMenu: VsfIconMenu,
-    VsfSearch: VsfSearch,
-    VsfIconBasket: VsfIconBasket,
-    VsfCounter: VsfCounter,
-    VsfIconFavoritesOutline: VsfIconFavoritesOutline,
-    VsfIconPerson: VsfIconPerson,
+    "vsf-icon-logo-vsf": VsfIconLogoVsf,
+    "vsf-icon-logo-vsf-with-name": VsfIconLogoVsfWithName,
+    "vsf-button": VsfButton,
+    "vsf-icon-menu": VsfIconMenu,
+    "vsf-search": VsfSearch,
+    "vsf-icon-basket": VsfIconBasket,
+    "vsf-counter": VsfCounter,
+    "vsf-icon-favorites-outline": VsfIconFavoritesOutline,
+    "vsf-icon-person": VsfIconPerson,
   },
   props: [
     "searchDisabled",
@@ -336,6 +336,10 @@ export default {
     "favouritesCounterValue",
     "logoLink",
     "loginText",
+    "slotLogo",
+    "slotMenu",
+    "slotSearch",
+    "slotIcons",
   ],
 
   computed: {

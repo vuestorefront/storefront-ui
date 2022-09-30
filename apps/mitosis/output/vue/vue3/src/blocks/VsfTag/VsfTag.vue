@@ -100,7 +100,7 @@ const DEFAULT_VALUES = {
 export default {
   name: "vsf-tag",
 
-  props: ["size", "variant", "badge"],
+  props: ["size", "variant", "badge", "slotPrefix", "slotSuffix"],
 
   data: () => ({ VsfTagSizes }),
 

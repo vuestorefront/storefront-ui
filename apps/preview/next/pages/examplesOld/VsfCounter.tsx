@@ -1,4 +1,4 @@
-import VsfCounter, { VsfCounterVariants } from '../../output/blocks/VsfCounter/VsfCounter';
+import VsfCounter, { VsfCounterVariants } from '../../output/blocks/VsfCounter/VsfCounter.lite';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examplesOld';
 

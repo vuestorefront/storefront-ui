@@ -1,6 +1,6 @@
 import { Show, useStore, useRef, For, onUnMount, onUpdate, onMount } from '@builder.io/mitosis';
-import VsfIconHome from '../VsfIcons/VsfIconHome';
-import VsfIconMoreHorizontal from '../VsfIcons/VsfIconMoreHorizontal';
+import VsfIconHome from '../VsfIcons/VsfIconHome.lite';
+import VsfIconMoreHorizontal from '../VsfIcons/VsfIconMoreHorizontal.lite';
 
 export type VsfBreadcrumbType = {
   name: string;

@@ -2,8 +2,6 @@
 
 The Switch component is an input element of type checkbox that allows to turn single values on and off.
 
-<PlaygroundWrapper component="Switch"/>
-
 ## Figma design
 
 See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%9F%9B%A0-SFUI-2.0-%7C-Development?node-id=11389%3A20690)

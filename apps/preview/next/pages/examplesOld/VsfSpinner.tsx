@@ -1,4 +1,4 @@
-import VsfSpinner, { VsfSpinnerTypes, VsfSpinnerVariants } from '~/output/blocks/VsfSpinner/VsfSpinner';
+import VsfSpinner, { VsfSpinnerTypes, VsfSpinnerVariants } from '~/output/blocks/VsfSpinner/VsfSpinner.lite';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examplesOld';
 

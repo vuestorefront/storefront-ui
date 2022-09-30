@@ -1,5 +1,5 @@
 import { Show, useStore } from '@builder.io/mitosis';
-import VsfIconClose from '../VsfIcons/VsfIconClose';
+import VsfIconClose from '../VsfIcons/VsfIconClose.lite';
 
 export const VsfChipsInputVariants = Object.freeze({
   sm: 'sm',

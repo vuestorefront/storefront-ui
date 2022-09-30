@@ -1,5 +1,5 @@
 
-import VsfProgress, { VsfProgressVariants, VsfProgressTypes } from '~/output/blocks/VsfProgress/VsfProgress';
+import VsfProgress, { VsfProgressVariants, VsfProgressTypes } from '~/output/blocks/VsfProgress/VsfProgress.lite';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examplesOld';
 

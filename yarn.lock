@@ -593,14 +593,14 @@
     "@babel/types" "7.12.6"
     ts-pattern "^3.3.5"
 
-"@builder.io/mitosis-cli@0.0.29":
-  version "0.0.29"
-  resolved "https://registry.yarnpkg.com/@builder.io/mitosis-cli/-/mitosis-cli-0.0.29.tgz#6a9bd9ad42a2bae5223729d3b54880f295e7747a"
-  integrity sha512-/cfkQOEfZNty9mh1GX8LTrtVH6fV7pm4uDiOv3nFwXlzOMMOQmFrhr6hOxjVzLfVxKu9Gqu+6EmjYaT7S5igGQ==
+"@builder.io/mitosis-cli@0.0.17-100":
+  version "0.0.17-100"
+  resolved "https://registry.yarnpkg.com/@builder.io/mitosis-cli/-/mitosis-cli-0.0.17-100.tgz#93ea1ad22af1102d8296055f0c8cc97d24ee89e9"
+  integrity sha512-a5xq0YDO1FckBil3pVCZdfoyLDDrliGNHWj6rpQWeV7UpkBvFZYXXo6PIADPUo5uM8VZzfrKgi08aNQynBFlFw==
   dependencies:
     "@babel/core" "^7.17.8"
     "@babel/preset-typescript" "^7.16.7"
-    "@builder.io/mitosis" "0.0.68"
+    "@builder.io/mitosis" "0.0.56-109"
     "@vue/compiler-sfc" "^3.1.5"
     babel-preset-solid "^1.3.13"
     chalk "^4.1.0"
@@ -620,10 +620,10 @@
     vue-template-es2015-compiler "^1.9.1"
     vue-template-validator "^1.1.5"
 
-"@builder.io/mitosis@0.0.68":
-  version "0.0.68"
-  resolved "https://registry.yarnpkg.com/@builder.io/mitosis/-/mitosis-0.0.68.tgz#dedd171555390b992606dbfe96dfd2a7531cf788"
-  integrity sha512-IQLDvNcXZRNCc/4ZQP30Va50nl7/4FcloHkaSVirerOT7a8GN7JUgHs/D0luK9ziGyJiuR5l+/WUA/0wfHgARw==
+"@builder.io/mitosis@0.0.56-109":
+  version "0.0.56-109"
+  resolved "https://registry.yarnpkg.com/@builder.io/mitosis/-/mitosis-0.0.56-109.tgz#730644dd36f1c6da9b3d7d4538a927009220b2d2"
+  integrity sha512-2bh/tivwTeLI0P+wlVM8ZXaJqYSzeCBFhwYpTVXDu24HA16KhGCOc4boOQNQigwg179iTMtpaXW38W/4sr3ybQ==
   dependencies:
     "@angular/compiler" "^11.2.11"
     "@babel/core" "7.14.5"
@@ -654,6 +654,7 @@
     traverse "^0.6.6"
     typescript "^4.7.3"
     vue "~2.6"
+    vue-template-compiler "~2.6"
 
 "@builder.io/react@^1.1.50":
   version "1.1.52"
@@ -5955,7 +5956,7 @@ hash-sum@^2.0.0:
   resolved "https://registrynpm.storefrontcloud.io/hash-sum/-/hash-sum-2.0.0.tgz#81d01bb5de8ea4a214ad5d6ead1b523460b0b45a"
   integrity sha512-WdZTbAByD+pHfl/g9QSsBIIwy8IT+EsPiKDs0KNX+zSHhdDLFKdZu0BQHljvO+0QI/BasbMSUa8wYNCZTvhslg==
 
-he@^1.2.0:
+he@^1.1.0, he@^1.2.0:
   version "1.2.0"
   resolved "https://registrynpm.storefrontcloud.io/he/-/he-1.2.0.tgz#84ae65fa7eafb165fddb61566ae14baf05664f0f"
   integrity sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==
@@ -10846,6 +10847,14 @@ vue-template-compiler@^2.7.8:
   dependencies:
     de-indent "^1.0.2"
     he "^1.2.0"
+
+vue-template-compiler@~2.6:
+  version "2.6.14"
+  resolved "https://registry.yarnpkg.com/vue-template-compiler/-/vue-template-compiler-2.6.14.tgz#a2f0e7d985670d42c9c9ee0d044fed7690f4f763"
+  integrity sha512-ODQS1SyMbjKoO1JBJZojSw6FE4qnh9rIpUZn2EUT86FKizx9uH5z6uXiIrm4/Nb/gwxTi/o17ZDEGWAXHvtC7g==
+  dependencies:
+    de-indent "^1.0.2"
+    he "^1.1.0"
 
 vue-template-es2015-compiler@^1.9.1:
   version "1.9.1"

@@ -2,7 +2,7 @@
 import { useStore, Show, For } from "@builder.io/mitosis";
 import { SlotType } from '../../functions/types';
 import { classStringFromArray } from '../../functions/domUtils';
-import VsfIconBasket from '../VsfIcons/VsfIconBasket';
+import VsfIconBasket from '../VsfIcons/VsfIconBasket.lite';
 import VsfIconFavoritesOutline from "../VsfIcons/VsfIconFavoritesOutline.lite";
 import VsfIconPerson from "../VsfIcons/VsfIconPerson.lite";
 import VsfIconMenu from "../VsfIcons/VsfIconMenu.lite";

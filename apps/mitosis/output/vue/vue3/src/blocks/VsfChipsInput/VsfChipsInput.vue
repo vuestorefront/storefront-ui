@@ -42,7 +42,7 @@ export interface VsfChipsInputProps {
   handleChipClose?: (e?: Event) => void;
 } // TODO: refactor, no important, no borders, icon changed so spacings as well
 
-import VsfIconClose from "../VsfIcons/VsfIconClose";
+import VsfIconClose from "../VsfIcons/VsfIconClose.vue";
 export const VsfChipsInputVariants = Object.freeze({
   sm: "sm",
   base: "base",
@@ -51,8 +51,15 @@ export const VsfChipsInputVariants = Object.freeze({
 
 export default {
   name: "vsf-chips-input",
-  components: { VsfIconClose: VsfIconClose },
-  props: ["size", "disabled", "handleChipClose", "label"],
+  components: { "vsf-icon-close": VsfIconClose },
+  props: [
+    "size",
+    "disabled",
+    "handleChipClose",
+    "slotPrefix",
+    "label",
+    "slotClose",
+  ],
 
   computed: {
     chipsSize() {

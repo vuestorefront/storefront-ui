@@ -119,7 +119,7 @@ const DEFAULT_VALUES = {
 export default {
   name: "vsf-gallery",
 
-  props: ["images", "control", "thumbsLeft", "counter", "contain"],
+  props: ["images", "control", "thumbsLeft", "slotImage", "counter", "contain"],
 
   data: () => ({
     offsetPosition: 0,

@@ -1,7 +1,7 @@
 import { useStore, Show } from '@builder.io/mitosis';
 import { SlotType } from '../../functions/types';
 import { classStringFromArray } from '../../functions/domUtils';
-import VsfCounter from '../VsfCounter/VsfCounter'
+import VsfCounter from '../VsfCounter/VsfCounter.lite'
 
 export const VsfListItemMenuSize = Object.freeze({
   'sm': 'sm',

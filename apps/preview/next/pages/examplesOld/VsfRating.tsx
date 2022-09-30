@@ -1,4 +1,4 @@
-import VsfRating, { VsfRatingVariants, VsfRatingTypes } from '../../output/blocks/VsfRating/VsfRating';
+import VsfRating, { VsfRatingVariants, VsfRatingTypes } from '../../output/blocks/VsfRating/VsfRating.lite';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examplesOld';
 

@@ -61,10 +61,10 @@ export interface VsfRatingProps {
   type?: VsfRatingTypesKeys;
 }
 
-import VsfIconStar from "../VsfIcons/VsfIconStar";
-import VsfIconStarOutline from "../VsfIcons/VsfIconStarOutline";
-import VsfIconStarPartiallyFilled from "../VsfIcons/VsfIconStarPartiallyFilled";
-import VsfCounter from "../VsfCounter/VsfCounter";
+import VsfIconStar from "../VsfIcons/VsfIconStar.vue";
+import VsfIconStarOutline from "../VsfIcons/VsfIconStarOutline.vue";
+import VsfIconStarPartiallyFilled from "../VsfIcons/VsfIconStarPartiallyFilled.vue";
+import VsfCounter from "../VsfCounter/VsfCounter.vue";
 export const VsfRatingVariants = Object.freeze({
   xs: "xs",
   sm: "sm",
@@ -86,10 +86,10 @@ const DEFAULT_VALUES = {
 export default {
   name: "vsf-rating",
   components: {
-    VsfIconStar: VsfIconStar,
-    VsfIconStarPartiallyFilled: VsfIconStarPartiallyFilled,
-    VsfIconStarOutline: VsfIconStarOutline,
-    VsfCounter: VsfCounter,
+    "vsf-icon-star": VsfIconStar,
+    "vsf-icon-star-partially-filled": VsfIconStarPartiallyFilled,
+    "vsf-icon-star-outline": VsfIconStarOutline,
+    "vsf-counter": VsfCounter,
   },
   props: ["value", "max", "size", "type", "reviews"],
 

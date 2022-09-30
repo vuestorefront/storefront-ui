@@ -1,12 +1,12 @@
 import { useStore, For, Show } from '@builder.io/mitosis';
-import VsfIconHelp from '../VsfIcons/VsfIconHelp';
-import VsfIconChat from '../VsfIcons/VsfIconChat';
-import VsfIconPhone from '../VsfIcons/VsfIconPhone';
-import VsfIconFacebook from '../VsfIcons/VsfIconFacebook';
-import VsfIconTwitter from '../VsfIcons/VsfIconTwitter';
-import VsfIconInstagram from '../VsfIcons/VsfIconInstagram';
-import VsfIconPinterest from '../VsfIcons/VsfIconPinterest';
-import VsfIconYouTube from '../VsfIcons/VsfIconYoutube';
+import VsfIconHelp from '../VsfIcons/VsfIconHelp.lite';
+import VsfIconChat from '../VsfIcons/VsfIconChat.lite';
+import VsfIconPhone from '../VsfIcons/VsfIconPhone.lite';
+import VsfIconFacebook from '../VsfIcons/VsfIconFacebook.lite';
+import VsfIconTwitter from '../VsfIcons/VsfIconTwitter.lite';
+import VsfIconInstagram from '../VsfIcons/VsfIconInstagram.lite';
+import VsfIconPinterest from '../VsfIcons/VsfIconPinterest.lite';
+import VsfIconYouTube from '../VsfIcons/VsfIconYoutube.lite';
 
 export type VsfLinkType = {
   label: string;

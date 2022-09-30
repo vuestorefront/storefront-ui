@@ -1,6 +1,6 @@
-import VsfChipsFilter, { VsfChipsFilterVariants } from '../../output/blocks/VsfChipsFilter/VsfChipsFilter';
+import VsfChipsFilter, { VsfChipsFilterVariants } from '../../output/blocks/VsfChipsFilter/VsfChipsFilter.lite';
 import Controls, { prepareControls } from '../../components/utils/Controls';
-import VsfIconDot from '../../output/blocks/VsfIcons/VsfIconDot';
+import VsfIconDot from '../../output/blocks/VsfIcons/VsfIconDot.lite';
 import { ExamplePageLayout } from '../examplesOld';
 
 const Example = () => {

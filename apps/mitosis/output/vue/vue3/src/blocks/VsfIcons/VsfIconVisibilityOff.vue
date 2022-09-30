@@ -15,14 +15,14 @@ export interface VsfIconVisibilityOffProps {
   ariaLabel?: string;
 }
 
-import VsfIconBase from "../VsfIconBase/VsfIconBase";
+import VsfIconBase from "../VsfIconBase/VsfIconBase.vue";
 const DEFAULT_VALUES = {
   size: "base",
 };
 
 export default {
   name: "vsf-icon-visibility-off",
-  components: { VsfIconBase: VsfIconBase },
+  components: { "vsf-icon-base": VsfIconBase },
   props: ["className", "size", "ariaLabel"],
 
   data: () => ({ DEFAULT_VALUES }),
