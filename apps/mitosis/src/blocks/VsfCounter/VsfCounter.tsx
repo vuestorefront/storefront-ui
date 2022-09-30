@@ -66,7 +66,7 @@ export default function VsfCounter(props: VsfCounterProps) {
         : `before:content-['('] after:content-[')'] text-gray-500`;
     },
   });
-  
+
   return (
     <span
       class={`inline-flex items-center font-body ${state.fontSizeClass} ${state.pillClass} ${state.pillSpacingClass} ${state.fontWeightClass} ${props.className || ''}`}
