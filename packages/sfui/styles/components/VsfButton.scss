@@ -1,0 +1,112 @@
+.vsf-button {
+  $this: &;
+
+  @apply inline-flex items-center justify-center cursor-pointer font-body outline-violet font-medium uppercase gap-2;
+  @apply rounded-md;
+  @apply text-base;
+  &--block {
+    @apply flex flex-1 w-full;
+  }
+  &--rounded {
+    @apply rounded-full;
+  }
+  &--tile {
+    @apply rounded-none;
+  }
+  // TODO change paddings to fixed size
+  &--icon {
+    &#{$this}--sm {
+      @apply px-1.5;
+    }
+    &#{$this}--base {
+      @apply px-2;
+    }
+    &#{$this}--lg {
+      @apply px-3;
+    }
+  }
+  /* disabled */
+  &#{$this}--disabled,
+  &:disabled {
+    @apply text-gray-500 opacity-50 bg-gray-200 shadow-none pointer-events-none ring-0;
+    &#{$this}--variant-tertiary {
+      @apply bg-transparent;
+    }
+  }
+
+  /* sizes */
+  &--sm {
+    @apply leading-5 text-sm h-8 px-2;
+  }
+  &--base {
+    @apply h-10 px-4;
+  }
+  &--lg {
+    @apply h-12 px-6;
+  }
+
+  /* variants */
+  &--variant-primary:not(.vsf-button--disabled) {
+    @apply text-white hover:shadow-medium shadow-base;
+    &#{$this}--primary {
+      @apply bg-primary-500 hover:bg-primary-600 active:bg-primary-700;
+    }
+    &#{$this}--negative {
+      @apply bg-negative-600 hover:bg-negative-700 active:bg-negative-800;
+    }
+    &#{$this}--warning {
+      @apply bg-warning-600 hover:bg-warning-700 active:bg-warning-800;
+    }
+    &#{$this}--secondary {
+      @apply bg-secondary-600 hover:bg-secondary-700 active:bg-secondary-800;
+    }
+    &#{$this}--gray {
+      @apply bg-gray-600 hover:bg-gray-700 active:bg-gray-800;
+    }
+    &#{$this}--positive {
+      @apply bg-positive-600 hover:bg-positive-700 active:bg-positive-800;
+    }
+  }
+  &--variant-secondary:not(.vsf-button--disabled),
+  &--variant-tertiary:not(.vsf-button--disabled) {
+    &#{$this}--primary {
+      @apply text-primary-600 hover:bg-primary-100 active:bg-primary-200 active:text-primary-700;
+    }
+    &#{$this}--negative {
+      @apply text-negative-600 hover:bg-negative-100 active:bg-negative-200 hover:text-negative-700 active:text-negative-800;
+    }
+    &#{$this}--warning {
+      @apply text-warning-600 hover:bg-warning-100 active:bg-warning-200 hover:text-warning-700 active:text-warning-800;
+    }
+    &#{$this}--secondary {
+      @apply text-secondary-600 hover:bg-secondary-100 active:bg-secondary-200 hover:text-secondary-700 active:text-secondary-800;
+    }
+    &#{$this}--gray {
+      @apply text-gray-600 hover:bg-gray-100 active:bg-gray-200 hover:text-gray-700 active:text-gray-800;
+    }
+    &#{$this}--positive {
+      @apply text-positive-600 hover:bg-positive-100 active:bg-positive-200 hover:text-positive-700 active:text-positive-800;
+    }
+  }
+  &--variant-secondary:not(.vsf-button--disabled) {
+    @apply ring-1 hover:shadow-medium active:shadow shadow;
+    &#{$this}--primary {
+      @apply ring-primary-300 active:ring-primary-400;
+    }
+    &#{$this}--negative {
+      @apply ring-negative-400;
+    }
+    &#{$this}--warning {
+      @apply ring-warning-300 active:ring-warning-400;
+    }
+    &#{$this}--secondary {
+      @apply ring-secondary-300 active:ring-secondary-400;
+    }
+    &#{$this}--gray {
+      @apply ring-gray-300 active:ring-gray-400;
+    }
+    &#{$this}--positive {
+      @apply ring-positive-300 active:ring-positive-400;
+    }
+  }
+}
