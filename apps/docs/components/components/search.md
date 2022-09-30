@@ -1,9 +1,6 @@
 #  Search component
 
 
-
-<PlaygroundWrapper component="Search"/>
-
 ## Figma design
 
 See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%9F%9B%A0-SFUI-2.0-%7C-Development?node-id=10650%3A7288)

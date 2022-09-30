@@ -1,8 +1,6 @@
 # ProductCardVertical component
 
-The product card component contains the most relevant data about the product. The most popular are the product's snapshot, name and price. It can also include a direct add to cart button 
-
-<PlaygroundWrapper component="ProductCardVertical"/>
+The product card component contains the most relevant data about the product. The most popular are the product's snapshot, name and price. It can also include a direct add to cart button
 
 ## Figma design
 

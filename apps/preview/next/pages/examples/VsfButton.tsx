@@ -8,7 +8,7 @@ import { ElementType } from 'react';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 
-const Example = () => {
+function Example() {
   const { state, controls } = prepareControls(
     [
       {
@@ -139,7 +139,7 @@ const Example = () => {
       </div>
     </div>
   );
-};
+}
 
 Example.getLayout = ExamplePageLayout;
 export default Example;

@@ -2,8 +2,6 @@
 
 ChipsFilter allow selection of a single chip from a set of options. They are a good alternative to toggle buttons, radio buttons, and single select menus.
 
-<PlaygroundWrapper component="ChipsFilter"/>
-
 ## Figma design
 
 See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%9F%9B%A0-SFUI-2.0-%7C-Development?node-id=11389%3A23561)

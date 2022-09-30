@@ -1,7 +1,3 @@
 export default function Home() {
-  return (
-    <>
-      Please navigate to `/examples` page
-    </>
-  );
+  return <>Please navigate to `/examples` page</>;
 }

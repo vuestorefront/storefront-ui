@@ -3,9 +3,6 @@
 #  NavBarTop component
 
 
-
-<PlaygroundWrapper component="NavBarTop"/>
-
 ## Figma design
 
 See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%9F%9B%A0-SFUI-2.0-%7C-Development?node-id=11378%3A17321)
@@ -14,7 +11,7 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 | Prop name             | Type                       | Default value | Possible values                        |
 |-----------------------|----------------------------|---------------|----------------------------------------|
-| searchDisabled        |      boolean                   |      false         |                                        | 
+| searchDisabled        |      boolean                   |      false         |                                        |
 | searchValue        |      string                   |      false         |                                        |
 | searchModelValue        |      string                   |      false         |                                        |
 | searchAutocomplete        |      string                   |      false         |                                        |

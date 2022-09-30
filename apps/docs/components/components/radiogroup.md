@@ -1,7 +1,6 @@
 # RadioGroup component
 
 Radio is a common way to allow users to make a single selection from a list of options. Once a user selects one of the radio buttons in a group, the group can’t be easily reset to displaying no radio buttons selected.
-<PlaygroundWrapper component="RadioGroup"/>
 
 ## Figma design
 

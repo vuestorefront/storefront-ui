@@ -2,8 +2,6 @@
 
 BaseIcon has only one purpose, to grab content via prop and mangle it, output is icon with properly set up `viewBox` `aria-label` etc attributes
 
-<PlaygroundWrapper component="BaseIcon"/>
-
 
 ## Props
 

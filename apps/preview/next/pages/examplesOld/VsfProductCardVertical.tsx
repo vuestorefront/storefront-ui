@@ -1,7 +1,7 @@
 import VsfProductCardVertical, { VsfProductCardVerticalSizes } from '../../output/blocks/VsfProductCardVertical/VsfProductCardVertical.lite';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import productImage from "../fixture/product-card.webp";
-import VsfTag from '../../output/blocks/VsfTag/VsfTag';
+import VsfTag from '../../output/blocks/VsfTag/VsfTag.lite';
 import VsfIconHot from '../../output/blocks/VsfIcons/VsfIconHot.lite';
 
 export default function VsfProductCardVerticalExample() {
@@ -119,7 +119,7 @@ export default function VsfProductCardVerticalExample() {
   return (
     <div className="e-page">
       <div className="e-page-component">
-        <VsfProductCardVertical 
+        <VsfProductCardVertical
           image={state.get.imageModel}
           alt={state.get.altModel}
           label={state.get.labelModel}
