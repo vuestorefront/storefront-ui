@@ -8,6 +8,7 @@
   "scripts": {
     "lint": "concurrently \"yarn lint:react\" \"yarn lint:vue\"",
     "lint:fix": "concurrently \"yarn lint:react:fix\" \"yarn lint:vue:fix\"",
+    "lint:fix:sfui": "yarn lint:fix",
     "lint:react": "eslint --ext .ts,.tsx \"frameworks/react/**\"",
     "lint:vue": "eslint --ext .ts,.vue \"frameworks/vue/**\"",
     "lint:react:fix": "eslint --fix --ext .ts,.tsx \"frameworks/react/**/*\"",
