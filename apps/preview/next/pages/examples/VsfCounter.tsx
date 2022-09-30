@@ -1,5 +1,5 @@
 import VsfCounter from '@sfui/sfui/frameworks/react/components/VsfCounter';
-import { VsfCounterSizes } from "@sfui/sfui/frameworks/react/components/VsfCounter/types";
+import { VsfCounterSizes } from '@sfui/sfui/frameworks/react/components/VsfCounter/types';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 
@@ -42,15 +42,11 @@ function Example() {
       fillModel: 'bg-white',
     },
   );
-  
+
   return (
     <div className="e-page">
       <div className="e-page-component">
-        <VsfCounter
-          size={state.get.sizeModel}
-          pill={state.get.pillModel}
-          className={state.get.fillModel}
-        >
+        <VsfCounter size={state.get.sizeModel} pill={state.get.pillModel} className={state.get.fillModel}>
           {state.get.valueModel}
         </VsfCounter>
       </div>
