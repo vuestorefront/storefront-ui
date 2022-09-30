@@ -1,7 +1,7 @@
 .vsf-button {
   $this: &;
 
-  @apply inline-flex items-center justify-center cursor-pointer font-body outline-violet font-medium uppercase gap-2;
+  @apply inline-flex items-center justify-center cursor-pointer font-body outline-violet font-medium gap-2;
   @apply rounded-md;
   @apply text-base;
   &--block {
@@ -46,8 +46,11 @@
   }
 
   /* variants */
-  &--variant-primary:not(.vsf-button--disabled) {
-    @apply text-white hover:shadow-medium shadow-base bg-primary-500 hover:bg-primary-600 active:bg-primary-700;
+  &--variant-primary {
+    @apply uppercase;
+    &:not(.vsf-button--disabled) {
+      @apply text-white hover:shadow-medium shadow-base bg-primary-500 hover:bg-primary-600 active:bg-primary-700;
+    }
   }
   &--variant-secondary:not(.vsf-button--disabled),
   &--variant-tertiary:not(.vsf-button--disabled) {
