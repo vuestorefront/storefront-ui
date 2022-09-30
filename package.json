@@ -10,12 +10,13 @@
     "packages/config/*"
   ],
   "scripts": {
-    "postinstall": "concurrently \"yarn createMitosisIcons\" \"yarn createVueIcons\" \"yarn createReactIcons\" && yarn lint:fix",
+    "postinstall": "concurrently \"yarn createMitosisIcons\" \"yarn createVueIcons\" \"yarn createReactIcons\" && yarn lint:fix:sfui",
     "prepare": "husky install",
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint:fix",
+    "lint:fix:sfui": "turbo run lint:fix:sfui",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "clean": "npx rimraf ./**/node_modules && rm yarn.lock",
     "clean:total": "npx rimraf ./**/node_modules && rimraf ./**/.cache && rimraf ./**/.turbo && rm yarn.lock",
