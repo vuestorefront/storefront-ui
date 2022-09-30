@@ -10,7 +10,7 @@
     "packages/config/*"
   ],
   "scripts": {
-    "postinstall": "concurrently \"yarn createMitosisIcons\" \"yarn createVueIcons\" \"yarn createReactIcons\"",
+    "postinstall": "concurrently \"yarn createMitosisIcons\" \"yarn createVueIcons\" \"yarn createReactIcons\" && yarn lint:fix",
     "prepare": "husky install",
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
