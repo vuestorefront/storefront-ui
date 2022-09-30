@@ -53,9 +53,9 @@ const classes = computed(() => [
       <span class="vsf-rating__value">{{ value }}</span>
     </template>
     <template v-else>
-      <VsfIconStar v-for="index in filled" aria-hidden="true" class="vsf-rating__star-filled" :key="index" />
+      <VsfIconStar v-for="index in filled" :key="index" aria-hidden="true" class="vsf-rating__star-filled" />
       <VsfIconStarPartiallyFilled v-if="partiallyFilled" aria-hidden="true" class="vsf-rating__star-partial" />
-      <VsfIconStarOutline v-for="index in empty" aria-hidden="true" class="vsf-rating__star-empty" :key="index" />
+      <VsfIconStarOutline v-for="index in empty" :key="index" aria-hidden="true" class="vsf-rating__star-empty" />
     </template>
   </div>
 </template>

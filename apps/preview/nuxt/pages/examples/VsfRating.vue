@@ -6,7 +6,7 @@
         :max="maxModel"
         :size="sizeModel"
         :variant="variantModel"
-        :halfIncrement="halfIncrementModel"
+        :half-increment="halfIncrementModel"
       />
     </div>
     <div class="e-page-controls">

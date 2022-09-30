@@ -51,9 +51,6 @@ const props = defineProps({
   },
 });
 
-const tagRef = toRef(props, 'tag');
-const hrefRef = toRef(props, 'href');
-
 const componentTag = computed(() => {
   if (props.href && props.tag === 'button') {
     return 'a';

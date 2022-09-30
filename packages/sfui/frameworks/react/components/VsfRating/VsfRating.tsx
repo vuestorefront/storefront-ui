@@ -1,7 +1,7 @@
-import { VsfIconStar, VsfIconStarOutline, VsfIconStarPartiallyFilled } from '../../components/VsfIcons';
-import type { VsfRatingProps } from './types';
 import { clamp, roundToNearest } from '@sfui/sfui/shared/utils';
 import classNames from 'classnames';
+import { VsfIconStar, VsfIconStarOutline, VsfIconStarPartiallyFilled } from '../VsfIcons';
+import type { VsfRatingProps } from './types';
 
 export default function VsfRating({
   size = 'base',
@@ -39,27 +39,25 @@ export default function VsfRating({
   );
 
   return (
-    <>
-      <div role="img" className={classes} aria-label={`Rating: ${value} out of ${max} stars`} {...attributes}>
-        {variant === 'withValue' ? (
-          <>
-            <VsfIconStar aria-hidden="true" className="vsf-rating__star-filled" />
-            <span className="vsf-rating__value">{value}</span>
-          </>
-        ) : (
-          <>
-            {[...Array(filled)].map((_, index) => (
-              <VsfIconStar aria-hidden="true" className="vsf-rating__star-filled" key={index} />
-            ))}
-            {Boolean(partiallyFilled) && (
-              <VsfIconStarPartiallyFilled aria-hidden="true" className="vsf-rating__star-partial" />
-            )}
-            {[...Array(empty)].map((_, index) => (
-              <VsfIconStarOutline aria-hidden="true" className="vsf-rating__star-empty" key={index} />
-            ))}
-          </>
-        )}
-      </div>
-    </>
+    <div role="img" className={classes} aria-label={`Rating: ${value} out of ${max} stars`} {...attributes}>
+      {variant === 'withValue' ? (
+        <>
+          <VsfIconStar aria-hidden="true" className="vsf-rating__star-filled" />
+          <span className="vsf-rating__value">{value}</span>
+        </>
+      ) : (
+        <>
+          {[...Array(filled).keys()].map((key) => (
+            <VsfIconStar aria-hidden="true" className="vsf-rating__star-filled" key={key} />
+          ))}
+          {Boolean(partiallyFilled) && (
+            <VsfIconStarPartiallyFilled aria-hidden="true" className="vsf-rating__star-partial" />
+          )}
+          {[...Array(empty).keys()].map((key) => (
+            <VsfIconStarOutline aria-hidden="true" className="vsf-rating__star-empty" key={key} />
+          ))}
+        </>
+      )}
+    </div>
   );
 }
