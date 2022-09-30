@@ -25,10 +25,6 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-  count: {
-    type: Number,
-    default: null,
-  },
 });
 const precision = computed(() => (props.halfIncrement ? 0.5 : 1));
 const { value, max } = toRefs(props);
@@ -48,22 +44,13 @@ const classes = computed(() => [
     'vsf-rating--xl': props.size === 'xl',
   },
 ]);
-const counterSize = computed(() => {
-  return {
-    xs: 'base',
-    sm: 'base',
-    base: 'lg',
-    lg: 'xl',
-    xl: '2xl',
-  }[props.size];
-});
 </script>
 
 <template>
-  <div role="img" class="{ratingClass}" :ariaLabel="`Rating: ${ratingValue} out of ${max} stars`" :class="classes">
+  <div role="img" :ariaLabel="`Rating: ${value} out of ${max} stars`" :class="classes">
     <template v-if="variant === 'withValue'">
       <VsfIconStar aria-hidden="true" class="vsf-rating__star-filled" :size="size" />
-      <span class="vsf-rating__value">{{ ratingValue }}</span>
+      <span class="vsf-rating__value">{{ value }}</span>
     </template>
     <template v-else>
       <VsfIconStar
@@ -87,6 +74,5 @@ const counterSize = computed(() => {
         :size="size"
       />
     </template>
-    <div v-if="count >= 0" class="vsf-rating__count" :size="counterSize">{{ count }}</div>
   </div>
 </template>

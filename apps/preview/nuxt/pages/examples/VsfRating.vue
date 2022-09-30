@@ -6,7 +6,6 @@
         :max="maxModel"
         :size="sizeModel"
         :variant="variantModel"
-        :count="countModel"
         :halfIncrement="halfIncrementModel"
       />
     </div>
@@ -64,21 +63,6 @@ export default defineComponent({
           ],
         },
         {
-          title: 'Count',
-          type: 'range',
-          modelName: 'countModel',
-          propDefaultValue: 0,
-          propType: 'number',
-          options: [
-            {
-              bind: {
-                min: 0,
-                step: 1,
-              },
-            },
-          ],
-        },
-        {
           title: 'Half increment',
           type: 'boolean',
           modelName: 'halfIncrementModel',
@@ -104,7 +88,6 @@ export default defineComponent({
       {
         valueModel: ref(3),
         maxModel: ref(5),
-        countModel: ref(10),
         sizeModel: ref(VsfRatingSizeEnum.base),
         variantModel: ref(VsfRatingVariantEnum.base),
         halfIncrementModel: ref(false),

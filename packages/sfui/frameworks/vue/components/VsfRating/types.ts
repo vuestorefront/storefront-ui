@@ -20,6 +20,5 @@ export interface VsfRatingProps {
   size?: VsfRatingSizeKeys;
   variant?: VsfRatingVariantKeys;
   halfIncrement?: boolean;
-  count?: number;
   className?: string;
 }

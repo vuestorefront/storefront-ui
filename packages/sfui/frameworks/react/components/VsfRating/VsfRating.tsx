@@ -1,12 +1,7 @@
-import { useCallback } from 'react';
 import { VsfIconStar, VsfIconStarOutline, VsfIconStarPartiallyFilled } from '../../components/VsfIcons';
 import type { VsfRatingProps } from './types';
 import { clamp, roundToNearest } from '@sfui/sfui/shared/utils';
 import classNames from 'classnames';
-
-const VsfCounter = ({ children, size, ...rest }: any) => {
-  return <div {...rest}>{children}</div>;
-};
 
 export default function VsfRating({
   size = 'base',
@@ -15,7 +10,6 @@ export default function VsfRating({
   value = 0,
   halfIncrement,
   className,
-  count,
   ...attributes
 }: VsfRatingProps) {
   let precision = 1;
@@ -23,7 +17,7 @@ export default function VsfRating({
   if (halfIncrement) {
     precision = 0.5;
   }
-  // always rounds to the nearest step value
+  // round value to the nearest step value
   const ratingValue = clamp(roundToNearest(value, precision), 0, max);
 
   const partiallyFilled = Number(!Number.isInteger(ratingValue)); // 0 or 1
@@ -32,7 +26,7 @@ export default function VsfRating({
 
   const empty = max - filled - partiallyFilled;
 
-  const ratingClass = classNames(
+  const classes = classNames(
     'vsf-rating',
     {
       'vsf-rating--xs': size === 'xs',
@@ -43,23 +37,14 @@ export default function VsfRating({
     },
     className,
   );
-  const counterSize = useCallback(() => {
-    return {
-      xs: 'base',
-      sm: 'base',
-      base: 'lg',
-      lg: 'xl',
-      xl: '2xl',
-    }[size];
-  }, [size]);
 
   return (
     <>
-      <div role="img" className={ratingClass} aria-label={`Rating: ${ratingValue} out of ${max} stars`} {...attributes}>
+      <div role="img" className={classes} aria-label={`Rating: ${value} out of ${max} stars`} {...attributes}>
         {variant === 'withValue' ? (
           <>
             <VsfIconStar aria-hidden="true" className="vsf-rating__star-filled" size={size} />
-            <span className="vsf-rating__value">{ratingValue}</span>
+            <span className="vsf-rating__value">{value}</span>
           </>
         ) : (
           <>
@@ -73,11 +58,6 @@ export default function VsfRating({
               <VsfIconStarOutline aria-hidden="true" className="vsf-rating__star-empty" key={index} size={size} />
             ))}
           </>
-        )}
-        {count && (
-          <VsfCounter className="vsf-rating__count" size={counterSize}>
-            {count}
-          </VsfCounter>
         )}
       </div>
     </>

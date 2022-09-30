@@ -16,7 +16,6 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 | type          | `String`  | `base`        | `base`,`withValue`         |
 | value         | `Number`  | 0             |                            |
 | max           | `Number`  | 5             |                            |
-| count         | `Number`  | 0             |                            |
 | halfIncrement | `Boolean` | false         |                            |
 
 ## Accessibility notes

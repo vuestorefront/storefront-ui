@@ -39,21 +39,6 @@ const Example = () => {
         ],
       },
       {
-        title: 'Count',
-        type: 'range',
-        modelName: 'countModel',
-        propDefaultValue: 0,
-        propType: 'number',
-        options: [
-          {
-            bind: {
-              min: 0,
-              step: 1,
-            },
-          },
-        ],
-      },
-      {
         title: 'Half increment',
         type: 'boolean',
         modelName: 'halfIncrementModel',
@@ -79,7 +64,6 @@ const Example = () => {
     {
       valueModel: 3,
       maxModel: 5,
-      countModel: 10,
       sizeModel: VsfRatingSizeEnum.base,
       variantModel: VsfRatingVariantEnum.base,
       halfIncrementModel: false,
@@ -94,7 +78,6 @@ const Example = () => {
           size={state.get.sizeModel}
           variant={state.get.variantModel}
           halfIncrement={state.get.halfIncrementModel}
-          count={state.get.countModel}
         />
       </div>
       <div className="e-page-controls">
