@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed, PropType, toRef } from 'vue';
+import { computed, PropType } from 'vue';
 import {
   VsfButtonSizesKeys,
   VsfButtonSizes,
