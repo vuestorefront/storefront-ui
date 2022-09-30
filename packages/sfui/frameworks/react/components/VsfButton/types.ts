@@ -6,15 +6,6 @@ export enum VsfButtonSizes {
   lg = 'lg',
 }
 
-export enum VsfButtonColors {
-  primary = 'primary',
-  secondary = 'secondary',
-  gray = 'gray',
-  positive = 'positive',
-  negative = 'negative',
-  warning = 'warning',
-}
-
 export enum VsfButtonVariants {
   primary = 'primary',
   secondary = 'secondary',
@@ -23,7 +14,6 @@ export enum VsfButtonVariants {
 
 export type VsfButtonSizesKeys = keyof typeof VsfButtonSizes;
 export type VsfButtonVariantsKeys = keyof typeof VsfButtonVariants;
-export type VsfButtonColorsKeys = keyof typeof VsfButtonColors;
 
 export type VsfButtonProps = {
   children?: ReactNode;
@@ -31,7 +21,6 @@ export type VsfButtonProps = {
   slotSuffix?: ReactNode;
   size?: VsfButtonSizesKeys;
   variant?: VsfButtonVariantsKeys;
-  color?: VsfButtonColorsKeys;
   rounded?: boolean;
   disabled?: boolean;
   tile?: boolean;

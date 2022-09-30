@@ -1,13 +1,6 @@
 <script lang="ts" setup>
-import { computed, PropType, toRef } from 'vue';
-import {
-  VsfButtonSizesKeys,
-  VsfButtonSizes,
-  VsfButtonVariantsKeys,
-  VsfButtonVariants,
-  VsfButtonColorsKeys,
-  VsfButtonColors,
-} from './types';
+import { computed, PropType } from 'vue';
+import { VsfButtonSizesKeys, VsfButtonSizes, VsfButtonVariantsKeys, VsfButtonVariants } from './types';
 const props = defineProps({
   size: {
     type: String as PropType<VsfButtonSizesKeys>,
@@ -16,10 +9,6 @@ const props = defineProps({
   variant: {
     type: String as PropType<VsfButtonVariantsKeys>,
     default: VsfButtonVariants.primary,
-  },
-  color: {
-    type: String as PropType<VsfButtonColorsKeys>,
-    default: VsfButtonColors.primary,
   },
   rounded: {
     type: Boolean,
@@ -51,9 +40,6 @@ const props = defineProps({
   },
 });
 
-const tagRef = toRef(props, 'tag');
-const hrefRef = toRef(props, 'href');
-
 const componentTag = computed(() => {
   if (props.href && props.tag === 'button') {
     return 'a';
@@ -78,13 +64,6 @@ const buttonClasses = computed(() => [
     'vsf-button--base': props.size === 'base',
     'vsf-button--sm': props.size === 'sm',
     'vsf-button--lg': props.size === 'lg',
-
-    'vsf-button--primary': props.color === 'primary',
-    'vsf-button--negative': props.color === 'negative',
-    'vsf-button--warning': props.color === 'warning',
-    'vsf-button--gray': props.color === 'gray',
-    'vsf-button--secondary': props.color === 'secondary',
-    'vsf-button--positive': props.color === 'positive',
 
     'vsf-button--variant-primary': props.variant === 'primary',
     'vsf-button--variant-secondary': props.variant === 'secondary',
