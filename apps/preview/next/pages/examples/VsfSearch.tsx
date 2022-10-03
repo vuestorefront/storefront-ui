@@ -54,6 +54,7 @@ function Example() {
         type: 'text',
         propType: 'string',
         modelName: 'slotSubmit',
+        description: "Only for demonstration purposes, Content is injected via 'submit' slot",
       },
       {
         title: 'Placeholder',
