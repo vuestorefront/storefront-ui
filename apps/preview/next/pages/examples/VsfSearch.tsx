@@ -1,4 +1,4 @@
-import { ChangeEvent } from 'react';
+import { ChangeEvent, FormEvent, MouseEvent } from 'react';
 import VsfSearch from '@sfui/sfui/frameworks/react/components/VsfSearch';
 import { VsfIconSearch } from '@sfui/sfui/frameworks/react/components/VsfIcons';
 import Controls, { prepareControls } from '../../components/utils/Controls';
@@ -88,11 +88,11 @@ function Example() {
       slotSuffix: false,
     },
   );
-  function submitHandler(e: SubmitEvent) {
+  function submitHandler(e: FormEvent) {
     e.preventDefault();
     console.log('Search Submit: ', e);
   }
-  function resetHandler(e: PointerEvent) {
+  function resetHandler(e: MouseEvent) {
     state.set({ ...state.get, value: '' });
     console.log('Search Reset: ', e);
   }
