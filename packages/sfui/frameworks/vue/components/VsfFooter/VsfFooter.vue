@@ -48,11 +48,9 @@ const linkTag = (tag: TagOrComponent | undefined) => tag ?? 'a';
       </template>
     </div>
     <div class="vsf-footer__wrapper--contact">
-      <template v-for="(contactOption, index) in contactOptions" :key="contactOption.label">
+      <template v-for="contactOption in contactOptions" :key="contactOption.label">
         <div class="vsf-footer__contact">
-          <slot v-if="index === 0" name="helpIcon" />
-          <slot v-else-if="index === 1" name="chatIcon" />
-          <slot v-else name="phoneIcon" />
+          <slot :name="`${contactOption.iconName}Icon`" />
           <component
             :is="linkTag(contactOption.linkTag)"
             v-bind="contactOption.bindings"
@@ -70,11 +68,7 @@ const linkTag = (tag: TagOrComponent | undefined) => tag ?? 'a';
       <template v-for="social in socialMedia" :key="social.label">
         <div class="vsf-footer__social-media">
           <component :is="linkTag(social.linkTag)" v-bind="social.bindings" class="vsf-footer__label--social-media">
-            <slot v-if="social.label.toLowerCase() === 'facebook'" name="facebookIcon" />
-            <slot v-if="social.label.toLowerCase() === 'twitter'" name="twitterIcon" />
-            <slot v-if="social.label.toLowerCase() === 'pinterest'" name="pinterestIcon" />
-            <slot v-if="social.label.toLowerCase() === 'youtube'" name="youtubeIcon" />
-            <slot v-if="social.label.toLowerCase() === 'instagram'" name="instagramIcon" />
+            <slot :name="`${social.label?.toLowerCase()}Icon`" />
           </component>
         </div>
       </template>

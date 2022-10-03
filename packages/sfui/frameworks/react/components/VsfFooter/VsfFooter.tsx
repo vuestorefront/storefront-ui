@@ -39,18 +39,18 @@ export default function VsfFooter({
       </div>
       <div className="vsf-footer__wrapper--social-media">
         <div className="vsf-footer__social-media">
-          {socialMedia.map((element) => (
-            <Link href={element.link} key={element.label}>
-              <a className="vsf-footer__label--social-media" aria-label={`Go to ${element.label} page`}>
-                {element.icon}
+          {socialMedia.map((social) => (
+            <Link href={social.link} key={social.label}>
+              <a className="vsf-footer__label--social-media" aria-label={`Go to ${social.label} page`}>
+                {social.icon}
               </a>
             </Link>
           ))}
         </div>
         <div className="vsf-footer__bottom-links">
-          {bottomLinks.map((element) => (
-            <Link href={element.link} key={element.label}>
-              <a className="vsf-footer__label--bottom-links">{element.label}</a>
+          {bottomLinks.map((bottomLink) => (
+            <Link href={bottomLink.link} key={bottomLink.label}>
+              <a className="vsf-footer__label--bottom-links">{bottomLink.label}</a>
             </Link>
           ))}
         </div>

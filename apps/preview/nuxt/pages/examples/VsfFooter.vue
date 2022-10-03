@@ -210,16 +210,19 @@ export default defineComponent({
         label: 'Help center',
         bindings: { href: '/' },
         details: ['Find answers online anytime'],
+        iconName: 'help',
       },
       {
         label: 'Live chat',
         bindings: { href: '/' },
         details: ['Mon–Fri, 5am–10pm PT', 'Sat–Sun, 6am–9pm PT'],
+        iconName: 'chat',
       },
       {
         label: '1 234 567 8901',
         bindings: { href: '/' },
         details: ['Mon–Fri, 5am–10pm PT', 'Sat–Sun, 6am–9pm PT'],
+        iconName: 'phone',
       },
     ];
     const bottomLinks = [

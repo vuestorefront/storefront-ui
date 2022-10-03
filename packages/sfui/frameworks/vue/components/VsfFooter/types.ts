@@ -14,6 +14,7 @@ export type VsfContactOptionsType = {
   details: string[];
   linkTag?: TagOrComponent;
   bindings?: Record<string, unknown>;
+  iconName?: string;
 };
 export interface VsfFooterProps {
   categories: VsfCategoriesType[];

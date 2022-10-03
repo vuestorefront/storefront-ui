@@ -18,9 +18,13 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 ## Slots
 
-| Slot name |            Description            |
-| --------- | :-------------------------------: |
+### Vue only:
+
+| Slot name           | Description            |
+|---------------------|------------------------|
+| `{CUSTOM_NAME}Icon` | slot content for icon  |
 
 ## Source code
 
+<<<../../../packages/sfui/frameworks/vue/components/VsfFooter/VsfFooter.vue
 <<<../../../packages/sfui/frameworks/react/components/VsfFooter/VsfFooter.tsx
