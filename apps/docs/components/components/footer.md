@@ -4,16 +4,30 @@ The Footer component is an inseparable element of every page. It can contains li
 
 ## Figma design
 
-See the design on [Figma](https://www.figma.com/file/A9oevt176KzEx3aWDyLCZq/%F0%9F%9B%A0-SFUI-2.0-%7C-Demo?node-id=11662%3A12466)
+See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%9F%9B%A0-SFUI-2.0-%7C-Development?node-id=13970%3A22832)
 
 ## Props
 
-| Prop name   | Type                         | Default value | Possible values                        |
-| -----------   | -------                    | ------------- | -------------------------------------- |
-| categories     | Array                     | []            |                                        |
-| companyName    | String                    | ''            |                                        |
-| contactOptions | Array                      | []            |                                        |
-| bottomLinks    | Array                      | []            |                                        |
+| Prop name      | Type                    | Default value | Possible values |
+|----------------|-------------------------|---------------|-----------------|
+| categories     | `VsfCategoriesType`     | []            |                 |
+| socialMedia    | `VsfLinkType`           | []            |                 |
+| companyName    | `String`                | ''            |                 |
+| contactOptions | `VsfContactOptionsType` | []            |                 |
+| bottomLinks    | `VsfLinkType`           | []            |                 |
+
+### React only:
+
+| Prop name     | Type        | Default value | Possible values |
+|---------------|-------------|---------------|-----------------|
+| helpIcon      | `ReactNode` |               |                 |
+| chatIcon      | `ReactNode` |               |                 |
+| contactIcon   | `ReactNode` |               |                 |
+| facebookIcon  | `ReactNode` |               |                 |
+| twitterIcon   | `ReactNode` |               |                 |
+| pinterestIcon | `ReactNode` |               |                 |
+| youtubeIcon   | `ReactNode` |               |                 |
+| instagramIcon | `ReactNode` |               |                 |
 
 ## Slots
 
@@ -22,4 +36,4 @@ See the design on [Figma](https://www.figma.com/file/A9oevt176KzEx3aWDyLCZq/%F0%
 
 ## Source code
 
-<<<../../mitosis/src/blocks/VsfFooter/VsfFooter.lite.tsx
+<<<../../../packages/sfui/frameworks/react/components/VsfFooter/VsfFooter.tsx
