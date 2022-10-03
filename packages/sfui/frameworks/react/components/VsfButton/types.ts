@@ -40,4 +40,5 @@ export type VsfButtonProps = {
   link?: string;
   block?: boolean;
   onClick?: (e: MouseEvent) => void;
+  className?: string;
 };

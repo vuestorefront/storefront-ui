@@ -38,5 +38,6 @@ module.exports = {
     ],
     'react/jsx-no-bind': 'off',
     'prettier/prettier': 'error',
+    'react/button-has-type': ['error', { reset: true }],
   },
 };

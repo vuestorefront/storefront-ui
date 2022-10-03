@@ -19,6 +19,7 @@ const VsfButton = forwardRef<unknown, VsfButtonProps>(
       slotPrefix,
       slotSuffix,
       link,
+      className,
       ...attributes
     },
     ref,
@@ -27,29 +28,33 @@ const VsfButton = forwardRef<unknown, VsfButtonProps>(
     if (link && Tag === 'button') {
       TagInternal = 'a';
     }
-    const buttonClasses = classNames('vsf-button', {
-      'vsf-button--disabled': disabled,
-      'vsf-button--link': Tag === 'a',
-      'vsf-button--rounded': rounded,
-      'vsf-button--tile': tile,
-      'vsf-button--icon': icon,
-      'vsf-button--block': block,
+    const buttonClasses = classNames(
+      'vsf-button',
+      {
+        'vsf-button--disabled': disabled,
+        'vsf-button--link': Tag === 'a',
+        'vsf-button--rounded': rounded,
+        'vsf-button--tile': tile,
+        'vsf-button--icon': icon,
+        'vsf-button--block': block,
 
-      'vsf-button--base': size === 'base',
-      'vsf-button--sm': size === 'sm',
-      'vsf-button--lg': size === 'lg',
+        'vsf-button--base': size === 'base',
+        'vsf-button--sm': size === 'sm',
+        'vsf-button--lg': size === 'lg',
 
-      'vsf-button--primary': color === 'primary',
-      'vsf-button--negative': color === 'negative',
-      'vsf-button--warning': color === 'warning',
-      'vsf-button--gray': color === 'gray',
-      'vsf-button--secondary': color === 'secondary',
-      'vsf-button--positive': color === 'positive',
+        'vsf-button--primary': color === 'primary',
+        'vsf-button--negative': color === 'negative',
+        'vsf-button--warning': color === 'warning',
+        'vsf-button--gray': color === 'gray',
+        'vsf-button--secondary': color === 'secondary',
+        'vsf-button--positive': color === 'positive',
 
-      'vsf-button--variant-primary': variant === 'primary',
-      'vsf-button--variant-secondary': variant === 'secondary',
-      'vsf-button--variant-tertiary': variant === 'tertiary',
-    });
+        'vsf-button--variant-primary': variant === 'primary',
+        'vsf-button--variant-secondary': variant === 'secondary',
+        'vsf-button--variant-tertiary': variant === 'tertiary',
+      },
+      className,
+    );
 
     return (
       <TagInternal
