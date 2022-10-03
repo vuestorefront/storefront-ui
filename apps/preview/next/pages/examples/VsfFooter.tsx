@@ -112,22 +112,27 @@ function Example() {
     {
       label: 'Facebook',
       link: '/',
+      icon: <VsfIconFacebook />,
     },
     {
       label: 'Twitter',
       link: '/',
+      icon: <VsfIconTwitter />,
     },
     {
       label: 'Instagram',
       link: '/',
+      icon: <VsfIconInstagram />,
     },
     {
       label: 'Pinterest',
       link: '/',
+      icon: <VsfIconPinterest />,
     },
     {
       label: 'Youtube',
       link: '/',
+      icon: <VsfIconYoutube />,
     },
   ];
   const contactOptions = [
@@ -135,16 +140,19 @@ function Example() {
       label: 'Help center',
       link: '/',
       details: ['Find answers online anytime'],
+      icon: <VsfIconHelp size={VsfIconSizeEnum.lg} />,
     },
     {
       label: 'Live chat',
       link: '/',
       details: ['Mon–Fri, 5am–10pm PT', 'Sat–Sun, 6am–9pm PT'],
+      icon: <VsfIconChat size={VsfIconSizeEnum.lg} />,
     },
     {
       label: '1 234 567 8901',
       link: '/',
       details: ['Mon–Fri, 5am–10pm PT', 'Sat–Sun, 6am–9pm PT'],
+      icon: <VsfIconPhone size={VsfIconSizeEnum.lg} />,
     },
   ];
   const bottomLinks = [
@@ -194,54 +202,6 @@ function Example() {
         propDefaultValue: '',
         propType: 'string',
       },
-      {
-        title: 'WithHelpIcon',
-        type: 'boolean',
-        modelName: 'withHelpIconModel',
-        propType: 'boolean',
-      },
-      {
-        title: 'WithChatIcon',
-        type: 'boolean',
-        modelName: 'withChatIconModel',
-        propType: 'boolean',
-      },
-      {
-        title: 'WithContactIcon',
-        type: 'boolean',
-        modelName: 'withContactIconModel',
-        propType: 'boolean',
-      },
-      {
-        title: 'WithFacebookIcon',
-        type: 'boolean',
-        modelName: 'withFacebookIconModel',
-        propType: 'boolean',
-      },
-      {
-        title: 'WithTwitterIcon',
-        type: 'boolean',
-        modelName: 'withTwitterIconModel',
-        propType: 'boolean',
-      },
-      {
-        title: 'WithPinterestIcon',
-        type: 'boolean',
-        modelName: 'withPinterestIconModel',
-        propType: 'boolean',
-      },
-      {
-        title: 'WithYoutubeIcon',
-        type: 'boolean',
-        modelName: 'withYoutubeIconModel',
-        propType: 'boolean',
-      },
-      {
-        title: 'WithInstagramIcon',
-        type: 'boolean',
-        modelName: 'withInstagramIconModel',
-        propType: 'boolean',
-      },
     ],
     {
       categoriesModel: categories,
@@ -249,14 +209,6 @@ function Example() {
       companyNameModel: '© 2022 Vue Storefront',
       contactOptionsModel: contactOptions,
       bottomLinksModel: bottomLinks,
-      withHelpIconModel: true,
-      withChatIconModel: true,
-      withContactIconModel: true,
-      withFacebookIconModel: true,
-      withTwitterIconModel: true,
-      withPinterestIconModel: true,
-      withYoutubeIconModel: true,
-      withInstagramIconModel: true,
     },
   );
 
@@ -269,14 +221,6 @@ function Example() {
           companyName={state.get.companyNameModel}
           contactOptions={state.get.contactOptionsModel}
           bottomLinks={state.get.bottomLinksModel}
-          helpIcon={state.get.withHelpIconModel && <VsfIconHelp size={VsfIconSizeEnum.lg} />}
-          chatIcon={state.get.withChatIconModel && <VsfIconChat size={VsfIconSizeEnum.lg} />}
-          contactIcon={state.get.withContactIconModel && <VsfIconPhone size={VsfIconSizeEnum.lg} />}
-          facebookIcon={state.get.withFacebookIconModel && <VsfIconFacebook />}
-          twitterIcon={state.get.withTwitterIconModel && <VsfIconTwitter />}
-          pinterestIcon={state.get.withPinterestIconModel && <VsfIconPinterest />}
-          youtubeIcon={state.get.withYoutubeIconModel && <VsfIconYoutube />}
-          instagramIcon={state.get.withInstagramIconModel && <VsfIconInstagram />}
         />
       </div>
       <div className="e-page-controls">

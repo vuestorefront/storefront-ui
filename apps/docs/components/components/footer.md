@@ -16,19 +16,6 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 | contactOptions | `VsfContactOptionsType` | []            |                 |
 | bottomLinks    | `VsfLinkType`           | []            |                 |
 
-### React only:
-
-| Prop name     | Type        | Default value | Possible values |
-|---------------|-------------|---------------|-----------------|
-| helpIcon      | `ReactNode` |               |                 |
-| chatIcon      | `ReactNode` |               |                 |
-| contactIcon   | `ReactNode` |               |                 |
-| facebookIcon  | `ReactNode` |               |                 |
-| twitterIcon   | `ReactNode` |               |                 |
-| pinterestIcon | `ReactNode` |               |                 |
-| youtubeIcon   | `ReactNode` |               |                 |
-| instagramIcon | `ReactNode` |               |                 |
-
 ## Slots
 
 | Slot name |            Description            |

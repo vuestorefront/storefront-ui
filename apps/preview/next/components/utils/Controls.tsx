@@ -49,6 +49,19 @@ export default function Controls<T extends Models>(props: ControlsProps<T>) {
     });
   }
 
+  function getCircularReplacer() {
+    const seen = new WeakSet();
+    return (key: any, value: any) => {
+      if (typeof value === 'object' && value !== null) {
+        if (seen.has(value)) {
+          return;
+        }
+        seen.add(value);
+      }
+      return value;
+    };
+  }
+
   function handleOnChangeValue<T = HTMLFormElement>(e: ChangeEvent<T>, name: string) {
     setState({ [name]: (e.target as unknown as HTMLFormElement).value });
   }
@@ -157,7 +170,13 @@ export default function Controls<T extends Models>(props: ControlsProps<T>) {
                                   rows={10}
                                   {...(option as ControlOptionBind).bind}
                                   className="border rounded-md"
-                                  value={JSON.stringify(props.state.get[control.modelName], undefined, 2) as string}
+                                  value={
+                                    JSON.stringify(
+                                      props.state.get[control.modelName],
+                                      getCircularReplacer(),
+                                      2,
+                                    ) as string
+                                  }
                                   onChange={(e) => handleJsonOnChangeValue(e, control.modelName)}
                                 ></textarea>
                               ) : control.type === 'range' || control.type === 'text' ? (

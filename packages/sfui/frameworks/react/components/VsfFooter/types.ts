@@ -3,6 +3,7 @@ import type { ReactNode } from 'react';
 export type VsfLinkType = {
   label: string;
   link: string;
+  icon?: ReactNode;
 };
 export type VsfCategoriesType = {
   label: string;
@@ -12,6 +13,7 @@ export type VsfContactOptionsType = {
   label: string;
   link: string;
   details: string[];
+  icon?: ReactNode;
 };
 export interface VsfFooterProps {
   categories: VsfCategoriesType[];
@@ -19,12 +21,4 @@ export interface VsfFooterProps {
   companyName: string;
   contactOptions: VsfContactOptionsType[];
   bottomLinks: VsfLinkType[];
-  helpIcon?: ReactNode;
-  chatIcon?: ReactNode;
-  contactIcon?: ReactNode;
-  facebookIcon?: ReactNode;
-  twitterIcon?: ReactNode;
-  pinterestIcon?: ReactNode;
-  youtubeIcon?: ReactNode;
-  instagramIcon?: ReactNode;
 }

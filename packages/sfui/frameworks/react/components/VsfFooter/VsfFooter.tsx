@@ -7,14 +7,6 @@ export default function VsfFooter({
   companyName = '',
   contactOptions = [],
   bottomLinks = [],
-  helpIcon,
-  chatIcon,
-  contactIcon,
-  facebookIcon,
-  twitterIcon,
-  pinterestIcon,
-  youtubeIcon,
-  instagramIcon,
 }: VsfFooterProps): JSX.Element {
   return (
     <footer className="vsf-footer">
@@ -31,15 +23,13 @@ export default function VsfFooter({
         ))}
       </div>
       <div className="vsf-footer__wrapper--contact">
-        {contactOptions.map((element, index) => (
-          <div className="vsf-footer__contact" key={element.label}>
-            {index === 0 && helpIcon}
-            {index === 1 && chatIcon}
-            {index === 2 && contactIcon}
-            <Link href={element.link} key={element.label}>
-              <a className="vsf-footer__label--contact">{element.label}</a>
+        {contactOptions.map((contactOption) => (
+          <div className="vsf-footer__contact" key={contactOption.label}>
+            {contactOption.icon}
+            <Link href={contactOption.link} key={contactOption.label}>
+              <a className="vsf-footer__label--contact">{contactOption.label}</a>
             </Link>
-            {element.details?.map((option) => (
+            {contactOption.details?.map((option) => (
               <span className="vsf-footer__contact--option" key={option}>
                 {option}
               </span>
@@ -52,11 +42,7 @@ export default function VsfFooter({
           {socialMedia.map((element) => (
             <Link href={element.link} key={element.label}>
               <a className="vsf-footer__label--social-media" aria-label={`Go to ${element.label} page`}>
-                {element.label.toLowerCase() === 'facebook' && facebookIcon}
-                {element.label.toLowerCase() === 'twitter' && twitterIcon}
-                {element.label.toLowerCase() === 'pinterest' && pinterestIcon}
-                {element.label.toLowerCase() === 'youtube' && youtubeIcon}
-                {element.label.toLowerCase() === 'instagram' && instagramIcon}
+                {element.icon}
               </a>
             </Link>
           ))}
