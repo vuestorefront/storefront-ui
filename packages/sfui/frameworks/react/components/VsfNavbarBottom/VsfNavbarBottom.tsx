@@ -18,10 +18,9 @@ export default function VsfNavbarBottom({
     },
     className,
   );
-  const rootClasses = classNames('vsf-navbar-bottom__root');
   return (
     <nav className={classes} {...attributes}>
-      <div className={rootClasses}>{children}</div>
+      <div className="vsf-navbar-bottom__root">{children}</div>
     </nav>
   );
 }

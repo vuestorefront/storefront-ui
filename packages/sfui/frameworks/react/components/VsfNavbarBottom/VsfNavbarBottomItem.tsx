@@ -39,7 +39,9 @@ const VsfNavbarBottomItem = forwardRef<unknown, VsfNavbarBottomItemProps>(
       <TagInternal onClick={onClick} ref={ref} className={classes} {...(link ? { href: link } : {})} {...attributes}>
         <span className="vsf-navbar-bottom-item__content">
           <div className={badgeClass}>
-            <Icon className="vsf-navbar-bottom-item__icon" />
+            <span className="vsf-navbar-bottom-item__icon">
+              <Icon />
+            </span>
             {badge && (
               <div className="vsf-navbar-bottom-item-badge__wrapper">
                 <div className="vsf-navbar-bottom-item-badge__badge">
