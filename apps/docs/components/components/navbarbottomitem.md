@@ -35,5 +35,5 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 ## Source code
 
-<<<../../../packages/sfui/frameworks/vue/components/VsfNavbarBottomItem/VsfNavbarBottomItem.vue
-<<< ../../../packages/sfui/frameworks/react/components/VsfNavbarBottomItem/VsfNavbarBottomItem.tsx
+<<<../../../packages/sfui/frameworks/vue/components/VsfNavbarBottom/VsfNavbarBottomItem.vue
+<<< ../../../packages/sfui/frameworks/react/components/VsfNavbarBottom/VsfNavbarBottomItem.tsx
