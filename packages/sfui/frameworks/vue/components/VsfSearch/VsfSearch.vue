@@ -18,7 +18,7 @@ const props = defineProps({
   },
   name: {
     type: String,
-    default: null,
+    default: 'search',
   },
   required: {
     type: Boolean,
