@@ -24,7 +24,7 @@ export default function VsfFooter({
             <span className="vsf-footer__label--category">{category.label}</span>
             {category.subcategories?.map((subcategory) => (
               <Link href={subcategory.link} key={subcategory.label}>
-                <p className="vsf-footer__label--subcategory">{subcategory.label}</p>
+                <a className="vsf-footer__label--subcategory">{subcategory.label}</a>
               </Link>
             ))}
           </div>
