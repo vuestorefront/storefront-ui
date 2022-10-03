@@ -43,7 +43,7 @@
       @apply flex flex-col items-center justify-center min-h-[40px] pt-2 bg-inherit;
     }
     &__icon {
-      @apply m-auto;
+      @apply m-auto inline-flex;
     }
     &__label {
       @apply font-medium text-xs mt-0.5;
