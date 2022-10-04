@@ -1,47 +1,66 @@
-.chip {
-  @apply relative inline-flex items-center ring-1 ring-gray-200 ring-inset rounded-full cursor-pointer bg-white
-}
-.chip.chip--primary {
-  /* react does not respect classNames order */
-  @apply ring-2 ring-primary-500
-}
-.chip.chip--disabled {
-  @apply cursor-not-allowed bg-gray-100/50 !ring-1 !ring-gray-200/50
-}
-.chip.chip--disabled .chip__content {
-  @apply text-opacity-40;
-}
-.chip.chip--disabled .chip__left-icon {
-  @apply !opacity-20;
-}
-.chip.chip--disabled .chip__right-icon {
-  @apply hidden;
-}
+.vsf-chips-filter {
+  $parent: &;
+  @apply relative inline-block items-center cursor-pointer bg-white;
 
-.chip.size--sm {
-  @apply text-sm h-7 pl-1 pr-1.5
-}
+  &__input {
+    @apply appearance-none outline-none absolute;
+  }
 
-.chip.size--base {
-  @apply text-sm h-8 pl-1 pr-1.5
-}
+  &__peer-wrapper {
+    @apply transition duration-300 justify-center;
+    @apply peer-checked:ring-2 peer-checked:ring-primary-500 peer-hover:ring-primary-500 peer-active:ring-primary-500;
+    @apply ring-1 ring-gray-200 ring-inset rounded-full flex items-center peer-hover:bg-primary-100 peer-active:bg-primary-200;
+    @apply peer-disabled:cursor-not-allowed peer-disabled:bg-gray-100/50 peer-disabled:ring-1 peer-disabled:ring-gray-200/50;
+    @apply outline-offset-2 outline-violet peer-focus:outline;
 
-.chip.size--lg {
-  @apply text-base h-10 pl-2 pr-2.5 gap-0.5
-}
+    #{$parent}__thumbnail {
+      @apply transition duration-300;
+      @apply rounded-full h-5 w-5 opacity-50 peer-checked:opacity-100;
+      @apply peer-disabled:opacity-20;
+    }
 
-.chip .chip__left-icon {
-  @apply -mr-0.5 inline-flex
-}
+    #{$parent}__label {
+      @apply peer-disabled:text-opacity-40;
+    }
+  }
 
-.chip .chip__content {
-  @apply mr-2 ml-1.5 relative left-0.5
-}
+  &__label {
+    @apply relative font-normal text-gray-900;
+  }
 
-.chip .chip__right-icon {
-  @apply mr-0.5 inline-flex
-}
+  &--primary {
+    @apply ring-2 ring-primary-500;
+  }
 
-.chips-filter__wrapper .chips-filter__thumb {
-  @apply peer-checked:opacity-100;
+  &--size-sm {
+    #{$parent}__peer-wrapper {
+      @apply text-sm h-7 p-1.5 min-w-[1.75rem];
+
+      #{$parent}__thumbnail {
+        @apply h-4 w-4;
+      }
+      #{$parent}__label {
+        @apply px-2;
+      }
+    }
+  }
+
+  &--size-base {
+    #{$parent}__peer-wrapper {
+      @apply text-sm h-8 p-1.5 gap-0.5 min-w-[2rem];
+    }
+
+    #{$parent}__label {
+      @apply px-1.5;
+    }
+  }
+
+  &--size-lg {
+    #{$parent}__peer-wrapper {
+      @apply text-base h-10 p-2 gap-0.5 min-w-[2.5rem];
+    }
+    #{$parent}__label {
+      @apply px-2;
+    }
+  }
 }

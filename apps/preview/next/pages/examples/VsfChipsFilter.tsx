@@ -1,9 +1,8 @@
-import VsfChipsFilter, { VsfChipsFilterVariants } from '../../output/blocks/VsfChipsFilter/VsfChipsFilter.lite';
+import VsfChipsFilter, { VsfChipsFilterVariants } from '@sfui/sfui/frameworks/react/components/VsfChipsFilter';
 import Controls, { prepareControls } from '../../components/utils/Controls';
-import VsfIconDot from '../../output/blocks/VsfIcons/VsfIconDot.lite';
-import { ExamplePageLayout } from '../examplesOld';
+import { ExamplePageLayout } from '../examples';
 
-const Example = () => {
+function Example() {
   const { state, controls } = prepareControls(
     [
       {
@@ -24,7 +23,7 @@ const Example = () => {
         title: 'Type',
         type: 'select',
         modelName: 'typeModel',
-        options: ['radio', 'checkbox'],
+        options: ['checkbox', 'radio'],
         propDefaultValue: 'checkbox',
         propType: 'string',
       },
@@ -35,9 +34,9 @@ const Example = () => {
         propType: 'boolean',
       },
       {
-        title: 'No Thumb',
+        title: 'Show Thumb',
         type: 'boolean',
-        modelName: 'noThumbModel',
+        modelName: 'showThumbModel',
         propType: 'boolean',
         description: 'Only for demonstration purposes',
       },
@@ -46,8 +45,8 @@ const Example = () => {
       variantModel: VsfChipsFilterVariants.base,
       disabledModel: false,
       labelModel: 'Label',
-      typeModel: '',
-      noThumbModel: false,
+      typeModel: 'checkbox',
+      showThumbModel: true,
       modelValue: '',
     },
   );
@@ -56,14 +55,17 @@ const Example = () => {
     <div className="e-page">
       <div className="e-page-component">
         <VsfChipsFilter
+          name="test"
           disabled={state.get.disabledModel}
-          noThumb={state.get.noThumbModel}
           size={state.get.variantModel}
           label={state.get.labelModel}
-          type={state.get.typeModel}
+          type={state.get.typeModel as 'radio' | 'checkbox'}
           value="one"
-          slotThumb={!state.get.noThumbModel ? <VsfIconDot className="vsf-icon-full" /> : null}
-        />
+          onChange={() => console.log('changed!')}
+          className="mr-2"
+        >
+          {state.get.showThumbModel ? <div className="bg-black w-full h-full rounded-full" /> : null}
+        </VsfChipsFilter>
       </div>
       <div className="e-page-controls">
         <Controls {...{ state, controls }} />
