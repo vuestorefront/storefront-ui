@@ -8,8 +8,7 @@
   &--disabled &__form {
     @apply pointer-events-none;
   }
-  &__form,
-  &__fieldset {
+  &__form {
     @apply flex w-full;
   }
   &__submit {

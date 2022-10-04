@@ -43,43 +43,41 @@ export default function VsfSearch({
   return (
     <div className={classes} {...attributes}>
       <form role="search" className="vsf-search__form" onSubmit={onSubmit}>
-        <fieldset disabled={disabled} className="vsf-search__fieldset">
-          <div className="vsf-search__input-wrapper group">
-            {slotPrefix && <span className="vsf-search__input-prefix">{slotPrefix}</span>}
+        <div className="vsf-search__input-wrapper group">
+          {slotPrefix && <span className="vsf-search__input-prefix">{slotPrefix}</span>}
 
-            <input
-              role="searchbox"
-              type="search"
-              name={name}
-              placeholder={placeholder}
-              value={value}
-              onInput={onInputHandler}
-              required={required}
-              autoComplete={autocomplete}
-              className="vsf-search__input peer"
-            />
+          <input
+            role="searchbox"
+            type="search"
+            name={name}
+            placeholder={placeholder}
+            value={value}
+            onInput={onInputHandler}
+            required={required}
+            autoComplete={autocomplete}
+            className="vsf-search__input peer"
+            disabled={disabled}
+          />
 
-            <span className="vsf-search__input-reset">
-              <button type="reset" className="vsf-search__input-reset-button" onClick={onResetHandler}>
-                <VsfIconCancel />
-              </button>
-            </span>
-
-            {slotSuffix && <span className="vsf-search__input-suffix">{slotSuffix}</span>}
-          </div>
-
-          {slotSubmit && (
-            <VsfButton
-              type="submit"
-              className="vsf-search__submit"
-              tile
-              icon={typeof slotSubmit !== 'string'}
+          <span className="vsf-search__input-reset">
+            <button
+              type="reset"
+              className="vsf-search__input-reset-button"
+              onClick={onResetHandler}
               disabled={disabled}
             >
-              {slotSubmit}
-            </VsfButton>
-          )}
-        </fieldset>
+              <VsfIconCancel />
+            </button>
+          </span>
+
+          {slotSuffix && <span className="vsf-search__input-suffix">{slotSuffix}</span>}
+        </div>
+
+        {slotSubmit && (
+          <VsfButton type="submit" className="vsf-search__submit" tile icon disabled={disabled}>
+            {slotSubmit}
+          </VsfButton>
+        )}
       </form>
 
       <div className="vsf-search__results">{slotResults}</div>
