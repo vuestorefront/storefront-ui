@@ -52,9 +52,9 @@ const VsfButton = forwardRef<unknown, VsfButtonProps>(
         {...(link ? { href: link } : {})}
         {...attributes}
       >
-        {slotPrefix}
+        {slotPrefix && <span className="vsf-button__prefix">{slotPrefix}</span>}
         {children}
-        {slotSuffix}
+        {slotSuffix && <span className="vsf-button__suffix">{slotSuffix}</span>}
       </TagInternal>
     );
   },

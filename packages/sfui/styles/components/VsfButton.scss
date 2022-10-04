@@ -1,9 +1,15 @@
 .vsf-button {
   $this: &;
 
-  @apply inline-flex items-center justify-center cursor-pointer font-body outline-violet font-medium gap-2;
+  @apply inline-flex items-center justify-center cursor-pointer font-body outline-violet font-medium;
   @apply rounded-md;
   @apply text-base;
+  &__prefix {
+    @apply mr-2;
+  }
+  &__suffix {
+    @apply ml-2;
+  }
   &--block {
     @apply flex flex-1 w-full;
   }
