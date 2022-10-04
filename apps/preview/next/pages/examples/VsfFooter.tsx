@@ -221,6 +221,7 @@ function Example() {
           companyName={state.get.companyNameModel}
           contactOptions={state.get.contactOptionsModel}
           bottomLinks={state.get.bottomLinksModel}
+          tag="Link"
         />
       </div>
       <div className="e-page-controls">

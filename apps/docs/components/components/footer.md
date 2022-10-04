@@ -16,6 +16,11 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 | contactOptions | `VsfContactOptionsType` | []            |                 |
 | bottomLinks    | `VsfLinkType`           | []            |                 |
 
+### React only:
+| Prop name | Type      | Default value  | Possible values |
+|-----------|-----------|----------------|-----------------|
+| tag       | `String`  |                |                 |
+
 ## Slots
 
 ### Vue only:

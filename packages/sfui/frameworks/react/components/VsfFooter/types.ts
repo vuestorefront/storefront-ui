@@ -21,4 +21,5 @@ export interface VsfFooterProps {
   companyName: string;
   contactOptions: VsfContactOptionsType[];
   bottomLinks: VsfLinkType[];
+  tag?: string;
 }
