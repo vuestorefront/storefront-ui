@@ -1,0 +1,74 @@
+import VsfBadge from '@sfui/sfui/frameworks/react/components/VsfBadge';
+import VsfButton from '@sfui/sfui/frameworks/react/components/VsfButton';
+import { VsfIconBasket } from '@sfui/sfui/frameworks/react/components/VsfIcons';
+import Controls, { prepareControls } from '../../components/utils/Controls';
+import { ExamplePageLayout } from '../examples';
+
+function Example() {
+  const { state, controls } = prepareControls(
+    [
+      {
+        title: 'Bordered',
+        type: 'boolean',
+        propType: 'boolean',
+        modelName: 'bordered',
+      },
+      {
+        title: 'Dot',
+        type: 'boolean',
+        propType: 'boolean',
+        modelName: 'dot',
+      },
+      {
+        title: 'Invisible',
+        type: 'boolean',
+        propType: 'boolean',
+        modelName: 'invisible',
+      },
+      {
+        title: 'Value',
+        type: 'text',
+        propType: 'string',
+        modelName: 'value',
+      },
+    ],
+    {
+      bordered: false,
+      dot: false,
+      invisible: false,
+      value: '',
+    },
+  );
+
+  return (
+    <div className="e-page">
+      <div className="e-page-component relative">
+        <div className="bg-white inline-flex gap-4 items-end p-4">
+          <VsfBadge
+            bordered={state.get.bordered}
+            dot={state.get.dot}
+            invisible={state.get.invisible}
+            value={state.get.value}
+          >
+            <VsfButton>unstyled</VsfButton>
+          </VsfBadge>
+          <VsfBadge
+            bordered={state.get.bordered}
+            dot={state.get.dot}
+            invisible={state.get.invisible}
+            value={state.get.value}
+            className="text-white bg-secondary-600"
+          >
+            <VsfIconBasket />
+          </VsfBadge>
+        </div>
+      </div>
+      <div className="e-page-controls">
+        <Controls {...{ state, controls }} />
+      </div>
+    </div>
+  );
+}
+
+Example.getLayout = ExamplePageLayout;
+export default Example;
