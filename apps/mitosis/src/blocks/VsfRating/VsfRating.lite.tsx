@@ -2,7 +2,7 @@ import { Show, useStore, For } from '@builder.io/mitosis';
 import VsfIconStar from '../VsfIcons/VsfIconStar.lite';
 import VsfIconStarOutline from '../VsfIcons/VsfIconStarOutline.lite';
 import VsfIconStarPartiallyFilled from '../VsfIcons/VsfIconStarPartiallyFilled.lite';
-import VsfCounter from '../VsfCounter/VsfCounter.lite';
+import VsfCounter from '../VsfCounter/VsfCounter.lite'
 
 export const VsfRatingVariants = Object.freeze({
   xs: 'xs',
