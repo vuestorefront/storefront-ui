@@ -13,15 +13,22 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 | open| Boolean | true          |              |
 | title      | String  | ''            |                                        |
 | chevronLeft | Boolean  | false            |                                        |                                        |
-| headerSize| String | 'lg'            | 'base', 'lg', 'bold', 'xl'             |
 
-## Props prefixed with slot (slots)
+### React only: 
+| Prop name   | Type    | Default value | Possible values                        |
+| ----------- | ------- | ------------- | -------------------------------------- |
+| slotPrefix | ReactNode  |             |                                        |                                        |
+| slotSuffix | ReactNode  |             |                                        |                                        |
+| children | ReactNode  |             |                                        |                                        |
+
+
+## Slots (vue only)
 
 | Slot name |            Description            |
 | --------- | :-------------------------------: |
-| slotPrefix  |     replaces the title with styling  |
-| slotSuffix  |     replaces the chevron icon     |
-| slotDefault    | replaces the content |
+| prefix  |     replaces the title with styling  |
+| suffix  |     replaces the chevron icon     |
+| default    | replaces the content |
 
 ## Events
 
