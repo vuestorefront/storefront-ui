@@ -51,7 +51,7 @@ export default function Controls<T extends Models>(props: ControlsProps<T>) {
 
   function getCircularReplacer() {
     const seen = new WeakSet();
-    return (key: any, value: any) => {
+    return (key, value) => {
       if (typeof value === 'object' && value !== null) {
         if (seen.has(value)) {
           return;
