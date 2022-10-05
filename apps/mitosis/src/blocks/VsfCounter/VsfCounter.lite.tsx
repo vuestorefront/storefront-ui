@@ -17,7 +17,7 @@ export interface VsfCounterProps {
   children?: any;
 }
 
-export default function VsfCounterLite(props: VsfCounterProps) {
+export default function VsfCounter(props: VsfCounterProps) {
   const state = useStore({
     get fontSizeClass() {
       switch (props.size) {
