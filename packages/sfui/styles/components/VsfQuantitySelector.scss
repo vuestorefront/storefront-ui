@@ -1,3 +1,31 @@
 .vsf-qty-selector {
-  
+  $root: &;
+  @apply relative items-center inline-flex flex-col;
+  &--disabled {
+    #{$root}__wrapper {
+      @apply bg-gray-200 opacity-50 cursor-not-allowed;
+      &:after {
+        @apply content-['-'] font-medium text-gray-900/40 absolute text-center flex justify-center items-center w-full h-full;
+      }
+    }
+  }
+  &--block {
+    @apply flex flex-1 w-full;
+  }
+  &__wrapper {
+    @apply flex border border-gray-300 rounded-md w-full;
+  }
+  &__description {
+    @apply mt-1 text-xs font-normal text-center font-body;
+  }
+  &__input {
+    @apply flex relative flex-1 items-center;
+    @apply inline-block w-full text-center text-gray-900 bg-transparent disabled:text-transparent;
+  }
+  &__decrease {
+    @apply rounded-l-md;
+  }
+  &__increase {
+    @apply rounded-r-md;
+  }
 }

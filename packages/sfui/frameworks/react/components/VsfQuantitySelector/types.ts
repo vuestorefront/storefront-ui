@@ -1,23 +1,24 @@
-import type { ChangeEventHandler, ReactNode } from 'react';
+import type { ReactNode, PropsWithChildren } from 'react';
 
 export enum VsfQuantitySelectorSizes {
+  sm = 'sm',
   base = 'base',
   lg = 'lg',
 }
 
-type VsfQuantitySelectorSizesKeys = keyof typeof VsfQuantitySelectorSizes;
-
-export interface VsfQuantitySelectorProps {
-  value?: number;
+export type VsfQuantitySelectorProps = {
+  inputId?: string;
+  inputAriaLabel?: string;
+  value: number;
   minValue?: number;
   maxValue?: number;
   disabled?: boolean;
   step?: number;
-  size?: VsfQuantitySelectorSizesKeys;
-  ariaLabel?: string;
+  size?: VsfQuantitySelectorSizes;
   stockText?: string;
   emptyStockText?: string;
-  onChange?: ChangeEventHandler<HTMLInputElement>;
+  onChange?: (value: number) => void;
   block?: boolean;
   slotDescription?: ReactNode;
-}
+  className?: string;
+} & PropsWithChildren;

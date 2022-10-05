@@ -1,97 +1,114 @@
-import { useRef } from 'react';
+import { ChangeEvent } from 'react';
 import classNames from 'classnames';
 import { VsfIconMinus, VsfIconPlus } from '../VsfIcons';
 import VsfButton from '../VsfButton/VsfButton';
-import type { VsfQuantitySelectorProps } from './types';
+import { VsfQuantitySelectorProps, VsfQuantitySelectorSizes } from './types';
 
 export default function VsfQuantitySelector({
+  inputAriaLabel,
+  inputId,
   value,
   minValue = 1,
   maxValue,
   step = 1,
   disabled,
-  size,
-  ariaLabel = 'Quantity selector',
-  stockText,
-  emptyStockText,
+  size = VsfQuantitySelectorSizes.base,
   block,
   onChange,
   slotDescription,
+  className,
   ...attributes
 }: VsfQuantitySelectorProps) {
-  const inputRef = useRef<HTMLInputElement>(null);
+  const increaseDisabled = disabled || (maxValue !== undefined && value !== undefined && value >= maxValue);
+  const decreaseDisabled = disabled || (minValue !== undefined && value !== undefined && value <= minValue);
 
-  function handleIncrease() {}
+  function handleIncrease() {
+    const nextValue = (Number(value) ?? 0) + Number(step);
+    if (maxValue !== undefined && nextValue > maxValue) {
+      return;
+    }
+    onChange?.(nextValue);
+  }
 
-  function handleDecrease() {}
+  function handleDecrease() {
+    const nextValue = (Number(value) ?? 0) - Number(step);
+    if (minValue !== undefined && nextValue < minValue) {
+      return;
+    }
+    onChange?.(nextValue);
+  }
 
-  const stopIncrease = !!maxValue && Number(value) >= maxValue;
-
-  const stopDecrease = Number(value) <= minValue;
-
+  function handleChange(event: ChangeEvent<HTMLInputElement>) {
+    const { value: currentValue } = event.target;
+    const nextValue = currentValue.length > 0 ? Number(currentValue) : undefined;
+    if (nextValue !== undefined) {
+      if (maxValue !== undefined && nextValue > maxValue) {
+        return;
+      }
+      if (minValue !== undefined && nextValue < minValue) {
+        return;
+      }
+      onChange?.(nextValue);
+    }
+  }
   return (
-    <div className={} {...attributes}>
-      <div className={}>
+    <div
+      className={classNames(
+        'vsf-qty-selector',
+        { 'vsf-qty-selector--disabled': disabled, 'vsf-qty-selector--block': block },
+        className,
+      )}
+      {...attributes}
+    >
+      <div className="vsf-qty-selector__wrapper">
         <VsfButton
           variant="tertiary"
-          aria-controls="quantity-selector"
+          aria-controls={inputId}
           aria-label="decrease"
-          className="rounded-l-md"
+          className="vsf-qty-selector__decrease"
           tile
           icon
-          disabled={disabled || stopDecrease}
-          aria-disabled={disabled || stopDecrease}
+          disabled={decreaseDisabled}
           onClick={handleDecrease}
           size={size}
+          tabIndex="-1"
         >
-          <VsfIconMinus size="base" />
+          <VsfIconMinus />
         </VsfButton>
 
-        <div className={}>
-          <input
-            step={step}
-            role="spinbutton"
-            className="w-full text-center text-gray-900 bg-transparent disabled:text-transparent"
-            ref={inputRef}
-            value={value}
-            disabled={disabled}
-            aria-label={ariaLabel}
-            aria-disabled={disabled}
-            aria-valuenow={value}
-            aria-valuemin={minValue}
-            aria-valuemax={maxValue}
-            onChange={onChange}
-            min={minValue}
-            max={maxValue}
-            size={String(value).length}
-          />
-        </div>
+        <input
+          id={inputId}
+          step={step}
+          role="spinbutton"
+          className="vsf-qty-selector__input"
+          value={value}
+          disabled={disabled}
+          aria-label={inputAriaLabel}
+          aria-disabled={disabled}
+          aria-valuenow={value}
+          aria-valuemin={minValue}
+          aria-valuemax={maxValue}
+          onChange={handleChange}
+          min={minValue}
+          max={maxValue}
+        />
 
         <VsfButton
           variant="tertiary"
-          aria-controls="quantity-selector"
+          aria-controls={inputId}
           aria-label="increase"
-          className="rounded-r-md"
+          className="vsf-qty-selector__increase"
           tile
           icon
-          disabled={disabled || stopIncrease}
-          aria-disabled={disabled || stopIncrease}
+          disabled={increaseDisabled}
           onClick={handleIncrease}
-          size=""
+          size={size}
+          tabIndex="-1"
         >
           <VsfIconPlus />
         </VsfButton>
       </div>
-      <div className="mt-1 text-xs font-normal text-center font-body">
-        {slotDescription || disabled ? (
-          <span className="text-negative-600">Out of stock</span>
-        ) : (
-          <>
-            {maxValue && <span className="font-medium mr-1">{maxValue}</span>}
-            <span>in stock</span>
-          </>
-        )}
-      </div>
+      {slotDescription && <div className="vsf-qty-selector__description">{slotDescription}</div>}
     </div>
   );
 }
