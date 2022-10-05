@@ -1,4 +1,4 @@
-import type { ReactNode, ElementType } from 'react';
+import type { ReactNode, ElementType, PropsWithChildren } from 'react';
 
 export enum VsfButtonSizes {
   sm = 'sm',
@@ -15,8 +15,7 @@ export enum VsfButtonVariants {
 export type VsfButtonSizesKeys = keyof typeof VsfButtonSizes;
 export type VsfButtonVariantsKeys = keyof typeof VsfButtonVariants;
 
-export type VsfButtonProps = {
-  children?: ReactNode;
+export type VsfButtonProps = PropsWithChildren<{
   slotPrefix?: ReactNode;
   slotSuffix?: ReactNode;
   size?: VsfButtonSizesKeys;
@@ -29,4 +28,6 @@ export type VsfButtonProps = {
   link?: string;
   block?: boolean;
   onClick?: (e: MouseEvent) => void;
-};
+  className?: string;
+  [key: string]: unknown;
+}>;

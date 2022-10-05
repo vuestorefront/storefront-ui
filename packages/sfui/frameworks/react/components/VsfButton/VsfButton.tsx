@@ -18,6 +18,7 @@ const VsfButton = forwardRef<unknown, VsfButtonProps>(
       slotPrefix,
       slotSuffix,
       link,
+      className,
       ...attributes
     },
     ref,
@@ -26,21 +27,25 @@ const VsfButton = forwardRef<unknown, VsfButtonProps>(
     if (link && Tag === 'button') {
       TagInternal = 'a';
     }
-    const buttonClasses = classNames('vsf-button', {
-      'vsf-button--disabled': disabled,
-      'vsf-button--rounded': rounded,
-      'vsf-button--tile': tile,
-      'vsf-button--icon': icon,
-      'vsf-button--block': block,
+    const buttonClasses = classNames(
+      'vsf-button',
+      {
+        'vsf-button--disabled': disabled,
+        'vsf-button--rounded': rounded,
+        'vsf-button--tile': tile,
+        'vsf-button--icon': icon,
+        'vsf-button--block': block,
 
-      'vsf-button--base': size === 'base',
-      'vsf-button--sm': size === 'sm',
-      'vsf-button--lg': size === 'lg',
+        'vsf-button--base': size === 'base',
+        'vsf-button--sm': size === 'sm',
+        'vsf-button--lg': size === 'lg',
 
-      'vsf-button--variant-primary': variant === 'primary',
-      'vsf-button--variant-secondary': variant === 'secondary',
-      'vsf-button--variant-tertiary': variant === 'tertiary',
-    });
+        'vsf-button--variant-primary': variant === 'primary',
+        'vsf-button--variant-secondary': variant === 'secondary',
+        'vsf-button--variant-tertiary': variant === 'tertiary',
+      },
+      className,
+    );
 
     return (
       <TagInternal
