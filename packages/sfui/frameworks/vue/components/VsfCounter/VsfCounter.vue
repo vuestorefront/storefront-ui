@@ -12,17 +12,17 @@ const props = defineProps({
     default: false,
   },
 });
-const classes = computed(() => [
+
+</script>
+
+<template>
+  <span :class="[
   'vsf-counter',
   `vsf-counter--${props.size}`,
   {
     'vsf-counter--pill': props.pill,
   },
-]);
-</script>
-
-<template>
-  <span :class="classes">
+]">
     <slot />
   </span>
 </template>
