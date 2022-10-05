@@ -8,18 +8,17 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 ## Props
 
-| Prop name | Type                    | Default value | Possible values                                                   |
-| --------- | ----------------------- | ------------- | ----------------------------------------------------------------- |
-| variant   | `VsfButtonVariantsKeys` | `primary`     | `primary`, `secondary`, `tertiary`                                |
-| color     | `VsfButtonColorsKeys`   | `primary`     | `primary`, `secondary`, `gray`, `positive`, `negative`, `warning` |
-| size      | `VsfButtonSizesKeys`    | `base`        | `sm`, `base`, `lg`                                                |
-| tag       | `String`                | `button`      | `button`, `a`                                                     |
-| link      | `String`                |               | `/my-cool-page`                                                   |
-| tile      | `Boolean`               |               |                                                                   |
-| disabled  | `Boolean`               |               |                                                                   |
-| icon      | `Boolean`               |               |                                                                   |
-| rounded   | `Boolean`               |               |                                                                   |
-| block     | `Boolean`               |               |                                                                   |
+| Prop name | Type                | Default value | Possible values                    |
+| --------- | ------------------- | ------------- | ---------------------------------- |
+| variant   | `VsfButtonVariants` | `primary`     | `primary`, `secondary`, `tertiary` |
+| size      | `VsfButtonSizes`    | `base`        | `sm`, `base`, `lg`                 |
+| tag       | `String`            | `button`      | `button`, `a`                      |
+| link      | `String`            |               | `/my-cool-page`                    |
+| tile      | `Boolean`           |               |                                    |
+| disabled  | `Boolean`           |               |                                    |
+| icon      | `Boolean`           |               |                                    |
+| rounded   | `Boolean`           |               |                                    |
+| block     | `Boolean`           |               |                                    |
 
 ### React only:
 
