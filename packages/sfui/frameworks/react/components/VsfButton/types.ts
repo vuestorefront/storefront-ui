@@ -1,12 +1,9 @@
-import type { ReactNode, ElementType } from 'react';
+import type { ReactNode, ElementType, PropsWithChildren } from 'react';
 
-export enum VsfButtonColors {
-  primary = 'primary',
-  secondary = 'secondary',
-  gray = 'gray',
-  positive = 'positive',
-  negative = 'negative',
-  warning = 'warning',
+export enum VsfButtonSizes {
+  sm = 'sm',
+  base = 'base',
+  lg = 'lg',
 }
 
 export enum VsfButtonVariants {
@@ -15,23 +12,11 @@ export enum VsfButtonVariants {
   tertiary = 'tertiary',
 }
 
-export type VsfButtonSizesKeys = keyof typeof VsfButtonSizes;
-export type VsfButtonVariantsKeys = keyof typeof VsfButtonVariants;
-export type VsfButtonColorsKeys = keyof typeof VsfButtonColors;
-
-export enum VsfButtonSizes {
-  sm = 'sm',
-  base = 'base',
-  lg = 'lg',
-}
-
-export type VsfButtonProps = {
-  size?: VsfButtonSizesKeys;
-  children?: ReactNode;
+export type VsfButtonProps = PropsWithChildren<{
   slotPrefix?: ReactNode;
   slotSuffix?: ReactNode;
-  variant?: VsfButtonVariantsKeys;
-  color?: VsfButtonColorsKeys;
+  size?: VsfButtonSizes;
+  variant?: VsfButtonVariants;
   rounded?: boolean;
   disabled?: boolean;
   tile?: boolean;
@@ -40,4 +25,6 @@ export type VsfButtonProps = {
   link?: string;
   block?: boolean;
   onClick?: (e: MouseEvent) => void;
-};
+  className?: string;
+  [key: string]: unknown;
+}>;
