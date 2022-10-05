@@ -1,11 +1,5 @@
 import type { ReactNode, ElementType } from 'react';
 
-export enum VsfButtonSizes {
-  sm = 'sm',
-  base = 'base',
-  lg = 'lg',
-}
-
 export enum VsfButtonColors {
   primary = 'primary',
   secondary = 'secondary',
@@ -25,11 +19,17 @@ export type VsfButtonSizesKeys = keyof typeof VsfButtonSizes;
 export type VsfButtonVariantsKeys = keyof typeof VsfButtonVariants;
 export type VsfButtonColorsKeys = keyof typeof VsfButtonColors;
 
+export enum VsfButtonSizes {
+  sm = 'sm',
+  base = 'base',
+  lg = 'lg',
+}
+
 export type VsfButtonProps = {
+  size?: VsfButtonSizesKeys;
   children?: ReactNode;
   slotPrefix?: ReactNode;
   slotSuffix?: ReactNode;
-  size?: VsfButtonSizesKeys;
   variant?: VsfButtonVariantsKeys;
   color?: VsfButtonColorsKeys;
   rounded?: boolean;
