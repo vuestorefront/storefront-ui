@@ -9,7 +9,7 @@ import VsfIconMenu from "../VsfIcons/VsfIconMenu.lite";
 import VsfIconLogoVsf from "../VsfIcons/VsfIconLogoVsf.lite";
 import VsfIconLogoVsfWithName from "../VsfIcons/VsfIconLogoVsfWithName.lite";
 import VsfButton from "../VsfButton/VsfButton.lite";
-import VsfSearch from "../VsfSearch/VsfSearch.lite";
+import VsfCounter from '../VsfCounter/VsfCounter.lite';
 import VsfCounter from "../VsfCounter/VsfCounter.lite";
 
 export const VsfNavBarTopThemeVariants = Object.freeze({
