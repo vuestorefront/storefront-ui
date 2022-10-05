@@ -10,6 +10,7 @@ import VsfIconLogoVsf from "../VsfIcons/VsfIconLogoVsf.lite";
 import VsfIconLogoVsfWithName from "../VsfIcons/VsfIconLogoVsfWithName.lite";
 import VsfButton from "../VsfButton/VsfButton.lite";
 import VsfCounter from "../VsfCounter/VsfCounter.lite";
+import VsfSearch from "../VsfSearch/VsfSearch.lite";
 
 export const VsfNavBarTopThemeVariants = Object.freeze({
   'default': 'default',
