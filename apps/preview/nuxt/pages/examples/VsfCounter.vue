@@ -1,7 +1,9 @@
 <template>
   <div class="e-page">
     <div class="e-page-component">
-      <VsfCounter :size="variantModel" :pill="pillModel" :class="fillModel">{{ valueModel }}</VsfCounter>
+      <VsfCounter :size="sizeModel" :pill="pillModel" :class="fillModel">
+        {{ valueModel }}
+      </VsfCounter>
     </div>
     <div class="e-page-controls">
       <Controls v-bind="controlsAttrs" />
@@ -9,16 +11,17 @@
   </div>
 </template>
 
-<script>
-import { ref } from 'vue';
-import VsfCounter, { VsfCounterVariants } from '../../output/blocks/VsfCounter/VsfCounter.vue';
+<script lang="ts">
+import { defineComponent, ref } from 'vue';
+import VsfCounter from '@sfui/sfui/frameworks/vue/components/VsfCounter/VsfCounter.vue';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
+import { VsfCounterSizes } from '@sfui/sfui/frameworks/vue/components/VsfCounter/types';
 
-export default {
+export default defineComponent({
   name: 'VsfCounterExample',
   components: {
-    Controls,
     VsfCounter,
+    Controls,
   },
   setup() {
     return {
@@ -31,12 +34,12 @@ export default {
             propType: 'string',
           },
           {
-            title: 'Variant',
+            title: 'Size',
             type: 'select',
-            modelName: 'variantModel',
-            options: Object.keys(VsfCounterVariants),
-            propDefaultValue: VsfCounterVariants.base,
-            propType: 'VsfCounterVariants',
+            modelName: 'sizeModel',
+            options: Object.keys(VsfCounterSizes),
+            propDefaultValue: VsfCounterSizes.base,
+            propType: 'VsfCounterSizes',
           },
           {
             title: 'Pill',
@@ -48,25 +51,19 @@ export default {
             title: 'Fill color',
             type: 'select',
             modelName: 'fillModel',
-            options: [
-              'bg-white',
-              'bg-gray-100',
-              'bg-primary-200',
-              'bg-warning-200',
-              'bg-negative-200',
-            ],
+            options: ['bg-white', 'bg-gray-100', 'bg-primary-200', 'bg-warning-200', 'bg-negative-200'],
             propType: '---',
             description: 'Only for demonstration purposes, background is controlled by custom class',
           },
         ],
         {
           valueModel: ref('123'),
-          variantModel: ref(VsfCounterVariants.base),
-          pillModel: ref(false),
-          fillModel: ref('bg-white'),
+          sizeModel: ref<VsfCounterSizes>(VsfCounterSizes.base),
+          pillModel: ref<boolean>(false),
+          fillModel: ref<string>('bg-white'),
         },
       ),
     };
   },
-};
+});
 </script>

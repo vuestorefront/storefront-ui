@@ -1,8 +1,9 @@
-import VsfCounter, { VsfCounterVariants } from '../../output/blocks/VsfCounter/VsfCounter.lite';
+import VsfCounter from '@sfui/sfui/frameworks/react/components/VsfCounter';
+import { VsfCounterSizes } from '@sfui/sfui/frameworks/react/components/VsfCounter/types';
 import Controls, { prepareControls } from '../../components/utils/Controls';
-import { ExamplePageLayout } from '../examplesOld';
+import { ExamplePageLayout } from '../examples';
 
-const Example = () => {
+function Example() {
   const { state, controls } = prepareControls(
     [
       {
@@ -12,12 +13,12 @@ const Example = () => {
         propType: 'string',
       },
       {
-        title: 'Variant',
+        title: 'Size',
         type: 'select',
-        modelName: 'variantModel',
-        options: Object.keys(VsfCounterVariants),
-        propDefaultValue: VsfCounterVariants.base,
-        propType: 'VsfCounterVariants',
+        modelName: 'sizeModel',
+        options: Object.keys(VsfCounterSizes),
+        propDefaultValue: VsfCounterSizes.base,
+        propType: 'VsfCounterSizes',
       },
       {
         title: 'Pill',
@@ -36,7 +37,7 @@ const Example = () => {
     ],
     {
       valueModel: '123',
-      variantModel: '',
+      sizeModel: VsfCounterSizes.base,
       pillModel: false,
       fillModel: 'bg-white',
     },
@@ -45,7 +46,7 @@ const Example = () => {
   return (
     <div className="e-page">
       <div className="e-page-component">
-        <VsfCounter size={state.get.variantModel} pill={state.get.pillModel} className={state.get.fillModel}>
+        <VsfCounter size={state.get.sizeModel} pill={state.get.pillModel} className={state.get.fillModel}>
           {state.get.valueModel}
         </VsfCounter>
       </div>
