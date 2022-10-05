@@ -13,14 +13,14 @@
         :block="blockModel"
         :tag="tagModel"
       >
-        <template #prefix v-if="leftIconModel">
+        <template v-if="leftIconModel" #prefix>
           <VsfIconVsfDiamond />
         </template>
-        <template #default v-if="icon">
+        <template v-if="icon" #default>
           <VsfIconVsfDiamond />
         </template>
         {{ childrenModel }}
-        <template #suffix v-if="rightIconModel">
+        <template v-if="rightIconModel" #suffix>
           <VsfIconVsfDiamond />
         </template>
       </VsfButton>
