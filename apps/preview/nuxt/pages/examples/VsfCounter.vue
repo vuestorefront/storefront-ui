@@ -15,7 +15,7 @@
 import { defineComponent, ref } from 'vue';
 import VsfCounter from '@sfui/sfui/frameworks/vue/components/VsfCounter/VsfCounter.vue';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
-import { VsfCounterSizes, VsfCounterSizesKeys } from '@sfui/sfui/frameworks/vue/components/VsfCounter/types';
+import { VsfCounterSizes } from '@sfui/sfui/frameworks/vue/components/VsfCounter/types';
 
 export default defineComponent({
   name: 'VsfCounterExample',
@@ -58,7 +58,7 @@ export default defineComponent({
         ],
         {
           valueModel: ref('123'),
-          sizeModel: ref<VsfCounterSizesKeys>('base'),
+          sizeModel: ref<VsfCounterSizes>(VsfCounterSizes.base),
           pillModel: ref<boolean>(false),
           fillModel: ref<string>('bg-white'),
         },
