@@ -12,14 +12,11 @@ export enum VsfButtonVariants {
   tertiary = 'tertiary',
 }
 
-export type VsfButtonSizesKeys = keyof typeof VsfButtonSizes;
-export type VsfButtonVariantsKeys = keyof typeof VsfButtonVariants;
-
 export type VsfButtonProps = PropsWithChildren<{
   slotPrefix?: ReactNode;
   slotSuffix?: ReactNode;
-  size?: VsfButtonSizesKeys;
-  variant?: VsfButtonVariantsKeys;
+  size?: VsfButtonSizes;
+  variant?: VsfButtonVariants;
   rounded?: boolean;
   disabled?: boolean;
   tile?: boolean;

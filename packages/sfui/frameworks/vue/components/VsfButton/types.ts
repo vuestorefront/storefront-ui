@@ -8,6 +8,3 @@ export enum VsfButtonVariants {
   secondary = 'secondary',
   tertiary = 'tertiary',
 }
-
-export type VsfButtonSizesKeys = keyof typeof VsfButtonSizes;
-export type VsfButtonVariantsKeys = keyof typeof VsfButtonVariants;

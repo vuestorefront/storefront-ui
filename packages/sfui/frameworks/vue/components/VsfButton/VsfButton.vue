@@ -1,13 +1,13 @@
 <script lang="ts" setup>
 import { computed, PropType } from 'vue';
-import { VsfButtonSizesKeys, VsfButtonSizes, VsfButtonVariantsKeys, VsfButtonVariants } from './types';
+import { VsfButtonSizes, VsfButtonVariants } from './types';
 const props = defineProps({
   size: {
-    type: String as PropType<VsfButtonSizesKeys>,
+    type: String as PropType<VsfButtonSizes>,
     default: VsfButtonSizes.base,
   },
   variant: {
-    type: String as PropType<VsfButtonVariantsKeys>,
+    type: String as PropType<VsfButtonVariants>,
     default: VsfButtonVariants.primary,
   },
   rounded: {

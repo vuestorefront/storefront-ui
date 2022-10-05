@@ -1,12 +1,13 @@
 import { forwardRef } from 'react';
 import classNames from 'classnames';
+import { VsfButtonSizes, VsfButtonVariants } from './types';
 import type { VsfButtonProps } from './types';
 
 const VsfButton = forwardRef<unknown, VsfButtonProps>(
   (
     {
-      size = 'base',
-      variant = 'primary',
+      size = VsfButtonSizes.base,
+      variant = VsfButtonVariants.primary,
       rounded,
       disabled,
       tile,
