@@ -8,10 +8,9 @@ export enum VsfCounterSizes {
   xl = 'xl',
   '2xl' = '2xl',
 }
-export type VsfCounterSizesKeys = keyof typeof VsfCounterSizes;
 
 export interface VsfCounterProps {
-  size?: VsfCounterSizesKeys;
+  size?: VsfCounterSizes;
   pill?: boolean;
   children?: ReactNode;
   className?: string;

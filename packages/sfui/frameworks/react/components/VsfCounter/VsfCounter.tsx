@@ -1,7 +1,13 @@
 import classNames from 'classnames';
 import type { VsfCounterProps } from './types';
+import { VsfCounterSizes } from './types';
 
-export default function VsfCounter({ size = 'base', pill = false, children, className }: VsfCounterProps): JSX.Element {
+export default function VsfCounter({
+  size = VsfCounterSizes.base,
+  pill = false,
+  children,
+  className,
+}: VsfCounterProps): JSX.Element {
   const classes = classNames([
     className,
     'vsf-counter',
