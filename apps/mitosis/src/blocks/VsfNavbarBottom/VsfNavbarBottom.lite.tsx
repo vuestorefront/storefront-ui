@@ -1,5 +1,6 @@
 import { useStore, For, Show } from '@builder.io/mitosis'
 import VsfButton from '../VsfButton/VsfButton.lite';
+import VsfCounter from '../VsfCounter/VsfCounter.lite';
 import VsfIconHome from '../VsfIcons/VsfIconHome.lite';
 import VsfIconBasket from '../VsfIcons/VsfIconBasket.lite';
 import VsfIconSearch from '../VsfIcons/VsfIconSearch.lite';
