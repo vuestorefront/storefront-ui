@@ -1,36 +1,65 @@
 <template>
   <div class="e-page">
     <div class="e-page-component">
-      <VsfFooter
-        :categories="categoriesModel"
-        :social-media="socialMediaModel"
-        :contact-options="contactOptionsModel"
-        :company-name="companyNameModel"
-        :bottom-links="bottomLinksModel"
-      >
-        <template #helpIcon>
-          <VsfIconHelp size="lg" />
+      <VsfFooter :company-name="companyNameModel">
+        <template #categories>
+          <template v-for="category in categoriesModel" :key="category.label">
+            <div class="vsf-footer__categories">
+              <span class="vsf-footer__label--category">{{ category.label }}</span>
+              <template v-for="subcategory in category?.subcategories" :key="subcategory.label">
+                <component
+                  :is="linkTag(subcategory.linkTag)"
+                  v-bind="subcategory.bindings"
+                  class="vsf-footer__label--subcategory"
+                >
+                  {{ subcategory.label }}
+                </component>
+              </template>
+            </div>
+          </template>
         </template>
-        <template #chatIcon>
-          <VsfIconChat size="lg" />
+        <template #contact>
+          <template v-for="contactOption in contactOptionsModel" :key="contactOption.label">
+            <div class="vsf-footer__contact">
+              <VsfIconHelp v-if="contactOption.iconName === 'help'" size="lg" />
+              <VsfIconChat v-if="contactOption.iconName === 'chat'" size="lg" />
+              <VsfIconPhone v-if="contactOption.iconName === 'phone'" size="lg" />
+              <component
+                :is="linkTag(contactOption.linkTag)"
+                v-bind="contactOption.bindings"
+                class="vsf-footer__label--contact"
+              >
+                {{ contactOption.label }}
+              </component>
+              <template v-for="detail in contactOption.details" :key="detail">
+                <span class="vsf-footer__contact--option">{{ detail }}</span>
+              </template>
+            </div>
+          </template>
         </template>
-        <template #phoneIcon>
-          <VsfIconPhone size="lg" />
+        <template #socialMedia>
+          <template v-for="social in socialMediaModel" :key="social.label">
+            <div class="vsf-footer__social-media">
+              <component :is="linkTag(social.linkTag)" v-bind="social.bindings" class="vsf-footer__label--social-media">
+                <VsfIconFacebook v-if="social.label === 'Facebook'" />
+                <VsfIconTwitter v-if="social.label === 'Twitter'" />
+                <VsfIconInstagram v-if="social.label === 'Instagram'" />
+                <VsfIconPinterest v-if="social.label === 'Pinterest'" />
+                <VsfIconYoutube v-if="social.label === 'Youtube'" />
+              </component>
+            </div>
+          </template>
         </template>
-        <template #facebookIcon>
-          <VsfIconFacebook />
-        </template>
-        <template #twitterIcon>
-          <VsfIconTwitter />
-        </template>
-        <template #pinterestIcon>
-          <VsfIconPinterest />
-        </template>
-        <template #youtubeIcon>
-          <VsfIconYoutube />
-        </template>
-        <template #instagramIcon>
-          <VsfIconInstagram />
+        <template #bottomLinks>
+          <template v-for="bottomLink in bottomLinksModel" :key="bottomLink.label">
+            <component
+              :is="linkTag(bottomLink.linkTag)"
+              v-bind="bottomLink.bindings"
+              class="vsf-footer__label--bottom-links"
+            >
+              {{ bottomLink.label }}
+            </component>
+          </template>
         </template>
       </VsfFooter>
     </div>
@@ -40,7 +69,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { computed, defineComponent, ref, resolveComponent } from 'vue';
 import VsfFooter from '@sfui/sfui/frameworks/vue/components/VsfFooter/VsfFooter.vue';
 import VsfIconHelp from '@sfui/sfui/frameworks/vue/components/VsfIcons/VsfIconHelp.vue';
@@ -52,6 +81,7 @@ import VsfIconPinterest from '@sfui/sfui/frameworks/vue/components/VsfIcons/VsfI
 import VsfIconYoutube from '@sfui/sfui/frameworks/vue/components/VsfIcons/VsfIconYoutube.vue';
 import VsfIconInstagram from '@sfui/sfui/frameworks/vue/components/VsfIcons/VsfIconInstagram.vue';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
+import type { TagOrComponent } from '@sfui/sfui/frameworks/vue/utils/types';
 
 export default defineComponent({
   name: 'VsfFooterExample',
@@ -71,6 +101,7 @@ export default defineComponent({
     const componentToShow = computed(() => {
       return resolveComponent('NuxtLink');
     });
+    const linkTag = (tag: TagOrComponent | undefined) => tag ?? 'a';
     const categories = [
       {
         label: 'How to buy',
@@ -237,52 +268,55 @@ export default defineComponent({
         bindings: { to: '/' },
       },
     ];
-    return prepareControls(
-      [
+    return {
+      linkTag,
+      ...prepareControls(
+        [
+          {
+            title: 'Categories',
+            type: 'json',
+            modelName: 'categoriesModel',
+            propType: '[]',
+            propDefaultValue: '[]',
+          },
+          {
+            title: 'Social media',
+            type: 'json',
+            modelName: 'socialMediaModel',
+            propType: '[]',
+            propDefaultValue: '[]',
+          },
+          {
+            title: 'Contact options',
+            type: 'json',
+            modelName: 'contactOptionsModel',
+            propType: '[]',
+            propDefaultValue: '[]',
+          },
+          {
+            title: 'Bottom links',
+            type: 'json',
+            modelName: 'bottomLinksModel',
+            propType: '[]',
+            propDefaultValue: '[]',
+          },
+          {
+            title: 'Company name',
+            type: 'text',
+            modelName: 'companyNameModel',
+            propDefaultValue: '',
+            propType: 'string',
+          },
+        ],
         {
-          title: 'Categories',
-          type: 'json',
-          modelName: 'categoriesModel',
-          propType: '[]',
-          propDefaultValue: '[]',
+          categoriesModel: ref(categories),
+          socialMediaModel: ref(socialMedia),
+          companyNameModel: ref('© 2022 Vue Storefront'),
+          bottomLinksModel: ref(bottomLinks),
+          contactOptionsModel: ref(contactOptions),
         },
-        {
-          title: 'Social media',
-          type: 'json',
-          modelName: 'socialMediaModel',
-          propType: '[]',
-          propDefaultValue: '[]',
-        },
-        {
-          title: 'Contact options',
-          type: 'json',
-          modelName: 'contactOptionsModel',
-          propType: '[]',
-          propDefaultValue: '[]',
-        },
-        {
-          title: 'Bottom links',
-          type: 'json',
-          modelName: 'bottomLinksModel',
-          propType: '[]',
-          propDefaultValue: '[]',
-        },
-        {
-          title: 'Company name',
-          type: 'text',
-          modelName: 'companyNameModel',
-          propDefaultValue: '',
-          propType: 'string',
-        },
-      ],
-      {
-        categoriesModel: ref(categories),
-        socialMediaModel: ref(socialMedia),
-        companyNameModel: ref('© 2022 Vue Storefront'),
-        bottomLinksModel: ref(bottomLinks),
-        contactOptionsModel: ref(contactOptions),
-      },
-    );
+      ),
+    };
   },
 });
 </script>

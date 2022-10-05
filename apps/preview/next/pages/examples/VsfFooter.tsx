@@ -10,8 +10,10 @@ import {
   VsfIconYoutube,
 } from '@sfui/sfui/frameworks/react/components/VsfIcons';
 import { VsfIconSizeEnum } from '@sfui/sfui/frameworks/react/components/VsfIconBase/types';
+import Link from 'next/link';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
+import LinkWrapper from '@sfui/sfui/frameworks/react/components/LinkWrapper';
 
 function Example() {
   const categories = [
@@ -212,16 +214,55 @@ function Example() {
     },
   );
 
+  const categoriesSide = () =>
+    state.get.categoriesModel.map((category) => (
+      <div className="vsf-footer__categories" key={category.label}>
+        <span className="vsf-footer__label--category">{category.label}</span>
+        {category.subcategories?.map((subcategory) => (
+          <Link href={subcategory.link} key={subcategory.label}>
+            <a className="vsf-footer__label--subcategory">{subcategory.label}</a>
+          </Link>
+        ))}
+      </div>
+    ));
+  const contactOptionsSide = () =>
+    state.get.contactOptionsModel.map((contactOption) => (
+      <div className="vsf-footer__contact" key={contactOption.label}>
+        {contactOption.icon}
+        <Link href={contactOption.link} key={contactOption.label}>
+          <a className="vsf-footer__label--contact">{contactOption.label}</a>
+        </Link>
+        {contactOption.details?.map((option) => (
+          <span className="vsf-footer__contact--option" key={option}>
+            {option}
+          </span>
+        ))}
+      </div>
+    ));
+  const socialMediaSide = () =>
+    state.get.socialMediaModel.map((social) => (
+      <Link href={social.link} key={social.label}>
+        <a className="vsf-footer__label--social-media" aria-label={`Go to ${social.label} page`}>
+          {social.icon}
+        </a>
+      </Link>
+    ));
+  const bottomLinksSide = () =>
+    state.get.bottomLinksModel.map((bottomLink) => (
+      <Link href={bottomLink.link} key={bottomLink.label}>
+        <a className="vsf-footer__label--bottom-links">{bottomLink.label}</a>
+      </Link>
+    ));
+
   return (
     <div className="e-page">
       <div className="e-page-component">
         <VsfFooter
-          categories={state.get.categoriesModel}
-          socialMedia={state.get.socialMediaModel}
+          categories={categoriesSide()}
+          socialMedia={socialMediaSide()}
           companyName={state.get.companyNameModel}
-          contactOptions={state.get.contactOptionsModel}
-          bottomLinks={state.get.bottomLinksModel}
-          tag="Link"
+          contactOptions={contactOptionsSide()}
+          bottomLinks={bottomLinksSide()}
         />
       </div>
       <div className="e-page-controls">

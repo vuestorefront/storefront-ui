@@ -10,24 +10,26 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 | Prop name      | Type                    | Default value | Possible values |
 |----------------|-------------------------|---------------|-----------------|
-| categories     | `VsfCategoriesType`     | []            |                 |
-| socialMedia    | `VsfLinkType`           | []            |                 |
-| companyName    | `String`                | ''            |                 |
-| contactOptions | `VsfContactOptionsType` | []            |                 |
-| bottomLinks    | `VsfLinkType`           | []            |                 |
+| companyName    | `String`                | ""            |                 |
 
 ### React only:
-| Prop name | Type      | Default value  | Possible values |
-|-----------|-----------|----------------|-----------------|
-| tag       | `String`  |                |                 |
+| Prop name      | Type            | Default value | Possible values |
+|----------------|-----------------|---------------|-----------------|
+| categories     | `JSX.Element[]` |               |                 |
+| socialMedia    | `JSX.Element[]` |               |                 |
+| contactOptions | `JSX.Element[]` |               |                 |
+| bottomLinks    | `JSX.Element[]` |               |                 |
 
 ## Slots
 
 ### Vue only:
 
-| Slot name           | Description            |
-|---------------------|------------------------|
-| `{CUSTOM_NAME}Icon` | slot content for icon  |
+| Slot name     | Description                           |
+|---------------|---------------------------------------|
+| `categories`  | slot content for categories section   |
+| `contact`     | slot content for contact section      |
+| `socialMedia` | slot content for social media section |
+| `bottomLinks` | slot content for bottom links section |
 
 ## Source code
 
