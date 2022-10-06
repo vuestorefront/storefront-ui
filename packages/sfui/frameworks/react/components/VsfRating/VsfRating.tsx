@@ -1,11 +1,12 @@
 import { clamp, roundToNearest } from '@sfui/sfui/shared/utils';
 import classNames from 'classnames';
 import { VsfIconStar, VsfIconStarOutline, VsfIconStarPartiallyFilled } from '../VsfIcons';
+import { VsfRatingSizes, VsfRatingVariants } from './types';
 import type { VsfRatingProps } from './types';
 
 export default function VsfRating({
-  size = 'base',
-  variant = 'base',
+  size = VsfRatingSizes.base,
+  variant = VsfRatingVariants.base,
   max = 5,
   value = 0,
   halfIncrement,
@@ -29,11 +30,11 @@ export default function VsfRating({
   const classes = classNames(
     'vsf-rating',
     {
-      'vsf-rating--xs': size === 'xs',
-      'vsf-rating--sm': size === 'sm',
-      'vsf-rating--base': size === 'base',
-      'vsf-rating--lg': size === 'lg',
-      'vsf-rating--xl': size === 'xl',
+      'vsf-rating--xs': size === VsfRatingSizes.xs,
+      'vsf-rating--sm': size === VsfRatingSizes.sm,
+      'vsf-rating--base': size === VsfRatingSizes.base,
+      'vsf-rating--lg': size === VsfRatingSizes.lg,
+      'vsf-rating--xl': size === VsfRatingSizes.xl,
     },
     className,
   );

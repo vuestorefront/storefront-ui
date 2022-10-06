@@ -1,5 +1,5 @@
 import VsfRating from '@sfui/sfui/frameworks/react/components/VsfRating';
-import { VsfRatingVariantEnum, VsfRatingSizeEnum } from '@sfui/sfui/frameworks/react/components/VsfRating/types';
+import { VsfRatingVariants, VsfRatingSizes } from '@sfui/sfui/frameworks/react/components/VsfRating/types';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 
@@ -48,24 +48,24 @@ function Example() {
         title: 'Size',
         type: 'select',
         modelName: 'sizeModel',
-        options: Object.keys(VsfRatingSizeEnum),
-        propDefaultValue: VsfRatingSizeEnum.base,
-        propType: 'VsfRatingSizeEnum',
+        options: Object.keys(VsfRatingSizes),
+        propDefaultValue: VsfRatingSizes.base,
+        propType: 'VsfRatingSizes',
       },
       {
         title: 'Variant',
         type: 'select',
         modelName: 'variantModel',
-        options: Object.keys(VsfRatingVariantEnum),
-        propDefaultValue: VsfRatingVariantEnum.base,
-        propType: 'VsfRatingVariantEnum',
+        options: Object.keys(VsfRatingVariants),
+        propDefaultValue: VsfRatingVariants.base,
+        propType: 'VsfRatingVariants',
       },
     ],
     {
       valueModel: 3,
       maxModel: 5,
-      sizeModel: VsfRatingSizeEnum.base,
-      variantModel: VsfRatingVariantEnum.base,
+      sizeModel: VsfRatingSizes.base,
+      variantModel: VsfRatingVariants.base,
       halfIncrementModel: false,
     },
   );

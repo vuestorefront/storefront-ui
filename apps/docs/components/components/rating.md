@@ -8,13 +8,13 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 ## Props
 
-| Prop name     | Type      | Default value | Possible values            |
-| ------------- | --------- | ------------- | -------------------------- |
-| size          | `String`  | `base`        | `xs`,`sm`,`base`,`lg`,`xl` |
-| type          | `String`  | `base`        | `base`,`withValue`         |
-| value         | `Number`  | 0             |                            |
-| max           | `Number`  | 5             |                            |
-| halfIncrement | `Boolean` | false         |                            |
+| Prop name     | Type                | Default value | Possible values            |
+| ------------- | ------------------- | ------------- | -------------------------- |
+| size          | `VsfRatingSizes`    | `base`        | `xs`,`sm`,`base`,`lg`,`xl` |
+| type          | `VsfRatingVariants` | `base`        | `base`,`withValue`         |
+| value         | `Number`            | `0`           |                            |
+| max           | `Number`            | `5`           |                            |
+| halfIncrement | `Boolean`           | `false`       |                            |
 
 ## Accessibility notes
 

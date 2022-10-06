@@ -1,4 +1,4 @@
-export enum VsfRatingSizeEnum {
+export enum VsfRatingSizes {
   xs = 'xs',
   sm = 'sm',
   base = 'base',
@@ -6,19 +6,16 @@ export enum VsfRatingSizeEnum {
   xl = 'xl',
 }
 
-export enum VsfRatingVariantEnum {
+export enum VsfRatingVariants {
   base = 'base',
   withValue = 'withValue',
 }
 
-export type VsfRatingSizeKeys = keyof typeof VsfRatingSizeEnum;
-export type VsfRatingVariantKeys = keyof typeof VsfRatingVariantEnum;
-
 export interface VsfRatingProps {
   value?: number;
   max?: number;
-  size?: VsfRatingSizeKeys;
-  variant?: VsfRatingVariantKeys;
+  size?: VsfRatingSizes;
+  variant?: VsfRatingVariants;
   halfIncrement?: boolean;
   className?: string;
 }

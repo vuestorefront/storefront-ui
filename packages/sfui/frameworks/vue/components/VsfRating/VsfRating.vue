@@ -1,17 +1,17 @@
 <script lang="ts" setup>
 import { computed, PropType, toRefs } from 'vue';
-import { VsfRatingSizeEnum, VsfRatingVariantEnum, VsfRatingSizeKeys, VsfRatingVariantKeys } from './types';
+import { VsfRatingSizes, VsfRatingVariants } from './types';
 import { VsfIconStar, VsfIconStarOutline, VsfIconStarPartiallyFilled } from '../../components/VsfIcons';
 import { clamp, roundToNearest } from '@sfui/sfui/shared/utils/index';
 
 const props = defineProps({
   size: {
-    type: String as PropType<VsfRatingSizeKeys>,
-    default: VsfRatingSizeEnum.base,
+    type: String as PropType<VsfRatingSizes>,
+    default: VsfRatingSizes.base,
   },
   variant: {
-    type: String as PropType<VsfRatingVariantKeys>,
-    default: VsfRatingVariantEnum.base,
+    type: String as PropType<VsfRatingVariants>,
+    default: VsfRatingVariants.base,
   },
   max: {
     type: Number,
@@ -37,11 +37,11 @@ const empty = computed(() => max.value - filled.value - partiallyFilled.value);
 const classes = computed(() => [
   'vsf-rating',
   {
-    'vsf-rating--xs': props.size === 'xs',
-    'vsf-rating--sm': props.size === 'sm',
-    'vsf-rating--base': props.size === 'base',
-    'vsf-rating--lg': props.size === 'lg',
-    'vsf-rating--xl': props.size === 'xl',
+    'vsf-rating--xs': props.size === VsfRatingSizes.xs,
+    'vsf-rating--sm': props.size === VsfRatingSizes.sm,
+    'vsf-rating--base': props.size === VsfRatingSizes.base,
+    'vsf-rating--lg': props.size === VsfRatingSizes.lg,
+    'vsf-rating--xl': props.size === VsfRatingSizes.xl,
   },
 ]);
 </script>

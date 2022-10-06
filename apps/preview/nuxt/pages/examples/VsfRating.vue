@@ -2,8 +2,8 @@
   <div class="e-page">
     <div class="e-page-component">
       <VsfRating
-        :value="valueModel"
-        :max="maxModel"
+        :value="Number(valueModel)"
+        :max="Number(maxModel)"
         :size="sizeModel"
         :variant="variantModel"
         :half-increment="halfIncrementModel"
@@ -18,7 +18,7 @@
 <script>
 import { defineComponent, ref } from 'vue';
 import VsfRating from '@sfui/sfui/frameworks/vue/components/VsfRating/VsfRating.vue';
-import { VsfRatingVariantEnum, VsfRatingSizeEnum } from '@sfui/sfui/frameworks/vue/components/VsfRating/types';
+import { VsfRatingVariants, VsfRatingSizes } from '@sfui/sfui/frameworks/vue/components/VsfRating/types';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
 
 export default defineComponent({
@@ -72,24 +72,24 @@ export default defineComponent({
           title: 'Size',
           type: 'select',
           modelName: 'sizeModel',
-          options: Object.keys(VsfRatingSizeEnum),
-          propDefaultValue: VsfRatingSizeEnum.base,
-          propType: 'VsfRatingSizeEnum',
+          options: Object.keys(VsfRatingSizes),
+          propDefaultValue: VsfRatingSizes.base,
+          propType: 'VsfRatingSizes',
         },
         {
           title: 'Variant',
           type: 'select',
           modelName: 'variantModel',
-          options: Object.keys(VsfRatingVariantEnum),
-          propDefaultValue: VsfRatingVariantEnum.base,
-          propType: 'VsfRatingVariantEnum',
+          options: Object.keys(VsfRatingVariants),
+          propDefaultValue: VsfRatingVariants.base,
+          propType: 'VsfRatingVariants',
         },
       ],
       {
         valueModel: ref(3),
         maxModel: ref(5),
-        sizeModel: ref(VsfRatingSizeEnum.base),
-        variantModel: ref(VsfRatingVariantEnum.base),
+        sizeModel: ref(VsfRatingSizes.base),
+        variantModel: ref(VsfRatingVariants.base),
         halfIncrementModel: ref(false),
       },
     );
