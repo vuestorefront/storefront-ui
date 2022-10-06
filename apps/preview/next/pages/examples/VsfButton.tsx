@@ -1,8 +1,4 @@
-import VsfButton, {
-  VsfButtonSizes,
-  VsfButtonVariants,
-  VsfButtonColors,
-} from '@sfui/sfui/frameworks/react/components/VsfButton';
+import VsfButton, { VsfButtonSizes, VsfButtonVariants } from '@sfui/sfui/frameworks/react/components/VsfButton';
 import { VsfIconVsfDiamond } from '@sfui/sfui/frameworks/react/components/VsfIcons';
 import { ElementType } from 'react';
 import Controls, { prepareControls } from '../../components/utils/Controls';
@@ -40,12 +36,6 @@ function Example() {
         type: 'select',
         modelName: 'sizeModel',
         options: Object.keys(VsfButtonSizes),
-      },
-      {
-        title: 'Color',
-        type: 'select',
-        modelName: 'colorModel',
-        options: Object.keys(VsfButtonColors),
       },
       {
         title: 'Disabled',
@@ -104,7 +94,6 @@ function Example() {
       rightIconModel: false,
       variantModel: VsfButtonVariants.primary,
       sizeModel: VsfButtonSizes.base,
-      colorModel: VsfButtonColors.primary,
       tileModel: false,
       iconModel: false,
       roundedModel: false,
@@ -119,7 +108,6 @@ function Example() {
         <VsfButton
           size={state.get.sizeModel}
           variant={state.get.variantModel}
-          color={state.get.colorModel}
           disabled={state.get.disabledModel}
           link={state.get.linkModel}
           slotPrefix={state.get.leftIconModel && <VsfIconVsfDiamond />}

@@ -4,7 +4,6 @@
       <VsfButton
         :size="sizeModel"
         :variant="variantModel"
-        :color="colorModel"
         :link="linkModel"
         :disabled="disabledModel"
         :tile="tileModel"
@@ -34,11 +33,7 @@
 <script>
 import { defineComponent } from 'vue';
 import VsfButton from '@sfui/sfui/frameworks/vue/components/VsfButton/VsfButton.vue';
-import {
-  VsfButtonVariants,
-  VsfButtonSizes,
-  VsfButtonColors,
-} from '@sfui/sfui/frameworks/vue/components/VsfButton/types';
+import { VsfButtonVariants, VsfButtonSizes } from '@sfui/sfui/frameworks/vue/components/VsfButton/types';
 import VsfIconVsfDiamond from '@sfui/sfui/frameworks/vue/components/VsfIcons/VsfIconVsfDiamond';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
 
@@ -81,12 +76,6 @@ export default defineComponent({
           type: 'select',
           modelName: 'sizeModel',
           options: Object.keys(VsfButtonSizes),
-        },
-        {
-          title: 'Color',
-          type: 'select',
-          modelName: 'colorModel',
-          options: Object.keys(VsfButtonColors),
         },
         {
           title: 'Disabled',
@@ -145,7 +134,6 @@ export default defineComponent({
         rightIconModel: ref(false),
         variantModel: ref(VsfButtonVariants.primary),
         sizeModel: ref(VsfButtonSizes.base),
-        colorModel: ref(VsfButtonColors.primary),
         tileModel: ref(),
         iconModel: ref(),
         roundedModel: ref(),
