@@ -13,7 +13,6 @@ import { VsfIconSizeEnum } from '@sfui/sfui/frameworks/react/components/VsfIconB
 import Link from 'next/link';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
-import LinkWrapper from '@sfui/sfui/frameworks/react/components/LinkWrapper';
 
 function Example() {
   const categories = [
