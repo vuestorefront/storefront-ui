@@ -58,7 +58,6 @@ const classes = computed(() => [
 
         <input
           class="vsf-search__input peer"
-          role="searchbox"
           type="search"
           :name="name"
           :placeholder="placeholder"

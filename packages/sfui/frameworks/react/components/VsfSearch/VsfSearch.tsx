@@ -47,7 +47,6 @@ export default function VsfSearch({
           {slotPrefix && <span className="vsf-search__input-prefix">{slotPrefix}</span>}
 
           <input
-            role="searchbox"
             type="search"
             name={name}
             placeholder={placeholder}
