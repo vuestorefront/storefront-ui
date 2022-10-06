@@ -1,0 +1,27 @@
+.vsf-accordion-item {
+  @apply w-full text-gray-900 normal-case border-none rounded-none shadow-none cursor-pointer h-11 font-body;
+  &__header {
+    @apply w-full inline-flex justify-between items-center p-4 hover:shadow-none hover:text-primary-600 hover:bg-gray-100 active:text-gray-900;
+    &--right {
+      @apply flex-row-reverse justify-end
+    }
+    &::-webkit-details-marker {
+      display: none;
+    }    
+  }
+  &__title {
+    @apply text-base font-medium;
+    &--right {
+      @apply ml-2
+    }
+  }
+  &__icon {
+    @apply w-6 h-6 transition-transform fill-gray-500 hover:fill-primary-600 active:fill-gray-500;
+  }
+  &[open] &__icon {
+    @apply rotate-180;
+  }
+  &__content {
+    @apply px-4 py-2 text-gray-500;
+  }  
+}
