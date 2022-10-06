@@ -14,13 +14,25 @@
   }
   &__wrapper {
     @apply flex border border-gray-300 rounded-md w-full;
-  }
-  &__description {
-    @apply mt-1 text-xs font-normal text-center font-body;
+    & + * {
+      // default slot
+      @apply mt-1;
+    }
   }
   &__input {
-    @apply flex relative flex-1 items-center;
+    @apply flex relative flex-1 items-center appearance-none;
     @apply inline-block w-full text-center text-gray-900 bg-transparent disabled:text-transparent;
+    /* Chrome, Safari, Edge, Opera */
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    /* Firefox */
+    &[type='number'] {
+      -moz-appearance: textfield;
+    }
   }
   &__decrease {
     @apply rounded-l-md;

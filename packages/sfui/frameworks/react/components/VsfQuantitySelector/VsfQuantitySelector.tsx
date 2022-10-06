@@ -1,7 +1,7 @@
-import { ChangeEvent } from 'react';
+import { ChangeEvent, useCallback } from 'react';
 import classNames from 'classnames';
 import { VsfIconMinus, VsfIconPlus } from '../VsfIcons';
-import VsfButton from '../VsfButton/VsfButton';
+import VsfButton, { VsfButtonSizes } from '../VsfButton';
 import { VsfQuantitySelectorProps, VsfQuantitySelectorSizes } from './types';
 
 export default function VsfQuantitySelector({
@@ -15,8 +15,8 @@ export default function VsfQuantitySelector({
   size = VsfQuantitySelectorSizes.base,
   block,
   onChange,
-  slotDescription,
   className,
+  children,
   ...attributes
 }: VsfQuantitySelectorProps) {
   const increaseDisabled = disabled || (maxValue !== undefined && value !== undefined && value >= maxValue);
@@ -51,6 +51,14 @@ export default function VsfQuantitySelector({
       onChange?.(nextValue);
     }
   }
+  const buttonSize = useCallback(() => {
+    switch (size) {
+      case VsfQuantitySelectorSizes.lg:
+        return VsfButtonSizes.lg;
+      default:
+        return VsfButtonSizes.base;
+    }
+  }, [size]);
   return (
     <div
       className={classNames(
@@ -70,7 +78,7 @@ export default function VsfQuantitySelector({
           icon
           disabled={decreaseDisabled}
           onClick={handleDecrease}
-          size={size}
+          size={buttonSize()}
           tabIndex="-1"
         >
           <VsfIconMinus />
@@ -78,6 +86,7 @@ export default function VsfQuantitySelector({
 
         <input
           id={inputId}
+          type="number"
           step={step}
           role="spinbutton"
           className="vsf-qty-selector__input"
@@ -102,13 +111,13 @@ export default function VsfQuantitySelector({
           icon
           disabled={increaseDisabled}
           onClick={handleIncrease}
-          size={size}
+          size={buttonSize()}
           tabIndex="-1"
         >
           <VsfIconPlus />
         </VsfButton>
       </div>
-      {slotDescription && <div className="vsf-qty-selector__description">{slotDescription}</div>}
+      {children}
     </div>
   );
 }

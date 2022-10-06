@@ -1,11 +1,9 @@
-import type { PropsWithChildren } from 'react';
-
 export enum VsfQuantitySelectorSizes {
   base = 'base',
   lg = 'lg',
 }
 
-export type VsfQuantitySelectorProps = PropsWithChildren<{
+export type VsfQuantitySelectorProps = {
   inputId?: string;
   inputAriaLabel?: string;
   value: number;
@@ -14,7 +12,5 @@ export type VsfQuantitySelectorProps = PropsWithChildren<{
   disabled?: boolean;
   step?: number;
   size?: VsfQuantitySelectorSizes;
-  onChange?: (value: number) => void;
   block?: boolean;
-  className?: string;
-}>;
+};
