@@ -19,13 +19,6 @@ const props = defineProps({
     default: null,
   },
 });
-const classes = computed(() => [
-  'vsf-badge',
-  {
-    'vsf-badge--dot': props.dot,
-    'vsf-badge--bordered': props.bordered,
-  },
-]);
 </script>
 
 <script lang="ts">
@@ -35,7 +28,15 @@ export default {
 </script>
 
 <template>
-  <div :class="classes">
+  <div
+    :class="[
+      'vsf-badge',
+      {
+        'vsf-badge--dot': props.dot,
+        'vsf-badge--bordered': props.bordered,
+      },
+    ]"
+  >
     <slot></slot>
     <div v-if="!invisible && value" className="vsf-badge__wrapper">
       <div v-if="dot" class="vsf-badge__badge vsf-badge__dot" v-bind="$attrs"></div>
