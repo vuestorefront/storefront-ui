@@ -73,12 +73,14 @@ function Example() {
         type: 'text',
         modelName: 'inputAriaLabel',
         propType: 'string',
+        propDefaultValue: 'Quantity Selector',
       },
       {
         title: 'inputId',
         type: 'text',
         modelName: 'inputId',
         propType: 'string',
+        propDefaultValue: 'qty-selector',
       },
     ],
     {
@@ -110,7 +112,18 @@ function Example() {
           inputAriaLabel={state.get.inputAriaLabel}
           inputId={state.get.inputId}
           onChange={onChange}
-        />
+        >
+          <div className="text-xs font-normal text-center font-body">
+            {state.get.disabled ? (
+              <span className="text-negative-600 font-medium">Out of stock</span>
+            ) : (
+              <span>
+                <span className="font-medium">{state.get.maxValue}</span>
+                &nbsp;in stock
+              </span>
+            )}
+          </div>
+        </VsfQuantitySelector>
       </div>
       <div className="e-page-controls">
         <Controls {...{ state, controls }} />

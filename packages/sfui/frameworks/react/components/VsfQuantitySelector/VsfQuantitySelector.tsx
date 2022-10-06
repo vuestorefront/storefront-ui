@@ -5,14 +5,14 @@ import VsfButton, { VsfButtonSizes } from '../VsfButton';
 import { VsfQuantitySelectorProps, VsfQuantitySelectorSizes } from './types';
 
 export default function VsfQuantitySelector({
-  inputAriaLabel,
-  inputId,
-  value,
+  inputAriaLabel = 'Quantity Selector',
+  inputId = 'qty-selector',
   minValue = 1,
   maxValue,
   step = 1,
-  disabled,
   size = VsfQuantitySelectorSizes.base,
+  value,
+  disabled,
   block,
   onChange,
   className,

@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { PropType, computed, toRefs } from 'vue';
+import { PropType, computed, toRefs, ref } from 'vue';
 import { VsfQuantitySelectorSizes } from './types';
 import VsfButton from '../VsfButton/VsfButton.vue';
 import { VsfButtonVariants, VsfButtonSizes } from '../VsfButton/types';
@@ -36,11 +36,11 @@ const props = defineProps({
   },
   inputAriaLabel: {
     type: String,
-    default: null,
+    default: 'Quantity Selector',
   },
   inputId: {
     type: String,
-    default: null,
+    default: 'qty-selector',
   },
 });
 
@@ -49,6 +49,8 @@ const emit = defineEmits<{
 }>();
 
 const { disabled, minValue, maxValue, modelValue, step } = toRefs(props);
+
+const currentValue = ref(modelValue.value);
 
 const buttonSize = computed(() => {
   switch (props.size) {
@@ -62,56 +64,42 @@ const buttonSize = computed(() => {
 const increaseDisabled = computed(
   () =>
     disabled.value ||
-    (maxValue.value !== undefined && modelValue.value !== undefined && modelValue.value >= maxValue.value),
+    (maxValue.value !== undefined && currentValue.value !== undefined && currentValue.value >= maxValue.value),
 );
 const decreaseDisabled = computed(
   () =>
     disabled.value ||
-    (minValue.value !== undefined && modelValue.value !== undefined && modelValue.value <= minValue.value),
+    (minValue.value !== undefined && currentValue.value !== undefined && currentValue.value <= minValue.value),
 );
 
 function handleIncrease() {
-  const nextValue = (Number(modelValue.value) ?? 0) + Number(step.value);
-  if (maxValue.value !== undefined && nextValue > maxValue.value) {
-    return;
+  currentValue.value += Number(step.value);
+  if (maxValue.value && currentValue.value > maxValue.value) {
+    currentValue.value = maxValue.value;
   }
-  emit('update:modelValue', nextValue);
+  emit('update:modelValue', currentValue.value);
 }
 function handleDecrease() {
-  const nextValue = (Number(modelValue.value) ?? 0) - Number(step.value);
-  if (minValue.value !== undefined && nextValue < minValue.value) {
-    return;
+  currentValue.value -= Number(step.value);
+  if (currentValue.value < minValue.value) {
+    currentValue.value = minValue.value;
   }
-  emit('update:modelValue', nextValue);
+  emit('update:modelValue', currentValue.value);
 }
 
-function handleChange(currentValue: number) {
-  // const { value: currentValue } = event.target as HTMLInputElement;
-  // const nextValue = currentValue.length > 0 ? Number(currentValue) : undefined;
-  const nextValue = Number(currentValue) || undefined;
-  if (nextValue !== undefined) {
-    if (maxValue.value !== undefined && nextValue > maxValue.value) {
-      return emit('update:modelValue', maxValue.value);
+function handleChange(event: Event) {
+  const { valueAsNumber } = event.target as HTMLInputElement;
+  if (!isNaN(valueAsNumber)) {
+    currentValue.value = valueAsNumber;
+    if (maxValue.value != undefined && currentValue.value > maxValue.value) {
+      currentValue.value = maxValue.value;
     }
-    if (minValue.value !== undefined && nextValue < minValue.value) {
-      return emit('update:modelValue', minValue.value);
+    if (maxValue.value != undefined && currentValue.value < minValue.value) {
+      currentValue.value = minValue.value;
     }
-    emit('update:modelValue', nextValue);
-    console.log(nextValue, maxValue.value, minValue.value);
+    emit('update:modelValue', currentValue.value);
   }
 }
-function onChange(e) {
-  console.log(e);
-}
-
-const inputValue = computed({
-  get() {
-    return modelValue.value;
-  },
-  set(val) {
-    handleChange(val);
-  },
-});
 </script>
 
 <template>
@@ -136,7 +124,7 @@ const inputValue = computed({
         :id="inputId"
         type="number"
         :step="step"
-        v-model="inputValue"
+        :value="currentValue"
         role="spinbutton"
         class="vsf-qty-selector__input"
         :disabled="disabled"
@@ -147,7 +135,7 @@ const inputValue = computed({
         :aria-valuemax="maxValue"
         :min="minValue"
         :max="maxValue"
-        @change.prevent="onChange"
+        @input="handleChange"
       />
 
       <VsfButton

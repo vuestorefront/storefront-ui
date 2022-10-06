@@ -13,7 +13,7 @@
     @apply flex flex-1 w-full;
   }
   &__wrapper {
-    @apply flex border border-gray-300 rounded-md w-full;
+    @apply flex border border-gray-300 rounded-md w-full relative;
     & + * {
       // default slot
       @apply mt-1;
