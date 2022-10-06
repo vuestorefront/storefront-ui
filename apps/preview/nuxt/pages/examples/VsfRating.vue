@@ -1,7 +1,13 @@
 <template>
   <div class="e-page">
     <div class="e-page-component">
-      <VsfRating :value="valueModel" :max="maxModel" :size="sizeModel" :reviews="reviewsModel" :type="typeModel" />
+      <VsfRating
+        :value="Number(valueModel)"
+        :max="Number(maxModel)"
+        :size="sizeModel"
+        :variant="variantModel"
+        :half-increment="halfIncrementModel"
+      />
     </div>
     <div class="e-page-controls">
       <Controls v-bind="controlsAttrs" />
@@ -11,7 +17,8 @@
 
 <script>
 import { defineComponent, ref } from 'vue';
-import VsfRating, { VsfRatingTypes, VsfRatingVariants } from '../../output/blocks/VsfRating/VsfRating.vue';
+import VsfRating from '@sfui/sfui/frameworks/vue/components/VsfRating/VsfRating.vue';
+import { VsfRatingVariants, VsfRatingSizes } from '@sfui/sfui/frameworks/vue/components/VsfRating/types';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
 
 export default defineComponent({
@@ -24,7 +31,7 @@ export default defineComponent({
     return prepareControls(
       [
         {
-          title: 'value',
+          title: 'Value',
           type: 'range',
           modelName: 'valueModel',
           propDefaultValue: 0,
@@ -34,13 +41,13 @@ export default defineComponent({
               bind: {
                 min: 0,
                 max: 10,
-                step: 0.5,
+                step: 0.1,
               },
             },
           ],
         },
         {
-          title: 'max',
+          title: 'Max',
           type: 'range',
           modelName: 'maxModel',
           propDefaultValue: 5,
@@ -56,43 +63,34 @@ export default defineComponent({
           ],
         },
         {
-          title: 'reviews',
-          type: 'range',
-          modelName: 'reviewsModel',
-          propDefaultValue: 0,
-          propType: 'number',
-          options: [
-            {
-              bind: {
-                min: 0,
-                step: 1,
-              },
-            },
-          ],
+          title: 'Half increment',
+          type: 'boolean',
+          modelName: 'halfIncrementModel',
+          propType: 'boolean',
         },
         {
-          title: 'size',
+          title: 'Size',
           type: 'select',
           modelName: 'sizeModel',
+          options: Object.keys(VsfRatingSizes),
+          propDefaultValue: VsfRatingSizes.base,
+          propType: 'VsfRatingSizes',
+        },
+        {
+          title: 'Variant',
+          type: 'select',
+          modelName: 'variantModel',
           options: Object.keys(VsfRatingVariants),
           propDefaultValue: VsfRatingVariants.base,
           propType: 'VsfRatingVariants',
-        },
-        {
-          title: 'type',
-          type: 'select',
-          modelName: 'typeModel',
-          options: Object.keys(VsfRatingTypes),
-          propDefaultValue: VsfRatingTypes.base,
-          propType: 'VsfRatingTypes',
         },
       ],
       {
         valueModel: ref(3),
         maxModel: ref(5),
-        reviewsModel: ref(10),
-        sizeModel: ref(VsfRatingVariants.base),
-        typeModel: ref(VsfRatingTypes.base)
+        sizeModel: ref(VsfRatingSizes.base),
+        variantModel: ref(VsfRatingVariants.base),
+        halfIncrementModel: ref(false),
       },
     );
   },
