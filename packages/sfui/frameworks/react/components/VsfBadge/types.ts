@@ -1,11 +1,11 @@
-import type { PropsWithChildren } from 'react';
-import type { PropsWithStyle } from '../../shared/types';
+import type { ReactNode, CSSProperties } from 'react';
 
-export type VsfBadgeProps = PropsWithStyle<
-  PropsWithChildren<{
-    dot?: boolean;
-    value?: string | number;
-    invisible?: boolean;
-    bordered?: boolean;
-  }>
->;
+export type VsfBadgeProps = {
+  dot?: boolean;
+  value?: string | number;
+  invisible?: boolean;
+  bordered?: boolean;
+  className?: string;
+  style?: CSSProperties;
+  children?: ReactNode;
+};
