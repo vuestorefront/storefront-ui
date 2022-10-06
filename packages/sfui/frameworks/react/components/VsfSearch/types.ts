@@ -1,11 +1,6 @@
 import { CSSProperties, ReactNode, FormEventHandler, MouseEventHandler } from 'react';
 
-type PropsWithStyle<P = unknown> = P & {
-  className?: string | undefined;
-  style?: CSSProperties;
-};
-
-export type VsfSearchProps = PropsWithStyle<{
+export type VsfSearchProps = {
   placeholder?: string;
   disabled?: boolean;
   value?: string;
@@ -19,4 +14,6 @@ export type VsfSearchProps = PropsWithStyle<{
   onInput?: FormEventHandler<HTMLInputElement>;
   onSubmit?: FormEventHandler<HTMLFormElement>;
   onReset?: MouseEventHandler<Element>;
-}>;
+  className?: string | undefined;
+  style?: CSSProperties;
+};
