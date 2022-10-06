@@ -6,9 +6,9 @@ export enum VsfQuantitySelectorSizes {
 }
 
 export type VsfQuantitySelectorProps = {
+  value: number;
   inputId?: string;
   inputAriaLabel?: string;
-  value: number;
   minValue?: number;
   maxValue?: number;
   disabled?: boolean;
