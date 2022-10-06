@@ -28,7 +28,6 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'import/no-extraneous-dependencies': 0,
     'react/jsx-props-no-spreading': 'off',
-    'react/jsx-no-useless-fragment': [2, { allowExpressions: true }],
     'jsx-a11y/anchor-is-valid': [
       'error',
       {
