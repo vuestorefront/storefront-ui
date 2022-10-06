@@ -7,5 +7,4 @@ export interface VsfAccordionItemProps {
   slotPrefix?: ReactNode;
   slotSuffix?: ReactNode;
   children?: ReactNode;
-};
-
+}

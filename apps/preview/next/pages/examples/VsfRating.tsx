@@ -1,12 +1,13 @@
-import VsfRating, { VsfRatingVariants, VsfRatingTypes } from '../../output/blocks/VsfRating/VsfRating.lite';
+import VsfRating from '@sfui/sfui/frameworks/react/components/VsfRating';
+import { VsfRatingVariants, VsfRatingSizes } from '@sfui/sfui/frameworks/react/components/VsfRating/types';
 import Controls, { prepareControls } from '../../components/utils/Controls';
-import { ExamplePageLayout } from '../examplesOld';
+import { ExamplePageLayout } from '../examples';
 
-const Example = () => {
+function Example() {
   const { state, controls } = prepareControls(
     [
       {
-        title: 'value',
+        title: 'Value',
         type: 'range',
         modelName: 'valueModel',
         propDefaultValue: 0,
@@ -16,13 +17,13 @@ const Example = () => {
             bind: {
               min: 0,
               max: 10,
-              step: 0.5,
+              step: 0.1,
             },
           },
         ],
       },
       {
-        title: 'max',
+        title: 'Max',
         type: 'range',
         modelName: 'maxModel',
         propDefaultValue: 5,
@@ -38,43 +39,34 @@ const Example = () => {
         ],
       },
       {
-        title: 'reviews',
-        type: 'range',
-        modelName: 'reviewsModel',
-        propDefaultValue: 0,
-        propType: 'number',
-        options: [
-          {
-            bind: {
-              min: 0,
-              step: 1,
-            },
-          },
-        ],
+        title: 'Half increment',
+        type: 'boolean',
+        modelName: 'halfIncrementModel',
+        propType: 'boolean',
       },
       {
-        title: 'size',
+        title: 'Size',
         type: 'select',
         modelName: 'sizeModel',
+        options: Object.keys(VsfRatingSizes),
+        propDefaultValue: VsfRatingSizes.base,
+        propType: 'VsfRatingSizes',
+      },
+      {
+        title: 'Variant',
+        type: 'select',
+        modelName: 'variantModel',
         options: Object.keys(VsfRatingVariants),
         propDefaultValue: VsfRatingVariants.base,
         propType: 'VsfRatingVariants',
-      },
-      {
-        title: 'type',
-        type: 'select',
-        modelName: 'typeModel',
-        options: Object.keys(VsfRatingTypes),
-        propDefaultValue: VsfRatingTypes.base,
-        propType: 'VsfRatingTypes',
       },
     ],
     {
       valueModel: 3,
       maxModel: 5,
-      reviewsModel: 10,
-      sizeModel: VsfRatingVariants.base,
-      typeModel: VsfRatingTypes.base,
+      sizeModel: VsfRatingSizes.base,
+      variantModel: VsfRatingVariants.base,
+      halfIncrementModel: false,
     },
   );
   return (
@@ -83,9 +75,9 @@ const Example = () => {
         <VsfRating
           value={state.get.valueModel}
           max={state.get.maxModel}
-          reviews={state.get.reviewsModel}
           size={state.get.sizeModel}
-          type={state.get.typeModel}
+          variant={state.get.variantModel}
+          halfIncrement={state.get.halfIncrementModel}
         />
       </div>
       <div className="e-page-controls">
