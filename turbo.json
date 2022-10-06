@@ -37,6 +37,11 @@
       "outputs": []
     },
     "lint:fix": {
+      "cache": false,
+      "outputs": []
+    },
+    "lint:fix:sfui": {
+      "cache": false,
       "outputs": []
     },
     "dev": {
