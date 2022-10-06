@@ -29,7 +29,7 @@ function Example() {
       },
       {
         title: 'MinValue',
-        type: 'number',
+        type: 'range',
         modelName: 'minValue',
         propType: 'number',
         propDefaultValue: '1',
@@ -37,13 +37,15 @@ function Example() {
           {
             bind: {
               min: 1,
+              max: 10,
+              step: 1,
             },
           },
         ],
       },
       {
         title: 'step',
-        type: 'number',
+        type: 'range',
         modelName: 'step',
         propType: 'number',
         propDefaultValue: '1',
@@ -51,19 +53,23 @@ function Example() {
           {
             bind: {
               min: 1,
+              max: 10,
+              step: 1,
             },
           },
         ],
       },
       {
         title: 'MaxValue',
-        type: 'number',
+        type: 'range',
         modelName: 'maxValue',
         propType: 'number',
         options: [
           {
             bind: {
               min: 1,
+              max: 100,
+              step: 1,
             },
           },
         ],
