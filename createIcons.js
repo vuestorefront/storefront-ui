@@ -124,7 +124,7 @@ const mitosisIcon = (name, camelCaseName, content, attributes) => `import { useS
 import VsfIconBase from "../VsfIconBase/VsfIconBase.lite";
 
 export interface VsfIcon${camelCaseName}Props {
-  size?: "xs" | "sm" | "base" | "lg" | "xl" | "2xl" | "3xl",
+  size?: "xs" | "sm" | "base" | "lg" | "xl" | "2xl" | "3xl" | "4xl",
   className?: string;
   ariaLabel?: string;
 }

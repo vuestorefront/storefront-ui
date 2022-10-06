@@ -82,7 +82,9 @@ function VsfBreadcrumbs({ slotIcon, breadcrumbs = [], withIcon = false }: VsfBre
           <li aria-label="Home" className="vsf-breadcrumbs__item">
             <Link href="/apps/web/pages">
               <a className="vsf-breadcrumbs__item-button--home">
-                <span className="vsf-breadcrumbs__item-button-icon--home">{slotIcon || <VsfIconHome />}</span>
+                <span className="vsf-breadcrumbs__item-button-icon--home">
+                  {slotIcon || <VsfIconHome size={VsfIconSizeEnum.sm} />}
+                </span>
               </a>
             </Link>
           </li>
