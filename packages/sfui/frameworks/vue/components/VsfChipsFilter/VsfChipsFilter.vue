@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { VsfChipsFilterVariants } from './types';
 
-const props = defineProps({
+defineProps({
   type: {
     type: String,
     default: 'checkbox',
