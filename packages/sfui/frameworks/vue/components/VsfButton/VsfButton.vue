@@ -1,25 +1,14 @@
 <script lang="ts" setup>
-import { computed, PropType, toRef } from 'vue';
-import {
-  VsfButtonSizesKeys,
-  VsfButtonSizes,
-  VsfButtonVariantsKeys,
-  VsfButtonVariants,
-  VsfButtonColorsKeys,
-  VsfButtonColors,
-} from './types';
+import { computed, PropType } from 'vue';
+import { VsfButtonSizes, VsfButtonVariants } from './types';
 const props = defineProps({
   size: {
-    type: String as PropType<VsfButtonSizesKeys>,
+    type: String as PropType<VsfButtonSizes>,
     default: VsfButtonSizes.base,
   },
   variant: {
-    type: String as PropType<VsfButtonVariantsKeys>,
+    type: String as PropType<VsfButtonVariants>,
     default: VsfButtonVariants.primary,
-  },
-  color: {
-    type: String as PropType<VsfButtonColorsKeys>,
-    default: VsfButtonColors.primary,
   },
   rounded: {
     type: Boolean,
@@ -51,9 +40,6 @@ const props = defineProps({
   },
 });
 
-const tagRef = toRef(props, 'tag');
-const hrefRef = toRef(props, 'href');
-
 const componentTag = computed(() => {
   if (props.href && props.tag === 'button') {
     return 'a';
@@ -66,37 +52,38 @@ const attributes = computed(() => ({
   ...(props.href && { href: props.href }),
   disabled: props.disabled,
 }));
-const buttonClasses = computed(() => [
-  'vsf-button',
-  {
-    'vsf-button--disabled': props.disabled,
-    'vsf-button--rounded': props.rounded,
-    'vsf-button--tile': props.tile,
-    'vsf-button--icon': props.icon,
-    'vsf-button--block': props.block,
-
-    'vsf-button--base': props.size === 'base',
-    'vsf-button--sm': props.size === 'sm',
-    'vsf-button--lg': props.size === 'lg',
-
-    'vsf-button--primary': props.color === 'primary',
-    'vsf-button--negative': props.color === 'negative',
-    'vsf-button--warning': props.color === 'warning',
-    'vsf-button--gray': props.color === 'gray',
-    'vsf-button--secondary': props.color === 'secondary',
-    'vsf-button--positive': props.color === 'positive',
-
-    'vsf-button--variant-primary': props.variant === 'primary',
-    'vsf-button--variant-secondary': props.variant === 'secondary',
-    'vsf-button--variant-tertiary': props.variant === 'tertiary',
-  },
-]);
+// TODO: remove tag prop, why its needed? when link exists should be <a> in any other case button
 </script>
 
 <template>
-  <component :is="componentTag" v-bind="attributes" :class="buttonClasses">
-    <slot name="prefix"></slot>
+  <component
+    :is="componentTag"
+    v-bind="attributes"
+    :class="[
+      'vsf-button',
+      {
+        'vsf-button--disabled': props.disabled,
+        'vsf-button--rounded': props.rounded,
+        'vsf-button--tile': props.tile,
+        'vsf-button--icon': props.icon,
+        'vsf-button--block': props.block,
+
+        'vsf-button--base': props.size === 'base',
+        'vsf-button--sm': props.size === 'sm',
+        'vsf-button--lg': props.size === 'lg',
+
+        'vsf-button--variant-primary': props.variant === 'primary',
+        'vsf-button--variant-secondary': props.variant === 'secondary',
+        'vsf-button--variant-tertiary': props.variant === 'tertiary',
+      },
+    ]"
+  >
+    <span v-if="$slots.prefix" class="vsf-button__prefix">
+      <slot name="prefix"></slot>
+    </span>
     <slot></slot>
-    <slot name="suffix"></slot>
+    <span v-if="$slots.suffix" class="vsf-button__suffix">
+      <slot name="suffix"></slot>
+    </span>
   </component>
 </template>

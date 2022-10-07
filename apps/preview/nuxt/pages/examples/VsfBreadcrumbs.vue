@@ -1,7 +1,7 @@
 <template>
   <div class="e-page">
     <div class="e-page-component">
-      <VsfBreadcrumbs :breadcrumbs="breadcrumbsModel" :with-icon="withIconModel" />
+      <VsfBreadcrumbs :breadcrumbs="breadcrumbs" :with-icon="withIcon" />
     </div>
     <div class="e-page-controls">
       <Controls v-bind="controlsAttrs" />
@@ -10,10 +10,10 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, ref, resolveComponent } from 'vue';
-import VsfBreadcrumbs from '@sfui/sfui/frameworks/vue/components/VsfBreadcrumbs/VsfBreadcrumbs.vue';
-import type { VsfBreadcrumbType } from '@sfui/sfui/frameworks/vue/components/VsfBreadcrumbs/types';
+import { defineComponent, ref, resolveComponent, computed, ToRefs } from 'vue';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
+import VsfBreadcrumbs from '@sfui/sfui/frameworks/vue/components/VsfBreadcrumbs/VsfBreadcrumbs.vue';
+import type { VsfBreadcrumbsProps } from '@sfui/sfui/frameworks/vue/components/VsfBreadcrumbs/types';
 
 export default defineComponent({
   name: 'VsfBreadcrumbsExample',
@@ -28,25 +28,23 @@ export default defineComponent({
 
     return {
       componentToShow,
-      ...prepareControls(
+      ...prepareControls<ToRefs<VsfBreadcrumbsProps>>(
         [
           {
-            title: 'WithIcon',
             type: 'boolean',
-            modelName: 'withIconModel',
+            modelName: 'withIcon',
             propType: 'boolean',
           },
           {
-            title: 'Breadcrumbs',
             type: 'json',
-            modelName: 'breadcrumbsModel',
-            propType: 'VsfBreadcrumbType[]',
+            modelName: 'breadcrumbs',
+            propType: 'VsfBreadcrumbsType[]',
             propDefaultValue: '[]',
           },
         ],
         {
-          withIconModel: ref<boolean>(),
-          breadcrumbsModel: ref<VsfBreadcrumbType[]>([
+          withIcon: ref(),
+          breadcrumbs: ref([
             { name: 'NuxtLink', linkTag: componentToShow, bindings: { to: '/examples/VsfOtherComponent' } },
             { name: 'Page 2', bindings: { href: '/page2' } },
             { name: 'Page 3', bindings: { href: '/page3' } },
