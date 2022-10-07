@@ -43,7 +43,6 @@ export default defineComponent({
     return prepareControls(
       [
         {
-          title: 'Size',
           type: 'select',
           options: Object.keys(VsfQuantitySelectorSizes),
           modelName: 'size',
@@ -51,19 +50,16 @@ export default defineComponent({
           propDefaultValue: VsfQuantitySelectorSizes.base,
         },
         {
-          title: 'Disabled',
           type: 'boolean',
           modelName: 'disabled',
           propType: 'boolean',
         },
         {
-          title: 'Block',
           type: 'boolean',
           modelName: 'block',
           propType: 'boolean',
         },
         {
-          title: 'MinValue',
           type: 'range',
           modelName: 'minValue',
           propType: 'number',
@@ -79,7 +75,6 @@ export default defineComponent({
           ],
         },
         {
-          title: 'step',
           type: 'range',
           modelName: 'step',
           propType: 'number',
@@ -95,7 +90,6 @@ export default defineComponent({
           ],
         },
         {
-          title: 'MaxValue',
           type: 'range',
           modelName: 'maxValue',
           propType: 'number',
@@ -110,14 +104,12 @@ export default defineComponent({
           ],
         },
         {
-          title: 'inputAriaLabel',
           type: 'text',
           modelName: 'inputAriaLabel',
           propType: 'string',
           propDefaultValue: 'Quantity Selector',
         },
         {
-          title: 'inputId',
           type: 'text',
           modelName: 'inputId',
           propType: 'string',
