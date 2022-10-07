@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, ChangeEvent } from 'react';
 
 export enum VsfChipsFilterVariants {
   sm = 'sm',
@@ -13,9 +13,8 @@ export interface VsfChipsFilterProps {
   name: string;
   label?: string;
   disabled?: boolean;
-  noThumb?: boolean;
-  onChange: (...args: any[]) => void;
-  value?: any;
+  onChange: (event?: ChangeEvent<HTMLInputElement>) => void;
+  value?: string;
   className?: string;
   checked?: boolean;
 }

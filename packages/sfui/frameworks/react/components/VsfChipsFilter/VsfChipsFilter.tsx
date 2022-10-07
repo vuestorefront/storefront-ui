@@ -25,10 +25,10 @@ export default function VsfChipsFilter({
         name={name}
         defaultChecked={checked}
       />
-      <div className="vsf-chips-filter__peer-wrapper">
-        {children && <div className="vsf-chips-filter__thumbnail">{children}</div>}
+      <span className="vsf-chips-filter__peer-wrapper">
+        {children && <span className="vsf-chips-filter__thumbnail">{children}</span>}
         {label && <span className="vsf-chips-filter__label">{label}</span>}
-      </div>
+      </span>
     </label>
   );
 }
