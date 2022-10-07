@@ -17,6 +17,8 @@
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint:fix",
     "lint:fix:sfui": "turbo run lint:fix:sfui",
+    "build:next": "turbo run build:next",
+    "build:nuxt": "turbo run build:nuxt",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "clean": "npx rimraf ./**/node_modules && rm yarn.lock",
     "clean:total": "npx rimraf ./**/node_modules && rimraf ./**/.cache && rimraf ./**/.turbo && rm yarn.lock",

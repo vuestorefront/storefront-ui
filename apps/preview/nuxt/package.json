@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "nuxt dev --port=3001",
     "build": "nuxt build",
+    "build:nuxt": "yarn build",
     "serve": "node .output/server/index.mjs",
     "lint": "eslint --ext .ts,.js,.vue .",
     "lint:fix": "eslint --fix --ext .ts,.js,.vue ."

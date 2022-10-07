@@ -5,8 +5,8 @@ WORKDIR /var/www
 COPY . .
 
 RUN  yarn install \
-  && yarn build
+  && yarn build:next
 
-WORKDIR /var/www/apps/preview/nuxt
+WORKDIR /var/www/apps/preview/next
 
 CMD ["yarn", "serve"]
