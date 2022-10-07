@@ -6,11 +6,11 @@
         :name="nameModel"
         :label="labelModel"
         :disabled="disabledModel"
-        :helpText="helpTextModel"
-        :errorText="errorTextModel"
+        :help-text="helpTextModel"
+        :error-text="errorTextModel"
         :invalid="invalidModel"
         :required="requiredModel"
-        :rightCheckbox="rightCheckboxModel"
+        :right-checkbox="rightCheckboxModel"
         :size="sizeModel"
       />
     </div>

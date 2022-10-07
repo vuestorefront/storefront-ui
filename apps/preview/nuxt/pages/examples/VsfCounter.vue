@@ -1,8 +1,8 @@
 <template>
   <div class="e-page">
     <div class="e-page-component">
-      <VsfCounter :size="sizeModel" :pill="pillModel" :class="fillModel">
-        {{ valueModel }}
+      <VsfCounter :size="sizeModel" :pill="pill" :class="fill">
+        {{ value }}
       </VsfCounter>
     </div>
     <div class="e-page-controls">
@@ -28,13 +28,11 @@ export default defineComponent({
       ...prepareControls(
         [
           {
-            title: 'Value',
             type: 'text',
-            modelName: 'valueModel',
+            modelName: 'value',
             propType: 'string',
           },
           {
-            title: 'Size',
             type: 'select',
             modelName: 'sizeModel',
             options: Object.keys(VsfCounterSizes),
@@ -42,25 +40,23 @@ export default defineComponent({
             propType: 'VsfCounterSizes',
           },
           {
-            title: 'Pill',
             type: 'boolean',
-            modelName: 'pillModel',
+            modelName: 'pill',
             propType: 'boolean',
           },
           {
-            title: 'Fill color',
             type: 'select',
-            modelName: 'fillModel',
+            modelName: 'fill',
             options: ['bg-white', 'bg-gray-100', 'bg-primary-200', 'bg-warning-200', 'bg-negative-200'],
             propType: '---',
             description: 'Only for demonstration purposes, background is controlled by custom class',
           },
         ],
         {
-          valueModel: ref('123'),
+          value: ref('123'),
           sizeModel: ref<VsfCounterSizes>(VsfCounterSizes.base),
-          pillModel: ref<boolean>(false),
-          fillModel: ref<string>('bg-white'),
+          pill: ref(false),
+          fill: ref('bg-white'),
         },
       ),
     };

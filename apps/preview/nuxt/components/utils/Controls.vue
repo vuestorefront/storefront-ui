@@ -2,9 +2,7 @@
   <client-only>
     <div class="controls">
       <div class="heading-wrapper">
-        <h1 class="heading">
-          Controls
-        </h1>
+        <h1 class="heading">Controls</h1>
       </div>
       <table aria-label="Controls table">
         <thead>
@@ -22,11 +20,9 @@
             <td :class="[control.type === 'text' && 'align-middle']">
               {{ control.modelName }}
             </td>
-            <td class="value" >
+            <td class="value">
               <template v-if="control.type === 'select'">
-                <select
-                  v-model="proxyModels[control.modelName]"
-                >
+                <select v-model="proxyModels[control.modelName]">
                   <option
                     v-for="(options, optionIndex) in control.options || [{}]"
                     :key="`${control.modelName}-${index}-${optionIndex}`"
@@ -39,10 +35,7 @@
               <template v-else-if="control.type === 'boolean'">
                 <div class="switch-wrapper">
                   <label class="switch">
-                    <input
-                      v-model="(proxyModels[control.modelName])"
-                      type="checkbox"
-                    >
+                    <input v-model="proxyModels[control.modelName]" type="checkbox" />
                     <span class="slider" />
                   </label>
                   <span class="ml-2">{{ proxyModels[control.modelName] }}</span>
@@ -60,8 +53,8 @@
                       rows="10"
                       v-bind="(options as ControlOptionBind).bind"
                       :value="JSON.stringify(proxyModels[control.modelName], undefined, 2)"
-                      @input="proxyModels[control.modelName] = JSON.parse($event.target?.value)"
                       :name="`${control.modelName}-${index}`"
+                      @input="proxyModels[control.modelName] = JSON.parse($event.target?.value)"
                     >
                     </textarea>
                     <input
@@ -86,16 +79,20 @@
                       :type="control.type"
                       :name="`${control.modelName}-${index}`"
                     />
-                    <span v-if="options.hasOwnProperty('label')" class="pl-2">{{ (options as ControlOptionBind).label }}</span>
+                    <span v-if="options.hasOwnProperty('label')" class="pl-2">{{
+                      (options as ControlOptionBind).label
+                    }}</span>
                     <span v-else-if="typeof options === 'string'" class="pl-2">{{ options }}</span>
                   </label>
                 </div>
               </template>
             </td>
-            <td class="propType"><span>{{control.propType}}</span></td>
-            <td class="propDefaultValue">{{control.propDefaultValue}}</td>
-            <td class="required">{{control?.isRequired?.toString()}}</td>
-            <td class="description">{{control.description}}</td>
+            <td class="propType">
+              <span>{{ control.propType }}</span>
+            </td>
+            <td class="propDefaultValue">{{ control.propDefaultValue }}</td>
+            <td class="required">{{ control?.isRequired?.toString() }}</td>
+            <td class="description">{{ control.description }}</td>
           </tr>
         </tbody>
       </table>
@@ -104,28 +101,26 @@
 </template>
 
 <script lang="ts">
-import { toRefs, computed, reactive, Ref, defineComponent, PropType, ToRefs } from 'vue';
+import { toRefs, computed, reactive, Ref, defineComponent, PropType } from 'vue';
 
 type RefValueUnknown = Ref<unknown>;
 type ControlOptionBind = {
-  bind?: {};
+  bind?: Record<string, unknown>;
   label?: string;
   value?: string | number;
 };
 type Controls = {
   type: 'range' | 'radio' | 'checkbox' | 'text' | 'select' | 'boolean' | 'json';
   modelName: string;
-  model?: RefValueUnknown,
+  model?: RefValueUnknown;
   description?: string;
   propDefaultValue?: string | number | boolean;
   propType?: string;
   isRequired?: boolean;
-  options?: (ControlOptionBind | string)[]
+  options?: (ControlOptionBind | string)[];
 }[];
-export function prepareControls<T extends { [k: string]: any }>(
-  controlsObject: Controls,
-  models: ToRefs<T>
-) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function prepareControls<T extends { [k: string]: any }>(controlsObject: Controls, models: T) {
   const on: Record<string, (e: string | number | boolean | []) => void> = {};
   const controls = controlsObject.map((control) => {
     control.isRequired = false;
@@ -138,29 +133,31 @@ export function prepareControls<T extends { [k: string]: any }>(
   return {
     controlsAttrs: {
       controls,
-      ...on
+      ...on,
     },
     ...models,
   };
-};
+}
 
 export default defineComponent({
   name: 'Controls',
+  inheritAttrs: false,
   props: {
     controls: {
       type: Array as PropType<Controls>,
-      default: () => ([]),
+      default: () => [],
     },
   },
-  inheritAttrs: false,
   setup(props, { emit }) {
     const { controls } = toRefs(props);
     const proxyModels = reactive<Record<string, any>>({});
     controls.value.forEach((control) => {
-      proxyModels[control.modelName] = reactive(computed({
-        get: () => control?.model?.value,
-        set: (value) => emit(`update:${control.modelName}`, value),
-      }));
+      proxyModels[control.modelName] = reactive(
+        computed({
+          get: () => control?.model?.value,
+          set: (value) => emit(`update:${control.modelName}`, value),
+        }),
+      );
     });
 
     return {

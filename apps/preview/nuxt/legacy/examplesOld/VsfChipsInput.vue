@@ -3,12 +3,12 @@
     <div class="e-page-component">
       <VsfChipsInput :label="labelModel" :size="sizeModel" :disabled="disabledModel" @close="handleChipClose">
         <template #prefix>
-          <VsfIconDot class="vsf-icon-full text-gray-500"/>
+          <VsfIconDot class="vsf-icon-full text-gray-500" />
         </template>
       </VsfChipsInput>
     </div>
     <div class="e-page-controls">
-      <Controls v-bind="controlsAttrs"/>
+      <Controls v-bind="controlsAttrs" />
     </div>
   </div>
 </template>

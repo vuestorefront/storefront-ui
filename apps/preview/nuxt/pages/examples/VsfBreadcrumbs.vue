@@ -1,7 +1,7 @@
 <template>
   <div class="e-page">
     <div class="e-page-component">
-      <VsfBreadcrumbs :breadcrumbs="breadcrumbs" :withIcon="withIcon"/>
+      <VsfBreadcrumbs :breadcrumbs="breadcrumbs" :with-icon="withIcon" />
     </div>
     <div class="e-page-controls">
       <Controls v-bind="controlsAttrs" />
@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, resolveComponent, computed } from 'vue';
+import { defineComponent, ref, resolveComponent, computed, ToRefs } from 'vue';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
 import VsfBreadcrumbs from '@sfui/sfui/frameworks/vue/components/VsfBreadcrumbs/VsfBreadcrumbs.vue';
 import type { VsfBreadcrumbsProps } from '@sfui/sfui/frameworks/vue/components/VsfBreadcrumbs/types';
@@ -28,8 +28,8 @@ export default defineComponent({
 
     return {
       componentToShow,
-      ...prepareControls<VsfBreadcrumbsProps>(
-      [
+      ...prepareControls<ToRefs<VsfBreadcrumbsProps>>(
+        [
           {
             type: 'boolean',
             modelName: 'withIcon',
@@ -39,21 +39,21 @@ export default defineComponent({
             type: 'json',
             modelName: 'breadcrumbs',
             propType: 'VsfBreadcrumbsType[]',
-            propDefaultValue : '[]'
+            propDefaultValue: '[]',
           },
         ],
         {
-          withIcon: ref<boolean>(),
+          withIcon: ref(),
           breadcrumbs: ref([
-            { name: 'NuxtLink', linkTag: componentToShow, bindings: {to: '/examples/VsfOtherComponent'} },
-            { name: 'Page 2', bindings: {href: '/page2'} },
-            { name: 'Page 3', bindings: {href: '/page3'} },
-            { name: 'Page 4', bindings: {href: '/page4'} },
-            { name: 'Page 5', bindings: {href: '/page5'} },
+            { name: 'NuxtLink', linkTag: componentToShow, bindings: { to: '/examples/VsfOtherComponent' } },
+            { name: 'Page 2', bindings: { href: '/page2' } },
+            { name: 'Page 3', bindings: { href: '/page3' } },
+            { name: 'Page 4', bindings: { href: '/page4' } },
+            { name: 'Page 5', bindings: { href: '/page5' } },
           ]),
         },
-      )
-    }
+      ),
+    };
   },
 });
 </script>

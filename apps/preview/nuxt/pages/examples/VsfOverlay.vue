@@ -1,7 +1,7 @@
 <template>
   <div class="e-page">
     <div class="e-page-component relative">
-      <VsfOverlay @click="onClickHandler" :absolute="absolute" :visible="visible" />
+      <VsfOverlay :absolute="absolute" :visible="visible" @click="onClickHandler" />
     </div>
     <div class="e-page-controls">
       <Controls v-bind="controlsAttrs" />
@@ -44,7 +44,7 @@ export default defineComponent({
           visible: ref(false),
           absolute: ref(false),
         },
-      )
+      ),
     };
   },
 });

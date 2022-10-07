@@ -2,11 +2,11 @@
   <div class="e-page">
     <div class="e-page-component">
       <VsfRating
-        :value="Number(valueModel)"
+        :value="Number(value)"
         :max="Number(maxModel)"
-        :size="sizeModel"
-        :variant="variantModel"
-        :half-increment="halfIncrementModel"
+        :size="size"
+        :variant="variant"
+        :half-increment="halfIncrement"
       />
     </div>
     <div class="e-page-controls">
@@ -15,7 +15,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent, ref } from 'vue';
 import VsfRating from '@sfui/sfui/frameworks/vue/components/VsfRating/VsfRating.vue';
 import { VsfRatingVariants, VsfRatingSizes } from '@sfui/sfui/frameworks/vue/components/VsfRating/types';
@@ -31,9 +31,8 @@ export default defineComponent({
     return prepareControls(
       [
         {
-          title: 'Value',
           type: 'range',
-          modelName: 'valueModel',
+          modelName: 'value',
           propDefaultValue: 0,
           propType: 'number',
           options: [
@@ -47,7 +46,6 @@ export default defineComponent({
           ],
         },
         {
-          title: 'Max',
           type: 'range',
           modelName: 'maxModel',
           propDefaultValue: 5,
@@ -63,34 +61,31 @@ export default defineComponent({
           ],
         },
         {
-          title: 'Half increment',
           type: 'boolean',
-          modelName: 'halfIncrementModel',
+          modelName: 'halfIncrement',
           propType: 'boolean',
         },
         {
-          title: 'Size',
           type: 'select',
-          modelName: 'sizeModel',
+          modelName: 'size',
           options: Object.keys(VsfRatingSizes),
           propDefaultValue: VsfRatingSizes.base,
           propType: 'VsfRatingSizes',
         },
         {
-          title: 'Variant',
           type: 'select',
-          modelName: 'variantModel',
+          modelName: 'variant',
           options: Object.keys(VsfRatingVariants),
           propDefaultValue: VsfRatingVariants.base,
           propType: 'VsfRatingVariants',
         },
       ],
       {
-        valueModel: ref(3),
+        value: ref(3),
         maxModel: ref(5),
-        sizeModel: ref(VsfRatingSizes.base),
-        variantModel: ref(VsfRatingVariants.base),
-        halfIncrementModel: ref(false),
+        size: ref(VsfRatingSizes.base),
+        variant: ref(VsfRatingVariants.base),
+        halfIncrement: ref(false),
       },
     );
   },

@@ -1,4 +1,4 @@
-import { useState, createElement, useState, createElement } from 'react';
+import { useState, createElement } from 'react';
 import { VsfIconSizeEnum } from '@sfui/sfui/frameworks/react/components/VsfIcons/types';
 import * as AllVsfIcons from '@sfui/sfui/frameworks/react/components/VsfIcons';
 import useSWR from 'swr';
@@ -43,15 +43,18 @@ function Example() {
     <div className="e-page">
       <div className="e-page-component--icons">
         {componentsNames.map((componentName) => (
-          <div
+          <button
+            type="button"
             key={componentName}
             className="inline-block border cursor-pointer"
             data-tooltip={componentName}
-            onClick={() => copyToClipboard(componentName)}
-            style={{ color: state.get.colorModel }}
+            onClick={() => {
+              copyToClipboard(componentName);
+            }}
+            style={{ color: state.get.colorExample }}
           >
-            {createElement((AllVsfIcons as Record<string, any>)[componentName], { size: state.get.sizeModel })}
-          </div>
+            {createElement((AllVsfIcons as Record<string, any>)[componentName], { size: state.get.size })}
+          </button>
         ))}
 
         {copied && <div className="mt-5">Component name ({copied}) has been copied to clipboard</div>}
