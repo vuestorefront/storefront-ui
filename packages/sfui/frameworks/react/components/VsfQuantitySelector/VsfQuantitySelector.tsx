@@ -19,15 +19,15 @@ export default function VsfQuantitySelector({
   children,
   ...attributes
 }: VsfQuantitySelectorProps) {
-  const increaseDisabled = disabled || (maxValue !== undefined && value !== undefined && value >= maxValue);
-  const decreaseDisabled = disabled || (minValue !== undefined && value !== undefined && value <= minValue);
+  const increaseDisabled = disabled || (maxValue !== undefined && value >= maxValue);
+  const decreaseDisabled = disabled || value <= minValue;
 
   function handleIncrease() {
     const nextValue = (Number(value) ?? 0) + Number(step);
     if (maxValue !== undefined && nextValue > maxValue) {
       return;
     }
-    onChange?.(nextValue);
+    onChange(nextValue);
   }
 
   function handleDecrease() {
@@ -35,7 +35,7 @@ export default function VsfQuantitySelector({
     if (minValue !== undefined && nextValue < minValue) {
       return;
     }
-    onChange?.(nextValue);
+    onChange(nextValue);
   }
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
@@ -48,7 +48,7 @@ export default function VsfQuantitySelector({
       if (minValue !== undefined && nextValue < minValue) {
         return;
       }
-      onChange?.(nextValue);
+      onChange(nextValue);
     }
   }
   const buttonSize = useCallback(() => {

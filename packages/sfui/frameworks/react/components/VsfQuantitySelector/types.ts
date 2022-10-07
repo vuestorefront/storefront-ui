@@ -14,7 +14,7 @@ export type VsfQuantitySelectorProps = {
   disabled?: boolean;
   step?: number;
   size?: VsfQuantitySelectorSizes;
-  onChange?: (value: number) => void;
+  onChange: (value: number) => void;
   block?: boolean;
   className?: string;
   children?: ReactNode;
