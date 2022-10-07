@@ -10,4 +10,5 @@ export enum VsfIconSizeEnum {
   xl = 'xl',
   '2xl' = '2xl',
   '3xl' = '3xl',
+  '4xl' = '4xl',
 }
