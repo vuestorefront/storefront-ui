@@ -6,13 +6,11 @@ function Example() {
   const { state, controls } = prepareControls(
     [
       {
-        title: 'Label',
         type: 'text',
         modelName: 'labelModel',
         propType: 'string',
       },
       {
-        title: 'Variant',
         type: 'select',
         modelName: 'variantModel',
         options: Object.keys(VsfChipsFilterVariants),
@@ -20,7 +18,6 @@ function Example() {
         propType: 'VsfChipsFilterVariants',
       },
       {
-        title: 'Type',
         type: 'select',
         modelName: 'typeModel',
         options: ['checkbox', 'radio'],
@@ -28,13 +25,11 @@ function Example() {
         propType: 'string',
       },
       {
-        title: 'Disabled',
         type: 'boolean',
         modelName: 'disabledModel',
         propType: 'boolean',
       },
       {
-        title: 'Show Thumb',
         type: 'boolean',
         modelName: 'showThumbModel',
         propType: 'boolean',
