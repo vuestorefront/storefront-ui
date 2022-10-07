@@ -1,5 +1,6 @@
 import { ChangeEvent, FormEvent, MouseEvent } from 'react';
 import VsfSearch from '@sfui/sfui/frameworks/react/components/VsfSearch';
+import type { VsfSearchProps } from '@sfui/sfui/frameworks/react/components/VsfSearch';
 import { VsfIconSearch } from '@sfui/sfui/frameworks/react/components/VsfIcons';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
@@ -21,68 +22,60 @@ function ResultsPanel() {
 }
 
 function Example() {
-  const { state, controls } = prepareControls(
+  const { state, controls } = prepareControls<VsfSearchProps>(
     [
       {
-        title: 'disabled',
         type: 'boolean',
         propType: 'boolean',
-        modelName: 'disabledModel',
+        modelName: 'disabled',
       },
       {
-        title: 'required',
         type: 'boolean',
         propType: 'boolean',
-        modelName: 'requiredModel',
+        modelName: 'required',
       },
       {
-        title: 'Prefix icon',
         type: 'boolean',
         propType: '---',
         modelName: 'slotPrefix',
         description: "Only for demonstration purposes, Icon is injected via 'prefix' slot",
       },
       {
-        title: 'Suffix icon',
         type: 'boolean',
         propType: '---',
         modelName: 'slotSuffix',
         description: "Only for demonstration purposes, Icon is injected via 'suffix' slot",
       },
       {
-        title: 'Submit text',
         type: 'text',
         propType: 'string',
         modelName: 'slotSubmit',
         description: "Only for demonstration purposes, Content is injected via 'submit' slot",
       },
       {
-        title: 'Placeholder',
         type: 'text',
         propType: 'string',
-        modelName: 'placeholderModel',
+        modelName: 'placeholder',
       },
       {
-        title: 'Name',
         type: 'text',
         propType: 'string',
-        modelName: 'nameModel',
+        modelName: 'name',
       },
       {
-        title: 'Autocomplete',
         type: 'select',
         propType: 'string',
         options: ['on', 'off'],
-        modelName: 'autocompleteModel',
+        modelName: 'autocomplete',
       },
     ],
     {
-      placeholderModel: 'Search',
-      disabledModel: false,
+      placeholder: 'Search',
+      disabled: false,
       value: '',
-      nameModel: 'q',
-      requiredModel: false,
-      autocompleteModel: 'off',
+      name: 'q',
+      required: false,
+      autocomplete: 'off',
       slotSubmit: 'search',
       slotPrefix: false,
       slotSuffix: false,
@@ -90,10 +83,12 @@ function Example() {
   );
   function submitHandler(e: FormEvent) {
     e.preventDefault();
+    // eslint-disable-next-line no-console
     console.log('Search Submit: ', e);
   }
   function resetHandler(e: MouseEvent) {
     state.set({ ...state.get, value: '' });
+    // eslint-disable-next-line no-console
     console.log('Search Reset: ', e);
   }
   function onInput(event: ChangeEvent<HTMLInputElement>) {
@@ -104,11 +99,11 @@ function Example() {
     <div className="e-page">
       <div className="e-page-component">
         <VsfSearch
-          placeholder={state.get.placeholderModel}
-          disabled={state.get.disabledModel}
-          required={state.get.requiredModel}
-          autocomplete={state.get.autocompleteModel}
-          name={state.get.nameModel}
+          placeholder={state.get.placeholder}
+          disabled={state.get.disabled}
+          required={state.get.required}
+          autocomplete={state.get.autocomplete}
+          name={state.get.name}
           value={state.get.value}
           slotPrefix={state.get.slotPrefix ? <VsfIconSearch /> : null}
           slotSuffix={state.get.slotSuffix ? <VsfIconSearch /> : null}

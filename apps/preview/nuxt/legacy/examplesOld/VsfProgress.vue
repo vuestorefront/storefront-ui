@@ -4,7 +4,7 @@
       <VsfProgress :value="valueModel" :variant="variantModel" :type="typeModel" :label="labelModel" />
     </div>
     <div class="e-page-controls">
-      <Controls v-bind="controlsAttrs"/>
+      <Controls v-bind="controlsAttrs" />
     </div>
   </div>
 </template>
@@ -19,7 +19,8 @@ export default {
   name: 'VsfProgressExample',
   components: { VsfProgress, Controls },
   setup() {
-    return prepareControls([
+    return prepareControls(
+      [
         {
           title: 'Label',
           type: 'text',
@@ -33,7 +34,7 @@ export default {
           type: 'range',
           modelName: 'valueModel',
           propDefaultValue: 0,
-          propType: 'number'
+          propType: 'number',
         },
         {
           title: 'Variant',
@@ -41,7 +42,7 @@ export default {
           modelName: 'variantModel',
           options: Object.keys(VsfProgressVariants),
           propDefaultValue: VsfProgressVariants.base,
-          propType: 'VsfProgressVariants'
+          propType: 'VsfProgressVariants',
         },
         {
           title: 'Type',
@@ -49,14 +50,16 @@ export default {
           modelName: 'typeModel',
           options: Object.keys(VsfProgressTypes),
           propDefaultValue: VsfProgressTypes.circle,
-          propType: 'VsfProgressTypes'
+          propType: 'VsfProgressTypes',
         },
-      ], {
+      ],
+      {
         labelModel: ref(),
         valueModel: ref(),
         variantModel: ref(),
         typeModel: ref(),
-      })
-  }
+      },
+    );
+  },
 };
 </script>

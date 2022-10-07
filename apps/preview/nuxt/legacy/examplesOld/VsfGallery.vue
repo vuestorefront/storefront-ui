@@ -5,11 +5,11 @@
         <VsfGallery
           :images="imagesModel"
           :control="controlModel"
-          :thumbsLeft="thumbsLeftModel"
+          :thumbs-left="thumbsLeftModel"
           :contain="containModel"
           :counter="counterModel"
         >
-          <template #image v-if="badgeModel">
+          <template v-if="badgeModel" #image>
             <VsfTag variant="info" :badge="true" class="absolute top-0 left-0 z-10">
               <template #prefix>
                 <VsfIconHot class="vsf-icon-full" />
@@ -63,8 +63,8 @@ export default {
             type: 'boolean',
             modelName: 'containModel',
             propType: 'boolean',
-            propDefaultValue: "false",
-            description: "Set 'object-fit: contain' attribute in main grid. Default attribute value: 'cover'"
+            propDefaultValue: 'false',
+            description: "Set 'object-fit: contain' attribute in main grid. Default attribute value: 'cover'",
           },
           {
             title: 'Counter',
@@ -77,7 +77,7 @@ export default {
             type: 'boolean',
             modelName: 'badgeModel',
             propType: '---',
-            description: "Only for demonstration purpose. Badge is injected via 'image' slot"
+            description: "Only for demonstration purpose. Badge is injected via 'image' slot",
           },
           {
             title: 'Images',

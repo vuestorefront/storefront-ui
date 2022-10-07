@@ -2,14 +2,14 @@
   <div class="e-page">
     <div class="e-page-component">
       <VsfChipsFilter
+        v-model="modelValue"
         :size="variantModel"
         :disabled="disabledModel"
         :label="labelModel"
         :type="typeModel"
-        v-model="modelValue"
         value="one"
       >
-        <template #thumb v-if="!noThumbModel">
+        <template v-if="!noThumbModel" #thumb>
           <VsfIconDot class="vsf-icon-full" />
         </template>
       </VsfChipsFilter>

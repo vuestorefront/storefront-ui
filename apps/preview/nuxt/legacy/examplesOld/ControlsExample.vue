@@ -19,7 +19,7 @@
       <div>radioModel2 - {{ radioModel2 }}</div>
     </div>
     <div class="e-page-controls">
-      <Controls v-bind="controlsAttrs"/>
+      <Controls v-bind="controlsAttrs" />
     </div>
   </div>
 </template>
@@ -32,7 +32,8 @@ export default {
   name: 'ControlsExample',
   components: { Controls },
   setup() {
-    return prepareControls([
+    return prepareControls(
+      [
         {
           title: 'Text',
           type: 'text',
@@ -52,23 +53,28 @@ export default {
           title: 'Range step 10',
           type: 'range',
           modelName: 'rangeModel',
-          options: [{
-            bind: {
-              step: 10,
+          options: [
+            {
+              bind: {
+                step: 10,
+              },
             },
-          }],
+          ],
         },
         {
           title: 'Select options object',
           type: 'select',
           modelName: 'selectModel',
-          options: [{
-            label: 'Label1',
-            value: 'value1',
-          }, {
-            label: 'Label2',
-            value: 'value2',
-          }],
+          options: [
+            {
+              label: 'Label1',
+              value: 'value1',
+            },
+            {
+              label: 'Label2',
+              value: 'value2',
+            },
+          ],
         },
         {
           title: 'Select options Array',
@@ -80,19 +86,23 @@ export default {
           title: 'Checkbox option object',
           type: 'checkbox',
           modelName: 'checkboxModel',
-          options: [{
-            label: 'Label1',
-            value: 'value1',
-          }, {
-            label: 'Label2',
-            value: 'value2',
-          }, {
-            label: 'Disabled',
-            value: 'value3',
-            bind: {
-              disabled: true
-            }
-          }],
+          options: [
+            {
+              label: 'Label1',
+              value: 'value1',
+            },
+            {
+              label: 'Label2',
+              value: 'value2',
+            },
+            {
+              label: 'Disabled',
+              value: 'value3',
+              bind: {
+                disabled: true,
+              },
+            },
+          ],
         },
         {
           title: 'Checkbox options Array',
@@ -110,13 +120,16 @@ export default {
           title: 'Radio options object',
           type: 'radio',
           modelName: 'radioModel',
-          options: [{
-            label: 'Label1',
-            value: 'value1',
-          }, {
-            label: 'Label2',
-            value: 'value2',
-          }],
+          options: [
+            {
+              label: 'Label1',
+              value: 'value1',
+            },
+            {
+              label: 'Label2',
+              value: 'value2',
+            },
+          ],
         },
         {
           title: 'Radio options Array',
@@ -124,7 +137,8 @@ export default {
           modelName: 'radioModel2',
           options: ['Label1', 'Label2'],
         },
-      ], {
+      ],
+      {
         textModel: ref('Default'),
         booleanModel: ref(false),
         rangeModel: ref(10),
@@ -134,8 +148,9 @@ export default {
         checkboxModel2: ref([]),
         checkboxModelTrueFalse: ref(''),
         radioModel: ref(),
-        radioModel2: ref()
-      })
-  }
+        radioModel2: ref(),
+      },
+    );
+  },
 };
 </script>
