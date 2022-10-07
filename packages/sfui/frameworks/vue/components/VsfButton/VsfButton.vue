@@ -74,11 +74,11 @@ const buttonClasses = computed(() => [
 
 <template>
   <component :is="componentTag" v-bind="attributes" :class="buttonClasses">
-    <span v-if="$slots.prefix" className="vsf-button__prefix">
+    <span v-if="$slots.prefix" class="vsf-button__prefix">
       <slot name="prefix"></slot>
     </span>
     <slot></slot>
-    <span v-if="$slots.suffix" className="vsf-button__suffix">
+    <span v-if="$slots.suffix" class="vsf-button__suffix">
       <slot name="suffix"></slot>
     </span>
   </component>
