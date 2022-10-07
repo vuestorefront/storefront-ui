@@ -1,5 +1,6 @@
-import { ChangeEvent, useCallback } from 'react';
+import { ChangeEvent } from 'react';
 import classNames from 'classnames';
+import { clamp } from '@sfui/sfui/shared/utils';
 import { VsfIconMinus, VsfIconPlus } from '../VsfIcons';
 import VsfButton, { VsfButtonSizes } from '../VsfButton';
 import { VsfQuantitySelectorProps, VsfQuantitySelectorSizes } from './types';
@@ -8,7 +9,7 @@ export default function VsfQuantitySelector({
   inputAriaLabel = 'Quantity Selector',
   inputId = 'qty-selector',
   minValue = 1,
-  maxValue,
+  maxValue = Number.POSITIVE_INFINITY,
   step = 1,
   size = VsfQuantitySelectorSizes.base,
   value,
@@ -19,46 +20,31 @@ export default function VsfQuantitySelector({
   children,
   ...attributes
 }: VsfQuantitySelectorProps) {
-  const increaseDisabled = disabled || (maxValue !== undefined && value >= maxValue);
+  const increaseDisabled = disabled || value >= maxValue;
   const decreaseDisabled = disabled || value <= minValue;
 
   function handleIncrease() {
-    const nextValue = (Number(value) ?? 0) + Number(step);
-    if (maxValue !== undefined && nextValue > maxValue) {
-      return;
-    }
-    onChange(nextValue);
+    onChange(Math.min(value + Number(step), maxValue));
   }
 
   function handleDecrease() {
-    const nextValue = (Number(value) ?? 0) - Number(step);
-    if (minValue !== undefined && nextValue < minValue) {
-      return;
-    }
-    onChange(nextValue);
+    onChange(Math.max(value - Number(step), minValue));
   }
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
     const { value: currentValue } = event.target;
-    const nextValue = currentValue.length > 0 ? Number(currentValue) : undefined;
-    if (nextValue !== undefined) {
-      if (maxValue !== undefined && nextValue > maxValue) {
-        return;
-      }
-      if (minValue !== undefined && nextValue < minValue) {
-        return;
-      }
+    if (currentValue) {
+      const nextValue = clamp(Number(currentValue), minValue, maxValue);
       onChange(nextValue);
     }
   }
-  const buttonSize = useCallback(() => {
-    switch (size) {
-      case VsfQuantitySelectorSizes.lg:
-        return VsfButtonSizes.lg;
-      default:
-        return VsfButtonSizes.base;
+  const buttonSize = () => {
+    if (size === VsfQuantitySelectorSizes.lg) {
+      return VsfButtonSizes.lg;
     }
-  }, [size]);
+    return VsfButtonSizes.base;
+  };
+
   return (
     <div
       className={classNames(
@@ -79,7 +65,6 @@ export default function VsfQuantitySelector({
           disabled={decreaseDisabled}
           onClick={handleDecrease}
           size={buttonSize()}
-          tabIndex="-1"
         >
           <VsfIconMinus />
         </VsfButton>
@@ -94,9 +79,6 @@ export default function VsfQuantitySelector({
           disabled={disabled}
           aria-label={inputAriaLabel}
           aria-disabled={disabled}
-          aria-valuenow={value}
-          aria-valuemin={minValue}
-          aria-valuemax={maxValue}
           onChange={handleChange}
           min={minValue}
           max={maxValue}
@@ -112,7 +94,6 @@ export default function VsfQuantitySelector({
           disabled={increaseDisabled}
           onClick={handleIncrease}
           size={buttonSize()}
-          tabIndex="-1"
         >
           <VsfIconPlus />
         </VsfButton>

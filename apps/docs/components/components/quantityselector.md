@@ -11,7 +11,7 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 | Prop name      | Type                       | Default value       | Possible values |
 | -------------- | -------------------------- | ------------------- | --------------- |
 | minValue       | `Number`                   | 1                   |                 |
-| maxValue       | `Number`                   |                     |                 |
+| maxValue       | `Number`                   | `Infinity`          |                 |
 | step           | `Number`                   | 1                   |                 |
 | size           | `VsfQuantitySelectorSizes` | `base`              | `base`, `lg`    |
 | disabled       | `Boolean`                  | `false`             |                 |
@@ -51,11 +51,13 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 | update:modelValue | triggers v-model update event |
 
 ## Accessibility notes
+
 - Use the `aria-label` attribute on the input element to defines the accessible name of the quantity selector.
 - Use the `aria-valuenow` attribute on the input element to indicate the current numeric value of the quantity selector.
 - Use the `aria-valuemin` attribute on the input element to set the minimum value allowed for the quantity selector.
 - Use the `aria-valuemax` attribute on the input element to set the maximum value allowed for the quantity selector.
 - The input field element have an attribute `id`
+
 ## Source code
 
 <<<../../../packages/sfui/frameworks/vue/components/VsfQuantitySelector/VsfQuantitySelector.vue

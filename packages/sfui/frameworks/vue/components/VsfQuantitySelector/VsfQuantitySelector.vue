@@ -4,6 +4,7 @@ import { VsfQuantitySelectorSizes } from './types';
 import VsfButton from '../VsfButton/VsfButton.vue';
 import { VsfButtonVariants, VsfButtonSizes } from '../VsfButton/types';
 import { VsfIconMinus, VsfIconPlus } from '../VsfIcons/index';
+import { clamp } from '@sfui/sfui/shared/utils/index';
 
 const props = defineProps({
   modelValue: {
@@ -16,7 +17,7 @@ const props = defineProps({
   },
   maxValue: {
     type: [Number],
-    default: null,
+    default: Number.POSITIVE_INFINITY,
   },
   step: {
     type: [Number],
@@ -53,50 +54,30 @@ const { disabled, minValue, maxValue, modelValue, step } = toRefs(props);
 const currentValue = ref(modelValue.value);
 
 const buttonSize = computed(() => {
-  switch (props.size) {
-    case VsfQuantitySelectorSizes.lg:
-      return VsfButtonSizes.lg;
-    default:
-      return VsfButtonSizes.base;
+  if (props.size === VsfQuantitySelectorSizes.lg) {
+    return VsfButtonSizes.lg;
   }
+  return VsfButtonSizes.base;
 });
 
-const increaseDisabled = computed(
-  () =>
-    disabled.value ||
-    (maxValue.value !== undefined && currentValue.value !== undefined && currentValue.value >= maxValue.value),
-);
-const decreaseDisabled = computed(
-  () =>
-    disabled.value ||
-    (minValue.value !== undefined && currentValue.value !== undefined && currentValue.value <= minValue.value),
-);
+const increaseDisabled = computed(() => disabled.value || currentValue.value >= maxValue.value);
+const decreaseDisabled = computed(() => disabled.value || currentValue.value <= minValue.value);
 
 function handleIncrease() {
-  currentValue.value += Number(step.value);
-  if (maxValue.value && currentValue.value > maxValue.value) {
-    currentValue.value = maxValue.value;
-  }
+  currentValue.value = Math.min(currentValue.value + Number(step.value), maxValue.value);
   emit('update:modelValue', currentValue.value);
 }
+
 function handleDecrease() {
-  currentValue.value -= Number(step.value);
-  if (currentValue.value < minValue.value) {
-    currentValue.value = minValue.value;
-  }
+  currentValue.value = Math.max(currentValue.value - Number(step.value), minValue.value);
   emit('update:modelValue', currentValue.value);
 }
 
 function handleChange(event: Event) {
-  const { valueAsNumber } = event.target as HTMLInputElement;
-  if (!isNaN(valueAsNumber)) {
-    currentValue.value = valueAsNumber;
-    if (maxValue.value != undefined && currentValue.value > maxValue.value) {
-      currentValue.value = maxValue.value;
-    }
-    if (maxValue.value != undefined && currentValue.value < minValue.value) {
-      currentValue.value = minValue.value;
-    }
+  const { value } = event.target as HTMLInputElement;
+  if (value) {
+    currentValue.value = Number(value);
+    currentValue.value = clamp(Number(value), minValue.value, maxValue.value);
     emit('update:modelValue', currentValue.value);
   }
 }
@@ -114,7 +95,6 @@ function handleChange(event: Event) {
         icon
         :size="buttonSize"
         :disabled="decreaseDisabled"
-        tabindex="-1"
         @click="handleDecrease"
       >
         <VsfIconMinus />
@@ -130,9 +110,6 @@ function handleChange(event: Event) {
         :disabled="disabled"
         :aria-label="inputAriaLabel"
         :aria-disabled="disabled"
-        :aria-valuenow="modelValue"
-        :aria-valuemin="minValue"
-        :aria-valuemax="maxValue"
         :min="minValue"
         :max="maxValue"
         @input="handleChange"
@@ -147,7 +124,6 @@ function handleChange(event: Event) {
         icon
         :disabled="increaseDisabled"
         :size="buttonSize"
-        tabindex="-1"
         @click="handleIncrease"
       >
         <VsfIconPlus />
