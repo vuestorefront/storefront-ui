@@ -1,33 +1,30 @@
 import VsfCounter from '@sfui/sfui/frameworks/react/components/VsfCounter';
 import { VsfCounterSizes } from '@sfui/sfui/frameworks/react/components/VsfCounter/types';
+import type { VsfCounterProps } from '@sfui/sfui/frameworks/react/components/VsfCounter/types';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 
 function Example() {
-  const { state, controls } = prepareControls(
+  const { state, controls } = prepareControls<VsfCounterProps & { value: string; fillModel: string }>(
     [
       {
-        title: 'Value',
         type: 'text',
-        modelName: 'valueModel',
+        modelName: 'value',
         propType: 'string',
       },
       {
-        title: 'Size',
         type: 'select',
-        modelName: 'sizeModel',
+        modelName: 'size',
         options: Object.keys(VsfCounterSizes),
         propDefaultValue: VsfCounterSizes.base,
         propType: 'VsfCounterSizes',
       },
       {
-        title: 'Pill',
         type: 'boolean',
-        modelName: 'pillModel',
+        modelName: 'pill',
         propType: 'boolean',
       },
       {
-        title: 'Fill color',
         type: 'select',
         modelName: 'fillModel',
         options: ['bg-white', 'bg-gray-100', 'bg-primary-200', 'bg-warning-200', 'bg-negative-200'],
@@ -36,9 +33,9 @@ function Example() {
       },
     ],
     {
-      valueModel: '123',
-      sizeModel: VsfCounterSizes.base,
-      pillModel: false,
+      value: '123',
+      size: VsfCounterSizes.base,
+      pill: false,
       fillModel: 'bg-white',
     },
   );
@@ -46,8 +43,8 @@ function Example() {
   return (
     <div className="e-page">
       <div className="e-page-component">
-        <VsfCounter size={state.get.sizeModel} pill={state.get.pillModel} className={state.get.fillModel}>
-          {state.get.valueModel}
+        <VsfCounter size={state.get.size} pill={state.get.pill} className={state.get.fillModel}>
+          {state.get.value}
         </VsfCounter>
       </div>
       <div className="e-page-controls">

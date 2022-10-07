@@ -4,11 +4,11 @@
       <VsfListItemMenu
         :link="linkModel"
         :size="sizeModel"
-        :selected="selectedModel" 
-        :primaryText="primaryTextModel"
-        :secondaryText="secondaryTextModel"
+        :selected="selectedModel"
+        :primary-text="primaryTextModel"
+        :secondary-text="secondaryTextModel"
         :counter="counterModel"
-        :truncatedText="truncatedTextModel"
+        :truncated-text="truncatedTextModel"
         :disabled="disabledModel"
         class="w-[400px]"
       >
@@ -17,7 +17,7 @@
         </template>
         <template #suffix>
           <VsfIconChevronRight class="vsf-icon-full" />
-        </template>    
+        </template>
       </VsfListItemMenu>
     </div>
     <div class="e-page-controls">
@@ -39,7 +39,7 @@ export default defineComponent({
     VsfListItemMenu,
     Controls,
     VsfIconDot,
-    VsfIconChevronRight
+    VsfIconChevronRight,
   },
   setup() {
     return prepareControls(
@@ -49,7 +49,7 @@ export default defineComponent({
           type: 'text',
           modelName: 'linkModel',
           propDefaultValue: '',
-          propType: 'string'
+          propType: 'string',
         },
         {
           title: 'size',
@@ -111,7 +111,7 @@ export default defineComponent({
         counterModel: ref('123'),
         truncatedTextModel: ref(false),
         disabledModel: ref(false),
-      },    
+      },
     );
   },
 });

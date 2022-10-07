@@ -6,28 +6,24 @@ function Example() {
   const { state, controls } = prepareControls(
     [
       {
-        title: 'title',
         type: 'text',
-        modelName: 'titleModel',
+        modelName: 'title',
         propDefaultValue: '',
         propType: 'string',
         isRequired: true,
       },
       {
-        title: 'open',
         type: 'boolean',
-        modelName: 'openModel',
+        modelName: 'open',
         propDefaultValue: false,
         propType: 'boolean',
       },
       {
-        title: 'chevronLeft',
         type: 'boolean',
-        modelName: 'chevronLeftModel',
+        modelName: 'chevronLeft',
         propType: 'boolean',
       },
       {
-        title: 'children',
         type: 'text',
         modelName: 'childrenModel',
         description: 'Children prop for content',
@@ -36,9 +32,9 @@ function Example() {
       },
     ],
     {
-      openModel: false,
-      titleModel: 'Header',
-      chevronLeftModel: false,
+      open: false,
+      title: 'Header',
+      chevronLeft: false,
       childrenModel:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry' s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
     },
@@ -46,11 +42,7 @@ function Example() {
   return (
     <div className="e-page">
       <div className="e-page-component">
-        <VsfAccordionItem
-          title={state.get.titleModel}
-          open={state.get.openModel}
-          chevronLeft={state.get.chevronLeftModel}
-        >
+        <VsfAccordionItem title={state.get.title} open={state.get.open} chevronLeft={state.get.chevronLeft}>
           {state.get.childrenModel}
         </VsfAccordionItem>
       </div>

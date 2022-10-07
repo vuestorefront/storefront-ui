@@ -6,35 +6,38 @@
       </VsfSheet>
     </div>
     <div class="e-page-controls">
-      <Controls v-bind="controlsAttrs"/>
+      <Controls v-bind="controlsAttrs" />
     </div>
   </div>
 </template>
 
 <script>
 import { ref } from 'vue';
-import VsfSheet from '../../output/blocks/VsfSheet/VsfSheet.vue'
+import VsfSheet from '../../output/blocks/VsfSheet/VsfSheet.vue';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
 
 export default {
   name: 'VsfSheetExample',
   components: {
     Controls,
-    VsfSheet
+    VsfSheet,
   },
   setup() {
-    return prepareControls([
+    return prepareControls(
+      [
+        {
+          title: 'defaultSlot',
+          type: 'text',
+          modelName: 'defaultSlot',
+          description: 'Default slot',
+          propDefaultValue: false,
+          propType: 'string',
+        },
+      ],
       {
-        title: 'defaultSlot',
-        type: 'text',
-        modelName: 'defaultSlot',
-        description: 'Default slot',
-        propDefaultValue: false,
-        propType: 'string',
-      }
-    ], {
-      defaultSlot: ref(),
-    })
-  }
+        defaultSlot: ref(),
+      },
+    );
+  },
 };
 </script>
