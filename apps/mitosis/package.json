@@ -2,7 +2,7 @@
   "name": "@sfui/mitosis",
   "version": "0.0.0",
   "scripts": {
-    "build": "mitosis build && yarn remove-react-js && yarn remove-vue-tsx",
+    "build:legacy": "mitosis build && yarn remove-react-js && yarn remove-vue-tsx",
     "dev:legacy": "watch 'yarn run build' ./src ./overrides",
     "remove-react-js": "find ./output/react/src/blocks -name \"*.js\" -type f -delete",
     "remove-vue-tsx": "find ./output/vue/vue3/src/blocks -name \"*.lite.tsx\" -type f -delete"
