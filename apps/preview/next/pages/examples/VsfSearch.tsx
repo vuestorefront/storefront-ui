@@ -1,7 +1,8 @@
-import VsfSearch from '../../output/blocks/VsfSearch/VsfSearch.lite';
+import { ChangeEvent, FormEvent, MouseEvent } from 'react';
+import VsfSearch from '@sfui/sfui/frameworks/react/components/VsfSearch';
+import { VsfIconSearch } from '@sfui/sfui/frameworks/react/components/VsfIcons';
 import Controls, { prepareControls } from '../../components/utils/Controls';
-import VsfIconSearch from '../../output/blocks/VsfIcons/VsfIconSearch.lite';
-import { ExamplePageLayout } from '../examplesOld';
+import { ExamplePageLayout } from '../examples';
 
 function ResultsPanel() {
   return (
@@ -19,7 +20,7 @@ function ResultsPanel() {
   );
 }
 
-const Example = () => {
+function Example() {
   const { state, controls } = prepareControls(
     [
       {
@@ -49,17 +50,11 @@ const Example = () => {
         description: "Only for demonstration purposes, Icon is injected via 'suffix' slot",
       },
       {
-        title: 'Submit with icon',
-        type: 'boolean',
-        propType: '---',
-        modelName: 'slotSubmit',
-        description: "Only for demonstration purposes, Icon is injected via 'submit' slot",
-      },
-      {
         title: 'Submit text',
         type: 'text',
         propType: 'string',
-        modelName: 'submitTextModel',
+        modelName: 'slotSubmit',
+        description: "Only for demonstration purposes, Content is injected via 'submit' slot",
       },
       {
         title: 'Placeholder',
@@ -82,46 +77,47 @@ const Example = () => {
       },
     ],
     {
-      disabledModel: false,
-      requiredModel: false,
       placeholderModel: 'Search',
-      submitTextModel: 'Search',
-      nameModel: 'q',
-      autocompleteModel: 'off',
+      disabledModel: false,
       value: '',
-      slotSubmit: false,
+      nameModel: 'q',
+      requiredModel: false,
+      autocompleteModel: 'off',
+      slotSubmit: 'search',
       slotPrefix: false,
       slotSuffix: false,
     },
   );
-  function submitHandler(e: SubmitEvent) {
+  function submitHandler(e: FormEvent) {
     e.preventDefault();
     console.log('Search Submit: ', e);
   }
-  function resetHandler(e: PointerEvent) {
+  function resetHandler(e: MouseEvent) {
     state.set({ ...state.get, value: '' });
     console.log('Search Reset: ', e);
+  }
+  function onInput(event: ChangeEvent<HTMLInputElement>) {
+    state.set({ ...state.get, value: event.target.value });
   }
 
   return (
     <div className="e-page">
       <div className="e-page-component">
         <VsfSearch
-          onSubmit={submitHandler}
-          onReset={resetHandler}
           placeholder={state.get.placeholderModel}
           disabled={state.get.disabledModel}
           required={state.get.requiredModel}
           autocomplete={state.get.autocompleteModel}
           name={state.get.nameModel}
           value={state.get.value}
-          submitText={state.get.submitTextModel}
-          onInput={(event) => state.set({ ...state.get, value: event.target.value })}
           slotPrefix={state.get.slotPrefix ? <VsfIconSearch /> : null}
           slotSuffix={state.get.slotSuffix ? <VsfIconSearch /> : null}
-          slotSubmit={state.get.slotSubmit ? <VsfIconSearch /> : null}
+          slotSubmit={state.get.slotSubmit}
           slotResults={<ResultsPanel />}
-        ></VsfSearch>
+          onInput={onInput}
+          onSubmit={submitHandler}
+          onReset={resetHandler}
+        />
       </div>
       <div className="e-page-controls">
         <Controls {...{ state, controls }} />
