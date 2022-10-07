@@ -8,11 +8,9 @@ const VsfNavbarBottomItem = forwardRef<unknown, VsfNavbarBottomItemProps>(
   (
     {
       className, //
-      icon: Icon,
+      slotIcon,
       tag: Tag = 'button',
       active,
-      badge,
-      dotBadge,
       label,
       link,
       onClick,
@@ -32,24 +30,10 @@ const VsfNavbarBottomItem = forwardRef<unknown, VsfNavbarBottomItemProps>(
       },
       className,
     );
-    const badgeClass = classNames('vsf-navbar-bottom-item-badge', {
-      'vsf-navbar-bottom-item-badge--dot': dotBadge,
-    });
     return (
       <TagInternal onClick={onClick} ref={ref} className={classes} {...(link ? { href: link } : {})} {...attributes}>
         <span className="vsf-navbar-bottom-item__content">
-          <div className={badgeClass}>
-            <span className="vsf-navbar-bottom-item__icon">
-              <Icon />
-            </span>
-            {badge && (
-              <div className="vsf-navbar-bottom-item-badge__wrapper">
-                <div className="vsf-navbar-bottom-item-badge__badge">
-                  <span>{badge}</span>
-                </div>
-              </div>
-            )}
-          </div>
+          <span className="vsf-navbar-bottom-item__icon">{slotIcon}</span>
           <span className="vsf-navbar-bottom-item__label">{label}</span>
         </span>
       </TagInternal>

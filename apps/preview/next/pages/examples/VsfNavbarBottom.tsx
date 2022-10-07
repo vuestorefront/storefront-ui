@@ -1,4 +1,5 @@
 import VsfNavbarBottom, { VsfNavbarBottomItem } from '@sfui/sfui/frameworks/react/components/VsfNavbarBottom';
+import VsfBadge from '@sfui/sfui/frameworks/react/components/VsfBadge';
 import {
   VsfIconHome,
   VsfIconBasket,
@@ -13,87 +14,81 @@ function Example() {
   const { state, controls } = prepareControls(
     [
       {
-        title: 'Filled',
         type: 'boolean',
-        modelName: 'filledModel',
+        modelName: 'filled',
         propType: 'boolean',
       },
       {
-        title: 'Absolute',
         type: 'boolean',
-        modelName: 'absoluteModel',
+        modelName: 'absolute',
         propType: 'boolean',
       },
       {
-        title: 'Hide labels',
         type: 'boolean',
-        modelName: 'hideLabelsModel',
-        propType: 'boolean',
-      },
-      {
-        title: 'Badge',
-        type: 'text',
-        modelName: 'badgeModel',
-        propType: 'text',
-      },
-      {
-        title: 'Dot Badge',
-        type: 'boolean',
-        modelName: 'dotBadgeModel',
+        modelName: 'hideLabels',
         propType: 'boolean',
       },
     ],
     {
-      hideLabelsModel: false,
-      filledModel: false,
-      absoluteModel: false,
-      activeModel: 'Home',
-      badgeModel: '',
-      dotBadgeModel: false,
+      hideLabels: false,
+      filled: false,
+      absolute: false,
+      active: 'Home',
     },
   );
   function onClickHandler(itemLabel: string) {
-    state.set({ ...state.get, activeModel: itemLabel });
+    state.set({ ...state.get, active: itemLabel });
   }
   const items = [
     {
       label: 'Home',
-      icon: VsfIconHome,
+      icon: <VsfIconHome />,
     },
     {
       label: 'Products',
-      icon: VsfIconMenu,
+      icon: <VsfIconMenu />,
     },
     {
       label: 'Search',
-      icon: VsfIconSearch,
+      icon: <VsfIconSearch />,
     },
     {
       label: 'Cart',
-      icon: VsfIconBasket,
+      icon: (
+        <VsfBadge
+          bordered
+          value={10}
+          className={state.get.filled ? 'bg-white text-gray-900' : 'bg-secondary-600 text-white'}
+        >
+          <VsfIconBasket />
+        </VsfBadge>
+      ),
     },
     {
       label: 'Wishlist',
-      icon: VsfIconFavoritesOutline,
+      icon: (
+        <VsfBadge
+          bordered
+          value={10}
+          dot
+          className={state.get.filled ? 'bg-white text-gray-900' : 'bg-secondary-600 text-white'}
+        >
+          <VsfIconFavoritesOutline />
+        </VsfBadge>
+      ),
     },
   ];
   return (
     <div className="e-page">
       <div className="e-page-component">
-        <VsfNavbarBottom
-          hideLabels={state.get.hideLabelsModel}
-          absolute={state.get.absoluteModel}
-          filled={state.get.filledModel}
-        >
+        <VsfNavbarBottom hideLabels={state.get.hideLabels} absolute={state.get.absolute} filled={state.get.filled}>
           {items.map((item) => (
             <VsfNavbarBottomItem
               key={item.label}
-              icon={item.icon}
+              slotIcon={item.icon}
               label={item.label}
-              active={state.get.activeModel === item.label}
+              active={state.get.active === item.label}
               onClick={() => onClickHandler(item.label)}
-              badge={state.get.badgeModel}
-              dotBadge={state.get.dotBadgeModel}
             />
           ))}
         </VsfNavbarBottom>

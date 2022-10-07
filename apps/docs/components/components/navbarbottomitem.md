@@ -12,18 +12,16 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 | --------- | --------- | ------------- | --------------- |
 | label     | `String`  |               |                 |
 | active    | `Boolean` | `false`       |                 |
-| badge     | `String`  |               |                 |
-| dotBadge  | `Boolean` | `false`       |                 |
 | tag       | `String`  | `button`      | `button`, `a`   |
 | link      | `String`  |               |                 |
 
 ### React only:
 
-| Prop name | Type                          | Default value | Possible values |
-| --------- | ----------------------------- | ------------- | --------------- |
-| className | `String`                      |               |                 |
-| icon      | `ComponentType<VsfIconProps>` |               |                 |
-| onClick   | `MouseEventHandler`           |               |                 |
+| Prop name | Type                | Default value | Possible values |
+| --------- | ------------------- | ------------- | --------------- |
+| className | `String`            |               |                 |
+| slotIcon  | `ReactNode`         |               |                 |
+| onClick   | `MouseEventHandler` |               |                 |
 
 ## Slots
 

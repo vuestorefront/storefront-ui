@@ -23,9 +23,6 @@
       &:active {
         @apply text-white bg-primary-700;
       }
-      &-badge__badge {
-        @apply bg-white text-gray-900;
-      }
     }
   }
   &__root {
@@ -43,29 +40,10 @@
       @apply flex flex-col items-center justify-center min-h-[40px] pt-2 bg-inherit;
     }
     &__icon {
-      @apply m-auto inline-flex;
+      @apply m-auto inline-flex bg-inherit;
     }
     &__label {
       @apply font-medium text-xs mt-0.5;
-    }
-    &-badge {
-      $badge: &;
-      @apply relative inline-flex bg-inherit;
-      &__wrapper {
-        @apply rounded-full absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 bg-inherit p-0.5;
-        #{$badge}--dot & {
-          @apply p-0 translate-x-full;
-        }
-      }
-      &__badge {
-        @apply text-3xs font-medium bg-secondary-700 text-white py-0.5 px-1 rounded-full;
-        #{$badge}--dot & {
-          @apply w-2.5 h-2.5;
-          & > * {
-            @apply hidden;
-          }
-        }
-      }
     }
   }
 }

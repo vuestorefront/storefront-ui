@@ -1,18 +1,39 @@
 <template>
   <div class="e-page">
     <div class="e-page-component relative">
-      <VsfNavbarBottom :hide-labels="hideLabelsModel" :absolute="absoluteModel" :filled="filledModel">
-        <VsfNavbarBottomItem
-          v-for="item in items"
-          :key="item.label"
-          :label="item.label"
-          :active="activeModel === item.label"
-          :badge="badgeModel"
-          :dot-badge="dotBadgeModel"
-          @click="onClickHandler(item.label)"
-        >
+      <VsfNavbarBottom :hide-labels="hideLabels" :absolute="absolute" :filled="filled">
+        <VsfNavbarBottomItem label="Home" :active="active === 'Home'" @click="onClickHandler('Home')">
           <template #icon>
-            <component :is="item.icon"></component>
+            <VsfIconHome />
+          </template>
+        </VsfNavbarBottomItem>
+        <VsfNavbarBottomItem label="Products" :active="active === 'Products'" @click="onClickHandler('Products')">
+          <template #icon>
+            <VsfIconMenu />
+          </template>
+        </VsfNavbarBottomItem>
+        <VsfNavbarBottomItem label="Search" :active="active === 'Search'" @click="onClickHandler('Search')">
+          <template #icon>
+            <VsfIconSearch />
+          </template>
+        </VsfNavbarBottomItem>
+        <VsfNavbarBottomItem label="Cart" :active="active === 'Cart'" @click="onClickHandler('Cart')">
+          <template #icon>
+            <VsfBadge bordered value="10" :class="[filled ? 'bg-white text-gray-900' : 'bg-secondary-600 text-white']">
+              <VsfIconBasket />
+            </VsfBadge>
+          </template>
+        </VsfNavbarBottomItem>
+        <VsfNavbarBottomItem label="Wishlist" :active="active === 'Wishlist'" @click="onClickHandler('Wishlist')">
+          <template #icon>
+            <VsfBadge
+              dot
+              bordered
+              value="10"
+              :class="[filled ? 'bg-white text-gray-900' : 'bg-secondary-600 text-white']"
+            >
+              <VsfIconFavoritesOutline />
+            </VsfBadge>
           </template>
         </VsfNavbarBottomItem>
       </VsfNavbarBottom>
@@ -28,6 +49,7 @@ import { defineComponent, ref } from 'vue';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
 import VsfNavbarBottom from '@sfui/sfui/frameworks/vue/components/VsfNavbarBottom/VsfNavbarBottom.vue';
 import VsfNavbarBottomItem from '@sfui/sfui/frameworks/vue/components/VsfNavbarBottom/VsfNavbarBottomItem.vue';
+import VsfBadge from '@sfui/sfui/frameworks/vue/components/VsfBadge/VsfBadge.vue';
 import {
   VsfIconHome,
   VsfIconBasket,
@@ -47,75 +69,37 @@ export default defineComponent({
     VsfIconSearch,
     VsfIconMenu,
     VsfIconFavoritesOutline,
+    VsfBadge,
   },
   setup() {
-    const activeModel = ref('');
+    const active = ref('');
     function onClickHandler(label) {
-      activeModel.value = label;
+      active.value = label;
     }
     return prepareControls(
       [
         {
-          title: 'Filled',
           type: 'boolean',
-          modelName: 'filledModel',
+          modelName: 'filled',
           propType: 'boolean',
         },
         {
-          title: 'Absolute',
           type: 'boolean',
-          modelName: 'absoluteModel',
+          modelName: 'absolute',
           propType: 'boolean',
         },
         {
-          title: 'Hide labels',
           type: 'boolean',
-          modelName: 'hideLabelsModel',
-          propType: 'boolean',
-        },
-        {
-          title: 'Badge',
-          type: 'text',
-          modelName: 'badgeModel',
-          propType: 'text',
-        },
-        {
-          title: 'Dot Badge',
-          type: 'boolean',
-          modelName: 'dotBadgeModel',
+          modelName: 'hideLabels',
           propType: 'boolean',
         },
       ],
       {
-        hideLabelsModel: ref(false),
-        filledModel: ref(false),
-        absoluteModel: ref(false),
-        activeModel,
-        badgeModel: ref(''),
-        dotBadgeModel: ref(false),
+        hideLabels: ref(false),
+        filled: ref(false),
+        absolute: ref(false),
+        active,
         onClickHandler,
-        items: [
-          {
-            label: 'Home',
-            icon: VsfIconHome,
-          },
-          {
-            label: 'Products',
-            icon: VsfIconMenu,
-          },
-          {
-            label: 'Search',
-            icon: VsfIconSearch,
-          },
-          {
-            label: 'Cart',
-            icon: VsfIconBasket,
-          },
-          {
-            label: 'Wishlist',
-            icon: VsfIconFavoritesOutline,
-          },
-        ],
       },
     );
   },
