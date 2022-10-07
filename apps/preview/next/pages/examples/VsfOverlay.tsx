@@ -6,13 +6,11 @@ function Example() {
   const { state, controls } = prepareControls(
     [
       {
-        title: 'Visible',
         type: 'boolean',
         propType: 'boolean',
         modelName: 'visibleModel',
       },
       {
-        title: 'Absolute',
         type: 'boolean',
         propType: 'boolean',
         modelName: 'absoluteModel',

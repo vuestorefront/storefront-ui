@@ -25,9 +25,10 @@ module.exports = {
         tsx: 'never',
       },
     ],
-    'react/react-in-jsx-scope': 'off',
     'import/no-extraneous-dependencies': 0,
+    'react/react-in-jsx-scope': 'off',
     'react/jsx-props-no-spreading': 'off',
+    'react/jsx-no-bind': 'off',
     'jsx-a11y/anchor-is-valid': [
       'error',
       {
@@ -36,7 +37,21 @@ module.exports = {
         aspects: ['invalidHref', 'preferButton'],
       },
     ],
-    'react/jsx-no-bind': 'off',
+    // https://lightrun.com/answers/jsx-eslint-eslint-plugin-jsx-a11y-control-has-associated-label-error-with-labelinput
+    "jsx-a11y/control-has-associated-label": ["off", {
+      "labelComponents": [],
+      "labelAttributes": [],
+      "controlComponents": [],
+      "assert": "both",
+      "depth": 25
+    }],
+    "jsx-a11y/label-has-associated-control": ["error", {
+      "components": [],
+      "required": {
+        "some": ["nesting", "id"]
+      },
+      "allowChildren": false
+    }],
     'prettier/prettier': 'error',
     'react/button-has-type': ['error', { reset: true }],
   },

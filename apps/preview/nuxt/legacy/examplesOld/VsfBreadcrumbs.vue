@@ -1,7 +1,7 @@
 <template>
   <div class="e-page">
     <div class="e-page-component">
-      <VsfBreadcrumbs :breadcrumbs="breadcrumbsModel" :withIcon="withIconModel" />
+      <VsfBreadcrumbs :breadcrumbs="breadcrumbsModel" :with-icon="withIconModel" />
     </div>
     <div class="e-page-controls">
       <Controls v-bind="controlsAttrs" />
@@ -34,7 +34,7 @@ export default defineComponent({
           type: 'json',
           modelName: 'breadcrumbsModel',
           propType: 'VsfBreadcrumbType[]',
-          propDefaultValue : '[]'
+          propDefaultValue: '[]',
         },
       ],
       {

@@ -2,9 +2,7 @@
   <client-only>
     <div class="controls">
       <div class="heading-wrapper">
-        <h1 class="heading">
-          Controls
-        </h1>
+        <h1 class="heading">Controls</h1>
       </div>
       <table aria-label="Controls table">
         <thead>
@@ -20,29 +18,24 @@
         <tbody>
           <tr v-for="(control, index) in controls" :key="index" class="props">
             <td :class="[control.type === 'text' && 'align-middle']">
-              {{ control.title }}
+              {{ control.modelName }}
             </td>
-            <td class="value" >
+            <td class="value">
               <template v-if="control.type === 'select'">
-                <select
-                  v-model="proxyModels[control.modelName]"
-                >
+                <select v-model="proxyModels[control.modelName]">
                   <option
                     v-for="(options, optionIndex) in control.options || [{}]"
-                    :key="`${control.title}-${index}-${optionIndex}`"
-                    :value="options.value || options.label || options"
+                    :key="`${control.modelName}-${index}-${optionIndex}`"
+                    :value="(options as ControlOptionBind).value || (options as ControlOptionBind).label || options"
                   >
-                    {{ options.label || options }}
+                    {{ (options as ControlOptionBind).label || options }}
                   </option>
                 </select>
               </template>
               <template v-else-if="control.type === 'boolean'">
                 <div class="switch-wrapper">
                   <label class="switch">
-                    <input
-                      v-model="proxyModels[control.modelName]"
-                      type="checkbox"
-                    >
+                    <input v-model="proxyModels[control.modelName]" type="checkbox" />
                     <span class="slider" />
                   </label>
                   <span class="ml-2">{{ proxyModels[control.modelName] }}</span>
@@ -51,51 +44,55 @@
               <template v-else>
                 <div
                   v-for="(options, optionIndex) in control.options || [{}]"
-                  :key="`${control.title}-${index}-${optionIndex}`"
+                  :key="`${control.modelName}-${index}-${optionIndex}`"
                   class="flex items-center"
                 >
                   <label class="flex items-center">
                     <textarea
                       v-if="control.type === 'json'"
                       rows="10"
-                      v-bind="options.bind"
+                      v-bind="(options as ControlOptionBind).bind"
                       :value="JSON.stringify(proxyModels[control.modelName], undefined, 2)"
-                      @input="proxyModels[control.modelName] = JSON.parse($event.target.value)"
-                      :name="`${control.title}-${index}`"
+                      :name="`${control.modelName}-${index}`"
+                      @input="proxyModels[control.modelName] = JSON.parse($event.target?.value)"
                     >
                     </textarea>
                     <input
                       v-else-if="control.type === 'range'"
-                      v-bind="options.bind"
+                      v-bind="(options as ControlOptionBind).bind"
                       v-model="proxyModels[control.modelName]"
                       :type="control.type"
-                      :name="`${control.title}-${index}`"
+                      :name="`${control.modelName}-${index}`"
                     />
                     <input
                       v-else-if="control.type === 'text'"
-                      v-bind="options.bind"
+                      v-bind="(options as ControlOptionBind).bind"
                       v-model="proxyModels[control.modelName]"
                       class="border rounded-md"
                       :type="control.type"
-                      :name="`${control.title}-${index}`"
+                      :name="`${control.modelName}-${index}`"
                     />
                     <input
                       v-else
-                      v-bind="options.bind"
+                      v-bind="(options as ControlOptionBind).bind"
                       v-model="proxyModels[control.modelName]"
                       :type="control.type"
-                      :name="`${control.title}-${index}`"
+                      :name="`${control.modelName}-${index}`"
                     />
-                    <span v-if="options.hasOwnProperty('label')" class="pl-2">{{ options.label }}</span>
+                    <span v-if="options.hasOwnProperty('label')" class="pl-2">{{
+                      (options as ControlOptionBind).label
+                    }}</span>
                     <span v-else-if="typeof options === 'string'" class="pl-2">{{ options }}</span>
                   </label>
                 </div>
               </template>
             </td>
-            <td class="propType"><span>{{control.propType}}</span></td>
-            <td class="propDefaultValue">{{control.propDefaultValue}}</td>
-            <td class="required">{{control?.isRequired?.toString()}}</td>
-            <td class="description">{{control.description}}</td>
+            <td class="propType">
+              <span>{{ control.propType }}</span>
+            </td>
+            <td class="propDefaultValue">{{ control.propDefaultValue }}</td>
+            <td class="required">{{ control?.isRequired?.toString() }}</td>
+            <td class="description">{{ control.description }}</td>
           </tr>
         </tbody>
       </table>
@@ -107,25 +104,23 @@
 import { toRefs, computed, reactive, Ref, defineComponent, PropType } from 'vue';
 
 type RefValueUnknown = Ref<unknown>;
+type ControlOptionBind = {
+  bind?: Record<string, unknown>;
+  label?: string;
+  value?: string | number;
+};
 type Controls = {
-  title: string;
   type: 'range' | 'radio' | 'checkbox' | 'text' | 'select' | 'boolean' | 'json';
   modelName: string;
-  model?: RefValueUnknown,
+  model?: RefValueUnknown;
   description?: string;
   propDefaultValue?: string | number | boolean;
   propType?: string;
   isRequired?: boolean;
-  options?: ({
-    bind?: unknown;
-    label?: string;
-    value?: string | undefined
-  } | string)[]
+  options?: (ControlOptionBind | string)[];
 }[];
-export function prepareControls<T extends Record<string, RefValueUnknown>>(
-  controlsObject: Controls,
-  models: T
-) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function prepareControls<T extends { [k: string]: any }>(controlsObject: Controls, models: T) {
   const on: Record<string, (e: string | number | boolean | []) => void> = {};
   const controls = controlsObject.map((control) => {
     control.isRequired = false;
@@ -138,29 +133,31 @@ export function prepareControls<T extends Record<string, RefValueUnknown>>(
   return {
     controlsAttrs: {
       controls,
-      ...on
+      ...on,
     },
     ...models,
   };
-};
+}
 
 export default defineComponent({
   name: 'Controls',
+  inheritAttrs: false,
   props: {
     controls: {
       type: Array as PropType<Controls>,
-      default: () => ([]),
+      default: () => [],
     },
   },
-  inheritAttrs: false,
   setup(props, { emit }) {
     const { controls } = toRefs(props);
-    const proxyModels = reactive<Record<string, Ref<unknown>>>({});
+    const proxyModels = reactive<Record<string, any>>({});
     controls.value.forEach((control) => {
-      proxyModels[control.modelName] = reactive(computed({
-        get: () => control?.model?.value,
-        set: (value) => emit(`update:${control.modelName}`, value),
-      }));
+      proxyModels[control.modelName] = reactive(
+        computed({
+          get: () => control?.model?.value,
+          set: (value) => emit(`update:${control.modelName}`, value),
+        }),
+      );
     });
 
     return {

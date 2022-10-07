@@ -1,27 +1,26 @@
 import VsfBreadcrumbs from '@sfui/sfui/frameworks/react/components/VsfBreadcrumbs';
+import type { VsfBreadcrumbsProps } from '@sfui/sfui/frameworks/react/components/VsfBreadcrumbs/types';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 
 function Example() {
-  const { state, controls } = prepareControls(
+  const { state, controls } = prepareControls<VsfBreadcrumbsProps>(
     [
       {
-        title: 'WithIcon',
         type: 'boolean',
-        modelName: 'withIconModel',
+        modelName: 'withIcon',
         propType: 'boolean',
       },
       {
-        title: 'Breadcrumbs',
         type: 'json',
-        modelName: 'breadcrumbsModel',
+        modelName: 'breadcrumbs',
         propType: 'VsfBreadcrumbType[]',
         propDefaultValue: '[]',
       },
     ],
     {
-      withIconModel: false,
-      breadcrumbsModel: [
+      withIcon: false,
+      breadcrumbs: [
         { name: 'Page 1', link: '/page1' },
         { name: 'Page 2', link: '/page1' },
         { name: 'Page 3', link: '/page1' },
@@ -33,16 +32,7 @@ function Example() {
   return (
     <div className="e-page">
       <div className="e-page-component">
-        <VsfBreadcrumbs
-          withIcon={state.get.withIconModel}
-          breadcrumbs={[
-            { name: 'Page 1', link: '/page1' },
-            { name: 'Page 2', link: '/page1' },
-            { name: 'Page 3', link: '/page1' },
-            { name: 'Page 4', link: '/page1' },
-            { name: 'Page 5', link: '/page1' },
-          ]}
-        />
+        <VsfBreadcrumbs withIcon={state.get.withIcon} breadcrumbs={state.get.breadcrumbs} />
       </div>
       <div className="e-page-controls">
         <Controls {...{ state, controls }} />

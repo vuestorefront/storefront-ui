@@ -30,7 +30,7 @@ export default defineComponent({
         {
           title: 'Label',
           modelName: 'labelModel',
-          type: "text",
+          type: 'text',
           propType: 'string',
         },
         {
