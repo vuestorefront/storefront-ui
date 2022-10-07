@@ -41,25 +41,21 @@ export default defineComponent({
     return prepareControls(
       [
         {
-          title: 'Bordered',
           type: 'boolean',
           propType: 'boolean',
           modelName: 'bordered',
         },
         {
-          title: 'Dot',
           type: 'boolean',
           propType: 'boolean',
           modelName: 'dot',
         },
         {
-          title: 'Invisible',
           type: 'boolean',
           propType: 'boolean',
           modelName: 'invisible',
         },
         {
-          title: 'Value',
           type: 'text',
           propType: 'string',
           modelName: 'value',
