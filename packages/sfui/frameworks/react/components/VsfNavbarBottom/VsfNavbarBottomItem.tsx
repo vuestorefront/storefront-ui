@@ -13,6 +13,7 @@ const VsfNavbarBottomItem = forwardRef<unknown, VsfNavbarBottomItemProps>(
       active,
       label,
       link,
+      ariaLabel,
       onClick,
       ...attributes
     },
@@ -31,7 +32,14 @@ const VsfNavbarBottomItem = forwardRef<unknown, VsfNavbarBottomItemProps>(
       className,
     );
     return (
-      <TagInternal onClick={onClick} ref={ref} className={classes} {...(link ? { href: link } : {})} {...attributes}>
+      <TagInternal
+        onClick={onClick}
+        ref={ref}
+        className={classes}
+        {...(link ? { href: link } : {})}
+        aria-label={ariaLabel}
+        {...attributes}
+      >
         <span className="vsf-navbar-bottom-item__content">
           <span className="vsf-navbar-bottom-item__icon">{slotIcon}</span>
           <span className="vsf-navbar-bottom-item__label">{label}</span>
