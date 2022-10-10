@@ -8,22 +8,31 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 ## Props
 
-| Prop name             | Type                       | Default value | Possible values                        |
-|-----------------------|----------------------------|---------------|----------------------------------------|
-| size                  | String                     | base          | sm, base, lg                           |
-| type                  | String                     | checkbox      | checkbox, radio                        |
-| label                 | String                     |               |                         |
-| disabled              | Boolean                    |               |                         |
-| value                 | Any                        |               |                         |
+| Prop name | Type                       | Default value | Possible values                        |
+|-----------|----------------------------|---------------|----------------------------------------|
+| name      | String                     |               |                          |
+| size      | String                     | base          | sm, base, lg                           |
+| type      | String                     | checkbox      | checkbox, radio                        |
+| label     | String                     |               |                         |
+| disabled  | Boolean                    | false         |                         |
 
+### React only:
 
-## Slots
+| Prop name | Type       | Default value | Possible values |
+|-----------|------------| ------------- | --------------- |
+| value     | `String`   |               |                 |
+| checked   | `Boolean`  |               |                 |
+| onChange  | `Function` |               |                 |
+| className | `String`   |               |                 |
+| children  | `ReactNode` |               |                 |
+
+## Slots (vue only)
 
 | Slot name |            Description            |
-| --------- | :-------------------------------: |
-| thumb     |  Replaces thumbnail               |
+|-----------| :-------------------------------: |
+| thumbnail |  Replaces thumbnail               |
 
-## Events
+## Events (vue only)
 
 | Event name |            Trigger             |
 | ---------- | :----------------------------: |
@@ -34,4 +43,5 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 ## Source code
 
-<<<../../mitosis/src/blocks/VsfChipsFilter/VsfChipsFilter.lite.tsx
+<<<../../../packages/sfui/frameworks/vue/components/VsfChipsFilter/VsfChipsFilter.vue
+<<< ../../../packages/sfui/frameworks/react/components/VsfChipsFilter/VsfChipsFilter.tsx
