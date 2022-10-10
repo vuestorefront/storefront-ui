@@ -9,7 +9,7 @@ export default function VsfQuantitySelector({
   inputAriaLabel = 'Quantity Selector',
   inputId = 'qty-selector',
   minValue = 1,
-  maxValue = Number.POSITIVE_INFINITY,
+  maxValue = Infinity,
   step = 1,
   size = VsfQuantitySelectorSizes.base,
   value,

@@ -17,7 +17,7 @@ const props = defineProps({
   },
   maxValue: {
     type: [Number],
-    default: Number.POSITIVE_INFINITY,
+    default: Infinity,
   },
   step: {
     type: [Number],
