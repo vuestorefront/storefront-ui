@@ -1,6 +1,6 @@
 .vsf-navbar-bottom {
   $root: &;
-  @apply bottom-0 w-full;
+  @apply bottom-0 w-full left-0 fixed;
   &--absolute {
     @apply absolute;
   }
