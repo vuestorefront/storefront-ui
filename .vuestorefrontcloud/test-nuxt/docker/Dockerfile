@@ -5,7 +5,7 @@ WORKDIR /var/www
 COPY . .
 
 RUN  yarn install \
-  && yarn build
+  && yarn build:nuxt
 
 WORKDIR /var/www/apps/preview/nuxt
 
