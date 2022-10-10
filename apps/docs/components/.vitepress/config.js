@@ -73,6 +73,7 @@ export default {
           { text: 'NavbarBottom', link: '/components/navbarbottom' },
           { text: 'ProductCardVertical', link: '/components/productCardVertical' },
           { text: 'Badge', link: '/components/badge' },
+          { text: 'QuantitySelector', link: '/components/quantityselector' },
         ].sort((a, b) => a.text.localeCompare(b.text)),
       },
       {
