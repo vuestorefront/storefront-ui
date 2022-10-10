@@ -1,20 +1,17 @@
-import type { CSSProperties, MouseEventHandler, ReactNode, ElementType } from 'react';
+import type { MouseEventHandler, ReactNode, ElementType } from 'react';
+import { PropsWithStyle } from '../../shared/types';
 
-export type VsfNavbarBottomProps = {
+export type VsfNavbarBottomProps = PropsWithStyle & {
   absolute?: boolean;
   hideLabels?: boolean;
   filled?: boolean; // colored background
-  className?: string | undefined;
-  style?: CSSProperties;
   children?: ReactNode;
 };
 
-export type VsfNavbarBottomItemProps = {
+export type VsfNavbarBottomItemProps = PropsWithStyle & {
   label: string;
   slotIcon: ReactNode;
   active?: boolean;
-  className?: string | undefined;
-  style?: CSSProperties;
   ariaLabel?: string;
   // VsfButton shared props
   link?: string;
