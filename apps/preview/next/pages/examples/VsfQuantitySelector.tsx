@@ -89,8 +89,8 @@ function Example() {
       size: VsfQuantitySelectorSizes.base,
       disabled: false,
       block: false,
-      inputAriaLabel: '',
-      inputId: '',
+      inputAriaLabel: undefined,
+      inputId: undefined,
     },
   );
   function onChange(value: number) {

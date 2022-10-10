@@ -124,8 +124,8 @@ export default defineComponent({
         size: ref(VsfQuantitySelectorSizes.base),
         disabled: ref(false),
         block: ref(false),
-        inputAriaLabel: ref(''),
-        inputId: ref(''),
+        inputAriaLabel: ref(),
+        inputId: ref(),
       },
     );
   },
