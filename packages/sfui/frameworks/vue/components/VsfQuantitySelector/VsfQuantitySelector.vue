@@ -53,12 +53,9 @@ const { disabled, minValue, maxValue, modelValue, step } = toRefs(props);
 
 const currentValue = ref(modelValue.value);
 
-const buttonSize = computed(() => {
-  if (props.size === VsfQuantitySelectorSizes.lg) {
-    return VsfButtonSizes.lg;
-  }
-  return VsfButtonSizes.base;
-});
+const buttonSize = computed(() =>
+  props.size === VsfQuantitySelectorSizes.lg ? VsfButtonSizes.lg : VsfButtonSizes.base,
+);
 
 const increaseDisabled = computed(() => disabled.value || currentValue.value >= maxValue.value);
 const decreaseDisabled = computed(() => disabled.value || currentValue.value <= minValue.value);

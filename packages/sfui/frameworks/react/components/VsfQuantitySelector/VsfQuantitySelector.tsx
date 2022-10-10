@@ -38,12 +38,7 @@ export default function VsfQuantitySelector({
       onChange(nextValue);
     }
   }
-  const buttonSize = () => {
-    if (size === VsfQuantitySelectorSizes.lg) {
-      return VsfButtonSizes.lg;
-    }
-    return VsfButtonSizes.base;
-  };
+  const buttonSize = size === VsfQuantitySelectorSizes.lg ? VsfButtonSizes.lg : VsfButtonSizes.base;
 
   return (
     <div
@@ -64,7 +59,7 @@ export default function VsfQuantitySelector({
           icon
           disabled={decreaseDisabled}
           onClick={handleDecrease}
-          size={buttonSize()}
+          size={buttonSize}
         >
           <VsfIconMinus />
         </VsfButton>
@@ -93,7 +88,7 @@ export default function VsfQuantitySelector({
           icon
           disabled={increaseDisabled}
           onClick={handleIncrease}
-          size={buttonSize()}
+          size={buttonSize}
         >
           <VsfIconPlus />
         </VsfButton>
