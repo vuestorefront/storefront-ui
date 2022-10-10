@@ -15,6 +15,7 @@ export type VsfNavbarBottomItemProps = {
   active?: boolean;
   className?: string | undefined;
   style?: CSSProperties;
+  ariaLabel?: string;
   // VsfButton shared props
   link?: string;
   onClick?: MouseEventHandler;
