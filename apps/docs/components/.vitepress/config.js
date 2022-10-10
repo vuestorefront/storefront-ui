@@ -39,7 +39,6 @@ export default {
           { text: 'Search', link: '/components/search' },
           { text: 'RadioGroup', link: '/components/radiogroup' },
           { text: 'Radio', link: '/components/radio' },
-          { text: 'Counter', link: '/components/counter' },
           { text: 'Slider', link: '/components/slider' },
           { text: 'NavBarTop', link: '/components/navbartop' },
           { text: 'Alert', link: '/components/alert' },
@@ -73,6 +72,7 @@ export default {
           { text: 'Tooltip', link: '/components/tooltip' },
           { text: 'NavbarBottom', link: '/components/navbarbottom' },
           { text: 'ProductCardVertical', link: '/components/productCardVertical' },
+          { text: 'Badge', link: '/components/badge' },
         ].sort((a, b) => a.text.localeCompare(b.text)),
       },
       {

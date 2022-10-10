@@ -2,6 +2,7 @@
     width: 100%;
     display: flex;
     flex-flow: column;
+    min-width: 0;
 
     &-component {
         padding: 20px;
@@ -100,6 +101,11 @@
                 background-color: rgb(244 244 245);
             }
         }
+
+        .table-wrapper {
+            overflow: auto;
+        }
+
         table {
             width: 100%;
             font-size: 15px;

@@ -1,5 +1,4 @@
-#  Search component
-
+# Search component
 
 ## Figma design
 
@@ -7,33 +6,50 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 ## Props
 
-| Prop name             | Type                       | Default value | Possible values           |
-|-----------------------|----------------------------|---------------|---------------------------|
-|  placeholder          | String                     |               |                           |
-|  disabled             | Boolean                    |               |                           |
-|  required             | Boolean                    |               |                           |
-|  submitText           | String                     |               |                           |
-|  autocomplete         | String                     |               |                           |
-|  name                 | String                     | 'search'      |                           |
-|  modelValue           | String                     |               |                           |
+| Prop name    | Type      | Default value | Possible values |
+| ------------ | --------- | ------------- | --------------- |
+| placeholder  | `String`  |               |                 |
+| disabled     | `Boolean` |               |                 |
+| required     | `Boolean` |               |                 |
+| autocomplete | `String`  |               |                 |
+| name         | `String`  | `search`      |                 |
 
+### React only:
 
-## Slots
+| Prop name   | Type        | Default value | Possible values |
+| ----------- | ----------- | ------------- | --------------- |
+| value       | `String`    |               |                 |
+| className   | `String`    |               |                 |
+| onInput     | `Function`  |               |                 |
+| onReset     | `Function`  |               |                 |
+| onSubmit    | `Function`  |               |                 |
+| slotPrefix  | `ReactNode` |               |                 |
+| slotSuffix  | `ReactNode` |               |                 |
+| slotResults | `ReactNode` |               |                 |
+| slotSubmit  | `ReactNode` |               |                 |
 
-| Slot name |            Description            |
-| --------- | :-------------------------------: |
-| prefix    | prefix icon slot                  |
-| suffix    | suffix icon slot                  |
-| submit    | submit button content slot        |
-| results   | bottom panel slot                 |
+### Vue only:
 
-## Events
+| Prop name  | Type     | Default value | Possible values |
+| ---------- | -------- | ------------- | --------------- |
+| modelValue | `String` |               |                 |
 
-| Event name        |            Trigger             |
-| ----------------- | :----------------------------: |
-| update:modelValue | triggers v-model update event  |
-| reset             | reset button event             |
-| submit            | submit form event              |
+## Slots (vue only)
+
+| Slot name |        Description         |
+| --------- | :------------------------: |
+| prefix    |      prefix icon slot      |
+| suffix    |      suffix icon slot      |
+| submit    | submit button content slot |
+| results   |     bottom panel slot      |
+
+## Events (vue only)
+
+| Event name        |            Trigger            |
+| ----------------- | :---------------------------: |
+| update:modelValue | triggers v-model update event |
+| reset             |      reset button event       |
+| submit            |       submit form event       |
 
 ## Accessibility notes
 
@@ -43,4 +59,5 @@ The search button is a `submit` type `<button>` in the form to reduce the number
 
 ## Source code
 
-<<<../../mitosis/src/blocks/VsfSearch/VsfSearch.lite.tsx
+<<<../../../packages/sfui/frameworks/vue/components/VsfSearch/VsfSearch.vue
+<<< ../../../packages/sfui/frameworks/react/components/VsfSearch/VsfSearch.tsx

@@ -4,14 +4,3 @@
     <div class="e-page-controls"></div>
   </div>
 </template>
-
-<script>
-import { defineComponent } from 'vue';
-
-export default defineComponent({
-  name: 'EmptyPage',
-  setup() {
-    return {};
-  },
-});
-</script>

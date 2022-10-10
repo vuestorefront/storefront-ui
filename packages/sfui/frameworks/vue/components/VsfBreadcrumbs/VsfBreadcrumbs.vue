@@ -115,7 +115,7 @@ watch(
         >
           <slot name="homeButtonIcon" />
           <span v-if="!$slots.icon" class="vsf-breadcrumbs__item-button-icon--home">
-            <VsfIconHome />
+            <VsfIconHome :size="VsfIconSizeEnum.sm" />
           </span>
         </component>
       </li>
