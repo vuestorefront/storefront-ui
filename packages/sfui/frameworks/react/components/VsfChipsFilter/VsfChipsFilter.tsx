@@ -14,7 +14,6 @@ export default function VsfChipsFilter({
   className = '',
 }: VsfChipsFilterProps): JSX.Element {
   return (
-    // eslint-disable-next-line jsx-a11y/label-has-associated-control
     <label className={classNames('vsf-chips-filter', `vsf-chips-filter--size-${size}`, className)}>
       <input
         className="peer vsf-chips-filter__input"

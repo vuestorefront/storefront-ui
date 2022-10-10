@@ -1,4 +1,5 @@
-import { ReactNode, ChangeEvent } from 'react';
+import { ChangeEvent, PropsWithChildren } from 'react';
+import { PropsWithStyle } from '@sfui/sfui/shared/types';
 
 export enum VsfChipsFilterVariants {
   sm = 'sm',
@@ -6,15 +7,13 @@ export enum VsfChipsFilterVariants {
   lg = 'lg',
 }
 
-export interface VsfChipsFilterProps {
+export interface VsfChipsFilterProps extends PropsWithChildren, PropsWithStyle {
   size?: VsfChipsFilterVariants;
   type?: 'checkbox' | 'radio';
-  children?: ReactNode;
   name: string;
   label?: string;
   disabled?: boolean;
   onChange: (event?: ChangeEvent<HTMLInputElement>) => void;
   value?: string;
-  className?: string;
   checked?: boolean;
 }
