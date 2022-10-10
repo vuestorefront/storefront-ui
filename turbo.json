@@ -8,20 +8,17 @@
     },
     "@sfui/docs#build": {
       "dependsOn": [
-        "@sfui/types#build",
-        "@sfui/mitosis#build"
+        "@sfui/types#build"
       ]
     },
     "@sfui/preview-nuxt#build": {
       "dependsOn": [
-        "@sfui/types#build",
-        "@sfui/mitosis#build"
+        "@sfui/types#build"
       ]
     },
     "@sfui/preview-next#build": {
       "dependsOn": [
-        "@sfui/types#build",
-        "@sfui/mitosis#build"
+        "@sfui/types#build"
       ]
     },
     "build": {
@@ -43,6 +40,18 @@
     "lint:fix:sfui": {
       "cache": false,
       "outputs": []
+    },
+    "build:next": {
+      "dependsOn": [
+        "@sfui/types#build"
+      ],
+      "cache": false
+    },
+    "build:nuxt": {
+      "dependsOn": [
+        "@sfui/types#build"
+      ],
+      "cache": false
     },
     "dev": {
       "cache": false
