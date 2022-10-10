@@ -52,28 +52,32 @@ const attributes = computed(() => ({
   ...(props.href && { href: props.href }),
   disabled: props.disabled,
 }));
-const buttonClasses = computed(() => [
-  'vsf-button',
-  {
-    'vsf-button--disabled': props.disabled,
-    'vsf-button--rounded': props.rounded,
-    'vsf-button--tile': props.tile,
-    'vsf-button--icon': props.icon,
-    'vsf-button--block': props.block,
-
-    'vsf-button--base': props.size === 'base',
-    'vsf-button--sm': props.size === 'sm',
-    'vsf-button--lg': props.size === 'lg',
-
-    'vsf-button--variant-primary': props.variant === 'primary',
-    'vsf-button--variant-secondary': props.variant === 'secondary',
-    'vsf-button--variant-tertiary': props.variant === 'tertiary',
-  },
-]);
+// TODO: remove tag prop, why its needed? when link exists should be <a> in any other case button
 </script>
 
 <template>
-  <component :is="componentTag" v-bind="attributes" :class="buttonClasses">
+  <component
+    :is="componentTag"
+    v-bind="attributes"
+    :class="[
+      'vsf-button',
+      {
+        'vsf-button--disabled': props.disabled,
+        'vsf-button--rounded': props.rounded,
+        'vsf-button--tile': props.tile,
+        'vsf-button--icon': props.icon,
+        'vsf-button--block': props.block,
+
+        'vsf-button--base': props.size === 'base',
+        'vsf-button--sm': props.size === 'sm',
+        'vsf-button--lg': props.size === 'lg',
+
+        'vsf-button--variant-primary': props.variant === 'primary',
+        'vsf-button--variant-secondary': props.variant === 'secondary',
+        'vsf-button--variant-tertiary': props.variant === 'tertiary',
+      },
+    ]"
+  >
     <span v-if="$slots.prefix" class="vsf-button__prefix">
       <slot name="prefix"></slot>
     </span>

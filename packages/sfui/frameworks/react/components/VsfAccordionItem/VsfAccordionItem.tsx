@@ -11,6 +11,7 @@ export default function VsfAccordionItem({
   ...attributes
 }: VsfAccordionItemProps): JSX.Element {
   return (
+    // TODO: handler for open, its common practice to have feedback when prop like that changes
     <details className="vsf-accordion-item" open={open} {...attributes}>
       <summary className={`${chevronLeft && 'vsf-accordion-item__header--right'} vsf-accordion-item__header`}>
         {slotPrefix || (

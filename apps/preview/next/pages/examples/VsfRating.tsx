@@ -1,15 +1,15 @@
 import VsfRating from '@sfui/sfui/frameworks/react/components/VsfRating';
 import { VsfRatingVariants, VsfRatingSizes } from '@sfui/sfui/frameworks/react/components/VsfRating/types';
+import type { VsfRatingProps } from '@sfui/sfui/frameworks/react/components/VsfRating/types';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 
 function Example() {
-  const { state, controls } = prepareControls(
+  const { state, controls } = prepareControls<VsfRatingProps>(
     [
       {
-        title: 'Value',
         type: 'range',
-        modelName: 'valueModel',
+        modelName: 'value',
         propDefaultValue: 0,
         propType: 'number',
         options: [
@@ -23,9 +23,8 @@ function Example() {
         ],
       },
       {
-        title: 'Max',
         type: 'range',
-        modelName: 'maxModel',
+        modelName: 'max',
         propDefaultValue: 5,
         propType: 'number',
         options: [
@@ -39,45 +38,42 @@ function Example() {
         ],
       },
       {
-        title: 'Half increment',
         type: 'boolean',
-        modelName: 'halfIncrementModel',
+        modelName: 'halfIncrement',
         propType: 'boolean',
       },
       {
-        title: 'Size',
         type: 'select',
-        modelName: 'sizeModel',
+        modelName: 'size',
         options: Object.keys(VsfRatingSizes),
         propDefaultValue: VsfRatingSizes.base,
         propType: 'VsfRatingSizes',
       },
       {
-        title: 'Variant',
         type: 'select',
-        modelName: 'variantModel',
+        modelName: 'variant',
         options: Object.keys(VsfRatingVariants),
         propDefaultValue: VsfRatingVariants.base,
         propType: 'VsfRatingVariants',
       },
     ],
     {
-      valueModel: 3,
-      maxModel: 5,
-      sizeModel: VsfRatingSizes.base,
-      variantModel: VsfRatingVariants.base,
-      halfIncrementModel: false,
+      value: 3,
+      max: 5,
+      size: VsfRatingSizes.base,
+      variant: VsfRatingVariants.base,
+      halfIncrement: false,
     },
   );
   return (
     <div className="e-page">
       <div className="e-page-component">
         <VsfRating
-          value={state.get.valueModel}
-          max={state.get.maxModel}
-          size={state.get.sizeModel}
-          variant={state.get.variantModel}
-          halfIncrement={state.get.halfIncrementModel}
+          value={state.get.value}
+          max={state.get.max}
+          size={state.get.size}
+          variant={state.get.variant}
+          halfIncrement={state.get.halfIncrement}
         />
       </div>
       <div className="e-page-controls">

@@ -3,11 +3,11 @@
     <div class="e-page-component">
       <VsfSearch
         v-model="value"
-        :placeholder="placeholderModel"
-        :disabled="disabledModel"
-        :required="requiredModel"
-        :name="nameModel"
-        :autocomplete="autocompleteModel"
+        :placeholder="placeholder"
+        :disabled="disabled"
+        :required="required"
+        :name="name"
+        :autocomplete="autocomplete"
         @submit.prevent="submitHandler"
         @reset="resetHandler"
       >
@@ -44,7 +44,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { ref } from 'vue';
 import VsfSearch from '@sfui/sfui/frameworks/vue/components/VsfSearch/VsfSearch.vue';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
@@ -58,74 +58,66 @@ export default {
   },
   setup() {
     return {
-      submitHandler(e) {
+      submitHandler(e: Event) {
         console.log('Search Submit: ', e);
       },
-      resetHandler(e) {
+      resetHandler(e: Event) {
         console.log('Search Reset: ', e);
       },
       ...prepareControls(
         [
           {
-            title: 'disabled',
             type: 'boolean',
             propType: 'boolean',
-            modelName: 'disabledModel',
+            modelName: 'disabled',
           },
           {
-            title: 'required',
             type: 'boolean',
             propType: 'boolean',
-            modelName: 'requiredModel',
+            modelName: 'required',
           },
           {
-            title: 'Prefix icon',
             type: 'boolean',
             propType: '---',
             modelName: 'slotPrefix',
             description: "Only for demonstration purposes, Icon is injected via 'prefix' slot",
           },
           {
-            title: 'Suffix icon',
             type: 'boolean',
             propType: '---',
             modelName: 'slotSuffix',
             description: "Only for demonstration purposes, Icon is injected via 'suffix' slot",
           },
           {
-            title: 'Submit text',
             type: 'text',
             propType: 'string',
             modelName: 'slotSubmit',
             description: "Only for demonstration purposes, Content is injected via 'submit' slot",
           },
           {
-            title: 'Placeholder',
             type: 'text',
             propType: 'string',
-            modelName: 'placeholderModel',
+            modelName: 'placeholder',
           },
           {
-            title: 'Name',
             type: 'text',
             propType: 'string',
-            modelName: 'nameModel',
+            modelName: 'name',
           },
           {
-            title: 'Autocomplete',
             type: 'select',
             propType: 'string',
             options: ['on', 'off'],
-            modelName: 'autocompleteModel',
+            modelName: 'autocomplete',
           },
         ],
         {
-          placeholderModel: ref('Search'),
-          disabledModel: ref(false),
+          placeholder: ref('Search'),
+          disabled: ref(false),
           value: ref(''),
-          nameModel: ref('q'),
-          requiredModel: ref(false),
-          autocompleteModel: ref('off'),
+          name: ref('q'),
+          required: ref(false),
+          autocomplete: ref('off'),
           slotSubmit: ref(''),
           slotPrefix: ref(false),
           slotSuffix: ref(false),
