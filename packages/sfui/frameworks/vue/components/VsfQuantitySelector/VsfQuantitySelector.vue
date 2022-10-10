@@ -60,22 +60,16 @@ const buttonSize = computed(() =>
 const increaseDisabled = computed(() => disabled.value || currentValue.value >= maxValue.value);
 const decreaseDisabled = computed(() => disabled.value || currentValue.value <= minValue.value);
 
-function handleIncrease() {
-  currentValue.value = Math.min(currentValue.value + Number(step.value), maxValue.value);
+function handleChange(nextValue: number) {
+  currentValue.value = nextValue;
+  currentValue.value = clamp(nextValue, minValue.value, maxValue.value);
   emit('update:modelValue', currentValue.value);
 }
 
-function handleDecrease() {
-  currentValue.value = Math.max(currentValue.value - Number(step.value), minValue.value);
-  emit('update:modelValue', currentValue.value);
-}
-
-function handleChange(event: Event) {
+function handleOnChange(event: Event) {
   const { value } = event.target as HTMLInputElement;
   if (value) {
-    currentValue.value = Number(value);
-    currentValue.value = clamp(Number(value), minValue.value, maxValue.value);
-    emit('update:modelValue', currentValue.value);
+    handleChange(Number(value));
   }
 }
 </script>
@@ -92,7 +86,7 @@ function handleChange(event: Event) {
         icon
         :size="buttonSize"
         :disabled="decreaseDisabled"
-        @click="handleDecrease"
+        @click="handleChange(currentValue - step)"
       >
         <VsfIconMinus />
       </VsfButton>
@@ -109,7 +103,7 @@ function handleChange(event: Event) {
         :aria-disabled="disabled"
         :min="minValue"
         :max="maxValue"
-        @input="handleChange"
+        @input="handleOnChange"
       />
 
       <VsfButton
@@ -121,7 +115,7 @@ function handleChange(event: Event) {
         icon
         :disabled="increaseDisabled"
         :size="buttonSize"
-        @click="handleIncrease"
+        @click="handleChange(currentValue + step)"
       >
         <VsfIconPlus />
       </VsfButton>

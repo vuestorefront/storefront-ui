@@ -3,14 +3,14 @@
     <div class="e-page-component relative">
       <VsfQuantitySelector
         v-model="value"
-        :min-value="minValue"
-        :max-value="maxValue"
+        :min-value="Number(minValue)"
+        :max-value="Number(maxValue)"
         :disabled="disabled"
         :block="block"
         :input-aria-label="inputAriaLabel"
         :input-id="inputId"
         :size="size"
-        :step="step"
+        :step="Number(step)"
       >
         <div class="text-xs font-normal text-center font-body">
           <span v-if="disabled" class="text-negative-600 font-medium">Out of stock</span>

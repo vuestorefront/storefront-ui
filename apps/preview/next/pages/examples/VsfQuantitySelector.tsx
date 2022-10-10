@@ -102,9 +102,9 @@ function Example() {
         <VsfQuantitySelector
           value={state.get.value}
           size={state.get.size}
-          step={state.get.step}
-          minValue={state.get.minValue}
-          maxValue={state.get.maxValue}
+          step={Number(state.get.step)}
+          minValue={Number(state.get.minValue)}
+          maxValue={Number(state.get.maxValue)}
           disabled={state.get.disabled}
           block={state.get.block}
           inputAriaLabel={state.get.inputAriaLabel}

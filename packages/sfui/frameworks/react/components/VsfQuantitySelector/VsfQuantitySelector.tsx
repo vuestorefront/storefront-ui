@@ -23,19 +23,15 @@ export default function VsfQuantitySelector({
   const increaseDisabled = disabled || value >= maxValue;
   const decreaseDisabled = disabled || value <= minValue;
 
-  function handleIncrease() {
-    onChange(Math.min(value + Number(step), maxValue));
+  function handleChange(currentValue: number) {
+    const nextValue = clamp(currentValue, minValue, maxValue);
+    onChange(nextValue);
   }
 
-  function handleDecrease() {
-    onChange(Math.max(value - Number(step), minValue));
-  }
-
-  function handleChange(event: ChangeEvent<HTMLInputElement>) {
+  function handleOnChange(event: ChangeEvent<HTMLInputElement>) {
     const { value: currentValue } = event.target;
     if (currentValue) {
-      const nextValue = clamp(Number(currentValue), minValue, maxValue);
-      onChange(nextValue);
+      handleChange(Number(currentValue));
     }
   }
   const buttonSize = size === VsfQuantitySelectorSizes.lg ? VsfButtonSizes.lg : VsfButtonSizes.base;
@@ -58,7 +54,7 @@ export default function VsfQuantitySelector({
           tile
           icon
           disabled={decreaseDisabled}
-          onClick={handleDecrease}
+          onClick={() => handleChange(value - step)}
           size={buttonSize}
         >
           <VsfIconMinus />
@@ -74,7 +70,7 @@ export default function VsfQuantitySelector({
           disabled={disabled}
           aria-label={inputAriaLabel}
           aria-disabled={disabled}
-          onChange={handleChange}
+          onChange={handleOnChange}
           min={minValue}
           max={maxValue}
         />
@@ -87,7 +83,7 @@ export default function VsfQuantitySelector({
           tile
           icon
           disabled={increaseDisabled}
-          onClick={handleIncrease}
+          onClick={() => handleChange(value + step)}
           size={buttonSize}
         >
           <VsfIconPlus />
