@@ -1,7 +1,5 @@
 <script lang="ts" setup>
-import { computed } from 'vue';
-
-const props = defineProps({
+defineProps({
   dot: {
     type: Boolean,
     default: false,
@@ -32,13 +30,13 @@ export default {
     :class="[
       'vsf-badge',
       {
-        'vsf-badge--dot': props.dot,
-        'vsf-badge--bordered': props.bordered,
+        'vsf-badge--dot': dot,
+        'vsf-badge--bordered': bordered,
       },
     ]"
   >
     <slot></slot>
-    <div v-if="!invisible && value" className="vsf-badge__wrapper">
+    <div v-if="!invisible && value" class="vsf-badge__wrapper">
       <div v-if="dot" class="vsf-badge__badge vsf-badge__dot" v-bind="$attrs"></div>
       <div v-else class="vsf-badge__badge vsf-badge__base" v-bind="$attrs">{{ value }}</div>
     </div>
