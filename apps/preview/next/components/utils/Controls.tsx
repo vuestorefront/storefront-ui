@@ -53,19 +53,6 @@ export default function Controls<T extends { [k: string]: any }>({ controls, sta
     setState({ [name]: e.target.value });
   }
 
-  function getCircularReplacer() {
-    const seen = new WeakSet();
-    return (key: string, value: T) => {
-      if (typeof value === 'object' && value !== null) {
-        if (seen.has(value)) {
-          return;
-        }
-        seen.add(value);
-      }
-      return value;
-    };
-  }
-
   function handleJsonOnChangeValue<E extends HTMLElement>(e: ChangeEvent<E & { value: string }>, name: string) {
     setState({ [name]: JSON.parse(e.target.value) });
   }
@@ -177,7 +164,7 @@ export default function Controls<T extends { [k: string]: any }>({ controls, sta
                                     rows={10}
                                     {...(option as ControlOptionBind).bind}
                                     className="border rounded-md"
-                                    value={JSON.stringify(state.get[control.modelName], getCircularReplacer(), 2) as string}
+                                    value={JSON.stringify(state.get[control.modelName], undefined, 2) as string}
                                     onChange={(e) => handleJsonOnChangeValue(e, control.modelName)}
                                   />
                                 ) : control.type === 'range' || control.type === 'text' ? (

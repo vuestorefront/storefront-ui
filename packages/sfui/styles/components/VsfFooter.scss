@@ -1,14 +1,14 @@
 .vsf-footer {
   @apply pt-10 bg-gray-100;
 
-  &__wrapper {
-    &--categories {
+  &__wrapper, &__section {
+    &--categories, &--top {
       @apply grid grid-cols-[1fr_1fr] medium:grid-cols-[1fr_1fr_1fr_1fr] px-4 medium:px-6 pb-10;
     }
-    &--contact {
+    &--contact, &--middle {
       @apply py-10 large:flex border-t border-gray-200;
     }
-    &--social-media {
+    &--social-media, &--bottom {
       @apply justify-end px-4 py-10 bg-gray-900 large:flex large:py-6;
     }
   }
@@ -32,13 +32,9 @@
     @apply flex justify-center gap-6 py-2 my-4 large:ml-auto large:my-0;
   }
 
-  &__company-name {
-    @apply block py-2 text-sm font-normal leading-5 text-center text-white/50 font-body large:ml-6;
-  }
-
   &__label {
     &--category {
-      @apply pb-2 text-lg font-medium leading-7 text-gray-900 font-body;
+      @apply block pb-2 text-lg font-medium leading-7 text-gray-900 font-body;
     }
 
     &--subcategory {
@@ -55,6 +51,14 @@
 
     &--bottom-links {
       @apply text-sm font-normal leading-5 text-center text-white font-body;
+    }
+
+    &--company-name {
+      @apply block py-2 text-sm font-normal leading-5 text-center text-white/50 font-body large:ml-6;
+    }
+
+    &--contact-description {
+      @apply block text-sm font-normal leading-5 text-gray-500 font-body;
     }
   }
 }

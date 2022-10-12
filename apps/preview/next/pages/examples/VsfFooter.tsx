@@ -1,3 +1,4 @@
+import { Element } from 'react';
 import VsfFooter from '@sfui/sfui/frameworks/react/components/VsfFooter';
 import {
   VsfIconChat,
@@ -10,9 +11,29 @@ import {
   VsfIconYoutube,
 } from '@sfui/sfui/frameworks/react/components/VsfIcons';
 import { VsfIconSizeEnum } from '@sfui/sfui/frameworks/react/components/VsfIconBase/types';
+import VsfFooterCategoriesColumn from '@sfui/sfui/frameworks/react/components/VsfFooter/VsfFooterCategoriesColumn';
+import VsfFooterSection from '@sfui/sfui/frameworks/react/components/VsfFooter/VsfFooterSection';
+import { VsfFooterLabelType, VsfFooterSectionType } from '@sfui/sfui/frameworks/react/components/VsfFooter/types';
+import VsfFooterSocialMedia from '@sfui/sfui/frameworks/react/components/VsfFooter/VsfFooterSocialMedia';
+import VsfFooterLabel from '@sfui/sfui/frameworks/react/components/VsfFooter/VsfFooterLabel';
+import VsfFooterContact from '@sfui/sfui/frameworks/react/components/VsfFooter/VsfFooterContact';
+import VsfFooterBottomLinks from '@sfui/sfui/frameworks/react/components/VsfFooter/VsfFooterBottomLinks';
 import Link from 'next/link';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
+
+const iconsMap: {
+  [key: string]: Element;
+} = {
+  VsfIconFacebook,
+  VsfIconTwitter,
+  VsfIconInstagram,
+  VsfIconPinterest,
+  VsfIconYoutube,
+  VsfIconHelp,
+  VsfIconChat,
+  VsfIconPhone,
+};
 
 function Example() {
   const categories = [
@@ -113,27 +134,27 @@ function Example() {
     {
       label: 'Facebook',
       link: '/',
-      icon: <VsfIconFacebook />,
+      icon: 'VsfIconFacebook',
     },
     {
       label: 'Twitter',
       link: '/',
-      icon: <VsfIconTwitter />,
+      icon: 'VsfIconTwitter',
     },
     {
       label: 'Instagram',
       link: '/',
-      icon: <VsfIconInstagram />,
+      icon: 'VsfIconInstagram',
     },
     {
       label: 'Pinterest',
       link: '/',
-      icon: <VsfIconPinterest />,
+      icon: 'VsfIconPinterest',
     },
     {
       label: 'Youtube',
       link: '/',
-      icon: <VsfIconYoutube />,
+      icon: 'VsfIconYoutube',
     },
   ];
   const contactOptions = [
@@ -141,19 +162,19 @@ function Example() {
       label: 'Help center',
       link: '/',
       details: ['Find answers online anytime'],
-      icon: <VsfIconHelp size={VsfIconSizeEnum.lg} />,
+      icon: 'VsfIconHelp',
     },
     {
       label: 'Live chat',
       link: '/',
       details: ['Mon–Fri, 5am–10pm PT', 'Sat–Sun, 6am–9pm PT'],
-      icon: <VsfIconChat size={VsfIconSizeEnum.lg} />,
+      icon: 'VsfIconChat',
     },
     {
       label: '1 234 567 8901',
       link: '/',
       details: ['Mon–Fri, 5am–10pm PT', 'Sat–Sun, 6am–9pm PT'],
-      icon: <VsfIconPhone size={VsfIconSizeEnum.lg} />,
+      icon: 'VsfIconPhone',
     },
   ];
   const bottomLinks = [
@@ -169,35 +190,30 @@ function Example() {
   const { state, controls } = prepareControls(
     [
       {
-        title: 'Categories',
         type: 'json',
         modelName: 'categoriesModel',
         propType: '[]',
         propDefaultValue: '[]',
       },
       {
-        title: 'Social media',
         type: 'json',
         modelName: 'socialMediaModel',
         propType: '[]',
         propDefaultValue: '[]',
       },
       {
-        title: 'Contact options',
         type: 'json',
         modelName: 'contactOptionsModel',
         propType: '[]',
         propDefaultValue: '[]',
       },
       {
-        title: 'Bottom links',
         type: 'json',
         modelName: 'bottomLinksModel',
         propType: '[]',
         propDefaultValue: '[]',
       },
       {
-        title: 'Company name',
         type: 'text',
         modelName: 'companyNameModel',
         propDefaultValue: '',
@@ -213,56 +229,71 @@ function Example() {
     },
   );
 
-  const categoriesSide = () =>
-    state.get.categoriesModel.map((category) => (
-      <div className="vsf-footer__categories" key={category.label}>
-        <span className="vsf-footer__label--category">{category.label}</span>
-        {category.subcategories?.map((subcategory) => (
-          <Link href={subcategory.link} key={subcategory.label}>
-            <a className="vsf-footer__label--subcategory">{subcategory.label}</a>
-          </Link>
-        ))}
-      </div>
-    ));
-  const contactOptionsSide = () =>
-    state.get.contactOptionsModel.map((contactOption) => (
-      <div className="vsf-footer__contact" key={contactOption.label}>
-        {contactOption.icon}
-        <Link href={contactOption.link} key={contactOption.label}>
-          <a className="vsf-footer__label--contact">{contactOption.label}</a>
-        </Link>
-        {contactOption.details?.map((option) => (
-          <span className="vsf-footer__contact--option" key={option}>
-            {option}
-          </span>
-        ))}
-      </div>
-    ));
-  const socialMediaSide = () =>
-    state.get.socialMediaModel.map((social) => (
-      <Link href={social.link} key={social.label}>
-        <a className="vsf-footer__label--social-media" aria-label={`Go to ${social.label} page`}>
-          {social.icon}
-        </a>
-      </Link>
-    ));
-  const bottomLinksSide = () =>
-    state.get.bottomLinksModel.map((bottomLink) => (
-      <Link href={bottomLink.link} key={bottomLink.label}>
-        <a className="vsf-footer__label--bottom-links">{bottomLink.label}</a>
-      </Link>
-    ));
-
   return (
     <div className="e-page">
       <div className="e-page-component">
-        <VsfFooter
-          categories={categoriesSide()}
-          socialMedia={socialMediaSide()}
-          companyName={state.get.companyNameModel}
-          contactOptions={contactOptionsSide()}
-          bottomLinks={bottomLinksSide()}
-        />
+        <VsfFooter>
+          <VsfFooterSection type={VsfFooterSectionType.top}>
+            {state.get.categoriesModel.map((category) => (
+              <VsfFooterCategoriesColumn key={category.label}>
+                <VsfFooterLabel type={VsfFooterLabelType.category}>{category.label}</VsfFooterLabel>
+                {category.subcategories?.map((subcategory) => (
+                  <VsfFooterLabel key={subcategory.label}>
+                    <Link href={subcategory.link}>
+                      <a>{subcategory.label}</a>
+                    </Link>
+                  </VsfFooterLabel>
+                ))}
+              </VsfFooterCategoriesColumn>
+            ))}
+          </VsfFooterSection>
+          <VsfFooterSection type={VsfFooterSectionType.middle}>
+            {state.get.contactOptionsModel.map((contactOption) => {
+              const Icon = iconsMap[contactOption.icon];
+              return (
+                <VsfFooterContact key={contactOption.label}>
+                  <Icon size={VsfIconSizeEnum.lg} />
+                  <VsfFooterLabel type={VsfFooterLabelType.contact}>
+                    <Link href={contactOption.link}>
+                      <a>{contactOption.label}</a>
+                    </Link>
+                  </VsfFooterLabel>
+                  {contactOption.details?.map((option) => (
+                    <VsfFooterLabel type={VsfFooterLabelType.contactDescription} key={option}>
+                      {option}
+                    </VsfFooterLabel>
+                  ))}
+                </VsfFooterContact>
+              );
+            })}
+          </VsfFooterSection>
+          <VsfFooterSection type={VsfFooterSectionType.bottom}>
+            <VsfFooterSocialMedia>
+              {state.get.socialMediaModel.map((social) => {
+                const Icon = iconsMap[social.icon];
+                return (
+                  <VsfFooterLabel type={VsfFooterLabelType.socialMedia} key={social.label}>
+                    <Link href={social.link}>
+                      <a aria-label={`Go to ${social.label} page`}>
+                        <Icon />
+                      </a>
+                    </Link>
+                  </VsfFooterLabel>
+                );
+              })}
+            </VsfFooterSocialMedia>
+            <VsfFooterBottomLinks>
+              {state.get.bottomLinksModel.map((bottomLink) => (
+                <VsfFooterLabel type={VsfFooterLabelType.bottomLinks} key={bottomLink.label}>
+                  <Link href={bottomLink.link}>
+                    <a>{bottomLink.label}</a>
+                  </Link>
+                </VsfFooterLabel>
+              ))}
+            </VsfFooterBottomLinks>
+            <VsfFooterLabel type={VsfFooterLabelType.companyName}>{state.get.companyNameModel}</VsfFooterLabel>
+          </VsfFooterSection>
+        </VsfFooter>
       </div>
       <div className="e-page-controls">
         <Controls {...{ state, controls }} />
