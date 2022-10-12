@@ -1,19 +1,47 @@
-.slider-items-container > * {
-  scroll-snap-align: start;
+.scrollbar-hidden {
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
+  /* overflow-y: scroll; */
 }
-.slider-button:hover .slider-chevron {
-  @apply text-primary-600;
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
 }
-.slider-button:active .slider-chevron {
-  @apply text-primary-700;
-}
-.slider-chevron {
-  @apply text-gray-500;
-}
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+.vsf-slider {
+  $root: &;
+  @apply relative w-full flex items-center;
+  &__container {
+    @apply scroll-smooth snap-x snap-mandatory flex gap-4 h-full overflow-x-auto scroll-p-7;
+    &--scroll {
+      &-always {
+        @apply overflow-x-scroll;
+      }
+    }
+  }
+  &__item {
+    @apply snap-start relative w-full h-full;
+  }
+  &__nav {
+    @apply transition-opacity bg-white;
+    &-prev {
+      @apply mr-4;
+    }
+    &-next {
+      @apply ml-4;
+    }
+    &--hidden {
+      @apply opacity-0 pointer-events-none;
+    }
+  }
+  &--floating-nav {
+    #{$root}__nav {
+      @apply absolute top-1/2 z-10 -translate-y-1/2;
+      &-prev {
+        @apply left-4;
+      }
+      &-next {
+        @apply right-4;
+      }
+    }
+  }
 }

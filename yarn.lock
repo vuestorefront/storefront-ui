@@ -9998,6 +9998,11 @@ swap-case@^1.1.0:
     lower-case "^1.1.1"
     upper-case "^1.1.1"
 
+swiffy-slider@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/swiffy-slider/-/swiffy-slider-1.6.0.tgz#6a9a5935632c3e7941666d0f9c8c7fc58b072c15"
+  integrity sha512-5QTE7UImnYmNDmUStKYTFaMBYnOX2tpMs9w4fkKnUgJ3cUwGBD3JCllk7BbDLV9TwR0PQJL5EUDJjnMGefjWIg==
+
 swr@^1.3.0:
   version "1.3.0"
   resolved "https://registrynpm.storefrontcloud.io/swr/-/swr-1.3.0.tgz#c6531866a35b4db37b38b72c45a63171faf9f4e8"
