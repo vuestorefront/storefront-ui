@@ -1,14 +1,14 @@
 .vsf-footer {
   @apply pt-10 bg-gray-100;
 
-  &__wrapper, &__section {
-    &--categories, &--top {
+  &__section {
+    &--top {
       @apply grid grid-cols-[1fr_1fr] medium:grid-cols-[1fr_1fr_1fr_1fr] px-4 medium:px-6 pb-10;
     }
-    &--contact, &--middle {
+    &--middle {
       @apply py-10 large:flex border-t border-gray-200;
     }
-    &--social-media, &--bottom {
+    &--bottom {
       @apply justify-end px-4 py-10 bg-gray-900 large:flex large:py-6;
     }
   }
@@ -19,9 +19,6 @@
 
   &__contact {
     @apply mx-auto my-4 text-center;
-    &--option {
-      @apply block text-sm font-normal leading-5 text-gray-500 font-body;
-    }
   }
 
   &__social-media {
