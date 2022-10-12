@@ -71,8 +71,10 @@ export default {
           { text: 'Tag', link: '/components/tag' },
           { text: 'Tooltip', link: '/components/tooltip' },
           { text: 'NavbarBottom', link: '/components/navbarbottom' },
+          { text: 'NavbarBottomItem', link: '/components/navbarbottomitem' },
           { text: 'ProductCardVertical', link: '/components/productCardVertical' },
           { text: 'Badge', link: '/components/badge' },
+          { text: 'QuantitySelector', link: '/components/quantityselector' },
         ].sort((a, b) => a.text.localeCompare(b.text)),
       },
       {

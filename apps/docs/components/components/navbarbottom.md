@@ -8,25 +8,28 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 ## Props
 
-| Prop name             | Type                                            | Default value | Possible values     |
-|-----------------------|----------------------------|---------------    |----------------------------------|
-| items                 | Array of objects (keys: label, icon, tag, link) | []             |                   |
-| withLabels            | Boolean                    | `false`            |                                      |
-| variant               | String                     | `primary`      | `primary`, `secondary`                |
-| absolutePosition       | Boolean                    | `false`       |                                        |
+| Prop name  | Type      | Default value | Possible values |
+| ---------- | --------- | ------------- | --------------- |
+| hideLabels | `Boolean` | `false`       |                 |
+| filled     | `Boolean` | `false`       |                 |
+| absolute   | `Boolean` | `false`       |                 |
+
+### React only:
+
+| Prop name | Type        | Default value | Possible values |
+| --------- | ----------- | ------------- | --------------- |
+| className | `String`    |               |                 |
+| children  | `ReactNode` |               |                 |
 
 ## Slots
 
-| Slot name |            Description            |
-| --------- | :-------------------------------: |
+### Vue only:
 
-## Events
-
-| Event name |            Trigger             |
-| ---------- | ----------------------------  |
-| click      | emits on component item clicking (if item is a button)   |
-
+| Slot name | Description          |
+| --------- | -------------------- |
+| default   | default slot content |
 
 ## Source code
 
-<<<../../mitosis/src/blocks/VsfNavbarBottom/VsfNavbarBottom.lite.tsx
+<<<../../../packages/sfui/frameworks/vue/components/VsfNavbarBottom/VsfNavbarBottom.vue
+<<< ../../../packages/sfui/frameworks/react/components/VsfNavbarBottom/VsfNavbarBottom.tsx
