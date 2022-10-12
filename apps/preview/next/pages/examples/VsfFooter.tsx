@@ -22,7 +22,7 @@ import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 
 const iconsMap: {
-  [key: string]: unknown;
+  [key: string]: any;
 } = {
   VsfIconFacebook,
   VsfIconTwitter,
