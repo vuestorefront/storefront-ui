@@ -1,4 +1,3 @@
-import { Element } from 'react';
 import VsfFooter from '@sfui/sfui/frameworks/react/components/VsfFooter';
 import {
   VsfIconChat,
@@ -23,7 +22,7 @@ import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 
 const iconsMap: {
-  [key: string]: Element;
+  [key: string]: unknown;
 } = {
   VsfIconFacebook,
   VsfIconTwitter,
