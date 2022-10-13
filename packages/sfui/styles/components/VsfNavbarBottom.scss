@@ -19,8 +19,7 @@
     #{$root}-item {
       @apply bg-primary-500 text-white;
       @apply hover:text-white hover:bg-primary-600;
-      &--active,
-      &:active {
+      &--active {
         @apply text-white bg-primary-700;
       }
     }
@@ -32,8 +31,7 @@
   &-item {
     @apply py-1 flex-1 h-full;
     @apply bg-white text-gray-900 hover:text-primary-600  hover:bg-primary-100;
-    &--active,
-    &:active {
+    &--active {
       @apply text-primary-700 bg-primary-200;
     }
     &__content {
