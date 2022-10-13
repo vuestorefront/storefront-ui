@@ -1,5 +1,5 @@
 import type { PropsWithChildren } from 'react';
-
+import type { PropsWithStyle } from '../../shared/types';
 export enum ScrollbarDisplay {
   always = 'always',
   auto = 'auto',
@@ -9,7 +9,10 @@ export enum NavigationDisplay {
   floating = 'floating',
 }
 
-export type VsfSliderProps = PropsWithChildren & {
-  scrollbar?: ScrollbarDisplay | boolean;
-  navigation?: NavigationDisplay | boolean;
-};
+export type VsfSliderProps = PropsWithChildren &
+  PropsWithStyle & {
+    scrollbar?: ScrollbarDisplay;
+    navigation?: NavigationDisplay;
+    navigationOnMobile?: boolean;
+    scrollSmooth?: boolean;
+  };

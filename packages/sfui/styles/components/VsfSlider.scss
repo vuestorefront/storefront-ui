@@ -13,13 +13,11 @@
   &__container {
     @apply scroll-smooth snap-x snap-mandatory flex gap-4 h-full overflow-x-auto scroll-p-7;
     &--scroll {
-      &-always {
-        @apply overflow-x-scroll;
-      }
+      @apply overflow-x-scroll;
     }
   }
   &__item {
-    @apply snap-start relative w-full h-full;
+    @apply snap-start relative w-full h-full min-h-[60px] flex items-center; // FF is not able to smooth-scrolling (css or with scrollIntoView()) on shorter elements
   }
   &__nav {
     @apply transition-opacity bg-white;
@@ -29,11 +27,18 @@
     &-next {
       @apply ml-4;
     }
-    &--hidden {
-      @apply opacity-0 pointer-events-none;
-    }
   }
   &--floating-nav {
+    &.slider-item-first-visible {
+      #{$root}__nav-prev {
+        @apply opacity-0 pointer-events-none;
+      }
+    }
+    &.slider-item-last-visible {
+      #{$root}__nav-next {
+        @apply opacity-0 pointer-events-none;
+      }
+    }
     #{$root}__nav {
       @apply absolute top-1/2 z-10 -translate-y-1/2;
       &-prev {
