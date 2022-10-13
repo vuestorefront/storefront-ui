@@ -13,12 +13,13 @@
     }
   }
 
-  &__categories {
-    @apply min-w-[120px] extra-small:min-w-[172px];
-  }
-
-  &__contact {
-    @apply mx-auto my-4 text-center;
+  &__column {
+    &--top {
+      @apply min-w-[120px] extra-small:min-w-[172px];
+    }
+    &--middle {
+      @apply mx-auto my-4 text-center;
+    }
   }
 
   &__social-media {

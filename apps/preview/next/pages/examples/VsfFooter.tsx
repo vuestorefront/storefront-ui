@@ -1,4 +1,10 @@
-import VsfFooter from '@sfui/sfui/frameworks/react/components/VsfFooter';
+import VsfFooter, {
+  VsfFooterBottomLinks,
+  VsfFooterColumn,
+  VsfFooterSection,
+  VsfFooterSocialMedia,
+  VsfFooterLabel,
+} from '@sfui/sfui/frameworks/react/components/VsfFooter';
 import {
   VsfIconChat,
   VsfIconFacebook,
@@ -10,13 +16,7 @@ import {
   VsfIconYoutube,
 } from '@sfui/sfui/frameworks/react/components/VsfIcons';
 import { VsfIconSizeEnum } from '@sfui/sfui/frameworks/react/components/VsfIconBase/types';
-import VsfFooterCategoriesColumn from '@sfui/sfui/frameworks/react/components/VsfFooter/VsfFooterCategoriesColumn';
-import VsfFooterSection from '@sfui/sfui/frameworks/react/components/VsfFooter/VsfFooterSection';
-import { VsfFooterLabelType, VsfFooterSectionType } from '@sfui/sfui/frameworks/react/components/VsfFooter/types';
-import VsfFooterSocialMedia from '@sfui/sfui/frameworks/react/components/VsfFooter/VsfFooterSocialMedia';
-import VsfFooterLabel from '@sfui/sfui/frameworks/react/components/VsfFooter/VsfFooterLabel';
-import VsfFooterContact from '@sfui/sfui/frameworks/react/components/VsfFooter/VsfFooterContact';
-import VsfFooterBottomLinks from '@sfui/sfui/frameworks/react/components/VsfFooter/VsfFooterBottomLinks';
+import { VsfFooterColumnType, VsfFooterLabelType, VsfFooterSectionType } from '@sfui/types/_components';
 import Link from 'next/link';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
@@ -234,7 +234,7 @@ function Example() {
         <VsfFooter>
           <VsfFooterSection type={VsfFooterSectionType.top}>
             {state.get.categoriesModel.map((category) => (
-              <VsfFooterCategoriesColumn key={category.label}>
+              <VsfFooterColumn key={category.label}>
                 <VsfFooterLabel type={VsfFooterLabelType.category}>{category.label}</VsfFooterLabel>
                 {category.subcategories?.map((subcategory) => (
                   <VsfFooterLabel key={subcategory.label}>
@@ -243,14 +243,14 @@ function Example() {
                     </Link>
                   </VsfFooterLabel>
                 ))}
-              </VsfFooterCategoriesColumn>
+              </VsfFooterColumn>
             ))}
           </VsfFooterSection>
           <VsfFooterSection type={VsfFooterSectionType.middle}>
             {state.get.contactOptionsModel.map((contactOption) => {
               const Icon = iconsMap[contactOption.icon];
               return (
-                <VsfFooterContact key={contactOption.label}>
+                <VsfFooterColumn type={VsfFooterColumnType.middle} key={contactOption.label}>
                   <Icon size={VsfIconSizeEnum.lg} />
                   <VsfFooterLabel type={VsfFooterLabelType.contact}>
                     <Link href={contactOption.link}>
@@ -262,7 +262,7 @@ function Example() {
                       {option}
                     </VsfFooterLabel>
                   ))}
-                </VsfFooterContact>
+                </VsfFooterColumn>
               );
             })}
           </VsfFooterSection>

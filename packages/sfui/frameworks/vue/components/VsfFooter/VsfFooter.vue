@@ -1,26 +1,19 @@
-<script setup lang="ts">
-defineProps({
-  companyName: {
-    type: String,
-    default: '',
-  },
-});
-</script>
-
 <template>
   <footer class="vsf-footer">
-    <div class="vsf-footer__wrapper--categories">
+    <div class="vsf-footer__section--top">
       <slot name="categories" />
     </div>
-    <div class="vsf-footer__wrapper--contact">
+    <div class="vsf-footer__section--middle">
       <slot name="contact" />
     </div>
-    <div class="vsf-footer__wrapper--social-media">
+    <div class="vsf-footer__section--bottom">
       <slot name="socialMedia" />
       <div class="vsf-footer__bottom-links">
         <slot name="bottomLinks" />
       </div>
-      <span class="vsf-footer__company-name">{{ companyName }}</span>
+      <span class="vsf-footer__label--company-name">
+        <slot name="companyName" />
+      </span>
     </div>
   </footer>
 </template>

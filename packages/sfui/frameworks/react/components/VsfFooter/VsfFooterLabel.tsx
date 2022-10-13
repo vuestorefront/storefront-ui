@@ -1,5 +1,6 @@
 import classNames from 'classnames';
-import { VsfFooterLabelProps, VsfFooterLabelType } from './types';
+import { VsfFooterLabelType } from '@sfui/types/_components';
+import { VsfFooterLabelProps } from './types';
 
 export default function VsfFooterLabel({
   type = VsfFooterLabelType.subcategory,
