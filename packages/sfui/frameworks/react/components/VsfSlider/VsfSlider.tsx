@@ -11,27 +11,34 @@ export function VsfSliderItem({ children }: { children: ReactNode }) {
   return <div className="vsf-slider__item">{children}</div>;
 }
 
-export default function VsfSlider({ navigation, scrollbar, children, className, ...attributes }: VsfSliderProps) {
+export default function VsfSlider({
+  navigation,
+  scrollbar,
+  showMobileNavigation,
+  scrollSnap,
+  children,
+  className,
+  ...attributes
+}: VsfSliderProps) {
   const sliderRef = useRef<HTMLDivElement>(null);
   const slider = useRef<Slider>();
 
   useEffect(() => {
     const sliderRefEl = sliderRef.current;
-    slider.current = new Slider({
-      containerSelector: '.vsf-slider__container',
-      itemSelector: '.vsf-slider__item',
-      navSelector: '.vsf-slider__nav',
-    });
-    const destroyVisible = slider.current.setVisibleSlides(sliderRefEl, 0.9);
+    if (sliderRefEl) {
+      slider.current = new Slider(sliderRefEl, {
+        containerSelector: '.vsf-slider__container',
+        itemSelector: '.vsf-slider__item',
+        reduceMotion: window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+        intersectionThreshold: 0.9,
+      });
+      slider.current.initialize();
+    }
 
     return () => {
-      destroyVisible();
+      slider.current?.destroy();
     };
   }, []);
-
-  function goNext(next = true) {
-    slider.current?.slideActive(sliderRef.current, next);
-  }
 
   return (
     <div
@@ -39,6 +46,8 @@ export default function VsfSlider({ navigation, scrollbar, children, className, 
         'vsf-slider',
         {
           'vsf-slider--floating-nav': navigation === NavigationDisplay.floating,
+          'vsf-slider--mobile-nav': showMobileNavigation,
+          'vsf-slider--snap-scroll': scrollSnap,
         },
         className,
       )}
@@ -51,7 +60,7 @@ export default function VsfSlider({ navigation, scrollbar, children, className, 
           icon
           rounded
           className={classNames(['vsf-slider__nav vsf-slider__nav-prev'])}
-          onClick={() => goNext(false)}
+          onClick={() => slider.current?.onPrevButtonClick()}
         >
           <VsfIconChevronLeft />
         </VsfButton>
@@ -75,7 +84,7 @@ export default function VsfSlider({ navigation, scrollbar, children, className, 
           className={classNames(['vsf-slider__nav vsf-slider__nav-next'])}
           icon
           rounded
-          onClick={() => goNext(true)}
+          onClick={() => slider.current?.onNextButtonClick()}
         >
           <VsfIconChevronRight />
         </VsfButton>

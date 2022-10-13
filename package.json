@@ -51,8 +51,7 @@
     "node": ">=16.0.0"
   },
   "dependencies": {
-    "cross-env": "^7.0.3",
-    "swiffy-slider": "^1.6.0"
+    "cross-env": "^7.0.3"
   },
   "packageManager": "yarn@1.22.10",
   "config": {

@@ -11,21 +11,34 @@
   $root: &;
   @apply relative w-full flex items-center;
   &__container {
-    @apply scroll-smooth snap-x snap-mandatory flex gap-4 h-full overflow-x-auto scroll-p-7;
+    @apply scroll-smooth flex gap-4 h-full overflow-x-auto scroll-p-7;
     &--scroll {
       @apply overflow-x-scroll;
     }
   }
   &__item {
-    @apply snap-start relative w-full h-full min-h-[60px] flex items-center; // FF is not able to smooth-scrolling (css or with scrollIntoView()) on shorter elements
+    @apply relative w-full h-full min-h-[60px] flex items-center; // FF is not able to smooth-scrolling (css or with scrollIntoView()) on shorter elements
   }
   &__nav {
-    @apply transition-opacity bg-white;
+    @apply transition-opacity bg-white md:block hidden;
     &-prev {
       @apply mr-4;
     }
     &-next {
       @apply ml-4;
+    }
+  }
+  &--snap-scroll {
+    #{$root}__container {
+      @apply snap-x snap-mandatory;
+    }
+    #{$root}__item {
+      @apply snap-start;
+    }
+  }
+  &--mobile-nav {
+    #{$root}__nav {
+      @apply block;
     }
   }
   &--floating-nav {

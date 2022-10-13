@@ -18,17 +18,34 @@ function Example() {
         propType: 'string',
         options: ['', 'auto', 'always'],
       },
+      {
+        type: 'boolean',
+        modelName: 'showMobileNavigation',
+        propType: 'boolean',
+      },
+      {
+        type: 'boolean',
+        modelName: 'scrollSnap',
+        propType: 'boolean',
+      },
     ],
     {
       navigation: undefined,
       scrollbar: undefined,
+      showMobileNavigation: false,
+      scrollSnap: false,
     },
   );
 
   return (
     <div className="e-page">
       <div className="e-page-component">
-        <VsfSlider navigation={state.get.navigation} scrollbar={state.get.scrollbar}>
+        <VsfSlider
+          navigation={state.get.navigation}
+          scrollbar={state.get.scrollbar}
+          showMobileNavigation={state.get.showMobileNavigation}
+          scrollSnap={state.get.scrollSnap}
+        >
           {Array.from(Array(4).keys()).map((item) => (
             <VsfSliderItem key={item}>
               <div className="bg-gray-300 w-[150px] h-[150px] flex justify-center items-center">{item + 1}</div>
@@ -36,7 +53,7 @@ function Example() {
           ))}
           {Array.from(Array(4).keys()).map((item) => (
             <VsfSliderItem key={item}>
-              <div className="bg-gray-300 w-[300px] h-[150px] flex justify-center items-center">{item + 5}</div>
+              <div className="bg-gray-300 w-[200px] h-[150px] flex justify-center items-center">{item + 5}</div>
             </VsfSliderItem>
           ))}
           {Array.from(Array(4).keys()).map((item) => (
@@ -46,8 +63,17 @@ function Example() {
           ))}
         </VsfSlider>
         <hr className="my-4" />
-        <p className="mb-4">Slider with focusable elements</p>
-        <VsfSlider navigation={NavigationDisplay.block}>
+        <p className="mb-4 text-sm">
+          Example: slider with focusable elements.{' '}
+          <code className="text-xs rounded bg-yellow-100 border border-yellow-300 py-0.5 px-1">navigation</code> prop
+          has no effect
+        </p>
+        <VsfSlider
+          navigation={NavigationDisplay.block}
+          scrollbar={state.get.scrollbar}
+          showMobileNavigation={state.get.showMobileNavigation}
+          scrollSnap={state.get.scrollSnap}
+        >
           {[
             'Lorem',
             'ipsum',

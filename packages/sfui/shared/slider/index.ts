@@ -1,5 +1,14 @@
+/* eslint-disable @typescript-eslint/lines-between-class-members */
 /* eslint-disable @typescript-eslint/no-unused-expressions */
-import { findLast } from './utils';
+
+function findLast<T>(array: Array<T>, predicate: (value: T, index: number, obj: T[]) => boolean): T | undefined {
+  let l = array.length;
+  // eslint-disable-next-line no-plusplus
+  while (l--) {
+    if (predicate(array[l], l, array)) return array[l];
+  }
+  return undefined;
+}
 
 interface Config {
   containerSelector?: string;
@@ -9,6 +18,8 @@ interface Config {
   lastItemVisibleClass?: string;
   navSelector?: string;
   navNextClass?: string;
+  intersectionThreshold?: IntersectionObserverInit['threshold'];
+  reduceMotion?: boolean;
 }
 
 const defaultConfig: Required<Config> = {
@@ -19,133 +30,137 @@ const defaultConfig: Required<Config> = {
   lastItemVisibleClass: 'slider-item-last-visible',
   navSelector: '.slider-nav',
   navNextClass: 'slider-nav--next',
+  intersectionThreshold: 0.9,
+  reduceMotion: false,
 };
 
 type Nullable<T> = T | null | undefined;
 
-const noOp = () => {};
-
 export default class Slider {
-  private config: Required<Config>;
+  config: Required<Config>;
+  root: HTMLElement;
+  scrollContainer: Element;
+  carouselItems: Element[];
+  prevButton: Nullable<Element>;
+  nextButton: Nullable<Element>;
+  intersectionObserver: IntersectionObserver;
+  mutationObserver: MutationObserver;
 
-  constructor(config?: Config) {
+  constructor(root: HTMLElement, config?: Config) {
+    if (!root) throw new Error(`Root Element is required`);
     this.config = { ...defaultConfig, ...config };
+    this.root = root;
+    const scrollContainerElement = root.querySelector(this.config.containerSelector);
+    if (!scrollContainerElement)
+      throw new Error(`Scroll Container Element can not be found: ${this.config.containerSelector}`);
+    this.scrollContainer = scrollContainerElement;
+    this.carouselItems = [];
+    this.prevButton = null;
+    this.nextButton = null;
   }
 
-  init(sliderElement: Nullable<Element>, threshold: IntersectionObserverInit['threshold'] = 0.9) {
-    if (!sliderElement) return noOp;
-    const navItems = sliderElement.querySelectorAll(this.config.navSelector);
+  initialize() {
+    this.setVisibleSlides();
+    this.setNavigation();
+    this.setCarouselVisibility();
+    this.onContainerUpdate();
+  }
+
+  destroy() {
+    this.unobserveCarouselItems();
+    this.nextButton?.removeEventListener('click', this.onNextButtonClick.bind(this));
+    this.prevButton?.removeEventListener('click', this.onPrevButtonClick.bind(this));
+    this.intersectionObserver.disconnect();
+    this.mutationObserver.disconnect();
+  }
+
+  setNavigation() {
+    const navItems = this.root.querySelectorAll(this.config.navSelector);
     navItems.forEach((nav) => {
-      nav.addEventListener('click', () =>
-        this.slideActive(sliderElement, nav.classList.contains(this.config.navNextClass)),
-      );
+      if (nav.classList.contains(this.config.navNextClass)) {
+        this.nextButton = nav;
+      } else {
+        this.prevButton = nav;
+      }
     });
-    const destroy = this.setVisibleSlides(sliderElement, threshold);
-    return () => {
-      destroy();
-      navItems.forEach((nav) => {
-        nav.removeEventListener('click', () =>
-          this.slideActive(sliderElement, nav.classList.contains(this.config.navSelectorNext)),
-        );
-      });
-    };
+    this.nextButton?.addEventListener('click', this.onNextButtonClick);
+    this.prevButton?.addEventListener('click', this.onPrevButtonClick);
   }
 
-  setVisibleSlides(sliderElement: Nullable<Element>, threshold: IntersectionObserverInit['threshold'] = 0.9) {
-    if (!(sliderElement && window.IntersectionObserver)) return noOp;
-    const container = sliderElement.querySelector(this.config.containerSelector);
-    const observer = new IntersectionObserver(
+  unobserveCarouselItems() {
+    this.carouselItems.forEach((t) => {
+      this.intersectionObserver.unobserve(t);
+    });
+  }
+
+  observeCarouselItems() {
+    this.carouselItems.forEach((t) => {
+      this.intersectionObserver.observe(t);
+    });
+  }
+
+  onNextButtonClick() {
+    const nextAfterLastVisible = findLast(this.carouselItems, (el) =>
+      el.classList.contains(this.config.visibleItemClass),
+    )?.nextElementSibling;
+    this.slideToElement(nextAfterLastVisible, {
+      inline: 'start',
+      block: 'nearest',
+      behavior: this.config.reduceMotion ? 'auto' : 'smooth',
+    });
+  }
+
+  setCarouselVisibility() {
+    this.unobserveCarouselItems();
+    this.carouselItems = Array.from(this.scrollContainer?.children || []);
+    this.observeCarouselItems();
+  }
+
+  onContainerUpdate() {
+    this.mutationObserver = new MutationObserver((items) => {
+      items.filter(({ type }) => type === 'childList').length && this.setCarouselVisibility();
+    });
+    this.mutationObserver.observe(this.scrollContainer, {
+      childList: true,
+      subtree: true,
+    });
+  }
+
+  onPrevButtonClick() {
+    const previousBeforeFirstVisible = this.carouselItems.find((el) =>
+      el.classList.contains(this.config.visibleItemClass),
+    )?.previousElementSibling;
+    this.slideToElement(previousBeforeFirstVisible, {
+      inline: 'end',
+      block: 'nearest',
+      behavior: this.config.reduceMotion ? 'auto' : 'smooth',
+    });
+  }
+  // eslint-disable-next-line class-methods-use-this
+  slideToElement(element: Nullable<Element>, options: ScrollIntoViewOptions) {
+    element?.scrollIntoView(options);
+  }
+
+  setVisibleSlides() {
+    this.intersectionObserver = new IntersectionObserver(
       (slides) => {
         slides.forEach((slide) =>
           slide.isIntersecting
             ? slide.target.classList.add(this.config.visibleItemClass)
             : slide.target.classList.remove(this.config.visibleItemClass),
         );
-        container?.firstElementChild?.classList.contains(this.config.visibleItemClass)
-          ? sliderElement?.classList.add(this.config.firstItemVisibleClass)
-          : sliderElement?.classList.remove(this.config.firstItemVisibleClass);
-        container?.lastElementChild?.classList.contains(this.config.visibleItemClass)
-          ? sliderElement.classList.add(this.config.lastItemVisibleClass)
-          : sliderElement.classList.remove(this.config.lastItemVisibleClass);
+        // set class to the root element when first/last element is visible
+        this.scrollContainer?.firstElementChild?.classList.contains(this.config.visibleItemClass)
+          ? this.root?.classList.add(this.config.firstItemVisibleClass)
+          : this.root?.classList.remove(this.config.firstItemVisibleClass);
+        this.scrollContainer?.lastElementChild?.classList.contains(this.config.visibleItemClass)
+          ? this.root.classList.add(this.config.lastItemVisibleClass)
+          : this.root.classList.remove(this.config.lastItemVisibleClass);
       },
       {
-        root: container,
-        threshold,
+        root: this.scrollContainer,
+        threshold: this.config.intersectionThreshold,
       },
     );
-    sliderElement.querySelectorAll(this.config.itemSelector).forEach((slide) => observer?.observe(slide));
-    return () => observer?.disconnect();
-  }
-
-  slideActive(sliderElement: Nullable<Element>, next = true, options?: ScrollIntoViewOptions) {
-    const children = this.getContainerChildren(sliderElement);
-    if (next) {
-      this.slideActiveNext(children, options);
-    } else {
-      this.slideActivePrev(children, options);
-    }
-  }
-
-  slideToIndex(
-    sliderElement: Nullable<Element>,
-    index: number,
-    options: ScrollIntoViewOptions = { inline: 'start', block: 'start' },
-  ) {
-    const children = this.getContainerChildren(sliderElement);
-    this.slideToElement(children[index], options);
-  }
-
-  // eslint-disable-next-line class-methods-use-this
-  slideToElement(element: Nullable<Element>, options: ScrollIntoViewOptions = { inline: 'start', block: 'nearest' }) {
-    element?.scrollIntoView(options);
-  }
-
-  slideActiveNext(children: Element[], options: ScrollIntoViewOptions = { inline: 'start', block: 'nearest' }) {
-    const nextAfterLastVisible = findLast<Element>(children, (el) =>
-      el.classList.contains(this.config.visibleItemClass),
-    )?.nextElementSibling;
-    this.slideToElement(nextAfterLastVisible, options);
-  }
-
-  slideActivePrev(children: Element[], options: ScrollIntoViewOptions = { inline: 'end', block: 'nearest' }) {
-    const previousBeforeFirstVisible = children.find((el) =>
-      el.classList.contains(this.config.visibleItemClass),
-    )?.previousElementSibling;
-    this.slideToElement(previousBeforeFirstVisible, options);
-  }
-
-  getContainerChildren(sliderElement: Nullable<Element>) {
-    const container = sliderElement?.querySelector(this.config.containerSelector);
-    if (!container) return [];
-    return Array.from(container.children);
-  }
-
-  onContainerResize(
-    sliderElement: Nullable<Element>,
-    callback: ResizeObserverCallback,
-    options?: ResizeObserverOptions,
-  ) {
-    if (!(sliderElement && window.ResizeObserver)) return noOp;
-    const resizeObserver = new ResizeObserver(callback);
-    const container = sliderElement.querySelector(this.config.containerSelector);
-    if (container) {
-      resizeObserver.observe(container, options);
-    }
-    return () => resizeObserver?.disconnect();
-  }
-
-  onSlideEnd(sliderElement: Nullable<Element>, delegate: (e?: Event) => void, timeout = 125) {
-    if (!sliderElement) return noOp;
-    let isScrolling: NodeJS.Timeout;
-
-    function handler(e: Event) {
-      window.clearTimeout(isScrolling);
-      isScrolling = setTimeout(() => delegate(e), timeout);
-    }
-    const container = sliderElement.querySelector(this.config.containerSelector);
-    if (container) {
-      container.addEventListener('scroll', handler, { capture: false, passive: true });
-    }
-    return () => container?.removeEventListener('scroll', handler);
   }
 }
