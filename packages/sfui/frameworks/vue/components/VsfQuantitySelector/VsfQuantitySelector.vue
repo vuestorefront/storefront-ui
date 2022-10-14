@@ -43,6 +43,10 @@ const props = defineProps({
     type: String,
     default: 'qty-selector',
   },
+  decimal: {
+    type: Number,
+    default: null,
+  },
 });
 
 const emit = defineEmits<{
@@ -62,14 +66,20 @@ const decreaseDisabled = computed(() => disabled.value || currentValue.value <= 
 
 function handleChange(nextValue: number) {
   currentValue.value = nextValue;
-  currentValue.value = clamp(nextValue, minValue.value, maxValue.value);
+  currentValue.value = Number(clamp(currentValue.value, minValue.value, maxValue.value).toFixed(props.decimal));
   emit('update:modelValue', currentValue.value);
 }
 
-function handleOnChange(event: Event) {
-  const { value } = event.target as HTMLInputElement;
-  if (value) {
-    handleChange(Number(value));
+function handleOnChange() {
+  if (currentValue.value) {
+    handleChange(currentValue.value);
+  }
+}
+function handleOnBlur() {
+  if (currentValue.value) {
+    handleChange(currentValue.value);
+  } else {
+    handleChange(props.modelValue);
   }
 }
 </script>
@@ -93,9 +103,9 @@ function handleOnChange(event: Event) {
 
       <input
         :id="inputId"
+        v-model.number="currentValue"
         type="number"
         :step="step"
-        :value="currentValue"
         role="spinbutton"
         class="vsf-qty-selector__input"
         :disabled="disabled"
@@ -103,7 +113,9 @@ function handleOnChange(event: Event) {
         :aria-disabled="disabled"
         :min="minValue"
         :max="maxValue"
+        :inputMode="decimal ? 'decimal' : 'numeric'"
         @input="handleOnChange"
+        @blur="handleOnBlur"
       />
 
       <VsfButton
