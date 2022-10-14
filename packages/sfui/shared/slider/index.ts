@@ -47,7 +47,7 @@ type Nullable<T> = T | null | undefined;
 export default class Slider {
   config: Required<Config>;
   root: HTMLElement;
-  scrollContainer: Element;
+  scrollContainer: Nullable<Element>;
   carouselItems: Element[];
   prevButton: Nullable<Element>;
   nextButton: Nullable<Element>;
@@ -55,19 +55,20 @@ export default class Slider {
   mutationObserver: MutationObserver;
 
   constructor(root: HTMLElement, config?: Config) {
-    if (!root) throw new Error(`Root Element is required`);
+    if (!(root instanceof HTMLElement)) throw new Error('Root Element have to HTMLElement');
     this.config = { ...defaultConfig, ...config };
     this.root = root;
-    const scrollContainerElement = root.querySelector(this.config.containerSelector);
-    if (!scrollContainerElement)
-      throw new Error(`Scroll Container Element can not be found: ${this.config.containerSelector}`);
-    this.scrollContainer = scrollContainerElement;
+    this.scrollContainer = null;
     this.carouselItems = [];
     this.prevButton = null;
     this.nextButton = null;
   }
 
   initialize() {
+    this.scrollContainer = this.root.querySelector(this.config.containerSelector);
+    if (!this.scrollContainer) {
+      throw new Error(`Scroll Container Element can not be found: ${this.config.containerSelector}`);
+    }
     this.setVisibleSlides();
     this.setNavigation();
     this.setCarouselVisibility();
