@@ -24,8 +24,6 @@ interface Config {
   itemSelector?: string;
   firstItemVisibleClass?: string;
   lastItemVisibleClass?: string;
-  navSelector?: string;
-  navNextClass?: string;
   intersectionThreshold?: IntersectionObserverInit['threshold'];
   reduceMotion?: boolean;
 }
@@ -36,8 +34,6 @@ const defaultConfig: Required<Config> = {
   itemSelector: '.slider-item',
   firstItemVisibleClass: 'slider-item-first-visible',
   lastItemVisibleClass: 'slider-item-last-visible',
-  navSelector: '.slider-nav',
-  navNextClass: 'slider-nav--next',
   intersectionThreshold: 0.9,
   reduceMotion: false, // https://web.dev/prefers-reduced-motion/
 };
@@ -58,46 +54,25 @@ export default class Slider {
     if (!(root instanceof HTMLElement)) throw new Error('Root Element have to HTMLElement');
     this.config = { ...defaultConfig, ...config };
     this.root = root;
-    this.scrollContainer = null;
     this.carouselItems = [];
-    this.prevButton = null;
-    this.nextButton = null;
   }
 
   initialize() {
-    this.scrollContainer = this.root.querySelector(this.config.containerSelector);
-    if (!this.scrollContainer) {
+    const scrollContainer = this.root.querySelector(this.config.containerSelector);
+    if (!scrollContainer) {
       throw new Error(`Scroll Container Element can not be found: ${this.config.containerSelector}`);
     }
-    this.setVisibleSlides();
-    this.setNavigation();
-    this.setCarouselVisibility();
-    this.onContainerUpdate();
+    this.setVisibleSlides(scrollContainer);
+    this.setCarouselVisibility(scrollContainer);
+    this.onContainerUpdate(scrollContainer);
   }
   /* 
     Clears event listeners and disconnect observsers
   */
   destroy() {
     this.unobserveCarouselItems();
-    this.nextButton?.removeEventListener('click', this.next);
-    this.prevButton?.removeEventListener('click', this.prev);
-    this.intersectionObserver.disconnect();
-    this.mutationObserver.disconnect();
-  }
-  /* 
-    Attach Event Listeners to the navigation elements (when exists in template)
-  */
-  setNavigation() {
-    const navItems = this.root.querySelectorAll(this.config.navSelector);
-    navItems.forEach((nav) => {
-      if (nav.classList.contains(this.config.navNextClass)) {
-        this.nextButton = nav;
-      } else {
-        this.prevButton = nav;
-      }
-    });
-    this.nextButton?.addEventListener('click', this.next);
-    this.prevButton?.addEventListener('click', this.prev);
+    this.intersectionObserver?.disconnect();
+    this.mutationObserver?.disconnect();
   }
 
   unobserveCarouselItems() {
@@ -115,20 +90,20 @@ export default class Slider {
   /* 
     Resets observable slider items
   */
-  setCarouselVisibility() {
+  setCarouselVisibility(scrollContainer: Element) {
     this.unobserveCarouselItems();
-    this.carouselItems = Array.from(this.scrollContainer?.children || []);
+    this.carouselItems = Array.from(scrollContainer.children || []);
     this.observeCarouselItems();
   }
   /* 
     Listen for scroll container changes
     - child elements update
   */
-  onContainerUpdate() {
+  onContainerUpdate(scrollContainer: Element) {
     this.mutationObserver = new MutationObserver((items) => {
-      items.filter(({ type }) => type === 'childList').length && this.setCarouselVisibility();
+      items.filter(({ type }) => type === 'childList').length && this.setCarouselVisibility(scrollContainer);
     });
-    this.mutationObserver.observe(this.scrollContainer, {
+    this.mutationObserver.observe(scrollContainer, {
       childList: true,
       subtree: true,
     });
@@ -177,7 +152,7 @@ export default class Slider {
     - adds firstVisibleClass to the root element when first visible element is visible in viewport (scrolled to the left)
     - adds lastVisibleClass to the root element when last visible element is visible in viewport (scrolled to the right)
   */
-  setVisibleSlides() {
+  setVisibleSlides(scrollContainer: Element) {
     this.intersectionObserver = new IntersectionObserver(
       (slides) => {
         slides.forEach((slide) =>
@@ -186,15 +161,15 @@ export default class Slider {
             : slide.target.classList.remove(this.config.visibleItemClass),
         );
         // set class to the root element when first/last element is visible
-        this.scrollContainer?.firstElementChild?.classList.contains(this.config.visibleItemClass)
+        scrollContainer.firstElementChild?.classList.contains(this.config.visibleItemClass)
           ? this.root?.classList.add(this.config.firstItemVisibleClass)
           : this.root?.classList.remove(this.config.firstItemVisibleClass);
-        this.scrollContainer?.lastElementChild?.classList.contains(this.config.visibleItemClass)
+        scrollContainer.lastElementChild?.classList.contains(this.config.visibleItemClass)
           ? this.root.classList.add(this.config.lastItemVisibleClass)
           : this.root.classList.remove(this.config.lastItemVisibleClass);
       },
       {
-        root: this.scrollContainer,
+        root: scrollContainer,
         threshold: this.config.intersectionThreshold,
       },
     );
