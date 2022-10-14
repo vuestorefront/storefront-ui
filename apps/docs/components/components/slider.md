@@ -1,4 +1,6 @@
-#  Slider component
+# Slider component
+
+# TDB
 
 ## Figma design
 
@@ -6,10 +8,9 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 ## Props
 
-| Prop name        | Type       | Default value  | Possible values                       |
-|------------------|------------|----------------|---------------------------------------|
-| hasChevrons      | `boolean`  | `true`         |                                       |
-| hasScrollbar     | `boolean`  | `true`         |                                       |
+| Prop name | Type | Default value | Possible values |
+| --------- | ---- | ------------- | --------------- |
+|           |      |               |                 |
 
 ## Source code
 
