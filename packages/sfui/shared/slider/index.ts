@@ -78,8 +78,8 @@ export default class Slider {
   */
   destroy() {
     this.unobserveCarouselItems();
-    this.nextButton?.removeEventListener('click', this.onNextButtonClick);
-    this.prevButton?.removeEventListener('click', this.onPrevButtonClick);
+    this.nextButton?.removeEventListener('click', this.next);
+    this.prevButton?.removeEventListener('click', this.prev);
     this.intersectionObserver.disconnect();
     this.mutationObserver.disconnect();
   }
@@ -95,8 +95,8 @@ export default class Slider {
         this.prevButton = nav;
       }
     });
-    this.nextButton?.addEventListener('click', this.onNextButtonClick);
-    this.prevButton?.addEventListener('click', this.onPrevButtonClick);
+    this.nextButton?.addEventListener('click', this.next);
+    this.prevButton?.addEventListener('click', this.prev);
   }
 
   unobserveCarouselItems() {
@@ -137,7 +137,7 @@ export default class Slider {
     - scroll container is moved to position, where item after last visible item is next first element visible in scroll viewport
     - behaviour - 'auto' when reduceMotion option is set to true, 'smooth' otherwise
   */
-  onNextButtonClick() {
+  next() {
     const nextAfterLastVisible = findLast(this.carouselItems, (el) =>
       el.classList.contains(this.config.visibleItemClass),
     )?.nextElementSibling;
@@ -152,7 +152,7 @@ export default class Slider {
     - scroll container is moved to position, where item before first visible item is last element visible in scroll viewport
     - behaviour - 'auto' when reduceMotion option is set to true, 'smooth' otherwise
   */
-  onPrevButtonClick() {
+  prev() {
     const previousBeforeFirstVisible = this.carouselItems.find((el) =>
       el.classList.contains(this.config.visibleItemClass),
     )?.previousElementSibling;

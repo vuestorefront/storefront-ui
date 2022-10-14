@@ -24,16 +24,15 @@ export default function VsfSlider({
   const slider = useRef<Slider>();
 
   useEffect(() => {
-    const sliderRefEl = sliderRef.current;
-    if (sliderRefEl) {
-      slider.current = new Slider(sliderRefEl, {
+    if (!slider.current && sliderRef.current) {
+      slider.current = new Slider(sliderRef.current, {
         containerSelector: '.vsf-slider__container',
         itemSelector: '.vsf-slider__item',
         reduceMotion: window.matchMedia('(prefers-reduced-motion: reduce)').matches,
         intersectionThreshold: 0.9,
       });
-      slider.current.initialize();
     }
+    slider.current?.initialize();
 
     return () => {
       slider.current?.destroy();
@@ -60,7 +59,7 @@ export default function VsfSlider({
           icon
           rounded
           className={classNames(['vsf-slider__nav vsf-slider__nav-prev'])}
-          onClick={() => slider.current?.onPrevButtonClick()}
+          onClick={() => slider.current?.prev()}
         >
           <VsfIconChevronLeft />
         </VsfButton>
@@ -84,7 +83,7 @@ export default function VsfSlider({
           className={classNames(['vsf-slider__nav vsf-slider__nav-next'])}
           icon
           rounded
-          onClick={() => slider.current?.onNextButtonClick()}
+          onClick={() => slider.current?.next()}
         >
           <VsfIconChevronRight />
         </VsfButton>
