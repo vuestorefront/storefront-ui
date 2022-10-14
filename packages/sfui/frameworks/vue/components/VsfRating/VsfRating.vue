@@ -33,7 +33,7 @@ const ratingValue = computed(() => clamp(roundToNearest(value.value, precision.v
 const partiallyFilled = computed(() => Number(!Number.isInteger(ratingValue.value)));
 const filled = computed(() => Math.ceil(ratingValue.value - partiallyFilled.value));
 const empty = computed(() => max.value - filled.value - partiallyFilled.value);
-
+const title = computed(() => `${value.value} out of ${max.value}`);
 const classes = computed(() => [
   'vsf-rating',
   {
@@ -47,7 +47,7 @@ const classes = computed(() => [
 </script>
 
 <template>
-  <div role="img" :ariaLabel="`Rating: ${value} out of ${max} stars`" :class="classes">
+  <div role="img" :ariaLabel="title" :title="title" :class="classes">
     <template v-if="variant === 'withValue'">
       <VsfIconStar aria-hidden="true" class="vsf-rating__star-filled" />
       <span class="vsf-rating__value">{{ value }}</span>
