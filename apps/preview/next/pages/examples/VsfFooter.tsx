@@ -16,7 +16,7 @@ import {
   VsfIconYoutube,
 } from '@sfui/sfui/frameworks/react/components/VsfIcons';
 import { VsfIconSizeEnum } from '@sfui/sfui/frameworks/react/components/VsfIconBase/types';
-import { VsfFooterColumnType, VsfFooterLabelType, VsfFooterSectionType } from '@sfui/types/_components';
+import { VsfFooterColumnType, VsfFooterLabelType, VsfFooterSectionType } from '@sfui/sfui/shared/types';
 import Link from 'next/link';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';

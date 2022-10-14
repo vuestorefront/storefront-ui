@@ -70,20 +70,23 @@
 
 <script lang="ts">
 import { computed, defineComponent, ref, resolveComponent } from 'vue';
-import VsfFooter from '@sfui/sfui/frameworks/vue/components/VsfFooter/VsfFooter.vue';
-import VsfFooterColumn from '@sfui/sfui/frameworks/vue/components/VsfFooter/VsfFooterColumn.vue';
-import VsfFooterSocialMedia from '@sfui/sfui/frameworks/vue/components/VsfFooter/VsfFooterSocialMedia.vue';
-import VsfFooterLabel from '@sfui/sfui/frameworks/vue/components/VsfFooter/VsfFooterLabel.vue';
-import VsfIconHelp from '@sfui/sfui/frameworks/vue/components/VsfIcons/VsfIconHelp.vue';
-import VsfIconChat from '@sfui/sfui/frameworks/vue/components/VsfIcons/VsfIconChat.vue';
-import VsfIconPhone from '@sfui/sfui/frameworks/vue/components/VsfIcons/VsfIconPhone.vue';
-import VsfIconFacebook from '@sfui/sfui/frameworks/vue/components/VsfIcons/VsfIconFacebook.vue';
-import VsfIconTwitter from '@sfui/sfui/frameworks/vue/components/VsfIcons/VsfIconTwitter.vue';
-import VsfIconPinterest from '@sfui/sfui/frameworks/vue/components/VsfIcons/VsfIconPinterest.vue';
-import VsfIconYoutube from '@sfui/sfui/frameworks/vue/components/VsfIcons/VsfIconYoutube.vue';
-import VsfIconInstagram from '@sfui/sfui/frameworks/vue/components/VsfIcons/VsfIconInstagram.vue';
+import VsfFooter, {
+  VsfFooterColumn,
+  VsfFooterSocialMedia,
+  VsfFooterLabel,
+} from '@sfui/sfui/frameworks/vue/components/VsfFooter/index';
+import {
+  VsfIconHelp,
+  VsfIconChat,
+  VsfIconPhone,
+  VsfIconFacebook,
+  VsfIconTwitter,
+  VsfIconPinterest,
+  VsfIconYoutube,
+  VsfIconInstagram,
+} from '@sfui/sfui/frameworks/vue/components/VsfIcons/index';
 import type { TagOrComponent } from '@sfui/sfui/frameworks/vue/utils/types';
-import { VsfFooterLabelType, VsfFooterColumnType } from '@sfui/types/_components';
+import { VsfFooterLabelType, VsfFooterColumnType } from '@sfui/sfui/shared/types/index';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
 
 export default defineComponent({
