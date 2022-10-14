@@ -114,7 +114,10 @@ export default function Controls<T extends { [k: string]: any }>({ controls, sta
                     switch (control.type) {
                       case 'select':
                         return (
-                          <select onChange={(e) => handleOnChangeValue<HTMLSelectElement>(e, control.modelName)}>
+                          <select
+                            value={state.get[control.modelName]}
+                            onChange={(e) => handleOnChangeValue<HTMLSelectElement>(e, control.modelName)}
+                          >
                             {(control?.options || ([{}] as NonNullable<ControlsType[number]['options']>)).map(
                               (option, optionIndex) => (
                                 <option
