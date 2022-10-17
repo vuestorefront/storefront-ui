@@ -34,8 +34,8 @@
           </template>
         </template>
         <template #socialMedia>
-          <template v-for="social in socialMediaModel" :key="social.label">
-            <VsfFooterSocialMedia>
+          <VsfFooterSocialMedia>
+            <template v-for="social in socialMediaModel" :key="social.label">
               <VsfFooterLabel :type="VsfFooterLabelType.socialMedia">
                 <component :is="linkTag(social.linkTag)" v-bind="social.bindings">
                   <VsfIconFacebook v-if="social.label === 'Facebook'" />
@@ -45,8 +45,8 @@
                   <VsfIconYoutube v-if="social.label === 'Youtube'" />
                 </component>
               </VsfFooterLabel>
-            </VsfFooterSocialMedia>
-          </template>
+            </template>
+          </VsfFooterSocialMedia>
         </template>
         <template #bottomLinks>
           <template v-for="bottomLink in bottomLinksModel" :key="bottomLink.label">
