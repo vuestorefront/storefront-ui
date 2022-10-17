@@ -1,11 +1,12 @@
 <script lang="ts" setup>
-import { PropType, ref, toRef } from 'vue';
+import { PropType, ref, toRef, defineAsyncComponent } from 'vue';
 import { VsfSliderNavigation, VsfSliderScrollbar } from './types';
-import VsfButton from '../VsfButton/VsfButton.vue';
-import { VsfIconChevronLeft, VsfIconChevronRight } from '../VsfIcons/index';
 import { useSlider } from '../../shared/slider/vue';
 import type { Options } from '../../shared/slider';
 import { VsfButtonVariants } from '../VsfButton';
+const VsfButton = defineAsyncComponent(() => import('../VsfButton/VsfButton.vue'));
+const VsfIconChevronLeft = defineAsyncComponent(() => import('../VsfIcons/VsfIconChevronLeft.vue'));
+const VsfIconChevronRight = defineAsyncComponent(() => import('../VsfIcons/VsfIconChevronRight.vue'));
 
 const props = defineProps({
   scrollbar: {
@@ -44,6 +45,13 @@ const options = ref<Partial<Options>>({
 });
 
 const [container, slider] = useSlider(options);
+
+function onClickPrev() {
+  return slider.value?.prev();
+}
+function onClickNext() {
+  return slider.value?.next();
+}
 </script>
 
 <template>
@@ -57,16 +65,19 @@ const [container, slider] = useSlider(options);
       },
     ]"
   >
-    <VsfButton
-      v-if="navigation"
-      :variant="VsfButtonVariants.secondary"
-      icon
-      rounded
-      :class="['vsf-slider__nav vsf-slider__nav-prev', { 'vsf-slider__nav--hidden': !hasPrev }]"
-      @click="() => slider?.prev()"
-    >
-      <VsfIconChevronLeft />
-    </VsfButton>
+    <div v-if="navigation" class="vsf-slider__nav vsf-slider__nav-prev">
+      <slot name="prev-arrow" v-bind="{ onClick: onClickPrev, hasPrev }">
+        <VsfButton
+          :variant="VsfButtonVariants.secondary"
+          icon
+          rounded
+          :class="['transition-opacity bg-white', { 'opacity-0 pointer-events-none': !hasPrev }]"
+          @click="onClickPrev"
+        >
+          <VsfIconChevronLeft />
+        </VsfButton>
+      </slot>
+    </div>
 
     <div
       ref="container"
@@ -81,15 +92,18 @@ const [container, slider] = useSlider(options);
       <slot></slot>
     </div>
 
-    <VsfButton
-      v-if="navigation"
-      :variant="VsfButtonVariants.secondary"
-      icon
-      rounded
-      :class="['vsf-slider__nav vsf-slider__nav-next', { 'vsf-slider__nav--hidden': !hasNext }]"
-      @click="() => slider?.next()"
-    >
-      <VsfIconChevronRight />
-    </VsfButton>
+    <div v-if="navigation" class="vsf-slider__nav vsf-slider__nav-next">
+      <slot name="next-arrow" v-bind="{ onClick: onClickNext, hasNext }">
+        <VsfButton
+          :variant="VsfButtonVariants.secondary"
+          icon
+          rounded
+          :class="['transition-opacity bg-white', { 'opacity-0 pointer-events-none': !hasNext }]"
+          @click="onClickNext"
+        >
+          <VsfIconChevronRight />
+        </VsfButton>
+      </slot>
+    </div>
   </div>
 </template>

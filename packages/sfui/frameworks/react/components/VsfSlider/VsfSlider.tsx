@@ -14,8 +14,10 @@ export default function VsfSlider({
   showMobileNavigation,
   scrollSnap,
   draggable,
-  children,
   className,
+  children,
+  slotNextArrow,
+  slotPrevArrow,
   ...attributes
 }: VsfSliderProps) {
   const [hasPrev, setHasPrev] = useState<boolean>(true);
@@ -29,6 +31,39 @@ export default function VsfSlider({
       setHasNext(next);
     },
   });
+  function onClickPrev() {
+    return slider.current?.prev();
+  }
+  function onClickNext() {
+    return slider.current?.next();
+  }
+
+  const prevButtonDefault = (
+    <VsfButton
+      variant={VsfButtonVariants.secondary}
+      icon
+      rounded
+      className={classNames('transition-opacity bg-white', { 'opacity-0 pointer-events-none': !hasPrev })}
+      onClick={onClickPrev}
+    >
+      <VsfIconChevronLeft />
+    </VsfButton>
+  );
+  const nextButtonDefault = (
+    <VsfButton
+      variant={VsfButtonVariants.secondary}
+      icon
+      rounded
+      className={classNames('transition-opacity bg-white', { 'opacity-0 pointer-events-none': !hasPrev })}
+      onClick={onClickNext}
+    >
+      <VsfIconChevronRight />
+    </VsfButton>
+  );
+  const prevNavigation =
+    typeof slotPrevArrow === 'function' ? slotPrevArrow({ onClick: onClickPrev, hasPrev }) : prevButtonDefault;
+  const nextNavigation =
+    typeof slotNextArrow === 'function' ? slotNextArrow({ onClick: onClickNext, hasNext }) : nextButtonDefault;
 
   return (
     <div
@@ -43,17 +78,7 @@ export default function VsfSlider({
       )}
       {...attributes}
     >
-      {navigation && (
-        <VsfButton
-          variant={VsfButtonVariants.secondary}
-          icon
-          rounded
-          className={classNames(['vsf-slider__nav vsf-slider__nav-prev'], { 'vsf-slider__nav--hidden': !hasPrev })}
-          onClick={() => slider.current?.prev()}
-        >
-          <VsfIconChevronLeft />
-        </VsfButton>
-      )}
+      {navigation && <div className="vsf-slider__nav vsf-slider__nav-prev">{prevNavigation}</div>}
 
       <div
         ref={containerRef}
@@ -68,17 +93,7 @@ export default function VsfSlider({
         {children}
       </div>
 
-      {navigation && (
-        <VsfButton
-          variant={VsfButtonVariants.secondary}
-          className={classNames(['vsf-slider__nav vsf-slider__nav-next'], { 'vsf-slider__nav--hidden': !hasNext })}
-          icon
-          rounded
-          onClick={() => slider.current?.next()}
-        >
-          <VsfIconChevronRight />
-        </VsfButton>
-      )}
+      {navigation && <div className="vsf-slider__nav vsf-slider__nav-next">{nextNavigation}</div>}
     </div>
   );
 }

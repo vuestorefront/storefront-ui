@@ -18,18 +18,22 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 ### React only:
 
-| Prop name | Type        | Default value | Possible values |
-| --------- | ----------- | ------------- | --------------- |
-| children  | `ReactNode` |               |                 |
-| className | `String`    |               |                 |
+| Prop name     | Type        | Default value | Possible values |
+| ------------- | ----------- | ------------- | --------------- |
+| children      | `ReactNode` |               |                 |
+| className     | `String`    |               |                 |
+| slotPrevArrow | `Function`  |               |                 |
+| slotNextArrow | `Function`  |               |                 |
 
 ## Slots
 
 ### Vue only:
 
-| Slot name |   Description   |
-| --------- | :-------------: |
-| default   | default content |
+| Slot name  |      Description       |
+| ---------- | :--------------------: |
+| default    |    default content     |
+| prev-arrow | prev arrow scoped slot |
+| next-arrow | next arrow scoped slot |
 
 ## Source code
 

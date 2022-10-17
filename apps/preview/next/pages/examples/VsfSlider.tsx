@@ -3,6 +3,25 @@ import VsfSlider, { VsfSliderNavigation, VsfSliderScrollbar } from '@sfui/sfui/f
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 
+function NavigationPrev({ onClick, hasPrev }: { onClick: () => void; hasPrev: boolean }) {
+  return (
+    hasPrev && (
+      <button type="button" onClick={onClick} className="bg-secondary-400 p-2 rounded-sm text-white">
+        prev
+      </button>
+    )
+  );
+}
+function NavigationNext({ onClick, hasNext }: { onClick: () => void; hasNext: boolean }) {
+  return (
+    hasNext && (
+      <button type="button" onClick={onClick} className="bg-secondary-400 p-2 rounded-sm text-white">
+        next
+      </button>
+    )
+  );
+}
+
 function Example() {
   const [componentKey, setComponentKey] = useState(0);
 
@@ -40,6 +59,12 @@ function Example() {
         propType: 'object',
         description: 'Enable mouse drag on container',
       },
+      {
+        type: 'boolean',
+        modelName: 'ExampleCustomNav',
+        propType: '---',
+        description: 'Only for demonstration purposes',
+      },
     ],
     {
       navigation: undefined,
@@ -47,6 +72,7 @@ function Example() {
       showMobileNavigation: false,
       scrollSnap: false,
       draggable: false,
+      ExampleCustomNav: false,
     },
   );
 
@@ -71,6 +97,8 @@ function Example() {
                 }
               : undefined
           }
+          slotPrevArrow={state.get.ExampleCustomNav ? NavigationPrev : undefined}
+          slotNextArrow={state.get.ExampleCustomNav ? NavigationNext : undefined}
         >
           {Array.from(Array(4).keys()).map((item) => (
             <div key={item} data-index={item + 1}>
