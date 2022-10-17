@@ -30,7 +30,7 @@
 
   &-item {
     @apply py-1 flex-1 h-full;
-    @apply bg-white text-gray-900 hover:text-primary-600  hover:bg-primary-100 active:text-primary-600  active:bg-primary-100;
+    @apply bg-white text-gray-900 hover:text-primary-600 hover:bg-primary-100 active:text-primary-600 active:bg-primary-100;
     &--active {
       @apply text-primary-700 bg-primary-200;
     }
