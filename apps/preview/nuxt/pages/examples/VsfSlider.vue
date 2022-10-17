@@ -72,11 +72,13 @@ export default defineComponent({
             type: 'boolean',
             modelName: 'showMobileNavigation',
             propType: 'boolean',
+            description: 'Works only with `navigation` prop',
           },
           {
             type: 'boolean',
             modelName: 'scrollSnap',
             propType: 'boolean',
+            description: 'Enable native scroll snapping',
           },
           {
             type: 'boolean',
