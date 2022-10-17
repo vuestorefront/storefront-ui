@@ -76,11 +76,7 @@ function handleOnChange() {
   }
 }
 function handleOnBlur() {
-  if (currentValue.value) {
-    handleChange(currentValue.value);
-  } else {
-    handleChange(props.modelValue);
-  }
+  return currentValue.value ? handleChange(currentValue.value) : handleChange(props.modelValue);
 }
 </script>
 
