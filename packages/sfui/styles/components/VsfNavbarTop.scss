@@ -1,0 +1,33 @@
+.vsf-navbar-top {
+  @apply grid grid-cols-[min-content_min-content_1fr] small:grid-cols-[min-content_min-content_minmax(250px,_1fr)_max-content] w-full items-center grid-flow-col bg-white py-2 px-4 medium:px-10 medium:py-5 border-gray-200 border-b;
+  &--branded {
+    @apply bg-brand border-b-0;
+  }
+  &__menu-wrapper {
+    @apply items-center mx-4 medium:mx-10;
+  }
+  &__menu {
+    @apply justify-center hidden px-2 large:flex;
+  }
+  &__menu-item, &__action-item {
+    @apply inline-flex items-center justify-center p-2 text-base font-medium bg-transparent rounded-md cursor-pointer font-body text-gray-900 hover:bg-green-100 active:bg-green-200 hover:text-green-600 active:text-green-700;
+    &--branded {
+      @apply text-white hover:text-white active:text-white hover:bg-green-600 active:bg-green-700;
+    }
+  }
+  &__actions {
+    @apply flex items-center ml-auto small:ml-4 medium:ml-10;
+  }
+  &__actions > li, &__menu > li {
+    @apply mx-1 first:mx-0 last:mx-0;
+  }
+  &__item__label {
+    @apply hidden whitespace-nowrap large:block;
+  }
+  &__item__icon {
+    @apply inline-flex;
+  }
+  &__search {
+    @apply hidden w-full small:block justify-self-end medium:ml-10;
+  }
+}
