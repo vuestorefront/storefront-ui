@@ -7,41 +7,41 @@ function Example() {
     [
       {
         type: 'text',
-        modelName: 'labelModel',
+        modelName: 'label',
         propType: 'string',
       },
       {
         type: 'select',
-        modelName: 'variantModel',
+        modelName: 'size',
         options: Object.keys(VsfChipsFilterVariants),
         propDefaultValue: VsfChipsFilterVariants.base,
         propType: 'VsfChipsFilterVariants',
       },
       {
         type: 'select',
-        modelName: 'typeModel',
+        modelName: 'type',
         options: ['checkbox', 'radio'],
         propDefaultValue: 'checkbox',
         propType: 'string',
       },
       {
         type: 'boolean',
-        modelName: 'disabledModel',
+        modelName: 'disabled',
         propType: 'boolean',
       },
       {
         type: 'boolean',
-        modelName: 'showThumbModel',
+        modelName: 'showThumb',
         propType: 'boolean',
         description: 'Only for demonstration purposes',
       },
     ],
     {
-      variantModel: VsfChipsFilterVariants.base,
-      disabledModel: false,
-      labelModel: 'Label',
-      typeModel: 'checkbox',
-      showThumbModel: true,
+      size: VsfChipsFilterVariants.base,
+      disabled: false,
+      label: 'Label',
+      type: 'checkbox',
+      showThumb: false,
       modelValue: '',
     },
   );
@@ -51,15 +51,15 @@ function Example() {
       <div className="e-page-component">
         <VsfChipsFilter
           name="test"
-          disabled={state.get.disabledModel}
-          size={state.get.variantModel}
-          label={state.get.labelModel}
-          type={state.get.typeModel as 'radio' | 'checkbox'}
+          disabled={state.get.disabled}
+          size={state.get.size}
+          label={state.get.label}
+          type={state.get.type as 'radio' | 'checkbox'}
           value="one"
           onChange={() => console.log('changed!')}
           className="mr-2"
         >
-          {state.get.showThumbModel ? <div className="bg-black w-full h-full rounded-full" /> : null}
+          {state.get.showThumb ? <div className="bg-black w-full h-full rounded-full" /> : null}
         </VsfChipsFilter>
       </div>
       <div className="e-page-controls">
