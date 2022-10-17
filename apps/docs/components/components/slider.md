@@ -1,6 +1,6 @@
 # Slider component
 
-# TDB
+Slider is a scrollable list with pseudo-pagination.
 
 ## Figma design
 
@@ -8,10 +8,30 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 ## Props
 
-| Prop name | Type | Default value | Possible values |
-| --------- | ---- | ------------- | --------------- |
-|           |      |               |                 |
+| Prop name            | Type                  | Default value | Possible values     |
+| -------------------- | --------------------- | ------------- | ------------------- |
+| scrollbar            | `VsfSliderScrollbar`  | `null`        | `always`, `auto`    |
+| navigation           | `VsfSliderNavigation` | `null`        | `block`, `floating` |
+| showMobileNavigation | `Boolean`             | `false`       |                     |
+| scrollSnap           | `Boolean`             | `false`       |                     |
+| draggable            | `Object`              | `null`        |                     |
+
+### React only:
+
+| Prop name | Type        | Default value | Possible values |
+| --------- | ----------- | ------------- | --------------- |
+| children  | `ReactNode` |               |                 |
+| className | `String`    |               |                 |
+
+## Slots
+
+### Vue only:
+
+| Slot name |   Description   |
+| --------- | :-------------: |
+| default   | default content |
 
 ## Source code
 
-<<<../../mitosis/src/blocks/VsfSlider/VsfSlider.lite.tsx
+<<<../../../packages/sfui/frameworks/vue/components/VsfSlider/VsfSlider.vue
+<<< ../../../packages/sfui/frameworks/react/components/VsfSlider/VsfSlider.tsx

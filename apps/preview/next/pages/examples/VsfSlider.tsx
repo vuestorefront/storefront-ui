@@ -1,22 +1,26 @@
-import VsfSlider, { NavigationDisplay, VsfSliderItem } from '@sfui/sfui/frameworks/react/components/VsfSlider';
-import VsfChipsFilter from '@sfui/sfui/frameworks/react/components/VsfChipsFilter';
+import { useState, useEffect } from 'react';
+import VsfSlider, { VsfSliderNavigation, VsfSliderScrollbar } from '@sfui/sfui/frameworks/react/components/VsfSlider';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 
 function Example() {
+  const [componentKey, setComponentKey] = useState(0);
+
   const { state, controls } = prepareControls(
     [
       {
         type: 'select',
         modelName: 'navigation',
-        propType: 'string',
-        options: ['', 'block', 'floating'],
+        propType: 'VsfSliderNavigation',
+        options: ['', ...Object.keys(VsfSliderNavigation)],
       },
       {
         type: 'select',
         modelName: 'scrollbar',
-        propType: 'string',
-        options: ['', 'auto', 'always'],
+        propType: 'VsfSliderScrollbar',
+        options: ['', ...Object.keys(VsfSliderScrollbar)],
+        description:
+          "`auto` hides scrollbar when content don't overflow container, `always` forces container to show scrollbar",
       },
       {
         type: 'boolean',
@@ -28,77 +32,58 @@ function Example() {
         modelName: 'scrollSnap',
         propType: 'boolean',
       },
+      {
+        type: 'boolean',
+        modelName: 'draggable',
+        propType: 'object',
+        description: 'Enable mouse drag on container',
+      },
     ],
     {
       navigation: undefined,
       scrollbar: undefined,
       showMobileNavigation: false,
       scrollSnap: false,
+      draggable: false,
     },
   );
+
+  useEffect(() => {
+    // rerender component - 'draggable' prop is not reactive, as it should be declared only once per component
+    setComponentKey((val) => val + 1);
+  }, [state.get.draggable]);
 
   return (
     <div className="e-page">
       <div className="e-page-component">
         <VsfSlider
+          key={componentKey}
           navigation={state.get.navigation}
           scrollbar={state.get.scrollbar}
           showMobileNavigation={state.get.showMobileNavigation}
           scrollSnap={state.get.scrollSnap}
+          draggable={
+            state.get.draggable
+              ? {
+                  sensitivity: 3,
+                }
+              : undefined
+          }
         >
           {Array.from(Array(4).keys()).map((item) => (
-            <VsfSliderItem key={item}>
+            <div key={item} data-index={item + 1}>
               <div className="bg-gray-300 w-[150px] h-[150px] flex justify-center items-center">{item + 1}</div>
-            </VsfSliderItem>
+            </div>
           ))}
           {Array.from(Array(4).keys()).map((item) => (
-            <VsfSliderItem key={item}>
+            <div key={item} data-index={item + 5}>
               <div className="bg-gray-300 w-[200px] h-[150px] flex justify-center items-center">{item + 5}</div>
-            </VsfSliderItem>
+            </div>
           ))}
           {Array.from(Array(4).keys()).map((item) => (
-            <VsfSliderItem key={item}>
+            <div key={item} data-index={item + 9}>
               <div className="bg-gray-300 w-[150px] h-[150px] flex justify-center items-center">{item + 9}</div>
-            </VsfSliderItem>
-          ))}
-        </VsfSlider>
-        <hr className="my-4" />
-        <p className="mb-4 text-sm">
-          Example: slider with focusable elements.{' '}
-          <code className="text-xs rounded bg-yellow-100 border border-yellow-300 py-0.5 px-1">navigation</code> prop
-          has no effect
-        </p>
-        <VsfSlider
-          navigation={NavigationDisplay.block}
-          scrollbar={state.get.scrollbar}
-          showMobileNavigation={state.get.showMobileNavigation}
-          scrollSnap={state.get.scrollSnap}
-        >
-          {[
-            'Lorem',
-            'ipsum',
-            'dolor',
-            'sit',
-            'amet',
-            'consectetur',
-            'adipisicing',
-            'elit.',
-            'Rem',
-            'esse',
-            'labore',
-            'quae',
-            'error',
-            'ea',
-            'eum',
-            'quis',
-            'repellat',
-            'incidunt',
-            'corporis',
-            'qui',
-          ].map((item) => (
-            <VsfSliderItem key={item}>
-              <VsfChipsFilter name={item} onChange={() => {}} label={item} />
-            </VsfSliderItem>
+            </div>
           ))}
         </VsfSlider>
       </div>

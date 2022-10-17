@@ -1,64 +1,54 @@
-import { useRef, useEffect, ReactNode } from 'react';
+import { useState } from 'react';
 import classNames from 'classnames';
 import VsfButton from '../VsfButton/VsfButton';
 import VsfIconChevronLeft from '../VsfIcons/VsfIconChevronLeft';
 import VsfIconChevronRight from '../VsfIcons/VsfIconChevronRight';
 import type { VsfSliderProps } from './types';
-import { ScrollbarDisplay, NavigationDisplay } from './types';
-import Slider from '../../shared/slider';
-
-export function VsfSliderItem({ children }: { children: ReactNode }) {
-  return <div className="vsf-slider__item">{children}</div>;
-}
+import { VsfSliderNavigation, VsfSliderScrollbar } from './types';
+import { useSlider } from '../../shared/slider/react';
+import { VsfButtonVariants } from '../VsfButton';
 
 export default function VsfSlider({
   navigation,
   scrollbar,
   showMobileNavigation,
   scrollSnap,
+  draggable,
   children,
   className,
   ...attributes
 }: VsfSliderProps) {
-  const sliderRef = useRef<HTMLDivElement>(null);
-  const slider = useRef<Slider>();
+  const [hasPrev, setHasPrev] = useState<boolean>(true);
+  const [hasNext, setHasNext] = useState<boolean>(true);
 
-  useEffect(() => {
-    if (!slider.current && sliderRef.current) {
-      slider.current = new Slider(sliderRef.current, {
-        containerSelector: '.vsf-slider__container',
-        itemSelector: '.vsf-slider__item',
-        reduceMotion: window.matchMedia('(prefers-reduced-motion: reduce)').matches,
-        intersectionThreshold: 0.9,
-      });
-    }
-    slider.current?.initialize();
-
-    return () => {
-      slider.current?.destroy();
-    };
-  }, []);
+  const [containerRef, slider] = useSlider<HTMLDivElement>({
+    reduceMotion: typeof window !== 'undefined' && window?.matchMedia('(prefers-reduced-motion: reduce)').matches,
+    drag: draggable,
+    onScroll: ({ hasPrev: prev, hasNext: next }) => {
+      setHasPrev(prev);
+      setHasNext(next);
+    },
+  });
 
   return (
     <div
       className={classNames(
         'vsf-slider',
         {
-          'vsf-slider--floating-nav': navigation === NavigationDisplay.floating,
+          'vsf-slider--floating-nav': navigation === VsfSliderNavigation.floating,
           'vsf-slider--mobile-nav': showMobileNavigation,
           'vsf-slider--snap-scroll': scrollSnap,
         },
         className,
       )}
       {...attributes}
-      ref={sliderRef}
     >
       {navigation && (
         <VsfButton
-          variant="secondary"
+          variant={VsfButtonVariants.secondary}
           icon
           rounded
-          className={classNames(['vsf-slider__nav vsf-slider__nav-prev'])}
+          className={classNames(['vsf-slider__nav vsf-slider__nav-prev'], { 'vsf-slider__nav--hidden': !hasPrev })}
           onClick={() => slider.current?.prev()}
         >
           <VsfIconChevronLeft />
@@ -66,11 +56,12 @@ export default function VsfSlider({
       )}
 
       <div
+        ref={containerRef}
         className={classNames([
           'vsf-slider__container',
           {
             'scrollbar-hidden': !scrollbar,
-            'vsf-slider__container--scroll': scrollbar === ScrollbarDisplay.always,
+            'vsf-slider__container--scroll': scrollbar === VsfSliderScrollbar.always,
           },
         ])}
       >
@@ -79,8 +70,8 @@ export default function VsfSlider({
 
       {navigation && (
         <VsfButton
-          variant="secondary"
-          className={classNames(['vsf-slider__nav vsf-slider__nav-next'])}
+          variant={VsfButtonVariants.secondary}
+          className={classNames(['vsf-slider__nav vsf-slider__nav-next'], { 'vsf-slider__nav--hidden': !hasNext })}
           icon
           rounded
           onClick={() => slider.current?.next()}

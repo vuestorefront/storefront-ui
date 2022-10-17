@@ -54,5 +54,6 @@ module.exports = {
     }],
     'prettier/prettier': 'error',
     'react/button-has-type': ['error', { reset: true }],
+    'import/prefer-default-export': 0
   },
 };
