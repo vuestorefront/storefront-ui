@@ -21,7 +21,7 @@ function Example() {
     {
       withIcon: false,
       breadcrumbs: [
-        { name: 'Page 1', link: '/page1' },
+        { name: 'Next link', link: '/examples/ListOfIcons' },
         { name: 'Page 2', link: '/page1' },
         { name: 'Page 3', link: '/page1' },
         { name: 'Page 4', link: '/page1' },
