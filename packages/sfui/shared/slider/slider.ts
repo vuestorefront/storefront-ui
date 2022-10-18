@@ -40,7 +40,7 @@ export default class VSFSlider {
    */
   public init() {
     this.addListeners();
-    this.refresh();
+    this.onScrollHandler();
   }
 
   /**

@@ -43,8 +43,9 @@ export default function VsfSlider({
       variant={VsfButtonVariants.secondary}
       icon
       rounded
-      className={classNames('transition-opacity bg-white', { 'opacity-0 pointer-events-none': !hasPrev })}
+      className={classNames('vsf-slider__nav-arrow', { 'vsf-slider__nav-arrow--hidden': !hasPrev })}
       onClick={onClickPrev}
+      disabled={!hasPrev}
     >
       <VsfIconChevronLeft />
     </VsfButton>
@@ -54,8 +55,9 @@ export default function VsfSlider({
       variant={VsfButtonVariants.secondary}
       icon
       rounded
-      className={classNames('transition-opacity bg-white', { 'opacity-0 pointer-events-none': !hasPrev })}
+      className={classNames('vsf-slider__nav-arrow', { 'vsf-slider__nav-arrow--hidden': !hasNext })}
       onClick={onClickNext}
+      disabled={!hasNext}
     >
       <VsfIconChevronRight />
     </VsfButton>

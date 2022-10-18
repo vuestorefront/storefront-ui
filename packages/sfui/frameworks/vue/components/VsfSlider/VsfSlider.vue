@@ -71,7 +71,8 @@ function onClickNext() {
           :variant="VsfButtonVariants.secondary"
           icon
           rounded
-          :class="['transition-opacity bg-white', { 'opacity-0 pointer-events-none': !hasPrev }]"
+          :class="['vsf-slider__nav-arrow', { 'vsf-slider__nav-arrow--hidden': !hasPrev }]"
+          :disabled="!hasPrev"
           @click="onClickPrev"
         >
           <VsfIconChevronLeft />
@@ -98,7 +99,8 @@ function onClickNext() {
           :variant="VsfButtonVariants.secondary"
           icon
           rounded
-          :class="['transition-opacity bg-white', { 'opacity-0 pointer-events-none': !hasNext }]"
+          :class="['vsf-slider__nav-arrow', { 'vsf-slider__nav-arrow--hidden': !hasNext }]"
+          :disabled="!hasNext"
           @click="onClickNext"
         >
           <VsfIconChevronRight />

@@ -28,7 +28,10 @@
     }
   }
   &__nav {
-    @apply transition-opacity md:block hidden;
+    @apply md:block hidden;
+    &-arrow {
+      @apply transition-opacity bg-white;
+    }
     &-prev {
       @apply mr-4;
     }
@@ -54,6 +57,9 @@
   &--floating-nav {
     #{$root}__nav {
       @apply absolute top-1/2 z-10 -translate-y-1/2;
+      &-arrow--hidden {
+        @apply opacity-0 pointer-events-none;
+      }
       &-prev {
         @apply left-4;
       }

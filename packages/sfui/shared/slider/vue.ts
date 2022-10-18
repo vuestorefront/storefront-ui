@@ -1,4 +1,4 @@
-import { isRef, onMounted, onUnmounted, Ref, ref, watch } from 'vue';
+import { isRef, onMounted, onUnmounted, Ref, ref, watch, nextTick } from 'vue';
 import type { Options } from './types';
 import VSFSlider from './slider';
 
@@ -19,9 +19,11 @@ export function useSlider<T extends HTMLElement>(
   }
 
   onMounted(() => {
-    if (container.value) {
-      slider.value = new VSFSlider(container.value, isRef(options) ? options.value : options);
-    }
+    nextTick(() => {
+      if (container.value) {
+        slider.value = new VSFSlider(container.value, isRef(options) ? options.value : options);
+      }
+    });
   });
 
   onUnmounted(() => {
