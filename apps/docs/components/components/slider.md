@@ -8,13 +8,12 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 ## Props
 
-| Prop name            | Type                  | Default value | Possible values     |
-| -------------------- | --------------------- | ------------- | ------------------- |
-| scrollbar            | `VsfSliderScrollbar`  | `null`        | `always`, `auto`    |
-| navigation           | `VsfSliderNavigation` | `null`        | `block`, `floating` |
-| showMobileNavigation | `Boolean`             | `false`       |                     |
-| scrollSnap           | `Boolean`             | `false`       |                     |
-| draggable            | `Object`              | `null`        |                     |
+| Prop name  | Type                  | Default value | Possible values     |
+| ---------- | --------------------- | ------------- | ------------------- |
+| scrollbar  | `VsfSliderScrollbar`  | `null`        | `always`, `auto`    |
+| navigation | `VsfSliderNavigation` | `null`        | `block`, `floating` |
+| scrollSnap | `Boolean`             | `false`       |                     |
+| draggable  | `Object`              | `null`        |                     |
 
 ### React only:
 

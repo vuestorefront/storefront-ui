@@ -17,10 +17,6 @@ const props = defineProps({
     type: String as PropType<VsfSliderNavigation>,
     default: null,
   },
-  showMobileNavigation: {
-    type: Boolean,
-    default: false,
-  },
   scrollSnap: {
     type: Boolean,
     default: false,

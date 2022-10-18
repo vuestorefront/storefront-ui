@@ -14,7 +14,6 @@ export type VsfSliderProps = PropsWithChildren &
   PropsWithStyle & {
     scrollbar?: VsfSliderScrollbar;
     navigation?: VsfSliderNavigation;
-    showMobileNavigation?: boolean;
     scrollSnap?: boolean;
     draggable?: {
       sensitivity: number;

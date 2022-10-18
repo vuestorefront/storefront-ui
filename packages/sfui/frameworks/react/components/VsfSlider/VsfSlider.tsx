@@ -11,7 +11,6 @@ import { VsfButtonVariants } from '../VsfButton';
 export default function VsfSlider({
   navigation,
   scrollbar,
-  showMobileNavigation,
   scrollSnap,
   draggable,
   className,
@@ -73,7 +72,6 @@ export default function VsfSlider({
         'vsf-slider',
         {
           'vsf-slider--floating-nav': navigation === VsfSliderNavigation.floating,
-          'vsf-slider--mobile-nav': showMobileNavigation,
           'vsf-slider--snap-scroll': scrollSnap,
         },
         className,

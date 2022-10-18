@@ -48,11 +48,6 @@
       }
     }
   }
-  &--mobile-nav {
-    #{$root}__nav {
-      @apply block;
-    }
-  }
 
   &--floating-nav {
     #{$root}__nav {

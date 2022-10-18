@@ -5,7 +5,6 @@
         :key="componentKey"
         :navigation="navigation"
         :scrollbar="scrollbar"
-        :show-mobile-navigation="showMobileNavigation"
         :scroll-snap="scrollSnap"
         :draggable="
           draggable
@@ -81,12 +80,6 @@ export default defineComponent({
           },
           {
             type: 'boolean',
-            modelName: 'showMobileNavigation',
-            propType: 'boolean',
-            description: 'Works only with `navigation` prop',
-          },
-          {
-            type: 'boolean',
             modelName: 'scrollSnap',
             propType: 'boolean',
             description: 'Enable native scroll snapping',
@@ -107,7 +100,6 @@ export default defineComponent({
         {
           navigation: ref(undefined),
           scrollbar: ref(undefined),
-          showMobileNavigation: ref(false),
           scrollSnap: ref(false),
           draggable,
           componentKey,

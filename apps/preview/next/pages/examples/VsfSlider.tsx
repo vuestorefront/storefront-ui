@@ -43,12 +43,6 @@ function Example() {
       },
       {
         type: 'boolean',
-        modelName: 'showMobileNavigation',
-        propType: 'boolean',
-        description: 'Works only with `navigation` prop',
-      },
-      {
-        type: 'boolean',
         modelName: 'scrollSnap',
         propType: 'boolean',
         description: 'Enable native scroll snapping',
@@ -69,7 +63,6 @@ function Example() {
     {
       navigation: undefined,
       scrollbar: undefined,
-      showMobileNavigation: false,
       scrollSnap: false,
       draggable: false,
       ExampleCustomNav: false,
@@ -88,7 +81,6 @@ function Example() {
           key={componentKey}
           navigation={state.get.navigation}
           scrollbar={state.get.scrollbar}
-          showMobileNavigation={state.get.showMobileNavigation}
           scrollSnap={state.get.scrollSnap}
           draggable={
             state.get.draggable
