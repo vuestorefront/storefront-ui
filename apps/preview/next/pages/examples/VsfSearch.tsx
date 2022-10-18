@@ -31,11 +31,6 @@ function Example() {
       },
       {
         type: 'boolean',
-        propType: 'boolean',
-        modelName: 'required',
-      },
-      {
-        type: 'boolean',
         propType: '---',
         modelName: 'slotPrefix',
         description: "Only for demonstration purposes, Icon is injected via 'prefix' slot",
@@ -62,20 +57,12 @@ function Example() {
         propType: 'string',
         modelName: 'name',
       },
-      {
-        type: 'select',
-        propType: 'string',
-        options: ['on', 'off'],
-        modelName: 'autocomplete',
-      },
     ],
     {
       placeholder: 'Search',
       disabled: false,
       value: '',
       name: 'q',
-      required: false,
-      autocomplete: 'off',
       slotSubmit: 'search',
       slotPrefix: false,
       slotSuffix: false,
@@ -101,8 +88,6 @@ function Example() {
         <VsfSearch
           placeholder={state.get.placeholder}
           disabled={state.get.disabled}
-          required={state.get.required}
-          autocomplete={state.get.autocomplete}
           name={state.get.name}
           value={state.get.value}
           slotPrefix={state.get.slotPrefix ? <VsfIconSearch /> : null}

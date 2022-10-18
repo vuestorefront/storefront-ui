@@ -20,13 +20,9 @@ const props = defineProps({
     type: String,
     default: 'search',
   },
-  required: {
-    type: Boolean,
-    default: false,
-  },
-  autocomplete: {
-    type: String,
-    default: null,
+  inputProps: {
+    type: Object,
+    default: () => ({}),
   },
 });
 
@@ -57,12 +53,11 @@ const classes = computed(() => [
         <span v-if="$slots.prefix" class="vsf-search__input-prefix"><slot name="prefix" /></span>
 
         <input
+          v-bind="inputProps"
           class="vsf-search__input peer"
           type="search"
           :name="name"
           :placeholder="placeholder"
-          :required="required"
-          :autocomplete="autocomplete"
           :disabled="disabled"
           :value="modelValue"
           @input="onInput"
