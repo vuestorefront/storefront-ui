@@ -1,7 +1,7 @@
 <template>
   <div class="e-page">
     <div class="e-page-component">
-      <VsfFooter :company-name="companyNameModel">
+      <VsfFooter>
         <template #categories>
           <template v-for="category in categoriesModel" :key="category.label">
             <VsfFooterColumn>

@@ -129,3 +129,98 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 </VsfFooter>
 ```
 <!-- end react -->
+<!-- vue -->
+```vue
+<VsfFooter>
+    <template #categories>
+      <VsfFooterColumn>
+        <VsfFooterLabel :type="VsfFooterLabelType.category">Category 1</VsfFooterLabel>
+        <VsfFooterLabel><a>subcategory link 1</a></VsfFooterLabel>
+        <VsfFooterLabel><a>subcategory link 2</a></VsfFooterLabel>
+        <VsfFooterLabel><a>subcategory link 3</a></VsfFooterLabel>
+        <VsfFooterLabel><a>subcategory link 4</a></VsfFooterLabel>
+      </VsfFooterColumn>
+      <VsfFooterColumn>
+        <VsfFooterLabel :type="VsfFooterLabelType.category">Category 2</VsfFooterLabel>
+        <VsfFooterLabel><a>subcategory link 1</a></VsfFooterLabel>
+        <VsfFooterLabel><a>subcategory link 2</a></VsfFooterLabel>
+        <VsfFooterLabel><a>subcategory link 3</a></VsfFooterLabel>
+        <VsfFooterLabel><a>subcategory link 4</a></VsfFooterLabel>
+      </VsfFooterColumn>
+      <VsfFooterColumn>
+        <VsfFooterLabel :type="VsfFooterLabelType.category">Category 3</VsfFooterLabel>
+        <VsfFooterLabel><a>subcategory link 1</a></VsfFooterLabel>
+        <VsfFooterLabel><a>subcategory link 2</a></VsfFooterLabel>
+        <VsfFooterLabel><a>subcategory link 3</a></VsfFooterLabel>
+        <VsfFooterLabel><a>subcategory link 4</a></VsfFooterLabel>
+      </VsfFooterColumn>
+      <VsfFooterColumn>
+        <VsfFooterLabel :type="VsfFooterLabelType.category">Category 4</VsfFooterLabel>
+        <VsfFooterLabel><a>subcategory link 1</a></VsfFooterLabel>
+        <VsfFooterLabel><a>subcategory link 2</a></VsfFooterLabel>
+        <VsfFooterLabel><a>subcategory link 3</a></VsfFooterLabel>
+        <VsfFooterLabel><a>subcategory link 4</a></VsfFooterLabel>
+      </VsfFooterColumn>
+    </template>
+    <template #contact>
+      <VsfFooterColumn :type="VsfFooterColumnType.middle">
+        <VsfIconHelp :size="VsfIconSizeEnum.lg" />
+        <VsfFooterLabel :type="VsfFooterLabelType.contact">
+          label 1
+        </VsfFooterLabel>
+        <VsfFooterLabel :type="VsfFooterLabelType.contactDescription">
+          description
+        </VsfFooterLabel>
+      </VsfFooterColumn>
+      <VsfFooterColumn :type="VsfFooterColumnType.middle">
+        <VsfIconChat :size="VsfIconSizeEnum.lg" />
+        <VsfFooterLabel :type="VsfFooterLabelType.contact">
+          label 2
+        </VsfFooterLabel>
+        <VsfFooterLabel :type="VsfFooterLabelType.contactDescription">
+          description
+        </VsfFooterLabel>
+      </VsfFooterColumn>
+      <VsfFooterColumn :type="VsfFooterColumnType.middle">
+        <VsfIconPhone :size="VsfIconSizeEnum.lg" />
+        <VsfFooterLabel :type="VsfFooterLabelType.contact">
+          label 3
+        </VsfFooterLabel>
+        <VsfFooterLabel :type="VsfFooterLabelType.contactDescription">
+          description
+        </VsfFooterLabel>
+      </VsfFooterColumn>
+    </template>
+    <template #socialMedia>
+      <VsfFooterSocialMedia>
+        <VsfFooterLabel :type="VsfFooterLabelType.socialMedia">
+          <a><VsfIconFacebook /></a>
+        </VsfFooterLabel>
+        <VsfFooterLabel :type="VsfFooterLabelType.socialMedia">
+          <a><VsfIconTwitter /></a>
+        </VsfFooterLabel>
+        <VsfFooterLabel :type="VsfFooterLabelType.socialMedia">
+          <a><VsfIconInstagram /></a>
+        </VsfFooterLabel>
+        <VsfFooterLabel :type="VsfFooterLabelType.socialMedia">
+          <a><VsfIconPinterest /></a>
+        </VsfFooterLabel>
+        <VsfFooterLabel :type="VsfFooterLabelType.socialMedia">
+          <a><VsfIconYoutube /></a>
+        </VsfFooterLabel>
+      </VsfFooterSocialMedia>
+    </template>
+    <template #bottomLinks>
+      <VsfFooterLabel :type="VsfFooterLabelType.bottomLinks">
+        <a>Link 1</a>
+      </VsfFooterLabel>
+      <VsfFooterLabel :type="VsfFooterLabelType.bottomLinks">
+        <a>Link 2</a>
+      </VsfFooterLabel>
+    </template>
+    <template #companyName>
+      © 2022 Vue Storefront
+    </template>
+    </VsfFooter>
+```
+<!-- end vue -->
