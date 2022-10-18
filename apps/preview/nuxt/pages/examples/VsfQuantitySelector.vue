@@ -11,6 +11,7 @@
         :input-id="inputId"
         :size="size"
         :step="Number(step)"
+        :decimal="Number(decimal)"
       >
         <div class="text-xs font-normal text-center font-body">
           <span v-if="disabled" class="text-negative-600 font-medium">Out of stock</span>
@@ -58,6 +59,21 @@ export default defineComponent({
           type: 'boolean',
           modelName: 'block',
           propType: 'boolean',
+        },
+        {
+          type: 'range',
+          modelName: 'decimal',
+          propType: 'number',
+          propDefaultValue: '0',
+          options: [
+            {
+              bind: {
+                min: 0,
+                max: 10,
+                step: 1,
+              },
+            },
+          ],
         },
         {
           type: 'range',
@@ -118,6 +134,7 @@ export default defineComponent({
       ],
       {
         value: ref(1),
+        decimal: ref(0),
         minValue: ref(1),
         maxValue: ref(10),
         step: ref(1),
