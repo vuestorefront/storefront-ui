@@ -9,6 +9,9 @@
   &__menu {
     @apply justify-center hidden px-2 large:flex;
   }
+  &__menu-button {
+    @apply justify-center inline-flex px-2 large:hidden;
+  }
   &__menu-item, &__action-item {
     @apply inline-flex items-center justify-center p-2 text-base font-medium bg-transparent rounded-md cursor-pointer font-body text-gray-900 hover:bg-green-100 active:bg-green-200 hover:text-green-600 active:text-green-700;
     &--branded {
@@ -18,16 +21,10 @@
   &__actions {
     @apply flex items-center ml-auto small:ml-4 medium:ml-10;
   }
-  &__actions > li, &__menu > li {
+  &__list-item {
     @apply mx-1 first:mx-0 last:mx-0;
   }
-  &__item__label {
-    @apply hidden whitespace-nowrap large:block;
-  }
-  &__item__icon {
-    @apply inline-flex;
-  }
   &__search {
-    @apply hidden w-full small:block justify-self-end medium:ml-10;
+    @apply hidden w-full small:block justify-self-end medium:px-10;
   }
 }

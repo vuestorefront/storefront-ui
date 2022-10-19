@@ -1,14 +1,14 @@
 <template>
   <div class="e-page">
     <div class="relative e-page-component">
-      <VsfNavbarTop :variant="variant" :search-value="searchValue" :search-placeholder="searchPlaceholder">
-        <template #logo>
+      <VsfNavbarTop :filled="filled">
+        <VsfNavbarTopLogo>
           <a href="/" aria-label="VSF Homepage">
             <svg
               width="40"
               height="40"
               viewBox="0 0 40 40"
-              :fill="variant === 'branded' ? 'white' : '#02C652'"
+              :fill="filled ? 'white' : '#02C652'"
               xmlns="http://www.w3.org/2000/svg"
               role="img"
               class="block large:hidden"
@@ -24,7 +24,7 @@
               width="205"
               height="28"
               viewBox="0 0 205 28"
-              :fill="variant === 'branded' ? 'white' : '#02C652'"
+              :fill="filled ? 'white' : '#02C652'"
               xmlns="http://www.w3.org/2000/svg"
               role="img"
               class="hidden large:block"
@@ -84,67 +84,67 @@
               />
             </svg>
           </a>
-        </template>
-        <template #menu>
-          <VsfNavbarTopItem
-            v-for="{ label, link } in menuItems"
-            :key="label"
-            type="menu"
-            :label="label"
-            :link="link"
-            :variant="variant"
-          />
-        </template>
-        <template #menuButton>
+        </VsfNavbarTopLogo>
+        <VsfNavbarTopNavigation>
+          <VsfNavbarTopMenu>
+            <VsfNavbarTopListItem v-for="{ label, link, type } in menuItems" :key="label">
+              <VsfNavbarTopItem :type="type" :label="label" :link="link" :filled="filled">
+                <span>{{ label }}</span>
+              </VsfNavbarTopItem>
+            </VsfNavbarTopListItem>
+          </VsfNavbarTopMenu>
           <VsfNavbarTopItem
             class="large:hidden"
             aria-label="Menu button"
             type="action"
-            :variant="variant"
+            :filled="filled"
             @click="onClickHandler('Menu')"
           >
-            <template #icon>
-              <VsfIconMenu />
-            </template>
+            <VsfIconMenu />
+            <span>Menu</span>
           </VsfNavbarTopItem>
-        </template>
-        <template #actions>
-          <VsfNavbarTopItem type="action" :variant="variant" @click="onClickHandler('Basket')">
-            <template #icon>
+        </VsfNavbarTopNavigation>
+        <VsfNavbarTopSearch>
+          <VsfSearch :placeholder="searchPlaceholder" :model-value="searchValue" />
+        </VsfNavbarTopSearch>
+        <VsfNavbarTopActions>
+          <VsfNavbarTopListItem>
+            <VsfNavbarTopItem type="action" :filled="filled" @click="onClickHandler('Basket')">
               <VsfBadge
                 dot
                 bordered
                 value="10"
-                :class="[variant === 'branded' ? 'bg-white text-gray-900' : 'bg-secondary-600 text-white']"
+                :class="[filled ? 'bg-white text-gray-900' : 'bg-secondary-600 text-white']"
               >
                 <VsfIconBasket />
               </VsfBadge>
-            </template>
-          </VsfNavbarTopItem>
-          <VsfNavbarTopItem type="action" :variant="variant" badge-value="1" @click="onClickHandler('Wishlist')">
-            <template #icon>
+            </VsfNavbarTopItem>
+          </VsfNavbarTopListItem>
+          <VsfNavbarTopListItem>
+            <VsfNavbarTopItem type="action" :filled="filled" badge-value="1" @click="onClickHandler('Wishlist')">
               <VsfBadge
                 dot
                 bordered
                 value="10"
-                :class="[variant === 'branded' ? 'bg-white text-gray-900' : 'bg-secondary-600 text-white']"
+                :class="[filled ? 'bg-white text-gray-900' : 'bg-secondary-600 text-white']"
               >
                 <VsfIconFavoritesOutline />
               </VsfBadge>
-            </template>
-          </VsfNavbarTopItem>
-          <VsfNavbarTopItem
-            type="action"
-            :variant="variant"
-            badge-value="1"
-            label="Log in"
-            @click="onClickHandler('Login')"
-          >
-            <template #icon>
+            </VsfNavbarTopItem>
+          </VsfNavbarTopListItem>
+          <VsfNavbarTopListItem>
+            <VsfNavbarTopItem
+              type="action"
+              :filled="filled"
+              badge-value="1"
+              label="Log in"
+              @click="onClickHandler('Login')"
+            >
               <VsfIconPerson />
-            </template>
-          </VsfNavbarTopItem>
-        </template>
+              <span className="hidden ml-2 large:inline-flex">Log in</span>
+            </VsfNavbarTopItem>
+          </VsfNavbarTopListItem>
+        </VsfNavbarTopActions>
       </VsfNavbarTop>
     </div>
     <div class="e-page-controls">
@@ -157,7 +157,14 @@
 import { defineComponent, ref } from 'vue';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
 import VsfNavbarTop from '@sfui/sfui/frameworks/vue/components/VsfNavbarTop/VsfNavbarTop.vue';
+import VsfNavbarTopLogo from '@sfui/sfui/frameworks/vue/components/VsfNavbarTop/VsfNavbarTopLogo.vue';
+import VsfNavbarTopNavigation from '@sfui/sfui/frameworks/vue/components/VsfNavbarTop/VsfNavbarTopNavigation.vue';
+import VsfNavbarTopSearch from '@sfui/sfui/frameworks/vue/components/VsfNavbarTop/VsfNavbarTopSearch.vue';
+import VsfNavbarTopListItem from '@sfui/sfui/frameworks/vue/components/VsfNavbarTop/VsfNavbarTopListItem.vue';
 import VsfNavbarTopItem from '@sfui/sfui/frameworks/vue/components/VsfNavbarTop/VsfNavbarTopItem.vue';
+import VsfNavbarTopActions from '@sfui/sfui/frameworks/vue/components/VsfNavbarTop/VsfNavbarTopActions.vue';
+import VsfNavbarTopMenu from '@sfui/sfui/frameworks/vue/components/VsfNavbarTop/VsfNavbarTopMenu.vue';
+import VsfSearch from '@sfui/sfui/frameworks/vue/components/VsfSearch/VsfSearch.vue';
 import VsfBadge from '@sfui/sfui/frameworks/vue/components/VsfBadge/VsfBadge.vue';
 import {
   VsfIconBasket,
@@ -171,6 +178,13 @@ export default defineComponent({
   components: {
     VsfNavbarTop,
     VsfNavbarTopItem,
+    VsfNavbarTopNavigation,
+    VsfNavbarTopSearch,
+    VsfNavbarTopListItem,
+    VsfNavbarTopLogo,
+    VsfNavbarTopActions,
+    VsfNavbarTopMenu,
+    VsfSearch,
     VsfIconBasket,
     VsfIconFavoritesOutline,
     VsfIconPerson,
@@ -185,9 +199,9 @@ export default defineComponent({
     return prepareControls(
       [
         {
-          type: 'text',
-          modelName: 'variant',
-          propType: 'string',
+          type: 'boolean',
+          modelName: 'filled',
+          propType: 'boolean',
         },
         {
           type: 'text',
@@ -208,20 +222,23 @@ export default defineComponent({
         },
       ],
       {
-        variant: ref('branded'),
+        filled: ref(true),
         searchPlaceholder: ref('Search'),
         searchValue: ref(null),
         menuItems: ref([
           {
             label: 'Men',
+            type: 'menu',
             link: '/men',
           },
           {
             label: 'Women',
+            type: 'menu',
             link: '/women',
           },
           {
             label: 'Kids',
+            type: 'menu',
             link: '/women',
           },
         ]),

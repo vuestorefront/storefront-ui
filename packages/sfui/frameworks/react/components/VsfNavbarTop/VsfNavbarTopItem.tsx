@@ -1,9 +1,10 @@
 import { forwardRef } from 'react';
 import classNames from 'classnames';
 import type { VsfNavbarTopItemProps } from './types';
+import { VsfNavbarTopTypes } from './types';
 
 const VsfNavbarTopItem = forwardRef<unknown, VsfNavbarTopItemProps>(
-  ({ className, slotIcon, variant, type, label, link, ariaLabel, onClick, ...attributes }, ref) => {
+  ({ className, filled, children, type, link, ariaLabel, onClick, ...attributes }, ref) => {
     let TagInternal;
     if (link) {
       TagInternal = 'a';
@@ -13,27 +14,24 @@ const VsfNavbarTopItem = forwardRef<unknown, VsfNavbarTopItemProps>(
 
     const classes = classNames(
       {
-        'vsf-navbar-top__action-item--branded vsf-navbar-top__action-item': type === 'action' && variant === 'branded',
-        'vsf-navbar-top__action-item': type === 'action' && variant !== 'branded',
-        'vsf-navbar-top__menu-item--branded vsf-navbar-top__menu-item': type === 'menu' && variant === 'branded',
-        'vsf-navbar-top__menu-item': type === 'menu' && variant !== 'branded',
+        'vsf-navbar-top__action-item--branded vsf-navbar-top__action-item': type === VsfNavbarTopTypes.action && filled,
+        'vsf-navbar-top__action-item': type === VsfNavbarTopTypes.action && !filled,
+        'vsf-navbar-top__menu-item--branded vsf-navbar-top__menu-item': type === VsfNavbarTopTypes.menu && filled,
+        'vsf-navbar-top__menu-item': type === VsfNavbarTopTypes.menu && !filled,
       },
       className,
     );
     return (
-      <li>
-        <TagInternal
-          onClick={onClick}
-          ref={ref}
-          className={classes}
-          {...(link ? { href: link } : {})}
-          aria-label={ariaLabel}
-          {...attributes}
-        >
-          <span className="vsf-navbar-top__item__icon">{slotIcon}</span>
-          <span className="vsf-navbar-top__item__label">{label}</span>
-        </TagInternal>
-      </li>
+      <TagInternal
+        onClick={onClick}
+        ref={ref}
+        className={classes}
+        {...(link ? { href: link } : {})}
+        aria-label={ariaLabel}
+        {...attributes}
+      >
+        {children}
+      </TagInternal>
     );
   },
 );

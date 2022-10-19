@@ -1,11 +1,10 @@
 <script lang="ts" setup>
-import { computed, PropType } from 'vue';
-import { VsfNavbarTopVariants } from './types';
+import { computed } from 'vue';
 
 const props = defineProps({
-  variant: {
-    type: String as PropType<VsfNavbarTopVariants>,
-    default: VsfNavbarTopVariants.default,
+  filled: {
+    type: Boolean,
+    default: true,
   },
   link: {
     type: String,
@@ -14,10 +13,6 @@ const props = defineProps({
   type: {
     type: String,
     default: 'action',
-  },
-  label: {
-    type: String,
-    default: '',
   },
   ariaLabel: {
     type: String,
@@ -36,22 +31,17 @@ const attributes = computed(() => ({
 }));
 const classes = computed(() => {
   if (props.type === 'action') {
-    return props.variant === VsfNavbarTopVariants.branded
+    return props.filled
       ? 'vsf-navbar-top__action-item vsf-navbar-top__action-item--branded'
       : 'vsf-navbar-top__action-item';
   } else {
-    return props.variant === VsfNavbarTopVariants.branded
-      ? 'vsf-navbar-top__menu-item vsf-navbar-top__menu-item--branded'
-      : 'vsf-navbar-top__menu-item';
+    return props.filled ? 'vsf-navbar-top__menu-item vsf-navbar-top__menu-item--branded' : 'vsf-navbar-top__menu-item';
   }
 });
 </script>
 
 <template>
-  <li>
-    <component :is="componentTag" v-bind="attributes" :class="classes" :aria-label="ariaLabel">
-      <span v-if="$slots.icon" class="vsf-navbar-top__item__icon"><slot name="icon"></slot></span>
-      <span class="vsf-navbar-top__item__label">{{ label }}</span>
-    </component>
-  </li>
+  <component :is="componentTag" v-bind="attributes" :class="classes" :aria-label="ariaLabel">
+    <slot />
+  </component>
 </template>

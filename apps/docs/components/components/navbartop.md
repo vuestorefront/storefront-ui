@@ -6,38 +6,34 @@ The NavbarTop component is used as navigation. Usually it's at the top of a page
 
 See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%9F%9B%A0-SFUI-2.0-%7C-Development?node-id=11378%3A17321)
 
+<!-- react -->
 ## Props
 
 |    Prop name          |    Type          |      Default value    |     Possible values             |
 |-----------------------|----------------- |---------------        |---------------------------------|
-| variant               |      string      |  'default', branded'  |                                 |
-| searchDisabled        |      boolean     |    false              |                                 |
-| searchValue           |      string      |    ''                 |                                 |
-| searchAutocomplete    |      string      |    false              |                                 |
-
-
-## Slots
-
-<!-- react -->
-
-| Slot name          |            Description                                             |
-| ---------          | -----------------------------------                                |
-|   slotLogo         |    slot to place logo                                              |  
-|   slotMenu         |    slot to place custom menu items or VsfNavbarTopItem component   |
-|   slotActions      |    slot to place custom action icons or VsfNavbarTopItem component |
-|   slotMenuButton   |    slot to place custom menu button or VsfNavbarTopItem component  |
-
+| filled               |      boolean      |  true                 |                                 |
+|       className      |       `String`    |                     |                       |
+|       children        |       `ReactNode` |                     |                       |
 
 <!-- end react -->
+
+
+<!-- vue -->
+## Props
+
+|    Prop name          |    Type          |      Default value    |     Possible values             |
+|-----------------------|----------------- |---------------        |---------------------------------|
+| filled               |      boolean      |  true                 |                                 |
+
+<!-- end vue -->
+## Slots
+
 
 <!-- vue -->
 | Slot name          |            Description                                             |
 | ---------          | -----------------------------------                                |
-|    logo            |    slot to place logo                                              |  
-|    menu            |    slot to place custom menu items or VsfNavbarTopItem component   |
-|    search          |    slot to replace search bar                                      |
-|    icons           |    slot to place custom action icons or VsfNavbarTopItem component |
-|    menuButton      |    slot to place custom action icons or VsfNavbarTopItem component |
+|    default            |    default slot content                                              |  
+
 
 <!-- end vue -->
 

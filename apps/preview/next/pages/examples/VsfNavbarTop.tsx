@@ -1,5 +1,11 @@
 import VsfNavbarTop from '@sfui/sfui/frameworks/react/components/VsfNavbarTop/VsfNavbarTop';
 import VsfNavbarTopItem from '@sfui/sfui/frameworks/react/components/VsfNavbarTop/VsfNavbarTopItem';
+import VsfNavbarTopActions from '@sfui/sfui/frameworks/react/components/VsfNavbarTop/VsfNavbarTopActions';
+import VsfNavbarTopNavigation from '@sfui/sfui/frameworks/react/components/VsfNavbarTop/VsfNavbarTopNavigation';
+import VsfNavbarTopSearch from '@sfui/sfui/frameworks/react/components/VsfNavbarTop/VsfNavbarTopSearch';
+import VsfNavbarTopMenu from '@sfui/sfui/frameworks/react/components/VsfNavbarTop/VsfNavbarTopMenu';
+import VsfNavbarTopLogo from '@sfui/sfui/frameworks/react/components/VsfNavbarTop/VsfNavbarTopLogo';
+import VsfSearch from '@sfui/sfui/frameworks/react/components/VsfSearch';
 import VsfBadge from '@sfui/sfui/frameworks/react/components/VsfBadge/VsfBadge';
 import {
   VsfIconBasket,
@@ -7,6 +13,8 @@ import {
   VsfIconPerson,
   VsfIconMenu,
 } from '@sfui/sfui/frameworks/react/components/VsfIcons';
+import VsfNavbarTopListItem from '@sfui/sfui/frameworks/react/components/VsfNavbarTop/VsfNavbarTopListItem';
+import { VsfNavbarTopTypes } from '@sfui/sfui/frameworks/react/components/VsfNavbarTop/types';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 
@@ -14,9 +22,9 @@ function Example() {
   const { state, controls } = prepareControls(
     [
       {
-        type: 'text',
-        modelName: 'variant',
-        propType: 'string',
+        type: 'boolean',
+        modelName: 'filled',
+        propType: 'boolean',
       },
       {
         type: 'text',
@@ -37,23 +45,23 @@ function Example() {
       },
     ],
     {
-      variant: 'branded',
+      filled: true,
       searchPlaceholder: 'Search',
       searchValue: '',
       menuItems: [
         {
           label: 'Men',
-          type: 'menu',
+          type: VsfNavbarTopTypes.menu,
           link: '/men',
         },
         {
           label: 'Women',
-          type: 'menu',
+          type: VsfNavbarTopTypes.menu,
           link: '/women',
         },
         {
           label: 'Kids',
-          type: 'menu',
+          type: VsfNavbarTopTypes.menu,
           link: '/women',
         },
       ],
@@ -61,13 +69,13 @@ function Example() {
   );
   const actionItems = [
     {
-      type: 'action',
+      type: VsfNavbarTopTypes.action,
       icon: (
         <VsfBadge
           bordered
           dot
           value={1}
-          className={state.get.variant ? 'bg-white text-gray-900' : 'bg-secondary-600 text-white'}
+          className={state.get.filled ? 'bg-white text-gray-900' : 'bg-secondary-600 text-white'}
         >
           <VsfIconBasket />
         </VsfBadge>
@@ -75,13 +83,13 @@ function Example() {
       ariaLabel: 'Cart',
     },
     {
-      type: 'action',
+      type: VsfNavbarTopTypes.action,
       icon: (
         <VsfBadge
           bordered
           value={1}
           dot
-          className={state.get.variant ? 'bg-white text-gray-900' : 'bg-secondary-600 text-white'}
+          className={state.get.filled ? 'bg-white text-gray-900' : 'bg-secondary-600 text-white'}
         >
           <VsfIconFavoritesOutline />
         </VsfBadge>
@@ -89,7 +97,7 @@ function Example() {
       ariaLabel: 'Wishlist',
     },
     {
-      type: 'action',
+      type: VsfNavbarTopTypes.action,
       label: 'Log in',
       icon: <VsfIconPerson />,
       ariaLabel: 'Log in',
@@ -101,17 +109,14 @@ function Example() {
   return (
     <div className="e-page">
       <div className="e-page-component">
-        <VsfNavbarTop
-          variant={state.get.variant}
-          searchPlaceholder={state.get.searchPlaceholder}
-          searchValue={state.get.searchValue}
-          slotLogo={
+        <VsfNavbarTop filled={state.get.filled}>
+          <VsfNavbarTopLogo>
             <a href="/" aria-label="VSF Homepage">
               <svg
                 width="40"
                 height="40"
                 viewBox="0 0 40 40"
-                fill={state.get.variant === 'branded' ? 'white' : '#02C652'}
+                fill={state.get.filled ? 'white' : '#02C652'}
                 xmlns="http://www.w3.org/2000/svg"
                 role="img"
                 className="block large:hidden"
@@ -123,7 +128,7 @@ function Example() {
                 width="205"
                 height="28"
                 viewBox="0 0 205 28"
-                fill={state.get.variant === 'branded' ? 'white' : '#02C652'}
+                fill={state.get.filled ? 'white' : '#02C652'}
                 xmlns="http://www.w3.org/2000/svg"
                 role="img"
                 className="hidden large:block"
@@ -161,38 +166,61 @@ function Example() {
                 <path d="M15.6467 16.2813L21.2863 10.5763C21.52 10.3399 21.7974 10.1524 22.1026 10.0245C22.4079 9.89655 22.7351 9.8307 23.0656 9.8307C23.396 9.8307 23.7232 9.89654 24.0285 10.0245C24.3338 10.1524 24.6112 10.3399 24.8448 10.5762L27.6787 13.443C27.6616 13.4602 13.8393 27.443 13.8393 27.443L0 13.443C0.0375462 13.4051 1.56976 11.8551 2.86367 10.5461C3.0972 10.3099 3.37445 10.1224 3.67958 9.99459C3.98472 9.86673 4.31176 9.80094 4.64204 9.80096C4.97231 9.80099 5.29935 9.86684 5.60447 9.99474C5.90958 10.1227 6.1868 10.3101 6.42029 10.5464L12.0896 16.2816C12.3232 16.5178 12.6005 16.7053 12.9057 16.8331C13.2108 16.961 13.5379 17.0268 13.8682 17.0267C14.1985 17.0267 14.5256 16.9609 14.8308 16.833C15.1359 16.7051 15.4132 16.5176 15.6467 16.2813Z" />
               </svg>
             </a>
-          }
-          slotMenu={state.get.menuItems.map((menuItem) => (
-            <VsfNavbarTopItem
-              key={menuItem.label}
-              type={menuItem.type}
-              variant={state.get.variant}
-              label={menuItem.label}
-              link={menuItem.link}
-            />
-          ))}
-          slotMenuButton={
-            <VsfNavbarTopItem
-              className="large:hidden"
-              type="action"
-              variant={state.get.variant}
-              slotIcon={<VsfIconMenu />}
-              ariaLabel="menu button"
-              onClick={() => onClickHandler('menu')}
-            />
-          }
-          slotActions={actionItems.map((actionItem) => (
-            <VsfNavbarTopItem
-              key={actionItem.label}
-              type={actionItem.type}
-              variant={state.get.variant}
-              slotIcon={actionItem.icon}
-              ariaLabel={actionItem.ariaLabel}
-              label={actionItem.label}
-              onClick={() => onClickHandler(actionItem.ariaLabel)}
-            />
-          ))}
-        />
+          </VsfNavbarTopLogo>
+          <VsfNavbarTopNavigation>
+            <div>
+              <VsfNavbarTopMenu>
+                {state.get.menuItems.map((menuItem) => (
+                  <VsfNavbarTopListItem>
+                    <VsfNavbarTopItem
+                      key={menuItem.label}
+                      type={menuItem.type}
+                      filled={state.get.filled}
+                      link={menuItem.link}
+                    >
+                      <span>{menuItem.label}</span>
+                    </VsfNavbarTopItem>
+                  </VsfNavbarTopListItem>
+                ))}
+              </VsfNavbarTopMenu>
+              <VsfNavbarTopItem
+                className="large:hidden"
+                type={VsfNavbarTopTypes.action}
+                filled={state.get.filled}
+                ariaLabel="menu button"
+                onClick={() => onClickHandler('menu')}
+              >
+                <span className="inline-flex items-center">
+                  <span>
+                    <VsfIconMenu />
+                  </span>
+                  <span className="ml-2">Menu</span>
+                </span>
+              </VsfNavbarTopItem>
+            </div>
+          </VsfNavbarTopNavigation>
+          <VsfNavbarTopSearch>
+            <VsfSearch placeholder={state.get.searchPlaceholder} value={state.get.searchValue} />
+          </VsfNavbarTopSearch>
+          <VsfNavbarTopActions>
+            {actionItems.map((actionItem) => (
+              <VsfNavbarTopListItem>
+                <VsfNavbarTopItem
+                  key={actionItem.label}
+                  type={actionItem.type}
+                  filled={state.get.filled}
+                  ariaLabel={actionItem.ariaLabel}
+                  onClick={() => onClickHandler(actionItem.ariaLabel)}
+                >
+                  <span>
+                    <span>{actionItem.icon}</span>
+                    {actionItem.label && <span className="hidden ml-2 large:inline-flex">{actionItem.label}</span>}
+                  </span>
+                </VsfNavbarTopItem>
+              </VsfNavbarTopListItem>
+            ))}
+          </VsfNavbarTopActions>
+        </VsfNavbarTop>
       </div>
       <div className="e-page-controls">
         <Controls {...{ state, controls }} />

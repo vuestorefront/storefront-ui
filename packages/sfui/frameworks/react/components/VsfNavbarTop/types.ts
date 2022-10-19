@@ -1,34 +1,26 @@
-import type { MouseEventHandler, ReactNode } from 'react';
+import type { MouseEventHandler, PropsWithChildren } from 'react';
+import { PropsWithStyle } from '@sfui/sfui/shared/types';
 
-export enum VsfNavbarTopVariants {
-  branded = 'branded',
-  primary = 'primary',
+export interface VsfNavbarTopProps extends PropsWithChildren, PropsWithStyle {
+  filled: Boolean;
 }
+
+export interface VsfNavbarTopListItemProps extends PropsWithChildren, PropsWithStyle {}
+export interface VsfNavbarTopLogoProps extends VsfNavbarTopListItemProps {}
+export interface VsfNavbarTopNavigationProps extends VsfNavbarTopListItemProps {}
+export interface VsfNavbarTopMenuProps extends VsfNavbarTopListItemProps {}
+export interface VsfNavbarTopSearchProps extends VsfNavbarTopListItemProps {}
+export interface VsfNavbarTopActionsProps extends VsfNavbarTopListItemProps {}
 
 export enum VsfNavbarTopTypes {
   action = 'action',
   menu = 'menu',
 }
 
-export type VsfNavbarTopItemProps = {
-  label?: string;
-  slotIcon: ReactNode;
+export interface VsfNavbarTopItemProps extends VsfNavbarTopProps {
   ariaLabel?: string;
-  variant: VsfNavbarTopVariants;
   type: VsfNavbarTopTypes;
   link?: string;
+  [key: string]: unknown;
   onClick?: MouseEventHandler;
-};
-
-export interface VsfNavbarTopProps {
-  className?: string;
-  searchPlaceholder?: string;
-  searchAutocomplete: string;
-  searchValue: string;
-  slotLogo: ReactNode;
-  slotMenu: ReactNode;
-  slotActions: ReactNode;
-  slotMenuButton: ReactNode;
-  slotSearch: ReactNode;
-  variant: VsfNavbarTopVariants;
 }
