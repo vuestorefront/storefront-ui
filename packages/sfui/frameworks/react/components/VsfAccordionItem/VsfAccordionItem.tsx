@@ -2,18 +2,27 @@ import type { VsfAccordionItemProps } from './types';
 import VsfIconTriangleUp from '../VsfIcons/VsfIconTriangleUp';
 
 export default function VsfAccordionItem({
-  open = false,
+  open,
   title,
-  chevronLeft = false,
+  chevronLeft,
   slotPrefix,
   slotSuffix,
+  onToggle,
   children,
   ...attributes
 }: VsfAccordionItemProps): JSX.Element {
+  function onToggleHandler(event: React.MouseEvent<HTMLElement>) {
+    if (onToggle) {
+      event.preventDefault();
+      onToggle();
+    }
+  }
   return (
-    // TODO: handler for open, its common practice to have feedback when prop like that changes
     <details className="vsf-accordion-item" open={open} {...attributes}>
-      <summary className={`${chevronLeft && 'vsf-accordion-item__header--right'} vsf-accordion-item__header`}>
+      <summary
+        className={`${chevronLeft && 'vsf-accordion-item__header--right'} vsf-accordion-item__header`}
+        onClick={onToggleHandler}
+      >
         {slotPrefix || (
           <span className={`${chevronLeft && 'vsf-accordion-item__title--right'} vsf-accordion-item__title`}>
             {title}

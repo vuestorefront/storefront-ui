@@ -6,6 +6,12 @@
           {{ contentText }}
         </template>
       </VsfAccordionItem>
+
+      <VsfAccordionItem :open="open" title="Programmatic Accordion" :chevron-left="chevronLeft" @toggle="click">
+        <template #default>
+          {{ contentText }}
+        </template>
+      </VsfAccordionItem>
     </div>
     <div class="e-page-controls">
       <Controls v-bind="controlsAttrs" />
@@ -63,6 +69,11 @@ export default defineComponent({
         ),
       },
     );
+  },
+  methods: {
+    click() {
+      this.open = !this.open;
+    },
   },
 });
 </script>
