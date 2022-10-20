@@ -3,7 +3,7 @@
   @apply relative inline-block items-center cursor-pointer bg-white;
 
   &__input {
-    @apply appearance-none outline-none absolute invisible;
+    @apply appearance-none outline-none absolute w-0;
   }
 
   &__peer-wrapper {
