@@ -6,13 +6,12 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 ## Props
 
-| Prop name    | Type      | Default value | Possible values |
-| ------------ | --------- | ------------- | --------------- |
-| placeholder  | `String`  |               |                 |
-| disabled     | `Boolean` |               |                 |
-| required     | `Boolean` |               |                 |
-| autocomplete | `String`  |               |                 |
-| name         | `String`  | `search`      |                 |
+| Prop name   | Type      | Default value | Possible values |
+| ----------- | --------- | ------------- | --------------- |
+| placeholder | `String`  |               |                 |
+| disabled    | `Boolean` |               |                 |
+| name        | `String`  | `search`      |                 |
+| inputProps  | `Object`  |               |                 |
 
 ### React only:
 

@@ -7,15 +7,32 @@ import { ExamplePageLayout } from '../examples';
 
 function Example() {
   type ControlTypes = VsfButtonProps & {
-    leftIconModel: boolean;
-    rightIconModel: boolean;
-    childrenModel: string;
+    ExampleLeftIcon: boolean;
+    ExampleRightIcon: boolean;
+    ExampleIconContent: boolean;
+    ExampleTextContent: string;
   };
   const { state, controls } = prepareControls<ControlTypes>(
     [
       {
         type: 'text',
-        modelName: 'childrenModel',
+        modelName: 'ExampleTextContent',
+        description: 'Only for demonstration purposes.',
+      },
+      {
+        type: 'boolean',
+        modelName: 'ExampleIconContent',
+        description: 'Only for demonstration purposes.',
+      },
+      {
+        type: 'boolean',
+        modelName: 'ExampleLeftIcon',
+        description: 'slotPrefix',
+      },
+      {
+        type: 'boolean',
+        modelName: 'ExampleRightIcon',
+        description: 'slotSuffix',
       },
       {
         type: 'text',
@@ -44,23 +61,8 @@ function Example() {
       },
       {
         type: 'boolean',
-        modelName: 'icon',
-        description: 'Example with icon content',
-      },
-      {
-        type: 'boolean',
-        modelName: 'leftIconModel',
-        description: 'slotPrefix',
-      },
-      {
-        type: 'boolean',
-        modelName: 'rightIconModel',
-        description: 'slotSuffix',
-      },
-      {
-        type: 'boolean',
         modelName: 'tile',
-        description: 'Remove radius from border',
+        description: 'Remove border radius',
       },
       {
         type: 'boolean',
@@ -79,11 +81,12 @@ function Example() {
       },
     ],
     {
-      childrenModel: 'Hello',
-      link: '',
+      ExampleTextContent: 'Hello',
+      ExampleLeftIcon: false,
+      ExampleRightIcon: false,
+      ExampleIconContent: false,
+      link: undefined,
       disabled: false,
-      leftIconModel: false,
-      rightIconModel: false,
       variant: VsfButtonVariants.primary,
       size: VsfButtonSizes.base,
       tile: false,
@@ -102,16 +105,15 @@ function Example() {
           variant={state.get.variant}
           disabled={state.get.disabled}
           link={state.get.link}
-          slotPrefix={state.get.leftIconModel && <VsfIconVsfDiamond />}
-          slotSuffix={state.get.rightIconModel && <VsfIconVsfDiamond />}
+          slotPrefix={state.get.ExampleLeftIcon && <VsfIconVsfDiamond />}
+          slotSuffix={state.get.ExampleRightIcon && <VsfIconVsfDiamond />}
           tile={state.get.tile}
           icon={state.get.icon}
           rounded={state.get.rounded}
           block={state.get.block}
           tag={state.get.tag as ElementType}
         >
-          {state.get.icon && <VsfIconVsfDiamond />}
-          {!state.get.icon && state.get.childrenModel}
+          {state.get.ExampleIconContent ? <VsfIconVsfDiamond /> : state.get.ExampleTextContent}
         </VsfButton>
       </div>
       <div className="e-page-controls">

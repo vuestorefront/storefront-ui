@@ -6,7 +6,6 @@ import VsfButton from '../VsfButton';
 import type { VsfSearchProps } from './types';
 
 export default function VsfSearch({
-  autocomplete,
   className,
   disabled,
   name = 'search',
@@ -14,12 +13,12 @@ export default function VsfSearch({
   onReset,
   onSubmit,
   placeholder,
-  required,
   slotPrefix,
   slotResults,
   slotSubmit,
   slotSuffix,
   value,
+  inputProps,
   ...attributes
 }: VsfSearchProps) {
   function onResetHandler(event: MouseEvent) {
@@ -47,13 +46,12 @@ export default function VsfSearch({
           {slotPrefix && <span className="vsf-search__input-prefix">{slotPrefix}</span>}
 
           <input
+            {...inputProps}
             type="search"
             name={name}
             placeholder={placeholder}
             value={value}
             onInput={onInputHandler}
-            required={required}
-            autoComplete={autocomplete}
             className="vsf-search__input peer"
             disabled={disabled}
           />

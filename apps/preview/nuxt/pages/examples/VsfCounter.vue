@@ -1,7 +1,7 @@
 <template>
   <div class="e-page">
     <div class="e-page-component">
-      <VsfCounter :size="sizeModel" :pill="pill" :class="fill">
+      <VsfCounter :size="size" :pill="pill" :class="fill">
         {{ value }}
       </VsfCounter>
     </div>
@@ -34,7 +34,7 @@ export default defineComponent({
           },
           {
             type: 'select',
-            modelName: 'sizeModel',
+            modelName: 'size',
             options: Object.keys(VsfCounterSizes),
             propDefaultValue: VsfCounterSizes.base,
             propType: 'VsfCounterSizes',
@@ -54,7 +54,7 @@ export default defineComponent({
         ],
         {
           value: ref('123'),
-          sizeModel: ref<VsfCounterSizes>(VsfCounterSizes.base),
+          size: ref<VsfCounterSizes>(VsfCounterSizes.base),
           pill: ref(false),
           fill: ref('bg-white'),
         },

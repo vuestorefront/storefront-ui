@@ -1,14 +1,8 @@
 <template>
   <div class="e-page">
     <div class="e-page-component">
-      <VsfChipsFilter
-        v-model="modelValue"
-        :size="variantModel"
-        :disabled="disabledModel"
-        :label="labelModel"
-        :type="typeModel"
-      >
-        <template v-if="showThumbModel" #thumbnail>
+      <VsfChipsFilter v-model="modelValue" :size="size" :disabled="disabled" :label="label" :type="type">
+        <template v-if="showThumb" #thumbnail>
           <div class="bg-black w-full h-full rounded-full" />
         </template>
       </VsfChipsFilter>
@@ -35,47 +29,42 @@ export default defineComponent({
     return prepareControls(
       [
         {
-          title: 'Label',
           type: 'text',
-          modelName: 'labelModel',
+          modelName: 'label',
           propType: 'string',
         },
         {
-          title: 'Variant',
           type: 'select',
-          modelName: 'variantModel',
+          modelName: 'size',
           options: Object.keys(VsfChipsFilterVariants),
           propDefaultValue: VsfChipsFilterVariants.base,
           propType: 'VsfChipsFilterVariants',
         },
         {
-          title: 'Type',
           type: 'select',
-          modelName: 'typeModel',
-          options: ['radio', 'checkbox'],
+          modelName: 'type',
+          options: ['checkbox', 'radio'],
           propDefaultValue: 'checkbox',
           propType: 'string',
         },
         {
-          title: 'Disabled',
           type: 'boolean',
-          modelName: 'disabledModel',
+          modelName: 'disabled',
           propType: 'boolean',
         },
         {
-          title: 'Show Thumb',
           type: 'boolean',
-          modelName: 'showThumbModel',
+          modelName: 'showThumb',
           propType: 'boolean',
           description: 'Only for demonstration purposes',
         },
       ],
       {
-        variantModel: ref(VsfChipsFilterVariants.base),
-        disabledModel: ref(false),
-        labelModel: ref('Label'),
-        typeModel: ref('checkbox'),
-        showThumbModel: ref(false),
+        size: ref(VsfChipsFilterVariants.base),
+        disabled: ref(false),
+        label: ref('Label'),
+        type: ref('checkbox'),
+        showThumb: ref(false),
         modelValue: ref(),
       },
     );

@@ -26,7 +26,7 @@ function Example() {
       },
       {
         type: 'select',
-        modelName: 'fillModel',
+        modelName: 'fill',
         options: ['bg-white', 'bg-gray-100', 'bg-primary-200', 'bg-warning-200', 'bg-negative-200'],
         propType: '---',
         description: 'Only for demonstration purposes, background is controlled by custom class',
