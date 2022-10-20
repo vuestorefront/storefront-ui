@@ -131,96 +131,206 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 <!-- end react -->
 <!-- vue -->
 ```vue
-<VsfFooter>
-    <template #categories>
-      <VsfFooterColumn>
-        <VsfFooterLabel :type="VsfFooterLabelType.category">Category 1</VsfFooterLabel>
-        <VsfFooterLabel><a>subcategory link 1</a></VsfFooterLabel>
-        <VsfFooterLabel><a>subcategory link 2</a></VsfFooterLabel>
-        <VsfFooterLabel><a>subcategory link 3</a></VsfFooterLabel>
-        <VsfFooterLabel><a>subcategory link 4</a></VsfFooterLabel>
-      </VsfFooterColumn>
-      <VsfFooterColumn>
-        <VsfFooterLabel :type="VsfFooterLabelType.category">Category 2</VsfFooterLabel>
-        <VsfFooterLabel><a>subcategory link 1</a></VsfFooterLabel>
-        <VsfFooterLabel><a>subcategory link 2</a></VsfFooterLabel>
-        <VsfFooterLabel><a>subcategory link 3</a></VsfFooterLabel>
-        <VsfFooterLabel><a>subcategory link 4</a></VsfFooterLabel>
-      </VsfFooterColumn>
-      <VsfFooterColumn>
-        <VsfFooterLabel :type="VsfFooterLabelType.category">Category 3</VsfFooterLabel>
-        <VsfFooterLabel><a>subcategory link 1</a></VsfFooterLabel>
-        <VsfFooterLabel><a>subcategory link 2</a></VsfFooterLabel>
-        <VsfFooterLabel><a>subcategory link 3</a></VsfFooterLabel>
-        <VsfFooterLabel><a>subcategory link 4</a></VsfFooterLabel>
-      </VsfFooterColumn>
-      <VsfFooterColumn>
-        <VsfFooterLabel :type="VsfFooterLabelType.category">Category 4</VsfFooterLabel>
-        <VsfFooterLabel><a>subcategory link 1</a></VsfFooterLabel>
-        <VsfFooterLabel><a>subcategory link 2</a></VsfFooterLabel>
-        <VsfFooterLabel><a>subcategory link 3</a></VsfFooterLabel>
-        <VsfFooterLabel><a>subcategory link 4</a></VsfFooterLabel>
-      </VsfFooterColumn>
+<script setup>
+    const categories = [
+      {
+        label: 'How to buy',
+        subcategories: [
+          {
+            label: 'Payment methods',
+            linkTag: 'a',
+            bindings: { to: '/payment' },
+          },
+          {
+            label: 'Order pickup',
+            linkTag: 'a',
+            bindings: { to: '/' },
+          },
+          {
+            label: 'Purchase status',
+            linkTag: 'a',
+            bindings: { to: '/' },
+          },
+          {
+            label: 'Track orders',
+            linkTag: 'a',
+            bindings: { to: '/' },
+          },
+          {
+            label: 'Returns',
+            linkTag: 'a',
+            bindings: { to: '/' },
+          },
+        ],
+      },
+      {
+        label: 'Help',
+        subcategories: [
+          {
+            label: 'Help centers',
+            linkTag: 'a',
+            bindings: { to: '/' },
+          },
+          {
+            label: 'Security & fraud',
+            linkTag: 'a',
+            bindings: { to: '/' },
+          },
+          {
+            label: 'Feedback',
+            linkTag: 'a',
+            bindings: { to: '/' },
+          },
+          {
+            label: 'Contact',
+            linkTag: 'a',
+            bindings: { to: '/' },
+          },
+        ],
+      },
+      {
+        label: 'Services',
+        subcategories: [
+          {
+            label: 'Gift cards',
+            linkTag: 'a',
+            bindings: { to: '/' },
+          },
+          {
+            label: 'Order pickup',
+            linkTag: 'a',
+            bindings: { to: '/' },
+          },
+          {
+            label: 'Purchase status',
+            linkTag: 'a',
+            bindings: { to: '/' },
+          },
+          {
+            label: 'Track orders',
+            linkTag: 'a',
+            bindings: { to: '/' },
+          },
+        ],
+      },
+      {
+        label: 'About',
+        subcategories: [
+          {
+            label: 'About us',
+            linkTag: 'a',
+            bindings: { to: '/' },
+          },
+          {
+            label: 'Order pickup',
+            linkTag: 'a',
+            bindings: { to: '/' },
+          },
+          {
+            label: 'Purchase status',
+            linkTag: 'a',
+            bindings: { to: '/' },
+          },
+          {
+            label: 'Track orders',
+            linkTag: 'a',
+            bindings: { to: '/' },
+          },
+          {
+            label: 'Returns',
+            linkTag: 'a',
+            bindings: { to: '/' },
+          },
+        ],
+      },
+    ];
+    const socialMedia = [
+      {
+        label: 'Facebook',
+        bindings: { href: '/' },
+      },
+      {
+        label: 'Twitter',
+        bindings: { href: '/' },
+      },
+      {
+        label: 'Instagram',
+        bindings: { href: '/' },
+      },
+      {
+        label: 'Pinterest',
+        bindings: { href: '/' },
+      },
+      {
+        label: 'Youtube',
+        bindings: { href: '/' },
+      },
+    ];
+    const contactOptions = [
+      {
+        label: 'Help center',
+        bindings: { href: '/' },
+        details: ['Find answers online anytime'],
+        iconName: 'help',
+      },
+      {
+        label: 'Live chat',
+        bindings: { href: '/' },
+        details: ['Mon–Fri, 5am–10pm PT', 'Sat–Sun, 6am–9pm PT'],
+        iconName: 'chat',
+      },
+      {
+        label: '1 234 567 8901',
+        bindings: { href: '/' },
+        details: ['Mon–Fri, 5am–10pm PT', 'Sat–Sun, 6am–9pm PT'],
+        iconName: 'phone',
+      },
+    ];
+    const bottomLinks = [
+      {
+        label: 'Terms',
+        linkTag: 'a',
+        bindings: { to: '/' },
+      },
+      {
+        label: 'Privacy policy',
+        linkTag: 'a',
+        bindings: { to: '/' },
+      },
+    ];
+</script>
+<template>
+  <VsfFooter
+    :categories="categories"
+    :contact-options="contactOptions"
+    :social-media="socialMedia"
+    :bottom-links="bottomLinks"
+    company-name="© 2022 Vue Storefront"
+  >
+    <template #subcategoryLink="{ subcategory }">
+      <a>{{ subcategory.label }}</a>
     </template>
-    <template #contact>
-      <VsfFooterColumn :type="VsfFooterColumnType.middle">
-        <VsfIconHelp :size="VsfIconSizeEnum.lg" />
-        <VsfFooterLabel :type="VsfFooterLabelType.contact">
-          label 1
-        </VsfFooterLabel>
-        <VsfFooterLabel :type="VsfFooterLabelType.contactDescription">
-          description
-        </VsfFooterLabel>
-      </VsfFooterColumn>
-      <VsfFooterColumn :type="VsfFooterColumnType.middle">
-        <VsfIconChat :size="VsfIconSizeEnum.lg" />
-        <VsfFooterLabel :type="VsfFooterLabelType.contact">
-          label 2
-        </VsfFooterLabel>
-        <VsfFooterLabel :type="VsfFooterLabelType.contactDescription">
-          description
-        </VsfFooterLabel>
-      </VsfFooterColumn>
-      <VsfFooterColumn :type="VsfFooterColumnType.middle">
-        <VsfIconPhone :size="VsfIconSizeEnum.lg" />
-        <VsfFooterLabel :type="VsfFooterLabelType.contact">
-          label 3
-        </VsfFooterLabel>
-        <VsfFooterLabel :type="VsfFooterLabelType.contactDescription">
-          description
-        </VsfFooterLabel>
-      </VsfFooterColumn>
+    <template #contactIcon="{ contactOption }">
+      <VsfIconHelp v-if="contactOption.iconName === 'help'" size="lg" />
+      <VsfIconChat v-if="contactOption.iconName === 'chat'" size="lg" />
+      <VsfIconPhone v-if="contactOption.iconName === 'phone'" size="lg" />
     </template>
-    <template #socialMedia>
-      <VsfFooterSocialMedia>
-        <VsfFooterLabel :type="VsfFooterLabelType.socialMedia">
-          <a><VsfIconFacebook /></a>
-        </VsfFooterLabel>
-        <VsfFooterLabel :type="VsfFooterLabelType.socialMedia">
-          <a><VsfIconTwitter /></a>
-        </VsfFooterLabel>
-        <VsfFooterLabel :type="VsfFooterLabelType.socialMedia">
-          <a><VsfIconInstagram /></a>
-        </VsfFooterLabel>
-        <VsfFooterLabel :type="VsfFooterLabelType.socialMedia">
-          <a><VsfIconPinterest /></a>
-        </VsfFooterLabel>
-        <VsfFooterLabel :type="VsfFooterLabelType.socialMedia">
-          <a><VsfIconYoutube /></a>
-        </VsfFooterLabel>
-      </VsfFooterSocialMedia>
+    <template #contactLabel="{ contactOption }">
+      <a>{{ contactOption.label }}</a>
     </template>
-    <template #bottomLinks>
-      <VsfFooterLabel :type="VsfFooterLabelType.bottomLinks">
-        <a>Link 1</a>
-      </VsfFooterLabel>
-      <VsfFooterLabel :type="VsfFooterLabelType.bottomLinks">
-        <a>Link 2</a>
-      </VsfFooterLabel>
+    <template #socialItem="{ social }">
+      <a>
+        <VsfIconFacebook v-if="social.label === 'Facebook'" />
+        <VsfIconTwitter v-if="social.label === 'Twitter'" />
+        <VsfIconInstagram v-if="social.label === 'Instagram'" />
+        <VsfIconPinterest v-if="social.label === 'Pinterest'" />
+        <VsfIconYoutube v-if="social.label === 'Youtube'" />
+      </a>
     </template>
-    <template #companyName>
-      © 2022 Vue Storefront
+    <template #bottomLink="{ bottomLink }">
+      <a>{{ bottomLink.label }}</a>
     </template>
-    </VsfFooter>
+  </VsfFooter>
+</template>
 ```
 <!-- end vue -->
