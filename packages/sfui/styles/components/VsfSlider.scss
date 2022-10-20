@@ -28,7 +28,10 @@
     }
   }
   &__nav {
-    @apply md:block hidden;
+    @apply md:block hidden pointer-events-none;
+    > * {
+      @apply pointer-events-auto;
+    }
     &-arrow {
       @apply transition-opacity bg-white;
     }
