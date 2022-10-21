@@ -6,7 +6,7 @@ const VsfNavbarTopItem = forwardRef<unknown, VsfNavbarTopItemProps>(
   ({ className, filled, children, onClick, ...attributes }) => {
     const classes = classNames(
       {
-        'vsf-navbar-top__action-item--branded vsf-navbar-top__item': filled,
+        'vsf-navbar-top__item--branded vsf-navbar-top__item': filled,
         'vsf-navbar-top__item': !filled,
       },
       className,
