@@ -14,7 +14,7 @@ import {
   VsfIconMenu,
 } from '@sfui/sfui/frameworks/react/components/VsfIcons';
 import VsfNavbarTopListItem from '@sfui/sfui/frameworks/react/components/VsfNavbarTop/VsfNavbarTopListItem';
-import { VsfNavbarTopTypes } from '@sfui/sfui/frameworks/react/components/VsfNavbarTop/types';
+import Link from 'next/link';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 
@@ -51,17 +51,14 @@ function Example() {
       menuItems: [
         {
           label: 'Men',
-          type: VsfNavbarTopTypes.menu,
           link: '/men',
         },
         {
           label: 'Women',
-          type: VsfNavbarTopTypes.menu,
           link: '/women',
         },
         {
           label: 'Kids',
-          type: VsfNavbarTopTypes.menu,
           link: '/women',
         },
       ],
@@ -69,7 +66,6 @@ function Example() {
   );
   const actionItems = [
     {
-      type: VsfNavbarTopTypes.action,
       icon: (
         <VsfBadge
           bordered
@@ -83,7 +79,6 @@ function Example() {
       ariaLabel: 'Cart',
     },
     {
-      type: VsfNavbarTopTypes.action,
       icon: (
         <VsfBadge
           bordered
@@ -97,7 +92,6 @@ function Example() {
       ariaLabel: 'Wishlist',
     },
     {
-      type: VsfNavbarTopTypes.action,
       label: 'Log in',
       icon: <VsfIconPerson />,
       ariaLabel: 'Log in',
@@ -172,20 +166,16 @@ function Example() {
               <VsfNavbarTopMenu>
                 {state.get.menuItems.map((menuItem) => (
                   <VsfNavbarTopListItem>
-                    <VsfNavbarTopItem
-                      key={menuItem.label}
-                      type={menuItem.type}
-                      filled={state.get.filled}
-                      link={menuItem.link}
-                    >
-                      <span>{menuItem.label}</span>
+                    <VsfNavbarTopItem key={menuItem.label} filled={state.get.filled}>
+                      <Link href={menuItem.link}>
+                        <a>{menuItem.label}</a>
+                      </Link>
                     </VsfNavbarTopItem>
                   </VsfNavbarTopListItem>
                 ))}
               </VsfNavbarTopMenu>
               <VsfNavbarTopItem
                 className="large:hidden"
-                type={VsfNavbarTopTypes.action}
                 filled={state.get.filled}
                 ariaLabel="menu button"
                 onClick={() => onClickHandler('menu')}
@@ -207,7 +197,6 @@ function Example() {
               <VsfNavbarTopListItem>
                 <VsfNavbarTopItem
                   key={actionItem.label}
-                  type={actionItem.type}
                   filled={state.get.filled}
                   ariaLabel={actionItem.ariaLabel}
                   onClick={() => onClickHandler(actionItem.ariaLabel)}

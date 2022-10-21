@@ -12,7 +12,7 @@
   &__menu-button {
     @apply justify-center inline-flex px-2 large:hidden;
   }
-  &__menu-item, &__action-item {
+  &__item {
     @apply inline-flex items-center justify-center p-2 text-base font-medium bg-transparent rounded-md cursor-pointer font-body text-gray-900 hover:bg-green-100 active:bg-green-200 hover:text-green-600 active:text-green-700;
     &--branded {
       @apply text-white hover:text-white active:text-white hover:bg-green-600 active:bg-green-700;
