@@ -26,6 +26,21 @@ function Example() {
       },
       {
         type: 'range',
+        modelName: 'decimal',
+        propType: 'number',
+        propDefaultValue: '0',
+        options: [
+          {
+            bind: {
+              min: 0,
+              max: 10,
+              step: 1,
+            },
+          },
+        ],
+      },
+      {
+        type: 'range',
         modelName: 'minValue',
         propType: 'number',
         propDefaultValue: '1',
@@ -83,6 +98,7 @@ function Example() {
     ],
     {
       value: 1,
+      decimal: 0,
       minValue: 1,
       maxValue: 10,
       step: 1,
@@ -110,6 +126,7 @@ function Example() {
           inputAriaLabel={state.get.inputAriaLabel}
           inputId={state.get.inputId}
           onChange={onChange}
+          decimal={Number(state.get.decimal)}
         >
           <div className="text-xs font-normal text-center font-body">
             {state.get.disabled ? (

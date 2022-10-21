@@ -1,5 +1,5 @@
 .vsf-rating {
-  @apply flex items-center pointer-events-none font-body font-medium;
+  @apply flex items-center pointer-events-auto font-body font-medium;
 
   &--xs {
     @apply text-xs;

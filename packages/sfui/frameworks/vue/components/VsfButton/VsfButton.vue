@@ -34,14 +34,14 @@ const props = defineProps({
     type: String,
     default: 'button',
   },
-  href: {
+  link: {
     type: String,
     default: null,
   },
 });
 
 const componentTag = computed(() => {
-  if (props.href && props.tag === 'button') {
+  if (props.link && props.tag === 'button') {
     return 'a';
   }
   return props.tag;
@@ -49,7 +49,7 @@ const componentTag = computed(() => {
 
 const attributes = computed(() => ({
   role: componentTag.value === 'a' ? 'button' : undefined,
-  ...(props.href && { href: props.href }),
+  ...(props.link && { href: props.link }),
   disabled: props.disabled,
 }));
 // TODO: remove tag prop, why its needed? when link exists should be <a> in any other case button

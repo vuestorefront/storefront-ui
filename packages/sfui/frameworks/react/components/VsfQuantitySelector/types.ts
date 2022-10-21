@@ -1,21 +1,22 @@
-import type { ReactNode } from 'react';
+import type { PropsWithChildren } from 'react';
+import { PropsWithStyle } from '../../shared/types';
 
 export enum VsfQuantitySelectorSizes {
   base = 'base',
   lg = 'lg',
 }
 
-export type VsfQuantitySelectorProps = {
-  value: number;
-  inputId?: string;
-  inputAriaLabel?: string;
-  minValue?: number;
-  maxValue?: number;
-  disabled?: boolean;
-  step?: number;
-  size?: VsfQuantitySelectorSizes;
-  onChange: (value: number) => void;
-  block?: boolean;
-  className?: string;
-  children?: ReactNode;
-};
+export type VsfQuantitySelectorProps = PropsWithStyle &
+  PropsWithChildren & {
+    value: number;
+    inputId?: string;
+    inputAriaLabel?: string;
+    minValue?: number;
+    maxValue?: number;
+    disabled?: boolean;
+    step?: number;
+    size?: VsfQuantitySelectorSizes;
+    block?: boolean;
+    decimal?: number;
+    onChange: (value: number) => void;
+  };

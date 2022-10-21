@@ -18,6 +18,7 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 | block          | `Boolean`                  | `false`             |                 |
 | inputAriaLabel | `String`                   | `Quantity Selector` |                 |
 | inputId        | `String`                   | `qty-selector`      |                 |
+| decimal        | `Number`                   |                     |                 |
 
 ### React only:
 
