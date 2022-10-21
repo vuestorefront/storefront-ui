@@ -33,9 +33,9 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 ## Events
 
-| Event name |      Trigger      |
-| ---------- | :---------------: |
-| toggle     | Title block event |
+| Event name |       Trigger        |
+| ---------- | :------------------: |
+| toggle     | Details native event |
 
 ## Accessibility notes
 

@@ -1,16 +1,8 @@
 <template>
   <div class="e-page">
     <div class="e-page-component">
-      <VsfAccordionItem :open="open" :title="title" :chevron-left="chevronLeft">
-        <template #default>
-          {{ contentText }}
-        </template>
-      </VsfAccordionItem>
-
-      <VsfAccordionItem :open="open" title="Programmatic Accordion" :chevron-left="chevronLeft" @toggle="click">
-        <template #default>
-          {{ contentText }}
-        </template>
+      <VsfAccordionItem :open="open" :title="title" :chevron-left="chevronLeft" @toggle.prevent="click">
+        {{ contentText }}
       </VsfAccordionItem>
     </div>
     <div class="e-page-controls">

@@ -11,18 +11,9 @@ export default function VsfAccordionItem({
   children,
   ...attributes
 }: VsfAccordionItemProps): JSX.Element {
-  function onToggleHandler(event: React.MouseEvent<HTMLElement>) {
-    if (onToggle) {
-      event.preventDefault();
-      onToggle();
-    }
-  }
   return (
-    <details className="vsf-accordion-item" open={open} {...attributes}>
-      <summary
-        className={`${chevronLeft && 'vsf-accordion-item__header--right'} vsf-accordion-item__header`}
-        onClick={onToggleHandler}
-      >
+    <details className="vsf-accordion-item" open={open} onToggle={onToggle} {...attributes}>
+      <summary className={`${chevronLeft && 'vsf-accordion-item__header--right'} vsf-accordion-item__header`}>
         {slotPrefix || (
           <span className={`${chevronLeft && 'vsf-accordion-item__title--right'} vsf-accordion-item__title`}>
             {title}
