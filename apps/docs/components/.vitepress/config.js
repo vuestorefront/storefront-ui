@@ -7,28 +7,24 @@ export default {
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Components', link: '/components' },
-      { text: 'Playground', link: '/playground' }
+      { text: 'Playground', link: '/playground' },
     ],
-    socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuestorefront/sfui2' },
-    ],
+    socialLinks: [{ icon: 'github', link: 'https://github.com/vuestorefront/sfui2' }],
     sidebar: [
       {
         text: 'Guide',
         link: '/guide/',
-        items: []
+        items: [],
       },
       {
         text: 'Getting started',
         link: '/getting-started/setup',
-        items: []
+        items: [],
       },
       {
         text: 'Custom Scripts',
         link: '/custom-scripts',
-        items: [
-          { text: 'createIcons', link: '/custom-scripts/createIcons' },
-        ]
+        items: [{ text: 'createIcons', link: '/custom-scripts/createIcons' }],
       },
       {
         text: 'Components',
@@ -53,6 +49,11 @@ export default {
           { text: 'Divider', link: '/components/divider' },
           { text: 'Dialog', link: '/components/dialog' },
           { text: 'Footer', link: '/components/footer' },
+          { text: 'FooterBottomLinks', link: '/components/footerbottomlinks' },
+          { text: 'FooterColumn', link: '/components/footercolumn' },
+          { text: 'FooterLabel', link: '/components/footerlabel' },
+          { text: 'FooterSocialMedia', link: '/components/footersocialmedia' },
+          { text: 'FooterSection', link: '/components/footersection' },
           { text: 'Gallery', link: '/components/gallery' },
           { text: 'Icon', link: '/components/icon' },
           { text: 'IconBase', link: '/components/iconBase' },
@@ -82,14 +83,12 @@ export default {
         link: '/changelog',
         collapsible: true,
         collapsed: true,
-        items: [
-          { text: '0.0.1', link: '/changelog/0.0.1' }
-        ]
-      }
+        items: [{ text: '0.0.1', link: '/changelog/0.0.1' }],
+      },
     ],
     editLink: {
       pattern: 'https://github.com/vuestorefront/sfui2/edit/develop/docs/:path',
-      text: 'Edit this page on GitHub'
-    }
-  }
-}
+      text: 'Edit this page on GitHub',
+    },
+  },
+};
