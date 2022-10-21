@@ -1,7 +1,7 @@
-#  NavBarTopLogo component
+#  NavBarTopActions component
 <!-- react -->
 
-The NavbarTopLogo component is a container for company logo. It should be placed inside VsfNavbarTop component 
+The NavbarTopLogo component is a container for VsfNavbarTopListItem components or custom list item component. It should be placed inside VsfNavbarTop component 
 
 ## Figma design
 

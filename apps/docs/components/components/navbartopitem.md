@@ -11,9 +11,8 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 | Prop name | Type      | Default value | Possible values      |
 | --------- | --------- | ------------- | ---------------      |
-| type      | `String`  | `menu`        | `menu`, `action`     |
 | link      | `String`  |               |                      |
-| variant   | `String`  |  `default`    |`default`, `branded`  | 
+| filled    | `Boolean` |  true         |                      | 
 | ariaLabel | `String`  |               |                      |
 
 <!-- end vue -->
@@ -23,11 +22,10 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 | Prop name | Type                | Default value | Possible values      |
 | --------- | ------------------- | ------------- | ---------------      |
-| variant   | `String`        |      `default`   |`default`, `branded`   |  
+| filled    | `Boolean`           |    true       |                      |  
 | label     | `String`            |               |                      |
 | ariaLabel | `String`            |               |                      |
 | link      | `String`            |               |                      |
-| type      | `String`             | `menu`        | `menu`, `action`    |
 | className | `String`            |               |                      |
 | slotIcon  | `ReactNode`         |               |                      |
 | onClick   | `MouseEventHandler` |               |                      |
@@ -37,17 +35,15 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 ## Slots
 
-<!-- react -->
-
-<!-- end react -->
-
 <!-- vue -->
 | Slot name     |            Description                                      |
 | ---------     | -------------------------------:                            |
 |    logo       |    slot to place logo                                       |
 |    menu       |    slot to place custom menu items or VsfNavbarTopItem      |
 |    search     |    slot to replace search bar                               |
-|    icons      |    slot to place custom action icons or VsfNavbarTopItem    |
+|    menu       |    slot to replace menu                                     |
+|    menuButton |    slot to replace menuButton in menu                       |
+|    actions    |    slot to place custom action icons or VsfNavbarTopItem    |
 
 <!-- end vue -->
 
