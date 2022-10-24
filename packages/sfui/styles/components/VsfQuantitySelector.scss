@@ -21,7 +21,7 @@
   }
   &__input {
     @apply flex relative flex-1 items-center appearance-none px-2;
-    @apply inline-block w-full text-center text-gray-900 bg-transparent disabled:text-transparent;
+    @apply inline-block text-center text-gray-900 bg-transparent disabled:text-transparent;
     /* Chrome, Safari, Edge, Opera */
     &::-webkit-outer-spin-button,
     &::-webkit-inner-spin-button {
