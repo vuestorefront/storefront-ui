@@ -70,10 +70,10 @@
 		}
 
     &--size-sm {
-			@apply text-xs py-1 px-1 min-w-[1.75rem];
+			@apply text-xs py-1 px-1;
 
 			#{$self}__label {
-				@apply mx-0.5;
+				@apply mx-1;
 			}
 
 			#{$self}__icon {
@@ -85,7 +85,7 @@
 			@apply px-1.5 py-1.5;
 
 			#{$self}__label {
-				@apply mx-1;
+				@apply mx-1.5;
 			}
 
 			#{$self}__icon {

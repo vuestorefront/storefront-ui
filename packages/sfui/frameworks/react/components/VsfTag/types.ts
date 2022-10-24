@@ -1,3 +1,5 @@
+import { PropsWithChildren } from 'react';
+
 export enum VsfTagVariants {
   primary = 'primary',
   secondary = 'secondary',
@@ -11,9 +13,9 @@ export enum VsfTagSizes {
   base = 'base',
 }
 
-export interface VsfTagProps {
-  variant?: string;
-  size?: string;
+export interface VsfTagProps extends PropsWithChildren {
+  label?: string;
+  variant?: VsfTagVariants;
+  size?: VsfTagSizes;
   strong?: boolean;
-  className?: string;
 }

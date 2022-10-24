@@ -2,27 +2,49 @@
 
 The Tag component draws attention to new or categorized content elements.
 
+<Generate />
+
 ## Figma design
 
 See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%9F%9B%A0-SFUI-2.0-%7C-Development?node-id=11418%3A18666)
 
+<!-- vue -->
 ## Props
 
-| Prop name   | Type    | Default value | Possible values                        |
-| ----------- | ------- | ------------- | -------------------------------------- |
-| variant      | String  | 'base'            | 'base', 'positive', 'warning', 'error', 'info', 'disabled' |
-| size         |  String | 'base'        | 'sm', 'base'                                   |
-| badge        | Boolean  | false        | true, false                                     |
+|   Prop name    |   Type   | Default value | Possible values |
+|:--------------:|:--------:|:-------------:|:---------------:|
+| `variant`      |`String`  | `gray`            | `gray`, `primary`, `secondary`, `warning`, `negative` |
+| `label`      | `String`  | ''           | 'Label' |
+| `size`         |  `String` | `base`        | `sm`, `base`                                   |
+| `strong`        | `Boolean`  | false        | true, false                                     |
 
 
 ## Slots
 
-| Slot name |            Description            |
-| --------- | :-------------------------------: |
-| prefix      |   content will be displayed before default slot    |
-| suffix    |    content will be displayed after default slot      |
+|   Slot name    |        Description        |
+|:--------------:|:-------------------------:|
+| `icon`      |   content will be displayed in the placement of icon  |
 
+<!-- end vue -->
+
+<!-- react -->
+## Props
+
+|   Prop name    |   Type   | Default value | Possible values |
+|:--------------:|:--------:|:-------------:|:---------------:|
+| `variant`      |`String`  | `gray`            | `gray`, `primary`, `secondary`, `warning`, `negative` |
+| `label`      | `String`  | `base`            | '' |
+| `size`         |  `String` | `base`        | `sm`, `base`                                   |
+| `strong`        | `Boolean`  | false        | true, false                                     |
+| `children`        | `ReactNode`  |       |                                     |
+
+<!-- end react -->
 
 ## Source code
 
-<<<../../mitosis/src/blocks/VsfTag/VsfTag.lite.tsx
+<!-- vue -->
+<<<../../../packages/sfui/frameworks/vue/components/VsfTag/VsfTag.vue
+<!-- end vue -->
+<!-- react -->
+<<< ../../../packages/sfui/frameworks/react/components/VsfTag/VsfTag.tsx
+<!-- end react -->

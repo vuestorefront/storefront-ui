@@ -12,7 +12,8 @@ export enum VsfTagSizes {
 }
 
 export interface VsfTagProps {
-  variant?: string;
+  label?: string;
   size?: string;
+  variant?: string;
   strong?: boolean;
 }
