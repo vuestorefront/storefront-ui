@@ -5,9 +5,7 @@
         v-model="value"
         :placeholder="placeholder"
         :disabled="disabled"
-        :required="required"
         :name="name"
-        :autocomplete="autocomplete"
         @submit.prevent="submitHandler"
         @reset="resetHandler"
       >
@@ -73,11 +71,6 @@ export default {
           },
           {
             type: 'boolean',
-            propType: 'boolean',
-            modelName: 'required',
-          },
-          {
-            type: 'boolean',
             propType: '---',
             modelName: 'slotPrefix',
             description: "Only for demonstration purposes, Icon is injected via 'prefix' slot",
@@ -104,21 +97,13 @@ export default {
             propType: 'string',
             modelName: 'name',
           },
-          {
-            type: 'select',
-            propType: 'string',
-            options: ['on', 'off'],
-            modelName: 'autocomplete',
-          },
         ],
         {
           placeholder: ref('Search'),
           disabled: ref(false),
           value: ref(''),
           name: ref('q'),
-          required: ref(false),
-          autocomplete: ref('off'),
-          slotSubmit: ref(''),
+          slotSubmit: ref('search'),
           slotPrefix: ref(false),
           slotSuffix: ref(false),
         },

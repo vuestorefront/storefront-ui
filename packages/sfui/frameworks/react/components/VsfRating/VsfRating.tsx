@@ -1,4 +1,4 @@
-import { clamp, roundToNearest } from '@sfui/sfui/shared/utils';
+import { clamp, roundToNearest } from '@sfui/sfui/shared/utils/index';
 import classNames from 'classnames';
 import { VsfIconStar, VsfIconStarOutline, VsfIconStarPartiallyFilled } from '../VsfIcons';
 import { VsfRatingSizes, VsfRatingVariants } from './types';
@@ -39,8 +39,10 @@ export default function VsfRating({
     className,
   );
 
+  const label = `${value} out of ${max}`;
+
   return (
-    <div role="img" className={classes} aria-label={`Rating: ${value} out of ${max} stars`} {...attributes}>
+    <div role="img" className={classes} aria-label={label} {...attributes} title={label}>
       {variant === 'withValue' ? (
         <>
           <VsfIconStar aria-hidden="true" className="vsf-rating__star-filled" />

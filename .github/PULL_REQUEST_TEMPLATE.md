@@ -14,11 +14,11 @@ Closes #
 
 # Checklist
 
-- [ ] No commented blocks of code left
 - [ ] Self code-reviewed
 - [ ] Changes documented
 - [ ] Semantic HTML
 - [ ] SSR-friendly
 - [ ] Caching friendly
 - [ ] a11y for WCAG 2.0 AA
-- [ ] stories created
+- [ ] examples created
+- [ ] removed old mitosis/examplesOld files

@@ -12,14 +12,14 @@
         :block="block"
         :tag="tag"
       >
-        <template v-if="leftIconModel" #prefix>
+        <template v-if="ExampleLeftIcon" #prefix>
           <VsfIconVsfDiamond />
         </template>
-        <template v-if="icon" #default>
-          <VsfIconVsfDiamond />
+        <VsfIconVsfDiamond v-if="ExampleIconContent" />
+        <template v-else>
+          {{ ExampleTextContent }}
         </template>
-        {{ childrenModel }}
-        <template v-if="rightIconModel" #suffix>
+        <template v-if="ExampleRightIcon" #suffix>
           <VsfIconVsfDiamond />
         </template>
       </VsfButton>
@@ -49,6 +49,26 @@ export default defineComponent({
       [
         {
           type: 'text',
+          modelName: 'ExampleTextContent',
+          description: 'Only for demonstration purposes.',
+        },
+        {
+          type: 'boolean',
+          modelName: 'ExampleIconContent',
+          description: 'Only for demonstration purposes.',
+        },
+        {
+          type: 'boolean',
+          modelName: 'ExampleLeftIcon',
+          description: 'slotPrefix',
+        },
+        {
+          type: 'boolean',
+          modelName: 'ExampleRightIcon',
+          description: 'slotSuffix',
+        },
+        {
+          type: 'text',
           modelName: 'link',
           description: 'Change <button> to <a> tag with `href` attribute',
         },
@@ -74,23 +94,8 @@ export default defineComponent({
         },
         {
           type: 'boolean',
-          modelName: 'icon',
-          description: 'Example with icon content',
-        },
-        {
-          type: 'boolean',
-          modelName: 'leftIconModel',
-          description: 'slotPrefix',
-        },
-        {
-          type: 'boolean',
-          modelName: 'rightIconModel',
-          description: 'slotSuffix',
-        },
-        {
-          type: 'boolean',
           modelName: 'tile',
-          description: 'Remove radius from border',
+          description: 'Remove border radius',
         },
         {
           type: 'boolean',
@@ -107,24 +112,20 @@ export default defineComponent({
           modelName: 'block',
           description: 'Full container width',
         },
-        {
-          type: 'text',
-          modelName: 'childrenModel',
-          description: 'Text visible in button',
-        },
       ],
       {
-        childrenModel: ref('Hello'),
-        link: ref(''),
+        ExampleTextContent: ref('Hello'),
+        ExampleLeftIcon: ref(false),
+        ExampleRightIcon: ref(false),
+        ExampleIconContent: ref(false),
+        link: ref(),
         disabled: ref(false),
-        icon: ref(false),
-        leftIconModel: ref(false),
-        rightIconModel: ref(false),
         variant: ref<VsfButtonVariants>(VsfButtonVariants.primary),
         size: ref<VsfButtonSizes>(VsfButtonSizes.base),
-        tile: ref(),
-        rounded: ref(),
-        block: ref(),
+        tile: ref(false),
+        icon: ref(false),
+        rounded: ref(false),
+        block: ref(false),
         tag: ref('button'),
       },
     );

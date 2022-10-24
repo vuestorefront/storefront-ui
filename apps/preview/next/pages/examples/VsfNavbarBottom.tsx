@@ -33,7 +33,7 @@ function Example() {
       hideLabels: false,
       filled: false,
       absolute: false,
-      active: 'Home',
+      active: '',
     },
   );
   function onClickHandler(itemLabel: string) {

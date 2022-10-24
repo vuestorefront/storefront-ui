@@ -1,12 +1,12 @@
-import { CSSProperties, ReactNode, FormEventHandler, MouseEventHandler } from 'react';
+import { ReactNode, FormEventHandler, MouseEventHandler } from 'react';
+import { PropsWithStyle } from '../../shared/types';
 
-export type VsfSearchProps = {
+export type VsfSearchProps = PropsWithStyle & {
   placeholder?: string;
   disabled?: boolean;
   value?: string;
   name?: string;
-  required?: boolean;
-  autocomplete?: string;
+  inputProps?: Record<string, unknown>;
   slotPrefix?: ReactNode;
   slotSuffix?: ReactNode;
   slotSubmit?: ReactNode;
@@ -14,6 +14,4 @@ export type VsfSearchProps = {
   onInput?: FormEventHandler<HTMLInputElement>;
   onSubmit?: FormEventHandler<HTMLFormElement>;
   onReset?: MouseEventHandler<Element>;
-  className?: string | undefined;
-  style?: CSSProperties;
 };

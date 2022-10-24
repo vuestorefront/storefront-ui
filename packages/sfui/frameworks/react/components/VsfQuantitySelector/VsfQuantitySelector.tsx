@@ -1,6 +1,6 @@
-import { ChangeEvent } from 'react';
+import { ChangeEvent, useState, SyntheticEvent } from 'react';
 import classNames from 'classnames';
-import { clamp } from '@sfui/sfui/shared/utils';
+import { clamp } from '@sfui/sfui/shared/utils/index';
 import { VsfIconMinus, VsfIconPlus } from '../VsfIcons';
 import VsfButton, { VsfButtonSizes } from '../VsfButton';
 import { VsfQuantitySelectorProps, VsfQuantitySelectorSizes } from './types';
@@ -18,20 +18,37 @@ export default function VsfQuantitySelector({
   onChange,
   className,
   children,
+  decimal,
   ...attributes
 }: VsfQuantitySelectorProps) {
+  const [innerValue, setInnerValue] = useState<string | number>(value);
+
   const increaseDisabled = disabled || value >= maxValue;
   const decreaseDisabled = disabled || value <= minValue;
 
   function handleChange(currentValue: number) {
-    const nextValue = clamp(currentValue, minValue, maxValue);
+    const nextValue = Number(clamp(currentValue, minValue, maxValue).toFixed(decimal));
+    setInnerValue(nextValue);
     onChange(nextValue);
   }
 
   function handleOnChange(event: ChangeEvent<HTMLInputElement>) {
     const { value: currentValue } = event.target;
-    if (currentValue) {
-      handleChange(Number(currentValue));
+    if (currentValue.length) {
+      const nextValue = parseFloat(currentValue);
+      handleChange(nextValue);
+    } else {
+      setInnerValue(currentValue);
+    }
+  }
+
+  function handleOnBlur(event: SyntheticEvent) {
+    const { value: currentValue } = event.target as HTMLInputElement;
+    if (currentValue.length) {
+      const nextValue = parseFloat(currentValue);
+      handleChange(nextValue);
+    } else {
+      handleChange(value);
     }
   }
   const buttonSize = size === VsfQuantitySelectorSizes.lg ? VsfButtonSizes.lg : VsfButtonSizes.base;
@@ -66,13 +83,15 @@ export default function VsfQuantitySelector({
           step={step}
           role="spinbutton"
           className="vsf-qty-selector__input"
-          value={value}
+          value={innerValue}
           disabled={disabled}
           aria-label={inputAriaLabel}
           aria-disabled={disabled}
           onChange={handleOnChange}
+          onBlur={handleOnBlur}
           min={minValue}
           max={maxValue}
+          inputMode={decimal ? 'decimal' : 'numeric'}
         />
 
         <VsfButton

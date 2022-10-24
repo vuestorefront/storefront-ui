@@ -45,7 +45,7 @@ export default defineComponent({
         {
           withIcon: ref(),
           breadcrumbs: ref([
-            { name: 'NuxtLink', linkTag: componentToShow, bindings: { to: '/examples/VsfOtherComponent' } },
+            { name: 'NuxtLink', linkTag: componentToShow, bindings: { to: '/examples/ListOfIcons' } },
             { name: 'Page 2', bindings: { href: '/page2' } },
             { name: 'Page 3', bindings: { href: '/page3' } },
             { name: 'Page 4', bindings: { href: '/page4' } },
