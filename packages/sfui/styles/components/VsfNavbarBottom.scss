@@ -1,12 +1,12 @@
 .vsf-navbar-bottom {
-  $root: &;
+  $self: &;
   @apply bottom-0 w-full left-0 fixed;
   &--absolute {
     @apply absolute;
   }
 
   &#{&}--no-labels {
-    #{$root}-item {
+    #{$self}-item {
       &__label {
         @apply hidden;
       }
@@ -16,7 +16,7 @@
     }
   }
   &#{&}--filled {
-    #{$root}-item {
+    #{$self}-item {
       @apply bg-primary-500 text-white;
       @apply hover:text-white hover:bg-primary-600 active:text-white active:bg-primary-600;
       &--active {

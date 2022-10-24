@@ -1,8 +1,8 @@
 .vsf-qty-selector {
-  $root: &;
+  $self: &;
   @apply relative items-center inline-flex flex-col;
   &--disabled {
-    #{$root}__wrapper {
+    #{$self}__wrapper {
       @apply bg-gray-200 opacity-50 cursor-not-allowed;
       &:after {
         @apply content-['-'] font-medium text-gray-900/40 absolute text-center flex justify-center items-center w-full h-full;
