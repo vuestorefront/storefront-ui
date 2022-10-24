@@ -1,5 +1,5 @@
 import { ChangeEvent, PropsWithChildren } from 'react';
-import { PropsWithStyle } from '@sfui/sfui/shared/types';
+import { PropsWithStyle } from '@sfui/sfui/shared/types/index';
 
 export enum VsfChipsFilterVariants {
   sm = 'sm',

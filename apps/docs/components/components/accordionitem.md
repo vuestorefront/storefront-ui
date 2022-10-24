@@ -1,6 +1,9 @@
-# Accordion component
+# AccordionItem component
 
-The Accordion component is built on native `details` html element. Click on header triggers expanding below seated content passed inside by the prop.
+The AccordionItem component is built on native `details` html element. Click on header triggers expanding below seated content passed inside by the prop.
+
+<Generate />
+
 
 ## Figma design
 
@@ -14,15 +17,16 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 | title      | String  | ''            |                                        |
 | chevronLeft | Boolean  | false            |                                        |                                        |
 
-### React only: 
+<!-- react -->
+###  Props: 
 | Prop name   | Type    | Default value | Possible values                        |
 | ----------- | ------- | ------------- | -------------------------------------- |
 | slotPrefix | ReactNode  |             |                                        |                                        |
 | slotSuffix | ReactNode  |             |                                        |                                        |
 | children | ReactNode  |             |                                        |                                        |
-
-
-## Slots (vue only)
+<!-- end react -->
+<!-- vue -->
+## Slots
 
 | Slot name |            Description            |
 | --------- | :-------------------------------: |
@@ -30,6 +34,7 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 | suffix  |     replaces the chevron icon     |
 | default    | replaces the content |
 
+<!-- end vue -->
 ## Events
 
 The native `toggle` event is emitted.
@@ -39,6 +44,9 @@ The native `toggle` event is emitted.
 
 ## Source code
 
-Let's see how the component is created in Mitosis:
-
-<<<../../mitosis/src/blocks/VsfAccordion/VsfAccordion.lite.tsx
+<!-- vue -->
+<<<../../../packages/sfui/frameworks/vue/components/VsfAccordionItem/VsfAccordionItem.vue
+<!-- end vue -->
+<!-- react -->
+<<<../../../packages/sfui/frameworks/react/components/VsfAccordionItem/VsfAccordionItem.tsx
+<!-- end react -->

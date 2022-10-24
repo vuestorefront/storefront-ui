@@ -1,3 +1,21 @@
+const glob = require("glob");
+const path = require("path");
+const vueFiles = glob.sync(
+  "../../../packages/sfui/frameworks/vue/components/**/*.vue"
+)
+const reactFiles = glob.sync(
+  "../../../packages/sfui/frameworks/react/components/**/*.tsx"
+)
+const docs = glob.sync(
+  "./components/*.md"
+)
+const allVueComponents = vueFiles.map(file => path.basename(file).replace('.vue', '')).sort();
+const allVueComponentsWithDocs = allVueComponents.filter(component => docs.find(item => component.replace('Vsf', '').toLowerCase() === path.basename(item).replace('.md', '')) )
+const allReactComponents = reactFiles.map(file => path.basename(file).replace('.tsx', '')).sort();
+const allReactComponentsWithDocs = allReactComponents.filter(component => docs.find(item => component.replace('Vsf', '').toLowerCase() === path.basename(item).replace('.md', '')))
+
+const createComponentLink = (framework, componentName) => `/${framework}/${componentName}`;
+
 export default {
   title: 'Storefront UI library',
   description: 'Lightning fast ecommerce library',
@@ -6,15 +24,18 @@ export default {
     siteTitle: 'Storefront UI library',
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Components', link: '/components' },
-      { text: 'Playground', link: '/playground' },
+      { text: 'React', link: '/react/index' },
+      { text: 'Vue', link: '/vue/index' },
+      { text: 'Guide', link: '/guide/index' }
     ],
-    socialLinks: [{ icon: 'github', link: 'https://github.com/vuestorefront/sfui2' }],
+    socialLinks: [
+      { icon: 'github', link: 'https://github.com/vuestorefront/sfui2' },
+    ],
     sidebar: [
       {
         text: 'Guide',
-        link: '/guide/',
-        items: [],
+        link: '/guide/index',
+        items: []
       },
       {
         text: 'Getting started',
@@ -27,56 +48,30 @@ export default {
         items: [{ text: 'createIcons', link: '/custom-scripts/createIcons' }],
       },
       {
-        text: 'Components',
-        link: '/components',
+        text: 'Vue',
+        link: '/vue/index',
         collapsible: true,
         collapsed: true,
         items: [
-          { text: 'Search', link: '/components/search' },
-          { text: 'RadioGroup', link: '/components/radiogroup' },
-          { text: 'Radio', link: '/components/radio' },
-          { text: 'Slider', link: '/components/slider' },
-          { text: 'NavBarTop', link: '/components/navbartop' },
-          { text: 'Alert', link: '/components/alert' },
-          { text: 'Accordion', link: '/components/accordion' },
-          { text: 'Checkbox', link: '/components/checkbox' },
-          { text: 'Breadcrumbs', link: '/components/breadcrumbs' },
-          { text: 'Button', link: '/components/button' },
-          { text: 'Checkbox', link: '/components/checkbox' },
-          { text: 'ChipsFilter', link: '/components/chipsfilter' },
-          { text: 'ChipsInput', link: '/components/chipsinput' },
-          { text: 'Counter', link: '/components/counter' },
-          { text: 'Divider', link: '/components/divider' },
-          { text: 'Dialog', link: '/components/dialog' },
-          { text: 'Footer', link: '/components/footer' },
-          { text: 'FooterBottomLinks', link: '/components/footerbottomlinks' },
-          { text: 'FooterColumn', link: '/components/footercolumn' },
-          { text: 'FooterLabel', link: '/components/footerlabel' },
-          { text: 'FooterSocialMedia', link: '/components/footersocialmedia' },
-          { text: 'FooterSection', link: '/components/footersection' },
-          { text: 'Gallery', link: '/components/gallery' },
-          { text: 'Icon', link: '/components/icon' },
-          { text: 'IconBase', link: '/components/iconBase' },
-          { text: 'ListItemMenu', link: '/components/listitemmenu' },
-          { text: 'Overlay', link: '/components/overlay' },
-          { text: 'Rating', link: '/components/rating' },
-          { text: 'RatingButton', link: '/components/ratingbutton' },
-          { text: 'Search', link: '/components/search' },
-          { text: 'Slider', link: '/components/slider' },
-          { text: 'Spinner', link: '/components/spinner' },
-          { text: 'Switch', link: '/components/switch' },
-          { text: 'Sheet', link: '/components/sheet' },
-          { text: 'Select', link: '/components/select' },
-          { text: 'Sheet', link: '/components/sheet' },
-          { text: 'Spinner', link: '/components/spinner' },
-          { text: 'Tag', link: '/components/tag' },
-          { text: 'Tooltip', link: '/components/tooltip' },
-          { text: 'NavbarBottom', link: '/components/navbarbottom' },
-          { text: 'NavbarBottomItem', link: '/components/navbarbottomitem' },
-          { text: 'ProductCardVertical', link: '/components/productCardVertical' },
-          { text: 'Badge', link: '/components/badge' },
-          { text: 'QuantitySelector', link: '/components/quantityselector' },
-        ].sort((a, b) => a.text.localeCompare(b.text)),
+          {
+            text: 'components',
+            link: '/vue/components/index',
+            items: allVueComponentsWithDocs.map(component => ({ text: component, link: createComponentLink('vue/components', component.slice(3).toLowerCase()) }))
+          }
+        ]
+      },
+      {
+        text: 'React',
+        link: '/react/index',
+        collapsible: true,
+        collapsed: true,
+        items: [
+          {
+            text: 'components',
+            link: '/react/components/index',
+            items: allReactComponentsWithDocs.map(component => ({ text: component, link: createComponentLink('react/components', component.slice(3).toLowerCase()) }))
+          }
+        ]
       },
       {
         text: 'Changelog',
@@ -88,7 +83,7 @@ export default {
     ],
     editLink: {
       pattern: 'https://github.com/vuestorefront/sfui2/edit/develop/docs/:path',
-      text: 'Edit this page on GitHub',
-    },
-  },
-};
+      text: 'Edit this page on GitHub'
+    },    
+  }
+}
