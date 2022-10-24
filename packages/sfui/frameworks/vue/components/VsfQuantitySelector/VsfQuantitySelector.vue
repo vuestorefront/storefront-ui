@@ -81,7 +81,10 @@ function handleOnBlur() {
 </script>
 
 <template>
-  <div :class="['vsf-qty-selector', { 'vsf-qty-selector--disabled': disabled, 'vsf-qty-selector--block': block }]">
+  <div
+    :class="['vsf-qty-selector', { 'vsf-qty-selector--disabled': disabled, 'vsf-qty-selector--block': block }]"
+    data-testid="qty-selector"
+  >
     <div class="vsf-qty-selector__wrapper">
       <VsfButton
         :variant="VsfButtonVariants.tertiary"
@@ -92,6 +95,7 @@ function handleOnBlur() {
         icon
         :size="buttonSize"
         :disabled="decreaseDisabled"
+        data-testid="decrease-button"
         @click="handleChange(currentValue - step)"
       >
         <VsfIconMinus />
@@ -123,6 +127,7 @@ function handleOnBlur() {
         icon
         :disabled="increaseDisabled"
         :size="buttonSize"
+        data-testid="increase-button"
         @click="handleChange(currentValue + step)"
       >
         <VsfIconPlus />

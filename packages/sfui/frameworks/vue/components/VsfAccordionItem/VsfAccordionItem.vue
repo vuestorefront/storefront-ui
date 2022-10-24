@@ -18,7 +18,7 @@ defineProps({
 </script>
 
 <template>
-  <details class="vsf-accordion-item" :open="open">
+  <details class="vsf-accordion-item" :open="open" data-testid="accordion-item">
     <summary :class="`${chevronLeft && 'vsf-accordion-item__header--right'} vsf-accordion-item__header`">
       <slot name="prefix">
         <span :class="`${chevronLeft && 'vsf-accordion-item__title--right'} vsf-accordion-item__title`">

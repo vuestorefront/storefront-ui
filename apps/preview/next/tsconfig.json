@@ -45,6 +45,7 @@
     "dist",
     "lib",
     "output",
-    "pages/examplesOld"
+    "pages/examplesOld",
+    "sfui"
   ]
 }
