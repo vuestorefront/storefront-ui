@@ -16,10 +16,7 @@ const props = defineProps({
   },
 });
 const componentTag = computed(() => {
-  if (props.link) {
-    return 'a';
-  }
-  return 'button';
+  return props.link ? 'a' : 'button';
 });
 
 const classes = computed(() => {
