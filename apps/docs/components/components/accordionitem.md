@@ -11,11 +11,11 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 ## Props
 
-| Prop name   | Type    | Default value | Possible values                        |
-| ----------- | ------- | ------------- | -------------------------------------- |
-| open| Boolean | true          |              |
-| title      | String  | ''            |                                        |
-| chevronLeft | Boolean  | false            |                                        |                                        |
+| Prop name   | Type    | Default value | Possible values |
+| ----------- | ------- | ------------- | --------------- |
+| open        | Boolean | false         |                 |
+| title       | String  | ''            |                 |
+| chevronLeft | Boolean | false         |                 |
 
 <!-- react -->
 ###  Props: 
@@ -28,19 +28,20 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 <!-- vue -->
 ## Slots
 
-| Slot name |            Description            |
-| --------- | :-------------------------------: |
-| prefix  |     replaces the title with styling  |
-| suffix  |     replaces the chevron icon     |
-| default    | replaces the content |
+| Slot name |           Description           |
+| --------- | :-----------------------------: |
+| prefix    | replaces the title with styling |
+| suffix    |    replaces the chevron icon    |
+| default   |      replaces the content       |
 
 <!-- end vue -->
 ## Events
 
-The native `toggle` event is emitted.
+| Event name |       Trigger        |
+| ---------- | :------------------: |
+| toggle     | Details native event |
 
 ## Accessibility notes
-
 
 ## Source code
 

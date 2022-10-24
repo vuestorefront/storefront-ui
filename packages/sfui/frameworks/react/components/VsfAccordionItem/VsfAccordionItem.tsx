@@ -2,17 +2,17 @@ import type { VsfAccordionItemProps } from './types';
 import VsfIconTriangleUp from '../VsfIcons/VsfIconTriangleUp';
 
 export default function VsfAccordionItem({
-  open = false,
+  open,
   title,
-  chevronLeft = false,
+  chevronLeft,
   slotPrefix,
   slotSuffix,
+  onToggle,
   children,
   ...attributes
 }: VsfAccordionItemProps): JSX.Element {
   return (
-    // TODO: handler for open, its common practice to have feedback when prop like that changes
-    <details className="vsf-accordion-item" open={open} {...attributes}>
+    <details className="vsf-accordion-item" open={open} onToggle={onToggle} {...attributes}>
       <summary className={`${chevronLeft && 'vsf-accordion-item__header--right'} vsf-accordion-item__header`}>
         {slotPrefix || (
           <span className={`${chevronLeft && 'vsf-accordion-item__title--right'} vsf-accordion-item__title`}>
