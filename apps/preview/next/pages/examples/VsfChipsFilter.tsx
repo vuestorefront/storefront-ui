@@ -56,6 +56,7 @@ function Example() {
           label={state.get.label}
           type={state.get.type as 'radio' | 'checkbox'}
           value="one"
+          // eslint-disable-next-line no-console
           onChange={() => console.log('changed!')}
           className="mr-2"
         >

@@ -12,9 +12,10 @@ export default function VsfChipsFilter({
   type = 'radio',
   size = VsfChipsFilterVariants.base,
   className = '',
+  ...attributes
 }: VsfChipsFilterProps): JSX.Element {
   return (
-    <label className={classNames('vsf-chips-filter', `vsf-chips-filter--size-${size}`, className)}>
+    <label className={classNames('vsf-chips-filter', `vsf-chips-filter--size-${size}`, className)} {...attributes}>
       <input
         className="peer vsf-chips-filter__input"
         type={type}
