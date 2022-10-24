@@ -1,6 +1,6 @@
 import classNames from 'classnames';
-import { VsfNavbarTopNavigationProps } from './types';
+import { VsfNavbarTopDefaultProps } from './types';
 
-export default function VsfNavbarTopNavigation({ children, className }: VsfNavbarTopNavigationProps) {
+export default function VsfNavbarTopNavigation({ children, className }: VsfNavbarTopDefaultProps) {
   return <div className={classNames('vsf-navbar-top__menu-wrapper', className)}>{children}</div>;
 }

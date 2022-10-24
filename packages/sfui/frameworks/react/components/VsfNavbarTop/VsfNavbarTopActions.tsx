@@ -1,6 +1,6 @@
 import classNames from 'classnames';
-import { VsfNavbarTopActionsProps } from './types';
+import { VsfNavbarTopDefaultProps } from './types';
 
-export default function VsfNavbarTopActions({ children, className }: VsfNavbarTopActionsProps) {
+export default function VsfNavbarTopActions({ children, className }: VsfNavbarTopDefaultProps) {
   return <ul className={classNames('vsf-navbar-top__actions', className)}>{children}</ul>;
 }
