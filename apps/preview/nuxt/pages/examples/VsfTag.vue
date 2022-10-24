@@ -1,11 +1,10 @@
 <template>
   <div class="e-page">
     <div class="e-page-component">
-      <VsfTag :variant="variant" :strong="strong" :size="size">
+      <VsfTag :variant="variant" :strong="strong" :size="size" :label="label">
         <template v-if="showIcon" #icon>
           <div class="w-full h-full rounded-full" />
         </template>
-        {{ value }}
       </VsfTag>
     </div>
     <div class="e-page-controls">
@@ -32,7 +31,7 @@ export default defineComponent({
         [
           {
             type: 'text',
-            modelName: 'value',
+            modelName: 'label',
             propType: 'string',
           },
           {
@@ -57,7 +56,7 @@ export default defineComponent({
           },
         ],
         {
-          value: ref('Label'),
+          label: ref('Label'),
           variant: ref<VsfTagVariants>(VsfTagVariants.gray),
           size: ref<VsfTagSizes>(VsfTagSizes.base),
           strong: ref(false),

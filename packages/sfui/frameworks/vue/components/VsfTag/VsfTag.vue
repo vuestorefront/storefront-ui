@@ -3,6 +3,10 @@ import { PropType } from 'vue';
 import type { VsfTagSizes, VsfTagVariants } from './types';
 
 const props = defineProps({
+  label: {
+    type: String,
+    default: '',
+  },
   size: {
     type: String as PropType<VsfTagSizes>,
     default: 'base',
@@ -30,6 +34,6 @@ const props = defineProps({
     <div v-if="$slots.icon" class="vsf-tag__icon">
       <slot name="icon" />
     </div>
-    <span class="vsf-tag__label"><slot /></span>
+    <span v-if="label" class="vsf-tag__label">{{ label }}</span>
   </div>
 </template>
