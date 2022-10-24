@@ -30,7 +30,7 @@ import VsfButton from '@sfui/sfui/frameworks/vue/components/VsfButton/VsfButton.
 import { VsfIconBasket } from '@sfui/sfui/frameworks/vue/components/VsfIcons/index';
 
 export default defineComponent({
-  name: 'VsfOverlayExample',
+  name: 'VsfBadgeExample',
   components: {
     Controls,
     VsfBadge,

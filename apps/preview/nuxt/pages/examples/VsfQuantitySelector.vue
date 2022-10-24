@@ -35,7 +35,7 @@ import VsfQuantitySelector from '@sfui/sfui/frameworks/vue/components/VsfQuantit
 import { VsfQuantitySelectorSizes } from '@sfui/sfui/frameworks/vue/components/VsfQuantitySelector/types';
 
 export default defineComponent({
-  name: 'VsfOverlayExample',
+  name: 'VsfQuantitySelectorExample',
   components: {
     VsfQuantitySelector,
     Controls,
