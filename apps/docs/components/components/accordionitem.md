@@ -2,6 +2,9 @@
 
 The AccordionItem component is built on native `details` html element. Click on header triggers expanding below seated content passed inside by the prop.
 
+<Generate />
+
+
 ## Figma design
 
 See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%9F%9B%A0-SFUI-2.0-%7C-Development?node-id=11381%3A15149)
@@ -14,16 +17,16 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 | title       | String  | ''            |                 |
 | chevronLeft | Boolean | false         |                 |
 
-### React only:
-
-| Prop name  | Type      | Default value | Possible values |
-| ---------- | --------- | ------------- | --------------- |
-| slotPrefix | ReactNode |               |                 |
-| slotSuffix | ReactNode |               |                 |
-| children   | ReactNode |               |                 |
-| onToggle   | Function  |               |                 |
-
-## Slots (vue only)
+<!-- react -->
+###  Props: 
+| Prop name   | Type    | Default value | Possible values                        |
+| ----------- | ------- | ------------- | -------------------------------------- |
+| slotPrefix | ReactNode  |             |                                        |                                        |
+| slotSuffix | ReactNode  |             |                                        |                                        |
+| children | ReactNode  |             |                                        |                                        |
+<!-- end react -->
+<!-- vue -->
+## Slots
 
 | Slot name |           Description           |
 | --------- | :-----------------------------: |
@@ -31,6 +34,7 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 | suffix    |    replaces the chevron icon    |
 | default   |      replaces the content       |
 
+<!-- end vue -->
 ## Events
 
 | Event name |       Trigger        |
@@ -41,7 +45,9 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 ## Source code
 
-Let's see how the component is created in Mitosis:
-
+<!-- vue -->
 <<<../../../packages/sfui/frameworks/vue/components/VsfAccordionItem/VsfAccordionItem.vue
-<<< ../../../packages/sfui/frameworks/react/components/VsfAccordionItem/VsfAccordionItem.tsx
+<!-- end vue -->
+<!-- react -->
+<<<../../../packages/sfui/frameworks/react/components/VsfAccordionItem/VsfAccordionItem.tsx
+<!-- end react -->

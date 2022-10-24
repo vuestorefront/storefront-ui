@@ -1,6 +1,6 @@
 import { useCallback, useRef, useEffect } from 'react';
 import type { MutableRefObject } from 'react';
-import { equal } from '@sfui/sfui/shared/utils';
+import { equal } from '@sfui/sfui/shared/utils/index';
 import type { Options } from './types';
 import VSFSlider from './slider';
 

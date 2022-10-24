@@ -18,12 +18,12 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 ## Subcomponents
 <!-- react -->
-* FooterBottomLinks
-* FooterSection
+* [FooterBottomLinks](footerbottomlinks)
+* [FooterSection](footersection)
 <!-- end react -->
-* FooterColumn
-* FooterLabel
-* FooterSocialMedia
+* [FooterColumn](footercolumn)
+* [FooterLabel](footerlabel)
+* [FooterSocialMedia](footersocialmedia)
 
 ## Source code
 

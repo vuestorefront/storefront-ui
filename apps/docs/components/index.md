@@ -7,7 +7,7 @@ hero:
   actions:
     - theme: brand
       text: Get Started
-      link: /guide
+      link: /guide/index
     - theme: alt
       text: View on GitHub
       link: https://github.com/vuestorefront/sfui2

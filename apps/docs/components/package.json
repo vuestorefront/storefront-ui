@@ -2,13 +2,16 @@
   "name": "@sfui/docs",
   "version": "0.0.0",
   "private": true,
-  "main": "index.js",
+  "main": "index.md",
   "scripts": {
-    "dev": "vitepress dev --port=8000",
-    "build": "vitepress build",
-    "serve": "vitepress serve"
+    "dev": "concurrently \"vitepress dev --port=8000\" \"yarn watch-docs\"",
+    "build": "yarn update-docs && vitepress build",
+    "watch-docs": "nodemon",
+    "serve": "vitepress serve",
+    "update-docs": "yarn node ./utils/createFrameworksDocs"
   },
   "devDependencies": {
+    "@sfui/sfui": "*",
     "tailwindcss": "^3.1.8",
     "vitepress": "^1.0.0-alpha.4"
   }
