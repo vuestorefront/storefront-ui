@@ -49,7 +49,7 @@ import VsfSlider from '@sfui/sfui/frameworks/vue/components/VsfSlider/VsfSlider.
 import { VsfSliderNavigation, VsfSliderScrollbar } from '@sfui/sfui/frameworks/vue/components/VsfSlider/types';
 
 export default defineComponent({
-  name: 'VsfOverlayExample',
+  name: 'VsfSliderExample',
   components: {
     VsfSlider,
     Controls,
