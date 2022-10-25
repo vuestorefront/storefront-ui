@@ -1,6 +1,6 @@
 .vsf-qty-selector {
   $root: &;
-  @apply relative items-center inline-flex flex-col;
+  @apply relative items-center inline-flex flex-col flex-shrink-0;
   &--disabled {
     #{$root}__wrapper {
       @apply bg-gray-200 opacity-50 cursor-not-allowed;
@@ -20,8 +20,7 @@
     }
   }
   &__input {
-    @apply flex relative flex-1 items-center appearance-none px-2;
-    @apply inline-block text-center text-gray-900 bg-transparent disabled:text-transparent;
+    @apply flex relative flex-1 items-center appearance-none px-2 text-center text-gray-900 bg-transparent disabled:text-transparent;
     /* Chrome, Safari, Edge, Opera */
     &::-webkit-outer-spin-button,
     &::-webkit-inner-spin-button {
