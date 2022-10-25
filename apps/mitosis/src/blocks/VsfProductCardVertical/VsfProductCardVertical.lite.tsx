@@ -1,6 +1,5 @@
 import { useStore, Show } from '@builder.io/mitosis';
 import VsfRating from '../VsfRating/VsfRating.lite';
-import VsfTag from '../VsfTag/VsfTag.lite';
 import VsfButton from '../VsfButton/VsfButton.lite';
 import { classStringFromArray } from '../../functions/domUtils';
 import VsfIconFavoritesOutline from '../VsfIcons/VsfIconFavoritesOutline.lite';
@@ -216,19 +215,6 @@ export default function VsfProductCardVertical(props: VsfProductCardVerticalProp
           <div
             className="absolute bottom-0 left-0 right-0 flex items-end m-2"
           >
-            <Show when={state.useOutOfStockProp || state.useInCartProp > 0}>
-              <VsfTag
-                badge={false}
-                size="sm"
-                variant={state.useOutOfStockProp ? 'error' : 'positive'}
-              >
-                {
-                  (state.useOutOfStockProp)
-                    ? <span> Out of stock </span>
-                    : <span> {`${state.useInCartProp} in cart`}</span>
-                }
-              </VsfTag>
-            </Show>
             <VsfButton
               className="ml-auto rounded-full"
               variant="secondary"

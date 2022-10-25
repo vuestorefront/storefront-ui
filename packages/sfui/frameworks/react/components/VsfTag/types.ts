@@ -1,4 +1,5 @@
 import { PropsWithChildren } from 'react';
+import { PropsWithStyle } from '@sfui/sfui/shared/types/index';
 
 export enum VsfTagVariants {
   primary = 'primary',
@@ -13,7 +14,7 @@ export enum VsfTagSizes {
   base = 'base',
 }
 
-export interface VsfTagProps extends PropsWithChildren {
+export interface VsfTagProps extends PropsWithChildren, PropsWithStyle {
   label?: string;
   variant?: VsfTagVariants;
   size?: VsfTagSizes;
