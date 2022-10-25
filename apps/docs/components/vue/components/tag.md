@@ -9,6 +9,7 @@ The Tag component draws attention to new or categorized content elements.
 See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%9F%9B%A0-SFUI-2.0-%7C-Development?node-id=11418%3A18666)
 
 
+
 ## Props
 
 |   Prop name    |   Type   | Default value | Possible values |
@@ -28,6 +29,10 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 
 
+
+## Accessibility notes
+
+Component uses `aria-live` attribute for dynamical change of content. For more information on usage and allowed attributes, please look into: [Click here](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions) 
 
 ## Source code
 

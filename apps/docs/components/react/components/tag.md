@@ -11,6 +11,7 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 
 
+
 ## Props
 
 |   Prop name    |   Type   | Default value | Possible values |
@@ -22,6 +23,10 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 | `children`        | `ReactNode`  |       |                                     |
 
 
+
+## Accessibility notes
+
+Component uses `aria-live` attribute for dynamical change of content. For more information on usage and allowed attributes, please look into: [Click here](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions) 
 
 ## Source code
 
