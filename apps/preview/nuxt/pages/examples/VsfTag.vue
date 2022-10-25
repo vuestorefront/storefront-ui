@@ -1,7 +1,7 @@
 <template>
   <div class="e-page">
     <div class="e-page-component">
-      <VsfTag :variant="variant" :strong="strong" :size="size" :label="label">
+      <VsfTag :variant="variant" :strong="strong" :size="size" :label="label" :aria-live="ariaLiveValue">
         <template v-if="showIcon" #icon>
           <div class="w-full h-full rounded-full" />
         </template>
@@ -33,11 +33,12 @@ export default defineComponent({
             type: 'text',
             modelName: 'label',
             propType: 'string',
+            description: 'Set label value',
           },
           {
             type: 'boolean',
             modelName: 'strong',
-            description: 'Set stronger color contrast',
+            description: 'Set stronger color contrast and font weight',
           },
           {
             type: 'boolean',
@@ -48,11 +49,19 @@ export default defineComponent({
             type: 'select',
             modelName: 'variant',
             options: Object.keys(VsfTagVariants),
+            description: 'Set color variant',
           },
           {
             type: 'select',
             modelName: 'size',
             options: Object.keys(VsfTagSizes),
+            description: 'Set size variant',
+          },
+          {
+            type: 'select',
+            modelName: 'ariaLiveValue',
+            options: ['polite', 'off', 'assertive'],
+            description: 'Set aria-live value (implementation only)',
           },
         ],
         {
@@ -61,6 +70,7 @@ export default defineComponent({
           size: ref<VsfTagSizes>(VsfTagSizes.base),
           strong: ref(false),
           showIcon: ref(false),
+          ariaLiveValue: ref('polite'),
         },
       ),
     };

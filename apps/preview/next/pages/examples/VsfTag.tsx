@@ -9,11 +9,12 @@ function Example() {
         type: 'text',
         modelName: 'label',
         propType: 'string',
+        description: 'Set label value',
       },
       {
         type: 'boolean',
         modelName: 'strong',
-        description: 'Set stronger color contrast',
+        description: 'Set stronger color contrast and font weight',
       },
       {
         type: 'boolean',
@@ -24,11 +25,19 @@ function Example() {
         type: 'select',
         modelName: 'variant',
         options: Object.keys(VsfTagVariants),
+        description: 'Set color variant',
       },
       {
         type: 'select',
         modelName: 'size',
         options: Object.keys(VsfTagSizes),
+        description: 'Set size variant',
+      },
+      {
+        type: 'select',
+        modelName: 'ariaLiveValue',
+        options: ['polite', 'off', 'assertive'],
+        description: 'Set aria-live value (implementation only)',
       },
     ],
     {
@@ -37,6 +46,7 @@ function Example() {
       size: VsfTagSizes.base,
       strong: false,
       showIcon: false,
+      ariaLiveValue: 'polite',
     },
   );
 
@@ -48,6 +58,7 @@ function Example() {
           label={state.get.label}
           variant={state.get.variant}
           strong={state.get.strong}
+          aria-live={state.get.ariaLiveValue}
           className="mr-2"
         >
           {state.get.showIcon ? <div className="w-full h-full rounded-full" /> : null}
