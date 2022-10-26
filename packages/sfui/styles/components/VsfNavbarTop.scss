@@ -1,5 +1,5 @@
 .vsf-navbar-top {
-  @apply grid grid-cols-[min-content_min-content_1fr] small:grid-cols-[min-content_min-content_minmax(250px,_1fr)_max-content] w-full items-center grid-flow-col bg-white py-2 px-4 medium:px-10 medium:py-5 border-gray-200 border-b;
+  @apply flex items-center bg-white py-2 px-4 medium:px-10 medium:py-5 border-gray-200 border-b;
   &--branded {
     @apply bg-brand border-b-0;
   }

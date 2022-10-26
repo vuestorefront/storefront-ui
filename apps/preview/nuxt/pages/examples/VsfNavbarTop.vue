@@ -63,8 +63,10 @@
             label="Log in"
             @click="onClickHandler('Login')"
           >
-            <VsfIconPerson />
-            <span className="hidden ml-2 large:inline-flex">Log in</span>
+            <span class="flex">
+              <VsfIconPerson />
+              <span className="hidden ml-2 large:inline-flex whitespace-nowrap">Log in</span>
+            </span>
           </VsfNavbarTopItem>
         </template>
       </VsfNavbarTop>

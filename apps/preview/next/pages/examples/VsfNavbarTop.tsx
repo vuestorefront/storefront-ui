@@ -156,7 +156,9 @@ function Example() {
                 >
                   <span className="flex">
                     <span>{actionItem.icon}</span>
-                    {actionItem.label && <span className="hidden ml-2 large:inline-flex">{actionItem.label}</span>}
+                    {actionItem.label && (
+                      <span className="hidden ml-2 large:inline-flex whitespace-nowrap">{actionItem.label}</span>
+                    )}
                   </span>
                 </VsfNavbarTopItem>
               </VsfNavbarTopListItem>
