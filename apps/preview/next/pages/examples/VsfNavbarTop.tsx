@@ -110,7 +110,7 @@ function Example() {
           <VsfNavbarTopLogo>
             <Link href="/">
               <a aria-label="VSF Homepage" className={state.get.filled ? 'text-white' : 'text-green-600'}>
-                <VsfIconLogo viewBox="0 0 205 28" className="hidden large:block !w-[12.5rem] !h-[1.75rem]" />
+                <VsfIconLogo view-box="0 0 205 28" className="hidden large:block !w-[12.5rem] !h-[1.75rem]" />
                 <VsfIconLogoSmall size={VsfIconSizeEnum.xl} view-box="0 0 40 40" className="block large:hidden" />
               </a>
             </Link>
