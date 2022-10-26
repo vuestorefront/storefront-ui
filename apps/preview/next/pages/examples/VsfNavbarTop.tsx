@@ -19,7 +19,6 @@ import { VsfIconSizeEnum } from '@sfui/sfui/frameworks/react/components/VsfIcons
 import VsfNavbarTopListItem from '@sfui/sfui/frameworks/react/components/VsfNavbarTop/VsfNavbarTopListItem';
 import Link from 'next/link';
 import Controls, { prepareControls } from '../../components/utils/Controls';
-import { ExamplePageLayout } from '../examples';
 
 function Example() {
   const { state, controls } = prepareControls(
@@ -110,8 +109,8 @@ function Example() {
         <VsfNavbarTop filled={state.get.filled}>
           <VsfNavbarTopLogo>
             <Link href="/">
-              <a aria-label="VSF Homepage">
-                <VsfIconLogo view-box="0 0 205 28" className="hidden large:block !w-[12.5rem] !h-[1.75rem]" />
+              <a aria-label="VSF Homepage" className={state.get.filled ? 'text-white' : 'text-green-600'}>
+                <VsfIconLogo viewBox="0 0 205 28" className="hidden large:block !w-[12.5rem] !h-[1.75rem]" />
                 <VsfIconLogoSmall size={VsfIconSizeEnum.xl} view-box="0 0 40 40" className="block large:hidden" />
               </a>
             </Link>
@@ -120,8 +119,8 @@ function Example() {
             <div>
               <VsfNavbarTopMenu>
                 {state.get.menuItems.map((menuItem) => (
-                  <VsfNavbarTopListItem>
-                    <VsfNavbarTopItem key={menuItem.label} filled={state.get.filled}>
+                  <VsfNavbarTopListItem key={menuItem.label}>
+                    <VsfNavbarTopItem filled={state.get.filled}>
                       <Link href={menuItem.link}>
                         <a>{menuItem.label}</a>
                       </Link>
@@ -132,7 +131,7 @@ function Example() {
               <VsfNavbarTopItem
                 className="large:hidden"
                 filled={state.get.filled}
-                ariaLabel="menu button"
+                aria-label="menu button"
                 onClick={() => onClickHandler('menu')}
               >
                 <span className="inline-flex items-center">
@@ -149,14 +148,13 @@ function Example() {
           </VsfNavbarTopSearch>
           <VsfNavbarTopActions>
             {actionItems.map((actionItem) => (
-              <VsfNavbarTopListItem>
+              <VsfNavbarTopListItem key={actionItem.ariaLabel}>
                 <VsfNavbarTopItem
-                  key={actionItem.label}
                   filled={state.get.filled}
-                  ariaLabel={actionItem.ariaLabel}
+                  aria-label={actionItem.ariaLabel}
                   onClick={() => onClickHandler(actionItem.ariaLabel)}
                 >
-                  <span>
+                  <span className="flex">
                     <span>{actionItem.icon}</span>
                     {actionItem.label && <span className="hidden ml-2 large:inline-flex">{actionItem.label}</span>}
                   </span>
@@ -173,5 +171,4 @@ function Example() {
   );
 }
 
-Example.getLayout = ExamplePageLayout;
 export default Example;
