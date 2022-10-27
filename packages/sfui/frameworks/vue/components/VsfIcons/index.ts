@@ -41,6 +41,8 @@ export { default as VsfIconLock } from './VsfIconLock.vue';
 export { default as VsfIconLockOpen } from './VsfIconLockOpen.vue';
 export { default as VsfIconLogIn } from './VsfIconLogIn.vue';
 export { default as VsfIconLogOut } from './VsfIconLogOut.vue';
+export { default as VsfIconLogo } from './VsfIconLogo.vue';
+export { default as VsfIconLogoSmall } from './VsfIconLogoSmall.vue';
 export { default as VsfIconMenu } from './VsfIconMenu.vue';
 export { default as VsfIconMinus } from './VsfIconMinus.vue';
 export { default as VsfIconMoreHorizontal } from './VsfIconMoreHorizontal.vue';
