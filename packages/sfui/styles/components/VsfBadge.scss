@@ -4,7 +4,7 @@
   &__wrapper {
     @apply rounded-[inherit] absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 bg-inherit pointer-events-none;
 
-    #{$root}--dot & {
+    #{$self}--dot & {
       @apply -top-px -right-px;
     }
     #{$self}--bordered & {
