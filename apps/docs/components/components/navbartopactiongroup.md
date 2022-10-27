@@ -1,6 +1,6 @@
-#  NavBarTop component
+#  NavBarTopActionGroup component
 
-The NavbarTop component is used as navigation. Usually it's at the top of a page and has elements like company logo, links to main categories or a menu button, search input and action buttons that can open a cart, wishlist or login modal.
+The NavbarTopActionGroup component is used as container for navigation in NavbarTop component.
 
 ## Figma design
 
@@ -11,7 +11,6 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 |    Prop name          |    Type          |      Default value    |     Possible values             |
 |-----------------------|----------------- |---------------        |---------------------------------|
-| filled               |      boolean      |  false                 |                                 |
 |       className      |       `String`    |                     |                       |
 |       children       |       `ReactNode` |                     |                       |
 
@@ -19,16 +18,9 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 
 <!-- vue -->
-## Props
 
-|    Prop name          |    Type          |      Default value    |     Possible values             |
-|-----------------------|----------------- |---------------        |---------------------------------|
-| filled               |      boolean      |  false                 |                                 |
-
-<!-- end vue -->
 ## Slots
 
-<!-- vue -->
 | Slot name          |            Description                    |
 | ---------          | -----------------------------------       |
 |    default         |    default slot content                   |  
@@ -39,8 +31,8 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 ## Source code
 
 <!-- vue -->
-<<<../../../packages/sfui/frameworks/vue/components/VsfNavbarTop/VsfNavbarTop.vue
+<<<../../../packages/sfui/frameworks/vue/components/VsfNavbarTop/VsfNavbarTopActionGroup.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../../packages/sfui/frameworks/react/components/VsfNavbarTop/VsfNavbarTop.tsx
+<<<../../../packages/sfui/frameworks/react/components/VsfNavbarTop/VsfNavbarTopActionGroup.tsx
 <!-- end react -->
