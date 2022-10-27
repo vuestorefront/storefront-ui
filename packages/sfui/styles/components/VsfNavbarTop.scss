@@ -1,30 +1,46 @@
 .vsf-navbar-top {
-  @apply flex items-center bg-white py-2 px-4 medium:px-10 medium:py-5 border-gray-200 border-b;
-  &--branded {
-    @apply bg-brand border-b-0;
-  }
-  &__menu-wrapper {
-    @apply items-center mx-4 medium:mx-10;
-  }
-  &__menu {
-    @apply justify-center hidden px-2 large:flex;
-  }
-  &__menu-button {
-    @apply justify-center inline-flex px-2 large:hidden;
-  }
-  &__item {
-    @apply inline-flex items-center justify-center p-2 text-base font-medium bg-transparent rounded-md cursor-pointer font-body text-gray-900 hover:bg-green-100 active:bg-green-200 hover:text-green-600 active:text-green-700;
-    &--branded {
-      @apply text-white hover:text-white active:text-white hover:bg-green-600 active:bg-green-700;
+  $root: &;
+  @apply w-full h-14 md:h-20 px-4 md:px-10 bg-white text-black border-b border-gray-200;
+
+  &--branded#{&} {
+    @apply bg-brand text-white border-0;
+    .vsf-navbar-top-action {
+      @apply text-white bg-transparent hover:bg-primary-600 active:bg-primary-600;
+      &--active {
+        @apply text-white bg-primary-700;
+      }
     }
   }
-  &__actions {
-    @apply flex items-center ml-auto small:ml-4 medium:ml-10;
+
+  &__container {
+    @apply flex items-center flex-row flex-nowrap justify-between h-full;
+    > *:not(:last-child) {
+      margin-right: clamp(1rem, 3vw, 2.5rem); // workaround to make gaps responsive
+    }
   }
-  &__list-item {
-    @apply mx-1 first:mx-0 last:mx-0;
+
+  &-action {
+    @apply inline-flex items-center justify-center cursor-pointer font-body font-medium rounded-md text-base h-10 px-4;
+    @apply hover:bg-primary-100 active:bg-primary-100 hover:text-primary-600 active:text-primary-700;
+    &--icon {
+      @apply px-2;
+    }
+    &--active {
+      @apply text-primary-700 bg-primary-200;
+    }
+    &__icon {
+      @apply mr-2 -ml-0.5;
+    }
   }
-  &__search {
-    @apply hidden w-full small:block justify-self-end medium:px-10;
+
+  &__action-group__wrapper {
+    @apply flex flex-row flex-nowrap;
+    > #{$root}-action:not(:last-child) {
+      @apply mr-1; // flex row gap replacement
+    }
   }
+}
+
+.vsf-spacer {
+  @apply flex-grow;
 }
