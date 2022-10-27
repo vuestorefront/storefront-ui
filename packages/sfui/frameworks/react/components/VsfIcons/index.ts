@@ -41,6 +41,8 @@ export { default as VsfIconLock } from './VsfIconLock';
 export { default as VsfIconLockOpen } from './VsfIconLockOpen';
 export { default as VsfIconLogIn } from './VsfIconLogIn';
 export { default as VsfIconLogOut } from './VsfIconLogOut';
+export { default as VsfIconLogo } from './VsfIconLogo';
+export { default as VsfIconLogoSmall } from './VsfIconLogoSmall';
 export { default as VsfIconMenu } from './VsfIconMenu';
 export { default as VsfIconMinus } from './VsfIconMinus';
 export { default as VsfIconMoreHorizontal } from './VsfIconMoreHorizontal';
