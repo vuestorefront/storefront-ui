@@ -2,49 +2,49 @@
     $self: &;
     @apply relative inline-flex items-center justify-center rounded-md font-normal text-sm;
 
+	#{$self}__icon {
+		@apply rounded-full h-5 w-5;
+	}
+
+	&#{&}--strong {
+		@apply text-white font-medium rounded-none;
+
 		#{$self}__icon {
-			@apply rounded-full h-5 w-5;
+			@apply bg-white;
 		}
+	}
 
-		&#{&}--strong {
-			@apply text-white font-medium rounded-none;
+	&--variant-gray {
+		@apply bg-gray-100 text-gray-700;
 
-			#{$self}__icon {
-				@apply bg-white;
-			}
+		#{$self}__icon {
+			@apply bg-black;
 		}
-
-		&--variant-gray {
-			@apply bg-gray-100 text-gray-700;
-
-			#{$self}__icon {
-				@apply bg-black;
-			}
-			&#{$self}--strong {
-				@apply bg-gray-500;
-			}
+		&#{$self}--strong {
+			@apply bg-gray-500;
 		}
+	}
 
     &--variant-primary {
-			@apply bg-primary-100 text-primary-700;
+		@apply bg-primary-100 text-primary-700;
 
-			#{$self}__icon {
-				@apply bg-primary-700;
-			}
-			&#{$self}--strong {
-				@apply bg-primary-600;
-			}
+		#{$self}__icon {
+			@apply bg-primary-700;
+		}
+		&#{$self}--strong {
+			@apply bg-primary-600;
+		}
     }
 
     &--variant-secondary {
-			@apply bg-secondary-100 text-secondary-700;
+		@apply bg-secondary-100 text-secondary-700;
 
-			#{$self}__icon {
-				@apply bg-secondary-800;
-			}
-			&#{$self}--strong {
-				@apply bg-secondary-800;
-			}
+		#{$self}__icon {
+			@apply bg-secondary-800;
+		}
+		&#{$self}--strong {
+			@apply bg-secondary-800;
+		}
     }
 
 		&--variant-negative {
@@ -70,26 +70,26 @@
 		}
 
     &--size-sm {
-			@apply text-xs py-1 px-1;
+		@apply text-xs py-1 px-1;
 
-			#{$self}__label {
-				@apply mx-1;
-			}
+		#{$self}__label {
+			@apply mx-1;
+		}
 
-			#{$self}__icon {
-				@apply w-3 h-3;
-			}
+		#{$self}__icon {
+			@apply w-3 h-3;
+		}
     }
 
     &--size-base {
-			@apply px-1.5 py-1.5;
+		@apply px-1.5 py-1.5;
 
-			#{$self}__label {
-				@apply mx-1.5;
-			}
+		#{$self}__label {
+			@apply mx-1.5;
+		}
 
-			#{$self}__icon {
-				@apply w-4 h-4;
-			}
+		#{$self}__icon {
+			@apply w-4 h-4;
+		}
     }
 }
