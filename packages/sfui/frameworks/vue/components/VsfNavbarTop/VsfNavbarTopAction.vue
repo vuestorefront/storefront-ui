@@ -1,14 +1,6 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
 const props = defineProps({
-  icon: {
-    type: Boolean,
-    default: false,
-  },
-  active: {
-    type: Boolean,
-    default: false,
-  },
   link: {
     type: String,
     default: null,
@@ -17,18 +9,26 @@ const props = defineProps({
     type: String,
     default: 'button',
   },
-});
-const componentTag = computed(() => {
-  if (props.link && props.tag === 'button') {
-    return 'a';
-  }
-  return props.tag;
+  icon: {
+    type: Boolean,
+    default: false,
+  },
+  active: {
+    type: Boolean,
+    default: false,
+  },
 });
 const attributes = computed(() => ({
   role: componentTag.value === 'a' ? 'button' : undefined,
   tabindex: componentTag.value === 'a' ? 0 : undefined,
   ...(props.link && { href: props.link }),
 }));
+const componentTag = computed(() => {
+  if (props.link && props.tag === 'button') {
+    return 'a';
+  }
+  return props.tag;
+});
 </script>
 
 <template>
