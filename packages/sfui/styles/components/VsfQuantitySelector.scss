@@ -34,9 +34,9 @@
     }
   }
   &__decrease {
-    @apply rounded-l-md;
+    @apply rounded-l-md hover:shadow-inner-border-button-left active:shadow-inner-border-button-left active:shadow-gray-300 hover:shadow-gray-300;
   }
   &__increase {
-    @apply rounded-r-md;
+    @apply rounded-r-md hover:shadow-inner-border-button-right active:shadow-inner-border-button-right active:shadow-gray-300 hover:shadow-gray-300;
   }
 }

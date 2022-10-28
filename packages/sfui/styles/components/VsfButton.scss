@@ -1,9 +1,9 @@
 .vsf-button {
   $this: &;
-
-  @apply inline-flex items-center justify-center cursor-pointer font-body outline-violet font-medium;
-  @apply rounded-md;
-  @apply text-base;
+  @apply inline-flex items-center justify-center cursor-pointer font-body outline-violet font-medium text-base;
+  &:not(.vsf-button--tile) {
+    @apply rounded-md;
+  }
   &__prefix {
     @apply mr-2;
   }
@@ -15,9 +15,6 @@
   }
   &--rounded {
     @apply rounded-full;
-  }
-  &--tile {
-    @apply rounded-none;
   }
   &--icon,
   &--variant-tertiary {
