@@ -13,6 +13,7 @@ import {
 import Link from 'next/link';
 import classNames from 'classnames';
 import Controls, { prepareControls } from '../../components/utils/Controls';
+import { ExamplePageLayout } from '../examples';
 
 // eslint-disable-next-line react/require-default-props
 function VsfLogo({ className = '' }: { className?: string }) {
@@ -87,7 +88,7 @@ function Example() {
       },
     ],
     {
-      filled: true,
+      filled: false,
       menuItems: [
         {
           label: 'Men',
@@ -174,4 +175,5 @@ function Example() {
   );
 }
 
+Example.getLayout = ExamplePageLayout;
 export default Example;
