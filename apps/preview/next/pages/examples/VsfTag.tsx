@@ -41,7 +41,7 @@ function Example() {
         type: 'select',
         modelName: 'ariaLiveValue',
         options: ['polite', 'off', 'assertive'],
-        description: 'Set aria-live value (implementation only)',
+        description: 'Set aria-live value',
       },
     ],
     {
