@@ -11,11 +11,11 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 ## Props
 
-| Prop name   | Type    | Default value | Possible values                        |
-| ----------- | ------- | ------------- | -------------------------------------- |
-| open| Boolean | true          |              |
-| title      | String  | ''            |                                        |
-| chevronLeft | Boolean  | false            |                                        |                                        |
+| Prop name   | Type    | Default value | Possible values |
+| ----------- | ------- | ------------- | --------------- |
+| open        | Boolean | false         |                 |
+| title       | String  | ''            |                 |
+| chevronLeft | Boolean | false         |                 |
 
 
 ###  Props: 
@@ -28,13 +28,15 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 ## Events
 
-The native `toggle` event is emitted.
+| Event name |       Trigger        |
+| ---------- | :------------------: |
+| toggle     | Details native event |
 
 ## Accessibility notes
-
 
 ## Source code
 
 
 
 <<<../../../packages/sfui/frameworks/react/components/VsfAccordionItem/VsfAccordionItem.tsx
+
