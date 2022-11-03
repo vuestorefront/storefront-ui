@@ -17,7 +17,7 @@
 import { defineComponent, ref } from 'vue';
 import VsfTag from '@sfui/sfui/frameworks/vue/components/VsfTag/VsfTag.vue';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
-import { VsfTagVariants, VsfTagSizes } from '@sfui/sfui/frameworks/vue/components/VsfTag/types';
+import { VsfTagVariants, VsfTagSizes, VsfTagAriaLiveValues } from '@sfui/sfui/frameworks/vue/components/VsfTag/types';
 
 export default defineComponent({
   name: 'VsfTagExample',
@@ -70,7 +70,7 @@ export default defineComponent({
           size: ref<VsfTagSizes>(VsfTagSizes.base),
           strong: ref(false),
           showIcon: ref(false),
-          ariaLiveValue: ref('polite'),
+          ariaLiveValue: ref<VsfTagAriaLiveValues>(VsfTagAriaLiveValues.polite),
         },
       ),
     };

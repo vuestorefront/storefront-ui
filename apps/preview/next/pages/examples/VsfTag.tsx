@@ -1,4 +1,8 @@
-import VsfTag, { VsfTagVariants, VsfTagSizes } from '@sfui/sfui/frameworks/react/components/VsfTag';
+import VsfTag, {
+  VsfTagVariants,
+  VsfTagSizes,
+  VsfTagAriaLiveValues,
+} from '@sfui/sfui/frameworks/react/components/VsfTag';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 
@@ -46,7 +50,7 @@ function Example() {
       size: VsfTagSizes.base,
       strong: false,
       showIcon: false,
-      ariaLiveValue: 'polite',
+      ariaLiveValue: VsfTagAriaLiveValues.polite,
     },
   );
 
@@ -58,7 +62,7 @@ function Example() {
           label={state.get.label}
           variant={state.get.variant}
           strong={state.get.strong}
-          aria-live={state.get.ariaLiveValue}
+          ariaLive={state.get.ariaLiveValue}
           className="mr-2"
         >
           {state.get.showIcon ? <div className="w-full h-full rounded-full" /> : null}

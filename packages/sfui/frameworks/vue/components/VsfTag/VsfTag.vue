@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { PropType } from 'vue';
-import { VsfTagSizes, VsfTagVariants } from './types';
+import { VsfTagSizes, VsfTagVariants, VsfTagAriaLiveValues } from './types';
 
 defineProps({
   label: {
@@ -19,11 +19,18 @@ defineProps({
     type: Boolean,
     default: false,
   },
+  ariaLive: {
+    type: String as PropType<VsfTagAriaLiveValues>,
+    default: 'polite',
+  },
 });
 </script>
 
 <template>
-  <div :class="['vsf-tag', `vsf-tag--size-${size}`, `vsf-tag--variant-${variant}`, strong ? `vsf-tag--strong` : null]">
+  <div
+    :class="['vsf-tag', `vsf-tag--size-${size}`, `vsf-tag--variant-${variant}`, strong ? `vsf-tag--strong` : null]"
+    :aria-live="ariaLive"
+  >
     <div v-if="$slots.icon" :class="['vsf-tag__icon', label ? 'ml-1 mr-0.5' : null]">
       <slot name="icon" />
     </div>

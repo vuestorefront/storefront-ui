@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import { VsfTagProps, VsfTagVariants, VsfTagSizes } from './types';
 
 export default function VsfTag({
+  ariaLive,
   label,
   children,
   strong = false,
@@ -16,8 +17,9 @@ export default function VsfTag({
         `vsf-tag--variant-${variant}`,
         strong ? `vsf-tag--strong` : null,
       )}
+      aria-live={ariaLive}
     >
-      {children && <span className="vsf-tag__icon">{children}</span>}
+      {children && <div className="vsf-tag__icon">{children}</div>}
       {label && <span className="vsf-tag__label">{label}</span>}
     </div>
   );

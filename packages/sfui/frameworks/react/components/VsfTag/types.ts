@@ -14,9 +14,16 @@ export enum VsfTagSizes {
   base = 'base',
 }
 
+export enum VsfTagAriaLiveValues {
+  off = 'off',
+  polite = 'polite',
+  assertive = 'assertive',
+}
+
 export interface VsfTagProps extends PropsWithChildren, PropsWithStyle {
   label?: string;
   variant?: VsfTagVariants;
   size?: VsfTagSizes;
   strong?: boolean;
+  ariaLive?: VsfTagAriaLiveValues;
 }
