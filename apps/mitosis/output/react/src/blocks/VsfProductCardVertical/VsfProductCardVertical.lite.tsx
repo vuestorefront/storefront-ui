@@ -25,7 +25,6 @@ export interface VsfProductCardVerticalProps {
 }
 
 import VsfRating from "../VsfRating/VsfRating.lite";
-import VsfTag from "../VsfTag/VsfTag.lite";
 import VsfButton from "../VsfButton/VsfButton.lite";
 import { classStringFromArray } from "../../functions/domUtils";
 import VsfIconFavoritesOutline from "../VsfIcons/VsfIconFavoritesOutline.lite";
@@ -247,17 +246,6 @@ export default function VsfProductCardVertical(
           <div className="absolute bottom-0 left-0 right-0 flex items-end m-2">
             {useOutOfStockProp() || useInCartProp() > 0 ? (
               <>
-                <VsfTag
-                  size="sm"
-                  badge={false}
-                  variant={useOutOfStockProp() ? "error" : "positive"}
-                >
-                  {useOutOfStockProp() ? (
-                    <span> Out of stock </span>
-                  ) : (
-                    <span>{`${useInCartProp()} in cart`}</span>
-                  )}
-                </VsfTag>
               </>
             ) : null}
 

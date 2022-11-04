@@ -1,6 +1,5 @@
 import VsfGallery from '../../output/blocks/VsfGallery/VsfGallery.lite';
 import VsfIconHot from '../../output/blocks/VsfIcons/VsfIconHot.lite';
-import VsfTag from '../../output/blocks/VsfTag/VsfTag.lite';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examplesOld';
 
@@ -80,15 +79,6 @@ const Example = () => {
           thumbsLeft={state.get.thumbsLeftModel}
           contain={state.get.containModel}
           counter={state.get.counterModel}
-          slotImage={
-            state.get.badgeModel ? (
-              <div className="absolute top-0 left-0 z-10">
-                <VsfTag variant="info" badge={true} slotPrefix={<VsfIconHot className="vsf-icon-full" />}>
-                  <span className="font-medium">-50%</span>
-                </VsfTag>
-              </div>
-            ) : null
-          }
         ></VsfGallery>
       </div>
       <div className="e-page-controls">

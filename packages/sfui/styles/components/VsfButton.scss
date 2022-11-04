@@ -1,5 +1,5 @@
 .vsf-button {
-  $this: &;
+  $self: &;
   @apply inline-flex items-center justify-center cursor-pointer font-body outline-violet font-medium text-base;
   &:not(.vsf-button--tile) {
     @apply rounded-md;
@@ -18,21 +18,21 @@
   }
   &--icon,
   &--variant-tertiary {
-    &#{$this}--sm {
+    &#{$self}--sm {
       @apply px-1.5;
     }
-    &#{$this}--base {
+    &#{$self}--base {
       @apply px-2;
     }
-    &#{$this}--lg {
+    &#{$self}--lg {
       @apply px-3;
     }
   }
   /* disabled */
-  &#{$this}--disabled,
+  &#{$self}--disabled,
   &:disabled {
     @apply text-gray-500 opacity-50 bg-gray-200 shadow-none pointer-events-none ring-0;
-    &#{$this}--variant-tertiary {
+    &#{$self}--variant-tertiary {
       @apply bg-transparent;
     }
   }
