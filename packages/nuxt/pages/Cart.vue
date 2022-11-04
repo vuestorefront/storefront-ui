@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Cart />
+    <Cart @closeSidebar="$router.push('/')"/>
   </div>
 </template>
 
