@@ -234,7 +234,7 @@ const generateIconFiles = async (err, files) => {
     }
 
     for await (const file of files) {
-        createExports(file, doOptimiziation);
+       await createExports(file, doOptimiziation);
     };
 
     if (vueExports.length) {
