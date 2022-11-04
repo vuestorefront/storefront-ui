@@ -1,6 +1,6 @@
 # createIcons script
 
-Script job is to generate `mitosis`/`vue`/`react` components out of svg icon files.
+Script job is to generate `vue`/`react` components out of svg icon files.
 
 
 ## How it works?
@@ -13,7 +13,7 @@ NOTE: If `output` directory does not exists it will be created
 
 | Param name            | Type         | Default value | Possible values                        |
 |-----------------------|--------------|---------------|----------------------------------------|
-| framework             | String       | `mitosis`     | `vue`, `react`, `mitosis`              |
+| framework             | String       | `vue`         | `vue`, `react`                         |
 | input                 | String       | `./assets`    |                                        |
 | output                | String       | `./`          |                                        |
 | relativePathToIconBase| String       | `../`         |                                        |
