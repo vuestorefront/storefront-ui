@@ -21,4 +21,4 @@ Core package with components, styling and everything around them.
 
 # Generating icons
 
-Navigate to `root` and run `yarn`, on `post` hook icons are generated based on whats inside `assets`.
+Navigate to `root` and run `yarn`, after that please run `yarn generate-icons` for icons to be generated based on whats inside `assets`.

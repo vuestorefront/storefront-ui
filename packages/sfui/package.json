@@ -6,13 +6,17 @@
   },
   "styles": "styles/index.scss",
   "scripts": {
-    "lint": "concurrently \"yarn lint:react\" \"yarn lint:vue\"",
-    "lint:fix": "concurrently \"yarn lint:react:fix\" \"yarn lint:vue:fix\"",
+    "lint": "concurrently \"yarn lint:script\" \"yarn lint:style\"",
+    "lint:fix": "concurrently \"yarn lint:script:fix\" \"yarn lint:style:fix\"",
     "lint:fix:sfui": "yarn lint:fix",
-    "lint:react": "eslint --ext .ts,.tsx \"frameworks/react/**\"",
-    "lint:vue": "eslint --ext .ts,.vue \"frameworks/vue/**\"",
-    "lint:react:fix": "eslint --fix --ext .ts,.tsx \"frameworks/react/**/*\"",
-    "lint:vue:fix": "eslint --fix --ext .ts,.vue \"frameworks/vue/**/*\""
+    "lint:script": "concurrently \"yarn lint:script:react\" \"yarn lint:script:vue\"",
+    "lint:script:fix": "concurrently \"yarn lint:script:react:fix\" \"yarn lint:script:vue:fix\"",
+    "lint:script:react": "eslint --ext .ts,.tsx \"frameworks/react/**\"",
+    "lint:script:vue": "eslint --ext .ts,.vue \"frameworks/vue/**\"",
+    "lint:script:react:fix": "eslint --fix --ext .ts,.tsx \"frameworks/react/**/*\"",
+    "lint:script:vue:fix": "eslint --fix --ext .ts,.vue \"frameworks/vue/**/*\"",
+    "lint:style": "yarn stylelint \"styles/**/*.scss\" \"frameworks/vue/**/*.vue\"",
+    "lint:style:fix": "yarn lint:style --fix"
   },
   "files": [
     "**/*.js",
@@ -21,7 +25,14 @@
     "**/*.tsx"
   ],
   "devDependencies": {
-    "@sfui/eslint-config": "*"
+    "@sfui/eslint-config": "*",
+    "postcss-html": "^1.5.0",
+    "postcss-scss": "^4.0.5",
+    "stylelint": "^14.14.1",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-standard": "^29.0.0",
+    "stylelint-no-unsupported-browser-features": "^6.0.1",
+    "stylelint-scss": "^4.3.0"
   },
   "peerDependencies": {
     "classnames": "^2.3.2"

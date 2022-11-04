@@ -5,9 +5,11 @@
     &--top {
       @apply grid grid-cols-[1fr_1fr] medium:grid-cols-[1fr_1fr_1fr_1fr] px-4 medium:px-6 pb-10;
     }
+
     &--middle {
       @apply py-10 large:flex border-t border-gray-200;
     }
+
     &--bottom {
       @apply justify-end px-4 py-10 bg-gray-900 large:flex large:py-6;
     }
@@ -17,6 +19,7 @@
     &--top {
       @apply min-w-[120px] extra-small:min-w-[172px];
     }
+
     &--middle {
       @apply mx-auto my-4 text-center;
     }

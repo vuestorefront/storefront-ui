@@ -4,18 +4,23 @@
   &--xs {
     @apply text-xs;
   }
+
   &--sm {
     @apply text-sm;
   }
+
   &--base {
     @apply text-base;
   }
+
   &--lg {
     @apply text-lg;
   }
+
   &--xl {
     @apply text-xl;
   }
+
   .vsf-icon {
     height: 1.5em;
     width: 1.5em;
@@ -25,6 +30,7 @@
   &__star-partial {
     @apply text-warning-500;
   }
+
   &__star-empty {
     @apply text-gray-500/50;
   }
