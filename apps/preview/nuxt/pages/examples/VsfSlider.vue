@@ -1,6 +1,6 @@
 <template>
   <div class="e-page">
-    <div class="e-page-component relative">
+    <div class="relative e-page-component">
       <VsfSlider
         :key="componentKey"
         :navigation="navigation"
@@ -24,14 +24,13 @@
           <div class="bg-gray-300 w-[150px] h-[150px] flex justify-center items-center">{{ item + 8 }}</div>
         </div>
         <template v-if="ExampleCustomNav" #prev-arrow="{ onClick, hasPrev }">
-          {{ hasPrev }}
-          <button v-show="hasPrev" type="button" class="bg-secondary-400 p-2 rounded-sm text-white" @click="onClick">
+          <button v-show="hasPrev" type="button" class="p-2 text-white rounded-sm bg-secondary-400" @click="onClick">
             prev
           </button>
         </template>
         <template v-if="ExampleCustomNav" #next-arrow="{ onClick, hasNext }">
-          <button v-show="hasNext" type="button" class="bg-secondary-400 p-2 rounded-sm text-white" @click="onClick">
-            prev
+          <button v-show="hasNext" type="button" class="p-2 text-white rounded-sm bg-secondary-400" @click="onClick">
+            next
           </button>
         </template>
       </VsfSlider>
