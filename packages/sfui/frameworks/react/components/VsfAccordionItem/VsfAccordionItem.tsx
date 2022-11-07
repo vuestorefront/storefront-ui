@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import type { VsfAccordionItemProps } from './types';
 import VsfIconTriangleUp from '../VsfIcons/VsfIconTriangleUp';
 
@@ -7,12 +8,13 @@ export default function VsfAccordionItem({
   chevronLeft,
   slotPrefix,
   slotSuffix,
-  onToggle,
   children,
+  className,
   ...attributes
 }: VsfAccordionItemProps): JSX.Element {
+  const classes = classNames([className, 'vsf-accordion-item']);
   return (
-    <details className="vsf-accordion-item" open={open} onToggle={onToggle} {...attributes}>
+    <details className={classes} open={open} {...attributes}>
       <summary className={`${chevronLeft && 'vsf-accordion-item__header--right'} vsf-accordion-item__header`}>
         {slotPrefix || (
           <span className={`${chevronLeft && 'vsf-accordion-item__title--right'} vsf-accordion-item__title`}>
