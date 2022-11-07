@@ -206,19 +206,27 @@ const createExports = async (file, doOptimiziation) => {
     }
 }
 
+const sortVueExports = (fileName) => {
+    let vueExportsString = ''
+    vueExports.sort().forEach(component => {
+        vueExportsString += `export { default as ${component} } from './${component}.vue';\n`;
+    });
+    fsPromise.writeFile(`${outputDirectoryPath}${fileName}.ts`, vueExportsString);
+}
+
+const sortReactExports = (fileName) => {
+    let reactExportsString = '';
+    reactExports.sort().forEach(component => {
+        reactExportsString += `export { default as ${component} } from './${component}';\n`;
+    });
+    fsPromise.writeFile(`${outputDirectoryPath}${fileName}.ts`, reactExportsString);
+}
+
 const createIndexFiles = (frameworkName, fileName = 'index') => {
     if (frameworkName === 'vue') {
-        let vueExportsString = ''
-        vueExports.sort().forEach(component => {
-            vueExportsString += `export { default as ${component} } from './${component}.vue';\n`;
-        });
-        fsPromise.writeFile(`${outputDirectoryPath}${fileName}.ts`, vueExportsString);
+        sortVueExports(fileName);
     } else {
-        let reactExportsString = '';
-        reactExports.sort().forEach(component => {
-            reactExportsString += `export { default as ${component} } from './${component}';\n`;
-        });
-        fsPromise.writeFile(`${outputDirectoryPath}${fileName}.ts`, reactExportsString);
+        sortReactExports(fileName);
     }
 }
 
