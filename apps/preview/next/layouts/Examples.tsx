@@ -16,7 +16,7 @@ export default function ExampleLayout({ children }: { children: ReactElement }) 
         <div className={`sidebar ${isOpen ? '' : 'sidebar-collapsed'}`}>
           <button
             type="button"
-            className={`sidebar-toggle ${isOpen && 'sidebar-toggle-collapsed'}`}
+            className={`sidebar-toggle ${!isOpen && 'sidebar-toggle-collapsed'}`}
             onClick={() => setIsOpen(!isOpen)}
           >
             &lt;&lt;

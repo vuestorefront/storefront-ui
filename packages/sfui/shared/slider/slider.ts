@@ -9,6 +9,8 @@ const defaultOptions: Options = {
   drag: undefined,
 };
 
+const DRAGGING_CLASS = 'vsf-slider__container--dragging';
+
 export default class VSFSlider {
   private container: HTMLElement;
   private options: Options;
@@ -133,13 +135,13 @@ export default class VSFSlider {
   private onMouseUp() {
     this.dragDown = false;
     setTimeout(() => {
-      this.container.classList.remove('_dragging');
+      this.container.classList.remove(DRAGGING_CLASS);
     }, 50);
   }
 
   private onMouseLeave() {
     this.dragDown = false;
-    this.container.classList.remove('_dragging');
+    this.container.classList.remove(DRAGGING_CLASS);
   }
 
   private onMouseDown(e: MouseEvent) {
@@ -148,7 +150,7 @@ export default class VSFSlider {
     this.dragDown = true;
     this.dragScrollX = e.pageX - container.offsetLeft;
     this.dragScrollLeft = container.scrollLeft;
-    container.classList.add('_dragging');
+    container.classList.add(DRAGGING_CLASS);
   }
 
   private onMouseMove(e: MouseEvent) {

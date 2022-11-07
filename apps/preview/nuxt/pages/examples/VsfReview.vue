@@ -13,7 +13,7 @@
         <template #rating>
           <VsfRating :value="3" :max="5" />
         </template>
-        <template v-if="authorSuffix" #authorSuffix>
+        <template v-if="slotAuthorSuffix" #authorSuffix>
           <VsfButton size="sm" variant="tertiary">
             <template #prefix>
               <VsfIconCheck />
@@ -85,11 +85,6 @@ export default defineComponent({
           isRequired: false,
         },
         {
-          type: 'boolean',
-          modelName: 'authorSuffix',
-          propType: 'boolean',
-        },
-        {
           type: 'text',
           modelName: 'showMoreText',
           propDefaultValue: '',
@@ -103,6 +98,11 @@ export default defineComponent({
           propType: 'string',
           isRequired: false,
         },
+        {
+          type: 'boolean',
+          modelName: 'slotAuthorSuffix',
+          propType: 'boolean',
+        },
       ],
       {
         title: ref('Lorem Ipsum is simply dummy text'),
@@ -114,7 +114,7 @@ export default defineComponent({
         charLimit: ref(700),
         showMoreText: ref('Read more'),
         showLessText: ref('Read less'),
-        authorSuffix: ref(false),
+        slotAuthorSuffix: ref(false),
       },
     );
   },

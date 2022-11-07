@@ -1,41 +1,45 @@
 .vsf-button {
-  $this: &;
+  $self: &;
+  @apply inline-flex items-center justify-center cursor-pointer font-body outline-violet font-medium text-base;
 
-  @apply inline-flex items-center justify-center cursor-pointer font-body outline-violet font-medium;
-  @apply rounded-md;
-  @apply text-base;
+  &:not(.vsf-button--tile) {
+    @apply rounded-md;
+  }
+
   &__prefix {
     @apply mr-2;
   }
+
   &__suffix {
     @apply ml-2;
   }
+
   &--block {
     @apply flex flex-1 w-full;
   }
+
   &--rounded {
     @apply rounded-full;
   }
-  &--tile {
-    @apply rounded-none;
-  }
+
   &--icon,
   &--variant-tertiary {
-    &#{$this}--sm {
+    &#{$self}--sm {
       @apply px-1.5;
     }
-    &#{$this}--base {
+    &#{$self}--base {
       @apply px-2;
     }
-    &#{$this}--lg {
+    &#{$self}--lg {
       @apply px-3;
     }
   }
+
   /* disabled */
-  &#{$this}--disabled,
+  &#{$self}--disabled,
   &:disabled {
     @apply text-gray-500 opacity-50 bg-gray-200 shadow-none pointer-events-none ring-0;
-    &#{$this}--variant-tertiary {
+    &#{$self}--variant-tertiary {
       @apply bg-transparent;
     }
   }
@@ -44,9 +48,11 @@
   &--sm {
     @apply leading-5 text-sm h-8 px-2;
   }
+
   &--base {
     @apply h-10 px-4;
   }
+
   &--lg {
     @apply h-12 px-6;
   }
@@ -54,14 +60,17 @@
   /* variants */
   &--variant-primary {
     @apply uppercase;
+
     &:not(.vsf-button--disabled) {
       @apply text-white hover:shadow-medium shadow-base bg-primary-500 hover:bg-primary-600 active:bg-primary-700;
     }
   }
+
   &--variant-secondary:not(.vsf-button--disabled),
   &--variant-tertiary:not(.vsf-button--disabled) {
     @apply text-primary-600 hover:bg-primary-100 active:bg-primary-200 active:text-primary-700;
   }
+
   &--variant-secondary:not(.vsf-button--disabled) {
     @apply ring-1 ring-gray-200 hover:shadow-medium active:shadow shadow hover:ring-primary-300 active:ring-primary-400;
   }

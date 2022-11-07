@@ -1,29 +1,33 @@
 .vsf-navbar-bottom {
-  $root: &;
+  $self: &;
   @apply bottom-0 w-full left-0 fixed;
+
   &--absolute {
     @apply absolute;
   }
 
   &#{&}--no-labels {
-    #{$root}-item {
+    #{$self}-item {
       &__label {
         @apply hidden;
       }
+
       &__content {
         @apply pt-0;
       }
     }
   }
   &#{&}--filled {
-    #{$root}-item {
+    #{$self}-item {
       @apply bg-primary-500 text-white;
       @apply hover:text-white hover:bg-primary-600 active:text-white active:bg-primary-600;
+
       &--active {
         @apply text-white bg-primary-700;
       }
     }
   }
+
   &__root {
     @apply flex flex-row items-stretch;
   }
@@ -31,15 +35,19 @@
   &-item {
     @apply py-1 flex-1 h-full;
     @apply bg-white text-gray-900 hover:text-primary-600 hover:bg-primary-100 active:text-primary-600 active:bg-primary-100;
+
     &--active {
       @apply text-primary-700 bg-primary-200;
     }
+
     &__content {
       @apply flex flex-col items-center justify-center min-h-[40px] pt-2 bg-inherit;
     }
+
     &__icon {
       @apply m-auto inline-flex bg-inherit;
     }
+
     &__label {
       @apply font-medium text-xs mt-0.5;
     }

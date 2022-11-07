@@ -4,8 +4,10 @@
 
   &--branded#{&} {
     @apply bg-brand text-white border-0;
+
     .vsf-navbar-top-action {
       @apply text-white bg-transparent hover:bg-primary-600 active:bg-primary-600;
+
       &--active {
         @apply text-white bg-primary-700;
       }
@@ -14,6 +16,7 @@
 
   &__container {
     @apply flex items-center flex-row flex-nowrap justify-between h-full;
+
     > *:not(:last-child) {
       margin-right: clamp(1rem, 3vw, 2.5rem); // workaround to make gaps responsive
     }
@@ -22,12 +25,15 @@
   &-action {
     @apply inline-flex items-center justify-center cursor-pointer font-body font-medium rounded-md text-base h-10 px-4;
     @apply hover:bg-primary-100 active:bg-primary-100 hover:text-primary-600 active:text-primary-700;
+
     &--icon {
       @apply px-2;
     }
+
     &--active {
       @apply text-primary-700 bg-primary-200;
     }
+
     &__icon {
       @apply mr-2 -ml-0.5;
     }

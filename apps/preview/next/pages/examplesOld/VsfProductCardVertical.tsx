@@ -1,7 +1,6 @@
 import VsfProductCardVertical, { VsfProductCardVerticalSizes } from '../../output/blocks/VsfProductCardVertical/VsfProductCardVertical.lite';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import productImage from "../fixture/product-card.webp";
-import VsfTag from '../../output/blocks/VsfTag/VsfTag.lite';
 import VsfIconHot from '../../output/blocks/VsfIcons/VsfIconHot.lite';
 
 export default function VsfProductCardVerticalExample() {
@@ -139,18 +138,6 @@ export default function VsfProductCardVerticalExample() {
           handleAddToCart={handleAddToCart}
           handleAddToWishlist={handleAddToWishlist}
           handleSeeSimilar={handleSeeSimilar}
-          slotBadge={<VsfTag
-            badge={true}
-            size={state.get.sizeModel === 'lg' || state.get.sizeModel === 'base' ? 'base' : 'sm'}
-            variant='info'
-          >
-            <VsfIconHot
-              size={state.get.sizeModel === 'lg' || state.get.sizeModel === 'base' ? 'base' : 'xs'}
-            />
-            <span>
-              -30%
-            </span>
-          </VsfTag>}
         />
       </div>
       <div className="e-page-controls">

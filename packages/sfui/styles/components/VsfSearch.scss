@@ -1,19 +1,23 @@
 .vsf-search {
-  $root: &;
+  $self: &;
   @apply relative;
 
   input[type='search']::-webkit-search-cancel-button {
     @apply appearance-none;
   }
+
   &--disabled &__form {
     @apply pointer-events-none;
   }
+
   &__form {
     @apply flex w-full;
   }
+
   &__submit {
     @apply rounded-r-md shadow-none;
   }
+
   &__input {
     @apply ml-2 outline-none bg-transparent text-gray-900 appearance-none placeholder:text-gray-500 font-body text-base block w-full;
     @apply disabled:placeholder:text-opacity-50 disabled:text-opacity-50 disabled:cursor-not-allowed;
@@ -21,23 +25,28 @@
     &-wrapper {
       @apply relative flex-1 flex items-center p-2 ring-1 ring-gray-200 ring-inset rounded-l-md only:rounded-r-md text-gray-500;
       @apply bg-white hover:ring-primary-500 focus-within:caret-primary-500 active:caret-primary-500 active:ring-primary-500 active:ring-2 focus-within:ring-primary-500 focus-within:ring-2;
-      #{$root}--disabled & {
+      #{$self}--disabled & {
         @apply bg-gray-100/50 ring-opacity-50 text-opacity-20;
       }
     }
+
     &-prefix {
       @apply ml-2 inline-flex;
     }
+
     &-suffix {
       @apply mr-2 inline-flex;
     }
+
     &-reset {
       @apply peer-placeholder-shown:hidden inline-block mx-2;
+
       &-button {
         @apply disabled:cursor-not-allowed flex items-center justify-center rounded-full;
       }
     }
   }
+
   &__results {
     @apply w-full relative;
   }

@@ -1,4 +1,4 @@
-import { ReactNode, SyntheticEvent } from 'react';
+import { ReactNode } from 'react';
 
 export interface VsfAccordionItemProps {
   open?: boolean;
@@ -7,5 +7,5 @@ export interface VsfAccordionItemProps {
   slotPrefix?: ReactNode;
   slotSuffix?: ReactNode;
   children?: ReactNode;
-  onToggle?: (e: SyntheticEvent) => void;
+  className?: string;
 }
