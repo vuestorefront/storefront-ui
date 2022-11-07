@@ -1,6 +1,7 @@
 .scrollbar-hidden {
   -ms-overflow-style: none; /* for Internet Explorer, Edge */
   scrollbar-width: none; /* for Firefox */
+
   /* overflow-y: scroll; */
 }
 
@@ -11,9 +12,11 @@
 .gallery.gallery--thumbs-bottom {
   @apply flex-col;
 }
+
 .gallery.gallery--thumbs-left {
   @apply flex-row;
 }
+
 .gallery.gallery--thumbs-left .gallery__controls {
   @apply -order-1;
 }
@@ -21,9 +24,11 @@
 .gallery.gallery--thumbs-left .gallery__thumbnails {
   @apply flex-col h-full ;
 }
+
 .gallery.gallery--thumbs-left .gallery__thumbnail img {
   @apply w-full h-auto;
 }
+
 .gallery.gallery--thumbs-left .gallery__thumbnail{
   @apply w-[78px] h-auto;
 }

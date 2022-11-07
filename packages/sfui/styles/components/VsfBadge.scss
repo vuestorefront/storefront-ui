@@ -1,6 +1,7 @@
 .vsf-badge {
   $self: &;
   @apply relative inline-flex bg-inherit rounded-full;
+
   &__wrapper {
     @apply rounded-[inherit] absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 bg-inherit pointer-events-none;
 
@@ -11,12 +12,15 @@
       @apply p-0.5;
     }
   }
+
   &__badge {
     @apply rounded-[inherit];
   }
+
   &__base {
     @apply py-0.5 px-1 text-3xs font-medium;
   }
+
   &__dot {
     @apply w-2.5 h-2.5;
   }
