@@ -10,7 +10,7 @@
     "packages/config/*"
   ],
   "scripts": {
-    "generate-icons": "concurrently \"yarn createMitosisIcons\" \"yarn createVueIcons\" \"yarn createReactIcons\" && yarn lint:fix:sfui",
+    "generate-icons": "concurrently \"yarn createVueIcons\" \"yarn createReactIcons\" && yarn lint:fix:sfui",
     "prepare": "husky install",
     "build": "yarn generate-icons && turbo run build",
     "dev": "turbo run dev --parallel",
