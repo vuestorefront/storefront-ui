@@ -20,7 +20,7 @@ const getArgValue = (argName) => {
 const inputDirectoryPath = path.join(__dirname, getArgValue('input') ?? './assets');
 const outputDirectoryPath = path.join(__dirname, getArgValue('output') ?? './');
 const relativePathToIconBasePath = getArgValue('relativePathToIconBase') ?? '../';
-const framework = getArgValue('framework') ?? 'mitosis'; //vue, react, mitosis
+const framework = getArgValue('framework') ?? 'vue'; //vue, react
 
 // https://github.com/preactjs/preact-compat/issues/222
 const attributesMap = {
@@ -119,38 +119,8 @@ export default function VsfIcon${camelCaseName}({
     return <VsfIconBase className={className} size={size} ariaLabel={ariaLabel} ${attributes}>${content}</VsfIconBase>;
 }`;
 
-// Rewrite if possible to using separate vue and react components, because e.g in react we cant pass style prop to inline styles, because we cant use `...rest` therefore we need to define every possible attrs
-const mitosisIcon = (name, camelCaseName, content, attributes) => `import { useStore } from '@builder.io/mitosis'
-import VsfIconBase from "../VsfIconBase/VsfIconBase.lite";
-
-export interface VsfIcon${camelCaseName}Props {
-  size?: "xs" | "sm" | "base" | "lg" | "xl" | "2xl" | "3xl" | "4xl",
-  className?: string;
-  ariaLabel?: string;
-}
-const DEFAULT_VALUES = {
-  size: 'base',
-};
-export default function VsfIcon${camelCaseName}(props: VsfIcon${camelCaseName}Props) {
-  const state = useStore({
-    get useContent() {
-      /* IF-vue */
-      return "${content}"
-      /* ENDIF-vue */
-      /* IF-react */
-      return <>${content}</>
-      /* ENDIF-react */
-    }
-  });
-  return <VsfIconBase
-    class={props.className || ''}
-    size={props.size || DEFAULT_VALUES.size}
-    ariaLabel={props.ariaLabel || '${name}'}
-    ${attributes}
-    content={state.useContent}
-  />
-}`;
-
+const vueExports = [];
+const reactExports = [];
 const camelize = s => s.replace(/-./g, x => x[1].toUpperCase());
 const capitalize = s => s && s[0].toUpperCase() + s.slice(1);
 const getSvg = async (svgName, doOptimiziation) => {
@@ -188,100 +158,94 @@ const getSvg = async (svgName, doOptimiziation) => {
     }
 };
 
-const counteTags = (content) => {
+const counterTags = (content) => {
     const regex = /<([a-z]+)(?=[\s>])(?:[^>=]|='[^']*'|="[^"]*"|=[^'"\s]*)*\s?\/?>/gi;
-    let m;
+    let resultMatch;
     let count = 0;
     do {
-        m = regex.exec(content);
-        if (m) count++;
-    } while (m);
+        resultMatch = regex.exec(content);
+        if (resultMatch) count++;
+    } while (resultMatch);
     return count;
 }
 
-fs.readdir(inputDirectoryPath, async function (err, files) {
+const createExports = async (file, doOptimiziation) => {
+    const splitFileName = file.split('.');
+    if (splitFileName[splitFileName.length - 1] === 'svg') {
+        const {
+            fileName,
+            name,
+            content,
+            attrs
+        } = await getSvg(file, doOptimiziation);
+
+        const capitializedCamelCaseName = capitalize(camelize(fileName));
+        const attributes = `viewBox="${attrs.viewBox ?? '0 0 24 24'}"`;
+        const componentName = `VsfIcon${capitializedCamelCaseName}`;
+        
+        if (framework === 'vue') {
+            await fsPromise.writeFile(
+                `${outputDirectoryPath}${componentName}.vue`,
+                vueIcon(name, content, attributes)
+            );
+            vueExports.push(componentName);
+        } else if (framework === 'react') {
+            let parsedContent = content;
+            for (let attr in attributesMap) {
+                parsedContent = parsedContent.replaceAll(attr, attributesMap[attr]);
+            }
+
+            parsedContent = counterTags(parsedContent) <= 1 ? parsedContent : `<>${parsedContent}</>`
+
+            await fsPromise.writeFile(
+                `${outputDirectoryPath}${componentName}.tsx`,
+                reactIcon(name, capitializedCamelCaseName, parsedContent, attributes)
+            );
+            reactExports.push(componentName);
+        }
+    }
+}
+
+const createIndexFiles = (frameworkName, fileName = 'index') => {
+    if (frameworkName === 'vue') {
+        let vueExportsString = ''
+        vueExports.sort().forEach(component => {
+            vueExportsString += `export { default as ${component} } from './${component}.vue';\n`;
+        });
+        fsPromise.writeFile(`${outputDirectoryPath}${fileName}.ts`, vueExportsString);
+    } else {
+        let reactExportsString = '';
+        reactExports.sort().forEach(component => {
+            reactExportsString += `export { default as ${component} } from './${component}';\n`;
+        });
+        fsPromise.writeFile(`${outputDirectoryPath}${fileName}.ts`, reactExportsString);
+    }
+}
+
+const generateIconFiles = async (err, files) => {
     if (err) {
         return console.log('Unable to get icons directory: ' + err);
     }
     const doOptimiziation = (getArgValue('optimize') ?? 'true') === 'true';
-
     console.log(`Creating ${framework} icons 🎉 ...`);
 
     if (!fs.existsSync(outputDirectoryPath)) {
         fs.mkdirSync(outputDirectoryPath);
     }
 
-    const vueExports = [];
-    const reactExports = [];
-
     for await (const file of files) {
-        const splitFileName = file.split('.');
-        if (splitFileName[splitFileName.length - 1] === 'svg') {
-            const {
-                fileName,
-                name,
-                content,
-                attrs
-            } = await getSvg(file, doOptimiziation);
-
-            const capitializedCamelCaseName = capitalize(camelize(fileName));
-            const attributes = `viewBox="${attrs.viewBox ?? '0 0 24 24'}"`;
-
-            const componentName = `VsfIcon${capitializedCamelCaseName}`;
-            if (framework === 'vue') {
-                await fsPromise.writeFile(
-                    `${outputDirectoryPath}${componentName}.vue`,
-                    vueIcon(name, content, attributes)
-                );
-                vueExports.push(componentName);
-            } else if (framework === 'react') {
-                let parsedContent = content;
-                for (let attr in attributesMap) {
-                    parsedContent = parsedContent.replaceAll(attr, attributesMap[attr]);
-                }
-
-                parsedContent = counteTags(parsedContent) <= 1 ? parsedContent : `<>${parsedContent}</>`
-
-                await fsPromise.writeFile(
-                    `${outputDirectoryPath}${componentName}.tsx`,
-                    reactIcon(name, capitializedCamelCaseName, parsedContent, attributes)
-                );
-                reactExports.push(componentName);
-            } else if (framework === 'mitosis') {
-                await fsPromise.writeFile(
-                    `${outputDirectoryPath}${componentName}.lite.tsx`,
-                    mitosisIcon(name, capitializedCamelCaseName, content, attributes)
-                )
-                vueExports.push(componentName);
-                reactExports.push(componentName);
-            }
-        }
+       await createExports(file, doOptimiziation);
     };
 
-    const createVueIndexFiles = (fileName = 'index') => {
-        let vueExportsString = ''
-        vueExports.sort().forEach(component => {
-            vueExportsString += `export { default as ${component} } from './${component}.vue';\n`;
-        });
-        fsPromise.writeFile(`${outputDirectoryPath}${fileName}.ts`, vueExportsString);
-    }
-
-    const createReactIndexFiles = (fileName = 'index') => {
-        let isMitosis = framework === 'mitosis';
-        let reactExportsString = '';
-        reactExports.sort().forEach(component => {
-            reactExportsString += `export { default as ${component} } from './${component}${isMitosis ? '.lite' : ''}';\n`;
-        });
-        fsPromise.writeFile(`${outputDirectoryPath}${fileName}.ts`, reactExportsString);
-    }
     if (vueExports.length) {
-        createVueIndexFiles(framework === 'mitosis' ? 'vue' : undefined);
+        createIndexFiles('vue');
     }
     if (reactExports.length) {
-        createReactIndexFiles(framework === 'mitosis' ? 'react' : undefined)
+        createIndexFiles('react')
     }
 
-    console.log(`Creating icons has finished`);
-});
+    console.log(`Creating icons has finished!`);
+}
+fs.readdir(inputDirectoryPath, generateIconFiles);
 
 
