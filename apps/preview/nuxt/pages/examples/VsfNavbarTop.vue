@@ -9,7 +9,8 @@
           :class="[filled ? 'text-white' : 'text-brand', 'inline-block h-8 md:h-10 lg:h-7']"
         >
           <VsfIconLogo viewBox="0 0 205 28" class="hidden large:block !w-[12.5rem] !h-[1.75rem]" />
-          <VsfIconLogoSmall size="xl" viewBox="0 0 40 40" class="block large:hidden" />
+          <VsfIconLogoSmall size="xl" viewBox="0 0 40 40" class="hidden medium:block large:!hidden" />
+          <VsfIconLogoSmall size="lg" viewBox="0 0 40 40" class="block medium:hidden" />
         </a>
         <VsfNavbarTopActionGroup class="hidden lg:block">
           <VsfNavbarTopAction v-for="(menuItem, i) in menuItems" :key="i" :link="menuItem.link">{{
@@ -55,12 +56,12 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
-import VsfNavbarTop from '@sfui/sfui/frameworks/vue/components/VsfNavbarTop/VsfNavbarTop.vue';
-import VsfNavbarTopAction from '@sfui/sfui/frameworks/vue/components/VsfNavbarTop/VsfNavbarTopAction.vue';
-import VsfNavbarTopActionGroup from '@sfui/sfui/frameworks/vue/components/VsfNavbarTop/VsfNavbarTopActionGroup.vue';
-import VsfSpacer from '@sfui/sfui/frameworks/vue/components/VsfNavbarTop/VsfSpacer.vue';
-import VsfBadge from '@sfui/sfui/frameworks/vue/components/VsfBadge/VsfBadge.vue';
-import VsfSearch from '@sfui/sfui/frameworks/vue/components/VsfSearch/VsfSearch.vue';
+import VsfNavbarTop from '@sfui/sfui/frameworks/vue/components/VsfNavbarTop/index';
+import VsfNavbarTopAction from '@sfui/sfui/frameworks/vue/components/VsfNavbarTop/index';
+import VsfNavbarTopActionGroup from '@sfui/sfui/frameworks/vue/components/VsfNavbarTop/index';
+import VsfSpacer from '@sfui/sfui/frameworks/vue/components/VsfNavbarTop/index';
+import VsfBadge from '@sfui/sfui/frameworks/vue/components/VsfBadge/index';
+import VsfSearch from '@sfui/sfui/frameworks/vue/components/VsfSearch/index';
 import {
   VsfIconBasket,
   VsfIconFavoritesOutline,
