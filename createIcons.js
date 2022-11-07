@@ -170,7 +170,7 @@ const counterTags = (content) => {
 }
 
 const createExports = async (file, doOptimiziation) => {
-const splitFileName = file.split('.');
+    const splitFileName = file.split('.');
     if (splitFileName[splitFileName.length - 1] === 'svg') {
         const {
             fileName,
