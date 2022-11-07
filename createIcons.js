@@ -170,45 +170,45 @@ const counterTags = (content) => {
 }
 
 const createExports = async (file, doOptimiziation) => {
-    const splitFileName = file.split('.');
-        if (splitFileName[splitFileName.length - 1] === 'svg') {
-            const {
-                fileName,
-                name,
-                content,
-                attrs
-            } = await getSvg(file, doOptimiziation);
+const splitFileName = file.split('.');
+    if (splitFileName[splitFileName.length - 1] === 'svg') {
+        const {
+            fileName,
+            name,
+            content,
+            attrs
+        } = await getSvg(file, doOptimiziation);
 
-            const capitializedCamelCaseName = capitalize(camelize(fileName));
-            const attributes = `viewBox="${attrs.viewBox ?? '0 0 24 24'}"`;
-            const componentName = `VsfIcon${capitializedCamelCaseName}`;
-            
-            if (framework === 'vue') {
-                await fsPromise.writeFile(
-                    `${outputDirectoryPath}${componentName}.vue`,
-                    vueIcon(name, content, attributes)
-                );
-                vueExports.push(componentName);
-            } else if (framework === 'react') {
-                let parsedContent = content;
-                for (let attr in attributesMap) {
-                    parsedContent = parsedContent.replaceAll(attr, attributesMap[attr]);
-                }
-
-                parsedContent = counterTags(parsedContent) <= 1 ? parsedContent : `<>${parsedContent}</>`
-
-                await fsPromise.writeFile(
-                    `${outputDirectoryPath}${componentName}.tsx`,
-                    reactIcon(name, capitializedCamelCaseName, parsedContent, attributes)
-                );
-                reactExports.push(componentName);
+        const capitializedCamelCaseName = capitalize(camelize(fileName));
+        const attributes = `viewBox="${attrs.viewBox ?? '0 0 24 24'}"`;
+        const componentName = `VsfIcon${capitializedCamelCaseName}`;
+        
+        if (framework === 'vue') {
+            await fsPromise.writeFile(
+                `${outputDirectoryPath}${componentName}.vue`,
+                vueIcon(name, content, attributes)
+            );
+            vueExports.push(componentName);
+        } else if (framework === 'react') {
+            let parsedContent = content;
+            for (let attr in attributesMap) {
+                parsedContent = parsedContent.replaceAll(attr, attributesMap[attr]);
             }
+
+            parsedContent = counterTags(parsedContent) <= 1 ? parsedContent : `<>${parsedContent}</>`
+
+            await fsPromise.writeFile(
+                `${outputDirectoryPath}${componentName}.tsx`,
+                reactIcon(name, capitializedCamelCaseName, parsedContent, attributes)
+            );
+            reactExports.push(componentName);
         }
+    }
 }
 
 const createIndexFiles = (frameworkName, fileName = 'index') => {
     if (frameworkName === 'vue') {
-         let vueExportsString = ''
+        let vueExportsString = ''
         vueExports.sort().forEach(component => {
             vueExportsString += `export { default as ${component} } from './${component}.vue';\n`;
         });
