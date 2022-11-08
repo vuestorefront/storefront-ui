@@ -3955,11 +3955,11 @@
     vue "^2.6.12"
     vue2-leaflet "^2.5.2"
 
-"@storefront-ui/vue@link:packages/vue":
-  version "0.13.3"
+"@storefront-ui/vue@file:packages/vue":
+  version "0.13.4"
   dependencies:
     "@glidejs/glide" "^3.3.0"
-    "@storefront-ui/shared" "0.13.3"
+    "@storefront-ui/shared" "0.13.4"
     body-scroll-lock "^3.0.1"
     cloudinary-build-url "^0.1.1"
     core-js "^3.6.5"
