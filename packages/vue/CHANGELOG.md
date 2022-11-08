@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.13.4](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/vue@0.13.3...@storefront-ui/vue@0.13.4) (2022-11-04)
+
+
+### Bug Fixes
+
+* Dropdown docs interactivity ([#2475](https://github.com/vuestorefront/storefront-ui/issues/2475)) ([b38dfe4](https://github.com/vuestorefront/storefront-ui/commit/b38dfe43ca7e7435a98e90bdaac298af7e89592a))
+* footer closing on mobile ([#2469](https://github.com/vuestorefront/storefront-ui/issues/2469)) ([b7350c8](https://github.com/vuestorefront/storefront-ui/commit/b7350c8e30124a65f7d3f1642420cb701eb4c838))
+* icon slot in searchbar ([#2468](https://github.com/vuestorefront/storefront-ui/issues/2468)) ([5521c6b](https://github.com/vuestorefront/storefront-ui/commit/5521c6b4a1c36d41f4c3eb635a1f8cb730df7203))
+* SfBullets and SfImage warnings instead of errors ([#2474](https://github.com/vuestorefront/storefront-ui/issues/2474)) ([3577896](https://github.com/vuestorefront/storefront-ui/commit/3577896b76afbb82c7def68b05bfa13adab79879))
+* SfGallery - for more than 4 thumbnails gallery is breaking ([#2477](https://github.com/vuestorefront/storefront-ui/issues/2477)) ([b49793b](https://github.com/vuestorefront/storefront-ui/commit/b49793bc0744d86b1f48b240a2e2c7d6293d2843))
+* storelocator marker fixed ([#2428](https://github.com/vuestorefront/storefront-ui/issues/2428)) ([1fb99e9](https://github.com/vuestorefront/storefront-ui/commit/1fb99e91b717f5f522f893fb640312d36d88b166))
+* Storybook Atoms Input placeholder prop does not work ([#2495](https://github.com/vuestorefront/storefront-ui/issues/2495)) ([31546bd](https://github.com/vuestorefront/storefront-ui/commit/31546bdaccd809387ed608a2421ab4d876e3b03b))
+* Storybook Molecules Modal cannot close the modal even with persistent turned off ([#2476](https://github.com/vuestorefront/storefront-ui/issues/2476)) ([668b2d8](https://github.com/vuestorefront/storefront-ui/commit/668b2d87ced527534f69c8cecbf86ce22224fbfc))
+* Storybook Organisms Header some props do not work ([#2496](https://github.com/vuestorefront/storefront-ui/issues/2496)) ([f2b3f45](https://github.com/vuestorefront/storefront-ui/commit/f2b3f459dc1b23a8f2b347fc20334e3accda5aa3))
+* typo in skeleton story ([#2438](https://github.com/vuestorefront/storefront-ui/issues/2438)) ([26e4f3e](https://github.com/vuestorefront/storefront-ui/commit/26e4f3e239fe31837fb2a069a9fb85bb60e3c790))
+* updated copy components script ([#2483](https://github.com/vuestorefront/storefront-ui/issues/2483)) ([be0632a](https://github.com/vuestorefront/storefront-ui/commit/be0632afab37800ceb200cf7e89a7c51468b43c6))
+
+
+### Features
+
+* cart sidebar emits closeSidebar ([823fb57](https://github.com/vuestorefront/storefront-ui/commit/823fb5729313656bf4560d0e04623d22e62978ba))
+
+
+
+
+
 ## [0.13.3](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/vue@0.13.2...@storefront-ui/vue@0.13.3) (2022-06-29)
 
 
