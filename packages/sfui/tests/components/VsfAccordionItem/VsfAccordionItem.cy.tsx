@@ -37,6 +37,8 @@ describe("VsfAccordionItem", () => {
   afterEach(() => {
     title = 'Accordion title';
     slotContent = 'This is some content inside accordion';
+    open = false;
+    chevronLeft = false;
   });
 
   it('initial state', () => {
@@ -51,7 +53,7 @@ describe("VsfAccordionItem", () => {
       .makeSnapshot();
   });
 
-  describe('when accordion opened and filled', () => {
+  describe('when accordion prop open=true and filled', () => {
     it('should render correctly', () => {
       open = true;
       initializeComponent();
@@ -64,7 +66,7 @@ describe("VsfAccordionItem", () => {
     })
   });
 
-  describe('when chevronLeft=true', () => {
+  describe('when prop chevronLeft=true', () => {
     it('should display chevron icon on left side', () => {
       chevronLeft = true;
       initializeComponent();
@@ -73,9 +75,8 @@ describe("VsfAccordionItem", () => {
     });
   });
 
-  describe('when clicked header', () => {
+  describe('when header is clicked', () => {
     it('should open/close accordion', () => {
-      open = false;
       initializeComponent();
 
       page()

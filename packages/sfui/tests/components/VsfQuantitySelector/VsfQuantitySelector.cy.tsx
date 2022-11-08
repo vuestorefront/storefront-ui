@@ -1,12 +1,11 @@
 /// <reference path="../../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from "react";
-import VsfButtonVue from "../../../frameworks/vue/components/VsfQuantitySelector/VsfQuantitySelector.vue";
-import { VsfQuantitySelectorSizes } from '../../../frameworks/vue/components/VsfQuantitySelector/types';
-import VsfButtonReact from "../../../frameworks/react/components/VsfQuantitySelector/VsfQuantitySelector";
+import VsfQuantitySelectorVue from "../../../frameworks/vue/components/VsfQuantitySelector/VsfQuantitySelector.vue";
+import VsfQuantitySelectorReact from "../../../frameworks/react/components/VsfQuantitySelector/VsfQuantitySelector";
 import { mount } from '../../utils/mount';
+import { VsfQuantitySelectorSizes } from '../../../frameworks/vue/components/VsfQuantitySelector/types';
 import VsfQuantitySelectorBaseObject from "./VsfQuantitySelector.PageObject";
 import VsfButtonBaseObject from "../VsfButton/VsfButton.PageObject";
-import { isReact } from "../../utils/utils";
 
 describe("VsfQuantitySelector", () => {
   let onChangeSpy: Cypress.Agent<sinon.SinonSpy>;
@@ -29,7 +28,7 @@ describe("VsfQuantitySelector", () => {
   const initializeComponent = () => {
     return mount({
       vue: {
-        component: VsfButtonVue,
+        component: VsfQuantitySelectorVue,
         props: {
           minValue,
           maxValue,
@@ -40,13 +39,14 @@ describe("VsfQuantitySelector", () => {
           inputAriaLabel,
           inputId,
           decimal,
-          onChange: onChangeSpy
+          modelValue: value,
+          'onUpdate:modelValue': onChangeSpy
         },
         slots: {
           default: () => slotContent,
         },
       },
-      react: <VsfButtonReact
+      react: <VsfQuantitySelectorReact
         value={value}
         minValue={minValue}
         maxValue={maxValue}
@@ -58,7 +58,7 @@ describe("VsfQuantitySelector", () => {
         inputId={inputId}
         decimal={decimal}
         onChange={onChangeSpy}
-      >{slotContent}</VsfButtonReact>
+      >{slotContent}</VsfQuantitySelectorReact>
     });
   }
 
@@ -79,7 +79,7 @@ describe("VsfQuantitySelector", () => {
     page().makeSnapshot();
   });
 
-  describe('when clicked increase', () => {
+  describe('when button increase is clicked', () => {
     it('should change value/modelValue + 1', () => {
       initializeComponent();
 
@@ -94,7 +94,7 @@ describe("VsfQuantitySelector", () => {
     });
   });
 
-  describe('when maxValue=3 and value=2 and click increment', () => {
+  describe('when maxValue=3 and value=2 and click increment button', () => {
     before(() => {
       maxValue = 3;
       value = 2;
@@ -103,8 +103,7 @@ describe("VsfQuantitySelector", () => {
       initializeComponent();
 
       decreaseButton().isNotDisabled();
-      increaseButton().isNotDisabled()
-      increaseButton().click();
+      increaseButton().isNotDisabled().click();
       cy.then(() => {
         decreaseButton().isNotDisabled();
         increaseButton().isDisabled()
@@ -114,7 +113,7 @@ describe("VsfQuantitySelector", () => {
     });
   });
 
-  describe('when value=1 and click decrease', () => {
+  describe('when value=1 and click decrease button', () => {
     before(() => {
       value = 2;
     });
@@ -133,5 +132,5 @@ describe("VsfQuantitySelector", () => {
     });
   });
 
-  // TODO: tbd, refactor component
+  // TODO: tbd, refactor this component
 });

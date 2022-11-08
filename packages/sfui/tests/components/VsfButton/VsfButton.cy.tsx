@@ -68,10 +68,10 @@ describe("VsfButton", () => {
     page().makeSnapshot();
   });
 
-  describe('when size', () => {
+  describe('when prop size is set to ', () => {
     Object.values(VsfButtonSizes).forEach((componentSize) => {
       describe(`${componentSize}`, () => {
-        it(`should render correct size ${componentSize}`, () => {
+        it(`should render correct ${componentSize} size`, () => {
           size = componentSize;
           initializeComponent();
 
@@ -81,10 +81,10 @@ describe("VsfButton", () => {
     });
   });
 
-  describe('when variant', () => {
+  describe('when prop variant is set to ', () => {
     Object.values(VsfButtonVariants).forEach((componentVariant) => {
       describe(`${componentVariant}`, () => {
-        it(`should render correct variant ${componentVariant}`, () => {
+        it(`should render correct ${componentVariant} variant`, () => {
           variant = componentVariant;
           initializeComponent();
 
@@ -94,7 +94,7 @@ describe("VsfButton", () => {
     });
   });
 
-  describe('when rounded', () => {
+  describe('when prop rounded=true', () => {
     before(() => rounded = true);
     after(() => rounded = false);
     it(`should render with rounded borders`, () => {
@@ -104,7 +104,7 @@ describe("VsfButton", () => {
     });
   });
 
-  describe('when disabled', () => {
+  describe('when prop disabled=true', () => {
     before(() => disabled = true);
     after(() => disabled = false);
     it(`should render as disabled`, () => {
@@ -116,7 +116,7 @@ describe("VsfButton", () => {
     });
   });
 
-  describe('when tile', () => {
+  describe('when prop tile=true', () => {
     before(() => tile = true);
     after(() => tile = false);
     it(`should render as tile`, () => {
@@ -126,7 +126,7 @@ describe("VsfButton", () => {
     });
   });
 
-  describe('when icon', () => {
+  describe('when prop icon=true', () => {
     before(() => icon = true);
     after(() => icon = false);
     it(`should render with smaller paddings`, () => {
@@ -136,7 +136,7 @@ describe("VsfButton", () => {
     });
   });
 
-  describe('when block', () => {
+  describe('when prop block=true', () => {
     before(() => block = true);
     after(() => block = false);
     it(`should render full with`, () => {
@@ -146,7 +146,7 @@ describe("VsfButton", () => {
     });
   });
 
-  describe('when tag=div', () => {
+  describe('when prop tag=div', () => {
     before(() => tag = 'div');
     after(() => tag = 'button');
     it(`should render as HTMLDivElement`, () => {
@@ -158,7 +158,7 @@ describe("VsfButton", () => {
     });
   });
 
-  describe('when link', () => {
+  describe('when prop link is set', () => {
     before(() => link = 'http://somelink.com');
     after(() => link = '');
     it(`should render as <a> element`, () => {

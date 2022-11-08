@@ -41,10 +41,10 @@ export default class VsfAccordionItemBaseObject extends BasePage {
   }
 
   get headerSummaryElement() {
-    return this.container.find('summary > span');
+    return this.findTestElement('accordion-item-title');
   }
 
   get contentElement() {
-    return this.container.find('> div');
+    return this.findTestElement('accordion-item-content');
   }
 }
