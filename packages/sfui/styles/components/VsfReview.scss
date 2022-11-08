@@ -15,7 +15,11 @@
 
     &-date,
     &-author {
-      @apply text-gray-500 text-xs font-normal;
+      @apply text-gray-500 text-xs font-normal text-ellipsis overflow-hidden whitespace-nowrap;
+    }
+
+    &-date {
+      @apply pr-2;
     }
   }
 
