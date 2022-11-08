@@ -299,6 +299,7 @@ const Template = (args, { argTypes }) => ({
     :required="required"
     :disabled="disabled"
     :icon="icon"
+    :placeholder="placeholder"
     :has-show-password="hasShowPassword"
     @change="change"
     @input="input"
@@ -310,6 +311,7 @@ Common.args = {
   type: "text",
   label: "First name",
   name: "name",
+  placeholder: "",
 };
 
 export const WithError = Template.bind({});
