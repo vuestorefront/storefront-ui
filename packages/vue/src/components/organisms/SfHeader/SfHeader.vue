@@ -72,8 +72,6 @@
                 <SfIcon
                   class="sf-header__icon"
                   :icon="wishlistIcon"
-                  :has-badge="wishlistHasProducts"
-                  :badge-label="wishlistItemsQty"
                   size="1.25rem"
                   :class="{
                     'sf-header__icon is-active': activeIcon === 'wishlist',
@@ -90,8 +88,6 @@
                 <SfIcon
                   class="sf-header__icon"
                   :icon="cartIcon"
-                  :has-badge="cartHasProducts"
-                  :badge-label="cartItemsQty"
                   size="1.25rem"
                   :class="{
                     'sf-header__icon is-active': activeIcon === 'cart',
