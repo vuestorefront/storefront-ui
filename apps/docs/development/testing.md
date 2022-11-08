@@ -1,7 +1,7 @@
 ## NOTE
 
 We run 1 test file in 2 different environments (react and vue).
-React is run in Next.js, however Nuxt.js(v3) cant run atm component testing, thats why there is seprate pure vue setup only for this purpose https://github.com/nuxt/framework/issues/6496
+React is run in Next.js, however Nuxt.js(v3) cant run atm component testing, thats why there is a seprate pure vue setup only for this purpose https://github.com/nuxt/framework/issues/6496
 
 ## Writing tests
 
@@ -21,8 +21,9 @@ We uses page objects approach, it gives couple of advantages
 
 ## Learning/Docs
 
-Basic usage of cypress for vue is here https://docs.cypress.io/guides/component-testing/quickstart-vue
+Basic usage of cypress for Vue is here https://docs.cypress.io/guides/component-testing/quickstart-vue
 For React https://docs.cypress.io/guides/component-testing/quickstart-reac
 And API https://docs.cypress.io/api/table-of-contents
 
 TODO: remove data-testid on release components
+TODO: when bug issue on cypress side will be resolved, we should use one browser
