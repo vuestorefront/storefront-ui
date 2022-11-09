@@ -25,7 +25,8 @@
     "createVueIcons": "yarn node createIcons framework=vue input=packages/sfui/assets/ output=packages/sfui/frameworks/vue/components/VsfIcons/",
     "createReactIcons": "yarn node createIcons framework=react input=packages/sfui/assets/ output=packages/sfui/frameworks/react/components/VsfIcons/",
     "hygen": "./node_modules/.bin/hygen",
-    "component": "yarn hygen component"
+    "component": "yarn hygen component",
+    "test": "turbo run test"
   },
   "devDependencies": {
     "@commitlint/cli": "^13.2.1",
@@ -51,6 +52,9 @@
   },
   "dependencies": {
     "cross-env": "^7.0.3"
+  },
+  "resolutions": {
+    "vue": "3.2.39"
   },
   "packageManager": "yarn@1.22.10",
   "config": {
