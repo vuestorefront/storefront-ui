@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.13.5](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/vue@0.13.4...@storefront-ui/vue@0.13.5) (2022-11-08)
+
+
+### Bug Fixes
+
+* restored changeHandler for Header ([08c5abb](https://github.com/vuestorefront/storefront-ui/commit/08c5abb9fc823419aec5bf8acb63dd5bb7ed415e))
+* Vue project no longer compiles with npm ([#2456](https://github.com/vuestorefront/storefront-ui/issues/2456)) ([baa492c](https://github.com/vuestorefront/storefront-ui/commit/baa492cb39206e0c3eceec3288dbbfbbdd3cdac9))
+
+
+
+
+
 ## [0.13.4](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/vue@0.13.3...@storefront-ui/vue@0.13.4) (2022-11-04)
 
 

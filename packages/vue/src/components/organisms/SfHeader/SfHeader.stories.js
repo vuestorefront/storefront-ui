@@ -489,6 +489,12 @@ const Template = (args, { argTypes }) => ({
       navigationItems: ["women", "man", "kids"],
     };
   },
+  methods: {
+    changeHandler(value) {
+      this.searchValues = value;
+      this["change:search"](value);
+    },
+  },
   template: `
   <SfHeader
     :class="classes"
