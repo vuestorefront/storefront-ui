@@ -5,10 +5,10 @@
         :title="title"
         :date="date"
         :author="author"
-        :charLimit="charLimit"
+        :char-limit="charLimit"
         :content="content"
-        :showMoreText="showMoreText"
-        :showLessText="showLessText"
+        :show-more-text="showMoreText"
+        :show-less-text="showLessText"
       >
         <template #rating>
           <VsfRating :value="3" :max="5" />
