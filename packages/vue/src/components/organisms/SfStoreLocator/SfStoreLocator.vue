@@ -173,7 +173,7 @@ export default {
   },
   async mounted() {
     // Fix lack of marker icons
-    const { icon } = await import('leaflet');
+    const { Icon } = await import('leaflet');
     delete Icon.Default.prototype._getIconUrl;
     Icon.Default.mergeOptions({
       iconRetinaUrl: require("leaflet/dist/images/marker-icon-2x.png"),
