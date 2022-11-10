@@ -9,7 +9,8 @@
           :class="[filled ? 'text-white' : 'text-brand', 'inline-block h-8 md:h-10 lg:h-7']"
         >
           <VsfIconLogo viewBox="0 0 205 28" class="hidden large:block !w-[12.5rem] !h-[1.75rem]" />
-          <VsfIconLogoSmall size="xl" viewBox="0 0 40 40" class="block large:hidden" />
+          <VsfIconLogoSmall size="xl" viewBox="0 0 40 40" class="hidden medium:block large:!hidden" />
+          <VsfIconLogoSmall size="lg" viewBox="0 0 40 40" class="block medium:hidden" />
         </a>
         <VsfNavbarTopActionGroup class="hidden lg:block">
           <VsfNavbarTopAction v-for="(menuItem, i) in menuItems" :key="i" :link="menuItem.link">{{
