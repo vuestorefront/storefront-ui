@@ -1,0 +1,113 @@
+<script lang="ts" setup>
+import { ref } from 'vue';
+import { VsfSelectSizes } from './types';
+
+const props = defineProps({
+  size: {
+    type: String,
+    default: VsfSelectSizes.base,
+  },
+  placeholder: {
+    type: String,
+    default: '',
+  },
+  required: {
+    type: Boolean,
+    default: false,
+  },
+  disabled: {
+    type: Boolean,
+    default: false,
+  },
+  invalid: {
+    type: Boolean,
+    default: false,
+  },
+  value: {
+    type: String,
+    default: '',
+  },
+  label: {
+    type: String,
+    default: '',
+  },
+  helpText: {
+    type: String,
+    default: '',
+  },
+  errorText: {
+    type: String,
+    default: '',
+  },
+  requiredText: {
+    type: String,
+    default: '*Required',
+  },
+});
+const selected = ref(props.value);
+const emit = defineEmits<{
+  (event: 'update:modelValue', param: string): void;
+}>();
+
+const changedValue = (event: Event) => {
+  selected.value = (event.target as HTMLSelectElement).value;
+  emit('update:modelValue', (event.target as HTMLSelectElement).value);
+};
+</script>
+
+<template>
+  <div class="vsf-select" :class="{ 'vsf-select--disabled': disabled }">
+    <div class="vsf-select__wrapper">
+      <div class="vsf-select__wrapper-input" :class="{ 'vsf-select__wrapper-input--with-label': label }">
+        <select
+          :id="label"
+          :required="required"
+          :disabled="disabled"
+          class="vsf-select__input peer"
+          :class="
+            (size === VsfSelectSizes.base
+              ? null
+              : size === VsfSelectSizes.sm
+              ? 'vsf-select__input--small'
+              : 'vsf-select__input--large',
+            { 'vsf-select__input--invalid': invalid })
+          "
+          @change="changedValue"
+        >
+          <slot name="placeholder">
+            <option
+              v-if="placeholder"
+              :selected="!!placeholder"
+              class="vsf-select__placeholder"
+              value=""
+              :class="
+                size === VsfSelectSizes.base
+                  ? null
+                  : size === VsfSelectSizes.sm
+                  ? 'vsf-select__placeholder--small'
+                  : 'vsf-select__placeholder--large'
+              "
+            >
+              {{ placeholder }}
+            </option>
+          </slot>
+          <slot />
+        </select>
+        <slot name="label">
+          <label :for="label" class="vsf-select__label">{{ label }}</label>
+        </slot>
+      </div>
+    </div>
+    <slot name="errorText">
+      <span v-if="invalid" class="vsf-select__error-text" :aria-live="invalid ? 'assertive' : 'off'">
+        {{ errorText }}
+      </span>
+    </slot>
+    <slot name="helpText">
+      <span v-if="helpText" class="vsf-select__help-text">{{ helpText }}</span>
+    </slot>
+    <slot name="requiredText">
+      <span v-if="required" class="vsf-select__required">{{ requiredText }}</span>
+    </slot>
+  </div>
+</template>

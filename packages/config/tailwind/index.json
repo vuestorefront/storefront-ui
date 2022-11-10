@@ -23,8 +23,8 @@
         "extra-large": "0px 20px 25px -5px rgba(0, 0, 0, 0.1), 0px 10px 10px -5px rgba(0, 0, 0, 0.04)",
         "inner-border": "inset -1px 0px 0px 0px, inset 0px 1px 0px 0px, inset 0px -1px 0px 0px, inset 1px 0px 0px 0px",
         "inner-border-button-left": "inset 1px 0px 0px 0px, inset 0px 1px 0px 0px, inset 0px -1px 0px 0px",
-        "inner-border-button-right": "inset -1px 0px 0px 0px, inset 0px 1px 0px 0px, inset 0px -1px 0px 0px"
-
+        "inner-border-button-right": "inset -1px 0px 0px 0px, inset 0px 1px 0px 0px, inset 0px -1px 0px 0px",
+        "inner-border-bolded": "inset -2px 0px 0px 0px, inset 0px 2px 0px 0px, inset 0px -2px 0px 0px, inset 2px 0px 0px 0px"
       },
       "backgroundImage": {
         "star-filled": "url('../../assets/star.svg')",
