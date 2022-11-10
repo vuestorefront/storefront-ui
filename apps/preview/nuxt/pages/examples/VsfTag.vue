@@ -3,7 +3,7 @@
     <div class="e-page-component">
       <VsfTag :variant="variant" :strong="strong" :size="size" :label="label" :aria-live="ariaLiveValue">
         <template v-if="showIcon" #icon>
-          <div class="w-full h-full rounded-full" />
+          <VsfIconCheck :size="size === VsfTagSizes.base ? VsfIconSizeEnum.sm : VsfIconSizeEnum.xs" />
         </template>
       </VsfTag>
     </div>
@@ -18,11 +18,14 @@ import { defineComponent, ref } from 'vue';
 import VsfTag from '@sfui/sfui/frameworks/vue/components/VsfTag/VsfTag.vue';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
 import { VsfTagVariants, VsfTagSizes, VsfTagAriaLiveValues } from '@sfui/sfui/frameworks/vue/components/VsfTag/types';
+import VsfIconCheck from '@sfui/sfui/frameworks/vue/components/VsfIcons/VsfIconCheck.vue';
+import { VsfIconSizeEnum } from '@sfui/sfui/frameworks/vue/components/VsfIcons/types';
 
 export default defineComponent({
   name: 'VsfTagExample',
   components: {
     VsfTag,
+    VsfIconCheck,
     Controls,
   },
   setup() {
@@ -73,6 +76,7 @@ export default defineComponent({
           ariaLiveValue: ref<VsfTagAriaLiveValues>(VsfTagAriaLiveValues.polite),
         },
       ),
+      VsfIconSizeEnum,
     };
   },
 });

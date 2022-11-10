@@ -3,6 +3,8 @@ import VsfTag, {
   VsfTagSizes,
   VsfTagAriaLiveValues,
 } from '@sfui/sfui/frameworks/react/components/VsfTag';
+import { VsfIconCheck } from '~/../../../packages/sfui/frameworks/react/components/VsfIcons';
+import { VsfIconSizeEnum } from '@sfui/sfui/frameworks/react/components/VsfIcons/types';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 
@@ -65,7 +67,9 @@ function Example() {
           ariaLive={state.get.ariaLiveValue}
           className="mr-2"
         >
-          {state.get.showIcon ? <div className="w-full h-full rounded-full" /> : null}
+          {state.get.showIcon ? (
+            <VsfIconCheck size={state.get.size === VsfTagSizes.base ? VsfIconSizeEnum.sm : VsfIconSizeEnum.xs} />
+          ) : null}
         </VsfTag>
       </div>
       <div className="e-page-controls">
