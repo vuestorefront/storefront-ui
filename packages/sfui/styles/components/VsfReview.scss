@@ -15,7 +15,7 @@
 
     &-date,
     &-author {
-      @apply text-gray-500 text-xs font-normal text-ellipsis overflow-hidden whitespace-nowrap;
+      @apply text-gray-500 text-xs font-normal truncate;
     }
 
     &-date {
