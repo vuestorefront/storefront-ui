@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.13.5](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.13.4...@storefront-ui/shared@0.13.5) (2022-11-08)
+
+**Note:** Version bump only for package @storefront-ui/shared
+
+
+
+
+
+## [0.13.4](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.13.3...@storefront-ui/shared@0.13.4) (2022-11-04)
+
+
+### Bug Fixes
+
+* footer closing on mobile ([#2469](https://github.com/vuestorefront/storefront-ui/issues/2469)) ([b7350c8](https://github.com/vuestorefront/storefront-ui/commit/b7350c8e30124a65f7d3f1642420cb701eb4c838))
+* SfGallery - for more than 4 thumbnails gallery is breaking ([#2477](https://github.com/vuestorefront/storefront-ui/issues/2477)) ([b49793b](https://github.com/vuestorefront/storefront-ui/commit/b49793bc0744d86b1f48b240a2e2c7d6293d2843))
+
+
+
+
+
 ## [0.13.3](https://github.com/vuestorefront/storefront-ui/compare/@storefront-ui/shared@0.13.2...@storefront-ui/shared@0.13.3) (2022-06-29)
 
 

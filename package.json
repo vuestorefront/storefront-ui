@@ -1,7 +1,7 @@
 {
   "name": "@storefront-ui/root",
   "private": true,
-  "version": "0.13.3",
+  "version": "0.13.5",
   "description": "",
   "main": "index.js",
   "author": "Storefront UI",
@@ -51,7 +51,7 @@
     "fse": "^4.0.1",
     "glob": "^7.1.4",
     "husky": "^3.1.0",
-    "lerna": "^3.16.4",
+    "lerna": "^3.22.1",
     "prompts": "^2.1.0",
     "uppercamelcase": "^3.0.0"
   }
