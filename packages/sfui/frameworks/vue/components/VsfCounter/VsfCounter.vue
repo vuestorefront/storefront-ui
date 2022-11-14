@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { PropType } from 'vue';
-import type { VsfCounterSizes } from './types';
+import { VsfCounterSizes } from './types';
 
-const props = defineProps({
+defineProps({
   size: {
     type: String as PropType<VsfCounterSizes>,
-    default: 'base',
+    default: VsfCounterSizes.base,
   },
   pill: {
     type: Boolean,
@@ -18,9 +18,9 @@ const props = defineProps({
   <span
     :class="[
       'vsf-counter',
-      `vsf-counter--${props.size}`,
+      `vsf-counter--${size}`,
       {
-        'vsf-counter--pill': props.pill,
+        'vsf-counter--pill': pill,
       },
     ]"
   >

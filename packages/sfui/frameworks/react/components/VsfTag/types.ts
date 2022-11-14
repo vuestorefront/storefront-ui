@@ -1,5 +1,5 @@
-import { PropsWithChildren } from 'react';
-import { PropsWithStyle } from '@sfui/sfui/shared/types/index';
+import type { PropsWithChildren } from 'react';
+import type { PropsWithStyle } from '../../shared/types/index';
 
 export enum VsfTagVariants {
   primary = 'primary',

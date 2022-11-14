@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed } from 'vue';
+import { computed, toRefs } from 'vue';
 
 const props = defineProps({
   label: {
@@ -19,24 +19,22 @@ const props = defineProps({
     default: 'button',
   },
 });
-
+const { link, tag } = toRefs(props);
 const componentTag = computed(() => {
-  if (props.link && props.tag === 'button') {
+  if (link.value && tag.value === 'button') {
     return 'a';
   }
-  return props.tag;
+  return tag.value;
 });
-
-const attributes = computed(() => ({
-  role: componentTag.value === 'a' ? 'button' : undefined,
-  ...(props.link && { href: props.link }),
-}));
 </script>
 
 <template>
   <component
     :is="componentTag"
-    v-bind="attributes"
+    v-bind="{
+      role: componentTag === 'a' ? 'button' : null,
+      ...(link && { href: link }),
+    }"
     :class="[
       'vsf-navbar-bottom-item',
       {

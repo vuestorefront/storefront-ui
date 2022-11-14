@@ -1,5 +1,5 @@
-import { clamp, roundToNearest } from '@sfui/sfui/shared/utils/index';
 import classNames from 'classnames';
+import { clamp, roundToNearest } from '../../sharedRoot/utils/index';
 import { VsfIconStar, VsfIconStarOutline, VsfIconStarPartiallyFilled } from '../VsfIcons';
 import { VsfRatingSizes, VsfRatingVariants } from './types';
 import type { VsfRatingProps } from './types';

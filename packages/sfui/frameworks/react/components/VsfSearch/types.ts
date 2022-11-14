@@ -1,5 +1,5 @@
-import { ReactNode, FormEventHandler, MouseEventHandler } from 'react';
-import { PropsWithStyle } from '../../shared/types';
+import type { ReactNode, FormEventHandler, MouseEventHandler } from 'react';
+import type { PropsWithStyle } from '../../shared/types';
 
 export type VsfSearchProps = PropsWithStyle & {
   placeholder?: string;

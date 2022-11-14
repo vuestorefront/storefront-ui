@@ -2,7 +2,7 @@
 import { computed, PropType, toRefs } from 'vue';
 import { VsfRatingSizes, VsfRatingVariants } from './types';
 import { VsfIconStar, VsfIconStarOutline, VsfIconStarPartiallyFilled } from '../../components/VsfIcons';
-import { clamp, roundToNearest } from '@sfui/sfui/shared/utils/index';
+import { clamp, roundToNearest } from '../../sharedRoot/utils/index';
 
 const props = defineProps({
   size: {
@@ -26,28 +26,33 @@ const props = defineProps({
     default: false,
   },
 });
-const precision = computed(() => (props.halfIncrement ? 0.5 : 1));
-const { value, max } = toRefs(props);
+const { value, max, halfIncrement } = toRefs(props);
 
+const precision = computed(() => (halfIncrement.value ? 0.5 : 1));
 const ratingValue = computed(() => clamp(roundToNearest(value.value, precision.value), 0, max.value));
 const partiallyFilled = computed(() => Number(!Number.isInteger(ratingValue.value)));
 const filled = computed(() => Math.ceil(ratingValue.value - partiallyFilled.value));
 const empty = computed(() => max.value - filled.value - partiallyFilled.value);
+// TODO: i18n, localize text via prop
 const title = computed(() => `${value.value} out of ${max.value}`);
-const classes = computed(() => [
-  'vsf-rating',
-  {
-    'vsf-rating--xs': props.size === VsfRatingSizes.xs,
-    'vsf-rating--sm': props.size === VsfRatingSizes.sm,
-    'vsf-rating--base': props.size === VsfRatingSizes.base,
-    'vsf-rating--lg': props.size === VsfRatingSizes.lg,
-    'vsf-rating--xl': props.size === VsfRatingSizes.xl,
-  },
-]);
 </script>
 
 <template>
-  <div role="img" :ariaLabel="title" :title="title" :class="classes">
+  <div
+    role="img"
+    :ariaLabel="title"
+    :title="title"
+    :class="[
+      'vsf-rating',
+      {
+        'vsf-rating--xs': size === VsfRatingSizes.xs,
+        'vsf-rating--sm': size === VsfRatingSizes.sm,
+        'vsf-rating--base': size === VsfRatingSizes.base,
+        'vsf-rating--lg': size === VsfRatingSizes.lg,
+        'vsf-rating--xl': size === VsfRatingSizes.xl,
+      },
+    ]"
+  >
     <template v-if="variant === 'withValue'">
       <VsfIconStar aria-hidden="true" class="vsf-rating__star-filled" />
       <span class="vsf-rating__value">{{ value }}</span>

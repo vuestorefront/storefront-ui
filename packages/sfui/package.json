@@ -26,6 +26,8 @@
   ],
   "devDependencies": {
     "@sfui/eslint-config": "*",
+    "concurrently": "^7.5.0",
+    "eslint": "^8.27.0",
     "postcss-html": "^1.5.0",
     "postcss-scss": "^4.0.5",
     "stylelint": "^14.14.1",

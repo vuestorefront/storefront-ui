@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed } from 'vue';
+import { computed, toRefs } from 'vue';
 const props = defineProps({
   link: {
     type: String,
@@ -18,23 +18,23 @@ const props = defineProps({
     default: false,
   },
 });
-const attributes = computed(() => ({
-  role: componentTag.value === 'a' ? 'button' : undefined,
-  tabindex: componentTag.value === 'a' ? 0 : undefined,
-  ...(props.link && { href: props.link }),
-}));
+const { link, tag } = toRefs(props);
 const componentTag = computed(() => {
-  if (props.link && props.tag === 'button') {
+  if (link.value && tag.value === 'button') {
     return 'a';
   }
-  return props.tag;
+  return tag.value;
 });
 </script>
 
 <template>
   <component
     :is="componentTag"
-    v-bind="attributes"
+    v-bind="{
+      role: componentTag === 'a' ? 'button' : null,
+      tabindex: componentTag === 'a' ? 0 : null,
+      ...(link && { href: link }),
+    }"
     :class="[
       'vsf-navbar-top-action',
       {

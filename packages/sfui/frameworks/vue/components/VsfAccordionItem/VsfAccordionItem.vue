@@ -19,10 +19,10 @@ defineProps({
 
 <template>
   <details class="vsf-accordion-item" :open="open" data-testid="accordion-item">
-    <summary :class="`${chevronLeft && 'vsf-accordion-item__header--right'} vsf-accordion-item__header`">
+    <summary :class="[{ 'vsf-accordion-item__header--right': chevronLeft }, 'vsf-accordion-item__header']">
       <slot name="prefix">
         <span
-          :class="`${chevronLeft && 'vsf-accordion-item__title--right'} vsf-accordion-item__title`"
+          :class="[{ 'vsf-accordion-item__title--right': chevronLeft }, 'vsf-accordion-item__title']"
           data-testid="accordion-item-title"
         >
           {{ title }}

@@ -4,7 +4,7 @@ import { VsfIconSizeEnum } from '../VsfIconBase/types';
 import VsfIconMoreHorizontal from '../VsfIcons/VsfIconMoreHorizontal.vue';
 import VsfIconHome from '../VsfIcons/VsfIconHome.vue';
 import type { VsfBreadcrumbType, VsfBreadcrumbHomeType } from './types';
-import { TagOrComponent } from '../../utils/types';
+import { TagOrComponent } from '../../shared/utils/types';
 
 const props = defineProps({
   breadcrumbs: {

@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { VsfFooterColumnType } from '@sfui/sfui/shared/types/index';
+import { VsfFooterColumnType } from '../../sharedRoot/types/index';
 import { VsfFooterColumnProps } from './types';
 
 export default function VsfFooterColumn({ type = VsfFooterColumnType.top, children, className }: VsfFooterColumnProps) {
