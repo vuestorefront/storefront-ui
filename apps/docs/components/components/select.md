@@ -12,6 +12,7 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 | Prop name    | Type            | Default value | Possible values                        |
 | ------------ | --------        | ------------- | -------------------------------------- |
 | name         | String          | ''            |                                        |
+| options      | String[]        | []            |                                        |
 | value        | String          | ''            |                                        |
 | label        | String          | ''            |                                        |
 | size         | VsfSelectSizes  | base          | sm, base, lg                           |
@@ -45,6 +46,7 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 | Prop name    | Type            | Default value | Possible values                        |
 | ------------ | --------        | ------------- | -------------------------------------- |
 | name         | String          | ''            |                                        |
+| options      | String[]        | []            |                                        |
 | label        | String          | ''            |                                        |
 | size         | VsfSelectSizes  | base          | sm, base, lg                           |
 | disabled     | Boolean         | false         |                                        |

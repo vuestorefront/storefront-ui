@@ -1,8 +1,13 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import { VsfSelectSizes } from './types';
+import VsfSelectOption from './VsfSelectOption.vue';
 
 const props = defineProps({
+  options: {
+    type: Array,
+    default: () => [],
+  },
   size: {
     type: String,
     default: VsfSelectSizes.base,
@@ -64,14 +69,11 @@ const changedValue = (event: Event) => {
           :required="required"
           :disabled="disabled"
           class="vsf-select__input peer"
-          :class="
-            (size === VsfSelectSizes.base
-              ? null
-              : size === VsfSelectSizes.sm
-              ? 'vsf-select__input--small'
-              : 'vsf-select__input--large',
-            { 'vsf-select__input--invalid': invalid })
-          "
+          :class="{
+            'vsf-select__input--small': size === VsfSelectSizes.sm,
+            'vsf-select__input--large': size === VsfSelectSizes.lg,
+            'vsf-select__input--invalid': invalid,
+          }"
           @change="changedValue"
         >
           <slot name="placeholder">
@@ -80,18 +82,19 @@ const changedValue = (event: Event) => {
               :selected="!!placeholder"
               class="vsf-select__placeholder"
               value=""
-              :class="
-                size === VsfSelectSizes.base
-                  ? null
-                  : size === VsfSelectSizes.sm
-                  ? 'vsf-select__placeholder--small'
-                  : 'vsf-select__placeholder--large'
-              "
+              :class="{
+                'vsf-select__placeholder--small': size === VsfSelectSizes.sm,
+                'vsf-select__placeholder--large': size === VsfSelectSizes.lg,
+              }"
             >
               {{ placeholder }}
             </option>
           </slot>
-          <slot />
+          <slot name="options">
+            <VsfSelectOption v-for="(option, index) in options" :key="`${option}-${index}`" :value="option">
+              {{ option }}
+            </VsfSelectOption>
+          </slot>
         </select>
         <slot name="label">
           <label :for="label" class="vsf-select__label">{{ label }}</label>

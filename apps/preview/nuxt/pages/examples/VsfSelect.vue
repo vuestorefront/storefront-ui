@@ -3,6 +3,7 @@
     <div class="relative e-page-component">
       <VsfSelect
         v-model="value"
+        :options="options"
         :disabled="disabled"
         :placeholder="placeholder"
         :error-text="errorText"
@@ -12,11 +13,7 @@
         :label="label"
         :required-text="requiredText"
         :size="size"
-      >
-        <VsfSelectOption v-for="option in options" :key="option" :value="option" :aria-selected="value === option">
-          {{ option }}
-        </VsfSelectOption>
-      </VsfSelect>
+      />
     </div>
     <div class="e-page-controls">
       <Controls v-bind="controlsAttrs" />
@@ -28,14 +25,12 @@
 import { defineComponent, ref } from 'vue';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
 import VsfSelect from '@sfui/sfui/frameworks/vue/components/VsfSelect/VsfSelect.vue';
-import VsfSelectOption from '@sfui/sfui/frameworks/vue/components/VsfSelect/VsfSelectOption.vue';
 import { VsfSelectSizes } from '@sfui/sfui/frameworks/vue/components/VsfSelect/types';
 
 export default defineComponent({
   name: 'VsfSelectExample',
   components: {
     VsfSelect,
-    VsfSelectOption,
     Controls,
   },
   setup() {

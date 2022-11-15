@@ -1,5 +1,4 @@
 import VsfSelect from '@sfui/sfui/frameworks/react/components/VsfSelect/VsfSelect';
-import VsfSelectOption from '@sfui/sfui/frameworks/react/components/VsfSelect/VsfSelectOption';
 import { VsfSelectSizes } from '@sfui/sfui/frameworks/react/components/VsfSelect/types';
 
 import Controls, { prepareControls } from '../../components/utils/Controls';
@@ -85,6 +84,7 @@ function Example() {
     <div className="e-page">
       <div className="relative e-page-component">
         <VsfSelect
+          options={state.get.options}
           disabled={state.get.disabled}
           placeholder={state.get.placeholder}
           errorText={state.get.errorText}
@@ -95,13 +95,7 @@ function Example() {
           label={state.get.label}
           size={state.get.size}
           onChange={onChange}
-        >
-          {state.get.options.map((option) => (
-            <VsfSelectOption value={option} key={option} ariaSelected={state.get.value === option}>
-              {option}
-            </VsfSelectOption>
-          ))}
-        </VsfSelect>
+        />
       </div>
       <div className="e-page-controls">
         <Controls {...{ state, controls }} />
