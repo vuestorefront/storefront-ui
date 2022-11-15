@@ -1,5 +1,5 @@
 import { PropsWithChildren, ReactNode } from 'react';
-import { PropsWithStyle } from '@sfui/sfui/shared/types';
+import { PropsWithStyle } from '../../shared/types';
 
 export enum VsfSelectSizes {
   sm = 'sm',
