@@ -5,7 +5,7 @@ force: false
 <%
   Variants = name + 'Variants'
 %>
-import <%= name %><%= locals.variants ? `, { ${Variants} }` : null %> from '../../output/blocks/<%= name %>/<%= name %>.lite';
+import <%= name %><%= locals.variants ? `, { ${Variants} }` : null %> from '@sfui/sfui/frameworks/react/components/<%= name %>/<%= name %>';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 
