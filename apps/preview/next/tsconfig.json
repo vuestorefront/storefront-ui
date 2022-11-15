@@ -6,11 +6,11 @@
     "declaration": false,
     "declarationMap": false,
     "strictPropertyInitialization": false,
-    "target": "ES2019",
+    "target": "ESNext",
     "lib": [
       "DOM",
       "DOM.Iterable",
-      "ES2019"
+      "ESNext"
     ],
     "allowJs": true,
     "skipLibCheck": true,
@@ -34,7 +34,7 @@
   },
   "include": [
     "next-env.d.ts",
-    "**/*.ts",
+    "pages/**/*.ts",
     "hooks/**/*.tsx",
     "pages/**/*.tsx",
     "layouts/**/*.tsx",
@@ -45,7 +45,6 @@
     "dist",
     "lib",
     "output",
-    "pages/examplesOld",
-    "sfui"
+    "pages/examplesOld"
   ]
 }

@@ -44,3 +44,10 @@ apps/docs/components/.vitepress/.temp
 apps/docs/components/.vitepress/dist
 !apps/docs/components/.vitepress/output
 
+# Yarn
+.yarn/*
+*/.yarn
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks

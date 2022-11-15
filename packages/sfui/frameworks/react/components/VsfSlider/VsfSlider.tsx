@@ -5,7 +5,7 @@ import VsfIconChevronLeft from '../VsfIcons/VsfIconChevronLeft';
 import VsfIconChevronRight from '../VsfIcons/VsfIconChevronRight';
 import type { VsfSliderProps } from './types';
 import { VsfSliderNavigation, VsfSliderScrollbar } from './types';
-import { useSlider } from '../../shared/slider/react';
+import { useSlider } from './slider';
 import { VsfButtonVariants } from '../VsfButton';
 
 export default function VsfSlider({

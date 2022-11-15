@@ -1,6 +1,6 @@
 import { isRef, onMounted, onUnmounted, Ref, ref, watch, nextTick } from 'vue';
-import type { Options } from './types';
-import VSFSlider from './slider';
+import type { Options } from '../../../react/sharedRoot/slider/types';
+import VSFSlider from '../../../react/sharedRoot/slider/slider';
 
 export function useSlider<T extends HTMLElement>(
   options: Ref<Partial<Options>> | Partial<Options>,

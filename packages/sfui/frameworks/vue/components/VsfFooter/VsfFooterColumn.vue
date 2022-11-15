@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { PropType } from 'vue';
-import { VsfFooterColumnType } from '../../shared/types';
+import { VsfFooterColumnType } from '../../sharedRoot/types';
 
 defineProps({
   type: {
     type: String as PropType<VsfFooterColumnType>,
-    default: 'top',
+    default: VsfFooterColumnType.top,
   },
 });
 </script>

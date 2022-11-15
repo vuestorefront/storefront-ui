@@ -1,4 +1,4 @@
-import { TagOrComponent } from '../../utils/types';
+import { TagOrComponent } from '../../shared/utils/types';
 
 export type VsfBreadcrumbType = {
   name: string;

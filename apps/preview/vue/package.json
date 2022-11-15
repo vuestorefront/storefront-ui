@@ -7,8 +7,8 @@
     "build-only": "vite build",
     "type-check": "vue-tsc --noEmit -p tsconfig.cypress-ct.json --composite false",
     "lints": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
-    "clean": "rimraf ./src/components/sfui/**/*",
-    "sync": "cpy . !.turbo !assets ../../apps/preview/vue/src/components/sfui --cwd=../../../packages/sfui",
+    "clean": "rimraf ./src/components/sfui",
+    "sync": "cpy . !.turbo !assets !frameworks/react ../../apps/preview/vue/src/components/sfui --cwd=../../../packages/sfui",
     "sync:watch": "chokidar --initial --silent \"../../../packages/sfui/**/*.{spec.ts,cy.ts,vue,ts,tsx,scss}\" -c \"yarn sync\"",
     "test": "yarn clean && concurrently \"yarn sync:watch\" \"yarn cypress open --component\"",
     "test:ci": "yarn clean && yarn sync && yarn percy exec -- cypress run --component"

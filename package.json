@@ -56,7 +56,7 @@
   "resolutions": {
     "vue": "3.2.39"
   },
-  "packageManager": "yarn@1.22.10",
+  "packageManager": "yarn@3.2.4",
   "config": {
     "commitizen": {
       "path": "cz-conventional-changelog",
