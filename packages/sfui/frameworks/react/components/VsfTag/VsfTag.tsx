@@ -11,12 +11,9 @@ export default function VsfTag({
 }: VsfTagProps): JSX.Element {
   return (
     <div
-      className={classNames(
-        'vsf-tag',
-        `vsf-tag--size-${size}`,
-        `vsf-tag--variant-${variant}`,
-        strong ? `vsf-tag--strong` : null,
-      )}
+      className={classNames('vsf-tag', `vsf-tag--size-${size}`, `vsf-tag--variant-${variant}`, {
+        'vsf-tag--strong': strong,
+      })}
       aria-live={ariaLive}
     >
       {children && <div className="vsf-tag__icon">{children}</div>}

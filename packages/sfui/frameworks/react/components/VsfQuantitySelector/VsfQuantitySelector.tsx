@@ -1,6 +1,6 @@
 import { ChangeEvent, useState, SyntheticEvent } from 'react';
 import classNames from 'classnames';
-import { clamp } from '@sfui/sfui/shared/utils/index';
+import { clamp } from '../../sharedRoot/utils/index';
 import { VsfIconMinus, VsfIconPlus } from '../VsfIcons';
 import VsfButton, { VsfButtonSizes } from '../VsfButton';
 import { VsfQuantitySelectorProps, VsfQuantitySelectorSizes } from './types';
@@ -21,10 +21,10 @@ export default function VsfQuantitySelector({
   decimal,
   ...attributes
 }: VsfQuantitySelectorProps) {
-  const [innerValue, setInnerValue] = useState<string | number>(value);
+  const [innerValue, setInnerValue] = useState<number>(value);
 
-  const increaseDisabled = disabled || value >= maxValue;
-  const decreaseDisabled = disabled || value <= minValue;
+  const decreaseDisabled = disabled || innerValue <= minValue;
+  const increaseDisabled = disabled || innerValue >= maxValue;
 
   function handleChange(currentValue: number) {
     const nextValue = Number(clamp(currentValue, minValue, maxValue).toFixed(decimal));
@@ -38,7 +38,7 @@ export default function VsfQuantitySelector({
       const nextValue = parseFloat(currentValue);
       handleChange(nextValue);
     } else {
-      setInnerValue(currentValue);
+      setInnerValue(Number(currentValue));
     }
   }
 
@@ -60,6 +60,7 @@ export default function VsfQuantitySelector({
         { 'vsf-qty-selector--disabled': disabled, 'vsf-qty-selector--block': block },
         className,
       )}
+      data-testid="qty-selector"
       {...attributes}
     >
       <div className="vsf-qty-selector__wrapper">
@@ -71,7 +72,8 @@ export default function VsfQuantitySelector({
           tile
           icon
           disabled={decreaseDisabled}
-          onClick={() => handleChange(value - step)}
+          data-testid="decrease-button"
+          onClick={() => handleChange(innerValue - step)}
           size={buttonSize}
         >
           <VsfIconMinus />
@@ -102,7 +104,8 @@ export default function VsfQuantitySelector({
           tile
           icon
           disabled={increaseDisabled}
-          onClick={() => handleChange(value + step)}
+          data-testid="increase-button"
+          onClick={() => handleChange(innerValue + step)}
           size={buttonSize}
         >
           <VsfIconPlus />

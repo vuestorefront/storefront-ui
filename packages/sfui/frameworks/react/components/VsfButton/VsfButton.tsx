@@ -55,6 +55,7 @@ const VsfButton = forwardRef<unknown, VsfButtonProps>(
         ref={ref}
         role={Tag === 'a' ? 'button' : undefined}
         disabled={disabled}
+        data-testid={attributes.dataTestId || 'button'}
         {...(link ? { href: link } : {})}
         {...attributes}
       >

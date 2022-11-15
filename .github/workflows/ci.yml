@@ -2,7 +2,7 @@ name: CI
 on:
   push:
     branches:
-      - develop
+      - main
   pull_request:
     types:
       - opened
@@ -23,7 +23,7 @@ jobs:
           node-version-file: '.node-version'
           cache: 'yarn'
       - name: Install dependencies
-        run: yarn --frozen-lockfile
+        run: yarn --immutable
 
   commit-lint:
     name: Validate PR Title (conventional-commit)
@@ -38,7 +38,7 @@ jobs:
           node-version-file: '.node-version'
           cache: 'yarn'
       - name: Install dependencies
-        run: yarn --frozen-lockfile
+        run: yarn --immutable
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
       - uses: JulienKode/pull-request-name-linter-action@v0.1.2
@@ -47,6 +47,7 @@ jobs:
     name: Lint
     needs: [cache]
     runs-on: ubuntu-latest
+    if: ${{ github.ref != 'refs/heads/main' }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -56,7 +57,7 @@ jobs:
           node-version-file: '.node-version'
           cache: 'yarn'
       - name: Install dependencies
-        run: yarn --frozen-lockfile
+        run: yarn --immutable
       - name: Run linters
         run: yarn lint
 
@@ -73,7 +74,7 @@ jobs:
           node-version-file: '.node-version'
           cache: 'yarn'
       - name: Install dependencies
-        run: yarn --frozen-lockfile
+        run: yarn --immutable
       - name: Run build
         run: yarn build
   # test:

@@ -77,6 +77,7 @@ const attributes = computed(() => ({
         'vsf-button--variant-tertiary': props.variant === 'tertiary',
       },
     ]"
+    data-testid="button"
   >
     <span v-if="$slots.prefix" class="vsf-button__prefix">
       <slot name="prefix"></slot>

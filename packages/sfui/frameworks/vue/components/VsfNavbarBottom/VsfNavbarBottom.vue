@@ -1,7 +1,5 @@
 <script lang="ts" setup>
-import { computed } from 'vue';
-
-const props = defineProps({
+defineProps({
   absolute: {
     type: Boolean,
     default: false,
@@ -15,19 +13,19 @@ const props = defineProps({
     default: false,
   },
 });
-
-const classes = computed(() => [
-  'vsf-navbar-bottom',
-  {
-    'vsf-navbar-bottom--absolute': props.absolute,
-    'vsf-navbar-bottom--no-labels': props.hideLabels,
-    'vsf-navbar-bottom--filled': props.filled,
-  },
-]);
 </script>
 
 <template>
-  <nav :class="classes">
+  <nav
+    :class="[
+      'vsf-navbar-bottom',
+      {
+        'vsf-navbar-bottom--absolute': absolute,
+        'vsf-navbar-bottom--no-labels': hideLabels,
+        'vsf-navbar-bottom--filled': filled,
+      },
+    ]"
+  >
     <div class="vsf-navbar-bottom__root"><slot></slot></div>
   </nav>
 </template>

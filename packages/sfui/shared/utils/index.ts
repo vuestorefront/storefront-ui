@@ -9,6 +9,7 @@ export function roundToNearest(value: number, step: number) {
 // TODO: use lodash?
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function equal(v1: any, v2: any): boolean {
+  // TODO: proper typings - DO NOT USE any
   if (v1 === v2) return true;
   const t1 = typeof v1;
   const t2 = typeof v2;

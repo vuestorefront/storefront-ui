@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 import { PropType, ref, toRef, defineAsyncComponent } from 'vue';
 import { VsfSliderNavigation, VsfSliderScrollbar } from './types';
-import { useSlider } from '../../shared/slider/vue';
-import type { Options } from '../../shared/slider';
 import { VsfButtonVariants } from '../VsfButton';
+import { Options } from '../../sharedRoot/slider';
+import { useSlider } from './slider';
 const VsfButton = defineAsyncComponent(() => import('../VsfButton/VsfButton.vue'));
 const VsfIconChevronLeft = defineAsyncComponent(() => import('../VsfIcons/VsfIconChevronLeft.vue'));
 const VsfIconChevronRight = defineAsyncComponent(() => import('../VsfIcons/VsfIconChevronRight.vue'));
@@ -48,6 +48,7 @@ function onClickPrev() {
 function onClickNext() {
   return slider.value?.next();
 }
+// TODO: showMobileNavigation does not exists
 </script>
 
 <template>

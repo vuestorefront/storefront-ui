@@ -18,10 +18,13 @@ defineProps({
 </script>
 
 <template>
-  <details class="vsf-accordion-item" :open="open">
-    <summary :class="`${chevronLeft && 'vsf-accordion-item__header--right'} vsf-accordion-item__header`">
+  <details class="vsf-accordion-item" :open="open" data-testid="accordion-item">
+    <summary :class="[{ 'vsf-accordion-item__header--right': chevronLeft }, 'vsf-accordion-item__header']">
       <slot name="prefix">
-        <span :class="`${chevronLeft && 'vsf-accordion-item__title--right'} vsf-accordion-item__title`">
+        <span
+          :class="[{ 'vsf-accordion-item__title--right': chevronLeft }, 'vsf-accordion-item__title']"
+          data-testid="accordion-item-title"
+        >
           {{ title }}
         </span>
       </slot>
@@ -30,7 +33,7 @@ defineProps({
         <vsf-icon-triangle-up class="vsf-accordion-item__icon" />
       </slot>
     </summary>
-    <div class="vsf-accordion-item__content">
+    <div class="vsf-accordion-item__content" data-testid="accordion-item-content">
       <slot />
     </div>
   </details>

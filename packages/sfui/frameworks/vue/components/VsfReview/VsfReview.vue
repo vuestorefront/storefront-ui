@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed, ref } from 'vue';
+import { computed, ref, toRefs } from 'vue';
 
 const props = defineProps({
   title: {
@@ -31,12 +31,12 @@ const props = defineProps({
     default: 'Read less',
   },
 });
+const { content, charLimit } = toRefs(props);
 
 const isCollapsed = ref(true);
-
-const isButtonVisible = computed(() => props.content.length > props.charLimit);
+const isButtonVisible = computed(() => content.value.length > charLimit.value);
 const truncatedContent = computed(() =>
-  isButtonVisible.value && isCollapsed.value ? `${props.content.substring(0, props.charLimit)}...` : props.content,
+  isButtonVisible.value && isCollapsed.value ? `${content.value.substring(0, charLimit.value)}...` : content.value,
 );
 </script>
 

@@ -6,9 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon",
-    "build": "eval $(dot-json ./nodemon.json exec)"
-  },
-  "devDependencies": {
-    "dot-json": "^1.2.2"
+    "build": "yarn generate-ts",
+    "generate-ts": "rm -rf lib && npx -p typescript tsc --declaration --emitDeclarationOnly --outDir lib"
   }
 }

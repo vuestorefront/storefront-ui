@@ -55,6 +55,9 @@
     },
     "dev": {
       "cache": false
+    },
+    "test": {
+      "cache": false
     }
   }
 }

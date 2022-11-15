@@ -1,14 +1,6 @@
 {
   "content": [
-    "./app/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,vue,ts,tsx}",
-    "./output/**/*.{js,vue,ts}",
-    "./stories/**/*.{js,ts}",
-    "./layouts/**/*.{vue,tsx}",
-    "./pages/**/*.vue",
-    "./**/*.vue",
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}"
+    "./**/*.{vue,tsx}"
   ],
   "theme": {
     "extend": {

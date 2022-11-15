@@ -1,10 +1,6 @@
-import { PropsWithChildren } from 'react';
-import {
-  PropsWithStyle,
-  VsfFooterColumnType,
-  VsfFooterLabelType,
-  VsfFooterSectionType,
-} from '@sfui/sfui/shared/types/index';
+import type { PropsWithChildren } from 'react';
+import type { PropsWithStyle } from '../../shared/types';
+import type { VsfFooterColumnType, VsfFooterLabelType, VsfFooterSectionType } from '../../sharedRoot/types/index';
 
 export interface VsfFooterDefaultProps extends PropsWithChildren, PropsWithStyle {}
 

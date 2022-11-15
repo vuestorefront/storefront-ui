@@ -1,5 +1,5 @@
 import type { PropsWithChildren } from 'react';
-import { PropsWithStyle } from '../../shared/types';
+import type { PropsWithStyle } from '../../shared/types';
 
 export enum VsfQuantitySelectorSizes {
   base = 'base',

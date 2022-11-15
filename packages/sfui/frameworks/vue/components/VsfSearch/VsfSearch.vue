@@ -1,9 +1,8 @@
 <script lang="ts" setup>
-import { computed } from 'vue';
-import { VsfIconCancel } from '@sfui/sfui/frameworks/vue/components/VsfIcons/index';
-import VsfButton from '@sfui/sfui/frameworks/vue/components/VsfButton/VsfButton.vue';
+import { VsfIconCancel } from '../VsfIcons/index';
+import VsfButton from '../VsfButton/VsfButton.vue';
 
-const props = defineProps({
+defineProps({
   placeholder: {
     type: String,
     default: null,
@@ -37,17 +36,10 @@ const onInput = (event: Event) => {
 const onReset = (event: Event) => {
   emit('reset', event);
 };
-
-const classes = computed(() => [
-  'vsf-search',
-  {
-    'vsf-search--disabled': props.disabled,
-  },
-]);
 </script>
 
 <template>
-  <div :class="classes">
+  <div :class="['vsf-search', { 'vsf-search--disabled': disabled }]">
     <form role="search" class="vsf-search__form">
       <div class="vsf-search__input-wrapper group">
         <span v-if="$slots.prefix" class="vsf-search__input-prefix"><slot name="prefix" /></span>
