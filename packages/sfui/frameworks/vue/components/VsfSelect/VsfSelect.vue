@@ -61,7 +61,7 @@ const changedValue = (event: Event) => {
 </script>
 
 <template>
-  <div class="vsf-select" :class="{ 'vsf-select--disabled': disabled }">
+  <div class="vsf-select" :class="{ 'vsf-select--disabled': disabled }" data-testid="select">
     <div class="vsf-select__wrapper">
       <div class="vsf-select__wrapper-input" :class="{ 'vsf-select__wrapper-input--with-label': label }">
         <select
@@ -74,6 +74,7 @@ const changedValue = (event: Event) => {
             'vsf-select__input--large': size === VsfSelectSizes.lg,
             'vsf-select__input--invalid': invalid,
           }"
+          data-testid="select-input"
           @change="changedValue"
         >
           <slot name="placeholder">
@@ -86,6 +87,7 @@ const changedValue = (event: Event) => {
                 'vsf-select__placeholder--small': size === VsfSelectSizes.sm,
                 'vsf-select__placeholder--large': size === VsfSelectSizes.lg,
               }"
+              data-testid="select-placeholder"
             >
               {{ placeholder }}
             </option>
@@ -97,20 +99,25 @@ const changedValue = (event: Event) => {
           </slot>
         </select>
         <slot name="label">
-          <label :for="label" class="vsf-select__label">{{ label }}</label>
+          <label :for="label" class="vsf-select__label" data-testid="select-label">{{ label }}</label>
         </slot>
       </div>
     </div>
     <slot name="errorText">
-      <span v-if="invalid" class="vsf-select__error-text" :aria-live="invalid ? 'assertive' : 'off'">
+      <span
+        v-if="invalid"
+        class="vsf-select__error-text"
+        data-testid="select-invalid-text"
+        :aria-live="invalid ? 'assertive' : 'off'"
+      >
         {{ errorText }}
       </span>
     </slot>
     <slot name="helpText">
-      <span v-if="helpText" class="vsf-select__help-text">{{ helpText }}</span>
+      <span v-if="helpText" data-testid="select-help-text" class="vsf-select__help-text">{{ helpText }}</span>
     </slot>
     <slot name="requiredText">
-      <span v-if="required" class="vsf-select__required">{{ requiredText }}</span>
+      <span v-if="required" data-testid="select-required-text" class="vsf-select__required">{{ requiredText }}</span>
     </slot>
   </div>
 </template>
