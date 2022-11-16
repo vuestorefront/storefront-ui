@@ -51,3 +51,8 @@ apps/docs/components/.vitepress/dist
 !.yarn/plugins
 !.yarn/releases
 !.yarn/sdks
+
+# Remove symlinks - they are created on postinstall via createSymLinks node script
+apps/preview/next/sfui/
+packages/sfui/frameworks/react/sharedRoot
+packages/sfui/frameworks/vue/sharedRoot
