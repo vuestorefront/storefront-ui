@@ -2,7 +2,7 @@
   "name": "@sfui/vue",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
+    "dev:not-run": "vite",
     "preview": "vite preview",
     "build-only": "vite build",
     "type-check": "vue-tsc --noEmit -p tsconfig.cypress-ct.json --composite false",
