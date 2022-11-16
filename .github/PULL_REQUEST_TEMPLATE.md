@@ -22,3 +22,4 @@ Closes #
 - [ ] a11y for WCAG 2.0 AA
 - [ ] examples created
 - [ ] removed old mitosis/examplesOld files
+- [ ] created cypress tests
