@@ -8,9 +8,7 @@ force: false
 
 #  <%= DocsName %> component
 
-
-
-<PlaygroundWrapper component="<%= DocsName %>"/>
+<Generate />
 
 ## Figma design
 
@@ -40,4 +38,9 @@ See the design on [Figma]()
 
 ## Source code
 
-<<<../../mitosis/src/blocks/<%= name %>/<%= name %>.lite.tsx
+<!-- vue -->
+<<<../../../packages/sfui/frameworks/vue/components<%= name %>/<%= name %>.vue
+<!-- end vue -->
+<!-- react -->
+<<<../../../packages/sfui/frameworks/react/components/<%= name %>/<%= name %>.tsx
+<!-- end react -->

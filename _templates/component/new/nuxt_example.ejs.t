@@ -22,7 +22,7 @@ force: false
 
 <script>
 import { ref } from 'vue';
-import <%= name %><%= locals.variants ? `, { ${Variants} }` : null %> from '../../output/blocks/<%= name %>/<%= name %>.vue'
+import <%= name %><%= locals.variants ? `, { ${Variants} }` : null %> from '@sfui/sfui/frameworks/vue/components/<%= name %>/<%= name %>.vue'
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
 
 export default {
