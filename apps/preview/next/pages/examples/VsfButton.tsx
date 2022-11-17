@@ -112,6 +112,7 @@ function Example() {
           rounded={state.get.rounded}
           block={state.get.block}
           tag={state.get.tag as ElementType}
+          type={state.get.link ? null : 'button'}
         >
           {state.get.ExampleIconContent ? <VsfIconVsfDiamond /> : state.get.ExampleTextContent}
         </VsfButton>
