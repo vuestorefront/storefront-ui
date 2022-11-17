@@ -10,10 +10,12 @@
     "packages/config/*"
   ],
   "scripts": {
+    "postinstall": "yarn create-sym-links",
+    "create-sym-links": "yarn node createSymLinks",
     "generate-icons": "concurrently \"yarn createVueIcons\" \"yarn createReactIcons\" && yarn lint:fix:sfui",
     "prepare": "husky install",
     "build": "yarn generate-icons && turbo run build",
-    "dev": "turbo run dev --parallel",
+    "dev": "yarn create-sym-links && turbo run dev --parallel",
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint:fix",
     "lint:fix:sfui": "turbo run lint:fix:sfui",
@@ -39,6 +41,7 @@
     "concurrently": "^7.4.0",
     "husky": "^7.0.4",
     "hygen": "^6.2.8",
+    "node-powershell": "^5.0.1",
     "nodemon": "^2.0.19",
     "prettier": "latest",
     "tailwindcss": "^3.1.8",

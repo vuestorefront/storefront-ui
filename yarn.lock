@@ -2421,6 +2421,7 @@ __metadata:
     cross-env: ^7.0.3
     husky: ^7.0.4
     hygen: ^6.2.8
+    node-powershell: ^5.0.1
     nodemon: ^2.0.19
     prettier: latest
     tailwindcss: ^3.1.8
@@ -2445,7 +2446,7 @@ __metadata:
     "@types/react-dom": ^18.0.6
     autoprefixer: ^10.4.8
     classnames: ^2.3.2
-    cypress: ^11.0.1
+    cypress: ^11.1.0
     next: 12.3.3
     postcss: ^8.4.16
     postcss-import: ^15.0.0
@@ -3636,6 +3637,16 @@ __metadata:
     mime-types: ~2.1.34
     negotiator: 0.6.3
   checksum: 50c43d32e7b50285ebe84b613ee4a3aa426715a7d131b65b786e2ead0fd76b6b60091b9916d3478a75f11f162628a2139991b6c03ab3f1d9ab7c86075dc8eab4
+  languageName: node
+  linkType: hard
+
+"accumulate-stream@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "accumulate-stream@npm:5.0.0"
+  dependencies:
+    bytes: ^3.1.0
+    ms: ^2.1.3
+  checksum: 7b8d375f46d1a5a72f7c67479ca660f031d561d72ed1d6b6add7c8a9dc40c79a1e8000af11c9018f5bca9f986b98bae23f9860a93da6d0021bcc8fcde999b4a0
   languageName: node
   linkType: hard
 
@@ -5147,6 +5158,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"bytes@npm:^3.1.0":
+  version: 3.1.2
+  resolution: "bytes@npm:3.1.2"
+  checksum: e4bcd3948d289c5127591fbedf10c0b639ccbf00243504e4e127374a15c3bc8eed0d28d4aaab08ff6f1cf2abc0cce6ba3085ed32f4f90e82a5683ce0014e1b6e
+  languageName: node
+  linkType: hard
+
 "c12@npm:^0.2.13":
   version: 0.2.13
   resolution: "c12@npm:0.2.13"
@@ -5430,6 +5448,21 @@ __metadata:
   version: 2.24.0
   resolution: "check-more-types@npm:2.24.0"
   checksum: b09080ec3404d20a4b0ead828994b2e5913236ef44ed3033a27062af0004cf7d2091fbde4b396bf13b7ce02fb018bc9960b48305e6ab2304cd82d73ed7a51ef4
+  languageName: node
+  linkType: hard
+
+"child-shell@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "child-shell@npm:5.0.0"
+  dependencies:
+    accumulate-stream: ^5.0.0
+    debug: ^4.3.2
+    kind-of: ^6.0.3
+    nanoid: ^3.1.30
+    p-queue: 6.6.2
+    p-timeout: 4.1.0
+    trim-buffer: ^5.0.0
+  checksum: f4f8ef10008e9201f4775bcfb17fd7d1d9162bfe572f0bcb49a164f8e0e838d944f1d6e6453afc484d64130391ef6a4e6b6b639c1889d5c4ae1cccc503f89621
   languageName: node
   linkType: hard
 
@@ -6506,6 +6539,58 @@ __metadata:
   bin:
     cypress: bin/cypress
   checksum: 417763449c0688d45506eb492431c87d9fbc3ce6e0690c386533b2319081cf9c41672ce6f35c056fccf2aa045bf9592c46349d3d508908d188f65c4f43069c54
+  languageName: node
+  linkType: hard
+
+"cypress@npm:^11.1.0":
+  version: 11.1.0
+  resolution: "cypress@npm:11.1.0"
+  dependencies:
+    "@cypress/request": ^2.88.10
+    "@cypress/xvfb": ^1.2.4
+    "@types/node": ^14.14.31
+    "@types/sinonjs__fake-timers": 8.1.1
+    "@types/sizzle": ^2.3.2
+    arch: ^2.2.0
+    blob-util: ^2.0.2
+    bluebird: ^3.7.2
+    buffer: ^5.6.0
+    cachedir: ^2.3.0
+    chalk: ^4.1.0
+    check-more-types: ^2.24.0
+    cli-cursor: ^3.1.0
+    cli-table3: ~0.6.1
+    commander: ^5.1.0
+    common-tags: ^1.8.0
+    dayjs: ^1.10.4
+    debug: ^4.3.2
+    enquirer: ^2.3.6
+    eventemitter2: 6.4.7
+    execa: 4.1.0
+    executable: ^4.1.1
+    extract-zip: 2.0.1
+    figures: ^3.2.0
+    fs-extra: ^9.1.0
+    getos: ^3.2.1
+    is-ci: ^3.0.0
+    is-installed-globally: ~0.4.0
+    lazy-ass: ^1.6.0
+    listr2: ^3.8.3
+    lodash: ^4.17.21
+    log-symbols: ^4.0.0
+    minimist: ^1.2.6
+    ospath: ^1.2.2
+    pretty-bytes: ^5.6.0
+    proxy-from-env: 1.0.0
+    request-progress: ^3.0.0
+    semver: ^7.3.2
+    supports-color: ^8.1.1
+    tmp: ~0.2.1
+    untildify: ^4.0.0
+    yauzl: ^2.10.0
+  bin:
+    cypress: bin/cypress
+  checksum: ee0097778cf3cdf3854325cabf19a60a7486d46ae70082034c05b22b203f21ff85a4871c08dadc6641be649a64c739a443dd3f2d6a5ab112fc9ead703e1f1be3
   languageName: node
   linkType: hard
 
@@ -8284,7 +8369,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eventemitter3@npm:^4.0.0":
+"eventemitter3@npm:^4.0.0, eventemitter3@npm:^4.0.4":
   version: 4.0.7
   resolution: "eventemitter3@npm:4.0.7"
   checksum: 1875311c42fcfe9c707b2712c32664a245629b42bb0a5a84439762dd0fd637fc54d078155ea83c2af9e0323c9ac13687e03cfba79b03af9f40c89b4960099374
@@ -12309,7 +12394,7 @@ gluegun@latest:
   languageName: node
   linkType: hard
 
-"ms@npm:2.1.3, ms@npm:^2.0.0, ms@npm:^2.1.1":
+"ms@npm:2.1.3, ms@npm:^2.0.0, ms@npm:^2.1.1, ms@npm:^2.1.3":
   version: 2.1.3
   resolution: "ms@npm:2.1.3"
   checksum: aa92de608021b242401676e35cfa5aa42dd70cbdc082b916da7fb925c542173e36bce97ea3e804923fe92c0ad991434e4a38327e15a1b5b5f945d66df615ae6d
@@ -12352,7 +12437,7 @@ gluegun@latest:
   languageName: node
   linkType: hard
 
-"nanoid@npm:^3.3.4":
+"nanoid@npm:^3.1.30, nanoid@npm:^3.3.4":
   version: 3.3.4
   resolution: "nanoid@npm:3.3.4"
   bin:
@@ -12655,6 +12740,16 @@ gluegun@latest:
   bin:
     node-gyp: bin/node-gyp.js
   checksum: 589ddd3ed967724ef425f9624bfa47cf73022640ab3eba6d556e92cdc4ddef33b63fce3a467c93b995a3f61df92eafd3c3d1e8dbe4a2c00c383334487dea99c3
+  languageName: node
+  linkType: hard
+
+"node-powershell@npm:^5.0.1":
+  version: 5.0.1
+  resolution: "node-powershell@npm:5.0.1"
+  dependencies:
+    child-shell: ^5.0.0
+    is-wsl: ^2.2.0
+  checksum: ff8a3b780b6abe7b0e98caed3a7a257c51ac01e295a4a8f6f55a0d879476bad7d5c2e5f8531dbf27fe63ec07a920bc1be084c66bcd198e9cff89a6fb1af284f4
   languageName: node
   linkType: hard
 
@@ -13293,7 +13388,24 @@ gluegun@latest:
   languageName: node
   linkType: hard
 
-"p-timeout@npm:^3.1.0":
+"p-queue@npm:6.6.2":
+  version: 6.6.2
+  resolution: "p-queue@npm:6.6.2"
+  dependencies:
+    eventemitter3: ^4.0.4
+    p-timeout: ^3.2.0
+  checksum: 832642fcc4ab6477b43e6d7c30209ab10952969ed211c6d6f2931be8a4f9935e3578c72e8cce053dc34f2eb6941a408a2c516a54904e989851a1a209cf19761c
+  languageName: node
+  linkType: hard
+
+"p-timeout@npm:4.1.0":
+  version: 4.1.0
+  resolution: "p-timeout@npm:4.1.0"
+  checksum: 321fec524c23a754e3f1487f2b0a5516fd32aba960d5610490eac56f8a0114b549a93f9919ffc05aa68956dc52e8330e0519f3ddf951d208d19c845f9cd778de
+  languageName: node
+  linkType: hard
+
+"p-timeout@npm:^3.1.0, p-timeout@npm:^3.2.0":
   version: 3.2.0
   resolution: "p-timeout@npm:3.2.0"
   dependencies:
@@ -16826,6 +16938,13 @@ gluegun@latest:
   bin:
     tree-kill: cli.js
   checksum: 49117f5f410d19c84b0464d29afb9642c863bc5ba40fcb9a245d474c6d5cc64d1b177a6e6713129eb346b40aebb9d4631d967517f9fbe8251c35b21b13cd96c7
+  languageName: node
+  linkType: hard
+
+"trim-buffer@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "trim-buffer@npm:5.0.0"
+  checksum: 02ffe53dcc23646823f27428e5e7dee110c317aad1a008fff3af7b18a35ec8490713245a0c79f6d8b80229a3b3bb11bce30d68a17615ad39a16c6af409d7b56c
   languageName: node
   linkType: hard
 
