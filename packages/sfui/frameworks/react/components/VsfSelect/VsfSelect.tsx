@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { ChangeEvent } from 'react';
+import type { ChangeEvent } from 'react';
 import { VsfSelectSizes } from './types';
 import VsfSelectOption from './VsfSelectOption';
 

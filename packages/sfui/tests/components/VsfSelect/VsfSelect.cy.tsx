@@ -29,7 +29,6 @@ describe("VsfSelect", () => {
   let value = "";
 
   const page = () => new VsfSelectBaseObject('select');
-  const inputElement = () => new VsfSelectBaseObject('select-input');
 
   const initializeComponent = () => {
     return mount({
@@ -102,7 +101,7 @@ describe("VsfSelect", () => {
     it('should change value/modelValue', () => {
       initializeComponent();
 
-      inputElement().isNotDisabled().select('red')
+      page().isNotDisabled().hasSelectedOption('red')
       cy.then(() => {
         expect(onChangeSpy).calledOnceWith('red');
         page().makeSnapshot();
@@ -116,7 +115,7 @@ describe("VsfSelect", () => {
     it(`should render as disabled`, () => {
       initializeComponent();
 
-      inputElement()
+      page()
         .isDisabled()
       page().makeSnapshot();
     });
@@ -151,7 +150,7 @@ describe("VsfSelect", () => {
     it(`should render as required`, () => {
       initializeComponent();
 
-      inputElement()
+      page()
         .isRequired()
       page().makeSnapshot();
     });
@@ -195,7 +194,6 @@ describe("VsfSelect", () => {
 
   describe('when prop placeholder is filled in', () => {
     before(() => { placeholder = 'Select value'});
-    after(() =>{ placeholder = '--Select--'});
     it('should render with no placeholder', () => {
       initializeComponent();
 

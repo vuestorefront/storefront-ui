@@ -13,17 +13,17 @@ export default class VsfSelectObject extends BasePage {
   }
 
   isDisabled(){
-    this.container.should('be.disabled');
+    this.inputElement.should('be.disabled');
     return this;
   }
 
   isNotDisabled(){
-    this.container.should('not.be.disabled');
+    this.inputElement.should('not.be.disabled');
     return this;
   }
 
   isRequired(){
-    this.container.should('have.attr', 'required');
+    this.inputElement.should('have.attr', 'required');
     return this;
   }
 
@@ -45,6 +45,15 @@ export default class VsfSelectObject extends BasePage {
   hasPlaceholder(placeholder: string) {
     this.placeholderElement.contains(placeholder);
     return this;
+  }
+
+  hasSelectedOption(option){
+    this.inputElement.select(option);
+    return this;
+  }
+
+  get inputElement() {
+    return this.findTestElement('select-input');
   }
 
   get labelElement() {
