@@ -77,6 +77,7 @@ export default defineComponent({
         },
       ),
       VsfIconSizeEnum,
+      VsfTagSizes,
     };
   },
 });
