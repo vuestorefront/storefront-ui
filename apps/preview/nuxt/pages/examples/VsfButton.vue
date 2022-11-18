@@ -11,6 +11,7 @@
         :rounded="rounded"
         :block="block"
         :tag="tag"
+        :type="link ? null : 'button'"
       >
         <template v-if="ExampleLeftIcon" #prefix>
           <VsfIconVsfDiamond />
