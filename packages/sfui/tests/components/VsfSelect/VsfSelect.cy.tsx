@@ -8,12 +8,12 @@ import VsfSelectBaseObject from "./VsfSelect.PageObject";
 
 describe("VsfSelect", () => {
   enum options {
-    red = 'red', 
-    blue = 'blue', 
-    yellow = 'yellow', 
-    green = 'green', 
-    gray = 'gray', 
-    black = 'black', 
+    red = 'red',
+    blue = 'blue',
+    yellow = 'yellow',
+    green = 'green',
+    gray = 'gray',
+    black = 'black',
     brown = 'brown'
   };
   let disabled: boolean;
@@ -66,7 +66,6 @@ describe("VsfSelect", () => {
   }
 
   beforeEach(() => {
-    cy.viewport(300, 300)
     onChangeSpy = cy.spy();
   });
 
@@ -75,7 +74,7 @@ describe("VsfSelect", () => {
     placeholder = '--Select--'
   });
 
-  
+
   it('initial state', () => {
     initializeComponent();
 

@@ -11,7 +11,7 @@
     "lint:fix": "next lint --fix",
     "clean": "rimraf ./sfui",
     "sync": "cpy . !.turbo !assets !node_modules !frameworks/react/tsconfig.json !frameworks/react/.eslintrc.js !frameworks/vue ../../apps/preview/next/sfui --cwd=../../../packages/sfui",
-    "sync:watch": "chokidar --initial --silent \"../../../packages/sfui/**/*.{spec.ts,cy.ts,ts,tsx,scss}\" -c \"yarn sync\"",
+    "sync:watch": "chokidar --initial --silent \"../../../packages/sfui/**/*.{ts,tsx,scss}\" -c \"yarn sync\"",
     "test": "yarn clean && concurrently \"yarn sync:watch\" \"yarn cypress open --component\"",
     "test:ci": "yarn clean && yarn sync && yarn percy exec -- cypress run --component"
   },
@@ -43,6 +43,7 @@
     "cypress": "^11.1.0",
     "postcss": "^8.4.16",
     "postcss-import": "^15.0.0",
+    "react-use": "^17.4.0",
     "rimraf": "^3.0.2",
     "string-replace-loader": "^3.1.0",
     "tailwindcss": "^3.1.8",

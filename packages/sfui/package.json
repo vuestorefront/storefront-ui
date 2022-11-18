@@ -6,7 +6,7 @@
   },
   "styles": "styles/index.scss",
   "scripts": {
-    "lint": "concurrently \"yarn lint:script\" \"yarn lint:style\"",
+    "lint": "yarn dlx browserslist@latest && concurrently \"yarn lint:script\" \"yarn lint:style\"",
     "lint:fix": "concurrently \"yarn lint:script:fix\" \"yarn lint:style:fix\"",
     "lint:fix:sfui": "yarn lint:fix",
     "lint:script": "concurrently \"yarn lint:script:react\" \"yarn lint:script:vue\"",
