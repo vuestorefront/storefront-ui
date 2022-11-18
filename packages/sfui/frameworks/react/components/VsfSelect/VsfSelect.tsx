@@ -20,13 +20,18 @@ export default function VsfSelect({
   requiredText,
   invalid,
   onChange,
+  ...attributes
 }: VsfSelectProps) {
   function changedValue(event: ChangeEvent<HTMLSelectElement>) {
     const selectedValue = (event.target as HTMLSelectElement).value;
     onChange(selectedValue);
   }
   return (
-    <div className={classNames('vsf-select', { 'vsf-select--disabled': disabled }, className)} data-testid="select">
+    <div
+      className={classNames('vsf-select', { 'vsf-select--disabled': disabled }, className)}
+      {...attributes}
+      data-testid="select"
+    >
       <div className="vsf-select__wrapper">
         <div
           className={classNames('vsf-select__wrapper-input', {
