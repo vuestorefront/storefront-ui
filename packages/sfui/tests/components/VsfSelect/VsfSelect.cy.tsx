@@ -101,9 +101,9 @@ describe("VsfSelect", () => {
     it('should change value/modelValue', () => {
       initializeComponent();
 
-      page().isNotDisabled().hasSelectedOption('red')
+      page().isNotDisabled().hasSelectedOption(options[0])
       cy.then(() => {
-        expect(onChangeSpy).calledOnceWith('red');
+        expect(onChangeSpy).calledOnceWith(options[0]);
         page().makeSnapshot();
       })
     });
