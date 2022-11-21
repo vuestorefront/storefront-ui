@@ -27,3 +27,11 @@ And API https://docs.cypress.io/api/table-of-contents
 
 TODO: remove data-testid on release components
 TODO: when bug issue on cypress side will be resolved, we should use one browser
+
+## NOTES
+
+importing framework specific enums in tests is done automatically, meaning if you import
+`import { VsfButtonSizes, VsfButtonVariants } from '../../../frameworks/vue/components/VsfButton/types';`
+in next it will be converted to
+`import { VsfButtonSizes, VsfButtonVariants } from '../../../frameworks/react/components/VsfButton/types';`
+so make sure that you have same set of variants for both frameworks, and vice-versa if you will import `react` types it will be converted in Vue environment into `vue` import. Its done in vite/webpack transform plugins

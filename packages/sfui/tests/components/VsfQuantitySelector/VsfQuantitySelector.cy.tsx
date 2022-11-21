@@ -2,8 +2,9 @@
 import React from "react";
 import VsfQuantitySelectorVue from "../../../frameworks/vue/components/VsfQuantitySelector/VsfQuantitySelector.vue";
 import VsfQuantitySelectorReact from "../../../frameworks/react/components/VsfQuantitySelector/VsfQuantitySelector";
-import { mount } from '../../utils/mount';
 import { VsfQuantitySelectorSizes } from '../../../frameworks/vue/components/VsfQuantitySelector/types';
+
+import { mount } from '../../utils/mount';
 import VsfQuantitySelectorBaseObject from "./VsfQuantitySelector.PageObject";
 import VsfButtonBaseObject from "../VsfButton/VsfButton.PageObject";
 

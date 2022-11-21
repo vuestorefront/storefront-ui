@@ -7,7 +7,7 @@ export default defineConfig({
   component: {
     video: false,
     port: 3004,
-    specPattern: "sfui/**/*.{cy,spec}.{js,ts,jsx,tsx}",
+    specPattern: "sfui/tests/**/*.{cy,spec}.{js,ts,jsx,tsx}",
     devServer: {
       framework: "next",
       bundler: "webpack",

@@ -1,6 +1,6 @@
 import { ChangeEvent, useState, SyntheticEvent } from 'react';
 import classNames from 'classnames';
-import { clamp } from '../../sharedRoot/utils/index';
+import { clamp } from '@sfui/shared/utils/index';
 import { VsfIconMinus, VsfIconPlus } from '../VsfIcons';
 import VsfButton, { VsfButtonSizes } from '../VsfButton';
 import { VsfQuantitySelectorProps, VsfQuantitySelectorSizes } from './types';

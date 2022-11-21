@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { PropType } from 'vue';
-import { VsfFooterColumnType } from '../../sharedRoot/types';
+import { VsfFooterColumnType } from '@sfui/shared/types';
 
 defineProps({
   type: {

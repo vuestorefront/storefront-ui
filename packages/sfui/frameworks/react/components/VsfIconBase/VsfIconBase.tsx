@@ -1,4 +1,5 @@
-import { VsfIconBaseProps, VsfIconSizeEnum } from './types';
+import type { VsfIconBaseProps } from './types';
+import { VsfIconSizeEnum } from './types';
 
 export default function VsfIconBase({
   size = VsfIconSizeEnum.base,

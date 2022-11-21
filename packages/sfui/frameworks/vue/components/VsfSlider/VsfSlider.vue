@@ -2,7 +2,7 @@
 import { PropType, ref, toRef, defineAsyncComponent } from 'vue';
 import { VsfSliderNavigation, VsfSliderScrollbar } from './types';
 import { VsfButtonVariants } from '../VsfButton';
-import { Options } from '../../sharedRoot/slider';
+import { Options } from '@sfui/shared/slider';
 import { useSlider } from './slider';
 const VsfButton = defineAsyncComponent(() => import('../VsfButton/VsfButton.vue'));
 const VsfIconChevronLeft = defineAsyncComponent(() => import('../VsfIcons/VsfIconChevronLeft.vue'));
