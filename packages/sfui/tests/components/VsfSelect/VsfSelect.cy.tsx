@@ -7,15 +7,15 @@ import { VsfSelectSizes } from '../../../frameworks/vue/components/VsfSelect/typ
 import VsfSelectBaseObject from "./VsfSelect.PageObject";
 
 describe("VsfSelect", () => {
-  let options = [
-    'red', 
-    'blue', 
-    'yellow', 
-    'green', 
-    'gray', 
-    'black', 
-    'brown'
-  ];
+  enum options {
+    red = 'red', 
+    blue = 'blue', 
+    yellow = 'yellow', 
+    green = 'green', 
+    gray = 'gray', 
+    black = 'black', 
+    brown = 'brown'
+  };
   let disabled: boolean;
   let label: string;
   let size: VsfSelectSizes;
@@ -35,7 +35,7 @@ describe("VsfSelect", () => {
       vue: {
         component: VsfSelectVue,
         props: {
-          options,
+          options: Object.values(options),
           disabled,
           label,
           size,
@@ -50,7 +50,7 @@ describe("VsfSelect", () => {
         },
       },
       react: <VsfSelectReact
-        options={options}
+        options={Object.values(options)}
         disabled={disabled}
         placeholder={placeholder}
         errorText={errorText}
@@ -101,9 +101,9 @@ describe("VsfSelect", () => {
     it('should change value/modelValue', () => {
       initializeComponent();
 
-      page().isNotDisabled().hasSelectedOption(options[0])
+      page().isNotDisabled().hasSelectedOption(options.red)
       cy.then(() => {
-        expect(onChangeSpy).calledOnceWith(options[0]);
+        expect(onChangeSpy).calledOnceWith(options.red);
         page().makeSnapshot();
       })
     });
