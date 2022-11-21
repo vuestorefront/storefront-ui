@@ -24,7 +24,7 @@ export default function VsfBadge({
   return (
     <div className={classes} {...attributes}>
       {children}
-      {!invisible && value && <div className="vsf-badge__wrapper">{badgeComponent}</div>}
+      {!invisible && !!value && <div className="vsf-badge__wrapper">{badgeComponent}</div>}
     </div>
   );
 }
