@@ -6,32 +6,69 @@ The Select component is used for collecting user provided information from a lis
 
 See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%9F%9B%A0-SFUI-2.0-%7C-Development?node-id=11375%3A16313)
 
+<!-- vue -->
 ## Props
 
-| Prop name    | Type     | Default value | Possible values                        |
-| ------------ | -------- | ------------- | -------------------------------------- |
-| name         | String   | ''            |                                        |
-| value        | String   | ''            |                                        |
-| label        | String   | ''            |                                        |
-| disabled     | Boolean  | false         |                                        |
-| invalid      | Boolean  | false         |                                        |
-| required     | Boolean  | false         |                                        |
-| options      | SelectOption[]  | []         |                                        |
-| placeholderText      | string  | '--Please choose an option--'         |                                        |
-| requiredText      | string  | '*Required'         |                                        |
-| helpText     | string  | 'Help text'         |                                        |
-| errorText    | string  | 'Error text'         |                                        |
-| modelValue   | Any      | undefined           |                                        |
+| Prop name    | Type            | Default value | Possible values                        |
+| ------------ | --------        | ------------- | -------------------------------------- |
+| name         | String          | ''            |                                        |
+| options      | String[]        | []            |                                        |
+| value        | String          | ''            |                                        |
+| label        | String          | ''            |                                        |
+| size         | VsfSelectSizes  | base          | sm, base, lg                           |
+| disabled     | Boolean         | false         |                                        |
+| invalid      | Boolean         | false         |                                        |
+| required     | Boolean         | false         |                                        |
+| placeholder  | String          | ''            |                                        |
+| requiredText | String          | '*Required'   |                                        |
+| helpText     | String          | ''            |                                        |
+| errorText    | String          | ''            |                                        |
 
 ## Slots
 
-No slots available
+| Slot name     |            Description            |
+| ---------     | :-------------------------------: |
+|  default      |   Place for select options        |
+|  placeholder  |   Custom option for placeholder   |
+|  label        |   Custom label                    |
+|  errorText    |   Custom error text               |
+|  helpText     |   Custom help text                |
+|  requiredText |   Custom required text            |
+
+
+
+<!-- end vue -->
+
+<!-- react -->
+
+## Props
+
+| Prop name    | Type            | Default value | Possible values                        |
+| ------------ | --------        | ------------- | -------------------------------------- |
+| name         | String          | ''            |                                        |
+| options      | String[]        | []            |                                        |
+| label        | String          | ''            |                                        |
+| size         | VsfSelectSizes  | base          | sm, base, lg                           |
+| disabled     | Boolean         | false         |                                        |
+| invalid      | Boolean         | false         |                                        |
+| required     | Boolean         | false         |                                        |
+| placeholder  | String          | ''            |                                        |
+| requiredText | String          | '*Required'   |                                        |
+| helpText     | String          | ''            |                                        |
+| errorText    | String          | ''            |                                        |
+| onChange     | Function        |               |                                        |
+
+<!-- end react -->
+
+<!-- vue -->
 
 ## Events
 
 | Event name        |            Trigger             |
 | ----------------- | :----------------------------: |
 | update:modelValue | triggers v-model update event  |
+
+<!-- end vue -->
 
 ## Accessibility notes
 
@@ -40,4 +77,14 @@ Selected option is marked with `aria-selected`.
 
 ## Source code
 
-<<<../../mitosis/src/blocks/VsfSelect/VsfSelect.lite.tsx
+<!-- vue -->
+
+<<<../../../packages/sfui/frameworks/vue/components/VsfSelect/VsfSelect.vue
+
+<!-- end vue -->
+
+<!-- react -->
+
+<<< ../../../packages/sfui/frameworks/react/components/VsfSelect/VsfSelect.tsx
+
+<!-- end react -->

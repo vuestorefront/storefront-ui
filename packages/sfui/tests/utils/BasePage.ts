@@ -51,6 +51,10 @@ export class BasePage {
     this.container.click();
   }
 
+  select(value) {
+    this.container.select(value);
+  }
+
   makeSnapshot(opts?) {
     cy.percySnapshot(opts);
     return this;
