@@ -10,7 +10,7 @@
 
     &:last-child > a,
     &:last-child > button {
-      @apply font-medium text-gray-900 no-underline;
+      @apply font-medium text-gray-900 no-underline hover:text-primary-700 active:text-primary-800 hover:underline active:underline;
     }
 
     &:nth-of-type(1n + 3) {
@@ -18,20 +18,16 @@
     }
 
     &-button {
-      @apply leading-5 rounded-sm whitespace-nowrap hover:text-primary-600 hover:underline active:font-medium active:text-gray-900 active:no-underline outline-violet;
+      @apply leading-5 rounded-sm whitespace-nowrap hover:text-primary-700 hover:underline active:text-primary-800 outline-violet;
 
       &--home {
-        @apply leading-5 rounded-sm whitespace-nowrap hover:underline active:font-medium active:text-gray-900 active:no-underline outline-violet;
+        @apply leading-5 rounded-sm whitespace-nowrap hover:underline hover:text-primary-700 active:text-primary-800 active:no-underline outline-violet;
       }
 
       &-icon {
         &,
         &--home {
-          @apply text-gray-500 hover:text-primary-600;
-        }
-
-        &--home {
-          @apply active:text-gray-900;
+          @apply text-gray-500 hover:text-primary-700 active:text-primary-800;
         }
       }
     }
@@ -43,14 +39,14 @@
     }
 
     &-list {
-      @apply bg-white rounded-md shadow-md p-[16px] absolute left-0 flex-col text-base text-gray-900 z-10;
+      @apply bg-white rounded-md shadow-md p-4 absolute left-0 flex-col text-sm text-gray-900 z-10;
 
       &-item {
         @apply py-2;
       }
 
       &-button {
-        @apply leading-5 align-middle rounded-sm whitespace-nowrap hover:text-primary-600 hover:underline active:font-medium active:text-gray-900 active:no-underline outline-violet;
+        @apply leading-5 align-middle rounded-sm whitespace-nowrap hover:text-primary-700 hover:underline active:underline active:text-primary-800 outline-violet;
       }
     }
   }
