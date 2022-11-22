@@ -59,8 +59,6 @@
 
   /* variants */
   &--variant-primary {
-    @apply uppercase;
-
     &:not(.vsf-button--disabled) {
       @apply text-white hover:shadow-medium shadow-base bg-primary-500 hover:bg-primary-600 active:bg-primary-700;
     }
