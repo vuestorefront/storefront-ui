@@ -56,6 +56,9 @@
     "dev": {
       "cache": false
     },
+    "dev:docs": {
+      "cache": false
+    },
     "test": {
       "cache": false
     }
