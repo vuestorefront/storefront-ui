@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { VsfFooterLabelType } from '../../sharedRoot/types/index';
+import { VsfFooterLabelType } from '@sfui/shared/types/index';
 import { VsfFooterLabelProps } from './types';
 
 export default function VsfFooterLabel({

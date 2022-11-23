@@ -4,7 +4,7 @@ import { VsfQuantitySelectorSizes } from './types';
 import VsfButton from '../VsfButton/VsfButton.vue';
 import { VsfButtonVariants, VsfButtonSizes } from '../VsfButton/types';
 import { VsfIconMinus, VsfIconPlus } from '../VsfIcons/index';
-import { clamp } from '../../sharedRoot/utils/index';
+import { clamp } from '@sfui/shared/utils/index';
 
 const props = defineProps({
   modelValue: {

@@ -2,7 +2,7 @@
 import { computed, PropType, toRefs } from 'vue';
 import { VsfRatingSizes, VsfRatingVariants } from './types';
 import { VsfIconStar, VsfIconStarOutline, VsfIconStarPartiallyFilled } from '../../components/VsfIcons';
-import { clamp, roundToNearest } from '../../sharedRoot/utils/index';
+import { clamp, roundToNearest } from '@sfui/shared/utils/index';
 
 const props = defineProps({
   size: {

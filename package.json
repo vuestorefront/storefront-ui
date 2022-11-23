@@ -10,12 +10,11 @@
     "packages/config/*"
   ],
   "scripts": {
-    "postinstall": "yarn create-sym-links",
-    "create-sym-links": "yarn node createSymLinks",
+    "postinstall": "yarn generate-icons",
     "generate-icons": "concurrently \"yarn createVueIcons\" \"yarn createReactIcons\" && yarn lint:fix:sfui",
     "prepare": "husky install",
     "build": "yarn generate-icons && turbo run build",
-    "dev": "yarn create-sym-links && turbo run dev --parallel",
+    "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint:fix",
     "lint:fix:sfui": "turbo run lint:fix:sfui",

@@ -9,8 +9,11 @@
     "serve": "next start",
     "lint": "next lint --ext .tsx,.ts",
     "lint:fix": "next lint --fix",
-    "test": "yarn cypress open --component",
-    "test:ci": "yarn percy exec -- cypress run --component"
+    "clean": "rimraf ./sfui",
+    "sync": "cpy . !.turbo !assets !node_modules !frameworks/react/tsconfig.json !frameworks/react/.eslintrc.js !frameworks/vue ../../apps/preview/next/sfui --cwd=../../../packages/sfui",
+    "sync:watch": "chokidar --initial --silent \"../../../packages/sfui/**/*.{spec.ts,cy.ts,ts,tsx,scss}\" -c \"yarn sync\"",
+    "test": "yarn clean && concurrently \"yarn sync:watch\" \"yarn cypress open --component\"",
+    "test:ci": "yarn clean && yarn sync && yarn percy exec -- cypress run --component"
   },
   "dependencies": {
     "classnames": "^2.3.2",
@@ -25,14 +28,20 @@
     "@sfui/eslint-config": "*",
     "@sfui/example-style": "*",
     "@sfui/sfui": "*",
+    "@sfui/shared": "*",
     "@sfui/tailwind-config": "*",
     "@types/node": "^18.7.14",
     "@types/react": "^18.0.18",
     "@types/react-dom": "^18.0.6",
     "autoprefixer": "^10.4.8",
+    "chokidar-cli": "^3.0.0",
+    "concurrently": "^7.6.0",
+    "cpy-cli": "^4.2.0",
     "cypress": "^11.1.0",
     "postcss": "^8.4.16",
     "postcss-import": "^15.0.0",
+    "rimraf": "^3.0.2",
+    "string-replace-loader": "^3.1.0",
     "tailwindcss": "^3.1.8",
     "ts-loader": "^9.4.1"
   }

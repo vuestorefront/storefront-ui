@@ -2440,18 +2440,24 @@ __metadata:
     "@sfui/eslint-config": "*"
     "@sfui/example-style": "*"
     "@sfui/sfui": "*"
+    "@sfui/shared": "*"
     "@sfui/tailwind-config": "*"
     "@types/node": ^18.7.14
     "@types/react": ^18.0.18
     "@types/react-dom": ^18.0.6
     autoprefixer: ^10.4.8
+    chokidar-cli: ^3.0.0
     classnames: ^2.3.2
+    concurrently: ^7.6.0
+    cpy-cli: ^4.2.0
     cypress: ^11.1.0
     next: 12.3.3
     postcss: ^8.4.16
     postcss-import: ^15.0.0
     react: 18.2.0
     react-dom: 18.2.0
+    rimraf: ^3.0.2
+    string-replace-loader: ^3.1.0
     swr: ^1.3.0
     tailwindcss: ^3.1.8
     ts-loader: ^9.4.1
@@ -2467,6 +2473,7 @@ __metadata:
     "@sfui/eslint-config": "*"
     "@sfui/example-style": "*"
     "@sfui/sfui": "*"
+    "@sfui/shared": "*"
     "@sfui/tailwind-config": "*"
     autoprefixer: ^10.4.8
     eslint: ^8.27.0
@@ -2495,6 +2502,12 @@ __metadata:
     stylelint-scss: ^4.3.0
   peerDependencies:
     classnames: ^2.3.2
+  languageName: unknown
+  linkType: soft
+
+"@sfui/shared@*, @sfui/shared@workspace:packages/shared":
+  version: 0.0.0-use.local
+  resolution: "@sfui/shared@workspace:packages/shared"
   languageName: unknown
   linkType: soft
 
@@ -2531,6 +2544,7 @@ __metadata:
     "@rushstack/eslint-patch": ^1.1.4
     "@sfui/eslint-config": "*"
     "@sfui/sfui": "*"
+    "@sfui/shared": "*"
     "@sfui/tailwind-config": "*"
     "@types/node": ^16.11.68
     "@vitejs/plugin-vue": ^3.1.2
@@ -2550,6 +2564,8 @@ __metadata:
     postcss: ^8.4.18
     postcss-import: ^15.0.0
     prettier: ^2.7.1
+    react: ^18.2.0
+    sass: ^1.56.1
     start-server-and-test: ^1.14.0
     tailwindcss: ^3.2.1
     typescript: ~4.7.4
@@ -5978,6 +5994,26 @@ __metadata:
     conc: dist/bin/concurrently.js
     concurrently: dist/bin/concurrently.js
   checksum: 7886e1c8559d2699ae1b62be8aca5d56c226966e252a2b9dd6077b3c1fd5397e98ef537c040fffa1de50418bd2616746eb9dd589a31ffb9056d4758b850a865b
+  languageName: node
+  linkType: hard
+
+"concurrently@npm:^7.6.0":
+  version: 7.6.0
+  resolution: "concurrently@npm:7.6.0"
+  dependencies:
+    chalk: ^4.1.0
+    date-fns: ^2.29.1
+    lodash: ^4.17.21
+    rxjs: ^7.0.0
+    shell-quote: ^1.7.3
+    spawn-command: ^0.0.2-1
+    supports-color: ^8.1.0
+    tree-kill: ^1.2.2
+    yargs: ^17.3.1
+  bin:
+    conc: dist/bin/concurrently.js
+    concurrently: dist/bin/concurrently.js
+  checksum: f705c9a7960f1b16559ca64958043faeeef6385c0bf30a03d1375e15ab2d96dba4f8166f1bbbb1c85e8da35ca0ce3c353875d71dff2aa132b2357bb533b3332e
   languageName: node
   linkType: hard
 
@@ -14678,7 +14714,7 @@ gluegun@latest:
   languageName: node
   linkType: hard
 
-"react@npm:18.2.0, react@npm:>=14":
+"react@npm:18.2.0, react@npm:>=14, react@npm:^18.2.0":
   version: 18.2.0
   resolution: "react@npm:18.2.0"
   dependencies:
@@ -15419,6 +15455,19 @@ gluegun@latest:
   languageName: node
   linkType: hard
 
+"sass@npm:^1.56.1":
+  version: 1.56.1
+  resolution: "sass@npm:1.56.1"
+  dependencies:
+    chokidar: ">=3.0.0 <4.0.0"
+    immutable: ^4.0.0
+    source-map-js: ">=0.6.2 <2.0.0"
+  bin:
+    sass: sass.js
+  checksum: 78e693e5992b149574c95d5adfe39ca3e5b97d80befa11191a20d1daa41fe201a98ac099beab726cd3095e2d2e7991a2c408ba0fcc3fa9f525879de7eee18dad
+  languageName: node
+  linkType: hard
+
 "scheduler@npm:^0.23.0":
   version: 0.23.0
   resolution: "scheduler@npm:0.23.0"
@@ -16095,6 +16144,18 @@ gluegun@latest:
   dependencies:
     duplexer: ~0.1.1
   checksum: 844b622cfe8b9de45a6007404f613b60aaf85200ab9862299066204242f89a7c8033b1c356c998aa6cfc630f6cd9eba119ec1c6dc1f93e245982be4a847aee7d
+  languageName: node
+  linkType: hard
+
+"string-replace-loader@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "string-replace-loader@npm:3.1.0"
+  dependencies:
+    loader-utils: ^2.0.0
+    schema-utils: ^3.0.0
+  peerDependencies:
+    webpack: ^5
+  checksum: 15fec37e2ddfc83819ad6b8005b5518e4314de69b9332077d8f032292b02106000ccc5ac52ceb1285efe30a5286620aef1e51c7d3c00d08fa4571d648b32cfa9
   languageName: node
   linkType: hard
 

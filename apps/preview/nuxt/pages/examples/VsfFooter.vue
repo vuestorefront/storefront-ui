@@ -58,8 +58,8 @@ import {
   VsfIconYoutube,
   VsfIconInstagram,
 } from '@sfui/sfui/frameworks/vue/components/VsfIcons/index';
-import type { TagOrComponent } from '@sfui/sfui/frameworks/vue/utils/types';
-import { VsfFooterLabelType, VsfFooterColumnType } from '@sfui/sfui/shared/types/index';
+import type { TagOrComponent } from '@sfui/sfui/frameworks/vue/shared/utils/types';
+import { VsfFooterLabelType, VsfFooterColumnType } from '@sfui/shared/types/index';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
 
 export default defineComponent({

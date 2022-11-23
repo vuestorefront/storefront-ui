@@ -16,6 +16,7 @@
     "@sfui/eslint-config": "*",
     "@sfui/example-style": "*",
     "@sfui/sfui": "*",
+    "@sfui/shared": "*",
     "@sfui/tailwind-config": "*",
     "autoprefixer": "^10.4.8",
     "eslint": "^8.27.0",

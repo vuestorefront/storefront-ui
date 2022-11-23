@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { VsfFooterSectionType } from '../../sharedRoot/types/index';
+import { VsfFooterSectionType } from '@sfui/shared/types/index';
 import { VsfFooterSectionProps } from './types';
 
 export default function VsfFooterSection({
