@@ -39,7 +39,7 @@
     }
 
     &--subcategory {
-      @apply block py-2 text-sm font-normal leading-5 text-gray-500 font-body;
+      @apply block py-2 text-sm font-normal leading-5 text-gray-600 font-body;
     }
 
     &--contact {
@@ -59,7 +59,7 @@
     }
 
     &--contact-description {
-      @apply block text-sm font-normal leading-5 text-gray-500 font-body;
+      @apply block text-sm font-normal leading-5 text-gray-600 font-body;
     }
   }
 }

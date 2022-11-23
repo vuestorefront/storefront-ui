@@ -24,7 +24,7 @@
 
     &-wrapper {
       @apply relative flex-1 flex items-center p-2 ring-1 ring-gray-200 ring-inset rounded-l-md only:rounded-r-md text-gray-500;
-      @apply bg-white hover:ring-primary-500 focus-within:caret-primary-500 active:caret-primary-500 active:ring-primary-500 active:ring-2 focus-within:ring-primary-500 focus-within:ring-2;
+      @apply bg-white hover:ring-primary-700 focus-within:caret-primary-700 active:caret-primary-700 active:ring-primary-700 active:ring-2 focus-within:ring-primary-700 focus-within:ring-2;
       #{$self}--disabled & {
         @apply bg-gray-100/50 ring-opacity-50 text-opacity-20;
       }

@@ -7,7 +7,7 @@
 	}
 
 	&--variant-gray {
-		@apply bg-gray-100 text-gray-700;
+		@apply bg-gray-100 text-gray-600;
 
 		&#{$self}--strong {
 			@apply bg-gray-500;

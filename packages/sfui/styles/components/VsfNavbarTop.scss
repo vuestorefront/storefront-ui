@@ -1,15 +1,15 @@
 .vsf-navbar-top {
   $root: &;
-  @apply w-full h-14 md:h-20 px-4 md:px-10 bg-white text-black border-b border-gray-200;
+  @apply w-full h-14 md:h-20 px-4 md:px-10 bg-white border-b border-gray-200;
 
   &--branded#{&} {
-    @apply bg-brand text-white border-0;
+    @apply bg-primary-700 text-white border-0;
 
     .vsf-navbar-top-action {
-      @apply text-white bg-transparent hover:bg-primary-600 active:bg-primary-600;
+      @apply text-white bg-transparent hover:bg-primary-800 active:bg-primary-900;
 
       &--active {
-        @apply text-white bg-primary-700;
+        @apply text-white bg-primary-900;
       }
     }
   }
@@ -23,8 +23,7 @@
   }
 
   &-action {
-    @apply inline-flex items-center justify-center cursor-pointer font-body font-medium rounded-md text-base h-10 px-4;
-    @apply hover:bg-primary-100 active:bg-primary-100 hover:text-primary-600 active:text-primary-700;
+    @apply inline-flex items-center justify-center cursor-pointer font-body font-medium rounded-md text-base h-10 px-4 text-primary-700 hover:bg-primary-100 active:bg-primary-200 hover:text-primary-600 active:text-primary-700;
 
     &--icon {
       @apply px-2;
