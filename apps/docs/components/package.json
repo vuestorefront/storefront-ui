@@ -4,7 +4,7 @@
   "private": true,
   "main": "index.md",
   "scripts": {
-    "dev": "concurrently \"vitepress dev --port=8000\" \"yarn watch-docs\"",
+    "dev:docs": "concurrently \"vitepress dev --port=8000\" \"yarn watch-docs\"",
     "build": "yarn update-docs && vitepress build",
     "watch-docs": "nodemon",
     "serve": "vitepress serve",
