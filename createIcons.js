@@ -208,7 +208,8 @@ const createExports = async (file, doOptimiziation) => {
 
 const sortVueExports = (fileName) => {
     let vueExportsString = ''
-    vueExports.sort().forEach(component => {
+    vueExports.sort()
+    vueExports.forEach(component => {
         vueExportsString += `export { default as ${component} } from './${component}.vue';\n`;
     });
     fsPromise.writeFile(`${outputDirectoryPath}${fileName}.ts`, vueExportsString);
@@ -216,7 +217,8 @@ const sortVueExports = (fileName) => {
 
 const sortReactExports = (fileName) => {
     let reactExportsString = '';
-    reactExports.sort().forEach(component => {
+    reactExports.sort()
+    reactExports.forEach(component => {
         reactExportsString += `export { default as ${component} } from './${component}';\n`;
     });
     fsPromise.writeFile(`${outputDirectoryPath}${fileName}.ts`, reactExportsString);
