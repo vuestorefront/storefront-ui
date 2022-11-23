@@ -9,7 +9,7 @@
     "lints": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "clean": "rimraf ./src/components/sfui",
     "sync": "cpy . !.turbo !assets !frameworks/react !node_modules ../../apps/preview/vue/src/components/sfui --cwd=../../../packages/sfui",
-    "sync:watch": "chokidar --silent \"../../../packages/sfui/**/*.{spec.ts,cy.ts,vue,ts,scss}\" -c \"yarn sync\"",
+    "sync:watch": "chokidar --silent \"../../../packages/sfui/**/*.{spec.ts,cy.tsx,vue,ts,scss}\" -c \"yarn sync\"",
     "test": "yarn clean && yarn sync && concurrently \"yarn sync:watch\" \"yarn cypress open --component\"",
     "test:ci": "yarn clean && yarn sync && yarn percy exec -- cypress run --component"
   },
