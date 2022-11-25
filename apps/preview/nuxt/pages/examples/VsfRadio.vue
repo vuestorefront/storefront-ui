@@ -6,6 +6,7 @@
         :legend="legend"
         :direction="direction"
         :required="required"
+        :invalid="invalid"
         :helper-text="helperText"
         :required-text="requiredText"
         :error-text="errorText"
@@ -63,6 +64,11 @@ export default defineComponent({
             propType: 'boolean',
           },
           {
+            type: 'boolean',
+            modelName: 'invalid',
+            propType: 'boolean',
+          },
+          {
             type: 'text',
             modelName: 'helperText',
             propType: 'string',
@@ -85,6 +91,7 @@ export default defineComponent({
           id: ref('radio-group-1'),
           legend: ref(''),
           required: ref(false),
+          invalid: ref(false),
           helperText: ref(''),
           requiredText: ref(''),
           errorText: ref(''),
