@@ -31,7 +31,7 @@ defineProps({
 });
 </script>
 <template>
-  <div class="flex p-2 rounded">
+  <div class="flex rounded">
     <div class="flex">
       <input
         :id="id"
@@ -47,9 +47,9 @@ defineProps({
         class="text-gray-900 cursor-pointer text-base peer-required:after:content-['*'] peer-disabled:text-gray-900/40 peer-disabled:cursor-not-allowed font-body"
       >
         <div>{{ label }}</div>
-        <p :id="id" class="text-xs font-normal text-gray-500 dark:text-gray-300">
+        <span v-if="helpText" :id="id" class="text-xs font-normal text-gray-500 dark:text-gray-300">
           {{ helpText }}
-        </p>
+        </span>
       </label>
     </div>
   </div>
