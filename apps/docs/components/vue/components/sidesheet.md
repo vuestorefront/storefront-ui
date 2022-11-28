@@ -50,6 +50,6 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 ## Source code
 
 
-<<<../../../packages/sfui/frameworks/vue/componentsVsfSideSheet/VsfSideSheet.vue
+<<<../../../packages/sfui/frameworks/vue/components/VsfSideSheet/VsfSideSheet.vue
 
 

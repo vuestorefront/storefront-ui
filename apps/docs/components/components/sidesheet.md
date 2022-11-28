@@ -63,7 +63,7 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 ## Source code
 
 <!-- vue -->
-<<<../../../packages/sfui/frameworks/vue/componentsVsfSideSheet/VsfSideSheet.vue
+<<<../../../packages/sfui/frameworks/vue/components/VsfSideSheet/VsfSideSheet.vue
 <!-- end vue -->
 <!-- react -->
 <<<../../../packages/sfui/frameworks/react/components/VsfSideSheet/VsfSideSheet.tsx
