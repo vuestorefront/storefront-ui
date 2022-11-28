@@ -1,0 +1,55 @@
+.vsf-side-sheet {
+  @apply h-full w-full;
+
+  &__aside {
+    @apply absolute bg-white h-full p-4 flex min-w-[6.25rem] w-[calc(100%-3.5rem)] lg:max-w-[23.5rem] border border-gray-200;
+
+    &--fixed {
+      @apply fixed top-0 bottom-0 shadow-lg border-0;
+    }
+
+    &__close-button {
+      @apply bg-transparent absolute top-0 right-0 p-4 text-gray-500;
+    }
+
+    &--left-side {
+      @apply left-0;
+    }
+
+    &--right-side {
+      @apply right-0;
+    }
+  }
+}
+
+.vsf-slide {
+  &-left-vue, &-left-react {
+    &-exit, &-leave-to {
+      transform: translateX(0%);
+    }
+
+    &-exit-active, &-leave-active, &-enter, &-enter-from {
+      transform: translateX(-100%);
+    }
+  }
+
+  &-left-vue, &-left-react, &-right-vue, &-right-react {
+    &-exit-active, &-leave-active, &-enter-active {
+      transition: transform 500ms ease-in-out;
+    }
+  }
+
+  &-right-vue, &-right-react {
+    &-exit, &-leave-to {
+      transform: translateX(0%);
+    }
+
+    &-exit-active, &-leave-active, &-enter, &-enter-from {
+      transform: translateX(100%);
+    }
+  }
+
+  &-right-react-enter-active, &-left-react-enter-active {
+    transform: translateX(0%);
+  }
+}
