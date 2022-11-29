@@ -11,6 +11,7 @@ export default function VsfNavigationTop({
   onOpenChange = () => false,
   variant = VsfNavigationTopVariant.auto,
   children,
+  className,
   ...attributes
 }: VsfNavigationTopProps): JSX.Element {
   const navigationTopRef = useRef(null);
@@ -20,7 +21,12 @@ export default function VsfNavigationTop({
   });
 
   return open ? (
-    <nav className="vsf-navigation-top" ref={navigationTopRef} data-testid="navigation-top" {...attributes}>
+    <nav
+      className={classNames('vsf-navigation-top', className)}
+      ref={navigationTopRef}
+      data-testid="navigation-top"
+      {...attributes}
+    >
       {/* TODO: use greyscale prop button variant */}
       <VsfButton
         icon
