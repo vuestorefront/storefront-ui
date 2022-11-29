@@ -18,6 +18,7 @@ import {
 import { VsfIconSizeEnum } from '@sfui/sfui/frameworks/react/components/VsfIconBase/types';
 import { VsfFooterColumnType, VsfFooterLabelType, VsfFooterSectionType } from '@sfui/shared/types/index';
 import Link from 'next/link';
+import VsfDivider from '@sfui/sfui/frameworks/react/components/VsfDivider';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 
@@ -246,6 +247,7 @@ function Example() {
               </VsfFooterColumn>
             ))}
           </VsfFooterSection>
+          <VsfDivider />
           <VsfFooterSection type={VsfFooterSectionType.middle}>
             {state.get.contactOptionsModel.map((contactOption) => {
               const Icon = iconsMap[contactOption.icon];

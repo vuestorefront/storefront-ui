@@ -13,6 +13,9 @@
             {{ subcategory.label }}
           </component>
         </template>
+        <template #divider>
+          <VsfDivider />
+        </template>
         <template #contactIcon="{ contactOption }">
           <VsfIconHelp v-if="contactOption.iconName === 'help'" size="lg" />
           <VsfIconChat v-if="contactOption.iconName === 'chat'" size="lg" />
@@ -60,6 +63,7 @@ import {
 } from '@sfui/sfui/frameworks/vue/components/VsfIcons/index';
 import type { TagOrComponent } from '@sfui/sfui/frameworks/vue/shared/utils/types';
 import { VsfFooterLabelType, VsfFooterColumnType } from '@sfui/shared/types/index';
+import VsfDivider from '@sfui/sfui/frameworks/vue/components/VsfDivider/VsfDivider.vue';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
 
 export default defineComponent({
@@ -67,6 +71,7 @@ export default defineComponent({
   components: {
     VsfFooter,
     Controls,
+    VsfDivider,
     VsfIconHelp,
     VsfIconChat,
     VsfIconPhone,

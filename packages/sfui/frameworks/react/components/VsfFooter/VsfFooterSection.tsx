@@ -7,5 +7,15 @@ export default function VsfFooterSection({
   children,
   className,
 }: VsfFooterSectionProps) {
-  return <div className={classNames(`vsf-footer__section--${type}`, className)}>{children}</div>;
+  return (
+    <div>
+      {type !== VsfFooterSectionType.bottom ? (
+        <div className={classNames(`vsf-footer__section--${type}`, className)}> {children}</div>
+      ) : (
+        <div className={classNames(`vsf-footer__section--${type}`, className)}>
+          <div className="vsf-footer__section--bottom__wrapper">{children}</div>
+        </div>
+      )}
+    </div>
+  );
 }
