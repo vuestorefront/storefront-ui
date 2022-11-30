@@ -36,7 +36,7 @@
     &:hover {
       @apply border-primary-700;
     }
-    
+
     &:active {
       @apply border-primary-900;
     }
@@ -54,11 +54,11 @@
     @apply text-xs font-normal text-gray-500;
   }
 
-  &--alignment-trailing {
+  &--alignment-leading {
     @apply flex-row;
   }
 
-  &--alignment-leading {
+  &--alignment-trailing {
     @apply flex-row-reverse max-w-xs justify-between;
   }
 
