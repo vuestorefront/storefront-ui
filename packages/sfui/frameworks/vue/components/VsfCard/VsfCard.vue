@@ -51,34 +51,9 @@ const props = defineProps({
     default: false,
   },
 });
-const { size } = toRefs(props);
-const { width } = useWindowSize();
-const newSize = ref(size.value);
 const isLinkAString = computed(() => {
   return typeof props.link === 'string';
 });
-const imageWidth = computed(() => {
-  switch (size.value) {
-    case VsfCardSizes.sm:
-      return 192;
-    case VsfCardSizes.base:
-      return 320;
-    default:
-      return 320;
-  }
-});
-watch(
-  width,
-  (newWindowWidth) => {
-    if (size.value) return;
-    if (newWindowWidth < 769) {
-      newSize.value = VsfCardSizes.sm;
-    } else {
-      newSize.value = VsfCardSizes.base;
-    }
-  },
-  { immediate: true },
-);
 </script>
 
 <template>
@@ -86,15 +61,15 @@ watch(
     class="vsf-card"
     :class="[
       {
-        'vsf-card--size-sm': newSize === VsfCardSizes.sm,
-        'vsf-card--size-base': newSize === VsfCardSizes.base,
+        'vsf-card--size-sm': size === VsfCardSizes.sm,
+        'vsf-card--size-base': size === VsfCardSizes.base,
         'vsf-card--rounded': rounded,
       },
     ]"
   >
     <component :is="linkTag" v-if="imgSrc" :href="isLinkAString && link" v-bind="!isLinkAString && link">
       <slot name="image">
-        <img class="vsf-card__image" v-bind="imgAttr" :src="imgSrc" :width="imageWidth" />
+        <img class="vsf-card__image" v-bind="imgAttr" :src="imgSrc" />
       </slot>
     </component>
     <div class="vsf-card__content-wrapper">
