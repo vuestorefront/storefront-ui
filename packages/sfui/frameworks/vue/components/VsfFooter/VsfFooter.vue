@@ -44,6 +44,9 @@ defineProps({
         </template>
       </slot>
     </div>
+    <div>
+      <slot name="divider" />
+    </div>
     <div class="vsf-footer__section--middle">
       <slot name="contact">
         <template v-for="contactOption in contactOptions" :key="contactOption.label">
@@ -60,27 +63,29 @@ defineProps({
       </slot>
     </div>
     <div class="vsf-footer__section--bottom">
-      <slot name="socialMedia">
-        <VsfFooterSocialMedia>
-          <template v-for="social in socialMedia" :key="social.label">
-            <VsfFooterLabel :type="VsfFooterLabelType.socialMedia">
-              <slot name="socialItem" :social="social" />
-            </VsfFooterLabel>
-          </template>
-        </VsfFooterSocialMedia>
-      </slot>
-      <div class="vsf-footer__bottom-links">
-        <slot name="bottomLinks">
-          <template v-for="bottomLink in bottomLinks" :key="bottomLink.label">
-            <VsfFooterLabel :type="VsfFooterLabelType.bottomLinks">
-              <slot name="bottomLink" :bottom-link="bottomLink" />
-            </VsfFooterLabel>
-          </template>
+      <div class="vsf-footer__section--bottom__wrapper">
+        <slot name="socialMedia">
+          <VsfFooterSocialMedia>
+            <template v-for="social in socialMedia" :key="social.label">
+              <VsfFooterLabel :type="VsfFooterLabelType.socialMedia">
+                <slot name="socialItem" :social="social" />
+              </VsfFooterLabel>
+            </template>
+          </VsfFooterSocialMedia>
         </slot>
+        <div class="vsf-footer__bottom-links">
+          <slot name="bottomLinks">
+            <template v-for="bottomLink in bottomLinks" :key="bottomLink.label">
+              <VsfFooterLabel :type="VsfFooterLabelType.bottomLinks">
+                <slot name="bottomLink" :bottom-link="bottomLink" />
+              </VsfFooterLabel>
+            </template>
+          </slot>
+        </div>
+        <span class="vsf-footer__label--company-name">
+          {{ companyName }}
+        </span>
       </div>
-      <span class="vsf-footer__label--company-name">
-        {{ companyName }}
-      </span>
     </div>
   </footer>
 </template>

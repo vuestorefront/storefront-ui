@@ -3,15 +3,19 @@
 
   &__section {
     &--top {
-      @apply grid grid-cols-[1fr_1fr] medium:grid-cols-[1fr_1fr_1fr_1fr] px-4 medium:px-6 pb-10;
+      @apply grid justify-center grid-cols-[1fr_1fr] medium:grid-cols-[repeat(4,1fr)] px-4 medium:px-6 pb-10 4-extra-large:max-w-[1536px] mx-auto;
     }
 
     &--middle {
-      @apply py-10 large:flex border-t border-gray-200;
+      @apply py-10 large:flex 4-extra-large:max-w-[1536px] large:mx-auto;
     }
 
     &--bottom {
-      @apply justify-end px-4 py-10 bg-gray-900 large:flex large:py-6;
+      @apply bg-gray-900;
+
+      &__wrapper {
+        @apply justify-end px-4 py-10 bg-gray-900 large:flex large:py-6 4-extra-large:max-w-[1536px] mx-auto;
+      }
     }
   }
 
