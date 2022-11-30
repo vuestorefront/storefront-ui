@@ -1,6 +1,6 @@
 .vsf-card {
   $self: &;
-  @apply overflow-hidden border border-gray-200 rounded-md hover: shadow-lg;
+  @apply overflow-hidden border border-gray-200 rounded-md hover:shadow-lg;
 
   &__content-wrapper {
     @apply p-4 flex flex-col;
@@ -11,7 +11,7 @@
   }
 
   &__title {
-    @apply font-medium font-body mb-1 hover: underline hover:text-primary-600 active:text-primary-700 self-start;
+    @apply font-medium font-body mb-1 hover:underline hover:text-primary-600 active:text-primary-700 self-start;
   }
 
   &__description {
@@ -47,7 +47,7 @@
   }
 
   &--rounded {
-    @apply flex flex-col items-center border-none hover: shadow-none max-w-fit;
+    @apply flex flex-col items-center border-none hover:shadow-none max-w-fit;
 
     #{$self}__image {
       @apply w-auto rounded-full;
