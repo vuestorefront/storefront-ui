@@ -31,7 +31,7 @@ defineProps({
     type: String,
     default: '',
   },
-  helperText: {
+  helpText: {
     type: String,
     default: '',
   },
@@ -39,13 +39,20 @@ defineProps({
 </script>
 <!-- TODO: Replace with validation component when ready -->
 <template>
-  <fieldset :id="id" class="vsf-radio-group">
+  <fieldset
+    :id="id"
+    role="radiogroup"
+    class="vsf-radio-group"
+    :aria-invalid="invalid"
+    :aria-required="required"
+    aria-describedby="radioGroupErrorText"
+  >
     <legend v-if="legend" class="vsf-radio-group__legend">{{ legend }}</legend>
     <div class="vsf-radio-group__list" :class="`vsf-radio-group__list--${direction}`">
       <slot />
     </div>
-    <p v-if="invalid && errorText" class="vsf-radio-group__error-text">{{ errorText }}</p>
-    <p v-if="helperText" class="vsf-radio-group__helper-text">{{ helperText }}</p>
-    <p v-if="required && requiredText" class="vsf-radio-group__required-text">{{ requiredText }}</p>
+    <p v-if="invalid && errorText" id="radioGroupErrorText" class="vsf-radio-group__error-text">{{ errorText }}</p>
+    <p v-if="helpText" class="vsf-radio-group__help-text">{{ helpText }}</p>
+    <p v-if="requiredText" class="vsf-radio-group__required-text">{{ requiredText }}</p>
   </fieldset>
 </template>

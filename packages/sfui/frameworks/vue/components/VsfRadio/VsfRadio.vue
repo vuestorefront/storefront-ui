@@ -1,14 +1,24 @@
 <script setup lang="ts">
+import { VsfRadioAlignments } from './types';
+
+const emit = defineEmits<{
+  (e: 'change:radio', val: string): void;
+}>();
+
 defineProps({
   id: {
     type: String,
     default: '',
   },
-  label: {
+  name: {
     type: String,
     default: '',
   },
-  name: {
+  alignment: {
+    type: String,
+    default: VsfRadioAlignments.leading,
+  },
+  label: {
     type: String,
     default: '',
   },
@@ -20,7 +30,7 @@ defineProps({
     type: String,
     default: '',
   },
-  invalid: {
+  required: {
     type: Boolean,
     default: false,
   },
@@ -31,23 +41,23 @@ defineProps({
 });
 </script>
 <template>
-  <div class="flex rounded">
-    <div class="flex">
+  <div :class="['vsf-radio', `vsf-radio--alignment-${alignment}`, { 'vsf-radio--disabled': disabled }]">
+    <div class="vsf-radio__input-wrapper">
       <input
         :id="id"
-        name="helper-radio"
+        :name="name"
         type="radio"
-        value=""
-        class="w-5 h-5 border-2 border-gray-500 rounded-full appearance-none cursor-pointer peer hover:border-primary-500 checked:bg-primary-500 checked:border-primary-500 checked:shadow-inset disabled:cursor-not-allowed outline-violet"
+        :value="value"
+        class="vsf-radio__input"
+        :disabled="disabled"
+        :required="required"
+        @change="emit('change:radio', value)"
       />
     </div>
-    <div class="ml-2 text-sm">
-      <label
-        :for="id"
-        class="text-gray-900 cursor-pointer text-base peer-required:after:content-['*'] peer-disabled:text-gray-900/40 peer-disabled:cursor-not-allowed font-body"
-      >
+    <div class="vsf-radio__label-wrapper">
+      <label :for="id" class="vsf-radio__label">
         <div>{{ label }}</div>
-        <span v-if="helpText" :id="id" class="text-xs font-normal text-gray-500 dark:text-gray-300">
+        <span v-if="helpText" :id="id" class="vsf-radio__help-text">
           {{ helpText }}
         </span>
       </label>

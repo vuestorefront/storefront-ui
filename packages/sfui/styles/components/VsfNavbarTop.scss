@@ -1,5 +1,5 @@
 .vsf-navbar-top {
-  $root: &;
+  $self: &;
   @apply w-full h-14 md:h-20 px-4 md:px-10 bg-white border-b border-gray-200;
 
   &--branded#{&} {
@@ -40,7 +40,7 @@
 
   &__action-group__wrapper {
     @apply flex flex-row flex-nowrap;
-    > #{$root}-action:not(:last-child) {
+    > #{$self}-action:not(:last-child) {
       @apply mr-1; // flex row gap replacement
     }
   }

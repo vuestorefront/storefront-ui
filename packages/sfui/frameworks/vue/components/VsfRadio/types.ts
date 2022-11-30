@@ -3,13 +3,19 @@ export enum VsfRadioGroupDirections {
   horizontal = 'horizontal',
 }
 
+export enum VsfRadioAlignments {
+  leading = 'leading',
+  trailing = 'trailing',
+}
+
 export type VsfRadioProps = {
   id: string;
+  name?: string;
   label?: string;
   value?: string;
-  name?: string;
   disabled?: boolean;
-  invalid?: boolean;
+  required?: boolean;
+  helptText?: string;
 };
 
 export type VsfRadioGroupProps = {
@@ -17,7 +23,8 @@ export type VsfRadioGroupProps = {
   legend?: string;
   direction?: VsfRadioGroupDirections;
   required?: boolean;
+  invalid?: boolean;
   errorText?: string;
-  helperText?: string;
+  helpText?: string;
   requiredText?: string;
 };

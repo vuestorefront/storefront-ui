@@ -1,0 +1,85 @@
+.vsf-radio {
+  $self: &;
+  @apply flex rounded;
+
+  &__input-wrapper {
+    @apply flex;
+  }
+
+  &__input {
+    @apply w-5 h-5 border-2 border-gray-500 rounded-full appearance-none cursor-pointer outline-violet;
+
+    &:invalid {
+      @apply border-negative-700;
+
+      &:hover {
+        @apply border-negative-800;
+      }
+    
+      &:active {
+        @apply border-negative-900;
+      }
+    }
+
+    &:checked {
+      @apply bg-primary-700 border-primary-700 shadow-inset;
+
+      &:hover {
+        @apply bg-primary-800 border-primary-800;
+      }
+
+      &:active {
+        @apply bg-primary-900 border-primary-900;
+      }
+    }
+
+    &:hover {
+      @apply border-primary-700;
+    }
+    
+    &:active {
+      @apply border-primary-900;
+    }
+  }
+
+  &__label-wrapper {
+    @apply ml-2 text-sm;
+  }
+
+  &__label {
+    @apply text-gray-900 cursor-pointer text-base font-body;
+  }
+
+  &__help-text {
+    @apply text-xs font-normal text-gray-500;
+  }
+
+  &--alignment-trailing {
+    @apply flex-row;
+  }
+
+  &--alignment-leading {
+    @apply flex-row-reverse max-w-xs justify-between;
+  }
+
+  &--disabled {
+
+    #{$self}__input {
+      @apply border-gray-500 opacity-40 cursor-not-allowed;
+    }
+    #{$self}__input:checked {
+      @apply bg-gray-500 border-gray-500;
+    }
+    #{$self}__label-wrapper {
+      @apply cursor-not-allowed;
+    }
+
+    #{$self}__label {
+      @apply text-gray-900/40 cursor-not-allowed;
+    }
+
+    #{$self}__help-text {
+      @apply text-gray-500/50;
+    }
+  }
+}

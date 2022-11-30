@@ -1,6 +1,6 @@
 .vsf-radio-group {
   &__legend {
-    @apply text-sm font-normal text-gray-500;
+    @apply mb-2 text-sm font-normal text-gray-500;
   }
 
   &__list {
@@ -16,14 +16,14 @@
   }
 
   &__error-text {
-    @apply mt-1 text-sm font-medium text-negative-600 font-body
+    @apply mt-1 text-sm font-medium text-negative-600 font-body;
   }
 
-  &__helper-text { 
-    @apply mt-1 text-xs font-normal text-gray-500
+  &__help-text { 
+    @apply mt-1 text-xs font-normal text-gray-500;
   }
 
   &__required-text {
-    @apply mt-1 text-sm font-normal text-gray-500 before:content-['*']
+    @apply mt-1 text-sm font-normal text-gray-500 before:content-['*'];
   }
 }

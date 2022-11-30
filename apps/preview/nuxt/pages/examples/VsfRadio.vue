@@ -1,18 +1,18 @@
 <template>
   <div class="e-page">
     <div class="e-page-component">
-      <VsfRadioGroup
-        :id="id"
-        :legend="legend"
-        :direction="direction"
-        :required="required"
-        :invalid="invalid"
-        :helper-text="helperText"
-        :required-text="requiredText"
-        :error-text="errorText"
-      >
-        <VsfRadio id="radio-1" name="radio-group-1" label="Radio 1" help-text="Help text" class="mb-2"></VsfRadio>
-        <VsfRadio id="radio-2" name="radio-group-2" label="Radio 2"></VsfRadio>
+      <VsfRadioGroup id="radiogroup1" v-model="radioGroupModelValue">
+        <VsfRadio
+          :id="id"
+          :name="name"
+          :label="label"
+          :value="value"
+          :alignment="alignment"
+          :help-text="helpText"
+          :disabled="disabled"
+          :required="required"
+          @change:radio="radioGroupModelValue = $event"
+        ></VsfRadio>
       </VsfRadioGroup>
     </div>
     <div class="e-page-controls">
@@ -25,7 +25,7 @@
 import { defineComponent, ref } from 'vue';
 import VsfRadio from '@sfui/sfui/frameworks/vue/components/VsfRadio/VsfRadio.vue';
 import VsfRadioGroup from '@sfui/sfui/frameworks/vue/components/VsfRadio/VsfRadioGroup.vue';
-import { VsfRadioGroupDirections } from '@sfui/sfui/frameworks/vue/components/VsfRadio/types';
+import { VsfRadioAlignments } from '@sfui/sfui/frameworks/vue/components/VsfRadio/types';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
 
 export default defineComponent({
@@ -36,6 +36,7 @@ export default defineComponent({
     Controls,
   },
   setup() {
+    const radioGroupModelValue = '';
     return {
       ...prepareControls(
         [
@@ -47,16 +48,33 @@ export default defineComponent({
           },
           {
             type: 'text',
-            modelName: 'legend',
+            modelName: 'name',
+            propType: 'string',
+            propDefaultValue: '',
+          },
+          {
+            type: 'text',
+            modelName: 'label',
+            propType: 'string',
+            propDefaultValue: '',
+          },
+          {
+            type: 'text',
+            modelName: 'value',
             propType: 'string',
             propDefaultValue: '',
           },
           {
             type: 'select',
-            options: Object.keys(VsfRadioGroupDirections),
-            modelName: 'direction',
-            propType: 'VsfRadioGroupDirections',
-            propDefaultValue: VsfRadioGroupDirections.vertical,
+            options: Object.keys(VsfRadioAlignments),
+            modelName: 'alignment',
+            propType: 'VsfRadioAlignment',
+            propDefaultValue: VsfRadioAlignments.leading,
+          },
+          {
+            type: 'boolean',
+            modelName: 'disabled',
+            propType: 'boolean',
           },
           {
             type: 'boolean',
@@ -64,38 +82,22 @@ export default defineComponent({
             propType: 'boolean',
           },
           {
-            type: 'boolean',
-            modelName: 'invalid',
-            propType: 'boolean',
-          },
-          {
             type: 'text',
-            modelName: 'helperText',
-            propType: 'string',
-            propDefaultValue: '',
-          },
-          {
-            type: 'text',
-            modelName: 'errorText',
-            propType: 'string',
-            propDefaultValue: '',
-          },
-          {
-            type: 'text',
-            modelName: 'requiredText',
+            modelName: 'helpText',
             propType: 'string',
             propDefaultValue: '',
           },
         ],
         {
-          id: ref('radio-group-1'),
-          legend: ref(''),
+          id: ref('radio-1'),
+          name: ref('radio'),
+          label: ref('Radio 1'),
+          value: ref('radio 1'),
+          alignment: ref(VsfRadioAlignments.leading),
+          disabled: ref(false),
           required: ref(false),
-          invalid: ref(false),
-          helperText: ref(''),
-          requiredText: ref(''),
-          errorText: ref(''),
-          direction: ref(VsfRadioGroupDirections.vertical),
+          helpText: ref('Help text'),
+          radioGroupModelValue: ref(radioGroupModelValue),
         },
       ),
     };
