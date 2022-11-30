@@ -18,11 +18,11 @@
           :key="key"
           :name="radio.name"
           :label="radio.label"
-          :value="radio.value"
+          :value="selectedValue"
           :help-text="radio.helpText"
           :required="required"
           class="mb-4 mr-6"
-          @change:radio="radioGroupModelValue = $event"
+          @change:radio="selectedValue = $event"
         />
       </VsfRadioGroup>
     </div>
@@ -131,6 +131,7 @@ export default defineComponent({
           errorText: ref('Error message'),
           direction: ref(VsfRadioGroupDirections.vertical),
           radioDataModel: ref(radioData),
+          selectedValue: ref(''),
           radioGroupModelValue: ref(radioGroupModelValue),
         },
       ),

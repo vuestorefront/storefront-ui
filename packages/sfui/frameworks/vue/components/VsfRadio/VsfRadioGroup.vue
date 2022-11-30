@@ -41,14 +41,13 @@ defineProps({
 <template>
   <fieldset
     :id="id"
-    role="radiogroup"
     class="vsf-radio-group"
     :aria-invalid="invalid"
     :aria-required="required"
     aria-describedby="radioGroupErrorText"
   >
     <legend v-if="legend" class="vsf-radio-group__legend">{{ legend }}</legend>
-    <div class="vsf-radio-group__list" :class="`vsf-radio-group__list--${direction}`">
+    <div :class="['vsf-radio-group__list', `vsf-radio-group__list--${direction}`]">
       <slot />
     </div>
     <p v-if="invalid && errorText" id="radioGroupErrorText" class="vsf-radio-group__error-text">{{ errorText }}</p>

@@ -1,3 +1,6 @@
+import type { ChangeEvent, PropsWithChildren } from 'react';
+import { PropsWithStyle } from '../../shared/types';
+
 export enum VsfRadioGroupDirections {
   vertical = 'vertical',
   horizontal = 'horizontal',
@@ -8,7 +11,7 @@ export enum VsfRadioAlignments {
   trailing = 'trailing',
 }
 
-export type VsfRadioProps = {
+export interface VsfRadioProps extends PropsWithStyle {
   id: string;
   name?: string;
   label?: string;
@@ -17,9 +20,10 @@ export type VsfRadioProps = {
   disabled?: boolean;
   required?: boolean;
   helpText?: string;
-};
+  onChange?: (event?: ChangeEvent<HTMLInputElement>) => void;
+}
 
-export type VsfRadioGroupProps = {
+export interface VsfRadioGroupProps extends PropsWithChildren, PropsWithStyle {
   id: string;
   legend?: string;
   direction?: VsfRadioGroupDirections;
@@ -28,4 +32,4 @@ export type VsfRadioGroupProps = {
   errorText?: string;
   helpText?: string;
   requiredText?: string;
-};
+}

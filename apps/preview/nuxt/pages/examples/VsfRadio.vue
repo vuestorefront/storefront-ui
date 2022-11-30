@@ -6,12 +6,12 @@
           :id="id"
           :name="name"
           :label="label"
-          :value="value"
+          :value="selectedValue"
           :alignment="alignment"
           :help-text="helpText"
           :disabled="disabled"
           :required="required"
-          @change:radio="radioGroupModelValue = $event"
+          @change:radio="selectedValue = $event"
         ></VsfRadio>
       </VsfRadioGroup>
     </div>
@@ -97,6 +97,7 @@ export default defineComponent({
           disabled: ref(false),
           required: ref(false),
           helpText: ref('Help text'),
+          selectedValue: ref(''),
           radioGroupModelValue: ref(radioGroupModelValue),
         },
       ),
