@@ -159,7 +159,7 @@ const getSvg = async (svgName, doOptimiziation) => {
 };
 
 const counterTags = (content) => {
-    const regex = /<([a-z]+)(?=[\s>])(?:[^>=]|='[^']*'|="[^"]*"|=[^'"\s]*)*\s?\/?>/gi;
+    const regex = /<([a-z]+)(?=[\s>])(?:[^>=]|='[^']|="[^"]|=[^'"\s])*\s?\/?>/gi;
     let resultMatch;
     let count = 0;
     do {
