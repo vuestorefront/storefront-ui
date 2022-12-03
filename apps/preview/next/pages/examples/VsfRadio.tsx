@@ -1,6 +1,7 @@
 import { VsfRadioAlignments } from '@sfui/sfui/frameworks/react/components/VsfRadio/types';
 import VsfRadio from '@sfui/sfui/frameworks/react/components/VsfRadio/VsfRadio';
 import VsfRadioGroup from '@sfui/sfui/frameworks/react/components/VsfRadio/VsfRadioGroup';
+import { ChangeEvent } from 'react';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 
@@ -68,7 +69,7 @@ function Example() {
       radioGroupModelValue: '',
     },
   );
-  function onChangeHandler(event) {
+  function onChangeHandler(event: ChangeEvent<HTMLInputElement>) {
     state.set({
       ...state.get,
       selectedValue: event.target.value,

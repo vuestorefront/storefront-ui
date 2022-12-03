@@ -20,7 +20,7 @@ export interface VsfRadioProps extends PropsWithStyle {
   disabled?: boolean;
   required?: boolean;
   helpText?: string;
-  onChange?: (event?: ChangeEvent<HTMLInputElement>) => void;
+  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export interface VsfRadioGroupProps extends PropsWithChildren, PropsWithStyle {
