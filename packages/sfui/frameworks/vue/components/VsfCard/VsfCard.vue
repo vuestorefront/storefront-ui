@@ -1,9 +1,8 @@
 <script lang="ts" setup>
-import { PropType, computed, ref, toRefs, watch } from 'vue';
+import { PropType, computed } from 'vue';
 import { VsfCardSizes, VsfCardLinkTags, VsfCardProps } from './types';
 import VsfButton from '../VsfButton/VsfButton.vue';
 import { VsfButtonVariants, VsfButtonSizes } from '../VsfButton/types';
-import { useWindowSize } from '@vueuse/core';
 
 defineEmits<{
   (event: 'clickCard', value: Event): void;
@@ -58,11 +57,10 @@ const isLinkAString = computed(() => {
 
 <template>
   <div
-    class="vsf-card"
     :class="[
+      'vsf-card',
+      `vsf-card--size-${size}`,
       {
-        'vsf-card--size-sm': size === VsfCardSizes.sm,
-        'vsf-card--size-base': size === VsfCardSizes.base,
         'vsf-card--rounded': rounded,
       },
     ]"
@@ -81,9 +79,10 @@ const isLinkAString = computed(() => {
         v-if="withButton && !rounded"
         class="vsf-card__button"
         :variant="VsfButtonVariants.tertiary"
+        :tag="linkTag"
         :size="VsfButtonSizes.sm"
         :link="link"
-        @click.prevent="$emit('clickCard', $event)"
+        @click="$emit('clickCard', $event)"
         >{{ buttonText }}</VsfButton
       >
     </div>
