@@ -54,15 +54,15 @@ export default class VsfRadioGroupObject extends BasePage {
   }
 
   get requiredElement() {
-    return this.findTestElement('radio-group-required-text');
+    return this.findTestElement('radio-group-required');
   }
 
   get helpElement() {
-    return this.findTestElement('radio-group-help-text');
+    return this.findTestElement('radio-group-help');
   }
 
   get invalidElement() {
-    return this.findTestElement('radio-group-error-text');
+    return this.findTestElement('radio-group-invalid');
   }
 
 }
