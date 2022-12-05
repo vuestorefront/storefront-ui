@@ -35,7 +35,7 @@ export default function VsfSideSheet({
         appear
         timeout={500}
         unmountOnExit
-        classNames={`vsf-slide-${leftSide ? 'left' : 'right'}-react`}
+        classNames={`vsf-side-sheet__slide-${leftSide ? 'left' : 'right'}-react`}
       >
         <aside
           ref={nodeRef}

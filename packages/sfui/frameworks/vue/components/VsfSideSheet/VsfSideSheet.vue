@@ -48,7 +48,7 @@ onClickOutside(target, () => {
       data-testid="side-sheet-overlay"
       class="vsf-side-sheet__overlay"
     />
-    <transition :name="`vsf-slide-${leftSide ? 'left' : 'right'}-vue`" appear>
+    <transition :name="`vsf-side-sheet__slide-${leftSide ? 'left' : 'right'}-vue`" appear>
       <aside
         v-if="permanent || open"
         ref="target"
