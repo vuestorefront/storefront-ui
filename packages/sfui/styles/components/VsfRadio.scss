@@ -54,12 +54,14 @@
     @apply text-xs font-normal text-gray-500;
   }
 
-  &--alignment-leading {
-    @apply flex-row;
-  }
-
-  &--alignment-trailing {
-    @apply flex-row-reverse max-w-xs justify-between;
+  &--alignment {
+    &-leading {
+      @apply flex-row;
+    } 
+    
+    &-trailing {
+       @apply flex-row-reverse max-w-xs justify-between;
+    }
   }
 
   &--disabled {
