@@ -1,3 +1,5 @@
+import type { ReactNode } from 'react';
+
 export enum VsfListItemMenuSizes {
   sm = 'sm',
   base = 'base',
@@ -11,4 +13,8 @@ export interface VsfListItemMenuProps {
   secondaryText?: string;
   disabled?: boolean;
   selected?: boolean;
+  className?: string;
+  slotSuffix?: ReactNode;
+  slotPreffix?: ReactNode;
+  onClick?: (e: MouseEvent) => void;
 }

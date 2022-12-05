@@ -87,7 +87,6 @@ export default defineComponent({
         {
           label: ref('Label'),
           size: ref<VsfListItemMenuSizes>(VsfListItemMenuSizes.base),
-          strong: ref(false),
           counter: ref(123),
           showSuffix: ref(false),
           showPreffix: ref(false),
