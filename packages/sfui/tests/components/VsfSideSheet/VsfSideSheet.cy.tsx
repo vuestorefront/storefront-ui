@@ -10,7 +10,7 @@ describe("VsfSideSheet", () => {
   let withButton: boolean;
   let leftSide: boolean;
   let overlayVisible: boolean;
-  let isOpen: boolean;
+  let open: boolean;
   let onChangeSpy: Cypress.Agent<sinon.SinonSpy>;
 
   const page = () => new VsfSideSheetBaseObject('side-sheet');
@@ -24,7 +24,7 @@ describe("VsfSideSheet", () => {
           withButton,
           leftSide,
           overlayVisible,
-          isOpen,
+          open,
           onClose: onChangeSpy,
         },
       },
@@ -34,8 +34,8 @@ describe("VsfSideSheet", () => {
           withButton={withButton}
           leftSide={leftSide}
           overlayVisible={overlayVisible}
-          isOpen={isOpen}
-          onClick={onChangeSpy}
+          open={open}
+          onOpenChange={onChangeSpy}
         > </VsfSideSheetReact>
     });
   }
@@ -43,7 +43,7 @@ describe("VsfSideSheet", () => {
   beforeEach(() => {
     cy.viewport(300, 300);
     onChangeSpy = cy.spy();
-    isOpen = true;
+    open = true;
     withButton = true;
     permanent = false;
   });
@@ -60,8 +60,9 @@ describe("VsfSideSheet", () => {
     it('should render without close button and without additional fixed class', () => {
       initializeComponent();
 
-      page().isPermanent()
-      page().makeSnapshot();
+      page()
+        .isPermanent()
+        .makeSnapshot();
     })
   })
 
@@ -71,8 +72,9 @@ describe("VsfSideSheet", () => {
     it('should render with class for right side', () => {
       initializeComponent();
 
-      page().isOnRightSide()
-      page().makeSnapshot()
+      page()
+        .isOnRightSide()
+        .makeSnapshot()
 
     })
   })
@@ -81,8 +83,9 @@ describe("VsfSideSheet", () => {
     it('should render with close button', () => {
       initializeComponent();
 
-      page().hasCloseButton()
-      page().makeSnapshot()
+      page()
+        .hasCloseButton()
+        .makeSnapshot()
 
     })
   })
@@ -93,8 +96,9 @@ describe("VsfSideSheet", () => {
     it('should render with overlay', () => {
       initializeComponent();
 
-      page().hasOverlay()
-      page().makeSnapshot()
+      page()
+        .hasOverlay()
+        .makeSnapshot()
 
     })
   })
@@ -103,8 +107,9 @@ describe("VsfSideSheet", () => {
     it('should response on click', () => {
       initializeComponent();
 
-      page().hasCloseButton()
-      page().closeButtonIsClicked()
+      page()
+        .hasCloseButton()
+        .closeButtonIsClicked()
       cy.then(() => {
         expect(onChangeSpy).calledOnceWith();
         page().makeSnapshot()

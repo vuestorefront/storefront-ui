@@ -1,10 +1,11 @@
 import classNames from 'classnames';
 import { useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
-import useClickOutside from '../../hooks/useClickOutside';
+import { useClickAway } from 'react-use';
 import { VsfIconClose } from '../VsfIcons';
 import type { VsfSideSheetProps } from './types';
 import VsfOverlay from '../VsfOverlay/VsfOverlay';
+import VsfButton from '../VsfButton/VsfButton';
 
 export default function VsfSideSheet({
   className,
@@ -12,23 +13,25 @@ export default function VsfSideSheet({
   withButton,
   leftSide,
   overlayVisible,
-  isOpen,
-  onClick,
+  open,
+  onOpenChange,
   children,
   ...attributes
 }: VsfSideSheetProps): JSX.Element {
   const nodeRef = useRef(null);
-  const conditions = overlayVisible && isOpen;
-  useClickOutside(nodeRef, onClick, conditions);
+  useClickAway(nodeRef, () => {
+    if (!overlayVisible) return;
+    onOpenChange();
+  });
 
   return (
-    <div className={classNames('vsf-side-sheet')} {...attributes} data-testid="side-sheet">
-      {overlayVisible && !permanent && isOpen && (
+    <div className={classNames('vsf-side-sheet', className)} {...attributes} data-testid="side-sheet">
+      {overlayVisible && !permanent && open && (
         <VsfOverlay visible={overlayVisible} className="vsf-side-sheet__overlay" data-testid="side-sheet-overlay" />
       )}
       <CSSTransition
         nodeRef={nodeRef}
-        in={isOpen || permanent}
+        in={open || permanent}
         appear
         timeout={500}
         unmountOnExit
@@ -45,16 +48,15 @@ export default function VsfSideSheet({
         >
           {withButton && !permanent && (
             // TODO: replace with VsfButton pure version after refactor
-            <button
+            <VsfButton
               className="vsf-side-sheet__aside__close-button"
-              onClick={onClick}
+              variant="tertiary"
+              onClick={onOpenChange}
               type="button"
               data-testid="side-sheet-close-button"
             >
-              <slot name="button-content">
-                <VsfIconClose />
-              </slot>
-            </button>
+              <VsfIconClose />
+            </VsfButton>
           )}
           {children}
         </aside>

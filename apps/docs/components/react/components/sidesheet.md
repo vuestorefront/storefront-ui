@@ -1,6 +1,6 @@
 #  SideSheet component
 
-SfSideSheet is surfaces containing supplementary content that is anchored to the left or right edge of the screen.
+VsfSideSheet is surface containing supplementary content that is anchored to the left or right edge of the screen.
 
 
 <Generate />
@@ -17,14 +17,14 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 | Prop name             | Type                       | Default value | Possible values                        |
 |-----------------------|----------------------------|---------------|----------------------------------------|
-|  leftSide             |  boolean                   |  false        |                                        |
+|  leftSide             |  boolean                   |  true         |                                        |
 |  permanent            |  boolean                   |  false        |                                        |
-|  withButton           |  boolean                   |  false        |                                        |
+|  withButton           |  boolean                   |  true         |                                        |
 |  overlayVisible       |  boolean                   |  false        |                                        |
-|  isOpen               |  boolean                   |  false        |                                        |
+|  open                 |  boolean                   |  false        |                                        |
 |  children             |  ReactNode                 |               |                                        |
 |  className            |  String                    |               |                                        |
-|  onClick              |  Function                  |               |                                        |
+|  onOpenChange         |  Function                  |               |                                        |
 
 
 

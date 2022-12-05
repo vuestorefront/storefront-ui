@@ -6,6 +6,6 @@ export interface VsfSideSheetProps extends PropsWithStyle, PropsWithChildren {
   withButton?: boolean;
   leftSide?: boolean;
   overlayVisible?: boolean;
-  isOpen: boolean;
-  onClick: () => void;
+  open: boolean;
+  onOpenChange: () => void;
 }

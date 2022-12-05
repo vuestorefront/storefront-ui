@@ -1,13 +1,14 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import VsfOverlay from '../VsfOverlay/VsfOverlay.vue';
+import VsfButton from '../VsfButton/VsfButton.vue';
 import { VsfIconClose } from '../../components/VsfIcons';
 import { onClickOutside } from '@vueuse/core';
 
 const props = defineProps({
-  isOpen: {
+  open: {
     type: Boolean,
-    default: true,
+    default: false,
   },
   overlayVisible: {
     type: Boolean,
@@ -42,14 +43,14 @@ onClickOutside(target, () => {
 <template>
   <div class="vsf-side-sheet" data-testid="side-sheet">
     <VsfOverlay
-      v-if="overlayVisible && !permanent && isOpen"
+      v-if="overlayVisible && !permanent && open"
       :visible="overlayVisible"
       data-testid="side-sheet-overlay"
       class="vsf-side-sheet__overlay"
     />
     <transition :name="`vsf-slide-${leftSide ? 'left' : 'right'}-vue`" appear>
       <aside
-        v-if="permanent || isOpen"
+        v-if="permanent || open"
         ref="target"
         class="vsf-side-sheet__aside"
         :class="{
@@ -60,17 +61,16 @@ onClickOutside(target, () => {
         data-testid="side-sheet-aside"
       >
         <!-- TODO: replace with VsfButton pure version after refactor -->
-        <button
+        <VsfButton
           v-if="withButton && !permanent"
+          variant="tertiary"
           class="vsf-side-sheet__aside__close-button"
           data-testid="side-sheet-close-button"
           @keyup.esc="$emit('close')"
           @click="$emit('close')"
         >
-          <slot name="button-content">
-            <VsfIconClose />
-          </slot>
-        </button>
+          <VsfIconClose />
+        </VsfButton>
         <slot />
       </aside>
     </transition>

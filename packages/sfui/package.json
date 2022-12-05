@@ -37,6 +37,8 @@
     "stylelint-scss": "^4.3.0"
   },
   "peerDependencies": {
-    "classnames": "^2.3.2"
+    "@vueuse/core": "^9.6.0",
+    "classnames": "^2.3.2",
+    "react-use": "^17.4.0"
   }
 }

@@ -6,7 +6,7 @@
         :with-button="withButton"
         :permanent="permanent"
         :left-side="leftSide"
-        :is-open="isOpen"
+        :open="open"
         @close="closeSideSheet"
       >
         <div>
@@ -43,32 +43,37 @@ export default {
         [
           {
             type: 'boolean',
-            modelName: 'isOpen',
+            modelName: 'open',
             propType: 'boolean',
+            propDefaultValue: false,
           },
           {
             type: 'boolean',
             modelName: 'overlayVisible',
             propType: 'boolean',
+            propDefaultValue: false,
           },
           {
             type: 'boolean',
             modelName: 'leftSide',
             propType: 'boolean',
+            propDefaultValue: true,
           },
           {
             type: 'boolean',
             modelName: 'withButton',
             propType: 'boolean',
+            propDefaultValue: true,
           },
           {
             type: 'boolean',
             modelName: 'permanent',
             propType: 'boolean',
+            propDefaultValue: false,
           },
         ],
         {
-          isOpen: ref(isSideSheetOpen),
+          open: ref(isSideSheetOpen),
           overlayVisible: ref(false),
           leftSide: ref(true),
           withButton: ref(true),
