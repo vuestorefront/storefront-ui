@@ -15,7 +15,7 @@ defineProps({
     default: '',
   },
   alignment: {
-    type: String,
+    type: String as PropType<VsfRadioAlignments>,
     default: VsfRadioAlignments.leading,
   },
   label: {
