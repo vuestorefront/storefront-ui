@@ -41,7 +41,7 @@ function Example() {
       overlayVisible: false,
       leftSide: true,
       withButton: true,
-      permanent: false,
+      permanent: true,
     },
   );
   function onClose() {

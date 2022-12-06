@@ -77,7 +77,7 @@ export default {
           overlayVisible: ref(false),
           leftSide: ref(true),
           withButton: ref(true),
-          permanent: ref(false),
+          permanent: ref(true),
         },
       ),
       closeSideSheet,
