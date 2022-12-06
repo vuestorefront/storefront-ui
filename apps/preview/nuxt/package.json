@@ -18,6 +18,8 @@
     "@sfui/sfui": "*",
     "@sfui/shared": "*",
     "@sfui/tailwind-config": "*",
+    "@vueuse/core": "9.5.0",
+    "@vueuse/nuxt": "9.5.0",
     "autoprefixer": "^10.4.8",
     "eslint": "^8.27.0",
     "eslint-plugin-nuxt": "^4.0.0",
