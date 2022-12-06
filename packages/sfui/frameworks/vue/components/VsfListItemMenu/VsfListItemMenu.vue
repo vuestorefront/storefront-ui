@@ -55,6 +55,7 @@ const componentTag = computed(() => {
     ]"
     type="button"
     :disabled="disabled"
+    data-testid="list-item-menu"
   >
     <div v-if="$slots.preffix" class="vsf-list-item-menu__icon vsf-list-item-menu__icon--preffix">
       <slot name="preffix" />

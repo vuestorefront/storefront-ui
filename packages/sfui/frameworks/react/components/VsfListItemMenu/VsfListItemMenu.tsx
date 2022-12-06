@@ -30,6 +30,7 @@ export default function VsfListItemMenu({
       type="button"
       disabled={disabled}
       onClick={onClick}
+      data-testid="list-item-menu"
     >
       {slotPreffix && <div className="vsf-list-item-menu__icon vsf-list-item-menu__icon--preffix">{slotPreffix}</div>}
       <div className="vsf-list-item-menu__content">
