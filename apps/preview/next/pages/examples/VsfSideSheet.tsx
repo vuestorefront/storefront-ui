@@ -34,6 +34,7 @@ function Example() {
         modelName: 'permanent',
         propType: 'boolean',
         propDefaultValue: false,
+        description: "If permanent prop is set to true then props open, overlay and withButton won't work",
       },
     ],
     {
