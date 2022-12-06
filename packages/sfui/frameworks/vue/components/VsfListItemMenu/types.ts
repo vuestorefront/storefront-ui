@@ -6,6 +6,7 @@ export enum VsfListItemMenuSizes {
 
 export interface VsfListItemMenuProps {
   label?: string;
+  link?: string;
   size?: string;
   counter?: number;
   secondaryText?: string;

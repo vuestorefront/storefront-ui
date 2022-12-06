@@ -1,11 +1,15 @@
 <script setup lang="ts">
-import { PropType } from 'vue';
+import { PropType, computed } from 'vue';
 import { VsfListItemMenuSizes } from './types';
 import VsfCounter from '../VsfCounter/VsfCounter.vue';
 import { VsfCounterSizes } from '../VsfCounter/types';
 
-defineProps({
+const props = defineProps({
   label: {
+    type: String,
+    default: '',
+  },
+  link: {
     type: String,
     default: '',
   },
@@ -30,10 +34,16 @@ defineProps({
     default: false,
   },
 });
+// TODO: replace with link component when ready
+const componentTag = computed(() => {
+  return props.link ? 'a' : 'button';
+});
 </script>
 
 <template>
-  <button
+  <component
+    :is="componentTag"
+    :href="link"
     :class="[
       'vsf-list-item-menu peer',
       `vsf-list-item-menu--size-${size}`,
@@ -57,5 +67,5 @@ defineProps({
     <div v-if="$slots.suffix" class="vsf-list-item-menu__icon">
       <slot name="suffix" />
     </div>
-  </button>
+  </component>
 </template>

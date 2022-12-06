@@ -15,6 +15,12 @@ function Example() {
       },
       {
         type: 'text',
+        modelName: 'link',
+        propType: 'string',
+        description: 'Set link to render as link',
+      },
+      {
+        type: 'text',
         modelName: 'secondaryText',
         propType: 'string',
         description: 'Set secondary text',
@@ -50,6 +56,7 @@ function Example() {
     {
       label: 'Label',
       size: VsfListItemMenuSizes.base,
+      link: '',
       strong: false,
       counter: 123,
       showSuffix: false,
@@ -66,6 +73,7 @@ function Example() {
         <VsfListItemMenu
           className="border border-pink-200 border-dashed max-w-sm"
           size={state.get.size}
+          link={state.get.link}
           label={state.get.label}
           counter={state.get.counter}
           secondaryText={state.get.secondaryText}

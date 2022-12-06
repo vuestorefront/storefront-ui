@@ -5,6 +5,7 @@
         class="border border-pink-200 border-dashed max-w-sm"
         :size="size"
         :label="label"
+        :link="link"
         :counter="counter"
         :secondary-text="secondaryText"
         :selected="selected"
@@ -52,6 +53,12 @@ export default defineComponent({
           },
           {
             type: 'text',
+            modelName: 'link',
+            propType: 'string',
+            description: 'Set link to render as a link',
+          },
+          {
+            type: 'text',
             modelName: 'secondaryText',
             propType: 'string',
             description: 'Set secondary text',
@@ -87,6 +94,7 @@ export default defineComponent({
         {
           label: ref('Label'),
           size: ref<VsfListItemMenuSizes>(VsfListItemMenuSizes.base),
+          link: ref(''),
           counter: ref(123),
           showSuffix: ref(false),
           showPreffix: ref(false),
