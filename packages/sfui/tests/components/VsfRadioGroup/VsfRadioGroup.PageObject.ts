@@ -13,17 +13,17 @@ export default class VsfRadioGroupObject extends BasePage {
   }
 
   hasId(){
-    this.parentElement.should('have.attr', 'id');
+    this.container.should('have.attr', 'id');
     return this;
   }
   
   isRequired(){
-    this.parentElement.should('have.attr', 'aria-required');
+    this.container.should('have.attr', 'aria-required');
     return this;
   }
 
   isInvalid(){
-    this.parentElement.should('have.attr', 'aria-invalid');
+    this.container.should('have.attr', 'aria-invalid');
     return this;
   }
 
@@ -40,9 +40,6 @@ export default class VsfRadioGroupObject extends BasePage {
   hasInvalidText(text: string) {
     this.invalidElement.contains(text);
     return this;
-  }
-  get parentElement() {
-    return this.findTestElement('radio-group');
   }
 
   get labelElement() {
