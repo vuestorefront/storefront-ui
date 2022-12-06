@@ -7,7 +7,7 @@
     }
 
     &__title {
-      @apply inline-flex flex-wrap;
+      @apply inline-block flex-wrap;
     }
 
     &__counter {
@@ -16,10 +16,14 @@
 
     &__secondary-text { 
       @apply text-xs text-gray-500;
+      
+      &--truncated {
+        @apply truncate;  
+      }
     }
 
     &__icon {
-      @apply text-gray-500;
+      @apply flex-grow-0 text-gray-500;
 
       &--preffix {
         @apply mr-2.5;
@@ -39,7 +43,7 @@
     }
 
     &--disabled {
-      
+
       #{$self}__icon--preffix {
         @apply text-gray-500;
       }

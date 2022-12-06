@@ -33,6 +33,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  isTruncated: {
+    type: Boolean,
+    default: false,
+  },
 });
 // TODO: replace with link component when ready
 const componentTag = computed(() => {
@@ -62,7 +66,14 @@ const componentTag = computed(() => {
           counter
         }}</VsfCounter>
       </div>
-      <span v-if="secondaryText" class="vsf-list-item-menu__secondary-text">{{ secondaryText }}</span>
+      <span
+        v-if="secondaryText"
+        :class="[
+          'vsf-list-item-menu__secondary-text',
+          { 'vsf-list-item-menu__secondary-text--truncated': isTruncated },
+        ]"
+        >{{ secondaryText }}</span
+      >
     </div>
     <div v-if="$slots.suffix" class="vsf-list-item-menu__icon">
       <slot name="suffix" />

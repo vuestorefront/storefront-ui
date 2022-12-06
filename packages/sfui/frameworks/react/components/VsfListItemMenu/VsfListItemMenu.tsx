@@ -43,7 +43,7 @@ export default function VsfListItemMenu({
         </div>
         {secondaryText ? <span className="vsf-list-item-menu__secondary-text">{secondaryText}</span> : null}
       </div>
-      {slotSuffix && <div className="vsf-list-item-menu__icon vsf-list-item-menu__icon--preffix">{slotSuffix}</div>}
+      {slotSuffix && <div className="vsf-list-item-menu__icon">{slotSuffix}</div>}
     </TagComponent>
   );
 }

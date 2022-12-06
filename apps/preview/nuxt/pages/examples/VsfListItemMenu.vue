@@ -8,6 +8,7 @@
         :link="link"
         :counter="counter"
         :secondary-text="secondaryText"
+        :is-truncated="isTruncated"
         :selected="selected"
         :disabled="disabled"
         @click="selected = !selected"
@@ -90,6 +91,11 @@ export default defineComponent({
             modelName: 'disabled',
             description: 'Show disabled state of component',
           },
+          {
+            type: 'boolean',
+            modelName: 'isTruncated',
+            description: 'Show truncated version of secondary text',
+          },
         ],
         {
           label: ref('Label'),
@@ -101,6 +107,7 @@ export default defineComponent({
           secondaryText: ref('Secondary text'),
           disabled: ref(false),
           selected: ref(false),
+          isTruncated: ref(false),
         },
       ),
       VsfIconSizeEnum,
