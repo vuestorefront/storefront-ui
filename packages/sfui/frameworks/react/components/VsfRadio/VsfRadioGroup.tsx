@@ -1,10 +1,10 @@
 import classNames from 'classnames';
-import type { VsfRadioGroupProps } from './types';
+import { VsfRadioGroupDirections, VsfRadioGroupProps } from './types';
 
 export default function VsfRadioGroup({
   id,
   legend,
-  direction,
+  direction = VsfRadioGroupDirections.vertical,
   required,
   invalid,
   errorText,

@@ -43,7 +43,7 @@
   }
 
   &__label-wrapper {
-    @apply ml-2 text-sm;
+    @apply flex flex-col ml-2 text-sm;
   }
 
   &__label {

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { PropType } from 'vue';
 import { VsfRadioAlignments } from './types';
 
 const emit = defineEmits<{
@@ -56,10 +57,10 @@ defineProps({
     </div>
     <div class="vsf-radio__label-wrapper">
       <label :for="id" class="vsf-radio__label">
-        <div>{{ label }}</div>
-        <span v-if="helpText" :id="id" class="vsf-radio__help-text">
+        <p>{{ label }}</p>
+        <p v-if="helpText" :id="id" class="vsf-radio__help-text">
           {{ helpText }}
-        </span>
+        </p>
       </label>
     </div>
   </div>

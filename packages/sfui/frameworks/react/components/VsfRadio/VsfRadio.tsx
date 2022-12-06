@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { VsfRadioProps } from './types';
+import { VsfRadioAlignments, VsfRadioProps } from './types';
 
 export default function VsfRadio({
   id,
@@ -7,7 +7,7 @@ export default function VsfRadio({
   label,
   value,
   disabled,
-  alignment,
+  alignment = VsfRadioAlignments.leading,
   required,
   helpText,
   className,
@@ -36,11 +36,11 @@ export default function VsfRadio({
       </div>
       <div className="vsf-radio__label-wrapper">
         <label htmlFor={id} className="vsf-radio__label">
-          <div>{label}</div>
+          <p>{label}</p>
           {helpText ? (
-            <span id={id} className="vsf-radio__help-text">
+            <p id={id} className="vsf-radio__help-text">
               {helpText}
-            </span>
+            </p>
           ) : null}
         </label>
       </div>

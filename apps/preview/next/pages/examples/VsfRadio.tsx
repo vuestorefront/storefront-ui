@@ -85,7 +85,7 @@ function Example() {
             label={state.get.label}
             value={state.get.selectedValue}
             alignment={state.get.alignment}
-            help-text={state.get.helpText}
+            helpText={state.get.helpText}
             disabled={state.get.disabled}
             required={state.get.required}
             onChange={onChangeHandler}
