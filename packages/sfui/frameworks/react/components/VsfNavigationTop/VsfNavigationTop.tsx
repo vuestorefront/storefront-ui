@@ -10,6 +10,7 @@ export default function VsfNavigationTop({
   open = false,
   onOpenChange = () => false,
   variant = VsfNavigationTopVariant.auto,
+  slotButtonClose,
   children,
   className,
   ...attributes
@@ -28,6 +29,7 @@ export default function VsfNavigationTop({
       {...attributes}
     >
       {/* TODO: use greyscale prop button variant */}
+      {slotButtonClose?.toString()}
       <VsfButton
         icon
         variant={VsfButtonVariants.tertiary}
@@ -37,7 +39,7 @@ export default function VsfNavigationTop({
           onOpenChange(!open);
         }}
       >
-        <VsfIconClose />
+        {slotButtonClose || <VsfIconClose />}
       </VsfButton>
       <div
         className={classNames(

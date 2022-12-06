@@ -2,7 +2,7 @@ import { BasePage } from '../../utils/BasePage';
 
 export default class VsfNavigationTopBaseObject extends BasePage {
     clickCloseButton() {
-        this.findTestElement('navigation-top-close-button').click();
+        this.closeButtonElement.click();
         return this;
     }
 
@@ -12,5 +12,19 @@ export default class VsfNavigationTopBaseObject extends BasePage {
         })
         cy.get('body').click('bottom');
         return this;
+    }
+
+    closeButtonHasText(text: string) {
+        this.closeButtonElement.should('have.text', text);
+        return this;
+    }
+
+    closeButtonHasIcon(){
+        this.closeButtonElement.find('svg[aria-label="close"]');
+        return this;
+    }
+
+    get closeButtonElement() {
+        return this.findTestElement('navigation-top-close-button');
     }
 }

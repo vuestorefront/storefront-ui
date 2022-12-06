@@ -19,10 +19,16 @@ function Example() {
         modelName: 'variant',
         options: Object.keys(VsfNavigationTopVariant),
       },
+      {
+        type: 'text',
+        modelName: 'slotButtonClose',
+        propType: 'slot',
+      },
     ],
     {
       open: false,
       variant: VsfNavigationTopVariant.auto,
+      slotButtonClose: undefined,
     },
   );
 
@@ -45,6 +51,7 @@ function Example() {
               state.set({ ...state.get, open: val });
             }}
             variant={state.get.variant}
+            slotButtonClose={state.get.slotButtonClose}
           >
             <div className="border border-primary-400">Column1</div>
             <div className="border border-primary-400">Column2</div>

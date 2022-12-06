@@ -13,10 +13,12 @@ describe("VsfNavigationTop", () => {
 
   const initializeComponent = ({
     modelValue = ref(false),
-    variant
+    variant,
+    slotCloseButton = ref()
   }: {
     modelValue?: Ref<boolean>;
     variant?: VsfNavigationTopVariant,
+    slotCloseButton?: Ref<string | undefined>
   }) => {
     return mount({
       vue: {
@@ -27,13 +29,15 @@ describe("VsfNavigationTop", () => {
           'onUpdate:modelValue': (e: boolean) => modelValue.value = e
         },
         slots: {
-          default: `<div>Column 1 longer text</div><div>Column 2</div><div>Column 3</div><div>Column 4</div>`
+          default: `<div>Column 1 longer text</div><div>Column 2</div><div>Column 3</div><div>Column 4</div>`,
+          buttonClose: () => slotCloseButton?.value
        }
       },
       react: <Wrapper
         open={modelValue}
         variant={variant}
         onOpenChange={(e: boolean) => modelValue.value = e}
+        slotButtonClose={slotCloseButton}
         component={VsfNavigationTopReact}
       >
         <div>Column 1 longer text</div><div>Column 2</div><div>Column 3</div><div>Column 4</div>
@@ -91,6 +95,21 @@ describe("VsfNavigationTop", () => {
           page().makeSnapshot();
         });
       });
+    });
+  });
+
+  describe('when close button slot is filled ', () => {
+    it('should change content of close button', () => {
+      const modelValue = ref(true);
+      const slotCloseButton = ref();
+      initializeComponent({modelValue, slotCloseButton });
+
+      page().closeButtonHasIcon();
+      cy.then(() => {
+        slotCloseButton.value = 'someText';
+      }).then(() => {
+        page().closeButtonHasText('someText')
+      })
     });
   });
 });

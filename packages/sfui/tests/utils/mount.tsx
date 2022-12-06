@@ -54,14 +54,22 @@ export function Wrapper<T extends Record<string, unknown>>({
 } & {[k in keyof T]: T[k] | Ref<T[k]>}): JSX.Element {
   let reactiveValuesInternal: Partial<Record<keyof T, unknown>> = {};
   let propCallbackPairInternal = {...propCallbackPair} as Record<keyof T, keyof T>;
+
   const onlyPropNamesNoCallbacks = Object.keys(attributes).filter(attribute =>
     attribute.substring(0, 2) !== 'on') as (keyof T)[];
 
+  // Find dynamically all pairs prop(`open`)/callback(`onOpenSomething`)
   for (const attribute in attributes) {
     if(attribute.substring(0, 2) === 'on'){
       const propNamePair = onlyPropNamesNoCallbacks
         .filter(propName => attribute.toLowerCase().includes(propName as string))[0];
       propCallbackPairInternal[propNamePair] = attribute;
+    } else {
+      // Add all reactive vue variables into process of mangling vue-reactive -> useState
+      if(isRef(attributes[attribute])){
+        reactiveValuesInternal[attribute as keyof T] = attributes[attribute]
+        propCallbackPairInternal[attribute as keyof T] = 'true'
+      }
     }
   }
 
@@ -88,8 +96,16 @@ export function Wrapper<T extends Record<string, unknown>>({
     }
   }
 
+  const internalAttributes = {...attributes};
+  for(const attribute in internalAttributes){
+    if(reactiveValuesInternal.hasOwnProperty(attribute)){
+      // remove reactive vue values from attributes and leave onlt those that are created from `useState`
+      delete internalAttributes[attribute];
+    }
+  }
+
   return <>{createElement(component as unknown as FunctionComponent<any>, {
-    ...attributes,
+    ...internalAttributes,
     ...reactiveValuesInternal,
   }, children as ReactNode)}</>
 };

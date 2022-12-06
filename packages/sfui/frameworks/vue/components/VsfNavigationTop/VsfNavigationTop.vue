@@ -37,7 +37,7 @@ onClickOutside(navigationTopRef, onClose);
       data-testid="navigation-top-close-button"
       @click="onClose"
     >
-      <VsfIconClose />
+      <slot name="buttonClose"><VsfIconClose /></slot>
     </VsfButton>
     <div
       :class="[

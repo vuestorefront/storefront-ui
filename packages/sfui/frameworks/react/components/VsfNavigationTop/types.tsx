@@ -12,5 +12,6 @@ export type VsfNavigationTopProps = PropsWithStyle & {
   open?: boolean;
   variant?: VsfNavigationTopVariant;
   onOpenChange?: (value: boolean) => void;
+  slotButtonClose?: ReactNode;
   children?: ReactNode;
 };

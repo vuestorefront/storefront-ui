@@ -14,6 +14,7 @@
         >
           Column5
         </div>
+        <template v-if="slotButtonClose" #buttonClose>{{ slotButtonClose }}</template>
       </VsfNavigationTop>
     </div>
     <div class="e-page-controls">
@@ -53,10 +54,16 @@ export default {
             modelName: 'variant',
             options: Object.keys(VsfNavigationTopVariant),
           },
+          {
+            type: 'text',
+            modelName: 'slotButtonClose',
+            propType: 'slot',
+          },
         ],
         {
           modelValue: ref(false),
           variant: ref(VsfNavigationTopVariant.auto),
+          slotButtonClose: ref(undefined),
         },
       ),
     };
