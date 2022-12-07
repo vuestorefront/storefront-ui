@@ -107,9 +107,9 @@ function Example() {
           direction={state.get.direction}
           required={state.get.required}
           invalid={state.get.invalid}
-          help-text={state.get.helpText}
-          required-text={state.get.requiredText}
-          error-text={state.get.errorText}
+          helpText={state.get.helpText}
+          requiredText={state.get.requiredText}
+          errorText={state.get.errorText}
         >
           {state.get.radioDataModel.map((radio) => (
             <VsfRadio
@@ -118,7 +118,7 @@ function Example() {
               name={radio.name}
               label={radio.label}
               value={state.get.selectedValue}
-              help-text={radio.helpText}
+              helpText={radio.helpText}
               required={state.get.required}
               className="mb-4 mr-6"
               onChange={onChangeHandler}
