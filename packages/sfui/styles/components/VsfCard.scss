@@ -22,6 +22,14 @@
     @apply mt-2 self-start;
   }
 
+  &--rounded {
+    @apply flex flex-col items-center border-none hover:shadow-none max-w-fit;
+
+    #{$self}__image {
+      @apply h-auto rounded-full;
+    }
+  }
+
   &--size-base {
     @apply max-w-[320px];
 
@@ -43,14 +51,6 @@
 
     #{$self}__description {
       @apply text-xs;
-    }
-  }
-
-  &--rounded {
-    @apply flex flex-col items-center border-none hover:shadow-none max-w-fit;
-
-    #{$self}__image {
-      @apply w-auto rounded-full;
     }
   }
 }
