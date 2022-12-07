@@ -64,17 +64,26 @@ const isLinkAString = computed(() => {
         'vsf-card--rounded': rounded,
       },
     ]"
+    data-testid="card"
   >
+    <!-- TODO: replace with link component -->
     <component :is="linkTag" v-if="imgSrc" :href="isLinkAString && link" v-bind="!isLinkAString && link">
       <slot name="image">
-        <img class="vsf-card__image" v-bind="imgAttr" :src="imgSrc" />
+        <img class="vsf-card__image" v-bind="imgAttr" :src="imgSrc" data-testid="card-image" />
       </slot>
     </component>
     <div class="vsf-card__content-wrapper">
-      <component :is="linkTag" class="vsf-card__title" :href="isLinkAString && link" v-bind="!isLinkAString && link">{{
-        title
-      }}</component>
-      <p v-if="description && !rounded" class="vsf-card__description">{{ description }}</p>
+      <component
+        :is="linkTag"
+        class="vsf-card__title"
+        :href="isLinkAString && link"
+        v-bind="!isLinkAString && link"
+        data-testid="card-title"
+        >{{ title }}</component
+      >
+      <p v-if="description && !rounded" class="vsf-card__description" data-testid="card-description">
+        {{ description }}
+      </p>
       <VsfButton
         v-if="withButton && !rounded"
         class="vsf-card__button"
@@ -82,6 +91,7 @@ const isLinkAString = computed(() => {
         :tag="linkTag"
         :size="VsfButtonSizes.sm"
         :link="link"
+        data-testid="card-button"
         @click="$emit('clickCard', $event)"
         >{{ buttonText }}</VsfButton
       >

@@ -20,6 +20,7 @@ export default function VsfCard({
 }: VsfCardProps): JSX.Element {
   return (
     <div
+      data-testid="card"
       className={classNames('vsf-card group', `vsf-card--size-${size}`, { 'vsf-card--rounded': rounded }, className)}
       {...attributes}
     >
@@ -28,15 +29,19 @@ export default function VsfCard({
           <a href={link} className="vsf-card__image-wrapper">
             {
               // eslint-disable-next-line jsx-a11y/alt-text
-              <img className="vsf-card__image" src={imgSrc} {...imgAttr} />
+              <img className="vsf-card__image" src={imgSrc} data-testid="card-image" {...imgAttr} />
             }
           </a>
         ))}
       <div className="vsf-card__content-wrapper">
-        <a href={link} className="vsf-card__title">
+        <a href={link} className="vsf-card__title" data-testid="card-title">
           {title}
         </a>
-        {description && !rounded && <p className="vsf-card__description">{description}</p>}
+        {description && !rounded && (
+          <p className="vsf-card__description" data-testid="card-description">
+            {description}
+          </p>
+        )}
         {withButton && !rounded && (
           <VsfButton
             className="vsf-card__button"
@@ -44,6 +49,7 @@ export default function VsfCard({
             size={VsfButtonSizes.sm}
             link={link}
             onClick={onClick}
+            data-testid="card-button"
           >
             {buttonText}
           </VsfButton>
