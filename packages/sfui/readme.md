@@ -9,12 +9,10 @@ Core package with components, styling and everything around them.
   - React
     - `components` (place where components and its friends(types) should be placed)
     - `hooks` (util functions react specific that helps coding)
-    - `shared` (symlinked `shared` directory from `sfui/shared`, used for keeping vanila js utils like e.g `throttle`, `getDate` etc)
     - `utils` (same as `shared` but only for vue, different name because it might be hard to control naming to avoid conflicts)
   - Vue
     - `components` (place where components and its friends(types) should be placed)
     - `composables` (util functions react specific that helps coding)
-    - `shared` (symlinked `shared` directory from `sfui/shared`, used for keeping vanila js utils like e.g `throttle`, `getDate` etc)
     - `utils` (same as `shared` but only for vue, different name because it might be hard to control naming to avoid conflicts)
 - `styles` (scss files for both `vue` and `react` written with `BEM` methodology, so we would not be desynced with styling in separated frameworks)
 
@@ -25,3 +23,5 @@ Navigate to `root` and run `yarn`, after that please run `yarn generate-icons` f
 # Shared
 
 Files shared across 2 frameworks (vue,react) - they are populated from package `@sfui/shared` into `frameworks/vue` and `frameworks/react`, so we would have one place for common utils, types etc, during release package will be copied into package so it will be able work as standalone package in end-user `node_modules`
+
+<!-- TODO: split frameworks into two packages and on build only copy packages shared/styles -->
