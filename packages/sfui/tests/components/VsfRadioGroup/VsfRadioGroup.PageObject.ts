@@ -2,16 +2,6 @@ import { BasePage } from '../../utils/BasePage';
 
 export default class VsfRadioGroupObject extends BasePage {
 
-  hasLabel(label: string) {
-    this.labelElement.contains(label);
-    return this;
-  }
-
-  doesNotHaveLabel() {
-    this.labelElement.should('be.empty');
-    return this;
-  }
-
   hasId(){
     this.container.should('have.attr', 'id');
     return this;
@@ -27,6 +17,11 @@ export default class VsfRadioGroupObject extends BasePage {
     return this;
   }
 
+  hasLegend(text: string) {
+    this.legendElement.contains(text);
+    return this;
+  }
+
   hasRequiredText(text: string) {
     this.requiredElement.contains(text);
     return this;
@@ -37,13 +32,9 @@ export default class VsfRadioGroupObject extends BasePage {
     return this;
   }
 
-  hasInvalidText(text: string) {
-    this.invalidElement.contains(text);
+  hasErrorText(text: string) {
+    this.helpElement.contains(text);
     return this;
-  }
-
-  get labelElement() {
-    return this.findTestElement('radio-group-label');
   }
 
   get legendElement() {
@@ -51,15 +42,14 @@ export default class VsfRadioGroupObject extends BasePage {
   }
 
   get requiredElement() {
-    return this.findTestElement('radio-group-required');
+    return this.findTestElement('radio-group-required-text');
   }
 
   get helpElement() {
-    return this.findTestElement('radio-group-help');
+    return this.findTestElement('radio-group-help-text');
   }
 
-  get invalidElement() {
-    return this.findTestElement('radio-group-invalid');
+  get errorElement() {
+    return this.findTestElement('radio-group-error-text');
   }
-
 }

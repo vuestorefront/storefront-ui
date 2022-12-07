@@ -66,18 +66,6 @@ describe("VsfRadioGroup", () => {
     page().makeSnapshot();
   });
 
-  describe('when prop label is filled in', () => {
-    before(() => label = 'Label');
-    after(() => label = '');
-    it(`should render with label`, () => {
-      initializeComponent();
-
-      page()
-        .hasLabel('Label')
-        .makeSnapshot();
-    });
-  });
-
   describe('when prop legend is filled in', () => {
     before(() => legend = 'Legend');
     after(() => legend = '');
@@ -85,7 +73,7 @@ describe("VsfRadioGroup", () => {
       initializeComponent();
 
       page()
-        .hasLabel('Legend')
+        .hasLegend('Legend')
         .makeSnapshot();
     });
   });
@@ -129,11 +117,11 @@ describe("VsfRadioGroup", () => {
   describe('when prop errorText is filled out and invalid=true', () => {
     before(() => {invalid = true, errorText = 'Error'});
     after(() =>{ invalid = false, errorText = ''});
-    it('should render with invalid text', () => {
+    it('should render with error text', () => {
       initializeComponent();
 
       page()
-        .hasInvalidText("Error")
+        .hasErrorText("Error")
         .makeSnapshot();
     });
   });
