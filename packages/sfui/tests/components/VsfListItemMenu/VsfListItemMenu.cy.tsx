@@ -15,7 +15,7 @@ describe("VsfListItemMenu", () => {
   let secondaryText: string;
   let selected: boolean;
 
-  const page = () => new VsfListItemMenuBaseObject('select');
+  const page = () => new VsfListItemMenuBaseObject('list-item-menu');
 
   const initializeComponent = () => {
     return mount({
