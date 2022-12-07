@@ -12,7 +12,7 @@ describe("VsfListItemMenu", () => {
   let label: string;
   let size: VsfListItemMenuSizes;
   let link: string;
-  let isTruncated: boolean;
+  let truncate: boolean;
   let secondaryText: string;
   let selected: boolean;
 
@@ -28,7 +28,7 @@ describe("VsfListItemMenu", () => {
           size,
           secondaryText,
           link, 
-          isTruncated,
+          truncate,
           selected,
           counter
         },
@@ -37,7 +37,7 @@ describe("VsfListItemMenu", () => {
         disabled={disabled}
         secondaryText={secondaryText}
         link={link}
-        is-truncated={isTruncated}
+        is-truncated={truncate}
         selected={selected}
         label={label}
         size={size}

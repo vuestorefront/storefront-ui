@@ -33,10 +33,6 @@ export default class VsfListItemMenuObject extends BasePage {
     this.container.should('have.class', 'vsf-list-item-menu--selected')
   }
 
-  isTruncated(){
-    this.secondaryElement.should('have.class', 'truncate')
-  }
-
   get labelElement() {
     return this.findTestElement('list-item-menu-label');
   }
