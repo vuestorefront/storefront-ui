@@ -15,7 +15,7 @@
   }
 
   &__description {
-    @apply text-gray-700 font-normal font-body;
+    @apply text-gray-700 font-normal font-body min-w-0 break-words;
   }
 
   &__button {
