@@ -2,7 +2,7 @@
   <div class="e-page">
     <div class="e-page-component">
       <VsfListItemMenu
-        class="border border-pink-200 border-dashed max-w-sm"
+        class="max-w-sm"
         :size="size"
         :label="label"
         :link="link"

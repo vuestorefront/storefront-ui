@@ -71,7 +71,7 @@ function Example() {
     <div className="e-page">
       <div className="e-page-component">
         <VsfListItemMenu
-          className="border border-pink-200 border-dashed max-w-sm"
+          className="max-w-sm"
           size={state.get.size}
           link={state.get.link}
           label={state.get.label}
