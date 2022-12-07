@@ -5,9 +5,7 @@
     v-html="useContentVue"
     :viewBox="viewBoxFromSvg || viewBox"
     :aria-label="ariaLabel"
-    :class="
-      _classStringToObject(`vsf-icon vsf-icon-${useSize} ${className || ''}`)
-    "
+    :class="`vsf-icon vsf-icon-${useSize} ${className || ''}`"
   ></svg>
 </template>
 
