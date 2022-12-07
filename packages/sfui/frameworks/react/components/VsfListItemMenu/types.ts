@@ -17,5 +17,6 @@ export interface VsfListItemMenuProps {
   className?: string;
   slotSuffix?: ReactNode;
   slotPreffix?: ReactNode;
+  truncate?: boolean;
   onClick?: MouseEventHandler;
 }

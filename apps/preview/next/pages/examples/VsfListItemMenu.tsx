@@ -57,6 +57,11 @@ function Example() {
         modelName: 'selected',
         description: 'Show selected state of component',
       },
+      {
+        type: 'boolean',
+        modelName: 'truncate',
+        description: 'Show truncated version of secondary text',
+      },
     ],
     {
       label: 'Label',
@@ -69,6 +74,7 @@ function Example() {
       secondaryText: 'Secondary text',
       disabled: false,
       selected: false,
+      truncate: false,
     },
   );
 
@@ -86,6 +92,7 @@ function Example() {
           disabled={state.get.disabled}
           slotPreffix={state.get.showPreffix ? <VsfIconCheck size={VsfIconSizeEnum.sm} /> : null}
           slotSuffix={state.get.showSuffix ? <VsfIconCheck size={VsfIconSizeEnum.sm} /> : null}
+          truncate={state.get.truncate}
           onClick={() => state.set({ ...state.get, selected: !state.get.selected })}
         />
       </div>

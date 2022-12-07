@@ -11,7 +11,7 @@ const props = defineProps({
   },
   link: {
     type: String,
-    default: '',
+    default: undefined,
   },
   size: {
     type: String as PropType<VsfListItemMenuSizes>,
@@ -33,7 +33,7 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-  isTruncated: {
+  truncate: {
     type: Boolean,
     default: false,
   },
@@ -43,10 +43,10 @@ const componentTag = computed(() => {
   return props.link ? 'a' : 'button';
 });
 const componentType = computed(() => {
-  return !props.link ? 'button' : undefined;
+  return props.link && 'button';
 });
 const componentDisabled = computed(() => {
-  return !props.link ? props.disabled : undefined;
+  return !props.link ? props.disabled : null;
 });
 </script>
 
@@ -78,15 +78,13 @@ const componentDisabled = computed(() => {
           >{{ counter }}</VsfCounter
         >
       </span>
-      <span
+      <p
         v-if="secondaryText"
-        :class="[
-          'vsf-list-item-menu__secondary-text',
-          { 'vsf-list-item-menu__secondary-text--truncated': isTruncated },
-        ]"
+        :class="['vsf-list-item-menu__secondary-text', { 'vsf-list-item-menu__secondary-text--truncated': truncate }]"
         data-testid="list-item-menu-secondary-text"
-        >{{ secondaryText }}</span
       >
+        {{ secondaryText }}
+      </p>
     </span>
     <span v-if="$slots.suffix" class="vsf-list-item-menu__icon">
       <slot name="suffix" />

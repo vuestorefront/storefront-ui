@@ -14,6 +14,7 @@ export default function VsfListItemMenu({
   className,
   slotPreffix,
   slotSuffix,
+  truncate,
   onClick,
 }: VsfListItemMenuProps): JSX.Element {
   // TODO: Replace with Link component when its done
@@ -53,9 +54,14 @@ export default function VsfListItemMenu({
           ) : null}
         </span>
         {secondaryText ? (
-          <span className="vsf-list-item-menu__secondary-text" data-testid="list-item-menu-secondary-text">
+          <p
+            className={classNames('vsf-list-item-menu__secondary-text', {
+              'vsf-list-item-menu__secondary-text--truncated': truncate,
+            })}
+            data-testid="list-item-menu-secondary-text"
+          >
             {secondaryText}
-          </span>
+          </p>
         ) : null}
       </span>
       {slotSuffix && <div className="vsf-list-item-menu__icon">{slotSuffix}</div>}
