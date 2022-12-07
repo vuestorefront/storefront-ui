@@ -53,3 +53,5 @@ apps/docs/components/.vitepress/dist
 !.yarn/sdks
 
 apps/preview/next/sfui
+apps/preview/sfui/frameworks/react/sharedRoot
+apps/preview/sfui/frameworks/vue/sharedRoot
