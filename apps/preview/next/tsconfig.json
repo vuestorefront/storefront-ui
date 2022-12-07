@@ -25,7 +25,7 @@
     "jsx": "preserve",
     "incremental": true,
     "preserveConstEnums": true,
-    "baseUrl": ".",
+    "baseUrl": "./",
     "paths": {
       "~/*": [
         "./*"

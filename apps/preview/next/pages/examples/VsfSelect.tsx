@@ -66,7 +66,7 @@ function Example() {
     {
       options: ['red', 'blue', 'yellow', 'green', 'gray', 'black', 'brown'],
       value: '',
-      placeholder: '--Select--',
+      placeholder: '-- Select --',
       disabled: false,
       required: false,
       invalid: false,

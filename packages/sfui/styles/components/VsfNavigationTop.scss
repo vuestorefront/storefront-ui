@@ -1,0 +1,26 @@
+.vsf-navigation-top {
+  @apply shadow-large p-4 px-6 xl:p-6 xl:px-10 flex justify-center relative;
+
+  &__wrapper {
+    // TODO: use css-variable instead of 1536px
+    @apply justify-items-stretch gap-4 xl:gap-6 px-4 xl:px-6 grid grid-flow-col max-w-[1536px] w-full;
+
+    &--auto {
+      @apply auto-cols-fr;
+    }
+
+    &--half-3 {
+      /* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+      grid-auto-columns: 50% 1fr 1fr 1fr;
+    }
+
+    &--3-half {
+      /* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+      grid-auto-columns: 1fr 1fr 1fr 50%;
+    }
+  }
+
+  &__close {
+    @apply absolute top-2 right-2;
+  }
+}
