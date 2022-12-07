@@ -43,10 +43,10 @@ const componentTag = computed(() => {
   return props.link ? 'a' : 'button';
 });
 const componentType = computed(() => {
-  return !props.link ? 'button' : undefined;
+  return props.link && 'button';
 });
 const componentDisabled = computed(() => {
-  return !props.link ? props.disabled : undefined;
+  return props.link && props.disabled;
 });
 </script>
 
