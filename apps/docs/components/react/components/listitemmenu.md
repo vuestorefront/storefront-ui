@@ -12,29 +12,17 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 | ----------- | ------- | ------------- | ------------------------------------ |
 | size        | String  | 'base'      | 'sm', 'base', 'lg' |
 | link       | String  | ''            |                    |
-| primaryText    | String | ''         |                    |
+| label    | String | ''         |                    |
 | secondaryText    | String | ''         |                    |
 | counter    | String | ''         |                    |
-| truncatedText    | Boolean | false         |                    |
+| isTruncated    | Boolean | false         |                    |
 | disabled    | Boolean | false         |                    |
+| selected    | Boolean | false |         |                 |
+| onClick  | `Function` |               |                 |
+| slotPreffix | `ReactNode` |               | Right side slotted content  |
+| slotSuffix | `ReactNode` |               | Left side slotted content  |
 
-## Slots
-
-| Slot name |            Description            |
-| --------- | :-------------------------------: |
-| prefix      |     adds the left icon     |
-| suffix     | adds the right icon/chevron |
-
-## Events
-
-| Event name |            Trigger             |
-| ---------- | :----------------------------: |
-| click      | emits on clicking component when used as button |
-
-## Accessibility notes
-
-Component's `aria-role` is set as `menuitem` and when disabled `aria-disabled` is changed to `true`.
 
 ## Source code
 
-<<<../../mitosis/src/blocks/VsfListItemMenu/VsfListItemMenu.lite.tsx
+<<< ../../../packages/sfui/frameworks/react/components/VsfListItemMenu/VsfListItemMenu.tsx
