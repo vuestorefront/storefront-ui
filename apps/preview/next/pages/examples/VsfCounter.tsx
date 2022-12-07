@@ -5,7 +5,7 @@ import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 
 function Example() {
-  const { state, controls } = prepareControls<VsfCounterProps & { value: string; fillModel: string }>(
+  const { state, controls } = prepareControls<VsfCounterProps & { value: string; fill: string }>(
     [
       {
         type: 'text',
@@ -36,14 +36,14 @@ function Example() {
       value: '123',
       size: VsfCounterSizes.base,
       pill: false,
-      fillModel: 'bg-white',
+      fill: 'bg-white',
     },
   );
 
   return (
     <div className="e-page">
       <div className="e-page-component">
-        <VsfCounter size={state.get.size} pill={state.get.pill} className={state.get.fillModel}>
+        <VsfCounter size={state.get.size} pill={state.get.pill} className={state.get.fill}>
           {state.get.value}
         </VsfCounter>
       </div>

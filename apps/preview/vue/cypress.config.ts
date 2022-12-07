@@ -9,6 +9,9 @@ export default defineConfig({
     baseUrl: "http://localhost:4173",
   },
   component: {
+    viewportHeight: 300,
+    viewportWidth: 300,
+    video: false,
     specPattern: "src/components/sfui/tests/**/*.{cy,spec}.{js,ts,jsx,tsx}",
     devServer: {
       framework: "vue",

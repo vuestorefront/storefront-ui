@@ -112,15 +112,15 @@
         "body": "Red Hat Text"
       },
       "screens": {
-        "4-extra-large": "1920px",
-        "3-extra-large": "1536px",
-        "2-extra-large": "1366px",
-        "extra-large": "1280px",
-        "large": "1024px",
-        "medium": "768px",
-        "small": "640px",
+        "2-extra-small": "360px",
         "extra-small": "376px",
-        "2-extra-small": "360px"
+        "small": "640px",
+        "medium": "768px",
+        "large": "1024px",
+        "extra-large": "1280px",
+        "2-extra-large": "1366px",
+        "3-extra-large": "1536px",
+        "4-extra-large": "1920px"
       },
       "keyframes": {
         "spin-base": {
