@@ -93,6 +93,11 @@ export default defineComponent({
           },
           {
             type: 'boolean',
+            modelName: 'selected',
+            description: 'Show selected state of component',
+          },
+          {
+            type: 'boolean',
             modelName: 'isTruncated',
             description: 'Show truncated version of secondary text',
           },

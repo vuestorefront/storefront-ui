@@ -52,6 +52,11 @@ function Example() {
         modelName: 'disabled',
         description: 'Show disabled state of component',
       },
+      {
+        type: 'boolean',
+        modelName: 'selected',
+        description: 'Show selected state of component',
+      },
     ],
     {
       label: 'Label',
