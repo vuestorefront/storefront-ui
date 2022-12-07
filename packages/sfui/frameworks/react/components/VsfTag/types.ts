@@ -26,4 +26,5 @@ export interface VsfTagProps extends PropsWithChildren, PropsWithStyle {
   size?: VsfTagSizes;
   strong?: boolean;
   ariaLive?: VsfTagAriaLiveValues;
+  className?: string;
 }
