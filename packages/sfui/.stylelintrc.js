@@ -5,6 +5,23 @@ module.exports = {
     "stylelint-no-unsupported-browser-features"
   ],
   rules: {
+    'at-rule-no-unknown': [
+      true,
+      {
+        ignoreAtRules: [
+          'tailwind',
+          'apply',
+          'layer',
+          'config'
+        ],
+      },
+    ],
+    'function-no-unknown': [
+      true,
+      {
+        ignoreFunctions: ['theme'],
+      },
+    ],
     'no-empty-source': null,
     'plugin/no-unsupported-browser-features': [true, {
       "ignore": ["@apply"],
