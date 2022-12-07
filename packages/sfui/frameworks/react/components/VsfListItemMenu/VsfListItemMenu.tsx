@@ -37,14 +37,26 @@ export default function VsfListItemMenu({
       {slotPreffix && <div className="vsf-list-item-menu__icon vsf-list-item-menu__icon--preffix">{slotPreffix}</div>}
       <span className="vsf-list-item-menu__content">
         <span className="vsf-list-item-menu__title">
-          {label ? <span className="vsf-list-item-menu__label">{label}</span> : null}
+          {label ? (
+            <span className="vsf-list-item-menu__label" data-testid="list-item-menu-label">
+              {label}
+            </span>
+          ) : null}
           {counter ? (
-            <VsfCounter size={VsfCounterSizes.xl} className="vsf-list-item-menu__counter">
+            <VsfCounter
+              size={VsfCounterSizes.xl}
+              className="vsf-list-item-menu__counter"
+              data-testid="list-item-menu-counter"
+            >
               {counter}
             </VsfCounter>
           ) : null}
         </span>
-        {secondaryText ? <span className="vsf-list-item-menu__secondary-text">{secondaryText}</span> : null}
+        {secondaryText ? (
+          <span className="vsf-list-item-menu__secondary-text" data-testid="list-item-menu-secondary-text">
+            {secondaryText}
+          </span>
+        ) : null}
       </span>
       {slotSuffix && <div className="vsf-list-item-menu__icon">{slotSuffix}</div>}
     </TagComponent>

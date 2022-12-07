@@ -28,7 +28,7 @@ function Example() {
       {
         type: 'text',
         modelName: 'counter',
-        propType: 'number',
+        propType: 'string',
         description: 'Set counter value',
       },
       {
@@ -58,7 +58,7 @@ function Example() {
       size: VsfListItemMenuSizes.base,
       link: '',
       strong: false,
-      counter: 123,
+      counter: '123',
       showSuffix: false,
       showPreffix: false,
       secondaryText: 'Secondary text',

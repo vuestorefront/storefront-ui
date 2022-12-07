@@ -8,6 +8,7 @@ import VsfListItemMenuBaseObject from "./VsfListItemMenu.PageObject";
 
 describe("VsfListItemMenu", () => {
   let disabled: boolean;
+  let counter: string;
   let label: string;
   let size: VsfListItemMenuSizes;
   let link: string;
@@ -28,7 +29,8 @@ describe("VsfListItemMenu", () => {
           secondaryText,
           link, 
           isTruncated,
-          selected
+          selected,
+          counter
         },
       },
       react: <VsfListItemMenuReact
@@ -39,6 +41,7 @@ describe("VsfListItemMenu", () => {
         selected={selected}
         label={label}
         size={size}
+        counter={counter}
     />
     })
   }
@@ -50,6 +53,8 @@ describe("VsfListItemMenu", () => {
 
   afterEach(() => {
     size = VsfListItemMenuSizes.base;
+    label = 'Label'
+    secondaryText = 'Secondary text'
   });
 
   
@@ -57,6 +62,28 @@ describe("VsfListItemMenu", () => {
     initializeComponent();
 
     page().makeSnapshot();
+  });
+  
+  describe('when prop disabled=true', () => {
+    before(() => disabled = true);
+    after(() => disabled = false);
+    it(`should render as disabled`, () => {
+      initializeComponent();
+
+      page().isDisabled()
+      page().makeSnapshot();
+    });
+  });
+
+  describe('when prop selected=true', () => {
+    before(() => selected = true);
+    after(() => selected = false);
+    it(`should render as selected`, () => {
+      initializeComponent();
+
+      page().isSelected()
+      page().makeSnapshot();
+    });
   });
 
   describe('when prop size is set to ', () => {
@@ -72,26 +99,50 @@ describe("VsfListItemMenu", () => {
     });
   });
 
-  describe('when prop disabled=true', () => {
-    before(() => disabled = true);
-    after(() => disabled = false);
-    it(`should render as disabled`, () => {
+  describe('when prop label is filled in', () => {
+    before(() => label = 'Label');
+    after(() => label = '');
+    it(`should render with label`, () => {
       initializeComponent();
 
       page()
-        .isDisabled()
+        .hasLabel('Label')
         .makeSnapshot();
     });
   });
 
- describe('when prop link is set', () => {
+  describe('when prop counter is filled in', () => {
+    before(() => counter = '2');
+    after(() => counter = '');
+    it(`should render a correct counter value`, () => {
+      initializeComponent();
+
+      page()
+        .hasCounter('2')
+        .makeSnapshot();
+    });
+  });
+
+  describe('when prop secondaryText is filled in', () => {
+    before(() => secondaryText = 'Secondary text');
+    after(() => secondaryText = '');
+    it(`should render with secondary text`, () => {
+      initializeComponent();
+
+      page()
+        .hasSecondaryText('Secondary text')
+        .makeSnapshot();
+    });
+  });
+  // TODO: adjust when Link component done
+  describe('when prop link is set', () => {
     before(() => link = 'http://somelink.com');
     after(() => link = '');
     it(`should render as <a> element`, () => {
       initializeComponent();
 
       page()
-        .hasTag('a')
+        .hasTag('A')
         .makeSnapshot();
     });
   });

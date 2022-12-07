@@ -67,7 +67,7 @@ export default defineComponent({
           {
             type: 'text',
             modelName: 'counter',
-            propType: 'number',
+            propType: 'string',
             description: 'Set counter value',
           },
           {
@@ -101,7 +101,7 @@ export default defineComponent({
           label: ref('Label'),
           size: ref<VsfListItemMenuSizes>(VsfListItemMenuSizes.base),
           link: ref(''),
-          counter: ref(123),
+          counter: ref('123'),
           showSuffix: ref(false),
           showPreffix: ref(false),
           secondaryText: ref('Secondary text'),

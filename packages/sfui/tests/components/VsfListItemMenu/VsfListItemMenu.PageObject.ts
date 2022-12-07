@@ -9,17 +9,41 @@ export default class VsfListItemMenuObject extends BasePage {
     return this;
   }
 
+  hasLabel(label: string) {
+    this.labelElement.contains(label);
+    return this;
+  }
+
+  hasCounter(val: string) {
+    this.counterElement.contains(val);
+    return this;
+  }
+
+  hasSecondaryText(secondaryText: string) {
+    this.secondaryElement.contains(secondaryText);
+    return this;
+  }
+
   isDisabled(){
     this.container.should('be.disabled');
     return this;
   }
 
-  isNotDisabled(){
-    this.container.should('not.be.disabled');
-    return this;
+  isSelected(){
+    this.container.should('have.class', 'vsf-list-item-menu--selected')
   }
 
-  get container() {
-    return this.findTestElement('list-item-menu');
+  isTruncated(){
+    this.secondaryElement.should('have.class', 'truncate')
+  }
+
+  get labelElement() {
+    return this.findTestElement('list-item-menu-label');
+  }
+  get counterElement() {
+    return this.findTestElement('list-item-menu-counter');
+  }
+  get secondaryElement() {
+    return this.findTestElement('list-item-menu-secondary-text');
   }
 }

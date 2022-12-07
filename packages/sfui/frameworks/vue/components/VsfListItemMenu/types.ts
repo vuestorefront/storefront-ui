@@ -8,7 +8,7 @@ export interface VsfListItemMenuProps {
   label?: string;
   link?: string;
   size?: string;
-  counter?: number;
+  counter?: string;
   secondaryText?: string;
   disabled?: boolean;
   selected?: boolean;

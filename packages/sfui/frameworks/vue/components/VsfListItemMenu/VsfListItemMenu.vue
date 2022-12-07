@@ -69,10 +69,14 @@ const componentDisabled = computed(() => {
     </span>
     <span class="vsf-list-item-menu__content">
       <span class="vsf-list-item-menu__title">
-        <span v-if="label" class="vsf-list-item-menu__label">{{ label }}</span>
-        <VsfCounter v-if="counter" :size="VsfCounterSizes.xl" class="vsf-list-item-menu__counter">{{
-          counter
-        }}</VsfCounter>
+        <span v-if="label" class="vsf-list-item-menu__label" data-testid="list-item-menu-label">{{ label }}</span>
+        <VsfCounter
+          v-if="counter"
+          :size="VsfCounterSizes.xl"
+          class="vsf-list-item-menu__counter"
+          data-testid="list-item-menu-counter"
+          >{{ counter }}</VsfCounter
+        >
       </span>
       <span
         v-if="secondaryText"
@@ -80,6 +84,7 @@ const componentDisabled = computed(() => {
           'vsf-list-item-menu__secondary-text',
           { 'vsf-list-item-menu__secondary-text--truncated': isTruncated },
         ]"
+        data-testid="list-item-menu-secondary-text"
         >{{ secondaryText }}</span
       >
     </span>
