@@ -18,6 +18,8 @@ export default function VsfListItemMenu({
 }: VsfListItemMenuProps): JSX.Element {
   // TODO: Replace with Link component when its done
   const TagComponent = link ? 'a' : 'button';
+  const componentType = !link ? 'button' : undefined;
+  const componentDisabled = !link ? disabled : undefined;
   return (
     <TagComponent
       className={classNames(
@@ -27,23 +29,23 @@ export default function VsfListItemMenu({
         className,
       )}
       href={link}
-      type="button"
-      disabled={disabled}
+      type={componentType}
+      disabled={componentDisabled}
       onClick={onClick}
       data-testid="list-item-menu"
     >
       {slotPreffix && <div className="vsf-list-item-menu__icon vsf-list-item-menu__icon--preffix">{slotPreffix}</div>}
-      <div className="vsf-list-item-menu__content">
-        <div className="vsf-list-item-menu__title">
+      <span className="vsf-list-item-menu__content">
+        <span className="vsf-list-item-menu__title">
           {label ? <span className="vsf-list-item-menu__label">{label}</span> : null}
           {counter ? (
             <VsfCounter size={VsfCounterSizes.xl} className="vsf-list-item-menu__counter">
               {counter}
             </VsfCounter>
           ) : null}
-        </div>
+        </span>
         {secondaryText ? <span className="vsf-list-item-menu__secondary-text">{secondaryText}</span> : null}
-      </div>
+      </span>
       {slotSuffix && <div className="vsf-list-item-menu__icon">{slotSuffix}</div>}
     </TagComponent>
   );

@@ -43,7 +43,10 @@ const componentTag = computed(() => {
   return props.link ? 'a' : 'button';
 });
 const componentType = computed(() => {
-  return !props.link ? 'button' : null;
+  return !props.link ? 'button' : undefined;
+});
+const componentDisabled = computed(() => {
+  return !props.link ? props.disabled : undefined;
 });
 </script>
 
@@ -58,19 +61,19 @@ const componentType = computed(() => {
       { 'vsf-list-item-menu--selected': selected, 'vsf-list-item-menu--disabled': disabled },
     ]"
     :type="componentType"
-    :disabled="disabled && !props.link"
+    :disabled="componentDisabled"
     data-testid="list-item-menu"
   >
-    <div v-if="$slots.preffix" class="vsf-list-item-menu__icon vsf-list-item-menu__icon--preffix">
+    <span v-if="$slots.preffix" class="vsf-list-item-menu__icon vsf-list-item-menu__icon--preffix">
       <slot name="preffix" />
-    </div>
-    <div class="vsf-list-item-menu__content">
-      <div class="vsf-list-item-menu__title">
+    </span>
+    <span class="vsf-list-item-menu__content">
+      <span class="vsf-list-item-menu__title">
         <span v-if="label" class="vsf-list-item-menu__label">{{ label }}</span>
         <VsfCounter v-if="counter" :size="VsfCounterSizes.xl" class="vsf-list-item-menu__counter">{{
           counter
         }}</VsfCounter>
-      </div>
+      </span>
       <span
         v-if="secondaryText"
         :class="[
@@ -79,9 +82,9 @@ const componentType = computed(() => {
         ]"
         >{{ secondaryText }}</span
       >
-    </div>
-    <div v-if="$slots.suffix" class="vsf-list-item-menu__icon">
+    </span>
+    <span v-if="$slots.suffix" class="vsf-list-item-menu__icon">
       <slot name="suffix" />
-    </div>
+    </span>
   </component>
 </template>
