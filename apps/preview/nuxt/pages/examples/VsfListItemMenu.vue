@@ -8,7 +8,7 @@
         :link="link"
         :counter="counter"
         :secondary-text="secondaryText"
-        :is-truncated="isTruncated"
+        :truncate="truncate"
         :selected="selected"
         :disabled="disabled"
         @click="selected = !selected"
@@ -98,21 +98,21 @@ export default defineComponent({
           },
           {
             type: 'boolean',
-            modelName: 'isTruncated',
+            modelName: 'truncate',
             description: 'Show truncated version of secondary text',
           },
         ],
         {
           label: ref('Label'),
           size: ref<VsfListItemMenuSizes>(VsfListItemMenuSizes.base),
-          link: ref(''),
-          counter: ref('123'),
+          link: ref(undefined),
+          counter: ref(123),
           showSuffix: ref(false),
           showPreffix: ref(false),
           secondaryText: ref('Secondary text'),
-          disabled: ref(false),
+          disabled: ref(undefined),
           selected: ref(false),
-          isTruncated: ref(false),
+          truncate: ref(false),
         },
       ),
       VsfIconSizeEnum,
