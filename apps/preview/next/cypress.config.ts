@@ -5,6 +5,8 @@ export default defineConfig({
     framework: "react",
   },
   component: {
+    viewportHeight: 300,
+    viewportWidth: 300,
     video: false,
     port: 3004,
     specPattern: "sfui/tests/**/*.{cy,spec}.{js,ts,jsx,tsx}",

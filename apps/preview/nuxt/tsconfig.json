@@ -8,7 +8,8 @@
     "jsx": "preserve",
     "types": [
       "vite/client",
-    ]
+    ],
+    "baseUrl": "./"
   },
   "exclude": [
     "node_modules",

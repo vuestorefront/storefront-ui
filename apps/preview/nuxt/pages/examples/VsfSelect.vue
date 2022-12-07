@@ -96,7 +96,7 @@ export default defineComponent({
         {
           options: ref(['red', 'blue', 'yellow', 'green', 'gray', 'black', 'brown']),
           value: ref(''),
-          placeholder: ref('--Select--'),
+          placeholder: ref('-- Select --'),
           disabled: ref(false),
           required: ref(false),
           invalid: ref(false),

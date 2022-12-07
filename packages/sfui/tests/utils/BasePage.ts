@@ -5,7 +5,6 @@ export class BasePage {
 
   constructor(containerTestId: string, container?: Cypress.Chainable) {
     this.containerTestId = containerTestId;
-    this.findTestElement(containerTestId, container || cy.get('body') as unknown as Cypress.Chainable<JQuery<HTMLElement>>).as(containerTestId);
 
     // Log page object method name in cypress test, for easier readibility and debugging
     return new Proxy(this, {
@@ -21,7 +20,7 @@ export class BasePage {
   }
 
   protected get container() {
-    return cy.get(`@${this.containerTestId}`);
+    return cy.get(`[data-testid="${this.containerTestId}"]`) || cy.get('body');
   }
 
   protected findTestElement(containerTestId: string, container = this.container) {
@@ -34,6 +33,11 @@ export class BasePage {
 
   isVisible() {
     this.container.should('be.visible');
+    return this;
+  }
+
+  isNotVisible() {
+    cy.get(`[data-testid="${this.containerTestId}"]`,{ timeout: 200 }).should('not.exist');
     return this;
   }
 
@@ -55,8 +59,12 @@ export class BasePage {
     this.container.select(value);
   }
 
-  makeSnapshot(opts?) {
-    cy.percySnapshot(opts);
+  makeSnapshot(name?: string, opts?: Parameters<typeof cy.percySnapshot>[1]) {
+    cy.percySnapshot(name, opts);
     return this;
+  }
+
+  get cyRoot() {
+    return cy.get('[data-cy-root]');
   }
 }
