@@ -42,9 +42,13 @@ const props = defineProps({
 const componentTag = computed(() => {
   return props.link ? 'a' : 'button';
 });
+const componentType = computed(() => {
+  return !props.link ? 'button' : null;
+});
 </script>
 
 <template>
+  <!-- TODO: Replace with Link component when ready -->
   <component
     :is="componentTag"
     :href="link"
@@ -53,8 +57,8 @@ const componentTag = computed(() => {
       `vsf-list-item-menu--size-${size}`,
       { 'vsf-list-item-menu--selected': selected, 'vsf-list-item-menu--disabled': disabled },
     ]"
-    type="button"
-    :disabled="disabled"
+    :type="componentType"
+    :disabled="disabled && !props.link"
     data-testid="list-item-menu"
   >
     <div v-if="$slots.preffix" class="vsf-list-item-menu__icon vsf-list-item-menu__icon--preffix">
