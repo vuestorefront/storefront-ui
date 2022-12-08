@@ -7,6 +7,7 @@ export default function VsfCounter({
   pill = false,
   children,
   className,
+  ...attributes
 }: VsfCounterProps): JSX.Element {
   const classes = classNames([
     className,
@@ -16,5 +17,9 @@ export default function VsfCounter({
       'vsf-counter--pill': pill,
     },
   ]);
-  return <span className={classes}>{children}</span>;
+  return (
+    <span className={classes} {...attributes}>
+      {children}
+    </span>
+  );
 }

@@ -1,6 +1,6 @@
 .vsf-navbar-top {
   $self: &;
-  @apply w-full h-14 md:h-20 px-4 md:px-10 bg-white border-b border-gray-200;
+  @apply w-full h-14 md:h-20 px-4 md:px-10 bg-white border-b border-gray-200 flex justify-center;
 
   &--branded#{&} {
     @apply bg-primary-700 text-white border-0;
@@ -15,7 +15,7 @@
   }
 
   &__container {
-    @apply flex items-center flex-row flex-nowrap justify-between h-full;
+    @apply flex items-center flex-row flex-nowrap justify-between h-full max-w-[1536px] w-full;
 
     > *:not(:last-child) {
       margin-right: clamp(1rem, 3vw, 2.5rem); // workaround to make gaps responsive
