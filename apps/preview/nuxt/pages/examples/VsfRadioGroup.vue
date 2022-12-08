@@ -18,7 +18,7 @@
           :key="key"
           :name="radio.name"
           :label="radio.label"
-          :value="selectedValue"
+          :value="radio.value"
           :help-text="radio.helpText"
           :required="required"
           class="mb-4 mr-6"

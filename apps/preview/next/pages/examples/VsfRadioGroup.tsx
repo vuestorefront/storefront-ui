@@ -117,7 +117,7 @@ function Example() {
               key={radio.id}
               name={radio.name}
               label={radio.label}
-              value={state.get.selectedValue}
+              value={radio.value}
               helpText={radio.helpText}
               required={state.get.required}
               className="mb-4 mr-6"

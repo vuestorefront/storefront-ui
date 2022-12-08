@@ -38,7 +38,7 @@ export default function VsfRadioGroup({
           {helpText}
         </p>
       ) : null}
-      {requiredText ? (
+      {required && requiredText ? (
         <p className="vsf-radio-group__required-text" data-testid="radio-group-required-text">
           {requiredText}
         </p>

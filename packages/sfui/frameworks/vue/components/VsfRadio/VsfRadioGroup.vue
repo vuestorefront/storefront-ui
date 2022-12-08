@@ -60,7 +60,7 @@ defineProps({
       {{ errorText }}
     </p>
     <p v-if="helpText" class="vsf-radio-group__help-text" data-testid="radio-group-help">{{ helpText }}</p>
-    <p v-if="requiredText" class="vsf-radio-group__required-text" data-testid="radio-group-required">
+    <p v-if="required && requiredText" class="vsf-radio-group__required-text" data-testid="radio-group-required">
       {{ requiredText }}
     </p>
   </fieldset>
