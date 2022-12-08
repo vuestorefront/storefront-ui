@@ -1,0 +1,29 @@
+.vsf-radio-group {
+  &__legend {
+    @apply mb-2 text-sm font-normal text-gray-500;
+  }
+
+  &__list {
+    @apply flex;
+
+    &--vertical {
+      @apply flex-col;
+    }
+    
+    &--horizontal {
+      @apply flex-row;
+    }
+  }
+
+  &__error-text {
+    @apply mt-1 text-sm font-medium text-negative-600 font-body;
+  }
+
+  &__help-text { 
+    @apply mt-1 text-xs font-normal text-gray-500;
+  }
+
+  &__required-text {
+    @apply mt-1 text-sm font-normal text-gray-500 before:content-['*'];
+  }
+}
