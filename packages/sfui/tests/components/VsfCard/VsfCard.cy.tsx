@@ -7,6 +7,7 @@ import VsfCardBaseObject from "./VsfCard.PageObject";
 import { VsfCardSizes } from '../../../frameworks/vue/components/VsfCard/types';
 
 describe("VsfCard", () => {
+  let onCardClickSpy: Cypress.Agent<sinon.SinonSpy>;
   let imgSrc: string;
   let imgAttr: Record<string, unknown>;
   let link: string;
@@ -18,7 +19,6 @@ describe("VsfCard", () => {
   let rounded: boolean;
   let size: VsfCardSizes;
   let slotImg: ReactNode;
-  let onButtonClickSpy: Cypress.Agent<sinon.SinonSpy>;
 
   const page = () => new VsfCardBaseObject('card');
 
@@ -37,25 +37,27 @@ describe("VsfCard", () => {
           buttonText,
           rounded,
           size,
-          slotImg,
         },
         slots: {
           slotImg: () => slotImg,
         },
       },
       react: <VsfCardReact
-        imageSrc={imgSrc}
-        imageAttr={imgAttr}
+        imgSrc={imgSrc}
+        imgAttr={imgAttr}
         link={link}
+        linkTag={linkTag}
         title={title}
+        withButton={withButton}
+        buttonText={buttonText}
         description={description}
         size={size}
+        rounded={rounded}
       >{slotImg}</VsfCardReact>
     });
   }
 
   beforeEach(() => {
-    onButtonClickSpy = cy.spy();
   })
 
   afterEach(() => {
@@ -89,6 +91,29 @@ describe("VsfCard", () => {
         .hasImage(imgSrc)
         .hasTitle(title)
         .hasDescription(description)
+        .makeSnapshot();
+    })
+  });
+// TODO: Adjust when link component done
+  describe('when link empty and linkTag set to button', () => {
+    it('should render as button', () => {
+      link = ''
+      linkTag = 'button'
+      initializeComponent();
+
+      page()
+        .hasTag('BUTTON')
+        .makeSnapshot();
+    })
+  });
+
+  describe('when rounded is true', () => {
+    it('should render component in rounded version', () => {
+      rounded = true;
+      initializeComponent();
+
+      page()
+        .isRounded()
         .makeSnapshot();
     })
   });

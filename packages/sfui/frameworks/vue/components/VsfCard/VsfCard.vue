@@ -92,7 +92,7 @@ const isLinkAString = computed(() => {
         :size="VsfButtonSizes.sm"
         :link="link"
         data-testid="card-button"
-        @click="$emit('clickCard', $event)"
+        @click.prevent="$emit('clickCard', $event)"
         >{{ buttonText }}</VsfButton
       >
     </div>

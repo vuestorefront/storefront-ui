@@ -17,23 +17,20 @@ export default class VsfProductCardBaseObject extends BasePage {
     return this;
   }
 
-  doesNotHaveTitle() {
-    this.titleElement.should('not.exist');
-    return this;
-  }
-
   hasDescription(description: string) {
     this.descriptionElement.contains(description);
     return this;
   }
 
-  hasProperSize(size: string) {
-    this.container.invoke('css', 'width').should('be.eq', size);
+  hasTag(tagName: string) {
+    this.buttonElement.then(el => {
+      expect(el[0].tagName).to.equal(tagName)
+    });
     return this;
   }
 
-  isHorizontal(size: string) {    
-    this.container.invoke('css', 'width').should('be.eq', size);
+  isRounded() {
+    this.container.should('have.class', 'vsf-card--rounded');
     return this;
   }
 
