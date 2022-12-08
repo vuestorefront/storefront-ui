@@ -1,6 +1,8 @@
 # RadioGroup component
 
-Radio is a common way to allow users to make a single selection from a list of options. Once a user selects one of the radio buttons in a group, the group can’t be easily reset to displaying no radio buttons selected.
+RadioGroup is a common way to allow users to make a single selection from a list of radios. It provides additional error messages and alignment of the list. It is a wrapper for Radio components.
+
+<Generate />
 
 ## Figma design
 
@@ -38,4 +40,10 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 - A radio element is a checkable input in a group of role elements, of which only one of which can be checked at a time. The radio elements must be grouped together in a [`radiogroup`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/radiogroup_role) to indicate which ones affect the same value.
 ## Source code
 
-<<<../../mitosis/src/blocks/VsfRadioGroup/VsfRadioGroup.lite.tsx
+
+
+
+
+<<< ../../../packages/sfui/frameworks/react/components/VsfRadio/VsfRadioGroup.tsx
+
+
