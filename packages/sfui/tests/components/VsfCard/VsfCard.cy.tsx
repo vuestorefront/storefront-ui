@@ -7,7 +7,6 @@ import VsfCardBaseObject from "./VsfCard.PageObject";
 import { VsfCardSizes } from '../../../frameworks/vue/components/VsfCard/types';
 
 describe("VsfCard", () => {
-  let onCardClickSpy: Cypress.Agent<sinon.SinonSpy>;
   let imgSrc: string;
   let imgAttr: Record<string, unknown>;
   let link: string;
@@ -37,6 +36,7 @@ describe("VsfCard", () => {
           buttonText,
           rounded,
           size,
+          slotImg
         },
         slots: {
           slotImg: () => slotImg,
