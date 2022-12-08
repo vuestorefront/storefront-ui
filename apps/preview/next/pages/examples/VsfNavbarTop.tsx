@@ -18,16 +18,6 @@ import classNames from 'classnames';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 
-// eslint-disable-next-line react/require-default-props
-function VsfLogo() {
-  return (
-    <>
-      <VsfIconLogo viewBox="0 0 205 28" class="!hidden large:!block !w-[12.5rem] !h-[1.75rem]" />
-      <VsfIconLogoSmall size={VsfIconSizeEnum.xl} viewBox="0 0 40 40" class="!hidden medium:!block large:!hidden" />
-      <VsfIconLogoSmall size={VsfIconSizeEnum.lg} viewBox="0 0 40 40" class="block medium:!hidden" />
-    </>
-  );
-}
 function Example() {
   const { state, controls } = prepareControls(
     [
