@@ -14,7 +14,7 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 | slotImg     | ReactNode |             |                                          |                                        
 | title       | string    |             |                                          |
 | description       | string    |             |                                          |
-| size      | `VsfButtonSizes`    | `base`        | `sm`, `base`                 |
+| size      | `VsfCardSizes`    | `base`        | `sm`, `base`, `responsive`                 |
 | link      | `String`            |               | `/my-cool-page`                    |
 | imgSrc  | `String`           |               |                                    |
 | imgAlt      | `String`           |               |                                    |
@@ -28,7 +28,7 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 | ----------- |-----------| ------------- | -------------------------------------- |                                      
 | title       | string    |             |                                          |
 | description       | string    |             |                                          |
-| size      | `VsfButtonSizes`    | `base`        | `sm`, `base`                 |
+| size      | `VsfCardSizes`    | `base`        | `sm`, `base`, `responsive`                 |
 | link      | `String`            |               | `/my-cool-page`                    |
 | imgSrc  | `String`           |               |                                    |
 | imgAlt      | `String`           |               |                                    |

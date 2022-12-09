@@ -3,6 +3,7 @@ import type { ReactNode } from 'react';
 export enum VsfCardSizes {
   sm = 'sm',
   base = 'base',
+  responsive = 'responsive',
 }
 
 export interface VsfCardProps {
