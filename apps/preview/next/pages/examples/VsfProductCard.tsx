@@ -69,7 +69,7 @@ function Example() {
         type: 'select',
         modelName: 'size',
         options: Object.keys(VsfProductCardSizes),
-        propDefaultValue: VsfProductCardSizes.default,
+        propDefaultValue: VsfProductCardSizes.responsive,
         propType: 'string',
       },
       {
@@ -146,7 +146,7 @@ function Example() {
       title: 'The standard chunk of Lorem Ipsum',
       price: '$2,345.99',
       oldPrice: '$3,132.99',
-      size: VsfProductCardSizes.default,
+      size: VsfProductCardSizes.responsive,
       link: '/',
       linkTag: LinkTagTypes.NextLink,
       outOfStock: false,
