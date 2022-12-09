@@ -11,5 +11,5 @@ defineProps({
 </script>
 
 <template>
-  <span :class="`vsf-footer__label--${type}`"><slot /></span>
+  <p :class="`vsf-footer__label--${type}`"><slot /></p>
 </template>

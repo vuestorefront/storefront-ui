@@ -6,9 +6,17 @@ export default function VsfIconAddToBasket({
   className = '',
   size = VsfIconSizeEnum.base,
   ariaLabel = 'add-to-basket',
+  viewBox,
+  ...attributes
 }: VsfIconProps) {
   return (
-    <VsfIconBase className={className} size={size} ariaLabel={ariaLabel} viewBox="0 0 24 24">
+    <VsfIconBase
+      {...attributes}
+      className={className}
+      size={size}
+      ariaLabel={ariaLabel}
+      viewBox={viewBox ?? '0 0 24 24'}
+    >
       <>
         <path d="M17.7 22a2 2 0 1 1 0-4 2 2 0 0 1 0 4Zm-8 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4Zm8.594-14.294a.998.998 0 0 0-1.41-1.413L15 8.17V3a1 1 0 1 0-2 0v5.17l-1.88-1.88a1 1 0 1 0-1.415 1.415l3.588 3.588a1 1 0 0 0 1.414 0l3.587-3.587Z" />
         <path

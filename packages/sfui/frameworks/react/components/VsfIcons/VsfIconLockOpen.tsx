@@ -6,9 +6,17 @@ export default function VsfIconLockOpen({
   className = '',
   size = VsfIconSizeEnum.base,
   ariaLabel = 'lock-open',
+  viewBox,
+  ...attributes
 }: VsfIconProps) {
   return (
-    <VsfIconBase className={className} size={size} ariaLabel={ariaLabel} viewBox="0 0 24 24">
+    <VsfIconBase
+      {...attributes}
+      className={className}
+      size={size}
+      ariaLabel={ariaLabel}
+      viewBox={viewBox ?? '0 0 24 24'}
+    >
       <>
         <path d="M10.99 17.135a1.667 1.667 0 1 0 1.853-2.772 1.667 1.667 0 0 0-1.852 2.772Z" />
         <path

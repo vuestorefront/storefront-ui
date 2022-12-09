@@ -6,9 +6,17 @@ export default function VsfIconWarning({
   className = '',
   size = VsfIconSizeEnum.base,
   ariaLabel = 'warning',
+  viewBox,
+  ...attributes
 }: VsfIconProps) {
   return (
-    <VsfIconBase className={className} size={size} ariaLabel={ariaLabel} viewBox="0 0 24 24">
+    <VsfIconBase
+      {...attributes}
+      className={className}
+      size={size}
+      ariaLabel={ariaLabel}
+      viewBox={viewBox ?? '0 0 24 24'}
+    >
       <>
         <path d="M12.002 9a1 1 0 0 1 1 1v2.5a1 1 0 1 1-2 0V10a1 1 0 0 1 1-1Zm1.304 7.415a1.306 1.306 0 1 1-2.612 0 1.306 1.306 0 0 1 2.612 0Z" />
         <path

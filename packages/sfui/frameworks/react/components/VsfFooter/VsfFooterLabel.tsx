@@ -7,5 +7,5 @@ export default function VsfFooterLabel({
   children,
   className,
 }: VsfFooterLabelProps) {
-  return <span className={classNames(`vsf-footer__label--${type}`, className)}>{children}</span>;
+  return <p className={classNames(`vsf-footer__label--${type}`, className)}>{children}</p>;
 }

@@ -29,7 +29,6 @@ export default function VsfNavigationTop({
       {...attributes}
     >
       {/* TODO: use greyscale prop button variant */}
-      {slotButtonClose?.toString()}
       <VsfButton
         icon
         variant={VsfButtonVariants.tertiary}

@@ -2,9 +2,21 @@ import type { VsfIconProps } from './types';
 import VsfIconBase from '../VsfIconBase';
 import { VsfIconSizeEnum } from '../VsfIconBase/types';
 
-export default function VsfIconLock({ className = '', size = VsfIconSizeEnum.base, ariaLabel = 'lock' }: VsfIconProps) {
+export default function VsfIconLock({
+  className = '',
+  size = VsfIconSizeEnum.base,
+  ariaLabel = 'lock',
+  viewBox,
+  ...attributes
+}: VsfIconProps) {
   return (
-    <VsfIconBase className={className} size={size} ariaLabel={ariaLabel} viewBox="0 0 24 24">
+    <VsfIconBase
+      {...attributes}
+      className={className}
+      size={size}
+      ariaLabel={ariaLabel}
+      viewBox={viewBox ?? '0 0 24 24'}
+    >
       <path
         fillRule="evenodd"
         clipRule="evenodd"
