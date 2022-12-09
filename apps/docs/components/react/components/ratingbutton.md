@@ -33,7 +33,7 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 ## Accessibility notes
 
-Component uses `aria-label` attributes to describe all rating items. Tha value can be changed by `ariaLabel` prop in which you can pass `${item}` and `${max}` values adapting proper values for every item.   
+Component uses `aria-label` attributes to describe all rating items. Tha value can be changed by `ariaLabel` prop.   
 
 ## Source code
 
