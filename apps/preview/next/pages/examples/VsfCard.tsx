@@ -49,13 +49,6 @@ function Example() {
         isRequired: false,
       },
       {
-        type: 'boolean',
-        modelName: 'withButton',
-        propType: 'boolean',
-        description: 'Show or hide the button',
-        isRequired: false,
-      },
-      {
         type: 'text',
         modelName: 'buttonText',
         propType: 'string',
@@ -78,7 +71,6 @@ function Example() {
       imgAttr: { alt: 'Example image to describe card component content', loading: 'lazy' },
       description: 'There are many variations of passages of Lorem Ipsum available',
       buttonText: 'Button',
-      withButton: true,
       rounded: false,
     },
   );
@@ -95,7 +87,6 @@ function Example() {
           buttonText={state.get.buttonText}
           description={state.get.description}
           rounded={state.get.rounded}
-          withButton={state.get.withButton}
         />
       </div>
       <div className="e-page-controls">

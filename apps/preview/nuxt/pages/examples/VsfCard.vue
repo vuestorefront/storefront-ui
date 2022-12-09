@@ -10,7 +10,6 @@
         :img-src="imgSrc"
         :img-attr="imgAttr"
         :button-text="buttonText"
-        :with-button="withButton"
         :rounded="rounded"
       />
     </div>
@@ -84,13 +83,6 @@ export default defineComponent({
           isRequired: false,
         },
         {
-          type: 'boolean',
-          modelName: 'withButton',
-          propType: 'boolean',
-          description: 'Show or hide the button',
-          isRequired: false,
-        },
-        {
           type: 'text',
           modelName: 'buttonText',
           propType: 'string',
@@ -114,7 +106,6 @@ export default defineComponent({
         imgAttr: ref({ alt: 'Example image to describe card component content', loading: 'lazy' }),
         description: ref('There are many variations of passages of Lorem Ipsum available'),
         buttonText: ref('Button'),
-        withButton: ref(true),
         rounded: ref(false),
       },
     );

@@ -11,7 +11,6 @@ export default function VsfCard({
   imgSrc,
   imgAttr = {},
   description,
-  withButton,
   buttonText,
   rounded,
   className = '',
@@ -42,7 +41,7 @@ export default function VsfCard({
             {description}
           </p>
         )}
-        {withButton && !rounded && (
+        {buttonText && !rounded && (
           <VsfButton
             className="vsf-card__button"
             variant={VsfButtonVariants.tertiary}

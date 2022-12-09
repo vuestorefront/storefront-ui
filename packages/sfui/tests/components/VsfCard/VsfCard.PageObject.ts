@@ -22,13 +22,6 @@ export default class VsfProductCardBaseObject extends BasePage {
     return this;
   }
 
-  hasTag(tagName: string) {
-    this.buttonElement.then(el => {
-      expect(el[0].tagName).to.equal(tagName)
-    });
-    return this;
-  }
-
   isRounded() {
     this.container.should('have.class', 'vsf-card--rounded');
     return this;

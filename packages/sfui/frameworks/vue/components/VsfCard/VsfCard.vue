@@ -14,7 +14,7 @@ const props = defineProps({
     required: true,
   },
   link: {
-    type: [String, Object],
+    type: String,
     default: '',
   },
   linkTag: {
@@ -36,10 +36,6 @@ const props = defineProps({
   description: {
     type: String,
     default: '',
-  },
-  withButton: {
-    type: Boolean,
-    default: false,
   },
   buttonText: {
     type: String,
@@ -85,7 +81,7 @@ const isLinkAString = computed(() => {
         {{ description }}
       </p>
       <VsfButton
-        v-if="withButton && !rounded"
+        v-if="buttonText && !rounded"
         class="vsf-card__button"
         :variant="VsfButtonVariants.tertiary"
         :tag="linkTag"

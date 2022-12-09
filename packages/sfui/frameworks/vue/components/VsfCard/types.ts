@@ -15,7 +15,6 @@ export interface VsfCardProps {
   imgSrc?: string;
   imgAttr?: Record<string, unknown>;
   description?: string;
-  withButton?: boolean;
   buttonText?: string;
   rounded?: boolean;
 }

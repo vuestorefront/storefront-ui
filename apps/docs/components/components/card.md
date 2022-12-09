@@ -20,7 +20,6 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 | imgAlt      | `String`           |               |                                    |
 | imgLoading   | `VsfCardImgLoadingValues`           |  `lazy`, `eager`             |  `lazy` `eager`          |
 | rounded     | `Boolean`           |     `false`          |                                    |
-| withButton     | `Boolean`           |   `true`            |                                    |
 <!-- end react -->
 
 <!-- vue -->
@@ -35,7 +34,12 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 | imgAlt      | `String`           |               |                                    |
 | imgLoading   | `VsfCardImgLoadingValues`           |  `lazy`, `eager`             |  `lazy` `eager`          |
 | rounded     | `Boolean`           |     `false`          |                                    |
-| withButton     | `Boolean`           |   `true`            |                                    |
+
+## Slots
+
+| Slot name     |            Description                                     |
+| ------------- | :--------------------------------------------------------: |
+| `image`       | replaces product image                                     |
 <!-- end vue -->
 
 ## Source code

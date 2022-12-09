@@ -13,7 +13,6 @@ describe("VsfCard", () => {
   let linkTag: string;
   let title: string;
   let description: string;
-  let withButton: boolean;
   let buttonText: string;
   let rounded: boolean;
   let size: VsfCardSizes;
@@ -32,7 +31,6 @@ describe("VsfCard", () => {
           linkTag,
           title,
           description,
-          withButton,
           buttonText,
           rounded,
           size,
@@ -48,7 +46,6 @@ describe("VsfCard", () => {
         link={link}
         linkTag={linkTag}
         title={title}
-        withButton={withButton}
         buttonText={buttonText}
         description={description}
         size={size}
@@ -67,7 +64,6 @@ describe("VsfCard", () => {
     linkTag = 'a';
     title = 'Title';
     description = 'There are many variations of passages of Lorem Ipsum available';
-    withButton = true;
     buttonText = 'Button';
     rounded = false;
     size = VsfCardSizes.base;
@@ -91,18 +87,6 @@ describe("VsfCard", () => {
         .hasImage(imgSrc)
         .hasTitle(title)
         .hasDescription(description)
-        .makeSnapshot();
-    })
-  });
-// TODO: Adjust when link component done
-  describe('when link empty and linkTag set to button', () => {
-    it('should render as button', () => {
-      link = ''
-      linkTag = 'button'
-      initializeComponent();
-
-      page()
-        .hasTag('BUTTON')
         .makeSnapshot();
     })
   });
