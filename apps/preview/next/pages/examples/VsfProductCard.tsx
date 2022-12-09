@@ -204,7 +204,7 @@ function Example() {
   }, []);
 
   useEffect(() => {
-    if (!VsfProductCardSizes.default) return;
+    if (!VsfProductCardSizes.responsive) return;
     if (newWindowWidth < 768) {
       setAddToCartLabel('Add');
       badgeSize = '';
