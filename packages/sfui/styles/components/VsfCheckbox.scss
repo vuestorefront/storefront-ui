@@ -14,19 +14,29 @@
   }
 
   &__text-wrapper {
-    @apply ml-8;
+    @apply ml-8 font-body;
   }
 
   &__error-text {
-    @apply mt-0.5 text-sm text-negative-600 font-medium font-body;
+    @apply mt-0.5 text-sm text-negative-700 font-medium;
   }
 
   &__help-text {
-    @apply mt-0.5 text-xs font-body text-gray-500;
+    @apply mt-0.5 text-xs text-gray-500;
   }
 
   &__required-text {
-    @apply mt-4 text-sm text-gray-500 font-body;
+    @apply mt-0.5 text-sm text-gray-500;
+  }
+
+  &--alignment {
+    &-leading {
+      @apply flex-row;
+    }
+
+    &-trailing {
+      @apply flex-row-reverse justify-between;
+    }
   }
 
   &--invalid {
@@ -36,7 +46,6 @@
   }
 
   &--disabled {
-
     #{$self}__input {
       @apply text-gray-900/40 cursor-not-allowed;
     }

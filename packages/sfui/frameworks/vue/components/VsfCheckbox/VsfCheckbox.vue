@@ -48,6 +48,12 @@ defineProps({
     default: '',
   },
 });
+const emit = defineEmits<{
+  (event: 'update:modelValue', param: string): void;
+}>();
+const onInputHandler = (event: Event) => {
+  emit('update:modelValue', (event.target as HTMLSelectElement).value);
+};
 </script>
 
 <template>
@@ -58,6 +64,7 @@ defineProps({
         disabled && 'vsf-checkbox--disabled',
         invalid && 'vsf-checkbox--invalid',
         required && 'vsf-checkbox--required',
+        alignment && `vsf-checkbox--alignment-${alignment}`,
       ]"
     >
       <span>
@@ -70,6 +77,7 @@ defineProps({
           :invalid="invalid"
           :checked="checked"
           :value="value"
+          @input="onInputHandler"
         />
       </span>
       <span class="vsf-checkbox__label">
@@ -77,15 +85,15 @@ defineProps({
       </span>
     </label>
     <div class="vsf-checkbox__text-wrapper">
-      <div v-if="invalid && errorText" class="vsf-checkbox__error-text">
+      <p v-if="invalid && !disabled && errorText" class="vsf-checkbox__error-text">
         {{ errorText }}
-      </div>
-      <div v-if="helpText" class="vsf-checkbox__help-text">
+      </p>
+      <p v-if="helpText" class="vsf-checkbox__help-text">
         {{ helpText }}
-      </div>
-      <div v-if="required && requiredText" class="vsf-checkbox__required-text">
+      </p>
+      <p v-if="required && !disabled && requiredText" class="vsf-checkbox__required-text">
         {{ requiredText }}
-      </div>
+      </p>
     </div>
   </div>
 </template>

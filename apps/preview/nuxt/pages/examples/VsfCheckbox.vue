@@ -2,12 +2,14 @@
   <div class="e-page">
     <div class="e-page-component">
       <VsfCheckbox
-        v-model="toggle"
-        :label="`${label} [${toggle}]`"
+        v-model="checked"
+        :label="label"
+        :value="value"
         :disabled="disabled"
         :help-text="helpText"
         :error-text="errorText"
         :required-text="requiredText"
+        :alignment="alignment"
         :invalid="invalid"
         :indeterminate="indeterminate"
         :required="required"
@@ -40,6 +42,13 @@ export default defineComponent({
           modelName: 'value',
           propDefaultValue: '',
           propType: 'string',
+        },
+        {
+          type: 'select',
+          options: Object.keys(VsfCheckboxAlignments),
+          modelName: 'alignment',
+          propType: 'VsfCheckboxAlignment',
+          propDefaultValue: VsfCheckboxAlignments.leading,
         },
         {
           title: 'Required',
@@ -91,9 +100,9 @@ export default defineComponent({
         },
       ],
       {
-        value: ref(),
-        required: ref(),
-        disabled: ref(),
+        value: ref('value'),
+        required: ref(false),
+        disabled: ref(false),
         indeterminate: ref(false),
         alignment: ref(VsfCheckboxAlignments.leading),
         invalid: ref(),
@@ -101,7 +110,7 @@ export default defineComponent({
         helpText: ref('Help Text'),
         errorText: ref('Error Message'),
         requiredText: ref('*Required'),
-        toggle: ref(false),
+        checked: ref(''),
       },
     );
   },
