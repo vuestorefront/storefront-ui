@@ -1,0 +1,67 @@
+.vsf-checkbox {
+  $self: &;
+  @apply flex w-full items-center;
+
+  &__label {
+    @apply text-gray-900 font-body text-base ml-3;
+  }
+
+  &__input {
+    @apply flex self-center w-[18px] h-[18px] border-2 rounded-sm appearance-none cursor-pointer text-gray-500 outline-violet;
+    @apply hover:border-primary-800 hover:checked:text-primary-900 hover:indeterminate:text-primary-800;
+    @apply active:checked:text-primary-900 checked:text-primary-700 checked:bg-checked-checkbox-current border-current;
+    @apply indeterminate:bg-indeterminate-checkbox-current indeterminate:text-primary-700;
+  }
+
+  &__text-wrapper {
+    @apply ml-8;
+  }
+
+  &__error-text {
+    @apply mt-0.5 text-sm text-negative-600 font-medium font-body;
+  }
+
+  &__help-text {
+    @apply mt-0.5 text-xs font-body text-gray-500;
+  }
+
+  &__required-text {
+    @apply mt-4 text-sm text-gray-500 font-body;
+  }
+
+  &--invalid {
+    #{$self}__input {
+      @apply border-negative-700 hover:border-negative-800 active:border-negative-900;
+    }
+  }
+
+  &--disabled {
+
+    #{$self}__input {
+      @apply text-gray-900/40 cursor-not-allowed;
+    }
+
+    #{$self}__label {
+      @apply text-opacity-40;
+    }
+
+    #{$self}__error-text {
+      @apply text-gray-500/50;
+    }
+
+    #{$self}__help-text {
+      @apply text-gray-500/50;
+    }
+
+    #{$self}__required-text {
+      @apply text-gray-500/50;
+    }
+  }
+
+  &--required {
+
+    #{$self}__label {
+      @apply after:content-['*'];
+    }
+  }
+}
