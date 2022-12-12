@@ -17,4 +17,9 @@ BaseIcon has only one purpose, to grab content via prop and mangle it, output is
 
 ## Source code
 
-<<<../../mitosis/src/blocks/VsfIconBase/VsfIconBase.lite.tsx
+
+
+
+<<< ../../../packages/sfui/frameworks/react/components/VsfIconBase/VsfIconBase.tsx
+
+
