@@ -12,14 +12,14 @@
       :class="_classStringToObject(`p-6 lg:p-10 relative ${useClassesProp}`)"
     >
       <template v-if="disableClose">
-        <vsf-button
+        <!-- <vsf-button
           classes="rounded-full top-2 right-2 absolute"
           variant="tertiary"
           @click="handleCloseDialog()"
           :icon="true"
         >
-          <!-- <vsf-icon-close></vsf-icon-close> -->
-        </vsf-button>
+          <vsf-icon-close></vsf-icon-close>
+        </vsf-button> -->
       </template>
 
       <slot />
@@ -55,7 +55,7 @@ const DEFAULT_VALUES: Omit<
 
 export default {
   name: "vsf-dialog",
-  components: { "vsf-button": VsfButton },
+  // components: { "vsf-button": VsfButton },
   props: ["classes", "modelValue", "onClose", "disableClose"],
 
   mounted() {
