@@ -1,10 +1,10 @@
 import { Show, useStore } from "@builder.io/mitosis";
 import { classStringFromArray } from "../../functions/domUtils";
-import VsfIconInfo from '../VsfIcons/VsfIconInfo.lite';
-import VsfIconCheckCircle from "../VsfIcons/VsfIconCheckCircle.lite";
-import VsfIconWarning from "../VsfIcons/VsfIconWarning.lite";
-import VsfIconError from "../VsfIcons/VsfIconError.lite";
-import VsfIconClose from '../VsfIcons/VsfIconClose.lite';
+// import VsfIconInfo from '../VsfIcons/VsfIconInfo.lite';
+// import VsfIconCheckCircle from "../VsfIcons/VsfIconCheckCircle.lite";
+// import VsfIconWarning from "../VsfIcons/VsfIconWarning.lite";
+// import VsfIconError from "../VsfIcons/VsfIconError.lite";
+// import VsfIconClose from '../VsfIcons/VsfIconClose.lite';
 import type { SlotType } from "../../functions/types";
 
 export const VsfAlertTypes = Object.freeze({
@@ -78,10 +78,10 @@ export default function VsfAlert(props: VsfAlertProps) {
             when={!props.slotIcon}
             else={<div>{props.slotIcon}</div>}
           >
-            {state.useTypeProp === VsfAlertTypes.info && <VsfIconInfo class={state.iconClasses} />}
+            {/* {state.useTypeProp === VsfAlertTypes.info && <VsfIconInfo class={state.iconClasses} />}
             {state.useTypeProp === VsfAlertTypes.positive && <VsfIconCheckCircle class={state.iconClasses} />}
             {state.useTypeProp === VsfAlertTypes.warning && <VsfIconWarning class={state.iconClasses} />}
-            {state.useTypeProp === VsfAlertTypes.error && <VsfIconError class={state.iconClasses} />}
+            {state.useTypeProp === VsfAlertTypes.error && <VsfIconError class={state.iconClasses} />} */}
           </Show>
           <div class="flex flex-col flex-shrink text-gray-900 font-body">
             <span class="text-lg font-medium">{props.header}</span>
@@ -103,7 +103,7 @@ export default function VsfAlert(props: VsfAlertProps) {
             class={state.usePersistentProp && 'hidden'}
             onClick={() => state.close()}
           >
-            <VsfIconClose aria-hidden="true" class={state.iconClasses} />
+            {/* <VsfIconClose aria-hidden="true" class={state.iconClasses} /> */}
           </button>
         </Show>
       </div>

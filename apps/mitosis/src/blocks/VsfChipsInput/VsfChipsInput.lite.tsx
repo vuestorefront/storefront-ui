@@ -1,5 +1,5 @@
 import { Show, useStore } from '@builder.io/mitosis';
-import VsfIconClose from '../VsfIcons/VsfIconClose.lite';
+// import VsfIconClose from '../VsfIcons/VsfIconClose.lite';
 
 export const VsfChipsInputVariants = Object.freeze({
   sm: 'sm',
@@ -72,11 +72,11 @@ export default function VsfChipsInput(props: VsfChipsInputProps) {
             class="bg-transparent inline-flex chip__right-icon group"
             onClick={(event) => state.close(event)}
           >
-            <VsfIconClose
+            {/* <VsfIconClose
               size={state.closeSize}
               class="transition-colors duration-300 ease text-gray-500 group-hover:text-primary-600 group-focus-within:text-primary-600 group-active:text-primary-700"
               ariaLabel={`Close ${props.label} chip`}
-            />
+            /> */}
           </button>
         </Show>
       </div>

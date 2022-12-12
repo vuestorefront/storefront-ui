@@ -11,21 +11,21 @@
     </div>
 
     <template v-if="label">
-      <span class="chip__content text-gray-900">{{ label }}</span>
+      <span class="text-gray-900 chip__content">{{ label }}</span>
     </template>
 
     <slot name="close" />
 
     <template v-if="!$slots.close && !disabled">
       <button
-        class="bg-transparent inline-flex chip__right-icon group"
+        class="inline-flex bg-transparent chip__right-icon group"
         @click="close($event)"
       >
-        <vsf-icon-close
-          class="transition-colors duration-300 ease text-gray-500 group-hover:text-primary-600 group-focus-within:text-primary-600 group-active:text-primary-700"
+        <!-- <vsf-icon-close
+          class="text-gray-500 transition-colors duration-300 ease group-hover:text-primary-600 group-focus-within:text-primary-600 group-active:text-primary-700"
           :size="closeSize"
           :ariaLabel="`Close ${label} chip`"
-        ></vsf-icon-close>
+        ></vsf-icon-close> -->
       </button>
     </template>
   </div>
@@ -42,7 +42,7 @@ export interface VsfChipsInputProps {
   handleChipClose?: (e?: Event) => void;
 } // TODO: refactor, no important, no borders, icon changed so spacings as well
 
-import VsfIconClose from "../VsfIcons/VsfIconClose.vue";
+// import VsfIconClose from "../VsfIcons/VsfIconClose.vue";
 export const VsfChipsInputVariants = Object.freeze({
   sm: "sm",
   base: "base",
@@ -51,7 +51,7 @@ export const VsfChipsInputVariants = Object.freeze({
 
 export default {
   name: "vsf-chips-input",
-  components: { "vsf-icon-close": VsfIconClose },
+  // components: { "vsf-icon-close": VsfIconClose },
   props: [
     "size",
     "disabled",

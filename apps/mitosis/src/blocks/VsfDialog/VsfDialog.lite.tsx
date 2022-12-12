@@ -1,7 +1,7 @@
 import { useRef, useStore, onMount, onUpdate, Show, onUnMount } from '@builder.io/mitosis';
 import { SlotType } from '../../functions/types';
 import VsfButton from '../VsfButton/VsfButton.lite';
-import VsfIconClose from '../VsfIcons/VsfIconClose.lite';
+// import VsfIconClose from '../VsfIcons/VsfIconClose.lite';
 
 export interface VsfDialogProps {
   children?: SlotType;
@@ -34,9 +34,6 @@ export default function VsfDialog(props: VsfDialogProps) {
     get useOpenProp() {
       /* IF-vue */
       return props.modelValue;
-      /* ENDIF-vue */
-      /* IF-react */
-      return props.open;
       /* ENDIF-react */
     },
     toggleDialog() {
@@ -81,7 +78,7 @@ export default function VsfDialog(props: VsfDialogProps) {
           variant='tertiary'
           icon={true}
         >
-          <VsfIconClose />
+          {/* <VsfIconClose /> */}
         </VsfButton>
       </Show>
       {props.children}
