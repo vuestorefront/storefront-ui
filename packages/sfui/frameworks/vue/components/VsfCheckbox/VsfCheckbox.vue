@@ -51,7 +51,7 @@ defineProps({
 const emit = defineEmits<{
   (event: 'update:modelValue', param: string): void;
 }>();
-const onInputHandler = (event: Event) => {
+const onChangeHandler = (event: Event) => {
   emit('update:modelValue', (event.target as HTMLSelectElement).value);
 };
 </script>
@@ -62,7 +62,6 @@ const onInputHandler = (event: Event) => {
       :class="[
         'vsf-checkbox',
         disabled && 'vsf-checkbox--disabled',
-        invalid && 'vsf-checkbox--invalid',
         required && 'vsf-checkbox--required',
         alignment && `vsf-checkbox--alignment-${alignment}`,
       ]"
@@ -77,7 +76,7 @@ const onInputHandler = (event: Event) => {
           :invalid="invalid"
           :checked="checked"
           :value="value"
-          @input="onInputHandler"
+          @change="onChangeHandler"
         />
       </span>
       <span class="vsf-checkbox__label">
@@ -91,7 +90,7 @@ const onInputHandler = (event: Event) => {
       <p v-if="helpText" class="vsf-checkbox__help-text">
         {{ helpText }}
       </p>
-      <p v-if="required && !disabled && requiredText" class="vsf-checkbox__required-text">
+      <p v-if="required && requiredText" class="vsf-checkbox__required-text">
         {{ requiredText }}
       </p>
     </div>

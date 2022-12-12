@@ -11,6 +11,10 @@
     @apply hover:border-primary-800 hover:checked:text-primary-900 hover:indeterminate:text-primary-800;
     @apply active:checked:text-primary-900 checked:text-primary-700 checked:bg-checked-checkbox-current border-current;
     @apply indeterminate:bg-indeterminate-checkbox-current indeterminate:text-primary-700;
+
+    &:invalid {
+      @apply border-negative-700 hover:border-negative-800;
+    }
   }
 
   &__text-wrapper {
@@ -36,39 +40,36 @@
 
     &-trailing {
       @apply flex-row-reverse justify-between;
-    }
-  }
 
-  &--invalid {
-    #{$self}__input {
-      @apply border-negative-700 hover:border-negative-800 active:border-negative-900;
+      #{$self}__text-wrapper {
+        @apply ml-0;
+      }
     }
   }
 
   &--disabled {
     #{$self}__input {
-      @apply text-gray-900/40 cursor-not-allowed;
+      @apply text-gray-300 hover:text-gray-300 hover:border-current cursor-not-allowed;
+    }
+
+    #{$self}__text-wrapper {
+      @apply opacity-50;
     }
 
     #{$self}__label {
-      @apply text-opacity-40;
-    }
-
-    #{$self}__error-text {
-      @apply text-gray-500/50;
+      @apply text-opacity-50;
     }
 
     #{$self}__help-text {
-      @apply text-gray-500/50;
+      @apply text-opacity-50;
     }
 
     #{$self}__required-text {
-      @apply text-gray-500/50;
+      @apply text-opacity-40;
     }
   }
 
   &--required {
-
     #{$self}__label {
       @apply after:content-['*'];
     }
