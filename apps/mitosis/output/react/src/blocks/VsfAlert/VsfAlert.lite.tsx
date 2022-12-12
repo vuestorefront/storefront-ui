@@ -12,11 +12,11 @@ export interface VsfAlertProps {
 }
 
 import { classStringFromArray } from "../../functions/domUtils";
-import VsfIconInfo from "../VsfIcons/VsfIconInfo.lite";
-import VsfIconCheckCircle from "../VsfIcons/VsfIconCheckCircle.lite";
-import VsfIconWarning from "../VsfIcons/VsfIconWarning.lite";
-import VsfIconError from "../VsfIcons/VsfIconError.lite";
-import VsfIconClose from "../VsfIcons/VsfIconClose.lite";
+// import VsfIconInfo from "../VsfIcons/VsfIconInfo.lite";
+// import VsfIconCheckCircle from "../VsfIcons/VsfIconCheckCircle.lite";
+// import VsfIconWarning from "../VsfIcons/VsfIconWarning.lite";
+// import VsfIconError from "../VsfIcons/VsfIconError.lite";
+// import VsfIconClose from "../VsfIcons/VsfIconClose.lite";
 export const VsfAlertTypes = Object.freeze({
   info: "info",
   positive: "positive",
@@ -77,7 +77,7 @@ export default function VsfAlert(props: VsfAlertProps) {
         <div className="flex gap-2">
           {!props.slotIcon ? (
             <>
-              {useTypeProp() === VsfAlertTypes.info ? (
+              {/* {useTypeProp() === VsfAlertTypes.info ? (
                 <VsfIconInfo className={iconClasses()} />
               ) : null}
               {useTypeProp() === VsfAlertTypes.positive ? (
@@ -88,7 +88,7 @@ export default function VsfAlert(props: VsfAlertProps) {
               ) : null}
               {useTypeProp() === VsfAlertTypes.error ? (
                 <VsfIconError className={iconClasses()} />
-              ) : null}
+              ) : null} */}
             </>
           ) : (
             <div>{props.slotIcon}</div>
@@ -109,7 +109,7 @@ export default function VsfAlert(props: VsfAlertProps) {
               className={usePersistentProp() && "hidden"}
               onClick={(event) => close()}
             >
-              <VsfIconClose aria-hidden="true" className={iconClasses()} />
+              {/* <VsfIconClose aria-hidden="true" className={iconClasses()} /> */}
             </button>
           </>
         ) : (

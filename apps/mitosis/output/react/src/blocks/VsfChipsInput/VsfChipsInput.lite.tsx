@@ -10,7 +10,7 @@ export interface VsfChipsInputProps {
   handleChipClose?: (e?: Event) => void;
 } // TODO: refactor, no important, no borders, icon changed so spacings as well
 
-import VsfIconClose from "../VsfIcons/VsfIconClose.lite";
+// import VsfIconClose from "../VsfIcons/VsfIconClose.lite";
 export const VsfChipsInputVariants = Object.freeze({
   sm: "sm",
   base: "base",
@@ -70,7 +70,7 @@ export default function VsfChipsInput(props: VsfChipsInputProps) {
 
         {props.label ? (
           <>
-            <span className="chip__content text-gray-900">{props.label}</span>
+            <span className="text-gray-900 chip__content">{props.label}</span>
           </>
         ) : null}
 
@@ -79,14 +79,14 @@ export default function VsfChipsInput(props: VsfChipsInputProps) {
         {!props.slotClose && !props.disabled ? (
           <>
             <button
-              className="bg-transparent inline-flex chip__right-icon group"
+              className="inline-flex bg-transparent chip__right-icon group"
               onClick={(event) => close(event)}
             >
-              <VsfIconClose
-                className="transition-colors duration-300 ease text-gray-500 group-hover:text-primary-600 group-focus-within:text-primary-600 group-active:text-primary-700"
+              {/* <VsfIconClose
+                className="text-gray-500 transition-colors duration-300 ease group-hover:text-primary-600 group-focus-within:text-primary-600 group-active:text-primary-700"
                 size={closeSize()}
                 ariaLabel={`Close ${props.label} chip`}
-              />
+              /> */}
             </button>
           </>
         ) : null}

@@ -13,7 +13,7 @@ export interface VsfDialogProps {
 
 import { SlotType } from "../../functions/types";
 import VsfButton from "../VsfButton/VsfButton.lite";
-import VsfIconClose from "../VsfIcons/VsfIconClose.lite";
+// import VsfIconClose from "../VsfIcons/VsfIconClose.lite";
 const DEFAULT_VALUES: Omit<
   Required<VsfDialogProps>,
   "open" | "disableClose"
@@ -77,7 +77,7 @@ export default function VsfDialog(props: VsfDialogProps) {
               onClick={(event) => handleCloseDialog()}
               icon={true}
             >
-              <VsfIconClose />
+              {/* <VsfIconClose /> */}
             </VsfButton>
           </>
         ) : null}
