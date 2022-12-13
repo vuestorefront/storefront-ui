@@ -10,12 +10,6 @@ function Example() {
     [
       {
         type: 'text',
-        modelName: 'id',
-        propType: 'string',
-        isRequired: true,
-      },
-      {
-        type: 'text',
         modelName: 'name',
         propType: 'string',
         propDefaultValue: '',
@@ -78,9 +72,8 @@ function Example() {
   return (
     <div className="e-page">
       <div className="relative e-page-component">
-        <VsfRadioGroup id="radiogroup1">
+        <VsfRadioGroup>
           <VsfRadio
-            id={state.get.id}
             name={state.get.name}
             label={state.get.label}
             value={state.get.selectedValue}

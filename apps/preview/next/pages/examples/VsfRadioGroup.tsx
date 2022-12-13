@@ -8,14 +8,12 @@ import { ExamplePageLayout } from '../examples';
 function Example() {
   const radioData = [
     {
-      id: 'radio-1',
       name: 'radio',
       label: 'Radio 1',
       value: 'radio 1',
       helpText: 'Help text',
     },
     {
-      id: 'radio-2',
       name: 'radio',
       label: 'Radio 2',
       value: 'radio 2',
@@ -26,9 +24,9 @@ function Example() {
     [
       {
         type: 'text',
-        modelName: 'id',
+        modelName: 'selectedValue',
         propType: 'string',
-        isRequired: true,
+        propDefaultValue: '',
       },
       {
         type: 'text',
@@ -79,7 +77,6 @@ function Example() {
       },
     ],
     {
-      id: 'radio-group-1',
       legend: '',
       required: false,
       invalid: false,
@@ -102,7 +99,6 @@ function Example() {
     <div className="e-page">
       <div className="relative e-page-component">
         <VsfRadioGroup
-          id={state.get.id}
           legend={state.get.legend}
           direction={state.get.direction}
           required={state.get.required}
@@ -113,8 +109,7 @@ function Example() {
         >
           {state.get.radioDataModel.map((radio) => (
             <VsfRadio
-              id={radio.id}
-              key={radio.id}
+              key={radio.value}
               name={radio.name}
               label={radio.label}
               value={radio.value}

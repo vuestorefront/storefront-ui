@@ -1,4 +1,4 @@
-import type { ReactNode, MouseEventHandler } from 'react';
+import type { ReactNode } from 'react';
 
 export enum VsfListItemMenuSizes {
   sm = 'sm',
@@ -14,9 +14,10 @@ export interface VsfListItemMenuProps {
   secondaryText?: string;
   disabled?: boolean;
   selected?: boolean;
+  selectedBackground?: boolean;
   className?: string;
   slotSuffix?: ReactNode;
-  slotPreffix?: ReactNode;
+  slotPrefix?: ReactNode;
   truncate?: boolean;
-  onClick?: MouseEventHandler;
+  onClick?: (selected: boolean) => void;
 }

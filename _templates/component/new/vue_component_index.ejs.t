@@ -1,5 +1,5 @@
 ---
-to: packages/sfui/frameworks/vue/components/<%= name %>/index.tsx
+to: packages/sfui/frameworks/vue/components/<%= name %>/index.ts
 force: false
 ---
 import <%= name %> from './<%= name %>.vue';

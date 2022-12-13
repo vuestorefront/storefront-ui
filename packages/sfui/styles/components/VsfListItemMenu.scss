@@ -25,26 +25,28 @@
   &__icon {
     @apply flex-grow-0 text-gray-500;
 
-    &--preffix {
+    &--prefix {
       @apply mr-2.5;
     }
   }
 
   &--selected {
-    @apply bg-primary-50;
-
     #{$self}__label {
       @apply font-medium;
     }
 
-    #{$self}__icon--preffix {
+    #{$self}__icon--prefix {
       @apply text-primary-700;
     }
   }
 
+  &--selected-bg {
+    @apply bg-primary-50;
+  }
+
   &--disabled {
 
-    #{$self}__icon--preffix {
+    #{$self}__icon--prefix {
       @apply text-gray-500;
     }
   }

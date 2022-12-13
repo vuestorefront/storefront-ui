@@ -152,7 +152,7 @@ export default function Controls<T extends { [k: string]: any }>({ controls, sta
                               />
                               <span className="slider" />
                             </label>
-                            <span className="ml-2">{state.get[control.modelName].toString()}</span>
+                            <span className="ml-2">{state.get[control.modelName]?.toString()}</span>
                           </div>
                         );
                       default:

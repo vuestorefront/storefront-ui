@@ -11,13 +11,14 @@ export default function VsfListItemMenu({
   size = VsfListItemMenuSizes.base,
   disabled,
   selected,
+  selectedBackground,
   className,
-  slotPreffix,
+  slotPrefix,
   slotSuffix,
   truncate,
-  onClick,
+  onClick = () => ({}),
 }: VsfListItemMenuProps): JSX.Element {
-  // TODO: Replace with Link component when its done
+  //  TODO: Replace with Link component when its done
   const TagComponent = link ? 'a' : 'button';
   const componentType = !link ? 'button' : undefined;
   const componentDisabled = !link ? disabled : undefined;
@@ -26,16 +27,20 @@ export default function VsfListItemMenu({
       className={classNames(
         'vsf-list-item-menu peer',
         `vsf-list-item-menu--size-${size}`,
-        { 'vsf-list-item-menu--selected': selected, 'vsf-list-item-menu--disabled': disabled },
+        {
+          'vsf-list-item-menu--selected': selected,
+          'vsf-list-item-menu--selected-bg': selected && selectedBackground,
+          'vsf-list-item-menu--disabled': disabled,
+        },
         className,
       )}
       href={link}
       type={componentType}
       disabled={componentDisabled}
-      onClick={onClick}
+      onClick={() => onClick(!selected)}
       data-testid="list-item-menu"
     >
-      {slotPreffix && <div className="vsf-list-item-menu__icon vsf-list-item-menu__icon--preffix">{slotPreffix}</div>}
+      {slotPrefix && <div className="vsf-list-item-menu__icon vsf-list-item-menu__icon--prefix">{slotPrefix}</div>}
       <span className="vsf-list-item-menu__content">
         <span className="vsf-list-item-menu__title">
           {label ? (

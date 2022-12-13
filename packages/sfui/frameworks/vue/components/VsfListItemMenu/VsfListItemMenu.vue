@@ -33,6 +33,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  selectedBackground: {
+    type: Boolean,
+    default: false,
+  },
   truncate: {
     type: Boolean,
     default: false,
@@ -58,14 +62,18 @@ const componentDisabled = computed(() => {
     :class="[
       'vsf-list-item-menu peer',
       `vsf-list-item-menu--size-${size}`,
-      { 'vsf-list-item-menu--selected': selected, 'vsf-list-item-menu--disabled': disabled },
+      {
+        'vsf-list-item-menu--selected': selected,
+        'vsf-list-item-menu--selected-bg': selected && selectedBackground,
+        'vsf-list-item-menu--disabled': disabled,
+      },
     ]"
     :type="componentType"
     :disabled="componentDisabled"
     data-testid="list-item-menu"
   >
-    <span v-if="$slots.preffix" class="vsf-list-item-menu__icon vsf-list-item-menu__icon--preffix">
-      <slot name="preffix" />
+    <span v-if="$slots.prefix" class="vsf-list-item-menu__icon vsf-list-item-menu__icon--prefix">
+      <slot name="prefix" />
     </span>
     <span class="vsf-list-item-menu__content">
       <span class="vsf-list-item-menu__title">

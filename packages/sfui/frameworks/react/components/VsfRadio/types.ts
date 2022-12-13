@@ -12,19 +12,18 @@ export enum VsfRadioAlignments {
 }
 
 export interface VsfRadioProps extends PropsWithStyle {
-  id: string;
   name?: string;
   label?: string;
   value?: string;
+  checked?: boolean;
   alignment?: VsfRadioAlignments;
   disabled?: boolean;
   required?: boolean;
   helpText?: string;
-  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export interface VsfRadioGroupProps extends PropsWithChildren, PropsWithStyle {
-  id: string;
   legend?: string;
   direction?: VsfRadioGroupDirections;
   required?: boolean;

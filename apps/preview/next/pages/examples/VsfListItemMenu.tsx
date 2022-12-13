@@ -38,8 +38,8 @@ function Example() {
       },
       {
         type: 'boolean',
-        modelName: 'showPreffix',
-        description: 'Show or hide the preffix content',
+        modelName: 'showprefix',
+        description: 'Show or hide the prefix content',
       },
       {
         type: 'select',
@@ -59,6 +59,11 @@ function Example() {
       },
       {
         type: 'boolean',
+        modelName: 'selectedBackground',
+        description: 'Show selected background state of component',
+      },
+      {
+        type: 'boolean',
         modelName: 'truncate',
         description: 'Show truncated version of secondary text',
       },
@@ -67,13 +72,13 @@ function Example() {
       label: 'Label',
       size: VsfListItemMenuSizes.base,
       link: '',
-      strong: false,
       counter: '123',
       showSuffix: false,
-      showPreffix: false,
+      showprefix: false,
       secondaryText: 'Secondary text',
       disabled: false,
       selected: false,
+      selectedBackground: false,
       truncate: false,
     },
   );
@@ -89,11 +94,12 @@ function Example() {
           counter={state.get.counter}
           secondaryText={state.get.secondaryText}
           selected={state.get.selected}
+          selectedBackground={state.get.selectedBackground}
           disabled={state.get.disabled}
-          slotPreffix={state.get.showPreffix ? <VsfIconCheck size={VsfIconSizeEnum.sm} /> : null}
+          slotPrefix={state.get.showprefix ? <VsfIconCheck size={VsfIconSizeEnum.sm} /> : null}
           slotSuffix={state.get.showSuffix ? <VsfIconCheck size={VsfIconSizeEnum.sm} /> : null}
           truncate={state.get.truncate}
-          onClick={() => state.set({ ...state.get, selected: !state.get.selected })}
+          onClick={(selected: boolean) => state.set({ ...state.get, selected })}
         />
       </div>
       <div className="e-page-controls">

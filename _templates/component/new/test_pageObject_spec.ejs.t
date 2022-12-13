@@ -1,5 +1,5 @@
 ---
-to: packages/sfui/tests/components/<%= name %>/<%= name %>.PageObject.tsx
+to: packages/sfui/tests/components/<%= name %>/<%= name %>.PageObject.ts
 force: false
 ---
 <%
