@@ -1,6 +1,6 @@
 import VsfChipsInput, { VsfChipsInputVariants } from '../../output/blocks/VsfChipsInput/VsfChipsInput.lite';
 import Controls, { prepareControls } from '../../components/utils/Controls';
-import VsfIconDot from '../../output/blocks/VsfIcons/VsfIconDot.lite';
+// import VsfIconDot from '../../output/blocks/VsfIcons/VsfIconDot.lite';
 import { ExamplePageLayout } from '../examplesOld';
 
 const Example = () => {
@@ -47,7 +47,6 @@ const Example = () => {
           disabled={state.get.disabledModel}
           size={state.get.sizeModel}
           handleChipClose={onClickHandler}
-          slotPrefix={<VsfIconDot className="vsf-icon-full text-gray-500" />}
         />
       </div>
       <div className="e-page-controls">

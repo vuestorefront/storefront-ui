@@ -12,14 +12,14 @@
       :class="_classStringToObject(`p-6 lg:p-10 relative ${useClassesProp}`)"
     >
       <template v-if="disableClose">
-        <vsf-button
+        <!-- <vsf-button
           classes="rounded-full top-2 right-2 absolute"
           variant="tertiary"
           @click="handleCloseDialog()"
           :icon="true"
         >
           <vsf-icon-close></vsf-icon-close>
-        </vsf-button>
+        </vsf-button> -->
       </template>
 
       <slot />
@@ -40,7 +40,7 @@ export interface VsfDialogProps {
 
 import { SlotType } from "../../functions/types";
 import VsfButton from "../VsfButton/VsfButton.vue";
-import VsfIconClose from "../VsfIcons/VsfIconClose.vue";
+// import VsfIconClose from "../VsfIcons/VsfIconClose.vue";
 const DEFAULT_VALUES: Omit<
   Required<VsfDialogProps>,
   "open" | "disableClose"
@@ -55,7 +55,7 @@ const DEFAULT_VALUES: Omit<
 
 export default {
   name: "vsf-dialog",
-  components: { "vsf-button": VsfButton, "vsf-icon-close": VsfIconClose },
+  // components: { "vsf-button": VsfButton },
   props: ["classes", "modelValue", "onClose", "disableClose"],
 
   mounted() {

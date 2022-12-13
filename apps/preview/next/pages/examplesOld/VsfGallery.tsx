@@ -1,5 +1,5 @@
 import VsfGallery from '../../output/blocks/VsfGallery/VsfGallery.lite';
-import VsfIconHot from '../../output/blocks/VsfIcons/VsfIconHot.lite';
+// import VsfIconHot from '../../output/blocks/VsfIcons/VsfIconHot.lite';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examplesOld';
 
