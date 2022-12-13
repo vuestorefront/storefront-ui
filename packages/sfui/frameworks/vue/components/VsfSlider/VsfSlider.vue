@@ -7,6 +7,7 @@ import { useSlider } from './slider';
 const VsfButton = defineAsyncComponent(() => import('../VsfButton/VsfButton.vue'));
 const VsfIconChevronLeft = defineAsyncComponent(() => import('../VsfIcons/VsfIconChevronLeft.vue'));
 const VsfIconChevronRight = defineAsyncComponent(() => import('../VsfIcons/VsfIconChevronRight.vue'));
+import { VsfIconSizeEnum } from '../VsfIconBase/types';
 
 const props = defineProps({
   scrollbar: {
@@ -72,7 +73,7 @@ function onClickNext() {
           :disabled="!hasPrev"
           @click="onClickPrev"
         >
-          <VsfIconChevronLeft />
+          <VsfIconChevronLeft :size="VsfIconSizeEnum.lg" />
         </VsfButton>
       </slot>
     </div>
@@ -100,7 +101,7 @@ function onClickNext() {
           :disabled="!hasNext"
           @click="onClickNext"
         >
-          <VsfIconChevronRight />
+          <VsfIconChevronRight :size="VsfIconSizeEnum.lg" />
         </VsfButton>
       </slot>
     </div>
