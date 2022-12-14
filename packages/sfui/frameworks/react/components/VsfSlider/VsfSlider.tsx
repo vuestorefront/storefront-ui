@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import classNames from 'classnames';
+import { VsfIconSizeEnum } from '../VsfIconBase/types';
 import VsfButton from '../VsfButton/VsfButton';
 import VsfIconChevronLeft from '../VsfIcons/VsfIconChevronLeft';
 import VsfIconChevronRight from '../VsfIcons/VsfIconChevronRight';
@@ -46,7 +47,7 @@ export default function VsfSlider({
       onClick={onClickPrev}
       disabled={!hasPrev}
     >
-      <VsfIconChevronLeft />
+      <VsfIconChevronLeft size={VsfIconSizeEnum.lg} />
     </VsfButton>
   );
   const nextButtonDefault = (
@@ -58,7 +59,7 @@ export default function VsfSlider({
       onClick={onClickNext}
       disabled={!hasNext}
     >
-      <VsfIconChevronRight />
+      <VsfIconChevronRight size={VsfIconSizeEnum.lg} />
     </VsfButton>
   );
   const prevNavigation =
