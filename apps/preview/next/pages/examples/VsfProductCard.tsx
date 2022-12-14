@@ -289,7 +289,7 @@ function Example() {
           }
           slotImageTop={
             state.get.vertical &&
-            state.get.size === 'default' &&
+            state.get.size === 'responsive' &&
             badgeSize === 'base' && (
               <VsfTag size={VsfTagSizes.base} strong label={state.get.badgeText} variant={VsfTagVariants.secondary}>
                 <VsfIconHot size={VsfIconSizeEnum.sm} ariaLabel={state.get.ariaLabelBadge} />
