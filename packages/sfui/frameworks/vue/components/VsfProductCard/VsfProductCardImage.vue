@@ -12,7 +12,7 @@ const props = defineProps({
   },
   size: {
     type: String as PropType<VsfProductCardSizes>,
-    default: VsfProductCardSizes.default,
+    default: VsfProductCardSizes.responsive,
   },
   vertical: {
     type: Boolean,

@@ -71,7 +71,7 @@ const props = defineProps({
   },
   size: {
     type: String as PropType<VsfProductCardSizes>,
-    default: VsfProductCardSizes.default,
+    default: VsfProductCardSizes.responsive,
   },
   addToCartLabel: {
     type: String,
@@ -124,10 +124,10 @@ defineEmits<{
       {
         'vsf-product-card--sm': size === VsfProductCardSizes.sm && vertical,
         'vsf-product-card--base': size === VsfProductCardSizes.base && vertical,
-        'vsf-product-card--default': size === VsfProductCardSizes.default && vertical,
+        'vsf-product-card--responsive': size === VsfProductCardSizes.responsive && vertical,
         'vsf-product-card--horizontal-base': size === VsfProductCardSizes.base && !vertical,
         'vsf-product-card--horizontal-sm': size === VsfProductCardSizes.sm && !vertical,
-        'vsf-product-card--horizontal-default': size === VsfProductCardSizes.default && !vertical,
+        'vsf-product-card--horizontal-responsive': size === VsfProductCardSizes.responsive && !vertical,
         'vsf-product-card--horizontal': !vertical,
       },
     ]"

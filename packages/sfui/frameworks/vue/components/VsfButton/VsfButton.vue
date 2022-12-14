@@ -35,7 +35,7 @@ const props = defineProps({
     default: 'button',
   },
   link: {
-    type: String,
+    type: [String, Object],
     default: null,
   },
 });

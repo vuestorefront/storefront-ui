@@ -26,7 +26,7 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 | `description`   | String   | ''            |                                        |
 | `outOfStock`    | Boolean  | false         |                                        |
 | `inCart`        | Number   | 0             |                                        |
-| `size`          | String   | default       |  default, sm, base                     |
+| `size`          | String   | responsive    |  responsive, sm, base                  |
 | `addToCartLabel`| String   | ''            |                                        |
 | `similarLabel`  | String   | ''            |                                        |
 | `badgeText`     | String   | ''            |                                        |

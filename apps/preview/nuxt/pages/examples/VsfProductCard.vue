@@ -1,3 +1,4 @@
+<!-- eslint-disable @typescript-eslint/no-unused-vars -->
 <template>
   <div class="e-page">
     <div class="e-page-component">
@@ -29,7 +30,7 @@
         @see-similar="handleSeeSimilar"
         @see-reviews="handleReviewsClick"
       >
-        <template v-if="vertical && badgeSize === 'base' && size === VsfProductCardSizes.default" #image-top>
+        <template v-if="vertical && badgeSize === 'base' && size === VsfProductCardSizes.responsive" #image-top>
           <VsfTag :size="VsfTagSizes.base" :variant="VsfTagVariants.secondary" strong>
             <template #icon>
               <VsfIconHot :size="VsfIconSizeEnum.sm" />
@@ -154,7 +155,7 @@ export default defineComponent({
             type: 'select',
             modelName: 'size',
             options: Object.keys(VsfProductCardSizes),
-            propDefaultValue: VsfProductCardSizes.default,
+            propDefaultValue: VsfProductCardSizes.responsive,
             propType: 'string',
           },
           {
@@ -233,7 +234,7 @@ export default defineComponent({
           title: ref('The standard chunk of Lorem Ipsum'),
           price: ref('$2,345.99'),
           oldPrice: ref('$3,132.99'),
-          size: ref(VsfProductCardSizes.default),
+          size: ref(VsfProductCardSizes.responsive),
           link: ref('/'),
           linkTag: ref(VsfProductCardLinkTags.a),
           outOfStock: ref(false),

@@ -1,0 +1,77 @@
+.vsf-card {
+  $self: &;
+  @apply overflow-hidden border border-gray-200 rounded-md hover:shadow-lg;
+
+  &__content-wrapper {
+    @apply p-4 flex flex-col;
+  }
+
+  &__image {
+    @apply h-auto object-cover rounded-t-md;
+  }
+
+  &__title {
+    @apply font-medium font-body mb-1 hover:underline hover:text-primary-600 active:text-primary-700 self-start;
+  }
+
+  &__description {
+    @apply text-gray-700 font-normal font-body min-w-0 break-words;
+  }
+
+  &__button {
+    @apply mt-2 self-start;
+  }
+
+  /* stylelint-disable at-rule-no-unknown */ 
+  @mixin text-size-base {
+    #{$self}__title {
+      @apply text-base;
+    }
+
+    #{$self}__description {
+      @apply text-sm;
+    }
+  }
+
+  @mixin text-size-sm {
+    #{$self}__title {
+      @apply text-sm;
+    }
+  
+    #{$self}__description {
+      @apply text-xs;
+    }
+  }
+
+  &--rounded {
+    @apply flex flex-col items-center border-none hover:shadow-none max-w-fit;
+
+    #{$self}__image {
+      @apply h-auto rounded-full;
+    }
+  }
+
+  &--size-base {
+    @apply max-w-[320px];
+
+    @include text-size-base;
+  }
+
+  &--size-sm {
+    @apply max-w-[192px];
+
+    @include text-size-sm;
+  }
+
+  &--size-responsive {
+    @apply max-w-[192px];
+
+    @include text-size-sm;
+
+    @media (min-width: 769px) {
+      @apply max-w-[320px];
+
+      @include text-size-base;
+    }
+  }
+}

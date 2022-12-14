@@ -1,7 +1,7 @@
 export enum VsfProductCardSizes {
   sm = 'sm',
   base = 'base',
-  default = 'default',
+  responsive = 'responsive',
 }
 
 export enum VsfProductCardLinkTags {
