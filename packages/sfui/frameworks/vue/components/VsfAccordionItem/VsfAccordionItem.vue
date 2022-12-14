@@ -15,10 +15,13 @@ defineProps({
     default: false,
   },
 });
+defineEmits<{
+  (event: 'toggle', value: Event): void;
+}>();
 </script>
 
 <template>
-  <details class="vsf-accordion-item" :open="open" data-testid="accordion-item">
+  <details class="vsf-accordion-item" :open="open" data-testid="accordion-item" @toggle="$emit('toggle', $event)">
     <summary :class="[{ 'vsf-accordion-item__header--right': chevronLeft }, 'vsf-accordion-item__header']">
       <slot name="prefix">
         <span
