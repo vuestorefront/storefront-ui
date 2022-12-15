@@ -9,15 +9,18 @@ export function useSlider<T extends HTMLElement>(
   const sliderRef = useRef<VSFSlider | null>(null);
   const currentOptions = useRef(options);
 
-  const onRefChange = useCallback((node: T | null) => {
-    if (node) {
-      currentOptions.current = options;
-      sliderRef.current = new VSFSlider(node, options);
-    } else {
-      sliderRef.current?.destroy?.();
-      sliderRef.current = null;
-    }
-  }, []);
+  const onRefChange = useCallback(
+    (node: T | null) => {
+      if (node) {
+        currentOptions.current = options;
+        sliderRef.current = new VSFSlider(node, options);
+      } else {
+        sliderRef.current?.destroy?.();
+        sliderRef.current = null;
+      }
+    },
+    [options],
+  );
 
   useEffect(() => {
     if (!equal(currentOptions.current, options)) {
