@@ -33,7 +33,9 @@ describe("VsfCheckbox", () => {
           helpText,
           requiredText,
           invalid,
-          modelValue: onChangeSpy,
+          value,
+          modelValue: false,
+          'onUpdate:modelValue': onChangeSpy
         },
       },
       react: <VsfCheckboxReact
@@ -53,15 +55,12 @@ describe("VsfCheckbox", () => {
   beforeEach(() => {
     label = 'Label';
     value = 'value';
-    invalid = false;
     onChangeSpy = cy.spy();
     alignment = VsfCheckboxAlignments.leading;
-
   });
 
-
   it('initial state', () => {
-    initializeComponent();
+    initializeComponent({ invalid: true});
 
     page().makeSnapshot();
   });
@@ -160,5 +159,4 @@ describe("VsfCheckbox", () => {
         .makeSnapshot();
     });
   });
-
 });
