@@ -1,13 +1,12 @@
 import { useState } from 'react';
 import classNames from 'classnames';
-import { VsfIconSizeEnum } from '../VsfIconBase/types';
 import VsfButton from '../VsfButton/VsfButton';
 import VsfIconChevronLeft from '../VsfIcons/VsfIconChevronLeft';
 import VsfIconChevronRight from '../VsfIcons/VsfIconChevronRight';
 import type { VsfSliderProps } from './types';
 import { VsfSliderNavigation, VsfSliderScrollbar } from './types';
 import { useSlider } from './slider';
-import { VsfButtonVariants } from '../VsfButton';
+import { VsfButtonVariants, VsfButtonSizes } from '../VsfButton';
 
 export default function VsfSlider({
   navigation,
@@ -41,25 +40,27 @@ export default function VsfSlider({
   const prevButtonDefault = (
     <VsfButton
       variant={VsfButtonVariants.secondary}
+      size={VsfButtonSizes.lg}
       icon
       rounded
       className={classNames('vsf-slider__nav-arrow', { 'vsf-slider__nav-arrow--hidden': !hasPrev })}
       onClick={onClickPrev}
       disabled={!hasPrev}
     >
-      <VsfIconChevronLeft size={VsfIconSizeEnum.lg} />
+      <VsfIconChevronLeft />
     </VsfButton>
   );
   const nextButtonDefault = (
     <VsfButton
       variant={VsfButtonVariants.secondary}
+      size={VsfButtonSizes.lg}
       icon
       rounded
       className={classNames('vsf-slider__nav-arrow', { 'vsf-slider__nav-arrow--hidden': !hasNext })}
       onClick={onClickNext}
       disabled={!hasNext}
     >
-      <VsfIconChevronRight size={VsfIconSizeEnum.lg} />
+      <VsfIconChevronRight />
     </VsfButton>
   );
   const prevNavigation =
