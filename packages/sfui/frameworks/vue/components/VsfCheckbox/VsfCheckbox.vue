@@ -49,50 +49,58 @@ defineProps({
   },
 });
 const emit = defineEmits<{
-  (event: 'update:modelValue', param: string): void;
+  (event: 'update:modelValue', param: boolean): void;
 }>();
 const onChangeHandler = (event: Event) => {
-  emit('update:modelValue', (event.target as HTMLSelectElement).value);
+  emit('update:modelValue', (event.target as HTMLInputElement).checked);
 };
 </script>
 
 <template>
-  <div>
-    <label
-      :class="[
-        'vsf-checkbox',
-        disabled && 'vsf-checkbox--disabled',
-        required && 'vsf-checkbox--required',
-        alignment && `vsf-checkbox--alignment-${alignment}`,
-      ]"
-    >
-      <span>
-        <input
-          class="vsf-checkbox__input"
-          type="checkbox"
-          :disabled="disabled"
-          :required="required"
-          :indeterminate="indeterminate"
-          :invalid="invalid"
-          :checked="checked"
-          :value="value"
-          @change="onChangeHandler"
-        />
-      </span>
-      <span class="vsf-checkbox__label">
-        {{ label }}
-      </span>
+  <div
+    class="vsf-checkbox"
+    :class="[disabled && 'vsf-checkbox--disabled', required && 'vsf-checkbox--required']"
+    data-testid="checkbox"
+  >
+    <label class="vsf-checkbox__wrapper" :class="`vsf-checkbox__wrapper--alignment-${alignment}`">
+      <input
+        class="vsf-checkbox__input"
+        :class="{ 'vsf-checkbox__input--invalid': invalid && !disabled && !indeterminate && !checked }"
+        type="checkbox"
+        :disabled="disabled"
+        :required="required"
+        :indeterminate="indeterminate"
+        :checked="checked"
+        :value="value"
+        data-testid="checkbox-input"
+        @change="onChangeHandler"
+      />
+      <slot name="label">
+        <span class="vsf-checkbox__label" data-testid="checkbox-label">
+          {{ label }}
+        </span>
+      </slot>
     </label>
-    <div class="vsf-checkbox__text-wrapper">
-      <p v-if="invalid && !disabled && errorText" class="vsf-checkbox__error-text">
-        {{ errorText }}
-      </p>
-      <p v-if="helpText" class="vsf-checkbox__help-text">
-        {{ helpText }}
-      </p>
-      <p v-if="required && requiredText" class="vsf-checkbox__required-text">
+    <div class="vsf-checkbox__text-wrapper" :class="`vsf-checkbox__text-wrapper-${alignment}`">
+      <slot name="errorText">
+        <p
+          v-if="invalid && !!errorText && !disabled && !indeterminate && !checked && !required"
+          class="vsf-checkbox__error-text"
+          data-testid="checkbox-error-text"
+        >
+          {{ errorText }}
+        </p>
+      </slot>
+      <slot name="helpText">
+        <p v-if="helpText" class="vsf-checkbox__help-text" data-testid="checkbox-help-text">
+          {{ helpText }}
+        </p>
+      </slot>
+    </div>
+    <slot name="requiredText">
+      <p v-if="required && requiredText" class="vsf-checkbox__required-text" data-testid="checkbox-required-text">
         {{ requiredText }}
       </p>
-    </div>
+    </slot>
   </div>
 </template>

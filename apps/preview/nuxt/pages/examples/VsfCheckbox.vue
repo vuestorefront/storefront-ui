@@ -37,7 +37,6 @@ export default defineComponent({
     return prepareControls(
       [
         {
-          title: 'Value',
           type: 'text',
           modelName: 'value',
           propDefaultValue: '',
@@ -51,49 +50,41 @@ export default defineComponent({
           propDefaultValue: VsfCheckboxAlignments.leading,
         },
         {
-          title: 'Required',
           type: 'boolean',
           modelName: 'required',
           propType: 'boolean',
         },
         {
-          title: 'Disabled',
           type: 'boolean',
           modelName: 'disabled',
           propType: 'boolean',
         },
         {
-          title: 'Indeterminate',
           type: 'boolean',
           modelName: 'indeterminate',
           propType: 'boolean',
         },
         {
-          title: 'Invalid',
           type: 'boolean',
           modelName: 'invalid',
           propType: 'boolean',
         },
         {
-          title: 'Label',
           type: 'text',
           modelName: 'label',
           propType: 'string',
         },
         {
-          title: 'HelpText',
           type: 'text',
           modelName: 'helpText',
           propType: 'string',
         },
         {
-          title: 'ErrorText',
           type: 'text',
           modelName: 'errorText',
           propType: 'string',
         },
         {
-          title: 'RequiredText',
           type: 'text',
           modelName: 'requiredText',
           propType: 'string',
@@ -105,12 +96,12 @@ export default defineComponent({
         disabled: ref(false),
         indeterminate: ref(false),
         alignment: ref(VsfCheckboxAlignments.leading),
-        invalid: ref(),
+        invalid: ref(false),
         label: ref('Label'),
         helpText: ref('Help Text'),
         errorText: ref('Error Message'),
         requiredText: ref('*Required'),
-        checked: ref(''),
+        checked: ref(false),
       },
     );
   },

@@ -55,6 +55,10 @@ export class BasePage {
     this.container.click();
   }
 
+  check() {
+    this.container.check();
+  }
+
   select(value) {
     this.container.select(value);
   }

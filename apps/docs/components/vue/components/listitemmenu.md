@@ -18,7 +18,7 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 | label    | String | ''         |                    |
 | secondaryText    | String | ''         |                    |
 | counter    | String | ''         |                    |
-| truncate    | Boolean | false         |                    |
+| truncate   | Boolean | false         |                    |
 | disabled    | Boolean | false         |                    |
 | selected    | Boolean | false |         |                  |
 

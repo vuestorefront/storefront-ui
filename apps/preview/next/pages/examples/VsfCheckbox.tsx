@@ -1,23 +1,16 @@
 import { VsfCheckboxAlignments } from '@sfui/sfui/frameworks/react/components/VsfCheckbox/types';
 import VsfCheckbox from '@sfui/sfui/frameworks/react/components/VsfCheckbox/VsfCheckbox';
-import { ChangeEvent } from 'react';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 
-function Example () {
+function Example() {
   const { state, controls } = prepareControls(
     [
       {
         type: 'text',
-        modelName: 'label',
-        propType: 'string',
-        propDefaultValue: '',
-      },
-      {
-        type: 'text',
         modelName: 'value',
-        propType: 'string',
         propDefaultValue: '',
+        propType: 'string',
       },
       {
         type: 'select',
@@ -28,35 +21,62 @@ function Example () {
       },
       {
         type: 'boolean',
+        modelName: 'required',
+        propType: 'boolean',
+      },
+      {
+        type: 'boolean',
         modelName: 'disabled',
         propType: 'boolean',
       },
       {
         type: 'boolean',
-        modelName: 'required',
+        modelName: 'indeterminate',
         propType: 'boolean',
+      },
+      {
+        type: 'boolean',
+        modelName: 'invalid',
+        propType: 'boolean',
+      },
+      {
+        type: 'text',
+        modelName: 'label',
+        propType: 'string',
       },
       {
         type: 'text',
         modelName: 'helpText',
         propType: 'string',
-        propDefaultValue: '',
+      },
+      {
+        type: 'text',
+        modelName: 'errorText',
+        propType: 'string',
+      },
+      {
+        type: 'text',
+        modelName: 'requiredText',
+        propType: 'string',
       },
     ],
     {
-      value: '',
+      value: 'value',
       required: false,
       disabled: false,
-      indeterminate: true,
+      indeterminate: false,
       invalid: false,
       alignment: VsfCheckboxAlignments.leading,
       label: 'Label',
       helpText: 'Help Text',
       errorText: 'Error Message',
       requiredText: '*Required',
-      toggle: false
+      toggle: false,
     },
   );
+  function onChange(value: boolean) {
+    console.log(`Changed to ${value}`);
+  }
   return (
     <div className="e-page">
       <div className="e-page-component">
@@ -71,6 +91,7 @@ function Example () {
           errorText={state.get.errorText}
           helpText={state.get.helpText}
           requiredText={state.get.requiredText}
+          onChange={onChange}
         />
       </div>
       <div className="e-page-controls">
