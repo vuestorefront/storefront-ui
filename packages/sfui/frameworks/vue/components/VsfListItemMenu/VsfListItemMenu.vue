@@ -43,14 +43,14 @@ const props = defineProps({
   },
   tag: {
     type: String as PropType<'li'>,
-    default: undefined
-  }
+    default: undefined,
+  },
 });
 const { tag, link, disabled } = toRefs(props);
 // TODO: replace with link component when ready
 const componentTag = computed(() => tag?.value ?? (link?.value ? 'a' : 'button'));
-const componentType = computed(() => tag?.value ? undefined : link?.value && 'button');
-const componentDisabled = computed(() => (!link?.value || tag?.value) ? disabled.value : undefined);
+const componentType = computed(() => (tag?.value ? undefined : link?.value && 'button'));
+const componentDisabled = computed(() => (!link?.value || tag?.value ? disabled.value : undefined));
 </script>
 
 <template>
@@ -74,25 +74,29 @@ const componentDisabled = computed(() => (!link?.value || tag?.value) ? disabled
     <span v-if="$slots.prefix" class="vsf-list-item-menu__icon vsf-list-item-menu__icon--prefix">
       <slot name="prefix" />
     </span>
-    <span class="vsf-list-item-menu__content">
-      <span class="vsf-list-item-menu__title">
-        <span v-if="label" class="vsf-list-item-menu__label" data-testid="list-item-menu-label">{{ label }}</span>
-        <VsfCounter
-          v-if="counter"
-          :size="VsfCounterSizes.xl"
-          class="vsf-list-item-menu__counter"
-          data-testid="list-item-menu-counter"
-          >{{ counter }}</VsfCounter
+    <div class="vsf-list-item-menu__content">
+      <slot>
+        <span class="vsf-list-item-menu__title">
+          <span v-if="label" class="vsf-list-item-menu__label" data-testid="list-item-menu-label">{{ label }}</span>
+          <VsfCounter
+            v-if="counter"
+            :size="VsfCounterSizes.xl"
+            class="vsf-list-item-menu__counter"
+            data-testid="list-item-menu-counter"
+            >{{ counter }}</VsfCounter
+          >
+        </span>
+      </slot>
+      <slot name="secondaryText">
+        <p
+          v-if="secondaryText"
+          :class="['vsf-list-item-menu__secondary-text', { 'vsf-list-item-menu__secondary-text--truncated': truncate }]"
+          data-testid="list-item-menu-secondary-text"
         >
-      </span>
-      <p
-        v-if="secondaryText"
-        :class="['vsf-list-item-menu__secondary-text', { 'vsf-list-item-menu__secondary-text--truncated': truncate }]"
-        data-testid="list-item-menu-secondary-text"
-      >
-        {{ secondaryText }}
-      </p>
-    </span>
+          {{ secondaryText }}
+        </p>
+      </slot>
+    </div>
     <span v-if="$slots.suffix" class="vsf-list-item-menu__icon">
       <slot name="suffix" />
     </span>

@@ -51,5 +51,7 @@ const toggle = (value: string, modelValue: string) => {
         @click.stop="$emit('update:modelValue', toggle(value, modelValue))"
       />
     </template>
+    <slot />
+    <template #secondaryText><slot name="secondaryText" /></template>
   </VsfListItemMenu>
 </template>

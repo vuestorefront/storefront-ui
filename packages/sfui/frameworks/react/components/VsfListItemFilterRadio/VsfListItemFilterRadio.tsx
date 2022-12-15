@@ -14,6 +14,7 @@ export default function VsfListItemFilterRadio({
   selected,
   value,
   name,
+  children,
   onChange = () => '',
   ...attributes
 }: VsfListItemFilterRadioProps): JSX.Element {
@@ -53,6 +54,8 @@ export default function VsfListItemFilterRadio({
         ) : null
       }
       {...attributes}
-    />
+    >
+      {children}
+    </VsfListItemMenu>
   );
 }

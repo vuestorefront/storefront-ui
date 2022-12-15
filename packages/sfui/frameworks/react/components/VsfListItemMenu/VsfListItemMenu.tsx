@@ -15,8 +15,10 @@ export default function VsfListItemMenu({
   className,
   slotPrefix,
   slotSuffix,
+  slotSecondaryText,
   truncate,
   tag,
+  children,
   onClick = () => ({}),
 }: VsfListItemMenuProps): JSX.Element {
   //  TODO: Replace with Link component when its done
@@ -42,34 +44,37 @@ export default function VsfListItemMenu({
       data-testid="list-item-menu"
     >
       {slotPrefix && <div className="vsf-list-item-menu__icon vsf-list-item-menu__icon--prefix">{slotPrefix}</div>}
-      <span className="vsf-list-item-menu__content">
-        <span className="vsf-list-item-menu__title">
-          {label ? (
-            <span className="vsf-list-item-menu__label" data-testid="list-item-menu-label">
-              {label}
-            </span>
-          ) : null}
-          {counter ? (
-            <VsfCounter
-              size={VsfCounterSizes.xl}
-              className="vsf-list-item-menu__counter"
-              data-testid="list-item-menu-counter"
+      <div className="vsf-list-item-menu__content">
+        {children || (
+          <span className="vsf-list-item-menu__title">
+            {label ? (
+              <span className="vsf-list-item-menu__label" data-testid="list-item-menu-label">
+                {label}
+              </span>
+            ) : null}
+            {counter ? (
+              <VsfCounter
+                size={VsfCounterSizes.xl}
+                className="vsf-list-item-menu__counter"
+                data-testid="list-item-menu-counter"
+              >
+                {counter}
+              </VsfCounter>
+            ) : null}
+          </span>
+        )}
+        {slotSecondaryText ||
+          (secondaryText && (
+            <p
+              className={classNames('vsf-list-item-menu__secondary-text', {
+                'vsf-list-item-menu__secondary-text--truncated': truncate,
+              })}
+              data-testid="list-item-menu-secondary-text"
             >
-              {counter}
-            </VsfCounter>
-          ) : null}
-        </span>
-        {secondaryText ? (
-          <p
-            className={classNames('vsf-list-item-menu__secondary-text', {
-              'vsf-list-item-menu__secondary-text--truncated': truncate,
-            })}
-            data-testid="list-item-menu-secondary-text"
-          >
-            {secondaryText}
-          </p>
-        ) : null}
-      </span>
+              {secondaryText}
+            </p>
+          ))}
+      </div>
       {slotSuffix && <div className="vsf-list-item-menu__icon">{slotSuffix}</div>}
     </TagComponent>
   );
