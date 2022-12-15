@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { PropType } from 'vue';
+import { PropType, ref } from 'vue';
 import { VsfCheckboxAlignments } from './types';
 
-defineProps({
+const props = defineProps({
   value: {
     type: String,
     default: '',
@@ -48,6 +48,7 @@ defineProps({
     default: '',
   },
 });
+const isChecked = ref(props.checked);
 const emit = defineEmits<{
   (event: 'update:modelValue', param: boolean): void;
 }>();
@@ -64,13 +65,13 @@ const onChangeHandler = (event: Event) => {
   >
     <label class="vsf-checkbox__wrapper" :class="`vsf-checkbox__wrapper--alignment-${alignment}`">
       <input
+        v-model="isChecked"
         class="vsf-checkbox__input"
         :class="{ 'vsf-checkbox__input--invalid': invalid && !disabled && !indeterminate && !checked }"
         type="checkbox"
         :disabled="disabled"
         :required="required"
         :indeterminate="indeterminate"
-        :checked="checked"
         :value="value"
         data-testid="checkbox-input"
         @change="onChangeHandler"
