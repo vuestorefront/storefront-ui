@@ -1,17 +1,20 @@
 import { VsfCheckboxAlignments } from '@sfui/sfui/frameworks/react/components/VsfCheckbox/types';
 import VsfCheckbox from '@sfui/sfui/frameworks/react/components/VsfCheckbox/VsfCheckbox';
+import type { VsfCheckboxProps } from '@sfui/sfui/frameworks/react/components/VsfCheckbox/types';
 import { ChangeEvent } from 'react';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 
 function Example() {
-  const { state, controls } = prepareControls(
+  const { state, controls } = prepareControls<
+    Omit<VsfCheckboxProps, 'onChange'> & { checkedValue: string[]; toggle: boolean }
+  >(
     [
       {
         type: 'text',
-        modelName: 'checked',
-        propDefaultValue: '',
+        modelName: 'checkedValue',
         propType: 'string',
+        description: 'Example of getting values from group of checkboxes',
       },
       {
         type: 'text',
@@ -79,14 +82,14 @@ function Example() {
       errorText: 'Error Message',
       requiredText: 'Required',
       toggle: false,
-      checked: [],
+      checkedValue: [],
     },
   );
   function onChange(value: string, e: ChangeEvent<HTMLInputElement>) {
-    if (state.get.checked.indexOf(value) > -1) {
-      state.set({ ...state.get, checked: state.get.checked.filter((value) => value !== e.target?.value) });
+    if (state.get.checkedValue.indexOf(value) > -1) {
+      state.set({ ...state.get, checkedValue: state.get.checkedValue.filter((val) => val !== e.target?.value) });
     } else {
-      state.set({ ...state.get, checked: [...state.get.checked, value] });
+      state.set({ ...state.get, checkedValue: [...state.get.checkedValue, value] });
     }
   }
   return (
