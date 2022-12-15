@@ -70,7 +70,7 @@ function Example() {
       label: 'Label',
       helpText: 'Help Text',
       errorText: 'Error Message',
-      requiredText: '*Required',
+      requiredText: 'Required',
       toggle: false,
     },
   );

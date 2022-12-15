@@ -59,7 +59,7 @@ const onChangeHandler = (event: Event) => {
 <template>
   <div
     class="vsf-checkbox"
-    :class="[disabled && 'vsf-checkbox--disabled', required && 'vsf-checkbox--required']"
+    :class="['vsf-checkbox', { 'vsf-checkbox--disabled': disabled, 'vsf-checkbox--required': required }]"
     data-testid="checkbox"
   >
     <label class="vsf-checkbox__wrapper" :class="`vsf-checkbox__wrapper--alignment-${alignment}`">

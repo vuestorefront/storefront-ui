@@ -55,7 +55,7 @@ export class BasePage {
     this.container.click();
   }
 
-  check() {
+  inputCheck() {
     this.container.check();
   }
 

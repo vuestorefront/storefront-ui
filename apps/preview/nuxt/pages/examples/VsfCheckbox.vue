@@ -100,7 +100,7 @@ export default defineComponent({
         label: ref('Label'),
         helpText: ref('Help Text'),
         errorText: ref('Error Message'),
-        requiredText: ref('*Required'),
+        requiredText: ref('Required'),
         checked: ref(false),
       },
     );

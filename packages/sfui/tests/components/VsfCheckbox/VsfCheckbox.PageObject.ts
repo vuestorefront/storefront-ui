@@ -13,7 +13,7 @@ export default class VsfCheckboxObject extends BasePage {
   }
 
   isChecked() {
-    this.inputElement.check();
+    this.inputElement.inputCheck();
     return this;
   }
 

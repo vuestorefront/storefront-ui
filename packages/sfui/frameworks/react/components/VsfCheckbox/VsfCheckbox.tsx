@@ -21,7 +21,7 @@ export default function VsfCheckbox({
   const checkboxRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    if (checkboxRef.current != null) {
+    if (checkboxRef.current !== null) {
       checkboxRef.current.indeterminate = indeterminate;
     }
   }, [checkboxRef, indeterminate]);
@@ -29,9 +29,11 @@ export default function VsfCheckbox({
     <div
       className={classNames(
         'vsf-checkbox',
-        disabled && 'vsf-checkbox--disabled',
-        required && 'vsf-checkbox--required',
-        invalid && !checked && 'vas-checkbox--invalid',
+        {
+          'vsf-checkbox--disabled': disabled,
+          'vsf-checkbox--required': required,
+          'vas-checkbox--invalid': invalid && !checked,
+        },
         className,
       )}
       {...attributes}

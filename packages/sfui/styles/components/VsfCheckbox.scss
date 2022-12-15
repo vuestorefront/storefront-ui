@@ -52,7 +52,7 @@
   }
 
   &__required-text {
-    @apply text-gray-500 mt-2;
+    @apply text-gray-500 mt-2 before:content-['*'];
   }
   
 
