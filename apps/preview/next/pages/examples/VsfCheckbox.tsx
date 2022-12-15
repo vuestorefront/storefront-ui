@@ -1,11 +1,18 @@
 import { VsfCheckboxAlignments } from '@sfui/sfui/frameworks/react/components/VsfCheckbox/types';
 import VsfCheckbox from '@sfui/sfui/frameworks/react/components/VsfCheckbox/VsfCheckbox';
+import { ChangeEvent } from 'react';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 
 function Example() {
   const { state, controls } = prepareControls(
     [
+      {
+        type: 'text',
+        modelName: 'checked',
+        propDefaultValue: '',
+        propType: 'string',
+      },
       {
         type: 'text',
         modelName: 'value',
@@ -72,16 +79,47 @@ function Example() {
       errorText: 'Error Message',
       requiredText: 'Required',
       toggle: false,
+      checked: [],
     },
   );
-  function onChange(value: boolean) {
-    console.log(`Changed to ${value}`);
+  function onChange(value: string, e: ChangeEvent<HTMLInputElement>) {
+    if (state.get.checked.indexOf(value) > -1) {
+      state.set({ ...state.get, checked: state.get.checked.filter((value) => value !== e.target?.value) });
+    } else {
+      state.set({ ...state.get, checked: [...state.get.checked, value] });
+    }
   }
   return (
     <div className="e-page">
       <div className="e-page-component">
         <VsfCheckbox
           value={state.get.value}
+          label={state.get.label}
+          indeterminate={state.get.indeterminate}
+          required={state.get.required}
+          disabled={state.get.disabled}
+          alignment={state.get.alignment}
+          invalid={state.get.invalid}
+          errorText={state.get.errorText}
+          helpText={state.get.helpText}
+          requiredText={state.get.requiredText}
+          onChange={onChange}
+        />
+        <VsfCheckbox
+          value="value-2"
+          label={state.get.label}
+          indeterminate={state.get.indeterminate}
+          required={state.get.required}
+          disabled={state.get.disabled}
+          alignment={state.get.alignment}
+          invalid={state.get.invalid}
+          errorText={state.get.errorText}
+          helpText={state.get.helpText}
+          requiredText={state.get.requiredText}
+          onChange={onChange}
+        />
+        <VsfCheckbox
+          value="value-3"
           label={state.get.label}
           indeterminate={state.get.indeterminate}
           required={state.get.required}

@@ -1,3 +1,4 @@
+import { ChangeEvent } from 'react';
 import type { PropsWithStyle } from '../../shared/types';
 
 export enum VsfCheckboxAlignments {
@@ -17,5 +18,5 @@ export interface VsfCheckboxProps extends PropsWithStyle {
   helpText?: string;
   errorText?: string;
   requiredText?: string;
-  onChange: (value: boolean) => void;
+  onChange: (value: string, event: ChangeEvent<HTMLInputElement>) => void;
 }

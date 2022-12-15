@@ -52,7 +52,7 @@ export default function VsfCheckbox({
           checked={checked}
           ref={checkboxRef}
           value={value}
-          onChange={(event) => onChange(event.target.checked)}
+          onChange={(event) => onChange(event.target.value, event)}
           data-testid="checkbox-input"
         />
         <span className="vsf-checkbox__label" data-testid="checkbox-label">
