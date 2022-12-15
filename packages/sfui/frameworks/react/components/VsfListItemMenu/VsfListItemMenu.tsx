@@ -16,10 +16,11 @@ export default function VsfListItemMenu({
   slotPrefix,
   slotSuffix,
   truncate,
+  tag,
   onClick = () => ({}),
 }: VsfListItemMenuProps): JSX.Element {
   //  TODO: Replace with Link component when its done
-  const TagComponent = link ? 'a' : 'button';
+  const TagComponent = tag || (link ? 'a' : 'button');
   const componentType = !link ? 'button' : undefined;
   const componentDisabled = !link ? disabled : undefined;
   return (

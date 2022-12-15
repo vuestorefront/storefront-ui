@@ -23,6 +23,7 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 | disabled           | Boolean | false         |                    |
 | selected           | Boolean | false         |                    |
 | selectedBackground | Boolean | false         |                    |
+| tag                | 'li'    | undefined     |                    |
 
 ## Slots
 
@@ -48,6 +49,7 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 | disabled           | Boolean     | false         |                            |
 | selected           | Boolean     | false         |                            |
 | selectedBackground | Boolean     | false         |                            |
+| tag                | 'li'        | undefined     |                            |
 | onClick            | `Function`  |               |                            |
 | slotPrefix         | `ReactNode` |               | Right side slotted content |
 | slotSuffix         | `ReactNode` |               | Left side slotted content  |

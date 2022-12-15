@@ -81,35 +81,34 @@ function Example() {
   return (
     <div className="e-page">
       <div className="e-page-component">
-        <VsfListItemFilterRadio
-          className="max-w-sm"
-          size={state.get.size}
-          variant={state.get.variant}
-          label={state.get.label}
-          counter={state.get.counter}
-          secondaryText={state.get.secondaryText}
-          selected={state.get.selected}
-          disabled={state.get.disabled}
-          truncate={state.get.truncate}
-          value={state.get.value}
-          name={state.get.name}
-          onChange={(selected) => state.set({ ...state.get, selected })}
-        />
-        <br />
-        <VsfListItemFilterRadio
-          className="max-w-sm"
-          size={state.get.size}
-          variant={state.get.variant}
-          label={`${state.get.label}-2`}
-          counter={state.get.counter}
-          secondaryText={state.get.secondaryText}
-          selected={state.get.selected}
-          disabled={state.get.disabled}
-          truncate={state.get.truncate}
-          value={`${state.get.value}-2`}
-          name={state.get.name}
-          onChange={(selected) => state.set({ ...state.get, selected })}
-        />
+        <ul className="max-w-sm">
+          <VsfListItemFilterRadio
+            size={state.get.size}
+            variant={state.get.variant}
+            label={state.get.label}
+            counter={state.get.counter}
+            secondaryText={state.get.secondaryText}
+            selected={state.get.selected}
+            disabled={state.get.disabled}
+            truncate={state.get.truncate}
+            value={state.get.value}
+            name={state.get.name}
+            onChange={(selected) => state.set({ ...state.get, selected })}
+          />
+          <VsfListItemFilterRadio
+            size={state.get.size}
+            variant={state.get.variant}
+            label={`${state.get.label}-2`}
+            counter={state.get.counter}
+            secondaryText={state.get.secondaryText}
+            selected={state.get.selected}
+            disabled={state.get.disabled}
+            truncate={state.get.truncate}
+            value={`${state.get.value}-2`}
+            name={state.get.name}
+            onChange={(selected) => state.set({ ...state.get, selected })}
+          />
+        </ul>
       </div>
       <div className="e-page-controls">
         <Controls {...{ state, controls }} />

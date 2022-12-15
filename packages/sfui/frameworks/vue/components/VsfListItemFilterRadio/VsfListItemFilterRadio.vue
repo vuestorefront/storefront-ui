@@ -36,7 +36,7 @@ const toggle = (value: string, modelValue: string) => {
 </script>
 
 <template>
-  <VsfListItemMenu v-bind="props" @click="$emit('update:modelValue', toggle(value, modelValue))">
+  <VsfListItemMenu v-bind="props" tag="li" @click="$emit('update:modelValue', toggle(value, modelValue))">
     <template v-if="variant === VsfListItemFilterRadioVariant.left" #prefix>
       <VsfRadio
         :value="value"

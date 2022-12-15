@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { PropType, computed } from 'vue';
+import { PropType, computed, toRefs } from 'vue';
 import { VsfListItemMenuSizes } from './types';
 import VsfCounter from '../VsfCounter/VsfCounter.vue';
 import { VsfCounterSizes } from '../VsfCounter/types';
@@ -41,17 +41,16 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  tag: {
+    type: String as PropType<'li'>,
+    default: undefined
+  }
 });
+const { tag, link, disabled } = toRefs(props);
 // TODO: replace with link component when ready
-const componentTag = computed(() => {
-  return props.link ? 'a' : 'button';
-});
-const componentType = computed(() => {
-  return props.link && 'button';
-});
-const componentDisabled = computed(() => {
-  return !props.link ? props.disabled : null;
-});
+const componentTag = computed(() => tag?.value ?? (link?.value ? 'a' : 'button'));
+const componentType = computed(() => tag?.value ? undefined : link?.value && 'button');
+const componentDisabled = computed(() => (!link?.value || tag?.value) ? disabled.value : undefined);
 </script>
 
 <template>

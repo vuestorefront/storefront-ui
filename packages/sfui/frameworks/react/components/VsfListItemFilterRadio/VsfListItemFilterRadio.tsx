@@ -22,6 +22,7 @@ export default function VsfListItemFilterRadio({
 
   return (
     <VsfListItemMenu
+      tag="li"
       label={label}
       counter={counter}
       size={size}

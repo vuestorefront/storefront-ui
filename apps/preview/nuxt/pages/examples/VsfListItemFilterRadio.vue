@@ -1,33 +1,32 @@
 <template>
   <div class="e-page">
     <div class="e-page-component">
-      <VsfListItemFilterRadio
-        v-model="modelValue"
-        class="max-w-sm"
-        :counter="counter"
-        :label="label"
-        :size="size"
-        :variant="variant"
-        :secondary-text="secondaryText"
-        :disabled="disabled"
-        :selected="selected"
-        :truncate="truncate"
-        :value="value"
-      />
-      <br />
-      <VsfListItemFilterRadio
-        v-model="modelValue"
-        class="max-w-sm"
-        :counter="counter"
-        :label="`${label}-2`"
-        :size="size"
-        :variant="variant"
-        :secondary-text="secondaryText"
-        :disabled="disabled"
-        :selected="selected"
-        :truncate="truncate"
-        :value="`${value}-2`"
-      />
+      <ul class="max-w-sm">
+        <VsfListItemFilterRadio
+          v-model="modelValue"
+          :counter="counter"
+          :label="label"
+          :size="size"
+          :variant="variant"
+          :secondary-text="secondaryText"
+          :disabled="disabled"
+          :selected="selected"
+          :truncate="truncate"
+          :value="value"
+        />
+        <VsfListItemFilterRadio
+          v-model="modelValue"
+          :counter="counter"
+          :label="`${label}-2`"
+          :size="size"
+          :variant="variant"
+          :secondary-text="secondaryText"
+          :disabled="disabled"
+          :selected="selected"
+          :truncate="truncate"
+          :value="`${value}-2`"
+        />
+      </ul>
     </div>
     <div class="e-page-controls">
       <Controls v-bind="controlsAttrs" />

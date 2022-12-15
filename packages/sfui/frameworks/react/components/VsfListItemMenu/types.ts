@@ -19,5 +19,6 @@ export interface VsfListItemMenuProps {
   slotSuffix?: ReactNode;
   slotPrefix?: ReactNode;
   truncate?: boolean;
+  tag?: 'li';
   onClick?: (selected: boolean) => void;
 }
