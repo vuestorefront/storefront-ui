@@ -14,6 +14,34 @@
         :indeterminate="indeterminate"
         :required="required"
       ></VsfCheckbox>
+
+      <VsfCheckbox
+        v-model="checked"
+        :label="`${label}-1`"
+        :value="`${value}-1`"
+        :disabled="disabled"
+        :help-text="helpText"
+        :error-text="errorText"
+        :required-text="requiredText"
+        :alignment="alignment"
+        :invalid="invalid"
+        :indeterminate="indeterminate"
+        :required="required"
+      ></VsfCheckbox>
+
+      <VsfCheckbox
+        v-model="checked"
+        :label="`${label}-2`"
+        :value="`${value}-2`"
+        :disabled="disabled"
+        :help-text="helpText"
+        :error-text="errorText"
+        :required-text="requiredText"
+        :alignment="alignment"
+        :invalid="invalid"
+        :indeterminate="indeterminate"
+        :required="required"
+      ></VsfCheckbox>
     </div>
     <div class="e-page-controls">
       <Controls v-bind="controlsAttrs" />
@@ -36,6 +64,12 @@ export default defineComponent({
   setup() {
     return prepareControls(
       [
+        {
+          type: 'text',
+          modelName: 'checked',
+          propDefaultValue: '',
+          propType: 'string',
+        },
         {
           type: 'text',
           modelName: 'value',
@@ -101,7 +135,7 @@ export default defineComponent({
         helpText: ref('Help Text'),
         errorText: ref('Error Message'),
         requiredText: ref('Required'),
-        checked: ref(false),
+        checked: ref([]),
       },
     );
   },

@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import { PropType, ref } from 'vue';
+import { computed, PropType, ref, toRefs } from 'vue';
 import { VsfCheckboxAlignments } from './types';
 
 const props = defineProps({
+  modelValue: {
+    type: [Boolean, Array] as PropType<string[] | boolean>,
+    default: undefined,
+  },
   value: {
     type: String,
     default: '',
-  },
-  checked: {
-    type: Boolean,
-    default: false,
   },
   disabled: {
     type: Boolean,
@@ -48,13 +48,18 @@ const props = defineProps({
     default: '',
   },
 });
-const isChecked = ref(props.checked);
+const { modelValue } = toRefs(props);
+
 const emit = defineEmits<{
-  (event: 'update:modelValue', param: boolean): void;
+  (event: 'update:modelValue', param: string[] | boolean): void;
 }>();
-const onChangeHandler = (event: Event) => {
-  emit('update:modelValue', (event.target as HTMLInputElement).checked);
-};
+
+const proxyChecked = computed({
+  get: () => modelValue?.value,
+  set: (value) => {
+    value && emit('update:modelValue', value);
+  },
+});
 </script>
 
 <template>
@@ -65,7 +70,7 @@ const onChangeHandler = (event: Event) => {
   >
     <label class="vsf-checkbox__wrapper" :class="`vsf-checkbox__wrapper--alignment-${alignment}`">
       <input
-        v-model="isChecked"
+        v-model="proxyChecked"
         class="vsf-checkbox__input"
         :class="{ 'vsf-checkbox__input--invalid': invalid && !disabled && !indeterminate && !checked }"
         type="checkbox"
@@ -74,7 +79,6 @@ const onChangeHandler = (event: Event) => {
         :indeterminate="indeterminate"
         :value="value"
         data-testid="checkbox-input"
-        @change="onChangeHandler"
       />
       <slot name="label">
         <span class="vsf-checkbox__label" data-testid="checkbox-label">
