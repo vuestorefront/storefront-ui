@@ -16,7 +16,7 @@ describe("VsfCheckbox", () => {
   let requiredText: string;
   let invalid: boolean;
   let onChangeSpy: Cypress.Agent<sinon.SinonSpy>;
-  let value = "";
+  let value = "value";
 
   const page = () => new VsfCheckboxBaseObject('checkbox');
 
@@ -33,8 +33,7 @@ describe("VsfCheckbox", () => {
           helpText,
           requiredText,
           invalid,
-          modelValue: value,
-          'onUpdate:modelValue': onChangeSpy
+          modelValue: onChangeSpy,
         },
       },
       react: <VsfCheckboxReact
@@ -53,6 +52,8 @@ describe("VsfCheckbox", () => {
 
   beforeEach(() => {
     label = 'Label';
+    value = 'value';
+    invalid = false;
     onChangeSpy = cy.spy();
     alignment = VsfCheckboxAlignments.leading;
 

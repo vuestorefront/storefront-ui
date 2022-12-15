@@ -72,7 +72,9 @@ const proxyChecked = computed({
       <input
         v-model="proxyChecked"
         class="vsf-checkbox__input"
-        :class="{ 'vsf-checkbox__input--invalid': invalid && !disabled && !indeterminate && !checked }"
+        :class="{
+          'vsf-checkbox__input--invalid': invalid && !disabled && !indeterminate,
+        }"
         type="checkbox"
         :disabled="disabled"
         :required="required"
@@ -89,7 +91,7 @@ const proxyChecked = computed({
     <div class="vsf-checkbox__text-wrapper" :class="`vsf-checkbox__text-wrapper-${alignment}`">
       <slot name="errorText">
         <p
-          v-if="invalid && !!errorText && !disabled && !indeterminate && !checked && !required"
+          v-if="invalid && !!errorText && !disabled && !indeterminate && !required"
           class="vsf-checkbox__error-text"
           data-testid="checkbox-error-text"
         >

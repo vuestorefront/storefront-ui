@@ -14,7 +14,6 @@
         :indeterminate="indeterminate"
         :required="required"
       ></VsfCheckbox>
-
       <VsfCheckbox
         v-model="checked"
         :label="`${label}-1`"
@@ -28,7 +27,6 @@
         :indeterminate="indeterminate"
         :required="required"
       ></VsfCheckbox>
-
       <VsfCheckbox
         v-model="checked"
         :label="`${label}-2`"
