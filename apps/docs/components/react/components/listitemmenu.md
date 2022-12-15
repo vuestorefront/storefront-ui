@@ -11,26 +11,31 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 
 
+
 ## Props
 
-| Prop name   | Type    | Default value | Possible values                        |
-| ----------- | ------- | ------------- | ------------------------------------ |
-| size        | String  | 'base'      | 'sm', 'base', 'lg' |
-| link       | String  | ''            |                    |
-| label    | String | ''         |                    |
-| secondaryText    | String | ''         |                    |
-| counter    | String | ''         |                    |
-| truncate    | Boolean | false         |                    |
-| disabled    | Boolean | false         |                    |
-| selected    | Boolean | false |         |                 |
-| onClick  | `Function` |               |                 |
-| slotPreffix | `ReactNode` |               | Right side slotted content  |
-| slotSuffix | `ReactNode` |               | Left side slotted content  |
+| Prop name          | Type        | Default value | Possible values            |
+| ------------------ | ----------- | ------------- | -------------------------- |
+| size               | String      | 'base'        | 'sm', 'base', 'lg'         |
+| link               | String      | ''            |                            |
+| label              | String      | ''            |                            |
+| secondaryText      | String      | ''            |                            |
+| counter            | String      | ''            |                            |
+| truncate           | Boolean     | false         |                            |
+| disabled           | Boolean     | false         |                            |
+| selected           | Boolean     | false         |                            |
+| selectedBackground | Boolean     | false         |                            |
+| onClick            | `Function`  |               |                            |
+| slotPrefix         | `ReactNode` |               | Right side slotted content |
+| slotSuffix         | `ReactNode` |               | Left side slotted content  |
+
 
 
 ## Source code
 
 
 
+
 <<< ../../../packages/sfui/frameworks/react/components/VsfListItemMenu/VsfListItemMenu.tsx
+
 

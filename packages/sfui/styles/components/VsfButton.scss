@@ -2,7 +2,7 @@
   $self: &;
   @apply inline-flex items-center justify-center cursor-pointer font-body outline-violet font-medium text-base;
 
-  &:not(.vsf-button--tile) {
+  &:not(.vsf-button--tile, .vsf-button--rounded) {
     @apply rounded-md;
   }
 

@@ -1,13 +1,9 @@
 <script setup lang="ts">
-import { PropType } from 'vue';
+import { PropType, computed, toRefs } from 'vue';
 import { VsfRadioAlignments } from './types';
 
-const emit = defineEmits<{
-  (e: 'change:radio', val: string): void;
-}>();
-
-defineProps({
-  id: {
+const props = defineProps({
+  modelValue: {
     type: String,
     default: '',
   },
@@ -40,28 +36,34 @@ defineProps({
     default: '',
   },
 });
+const emit = defineEmits<{
+  (event: 'update:modelValue', value: string): void;
+}>();
+
+const { modelValue } = toRefs(props);
+const proxyChecked = computed({
+  get: () => modelValue.value,
+  set: (val) => {
+    emit('update:modelValue', val);
+  },
+});
 </script>
 <template>
-  <div :class="['vsf-radio', `vsf-radio--alignment-${alignment}`, { 'vsf-radio--disabled': disabled }]">
-    <div class="vsf-radio__input-wrapper">
-      <input
-        :id="id"
-        :name="name"
-        type="radio"
-        :value="value"
-        class="vsf-radio__input"
-        :disabled="disabled"
-        :required="required"
-        @change="emit('change:radio', value)"
-      />
+  <label :class="['vsf-radio', `vsf-radio--alignment-${alignment}`, { 'vsf-radio--disabled': disabled }]">
+    <input
+      v-model="proxyChecked"
+      :name="name"
+      type="radio"
+      :value="value"
+      class="vsf-radio__input"
+      :disabled="disabled"
+      :required="required"
+    />
+    <div v-if="label || helpText" class="vsf-radio__content-wrapper">
+      <p>{{ label }}</p>
+      <p v-if="helpText" class="vsf-radio__help-text">
+        {{ helpText }}
+      </p>
     </div>
-    <div class="vsf-radio__label-wrapper">
-      <label :for="id" class="vsf-radio__label">
-        <p>{{ label }}</p>
-        <p v-if="helpText" :id="id" class="vsf-radio__help-text">
-          {{ helpText }}
-        </p>
-      </label>
-    </div>
-  </div>
+  </label>
 </template>

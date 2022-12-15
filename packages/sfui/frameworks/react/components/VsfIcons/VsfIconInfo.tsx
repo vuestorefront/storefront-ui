@@ -2,9 +2,21 @@ import type { VsfIconProps } from './types';
 import VsfIconBase from '../VsfIconBase';
 import { VsfIconSizeEnum } from '../VsfIconBase/types';
 
-export default function VsfIconInfo({ className = '', size = VsfIconSizeEnum.base, ariaLabel = 'info' }: VsfIconProps) {
+export default function VsfIconInfo({
+  className = '',
+  size = VsfIconSizeEnum.base,
+  ariaLabel = 'info',
+  viewBox,
+  ...attributes
+}: VsfIconProps) {
   return (
-    <VsfIconBase className={className} size={size} ariaLabel={ariaLabel} viewBox="0 0 24 24">
+    <VsfIconBase
+      {...attributes}
+      className={className}
+      size={size}
+      ariaLabel={ariaLabel}
+      viewBox={viewBox ?? '0 0 24 24'}
+    >
       <>
         <path d="M12 17a1 1 0 0 1-1-1v-4a1 1 0 1 1 2 0v4a1 1 0 0 1-1 1Zm0-7.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5Z" />
         <path

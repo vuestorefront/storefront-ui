@@ -10,10 +10,11 @@
         :secondary-text="secondaryText"
         :truncate="truncate"
         :selected="selected"
+        :selected-background="selectedBackground"
         :disabled="disabled"
         @click="selected = !selected"
       >
-        <template v-if="showPreffix" #preffix>
+        <template v-if="showprefix" #prefix>
           <VsfIconCheck :size="VsfIconSizeEnum.sm" />
         </template>
         <template v-if="showSuffix" #suffix>
@@ -77,8 +78,8 @@ export default defineComponent({
           },
           {
             type: 'boolean',
-            modelName: 'showPreffix',
-            description: 'Show or hide the preffix content',
+            modelName: 'showprefix',
+            description: 'Show or hide the prefix content',
           },
           {
             type: 'select',
@@ -98,6 +99,11 @@ export default defineComponent({
           },
           {
             type: 'boolean',
+            modelName: 'selectedBackground',
+            description: 'Show selected background state of component',
+          },
+          {
+            type: 'boolean',
             modelName: 'truncate',
             description: 'Show truncated version of secondary text',
           },
@@ -108,10 +114,11 @@ export default defineComponent({
           link: ref(undefined),
           counter: ref(123),
           showSuffix: ref(false),
-          showPreffix: ref(false),
+          showprefix: ref(false),
           secondaryText: ref('Secondary text'),
           disabled: ref(undefined),
           selected: ref(false),
+          selectedBackground: ref(false),
           truncate: ref(false),
         },
       ),

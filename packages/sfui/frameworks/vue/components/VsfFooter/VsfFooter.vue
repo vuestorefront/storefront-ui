@@ -82,9 +82,9 @@ defineProps({
             </template>
           </slot>
         </div>
-        <span class="vsf-footer__label--company-name">
+        <p class="vsf-footer__label--company-name">
           {{ companyName }}
-        </span>
+        </p>
       </div>
     </div>
   </footer>

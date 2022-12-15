@@ -6,7 +6,7 @@ import VsfIconChevronRight from '../VsfIcons/VsfIconChevronRight';
 import type { VsfSliderProps } from './types';
 import { VsfSliderNavigation, VsfSliderScrollbar } from './types';
 import { useSlider } from './slider';
-import { VsfButtonVariants } from '../VsfButton';
+import { VsfButtonVariants, VsfButtonSizes } from '../VsfButton';
 
 export default function VsfSlider({
   navigation,
@@ -40,6 +40,7 @@ export default function VsfSlider({
   const prevButtonDefault = (
     <VsfButton
       variant={VsfButtonVariants.secondary}
+      size={VsfButtonSizes.lg}
       icon
       rounded
       className={classNames('vsf-slider__nav-arrow', { 'vsf-slider__nav-arrow--hidden': !hasPrev })}
@@ -52,6 +53,7 @@ export default function VsfSlider({
   const nextButtonDefault = (
     <VsfButton
       variant={VsfButtonVariants.secondary}
+      size={VsfButtonSizes.lg}
       icon
       rounded
       className={classNames('vsf-slider__nav-arrow', { 'vsf-slider__nav-arrow--hidden': !hasNext })}

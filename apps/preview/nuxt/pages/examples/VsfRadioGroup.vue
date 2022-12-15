@@ -2,8 +2,6 @@
   <div class="e-page">
     <div class="e-page-component">
       <VsfRadioGroup
-        :id="id"
-        v-model="radioGroupModelValue"
         :legend="legend"
         :direction="direction"
         :required="required"
@@ -14,15 +12,14 @@
       >
         <VsfRadio
           v-for="(radio, key) in radioDataModel"
-          :id="radio.id"
           :key="key"
+          v-model="radioGroupModelValue"
+          :value="radio.value"
           :name="radio.name"
           :label="radio.label"
-          :value="radio.value"
           :help-text="radio.helpText"
           :required="required"
           class="mb-4 mr-6"
-          @change:radio="selectedValue = $event"
         />
       </VsfRadioGroup>
     </div>
@@ -47,17 +44,14 @@ export default defineComponent({
     Controls,
   },
   setup() {
-    const radioGroupModelValue = '';
     const radioData = [
       {
-        id: 'radio-1',
         name: 'radio',
         label: 'Radio 1',
         value: 'radio 1',
         helpText: 'Help text',
       },
       {
-        id: 'radio-2',
         name: 'radio',
         label: 'Radio 2',
         value: 'radio 2',
@@ -67,12 +61,6 @@ export default defineComponent({
     return {
       ...prepareControls(
         [
-          {
-            type: 'text',
-            modelName: 'id',
-            propType: 'string',
-            isRequired: true,
-          },
           {
             type: 'text',
             modelName: 'legend',
@@ -120,9 +108,13 @@ export default defineComponent({
             propType: '[]',
             propDefaultValue: '[]',
           },
+          {
+            type: 'text',
+            modelName: 'radioGroupModelValue',
+            description: 'whole group modelValue (selected radio)',
+          },
         ],
         {
-          id: ref('radio-group-1'),
           legend: ref(''),
           required: ref(false),
           invalid: ref(false),
@@ -131,8 +123,7 @@ export default defineComponent({
           errorText: ref('Error message'),
           direction: ref(VsfRadioGroupDirections.vertical),
           radioDataModel: ref(radioData),
-          selectedValue: ref(''),
-          radioGroupModelValue: ref(radioGroupModelValue),
+          radioGroupModelValue: ref(''),
         },
       ),
     };

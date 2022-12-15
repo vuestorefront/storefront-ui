@@ -69,7 +69,7 @@ function Example() {
         type: 'select',
         modelName: 'size',
         options: Object.keys(VsfProductCardSizes),
-        propDefaultValue: VsfProductCardSizes.default,
+        propDefaultValue: VsfProductCardSizes.responsive,
         propType: 'string',
       },
       {
@@ -146,7 +146,7 @@ function Example() {
       title: 'The standard chunk of Lorem Ipsum',
       price: '$2,345.99',
       oldPrice: '$3,132.99',
-      size: VsfProductCardSizes.default,
+      size: VsfProductCardSizes.responsive,
       link: '/',
       linkTag: LinkTagTypes.NextLink,
       outOfStock: false,
@@ -204,7 +204,7 @@ function Example() {
   }, []);
 
   useEffect(() => {
-    if (!VsfProductCardSizes.default) return;
+    if (!VsfProductCardSizes.responsive) return;
     if (newWindowWidth < 768) {
       setAddToCartLabel('Add');
       badgeSize = '';
@@ -289,7 +289,7 @@ function Example() {
           }
           slotImageTop={
             state.get.vertical &&
-            state.get.size === 'default' &&
+            state.get.size === 'responsive' &&
             badgeSize === 'base' && (
               <VsfTag size={VsfTagSizes.base} strong label={state.get.badgeText} variant={VsfTagVariants.secondary}>
                 <VsfIconHot size={VsfIconSizeEnum.sm} ariaLabel={state.get.ariaLabelBadge} />

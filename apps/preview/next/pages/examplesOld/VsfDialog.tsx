@@ -1,6 +1,6 @@
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import VsfDialog from '~/output/blocks/VsfDialog/VsfDialog.lite';
-import VsfButton from '~/output/blocks/VsfButton/VsfButton.lite';
+// import VsfButton from '~/output/blocks/VsfButton/VsfButton.lite';
 import { useEffect, useRef } from 'react';
 import { ExamplePageLayout } from '../examplesOld';
 
@@ -44,18 +44,18 @@ const Example = () => {
             Button is autofocused, cant do it with VsfButton because 	&#123;...atributes&#125;
             <div className="flex justify-between">
               <button autoFocus className='focus:bg-gray-500'>Autofocused button</button>
-              <VsfButton onClick={() => {
+              <button onClick={() => {
                 state.set({ ...state.get, openModel: false })
                 setTimeout(() => {
                   alert('Canceled')
                 })
-              }}>Close</VsfButton>
-              <VsfButton onClick={() => {
+              }}>Close</button>
+              <button onClick={() => {
                 state.set({ ...state.get, openModel: false })
                 setTimeout(() => {
                   alert('Accepted')
                 })
-              }}>Accept</VsfButton>
+              }}>Accept</button>
             </div>
           </menu>
         </VsfDialog>

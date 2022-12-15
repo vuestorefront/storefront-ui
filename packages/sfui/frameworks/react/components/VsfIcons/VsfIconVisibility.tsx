@@ -6,9 +6,17 @@ export default function VsfIconVisibility({
   className = '',
   size = VsfIconSizeEnum.base,
   ariaLabel = 'visibility',
+  viewBox,
+  ...attributes
 }: VsfIconProps) {
   return (
-    <VsfIconBase className={className} size={size} ariaLabel={ariaLabel} viewBox="0 0 24 24">
+    <VsfIconBase
+      {...attributes}
+      className={className}
+      size={size}
+      ariaLabel={ariaLabel}
+      viewBox={viewBox ?? '0 0 24 24'}
+    >
       <>
         <path d="M13.833 12a1.833 1.833 0 1 1-3.666 0 1.833 1.833 0 0 1 3.666 0Z" />
         <path

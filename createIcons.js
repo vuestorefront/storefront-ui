@@ -91,7 +91,7 @@ const attributesMap = {
 
 const vueIcon = (name, content, attributes) => `
 <template>
-    <VsfIconBase :size="size" aria-label="${name}" ${attributes} content="${content}"/>
+    <VsfIconBase :size="size" aria-label="${name}" viewBox="${attributes.viewBox}" content="${content}"/>
 </template>
 <script lang="ts" setup>
 import { PropType } from 'vue';
@@ -114,9 +114,11 @@ import { VsfIconSizeEnum } from '${relativePathToIconBasePath}VsfIconBase/types'
 export default function VsfIcon${camelCaseName}({
     className = '',
     size = VsfIconSizeEnum.base,
-    ariaLabel = '${name}'
+    ariaLabel = '${name}',
+    viewBox,
+    ...attributes
 }: VsfIconProps) {
-    return <VsfIconBase className={className} size={size} ariaLabel={ariaLabel} ${attributes}>${content}</VsfIconBase>;
+    return <VsfIconBase {...attributes} className={className} size={size} ariaLabel={ariaLabel} viewBox={viewBox ?? '${attributes.viewBox}'}>${content}</VsfIconBase>;
 }`;
 
 const vueExports = [];
@@ -180,9 +182,9 @@ const createExports = async (file, doOptimiziation) => {
         } = await getSvg(file, doOptimiziation);
 
         const capitializedCamelCaseName = capitalize(camelize(fileName));
-        const attributes = `viewBox="${attrs.viewBox ?? '0 0 24 24'}"`;
+        const attributes = { viewBox: attrs.viewBox ?? '0 0 24 24' };
         const componentName = `VsfIcon${capitializedCamelCaseName}`;
-        
+
         if (framework === 'vue') {
             await fsPromise.writeFile(
                 `${outputDirectoryPath}${componentName}.vue`,

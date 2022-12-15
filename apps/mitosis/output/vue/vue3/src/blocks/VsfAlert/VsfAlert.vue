@@ -9,7 +9,7 @@
   >
     <div class="flex gap-2">
       <template v-if="!$slots.icon">
-        <template v-if="useTypeProp === VsfAlertTypes.info">
+        <!-- <template v-if="useTypeProp === VsfAlertTypes.info">
           <vsf-icon-info
             :class="_classStringToObject(iconClasses)"
           ></vsf-icon-info>
@@ -31,7 +31,7 @@
           <vsf-icon-error
             :class="_classStringToObject(iconClasses)"
           ></vsf-icon-error>
-        </template>
+        </template> -->
       </template>
 
       <template v-else>
@@ -49,10 +49,10 @@
         :class="_classStringToObject(usePersistentProp && 'hidden')"
         @click="close()"
       >
-        <vsf-icon-close
+        <!-- <vsf-icon-close
           aria-hidden="true"
           :class="_classStringToObject(iconClasses)"
-        ></vsf-icon-close>
+        ></vsf-icon-close> -->
       </button>
     </template>
 
@@ -78,11 +78,11 @@ export interface VsfAlertProps {
 }
 
 import { classStringFromArray } from "../../functions/domUtils";
-import VsfIconInfo from "../VsfIcons/VsfIconInfo.vue";
-import VsfIconCheckCircle from "../VsfIcons/VsfIconCheckCircle.vue";
-import VsfIconWarning from "../VsfIcons/VsfIconWarning.vue";
-import VsfIconError from "../VsfIcons/VsfIconError.vue";
-import VsfIconClose from "../VsfIcons/VsfIconClose.vue";
+// import VsfIconInfo from "../VsfIcons/VsfIconInfo.vue";
+// import VsfIconCheckCircle from "../VsfIcons/VsfIconCheckCircle.vue";
+// import VsfIconWarning from "../VsfIcons/VsfIconWarning.vue";
+// import VsfIconError from "../VsfIcons/VsfIconError.vue";
+// import VsfIconClose from "../VsfIcons/VsfIconClose.vue";
 export const VsfAlertTypes = Object.freeze({
   info: "info",
   positive: "positive",
@@ -101,13 +101,13 @@ const DEFAULT_VALUES: Required<VsfAlertProps> = {
 
 export default {
   name: "vsf-alert",
-  components: {
-    "vsf-icon-info": VsfIconInfo,
-    "vsf-icon-check-circle": VsfIconCheckCircle,
-    "vsf-icon-warning": VsfIconWarning,
-    "vsf-icon-error": VsfIconError,
-    "vsf-icon-close": VsfIconClose,
-  },
+  // components: {
+  //   "vsf-icon-info": VsfIconInfo,
+  //   "vsf-icon-check-circle": VsfIconCheckCircle,
+  //   "vsf-icon-warning": VsfIconWarning,
+  //   "vsf-icon-error": VsfIconError,
+  //   "vsf-icon-close": VsfIconClose,
+  // },
   props: [
     "type",
     "persistent",

@@ -85,7 +85,7 @@ html {
   -o-tab-size: 4;
   tab-size: 4;
   /* 3 */
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+  font-family: Red Hat Text, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
     'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   /* 4 */
 }
@@ -145,6 +145,7 @@ Reset links to optimize for opt-in styling instead of opt-out.
 */
 
 a {
+  display: inline-block;
   color: inherit;
   text-decoration: inherit;
 }
@@ -256,9 +257,9 @@ select {
 1. Correct the inability to style clickable types in iOS and Safari.
 2. Remove default button styles.
 */
-/* 
+/*
   TODO
-  Specificity of the [type="xxx"] attribute cannot be overriden by a single class, 
+  Specificity of the [type="xxx"] attribute cannot be overriden by a single class,
   i.e. TW's 'bg-class' has no impact in these elements.
   https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity
 */

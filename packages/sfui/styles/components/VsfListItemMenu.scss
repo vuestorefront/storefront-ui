@@ -1,6 +1,6 @@
 .vsf-list-item-menu {
   $self: &;
-  @apply relative inline-flex text-left items-center font-normal font-body text-base w-full bg-white hover:bg-gray-100 active:bg-gray-100 disabled:opacity-40 disabled:bg-white disabled:cursor-not-allowed;
+  @apply relative inline-flex text-left items-center font-normal font-body text-base w-full bg-white hover:bg-gray-100 active:bg-gray-100 disabled:opacity-40 disabled:bg-white disabled:cursor-not-allowed cursor-pointer;
 
   &__content {
     @apply flex flex-col w-full min-w-0;
@@ -25,26 +25,28 @@
   &__icon {
     @apply flex-grow-0 text-gray-500;
 
-    &--preffix {
+    &--prefix {
       @apply mr-2.5;
     }
   }
 
   &--selected {
-    @apply bg-primary-50;
-
     #{$self}__label {
       @apply font-medium;
     }
 
-    #{$self}__icon--preffix {
+    #{$self}__icon--prefix {
       @apply text-primary-700;
     }
   }
 
+  &--selected-bg {
+    @apply bg-primary-50;
+  }
+
   &--disabled {
 
-    #{$self}__icon--preffix {
+    #{$self}__icon--prefix {
       @apply text-gray-500;
     }
   }

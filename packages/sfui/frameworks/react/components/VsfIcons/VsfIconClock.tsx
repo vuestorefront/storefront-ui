@@ -6,9 +6,17 @@ export default function VsfIconClock({
   className = '',
   size = VsfIconSizeEnum.base,
   ariaLabel = 'clock',
+  viewBox,
+  ...attributes
 }: VsfIconProps) {
   return (
-    <VsfIconBase className={className} size={size} ariaLabel={ariaLabel} viewBox="0 0 24 24">
+    <VsfIconBase
+      {...attributes}
+      className={className}
+      size={size}
+      ariaLabel={ariaLabel}
+      viewBox={viewBox ?? '0 0 24 24'}
+    >
       <>
         <path d="M11 7.75a.75.75 0 0 1 1.5 0v4.5l3.875 2.299a.718.718 0 1 1-.737 1.234L11 13V7.75Z" />
         <path

@@ -8,13 +8,14 @@ export default function VsfAccordionItem({
   chevronLeft,
   slotPrefix,
   slotSuffix,
+  onToggle,
   children,
   className,
   ...attributes
 }: VsfAccordionItemProps): JSX.Element {
   const classes = classNames([className, 'vsf-accordion-item']);
   return (
-    <details className={classes} open={open} {...attributes} data-testid="accordion-item">
+    <details className={classes} open={open} onToggle={onToggle} {...attributes} data-testid="accordion-item">
       <summary className={`${chevronLeft && 'vsf-accordion-item__header--right'} vsf-accordion-item__header`}>
         {slotPrefix || (
           <span

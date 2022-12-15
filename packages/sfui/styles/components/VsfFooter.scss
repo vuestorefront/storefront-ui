@@ -3,25 +3,31 @@
 
   &__section {
     &--top {
-      @apply grid justify-center grid-cols-[1fr_1fr] medium:grid-cols-[repeat(4,1fr)] px-4 medium:px-6 pb-10 4-extra-large:max-w-[1536px] mx-auto;
+      @apply grid justify-center grid-cols-[1fr_1fr] medium:grid-cols-[repeat(4,1fr)] px-4 medium:px-6 pb-10 max-w-[1536px] mx-auto;
     }
 
     &--middle {
-      @apply py-10 large:flex 4-extra-large:max-w-[1536px] large:mx-auto;
+      @apply py-10 large:flex large:mx-auto max-w-[1536px];
     }
 
     &--bottom {
       @apply bg-gray-900;
 
       &__wrapper {
-        @apply justify-end px-4 py-10 bg-gray-900 large:flex large:py-6 4-extra-large:max-w-[1536px] mx-auto;
+        @apply justify-end px-4 py-10 large:flex large:py-6 max-w-[1536px] mx-auto;
       }
     }
   }
 
   &__column {
     &--top {
-      @apply min-w-[120px] extra-small:min-w-[172px];
+      @apply min-w-[25%] extra-small:min-w-[50%] extra-small:pb-4;
+
+      a, button {
+        &:hover{
+          @apply text-gray-900 underline;
+        }
+      }
     }
 
     &--middle {
@@ -29,41 +35,71 @@
     }
   }
 
+  &__social-media,
+  &__bottom-links {
+    @apply py-2 flex justify-center;
+  }
+
   &__social-media {
-    @apply flex justify-center py-2 large:self-start;
+    @apply large:self-start;
   }
 
   &__bottom-links {
-    @apply flex justify-center gap-6 py-2 my-4 large:ml-auto large:my-0;
+    @apply gap-6 my-4 large:ml-auto large:my-0;
   }
 
   &__label {
+    &--category,
+    &--contact {
+      @apply font-medium leading-7 font-body text-gray-900 text-lg;
+    }
+
     &--category {
-      @apply block pb-2 text-lg font-medium leading-7 text-gray-900 font-body;
+      @apply pb-2;
     }
 
     &--subcategory {
-      @apply block py-2 text-sm font-normal leading-5 text-gray-600 font-body;
+      @apply py-2 text-gray-600 font-body;
     }
 
     &--contact {
-      @apply block py-1 my-2 text-lg font-medium leading-7 text-gray-900 underline font-body;
+      @apply py-1 my-2;
     }
 
     &--social-media {
       @apply mr-4 text-white;
+
+      .vsf-icon {
+        @apply hover:bg-gray-500 hover:shadow-[0_0_0_8px] hover:shadow-gray-500 rounded-full;
+      }
+    }
+
+    &--contact,
+    &--bottom-links {
+      > a, > button {
+        &:hover{
+          @apply underline;
+        }
+      }
+    }
+
+    &--bottom-links,
+    &--company-name,
+    &--contact-description,
+    &--subcategory  {
+      @apply text-sm leading-5;
     }
 
     &--bottom-links {
-      @apply text-sm font-normal leading-5 text-center text-white font-body;
+      @apply text-white font-body;
     }
 
     &--company-name {
-      @apply block py-2 text-sm font-normal leading-5 text-center text-white/50 font-body large:ml-6;
+      @apply py-2 text-center text-white/50 font-body large:ml-6;
     }
 
     &--contact-description {
-      @apply block text-sm font-normal leading-5 text-gray-600 font-body;
+      @apply text-gray-600 font-body;
     }
   }
 }

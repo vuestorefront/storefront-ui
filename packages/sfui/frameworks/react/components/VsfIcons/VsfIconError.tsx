@@ -6,9 +6,17 @@ export default function VsfIconError({
   className = '',
   size = VsfIconSizeEnum.base,
   ariaLabel = 'error',
+  viewBox,
+  ...attributes
 }: VsfIconProps) {
   return (
-    <VsfIconBase className={className} size={size} ariaLabel={ariaLabel} viewBox="0 0 24 24">
+    <VsfIconBase
+      {...attributes}
+      className={className}
+      size={size}
+      ariaLabel={ariaLabel}
+      viewBox={viewBox ?? '0 0 24 24'}
+    >
       <>
         <path
           fillRule="evenodd"

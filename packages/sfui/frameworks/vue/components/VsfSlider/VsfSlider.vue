@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { PropType, ref, toRef, defineAsyncComponent } from 'vue';
 import { VsfSliderNavigation, VsfSliderScrollbar } from './types';
-import { VsfButtonVariants } from '../VsfButton';
+import { VsfButtonVariants, VsfButtonSizes } from '../VsfButton';
 import { Options } from '@sfui/shared/slider';
 import { useSlider } from './slider';
 const VsfButton = defineAsyncComponent(() => import('../VsfButton/VsfButton.vue'));
@@ -66,6 +66,7 @@ function onClickNext() {
       <slot name="prev-arrow" v-bind="{ onClick: onClickPrev, hasPrev }">
         <VsfButton
           :variant="VsfButtonVariants.secondary"
+          :size="VsfButtonSizes.lg"
           icon
           rounded
           :class="['vsf-slider__nav-arrow', { 'vsf-slider__nav-arrow--hidden': !hasPrev }]"
@@ -94,6 +95,7 @@ function onClickNext() {
       <slot name="next-arrow" v-bind="{ onClick: onClickNext, hasNext }">
         <VsfButton
           :variant="VsfButtonVariants.secondary"
+          :size="VsfButtonSizes.lg"
           icon
           rounded
           :class="['vsf-slider__nav-arrow', { 'vsf-slider__nav-arrow--hidden': !hasNext }]"

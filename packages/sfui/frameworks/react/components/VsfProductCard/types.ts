@@ -4,7 +4,7 @@ import type { PropsWithStyle } from '../../shared/types';
 export enum VsfProductCardSizes {
   sm = 'sm',
   base = 'base',
-  default = 'default',
+  responsive = 'responsive',
 }
 export interface VsfProductCardImageProps {
   imageSrc?: string;

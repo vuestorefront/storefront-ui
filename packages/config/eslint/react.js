@@ -1,6 +1,6 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
-  extends: ['airbnb', 'eslint-config-airbnb-typescript', 'prettier'],
+  extends: ['airbnb', 'airbnb/hooks', 'eslint-config-airbnb-typescript', 'prettier'],
   plugins: ['prettier'],
   settings: {
     'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],
@@ -15,6 +15,8 @@ module.exports = {
   },
   ignorePatterns: ['/*.*'],
   rules: {
+    'react-hooks/rules-of-hooks': 'warn',
+    'react-hooks/exhaustive-deps': 'warn',
     'import/extensions': [
       'error',
       'ignorePackages',
@@ -38,22 +40,28 @@ module.exports = {
       },
     ],
     // https://lightrun.com/answers/jsx-eslint-eslint-plugin-jsx-a11y-control-has-associated-label-error-with-labelinput
-    "jsx-a11y/control-has-associated-label": ["off", {
-      "labelComponents": [],
-      "labelAttributes": [],
-      "controlComponents": [],
-      "assert": "both",
-      "depth": 25
-    }],
-    "jsx-a11y/label-has-associated-control": ["error", {
-      "components": [],
-      "required": {
-        "some": ["nesting", "id"]
+    'jsx-a11y/control-has-associated-label': [
+      'off',
+      {
+        labelComponents: [],
+        labelAttributes: [],
+        controlComponents: [],
+        assert: 'both',
+        depth: 25,
       },
-      "allowChildren": false
-    }],
+    ],
+    'jsx-a11y/label-has-associated-control': [
+      'error',
+      {
+        components: [],
+        required: {
+          some: ['nesting', 'id'],
+        },
+        allowChildren: false,
+      },
+    ],
     'prettier/prettier': 'error',
     'react/button-has-type': ['error', { reset: true }],
-    'import/prefer-default-export': 0
+    'import/prefer-default-export': 0,
   },
 };

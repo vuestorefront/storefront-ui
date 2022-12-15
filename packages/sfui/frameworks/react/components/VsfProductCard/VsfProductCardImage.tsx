@@ -2,7 +2,7 @@ import type { VsfProductCardImageProps } from './types';
 import { VsfProductCardSizes } from './types';
 
 export default function VsfProductCardImage({
-  size = VsfProductCardSizes.default,
+  size = VsfProductCardSizes.responsive,
   imageSrc,
   vertical = true,
   className,

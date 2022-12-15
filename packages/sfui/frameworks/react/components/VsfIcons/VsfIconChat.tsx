@@ -2,9 +2,21 @@ import type { VsfIconProps } from './types';
 import VsfIconBase from '../VsfIconBase';
 import { VsfIconSizeEnum } from '../VsfIconBase/types';
 
-export default function VsfIconChat({ className = '', size = VsfIconSizeEnum.base, ariaLabel = 'chat' }: VsfIconProps) {
+export default function VsfIconChat({
+  className = '',
+  size = VsfIconSizeEnum.base,
+  ariaLabel = 'chat',
+  viewBox,
+  ...attributes
+}: VsfIconProps) {
   return (
-    <VsfIconBase className={className} size={size} ariaLabel={ariaLabel} viewBox="0 0 40 40">
+    <VsfIconBase
+      {...attributes}
+      className={className}
+      size={size}
+      ariaLabel={ariaLabel}
+      viewBox={viewBox ?? '0 0 40 40'}
+    >
       <path
         fillRule="evenodd"
         clipRule="evenodd"

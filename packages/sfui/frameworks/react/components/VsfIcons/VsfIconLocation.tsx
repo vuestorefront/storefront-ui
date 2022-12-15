@@ -6,9 +6,17 @@ export default function VsfIconLocation({
   className = '',
   size = VsfIconSizeEnum.base,
   ariaLabel = 'location',
+  viewBox,
+  ...attributes
 }: VsfIconProps) {
   return (
-    <VsfIconBase className={className} size={size} ariaLabel={ariaLabel} viewBox="0 0 24 24">
+    <VsfIconBase
+      {...attributes}
+      className={className}
+      size={size}
+      ariaLabel={ariaLabel}
+      viewBox={viewBox ?? '0 0 24 24'}
+    >
       <path
         fillRule="evenodd"
         clipRule="evenodd"
