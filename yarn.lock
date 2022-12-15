@@ -2430,6 +2430,7 @@ __metadata:
     cross-env: ^7.0.3
     husky: ^7.0.4
     hygen: ^6.2.8
+    jw-paginate: ^1.0.4
     node-powershell: ^5.0.1
     nodemon: ^2.0.19
     prettier: latest
@@ -2516,6 +2517,7 @@ __metadata:
   peerDependencies:
     "@vueuse/core": ^9.6.0
     classnames: ^2.3.2
+    jw-paginate: ^1.0.4
     react-use: ^17.4.0
   languageName: unknown
   linkType: soft
@@ -11300,6 +11302,13 @@ gluegun@latest:
   version: 4.0.0
   resolution: "junk@npm:4.0.0"
   checksum: af79841fbdc0f3a8ec328a4bf68381013c7f52a78821184855a4b19ef95713edb3c30cd144c6393e6159e1b7dfb76b3f682dc983aafb54e52ff321ab1b4a9983
+  languageName: node
+  linkType: hard
+
+"jw-paginate@npm:^1.0.4":
+  version: 1.0.4
+  resolution: "jw-paginate@npm:1.0.4"
+  checksum: 4a34834f532f4b13f7e6b5f8c1572504536576597953db4e6e9d57cad974f7078bd118a25039eaad074845f9893944735501ecc8f98d27e383dd2683d6765dcd
   languageName: node
   linkType: hard
 

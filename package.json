@@ -42,6 +42,7 @@
     "concurrently": "^7.4.0",
     "husky": "^7.0.4",
     "hygen": "^6.2.8",
+    "jw-paginate": "^1.0.4",
     "node-powershell": "^5.0.1",
     "nodemon": "^2.0.19",
     "prettier": "latest",
