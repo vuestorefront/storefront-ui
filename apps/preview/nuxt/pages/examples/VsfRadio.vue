@@ -4,14 +4,14 @@
       <VsfRadioGroup id="radiogroup1" v-model="radioGroupModelValue">
         <VsfRadio
           :id="id"
+          v-model="modelValue"
           :name="name"
           :label="label"
-          :value="selectedValue"
+          :value="value"
           :alignment="alignment"
           :help-text="helpText"
           :disabled="disabled"
           :required="required"
-          @change:radio="selectedValue = $event"
         ></VsfRadio>
       </VsfRadioGroup>
     </div>
@@ -60,6 +60,13 @@ export default defineComponent({
           },
           {
             type: 'text',
+            modelName: 'modelValue',
+            propType: 'string',
+            propDefaultValue: '',
+            description: 'Selected value',
+          },
+          {
+            type: 'text',
             modelName: 'value',
             propType: 'string',
             propDefaultValue: '',
@@ -97,7 +104,7 @@ export default defineComponent({
           disabled: ref(false),
           required: ref(false),
           helpText: ref('Help text'),
-          selectedValue: ref(''),
+          modelValue: ref(''),
           radioGroupModelValue: ref(radioGroupModelValue),
         },
       ),

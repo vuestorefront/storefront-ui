@@ -3,10 +3,6 @@ import { PropType } from 'vue';
 import { VsfRadioGroupDirections } from './types';
 
 defineProps({
-  id: {
-    type: String,
-    required: true,
-  },
   legend: {
     type: String,
     default: '',
@@ -40,7 +36,6 @@ defineProps({
 <!-- TODO: Replace with validation component when ready -->
 <template>
   <fieldset
-    :id="id"
     class="vsf-radio-group"
     :aria-invalid="invalid"
     :aria-required="required"

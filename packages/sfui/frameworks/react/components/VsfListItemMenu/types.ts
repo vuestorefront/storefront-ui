@@ -1,4 +1,4 @@
-import type { ReactNode, MouseEventHandler } from 'react';
+import type { ReactNode, PropsWithChildren } from 'react';
 
 export enum VsfListItemMenuSizes {
   sm = 'sm',
@@ -6,7 +6,7 @@ export enum VsfListItemMenuSizes {
   lg = 'lg',
 }
 
-export interface VsfListItemMenuProps {
+export interface VsfListItemMenuProps extends PropsWithChildren {
   label?: string;
   size?: string;
   counter?: string;
@@ -14,9 +14,12 @@ export interface VsfListItemMenuProps {
   secondaryText?: string;
   disabled?: boolean;
   selected?: boolean;
+  selectedBackground?: boolean;
   className?: string;
   slotSuffix?: ReactNode;
-  slotPreffix?: ReactNode;
+  slotPrefix?: ReactNode;
+  slotSecondaryText?: ReactNode;
   truncate?: boolean;
-  onClick?: MouseEventHandler;
+  tag?: 'li';
+  onClick?: (selected: boolean) => void;
 }

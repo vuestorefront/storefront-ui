@@ -2,7 +2,6 @@ import classNames from 'classnames';
 import { VsfRadioGroupDirections, VsfRadioGroupProps } from './types';
 
 export default function VsfRadioGroup({
-  id,
   legend,
   direction = VsfRadioGroupDirections.vertical,
   required,
@@ -15,7 +14,6 @@ export default function VsfRadioGroup({
 }: VsfRadioGroupProps) {
   return (
     <fieldset
-      id={id}
       className={classNames('vsf-radio-group', className)}
       aria-invalid={invalid}
       aria-required={required}
