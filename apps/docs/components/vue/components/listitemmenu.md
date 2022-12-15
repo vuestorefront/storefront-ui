@@ -10,6 +10,7 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 ## Props
 
+
 | Prop name          | Type    | Default value | Possible values    |
 | ------------------ | ------- | ------------- | ------------------ |
 | size               | String  | 'base'        | 'sm', 'base', 'lg' |
@@ -21,6 +22,7 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 | disabled           | Boolean | false         |                    |
 | selected           | Boolean | false         |                    |
 | selectedBackground | Boolean | false         |                    |
+
 
 ## Slots
 
