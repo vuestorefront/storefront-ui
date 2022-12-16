@@ -47,7 +47,7 @@ function VsfBreadcrumbs({ slotIcon, breadcrumbs = [], withIcon = false }: VsfBre
     if (newWindowWidth - padding > breadcrumbsWidthVal + firstElementWidth + padding + offsetLeftVal) {
       setDropdownLength((length) => (length <= 0 ? 0 : length - 1));
     }
-  }, [newWindowWidth, dropdownLength, breadcrumbs]);
+  }, [newWindowWidth, breadcrumbs]);
 
   return (
     <nav className="vsf-breadcrumbs" ref={navRef}>
