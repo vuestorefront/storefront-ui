@@ -3,7 +3,6 @@
     <div class="e-page-component">
       <VsfSideSheet
         :overlay-visible="overlayVisible"
-        :with-button="withButton"
         :permanent="permanent"
         :left-side="leftSide"
         :open="open"
@@ -61,23 +60,16 @@ export default {
           },
           {
             type: 'boolean',
-            modelName: 'withButton',
-            propType: 'boolean',
-            propDefaultValue: true,
-          },
-          {
-            type: 'boolean',
             modelName: 'permanent',
             propType: 'boolean',
             propDefaultValue: false,
-            description: "If permanent prop is set to true then props open, overlay and withButton won't work",
+            description: "If permanent prop is set to true then props open and overlay won't work",
           },
         ],
         {
           open: ref(isSideSheetOpen),
           overlayVisible: ref(false),
           leftSide: ref(true),
-          withButton: ref(true),
           permanent: ref(true),
         },
       ),

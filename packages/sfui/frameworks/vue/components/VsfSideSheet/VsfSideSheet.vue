@@ -1,8 +1,6 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import VsfOverlay from '../VsfOverlay/VsfOverlay.vue';
-import VsfButton from '../VsfButton/VsfButton.vue';
-import { VsfIconClose } from '../../components/VsfIcons';
 import { onClickOutside } from '@vueuse/core';
 
 const props = defineProps({
@@ -15,10 +13,6 @@ const props = defineProps({
     default: false,
   },
   leftSide: {
-    type: Boolean,
-    default: true,
-  },
-  withButton: {
     type: Boolean,
     default: true,
   },
@@ -60,17 +54,6 @@ onClickOutside(target, () => {
         }"
         data-testid="side-sheet-aside"
       >
-        <!-- TODO: replace with VsfButton pure version after refactor -->
-        <VsfButton
-          v-if="withButton && !permanent"
-          variant="tertiary"
-          class="vsf-side-sheet__aside__close-button"
-          data-testid="side-sheet-close-button"
-          @keyup.esc="$emit('close')"
-          @click="$emit('close')"
-        >
-          <VsfIconClose />
-        </VsfButton>
         <slot />
       </aside>
     </transition>

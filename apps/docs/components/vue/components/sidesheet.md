@@ -17,7 +17,6 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 |-----------------------|----------------------------|---------------|----------------------------------------|
 |  leftSide             |  boolean                   |  true         |                                        |
 |  permanent            |  boolean                   |  false        |                                        |
-|  withButton           |  boolean                   |  true         |                                        |
 |  overlayVisible       |  boolean                   |  false        |                                        |
 |  open                 |  boolean                   |  false        |                                        |
 

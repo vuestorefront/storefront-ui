@@ -25,23 +25,16 @@ function Example() {
       },
       {
         type: 'boolean',
-        modelName: 'withButton',
-        propType: 'boolean',
-        propDefaultValue: true,
-      },
-      {
-        type: 'boolean',
         modelName: 'permanent',
         propType: 'boolean',
         propDefaultValue: false,
-        description: "If permanent prop is set to true then props open, overlay and withButton won't work",
+        description: "If permanent prop is set to true then props open and overlay won't work",
       },
     ],
     {
       open: true,
       overlayVisible: false,
       leftSide: true,
-      withButton: true,
       permanent: true,
     },
   );
@@ -55,7 +48,6 @@ function Example() {
           open={state.get.open}
           overlayVisible={state.get.overlayVisible}
           leftSide={state.get.leftSide}
-          withButton={state.get.withButton}
           permanent={state.get.permanent}
           onOpenChange={onClose}
         >

@@ -2,26 +2,23 @@ import classNames from 'classnames';
 import { useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { useClickAway } from 'react-use';
-import { VsfIconClose } from '../VsfIcons';
 import type { VsfSideSheetProps } from './types';
 import VsfOverlay from '../VsfOverlay/VsfOverlay';
-import VsfButton from '../VsfButton/VsfButton';
 
 export default function VsfSideSheet({
   className,
   permanent,
-  withButton,
   leftSide,
   overlayVisible,
   open,
-  onOpenChange,
+  onOpenChange = () => undefined,
   children,
   ...attributes
 }: VsfSideSheetProps): JSX.Element {
   const nodeRef = useRef(null);
   useClickAway(nodeRef, () => {
     if (!overlayVisible) return;
-    onOpenChange();
+    onOpenChange(!open);
   });
 
   return (
@@ -46,18 +43,6 @@ export default function VsfSideSheet({
           })}
           data-testid="side-sheet-aside"
         >
-          {withButton && !permanent && (
-            // TODO: replace with VsfButton pure version after refactor
-            <VsfButton
-              className="vsf-side-sheet__aside__close-button"
-              variant="tertiary"
-              onClick={onOpenChange}
-              type="button"
-              data-testid="side-sheet-close-button"
-            >
-              <VsfIconClose />
-            </VsfButton>
-          )}
           {children}
         </aside>
       </CSSTransition>

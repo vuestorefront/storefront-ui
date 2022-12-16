@@ -7,7 +7,6 @@ import VsfSideSheetBaseObject from "./VsfSideSheet.PageObject";
 
 describe("VsfSideSheet", () => {
   let permanent: boolean;
-  let withButton: boolean;
   let leftSide: boolean;
   let overlayVisible: boolean;
   let open: boolean;
@@ -21,7 +20,6 @@ describe("VsfSideSheet", () => {
         component: VsfSideSheetVue,
         props: {
           permanent,
-          withButton,
           leftSide,
           overlayVisible,
           open,
@@ -31,7 +29,6 @@ describe("VsfSideSheet", () => {
       react: 
         <VsfSideSheetReact
           permanent={permanent}
-          withButton={withButton}
           leftSide={leftSide}
           overlayVisible={overlayVisible}
           open={open}
@@ -44,7 +41,6 @@ describe("VsfSideSheet", () => {
     cy.viewport(300, 300);
     onChangeSpy = cy.spy();
     open = true;
-    withButton = true;
     permanent = false;
   });
 
@@ -74,17 +70,6 @@ describe("VsfSideSheet", () => {
 
       page()
         .isOnRightSide()
-        .makeSnapshot()
-
-    })
-  })
-
-  describe('when prop withButton is true', () => {
-    it('should render with close button', () => {
-      initializeComponent();
-
-      page()
-        .hasCloseButton()
         .makeSnapshot()
 
     })
