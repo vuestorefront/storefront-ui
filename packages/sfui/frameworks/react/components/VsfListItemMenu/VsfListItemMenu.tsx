@@ -23,8 +23,10 @@ export default function VsfListItemMenu({
 }: VsfListItemMenuProps): JSX.Element {
   //  TODO: Replace with Link component when its done
   const TagComponent = tag || (link ? 'a' : 'button');
-  const componentType = !link ? 'button' : undefined;
+  const componentType = TagComponent === 'button' ? 'button' : undefined;
   const componentDisabled = !link ? disabled : undefined;
+  // TODO: handle typing conditional attrs based on tag
+  const attrs = componentType ? { type: componentType! } : ({} as {});
   return (
     <TagComponent
       className={classNames(
@@ -38,10 +40,10 @@ export default function VsfListItemMenu({
         className,
       )}
       href={link}
-      type={componentType}
       disabled={componentDisabled}
       onClick={() => onClick(!selected)}
       data-testid="list-item-menu"
+      {...attrs}
     >
       {slotPrefix && <div className="vsf-list-item-menu__icon vsf-list-item-menu__icon--prefix">{slotPrefix}</div>}
       <div className="vsf-list-item-menu__content">

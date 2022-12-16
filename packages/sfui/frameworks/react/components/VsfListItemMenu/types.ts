@@ -1,4 +1,5 @@
 import type { ReactNode, PropsWithChildren } from 'react';
+import type { PropsWithTag } from '../../shared/types';
 
 export enum VsfListItemMenuSizes {
   sm = 'sm',
@@ -6,10 +7,10 @@ export enum VsfListItemMenuSizes {
   lg = 'lg',
 }
 
-export interface VsfListItemMenuProps extends PropsWithChildren {
+export interface VsfListItemMenuProps extends PropsWithChildren, PropsWithTag {
   label?: string;
   size?: string;
-  counter?: string;
+  counter?: number;
   link?: string;
   secondaryText?: string;
   disabled?: boolean;
@@ -20,6 +21,5 @@ export interface VsfListItemMenuProps extends PropsWithChildren {
   slotPrefix?: ReactNode;
   slotSecondaryText?: ReactNode;
   truncate?: boolean;
-  tag?: 'li';
   onClick?: (selected: boolean) => void;
 }

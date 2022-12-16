@@ -1,6 +1,6 @@
 .vsf-list-item-menu {
   $self: &;
-  @apply relative inline-flex text-left items-center font-normal font-body text-base w-full bg-white hover:bg-gray-100 active:bg-gray-100 disabled:opacity-40 disabled:bg-white disabled:cursor-not-allowed cursor-pointer;
+  @apply relative inline-flex text-left items-center font-normal font-body text-base w-full bg-white hover:bg-gray-100 active:bg-gray-100 cursor-pointer;
 
   &__content {
     @apply flex flex-col w-full min-w-0;
@@ -45,6 +45,7 @@
   }
 
   &--disabled {
+    @apply opacity-40 bg-white cursor-not-allowed pointer-events-none;
 
     #{$self}__icon--prefix {
       @apply text-gray-500;

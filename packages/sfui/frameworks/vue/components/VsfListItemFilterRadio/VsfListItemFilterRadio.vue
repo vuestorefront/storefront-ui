@@ -1,3 +1,8 @@
+<script lang="ts">
+export default {
+  inheritAttrs: false,
+};
+</script>
 <script lang="ts" setup>
 import VsfListItemMenu from '../VsfListItemMenu';
 import VsfRadio from '../VsfRadio/VsfRadio.vue';
@@ -36,7 +41,12 @@ const toggle = (value: string, modelValue: string) => {
 </script>
 
 <template>
-  <VsfListItemMenu v-bind="props" tag="li" @click="$emit('update:modelValue', toggle(value, modelValue))">
+  <VsfListItemMenu
+    tag="li"
+    v-bind="props"
+    :selected="modelValue === value"
+    @click="$emit('update:modelValue', toggle(value, modelValue))"
+  >
     <template v-if="variant === VsfListItemFilterRadioVariant.left" #prefix>
       <VsfRadio
         :value="value"

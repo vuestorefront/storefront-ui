@@ -3,12 +3,12 @@
 
   &__wrapper {
     @apply flex items-center;
-    
+
     &--alignment {
       &-leading {
         @apply flex-row;
       }
-  
+
       &-trailing {
         @apply flex-row-reverse justify-between;
 
@@ -20,7 +20,7 @@
   }
 
   &__label {
-    @apply text-gray-900 font-body text-base ml-3;
+    @apply text-gray-900 font-body text-base ml-3 cursor-pointer;
   }
 
   &__input {
@@ -38,7 +38,7 @@
      @apply ml-0;
     }
   }
-  
+
   &__error-text, &__help-text, &__required-text {
     @apply text-sm;
   }
@@ -54,7 +54,7 @@
   &__required-text {
     @apply text-gray-500 mt-2 before:content-['*'];
   }
-  
+
 
   &--disabled {
     #{$self}__input {

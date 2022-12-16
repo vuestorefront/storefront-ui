@@ -4,6 +4,7 @@ import { VsfCheckboxAlignments, VsfCheckboxProps } from './types';
 
 export default function VsfCheckbox({
   value,
+  name,
   checked,
   label,
   disabled,
@@ -15,9 +16,11 @@ export default function VsfCheckbox({
   requiredText,
   indeterminate = false,
   className,
+  labelTag,
   onChange,
   ...attributes
 }: VsfCheckboxProps) {
+  const LabelTag = labelTag || 'label';
   const checkboxRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -39,7 +42,7 @@ export default function VsfCheckbox({
       {...attributes}
       data-testid="checkbox"
     >
-      <label
+      <LabelTag
         className={classNames('vsf-checkbox__wrapper', alignment && `vsf-checkbox__wrapper--alignment-${alignment}`)}
       >
         <input
@@ -52,25 +55,30 @@ export default function VsfCheckbox({
           checked={checked}
           ref={checkboxRef}
           value={value}
-          onChange={(event) => onChange(event.target.value, event)}
+          name={name}
+          onChange={onChange}
           data-testid="checkbox-input"
         />
-        <span className="vsf-checkbox__label" data-testid="checkbox-label">
-          {label}
-        </span>
-      </label>
-      <div className={classNames('vsf-checkbox__text-wrapper', `vsf-checkbox__text-wrapper-${alignment}`)}>
-        {invalid && !checked && !disabled && !indeterminate && !!errorText && !required && (
-          <p className="vsf-checkbox__error-text" data-testid="checkbox-error-text">
-            {errorText}
-          </p>
-        )}
-        {helpText && (
-          <p className="vsf-checkbox__help-text" data-testid="checkbox-help-text">
-            {helpText}
-          </p>
-        )}
-      </div>
+        {label ? (
+          <span className="vsf-checkbox__label" data-testid="checkbox-label">
+            {label}
+          </span>
+        ) : null}
+      </LabelTag>
+      {errorText || helpText ? (
+        <div className={classNames('vsf-checkbox__text-wrapper', `vsf-checkbox__text-wrapper-${alignment}`)}>
+          {invalid && !checked && !disabled && !indeterminate && !!errorText && !required && (
+            <p className="vsf-checkbox__error-text" data-testid="checkbox-error-text">
+              {errorText}
+            </p>
+          )}
+          {helpText && (
+            <p className="vsf-checkbox__help-text" data-testid="checkbox-help-text">
+              {helpText}
+            </p>
+          )}
+        </div>
+      ) : null}
       {required && requiredText && (
         <p className="vsf-checkbox__required-text" data-testid="checkbox-required-text">
           {requiredText}

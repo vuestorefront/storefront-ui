@@ -47,6 +47,10 @@ const props = defineProps({
     type: String,
     default: '',
   },
+  labelTag: {
+    type: String,
+    default: undefined,
+  },
 });
 const { modelValue } = toRefs(props);
 
@@ -68,7 +72,11 @@ const proxyChecked = computed({
     :class="['vsf-checkbox', { 'vsf-checkbox--disabled': disabled, 'vsf-checkbox--required': required }]"
     data-testid="checkbox"
   >
-    <label class="vsf-checkbox__wrapper" :class="`vsf-checkbox__wrapper--alignment-${alignment}`">
+    <component
+      :is="labelTag || 'label'"
+      class="vsf-checkbox__wrapper"
+      :class="`vsf-checkbox__wrapper--alignment-${alignment}`"
+    >
       <input
         v-model="proxyChecked"
         class="vsf-checkbox__input"
@@ -83,12 +91,16 @@ const proxyChecked = computed({
         data-testid="checkbox-input"
       />
       <slot name="label">
-        <span class="vsf-checkbox__label" data-testid="checkbox-label">
+        <span v-if="label" class="vsf-checkbox__label" data-testid="checkbox-label">
           {{ label }}
         </span>
       </slot>
-    </label>
-    <div class="vsf-checkbox__text-wrapper" :class="`vsf-checkbox__text-wrapper-${alignment}`">
+    </component>
+    <div
+      v-if="errorText || helpText"
+      class="vsf-checkbox__text-wrapper"
+      :class="`vsf-checkbox__text-wrapper-${alignment}`"
+    >
       <slot name="errorText">
         <p
           v-if="invalid && !!errorText && !disabled && !indeterminate && !required"

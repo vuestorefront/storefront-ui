@@ -2,7 +2,8 @@ import { DefineComponent } from 'vue';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type AnyVueComponent<P = any> = DefineComponent<P, unknown, unknown, any, any, any, any, any>;
-type Props<T extends AnyVueComponent> = T extends AnyVueComponent<infer P> ? P : never;
+// eslint-disable-next-line @typescript-eslint/ban-types
+type Props<T extends AnyVueComponent> = T extends AnyVueComponent<infer P> ? P : {};
 
 export const extractProps = <T extends AnyVueComponent, P extends Props<T>>(
   component: T,

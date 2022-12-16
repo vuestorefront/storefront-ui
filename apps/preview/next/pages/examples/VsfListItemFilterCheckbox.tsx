@@ -1,17 +1,21 @@
-import VsfListItemFilterRadio, {
-  VsfListItemFilterRadioVariant,
-  VsfListItemFilterRadioSize,
-} from '@sfui/sfui/frameworks/react/components/VsfListItemFilterRadio';
+import VsfListItemFilterCheckbox, {
+  VsfListItemFilterCheckboxVariant,
+  VsfListItemFilterCheckboxSize,
+  VsfListItemFilterCheckboxProps,
+} from '@sfui/sfui/frameworks/react/components/VsfListItemFilterCheckbox';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 
 function Example() {
-  const { state, controls } = prepareControls(
+  const { state, controls } = prepareControls<
+    Omit<VsfListItemFilterCheckboxProps, 'onChange'> & { checkedValue: string[] }
+  >(
     [
       {
         type: 'text',
-        modelName: 'selectedValue',
-        description: 'Show selected value of Filter group',
+        modelName: 'checkedValue',
+        propType: 'string',
+        description: 'Example of getting values from group of checkboxes',
       },
       {
         type: 'text',
@@ -34,13 +38,13 @@ function Example() {
       {
         type: 'select',
         modelName: 'size',
-        options: Object.keys(VsfListItemFilterRadioSize),
+        options: Object.keys(VsfListItemFilterCheckboxSize),
         description: 'Set size variant',
       },
       {
         type: 'select',
         modelName: 'variant',
-        options: Object.keys(VsfListItemFilterRadioVariant),
+        options: Object.keys(VsfListItemFilterCheckboxVariant),
         description: 'Set size variant',
       },
       {
@@ -66,47 +70,54 @@ function Example() {
     ],
     {
       label: 'Label',
-      size: VsfListItemFilterRadioSize.base,
-      variant: VsfListItemFilterRadioVariant.left,
+      size: VsfListItemFilterCheckboxSize.base,
+      variant: VsfListItemFilterCheckboxVariant.left,
       counter: 123,
       secondaryText: 'Secondary text',
-      selectedValue: '',
       disabled: false,
       truncate: false,
       value: 'value',
       name: 'name',
+      checkedValue: [],
     },
   );
+
+  function onChange(event: Parameters<NonNullable<VsfListItemFilterCheckboxProps['onChange']>>[0]) {
+    const { value } = event.target;
+    if (state.get.checkedValue.indexOf(value) > -1) {
+      state.set({ ...state.get, checkedValue: state.get.checkedValue.filter((val) => val !== value) });
+    } else {
+      state.set({ ...state.get, checkedValue: [...state.get.checkedValue, value] });
+    }
+  }
 
   return (
     <div className="e-page">
       <div className="e-page-component">
         <ul className="max-w-sm">
-          <VsfListItemFilterRadio
+          <VsfListItemFilterCheckbox
             size={state.get.size}
             variant={state.get.variant}
             label={state.get.label}
             counter={Number(state.get.counter)}
             secondaryText={state.get.secondaryText}
-            selected={state.get.selectedValue}
             disabled={state.get.disabled}
             truncate={state.get.truncate}
             value={state.get.value}
             name={state.get.name}
-            onChange={(selected) => state.set({ ...state.get, selectedValue: selected })}
+            onChange={onChange}
           />
-          <VsfListItemFilterRadio
+          <VsfListItemFilterCheckbox
             size={state.get.size}
             variant={state.get.variant}
             label={`${state.get.label}-2`}
             counter={Number(state.get.counter)}
             secondaryText={state.get.secondaryText}
-            selected={state.get.selectedValue}
             disabled={state.get.disabled}
             truncate={state.get.truncate}
             value={`${state.get.value}-2`}
             name={state.get.name}
-            onChange={(selected) => state.set({ ...state.get, selectedValue: selected })}
+            onChange={onChange}
           />
         </ul>
       </div>

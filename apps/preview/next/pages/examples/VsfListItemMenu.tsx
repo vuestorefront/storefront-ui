@@ -72,7 +72,7 @@ function Example() {
       label: 'Label',
       size: VsfListItemMenuSizes.base,
       link: '',
-      counter: '123',
+      counter: 123,
       showSuffix: false,
       showprefix: false,
       secondaryText: 'Secondary text',
@@ -91,7 +91,7 @@ function Example() {
           size={state.get.size}
           link={state.get.link}
           label={state.get.label}
-          counter={state.get.counter}
+          counter={Number(state.get.counter)}
           secondaryText={state.get.secondaryText}
           selected={state.get.selected}
           selectedBackground={state.get.selectedBackground}

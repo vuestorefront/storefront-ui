@@ -27,7 +27,7 @@ const props = defineProps({
   },
   disabled: {
     type: Boolean,
-    default: false,
+    default: undefined,
   },
   selected: {
     type: Boolean,
@@ -42,7 +42,7 @@ const props = defineProps({
     default: false,
   },
   tag: {
-    type: String as PropType<'li'>,
+    type: String,
     default: undefined,
   },
 });
@@ -50,7 +50,7 @@ const { tag, link, disabled } = toRefs(props);
 // TODO: replace with link component when ready
 const componentTag = computed(() => tag?.value ?? (link?.value ? 'a' : 'button'));
 const componentType = computed(() => (tag?.value ? undefined : link?.value && 'button'));
-const componentDisabled = computed(() => (!link?.value || tag?.value ? disabled.value : undefined));
+const componentDisabled = computed(() => (!link?.value ? disabled.value : undefined));
 </script>
 
 <template>
@@ -71,9 +71,9 @@ const componentDisabled = computed(() => (!link?.value || tag?.value ? disabled.
     :disabled="componentDisabled"
     data-testid="list-item-menu"
   >
-    <span v-if="$slots.prefix" class="vsf-list-item-menu__icon vsf-list-item-menu__icon--prefix">
+    <div v-if="$slots.prefix" class="vsf-list-item-menu__icon vsf-list-item-menu__icon--prefix">
       <slot name="prefix" />
-    </span>
+    </div>
     <div class="vsf-list-item-menu__content">
       <slot>
         <span class="vsf-list-item-menu__title">
@@ -97,8 +97,8 @@ const componentDisabled = computed(() => (!link?.value || tag?.value ? disabled.
         </p>
       </slot>
     </div>
-    <span v-if="$slots.suffix" class="vsf-list-item-menu__icon">
+    <div v-if="$slots.suffix" class="vsf-list-item-menu__icon">
       <slot name="suffix" />
-    </span>
+    </div>
   </component>
 </template>
