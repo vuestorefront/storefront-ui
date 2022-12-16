@@ -75,11 +75,8 @@ export default function Controls<T extends { [k: string]: any }>({ controls, sta
     }
   }
 
-  function checkboxValue(option: ControlOptionBind | string) {
-    return typeof option === 'string'
-      ? (option as string)
-      : (option as ControlOptionBind).value || (option as ControlOptionBind).label;
-  }
+  const checkboxValue = (option: ControlOptionBind | string) =>
+    typeof option === 'string' ? option : option.value || option.label;
 
   return (
     <div className="controls">
@@ -110,7 +107,7 @@ export default function Controls<T extends { [k: string]: any }>({ controls, sta
                   {control.modelName}
                 </td>
                 <td className="value">
-                  {(() => {
+                  {((): JSX.Element | JSX.Element[] => {
                     switch (control.type) {
                       case 'select':
                         return (
@@ -161,46 +158,57 @@ export default function Controls<T extends { [k: string]: any }>({ controls, sta
                             // eslint-disable-next-line react/no-array-index-key
                             <div key={`${control.modelName}-${index}-${optionIndex}`} className="flex items-center">
                               <label className="flex items-center">
-                                {/* eslint-disable-next-line no-nested-ternary */}
-                                {control.type === 'json' ? (
-                                  <textarea
-                                    rows={10}
-                                    {...(option as ControlOptionBind).bind}
-                                    className="border rounded-md"
-                                    value={JSON.stringify(state.get[control.modelName], undefined, 2) as string}
-                                    onChange={(e) => handleJsonOnChangeValue(e, control.modelName)}
-                                  />
-                                ) : control.type === 'range' || control.type === 'text' ? (
-                                  <input
-                                    {...(option as ControlOptionBind).bind}
-                                    value={state.get[control.modelName] as number | string}
-                                    className="border rounded-md"
-                                    type={control.type}
-                                    onChange={(e) => handleOnChangeValue(e, control.modelName)}
-                                  />
+                                {(() => {
+                                  switch (control.type) {
+                                    case 'json':
+                                      return (
+                                        <textarea
+                                          rows={10}
+                                          {...(option as ControlOptionBind).bind}
+                                          className="border rounded-md"
+                                          value={JSON.stringify(state.get[control.modelName], undefined, 2) as string}
+                                          onChange={(e) => handleJsonOnChangeValue(e, control.modelName)}
+                                        />
+                                      );
+                                    case 'range':
+                                    case 'text':
+                                      return (
+                                        <input
+                                          {...(option as ControlOptionBind).bind}
+                                          value={state.get[control.modelName] as number | string}
+                                          className="border rounded-md"
+                                          type={control.type}
+                                          onChange={(e) => handleOnChangeValue(e, control.modelName)}
+                                        />
+                                      );
+                                    default:
+                                      return (
+                                        <input
+                                          {...(option as ControlOptionBind).bind}
+                                          value={checkboxValue(option)}
+                                          type={control.type}
+                                          onChange={(e) => {
+                                            // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+                                            control.type === 'checkbox'
+                                              ? handleCheckbox(
+                                                  e,
+                                                  control.modelName,
+                                                  state.get[control.modelName] as string | [],
+                                                )
+                                              : handleOnChangeValue(e, control.modelName);
+                                          }}
+                                          name={`${control.modelName}-${index}`}
+                                        />
+                                      );
+                                  }
+                                })()}
+                                {typeof option === 'string' ? (
+                                  <span className="pl-2">{option}</span>
                                 ) : (
-                                  <input
-                                    {...(option as ControlOptionBind).bind}
-                                    value={checkboxValue(option)}
-                                    type={control.type}
-                                    onChange={(e) => {
-                                      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-                                      control.type === 'checkbox'
-                                        ? handleCheckbox(
-                                            e,
-                                            control.modelName,
-                                            state.get[control.modelName] as string | [],
-                                          )
-                                        : handleOnChangeValue(e, control.modelName);
-                                    }}
-                                    name={`${control.modelName}-${index}`}
-                                  />
+                                  'label' in option && (
+                                    <span className="pl-2">{(option as ControlOptionBind).label}</span>
+                                  )
                                 )}
-                                {/* eslint-disable-next-line no-prototype-builtins */}
-                                {option.hasOwnProperty('label') && (
-                                  <span className="pl-2">{(option as ControlOptionBind).label}</span>
-                                )}
-                                {typeof option === 'string' && <span className="pl-2">{option}</span>}
                               </label>
                             </div>
                           ),
