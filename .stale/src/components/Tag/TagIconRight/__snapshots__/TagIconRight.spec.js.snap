@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`TagIconRight.vue render component correctly 1`] = `
-<div class="inline-flex items-center font-normal rounded-md font-body direction-row bg-gray-100 fill-gray-600 text-gray-600 px-3 py-1.5 text-sm"><span class="mr-2">
-    Label
-  </span>
-  <div class="w-5 h-5"></div>
-</div>
-`;

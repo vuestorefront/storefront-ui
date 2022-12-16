@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import paginate from 'jw-paginate';
-import { ref, toRefs, watchEffect, computed, watch } from 'vue';
+import { ref, toRefs, computed, watch } from 'vue';
 import VsfDivider from '../VsfDivider/VsfDivider.vue';
 import VsfButton from '../VsfButton/VsfButton.vue';
 import VsfIconChevronLeft from '../VsfIcons/VsfIconChevronLeft.vue';

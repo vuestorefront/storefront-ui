@@ -1,5 +1,5 @@
 #  Pagination component
-Pagination component is a common feature to navigate through pages conatining many items like products on listing. 
+Pagination component is a common element to navigate through pages containing many items like products in lists. 
 
 <Generate />
 

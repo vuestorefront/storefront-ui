@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`TagBase.vue render component correctly 1`] = `
-<div class="inline-flex font-normal rounded-md font-body direction-row bg-gray-100 text-gray-600 px-3 py-1 text-sm">
-  Label
-</div>
-`;

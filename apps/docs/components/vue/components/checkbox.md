@@ -32,9 +32,12 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 ## Slots
 
-| Slot name |            Description            |
-| --------- | :-------------------------------: |
-|           |                                   |
+| Slot name     |            Description            |
+| ---------     | :-------------------------------: |
+|  label        |   Custom label                    |
+|  errorText    |   Custom error text               |
+|  helpText     |   Custom help text                |
+|  requiredText |   Custom required text            |
 
 ## Events
 

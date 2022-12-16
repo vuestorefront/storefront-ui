@@ -1,8 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`TagBadge.vue render component correctly 1`] = `
-<div class="flex direction-row h-8 text-sm">
-  <div class="flex items-center font-medium text-white fill-white font-body direction-row bg-gray-600"><span class="w-5 h-5 m-1.5"></span> <span class="m-1.5 ml-3"> Label </span></div>
-  <div class="border-t-0 border-b-transparent border-t-transparent border-l-gray-600 border-b-[32px] border-l-[16px]"></div>
-</div>
-`;

@@ -19,11 +19,12 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 
 ###  Props: 
-| Prop name   | Type    | Default value | Possible values                        |
-| ----------- | ------- | ------------- | -------------------------------------- |
+| Prop name  | Type    | Default value | Possible values                        |
+|------------| ------- | ------------- | -------------------------------------- |
 | slotPrefix | ReactNode  |             |                                        |                                        |
 | slotSuffix | ReactNode  |             |                                        |                                        |
-| children | ReactNode  |             |                                        |                                        |
+| onToggle   | Function  |             |                                        |                                        |
+| children   | ReactNode  |             |                                        |                                        |
 
 
 ## Events

@@ -1,8 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`ProgressBase.vue render component correctly 1`] = `
-<div role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Loading"><svg width="24" height="24" stroke-width="2" viewPort="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" class="-rotate-90">
-    <circle r="11" cx="12" cy="12" stroke="#e6e6e6" fill="none" stroke-dasharray="69.08, 69.08"></circle>
-    <circle r="11" cx="12" cy="12" stroke="#16A34A" fill="none" stroke-dasharray="0, 69.08" class="transition-all ease-in-out duration-[600ms]"></circle>
-  </svg></div>
-`;
