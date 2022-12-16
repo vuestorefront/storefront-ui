@@ -36,10 +36,12 @@
         font-size: 16px;
 
         .sidebar {
+            display: flex;
+            flex-flow: column;
             position: relative;
             flex-shrink: 0;
             width: 200px;
-            padding: 20px;
+            padding: 20px 0 0 20px;
             background-color: rgb(246, 249, 252);
             -webkit-box-shadow: inset -6px 0px 24px -22px rgba(66, 68, 90, 1);
             -moz-box-shadow: inset -6px 0px 24px -22px rgba(66, 68, 90, 1);
@@ -67,13 +69,15 @@
             &-heading {
                 margin-bottom: 10px;
                 font-weight: bold;
-                padding-right: 30px;
+                padding-right: 40px;
             }
 
             &-list{
+                overflow: auto;
                 font-size: 14px;
                 list-style: disc;
                 padding-left: 14px;
+                padding-bottom: 20px;
 
                 li,
                 a {
