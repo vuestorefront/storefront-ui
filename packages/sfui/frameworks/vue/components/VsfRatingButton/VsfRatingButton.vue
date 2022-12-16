@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { VsfRatingButtonSizes } from './types';
 import { VsfIconSizeEnum } from '../VsfIconBase/types';
-import { computed, PropType, watch, ref, toRefs } from 'vue';
+import { computed, PropType, ref, toRefs } from 'vue';
 const props = defineProps({
   max: {
     type: Number,
@@ -17,7 +17,7 @@ const props = defineProps({
   },
   modelValue: {
     type: Number,
-    default: null,
+    default: 0,
   },
   name: {
     type: String,
@@ -29,13 +29,12 @@ const props = defineProps({
   },
 });
 
-defineEmits<{
+const emit = defineEmits<{
   (e: 'update:modelValue', val: number): void;
 }>();
+const { size } = toRefs(props);
 
-const { ariaLabel, max, size } = toRefs(props);
-const activeIcon = ref(null);
-const ratingPointsArray = ref([]);
+const activeIconIndex = ref<number>();
 
 const getIconSize = computed((): VsfIconSizeEnum => {
   switch (size.value) {
@@ -48,51 +47,45 @@ const getIconSize = computed((): VsfIconSizeEnum => {
   }
 });
 
-const createRatingPointsArray = (amount: number): number[] => {
-  return Array.from({ length: amount }, (item, index) => index + 1);
+const updateModelFromEvent = (e: Event) => {
+  if (e?.target && e.target instanceof HTMLInputElement) {
+    emit('update:modelValue', Number(e.target.value));
+  }
 };
-
-watch(
-  max,
-  (max) => {
-    ratingPointsArray.value = createRatingPointsArray(max);
-  },
-  { immediate: true },
-);
 </script>
 
 <template>
   <fieldset class="vsf-rating-button vsf-rating-button__group" :disabled="disabled" data-testid="rating-button">
     <legend class="vsf-rating-button__legend" data-testid="rating-button-legend">{{ name }}</legend>
     <span
-      v-for="item of ratingPointsArray"
-      :key="`${name}-${item}`"
+      v-for="rateValue in max"
+      :key="`${name}-${rateValue}`"
       class="vsf-rating-button__item"
-      :data-testid="`rating-button-item-${item}`"
+      :data-testid="`rating-button-item-${rateValue}`"
     >
       <input
-        :id="`${name}-${item}`"
+        :id="`${name}-${rateValue}`"
         type="radio"
         :aria-label="ariaLabel"
         :name="name"
-        :value="item"
+        :value="rateValue"
         class="vsf-rating-button__input vsf-rating-button__input--items peer"
         :disabled="disabled"
-        :checked="modelValue === item"
-        :data-testid="`rating-button-item-input-${item}`"
-        @change="$emit('update:modelValue', Number($event.target.value))"
-        @focus="activeIcon = item"
+        :checked="modelValue === rateValue"
+        :data-testid="`rating-button-item-input-${rateValue}`"
+        @change="updateModelFromEvent"
+        @focus="activeIconIndex = rateValue"
       />
       <label
         class="vsf-rating-button__label"
-        :for="`${name}-${item}`"
-        @mouseover="activeIcon = item"
-        @mouseleave="activeIcon = modelValue"
+        :for="`${name}-${rateValue}`"
+        @mouseover="activeIconIndex = rateValue"
+        @mouseleave="activeIconIndex = modelValue"
       >
         <span
-          v-if="(activeIcon || modelValue) >= item && !disabled"
+          v-if="(activeIconIndex || modelValue || -1) >= rateValue && !disabled"
           class="vsf-rating-button__icon vsf-rating-button__icon--filled"
-          :data-testid="`rating-button-icon-filled-${item}`"
+          :data-testid="`rating-button-icon-filled-${rateValue}`"
         >
           <slot name="iconFilled" :get-icon-size="getIconSize" />
         </span>

@@ -44,31 +44,35 @@ export default function VsfRatingButton({
       <legend className="vsf-rating-button__legend" data-testid="rating-button-legend">
         {name}
       </legend>
-      {ratingPointsArray.map((item) => (
-        <span className="vsf-rating-button__item" key={`${name}-${item}`} data-testid={`rating-button-item-${item}`}>
+      {ratingPointsArray.map((rateValue) => (
+        <span
+          className="vsf-rating-button__item"
+          key={`${name}-${rateValue}`}
+          data-testid={`rating-button-item-${rateValue}`}
+        >
           <input
             type="radio"
             aria-label={ariaLabel}
             name={name}
-            id={`${name}-${item}`}
-            value={item}
+            id={`${name}-${rateValue}`}
+            value={rateValue}
             className="vsf-rating-button__input vsf-rating-button__input--items peer"
-            onChange={() => onChange && onChange(item)}
+            onChange={() => onChange?.(rateValue)}
             disabled={disabled}
-            checked={value === item}
-            onFocus={() => setActiveIcon(item)}
-            data-testid={`rating-button-item-input-${item}`}
+            checked={value === rateValue}
+            onFocus={() => setActiveIcon(rateValue)}
+            data-testid={`rating-button-item-input-${rateValue}`}
           />
           <label
             className="vsf-rating-button__label"
-            htmlFor={`${name}-${item}`}
-            onMouseEnter={() => setActiveIcon(item)}
+            htmlFor={`${name}-${rateValue}`}
+            onMouseEnter={() => setActiveIcon(rateValue)}
             onMouseLeave={() => setActiveIcon(value)}
           >
-            {(activeIcon || value) >= item && !disabled ? (
+            {(activeIcon || value) >= rateValue && !disabled ? (
               <span
                 className="vsf-rating-button__icon vsf-rating-button__icon--filled"
-                data-testid={`rating-button-icon-filled-${item}`}
+                data-testid={`rating-button-icon-filled-${rateValue}`}
               >
                 {iconFilled}
               </span>
