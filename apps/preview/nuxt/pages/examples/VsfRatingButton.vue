@@ -11,10 +11,10 @@
         @change="changeHandler"
       >
         <template #iconFilled="{ getIconSize }">
-          <VsfIconStar :size="getIconSize" />
+          <component :is="iconFilled" :size="getIconSize" />
         </template>
         <template #iconEmpty="{ getIconSize }">
-          <VsfIconStarOutline :size="getIconSize" />
+          <component :is="iconEmpty" :size="getIconSize" />
         </template>
       </VsfRatingButton>
     </div>
@@ -26,6 +26,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
+import * as Icons from '@sfui/sfui/frameworks/vue/components/VsfIcons/index';
 import VsfRatingButton from '@sfui/sfui/frameworks/vue/components/VsfRatingButton/VsfRatingButton.vue';
 import VsfIconStar from '@sfui/sfui/frameworks/vue/components/VsfIcons/VsfIconStar.vue';
 import VsfIconStarOutline from '@sfui/sfui/frameworks/vue/components/VsfIcons/VsfIconStarOutline.vue';
@@ -36,8 +37,7 @@ export default defineComponent({
   name: 'VsfRatingButtonExample',
   components: {
     VsfRatingButton,
-    VsfIconStar,
-    VsfIconStarOutline,
+    ...Icons,
     Controls,
   },
   setup() {
@@ -45,7 +45,9 @@ export default defineComponent({
       VsfIconStar,
       VsfIconStarOutline,
       changeHandler(e?: Event) {
-        console.log('Value changed: ', e.target.value);
+        if (e?.target && e.target instanceof HTMLInputElement) {
+          console.log('Value changed:', e.target.value);
+        }
       },
       ...prepareControls(
         [
@@ -86,6 +88,23 @@ export default defineComponent({
             modelName: 'ariaLabel',
             propType: 'string',
           },
+
+          {
+            type: 'select',
+            modelName: 'iconFilled',
+            options: Object.keys(Icons),
+            propDefaultValue: '',
+            propType: 'Slot',
+            description: 'Slot used for filled icon. Scoped data: { getIconSize: VsfIconSizeEnum }',
+          },
+          {
+            type: 'select',
+            modelName: 'iconEmpty',
+            options: Object.keys(Icons),
+            propDefaultValue: '',
+            propType: 'Slot',
+            description: 'Slot used for empty icon. Scoped data: { getIconSize: VsfIconSizeEnum }',
+          },
         ],
         {
           size: ref(VsfRatingButtonSizes.base),
@@ -94,6 +113,8 @@ export default defineComponent({
           modelValue: ref(0),
           name: ref('rating'),
           ariaLabel: ref('Rating button'),
+          iconFilled: ref<keyof typeof Icons>('VsfIconStar'),
+          iconEmpty: ref<keyof typeof Icons>('VsfIconStarOutline'),
         },
       ),
     };

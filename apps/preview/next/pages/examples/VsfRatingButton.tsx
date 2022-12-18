@@ -1,7 +1,6 @@
 /* eslint-disable react/jsx-curly-brace-presence */
 import VsfRatingButton, { VsfRatingButtonSizes } from '@sfui/sfui/frameworks/react/components/VsfRatingButton';
-import VsfIconStar from '@sfui/sfui/frameworks/react/components/VsfIcons/VsfIconStar';
-import VsfIconStarOutline from '@sfui/sfui/frameworks/react/components/VsfIcons/VsfIconStarOutline';
+import * as Icons from '@sfui/sfui/frameworks/react/components/VsfIcons';
 import { VsfIconSizeEnum } from '@sfui/sfui/frameworks/react/components/VsfIconBase/types';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
@@ -48,18 +47,22 @@ function Example() {
         propType: 'String',
       },
       {
-        type: 'text',
+        type: 'select',
         modelName: 'renderIconFilled',
+        options: Object.keys(Icons),
         propDefaultValue: '',
         propType: 'Function',
-        description: 'Pass icon component as the function',
+        description:
+          "Pass the function returning icon component, e.g.: (size?: VsfIconSizeEnum) => <VsfIconStarOutline size={size} ariaLabel={''} />",
       },
       {
-        type: 'text',
+        type: 'select',
         modelName: 'renderIconEmpty',
+        options: Object.keys(Icons),
         propDefaultValue: '',
         propType: 'Function',
-        description: 'Pass icon component as the function',
+        description:
+          "Pass the function returning icon component, e.g.: (size?: VsfIconSizeEnum) => <VsfIconStarOutline size={size} ariaLabel={''} />",
       },
     ],
     {
@@ -69,10 +72,13 @@ function Example() {
       value: 0,
       name: 'rating',
       ariaLabel: 'Rating button',
-      renderIconFilled: (size?: VsfIconSizeEnum) => <VsfIconStar size={size} ariaLabel={''} />,
-      renderIconEmpty: (size?: VsfIconSizeEnum) => <VsfIconStarOutline size={size} ariaLabel={''} />,
+      renderIconFilled: 'VsfIconStar' as keyof typeof Icons,
+      renderIconEmpty: 'VsfIconStarOutline' as keyof typeof Icons,
     },
   );
+
+  const RenderIconFilledComponent = Icons[state.get.renderIconFilled];
+  const RenderIconEmptyComponent = Icons[state.get.renderIconEmpty];
 
   function onChange(item: number) {
     // eslint-disable-next-line no-console
@@ -91,8 +97,8 @@ function Example() {
           disabled={state.get.disabled}
           name={state.get.name}
           ariaLabel={state.get.ariaLabel}
-          renderIconFilled={state.get.renderIconFilled}
-          renderIconEmpty={state.get.renderIconEmpty}
+          renderIconFilled={(size?: VsfIconSizeEnum) => <RenderIconFilledComponent size={size} ariaLabel={''} />}
+          renderIconEmpty={(size?: VsfIconSizeEnum) => <RenderIconEmptyComponent size={size} ariaLabel={''} />}
         />
       </div>
       <div className="e-page-controls">
