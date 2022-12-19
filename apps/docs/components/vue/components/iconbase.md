@@ -17,9 +17,6 @@ BaseIcon has only one purpose, to grab content via prop and mangle it, output is
 
 ## Source code
 
-
 <<<../../../packages/sfui/frameworks/vue/components/VsfIconBase/VsfIconBase.vue
-
-
 
 

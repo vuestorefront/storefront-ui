@@ -8,7 +8,6 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 
 
-
 ## Accessibility notes
 
 - [WAI ARIA 1.1 - separator (role)](https://www.w3.org/TR/wai-aria-1.1/#separator)
@@ -16,9 +15,6 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 ## Source code
 
-
 <<<../../../packages/sfui/frameworks/vue/components/VsfDivider/VsfDivider.vue
-
-
 
 

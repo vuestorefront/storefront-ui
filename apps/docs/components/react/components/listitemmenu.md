@@ -10,8 +10,6 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 
 
-
-
 ## Props
 
 | Prop name          | Type        | Default value | Possible values            |
@@ -33,12 +31,8 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 | slotSuffix         | `ReactNode` |               | Left side slotted content  |
 
 
-
 ## Source code
 
 
-
-
 <<< ../../../packages/sfui/frameworks/react/components/VsfListItemMenu/VsfListItemMenu.tsx
-
 

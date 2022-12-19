@@ -10,8 +10,6 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 
 
-
-
 ## Props
 
 | Prop name | Type                | Default value | Possible values       |
@@ -32,7 +30,6 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 | onChange   | triggers radio event emit |
 
 
-
 ## Accessibility notes
 
 - Providing a bigger hit area for your radio buttons - select a radio button by clicking on its associated `label` element, as well as on the radio button itself
@@ -43,8 +40,5 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 
 
-
-
 <<< ../../../packages/sfui/frameworks/react/components/VsfRadio/VsfRadio.tsx
-
 

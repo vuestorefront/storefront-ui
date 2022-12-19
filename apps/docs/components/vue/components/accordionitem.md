@@ -17,8 +17,6 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 | title       | String  | ''            |                 |
 | chevronLeft | Boolean | false         |                 |
 
-
-
 ## Slots
 
 | Slot name |           Description           |
@@ -26,7 +24,6 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 | prefix    | replaces the title with styling |
 | suffix    |    replaces the chevron icon    |
 | default   |      replaces the content       |
-
 
 ## Events
 
@@ -38,7 +35,4 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 ## Source code
 
-
 <<<../../../packages/sfui/frameworks/vue/components/VsfAccordionItem/VsfAccordionItem.vue
-
-

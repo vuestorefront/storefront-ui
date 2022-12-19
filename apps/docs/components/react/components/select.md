@@ -8,8 +8,6 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 
 
-
-
 ## Props
 
 | Prop name    | Type            | Default value | Possible values                        |
@@ -29,8 +27,6 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 
 
-
-
 ## Accessibility notes
 
 Keyboard users can use `tab`, open select with `space` and select options using `arrows`.
@@ -40,8 +36,5 @@ Selected option is marked with `aria-selected`.
 
 
 
-
-
 <<< ../../../packages/sfui/frameworks/react/components/VsfSelect/VsfSelect.tsx
-
 

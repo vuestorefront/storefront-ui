@@ -6,7 +6,6 @@ The NavbarTop component is used as navigation. Usually it's at the top of a page
 
 See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%9F%9B%A0-SFUI-2.0-%7C-Development?node-id=11378%3A17321)
 
-
 ## Props
 
 |    Prop name          |    Type          |      Default value    |     Possible values             |
@@ -17,15 +16,9 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 
 
-
-
 ## Slots
-
 
 
 ## Source code
 
-
-
 <<<../../../packages/sfui/frameworks/react/components/VsfNavbarTop/VsfNavbarTop.tsx
-

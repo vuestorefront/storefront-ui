@@ -9,8 +9,6 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 
 
-
-
 ## Slots
 
 | Slot name          |            Description                    |
@@ -19,10 +17,6 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 
 
-
 ## Source code
 
-
 <<<../../../packages/sfui/frameworks/vue/components/VsfNavbarTop/VsfNavbarTopActionGroup.vue
-
-

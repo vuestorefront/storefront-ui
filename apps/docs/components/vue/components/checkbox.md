@@ -11,7 +11,6 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 ## Props
 
 
-
 | Prop name    | Type                     | Default value | Possible values                        |
 | ------------ | ------------------------ | ------------- | -------------------------------------- |
 | value        | String                   | ''            |                                        |
@@ -25,8 +24,6 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 | invalid      | Boolean                  | false         |                                        |
 | disabled     | Boolean                  | false         |                                        |
 | required     | Boolean                  | false         |                                        |
-
-
 
 
 
@@ -52,9 +49,6 @@ Pressing the Space key triggers checkbox
 ## Source code
 
 
-
 <<<../../../packages/sfui/frameworks/vue/components/VsfCheckbox/VsfCheckbox.vue
-
-
 
 

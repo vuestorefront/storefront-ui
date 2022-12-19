@@ -17,7 +17,6 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 | title       | String  | ''            |                 |
 | chevronLeft | Boolean | false         |                 |
 
-
 ###  Props: 
 | Prop name  | Type    | Default value | Possible values                        |
 |------------| ------- | ------------- | -------------------------------------- |
@@ -25,8 +24,6 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 | slotSuffix | ReactNode  |             |                                        |                                        |
 | onToggle   | Function  |             |                                        |                                        |
 | children   | ReactNode  |             |                                        |                                        |
-
-
 ## Events
 
 | Event name |       Trigger        |
@@ -37,7 +34,4 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 ## Source code
 
-
-
 <<<../../../packages/sfui/frameworks/react/components/VsfAccordionItem/VsfAccordionItem.tsx
-

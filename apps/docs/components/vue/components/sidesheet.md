@@ -12,16 +12,12 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 ## Props
 
 
-
 | Prop name             | Type                       | Default value | Possible values                        |
 |-----------------------|----------------------------|---------------|----------------------------------------|
 |  leftSide             |  boolean                   |  true         |                                        |
 |  permanent            |  boolean                   |  false        |                                        |
 |  overlayVisible       |  boolean                   |  false        |                                        |
 |  open                 |  boolean                   |  false        |                                        |
-
-
-
 
 
 
@@ -41,13 +37,9 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 
 
-
 ## Accessibility notes
 
 
 ## Source code
 
-
 <<<../../../packages/sfui/frameworks/vue/components/VsfSideSheet/VsfSideSheet.vue
-
-

@@ -2,13 +2,10 @@
 
 The FooterLabel component is used for styling text content.
 
-
 ###  Props:
 | Prop name | Type      | Default value | Possible values                                                                   |
 |-----------|-----------| ------------- |-----------------------------------------------------------------------------------|
 | type      | VsfFooterLabelType    |     top        | category, subcategory, contact, contact-description, social-media, bottom-links, company-name |                                        |
-
-
 ### Types
 
 ```ts
@@ -24,7 +21,4 @@ enum VsfFooterLabelType {
 ```
 
 ## Source code
-
 <<<../../../packages/sfui/frameworks/vue/components/VsfFooter/VsfFooterLabel.vue
-
-

@@ -8,33 +8,25 @@ The Footer is not made of single component but a couple of them to let you compo
 
 See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%9F%9B%A0-SFUI-2.0-%7C-Development?node-id=13970%3A22832)
 
-
 ###  Props:
 | Prop name   | Type      | Default value | Possible values                        |
 | ----------- |-----------| ------------- | -------------------------------------- |
 | className | string    |             |                                        |                                        |
 | children | ReactNode |             |                                        |                                        |
 
-
 ## Subcomponents
-
 * [FooterBottomLinks](footerbottomlinks)
 * [FooterSection](footersection)
-
 * [FooterColumn](footercolumn)
 * [FooterLabel](footerlabel)
 * [FooterSocialMedia](footersocialmedia)
 
 ## Source code
 
-
-
 <<<../../../packages/sfui/frameworks/react/components/VsfFooter/VsfFooter.tsx
 
 
-
 ## Full implementation
-
 ```tsx
 <VsfFooter>
   <VsfFooterSection type={VsfFooterSectionType.top}>
@@ -126,5 +118,3 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
   </VsfFooterSection>
 </VsfFooter>
 ```
-
-

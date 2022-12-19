@@ -12,7 +12,6 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 ## Props
 
 
-
 | Prop name             | Type                       | Default value | Possible values                        |
 |-----------------------|----------------------------|---------------|----------------------------------------|
 |  leftSide             |  boolean                   |  true         |                                        |
@@ -21,9 +20,6 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 |  logoAriaLabel        | `String`                   |  ''           |                                        |
 |  logoLink             | `String`                   |  ''           |                                        |
 |  modelValue           |  boolean                   |  false        |                                        |
-
-
-
 
 
 
@@ -45,13 +41,9 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 
 
-
 ## Accessibility notes
 
 
 ## Source code
 
-
 <<<../../../packages/sfui/frameworks/vue/components/VsfNavigationSide/VsfNavigationSide.vue
-
-

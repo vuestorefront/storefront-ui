@@ -15,6 +15,4 @@ The product card image component is the element passed as default into the image
 
 ## Source code
 
-
 <<<../../../packages/sfui/frameworks/vue/components/VsfProductCard/VsfProductCardImage.vue
-

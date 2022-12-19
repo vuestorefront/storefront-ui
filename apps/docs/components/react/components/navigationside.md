@@ -13,8 +13,6 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 
 
-
-
 | Prop name             | Type                       | Default value | Possible values                        |
 |-----------------------|----------------------------|---------------|----------------------------------------|
 |  leftSide             |  boolean                   |  true         |                                        |
@@ -32,14 +30,9 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 
 
-
-
 ## Accessibility notes
 
 
 ## Source code
 
-
-
 <<<../../../packages/sfui/frameworks/react/components/VsfNavigationSide/VsfNavigationSide.tsx
-

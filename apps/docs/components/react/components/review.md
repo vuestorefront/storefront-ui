@@ -10,8 +10,6 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 
 
-
-
 ## Props
 
 |     Prop name      |    Type     | Default value | Possible values |
@@ -29,10 +27,6 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 |    `className`     |  `String`   |               |                 |
 
 
-
 ## Source code
 
-
-
 <<< ../../../packages/sfui/frameworks/react/components/VsfReview/VsfReview.tsx
-

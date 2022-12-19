@@ -11,7 +11,6 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 ## Props
 
 
-
 | Prop name       | Type     | Default value | Possible values                        |
 | --------------- | -------- | ------------- | -------------------------------------- |
 | `image`         | String   | ''            |                                        |
@@ -53,10 +52,6 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 
 
-
-
 ## Source code
 
-
 <<<../../../packages/sfui/frameworks/vue/components/VsfProductCard/VsfProductCard.vue
-

@@ -1,4 +1,3 @@
-
 # FooterBottomLinks component
 
 The FooterBottomLinks is a container for links in bottom section of the Footer. 
@@ -12,4 +11,3 @@ The FooterBottomLinks is a container for links in bottom section of the Footer.
 ## Source code
 
 <<<../../../packages/sfui/frameworks/react/components/VsfFooter/VsfFooterBottomLinks.tsx
-

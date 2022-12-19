@@ -11,13 +11,10 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 ## Props
 
 
-
-
 | Prop name  | Type                      | Default value | Possible values                    |
 | ---------- | ------------------------- | ------------- | ---------------------------------- |
 | variant    | `VsfNavigationTopVariant` | `auto`        | `none`, `auto`, `half-3`, `3-half` |
 | modelValue | `boolean`                 | `false`       |                                    |
-
 
 
 ## Slots
@@ -30,12 +27,9 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 
 
-
-
 | Event name        | Trigger                      |
 | ----------------- | ---------------------------- |
 | update:modelValue | when navigation is show/hide |
-
 
 
 ## Accessibility notes
@@ -43,8 +37,5 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 ## Source code
 
 
-
 <<<../../../packages/sfui/frameworks/vue/components/VsfNavigationTop/VsfNavigationTop.vue
-
-
 

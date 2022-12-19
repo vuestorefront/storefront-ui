@@ -1,4 +1,3 @@
-
 # FooterSection component
 
 The FooterSection component is a container for whole section and should be used as a direct child of the Footer component. 
@@ -23,4 +22,3 @@ enum VsfFooterSectionType {
 ## Source code
 
 <<<../../../packages/sfui/frameworks/react/components/VsfFooter/VsfFooterSection.tsx
-

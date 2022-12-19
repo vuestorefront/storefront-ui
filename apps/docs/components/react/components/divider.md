@@ -7,13 +7,11 @@ The hr tag defines a thematic break in an HTML page (e.g. a shift of topic).
 See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%9F%9B%A0-SFUI-2.0-%7C-Development?node-id=10555%3A5598)
 
 
-
 ## Props
 
 | Prop name | Type        | Default value | Possible values |
 | --------- | ----------- | ------------- | --------------- |
 | className | `String`    |               |                 |
-
 
 
 ## Accessibility notes
@@ -24,8 +22,5 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 ## Source code
 
 
-
-
 <<< ../../../packages/sfui/frameworks/react/components/VsfDivider/VsfDivider.tsx
-
 

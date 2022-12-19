@@ -10,15 +10,12 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 
 
-
-
 ## Props
 
 | Prop name   | Type    | Default value | Possible values                        |
 | ----------- | ------- | ------------- | -------------------------------------- |
 | breadcrumbs | Array   | []            |                                        |
 | withIcon    | Boolean | false         |                                        |
-
 
 
 
@@ -33,8 +30,5 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 The Breadcrumbs component uses `aria-label`to indicate navigation type and page.
 
 ## Source code
-
-
 <<<../../../packages/sfui/frameworks/react/components/VsfBreadcrumbs/VsfBreadcrumbs.tsx
-
 

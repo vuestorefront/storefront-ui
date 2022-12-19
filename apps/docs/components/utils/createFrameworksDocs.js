@@ -25,9 +25,9 @@ function docsSplit() {
 }
 
 function removePart(content, framework) {
-  const removeRegex = new RegExp(`(<!-- ${framework} -->)(.*?)(<!-- end ${framework} -->)`, 'gs');
+  const removeRegex = new RegExp(`<!-- ${framework} -->.*?<!-- end ${framework} -->(?:\n|$)`, 'gs');
   const docsWithout = content.replace(removeRegex, "");
-  const removeIfsRegex = /(<!--)(.*?)(-->)/g
+  const removeIfsRegex = /<!--(.*?)-->\n?/g
   const docsWithoutIfs = docsWithout.replace(removeIfsRegex, "");
   return docsWithoutIfs;
 }

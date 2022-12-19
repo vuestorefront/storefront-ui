@@ -9,7 +9,6 @@ Radio is a common way to allow users to make a single selection from a list of o
 See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%9F%9B%A0-SFUI-2.0-%7C-Development?node-id=11375%3A16247)
 
 
-
 ## Props
 
 | Prop name  | Type                | Default value | Possible values       |
@@ -31,8 +30,6 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 
 
-
-
 ## Accessibility notes
 
 - Providing a bigger hit area for your radio buttons - select a radio button by clicking on its associated `label` element, as well as on the radio button itself
@@ -42,9 +39,6 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 ## Source code
 
 
-
 <<<../../../packages/sfui/frameworks/vue/components/VsfRadio/VsfRadio.vue
-
-
 
 

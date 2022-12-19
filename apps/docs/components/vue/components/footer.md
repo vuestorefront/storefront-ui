@@ -9,24 +9,17 @@ The Footer is not made of single component but a couple of them to let you compo
 See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%9F%9B%A0-SFUI-2.0-%7C-Development?node-id=13970%3A22832)
 
 
-
 ## Subcomponents
-
 * [FooterColumn](footercolumn)
 * [FooterLabel](footerlabel)
 * [FooterSocialMedia](footersocialmedia)
 
 ## Source code
 
-
 <<<../../../packages/sfui/frameworks/vue/components/VsfFooter/VsfFooter.vue
 
 
-
-
 ## Full implementation
-
-
 ```vue
 <script setup>
     const categories = [
@@ -230,4 +223,3 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
   </VsfFooter>
 </template>
 ```
-

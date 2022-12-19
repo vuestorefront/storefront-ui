@@ -30,7 +30,4 @@ See the design on [Figma]()
 
 ## Source code
 
-
-
 <<<../../../packages/sfui/frameworks/react/components/VsfListItemFilterRadio/VsfListItemFilterRadio.tsx
-
