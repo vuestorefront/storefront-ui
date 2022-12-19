@@ -6,8 +6,12 @@
     @apply p-4 flex flex-col;
   }
 
+  &__image-wrapper {
+    @apply w-full;
+  }
+
   &__image {
-    @apply h-auto object-cover rounded-t-md;
+    @apply h-auto object-cover w-full aspect-square rounded-t-md;
   }
 
   &__title {
