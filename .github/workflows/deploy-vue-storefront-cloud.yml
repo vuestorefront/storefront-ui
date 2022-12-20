@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - master
-      - feature/vuestorefront_deployment
 
 jobs:
   build:
@@ -25,7 +24,7 @@ jobs:
       - name: Build and publish docker image
         uses: elgohr/Publish-Docker-Github-Action@v4
         with:
-          name: sfui-storefrontcloud-io/vue-storefront:${{ steps.get_version.outputs.VERSION }}
+          name: sfui-storefrontcloud-io/sfui1-docs:${{ steps.get_version.outputs.VERSION }}
           registry: registry.storefrontcloud.io
           username: ${{ secrets.CLOUD_USERNAME }}
           password: ${{ secrets.CLOUD_PASSWORD }}
@@ -47,23 +46,27 @@ jobs:
         id: deployment
         with:
           token: "${{ github.token }}"
-          target_url: https://docs.storefrontui.io
+          target_url: https://docs.storefrontui.io/v1
           environment: production
           initial_status: in_progress
-      - name: Deploy to docs.storefrontui.io
-        run: |
-          if curl -s -H 'X-User-Id: ${{ secrets.CLOUD_USERNAME }}'  -H 'X-Api-Key: ${{ secrets.CLOUD_PASSWORD }}' -H 'Content-Type: application/json' -X POST -d '{"code":"sfui","region":"europe-west1.gcp","frontContainerVersion":"${{ steps.get_version.outputs.VERSION }}"}' https://farmer.storefrontcloud.io/instances | grep -q '{"code":200,"result":"Instance updated!"}'; then
-            echo "Instance updated"
-          else
-            echo "Something went wrong during the update process..."
-            exit 1
-          fi
+      # Not using the vuestorefront/* package because of:
+      # https://github.com/sethidden/publish-docs-action/commit/5fb4bf1df975567879f99d3e975447a2ff824bb2
+      - uses: sethidden/publish-docs-action@v1
+        with:
+          user-id: ${{ secrets.CLOUD_USERNAME }}
+          api-key: ${{ secrets.CLOUD_PASSWORD }}
+          name: "sfui1-docs"
+          tag: "${{ steps.get_version.outputs.VERSION }}"
+          image: "registry.storefrontcloud.io/sfui-storefrontcloud-io/sfui1-docs"
+          path: "/v1"
+          port: "80"
+          has-base-path: true
       - name: Update deployment status (success)
         if: success()
         uses: chrnorm/deployment-status@releases/v1
         with:
           token: "${{ github.token }}"
-          target_url: https://docs.storefrontui.io
+          target_url: https://docs.storefrontui.io/v1
           state: "success"
           description: Congratulations! The deploy is done.
           deployment_id: ${{ steps.deployment.outputs.deployment_id }}
@@ -72,7 +75,7 @@ jobs:
         uses: chrnorm/deployment-status@releases/v1
         with:
           token: "${{ github.token }}"
-          target_url: https://docs.storefrontui.io
+          target_url: https://docs.storefrontui.io/v1
           description: Unfortunately, the instance hasn't been updated.
           state: "failure"
           deployment_id: ${{ steps.deployment.outputs.deployment_id }}
