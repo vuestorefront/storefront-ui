@@ -13,9 +13,6 @@ export default function VsfProductCardImage({
       case VsfProductCardSizes.sm:
         return 192;
 
-      case VsfProductCardSizes.base:
-        return 320;
-
       default:
         return 320;
     }
@@ -25,9 +22,6 @@ export default function VsfProductCardImage({
     switch (size) {
       case VsfProductCardSizes.sm:
         return 128;
-
-      case VsfProductCardSizes.base:
-        return 192;
 
       default:
         return 192;

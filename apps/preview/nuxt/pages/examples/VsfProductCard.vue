@@ -29,15 +29,7 @@
         @add-to-wishlist="handleAddToWishlist"
         @see-similar="handleSeeSimilar"
         @see-reviews="handleReviewsClick"
-      >
-        <template v-if="vertical && badgeSize === 'base' && size === VsfProductCardSizes.responsive" #image-top>
-          <VsfTag :size="VsfTagSizes.base" :variant="VsfTagVariants.secondary" strong>
-            <template #icon>
-              <VsfIconHot :size="VsfIconSizeEnum.sm" />
-            </template>
-          </VsfTag>
-        </template>
-      </VsfProductCard>
+      />
     </div>
     <div class="e-page-controls">
       <Controls v-bind="controlsAttrs" />
@@ -49,8 +41,6 @@
 import { defineComponent, ref, onMounted, onUnmounted, watch, resolveComponent, computed } from 'vue';
 import VsfProductCard from '@sfui/sfui/frameworks/vue/components/VsfProductCard/index';
 import { VsfProductCardSizes, VsfProductCardLinkTags } from '@sfui/sfui/frameworks/vue/components/VsfProductCard/types';
-import { VsfTagVariants, VsfTagSizes } from '@sfui/sfui/frameworks/vue/components/VsfTag/types';
-import { VsfIconSizeEnum } from '@sfui/sfui/frameworks/vue/components/VsfIcons/types';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
 import productImage from '../fixture/product-card.webp';
 
@@ -64,7 +54,6 @@ export default defineComponent({
   setup() {
     const newAddToCartLabel = ref('');
     const windowWidth = ref(0);
-    const badgeSize = ref('');
     const onWindowResize = (): void => {
       windowWidth.value = window.innerWidth;
     };
@@ -82,10 +71,8 @@ export default defineComponent({
       (newWindowWidth) => {
         if (newWindowWidth < 768) {
           newAddToCartLabel.value = 'Add';
-          badgeSize.value = '';
         } else {
           newAddToCartLabel.value = 'Add to cart';
-          badgeSize.value = 'base';
         }
       },
       { immediate: true },
@@ -246,7 +233,7 @@ export default defineComponent({
           reviewsAmount: ref(123),
           addToCartLabel: ref(newAddToCartLabel),
           similarLabel: ref('See similar'),
-          badgeText: ref('-30%'),
+          badgeText: ref('Sale'),
           vertical: ref(true),
           ariaLabelAddToWishlist: ref('Add The standard chunk of Lorem Ipsum to wishlist'),
           ariaLabelBadge: ref('-30% discount'),

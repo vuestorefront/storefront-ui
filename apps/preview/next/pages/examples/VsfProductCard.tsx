@@ -7,10 +7,6 @@ import type {
 } from '@sfui/sfui/frameworks/react/components/VsfProductCard/types';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import VsfIconHot from '@sfui/sfui/frameworks/react/components/VsfIcons/VsfIconHot';
-import VsfTag from '@sfui/sfui/frameworks/react/components/VsfTag/VsfTag';
-import { VsfTagVariants, VsfTagSizes } from '@sfui/sfui/frameworks/react/components/VsfTag/types';
-import { VsfIconSizeEnum } from '@sfui/sfui/frameworks/react/components/VsfIconBase/types';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 import productImage from '../fixture/product-card.webp';
@@ -158,7 +154,7 @@ function Example() {
       reviewsAmount: 123,
       addToCartLabel: 'Add',
       similarLabel: 'See similar',
-      badgeText: '-30%',
+      badgeText: 'Sale',
       vertical: true,
       ariaLabelAddToWishlist: 'Add The standard chunk of Lorem Ipsum to the wishlist',
       ariaLabelBadge: '-30% discount',
@@ -175,8 +171,6 @@ function Example() {
     },
     state.get.className,
   );
-
-  let badgeSize = '';
 
   function onAddToCartClick(e?: Event) {
     console.log('Added to cart: ', e);
@@ -207,10 +201,8 @@ function Example() {
     if (!VsfProductCardSizes.responsive) return;
     if (newWindowWidth < 768) {
       setAddToCartLabel('Add');
-      badgeSize = '';
     } else {
       setAddToCartLabel('Add to Cart');
-      badgeSize = 'base';
     }
   }, [newWindowWidth]);
 
@@ -286,15 +278,6 @@ function Example() {
                     </span>
                   </a>
                 )
-          }
-          slotImageTop={
-            state.get.vertical &&
-            state.get.size === 'responsive' &&
-            badgeSize === 'base' && (
-              <VsfTag size={VsfTagSizes.base} strong label={state.get.badgeText} variant={VsfTagVariants.secondary}>
-                <VsfIconHot size={VsfIconSizeEnum.sm} ariaLabel={state.get.ariaLabelBadge} />
-              </VsfTag>
-            )
           }
         />
       </div>

@@ -26,11 +26,8 @@ const imageDimensionsVertical = computed(() => {
     case VsfProductCardSizes.sm:
       return 192;
 
-    case VsfProductCardSizes.base:
-      return 320;
-
     default:
-      return null;
+      return 320;
   }
 });
 
@@ -39,11 +36,8 @@ const imageDimensionsHorizontal = computed(() => {
     case VsfProductCardSizes.sm:
       return 128;
 
-    case VsfProductCardSizes.base:
-      return 192;
-
     default:
-      return null;
+      return 192;
   }
 });
 </script>

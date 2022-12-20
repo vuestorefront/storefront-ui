@@ -151,17 +151,14 @@ defineEmits<{
         <component :is="linkTag" :href="isLinkAString ? link : null" v-bind="!isLinkAString && link">
           <slot v-if="badgeText" name="image-top" v-bind="{ badgeText, ariaLabelBadge }">
             <VsfTag
-              :size="size === VsfProductCardSizes.base && vertical ? VsfTagSizes.base : VsfTagSizes.sm"
+              :size="VsfTagSizes.sm"
               :variant="VsfTagVariants.secondary"
               strong
               :label="badgeText"
               data-testid="product-card-badge"
             >
               <template #icon>
-                <VsfIconHot
-                  :size="size === VsfProductCardSizes.base && vertical ? VsfIconSizeEnum.sm : VsfIconSizeEnum.xs"
-                  :aria-label="ariaLabelBadge"
-                />
+                <VsfIconHot :size="VsfIconSizeEnum.xs" :aria-label="ariaLabelBadge" />
               </template>
             </VsfTag>
           </slot>

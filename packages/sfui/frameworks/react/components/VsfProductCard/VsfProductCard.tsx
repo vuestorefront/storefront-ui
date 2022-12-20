@@ -114,16 +114,13 @@ export default function VsfProductCard({
           {slotImageTop ||
             (badgeText && (
               <VsfTag
-                size={size === VsfProductCardSizes.base ? VsfTagSizes.base : VsfTagSizes.sm}
+                size={VsfTagSizes.sm}
                 strong
                 label={badgeText}
                 variant={VsfTagVariants.secondary}
                 data-testid="product-card-badge"
               >
-                <VsfIconHot
-                  size={size === VsfProductCardSizes.base ? VsfIconSizeEnum.sm : VsfIconSizeEnum.xs}
-                  ariaLabel={ariaLabelBadge}
-                />
+                <VsfIconHot size={VsfIconSizeEnum.xs} ariaLabel={ariaLabelBadge} />
               </VsfTag>
             ))}
         </div>
@@ -169,7 +166,7 @@ export default function VsfProductCard({
           </VsfTag>
         ) : null}
         {slotTitle ||
-          (title && title && (
+          (title && (
             <a href={link}>
               <span className="vsf-product-card__details-title" data-testid="product-card-title">
                 {title}
