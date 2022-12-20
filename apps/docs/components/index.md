@@ -2,7 +2,7 @@
 layout: home
 hero:
   name: Storefront UI
-  text: Lightning fast eCommerce library
+  text: Lightning fast eCommerce library (early alpha)
   tagline: Create stunning, mobile-first online stores with this 100% customizable design system and UI library. Available as UI Framework for Vue.js
   actions:
     - theme: brand

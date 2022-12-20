@@ -21,8 +21,9 @@ export default {
   description: 'Lightning fast ecommerce library',
   themeConfig: {
     logo: '/assets/logo.svg',
-    siteTitle: 'Storefront UI library',
+    siteTitle: 'Storefront UI library (alpha)',
     nav: [
+      { text: 'Currently in early alpha!', link: '/' },
       { text: 'Home', link: '/' },
       { text: 'React', link: '/react/index' },
       { text: 'Vue', link: '/vue/index' },
@@ -84,6 +85,6 @@ export default {
     editLink: {
       pattern: 'https://github.com/vuestorefront/sfui2/edit/develop/docs/:path',
       text: 'Edit this page on GitHub'
-    },    
+    },
   }
 }
