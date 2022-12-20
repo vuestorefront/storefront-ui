@@ -55,3 +55,7 @@ apps/docs/components/.vitepress/dist
 apps/preview/next/sfui
 apps/preview/sfui/frameworks/react/sharedRoot
 apps/preview/sfui/frameworks/vue/sharedRoot
+
+# Generated docs
+apps/docs/components/react/components
+apps/docs/components/vue/components
