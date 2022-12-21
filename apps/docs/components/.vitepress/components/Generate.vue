@@ -14,7 +14,17 @@ const isProd = import.meta.env.PROD;
 const files = import.meta.glob('../../../../../packages/sfui/frameworks/vue/components/**/*.vue');
 const components = Object.keys(files).map((file) => file.match(/([\w\d_-]*)\.?[^\\\/]*$/i)[1])
   .sort();
-const componentNameFull = components.find( component => component.toLowerCase().includes(componentName.value))
-const exampleUrl = computed(() => `http://localhost:${frameworkName.value === 'vue' ? '3001' : '3002'}/examples/${componentNameFull}?docs=true`)
+const componentNameFull = components.find( component => component.toLowerCase().includes(componentName.value));
+
+const getFrameworkBaseUrl = (frameworkName: string) => {
+  switch(frameworkName) {
+    case 'react':
+      return import.meta.env.VITE_DOCS_EXAMPLES_REACT || 'http://localhost:3002';
+    default:
+      return import.meta.env.VITE_DOCS_EXAMPLES_VUE || 'http://localhost:3001';
+  }
+};
+
+const exampleUrl = computed(() => `${getFrameworkBaseUrl(frameworkName.value)}/examples/${componentNameFull}?docs=true`)
 // TODO generate prod URLs
 </script>
