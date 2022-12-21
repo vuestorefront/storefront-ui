@@ -79,7 +79,7 @@ function Example() {
             state.set({ ...state.get, open: true });
           }}
         >
-          Click to open NavigationSide
+          Click to open Navigation Side
         </VsfButton>
         <VsfNavigationSide
           open={state.get.open}
