@@ -63,7 +63,13 @@ const isLinkAString = computed(() => {
     data-testid="card"
   >
     <!-- TODO: replace with link component -->
-    <component :is="linkTag" v-if="imgSrc" :href="isLinkAString && link" v-bind="!isLinkAString && link">
+    <component
+      :is="linkTag"
+      v-if="imgSrc"
+      class="vsf-card__image-wrapper"
+      :href="isLinkAString && link"
+      v-bind="!isLinkAString && link"
+    >
       <slot name="image">
         <img class="vsf-card__image" v-bind="imgAttr" :src="imgSrc" data-testid="card-image" />
       </slot>
