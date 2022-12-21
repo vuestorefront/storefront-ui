@@ -10,13 +10,14 @@ const docs = glob.sync(
   "./components/*.md"
 )
 const allVueComponents = vueFiles.map(file => path.basename(file).replace('.vue', '')).sort();
-const allVueComponentsWithDocs = allVueComponents.filter(component => docs.find(item => component.replace('Vsf', '').toLowerCase() === path.basename(item).replace('.md', '')) )
+const allVueComponentsWithDocs = allVueComponents.filter(component => docs.find(item => component.replace('Vsf', '').toLowerCase() === path.basename(item).replace('.md', '')))
 const allReactComponents = reactFiles.map(file => path.basename(file).replace('.tsx', '')).sort();
 const allReactComponentsWithDocs = allReactComponents.filter(component => docs.find(item => component.replace('Vsf', '').toLowerCase() === path.basename(item).replace('.md', '')))
 
 const createComponentLink = (framework, componentName) => `/${framework}/${componentName}`;
 
 export default {
+  base: '/v2/',
   title: 'Storefront UI library',
   description: 'Lightning fast ecommerce library',
   themeConfig: {
