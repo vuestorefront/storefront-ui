@@ -5,7 +5,7 @@ import { VsfIconSizeEnum } from '../VsfIconBase/types';
 export default function VsfIconChevronRight({
   className = '',
   size = VsfIconSizeEnum.base,
-  ariaLabel = 'chevron-right',
+  ariaLabel,
   viewBox,
   ...attributes
 }: VsfIconProps) {

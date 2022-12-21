@@ -5,7 +5,7 @@ import { VsfIconSizeEnum } from '../VsfIconBase/types';
 export default function VsfIconLock({
   className = '',
   size = VsfIconSizeEnum.base,
-  ariaLabel = 'lock',
+  ariaLabel,
   viewBox,
   ...attributes
 }: VsfIconProps) {

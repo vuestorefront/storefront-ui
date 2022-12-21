@@ -5,7 +5,7 @@ import { VsfIconSizeEnum } from '../VsfIconBase/types';
 export default function VsfIconTriangleLeft({
   className = '',
   size = VsfIconSizeEnum.base,
-  ariaLabel = 'triangle-left',
+  ariaLabel,
   viewBox,
   ...attributes
 }: VsfIconProps) {

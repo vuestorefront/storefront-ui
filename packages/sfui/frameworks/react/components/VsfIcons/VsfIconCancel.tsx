@@ -5,7 +5,7 @@ import { VsfIconSizeEnum } from '../VsfIconBase/types';
 export default function VsfIconCancel({
   className = '',
   size = VsfIconSizeEnum.base,
-  ariaLabel = 'cancel',
+  ariaLabel,
   viewBox,
   ...attributes
 }: VsfIconProps) {

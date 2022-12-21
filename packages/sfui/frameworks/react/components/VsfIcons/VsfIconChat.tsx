@@ -5,7 +5,7 @@ import { VsfIconSizeEnum } from '../VsfIconBase/types';
 export default function VsfIconChat({
   className = '',
   size = VsfIconSizeEnum.base,
-  ariaLabel = 'chat',
+  ariaLabel,
   viewBox,
   ...attributes
 }: VsfIconProps) {

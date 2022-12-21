@@ -5,7 +5,7 @@ import { VsfIconSizeEnum } from '../VsfIconBase/types';
 export default function VsfIconCheckboxUnchecked({
   className = '',
   size = VsfIconSizeEnum.base,
-  ariaLabel = 'checkbox-unchecked',
+  ariaLabel,
   viewBox,
   ...attributes
 }: VsfIconProps) {

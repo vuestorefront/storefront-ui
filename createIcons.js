@@ -91,7 +91,7 @@ const attributesMap = {
 
 const vueIcon = (name, content, attributes) => `
 <template>
-    <VsfIconBase :size="size" aria-label="${name}" viewBox="${attributes.viewBox}" content="${content}"/>
+    <VsfIconBase :size="size" viewBox="${attributes.viewBox}" content="${content}"/>
 </template>
 <script lang="ts" setup>
 import { PropType } from 'vue';
@@ -114,7 +114,7 @@ import { VsfIconSizeEnum } from '${relativePathToIconBasePath}VsfIconBase/types'
 export default function VsfIcon${camelCaseName}({
     className = '',
     size = VsfIconSizeEnum.base,
-    ariaLabel = '${name}',
+    ariaLabel,
     viewBox,
     ...attributes
 }: VsfIconProps) {

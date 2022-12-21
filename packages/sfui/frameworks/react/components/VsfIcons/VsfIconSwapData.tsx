@@ -5,7 +5,7 @@ import { VsfIconSizeEnum } from '../VsfIconBase/types';
 export default function VsfIconSwapData({
   className = '',
   size = VsfIconSizeEnum.base,
-  ariaLabel = 'swap-data',
+  ariaLabel,
   viewBox,
   ...attributes
 }: VsfIconProps) {

@@ -5,7 +5,7 @@ import { VsfIconSizeEnum } from '../VsfIconBase/types';
 export default function VsfIconFavoritesOutline({
   className = '',
   size = VsfIconSizeEnum.base,
-  ariaLabel = 'favorites-outline',
+  ariaLabel,
   viewBox,
   ...attributes
 }: VsfIconProps) {

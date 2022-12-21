@@ -5,7 +5,7 @@ import { VsfIconSizeEnum } from '../VsfIconBase/types';
 export default function VsfIconMoreHorizontal({
   className = '',
   size = VsfIconSizeEnum.base,
-  ariaLabel = 'more-horizontal',
+  ariaLabel,
   viewBox,
   ...attributes
 }: VsfIconProps) {

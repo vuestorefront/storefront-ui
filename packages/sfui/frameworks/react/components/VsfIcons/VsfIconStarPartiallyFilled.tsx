@@ -5,7 +5,7 @@ import { VsfIconSizeEnum } from '../VsfIconBase/types';
 export default function VsfIconStarPartiallyFilled({
   className = '',
   size = VsfIconSizeEnum.base,
-  ariaLabel = 'star-partially-filled',
+  ariaLabel,
   viewBox,
   ...attributes
 }: VsfIconProps) {

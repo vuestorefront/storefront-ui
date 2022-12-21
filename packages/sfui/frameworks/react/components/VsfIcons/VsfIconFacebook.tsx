@@ -5,7 +5,7 @@ import { VsfIconSizeEnum } from '../VsfIconBase/types';
 export default function VsfIconFacebook({
   className = '',
   size = VsfIconSizeEnum.base,
-  ariaLabel = 'facebook',
+  ariaLabel,
   viewBox,
   ...attributes
 }: VsfIconProps) {

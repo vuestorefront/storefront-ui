@@ -5,7 +5,7 @@ import { VsfIconSizeEnum } from '../VsfIconBase/types';
 export default function VsfIconTriangleRight({
   className = '',
   size = VsfIconSizeEnum.base,
-  ariaLabel = 'triangle-right',
+  ariaLabel,
   viewBox,
   ...attributes
 }: VsfIconProps) {

@@ -5,7 +5,7 @@ import { VsfIconSizeEnum } from '../VsfIconBase/types';
 export default function VsfIconMoreVertical({
   className = '',
   size = VsfIconSizeEnum.base,
-  ariaLabel = 'more-vertical',
+  ariaLabel,
   viewBox,
   ...attributes
 }: VsfIconProps) {

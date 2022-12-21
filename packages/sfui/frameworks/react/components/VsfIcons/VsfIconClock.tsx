@@ -5,7 +5,7 @@ import { VsfIconSizeEnum } from '../VsfIconBase/types';
 export default function VsfIconClock({
   className = '',
   size = VsfIconSizeEnum.base,
-  ariaLabel = 'clock',
+  ariaLabel,
   viewBox,
   ...attributes
 }: VsfIconProps) {

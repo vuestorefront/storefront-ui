@@ -5,7 +5,7 @@ import { VsfIconSizeEnum } from '../VsfIconBase/types';
 export default function VsfIconArrowRight({
   className = '',
   size = VsfIconSizeEnum.base,
-  ariaLabel = 'arrow-right',
+  ariaLabel,
   viewBox,
   ...attributes
 }: VsfIconProps) {

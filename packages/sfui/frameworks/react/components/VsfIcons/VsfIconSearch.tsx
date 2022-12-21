@@ -5,7 +5,7 @@ import { VsfIconSizeEnum } from '../VsfIconBase/types';
 export default function VsfIconSearch({
   className = '',
   size = VsfIconSizeEnum.base,
-  ariaLabel = 'search',
+  ariaLabel,
   viewBox,
   ...attributes
 }: VsfIconProps) {

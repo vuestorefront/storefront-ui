@@ -5,7 +5,7 @@ import { VsfIconSizeEnum } from '../VsfIconBase/types';
 export default function VsfIconSafety({
   className = '',
   size = VsfIconSizeEnum.base,
-  ariaLabel = 'safety',
+  ariaLabel,
   viewBox,
   ...attributes
 }: VsfIconProps) {

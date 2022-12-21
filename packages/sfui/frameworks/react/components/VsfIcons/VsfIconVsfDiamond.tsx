@@ -5,7 +5,7 @@ import { VsfIconSizeEnum } from '../VsfIconBase/types';
 export default function VsfIconVsfDiamond({
   className = '',
   size = VsfIconSizeEnum.base,
-  ariaLabel = 'vsf-diamond',
+  ariaLabel,
   viewBox,
   ...attributes
 }: VsfIconProps) {

@@ -5,7 +5,7 @@ import { VsfIconSizeEnum } from '../VsfIconBase/types';
 export default function VsfIconPerson({
   className = '',
   size = VsfIconSizeEnum.base,
-  ariaLabel = 'person',
+  ariaLabel,
   viewBox,
   ...attributes
 }: VsfIconProps) {

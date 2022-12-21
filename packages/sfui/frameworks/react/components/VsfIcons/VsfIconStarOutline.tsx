@@ -5,7 +5,7 @@ import { VsfIconSizeEnum } from '../VsfIconBase/types';
 export default function VsfIconStarOutline({
   className = '',
   size = VsfIconSizeEnum.base,
-  ariaLabel = 'star-outline',
+  ariaLabel,
   viewBox,
   ...attributes
 }: VsfIconProps) {

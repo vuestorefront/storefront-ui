@@ -5,7 +5,7 @@ import { VsfIconSizeEnum } from '../VsfIconBase/types';
 export default function VsfIconInstagram({
   className = '',
   size = VsfIconSizeEnum.base,
-  ariaLabel = 'instagram',
+  ariaLabel,
   viewBox,
   ...attributes
 }: VsfIconProps) {

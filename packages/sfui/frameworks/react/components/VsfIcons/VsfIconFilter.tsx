@@ -5,7 +5,7 @@ import { VsfIconSizeEnum } from '../VsfIconBase/types';
 export default function VsfIconFilter({
   className = '',
   size = VsfIconSizeEnum.base,
-  ariaLabel = 'filter',
+  ariaLabel,
   viewBox,
   ...attributes
 }: VsfIconProps) {

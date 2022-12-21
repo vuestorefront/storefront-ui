@@ -5,7 +5,7 @@ import { VsfIconSizeEnum } from '../VsfIconBase/types';
 export default function VsfIconDelete({
   className = '',
   size = VsfIconSizeEnum.base,
-  ariaLabel = 'delete',
+  ariaLabel,
   viewBox,
   ...attributes
 }: VsfIconProps) {

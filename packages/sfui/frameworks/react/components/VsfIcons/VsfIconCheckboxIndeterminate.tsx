@@ -5,7 +5,7 @@ import { VsfIconSizeEnum } from '../VsfIconBase/types';
 export default function VsfIconCheckboxIndeterminate({
   className = '',
   size = VsfIconSizeEnum.base,
-  ariaLabel = 'checkbox-indeterminate',
+  ariaLabel,
   viewBox,
   ...attributes
 }: VsfIconProps) {

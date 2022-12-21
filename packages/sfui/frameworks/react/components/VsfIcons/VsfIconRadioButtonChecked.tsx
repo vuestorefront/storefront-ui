@@ -5,7 +5,7 @@ import { VsfIconSizeEnum } from '../VsfIconBase/types';
 export default function VsfIconRadioButtonChecked({
   className = '',
   size = VsfIconSizeEnum.base,
-  ariaLabel = 'radio-button-checked',
+  ariaLabel,
   viewBox,
   ...attributes
 }: VsfIconProps) {

@@ -5,7 +5,7 @@ import { VsfIconSizeEnum } from '../VsfIconBase/types';
 export default function VsfIconTwitter({
   className = '',
   size = VsfIconSizeEnum.base,
-  ariaLabel = 'twitter',
+  ariaLabel,
   viewBox,
   ...attributes
 }: VsfIconProps) {

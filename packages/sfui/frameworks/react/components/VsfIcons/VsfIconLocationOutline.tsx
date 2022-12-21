@@ -5,7 +5,7 @@ import { VsfIconSizeEnum } from '../VsfIconBase/types';
 export default function VsfIconLocationOutline({
   className = '',
   size = VsfIconSizeEnum.base,
-  ariaLabel = 'location-outline',
+  ariaLabel,
   viewBox,
   ...attributes
 }: VsfIconProps) {

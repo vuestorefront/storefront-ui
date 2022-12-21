@@ -5,7 +5,7 @@ import { VsfIconSizeEnum } from '../VsfIconBase/types';
 export default function VsfIconArrowUp({
   className = '',
   size = VsfIconSizeEnum.base,
-  ariaLabel = 'arrow-up',
+  ariaLabel,
   viewBox,
   ...attributes
 }: VsfIconProps) {

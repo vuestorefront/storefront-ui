@@ -5,7 +5,7 @@ import { VsfIconSizeEnum } from '../VsfIconBase/types';
 export default function VsfIconYoutube({
   className = '',
   size = VsfIconSizeEnum.base,
-  ariaLabel = 'youtube',
+  ariaLabel,
   viewBox,
   ...attributes
 }: VsfIconProps) {

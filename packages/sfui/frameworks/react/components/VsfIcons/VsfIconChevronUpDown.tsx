@@ -5,7 +5,7 @@ import { VsfIconSizeEnum } from '../VsfIconBase/types';
 export default function VsfIconChevronUpDown({
   className = '',
   size = VsfIconSizeEnum.base,
-  ariaLabel = 'chevron-up-down',
+  ariaLabel,
   viewBox,
   ...attributes
 }: VsfIconProps) {

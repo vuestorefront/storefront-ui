@@ -5,7 +5,7 @@ import { VsfIconSizeEnum } from '../VsfIconBase/types';
 export default function VsfIconVisibility({
   className = '',
   size = VsfIconSizeEnum.base,
-  ariaLabel = 'visibility',
+  ariaLabel,
   viewBox,
   ...attributes
 }: VsfIconProps) {

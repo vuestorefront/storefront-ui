@@ -5,7 +5,7 @@ import { VsfIconSizeEnum } from '../VsfIconBase/types';
 export default function VsfIconTriangleDown({
   className = '',
   size = VsfIconSizeEnum.base,
-  ariaLabel = 'triangle-down',
+  ariaLabel,
   viewBox,
   ...attributes
 }: VsfIconProps) {

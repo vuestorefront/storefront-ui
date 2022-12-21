@@ -5,7 +5,7 @@ import { VsfIconSizeEnum } from '../VsfIconBase/types';
 export default function VsfIconGlobe({
   className = '',
   size = VsfIconSizeEnum.base,
-  ariaLabel = 'globe',
+  ariaLabel,
   viewBox,
   ...attributes
 }: VsfIconProps) {

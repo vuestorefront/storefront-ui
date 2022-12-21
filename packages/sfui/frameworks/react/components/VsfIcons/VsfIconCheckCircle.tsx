@@ -5,7 +5,7 @@ import { VsfIconSizeEnum } from '../VsfIconBase/types';
 export default function VsfIconCheckCircle({
   className = '',
   size = VsfIconSizeEnum.base,
-  ariaLabel = 'check-circle',
+  ariaLabel,
   viewBox,
   ...attributes
 }: VsfIconProps) {

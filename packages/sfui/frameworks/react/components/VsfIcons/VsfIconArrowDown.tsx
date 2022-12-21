@@ -5,7 +5,7 @@ import { VsfIconSizeEnum } from '../VsfIconBase/types';
 export default function VsfIconArrowDown({
   className = '',
   size = VsfIconSizeEnum.base,
-  ariaLabel = 'arrow-down',
+  ariaLabel,
   viewBox,
   ...attributes
 }: VsfIconProps) {

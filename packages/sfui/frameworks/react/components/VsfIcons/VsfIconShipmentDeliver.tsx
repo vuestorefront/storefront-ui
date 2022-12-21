@@ -5,7 +5,7 @@ import { VsfIconSizeEnum } from '../VsfIconBase/types';
 export default function VsfIconShipmentDeliver({
   className = '',
   size = VsfIconSizeEnum.base,
-  ariaLabel = 'shipment-deliver',
+  ariaLabel,
   viewBox,
   ...attributes
 }: VsfIconProps) {

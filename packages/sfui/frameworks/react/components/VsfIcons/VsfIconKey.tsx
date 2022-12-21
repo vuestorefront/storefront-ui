@@ -5,7 +5,7 @@ import { VsfIconSizeEnum } from '../VsfIconBase/types';
 export default function VsfIconKey({
   className = '',
   size = VsfIconSizeEnum.base,
-  ariaLabel = 'key',
+  ariaLabel,
   viewBox,
   ...attributes
 }: VsfIconProps) {

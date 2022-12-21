@@ -5,7 +5,7 @@ import { VsfIconSizeEnum } from '../VsfIconBase/types';
 export default function VsfIconLogOut({
   className = '',
   size = VsfIconSizeEnum.base,
-  ariaLabel = 'log-out',
+  ariaLabel,
   viewBox,
   ...attributes
 }: VsfIconProps) {

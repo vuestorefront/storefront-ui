@@ -5,7 +5,7 @@ import { VsfIconSizeEnum } from '../VsfIconBase/types';
 export default function VsfIconPinterest({
   className = '',
   size = VsfIconSizeEnum.base,
-  ariaLabel = 'pinterest',
+  ariaLabel,
   viewBox,
   ...attributes
 }: VsfIconProps) {

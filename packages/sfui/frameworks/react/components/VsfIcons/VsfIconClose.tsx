@@ -5,7 +5,7 @@ import { VsfIconSizeEnum } from '../VsfIconBase/types';
 export default function VsfIconClose({
   className = '',
   size = VsfIconSizeEnum.base,
-  ariaLabel = 'close',
+  ariaLabel,
   viewBox,
   ...attributes
 }: VsfIconProps) {

@@ -5,7 +5,7 @@ import { VsfIconSizeEnum } from '../VsfIconBase/types';
 export default function VsfIconAddedToBasket({
   className = '',
   size = VsfIconSizeEnum.base,
-  ariaLabel = 'added-to-basket',
+  ariaLabel,
   viewBox,
   ...attributes
 }: VsfIconProps) {

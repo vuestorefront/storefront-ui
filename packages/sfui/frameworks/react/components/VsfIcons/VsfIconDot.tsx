@@ -5,7 +5,7 @@ import { VsfIconSizeEnum } from '../VsfIconBase/types';
 export default function VsfIconDot({
   className = '',
   size = VsfIconSizeEnum.base,
-  ariaLabel = 'dot',
+  ariaLabel,
   viewBox,
   ...attributes
 }: VsfIconProps) {
