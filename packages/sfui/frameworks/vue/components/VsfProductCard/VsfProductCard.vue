@@ -223,6 +223,7 @@ defineEmits<{
       <div class="vsf-product-card__details-rating">
         <slot name="rating">
           <VsfRating
+            v-if="maxRatingValue"
             :size="VsfRatingSizes.xs"
             :type="VsfRatingVariants.base"
             :value="ratingValue"
@@ -231,6 +232,7 @@ defineEmits<{
             data-testid="product-card-rating"
           />
           <VsfButton
+            v-if="reviewsAmount"
             variant="VsfButtonVariants.tertiary"
             class="vsf-product-card__details-rating-button"
             data-testid="product-card-reviews"

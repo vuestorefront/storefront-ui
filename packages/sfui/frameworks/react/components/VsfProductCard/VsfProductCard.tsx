@@ -176,13 +176,15 @@ export default function VsfProductCard({
 
         {slotRating || (
           <div className="vsf-product-card__details-rating">
-            <VsfRating
-              size={VsfRatingSizes.xs}
-              variant={VsfRatingVariants.base}
-              value={ratingValue}
-              max={maxRatingValue}
-              data-testid="product-card-rating"
-            />
+            {maxRatingValue && (
+              <VsfRating
+                size={VsfRatingSizes.xs}
+                variant={VsfRatingVariants.base}
+                value={ratingValue}
+                max={maxRatingValue}
+                data-testid="product-card-rating"
+              />
+            )}
             {reviewsAmount && (
               <VsfButton
                 variant={VsfButtonVariants.tertiary}
