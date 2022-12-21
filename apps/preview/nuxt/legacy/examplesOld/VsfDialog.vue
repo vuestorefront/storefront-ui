@@ -27,7 +27,7 @@ import VsfButton, { VsfButtonVariants } from '../../output/blocks/VsfButton/VsfB
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
 
 export default {
-  name: 'VsfAlertExample',
+  name: 'VsfDialogExample',
   components: {
     Controls,
     VsfDialog,

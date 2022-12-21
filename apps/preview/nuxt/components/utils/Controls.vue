@@ -117,7 +117,7 @@ type Controls = {
   propDefaultValue?: string | number | boolean;
   propType?: string;
   isRequired?: boolean;
-  options?: (ControlOptionBind | string)[];
+  options?: (ControlOptionBind | string)[] | readonly (ControlOptionBind | string)[];
 }[];
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function prepareControls<T extends { [k: string]: any }>(controlsObject: Controls, models: T) {

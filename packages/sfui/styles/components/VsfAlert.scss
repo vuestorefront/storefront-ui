@@ -1,0 +1,60 @@
+.vsf-alert {
+  $self: &;
+  @apply flex py-1 pr-2 pl-4 rounded-md gap-2 ring-1 ring-inset text-gray-900;
+
+  &--with-shadow {
+    @apply shadow-md;
+  }
+
+  &--gray {
+    @apply bg-gray-100 ring-gray-300;
+  }
+
+  &--secondary {
+    @apply bg-secondary-100 ring-secondary-200;
+
+    #{$self}__prefix {
+      @apply text-secondary-700;
+    }
+  }
+
+  &--positive {
+    @apply bg-positive-100 ring-positive-200;
+
+    #{$self}__prefix {
+      @apply text-positive-700;
+    }
+  }
+
+  &--warning {
+    @apply bg-warning-100 ring-warning-200;
+
+    #{$self}__prefix {
+      @apply text-warning-700;
+    }
+  }
+
+  &--error {
+    @apply bg-negative-100 ring-negative-200;
+
+    #{$self}__prefix {
+      @apply text-negative-700;
+    }
+  }
+
+  &__content {
+    @apply my-2;
+  }
+
+  &__header{
+    @apply font-medium text-lg;
+  }
+
+  &__prefix {
+    @apply flex my-2;
+  }
+
+  &__suffix{
+    @apply ml-auto;
+  }
+}

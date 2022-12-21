@@ -12,7 +12,7 @@ type ControlsType = {
   propDefaultValue?: string | number | boolean;
   propType?: string;
   isRequired?: boolean;
-  options?: (ControlOptionBind | string)[];
+  options?: (ControlOptionBind | string)[] | readonly (ControlOptionBind | string)[];
 }[];
 
 type Models<T> = { [key: string]: T };
