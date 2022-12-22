@@ -58,6 +58,13 @@ const emit = defineEmits<{
   (event: 'update:modelValue', param: string[] | boolean): void;
 }>();
 
+const isChecked = computed(() => {
+  if (Array.isArray(modelValue.value)) {
+    return modelValue.value.includes(props.value);
+  }
+  return !!modelValue.value;
+});
+
 const proxyChecked = computed({
   get: () => modelValue?.value,
   set: (value) => {
@@ -81,7 +88,7 @@ const proxyChecked = computed({
         v-model="proxyChecked"
         class="vsf-checkbox__input"
         :class="{
-          'vsf-checkbox__input--invalid': invalid && !disabled && !indeterminate,
+          'vsf-checkbox__input--invalid': invalid && !disabled && !indeterminate && !isChecked,
         }"
         type="checkbox"
         :disabled="disabled"
@@ -103,7 +110,7 @@ const proxyChecked = computed({
     >
       <slot name="errorText">
         <p
-          v-if="invalid && !!errorText && !disabled && !indeterminate && !required"
+          v-if="invalid && !!errorText && !disabled && !indeterminate && !required && !isChecked"
           class="vsf-checkbox__error-text"
           data-testid="checkbox-error-text"
         >

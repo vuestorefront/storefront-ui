@@ -17,7 +17,7 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 | value        | String                   | ''            |                                        |
 | label        | String                   | ''            |                                        |
 | helpText     | String                   | ''            |                                        |
-| checked      | Boolean                  | false         |                                        |
+| modelValue   | Boolean | string[]       | undefined     |                                        |
 | errorText    | String                   | ''            |                                        |
 | requiredText | String                   | ''            |                                        |
 | alignment    | VsfCheckboxAlignments    | leading       |   leading,  trailing                   |

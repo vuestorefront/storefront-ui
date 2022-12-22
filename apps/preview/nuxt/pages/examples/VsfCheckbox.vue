@@ -2,7 +2,7 @@
   <div class="e-page">
     <div class="e-page-component">
       <VsfCheckbox
-        v-model="checked"
+        v-model="modelValue"
         :label="label"
         :value="value"
         :disabled="disabled"
@@ -15,7 +15,7 @@
         :required="required"
       ></VsfCheckbox>
       <VsfCheckbox
-        v-model="checked"
+        v-model="modelValue"
         :label="`${label}-1`"
         :value="`${value}-1`"
         :disabled="disabled"
@@ -28,7 +28,7 @@
         :required="required"
       ></VsfCheckbox>
       <VsfCheckbox
-        v-model="checked"
+        v-model="modelValue"
         :label="`${label}-2`"
         :value="`${value}-2`"
         :disabled="disabled"
@@ -64,7 +64,7 @@ export default defineComponent({
       [
         {
           type: 'text',
-          modelName: 'checked',
+          modelName: 'modelValue',
           propDefaultValue: '',
           propType: 'string',
         },
@@ -133,7 +133,7 @@ export default defineComponent({
         helpText: ref('Help Text'),
         errorText: ref('Error Message'),
         requiredText: ref('Required'),
-        checked: ref([]),
+        modelValue: ref([]),
       },
     );
   },
