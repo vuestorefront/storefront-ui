@@ -3936,6 +3936,11 @@
   resolved "https://registry.yarnpkg.com/@storefront-ui/shared/-/shared-0.10.8.tgz#1717f528a073dcebbd6115f587c3cf57a94ee86a"
   integrity sha512-lRVqxs5QAOtXV129uNDSn0BYvjix0VXNZu2ChnQAu8jNKC/Q10cN1XrDiOEiL8hDpx7py+6DUka1WZ5K8dn+jQ==
 
+"@storefront-ui/shared@0.13.5":
+  version "0.13.5"
+  resolved "https://registry.yarnpkg.com/@storefront-ui/shared/-/shared-0.13.5.tgz#2e376671c401c88581422beabf9e1b268a7cde9c"
+  integrity sha512-Y27gFIxIvsPcU/vnIgLbbi+OZioWErSqvMLho0rFiqkIcpMcK7x98PkaSfN3bHPKWkSf1QsgY8OOdsnlyxuK2Q==
+
 "@storefront-ui/vue@0.10.8":
   version "0.10.8"
   resolved "https://registry.yarnpkg.com/@storefront-ui/vue/-/vue-0.10.8.tgz#9d3e999a4beb2188cca397dcb7cc7b3d5d9a6207"
@@ -3956,7 +3961,7 @@
     vue2-leaflet "^2.5.2"
 
 "@storefront-ui/vue@file:packages/vue":
-  version "0.13.5"
+  version "0.13.6"
   dependencies:
     "@glidejs/glide" "^3.3.0"
     "@storefront-ui/shared" "0.13.5"
@@ -19631,9 +19636,9 @@ qs@6.11.0, qs@^6.10.0, qs@^6.6.0, qs@^6.9.4:
     side-channel "^1.0.4"
 
 qs@~6.5.2:
-  version "6.5.2"
-  resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
-  integrity sha512-N5ZAX4/LxJmF+7wN74pUD6qAh9/wnvdQcjq9TZjevvXzSUo7bfmw91saqMjzGS2xq91/odN2dW/WOl7qQHNDGA==
+  version "6.5.3"
+  resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.3.tgz#3aeeffc91967ef6e35c0e488ef46fb296ab76aad"
+  integrity sha512-qxXIEh4pCGfHICj1mAJQ2/2XVZkjCDTcEgfoSQxc/fYivUZxTkk7L3bDBJSoNrEzXI17oUO5Dp07ktqE5KzczA==
 
 query-string@^4.1.0:
   version "4.3.4"
