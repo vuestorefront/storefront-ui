@@ -3936,6 +3936,11 @@
   resolved "https://registry.yarnpkg.com/@storefront-ui/shared/-/shared-0.10.8.tgz#1717f528a073dcebbd6115f587c3cf57a94ee86a"
   integrity sha512-lRVqxs5QAOtXV129uNDSn0BYvjix0VXNZu2ChnQAu8jNKC/Q10cN1XrDiOEiL8hDpx7py+6DUka1WZ5K8dn+jQ==
 
+"@storefront-ui/shared@0.13.5":
+  version "0.13.5"
+  resolved "https://registry.yarnpkg.com/@storefront-ui/shared/-/shared-0.13.5.tgz#2e376671c401c88581422beabf9e1b268a7cde9c"
+  integrity sha512-Y27gFIxIvsPcU/vnIgLbbi+OZioWErSqvMLho0rFiqkIcpMcK7x98PkaSfN3bHPKWkSf1QsgY8OOdsnlyxuK2Q==
+
 "@storefront-ui/vue@0.10.8":
   version "0.10.8"
   resolved "https://registry.yarnpkg.com/@storefront-ui/vue/-/vue-0.10.8.tgz#9d3e999a4beb2188cca397dcb7cc7b3d5d9a6207"
@@ -3956,7 +3961,7 @@
     vue2-leaflet "^2.5.2"
 
 "@storefront-ui/vue@file:packages/vue":
-  version "0.13.5"
+  version "0.13.6"
   dependencies:
     "@glidejs/glide" "^3.3.0"
     "@storefront-ui/shared" "0.13.5"
@@ -8486,7 +8491,7 @@ compute-scroll-into-view@^1.0.17:
 concat-map@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
-  integrity sha1-2Klr13/Wjfd5OnMDajug1UBdR3s=
+  integrity sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==
 
 concat-stream@^1.5.0:
   version "1.6.2"
@@ -16673,9 +16678,9 @@ minimalistic-crypto-utils@^1.0.1:
   integrity sha1-9sAMHAsIIkblxNmd+4x8CDsrWCo=
 
 minimatch@^3.0.2, minimatch@^3.0.4:
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-3.0.4.tgz#5166e286457f03306064be5497e8dbb0c3d32083"
-  integrity sha512-yJHVQEhyqPLUTgt9B83PXu6W3rx4MvvHvSUvToogpwoGDOUQ+yDrR0HRot+yOCdCO7u4hX3pWft6kWBBcqh0UA==
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-3.1.2.tgz#19cd194bfd3e428f049a70817c038d89ab4be35b"
+  integrity sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==
   dependencies:
     brace-expansion "^1.1.7"
 
