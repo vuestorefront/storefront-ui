@@ -49,7 +49,7 @@ export function Wrapper<T extends Record<string, unknown>>({
 }: {
   [k: string]: unknown;
   component: (props: T) => ReactNode;
-  children: JSX.Element | JSX.Element[];
+  children: string | JSX.Element | JSX.Element[];
   propCallbackPair?: Record<keyof T, keyof T>;
 } & {[k in keyof T]: T[k] | Ref<T[k]>}): JSX.Element {
   let reactiveValuesInternal: Partial<Record<keyof T, unknown>> = {};
@@ -63,12 +63,12 @@ export function Wrapper<T extends Record<string, unknown>>({
     if(attribute.substring(0, 2) === 'on'){
       const propNamePair = onlyPropNamesNoCallbacks
         .filter(propName => attribute.toLowerCase().includes(propName as string))[0];
-      propCallbackPairInternal[propNamePair] = attribute;
+      if(propNamePair) propCallbackPairInternal[propNamePair] = attribute;
     } else {
       // Add all reactive vue variables into process of mangling vue-reactive -> useState
       if(isRef(attributes[attribute])){
         reactiveValuesInternal[attribute as keyof T] = attributes[attribute]
-        propCallbackPairInternal[attribute as keyof T] = 'true'
+        propCallbackPairInternal[attribute as keyof T] = 'fake';
       }
     }
   }
@@ -80,12 +80,14 @@ export function Wrapper<T extends Record<string, unknown>>({
     const [get, set] = useState(unref(reactiveProp));
 
     reactiveValuesInternal[propName] = get;
-    reactiveValuesInternal[eventName] = (event) => {
-      set(event);
-      if(isRef(reactiveProp)) reactiveProp.value = event;
-      const isFunction = attributes[eventName as string];
-      if(typeof isFunction === 'function') {
-        isFunction?.(event);
+    if(eventName !== 'fake') {
+      reactiveValuesInternal[eventName] = (event) => {
+        set(event);
+        if(isRef(reactiveProp)) reactiveProp.value = event;
+        const isFunction = attributes[eventName as string];
+        if(typeof isFunction === 'function') {
+          isFunction?.(event);
+        }
       }
     }
 

@@ -1,6 +1,6 @@
 /// <reference path="../../../../node_modules/cypress/types/index.d.ts" />
 
-export class BasePage {
+export class BasePage<T extends HTMLElement = HTMLElement> {
   protected containerTestId: string;
 
   constructor(containerTestId: string, container?: Cypress.Chainable) {
@@ -20,7 +20,7 @@ export class BasePage {
   }
 
   protected get container() {
-    return cy.get(`[data-testid="${this.containerTestId}"]`) || cy.get('body');
+    return cy.get<T>(`[data-testid="${this.containerTestId}"]`) || cy.get('body');
   }
 
   protected findTestElement(containerTestId: string, container = this.container) {
@@ -37,7 +37,7 @@ export class BasePage {
   }
 
   isNotVisible() {
-    cy.get(`[data-testid="${this.containerTestId}"]`,{ timeout: 200 }).should('not.exist');
+    cy.get(`[data-testid="${this.containerTestId}"]`, { timeout: 200 }).should('not.exist');
     return this;
   }
 
@@ -53,10 +53,20 @@ export class BasePage {
 
   click() {
     this.container.click();
+    return this;
   }
 
-  select(value) {
-    this.container.select(value);
+  clickOutside(height?: number) {
+    this.cyRoot.then((el) => {
+      el[0].style.height = `${height || Cypress.config().viewportHeight}px`;
+    });
+    cy.get('body').click('bottom');
+    return this;
+  }
+
+  contains(text: string) {
+    this.container.contains(text);
+    return this;
   }
 
   makeSnapshot(name?: string, opts?: Parameters<typeof cy.percySnapshot>[1]) {

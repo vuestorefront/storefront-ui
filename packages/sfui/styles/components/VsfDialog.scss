@@ -1,0 +1,11 @@
+.vsf-dialog {
+  @apply backdrop:bg-gray-500 backdrop:opacity-50 p-0 shadow-extra-large rounded-xl;
+
+  &__inner {
+    @apply p-6 lg:p-10 relative;
+  }
+
+  &__btn-close {
+    @apply rounded-full top-2 right-2 absolute;
+  }
+}

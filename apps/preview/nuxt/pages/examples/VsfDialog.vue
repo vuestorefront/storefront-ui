@@ -1,14 +1,14 @@
 <template>
   <div class="e-page">
     <div class="e-page-component">
-      <VsfDialog v-model="openModel" :disable-close="disableClose">
+      <VsfDialog v-model="modelValue" :hide-close-button="hideCloseButton">
         <section>
           Header<br />
           Some cool dialog text here
         </section>
         <menu>
           <div class="flex justify-between">
-            <VsfButton auto-focus @click="onClose('Canceled')">Close</VsfButton>
+            <VsfButton autofocus @click="onClose('Canceled')">Close</VsfButton>
             <VsfButton @click="onClose('Accepted')">Accept</VsfButton>
           </div>
         </menu>
@@ -22,8 +22,9 @@
 
 <script lang="ts">
 import { ref } from 'vue';
-import VsfDialog from '../../output/blocks/VsfDialog/VsfDialog.vue';
-import VsfButton, { VsfButtonVariants } from '../../output/blocks/VsfButton/VsfButton.vue';
+import VsfDialog from '@sfui/sfui/frameworks/vue/components//VsfDialog/VsfDialog.vue';
+import VsfButton from '@sfui/sfui/frameworks/vue/components/VsfButton/VsfButton.vue';
+import { VsfButtonVariants } from '@sfui/sfui/frameworks/vue/components/VsfButton/types';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
 
 export default {
@@ -34,38 +35,36 @@ export default {
     VsfButton,
   },
   setup() {
-    const { openModel, disableClose, controlsAttrs } = prepareControls(
+    const { modelValue, hideCloseButton, controlsAttrs } = prepareControls(
       [
         {
-          title: 'Open Dialog',
           type: 'boolean',
-          modelName: 'openModel',
+          modelName: 'modelValue',
           propDefaultValue: false,
         },
         {
-          title: 'Close button',
           type: 'boolean',
-          modelName: 'disableClose',
+          modelName: 'hideCloseButton',
           propDefaultValue: false,
         },
       ],
       {
-        openModel: ref(false),
-        disableClose: ref(false),
+        modelValue: ref(false),
+        hideCloseButton: ref(),
       },
     );
 
     return {
       onClose: (msg: string) => {
-        openModel.value = false;
+        modelValue.value = false;
         setTimeout(() => {
           alert(msg);
         });
       },
       VsfButtonVariants,
       controlsAttrs,
-      openModel,
-      disableClose,
+      modelValue,
+      hideCloseButton,
     };
   },
 };

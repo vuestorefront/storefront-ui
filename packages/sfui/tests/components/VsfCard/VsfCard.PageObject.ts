@@ -1,7 +1,6 @@
 import { BasePage } from '../../utils/BasePage';
 
 export default class VsfProductCardBaseObject extends BasePage {
-
   hasImage(imageSrc: string) {
     this.imageElement.should('have.attr', 'src', imageSrc);
     return this;

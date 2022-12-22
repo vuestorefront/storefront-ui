@@ -1,7 +1,6 @@
 import { BasePage } from '../../utils/BasePage';
 
 export default class VsfCheckboxObject extends BasePage {
-
   hasLabel(label: string) {
     this.labelElement.contains(label);
     return this;
