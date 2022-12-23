@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  basePath: process.env.VITE_DOCS_EXAMPLES_REACT
+    ? new URL(process.env.VITE_DOCS_EXAMPLES_REACT).pathname
+    : '',
   reactStrictMode: true,
   swcMinify: true,
   experimental: {

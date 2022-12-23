@@ -7,7 +7,7 @@ const fetcher = (url: string) => fetch(url).then((res) => res.json());
 export default function ExampleLayout({ children }: { children: ReactElement }) {
   const [isOpen, setIsOpen] = useState(true);
   const router = useRouter();
-  const { data: components } = useSWR<string[]>('/api/getExamples', fetcher);
+  const { data: components } = useSWR<string[]>(`${router.basePath}/api/getExamples`, fetcher);
 
   const isDocsRoute = !router.query.docs;
   return (

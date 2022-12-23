@@ -17,7 +17,7 @@ const allReactComponentsWithDocs = allReactComponents.filter(component => docs.f
 const createComponentLink = (framework, componentName) => `/${framework}/${componentName}`;
 
 export default {
-  base: '/v2/',
+  base: process.env.VITE_DOCS_BASEPATH ?? '/',
   title: 'Storefront UI library',
   description: 'Lightning fast ecommerce library',
   themeConfig: {

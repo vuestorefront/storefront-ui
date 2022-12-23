@@ -8,9 +8,8 @@ import { useRoute } from 'vitepress'
 import { computed } from 'vue';
 
 const route = useRoute();
-const frameworkName = computed(() => route.path.split('/')[1])
+const frameworkName = computed(() => route.path.split('/')[import.meta.env.VITE_DOCS_BASEPATH ? 2 : 1])
 const componentName = computed(() => route.path.split('/').pop()?.split('.')[0])
-const isProd = import.meta.env.PROD;
 const files = import.meta.glob('../../../../../packages/sfui/frameworks/vue/components/**/*.vue');
 const components = Object.keys(files).map((file) => file.match(/([\w\d_-]*)\.?[^\\\/]*$/i)[1])
   .sort();
@@ -26,5 +25,4 @@ const getFrameworkBaseUrl = (frameworkName: string) => {
 };
 
 const exampleUrl = computed(() => `${getFrameworkBaseUrl(frameworkName.value)}/examples/${componentNameFull}?docs=true`)
-// TODO generate prod URLs
 </script>

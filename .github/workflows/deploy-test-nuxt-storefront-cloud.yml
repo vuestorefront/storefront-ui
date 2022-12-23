@@ -20,16 +20,16 @@ jobs:
           path: version.txt
       - name: Get the version
         id: get_version
-        run: echo ::set-output name=VERSION::$(cat version.txt)
+        run: echo "VERSION=$(cat version.txt)" >> $GITHUB_OUTPUT
       - name: Build and publish docker image
-        uses: elgohr/Publish-Docker-Github-Action@master
+        uses: elgohr/Publish-Docker-Github-Action@v4
         with:
-          name: sfui-storefrontcloud-io/vue-storefront:${{ steps.get_version.outputs.VERSION }}
+          name: sfui-storefrontcloud-io/sfui2-docs-vue:${{ steps.get_version.outputs.VERSION }}
           registry: registry.storefrontcloud.io
           username: ${{ secrets.CLOUD_USERNAME }}
           password: ${{ secrets.CLOUD_PASSWORD }}
           dockerfile: .vuestorefrontcloud/test-nuxt/docker/Dockerfile
-          buildoptions: '--compress'
+          buildoptions: "--compress"
   deploy:
     runs-on: ubuntu-latest
     needs: build
@@ -40,38 +40,44 @@ jobs:
           name: version
       - name: Get the version
         id: get_version
-        run: echo ::set-output name=VERSION::$(cat version.txt)
+        run: echo "VERSION=$(cat version.txt)" >> $GITHUB_OUTPUT
       - uses: chrnorm/deployment-action@releases/v1
         name: Create GitHub deployment
         id: deployment
         with:
-          token: '${{ github.token }}'
-          target_url: https://test.storefrontui.io
-          environment: production
+          token: "${{ github.token }}"
+          target_url: https://docs.storefrontui.io/v2-vue
+          environment: v2-vue
           initial_status: in_progress
-      - name: Deploy to test.storefrontui.io
-        run: |
-          if curl -s -H 'X-User-Id: ${{ secrets.CLOUD_USERNAME }}'  -H 'X-Api-Key: ${{ secrets.CLOUD_PASSWORD }}' -H 'Content-Type: application/json' -X POST -d '{"code":"sfui-test","region":"europe-west1.gcp","frontContainerVersion":"${{ steps.get_version.outputs.VERSION }}"}' https://farmer.storefrontcloud.io/instances | grep -q '{"code":200,"result":"Instance updated!"}'; then
-            echo "Instance updated"
-          else
-            echo "Something went wrong during the update process..."
-            exit 1
-          fi
+      - name: Deploy on https://docs.storefrontui.io/v2-vue
+        id: publish
+        # Not using the vuestorefront/* package because of:
+        # https://github.com/sethidden/publish-docs-action/commit/5fb4bf1df975567879f99d3e975447a2ff824bb2
+        uses: sethidden/publish-docs-action@v1
+        with:
+          user-id: ${{ secrets.CLOUD_USERNAME }}
+          api-key: ${{ secrets.CLOUD_PASSWORD }}
+          name: "sfui2-docs-vue"
+          tag: "${{ steps.get_version.outputs.VERSION }}"
+          image: "registry.storefrontcloud.io/sfui-storefrontcloud-io/sfui2-docs-vue"
+          path: "/v2-vue"
+          port: "3000"
+          has-base-path: true
       - name: Update deployment status (success)
         if: success()
         uses: chrnorm/deployment-status@releases/v1
         with:
-          token: '${{ github.token }}'
-          target_url: https://test.storefrontui.io
-          state: 'success'
+          token: "${{ github.token }}"
+          target_url: https://docs.storefrontui.io/v2-vue
+          state: "success"
           description: Congratulations! The deploy is done.
           deployment_id: ${{ steps.deployment.outputs.deployment_id }}
       - name: Update deployment status (failure)
         if: failure()
         uses: chrnorm/deployment-status@releases/v1
         with:
-          token: '${{ github.token }}'
-          target_url: https://test.storefrontui.io
+          token: "${{ github.token }}"
+          target_url: https://docs.storefrontui.io/v2-vue
           description: Unfortunately, the instance hasn't been updated.
-          state: 'failure'
+          state: "failure"
           deployment_id: ${{ steps.deployment.outputs.deployment_id }}
