@@ -1,6 +1,8 @@
 # Card component
 
-The Card component contains content and actions that inform about a single subject. 
+The Card component contains content and actions that inform about a single subject.
+
+<Generate />
 
 ## Figma design
 
