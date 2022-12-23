@@ -1,5 +1,5 @@
 <template>
-    <a :href="exampleUrl">Link</a>
+    <a :href="exampleUrl" target="_blank">Link</a>
     <iframe :src="exampleUrl" style="width: 100%; height: 500px;"></iframe>
 </template>
 

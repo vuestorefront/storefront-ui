@@ -4,6 +4,7 @@ WORKDIR /var/www
 
 COPY . .
 
+ENV VITE_DOCS_EXAMPLES_REACT=https://docs.storefrontui.io/v2-react
 RUN  yarn install \
   && yarn build:next
 
