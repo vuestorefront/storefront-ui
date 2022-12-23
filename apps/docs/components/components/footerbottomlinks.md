@@ -1,3 +1,7 @@
+---
+layout: ComponentLayout
+hideBreadcrumbs: true
+---
 <!-- react -->
 # FooterBottomLinks component
 

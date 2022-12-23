@@ -1,3 +1,7 @@
+---
+layout: ComponentLayout
+hideBreadcrumbs: true
+---
 #  NavBarTopAction component
 
 The NavbarTopAction component is used as navigation inside NavbarTop component. 

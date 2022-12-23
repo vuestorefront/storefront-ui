@@ -1,3 +1,7 @@
+---
+layout: ComponentLayout
+hideBreadcrumbs: true
+---
 # Review component
 
 Customer review component with author, rating, date and review text.

@@ -1,3 +1,7 @@
+---
+layout: ComponentLayout
+hideBreadcrumbs: true
+---
 # Navbar Bottom component
 
 The Navbar bottom component is used as navigation on mobile devices. Usually has links to the most common places on a website like homepage.

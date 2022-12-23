@@ -1,3 +1,7 @@
+---
+layout: ComponentLayout
+hideBreadcrumbs: true
+---
 # ChipsInput component
 
 The ChipsInput component is used to convey small pieces of information. `close` button makes the ChipsInput interactive, allowing user interaction.

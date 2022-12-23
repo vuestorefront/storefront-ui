@@ -1,3 +1,7 @@
+---
+layout: ComponentLayout
+hideBreadcrumbs: true
+---
 # Rating component
 
 The Rating component presents the average grade graphically and textually.

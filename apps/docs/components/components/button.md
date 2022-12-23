@@ -1,3 +1,7 @@
+---
+layout: ComponentLayout
+hideBreadcrumbs: true
+---
 # Button component
 
 The Button component allow users to take actions, and make choices, with a single tap or click.

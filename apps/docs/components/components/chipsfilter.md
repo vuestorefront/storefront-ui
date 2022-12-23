@@ -1,3 +1,7 @@
+---
+layout: ComponentLayout
+hideBreadcrumbs: true
+---
 #  ChipsFilter component
 
 ChipsFilter allow selection of a single chip from a set of options. They are a good alternative to toggle buttons, radio buttons, and single select menus.

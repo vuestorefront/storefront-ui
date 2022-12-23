@@ -2,13 +2,25 @@
   "name": "@sfui/monorepo",
   "version": "0.0.0",
   "private": true,
-  "workspaces": [
-    "apps/*",
-    "apps/docs/*",
-    "apps/preview/*",
-    "packages/*",
-    "packages/config/*"
-  ],
+  "workspaces": {
+    "packages": [
+      "apps/*",
+      "apps/docs/*",
+      "apps/preview/*",
+      "packages/*",
+      "packages/config/*"
+    ],
+    "nohoist": [
+      "**/vue",
+      "**/vue-server-renderer",
+      "**/vite-plugin-vue2",
+      "**/vuepress",
+      "**/webpack-hot-middleware",
+      "**/webpack-dev-server",
+      "**/tailwindcss",
+      "**/sass-loader"
+    ]
+  },
   "scripts": {
     "postinstall": "yarn generate-icons",
     "generate-icons": "concurrently \"yarn createVueIcons\" \"yarn createReactIcons\" && yarn lint:fix:sfui",
@@ -54,13 +66,10 @@
   "engines": {
     "npm": ">=8.19.1",
     "yarn": ">=1.22.19",
-    "node": ">=16.0.0"
+    "node": ">=16.0.0 <17.0.0"
   },
   "dependencies": {
     "cross-env": "^7.0.3"
-  },
-  "resolutions": {
-    "vue": "3.2.39"
   },
   "packageManager": "yarn@3.2.4",
   "config": {

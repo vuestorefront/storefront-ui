@@ -1,3 +1,7 @@
+---
+layout: ComponentLayout
+hideBreadcrumbs: true
+---
 #  NavBarTopActionGroup component
 
 The NavbarTopActionGroup component is used as container for navigation in NavbarTop component.

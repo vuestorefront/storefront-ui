@@ -1,3 +1,7 @@
+---
+layout: ComponentLayout
+hideBreadcrumbs: true
+---
 #  NavBarTop component
 
 The NavbarTop component is used as navigation. Usually it's at the top of a page and has elements like company logo, links to main categories or a menu button, search input and action buttons that can open a cart, wishlist or login modal.

@@ -1,3 +1,7 @@
+---
+layout: ComponentLayout
+hideBreadcrumbs: true
+---
 # FooterLabel component
 
 The FooterLabel component is used for styling text content.

@@ -11,6 +11,6 @@ export default defineNuxtConfig({
     config: tailwindConfig,
     cssPath: '~/assets/tailwind.scss',
   },
-  buildModules: ['@nuxtjs/tailwindcss'],
+  modules: ['@nuxtjs/tailwindcss'],
   css: ['@sfui/example-style/index.scss'],
 });

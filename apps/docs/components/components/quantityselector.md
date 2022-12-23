@@ -1,3 +1,7 @@
+---
+layout: ComponentLayout
+hideBreadcrumbs: true
+---
 # QuantitySelector component
 
 The QuantitySelector allows the selection of a digital value and the display of additional information.

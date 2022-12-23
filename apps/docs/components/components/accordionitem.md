@@ -1,3 +1,7 @@
+---
+layout: ComponentLayout
+hideBreadcrumbs: true
+---
 # AccordionItem component
 
 The AccordionItem component is built on native `details` html element. Click on header triggers expanding below seated content passed inside by the prop.

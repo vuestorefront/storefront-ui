@@ -1,3 +1,7 @@
+---
+layout: ComponentLayout
+hideBreadcrumbs: true
+---
 # Tag component
 
 The Tag component draws attention to new or categorized content elements.

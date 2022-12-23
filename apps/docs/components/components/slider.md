@@ -1,3 +1,7 @@
+---
+layout: ComponentLayout
+hideBreadcrumbs: true
+---
 # Slider component
 
 Slider is a scrollable list with pseudo-pagination.

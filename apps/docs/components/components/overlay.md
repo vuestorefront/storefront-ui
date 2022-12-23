@@ -1,3 +1,7 @@
+---
+layout: ComponentLayout
+hideBreadcrumbs: true
+---
 # Overlay component
 
 The Overlay is an helper component to other components. It acts as a background for displayed modals, popups, etc.

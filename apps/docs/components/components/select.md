@@ -1,3 +1,7 @@
+---
+layout: ComponentLayout
+hideBreadcrumbs: true
+---
 # Select component
 
 The Select component is used for collecting user provided information from a list of options.

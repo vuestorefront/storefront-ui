@@ -1,4 +1,7 @@
-
+---
+layout: ComponentLayout
+hideBreadcrumbs: true
+---
 # FooterColumn component
 
 The FooterColumn component is a container for children components and should be used as a direct child of the FooterSection component. 
