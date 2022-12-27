@@ -7,6 +7,7 @@ export interface VsfNavigationSideProps extends PropsWithChildren {
   permanent?: boolean;
   logoLink?: string;
   logoAriaLabel?: string;
+  closeAriaLabel?: string;
   slotNavigation?: ReactNode;
   slotBanner?: ReactNode;
   onClick?: MouseEventHandler;

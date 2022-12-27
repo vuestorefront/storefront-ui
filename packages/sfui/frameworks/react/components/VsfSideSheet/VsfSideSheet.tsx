@@ -22,7 +22,7 @@ export default function VsfSideSheet({
   });
 
   return (
-    <div className={classNames('vsf-side-sheet', className)} {...attributes} data-testid="side-sheet">
+    <div className={classNames('vsf-side-sheet', className)} data-testid="side-sheet" {...attributes}>
       {overlayVisible && !permanent && open && (
         <VsfOverlay visible={overlayVisible} className="vsf-side-sheet__overlay" data-testid="side-sheet-overlay" />
       )}

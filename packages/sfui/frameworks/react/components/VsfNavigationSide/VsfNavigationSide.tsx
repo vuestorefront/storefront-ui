@@ -12,6 +12,7 @@ export default function VsfNavigationSide({
   open,
   logoLink,
   logoAriaLabel,
+  closeAriaLabel,
   slotNavigation,
   children,
   slotBanner,
@@ -26,6 +27,7 @@ export default function VsfNavigationSide({
       leftSide={leftSide}
       open={open}
       onOpenChange={onOpenChange}
+      data-testid="navigation-side"
       {...attributes}
     >
       {slotNavigation || (
@@ -35,12 +37,15 @@ export default function VsfNavigationSide({
             href={logoLink}
             aria-label={logoAriaLabel}
             className="flex items-center text-white mx-0 h-8 md:h-10 lg:h-7"
+            data-testid="navigation-side-logo"
           >
             <VsfIconLogo viewBox="0 0 205 28" className="!w-[12.5rem] !h-[1.75rem]" />
           </a>
           <VsfNavbarTopActionGroup>
             <VsfNavbarTopAction
               icon
+              aria-label={closeAriaLabel}
+              data-testid="navigation-side-close-button"
               onClick={() => {
                 onOpenChange(!open);
               }}

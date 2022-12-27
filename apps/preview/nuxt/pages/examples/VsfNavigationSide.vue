@@ -1,7 +1,7 @@
 <template>
   <div class="e-page">
     <div class="e-page-component">
-      <VsfButton type="button" @click="modelValue = true">Click to open Navigation Side</VsfButton>
+      <VsfButton type="button" @click="modelValue = true">Click to open NavigationSide</VsfButton>
       <VsfNavigationSide
         v-model="modelValue"
         :overlay-visible="overlayVisible"

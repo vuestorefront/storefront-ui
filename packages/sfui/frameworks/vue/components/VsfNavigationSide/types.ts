@@ -5,4 +5,5 @@ export interface VsfNavigationSideProps {
   permanent?: boolean;
   logoLink?: string;
   logoAriaLabel?: string;
+  closeAriaLabel?: string;
 }

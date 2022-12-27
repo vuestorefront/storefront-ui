@@ -19,6 +19,7 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 |  permanent            |  boolean                   |  false        |                                        |
 |  overlayVisible       |  boolean                   |  false        |                                        |
 |  logoAriaLabel        | `String`                   |  ''           |                                        |
+|  closeAriaLabel       | `String`                   |  ''           |                                        |
 |  logoLink             | `String`                   |  ''           |                                        |
 |  modelValue           |  boolean                   |  false        |                                        |
 
@@ -34,6 +35,7 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 |  overlayVisible       |  boolean                   |  false        |                                        |
 |  open                 |  boolean                   |  false        |                                        |
 |  logoAriaLabel        | `String`                   |  ''           |                                        |
+|  closeAriaLabel       | `String`                   |  ''           |                                        |
 |  logoLink             | `String`                   |  ''           |                                        |
 |  children             |  ReactNode                 |               |                                        |
 |  slotNavigation       |  ReactNode                 |               |                                        |
