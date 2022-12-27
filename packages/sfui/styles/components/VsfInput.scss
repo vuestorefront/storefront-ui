@@ -1,0 +1,114 @@
+.vsf-input {
+$self: &;
+
+  &__label {
+    @apply relative font-medium text-sm;
+  }
+
+  &__input-wrapper {
+    @apply flex items-center ring-1 ring-gray-200 ring-inset rounded-md text-gray-500 rounded-md py-2 px-4 bg-white hover:ring-primary-700 focus-within:caret-primary-700 active:caret-primary-700 active:ring-primary-700 active:ring-2 focus-within:ring-primary-700 focus-within:ring-2;
+  }
+
+  &__prefix {
+    @apply text-gray-500 mr-2;
+  }
+
+  &__suffix {
+    @apply text-gray-500;
+  }
+
+  &__field {
+    @apply appearance-none outline-none w-full text-base text-gray-700;
+  }
+
+  &__bottom-wrapper {
+    @apply flex justify-between;
+  }
+
+  &__help-text, &__character-limit {
+    @apply text-xs text-gray-500 mt-0.5;
+  }
+
+  &__error-message {
+    @apply text-sm text-negative-700 font-medium mt-0.5;
+  }
+
+  &__required-text {
+    @apply mt-1 text-sm font-normal text-gray-500 before:content-['*'];
+  }
+
+  &__character-limit {
+    &--above {
+      @apply text-negative-700 font-medium;
+    }
+  }
+
+  &--size-sm {
+    #{$self}__input-wrapper {
+      @apply py-1.5 px-4;
+    }
+
+    #{$self}__field {
+      @apply text-sm;
+    }
+
+    #{$self}__suffix,  #{$self}__prefix {
+      @apply text-sm;
+    }
+  }
+
+  &--size-lg {
+    #{$self}__input-wrapper {
+      @apply py-3 px-4;
+    }
+
+    #{$self}__field {
+      @apply text-base;
+    }
+  }
+
+  &--invalid {
+    #{$self}__input-wrapper {
+      @apply ring-2 ring-negative-700;
+    }
+  }
+
+  &--disabled {
+    @apply cursor-not-allowed;
+
+    #{$self}__input-wrapper {
+      @apply bg-gray-100/50 hover:ring-gray-200 active:ring-gray-200 active:ring-gray-200 active:ring-1;
+    }
+
+    #{$self}__label {
+      @apply text-gray-500/50 cursor-not-allowed;
+    }
+
+    #{$self}__field {
+      @apply cursor-not-allowed bg-transparent;
+    }
+
+    #{$self}__help-text {
+      @apply text-gray-500/50;
+    }
+
+    #{$self}__prefix, #{$self}__suffix {
+      @apply text-gray-500/50;
+    }
+  }
+
+  &--readonly {
+    #{$self}__input-wrapper {
+      @apply bg-gray-100/50 hover:ring-gray-200 active:ring-gray-200 active:ring-gray-200 active:ring-1 focus-within:ring-gray-200 focus-within:ring-1;
+    }
+
+    #{$self}__prefix,
+    #{$self}__suffix {
+      @apply text-gray-500;
+    }
+
+    #{$self}__field {
+      @apply bg-transparent;
+    }
+  }
+}
