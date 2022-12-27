@@ -135,6 +135,10 @@ export function prepareControls<T extends { [k: string]: any }>(controlsObject: 
       controls,
       ...on,
     },
+    state: reactive(models),
+    // this won't work for every prop name because of a nuxt 3 bug
+    // see: https://github.com/nuxt/framework/issues/9851
+    // FIXME: after nuxt bug is fixed
     ...models,
   };
 }

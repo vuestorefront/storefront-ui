@@ -1,18 +1,7 @@
 <template>
   <div class="e-page">
     <div class="e-page-component">
-      <VsfButton
-        :size="size"
-        :variant="variant"
-        :link="link"
-        :disabled="disabled"
-        :tile="tile"
-        :icon="icon"
-        :rounded="rounded"
-        :block="block"
-        :tag="tag"
-        :type="link ? null : 'button'"
-      >
+      <VsfButton v-bind="state" :type="state.link ? null : 'button'">
         <template v-if="ExampleLeftIcon" #prefix>
           <VsfIconVsfDiamond />
         </template>
@@ -25,9 +14,7 @@
         </template>
       </VsfButton>
     </div>
-    <div class="e-page-controls">
-      <Controls v-bind="controlsAttrs" />
-    </div>
+    <Controls class="e-page-controls" v-bind="controlsAttrs" />
   </div>
 </template>
 
@@ -120,13 +107,13 @@ export default defineComponent({
         ExampleRightIcon: ref(false),
         ExampleIconContent: ref(false),
         link: ref(),
-        disabled: ref(false),
+        disabled: ref(),
         variant: ref<VsfButtonVariants>(VsfButtonVariants.primary),
         size: ref<VsfButtonSizes>(VsfButtonSizes.base),
-        tile: ref(false),
-        icon: ref(false),
-        rounded: ref(false),
-        block: ref(false),
+        tile: ref(),
+        icon: ref(),
+        rounded: ref(),
+        block: ref(),
         tag: ref('button'),
       },
     );
