@@ -1,70 +1,57 @@
-import { forwardRef } from 'react';
+import type { MouseEventHandler } from 'react';
 import classNames from 'classnames';
 import { VsfButtonSizes, VsfButtonVariants } from './types';
 import type { VsfButtonProps } from './types';
 
-const VsfButton = forwardRef<unknown, VsfButtonProps>(
-  (
-    {
-      size = VsfButtonSizes.base,
-      variant = VsfButtonVariants.primary,
-      rounded,
-      disabled,
-      tile,
-      icon,
-      block,
-      tag: Tag = 'button',
-      onClick,
-      children,
-      slotPrefix,
-      slotSuffix,
-      link,
-      className,
-      ...attributes
-    },
-    ref,
-  ) => {
-    let TagInternal = Tag;
-    if (link && Tag === 'button') {
-      TagInternal = 'a';
-    }
-    const buttonClasses = classNames(
-      'vsf-button',
-      {
-        'vsf-button--disabled': disabled,
-        'vsf-button--rounded': rounded,
-        'vsf-button--tile': tile,
-        'vsf-button--icon': icon,
-        'vsf-button--block': block,
+export default function VsfButton<
+  T extends HTMLAnchorElement | HTMLButtonElement,
+  D extends VsfButtonProps<T> = VsfButtonProps<T>,
+>({
+  size = VsfButtonSizes.base,
+  variant = VsfButtonVariants.primary,
+  rounded,
+  disabled,
+  greyscale,
+  tile,
+  block,
+  children,
+  slotPrefix,
+  slotSuffix,
+  link,
+  type = 'button',
+  className,
+  onClick,
+  ...attributes
+}: D): JSX.Element {
+  const TagInternal = (link ? 'a' : 'button') as 'button';
 
-        'vsf-button--base': size === 'base',
-        'vsf-button--sm': size === 'sm',
-        'vsf-button--lg': size === 'lg',
-
-        'vsf-button--variant-primary': variant === 'primary',
-        'vsf-button--variant-secondary': variant === 'secondary',
-        'vsf-button--variant-tertiary': variant === 'tertiary',
-      },
-      className,
-    );
-
-    return (
-      <TagInternal
-        className={buttonClasses}
-        onClick={onClick}
-        ref={ref}
-        role={Tag === 'a' ? 'button' : undefined}
-        disabled={disabled}
-        data-testid={attributes.dataTestId || 'button'}
-        {...(link ? { href: link } : {})}
-        {...attributes}
-      >
-        {slotPrefix && <span className="vsf-button__prefix">{slotPrefix}</span>}
-        {children}
-        {slotSuffix && <span className="vsf-button__suffix">{slotSuffix}</span>}
-      </TagInternal>
-    );
-  },
-);
-
-export default VsfButton;
+  return (
+    <TagInternal
+      className={classNames(
+        'vsf-button',
+        `vsf-button--${size}`,
+        `vsf-button--${variant}`,
+        {
+          'vsf-button--disabled': disabled,
+          'vsf-button--rounded': rounded,
+          'vsf-button--tile': tile,
+          'vsf-button--block': block,
+          'vsf-button--greyscale': greyscale,
+          'vsf-button--has-prefix': slotPrefix,
+          'vsf-button--has-suffix': slotSuffix,
+          'vsf-button--no-content': !children,
+        },
+        className,
+      )}
+      onClick={onClick as MouseEventHandler<HTMLButtonElement>}
+      type={TagInternal === 'button' ? type : undefined}
+      data-testid="button"
+      {...(link ? { href: link } : { disabled })}
+      {...attributes}
+    >
+      {slotPrefix && <span className="vsf-button__prefix">{slotPrefix}</span>}
+      {children}
+      {slotSuffix && <span className="vsf-button__suffix">{slotSuffix}</span>}
+    </TagInternal>
+  );
+}

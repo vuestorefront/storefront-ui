@@ -2,14 +2,13 @@
   <div class="e-page">
     <div class="e-page-component">
       <VsfButton v-bind="state" :type="state.link ? null : 'button'">
-        <template v-if="ExampleLeftIcon" #prefix>
+        <template v-if="SlotPrefix" #prefix>
           <VsfIconVsfDiamond />
         </template>
-        <VsfIconVsfDiamond v-if="ExampleIconContent" />
-        <template v-else>
-          {{ ExampleTextContent }}
+        <template v-if="SlotDefault" #default>
+          {{ SlotDefault }}
         </template>
-        <template v-if="ExampleRightIcon" #suffix>
+        <template v-if="SlotSuffix" #suffix>
           <VsfIconVsfDiamond />
         </template>
       </VsfButton>
@@ -37,34 +36,23 @@ export default defineComponent({
       [
         {
           type: 'text',
-          modelName: 'ExampleTextContent',
-          description: 'Only for demonstration purposes.',
+          modelName: 'SlotDefault',
+          description: 'Only for demonstration purposes. Default slot',
         },
         {
           type: 'boolean',
-          modelName: 'ExampleIconContent',
-          description: 'Only for demonstration purposes.',
-        },
-        {
-          type: 'boolean',
-          modelName: 'ExampleLeftIcon',
+          modelName: 'SlotPrefix',
           description: 'slotPrefix',
         },
         {
           type: 'boolean',
-          modelName: 'ExampleRightIcon',
+          modelName: 'SlotSuffix',
           description: 'slotSuffix',
         },
         {
           type: 'text',
           modelName: 'link',
           description: 'Change <button> to <a> tag with `href` attribute',
-        },
-        {
-          type: 'select',
-          modelName: 'tag',
-          options: ['button', 'a'],
-          description: 'Explicitly set component tag',
         },
         {
           type: 'select',
@@ -82,13 +70,13 @@ export default defineComponent({
         },
         {
           type: 'boolean',
-          modelName: 'tile',
-          description: 'Remove border radius',
+          modelName: 'greyscale',
+          description: 'Modifier for each variants',
         },
         {
           type: 'boolean',
-          modelName: 'icon',
-          description: 'Adjust button paddings for icons',
+          modelName: 'tile',
+          description: 'Remove border radius',
         },
         {
           type: 'boolean',
@@ -102,19 +90,17 @@ export default defineComponent({
         },
       ],
       {
-        ExampleTextContent: ref('Hello'),
-        ExampleLeftIcon: ref(false),
-        ExampleRightIcon: ref(false),
-        ExampleIconContent: ref(false),
+        SlotDefault: ref('Hello'),
+        SlotPrefix: ref(),
+        SlotSuffix: ref(),
         link: ref(),
         disabled: ref(),
+        greyscale: ref(),
         variant: ref<VsfButtonVariants>(VsfButtonVariants.primary),
         size: ref<VsfButtonSizes>(VsfButtonSizes.base),
         tile: ref(),
-        icon: ref(),
         rounded: ref(),
         block: ref(),
-        tag: ref('button'),
       },
     );
   },

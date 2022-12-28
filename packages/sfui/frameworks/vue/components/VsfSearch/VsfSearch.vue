@@ -64,7 +64,7 @@ const onReset = (event: Event) => {
         <span v-if="$slots.suffix" class="vsf-search__input-suffix"><slot name="suffix"></slot></span>
       </div>
 
-      <VsfButton v-if="$slots.submit" type="submit" class="vsf-search__submit" tile icon :disabled="disabled">
+      <VsfButton v-if="$slots.submit" type="submit" class="vsf-search__submit" tile :disabled="disabled">
         <slot name="submit"></slot>
       </VsfButton>
     </form>

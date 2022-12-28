@@ -1,12 +1,13 @@
 import type { ReactNode } from 'react';
+import type { VsfButtonProps } from '../VsfButton';
 
 export enum VsfCardSizes {
   sm = 'sm',
   base = 'base',
   responsive = 'responsive',
 }
-
-export interface VsfCardProps {
+type ButtonProps = Pick<VsfButtonProps<HTMLAnchorElement | HTMLButtonElement>, 'onClick'>;
+export interface VsfCardProps extends ButtonProps {
   title: string;
   size?: VsfCardSizes;
   link?: string;
@@ -15,7 +16,6 @@ export interface VsfCardProps {
   description?: string;
   buttonText?: string;
   rounded?: boolean;
-  onClick?: (event?: Event) => void;
   className?: string;
   slotImg?: ReactNode;
   [key: string]: unknown;

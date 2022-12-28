@@ -7,6 +7,7 @@ import type {
 } from '@sfui/sfui/frameworks/react/components/VsfProductCard/types';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import { VsfButtonProps } from '@sfui/sfui/frameworks/react/components/VsfButton/types';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 import productImage from '../fixture/product-card.webp';
@@ -172,18 +173,23 @@ function Example() {
     state.get.className,
   );
 
-  function onAddToCartClick(e?: Event) {
+  type EventType = VsfButtonProps<HTMLButtonElement>['onClick'];
+  const onAddToCartClick: EventType = (e) => {
     console.log('Added to cart: ', e);
-  }
-  function onAddToWishlistClick(e?: Event) {
+  };
+
+  const onAddToWishlistClick: EventType = (e) => {
     console.log('Added to wishlist:', e);
-  }
-  function onSeeSimilarClick(e?: Event) {
+  };
+
+  const onSeeSimilarClick: EventType = (e) => {
     console.log('See similar clicked:', e);
-  }
-  function onReviewsClick(e?: Event) {
+  };
+
+  const onReviewsClick: EventType = (e) => {
     console.log('Reviews clicked:', e);
-  }
+  };
+
   const onWindowResize = (): void => {
     setNewWindowWidth(window.innerWidth);
   };

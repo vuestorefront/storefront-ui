@@ -71,26 +71,6 @@ export default function VsfProductCard({
     'vsf-product-card__details-add-to-cart--out-of-stock': outOfStock,
   });
 
-  const addToCart = (event: Event) => {
-    event.preventDefault();
-    onAddToCartClick?.(event);
-  };
-
-  const addToWishlist = (event: Event) => {
-    event.preventDefault();
-    onAddToWishlistClick?.(event);
-  };
-
-  const seeSimilar = (event: Event) => {
-    event.preventDefault();
-    onSeeSimilarClick?.(event);
-  };
-
-  const seeReviews = (event: Event) => {
-    event.preventDefault();
-    onReviewsClick?.(event);
-  };
-
   return (
     <div className={productCardClasses} {...attributes} data-testid="product-card">
       <div className="relative">
@@ -143,12 +123,10 @@ export default function VsfProductCard({
                 variant={VsfButtonVariants.secondary}
                 size={VsfButtonSizes.sm}
                 className="vsf-product-card__image-bottom-button"
-                onClick={(event: Event) => addToWishlist(event)}
-                icon
+                onClick={onAddToWishlistClick}
                 data-testid="product-card-add-to-wishlist"
-              >
-                <VsfIconFavoritesOutline size={VsfIconSizeEnum.sm} ariaLabel={ariaLabelAddToWishlist} />
-              </VsfButton>
+                slotPrefix={<VsfIconFavoritesOutline size={VsfIconSizeEnum.sm} ariaLabel={ariaLabelAddToWishlist} />}
+              />
             </>
           )}
         </div>
@@ -188,7 +166,7 @@ export default function VsfProductCard({
             {reviewsAmount && (
               <VsfButton
                 variant={VsfButtonVariants.tertiary}
-                onClick={(event: Event) => seeReviews(event)}
+                onClick={onReviewsClick}
                 className="vsf-product-card__details-rating-button"
                 data-testid="product-card-reviews"
               >
@@ -217,7 +195,7 @@ export default function VsfProductCard({
           )}
           {!outOfStock ? (
             <VsfButton
-              onClick={(event: Event) => addToCart(event)}
+              onClick={onAddToCartClick}
               className={addToCartClasses}
               size={VsfButtonSizes.sm}
               data-testid="product-card-add-to-cart"
@@ -227,7 +205,7 @@ export default function VsfProductCard({
             </VsfButton>
           ) : (
             <VsfButton
-              onClick={(event: Event) => seeSimilar(event)}
+              onClick={onSeeSimilarClick}
               variant={VsfButtonVariants.secondary}
               className={addToCartClasses}
               size={VsfButtonSizes.sm}

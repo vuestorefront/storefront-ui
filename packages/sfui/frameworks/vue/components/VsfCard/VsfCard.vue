@@ -90,7 +90,6 @@ const isLinkAString = computed(() => {
         v-if="buttonText && !rounded"
         class="vsf-card__button"
         :variant="VsfButtonVariants.tertiary"
-        :tag="linkTag"
         :size="VsfButtonSizes.sm"
         :link="link"
         data-testid="card-button"

@@ -67,13 +67,12 @@ function onClickNext() {
         <VsfButton
           :variant="VsfButtonVariants.secondary"
           :size="VsfButtonSizes.lg"
-          icon
           rounded
           :class="['vsf-slider__nav-arrow', { 'vsf-slider__nav-arrow--hidden': !hasPrev }]"
           :disabled="!hasPrev"
           @click="onClickPrev"
         >
-          <VsfIconChevronLeft />
+          <template #prefix><VsfIconChevronLeft /></template>
         </VsfButton>
       </slot>
     </div>
@@ -96,13 +95,12 @@ function onClickNext() {
         <VsfButton
           :variant="VsfButtonVariants.secondary"
           :size="VsfButtonSizes.lg"
-          icon
           rounded
           :class="['vsf-slider__nav-arrow', { 'vsf-slider__nav-arrow--hidden': !hasNext }]"
           :disabled="!hasNext"
           @click="onClickNext"
         >
-          <VsfIconChevronRight />
+          <template #prefix><VsfIconChevronRight /></template>
         </VsfButton>
       </slot>
     </div>

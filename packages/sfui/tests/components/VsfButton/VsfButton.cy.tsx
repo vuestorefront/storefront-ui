@@ -3,41 +3,77 @@ import React from "react";
 import VsfButtonVue from "../../../frameworks/vue/components/VsfButton/VsfButton.vue";
 import VsfButtonReact from "../../../frameworks/react/components/VsfButton/VsfButton";
 import { VsfButtonSizes, VsfButtonVariants } from '../../../frameworks/vue/components/VsfButton/types';
+import VsfIconCheckCircleVue from '../../../frameworks/vue/components/VsfIcons/VsfIconCheckCircle.vue';
+import VsfIconCheckboxIndeterminateVue from '../../../frameworks/vue/components/VsfIcons/VsfIconCheckboxIndeterminate.vue';
+
+import VsfIconCheckCircleReact from '../../../frameworks/react/components/VsfIcons/VsfIconCheckCircle';
+import VsfIconCheckboxIndeterminateReact from '../../../frameworks/react/components/VsfIcons/VsfIconCheckboxIndeterminate';
 
 import { mount } from '../../utils/mount';
 import VsfButtonBaseObject from "./VsfButton.PageObject";
 
 describe("VsfButton", () => {
-  let size: VsfButtonSizes;
-  let variant: VsfButtonVariants;
-  let rounded: boolean;
-  let disabled: boolean;
-  let tile: boolean;
-  let icon: boolean;
-  let block: boolean;
-  let tag: string;
-  let link: string;
-  let slotContent = 'button content';
+  const slotDefaultContent = 'button content';
+  enum ButtonTypes {
+    button = 'button',
+    submit = 'submit',
+    reset = 'reset'
+  };
 
   const page = () => new VsfButtonBaseObject('button');
 
-  const initializeComponent = () => {
+  type InitializeComponentParams = {
+    size?: VsfButtonSizes;
+    variant?: VsfButtonVariants;
+    rounded?: boolean;
+    disabled?: boolean;
+    tile?: boolean;
+    block?: boolean;
+    greyscale?: boolean;
+    link?: string;
+    slotPrefix?: boolean;
+    slotSuffix?: boolean;
+    slotDefault?: boolean;
+    type?:ButtonTypes;
+  }
+  const initializeComponent = ({
+    size = VsfButtonSizes.base,
+    variant = VsfButtonVariants.primary,
+    rounded = false,
+    disabled = false,
+    tile = false,
+    block = false,
+    greyscale = false,
+    link = '',
+    slotPrefix = false,
+    slotSuffix = false,
+    slotDefault = true,
+    type = undefined
+  }: InitializeComponentParams = {}) => {
     return mount({
       vue: {
         component: VsfButtonVue,
+        global: {
+          components: {
+            VsfIconCheckCircleVue,
+            VsfIconCheckboxIndeterminateVue
+          },
+        },
         props: {
           size,
           variant,
           rounded,
           disabled,
+          greyscale,
           tile,
-          icon,
           block,
-          tag,
-          link
+          link,
+          type
         },
         slots: {
-          default: () => slotContent,
+          ...(slotPrefix && { prefix: '<VsfIconCheckCircleVue/>'}),
+          ...(slotSuffix && { suffix: '<VsfIconCheckboxIndeterminateVue/>'}),
+          ...(slotDefault && { default: () => slotDefaultContent}),
         },
       },
       react: <VsfButtonReact
@@ -46,18 +82,15 @@ describe("VsfButton", () => {
         rounded={rounded}
         disabled={disabled}
         tile={tile}
-        icon={icon}
         block={block}
-        tag={tag}
         link={link}
-      >{slotContent}</VsfButtonReact>
+        greyscale={greyscale}
+        type={type}
+        slotPrefix={slotPrefix && <VsfIconCheckCircleReact/>}
+        slotSuffix={slotSuffix && <VsfIconCheckboxIndeterminateReact/>}
+      >{slotDefault ? slotDefaultContent : undefined}</VsfButtonReact>
     });
   }
-
-  afterEach(() => {
-    size = VsfButtonSizes.base;
-    variant = VsfButtonVariants.primary;
-  });
 
   beforeEach(() => {
     cy.viewport(200, 200)
@@ -66,15 +99,17 @@ describe("VsfButton", () => {
   it('initial state', () => {
     initializeComponent();
 
-    page().makeSnapshot();
+    page()
+      .doesNotHaveHref()
+      .hasTypeOnButton(ButtonTypes.button)
+      .makeSnapshot();
   });
 
   describe('when prop size is set to ', () => {
     Object.values(VsfButtonSizes).forEach((componentSize) => {
       describe(`${componentSize}`, () => {
         it(`should render correct ${componentSize} size`, () => {
-          size = componentSize;
-          initializeComponent();
+          initializeComponent({ size: componentSize });
 
           page().makeSnapshot();
         });
@@ -86,8 +121,15 @@ describe("VsfButton", () => {
     Object.values(VsfButtonVariants).forEach((componentVariant) => {
       describe(`${componentVariant}`, () => {
         it(`should render correct ${componentVariant} variant`, () => {
-          variant = componentVariant;
-          initializeComponent();
+          initializeComponent({ variant: componentVariant });
+
+          page().makeSnapshot();
+        });
+      });
+
+      describe(`${componentVariant} and greyscale=true`, () => {
+        it(`should render correct ${componentVariant} variant`, () => {
+          initializeComponent({ variant: componentVariant, greyscale: true });
 
           page().makeSnapshot();
         });
@@ -95,21 +137,29 @@ describe("VsfButton", () => {
     });
   });
 
+  describe('when prop type is set to ', () => {
+    Object.values(ButtonTypes).forEach((buttonType) => {
+      describe(`${buttonType}`, () => {
+        it(`should render correct ${buttonType} button type attr`, () => {
+          initializeComponent({ type: buttonType });
+
+          page().hasTypeOnButton(buttonType);
+        });
+      });
+    });
+  });
+
   describe('when prop rounded=true', () => {
-    before(() => rounded = true);
-    after(() => rounded = false);
     it(`should render with rounded borders`, () => {
-      initializeComponent();
+      initializeComponent({ rounded: true });
 
       page().makeSnapshot();
     });
   });
 
   describe('when prop disabled=true', () => {
-    before(() => disabled = true);
-    after(() => disabled = false);
     it(`should render as disabled`, () => {
-      initializeComponent();
+      initializeComponent({ disabled: true });
 
       page()
         .isDisabled()
@@ -118,56 +168,86 @@ describe("VsfButton", () => {
   });
 
   describe('when prop tile=true', () => {
-    before(() => tile = true);
-    after(() => tile = false);
     it(`should render as tile`, () => {
-      initializeComponent();
+      initializeComponent({ tile: true });
 
       page().makeSnapshot();
     });
   });
 
-  describe('when prop icon=true', () => {
-    before(() => icon = true);
-    after(() => icon = false);
-    it(`should render with smaller paddings`, () => {
-      initializeComponent();
+  describe('when prop type=true', () => {
+    it(`should render as tile`, () => {
+      initializeComponent({ tile: true });
 
       page().makeSnapshot();
     });
   });
 
   describe('when prop block=true', () => {
-    before(() => block = true);
-    after(() => block = false);
     it(`should render full with`, () => {
-      initializeComponent();
+      initializeComponent({ block: true });
 
       page().makeSnapshot();
     });
   });
 
-  describe('when prop tag=div', () => {
-    before(() => tag = 'div');
-    after(() => tag = 'button');
-    it(`should render as HTMLDivElement`, () => {
-      initializeComponent();
+  describe('when prop link is set', () => {
+    const link = 'http://somelink.com';
+    it(`should render as <a> element`, () => {
+      initializeComponent({ link });
 
       page()
-        .hasTag('DIV')
+        .hasTag('A')
+        .hasHref(link)
         .makeSnapshot();
     });
   });
 
-  describe('when prop link is set', () => {
-    before(() => link = 'http://somelink.com');
-    after(() => link = '');
-    it(`should render as <a> element`, () => {
-      initializeComponent();
+  describe('when only prefix', () => {
+    it(`should render square button`, () => {
+      initializeComponent({ slotPrefix: true, slotDefault: false });
 
-      page()
-        .hasTag('A')
-        .makeSnapshot();
+      page().makeSnapshot();
+    });
+  });
+
+  describe('when only suffix', () => {
+    it(`should render square button`, () => {
+      initializeComponent({ slotSuffix: true, slotDefault: false });
+
+      page().makeSnapshot();
+    });
+  });
+
+  describe('when suffix and prefix', () => {
+    it(`should render button with same gaps`, () => {
+      initializeComponent({ slotPrefix: true, slotSuffix: true, slotDefault: false });
+
+      page().makeSnapshot();
+    });
+  });
+
+  describe('when suffix, content and prefix', () => {
+    it(`should render button with same gaps`, () => {
+      initializeComponent({ slotPrefix: true, slotSuffix: true, slotDefault: true });
+
+      page().makeSnapshot();
+    });
+  });
+
+  describe('when prefix and content', () => {
+    it(`should render button with prefix and content with correct gaps`, () => {
+      initializeComponent({ slotPrefix: true, slotDefault: true });
+
+      page().makeSnapshot();
+    });
+  });
+
+  describe('when content and suffix', () => {
+    it(`should render button with content and suffix with correct gaps`, () => {
+      initializeComponent({ slotSuffix: true, slotDefault: true });
+
+      page().makeSnapshot();
     });
   });
 });

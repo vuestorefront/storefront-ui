@@ -9,7 +9,7 @@ export type VsfNavbarBottomProps = PropsWithStyle & {
   children?: ReactNode;
 };
 
-type ButtonAttrs = Pick<VsfButtonProps, 'link' | 'onClick' | 'tag'>;
+type ButtonAttrs = Pick<VsfButtonProps<HTMLButtonElement | HTMLAnchorElement>, 'link' | 'onClick'>;
 export interface VsfNavbarBottomItemProps extends PropsWithStyle, ButtonAttrs {
   label: string;
   slotIcon: ReactNode;

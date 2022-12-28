@@ -86,19 +86,21 @@ function handleOnBlur() {
     data-testid="qty-selector"
   >
     <div class="vsf-qty-selector__wrapper">
+      <!-- TODO: i18n aria-label -->
       <VsfButton
         :variant="VsfButtonVariants.tertiary"
         :aria-controls="inputId"
         aria-label="decrease"
         class="vsf-qty-selector__decrease"
         tile
-        icon
         :size="buttonSize"
         :disabled="decreaseDisabled"
         data-testid="decrease-button"
         @click="handleChange(currentValue - step)"
       >
-        <VsfIconMinus />
+        <template #prefix>
+          <VsfIconMinus />
+        </template>
       </VsfButton>
 
       <input
@@ -118,19 +120,21 @@ function handleOnBlur() {
         @blur="handleOnBlur"
       />
 
+      <!-- TODO: i18n aria-label -->
       <VsfButton
         :variant="VsfButtonVariants.tertiary"
         :aria-controls="inputId"
         aria-label="increase"
         class="vsf-qty-selector__increase"
         tile
-        icon
         :disabled="increaseDisabled"
         :size="buttonSize"
         data-testid="increase-button"
         @click="handleChange(currentValue + step)"
       >
-        <VsfIconPlus />
+        <template #prefix>
+          <VsfIconPlus />
+        </template>
       </VsfButton>
     </div>
 

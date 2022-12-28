@@ -71,7 +71,7 @@ export default function VsfSearch({
         </div>
 
         {slotSubmit && (
-          <VsfButton type="submit" className="vsf-search__submit" tile icon disabled={disabled}>
+          <VsfButton type="submit" className="vsf-search__submit" tile disabled={disabled}>
             {slotSubmit}
           </VsfButton>
         )}

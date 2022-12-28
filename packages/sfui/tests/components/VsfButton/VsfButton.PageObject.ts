@@ -8,6 +8,21 @@ export default class VsfButtonBaseObject extends BasePage {
     return this;
   }
 
+  hasHref(link: string) {
+    this.container.should('have.attr', 'href', link);
+    return this;
+  }
+
+  doesNotHaveHref() {
+    this.container.should('not.have.attr', 'href');
+    return this;
+  }
+
+  hasTypeOnButton(type: string) {
+    this.container.should('have.attr', 'type', type);
+    return this;
+  }
+
   isDisabled(){
     this.container.should('be.disabled');
     return this;

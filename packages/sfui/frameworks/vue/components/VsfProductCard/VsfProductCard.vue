@@ -185,14 +185,12 @@ defineEmits<{
             :variant="VsfButtonVariants.secondary"
             :size="VsfButtonSizes.sm"
             class="vsf-product-card__image-bottom-button"
-            icon
             data-testid="product-card-add-to-wishlist"
             @click="$emit('addToWishlist', $event)"
           >
-            <VsfIconFavoritesOutline
-              :size="VsfIconSizeEnum.sm"
-              :aria-label="ariaLabelAddToWishlist"
-            ></VsfIconFavoritesOutline>
+            <template #prefix>
+              <VsfIconFavoritesOutline :size="VsfIconSizeEnum.sm" :aria-label="ariaLabelAddToWishlist" />
+            </template>
           </VsfButton>
         </slot>
       </div>
@@ -233,7 +231,7 @@ defineEmits<{
           />
           <VsfButton
             v-if="reviewsAmount"
-            variant="VsfButtonVariants.tertiary"
+            :variant="VsfButtonVariants.tertiary"
             class="vsf-product-card__details-rating-button"
             data-testid="product-card-reviews"
             @click="$emit('seeReviews', $event)"

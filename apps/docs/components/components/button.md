@@ -6,6 +6,8 @@ hideBreadcrumbs: true
 
 The Button component allow users to take actions, and make choices, with a single tap or click.
 
+<Generate />
+
 ## Figma design
 
 See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%9F%9B%A0-SFUI-2.0-%7C-Development?node-id=11375%3A16132)
@@ -16,34 +18,34 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 | --------- | ------------------- | ------------- | ---------------------------------- |
 | variant   | `VsfButtonVariants` | `primary`     | `primary`, `secondary`, `tertiary` |
 | size      | `VsfButtonSizes`    | `base`        | `sm`, `base`, `lg`                 |
-| tag       | `String`            | `button`      | `button`, `a`                      |
 | link      | `String`            |               | `/my-cool-page`                    |
 | tile      | `Boolean`           |               |                                    |
 | disabled  | `Boolean`           |               |                                    |
-| icon      | `Boolean`           |               |                                    |
+| greyscale | `Boolean`           |               |                                    |
 | rounded   | `Boolean`           |               |                                    |
 | block     | `Boolean`           |               |                                    |
+<!-- react -->| slotPrefix | `ReactNode` | | Left side slotted content |
+| children | `ReactNode` | | Default slotted content |
+| slotSuffix | `ReactNode` | | Right side slotted content |
+<!-- end react -->
 
-### React only:
-
-| Prop name  | Type        | Default value | Possible values            |
-| ---------- | ----------- | ------------- | -------------------------- |
-| children   | `ReactNode` |               |                            |
-| className  | `String`    |               |                            |
-| slotPrefix | `ReactNode` |               | Left side slotted content  |
-| children   | `ReactNode` |               | Default slotted content    |
-| slotSuffix | `ReactNode` |               | Right side slotted content |
-| onClick    | `Function`  |               |                            |
-
+<!-- vue -->
 ## Slots
-
-### Vue only:
 
 | Slot name |         Description          |
 | --------- | :--------------------------: |
 | prefix    |     before default slot      |
 | default   | replaces the default content |
 | suffix    |      after default slot      |
+<!-- end vue -->
+
+<!-- react -->
+## Events
+
+| Event name |       Trigger        |
+| ---------- | :------------------: |
+| onClick     | Details of `<a>` or `<button>` element |
+<!-- end react -->
 
 ## Accessibility notes
 
@@ -53,5 +55,9 @@ Button component can be render as `<button />` or `<a />` if `link` prop is prov
 
 ## Source code
 
+<!-- vue -->
 <<<../../../packages/sfui/frameworks/vue/components/VsfButton/VsfButton.vue
-<<< ../../../packages/sfui/frameworks/react/components/VsfButton/VsfButton.tsx
+<!-- end vue -->
+<!-- react -->
+<<<../../../packages/sfui/frameworks/react/components/VsfButton/VsfButton.tsx
+<!-- end react -->

@@ -70,6 +70,7 @@ const onPageChange = (newPage: number) => {
 <template>
   <VsfDivider />
   <nav class="vsf-pagination" role="navigation" aria-label="pagination" data-testid="pagination">
+    <!-- TODO: i18n aria-label -->
     <VsfButton
       aria-label="Previous"
       :disabled="selectedPage <= 1"
@@ -93,6 +94,7 @@ const onPageChange = (newPage: number) => {
               },
             ]"
           >
+            <!-- TODO: i18n aria-label -->
             <VsfButton
               class="vsf-pagination__button"
               :aria-label="`Page 1 of ${totalPages}`"
@@ -129,6 +131,7 @@ const onPageChange = (newPage: number) => {
               },
             ]"
           >
+            <!-- TODO: i18n aria-label -->
             <VsfButton
               class="vsf-pagination__button"
               :aria-label="`Page ${page} of ${totalPages}`"
@@ -165,6 +168,7 @@ const onPageChange = (newPage: number) => {
               },
             ]"
           >
+            <!-- TODO: i18n aria-label -->
             <VsfButton
               class="vsf-pagination__button"
               :aria-label="`Page ${totalPages} of ${totalPages}`"
@@ -179,6 +183,7 @@ const onPageChange = (newPage: number) => {
         </slot>
       </li>
     </ul>
+    <!-- TODO: i18n aria-label -->
     <VsfButton
       aria-label="Next"
       :disabled="selectedPage >= totalPages"

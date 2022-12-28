@@ -43,6 +43,7 @@ export default function VsfPagination({
         {...attributes}
         data-testid="pagination"
       >
+        {/* TODO: i18n aria-label */}
         <VsfButton
           className="vsf-pagination__button"
           aria-label="Previous"
@@ -63,6 +64,7 @@ export default function VsfPagination({
                     'vsf-pagination__item--selected': selectedPage === 1,
                   })}
                 >
+                  {/* TODO: i18n aria-label */}
                   <VsfButton
                     className="vsf-pagination__button"
                     aria-label={`Page 1 of ${pagination.totalPages}`}
@@ -101,6 +103,7 @@ export default function VsfPagination({
                     selectedPage === page && 'vsf-pagination__item--selected',
                   )}
                 >
+                  {/* TODO: i18n aria-label */}
                   <VsfButton
                     className="vsf-pagination__button"
                     aria-label={`Page ${page} of ${pagination.totalPages}`}
@@ -138,6 +141,7 @@ export default function VsfPagination({
                     selectedPage === pagination.totalPages && 'vsf-pagination__item--selected',
                   )}
                 >
+                  {/* TODO: i18n aria-label */}
                   <VsfButton
                     className="vsf-pagination__button"
                     aria-label={`Page ${pagination.totalPages} of ${pagination.totalPages}`}
@@ -153,6 +157,7 @@ export default function VsfPagination({
             </li>
           )}
         </ul>
+        {/* TODO: i18n aria-label */}
         <VsfButton
           className="vsf-pagination__button"
           aria-label="Next"

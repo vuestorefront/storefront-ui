@@ -4,38 +4,21 @@ import type { VsfNavbarBottomItemProps } from './types';
 
 // TODO extract unstyled Base-Button Component
 
-const VsfNavbarBottomItem = forwardRef<unknown, VsfNavbarBottomItemProps>(
-  (
-    {
-      className, //
-      slotIcon,
-      tag: Tag = 'button',
-      active,
-      label,
-      link,
-      ariaLabel,
-      onClick,
-      ...attributes
-    },
-    ref,
-  ) => {
-    let TagInternal = Tag;
-    if (link && Tag === 'button') {
-      TagInternal = 'a';
-    }
+const VsfNavbarBottomItem = forwardRef<HTMLAnchorElement & HTMLButtonElement, VsfNavbarBottomItemProps>(
+  ({ className, slotIcon, active, label, link, ariaLabel, onClick, ...attributes }, ref): JSX.Element => {
+    const TagInternal = link ? 'a' : 'button';
 
-    const classes = classNames(
-      'vsf-navbar-bottom-item',
-      {
-        'vsf-navbar-bottom-item--active': active,
-      },
-      className,
-    );
     return (
       <TagInternal
         onClick={onClick}
         ref={ref}
-        className={classes}
+        className={classNames(
+          'vsf-navbar-bottom-item',
+          {
+            'vsf-navbar-bottom-item--active': active,
+          },
+          className,
+        )}
         {...(link ? { href: link } : {})}
         aria-label={ariaLabel}
         {...attributes}

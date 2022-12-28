@@ -41,27 +41,23 @@ export default function VsfSlider({
     <VsfButton
       variant={VsfButtonVariants.secondary}
       size={VsfButtonSizes.lg}
-      icon
       rounded
       className={classNames('vsf-slider__nav-arrow', { 'vsf-slider__nav-arrow--hidden': !hasPrev })}
       onClick={onClickPrev}
       disabled={!hasPrev}
-    >
-      <VsfIconChevronLeft />
-    </VsfButton>
+      slotPrefix={<VsfIconChevronLeft />}
+    />
   );
   const nextButtonDefault = (
     <VsfButton
       variant={VsfButtonVariants.secondary}
       size={VsfButtonSizes.lg}
-      icon
       rounded
       className={classNames('vsf-slider__nav-arrow', { 'vsf-slider__nav-arrow--hidden': !hasNext })}
       onClick={onClickNext}
       disabled={!hasNext}
-    >
-      <VsfIconChevronRight />
-    </VsfButton>
+      slotPrefix={<VsfIconChevronRight />}
+    />
   );
   const prevNavigation =
     typeof slotPrevArrow === 'function' ? slotPrevArrow({ onClick: onClickPrev, hasPrev }) : prevButtonDefault;

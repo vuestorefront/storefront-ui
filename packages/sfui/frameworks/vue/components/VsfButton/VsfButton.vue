@@ -1,6 +1,8 @@
 <script lang="ts" setup>
-import { computed, PropType } from 'vue';
+import { computed, toRefs } from 'vue';
 import { VsfButtonSizes, VsfButtonVariants } from './types';
+import type { PropType } from 'vue';
+
 const props = defineProps({
   size: {
     type: String as PropType<VsfButtonSizes>,
@@ -18,11 +20,11 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-  tile: {
+  greyscale: {
     type: Boolean,
     default: false,
   },
-  icon: {
+  tile: {
     type: Boolean,
     default: false,
   },
@@ -30,51 +32,39 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-  tag: {
+  link: {
     type: String,
+    default: undefined,
+  },
+  type: {
+    type: String as PropType<'button' | 'submit' | 'reset'>,
     default: 'button',
   },
-  link: {
-    type: [String, Object],
-    default: null,
-  },
 });
-
-const componentTag = computed(() => {
-  if (props.link && props.tag === 'button') {
-    return 'a';
-  }
-  return props.tag;
-});
-
-const attributes = computed(() => ({
-  role: componentTag.value === 'a' ? 'button' : undefined,
-  ...(props.link && { href: props.link }),
-  disabled: props.disabled,
-}));
-// TODO: remove tag prop, why its needed? when link exists should be <a> in any other case button
+const { link } = toRefs(props);
+// TODO: add VsfLink when done, then we can add link object and linkTag prop
+const componentTag = computed(() => (link?.value ? 'a' : 'button'));
 </script>
 
 <template>
   <component
     :is="componentTag"
-    v-bind="attributes"
+    :href="link ? link : undefined"
+    :disabled="link ? undefined : disabled ?? undefined"
+    :type="componentTag === 'button' ? type : undefined"
     :class="[
       'vsf-button',
+      `vsf-button--${size}`,
+      `vsf-button--${variant}`,
       {
-        'vsf-button--disabled': props.disabled,
-        'vsf-button--rounded': props.rounded,
-        'vsf-button--tile': props.tile,
-        'vsf-button--icon': props.icon,
-        'vsf-button--block': props.block,
-
-        'vsf-button--base': props.size === 'base',
-        'vsf-button--sm': props.size === 'sm',
-        'vsf-button--lg': props.size === 'lg',
-
-        'vsf-button--variant-primary': props.variant === 'primary',
-        'vsf-button--variant-secondary': props.variant === 'secondary',
-        'vsf-button--variant-tertiary': props.variant === 'tertiary',
+        'vsf-button--disabled': disabled,
+        'vsf-button--rounded': rounded,
+        'vsf-button--tile': tile,
+        'vsf-button--block': block,
+        'vsf-button--greyscale': greyscale,
+        'vsf-button--has-prefix': $slots.prefix,
+        'vsf-button--has-suffix': $slots.suffix,
+        'vsf-button--no-content': !$slots.default,
       },
     ]"
     data-testid="button"

@@ -29,15 +29,16 @@ onClickOutside(navigationTopRef, onClose);
 
 <template>
   <nav v-if="modelValue" ref="navigationTopRef" class="vsf-navigation-top" data-testid="navigation-top">
-    <!-- TODO: use greyscale prop button variant -->
     <VsfButton
-      icon
+      greyscale
       :variant="VsfButtonVariants.tertiary"
       class="vsf-navigation-top__close"
       data-testid="navigation-top-close-button"
       @click="onClose"
     >
-      <slot name="buttonClose"><VsfIconClose /></slot>
+      <template #prefix>
+        <slot name="buttonClose"><VsfIconClose /></slot>
+      </template>
     </VsfButton>
     <div
       :class="[
