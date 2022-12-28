@@ -1,0 +1,48 @@
+.vsf-loader-circular {
+  $self: &;
+  @apply relative inline-block;
+  
+  &-main {
+    @apply absolute bg-transparent border-gray-200 rounded-full;
+  }
+
+  &-circle {
+    @apply absolute bg-transparent rounded-[50%] animate-spinning border-t-primary-700;
+  }
+
+  &--xs {
+    @apply w-4 h-4 border-2;
+  }
+
+  &--sm {
+    @apply w-5 h-5 border-2;
+  }
+
+  &--base {
+    @apply w-6 h-6 border-2;
+  }
+
+  &--lg {
+    @apply w-8 h-8 border-2;
+  }
+
+  &--xl {
+    @apply w-10 h-10 border-2;
+  }
+
+  &--2xl {
+    @apply w-14 h-14 border-[3px];
+  }
+
+  &--3xl {
+    @apply w-24 h-24 border-4;
+  }
+  
+  &--4xl {
+    @apply w-48 h-48 border-8;
+  }
+
+  &__sr-only {
+    @apply sr-only;
+  }
+}

@@ -123,28 +123,25 @@
         "4-extra-large": "1920px"
       },
       "keyframes": {
-        "spin-base": {
-          "from": {
-            "transform": "rotate:(0deg)"
-          },
-          "to": {
+        "spinning": {
+          "100%": {
             "transform": "rotate(360deg)"
           }
         },
-        "linear-loader": {
-          "0%": {
-            "left": "-150%",
+        "line": {
+          "from": {
+            "left": "-100%",
             "width": "100%"
           },
-          "100%": {
+          "to": {
             "left": "100%",
             "width": "10%"
           }
         }
       },
       "animation": {
-        "spin-base": "spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite",
-        "linear-loader": "linear-loader 1.5s ease-in infinite"
+        "spinning": "spinning 1s linear infinite",
+        "line": "line 1.5s ease-in infinite"
       },
       "fontSize": {
         "2xs": [
