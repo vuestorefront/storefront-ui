@@ -2,6 +2,9 @@
   "content": [
     "./**/*.{vue,tsx}"
   ],
+  "future": {
+    "hoverOnlyWhenSupported": true
+  },
   "theme": {
     "extend": {
       "outlineColor": {

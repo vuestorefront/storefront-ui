@@ -74,16 +74,12 @@ const proxyChecked = computed({
 </script>
 
 <template>
-  <div
-    class="vsf-checkbox"
+  <component
+    :is="labelTag || 'label'"
     :class="['vsf-checkbox', { 'vsf-checkbox--disabled': disabled, 'vsf-checkbox--required': required }]"
     data-testid="checkbox"
   >
-    <component
-      :is="labelTag || 'label'"
-      class="vsf-checkbox__wrapper"
-      :class="`vsf-checkbox__wrapper--alignment-${alignment}`"
-    >
+    <span class="vsf-checkbox__wrapper" :class="`vsf-checkbox__wrapper--alignment-${alignment}`">
       <input
         v-model="proxyChecked"
         class="vsf-checkbox__input"
@@ -97,36 +93,29 @@ const proxyChecked = computed({
         :value="value"
         data-testid="checkbox-input"
       />
-      <slot name="label">
-        <span v-if="label" class="vsf-checkbox__label" data-testid="checkbox-label">
-          {{ label }}
-        </span>
-      </slot>
-    </component>
-    <div
+      <span v-if="label" class="vsf-checkbox__label" data-testid="checkbox-label">
+        {{ label }}
+      </span>
+    </span>
+
+    <span
       v-if="errorText || helpText"
       class="vsf-checkbox__text-wrapper"
       :class="`vsf-checkbox__text-wrapper-${alignment}`"
     >
-      <slot name="errorText">
-        <p
-          v-if="invalid && !!errorText && !disabled && !indeterminate && !required && !isChecked"
-          class="vsf-checkbox__error-text"
-          data-testid="checkbox-error-text"
-        >
-          {{ errorText }}
-        </p>
-      </slot>
-      <slot name="helpText">
-        <p v-if="helpText" class="vsf-checkbox__help-text" data-testid="checkbox-help-text">
-          {{ helpText }}
-        </p>
-      </slot>
-    </div>
-    <slot name="requiredText">
-      <p v-if="required && requiredText" class="vsf-checkbox__required-text" data-testid="checkbox-required-text">
-        {{ requiredText }}
-      </p>
-    </slot>
-  </div>
+      <span
+        v-if="invalid && !!errorText && !disabled && !indeterminate && !required && !isChecked"
+        class="vsf-checkbox__error-text"
+        data-testid="checkbox-error-text"
+      >
+        {{ errorText }}
+      </span>
+      <span v-if="helpText" class="vsf-checkbox__help-text" data-testid="checkbox-help-text">
+        {{ helpText }}
+      </span>
+    </span>
+    <span v-if="required && requiredText" class="vsf-checkbox__required-text" data-testid="checkbox-required-text">
+      {{ requiredText }}
+    </span>
+  </component>
 </template>

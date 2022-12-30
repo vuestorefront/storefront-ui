@@ -29,7 +29,7 @@ export default function VsfCheckbox({
     }
   }, [checkboxRef, indeterminate]);
   return (
-    <div
+    <LabelTag
       className={classNames(
         'vsf-checkbox',
         {
@@ -42,7 +42,7 @@ export default function VsfCheckbox({
       {...attributes}
       data-testid="checkbox"
     >
-      <LabelTag
+      <span
         className={classNames('vsf-checkbox__wrapper', alignment && `vsf-checkbox__wrapper--alignment-${alignment}`)}
       >
         <input
@@ -64,26 +64,26 @@ export default function VsfCheckbox({
             {label}
           </span>
         ) : null}
-      </LabelTag>
+      </span>
       {errorText || helpText ? (
         <div className={classNames('vsf-checkbox__text-wrapper', `vsf-checkbox__text-wrapper-${alignment}`)}>
           {invalid && !checked && !disabled && !indeterminate && !!errorText && !required && (
-            <p className="vsf-checkbox__error-text" data-testid="checkbox-error-text">
+            <span className="vsf-checkbox__error-text" data-testid="checkbox-error-text">
               {errorText}
-            </p>
+            </span>
           )}
           {helpText && (
-            <p className="vsf-checkbox__help-text" data-testid="checkbox-help-text">
+            <span className="vsf-checkbox__help-text" data-testid="checkbox-help-text">
               {helpText}
-            </p>
+            </span>
           )}
         </div>
       ) : null}
       {required && requiredText && (
-        <p className="vsf-checkbox__required-text" data-testid="checkbox-required-text">
+        <span className="vsf-checkbox__required-text" data-testid="checkbox-required-text">
           {requiredText}
-        </p>
+        </span>
       )}
-    </div>
+    </LabelTag>
   );
 }
