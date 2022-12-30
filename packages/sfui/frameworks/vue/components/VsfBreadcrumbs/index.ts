@@ -1,4 +1,3 @@
-import VsfBreadcrumbs from './VsfBreadcrumbs.vue';
-export * from './types';
+export { default as VsfBreadcrumbs } from './VsfBreadcrumbs.vue';
 
-export default VsfBreadcrumbs;
+export * from './types';

@@ -1,16 +1,14 @@
 <script lang="ts" setup>
-import { PropType, toRefs, computed } from 'vue';
+import type { PropType } from 'vue';
+import { toRefs, computed } from 'vue';
 import VsfProductCardImage from './VsfProductCardImage.vue';
-import VsfRating from '../VsfRating/VsfRating.vue';
-import VsfTag from '../VsfTag/VsfTag.vue';
-import VsfButton from '../VsfButton/VsfButton.vue';
-import VsfCounter from '../VsfCounter/VsfCounter.vue';
-import { VsfIconBasket, VsfIconFavoritesOutline, VsfIconAddedToBasket, VsfIconHot } from '../VsfIcons/index';
-import { VsfProductCardSizes, VsfProductCardProps, VsfProductCardLinkTags } from './types';
-import { VsfIconSizeEnum } from '../VsfIconBase/types';
-import { VsfTagSizes, VsfTagVariants } from '../VsfTag/types';
-import { VsfButtonVariants, VsfButtonSizes } from '../VsfButton/types';
-import { VsfRatingSizes, VsfRatingVariants } from '../VsfRating/types';
+import { VsfCounter } from '../VsfCounter';
+import { VsfIconBasket, VsfIconFavoritesOutline, VsfIconAddedToBasket, VsfIconHot, VsfIconSizeEnum } from '../VsfIcons';
+import { VsfProductCardSizes, VsfProductCardLinkTags } from './types';
+import type { VsfProductCardProps } from './types';
+import { VsfTag, VsfTagSizes, VsfTagVariants } from '../VsfTag';
+import { VsfButton, VsfButtonVariants, VsfButtonSizes } from '../VsfButton';
+import { VsfRating, VsfRatingSizes, VsfRatingVariants } from '../VsfRating';
 
 const props = defineProps({
   imageSrc: {

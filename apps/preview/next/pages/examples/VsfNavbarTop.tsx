@@ -1,9 +1,11 @@
-import VsfNavbarTop from '@sfui/sfui/frameworks/react/components/VsfNavbarTop/VsfNavbarTop';
-import VsfNavbarTopActionGroup from '@sfui/sfui/frameworks/react/components/VsfNavbarTop/VsfNavbarTopActionGroup';
-import VsfNavbarTopAction from '@sfui/sfui/frameworks/react/components/VsfNavbarTop/VsfNavbarTopAction';
-import VsfSpacer from '@sfui/sfui/frameworks/react/components/VsfNavbarTop/VsfSpacer';
-import VsfSearch from '@sfui/sfui/frameworks/react/components/VsfSearch';
-import VsfBadge from '@sfui/sfui/frameworks/react/components/VsfBadge';
+import {
+  VsfSpacer,
+  VsfNavbarTopAction,
+  VsfNavbarTopActionGroup,
+  VsfNavbarTop,
+} from '@storefront-ui/react/components/VsfNavbarTop';
+import { VsfSearch } from '@storefront-ui/react/components/VsfSearch';
+import { VsfBadge } from '@storefront-ui/react/components/VsfBadge';
 import {
   VsfIconBasket,
   VsfIconFavoritesOutline,
@@ -11,9 +13,9 @@ import {
   VsfIconMenu,
   VsfIconLogo,
   VsfIconLogoSmall,
-} from '@sfui/sfui/frameworks/react/components/VsfIcons';
+} from '@storefront-ui/react/components/VsfIcons';
 import Link from 'next/link';
-import { VsfIconSizeEnum } from '@sfui/sfui/frameworks/react/components/VsfIconBase/types';
+import { VsfIconSizeEnum } from '@storefront-ui/react/components/VsfIconBase/types';
 import classNames from 'classnames';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';

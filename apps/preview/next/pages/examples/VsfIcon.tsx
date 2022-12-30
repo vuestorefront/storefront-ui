@@ -1,5 +1,5 @@
-import { VsfIconSizeEnum } from '@sfui/sfui/frameworks/react/components/VsfIcons/types';
-import VsfIconArrowDown from '@sfui/sfui/frameworks/react/components/VsfIcons/VsfIconArrowDown';
+import { VsfIconSizeEnum } from '@storefront-ui/react/components/VsfIcons/types';
+import { VsfIconArrowDown } from '@storefront-ui/react/components/VsfIcons';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 
@@ -29,7 +29,7 @@ function Example() {
     <div className="e-page">
       <div className="e-page-component">
         <div>
-          Icon imported directly from `@sfui/sfui/frameworks/react/VsfIcons` <br />
+          Icon imported directly from `@storefront-ui/react/VsfIcons` <br />
           <div style={{ color: state.get.color }}>
             <VsfIconArrowDown size={state.get.size} />
           </div>

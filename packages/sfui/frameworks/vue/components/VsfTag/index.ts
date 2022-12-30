@@ -1,4 +1,3 @@
-import VsfTag from './VsfTag.vue';
-export * from './types';
+export { default as VsfTag } from './VsfTag.vue';
 
-export default VsfTag;
+export * from './types';

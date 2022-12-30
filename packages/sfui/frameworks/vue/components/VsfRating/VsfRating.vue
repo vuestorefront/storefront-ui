@@ -1,8 +1,9 @@
 <script lang="ts" setup>
-import { computed, PropType, toRefs } from 'vue';
+import type { PropType } from 'vue';
+import { computed, toRefs } from 'vue';
+import { clamp, roundToNearest } from '@storefront-ui/shared/utils/index';
 import { VsfRatingSizes, VsfRatingVariants } from './types';
-import { VsfIconStar, VsfIconStarOutline, VsfIconStarPartiallyFilled } from '../../components/VsfIcons';
-import { clamp, roundToNearest } from '@sfui/shared/utils/index';
+import { VsfIconStar, VsfIconStarOutline, VsfIconStarPartiallyFilled } from '../VsfIcons';
 
 const props = defineProps({
   size: {

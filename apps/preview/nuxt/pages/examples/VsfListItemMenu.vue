@@ -30,11 +30,9 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import VsfListItemMenu from '@sfui/sfui/frameworks/vue/components/VsfListItemMenu/VsfListItemMenu.vue';
+import { VsfListItemMenu, VsfListItemMenuSizes } from '@storefront-ui/vue/components/VsfListItemMenu/index';
+import { VsfIconSizeEnum, VsfIconCheck } from '@storefront-ui/vue/components/VsfIcons/index';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
-import { VsfListItemMenuSizes } from '@sfui/sfui/frameworks/vue/components/VsfListItemMenu/types';
-import VsfIconCheck from '@sfui/sfui/frameworks/vue/components/VsfIcons/VsfIconCheck.vue';
-import { VsfIconSizeEnum } from '@sfui/sfui/frameworks/vue/components/VsfIcons/types';
 
 export default defineComponent({
   name: 'VsfListItemMenuExample',

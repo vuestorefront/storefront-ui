@@ -13,9 +13,8 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import VsfCounter from '@sfui/sfui/frameworks/vue/components/VsfCounter/VsfCounter.vue';
+import { VsfCounter, VsfCounterSizes } from '@storefront-ui/vue/components/VsfCounter/index';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
-import { VsfCounterSizes } from '@sfui/sfui/frameworks/vue/components/VsfCounter/types';
 
 export default defineComponent({
   name: 'VsfCounterExample',

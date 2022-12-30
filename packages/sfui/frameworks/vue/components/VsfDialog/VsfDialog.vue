@@ -4,11 +4,10 @@ export default {
 };
 </script>
 <script lang="ts" setup>
-import VsfButton from '../VsfButton/VsfButton.vue';
-import { VsfButtonVariants } from '../VsfButton/types';
-import { VsfIconClose } from '../VsfIcons';
 import { ref, toRefs, watch } from 'vue';
-import { waitForElementInDOM } from '../../shared/utils/render';
+import { VsfButton, VsfButtonVariants } from '../VsfButton';
+import { VsfIconClose } from '../VsfIcons';
+import { waitForElementInDOM } from '../../shared/render';
 
 const props = defineProps({
   modelValue: {

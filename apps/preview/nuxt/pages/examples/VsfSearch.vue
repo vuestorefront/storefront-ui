@@ -44,9 +44,10 @@
 
 <script lang="ts">
 import { ref } from 'vue';
-import VsfSearch from '@sfui/sfui/frameworks/vue/components/VsfSearch/VsfSearch.vue';
+import VsfSearch from '@storefront-ui/vue/components/VsfSearch/VsfSearch.vue';
+import { VsfIconSearch } from '@storefront-ui/vue/components/VsfIcons/index';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
-import { VsfIconSearch } from '@sfui/sfui/frameworks/vue/components/VsfIcons/index';
+
 export default {
   name: 'VsfSearchExample',
   components: {

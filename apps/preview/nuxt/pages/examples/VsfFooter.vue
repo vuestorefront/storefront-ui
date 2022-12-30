@@ -50,7 +50,7 @@
 
 <script lang="ts">
 import { computed, defineComponent, ref, resolveComponent } from 'vue';
-import VsfFooter from '@sfui/sfui/frameworks/vue/components/VsfFooter/index';
+import { VsfFooter } from '@storefront-ui/vue/components/VsfFooter/index';
 import {
   VsfIconHelp,
   VsfIconChat,
@@ -60,10 +60,10 @@ import {
   VsfIconPinterest,
   VsfIconYoutube,
   VsfIconInstagram,
-} from '@sfui/sfui/frameworks/vue/components/VsfIcons/index';
-import type { TagOrComponent } from '@sfui/sfui/frameworks/vue/shared/utils/types';
-import { VsfFooterLabelType, VsfFooterColumnType } from '@sfui/shared/types/index';
-import VsfDivider from '@sfui/sfui/frameworks/vue/components/VsfDivider/VsfDivider.vue';
+} from '@storefront-ui/vue/components/VsfIcons/index';
+import type { TagOrComponent } from '@storefront-ui/vue/shared/types';
+import { VsfFooterLabelType, VsfFooterColumnType } from '@storefront-ui/shared/types/index';
+import VsfDivider from '@storefront-ui/vue/components/VsfDivider/VsfDivider.vue';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
 
 export default defineComponent({

@@ -1,5 +1,5 @@
-import VsfBreadcrumbs from '@sfui/sfui/frameworks/react/components/VsfBreadcrumbs';
-import type { VsfBreadcrumbsProps } from '@sfui/sfui/frameworks/react/components/VsfBreadcrumbs/types';
+import { VsfBreadcrumbs } from '@storefront-ui/react/components/VsfBreadcrumbs';
+import type { VsfBreadcrumbsProps } from '@storefront-ui/react/components/VsfBreadcrumbs/types';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 

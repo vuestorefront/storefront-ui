@@ -1,7 +1,7 @@
-import { SyntheticEvent, MouseEvent } from 'react';
+import type { SyntheticEvent, MouseEvent } from 'react';
 import classNames from 'classnames';
 import { VsfIconCancel } from '../VsfIcons';
-import VsfButton from '../VsfButton';
+import { VsfButton } from '../VsfButton';
 
 import type { VsfSearchProps } from './types';
 

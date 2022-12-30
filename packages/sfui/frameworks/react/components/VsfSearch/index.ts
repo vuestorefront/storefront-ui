@@ -1,4 +1,3 @@
-import VsfSearch from './VsfSearch';
+export { default as VsfSearch } from './VsfSearch';
 
 export * from './types';
-export default VsfSearch;

@@ -13,9 +13,8 @@
 
 <script lang="ts">
 import { defineComponent, ref, ToRefs } from 'vue';
-import VsfAccordionItem from '@sfui/sfui/frameworks/vue/components/VsfAccordionItem/VsfAccordionItem.vue';
+import { VsfAccordionItem } from '@storefront-ui/vue/components/VsfAccordionItem/index';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
-import type { VsfAccordionItemProps } from '@sfui/sfui/frameworks/vue/components/VsfAccordionItem/types';
 
 export default defineComponent({
   name: 'VsfAccordionItemExample',
@@ -28,7 +27,15 @@ export default defineComponent({
       toggleHandler() {
         console.log('toggle handler');
       },
-      ...prepareControls<ToRefs<VsfAccordionItemProps & { contentText: string }>>(
+      ...prepareControls<
+        ToRefs<
+          {
+            open: boolean;
+            title?: string;
+            chevronLeft?: boolean;
+          } & { contentText: string }
+        >
+      >(
         [
           {
             type: 'text',

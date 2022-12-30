@@ -1089,6 +1089,28 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/plugin-transform-react-jsx-self@npm:^7.18.6":
+  version: 7.18.6
+  resolution: "@babel/plugin-transform-react-jsx-self@npm:7.18.6"
+  dependencies:
+    "@babel/helper-plugin-utils": ^7.18.6
+  peerDependencies:
+    "@babel/core": ^7.0.0-0
+  checksum: 7d24e29c63869bb23495c163a92678c1c3341ecf74db420a20c6d3db74cbf5000fe908943f6106494e7225c0168945c150e528162274fd8fc7721966ad26930a
+  languageName: node
+  linkType: hard
+
+"@babel/plugin-transform-react-jsx-source@npm:^7.19.6":
+  version: 7.19.6
+  resolution: "@babel/plugin-transform-react-jsx-source@npm:7.19.6"
+  dependencies:
+    "@babel/helper-plugin-utils": ^7.19.0
+  peerDependencies:
+    "@babel/core": ^7.0.0-0
+  checksum: 1e9e29a4efc5b79840bd4f68e404f5ab7765ce48c7bd22f12f2b185f9c782c66933bdf54a1b21879e4e56e6b50b4e88aca82789ecb1f61123af6dfa9ab16c555
+  languageName: node
+  linkType: hard
+
 "@babel/plugin-transform-react-jsx@npm:^7.13.12":
   version: 7.19.0
   resolution: "@babel/plugin-transform-react-jsx@npm:7.19.0"
@@ -2402,7 +2424,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@microsoft/api-extractor@npm:^7.18.17":
+"@microsoft/api-extractor@npm:^7.18.17, @microsoft/api-extractor@npm:^7.33.5":
   version: 7.33.7
   resolution: "@microsoft/api-extractor@npm:7.33.7"
   dependencies:
@@ -3218,7 +3240,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rushstack/node-core-library@npm:3.53.3":
+"@rushstack/node-core-library@npm:3.53.3, @rushstack/node-core-library@npm:^3.53.2":
   version: 3.53.3
   resolution: "@rushstack/node-core-library@npm:3.53.3"
   dependencies:
@@ -3256,253 +3278,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sfui/docs@workspace:apps/docs/components":
-  version: 0.0.0-use.local
-  resolution: "@sfui/docs@workspace:apps/docs/components"
-  dependencies:
-    "@microsoft/api-documenter": ^7.13.65
-    "@microsoft/api-extractor": ^7.18.17
-    "@vuepress/plugin-active-header-links": ^1.8.2
-    "@vuepress/plugin-back-to-top": ^1.8.2
-    "@vuepress/plugin-medium-zoom": ^1.8.2
-    "@vuepress/plugin-search": ^1.8.2
-    autoprefixer: ^9
-    concurrently: ^7.5.0
-    handlebars: ^4.7.7
-    markdown-it-external-links: ^0.0.6
-    markdown-spellcheck: ^1.3.1
-    postcss: ^7
-    sass-loader: ^8.0.2
-    tailwindcss: "npm:@tailwindcss/postcss7-compat@^2.2.17"
-    typescript: ^4.5.4
-    vue: ^2.6.14
-    vue-multiselect: ^2.1.6
-    vuepress: ^1.2.0
-    vuepress-plugin-clean-urls: ^1.1.2
-    vuepress-theme-vsf-docs: ^1.1.0-alpha.6
-  languageName: unknown
-  linkType: soft
-
-"@sfui/eslint-config@*, @sfui/eslint-config@workspace:packages/config/eslint":
-  version: 0.0.0-use.local
-  resolution: "@sfui/eslint-config@workspace:packages/config/eslint"
-  dependencies:
-    "@typescript-eslint/eslint-plugin": ^5.38.1
-    "@typescript-eslint/parser": ^5.38.1
-    "@vue/eslint-config-standard": ^8.0.1
-    eslint: ^8.0.0
-    eslint-config-airbnb: ^19.0.4
-    eslint-config-airbnb-typescript: ^17.0.0
-    eslint-config-next: 12.2.5
-    eslint-config-prettier: ^8.3.0
-    eslint-import-resolver-alias: ^1.1.2
-    eslint-plugin-prettier: ^4.2.1
-    eslint-plugin-vue: ^9.3.0
-  languageName: unknown
-  linkType: soft
-
-"@sfui/example-style@*, @sfui/example-style@workspace:packages/config/example-style":
-  version: 0.0.0-use.local
-  resolution: "@sfui/example-style@workspace:packages/config/example-style"
-  languageName: unknown
-  linkType: soft
-
-"@sfui/mitosis@workspace:apps/mitosis":
-  version: 0.0.0-use.local
-  resolution: "@sfui/mitosis@workspace:apps/mitosis"
-  dependencies:
-    "@builder.io/eslint-plugin-mitosis": ^0.0.1
-    "@builder.io/mitosis": 0.0.56-109
-    "@builder.io/mitosis-cli": 0.0.17-100
-    "@types/node-fetch": ^2.5.12
-    "@typescript-eslint/eslint-plugin": ^5.27.1
-    "@typescript-eslint/parser": ^5.27.1
-    seedrandom: ^3.0.5
-    vue-loader: ^16.1.0
-    vue-template-compiler: ^2.7.8
-    watch: ^1.0.2
-  languageName: unknown
-  linkType: soft
-
-"@sfui/monorepo@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "@sfui/monorepo@workspace:."
-  dependencies:
-    "@commitlint/cli": ^13.2.1
-    "@commitlint/config-conventional": ^13.2.0
-    "@sfui/typescript-config": "*"
-    babel-cli: ^6.26.0
-    babel-preset-node: ^5.1.1
-    commitizen: ^4.2.5
-    concurrently: ^7.4.0
-    cross-env: ^7.0.3
-    husky: ^7.0.4
-    hygen: ^6.2.8
-    jw-paginate: ^1.0.4
-    node-powershell: ^5.0.1
-    nodemon: ^2.0.19
-    prettier: latest
-    tailwindcss: ^3.1.8
-    ts-node-dev: ^2.0.0
-    turbo: latest
-    typescript: ^4.7.4
-  languageName: unknown
-  linkType: soft
-
-"@sfui/preview-next@workspace:apps/preview/next":
-  version: 0.0.0-use.local
-  resolution: "@sfui/preview-next@workspace:apps/preview/next"
-  dependencies:
-    "@percy/cli": ^1.12.0
-    "@percy/cypress": ^3.1.2
-    "@sfui/eslint-config": "*"
-    "@sfui/example-style": "*"
-    "@sfui/sfui": "*"
-    "@sfui/shared": "*"
-    "@sfui/tailwind-config": "*"
-    "@types/node": ^18.7.14
-    "@types/react": ^18.0.18
-    "@types/react-dom": ^18.0.6
-    "@types/react-transition-group": ^4.4.5
-    autoprefixer: ^10.4.8
-    chokidar-cli: ^3.0.0
-    classnames: ^2.3.2
-    concurrently: ^7.6.0
-    cpy-cli: ^4.2.0
-    cypress: ^11.1.0
-    next: 12.3.3
-    postcss: ^8.4.16
-    postcss-import: ^15.0.0
-    react: 18.2.0
-    react-dom: 18.2.0
-    react-transition-group: ^4.4.5
-    react-use: ^17.4.0
-    rimraf: ^3.0.2
-    string-replace-loader: ^3.1.0
-    swr: ^1.3.0
-    tailwindcss: ^3.1.8
-    ts-loader: ^9.4.1
-  languageName: unknown
-  linkType: soft
-
-"@sfui/preview-nuxt@workspace:apps/preview/nuxt":
-  version: 0.0.0-use.local
-  resolution: "@sfui/preview-nuxt@workspace:apps/preview/nuxt"
-  dependencies:
-    "@nuxtjs/eslint-config-typescript": ^11.0.0
-    "@nuxtjs/tailwindcss": ^6.1.3
-    "@sfui/eslint-config": "*"
-    "@sfui/example-style": "*"
-    "@sfui/sfui": "*"
-    "@sfui/shared": "*"
-    "@sfui/tailwind-config": "*"
-    "@types/lodash-es": ^4.17.6
-    "@vueuse/core": ^9.6.0
-    autoprefixer: ^10.4.8
-    eslint: ^8.27.0
-    eslint-plugin-nuxt: ^4.0.0
-    lodash-es: ^4.17.21
-    nuxt: "npm:nuxt3@latest"
-    postcss: ^8.4.16
-    sass: ^1.54.4
-    sass-loader: ^13.0.2
-    tailwindcss: ^3.2.4
-  languageName: unknown
-  linkType: soft
-
-"@sfui/sfui@*, @sfui/sfui@workspace:packages/sfui":
-  version: 0.0.0-use.local
-  resolution: "@sfui/sfui@workspace:packages/sfui"
-  dependencies:
-    "@sfui/eslint-config": "*"
-    concurrently: ^7.5.0
-    eslint: ^8.27.0
-    postcss-html: ^1.5.0
-    postcss-scss: ^4.0.5
-    stylelint: ^14.14.1
-    stylelint-config-prettier: ^9.0.3
-    stylelint-config-standard: ^29.0.0
-    stylelint-no-unsupported-browser-features: ^6.0.1
-    stylelint-scss: ^4.3.0
-  peerDependencies:
-    "@vueuse/core": ^9.6.0
-    classnames: ^2.3.2
-    jw-paginate: ^1.0.4
-    react-use: ^17.4.0
-  languageName: unknown
-  linkType: soft
-
-"@sfui/shared@*, @sfui/shared@workspace:packages/shared":
-  version: 0.0.0-use.local
-  resolution: "@sfui/shared@workspace:packages/shared"
-  languageName: unknown
-  linkType: soft
-
-"@sfui/style-config@workspace:packages/config/style":
-  version: 0.0.0-use.local
-  resolution: "@sfui/style-config@workspace:packages/config/style"
-  languageName: unknown
-  linkType: soft
-
-"@sfui/tailwind-config@*, @sfui/tailwind-config@workspace:packages/config/tailwind":
-  version: 0.0.0-use.local
-  resolution: "@sfui/tailwind-config@workspace:packages/config/tailwind"
-  languageName: unknown
-  linkType: soft
-
-"@sfui/types@workspace:packages/types":
-  version: 0.0.0-use.local
-  resolution: "@sfui/types@workspace:packages/types"
-  languageName: unknown
-  linkType: soft
-
-"@sfui/typescript-config@*, @sfui/typescript-config@workspace:packages/config/typescript":
-  version: 0.0.0-use.local
-  resolution: "@sfui/typescript-config@workspace:packages/config/typescript"
-  languageName: unknown
-  linkType: soft
-
-"@sfui/vue@workspace:apps/preview/vue":
-  version: 0.0.0-use.local
-  resolution: "@sfui/vue@workspace:apps/preview/vue"
-  dependencies:
-    "@percy/cli": ^1.12.0
-    "@percy/cypress": ^3.1.2
-    "@rushstack/eslint-patch": ^1.1.4
-    "@sfui/eslint-config": "*"
-    "@sfui/sfui": "*"
-    "@sfui/shared": "*"
-    "@sfui/tailwind-config": "*"
-    "@types/node": ^16.11.68
-    "@vitejs/plugin-vue": ^3.1.2
-    "@vue/eslint-config-prettier": ^7.0.0
-    "@vue/eslint-config-typescript": ^11.0.0
-    "@vue/tsconfig": ^0.1.3
-    autoprefixer: ^10.4.12
-    chokidar-cli: ^3.0.0
-    concurrently: ^7.5.0
-    cpy-cli: ^4.2.0
-    cypress: ^11.0.1
-    eslint: ^8.22.0
-    eslint-plugin-cypress: ^2.12.1
-    eslint-plugin-vue: ^9.3.0
-    npm-run-all: ^4.1.5
-    pinia: ^2.0.23
-    postcss: ^8.4.18
-    postcss-import: ^15.0.0
-    prettier: ^2.7.1
-    react: ^18.2.0
-    sass: ^1.56.1
-    start-server-and-test: ^1.14.0
-    tailwindcss: ^3.2.1
-    typescript: ~4.7.4
-    vite: ^3.1.8
-    vue: ^3.2.41
-    vue-router: ^4.1.5
-    vue-tsc: ^1.0.8
-  languageName: unknown
-  linkType: soft
-
 "@sideway/address@npm:^4.1.3":
   version: 4.1.4
   resolution: "@sideway/address@npm:4.1.4"
@@ -3533,6 +3308,273 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@storefront-ui/css@workspace:packages/sfui/frameworks/css":
+  version: 0.0.0-use.local
+  resolution: "@storefront-ui/css@workspace:packages/sfui/frameworks/css"
+  dependencies:
+    "@storefront-ui/sass": "workspace:*"
+    "@storefront-ui/tailwind-config": "workspace:*"
+    cpy-cli: ^4.2.0
+    postcss: ^8.4.5
+    sass: ^1.48.0
+    tailwindcss: ^3.1.8
+  languageName: unknown
+  linkType: soft
+
+"@storefront-ui/docs@workspace:apps/docs/components":
+  version: 0.0.0-use.local
+  resolution: "@storefront-ui/docs@workspace:apps/docs/components"
+  dependencies:
+    "@microsoft/api-documenter": ^7.13.65
+    "@microsoft/api-extractor": ^7.18.17
+    "@vuepress/plugin-active-header-links": ^1.8.2
+    "@vuepress/plugin-back-to-top": ^1.8.2
+    "@vuepress/plugin-medium-zoom": ^1.8.2
+    "@vuepress/plugin-search": ^1.8.2
+    autoprefixer: ^9
+    concurrently: ^7.5.0
+    handlebars: ^4.7.7
+    markdown-it-external-links: ^0.0.6
+    markdown-spellcheck: ^1.3.1
+    postcss: ^7
+    sass-loader: ^8.0.2
+    tailwindcss: "npm:@tailwindcss/postcss7-compat@^2.2.17"
+    typescript: ^4.5.4
+    vue: ^2.6.14
+    vue-multiselect: ^2.1.6
+    vuepress: ^1.2.0
+    vuepress-plugin-clean-urls: ^1.1.2
+    vuepress-theme-vsf-docs: ^1.1.0-alpha.6
+  languageName: unknown
+  linkType: soft
+
+"@storefront-ui/eslint-config@workspace:*, @storefront-ui/eslint-config@workspace:packages/config/eslint":
+  version: 0.0.0-use.local
+  resolution: "@storefront-ui/eslint-config@workspace:packages/config/eslint"
+  dependencies:
+    "@typescript-eslint/eslint-plugin": ^5.38.1
+    "@typescript-eslint/parser": ^5.38.1
+    "@vue/eslint-config-standard": ^8.0.1
+    eslint: ^8.0.0
+    eslint-config-airbnb: ^19.0.4
+    eslint-config-airbnb-typescript: ^17.0.0
+    eslint-config-next: 12.2.5
+    eslint-config-prettier: ^8.3.0
+    eslint-import-resolver-alias: ^1.1.2
+    eslint-plugin-prettier: ^4.2.1
+    eslint-plugin-vue: ^9.3.0
+  languageName: unknown
+  linkType: soft
+
+"@storefront-ui/example-style@workspace:*, @storefront-ui/example-style@workspace:packages/config/example-style":
+  version: 0.0.0-use.local
+  resolution: "@storefront-ui/example-style@workspace:packages/config/example-style"
+  languageName: unknown
+  linkType: soft
+
+"@storefront-ui/monorepo@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@storefront-ui/monorepo@workspace:."
+  dependencies:
+    "@commitlint/cli": ^13.2.1
+    "@commitlint/config-conventional": ^13.2.0
+    "@storefront-ui/typescript-config": "workspace:*"
+    babel-cli: ^6.26.0
+    babel-preset-node: ^5.1.1
+    commitizen: ^4.2.5
+    concurrently: ^7.4.0
+    cross-env: ^7.0.3
+    husky: ^7.0.4
+    hygen: ^6.2.8
+    jw-paginate: ^1.0.4
+    node-powershell: ^5.0.1
+    nodemon: ^2.0.19
+    prettier: latest
+    tailwindcss: ^3.1.8
+    ts-node-dev: ^2.0.0
+    turbo: latest
+    typescript: ^4.7.4
+  languageName: unknown
+  linkType: soft
+
+"@storefront-ui/preview-next@workspace:apps/preview/next":
+  version: 0.0.0-use.local
+  resolution: "@storefront-ui/preview-next@workspace:apps/preview/next"
+  dependencies:
+    "@percy/cli": ^1.12.0
+    "@percy/cypress": ^3.1.2
+    "@storefront-ui/eslint-config": "workspace:*"
+    "@storefront-ui/example-style": "workspace:*"
+    "@storefront-ui/react": "workspace:*"
+    "@storefront-ui/sass": "workspace:*"
+    "@storefront-ui/shared": "workspace:*"
+    "@storefront-ui/tailwind-config": "workspace:*"
+    "@types/node": ^18.7.14
+    "@types/react": ^18.0.18
+    "@types/react-dom": ^18.0.6
+    "@types/react-transition-group": ^4.4.5
+    autoprefixer: ^10.4.8
+    chokidar-cli: ^3.0.0
+    classnames: ^2.3.2
+    concurrently: ^7.6.0
+    cpy-cli: ^4.2.0
+    cypress: ^11.1.0
+    next: 12.3.3
+    postcss: ^8.4.16
+    postcss-import: ^15.0.0
+    react: 18.2.0
+    react-dom: 18.2.0
+    react-transition-group: ^4.4.5
+    react-use: ^17.4.0
+    rimraf: ^3.0.2
+    string-replace-loader: ^3.1.0
+    swr: ^1.3.0
+    tailwindcss: ^3.1.8
+    ts-loader: ^9.4.1
+  languageName: unknown
+  linkType: soft
+
+"@storefront-ui/preview-nuxt@workspace:apps/preview/nuxt":
+  version: 0.0.0-use.local
+  resolution: "@storefront-ui/preview-nuxt@workspace:apps/preview/nuxt"
+  dependencies:
+    "@nuxtjs/eslint-config-typescript": ^11.0.0
+    "@nuxtjs/tailwindcss": ^6.1.3
+    "@storefront-ui/eslint-config": "workspace:*"
+    "@storefront-ui/example-style": "workspace:*"
+    "@storefront-ui/sass": "workspace:*"
+    "@storefront-ui/shared": "workspace:*"
+    "@storefront-ui/tailwind-config": "workspace:*"
+    "@storefront-ui/vue": "workspace:*"
+    "@types/lodash-es": ^4.17.6
+    "@vueuse/core": ^9.6.0
+    autoprefixer: ^10.4.8
+    eslint: ^8.27.0
+    eslint-plugin-nuxt: ^4.0.0
+    lodash-es: ^4.17.21
+    nuxt: "npm:nuxt3@latest"
+    postcss: ^8.4.16
+    sass: ^1.54.4
+    sass-loader: ^13.0.2
+    tailwindcss: ^3.2.4
+  languageName: unknown
+  linkType: soft
+
+"@storefront-ui/react@workspace:*, @storefront-ui/react@workspace:packages/sfui/frameworks/react":
+  version: 0.0.0-use.local
+  resolution: "@storefront-ui/react@workspace:packages/sfui/frameworks/react"
+  dependencies:
+    "@storefront-ui/eslint-config": "workspace:*"
+    "@storefront-ui/shared": "workspace:*"
+    eslint: ^8.27.0
+  peerDependencies:
+    classnames: ^2.3.2
+    jw-paginate: ^1.0.4
+    react-use: ^17.4.0
+  languageName: unknown
+  linkType: soft
+
+"@storefront-ui/sass@workspace:*, @storefront-ui/sass@workspace:packages/sfui/frameworks/sass":
+  version: 0.0.0-use.local
+  resolution: "@storefront-ui/sass@workspace:packages/sfui/frameworks/sass"
+  dependencies:
+    "@storefront-ui/stylelint-config": "workspace:*"
+    stylelint: ^14.16.1
+  peerDependencies:
+    tailwindcss: ^3.0.0
+  languageName: unknown
+  linkType: soft
+
+"@storefront-ui/shared@workspace:*, @storefront-ui/shared@workspace:packages/sfui/shared":
+  version: 0.0.0-use.local
+  resolution: "@storefront-ui/shared@workspace:packages/sfui/shared"
+  languageName: unknown
+  linkType: soft
+
+"@storefront-ui/stylelint-config@workspace:*, @storefront-ui/stylelint-config@workspace:packages/config/stylelint":
+  version: 0.0.0-use.local
+  resolution: "@storefront-ui/stylelint-config@workspace:packages/config/stylelint"
+  dependencies:
+    postcss-html: ^1.5.0
+    postcss-scss: ^4.0.5
+    stylelint: ^14.14.1
+    stylelint-config-prettier: ^9.0.3
+    stylelint-config-standard: ^29.0.0
+    stylelint-no-unsupported-browser-features: ^6.0.1
+    stylelint-scss: ^4.3.0
+  languageName: unknown
+  linkType: soft
+
+"@storefront-ui/tailwind-config@workspace:*, @storefront-ui/tailwind-config@workspace:packages/config/tailwind":
+  version: 0.0.0-use.local
+  resolution: "@storefront-ui/tailwind-config@workspace:packages/config/tailwind"
+  dependencies:
+    "@storefront-ui/sass": "workspace:*"
+  languageName: unknown
+  linkType: soft
+
+"@storefront-ui/typescript-config@workspace:*, @storefront-ui/typescript-config@workspace:packages/config/typescript":
+  version: 0.0.0-use.local
+  resolution: "@storefront-ui/typescript-config@workspace:packages/config/typescript"
+  languageName: unknown
+  linkType: soft
+
+"@storefront-ui/vue-preview@workspace:apps/preview/vue":
+  version: 0.0.0-use.local
+  resolution: "@storefront-ui/vue-preview@workspace:apps/preview/vue"
+  dependencies:
+    "@percy/cli": ^1.12.0
+    "@percy/cypress": ^3.1.2
+    "@rushstack/eslint-patch": ^1.1.4
+    "@storefront-ui/eslint-config": "workspace:*"
+    "@storefront-ui/sass": "workspace:*"
+    "@storefront-ui/shared": "workspace:*"
+    "@storefront-ui/tailwind-config": "workspace:*"
+    "@storefront-ui/vue": "workspace:*"
+    "@types/node": ^16.11.68
+    "@vitejs/plugin-vue": ^3.1.2
+    "@vue/eslint-config-prettier": ^7.0.0
+    "@vue/eslint-config-typescript": ^11.0.0
+    "@vue/tsconfig": ^0.1.3
+    autoprefixer: ^10.4.12
+    chokidar-cli: ^3.0.0
+    concurrently: ^7.5.0
+    cpy-cli: ^4.2.0
+    cypress: ^11.0.1
+    eslint: ^8.22.0
+    eslint-plugin-cypress: ^2.12.1
+    eslint-plugin-vue: ^9.3.0
+    npm-run-all: ^4.1.5
+    pinia: ^2.0.23
+    postcss: ^8.4.18
+    postcss-import: ^15.0.0
+    prettier: ^2.7.1
+    react: ^18.2.0
+    sass: ^1.56.1
+    start-server-and-test: ^1.14.0
+    tailwindcss: ^3.2.1
+    typescript: ~4.7.4
+    vite: ^3.1.8
+    vue: ^3.2.41
+    vue-router: ^4.1.5
+    vue-tsc: ^1.0.8
+  languageName: unknown
+  linkType: soft
+
+"@storefront-ui/vue@workspace:*, @storefront-ui/vue@workspace:packages/sfui/frameworks/vue":
+  version: 0.0.0-use.local
+  resolution: "@storefront-ui/vue@workspace:packages/sfui/frameworks/vue"
+  dependencies:
+    "@storefront-ui/eslint-config": "workspace:*"
+    "@storefront-ui/shared": "workspace:*"
+    eslint: ^8.27.0
+  peerDependencies:
+    "@vueuse/core": ^9.6.0
+    classnames: ^2.3.2
+    jw-paginate: ^1.0.4
+  languageName: unknown
+  linkType: soft
+
 "@swc/helpers@npm:0.4.11":
   version: 0.4.11
   resolution: "@swc/helpers@npm:0.4.11"
@@ -3562,6 +3604,18 @@ __metadata:
   version: 0.2.0
   resolution: "@trysound/sax@npm:0.2.0"
   checksum: 11226c39b52b391719a2a92e10183e4260d9651f86edced166da1d95f39a0a1eaa470e44d14ac685ccd6d3df7e2002433782872c0feeb260d61e80f21250e65c
+  languageName: node
+  linkType: hard
+
+"@ts-morph/common@npm:~0.17.0":
+  version: 0.17.0
+  resolution: "@ts-morph/common@npm:0.17.0"
+  dependencies:
+    fast-glob: ^3.2.11
+    minimatch: ^5.1.0
+    mkdirp: ^1.0.4
+    path-browserify: ^1.0.1
+  checksum: f588c0acabcc6ca9463ac09b343d67a73f6e7bf47f674aaff11542b95b58342556b05241610b9e6dffc2966db529e7261b6860577786f919a835c22488ec9260
   languageName: node
   linkType: hard
 
@@ -4224,6 +4278,21 @@ __metadata:
   bin:
     nft: out/cli.js
   checksum: 03ab38477ca7006b3d5568a716128a5abb13a425205ea5cb23eed86967334a6c7fc9d36c58154e1ccd4e349e3ec0d725aa7496ef4159bf232ad706d842d85c29
+  languageName: node
+  linkType: hard
+
+"@vitejs/plugin-react@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "@vitejs/plugin-react@npm:3.0.0"
+  dependencies:
+    "@babel/core": ^7.20.5
+    "@babel/plugin-transform-react-jsx-self": ^7.18.6
+    "@babel/plugin-transform-react-jsx-source": ^7.19.6
+    magic-string: ^0.27.0
+    react-refresh: ^0.14.0
+  peerDependencies:
+    vite: ^4.0.0
+  checksum: 6004e4da8f705288ca9163ff5ba43bf7495c516af527d3b0c2799455cc2933667bd8a5be6759547525abafeecbde9d9bd25e52b0c793637ddf425a013d3435be
   languageName: node
   linkType: hard
 
@@ -7109,6 +7178,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"build-for-release@workspace:packages/sfui":
+  version: 0.0.0-use.local
+  resolution: "build-for-release@workspace:packages/sfui"
+  dependencies:
+    "@vitejs/plugin-react": ^3.0.0
+    "@vitejs/plugin-vue": ^4.0.0
+    vite: ^4.0.3
+    vite-plugin-dts: ^1.7.1
+  languageName: unknown
+  linkType: soft
+
 "builtin-modules@npm:^3.3.0":
   version: 3.3.0
   resolution: "builtin-modules@npm:3.3.0"
@@ -7937,6 +8017,13 @@ __metadata:
     chalk: ^2.4.1
     q: ^1.1.2
   checksum: 44736914aac2160d3d840ed64432a90a3bb72285a0cd6a688eb5cabdf15d15a85eee0915b3f6f2a4659d5075817b1cb577340d3c9cbb47d636d59ab69f819552
+  languageName: node
+  linkType: hard
+
+"code-block-writer@npm:^11.0.3":
+  version: 11.0.3
+  resolution: "code-block-writer@npm:11.0.3"
+  checksum: f0a2605f19963d7087267c9b0fd0b05a6638a50e7b29b70f97aa01a514f59475b0626f8aa092188df853ee6d96745426dfa132d6a677795df462c6ce32c21639
   languageName: node
   linkType: hard
 
@@ -15442,6 +15529,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"kolorist@npm:^1.6.0":
+  version: 1.6.0
+  resolution: "kolorist@npm:1.6.0"
+  checksum: 4d898b782ceaaac3a51d9820a13563fcd0ed516d5493374a0e04ceda93ed4d74f9e267e8da5fb4453e508099b9f6b22e38ac1bff92fdc227081f460c003401c0
+  languageName: node
+  linkType: hard
+
 "language-subtag-registry@npm:^0.3.20":
   version: 0.3.22
   resolution: "language-subtag-registry@npm:0.3.22"
@@ -16887,6 +16981,23 @@ __metadata:
   checksum: 84b3d9889621d293f9a596bafe60df863b330c88fc19215ced8f603c605fc7e1bf06f8e036edf301bd630a03fd5d9d7d23d5d6b9a4802c30ca864d800f0bd9f8
   languageName: node
   linkType: hard
+
+"mitosis@workspace:apps/mitosis":
+  version: 0.0.0-use.local
+  resolution: "mitosis@workspace:apps/mitosis"
+  dependencies:
+    "@builder.io/eslint-plugin-mitosis": ^0.0.1
+    "@builder.io/mitosis": 0.0.56-109
+    "@builder.io/mitosis-cli": 0.0.17-100
+    "@types/node-fetch": ^2.5.12
+    "@typescript-eslint/eslint-plugin": ^5.27.1
+    "@typescript-eslint/parser": ^5.27.1
+    seedrandom: ^3.0.5
+    vue-loader: ^16.1.0
+    vue-template-compiler: ^2.7.8
+    watch: ^1.0.2
+  languageName: unknown
+  linkType: soft
 
 "mixin-deep@npm:^1.2.0":
   version: 1.3.2
@@ -18494,6 +18605,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"path-browserify@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "path-browserify@npm:1.0.1"
+  checksum: c6d7fa376423fe35b95b2d67990060c3ee304fc815ff0a2dc1c6c3cfaff2bd0d572ee67e18f19d0ea3bbe32e8add2a05021132ac40509416459fffee35200699
+  languageName: node
+  linkType: hard
+
 "path-case@npm:^2.1.0":
   version: 2.1.1
   resolution: "path-case@npm:2.1.1"
@@ -19790,7 +19908,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.1.10, postcss@npm:^8.2.15, postcss@npm:^8.2.4, postcss@npm:^8.3.5, postcss@npm:^8.4.0, postcss@npm:^8.4.14, postcss@npm:^8.4.16, postcss@npm:^8.4.18, postcss@npm:^8.4.19, postcss@npm:^8.4.20":
+"postcss@npm:^8.1.10, postcss@npm:^8.2.15, postcss@npm:^8.2.4, postcss@npm:^8.3.5, postcss@npm:^8.4.0, postcss@npm:^8.4.14, postcss@npm:^8.4.16, postcss@npm:^8.4.18, postcss@npm:^8.4.19, postcss@npm:^8.4.20, postcss@npm:^8.4.5":
   version: 8.4.20
   resolution: "postcss@npm:8.4.20"
   dependencies:
@@ -20332,6 +20450,13 @@ __metadata:
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
   checksum: f7a19ac3496de32ca9ae12aa030f00f14a3d45374f1ceca0af707c831b2a6098ef0d6bdae51bd437b0a306d7f01d4677fcc8de7c0d331eb47ad0f46130e53c5f
+  languageName: node
+  linkType: hard
+
+"react-refresh@npm:^0.14.0":
+  version: 0.14.0
+  resolution: "react-refresh@npm:0.14.0"
+  checksum: dc69fa8c993df512f42dd0f1b604978ae89bd747c0ed5ec595c0cc50d535fb2696619ccd98ae28775cc01d0a7c146a532f0f7fb81dc22e1977c242a4912312f4
   languageName: node
   linkType: hard
 
@@ -21372,7 +21497,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:^1.54.4, sass@npm:^1.56.1":
+"sass@npm:^1.48.0, sass@npm:^1.54.4, sass@npm:^1.56.1":
   version: 1.57.1
   resolution: "sass@npm:1.57.1"
   dependencies:
@@ -22788,6 +22913,54 @@ __metadata:
   languageName: node
   linkType: hard
 
+"stylelint@npm:^14.16.1":
+  version: 14.16.1
+  resolution: "stylelint@npm:14.16.1"
+  dependencies:
+    "@csstools/selector-specificity": ^2.0.2
+    balanced-match: ^2.0.0
+    colord: ^2.9.3
+    cosmiconfig: ^7.1.0
+    css-functions-list: ^3.1.0
+    debug: ^4.3.4
+    fast-glob: ^3.2.12
+    fastest-levenshtein: ^1.0.16
+    file-entry-cache: ^6.0.1
+    global-modules: ^2.0.0
+    globby: ^11.1.0
+    globjoin: ^0.1.4
+    html-tags: ^3.2.0
+    ignore: ^5.2.1
+    import-lazy: ^4.0.0
+    imurmurhash: ^0.1.4
+    is-plain-object: ^5.0.0
+    known-css-properties: ^0.26.0
+    mathml-tag-names: ^2.1.3
+    meow: ^9.0.0
+    micromatch: ^4.0.5
+    normalize-path: ^3.0.0
+    picocolors: ^1.0.0
+    postcss: ^8.4.19
+    postcss-media-query-parser: ^0.2.3
+    postcss-resolve-nested-selector: ^0.1.1
+    postcss-safe-parser: ^6.0.0
+    postcss-selector-parser: ^6.0.11
+    postcss-value-parser: ^4.2.0
+    resolve-from: ^5.0.0
+    string-width: ^4.2.3
+    strip-ansi: ^6.0.1
+    style-search: ^0.1.0
+    supports-hyperlinks: ^2.3.0
+    svg-tags: ^1.0.0
+    table: ^6.8.1
+    v8-compile-cache: ^2.3.0
+    write-file-atomic: ^4.0.2
+  bin:
+    stylelint: bin/stylelint.js
+  checksum: bc24050415e3c357a76d8ca2799e74ce31f33c9158b4086462512b0191db5d6a161b81ef35b064039c6eacf98a5553e45fca4c5f21eb4d45e7f1d44b2d226e9b
+  languageName: node
+  linkType: hard
+
 "stylis@npm:^4.0.6":
   version: 4.1.3
   resolution: "stylis@npm:4.1.3"
@@ -23514,6 +23687,16 @@ __metadata:
     typescript: "*"
     webpack: ^5.0.0
   checksum: 6f306ee4c615c2a159fb177561e3fb86ca2cbd6c641e710d408a64b4978e1ff3f2c9733df07bff27d3f82efbfa7c287523d4306049510c7485ac2669a9c37eb0
+  languageName: node
+  linkType: hard
+
+"ts-morph@npm:^16.0.0":
+  version: 16.0.0
+  resolution: "ts-morph@npm:16.0.0"
+  dependencies:
+    "@ts-morph/common": ~0.17.0
+    code-block-writer: ^11.0.3
+  checksum: a45ee1a2da09b06ac45a468c1cb9b00cc1b335224afddb22c30e4ad8a747b71c8a7c6cea29a6309ebf68d69f5dc8d3650d381891b77da5e2ad3e301dc3de40d5
   languageName: node
   linkType: hard
 
@@ -24610,7 +24793,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^3.0.0 || ^4.0.0, vite@npm:~4.0.1":
+"vite-plugin-dts@npm:^1.7.1":
+  version: 1.7.1
+  resolution: "vite-plugin-dts@npm:1.7.1"
+  dependencies:
+    "@microsoft/api-extractor": ^7.33.5
+    "@rollup/pluginutils": ^5.0.2
+    "@rushstack/node-core-library": ^3.53.2
+    debug: ^4.3.4
+    fast-glob: ^3.2.12
+    fs-extra: ^10.1.0
+    kolorist: ^1.6.0
+    ts-morph: ^16.0.0
+  peerDependencies:
+    vite: ">=2.9.0"
+  checksum: e2714a9e1727860cb217308b000d7306f98ba626998893a72d8b0e5db577d989457827033c76125a87491ace453325726da3795f17c3fea3e8af0d5e81820e89
+  languageName: node
+  linkType: hard
+
+"vite@npm:^3.0.0 || ^4.0.0, vite@npm:^4.0.3, vite@npm:~4.0.1":
   version: 4.0.3
   resolution: "vite@npm:4.0.3"
   dependencies:

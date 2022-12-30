@@ -1,5 +1,5 @@
 {
-  "extends": "@sfui/typescript-config/base.json",
+  "extends": "@storefront-ui/typescript-config/base.json",
   "$schema": "https://json.schemastore.org/tsconfig",
   "display": "Default",
   "compilerOptions": {
@@ -30,7 +30,7 @@
       "~/*": [
         "./*"
       ]
-    },
+    }
   },
   "include": [
     "next-env.d.ts",
@@ -38,7 +38,8 @@
     "hooks/**/*.tsx",
     "pages/**/*.tsx",
     "layouts/**/*.tsx",
-    "node_modules/@sfui/sfui"
+    "node_modules/@storefont-ui/react",
+    "node_modules/@storefont-ui/shared"
   ],
   "exclude": [
     ".next",

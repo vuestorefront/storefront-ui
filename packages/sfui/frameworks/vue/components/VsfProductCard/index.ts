@@ -1,4 +1,4 @@
-import VsfProductCard from './VsfProductCard.vue';
-export * from './types';
+export { default as VsfProductCard } from './VsfProductCard.vue';
+export { default as VsfProductCardImage } from './VsfProductCardImage.vue';
 
-export default VsfProductCard;
+export * from './types';

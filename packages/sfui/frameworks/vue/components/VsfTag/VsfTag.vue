@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
 import { VsfTagSizes, VsfTagVariants, VsfTagAriaLiveValues } from './types';
 
 defineProps({

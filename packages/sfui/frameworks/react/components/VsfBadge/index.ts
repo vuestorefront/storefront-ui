@@ -1,5 +1,3 @@
-import VsfBadge from './VsfBadge';
+export { default as VsfBadge } from './VsfBadge';
 
 export * from './types';
-
-export default VsfBadge;

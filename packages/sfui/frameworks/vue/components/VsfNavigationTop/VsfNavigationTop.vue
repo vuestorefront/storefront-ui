@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-import { PropType, toRefs } from 'vue';
-import { ref } from 'vue';
+import type { PropType } from 'vue';
+import { toRefs, ref } from 'vue';
 import { onClickOutside } from '@vueuse/core';
 import { VsfNavigationTopVariant } from './types';
-import VsfButton, { VsfButtonVariants } from '../VsfButton';
+import { VsfButton, VsfButtonVariants } from '../VsfButton';
 import { VsfIconClose } from '../VsfIcons';
 
 const props = defineProps({

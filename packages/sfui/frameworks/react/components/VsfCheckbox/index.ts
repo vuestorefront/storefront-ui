@@ -1,5 +1,3 @@
-import VsfCheckbox from './VsfCheckbox';
+export { default as VsfCheckbox } from './VsfCheckbox';
 
 export * from './types';
-
-export default VsfCheckbox;

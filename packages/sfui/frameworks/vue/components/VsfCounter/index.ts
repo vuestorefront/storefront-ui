@@ -1,4 +1,3 @@
-import VsfCounter from './VsfCounter.vue';
-export * from './types';
+export { default as VsfCounter } from './VsfCounter.vue';
 
-export default VsfCounter;
+export * from './types';

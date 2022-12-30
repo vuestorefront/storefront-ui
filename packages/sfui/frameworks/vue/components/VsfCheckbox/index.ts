@@ -1,4 +1,3 @@
-import VsfCheckbox from './VsfCheckbox.vue';
-export * from './types';
+export { default as VsfCheckbox } from './VsfCheckbox.vue';
 
-export default VsfCheckbox;
+export * from './types';

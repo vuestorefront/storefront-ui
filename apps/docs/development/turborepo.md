@@ -78,9 +78,9 @@ yarn clean:total # with cachas
 3. Don't define many NPM package definitions - if NPM package is globally used, or for more than one app (or packages)
    then install it with main `packages.json` file, if you're using a certain package just for one app add it to
    the specific `package.json` file. This way you'll avoid the versions mismatches.
-4. Put all of your types in one place, define them with the types package (or multiple), and import them to all the apps.
+4. Put all of your shared code & typings in one place, within shared package(s) (e.g. `@storefront-ui/shared`), and import them to all the apps needed.
 5. Package that is part of the repository can be registered globally, with the main `package.json` file, or within
-   the certain apps - use `*` as a version marker (`@sfui/types: "*"`).
+   the certain apps - use `workspace:*` as a version marker (`@storefront-ui/shared: "workspace:*"`).
 6. Keep the namespace consistence.
 
 ### Imports
@@ -90,14 +90,14 @@ yarn clean:total # with cachas
 Import types.
 
 ```ts
-import { Type } from '@sfui/types';
+import { Type } from '@storefront-ui/shared';
 ```
 
 Extend typescript config.
 
 ```json
 {
-  "extends": "@sfui/typescript-config/base.json",
+  "extends": "@storefront-ui/typescript-config/base.json",
   "compilerOptions": {
     ...
   }
@@ -107,7 +107,7 @@ Extend typescript config.
 Import and use config.
 
 ```ts
-import config from '@sfui/eslint-config';
+import config from '@storefront-ui/eslint-config';
 
 export default {
   ...config,
@@ -117,7 +117,7 @@ export default {
 or
 
 ```js
-const config = require('@sfui/tailwind-config/index.json');
+const config = require('@storefront-ui/tailwind-config/index.json');
 
 module.exports = {
   ...config,

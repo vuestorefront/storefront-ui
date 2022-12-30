@@ -1,0 +1,50 @@
+{
+  "name": "@storefront-ui/react",
+  "version": "2.0.0-alpha.0-pre",
+  "source": "index.ts",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.umd.js",
+      "sass": "./dist/style.css",
+      "styles": "./dist/style.css"
+    },
+    "./*": "./*"
+  },
+  "main": "dist/index.umd.js",
+  "sideEffects": [
+    "*.scss",
+    "*.css"
+  ],
+  "sass": "dist/style.css",
+  "styles": "styles/index.css",
+  "scripts": {
+    "lint": "yarn dlx browserslist@latest && yarn lint:script",
+    "lint:fix": "yarn lint:script:fix",
+    "lint:fix:sfui": "yarn lint:fix",
+    "lint:script": "eslint --ext .ts,.tsx \"components/**\" \"shared/**\"",
+    "lint:script:fix": "eslint --fix --ext .ts,.tsx \"components/**\" \"shared/**\""
+  },
+  "files": [
+    "**/*.js",
+    "**/*.ts",
+    "**/*.tsx",
+    "styles"
+  ],
+  "dependencies": {
+    "@storefront-ui/shared": "workspace:*"
+  },
+  "devDependencies": {
+    "@storefront-ui/eslint-config": "workspace:*",
+    "eslint": "^8.27.0"
+  },
+  "peerDependencies": {
+    "classnames": "^2.3.2",
+    "jw-paginate": "^1.0.4",
+    "react-use": "^17.4.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

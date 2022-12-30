@@ -22,9 +22,8 @@
 
 <script lang="ts">
 import { ref } from 'vue';
-import VsfDialog from '@sfui/sfui/frameworks/vue/components//VsfDialog/VsfDialog.vue';
-import VsfButton from '@sfui/sfui/frameworks/vue/components/VsfButton/VsfButton.vue';
-import { VsfButtonVariants } from '@sfui/sfui/frameworks/vue/components/VsfButton/types';
+import VsfDialog from '@storefront-ui/vue/components//VsfDialog/VsfDialog.vue';
+import { VsfButton, VsfButtonVariants } from '@storefront-ui/vue/components/VsfButton/index';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
 
 export default {

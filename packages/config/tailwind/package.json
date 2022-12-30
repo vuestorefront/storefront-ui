@@ -1,5 +1,5 @@
 {
-  "name": "@sfui/tailwind-config",
+  "name": "@storefront-ui/tailwind-config",
   "version": "0.0.0",
   "private": true,
   "main": "index.json",
@@ -9,5 +9,8 @@
     "reset.scss",
     "tailwind.scss",
     "components/**/*.css"
-  ]
+  ],
+  "dependencies": {
+    "@storefront-ui/sass": "workspace:*"
+  }
 }

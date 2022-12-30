@@ -21,10 +21,10 @@
 
 <script>
 import { defineComponent, ref } from 'vue';
-import VsfCard from '@sfui/sfui/frameworks/vue/components/VsfCard/VsfCard.vue';
+import { VsfCard, VsfCardSizes, VsfCardLinkTags } from '@storefront-ui/vue/components/VsfCard/index';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
-import { VsfCardSizes, VsfCardLinkTags } from '@sfui/sfui/frameworks/vue/components/VsfCard/types';
 import productImage from '../fixture/product-card.webp';
+
 export default defineComponent({
   name: 'VsfCardExample',
   components: {

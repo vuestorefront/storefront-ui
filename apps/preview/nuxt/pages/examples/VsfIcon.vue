@@ -14,8 +14,7 @@
 
 <script lang="ts">
 import { ref } from 'vue';
-import { VsfIconSizeEnum } from '@sfui/sfui/frameworks/vue/components/VsfIcons/types';
-import VsfIconArrowDown from '@sfui/sfui/frameworks/vue/components/VsfIcons/VsfIconArrowDown.vue';
+import { VsfIconSizeEnum, VsfIconArrowDown } from '@storefront-ui/vue/components/VsfIcons/index';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
 
 export default {

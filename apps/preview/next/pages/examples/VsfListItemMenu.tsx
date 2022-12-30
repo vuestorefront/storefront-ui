@@ -1,6 +1,6 @@
-import VsfListItemMenu, { VsfListItemMenuSizes } from '@sfui/sfui/frameworks/react/components/VsfListItemMenu';
+import { VsfListItemMenu, VsfListItemMenuSizes } from '@storefront-ui/react/components/VsfListItemMenu';
 import { VsfIconCheck } from '~/../../../packages/sfui/frameworks/react/components/VsfIcons';
-import { VsfIconSizeEnum } from '@sfui/sfui/frameworks/react/components/VsfIcons/types';
+import { VsfIconSizeEnum } from '@storefront-ui/react/components/VsfIcons/types';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 

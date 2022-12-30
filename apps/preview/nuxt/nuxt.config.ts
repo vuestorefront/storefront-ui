@@ -1,5 +1,5 @@
 import { defineNuxtConfig } from 'nuxt/config';
-import * as tailwindConfig from '@sfui/tailwind-config/index.json';
+import * as tailwindConfig from '@storefront-ui/tailwind-config/index.json';
 
 export default defineNuxtConfig({
   app: {
@@ -9,8 +9,8 @@ export default defineNuxtConfig({
   },
   tailwindcss: {
     config: tailwindConfig,
-    cssPath: '~/assets/tailwind.scss',
+    cssPath: '~/assets/global.scss',
   },
   modules: ['@nuxtjs/tailwindcss'],
-  css: ['@sfui/example-style/index.scss'],
+  css: ['@storefront-ui/example-style/index.scss'],
 });

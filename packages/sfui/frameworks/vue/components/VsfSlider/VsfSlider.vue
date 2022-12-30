@@ -1,8 +1,9 @@
 <script lang="ts" setup>
-import { PropType, ref, toRef, defineAsyncComponent } from 'vue';
+import type { PropType } from 'vue';
+import { ref, toRef, defineAsyncComponent } from 'vue';
+import { Options } from '@storefront-ui/shared/slider';
 import { VsfSliderNavigation, VsfSliderScrollbar } from './types';
 import { VsfButtonVariants, VsfButtonSizes } from '../VsfButton';
-import { Options } from '@sfui/shared/slider';
 import { useSlider } from './slider';
 const VsfButton = defineAsyncComponent(() => import('../VsfButton/VsfButton.vue'));
 const VsfIconChevronLeft = defineAsyncComponent(() => import('../VsfIcons/VsfIconChevronLeft.vue'));

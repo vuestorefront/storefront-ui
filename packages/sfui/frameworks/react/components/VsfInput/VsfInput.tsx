@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { generateId } from '@sfui/shared/utils/generateId';
+import { generateId } from '@storefront-ui/shared/utils/generateId';
 import { VsfInputSizes } from './types';
 
 import type { VsfInputProps } from './types';

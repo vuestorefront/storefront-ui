@@ -1,4 +1,3 @@
-import VsfBadge from './VsfBadge.vue';
-export * from './types';
+export { default as VsfBadge } from './VsfBadge.vue';
 
-export default VsfBadge;
+export * from './types';

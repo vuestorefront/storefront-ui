@@ -1,7 +1,7 @@
 import { MouseEvent as ReactMouseEvent, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import { useClickAway } from 'react-use';
 import { VsfIconHome, VsfIconMoreHorizontal } from '../VsfIcons';
-import useClickOutside from '../../hooks/useClickOutside';
 
 import type { VsfBreadcrumbsProps } from './types';
 import { VsfIconSizeEnum } from '../VsfIconBase/types';
@@ -25,7 +25,7 @@ function VsfBreadcrumbs({ slotIcon, breadcrumbs = [], withIcon = false }: VsfBre
   const visibleBreadcrumbs = () => breadcrumbs.slice(0, breadcrumbs.length - dropdownLength);
   const dropdownBreadcrumbs = () => breadcrumbs.slice(breadcrumbs.length - dropdownLength, breadcrumbs.length);
 
-  useClickOutside(dropdownRef, () => {
+  useClickAway(dropdownRef, () => {
     setDropdownOpened(false);
   });
 

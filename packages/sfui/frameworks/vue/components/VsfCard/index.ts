@@ -1,4 +1,3 @@
-import VsfCard from './VsfCard.vue';
-export * from './types';
+export { default as VsfCard } from './VsfCard.vue';
 
-export default VsfCard;
+export * from './types';

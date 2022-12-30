@@ -26,9 +26,9 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import VsfAlert, { VsfAlertTypes, VsfAlertVariants } from '@sfui/sfui/frameworks/vue/components/VsfAlert/index';
-import VsfButton, { VsfButtonVariants } from '@sfui/sfui/frameworks/vue/components/VsfButton/index';
-import { VsfIconChat } from '@sfui/sfui/frameworks/vue/components/VsfIcons/index';
+import { VsfAlert, VsfAlertTypes, VsfAlertVariants } from '@storefront-ui/vue/components/VsfAlert/index';
+import { VsfButton, VsfButtonVariants } from '@storefront-ui/vue/components/VsfButton/index';
+import { VsfIconChat } from '@storefront-ui/vue/components/VsfIcons/index';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
 
 export default defineComponent({

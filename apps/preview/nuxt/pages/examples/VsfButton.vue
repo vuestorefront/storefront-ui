@@ -13,15 +13,16 @@
         </template>
       </VsfButton>
     </div>
-    <Controls class="e-page-controls" v-bind="controlsAttrs" />
+    <div class="e-page-controls">
+      <Controls class="e-page-controls" v-bind="controlsAttrs" />
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import VsfButton from '@sfui/sfui/frameworks/vue/components/VsfButton/VsfButton.vue';
-import { VsfButtonVariants, VsfButtonSizes } from '@sfui/sfui/frameworks/vue/components/VsfButton/types';
-import VsfIconVsfDiamond from '@sfui/sfui/frameworks/vue/components/VsfIcons/VsfIconVsfDiamond.vue';
+import { VsfButton, VsfButtonVariants, VsfButtonSizes } from '@storefront-ui/vue/components/VsfButton/index';
+import VsfIconVsfDiamond from '@storefront-ui/vue/components/VsfIcons/VsfIconVsfDiamond.vue';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
 
 export default defineComponent({

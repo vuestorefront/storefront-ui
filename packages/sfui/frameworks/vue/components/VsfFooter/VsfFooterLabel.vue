@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { PropType } from 'vue';
-import { VsfFooterLabelType } from '@sfui/shared/types';
+import type { PropType } from 'vue';
+import { VsfFooterLabelType } from '@storefront-ui/shared/types';
 
 defineProps({
   type: {

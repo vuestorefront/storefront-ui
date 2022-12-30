@@ -1,4 +1,1 @@
-import VsfOverlay from './VsfOverlay.vue';
-export * from './types';
-
-export default VsfOverlay;
+export { default as VsfOverlay } from './VsfOverlay.vue';

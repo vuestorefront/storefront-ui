@@ -15,7 +15,7 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands';
-import '../../styles/tailwind.scss';
+import '../../styles/global.scss';
 import '@percy/cypress';
 
 // Alternatively you can use CommonJS syntax:

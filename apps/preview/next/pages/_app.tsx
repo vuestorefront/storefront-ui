@@ -1,8 +1,8 @@
 import { AppProps } from 'next/app';
 import { ReactElement, ReactNode } from 'react';
 import { NextPage } from 'next';
-import '~/styles/tailwind.scss';
-import '@sfui/example-style';
+import '~/styles/global.scss';
+import '@storefront-ui/example-style';
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode;

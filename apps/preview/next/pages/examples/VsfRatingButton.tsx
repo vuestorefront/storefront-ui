@@ -1,7 +1,8 @@
 /* eslint-disable react/jsx-curly-brace-presence */
-import VsfRatingButton, { VsfRatingButtonSizes } from '@sfui/sfui/frameworks/react/components/VsfRatingButton';
-import * as Icons from '@sfui/sfui/frameworks/react/components/VsfIcons';
-import { VsfIconSizeEnum } from '@sfui/sfui/frameworks/react/components/VsfIconBase/types';
+import { VsfRatingButton, VsfRatingButtonSizes } from '@storefront-ui/react/components/VsfRatingButton';
+import * as Icons from '@storefront-ui/react/components/VsfIcons';
+import { VsfIconSizeEnum } from '@storefront-ui/react/components/VsfIconBase';
+import { VsfIconAddedToBasket } from '@storefront-ui/react/components/VsfIcons';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 
@@ -77,8 +78,9 @@ function Example() {
     },
   );
 
-  const RenderIconFilledComponent = Icons[state.get.renderIconFilled];
-  const RenderIconEmptyComponent = Icons[state.get.renderIconEmpty];
+  // fake any icon typing cast
+  const RenderIconFilledComponent = Icons[state.get.renderIconFilled] as typeof VsfIconAddedToBasket;
+  const RenderIconEmptyComponent = Icons[state.get.renderIconEmpty] as typeof VsfIconAddedToBasket;
 
   function onChange(item: number) {
     // eslint-disable-next-line no-console

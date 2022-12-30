@@ -30,9 +30,8 @@
 
 <script>
 import { defineComponent, ref } from 'vue';
+import { VsfQuantitySelector, VsfQuantitySelectorSizes } from '@storefront-ui/vue/components/VsfQuantitySelector/index';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
-import VsfQuantitySelector from '@sfui/sfui/frameworks/vue/components/VsfQuantitySelector/VsfQuantitySelector.vue';
-import { VsfQuantitySelectorSizes } from '@sfui/sfui/frameworks/vue/components/VsfQuantitySelector/types';
 
 export default defineComponent({
   name: 'VsfQuantitySelectorExample',

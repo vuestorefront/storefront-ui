@@ -1,1 +1,1 @@
-export * from '@sfui/shared/types/VsfAlert';
+export * from '@storefront-ui/shared/types/VsfAlert';

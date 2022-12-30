@@ -1,8 +1,9 @@
-import VsfListItemFilterCheckbox, {
+import {
+  VsfListItemFilterCheckbox,
   VsfListItemFilterCheckboxVariant,
   VsfListItemFilterCheckboxSize,
   VsfListItemFilterCheckboxProps,
-} from '@sfui/sfui/frameworks/react/components/VsfListItemFilterCheckbox';
+} from '@storefront-ui/react/components/VsfListItemFilterCheckbox';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 

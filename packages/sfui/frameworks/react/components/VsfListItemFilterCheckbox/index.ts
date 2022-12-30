@@ -1,5 +1,3 @@
-import VsfListItemFilterCheckbox from './VsfListItemFilterCheckbox';
+export { default as VsfListItemFilterCheckbox } from './VsfListItemFilterCheckbox';
 
 export * from './types';
-
-export default VsfListItemFilterCheckbox;

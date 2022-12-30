@@ -1,8 +1,9 @@
-import { ChangeEvent, useState, SyntheticEvent } from 'react';
+import type { ChangeEvent, SyntheticEvent } from 'react';
+import { useState } from 'react';
 import classNames from 'classnames';
-import { clamp } from '@sfui/shared/utils/index';
+import { clamp } from '@storefront-ui/shared/utils/index';
 import { VsfIconMinus, VsfIconPlus } from '../VsfIcons';
-import VsfButton, { VsfButtonSizes, VsfButtonVariants } from '../VsfButton';
+import { VsfButtonSizes, VsfButton, VsfButtonVariants } from '../VsfButton';
 import { VsfQuantitySelectorProps, VsfQuantitySelectorSizes } from './types';
 
 export default function VsfQuantitySelector({
@@ -64,7 +65,6 @@ export default function VsfQuantitySelector({
       {...attributes}
     >
       <div className="vsf-qty-selector__wrapper">
-        {/* TODO: i18n aria-label */}
         <VsfButton
           variant={VsfButtonVariants.tertiary}
           aria-controls={inputId}
@@ -75,8 +75,9 @@ export default function VsfQuantitySelector({
           data-testid="decrease-button"
           onClick={() => handleChange(innerValue - step)}
           size={buttonSize}
-          slotPrefix={<VsfIconMinus />}
-        />
+        >
+          <VsfIconMinus />
+        </VsfButton>
 
         <input
           id={inputId}
@@ -94,7 +95,7 @@ export default function VsfQuantitySelector({
           max={maxValue}
           inputMode={decimal ? 'decimal' : 'numeric'}
         />
-        {/* TODO: i18n aria-label */}
+
         <VsfButton
           variant={VsfButtonVariants.tertiary}
           aria-controls={inputId}
@@ -105,8 +106,9 @@ export default function VsfQuantitySelector({
           data-testid="increase-button"
           onClick={() => handleChange(innerValue + step)}
           size={buttonSize}
-          slotPrefix={<VsfIconPlus />}
-        />
+        >
+          <VsfIconPlus />
+        </VsfButton>
       </div>
       {children}
     </div>

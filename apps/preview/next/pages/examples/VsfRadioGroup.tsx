@@ -1,7 +1,6 @@
-import { VsfRadioGroupDirections } from '@sfui/sfui/frameworks/react/components/VsfRadio/types';
-import VsfRadio from '@sfui/sfui/frameworks/react/components/VsfRadio/VsfRadio';
-import VsfRadioGroup from '@sfui/sfui/frameworks/react/components/VsfRadio/VsfRadioGroup';
-import { ChangeEvent } from 'react';
+import { VsfRadioGroupDirections } from '@storefront-ui/react/components/VsfRadio/types';
+import { VsfRadio, VsfRadioGroup } from '@storefront-ui/react/components/VsfRadio';
+import type { ChangeEvent } from 'react';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 

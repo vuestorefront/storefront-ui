@@ -1,4 +1,3 @@
-import VsfChipsFilter from './VsfChipsFilter.vue';
-export * from './types';
+export { default as VsfChipsFilter } from './VsfChipsFilter.vue';
 
-export default VsfChipsFilter;
+export * from './types';

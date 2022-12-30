@@ -1,0 +1,35 @@
+{
+  "name": "@storefront-ui/vue",
+  "version": "2.0.0-alpha.0-pre",
+  "exports": {
+    "./*": "./*"
+  },
+  "styles": "styles/index.scss",
+  "scripts": {
+    "lint": "yarn dlx browserslist@latest && yarn lint:script",
+    "lint:fix": "yarn lint:script:fix",
+    "lint:fix:sfui": "yarn lint:fix",
+    "lint:script": "eslint --ext .ts,.vue \"components/**\" \"shared/**\"",
+    "lint:script:fix": "eslint --fix --ext .ts,.vue \"components/**\" \"shared/**\""
+  },
+  "files": [
+    "**/*.js",
+    "**/*.ts",
+    "**/*.vue"
+  ],
+  "dependencies": {
+    "@storefront-ui/shared": "workspace:*"
+  },
+  "devDependencies": {
+    "@storefront-ui/eslint-config": "workspace:*",
+    "eslint": "^8.27.0"
+  },
+  "peerDependencies": {
+    "@vueuse/core": "^9.6.0",
+    "classnames": "^2.3.2",
+    "jw-paginate": "^1.0.4"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

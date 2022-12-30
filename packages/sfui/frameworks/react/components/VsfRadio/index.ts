@@ -1,7 +1,4 @@
-import VsfRadioGroup from './VsfRadioGroup';
-import VsfRadio from './VsfRadio';
+export { default as VsfRadioGroup } from './VsfRadioGroup';
+export { default as VsfRadio } from './VsfRadio';
 
 export * from './types';
-
-export default VsfRadioGroup;
-export { VsfRadio };

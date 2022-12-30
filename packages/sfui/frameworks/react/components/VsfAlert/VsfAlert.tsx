@@ -7,9 +7,10 @@ import {
   VsfIconError,
   VsfIconWarning,
   VsfIconCheckCircle,
-} from '@sfui/sfui/frameworks/react/components/VsfIcons/index';
-import VsfButton, { VsfButtonVariants } from '@sfui/sfui/frameworks/react/components/VsfButton/index';
-import { VsfAlertProps, VsfAlertVariants, VsfAlertTypes } from './types';
+} from '@storefront-ui/react/components/VsfIcons/index';
+import { VsfButton, VsfButtonVariants } from '@storefront-ui/react/components/VsfButton/index';
+import { VsfAlertVariants, VsfAlertTypes } from './types';
+import type { VsfAlertProps } from './types';
 
 const defaultPrefixComponent = (variant?: VsfAlertVariants) => {
   switch (variant) {

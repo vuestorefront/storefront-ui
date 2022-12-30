@@ -2,6 +2,7 @@ export interface VsfIconBaseProps {
   content: string;
   size?: VsfIconSizeEnum;
 }
+
 export enum VsfIconSizeEnum {
   xs = 'xs',
   sm = 'sm',

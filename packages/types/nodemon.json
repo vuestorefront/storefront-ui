@@ -1,5 +1,0 @@
-{
-  "watch": ["_common", "_server"],
-  "ext": "ts",
-  "exec": "yarn generate-ts"
-}

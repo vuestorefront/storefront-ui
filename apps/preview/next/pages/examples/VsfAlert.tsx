@@ -1,6 +1,6 @@
-import VsfAlert, { VsfAlertTypes, VsfAlertVariants } from '@sfui/sfui/frameworks/react/components/VsfAlert/index';
-import VsfButton, { VsfButtonVariants } from '@sfui/sfui/frameworks/react/components/VsfButton/index';
-import { VsfIconChat } from '@sfui/sfui/frameworks/react/components/VsfIcons/index';
+import { VsfAlert, VsfAlertTypes, VsfAlertVariants } from '@storefront-ui/react/components/VsfAlert/index';
+import { VsfButton, VsfButtonVariants } from '@storefront-ui/react/components/VsfButton/index';
+import { VsfIconChat } from '@storefront-ui/react/components/VsfIcons/index';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 

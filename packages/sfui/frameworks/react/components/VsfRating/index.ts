@@ -1,3 +1,3 @@
-import VsfRating from './VsfRating';
+export { default as VsfRating } from './VsfRating';
 
-export default VsfRating;
+export * from './types';

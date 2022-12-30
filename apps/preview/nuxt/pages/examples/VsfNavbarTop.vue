@@ -59,13 +59,14 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import Controls, { prepareControls } from '../../components/utils/Controls.vue';
-import VsfNavbarTop from '@sfui/sfui/frameworks/vue/components/VsfNavbarTop/VsfNavbarTop.vue';
-import VsfNavbarTopAction from '@sfui/sfui/frameworks/vue/components/VsfNavbarTop/VsfNavbarTopAction.vue';
-import VsfNavbarTopActionGroup from '@sfui/sfui/frameworks/vue/components/VsfNavbarTop/VsfNavbarTopActionGroup.vue';
-import VsfSpacer from '@sfui/sfui/frameworks/vue/components/VsfNavbarTop/VsfSpacer.vue';
-import VsfBadge from '@sfui/sfui/frameworks/vue/components/VsfBadge/VsfBadge.vue';
-import VsfSearch from '@sfui/sfui/frameworks/vue/components/VsfSearch/VsfSearch.vue';
+import {
+  VsfNavbarTop,
+  VsfNavbarTopAction,
+  VsfNavbarTopActionGroup,
+} from '@storefront-ui/vue/components/VsfNavbarTop/index';
+import VsfSpacer from '@storefront-ui/vue/components/VsfNavbarTop/VsfSpacer.vue';
+import VsfBadge from '@storefront-ui/vue/components/VsfBadge/VsfBadge.vue';
+import VsfSearch from '@storefront-ui/vue/components/VsfSearch/VsfSearch.vue';
 import {
   VsfIconBasket,
   VsfIconFavoritesOutline,
@@ -73,8 +74,10 @@ import {
   VsfIconMenu,
   VsfIconLogo,
   VsfIconLogoSmall,
-} from '@sfui/sfui/frameworks/vue/components/VsfIcons/index';
-import { VsfIconSizeEnum } from '@sfui/sfui/frameworks/vue/components/VsfIconBase/types';
+  VsfIconSizeEnum,
+} from '@storefront-ui/vue/components/VsfIcons/index';
+import Controls, { prepareControls } from '../../components/utils/Controls.vue';
+
 export default defineComponent({
   name: 'VsfNavbarTopExample',
   components: {

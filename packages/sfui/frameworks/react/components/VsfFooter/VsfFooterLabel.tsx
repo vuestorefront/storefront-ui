@@ -1,6 +1,6 @@
 import classNames from 'classnames';
-import { VsfFooterLabelType } from '@sfui/shared/types/index';
-import { VsfFooterLabelProps } from './types';
+import { VsfFooterLabelType } from '@storefront-ui/shared/types/index';
+import type { VsfFooterLabelProps } from './types';
 
 export default function VsfFooterLabel({
   type = VsfFooterLabelType.subcategory,

@@ -1,0 +1,7 @@
+{
+  "extends": "./frameworks/react/tsconfig.base.json",
+  "include": [
+    "frameworks/react/**/*.ts",
+    "frameworks/react/**/*.tsx"
+  ]
+}

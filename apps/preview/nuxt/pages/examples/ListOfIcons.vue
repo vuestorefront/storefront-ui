@@ -21,8 +21,8 @@
 
 <script lang="ts">
 import { ref } from 'vue';
-import { VsfIconSizeEnum } from '@sfui/sfui/frameworks/vue/components/VsfIcons/types';
-import * as AllVsfIcons from '@sfui/sfui/frameworks/vue/components/VsfIcons/index';
+import { VsfIconSizeEnum } from '@storefront-ui/vue/components/VsfIcons/types';
+import * as AllVsfIcons from '@storefront-ui/vue/components/VsfIcons/index';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
 
 const componentsNames = Object.keys(AllVsfIcons);

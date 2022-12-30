@@ -1,4 +1,3 @@
-import VsfSlider from './VsfSlider';
+export { default as VsfSlider } from './VsfSlider';
 
 export * from './types';
-export default VsfSlider;

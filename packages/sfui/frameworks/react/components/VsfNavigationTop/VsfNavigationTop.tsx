@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { useRef } from 'react';
 import { useClickAway } from 'react-use';
-import VsfButton, { VsfButtonVariants } from '../VsfButton';
+import { VsfButton, VsfButtonVariants } from '../VsfButton';
 import { VsfIconClose } from '../VsfIcons';
 import { VsfNavigationTopVariant } from './types';
 import type { VsfNavigationTopProps } from './types';
@@ -28,16 +28,18 @@ export default function VsfNavigationTop({
       data-testid="navigation-top"
       {...attributes}
     >
+      {/* TODO: use greyscale prop button variant */}
       <VsfButton
-        greyscale
+        icon
         variant={VsfButtonVariants.tertiary}
         className="vsf-navigation-top__close"
         data-testid="navigation-top-close-button"
         onClick={() => {
           onOpenChange(!open);
         }}
-        slotPrefix={slotButtonClose || <VsfIconClose />}
-      />
+      >
+        {slotButtonClose || <VsfIconClose />}
+      </VsfButton>
       <div
         className={classNames(
           'vsf-navigation-top__wrapper',

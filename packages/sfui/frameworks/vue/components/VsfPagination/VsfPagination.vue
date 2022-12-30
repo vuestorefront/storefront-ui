@@ -1,11 +1,9 @@
 <script lang="ts" setup>
 import paginate from 'jw-paginate';
 import { ref, toRefs, computed, watch } from 'vue';
-import VsfDivider from '../VsfDivider/VsfDivider.vue';
-import VsfButton from '../VsfButton/VsfButton.vue';
-import VsfIconChevronLeft from '../VsfIcons/VsfIconChevronLeft.vue';
-import VsfIconChevronRight from '../VsfIcons/VsfIconChevronRight.vue';
-import { VsfButtonVariants } from '../VsfButton/types';
+import { VsfDivider } from '../VsfDivider';
+import { VsfButton, VsfButtonVariants } from '../VsfButton';
+import { VsfIconChevronLeft, VsfIconChevronRight } from '../VsfIcons';
 
 const props = defineProps({
   totalItems: {

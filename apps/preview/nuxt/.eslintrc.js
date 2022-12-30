@@ -1,3 +1,3 @@
 module.exports = {
-  extends: ['plugin:nuxt/recommended', '@sfui/eslint-config/vue.js'],
+  extends: ['plugin:nuxt/recommended', '@storefront-ui/eslint-config/vue.js'],
 };

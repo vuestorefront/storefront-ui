@@ -1,5 +1,3 @@
-import VsfTag from './VsfTag';
+export { default as VsfTag } from './VsfTag';
 
 export * from './types';
-
-export default VsfTag;

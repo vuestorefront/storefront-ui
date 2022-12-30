@@ -17,13 +17,17 @@ export default defineConfig({
       name: "replace-react-imports",
       enforce: "pre",
       async transform(code, id) {
-        // Alter only test files with *.cy.tsx file extension
-        if (!/^[^.]+.cy.tsx$/.test(id)) return { code };
+        // Alter only test files with *.cy.tsx or *.PageObject.ts file extension
+        if (!/^[^.]+.cy.tsx$/.test(id) && !/^[^.]+.PageObject.ts$/.test(id))
+          return { code };
 
-        const REGEX = new RegExp("import(.*)from.*../frameworks/react.*", "gm");
+        const REGEX = new RegExp(
+          "import(.*)from.*../sfui/frameworks/react.*",
+          "gm"
+        );
         if (REGEX.test(code)) {
           const REGEX_TYPES = new RegExp(
-            "(import.*from.*../frameworks/)(react)(.*/types.*)",
+            "(import.*from.*../sfui/frameworks/)(react)(.*/types.*)",
             "gm"
           );
 

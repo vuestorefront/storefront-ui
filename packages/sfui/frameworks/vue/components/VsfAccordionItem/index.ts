@@ -1,3 +1,1 @@
-import VsfAccordionItem from './VsfAccordionItem';
-
-export default VsfAccordionItem;
+export { default as VsfAccordionItem } from './VsfAccordionItem.vue';

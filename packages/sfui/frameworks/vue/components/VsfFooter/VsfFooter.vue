@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { PropType } from 'vue';
-import { VsfFooterColumnType, VsfFooterLabelType } from '@sfui/shared/types';
-import { VsfFooterLabel, VsfFooterColumn, VsfFooterSocialMedia } from './index';
+import type { PropType } from 'vue';
+import { VsfFooterColumnType, VsfFooterLabelType } from '@storefront-ui/shared/types';
 import type { VsfCategoriesType, VsfContactOptionsType, VsfLinkType } from './types';
+import { VsfFooterLabel, VsfFooterColumn, VsfFooterSocialMedia } from './index';
 
 defineProps({
   categories: {

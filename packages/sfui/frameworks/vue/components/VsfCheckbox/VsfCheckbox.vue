@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import { computed, PropType, toRefs } from 'vue';
+import type { PropType } from 'vue';
+import { computed, toRefs } from 'vue';
 import { VsfCheckboxAlignments } from './types';
 
 const props = defineProps({
   modelValue: {
     type: [Boolean, Array] as PropType<string[] | boolean>,
-    default: undefined,
+    required: true,
   },
   value: {
     type: String,

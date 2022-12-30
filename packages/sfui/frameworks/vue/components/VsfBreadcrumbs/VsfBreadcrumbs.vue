@@ -1,10 +1,9 @@
 <script lang="ts" setup>
-import { computed, onMounted, onUnmounted, PropType, ref, toRefs, watch } from 'vue';
-import { VsfIconSizeEnum } from '../VsfIconBase/types';
-import VsfIconMoreHorizontal from '../VsfIcons/VsfIconMoreHorizontal.vue';
-import VsfIconHome from '../VsfIcons/VsfIconHome.vue';
+import type { PropType } from 'vue';
+import { computed, onMounted, onUnmounted, ref, toRefs, watch } from 'vue';
+import { VsfIconHome, VsfIconMoreHorizontal, VsfIconSizeEnum } from '../VsfIcons';
 import type { VsfBreadcrumbType, VsfBreadcrumbHomeType } from './types';
-import { TagOrComponent } from '../../shared/utils/types';
+import type { TagOrComponent } from '../../shared/types';
 
 const props = defineProps({
   breadcrumbs: {

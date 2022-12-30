@@ -1,6 +1,6 @@
-import VsfBadge from '@sfui/sfui/frameworks/react/components/VsfBadge';
-import VsfButton from '@sfui/sfui/frameworks/react/components/VsfButton';
-import { VsfIconBasket } from '@sfui/sfui/frameworks/react/components/VsfIcons';
+import { VsfBadge } from '@storefront-ui/react/components/VsfBadge';
+import { VsfButton } from '@storefront-ui/react/components/VsfButton';
+import { VsfIconBasket } from '@storefront-ui/react/components/VsfIcons';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 

@@ -1,5 +1,3 @@
-import VsfListItemFilterCheckbox from './VsfListItemFilterCheckbox.vue';
+export { default as VsfListItemFilterCheckbox } from './VsfListItemFilterCheckbox.vue';
 
 export * from './types';
-
-export default VsfListItemFilterCheckbox;

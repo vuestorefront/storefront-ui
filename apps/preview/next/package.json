@@ -1,5 +1,5 @@
 {
-  "name": "@sfui/preview-next",
+  "name": "@storefront-ui/preview-next",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,9 +10,12 @@
     "lint": "next lint --ext .tsx,.ts",
     "lint:fix": "next lint --fix",
     "clean": "rimraf ./sfui",
-    "sync": "cpy . !.turbo !assets !node_modules !frameworks/react/tsconfig.json !frameworks/react/.eslintrc.js !frameworks/vue ../../apps/preview/next/sfui --cwd=../../../packages/sfui",
-    "sync:watch": "chokidar --initial --silent \"../../../packages/sfui/**/*.{ts,tsx,scss}\" -c \"yarn sync\"",
-    "test": "yarn clean && concurrently \"yarn sync:watch\" \"yarn cypress open --component\"",
+    "sync-test": "cpy . ../../apps/preview/next/sfui/tests --cwd=../../../packages/tests/",
+    "sync-comp": "cpy . !dist !package ../../../../apps/preview/next/sfui/sfui/frameworks/react/ --cwd=../../../packages/sfui/frameworks/react/",
+    "sync": "yarn sync-test && yarn sync-comp",
+    "sync:watch-test": "chokidar --silent \"../../../packages/tests/**/*.{cy.tsx,ts}\" -c \"yarn sync-test\"",
+    "sync:watch-comp": "chokidar --silent \"../../../packages/sfui/**/*.{ts,tsx,scss}\" -c \"yarn sync-comp\"",
+    "test": "yarn clean && yarn sync && concurrently \"yarn sync:watch-test\" \"yarn sync:watch-comp\" \"yarn cypress open --component\"",
     "test:ci": "yarn clean && yarn sync && yarn percy exec -- cypress run --component"
   },
   "dependencies": {
@@ -27,11 +30,12 @@
   "devDependencies": {
     "@percy/cli": "^1.12.0",
     "@percy/cypress": "^3.1.2",
-    "@sfui/eslint-config": "*",
-    "@sfui/example-style": "*",
-    "@sfui/sfui": "*",
-    "@sfui/shared": "*",
-    "@sfui/tailwind-config": "*",
+    "@storefront-ui/eslint-config": "workspace:*",
+    "@storefront-ui/example-style": "workspace:*",
+    "@storefront-ui/react": "workspace:*",
+    "@storefront-ui/sass": "workspace:*",
+    "@storefront-ui/shared": "workspace:*",
+    "@storefront-ui/tailwind-config": "workspace:*",
     "@types/node": "^18.7.14",
     "@types/react": "^18.0.18",
     "@types/react-dom": "^18.0.6",

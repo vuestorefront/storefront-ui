@@ -1,3 +1,4 @@
+export * from './types';
 export { default as VsfIconAddToBasket } from './VsfIconAddToBasket.vue';
 export { default as VsfIconAddedToBasket } from './VsfIconAddedToBasket.vue';
 export { default as VsfIconArrowDown } from './VsfIconArrowDown.vue';

@@ -1,3 +1,1 @@
-import VsfDivider from './VsfDivider.vue';
-
-export default VsfDivider;
+export { default as VsfDivider } from './VsfDivider.vue';

@@ -1,5 +1,1 @@
-import VsfDivider from './VsfDivider';
-
-export * from './types';
-
-export default VsfDivider;
+export { default as VsfDivider } from './VsfDivider';

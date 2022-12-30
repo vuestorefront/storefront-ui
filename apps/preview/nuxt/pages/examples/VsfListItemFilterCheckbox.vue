@@ -35,11 +35,11 @@
 
 <script>
 import { ref } from 'vue';
-import VsfListItemFilterCheckbox from '@sfui/sfui/frameworks/vue/components/VsfListItemFilterCheckbox/VsfListItemFilterCheckbox.vue';
 import {
+  VsfListItemFilterCheckbox,
   VsfListItemFilterCheckboxSize,
   VsfListItemFilterCheckboxVariant,
-} from '@sfui/sfui/frameworks/vue/components/VsfListItemFilterCheckbox/types';
+} from '@storefront-ui/vue/components/VsfListItemFilterCheckbox/index';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
 
 export default {

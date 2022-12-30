@@ -1,6 +1,6 @@
-import VsfCounter from '@sfui/sfui/frameworks/react/components/VsfCounter';
-import { VsfCounterSizes } from '@sfui/sfui/frameworks/react/components/VsfCounter/types';
-import type { VsfCounterProps } from '@sfui/sfui/frameworks/react/components/VsfCounter/types';
+import { VsfCounter } from '@storefront-ui/react/components/VsfCounter';
+import { VsfCounterSizes } from '@storefront-ui/react/components/VsfCounter/types';
+import type { VsfCounterProps } from '@storefront-ui/react/components/VsfCounter/types';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 

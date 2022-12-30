@@ -1,5 +1,3 @@
-import VsfNavigationTop from './VsfNavigationTop.vue';
+export { default as VsfNavigationTop } from './VsfNavigationTop.vue';
 
 export * from './types';
-
-export default VsfNavigationTop;

@@ -11,9 +11,9 @@
 
 <script lang="ts">
 import { defineComponent, ref, resolveComponent, computed, ToRefs } from 'vue';
+import VsfBreadcrumbs from '@storefront-ui/vue/components/VsfBreadcrumbs/VsfBreadcrumbs.vue';
+import type { VsfBreadcrumbsProps } from '@storefront-ui/vue/components/VsfBreadcrumbs/types';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
-import VsfBreadcrumbs from '@sfui/sfui/frameworks/vue/components/VsfBreadcrumbs/VsfBreadcrumbs.vue';
-import type { VsfBreadcrumbsProps } from '@sfui/sfui/frameworks/vue/components/VsfBreadcrumbs/types';
 
 export default defineComponent({
   name: 'VsfBreadcrumbsExample',

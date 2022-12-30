@@ -1,6 +1,6 @@
 {
-  "name": "@sfui/preview-nuxt",
-  "version": "0.0.0",
+  "name": "@storefront-ui/preview-nuxt",
+  "version": "2.0.0-alpha.0",
   "private": true,
   "scripts": {
     "dev": "nuxt dev --port=3001",
@@ -13,11 +13,12 @@
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "^11.0.0",
     "@nuxtjs/tailwindcss": "^6.1.3",
-    "@sfui/eslint-config": "*",
-    "@sfui/example-style": "*",
-    "@sfui/sfui": "*",
-    "@sfui/shared": "*",
-    "@sfui/tailwind-config": "*",
+    "@storefront-ui/eslint-config": "workspace:*",
+    "@storefront-ui/example-style": "workspace:*",
+    "@storefront-ui/sass": "workspace:*",
+    "@storefront-ui/shared": "workspace:*",
+    "@storefront-ui/tailwind-config": "workspace:*",
+    "@storefront-ui/vue": "workspace:*",
     "@types/lodash-es": "^4.17.6",
     "@vueuse/core": "^9.6.0",
     "autoprefixer": "^10.4.8",

@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import paginate from 'jw-paginate';
 import classNames from 'classnames';
-import VsfButton, { VsfButtonVariants } from '../VsfButton';
+import { VsfButton, VsfButtonVariants } from '../VsfButton';
 import { VsfIconChevronLeft, VsfIconChevronRight } from '../VsfIcons';
-import { VsfPaginationProps } from './types';
+import type { VsfPaginationProps } from './types';
 import VsfDivider from '../VsfDivider/VsfDivider';
 
 export default function VsfPagination({

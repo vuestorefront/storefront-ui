@@ -1,7 +1,7 @@
 import { useRef, useEffect } from 'react';
 import classNames from 'classnames';
 import type { VsfDialogProps } from './types';
-import VsfButton, { VsfButtonVariants } from '../VsfButton';
+import { VsfButton, VsfButtonVariants } from '../VsfButton';
 import VsfIconClose from '../VsfIcons/VsfIconClose';
 
 export default function VsfDialog({
@@ -39,6 +39,7 @@ export default function VsfDialog({
     dialogRef.current?.addEventListener('click', onClick, true);
 
     return () => {
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       dialogRef.current?.removeEventListener('click', onClick);
     };
   });

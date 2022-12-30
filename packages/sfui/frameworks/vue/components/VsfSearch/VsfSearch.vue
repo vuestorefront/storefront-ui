@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import { VsfIconCancel } from '../VsfIcons/index';
-import VsfButton from '../VsfButton/VsfButton.vue';
+import { VsfIconCancel } from '../VsfIcons';
+import { VsfButton } from '../VsfButton';
 
 defineProps({
   placeholder: {

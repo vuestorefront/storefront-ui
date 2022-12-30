@@ -1,4 +1,4 @@
-import VsfDivider from '@sfui/sfui/frameworks/react/components/VsfDivider';
+import { VsfDivider } from '@storefront-ui/react/components/VsfDivider';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 

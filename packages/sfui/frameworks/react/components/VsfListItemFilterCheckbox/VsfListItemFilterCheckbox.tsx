@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import VsfListItemMenu from '../VsfListItemMenu';
-import { VsfListItemFilterCheckboxProps, VsfListItemFilterCheckboxVariant } from './types';
-import VsfCheckbox from '../VsfCheckbox';
+import { VsfListItemMenu } from '../VsfListItemMenu';
+import type { VsfListItemFilterCheckboxProps } from './types';
+import { VsfListItemFilterCheckboxVariant } from './types';
+import { VsfCheckbox } from '../VsfCheckbox';
 
 export default function VsfListItemFilterCheckbox({
   label,

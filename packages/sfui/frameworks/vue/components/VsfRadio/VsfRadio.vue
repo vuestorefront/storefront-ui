@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { PropType, computed, toRefs } from 'vue';
+import type { PropType } from 'vue';
+import { computed, toRefs } from 'vue';
 import { VsfRadioAlignments } from './types';
 
 const props = defineProps({

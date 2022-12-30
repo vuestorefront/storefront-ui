@@ -1,4 +1,3 @@
-import VsfQuantitySelector from './VsfQuantitySelector';
+export { default as VsfQuantitySelector } from './VsfQuantitySelector';
 
 export * from './types';
-export default VsfQuantitySelector;

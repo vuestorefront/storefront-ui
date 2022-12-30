@@ -48,8 +48,7 @@
 </template>
 
 <script>
-import { VsfCheckboxAlignments } from '@sfui/sfui/frameworks/vue/components/VsfCheckbox/types';
-import VsfCheckbox from '@sfui/sfui/frameworks/vue/components/VsfCheckbox/VsfCheckbox.vue';
+import { VsfCheckbox, VsfCheckboxAlignments } from '@storefront-ui/vue/components/VsfCheckbox/index';
 import { defineComponent } from 'vue';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
 

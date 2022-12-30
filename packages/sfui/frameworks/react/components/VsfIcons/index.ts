@@ -1,3 +1,4 @@
+export * from './types';
 export { default as VsfIconAddToBasket } from './VsfIconAddToBasket';
 export { default as VsfIconAddedToBasket } from './VsfIconAddedToBasket';
 export { default as VsfIconArrowDown } from './VsfIconArrowDown';

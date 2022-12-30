@@ -1,7 +1,7 @@
 import type { PropsWithChildren, ReactElement } from 'react';
-import { VsfAlertTypes, VsfAlertVariants } from '@sfui/shared/types/VsfAlert';
+import { VsfAlertTypes, VsfAlertVariants } from '@storefront-ui/shared/types/VsfAlert';
 
-export * from '@sfui/shared/types/VsfAlert';
+export * from '@storefront-ui/shared/types/VsfAlert';
 
 export interface VsfAlertProps extends PropsWithChildren {
   open?: boolean;

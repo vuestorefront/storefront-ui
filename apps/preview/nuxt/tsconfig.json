@@ -1,5 +1,5 @@
 {
-  "extends": "@sfui/typescript-config/base.json",
+  "extends": "@storefront-ui/typescript-config/base.json",
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
@@ -9,12 +9,11 @@
     "types": [
       "vite/client",
     ],
-    "baseUrl": "./"
+    "baseUrl": "./",
   },
   "exclude": [
     "node_modules",
     "output",
-    "pages/examplesOld",
     "pages/examples/ListOfIcons.vue",
   ]
 }

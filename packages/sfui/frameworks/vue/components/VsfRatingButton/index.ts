@@ -1,4 +1,3 @@
-import VsfRatingButton from './VsfRatingButton.vue';
-export * from './types';
+export { default as VsfRatingButton } from './VsfRatingButton.vue';
 
-export default VsfRatingButton;
+export * from './types';

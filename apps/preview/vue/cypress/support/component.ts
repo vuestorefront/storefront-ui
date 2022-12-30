@@ -15,7 +15,7 @@
 
 // Import commands.js using ES2015 syntax:
 import "./commands";
-import "../../src/assets/tailwind.scss";
+import "../../src/assets/global.scss";
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
 

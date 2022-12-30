@@ -1,5 +1,5 @@
 {
-  "extends": "@sfui/typescript-config/base.json",
+  "extends": "@storefront-ui/typescript-config/base.json",
   "compilerOptions": {
     "jsxImportSource": "@builder.io/mitosis",
     "forceConsistentCasingInFileNames": true,

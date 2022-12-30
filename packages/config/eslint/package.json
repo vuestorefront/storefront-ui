@@ -1,7 +1,8 @@
 {
-  "name": "@sfui/eslint-config",
-  "version": "0.0.0",
+  "name": "@storefront-ui/eslint-config",
+  "version": "2.0.0-alpha.0",
   "main": "index.js",
+  "private": true,
   "license": "MIT",
   "files": [
     "react.js",
@@ -19,8 +20,5 @@
     "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^9.3.0"
-  },
-  "publishConfig": {
-    "access": "public"
   }
 }

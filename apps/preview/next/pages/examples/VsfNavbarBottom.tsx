@@ -1,12 +1,12 @@
-import VsfNavbarBottom, { VsfNavbarBottomItem } from '@sfui/sfui/frameworks/react/components/VsfNavbarBottom';
-import VsfBadge from '@sfui/sfui/frameworks/react/components/VsfBadge';
+import { VsfNavbarBottom, VsfNavbarBottomItem } from '@storefront-ui/react/components/VsfNavbarBottom';
+import { VsfBadge } from '@storefront-ui/react/components/VsfBadge';
 import {
   VsfIconHome,
   VsfIconBasket,
   VsfIconSearch,
   VsfIconMenu,
   VsfIconFavoritesOutline,
-} from '@sfui/sfui/frameworks/react/components/VsfIcons';
+} from '@storefront-ui/react/components/VsfIcons';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 

@@ -1,6 +1,5 @@
-import { VsfCheckboxAlignments } from '@sfui/sfui/frameworks/react/components/VsfCheckbox/types';
-import VsfCheckbox from '@sfui/sfui/frameworks/react/components/VsfCheckbox/VsfCheckbox';
-import type { VsfCheckboxProps } from '@sfui/sfui/frameworks/react/components/VsfCheckbox/types';
+import { VsfCheckbox, VsfCheckboxAlignments } from '@storefront-ui/react/components/VsfCheckbox';
+import type { VsfCheckboxProps } from '@storefront-ui/react/components/VsfCheckbox/types';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 

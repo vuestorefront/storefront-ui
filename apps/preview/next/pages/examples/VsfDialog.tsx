@@ -1,5 +1,5 @@
-import VsfDialog from '@sfui/sfui/frameworks/react/components/VsfDialog';
-import VsfButton from '@sfui/sfui/frameworks/react/components/VsfButton';
+import { VsfDialog } from '@storefront-ui/react/components/VsfDialog';
+import { VsfButton } from '@storefront-ui/react/components/VsfButton';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 

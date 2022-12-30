@@ -1,3 +1,3 @@
-import VsfAccordionItem from './VsfAccordionItem';
+export { default as VsfAccordionItem } from './VsfAccordionItem';
 
-export default VsfAccordionItem;
+export * from './types';

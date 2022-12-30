@@ -1,13 +1,13 @@
 import classNames from 'classnames';
-import VsfProductCard, { VsfProductCardImage } from '@sfui/sfui/frameworks/react/components/VsfProductCard';
-import { VsfProductCardSizes } from '@sfui/sfui/frameworks/react/components/VsfProductCard/types';
+import { VsfProductCard, VsfProductCardImage } from '@storefront-ui/react/components/VsfProductCard';
+import { VsfProductCardSizes } from '@storefront-ui/react/components/VsfProductCard/types';
 import type {
   VsfProductCardProps,
   VsfProductCardImageProps,
-} from '@sfui/sfui/frameworks/react/components/VsfProductCard/types';
+} from '@storefront-ui/react/components/VsfProductCard/types';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { VsfButtonProps } from '@sfui/sfui/frameworks/react/components/VsfButton/types';
+import { VsfButtonProps } from '@storefront-ui/react/components/VsfButton/types';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 import productImage from '../fixture/product-card.webp';

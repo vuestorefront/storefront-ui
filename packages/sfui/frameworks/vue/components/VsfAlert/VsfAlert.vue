@@ -1,15 +1,10 @@
 <script lang="ts" setup>
-import { PropType, toRefs, watch } from 'vue';
-import {
-  VsfIconClose,
-  VsfIconInfo,
-  VsfIconError,
-  VsfIconWarning,
-  VsfIconCheckCircle,
-} from '@sfui/sfui/frameworks/vue/components/VsfIcons/index';
-import VsfButton, { VsfButtonVariants } from '@sfui/sfui/frameworks/vue/components/VsfButton/index';
-import { VsfAlertVariants, VsfAlertTypes } from './types';
+import type { PropType } from 'vue';
+import { toRefs, watch } from 'vue';
 import { useTimeoutFn } from '@vueuse/core';
+import { VsfButton, VsfButtonVariants } from '../VsfButton';
+import { VsfIconClose, VsfIconInfo, VsfIconError, VsfIconWarning, VsfIconCheckCircle } from '../VsfIcons';
+import { VsfAlertVariants, VsfAlertTypes } from './types';
 
 const props = defineProps({
   modelValue: {

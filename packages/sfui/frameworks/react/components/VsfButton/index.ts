@@ -1,5 +1,3 @@
-import VsfButton from './VsfButton';
+export { default as VsfButton } from './VsfButton';
 
 export * from './types';
-
-export default VsfButton;

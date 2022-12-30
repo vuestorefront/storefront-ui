@@ -1,3 +1,3 @@
-import VsfIconBase from './VsfIconBase';
+export { default as VsfIconBase } from './VsfIconBase';
 
-export default VsfIconBase;
+export * from './types';

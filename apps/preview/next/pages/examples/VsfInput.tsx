@@ -1,5 +1,5 @@
-import VsfInput from '@sfui/sfui/frameworks/react/components/VsfInput/VsfInput';
-import { VsfInputSizes } from '@sfui/sfui/frameworks/react/components/VsfInput/types';
+import { VsfInput } from '@storefront-ui/react/components/VsfInput';
+import { VsfInputSizes } from '@storefront-ui/react/components/VsfInput/types';
 
 import { ChangeEvent } from 'react';
 import Controls, { prepareControls } from '../../components/utils/Controls';

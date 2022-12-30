@@ -1,6 +1,5 @@
 import type { VsfIconProps } from './types';
-import VsfIconBase from '../VsfIconBase';
-import { VsfIconSizeEnum } from '../VsfIconBase/types';
+import { VsfIconBase, VsfIconSizeEnum } from '../VsfIconBase';
 
 export default function VsfIconCompare({
   className = '',

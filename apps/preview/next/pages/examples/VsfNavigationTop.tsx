@@ -1,6 +1,6 @@
-import VsfNavigationTop from '@sfui/sfui/frameworks/react/components/VsfNavigationTop/VsfNavigationTop';
-import VsfButton from '@sfui/sfui/frameworks/react/components/VsfButton';
-import { VsfNavigationTopVariant } from '@sfui/sfui/frameworks/react/components//VsfNavigationTop/types';
+import { VsfNavigationTop } from '@storefront-ui/react/components/VsfNavigationTop';
+import { VsfButton } from '@storefront-ui/react/components/VsfButton';
+import { VsfNavigationTopVariant } from '@storefront-ui/react/components//VsfNavigationTop/types';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 

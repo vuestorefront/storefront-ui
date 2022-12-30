@@ -1,3 +1,3 @@
 module.exports = {
-  extends: ['@sfui/eslint-config/vue.js'],
+  extends: ['@storefront-ui/eslint-config/vue.js'],
 };

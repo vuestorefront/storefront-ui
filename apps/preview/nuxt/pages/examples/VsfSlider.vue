@@ -43,9 +43,8 @@
 
 <script lang="ts">
 import { defineComponent, ref, watch } from 'vue';
+import { VsfSlider, VsfSliderNavigation, VsfSliderScrollbar } from '@storefront-ui/vue/components/VsfSlider/index';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
-import VsfSlider from '@sfui/sfui/frameworks/vue/components/VsfSlider/VsfSlider.vue';
-import { VsfSliderNavigation, VsfSliderScrollbar } from '@sfui/sfui/frameworks/vue/components/VsfSlider/types';
 
 export default defineComponent({
   name: 'VsfSliderExample',

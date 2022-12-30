@@ -1,4 +1,3 @@
-import VsfRating from './VsfRating.vue';
-export * from './types';
+export { default as VsfRating } from './VsfRating.vue';
 
-export default VsfRating;
+export * from './types';

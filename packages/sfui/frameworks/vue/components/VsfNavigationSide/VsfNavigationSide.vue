@@ -1,8 +1,6 @@
 <script lang="ts" setup>
-import VsfSideSheet from '../VsfSideSheet/VsfSideSheet.vue';
-import VsfNavbarTop from '../VsfNavbarTop/VsfNavbarTop.vue';
-import VsfNavbarTopAction from '../VsfNavbarTop/VsfNavbarTopAction.vue';
-import VsfNavbarTopActionGroup from '../VsfNavbarTop/VsfNavbarTopActionGroup.vue';
+import { VsfSideSheet } from '../VsfSideSheet';
+import { VsfNavbarTop, VsfNavbarTopAction, VsfNavbarTopActionGroup } from '../VsfNavbarTop';
 import { VsfIconClose, VsfIconLogo } from '../../components/VsfIcons';
 
 defineProps({

@@ -9,10 +9,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     '..',
     '..',
     'node_modules',
-    '@sfui',
-    'sfui',
-    'frameworks',
-    'react',
+    '@storefront-ui/react',
     'components',
     'VsfIcons',
   );

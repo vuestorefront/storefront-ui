@@ -1,5 +1,5 @@
-import VsfLoaderCircular from '@sfui/sfui/frameworks/react/components/VsfLoaderCircular/VsfLoaderCircular';
-import { VsfLoaderSizes } from '@sfui/shared/types';
+import VsfLoaderCircular from '@storefront-ui/react/components/VsfLoaderCircular/VsfLoaderCircular';
+import { VsfLoaderSizes } from '@storefront-ui/shared/types';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 

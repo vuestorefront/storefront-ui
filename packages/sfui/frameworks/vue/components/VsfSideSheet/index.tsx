@@ -1,5 +1,1 @@
-import VsfSideSheet from './VsfSideSheet';
-
-export * from './types';
-
-export default VsfSideSheet;
+export { default as VsfSideSheet } from './VsfSideSheet.vue';

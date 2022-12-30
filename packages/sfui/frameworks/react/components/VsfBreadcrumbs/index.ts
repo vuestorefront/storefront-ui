@@ -1,3 +1,3 @@
-import VsfBreadcrumbs from './VsfBreadcrumbs';
+export { default as VsfBreadcrumbs } from './VsfBreadcrumbs';
 
-export default VsfBreadcrumbs;
+export * from './types';

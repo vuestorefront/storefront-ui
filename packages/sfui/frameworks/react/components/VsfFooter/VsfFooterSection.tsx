@@ -1,6 +1,6 @@
 import classNames from 'classnames';
-import { VsfFooterSectionType } from '@sfui/shared/types/index';
-import { VsfFooterSectionProps } from './types';
+import { VsfFooterSectionType } from '@storefront-ui/shared/types/index';
+import type { VsfFooterSectionProps } from './types';
 
 export default function VsfFooterSection({
   type = VsfFooterSectionType.top,

@@ -1,3 +1,3 @@
-import VsfCounter from './VsfCounter';
+export { default as VsfCounter } from './VsfCounter';
 
-export default VsfCounter;
+export * from './types';

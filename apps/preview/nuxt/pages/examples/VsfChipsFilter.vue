@@ -15,8 +15,7 @@
 
 <script>
 import { defineComponent, ref } from 'vue';
-import VsfChipsFilter from '@sfui/sfui/frameworks/vue/components/VsfChipsFilter/VsfChipsFilter.vue';
-import { VsfChipsFilterVariants } from '@sfui/sfui/frameworks/vue/components/VsfChipsFilter/types';
+import { VsfChipsFilter, VsfChipsFilterVariants } from '@storefront-ui/vue/components/VsfChipsFilter/index';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
 
 export default defineComponent({

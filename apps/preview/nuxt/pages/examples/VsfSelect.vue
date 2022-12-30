@@ -23,9 +23,8 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
+import { VsfSelect, VsfSelectSizes } from '@storefront-ui/vue/components/VsfSelect/index';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
-import VsfSelect from '@sfui/sfui/frameworks/vue/components/VsfSelect/VsfSelect.vue';
-import { VsfSelectSizes } from '@sfui/sfui/frameworks/vue/components/VsfSelect/types';
 
 export default defineComponent({
   name: 'VsfSelectExample',

@@ -1,7 +1,9 @@
 <script lang="ts" setup>
+import type { PropType } from 'vue';
+import { computed, ref, toRefs } from 'vue';
 import { VsfRatingButtonSizes } from './types';
-import { VsfIconSizeEnum } from '../VsfIconBase/types';
-import { computed, PropType, ref, toRefs } from 'vue';
+import { VsfIconSizeEnum } from '../VsfIconBase';
+
 const props = defineProps({
   max: {
     type: Number,

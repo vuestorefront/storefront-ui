@@ -1,8 +1,10 @@
 <script lang="ts" setup>
-import { PropType, computed, toRefs } from 'vue';
-import { VsfInputSizes } from './types';
+import type { PropType } from 'vue';
+import { computed, toRefs } from 'vue';
 import { useVModel } from '@vueuse/core';
-import { generateId } from '@sfui/shared/utils/generateId';
+import { generateId } from '@storefront-ui/shared/utils/generateId';
+import { VsfInputSizes } from './types';
+
 const props = defineProps({
   modelValue: {
     type: String,
@@ -59,11 +61,8 @@ const emit = defineEmits<{
 const { invalid, modelValue, characterLimit } = toRefs(props);
 
 const inputValue = useVModel(props, 'modelValue', emit);
-
 const isAboveLimit = computed(() => inputValue.value.length > characterLimit.value);
-
 const charsCount = computed(() => characterLimit.value - modelValue.value.length);
-
 const inputId = generateId('input');
 </script>
 

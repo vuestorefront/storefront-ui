@@ -1,4 +1,4 @@
-import VsfSideSheet from '@sfui/sfui/frameworks/react/components/VsfSideSheet/VsfSideSheet';
+import { VsfSideSheet } from '@storefront-ui/react/components/VsfSideSheet';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 

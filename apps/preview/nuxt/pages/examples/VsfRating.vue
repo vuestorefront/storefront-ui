@@ -17,8 +17,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import VsfRating from '@sfui/sfui/frameworks/vue/components/VsfRating/VsfRating.vue';
-import { VsfRatingVariants, VsfRatingSizes } from '@sfui/sfui/frameworks/vue/components/VsfRating/types';
+import { VsfRating, VsfRatingVariants, VsfRatingSizes } from '@storefront-ui/vue/components/VsfRating/index';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
 
 export default defineComponent({

@@ -1,6 +1,6 @@
 import { useState, createElement } from 'react';
-import { VsfIconSizeEnum } from '@sfui/sfui/frameworks/react/components/VsfIcons/types';
-import * as AllVsfIcons from '@sfui/sfui/frameworks/react/components/VsfIcons';
+import { VsfIconSizeEnum } from '@storefront-ui/react/components/VsfIcons/types';
+import * as AllVsfIcons from '@storefront-ui/react/components/VsfIcons';
 import useSWR from 'swr';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';

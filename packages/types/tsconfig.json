@@ -1,4 +1,0 @@
-{
-  "extends": "@sfui/typescript-config/base.json",
-  "include": ["**/*.ts"],
-}

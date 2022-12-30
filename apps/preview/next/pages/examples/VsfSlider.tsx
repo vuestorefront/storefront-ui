@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import VsfSlider, { VsfSliderNavigation, VsfSliderScrollbar } from '@sfui/sfui/frameworks/react/components/VsfSlider';
+import { VsfSlider, VsfSliderNavigation, VsfSliderScrollbar } from '@storefront-ui/react/components/VsfSlider';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 

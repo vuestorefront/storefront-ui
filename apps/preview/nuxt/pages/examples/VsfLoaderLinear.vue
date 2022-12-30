@@ -11,9 +11,9 @@
 
 <script>
 import { ref } from 'vue';
-import VsfLoaderLinear from '@sfui/sfui/frameworks/vue/components/VsfLoaderLinear/VsfLoaderLinear.vue';
-import { VsfLoaderSizes } from '@sfui/shared/types';
-import { VsfLoaderLinearSize } from '@sfui/sfui/frameworks/vue/components/VsfLoaderLinear/types';
+import VsfLoaderLinear from '@storefront-ui/vue/components/VsfLoaderLinear/VsfLoaderLinear.vue';
+import { VsfLoaderSizes } from '@storefront-ui/shared/types';
+import { VsfLoaderLinearSize } from '@storefront-ui/vue/components/VsfLoaderLinear/types';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
 
 export default {

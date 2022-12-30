@@ -1,5 +1,3 @@
-import VsfNavigationTop from './VsfNavigationTop';
+export { default as VsfNavigationTop } from './VsfNavigationTop';
 
 export * from './types';
-
-export default VsfNavigationTop;

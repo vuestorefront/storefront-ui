@@ -1,5 +1,3 @@
-import VsfListItemFilterRadio from './VsfListItemFilterRadio.vue';
+export { default as VsfListItemFilterRadio } from './VsfListItemFilterRadio.vue';
 
 export * from './types';
-
-export default VsfListItemFilterRadio;

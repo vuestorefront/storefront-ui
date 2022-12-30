@@ -46,17 +46,16 @@
 
 <script>
 import { defineComponent, ref } from 'vue';
-import Controls, { prepareControls } from '../../components/utils/Controls.vue';
-import VsfNavbarBottom from '@sfui/sfui/frameworks/vue/components/VsfNavbarBottom/VsfNavbarBottom.vue';
-import VsfNavbarBottomItem from '@sfui/sfui/frameworks/vue/components/VsfNavbarBottom/VsfNavbarBottomItem.vue';
-import VsfBadge from '@sfui/sfui/frameworks/vue/components/VsfBadge/VsfBadge.vue';
+import { VsfNavbarBottom, VsfNavbarBottomItem } from '@storefront-ui/vue/components/VsfNavbarBottom/index';
+import VsfBadge from '@storefront-ui/vue/components/VsfBadge/VsfBadge.vue';
 import {
   VsfIconHome,
   VsfIconBasket,
   VsfIconSearch,
   VsfIconMenu,
   VsfIconFavoritesOutline,
-} from '@sfui/sfui/frameworks/vue/components/VsfIcons/index';
+} from '@storefront-ui/vue/components/VsfIcons/index';
+import Controls, { prepareControls } from '../../components/utils/Controls.vue';
 
 export default defineComponent({
   name: 'VsfNavbarBottomExample',

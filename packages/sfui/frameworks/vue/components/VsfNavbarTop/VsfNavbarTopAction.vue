@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { computed, toRefs } from 'vue';
+
 const props = defineProps({
   link: {
     type: String,

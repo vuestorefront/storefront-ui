@@ -36,11 +36,11 @@
 
 <script>
 import { ref } from 'vue';
-import VsfListItemFilterRadio from '@sfui/sfui/frameworks/vue/components/VsfListItemFilterRadio/VsfListItemFilterRadio.vue';
 import {
+  VsfListItemFilterRadio,
   VsfListItemFilterRadioSize,
   VsfListItemFilterRadioVariant,
-} from '@sfui/sfui/frameworks/vue/components/VsfListItemFilterRadio/types';
+} from '@storefront-ui/vue/components/VsfListItemFilterRadio/index';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
 
 export default {

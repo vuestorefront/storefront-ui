@@ -1,5 +1,3 @@
-import VsfCard from './VsfCard';
+export { default as VsfCard } from './VsfCard';
 
 export * from './types';
-
-export default VsfCard;

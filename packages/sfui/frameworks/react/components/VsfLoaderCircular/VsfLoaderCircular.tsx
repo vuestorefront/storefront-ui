@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { VsfLoaderSizes } from '@sfui/shared/types';
+import { VsfLoaderSizes } from './types';
 import type { VsfLoaderCircularProps } from './types';
 
 export default function VsfLoaderCircular({
@@ -19,7 +19,11 @@ export default function VsfLoaderCircular({
         {screenReaderText}
       </span>
       <span className="vsf-loader-circular-main" aria-hidden="true" />
-      <span className={classNames('vsf-loader-circular-circle', `vsf-loader-circular--${size}`)} aria-hidden="true" />
+      <span
+        className={classNames('vsf-loader-circular-circle', `vsf-loader-circular--${size}`)}
+        aria-hidden="true"
+        data-testid="loader-circular-circle"
+      />
     </span>
   );
 }

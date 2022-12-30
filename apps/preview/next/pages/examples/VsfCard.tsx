@@ -1,4 +1,4 @@
-import VsfCard, { VsfCardSizes } from '@sfui/sfui/frameworks/react/components/VsfCard';
+import { VsfCard, VsfCardSizes } from '@storefront-ui/react/components/VsfCard';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 import productImage from '../fixture/product-card.webp';

@@ -1,9 +1,9 @@
-import VsfReview from '@sfui/sfui/frameworks/react/components/VsfReview';
-import VsfRating from '@sfui/sfui/frameworks/react/components/VsfRating';
-import VsfTag from '@sfui/sfui/frameworks/react/components/VsfTag';
-import { VsfTagSizes, VsfTagVariants } from '@sfui/sfui/frameworks/react/components/VsfTag/types';
-import { VsfIconSizeEnum } from '@sfui/sfui/frameworks/react/components/VsfIcons/types';
-import { VsfIconCheck } from '@sfui/sfui/frameworks/react/components/VsfIcons';
+import { VsfReview } from '@storefront-ui/react/components/VsfReview';
+import { VsfRating } from '@storefront-ui/react/components/VsfRating';
+import { VsfTag } from '@storefront-ui/react/components/VsfTag';
+import { VsfTagSizes, VsfTagVariants } from '@storefront-ui/react/components/VsfTag/types';
+import { VsfIconSizeEnum } from '@storefront-ui/react/components/VsfIcons/types';
+import { VsfIconCheck } from '@storefront-ui/react/components/VsfIcons';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 

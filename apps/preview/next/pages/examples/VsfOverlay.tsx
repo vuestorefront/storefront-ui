@@ -1,4 +1,4 @@
-import VsfOverlay from '@sfui/sfui/frameworks/react/components/VsfOverlay';
+import { VsfOverlay } from '@storefront-ui/react/components/VsfOverlay';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 

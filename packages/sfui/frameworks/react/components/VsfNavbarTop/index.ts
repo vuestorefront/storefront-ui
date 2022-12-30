@@ -1,9 +1,6 @@
-import VsfNavbarTop from './VsfNavbarTop';
-import VsfNavbarTopAction from './VsfNavbarTopAction';
-import VsfNavbarTopActionGroup from './VsfNavbarTopActionGroup';
-import VsfNavbarTopSpacer from './VsfSpacer';
+export { default as VsfNavbarTop } from './VsfNavbarTop';
+export { default as VsfNavbarTopAction } from './VsfNavbarTopAction';
+export { default as VsfNavbarTopActionGroup } from './VsfNavbarTopActionGroup';
+export { default as VsfSpacer } from './VsfSpacer';
 
 export * from './types';
-
-export default VsfNavbarTop;
-export { VsfNavbarTopAction, VsfNavbarTopActionGroup, VsfNavbarTopSpacer };

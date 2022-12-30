@@ -1,5 +1,6 @@
-import VsfListItemMenu from '../VsfListItemMenu';
-import { VsfListItemFilterRadioProps, VsfListItemFilterRadioVariant } from './types';
+import { VsfListItemMenu } from '../VsfListItemMenu';
+import type { VsfListItemFilterRadioProps } from './types';
+import { VsfListItemFilterRadioVariant } from './types';
 import { VsfRadio } from '../VsfRadio';
 
 export default function VsfListItemFilterRadio({

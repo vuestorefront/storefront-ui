@@ -1,4 +1,4 @@
-import VsfChipsFilter, { VsfChipsFilterVariants } from '@sfui/sfui/frameworks/react/components/VsfChipsFilter';
+import { VsfChipsFilter, VsfChipsFilterVariants } from '@storefront-ui/react/components/VsfChipsFilter';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 

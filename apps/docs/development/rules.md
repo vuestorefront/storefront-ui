@@ -9,7 +9,7 @@
 
 ### Styling
 
-- every css styling should be placed under `@sfui/sfui/styles/components` and import to `index.scss` file. We write in BEM methodology, so its easier to sync template between vue and react
+- every scss styling should be placed under `@storefront-ui/sass/components` and import to `index.scss` file. We write in BEM methodology, so its easier to sync template between vue and react
 
 
 ## Examples

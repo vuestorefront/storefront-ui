@@ -1,4 +1,3 @@
-import VsfRatingButton from './VsfRatingButton';
+export { default as VsfRatingButton } from './VsfRatingButton';
 
 export * from './types';
-export default VsfRatingButton;

@@ -1,6 +1,4 @@
-import VsfQuantitySelector, {
-  VsfQuantitySelectorSizes,
-} from '@sfui/sfui/frameworks/react/components/VsfQuantitySelector';
+import { VsfQuantitySelector, VsfQuantitySelectorSizes } from '@storefront-ui/react/components/VsfQuantitySelector';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 

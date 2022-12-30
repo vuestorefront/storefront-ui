@@ -1,4 +1,4 @@
-import VsfPagination from '@sfui/sfui/frameworks/react/components/VsfPagination/VsfPagination';
+import { VsfPagination } from '@storefront-ui/react/components/VsfPagination';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 

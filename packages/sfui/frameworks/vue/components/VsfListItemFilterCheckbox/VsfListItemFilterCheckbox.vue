@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-import VsfListItemMenu from '../VsfListItemMenu';
-import VsfCheckbox from '../VsfCheckbox/VsfCheckbox.vue';
-import { extractProps } from '../../shared/utils/props';
-import { VsfListItemFilterCheckboxVariant } from './types';
-import { computed, toRefs } from 'vue';
 import type { PropType } from 'vue';
+import { computed, toRefs } from 'vue';
+import { VsfListItemMenu } from '../VsfListItemMenu';
+import { VsfCheckbox } from '../VsfCheckbox';
+import { extractProps } from '../../shared/props';
+import { VsfListItemFilterCheckboxVariant } from './types';
 
 const props = defineProps({
   ...extractProps(VsfListItemMenu, ['label', 'counter', 'size', 'secondaryText', 'disabled', 'truncate'] as const),

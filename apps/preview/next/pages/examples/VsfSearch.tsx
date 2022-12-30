@@ -1,7 +1,7 @@
 import { ChangeEvent, FormEvent, MouseEvent } from 'react';
-import VsfSearch from '@sfui/sfui/frameworks/react/components/VsfSearch';
-import type { VsfSearchProps } from '@sfui/sfui/frameworks/react/components/VsfSearch';
-import { VsfIconSearch } from '@sfui/sfui/frameworks/react/components/VsfIcons';
+import { VsfSearch } from '@storefront-ui/react/components/VsfSearch';
+import type { VsfSearchProps } from '@storefront-ui/react/components/VsfSearch';
+import { VsfIconSearch } from '@storefront-ui/react/components/VsfIcons';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 

@@ -15,11 +15,9 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import VsfTag from '@sfui/sfui/frameworks/vue/components/VsfTag/VsfTag.vue';
+import { VsfTag, VsfTagVariants, VsfTagSizes, VsfTagAriaLiveValues } from '@storefront-ui/vue/components/VsfTag/index';
+import { VsfIconSizeEnum, VsfIconCheck } from '@storefront-ui/vue/components/VsfIcons/index';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
-import { VsfTagVariants, VsfTagSizes, VsfTagAriaLiveValues } from '@sfui/sfui/frameworks/vue/components/VsfTag/types';
-import VsfIconCheck from '@sfui/sfui/frameworks/vue/components/VsfIcons/VsfIconCheck.vue';
-import { VsfIconSizeEnum } from '@sfui/sfui/frameworks/vue/components/VsfIcons/types';
 
 export default defineComponent({
   name: 'VsfTagExample',

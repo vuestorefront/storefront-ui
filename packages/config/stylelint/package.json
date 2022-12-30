@@ -1,0 +1,18 @@
+{
+  "name": "@storefront-ui/stylelint-config",
+  "version": "2.0.0-alpha.0",
+  "private": true,
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "dependencies": {
+    "postcss-html": "^1.5.0",
+    "postcss-scss": "^4.0.5",
+    "stylelint": "^14.14.1",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-standard": "^29.0.0",
+    "stylelint-no-unsupported-browser-features": "^6.0.1",
+    "stylelint-scss": "^4.3.0"
+  }
+}

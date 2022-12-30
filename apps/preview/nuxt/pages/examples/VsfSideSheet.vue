@@ -23,7 +23,7 @@
 
 <script>
 import { ref } from 'vue';
-import VsfSideSheet from '@sfui/sfui/frameworks/vue/components/VsfSideSheet/VsfSideSheet.vue';
+import VsfSideSheet from '@storefront-ui/vue/components/VsfSideSheet/VsfSideSheet.vue';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
 
 const isSideSheetOpen = ref(true);

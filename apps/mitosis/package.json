@@ -1,5 +1,5 @@
 {
-  "name": "@sfui/mitosis",
+  "name": "mitosis",
   "version": "0.0.0",
   "scripts": {
     "build:legacy": "mitosis build && yarn remove-react-js && yarn remove-vue-tsx",

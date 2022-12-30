@@ -24,8 +24,8 @@
 
 <script>
 import { ref } from 'vue';
-import VsfNavigationSide from '@sfui/sfui/frameworks/vue/components/VsfNavigationSide/VsfNavigationSide.vue';
-import VsfButton from '@sfui/sfui/frameworks/vue/components/VsfButton/VsfButton.vue';
+import VsfNavigationSide from '@storefront-ui/vue/components/VsfNavigationSide/VsfNavigationSide.vue';
+import VsfButton from '@storefront-ui/vue/components/VsfButton/VsfButton.vue';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
 
 export default {

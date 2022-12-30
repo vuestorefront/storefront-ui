@@ -1,10 +1,11 @@
-import VsfFooter, {
+import {
+  VsfFooter,
   VsfFooterBottomLinks,
   VsfFooterColumn,
   VsfFooterSection,
   VsfFooterSocialMedia,
   VsfFooterLabel,
-} from '@sfui/sfui/frameworks/react/components/VsfFooter';
+} from '@storefront-ui/react/components/VsfFooter';
 import {
   VsfIconChat,
   VsfIconFacebook,
@@ -14,11 +15,11 @@ import {
   VsfIconPinterest,
   VsfIconTwitter,
   VsfIconYoutube,
-} from '@sfui/sfui/frameworks/react/components/VsfIcons';
-import { VsfIconSizeEnum } from '@sfui/sfui/frameworks/react/components/VsfIconBase/types';
-import { VsfFooterColumnType, VsfFooterLabelType, VsfFooterSectionType } from '@sfui/shared/types/index';
+} from '@storefront-ui/react/components/VsfIcons';
+import { VsfIconSizeEnum } from '@storefront-ui/react/components/VsfIconBase/types';
+import { VsfFooterColumnType, VsfFooterLabelType, VsfFooterSectionType } from '@storefront-ui/shared/types/index';
 import Link from 'next/link';
-import VsfDivider from '@sfui/sfui/frameworks/react/components/VsfDivider';
+import { VsfDivider } from '@storefront-ui/react/components/VsfDivider';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 

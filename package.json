@@ -1,5 +1,5 @@
 {
-  "name": "@sfui/monorepo",
+  "name": "@storefront-ui/monorepo",
   "version": "0.0.0",
   "private": true,
   "workspaces": {
@@ -8,7 +8,9 @@
       "apps/docs/*",
       "apps/preview/*",
       "packages/*",
-      "packages/config/*"
+      "packages/config/*",
+      "packages/sfui/*",
+      "packages/sfui/frameworks/*"
     ],
     "nohoist": [
       "**/vue",
@@ -34,6 +36,9 @@
     "lint:fix:sfui": "turbo run lint:fix:sfui",
     "build:next": "turbo run build:next",
     "build:nuxt": "turbo run build:nuxt",
+    "build:react": "turbo run build:react",
+    "build:css": "turbo run build:css",
+    "build:react-js-and-css": "turbo run build:css-copy",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "clean": "npx rimraf ./**/node_modules && rm yarn.lock",
     "clean:total": "npx rimraf ./**/node_modules && rimraf ./**/.cache && rimraf ./**/.turbo && rm yarn.lock",
@@ -47,7 +52,7 @@
   "devDependencies": {
     "@commitlint/cli": "^13.2.1",
     "@commitlint/config-conventional": "^13.2.0",
-    "@sfui/typescript-config": "*",
+    "@storefront-ui/typescript-config": "workspace:*",
     "babel-cli": "^6.26.0",
     "babel-preset-node": "^5.1.1",
     "commitizen": "^4.2.5",

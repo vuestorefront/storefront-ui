@@ -1,6 +1,6 @@
-import VsfButton, { VsfButtonSizes, VsfButtonVariants } from '@sfui/sfui/frameworks/react/components/VsfButton';
-import { VsfIconVsfDiamond } from '@sfui/sfui/frameworks/react/components/VsfIcons';
-import type { VsfButtonProps } from '@sfui/sfui/frameworks/react/components/VsfButton';
+import { VsfButton, VsfButtonSizes, VsfButtonVariants } from '@storefront-ui/react/components/VsfButton';
+import { VsfIconVsfDiamond } from '@storefront-ui/react/components/VsfIcons';
+import type { VsfButtonProps } from '@storefront-ui/react/components/VsfButton';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 

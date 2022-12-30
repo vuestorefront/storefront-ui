@@ -4,11 +4,11 @@ export default {
 };
 </script>
 <script lang="ts" setup>
-import VsfListItemMenu from '../VsfListItemMenu';
-import VsfRadio from '../VsfRadio/VsfRadio.vue';
-import { extractProps } from '../../shared/utils/props';
-import { VsfListItemFilterRadioVariant } from './types';
 import type { PropType } from 'vue';
+import { VsfListItemMenu } from '../VsfListItemMenu';
+import { VsfRadio } from '../VsfRadio';
+import { extractProps } from '../../shared/props';
+import { VsfListItemFilterRadioVariant } from './types';
 
 const props = defineProps({
   ...extractProps(VsfListItemMenu, [

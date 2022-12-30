@@ -24,10 +24,10 @@
 
 <script>
 import { defineComponent, ref } from 'vue';
+import VsfBadge from '@storefront-ui/vue/components/VsfBadge/VsfBadge.vue';
+import VsfButton from '@storefront-ui/vue/components/VsfButton/VsfButton.vue';
+import { VsfIconBasket } from '@storefront-ui/vue/components/VsfIcons/index';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
-import VsfBadge from '@sfui/sfui/frameworks/vue/components/VsfBadge/VsfBadge.vue';
-import VsfButton from '@sfui/sfui/frameworks/vue/components/VsfButton/VsfButton.vue';
-import { VsfIconBasket } from '@sfui/sfui/frameworks/vue/components/VsfIcons/index';
 
 export default defineComponent({
   name: 'VsfBadgeExample',

@@ -17,7 +17,7 @@
 
 <script>
 import { ref } from 'vue';
-import VsfPagination from '@sfui/sfui/frameworks/vue/components/VsfPagination/VsfPagination.vue';
+import VsfPagination from '@storefront-ui/vue/components/VsfPagination/VsfPagination.vue';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
 
 export default {

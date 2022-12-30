@@ -1,10 +1,6 @@
-import VsfTag, {
-  VsfTagVariants,
-  VsfTagSizes,
-  VsfTagAriaLiveValues,
-} from '@sfui/sfui/frameworks/react/components/VsfTag';
-import { VsfIconCheck } from '~/../../../packages/sfui/frameworks/react/components/VsfIcons';
-import { VsfIconSizeEnum } from '@sfui/sfui/frameworks/react/components/VsfIcons/types';
+import { VsfTag, VsfTagVariants, VsfTagSizes, VsfTagAriaLiveValues } from '@storefront-ui/react/components/VsfTag';
+import { VsfIconSizeEnum } from '@storefront-ui/react/components/VsfIcons/types';
+import { VsfIconCheck } from '@storefront-ui/react/components/VsfIcons';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 

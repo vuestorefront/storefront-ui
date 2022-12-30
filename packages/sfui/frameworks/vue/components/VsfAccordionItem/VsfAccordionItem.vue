@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import VsfIconTriangleUp from '../VsfIcons/VsfIconTriangleUp.vue';
+import { VsfIconTriangleUp } from '../VsfIcons';
 
 defineProps({
   open: {

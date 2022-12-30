@@ -39,8 +39,11 @@
 
 <script lang="ts">
 import { defineComponent, ref, onMounted, onUnmounted, watch, resolveComponent, computed } from 'vue';
-import VsfProductCard from '@sfui/sfui/frameworks/vue/components/VsfProductCard/index';
-import { VsfProductCardSizes, VsfProductCardLinkTags } from '@sfui/sfui/frameworks/vue/components/VsfProductCard/types';
+import {
+  VsfProductCard,
+  VsfProductCardSizes,
+  VsfProductCardLinkTags,
+} from '@storefront-ui/vue/components/VsfProductCard/index';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
 import productImage from '../fixture/product-card.webp';
 

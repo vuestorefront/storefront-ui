@@ -1,6 +1,5 @@
-import VsfRating from '@sfui/sfui/frameworks/react/components/VsfRating';
-import { VsfRatingVariants, VsfRatingSizes } from '@sfui/sfui/frameworks/react/components/VsfRating/types';
-import type { VsfRatingProps } from '@sfui/sfui/frameworks/react/components/VsfRating/types';
+import { VsfRating, VsfRatingVariants, VsfRatingSizes } from '@storefront-ui/react/components/VsfRating';
+import type { VsfRatingProps } from '@storefront-ui/react/components/VsfRating/types';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 

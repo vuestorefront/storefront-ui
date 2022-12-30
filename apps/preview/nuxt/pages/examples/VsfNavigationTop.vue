@@ -25,10 +25,9 @@
 
 <script>
 import { ref } from 'vue';
-import VsfNavigationTop from '@sfui/sfui/frameworks/vue/components/VsfNavigationTop/VsfNavigationTop.vue';
+import VsfButton from '@storefront-ui/vue/components/VsfButton/VsfButton.vue';
+import { VsfNavigationTop, VsfNavigationTopVariant } from '@storefront-ui/vue/components/VsfNavigationTop/index';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
-import VsfButton from '@sfui/sfui/frameworks/vue/components/VsfButton/VsfButton.vue';
-import { VsfNavigationTopVariant } from '@sfui/sfui/frameworks/vue/components/VsfNavigationTop/types';
 
 export default {
   name: 'VsfNavigationTopExample',

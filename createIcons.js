@@ -95,8 +95,7 @@ const vueIcon = (name, content, attributes) => `
 </template>
 <script lang="ts" setup>
 import { PropType } from 'vue';
-import VsfIconBase from '../VsfIconBase/VsfIconBase.vue';
-import { VsfIconSizeEnum } from '../VsfIconBase/types';
+import { VsfIconBase, VsfIconSizeEnum } from '../VsfIconBase';
 
 defineProps({
     size: {
@@ -108,8 +107,7 @@ defineProps({
 
 const reactIcon = (name, camelCaseName, content, attributes) => `
 import type { VsfIconProps } from '${relativePathToIconBasePath}VsfIcons/types';
-import VsfIconBase from '${relativePathToIconBasePath}VsfIconBase';
-import { VsfIconSizeEnum } from '${relativePathToIconBasePath}VsfIconBase/types';
+import { VsfIconBase, VsfIconSizeEnum } from '${relativePathToIconBasePath}VsfIconBase';
 
 export default function VsfIcon${camelCaseName}({
     className = '',
@@ -209,8 +207,8 @@ const createExports = async (file, doOptimiziation) => {
 }
 
 const sortVueExports = (fileName) => {
-    let vueExportsString = ''
-    vueExports.sort()
+    let vueExportsString = "export * from './types';\n"
+    vueExports.sort();
     vueExports.forEach(component => {
         vueExportsString += `export { default as ${component} } from './${component}.vue';\n`;
     });
@@ -218,8 +216,8 @@ const sortVueExports = (fileName) => {
 }
 
 const sortReactExports = (fileName) => {
-    let reactExportsString = '';
-    reactExports.sort()
+    let reactExportsString = "export * from './types';\n"
+    reactExports.sort();
     reactExports.forEach(component => {
         reactExportsString += `export { default as ${component} } from './${component}';\n`;
     });

@@ -26,11 +26,9 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import * as Icons from '@sfui/sfui/frameworks/vue/components/VsfIcons/index';
-import VsfRatingButton from '@sfui/sfui/frameworks/vue/components/VsfRatingButton/VsfRatingButton.vue';
-import VsfIconStar from '@sfui/sfui/frameworks/vue/components/VsfIcons/VsfIconStar.vue';
-import VsfIconStarOutline from '@sfui/sfui/frameworks/vue/components/VsfIcons/VsfIconStarOutline.vue';
-import { VsfRatingButtonSizes } from '@sfui/sfui/frameworks/vue/components/VsfRatingButton/types';
+import * as Icons from '@storefront-ui/vue/components/VsfIcons/index';
+import { VsfIconStar, VsfIconStarOutline } from '@storefront-ui/vue/components/VsfIcons/index';
+import { VsfRatingButton, VsfRatingButtonSizes } from '@storefront-ui/vue/components/VsfRatingButton/index';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
 
 export default defineComponent({

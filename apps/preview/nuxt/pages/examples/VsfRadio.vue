@@ -23,9 +23,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import VsfRadio from '@sfui/sfui/frameworks/vue/components/VsfRadio/VsfRadio.vue';
-import VsfRadioGroup from '@sfui/sfui/frameworks/vue/components/VsfRadio/VsfRadioGroup.vue';
-import { VsfRadioAlignments } from '@sfui/sfui/frameworks/vue/components/VsfRadio/types';
+import { VsfRadio, VsfRadioGroup, VsfRadioAlignments } from '@storefront-ui/vue/components/VsfRadio/index';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
 
 export default defineComponent({

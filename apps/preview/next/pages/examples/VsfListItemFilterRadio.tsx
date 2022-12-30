@@ -1,7 +1,8 @@
-import VsfListItemFilterRadio, {
+import {
+  VsfListItemFilterRadio,
   VsfListItemFilterRadioVariant,
   VsfListItemFilterRadioSize,
-} from '@sfui/sfui/frameworks/react/components/VsfListItemFilterRadio';
+} from '@storefront-ui/react/components/VsfListItemFilterRadio';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 

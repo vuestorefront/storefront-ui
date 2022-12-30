@@ -1,3 +1,3 @@
-import VsfOverlay from './VsfOverlay';
+export { default as VsfOverlay } from './VsfOverlay';
 
-export default VsfOverlay;
+export * from './types';

@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { PropType, computed, toRefs } from 'vue';
+import type { PropType } from 'vue';
+import { computed, toRefs } from 'vue';
 import { VsfListItemMenuSizes } from './types';
-import VsfCounter from '../VsfCounter/VsfCounter.vue';
-import { VsfCounterSizes } from '../VsfCounter/types';
+import { VsfCounter, VsfCounterSizes } from '../VsfCounter';
 
 const props = defineProps({
   label: {

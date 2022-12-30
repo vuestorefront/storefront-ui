@@ -1,4 +1,3 @@
-import VsfSlider from './VsfSlider.vue';
+export { default as VsfSlider } from './VsfSlider.vue';
 
 export * from './types';
-export default VsfSlider;

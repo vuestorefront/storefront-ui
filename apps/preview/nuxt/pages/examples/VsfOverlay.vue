@@ -11,8 +11,8 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
+import VsfOverlay from '@storefront-ui/vue/components/VsfOverlay/VsfOverlay.vue';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
-import VsfOverlay from '@sfui/sfui/frameworks/vue/components/VsfOverlay/VsfOverlay.vue';
 
 export default defineComponent({
   name: 'VsfOverlayExample',

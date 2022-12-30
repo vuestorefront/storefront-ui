@@ -3,6 +3,7 @@ export enum VsfButtonSizes {
   base = 'base',
   lg = 'lg',
 }
+
 export enum VsfButtonVariants {
   primary = 'primary',
   secondary = 'secondary',

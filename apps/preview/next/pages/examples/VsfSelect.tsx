@@ -1,6 +1,4 @@
-import VsfSelect from '@sfui/sfui/frameworks/react/components/VsfSelect/VsfSelect';
-import { VsfSelectSizes } from '@sfui/sfui/frameworks/react/components/VsfSelect/types';
-
+import { VsfSelect, VsfSelectSizes } from '@storefront-ui/react/components/VsfSelect';
 import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 

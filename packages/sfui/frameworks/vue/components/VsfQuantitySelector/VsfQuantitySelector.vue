@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-import { PropType, computed, toRefs, ref } from 'vue';
+import type { PropType } from 'vue';
+import { computed, toRefs, ref } from 'vue';
+import { clamp } from '@storefront-ui/shared/utils/index';
 import { VsfQuantitySelectorSizes } from './types';
-import VsfButton from '../VsfButton/VsfButton.vue';
-import { VsfButtonVariants, VsfButtonSizes } from '../VsfButton/types';
-import { VsfIconMinus, VsfIconPlus } from '../VsfIcons/index';
-import { clamp } from '@sfui/shared/utils/index';
+import { VsfButton, VsfButtonVariants, VsfButtonSizes } from '../VsfButton';
+import { VsfIconMinus, VsfIconPlus } from '../VsfIcons';
 
 const props = defineProps({
   modelValue: {

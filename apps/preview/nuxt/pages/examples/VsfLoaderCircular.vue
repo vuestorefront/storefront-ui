@@ -11,8 +11,8 @@
 
 <script>
 import { ref } from 'vue';
-import VsfLoaderCircular from '@sfui/sfui/frameworks/vue/components/VsfLoaderCircular/VsfLoaderCircular.vue';
-import { VsfLoaderSizes } from '@sfui/shared/types';
+import VsfLoaderCircular from '@storefront-ui/vue/components/VsfLoaderCircular/VsfLoaderCircular.vue';
+import { VsfLoaderSizes } from '@storefront-ui/shared/types';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
 
 export default {

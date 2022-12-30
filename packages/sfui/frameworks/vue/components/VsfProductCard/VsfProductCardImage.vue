@@ -1,6 +1,9 @@
 <script lang="ts" setup>
-import { PropType, toRefs, computed } from 'vue';
-import { VsfProductCardSizes, VsfProductCardProps } from './types';
+import type { PropType } from 'vue';
+import { toRefs, computed } from 'vue';
+import type { VsfProductCardProps } from './types';
+import { VsfProductCardSizes } from './types';
+
 const props = defineProps({
   imageSrc: {
     type: String,

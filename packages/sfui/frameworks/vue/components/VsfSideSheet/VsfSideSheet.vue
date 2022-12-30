@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
-import VsfOverlay from '../VsfOverlay/VsfOverlay.vue';
 import { onClickOutside } from '@vueuse/core';
+import { VsfOverlay } from '../VsfOverlay';
 
 const props = defineProps({
   open: {

@@ -1,4 +1,4 @@
-import type { TagOrComponent } from '../../shared/utils/types';
+import type { TagOrComponent } from '../../shared/types';
 
 export type VsfLinkType = {
   label: string;

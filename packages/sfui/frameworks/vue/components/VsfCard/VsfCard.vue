@@ -1,7 +1,9 @@
 <script lang="ts" setup>
-import { PropType, computed } from 'vue';
-import { VsfCardSizes, VsfCardLinkTags, VsfCardProps } from './types';
-import VsfButton from '../VsfButton/VsfButton.vue';
+import type { PropType } from 'vue';
+import { computed } from 'vue';
+import type { VsfCardProps } from './types';
+import { VsfCardSizes, VsfCardLinkTags } from './types';
+import { VsfButton } from '../VsfButton';
 import { VsfButtonVariants, VsfButtonSizes } from '../VsfButton/types';
 
 defineEmits<{

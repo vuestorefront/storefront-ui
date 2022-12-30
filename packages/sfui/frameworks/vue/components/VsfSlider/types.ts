@@ -2,6 +2,7 @@ export enum VsfSliderScrollbar {
   always = 'always',
   auto = 'auto',
 }
+
 export enum VsfSliderNavigation {
   block = 'block',
   floating = 'floating',
