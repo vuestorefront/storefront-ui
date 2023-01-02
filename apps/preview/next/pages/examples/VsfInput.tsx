@@ -100,7 +100,7 @@ function Example() {
   }
   return (
     <div className="e-page">
-      <div className="relative e-page-component">
+      <div className="relative max-w-lg e-page-component">
         <VsfInput
           size={state.get.size}
           value={state.get.value}
