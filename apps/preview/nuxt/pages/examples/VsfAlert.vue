@@ -14,7 +14,7 @@
           <VsfIconChat />
         </template>
         <template v-if="suffix !== 'none'" #suffix>
-          <VsfButton :variant="VsfButtonVariants.tertiary">Button</VsfButton>
+          <VsfButton :variant="VsfButtonVariants.tertiary" @click="modelValue = false">Button</VsfButton>
         </template>
       </VsfAlert>
     </div>

@@ -101,7 +101,13 @@ function Example() {
           withShadow={state.get.withShadow}
           hidePrefix={state.get.hidePrefix}
           prefix={state.get.prefix !== 'none' && <VsfIconChat />}
-          suffix={state.get.suffix !== 'none' && <VsfButton variant={VsfButtonVariants.tertiary}>Button</VsfButton>}
+          suffix={
+            state.get.suffix !== 'none' && (
+              <VsfButton onClick={() => state.set({ ...state.get, open: false })} variant={VsfButtonVariants.tertiary}>
+                Button
+              </VsfButton>
+            )
+          }
         />
       </div>
       <div className="e-page-controls">
