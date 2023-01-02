@@ -82,7 +82,7 @@ watch([modelValue, type] as const, ([modelValue, type]) => {
     <div class="vsf-alert__suffix">
       <slot name="suffix">
         <VsfButton
-          v-if="type === VsfAlertTypes.permanent"
+          v-if="type === VsfAlertTypes.persistent"
           :variant="VsfButtonVariants.tertiary"
           @click="$emit('update:modelValue', false)"
         >

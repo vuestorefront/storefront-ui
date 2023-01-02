@@ -114,7 +114,7 @@ export default defineComponent({
         {
           modelValue: ref(true),
           variant: ref(undefined),
-          type: ref(VsfAlertTypes.permanent),
+          type: ref(VsfAlertTypes.persistent),
           text: ref('Informative text'),
           header: ref('Header'),
           withShadow: ref(undefined),

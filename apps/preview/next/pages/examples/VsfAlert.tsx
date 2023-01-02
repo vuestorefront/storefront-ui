@@ -78,7 +78,7 @@ function Example() {
     {
       open: true,
       variant: undefined,
-      type: VsfAlertTypes.permanent,
+      type: VsfAlertTypes.persistent,
       text: 'Informative text',
       header: 'Header',
       withShadow: undefined,

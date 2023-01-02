@@ -8,5 +8,5 @@ export enum VsfAlertVariants {
 
 export enum VsfAlertTypes {
   temporary = 'temporary',
-  permanent = 'permanent',
+  persistent = 'persistent',
 }

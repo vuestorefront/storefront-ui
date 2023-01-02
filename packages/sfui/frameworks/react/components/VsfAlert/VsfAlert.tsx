@@ -65,7 +65,7 @@ export default function VsfAlert({
       </div>
       <div className="vsf-alert__suffix">
         {suffix ||
-          (type === VsfAlertTypes.permanent && (
+          (type === VsfAlertTypes.persistent && (
             <VsfButton variant={VsfButtonVariants.tertiary} onClick={() => onOpenChange(false)}>
               <VsfIconClose />
             </VsfButton>
