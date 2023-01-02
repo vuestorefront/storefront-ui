@@ -114,6 +114,8 @@ function Example() {
           required={state.get.required}
           readonly={state.get.readonly}
           characterLimit={state.get.characterLimit}
+          slotSuffix={state.get.slotSuffix}
+          slotPrefix={state.get.slotPrefix}
           onChange={onChange}
         />
       </div>
