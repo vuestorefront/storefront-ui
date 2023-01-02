@@ -4,7 +4,6 @@
     "build": {
       "cache": false,
       "dependsOn": [
-        "@storefront-ui/css#build:css",
         "^build"
       ],
       "outputs": [
@@ -28,20 +27,17 @@
     "build:nuxt": {
       "cache": false
     },
-    "build:css": {
+    "build:react": {
       "cache": false
     },
-    "build:react": {
-      "cache": false,
-      "dependsOn": [
-        "build:css"
-      ]
+    "build:vue": {
+      "cache": false
     },
-    "build:css-copy": {
-      "cache": false,
+    "build:release": {
       "dependsOn": [
-        "build:react"
-      ]
+        "build:react", "build:vue"
+      ],
+      "cache": false
     },
     "dev": {
       "cache": false

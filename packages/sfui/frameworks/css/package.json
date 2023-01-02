@@ -6,7 +6,6 @@
     "*.css"
   ],
   "scripts": {
-    "build:css-copy": "cpy . ../../react/dist/styles --cwd=../css/dist",
     "build:css": "node ./build.js"
   },
   "main": "index.js",

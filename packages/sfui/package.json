@@ -1,5 +1,5 @@
 {
-  "name": "build-for-release",
+  "name": "@storefront-ui/sfui",
   "version": "2.0.0-alpha.0-pre",
   "scripts": {
     "build:react": "vite build -c vite.react.config.ts",
