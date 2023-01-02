@@ -1,3 +1,3 @@
-export { default as VsfSpinnerCircular } from './VsfLoaderCircular';
+export { default as VsfLoaderCircular } from './VsfLoaderCircular';
 
 export * from './types';

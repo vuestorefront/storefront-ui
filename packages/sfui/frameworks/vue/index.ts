@@ -10,6 +10,7 @@ export * from './components/VsfChipsFilter';
 export * from './components/VsfCounter';
 export * from './components/VsfDialog';
 export * from './components/VsfDivider';
+export * from './components/VsfDropdownMenu';
 export * from './components/VsfFooter';
 export * from './components/VsfIconBase';
 export * from './components/VsfInput';
