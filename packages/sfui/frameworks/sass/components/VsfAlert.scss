@@ -1,6 +1,6 @@
 .vsf-alert {
   $self: &;
-  @apply flex py-1 pr-2 pl-4 rounded-md gap-2 ring-1 ring-inset text-gray-900;
+  @apply flex py-1 pr-2 pl-4 rounded-md gap-2 ring-1 ring-inset text-gray-900 break-words;
 
   &--with-shadow {
     @apply shadow-md;
@@ -43,7 +43,7 @@
   }
 
   &__content {
-    @apply my-2;
+    @apply my-2 min-w-0;
   }
 
   &__header{
