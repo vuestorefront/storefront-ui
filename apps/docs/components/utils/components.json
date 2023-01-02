@@ -75,10 +75,8 @@
     "VsfNavbarTopAction",
     "VsfNavbarTopActionGroup",
     "VsfNavigationSide",
-    "index",
     "VsfNavigationTop",
     "VsfOverlay",
-    "index",
     "VsfPagination",
     "VsfProductCard",
     "VsfProductCardImage",
@@ -91,7 +89,6 @@
     "VsfSearch",
     "VsfSelect",
     "VsfSelectOption",
-    "index",
     "VsfSideSheet",
     "VsfSlider",
     "VsfTag"
