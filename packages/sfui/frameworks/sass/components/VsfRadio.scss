@@ -3,7 +3,7 @@
   @apply flex rounded;
 
   &__input {
-    @apply w-5 h-5 border-2 border-gray-500 rounded-full appearance-none cursor-pointer outline-violet;
+    @apply min-w-[20px] h-5 border-2 border-gray-500 rounded-full appearance-none cursor-pointer outline-violet;
 
     &:invalid {
       @apply border-negative-700;
