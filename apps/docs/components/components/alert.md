@@ -24,6 +24,8 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 | slotPrefix              | Element, Element[], string | `""`            |                                        |
 | slotSuffix            | Element, Element[], string | `""`            |                                        |
 | handleCloseClick      | () => void                 | `""`            |                                        |
+| className             | String                     |                 |                                         |
+
 <!-- end react -->
 
 <!-- vue -->

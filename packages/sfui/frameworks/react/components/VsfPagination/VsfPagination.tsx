@@ -15,6 +15,7 @@ export default function VsfPagination({
   slotPrefix,
   slotSuffix,
   children,
+  className,
   ...attributes
 }: VsfPaginationProps): JSX.Element {
   const [pagination, setPagination] = useState(paginate(totalItems, currentPage, itemsPerPage, maxVisiblePages));
@@ -37,7 +38,7 @@ export default function VsfPagination({
     <>
       <VsfDivider />
       <nav
-        className="vsf-pagination"
+        className={classNames('vsf-pagination', className)}
         role="navigation"
         aria-label="pagination"
         {...attributes}

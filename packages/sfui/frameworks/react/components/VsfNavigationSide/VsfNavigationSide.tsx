@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import { VsfIconClose, VsfIconLogo } from '../VsfIcons';
 import VsfSideSheet from '../VsfSideSheet/VsfSideSheet';
 import VsfNavbarTop from '../VsfNavbarTop/VsfNavbarTop';
@@ -16,12 +17,13 @@ export default function VsfNavigationSide({
   slotNavigation,
   children,
   slotBanner,
+  className,
   onOpenChange = () => false,
   ...attributes
 }: VsfNavigationSideProps): JSX.Element {
   return (
     <VsfSideSheet
-      className="vsf-navigation-side"
+      className={classNames('vsf-navigation-side', className)}
       overlayVisible={overlayVisible}
       permanent={permanent}
       leftSide={leftSide}
@@ -36,7 +38,7 @@ export default function VsfNavigationSide({
           <a
             href={logoLink}
             aria-label={logoAriaLabel}
-            className="flex items-center text-white mx-0 h-8 md:h-10 lg:h-7"
+            className="flex items-center h-8 mx-0 text-white md:h-10 lg:h-7"
             data-testid="navigation-side-logo"
           >
             <VsfIconLogo viewBox="0 0 205 28" className="!w-[12.5rem] !h-[1.75rem]" />

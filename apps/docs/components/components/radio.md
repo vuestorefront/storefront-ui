@@ -49,6 +49,7 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 | label     | String              |               |                       |
 | helpText  | String              | `Help text`   |                       |
 | alignment | `VsfRadioAlignment` | `leading`     | `trailing`, `leading` |
+| className | String              |               |                       |
 
 ## Events
 

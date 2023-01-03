@@ -37,6 +37,7 @@ export default function VsfAlert({
   hidePrefix,
   prefix,
   suffix,
+  className,
   ...attributes
 }: VsfAlertProps): JSX.Element | null {
   const [, cancel, reset] = useTimeoutFn(() => {
@@ -54,7 +55,7 @@ export default function VsfAlert({
   return open ? (
     <div
       role="alert"
-      className={classNames(`vsf-alert vsf-alert--${variant}`, { 'vsf-alert--with-shadow': withShadow })}
+      className={classNames(`vsf-alert vsf-alert--${variant}`, { 'vsf-alert--with-shadow': withShadow }, className)}
       data-testid="alert"
       {...attributes}
     >

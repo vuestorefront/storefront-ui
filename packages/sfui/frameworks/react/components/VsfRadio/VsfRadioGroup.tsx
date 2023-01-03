@@ -11,6 +11,7 @@ export default function VsfRadioGroup({
   requiredText,
   children,
   className,
+  ...attributes
 }: VsfRadioGroupProps) {
   return (
     <fieldset
@@ -19,6 +20,7 @@ export default function VsfRadioGroup({
       aria-required={required}
       aria-describedby="radioGroupErrorText"
       data-testid="radio-group"
+      {...attributes}
     >
       {legend ? (
         <legend className="vsf-radio-group__legend" data-testid="radio-group-legend">

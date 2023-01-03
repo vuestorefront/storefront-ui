@@ -12,6 +12,7 @@ export default function VsfRadio({
   helpText,
   className,
   onChange,
+  ...attributes
 }: VsfRadioProps) {
   return (
     <label
@@ -21,6 +22,7 @@ export default function VsfRadio({
         { 'vsf-radio--disabled': disabled },
         className,
       )}
+      {...attributes}
     >
       <input
         name={name}

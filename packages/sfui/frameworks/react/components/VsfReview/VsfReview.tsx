@@ -14,13 +14,14 @@ export default function VsfReview({
   charLimit = 700,
   showMoreText = 'Read more',
   showLessText = 'Read less',
+  ...attributes
 }: VsfReviewProps) {
   const [isCollapsed, setIsCollapsed] = useState<boolean>(true);
   const isButtonVisible = content.length > charLimit;
   const truncatedContent = isButtonVisible && isCollapsed ? `${content.substring(0, charLimit)}...` : content;
 
   return (
-    <div className={classnames('vsf-review', className)}>
+    <div className={classnames('vsf-review', className)} {...attributes}>
       <p className="vsf-review__title">{title}</p>
       <div className="vsf-review__data">
         <div className="vsf-review__data-leading">

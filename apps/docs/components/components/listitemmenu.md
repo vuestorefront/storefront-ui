@@ -61,6 +61,8 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 | secondaryText      | `ReactNode` |               | secondaryText content      |
 | slotPrefix         | `ReactNode` |               | Right side slotted content |
 | slotSuffix         | `ReactNode` |               | Left side slotted content  |
+| className          | String      |               |                            |
+
 
 <!-- end react -->
 

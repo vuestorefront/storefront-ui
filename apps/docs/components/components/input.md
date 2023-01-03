@@ -28,6 +28,7 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 <!-- react -->
 | slotPrefix   | ReactNode       |               |                                        |
 | slotSuffix   | ReactNode       |               |                                        |
+| className    | String          |               |                                        |
 | onChange     | Function        |               |                                        |
 <!-- end react -->
 

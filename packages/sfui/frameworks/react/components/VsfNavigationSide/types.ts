@@ -1,6 +1,7 @@
 import type { MouseEventHandler, PropsWithChildren, ReactNode } from 'react';
+import type { PropsWithStyle } from '../../shared/types';
 
-export interface VsfNavigationSideProps extends PropsWithChildren {
+export interface VsfNavigationSideProps extends PropsWithChildren, PropsWithStyle {
   open: boolean;
   overlayVisible?: boolean;
   leftSide?: boolean;

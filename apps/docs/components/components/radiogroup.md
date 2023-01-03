@@ -24,6 +24,9 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 | helpText     | string                    | `Help text`     |                                  |
 | required     | Boolean                   | false           |                                  |
 | isInvalid    | Boolean                   | false           |                                  |
+<!-- react -->
+| className    | String                    |                 |                                  |
+<!-- end react -->
 
 ## Slots
 

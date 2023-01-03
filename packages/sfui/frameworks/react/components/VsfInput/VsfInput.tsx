@@ -18,8 +18,10 @@ export default function VsfInput({
   requiredText,
   invalid,
   readonly,
+  className,
   characterLimit = 12,
   onChange,
+  ...attributes
 }: VsfInputProps) {
   const inputId = generateId('input');
   const isAboveLimit = value.length > characterLimit;
@@ -31,7 +33,9 @@ export default function VsfInput({
         'vsf-input',
         `vsf-input--size-${size}`,
         { 'vsf-input--disabled': disabled, 'vsf-input--invalid': invalid, 'vsf-input--readonly': readonly },
+        className,
       ])}
+      {...attributes}
       data-testid="input"
     >
       {label ? (
