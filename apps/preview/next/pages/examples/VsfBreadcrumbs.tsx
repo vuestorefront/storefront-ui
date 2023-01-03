@@ -1,6 +1,7 @@
 import { VsfBreadcrumbs } from '@storefront-ui/react/components/VsfBreadcrumbs';
 import type { VsfBreadcrumbsProps } from '@storefront-ui/react/components/VsfBreadcrumbs/types';
-import Controls, { prepareControls } from '../../components/utils/Controls';
+import { prepareControls } from '../../components/utils/Controls';
+import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
 
 function Example() {
@@ -30,14 +31,9 @@ function Example() {
     },
   );
   return (
-    <div className="e-page">
-      <div className="e-page-component">
-        <VsfBreadcrumbs withIcon={state.get.withIcon} breadcrumbs={state.get.breadcrumbs} />
-      </div>
-      <div className="e-page-controls">
-        <Controls {...{ state, controls }} />
-      </div>
-    </div>
+    <ComponentExample controls={{ state, controls }}>
+      <VsfBreadcrumbs withIcon={state.get.withIcon} breadcrumbs={state.get.breadcrumbs} />
+    </ComponentExample>
   );
 }
 

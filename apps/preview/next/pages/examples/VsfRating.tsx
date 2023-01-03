@@ -1,6 +1,7 @@
 import { VsfRating, VsfRatingVariants, VsfRatingSizes } from '@storefront-ui/react/components/VsfRating';
 import type { VsfRatingProps } from '@storefront-ui/react/components/VsfRating/types';
-import Controls, { prepareControls } from '../../components/utils/Controls';
+import { prepareControls } from '../../components/utils/Controls';
+import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
 
 function Example() {
@@ -65,20 +66,15 @@ function Example() {
     },
   );
   return (
-    <div className="e-page">
-      <div className="e-page-component">
-        <VsfRating
-          value={state.get.value}
-          max={state.get.max}
-          size={state.get.size}
-          variant={state.get.variant}
-          halfIncrement={state.get.halfIncrement}
-        />
-      </div>
-      <div className="e-page-controls">
-        <Controls {...{ state, controls }} />
-      </div>
-    </div>
+    <ComponentExample controls={{ state, controls }}>
+      <VsfRating
+        value={state.get.value}
+        max={state.get.max}
+        size={state.get.size}
+        variant={state.get.variant}
+        halfIncrement={state.get.halfIncrement}
+      />
+    </ComponentExample>
   );
 }
 

@@ -1,35 +1,31 @@
 <template>
-  <div class="e-page">
-    <div class="e-page-component--icons">
-      <div
-        v-for="componentName in componentsNames"
-        :key="componentName"
-        class="inline-block border cursor-pointer"
-        :data-tooltip="componentName"
-        @click="copyToClipboard(componentName)"
-      >
-        <component :is="componentName" :size="size" :style="{ color: colorExample }" />
-      </div>
+  <ComponentExample class="e-page--icons" :controls-attrs="controlsAttrs">
+    <div
+      v-for="componentName in componentsNames"
+      :key="componentName"
+      class="inline-block border cursor-pointer"
+      :data-tooltip="componentName"
+      @click="copyToClipboard(componentName)"
+    >
+      <component :is="componentName" :size="size" :style="{ color: colorExample }" />
+    </div>
 
-      <div v-if="copied" class="mt-5 p-6">Component name ({{ copied }}) has been copied to clipboard</div>
-    </div>
-    <div class="e-page-controls">
-      <Controls v-bind="controlsAttrs" />
-    </div>
-  </div>
+    <div v-if="copied" class="mt-5 p-6">Component name ({{ copied }}) has been copied to clipboard</div>
+  </ComponentExample>
 </template>
 
 <script lang="ts">
 import { ref } from 'vue';
 import { VsfIconSizeEnum } from '@storefront-ui/vue/components/VsfIcons/types';
 import * as AllVsfIcons from '@storefront-ui/vue/components/VsfIcons/index';
-import Controls, { prepareControls } from '../../components/utils/Controls.vue';
+import { prepareControls } from '../../components/utils/Controls.vue';
+import ComponentExample from '../../components/utils/ComponentExample.vue';
 
 const componentsNames = Object.keys(AllVsfIcons);
 export default {
   name: 'VsfSpinnerExample',
   components: {
-    Controls,
+    ComponentExample,
     ...componentsNames.reduce(
       (prev, curr) => ({ ...prev, [`${curr}`]: (AllVsfIcons as Record<string, unknown>)[`${curr}`] }),
       {},

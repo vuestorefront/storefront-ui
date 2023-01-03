@@ -1,7 +1,8 @@
 import { VsfTag, VsfTagVariants, VsfTagSizes, VsfTagAriaLiveValues } from '@storefront-ui/react/components/VsfTag';
 import { VsfIconSizeEnum } from '@storefront-ui/react/components/VsfIcons/types';
 import { VsfIconCheck } from '@storefront-ui/react/components/VsfIcons';
-import Controls, { prepareControls } from '../../components/utils/Controls';
+import { prepareControls } from '../../components/utils/Controls';
+import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
 
 function Example() {
@@ -53,25 +54,20 @@ function Example() {
   );
 
   return (
-    <div className="e-page">
-      <div className="e-page-component">
-        <VsfTag
-          size={state.get.size}
-          label={state.get.label}
-          variant={state.get.variant}
-          strong={state.get.strong}
-          ariaLive={state.get.ariaLiveValue}
-          className="mr-2"
-        >
-          {state.get.showIcon ? (
-            <VsfIconCheck size={state.get.size === VsfTagSizes.base ? VsfIconSizeEnum.sm : VsfIconSizeEnum.xs} />
-          ) : null}
-        </VsfTag>
-      </div>
-      <div className="e-page-controls">
-        <Controls {...{ state, controls }} />
-      </div>
-    </div>
+    <ComponentExample controls={{ state, controls }}>
+      <VsfTag
+        size={state.get.size}
+        label={state.get.label}
+        variant={state.get.variant}
+        strong={state.get.strong}
+        ariaLive={state.get.ariaLiveValue}
+        className="mr-2"
+      >
+        {state.get.showIcon ? (
+          <VsfIconCheck size={state.get.size === VsfTagSizes.base ? VsfIconSizeEnum.sm : VsfIconSizeEnum.xs} />
+        ) : null}
+      </VsfTag>
+    </ComponentExample>
   );
 }
 

@@ -1,37 +1,26 @@
 <template>
-  <div class="e-page">
-    <div class="e-page-component">
-      <VsfButton type="button" @click="modelValue = true">Click to open NavigationSide</VsfButton>
-      <VsfNavigationSide
-        v-model="modelValue"
-        :overlay-visible="overlayVisible"
-        :permanent="permanent"
-        :left-side="leftSide"
-        :logo-aria-label="logoAriaLabel"
-        :logo-link="logoLink"
-      >
-        <div class="border border-dashed p-6">{{ defaultContent }}</div>
-        <template #banner>
-          <div class="border border-dashed p-6">{{ bannerContent }}</div>
-        </template>
-      </VsfNavigationSide>
-    </div>
-    <div class="e-page-controls">
-      <Controls v-bind="controlsAttrs" />
-    </div>
-  </div>
+  <ComponentExample :controls-attrs="controlsAttrs">
+    <VsfButton type="button" @click="modelValue = true">Click to open NavigationSide</VsfButton>
+    <VsfNavigationSide v-bind="state" v-model="modelValue">
+      <div class="border border-dashed p-6">{{ defaultContent }}</div>
+      <template #banner>
+        <div class="border border-dashed p-6">{{ bannerContent }}</div>
+      </template>
+    </VsfNavigationSide>
+  </ComponentExample>
 </template>
 
 <script>
 import { ref } from 'vue';
 import VsfNavigationSide from '@storefront-ui/vue/components/VsfNavigationSide/VsfNavigationSide.vue';
 import VsfButton from '@storefront-ui/vue/components/VsfButton/VsfButton.vue';
-import Controls, { prepareControls } from '../../components/utils/Controls.vue';
+import { prepareControls } from '../../components/utils/Controls.vue';
+import ComponentExample from '../../components/utils/ComponentExample.vue';
 
 export default {
   name: 'VsfNavigationSideExample',
   components: {
-    Controls,
+    ComponentExample,
     VsfNavigationSide,
     VsfButton,
   },

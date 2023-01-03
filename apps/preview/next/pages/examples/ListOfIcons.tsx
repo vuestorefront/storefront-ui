@@ -2,7 +2,8 @@ import { useState, createElement } from 'react';
 import { VsfIconSizeEnum } from '@storefront-ui/react/components/VsfIcons/types';
 import * as AllVsfIcons from '@storefront-ui/react/components/VsfIcons';
 import useSWR from 'swr';
-import Controls, { prepareControls } from '../../components/utils/Controls';
+import { prepareControls } from '../../components/utils/Controls';
+import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
@@ -40,29 +41,24 @@ function Example() {
     },
   );
   return (
-    <div className="e-page">
-      <div className="e-page-component--icons">
-        {componentsNames.map((componentName) => (
-          <button
-            type="button"
-            key={componentName}
-            className="inline-block border cursor-pointer"
-            data-tooltip={componentName}
-            onClick={() => {
-              copyToClipboard(componentName);
-            }}
-            style={{ color: state.get.colorExample }}
-          >
-            {createElement((AllVsfIcons as Record<string, any>)[componentName], { size: state.get.size })}
-          </button>
-        ))}
+    <ComponentExample className="e-page--icons" controls={{ state, controls }}>
+      {componentsNames.map((componentName) => (
+        <button
+          type="button"
+          key={componentName}
+          className="inline-block border cursor-pointer"
+          data-tooltip={componentName}
+          onClick={() => {
+            copyToClipboard(componentName);
+          }}
+          style={{ color: state.get.colorExample }}
+        >
+          {createElement((AllVsfIcons as Record<string, any>)[componentName], { size: state.get.size })}
+        </button>
+      ))}
 
-        {copied && <div className="mt-5">Component name ({copied}) has been copied to clipboard</div>}
-      </div>
-      <div className="e-page-controls">
-        <Controls {...{ state, controls }} />
-      </div>
-    </div>
+      {copied && <div className="mt-5">Component name ({copied}) has been copied to clipboard</div>}
+    </ComponentExample>
   );
 }
 

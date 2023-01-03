@@ -8,7 +8,8 @@ import type {
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { VsfButtonProps } from '@storefront-ui/react/components/VsfButton/types';
-import Controls, { prepareControls } from '../../components/utils/Controls';
+import { prepareControls } from '../../components/utils/Controls';
+import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
 import productImage from '../fixture/product-card.webp';
 
@@ -213,49 +214,36 @@ function Example() {
   }, [newWindowWidth]);
 
   return (
-    <div className="e-page">
-      <div className="e-page-component">
-        <VsfProductCard
-          title={state.get.title}
-          link={state.get.link}
-          price={state.get.price}
-          oldPrice={state.get.oldPrice}
-          size={state.get.size}
-          outOfStock={state.get.outOfStock}
-          outOfStockLabel={state.get.outOfStockLabel}
-          inCart={state.get.inCart}
-          description={state.get.description}
-          ratingValue={state.get.ratingValue}
-          maxRatingValue={state.get.maxRatingValue}
-          reviewsAmount={state.get.reviewsAmount}
-          similarLabel={state.get.similarLabel}
-          addToCartLabel={newAddToCartLabel}
-          badgeText={state.get.badgeText}
-          vertical={state.get.vertical}
-          ariaLabelAddToWishlist={state.get.ariaLabelAddToWishlist}
-          ariaLabelBadge={state.get.ariaLabelBadge}
-          ariaLabelAddToBasket={state.get.ariaLabelAddToBasket}
-          onAddToCartClick={onAddToCartClick}
-          onAddToWishlistClick={onAddToWishlistClick}
-          onSeeSimilarClick={onSeeSimilarClick}
-          onReviewsClick={onReviewsClick}
-          slotImage={
-            state.get.linkTag === LinkTagTypes.NextLink
-              ? state.get.imageSrc && (
-                  <Link href={state.get.link}>
-                    <a>
-                      <VsfProductCardImage
-                        className={imageClasses}
-                        imageSrc={state.get.imageSrc}
-                        vertical={state.get.vertical}
-                        size={state.get.size}
-                        {...state.get.imageAttr}
-                      />
-                    </a>
-                  </Link>
-                )
-              : state.get.imageSrc && (
-                  <a href={state.get.link}>
+    <ComponentExample controls={{ state, controls }}>
+      <VsfProductCard
+        title={state.get.title}
+        link={state.get.link}
+        price={state.get.price}
+        oldPrice={state.get.oldPrice}
+        size={state.get.size}
+        outOfStock={state.get.outOfStock}
+        outOfStockLabel={state.get.outOfStockLabel}
+        inCart={state.get.inCart}
+        description={state.get.description}
+        ratingValue={state.get.ratingValue}
+        maxRatingValue={state.get.maxRatingValue}
+        reviewsAmount={state.get.reviewsAmount}
+        similarLabel={state.get.similarLabel}
+        addToCartLabel={newAddToCartLabel}
+        badgeText={state.get.badgeText}
+        vertical={state.get.vertical}
+        ariaLabelAddToWishlist={state.get.ariaLabelAddToWishlist}
+        ariaLabelBadge={state.get.ariaLabelBadge}
+        ariaLabelAddToBasket={state.get.ariaLabelAddToBasket}
+        onAddToCartClick={onAddToCartClick}
+        onAddToWishlistClick={onAddToWishlistClick}
+        onSeeSimilarClick={onSeeSimilarClick}
+        onReviewsClick={onReviewsClick}
+        slotImage={
+          state.get.linkTag === LinkTagTypes.NextLink
+            ? state.get.imageSrc && (
+                <Link href={state.get.link}>
+                  <a>
                     <VsfProductCardImage
                       className={imageClasses}
                       imageSrc={state.get.imageSrc}
@@ -264,33 +252,41 @@ function Example() {
                       {...state.get.imageAttr}
                     />
                   </a>
-                )
-          }
-          slotTitle={
-            state.get.linkTag === LinkTagTypes.NextLink
-              ? state.get.title && (
-                  <Link href={state.get.link}>
-                    <a>
-                      <span className="vsf-product-card__details-title" data-testid="product-card-title">
-                        {state.get.title}
-                      </span>
-                    </a>
-                  </Link>
-                )
-              : state.get.title && (
-                  <a href={state.get.link}>
+                </Link>
+              )
+            : state.get.imageSrc && (
+                <a href={state.get.link}>
+                  <VsfProductCardImage
+                    className={imageClasses}
+                    imageSrc={state.get.imageSrc}
+                    vertical={state.get.vertical}
+                    size={state.get.size}
+                    {...state.get.imageAttr}
+                  />
+                </a>
+              )
+        }
+        slotTitle={
+          state.get.linkTag === LinkTagTypes.NextLink
+            ? state.get.title && (
+                <Link href={state.get.link}>
+                  <a>
                     <span className="vsf-product-card__details-title" data-testid="product-card-title">
                       {state.get.title}
                     </span>
                   </a>
-                )
-          }
-        />
-      </div>
-      <div className="e-page-controls">
-        <Controls {...{ state, controls }} />
-      </div>
-    </div>
+                </Link>
+              )
+            : state.get.title && (
+                <a href={state.get.link}>
+                  <span className="vsf-product-card__details-title" data-testid="product-card-title">
+                    {state.get.title}
+                  </span>
+                </a>
+              )
+        }
+      />
+    </ComponentExample>
   );
 }
 

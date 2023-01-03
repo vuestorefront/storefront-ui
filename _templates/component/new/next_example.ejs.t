@@ -6,7 +6,8 @@ force: false
   Variants = name + 'Variants'
 %>
 import <%= name %><%= locals.variants ? `, { ${Variants} }` : null %> from '@storefront-ui/react/components/<%= name %>/<%= name %>';
-import Controls, { prepareControls } from '../../components/utils/Controls';
+import { prepareControls } from '../../components/utils/Controls';
+import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
 
 const Example = () => {
@@ -28,18 +29,13 @@ const Example = () => {
   });
 
   return (
-    <div className="e-page">
-      <div className="e-page-component">
-        <<%= name %>
+    <ComponentExample controls={{ state, controls }}>
+      <<%= name %>
 
-        >
+      >
 
-        </<%= name %>>
-      </div>
-      <div className="e-page-controls">
-        <Controls {...{ state, controls }} />
-      </div>
-    </div>
+      </<%= name %>>
+    </ComponentExample>
   );
 }
 

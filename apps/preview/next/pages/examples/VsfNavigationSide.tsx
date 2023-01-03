@@ -1,6 +1,7 @@
 import { VsfNavigationSide } from '@storefront-ui/react/components/VsfNavigationSide';
 import { VsfButton } from '@storefront-ui/react/components/VsfButton';
-import Controls, { prepareControls } from '../../components/utils/Controls';
+import { prepareControls } from '../../components/utils/Controls';
+import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
 
 function Example() {
@@ -71,33 +72,28 @@ function Example() {
     state.set({ ...state.get, open: false });
   }
   return (
-    <div className="e-page">
-      <div className="e-page-component">
-        <VsfButton
-          type="button"
-          onClick={() => {
-            state.set({ ...state.get, open: true });
-          }}
-        >
-          Click to open Navigation Side
-        </VsfButton>
-        <VsfNavigationSide
-          open={state.get.open}
-          overlayVisible={state.get.overlayVisible}
-          leftSide={state.get.leftSide}
-          permanent={state.get.permanent}
-          logoLink={state.get.logoLink}
-          logoAriaLabel={state.get.logoAriaLabel}
-          slotBanner={<div className="p-6 border border-dashed">{state.get.bannerContent}</div>}
-          onOpenChange={onClose}
-        >
-          <div className="p-6 border border-dashed">{state.get.defaultContent}</div>
-        </VsfNavigationSide>
-      </div>
-      <div className="e-page-controls">
-        <Controls {...{ state, controls }} />
-      </div>
-    </div>
+    <ComponentExample controls={{ state, controls }}>
+      <VsfButton
+        type="button"
+        onClick={() => {
+          state.set({ ...state.get, open: true });
+        }}
+      >
+        Click to open Navigation Side
+      </VsfButton>
+      <VsfNavigationSide
+        open={state.get.open}
+        overlayVisible={state.get.overlayVisible}
+        leftSide={state.get.leftSide}
+        permanent={state.get.permanent}
+        logoLink={state.get.logoLink}
+        logoAriaLabel={state.get.logoAriaLabel}
+        slotBanner={<div className="p-6 border border-dashed">{state.get.bannerContent}</div>}
+        onOpenChange={onClose}
+      >
+        <div className="p-6 border border-dashed">{state.get.defaultContent}</div>
+      </VsfNavigationSide>
+    </ComponentExample>
   );
 }
 

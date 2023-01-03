@@ -1,24 +1,20 @@
 <template>
-  <div class="e-page">
-    <div class="e-page-component">
-      <VsfDivider />
-    </div>
-    <div class="e-page-controls">
-      <Controls v-bind="controlsAttrs" />
-    </div>
-  </div>
+  <ComponentExample :controls-attrs="controlsAttrs">
+    <VsfDivider />
+  </ComponentExample>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
 import VsfDivider from '@storefront-ui/vue/components/VsfDivider/VsfDivider.vue';
-import Controls, { prepareControls } from '../../components/utils/Controls.vue';
+import { prepareControls } from '../../components/utils/Controls.vue';
+import ComponentExample from '../../components/utils/ComponentExample.vue';
 
 export default defineComponent({
   name: 'VsfDividerExample',
   components: {
     VsfDivider,
-    Controls,
+    ComponentExample,
   },
   setup() {
     return prepareControls([], {});

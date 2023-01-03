@@ -1,5 +1,6 @@
 import VsfSwitch, { VsfSwitchVariants } from '../../output/blocks/VsfSwitch/VsfSwitch.lite';
-import Controls, { prepareControls } from '../../components/utils/Controls';
+import { prepareControls } from '../../components/utils/Controls';
+import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examplesOld';
 
 const Example = () => {
@@ -86,27 +87,22 @@ const Example = () => {
     },
   );
   return (
-    <div className="e-page">
-      <div className="e-page-component">
-        <VsfSwitch
-          name={state.get.nameModel!}
-          value={state.get.valueModel}
-          label={state.get.labelModel}
-          required={state.get.requiredModel}
-          disabled={state.get.disabledModel}
-          rightCheckbox={state.get.rightCheckboxModel}
-          invalid={state.get.invalidModel}
-          errorText={state.get.errorTextModel}
-          helpText={state.get.helpTextModel}
-          size={state.get.sizeModel}
-          onChange={() => state.set({ ...state.get, toggle: !state.get.toggle })}
-          checked={state.get.toggle}
-        />
-      </div>
-      <div className="e-page-controls">
-        <Controls {...{ state, controls }} />
-      </div>
-    </div>
+    <ComponentExample controls={{ state, controls }}>
+      <VsfSwitch
+        name={state.get.nameModel!}
+        value={state.get.valueModel}
+        label={state.get.labelModel}
+        required={state.get.requiredModel}
+        disabled={state.get.disabledModel}
+        rightCheckbox={state.get.rightCheckboxModel}
+        invalid={state.get.invalidModel}
+        errorText={state.get.errorTextModel}
+        helpText={state.get.helpTextModel}
+        size={state.get.sizeModel}
+        onChange={() => state.set({ ...state.get, toggle: !state.get.toggle })}
+        checked={state.get.toggle}
+      />
+    </ComponentExample>
   );
 }
 

@@ -1,5 +1,6 @@
 import { VsfSelect, VsfSelectSizes } from '@storefront-ui/react/components/VsfSelect';
-import Controls, { prepareControls } from '../../components/utils/Controls';
+import { prepareControls } from '../../components/utils/Controls';
+import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
 
 function Example() {
@@ -79,26 +80,21 @@ function Example() {
     state.set({ ...state.get, value });
   }
   return (
-    <div className="e-page">
-      <div className="relative e-page-component">
-        <VsfSelect
-          options={state.get.options}
-          disabled={state.get.disabled}
-          placeholder={state.get.placeholder}
-          errorText={state.get.errorText}
-          helpText={state.get.helpText}
-          requiredText={state.get.requiredText}
-          required={state.get.required}
-          invalid={state.get.invalid}
-          label={state.get.label}
-          size={state.get.size}
-          onChange={onChange}
-        />
-      </div>
-      <div className="e-page-controls">
-        <Controls {...{ state, controls }} />
-      </div>
-    </div>
+    <ComponentExample controls={{ state, controls }}>
+      <VsfSelect
+        options={state.get.options}
+        disabled={state.get.disabled}
+        placeholder={state.get.placeholder}
+        errorText={state.get.errorText}
+        helpText={state.get.helpText}
+        requiredText={state.get.requiredText}
+        required={state.get.required}
+        invalid={state.get.invalid}
+        label={state.get.label}
+        size={state.get.size}
+        onChange={onChange}
+      />
+    </ComponentExample>
   );
 }
 

@@ -1,29 +1,25 @@
 <template>
-  <div class="e-page">
-    <div class="e-page-component">
-      <VsfPagination
-        :total-items="Number(totalItems)"
-        :current-page="Number(currentPage)"
-        :items-per-page="Number(itemsPerPage)"
-        :max-visible-pages="Number(maxVisiblePages)"
-        @update:current-page="handlePageChange"
-      />
-    </div>
-    <div class="e-page-controls">
-      <Controls v-bind="controlsAttrs" />
-    </div>
-  </div>
+  <ComponentExample :controls-attrs="controlsAttrs">
+    <VsfPagination
+      :total-items="Number(totalItems)"
+      :current-page="Number(currentPage)"
+      :items-per-page="Number(itemsPerPage)"
+      :max-visible-pages="Number(maxVisiblePages)"
+      @update:current-page="handlePageChange"
+    />
+  </ComponentExample>
 </template>
 
 <script>
 import { ref } from 'vue';
 import VsfPagination from '@storefront-ui/vue/components/VsfPagination/VsfPagination.vue';
-import Controls, { prepareControls } from '../../components/utils/Controls.vue';
+import { prepareControls } from '../../components/utils/Controls.vue';
+import ComponentExample from '../../components/utils/ComponentExample.vue';
 
 export default {
   name: 'VsfPaginationExample',
   components: {
-    Controls,
+    ComponentExample,
     VsfPagination,
   },
   setup() {

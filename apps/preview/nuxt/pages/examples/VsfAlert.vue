@@ -1,27 +1,22 @@
 <template>
-  <div class="e-page">
-    <div class="e-page-component">
-      <VsfAlert
-        v-model="modelValue"
-        :variant="variant"
-        :type="type"
-        :text="text"
-        :header="header"
-        :with-shadow="withShadow"
-        :hide-prefix="hidePrefix"
-      >
-        <template v-if="prefix !== 'none'" #prefix>
-          <VsfIconChat />
-        </template>
-        <template v-if="suffix !== 'none'" #suffix>
-          <VsfButton :variant="VsfButtonVariants.tertiary" @click="modelValue = false">Button</VsfButton>
-        </template>
-      </VsfAlert>
-    </div>
-    <div class="e-page-controls">
-      <Controls v-bind="controlsAttrs" />
-    </div>
-  </div>
+  <ComponentExample :controls-attrs="controlsAttrs">
+    <VsfAlert
+      v-model="modelValue"
+      :variant="variant"
+      :type="type"
+      :text="text"
+      :header="header"
+      :with-shadow="withShadow"
+      :hide-prefix="hidePrefix"
+    >
+      <template v-if="prefix !== 'none'" #prefix>
+        <VsfIconChat />
+      </template>
+      <template v-if="suffix !== 'none'" #suffix>
+        <VsfButton :variant="VsfButtonVariants.tertiary" @click="modelValue = false">Button</VsfButton>
+      </template>
+    </VsfAlert>
+  </ComponentExample>
 </template>
 
 <script lang="ts">
@@ -29,7 +24,8 @@ import { defineComponent, ref } from 'vue';
 import { VsfAlert, VsfAlertTypes, VsfAlertVariants } from '@storefront-ui/vue/components/VsfAlert/index';
 import { VsfButton, VsfButtonVariants } from '@storefront-ui/vue/components/VsfButton/index';
 import { VsfIconChat } from '@storefront-ui/vue/components/VsfIcons/index';
-import Controls, { prepareControls } from '../../components/utils/Controls.vue';
+import { prepareControls } from '../../components/utils/Controls.vue';
+import ComponentExample from '../../components/utils/ComponentExample.vue';
 
 export default defineComponent({
   name: 'VsfAlertExample',
@@ -37,7 +33,7 @@ export default defineComponent({
     VsfAlert,
     VsfButton,
     VsfIconChat,
-    Controls,
+    ComponentExample,
   },
   setup() {
     const slotContent = ['none', 'custom slot content'] as const;

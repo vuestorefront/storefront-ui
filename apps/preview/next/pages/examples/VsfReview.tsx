@@ -4,7 +4,8 @@ import { VsfTag } from '@storefront-ui/react/components/VsfTag';
 import { VsfTagSizes, VsfTagVariants } from '@storefront-ui/react/components/VsfTag/types';
 import { VsfIconSizeEnum } from '@storefront-ui/react/components/VsfIcons/types';
 import { VsfIconCheck } from '@storefront-ui/react/components/VsfIcons';
-import Controls, { prepareControls } from '../../components/utils/Controls';
+import { prepareControls } from '../../components/utils/Controls';
+import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
 
 function Example() {
@@ -78,30 +79,25 @@ function Example() {
     },
   );
   return (
-    <div className="e-page">
-      <div className="e-page-component">
-        <VsfReview
-          title={state.get.title}
-          date={state.get.date}
-          author={state.get.author}
-          content={state.get.content}
-          charLimit={state.get.charLimit}
-          showMoreText={state.get.showMoreText}
-          showLessText={state.get.showLessText}
-          slotRating={<VsfRating value={3} max={5} />}
-          slotAuthorSuffix={
-            state.get.slotAuthorSuffix && (
-              <VsfTag size={VsfTagSizes.sm} variant={VsfTagVariants.primary} label="Verified purchaser">
-                <VsfIconCheck size={VsfIconSizeEnum.xs} />
-              </VsfTag>
-            )
-          }
-        />
-      </div>
-      <div className="e-page-controls">
-        <Controls {...{ state, controls }} />
-      </div>
-    </div>
+    <ComponentExample controls={{ state, controls }}>
+      <VsfReview
+        title={state.get.title}
+        date={state.get.date}
+        author={state.get.author}
+        content={state.get.content}
+        charLimit={state.get.charLimit}
+        showMoreText={state.get.showMoreText}
+        showLessText={state.get.showLessText}
+        slotRating={<VsfRating value={3} max={5} />}
+        slotAuthorSuffix={
+          state.get.slotAuthorSuffix && (
+            <VsfTag size={VsfTagSizes.sm} variant={VsfTagVariants.primary} label="Verified purchaser">
+              <VsfIconCheck size={VsfIconSizeEnum.xs} />
+            </VsfTag>
+          )
+        }
+      />
+    </ComponentExample>
   );
 }
 

@@ -1,7 +1,8 @@
 import { VsfCounter } from '@storefront-ui/react/components/VsfCounter';
 import { VsfCounterSizes } from '@storefront-ui/react/components/VsfCounter/types';
 import type { VsfCounterProps } from '@storefront-ui/react/components/VsfCounter/types';
-import Controls, { prepareControls } from '../../components/utils/Controls';
+import { prepareControls } from '../../components/utils/Controls';
+import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
 
 function Example() {
@@ -41,16 +42,11 @@ function Example() {
   );
 
   return (
-    <div className="e-page">
-      <div className="e-page-component">
-        <VsfCounter size={state.get.size} pill={state.get.pill} className={state.get.fill}>
-          {state.get.value}
-        </VsfCounter>
-      </div>
-      <div className="e-page-controls">
-        <Controls {...{ state, controls }} />
-      </div>
-    </div>
+    <ComponentExample controls={{ state, controls }}>
+      <VsfCounter size={state.get.size} pill={state.get.pill} className={state.get.fill}>
+        {state.get.value}
+      </VsfCounter>
+    </ComponentExample>
   );
 }
 

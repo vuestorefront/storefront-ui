@@ -1,29 +1,24 @@
 <template>
-  <div class="e-page">
-    <div class="e-page-component">
-      <div class="w-full h-full">
-        <VsfGallery
-          :images="imagesModel"
-          :control="controlModel"
-          :thumbs-left="thumbsLeftModel"
-          :contain="containModel"
-          :counter="counterModel"
-        >
-          <template v-if="badgeModel" #image>
-            <VsfTag variant="info" :badge="true" class="absolute top-0 left-0 z-10">
-              <template #prefix>
-                <VsfIconHot class="vsf-icon-full" />
-              </template>
-              <span class="font-medium">-50%</span>
-            </VsfTag>
-          </template>
-        </VsfGallery>
-      </div>
+  <ComponentExample :controls-attrs="controlsAttrs">
+    <div class="w-full h-full">
+      <VsfGallery
+        :images="imagesModel"
+        :control="controlModel"
+        :thumbs-left="thumbsLeftModel"
+        :contain="containModel"
+        :counter="counterModel"
+      >
+        <template v-if="badgeModel" #image>
+          <VsfTag variant="info" :badge="true" class="absolute top-0 left-0 z-10">
+            <template #prefix>
+              <VsfIconHot class="vsf-icon-full" />
+            </template>
+            <span class="font-medium">-50%</span>
+          </VsfTag>
+        </template>
+      </VsfGallery>
     </div>
-    <div class="e-page-controls">
-      <Controls v-bind="controlsAttrs" />
-    </div>
-  </div>
+  </ComponentExample>
 </template>
 
 <script>
@@ -31,12 +26,13 @@ import { ref } from 'vue';
 import VsfGallery from '../../output/blocks/VsfGallery/VsfGallery.vue';
 import VsfIconHot from '../../output/blocks/VsfIcons/VsfIconHot.vue';
 import VsfTag from '../../output/blocks/VsfTag/VsfTag.vue';
-import Controls, { prepareControls } from '../../components/utils/Controls.vue';
+import { prepareControls } from '../../components/utils/Controls.vue';
+import ComponentExample from '../../components/utils/ComponentExample.vue';
 
 export default {
   name: 'VsfGalleryExample',
   components: {
-    Controls,
+    ComponentExample,
     VsfGallery,
     VsfIconHot,
     VsfTag,

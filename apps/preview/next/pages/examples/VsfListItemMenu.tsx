@@ -1,7 +1,8 @@
 import { VsfListItemMenu, VsfListItemMenuSizes } from '@storefront-ui/react/components/VsfListItemMenu';
 import { VsfIconCheck } from '~/../../../packages/sfui/frameworks/react/components/VsfIcons';
 import { VsfIconSizeEnum } from '@storefront-ui/react/components/VsfIcons/types';
-import Controls, { prepareControls } from '../../components/utils/Controls';
+import { prepareControls } from '../../components/utils/Controls';
+import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
 
 function Example() {
@@ -84,28 +85,23 @@ function Example() {
   );
 
   return (
-    <div className="e-page">
-      <div className="e-page-component">
-        <VsfListItemMenu
-          className="max-w-sm"
-          size={state.get.size}
-          link={state.get.link}
-          label={state.get.label}
-          counter={Number(state.get.counter)}
-          secondaryText={state.get.secondaryText}
-          selected={state.get.selected}
-          selectedBackground={state.get.selectedBackground}
-          disabled={state.get.disabled}
-          slotPrefix={state.get.showprefix ? <VsfIconCheck size={VsfIconSizeEnum.sm} /> : null}
-          slotSuffix={state.get.showSuffix ? <VsfIconCheck size={VsfIconSizeEnum.sm} /> : null}
-          truncate={state.get.truncate}
-          onClick={(selected: boolean) => state.set({ ...state.get, selected })}
-        />
-      </div>
-      <div className="e-page-controls">
-        <Controls {...{ state, controls }} />
-      </div>
-    </div>
+    <ComponentExample controls={{ state, controls }}>
+      <VsfListItemMenu
+        className="max-w-sm"
+        size={state.get.size}
+        link={state.get.link}
+        label={state.get.label}
+        counter={Number(state.get.counter)}
+        secondaryText={state.get.secondaryText}
+        selected={state.get.selected}
+        selectedBackground={state.get.selectedBackground}
+        disabled={state.get.disabled}
+        slotPrefix={state.get.showprefix ? <VsfIconCheck size={VsfIconSizeEnum.sm} /> : null}
+        slotSuffix={state.get.showSuffix ? <VsfIconCheck size={VsfIconSizeEnum.sm} /> : null}
+        truncate={state.get.truncate}
+        onClick={(selected: boolean) => state.set({ ...state.get, selected })}
+      />
+    </ComponentExample>
   );
 }
 

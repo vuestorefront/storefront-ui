@@ -1,35 +1,31 @@
 <template>
-  <div class="e-page">
-    <div class="e-page-component">
-      <VsfDialog v-model="modelValue" :hide-close-button="hideCloseButton" :outside-click-close="outsideClickClose">
-        <section>
-          Header<br />
-          Some cool dialog text here
-        </section>
-        <menu>
-          <div class="flex justify-between">
-            <VsfButton autofocus @click="onClose('Canceled')">Close</VsfButton>
-            <VsfButton @click="onClose('Accepted')">Accept</VsfButton>
-          </div>
-        </menu>
-      </VsfDialog>
-    </div>
-    <div class="e-page-controls">
-      <Controls v-bind="controlsAttrs" />
-    </div>
-  </div>
+  <ComponentExample :controls-attrs="controlsAttrs">
+    <VsfDialog v-bind="state" v-model="modelValue">
+      <section>
+        Header<br />
+        Some cool dialog text here
+      </section>
+      <menu>
+        <div class="flex justify-between">
+          <VsfButton autofocus @click="onClose('Canceled')">Close</VsfButton>
+          <VsfButton @click="onClose('Accepted')">Accept</VsfButton>
+        </div>
+      </menu>
+    </VsfDialog>
+  </ComponentExample>
 </template>
 
 <script lang="ts">
 import { ref } from 'vue';
 import VsfDialog from '@storefront-ui/vue/components//VsfDialog/VsfDialog.vue';
 import { VsfButton, VsfButtonVariants } from '@storefront-ui/vue/components/VsfButton/index';
-import Controls, { prepareControls } from '../../components/utils/Controls.vue';
+import { prepareControls } from '../../components/utils/Controls.vue';
+import ComponentExample from '../../components/utils/ComponentExample.vue';
 
 export default {
   name: 'VsfDialogExample',
   components: {
-    Controls,
+    ComponentExample,
     VsfDialog,
     VsfButton,
   },
@@ -68,6 +64,7 @@ export default {
       },
       VsfButtonVariants,
       controlsAttrs,
+      state,
       modelValue,
       hideCloseButton,
       outsideClickClose,

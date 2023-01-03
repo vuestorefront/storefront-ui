@@ -1,7 +1,8 @@
 import { VsfAlert, VsfAlertTypes, VsfAlertVariants } from '@storefront-ui/react/components/VsfAlert/index';
 import { VsfButton, VsfButtonVariants } from '@storefront-ui/react/components/VsfButton/index';
 import { VsfIconChat } from '@storefront-ui/react/components/VsfIcons/index';
-import Controls, { prepareControls } from '../../components/utils/Controls';
+import { prepareControls } from '../../components/utils/Controls';
+import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
 
 const slotContent = ['none', 'custom slot content'] as const;
@@ -89,31 +90,26 @@ function Example() {
   );
 
   return (
-    <div className="e-page">
-      <div className="e-page-component">
-        <VsfAlert
-          open={state.get.open}
-          onOpenChange={(open) => state.set({ ...state.get, open })}
-          variant={state.get.variant}
-          type={state.get.type}
-          text={state.get.text}
-          header={state.get.header}
-          withShadow={state.get.withShadow}
-          hidePrefix={state.get.hidePrefix}
-          prefix={state.get.prefix !== 'none' && <VsfIconChat />}
-          suffix={
-            state.get.suffix !== 'none' && (
-              <VsfButton onClick={() => state.set({ ...state.get, open: false })} variant={VsfButtonVariants.tertiary}>
-                Button
-              </VsfButton>
-            )
-          }
-        />
-      </div>
-      <div className="e-page-controls">
-        <Controls {...{ state, controls }} />
-      </div>
-    </div>
+    <ComponentExample controls={{ state, controls }}>
+      <VsfAlert
+        open={state.get.open}
+        onOpenChange={(open) => state.set({ ...state.get, open })}
+        variant={state.get.variant}
+        type={state.get.type}
+        text={state.get.text}
+        header={state.get.header}
+        withShadow={state.get.withShadow}
+        hidePrefix={state.get.hidePrefix}
+        prefix={state.get.prefix !== 'none' && <VsfIconChat />}
+        suffix={
+          state.get.suffix !== 'none' && (
+            <VsfButton onClick={() => state.set({ ...state.get, open: false })} variant={VsfButtonVariants.tertiary}>
+              Button
+            </VsfButton>
+          )
+        }
+      />
+    </ComponentExample>
   );
 }
 

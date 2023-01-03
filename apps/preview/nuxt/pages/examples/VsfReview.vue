@@ -1,31 +1,18 @@
 <template>
-  <div class="e-page">
-    <div class="e-page-component">
-      <VsfReview
-        :title="title"
-        :date="date"
-        :author="author"
-        :char-limit="charLimit"
-        :content="content"
-        :show-more-text="showMoreText"
-        :show-less-text="showLessText"
-      >
-        <template #rating>
-          <VsfRating :value="3" :max="5" />
-        </template>
-        <template v-if="slotAuthorSuffix" #authorSuffix>
-          <VsfTag :size="VsfTagSizes.sm" :variant="VsfTagVariants.primary" label="Verified purchaser">
-            <template #icon>
-              <VsfIconCheck :size="VsfIconSizeEnum.xs" />
-            </template>
-          </VsfTag>
-        </template>
-      </VsfReview>
-    </div>
-    <div class="e-page-controls">
-      <Controls v-bind="controlsAttrs" />
-    </div>
-  </div>
+  <ComponentExample :controls-attrs="controlsAttrs">
+    <VsfReview v-bind="state">
+      <template #rating>
+        <VsfRating :value="3" :max="5" />
+      </template>
+      <template v-if="slotAuthorSuffix" #authorSuffix>
+        <VsfTag :size="VsfTagSizes.sm" :variant="VsfTagVariants.primary" label="Verified purchaser">
+          <template #icon>
+            <VsfIconCheck :size="VsfIconSizeEnum.xs" />
+          </template>
+        </VsfTag>
+      </template>
+    </VsfReview>
+  </ComponentExample>
 </template>
 
 <script lang="ts">
@@ -34,7 +21,8 @@ import VsfReview from '@storefront-ui/vue/components/VsfReview/VsfReview.vue';
 import VsfRating from '@storefront-ui/vue/components/VsfRating/VsfRating.vue';
 import { VsfTag, VsfTagSizes, VsfTagVariants } from '@storefront-ui/vue/components/VsfTag/index';
 import { VsfIconSizeEnum, VsfIconCheck } from '@storefront-ui/vue/components/VsfIcons/index';
-import Controls, { prepareControls } from '../../components/utils/Controls.vue';
+import { prepareControls } from '../../components/utils/Controls.vue';
+import ComponentExample from '../../components/utils/ComponentExample.vue';
 
 export default defineComponent({
   name: 'VsfReviewExample',
@@ -43,7 +31,7 @@ export default defineComponent({
     VsfRating,
     VsfTag,
     VsfIconCheck,
-    Controls,
+    ComponentExample,
   },
   setup() {
     return {

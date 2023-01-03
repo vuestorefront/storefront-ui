@@ -1,43 +1,35 @@
 <template>
-  <div class="e-page">
-    <div class="e-page-component relative">
-      <VsfQuantitySelector
-        v-model="value"
-        :min-value="Number(minValue)"
-        :max-value="Number(maxValue)"
-        :disabled="disabled"
-        :block="block"
-        :input-aria-label="inputAriaLabel"
-        :input-id="inputId"
-        :size="size"
-        :step="Number(step)"
-        :decimal="Number(decimal)"
-      >
-        <div class="text-xs font-normal text-center font-body">
-          <span v-if="disabled" class="text-negative-600 font-medium">Out of stock</span>
-          <span v-else
-            ><span class="font-medium">{{ maxValue }}</span
-            >&nbsp;in stock</span
-          >
-        </div>
-      </VsfQuantitySelector>
-    </div>
-    <div class="e-page-controls">
-      <Controls v-bind="controlsAttrs" />
-    </div>
-  </div>
+  <ComponentExample :controls-attrs="controlsAttrs">
+    <VsfQuantitySelector
+      v-bind="state"
+      v-model="value"
+      :min-value="Number(minValue)"
+      :max-value="Number(maxValue)"
+      :step="Number(step)"
+      :decimal="Number(decimal)"
+    >
+      <div class="text-xs font-normal text-center font-body">
+        <span v-if="disabled" class="text-negative-600 font-medium">Out of stock</span>
+        <span v-else
+          ><span class="font-medium">{{ maxValue }}</span
+          >&nbsp;in stock</span
+        >
+      </div>
+    </VsfQuantitySelector>
+  </ComponentExample>
 </template>
 
 <script>
 import { defineComponent, ref } from 'vue';
 import { VsfQuantitySelector, VsfQuantitySelectorSizes } from '@storefront-ui/vue/components/VsfQuantitySelector/index';
-import Controls, { prepareControls } from '../../components/utils/Controls.vue';
+import { prepareControls } from '../../components/utils/Controls.vue';
+import ComponentExample from '../../components/utils/ComponentExample.vue';
 
 export default defineComponent({
   name: 'VsfQuantitySelectorExample',
   components: {
     VsfQuantitySelector,
-    Controls,
+    ComponentExample,
   },
   setup() {
     return prepareControls(

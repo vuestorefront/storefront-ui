@@ -1,5 +1,6 @@
 import VsfSpinner, { VsfSpinnerTypes, VsfSpinnerVariants } from '~/output/blocks/VsfSpinner/VsfSpinner.lite';
-import Controls, { prepareControls } from '../../components/utils/Controls';
+import { prepareControls } from '../../components/utils/Controls';
+import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examplesOld';
 
 const Example = () => {
@@ -26,17 +27,12 @@ const Example = () => {
   });
 
   return (
-    <div className="e-page">
-      <div className="e-page-component">
-        <VsfSpinner
-          type={state.get.typeModel}
-          variant={state.get.variantModel}
-        />
-      </div>
-      <div className="e-page-controls">
-        <Controls {...{ state, controls }} />
-      </div>
-    </div>
+    <ComponentExample controls={{ state, controls }}>
+      <VsfSpinner
+        type={state.get.typeModel}
+        variant={state.get.variantModel}
+      />
+    </ComponentExample>
   );
 }
 

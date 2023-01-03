@@ -17,7 +17,8 @@ import {
 import Link from 'next/link';
 import { VsfIconSizeEnum } from '@storefront-ui/react/components/VsfIconBase/types';
 import classNames from 'classnames';
-import Controls, { prepareControls } from '../../components/utils/Controls';
+import { prepareControls } from '../../components/utils/Controls';
+import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
 
 function Example() {
@@ -71,59 +72,54 @@ function Example() {
   ];
 
   return (
-    <div className="e-page">
-      <div className="e-page-component">
-        <VsfNavbarTop filled={state.get.filled}>
-          <Link href="/">
-            <a
-              aria-label="VSF Homepage"
-              className={classNames(
-                'inline-block h-8 text-white md:h-10 lg:h-7',
-                state.get.filled ? 'text-white' : 'text-brand',
-              )}
-            >
-              <VsfIconLogo viewBox="0 0 205 28" className="!hidden large:!block !w-[12.5rem] !h-[1.75rem]" />
-              <VsfIconLogoSmall
-                size={VsfIconSizeEnum.xl}
-                viewBox="0 0 40 40"
-                className="!hidden medium:!block large:!hidden"
-              />
-              <VsfIconLogoSmall size={VsfIconSizeEnum.lg} viewBox="0 0 40 40" className="block medium:!hidden" />
-            </a>
-          </Link>
-          <VsfNavbarTopActionGroup className="hidden lg:block">
-            {state.get.menuItems.map((menuItem) => (
-              <Link href={menuItem.link} key={menuItem.label}>
-                <VsfNavbarTopAction tag="a">{menuItem.label}</VsfNavbarTopAction>
-              </Link>
-            ))}
-          </VsfNavbarTopActionGroup>
-          <VsfNavbarTopAction tag="a" slotIcon={<VsfIconMenu />} className="block lg:hidden">
-            Menu
-          </VsfNavbarTopAction>
-          <VsfSpacer className="block md:hidden" />
-          <VsfSearch placeholder="Search" className="flex-1 hidden md:block" />
-          <VsfNavbarTopActionGroup>
-            {actionItems.map((actionItem) =>
-              actionItem.label !== 'Log in' ? (
-                <VsfNavbarTopAction key={actionItem.ariaLabel} icon>
-                  <VsfBadge dot value={1} className={state.get.filled ? 'bg-white' : 'bg-secondary-500'}>
-                    {actionItem.icon}
-                  </VsfBadge>
-                </VsfNavbarTopAction>
-              ) : (
-                <VsfNavbarTopAction key={actionItem.ariaLabel} icon>
-                  {actionItem.icon}
-                </VsfNavbarTopAction>
-              ),
+    <ComponentExample controls={{ state, controls }}>
+      <VsfNavbarTop filled={state.get.filled}>
+        <Link href="/">
+          <a
+            aria-label="VSF Homepage"
+            className={classNames(
+              'inline-block h-8 text-white md:h-10 lg:h-7',
+              state.get.filled ? 'text-white' : 'text-brand',
             )}
-          </VsfNavbarTopActionGroup>
-        </VsfNavbarTop>
-      </div>
-      <div className="e-page-controls">
-        <Controls {...{ state, controls }} />
-      </div>
-    </div>
+          >
+            <VsfIconLogo viewBox="0 0 205 28" className="!hidden large:!block !w-[12.5rem] !h-[1.75rem]" />
+            <VsfIconLogoSmall
+              size={VsfIconSizeEnum.xl}
+              viewBox="0 0 40 40"
+              className="!hidden medium:!block large:!hidden"
+            />
+            <VsfIconLogoSmall size={VsfIconSizeEnum.lg} viewBox="0 0 40 40" className="block medium:!hidden" />
+          </a>
+        </Link>
+        <VsfNavbarTopActionGroup className="hidden lg:block">
+          {state.get.menuItems.map((menuItem) => (
+            <Link href={menuItem.link} key={menuItem.label}>
+              <VsfNavbarTopAction tag="a">{menuItem.label}</VsfNavbarTopAction>
+            </Link>
+          ))}
+        </VsfNavbarTopActionGroup>
+        <VsfNavbarTopAction tag="a" slotIcon={<VsfIconMenu />} className="block lg:hidden">
+          Menu
+        </VsfNavbarTopAction>
+        <VsfSpacer className="block md:hidden" />
+        <VsfSearch placeholder="Search" className="flex-1 hidden md:block" />
+        <VsfNavbarTopActionGroup>
+          {actionItems.map((actionItem) =>
+            actionItem.label !== 'Log in' ? (
+              <VsfNavbarTopAction key={actionItem.ariaLabel} icon>
+                <VsfBadge dot value={1} className={state.get.filled ? 'bg-white' : 'bg-secondary-500'}>
+                  {actionItem.icon}
+                </VsfBadge>
+              </VsfNavbarTopAction>
+            ) : (
+              <VsfNavbarTopAction key={actionItem.ariaLabel} icon>
+                {actionItem.icon}
+              </VsfNavbarTopAction>
+            ),
+          )}
+        </VsfNavbarTopActionGroup>
+      </VsfNavbarTop>
+    </ComponentExample>
   );
 }
 

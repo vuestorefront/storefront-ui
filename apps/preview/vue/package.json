@@ -1,6 +1,7 @@
 {
   "name": "@storefront-ui/vue-preview",
   "version": "2.0.0-alpha.0",
+  "private": true,
   "scripts": {
     "dev:not-run": "vite",
     "preview": "vite preview",

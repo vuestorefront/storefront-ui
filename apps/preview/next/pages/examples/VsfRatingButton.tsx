@@ -3,7 +3,8 @@ import { VsfRatingButton, VsfRatingButtonSizes } from '@storefront-ui/react/comp
 import * as Icons from '@storefront-ui/react/components/VsfIcons';
 import { VsfIconSizeEnum } from '@storefront-ui/react/components/VsfIconBase';
 import { VsfIconAddedToBasket } from '@storefront-ui/react/components/VsfIcons';
-import Controls, { prepareControls } from '../../components/utils/Controls';
+import { prepareControls } from '../../components/utils/Controls';
+import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
 
 function Example() {
@@ -89,24 +90,19 @@ function Example() {
   }
 
   return (
-    <div className="e-page">
-      <div className="e-page-component">
-        <VsfRatingButton
-          onChange={onChange}
-          value={state.get.value}
-          size={state.get.size}
-          max={state.get.max}
-          disabled={state.get.disabled}
-          name={state.get.name}
-          ariaLabel={state.get.ariaLabel}
-          renderIconFilled={(size?: VsfIconSizeEnum) => <RenderIconFilledComponent size={size} ariaLabel={''} />}
-          renderIconEmpty={(size?: VsfIconSizeEnum) => <RenderIconEmptyComponent size={size} ariaLabel={''} />}
-        />
-      </div>
-      <div className="e-page-controls">
-        <Controls {...{ state, controls }} />
-      </div>
-    </div>
+    <ComponentExample controls={{ state, controls }}>
+      <VsfRatingButton
+        onChange={onChange}
+        value={state.get.value}
+        size={state.get.size}
+        max={state.get.max}
+        disabled={state.get.disabled}
+        name={state.get.name}
+        ariaLabel={state.get.ariaLabel}
+        renderIconFilled={(size?: VsfIconSizeEnum) => <RenderIconFilledComponent size={size} ariaLabel={''} />}
+        renderIconEmpty={(size?: VsfIconSizeEnum) => <RenderIconEmptyComponent size={size} ariaLabel={''} />}
+      />
+    </ComponentExample>
   );
 }
 

@@ -1,18 +1,36 @@
 <template>
   <div class="e-page-examples">
     <div v-if="!isDocs" class="sidebar" :class="!isOpen && 'sidebar-collapsed'">
-      <button class="sidebar-toggle" :class="!isOpen && 'sidebar-toggle-collapsed'" @click="isOpen = !isOpen">
-        &lt;&lt;
-      </button>
-      <h2 class="sidebar-heading">Components (Vue)</h2>
+      <header class="sidebar-heading">
+        <h2>StorefrontUI v2</h2>
+        <h3>Vue components</h3>
+      </header>
+      <VsfButton
+        class="sidebar-toggle"
+        :variant="VsfButtonVariants.tertiary"
+        :size="VsfButtonSizes.sm"
+        @click="isOpen = !isOpen"
+      >
+        <template #prefix>
+          <VsfIconChevronLeft v-if="isOpen" />
+          <VsfIconChevronRight v-else />
+        </template>
+      </VsfButton>
       <ul class="sidebar-list">
-        <li
+        <NuxtLink
           v-for="component in components"
           :key="component"
-          :class="currentRoute.path === `/examples/${component}` ? 'active' : ''"
+          v-slot="{ navigate }"
+          :to="`/examples/${component}`"
+          custom
         >
-          <NuxtLink :to="`/examples/${component}`">{{ component }}</NuxtLink>
-        </li>
+          <VsfListItemMenu
+            :label="component"
+            :link="`/examples/${component}`"
+            :selected="currentRoute.path === `/examples/${component}`"
+            @click="navigate"
+          />
+        </NuxtLink>
       </ul>
     </div>
     <NuxtPage />
@@ -20,6 +38,11 @@
 </template>
 
 <script setup>
+import VsfButton from '@storefront-ui/vue/components/VsfButton/VsfButton.vue';
+import { VsfButtonVariants, VsfButtonSizes } from '@storefront-ui/vue/components/VsfButton/types';
+import VsfListItemMenu from '@storefront-ui/vue/components/VsfListItemMenu/VsfListItemMenu.vue';
+import { VsfIconChevronLeft, VsfIconChevronRight } from '@storefront-ui/vue/components/VsfIcons/index';
+
 const { currentRoute } = useRouter();
 
 const files = import.meta.glob('./examples/*.vue');

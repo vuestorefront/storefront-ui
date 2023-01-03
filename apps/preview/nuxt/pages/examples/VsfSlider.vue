@@ -1,56 +1,50 @@
 <template>
-  <div class="e-page">
-    <div class="relative e-page-component">
-      <VsfSlider
-        :key="componentKey"
-        :navigation="navigation"
-        :scrollbar="scrollbar"
-        :scroll-snap="scrollSnap"
-        :draggable="
-          draggable
-            ? {
-                sensitivity: 3,
-              }
-            : undefined
-        "
-      >
-        <div v-for="item in 4" :key="item">
-          <div class="bg-gray-300 w-[150px] h-[150px] flex justify-center items-center">{{ item }}</div>
-        </div>
-        <div v-for="item in 4" :key="item">
-          <div class="bg-gray-300 w-[200px] h-[150px] flex justify-center items-center">{{ item + 4 }}</div>
-        </div>
-        <div v-for="item in 4" :key="item">
-          <div class="bg-gray-300 w-[150px] h-[150px] flex justify-center items-center">{{ item + 8 }}</div>
-        </div>
-        <template v-if="ExampleCustomNav" #prev-arrow="{ onClick, hasPrev }">
-          <button v-show="hasPrev" type="button" class="p-2 text-white rounded-sm bg-secondary-400" @click="onClick">
-            prev
-          </button>
-        </template>
-        <template v-if="ExampleCustomNav" #next-arrow="{ onClick, hasNext }">
-          <button v-show="hasNext" type="button" class="p-2 text-white rounded-sm bg-secondary-400" @click="onClick">
-            next
-          </button>
-        </template>
-      </VsfSlider>
-    </div>
-    <div class="e-page-controls">
-      <Controls v-bind="controlsAttrs" />
-    </div>
-  </div>
+  <ComponentExample :controls-attrs="controlsAttrs">
+    <VsfSlider
+      v-bind="state"
+      :key="componentKey"
+      :draggable="
+        draggable
+          ? {
+              sensitivity: 3,
+            }
+          : undefined
+      "
+    >
+      <div v-for="item in 4" :key="item">
+        <div class="bg-gray-300 w-[150px] h-[150px] flex justify-center items-center">{{ item }}</div>
+      </div>
+      <div v-for="item in 4" :key="item">
+        <div class="bg-gray-300 w-[200px] h-[150px] flex justify-center items-center">{{ item + 4 }}</div>
+      </div>
+      <div v-for="item in 4" :key="item">
+        <div class="bg-gray-300 w-[150px] h-[150px] flex justify-center items-center">{{ item + 8 }}</div>
+      </div>
+      <template v-if="ExampleCustomNav" #prev-arrow="{ onClick, hasPrev }">
+        <button v-show="hasPrev" type="button" class="p-2 text-white rounded-sm bg-secondary-400" @click="onClick">
+          prev
+        </button>
+      </template>
+      <template v-if="ExampleCustomNav" #next-arrow="{ onClick, hasNext }">
+        <button v-show="hasNext" type="button" class="p-2 text-white rounded-sm bg-secondary-400" @click="onClick">
+          next
+        </button>
+      </template>
+    </VsfSlider>
+  </ComponentExample>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref, watch } from 'vue';
 import { VsfSlider, VsfSliderNavigation, VsfSliderScrollbar } from '@storefront-ui/vue/components/VsfSlider/index';
-import Controls, { prepareControls } from '../../components/utils/Controls.vue';
+import { prepareControls } from '../../components/utils/Controls.vue';
+import ComponentExample from '../../components/utils/ComponentExample.vue';
 
 export default defineComponent({
   name: 'VsfSliderExample',
   components: {
     VsfSlider,
-    Controls,
+    ComponentExample,
   },
   setup() {
     const draggable = ref(false);

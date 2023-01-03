@@ -1,36 +1,32 @@
 <template>
-  <div class="e-page">
-    <div class="e-page-component">
-      <VsfButton v-bind="state" :type="state.link ? null : 'button'">
-        <template v-if="SlotPrefix" #prefix>
-          <VsfIconVsfDiamond />
-        </template>
-        <template v-if="SlotDefault" #default>
-          {{ SlotDefault }}
-        </template>
-        <template v-if="SlotSuffix" #suffix>
-          <VsfIconVsfDiamond />
-        </template>
-      </VsfButton>
-    </div>
-    <div class="e-page-controls">
-      <Controls class="e-page-controls" v-bind="controlsAttrs" />
-    </div>
-  </div>
+  <ComponentExample :controls-attrs="controlsAttrs">
+    <VsfButton v-bind="state" :type="state.link ? null : 'button'">
+      <template v-if="SlotPrefix" #prefix>
+        <VsfIconVsfDiamond />
+      </template>
+      <template v-if="SlotDefault" #default>
+        {{ SlotDefault }}
+      </template>
+      <template v-if="SlotSuffix" #suffix>
+        <VsfIconVsfDiamond />
+      </template>
+    </VsfButton>
+  </ComponentExample>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import { VsfButton, VsfButtonVariants, VsfButtonSizes } from '@storefront-ui/vue/components/VsfButton/index';
 import VsfIconVsfDiamond from '@storefront-ui/vue/components/VsfIcons/VsfIconVsfDiamond.vue';
-import Controls, { prepareControls } from '../../components/utils/Controls.vue';
+import { prepareControls } from '../../components/utils/Controls.vue';
+import ComponentExample from '../../components/utils/ComponentExample.vue';
 
 export default defineComponent({
   name: 'VsfButtonExample',
   components: {
     VsfButton,
     VsfIconVsfDiamond,
-    Controls,
+    ComponentExample,
   },
   setup() {
     return prepareControls(

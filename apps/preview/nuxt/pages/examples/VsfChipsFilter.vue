@@ -1,28 +1,24 @@
 <template>
-  <div class="e-page">
-    <div class="e-page-component">
-      <VsfChipsFilter v-model="modelValue" :size="size" :disabled="disabled" :label="label" :type="type">
-        <template v-if="showThumb" #thumbnail>
-          <div class="bg-black w-full h-full rounded-full" />
-        </template>
-      </VsfChipsFilter>
-    </div>
-    <div class="e-page-controls">
-      <Controls v-bind="controlsAttrs" />
-    </div>
-  </div>
+  <ComponentExample :controls-attrs="controlsAttrs">
+    <VsfChipsFilter v-bind="state" v-model="modelValue">
+      <template v-if="showThumb" #thumbnail>
+        <div class="bg-black w-full h-full rounded-full" />
+      </template>
+    </VsfChipsFilter>
+  </ComponentExample>
 </template>
 
 <script>
 import { defineComponent, ref } from 'vue';
 import { VsfChipsFilter, VsfChipsFilterVariants } from '@storefront-ui/vue/components/VsfChipsFilter/index';
-import Controls, { prepareControls } from '../../components/utils/Controls.vue';
+import { prepareControls } from '../../components/utils/Controls.vue';
+import ComponentExample from '../../components/utils/ComponentExample.vue';
 
 export default defineComponent({
   name: 'VsfChipsFilterExample',
   components: {
     VsfChipsFilter,
-    Controls,
+    ComponentExample,
   },
   setup() {
     return prepareControls(

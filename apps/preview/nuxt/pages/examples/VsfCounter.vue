@@ -1,26 +1,22 @@
 <template>
-  <div class="e-page">
-    <div class="e-page-component">
-      <VsfCounter :size="size" :pill="pill" :class="fill">
-        {{ value }}
-      </VsfCounter>
-    </div>
-    <div class="e-page-controls">
-      <Controls v-bind="controlsAttrs" />
-    </div>
-  </div>
+  <ComponentExample :controls-attrs="controlsAttrs">
+    <VsfCounter v-bind="state" :class="fill">
+      {{ value }}
+    </VsfCounter>
+  </ComponentExample>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import { VsfCounter, VsfCounterSizes } from '@storefront-ui/vue/components/VsfCounter/index';
-import Controls, { prepareControls } from '../../components/utils/Controls.vue';
+import { prepareControls } from '../../components/utils/Controls.vue';
+import ComponentExample from '../../components/utils/ComponentExample.vue';
 
 export default defineComponent({
   name: 'VsfCounterExample',
   components: {
     VsfCounter,
-    Controls,
+    ComponentExample,
   },
   setup() {
     return {

@@ -1,35 +1,31 @@
 <template>
-  <div class="e-page">
-    <div class="e-page-component">
-      <VsfSwitch
-        v-model="toggle"
-        :name="nameModel"
-        :label="labelModel"
-        :disabled="disabledModel"
-        :help-text="helpTextModel"
-        :error-text="errorTextModel"
-        :invalid="invalidModel"
-        :required="requiredModel"
-        :right-checkbox="rightCheckboxModel"
-        :size="sizeModel"
-      />
-    </div>
-    <div class="e-page-controls">
-      <Controls v-bind="controlsAttrs" />
-    </div>
-  </div>
+  <ComponentExample :controls-attrs="controlsAttrs">
+    <VsfSwitch
+      v-model="toggle"
+      :name="nameModel"
+      :label="labelModel"
+      :disabled="disabledModel"
+      :help-text="helpTextModel"
+      :error-text="errorTextModel"
+      :invalid="invalidModel"
+      :required="requiredModel"
+      :right-checkbox="rightCheckboxModel"
+      :size="sizeModel"
+    />
+  </ComponentExample>
 </template>
 
 <script>
-import VsfSwitch, { VsfSwitchVariants } from '../../output/blocks/VsfSwitch/VsfSwitch.vue';
 import { defineComponent } from 'vue';
-import Controls, { prepareControls } from '../../components/utils/Controls.vue';
+import VsfSwitch, { VsfSwitchVariants } from '../../output/blocks/VsfSwitch/VsfSwitch.vue';
+import { prepareControls } from '../../components/utils/Controls.vue';
+import ComponentExample from '../../components/utils/ComponentExample.vue';
 
 export default defineComponent({
   name: 'VsfSwitchExample',
   components: {
     VsfSwitch,
-    Controls,
+    ComponentExample,
   },
   setup() {
     return prepareControls(

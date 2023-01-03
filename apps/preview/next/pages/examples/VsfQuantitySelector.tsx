@@ -1,5 +1,6 @@
 import { VsfQuantitySelector, VsfQuantitySelectorSizes } from '@storefront-ui/react/components/VsfQuantitySelector';
-import Controls, { prepareControls } from '../../components/utils/Controls';
+import { prepareControls } from '../../components/utils/Controls';
+import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
 
 function Example() {
@@ -111,37 +112,32 @@ function Example() {
     state.set({ ...state.get, value });
   }
   return (
-    <div className="e-page">
-      <div className="e-page-component relative">
-        <VsfQuantitySelector
-          value={state.get.value}
-          size={state.get.size}
-          step={Number(state.get.step)}
-          minValue={Number(state.get.minValue)}
-          maxValue={Number(state.get.maxValue)}
-          disabled={state.get.disabled}
-          block={state.get.block}
-          inputAriaLabel={state.get.inputAriaLabel}
-          inputId={state.get.inputId}
-          onChange={onChange}
-          decimal={Number(state.get.decimal)}
-        >
-          <div className="text-xs font-normal text-center font-body">
-            {state.get.disabled ? (
-              <span className="text-negative-600 font-medium">Out of stock</span>
-            ) : (
-              <span>
-                <span className="font-medium">{state.get.maxValue}</span>
-                &nbsp;in stock
-              </span>
-            )}
-          </div>
-        </VsfQuantitySelector>
-      </div>
-      <div className="e-page-controls">
-        <Controls {...{ state, controls }} />
-      </div>
-    </div>
+    <ComponentExample controls={{ state, controls }}>
+      <VsfQuantitySelector
+        value={state.get.value}
+        size={state.get.size}
+        step={Number(state.get.step)}
+        minValue={Number(state.get.minValue)}
+        maxValue={Number(state.get.maxValue)}
+        disabled={state.get.disabled}
+        block={state.get.block}
+        inputAriaLabel={state.get.inputAriaLabel}
+        inputId={state.get.inputId}
+        onChange={onChange}
+        decimal={Number(state.get.decimal)}
+      >
+        <div className="text-xs font-normal text-center font-body">
+          {state.get.disabled ? (
+            <span className="text-negative-600 font-medium">Out of stock</span>
+          ) : (
+            <span>
+              <span className="font-medium">{state.get.maxValue}</span>
+              &nbsp;in stock
+            </span>
+          )}
+        </div>
+      </VsfQuantitySelector>
+    </ComponentExample>
   );
 }
 

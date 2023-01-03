@@ -1,23 +1,19 @@
 <template>
-  <div class="e-page">
-    <div class="e-page-component">
-      <VsfProgress :value="valueModel" :variant="variantModel" :type="typeModel" :label="labelModel" />
-    </div>
-    <div class="e-page-controls">
-      <Controls v-bind="controlsAttrs" />
-    </div>
-  </div>
+  <ComponentExample :controls-attrs="controlsAttrs">
+    <VsfProgress :value="valueModel" :variant="variantModel" :type="typeModel" :label="labelModel" />
+  </ComponentExample>
 </template>
 
 <script lang="ts">
 import { ref } from 'vue';
 // eslint-disable-next-line import/no-relative-packages, import/no-unresolved
 import VsfProgress, { VsfProgressVariants, VsfProgressTypes } from '../../output/blocks/VsfProgress/VsfProgress.vue';
-import Controls, { prepareControls } from '../../components/utils/Controls.vue';
+import { prepareControls } from '../../components/utils/Controls.vue';
+import ComponentExample from '../../components/utils/ComponentExample.vue';
 
 export default {
   name: 'VsfProgressExample',
-  components: { VsfProgress, Controls },
+  components: { VsfProgress, ComponentExample },
   setup() {
     return prepareControls(
       [

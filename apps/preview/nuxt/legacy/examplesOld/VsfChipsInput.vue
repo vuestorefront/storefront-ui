@@ -1,29 +1,25 @@
 <template>
-  <div class="e-page">
-    <div class="e-page-component">
-      <VsfChipsInput :label="labelModel" :size="sizeModel" :disabled="disabledModel" @close="handleChipClose">
-        <template #prefix>
-          <VsfIconDot class="vsf-icon-full text-gray-500" />
-        </template>
-      </VsfChipsInput>
-    </div>
-    <div class="e-page-controls">
-      <Controls v-bind="controlsAttrs" />
-    </div>
-  </div>
+  <ComponentExample :controls-attrs="controlsAttrs">
+    <VsfChipsInput :label="labelModel" :size="sizeModel" :disabled="disabledModel" @close="handleChipClose">
+      <template #prefix>
+        <VsfIconDot class="vsf-icon-full text-gray-500" />
+      </template>
+    </VsfChipsInput>
+  </ComponentExample>
 </template>
 
 <script>
 import { defineComponent, ref } from 'vue';
 import VsfChipsInput, { VsfChipsInputVariants } from '../../output/blocks/VsfChipsInput/VsfChipsInput.vue';
-import Controls, { prepareControls } from '../../components/utils/Controls.vue';
+import { prepareControls } from '../../components/utils/Controls.vue';
+import ComponentExample from '../../components/utils/ComponentExample.vue';
 import VsfIconDot from '../../output/blocks/VsfIcons/VsfIconDot.vue';
 
 export default defineComponent({
   name: 'Chipsinput',
   components: {
     VsfChipsInput,
-    Controls,
+    ComponentExample,
     VsfIconDot,
   },
   setup() {

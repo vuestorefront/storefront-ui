@@ -1,36 +1,22 @@
 <template>
-  <div class="e-page">
-    <div class="relative e-page-component">
-      <VsfSelect
-        v-model="value"
-        :options="options"
-        :disabled="disabled"
-        :placeholder="placeholder"
-        :error-text="errorText"
-        :help-text="helpText"
-        :required="required"
-        :invalid="invalid"
-        :label="label"
-        :required-text="requiredText"
-        :size="size"
-      />
+  <ComponentExample :controls-attrs="controlsAttrs">
+    <div class="relative">
+      <VsfSelect v-bind="state" v-model="value" />
     </div>
-    <div class="e-page-controls">
-      <Controls v-bind="controlsAttrs" />
-    </div>
-  </div>
+  </ComponentExample>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import { VsfSelect, VsfSelectSizes } from '@storefront-ui/vue/components/VsfSelect/index';
-import Controls, { prepareControls } from '../../components/utils/Controls.vue';
+import { prepareControls } from '../../components/utils/Controls.vue';
+import ComponentExample from '../../components/utils/ComponentExample.vue';
 
 export default defineComponent({
   name: 'VsfSelectExample',
   components: {
     VsfSelect,
-    Controls,
+    ComponentExample,
   },
   setup() {
     return {

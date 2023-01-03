@@ -1,37 +1,23 @@
 <template>
-  <div class="e-page">
-    <div class="e-page-component">
-      <VsfRadioGroup id="radiogroup1" v-model="radioGroupModelValue">
-        <VsfRadio
-          :id="id"
-          v-model="modelValue"
-          :name="name"
-          :label="label"
-          :value="value"
-          :alignment="alignment"
-          :help-text="helpText"
-          :disabled="disabled"
-          :required="required"
-        ></VsfRadio>
-      </VsfRadioGroup>
-    </div>
-    <div class="e-page-controls">
-      <Controls v-bind="controlsAttrs" />
-    </div>
-  </div>
+  <ComponentExample :controls-attrs="controlsAttrs">
+    <VsfRadioGroup id="radiogroup1" v-model="radioGroupModelValue">
+      <VsfRadio v-bind="state" v-model="modelValue" />
+    </VsfRadioGroup>
+  </ComponentExample>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import { VsfRadio, VsfRadioGroup, VsfRadioAlignments } from '@storefront-ui/vue/components/VsfRadio/index';
-import Controls, { prepareControls } from '../../components/utils/Controls.vue';
+import { prepareControls } from '../../components/utils/Controls.vue';
+import ComponentExample from '../../components/utils/ComponentExample.vue';
 
 export default defineComponent({
   name: 'VsfRadioExample',
   components: {
     VsfRadio,
     VsfRadioGroup,
-    Controls,
+    ComponentExample,
   },
   setup() {
     const radioGroupModelValue = '';

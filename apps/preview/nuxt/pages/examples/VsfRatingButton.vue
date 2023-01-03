@@ -1,27 +1,14 @@
 <template>
-  <div class="e-page">
-    <div class="e-page-component">
-      <VsfRatingButton
-        v-model="modelValue"
-        :max="Number(max)"
-        :size="size"
-        :disabled="disabled"
-        :name="name"
-        :aria-label="ariaLabel"
-        @change="changeHandler"
-      >
-        <template #iconFilled="{ getIconSize }">
-          <component :is="iconFilled" :size="getIconSize" />
-        </template>
-        <template #iconEmpty="{ getIconSize }">
-          <component :is="iconEmpty" :size="getIconSize" />
-        </template>
-      </VsfRatingButton>
-    </div>
-    <div class="e-page-controls">
-      <Controls v-bind="controlsAttrs" />
-    </div>
-  </div>
+  <ComponentExample :controls-attrs="controlsAttrs">
+    <VsfRatingButton v-bind="state" v-model="modelValue" :max="Number(max)" @change="changeHandler">
+      <template #iconFilled="{ getIconSize }">
+        <component :is="iconFilled" :size="getIconSize" />
+      </template>
+      <template #iconEmpty="{ getIconSize }">
+        <component :is="iconEmpty" :size="getIconSize" />
+      </template>
+    </VsfRatingButton>
+  </ComponentExample>
 </template>
 
 <script lang="ts">
@@ -29,14 +16,15 @@ import { defineComponent, ref } from 'vue';
 import * as Icons from '@storefront-ui/vue/components/VsfIcons/index';
 import { VsfIconStar, VsfIconStarOutline } from '@storefront-ui/vue/components/VsfIcons/index';
 import { VsfRatingButton, VsfRatingButtonSizes } from '@storefront-ui/vue/components/VsfRatingButton/index';
-import Controls, { prepareControls } from '../../components/utils/Controls.vue';
+import { prepareControls } from '../../components/utils/Controls.vue';
+import ComponentExample from '../../components/utils/ComponentExample.vue';
 
 export default defineComponent({
   name: 'VsfRatingButtonExample',
   components: {
     VsfRatingButton,
     ...Icons,
-    Controls,
+    ComponentExample,
   },
   setup() {
     return {

@@ -1,36 +1,17 @@
 <template>
-  <div class="e-page">
-    <div class="e-page-component">
-      <ul class="max-w-sm">
-        <VsfListItemFilterCheckbox
-          v-model="modelValue"
-          :counter="Number(counter)"
-          :label="label"
-          :size="size"
-          :variant="variant"
-          :secondary-text="secondaryText"
-          :disabled="disabled"
-          :truncate="truncate"
-          :value="value"
-        />
+  <ComponentExample :controls-attrs="controlsAttrs">
+    <ul class="max-w-sm">
+      <VsfListItemFilterCheckbox v-bind="state" v-model="modelValue" :counter="Number(counter)" />
 
-        <VsfListItemFilterCheckbox
-          v-model="modelValue"
-          :counter="Number(counter)"
-          :label="`${label}-2`"
-          :size="size"
-          :variant="variant"
-          :secondary-text="secondaryText"
-          :disabled="disabled"
-          :truncate="truncate"
-          :value="`${value}-2`"
-        />
-      </ul>
-    </div>
-    <div class="e-page-controls">
-      <Controls v-bind="controlsAttrs" />
-    </div>
-  </div>
+      <VsfListItemFilterCheckbox
+        v-bind="state"
+        v-model="modelValue"
+        :counter="Number(counter)"
+        :label="`${label}-2`"
+        :value="`${value}-2`"
+      />
+    </ul>
+  </ComponentExample>
 </template>
 
 <script>
@@ -40,12 +21,13 @@ import {
   VsfListItemFilterCheckboxSize,
   VsfListItemFilterCheckboxVariant,
 } from '@storefront-ui/vue/components/VsfListItemFilterCheckbox/index';
-import Controls, { prepareControls } from '../../components/utils/Controls.vue';
+import { prepareControls } from '../../components/utils/Controls.vue';
+import ComponentExample from '../../components/utils/ComponentExample.vue';
 
 export default {
   name: 'VsfListItemFilterCheckboxExample',
   components: {
-    Controls,
+    ComponentExample,
     VsfListItemFilterCheckbox,
   },
   setup() {

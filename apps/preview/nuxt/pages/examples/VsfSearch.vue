@@ -1,57 +1,46 @@
 <template>
-  <div class="e-page">
-    <div class="e-page-component">
-      <VsfSearch
-        v-model="value"
-        :placeholder="placeholder"
-        :disabled="disabled"
-        :name="name"
-        @submit.prevent="submitHandler"
-        @reset="resetHandler"
-      >
-        <template v-if="slotPrefix" #prefix>
-          <VsfIconSearch></VsfIconSearch>
-        </template>
-        <template v-if="slotSuffix" #suffix>
-          <VsfIconSearch></VsfIconSearch>
-        </template>
-        <template v-if="slotSubmit" #submit>
-          {{ slotSubmit }}
-        </template>
-        <template #results>
-          <div
-            class="bg-white top-1 relative rounded-md font-body text-base text-center p-3 shadow-md border border-gray-100"
-          >
-            <p>
-              This panel is not a part of&nbsp;<code
-                class="text-xs rounded bg-yellow-100 border border-yellow-300 py-0.5 px-1"
-                >VsfSearch</code
-              >&nbsp;component
-            </p>
-            <p>
-              Content is injected via&nbsp;
-              <code class="text-xs rounded bg-yellow-100 border border-yellow-300 py-0.5 px-1">#results</code>&nbsp;slot
-            </p>
-          </div>
-        </template>
-      </VsfSearch>
-    </div>
-    <div class="e-page-controls">
-      <Controls v-bind="controlsAttrs" />
-    </div>
-  </div>
+  <ComponentExample :controls-attrs="controlsAttrs">
+    <VsfSearch v-bind="state" v-model="value" @submit.prevent="submitHandler" @reset="resetHandler">
+      <template v-if="slotPrefix" #prefix>
+        <VsfIconSearch></VsfIconSearch>
+      </template>
+      <template v-if="slotSuffix" #suffix>
+        <VsfIconSearch></VsfIconSearch>
+      </template>
+      <template v-if="slotSubmit" #submit>
+        {{ slotSubmit }}
+      </template>
+      <template #results>
+        <div
+          class="bg-white top-1 relative rounded-md font-body text-base text-center p-3 shadow-md border border-gray-100"
+        >
+          <p>
+            This panel is not a part of&nbsp;<code
+              class="text-xs rounded bg-yellow-100 border border-yellow-300 py-0.5 px-1"
+              >VsfSearch</code
+            >&nbsp;component
+          </p>
+          <p>
+            Content is injected via&nbsp;
+            <code class="text-xs rounded bg-yellow-100 border border-yellow-300 py-0.5 px-1">#results</code>&nbsp;slot
+          </p>
+        </div>
+      </template>
+    </VsfSearch>
+  </ComponentExample>
 </template>
 
 <script lang="ts">
 import { ref } from 'vue';
 import VsfSearch from '@storefront-ui/vue/components/VsfSearch/VsfSearch.vue';
 import { VsfIconSearch } from '@storefront-ui/vue/components/VsfIcons/index';
-import Controls, { prepareControls } from '../../components/utils/Controls.vue';
+import { prepareControls } from '../../components/utils/Controls.vue';
+import ComponentExample from '../../components/utils/ComponentExample.vue';
 
 export default {
   name: 'VsfSearchExample',
   components: {
-    Controls,
+    ComponentExample,
     VsfSearch,
     VsfIconSearch,
   },

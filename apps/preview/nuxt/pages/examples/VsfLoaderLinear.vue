@@ -1,12 +1,7 @@
 <template>
-  <div class="e-page">
-    <div class="e-page-component">
-      <VsfLoaderLinear class="w-10" :size="size" :screen-reader-text="screenReaderText" />
-    </div>
-    <div class="e-page-controls">
-      <Controls v-bind="controlsAttrs" />
-    </div>
-  </div>
+  <ComponentExample :controls-attrs="controlsAttrs">
+    <VsfLoaderLinear class="w-10" v-bind="state" />
+  </ComponentExample>
 </template>
 
 <script>
@@ -14,12 +9,13 @@ import { ref } from 'vue';
 import VsfLoaderLinear from '@storefront-ui/vue/components/VsfLoaderLinear/VsfLoaderLinear.vue';
 import { VsfLoaderSizes } from '@storefront-ui/shared/types';
 import { VsfLoaderLinearSize } from '@storefront-ui/vue/components/VsfLoaderLinear/types';
-import Controls, { prepareControls } from '../../components/utils/Controls.vue';
+import { prepareControls } from '../../components/utils/Controls.vue';
+import ComponentExample from '../../components/utils/ComponentExample.vue';
 
 export default {
   name: 'VsfLoaderLinearExample',
   components: {
-    Controls,
+    ComponentExample,
     VsfLoaderLinear,
   },
   setup() {

@@ -1,24 +1,20 @@
 <template>
-  <div class="e-page">
-    <div class="e-page-component relative">
-      <VsfOverlay :absolute="absolute" :visible="visible" @click="onClickHandler" />
-    </div>
-    <div class="e-page-controls">
-      <Controls v-bind="controlsAttrs" />
-    </div>
-  </div>
+  <ComponentExample :controls-attrs="controlsAttrs">
+    <VsfOverlay v-bind="state" @click="onClickHandler" />
+  </ComponentExample>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import VsfOverlay from '@storefront-ui/vue/components/VsfOverlay/VsfOverlay.vue';
-import Controls, { prepareControls } from '../../components/utils/Controls.vue';
+import { prepareControls } from '../../components/utils/Controls.vue';
+import ComponentExample from '../../components/utils/ComponentExample.vue';
 
 export default defineComponent({
   name: 'VsfOverlayExample',
   components: {
     VsfOverlay,
-    Controls,
+    ComponentExample,
   },
   setup() {
     return {

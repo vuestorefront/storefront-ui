@@ -1,26 +1,22 @@
 <template>
-  <div class="e-page">
-    <div class="e-page-component">
-      <VsfAccordionItem :open="open" :title="title" :chevron-left="chevronLeft" @toggle="toggleHandler">
-        {{ contentText }}
-      </VsfAccordionItem>
-    </div>
-    <div class="e-page-controls">
-      <Controls v-bind="controlsAttrs" />
-    </div>
-  </div>
+  <ComponentExample :controls-attrs="controlsAttrs">
+    <VsfAccordionItem v-bind="state" @toggle="toggleHandler">
+      {{ contentText }}
+    </VsfAccordionItem>
+  </ComponentExample>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref, ToRefs } from 'vue';
 import { VsfAccordionItem } from '@storefront-ui/vue/components/VsfAccordionItem/index';
-import Controls, { prepareControls } from '../../components/utils/Controls.vue';
+import { prepareControls } from '../../components/utils/Controls.vue';
+import ComponentExample from '../../components/utils/ComponentExample.vue';
 
 export default defineComponent({
   name: 'VsfAccordionItemExample',
   components: {
     VsfAccordionItem,
-    Controls,
+    ComponentExample,
   },
   setup() {
     return {

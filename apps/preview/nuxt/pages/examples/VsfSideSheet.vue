@@ -1,30 +1,26 @@
 <template>
-  <div class="e-page">
-    <div class="e-page-component">
-      <VsfSideSheet
-        :overlay-visible="overlayVisible"
-        :permanent="permanent"
-        :left-side="leftSide"
-        :open="open"
-        @close="closeSideSheet"
-      >
-        <div>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam consequatur repellat, odit voluptatibus
-          deserunt eligendi nemo perspiciatis tenetur vero repellendus facere? Dolores sit maiores ut labore facilis
-          minima debitis dolore.
-        </div>
-      </VsfSideSheet>
-    </div>
-    <div class="e-page-controls">
-      <Controls v-bind="controlsAttrs" />
-    </div>
-  </div>
+  <ComponentExample :controls-attrs="controlsAttrs">
+    <VsfSideSheet
+      :overlay-visible="overlayVisible"
+      :permanent="permanent"
+      :left-side="leftSide"
+      :open="open"
+      @close="closeSideSheet"
+    >
+      <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam consequatur repellat, odit voluptatibus
+        deserunt eligendi nemo perspiciatis tenetur vero repellendus facere? Dolores sit maiores ut labore facilis
+        minima debitis dolore.
+      </div>
+    </VsfSideSheet>
+  </ComponentExample>
 </template>
 
 <script>
 import { ref } from 'vue';
 import VsfSideSheet from '@storefront-ui/vue/components/VsfSideSheet/VsfSideSheet.vue';
-import Controls, { prepareControls } from '../../components/utils/Controls.vue';
+import { prepareControls } from '../../components/utils/Controls.vue';
+import ComponentExample from '../../components/utils/ComponentExample.vue';
 
 const isSideSheetOpen = ref(true);
 
@@ -33,7 +29,7 @@ const closeSideSheet = () => (isSideSheetOpen.value = false);
 export default {
   name: 'VsfSideSheetExample',
   components: {
-    Controls,
+    ComponentExample,
     VsfSideSheet,
   },
   setup() {

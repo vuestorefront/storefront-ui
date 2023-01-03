@@ -1,41 +1,24 @@
 <template>
-  <div class="e-page">
-    <div class="e-page-component max-w-lg">
-      <VsfInput
-        v-model="value"
-        :size="size"
-        :label="label"
-        :placeholder="placeholder"
-        :help-text="helpText"
-        :error-message="errorMessage"
-        :required-text="requiredText"
-        :disabled="disabled"
-        :invalid="invalid"
-        :required="required"
-        :character-limit="characterLimit"
-        :readonly="state.readonly"
-      >
-        <template #prefix> {{ slotPrefix }} </template>
-        <template #suffix> {{ slotSuffix }} </template>
-      </VsfInput>
-    </div>
-    <div class="e-page-controls">
-      <Controls v-bind="controlsAttrs" />
-    </div>
-  </div>
+  <ComponentExample :controls-attrs="controlsAttrs">
+    <VsfInput v-bind="state" v-model="value">
+      <template #prefix> {{ slotPrefix }} </template>
+      <template #suffix> {{ slotSuffix }} </template>
+    </VsfInput>
+  </ComponentExample>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import VsfInput from '@storefront-ui/vue/components/VsfInput/VsfInput.vue';
 import { VsfInputSizes } from '@storefront-ui/vue/components/VsfInput/types';
-import Controls, { prepareControls } from '../../components/utils/Controls.vue';
+import { prepareControls } from '../../components/utils/Controls.vue';
+import ComponentExample from '../../components/utils/ComponentExample.vue';
 
 export default defineComponent({
   name: 'VsfSelectExample',
   components: {
     VsfInput,
-    Controls,
+    ComponentExample,
   },
   setup() {
     return {

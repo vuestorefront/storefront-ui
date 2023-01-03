@@ -1,51 +1,40 @@
 <template>
-  <div class="e-page">
-    <div class="e-page-component">
-      <VsfFooter
-        :categories="categoriesModel"
-        :contact-options="contactOptionsModel"
-        :social-media="socialMediaModel"
-        :bottom-links="bottomLinksModel"
-        :company-name="companyNameModel"
-      >
-        <template #subcategoryLink="{ subcategory }">
-          <component :is="linkTag(subcategory.linkTag)" v-bind="subcategory.bindings">
-            {{ subcategory.label }}
-          </component>
-        </template>
-        <template #divider>
-          <VsfDivider />
-        </template>
-        <template #contactIcon="{ contactOption }">
-          <VsfIconHelp v-if="contactOption.iconName === 'help'" size="lg" />
-          <VsfIconChat v-if="contactOption.iconName === 'chat'" size="lg" />
-          <VsfIconPhone v-if="contactOption.iconName === 'phone'" size="lg" />
-        </template>
-        <template #contactLabel="{ contactOption }">
-          <component :is="linkTag(contactOption.linkTag)" v-bind="contactOption.bindings">
-            {{ contactOption.label }}
-          </component>
-        </template>
-        <template #socialItem="{ social }">
-          <component :is="linkTag(social.linkTag)" v-bind="social.bindings">
-            <VsfIconFacebook v-if="social.label === 'Facebook'" />
-            <VsfIconTwitter v-if="social.label === 'Twitter'" />
-            <VsfIconInstagram v-if="social.label === 'Instagram'" />
-            <VsfIconPinterest v-if="social.label === 'Pinterest'" />
-            <VsfIconYoutube v-if="social.label === 'Youtube'" />
-          </component>
-        </template>
-        <template #bottomLink="{ bottomLink }">
-          <component :is="linkTag(bottomLink.linkTag)" v-bind="bottomLink.bindings">
-            {{ bottomLink.label }}
-          </component>
-        </template>
-      </VsfFooter>
-    </div>
-    <div class="e-page-controls">
-      <Controls v-bind="controlsAttrs" />
-    </div>
-  </div>
+  <ComponentExample :controls-attrs="controlsAttrs">
+    <VsfFooter v-bind="state">
+      <template #subcategoryLink="{ subcategory }">
+        <component :is="linkTag(subcategory.linkTag)" v-bind="subcategory.bindings">
+          {{ subcategory.label }}
+        </component>
+      </template>
+      <template #divider>
+        <VsfDivider />
+      </template>
+      <template #contactIcon="{ contactOption }">
+        <VsfIconHelp v-if="contactOption.iconName === 'help'" size="lg" />
+        <VsfIconChat v-if="contactOption.iconName === 'chat'" size="lg" />
+        <VsfIconPhone v-if="contactOption.iconName === 'phone'" size="lg" />
+      </template>
+      <template #contactLabel="{ contactOption }">
+        <component :is="linkTag(contactOption.linkTag)" v-bind="contactOption.bindings">
+          {{ contactOption.label }}
+        </component>
+      </template>
+      <template #socialItem="{ social }">
+        <component :is="linkTag(social.linkTag)" v-bind="social.bindings">
+          <VsfIconFacebook v-if="social.label === 'Facebook'" />
+          <VsfIconTwitter v-if="social.label === 'Twitter'" />
+          <VsfIconInstagram v-if="social.label === 'Instagram'" />
+          <VsfIconPinterest v-if="social.label === 'Pinterest'" />
+          <VsfIconYoutube v-if="social.label === 'Youtube'" />
+        </component>
+      </template>
+      <template #bottomLink="{ bottomLink }">
+        <component :is="linkTag(bottomLink.linkTag)" v-bind="bottomLink.bindings">
+          {{ bottomLink.label }}
+        </component>
+      </template>
+    </VsfFooter>
+  </ComponentExample>
 </template>
 
 <script lang="ts">
@@ -64,13 +53,14 @@ import {
 import type { TagOrComponent } from '@storefront-ui/vue/shared/types';
 import { VsfFooterLabelType, VsfFooterColumnType } from '@storefront-ui/shared/types/index';
 import VsfDivider from '@storefront-ui/vue/components/VsfDivider/VsfDivider.vue';
-import Controls, { prepareControls } from '../../components/utils/Controls.vue';
+import { prepareControls } from '../../components/utils/Controls.vue';
+import ComponentExample from '../../components/utils/ComponentExample.vue';
 
 export default defineComponent({
   name: 'VsfFooterExample',
   components: {
     VsfFooter,
-    Controls,
+    ComponentExample,
     VsfDivider,
     VsfIconHelp,
     VsfIconChat,
@@ -262,41 +252,41 @@ export default defineComponent({
         [
           {
             type: 'json',
-            modelName: 'categoriesModel',
+            modelName: 'categories',
             propType: '[]',
             propDefaultValue: '[]',
           },
           {
             type: 'json',
-            modelName: 'socialMediaModel',
+            modelName: 'socialMedia',
             propType: '[]',
             propDefaultValue: '[]',
           },
           {
             type: 'json',
-            modelName: 'contactOptionsModel',
+            modelName: 'contactOptions',
             propType: '[]',
             propDefaultValue: '[]',
           },
           {
             type: 'json',
-            modelName: 'bottomLinksModel',
+            modelName: 'bottomLinks',
             propType: '[]',
             propDefaultValue: '[]',
           },
           {
             type: 'text',
-            modelName: 'companyNameModel',
+            modelName: 'companyName',
             propDefaultValue: '',
             propType: 'string',
           },
         ],
         {
-          categoriesModel: ref(categories),
-          socialMediaModel: ref(socialMedia),
-          companyNameModel: ref('© 2022 Vue Storefront'),
-          bottomLinksModel: ref(bottomLinks),
-          contactOptionsModel: ref(contactOptions),
+          categories: ref(categories),
+          socialMedia: ref(socialMedia),
+          companyName: ref('© 2022 Vue Storefront'),
+          bottomLinks: ref(bottomLinks),
+          contactOptions: ref(contactOptions),
         },
       ),
     };

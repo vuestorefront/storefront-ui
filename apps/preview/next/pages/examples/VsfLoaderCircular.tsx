@@ -1,6 +1,7 @@
 import VsfLoaderCircular from '@storefront-ui/react/components/VsfLoaderCircular/VsfLoaderCircular';
 import { VsfLoaderSizes } from '@storefront-ui/shared/types';
-import Controls, { prepareControls } from '../../components/utils/Controls';
+import { prepareControls } from '../../components/utils/Controls';
+import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
 
 function Example() {
@@ -28,14 +29,9 @@ function Example() {
   );
 
   return (
-    <div className="e-page">
-      <div className="e-page-component">
-        <VsfLoaderCircular className="w-10" size={state.get.size} screenReaderText={state.get.screenReaderText} />
-      </div>
-      <div className="e-page-controls">
-        <Controls {...{ state, controls }} />
-      </div>
-    </div>
+    <ComponentExample controls={{ state, controls }}>
+      <VsfLoaderCircular className="w-10" size={state.get.size} screenReaderText={state.get.screenReaderText} />
+    </ComponentExample>
   );
 }
 

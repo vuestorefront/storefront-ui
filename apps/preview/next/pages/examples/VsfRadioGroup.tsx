@@ -1,7 +1,8 @@
 import { VsfRadioGroupDirections } from '@storefront-ui/react/components/VsfRadio/types';
 import { VsfRadio, VsfRadioGroup } from '@storefront-ui/react/components/VsfRadio';
 import type { ChangeEvent } from 'react';
-import Controls, { prepareControls } from '../../components/utils/Controls';
+import { prepareControls } from '../../components/utils/Controls';
+import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
 
 function Example() {
@@ -95,35 +96,30 @@ function Example() {
     });
   }
   return (
-    <div className="e-page">
-      <div className="relative e-page-component">
-        <VsfRadioGroup
-          legend={state.get.legend}
-          direction={state.get.direction}
-          required={state.get.required}
-          invalid={state.get.invalid}
-          helpText={state.get.helpText}
-          requiredText={state.get.requiredText}
-          errorText={state.get.errorText}
-        >
-          {state.get.radioDataModel.map((radio) => (
-            <VsfRadio
-              key={radio.value}
-              name={radio.name}
-              label={radio.label}
-              value={radio.value}
-              helpText={radio.helpText}
-              required={state.get.required}
-              className="mb-4 mr-6"
-              onChange={onChangeHandler}
-            />
-          ))}
-        </VsfRadioGroup>
-      </div>
-      <div className="e-page-controls">
-        <Controls {...{ state, controls }} />
-      </div>
-    </div>
+    <ComponentExample controls={{ state, controls }}>
+      <VsfRadioGroup
+        legend={state.get.legend}
+        direction={state.get.direction}
+        required={state.get.required}
+        invalid={state.get.invalid}
+        helpText={state.get.helpText}
+        requiredText={state.get.requiredText}
+        errorText={state.get.errorText}
+      >
+        {state.get.radioDataModel.map((radio) => (
+          <VsfRadio
+            key={radio.value}
+            name={radio.name}
+            label={radio.label}
+            value={radio.value}
+            helpText={radio.helpText}
+            required={state.get.required}
+            className="mb-4 mr-6"
+            onChange={onChangeHandler}
+          />
+        ))}
+      </VsfRadioGroup>
+    </ComponentExample>
   );
 }
 

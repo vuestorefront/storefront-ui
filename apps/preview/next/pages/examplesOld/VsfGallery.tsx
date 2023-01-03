@@ -1,6 +1,7 @@
 import VsfGallery from '../../output/blocks/VsfGallery/VsfGallery.lite';
 // import VsfIconHot from '../../output/blocks/VsfIcons/VsfIconHot.lite';
-import Controls, { prepareControls } from '../../components/utils/Controls';
+import { prepareControls } from '../../components/utils/Controls';
+import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examplesOld';
 
 const Example = () => {
@@ -71,20 +72,15 @@ const Example = () => {
   );
 
   return (
-    <div className="e-page">
-      <div className="e-page-component">
-        <VsfGallery
-          images={state.get.imagesModel}
-          control={state.get.controlModel}
-          thumbsLeft={state.get.thumbsLeftModel}
-          contain={state.get.containModel}
-          counter={state.get.counterModel}
-        ></VsfGallery>
-      </div>
-      <div className="e-page-controls">
-        <Controls {...{ state, controls }} />
-      </div>
-    </div>
+    <ComponentExample controls={{ state, controls }}>
+      <VsfGallery
+        images={state.get.imagesModel}
+        control={state.get.controlModel}
+        thumbsLeft={state.get.thumbsLeftModel}
+        contain={state.get.containModel}
+        counter={state.get.counterModel}
+      ></VsfGallery>
+    </ComponentExample>
   );
 }
 

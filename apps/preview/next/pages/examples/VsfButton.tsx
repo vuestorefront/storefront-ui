@@ -1,8 +1,9 @@
 import { VsfButton, VsfButtonSizes, VsfButtonVariants } from '@storefront-ui/react/components/VsfButton';
 import { VsfIconVsfDiamond } from '@storefront-ui/react/components/VsfIcons';
 import type { VsfButtonProps } from '@storefront-ui/react/components/VsfButton';
-import Controls, { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
+import { prepareControls } from '../../components/utils/Controls';
+import ComponentExample from '../../components/utils/ComponentExample';
 
 function Example() {
   type ControlTypes = VsfButtonProps<HTMLButtonElement> & {
@@ -83,28 +84,23 @@ function Example() {
   );
 
   return (
-    <div className="e-page">
-      <div className="e-page-component">
-        <VsfButton
-          size={state.get.size}
-          variant={state.get.variant}
-          disabled={state.get.disabled}
-          greyscale={state.get.greyscale}
-          slotPrefix={state.get.SlotPrefix && <VsfIconVsfDiamond />}
-          slotSuffix={state.get.SlotSuffix && <VsfIconVsfDiamond />}
-          tile={state.get.tile}
-          rounded={state.get.rounded}
-          block={state.get.block}
-          type={state.get.link ? undefined : 'button'}
-          link={state.get.link}
-        >
-          {state.get.SlotChildren}
-        </VsfButton>
-      </div>
-      <div className="e-page-controls">
-        <Controls {...{ state, controls }} />
-      </div>
-    </div>
+    <ComponentExample controls={{ state, controls }}>
+      <VsfButton
+        size={state.get.size}
+        variant={state.get.variant}
+        disabled={state.get.disabled}
+        greyscale={state.get.greyscale}
+        slotPrefix={state.get.SlotPrefix && <VsfIconVsfDiamond />}
+        slotSuffix={state.get.SlotSuffix && <VsfIconVsfDiamond />}
+        tile={state.get.tile}
+        rounded={state.get.rounded}
+        block={state.get.block}
+        type={state.get.link ? undefined : 'button'}
+        link={state.get.link}
+      >
+        {state.get.SlotChildren}
+      </VsfButton>
+    </ComponentExample>
   );
 }
 

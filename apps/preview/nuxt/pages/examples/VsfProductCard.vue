@@ -1,40 +1,15 @@
 <!-- eslint-disable @typescript-eslint/no-unused-vars -->
 <template>
-  <div class="e-page">
-    <div class="e-page-component">
-      <VsfProductCard
-        :image-src="imageSrc"
-        :image-attr="imageAttr"
-        :title="title"
-        :price="price"
-        :old-price="oldPrice"
-        :size="size"
-        :link="link"
-        :link-tag="componentToShow"
-        :out-of-stock="outOfStock"
-        :out-of-stock-label="outOfStockLabel"
-        :in-cart="inCart"
-        :description="description"
-        :rating-value="ratingValue"
-        :max-rating-value="maxRatingValue"
-        :reviews-amount="reviewsAmount"
-        :similar-label="similarLabel"
-        :add-to-cart-label="addToCartLabel"
-        :badge-text="badgeText"
-        :vertical="vertical"
-        :aria-label-add-to-wishlist="ariaLabelAddToWishlist"
-        :aria-label-badge="ariaLabelBadge"
-        :aria-label-add-to-basket="ariaLabelAddToBasket"
-        @add-to-cart="handleAddToCart"
-        @add-to-wishlist="handleAddToWishlist"
-        @see-similar="handleSeeSimilar"
-        @see-reviews="handleReviewsClick"
-      />
-    </div>
-    <div class="e-page-controls">
-      <Controls v-bind="controlsAttrs" />
-    </div>
-  </div>
+  <ComponentExample :controls-attrs="controlsAttrs">
+    <VsfProductCard
+      v-bind="state"
+      :link-tag="componentToShow"
+      @add-to-cart="handleAddToCart"
+      @add-to-wishlist="handleAddToWishlist"
+      @see-similar="handleSeeSimilar"
+      @see-reviews="handleReviewsClick"
+    />
+  </ComponentExample>
 </template>
 
 <script lang="ts">
@@ -44,14 +19,15 @@ import {
   VsfProductCardSizes,
   VsfProductCardLinkTags,
 } from '@storefront-ui/vue/components/VsfProductCard/index';
-import Controls, { prepareControls } from '../../components/utils/Controls.vue';
+import { prepareControls } from '../../components/utils/Controls.vue';
+import ComponentExample from '../../components/utils/ComponentExample.vue';
 import productImage from '../fixture/product-card.webp';
 
 export default defineComponent({
   name: 'VsfProductCardExample',
   components: {
     VsfProductCard,
-    Controls,
+    ComponentExample,
   },
 
   setup() {

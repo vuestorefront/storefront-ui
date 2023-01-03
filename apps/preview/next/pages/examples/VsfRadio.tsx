@@ -1,7 +1,8 @@
 import { VsfRadioAlignments } from '@storefront-ui/react/components/VsfRadio/types';
 import { VsfRadio, VsfRadioGroup } from '@storefront-ui/react/components/VsfRadio';
 import type { ChangeEvent } from 'react';
-import Controls, { prepareControls } from '../../components/utils/Controls';
+import { prepareControls } from '../../components/utils/Controls';
+import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
 
 function Example() {
@@ -69,25 +70,20 @@ function Example() {
     });
   }
   return (
-    <div className="e-page">
-      <div className="relative e-page-component">
-        <VsfRadioGroup>
-          <VsfRadio
-            name={state.get.name}
-            label={state.get.label}
-            value={state.get.selectedValue}
-            alignment={state.get.alignment}
-            helpText={state.get.helpText}
-            disabled={state.get.disabled}
-            required={state.get.required}
-            onChange={onChangeHandler}
-          />
-        </VsfRadioGroup>
-      </div>
-      <div className="e-page-controls">
-        <Controls {...{ state, controls }} />
-      </div>
-    </div>
+    <ComponentExample controls={{ state, controls }}>
+      <VsfRadioGroup>
+        <VsfRadio
+          name={state.get.name}
+          label={state.get.label}
+          value={state.get.selectedValue}
+          alignment={state.get.alignment}
+          helpText={state.get.helpText}
+          disabled={state.get.disabled}
+          required={state.get.required}
+          onChange={onChangeHandler}
+        />
+      </VsfRadioGroup>
+    </ComponentExample>
   );
 }
 

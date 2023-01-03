@@ -1,5 +1,6 @@
 import { VsfAccordionItem } from '@storefront-ui/react/components/VsfAccordionItem';
-import Controls, { prepareControls } from '../../components/utils/Controls';
+import { prepareControls } from '../../components/utils/Controls';
+import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
 
 function Example() {
@@ -45,21 +46,16 @@ function Example() {
   };
 
   return (
-    <div className="e-page">
-      <div className="e-page-component">
-        <VsfAccordionItem
-          title={state.get.title}
-          open={state.get.open}
-          chevronLeft={state.get.chevronLeft}
-          onToggle={onToggle}
-        >
-          {state.get.childrenModel}
-        </VsfAccordionItem>
-      </div>
-      <div className="e-page-controls">
-        <Controls {...{ state, controls }} />
-      </div>
-    </div>
+    <ComponentExample controls={{ state, controls }}>
+      <VsfAccordionItem
+        title={state.get.title}
+        open={state.get.open}
+        chevronLeft={state.get.chevronLeft}
+        onToggle={onToggle}
+      >
+        {state.get.childrenModel}
+      </VsfAccordionItem>
+    </ComponentExample>
   );
 }
 

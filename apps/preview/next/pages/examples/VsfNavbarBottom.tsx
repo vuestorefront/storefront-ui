@@ -7,7 +7,8 @@ import {
   VsfIconMenu,
   VsfIconFavoritesOutline,
 } from '@storefront-ui/react/components/VsfIcons';
-import Controls, { prepareControls } from '../../components/utils/Controls';
+import { prepareControls } from '../../components/utils/Controls';
+import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
 
 function Example() {
@@ -79,24 +80,19 @@ function Example() {
     },
   ];
   return (
-    <div className="e-page">
-      <div className="e-page-component">
-        <VsfNavbarBottom hideLabels={state.get.hideLabels} absolute={state.get.absolute} filled={state.get.filled}>
-          {items.map((item) => (
-            <VsfNavbarBottomItem
-              key={item.label}
-              slotIcon={item.icon}
-              label={item.label}
-              active={state.get.active === item.label}
-              onClick={() => onClickHandler(item.label)}
-            />
-          ))}
-        </VsfNavbarBottom>
-      </div>
-      <div className="e-page-controls">
-        <Controls {...{ state, controls }} />
-      </div>
-    </div>
+    <ComponentExample controls={{ state, controls }}>
+      <VsfNavbarBottom hideLabels={state.get.hideLabels} absolute={state.get.absolute} filled={state.get.filled}>
+        {items.map((item) => (
+          <VsfNavbarBottomItem
+            key={item.label}
+            slotIcon={item.icon}
+            label={item.label}
+            active={state.get.active === item.label}
+            onClick={() => onClickHandler(item.label)}
+          />
+        ))}
+      </VsfNavbarBottom>
+    </ComponentExample>
   );
 }
 

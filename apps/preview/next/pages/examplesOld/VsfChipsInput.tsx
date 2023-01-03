@@ -1,5 +1,6 @@
 import VsfChipsInput, { VsfChipsInputVariants } from '../../output/blocks/VsfChipsInput/VsfChipsInput.lite';
-import Controls, { prepareControls } from '../../components/utils/Controls';
+import { prepareControls } from '../../components/utils/Controls';
+import ComponentExample from '../../components/utils/ComponentExample';
 // import VsfIconDot from '../../output/blocks/VsfIcons/VsfIconDot.lite';
 import { ExamplePageLayout } from '../examplesOld';
 
@@ -40,19 +41,14 @@ const Example = () => {
     console.log('VsfChipsInput Clicked!');
   }
   return (
-    <div className="e-page">
-      <div className="e-page-component">
-        <VsfChipsInput
-          label={state.get.labelModel}
-          disabled={state.get.disabledModel}
-          size={state.get.sizeModel}
-          handleChipClose={onClickHandler}
-        />
-      </div>
-      <div className="e-page-controls">
-        <Controls {...{ state, controls }} />
-      </div>
-    </div>
+    <ComponentExample controls={{ state, controls }}>
+      <VsfChipsInput
+        label={state.get.labelModel}
+        disabled={state.get.disabledModel}
+        size={state.get.sizeModel}
+        handleChipClose={onClickHandler}
+      />
+    </ComponentExample>
   );
 }
 

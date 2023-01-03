@@ -1,6 +1,7 @@
 import { VsfCheckbox, VsfCheckboxAlignments } from '@storefront-ui/react/components/VsfCheckbox';
 import type { VsfCheckboxProps } from '@storefront-ui/react/components/VsfCheckbox/types';
-import Controls, { prepareControls } from '../../components/utils/Controls';
+import { prepareControls } from '../../components/utils/Controls';
+import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
 
 function Example() {
@@ -91,52 +92,47 @@ function Example() {
   }
 
   return (
-    <div className="e-page">
-      <div className="e-page-component">
-        <VsfCheckbox
-          value={state.get.value}
-          label={state.get.label}
-          indeterminate={state.get.indeterminate}
-          required={state.get.required}
-          disabled={state.get.disabled}
-          alignment={state.get.alignment}
-          invalid={state.get.invalid}
-          errorText={state.get.errorText}
-          helpText={state.get.helpText}
-          requiredText={state.get.requiredText}
-          onChange={onChange}
-        />
-        <VsfCheckbox
-          value="value-2"
-          label={state.get.label}
-          indeterminate={state.get.indeterminate}
-          required={state.get.required}
-          disabled={state.get.disabled}
-          alignment={state.get.alignment}
-          invalid={state.get.invalid}
-          errorText={state.get.errorText}
-          helpText={state.get.helpText}
-          requiredText={state.get.requiredText}
-          onChange={onChange}
-        />
-        <VsfCheckbox
-          value="value-3"
-          label={state.get.label}
-          indeterminate={state.get.indeterminate}
-          required={state.get.required}
-          disabled={state.get.disabled}
-          alignment={state.get.alignment}
-          invalid={state.get.invalid}
-          errorText={state.get.errorText}
-          helpText={state.get.helpText}
-          requiredText={state.get.requiredText}
-          onChange={onChange}
-        />
-      </div>
-      <div className="e-page-controls">
-        <Controls {...{ state, controls }} />
-      </div>
-    </div>
+    <ComponentExample controls={{ state, controls }}>
+      <VsfCheckbox
+        value={state.get.value}
+        label={state.get.label}
+        indeterminate={state.get.indeterminate}
+        required={state.get.required}
+        disabled={state.get.disabled}
+        alignment={state.get.alignment}
+        invalid={state.get.invalid}
+        errorText={state.get.errorText}
+        helpText={state.get.helpText}
+        requiredText={state.get.requiredText}
+        onChange={onChange}
+      />
+      <VsfCheckbox
+        value="value-2"
+        label={state.get.label}
+        indeterminate={state.get.indeterminate}
+        required={state.get.required}
+        disabled={state.get.disabled}
+        alignment={state.get.alignment}
+        invalid={state.get.invalid}
+        errorText={state.get.errorText}
+        helpText={state.get.helpText}
+        requiredText={state.get.requiredText}
+        onChange={onChange}
+      />
+      <VsfCheckbox
+        value="value-3"
+        label={state.get.label}
+        indeterminate={state.get.indeterminate}
+        required={state.get.required}
+        disabled={state.get.disabled}
+        alignment={state.get.alignment}
+        invalid={state.get.invalid}
+        errorText={state.get.errorText}
+        helpText={state.get.helpText}
+        requiredText={state.get.requiredText}
+        onChange={onChange}
+      />
+    </ComponentExample>
   );
 }
 

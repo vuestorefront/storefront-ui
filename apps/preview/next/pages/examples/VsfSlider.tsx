@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { VsfSlider, VsfSliderNavigation, VsfSliderScrollbar } from '@storefront-ui/react/components/VsfSlider';
-import Controls, { prepareControls } from '../../components/utils/Controls';
+import { prepareControls } from '../../components/utils/Controls';
+import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
 
 function NavigationPrev({ onClick, hasPrev }: { onClick: () => void; hasPrev: boolean }) {
@@ -75,44 +76,39 @@ function Example() {
   }, [state.get.draggable]);
 
   return (
-    <div className="e-page">
-      <div className="e-page-component">
-        <VsfSlider
-          key={componentKey}
-          navigation={state.get.navigation}
-          scrollbar={state.get.scrollbar}
-          scrollSnap={state.get.scrollSnap}
-          draggable={
-            state.get.draggable
-              ? {
-                  sensitivity: 3,
-                }
-              : undefined
-          }
-          slotPrevArrow={state.get.ExampleCustomNav ? NavigationPrev : undefined}
-          slotNextArrow={state.get.ExampleCustomNav ? NavigationNext : undefined}
-        >
-          {Array.from(Array(4).keys()).map((item) => (
-            <div key={item} data-index={item + 1}>
-              <div className="bg-gray-300 w-[150px] h-[150px] flex justify-center items-center">{item + 1}</div>
-            </div>
-          ))}
-          {Array.from(Array(4).keys()).map((item) => (
-            <div key={item} data-index={item + 5}>
-              <div className="bg-gray-300 w-[200px] h-[150px] flex justify-center items-center">{item + 5}</div>
-            </div>
-          ))}
-          {Array.from(Array(4).keys()).map((item) => (
-            <div key={item} data-index={item + 9}>
-              <div className="bg-gray-300 w-[150px] h-[150px] flex justify-center items-center">{item + 9}</div>
-            </div>
-          ))}
-        </VsfSlider>
-      </div>
-      <div className="e-page-controls">
-        <Controls {...{ state, controls }} />
-      </div>
-    </div>
+    <ComponentExample controls={{ state, controls }}>
+      <VsfSlider
+        key={componentKey}
+        navigation={state.get.navigation}
+        scrollbar={state.get.scrollbar}
+        scrollSnap={state.get.scrollSnap}
+        draggable={
+          state.get.draggable
+            ? {
+                sensitivity: 3,
+              }
+            : undefined
+        }
+        slotPrevArrow={state.get.ExampleCustomNav ? NavigationPrev : undefined}
+        slotNextArrow={state.get.ExampleCustomNav ? NavigationNext : undefined}
+      >
+        {Array.from(Array(4).keys()).map((item) => (
+          <div key={item} data-index={item + 1}>
+            <div className="bg-gray-300 w-[150px] h-[150px] flex justify-center items-center">{item + 1}</div>
+          </div>
+        ))}
+        {Array.from(Array(4).keys()).map((item) => (
+          <div key={item} data-index={item + 5}>
+            <div className="bg-gray-300 w-[200px] h-[150px] flex justify-center items-center">{item + 5}</div>
+          </div>
+        ))}
+        {Array.from(Array(4).keys()).map((item) => (
+          <div key={item} data-index={item + 9}>
+            <div className="bg-gray-300 w-[150px] h-[150px] flex justify-center items-center">{item + 9}</div>
+          </div>
+        ))}
+      </VsfSlider>
+    </ComponentExample>
   );
 }
 

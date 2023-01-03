@@ -1,5 +1,6 @@
 import { VsfCard, VsfCardSizes } from '@storefront-ui/react/components/VsfCard';
-import Controls, { prepareControls } from '../../components/utils/Controls';
+import { prepareControls } from '../../components/utils/Controls';
+import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
 import productImage from '../fixture/product-card.webp';
 
@@ -76,23 +77,18 @@ function Example() {
   );
 
   return (
-    <div className="e-page">
-      <div className="e-page-component">
-        <VsfCard
-          title={state.get.title}
-          size={state.get.size}
-          link={state.get.link}
-          imgSrc={state.get.imgSrc}
-          imgAttr={state.get.imgAttr}
-          buttonText={state.get.buttonText}
-          description={state.get.description}
-          rounded={state.get.rounded}
-        />
-      </div>
-      <div className="e-page-controls">
-        <Controls {...{ state, controls }} />
-      </div>
-    </div>
+    <ComponentExample controls={{ state, controls }}>
+      <VsfCard
+        title={state.get.title}
+        size={state.get.size}
+        link={state.get.link}
+        imgSrc={state.get.imgSrc}
+        imgAttr={state.get.imgAttr}
+        buttonText={state.get.buttonText}
+        description={state.get.description}
+        rounded={state.get.rounded}
+      />
+    </ComponentExample>
   );
 }
 

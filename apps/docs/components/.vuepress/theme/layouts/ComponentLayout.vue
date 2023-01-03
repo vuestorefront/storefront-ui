@@ -72,7 +72,6 @@ export default {
     },
     reactLink() {
       const path = this.$route.path.replace('vue', 'react');
-      console.log(path.split('/').pop());
       if (components.react.some((name) => name.toLowerCase().includes(path.split('/').pop().split('.')[0]))) {
         return path;
       }

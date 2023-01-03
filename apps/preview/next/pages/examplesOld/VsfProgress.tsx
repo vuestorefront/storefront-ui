@@ -1,6 +1,7 @@
 
 import VsfProgress, { VsfProgressVariants, VsfProgressTypes } from '~/output/blocks/VsfProgress/VsfProgress.lite';
-import Controls, { prepareControls } from '../../components/utils/Controls';
+import { prepareControls } from '../../components/utils/Controls';
+import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examplesOld';
 
 const Example = () => {
@@ -43,19 +44,14 @@ const Example = () => {
     typeModel: '',
   })
   return (
-    <div className="e-page">
-      <div className="e-page-component">
-        <VsfProgress
-          label={state.get.labelModel}
-          value={state.get.valueModel}
-          variant={state.get.variantModel}
-          type={state.get.typeModel}
-        />
-      </div>
-      <div className="e-page-controls">
-        <Controls {...{ state, controls }} />
-      </div>
-    </div>
+    <ComponentExample controls={{ state, controls }}>
+      <VsfProgress
+        label={state.get.labelModel}
+        value={state.get.valueModel}
+        variant={state.get.variantModel}
+        type={state.get.typeModel}
+      />
+    </ComponentExample>
   );
 }
 

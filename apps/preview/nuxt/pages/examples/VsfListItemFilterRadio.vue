@@ -1,37 +1,10 @@
 <template>
-  <div class="e-page">
-    <div class="e-page-component">
-      <ul class="max-w-sm">
-        <VsfListItemFilterRadio
-          v-model="modelValue"
-          :counter="counter"
-          :label="label"
-          :size="size"
-          :variant="variant"
-          :secondary-text="secondaryText"
-          :disabled="disabled"
-          :selected="selected"
-          :truncate="truncate"
-          :value="value"
-        />
-        <VsfListItemFilterRadio
-          v-model="modelValue"
-          :counter="counter"
-          :label="`${label}-2`"
-          :size="size"
-          :variant="variant"
-          :secondary-text="secondaryText"
-          :disabled="disabled"
-          :selected="selected"
-          :truncate="truncate"
-          :value="`${value}-2`"
-        />
-      </ul>
-    </div>
-    <div class="e-page-controls">
-      <Controls v-bind="controlsAttrs" />
-    </div>
-  </div>
+  <ComponentExample :controls-attrs="controlsAttrs">
+    <ul class="max-w-sm">
+      <VsfListItemFilterRadio v-bind="state" v-model="modelValue" />
+      <VsfListItemFilterRadio v-bind="state" v-model="modelValue" :label="`${label}-2`" :value="`${value}-2`" />
+    </ul>
+  </ComponentExample>
 </template>
 
 <script>
@@ -41,12 +14,13 @@ import {
   VsfListItemFilterRadioSize,
   VsfListItemFilterRadioVariant,
 } from '@storefront-ui/vue/components/VsfListItemFilterRadio/index';
-import Controls, { prepareControls } from '../../components/utils/Controls.vue';
+import { prepareControls } from '../../components/utils/Controls.vue';
+import ComponentExample from '../../components/utils/ComponentExample.vue';
 
 export default {
   name: 'VsfListItemFilterRadioExample',
   components: {
-    Controls,
+    ComponentExample,
     VsfListItemFilterRadio,
   },
   setup() {

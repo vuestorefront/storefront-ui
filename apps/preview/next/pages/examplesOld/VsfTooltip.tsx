@@ -1,5 +1,6 @@
 import VsfTooltip, { VsfTooltipTypes } from '~/output/blocks/VsfTooltip/VsfTooltip.lite';
-import Controls, { prepareControls } from '../../components/utils/Controls';
+import { prepareControls } from '../../components/utils/Controls';
+import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examplesOld';
 
 const Example = () => {
@@ -27,18 +28,13 @@ const Example = () => {
   );
 
   return (
-    <div className="e-page">
-      <div className="e-page-component flex justify-center items-center h-full">
-        <VsfTooltip label={state.get.labelModel} type={state.get.typeModel}>
-          <button className="p-4 font-semibold text-sm bg-primary-600 text-white rounded-none shadow-sm uppercase">
-            hover me
-          </button>
-        </VsfTooltip>
-      </div>
-      <div className="e-page-controls">
-        <Controls {...{ state, controls }} />
-      </div>
-    </div>
+    <ComponentExample controls={{ state, controls }}>
+      <VsfTooltip label={state.get.labelModel} type={state.get.typeModel}>
+        <button className="p-4 font-semibold text-sm bg-primary-600 text-white rounded-none shadow-sm uppercase">
+          hover me
+        </button>
+      </VsfTooltip>
+    </ComponentExample>
   );
 }
 

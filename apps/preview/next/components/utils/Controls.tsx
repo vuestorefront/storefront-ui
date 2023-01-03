@@ -1,11 +1,14 @@
+import classNames from 'classnames';
 import { ChangeEvent, useState } from 'react';
+import { VsfButton, VsfButtonVariants, VsfButtonSizes } from '@storefront-ui/react/components/VsfButton';
+import { VsfIconChevronUp, VsfIconChevronDown } from '@storefront-ui/react/components/VsfIcons/index';
 
 type ControlOptionBind = {
   bind?: {};
   label?: string;
   value?: string | number;
 };
-type ControlsType = {
+export type ControlsType = {
   type: 'range' | 'radio' | 'checkbox' | 'text' | 'select' | 'boolean' | 'json';
   modelName: string;
   description?: string;
@@ -15,13 +18,14 @@ type ControlsType = {
   options?: (ControlOptionBind | string)[] | readonly (ControlOptionBind | string)[];
 }[];
 
-type Models<T> = { [key: string]: T };
+export type Models<T> = { [key: string]: T };
 export type ControlsProps<T extends Models<T>> = {
   controls: ControlsType;
   state: {
     get: T;
     set: React.Dispatch<React.SetStateAction<T>>;
   };
+  className?: string;
 };
 
 export const prepareControls = <T extends {}>(controls: ControlsType, models: T): ControlsProps<T> => {
@@ -41,7 +45,11 @@ export const prepareControls = <T extends {}>(controls: ControlsType, models: T)
   };
 };
 
-export default function Controls<T extends { [k: string]: any }>({ controls, state }: ControlsProps<T>) {
+export default function Controls<T extends { [k: string]: any }>({
+  controls,
+  state,
+  className,
+}: ControlsProps<T>) {
   function setState(newState = {}) {
     state.set({
       ...state.get,
@@ -78,14 +86,25 @@ export default function Controls<T extends { [k: string]: any }>({ controls, sta
   const checkboxValue = (option: ControlOptionBind | string) =>
     typeof option === 'string' ? option : option.value || option.label;
 
+  const [previewBottomOpen, setPreviewBottomOpen] = useState(true);
+
   return (
-    <div className="controls">
+    <div className={classNames(className, 'e-page-controls', { 'e-page-controls--collapsed': !previewBottomOpen })}>
       <div className="heading-wrapper">
         <h1 className="heading">Controls</h1>
+
+        <VsfButton
+          variant={VsfButtonVariants.tertiary}
+          size={VsfButtonSizes.sm}
+          onClick={() => setPreviewBottomOpen(!previewBottomOpen)}
+          slotSuffix={previewBottomOpen ? <VsfIconChevronDown /> : <VsfIconChevronUp />}
+        >
+          {previewBottomOpen ? 'Close' : 'Open'}
+        </VsfButton>
       </div>
       <div className="table-wrapper">
         <table aria-label="Controls table">
-          <thead>
+          <thead className="table-heading">
             <tr>
               <th>PropName</th>
               <th>Value</th>

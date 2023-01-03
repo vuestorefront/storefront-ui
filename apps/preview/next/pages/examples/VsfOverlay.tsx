@@ -1,5 +1,6 @@
 import { VsfOverlay } from '@storefront-ui/react/components/VsfOverlay';
-import Controls, { prepareControls } from '../../components/utils/Controls';
+import { prepareControls } from '../../components/utils/Controls';
+import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
 
 function Example() {
@@ -28,14 +29,9 @@ function Example() {
     console.log('VsfOverlay clicked!');
   }
   return (
-    <div className="e-page">
-      <div className="e-page-component relative">
-        <VsfOverlay absolute={state.get.absoluteModel} onClick={onClickHandler} visible={state.get.visibleModel} />
-      </div>
-      <div className="e-page-controls">
-        <Controls {...{ state, controls }} />
-      </div>
-    </div>
+    <ComponentExample controls={{ state, controls }}>
+      <VsfOverlay absolute={state.get.absoluteModel} onClick={onClickHandler} visible={state.get.visibleModel} />
+    </ComponentExample>
   );
 }
 

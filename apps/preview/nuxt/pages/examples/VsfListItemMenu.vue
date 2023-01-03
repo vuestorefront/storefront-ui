@@ -1,45 +1,29 @@
 <template>
-  <div class="e-page">
-    <div class="e-page-component">
-      <VsfListItemMenu
-        class="max-w-sm"
-        :size="size"
-        :label="label"
-        :link="link"
-        :counter="counter"
-        :secondary-text="secondaryText"
-        :truncate="truncate"
-        :selected="selected"
-        :selected-background="selectedBackground"
-        :disabled="disabled"
-        @click="selected = !selected"
-      >
-        <template v-if="showprefix" #prefix>
-          <VsfIconCheck :size="VsfIconSizeEnum.sm" />
-        </template>
-        <template v-if="showSuffix" #suffix>
-          <VsfIconCheck :size="VsfIconSizeEnum.sm" />
-        </template>
-      </VsfListItemMenu>
-    </div>
-    <div class="e-page-controls">
-      <Controls v-bind="controlsAttrs" />
-    </div>
-  </div>
+  <ComponentExample :controls-attrs="controlsAttrs">
+    <VsfListItemMenu class="max-w-sm" v-bind="state" @click="selected = !selected">
+      <template v-if="showprefix" #prefix>
+        <VsfIconCheck :size="VsfIconSizeEnum.sm" />
+      </template>
+      <template v-if="showSuffix" #suffix>
+        <VsfIconCheck :size="VsfIconSizeEnum.sm" />
+      </template>
+    </VsfListItemMenu>
+  </ComponentExample>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import { VsfListItemMenu, VsfListItemMenuSizes } from '@storefront-ui/vue/components/VsfListItemMenu/index';
 import { VsfIconSizeEnum, VsfIconCheck } from '@storefront-ui/vue/components/VsfIcons/index';
-import Controls, { prepareControls } from '../../components/utils/Controls.vue';
+import { prepareControls } from '../../components/utils/Controls.vue';
+import ComponentExample from '../../components/utils/ComponentExample.vue';
 
 export default defineComponent({
   name: 'VsfListItemMenuExample',
   components: {
     VsfListItemMenu,
     VsfIconCheck,
-    Controls,
+    ComponentExample,
   },
   setup() {
     return {

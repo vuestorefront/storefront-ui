@@ -1,36 +1,32 @@
 <template>
-  <div class="e-page">
-    <div class="e-page-component">
-      <strong>Text</strong>
-      <div>textModel - {{ textModel }}</div>
-      <strong>Boolean</strong>
-      <div>booleanModel - {{ booleanModel }}</div>
-      <strong>Range</strong>
-      <div>rangeModel - {{ rangeModel }}</div>
-      <strong>Select</strong>
-      <div>selectModel - {{ selectModel }}</div>
-      <div>selectModel2 - {{ selectModel2 }}</div>
-      <strong>Checkbox</strong>
-      <div>checkboxModel - {{ checkboxModel }}</div>
-      <div>checkboxModel2 - {{ checkboxModel2 }}</div>
-      <div>checkboxModelTrueFalse - {{ checkboxModelTrueFalse }}</div>
-      <strong>Radio</strong>
-      <div>radioModel - {{ radioModel }}</div>
-      <div>radioModel2 - {{ radioModel2 }}</div>
-    </div>
-    <div class="e-page-controls">
-      <Controls v-bind="controlsAttrs" />
-    </div>
-  </div>
+  <ComponentExample>
+    <strong>Text</strong>
+    <div>textModel - {{ textModel }}</div>
+    <strong>Boolean</strong>
+    <div>booleanModel - {{ booleanModel }}</div>
+    <strong>Range</strong>
+    <div>rangeModel - {{ rangeModel }}</div>
+    <strong>Select</strong>
+    <div>selectModel - {{ selectModel }}</div>
+    <div>selectModel2 - {{ selectModel2 }}</div>
+    <strong>Checkbox</strong>
+    <div>checkboxModel - {{ checkboxModel }}</div>
+    <div>checkboxModel2 - {{ checkboxModel2 }}</div>
+    <div>checkboxModelTrueFalse - {{ checkboxModelTrueFalse }}</div>
+    <strong>Radio</strong>
+    <div>radioModel - {{ radioModel }}</div>
+    <div>radioModel2 - {{ radioModel2 }}</div>
+  </ComponentExample>
 </template>
 
 <script lang="ts">
 import { ref } from 'vue';
-import Controls, { prepareControls } from '../../components/utils/Controls.vue';
+import { prepareControls } from '../../components/utils/Controls.vue';
+import ComponentExample from '../../components/utils/ComponentExample.vue';
 
 export default {
   name: 'ControlsExample',
-  components: { Controls },
+  components: { ComponentExample },
   setup() {
     return prepareControls(
       [

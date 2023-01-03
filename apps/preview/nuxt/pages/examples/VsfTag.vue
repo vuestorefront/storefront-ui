@@ -1,30 +1,26 @@
 <template>
-  <div class="e-page">
-    <div class="e-page-component">
-      <VsfTag :variant="variant" :strong="strong" :size="size" :label="label" :aria-live="ariaLiveValue">
-        <template v-if="showIcon" #icon>
-          <VsfIconCheck :size="size === VsfTagSizes.base ? VsfIconSizeEnum.sm : VsfIconSizeEnum.xs" />
-        </template>
-      </VsfTag>
-    </div>
-    <div class="e-page-controls">
-      <Controls v-bind="controlsAttrs" />
-    </div>
-  </div>
+  <ComponentExample :controls-attrs="controlsAttrs">
+    <VsfTag v-bind="state" :aria-live="ariaLiveValue">
+      <template v-if="showIcon" #icon>
+        <VsfIconCheck :size="size === VsfTagSizes.base ? VsfIconSizeEnum.sm : VsfIconSizeEnum.xs" />
+      </template>
+    </VsfTag>
+  </ComponentExample>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import { VsfTag, VsfTagVariants, VsfTagSizes, VsfTagAriaLiveValues } from '@storefront-ui/vue/components/VsfTag/index';
 import { VsfIconSizeEnum, VsfIconCheck } from '@storefront-ui/vue/components/VsfIcons/index';
-import Controls, { prepareControls } from '../../components/utils/Controls.vue';
+import { prepareControls } from '../../components/utils/Controls.vue';
+import ComponentExample from '../../components/utils/ComponentExample.vue';
 
 export default defineComponent({
   name: 'VsfTagExample',
   components: {
     VsfTag,
     VsfIconCheck,
-    Controls,
+    ComponentExample,
   },
   setup() {
     return {

@@ -1,25 +1,21 @@
 <template>
-  <div class="e-page">
-    <div class="e-page-component">
-      <VsfBreadcrumbs :breadcrumbs="breadcrumbs" :with-icon="withIcon" />
-    </div>
-    <div class="e-page-controls">
-      <Controls v-bind="controlsAttrs" />
-    </div>
-  </div>
+  <ComponentExample :controls-attrs="controlsAttrs">
+    <VsfBreadcrumbs :breadcrumbs="breadcrumbs" :with-icon="withIcon" />
+  </ComponentExample>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref, resolveComponent, computed, ToRefs } from 'vue';
 import VsfBreadcrumbs from '@storefront-ui/vue/components/VsfBreadcrumbs/VsfBreadcrumbs.vue';
 import type { VsfBreadcrumbsProps } from '@storefront-ui/vue/components/VsfBreadcrumbs/types';
-import Controls, { prepareControls } from '../../components/utils/Controls.vue';
+import { prepareControls } from '../../components/utils/Controls.vue';
+import ComponentExample from '../../components/utils/ComponentExample.vue';
 
 export default defineComponent({
   name: 'VsfBreadcrumbsExample',
   components: {
     VsfBreadcrumbs,
-    Controls,
+    ComponentExample,
   },
   setup() {
     const componentToShow = computed(() => {

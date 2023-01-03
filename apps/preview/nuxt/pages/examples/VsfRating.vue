@@ -1,30 +1,20 @@
 <template>
-  <div class="e-page">
-    <div class="e-page-component">
-      <VsfRating
-        :value="Number(value)"
-        :max="Number(maxModel)"
-        :size="size"
-        :variant="variant"
-        :half-increment="halfIncrement"
-      />
-    </div>
-    <div class="e-page-controls">
-      <Controls v-bind="controlsAttrs" />
-    </div>
-  </div>
+  <ComponentExample :controls-attrs="controlsAttrs">
+    <VsfRating v-bind="state" :value="Number(value)" :max="Number(maxModel)" />
+  </ComponentExample>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import { VsfRating, VsfRatingVariants, VsfRatingSizes } from '@storefront-ui/vue/components/VsfRating/index';
-import Controls, { prepareControls } from '../../components/utils/Controls.vue';
+import { prepareControls } from '../../components/utils/Controls.vue';
+import ComponentExample from '../../components/utils/ComponentExample.vue';
 
 export default defineComponent({
   name: 'VsfRatingExample',
   components: {
     VsfRating,
-    Controls,
+    ComponentExample,
   },
   setup() {
     return prepareControls(

@@ -1,5 +1,6 @@
 import { VsfSideSheet } from '@storefront-ui/react/components/VsfSideSheet';
-import Controls, { prepareControls } from '../../components/utils/Controls';
+import { prepareControls } from '../../components/utils/Controls';
+import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
 
 function Example() {
@@ -42,26 +43,21 @@ function Example() {
     state.set({ ...state.get, open: false });
   }
   return (
-    <div className="e-page">
-      <div className="e-page-component">
-        <VsfSideSheet
-          open={state.get.open}
-          overlayVisible={state.get.overlayVisible}
-          leftSide={state.get.leftSide}
-          permanent={state.get.permanent}
-          onOpenChange={onClose}
-        >
-          <div>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam consequatur repellat, odit voluptatibus
-            deserunt eligendi nemo perspiciatis tenetur vero repellendus facere? Dolores sit maiores ut labore facilis
-            minima debitis dolore.
-          </div>
-        </VsfSideSheet>
-      </div>
-      <div className="e-page-controls">
-        <Controls {...{ state, controls }} />
-      </div>
-    </div>
+    <ComponentExample controls={{ state, controls }}>
+      <VsfSideSheet
+        open={state.get.open}
+        overlayVisible={state.get.overlayVisible}
+        leftSide={state.get.leftSide}
+        permanent={state.get.permanent}
+        onOpenChange={onClose}
+      >
+        <div>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam consequatur repellat, odit voluptatibus
+          deserunt eligendi nemo perspiciatis tenetur vero repellendus facere? Dolores sit maiores ut labore facilis
+          minima debitis dolore.
+        </div>
+      </VsfSideSheet>
+    </ComponentExample>
   );
 }
 

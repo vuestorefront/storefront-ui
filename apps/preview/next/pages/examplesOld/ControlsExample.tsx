@@ -1,5 +1,6 @@
 
-import Controls, { prepareControls } from '../../components/utils/Controls';
+import { prepareControls } from '../../components/utils/Controls';
+import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examplesOld';
 
 const Example = () => {
@@ -108,29 +109,24 @@ const Example = () => {
     radioModel2: ''
   })
   return (
-    <div className="e-page">
-      <div className="e-page-component">
-        <strong>Text</strong>
-        <div>textModel - {state.get.textModel}</div>
-        <strong>Boolean</strong>
-        <div>booleanModel - {state.get.booleanModel.toString()}</div>
-        <strong>Range</strong>
-        <div>rangeModel - {state.get.rangeModel.toString()}</div>
-        <strong>Select</strong>
-        <div>selectModel - {state.get.selectModel}</div>
-        <div>selectModel2 - {state.get.selectModel2}</div>
-        <strong>Checkbox</strong>
-        <div>checkboxModel - {JSON.stringify(state.get.checkboxModel)}</div>
-        <div>checkboxModel2 - {JSON.stringify(state.get.checkboxModel2)}</div>
-        <div>checkboxModelTrueFalse - {JSON.stringify(state.get.checkboxModelTrueFalse)}</div>
-        <strong>Radio</strong>
-        <div>radioModel - {state.get.radioModel}</div>
-        <div>radioModel2 - {state.get.radioModel2}</div>
-      </div>
-      <div className="e-page-controls">
-        <Controls {...{ state, controls }} />
-      </div>
-    </div>
+    <ComponentExample controls={{ state, controls }}>
+      <strong>Text</strong>
+      <div>textModel - {state.get.textModel}</div>
+      <strong>Boolean</strong>
+      <div>booleanModel - {state.get.booleanModel.toString()}</div>
+      <strong>Range</strong>
+      <div>rangeModel - {state.get.rangeModel.toString()}</div>
+      <strong>Select</strong>
+      <div>selectModel - {state.get.selectModel}</div>
+      <div>selectModel2 - {state.get.selectModel2}</div>
+      <strong>Checkbox</strong>
+      <div>checkboxModel - {JSON.stringify(state.get.checkboxModel)}</div>
+      <div>checkboxModel2 - {JSON.stringify(state.get.checkboxModel2)}</div>
+      <div>checkboxModelTrueFalse - {JSON.stringify(state.get.checkboxModelTrueFalse)}</div>
+      <strong>Radio</strong>
+      <div>radioModel - {state.get.radioModel}</div>
+      <div>radioModel2 - {state.get.radioModel2}</div>
+    </ComponentExample>
   );
 }
 

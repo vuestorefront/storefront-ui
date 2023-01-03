@@ -1,62 +1,22 @@
 <template>
-  <div class="e-page">
-    <div class="e-page-component">
-      <VsfCheckbox
-        v-model="modelValue"
-        :label="label"
-        :value="value"
-        :disabled="disabled"
-        :help-text="helpText"
-        :error-text="errorText"
-        :required-text="requiredText"
-        :alignment="alignment"
-        :invalid="invalid"
-        :indeterminate="indeterminate"
-        :required="required"
-      ></VsfCheckbox>
-      <VsfCheckbox
-        v-model="modelValue"
-        :label="`${label}-1`"
-        :value="`${value}-1`"
-        :disabled="disabled"
-        :help-text="helpText"
-        :error-text="errorText"
-        :required-text="requiredText"
-        :alignment="alignment"
-        :invalid="invalid"
-        :indeterminate="indeterminate"
-        :required="required"
-      ></VsfCheckbox>
-      <VsfCheckbox
-        v-model="modelValue"
-        :label="`${label}-2`"
-        :value="`${value}-2`"
-        :disabled="disabled"
-        :help-text="helpText"
-        :error-text="errorText"
-        :required-text="requiredText"
-        :alignment="alignment"
-        :invalid="invalid"
-        :indeterminate="indeterminate"
-        :required="required"
-      ></VsfCheckbox>
-    </div>
-    <div class="e-page-controls">
-      <Controls v-bind="controlsAttrs" />
-    </div>
-  </div>
+  <ComponentExample :controls-attrs="controlsAttrs">
+    <VsfCheckbox v-bind="state" v-model="modelValue" />
+    <VsfCheckbox v-bind="state" v-model="modelValue" :label="`${label}-1`" :value="`${value}-1`" />
+    <VsfCheckbox v-bind="state" v-model="modelValue" :label="`${label}-2`" :value="`${value}-2`" />
+  </ComponentExample>
 </template>
 
 <script>
 import { VsfCheckbox, VsfCheckboxAlignments } from '@storefront-ui/vue/components/VsfCheckbox/index';
 import { defineComponent } from 'vue';
-import Controls, { prepareControls } from '../../components/utils/Controls.vue';
+import { prepareControls } from '../../components/utils/Controls.vue';
+import ComponentExample from '../../components/utils/ComponentExample.vue';
 
 export default defineComponent({
   name: 'VsfCheckboxExample',
   components: {
     VsfCheckbox,
-    Controls,
+    ComponentExample,
   },
   setup() {
     return prepareControls(

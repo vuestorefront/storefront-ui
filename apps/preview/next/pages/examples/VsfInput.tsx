@@ -2,7 +2,8 @@ import { VsfInput } from '@storefront-ui/react/components/VsfInput';
 import { VsfInputSizes } from '@storefront-ui/react/components/VsfInput/types';
 
 import { ChangeEvent } from 'react';
-import Controls, { prepareControls } from '../../components/utils/Controls';
+import { prepareControls } from '../../components/utils/Controls';
+import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
 
 function Example() {
@@ -99,30 +100,25 @@ function Example() {
     state.set({ ...state.get, value: event?.target.value });
   }
   return (
-    <div className="e-page">
-      <div className="relative max-w-lg e-page-component">
-        <VsfInput
-          size={state.get.size}
-          value={state.get.value}
-          label={state.get.label}
-          placeholder={state.get.placeholder}
-          helpText={state.get.helpText}
-          errorMessage={state.get.errorMessage}
-          requiredText={state.get.requiredText}
-          disabled={state.get.disabled}
-          invalid={state.get.invalid}
-          required={state.get.required}
-          readonly={state.get.readonly}
-          characterLimit={state.get.characterLimit}
-          slotSuffix={state.get.slotSuffix}
-          slotPrefix={state.get.slotPrefix}
-          onChange={onChange}
-        />
-      </div>
-      <div className="e-page-controls">
-        <Controls {...{ state, controls }} />
-      </div>
-    </div>
+    <ComponentExample controls={{ state, controls }}>
+      <VsfInput
+        size={state.get.size}
+        value={state.get.value}
+        label={state.get.label}
+        placeholder={state.get.placeholder}
+        helpText={state.get.helpText}
+        errorMessage={state.get.errorMessage}
+        requiredText={state.get.requiredText}
+        disabled={state.get.disabled}
+        invalid={state.get.invalid}
+        required={state.get.required}
+        readonly={state.get.readonly}
+        characterLimit={state.get.characterLimit}
+        slotSuffix={state.get.slotSuffix}
+        slotPrefix={state.get.slotPrefix}
+        onChange={onChange}
+      />
+    </ComponentExample>
   );
 }
 

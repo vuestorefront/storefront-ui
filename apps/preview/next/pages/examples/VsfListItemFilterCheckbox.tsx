@@ -4,7 +4,8 @@ import {
   VsfListItemFilterCheckboxSize,
   VsfListItemFilterCheckboxProps,
 } from '@storefront-ui/react/components/VsfListItemFilterCheckbox';
-import Controls, { prepareControls } from '../../components/utils/Controls';
+import { prepareControls } from '../../components/utils/Controls';
+import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
 
 function Example() {
@@ -93,39 +94,34 @@ function Example() {
   }
 
   return (
-    <div className="e-page">
-      <div className="e-page-component">
-        <ul className="max-w-sm">
-          <VsfListItemFilterCheckbox
-            size={state.get.size}
-            variant={state.get.variant}
-            label={state.get.label}
-            counter={Number(state.get.counter)}
-            secondaryText={state.get.secondaryText}
-            disabled={state.get.disabled}
-            truncate={state.get.truncate}
-            value={state.get.value}
-            name={state.get.name}
-            onChange={onChange}
-          />
-          <VsfListItemFilterCheckbox
-            size={state.get.size}
-            variant={state.get.variant}
-            label={`${state.get.label}-2`}
-            counter={Number(state.get.counter)}
-            secondaryText={state.get.secondaryText}
-            disabled={state.get.disabled}
-            truncate={state.get.truncate}
-            value={`${state.get.value}-2`}
-            name={state.get.name}
-            onChange={onChange}
-          />
-        </ul>
-      </div>
-      <div className="e-page-controls">
-        <Controls {...{ state, controls }} />
-      </div>
-    </div>
+    <ComponentExample controls={{ state, controls }}>
+      <ul className="max-w-sm">
+        <VsfListItemFilterCheckbox
+          size={state.get.size}
+          variant={state.get.variant}
+          label={state.get.label}
+          counter={Number(state.get.counter)}
+          secondaryText={state.get.secondaryText}
+          disabled={state.get.disabled}
+          truncate={state.get.truncate}
+          value={state.get.value}
+          name={state.get.name}
+          onChange={onChange}
+        />
+        <VsfListItemFilterCheckbox
+          size={state.get.size}
+          variant={state.get.variant}
+          label={`${state.get.label}-2`}
+          counter={Number(state.get.counter)}
+          secondaryText={state.get.secondaryText}
+          disabled={state.get.disabled}
+          truncate={state.get.truncate}
+          value={`${state.get.value}-2`}
+          name={state.get.name}
+          onChange={onChange}
+        />
+      </ul>
+    </ComponentExample>
   );
 }
 

@@ -1,35 +1,31 @@
 <template>
-  <div class="e-page">
-    <div class="e-page-component">
-      <VsfCard
-        :title="title"
-        :size="size"
-        :link="link"
-        :link-tag="linkTag"
-        :description="description"
-        :img-src="imgSrc"
-        :img-attr="imgAttr"
-        :button-text="buttonText"
-        :rounded="rounded"
-      />
-    </div>
-    <div class="e-page-controls">
-      <Controls v-bind="controlsAttrs" />
-    </div>
-  </div>
+  <ComponentExample :controls-attrs="controlsAttrs">
+    <VsfCard
+      :title="title"
+      :size="size"
+      :link="link"
+      :link-tag="linkTag"
+      :description="description"
+      :img-src="imgSrc"
+      :img-attr="imgAttr"
+      :button-text="buttonText"
+      :rounded="rounded"
+    />
+  </ComponentExample>
 </template>
 
 <script>
 import { defineComponent, ref } from 'vue';
 import { VsfCard, VsfCardSizes, VsfCardLinkTags } from '@storefront-ui/vue/components/VsfCard/index';
-import Controls, { prepareControls } from '../../components/utils/Controls.vue';
+import { prepareControls } from '../../components/utils/Controls.vue';
+import ComponentExample from '../../components/utils/ComponentExample.vue';
 import productImage from '../fixture/product-card.webp';
 
 export default defineComponent({
   name: 'VsfCardExample',
   components: {
     VsfCard,
-    Controls,
+    ComponentExample,
   },
   setup() {
     // TODO: isRequired is not working properly, always set to false

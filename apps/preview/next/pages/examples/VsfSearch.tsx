@@ -2,7 +2,8 @@ import { ChangeEvent, FormEvent, MouseEvent } from 'react';
 import { VsfSearch } from '@storefront-ui/react/components/VsfSearch';
 import type { VsfSearchProps } from '@storefront-ui/react/components/VsfSearch';
 import { VsfIconSearch } from '@storefront-ui/react/components/VsfIcons';
-import Controls, { prepareControls } from '../../components/utils/Controls';
+import { prepareControls } from '../../components/utils/Controls';
+import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
 
 function ResultsPanel() {
@@ -83,26 +84,21 @@ function Example() {
   }
 
   return (
-    <div className="e-page">
-      <div className="e-page-component">
-        <VsfSearch
-          placeholder={state.get.placeholder}
-          disabled={state.get.disabled}
-          name={state.get.name}
-          value={state.get.value}
-          slotPrefix={state.get.slotPrefix ? <VsfIconSearch /> : null}
-          slotSuffix={state.get.slotSuffix ? <VsfIconSearch /> : null}
-          slotSubmit={state.get.slotSubmit}
-          slotResults={<ResultsPanel />}
-          onInput={onInput}
-          onSubmit={submitHandler}
-          onReset={resetHandler}
-        />
-      </div>
-      <div className="e-page-controls">
-        <Controls {...{ state, controls }} />
-      </div>
-    </div>
+    <ComponentExample controls={{ state, controls }}>
+      <VsfSearch
+        placeholder={state.get.placeholder}
+        disabled={state.get.disabled}
+        name={state.get.name}
+        value={state.get.value}
+        slotPrefix={state.get.slotPrefix ? <VsfIconSearch /> : null}
+        slotSuffix={state.get.slotSuffix ? <VsfIconSearch /> : null}
+        slotSubmit={state.get.slotSubmit}
+        slotResults={<ResultsPanel />}
+        onInput={onInput}
+        onSubmit={submitHandler}
+        onReset={resetHandler}
+      />
+    </ComponentExample>
   );
 }
 
