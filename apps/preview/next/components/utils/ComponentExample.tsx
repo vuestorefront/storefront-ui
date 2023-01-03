@@ -27,4 +27,3 @@ export default function ComponentExample<T extends { [k: string]: any }>({
   );
 }
 
-  
