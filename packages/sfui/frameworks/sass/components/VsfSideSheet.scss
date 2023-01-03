@@ -2,7 +2,9 @@
   @apply h-full w-full;
 
   &__aside {
-    @apply absolute bg-white h-full min-w-[6.25rem] w-[calc(100%-3.5rem)] lg:max-w-[23.5rem] border border-gray-200;
+    @apply absolute bg-white h-full  border border-gray-200;
+
+    width: min(calc(100vw - 56px), 376px);
 
     &--fixed {
       @apply fixed top-0 bottom-0 shadow-lg border-0;
