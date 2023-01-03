@@ -18,6 +18,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  outsideClickClose: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const emit = defineEmits<{
@@ -55,7 +59,7 @@ watch(
 </script>
 
 <template>
-  <dialog ref="dialogRef" class="vsf-dialog" data-testid="dialog" @click="onClick($event)">
+  <dialog ref="dialogRef" class="vsf-dialog" data-testid="dialog" @click="outsideClickClose && onClick($event)">
     <div class="vsf-dialog__inner" v-bind="$attrs">
       <template v-if="!hideCloseButton">
         <VsfButton class="vsf-dialog__btn-close" :variant="VsfButtonVariants.tertiary" @click="handleCloseDialog()">

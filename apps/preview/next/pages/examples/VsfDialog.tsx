@@ -14,12 +14,18 @@ function Example() {
       {
         type: 'boolean',
         modelName: 'hideCloseButton',
-        propDefaultValue: true,
+        propDefaultValue: false,
+      },
+      {
+        type: 'boolean',
+        modelName: 'outsideClickClose',
+        propDefaultValue: false,
       },
     ],
     {
       open: false,
       hideCloseButton: false,
+      outsideClickClose: false,
     },
   );
 
@@ -29,8 +35,9 @@ function Example() {
         <VsfDialog
           open={state.get.open}
           hideCloseButton={state.get.hideCloseButton}
-          onClose={(isCLosed) => {
-            state.set({ ...state.get, open: isCLosed });
+          outsideClickClose={state.get.outsideClickClose}
+          onClose={(isClosed) => {
+            state.set({ ...state.get, open: isClosed });
           }}
         >
           <section>

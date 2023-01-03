@@ -15,10 +15,12 @@ describe("VsfDialog", () => {
 
   const initializeComponent = ({
     modelValue = ref(true),
-    hideCloseButton = undefined
+    hideCloseButton = undefined,
+    outsideClickClose = false,
   } : {
     modelValue?: Ref<boolean>,
-    hideCloseButton?: boolean
+    hideCloseButton?: boolean,
+    outsideClickClose?: boolean,
   } = {}) => {
     return mount({
       vue: {
@@ -26,6 +28,7 @@ describe("VsfDialog", () => {
         props: {
           modelValue,
           hideCloseButton,
+          outsideClickClose,
           'onUpdate:modelValue': (e: boolean) => modelValue.value = e
         },
         slots: {
@@ -36,6 +39,7 @@ describe("VsfDialog", () => {
         open={modelValue}
         onClose={isClosed => modelValue.value = isClosed}
         hideCloseButton={hideCloseButton}
+        outsideClickClose={outsideClickClose}
         component={VsfDialogReact}
       >{dialogContent}</Wrapper>
     });
@@ -86,7 +90,8 @@ describe("VsfDialog", () => {
   describe('when open and click outside', () => {
     it('should be opened and then close', () => {
       const modelValue = ref(true);
-      initializeComponent({ modelValue });
+      const outsideClickClose = true;
+      initializeComponent({ modelValue, outsideClickClose });
 
       page()
         .isOpened()

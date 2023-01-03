@@ -1,7 +1,7 @@
 <template>
   <div class="e-page">
     <div class="e-page-component">
-      <VsfDialog v-model="modelValue" :hide-close-button="hideCloseButton">
+      <VsfDialog v-model="modelValue" :hide-close-button="hideCloseButton" :outside-click-close="outsideClickClose">
         <section>
           Header<br />
           Some cool dialog text here
@@ -34,7 +34,7 @@ export default {
     VsfButton,
   },
   setup() {
-    const { modelValue, hideCloseButton, controlsAttrs } = prepareControls(
+    const { modelValue, hideCloseButton, outsideClickClose, controlsAttrs } = prepareControls(
       [
         {
           type: 'boolean',
@@ -46,10 +46,16 @@ export default {
           modelName: 'hideCloseButton',
           propDefaultValue: false,
         },
+        {
+          type: 'boolean',
+          modelName: 'outsideClickClose',
+          propDefaultValue: false,
+        },
       ],
       {
         modelValue: ref(false),
         hideCloseButton: ref(),
+        outsideClickClose: ref(false),
       },
     );
 
@@ -64,6 +70,7 @@ export default {
       controlsAttrs,
       modelValue,
       hideCloseButton,
+      outsideClickClose,
     };
   },
 };

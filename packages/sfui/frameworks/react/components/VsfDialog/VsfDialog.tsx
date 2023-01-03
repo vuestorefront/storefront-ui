@@ -10,6 +10,7 @@ export default function VsfDialog({
   hideCloseButton,
   className,
   children,
+  outsideClickClose,
   ...attributes
 }: VsfDialogProps): JSX.Element {
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -20,7 +21,7 @@ export default function VsfDialog({
   };
 
   const onClick = (event: MouseEvent) => {
-    if (event.target === dialogRef.current) {
+    if (event.target === dialogRef.current && outsideClickClose) {
       handleCloseDialog();
     }
   };
@@ -36,7 +37,8 @@ export default function VsfDialog({
 
   useEffect(() => {
     // There is no onClick event on dialogElement in JSX
-    dialogRef.current?.addEventListener('click', onClick, true);
+    const dialogRefCurrent = dialogRef.current;
+    dialogRefCurrent?.addEventListener('click', onClick);
 
     return () => {
       // eslint-disable-next-line react-hooks/exhaustive-deps

@@ -17,6 +17,7 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 | Prop name    | Type      | Default value | Possible values |
 | ------------ | --------- | ------------- | --------------- |
 | hideCloseButton | `boolean` | `false`       |                 |
+| outsideClickClose | `boolean` | `false` | |
 <!-- vue -->
 | modelValue | `boolean` | `false` | |
 <!-- end vue -->
