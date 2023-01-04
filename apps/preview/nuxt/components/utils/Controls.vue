@@ -117,6 +117,7 @@
 import { toRefs, computed, reactive, Ref, ref, defineComponent, PropType } from 'vue';
 import VsfButton from '@storefront-ui/vue/components/VsfButton/VsfButton.vue';
 import { VsfButtonVariants, VsfButtonSizes } from '@storefront-ui/vue/components/VsfButton/types';
+import { useControlsSearchParams } from '../../composables/utils/useControlsSearchParams';
 import { VsfIconChevronDown, VsfIconChevronUp } from '@storefront-ui/vue/components/VsfIcons/index';
 
 type RefValueUnknown = Ref<unknown>;
@@ -182,12 +183,11 @@ export default defineComponent({
         set: (value) => emit(`update:${control.modelName}`, value),
       });
     });
-    const previewBottomOpen = ref(true);
 
     return {
       VsfButtonVariants,
       VsfButtonSizes,
-      previewBottomOpen,
+      ...useControlsSearchParams(proxyModels),
       proxyModels: reactive(proxyModels),
     };
   },

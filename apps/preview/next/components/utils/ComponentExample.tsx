@@ -15,7 +15,7 @@ export type ComponentExampleProps<T extends Models<T>> = {
 };
 
 export default function ComponentExample<T extends { [k: string]: any }>({
-    controls,
+  controls,
   children,
   className,
 }: ComponentExampleProps<T>) {
@@ -26,4 +26,3 @@ export default function ComponentExample<T extends { [k: string]: any }>({
     </div>
   );
 }
-

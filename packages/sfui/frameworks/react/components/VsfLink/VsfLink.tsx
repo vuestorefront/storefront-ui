@@ -11,6 +11,7 @@ const loadDynamic = async () => {
     const dynamic = await import('next/dynamic');
     return dynamic.default;
   } catch (e) {
+    // eslint-disable-next-line no-console
     console.log('Next env is not available');
   }
 };

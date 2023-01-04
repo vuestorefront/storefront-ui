@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import { ChangeEvent, useState } from 'react';
 import { VsfButton, VsfButtonVariants, VsfButtonSizes } from '@storefront-ui/react/components/VsfButton';
 import { VsfIconChevronUp, VsfIconChevronDown } from '@storefront-ui/react/components/VsfIcons/index';
+import { useControlsSearchParams } from '../../composables/utils/useControlsSearchParams';
 
 type ControlOptionBind = {
   bind?: {};
@@ -86,7 +87,9 @@ export default function Controls<T extends { [k: string]: any }>({
   const checkboxValue = (option: ControlOptionBind | string) =>
     typeof option === 'string' ? option : option.value || option.label;
 
-  const [previewBottomOpen, setPreviewBottomOpen] = useState(true);
+  const {
+    previewBottomOpen: [previewBottomOpen, setPreviewBottomOpen],
+  } = useControlsSearchParams(state);
 
   return (
     <div className={classNames(className, 'e-page-controls', { 'e-page-controls--collapsed': !previewBottomOpen })}>
