@@ -1,0 +1,13 @@
+.vsf-link {
+  &:not(&--none){
+    @apply hover:underline hover:text-primary-700 active:underline active:text-primary-800;
+  }
+
+  &--primary {
+    @apply text-primary-700;
+  }
+
+  &--secondary {
+    @apply text-gray-900 underline;
+  }
+}
