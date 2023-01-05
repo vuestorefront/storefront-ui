@@ -2,7 +2,7 @@
   @apply backdrop:bg-gray-500 backdrop:opacity-50 p-0 shadow-extra-large rounded-xl;
 
   &__inner {
-    @apply p-6 lg:p-10 relative;
+    @apply p-6 pt-10 lg:p-10 relative;
   }
 
   &__btn-close {

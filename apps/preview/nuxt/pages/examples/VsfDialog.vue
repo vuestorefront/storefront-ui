@@ -1,16 +1,17 @@
 <template>
   <ComponentExample :controls-attrs="controlsAttrs">
+    <VsfButton @click="modelValue = true">Open dialog example</VsfButton>
+
     <VsfDialog v-bind="state" v-model="modelValue">
-      <section>
-        Header<br />
-        Some cool dialog text here
+      <section className="max-w-xs">
+        <h3 className="font-bold text-lg">Title</h3>
+        <p className="mt-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+
+        <footer className="mt-4 flex justify-end gap-4">
+          <VsfButton autofocus :variant="VsfButtonVariants.secondary" @click="onClose('Close')">Close</VsfButton>
+          <VsfButton @click="onClose('Accept')">Accept</VsfButton>
+        </footer>
       </section>
-      <menu>
-        <div class="flex justify-between">
-          <VsfButton autofocus @click="onClose('Canceled')">Close</VsfButton>
-          <VsfButton @click="onClose('Accepted')">Accept</VsfButton>
-        </div>
-      </menu>
     </VsfDialog>
   </ComponentExample>
 </template>
@@ -30,44 +31,46 @@ export default {
     VsfButton,
   },
   setup() {
-    const { modelValue, hideCloseButton, outsideClickClose, controlsAttrs } = prepareControls(
-      [
-        {
-          type: 'boolean',
-          modelName: 'modelValue',
-          propDefaultValue: false,
-        },
-        {
-          type: 'boolean',
-          modelName: 'hideCloseButton',
-          propDefaultValue: false,
-        },
-        {
-          type: 'boolean',
-          modelName: 'outsideClickClose',
-          propDefaultValue: false,
-        },
-      ],
-      {
-        modelValue: ref(false),
-        hideCloseButton: ref(),
-        outsideClickClose: ref(false),
-      },
-    );
+    const modelValue = ref(false);
 
     return {
-      onClose: (msg: string) => {
+      onClose: (buttonName: string) => {
         modelValue.value = false;
         setTimeout(() => {
-          alert(msg);
+          alert(`Closed via "${buttonName}" button`);
         });
       },
       VsfButtonVariants,
-      controlsAttrs,
-      state,
-      modelValue,
-      hideCloseButton,
-      outsideClickClose,
+      ...prepareControls(
+        [
+          {
+            type: 'boolean',
+            propType: 'boolean',
+            modelName: 'modelValue',
+            propDefaultValue: false,
+            description: 'Controls whether the dialog is open or not',
+          },
+          {
+            type: 'boolean',
+            propType: 'boolean',
+            modelName: 'hideCloseButton',
+            propDefaultValue: false,
+            description: 'When true, hides the default "X" close button located in dialog\'s top-right corner',
+          },
+          {
+            type: 'boolean',
+            propType: 'boolean',
+            modelName: 'outsideClickClose',
+            propDefaultValue: false,
+            description: 'Controls whether click on outside overlay should close the dialog or not',
+          },
+        ],
+        {
+          modelValue,
+          hideCloseButton: ref(),
+          outsideClickClose: ref(false),
+        },
+      ),
     };
   },
 };

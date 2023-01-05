@@ -16,16 +16,16 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 | Prop name    | Type      | Default value | Possible values |
 | ------------ | --------- | ------------- | --------------- |
-| hideCloseButton | `boolean` | `false`       |                 |
-| outsideClickClose | `boolean` | `false` | |
+| hideCloseButton | `boolean` | `false`       | When true, hides the default "X" close button located in dialog's top-right corner |
+| outsideClickClose | `boolean` | `false` | Controls whether click on outside overlay should close the dialog or not |
 <!-- vue -->
-| modelValue | `boolean` | `false` | |
+| modelValue | `boolean` | `false` | Controls whether the dialog is open or not |
 <!-- end vue -->
 <!-- react -->
-| open | `boolean` | `false` | |
+| open | `boolean` | `false` | Controls whether the dialog is open or not |
 | className | `String` | | |
-| onClose | `(isOpened: boolean) => void` | | |
-| children | `ReactNode` | | |
+| onClose | `(isOpened: boolean) => void` | | Triggered when dialog open state changes |
+| children | `ReactNode` | | Allows to specify custom dialog content |
 <!-- end react -->
 
 <!-- vue -->
@@ -33,13 +33,13 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 | Slot name |         Description          |
 | --------- | :--------------------------: |
-| default   | replaces the default content |
+| default   | Allows to specify custom dialog content |
 
 ## Events
 
 | Event name | Trigger |
 | ---------- | :-----: |
-| update:modelValue | trigger when dialog is closed|
+| update:modelValue | Triggered when dialog open state changes |
 <!-- end vue -->
 
 ## Accessibility notes
