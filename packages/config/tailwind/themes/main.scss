@@ -1,0 +1,74 @@
+// This is a  css variables file for main theme
+@layer base {
+    :root {
+        // COLORS
+        // Brand
+        --vsf-color-brand: 2 198 82;
+        // Primary
+        --vsf-color-primary-900: 20 83 45;
+        --vsf-color-primary-800: 22 101 52;
+        --vsf-color-primary-700: 1 137 55;
+        --vsf-color-primary-600: 10 171 69;
+        --vsf-color-primary-500: 2 198 82;
+        --vsf-color-primary-400: 74 222 128;
+        --vsf-color-primary-300: 134 239 172;
+        --vsf-color-primary-200: 187 247 208;
+        --vsf-color-primary-100: 220 252 231;
+        --vsf-color-primary-50: 240 253 244;
+        // Secondary
+        --vsf-color-secondary-900: 68 21 178;
+        --vsf-color-secondary-800: 83 30 211;
+        --vsf-color-secondary-700: 97 49 221;
+        --vsf-color-secondary-600: 111 64 236;
+        --vsf-color-secondary-500: 135 92 246;
+        --vsf-color-secondary-400: 167 139 250;
+        --vsf-color-secondary-300: 196 181 253;
+        --vsf-color-secondary-200: 221 214 254;
+        --vsf-color-secondary-100: 237 233 254;
+        --vsf-color-secondary-50: 245 243 255;
+        // Positive
+        --vsf-color-positive-900: 20 83 45;
+        --vsf-color-positive-800: 22 101 52;
+        --vsf-color-positive-700: 1 137 55;
+        --vsf-color-positive-600: 10 171 69;
+        --vsf-color-positive-500: 2 198 82;
+        --vsf-color-positive-400: 74 222 128;
+        --vsf-color-positive-300: 134 239 172;
+        --vsf-color-positive-200: 187 247 208;
+        --vsf-color-positive-100: 220 252 231;
+        --vsf-color-positive-50: 240 253 244;
+        // Negative
+        --vsf-color-negative-900: 136 19 55 1;
+        --vsf-color-negative-800: 159 18 57;
+        --vsf-color-negative-700: 190 18 60;
+        --vsf-color-negative-600: 225 29 72;
+        --vsf-color-negative-500: 244 63 94;
+        --vsf-color-negative-400: 251 113 133;
+        --vsf-color-negative-300: 253 164 175;
+        --vsf-color-negative-200: 254 205 211;
+        --vsf-color-negative-100: 255 228 230;
+        --vsf-color-negative-50: 255 241 242;
+        // Warning
+        --vsf-color-negative-900: 113 63 18;
+        --vsf-color-negative-800: 133 77 14;
+        --vsf-color-negative-700: 161 98 7;
+        --vsf-color-negative-600: 202 138 4;
+        --vsf-color-negative-500: 234 179 8;
+        --vsf-color-negative-400: 250 204 21;
+        --vsf-color-negative-300: 253 224 71;
+        --vsf-color-negative-200: 254 240 138;
+        --vsf-color-negative-100: 254 249 195;
+        --vsf-color-negative-50: 254 252 232;
+        // Gray
+        --vsf-color-gray-900: 24 24 27;
+        --vsf-color-gray-800: 39 39 42;
+        --vsf-color-gray-700: 63 63 70;
+        --vsf-color-gray-600: 82 82 91;
+        --vsf-color-gray-500: 113 113 122;
+        --vsf-color-gray-400: 161 161 170;
+        --vsf-color-gray-300: 212 212 216;
+        --vsf-color-gray-200: 228 228 231;
+        --vsf-color-gray-100: 244 244 245;
+        --vsf-color-gray-50: 250 250 250;
+    }
+}
