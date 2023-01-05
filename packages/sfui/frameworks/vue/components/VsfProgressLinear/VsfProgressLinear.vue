@@ -26,7 +26,10 @@ defineProps({
     data-testid="progress"
   >
     <progress id="progressbar" max="100" class="vsf-progress-linear__progress" :value="value"></progress>
-    <span v-if="withValue && size !== VsfProgressLinearSizes.minimal" class="vsf-progress-linear__label"
+    <span
+      v-if="withValue && size !== VsfProgressLinearSizes.minimal"
+      class="vsf-progress-linear__label"
+      data-testid="progress-value"
       >{{ value }}%</span
     >
   </label>

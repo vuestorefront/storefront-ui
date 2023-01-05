@@ -70,6 +70,7 @@ export default function VsfProgressCircular({
           x="50%"
           y="50%"
           className={classNames('vsf-progress-circular__label', `vsf-progress-circular__label--${size}`)}
+          data-testid="progress-value"
         >
           {withValue ? `${value}%` : ''}
         </text>

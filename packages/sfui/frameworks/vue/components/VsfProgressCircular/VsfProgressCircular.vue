@@ -75,6 +75,7 @@ const strokeWidth = computed(() => {
         x="50%"
         y="50%"
         :class="['vsf-progress-circular__label', `vsf-progress-circular__label--${size}`]"
+        data-testid="progress-value"
       >
         {{ withValue ? `${value}%` : '' }}
       </text>

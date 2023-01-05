@@ -22,7 +22,7 @@ export default function VsfProgressLinear({
     >
       <progress id="progressbar" max={100} className="vsf-progress-linear__progress" value={value} />
       {withValue && size !== VsfProgressLinearSizes.minimal && (
-        <span className="vsf-progress-linear__label">{`${value}%`}</span>
+        <span className="vsf-progress-linear__label" data-testid="progress-value">{`${value}%`}</span>
       )}
     </label>
   );
