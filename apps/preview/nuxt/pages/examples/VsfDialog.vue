@@ -3,11 +3,11 @@
     <VsfButton @click="modelValue = true">Open dialog example</VsfButton>
 
     <VsfDialog v-bind="state" v-model="modelValue">
-      <section className="max-w-xs">
-        <h3 className="font-bold text-lg">Title</h3>
-        <p className="mt-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+      <section class="max-w-xs">
+        <h3 class="font-bold text-lg">Title</h3>
+        <p class="mt-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
 
-        <footer className="mt-4 flex justify-end gap-4">
+        <footer class="mt-4 flex justify-end gap-4">
           <VsfButton autofocus :variant="VsfButtonVariants.secondary" @click="onClose('Close')">Close</VsfButton>
           <VsfButton @click="onClose('Accept')">Accept</VsfButton>
         </footer>

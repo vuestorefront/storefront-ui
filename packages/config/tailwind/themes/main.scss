@@ -1,6 +1,6 @@
 // This is a  css variables file for main theme
 @layer base {
-    :root {
+    @mixin generateColorVariables {
         // COLORS
         // Brand
         --vsf-color-brand: 2 198 82;
@@ -26,6 +26,7 @@
         --vsf-color-secondary-200: 221 214 254;
         --vsf-color-secondary-100: 237 233 254;
         --vsf-color-secondary-50: 245 243 255;
+
         // Positive
         --vsf-color-positive-900: 20 83 45;
         --vsf-color-positive-800: 22 101 52;
@@ -70,5 +71,15 @@
         --vsf-color-gray-200: 228 228 231;
         --vsf-color-gray-100: 244 244 245;
         --vsf-color-gray-50: 250 250 250;
+    }
+
+    :root {
+        @include generateColorVariables;
+    }
+
+    /* backdrop does NOT inherit variables from :root element, so it needs to have them set separately */
+    /* some browsers (e.g. old safari) does not support backdrop selector, so in order to have variables working at least for the root element we need to split these two selectors up (:root/::backdrop) */
+    ::backdrop {
+        @include generateColorVariables;
     }
 }
