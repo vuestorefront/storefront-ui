@@ -1,7 +1,7 @@
 import { VsfLoaderSizes } from '@storefront-ui/shared/types';
 
 export enum VsfLoaderLinearSize {
-  '2xs' = '2xs',
+  'minimal' = 'minimal',
 }
 export { VsfLoaderSizes };
 // TODO: handle extending/merging 2 enums

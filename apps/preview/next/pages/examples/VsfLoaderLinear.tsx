@@ -13,7 +13,7 @@ function Example() {
         modelName: 'size',
         propType: 'VsfLoaderSizes',
         options: [...Object.keys(VsfLoaderLinearSize), ...Object.keys(VsfLoaderSizes)],
-        propDefaultValue: VsfLoaderLinearSize['2xs'],
+        propDefaultValue: VsfLoaderLinearSize.minimal,
         description: 'sets sizes of components',
       },
       {
@@ -25,7 +25,7 @@ function Example() {
       },
     ],
     {
-      size: VsfLoaderLinearSize['2xs'],
+      size: VsfLoaderLinearSize.minimal,
       screenReaderText: 'loading',
     },
   );

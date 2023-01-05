@@ -26,6 +26,8 @@ export * from './components/VsfNavigationTop';
 export * from './components/VsfOverlay';
 export * from './components/VsfPagination';
 export * from './components/VsfProductCard';
+export * from './components/VsfProgressCircular';
+export * from './components/VsfProgressLinear';
 export * from './components/VsfQuantitySelector';
 export * from './components/VsfRadio';
 export * from './components/VsfRating';

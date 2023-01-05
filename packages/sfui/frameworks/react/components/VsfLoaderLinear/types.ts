@@ -2,7 +2,7 @@ import { VsfLoaderSizes } from '@storefront-ui/shared/types';
 import type { PropsWithStyle } from '../../shared/types';
 
 export enum VsfLoaderLinearSize {
-  '2xs' = '2xs',
+  'minimal' = 'minimal',
 }
 export { VsfLoaderSizes };
 export type VsfLoaderLinearProps = PropsWithStyle & {

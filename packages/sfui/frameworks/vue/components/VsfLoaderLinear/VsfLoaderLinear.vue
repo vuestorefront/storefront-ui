@@ -5,7 +5,7 @@ import { VsfLoaderLinearSize, VsfLoaderSizes } from './types';
 defineProps({
   size: {
     type: String as PropType<VsfLoaderLinearSize | VsfLoaderSizes>,
-    default: VsfLoaderLinearSize['2xs'],
+    default: VsfLoaderLinearSize.minimal,
   },
   screenReaderText: {
     type: String,

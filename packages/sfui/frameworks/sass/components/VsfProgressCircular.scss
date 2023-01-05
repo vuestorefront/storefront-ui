@@ -1,0 +1,43 @@
+.vsf-progress-circular {
+  $self: &;
+
+  &__label {
+    @apply stroke-0 fill-gray-900 font-medium stroke-black;
+
+    &--xs {
+      @apply text-[4px] leading-[4px];
+    }
+
+    &--sm {
+      @apply text-[5px] leading-[5px];
+    }
+
+    &--base {
+      @apply text-[6px] leading-[6px];
+    }
+
+    &--lg {
+      @apply text-[8px] leading-[8px];
+    }
+
+    &--xl {
+      @apply text-[10px] leading-[10px];
+    }
+
+    &--2xl {
+      @apply text-sm leading-[14px];
+    }
+
+    &--3xl {
+      @apply text-2xl leading-6;
+    }
+
+    &--4xl {
+      @apply text-[40px] leading-10;
+    }
+  }
+  
+  &__circle {
+    @apply transition-all ease-in-out duration-500 origin-center -rotate-90;
+  }
+}

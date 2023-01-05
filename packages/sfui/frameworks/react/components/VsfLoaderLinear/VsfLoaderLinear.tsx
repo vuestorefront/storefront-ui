@@ -3,7 +3,7 @@ import { VsfLoaderLinearSize } from './types';
 import type { VsfLoaderLinearProps } from './types';
 
 export default function VsfLoaderLinear({
-  size = VsfLoaderLinearSize['2xs'],
+  size = VsfLoaderLinearSize.minimal,
   screenReaderText = 'loading',
   className,
   ...attributes

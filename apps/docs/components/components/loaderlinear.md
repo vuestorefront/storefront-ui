@@ -10,7 +10,7 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 
 | Prop name             | Type                       | Default value                 | Possible values                      |
 |-----------------------|----------------------------|-------------------------------|--------------------------------------|
-| `size`                |      VsfLoaderSizes        | `VsfLoaderSizes.lg`           |  `2xs`,`xs`,`sm`,`base`,`lg`,`xl`,`2xl`,`3xl`,`4xl` |
+| `size`                |      VsfLoaderSizes        | `VsfLoaderSizes.lg`           |  `minimal`,`xs`,`sm`,`base`,`lg`,`xl`,`2xl`,`3xl`,`4xl` |
 | `screenReaderText`    |      string                | `loading`                     |                                      |
 
 ## Accessibility notes

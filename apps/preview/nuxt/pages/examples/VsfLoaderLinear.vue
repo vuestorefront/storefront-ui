@@ -27,7 +27,7 @@ export default {
             modelName: 'size',
             propType: 'VsfLoaderSizes',
             options: [...Object.keys(VsfLoaderLinearSize), ...Object.keys(VsfLoaderSizes)],
-            propDefaultValue: VsfLoaderLinearSize['2xs'],
+            propDefaultValue: VsfLoaderLinearSize.minimal,
             description: 'sets sizes of components',
           },
           {
@@ -39,7 +39,7 @@ export default {
           },
         ],
         {
-          size: ref(VsfLoaderLinearSize['2xs']),
+          size: ref(VsfLoaderLinearSize.minimal),
           screenReaderText: ref('loading'),
         },
       ),
