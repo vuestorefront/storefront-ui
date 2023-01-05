@@ -9,7 +9,10 @@ import { ExamplePageLayout } from '../examples';
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 function Example() {
   const [copied, setCopied] = useState('');
-  const { data: componentsNames = [] } = useSWR<string[]>('/api/getIcons', fetcher);
+  const { data: componentsNames = [] } = useSWR<string[]>(
+    `${process.env.DOCS_EXAMPLES_REACT || ''}/api/getIcons`,
+    fetcher,
+  );
 
   const copyToClipboard = (componentName: string) => {
     navigator.clipboard.writeText(componentName);
