@@ -1,11 +1,16 @@
 /// <reference path="../../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from "react";
+// import vue
 import VsfDropdownMenuVue from "../../../sfui/frameworks/vue/components/VsfDropdownMenu/VsfDropdownMenu.vue";
-import VsfDropdownMenuReact from "../../../sfui/frameworks/react/components/VsfDropdownMenu/VsfDropdownMenu";
 import VsfListItemMenuVue from '../../../sfui/frameworks/vue/components/VsfListItemMenu/VsfListItemMenu.vue';
-import VsfListItemMenuReact from '../../../sfui/frameworks/react/components/VsfListItemMenu/VsfListItemMenu';
 import VsfIconDotVue from '../../../sfui/frameworks/vue/components/VsfIcons/VsfIconDot.vue';
+// end import vue
+// import react
+import VsfDropdownMenuReact from "../../../sfui/frameworks/react/components/VsfDropdownMenu/VsfDropdownMenu";
+import VsfListItemMenuReact from '../../../sfui/frameworks/react/components/VsfListItemMenu/VsfListItemMenu';
 import VsfIconDotReact from '../../../sfui/frameworks/react/components/VsfIcons/VsfIconDot';
+// end import react
+
 import { mount, Wrapper } from '../../utils/mount';
 import { h, ref } from 'vue';
 import type { Ref } from "vue";
@@ -49,13 +54,13 @@ describe("VsfDropdownMenu", () => {
           loading
         },
         slots: {
-          default: () => 
+          default: () =>
             items.map(
               ({ label, secondaryText })  => {
                 return h(
-                  VsfListItemMenuVue, { 
-                    key: label, 
-                    label: label, 
+                  VsfListItemMenuVue, {
+                    key: label,
+                    label: label,
                     ['secondary-text']: secondaryText
                   },
                   { prefix: () => h(VsfIconDotVue) }
@@ -64,7 +69,7 @@ describe("VsfDropdownMenu", () => {
             )
         }
       },
-      react: 
+      react:
       <Wrapper
         loading={loading}
         component={VsfDropdownMenuReact}
@@ -83,7 +88,7 @@ describe("VsfDropdownMenu", () => {
 
   it('initial state', () => {
     initializeComponent();
-  });  
+  });
 
   describe('when loading is changing value', () => {
     it('should change content to loader component', () => {

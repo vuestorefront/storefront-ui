@@ -50,6 +50,7 @@ export default function VsfLink({
     <VsfConfigContext.Consumer>
       {({ linkTag }) => {
         const typesAndProps = createElementTypeAndProps(tag || linkTag || DynamicLink || 'a');
+
         return createElement(
           typesAndProps.type,
           // TODO: tuple type does not work correctly

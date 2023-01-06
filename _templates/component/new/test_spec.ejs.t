@@ -8,9 +8,14 @@ force: false
   ReactComponent = name + 'React'
 %>/// <reference path="../../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from "react";
+// import vue
 import <%= VueComponent %> from "../../../frameworks/vue/components/<%= name %>/<%= name %>.vue";
+// end import vue
+// import react
 import <%= ReactComponent %> from "../../../frameworks/react/components/<%= name %>/<%= name %>";
-import { mount } from '../../utils/mount';
+// end import react
+
+import { mount, Wrapper } from '../../utils/mount';
 import <%= PageObject %> from "./<%= name %>.PageObject";
 
 describe("<%= name %>", () => {
@@ -24,7 +29,9 @@ describe("<%= name %>", () => {
 
         },
       },
-      react: <<%= ReactComponent %>> </<%= ReactComponent %>>
+      react: <Wrapper
+        component={<%= ReactComponent %>}
+      > </Wrapper>
     });
   }
 

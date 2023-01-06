@@ -1,14 +1,17 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from "react";
+// import vue
 import VsfButtonVue from "../../../sfui/frameworks/vue/components/VsfButton/VsfButton.vue";
-import VsfButtonReact from "../../../sfui/frameworks/react/components/VsfButton/VsfButton";
-import { VsfButtonSizes, VsfButtonVariants } from '../../../sfui/frameworks/vue/components/VsfButton/types';
 import VsfIconCheckCircleVue from '../../../sfui/frameworks/vue/components/VsfIcons/VsfIconCheckCircle.vue';
 import VsfIconCheckboxIndeterminateVue from '../../../sfui/frameworks/vue/components/VsfIcons/VsfIconCheckboxIndeterminate.vue';
-
+// end import vue
+// import react
+import VsfButtonReact from "../../../sfui/frameworks/react/components/VsfButton/VsfButton";
 import VsfIconCheckCircleReact from '../../../sfui/frameworks/react/components/VsfIcons/VsfIconCheckCircle';
 import VsfIconCheckboxIndeterminateReact from '../../../sfui/frameworks/react/components/VsfIcons/VsfIconCheckboxIndeterminate';
+// end import react
 
+import { VsfButtonSizes, VsfButtonVariants } from '../../../sfui/frameworks/vue/components/VsfButton/types';
 import { mount } from '../../utils/mount';
 import VsfButtonBaseObject from "./VsfButton.PageObject";
 

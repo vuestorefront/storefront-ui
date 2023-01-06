@@ -1,15 +1,19 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from "react";
 import { h } from 'vue';
+// import vue
 import VsfRatingButtonVue from "../../../sfui/frameworks/vue/components/VsfRatingButton/VsfRatingButton.vue";
+import VsfIconStarVue from '../../../sfui/frameworks/vue/components/VsfIcons/VsfIconStar.vue';
+import VsfIconStarOutlineVue from '../../../sfui/frameworks/vue/components/VsfIcons/VsfIconStarOutline.vue';
+// end import vue
+// import react
 import VsfRatingButtonReact from "../../../sfui/frameworks/react/components/VsfRatingButton/VsfRatingButton";
-import VsfIconStar from '@storefront-ui/react/components/VsfIcons/VsfIconStar';
-import VsfIconStarVue from '@storefront-ui/vue/components/VsfIcons/VsfIconStar.vue';
-import VsfIconStarOutline from '@storefront-ui/react/components/VsfIcons/VsfIconStarOutline';
-import VsfIconStarOutlineVue from '@storefront-ui/vue/components/VsfIcons/VsfIconStarOutline.vue';
-import { VsfRatingButtonSizes } from '../../../sfui/frameworks/vue/components/VsfRatingButton/types';
-import { VsfIconSizeEnum } from '@storefront-ui/vue/components/VsfIconBase/types';
+import VsfIconStar from '../../../sfui/frameworks/react/components/VsfIcons/VsfIconStar';
+import VsfIconStarOutline from '../../../sfui/frameworks/react/components/VsfIcons/VsfIconStarOutline';
+// end import react
 
+import { VsfRatingButtonSizes } from '../../../sfui/frameworks/vue/components/VsfRatingButton/types';
+import { VsfIconSizeEnum } from '../../../sfui/frameworks/vue/components/VsfIconBase/types';
 import { mount } from '../../utils/mount';
 import VsfRatingButtonBaseObject from "./VsfRatingButton.PageObject";
 

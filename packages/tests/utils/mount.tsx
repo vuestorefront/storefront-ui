@@ -3,7 +3,7 @@ import { mount as reactMount } from 'cypress/react18';
 import { isReact, isVue } from "./utils";
 import { useState, createElement } from 'react';
 import type { ReactNode, FunctionComponent } from 'react';
-import { isRef, unref, watch } from 'vue';
+import { isRef, unref, watch, reactive } from 'vue';
 import type { Ref } from 'vue';
 
 type vueMountOptions = Parameters<typeof vueMount>;
@@ -16,7 +16,19 @@ export const mount = (mountOptions: {
 }) => {
   // https://docs.cypress.io/guides/component-testing/quickstart-vue
   if (isVue && mountOptions.vue) {
-    return (cy.mount as typeof vueMount)(mountOptions.vue.component, mountOptions.vue)
+    const wrapperComponent = (cy.mount as typeof vueMount)(
+      mountOptions.vue.component,
+      { ...mountOptions.vue, props: reactive(mountOptions.vue.props)}
+    );
+    wrapperComponent.then(({ wrapper }) => {
+      Object.entries(mountOptions.vue?.props || {}).forEach(([propName, propValue]) => {
+        if(!isRef(propValue)) return;
+        watch(propValue, propValue => {
+          wrapper.setProps({ [propName]: propValue})
+        }, { immediate: true } )
+      })
+    })
+    return wrapperComponent;
   }
   // https://docs.cypress.io/guides/component-testing/quickstart-react
   if (isReact && mountOptions.react) {

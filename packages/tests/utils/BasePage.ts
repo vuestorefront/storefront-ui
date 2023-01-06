@@ -69,8 +69,20 @@ export class BasePage<T extends HTMLElement = HTMLElement> {
     return this;
   }
 
+  haveNoContent() {
+    this.container.should('not.have.text');
+    return this;
+  }
+
   makeSnapshot(name?: string, opts?: Parameters<typeof cy.percySnapshot>[1]) {
     cy.percySnapshot(name, opts);
+    return this;
+  }
+
+  hasTag(tagName: string) {
+    this.container.then((el) => {
+      expect(el[0].tagName).to.equal(tagName);
+    });
     return this;
   }
 

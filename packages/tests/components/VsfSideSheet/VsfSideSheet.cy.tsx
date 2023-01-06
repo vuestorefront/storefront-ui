@@ -1,7 +1,12 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from "react";
+// import vue
 import VsfSideSheetVue from "../../../sfui/frameworks/vue/components/VsfSideSheet/VsfSideSheet.vue";
+// end import vue
+// import react
 import VsfSideSheetReact from "../../../sfui/frameworks/react/components/VsfSideSheet/VsfSideSheet";
+// end import react
+
 import { mount } from '../../utils/mount';
 import VsfSideSheetBaseObject from "./VsfSideSheet.PageObject";
 

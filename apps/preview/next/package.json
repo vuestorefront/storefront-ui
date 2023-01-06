@@ -15,8 +15,8 @@
     "sync": "yarn sync-test && yarn sync-comp",
     "sync:watch-test": "chokidar --silent \"../../../packages/tests/**/*.{cy.tsx,ts}\" -c \"yarn sync-test\"",
     "sync:watch-comp": "chokidar --silent \"../../../packages/sfui/**/*.{ts,tsx,scss}\" -c \"yarn sync-comp\"",
-    "test": "yarn clean && yarn sync && concurrently \"yarn sync:watch-test\" \"yarn sync:watch-comp\" \"yarn cypress open --component\"",
-    "test:ci": "yarn clean && yarn sync && yarn percy exec -- cypress run --component"
+    "test": "TEST=true && yarn clean && yarn sync && concurrently \"yarn sync:watch-test\" \"yarn sync:watch-comp\" \"yarn cypress open --component\"",
+    "test:ci": "TEST=true && yarn clean && yarn sync && yarn percy exec -- cypress run --component"
   },
   "dependencies": {
     "classnames": "^2.3.2",
@@ -36,6 +36,7 @@
     "@storefront-ui/sass": "workspace:*",
     "@storefront-ui/shared": "workspace:*",
     "@storefront-ui/tailwind-config": "workspace:*",
+    "@storefront-ui/tests-shared": "workspace:*",
     "@types/node": "^18.7.14",
     "@types/react": "^18.0.18",
     "@types/react-dom": "^18.0.6",

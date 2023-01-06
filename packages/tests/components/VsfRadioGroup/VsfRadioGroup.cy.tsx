@@ -1,7 +1,12 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from "react";
+// import vue
 import VsfRadioGroupVue from "../../../sfui/frameworks/vue/components/VsfRadio/VsfRadioGroup.vue";
+// end import vue
+// import react
 import VsfRadioGroupReact from "../../../sfui/frameworks/react/components/VsfRadio/VsfRadioGroup";
+// end import react
+
 import { mount } from '../../utils/mount';
 import { VsfRadioGroupDirections } from '../../../sfui/frameworks/vue/components/VsfRadio/types';
 import VsfRadioGroupBaseObject from "./VsfRadioGroup.PageObject";

@@ -1,8 +1,7 @@
 <script lang="ts" setup>
 import { computed, inject, resolveComponent, toRefs } from 'vue';
-import type { ConcreteComponent, PropType, Ref } from 'vue';
+import type { ConcreteComponent, PropType, Ref, Component } from 'vue';
 import type { RouteLocationRaw, _RouterLinkI } from 'vue-router';
-import type { Component } from 'vue';
 import { VsfLinkVariant } from './types';
 import { useConfigName } from '../VsfConfig';
 
@@ -29,25 +28,27 @@ const { tag } = toRefs(props);
 const injectTag = inject<Ref<Tag> | undefined>(useConfigName('linkTag'), undefined);
 const linkTag = computed(() => {
   const NuxtLink = resolveComponent('NuxtLink');
-  const RouterLink = resolveComponent('router-link');
+  const RouterLink = resolveComponent('RouterLink');
 
-  if (NuxtLink) return NuxtLink;
-  else if (RouterLink) return RouterLink;
+  // When `NuxtLink` does not exists resolveComponent return name, if exists its object with component
+  if (typeof NuxtLink === 'object') return NuxtLink;
+  else if (typeof RouterLink === 'object') return RouterLink;
   else return 'a';
 });
 
 const linkTagInternal = computed(() => tag?.value || injectTag?.value || linkTag.value);
-const isNuxtLink = computed(() => (linkTagInternal.value as Component).name === 'NuxtLink');
-const isRouterLink = computed(() => (linkTagInternal.value as Component).name === 'RouterLink');
+const isNuxtLink = computed(() => (linkTagInternal.value as Component)?.name === 'NuxtLink');
+const isRouterLink = computed(() => (linkTagInternal.value as Component)?.name === 'RouterLink');
 const isAnchor = computed(() => !isNuxtLink.value && !isRouterLink.value);
 </script>
 
 <template>
   <component
     :is="linkTagInternal"
-    :href="isAnchor ? link : undefined"
-    :to="isAnchor ? undefined : link"
     :class="['vsf-link', `vsf-link--${variant}`]"
+    v-bind="{
+      ...(isAnchor ? { href: link } : { to: link }),
+    }"
     data-testid="link"
   >
     <slot />

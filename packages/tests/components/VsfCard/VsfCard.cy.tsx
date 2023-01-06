@@ -1,7 +1,12 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React, { ReactNode } from "react";
+// import vue
 import VsfCardVue from "../../../sfui/frameworks/vue/components/VsfCard/VsfCard.vue";
+// end import vue
+// import react
 import VsfCardReact from "../../../sfui/frameworks/react/components/VsfCard/VsfCard";
+// end import react
+
 import { mount } from '../../utils/mount';
 import VsfCardBaseObject from "./VsfCard.PageObject";
 import { VsfCardSizes } from '../../../sfui/frameworks/vue/components/VsfCard/types';

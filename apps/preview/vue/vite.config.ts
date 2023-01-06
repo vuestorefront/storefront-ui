@@ -1,5 +1,23 @@
 import vue from "@vitejs/plugin-vue";
 import { defineConfig, searchForWorkspaceRoot } from "vite";
+import {
+  extractImports,
+  changeImports,
+  removeCode,
+  changeFrameworkPathInImports,
+} from "@storefront-ui/tests-shared";
+
+const changeImport = (code: string, framework: "react") => {
+  // Find imports of component and replace it with utils/fake-import.ts empty file
+  const EXTRACT_IMPORTS = extractImports(framework);
+  const CHANGE_IMPORTS = changeImports(framework);
+
+  return code.replace(EXTRACT_IMPORTS, (_m, frameworkImport: string) => {
+    return frameworkImport.replace(CHANGE_IMPORTS, (_m, importName: string) => {
+      return `import${importName}from '../../utils/fake-import';`;
+    });
+  });
+};
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -21,31 +39,20 @@ export default defineConfig({
         if (!/^[^.]+.cy.tsx$/.test(id) && !/^[^.]+.PageObject.ts$/.test(id))
           return { code };
 
-        const REGEX = new RegExp(
-          "import(.*)from.*../sfui/frameworks/react.*",
-          "gm"
-        );
-        if (REGEX.test(code)) {
-          const REGEX_TYPES = new RegExp(
-            "(import.*from.*../sfui/frameworks/)(react)(.*/types.*)",
-            "gm"
-          );
+        // if more frameworks we can loop over this regex and remove code from all frameworks
+        const REMOVE_REGEX = removeCode("react");
+        const REGEX_FRAMEWORK = changeFrameworkPathInImports("react");
 
-          const changedCode = code
-            // Find all `vue/../types` files and replace it to `react/../types` so we would test correct package
-            .replace(REGEX_TYPES, (_match, g1, g2, g3) => {
-              return `${g1}vue${g3}`;
-            })
-            // Find imports of component and replace it with utils/fake-import.ts empty file
-            .replace(REGEX, (_match, g1) => {
-              return `import${g1}from '../../utils/fake-import';`;
-            });
+        const changedCode = changeImport(code, "react")
+          .replace(REMOVE_REGEX, "")
+          // Find all imports with `/react/` files and replace it to `/vue/` so we would test correct package
+          .replace(REGEX_FRAMEWORK, (_match, g1, g2, g3) => {
+            return `${g1}/vue/${g3}`;
+          });
 
-          return {
-            code: changedCode,
-          };
-        }
-        return { code };
+        return {
+          code: changedCode,
+        };
       },
     },
   ],

@@ -1,7 +1,12 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from "react";
+// import vue
 import VsfLoaderCircularVue from "../../../sfui/frameworks/vue/components/VsfLoaderCircular/VsfLoaderCircular.vue";
+// end import vue
+// import react
 import VsfLoaderCircularReact from "../../../sfui/frameworks/react/components/VsfLoaderCircular/VsfLoaderCircular";
+// end import react
+
 import { VsfLoaderSizes } from "@storefront-ui/shared/types";
 import { mount } from '../../utils/mount';
 import VsfLoaderCircularBaseObject from "./VsfLoaderCircular.PageObject";

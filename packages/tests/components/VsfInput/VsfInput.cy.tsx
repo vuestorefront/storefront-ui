@@ -1,7 +1,12 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from "react";
+// import vue
 import VsfInputVue from "../../../sfui/frameworks/vue/components/VsfInput/VsfInput.vue";
+// end import vue
+// import react
 import VsfInputReact from "../../../sfui/frameworks/react/components/VsfInput/VsfInput";
+// end import react
+
 import { mount } from '../../utils/mount';
 import { VsfInputSizes } from '../../../sfui/frameworks/vue/components/VsfInput/types';
 import VsfInputBaseObject from "./VsfInput.PageObject";
