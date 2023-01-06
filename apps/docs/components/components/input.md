@@ -1,4 +1,8 @@
-# Input component
+---
+layout: ComponentLayout
+hideBreadcrumbs: true
+---
+# Input
 
 Input is a foundational component for inputting text via a keyboard. 
 

@@ -2,12 +2,12 @@
 layout: ComponentLayout
 hideBreadcrumbs: true
 ---
-# FooterSocialMedia component
+# FooterSocialMedia
 
 The FooterSocialMedia component is a container for social media icons and should be used as a direct child of the FooterSection component.
 
 <!-- react -->
-###  Props:
+### Props:
 | Prop name | Type      | Default value | Possible values   |
 |-----------|-----------| ------------- |-------------------|
 | className | string    |             |                   |                                        |

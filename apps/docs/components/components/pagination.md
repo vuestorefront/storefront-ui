@@ -1,4 +1,9 @@
-#  Pagination component
+---
+layout: ComponentLayout
+hideBreadcrumbs: true
+---
+# Pagination
+
 Pagination component is a common element to navigate through pages containing many items like products in lists. 
 
 <Generate />

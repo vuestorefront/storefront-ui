@@ -2,9 +2,11 @@
 layout: ComponentLayout
 hideBreadcrumbs: true
 ---
-# Select component
+# Select
 
 The Select component is used for collecting user provided information from a list of options.
+
+<Generate />
 
 ## Figma design
 

@@ -2,7 +2,7 @@
 to: apps/docs/components/components/<%= name.replace('Vsf', '').toLowerCase() %>.md
 force: false
 ---
-<% DocsName = name.replace('Vsf', '') %>#  <%= DocsName %> component
+<% DocsName = name.replace('Vsf', '') %># <%= DocsName %> component
 
 <Generate />
 

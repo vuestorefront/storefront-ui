@@ -2,7 +2,9 @@
 layout: ComponentLayout
 hideBreadcrumbs: true
 ---
-# Search component
+# Search
+
+<Generate />
 
 ## Figma design
 
@@ -16,11 +18,7 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 | disabled    | `Boolean` |               |                 |
 | name        | `String`  | `search`      |                 |
 | inputProps  | `Object`  |               |                 |
-
-### React only:
-
-| Prop name   | Type        | Default value | Possible values |
-| ----------- | ----------- | ------------- | --------------- |
+<!-- react -->
 | value       | `String`    |               |                 |
 | className   | `String`    |               |                 |
 | onInput     | `Function`  |               |                 |
@@ -30,14 +28,11 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 | slotSuffix  | `ReactNode` |               |                 |
 | slotResults | `ReactNode` |               |                 |
 | slotSubmit  | `ReactNode` |               |                 |
-
-### Vue only:
-
-| Prop name  | Type     | Default value | Possible values |
-| ---------- | -------- | ------------- | --------------- |
+<!-- end react -->
+<!-- vue -->
 | modelValue | `String` |               |                 |
 
-## Slots (vue only)
+## Slots
 
 | Slot name |        Description         |
 | --------- | :------------------------: |
@@ -46,13 +41,14 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 | submit    | submit button content slot |
 | results   |     bottom panel slot      |
 
-## Events (vue only)
+## Events
 
 | Event name        |            Trigger            |
 | ----------------- | :---------------------------: |
 | update:modelValue | triggers v-model update event |
 | reset             |      reset button event       |
 | submit            |       submit form event       |
+<!-- end vue -->
 
 ## Accessibility notes
 
@@ -62,5 +58,9 @@ The search button is a `submit` type `<button>` in the form to reduce the number
 
 ## Source code
 
+<!-- vue -->
 <<<../../../packages/sfui/frameworks/vue/components/VsfSearch/VsfSearch.vue
+<!-- end vue -->
+<!-- react -->
 <<< ../../../packages/sfui/frameworks/react/components/VsfSearch/VsfSearch.tsx
+<!-- end react -->

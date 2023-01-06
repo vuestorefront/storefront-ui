@@ -2,18 +2,18 @@
 layout: ComponentLayout
 hideBreadcrumbs: true
 ---
-# FooterLabel component
+# FooterLabel
 
 The FooterLabel component is used for styling text content.
 
 <!-- vue -->
-###  Props:
+### Props:
 | Prop name | Type      | Default value | Possible values                                                                   |
 |-----------|-----------| ------------- |-----------------------------------------------------------------------------------|
 | type      | VsfFooterLabelType    |     top        | category, subcategory, contact, contact-description, social-media, bottom-links, company-name |                                        |
 <!-- end vue -->
 <!-- react -->
-###  Props:
+### Props:
 | Prop name | Type      | Default value | Possible values   |
 |-----------|-----------| ------------- |-------------------|
 | type      | VsfFooterLabelType    |     top        | category, subcategory, contact, contact-description, social-media, bottom-links, company-name |                                        |

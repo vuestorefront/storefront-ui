@@ -2,7 +2,7 @@
 layout: ComponentLayout
 hideBreadcrumbs: true
 ---
-# RatingButton component
+# RatingButton
 
 RatingButton is icon-based group component, used for input a numeric value.
 

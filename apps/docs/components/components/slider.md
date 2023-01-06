@@ -2,9 +2,11 @@
 layout: ComponentLayout
 hideBreadcrumbs: true
 ---
-# Slider component
+# Slider
 
 Slider is a scrollable list with pseudo-pagination.
+
+<Generate />
 
 ## Figma design
 

@@ -1,4 +1,8 @@
-#  LoaderCircular component
+---
+layout: ComponentLayout
+hideBreadcrumbs: true
+---
+# LoaderCircular
 
 <Generate />
 

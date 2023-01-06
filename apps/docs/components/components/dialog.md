@@ -2,7 +2,7 @@
 layout: ComponentLayout
 hideBreadcrumbs: true
 ---
-# Dialog component
+# Dialog
 
 Dialog component based on native `<dialog>` is simple modal component with purpose of displaying text, buttons, whetever user would like
 

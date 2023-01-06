@@ -1,10 +1,16 @@
-#  ListItemFilterRadio component
+---
+layout: ComponentLayout
+hideBreadcrumbs: true
+---
+# ListItemFilterRadio
 
 <Generate />
 
 ## Figma design
 
 See the design on [Figma]()
+
+<Generate />
 
 ## Props
 

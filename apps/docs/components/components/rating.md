@@ -2,9 +2,11 @@
 layout: ComponentLayout
 hideBreadcrumbs: true
 ---
-# Rating component
+# Rating
 
 The Rating component presents the average grade graphically and textually.
+
+<Generate />
 
 ## Figma design
 

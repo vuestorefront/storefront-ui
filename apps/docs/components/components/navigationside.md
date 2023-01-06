@@ -1,9 +1,12 @@
-#  NavigationSide component
+---
+layout: ComponentLayout
+hideBreadcrumbs: true
+---
+# NavigationSide
 
 VsfNavigationSide is surface containing content used for navigating the site, that is anchored to the left or right edge of the screen.
 
-
-<Generate />
+<Generate style="height: 700px" />
 
 ## Figma design
 

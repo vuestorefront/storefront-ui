@@ -2,9 +2,11 @@
 layout: ComponentLayout
 hideBreadcrumbs: true
 ---
-# Badge component
+# Badge
 
 The Badge generates a small badge to the top-right of its child.
+
+<Generate />
 
 ## Figma design
 

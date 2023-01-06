@@ -1,4 +1,8 @@
-# SelectOption component
+---
+layout: ComponentLayout
+hideBreadcrumbs: true
+---
+# SelectOption
 
 The SelectOption component is used for displaying data inside Select component
 

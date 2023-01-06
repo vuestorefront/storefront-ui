@@ -9,6 +9,9 @@ module.exports = {
   description: `Documentation for the Storefront UI`,
   head: [['link', { rel: 'icon', href: '/favicon.png' }]],
   patterns: ['**/*.md', '**/*.vue', '!components/**/*.md'], // ignore components folder
+  markdown: {
+    extractHeaders: [ 'h1', 'h2', 'h3' ]
+  },
   themeConfig: {
     DOCS_EXAMPLES_REACT,
     DOCS_EXAMPLES_VUE,
@@ -31,15 +34,15 @@ module.exports = {
       '/react/': [
         {
           title: 'Components',
-          collapsable: true,
-          children: components.react.map((c) => [`/react/components/${c.replace('Vsf', '').toLowerCase()}`, c]),
+          collapsable: false,
+          children: components.react.map((c) => [`/react/components/${c.replace('Vsf', '').toLowerCase()}`, c.replace('Vsf', '')]),
         },
       ],
       '/vue/': [
         {
           title: 'Components',
-          collapsable: true,
-          children: components.vue.map((c) => [`/vue/components/${c.replace('Vsf', '').toLowerCase()}`, c]),
+          collapsable: false,
+          children: components.vue.map((c) => [`/vue/components/${c.replace('Vsf', '').toLowerCase()}`, c.replace('Vsf', '')]),
         },
       ],
     },

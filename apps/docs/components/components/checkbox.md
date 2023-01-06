@@ -2,7 +2,7 @@
 layout: ComponentLayout
 hideBreadcrumbs: true
 ---
-# Checkbox component
+# Checkbox
 
 The Checkbox component is an input element of type checkbox that allows to turn single values on and off.
 

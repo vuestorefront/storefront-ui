@@ -3,11 +3,13 @@ layout: ComponentLayout
 hideBreadcrumbs: true
 ---
 <!-- react -->
-# FooterSection component
+# FooterSection
 
 The FooterSection component is a container for whole section and should be used as a direct child of the Footer component. 
 
-###  Props:
+<Generate />
+
+### Props:
 | Prop name | Type      | Default value | Possible values     |
 |-----------|-----------| ------------- |---------------------|
 | type      | VsfFooterSectionType    |     top        | top, middle, bottom |                                        |

@@ -2,7 +2,7 @@
 layout: ComponentLayout
 hideBreadcrumbs: true
 ---
-# AccordionItem component
+# AccordionItem
 
 The AccordionItem component is built on native `details` html element. Click on header triggers expanding below seated content passed inside by the prop.
 
@@ -20,11 +20,7 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 | open        | Boolean | false         |                 |
 | title       | String  | ''            |                 |
 | chevronLeft | Boolean | false         |                 |
-
 <!-- react -->
-###  Props:
-| Prop name  | Type    | Default value | Possible values                        |
-|------------| ------- | ------------- | -------------------------------------- |
 | slotPrefix | ReactNode  |             |                                        |                                        |
 | slotSuffix | ReactNode  |             |                                        |                                        |
 | onToggle   | Function  |             |                                        |                                        |

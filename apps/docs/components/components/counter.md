@@ -2,9 +2,11 @@
 layout: ComponentLayout
 hideBreadcrumbs: true
 ---
-#  Counter component
+# Counter
 
 Counter is a part of other complex components. Informs in numerical (integer) form about the number of elements.
+
+<Generate />
 
 ## Figma design
 

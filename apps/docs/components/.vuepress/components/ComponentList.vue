@@ -3,7 +3,7 @@
     <ul>
       <li v-for="c in components" :key="c">
         <RouterLink :to="'/' + type + '/components/' + c.replace('Vsf', '').toLowerCase()">
-          {{ c }}
+          {{ c.replace('Vsf', '') }}
         </RouterLink>
       </li>
     </ul>

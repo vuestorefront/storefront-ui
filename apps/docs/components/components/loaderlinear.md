@@ -1,4 +1,8 @@
-#  LoaderLinear component
+---
+layout: ComponentLayout
+hideBreadcrumbs: true
+---
+# LoaderLinear
 
 <Generate />
 

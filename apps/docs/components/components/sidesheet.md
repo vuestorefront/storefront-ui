@@ -1,7 +1,10 @@
-#  SideSheet component
+---
+layout: ComponentLayout
+hideBreadcrumbs: true
+---
+# SideSheet
 
 VsfSideSheet is surface containing supplementary content that is anchored to the left or right edge of the screen.
-
 
 <Generate />
 

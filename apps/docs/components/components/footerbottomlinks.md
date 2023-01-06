@@ -3,11 +3,13 @@ layout: ComponentLayout
 hideBreadcrumbs: true
 ---
 <!-- react -->
-# FooterBottomLinks component
+# FooterBottomLinks
 
 The FooterBottomLinks is a container for links in bottom section of the Footer. 
 
-###  Props:
+<Generate />
+
+### Props:
 | Prop name   | Type      | Default value | Possible values                        |
 | ----------- |-----------| ------------- | -------------------------------------- |
 | className | string    |             |                                        |                                        |

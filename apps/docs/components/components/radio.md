@@ -2,7 +2,7 @@
 layout: ComponentLayout
 hideBreadcrumbs: true
 ---
-# Radio component
+# Radio
 
 Radio is a common way to allow users to make a single selection from a list of options.
 

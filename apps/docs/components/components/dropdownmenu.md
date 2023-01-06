@@ -1,4 +1,8 @@
-#  DropdownMenu component
+---
+layout: ComponentLayout
+hideBreadcrumbs: true
+---
+# DropdownMenu
 
 <Generate />
 

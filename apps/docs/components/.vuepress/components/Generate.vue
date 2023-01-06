@@ -1,6 +1,6 @@
 <template>
-  <div class="custom-block border rounded bg-white mt-4">
-    <iframe :src="exampleUrl" style="width: 100%; height: 800px"></iframe>
+  <div class="custom-block border rounded bg-white mt-4 generate">
+    <iframe :src="exampleUrl" class="w-full h-full" />
   </div>
 </template>
 
@@ -25,3 +25,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.generate {
+  height: 500px;
+}
+</style>

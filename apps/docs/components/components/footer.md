@@ -2,18 +2,20 @@
 layout: ComponentLayout
 hideBreadcrumbs: true
 ---
-# Footer component
+# Footer
 
 The Footer component is an inseparable element of every page. It can contains list of useful links, contact details and links to other pages connected to the website like links to social media.
 
 The Footer is not made of single component but a couple of them to let you compose it from smaller pieces. This one is an entry point for full implementation.
+
+<Generate style="height: 900px" />
 
 ## Figma design
 
 See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%9F%9B%A0-SFUI-2.0-%7C-Development?node-id=13970%3A22832)
 
 <!-- react -->
-###  Props:
+### Props:
 | Prop name   | Type      | Default value | Possible values                        |
 | ----------- |-----------| ------------- | -------------------------------------- |
 | className | string    |             |                                        |                                        |

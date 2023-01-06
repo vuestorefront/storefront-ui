@@ -2,9 +2,11 @@
 layout: ComponentLayout
 hideBreadcrumbs: true
 ---
-# QuantitySelector component
+# QuantitySelector
 
 The QuantitySelector allows the selection of a digital value and the display of additional information.
+
+<Generate />
 
 ## Figma design
 

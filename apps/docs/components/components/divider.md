@@ -2,9 +2,11 @@
 layout: ComponentLayout
 hideBreadcrumbs: true
 ---
-# Divider component
+# Divider
 
 The hr tag defines a thematic break in an HTML page (e.g. a shift of topic).
+
+<Generate />
 
 ## Figma design
 
