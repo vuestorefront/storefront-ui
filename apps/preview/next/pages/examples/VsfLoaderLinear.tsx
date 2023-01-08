@@ -1,6 +1,5 @@
-import { VsfLoaderLinear } from '@storefront-ui/react/components/VsfLoaderLinear';
-import { VsfLoaderSizes } from '@storefront-ui/shared/types';
-import { VsfLoaderLinearSize } from '@storefront-ui/react/components/VsfLoaderLinear/types';
+import { VsfLoaderLinear } from '@storefront-ui/react/components/VsfLoaderLinear/index';
+import { VsfLoaderSizes, VsfLoaderLinearSize } from '@storefront-ui/react/components/VsfLoaderLinear/types';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';

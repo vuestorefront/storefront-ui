@@ -1,4 +1,4 @@
-export const svgSizes = {
+export const progressSvgSizes = {
   xs: {
     icon: 16,
     r: 7.2,

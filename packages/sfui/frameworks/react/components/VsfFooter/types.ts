@@ -1,6 +1,8 @@
 import type { PropsWithChildren } from 'react';
-import type { VsfFooterColumnType, VsfFooterLabelType, VsfFooterSectionType } from '@storefront-ui/shared/types/index';
+import { VsfFooterColumnType, VsfFooterLabelType, VsfFooterSectionType } from '@storefront-ui/shared';
 import type { PropsWithStyle } from '../../shared/types';
+
+export { VsfFooterColumnType, VsfFooterLabelType, VsfFooterSectionType };
 
 export interface VsfFooterDefaultProps extends PropsWithChildren, PropsWithStyle {}
 

@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { svgSizes } from '@storefront-ui/shared/progress';
+import { progressSvgSizes } from '@storefront-ui/shared';
 import type { VsfProgressCircularProps } from './types';
 import { VsfProgressCircularSizes } from './types';
 
@@ -38,29 +38,29 @@ export default function VsfProgressCircular({
     >
       <svg
         role="img"
-        width={svgSizes[size].icon}
-        height={svgSizes[size].icon}
+        width={progressSvgSizes[size].icon}
+        height={progressSvgSizes[size].icon}
         strokeWidth={strokeWidth()}
         className={classNames(!withValue && 'vsf-progress-circular__icon')}
-        viewBox={`0 0 ${svgSizes[size].icon} ${svgSizes[size].icon}`}
+        viewBox={`0 0 ${progressSvgSizes[size].icon} ${progressSvgSizes[size].icon}`}
       >
         <circle
           stroke="#e6e6e6"
           fill="none"
-          r={svgSizes[size].r}
-          cx={svgSizes[size].icon / 2}
-          cy={svgSizes[size].icon / 2}
-          strokeDasharray={`${svgSizes[size].dash} ${svgSizes[size].dash}`}
+          r={progressSvgSizes[size].r}
+          cx={progressSvgSizes[size].icon / 2}
+          cy={progressSvgSizes[size].icon / 2}
+          strokeDasharray={`${progressSvgSizes[size].dash} ${progressSvgSizes[size].dash}`}
           className="vsf-progress-circular__circle"
         />
 
         <circle
           stroke="#16A34A"
           fill="none"
-          r={svgSizes[size].r}
-          cx={svgSizes[size].icon / 2}
-          cy={svgSizes[size].icon / 2}
-          strokeDasharray={`${svgSizes[size].dash * (value / 100)}, ${svgSizes[size].dash}`}
+          r={progressSvgSizes[size].r}
+          cx={progressSvgSizes[size].icon / 2}
+          cy={progressSvgSizes[size].icon / 2}
+          strokeDasharray={`${progressSvgSizes[size].dash * (value / 100)}, ${progressSvgSizes[size].dash}`}
           className="vsf-progress-circular__circle"
         />
 

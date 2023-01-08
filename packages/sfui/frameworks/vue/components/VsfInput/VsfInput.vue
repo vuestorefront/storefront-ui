@@ -2,7 +2,7 @@
 import type { PropType } from 'vue';
 import { computed, toRefs } from 'vue';
 import { useVModel } from '@vueuse/core';
-import { generateId } from '@storefront-ui/shared/utils/generateId';
+import { generateId } from '@storefront-ui/shared';
 import { VsfInputSizes } from './types';
 
 const props = defineProps({

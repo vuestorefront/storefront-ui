@@ -17,7 +17,7 @@ import {
   VsfIconYoutube,
 } from '@storefront-ui/react/components/VsfIcons';
 import { VsfIconSizeEnum } from '@storefront-ui/react/components/VsfIconBase/types';
-import { VsfFooterColumnType, VsfFooterLabelType, VsfFooterSectionType } from '@storefront-ui/shared/types/index';
+import { VsfFooterColumnType, VsfFooterLabelType, VsfFooterSectionType } from '@storefront-ui/shared';
 import Link from 'next/link';
 import { VsfDivider } from '@storefront-ui/react/components/VsfDivider';
 import { prepareControls } from '../../components/utils/Controls';

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { PropType } from 'vue';
-import { VsfFooterColumnType, VsfFooterLabelType } from '@storefront-ui/shared/types';
+import { VsfFooterColumnType, VsfFooterLabelType } from '@storefront-ui/shared';
 import type { VsfCategoriesType, VsfContactOptionsType, VsfLinkType } from './types';
 import { VsfFooterLabel, VsfFooterColumn, VsfFooterSocialMedia } from './index';
 

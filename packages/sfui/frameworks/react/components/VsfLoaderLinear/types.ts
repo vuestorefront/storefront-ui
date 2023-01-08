@@ -1,4 +1,4 @@
-import { VsfLoaderSizes } from '@storefront-ui/shared/types';
+import { VsfLoaderSizes } from '@storefront-ui/shared';
 import type { PropsWithStyle } from '../../shared/types';
 
 export enum VsfLoaderLinearSize {

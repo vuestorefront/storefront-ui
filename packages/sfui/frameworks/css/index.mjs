@@ -1,1 +1,1 @@
-import './dist/storefront-ui.css';
+import './storefront-ui.css';

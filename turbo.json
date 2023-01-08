@@ -4,6 +4,7 @@
     "build": {
       "cache": false,
       "dependsOn": [
+        "^build:shared",
         "^build"
       ],
       "outputs": [
@@ -22,21 +23,39 @@
       "outputs": []
     },
     "build:next": {
-      "cache": false
+      "cache": false,
+      "dependsOn": [
+        "^build:react"
+      ]
     },
     "build:nuxt": {
-      "cache": false
+      "cache": false,
+      "dependsOn": [
+        "^build:vue"
+      ]
     },
     "build:react": {
+      "dependsOn": [
+        "^build:shared"
+      ],
       "cache": false
     },
     "build:vue": {
+      "dependsOn": [
+        "^build:shared"
+      ],
       "cache": false
     },
     "build:release": {
       "dependsOn": [
-        "build:react", "build:vue"
+        "build:react", "build:vue", "build:css"
       ],
+      "cache": false
+    },
+    "build:shared": {
+      "cache": false
+    },
+    "build:css": {
       "cache": false
     },
     "dev": {

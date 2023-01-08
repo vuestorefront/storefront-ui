@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { PropType } from 'vue';
 import { computed, toRefs } from 'vue';
-import { clamp, roundToNearest } from '@storefront-ui/shared/utils/index';
+import { clamp, roundToNearest } from '@storefront-ui/shared';
 import { VsfRatingSizes, VsfRatingVariants } from './types';
 import { VsfIconStar, VsfIconStarOutline, VsfIconStarPartiallyFilled } from '../VsfIcons';
 

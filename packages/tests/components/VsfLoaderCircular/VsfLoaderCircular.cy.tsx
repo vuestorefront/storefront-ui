@@ -7,7 +7,7 @@ import VsfLoaderCircularVue from "../../../sfui/frameworks/vue/components/VsfLoa
 import VsfLoaderCircularReact from "../../../sfui/frameworks/react/components/VsfLoaderCircular/VsfLoaderCircular";
 // end import react
 
-import { VsfLoaderSizes } from "@storefront-ui/shared/types";
+import { VsfLoaderSizes } from "@storefront-ui/shared";
 import { mount } from '../../utils/mount';
 import VsfLoaderCircularBaseObject from "./VsfLoaderCircular.PageObject";
 

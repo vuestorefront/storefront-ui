@@ -7,7 +7,7 @@
 <script>
 import { ref } from 'vue';
 import VsfLoaderCircular from '@storefront-ui/vue/components/VsfLoaderCircular/VsfLoaderCircular.vue';
-import { VsfLoaderSizes } from '@storefront-ui/shared/types';
+import { VsfLoaderSizes } from '@storefront-ui/shared';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
 

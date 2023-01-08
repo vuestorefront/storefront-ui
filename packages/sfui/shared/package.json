@@ -1,11 +1,40 @@
 {
   "name": "@storefront-ui/shared",
-  "version": "2.0.0-alpha.0-pre",
-  "files": [
-    "**/*.js",
-    "**/*.ts"
-  ],
+  "description": "Shared set of utils and typings used by `@storefront-ui/*` packages",
+  "version": "2.0.0-alpha.0",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "import": "./dist/index.esm.mjs",
+      "require": "./dist/index.js"
+    },
+    "./*": "./*"
+  },
+  "source": "index.ts",
+  "main": "dist/index.js",
+  "unpkg": "dist/index.umd.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "microbundle watch",
+    "build:shared": "microbundle --compress"
+  },
+  "homepage": "https://docs.storefrontui.io/v2/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vuestorefront/sfui2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vuestorefront/sfui2/issues"
+  },
+  "devDependencies": {
+    "microbundle": "0.15.1",
+    "typescript": "~4.7.4"
+  },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ]
 }

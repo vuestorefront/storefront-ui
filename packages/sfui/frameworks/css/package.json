@@ -1,6 +1,6 @@
 {
   "name": "@storefront-ui/css",
-  "version": "2.0.0-alpha.0-pre",
+  "version": "2.0.0-alpha.0",
   "sideEffects": [
     "*.scss",
     "*.css"
@@ -20,10 +20,16 @@
   },
   "sass": "storefront-ui.css",
   "styles": "storefront-ui.css",
+  "publishConfig": {
+    "access": "public"
+  },
   "files": [
     "index.js",
     "index.mjs",
-    "dist"
+    "storefront-ui.css",
+    "storefront-ui.css.map",
+    "components",
+    "README.md"
   ],
   "devDependencies": {
     "@storefront-ui/sass": "workspace:*",

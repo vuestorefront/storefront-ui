@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { clamp, roundToNearest } from '@storefront-ui/shared/utils/index';
+import { clamp, roundToNearest } from '@storefront-ui/shared';
 import { VsfIconStar, VsfIconStarOutline, VsfIconStarPartiallyFilled } from '../VsfIcons';
 import { VsfRatingSizes, VsfRatingVariants } from './types';
 import type { VsfRatingProps } from './types';

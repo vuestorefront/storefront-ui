@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import { computed } from 'vue';
-import { svgSizes } from '@storefront-ui/shared/progress';
+import { PropType, computed } from 'vue';
+import { progressSvgSizes } from '@storefront-ui/shared';
 import { VsfProgressCircularSizes } from './types';
 const props = defineProps({
   value: {
@@ -8,7 +8,7 @@ const props = defineProps({
     default: 0,
   },
   size: {
-    type: String,
+    type: String as PropType<VsfProgressCircularSizes>,
     default: VsfProgressCircularSizes.base,
   },
   withValue: {
@@ -45,28 +45,28 @@ const strokeWidth = computed(() => {
   >
     <svg
       role="img"
-      :width="svgSizes[size].icon"
-      :height="svgSizes[size].icon"
+      :width="progressSvgSizes[size].icon"
+      :height="progressSvgSizes[size].icon"
       :stroke-width="strokeWidth"
       class="vsf-progress-circular__icon"
-      :viewBox="`0 0 ${svgSizes[size].icon} ${svgSizes[size].icon}`"
+      :viewBox="`0 0 ${progressSvgSizes[size].icon} ${progressSvgSizes[size].icon}`"
     >
       <circle
         stroke="#e6e6e6"
         fill="none"
-        :r="svgSizes[size].r"
-        :cx="svgSizes[size].icon / 2"
-        :cy="svgSizes[size].icon / 2"
-        :stroke-dasharray="`${svgSizes[size].dash} ${svgSizes[size].dash}`"
+        :r="progressSvgSizes[size].r"
+        :cx="progressSvgSizes[size].icon / 2"
+        :cy="progressSvgSizes[size].icon / 2"
+        :stroke-dasharray="`${progressSvgSizes[size].dash} ${progressSvgSizes[size].dash}`"
         class="vsf-progress-circular__circle"
       ></circle>
       <circle
         stroke="#16A34A"
         fill="none"
-        :r="svgSizes[size].r"
-        :cx="svgSizes[size].icon / 2"
-        :cy="svgSizes[size].icon / 2"
-        :stroke-dasharray="`${svgSizes[size].dash * (value / 100)}, ${svgSizes[size].dash}`"
+        :r="progressSvgSizes[size].r"
+        :cx="progressSvgSizes[size].icon / 2"
+        :cy="progressSvgSizes[size].icon / 2"
+        :stroke-dasharray="`${progressSvgSizes[size].dash * (value / 100)}, ${progressSvgSizes[size].dash}`"
         class="vsf-progress-circular__circle"
       ></circle>
       <text

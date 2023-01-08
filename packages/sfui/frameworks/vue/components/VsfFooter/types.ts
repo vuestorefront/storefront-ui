@@ -1,3 +1,4 @@
+export { VsfFooterColumnType, VsfFooterLabelType } from '@storefront-ui/shared';
 import type { TagOrComponent } from '../../shared/types';
 
 export type VsfLinkType = {

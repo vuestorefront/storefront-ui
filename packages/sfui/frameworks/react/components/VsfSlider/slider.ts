@@ -1,7 +1,6 @@
 import { useCallback, useRef, useEffect } from 'react';
 import type { MutableRefObject } from 'react';
-import { equal } from '@storefront-ui/shared/utils';
-import { Options, VSFSlider } from '@storefront-ui/shared/slider';
+import { equal, Options, VSFSlider } from '@storefront-ui/shared';
 
 export function useSlider<T extends HTMLElement>(
   options?: Partial<Options>,

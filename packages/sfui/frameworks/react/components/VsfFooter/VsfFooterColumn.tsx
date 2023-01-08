@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { VsfFooterColumnType } from '@storefront-ui/shared/types/index';
+import { VsfFooterColumnType } from '@storefront-ui/shared';
 import type { VsfFooterColumnProps } from './types';
 
 export default function VsfFooterColumn({ type = VsfFooterColumnType.top, children, className }: VsfFooterColumnProps) {

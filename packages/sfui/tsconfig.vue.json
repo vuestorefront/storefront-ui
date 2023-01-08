@@ -1,7 +1,0 @@
-{
-  "extends": "./frameworks/vue/tsconfig.base.json",
-  "include": [
-    "frameworks/vue/**/*.ts",
-    "frameworks/vue/**/*.vue"
-  ]
-}

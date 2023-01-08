@@ -1,7 +1,7 @@
 import type { ChangeEvent, SyntheticEvent } from 'react';
 import { useState } from 'react';
 import classNames from 'classnames';
-import { clamp } from '@storefront-ui/shared/utils/index';
+import { clamp } from '@storefront-ui/shared';
 import { VsfIconMinus, VsfIconPlus } from '../VsfIcons';
 import { VsfButtonSizes, VsfButton, VsfButtonVariants } from '../VsfButton';
 import { VsfQuantitySelectorProps, VsfQuantitySelectorSizes } from './types';

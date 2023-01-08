@@ -10,9 +10,9 @@
         <VsfDivider />
       </template>
       <template #contactIcon="{ contactOption }">
-        <VsfIconHelp v-if="contactOption.iconName === 'help'" size="lg" />
-        <VsfIconChat v-if="contactOption.iconName === 'chat'" size="lg" />
-        <VsfIconPhone v-if="contactOption.iconName === 'phone'" size="lg" />
+        <VsfIconHelp v-if="contactOption.iconName === 'help'" :size="VsfIconSizeEnum.lg" />
+        <VsfIconChat v-if="contactOption.iconName === 'chat'" :size="VsfIconSizeEnum.lg" />
+        <VsfIconPhone v-if="contactOption.iconName === 'phone'" :size="VsfIconSizeEnum.lg" />
       </template>
       <template #contactLabel="{ contactOption }">
         <component :is="linkTag(contactOption.linkTag)" v-bind="contactOption.bindings">
@@ -39,7 +39,7 @@
 
 <script lang="ts">
 import { computed, defineComponent, ref, resolveComponent } from 'vue';
-import { VsfFooter } from '@storefront-ui/vue/components/VsfFooter/index';
+import { VsfFooter, VsfFooterLabelType, VsfFooterColumnType } from '@storefront-ui/vue/components/VsfFooter/index';
 import {
   VsfIconHelp,
   VsfIconChat,
@@ -49,9 +49,9 @@ import {
   VsfIconPinterest,
   VsfIconYoutube,
   VsfIconInstagram,
+  VsfIconSizeEnum,
 } from '@storefront-ui/vue/components/VsfIcons/index';
 import type { TagOrComponent } from '@storefront-ui/vue/shared/types';
-import { VsfFooterLabelType, VsfFooterColumnType } from '@storefront-ui/shared/types/index';
 import VsfDivider from '@storefront-ui/vue/components/VsfDivider/VsfDivider.vue';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
@@ -248,6 +248,7 @@ export default defineComponent({
       linkTag,
       VsfFooterLabelType,
       VsfFooterColumnType,
+      VsfIconSizeEnum,
       ...prepareControls(
         [
           {

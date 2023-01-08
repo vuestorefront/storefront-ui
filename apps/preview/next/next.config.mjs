@@ -1,4 +1,3 @@
-/** @type {import('next').NextConfig} */
 import {
   extractImports,
   changeImports,
@@ -7,9 +6,13 @@ import {
 } from "@storefront-ui/tests-shared/index.js";
 
 const isTest = process.env.TEST === 'true';
+/** @type {import('next').NextConfig} */
 export default {
-  basePath: process.env.VITE_DOCS_EXAMPLES_REACT
-    ? new URL(process.env.VITE_DOCS_EXAMPLES_REACT).pathname
+  env: {
+    DOCS_EXAMPLES_REACT_PATH: process.env.DOCS_EXAMPLES_REACT_PATH,
+  },
+  basePath: process.env.DOCS_EXAMPLES_REACT_PATH
+    ? new URL(process.env.DOCS_EXAMPLES_REACT_PATH).pathname
     : '',
   reactStrictMode: true,
   swcMinify: true,

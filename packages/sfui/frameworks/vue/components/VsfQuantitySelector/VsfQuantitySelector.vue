@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { PropType } from 'vue';
 import { computed, toRefs, ref } from 'vue';
-import { clamp } from '@storefront-ui/shared/utils/index';
+import { clamp } from '@storefront-ui/shared';
 import { VsfQuantitySelectorSizes } from './types';
 import { VsfButton, VsfButtonVariants, VsfButtonSizes } from '../VsfButton';
 import { VsfIconMinus, VsfIconPlus } from '../VsfIcons';

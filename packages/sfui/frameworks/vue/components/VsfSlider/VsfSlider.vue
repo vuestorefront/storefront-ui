@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { PropType } from 'vue';
 import { ref, toRef, defineAsyncComponent } from 'vue';
-import { Options } from '@storefront-ui/shared/slider';
+import { Options } from '@storefront-ui/shared';
 import { VsfSliderNavigation, VsfSliderScrollbar } from './types';
 import { VsfButtonVariants, VsfButtonSizes } from '../VsfButton';
 import { useSlider } from './slider';

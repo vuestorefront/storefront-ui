@@ -1,1 +1,1 @@
-require('./dist/storefront-ui.css');
+require('./storefront-ui.css');
