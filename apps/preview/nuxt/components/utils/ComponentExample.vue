@@ -1,6 +1,6 @@
 <template>
   <div class="e-page">
-    <div class="e-page-component">
+    <div class="e-page-component" :class="componentContainerClassName">
       <slot />
     </div>
     <Controls v-bind="controlsAttrs" />
@@ -20,6 +20,10 @@ export default defineComponent({
     controlsAttrs: {
       type: Object as PropType<ReturnType<typeof prepareControls>['controlsAttrs']>,
       required: true,
+    },
+    componentContainerClassName: {
+      type: String,
+      default: '',
     },
   },
 });

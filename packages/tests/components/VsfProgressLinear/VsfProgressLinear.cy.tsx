@@ -1,7 +1,12 @@
 /// <reference path="../../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from "react";
+// import vue
 import VsfProgressLinearVue from "../../../sfui/frameworks/vue/components/VsfProgressLinear/VsfProgressLinear.vue";
+// end import vue
+// import react
 import VsfProgressLinearReact from "../../../sfui/frameworks/react/components/VsfProgressLinear/VsfProgressLinear";
+// end import react
+
 import { mount } from '../../utils/mount';
 import VsfProgressLinearBaseObject from "./VsfProgressLinear.PageObject";
 import { VsfProgressLinearSizes } from '../../../sfui/frameworks/vue/components/VsfProgressLinear/types';

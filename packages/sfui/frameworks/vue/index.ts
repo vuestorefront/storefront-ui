@@ -11,6 +11,7 @@ export * from './components/VsfCounter';
 export * from './components/VsfConfig';
 export * from './components/VsfDialog';
 export * from './components/VsfDivider';
+export * from './components/VsfDropdownInternal';
 export * from './components/VsfDropdownMenu';
 export * from './components/VsfFooter';
 export * from './components/VsfIconBase';

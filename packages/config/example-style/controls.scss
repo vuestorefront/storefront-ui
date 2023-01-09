@@ -48,14 +48,16 @@
 
     select,
     input[type="range"],
-    input[type="text"] {
+    input[type="text"],
+    textarea {
         min-width: 200px;
         border-radius: 5px;
         font-size: 16px;
     }
 
     select,
-    input[type="text"] {
+    input[type="text"],
+    textarea {
         border: 1px solid rgb(229, 231, 235);
     }
 

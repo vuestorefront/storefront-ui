@@ -117,8 +117,8 @@
 import { toRefs, computed, reactive, Ref, ref, defineComponent, PropType } from 'vue';
 import VsfButton from '@storefront-ui/vue/components/VsfButton/VsfButton.vue';
 import { VsfButtonVariants, VsfButtonSizes } from '@storefront-ui/vue/components/VsfButton/types';
-import { useControlsSearchParams } from '../../composables/utils/useControlsSearchParams';
 import { VsfIconChevronDown, VsfIconChevronUp } from '@storefront-ui/vue/components/VsfIcons/index';
+import { useControlsSearchParams } from '../../composables/utils/useControlsSearchParams';
 
 type RefValueUnknown = Ref<unknown>;
 type ControlOptionBind = {
@@ -127,7 +127,7 @@ type ControlOptionBind = {
   value?: string | number;
 };
 export type Controls = {
-  type: 'range' | 'radio' | 'checkbox' | 'text' | 'select' | 'boolean' | 'json';
+  type?: 'range' | 'radio' | 'checkbox' | 'text' | 'select' | 'boolean' | 'json';
   modelName: string;
   model?: RefValueUnknown;
   description?: string;

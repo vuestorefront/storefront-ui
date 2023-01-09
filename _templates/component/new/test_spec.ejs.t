@@ -1,5 +1,5 @@
 ---
-to: packages/sfui/tests/components/<%= name %>/<%= name %>.cy.tsx
+to: packages/tests/components/<%= name %>/<%= name %>.cy.tsx
 force: false
 ---
 <%
@@ -9,10 +9,10 @@ force: false
 %>/// <reference path="../../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from "react";
 // import vue
-import <%= VueComponent %> from "../../../frameworks/vue/components/<%= name %>/<%= name %>.vue";
+import <%= VueComponent %> from "../../../sfui/frameworks/vue/components/<%= name %>/<%= name %>.vue";
 // end import vue
 // import react
-import <%= ReactComponent %> from "../../../frameworks/react/components/<%= name %>/<%= name %>";
+import <%= ReactComponent %> from "../../../sfui/frameworks/react/components/<%= name %>/<%= name %>";
 // end import react
 
 import { mount, Wrapper } from '../../utils/mount';

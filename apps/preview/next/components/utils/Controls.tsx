@@ -10,7 +10,7 @@ type ControlOptionBind = {
   value?: string | number;
 };
 export type ControlsType = {
-  type: 'range' | 'radio' | 'checkbox' | 'text' | 'select' | 'boolean' | 'json';
+  type?: 'range' | 'radio' | 'checkbox' | 'text' | 'select' | 'boolean' | 'json';
   modelName: string;
   description?: string;
   propDefaultValue?: string | number | boolean;
@@ -46,11 +46,7 @@ export const prepareControls = <T extends {}>(controls: ControlsType, models: T)
   };
 };
 
-export default function Controls<T extends { [k: string]: any }>({
-  controls,
-  state,
-  className,
-}: ControlsProps<T>) {
+export default function Controls<T extends { [k: string]: any }>({ controls, state, className }: ControlsProps<T>) {
   function setState(newState = {}) {
     state.set({
       ...state.get,
