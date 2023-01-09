@@ -6,10 +6,6 @@ hideBreadcrumbs: true
 
 The NavbarTopAction component is used as navigation inside NavbarTop component. 
 
-## Figma design
-
-See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%9F%9B%A0-SFUI-2.0-%7C-Development?node-id=11378%3A17321)
-
 
 <!-- react -->
 ## Props

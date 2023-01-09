@@ -10,7 +10,7 @@ The Alert component is a notification that keeps people informed of the status o
 
 ## Figma design
 
-See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%9F%9B%A0-SFUI-2.0-%7C-Development?node-id=10532%3A5529)
+See the design on [Figma](https://www.figma.com/file/Cx2jw34waZltkapwq7j7aT/SFUI-2-%7C-Design-Kit-(early-alpha)?node-id=10532%3A5529&t=LIzxPt9OJb9F1mXf-1)
 
 ## Props
 

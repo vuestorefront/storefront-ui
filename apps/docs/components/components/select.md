@@ -10,7 +10,7 @@ The Select component is used for collecting user provided information from a lis
 
 ## Figma design
 
-See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%9F%9B%A0-SFUI-2.0-%7C-Development?node-id=11375%3A16313)
+See the design on [Figma](https://www.figma.com/file/Cx2jw34waZltkapwq7j7aT/SFUI-2-%7C-Design-Kit-(early-alpha)?node-id=11375%3A16313&t=LIzxPt9OJb9F1mXf-1)
 
 <!-- vue -->
 ## Props

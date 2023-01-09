@@ -10,7 +10,7 @@ Counter is a part of other complex components. Informs in numerical (integer) fo
 
 ## Figma design
 
-See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%9F%9B%A0-SFUI-2.0-%7C-Development?node-id=9533%3A21245)
+See the design on [Figma](https://www.figma.com/file/Cx2jw34waZltkapwq7j7aT/SFUI-2-%7C-Design-Kit-(early-alpha)?node-id=12426%3A18031&t=LIzxPt9OJb9F1mXf-1)
 
 ## Props
 

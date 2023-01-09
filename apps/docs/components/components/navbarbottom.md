@@ -10,7 +10,7 @@ The Navbar bottom component is used as navigation on mobile devices. Usually has
 
 ## Figma design
 
-See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%9F%9B%A0-SFUI-2.0-%7C-Development?node-id=11378%3A17353)
+See the design on [Figma](https://www.figma.com/file/Cx2jw34waZltkapwq7j7aT/SFUI-2-%7C-Design-Kit-(early-alpha)?node-id=11378%3A17353&t=LIzxPt9OJb9F1mXf-1)
 
 ## Props
 

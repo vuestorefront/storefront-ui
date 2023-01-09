@@ -10,7 +10,7 @@ NavigationTop is placeholder for navigation menu, image blocks etc. It purpose i
 
 ## Figma design
 
-See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%9F%9B%A0-SFUI-2.0-%7C-Development?node-id=14285%3A49825&t=PVPVB8MLQOxa1KC4-4)
+See the design on [Figma](https://www.figma.com/file/Cx2jw34waZltkapwq7j7aT/SFUI-2-%7C-Design-Kit-(early-alpha)?node-id=14285%3A49825&t=LIzxPt9OJb9F1mXf-1)
 
 ## Props
 

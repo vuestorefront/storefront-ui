@@ -8,7 +8,7 @@ hideBreadcrumbs: true
 
 ## Figma design
 
-See the design on [Figma]()
+See the design on [Figma](https://www.figma.com/file/Cx2jw34waZltkapwq7j7aT/SFUI-2-%7C-Design-Kit-(early-alpha)?node-id=15141%3A61150&t=eAc5joFjkRlZwK2p-0)
 
 <Generate />
 

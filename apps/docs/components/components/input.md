@@ -10,7 +10,7 @@ Input is a foundational component for inputting text via a keyboard.
 
 ## Figma design
 
-See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%9F%9B%A0-SFUI-2-%7C-Development?node-id=11042%3A14775&t=TM0falrJEGGFRjE1-4)
+See the design on [Figma](https://www.figma.com/file/Cx2jw34waZltkapwq7j7aT/SFUI-2-%7C-Design-Kit-(early-alpha)?node-id=11042%3A14775&t=eAc5joFjkRlZwK2p-0)
 
 ## Props
 

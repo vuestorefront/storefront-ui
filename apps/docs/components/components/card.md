@@ -10,7 +10,7 @@ The Card component contains content and actions that inform about a single subje
 
 ## Figma design
 
-See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%9F%9B%A0-SFUI-2.0-%7C-Development?node-id=17358%3A48256)
+See the design on [Figma](https://www.figma.com/file/Cx2jw34waZltkapwq7j7aT/SFUI-2-%7C-Design-Kit-(early-alpha)?node-id=17310%3A45695&t=LIzxPt9OJb9F1mXf-1)
 
 ### Props:
 | Prop name   | Type      | Default value | Possible values                        |
