@@ -33,6 +33,7 @@ describe("VsfButton", () => {
     tile?: boolean;
     block?: boolean;
     greyscale?: boolean;
+    truncate?: boolean;
     link?: string;
     slotPrefix?: boolean;
     slotSuffix?: boolean;
@@ -42,14 +43,15 @@ describe("VsfButton", () => {
   const initializeComponent = ({
     size = VsfButtonSizes.base,
     variant = VsfButtonVariants.primary,
-    rounded = false,
-    disabled = false,
-    tile = false,
-    block = false,
-    greyscale = false,
+    rounded,
+    disabled,
+    tile,
+    block,
+    greyscale,
+    truncate,
     link = '',
-    slotPrefix = false,
-    slotSuffix = false,
+    slotPrefix,
+    slotSuffix,
     slotDefault = true,
     type = undefined
   }: InitializeComponentParams = {}) => {
@@ -68,10 +70,14 @@ describe("VsfButton", () => {
           rounded,
           disabled,
           greyscale,
+          truncate,
           tile,
           block,
           link,
-          type
+          type,
+        },
+        attrs: {
+          ...(truncate && {style: 'max-width: 100px;'})
         },
         slots: {
           ...(slotPrefix && { prefix: '<VsfIconCheckCircleVue/>'}),
@@ -88,6 +94,8 @@ describe("VsfButton", () => {
         block={block}
         link={link}
         greyscale={greyscale}
+        truncate={truncate}
+        style={{...(truncate && {maxWidth: '100px'})}}
         type={type}
         slotPrefix={slotPrefix && <VsfIconCheckCircleReact/>}
         slotSuffix={slotSuffix && <VsfIconCheckboxIndeterminateReact/>}
@@ -249,6 +257,14 @@ describe("VsfButton", () => {
   describe('when content and suffix', () => {
     it(`should render button with content and suffix with correct gaps`, () => {
       initializeComponent({ slotSuffix: true, slotDefault: true });
+
+      page().makeSnapshot();
+    });
+  });
+
+  describe('when truncate=true', () => {
+    it(`should truncate text inside button`, () => {
+      initializeComponent({ truncate: true });
 
       page().makeSnapshot();
     });
