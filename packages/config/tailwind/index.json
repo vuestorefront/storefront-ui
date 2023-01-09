@@ -7,6 +7,9 @@
   },
   "theme": {
     "extend": {
+      "spacing": {
+        "0.75": "0.375rem"
+      },
       "outlineColor": {
         "violet": "#A78BFA"
       },

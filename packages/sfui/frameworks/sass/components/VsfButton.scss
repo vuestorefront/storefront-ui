@@ -20,6 +20,10 @@
     @apply rounded-full;
   }
 
+  &--truncate {
+    @apply truncate;
+  }
+
   &#{$self}--disabled,
   &:disabled {
     @apply text-gray-500 opacity-50 bg-gray-200 shadow-none pointer-events-none ring-0;
@@ -32,7 +36,7 @@
   &--sm {
     --vsf-button-size-padding: 0.75rem;
 
-    @apply leading-5 text-sm h-8;
+    @apply leading-5 text-sm py-0.75;
 
     // TODO: use css-variable to change width and height
     .vsf-icon-base {
@@ -42,13 +46,18 @@
   }
 
   &--base {
-    @apply h-10;
+    @apply py-2;
   }
 
   &--lg {
     --vsf-button-size-padding: 1.5rem;
 
-    @apply h-12;
+    @apply py-3;
+  }
+
+  &--base,
+  &--lg {
+    @apply leading-6;
   }
 
   &--primary {

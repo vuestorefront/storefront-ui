@@ -40,6 +40,10 @@ const props = defineProps({
     type: String as PropType<'button' | 'submit' | 'reset'>,
     default: 'button',
   },
+  truncate: {
+    type: Boolean,
+    default: false,
+  },
 });
 const { link } = toRefs(props);
 // TODO: add VsfLink when done, then we can add link object and linkTag prop
@@ -72,7 +76,8 @@ const componentTag = computed(() => (link?.value ? 'a' : 'button'));
     <span v-if="$slots.prefix" class="vsf-button__prefix">
       <slot name="prefix"></slot>
     </span>
-    <slot></slot>
+    <span v-if="truncate" :class="{ 'vsf-button--truncate': truncate }"><slot /></span>
+    <slot v-else />
     <span v-if="$slots.suffix" class="vsf-button__suffix">
       <slot name="suffix"></slot>
     </span>

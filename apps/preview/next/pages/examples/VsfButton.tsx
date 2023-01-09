@@ -54,6 +54,11 @@ function Example() {
       },
       {
         type: 'boolean',
+        modelName: 'truncate',
+        description: 'Truncate text instead of wrap(default)',
+      },
+      {
+        type: 'boolean',
         modelName: 'tile',
         description: 'Remove border radius',
       },
@@ -75,6 +80,7 @@ function Example() {
       type: undefined,
       disabled: undefined,
       greyscale: undefined,
+      truncate: undefined,
       variant: VsfButtonVariants.primary,
       size: VsfButtonSizes.base,
       tile: undefined,
@@ -90,6 +96,7 @@ function Example() {
         variant={state.get.variant}
         disabled={state.get.disabled}
         greyscale={state.get.greyscale}
+        truncate={state.get.truncate}
         slotPrefix={state.get.SlotPrefix && <VsfIconVsfDiamond />}
         slotSuffix={state.get.SlotSuffix && <VsfIconVsfDiamond />}
         tile={state.get.tile}
@@ -97,6 +104,7 @@ function Example() {
         block={state.get.block}
         type={state.get.link ? undefined : 'button'}
         link={state.get.link}
+        className="max-w-[200px]"
       >
         {state.get.SlotChildren}
       </VsfButton>

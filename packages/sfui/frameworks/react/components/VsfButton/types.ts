@@ -21,6 +21,7 @@ export type VsfButtonProps<E extends HTMLAnchorElement | HTMLButtonElement> = {
   rounded?: boolean;
   disabled?: boolean;
   greyscale?: boolean;
+  truncate?: boolean;
   tile?: boolean;
   block?: boolean;
   className?: string;

@@ -1,6 +1,6 @@
 <template>
   <ComponentExample :controls-attrs="controlsAttrs">
-    <VsfButton v-bind="state" :type="state.link ? null : 'button'">
+    <VsfButton v-bind="state" class="max-w-[200px]">
       <template v-if="SlotPrefix" #prefix>
         <VsfIconVsfDiamond />
       </template>
@@ -72,6 +72,11 @@ export default defineComponent({
         },
         {
           type: 'boolean',
+          modelName: 'truncate',
+          description: 'Truncate text instead of wrap(default)',
+        },
+        {
+          type: 'boolean',
           modelName: 'tile',
           description: 'Remove border radius',
         },
@@ -93,6 +98,7 @@ export default defineComponent({
         link: ref(),
         disabled: ref(),
         greyscale: ref(),
+        truncate: ref(),
         variant: ref<VsfButtonVariants>(VsfButtonVariants.primary),
         size: ref<VsfButtonSizes>(VsfButtonSizes.base),
         tile: ref(),

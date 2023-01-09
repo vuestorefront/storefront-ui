@@ -6,6 +6,11 @@ hideBreadcrumbs: true
 
 The Button component allow users to take actions, and make choices, with a single tap or click.
 
+## Note
+
+In order to have "square" button with even paddings on each side (e.g for Icon-only button), please use `prefix/suffix` vue slot or `slotPrefix/slotSuffix` props instead of default slot or `children` prop.
+Button text content by default is being wrapped, however this behaviour can be changed via `truncate` prop.
+
 <Generate />
 
 ## Figma design
@@ -19,13 +24,15 @@ See the design on [Figma](https://www.figma.com/file/Cx2jw34waZltkapwq7j7aT/SFUI
 | variant   | `VsfButtonVariants` | `primary`     | `primary`, `secondary`, `tertiary` |
 | size      | `VsfButtonSizes`    | `base`        | `sm`, `base`, `lg`                 |
 | link      | `String`            |               | `/my-cool-page`                    |
-| tile      | `Boolean`           |               |                                    |
-| disabled  | `Boolean`           |               |                                    |
-| greyscale | `Boolean`           |               |                                    |
-| rounded   | `Boolean`           |               |                                    |
-| block     | `Boolean`           |               |                                    |
+| tile      | `Boolean`           | `false`       |                                    |
+| disabled  | `Boolean`           | `false`       |                                    |
+| greyscale | `Boolean`           | `false`       |                                    |
+| truncate  | `Boolean`           | `false`       |                                    |
+| rounded   | `Boolean`           | `false`       |                                    |
+| block     | `Boolean`           | `false`       |                                    |
 <!-- react -->| slotPrefix | `ReactNode` | | Left side slotted content |
 | children | `ReactNode` | | Default slotted content |
+| slotPrefix | `ReactNode` | | Left side slotted content |
 | slotSuffix | `ReactNode` | | Right side slotted content |
 <!-- end react -->
 

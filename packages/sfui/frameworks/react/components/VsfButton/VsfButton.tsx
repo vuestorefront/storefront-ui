@@ -12,6 +12,7 @@ export default function VsfButton<
   rounded,
   disabled,
   greyscale,
+  truncate,
   tile,
   block,
   children,
@@ -50,7 +51,7 @@ export default function VsfButton<
       {...attributes}
     >
       {slotPrefix && <span className="vsf-button__prefix">{slotPrefix}</span>}
-      {children}
+      {truncate ? <span className={classNames({ 'vsf-button--truncate': truncate })}>{children}</span> : children}
       {slotSuffix && <span className="vsf-button__suffix">{slotSuffix}</span>}
     </TagInternal>
   );
