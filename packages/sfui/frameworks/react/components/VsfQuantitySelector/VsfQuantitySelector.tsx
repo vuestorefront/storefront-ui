@@ -74,10 +74,9 @@ export default function VsfQuantitySelector({
           disabled={decreaseDisabled}
           data-testid="decrease-button"
           onClick={() => handleChange(innerValue - step)}
+          slotPrefix={<VsfIconMinus />}
           size={buttonSize}
-        >
-          <VsfIconMinus />
-        </VsfButton>
+        />
 
         <input
           id={inputId}
@@ -105,10 +104,9 @@ export default function VsfQuantitySelector({
           disabled={increaseDisabled}
           data-testid="increase-button"
           onClick={() => handleChange(innerValue + step)}
+          slotPrefix={<VsfIconPlus />}
           size={buttonSize}
-        >
-          <VsfIconPlus />
-        </VsfButton>
+        />
       </div>
       {children}
     </div>
