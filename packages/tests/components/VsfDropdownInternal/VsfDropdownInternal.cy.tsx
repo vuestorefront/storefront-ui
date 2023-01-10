@@ -54,7 +54,7 @@ describe("VsfDropdownInternal", () => {
   }
 
   beforeEach(() => {
-    cy.viewport(400, 280);
+    cy.viewport(400, 300);
     page().cyRoot.then((el) => el[0].style.padding = '120px');
   });
 
@@ -112,6 +112,38 @@ describe("VsfDropdownInternal", () => {
         expect(modelValue.value).to.be.false;
         page().dropdownIsClose();
       })
+    });
+  });
+
+  describe('when opened and clicked outside', () => {
+    it('should close dropdown', () => {
+      const modelValue = ref(true);
+      initializeComponent({ modelValue });
+
+      page()
+        .dropdownIsOpen()
+        .clickOutside();
+
+      cy.then(() => {
+        expect(modelValue.value).to.be.false;
+        page().dropdownIsClose();
+      });
+    });
+  });
+
+  describe('when opened and "Escape" button clicked', () => {
+    it('should close dropdown', () => {
+      const modelValue = ref(true);
+      initializeComponent({ modelValue });
+
+      page()
+        .dropdownIsOpen()
+        .clickEsc();
+
+      cy.then(() => {
+        expect(modelValue.value).to.be.false;
+        page().dropdownIsClose();
+      });
     });
   });
 });

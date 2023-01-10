@@ -1,8 +1,10 @@
 <script lang="ts" setup>
+import { ref, toRefs } from 'vue';
 import type { PropType } from 'vue';
+import { onClickOutside } from '@vueuse/core';
 import { VsfDropdownInternalTriggerEvent, VsfDropdownInternalPlacement } from './types';
 
-defineProps({
+const props = defineProps({
   modelValue: {
     type: Boolean,
     default: false,
@@ -26,25 +28,31 @@ defineProps({
   },
 });
 
-defineEmits<{
+const emit = defineEmits<{
   (event: 'update:modelValue', value: boolean): void;
 }>();
+const { modelValue } = toRefs(props);
+const dropdownRef = ref();
+const onClose = () => emit('update:modelValue', false);
+onClickOutside(dropdownRef, onClose);
 </script>
 
 <template>
   <div
-    :class="[
-      'vsf-dropdown-internal',
-      `vsf-dropdown-internal--${placement}`,
-      { 'vsf-dropdown-internal--disabled': disabled },
-    ]"
     v-bind="{
       ...(triggerEvent === VsfDropdownInternalTriggerEvent.hover && {
         onMouseenter: () => $emit('update:modelValue', true),
         onMouseleave: () => $emit('update:modelValue', false),
       }),
     }"
+    ref="dropdownRef"
+    :class="[
+      'vsf-dropdown-internal',
+      `vsf-dropdown-internal--${placement}`,
+      { 'vsf-dropdown-internal--disabled': disabled },
+    ]"
     data-testid="dropdown"
+    @keydown.esc="onClose"
   >
     <div
       data-testid="dropdown-trigger"

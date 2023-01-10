@@ -19,6 +19,11 @@ export default class VsfDropdownInternalBaseObject extends BasePage {
     return this;
   }
 
+  clickEsc() {
+    this.container.trigger('keydown', { key: 'Escape' });
+    return this;
+  }
+
   dropdownIsOpen() {
     this.dropdownElement.should('exist');
     return this;
