@@ -15,6 +15,7 @@ export * from './components/VsfDropdownInternal';
 export * from './components/VsfDropdownMenu';
 export * from './components/VsfFooter';
 export * from './components/VsfIconBase';
+export * from './components/VsfIcons';
 export * from './components/VsfInput';
 export * from './components/VsfLink';
 export * from './components/VsfListItemFilterCheckbox';
@@ -42,5 +43,3 @@ export * from './components/VsfSideSheet';
 export * from './components/VsfSlider';
 export * from './components/VsfSwitch';
 export * from './components/VsfTag';
-
-export * from './components/VsfIcons';
