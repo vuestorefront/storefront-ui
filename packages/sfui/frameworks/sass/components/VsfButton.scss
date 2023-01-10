@@ -73,7 +73,7 @@
   &--secondary,
   &--tertiary {
     &:not(#{$self}--disabled) {
-      @apply text-primary-800 hover:bg-primary-100 active:bg-primary-200 active:text-primary-900;
+      @apply text-primary-700 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900;
     }
 
     &#{$self}--greyscale {

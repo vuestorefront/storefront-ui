@@ -1,6 +1,17 @@
 .vsf-alert {
   $self: &;
+  $button: '.vsf-button';
   @apply flex py-1 pr-2 pl-4 rounded-md gap-2 ring-1 ring-inset text-gray-900 break-words;
+
+  @mixin style-suffix-button ($textColor, $hoverTextColor, $hoverBgColor, $activeTextColor, $activeBgColor) {
+    #{$self}__suffix #{$button} {
+      --vsf-color-primary-700: var(#{$textColor});
+      --vsf-color-primary-800: var(#{$hoverTextColor});
+      --vsf-color-primary-100: var(#{$hoverBgColor});
+      --vsf-color-primary-900: var(#{$activeTextColor});
+      --vsf-color-primary-200: var(#{$activeBgColor});
+    }
+  }
 
   &--with-shadow {
     @apply shadow-md;
@@ -8,6 +19,14 @@
 
   &--gray {
     @apply bg-gray-100 ring-gray-300;
+
+    @include style-suffix-button(
+      $textColor: --vsf-color-gray-700,
+      $hoverTextColor: --vsf-color-gray-800,
+      $hoverBgColor: --vsf-color-gray-200,
+      $activeTextColor: --vsf-color-gray-900,
+      $activeBgColor: --vsf-color-gray-300,
+    );
   }
 
   &--secondary {
@@ -16,6 +35,14 @@
     #{$self}__prefix {
       @apply text-secondary-700;
     }
+
+    @include style-suffix-button(
+      $textColor: --vsf-color-secondary-700,
+      $hoverTextColor: --vsf-color-secondary-800,
+      $hoverBgColor: --vsf-color-secondary-200,
+      $activeTextColor: --vsf-color-secondary-900,
+      $activeBgColor: --vsf-color-secondary-300,
+    );
   }
 
   &--positive {
@@ -24,6 +51,14 @@
     #{$self}__prefix {
       @apply text-positive-700;
     }
+
+    @include style-suffix-button(
+      $textColor: --vsf-color-positive-700,
+      $hoverTextColor: --vsf-color-positive-800,
+      $hoverBgColor: --vsf-color-positive-200,
+      $activeTextColor: --vsf-color-positive-900,
+      $activeBgColor: --vsf-color-positive-300,
+    );
   }
 
   &--warning {
@@ -32,6 +67,14 @@
     #{$self}__prefix {
       @apply text-warning-700;
     }
+
+    @include style-suffix-button(
+      $textColor: --vsf-color-warning-700,
+      $hoverTextColor: --vsf-color-warning-800,
+      $hoverBgColor: --vsf-color-warning-200,
+      $activeTextColor: --vsf-color-warning-900,
+      $activeBgColor: --vsf-color-warning-300,
+    );
   }
 
   &--error {
@@ -40,6 +83,14 @@
     #{$self}__prefix {
       @apply text-negative-700;
     }
+
+    @include style-suffix-button(
+      $textColor: --vsf-color-negative-700,
+      $hoverTextColor: --vsf-color-negative-800,
+      $hoverBgColor: --vsf-color-negative-200,
+      $activeTextColor: --vsf-color-negative-900,
+      $activeBgColor: --vsf-color-negative-300,
+    );
   }
 
   &__content {

@@ -1,22 +1,10 @@
 module.exports = {
   root: true,
-  extends: ["stylelint-config-standard", "stylelint-config-prettier"],
+  extends: ["stylelint-config-standard-scss", "stylelint-config-prettier-scss"],
   plugins: [
-    "stylelint-scss",
-    "stylelint-no-unsupported-browser-features"
+    "stylelint-scss"
   ],
   rules: {
-    'at-rule-no-unknown': [
-      true,
-      {
-        ignoreAtRules: [
-          'tailwind',
-          'apply',
-          'layer',
-          'config'
-        ],
-      },
-    ],
     'function-no-unknown': [
       true,
       {
@@ -24,9 +12,6 @@ module.exports = {
       },
     ],
     'no-empty-source': null,
-    'plugin/no-unsupported-browser-features': [true, {
-      "ignore": ["@apply"],
-    }],
     "selector-class-pattern": "^([a-z][a-z0-9]*)((-|__|--)[a-z0-9]+)*$",
     "no-descending-specificity": null,
     "number-leading-zero": "always",

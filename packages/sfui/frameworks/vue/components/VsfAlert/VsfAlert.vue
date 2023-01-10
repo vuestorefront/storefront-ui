@@ -91,7 +91,7 @@ watch(
           data-testid="alert-close-button"
           @click="$emit('update:modelValue', false)"
         >
-          <VsfIconClose />
+          <template #prefix><VsfIconClose /></template>
         </VsfButton>
       </slot>
     </div>

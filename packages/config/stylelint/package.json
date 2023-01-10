@@ -10,9 +10,8 @@
     "postcss-html": "^1.5.0",
     "postcss-scss": "^4.0.5",
     "stylelint": "^14.14.1",
-    "stylelint-config-prettier": "^9.0.3",
-    "stylelint-config-standard": "^29.0.0",
-    "stylelint-no-unsupported-browser-features": "^6.0.1",
+    "stylelint-config-prettier-scss": "^0.0.1",
+    "stylelint-config-standard-scss": "^6.1.0",
     "stylelint-scss": "^4.3.0"
   }
 }

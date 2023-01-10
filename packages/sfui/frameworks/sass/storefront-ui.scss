@@ -2,6 +2,7 @@
 // stylelint-disable no-invalid-position-at-import-rule
 /* stylelint-disable-next-line at-rule-no-unknown */
 @use '@storefront-ui/tailwind-config' as *;
+
 // TODO: add imported with sass or node-sass so it will resolve package from node_modules, late change in packages/config/tailwind/index.scss
 
 @import './components/VsfAccordionItem';
@@ -37,11 +38,10 @@
 @import './components/VsfListItemMenu';
 @import './components/VsfSideSheet';
 @import './components/VsfNavigationSide';
-@import './components/VsfPagination.scss';
-@import './components/VsfCheckbox.scss';
-@import './components/VsfInput.scss';
-@import './components/VsfDropdownMenu.scss';
-@import './components/VsfSwitch.scss';
+@import './components/VsfPagination';
+@import './components/VsfCheckbox';
+@import './components/VsfInput';
+@import './components/VsfSwitch';
 @import './components/VsfProgressCircular';
 @import './components/VsfProgressLinear';
 @import './components/VsfLoaderCircular';

@@ -72,10 +72,9 @@ export default function VsfAlert({
             <VsfButton
               variant={VsfButtonVariants.tertiary}
               onClick={() => onOpenChange(false)}
+              slotPrefix={<VsfIconClose />}
               data-testid="alert-close-button"
-            >
-              <VsfIconClose />
-            </VsfButton>
+            />
           ))}
       </div>
     </div>
