@@ -63,16 +63,16 @@ function Example() {
       },
       {
         type: 'select',
-        modelName: 'prefix',
+        modelName: 'slotPrefix',
         options: slotContent,
-        propType: 'ReactElement',
+        propType: 'ReactNode',
         description: 'Content that replaces the default prefix icon.',
       },
       {
         type: 'select',
-        modelName: 'suffix',
+        modelName: 'slotSuffix',
         options: slotContent,
-        propType: 'ReactElement',
+        propType: 'ReactNode',
         description: 'Content that replaces the default suffix close button.',
       },
     ],
@@ -84,8 +84,8 @@ function Example() {
       header: 'Header',
       withShadow: undefined,
       hidePrefix: undefined,
-      prefix: slotContent[0],
-      suffix: slotContent[0],
+      slotPrefix: slotContent[0],
+      slotSuffix: slotContent[0],
     },
   );
 
@@ -100,9 +100,9 @@ function Example() {
         header={state.get.header}
         withShadow={state.get.withShadow}
         hidePrefix={state.get.hidePrefix}
-        prefix={state.get.prefix !== 'none' && <VsfIconChat />}
-        suffix={
-          state.get.suffix !== 'none' && (
+        slotPrefix={state.get.slotPrefix !== 'none' && <VsfIconChat />}
+        slotSuffix={
+          state.get.slotSuffix !== 'none' && (
             <VsfButton onClick={() => state.set({ ...state.get, open: false })} variant={VsfButtonVariants.tertiary}>
               Button
             </VsfButton>

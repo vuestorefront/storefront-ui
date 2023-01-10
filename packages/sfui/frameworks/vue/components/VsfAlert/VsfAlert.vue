@@ -49,13 +49,17 @@ const { start: startTimeoutedClose, stop: stopTimeoutedClose } = useTimeoutFn(
   { immediate: false },
 );
 
-watch([modelValue, type] as const, ([modelValue, type]) => {
-  stopTimeoutedClose();
+watch(
+  [modelValue, type] as const,
+  ([modelValue, type]) => {
+    stopTimeoutedClose();
 
-  if (modelValue && type === VsfAlertTypes.temporary) {
-    startTimeoutedClose();
-  }
-});
+    if (modelValue && type === VsfAlertTypes.temporary) {
+      startTimeoutedClose();
+    }
+  },
+  { immediate: true },
+);
 </script>
 
 <template>
@@ -74,7 +78,7 @@ watch([modelValue, type] as const, ([modelValue, type]) => {
       </slot>
     </div>
     <div class="vsf-alert__content">
-      <div class="vsf-alert__header">
+      <div class="vsf-alert__header" data-testid="alert-header">
         <slot name="header">{{ header }}</slot>
       </div>
       <slot>{{ text }}</slot>
@@ -84,6 +88,7 @@ watch([modelValue, type] as const, ([modelValue, type]) => {
         <VsfButton
           v-if="type === VsfAlertTypes.persistent"
           :variant="VsfButtonVariants.tertiary"
+          data-testid="alert-close-button"
           @click="$emit('update:modelValue', false)"
         >
           <VsfIconClose />

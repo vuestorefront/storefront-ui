@@ -1,18 +1,18 @@
-import type { PropsWithChildren, ReactElement } from 'react';
+import type { ReactNode, PropsWithChildren } from 'react';
 import { VsfAlertTypes, VsfAlertVariants } from '@storefront-ui/shared';
 import type { PropsWithStyle } from '../../shared/types';
 
 export { VsfAlertVariants, VsfAlertTypes };
 
-export interface VsfAlertProps extends PropsWithChildren, PropsWithStyle {
+export interface VsfAlertProps extends PropsWithStyle, PropsWithChildren {
   open?: boolean;
   onOpenChange?: (value: boolean) => void;
-  header?: string | ReactElement | false;
+  header?: ReactNode | false;
   variant?: VsfAlertVariants;
   type?: VsfAlertTypes;
   text?: string;
   withShadow?: boolean;
   hidePrefix?: boolean;
-  suffix?: ReactElement | false;
-  prefix?: ReactElement | false;
+  slotSuffix?: ReactNode | false;
+  slotPrefix?: ReactNode | false;
 }

@@ -35,8 +35,8 @@ export default function VsfAlert({
   children,
   withShadow = false,
   hidePrefix,
-  prefix,
-  suffix,
+  slotPrefix,
+  slotSuffix,
   className,
   ...attributes
 }: VsfAlertProps): JSX.Element | null {
@@ -59,15 +59,21 @@ export default function VsfAlert({
       data-testid="alert"
       {...attributes}
     >
-      {!hidePrefix && <div className="vsf-alert__prefix">{prefix || defaultPrefixComponent(variant)}</div>}
+      {!hidePrefix && <div className="vsf-alert__prefix">{slotPrefix || defaultPrefixComponent(variant)}</div>}
       <div className="vsf-alert__content">
-        <div className="vsf-alert__header">{header}</div>
+        <div className="vsf-alert__header" data-testid="alert-header">
+          {header}
+        </div>
         {children || text}
       </div>
       <div className="vsf-alert__suffix">
-        {suffix ||
+        {slotSuffix ||
           (type === VsfAlertTypes.persistent && (
-            <VsfButton variant={VsfButtonVariants.tertiary} onClick={() => onOpenChange(false)}>
+            <VsfButton
+              variant={VsfButtonVariants.tertiary}
+              onClick={() => onOpenChange(false)}
+              data-testid="alert-close-button"
+            >
               <VsfIconClose />
             </VsfButton>
           ))}
