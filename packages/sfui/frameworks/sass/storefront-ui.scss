@@ -37,10 +37,12 @@
 @import './components/VsfListItemMenu';
 @import './components/VsfSideSheet';
 @import './components/VsfNavigationSide';
-@import './components/VsfPagination';
-@import './components/VsfCheckbox';
+@import './components/VsfPagination.scss';
+@import './components/VsfCheckbox.scss';
+@import './components/VsfInput.scss';
+@import './components/VsfDropdownMenu.scss';
+@import './components/VsfSwitch.scss';
 @import './components/VsfProgressCircular';
 @import './components/VsfProgressLinear';
 @import './components/VsfLoaderCircular';
 @import './components/VsfLoaderLinear';
-@import './components/VsfInput';

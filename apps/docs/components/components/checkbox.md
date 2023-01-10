@@ -28,6 +28,7 @@ See the design on [Figma](https://www.figma.com/file/Cx2jw34waZltkapwq7j7aT/SFUI
 | indeterminate| Boolean                  | false         |                                        |
 | invalid      | Boolean                  | false         |                                        |
 | disabled     | Boolean                  | false         |                                        |
+| role         | String                   | ''            |                                        |
 | required     | Boolean                  | false         |                                        |
 
 <!-- end vue -->
@@ -48,6 +49,7 @@ See the design on [Figma](https://www.figma.com/file/Cx2jw34waZltkapwq7j7aT/SFUI
 | invalid      | Boolean                  | false         |                                        |
 | disabled     | Boolean                  | false         |                                        |
 | required     | Boolean                  | false         |                                        |
+| role         | String                   | ''            |                                        |
 | onChange     | Function                 |               |                                        |
 
 

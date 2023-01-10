@@ -16,6 +16,7 @@ export default function VsfCheckbox({
   requiredText,
   indeterminate = false,
   className,
+  role,
   labelTag,
   onChange,
   ...attributes
@@ -56,6 +57,7 @@ export default function VsfCheckbox({
           ref={checkboxRef}
           value={value}
           name={name}
+          role={role || undefined}
           onChange={onChange}
           data-testid="checkbox-input"
         />

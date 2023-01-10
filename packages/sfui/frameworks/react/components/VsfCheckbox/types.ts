@@ -20,5 +20,6 @@ export interface VsfCheckboxProps extends PropsWithStyle {
   errorText?: string;
   requiredText?: string;
   labelTag?: PropsWithTag['tag'];
+  role?: string;
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 }

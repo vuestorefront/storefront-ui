@@ -40,6 +40,7 @@ export * from './components/VsfSearch';
 export * from './components/VsfSelect';
 export * from './components/VsfSideSheet';
 export * from './components/VsfSlider';
+export * from './components/VsfSwitch';
 export * from './components/VsfTag';
 
 export * from './components/VsfIcons';

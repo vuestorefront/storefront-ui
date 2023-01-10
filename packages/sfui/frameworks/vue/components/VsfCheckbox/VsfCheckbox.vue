@@ -48,6 +48,10 @@ const props = defineProps({
     type: String,
     default: '',
   },
+  role: {
+    type: String,
+    default: '',
+  },
   labelTag: {
     type: String,
     default: undefined,
@@ -92,6 +96,7 @@ const proxyChecked = computed({
         :required="required"
         :indeterminate="indeterminate"
         :value="value"
+        :role="role || undefined"
         data-testid="checkbox-input"
       />
       <span v-if="label" class="vsf-checkbox__label" data-testid="checkbox-label">
