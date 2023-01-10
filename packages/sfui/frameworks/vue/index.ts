@@ -7,8 +7,8 @@ export * from './components/VsfButton';
 export * from './components/VsfCard';
 export * from './components/VsfCheckbox';
 export * from './components/VsfChipsFilter';
-export * from './components/VsfCounter';
 export * from './components/VsfConfig';
+export * from './components/VsfCounter';
 export * from './components/VsfDialog';
 export * from './components/VsfDivider';
 export * from './components/VsfDropdownInternal';
@@ -16,10 +16,12 @@ export * from './components/VsfDropdownMenu';
 export * from './components/VsfFooter';
 export * from './components/VsfIconBase';
 export * from './components/VsfInput';
+export * from './components/VsfLink';
 export * from './components/VsfListItemFilterCheckbox';
 export * from './components/VsfListItemFilterRadio';
 export * from './components/VsfListItemMenu';
-export * from './components/VsfLink';
+export * from './components/VsfLoaderCircular';
+export * from './components/VsfLoaderLinear';
 export * from './components/VsfNavbarBottom';
 export * from './components/VsfNavbarTop';
 export * from './components/VsfNavigationSide';
@@ -41,5 +43,3 @@ export * from './components/VsfSlider';
 export * from './components/VsfTag';
 
 export * from './components/VsfIcons';
-
-// TODO: either export in component/index.ts named module or here export type components manually, but then we will have some unique cases like in e.v footer when we re-export types
