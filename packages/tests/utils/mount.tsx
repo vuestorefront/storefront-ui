@@ -16,10 +16,11 @@ export const mount = (mountOptions: {
 }) => {
   // https://docs.cypress.io/guides/component-testing/quickstart-vue
   if (isVue && mountOptions.vue) {
-    const wrapperComponent = (cy.mount as typeof vueMount)(
-      mountOptions.vue.component,
-      { ...mountOptions.vue, props: reactive(mountOptions.vue.props)}
-    );
+    const wrapperComponent = (cy as unknown as { mount: typeof vueMount})
+      .mount(
+        mountOptions.vue.component,
+        { ...mountOptions.vue, props: reactive(mountOptions.vue.props)}
+      );
     wrapperComponent.then(({ wrapper }) => {
       Object.entries(mountOptions.vue?.props || {}).forEach(([propName, propValue]) => {
         if(!isRef(propValue)) return;
@@ -32,7 +33,7 @@ export const mount = (mountOptions: {
   }
   // https://docs.cypress.io/guides/component-testing/quickstart-react
   if (isReact && mountOptions.react) {
-    return (cy.mount as typeof reactMount)(mountOptions.react)
+    return (cy as unknown as { mount: typeof reactMount}).mount(mountOptions.react as ReactNode)
   }
 }
 
@@ -53,40 +54,36 @@ export const mount = (mountOptions: {
     component={VsfNavigationTopReact}
   />
 */
-export function Wrapper<T extends Record<string, unknown>>({
+export function Wrapper<T extends Record<string, any>>({
   component,
   children,
   propCallbackPair,
   ...attributes
 }: {
-  [k: string]: unknown;
-  component: (props: T) => ReactNode;
-  children: string | JSX.Element | JSX.Element[];
-  propCallbackPair?: Record<keyof T, keyof T>;
+  component: (props: T) => JSX.Element;
+  propCallbackPair?: Partial<Record<keyof T, keyof T>>;
 } & {[k in keyof T]: T[k] | Ref<T[k]>}): JSX.Element {
-  let reactiveValuesInternal: Partial<Record<keyof T, unknown>> = {};
-  let propCallbackPairInternal = {...propCallbackPair} as Record<keyof T, keyof T>;
+  const reactiveValuesInternal: Partial<Record<keyof T, unknown>> = {};
+  const propCallbackPairInternal = {...propCallbackPair};
 
   const onlyPropNamesNoCallbacks = Object.keys(attributes).filter(attribute =>
-    attribute.substring(0, 2) !== 'on') as (keyof T)[];
+    !attribute.startsWith('on')) as (keyof T)[];
 
   // Find dynamically all pairs prop(`open`)/callback(`onOpenSomething`)
   for (const attribute in attributes) {
-    if(attribute.substring(0, 2) === 'on'){
+    if(attribute.startsWith('on')){
       const propNamePair = onlyPropNamesNoCallbacks
         .filter(propName => attribute.toLowerCase().includes(propName as string))[0];
       if(propNamePair) propCallbackPairInternal[propNamePair] = attribute;
     } else {
-      // Add all reactive vue variables into process of mangling vue-reactive -> useState
-      if(isRef(attributes[attribute])){
-        reactiveValuesInternal[attribute as keyof T] = attributes[attribute]
+      if(!(attribute in propCallbackPairInternal) && isRef(attributes[attribute])){
         propCallbackPairInternal[attribute as keyof T] = 'fake';
       }
     }
   }
 
   for (const propName in propCallbackPairInternal) {
-    const reactiveProp = attributes[propName] as Ref<unknown>;
+    const reactiveProp = attributes[propName as unknown as keyof typeof attributes];
 
     const eventName = propCallbackPairInternal[propName];
     const [get, set] = useState(unref(reactiveProp));
@@ -96,16 +93,16 @@ export function Wrapper<T extends Record<string, unknown>>({
       reactiveValuesInternal[eventName] = (event) => {
         set(event);
         if(isRef(reactiveProp)) reactiveProp.value = event;
-        const isFunction = attributes[eventName as string];
-        if(typeof isFunction === 'function') {
-          isFunction?.(event);
+        const maybeFunction = attributes[eventName as string];
+        if(typeof maybeFunction === 'function') {
+          maybeFunction?.(event);
         }
       }
     }
 
     if(isRef(reactiveProp)) {
-      watch(reactiveProp, newValue => {
-        set(newValue);
+      watch(reactiveProp, () => {
+        set(reactiveProp.value);
       });
     }
   }

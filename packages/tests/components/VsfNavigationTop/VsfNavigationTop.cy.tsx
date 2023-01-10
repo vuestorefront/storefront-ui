@@ -41,7 +41,7 @@ describe("VsfNavigationTop", () => {
       react: <Wrapper
         open={modelValue}
         variant={variant}
-        onOpenChange={(e: boolean) => modelValue.value = e}
+        onOpenChange={e => modelValue.value = e}
         slotButtonClose={slotCloseButton}
         component={VsfNavigationTopReact}
       >

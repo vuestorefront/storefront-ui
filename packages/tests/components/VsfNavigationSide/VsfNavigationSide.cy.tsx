@@ -62,7 +62,7 @@ describe("VsfNavigationSide", () => {
           onOpenChange={(e: boolean) => modelValue.value = e}
           component={VsfNavigationSideReact}
         >
-        <div>I am a default slot for accordion content</div>
+          <div>I am a default slot for accordion content</div>
         </Wrapper>
     });
   }

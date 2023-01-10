@@ -57,7 +57,7 @@ import { ref } from "vue";
           link={link as string}
           component={VsfLinkReact}
         >
-            {slotDefault}
+          {slotDefault}
         </Wrapper>
       });
     }

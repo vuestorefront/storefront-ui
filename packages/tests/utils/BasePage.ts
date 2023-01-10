@@ -20,7 +20,7 @@ export class BasePage<T extends HTMLElement = HTMLElement> {
   }
 
   protected get container() {
-    return cy.get<T>(`[data-testid="${this.containerTestId}"]`) || cy.get('body');
+    return (cy.get<T>(`[data-testid="${this.containerTestId}"]`) || cy.get('body')) as Cypress.Chainable<JQuery<T>>;
   }
 
   protected findTestElement(containerTestId: string, container = this.container) {
