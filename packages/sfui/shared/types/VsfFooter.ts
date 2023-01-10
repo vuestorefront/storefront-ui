@@ -18,4 +18,3 @@ export enum VsfFooterLabelType {
   bottomLinks = 'bottom-links',
   companyName = 'company-name',
 }
-// TODO: change name its not confusing when import, i expect only typings but its enum, should be e.g VsfFooterLabelTypeEnum

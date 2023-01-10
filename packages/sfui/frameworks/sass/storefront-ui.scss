@@ -3,8 +3,6 @@
 /* stylelint-disable-next-line at-rule-no-unknown */
 @use '@storefront-ui/tailwind-config' as *;
 
-// TODO: add imported with sass or node-sass so it will resolve package from node_modules, late change in packages/config/tailwind/index.scss
-
 @import './components/VsfAccordionItem';
 @import './components/VsfAlert';
 @import './components/VsfBreadcrumbs';

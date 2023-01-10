@@ -10,7 +10,7 @@ const props = defineProps({
     default: '',
   },
   imageAttr: {
-    type: Object as PropType<VsfProductCardProps>,
+    type: Object as PropType<VsfProductCardProps['imageAttr']>,
     default: () => ({}),
   },
   size: {

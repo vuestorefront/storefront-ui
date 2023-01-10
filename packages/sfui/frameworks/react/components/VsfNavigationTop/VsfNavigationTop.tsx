@@ -28,18 +28,17 @@ export default function VsfNavigationTop({
       data-testid="navigation-top"
       {...attributes}
     >
-      {/* TODO: use greyscale prop button variant */}
       <VsfButton
-        icon
         variant={VsfButtonVariants.tertiary}
+        greyscale
         className="vsf-navigation-top__close"
         data-testid="navigation-top-close-button"
         onClick={() => {
           onOpenChange(!open);
         }}
-      >
-        {slotButtonClose || <VsfIconClose />}
-      </VsfButton>
+        slotPrefix={slotButtonClose || <VsfIconClose />}
+      />
+
       <div
         className={classNames(
           'vsf-navigation-top__wrapper',

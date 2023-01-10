@@ -2,6 +2,7 @@
 import { ref, toRefs } from 'vue';
 import type { PropType } from 'vue';
 import { onClickOutside } from '@vueuse/core';
+import { ClassProp } from '../../shared/props';
 import { VsfDropdownInternalTriggerEvent, VsfDropdownInternalPlacement } from './types';
 
 const props = defineProps({
@@ -21,11 +22,7 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-  // TODO: proper class type
-  dropdownClass: {
-    type: String,
-    default: '',
-  },
+  dropdownClass: ClassProp,
 });
 
 const emit = defineEmits<{

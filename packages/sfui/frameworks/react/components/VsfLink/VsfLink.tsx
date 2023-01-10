@@ -53,7 +53,7 @@ export default function VsfLink({
 
         return createElement(
           typesAndProps.type,
-          // TODO: tuple type does not work correctly
+          // tuple type does not work correctly
           typesAndProps.props as any,
           <a
             href={link}

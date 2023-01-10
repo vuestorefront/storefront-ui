@@ -257,13 +257,6 @@ select {
 1. Correct the inability to style clickable types in iOS and Safari.
 2. Remove default button styles.
 */
-/*
-  TODO
-  Specificity of the [type="xxx"] attribute cannot be overriden by a single class,
-  i.e. TW's 'bg-class' has no impact in these elements.
-  https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity
-*/
-
 button,
 [type='button'],
 [type='reset'],

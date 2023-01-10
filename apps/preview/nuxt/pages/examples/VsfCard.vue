@@ -28,7 +28,6 @@ export default defineComponent({
     ComponentExample,
   },
   setup() {
-    // TODO: isRequired is not working properly, always set to false
     return prepareControls(
       [
         {

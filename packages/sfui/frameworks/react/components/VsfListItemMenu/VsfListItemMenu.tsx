@@ -26,8 +26,8 @@ export default function VsfListItemMenu({
   const TagComponent = tag || (link ? 'a' : 'button');
   const componentType = TagComponent === 'button' ? 'button' : undefined;
   const componentDisabled = !link ? disabled : undefined;
-  // TODO: handle typing conditional attrs based on tag
   const attrs = componentType ? { type: componentType!, ...attributes } : ({ ...attributes } as {});
+
   return (
     <TagComponent
       className={classNames(

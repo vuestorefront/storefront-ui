@@ -50,7 +50,7 @@ const { tag, link, disabled } = toRefs(props);
 // TODO: replace with link component when ready
 const componentTag = computed(() => tag?.value ?? (link?.value ? 'a' : 'button'));
 const componentType = computed(() => (tag?.value ? undefined : link?.value && 'button'));
-const componentDisabled = computed(() => (!link?.value ? disabled.value : undefined));
+const componentDisabled = computed(() => (!link?.value ? disabled?.value : undefined));
 </script>
 
 <template>

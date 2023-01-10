@@ -21,3 +21,8 @@ export const extractProps = <T extends AnyVueComponent, P extends Props<T>>(
     return prev;
   }, {} as Pick<P, PickProp>);
 };
+
+export const ClassProp = {
+  type: [Array, String, Object],
+  default: '',
+};
