@@ -140,7 +140,7 @@ export type Controls = {
 export function prepareControls<T extends { [k: string]: any }>(controlsObject: Controls, models: T) {
   const on: Record<string, (e: string | number | boolean | []) => void> = {};
   const controls = controlsObject.map((control) => {
-    control.isRequired = false;
+    if (!('isRequired' in control)) control.isRequired = false;
     on[`onUpdate:${control.modelName}`] = (e: string | number | boolean | []) => {
       models[control.modelName].value = e;
     };

@@ -34,7 +34,7 @@ export const prepareControls = <T extends {}>(controls: ControlsType, models: T)
   const [formData, setFormData] = useState(models);
   controls.forEach((control) => {
     // eslint-disable-next-line no-param-reassign
-    control.isRequired = false;
+    if (!('isRequired' in control)) control.isRequired = false;
   });
 
   return {
