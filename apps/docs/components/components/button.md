@@ -4,7 +4,11 @@ hideBreadcrumbs: true
 ---
 # Button
 
-The Button component allow users to take actions, and make choices, with a single tap or click.
+A button is an input that allows for user-triggered actions when clicked or pressed.
+
+Used for submitting a form, opening and closing a dialog or dropdowns, confirm and cancel an action.
+
+Avoid using buttons to navigate the page. Use links or tabs.
 
 ## Note
 
@@ -30,7 +34,8 @@ See the design on [Figma](https://www.figma.com/file/Cx2jw34waZltkapwq7j7aT/SFUI
 | truncate  | `Boolean`           | `false`       |                                    |
 | rounded   | `Boolean`           | `false`       |                                    |
 | block     | `Boolean`           | `false`       |                                    |
-<!-- react -->| slotPrefix | `ReactNode` | | Left side slotted content |
+<!-- react -->
+| slotPrefix | `ReactNode` | | Left side slotted content |
 | children | `ReactNode` | | Default slotted content |
 | slotPrefix | `ReactNode` | | Left side slotted content |
 | slotSuffix | `ReactNode` | | Right side slotted content |
