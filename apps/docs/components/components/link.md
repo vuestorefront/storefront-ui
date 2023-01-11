@@ -14,6 +14,13 @@ component tags `<NuxtLink>` for Nuxt.js and `<router-link>` for pure Vue.
 
 When there is a need to have more link with the same tag then [config](config.html) component can be used to achieve this.
 
+<!-- vue -->
+> NOTE: By default, if `VsfLink` component detects that it's running in `Nuxt` environment it will render as `NuxtLink`. In pure `Vue` environment though it will render as `RouterLink`. This behaviour can be overridden by using `tag` prop or [`linkTag` config option](./config).
+<!-- end vue -->
+<!-- react -->
+> NOTE: By default, if `VsfLink` component detects that it's running in `Next` environment it will render as `Next/Link`. In pure `React` environment though it will render as  regular `a` element. This behaviour can be overridden by using `tag` prop or [`linkTag` config option](./config).
+<!-- end react -->
+
 <Generate />
 
 ## Figma design

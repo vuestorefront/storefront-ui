@@ -1,4 +1,4 @@
-import { createElement, Fragment } from 'react';
+import { Fragment, lazy, Suspense } from 'react';
 import classNames from 'classnames';
 import { VsfLinkVariant } from './types';
 import type { LinkComponent, VsfLinkProps } from './types';
@@ -8,7 +8,7 @@ let DynamicLink: VsfLinkProps['tag'];
 // eslint-disable-next-line consistent-return
 const loadDynamic = async () => {
   try {
-    const dynamic = await import('next/dynamic');
+    const dynamic = await import('next/link');
     return dynamic.default;
   } catch (e) {
     // eslint-disable-next-line no-console
@@ -18,7 +18,7 @@ const loadDynamic = async () => {
 
 loadDynamic().then((dynamic) => {
   if (!dynamic) DynamicLink = Fragment;
-  else DynamicLink = dynamic(() => import('next/link'), { suspense: true }) as LinkComponent;
+  else DynamicLink = lazy(() => import('next/link'));
 });
 
 export default function VsfLink({
@@ -34,35 +34,29 @@ export default function VsfLink({
     return typeof element === 'string';
   }
 
-  function createElementTypeAndProps(element: NonNullable<VsfLinkProps['tag']>) {
-    if (isString(element)) return { type: Fragment, props: {} };
-    return {
-      type: element,
-      props: {
-        href: link,
-        legacyBehavior: true,
-        ...attributes,
-      },
-    };
-  }
+  const AnchorElement = (
+    <a
+      href={link}
+      className={classNames('vsf-link', `vsf-link--${variant}`, className)}
+      data-testid="link"
+      {...attributes}
+    >
+      {children}
+    </a>
+  );
 
   return (
     <VsfConfigContext.Consumer>
       {({ linkTag }) => {
-        const typesAndProps = createElementTypeAndProps(tag || linkTag || DynamicLink || 'a');
+        const LinkElement = tag || linkTag || DynamicLink || 'a';
 
-        return createElement(
-          typesAndProps.type,
-          // tuple type does not work correctly
-          typesAndProps.props as any,
-          <a
-            href={link}
-            className={classNames('vsf-link', `vsf-link--${variant}`, className)}
-            data-testid="link"
-            {...attributes}
-          >
-            {children}
-          </a>,
+        if (isString(LinkElement)) return AnchorElement;
+        return (
+          <Suspense>
+            <LinkElement legacyBehavior href={link}>
+              {AnchorElement}
+            </LinkElement>
+          </Suspense>
         );
       }}
     </VsfConfigContext.Consumer>

@@ -26,6 +26,6 @@ defineProps({
       },
     ]"
   >
-    <div class="vsf-navbar-bottom__root"><slot></slot></div>
+    <slot />
   </nav>
 </template>

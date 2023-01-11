@@ -1,6 +1,5 @@
 import type { ReactNode } from 'react';
-
-import { UrlObject } from 'url';
+import type { UrlObject } from 'url';
 
 export enum VsfLinkVariant {
   primary = 'primary',

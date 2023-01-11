@@ -2,9 +2,10 @@
 layout: ComponentLayout
 hideBreadcrumbs: true
 ---
-# Navbar Bottom component
+# Navbar Bottom
 
 The Navbar bottom component is used as navigation on mobile devices. Usually has links to the most common places on a website like homepage.
+[Navbar Bottom Item](navbarbottomitem.html) component can be used as list item element.
 
 <Generate />
 
@@ -16,26 +17,27 @@ See the design on [Figma](https://www.figma.com/file/Cx2jw34waZltkapwq7j7aT/SFUI
 
 | Prop name  | Type      | Default value | Possible values |
 | ---------- | --------- | ------------- | --------------- |
-| hideLabels | `Boolean` | `false`       |                 |
-| filled     | `Boolean` | `false`       |                 |
-| absolute   | `Boolean` | `false`       |                 |
-
-### React only:
-
-| Prop name | Type        | Default value | Possible values |
-| --------- | ----------- | ------------- | --------------- |
-| className | `String`    |               |                 |
+| hideLabels | `boolean` |               |                 |
+| filled     | `boolean` |               |                 |
+| absolute   | `boolean` |               |                 |
+<!-- react -->
+| className | `string`    |               |                 |
 | children  | `ReactNode` |               |                 |
+<!-- end react -->
 
+<!-- vue -->
 ## Slots
-
-### Vue only:
 
 | Slot name | Description          |
 | --------- | -------------------- |
 | default   | default slot content |
+<!-- end vue -->
 
 ## Source code
 
+<!-- vue -->
 <<<../../../packages/sfui/frameworks/vue/components/VsfNavbarBottom/VsfNavbarBottom.vue
+<!-- end vue -->
+<!-- react -->
 <<< ../../../packages/sfui/frameworks/react/components/VsfNavbarBottom/VsfNavbarBottom.tsx
+<!-- end react -->

@@ -1,15 +1,18 @@
 import { forwardRef } from 'react';
 import classNames from 'classnames';
 import type { VsfNavbarBottomItemProps } from './types';
-
+import { VsfLink, VsfLinkVariant } from '../VsfLink';
 // TODO extract unstyled Base-Button Component
 
 const VsfNavbarBottomItem = forwardRef<HTMLAnchorElement & HTMLButtonElement, VsfNavbarBottomItemProps>(
-  ({ className, slotIcon, active, label, link, ariaLabel, onClick, ...attributes }, ref): JSX.Element => {
-    const TagInternal = link ? 'a' : 'button';
-
+  (
+    { className, slotIcon, active, label, link, tag = 'button', ariaLabel, onClick, ...attributes },
+    ref,
+  ): JSX.Element => {
+    const TagInternal = link && tag === 'button' ? VsfLink : 'button';
     return (
       <TagInternal
+        variant={VsfLinkVariant.none}
         onClick={onClick}
         ref={ref}
         className={classNames(
@@ -19,7 +22,7 @@ const VsfNavbarBottomItem = forwardRef<HTMLAnchorElement & HTMLButtonElement, Vs
           },
           className,
         )}
-        {...(link ? { href: link } : {})}
+        {...(link ? { link } : {})}
         aria-label={ariaLabel}
         {...attributes}
       >

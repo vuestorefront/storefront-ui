@@ -29,11 +29,19 @@ function Example() {
         modelName: 'hideLabels',
         propType: 'boolean',
       },
+      {
+        type: 'text',
+        modelName: 'link',
+        propType: 'string',
+        description:
+          'When provided, will render as "anchor" element. Link of VsfNavbarBottomItem for "search" button only, rest shows active state possibility',
+      },
     ],
     {
-      hideLabels: false,
-      filled: false,
-      absolute: false,
+      hideLabels: undefined,
+      filled: undefined,
+      absolute: undefined,
+      link: '',
       active: '',
     },
   );
@@ -52,6 +60,7 @@ function Example() {
     {
       label: 'Search',
       icon: <VsfIconSearch />,
+      link: state.get.link,
     },
     {
       label: 'Cart',
@@ -81,17 +90,23 @@ function Example() {
   ];
   return (
     <ComponentExample controls={{ state, controls }}>
-      <VsfNavbarBottom hideLabels={state.get.hideLabels} absolute={state.get.absolute} filled={state.get.filled}>
-        {items.map((item) => (
-          <VsfNavbarBottomItem
-            key={item.label}
-            slotIcon={item.icon}
-            label={item.label}
-            active={state.get.active === item.label}
-            onClick={() => onClickHandler(item.label)}
-          />
-        ))}
-      </VsfNavbarBottom>
+      <div className="m-10 relative border border-primary-400 h-20">
+        <p>
+          Navbar will render in this container when prop <code>absolute=true</code>
+        </p>
+        <VsfNavbarBottom hideLabels={state.get.hideLabels} absolute={state.get.absolute} filled={state.get.filled}>
+          {items.map((item) => (
+            <VsfNavbarBottomItem
+              key={item.label}
+              slotIcon={item.icon}
+              label={item.label}
+              link={item?.link}
+              active={state.get.active === item.label}
+              onClick={() => onClickHandler(item.label)}
+            />
+          ))}
+        </VsfNavbarBottom>
+      </div>
     </ComponentExample>
   );
 }

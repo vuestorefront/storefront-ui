@@ -1,6 +1,6 @@
 .vsf-navbar-bottom {
   $self: &;
-  @apply bottom-0 w-full left-0 fixed;
+  @apply bottom-0 w-full left-0 fixed flex flex-row items-stretch;
 
   &--absolute {
     @apply absolute;
@@ -25,10 +25,6 @@
         @apply text-white bg-primary-900;
       }
     }
-  }
-
-  &__root {
-    @apply flex flex-row items-stretch;
   }
 
   &-item {

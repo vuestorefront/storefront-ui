@@ -1,5 +1,8 @@
 <script lang="ts" setup>
 import { computed, toRefs } from 'vue';
+import type { PropType } from 'vue';
+import { VsfLink, VsfLinkVariant } from '../VsfLink';
+import type { VsfLinkTagPropType } from '../VsfLink';
 
 const props = defineProps({
   label: {
@@ -12,17 +15,17 @@ const props = defineProps({
   },
   link: {
     type: String,
-    default: null,
+    default: undefined,
   },
   tag: {
-    type: String,
+    type: [String, Object] as PropType<VsfLinkTagPropType | 'button'>,
     default: 'button',
   },
 });
 const { link, tag } = toRefs(props);
 const componentTag = computed(() => {
-  if (link.value && tag.value === 'button') {
-    return 'a';
+  if (link?.value && tag.value === 'button') {
+    return VsfLink;
   }
   return tag.value;
 });
@@ -31,22 +34,17 @@ const componentTag = computed(() => {
 <template>
   <component
     :is="componentTag"
+    :variant="VsfLinkVariant.none"
     v-bind="{
       role: componentTag === 'a' ? 'button' : null,
-      ...(link && { href: link }),
+      ...(link && { link }),
     }"
-    :class="[
-      'vsf-navbar-bottom-item',
-      {
-        'vsf-navbar-bottom-item--active': active,
-      },
-    ]"
+    :class="['vsf-navbar-bottom-item', { 'vsf-navbar-bottom-item--active': active }]"
   >
     <span class="vsf-navbar-bottom-item__content">
       <span class="vsf-navbar-bottom-item__icon">
         <slot name="icon"></slot>
       </span>
-
       <span class="vsf-navbar-bottom-item__label">{{ label }}</span>
     </span>
   </component>

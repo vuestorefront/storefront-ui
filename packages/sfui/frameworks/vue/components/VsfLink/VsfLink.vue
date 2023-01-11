@@ -1,22 +1,17 @@
 <script lang="ts" setup>
 import { computed, inject, resolveComponent, toRefs } from 'vue';
-import type { ConcreteComponent, PropType, Ref, Component } from 'vue';
-import type { RouteLocationRaw, _RouterLinkI } from 'vue-router';
-import { VsfLinkVariant } from './types';
+import type { PropType, Ref, Component } from 'vue';
+import type { RouteLocationRaw } from 'vue-router';
+import { VsfLinkTagProp, VsfLinkVariant } from './types';
+import type { VsfLinkTagPropType } from './types';
 import { useConfigName } from '../VsfConfig';
-
-export type RouterLinkType = _RouterLinkI;
-type Tag = 'a' | ConcreteComponent | RouterLinkType;
 
 const props = defineProps({
   link: {
     type: [String, Object] as PropType<string | RouteLocationRaw>,
     required: true,
   },
-  tag: {
-    type: [String, Object] as PropType<Tag>,
-    default: undefined,
-  },
+  tag: VsfLinkTagProp,
   variant: {
     type: String as PropType<VsfLinkVariant>,
     default: VsfLinkVariant.primary,
@@ -25,7 +20,7 @@ const props = defineProps({
 
 const { tag } = toRefs(props);
 
-const injectTag = inject<Ref<Tag> | undefined>(useConfigName('linkTag'), undefined);
+const injectTag = inject<Ref<VsfLinkTagPropType> | undefined>(useConfigName('linkTag'), undefined);
 const linkTag = computed(() => {
   const NuxtLink = resolveComponent('NuxtLink');
   const RouterLink = resolveComponent('RouterLink');

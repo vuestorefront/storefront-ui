@@ -81,6 +81,7 @@ function Example() {
       disabled: undefined,
       greyscale: undefined,
       truncate: undefined,
+      link: undefined,
       variant: VsfButtonVariants.primary,
       size: VsfButtonSizes.base,
       tile: undefined,
@@ -102,7 +103,6 @@ function Example() {
         tile={state.get.tile}
         rounded={state.get.rounded}
         block={state.get.block}
-        type={state.get.link ? undefined : 'button'}
         link={state.get.link}
         className="max-w-[200px]"
       >
