@@ -4,13 +4,11 @@ hideBreadcrumbs: true
 ---
 # Dialog
 
-Dialog component based on native `<dialog>` is simple modal component with purpose of displaying text, buttons, whetever user would like
+A dialog is a window overlaid on website content for focus on primary action that requires user interaction. That is, users cannot interact with the content outside. Dialog contains tab sequence which means, `Tab` and `Shift + Tab` do not move focus outside the dialog.
+
+Used to prompt the user for input or response to displayed information.
 
 <Generate />
-
-## Figma design
-
-See the design on [Figma](https://www.figma.com/file/Cx2jw34waZltkapwq7j7aT/SFUI-2-%7C-Design-Kit-(early-alpha)?node-id=11248%3A15636&t=LIzxPt9OJb9F1mXf-1)
 
 ## Props
 
