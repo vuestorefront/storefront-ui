@@ -18,7 +18,7 @@ defineProps({
   },
   alignment: {
     type: String as PropType<VsfSwitchAlignments>,
-    default: VsfSwitchAlignments.start,
+    default: VsfSwitchAlignments.prefix,
   },
   label: {
     type: String,
@@ -43,7 +43,7 @@ defineEmits<{
     :disabled="disabled"
     :help-text="helpText"
     :alignment="
-      alignment === VsfSwitchAlignments.start ? VsfCheckboxAlignments.leading : VsfCheckboxAlignments.trailing
+      alignment === VsfSwitchAlignments.prefix ? VsfCheckboxAlignments.leading : VsfCheckboxAlignments.trailing
     "
     role="switch"
     class="vsf-switch"

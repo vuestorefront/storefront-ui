@@ -44,7 +44,7 @@ export default {
             options: Object.keys(VsfSwitchAlignments),
             modelName: 'alignment',
             propType: 'VsfSwitchAlignment',
-            propDefaultValue: VsfSwitchAlignments.start,
+            propDefaultValue: VsfSwitchAlignments.prefix,
           },
           {
             type: 'boolean',
@@ -65,7 +65,7 @@ export default {
         {
           value: ref('value'),
           disabled: ref(false),
-          alignment: ref(VsfSwitchAlignments.start),
+          alignment: ref(VsfSwitchAlignments.prefix),
           label: ref('Label'),
           helpText: ref('Help Text'),
           modelCheck: ref([]),

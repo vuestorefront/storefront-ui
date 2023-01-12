@@ -1,7 +1,12 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from "react";
+// import vue
 import VsfSwitchVue from "../../../sfui/frameworks/vue/components/VsfSwitch/VsfSwitch.vue";
+// end import vue
+// import react
 import VsfSwitchReact from "../../../sfui/frameworks/react/components/VsfSwitch/VsfSwitch";
+// end import react
+
 import { mount } from '../../utils/mount';
 import { VsfSwitchAlignments } from '../../../sfui/frameworks/vue/components/VsfSwitch/types';
 import VsfSwitchBaseObject from "./VsfSwitch.PageObject";
@@ -44,7 +49,7 @@ describe("VsfSwitch", () => {
     label = 'Label';
     value = 'value';
     onChangeSpy = cy.spy();
-    alignment = VsfSwitchAlignments.start;
+    alignment = VsfSwitchAlignments.prefix;
   });
 
   it('initial state', () => {

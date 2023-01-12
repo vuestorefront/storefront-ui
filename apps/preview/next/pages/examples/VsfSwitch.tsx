@@ -26,7 +26,7 @@ function Example() {
         options: Object.keys(VsfSwitchAlignments),
         modelName: 'alignment',
         propType: 'VsfSwitchAlignment',
-        propDefaultValue: VsfSwitchAlignments.start,
+        propDefaultValue: VsfSwitchAlignments.prefix,
       },
       {
         type: 'boolean',
@@ -47,7 +47,7 @@ function Example() {
     {
       value: 'value',
       disabled: false,
-      alignment: VsfSwitchAlignments.start,
+      alignment: VsfSwitchAlignments.prefix,
       label: 'Label',
       helpText: 'Help Text',
       checkedValue: [],

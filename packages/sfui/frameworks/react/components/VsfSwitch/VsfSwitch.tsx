@@ -7,7 +7,7 @@ export default function VsfSwitch({
   value,
   label,
   disabled,
-  alignment = VsfSwitchAlignments.start,
+  alignment = VsfSwitchAlignments.prefix,
   helpText,
   className,
   onChange,
@@ -20,7 +20,7 @@ export default function VsfSwitch({
       label={label}
       disabled={disabled}
       alignment={
-        alignment === VsfSwitchAlignments.start ? VsfCheckboxAlignments.leading : VsfCheckboxAlignments.trailing
+        alignment === VsfSwitchAlignments.prefix ? VsfCheckboxAlignments.leading : VsfCheckboxAlignments.trailing
       }
       helpText={helpText}
       {...attributes}

@@ -1,4 +1,4 @@
 export enum VsfSwitchAlignments {
-  start = 'start',
-  end = 'end',
+  prefix = 'prefix',
+  suffix = 'suffix',
 }

@@ -16,7 +16,7 @@ See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%
 | label        | String                   | ''            |                                        |
 | helpText     | String                   | ''            |                                        |
 | modelValue   | Boolean | string[]       | undefined     |                                        |
-| alignment    | VsfCheckboxAlignments    | start         |   start,  end                          |
+| alignment    | VsfCheckboxAlignments    | prefix        |   prefix,  suffix                      |
 | disabled     | Boolean                  | false         |                                        |
 <!-- react -->
 | className    | String                   |               |                                        |
