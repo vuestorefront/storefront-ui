@@ -1,11 +1,11 @@
 <script lang="ts" setup>
-import type { PropType } from 'vue';
+import type { InputHTMLAttributes, PropType } from 'vue';
 import { VsfSwitchAlignments } from './types';
 import { VsfCheckbox, VsfCheckboxAlignments } from '../VsfCheckbox';
 
 defineProps({
   modelValue: {
-    type: [Boolean, Array] as PropType<string[] | boolean>,
+    type: [String, Array, Boolean] as PropType<InputHTMLAttributes['checked']>,
     required: true,
   },
   value: {
