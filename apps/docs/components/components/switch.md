@@ -1,12 +1,12 @@
-#  Switch component
+#  Switch
 
-VsfSwitch is an input widget that allows users to choose one of two values: on or off.
+A switch is an input similar to a checkbox component, except for handling the indeterminate state. The two possible values are true and false.
+
+Used for enable/disable features, especially on mobile.
+
+In forms, a better choice may be to use a Checkbox component.
 
 <Generate />
-
-## Figma design
-
-See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%9F%9B%A0-SFUI-2-%7C-Development?node-id=19515%3A62225&t=sslAXNqc1mDRjyZJ-0)
 
 ## Props
 
