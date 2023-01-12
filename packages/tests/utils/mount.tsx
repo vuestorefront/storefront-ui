@@ -1,3 +1,4 @@
+import type { CyMountOptions } from "cypress/vue";
 import { mount as vueMount } from "cypress/vue";
 import { mount as reactMount } from 'cypress/react18';
 import { isReact, isVue } from "./utils";
@@ -11,7 +12,7 @@ type reactMountOptions = Parameters<typeof reactMount>;
 export const mount = (mountOptions: {
   vue?: {
     component: vueMountOptions[0],
-  } & vueMountOptions[1],
+  } & CyMountOptions<any, any>,
   react?: reactMountOptions[0] | JSX.Element
 }) => {
   // https://docs.cypress.io/guides/component-testing/quickstart-vue
@@ -19,7 +20,7 @@ export const mount = (mountOptions: {
     const wrapperComponent = (cy as unknown as { mount: typeof vueMount})
       .mount(
         mountOptions.vue.component,
-        { ...mountOptions.vue, props: reactive(mountOptions.vue.props)}
+        { ...mountOptions.vue, ...(mountOptions.vue.props && { props: reactive(mountOptions.vue.props || {}) })}
       );
     wrapperComponent.then(({ wrapper }) => {
       Object.entries(mountOptions.vue?.props || {}).forEach(([propName, propValue]) => {
@@ -120,3 +121,18 @@ export function Wrapper<T extends Record<string, any>>({
     ...reactiveValuesInternal,
   }, children as ReactNode)}</>
 };
+
+
+export const useComponent = async (componentName: string) => {
+  // import vue
+  const vueComponents = await import(`../../sfui/frameworks/vue/index`)
+  // end import vue
+  // import react
+  const reactComponents = await import(`../../sfui/frameworks/react/index`)
+  // end import react
+
+  return {
+    vue: vueComponents[componentName],
+    react: reactComponents[componentName],
+  }
+}

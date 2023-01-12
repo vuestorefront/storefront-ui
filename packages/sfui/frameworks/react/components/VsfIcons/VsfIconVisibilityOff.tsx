@@ -14,6 +14,7 @@ export default function VsfIconVisibilityOff({
       className={className}
       size={size}
       ariaLabel={ariaLabel}
+      data-testid="visibility-off"
       viewBox={viewBox ?? '0 0 24 24'}
     >
       <>

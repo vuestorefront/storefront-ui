@@ -14,6 +14,7 @@ export default function VsfIconChevronDown({
       className={className}
       size={size}
       ariaLabel={ariaLabel}
+      data-testid="chevron-down"
       viewBox={viewBox ?? '0 0 24 24'}
     >
       <>

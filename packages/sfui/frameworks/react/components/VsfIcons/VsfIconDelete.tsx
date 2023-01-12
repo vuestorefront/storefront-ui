@@ -14,6 +14,7 @@ export default function VsfIconDelete({
       className={className}
       size={size}
       ariaLabel={ariaLabel}
+      data-testid="delete"
       viewBox={viewBox ?? '0 0 24 24'}
     >
       <>

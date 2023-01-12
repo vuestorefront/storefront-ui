@@ -14,6 +14,7 @@ export default function VsfIconGlobe({
       className={className}
       size={size}
       ariaLabel={ariaLabel}
+      data-testid="globe"
       viewBox={viewBox ?? '0 0 24 24'}
     >
       <path

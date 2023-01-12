@@ -14,6 +14,7 @@ export default function VsfIconClock({
       className={className}
       size={size}
       ariaLabel={ariaLabel}
+      data-testid="clock"
       viewBox={viewBox ?? '0 0 24 24'}
     >
       <>

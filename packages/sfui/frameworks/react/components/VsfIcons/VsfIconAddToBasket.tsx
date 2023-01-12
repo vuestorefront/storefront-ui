@@ -14,6 +14,7 @@ export default function VsfIconAddToBasket({
       className={className}
       size={size}
       ariaLabel={ariaLabel}
+      data-testid="add-to-basket"
       viewBox={viewBox ?? '0 0 24 24'}
     >
       <>

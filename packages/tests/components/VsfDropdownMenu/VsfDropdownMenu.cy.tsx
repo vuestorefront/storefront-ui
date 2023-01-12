@@ -1,19 +1,12 @@
-/// <reference path="../../../../../node_modules/@percy/cypress/types/index.d.ts" />
+/// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from "react";
-// import vue
-import VsfDropdownMenuVue from "../../../sfui/frameworks/vue/components/VsfDropdownMenu/VsfDropdownMenu.vue";
-import VsfListItemMenuVue from '../../../sfui/frameworks/vue/components/VsfListItemMenu/VsfListItemMenu.vue';
-import VsfIconDotVue from '../../../sfui/frameworks/vue/components/VsfIcons/VsfIconDot.vue';
-// end import vue
-// import react
-import VsfDropdownMenuReact from "../../../sfui/frameworks/react/components/VsfDropdownMenu/VsfDropdownMenu";
-import VsfListItemMenuReact from '../../../sfui/frameworks/react/components/VsfListItemMenu/VsfListItemMenu';
-import VsfIconDotReact from '../../../sfui/frameworks/react/components/VsfIcons/VsfIconDot';
-// end import react
-
-import { mount, Wrapper } from '../../utils/mount';
 import { h, ref } from 'vue';
 import type { Ref } from "vue";
+import { mount, useComponent, Wrapper } from '../../utils/mount';
+
+const { vue: VsfDropdownMenuVue, react: VsfDropdownMenuReact } = await useComponent('VsfDropdownMenu');
+const { vue: VsfListItemMenuVue, react: VsfListItemMenuReact } = await useComponent('VsfListItemMenu');
+const { vue: VsfIconDotVue, react: VsfIconDotReact } = await useComponent('VsfIconDot');
 import { waitForRerender } from "../../utils/waitForRerender";
 import VsfDropdownMenuBaseObject from "./VsfDropdownMenu.PageObject";
 

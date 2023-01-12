@@ -8,14 +8,9 @@ force: false
   ReactComponent = name + 'React'
 %>/// <reference path="../../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from "react";
-// import vue
-import <%= VueComponent %> from "../../../sfui/frameworks/vue/components/<%= name %>/<%= name %>.vue";
-// end import vue
-// import react
-import <%= ReactComponent %> from "../../../sfui/frameworks/react/components/<%= name %>/<%= name %>";
-// end import react
+import { mount, Wrapper, useComponent } from '../../utils/mount';
 
-import { mount, Wrapper } from '../../utils/mount';
+const { vue: <%= VueComponent %>, react: <%= ReactComponent %> } = await useComponent('<%= name %>');
 import <%= PageObject %> from "./<%= name %>.PageObject";
 
 describe("<%= name %>", () => {

@@ -1,13 +1,8 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from "react";
-// import vue
-import VsfPaginationVue from "../../../sfui/frameworks/vue/components/VsfPagination/VsfPagination.vue";
-// end import vue
-// import react
-import VsfPaginationReact from "../../../sfui/frameworks/react/components/VsfPagination/VsfPagination";
-// end import react
+import { mount, useComponent } from '../../utils/mount';
 
-import { mount } from '../../utils/mount';
+const { vue: VsfPaginationVue, react: VsfPaginationReact } = await useComponent('VsfPagination');
 import VsfPaginationBaseObject from "./VsfPagination.PageObject";
 
 describe("VsfPagination", () => {

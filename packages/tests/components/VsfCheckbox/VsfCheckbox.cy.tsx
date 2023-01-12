@@ -1,13 +1,8 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from "react";
-// import vue
-import VsfCheckboxVue from "../../../sfui/frameworks/vue/components/VsfCheckbox/VsfCheckbox.vue";
-// end import vue
-// import react
-import VsfCheckboxReact from "../../../sfui/frameworks/react/components/VsfCheckbox/VsfCheckbox";
-// end import react
+import { mount, useComponent } from '../../utils/mount';
 
-import { mount } from '../../utils/mount';
+const {vue: VsfCheckboxVue, react: VsfCheckboxReact } = await useComponent('VsfCheckbox');
 import { VsfCheckboxAlignments } from '../../../sfui/frameworks/vue/components/VsfCheckbox/types';
 import VsfCheckboxBaseObject from "./VsfCheckbox.PageObject";
 

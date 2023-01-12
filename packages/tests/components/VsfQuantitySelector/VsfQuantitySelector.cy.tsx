@@ -1,14 +1,9 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from "react";
-// import vue
-import VsfQuantitySelectorVue from "../../../sfui/frameworks/vue/components/VsfQuantitySelector/VsfQuantitySelector.vue";
-// end import vue
-// import react
-import VsfQuantitySelectorReact from "../../../sfui/frameworks/react/components/VsfQuantitySelector/VsfQuantitySelector";
-// end import react
+import { mount, useComponent } from '../../utils/mount';
 
+const { vue: VsfQuantitySelectorVue, react: VsfQuantitySelectorReact } = await useComponent('VsfQuantitySelector');
 import { VsfQuantitySelectorSizes } from '../../../sfui/frameworks/vue/components/VsfQuantitySelector/types';
-import { mount } from '../../utils/mount';
 import VsfQuantitySelectorBaseObject from "./VsfQuantitySelector.PageObject";
 import VsfButtonBaseObject from "../VsfButton/VsfButton.PageObject";
 

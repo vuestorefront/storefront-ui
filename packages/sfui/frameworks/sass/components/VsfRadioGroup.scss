@@ -9,7 +9,7 @@
     &--vertical {
       @apply flex-col;
     }
-    
+
     &--horizontal {
       @apply flex-row;
     }
@@ -19,11 +19,11 @@
     @apply mt-1 text-sm font-medium text-negative-600 font-body;
   }
 
-  &__help-text { 
+  &__help-text {
     @apply mt-1 text-xs font-normal text-gray-500;
   }
 
   &__required-text {
-    @apply mt-1 text-sm font-normal text-gray-500 before:content-['*'];
+    @apply mt-1 text-sm font-normal text-gray-500;
   }
 }

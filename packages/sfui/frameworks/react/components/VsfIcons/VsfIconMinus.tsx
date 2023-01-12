@@ -14,6 +14,7 @@ export default function VsfIconMinus({
       className={className}
       size={size}
       ariaLabel={ariaLabel}
+      data-testid="minus"
       viewBox={viewBox ?? '0 0 24 24'}
     >
       <>

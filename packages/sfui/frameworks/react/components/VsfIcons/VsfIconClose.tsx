@@ -14,6 +14,7 @@ export default function VsfIconClose({
       className={className}
       size={size}
       ariaLabel={ariaLabel}
+      data-testid="close"
       viewBox={viewBox ?? '0 0 24 24'}
     >
       <>

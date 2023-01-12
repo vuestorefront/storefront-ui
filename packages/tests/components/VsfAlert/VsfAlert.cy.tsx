@@ -3,21 +3,13 @@ import React from "react";
 import { ref, unref } from 'vue';
 import type { Ref } from 'vue';
 import type { MaybeRef } from "@vueuse/core";
-// import vue
-import VsfAlertVue from "../../../sfui/frameworks/vue/components/VsfAlert/VsfAlert.vue";
-import VsfButtonVue from "../../../sfui/frameworks/vue/components/VsfButton/VsfButton.vue";
-import VsfIconCheckCircleVue from '../../../sfui/frameworks/vue/components/VsfIcons/VsfIconCheckCircle.vue';
-// end import vue
-// import react
-import VsfAlertReact from "../../../sfui/frameworks/react/components/VsfAlert/VsfAlert";
-import VsfButtonReact from "../../../sfui/frameworks/react/components/VsfButton/VsfButton";
-import VsfIconCheckCircleReact from '../../../sfui/frameworks/react/components/VsfIcons/VsfIconCheckCircle';
-// end import react
+import { mount, useComponent, Wrapper } from '../../utils/mount';
 
-import { mount, Wrapper } from '../../utils/mount';
+const {vue: VsfAlertVue, react: VsfAlertReact } = await useComponent('VsfAlert');
+const {vue: VsfButtonVue, react: VsfButtonReact } = await useComponent('VsfButton');
+const {vue: VsfIconCheckCircleVue, react: VsfIconCheckCircleReact } = await useComponent('VsfIconCheckCircle');
 import VsfAlertBaseObject from "./VsfAlert.PageObject";
 import { waitForRerender } from "../../utils/waitForRerender";
-import { wrappedPromise } from '../../utils/wrappedPromise';
 import { VsfAlertTypes, VsfAlertVariants } from "@storefront-ui/shared";
 
 describe("VsfAlert", () => {
@@ -135,7 +127,7 @@ describe("VsfAlert", () => {
       it('should render custom icon', () => {
         const modelValue = ref(true);
         initializeComponent({ modelValue, fillSlotPrefix: true, text: contentExampleText });
-  
+
         page().makeSnapshot();
       });
     });
@@ -144,7 +136,7 @@ describe("VsfAlert", () => {
       it('should render custom close button', () => {
         const modelValue = ref(true);
         initializeComponent({ modelValue, fillSlotSuffix: true, text: contentExampleText });
-  
+
         page().makeSnapshot();
       });
     });
@@ -176,7 +168,7 @@ describe("VsfAlert", () => {
         const modelValue = ref(true);
         cy.clock(null, ['setTimeout', 'clearTimeout']);
         initializeComponent({ modelValue, text: contentExampleText, type: VsfAlertTypes.temporary });
-  
+
         page()
           .isOpened()
           .hasNoCloseButton();
@@ -194,11 +186,11 @@ describe("VsfAlert", () => {
       it('should display close button that closes the alert when clicked', () => {
         const modelValue = ref(true);
         initializeComponent({ modelValue, text: contentExampleText, type: VsfAlertTypes.persistent });
-  
+
         page()
           .isOpened()
           .clickCloseButton();
-  
+
         cy.then(() => {
           expect(modelValue.value).to.be.false;
           page().isClosed();

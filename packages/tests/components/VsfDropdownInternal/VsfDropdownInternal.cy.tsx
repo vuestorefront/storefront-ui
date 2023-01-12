@@ -1,16 +1,11 @@
-/// <reference path="../../../../../node_modules/@percy/cypress/types/index.d.ts" />
+/// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from "react";
-// import vue
-import VsfDropdownInternalVue from "../../../sfui/frameworks/vue/components/VsfDropdownInternal/VsfDropdownInternal.vue";
-// end import vue
-// import react
-import VsfDropdownInternalReact from "../../../sfui/frameworks/react/components/VsfDropdownInternal/VsfDropdownInternal";
-// end import react
-
-import { mount, Wrapper } from '../../utils/mount';
-import VsfDropdownInternalBaseObject from "./VsfDropdownInternal.PageObject";
 import type { Ref } from 'vue';
 import { ref } from 'vue';
+import { mount, Wrapper, useComponent } from '../../utils/mount';
+
+const { vue: VsfDropdownInternalVue, react: VsfDropdownInternalReact } = await useComponent('VsfDropdownInternal');
+import VsfDropdownInternalBaseObject from "./VsfDropdownInternal.PageObject";
 import { VsfDropdownInternalPlacement, VsfDropdownInternalTriggerEvent } from '../../../sfui/frameworks/vue/components/VsfDropdownInternal';
 
 describe("VsfDropdownInternal", () => {

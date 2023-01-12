@@ -14,6 +14,7 @@ export default function VsfIconLogOut({
       className={className}
       size={size}
       ariaLabel={ariaLabel}
+      data-testid="log-out"
       viewBox={viewBox ?? '0 0 24 24'}
     >
       <>

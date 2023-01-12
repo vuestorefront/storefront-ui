@@ -14,6 +14,7 @@ export default function VsfIconPlus({
       className={className}
       size={size}
       ariaLabel={ariaLabel}
+      data-testid="plus"
       viewBox={viewBox ?? '0 0 24 24'}
     >
       <>

@@ -1,18 +1,12 @@
-/// <reference path="../../../../../node_modules/@percy/cypress/types/index.d.ts" />
+/// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from "react";
-// import vue
-import VsfProgressCircularVue from "../../../sfui/frameworks/vue/components/VsfProgressCircular/VsfProgressCircular.vue";
-// end import vue
-// import react
-import VsfProgressCircularReact from "../../../sfui/frameworks/react/components/VsfProgressCircular/VsfProgressCircular";
-// end import react
+import { mount, useComponent } from '../../utils/mount';
 
-import { mount } from '../../utils/mount';
+const { vue: VsfProgressCircularVue, react: VsfProgressCircularReact } = await useComponent('VsfProgressCircular');
 import VsfProgressCircularBaseObject from "./VsfProgressCircular.PageObject";
 import { VsfProgressCircularSizes } from '../../../sfui/frameworks/vue/components/VsfProgressCircular/types';
 
 describe("VsfProgressCircular", () => {
-
   let size: VsfProgressCircularSizes;
   let value: number;
   let withValue: boolean;
@@ -36,7 +30,6 @@ describe("VsfProgressCircular", () => {
         />
     });
   }
-
 
   it('initial state', () => {
     initializeComponent();
@@ -76,5 +69,4 @@ describe("VsfProgressCircular", () => {
         .makeSnapshot();
     });
   })
-
 });

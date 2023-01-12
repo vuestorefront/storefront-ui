@@ -20,7 +20,7 @@ export default class VsfNavigationTopBaseObject extends BasePage {
   }
 
   closeButtonHasIcon() {
-    this.closeButtonElement.find('svg[aria-label="close"]');
+    this.closeButtonElement.find('svg[data-testid="close"]');
     return this;
   }
 

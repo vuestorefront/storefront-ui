@@ -14,6 +14,7 @@ export default function VsfIconLogIn({
       className={className}
       size={size}
       ariaLabel={ariaLabel}
+      data-testid="log-in"
       viewBox={viewBox ?? '0 0 24 24'}
     >
       <>

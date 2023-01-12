@@ -1,18 +1,17 @@
 import { BasePage } from '../../utils/BasePage';
 
 export default class VsfRadioGroupObject extends BasePage {
-
-  hasId(){
+  hasId() {
     this.container.should('have.attr', 'id');
     return this;
   }
-  
-  isRequired(){
+
+  isRequired() {
     this.container.should('have.attr', 'aria-required');
     return this;
   }
 
-  isInvalid(){
+  isInvalid() {
     this.container.should('have.attr', 'aria-invalid');
     return this;
   }
@@ -33,7 +32,7 @@ export default class VsfRadioGroupObject extends BasePage {
   }
 
   hasErrorText(text: string) {
-    this.helpElement.contains(text);
+    this.errorElement.contains(text);
     return this;
   }
 
@@ -42,14 +41,14 @@ export default class VsfRadioGroupObject extends BasePage {
   }
 
   get requiredElement() {
-    return this.findTestElement('radio-group-required-text');
+    return this.findTestElement('radio-group-required');
   }
 
   get helpElement() {
-    return this.findTestElement('radio-group-help-text');
+    return this.findTestElement('radio-group-help');
   }
 
   get errorElement() {
-    return this.findTestElement('radio-group-error-text');
+    return this.findTestElement('radio-group-error');
   }
 }

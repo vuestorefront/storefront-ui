@@ -14,6 +14,7 @@ export default function VsfIconCheckboxUnchecked({
       className={className}
       size={size}
       ariaLabel={ariaLabel}
+      data-testid="checkbox-unchecked"
       viewBox={viewBox ?? '0 0 24 24'}
     >
       <>

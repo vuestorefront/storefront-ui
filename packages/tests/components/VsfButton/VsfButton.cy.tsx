@@ -1,18 +1,11 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from "react";
-// import vue
-import VsfButtonVue from "../../../sfui/frameworks/vue/components/VsfButton/VsfButton.vue";
-import VsfIconCheckCircleVue from '../../../sfui/frameworks/vue/components/VsfIcons/VsfIconCheckCircle.vue';
-import VsfIconCheckboxIndeterminateVue from '../../../sfui/frameworks/vue/components/VsfIcons/VsfIconCheckboxIndeterminate.vue';
-// end import vue
-// import react
-import VsfButtonReact from "../../../sfui/frameworks/react/components/VsfButton/VsfButton";
-import VsfIconCheckCircleReact from '../../../sfui/frameworks/react/components/VsfIcons/VsfIconCheckCircle';
-import VsfIconCheckboxIndeterminateReact from '../../../sfui/frameworks/react/components/VsfIcons/VsfIconCheckboxIndeterminate';
-// end import react
+import { mount, useComponent } from '../../utils/mount';
 
+const {vue: VsfButtonVue, react: VsfButtonReact } = await useComponent('VsfButton');
+const {vue: VsfIconCheckCircleVue, react: VsfIconCheckCircleReact } = await useComponent('VsfIconCheckCircle');
+const {vue: VsfIconCheckboxIndeterminateVue, react: VsfIconCheckboxIndeterminateReact } = await useComponent('VsfIconCheckboxIndeterminate');
 import { VsfButtonSizes, VsfButtonVariants } from '../../../sfui/frameworks/vue/components/VsfButton/types';
-import { mount } from '../../utils/mount';
 import VsfButtonBaseObject from "./VsfButton.PageObject";
 
 describe("VsfButton", () => {

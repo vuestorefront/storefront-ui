@@ -1,16 +1,11 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React, { ReactNode } from "react";
-// import vue
-import VsfNavigationSideVue from "../../../sfui/frameworks/vue/components/VsfNavigationSide/VsfNavigationSide.vue";
-// end import vue
-// import react
-import VsfNavigationSideReact from "../../../sfui/frameworks/react/components/VsfNavigationSide/VsfNavigationSide";
-// end import react
-
-import { mount, Wrapper } from '../../utils/mount';
-import VsfNavigationSideBaseObject from "./VsfNavigationSide.PageObject";
 import { ref } from "vue";
 import type { Ref } from "vue";
+import { mount, useComponent, Wrapper } from '../../utils/mount';
+
+const { vue: VsfNavigationSideVue, react: VsfNavigationSideReact } = await useComponent('VsfNavigationSide');
+import VsfNavigationSideBaseObject from "./VsfNavigationSide.PageObject";
 
 describe("VsfNavigationSide", () => {
   let permanent: boolean;

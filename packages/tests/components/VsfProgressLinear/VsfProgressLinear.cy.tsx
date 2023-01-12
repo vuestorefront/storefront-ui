@@ -1,18 +1,12 @@
-/// <reference path="../../../../../node_modules/@percy/cypress/types/index.d.ts" />
+/// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from "react";
-// import vue
-import VsfProgressLinearVue from "../../../sfui/frameworks/vue/components/VsfProgressLinear/VsfProgressLinear.vue";
-// end import vue
-// import react
-import VsfProgressLinearReact from "../../../sfui/frameworks/react/components/VsfProgressLinear/VsfProgressLinear";
-// end import react
+import { mount, useComponent } from '../../utils/mount';
 
-import { mount } from '../../utils/mount';
+const { vue: VsfProgressLinearVue, react: VsfProgressLinearReact } = await useComponent('VsfProgressLinear');
 import VsfProgressLinearBaseObject from "./VsfProgressLinear.PageObject";
 import { VsfProgressLinearSizes } from '../../../sfui/frameworks/vue/components/VsfProgressLinear/types';
 
 describe("VsfProgressLinear", () => {
-
   let size: VsfProgressLinearSizes;
   let value: number;
   let withValue: boolean;
@@ -36,7 +30,6 @@ describe("VsfProgressLinear", () => {
         />
     });
   }
-
 
   it('initial state', () => {
     initializeComponent();
@@ -76,5 +69,4 @@ describe("VsfProgressLinear", () => {
         .makeSnapshot();
     });
   })
-
 });

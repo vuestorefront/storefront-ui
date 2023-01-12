@@ -1,13 +1,8 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React, { ReactNode } from "react";
-// import vue
-import VsfProductCardVue from "../../../sfui/frameworks/vue/components/VsfProductCard/VsfProductCard.vue";
-// end import vue
-// import react
-import VsfProductCardReact from "../../../sfui/frameworks/react/components/VsfProductCard/VsfProductCard";
-// end import react
+import { mount, useComponent } from '../../utils/mount';
 
-import { mount } from '../../utils/mount';
+const { vue: VsfProductCardVue, react: VsfProductCardReact } = await useComponent('VsfProductCard');
 import VsfProductCardBaseObject from "./VsfProductCard.PageObject";
 import { VsfProductCardSizes } from '../../../sfui/frameworks/vue/components/VsfProductCard/types';
 

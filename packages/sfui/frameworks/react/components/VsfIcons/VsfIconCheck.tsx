@@ -14,6 +14,7 @@ export default function VsfIconCheck({
       className={className}
       size={size}
       ariaLabel={ariaLabel}
+      data-testid="check"
       viewBox={viewBox ?? '0 0 24 24'}
     >
       <>

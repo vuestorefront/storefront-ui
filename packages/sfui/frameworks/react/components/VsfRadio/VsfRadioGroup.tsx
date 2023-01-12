@@ -29,18 +29,18 @@ export default function VsfRadioGroup({
       ) : null}
       <div className={classNames('vsf-radio-group__list', `vsf-radio-group__list--${direction}`)}>{children}</div>
       {invalid && errorText ? (
-        <p id="radioGroupErrorText" className="vsf-radio-group__error-text" data-testid="radio-group-error-text">
+        <p id="radioGroupErrorText" className="vsf-radio-group__error-text" data-testid="radio-group-error">
           {errorText}
         </p>
       ) : null}
       {helpText ? (
-        <p id="radioGroupErrorText" className="vsf-radio-group__help-text" data-testid="radio-group-help-text">
+        <p id="radioGroupErrorText" className="vsf-radio-group__help-text" data-testid="radio-group-help">
           {helpText}
         </p>
       ) : null}
       {required && requiredText ? (
-        <p className="vsf-radio-group__required-text" data-testid="radio-group-required-text">
-          {requiredText}
+        <p className="vsf-radio-group__required-text" data-testid="radio-group-required">
+          *{requiredText}
         </p>
       ) : null}
     </fieldset>

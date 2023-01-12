@@ -14,6 +14,7 @@ export default function VsfIconSwapData({
       className={className}
       size={size}
       ariaLabel={ariaLabel}
+      data-testid="swap-data"
       viewBox={viewBox ?? '0 0 24 24'}
     >
       <>

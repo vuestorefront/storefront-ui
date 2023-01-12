@@ -1,18 +1,13 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from "react";
-// import vue
-import VsfLinkVue from "../../../sfui/frameworks/vue/components/VsfLink/VsfLink.vue";
-// end import vue
-// import react
-import VsfLinkReact from "../../../sfui/frameworks/react/components/VsfLink/VsfLink";
-// end import react
+import { ref } from "vue";
+import { mount, useComponent, Wrapper } from '../../utils/mount';
 
+const { vue: VsfLinkVue, react: VsfLinkReact } = await useComponent('VsfLink');
 import { VsfLinkVariant } from '../../../sfui/frameworks/vue/components/VsfLink/types';
-import { mount, Wrapper } from '../../utils/mount';
 import VsfLinkBaseObject from "./VsfLink.PageObject";
 import { isReact, isVue } from "../../utils/utils";
 import { wrappedPromise } from "../../utils/wrappedPromise";
-import { ref } from "vue";
 
 ['a', 'RouterLink', 'Link'].forEach(type => {
   // Do not test `RouterLink' in react, and `Link` in vue

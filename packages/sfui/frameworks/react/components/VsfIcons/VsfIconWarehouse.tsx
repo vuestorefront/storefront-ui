@@ -14,6 +14,7 @@ export default function VsfIconWarehouse({
       className={className}
       size={size}
       ariaLabel={ariaLabel}
+      data-testid="warehouse"
       viewBox={viewBox ?? '0 0 24 24'}
     >
       <>

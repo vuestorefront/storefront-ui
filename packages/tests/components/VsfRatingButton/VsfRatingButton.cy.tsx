@@ -1,20 +1,14 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from "react";
 import { h } from 'vue';
-// import vue
-import VsfRatingButtonVue from "../../../sfui/frameworks/vue/components/VsfRatingButton/VsfRatingButton.vue";
-import VsfIconStarVue from '../../../sfui/frameworks/vue/components/VsfIcons/VsfIconStar.vue';
-import VsfIconStarOutlineVue from '../../../sfui/frameworks/vue/components/VsfIcons/VsfIconStarOutline.vue';
-// end import vue
-// import react
-import VsfRatingButtonReact from "../../../sfui/frameworks/react/components/VsfRatingButton/VsfRatingButton";
-import VsfIconStar from '../../../sfui/frameworks/react/components/VsfIcons/VsfIconStar';
-import VsfIconStarOutline from '../../../sfui/frameworks/react/components/VsfIcons/VsfIconStarOutline';
-// end import react
+import { mount, useComponent } from '../../utils/mount';
+
+const {vue: VsfRatingButtonVue, react: VsfRatingButtonReact } = await useComponent('VsfRatingButton');
+const {vue: VsfIconStarVue, react: VsfIconStarReact } = await useComponent('VsfIconStar');
+const {vue: VsfIconStarOutlineVue, react: VsfIconStarOutlineReact } = await useComponent('VsfIconStarOutline');
 
 import { VsfRatingButtonSizes } from '../../../sfui/frameworks/vue/components/VsfRatingButton/types';
 import { VsfIconSizeEnum } from '../../../sfui/frameworks/vue/components/VsfIconBase/types';
-import { mount } from '../../utils/mount';
 import VsfRatingButtonBaseObject from "./VsfRatingButton.PageObject";
 
 describe("VsfRatingButton", () => {
@@ -53,8 +47,8 @@ describe("VsfRatingButton", () => {
         value={value}
         name={name}
         ariaLabel={ariaLabel}
-        renderIconFilled={(size?: VsfIconSizeEnum) => <VsfIconStar size={size} /> }
-        renderIconEmpty={(size?: VsfIconSizeEnum) => <VsfIconStarOutline size={size} />}
+        renderIconFilled={(size?: VsfIconSizeEnum) => <VsfIconStarReact size={size} /> }
+        renderIconEmpty={(size?: VsfIconSizeEnum) => <VsfIconStarOutlineReact size={size} />}
         onChange={onChangeSpy}
       />
     });
@@ -70,7 +64,7 @@ describe("VsfRatingButton", () => {
     disabled = false,
     value = 0,
     name = "rating",
-    ariaLabel = "rating item"
+    ariaLabel = "rating item";
   });
 
   it('initial state', () => {

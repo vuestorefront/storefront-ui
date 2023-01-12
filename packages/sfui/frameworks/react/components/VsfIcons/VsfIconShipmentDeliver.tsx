@@ -14,6 +14,7 @@ export default function VsfIconShipmentDeliver({
       className={className}
       size={size}
       ariaLabel={ariaLabel}
+      data-testid="shipment-deliver"
       viewBox={viewBox ?? '0 0 24 24'}
     >
       <>

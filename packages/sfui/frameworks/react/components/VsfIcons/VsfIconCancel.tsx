@@ -14,6 +14,7 @@ export default function VsfIconCancel({
       className={className}
       size={size}
       ariaLabel={ariaLabel}
+      data-testid="cancel"
       viewBox={viewBox ?? '0 0 24 24'}
     >
       <>

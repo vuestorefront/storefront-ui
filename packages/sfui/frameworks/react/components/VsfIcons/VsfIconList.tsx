@@ -14,6 +14,7 @@ export default function VsfIconList({
       className={className}
       size={size}
       ariaLabel={ariaLabel}
+      data-testid="list"
       viewBox={viewBox ?? '0 0 24 24'}
     >
       <>

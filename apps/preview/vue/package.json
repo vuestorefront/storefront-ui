@@ -13,9 +13,10 @@
     "sync-comp": "cpy . !dist ../../../../apps/preview/vue/src/components/sfui/sfui/frameworks/vue/ --cwd=../../../packages/sfui/frameworks/vue/",
     "sync": "yarn sync-test && yarn sync-comp",
     "sync:watch-test": "chokidar --silent \"../../../packages/tests/**/*.{cy.tsx,ts,tsx}\" -c \"yarn sync-test\"",
-    "sync:watch-comp": "chokidar --silent \"../../../packages/sfui/**/*.{vue,ts,tsx,scss}\" -c \"yarn sync-comp\"",
+    "sync:watch-comp": "chokidar --silent \"../../../packages/sfui/frameworks/{vue,sass}/**/*.{vue,ts,tsx,scss}\" -c \"yarn sync-comp\"",
     "test": "yarn clean && yarn sync && concurrently \"yarn sync:watch-test\" \"yarn sync:watch-comp\" \"yarn cypress open --component\"",
-    "test:ci": "yarn clean && yarn sync && yarn percy exec -- cypress run --component"
+    "test:ci": "yarn clean && yarn sync && yarn percy exec -- cypress run --component",
+    "test:ci:vue": "yarn clean && yarn sync && yarn percy exec -- cypress run --component"
   },
   "dependencies": {
     "pinia": "^2.0.23",

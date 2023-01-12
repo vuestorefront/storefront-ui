@@ -14,6 +14,7 @@ export default function VsfIconSafety({
       className={className}
       size={size}
       ariaLabel={ariaLabel}
+      data-testid="safety"
       viewBox={viewBox ?? '0 0 24 24'}
     >
       <>

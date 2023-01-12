@@ -1,14 +1,9 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from "react";
-// import vue
-import VsfLoaderCircularVue from "../../../sfui/frameworks/vue/components/VsfLoaderCircular/VsfLoaderCircular.vue";
-// end import vue
-// import react
-import VsfLoaderCircularReact from "../../../sfui/frameworks/react/components/VsfLoaderCircular/VsfLoaderCircular";
-// end import react
+import { mount, useComponent } from '../../utils/mount';
 
+const { vue: VsfLoaderCircularVue, react: VsfLoaderCircularReact } = await useComponent('VsfLoaderCircular');
 import { VsfLoaderSizes } from "@storefront-ui/shared";
-import { mount } from '../../utils/mount';
 import VsfLoaderCircularBaseObject from "./VsfLoaderCircular.PageObject";
 
 describe("VsfLoaderCircular", () => {

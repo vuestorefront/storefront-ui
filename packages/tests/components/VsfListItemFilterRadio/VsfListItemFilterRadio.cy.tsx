@@ -1,13 +1,8 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from "react";
-// import vue
-import VsfListItemFilterRadioVue from "../../../sfui/frameworks/vue/components/VsfListItemFilterRadio/VsfListItemFilterRadio.vue";
-// end import vue
-// import react
-import VsfListItemFilterRadioReact from "../../../sfui/frameworks/react/components/VsfListItemFilterRadio/VsfListItemFilterRadio";
-// end import react
+import { mount, useComponent } from '../../utils/mount';
 
-import { mount } from '../../utils/mount';
+const { vue: VsfListItemFilterRadioVue, react: VsfListItemFilterRadioReact } = await useComponent('VsfListItemFilterRadio');
 import VsfListItemFilterRadioBaseObject from "./VsfListItemFilterRadio.PageObject";
 
 describe("VsfListItemFilterRadio", () => {

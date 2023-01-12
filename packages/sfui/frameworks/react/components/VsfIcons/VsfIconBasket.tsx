@@ -14,6 +14,7 @@ export default function VsfIconBasket({
       className={className}
       size={size}
       ariaLabel={ariaLabel}
+      data-testid="basket"
       viewBox={viewBox ?? '0 0 24 24'}
     >
       <>

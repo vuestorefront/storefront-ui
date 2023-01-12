@@ -14,6 +14,7 @@ export default function VsfIconCheckboxIndeterminate({
       className={className}
       size={size}
       ariaLabel={ariaLabel}
+      data-testid="checkbox-indeterminate"
       viewBox={viewBox ?? '0 0 24 24'}
     >
       <path

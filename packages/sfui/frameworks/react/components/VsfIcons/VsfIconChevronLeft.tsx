@@ -14,6 +14,7 @@ export default function VsfIconChevronLeft({
       className={className}
       size={size}
       ariaLabel={ariaLabel}
+      data-testid="chevron-left"
       viewBox={viewBox ?? '0 0 24 24'}
     >
       <>

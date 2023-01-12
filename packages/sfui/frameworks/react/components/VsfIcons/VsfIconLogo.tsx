@@ -14,6 +14,7 @@ export default function VsfIconLogo({
       className={className}
       size={size}
       ariaLabel={ariaLabel}
+      data-testid="logo"
       viewBox={viewBox ?? '0 0 24 24'}
     >
       <>

@@ -1,16 +1,11 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from "react";
-// import vue
-import VsfDialogVue from "../../../sfui/frameworks/vue/components/VsfDialog/VsfDialog.vue";
-// end import vue
-// import react
-import VsfDialogReact from "../../../sfui/frameworks/react/components/VsfDialog/VsfDialog";
-// end import react
-
-import { mount, Wrapper } from '../../utils/mount';
-import VsfDialogBaseObject from "./VsfDialog.PageObject";
 import { ref } from 'vue';
 import type { Ref } from "vue";
+import { mount, useComponent, Wrapper } from '../../utils/mount';
+
+const { vue: VsfDialogVue, react: VsfDialogReact } = await useComponent('VsfDialog');
+import VsfDialogBaseObject from "./VsfDialog.PageObject";
 import { waitForRerender } from "../../utils/waitForRerender";
 
 describe("VsfDialog", () => {

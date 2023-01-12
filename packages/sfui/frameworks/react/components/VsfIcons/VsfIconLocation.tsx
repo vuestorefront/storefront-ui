@@ -14,6 +14,7 @@ export default function VsfIconLocation({
       className={className}
       size={size}
       ariaLabel={ariaLabel}
+      data-testid="location"
       viewBox={viewBox ?? '0 0 24 24'}
     >
       <path

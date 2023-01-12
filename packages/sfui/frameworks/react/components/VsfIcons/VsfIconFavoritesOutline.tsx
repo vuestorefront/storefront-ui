@@ -14,6 +14,7 @@ export default function VsfIconFavoritesOutline({
       className={className}
       size={size}
       ariaLabel={ariaLabel}
+      data-testid="favorites-outline"
       viewBox={viewBox ?? '0 0 24 24'}
     >
       <path

@@ -3,6 +3,7 @@ import {
   changeImports,
   removeCode,
   changeFrameworkPathInImports,
+  dynamicImports,
 } from "@storefront-ui/tests-shared/index.js";
 
 const isTest = process.env.TEST === 'true';
@@ -17,12 +18,16 @@ export default {
   reactStrictMode: true,
   swcMinify: true,
   experimental: {
-    externalDir: true
+    externalDir: true,
+    topLevelAwait: true
   },
   webpack(config) {
     if(isTest) {
+      config.experiments = {
+        "topLevelAwait": true
+      }
       config.module.rules.push({
-        test: /cy.tsx$|PageObject.ts$/,
+        test: /\/sfui\/tests\//,
         loader: 'string-replace-loader',
         options: {
           multiple: [
@@ -30,7 +35,9 @@ export default {
               // Find imports of component and replace it with utils/fake-import.ts empty file
               search: extractImports('vue'),
               replace: (_match, frameworkImport) => {
-                return frameworkImport.replace(changeImports('vue'), (_m, importName) => {
+                return frameworkImport
+                  .replace(dynamicImports('vue'), "./fake-import")
+                  .replace(changeImports('vue'), (_m, importName) => {
                   return `import${importName}from '../../utils/fake-import';`;
                 });
               },

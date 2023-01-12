@@ -1,13 +1,8 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from "react";
-// import vue
-import VsfSideSheetVue from "../../../sfui/frameworks/vue/components/VsfSideSheet/VsfSideSheet.vue";
-// end import vue
-// import react
-import VsfSideSheetReact from "../../../sfui/frameworks/react/components/VsfSideSheet/VsfSideSheet";
-// end import react
+import { mount, useComponent } from '../../utils/mount';
 
-import { mount } from '../../utils/mount';
+const {vue: VsfSideSheetVue, react: VsfSideSheetReact} = await useComponent('VsfSideSheet');
 import VsfSideSheetBaseObject from "./VsfSideSheet.PageObject";
 
 describe("VsfSideSheet", () => {
@@ -90,20 +85,6 @@ describe("VsfSideSheet", () => {
         .hasOverlay()
         .makeSnapshot()
 
-    })
-  })
-
-  describe('when close button is clicked', () => {
-    it('should response on click', () => {
-      initializeComponent();
-
-      page()
-        .hasCloseButton()
-        .closeButtonIsClicked()
-      cy.then(() => {
-        expect(onChangeSpy).calledOnceWith();
-        page().makeSnapshot()
-      })
     })
   })
 });

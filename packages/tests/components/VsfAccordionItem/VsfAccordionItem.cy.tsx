@@ -1,13 +1,8 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from "react";
-// import vue
-import VsfAccordionItemVue from "../../../sfui/frameworks/vue/components/VsfAccordionItem/VsfAccordionItem.vue";
-// end import vue
-// import react
-import VsfAccordionItemReact from "../../../sfui/frameworks/react/components/VsfAccordionItem/VsfAccordionItem";
-// end import react
+import { mount, useComponent } from '../../utils/mount';
 
-import { mount } from '../../utils/mount';
+const {vue: VsfAccordionItemVue, react: VsfAccordionItemReact} = await useComponent('VsfAccordionItem');
 import VsfAccordionItemBaseObject from "./VsfAccordionItem.PageObject";
 
 describe("VsfAccordionItem", () => {

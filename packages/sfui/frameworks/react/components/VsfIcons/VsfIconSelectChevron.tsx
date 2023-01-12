@@ -14,6 +14,7 @@ export default function VsfIconSelectChevron({
       className={className}
       size={size}
       ariaLabel={ariaLabel}
+      data-testid="select-chevron"
       viewBox={viewBox ?? '0 0 24 24'}
     >
       <path

@@ -14,6 +14,7 @@ export default function VsfIconRadioButtonChecked({
       className={className}
       size={size}
       ariaLabel={ariaLabel}
+      data-testid="radio-button-checked"
       viewBox={viewBox ?? '0 0 24 24'}
     >
       <>

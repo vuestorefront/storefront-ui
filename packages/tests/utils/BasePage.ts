@@ -1,4 +1,4 @@
-/// <reference path="../../../../node_modules/cypress/types/index.d.ts" />
+/// <reference path="../../../node_modules/cypress/types/index.d.ts" />
 
 export class BasePage<T extends HTMLElement = HTMLElement> {
   protected containerTestId: string;
@@ -47,7 +47,7 @@ export class BasePage<T extends HTMLElement = HTMLElement> {
   }
 
   hasIcon(iconLabel: string) {
-    this.container.find(`[aria-label="${iconLabel}"]`);
+    this.container.find(`[data-testid="${iconLabel}"]`);
     return this;
   }
 

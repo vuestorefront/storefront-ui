@@ -14,6 +14,7 @@ export default function VsfIconCompare({
       className={className}
       size={size}
       ariaLabel={ariaLabel}
+      data-testid="compare"
       viewBox={viewBox ?? '0 0 24 24'}
     >
       <path

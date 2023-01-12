@@ -14,6 +14,7 @@ export default function VsfIconLocationOutline({
       className={className}
       size={size}
       ariaLabel={ariaLabel}
+      data-testid="location-outline"
       viewBox={viewBox ?? '0 0 24 24'}
     >
       <>

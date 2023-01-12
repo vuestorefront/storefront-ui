@@ -55,6 +55,9 @@
     "build:shared": {
       "cache": false
     },
+    "build:test-utils": {
+      "cache": false
+    },
     "build:css": {
       "cache": false
     },
@@ -65,6 +68,23 @@
       "cache": false
     },
     "test": {
+      "dependsOn": [
+        "build:test-utils"
+      ],
+      "cache": false
+    },
+    "test:ci:vue": {
+      "dependsOn": [
+        "^build:shared",
+        "build:test-utils"
+      ],
+      "cache": false
+    },
+    "test:ci:react": {
+      "dependsOn": [
+        "^build:shared",
+        "build:test-utils"
+      ],
       "cache": false
     }
   }

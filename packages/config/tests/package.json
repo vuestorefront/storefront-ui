@@ -8,7 +8,7 @@
     "index.js"
   ],
   "scripts": {
-    "transpile": "yarn tsc"
+    "build:test-utils": "yarn tsc"
   },
   "devDependencies": {
     "typescript": "^4.9.4"

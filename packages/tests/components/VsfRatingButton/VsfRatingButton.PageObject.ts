@@ -1,22 +1,22 @@
 import { BasePage } from '../../utils/BasePage';
 
 export default class VsfRatingButtonBaseObject extends BasePage {
-  hasIcons(ariaLabel:string, item: number) {
-    this.iconElements.eq(item).should('have.attr', 'aria-label', ariaLabel)
-    return this;
-  }
-  
-  hasMaxItems(max: number) {
-    this.itemElements.eq(max)
+  hasIcons(ariaLabel: string, item: number) {
+    this.iconElements.eq(item).should('have.attr', 'data-testid', ariaLabel);
     return this;
   }
 
-  isDisabled(){
+  hasMaxItems(max: number) {
+    this.itemElements.eq(max);
+    return this;
+  }
+
+  isDisabled() {
     this.container.should('be.disabled');
     return this;
   }
 
-  isNotDisabled(){
+  isNotDisabled() {
     this.container.should('not.be.disabled');
     return this;
   }
@@ -37,7 +37,7 @@ export default class VsfRatingButtonBaseObject extends BasePage {
   }
 
   itemClick(elementClicked: number) {
-    this.container.find(`[id="rating-${elementClicked}"]`).click()
+    this.container.find(`[id="rating-${elementClicked}"]`).click();
     return this;
   }
 

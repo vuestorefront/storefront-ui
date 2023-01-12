@@ -14,6 +14,7 @@ export default function VsfIconFilter({
       className={className}
       size={size}
       ariaLabel={ariaLabel}
+      data-testid="filter"
       viewBox={viewBox ?? '0 0 24 24'}
     >
       <>

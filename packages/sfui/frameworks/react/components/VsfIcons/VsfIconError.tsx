@@ -14,6 +14,7 @@ export default function VsfIconError({
       className={className}
       size={size}
       ariaLabel={ariaLabel}
+      data-testid="error"
       viewBox={viewBox ?? '0 0 24 24'}
     >
       <>

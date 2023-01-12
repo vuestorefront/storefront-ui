@@ -1,14 +1,9 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from "react";
-// import vue
-import VsfLoaderLinearVue from "../../../sfui/frameworks/vue/components/VsfLoaderLinear/VsfLoaderLinear.vue";
-// end import vue
-// import react
-import VsfLoaderLinearReact from "../../../sfui/frameworks/react/components/VsfLoaderLinear/VsfLoaderLinear";
-// end import react
+import { mount, useComponent } from '../../utils/mount';
 
+const { vue: VsfLoaderLinearVue, react: VsfLoaderLinearReact } = await useComponent('VsfLoaderLinear');
 import { VsfLoaderLinearSize, VsfLoaderSizes } from '../../../sfui/frameworks/react/components/VsfLoaderLinear/types';
-import { mount } from '../../utils/mount';
 import VsfLoaderLinearBaseObject from "./VsfLoaderLinear.PageObject";
 
 describe("VsfLoaderLinear", () => {

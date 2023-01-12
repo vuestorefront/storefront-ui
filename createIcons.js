@@ -91,7 +91,7 @@ const attributesMap = {
 
 const vueIcon = (name, content, attributes) => `
 <template>
-    <VsfIconBase :size="size" viewBox="${attributes.viewBox}" content="${content}"/>
+    <VsfIconBase :size="size" viewBox="${attributes.viewBox}" ${attributes.dataTestId && `data-testid="${attributes.dataTestId}"`} content="${content}"/>
 </template>
 <script lang="ts" setup>
 import { PropType } from 'vue';
@@ -116,7 +116,7 @@ export default function VsfIcon${camelCaseName}({
     viewBox,
     ...attributes
 }: VsfIconProps) {
-    return <VsfIconBase {...attributes} className={className} size={size} ariaLabel={ariaLabel} viewBox={viewBox ?? '${attributes.viewBox}'}>${content}</VsfIconBase>;
+    return <VsfIconBase {...attributes} className={className} size={size} ariaLabel={ariaLabel} ${attributes.dataTestId && `data-testid="${attributes.dataTestId}"`} viewBox={viewBox ?? '${attributes.viewBox}'}>${content}</VsfIconBase>;
 }`;
 
 const vueExports = [];
@@ -181,6 +181,9 @@ const createExports = async (file, doOptimiziation) => {
 
         const capitializedCamelCaseName = capitalize(camelize(fileName));
         const attributes = { viewBox: attrs.viewBox ?? '0 0 24 24' };
+        if(process.env.PROD !== "true") {
+            attributes['dataTestId'] = name;
+        }
         const componentName = `VsfIcon${capitializedCamelCaseName}`;
 
         if (framework === 'vue') {

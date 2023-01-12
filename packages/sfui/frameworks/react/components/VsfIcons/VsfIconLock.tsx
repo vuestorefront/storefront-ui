@@ -14,6 +14,7 @@ export default function VsfIconLock({
       className={className}
       size={size}
       ariaLabel={ariaLabel}
+      data-testid="lock"
       viewBox={viewBox ?? '0 0 24 24'}
     >
       <path

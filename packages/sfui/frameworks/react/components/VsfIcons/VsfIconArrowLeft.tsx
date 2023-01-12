@@ -14,6 +14,7 @@ export default function VsfIconArrowLeft({
       className={className}
       size={size}
       ariaLabel={ariaLabel}
+      data-testid="arrow-left"
       viewBox={viewBox ?? '0 0 24 24'}
     >
       <>

@@ -15,7 +15,7 @@ force: false
   </ComponentExample>
 </template>
 
-<script>
+<script lang="ts">
 import { ref } from 'vue';
 import <%= name %><%= locals.variants ? `, { ${Variants} }` : null %> from '@storefront-ui/vue/components/<%= name %>/<%= name %>.vue'
 import { prepareControls } from '../../components/utils/Controls.vue';

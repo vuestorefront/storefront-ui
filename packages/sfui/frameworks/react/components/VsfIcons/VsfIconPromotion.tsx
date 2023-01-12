@@ -14,6 +14,7 @@ export default function VsfIconPromotion({
       className={className}
       size={size}
       ariaLabel={ariaLabel}
+      data-testid="promotion"
       viewBox={viewBox ?? '0 0 24 24'}
     >
       <path

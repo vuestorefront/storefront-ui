@@ -14,6 +14,7 @@ export default function VsfIconCheckCircle({
       className={className}
       size={size}
       ariaLabel={ariaLabel}
+      data-testid="check-circle"
       viewBox={viewBox ?? '0 0 24 24'}
     >
       <>

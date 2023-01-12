@@ -1,13 +1,8 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from "react";
-// import vue
-import VsfListItemMenuVue from "../../../sfui/frameworks/vue/components/VsfListItemMenu/VsfListItemMenu.vue";
-// end import vue
-// import react
-import VsfListItemMenuReact from "../../../sfui/frameworks/react/components/VsfListItemMenu/VsfListItemMenu";
-// end import react
+import { mount, useComponent } from '../../utils/mount';
 
-import { mount } from '../../utils/mount';
+const { vue: VsfListItemMenuVue, react: VsfListItemMenuReact } = await useComponent('VsfListItemMenu');
 import { VsfListItemMenuSizes } from '../../../sfui/frameworks/vue/components/VsfListItemMenu/types';
 import VsfListItemMenuBaseObject from "./VsfListItemMenu.PageObject";
 

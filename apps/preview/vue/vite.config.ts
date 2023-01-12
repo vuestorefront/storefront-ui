@@ -3,6 +3,7 @@ import { defineConfig, searchForWorkspaceRoot } from "vite";
 import {
   extractImports,
   changeImports,
+  dynamicImports,
   removeCode,
   changeFrameworkPathInImports,
 } from "@storefront-ui/tests-shared";
@@ -11,11 +12,14 @@ const changeImport = (code: string, framework: "react") => {
   // Find imports of component and replace it with utils/fake-import.ts empty file
   const EXTRACT_IMPORTS = extractImports(framework);
   const CHANGE_IMPORTS = changeImports(framework);
+  const DYNAMIC_IMPORTS = dynamicImports(framework);
 
   return code.replace(EXTRACT_IMPORTS, (_m, frameworkImport: string) => {
-    return frameworkImport.replace(CHANGE_IMPORTS, (_m, importName: string) => {
-      return `import${importName}from '../../utils/fake-import';`;
-    });
+    return frameworkImport
+      .replace(DYNAMIC_IMPORTS, "./fake-import")
+      .replace(CHANGE_IMPORTS, (_m, importName: string) => {
+        return `import${importName}from '../../utils/fake-import';`;
+      });
   });
 };
 
@@ -35,9 +39,8 @@ export default defineConfig({
       name: "replace-react-imports",
       enforce: "pre",
       async transform(code, id) {
-        // Alter only test files with *.cy.tsx or *.PageObject.ts file extension
-        if (!/^[^.]+.cy.tsx$/.test(id) && !/^[^.]+.PageObject.ts$/.test(id))
-          return { code };
+        // Alter only packages/sfui/tests directory files
+        if (!/\/sfui\/tests\//.test(id)) return { code };
 
         // if more frameworks we can loop over this regex and remove code from all frameworks
         const REMOVE_REGEX = removeCode("react");

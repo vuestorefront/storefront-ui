@@ -1,17 +1,12 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from "react";
-// import vue
-import VsfNavigationTopVue from "../../../sfui/frameworks/vue/components/VsfNavigationTop/VsfNavigationTop.vue";
-// end import vue
-// import react
-import VsfNavigationTopReact from "../../../sfui/frameworks/react/components/VsfNavigationTop/VsfNavigationTop";
-// end import react
-
-import { mount, Wrapper } from '../../utils/mount';
-import VsfNavigationTopBaseObject from "./VsfNavigationTop.PageObject";
-import { VsfNavigationTopVariant } from "../../../sfui/frameworks/react/components/VsfNavigationTop/types";
 import { ref } from "vue";
 import type { Ref } from "vue";
+import { mount, useComponent, Wrapper } from '../../utils/mount';
+
+const { vue: VsfNavigationTopVue, react: VsfNavigationTopReact } = await useComponent('VsfNavigationTop');
+import VsfNavigationTopBaseObject from "./VsfNavigationTop.PageObject";
+import { VsfNavigationTopVariant } from "../../../sfui/frameworks/react/components/VsfNavigationTop/types";
 
 describe("VsfNavigationTop", () => {
   const page = () => new VsfNavigationTopBaseObject("navigation-top");

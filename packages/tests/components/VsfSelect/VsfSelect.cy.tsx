@@ -1,13 +1,8 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from "react";
-// import vue
-import VsfSelectVue from "../../../sfui/frameworks/vue/components/VsfSelect/VsfSelect.vue";
-// end import vue
-// import react
-import VsfSelectReact from "../../../sfui/frameworks/react/components/VsfSelect/VsfSelect";
-// end import react
+import { mount, useComponent } from '../../utils/mount';
 
-import { mount } from '../../utils/mount';
+const {vue: VsfSelectVue, react: VsfSelectReact} = await useComponent('VsfSelect');
 import { VsfSelectSizes } from '../../../sfui/frameworks/vue/components/VsfSelect/types';
 import VsfSelectBaseObject from "./VsfSelect.PageObject";
 

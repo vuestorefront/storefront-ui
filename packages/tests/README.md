@@ -16,15 +16,30 @@ describe('test scenario', () => {
 });
 ```
 
+## Import Component
+
 **Important**: for specifying framework-specific component imports use `// import ${framework}` and `// end import ${framework}` instead, for example:
 ```ts
 // import vue
 import VueComponent from 'packages/sfui/frameworks/vue/components/VueComponent/VueComponent.vue';
 // end import vue
 // import react
-import VueComponent from 'packages/sfui/frameworks/react/components/VueComponent/VueComponent.vue';
+import ReactComponent from 'packages/sfui/frameworks/react/components/VueComponent/VueComponent';
 // end import react
 ```
+
+## Why?
+
+When using our internal `mount()` util we need to provide it with a separate configuration for React and Vue components. Unfortunately, at the same time, we don't want to import React components when running tests against Vue framework and other way around - we don't want to import Vue component when testing React.
+To handle this case, we need to mark imports, so our internal tooling can replace them properly with fake modules. So, for example: when running a Vue tests - real React components won't be imported.
+
+Having said that there is better solution for marking your component imports than using comments above. For most of cases, using our `useComponent` util will be a better fit. It allows you to import the react/vue components and uses the same comment under the hood. Example:
+
+```ts
+const {vue: VsfRadioGroupVue, react: VsfRadioGroupReact} = await useComponent('VsfRadioGroup');
+```
+
+This util will work perfectly for cases where the component does exist both in React and Vue frameworks. In a situation when the component is not exported from one of framework bundles (for example when you're testing a React-only component) you should use import comments as a fallback strategy:  `// import react` and `// end import react`.
 
 ## Import alteration
 
@@ -51,7 +66,7 @@ If you need to change props values during your test case you can do it by passin
 it('some test', () => {
   const someProp = ref();
   mount({vue: { props: someProp }});
-  
+
   expect(elementUIDependingOnThisProp).not.to.be.changed;
   someProp.value = 'changed ref';
   expect(elementUIDependingOnThisProp).to.be.changed;
@@ -72,7 +87,7 @@ it('some test', () => {
           component={VsfNavigationTopReact}
       />
   });
-  
+
   expect(elementUIDependingOnThisProp).not.to.be.changed;
   someProp.value = 'changed ref';
   expect(elementUIDependingOnThisProp).to.be.changed;

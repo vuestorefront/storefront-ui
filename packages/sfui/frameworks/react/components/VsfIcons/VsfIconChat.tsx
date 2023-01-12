@@ -14,6 +14,7 @@ export default function VsfIconChat({
       className={className}
       size={size}
       ariaLabel={ariaLabel}
+      data-testid="chat"
       viewBox={viewBox ?? '0 0 40 40'}
     >
       <path
