@@ -1,0 +1,23 @@
+.vsf-tabs {
+  $self: &;
+
+  & .vsf-slider__nav .vsf-button {
+    @apply bg-white border-none rounded-none ring-0 shadow-none;
+  }
+
+  & .vsf-slider__container {
+    @apply pb-0;
+
+    & > .vsf-button {
+      @apply w-auto;
+    }
+  }
+
+  &-item.vsf-button {
+    @apply text-gray-500 rounded-b-none border-b-4 border-transparent;
+  }
+
+  &-item--active.vsf-button:not(.vsf-button--disabled) {
+    @apply border-primary-700;
+  }
+}

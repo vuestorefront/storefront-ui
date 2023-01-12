@@ -20,4 +20,5 @@ export type VsfSliderProps = PropsWithChildren &
     };
     slotPrevArrow?: (arg: { onClick: () => void; hasPrev: boolean }) => ReactNode;
     slotNextArrow?: (arg: { onClick: () => void; hasNext: boolean }) => ReactNode;
+    role?: string;
   };
