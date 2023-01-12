@@ -11,7 +11,7 @@
   </ComponentExample>
 </template>
 
-<script>
+<script lang="ts">
 import { ref } from 'vue';
 import { VsfSwitch, VsfSwitchAlignments } from '@storefront-ui/vue/components/VsfSwitch/index';
 import { prepareControls } from '../../components/utils/Controls.vue';

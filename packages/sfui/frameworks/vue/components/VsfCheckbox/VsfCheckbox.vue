@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import type { PropType } from 'vue';
+import type { InputHTMLAttributes, PropType } from 'vue';
 import { computed, toRefs } from 'vue';
 import { VsfCheckboxAlignments } from './types';
 
 const props = defineProps({
   modelValue: {
-    type: [Boolean, Array] as PropType<string[] | boolean>,
+    type: [String, Array, Boolean] as PropType<InputHTMLAttributes['checked']>,
     required: true,
   },
   value: {
@@ -57,12 +57,11 @@ const props = defineProps({
     default: undefined,
   },
 });
-const { modelValue } = toRefs(props);
-
 const emit = defineEmits<{
-  (event: 'update:modelValue', param: string[] | boolean): void;
+  (event: 'update:modelValue', param: InputHTMLAttributes['checked']): void;
 }>();
 
+const { modelValue } = toRefs(props);
 const isChecked = computed(() => {
   if (Array.isArray(modelValue.value)) {
     return modelValue.value.includes(props.value);
@@ -72,9 +71,7 @@ const isChecked = computed(() => {
 
 const proxyChecked = computed({
   get: () => modelValue?.value,
-  set: (value) => {
-    value && emit('update:modelValue', value);
-  },
+  set: (value) => emit('update:modelValue', value),
 });
 </script>
 
