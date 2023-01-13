@@ -8,7 +8,7 @@
   </ComponentExample>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent, ref } from 'vue';
 import { VsfChipsFilter, VsfChipsFilterVariants } from '@storefront-ui/vue/components/VsfChipsFilter/index';
 import { prepareControls } from '../../components/utils/Controls.vue';

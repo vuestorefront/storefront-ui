@@ -7,7 +7,7 @@
   </ComponentExample>
 </template>
 
-<script>
+<script lang="ts">
 import { ref } from 'vue';
 import {
   VsfListItemFilterRadio,

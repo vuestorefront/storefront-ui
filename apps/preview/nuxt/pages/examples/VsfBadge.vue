@@ -11,7 +11,7 @@
   </ComponentExample>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent, ref } from 'vue';
 import VsfBadge from '@storefront-ui/vue/components/VsfBadge/VsfBadge.vue';
 import VsfButton from '@storefront-ui/vue/components/VsfButton/VsfButton.vue';

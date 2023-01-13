@@ -6,7 +6,7 @@
   </ComponentExample>
 </template>
 
-<script>
+<script lang="ts">
 import { VsfCheckbox, VsfCheckboxAlignments } from '@storefront-ui/vue/components/VsfCheckbox/index';
 import { defineComponent } from 'vue';
 import { prepareControls } from '../../components/utils/Controls.vue';

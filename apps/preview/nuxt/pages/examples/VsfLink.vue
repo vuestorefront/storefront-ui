@@ -4,7 +4,7 @@
   </ComponentExample>
 </template>
 
-<script>
+<script lang="ts">
 import { ref, defineComponent } from 'vue';
 import { VsfLink, VsfLinkVariant } from '@storefront-ui/vue/components/VsfLink/index';
 import { prepareControls } from '../../components/utils/Controls.vue';

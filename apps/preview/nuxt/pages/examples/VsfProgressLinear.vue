@@ -4,7 +4,7 @@
   </ComponentExample>
 </template>
 
-<script>
+<script lang="ts">
 import { ref } from 'vue';
 import { VsfProgressLinear, VsfProgressLinearSizes } from '@storefront-ui/vue/components/VsfProgressLinear/index';
 import { prepareControls } from '../../components/utils/Controls.vue';

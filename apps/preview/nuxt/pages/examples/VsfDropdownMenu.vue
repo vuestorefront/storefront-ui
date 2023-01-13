@@ -21,7 +21,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { ref, onMounted } from 'vue';
 import VsfDropdownMenu from '@storefront-ui/vue/components/VsfDropdownMenu/VsfDropdownMenu.vue';
 import VsfListItemMenu from '@storefront-ui/vue/components/VsfListItemMenu/VsfListItemMenu.vue';

@@ -10,7 +10,7 @@
   </ComponentExample>
 </template>
 
-<script>
+<script lang="ts">
 import { ref } from 'vue';
 import VsfPagination from '@storefront-ui/vue/components/VsfPagination/VsfPagination.vue';
 import { prepareControls } from '../../components/utils/Controls.vue';

@@ -4,7 +4,7 @@
   </ComponentExample>
 </template>
 
-<script>
+<script lang="ts">
 import { ref } from 'vue';
 import VsfLoaderCircular from '@storefront-ui/vue/components/VsfLoaderCircular/VsfLoaderCircular.vue';
 import { VsfLoaderSizes } from '@storefront-ui/shared';

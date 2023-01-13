@@ -19,7 +19,7 @@
   </ComponentExample>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent, ref } from 'vue';
 import { VsfQuantitySelector, VsfQuantitySelectorSizes } from '@storefront-ui/vue/components/VsfQuantitySelector/index';
 import { prepareControls } from '../../components/utils/Controls.vue';

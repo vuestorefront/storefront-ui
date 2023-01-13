@@ -16,7 +16,7 @@
   </ComponentExample>
 </template>
 
-<script>
+<script lang="ts">
 import { ref } from 'vue';
 import VsfSideSheet from '@storefront-ui/vue/components/VsfSideSheet/VsfSideSheet.vue';
 import { prepareControls } from '../../components/utils/Controls.vue';

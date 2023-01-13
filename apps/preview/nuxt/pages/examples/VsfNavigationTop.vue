@@ -18,7 +18,7 @@
   </ComponentExample>
 </template>
 
-<script>
+<script lang="ts">
 import { ref } from 'vue';
 import VsfButton from '@storefront-ui/vue/components/VsfButton/VsfButton.vue';
 import { VsfNavigationTop, VsfNavigationTopVariant } from '@storefront-ui/vue/components/VsfNavigationTop/index';

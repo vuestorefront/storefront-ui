@@ -47,7 +47,7 @@
   </ComponentExample>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent, ref } from 'vue';
 import { VsfNavbarBottom, VsfNavbarBottomItem } from '@storefront-ui/vue/components/VsfNavbarBottom/index';
 import VsfBadge from '@storefront-ui/vue/components/VsfBadge/VsfBadge.vue';

@@ -14,7 +14,7 @@
   </ComponentExample>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent, ref } from 'vue';
 import { VsfCard, VsfCardSizes, VsfCardLinkTags } from '@storefront-ui/vue/components/VsfCard/index';
 import { prepareControls } from '../../components/utils/Controls.vue';

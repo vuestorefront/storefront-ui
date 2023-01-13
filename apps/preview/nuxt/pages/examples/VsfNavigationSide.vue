@@ -10,7 +10,7 @@
   </ComponentExample>
 </template>
 
-<script>
+<script lang="ts">
 import { ref } from 'vue';
 import VsfNavigationSide from '@storefront-ui/vue/components/VsfNavigationSide/VsfNavigationSide.vue';
 import VsfButton from '@storefront-ui/vue/components/VsfButton/VsfButton.vue';

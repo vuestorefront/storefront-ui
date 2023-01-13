@@ -4,7 +4,7 @@
   </ComponentExample>
 </template>
 
-<script>
+<script lang="ts">
 import { ref } from 'vue';
 import VsfLoaderLinear from '@storefront-ui/vue/components/VsfLoaderLinear/VsfLoaderLinear.vue';
 import { VsfLoaderSizes } from '@storefront-ui/shared';

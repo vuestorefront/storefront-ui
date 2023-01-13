@@ -6,7 +6,7 @@
   </ComponentExample>
 </template>
 
-<script>
+<script lang="ts">
 import { ref, defineComponent } from 'vue';
 import { VsfConfig } from '@storefront-ui/vue/components/VsfConfig/index';
 import { VsfLink, VsfLinkVariant } from '@storefront-ui/vue/components/VsfLink/index';
