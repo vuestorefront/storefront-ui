@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-import { inject, toRefs } from 'vue';
+import { inject } from 'vue';
 import { key } from '../../shared/provideKey';
 import VsfButton from '../VsfButton/VsfButton.vue';
-import { VsfButtonVariants, VsfButtonSizes } from '../VsfButton/index';
+import { VsfButtonVariants } from '../VsfButton/index';
 
-const propsTabsItem = defineProps({
+defineProps({
   uid: {
     type: [Number, String, Symbol],
     required: true,

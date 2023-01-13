@@ -13,7 +13,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build:react": "vite build",
-    "lint": "yarn dlx browserslist@latest && yarn lint:script",
+    "lint": "yarn dlx browserslist@latest && yarn lint:script  --max-warnings 0",
     "lint:fix": "yarn lint:script:fix",
     "lint:fix:sfui": "yarn lint:fix",
     "lint:script": "eslint --ext .ts,.tsx \"components/**\" \"shared/**\"",
