@@ -5,9 +5,9 @@ import type { Ref } from 'vue';
 import type { MaybeRef } from "@vueuse/core";
 import { mount, useComponent, Wrapper } from '../../utils/mount';
 
-const {vue: VsfAlertVue, react: VsfAlertReact } = await useComponent('VsfAlert');
-const {vue: VsfButtonVue, react: VsfButtonReact } = await useComponent('VsfButton');
-const {vue: VsfIconCheckCircleVue, react: VsfIconCheckCircleReact } = await useComponent('VsfIconCheckCircle');
+const {vue: VsfAlertVue, react: VsfAlertReact } = useComponent('VsfAlert');
+const {vue: VsfButtonVue, react: VsfButtonReact } = useComponent('VsfButton');
+const {vue: VsfIconCheckCircleVue, react: VsfIconCheckCircleReact } = useComponent('VsfIconCheckCircle');
 import VsfAlertBaseObject from "./VsfAlert.PageObject";
 import { waitForRerender } from "../../utils/waitForRerender";
 import { VsfAlertTypes, VsfAlertVariants } from "@storefront-ui/shared";

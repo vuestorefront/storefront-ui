@@ -2,7 +2,7 @@
 import React, { ReactNode } from "react";
 import { mount, useComponent } from '../../utils/mount';
 
-const { vue: VsfProductCardVue, react: VsfProductCardReact } = await useComponent('VsfProductCard');
+const { vue: VsfProductCardVue, react: VsfProductCardReact } = useComponent('VsfProductCard');
 import VsfProductCardBaseObject from "./VsfProductCard.PageObject";
 import { VsfProductCardSizes } from '../../../sfui/frameworks/vue/components/VsfProductCard/types';
 

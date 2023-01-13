@@ -2,7 +2,7 @@
 import React from "react";
 import { mount, useComponent } from '../../utils/mount';
 
-const { vue: VsfProgressLinearVue, react: VsfProgressLinearReact } = await useComponent('VsfProgressLinear');
+const { vue: VsfProgressLinearVue, react: VsfProgressLinearReact } = useComponent('VsfProgressLinear');
 import VsfProgressLinearBaseObject from "./VsfProgressLinear.PageObject";
 import { VsfProgressLinearSizes } from '../../../sfui/frameworks/vue/components/VsfProgressLinear/types';
 

@@ -2,7 +2,7 @@
 import React from "react";
 import { mount, useComponent } from '../../utils/mount';
 
-const {vue: VsfCheckboxVue, react: VsfCheckboxReact } = await useComponent('VsfCheckbox');
+const {vue: VsfCheckboxVue, react: VsfCheckboxReact } = useComponent('VsfCheckbox');
 import { VsfCheckboxAlignments } from '../../../sfui/frameworks/vue/components/VsfCheckbox/types';
 import VsfCheckboxBaseObject from "./VsfCheckbox.PageObject";
 

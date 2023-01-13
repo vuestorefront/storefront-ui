@@ -2,9 +2,9 @@
 import React from "react";
 import { mount, useComponent } from '../../utils/mount';
 
-const {vue: VsfButtonVue, react: VsfButtonReact } = await useComponent('VsfButton');
-const {vue: VsfIconCheckCircleVue, react: VsfIconCheckCircleReact } = await useComponent('VsfIconCheckCircle');
-const {vue: VsfIconCheckboxIndeterminateVue, react: VsfIconCheckboxIndeterminateReact } = await useComponent('VsfIconCheckboxIndeterminate');
+const {vue: VsfButtonVue, react: VsfButtonReact } = useComponent('VsfButton');
+const {vue: VsfIconCheckCircleVue, react: VsfIconCheckCircleReact } = useComponent('VsfIconCheckCircle');
+const {vue: VsfIconCheckboxIndeterminateVue, react: VsfIconCheckboxIndeterminateReact } = useComponent('VsfIconCheckboxIndeterminate');
 import { VsfButtonSizes, VsfButtonVariants } from '../../../sfui/frameworks/vue/components/VsfButton/types';
 import VsfButtonBaseObject from "./VsfButton.PageObject";
 

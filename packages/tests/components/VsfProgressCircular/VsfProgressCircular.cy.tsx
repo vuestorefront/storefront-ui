@@ -2,7 +2,7 @@
 import React from "react";
 import { mount, useComponent } from '../../utils/mount';
 
-const { vue: VsfProgressCircularVue, react: VsfProgressCircularReact } = await useComponent('VsfProgressCircular');
+const { vue: VsfProgressCircularVue, react: VsfProgressCircularReact } = useComponent('VsfProgressCircular');
 import VsfProgressCircularBaseObject from "./VsfProgressCircular.PageObject";
 import { VsfProgressCircularSizes } from '../../../sfui/frameworks/vue/components/VsfProgressCircular/types';
 

@@ -3,7 +3,7 @@ import React from "react";
 import { ref } from "vue";
 import { mount, useComponent, Wrapper } from '../../utils/mount';
 
-const { vue: VsfLinkVue, react: VsfLinkReact } = await useComponent('VsfLink');
+const { vue: VsfLinkVue, react: VsfLinkReact } = useComponent('VsfLink');
 import { VsfLinkVariant } from '../../../sfui/frameworks/vue/components/VsfLink/types';
 import VsfLinkBaseObject from "./VsfLink.PageObject";
 import { isReact, isVue } from "../../utils/utils";

@@ -4,7 +4,7 @@ import { ref } from "vue";
 import type { Ref } from "vue";
 import { mount, useComponent, Wrapper } from '../../utils/mount';
 
-const { vue: VsfNavigationTopVue, react: VsfNavigationTopReact } = await useComponent('VsfNavigationTop');
+const { vue: VsfNavigationTopVue, react: VsfNavigationTopReact } = useComponent('VsfNavigationTop');
 import VsfNavigationTopBaseObject from "./VsfNavigationTop.PageObject";
 import { VsfNavigationTopVariant } from "../../../sfui/frameworks/react/components/VsfNavigationTop/types";
 

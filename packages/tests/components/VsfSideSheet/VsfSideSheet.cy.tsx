@@ -2,7 +2,7 @@
 import React from "react";
 import { mount, useComponent } from '../../utils/mount';
 
-const {vue: VsfSideSheetVue, react: VsfSideSheetReact} = await useComponent('VsfSideSheet');
+const {vue: VsfSideSheetVue, react: VsfSideSheetReact} = useComponent('VsfSideSheet');
 import VsfSideSheetBaseObject from "./VsfSideSheet.PageObject";
 
 describe("VsfSideSheet", () => {

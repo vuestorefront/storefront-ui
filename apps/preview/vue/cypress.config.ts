@@ -17,5 +17,6 @@ export default defineConfig({
       framework: "vue",
       bundler: "vite",
     },
+    experimentalSingleTabRunMode: true,
   },
 });

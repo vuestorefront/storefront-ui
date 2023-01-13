@@ -2,7 +2,7 @@
 import React from "react";
 import { mount, useComponent } from '../../utils/mount';
 
-const { vue: VsfListItemMenuVue, react: VsfListItemMenuReact } = await useComponent('VsfListItemMenu');
+const { vue: VsfListItemMenuVue, react: VsfListItemMenuReact } = useComponent('VsfListItemMenu');
 import { VsfListItemMenuSizes } from '../../../sfui/frameworks/vue/components/VsfListItemMenu/types';
 import VsfListItemMenuBaseObject from "./VsfListItemMenu.PageObject";
 

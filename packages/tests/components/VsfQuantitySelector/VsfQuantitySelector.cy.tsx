@@ -2,7 +2,7 @@
 import React from "react";
 import { mount, useComponent } from '../../utils/mount';
 
-const { vue: VsfQuantitySelectorVue, react: VsfQuantitySelectorReact } = await useComponent('VsfQuantitySelector');
+const { vue: VsfQuantitySelectorVue, react: VsfQuantitySelectorReact } = useComponent('VsfQuantitySelector');
 import { VsfQuantitySelectorSizes } from '../../../sfui/frameworks/vue/components/VsfQuantitySelector/types';
 import VsfQuantitySelectorBaseObject from "./VsfQuantitySelector.PageObject";
 import VsfButtonBaseObject from "../VsfButton/VsfButton.PageObject";

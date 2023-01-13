@@ -2,7 +2,7 @@
 import React from "react";
 import { mount, useComponent } from '../../utils/mount';
 
-const {vue: VsfSwitchVue, react: VsfSwitchReact} = await useComponent('VsfSwitch');
+const {vue: VsfSwitchVue, react: VsfSwitchReact} = useComponent('VsfSwitch');
 import { VsfSwitchAlignments } from '../../../sfui/frameworks/vue/components/VsfSwitch/types';
 import VsfSwitchBaseObject from "./VsfSwitch.PageObject";
 

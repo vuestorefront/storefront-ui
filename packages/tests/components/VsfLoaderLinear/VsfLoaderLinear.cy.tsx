@@ -2,7 +2,7 @@
 import React from "react";
 import { mount, useComponent } from '../../utils/mount';
 
-const { vue: VsfLoaderLinearVue, react: VsfLoaderLinearReact } = await useComponent('VsfLoaderLinear');
+const { vue: VsfLoaderLinearVue, react: VsfLoaderLinearReact } = useComponent('VsfLoaderLinear');
 import { VsfLoaderLinearSize, VsfLoaderSizes } from '../../../sfui/frameworks/react/components/VsfLoaderLinear/types';
 import VsfLoaderLinearBaseObject from "./VsfLoaderLinear.PageObject";
 

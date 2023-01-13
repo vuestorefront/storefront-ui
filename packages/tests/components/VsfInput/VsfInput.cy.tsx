@@ -2,7 +2,7 @@
 import React from "react";
 import { mount, useComponent } from '../../utils/mount';
 
-const { vue: VsfInputVue, react: VsfInputReact } = await useComponent('VsfInput');
+const { vue: VsfInputVue, react: VsfInputReact } = useComponent('VsfInput');
 import { VsfInputSizes } from '../../../sfui/frameworks/vue/components/VsfInput/types';
 import VsfInputBaseObject from "./VsfInput.PageObject";
 

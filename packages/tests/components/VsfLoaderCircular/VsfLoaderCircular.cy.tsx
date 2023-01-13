@@ -2,7 +2,7 @@
 import React from "react";
 import { mount, useComponent } from '../../utils/mount';
 
-const { vue: VsfLoaderCircularVue, react: VsfLoaderCircularReact } = await useComponent('VsfLoaderCircular');
+const { vue: VsfLoaderCircularVue, react: VsfLoaderCircularReact } = useComponent('VsfLoaderCircular');
 import { VsfLoaderSizes } from "@storefront-ui/shared";
 import VsfLoaderCircularBaseObject from "./VsfLoaderCircular.PageObject";
 

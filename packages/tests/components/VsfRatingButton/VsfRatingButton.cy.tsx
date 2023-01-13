@@ -3,9 +3,9 @@ import React from "react";
 import { h } from 'vue';
 import { mount, useComponent } from '../../utils/mount';
 
-const {vue: VsfRatingButtonVue, react: VsfRatingButtonReact } = await useComponent('VsfRatingButton');
-const {vue: VsfIconStarVue, react: VsfIconStarReact } = await useComponent('VsfIconStar');
-const {vue: VsfIconStarOutlineVue, react: VsfIconStarOutlineReact } = await useComponent('VsfIconStarOutline');
+const {vue: VsfRatingButtonVue, react: VsfRatingButtonReact } = useComponent('VsfRatingButton');
+const {vue: VsfIconStarVue, react: VsfIconStarReact } = useComponent('VsfIconStar');
+const {vue: VsfIconStarOutlineVue, react: VsfIconStarOutlineReact } = useComponent('VsfIconStarOutline');
 
 import { VsfRatingButtonSizes } from '../../../sfui/frameworks/vue/components/VsfRatingButton/types';
 import { VsfIconSizeEnum } from '../../../sfui/frameworks/vue/components/VsfIconBase/types';

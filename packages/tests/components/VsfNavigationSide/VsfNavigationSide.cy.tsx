@@ -4,7 +4,7 @@ import { ref } from "vue";
 import type { Ref } from "vue";
 import { mount, useComponent, Wrapper } from '../../utils/mount';
 
-const { vue: VsfNavigationSideVue, react: VsfNavigationSideReact } = await useComponent('VsfNavigationSide');
+const { vue: VsfNavigationSideVue, react: VsfNavigationSideReact } = useComponent('VsfNavigationSide');
 import VsfNavigationSideBaseObject from "./VsfNavigationSide.PageObject";
 
 describe("VsfNavigationSide", () => {

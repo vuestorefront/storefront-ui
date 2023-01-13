@@ -2,7 +2,7 @@
 import React from "react";
 import { mount, useComponent } from '../../utils/mount';
 
-const { vue: VsfPaginationVue, react: VsfPaginationReact } = await useComponent('VsfPagination');
+const { vue: VsfPaginationVue, react: VsfPaginationReact } = useComponent('VsfPagination');
 import VsfPaginationBaseObject from "./VsfPagination.PageObject";
 
 describe("VsfPagination", () => {

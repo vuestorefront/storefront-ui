@@ -2,7 +2,7 @@
 import React from "react";
 import { mount, useComponent } from '../../utils/mount';
 
-const {vue: VsfAccordionItemVue, react: VsfAccordionItemReact} = await useComponent('VsfAccordionItem');
+const {vue: VsfAccordionItemVue, react: VsfAccordionItemReact} = useComponent('VsfAccordionItem');
 import VsfAccordionItemBaseObject from "./VsfAccordionItem.PageObject";
 
 describe("VsfAccordionItem", () => {

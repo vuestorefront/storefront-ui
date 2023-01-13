@@ -6,6 +6,12 @@ import { useState, createElement } from 'react';
 import type { ReactNode, FunctionComponent } from 'react';
 import { isRef, unref, watch, reactive } from 'vue';
 import type { Ref } from 'vue';
+// import vue
+import * as vueComponents from '../../sfui/frameworks/vue/index';
+// end import vue
+// import react
+import * as reactComponents from '../../sfui/frameworks/react/index';
+// end import react
 
 type vueMountOptions = Parameters<typeof vueMount>;
 type reactMountOptions = Parameters<typeof reactMount>;
@@ -123,14 +129,7 @@ export function Wrapper<T extends Record<string, any>>({
 };
 
 
-export const useComponent = async (componentName: string) => {
-  // import vue
-  const vueComponents = await import(`../../sfui/frameworks/vue/index`)
-  // end import vue
-  // import react
-  const reactComponents = await import(`../../sfui/frameworks/react/index`)
-  // end import react
-
+export const useComponent = (componentName: string) => {
   return {
     vue: vueComponents[componentName],
     react: reactComponents[componentName],

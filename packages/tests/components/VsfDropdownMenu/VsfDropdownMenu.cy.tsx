@@ -4,9 +4,9 @@ import { h, ref } from 'vue';
 import type { Ref } from "vue";
 import { mount, useComponent, Wrapper } from '../../utils/mount';
 
-const { vue: VsfDropdownMenuVue, react: VsfDropdownMenuReact } = await useComponent('VsfDropdownMenu');
-const { vue: VsfListItemMenuVue, react: VsfListItemMenuReact } = await useComponent('VsfListItemMenu');
-const { vue: VsfIconDotVue, react: VsfIconDotReact } = await useComponent('VsfIconDot');
+const { vue: VsfDropdownMenuVue, react: VsfDropdownMenuReact } = useComponent('VsfDropdownMenu');
+const { vue: VsfListItemMenuVue, react: VsfListItemMenuReact } = useComponent('VsfListItemMenu');
+const { vue: VsfIconDotVue, react: VsfIconDotReact } = useComponent('VsfIconDot');
 import { waitForRerender } from "../../utils/waitForRerender";
 import VsfDropdownMenuBaseObject from "./VsfDropdownMenu.PageObject";
 

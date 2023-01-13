@@ -2,7 +2,7 @@
 import React from "react";
 import { mount, useComponent } from '../../utils/mount';
 
-const {vue: VsfSelectVue, react: VsfSelectReact} = await useComponent('VsfSelect');
+const {vue: VsfSelectVue, react: VsfSelectReact} = useComponent('VsfSelect');
 import { VsfSelectSizes } from '../../../sfui/frameworks/vue/components/VsfSelect/types';
 import VsfSelectBaseObject from "./VsfSelect.PageObject";
 

@@ -4,7 +4,7 @@ import type { Ref } from 'vue';
 import { ref } from 'vue';
 import { mount, Wrapper, useComponent } from '../../utils/mount';
 
-const { vue: VsfDropdownInternalVue, react: VsfDropdownInternalReact } = await useComponent('VsfDropdownInternal');
+const { vue: VsfDropdownInternalVue, react: VsfDropdownInternalReact } = useComponent('VsfDropdownInternal');
 import VsfDropdownInternalBaseObject from "./VsfDropdownInternal.PageObject";
 import { VsfDropdownInternalPlacement, VsfDropdownInternalTriggerEvent } from '../../../sfui/frameworks/vue/components/VsfDropdownInternal';
 

@@ -2,7 +2,7 @@
 import React from "react";
 import { mount, useComponent } from '../../utils/mount';
 
-const { vue: VsfListItemFilterRadioVue, react: VsfListItemFilterRadioReact } = await useComponent('VsfListItemFilterRadio');
+const { vue: VsfListItemFilterRadioVue, react: VsfListItemFilterRadioReact } = useComponent('VsfListItemFilterRadio');
 import VsfListItemFilterRadioBaseObject from "./VsfListItemFilterRadio.PageObject";
 
 describe("VsfListItemFilterRadio", () => {

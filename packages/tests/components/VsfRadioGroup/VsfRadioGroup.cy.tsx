@@ -2,7 +2,7 @@
 import React from "react";
 import { mount, useComponent } from '../../utils/mount';
 
-const {vue: VsfRadioGroupVue, react: VsfRadioGroupReact} = await useComponent('VsfRadioGroup');
+const {vue: VsfRadioGroupVue, react: VsfRadioGroupReact} = useComponent('VsfRadioGroup');
 import { VsfRadioGroupDirections } from '../../../sfui/frameworks/vue/components/VsfRadio/types';
 import VsfRadioGroupBaseObject from "./VsfRadioGroup.PageObject";
 
