@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, createContext } from 'react';
 import type { PropsWithChildren } from 'react';
 import { VsfButtonSizes } from '../VsfButton/types';
 import type { PropsWithStyle } from '../../shared/types/index';
@@ -15,3 +15,5 @@ export interface VsfTabsItemProps extends PropsWithChildren, PropsWithStyle {
   slotPrefix?: ReactNode;
   slotSuffix?: ReactNode;
 }
+
+export const VsfTabsContext = createContext<{ props: VsfTabsProps } | void>(undefined);

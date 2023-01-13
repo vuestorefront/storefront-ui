@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { inject } from 'vue';
-import { key } from '../../shared/provideKey';
+import { VsfTabsInjectionKey } from './types';
 import VsfButton from '../VsfButton/VsfButton.vue';
 import { VsfButtonVariants } from '../VsfButton/index';
 
@@ -15,13 +15,17 @@ defineProps({
   },
 });
 
-const { props, onChange } = inject(key);
+const injectedValue = inject(VsfTabsInjectionKey);
+
+if (!injectedValue) throw new Error('VsfTabsItem :: should be always used within VsfTabs');
+
+const { props: TabsProps, onChange } = injectedValue;
 </script>
 
 <template>
   <VsfButton
-    :class="['vsf-tabs-item', { 'vsf-tabs-item--active': props.modelValue === uid }]"
-    :size="props.size"
+    :class="['vsf-tabs-item', { 'vsf-tabs-item--active': TabsProps.modelValue === uid }]"
+    :size="TabsProps.size"
     :variant="VsfButtonVariants.tertiary"
     :disabled="disabled"
     data-testid="tabs-item"

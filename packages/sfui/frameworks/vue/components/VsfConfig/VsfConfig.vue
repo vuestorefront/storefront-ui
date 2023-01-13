@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { provide, toRefs } from 'vue';
 import type { ConcreteComponent, PropType } from 'vue';
-import type { RouterLinkType } from '../VsfLink/VsfLink.vue';
+import type { RouterLinkType } from '../VsfLink/types';
 import { useConfigName } from './types';
 
 const props = defineProps({

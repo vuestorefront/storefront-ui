@@ -1,11 +1,10 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import classNames from 'classnames';
 import { useWindowSize } from 'react-use';
-import type { VsfTabsProps } from './types';
+import { VsfTabsProps, VsfTabsContext } from './types';
 import VsfSlider from '../VsfSlider/VsfSlider';
 import VsfDivider from '../VsfDivider/VsfDivider';
 import { VsfSliderNavigation } from '../VsfSlider/types';
-import TabsContext from '../../shared/tabsContext';
 
 export default function VsfTabs(props: VsfTabsProps): JSX.Element {
   const { active, children, className, ...attributes } = props;
@@ -14,6 +13,7 @@ export default function VsfTabs(props: VsfTabsProps): JSX.Element {
   const showArrows = useRef(false);
   const [tabsWidth] = useState((): number | undefined => tabs.current?.offsetWidth);
   const { width: windowWidth } = useWindowSize();
+  const contextValue = useMemo(() => ({ props }), [props]);
 
   useEffect(() => {
     if (!tabsWidth) return;
@@ -23,7 +23,7 @@ export default function VsfTabs(props: VsfTabsProps): JSX.Element {
   }, [windowWidth, tabsWidth]);
   return (
     <>
-      <TabsContext.Provider value={props}>
+      <VsfTabsContext.Provider value={contextValue}>
         {/* TODO: When VsfSlider is refactored pass showArrow value to the component to show arrows when needed */}
         <VsfSlider
           ref={tabs}
@@ -37,7 +37,7 @@ export default function VsfTabs(props: VsfTabsProps): JSX.Element {
         >
           {children}
         </VsfSlider>
-      </TabsContext.Provider>
+      </VsfTabsContext.Provider>
       <VsfDivider />
     </>
   );

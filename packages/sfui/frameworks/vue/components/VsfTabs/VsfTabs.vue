@@ -2,9 +2,9 @@
 import { provide, defineEmits, ref, watch } from 'vue';
 import type { PropType } from 'vue';
 import { useWindowSize, useElementSize } from '@vueuse/core';
-import { key } from '../../shared/provideKey';
 import VsfSlider from '../VsfSlider/VsfSlider.vue';
 import VsfDivider from '../VsfDivider/VsfDivider.vue';
+import { VsfTabsInjectionKey } from './types';
 import { VsfSliderNavigation } from '../VsfSlider/types';
 import { VsfButtonSizes } from '../VsfButton/types';
 
@@ -18,17 +18,18 @@ const props = defineProps({
     default: VsfButtonSizes.base,
   },
 });
+
 const tabs = ref(null);
 
 const emit = defineEmits<{
-  (event: 'update:modelValue', param): void;
+  (event: 'update:modelValue', param: number | string | symbol): void;
 }>();
 
-const onChange = (uid) => {
+const onChange = (uid: number | string | symbol) => {
   emit('update:modelValue', uid);
 };
 
-provide(key, { props, onChange });
+provide(VsfTabsInjectionKey, { props, onChange });
 
 const { width: windowWidth } = useWindowSize();
 const { width: tabsWidth } = useElementSize(tabs);

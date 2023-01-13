@@ -1,9 +1,8 @@
 import { useContext } from 'react';
 import classNames from 'classnames';
-import { VsfTabsItemProps } from './types';
+import { VsfTabsItemProps, VsfTabsContext } from './types';
 import VsfButton from '../VsfButton/VsfButton';
 import { VsfButtonVariants } from '../VsfButton/index';
-import TabsContext from '../../shared/tabsContext';
 
 export default function VsfTabs({
   children,
@@ -14,18 +13,23 @@ export default function VsfTabs({
   className,
   ...attributes
 }: VsfTabsItemProps): JSX.Element {
-  const tabsContext = useContext(TabsContext);
+  const tabsContext = useContext(VsfTabsContext);
+
+  if (!tabsContext) throw new Error('VsfTabsItem :: should be always used within <VsfTabs>');
+
+  const { props: TabsProps } = tabsContext;
+
   return (
     <VsfButton
-      className={classNames('vsf-tabs-item', { 'vsf-tabs-item--active': tabsContext.active === uid }, className)}
-      size={tabsContext.size}
+      className={classNames('vsf-tabs-item', { 'vsf-tabs-item--active': TabsProps.active === uid }, className)}
+      size={TabsProps.size}
       variant={VsfButtonVariants.tertiary}
-      onClick={() => tabsContext.onChange?.(uid)}
+      onClick={() => TabsProps.onChange?.(uid)}
       disabled={disabled}
       {...attributes}
       data-testid="tabs-item"
       role="tab"
-      aria-selected={tabsContext.active === uid}
+      aria-selected={TabsProps.active === uid}
       slotPrefix={slotPrefix}
       slotSuffix={slotSuffix}
     >
