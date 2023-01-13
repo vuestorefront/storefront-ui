@@ -7,6 +7,8 @@ node_modules
 
 # testing
 coverage
+apps/preview/next/sfui
+apps/preview/vue/src/components/sfui/
 
 # next.js
 .next/
@@ -37,12 +39,7 @@ yarn-error.log*
 .output
 .nuxt
 lib/
-apps/preview/vue/src/components/sfui/
-!apps/preview/nuxt/output
-apps/mitosis/src/blocks/VsfIcons
-apps/docs/components/.vitepress/.temp
-apps/docs/components/.vitepress/dist
-!apps/docs/components/.vitepress/output
+dist
 
 # Yarn
 .yarn/*
@@ -52,12 +49,7 @@ apps/docs/components/.vitepress/dist
 !.yarn/releases
 !.yarn/sdks
 
-apps/preview/next/sfui
-apps/preview/sfui/frameworks/react/sharedRoot
-apps/preview/sfui/frameworks/vue/sharedRoot
-
-# Generated docs
+# docs
 apps/docs/components/react/components
 apps/docs/components/vue/components
-
-dist
+apps/docs/components/utils/components.json
