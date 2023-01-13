@@ -51,7 +51,8 @@
     "VsfSwitch",
     "VsfTabs",
     "VsfTabsItem",
-    "VsfTag"
+    "VsfTag",
+    "VsfTooltip"
   ],
   "react": [
     "VsfAccordionItem",
@@ -107,6 +108,7 @@
     "VsfSwitch",
     "VsfTabs",
     "VsfTabsItem",
-    "VsfTag"
+    "VsfTag",
+    "VsfTooltip"
   ]
 }
