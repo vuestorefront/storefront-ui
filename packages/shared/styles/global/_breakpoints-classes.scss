@@ -1,5 +1,0 @@
-@import "../helpers/breakpoints";
-// Visibility classes
-html {
-  @include generate-breakpoint-classes();
-} 
