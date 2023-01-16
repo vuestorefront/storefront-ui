@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ComboBox.vue render component correctly 1`] = `
+<div class="relative max-w-[20rem] combobox combobox-list">
+  <div class="inline-flex items-center w-full border border-gray-300 rounded-md hover:border-primary-400
+    active:border-2 p-[1px] focus-within:border-2 focus-within:border-primary-500 focus-within:p-0 active:p-0"><input id="combobox-input" type="text" role="combobox" placeholder="" aria-autocomplete="list" aria-expanded="false" aria-controls="listbox" class="flex-1 py-3 pl-4 rounded-md peer font-body text-gray-900 disabled:text-gray-900/40 outline-violet
+      active:pt-[1.125rem] active:pb-[0.375rem] focus:pt-[1.125rem] focus:pb-[0.375rem] disabled:cursor-not-allowed !py-2">
+    <!---->
+    <!----> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" class="absolute right-0 mr-3 transition-transform duration-500 ease-in-out pointer-events-none fill-gray-500 group-disabled:fill-gray-500/50 rotate-180">
+      <path d="M7.82034 15.0014C7.43065 15.3903 6.79962 15.3899 6.41034 15.0006C6.02077 14.6111 6.02077 13.9794 6.41034 13.5899L10.9979 9.00237C11.3884 8.61184 12.0215 8.61184 12.4121 9.00237L16.9996 13.5899C17.3891 13.9794 17.3891 14.6111 16.9996 15.0006C16.6103 15.3899 15.9793 15.3903 15.5896 15.0014L11.705 11.1253L7.82034 15.0014Z"></path>
+      <path d="M7.82034 15.0014C7.43065 15.3903 6.79962 15.3899 6.41034 15.0006C6.02077 14.6111 6.02077 13.9794 6.41034 13.5899L10.9979 9.00237C11.3884 8.61184 12.0215 8.61184 12.4121 9.00237L16.9996 13.5899C17.3891 13.9794 17.3891 14.6111 16.9996 15.0006C16.6103 15.3899 15.9793 15.3903 15.5896 15.0014L11.705 11.1253L7.82034 15.0014Z"></path>
+    </svg>
+  </div>
+  <ul id="listbox" role="listbox" aria-label="List of colors" class="absolute w-full mt-1 overflow-y-auto bg-white rounded-md shadow-md font-body top-100 max-h-60 hidden">
+    <li role="option"><button class="w-full px-3 py-2 mx-1 my-1 text-left rounded-md outline-violet">
+        red
+      </button></li>
+    <li role="option"><button class="w-full px-3 py-2 mx-1 my-1 text-left rounded-md outline-violet">
+        red-orange
+      </button></li>
+    <li role="option"><button class="w-full px-3 py-2 mx-1 my-1 text-left rounded-md outline-violet">
+        orange
+      </button></li>
+    <li role="option"><button class="w-full px-3 py-2 mx-1 my-1 text-left rounded-md outline-violet">
+        yellow
+      </button></li>
+    <li role="option"><button class="w-full px-3 py-2 mx-1 my-1 text-left rounded-md outline-violet">
+        yellow-green
+      </button></li>
+    <li role="option"><button class="w-full px-3 py-2 mx-1 my-1 text-left rounded-md outline-violet">
+        green
+      </button></li>
+    <li role="option"><button class="w-full px-3 py-2 mx-1 my-1 text-left rounded-md outline-violet">
+        sky blue
+      </button></li>
+    <li role="option"><button class="w-full px-3 py-2 mx-1 my-1 text-left rounded-md outline-violet">
+        blue
+      </button></li>
+    <li role="option"><button class="w-full px-3 py-2 mx-1 my-1 text-left rounded-md outline-violet">
+        violet
+      </button></li>
+    <li role="option"><button class="w-full px-3 py-2 mx-1 my-1 text-left rounded-md outline-violet">
+        brown
+      </button></li>
+    <li role="option"><button class="w-full px-3 py-2 mx-1 my-1 text-left rounded-md outline-violet">
+        black
+      </button></li>
+    <li role="option"><button class="w-full px-3 py-2 mx-1 my-1 text-left rounded-md outline-violet">
+        white
+      </button></li>
+    <li role="option"><button class="w-full px-3 py-2 mx-1 my-1 text-left rounded-md outline-violet">
+        gray
+      </button></li>
+    <li role="option"><button class="w-full px-3 py-2 mx-1 my-1 text-left rounded-md outline-violet">
+        magenta
+      </button></li>
+    <li role="option"><button class="w-full px-3 py-2 mx-1 my-1 text-left rounded-md outline-violet">
+        pink
+      </button></li>
+    <li role="option"><button class="w-full px-3 py-2 mx-1 my-1 text-left rounded-md outline-violet">
+        light-blue
+      </button></li>
+    <li role="option"><button class="w-full px-3 py-2 mx-1 my-1 text-left rounded-md outline-violet">
+        aqua-green
+      </button></li>
+    <li role="option"><button class="w-full px-3 py-2 mx-1 my-1 text-left rounded-md outline-violet">
+        jade-green
+      </button></li>
+    <li role="option"><button class="w-full px-3 py-2 mx-1 my-1 text-left rounded-md outline-violet">
+        peach
+      </button></li>
+    <li role="option"><button class="w-full px-3 py-2 mx-1 my-1 text-left rounded-md outline-violet">
+        golden-yellow
+      </button></li>
+    <li role="option"><button class="w-full px-3 py-2 mx-1 my-1 text-left rounded-md outline-violet">
+        yellow-orange
+      </button></li>
+    <li role="option"><button class="w-full px-3 py-2 mx-1 my-1 text-left rounded-md outline-violet">
+        mahogany
+      </button></li>
+    <li role="option"><button class="w-full px-3 py-2 mx-1 my-1 text-left rounded-md outline-violet">
+        tan
+      </button></li>
+    <li role="option"><button class="w-full px-3 py-2 mx-1 my-1 text-left rounded-md outline-violet">
+        light brown
+      </button></li>
+    <!---->
+    <li>
+      <div class="flex justify-center py-6">
+        <spinnerbase-stub size="lg"></spinnerbase-stub>
+      </div>
+    </li>
+  </ul>
+  <!----> <span class="block text-xs mt-[0.125rem] text-gray-500 font-body">
+  </span>
+  <!---->
+</div>
+`;

@@ -1,0 +1,52 @@
+.vsf-loader-linear {
+  $self: &;
+  @apply relative h-1 h-full inline-block overflow-hidden;
+
+  &-main {
+    @apply absolute h-1 w-full h-full bg-gray-200;
+  }
+
+  &-animated {
+    @apply absolute w-2.5 h-full animate-line bg-primary-700;
+  }
+
+  &--minimal {
+    @apply h-1;
+  }
+
+  &--xs {
+    @apply h-4;
+  }
+
+  &--sm {
+    @apply h-5;
+  }
+
+  &--base {
+    @apply h-6;
+  }
+
+  &--lg {
+    @apply h-7;
+  }
+
+  &--xl {
+    @apply h-10;
+  }
+
+  &--2xl {
+    @apply h-14;
+  }
+
+  &--3xl {
+    @apply h-24;
+  }
+
+  &--4xl {
+    @apply h-48;
+  }
+
+  &__sr-only {
+    @apply sr-only;
+  }
+}

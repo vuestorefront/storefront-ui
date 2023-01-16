@@ -1,0 +1,91 @@
+{
+  "$schema": "https://turborepo.org/schema.json",
+  "pipeline": {
+    "build": {
+      "cache": false,
+      "dependsOn": [
+        "^build:shared",
+        "^build"
+      ],
+      "outputs": [
+        "dist/**"
+      ]
+    },
+    "lint": {
+      "outputs": []
+    },
+    "lint:fix": {
+      "cache": false,
+      "outputs": []
+    },
+    "lint:fix:sfui": {
+      "cache": false,
+      "outputs": []
+    },
+    "build:next": {
+      "cache": false,
+      "dependsOn": [
+        "^build:react"
+      ]
+    },
+    "build:nuxt": {
+      "cache": false,
+      "dependsOn": [
+        "^build:vue"
+      ]
+    },
+    "build:react": {
+      "dependsOn": [
+        "^build:shared"
+      ],
+      "cache": false
+    },
+    "build:vue": {
+      "dependsOn": [
+        "^build:shared"
+      ],
+      "cache": false
+    },
+    "build:release": {
+      "dependsOn": [
+        "build:react", "build:vue", "build:css"
+      ],
+      "cache": false
+    },
+    "build:shared": {
+      "cache": false
+    },
+    "build:test-utils": {
+      "cache": false
+    },
+    "build:css": {
+      "cache": false
+    },
+    "dev": {
+      "cache": false
+    },
+    "dev:docs": {
+      "cache": false
+    },
+    "test": {
+      "dependsOn": [
+        "build:test-utils"
+      ],
+      "cache": false
+    },
+    "test:ci:vue": {
+      "dependsOn": [
+        "^build:shared",
+        "build:test-utils"
+      ],
+      "cache": false
+    },
+    "test:ci:react": {
+      "dependsOn": [
+        "^build:shared",
+        "build:test-utils"
+      ],
+      "cache": false
+    }
+  }
+}

@@ -1,0 +1,43 @@
+.vsf-tooltip {
+  &__label {
+    @apply bg-black text-white px-2 py-1.5 text-xs rounded-md w-[max-content] max-w-[360px];
+
+    &::before {
+      @apply content-[''] absolute w-0 h-0;
+    }
+
+    &--bottom {
+      &::before {
+        @apply bottom-[100%] left-0 right-0 mx-auto border-x-[5px] border-x-transparent border-b-[5px] border-b-black;
+      }
+    }
+
+    &--top {
+      &::before {
+        @apply -bottom-1 left-0 right-0 mx-auto border-x-[5px] border-x-transparent border-t-[5px] border-t-black;
+      }
+    }
+
+    &--left {
+      &::before {
+        @apply top-0 bottom-0 left-[100%] my-auto border-y-[5px] border-y-transparent border-l-[5px] border-l-black;
+      }
+    }
+
+    &--right {
+      &::before {
+        @apply top-0 bottom-0 right-[100%] my-auto border-y-[5px] border-y-transparent border-r-[5px] border-r-black;
+      }
+    }
+
+    &--without-pointer {
+      &::before {
+        @apply hidden;
+      }
+    }
+  }
+
+  &__trigger {
+    @apply m-2;
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "name": "@storefront-ui/react",
+  "version": "2.0.0-alpha.1",
+  "exports": {
+    ".": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.umd.js"
+    },
+    "./*": "./*"
+  },
+  "source": "index.ts",
+  "main": "dist/index.umd.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build:react": "vite build",
+    "lint": "yarn dlx browserslist@latest && yarn lint:script  --max-warnings 0",
+    "lint:fix": "yarn lint:script:fix",
+    "lint:fix:sfui": "yarn lint:fix",
+    "lint:script": "eslint --ext .ts,.tsx \"components/**\" \"shared/**\"",
+    "lint:script:fix": "eslint --fix --ext .ts,.tsx \"components/**\" \"shared/**\""
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "dependencies": {
+    "@storefront-ui/css": "workspace:*",
+    "@storefront-ui/shared": "workspace:*"
+  },
+  "devDependencies": {
+    "@storefront-ui/eslint-config": "workspace:*",
+    "@vitejs/plugin-react": "^3.0.0",
+    "eslint": "^8.27.0",
+    "vite": "^4.0.4",
+    "vite-plugin-dts": "^1.7.1"
+  },
+  "peerDependencies": {
+    "classnames": "^2.3.2",
+    "jw-paginate": "^1.0.4",
+    "react-transition-group": "^4.4.5",
+    "react-use": "^17.4.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "extends": "@storefront-ui/typescript-config/base.json",
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Default",
+  "compilerOptions": {
+    "declaration": false,
+    "declarationMap": false,
+    "strictPropertyInitialization": false,
+    "target": "ESNext",
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "preserveConstEnums": true,
+    "baseUrl": "./",
+    "paths": {
+      "~/*": [
+        "./*"
+      ]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "pages/**/*.ts",
+    "hooks/**/*.tsx",
+    "pages/**/*.tsx",
+    "layouts/**/*.tsx",
+    "node_modules/@storefont-ui/react",
+    "node_modules/@storefont-ui/shared"
+  ],
+  "exclude": [
+    ".next",
+    "dist",
+    "lib",
+    "output",
+    "pages/examplesOld"
+  ]
+}

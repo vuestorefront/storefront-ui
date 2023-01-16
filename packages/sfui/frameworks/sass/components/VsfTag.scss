@@ -1,0 +1,64 @@
+.vsf-tag {
+  $self: &;
+  @apply relative inline-flex items-center justify-center rounded-md font-normal text-sm;
+
+	&#{&}--strong {
+		@apply text-white font-medium rounded-none;
+	}
+
+	&--variant-gray {
+		@apply bg-gray-100 text-gray-600;
+
+		&#{$self}--strong {
+			@apply bg-gray-500;
+		}
+	}
+
+  &--variant-primary {
+		@apply bg-primary-100 text-primary-700;
+
+		&#{$self}--strong {
+			@apply bg-primary-600;
+		}
+  }
+
+  &--variant-secondary {
+		@apply bg-secondary-100 text-secondary-700;
+
+		&#{$self}--strong {
+			@apply bg-secondary-800;
+		}
+  }
+
+	&--variant-negative {
+		@apply bg-negative-100 text-negative-700;
+
+		&#{$self}--strong {
+			@apply bg-negative-600;
+		}
+	}
+
+	&--variant-warning {
+		@apply bg-warning-100 text-warning-700;
+
+		&#{$self}--strong {
+			@apply bg-warning-600;
+		}
+	}
+
+	&--size-sm {
+		@apply text-xs py-1 px-1;
+
+		#{$self}__label {
+			@apply mx-1;
+		}
+	}
+
+	&--size-base {
+		@apply px-1.5 py-1.5;
+
+		#{$self}__label {
+			@apply mx-1.5;
+		}
+	}
+}

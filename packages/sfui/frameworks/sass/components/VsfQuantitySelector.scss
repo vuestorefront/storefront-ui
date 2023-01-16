@@ -1,0 +1,51 @@
+.vsf-qty-selector {
+  $self: &;
+  @apply relative items-center inline-flex flex-col flex-shrink-0;
+
+  &--disabled {
+    #{$self}__wrapper {
+      @apply bg-gray-200 opacity-50 cursor-not-allowed;
+
+      &::after {
+        @apply content-['-'] font-medium text-gray-900/40 absolute text-center flex justify-center items-center w-full h-full;
+      }
+    }
+  }
+
+  &--block {
+    @apply flex flex-1 w-full;
+  }
+
+  &__wrapper {
+    @apply flex shadow-inner-border shadow-gray-300 rounded-md w-full relative;
+
+    & + * {
+      // default slot
+      @apply mt-1;
+    }
+  }
+
+  &__input {
+    @apply flex relative flex-1 items-center appearance-none px-2 text-center text-gray-900 bg-transparent disabled:text-transparent;
+
+    /* Chrome, Safari, Edge, Opera */
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      appearance: none;
+      margin: 0;
+    }
+
+    /* Firefox */
+    &[type='number'] {
+      -moz-appearance: textfield;
+    }
+  }
+
+  &__decrease {
+    @apply rounded-l-md hover:shadow-inner-border-button-left active:shadow-inner-border-button-left active:shadow-gray-300 hover:shadow-gray-300;
+  }
+
+  &__increase {
+    @apply rounded-r-md hover:shadow-inner-border-button-right active:shadow-inner-border-button-right active:shadow-gray-300 hover:shadow-gray-300;
+  }
+}

@@ -1,0 +1,51 @@
+.vsf-navbar-top {
+  $self: &;
+  @apply w-full h-14 md:h-20 bg-white border-b border-gray-200 flex justify-center;
+
+  &--branded#{&} {
+    @apply bg-primary-700 text-white border-0;
+
+    .vsf-navbar-top-action {
+      @apply text-white bg-transparent hover:bg-primary-800 active:bg-primary-900;
+
+      &--active {
+        @apply text-white bg-primary-900;
+      }
+    }
+  }
+
+  &__container {
+    @apply flex items-center flex-row flex-nowrap justify-between h-full max-w-[1536px] w-full px-4 md:px-10;
+
+    > *:not(:last-child) {
+      margin-right: clamp(1rem, 3vw, 2.5rem); // workaround to make gaps responsive
+    }
+  }
+
+  &-action {
+    @apply inline-flex items-center justify-center cursor-pointer font-body font-medium rounded-md text-base h-10 px-4 text-primary-700 hover:bg-primary-100 active:bg-primary-200 hover:text-primary-600 active:text-primary-700;
+
+    &--icon {
+      @apply px-2;
+    }
+
+    &--active {
+      @apply text-primary-700 bg-primary-200;
+    }
+
+    &__icon {
+      @apply mr-2 -ml-0.5;
+    }
+  }
+
+  &__action-group__wrapper {
+    @apply flex flex-row flex-nowrap;
+    > #{$self}-action:not(:last-child) {
+      @apply mr-1; // flex row gap replacement
+    }
+  }
+}
+
+.vsf-spacer {
+  @apply flex-grow;
+}

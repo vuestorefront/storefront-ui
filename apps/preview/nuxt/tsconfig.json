@@ -1,0 +1,19 @@
+{
+  "extends": "@storefront-ui/typescript-config/base.json",
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "jsx": "preserve",
+    "types": [
+      "vite/client",
+    ],
+    "baseUrl": "./",
+  },
+  "exclude": [
+    "node_modules",
+    "output",
+    "pages/examples/ListOfIcons.vue",
+  ]
+}

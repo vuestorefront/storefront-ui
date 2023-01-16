@@ -1,0 +1,25 @@
+{
+  "extends": "@storefront-ui/typescript-config/base.json",
+  "compilerOptions": {
+    "strict": true,
+    "skipLibCheck": true,
+    "importHelpers": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "noEmit": true,
+    "target": "ESNext",
+    "module": "ESNext",
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "jsx": "preserve",
+    "baseUrl": ".",
+    "types": [
+      "vite/client",
+    ]
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.vue",
+  ]
+}

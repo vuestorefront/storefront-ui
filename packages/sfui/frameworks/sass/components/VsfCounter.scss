@@ -1,0 +1,59 @@
+.vsf-counter {
+  $self: &;
+  @apply inline-flex items-center font-body before:content-['('] after:content-[')'] text-gray-500;
+
+  &--xs,
+  &--sm {
+    @apply font-medium;
+  }
+
+  &--base,
+  &--lg,
+  &--xl,
+  &--2xl {
+    @apply font-normal;
+  }
+
+  &--xs {
+    @apply text-3xs;
+  }
+
+  &--sm {
+    @apply text-2xs;
+  }
+
+  &--base {
+    @apply text-xs;
+  }
+
+  &--lg {
+    @apply text-sm;
+  }
+
+  &--xl {
+    @apply text-base;
+  }
+
+  &--2xl {
+    @apply text-lg;
+  }
+
+  &--pill {
+    @apply rounded-full py-0.5 text-gray-900 font-medium ring-1 ring-gray-200 ring-inset before:content-none after:content-none;
+
+    &#{$self}--xs,
+    &#{$self}--sm {
+      @apply px-1;
+    }
+    &#{$self}--base {
+      @apply px-2;
+    }
+    &#{$self}--lg {
+      @apply px-2.5;
+    }
+    &#{$self}--xl,
+    &#{$self}--2xl {
+      @apply px-3;
+    }
+  }
+}

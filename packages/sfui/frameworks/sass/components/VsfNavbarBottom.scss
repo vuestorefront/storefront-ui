@@ -1,0 +1,49 @@
+.vsf-navbar-bottom {
+  $self: &;
+  @apply bottom-0 w-full left-0 fixed flex flex-row items-stretch;
+
+  &--absolute {
+    @apply absolute;
+  }
+
+  &#{&}--no-labels {
+    #{$self}-item {
+      &__label {
+        @apply hidden;
+      }
+
+      &__content {
+        @apply pt-0;
+      }
+    }
+  }
+  &#{&}--filled {
+    #{$self}-item {
+      @apply bg-primary-700 text-white hover:text-white hover:bg-primary-800 active:text-white active:bg-primary-900;
+
+      &--active {
+        @apply text-white bg-primary-900;
+      }
+    }
+  }
+
+  &-item {
+    @apply py-1 flex-1 h-full bg-white text-primary-700 hover:text-primary-800 hover:bg-primary-100 active:text-primary-900 active:bg-primary-200;
+
+    &--active {
+      @apply text-primary-900 bg-primary-200;
+    }
+
+    &__content {
+      @apply flex flex-col items-center justify-center min-h-[40px] pt-2 bg-inherit;
+    }
+
+    &__icon {
+      @apply m-auto inline-flex bg-inherit;
+    }
+
+    &__label {
+      @apply font-medium text-xs mt-0.5;
+    }
+  }
+}

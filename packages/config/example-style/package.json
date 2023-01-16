@@ -1,0 +1,9 @@
+{
+  "name": "@storefront-ui/example-style",
+  "version": "0.0.0",
+  "private": true,
+  "main": "index.scss",
+  "files": [
+    "index.scss"
+  ]
+}

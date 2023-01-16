@@ -1,0 +1,16 @@
+{
+  "name": "@storefront-ui/tests-shared",
+  "main": "index.ts",
+  "private": true,
+  "license": "MIT",
+  "files": [
+    "index.ts",
+    "index.js"
+  ],
+  "scripts": {
+    "build:test-utils": "yarn tsc"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.4"
+  }
+}

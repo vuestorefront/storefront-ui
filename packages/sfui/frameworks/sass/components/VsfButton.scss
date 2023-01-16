@@ -1,0 +1,129 @@
+.vsf-button {
+  // TODO: use token css-variable for e.g 1rem
+  --vsf-button-icon-padding: 2px;
+  --vsf-button-size-padding: 1rem;
+  --vsf-button-padding-left: var(--vsf-button-size-padding);
+  --vsf-button-padding-right: var(--vsf-button-size-padding);
+
+  $self: &;
+  @apply inline-flex items-center justify-center outline-violet font-medium text-base;
+
+  &:not(#{$self}--tile, #{$self}--rounded) {
+    @apply rounded-md;
+  }
+
+  &--block {
+    @apply flex flex-1;
+  }
+
+  &--rounded {
+    @apply rounded-full;
+  }
+
+  &--truncate {
+    @apply truncate;
+  }
+
+  &#{$self}--disabled,
+  &:disabled {
+    @apply text-gray-500 opacity-50 bg-gray-200 shadow-none pointer-events-none ring-0;
+
+    &#{$self}--tertiary {
+      @apply bg-transparent;
+    }
+  }
+
+  &--sm {
+    --vsf-button-size-padding: 0.75rem;
+
+    @apply leading-5 text-sm py-0.75;
+
+    // TODO: use css-variable to change width and height
+    .vsf-icon-base {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+  }
+
+  &--base {
+    @apply py-2;
+  }
+
+  &--lg {
+    --vsf-button-size-padding: 1.5rem;
+
+    @apply py-3;
+  }
+
+  &--base,
+  &--lg {
+    @apply leading-6;
+  }
+
+  &--primary {
+    &:not(#{$self}--disabled, #{$self}--greyscale ) {
+      @apply text-white hover:shadow-medium shadow-base bg-primary-700 hover:bg-primary-800 active:bg-primary-900;
+    }
+
+    &#{$self}--greyscale {
+      @apply text-white bg-gray-500 hover:bg-gray-600 active:bg-gray-700;
+    }
+  }
+
+  &--secondary,
+  &--tertiary {
+    &:not(#{$self}--disabled) {
+      @apply text-primary-700 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900;
+    }
+
+    &#{$self}--greyscale {
+      @apply text-gray-500 hover:bg-gray-100 hover:text-gray-600 active:bg-gray-200 active:text-gray-700;
+    }
+  }
+
+  &--secondary {
+    &:not(#{$self}--disabled) {
+      @apply ring-1 ring-gray-200 hover:shadow-medium active:shadow shadow hover:ring-primary-200 active:ring-primary-300;
+    }
+
+    &#{$self}--greyscale {
+      @apply hover:ring-gray-300 active:ring-gray-300;
+    }
+  }
+
+  &__prefix {
+    padding-right: calc(var(--vsf-button-size-padding) / 2);
+  }
+
+  &__suffix {
+    padding-left: calc(var(--vsf-button-size-padding) / 2);
+  }
+
+  &--has-prefix {
+    --vsf-button-padding-left: calc(var(--vsf-button-size-padding) - var(--vsf-button-icon-padding));
+  }
+
+  &--has-suffix {
+    --vsf-button-padding-right: calc(var(--vsf-button-size-padding) - var(--vsf-button-icon-padding));
+  }
+
+  &--no-content {
+    --vsf-button-padding-left: 0;
+    --vsf-button-padding-right: 0;
+
+    &#{$self}--has-prefix {
+      --vsf-button-padding-left: calc(var(--vsf-button-size-padding) / 2);
+    }
+
+    &#{$self}--has-suffix {
+      --vsf-button-padding-right: calc(var(--vsf-button-size-padding) / 2);
+
+      &#{$self}--has-prefix #{$self}__prefix {
+        padding-right: 0;
+      }
+    }
+  }
+
+  padding-left: var(--vsf-button-padding-left);
+  padding-right: var(--vsf-button-padding-right);
+}

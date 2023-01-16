@@ -1,0 +1,89 @@
+{
+  "name": "@storefront-ui/monorepo",
+  "version": "0.0.0",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "apps/*",
+      "apps/docs/*",
+      "apps/preview/*",
+      "packages/*",
+      "packages/config/*",
+      "packages/sfui/*",
+      "packages/sfui/frameworks/*"
+    ],
+    "nohoist": [
+      "**/vue",
+      "**/vue-server-renderer",
+      "**/vite-plugin-vue2",
+      "**/vuepress",
+      "**/webpack-hot-middleware",
+      "**/webpack-dev-server",
+      "**/tailwindcss",
+      "**/sass-loader"
+    ]
+  },
+  "scripts": {
+    "postinstall": "yarn node hasEnv NOT_GENERATE_ICON && yarn generate-icons",
+    "generate-icons": "concurrently \"yarn createVueIcons\" \"yarn createReactIcons\" && yarn lint:fix:sfui",
+    "prepare": "husky install",
+    "build": "yarn update-browserlist-db && yarn generate-icons && turbo run build",
+    "dev:docs": "yarn update-browserlist-db && turbo run dev:docs",
+    "dev": "yarn update-browserlist-db && turbo run dev --parallel",
+    "update-browserlist-db": "yarn dlx browserslist@latest",
+    "lint": "turbo run lint",
+    "lint:fix": "turbo run lint:fix",
+    "lint:fix:sfui": "turbo run lint:fix:sfui",
+    "build:next": "turbo run build:next",
+    "build:nuxt": "turbo run build:nuxt",
+    "build:react": "turbo run build:react",
+    "build:vue": "turbo run build:vue",
+    "build:release": "turbo run build:release",
+    "test": "turbo run test",
+    "test:ci:vue": "turbo run test:ci:vue",
+    "test:ci:react": "turbo run test:ci:react",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "clean": "rimraf ./**/node_modules && rm yarn.lock",
+    "clean:total": "rimraf ./**/node_modules && rimraf ./**/.cache && rimraf ./**/.turbo && rm yarn.lock",
+    "createVueIcons": "yarn node createIcons framework=vue input=packages/sfui/assets/ output=packages/sfui/frameworks/vue/components/VsfIcons/",
+    "createReactIcons": "yarn node createIcons framework=react input=packages/sfui/assets/ output=packages/sfui/frameworks/react/components/VsfIcons/",
+    "hygen": "./node_modules/.bin/hygen",
+    "component": "yarn hygen component",
+    "component-new": "yarn hygen component new"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^13.2.1",
+    "@commitlint/config-conventional": "^13.2.0",
+    "@storefront-ui/typescript-config": "workspace:*",
+    "babel-cli": "^6.26.0",
+    "babel-preset-node": "^5.1.1",
+    "commitizen": "^4.2.5",
+    "concurrently": "^7.4.0",
+    "husky": "^7.0.4",
+    "hygen": "^6.2.8",
+    "jw-paginate": "^1.0.4",
+    "node-powershell": "^5.0.1",
+    "nodemon": "^2.0.19",
+    "prettier": "latest",
+    "rimraf": "^3.0.2",
+    "tailwindcss": "^3.1.8",
+    "ts-node-dev": "^2.0.0",
+    "turbo": "latest",
+    "typescript": "^4.7.4"
+  },
+  "engines": {
+    "npm": ">=8.19.1",
+    "yarn": ">=1.22.19",
+    "node": ">=16.0.0 <17.0.0"
+  },
+  "dependencies": {
+    "cross-env": "^7.0.3"
+  },
+  "packageManager": "yarn@3.2.4",
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog",
+      "disableScopeLowerCase": true
+    }
+  }
+}

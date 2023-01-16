@@ -1,0 +1,9 @@
+{
+  "name": "@storefront-ui/preview-shared",
+  "version": "0.0.0",
+  "private": true,
+  "files": [
+    "**/*.js",
+    "**/*.ts"
+  ]
+}

@@ -1,0 +1,96 @@
+import VsfTabs from '@storefront-ui/react/components/VsfTabs/VsfTabs';
+import VsfTabsItem from '@storefront-ui/react/components/VsfTabs/VsfTabsItem';
+import VsfIconDot from '@storefront-ui/react/components/VsfIcons/VsfIconDot';
+import VsfCounter from '@storefront-ui/react/components/VsfCounter/VsfCounter';
+import { VsfButtonSizes } from '@storefront-ui/react/components/VsfButton';
+import { prepareControls } from '../../components/utils/Controls';
+import { ExamplePageLayout } from '../examples';
+import ComponentExample from '../../components/utils/ComponentExample';
+
+function Example() {
+  const tabs = [
+    {
+      label: 'Label 1',
+      counter: '123',
+    },
+    {
+      label: 'Label 2',
+      counter: '234',
+    },
+    {
+      label: 'Label 3',
+      counter: '345',
+    },
+  ];
+  let active: string | number | symbol | undefined;
+
+  const { state, controls } = prepareControls(
+    [
+      {
+        type: 'select',
+        modelName: 'size',
+        propType: 'VsfButtonSizes',
+        propDefaultValue: VsfButtonSizes.base,
+        options: Object.keys(VsfButtonSizes),
+        description: 'Sets size value of all tabs',
+      },
+      {
+        type: 'text',
+        modelName: 'active',
+        propType: 'string | number | symbol',
+        description: 'Sets active tab',
+      },
+      {
+        type: 'text',
+        propType: 'ReactNode',
+        modelName: 'slotPrefix',
+        description: 'Slot can be filled with any html element. Fills the space before label',
+      },
+      {
+        type: 'text',
+        propType: 'ReactNode',
+        modelName: 'slotSuffix',
+        description: 'Slot can be filled with any html element. Fills the space following label',
+      },
+      {
+        type: 'select',
+        modelName: 'disabled',
+        propType: 'boolean',
+        options: ['all tabs enabled', 'Label 1', 'Label 2', 'Label 3'],
+        propDefaultValue: 'false',
+        description: "Sets tab as disabled, similar as button. It's VsfTabsItem prop.",
+      },
+    ],
+    {
+      size: VsfButtonSizes.base,
+      active: '' as typeof active,
+      slotSuffix: '',
+      slotPrefix: '',
+      disabled: 'all tabs enabled',
+    },
+  );
+
+  const changeHandle = (uid: number | string | symbol): void => {
+    state.set({ ...state.get, active: uid });
+  };
+  return (
+    <ComponentExample controls={{ state, controls }}>
+      <VsfTabs size={state.get.size} active={state.get.active} onChange={changeHandle}>
+        {tabs.map((tab) => (
+          <VsfTabsItem
+            slotPrefix={state.get.slotPrefix || <VsfIconDot />}
+            slotSuffix={state.get.slotSuffix || <VsfCounter>{tab.counter}</VsfCounter>}
+            key={tab.label}
+            uid={tab.label}
+            disabled={state.get.disabled === tab.label}
+          >
+            {tab.label}
+          </VsfTabsItem>
+        ))}
+      </VsfTabs>
+    </ComponentExample>
+  );
+}
+
+Example.getLayout = ExamplePageLayout;
+export default Example;

@@ -1,0 +1,28 @@
+.vsf-rating-button {
+  @apply inline-flex rounded-md disabled:opacity-50 disabled:cursor-not-allowed;
+
+  &:focus-within {
+    @apply outline outline-2 outline-violet rounded-md;
+  }
+
+  &__legend,
+  &__input--items {
+    @apply absolute appearance-none border-0 p-0 m-0 h-px w-px overflow-hidden whitespace-nowrap opacity-0;
+  }
+
+  &__input {  
+    &--zero-item {
+      @apply hidden;
+    }
+  }
+
+  &__icon {
+    & svg {
+      @apply text-gray-500;
+    }   
+    
+    &--filled svg {
+      @apply text-primary-500;
+    }
+  } 
+}

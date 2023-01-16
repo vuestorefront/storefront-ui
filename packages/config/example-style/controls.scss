@@ -1,0 +1,154 @@
+.e-page-controls {
+    $borderColor: rgb(244 244 245);
+
+    border-top: 1px solid rgb(205, 205, 205);
+    height: 50vh;
+    display: flex;
+    flex-flow: column;
+    transition: .3s height ease-in-out;
+
+    &--collapsed {
+        height: 32px;
+    }
+
+    .heading {
+        padding: 4px 10px;
+        flex-grow: 1;
+
+        &-wrapper {
+            display: flex;
+            background-color: rgb(244 244 245);
+        }
+    }
+
+    .table {
+        &-wrapper {
+            overflow: auto;
+            min-height: 0;
+        }
+
+        &-heading {
+            position: sticky;
+            top: 0;
+            font-size: 13px;
+            background: #fff;
+        }
+    }
+
+    thead {
+        th,
+        td {
+            font-weight: 500;
+            border-bottom: 1px solid $borderColor;
+            border-right: 1px solid $borderColor;
+            padding: 4px 10px;
+            text-align: left;
+        }
+    }
+
+    select,
+    input[type="range"],
+    input[type="text"],
+    textarea {
+        min-width: 200px;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    select,
+    input[type="text"],
+    textarea {
+        border: 1px solid rgb(229, 231, 235);
+    }
+
+    .value {
+        vertical-align: middle;
+        padding: 6px 10px;
+    }
+
+    .description,
+    .required,
+    .propType,
+    .propDefaultValue {
+        padding-left: 10px;
+        padding-right: 10px;
+        font-size: 13px;
+    }
+
+    .propType span{
+        font-size: 11px;
+        border-radius: 3px;
+        padding: 2px 4px;
+        display: inline-block;
+        background-color: rgb(244 244 245);
+        font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New, sans-serif;
+    }
+
+    .description{
+        width: 100%;
+        color:rgb(145, 145, 145);
+    }
+
+    .props {
+        td {
+            border-bottom: 1px solid $borderColor;
+            border-left: 1px solid $borderColor;
+
+            &:first-child {
+                padding: 4px 10px;
+                font-size: 13px;
+                white-space: nowrap;
+                border-left: none;
+            }
+        }
+    }
+
+
+    .switch {
+        &-wrapper {
+            display: flex;
+            align-items: center;
+        }
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 24px;
+
+        input {
+            display: none;
+
+            &:checked + .slider {
+                background-color: rgb(2, 187, 77);
+
+                &:before {
+                    -webkit-transform: translateX(36px);
+                    -ms-transform: translateX(36px);
+                    transform: translateX(36px);
+                }
+            }
+        }
+
+        .slider {
+            background-color: rgb(212 212 216);
+            position: absolute;
+            cursor: pointer;
+            inset: 0;
+            -webkit-transition: .4s;
+            transition: .4s;
+            border-radius: 24px;
+
+            &:before {
+                position: absolute;
+                content: "";
+                height: 16px;
+                width: 16px;
+                left: 4px;
+                bottom: 4px;
+                background-color: white;
+                -webkit-transition: .4s;
+                transition: .4s;
+                border-radius: 50%;
+            }
+        }
+    }
+}

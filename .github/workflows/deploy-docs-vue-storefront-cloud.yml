@@ -1,0 +1,85 @@
+name: Deploy Documentation
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v1
+      - shell: bash
+        run: |
+          echo "1.0.`date +%s`" > version.txt
+      - name: Upload version artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: version
+          path: version.txt
+      - name: Get the version
+        id: get_version
+        run: echo "VERSION=$(cat version.txt)" >> $GITHUB_OUTPUT
+      - name: Build and publish docker image
+        uses: elgohr/Publish-Docker-Github-Action@v4
+        with:
+          name: sfui-storefrontcloud-io/sfui2-docs:${{ steps.get_version.outputs.VERSION }}
+          registry: registry.storefrontcloud.io
+          username: ${{ secrets.CLOUD_USERNAME }}
+          password: ${{ secrets.CLOUD_PASSWORD }}
+          workdir: .
+          dockerfile: ./.vuestorefrontcloud/docs/Dockerfile
+          buildoptions: "--compress"
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Download version artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: version
+      - name: Get the version
+        id: get_version
+        run: echo "VERSION=$(cat version.txt)" >> $GITHUB_OUTPUT
+      - uses: chrnorm/deployment-action@releases/v1
+        name: Create GitHub deployment
+        id: deployment
+        with:
+          token: "${{ github.token }}"
+          target_url: https://docs.storefrontui.io/v2
+          environment: docs
+          initial_status: in_progress
+      - name: Deploy on https://docs.storefrontui.io/v2
+        id: publish
+        # Not using the vuestorefront/* package because of:
+        # https://github.com/sethidden/publish-docs-action/commit/5fb4bf1df975567879f99d3e975447a2ff824bb2
+        uses: sethidden/publish-docs-action@v1
+        with:
+          user-id: ${{ secrets.CLOUD_USERNAME }}
+          api-key: ${{ secrets.CLOUD_PASSWORD }}
+          name: "sfui2-docs"
+          tag: "${{ steps.get_version.outputs.VERSION }}"
+          image: "registry.storefrontcloud.io/sfui-storefrontcloud-io/sfui2-docs"
+          path: "/v2"
+          port: "80"
+          has-base-path: true
+      - name: Update deployment status (success)
+        if: success()
+        uses: chrnorm/deployment-status@releases/v1
+        with:
+          token: "${{ github.token }}"
+          target_url: https://docs.storefrontui.io/v2
+          state: "success"
+          description: Congratulations! The deploy is done.
+          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
+      - name: Update deployment status (failure)
+        if: failure()
+        uses: chrnorm/deployment-status@releases/v1
+        with:
+          token: "${{ github.token }}"
+          target_url: https://docs.storefrontui.io/v2
+          description: Unfortunately, the instance hasn't been updated.
+          state: "failure"
+          deployment_id: ${{ steps.deployment.outputs.deployment_id }}

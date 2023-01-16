@@ -1,0 +1,60 @@
+.vsf-chips-filter {
+  $self: &;
+  @apply relative inline-block items-center cursor-pointer bg-white;
+
+  &__input {
+    @apply appearance-none outline-none absolute w-0;
+  }
+
+  &__peer-wrapper {
+    @apply ring-1 ring-gray-200 ring-inset rounded-full flex items-center transition duration-300 justify-center outline-offset-2 outline-violet peer-checked:ring-2 peer-checked:ring-primary-700 peer-hover:bg-primary-100 peer-hover:ring-primary-200 peer-active:bg-primary-200 peer-active:ring-primary-300 peer-disabled:cursor-not-allowed peer-disabled:bg-gray-100/50 peer-disabled:ring-1 peer-disabled:ring-gray-200/50 peer-checked:hover:ring-primary-700 peer-checked:active:ring-primary-700 peer-focus:outline;
+
+    #{$self}__thumbnail {
+      @apply transition duration-300 rounded-full h-5 w-5 opacity-50 peer-checked:opacity-100 peer-disabled:opacity-20;
+    }
+
+    #{$self}__label {
+      @apply peer-disabled:text-opacity-40;
+    }
+  }
+
+  &__label {
+    @apply relative font-normal text-gray-900;
+  }
+
+  &--primary {
+    @apply ring-2 ring-primary-500;
+  }
+
+  &--size-sm {
+    #{$self}__peer-wrapper {
+      @apply text-sm h-7 p-1.5 min-w-[1.75rem];
+
+      #{$self}__thumbnail {
+        @apply h-4 w-4;
+      }
+      #{$self}__label {
+        @apply px-2;
+      }
+    }
+  }
+
+  &--size-base {
+    #{$self}__peer-wrapper {
+      @apply text-sm h-8 p-1.5 gap-0.5 min-w-[2rem];
+    }
+
+    #{$self}__label {
+      @apply px-1.5;
+    }
+  }
+
+  &--size-lg {
+    #{$self}__peer-wrapper {
+      @apply text-base h-10 p-2 gap-0.5 min-w-[2.5rem];
+    }
+    #{$self}__label {
+      @apply px-2;
+    }
+  }
+}

@@ -1,0 +1,82 @@
+.scrollbar-hidden {
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
+
+  /* overflow-y: scroll; */
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
+}
+
+.vsf-slider {
+  $root: &;
+  @apply relative w-full flex items-center;
+
+  &__container {
+    @apply scroll-smooth flex gap-4 h-full overflow-x-auto scroll-p-7 pb-4;
+    @media (prefers-reduced-motion: reduce) {
+      scroll-behavior: auto !important;
+    }
+
+    &--dragging {
+      @apply cursor-grab;
+    }
+
+    &--scroll {
+      @apply overflow-x-scroll;
+    }
+
+    > * {
+      @apply relative w-full h-full min-h-[60px] flex items-center; // FF is not able to smooth-scrolling (css or with scrollIntoView()) on shorter elements
+    }
+  }
+
+  &__nav {
+    @apply md:block hidden pointer-events-none;
+
+    > * {
+      @apply pointer-events-auto;
+    }
+
+    &-arrow {
+      @apply transition-opacity bg-white;
+    }
+
+    &-prev {
+      @apply mr-4;
+    }
+
+    &-next {
+      @apply ml-4;
+    }
+  }
+
+  &--snap-scroll {
+    #{$root}__container {
+      @apply snap-x snap-mandatory;
+
+      > * {
+        @apply snap-start last:snap-end;
+      }
+    }
+  }
+
+  &--floating-nav {
+    #{$root}__nav {
+      @apply absolute top-1/2 z-10 -translate-y-1/2;
+
+      &-arrow--hidden {
+        @apply opacity-0 pointer-events-none;
+      }
+
+      &-prev {
+        @apply left-4;
+      }
+
+      &-next {
+        @apply right-4;
+      }
+    }
+  }
+}

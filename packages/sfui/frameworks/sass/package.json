@@ -1,0 +1,34 @@
+{
+  "name": "@storefront-ui/sass",
+  "version": "2.0.0-alpha.1",
+  "private": true,
+  "main": "index.js",
+  "exports": {
+    ".": {
+      "import": "./index.mjs",
+      "require": "./index.js",
+      "sass": "./storefront-ui.scss",
+      "styles": "./storefront-ui.scss"
+    },
+    "./*": "./*"
+  },
+  "styles": "storefront-ui.scss",
+  "sass": "storefront-ui.scss",
+  "files": [
+    "index.js",
+    "index.mjs",
+    "storefront-ui.scss",
+    "components/**/*.scss"
+  ],
+  "scripts": {
+    "lint": "stylelint \"**/*.scss\"",
+    "lint:fix": "yarn lint --fix"
+  },
+  "devDependencies": {
+    "@storefront-ui/stylelint-config": "workspace:*",
+    "stylelint": "^14.16.1"
+  },
+  "peerDependencies": {
+    "tailwindcss": "^3.0.0"
+  }
+}

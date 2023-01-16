@@ -1,0 +1,167 @@
+{
+  "content": [
+    "./**/*.{vue,tsx}"
+  ],
+  "future": {
+    "hoverOnlyWhenSupported": true
+  },
+  "theme": {
+    "extend": {
+      "spacing": {
+        "0.75": "0.375rem"
+      },
+      "outlineColor": {
+        "violet": "#A78BFA"
+      },
+      "boxShadow": {
+        "base": "0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06)",
+        "inset": "0 0 0 2px rgba(255,255,255, 1) inset,0 0 0 rgba(255,255,255, 1) inset",
+        "medium": "0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -1px rgba(0, 0, 0, 0.06)",
+        "large": "0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05)",
+        "extra-large": "0px 20px 25px -5px rgba(0, 0, 0, 0.1), 0px 10px 10px -5px rgba(0, 0, 0, 0.04)",
+        "inner-border": "inset -1px 0px 0px 0px, inset 0px 1px 0px 0px, inset 0px -1px 0px 0px, inset 1px 0px 0px 0px",
+        "inner-border-button-left": "inset 1px 0px 0px 0px, inset 0px 1px 0px 0px, inset 0px -1px 0px 0px",
+        "inner-border-button-right": "inset -1px 0px 0px 0px, inset 0px 1px 0px 0px, inset 0px -1px 0px 0px",
+        "inner-border-bolded": "inset -2px 0px 0px 0px, inset 0px 2px 0px 0px, inset 0px -2px 0px 0px, inset 2px 0px 0px 0px"
+      },
+      "backgroundImage": {
+        "star-filled": "url('../../assets/star.svg')",
+        "star-outline": "url('../../assets/star-outline.svg')",
+        "checked-checkbox-current": "linear-gradient(-45deg,transparent 65%, currentcolor 65.99%),linear-gradient(45deg,transparent 75%, currentcolor 75.99%),linear-gradient(-45deg, currentcolor 40%,transparent 40.99%),linear-gradient(45deg, currentcolor 30%, white 30.99%, white 40%,transparent 40.99%),linear-gradient(-45deg, white 50%, currentcolor 50.99%)",
+        "indeterminate-checkbox-current": "linear-gradient(90deg,transparent 80%, currentcolor 80%),linear-gradient(-90deg,transparent 80%, currentcolor 80%),linear-gradient(0deg, currentcolor 43%, white 43%, white 57%, currentcolor 57%)",
+        "checked-checkbox": "linear-gradient(-45deg,transparent 65%, #02BB4D 65.99%),linear-gradient(45deg,transparent 75%, #02BB4D 75.99%),linear-gradient(-45deg, #02BB4D 40%,transparent 40.99%),linear-gradient(45deg, #02BB4D 30%, white 30.99%, white 40%,transparent 40.99%),linear-gradient(-45deg, white 50%, #02BB4D 50.99%)",
+        "checked-disabled-checkbox": "linear-gradient(-45deg,transparent 65%, #b8b8bc 65.99%),linear-gradient(45deg,transparent 75%, #b8b8bc 75.99%),linear-gradient(-45deg, #b8b8bc 40%,transparent 40.99%),linear-gradient(45deg, #b8b8bc 30%, white 30.99%, white 40%,transparent 40.99%),linear-gradient(-45deg, white 50%, #b8b8bc 50.99%)",
+        "checked-checkbox-hover": "linear-gradient(-45deg,transparent 65%, #16A34A 65.99%),linear-gradient(45deg,transparent 75%, #16A34A 75.99%),linear-gradient(-45deg, #16A34A 40%,transparent 40.99%),linear-gradient(45deg, #16A34A 30%, white 30.99%, white 40%,transparent 40.99%),linear-gradient(-45deg, white 50%, #16A34A 50.99%)",
+        "checked-checkbox-active": "linear-gradient(-45deg,transparent 65%, #15803D 65.99%),linear-gradient(45deg,transparent 75%, #15803D 75.99%),linear-gradient(-45deg, #15803D 40%,transparent 40.99%),linear-gradient(45deg, #15803D 30%, white 30.99%, white 40%,transparent 40.99%),linear-gradient(-45deg, white 50%, #15803D 50.99%)",
+        "indeterminate-checkbox": "linear-gradient(90deg,transparent 80%, #02BB4D 80%),linear-gradient(-90deg,transparent 80%, #02BB4D 80%),linear-gradient(0deg, #02BB4D 43%, white 43%, white 57%, #02BB4D 57%)",
+        "indeterminate-checkbox-hover": "linear-gradient(90deg,transparent 80%, #16A34A 80%),linear-gradient(-90deg,transparent 80%, #16A34A 80%),linear-gradient(0deg, #16A34A 43%, white 43%, white 57%, #16A34A 57%)",
+        "indeterminate-checkbox-active": "linear-gradient(90deg,transparent 80%, #15803D 80%),linear-gradient(-90deg,transparent 80%, #15803D 80%),linear-gradient(0deg, #15803D 43%, white 43%, white 57%, #15803D 57%)",
+        "indeterminate-disabled-checkbox": "linear-gradient(90deg,transparent 80%, #b8b8bc 80%),linear-gradient(-90deg,transparent 80%, #b8b8bc 80%),linear-gradient(0deg, #b8b8bc 43%, white 43%, white 57%, #b8b8bc 57%)"
+      },
+      "colors": {
+        "brand": "rgb(var(--vsf-color-brand) / <alpha-value>)",
+        "gray": {
+          "900": "rgb(var(--vsf-color-gray-900) / <alpha-value>)",
+          "800": "rgb(var(--vsf-color-gray-800) / <alpha-value>)",
+          "700": "rgb(var(--vsf-color-gray-700) / <alpha-value>)",
+          "600": "rgb(var(--vsf-color-gray-600) / <alpha-value>)",
+          "500": "rgb(var(--vsf-color-gray-500) / <alpha-value>)",
+          "400": "rgb(var(--vsf-color-gray-400) / <alpha-value>)",
+          "300": "rgb(var(--vsf-color-gray-300) / <alpha-value>)",
+          "200": "rgb(var(--vsf-color-gray-200) / <alpha-value>)",
+          "100": "rgb(var(--vsf-color-gray-100) / <alpha-value>)",
+          "50": "rgb(var(--vsf-color-gray-50) / <alpha-value>)"
+        },
+        "primary": {
+          "900": "rgb(var(--vsf-color-primary-900) / <alpha-value>)",
+          "800": "rgb(var(--vsf-color-primary-800) / <alpha-value>)",
+          "700": "rgb(var(--vsf-color-primary-700) / <alpha-value>)",
+          "600": "rgb(var(--vsf-color-primary-600) / <alpha-value>)",
+          "500": "rgb(var(--vsf-color-primary-500) / <alpha-value>)",
+          "400": "rgb(var(--vsf-color-primary-400) / <alpha-value>)",
+          "300": "rgb(var(--vsf-color-primary-300) / <alpha-value>)",
+          "200": "rgb(var(--vsf-color-primary-200) / <alpha-value>)",
+          "100": "rgb(var(--vsf-color-primary-100) / <alpha-value>)",
+          "50": "rgb(var(--vsf-color-primary-50) / <alpha-value>)"
+        },
+        "secondary": {
+          "900": "rgb(var(--vsf-color-secondary-900) / <alpha-value>)",
+          "800": "rgb(var(--vsf-color-secondary-800) / <alpha-value>)",
+          "700": "rgb(var(--vsf-color-secondary-700) / <alpha-value>)",
+          "600": "rgb(var(--vsf-color-secondary-600) / <alpha-value>)",
+          "500": "rgb(var(--vsf-color-secondary-500) / <alpha-value>)",
+          "400": "rgb(var(--vsf-color-secondary-400) / <alpha-value>)",
+          "300": "rgb(var(--vsf-color-secondary-300) / <alpha-value>)",
+          "200": "rgb(var(--vsf-color-secondary-200) / <alpha-value>)",
+          "100": "rgb(var(--vsf-color-secondary-100) / <alpha-value>)",
+          "50": "rgb(var(--vsf-color-secondary-50) / <alpha-value>)"
+        },
+        "positive": {
+          "900": "rgb(var(--vsf-color-positive-900) / <alpha-value>)",
+          "800": "rgb(var(--vsf-color-positive-800) / <alpha-value>)",
+          "700": "rgb(var(--vsf-color-positive-700) / <alpha-value>)",
+          "600": "rgb(var(--vsf-color-positive-600) / <alpha-value>)",
+          "500": "rgb(var(--vsf-color-positive-500) / <alpha-value>)",
+          "400": "rgb(var(--vsf-color-positive-400) / <alpha-value>)",
+          "300": "rgb(var(--vsf-color-positive-300) / <alpha-value>)",
+          "200": "rgb(var(--vsf-color-positive-200) / <alpha-value>)",
+          "100": "rgb(var(--vsf-color-positive-100) / <alpha-value>)",
+          "50": "rgb(var(--vsf-color-positive-50) / <alpha-value>)"
+        },
+        "negative": {
+          "900": "rgb(var(--vsf-color-negative-900) / <alpha-value>)",
+          "800": "rgb(var(--vsf-color-negative-800) / <alpha-value>)",
+          "700": "rgb(var(--vsf-color-negative-700) / <alpha-value>)",
+          "600": "rgb(var(--vsf-color-negative-600) / <alpha-value>)",
+          "500": "rgb(var(--vsf-color-negative-500) / <alpha-value>)",
+          "400": "rgb(var(--vsf-color-negative-400) / <alpha-value>)",
+          "300": "rgb(var(--vsf-color-negative-300) / <alpha-value>)",
+          "200": "rgb(var(--vsf-color-negative-200) / <alpha-value>)",
+          "100": "rgb(var(--vsf-color-negative-100) / <alpha-value>)",
+          "50": "rgb(var(--vsf-color-negative-50) / <alpha-value>)"
+        },
+        "warning": {
+          "900": "rgb(var(--vsf-color-warning-900) / <alpha-value>)",
+          "800": "rgb(var(--vsf-color-warning-800) / <alpha-value>)",
+          "700": "rgb(var(--vsf-color-warning-700) / <alpha-value>)",
+          "600": "rgb(var(--vsf-color-warning-600) / <alpha-value>)",
+          "500": "rgb(var(--vsf-color-warning-500) / <alpha-value>)",
+          "400": "rgb(var(--vsf-color-warning-400) / <alpha-value>)",
+          "300": "rgb(var(--vsf-color-warning-300) / <alpha-value>)",
+          "200": "rgb(var(--vsf-color-warning-200) / <alpha-value>)",
+          "100": "rgb(var(--vsf-color-warning-100) / <alpha-value>)",
+          "50": "rgb(var(--vsf-color-warning-50) / <alpha-value>)"
+        }
+      },
+      "fontFamily": {
+        "headings": "Red Hat Display",
+        "body": "Red Hat Text"
+      },
+      "screens": {
+        "2-extra-small": "360px",
+        "extra-small": "376px",
+        "small": "640px",
+        "medium": "768px",
+        "large": "1024px",
+        "extra-large": "1280px",
+        "2-extra-large": "1366px",
+        "3-extra-large": "1536px",
+        "4-extra-large": "1920px"
+      },
+      "keyframes": {
+        "spinning": {
+          "100%": {
+            "transform": "rotate(360deg)"
+          }
+        },
+        "line": {
+          "from": {
+            "left": "-100%",
+            "width": "100%"
+          },
+          "to": {
+            "left": "100%",
+            "width": "10%"
+          }
+        }
+      },
+      "animation": {
+        "spinning": "spinning 1s linear infinite",
+        "line": "line 1.5s ease-in infinite"
+      },
+      "fontSize": {
+        "2xs": [
+          "10px",
+          "11px"
+        ],
+        "3xs": [
+          "8px",
+          "8px"
+        ]
+      }
+    }
+  },
+  "corePlugins": {
+    "preflight": false
+  }
+}

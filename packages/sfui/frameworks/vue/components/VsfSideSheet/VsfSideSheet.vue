@@ -1,0 +1,61 @@
+<script lang="ts" setup>
+import { ref } from 'vue';
+import { onClickOutside } from '@vueuse/core';
+import { VsfOverlay } from '../VsfOverlay';
+
+const props = defineProps({
+  open: {
+    type: Boolean,
+    default: false,
+  },
+  overlayVisible: {
+    type: Boolean,
+    default: false,
+  },
+  leftSide: {
+    type: Boolean,
+    default: true,
+  },
+  permanent: {
+    type: Boolean,
+    default: false,
+  },
+});
+
+const emit = defineEmits<{
+  (event: 'close'): void;
+}>();
+
+const target = ref(null);
+
+onClickOutside(target, () => {
+  if (!props.overlayVisible) return;
+  emit('close');
+});
+</script>
+
+<template>
+  <div class="vsf-side-sheet" data-testid="side-sheet">
+    <VsfOverlay
+      v-if="overlayVisible && !permanent && open"
+      :visible="overlayVisible"
+      data-testid="side-sheet-overlay"
+      class="vsf-side-sheet__overlay"
+    />
+    <transition :name="`vsf-side-sheet__slide-${leftSide ? 'left' : 'right'}-vue`" appear>
+      <aside
+        v-if="permanent || open"
+        ref="target"
+        class="vsf-side-sheet__aside"
+        :class="{
+          'vsf-side-sheet__aside--fixed': !permanent,
+          'vsf-side-sheet__aside--right-side': !leftSide,
+          'vsf-side-sheet__aside--left-side': leftSide,
+        }"
+        data-testid="side-sheet-aside"
+      >
+        <slot />
+      </aside>
+    </transition>
+  </div>
+</template>
