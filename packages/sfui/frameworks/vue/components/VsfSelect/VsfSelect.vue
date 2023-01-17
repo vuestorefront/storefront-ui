@@ -1,11 +1,12 @@
 <script lang="ts" setup>
+import type { PropType } from 'vue';
 import { ref } from 'vue';
 import { VsfSelectSizes } from './types';
 import VsfSelectOption from './VsfSelectOption.vue';
 
 const props = defineProps({
   options: {
-    type: Array,
+    type: Array as PropType<string[]>,
     default: () => [],
   },
   size: {

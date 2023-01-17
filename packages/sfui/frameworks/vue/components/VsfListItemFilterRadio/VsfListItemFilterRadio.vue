@@ -20,7 +20,9 @@ const props = defineProps({
     'truncate',
     'selected',
   ] as const),
-  ...extractProps(VsfRadio, ['value', 'name'] as const),
+  // TODO: issue with typing because one component has defineEmits
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  ...extractProps(VsfRadio as any, ['value', 'name'] as const),
   modelValue: {
     type: String,
     default: '',

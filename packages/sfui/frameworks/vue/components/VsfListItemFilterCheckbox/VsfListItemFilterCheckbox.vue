@@ -8,7 +8,9 @@ import { VsfListItemFilterCheckboxVariant } from './types';
 
 const props = defineProps({
   ...extractProps(VsfListItemMenu, ['label', 'counter', 'size', 'secondaryText', 'disabled', 'truncate'] as const),
-  ...extractProps(VsfCheckbox, ['value', 'name', 'modelValue'] as const),
+  // TODO: issue with typing because one component has defineEmits
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  ...extractProps(VsfCheckbox as any, ['value', 'name', 'modelValue'] as const),
   variant: {
     type: String as PropType<VsfListItemFilterCheckboxVariant>,
     default: VsfListItemFilterCheckboxVariant.left,
