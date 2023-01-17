@@ -9,23 +9,33 @@
       :with-shadow="withShadow"
       :hide-prefix="hidePrefix"
     >
-      <template v-if="prefix !== 'none'" #prefix>
-        <VsfIconChat />
+      <template v-if="prefixSlotOptions.getValue(prefix)" #prefix>
+        <component :is="prefixSlotOptions.getValue(prefix)" />
       </template>
-      <template v-if="suffix !== 'none'" #suffix>
-        <VsfButton :variant="VsfButtonVariants.tertiary" @click="modelValue = false">Button</VsfButton>
+      <template v-if="suffixSlotOptions.getValue(suffix)" #suffix>
+        <component :is="suffixSlotOptions.getValue(suffix)" />
       </template>
     </VsfAlert>
   </ComponentExample>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent, ref, h } from 'vue';
 import { VsfAlert, VsfAlertTypes, VsfAlertVariants } from '@storefront-ui/vue/components/VsfAlert/index';
 import { VsfButton, VsfButtonVariants } from '@storefront-ui/vue/components/VsfButton/index';
 import { VsfIconChat } from '@storefront-ui/vue/components/VsfIcons/index';
+import { createControlsOptions } from '@storefront-ui/preview-shared/utils/controlsOptions';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
+
+const prefixSlotOptions = createControlsOptions({
+  none: undefined,
+  'Custom icon': h(VsfIconChat),
+});
+const suffixSlotOptions = createControlsOptions({
+  none: undefined,
+  'Custom component': h(VsfButton, { variant: VsfButtonVariants.tertiary }, 'Button'),
+});
 
 export default defineComponent({
   name: 'VsfAlertExample',
@@ -36,9 +46,10 @@ export default defineComponent({
     ComponentExample,
   },
   setup() {
-    const slotContent = ['none', 'custom slot content'] as const;
     return {
       VsfButtonVariants,
+      prefixSlotOptions,
+      suffixSlotOptions,
       ...prepareControls(
         [
           {
@@ -93,7 +104,7 @@ export default defineComponent({
           {
             type: 'select',
             modelName: 'prefix',
-            options: slotContent,
+            options: prefixSlotOptions.controlsOptions,
             propDefaultValue: '',
             propType: 'Slot',
             description: 'Slot used for prefix. Replaces the default icon prefixes.',
@@ -101,7 +112,7 @@ export default defineComponent({
           {
             type: 'select',
             modelName: 'suffix',
-            options: slotContent,
+            options: suffixSlotOptions.controlsOptions,
             propDefaultValue: '',
             propType: 'Slot',
             description: 'Slot used for suffix. In "temporary" variant replaces the close button.',
@@ -115,8 +126,8 @@ export default defineComponent({
           header: ref('Header'),
           withShadow: ref(undefined),
           hidePrefix: ref(undefined),
-          prefix: ref(slotContent[0]),
-          suffix: ref(slotContent[0]),
+          prefix: ref(prefixSlotOptions.defaultOption),
+          suffix: ref(suffixSlotOptions.defaultOption),
         },
       ),
     };

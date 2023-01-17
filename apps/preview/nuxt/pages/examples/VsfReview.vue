@@ -4,25 +4,30 @@
       <template #rating>
         <VsfRating :value="3" :max="5" />
       </template>
-      <template v-if="slotAuthorSuffix" #authorSuffix>
-        <VsfTag :size="VsfTagSizes.sm" :variant="VsfTagVariants.primary" label="Verified purchaser">
-          <template #icon>
-            <VsfIconCheck :size="VsfIconSizeEnum.xs" />
-          </template>
-        </VsfTag>
+      <template v-if="slotAuthorSuffixOptions.getValue(slotAuthorSuffix)" #authorSuffix>
+        <component :is="slotAuthorSuffixOptions.getValue(slotAuthorSuffix)" />
       </template>
     </VsfReview>
   </ComponentExample>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent, ref, h } from 'vue';
 import VsfReview from '@storefront-ui/vue/components/VsfReview/VsfReview.vue';
 import VsfRating from '@storefront-ui/vue/components/VsfRating/VsfRating.vue';
 import { VsfTag, VsfTagSizes, VsfTagVariants } from '@storefront-ui/vue/components/VsfTag/index';
-import { VsfIconSizeEnum, VsfIconCheck } from '@storefront-ui/vue/components/VsfIcons/index';
+import { createControlsOptions } from '@storefront-ui/preview-shared/utils/controlsOptions';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
+
+const slotAuthorSuffixOptions = createControlsOptions({
+  none: undefined,
+  Tag: h(VsfTag, {
+    size: VsfTagSizes.sm,
+    variant: VsfTagVariants.primary,
+    label: 'Verified purchaser',
+  }),
+});
 
 export default defineComponent({
   name: 'VsfReviewExample',
@@ -30,11 +35,11 @@ export default defineComponent({
     VsfReview,
     VsfRating,
     VsfTag,
-    VsfIconCheck,
     ComponentExample,
   },
   setup() {
     return {
+      slotAuthorSuffixOptions,
       ...prepareControls(
         [
           {
@@ -87,9 +92,10 @@ export default defineComponent({
             isRequired: false,
           },
           {
-            type: 'boolean',
+            type: 'select',
             modelName: 'slotAuthorSuffix',
-            propType: 'boolean',
+            propType: 'slot',
+            options: slotAuthorSuffixOptions.controlsOptions,
           },
         ],
         {
@@ -102,12 +108,9 @@ export default defineComponent({
           charLimit: ref(700),
           showMoreText: ref('Read more'),
           showLessText: ref('Read less'),
-          slotAuthorSuffix: ref(false),
+          slotAuthorSuffix: ref(slotAuthorSuffixOptions.defaultOption),
         },
       ),
-      VsfTagSizes,
-      VsfTagVariants,
-      VsfIconSizeEnum,
     };
   },
 });

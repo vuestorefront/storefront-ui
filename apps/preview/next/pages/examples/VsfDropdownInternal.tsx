@@ -5,12 +5,25 @@ import {
   VsfDropdownInternalPlacement,
 } from '@storefront-ui/react/components/VsfDropdownInternal';
 import VsfButton from '@storefront-ui/react/components/VsfButton/VsfButton';
+import { createControlsOptions } from '@storefront-ui/preview-shared/utils/controlsOptions';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
 
+const slotTriggerOptions = createControlsOptions({
+  button: <VsfButton>Trigger for dropdown</VsfButton>,
+});
+const childrenOptions = createControlsOptions({
+  text: 'Content',
+});
+
+interface DropdownInternalControls extends Omit<VsfDropdownInternalProps, 'slotTrigger' | 'children'> {
+  slotTrigger: typeof slotTriggerOptions.defaultOption;
+  children: typeof childrenOptions.defaultOption;
+}
+
 function Example() {
-  const { state, controls } = prepareControls<VsfDropdownInternalProps>(
+  const { state, controls } = prepareControls<DropdownInternalControls>(
     [
       {
         type: 'boolean',
@@ -43,16 +56,18 @@ function Example() {
         description: 'Disable dropdown',
       },
       {
-        type: 'text',
+        type: 'select',
         modelName: 'slotTrigger',
-        propType: 'slot',
+        propType: 'ReactNode',
         description: 'Change content of trigger',
+        options: slotTriggerOptions.controlsOptions,
       },
       {
-        type: 'text',
+        type: 'select',
         modelName: 'children',
-        propType: 'slot',
+        propType: 'ReactNode',
         description: 'Change content of dropdown',
+        options: childrenOptions.controlsOptions,
       },
     ],
     {
@@ -60,20 +75,20 @@ function Example() {
       triggerEvent: undefined,
       placement: VsfDropdownInternalPlacement.bottom,
       disabled: undefined,
-      slotTrigger: 'Trigger for dropdown',
-      children: 'content',
+      slotTrigger: slotTriggerOptions.defaultOption,
+      children: childrenOptions.defaultOption,
     },
   );
   return (
     <ComponentExample controls={{ state, controls }} componentContainerClassName="flex justify-center items-center">
       <VsfDropdownInternal
         {...state.get}
-        slotTrigger={<VsfButton>{state.get.slotTrigger}</VsfButton>}
+        slotTrigger={slotTriggerOptions.getValue(state.get.slotTrigger)}
         onOpenUpdate={(open) => {
-          state.set({ ...state.set, open });
+          state.set({ ...state.get, open });
         }}
       >
-        {state.get.children}
+        {childrenOptions.getValue(state.get.children)}
       </VsfDropdownInternal>
     </ComponentExample>
   );

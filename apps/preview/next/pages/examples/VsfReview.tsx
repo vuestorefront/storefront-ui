@@ -1,15 +1,29 @@
-import { VsfReview } from '@storefront-ui/react/components/VsfReview';
+import { VsfReview, VsfReviewProps } from '@storefront-ui/react/components/VsfReview';
 import { VsfRating } from '@storefront-ui/react/components/VsfRating';
 import { VsfTag } from '@storefront-ui/react/components/VsfTag';
 import { VsfTagSizes, VsfTagVariants } from '@storefront-ui/react/components/VsfTag/types';
 import { VsfIconSizeEnum } from '@storefront-ui/react/components/VsfIcons/types';
 import { VsfIconCheck } from '@storefront-ui/react/components/VsfIcons';
+import { createControlsOptions } from '@storefront-ui/preview-shared/utils/controlsOptions';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
 
+const slotAuthorSuffixOptions = createControlsOptions({
+  none: undefined,
+  Tag: (
+    <VsfTag size={VsfTagSizes.sm} variant={VsfTagVariants.primary} label="Verified purchaser">
+      <VsfIconCheck size={VsfIconSizeEnum.xs} />
+    </VsfTag>
+  ),
+});
+
+interface ReviewControls extends Omit<VsfReviewProps, 'slotAuthorSuffix'> {
+  slotAuthorSuffix: typeof slotAuthorSuffixOptions.defaultOption;
+}
+
 function Example() {
-  const { state, controls } = prepareControls(
+  const { state, controls } = prepareControls<ReviewControls>(
     [
       {
         type: 'text',
@@ -61,9 +75,10 @@ function Example() {
         isRequired: false,
       },
       {
-        type: 'boolean',
+        type: 'select',
         modelName: 'slotAuthorSuffix',
-        propType: 'boolean',
+        propType: 'ReactNode',
+        options: slotAuthorSuffixOptions.controlsOptions,
       },
     ],
     {
@@ -71,11 +86,11 @@ function Example() {
       // eslint-disable-next-line no-irregular-whitespace
       content: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance.`,
       date: '16 days ago',
-      author: 'Username',
+      author: 'John Doe',
       charLimit: 700,
       showMoreText: 'Read more',
       showLessText: 'Read less',
-      slotAuthorSuffix: false,
+      slotAuthorSuffix: slotAuthorSuffixOptions.defaultOption,
     },
   );
   return (
@@ -89,13 +104,7 @@ function Example() {
         showMoreText={state.get.showMoreText}
         showLessText={state.get.showLessText}
         slotRating={<VsfRating value={3} max={5} />}
-        slotAuthorSuffix={
-          state.get.slotAuthorSuffix && (
-            <VsfTag size={VsfTagSizes.sm} variant={VsfTagVariants.primary} label="Verified purchaser">
-              <VsfIconCheck size={VsfIconSizeEnum.xs} />
-            </VsfTag>
-          )
-        }
+        slotAuthorSuffix={slotAuthorSuffixOptions.getValue(state.get.slotAuthorSuffix)}
       />
     </ComponentExample>
   );

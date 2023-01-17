@@ -2,6 +2,7 @@ import { ChangeEvent, FormEvent, MouseEvent } from 'react';
 import { VsfSearch } from '@storefront-ui/react/components/VsfSearch';
 import type { VsfSearchProps } from '@storefront-ui/react/components/VsfSearch';
 import { VsfIconSearch } from '@storefront-ui/react/components/VsfIcons';
+import { createControlsOptions } from '@storefront-ui/preview-shared/utils/controlsOptions';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
@@ -22,8 +23,22 @@ function ResultsPanel() {
   );
 }
 
+const prefixSlotOptions = createControlsOptions({
+  none: undefined,
+  'Search icon': <VsfIconSearch />,
+});
+const suffixSlotOptions = createControlsOptions({
+  none: undefined,
+  'Search icon': <VsfIconSearch />,
+});
+
+interface SearchControls extends Omit<VsfSearchProps, 'slotPrefix' | 'slotSuffix'> {
+  slotPrefix: typeof prefixSlotOptions.defaultOption;
+  slotSuffix: typeof suffixSlotOptions.defaultOption;
+}
+
 function Example() {
-  const { state, controls } = prepareControls<VsfSearchProps>(
+  const { state, controls } = prepareControls<SearchControls>(
     [
       {
         type: 'boolean',
@@ -31,16 +46,18 @@ function Example() {
         modelName: 'disabled',
       },
       {
-        type: 'boolean',
-        propType: '---',
+        type: 'select',
+        propType: 'ReactNode',
         modelName: 'slotPrefix',
         description: "Only for demonstration purposes, Icon is injected via 'prefix' slot",
+        options: prefixSlotOptions.controlsOptions,
       },
       {
-        type: 'boolean',
-        propType: '---',
+        type: 'select',
+        propType: 'ReactNode',
         modelName: 'slotSuffix',
         description: "Only for demonstration purposes, Icon is injected via 'suffix' slot",
+        options: suffixSlotOptions.controlsOptions,
       },
       {
         type: 'text',
@@ -65,8 +82,8 @@ function Example() {
       value: '',
       name: 'q',
       slotSubmit: 'search',
-      slotPrefix: false,
-      slotSuffix: false,
+      slotPrefix: prefixSlotOptions.defaultOption,
+      slotSuffix: suffixSlotOptions.defaultOption,
     },
   );
   function submitHandler(e: FormEvent) {
@@ -90,8 +107,8 @@ function Example() {
         disabled={state.get.disabled}
         name={state.get.name}
         value={state.get.value}
-        slotPrefix={state.get.slotPrefix ? <VsfIconSearch /> : null}
-        slotSuffix={state.get.slotSuffix ? <VsfIconSearch /> : null}
+        slotPrefix={prefixSlotOptions.getValue(state.get.slotPrefix)}
+        slotSuffix={suffixSlotOptions.getValue(state.get.slotSuffix)}
         slotSubmit={state.get.slotSubmit}
         slotResults={<ResultsPanel />}
         onInput={onInput}
