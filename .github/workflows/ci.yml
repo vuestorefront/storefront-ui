@@ -97,7 +97,7 @@ jobs:
 
   cypress-vue:
     name: Run cypress tests(Vue)
-    needs: [cache]
+    needs: [cache, lint]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -116,7 +116,7 @@ jobs:
 
   cypress-react:
     name: Run cypress tests(react)
-    needs: [cache]
+    needs: [cache, lint]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
