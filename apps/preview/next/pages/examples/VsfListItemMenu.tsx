@@ -1,12 +1,31 @@
-import { VsfListItemMenu, VsfListItemMenuSizes } from '@storefront-ui/react/components/VsfListItemMenu';
-import { VsfIconCheck } from '~/../../../packages/sfui/frameworks/react/components/VsfIcons';
+import {
+  VsfListItemMenu,
+  VsfListItemMenuProps,
+  VsfListItemMenuSizes,
+} from '@storefront-ui/react/components/VsfListItemMenu';
+import { createControlsOptions } from '@storefront-ui/preview-shared/utils/controlsOptions';
 import { VsfIconSizeEnum } from '@storefront-ui/react/components/VsfIcons/types';
+import { VsfIconCheck } from '~/../../../packages/sfui/frameworks/react/components/VsfIcons';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
 
+const prefixSlotOptions = createControlsOptions({
+  none: undefined,
+  'Check icon': <VsfIconCheck size={VsfIconSizeEnum.sm} />,
+});
+const suffixSlotOptions = createControlsOptions({
+  none: undefined,
+  'Check icon': <VsfIconCheck size={VsfIconSizeEnum.sm} />,
+});
+
+interface ListItemMenuControls extends Omit<VsfListItemMenuProps, 'slotPrefix' | 'slotSuffix'> {
+  slotPrefix: typeof prefixSlotOptions.defaultOption;
+  slotSuffix: typeof suffixSlotOptions.defaultOption;
+}
+
 function Example() {
-  const { state, controls } = prepareControls(
+  const { state, controls } = prepareControls<ListItemMenuControls>(
     [
       {
         type: 'text',
@@ -33,14 +52,18 @@ function Example() {
         description: 'Set counter value',
       },
       {
-        type: 'boolean',
-        modelName: 'showSuffix',
-        description: 'Show or hide the suffix content',
+        type: 'select',
+        modelName: 'slotPrefix',
+        propType: 'ReactNode',
+        description: 'Custom component that could be placed before the element.',
+        options: prefixSlotOptions.controlsOptions,
       },
       {
-        type: 'boolean',
-        modelName: 'showprefix',
-        description: 'Show or hide the prefix content',
+        type: 'select',
+        modelName: 'slotSuffix',
+        propType: 'ReactNode',
+        description: 'Custom component that could be placed after the element.',
+        options: suffixSlotOptions.controlsOptions,
       },
       {
         type: 'select',
@@ -74,8 +97,8 @@ function Example() {
       size: VsfListItemMenuSizes.base,
       link: '',
       counter: 123,
-      showSuffix: false,
-      showprefix: false,
+      slotPrefix: prefixSlotOptions.defaultOption,
+      slotSuffix: suffixSlotOptions.defaultOption,
       secondaryText: 'Secondary text',
       disabled: false,
       selected: false,
@@ -96,8 +119,8 @@ function Example() {
         selected={state.get.selected}
         selectedBackground={state.get.selectedBackground}
         disabled={state.get.disabled}
-        slotPrefix={state.get.showprefix ? <VsfIconCheck size={VsfIconSizeEnum.sm} /> : null}
-        slotSuffix={state.get.showSuffix ? <VsfIconCheck size={VsfIconSizeEnum.sm} /> : null}
+        slotPrefix={prefixSlotOptions.getValue(state.get.slotPrefix)}
+        slotSuffix={suffixSlotOptions.getValue(state.get.slotSuffix)}
         truncate={state.get.truncate}
         onClick={(selected: boolean) => state.set({ ...state.get, selected })}
       />

@@ -1,13 +1,29 @@
 import { VsfInput } from '@storefront-ui/react/components/VsfInput';
-import { VsfInputSizes } from '@storefront-ui/react/components/VsfInput/types';
+import { VsfInputProps, VsfInputSizes } from '@storefront-ui/react/components/VsfInput/types';
+import { createControlsOptions } from '@storefront-ui/preview-shared/utils/controlsOptions';
+import { VsfIconSearch, VsfIconLock } from '@storefront-ui/react/components/VsfIcons';
 
 import { ChangeEvent } from 'react';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
 
+const prefixSlotOptions = createControlsOptions({
+  none: undefined,
+  'Search icon': <VsfIconSearch />,
+});
+const suffixSlotOptions = createControlsOptions({
+  none: undefined,
+  'Lock icon': <VsfIconLock />,
+});
+
+interface InputControls extends Omit<VsfInputProps, 'slotPrefix' | 'slotSuffix'> {
+  slotPrefix: typeof prefixSlotOptions.defaultOption;
+  slotSuffix: typeof suffixSlotOptions.defaultOption;
+}
+
 function Example() {
-  const { state, controls } = prepareControls(
+  const { state, controls } = prepareControls<InputControls>(
     [
       {
         type: 'select',
@@ -42,14 +58,16 @@ function Example() {
         modelName: 'errorMessage',
       },
       {
-        type: 'text',
-        propType: 'string',
+        type: 'select',
+        propType: 'ReactNode',
         modelName: 'slotPrefix',
+        options: prefixSlotOptions.controlsOptions,
       },
       {
-        type: 'text',
-        propType: 'string',
+        type: 'select',
+        propType: 'ReactNode',
         modelName: 'slotSuffix',
+        options: suffixSlotOptions.controlsOptions,
       },
       {
         type: 'text',
@@ -89,11 +107,9 @@ function Example() {
       errorMessage: 'Error message',
       label: 'Label',
       characterLimit: 12,
-      inputReadonly: 'Example value',
-      slotSuffix: 'Suffix',
-      slotPrefix: 'Prefix',
+      slotPrefix: prefixSlotOptions.defaultOption,
+      slotSuffix: suffixSlotOptions.defaultOption,
       value: '',
-      valueReadonly: 'Example value',
     },
   );
   function onChange(event: ChangeEvent<HTMLInputElement>) {
@@ -114,8 +130,8 @@ function Example() {
         required={state.get.required}
         readonly={state.get.readonly}
         characterLimit={state.get.characterLimit}
-        slotSuffix={state.get.slotSuffix}
-        slotPrefix={state.get.slotPrefix}
+        slotPrefix={prefixSlotOptions.getValue(state.get.slotPrefix)}
+        slotSuffix={suffixSlotOptions.getValue(state.get.slotSuffix)}
         onChange={onChange}
       />
     </ComponentExample>

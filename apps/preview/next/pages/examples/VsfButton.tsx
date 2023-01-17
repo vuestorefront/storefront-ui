@@ -1,32 +1,50 @@
-import { VsfButton, VsfButtonSizes, VsfButtonVariants } from '@storefront-ui/react/components/VsfButton';
-import { VsfIconVsfDiamond } from '@storefront-ui/react/components/VsfIcons';
-import type { VsfButtonProps } from '@storefront-ui/react/components/VsfButton';
+import {
+  VsfButton,
+  VsfButtonProps,
+  VsfButtonSizes,
+  VsfButtonVariants,
+} from '@storefront-ui/react/components/VsfButton';
+import { VsfIconSearch, VsfIconLock } from '@storefront-ui/react/components/VsfIcons';
+import { createControlsOptions } from '@storefront-ui/preview-shared/utils/controlsOptions';
 import { ExamplePageLayout } from '../examples';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
 
+const prefixSlotOptions = createControlsOptions({
+  none: undefined,
+  'Search icon': <VsfIconSearch />,
+});
+const suffixSlotOptions = createControlsOptions({
+  none: undefined,
+  'Lock icon': <VsfIconLock />,
+});
+
+interface ButtonControls extends Omit<VsfButtonProps<HTMLButtonElement>, 'slotPrefix' | 'slotSuffix'> {
+  slotPrefix: typeof prefixSlotOptions.defaultOption;
+  slotSuffix: typeof suffixSlotOptions.defaultOption;
+}
+
 function Example() {
-  type ControlTypes = VsfButtonProps<HTMLButtonElement> & {
-    SlotPrefix?: boolean;
-    SlotSuffix?: boolean;
-    SlotChildren?: string;
-  };
-  const { state, controls } = prepareControls<ControlTypes>(
+  const { state, controls } = prepareControls<ButtonControls>(
     [
       {
         type: 'text',
-        modelName: 'SlotChildren',
+        modelName: 'children',
         description: 'Only for demonstration purposes. Default slot',
       },
       {
-        type: 'boolean',
-        modelName: 'SlotPrefix',
+        type: 'select',
+        modelName: 'slotPrefix',
         description: 'slotPrefix',
+        propType: 'ReactNode',
+        options: prefixSlotOptions.controlsOptions,
       },
       {
-        type: 'boolean',
-        modelName: 'SlotSuffix',
+        type: 'select',
+        modelName: 'slotSuffix',
         description: 'slotSuffix',
+        propType: 'ReactNode',
+        options: suffixSlotOptions.controlsOptions,
       },
       {
         type: 'text',
@@ -74,9 +92,9 @@ function Example() {
       },
     ],
     {
-      SlotChildren: 'Hello',
-      SlotPrefix: undefined,
-      SlotSuffix: undefined,
+      children: 'Hello',
+      slotPrefix: prefixSlotOptions.defaultOption,
+      slotSuffix: suffixSlotOptions.defaultOption,
       type: undefined,
       disabled: undefined,
       greyscale: undefined,
@@ -98,15 +116,15 @@ function Example() {
         disabled={state.get.disabled}
         greyscale={state.get.greyscale}
         truncate={state.get.truncate}
-        slotPrefix={state.get.SlotPrefix && <VsfIconVsfDiamond />}
-        slotSuffix={state.get.SlotSuffix && <VsfIconVsfDiamond />}
+        slotPrefix={prefixSlotOptions.getValue(state.get.slotPrefix)}
+        slotSuffix={suffixSlotOptions.getValue(state.get.slotSuffix)}
         tile={state.get.tile}
         rounded={state.get.rounded}
         block={state.get.block}
         link={state.get.link}
         className="max-w-[200px]"
       >
-        {state.get.SlotChildren}
+        {state.get.children}
       </VsfButton>
     </ComponentExample>
   );

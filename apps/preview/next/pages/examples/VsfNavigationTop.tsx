@@ -1,12 +1,25 @@
 import { VsfNavigationTop } from '@storefront-ui/react/components/VsfNavigationTop';
 import { VsfButton } from '@storefront-ui/react/components/VsfButton';
-import { VsfNavigationTopVariant } from '@storefront-ui/react/components//VsfNavigationTop/types';
+import {
+  VsfNavigationTopProps,
+  VsfNavigationTopVariant,
+} from '@storefront-ui/react/components//VsfNavigationTop/types';
+import { createControlsOptions } from '@storefront-ui/preview-shared/utils/controlsOptions';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
 
+const slotButtonCloseOptions = createControlsOptions({
+  default: undefined,
+  'Custom button': <VsfButton>Close</VsfButton>,
+});
+
+interface NavigationTopControls extends Omit<VsfNavigationTopProps, 'slotButtonClose'> {
+  slotButtonClose: typeof slotButtonCloseOptions.defaultOption;
+}
+
 function Example() {
-  const { state, controls } = prepareControls(
+  const { state, controls } = prepareControls<NavigationTopControls>(
     [
       {
         type: 'boolean',
@@ -21,15 +34,16 @@ function Example() {
         options: Object.keys(VsfNavigationTopVariant),
       },
       {
-        type: 'text',
+        type: 'select',
         modelName: 'slotButtonClose',
-        propType: 'slot',
+        propType: 'ReactNode',
+        options: slotButtonCloseOptions.controlsOptions,
       },
     ],
     {
       open: false,
       variant: VsfNavigationTopVariant.auto,
-      slotButtonClose: undefined,
+      slotButtonClose: slotButtonCloseOptions.defaultOption,
     },
   );
 
@@ -51,7 +65,7 @@ function Example() {
             state.set({ ...state.get, open: val });
           }}
           variant={state.get.variant}
-          slotButtonClose={state.get.slotButtonClose}
+          slotButtonClose={slotButtonCloseOptions.getValue(state.get.slotButtonClose)}
         >
           <div className="border border-primary-400">Column1</div>
           <div className="border border-primary-400">Column2</div>

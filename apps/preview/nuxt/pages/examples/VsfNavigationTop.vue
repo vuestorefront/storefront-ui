@@ -13,17 +13,25 @@
       >
         Column5
       </div>
-      <template v-if="slotButtonClose" #buttonClose>{{ slotButtonClose }}</template>
+      <template v-if="slotButtonCloseOptions.getValue(slotButtonClose)" #buttonClose>
+        <component :is="slotButtonCloseOptions.getValue(slotButtonClose)" />
+      </template>
     </VsfNavigationTop>
   </ComponentExample>
 </template>
 
 <script lang="ts">
-import { ref } from 'vue';
+import { ref, h } from 'vue';
 import VsfButton from '@storefront-ui/vue/components/VsfButton/VsfButton.vue';
 import { VsfNavigationTop, VsfNavigationTopVariant } from '@storefront-ui/vue/components/VsfNavigationTop/index';
+import { createControlsOptions } from '@storefront-ui/preview-shared/utils/controlsOptions';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
+
+const slotButtonCloseOptions = createControlsOptions({
+  default: undefined,
+  'Custom button': h(VsfButton, 'Close'),
+});
 
 export default {
   name: 'VsfNavigationTopExample',
@@ -35,6 +43,7 @@ export default {
   setup() {
     return {
       VsfNavigationTopVariant,
+      slotButtonCloseOptions,
       ...prepareControls(
         [
           {
@@ -50,15 +59,16 @@ export default {
             options: Object.keys(VsfNavigationTopVariant),
           },
           {
-            type: 'text',
+            type: 'select',
             modelName: 'slotButtonClose',
             propType: 'slot',
+            options: slotButtonCloseOptions.controlsOptions,
           },
         ],
         {
           modelValue: ref(false),
           variant: ref(VsfNavigationTopVariant.auto),
-          slotButtonClose: ref(undefined),
+          slotButtonClose: ref(slotButtonCloseOptions.defaultOption),
         },
       ),
     };

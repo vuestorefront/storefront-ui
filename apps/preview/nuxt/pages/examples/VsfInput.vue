@@ -1,27 +1,46 @@
 <template>
   <ComponentExample :controls-attrs="controlsAttrs">
     <VsfInput v-bind="state" v-model="value">
-      <template #prefix> {{ slotPrefix }} </template>
-      <template #suffix> {{ slotSuffix }} </template>
+      <template v-if="prefixSlotOptions.getValue(slotPrefix)" #prefix>
+        <component :is="prefixSlotOptions.getValue(slotPrefix)" />
+      </template>
+      <template v-if="suffixSlotOptions.getValue(slotSuffix)" #suffix>
+        <component :is="suffixSlotOptions.getValue(slotSuffix)" />
+      </template>
     </VsfInput>
   </ComponentExample>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent, ref, h } from 'vue';
 import VsfInput from '@storefront-ui/vue/components/VsfInput/VsfInput.vue';
 import { VsfInputSizes } from '@storefront-ui/vue/components/VsfInput/types';
+import { createControlsOptions } from '@storefront-ui/preview-shared/utils/controlsOptions';
+import { VsfIconLock, VsfIconSearch } from '@storefront-ui/vue/components/VsfIcons/index';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
+
+const prefixSlotOptions = createControlsOptions({
+  none: undefined,
+  'Search icon': h(VsfIconSearch),
+});
+const suffixSlotOptions = createControlsOptions({
+  none: undefined,
+  'Lock icon': h(VsfIconLock),
+});
 
 export default defineComponent({
   name: 'VsfSelectExample',
   components: {
     VsfInput,
     ComponentExample,
+    VsfIconSearch,
+    VsfIconLock,
   },
   setup() {
     return {
+      prefixSlotOptions,
+      suffixSlotOptions,
       ...prepareControls(
         [
           {
@@ -57,14 +76,16 @@ export default defineComponent({
             modelName: 'errorMessage',
           },
           {
-            type: 'text',
+            type: 'select',
             propType: 'string',
             modelName: 'slotPrefix',
+            options: prefixSlotOptions.controlsOptions,
           },
           {
-            type: 'text',
+            type: 'select',
             propType: 'string',
             modelName: 'slotSuffix',
+            options: suffixSlotOptions.controlsOptions,
           },
           {
             type: 'text',
@@ -106,8 +127,8 @@ export default defineComponent({
           characterLimit: ref(12),
           value: ref(''),
           valueReadonly: ref('Example value'),
-          slotSuffix: ref('Suffix'),
-          slotPrefix: ref('Prefix'),
+          slotPrefix: ref(prefixSlotOptions.defaultOption),
+          slotSuffix: ref(suffixSlotOptions.defaultOption),
         },
       ),
     };

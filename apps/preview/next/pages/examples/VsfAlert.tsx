@@ -1,14 +1,32 @@
-import { VsfAlert, VsfAlertTypes, VsfAlertVariants } from '@storefront-ui/react/components/VsfAlert/index';
+import {
+  VsfAlert,
+  VsfAlertProps,
+  VsfAlertTypes,
+  VsfAlertVariants,
+} from '@storefront-ui/react/components/VsfAlert/index';
 import { VsfButton, VsfButtonVariants } from '@storefront-ui/react/components/VsfButton/index';
 import { VsfIconChat } from '@storefront-ui/react/components/VsfIcons/index';
+import { createControlsOptions } from '@storefront-ui/preview-shared/utils/controlsOptions';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
 
-const slotContent = ['none', 'custom slot content'] as const;
+const prefixSlotOptions = createControlsOptions({
+  none: undefined,
+  'Custom icon': <VsfIconChat />,
+});
+const suffixSlotOptions = createControlsOptions({
+  none: undefined,
+  'Custom component': <VsfButton variant={VsfButtonVariants.tertiary}>Button</VsfButton>,
+});
+
+interface AlertControls extends Omit<VsfAlertProps, 'slotPrefix' | 'slotSuffix'> {
+  slotPrefix: typeof prefixSlotOptions.defaultOption;
+  slotSuffix: typeof suffixSlotOptions.defaultOption;
+}
 
 function Example() {
-  const { state, controls } = prepareControls(
+  const { state, controls } = prepareControls<AlertControls>(
     [
       {
         type: 'boolean',
@@ -63,15 +81,15 @@ function Example() {
       },
       {
         type: 'select',
+        options: prefixSlotOptions.controlsOptions,
         modelName: 'slotPrefix',
-        options: slotContent,
         propType: 'ReactNode',
         description: 'Content that replaces the default prefix icon.',
       },
       {
         type: 'select',
+        options: suffixSlotOptions.controlsOptions,
         modelName: 'slotSuffix',
-        options: slotContent,
         propType: 'ReactNode',
         description: 'Content that replaces the default suffix close button.',
       },
@@ -84,8 +102,8 @@ function Example() {
       header: 'Header',
       withShadow: undefined,
       hidePrefix: undefined,
-      slotPrefix: slotContent[0],
-      slotSuffix: slotContent[0],
+      slotPrefix: prefixSlotOptions.defaultOption,
+      slotSuffix: suffixSlotOptions.defaultOption,
     },
   );
 
@@ -100,14 +118,8 @@ function Example() {
         header={state.get.header}
         withShadow={state.get.withShadow}
         hidePrefix={state.get.hidePrefix}
-        slotPrefix={state.get.slotPrefix !== 'none' && <VsfIconChat />}
-        slotSuffix={
-          state.get.slotSuffix !== 'none' && (
-            <VsfButton onClick={() => state.set({ ...state.get, open: false })} variant={VsfButtonVariants.tertiary}>
-              Button
-            </VsfButton>
-          )
-        }
+        slotPrefix={prefixSlotOptions.getValue(state.get.slotPrefix)}
+        slotSuffix={suffixSlotOptions.getValue(state.get.slotSuffix)}
       />
     </ComponentExample>
   );

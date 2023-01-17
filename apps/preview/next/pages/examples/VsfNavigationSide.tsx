@@ -1,11 +1,26 @@
-import { VsfNavigationSide } from '@storefront-ui/react/components/VsfNavigationSide';
+import { VsfNavigationSide, VsfNavigationSideProps } from '@storefront-ui/react/components/VsfNavigationSide';
 import { VsfButton } from '@storefront-ui/react/components/VsfButton';
+import { createControlsOptions } from '@storefront-ui/preview-shared/utils/controlsOptions';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
 
+const childrenOptions = createControlsOptions({
+  text: <div className="p-6 border border-dashed">Content</div>,
+  none: undefined,
+});
+const slotBannerOptions = createControlsOptions({
+  text: <div className="p-6 border border-dashed">Banner</div>,
+  none: undefined,
+});
+
+interface NavigationSideControls extends Omit<VsfNavigationSideProps, 'children' | 'slotBanner'> {
+  children: typeof childrenOptions.defaultOption;
+  slotBanner: typeof slotBannerOptions.defaultOption;
+}
+
 function Example() {
-  const { state, controls } = prepareControls(
+  const { state, controls } = prepareControls<NavigationSideControls>(
     [
       {
         type: 'boolean',
@@ -45,16 +60,18 @@ function Example() {
         description: 'Set link for logo in navigation',
       },
       {
-        type: 'text',
-        modelName: 'bannerContent',
-        propType: 'string',
-        description: 'Slot for banner content',
+        type: 'select',
+        modelName: 'children',
+        propType: 'ReactNode',
+        description: `Component's children`,
+        options: childrenOptions.controlsOptions,
       },
       {
-        type: 'text',
-        modelName: 'defaultContent',
-        propType: 'string',
-        description: 'Slot for default content',
+        type: 'select',
+        modelName: 'slotBanner',
+        propType: 'ReactNode',
+        description: 'Slot for banner content',
+        options: slotBannerOptions.controlsOptions,
       },
     ],
     {
@@ -62,8 +79,8 @@ function Example() {
       overlayVisible: false,
       leftSide: true,
       permanent: false,
-      bannerContent: 'I am a slot for banner content',
-      defaultContent: 'I am a slot for accordion content',
+      slotBanner: slotBannerOptions.defaultOption,
+      children: childrenOptions.defaultOption,
       logoAriaLabel: 'Vue Storefront Logo',
       logoLink: '/',
     },
@@ -88,10 +105,10 @@ function Example() {
         permanent={state.get.permanent}
         logoLink={state.get.logoLink}
         logoAriaLabel={state.get.logoAriaLabel}
-        slotBanner={<div className="p-6 border border-dashed">{state.get.bannerContent}</div>}
+        slotBanner={slotBannerOptions.getValue(state.get.slotBanner)}
         onOpenChange={onClose}
       >
-        <div className="p-6 border border-dashed">{state.get.defaultContent}</div>
+        {childrenOptions.getValue(state.get.children)}
       </VsfNavigationSide>
     </ComponentExample>
   );

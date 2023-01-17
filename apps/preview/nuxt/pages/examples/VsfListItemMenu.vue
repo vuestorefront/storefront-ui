@@ -1,22 +1,32 @@
 <template>
   <ComponentExample :controls-attrs="controlsAttrs">
     <VsfListItemMenu class="max-w-sm" v-bind="state" @click="selected = !selected">
-      <template v-if="showprefix" #prefix>
-        <VsfIconCheck :size="VsfIconSizeEnum.sm" />
+      <template v-if="prefixSlotOptions.getValue(slotPrefix)" #prefix>
+        <component :is="prefixSlotOptions.getValue(slotPrefix)" />
       </template>
-      <template v-if="showSuffix" #suffix>
-        <VsfIconCheck :size="VsfIconSizeEnum.sm" />
+      <template v-if="suffixSlotOptions.getValue(slotSuffix)" #suffix>
+        <component :is="suffixSlotOptions.getValue(slotSuffix)" />
       </template>
     </VsfListItemMenu>
   </ComponentExample>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent, ref, h } from 'vue';
 import { VsfListItemMenu, VsfListItemMenuSizes } from '@storefront-ui/vue/components/VsfListItemMenu/index';
 import { VsfIconSizeEnum, VsfIconCheck } from '@storefront-ui/vue/components/VsfIcons/index';
+import { createControlsOptions } from '@storefront-ui/preview-shared/utils/controlsOptions';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
+
+const prefixSlotOptions = createControlsOptions({
+  none: undefined,
+  'Check icon': h(VsfIconCheck, { size: VsfIconSizeEnum.sm }),
+});
+const suffixSlotOptions = createControlsOptions({
+  none: undefined,
+  'Check icon': h(VsfIconCheck, { size: VsfIconSizeEnum.sm }),
+});
 
 export default defineComponent({
   name: 'VsfListItemMenuExample',
@@ -27,6 +37,8 @@ export default defineComponent({
   },
   setup() {
     return {
+      prefixSlotOptions,
+      suffixSlotOptions,
       ...prepareControls(
         [
           {
@@ -54,14 +66,16 @@ export default defineComponent({
             description: 'Set counter value',
           },
           {
-            type: 'boolean',
-            modelName: 'showSuffix',
-            description: 'Show or hide the suffix content',
+            type: 'select',
+            modelName: 'slotPrefix',
+            description: 'Custom component that could be placed before the element.',
+            options: prefixSlotOptions.controlsOptions,
           },
           {
-            type: 'boolean',
-            modelName: 'showprefix',
-            description: 'Show or hide the prefix content',
+            type: 'select',
+            modelName: 'slotSuffix',
+            description: 'Custom component that could be placed after the element.',
+            options: suffixSlotOptions.controlsOptions,
           },
           {
             type: 'select',
@@ -95,8 +109,8 @@ export default defineComponent({
           size: ref<VsfListItemMenuSizes>(VsfListItemMenuSizes.base),
           link: ref(undefined),
           counter: ref(123),
-          showSuffix: ref(false),
-          showprefix: ref(false),
+          slotPrefix: ref(prefixSlotOptions.defaultOption),
+          slotSuffix: ref(suffixSlotOptions.defaultOption),
           secondaryText: ref('Secondary text'),
           disabled: ref(undefined),
           selected: ref(false),

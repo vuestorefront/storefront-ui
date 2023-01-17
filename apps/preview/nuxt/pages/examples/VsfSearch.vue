@@ -1,11 +1,11 @@
 <template>
   <ComponentExample :controls-attrs="controlsAttrs">
     <VsfSearch v-bind="state" v-model="value" @submit.prevent="submitHandler" @reset="resetHandler">
-      <template v-if="slotPrefix" #prefix>
-        <VsfIconSearch></VsfIconSearch>
+      <template v-if="prefixSlotOptions.getValue(slotPrefix)" #prefix>
+        <component :is="prefixSlotOptions.getValue(slotPrefix)" />
       </template>
-      <template v-if="slotSuffix" #suffix>
-        <VsfIconSearch></VsfIconSearch>
+      <template v-if="suffixSlotOptions.getValue(slotSuffix)" #suffix>
+        <component :is="suffixSlotOptions.getValue(slotSuffix)" />
       </template>
       <template v-if="slotSubmit" #submit>
         {{ slotSubmit }}
@@ -31,11 +31,21 @@
 </template>
 
 <script lang="ts">
-import { ref } from 'vue';
+import { ref, h } from 'vue';
 import VsfSearch from '@storefront-ui/vue/components/VsfSearch/VsfSearch.vue';
 import { VsfIconSearch } from '@storefront-ui/vue/components/VsfIcons/index';
+import { createControlsOptions } from '@storefront-ui/preview-shared/utils/controlsOptions';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
+
+const prefixSlotOptions = createControlsOptions({
+  none: undefined,
+  'Search icon': h(VsfIconSearch),
+});
+const suffixSlotOptions = createControlsOptions({
+  none: undefined,
+  'Search icon': h(VsfIconSearch),
+});
 
 export default {
   name: 'VsfSearchExample',
@@ -52,6 +62,8 @@ export default {
       resetHandler(e: Event) {
         console.log('Search Reset: ', e);
       },
+      prefixSlotOptions,
+      suffixSlotOptions,
       ...prepareControls(
         [
           {
@@ -60,16 +72,18 @@ export default {
             modelName: 'disabled',
           },
           {
-            type: 'boolean',
-            propType: '---',
+            type: 'select',
+            propType: 'slot',
             modelName: 'slotPrefix',
             description: "Only for demonstration purposes, Icon is injected via 'prefix' slot",
+            options: prefixSlotOptions.controlsOptions,
           },
           {
-            type: 'boolean',
-            propType: '---',
+            type: 'select',
+            propType: 'slot',
             modelName: 'slotSuffix',
             description: "Only for demonstration purposes, Icon is injected via 'suffix' slot",
+            options: suffixSlotOptions.controlsOptions,
           },
           {
             type: 'text',
@@ -94,8 +108,8 @@ export default {
           value: ref(''),
           name: ref('q'),
           slotSubmit: ref('search'),
-          slotPrefix: ref(false),
-          slotSuffix: ref(false),
+          slotPrefix: ref(prefixSlotOptions.defaultOption),
+          slotSuffix: ref(suffixSlotOptions.defaultOption),
         },
       ),
     };

@@ -2,20 +2,30 @@
   <ComponentExample :controls-attrs="controlsAttrs">
     <VsfButton type="button" @click="modelValue = true">Click to open NavigationSide</VsfButton>
     <VsfNavigationSide v-bind="state" v-model="modelValue">
-      <div class="border border-dashed p-6">{{ defaultContent }}</div>
-      <template #banner>
-        <div class="border border-dashed p-6">{{ bannerContent }}</div>
+      <component :is="childrenOptions.getValue(defaultContent)" />
+      <template v-if="slotBannerOptions.getValue(bannerContent)" #banner>
+        <component :is="slotBannerOptions.getValue(bannerContent)" />
       </template>
     </VsfNavigationSide>
   </ComponentExample>
 </template>
 
 <script lang="ts">
-import { ref } from 'vue';
+import { ref, h } from 'vue';
 import VsfNavigationSide from '@storefront-ui/vue/components/VsfNavigationSide/VsfNavigationSide.vue';
 import VsfButton from '@storefront-ui/vue/components/VsfButton/VsfButton.vue';
+import { createControlsOptions } from '@storefront-ui/preview-shared/utils/controlsOptions';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
+
+const childrenOptions = createControlsOptions({
+  text: h('div', { class: 'p-6 border border-dashed' }, 'Content'),
+  none: undefined,
+});
+const slotBannerOptions = createControlsOptions({
+  text: h('div', { class: 'p-6 border border-dashed' }, 'Banner'),
+  none: undefined,
+});
 
 export default {
   name: 'VsfNavigationSideExample',
@@ -26,6 +36,8 @@ export default {
   },
   setup() {
     return {
+      childrenOptions,
+      slotBannerOptions,
       ...prepareControls(
         [
           {
@@ -60,16 +72,18 @@ export default {
             description: 'Set link for logo in navigation',
           },
           {
-            type: 'text',
-            modelName: 'bannerContent',
-            propType: 'string',
-            description: 'Slot for banner content',
+            type: 'select',
+            modelName: 'defaultContent',
+            propType: 'slot',
+            description: 'Slot for default content',
+            options: childrenOptions.controlsOptions,
           },
           {
-            type: 'text',
-            modelName: 'defaultContent',
-            propType: 'string',
-            description: 'Slot for default content',
+            type: 'select',
+            modelName: 'bannerContent',
+            propType: 'slot',
+            description: 'Slot for banner content',
+            options: slotBannerOptions.controlsOptions,
           },
           {
             type: 'boolean',
@@ -83,8 +97,8 @@ export default {
           overlayVisible: ref(false),
           leftSide: ref(true),
           permanent: ref(false),
-          bannerContent: ref('I am a slot for banner content'),
-          defaultContent: ref('I am a slot for accordion content'),
+          bannerContent: ref(slotBannerOptions.defaultOption),
+          defaultContent: ref(childrenOptions.defaultOption),
           logoAriaLabel: ref('Vue Storefront Logo'),
           logoLink: ref('/'),
           modelValue: ref(false),
