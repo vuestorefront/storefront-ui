@@ -1,19 +1,16 @@
 export enum VsfSliderScrollbar {
+  hidden = 'hidden',
   always = 'always',
   auto = 'auto',
 }
 
 export enum VsfSliderNavigation {
+  none = 'none',
   block = 'block',
   floating = 'floating',
 }
 
-export type VsfSliderProps = {
-  scrollbar?: VsfSliderScrollbar;
-  navigation?: VsfSliderNavigation;
-  showMobileNavigation?: boolean;
-  scrollSnap?: boolean;
-  draggable?: {
-    sensitivity: number;
-  };
-};
+export enum VsfSliderDirection {
+  horizontal = 'horizontal',
+  vertical = 'vertical',
+}

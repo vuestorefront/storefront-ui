@@ -7,7 +7,7 @@
     "hoistingLimits": "workspaces"
   },
   "scripts": {
-    "dev:docs": "VITE_DOCS_EXAMPLES_REACT=http://localhost:3002 VITE_DOCS_EXAMPLES_VUE=http://localhost:3001 && concurrently \"vuepress dev\" \"yarn watch-docs\"",
+    "dev:docs": "yarn update-docs && VITE_DOCS_EXAMPLES_REACT=http://localhost:3002 VITE_DOCS_EXAMPLES_VUE=http://localhost:3001 && concurrently \"vuepress dev\" \"yarn watch-docs\"",
     "build": "yarn update-docs && VITE_DOCS_BASEPATH=/v2/ VITE_DOCS_EXAMPLES_REACT=https://docs.storefrontui.io/v2-react VITE_DOCS_EXAMPLES_VUE=https://docs.storefrontui.io/v2-vue && vuepress build",
     "watch-docs": "nodemon",
     "serve": "vuepress serve",

@@ -1,69 +1,76 @@
 <script lang="ts" setup>
 import type { PropType } from 'vue';
-import { ref, toRef, defineAsyncComponent } from 'vue';
-import { Options } from '@storefront-ui/shared';
-import { VsfSliderNavigation, VsfSliderScrollbar } from './types';
+import { ref, toRefs, defineAsyncComponent, computed } from 'vue';
+import { isReduceMotionEnabled } from '@storefront-ui/shared';
+import { VsfSliderNavigation, VsfSliderScrollbar, VsfSliderDirection } from './types';
 import { VsfButtonVariants, VsfButtonSizes } from '../VsfButton';
 import { useSlider } from './slider';
 const VsfButton = defineAsyncComponent(() => import('../VsfButton/VsfButton.vue'));
 const VsfIconChevronLeft = defineAsyncComponent(() => import('../VsfIcons/VsfIconChevronLeft.vue'));
 const VsfIconChevronRight = defineAsyncComponent(() => import('../VsfIcons/VsfIconChevronRight.vue'));
+const VsfIconChevronUp = defineAsyncComponent(() => import('../VsfIcons/VsfIconChevronUp.vue'));
+const VsfIconChevronDown = defineAsyncComponent(() => import('../VsfIcons/VsfIconChevronDown.vue'));
 
 const props = defineProps({
   scrollbar: {
     type: String as PropType<VsfSliderScrollbar>,
-    default: null,
+    default: VsfSliderScrollbar.hidden,
   },
   navigation: {
     type: String as PropType<VsfSliderNavigation>,
-    default: null,
+    default: VsfSliderNavigation.block,
+  },
+  direction: {
+    type: String as PropType<VsfSliderDirection>,
+    default: VsfSliderDirection.horizontal,
   },
   scrollSnap: {
     type: Boolean,
     default: false,
   },
   draggable: {
-    type: Object as PropType<{ sensitivity: number }>,
-    default: null,
+    type: Object as PropType<
+      | {
+          sensitivity: number;
+        }
+      | undefined
+    >,
+    default: undefined,
   },
 });
+const { draggable, direction } = toRefs(props);
+const hasPrev = ref();
+const hasNext = ref();
 
-const hasPrev = ref(false);
-const hasNext = ref(false);
-const draggable = toRef(props, 'draggable');
-
-const options = ref<Partial<Options>>({
-  reduceMotion: typeof window !== 'undefined' && window?.matchMedia('(prefers-reduced-motion: reduce)').matches,
-  drag: draggable.value,
-  onScroll: ({ hasPrev: prev, hasNext: next }) => {
-    hasPrev.value = prev;
-    hasNext.value = next;
-  },
-});
-
-const [container, slider] = useSlider(options);
-
-function onClickPrev() {
-  return slider.value?.prev();
-}
-function onClickNext() {
-  return slider.value?.next();
-}
-// TODO: showMobileNavigation does not exists
+const isHorizontal = computed(() => direction.value === VsfSliderDirection.horizontal);
+const [container, slider] = useSlider(
+  computed(() => ({
+    reduceMotion: isReduceMotionEnabled,
+    drag: draggable?.value,
+    vertical: !isHorizontal.value,
+    onScroll: ({ hasPrev: prev, hasNext: next }) => {
+      hasPrev.value = prev;
+      hasNext.value = next;
+    },
+  })),
+);
+const onClickPrev = () => slider.value?.prev();
+const onClickNext = () => slider.value?.next();
 </script>
 
 <template>
   <div
     :class="[
       'vsf-slider',
+      `vsf-slider--${direction}`,
       {
         'vsf-slider--floating-nav': navigation === VsfSliderNavigation.floating,
         'vsf-slider--snap-scroll': scrollSnap,
       },
     ]"
   >
-    <div v-if="navigation" class="vsf-slider__nav vsf-slider__nav-prev">
-      <slot name="prev-arrow" v-bind="{ onClick: onClickPrev, hasPrev }">
+    <div v-if="navigation !== VsfSliderNavigation.none" class="vsf-slider__nav vsf-slider__nav-prev">
+      <slot name="prev-button" v-bind="{ onClick: onClickPrev, hasPrev }">
         <VsfButton
           :variant="VsfButtonVariants.secondary"
           :size="VsfButtonSizes.lg"
@@ -72,26 +79,24 @@ function onClickNext() {
           :disabled="!hasPrev"
           @click="onClickPrev"
         >
-          <template #prefix><VsfIconChevronLeft /></template>
+          <template #prefix>
+            <VsfIconChevronLeft v-if="isHorizontal" />
+            <VsfIconChevronUp v-else />
+          </template>
         </VsfButton>
       </slot>
     </div>
-
     <div
       ref="container"
       :class="[
         'vsf-slider__container',
-        {
-          'scrollbar-hidden': !scrollbar,
-          'vsf-slider__container--scroll': scrollbar === VsfSliderScrollbar.always,
-        },
+        scrollbar !== VsfSliderScrollbar.hidden && `vsf-slider__container--scroll-${scrollbar}`,
       ]"
     >
-      <slot></slot>
+      <slot />
     </div>
-
-    <div v-if="navigation" class="vsf-slider__nav vsf-slider__nav-next">
-      <slot name="next-arrow" v-bind="{ onClick: onClickNext, hasNext }">
+    <div v-if="navigation !== VsfSliderNavigation.none" class="vsf-slider__nav vsf-slider__nav-next">
+      <slot name="next-button" v-bind="{ onClick: onClickNext, hasNext }">
         <VsfButton
           :variant="VsfButtonVariants.secondary"
           :size="VsfButtonSizes.lg"
@@ -100,7 +105,10 @@ function onClickNext() {
           :disabled="!hasNext"
           @click="onClickNext"
         >
-          <template #prefix><VsfIconChevronRight /></template>
+          <template #prefix>
+            <VsfIconChevronRight v-if="isHorizontal" />
+            <VsfIconChevronDown v-else />
+          </template>
         </VsfButton>
       </slot>
     </div>

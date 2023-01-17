@@ -1,5 +1,11 @@
 import { useState, useEffect } from 'react';
-import { VsfSlider, VsfSliderNavigation, VsfSliderScrollbar } from '@storefront-ui/react/components/VsfSlider';
+import {
+  VsfSlider,
+  VsfSliderNavigation,
+  VsfSliderScrollbar,
+  VsfSliderDirection,
+} from '@storefront-ui/react/components/VsfSlider';
+import classNames from 'classnames';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
@@ -32,15 +38,25 @@ function Example() {
         type: 'select',
         modelName: 'navigation',
         propType: 'VsfSliderNavigation',
-        options: ['', ...Object.keys(VsfSliderNavigation)],
+        propDefaultValue: 'block',
+        options: Object.keys(VsfSliderNavigation),
       },
       {
         type: 'select',
         modelName: 'scrollbar',
         propType: 'VsfSliderScrollbar',
-        options: ['', ...Object.keys(VsfSliderScrollbar)],
+        propDefaultValue: 'hidden',
+        options: Object.keys(VsfSliderScrollbar),
         description:
-          "`auto` hides scrollbar when content don't overflow container, `always` forces container to show scrollbar",
+          "`none` hide, `auto` hides scrollbar when content don't overflow container, `always` forces container to show scrollbar",
+      },
+      {
+        type: 'select',
+        modelName: 'direction',
+        propType: 'VsfSliderDirection',
+        propDefaultValue: 'horizontal',
+        options: Object.keys(VsfSliderDirection),
+        description: 'Determines whether slider should be displayed vertically or horizontally',
       },
       {
         type: 'boolean',
@@ -51,7 +67,7 @@ function Example() {
       {
         type: 'boolean',
         modelName: 'draggable',
-        propType: 'object',
+        propType: 'object | undefined',
         description: 'Enable mouse drag on container',
       },
       {
@@ -62,10 +78,11 @@ function Example() {
       },
     ],
     {
-      navigation: undefined,
-      scrollbar: undefined,
-      scrollSnap: false,
-      draggable: false,
+      navigation: VsfSliderNavigation.block,
+      direction: VsfSliderDirection.horizontal,
+      scrollbar: VsfSliderScrollbar.hidden,
+      scrollSnap: undefined,
+      draggable: undefined,
       ExampleCustomNav: false,
     },
   );
@@ -81,16 +98,11 @@ function Example() {
         key={componentKey}
         navigation={state.get.navigation}
         scrollbar={state.get.scrollbar}
+        direction={state.get.direction}
         scrollSnap={state.get.scrollSnap}
-        draggable={
-          state.get.draggable
-            ? {
-                sensitivity: 3,
-              }
-            : undefined
-        }
-        slotPrevArrow={state.get.ExampleCustomNav ? NavigationPrev : undefined}
-        slotNextArrow={state.get.ExampleCustomNav ? NavigationNext : undefined}
+        draggable={state.get.draggable ? { sensitivity: 3 } : undefined}
+        slotPrevButton={state.get.ExampleCustomNav ? NavigationPrev : undefined}
+        slotNextButton={state.get.ExampleCustomNav ? NavigationNext : undefined}
       >
         {Array.from(Array(4).keys()).map((item) => (
           <div key={item} data-index={item + 1}>
@@ -99,7 +111,17 @@ function Example() {
         ))}
         {Array.from(Array(4).keys()).map((item) => (
           <div key={item} data-index={item + 5}>
-            <div className="bg-gray-300 w-[200px] h-[150px] flex justify-center items-center">{item + 5}</div>
+            <div
+              className={classNames(
+                'bg-gray-300',
+                state.get.direction === VsfSliderDirection.horizontal ? 'w-[200px]' : 'w-[150px]',
+                state.get.direction === VsfSliderDirection.horizontal ? 'h-[150px]' : 'h-[200px]',
+                'flex justify-center',
+                'items-center',
+              )}
+            >
+              {item + 5}
+            </div>
           </div>
         ))}
         {Array.from(Array(4).keys()).map((item) => (

@@ -32,3 +32,4 @@ export function equal(v1: any, v2: any): boolean {
 }
 
 export * from './generateId';
+export * from './browser';

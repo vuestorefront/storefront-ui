@@ -12,6 +12,9 @@
       ]
     },
     "lint": {
+      "dependsOn": [
+        "^build:shared"
+      ],
       "outputs": []
     },
     "lint:fix": {
