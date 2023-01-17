@@ -85,7 +85,9 @@ const VsfSlider = forwardRef<HTMLDivElement, VsfSliderProps>(
         )}
         {...attributes}
       >
-        {navigation && <div className="vsf-slider__nav vsf-slider__nav-prev">{prevNavigation}</div>}
+        {navigation !== VsfSliderNavigation.none && (
+          <div className="vsf-slider__nav vsf-slider__nav-prev">{prevNavigation}</div>
+        )}
 
         <div
           ref={containerRef}
@@ -97,7 +99,9 @@ const VsfSlider = forwardRef<HTMLDivElement, VsfSliderProps>(
           {children}
         </div>
 
-        {navigation && <div className="vsf-slider__nav vsf-slider__nav-next">{nextNavigation}</div>}
+        {navigation !== VsfSliderNavigation.none && (
+          <div className="vsf-slider__nav vsf-slider__nav-next">{nextNavigation}</div>
+        )}
       </div>
     );
   },
