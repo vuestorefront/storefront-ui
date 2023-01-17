@@ -1,24 +1,37 @@
 import { useState, forwardRef } from 'react';
 import classNames from 'classnames';
+import { isReduceMotionEnabled } from '@storefront-ui/shared';
 import VsfButton from '../VsfButton/VsfButton';
-import VsfIconChevronLeft from '../VsfIcons/VsfIconChevronLeft';
-import VsfIconChevronRight from '../VsfIcons/VsfIconChevronRight';
+import { VsfIconChevronLeft, VsfIconChevronDown, VsfIconChevronRight, VsfIconChevronUp } from '../VsfIcons';
 import type { VsfSliderProps } from './types';
-import { VsfSliderNavigation, VsfSliderScrollbar } from './types';
+import { VsfSliderNavigation, VsfSliderScrollbar, VsfSliderDirection } from './types';
 import { useSlider } from './slider';
 import { VsfButtonVariants, VsfButtonSizes } from '../VsfButton';
 
 const VsfSlider = forwardRef<HTMLDivElement, VsfSliderProps>(
   (
-    { navigation, scrollbar, scrollSnap, draggable, className, children, slotNextArrow, slotPrevArrow, ...attributes },
+    {
+      navigation = VsfSliderNavigation.block,
+      scrollbar = VsfSliderScrollbar.hidden,
+      direction = VsfSliderDirection.horizontal,
+      scrollSnap,
+      draggable,
+      className,
+      children,
+      slotNextButton,
+      slotPrevButton,
+      ...attributes
+    },
     ref,
   ) => {
     const [hasPrev, setHasPrev] = useState<boolean>(true);
     const [hasNext, setHasNext] = useState<boolean>(true);
 
+    const isHorizontal = direction === VsfSliderDirection.horizontal;
     const [containerRef, slider] = useSlider<HTMLDivElement>({
-      reduceMotion: typeof window !== 'undefined' && window?.matchMedia('(prefers-reduced-motion: reduce)').matches,
+      reduceMotion: isReduceMotionEnabled,
       drag: draggable,
+      vertical: !isHorizontal,
       onScroll: ({ hasPrev: prev, hasNext: next }) => {
         setHasPrev(prev);
         setHasNext(next);
@@ -39,7 +52,7 @@ const VsfSlider = forwardRef<HTMLDivElement, VsfSliderProps>(
         className={classNames('vsf-slider__nav-arrow', { 'vsf-slider__nav-arrow--hidden': !hasPrev })}
         onClick={onClickPrev}
         disabled={!hasPrev}
-        slotPrefix={<VsfIconChevronLeft />}
+        slotPrefix={isHorizontal ? <VsfIconChevronLeft /> : <VsfIconChevronUp />}
       />
     );
     const nextButtonDefault = (
@@ -50,19 +63,20 @@ const VsfSlider = forwardRef<HTMLDivElement, VsfSliderProps>(
         className={classNames('vsf-slider__nav-arrow', { 'vsf-slider__nav-arrow--hidden': !hasNext })}
         onClick={onClickNext}
         disabled={!hasNext}
-        slotPrefix={<VsfIconChevronRight />}
+        slotPrefix={isHorizontal ? <VsfIconChevronRight /> : <VsfIconChevronDown />}
       />
     );
     const prevNavigation =
-      typeof slotPrevArrow === 'function' ? slotPrevArrow({ onClick: onClickPrev, hasPrev }) : prevButtonDefault;
+      typeof slotPrevButton === 'function' ? slotPrevButton({ onClick: onClickPrev, hasPrev }) : prevButtonDefault;
     const nextNavigation =
-      typeof slotNextArrow === 'function' ? slotNextArrow({ onClick: onClickNext, hasNext }) : nextButtonDefault;
+      typeof slotNextButton === 'function' ? slotNextButton({ onClick: onClickNext, hasNext }) : nextButtonDefault;
 
     return (
       <div
         ref={ref}
         className={classNames(
           'vsf-slider',
+          `vsf-slider--${direction}`,
           {
             'vsf-slider--floating-nav': navigation === VsfSliderNavigation.floating,
             'vsf-slider--snap-scroll': scrollSnap,
@@ -75,13 +89,10 @@ const VsfSlider = forwardRef<HTMLDivElement, VsfSliderProps>(
 
         <div
           ref={containerRef}
-          className={classNames([
+          className={classNames(
             'vsf-slider__container',
-            {
-              'scrollbar-hidden': !scrollbar,
-              'vsf-slider__container--scroll': scrollbar === VsfSliderScrollbar.always,
-            },
-          ])}
+            scrollbar !== VsfSliderScrollbar.hidden && `vsf-slider__container--scroll-${scrollbar}`,
+          )}
         >
           {children}
         </div>

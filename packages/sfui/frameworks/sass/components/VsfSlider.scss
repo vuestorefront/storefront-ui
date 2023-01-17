@@ -1,81 +1,155 @@
-.scrollbar-hidden {
-  -ms-overflow-style: none; /* for Internet Explorer, Edge */
-  scrollbar-width: none; /* for Firefox */
 
-  /* overflow-y: scroll; */
-}
-
-.scrollbar-hidden::-webkit-scrollbar {
-  display: none; /* for Chrome, Safari, and Opera */
-}
 
 .vsf-slider {
-  $root: &;
-  @apply relative w-full flex items-center;
+  $self: &;
+
+  @apply relative flex;
+
+  &--horizontal {
+    @apply w-full items-center;
+
+    #{$self}__container {
+      @apply overflow-x-auto;
+
+      &--scroll-always {
+        @apply overflow-x-scroll;
+      }
+
+      &--scroll-always,
+      &--scroll-auto {
+        @apply pb-4;
+      }
+    }
+
+    #{$self}__nav {
+      @apply inline-flex;
+
+      &-prev {
+        @apply mr-4;
+      }
+
+      &-next {
+        @apply ml-4;
+      }
+    }
+
+    &#{$self}--floating-nav {
+      #{$self}__nav {
+        @apply top-1/2 -translate-y-1/2;
+
+        &-prev {
+          @apply left-4;
+        }
+
+        &-next {
+          @apply right-4;
+        }
+      }
+    }
+
+    &#{$self}--snap-scroll {
+      #{$self}__container {
+        @apply snap-x;
+      }
+    }
+  }
+
+  &--vertical {
+    @apply h-full flex-col inline-flex;
+
+    #{$self}__container {
+      @apply flex-col h-full overflow-y-auto inline-flex;
+
+      &--scroll-always {
+        @apply overflow-y-scroll;
+      }
+
+      &--scroll-always,
+      &--scroll-auto {
+        @apply pr-4;
+      }
+    }
+
+    #{$self}__nav {
+      @apply inline-flex justify-center;
+
+      &-prev {
+        @apply mb-4;
+      }
+
+      &-next {
+        @apply mt-4;
+      }
+    }
+
+    &#{$self}--floating-nav {
+      #{$self}__nav {
+        @apply left-1/2 -translate-x-1/2;
+
+        &-prev {
+          @apply top-4;
+        }
+
+        &-next {
+          @apply bottom-4;
+        }
+      }
+    }
+
+    &#{$self}--snap-scroll {
+      #{$self}__container {
+        @apply snap-y;
+      }
+    }
+  }
 
   &__container {
-    @apply scroll-smooth flex gap-4 h-full overflow-x-auto scroll-p-7 pb-4;
-    @media (prefers-reduced-motion: reduce) {
-      scroll-behavior: auto !important;
+    $self-container: &;
+
+    @apply flex gap-4;
+
+    @media (prefers-reduced-motion: no-preference) {
+      @apply scroll-smooth;
     }
 
     &--dragging {
       @apply cursor-grab;
     }
 
-    &--scroll {
-      @apply overflow-x-scroll;
-    }
+    &:not(#{$self-container}--scroll-always, #{$self-container}--scroll-auto) {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
 
-    > * {
-      @apply relative w-full h-full min-h-[60px] flex items-center; // FF is not able to smooth-scrolling (css or with scrollIntoView()) on shorter elements
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
   }
 
   &__nav {
-    @apply md:block hidden pointer-events-none;
-
-    > * {
-      @apply pointer-events-auto;
-    }
+    @apply md:inline-block hidden;
 
     &-arrow {
       @apply transition-opacity bg-white;
     }
-
-    &-prev {
-      @apply mr-4;
-    }
-
-    &-next {
-      @apply ml-4;
-    }
-  }
-
-  &--snap-scroll {
-    #{$root}__container {
-      @apply snap-x snap-mandatory;
-
-      > * {
-        @apply snap-start last:snap-end;
-      }
-    }
   }
 
   &--floating-nav {
-    #{$root}__nav {
-      @apply absolute top-1/2 z-10 -translate-y-1/2;
+    #{$self}__nav {
+      @apply absolute z-10;
 
       &-arrow--hidden {
         @apply opacity-0 pointer-events-none;
       }
+    }
+  }
 
-      &-prev {
-        @apply left-4;
-      }
+  &--snap-scroll {
+    #{$self}__container {
+      @apply snap-mandatory;
 
-      &-next {
-        @apply right-4;
+      > * {
+        @apply snap-center;
       }
     }
   }

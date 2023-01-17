@@ -1,21 +1,21 @@
 <template>
   <ComponentExample :controls-attrs="controlsAttrs">
-    <VsfSlider
-      v-bind="state"
-      :key="componentKey"
-      :draggable="
-        draggable
-          ? {
-              sensitivity: 3,
-            }
-          : undefined
-      "
-    >
+    <VsfSlider v-bind="state" :draggable="draggable ? { sensitivity: 3 } : undefined">
       <div v-for="item in 4" :key="item">
         <div class="bg-gray-300 w-[150px] h-[150px] flex justify-center items-center">{{ item }}</div>
       </div>
       <div v-for="item in 4" :key="item">
-        <div class="bg-gray-300 w-[200px] h-[150px] flex justify-center items-center">{{ item + 4 }}</div>
+        <div
+          :class="[
+            'bg-gray-300',
+            direction === VsfSliderDirection.horizontal ? 'w-[200px]' : 'w-[150px]',
+            direction === VsfSliderDirection.horizontal ? 'h-[150px]' : 'h-[200px]',
+            'flex justify-center',
+            'items-center',
+          ]"
+        >
+          {{ item + 4 }}
+        </div>
       </div>
       <div v-for="item in 4" :key="item">
         <div class="bg-gray-300 w-[150px] h-[150px] flex justify-center items-center">{{ item + 8 }}</div>
@@ -35,8 +35,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, watch } from 'vue';
-import { VsfSlider, VsfSliderNavigation, VsfSliderScrollbar } from '@storefront-ui/vue/components/VsfSlider/index';
+import { defineComponent, ref } from 'vue';
+import {
+  VsfSlider,
+  VsfSliderDirection,
+  VsfSliderNavigation,
+  VsfSliderScrollbar,
+} from '@storefront-ui/vue/components/VsfSlider/index';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
 
@@ -47,28 +52,33 @@ export default defineComponent({
     ComponentExample,
   },
   setup() {
-    const draggable = ref(false);
-    const componentKey = ref(0);
-    watch(draggable, () => {
-      // rerender component - 'draggable' prop is not reactive, as it should be declared only once per component
-      componentKey.value = componentKey.value + 1;
-    });
     return {
+      VsfSliderDirection,
       ...prepareControls(
         [
           {
             type: 'select',
             modelName: 'navigation',
             propType: 'VsfSliderNavigation',
-            options: ['', ...Object.keys(VsfSliderNavigation)],
+            propDefaultValue: 'block',
+            options: Object.keys(VsfSliderNavigation),
           },
           {
             type: 'select',
             modelName: 'scrollbar',
             propType: 'VsfSliderScrollbar',
-            options: ['', ...Object.keys(VsfSliderScrollbar)],
+            propDefaultValue: 'hidden',
+            options: Object.keys(VsfSliderScrollbar),
             description:
-              "`auto` hides scrollbar when content don't overflow container, `always` forces container to show scrollbar",
+              "`none` hide, `auto` hides scrollbar when content don't overflow container, `always` forces container to show scrollbar",
+          },
+          {
+            type: 'select',
+            modelName: 'direction',
+            propType: 'VsfSliderDirection',
+            propDefaultValue: 'horizontal',
+            options: Object.keys(VsfSliderDirection),
+            description: 'Determines whether slider should be displayed vertically or horizontally',
           },
           {
             type: 'boolean',
@@ -79,7 +89,7 @@ export default defineComponent({
           {
             type: 'boolean',
             modelName: 'draggable',
-            propType: 'object',
+            propType: 'object | undefined',
             description: 'Enable mouse drag on container',
           },
           {
@@ -90,12 +100,12 @@ export default defineComponent({
           },
         ],
         {
-          navigation: ref(undefined),
-          scrollbar: ref(undefined),
-          scrollSnap: ref(false),
-          draggable,
-          componentKey,
-          ExampleCustomNav: ref(false),
+          navigation: ref(VsfSliderNavigation.block),
+          direction: ref(VsfSliderDirection.horizontal),
+          scrollbar: ref(VsfSliderScrollbar.hidden),
+          scrollSnap: ref(),
+          draggable: ref(),
+          ExampleCustomNav: ref(),
         },
       ),
     };

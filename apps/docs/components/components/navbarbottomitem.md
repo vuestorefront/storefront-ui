@@ -7,6 +7,7 @@ hideBreadcrumbs: true
 The Navbar bottom component is used as navigation on mobile devices. Usually has links to the most common places on a website like homepage. Used in [Navbar Bottom](navbarbottom.html) component.
 
 NOTE: When prop `link` provided will use internally [link](link.html) component.
+
 ## Props
 
 | Prop name | Type      | Default value | Possible values |

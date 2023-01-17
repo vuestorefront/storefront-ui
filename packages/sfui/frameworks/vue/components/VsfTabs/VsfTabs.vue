@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { provide, defineEmits, ref, watch } from 'vue';
+import { provide, ref, watch } from 'vue';
 import type { PropType } from 'vue';
 import { useWindowSize, useElementSize } from '@vueuse/core';
 import VsfSlider from '../VsfSlider/VsfSlider.vue';

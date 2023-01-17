@@ -8,39 +8,37 @@ Slider is a scrollable list with pseudo-pagination.
 
 <Generate />
 
-## Figma design
-
-See the design on [Figma](https://www.figma.com/file/Cx2jw34waZltkapwq7j7aT/SFUI-2-%7C-Design-Kit-(early-alpha)?node-id=13996%3A24099&t=LIzxPt9OJb9F1mXf-1)
-
 ## Props
 
-| Prop name  | Type                  | Default value | Possible values     |
-| ---------- | --------------------- | ------------- | ------------------- |
-| scrollbar  | `VsfSliderScrollbar`  | `null`        | `always`, `auto`    |
-| navigation | `VsfSliderNavigation` | `null`        | `block`, `floating` |
-| scrollSnap | `Boolean`             | `false`       |                     |
-| draggable  | `Object`              | `null`        |                     |
-
-### React only:
-
-| Prop name     | Type        | Default value | Possible values |
-| ------------- | ----------- | ------------- | --------------- |
+| Prop name | Type      | Default value | Possible values |
+| --------- | --------- | ------------- | --------------- |
+| scrollbar  | `VsfSliderScrollbar`  | `hidden`        | `always`, `auto`, `hidden`    |
+| navigation | `VsfSliderNavigation` | `block`        | `block`, `floating`, `none` |
+| direction | `VsfSliderDirection` | `horizontal`        | `horizontal`, `vertical` |
+| scrollSnap | `boolean`             | `false`       |                     |
+| draggable | `object | undefined`   | `undefined`       |                     |
+<!-- react -->
 | children      | `ReactNode` |               |                 |
-| className     | `String`    |               |                 |
-| slotPrevArrow | `Function`  |               |                 |
-| slotNextArrow | `Function`  |               |                 |
+| className     | `string`    |               |                 |
+| slotPrevButton | `Function`  |               |                 |
+| slotNextButton | `Function`  |               |                 |
+<!-- end react -->
 
+<!-- vue -->
 ## Slots
 
-### Vue only:
-
-| Slot name  |      Description       |
-| ---------- | :--------------------: |
+| Slot name | Description       |
+| --------- | ----------------- |
 | default    |    default content     |
-| prev-arrow | prev arrow scoped slot |
-| next-arrow | next arrow scoped slot |
+| prev-button | scoped slot content for previous button |
+| next-button | scoped slot content for next button |
+<!-- end vue -->
 
 ## Source code
 
+<!-- vue -->
 <<<../../../packages/sfui/frameworks/vue/components/VsfSlider/VsfSlider.vue
+<!-- end vue -->
+<!-- react -->
 <<< ../../../packages/sfui/frameworks/react/components/VsfSlider/VsfSlider.tsx
+<!-- end react -->

@@ -1,131 +1,83 @@
-/* eslint-disable no-plusplus */
-/* eslint-disable @typescript-eslint/lines-between-class-members */
+import type { VsfSliderOptions, VsfSliderCallbackData } from './types';
 
-import type { Options, VSFSliderData } from './types';
-
-const defaultOptions: Options = {
-  reduceMotion: false, // https://web.dev/prefers-reduced-motion/
+const defaultVsfSliderOptions: VsfSliderOptions = {
+  reduceMotion: false,
   snap: false,
   drag: undefined,
+  vertical: false,
 };
 
 const DRAGGING_CLASS = 'vsf-slider__container--dragging';
 
 export default class VSFSlider {
   private container: HTMLElement;
-  private options: Options;
-  private delta: number; // rounding
+  private options: VsfSliderOptions;
   private debounceId?: ReturnType<typeof setTimeout>;
-  private pagewidth: number;
-
-  // mouse drag
-  private dragDown?: boolean;
+  private isDragged?: boolean;
   private dragScrollX: number;
   private dragScrollLeft: number;
+  private dragScrollY: number;
+  private dragScrollTop: number;
 
-  constructor(container: Element, options?: Partial<Options>) {
+  private scrollListenerInstance: () => void;
+  private mouseDownListenerInstance: () => void;
+  private mouseUpListenerInstance: () => void;
+  private mouseMoveListenerInstance: () => void;
+  private mouseLeaveListenerInstance: () => void;
+
+  constructor(container: Element, VsfSliderOptions?: Partial<VsfSliderOptions>) {
     if (!(container instanceof HTMLElement))
       throw new Error(`VSFSlider: Container is not a HTMLElement! Received: ${container}`);
     this.container = container;
-    this.options = { ...defaultOptions, ...options };
-    this.delta = 2.5;
-    this.pagewidth = 1;
+    this.options = { ...defaultVsfSliderOptions, ...VsfSliderOptions };
     this.dragScrollX = 0;
     this.dragScrollLeft = 0;
+    this.dragScrollY = 0;
+    this.dragScrollTop = 0;
     this.init();
   }
 
-  /**
-   * Initialize event listeners
-   *
-   * @return void
-   */
   public init() {
     this.addListeners();
     this.onScrollHandler();
   }
 
-  /**
-   * Destroys event listeners
-   * @param {Partial<Options>} options slider options
-   *
-   * @return void
-   */
-  public update(options?: Partial<Options>) {
+  public update(VsfSliderOptions?: Partial<VsfSliderOptions>) {
+    this.options = { ...defaultVsfSliderOptions, ...VsfSliderOptions };
     this.removeListeners();
-    this.options = { ...defaultOptions, ...options };
     this.init();
   }
 
-  /**
-   * Destroys event listeners
-   *
-   * @return void
-   */
   public destroy() {
     this.removeListeners();
   }
-  /**
-   * Scroll to previous page
-   *
-   * @return void
-   */
+
   public prev(): void {
-    const { container, delta } = this;
-    const gap = this.offset();
-    const { left } = container.getBoundingClientRect();
-    const x = left + container.clientWidth * -this.pagewidth + gap - delta;
-    const element = this.findPrevSlot(x);
-    if (element) {
-      const width = element.getBoundingClientRect().left - left;
-      this.scrollToLeft(container.scrollLeft + width);
-      return;
-    }
-    const width = container.clientWidth * this.pagewidth;
-    this.scrollToLeft(container.scrollLeft - width);
+    const { container, options } = this;
+    if (options.vertical) this.scrollTo({ top: container.scrollTop - container.clientHeight });
+    else this.scrollTo({ left: container.scrollLeft - container.clientWidth });
   }
-  /**
-   * Scroll to next page
-   *
-   * @return void
-   */
+
   public next(): void {
-    const { container, delta } = this;
-    const { left } = container.getBoundingClientRect();
-    const x = left + container.clientWidth * this.pagewidth + delta;
-    const element = this.findNextSlot(x);
-    if (element) {
-      const width = element.getBoundingClientRect().left - left;
-      if (width > delta) {
-        this.scrollToLeft(container.scrollLeft + width);
-        return;
-      }
-    }
-    const width = container.clientWidth * this.pagewidth;
-    this.scrollToLeft(container.scrollLeft + width);
+    const { container, options } = this;
+    if (options.vertical) this.scrollTo({ top: container.scrollTop + container.clientHeight });
+    else this.scrollTo({ left: container.scrollLeft + container.clientWidth });
   }
-  /**
-   * Scroll to element index
-   * @param {number} index scroll item index
-   *
-   * @return void
-   */
+
   public scrollToIndex(index: number): void {
     const children = this.children();
     if (children[index]) {
       const { container } = this;
       const rect = children[index].getBoundingClientRect();
       const left = rect.left - container.getBoundingClientRect().left;
-      this.scrollToLeft(container.scrollLeft + left);
+      const top = rect.top - container.getBoundingClientRect().top;
+
+      if (this.options.vertical) this.scrollTo({ top: container.scrollTop + top });
+      else this.scrollTo({ left: container.scrollLeft + left });
     }
   }
-  /**
-   * Recalculates scroll metrics
-   *
-   * @return void
-   * */
-  // eslint-disable-next-line @typescript-eslint/lines-between-class-members
-  public refresh(callback?: (data: VSFSliderData) => void) {
+
+  public refresh(callback?: (data: VsfSliderCallbackData) => void) {
     requestAnimationFrame(() => {
       const data = this.calculate();
       callback?.(data);
@@ -133,55 +85,75 @@ export default class VSFSlider {
   }
 
   private onMouseUp() {
-    this.dragDown = false;
+    this.isDragged = false;
     setTimeout(() => {
       this.container.classList.remove(DRAGGING_CLASS);
     }, 50);
   }
 
   private onMouseLeave() {
-    this.dragDown = false;
+    this.isDragged = false;
     this.container.classList.remove(DRAGGING_CLASS);
   }
 
-  private onMouseDown(e: MouseEvent) {
-    e.preventDefault();
-    const { container } = this;
-    this.dragDown = true;
-    this.dragScrollX = e.pageX - container.offsetLeft;
-    this.dragScrollLeft = container.scrollLeft;
+  private onMouseDown(event: MouseEvent) {
+    event.preventDefault();
+    const { container, options } = this;
+    this.isDragged = true;
     container.classList.add(DRAGGING_CLASS);
+
+    if (options.vertical) {
+      this.dragScrollY = event.pageY - container.offsetTop;
+      this.dragScrollTop = container.scrollTop;
+    } else {
+      this.dragScrollX = event.pageX - container.offsetLeft;
+      this.dragScrollLeft = container.scrollLeft;
+    }
   }
 
-  private onMouseMove(e: MouseEvent) {
-    if (!this.dragDown) return;
-    e.preventDefault();
+  private onMouseMove(event: MouseEvent) {
+    if (!this.isDragged) return;
+    event.preventDefault();
 
     const sensitivity = this.options.drag?.sensitivity ?? 4;
 
-    const { container } = this;
-    const element = e.pageX - container.offsetLeft;
-    const scrolling = (element - this.dragScrollX) * sensitivity;
-    container.scrollLeft = this.dragScrollLeft - scrolling;
+    const { container, options } = this;
+    if (options.vertical) {
+      const element = event.pageY - container.offsetTop;
+      const scrolling = (element - this.dragScrollY) * sensitivity;
+      container.scrollTop = this.dragScrollTop - scrolling;
+    } else {
+      const element = event.pageX - container.offsetLeft;
+      const scrolling = (element - this.dragScrollX) * sensitivity;
+      container.scrollLeft = this.dragScrollLeft - scrolling;
+    }
   }
 
   private addListeners() {
-    this.container.addEventListener('scroll', this.onScroll.bind(this), { passive: true });
+    this.scrollListenerInstance = this.onScroll.bind(this);
+    this.container.addEventListener('scroll', this.scrollListenerInstance, { passive: true });
+
     if (this.options.drag) {
-      this.container.addEventListener('mousedown', this.onMouseDown.bind(this), { passive: false });
-      this.container.addEventListener('mouseup', this.onMouseUp.bind(this), { passive: true });
-      this.container.addEventListener('mousemove', this.onMouseMove.bind(this), { passive: false });
-      this.container.addEventListener('mouseleave', this.onMouseLeave.bind(this), { passive: true });
+      this.mouseDownListenerInstance = this.onMouseDown.bind(this);
+      this.mouseUpListenerInstance = this.onMouseUp.bind(this);
+      this.mouseMoveListenerInstance = this.onMouseMove.bind(this);
+      this.mouseLeaveListenerInstance = this.onMouseLeave.bind(this);
+
+      this.container.addEventListener('mousedown', this.mouseDownListenerInstance, { passive: false });
+      this.container.addEventListener('mouseup', this.mouseUpListenerInstance, { passive: true });
+      this.container.addEventListener('mousemove', this.mouseMoveListenerInstance, { passive: false });
+      this.container.addEventListener('mouseleave', this.mouseLeaveListenerInstance, { passive: true });
     }
   }
 
   private removeListeners() {
-    this.container.removeEventListener('scroll', this.onScroll.bind(this));
-    if (this.options.drag) {
-      this.container.removeEventListener('mousedown', this.onMouseDown.bind(this));
-      this.container.removeEventListener('mouseup', this.onMouseUp.bind(this));
-      this.container.removeEventListener('mousemove', this.onMouseMove.bind(this));
-      this.container.removeEventListener('mouseleave', this.onMouseLeave.bind(this));
+    this.container.removeEventListener('scroll', this.scrollListenerInstance);
+
+    if (!this.options.drag) {
+      this.container.removeEventListener('mousedown', this.mouseDownListenerInstance);
+      this.container.removeEventListener('mouseup', this.mouseUpListenerInstance);
+      this.container.removeEventListener('mousemove', this.mouseMoveListenerInstance);
+      this.container.removeEventListener('mouseleave', this.mouseLeaveListenerInstance);
     }
   }
 
@@ -189,50 +161,13 @@ export default class VSFSlider {
     return this.container.children;
   }
 
-  private offset() {
-    return parseInt(window.getComputedStyle(this.container).scrollPaddingLeft, 10);
-  }
-
-  private findPrevSlot(x: number): Element | undefined {
-    const children = this.children();
-    const gap = this.offset();
-    for (let i = 0; i < children.length; i++) {
-      const rect = children[i].getBoundingClientRect();
-
-      if (rect.left - gap >= x && x <= rect.right + gap) {
-        return children[i];
-      }
-      if (rect.left - gap >= x) {
-        return children[i];
-      }
-    }
-    return undefined;
-  }
-
-  private findNextSlot(x: number): Element | undefined {
-    const children = this.children();
-    for (let i = 0; i < children.length; i++) {
-      const rect = children[i].getBoundingClientRect();
-      if (rect.right > x) {
-        if (rect.left <= x) {
-          return children[i];
-        }
-        if (x <= rect.left) {
-          return children[i];
-        }
-      }
-    }
-    return undefined;
-  }
-
-  private scrollToLeft(left: number): void {
-    const { container } = this;
+  private scrollTo({ left, top }: { left?: number; top?: number }): void {
     const behavior = this.options.reduceMotion ? 'auto' : 'smooth';
-    container.scrollTo({ left, behavior });
+    this.container.scrollTo({ left, top, behavior });
   }
 
   private onScroll(): void {
-    const container = this.container as Element;
+    const container = this.container;
     if (!container) return;
 
     clearTimeout(this.debounceId);
@@ -243,21 +178,21 @@ export default class VSFSlider {
     this.refresh((data) => this.options.onScroll?.(data));
   }
 
-  private calculate(): VSFSliderData {
-    const { container, delta } = this;
-    const firstChild = this.children()[0];
+  private calculate(): VsfSliderCallbackData {
+    const { container, options } = this;
 
     function hasNext() {
-      return container.scrollWidth > container.scrollLeft + container.clientWidth + delta;
+      if (options.vertical) {
+        return container.scrollHeight > container.scrollTop + container.clientHeight;
+      }
+      return container.scrollWidth > container.scrollLeft + container.clientWidth;
     }
 
     function hasPrev() {
-      if (container.scrollLeft === 0) {
-        return false;
+      if (options.vertical) {
+        return !!container.scrollTop;
       }
-      const containerVWLeft = container.getBoundingClientRect().left;
-      const firstChildLeft = firstChild?.getBoundingClientRect()?.left ?? 0;
-      return Math.abs(containerVWLeft - firstChildLeft) >= delta;
+      return !!container.scrollLeft;
     }
 
     return {

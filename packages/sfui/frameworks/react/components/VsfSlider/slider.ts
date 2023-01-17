@@ -1,9 +1,9 @@
 import { useCallback, useRef, useEffect } from 'react';
 import type { MutableRefObject } from 'react';
-import { equal, Options, VSFSlider } from '@storefront-ui/shared';
+import { equal, VsfSliderOptions, VSFSlider } from '@storefront-ui/shared';
 
 export function useSlider<T extends HTMLElement>(
-  options?: Partial<Options>,
+  options?: Partial<VsfSliderOptions>,
 ): [(node: T | null) => void, MutableRefObject<VSFSlider | null>] {
   const sliderRef = useRef<VSFSlider | null>(null);
   const currentOptions = useRef(options);
