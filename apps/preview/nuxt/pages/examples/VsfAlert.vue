@@ -8,6 +8,7 @@
       :header="header"
       :with-shadow="withShadow"
       :hide-prefix="hidePrefix"
+      :hide-suffix="hideSuffix"
     >
       <template v-if="prefixSlotOptions.getValue(prefix)" #prefix>
         <component :is="prefixSlotOptions.getValue(prefix)" />
@@ -98,8 +99,13 @@ export default defineComponent({
             type: 'boolean',
             modelName: 'hidePrefix',
             propType: 'boolean',
-            description:
-              'Shows prefix slot (which is filled with icon by default). Gets styled with proper icon color based on variant prop.',
+            description: 'Hides prefix content',
+          },
+          {
+            type: 'boolean',
+            modelName: 'hideSuffix',
+            propType: 'boolean',
+            description: 'Hides suffix content',
           },
           {
             type: 'select',
@@ -107,7 +113,7 @@ export default defineComponent({
             options: prefixSlotOptions.controlsOptions,
             propDefaultValue: '',
             propType: 'Slot',
-            description: 'Slot used for prefix. Replaces the default icon prefixes.',
+            description: 'Prefix content. If not provided the variant-related icon is used as an alert prefix.',
           },
           {
             type: 'select',
@@ -115,7 +121,8 @@ export default defineComponent({
             options: suffixSlotOptions.controlsOptions,
             propDefaultValue: '',
             propType: 'Slot',
-            description: 'Slot used for suffix. In "temporary" variant replaces the close button.',
+            description:
+              'Suffix content. If not provided the close button is used as an alert suffix (but only when variant = temporary).',
           },
         ],
         {
@@ -124,8 +131,9 @@ export default defineComponent({
           type: ref(VsfAlertType.persistent),
           text: ref('Informative text'),
           header: ref('Header'),
-          withShadow: ref(undefined),
-          hidePrefix: ref(undefined),
+          withShadow: ref(),
+          hidePrefix: ref(),
+          hideSuffix: ref(),
           prefix: ref(prefixSlotOptions.defaultOption),
           suffix: ref(suffixSlotOptions.defaultOption),
         },

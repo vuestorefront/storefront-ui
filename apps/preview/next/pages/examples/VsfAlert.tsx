@@ -71,22 +71,29 @@ function Example() {
         modelName: 'hidePrefix',
         propType: 'boolean',
         propDefaultValue: 'false',
-        description:
-          'Shows prefix content (which defaults to variant icon). Gets styled with proper icon color based on variant prop.',
+        description: 'Hides prefix content',
+      },
+      {
+        type: 'boolean',
+        modelName: 'hideSuffix',
+        propType: 'boolean',
+        propDefaultValue: 'false',
+        description: 'Hides suffix content',
       },
       {
         type: 'select',
         options: prefixSlotOptions.controlsOptions,
         modelName: 'slotPrefix',
         propType: 'ReactNode',
-        description: 'Content that replaces the default prefix icon.',
+        description: 'Prefix content. If not provided the variant-related icon is used as an alert prefix.',
       },
       {
         type: 'select',
         options: suffixSlotOptions.controlsOptions,
         modelName: 'slotSuffix',
         propType: 'ReactNode',
-        description: 'Content that replaces the default suffix close button.',
+        description:
+          'Suffix content. If not provided the close button is used as an alert suffix (but only when variant = temporary).',
       },
     ],
     {
@@ -97,6 +104,7 @@ function Example() {
       header: 'Header',
       withShadow: undefined,
       hidePrefix: undefined,
+      hideSuffix: undefined,
       slotPrefix: prefixSlotOptions.defaultOption,
       slotSuffix: suffixSlotOptions.defaultOption,
     },
@@ -105,14 +113,8 @@ function Example() {
   return (
     <ComponentExample controls={{ state, controls }}>
       <VsfAlert
-        open={state.get.open}
+        {...state.get}
         onOpenChange={(open) => state.set({ ...state.get, open })}
-        variant={state.get.variant}
-        type={state.get.type}
-        text={state.get.text}
-        header={state.get.header}
-        withShadow={state.get.withShadow}
-        hidePrefix={state.get.hidePrefix}
         slotPrefix={prefixSlotOptions.getValue(state.get.slotPrefix)}
         slotSuffix={suffixSlotOptions.getValue(state.get.slotSuffix)}
       />
