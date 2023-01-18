@@ -1,5 +1,5 @@
 <template>
-  <Layout :key="`${$route.path}-toggle`">
+  <Layout :hideBreadcrumbs="true" :key="`${$route.path}-toggle`">
     <template #before-content>
       <span v-if="framework === 'vue'" class="bg-green bg-opacity-20 px-2 py-1 rounded text-green text-sm font-medium">
         Vue

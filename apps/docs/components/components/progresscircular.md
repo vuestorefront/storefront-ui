@@ -1,3 +1,7 @@
+---
+layout: ComponentLayout
+hideBreadcrumbs: true
+---
 #  ProgressCircular component
 
 VsfProgressCircular is used to provides feedback about the duration and progression of a process to indicate how long a user will be waiting

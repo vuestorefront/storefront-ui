@@ -1,3 +1,7 @@
+---
+layout: ComponentLayout
+hideBreadcrumbs: true
+---
 #  Switch
 
 A switch is an input similar to a checkbox component, except for handling the indeterminate state. The two possible values are true and false.
