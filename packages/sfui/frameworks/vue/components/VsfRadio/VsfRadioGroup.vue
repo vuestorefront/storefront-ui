@@ -39,6 +39,7 @@ defineProps({
     class="vsf-radio-group"
     :aria-invalid="invalid"
     :aria-required="required"
+    role="radiogroup"
     aria-describedby="radioGroupErrorText"
     data-testid="radio-group"
   >

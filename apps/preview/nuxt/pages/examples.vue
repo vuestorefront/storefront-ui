@@ -9,6 +9,7 @@
         class="sidebar-toggle"
         :variant="VsfButtonVariants.tertiary"
         :size="VsfButtonSizes.sm"
+        :aria-label="isOpen ? 'Hide sidebar' : 'Open sidebar'"
         @click="isOpen = !isOpen"
       >
         <template #prefix>
@@ -17,20 +18,22 @@
         </template>
       </VsfButton>
       <ul class="sidebar-list">
-        <NuxtLink
-          v-for="component in components"
-          :key="component"
-          v-slot="{ navigate }"
-          :to="`/examples/${component}`"
-          custom
-        >
-          <VsfListItemMenu
-            :label="component"
-            :link="`/examples/${component}`"
-            :selected="currentRoute.path === `/examples/${component}`"
-            @click="navigate"
-          />
-        </NuxtLink>
+        <li>
+          <NuxtLink
+            v-for="component in components"
+            :key="component"
+            v-slot="{ navigate }"
+            :to="`/examples/${component}`"
+            custom
+          >
+            <VsfListItemMenu
+              :label="component"
+              :link="`/examples/${component}`"
+              :selected="currentRoute.path === `/examples/${component}`"
+              @click="navigate"
+            />
+          </NuxtLink>
+        </li>
       </ul>
     </div>
     <NuxtPage />

@@ -17,8 +17,10 @@ export default function VsfRadioGroup({
     <fieldset
       className={classNames('vsf-radio-group', className)}
       aria-invalid={invalid}
-      aria-required={required}
       aria-describedby="radioGroupErrorText"
+      aria-required={required}
+      // eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role
+      role="radiogroup"
       data-testid="radio-group"
       {...attributes}
     >

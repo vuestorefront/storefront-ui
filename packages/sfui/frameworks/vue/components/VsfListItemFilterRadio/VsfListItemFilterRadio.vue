@@ -53,6 +53,7 @@ const toggle = (value: string, modelValue: string) => {
       <VsfRadio
         :value="value"
         :model-value="modelValue"
+        :aria-label="label"
         @click.stop="$emit('update:modelValue', toggle(value, modelValue))"
       />
     </template>
@@ -60,6 +61,7 @@ const toggle = (value: string, modelValue: string) => {
       <VsfRadio
         :value="value"
         :model-value="modelValue"
+        :aria-label="label"
         @click.stop="$emit('update:modelValue', toggle(value, modelValue))"
       />
     </template>

@@ -6,6 +6,12 @@ export default defineNuxtConfig({
     baseURL: process.env.VITE_DOCS_EXAMPLES_VUE
       ? new URL(process.env.VITE_DOCS_EXAMPLES_VUE).pathname
       : '',
+      head: {
+        htmlAttrs: {
+          lang: 'en'
+        },
+        title: 'Vue Storefront UI v2',
+      }
   },
   tailwindcss: {
     config: tailwindConfig,

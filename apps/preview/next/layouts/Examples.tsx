@@ -27,6 +27,7 @@ export default function ExampleLayout({ children }: { children: ReactElement }) 
             size={VsfButtonSizes.sm}
             onClick={() => setIsOpen(!isOpen)}
             slotPrefix={isOpen ? <VsfIconChevronLeft /> : <VsfIconChevronRight />}
+            aria-label={isOpen ? 'Hide sidebar' : 'Open sidebar'}
           />
           <ul className="sidebar-list">
             {components?.map((component) => (
