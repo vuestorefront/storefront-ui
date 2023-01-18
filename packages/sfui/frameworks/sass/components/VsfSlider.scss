@@ -17,7 +17,14 @@
 
       &--scroll-always,
       &--scroll-auto {
-        @apply pb-4;
+        @apply pb-0;
+      }
+
+      @media (hover: hover) and (pointer: fine) {
+        &--scroll-always,
+        &--scroll-auto {
+          @apply pb-4;
+        }
       }
     }
 
