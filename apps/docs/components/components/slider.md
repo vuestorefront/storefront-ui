@@ -6,6 +6,8 @@ hideBreadcrumbs: true
 
 Slider is a scrollable list with pseudo-pagination.
 
+NOTE: Some of the mobile browsers (e.g. iOS Safari) will hide scrollbar even when `scrollbar` prop is set to `auto`, `always`. Make sure that your website is prepared for such case.
+
 <Generate />
 
 ## Props
