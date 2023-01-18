@@ -35,6 +35,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  hideSuffix: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const { modelValue, type } = toRefs(props);
@@ -69,8 +73,8 @@ watch(
     :class="['vsf-alert', `vsf-alert--${variant}`, { 'vsf-alert--with-shadow': withShadow }]"
     data-testid="alert"
   >
-    <div class="vsf-alert__prefix">
-      <slot v-if="!hidePrefix" name="prefix">
+    <div v-if="!hidePrefix" class="vsf-alert__prefix">
+      <slot name="prefix">
         <VsfIconCheckCircle v-if="variant === VsfAlertVariant.positive" />
         <VsfIconError v-else-if="variant === VsfAlertVariant.error" />
         <VsfIconWarning v-else-if="variant === VsfAlertVariant.warning" />
@@ -83,7 +87,7 @@ watch(
       </div>
       <slot>{{ text }}</slot>
     </div>
-    <div class="vsf-alert__suffix">
+    <div v-if="!hideSuffix" class="vsf-alert__suffix">
       <slot name="suffix">
         <VsfButton
           v-if="type === VsfAlertType.persistent"

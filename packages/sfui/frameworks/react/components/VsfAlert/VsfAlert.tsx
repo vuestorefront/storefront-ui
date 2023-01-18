@@ -35,6 +35,7 @@ export default function VsfAlert({
   children,
   withShadow = false,
   hidePrefix,
+  hideSuffix,
   slotPrefix,
   slotSuffix,
   className,
@@ -66,17 +67,19 @@ export default function VsfAlert({
         </div>
         {children || text}
       </div>
-      <div className="vsf-alert__suffix">
-        {slotSuffix ||
-          (type === VsfAlertType.persistent && (
-            <VsfButton
-              variant={VsfButtonVariant.tertiary}
-              onClick={() => onOpenChange(false)}
-              slotPrefix={<VsfIconClose />}
-              data-testid="alert-close-button"
-            />
-          ))}
-      </div>
+      {!hideSuffix && (
+        <div className="vsf-alert__suffix">
+          {slotSuffix ||
+            (type === VsfAlertType.persistent && (
+              <VsfButton
+                variant={VsfButtonVariant.tertiary}
+                onClick={() => onOpenChange(false)}
+                slotPrefix={<VsfIconClose />}
+                data-testid="alert-close-button"
+              />
+            ))}
+        </div>
+      )}
     </div>
   ) : null;
 }

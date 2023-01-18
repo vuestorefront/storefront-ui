@@ -6,13 +6,14 @@ export { VsfAlertVariant, VsfAlertType };
 
 export interface VsfAlertProps extends PropsWithStyle, PropsWithChildren {
   open?: boolean;
-  header?: ReactNode | false;
+  onOpenChange?: (value: boolean) => void;
+  header?: ReactNode;
   variant?: `${VsfAlertVariant}`;
   type?: `${VsfAlertType}`;
   text?: string;
   withShadow?: boolean;
   hidePrefix?: boolean;
-  slotSuffix?: ReactNode | false;
-  slotPrefix?: ReactNode | false;
-  onOpenChange?: (value: boolean) => void;
+  hideSuffix?: boolean;
+  slotPrefix?: ReactNode;
+  slotSuffix?: ReactNode;
 }
