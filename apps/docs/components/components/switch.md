@@ -16,7 +16,7 @@ In forms, a better choice may be to use a Checkbox component.
 | label        | String                   | ''            |                                        |
 | helpText     | String                   | ''            |                                        |
 | modelValue   | Boolean | string[]       | undefined     |                                        |
-| alignment    | VsfCheckboxAlignments    | prefix        |   prefix,  suffix                      |
+| alignment    | VsfCheckboxAlignment    | prefix        |   prefix,  suffix                      |
 | disabled     | Boolean                  | false         |                                        |
 <!-- react -->
 | className    | String                   |               |                                        |

@@ -16,8 +16,8 @@ See the design on [Figma](https://www.figma.com/file/Cx2jw34waZltkapwq7j7aT/SFUI
 
 | Prop name     | Type                | Default value | Possible values            |
 | ------------- | ------------------- | ------------- | -------------------------- |
-| size          | `VsfRatingSizes`    | `base`        | `xs`,`sm`,`base`,`lg`,`xl` |
-| type          | `VsfRatingVariants` | `base`        | `base`,`withValue`         |
+| size          | `VsfRatingSize`    | `base`        | `xs`,`sm`,`base`,`lg`,`xl` |
+| type          | `VsfRatingVariant` | `base`        | `base`,`withValue`         |
 | value         | `Number`            | `0`           |                            |
 | max           | `Number`            | `5`           |                            |
 | halfIncrement | `Boolean`           | `false`       |                            |

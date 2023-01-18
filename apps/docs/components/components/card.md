@@ -16,12 +16,12 @@ See the design on [Figma](https://www.figma.com/file/Cx2jw34waZltkapwq7j7aT/SFUI
 | Prop name   | Type      | Default value | Possible values                        |
 | ----------- |-----------| ------------- | -------------------------------------- |
 <!-- react -->
-| className   | string    |             |                                          |                                        
-| slotImg     | ReactNode |             |                                          |                                        
+| className   | string    |             |                                          |
+| slotImg     | ReactNode |             |                                          |
 <!-- end react -->
 | title       | string    |             |                                          |
 | description       | string    |             |                                          |
-| size      | `VsfCardSizes`    | `base`        | `sm`, `base`, `responsive`                 |
+| size      | `VsfCardSize`    | `base`        | `sm`, `base`, `responsive`                 |
 | link      | `String`            |               | `/my-cool-page`                    |
 | imgSrc  | `String`           |               |                                    |
 | imgAlt      | `String`           |               |                                    |

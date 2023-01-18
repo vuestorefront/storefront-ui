@@ -7,7 +7,7 @@
 <script lang="ts">
 import { ref } from 'vue';
 import VsfLoaderCircular from '@storefront-ui/vue/components/VsfLoaderCircular/VsfLoaderCircular.vue';
-import { VsfLoaderSizes } from '@storefront-ui/shared';
+import { VsfLoaderSize } from '@storefront-ui/shared';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
 
@@ -24,8 +24,8 @@ export default {
           {
             type: 'select',
             modelName: 'size',
-            propType: 'VsfLoaderSizes',
-            options: [...Object.keys(VsfLoaderSizes)],
+            propType: 'VsfLoaderSize',
+            options: [...Object.keys(VsfLoaderSize)],
             description: 'sets sizes of components',
           },
           {
@@ -37,7 +37,7 @@ export default {
           },
         ],
         {
-          size: ref(VsfLoaderSizes.lg),
+          size: ref(VsfLoaderSize.lg),
           screenReaderText: ref('loading'),
         },
       ),

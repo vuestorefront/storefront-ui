@@ -21,7 +21,7 @@ See the design on [Figma](https://www.figma.com/file/Cx2jw34waZltkapwq7j7aT/SFUI
 | options      | String[]        | []            |                                        |
 | value        | String          | ''            |                                        |
 | label        | String          | ''            |                                        |
-| size         | VsfSelectSizes  | base          | sm, base, lg                           |
+| size         | VsfSelectSize  | base          | sm, base, lg                           |
 | disabled     | Boolean         | false         |                                        |
 | invalid      | Boolean         | false         |                                        |
 | required     | Boolean         | false         |                                        |
@@ -54,7 +54,7 @@ See the design on [Figma](https://www.figma.com/file/Cx2jw34waZltkapwq7j7aT/SFUI
 | name         | String          | ''            |                                        |
 | options      | String[]        | []            |                                        |
 | label        | String          | ''            |                                        |
-| size         | VsfSelectSizes  | base          | sm, base, lg                           |
+| size         | VsfSelectSize  | base          | sm, base, lg                           |
 | disabled     | Boolean         | false         |                                        |
 | invalid      | Boolean         | false         |                                        |
 | required     | Boolean         | false         |                                        |

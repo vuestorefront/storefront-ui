@@ -1,15 +1,15 @@
-import { ReactNode, ChangeEvent } from 'react';
+import type { PropsWithChildren, ReactNode, ChangeEvent } from 'react';
 import type { PropsWithStyle } from '../../shared/types';
 
-export enum VsfInputSizes {
+export enum VsfInputSize {
   sm = 'sm',
   base = 'base',
   lg = 'lg',
 }
 
-export interface VsfInputProps extends PropsWithStyle {
+export interface VsfInputProps extends PropsWithStyle, PropsWithChildren {
   value: string;
-  size?: VsfInputSizes;
+  size?: `${VsfInputSize}`;
   label?: string;
   disabled?: boolean;
   required?: boolean;
@@ -20,7 +20,6 @@ export interface VsfInputProps extends PropsWithStyle {
   errorMessage?: string;
   helpText?: string;
   requiredText?: string;
-  children?: ReactNode;
   slotPrefix?: ReactNode;
   slotSuffix?: ReactNode;
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;

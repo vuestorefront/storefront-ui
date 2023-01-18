@@ -1,6 +1,6 @@
 import type { PropsWithStyle } from '../../shared/types';
 
-export enum VsfProgressLinearSizes {
+export enum VsfProgressLinearSize {
   'minimal' = 'minimal',
   xs = 'xs',
   sm = 'sm',
@@ -13,7 +13,7 @@ export enum VsfProgressLinearSizes {
 }
 
 export interface VsfProgressLinearProps extends PropsWithStyle {
-  size: VsfProgressLinearSizes;
+  size?: `${VsfProgressLinearSize}`;
   value?: number;
-  withValue: boolean;
+  withValue?: boolean;
 }

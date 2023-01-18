@@ -23,8 +23,8 @@ export enum VsfDropdownInternalPlacement {
 
 export interface VsfDropdownInternalProps extends PropsWithStyle, PropsWithChildren {
   open?: boolean;
-  triggerEvent?: VsfDropdownInternalTriggerEvent;
-  placement?: VsfDropdownInternalPlacement;
+  triggerEvent?: `${VsfDropdownInternalTriggerEvent}`;
+  placement?: `${VsfDropdownInternalPlacement}`;
   disabled?: boolean;
   slotTrigger?: ReactNode;
   dropdownClass?: PropsWithStyle['className'];

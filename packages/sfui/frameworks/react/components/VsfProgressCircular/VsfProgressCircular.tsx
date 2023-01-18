@@ -1,24 +1,24 @@
 import classNames from 'classnames';
 import { progressSvgSizes } from '@storefront-ui/shared';
 import type { VsfProgressCircularProps } from './types';
-import { VsfProgressCircularSizes } from './types';
+import { VsfProgressCircularSize } from './types';
 
 export default function VsfProgressCircular({
   value = 0,
-  size = VsfProgressCircularSizes.base,
+  size = VsfProgressCircularSize.base,
   withValue = true,
   className,
   ...attributes
 }: VsfProgressCircularProps): JSX.Element {
   const strokeWidth = () => {
     switch (size) {
-      case VsfProgressCircularSizes['2xl']:
+      case VsfProgressCircularSize['2xl']:
         return 3;
 
-      case VsfProgressCircularSizes['3xl']:
+      case VsfProgressCircularSize['3xl']:
         return 4;
 
-      case VsfProgressCircularSizes['4xl']:
+      case VsfProgressCircularSize['4xl']:
         return 8;
 
       default:

@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import { ref } from 'vue';
-import { VsfProgressCircular, VsfProgressCircularSizes } from '@storefront-ui/vue/components/VsfProgressCircular/index';
+import { VsfProgressCircular, VsfProgressCircularSize } from '@storefront-ui/vue/components/VsfProgressCircular/index';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
 
@@ -23,8 +23,8 @@ export default {
           {
             type: 'select',
             modelName: 'size',
-            options: Object.keys(VsfProgressCircularSizes),
-            propDefaultValue: VsfProgressCircularSizes.base,
+            options: Object.keys(VsfProgressCircularSize),
+            propDefaultValue: VsfProgressCircularSize.base,
             propType: 'string',
             description:
               'This prop is responsible for progress size. There are 8 sizes: xs, sm, base, lg, xl, 2xl, 3xl, 4xl',
@@ -46,7 +46,7 @@ export default {
         ],
         {
           value: ref(0),
-          size: ref(VsfProgressCircularSizes.base),
+          size: ref(VsfProgressCircularSize.base),
           withValue: ref(true),
         },
       ),

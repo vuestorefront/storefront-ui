@@ -15,7 +15,7 @@ import {
   VsfIconLogoSmall,
 } from '@storefront-ui/react/components/VsfIcons';
 import Link from 'next/link';
-import { VsfIconSizeEnum } from '@storefront-ui/react/components/VsfIconBase/types';
+import { VsfIconSize } from '@storefront-ui/react/components/VsfIconBase/types';
 import classNames from 'classnames';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
@@ -84,11 +84,11 @@ function Example() {
           >
             <VsfIconLogo viewBox="0 0 205 28" className="!hidden large:!block !w-[12.5rem] !h-[1.75rem]" />
             <VsfIconLogoSmall
-              size={VsfIconSizeEnum.xl}
+              size={VsfIconSize.xl}
               viewBox="0 0 40 40"
               className="!hidden medium:!block large:!hidden"
             />
-            <VsfIconLogoSmall size={VsfIconSizeEnum.lg} viewBox="0 0 40 40" className="block medium:!hidden" />
+            <VsfIconLogoSmall size={VsfIconSize.lg} viewBox="0 0 40 40" className="block medium:!hidden" />
           </a>
         </Link>
         <VsfNavbarTopActionGroup className="hidden lg:block">

@@ -4,7 +4,7 @@ hideBreadcrumbs: true
 ---
 # Input
 
-Input is a foundational component for inputting text via a keyboard. 
+Input is a foundational component for inputting text via a keyboard.
 
 <Generate />
 
@@ -18,7 +18,7 @@ See the design on [Figma](https://www.figma.com/file/Cx2jw34waZltkapwq7j7aT/SFUI
 | ------------ | --------        | ------------- | -------------------------------------- |
 | value        | String          | ''            |                                        |
 | label        | String          | ''            |                                        |
-| size         | VsfInputSizes  | base          | sm, base, lg                           |
+| size         | VsfInputSize  | base          | sm, base, lg                           |
 | disabled     | Boolean         | false         |                                        |
 | invalid      | Boolean         | false         |                                        |
 | required     | Boolean         | false         |                                        |

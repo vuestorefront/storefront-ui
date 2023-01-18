@@ -1,5 +1,5 @@
 export interface VsfRatingButtonProps {
-  size?: VsfRatingButtonSizes;
+  size?: VsfRatingButtonSize;
   max?: number;
   disabled?: boolean;
   value?: number;
@@ -7,7 +7,7 @@ export interface VsfRatingButtonProps {
   name?: string;
 }
 
-export enum VsfRatingButtonSizes {
+export enum VsfRatingButtonSize {
   sm = 'sm',
   base = 'base',
   lg = 'lg',

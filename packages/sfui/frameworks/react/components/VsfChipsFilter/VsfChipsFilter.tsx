@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { VsfChipsFilterProps, VsfChipsFilterVariants } from './types';
+import { VsfChipsFilterProps, VsfChipsFilterVariant } from './types';
 
 export default function VsfChipsFilter({
   onChange,
@@ -10,7 +10,7 @@ export default function VsfChipsFilter({
   checked = false,
   disabled = false,
   type = 'radio',
-  size = VsfChipsFilterVariants.base,
+  size = VsfChipsFilterVariant.base,
   className = '',
   ...attributes
 }: VsfChipsFilterProps): JSX.Element {

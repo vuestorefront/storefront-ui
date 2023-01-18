@@ -5,8 +5,8 @@
         <h1 class="heading">Controls</h1>
 
         <VsfButton
-          :variant="VsfButtonVariants.tertiary"
-          :size="VsfButtonSizes.sm"
+          :variant="VsfButtonVariant.tertiary"
+          :size="VsfButtonSize.sm"
           @click="previewBottomOpen = !previewBottomOpen"
         >
           {{ previewBottomOpen ? 'Close' : 'Open' }}
@@ -124,7 +124,7 @@
 <script lang="ts">
 import { toRefs, computed, reactive, Ref, ref, defineComponent, PropType } from 'vue';
 import VsfButton from '@storefront-ui/vue/components/VsfButton/VsfButton.vue';
-import { VsfButtonVariants, VsfButtonSizes } from '@storefront-ui/vue/components/VsfButton/types';
+import { VsfButtonVariant, VsfButtonSize } from '@storefront-ui/vue/components/VsfButton/types';
 import { VsfIconChevronDown, VsfIconChevronUp } from '@storefront-ui/vue/components/VsfIcons/index';
 import { useControlsSearchParams } from '../../composables/utils/useControlsSearchParams';
 
@@ -193,8 +193,8 @@ export default defineComponent({
     });
 
     return {
-      VsfButtonVariants,
-      VsfButtonSizes,
+      VsfButtonVariant,
+      VsfButtonSize,
       ...useControlsSearchParams(proxyModels),
       proxyModels: reactive(proxyModels),
     };

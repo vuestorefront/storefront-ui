@@ -1,4 +1,4 @@
-import { VsfIconSizeEnum } from '@storefront-ui/react/components/VsfIcons/types';
+import { VsfIconSize } from '@storefront-ui/react/components/VsfIcons/types';
 import { VsfIconArrowDown } from '@storefront-ui/react/components/VsfIcons';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
@@ -12,7 +12,7 @@ function Example() {
         modelName: 'size',
         propDefaultValue: 'VsfIconSize.base',
         propType: 'VsfIconSize',
-        options: Object.keys(VsfIconSizeEnum),
+        options: Object.keys(VsfIconSize),
       },
       {
         type: 'select',
@@ -22,7 +22,7 @@ function Example() {
       },
     ],
     {
-      size: VsfIconSizeEnum.base,
+      size: VsfIconSize.base,
       color: 'black',
     },
   );

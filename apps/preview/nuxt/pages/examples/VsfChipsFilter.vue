@@ -10,7 +10,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import { VsfChipsFilter, VsfChipsFilterVariants } from '@storefront-ui/vue/components/VsfChipsFilter/index';
+import { VsfChipsFilter, VsfChipsFilterVariant } from '@storefront-ui/vue/components/VsfChipsFilter/index';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
 
@@ -31,9 +31,9 @@ export default defineComponent({
         {
           type: 'select',
           modelName: 'size',
-          options: Object.keys(VsfChipsFilterVariants),
-          propDefaultValue: VsfChipsFilterVariants.base,
-          propType: 'VsfChipsFilterVariants',
+          options: Object.keys(VsfChipsFilterVariant),
+          propDefaultValue: VsfChipsFilterVariant.base,
+          propType: 'VsfChipsFilterVariant',
         },
         {
           type: 'select',
@@ -55,7 +55,7 @@ export default defineComponent({
         },
       ],
       {
-        size: ref(VsfChipsFilterVariants.base),
+        size: ref(VsfChipsFilterVariant.base),
         disabled: ref(false),
         label: ref('Label'),
         type: ref('checkbox'),

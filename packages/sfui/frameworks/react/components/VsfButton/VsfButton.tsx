@@ -1,14 +1,14 @@
 import type { MouseEventHandler } from 'react';
 import classNames from 'classnames';
-import { VsfButtonSizes, VsfButtonVariants } from './types';
+import { VsfButtonSize, VsfButtonVariant } from './types';
 import type { VsfButtonProps } from './types';
 
 export default function VsfButton<
   T extends HTMLAnchorElement | HTMLButtonElement,
   D extends VsfButtonProps<T> = VsfButtonProps<T>,
 >({
-  size = VsfButtonSizes.base,
-  variant = VsfButtonVariants.primary,
+  size = VsfButtonSize.base,
+  variant = VsfButtonVariant.primary,
   rounded,
   disabled,
   greyscale,

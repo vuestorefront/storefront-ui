@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { VsfProductCard, VsfProductCardImage } from '@storefront-ui/react/components/VsfProductCard';
-import { VsfProductCardSizes } from '@storefront-ui/react/components/VsfProductCard/types';
+import { VsfProductCardSize } from '@storefront-ui/react/components/VsfProductCard/types';
 import type {
   VsfProductCardProps,
   VsfProductCardImageProps,
@@ -66,8 +66,8 @@ function Example() {
       {
         type: 'select',
         modelName: 'size',
-        options: Object.keys(VsfProductCardSizes),
-        propDefaultValue: VsfProductCardSizes.responsive,
+        options: Object.keys(VsfProductCardSize),
+        propDefaultValue: VsfProductCardSize.responsive,
         propType: 'string',
       },
       {
@@ -144,7 +144,7 @@ function Example() {
       title: 'The standard chunk of Lorem Ipsum',
       price: '$2,345.99',
       oldPrice: '$3,132.99',
-      size: VsfProductCardSizes.responsive,
+      size: VsfProductCardSize.responsive,
       link: '/',
       linkTag: LinkTagTypes.NextLink,
       outOfStock: false,
@@ -205,7 +205,7 @@ function Example() {
   }, []);
 
   useEffect(() => {
-    if (!VsfProductCardSizes.responsive) return;
+    if (!VsfProductCardSize.responsive) return;
     if (newWindowWidth < 768) {
       setAddToCartLabel('Add');
     } else {

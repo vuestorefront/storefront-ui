@@ -1,11 +1,11 @@
 <script lang="ts" setup>
 import type { PropType } from 'vue';
-import { VsfLoaderSizes } from './types';
+import { VsfLoaderSize } from './types';
 
 defineProps({
   size: {
-    type: String as PropType<VsfLoaderSizes>,
-    default: VsfLoaderSizes.lg,
+    type: String as PropType<`${VsfLoaderSize}`>,
+    default: VsfLoaderSize.lg,
   },
   screenReaderText: {
     type: String,

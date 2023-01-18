@@ -1,7 +1,7 @@
-import { ChangeEvent } from 'react';
+import type { ChangeEvent } from 'react';
 import type { PropsWithStyle, PropsWithTag } from '../../shared/types';
 
-export enum VsfCheckboxAlignments {
+export enum VsfCheckboxAlignment {
   leading = 'leading',
   trailing = 'trailing',
 }
@@ -11,7 +11,7 @@ export interface VsfCheckboxProps extends PropsWithStyle {
   disabled?: boolean;
   checked?: boolean;
   indeterminate?: boolean;
-  alignment?: VsfCheckboxAlignments;
+  alignment?: `${VsfCheckboxAlignment}`;
   invalid?: boolean;
   label?: string;
   value?: string;

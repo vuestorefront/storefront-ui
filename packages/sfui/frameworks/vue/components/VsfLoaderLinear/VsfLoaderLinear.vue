@@ -1,10 +1,10 @@
 <script lang="ts" setup>
 import type { PropType } from 'vue';
-import { VsfLoaderLinearSize, VsfLoaderSizes } from './types';
+import { VsfLoaderLinearSize, VsfLoaderSize } from './types';
 
 defineProps({
   size: {
-    type: String as PropType<VsfLoaderLinearSize | VsfLoaderSizes>,
+    type: String as PropType<`${VsfLoaderLinearSize}` | `${VsfLoaderSize}`>,
     default: VsfLoaderLinearSize.minimal,
   },
   screenReaderText: {

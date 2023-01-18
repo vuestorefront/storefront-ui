@@ -8,8 +8,8 @@
         :class="[filled ? 'text-white' : 'text-brand', 'flex items-center h-8 md:h-10 lg:h-7']"
       >
         <VsfIconLogo viewBox="0 0 205 28" class="!hidden large:!block !w-[12.5rem] !h-[1.75rem]" />
-        <VsfIconLogoSmall :size="VsfIconSizeEnum.xl" viewBox="0 0 40 40" class="!hidden medium:!block large:!hidden" />
-        <VsfIconLogoSmall :size="VsfIconSizeEnum.lg" viewBox="0 0 40 40" class="block medium:!hidden" />
+        <VsfIconLogoSmall :size="VsfIconSize.xl" viewBox="0 0 40 40" class="!hidden medium:!block large:!hidden" />
+        <VsfIconLogoSmall :size="VsfIconSize.lg" viewBox="0 0 40 40" class="block medium:!hidden" />
       </a>
       <VsfNavbarTopActionGroup class="hidden lg:block">
         <VsfNavbarTopAction v-for="(menuItem, i) in menuItems" :key="i" :link="menuItem.link">{{
@@ -65,7 +65,7 @@ import {
   VsfIconMenu,
   VsfIconLogo,
   VsfIconLogoSmall,
-  VsfIconSizeEnum,
+  VsfIconSize,
 } from '@storefront-ui/vue/components/VsfIcons/index';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
@@ -89,7 +89,7 @@ export default defineComponent({
   },
   setup() {
     return {
-      VsfIconSizeEnum,
+      VsfIconSize,
       ...prepareControls(
         [
           {

@@ -1,4 +1,4 @@
-import { VsfChipsFilter, VsfChipsFilterVariants } from '@storefront-ui/react/components/VsfChipsFilter';
+import { VsfChipsFilter, VsfChipsFilterVariant } from '@storefront-ui/react/components/VsfChipsFilter';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
@@ -14,9 +14,9 @@ function Example() {
       {
         type: 'select',
         modelName: 'size',
-        options: Object.keys(VsfChipsFilterVariants),
-        propDefaultValue: VsfChipsFilterVariants.base,
-        propType: 'VsfChipsFilterVariants',
+        options: Object.keys(VsfChipsFilterVariant),
+        propDefaultValue: VsfChipsFilterVariant.base,
+        propType: 'VsfChipsFilterVariant',
       },
       {
         type: 'select',
@@ -38,7 +38,7 @@ function Example() {
       },
     ],
     {
-      size: VsfChipsFilterVariants.base,
+      size: VsfChipsFilterVariant.base,
       disabled: false,
       label: 'Label',
       type: 'checkbox',

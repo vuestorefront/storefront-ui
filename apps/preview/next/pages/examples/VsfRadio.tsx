@@ -1,4 +1,4 @@
-import { VsfRadioAlignments } from '@storefront-ui/react/components/VsfRadio/types';
+import { VsfRadioAlignment } from '@storefront-ui/react/components/VsfRadio/types';
 import { VsfRadio, VsfRadioGroup } from '@storefront-ui/react/components/VsfRadio';
 import type { ChangeEvent } from 'react';
 import { prepareControls } from '../../components/utils/Controls';
@@ -28,10 +28,10 @@ function Example() {
       },
       {
         type: 'select',
-        options: Object.keys(VsfRadioAlignments),
+        options: Object.keys(VsfRadioAlignment),
         modelName: 'alignment',
         propType: 'VsfRadioAlignment',
-        propDefaultValue: VsfRadioAlignments.leading,
+        propDefaultValue: VsfRadioAlignment.leading,
       },
       {
         type: 'boolean',
@@ -55,7 +55,7 @@ function Example() {
       name: 'radio',
       label: 'Radio 1',
       value: 'radio 1',
-      alignment: VsfRadioAlignments.leading,
+      alignment: VsfRadioAlignment.leading,
       disabled: false,
       required: false,
       helpText: 'Help text',

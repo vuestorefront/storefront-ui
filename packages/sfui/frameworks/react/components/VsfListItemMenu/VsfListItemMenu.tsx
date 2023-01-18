@@ -1,6 +1,6 @@
 import classNames from 'classnames';
-import { VsfCounterSizes } from '../VsfCounter/types';
-import { VsfListItemMenuProps, VsfListItemMenuSizes } from './types';
+import { VsfCounterSize } from '../VsfCounter/types';
+import { VsfListItemMenuProps, VsfListItemMenuSize } from './types';
 import VsfCounter from '../VsfCounter/VsfCounter';
 
 export default function VsfListItemMenu({
@@ -8,7 +8,7 @@ export default function VsfListItemMenu({
   counter,
   secondaryText,
   link,
-  size = VsfListItemMenuSizes.base,
+  size = VsfListItemMenuSize.base,
   disabled,
   selected,
   selectedBackground,
@@ -57,7 +57,7 @@ export default function VsfListItemMenu({
             ) : null}
             {counter ? (
               <VsfCounter
-                size={VsfCounterSizes.xl}
+                size={VsfCounterSize.xl}
                 className="vsf-list-item-menu__counter"
                 data-testid="list-item-menu-counter"
               >

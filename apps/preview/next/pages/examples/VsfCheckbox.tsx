@@ -1,4 +1,4 @@
-import { VsfCheckbox, VsfCheckboxAlignments } from '@storefront-ui/react/components/VsfCheckbox';
+import { VsfCheckbox, VsfCheckboxAlignment } from '@storefront-ui/react/components/VsfCheckbox';
 import type { VsfCheckboxProps } from '@storefront-ui/react/components/VsfCheckbox/types';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
@@ -21,10 +21,10 @@ function Example() {
       },
       {
         type: 'select',
-        options: Object.keys(VsfCheckboxAlignments),
+        options: Object.keys(VsfCheckboxAlignment),
         modelName: 'alignment',
         propType: 'VsfCheckboxAlignment',
-        propDefaultValue: VsfCheckboxAlignments.leading,
+        propDefaultValue: VsfCheckboxAlignment.leading,
       },
       {
         type: 'boolean',
@@ -73,7 +73,7 @@ function Example() {
       disabled: false,
       indeterminate: false,
       invalid: false,
-      alignment: VsfCheckboxAlignments.leading,
+      alignment: VsfCheckboxAlignment.leading,
       label: 'Label',
       helpText: 'Help Text',
       errorText: 'Error Message',

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { PropType } from 'vue';
-import { VsfTagSizes, VsfTagVariants, VsfTagAriaLiveValues } from './types';
+import { VsfTagSize, VsfTagVariant, VsfTagAriaLiveValue } from './types';
 
 defineProps({
   label: {
@@ -8,20 +8,20 @@ defineProps({
     default: '',
   },
   size: {
-    type: String as PropType<VsfTagSizes>,
-    default: VsfTagSizes.base,
+    type: String as PropType<`${VsfTagSize}`>,
+    default: VsfTagSize.base,
   },
   variant: {
-    type: String as PropType<VsfTagVariants>,
-    default: VsfTagVariants.gray,
+    type: String as PropType<`${VsfTagVariant}`>,
+    default: VsfTagVariant.gray,
   },
   strong: {
     type: Boolean,
     default: false,
   },
   ariaLive: {
-    type: String as PropType<VsfTagAriaLiveValues>,
-    default: VsfTagAriaLiveValues.polite,
+    type: String as PropType<`${VsfTagAriaLiveValue}`>,
+    default: VsfTagAriaLiveValue.polite,
   },
 });
 </script>

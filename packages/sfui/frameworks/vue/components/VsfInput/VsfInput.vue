@@ -3,7 +3,7 @@ import type { PropType } from 'vue';
 import { computed, toRefs } from 'vue';
 import { useVModel } from '@vueuse/core';
 import { generateId } from '@storefront-ui/shared';
-import { VsfInputSizes } from './types';
+import { VsfInputSize } from './types';
 
 const props = defineProps({
   modelValue: {
@@ -11,8 +11,8 @@ const props = defineProps({
     default: '',
   },
   size: {
-    type: String as PropType<VsfInputSizes>,
-    default: VsfInputSizes.base,
+    type: String as PropType<`${VsfInputSize}`>,
+    default: VsfInputSize.base,
   },
   label: {
     type: String,

@@ -18,7 +18,7 @@ See the design on [Figma](https://www.figma.com/file/Cx2jw34waZltkapwq7j7aT/SFUI
 |-----------------------|----------------------------|---------------|----------------------------------------|
 | title                | String                     | `""`            |                                        |
 | message           | String                     | `""`            |                                        |
-| type                  | `VsfAlertTypesKeys`        | `gray`        | `gray`, `positive`, `warning`, `error`, `info` |
+| type                  | `VsfAlertType`        | `gray`        | `gray`, `positive`, `warning`, `error`, `info` |
 | persistent            | Boolean                    | `false`       |                                        |
 <!-- react -->
 | slotPrefix              | Element, Element[], string | `""`            |                                        |

@@ -2,7 +2,7 @@
 import paginate from 'jw-paginate';
 import { ref, toRefs, computed, watch } from 'vue';
 import { VsfDivider } from '../VsfDivider';
-import { VsfButton, VsfButtonVariants } from '../VsfButton';
+import { VsfButton, VsfButtonVariant } from '../VsfButton';
 import { VsfIconChevronLeft, VsfIconChevronRight } from '../VsfIcons';
 
 const props = defineProps({
@@ -72,7 +72,7 @@ const onPageChange = (newPage: number) => {
     <VsfButton
       aria-label="Previous"
       :disabled="selectedPage <= 1"
-      :variant="VsfButtonVariants.tertiary"
+      :variant="VsfButtonVariant.tertiary"
       class="vsf-pagination__button"
       data-testid="pagination-button-prev"
       @click="onPageChange((selectedPage -= 1))"
@@ -97,7 +97,7 @@ const onPageChange = (newPage: number) => {
               class="vsf-pagination__button"
               :aria-label="`Page 1 of ${totalPages}`"
               :aria-current="selectedPage === 1"
-              :variant="VsfButtonVariants.tertiary"
+              :variant="VsfButtonVariant.tertiary"
               data-testid="pagination-button-first"
               @click="onPageChange(1)"
             >
@@ -111,7 +111,7 @@ const onPageChange = (newPage: number) => {
           <VsfButton
             disabled
             aria-hidden="true"
-            :variant="VsfButtonVariants.tertiary"
+            :variant="VsfButtonVariant.tertiary"
             class="vsf-pagination__button vsf-pagination__button--disabled"
             data-testid="pagination-button-ellipsis-left"
           >
@@ -134,7 +134,7 @@ const onPageChange = (newPage: number) => {
               class="vsf-pagination__button"
               :aria-label="`Page ${page} of ${totalPages}`"
               :aria-current="selectedPage === page"
-              :variant="VsfButtonVariants.tertiary"
+              :variant="VsfButtonVariant.tertiary"
               :data-testid="`pagination-button-visible-${page}`"
               @click="onPageChange(page)"
             >
@@ -148,7 +148,7 @@ const onPageChange = (newPage: number) => {
           <VsfButton
             disabled
             aria-hidden="true"
-            :variant="VsfButtonVariants.tertiary"
+            :variant="VsfButtonVariant.tertiary"
             class="vsf-pagination__button vsf-pagination__button--disabled"
             data-testid="pagination-button-ellipsis-right"
           >
@@ -171,7 +171,7 @@ const onPageChange = (newPage: number) => {
               class="vsf-pagination__button"
               :aria-label="`Page ${totalPages} of ${totalPages}`"
               :aria-current="totalPages === selectedPage"
-              :variant="VsfButtonVariants.tertiary"
+              :variant="VsfButtonVariant.tertiary"
               data-testid="pagination-button-last"
               @click="onPageChange(totalPages)"
             >
@@ -185,7 +185,7 @@ const onPageChange = (newPage: number) => {
     <VsfButton
       aria-label="Next"
       :disabled="selectedPage >= totalPages"
-      :variant="VsfButtonVariants.tertiary"
+      :variant="VsfButtonVariant.tertiary"
       class="vsf-pagination__button"
       data-testid="pagination-button-next"
       @click="onPageChange((selectedPage += 1))"

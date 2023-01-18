@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { PropType } from 'vue';
 import { ref } from 'vue';
-import { VsfSelectSizes } from './types';
+import { VsfSelectSize } from './types';
 import VsfSelectOption from './VsfSelectOption.vue';
 
 const props = defineProps({
@@ -10,8 +10,8 @@ const props = defineProps({
     default: () => [],
   },
   size: {
-    type: String,
-    default: VsfSelectSizes.base,
+    type: String as PropType<`${VsfSelectSize}`>,
+    default: VsfSelectSize.base,
   },
   placeholder: {
     type: String,
@@ -71,8 +71,8 @@ const changedValue = (event: Event) => {
           :disabled="disabled"
           class="vsf-select__input peer"
           :class="{
-            'vsf-select__input--small': size === VsfSelectSizes.sm,
-            'vsf-select__input--large': size === VsfSelectSizes.lg,
+            'vsf-select__input--small': size === VsfSelectSize.sm,
+            'vsf-select__input--large': size === VsfSelectSize.lg,
             'vsf-select__input--invalid': invalid,
           }"
           data-testid="select-input"
@@ -85,8 +85,8 @@ const changedValue = (event: Event) => {
               class="vsf-select__placeholder"
               value=""
               :class="{
-                'vsf-select__placeholder--small': size === VsfSelectSizes.sm,
-                'vsf-select__placeholder--large': size === VsfSelectSizes.lg,
+                'vsf-select__placeholder--small': size === VsfSelectSize.sm,
+                'vsf-select__placeholder--large': size === VsfSelectSize.lg,
               }"
               data-testid="select-placeholder"
             >

@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import classNames from 'classnames';
 import { VsfTabsItemProps, VsfTabsContext } from './types';
 import VsfButton from '../VsfButton/VsfButton';
-import { VsfButtonVariants } from '../VsfButton/index';
+import { VsfButtonVariant } from '../VsfButton/index';
 
 export default function VsfTabs({
   children,
@@ -23,7 +23,7 @@ export default function VsfTabs({
     <VsfButton
       className={classNames('vsf-tabs-item', { 'vsf-tabs-item--active': TabsProps.active === uid }, className)}
       size={TabsProps.size}
-      variant={VsfButtonVariants.tertiary}
+      variant={VsfButtonVariant.tertiary}
       onClick={() => TabsProps.onChange?.(uid)}
       disabled={disabled}
       {...attributes}

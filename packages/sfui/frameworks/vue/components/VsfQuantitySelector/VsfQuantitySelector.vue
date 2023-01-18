@@ -2,8 +2,8 @@
 import type { PropType } from 'vue';
 import { computed, toRefs, ref } from 'vue';
 import { clamp } from '@storefront-ui/shared';
-import { VsfQuantitySelectorSizes } from './types';
-import { VsfButton, VsfButtonVariants, VsfButtonSizes } from '../VsfButton';
+import { VsfQuantitySelectorSize } from './types';
+import { VsfButton, VsfButtonVariant, VsfButtonSize } from '../VsfButton';
 import { VsfIconMinus, VsfIconPlus } from '../VsfIcons';
 
 const props = defineProps({
@@ -32,8 +32,8 @@ const props = defineProps({
     default: false,
   },
   size: {
-    type: String as PropType<VsfQuantitySelectorSizes>,
-    default: VsfQuantitySelectorSizes.base,
+    type: String as PropType<`${VsfQuantitySelectorSize}`>,
+    default: VsfQuantitySelectorSize.base,
   },
   inputAriaLabel: {
     type: String,
@@ -57,9 +57,7 @@ const { disabled, minValue, maxValue, modelValue, step } = toRefs(props);
 
 const currentValue = ref(modelValue.value);
 
-const buttonSize = computed(() =>
-  props.size === VsfQuantitySelectorSizes.lg ? VsfButtonSizes.lg : VsfButtonSizes.base,
-);
+const buttonSize = computed(() => (props.size === VsfQuantitySelectorSize.lg ? VsfButtonSize.lg : VsfButtonSize.base));
 
 const increaseDisabled = computed(() => disabled.value || currentValue.value >= maxValue.value);
 const decreaseDisabled = computed(() => disabled.value || currentValue.value <= minValue.value);
@@ -88,7 +86,7 @@ function handleOnBlur() {
     <div class="vsf-qty-selector__wrapper">
       <!-- TODO: i18n aria-label -->
       <VsfButton
-        :variant="VsfButtonVariants.tertiary"
+        :variant="VsfButtonVariant.tertiary"
         :aria-controls="inputId"
         aria-label="decrease"
         class="vsf-qty-selector__decrease"
@@ -122,7 +120,7 @@ function handleOnBlur() {
 
       <!-- TODO: i18n aria-label -->
       <VsfButton
-        :variant="VsfButtonVariants.tertiary"
+        :variant="VsfButtonVariant.tertiary"
         :aria-controls="inputId"
         aria-label="increase"
         class="vsf-qty-selector__increase"

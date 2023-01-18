@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import type { PropType } from 'vue';
-import { VsfIconSizeEnum } from './types';
+import { VsfIconSize } from './types';
 
 defineProps({
   content: {
@@ -8,8 +8,8 @@ defineProps({
     required: true,
   },
   size: {
-    type: String as PropType<VsfIconSizeEnum>,
-    default: VsfIconSizeEnum.base,
+    type: String as PropType<`${VsfIconSize}`>,
+    default: VsfIconSize.base,
   },
 });
 </script>

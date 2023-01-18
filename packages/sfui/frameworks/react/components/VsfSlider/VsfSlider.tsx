@@ -6,7 +6,7 @@ import { VsfIconChevronLeft, VsfIconChevronDown, VsfIconChevronRight, VsfIconChe
 import type { VsfSliderProps } from './types';
 import { VsfSliderNavigation, VsfSliderScrollbar, VsfSliderDirection } from './types';
 import { useSlider } from './slider';
-import { VsfButtonVariants, VsfButtonSizes } from '../VsfButton';
+import { VsfButtonVariant, VsfButtonSize } from '../VsfButton';
 
 const VsfSlider = forwardRef<HTMLDivElement, VsfSliderProps>(
   (
@@ -46,8 +46,8 @@ const VsfSlider = forwardRef<HTMLDivElement, VsfSliderProps>(
 
     const prevButtonDefault = (
       <VsfButton
-        variant={VsfButtonVariants.secondary}
-        size={VsfButtonSizes.lg}
+        variant={VsfButtonVariant.secondary}
+        size={VsfButtonSize.lg}
         rounded
         className={classNames('vsf-slider__nav-arrow', { 'vsf-slider__nav-arrow--hidden': !hasPrev })}
         onClick={onClickPrev}
@@ -57,8 +57,8 @@ const VsfSlider = forwardRef<HTMLDivElement, VsfSliderProps>(
     );
     const nextButtonDefault = (
       <VsfButton
-        variant={VsfButtonVariants.secondary}
-        size={VsfButtonSizes.lg}
+        variant={VsfButtonVariant.secondary}
+        size={VsfButtonSize.lg}
         rounded
         className={classNames('vsf-slider__nav-arrow', { 'vsf-slider__nav-arrow--hidden': !hasNext })}
         onClick={onClickNext}

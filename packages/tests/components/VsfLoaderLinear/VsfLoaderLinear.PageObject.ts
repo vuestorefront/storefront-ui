@@ -1,8 +1,8 @@
-import { VsfLoaderLinearSize, VsfLoaderSizes } from '../../../sfui/frameworks/vue/components/VsfLoaderLinear';
+import { VsfLoaderLinearSize, VsfLoaderSize } from '../../../sfui/frameworks/vue/components/VsfLoaderLinear';
 import { BasePage } from '../../utils/BasePage';
 
 export default class VsfLoaderLinearSizesBaseObject extends BasePage {
-  hasSizeClass(size: VsfLoaderLinearSize | VsfLoaderSizes) {
+  hasSizeClass(size: VsfLoaderLinearSize | VsfLoaderSize) {
     this.container.should('have.class', `vsf-loader-linear--${size}`);
     return this;
   }

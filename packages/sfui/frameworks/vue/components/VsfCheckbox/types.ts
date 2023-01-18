@@ -1,4 +1,4 @@
-export enum VsfCheckboxAlignments {
+export enum VsfCheckboxAlignment {
   leading = 'leading',
   trailing = 'trailing',
 }

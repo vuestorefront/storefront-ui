@@ -1,12 +1,12 @@
-import { ReactNode, createContext } from 'react';
-import type { PropsWithChildren } from 'react';
-import { VsfButtonSizes } from '../VsfButton/types';
+import type { ReactNode, PropsWithChildren } from 'react';
+import { createContext } from 'react';
+import { VsfButtonSize } from '../VsfButton/types';
 import type { PropsWithStyle } from '../../shared/types/index';
 
 export interface VsfTabsProps extends PropsWithChildren, PropsWithStyle {
   active?: number | string | symbol;
+  size?: `${VsfButtonSize}`;
   onChange?: (uid: number | string | symbol) => void;
-  size?: VsfButtonSizes;
 }
 
 export interface VsfTabsItemProps extends PropsWithChildren, PropsWithStyle {

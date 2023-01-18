@@ -16,7 +16,7 @@
 
 <script lang="ts">
 import { ref } from 'vue';
-import { VsfIconSizeEnum } from '@storefront-ui/vue/components/VsfIcons/types';
+import { VsfIconSize } from '@storefront-ui/vue/components/VsfIcons/types';
 import * as AllVsfIcons from '@storefront-ui/vue/components/VsfIcons/index';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
@@ -43,14 +43,14 @@ export default {
           copied.value = '';
         }, 1000);
       },
-      ...prepareControls<{ size: VsfIconSizeEnum; colorExample: string }>(
+      ...prepareControls<{ size: VsfIconSize; colorExample: string }>(
         [
           {
             type: 'select',
             modelName: 'size',
             propDefaultValue: 'VsfIconSize.base',
             propType: 'VsfIconSize',
-            options: Object.keys(VsfIconSizeEnum),
+            options: Object.keys(VsfIconSize),
           },
           {
             type: 'select',
@@ -60,7 +60,7 @@ export default {
           },
         ],
         {
-          size: ref(VsfIconSizeEnum.base),
+          size: ref(VsfIconSize.base),
           colorExample: ref('black'),
         },
       ),

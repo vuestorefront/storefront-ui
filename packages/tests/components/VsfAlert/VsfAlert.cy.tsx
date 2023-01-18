@@ -10,7 +10,7 @@ const {vue: VsfButtonVue, react: VsfButtonReact } = useComponent('VsfButton');
 const {vue: VsfIconCheckCircleVue, react: VsfIconCheckCircleReact } = useComponent('VsfIconCheckCircle');
 import VsfAlertBaseObject from "./VsfAlert.PageObject";
 import { waitForRerender } from "../../utils/waitForRerender";
-import { VsfAlertTypes, VsfAlertVariants } from "@storefront-ui/shared";
+import { VsfAlertType, VsfAlertVariant } from "@storefront-ui/shared";
 
 describe("VsfAlert", () => {
   const headerExampleText = "alert header";
@@ -32,8 +32,8 @@ describe("VsfAlert", () => {
     fillSlotSuffix,
   } : {
     modelValue?: Ref<boolean>;
-    variant?: MaybeRef<VsfAlertVariants>;
-    type?: MaybeRef<VsfAlertTypes>;
+    variant?: MaybeRef<VsfAlertVariant>;
+    type?: MaybeRef<VsfAlertType>;
     withShadow?: MaybeRef<boolean>;
     hidePrefix?: MaybeRef<boolean>;
     header?: MaybeRef<string>;
@@ -144,10 +144,10 @@ describe("VsfAlert", () => {
     describe('when variant prop passed', () => {
       it('renders different icons & colors', () => {
         const modelValue = ref(true);
-        const variant = ref<VsfAlertVariants>();
-        initializeComponent({ type: VsfAlertTypes.temporary, modelValue, variant, header: headerExampleText, text: contentExampleText });
+        const variant = ref<VsfAlertVariant>();
+        initializeComponent({ type: VsfAlertType.temporary, modelValue, variant, header: headerExampleText, text: contentExampleText });
 
-        Object.values(VsfAlertVariants)
+        Object.values(VsfAlertVariant)
           .reduce<Cypress.Chainable<undefined>>((prevChainable, variantValue) => {
             return prevChainable
               .then(() => {
@@ -167,7 +167,7 @@ describe("VsfAlert", () => {
       it('hides close button and closes by itself after 5 seconds', () => {
         const modelValue = ref(true);
         cy.clock(null, ['setTimeout', 'clearTimeout']);
-        initializeComponent({ modelValue, text: contentExampleText, type: VsfAlertTypes.temporary });
+        initializeComponent({ modelValue, text: contentExampleText, type: VsfAlertType.temporary });
 
         page()
           .isOpened()
@@ -185,7 +185,7 @@ describe("VsfAlert", () => {
     describe('when type = "persistent"', () => {
       it('should display close button that closes the alert when clicked', () => {
         const modelValue = ref(true);
-        initializeComponent({ modelValue, text: contentExampleText, type: VsfAlertTypes.persistent });
+        initializeComponent({ modelValue, text: contentExampleText, type: VsfAlertType.persistent });
 
         page()
           .isOpened()

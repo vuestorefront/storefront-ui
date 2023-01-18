@@ -1,9 +1,9 @@
-export enum VsfRadioGroupDirections {
+export enum VsfRadioGroupDirection {
   vertical = 'vertical',
   horizontal = 'horizontal',
 }
 
-export enum VsfRadioAlignments {
+export enum VsfRadioAlignment {
   leading = 'leading',
   trailing = 'trailing',
 }

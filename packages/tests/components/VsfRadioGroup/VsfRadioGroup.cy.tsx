@@ -3,7 +3,7 @@ import React from "react";
 import { mount, useComponent } from '../../utils/mount';
 
 const {vue: VsfRadioGroupVue, react: VsfRadioGroupReact} = useComponent('VsfRadioGroup');
-import { VsfRadioGroupDirections } from '../../../sfui/frameworks/vue/components/VsfRadio/types';
+import { VsfRadioGroupDirection } from '../../../sfui/frameworks/vue/components/VsfRadio/types';
 import VsfRadioGroupBaseObject from "./VsfRadioGroup.PageObject";
 
 describe("VsfRadioGroup", () => {
@@ -20,7 +20,7 @@ describe("VsfRadioGroup", () => {
     requiredText
   }: {
     legend?: string;
-    direction?: VsfRadioGroupDirections;
+    direction?: VsfRadioGroupDirection;
     invalid?: boolean;
     required?: boolean;
     errorText?: string;
@@ -62,7 +62,7 @@ describe("VsfRadioGroup", () => {
   });
 
   describe('when direction prop is set to', () => {
-    Object.values(VsfRadioGroupDirections).forEach(direction => {
+    Object.values(VsfRadioGroupDirection).forEach(direction => {
       describe(`${direction}`, () => {
         it(`should render correct ${direction} direction`, () => {
           initializeComponent({ direction });

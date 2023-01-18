@@ -1,9 +1,9 @@
 import classNames from 'classnames';
 import type { VsfCounterProps } from './types';
-import { VsfCounterSizes } from './types';
+import { VsfCounterSize } from './types';
 
 export default function VsfCounter({
-  size = VsfCounterSizes.base,
+  size = VsfCounterSize.base,
   pill = false,
   children,
   className,

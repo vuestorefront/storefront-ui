@@ -21,8 +21,8 @@
 
 <script lang="ts">
 import { defineComponent, ref, h } from 'vue';
-import { VsfAlert, VsfAlertTypes, VsfAlertVariants } from '@storefront-ui/vue/components/VsfAlert/index';
-import { VsfButton, VsfButtonVariants } from '@storefront-ui/vue/components/VsfButton/index';
+import { VsfAlert, VsfAlertType, VsfAlertVariant } from '@storefront-ui/vue/components/VsfAlert/index';
+import { VsfButton, VsfButtonVariant } from '@storefront-ui/vue/components/VsfButton/index';
 import { VsfIconChat } from '@storefront-ui/vue/components/VsfIcons/index';
 import { createControlsOptions } from '@storefront-ui/preview-shared/utils/controlsOptions';
 import { prepareControls } from '../../components/utils/Controls.vue';
@@ -34,7 +34,7 @@ const prefixSlotOptions = createControlsOptions({
 });
 const suffixSlotOptions = createControlsOptions({
   none: undefined,
-  'Custom component': h(VsfButton, { variant: VsfButtonVariants.tertiary }, 'Button'),
+  'Custom component': h(VsfButton, { variant: VsfButtonVariant.tertiary }, 'Button'),
 });
 
 export default defineComponent({
@@ -47,7 +47,7 @@ export default defineComponent({
   },
   setup() {
     return {
-      VsfButtonVariants,
+      VsfButtonVariant,
       prefixSlotOptions,
       suffixSlotOptions,
       ...prepareControls(
@@ -62,17 +62,17 @@ export default defineComponent({
           {
             type: 'select',
             modelName: 'variant',
-            propDefaultValue: VsfAlertVariants.gray,
-            options: Object.keys(VsfAlertVariants),
-            propType: 'VsfAlertVariants',
+            propDefaultValue: VsfAlertVariant.gray,
+            options: Object.keys(VsfAlertVariant),
+            propType: 'VsfAlertVariant',
             description: 'Alert color variant, affect rendered icon.',
           },
           {
             type: 'select',
             modelName: 'type',
-            propDefaultValue: VsfAlertTypes.temporary,
-            options: Object.keys(VsfAlertTypes),
-            propType: 'VsfAlertTypes',
+            propDefaultValue: VsfAlertType.temporary,
+            options: Object.keys(VsfAlertType),
+            propType: 'VsfAlertType',
             description: 'Shows/hides close button. Temporary Alert gets closed after 5 seconds.',
           },
           {
@@ -121,7 +121,7 @@ export default defineComponent({
         {
           modelValue: ref(true),
           variant: ref(undefined),
-          type: ref(VsfAlertTypes.persistent),
+          type: ref(VsfAlertType.persistent),
           text: ref('Informative text'),
           header: ref('Header'),
           withShadow: ref(undefined),

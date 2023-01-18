@@ -1,15 +1,17 @@
 <script lang="ts" setup>
-import { PropType, computed } from 'vue';
+import type { PropType } from 'vue';
+import { computed } from 'vue';
 import { progressSvgSizes } from '@storefront-ui/shared';
-import { VsfProgressCircularSizes } from './types';
+import { VsfProgressCircularSize } from './types';
+
 const props = defineProps({
   value: {
     type: Number,
     default: 0,
   },
   size: {
-    type: String as PropType<VsfProgressCircularSizes>,
-    default: VsfProgressCircularSizes.base,
+    type: String as PropType<`${VsfProgressCircularSize}`>,
+    default: VsfProgressCircularSize.base,
   },
   withValue: {
     type: Boolean,
@@ -19,13 +21,13 @@ const props = defineProps({
 
 const strokeWidth = computed(() => {
   switch (props.size) {
-    case VsfProgressCircularSizes['2xl']:
+    case VsfProgressCircularSize['2xl']:
       return 3;
 
-    case VsfProgressCircularSizes['3xl']:
+    case VsfProgressCircularSize['3xl']:
       return 4;
 
-    case VsfProgressCircularSizes['4xl']:
+    case VsfProgressCircularSize['4xl']:
       return 8;
 
     default:

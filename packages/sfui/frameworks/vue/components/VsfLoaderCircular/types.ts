@@ -1,7 +1,7 @@
-import { VsfLoaderSizes } from '@storefront-ui/shared';
+import { VsfLoaderSize } from '@storefront-ui/shared';
 
-export { VsfLoaderSizes };
+export { VsfLoaderSize };
 export type VsfLoaderCircularProps = {
-  size?: VsfLoaderSizes;
+  size?: VsfLoaderSize;
   screenReaderText?: string;
 };

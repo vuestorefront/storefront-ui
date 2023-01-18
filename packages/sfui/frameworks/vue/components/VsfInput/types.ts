@@ -1,4 +1,4 @@
-export enum VsfInputSizes {
+export enum VsfInputSize {
   sm = 'sm',
   base = 'base',
   lg = 'lg',
@@ -6,7 +6,7 @@ export enum VsfInputSizes {
 
 export interface VsfInputProps {
   value: string;
-  size?: VsfInputSizes;
+  size?: VsfInputSize;
   label?: string;
   disabled?: boolean;
   required?: boolean;

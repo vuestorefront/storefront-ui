@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { generateId } from '@storefront-ui/shared';
-import { VsfInputSizes } from './types';
+import { VsfInputSize } from './types';
 
 import type { VsfInputProps } from './types';
 
@@ -9,7 +9,7 @@ export default function VsfInput({
   disabled,
   required,
   value,
-  size = VsfInputSizes.base,
+  size = VsfInputSize.base,
   slotPrefix,
   slotSuffix,
   placeholder,

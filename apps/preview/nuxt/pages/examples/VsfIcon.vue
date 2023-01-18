@@ -9,7 +9,7 @@
 
 <script lang="ts">
 import { ref } from 'vue';
-import { VsfIconSizeEnum, VsfIconArrowDown } from '@storefront-ui/vue/components/VsfIcons/index';
+import { VsfIconSize, VsfIconArrowDown } from '@storefront-ui/vue/components/VsfIcons/index';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
 
@@ -21,14 +21,14 @@ export default {
   },
   setup() {
     return {
-      ...prepareControls<{ size: VsfIconSizeEnum; colorExample: string }>(
+      ...prepareControls<{ size: VsfIconSize; colorExample: string }>(
         [
           {
             type: 'select',
             modelName: 'size',
             propDefaultValue: 'VsfIconSize.base',
             propType: 'VsfIconSize',
-            options: Object.keys(VsfIconSizeEnum),
+            options: Object.keys(VsfIconSize),
           },
           {
             type: 'select',
@@ -38,7 +38,7 @@ export default {
           },
         ],
         {
-          size: ref(VsfIconSizeEnum.base),
+          size: ref(VsfIconSize.base),
           colorExample: ref('black'),
         },
       ),

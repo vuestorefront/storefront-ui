@@ -5,7 +5,7 @@ export default {
 </script>
 <script lang="ts" setup>
 import { ref, toRefs, watch } from 'vue';
-import { VsfButton, VsfButtonVariants } from '../VsfButton';
+import { VsfButton, VsfButtonVariant } from '../VsfButton';
 import { VsfIconClose } from '../VsfIcons';
 import { waitForElementInDOM } from '../../shared/render';
 
@@ -62,7 +62,7 @@ watch(
   <dialog ref="dialogRef" class="vsf-dialog" data-testid="dialog" @click="outsideClickClose && onClick($event)">
     <div class="vsf-dialog__inner" v-bind="$attrs">
       <template v-if="!hideCloseButton">
-        <VsfButton class="vsf-dialog__btn-close" :variant="VsfButtonVariants.tertiary" @click="handleCloseDialog()">
+        <VsfButton class="vsf-dialog__btn-close" :variant="VsfButtonVariant.tertiary" @click="handleCloseDialog()">
           <template #prefix><VsfIconClose /></template>
         </VsfButton>
       </template>

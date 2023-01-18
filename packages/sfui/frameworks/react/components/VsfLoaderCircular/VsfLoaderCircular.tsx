@@ -1,9 +1,9 @@
 import classNames from 'classnames';
-import { VsfLoaderSizes } from './types';
+import { VsfLoaderSize } from './types';
 import type { VsfLoaderCircularProps } from './types';
 
 export default function VsfLoaderCircular({
-  size = VsfLoaderSizes.lg,
+  size = VsfLoaderSize.lg,
   screenReaderText = 'loading',
   className,
   ...attributes

@@ -1,4 +1,4 @@
-export enum VsfAlertVariants {
+export enum VsfAlertVariant {
   gray = 'gray',
   secondary = 'secondary',
   positive = 'positive',
@@ -6,7 +6,7 @@ export enum VsfAlertVariants {
   error = 'error',
 }
 
-export enum VsfAlertTypes {
+export enum VsfAlertType {
   temporary = 'temporary',
   persistent = 'persistent',
 }

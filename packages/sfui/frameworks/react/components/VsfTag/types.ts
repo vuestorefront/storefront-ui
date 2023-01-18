@@ -1,7 +1,7 @@
 import type { PropsWithChildren } from 'react';
 import type { PropsWithStyle } from '../../shared/types/index';
 
-export enum VsfTagVariants {
+export enum VsfTagVariant {
   primary = 'primary',
   secondary = 'secondary',
   negative = 'negative',
@@ -9,12 +9,12 @@ export enum VsfTagVariants {
   gray = 'gray',
 }
 
-export enum VsfTagSizes {
+export enum VsfTagSize {
   sm = 'sm',
   base = 'base',
 }
 
-export enum VsfTagAriaLiveValues {
+export enum VsfTagAriaLiveValue {
   off = 'off',
   polite = 'polite',
   assertive = 'assertive',
@@ -22,9 +22,8 @@ export enum VsfTagAriaLiveValues {
 
 export interface VsfTagProps extends PropsWithChildren, PropsWithStyle {
   label?: string;
-  variant?: VsfTagVariants;
-  size?: VsfTagSizes;
+  variant?: `${VsfTagVariant}`;
+  size?: `${VsfTagSize}`;
   strong?: boolean;
-  ariaLive?: VsfTagAriaLiveValues;
-  className?: string;
+  ariaLive?: `${VsfTagAriaLiveValue}`;
 }

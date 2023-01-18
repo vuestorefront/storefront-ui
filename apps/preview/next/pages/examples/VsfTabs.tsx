@@ -2,7 +2,7 @@ import VsfTabs from '@storefront-ui/react/components/VsfTabs/VsfTabs';
 import VsfTabsItem from '@storefront-ui/react/components/VsfTabs/VsfTabsItem';
 import VsfIconDot from '@storefront-ui/react/components/VsfIcons/VsfIconDot';
 import VsfCounter from '@storefront-ui/react/components/VsfCounter/VsfCounter';
-import { VsfButtonSizes } from '@storefront-ui/react/components/VsfButton';
+import { VsfButtonSize } from '@storefront-ui/react/components/VsfButton';
 import { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 import ComponentExample from '../../components/utils/ComponentExample';
@@ -29,9 +29,9 @@ function Example() {
       {
         type: 'select',
         modelName: 'size',
-        propType: 'VsfButtonSizes',
-        propDefaultValue: VsfButtonSizes.base,
-        options: Object.keys(VsfButtonSizes),
+        propType: 'VsfButtonSize',
+        propDefaultValue: VsfButtonSize.base,
+        options: Object.keys(VsfButtonSize),
         description: 'Sets size value of all tabs',
       },
       {
@@ -62,7 +62,7 @@ function Example() {
       },
     ],
     {
-      size: VsfButtonSizes.base,
+      size: VsfButtonSize.base,
       active: '' as typeof active,
       slotSuffix: '',
       slotPrefix: '',

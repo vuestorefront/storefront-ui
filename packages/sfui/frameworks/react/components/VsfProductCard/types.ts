@@ -1,16 +1,15 @@
 import type { ReactNode, MouseEventHandler } from 'react';
 import type { PropsWithStyle } from '../../shared/types';
 
-export enum VsfProductCardSizes {
+export enum VsfProductCardSize {
   sm = 'sm',
   base = 'base',
   responsive = 'responsive',
 }
-export interface VsfProductCardImageProps {
+export interface VsfProductCardImageProps extends PropsWithStyle {
   imageSrc?: string;
   vertical: boolean;
-  size: VsfProductCardSizes;
-  className?: string;
+  size: `${VsfProductCardSize}`;
 }
 
 export interface VsfProductCardProps extends PropsWithStyle {
@@ -26,7 +25,7 @@ export interface VsfProductCardProps extends PropsWithStyle {
   description?: string;
   outOfStock: boolean;
   inCart?: string;
-  size: VsfProductCardSizes;
+  size: `${VsfProductCardSize}`;
   addToCartLabel?: string;
   similarLabel?: string;
   outOfStockLabel?: string;

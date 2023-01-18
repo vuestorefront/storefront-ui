@@ -16,7 +16,7 @@ import VsfCounterReact from '../../../sfui/frameworks/react/components/VsfCounte
 // end import react
 import { mount, Wrapper } from '../../utils/mount';
 import VsfTabsBaseObject from "./VsfTabs.PageObject";
-import { VsfButtonSizes } from '../../../sfui/frameworks/vue/components/VsfButton/types';
+import { VsfButtonSize } from '../../../sfui/frameworks/vue/components/VsfButton/types';
 
 describe("VsfTabs", () => {
   const page = () => new VsfTabsBaseObject('tabs');
@@ -40,17 +40,17 @@ describe("VsfTabs", () => {
 
   const initializeComponent = ({
     modelValue = ref(''),
-    size = ref(VsfButtonSizes.base),
+    size = ref(VsfButtonSize.base),
   }: {
     modelValue?: Ref<number | string | symbol>,
-    size?: VsfButtonSizes,
+    size?: VsfButtonSize,
   } = {}) => {
     return mount({
       vue: {
         component: VsfTabsVue,
         props: {
           modelValue,
-          size,  
+          size,
           'onUpdate:modelValue': onChangeSpy,
         },
         slots: {
@@ -64,8 +64,8 @@ describe("VsfTabs", () => {
                   disabled: label === disabledItem,
                 },
                 {
-                  prefix: () => h(VsfIconDotVue), 
-                  default: () => label, 
+                  prefix: () => h(VsfIconDotVue),
+                  default: () => label,
                   suffix: () => h(VsfCounterVue, { pill: true },  { default: () => counter })
                 }
               )
@@ -120,7 +120,7 @@ describe("VsfTabs", () => {
   });
 
   describe('when size is changed to ', () => {
-    [...Object.values(VsfButtonSizes)].forEach((componentSize) => {
+    [...Object.values(VsfButtonSize)].forEach((componentSize) => {
       describe(componentSize, () => {
         it('should render proper tab size', () => {
           const size = componentSize;

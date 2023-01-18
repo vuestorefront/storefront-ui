@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { PropType } from 'vue';
-import { VsfRadioGroupDirections } from './types';
+import { VsfRadioGroupDirection } from './types';
 
 defineProps({
   legend: {
@@ -8,8 +8,8 @@ defineProps({
     default: '',
   },
   direction: {
-    type: String as PropType<VsfRadioGroupDirections>,
-    default: VsfRadioGroupDirections.vertical,
+    type: String as PropType<`${VsfRadioGroupDirection}`>,
+    default: VsfRadioGroupDirection.vertical,
   },
   required: {
     type: Boolean,

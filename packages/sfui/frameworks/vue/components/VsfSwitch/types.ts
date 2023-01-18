@@ -1,4 +1,4 @@
-export enum VsfSwitchAlignments {
+export enum VsfSwitchAlignment {
   prefix = 'prefix',
   suffix = 'suffix',
 }

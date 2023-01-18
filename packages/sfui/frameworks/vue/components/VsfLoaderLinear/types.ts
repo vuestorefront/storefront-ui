@@ -1,10 +1,10 @@
-import { VsfLoaderSizes } from '@storefront-ui/shared';
+import { VsfLoaderSize } from '@storefront-ui/shared';
 
 export enum VsfLoaderLinearSize {
   'minimal' = 'minimal',
 }
-export { VsfLoaderSizes };
+export { VsfLoaderSize };
 export type VsfLoaderLinearProps = {
-  size?: VsfLoaderLinearSize | VsfLoaderSizes;
+  size?: VsfLoaderLinearSize | VsfLoaderSize;
   screenReaderText?: string;
 };

@@ -14,7 +14,7 @@
 <script lang="ts">
 import { defineComponent, ref, h } from 'vue';
 import VsfInput from '@storefront-ui/vue/components/VsfInput/VsfInput.vue';
-import { VsfInputSizes } from '@storefront-ui/vue/components/VsfInput/types';
+import { VsfInputSize } from '@storefront-ui/vue/components/VsfInput/types';
 import { createControlsOptions } from '@storefront-ui/preview-shared/utils/controlsOptions';
 import { VsfIconLock, VsfIconSearch } from '@storefront-ui/vue/components/VsfIcons/index';
 import { prepareControls } from '../../components/utils/Controls.vue';
@@ -48,7 +48,7 @@ export default defineComponent({
             modelName: 'size',
             propDefaultValue: 'VsfInputSize.base',
             propType: 'VsfInputSize',
-            options: Object.keys(VsfInputSizes),
+            options: Object.keys(VsfInputSize),
           },
           {
             type: 'text',
@@ -114,7 +114,7 @@ export default defineComponent({
           },
         ],
         {
-          size: ref(VsfInputSizes.base),
+          size: ref(VsfInputSize.base),
           disabled: ref(),
           required: ref(),
           invalid: ref(),

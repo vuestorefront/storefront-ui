@@ -1,5 +1,5 @@
 import { VsfLoaderLinear } from '@storefront-ui/react/components/VsfLoaderLinear/index';
-import { VsfLoaderSizes, VsfLoaderLinearSize } from '@storefront-ui/react/components/VsfLoaderLinear/types';
+import { VsfLoaderSize, VsfLoaderLinearSize } from '@storefront-ui/react/components/VsfLoaderLinear/types';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
@@ -10,8 +10,8 @@ function Example() {
       {
         type: 'select',
         modelName: 'size',
-        propType: 'VsfLoaderSizes',
-        options: [...Object.keys(VsfLoaderLinearSize), ...Object.keys(VsfLoaderSizes)],
+        propType: 'VsfLoaderSize',
+        options: [...Object.keys(VsfLoaderLinearSize), ...Object.keys(VsfLoaderSize)],
         propDefaultValue: VsfLoaderLinearSize.minimal,
         description: 'sets sizes of components',
       },

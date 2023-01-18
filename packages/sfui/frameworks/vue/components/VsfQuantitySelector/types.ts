@@ -1,4 +1,4 @@
-export enum VsfQuantitySelectorSizes {
+export enum VsfQuantitySelectorSize {
   base = 'base',
   lg = 'lg',
 }
@@ -11,6 +11,6 @@ export type VsfQuantitySelectorProps = {
   maxValue?: number;
   disabled?: boolean;
   step?: number;
-  size?: VsfQuantitySelectorSizes;
+  size?: VsfQuantitySelectorSize;
   block?: boolean;
 };

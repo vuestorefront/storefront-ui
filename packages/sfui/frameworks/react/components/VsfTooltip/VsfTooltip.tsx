@@ -1,31 +1,11 @@
 import classNames from 'classnames';
 import { VsfTooltipPlacement, VsfTooltipProps } from './types';
-import {
-  VsfDropdownInternal,
-  VsfDropdownInternalTriggerEvent,
-  VsfDropdownInternalPlacement,
-} from '../VsfDropdownInternal/index';
-
-function tooltipPlacement(placement: VsfTooltipPlacement) {
-  switch (placement) {
-    case VsfTooltipPlacement.top:
-      return VsfDropdownInternalPlacement.top;
-
-    case VsfTooltipPlacement.right:
-      return VsfDropdownInternalPlacement.right;
-
-    case VsfTooltipPlacement.left:
-      return VsfDropdownInternalPlacement.left;
-
-    default:
-      return VsfDropdownInternalPlacement.bottom;
-  }
-}
+import { VsfDropdownInternal, VsfDropdownInternalTriggerEvent } from '../VsfDropdownInternal/index';
 
 export default function VsfTooltip({
   label,
   hidePointer,
-  placement,
+  placement = VsfTooltipPlacement.bottom,
   open,
   children,
   className,
@@ -36,7 +16,7 @@ export default function VsfTooltip({
     <VsfDropdownInternal
       className={classNames('vsf-tooltip', className)}
       open={open}
-      placement={tooltipPlacement(placement)}
+      placement={placement}
       slotTrigger={<div className="vsf-tooltip__trigger">{children}</div>}
       triggerEvent={VsfDropdownInternalTriggerEvent.hover}
       onOpenUpdate={onOpenUpdate}

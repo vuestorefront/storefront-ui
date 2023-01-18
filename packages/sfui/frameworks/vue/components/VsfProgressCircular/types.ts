@@ -1,4 +1,4 @@
-export enum VsfProgressCircularSizes {
+export enum VsfProgressCircularSize {
   xs = 'xs',
   sm = 'sm',
   base = 'base',

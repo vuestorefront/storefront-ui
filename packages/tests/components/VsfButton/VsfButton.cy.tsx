@@ -5,7 +5,7 @@ import { mount, useComponent } from '../../utils/mount';
 const {vue: VsfButtonVue, react: VsfButtonReact } = useComponent('VsfButton');
 const {vue: VsfIconCheckCircleVue, react: VsfIconCheckCircleReact } = useComponent('VsfIconCheckCircle');
 const {vue: VsfIconCheckboxIndeterminateVue, react: VsfIconCheckboxIndeterminateReact } = useComponent('VsfIconCheckboxIndeterminate');
-import { VsfButtonSizes, VsfButtonVariants } from '../../../sfui/frameworks/vue/components/VsfButton/types';
+import { VsfButtonSize, VsfButtonVariant } from '../../../sfui/frameworks/vue/components/VsfButton/types';
 import VsfButtonBaseObject from "./VsfButton.PageObject";
 
 describe("VsfButton", () => {
@@ -19,8 +19,8 @@ describe("VsfButton", () => {
   const page = () => new VsfButtonBaseObject('button');
 
   type InitializeComponentParams = {
-    size?: VsfButtonSizes;
-    variant?: VsfButtonVariants;
+    size?: VsfButtonSize;
+    variant?: VsfButtonVariant;
     rounded?: boolean;
     disabled?: boolean;
     tile?: boolean;
@@ -34,8 +34,8 @@ describe("VsfButton", () => {
     type?:ButtonTypes;
   }
   const initializeComponent = ({
-    size = VsfButtonSizes.base,
-    variant = VsfButtonVariants.primary,
+    size = VsfButtonSize.base,
+    variant = VsfButtonVariant.primary,
     rounded,
     disabled,
     tile,
@@ -110,7 +110,7 @@ describe("VsfButton", () => {
   });
 
   describe('when prop size is set to ', () => {
-    Object.values(VsfButtonSizes).forEach((componentSize) => {
+    Object.values(VsfButtonSize).forEach((componentSize) => {
       describe(`${componentSize}`, () => {
         it(`should render correct ${componentSize} size`, () => {
           initializeComponent({ size: componentSize });
@@ -122,7 +122,7 @@ describe("VsfButton", () => {
   });
 
   describe('when prop variant is set to ', () => {
-    Object.values(VsfButtonVariants).forEach((componentVariant) => {
+    Object.values(VsfButtonVariant).forEach((componentVariant) => {
       describe(`${componentVariant}`, () => {
         it(`should render correct ${componentVariant} variant`, () => {
           initializeComponent({ variant: componentVariant });

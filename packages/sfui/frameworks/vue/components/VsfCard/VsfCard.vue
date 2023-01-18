@@ -2,9 +2,9 @@
 import type { PropType } from 'vue';
 import { computed } from 'vue';
 import type { VsfCardProps } from './types';
-import { VsfCardSizes, VsfCardLinkTags } from './types';
+import { VsfCardSize, VsfCardLinkTags } from './types';
 import { VsfButton } from '../VsfButton';
-import { VsfButtonVariants, VsfButtonSizes } from '../VsfButton/types';
+import { VsfButtonVariant, VsfButtonSize } from '../VsfButton/types';
 
 defineEmits<{
   (event: 'clickCard', value: Event): void;
@@ -24,7 +24,7 @@ const props = defineProps({
     default: VsfCardLinkTags.a,
   },
   size: {
-    type: String as PropType<VsfCardSizes>,
+    type: String as PropType<`${VsfCardSize}`>,
     default: null,
   },
   imgSrc: {
@@ -32,7 +32,7 @@ const props = defineProps({
     default: '',
   },
   imgAttr: {
-    type: Object as PropType<VsfCardProps>,
+    type: Object as PropType<VsfCardProps['imgAttr']>,
     default: () => ({}),
   },
   description: {
@@ -91,8 +91,8 @@ const isLinkAString = computed(() => {
       <VsfButton
         v-if="buttonText && !rounded"
         class="vsf-card__button"
-        :variant="VsfButtonVariants.tertiary"
-        :size="VsfButtonSizes.sm"
+        :variant="VsfButtonVariant.tertiary"
+        :size="VsfButtonSize.sm"
         :link="link"
         data-testid="card-button"
         @click.prevent="$emit('clickCard', $event)"

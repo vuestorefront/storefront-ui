@@ -1,9 +1,9 @@
 import type { InjectionKey } from 'vue';
-import { VsfButtonSizes } from 'components/VsfButton';
+import { VsfButtonSize } from 'components/VsfButton';
 
 export interface VsfTabsProps {
   modelValue: number | string | symbol;
-  size: VsfButtonSizes;
+  size: VsfButtonSize;
 }
 
 export interface VsfTabsInjectionValue {

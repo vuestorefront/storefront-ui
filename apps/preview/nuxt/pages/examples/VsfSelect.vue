@@ -8,7 +8,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import { VsfSelect, VsfSelectSizes } from '@storefront-ui/vue/components/VsfSelect/index';
+import { VsfSelect, VsfSelectSize } from '@storefront-ui/vue/components/VsfSelect/index';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
 
@@ -75,7 +75,7 @@ export default defineComponent({
           {
             type: 'select',
             modelName: 'size',
-            options: Object.keys(VsfSelectSizes),
+            options: Object.keys(VsfSelectSize),
           },
         ],
         {
@@ -89,7 +89,7 @@ export default defineComponent({
           errorText: ref('Error text'),
           requiredText: ref('*Required'),
           label: ref('Label'),
-          size: ref(VsfSelectSizes.base),
+          size: ref(VsfSelectSize.base),
         },
       ),
     };

@@ -1,12 +1,12 @@
 import type { ReactNode, MouseEventHandler } from 'react';
 
-export enum VsfButtonSizes {
+export enum VsfButtonSize {
   sm = 'sm',
   base = 'base',
   lg = 'lg',
 }
 
-export enum VsfButtonVariants {
+export enum VsfButtonVariant {
   primary = 'primary',
   secondary = 'secondary',
   tertiary = 'tertiary',
@@ -16,8 +16,8 @@ export type VsfButtonProps<E extends HTMLAnchorElement | HTMLButtonElement> = {
   children?: ReactNode;
   slotPrefix?: ReactNode;
   slotSuffix?: ReactNode;
-  size?: VsfButtonSizes;
-  variant?: VsfButtonVariants;
+  size?: `${VsfButtonSize}`;
+  variant?: `${VsfButtonVariant}`;
   rounded?: boolean;
   disabled?: boolean;
   greyscale?: boolean;

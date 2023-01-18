@@ -1,8 +1,8 @@
 import type { VsfIconBaseProps } from './types';
-import { VsfIconSizeEnum } from './types';
+import { VsfIconSize } from './types';
 
 export default function VsfIconBase({
-  size = VsfIconSizeEnum.base,
+  size = VsfIconSize.base,
   className,
   viewBox,
   ariaLabel,

@@ -13,7 +13,7 @@
 
 <script lang="ts">
 import { ref } from 'vue';
-import { VsfSwitch, VsfSwitchAlignments } from '@storefront-ui/vue/components/VsfSwitch/index';
+import { VsfSwitch, VsfSwitchAlignment } from '@storefront-ui/vue/components/VsfSwitch/index';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
 
@@ -41,10 +41,10 @@ export default {
           },
           {
             type: 'select',
-            options: Object.keys(VsfSwitchAlignments),
+            options: Object.keys(VsfSwitchAlignment),
             modelName: 'alignment',
             propType: 'VsfSwitchAlignment',
-            propDefaultValue: VsfSwitchAlignments.prefix,
+            propDefaultValue: VsfSwitchAlignment.prefix,
           },
           {
             type: 'boolean',
@@ -65,7 +65,7 @@ export default {
         {
           value: ref('value'),
           disabled: ref(false),
-          alignment: ref(VsfSwitchAlignments.prefix),
+          alignment: ref(VsfSwitchAlignment.prefix),
           label: ref('Label'),
           helpText: ref('Help Text'),
           modelCheck: ref([]),

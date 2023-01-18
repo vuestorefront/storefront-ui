@@ -1,4 +1,4 @@
-export enum VsfProductCardSizes {
+export enum VsfProductCardSize {
   sm = 'sm',
   base = 'base',
   responsive = 'responsive',
@@ -12,7 +12,7 @@ export interface VsfProductCardImageProps {
   imageSrc?: string;
   imageAttr?: Record<string, unknown>;
   vertical: boolean;
-  size: VsfProductCardSizes;
+  size: VsfProductCardSize;
 }
 export interface VsfProductCardProps {
   imageSrc?: string;
@@ -28,7 +28,7 @@ export interface VsfProductCardProps {
   description?: string;
   outOfStock: boolean;
   inCart?: number;
-  size: VsfProductCardSizes;
+  size: VsfProductCardSize;
   addToCartLabel?: string;
   similarLabel?: string;
   badgeText?: string;

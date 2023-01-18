@@ -15,7 +15,7 @@
 import { defineComponent, ref, h } from 'vue';
 import VsfReview from '@storefront-ui/vue/components/VsfReview/VsfReview.vue';
 import VsfRating from '@storefront-ui/vue/components/VsfRating/VsfRating.vue';
-import { VsfTag, VsfTagSizes, VsfTagVariants } from '@storefront-ui/vue/components/VsfTag/index';
+import { VsfTag, VsfTagSize, VsfTagVariant } from '@storefront-ui/vue/components/VsfTag/index';
 import { createControlsOptions } from '@storefront-ui/preview-shared/utils/controlsOptions';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
@@ -23,8 +23,8 @@ import ComponentExample from '../../components/utils/ComponentExample.vue';
 const slotAuthorSuffixOptions = createControlsOptions({
   none: undefined,
   Tag: h(VsfTag, {
-    size: VsfTagSizes.sm,
-    variant: VsfTagVariants.primary,
+    size: VsfTagSize.sm,
+    variant: VsfTagVariant.primary,
     label: 'Verified purchaser',
   }),
 });

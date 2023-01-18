@@ -1,12 +1,12 @@
 import classNames from 'classnames';
-import { VsfCardSizes, VsfCardProps } from './types';
+import { VsfCardSize, VsfCardProps } from './types';
 import VsfButton from '../VsfButton/VsfButton';
-import { VsfButtonVariants, VsfButtonSizes } from '../VsfButton/types';
+import { VsfButtonVariant, VsfButtonSize } from '../VsfButton/types';
 
 export default function VsfCard({
   onClick,
   title,
-  size = VsfCardSizes.base,
+  size = VsfCardSize.base,
   link,
   imgSrc,
   imgAttr = {},
@@ -44,8 +44,8 @@ export default function VsfCard({
         {buttonText && !rounded && (
           <VsfButton
             className="vsf-card__button"
-            variant={VsfButtonVariants.tertiary}
-            size={VsfButtonSizes.sm}
+            variant={VsfButtonVariant.tertiary}
+            size={VsfButtonSize.sm}
             link={link}
             onClick={onClick}
             data-testid="card-button"

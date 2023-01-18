@@ -1,5 +1,4 @@
-import { VsfIconSizeEnum } from '../VsfIconBase/types';
 import type { VsfIconBaseProps } from '../VsfIconBase/types';
 
-export { VsfIconSizeEnum };
+export { VsfIconSize } from '../VsfIconBase/types';
 export type VsfIconProps = Omit<VsfIconBaseProps, 'children' | 'viewBox'> & Partial<Pick<VsfIconBaseProps, 'viewBox'>>;

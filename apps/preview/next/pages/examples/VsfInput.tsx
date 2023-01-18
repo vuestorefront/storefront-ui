@@ -1,5 +1,5 @@
 import { VsfInput } from '@storefront-ui/react/components/VsfInput';
-import { VsfInputProps, VsfInputSizes } from '@storefront-ui/react/components/VsfInput/types';
+import { VsfInputProps, VsfInputSize } from '@storefront-ui/react/components/VsfInput/types';
 import { createControlsOptions } from '@storefront-ui/preview-shared/utils/controlsOptions';
 import { VsfIconSearch, VsfIconLock } from '@storefront-ui/react/components/VsfIcons';
 
@@ -30,7 +30,7 @@ function Example() {
         modelName: 'size',
         propDefaultValue: 'VsfInputSize.base',
         propType: 'VsfInputSize',
-        options: Object.keys(VsfInputSizes),
+        options: Object.keys(VsfInputSize),
       },
       {
         type: 'text',
@@ -96,7 +96,7 @@ function Example() {
       },
     ],
     {
-      size: VsfInputSizes.base,
+      size: VsfInputSize.base,
       disabled: false,
       required: false,
       invalid: false,

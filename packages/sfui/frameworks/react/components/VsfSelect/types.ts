@@ -1,7 +1,7 @@
 import type { PropsWithChildren, ReactNode } from 'react';
 import type { PropsWithStyle } from '../../shared/types';
 
-export enum VsfSelectSizes {
+export enum VsfSelectSize {
   sm = 'sm',
   base = 'base',
   lg = 'lg',
@@ -19,7 +19,7 @@ export interface VsfSelectProps extends VsfSelectDefaultProps {
   disabled?: boolean;
   selected?: string;
   label?: string;
-  size?: VsfSelectSizes;
+  size?: `${VsfSelectSize}`;
   required?: boolean;
   slotPlaceholder?: ReactNode;
   placeholder?: string;

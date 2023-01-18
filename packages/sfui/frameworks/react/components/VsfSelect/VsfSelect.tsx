@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import type { ChangeEvent } from 'react';
-import { VsfSelectSizes } from './types';
+import { VsfSelectSize } from './types';
 import VsfSelectOption from './VsfSelectOption';
 
 import type { VsfSelectProps } from './types';
@@ -11,7 +11,7 @@ export default function VsfSelect({
   label,
   disabled,
   required,
-  size = VsfSelectSizes.base,
+  size = VsfSelectSize.base,
   children,
   slotPlaceholder,
   placeholder,
@@ -43,8 +43,8 @@ export default function VsfSelect({
             required={required}
             disabled={disabled}
             className={classNames('vsf-select__input peer', {
-              'vsf-select__input--small': size === VsfSelectSizes.sm,
-              'vsf-select__input--large': size === VsfSelectSizes.lg,
+              'vsf-select__input--small': size === VsfSelectSize.sm,
+              'vsf-select__input--large': size === VsfSelectSize.lg,
               'vsf-select__input--invalid': invalid,
             })}
             data-testid="select-input"
@@ -53,8 +53,8 @@ export default function VsfSelect({
             <option
               value=""
               className={classNames('vsf-select__placeholder', {
-                'vsf-select__placeholder--small': size === VsfSelectSizes.sm,
-                'vsf-select__placeholder--large': size === VsfSelectSizes.lg,
+                'vsf-select__placeholder--small': size === VsfSelectSize.sm,
+                'vsf-select__placeholder--large': size === VsfSelectSize.lg,
               })}
               data-testid="select-placeholder"
             >

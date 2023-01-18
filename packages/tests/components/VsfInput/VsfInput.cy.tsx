@@ -3,13 +3,13 @@ import React from "react";
 import { mount, useComponent } from '../../utils/mount';
 
 const { vue: VsfInputVue, react: VsfInputReact } = useComponent('VsfInput');
-import { VsfInputSizes } from '../../../sfui/frameworks/vue/components/VsfInput/types';
+import { VsfInputSize } from '../../../sfui/frameworks/vue/components/VsfInput/types';
 import VsfInputBaseObject from "./VsfInput.PageObject";
 
 describe("VsfInput", () => {
   let disabled: boolean;
   let label: string;
-  let size: VsfInputSizes;
+  let size: VsfInputSize;
   let required: boolean;
   let placeholder: string;
   let errorMessage: string;
@@ -66,7 +66,7 @@ describe("VsfInput", () => {
   });
 
   afterEach(() => {
-    size = VsfInputSizes.base;
+    size = VsfInputSize.base;
     placeholder = 'Placeholder',
     readonly = undefined;
     characterLimit = 10;
@@ -80,7 +80,7 @@ describe("VsfInput", () => {
   });
 
   describe('when prop size is set to ', () => {
-    Object.values(VsfInputSizes).forEach((componentSize) => {
+    Object.values(VsfInputSize).forEach((componentSize) => {
       describe(`${componentSize}`, () => {
         it(`should render correct ${componentSize} size`, () => {
           size = componentSize;

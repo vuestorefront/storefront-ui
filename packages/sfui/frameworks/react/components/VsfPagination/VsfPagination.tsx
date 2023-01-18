@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import paginate from 'jw-paginate';
 import classNames from 'classnames';
-import { VsfButton, VsfButtonVariants } from '../VsfButton';
+import { VsfButton, VsfButtonVariant } from '../VsfButton';
 import { VsfIconChevronLeft, VsfIconChevronRight } from '../VsfIcons';
 import type { VsfPaginationProps } from './types';
 import VsfDivider from '../VsfDivider/VsfDivider';
@@ -11,7 +11,7 @@ export default function VsfPagination({
   currentPage = 0,
   itemsPerPage,
   maxVisiblePages,
-  handlePageUpdate,
+  onPageUpdate,
   slotPrefix,
   slotSuffix,
   children,
@@ -31,7 +31,7 @@ export default function VsfPagination({
 
   const onPageChange = (page: number) => {
     setSelectedPage(page);
-    handlePageUpdate?.(page);
+    onPageUpdate?.(page);
   };
 
   return (
@@ -50,7 +50,7 @@ export default function VsfPagination({
           aria-label="Previous"
           onClick={() => onPageChange(selectedPage - 1)}
           disabled={selectedPage <= 1}
-          variant={VsfButtonVariants.tertiary}
+          variant={VsfButtonVariant.tertiary}
           data-testid="pagination-button-prev"
         >
           <VsfIconChevronLeft />
@@ -71,7 +71,7 @@ export default function VsfPagination({
                     aria-label={`Page 1 of ${pagination.totalPages}`}
                     aria-current={selectedPage === 1}
                     onClick={() => onPageChange(1)}
-                    variant={VsfButtonVariants.tertiary}
+                    variant={VsfButtonVariant.tertiary}
                     data-testid="pagination-button-first"
                   >
                     1
@@ -86,7 +86,7 @@ export default function VsfPagination({
                 <VsfButton
                   disabled
                   aria-hidden="true"
-                  variant={VsfButtonVariants.tertiary}
+                  variant={VsfButtonVariant.tertiary}
                   className="vsf-pagination__button vsf-pagination__button--disabled"
                   data-testid="pagination-button-ellipsis-left"
                 >
@@ -109,7 +109,7 @@ export default function VsfPagination({
                     className="vsf-pagination__button"
                     aria-label={`Page ${page} of ${pagination.totalPages}`}
                     aria-current={selectedPage === page}
-                    variant={VsfButtonVariants.tertiary}
+                    variant={VsfButtonVariant.tertiary}
                     onClick={() => onPageChange(page)}
                     data-testid={`pagination-button-visible-${page}`}
                   >
@@ -124,7 +124,7 @@ export default function VsfPagination({
                 <VsfButton
                   disabled
                   aria-hidden="true"
-                  variant={VsfButtonVariants.tertiary}
+                  variant={VsfButtonVariant.tertiary}
                   className="vsf-pagination__button vsf-pagination__button--disabled"
                   data-testid="pagination-button-ellipsis-right"
                 >
@@ -148,7 +148,7 @@ export default function VsfPagination({
                     aria-label={`Page ${pagination.totalPages} of ${pagination.totalPages}`}
                     aria-current={pagination.totalPages === selectedPage}
                     onClick={() => onPageChange(pagination.totalPages)}
-                    variant={VsfButtonVariants.tertiary}
+                    variant={VsfButtonVariant.tertiary}
                     data-testid="pagination-button-last"
                   >
                     {pagination.totalPages}
@@ -164,7 +164,7 @@ export default function VsfPagination({
           aria-label="Next"
           disabled={selectedPage >= pagination.totalPages}
           onClick={() => onPageChange(selectedPage + 1)}
-          variant={VsfButtonVariants.tertiary}
+          variant={VsfButtonVariant.tertiary}
           data-testid="pagination-button-next"
         >
           <span className="vsf-pagination__button--text">Next</span>

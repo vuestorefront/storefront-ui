@@ -8,7 +8,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import { VsfRadio, VsfRadioGroup, VsfRadioAlignments } from '@storefront-ui/vue/components/VsfRadio/index';
+import { VsfRadio, VsfRadioGroup, VsfRadioAlignment } from '@storefront-ui/vue/components/VsfRadio/index';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
 
@@ -57,10 +57,10 @@ export default defineComponent({
           },
           {
             type: 'select',
-            options: Object.keys(VsfRadioAlignments),
+            options: Object.keys(VsfRadioAlignment),
             modelName: 'alignment',
             propType: 'VsfRadioAlignment',
-            propDefaultValue: VsfRadioAlignments.leading,
+            propDefaultValue: VsfRadioAlignment.leading,
           },
           {
             type: 'boolean',
@@ -84,7 +84,7 @@ export default defineComponent({
           name: ref('radio'),
           label: ref('Radio 1'),
           value: ref('radio 1'),
-          alignment: ref(VsfRadioAlignments.leading),
+          alignment: ref(VsfRadioAlignment.leading),
           disabled: ref(false),
           required: ref(false),
           helpText: ref('Help text'),

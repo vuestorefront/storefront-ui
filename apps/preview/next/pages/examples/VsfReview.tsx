@@ -1,8 +1,8 @@
 import { VsfReview, VsfReviewProps } from '@storefront-ui/react/components/VsfReview';
 import { VsfRating } from '@storefront-ui/react/components/VsfRating';
 import { VsfTag } from '@storefront-ui/react/components/VsfTag';
-import { VsfTagSizes, VsfTagVariants } from '@storefront-ui/react/components/VsfTag/types';
-import { VsfIconSizeEnum } from '@storefront-ui/react/components/VsfIcons/types';
+import { VsfTagSize, VsfTagVariant } from '@storefront-ui/react/components/VsfTag/types';
+import { VsfIconSize } from '@storefront-ui/react/components/VsfIcons/types';
 import { VsfIconCheck } from '@storefront-ui/react/components/VsfIcons';
 import { createControlsOptions } from '@storefront-ui/preview-shared/utils/controlsOptions';
 import { prepareControls } from '../../components/utils/Controls';
@@ -12,8 +12,8 @@ import { ExamplePageLayout } from '../examples';
 const slotAuthorSuffixOptions = createControlsOptions({
   none: undefined,
   Tag: (
-    <VsfTag size={VsfTagSizes.sm} variant={VsfTagVariants.primary} label="Verified purchaser">
-      <VsfIconCheck size={VsfIconSizeEnum.xs} />
+    <VsfTag size={VsfTagSize.sm} variant={VsfTagVariant.primary} label="Verified purchaser">
+      <VsfIconCheck size={VsfIconSize.xs} />
     </VsfTag>
   ),
 });

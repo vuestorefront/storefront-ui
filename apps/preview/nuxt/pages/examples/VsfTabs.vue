@@ -21,7 +21,7 @@ import VsfTabs from '@storefront-ui/vue/components/VsfTabs/VsfTabs.vue';
 import VsfTabsItem from '@storefront-ui/vue/components/VsfTabs/VsfTabsItem.vue';
 import VsfIconDot from '@storefront-ui/vue/components/VsfIcons/VsfIconDot.vue';
 import VsfCounter from '@storefront-ui/vue/components/VsfCounter/VsfCounter.vue';
-import { VsfButtonSizes } from '@storefront-ui/vue/components/VsfButton/types';
+import { VsfButtonSize } from '@storefront-ui/vue/components/VsfButton/types';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
 
 import { prepareControls } from '../../components/utils/Controls.vue';
@@ -57,9 +57,9 @@ export default {
           {
             type: 'select',
             modelName: 'size',
-            propType: 'VsfButtonSizes',
-            propDefaultValue: VsfButtonSizes.base,
-            options: Object.keys(VsfButtonSizes),
+            propType: 'VsfButtonSize',
+            propDefaultValue: VsfButtonSize.base,
+            options: Object.keys(VsfButtonSize),
             description: 'Sets size value of all tabs',
           },
           {
@@ -92,7 +92,7 @@ export default {
           },
         ],
         {
-          size: ref(VsfButtonSizes.base),
+          size: ref(VsfButtonSize.base),
           modelValue: ref(''),
           disabled: ref('all tabs enabled'),
           slotSuffix: ref(''),

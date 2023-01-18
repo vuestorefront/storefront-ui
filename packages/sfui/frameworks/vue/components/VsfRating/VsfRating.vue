@@ -2,17 +2,17 @@
 import type { PropType } from 'vue';
 import { computed, toRefs } from 'vue';
 import { clamp, roundToNearest } from '@storefront-ui/shared';
-import { VsfRatingSizes, VsfRatingVariants } from './types';
+import { VsfRatingSize, VsfRatingVariant } from './types';
 import { VsfIconStar, VsfIconStarOutline, VsfIconStarPartiallyFilled } from '../VsfIcons';
 
 const props = defineProps({
   size: {
-    type: String as PropType<VsfRatingSizes>,
-    default: VsfRatingSizes.base,
+    type: String as PropType<`${VsfRatingSize}`>,
+    default: VsfRatingSize.base,
   },
   variant: {
-    type: String as PropType<VsfRatingVariants>,
-    default: VsfRatingVariants.base,
+    type: String as PropType<`${VsfRatingVariant}`>,
+    default: VsfRatingVariant.base,
   },
   max: {
     type: Number,
@@ -46,11 +46,11 @@ const title = computed(() => `${value.value} out of ${max.value}`);
     :class="[
       'vsf-rating',
       {
-        'vsf-rating--xs': size === VsfRatingSizes.xs,
-        'vsf-rating--sm': size === VsfRatingSizes.sm,
-        'vsf-rating--base': size === VsfRatingSizes.base,
-        'vsf-rating--lg': size === VsfRatingSizes.lg,
-        'vsf-rating--xl': size === VsfRatingSizes.xl,
+        'vsf-rating--xs': size === VsfRatingSize.xs,
+        'vsf-rating--sm': size === VsfRatingSize.sm,
+        'vsf-rating--base': size === VsfRatingSize.base,
+        'vsf-rating--lg': size === VsfRatingSize.lg,
+        'vsf-rating--xl': size === VsfRatingSize.xl,
       },
     ]"
   >

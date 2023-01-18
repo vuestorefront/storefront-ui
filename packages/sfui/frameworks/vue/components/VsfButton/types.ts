@@ -1,10 +1,10 @@
-export enum VsfButtonSizes {
+export enum VsfButtonSize {
   sm = 'sm',
   base = 'base',
   lg = 'lg',
 }
 
-export enum VsfButtonVariants {
+export enum VsfButtonVariant {
   primary = 'primary',
   secondary = 'secondary',
   tertiary = 'tertiary',

@@ -1,4 +1,4 @@
-import { VsfCard, VsfCardSizes } from '@storefront-ui/react/components/VsfCard';
+import { VsfCard, VsfCardSize } from '@storefront-ui/react/components/VsfCard';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
@@ -17,9 +17,9 @@ function Example() {
       {
         type: 'select',
         modelName: 'size',
-        options: Object.keys(VsfCardSizes),
+        options: Object.keys(VsfCardSize),
         description: 'Set size variant.',
-        propType: 'VsfCardSizes',
+        propType: 'VsfCardSize',
         isRequired: false,
       },
       {
@@ -66,7 +66,7 @@ function Example() {
     ],
     {
       title: 'Title',
-      size: VsfCardSizes.base,
+      size: VsfCardSize.base,
       link: '/examples/VsfCard',
       imgSrc: productImage.src,
       imgAttr: { alt: 'Example image to describe card component content', loading: 'lazy' },

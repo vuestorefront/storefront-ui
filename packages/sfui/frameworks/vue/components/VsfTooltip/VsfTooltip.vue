@@ -1,20 +1,15 @@
 <script lang="ts" setup>
 import type { PropType } from 'vue';
-import { computed } from 'vue';
 import { VsfTooltipPlacement } from './types';
-import {
-  VsfDropdownInternal,
-  VsfDropdownInternalTriggerEvent,
-  VsfDropdownInternalPlacement,
-} from '../VsfDropdownInternal';
+import { VsfDropdownInternal, VsfDropdownInternalTriggerEvent } from '../VsfDropdownInternal';
 
-const props = defineProps({
+defineProps({
   label: {
     type: String,
     default: '',
   },
   placement: {
-    type: String as PropType<VsfTooltipPlacement>,
+    type: String as PropType<`${VsfTooltipPlacement}`>,
     default: VsfTooltipPlacement.bottom,
   },
   hidePointer: {
@@ -26,31 +21,17 @@ const props = defineProps({
     default: false,
   },
 });
+
 defineEmits<{
   (event: 'update:modelValue', value: boolean): void;
 }>();
-const tooltipPlacement = computed(() => {
-  switch (props.placement) {
-    case VsfTooltipPlacement.top:
-      return VsfDropdownInternalPlacement.top;
-
-    case VsfTooltipPlacement.right:
-      return VsfDropdownInternalPlacement.right;
-
-    case VsfTooltipPlacement.left:
-      return VsfDropdownInternalPlacement.left;
-
-    default:
-      return VsfDropdownInternalPlacement.bottom;
-  }
-});
 </script>
 
 <template>
   <VsfDropdownInternal
     :model-value="modelValue"
     class="vsf-tooltip"
-    :placement="tooltipPlacement"
+    :placement="placement"
     :trigger-event="VsfDropdownInternalTriggerEvent.hover"
     data-testid="tooltip"
     @update:model-value="$emit('update:modelValue', $event)"

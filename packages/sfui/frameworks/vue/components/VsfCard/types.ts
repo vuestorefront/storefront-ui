@@ -1,4 +1,4 @@
-export enum VsfCardSizes {
+export enum VsfCardSize {
   sm = 'sm',
   base = 'base',
   responsive = 'responsive',
@@ -8,9 +8,10 @@ export enum VsfCardLinkTags {
   a = 'a',
   Link = 'Link',
 }
+
 export interface VsfCardProps {
   title: string;
-  size?: VsfCardSizes;
+  size?: `${VsfCardSize}`;
   link?: string | Record<string, unknown>;
   linkTag?: VsfCardLinkTags;
   imgSrc?: string;

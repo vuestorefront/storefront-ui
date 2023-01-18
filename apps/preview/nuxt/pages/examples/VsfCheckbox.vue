@@ -7,7 +7,7 @@
 </template>
 
 <script lang="ts">
-import { VsfCheckbox, VsfCheckboxAlignments } from '@storefront-ui/vue/components/VsfCheckbox/index';
+import { VsfCheckbox, VsfCheckboxAlignment } from '@storefront-ui/vue/components/VsfCheckbox/index';
 import { defineComponent } from 'vue';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
@@ -35,10 +35,10 @@ export default defineComponent({
         },
         {
           type: 'select',
-          options: Object.keys(VsfCheckboxAlignments),
+          options: Object.keys(VsfCheckboxAlignment),
           modelName: 'alignment',
           propType: 'VsfCheckboxAlignment',
-          propDefaultValue: VsfCheckboxAlignments.leading,
+          propDefaultValue: VsfCheckboxAlignment.leading,
         },
         {
           type: 'boolean',
@@ -86,7 +86,7 @@ export default defineComponent({
         required: ref(),
         disabled: ref(),
         indeterminate: ref(),
-        alignment: ref(VsfCheckboxAlignments.leading),
+        alignment: ref(VsfCheckboxAlignment.leading),
         invalid: ref(),
         label: ref('Label'),
         helpText: ref('Help Text'),

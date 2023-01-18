@@ -8,17 +8,17 @@ import {
   VsfIconWarning,
   VsfIconCheckCircle,
 } from '@storefront-ui/react/components/VsfIcons/index';
-import { VsfButton, VsfButtonVariants } from '@storefront-ui/react/components/VsfButton/index';
-import { VsfAlertVariants, VsfAlertTypes } from './types';
+import { VsfButton, VsfButtonVariant } from '@storefront-ui/react/components/VsfButton/index';
+import { VsfAlertVariant, VsfAlertType } from './types';
 import type { VsfAlertProps } from './types';
 
-const defaultPrefixComponent = (variant?: VsfAlertVariants) => {
+const defaultPrefixComponent = (variant?: `${VsfAlertVariant}`) => {
   switch (variant) {
-    case VsfAlertVariants.positive:
+    case VsfAlertVariant.positive:
       return <VsfIconCheckCircle />;
-    case VsfAlertVariants.error:
+    case VsfAlertVariant.error:
       return <VsfIconError />;
-    case VsfAlertVariants.warning:
+    case VsfAlertVariant.warning:
       return <VsfIconWarning />;
     default:
       return <VsfIconInfo />;
@@ -28,8 +28,8 @@ const defaultPrefixComponent = (variant?: VsfAlertVariants) => {
 export default function VsfAlert({
   open = false,
   onOpenChange = () => undefined,
-  variant = VsfAlertVariants.gray,
-  type = VsfAlertTypes.temporary,
+  variant = VsfAlertVariant.gray,
+  type = VsfAlertType.temporary,
   header,
   text,
   children,
@@ -47,7 +47,7 @@ export default function VsfAlert({
   useEffect(() => {
     cancel();
 
-    if (open && type === VsfAlertTypes.temporary) {
+    if (open && type === VsfAlertType.temporary) {
       reset();
     }
   }, [type, open, cancel, reset]);
@@ -68,9 +68,9 @@ export default function VsfAlert({
       </div>
       <div className="vsf-alert__suffix">
         {slotSuffix ||
-          (type === VsfAlertTypes.persistent && (
+          (type === VsfAlertType.persistent && (
             <VsfButton
-              variant={VsfButtonVariants.tertiary}
+              variant={VsfButtonVariant.tertiary}
               onClick={() => onOpenChange(false)}
               slotPrefix={<VsfIconClose />}
               data-testid="alert-close-button"

@@ -3,7 +3,7 @@ import React from "react";
 import { mount, useComponent } from '../../utils/mount';
 
 const {vue: VsfSelectVue, react: VsfSelectReact} = useComponent('VsfSelect');
-import { VsfSelectSizes } from '../../../sfui/frameworks/vue/components/VsfSelect/types';
+import { VsfSelectSize } from '../../../sfui/frameworks/vue/components/VsfSelect/types';
 import VsfSelectBaseObject from "./VsfSelect.PageObject";
 
 describe("VsfSelect", () => {
@@ -18,7 +18,7 @@ describe("VsfSelect", () => {
   };
   let disabled: boolean;
   let label: string;
-  let size: VsfSelectSizes;
+  let size: VsfSelectSize;
   let required: boolean;
   let placeholder: string;
   let errorText: string;
@@ -70,7 +70,7 @@ describe("VsfSelect", () => {
   });
 
   afterEach(() => {
-    size = VsfSelectSizes.base;
+    size = VsfSelectSize.base;
     placeholder = '--Select--'
   });
 
@@ -82,7 +82,7 @@ describe("VsfSelect", () => {
   });
 
   describe('when prop size is set to ', () => {
-    Object.values(VsfSelectSizes).forEach((componentSize) => {
+    Object.values(VsfSelectSize).forEach((componentSize) => {
       describe(`${componentSize}`, () => {
         it(`should render correct ${componentSize} size`, () => {
           size = componentSize;

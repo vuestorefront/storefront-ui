@@ -1,8 +1,8 @@
 import type { VsfProductCardImageProps } from './types';
-import { VsfProductCardSizes } from './types';
+import { VsfProductCardSize } from './types';
 
 export default function VsfProductCardImage({
-  size = VsfProductCardSizes.responsive,
+  size = VsfProductCardSize.responsive,
   imageSrc,
   vertical = true,
   className,
@@ -10,7 +10,7 @@ export default function VsfProductCardImage({
 }: VsfProductCardImageProps) {
   const imageDimensionsVertical = () => {
     switch (size) {
-      case VsfProductCardSizes.sm:
+      case VsfProductCardSize.sm:
         return 192;
 
       default:
@@ -20,7 +20,7 @@ export default function VsfProductCardImage({
 
   const imageDimensionsHorizontal = () => {
     switch (size) {
-      case VsfProductCardSizes.sm:
+      case VsfProductCardSize.sm:
         return 128;
 
       default:

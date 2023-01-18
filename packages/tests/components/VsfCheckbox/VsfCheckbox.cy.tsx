@@ -3,11 +3,11 @@ import React from "react";
 import { mount, useComponent } from '../../utils/mount';
 
 const {vue: VsfCheckboxVue, react: VsfCheckboxReact } = useComponent('VsfCheckbox');
-import { VsfCheckboxAlignments } from '../../../sfui/frameworks/vue/components/VsfCheckbox/types';
+import { VsfCheckboxAlignment } from '../../../sfui/frameworks/vue/components/VsfCheckbox/types';
 import VsfCheckboxBaseObject from "./VsfCheckbox.PageObject";
 
 describe("VsfCheckbox", () => {
-  let alignment: VsfCheckboxAlignments;
+  let alignment: VsfCheckboxAlignment;
   let disabled: boolean;
   let label: string;
   let required: boolean;
@@ -56,7 +56,7 @@ describe("VsfCheckbox", () => {
     label = 'Label';
     value = 'value';
     onChangeSpy = cy.spy();
-    alignment = VsfCheckboxAlignments.leading;
+    alignment = VsfCheckboxAlignment.leading;
   });
 
   it('initial state', () => {
@@ -66,7 +66,7 @@ describe("VsfCheckbox", () => {
   });
 
   describe('when prop alignment is set to ', () => {
-    Object.values(VsfCheckboxAlignments).forEach((componentAlignment) => {
+    Object.values(VsfCheckboxAlignment).forEach((componentAlignment) => {
       describe(`${componentAlignment}`, () => {
         it(`should render correct ${componentAlignment} alignment`, () => {
           alignment = componentAlignment;

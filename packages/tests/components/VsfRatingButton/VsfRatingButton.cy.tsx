@@ -7,12 +7,12 @@ const {vue: VsfRatingButtonVue, react: VsfRatingButtonReact } = useComponent('Vs
 const {vue: VsfIconStarVue, react: VsfIconStarReact } = useComponent('VsfIconStar');
 const {vue: VsfIconStarOutlineVue, react: VsfIconStarOutlineReact } = useComponent('VsfIconStarOutline');
 
-import { VsfRatingButtonSizes } from '../../../sfui/frameworks/vue/components/VsfRatingButton/types';
-import { VsfIconSizeEnum } from '../../../sfui/frameworks/vue/components/VsfIconBase/types';
+import { VsfRatingButtonSize } from '../../../sfui/frameworks/vue/components/VsfRatingButton/types';
+import { VsfIconSize } from '../../../sfui/frameworks/vue/components/VsfIconBase/types';
 import VsfRatingButtonBaseObject from "./VsfRatingButton.PageObject";
 
 describe("VsfRatingButton", () => {
-  let size: VsfRatingButtonSizes;
+  let size: VsfRatingButtonSize;
   let max: number;
   let disabled: boolean;
   let value: number;
@@ -47,8 +47,8 @@ describe("VsfRatingButton", () => {
         value={value}
         name={name}
         ariaLabel={ariaLabel}
-        renderIconFilled={(size?: VsfIconSizeEnum) => <VsfIconStarReact size={size} /> }
-        renderIconEmpty={(size?: VsfIconSizeEnum) => <VsfIconStarOutlineReact size={size} />}
+        renderIconFilled={(size?: VsfIconSize) => <VsfIconStarReact size={size} /> }
+        renderIconEmpty={(size?: VsfIconSize) => <VsfIconStarOutlineReact size={size} />}
         onChange={onChangeSpy}
       />
     });
@@ -59,7 +59,7 @@ describe("VsfRatingButton", () => {
   })
 
   afterEach(() => {
-    size = VsfRatingButtonSizes.base;
+    size = VsfRatingButtonSize.base;
     max = 5,
     disabled = false,
     value = 0,
@@ -86,7 +86,7 @@ describe("VsfRatingButton", () => {
   });
 
   describe('when prop size is set to ', () => {
-    Object.values(VsfRatingButtonSizes).forEach((componentSize) => {
+    Object.values(VsfRatingButtonSize).forEach((componentSize) => {
       describe(`${componentSize}`, () => {
         it(`should render correct ${componentSize} size`, () => {
           size = componentSize;

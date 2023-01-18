@@ -4,7 +4,7 @@ import { mount, useComponent } from '../../utils/mount';
 
 const { vue: VsfProductCardVue, react: VsfProductCardReact } = useComponent('VsfProductCard');
 import VsfProductCardBaseObject from "./VsfProductCard.PageObject";
-import { VsfProductCardSizes } from '../../../sfui/frameworks/vue/components/VsfProductCard/types';
+import { VsfProductCardSize } from '../../../sfui/frameworks/vue/components/VsfProductCard/types';
 
 describe("VsfProductCard", () => {
   let onAddToCartClickSpy: Cypress.Agent<sinon.SinonSpy>;
@@ -25,7 +25,7 @@ describe("VsfProductCard", () => {
   let outOfStock: boolean;
   let outOfStockLabel: string;
   let inCart: string;
-  let size: VsfProductCardSizes;
+  let size: VsfProductCardSize;
   let addToCartLabel: string;
   let similarLabel: string;
   let badgeText: string;
@@ -135,7 +135,7 @@ describe("VsfProductCard", () => {
     outOfStock = false;
     outOfStockLabel = 'Out of stock',
     inCart = '12 in cart';
-    size = VsfProductCardSizes.responsive;
+    size = VsfProductCardSize.responsive;
     addToCartLabel = 'Add';
     similarLabel = 'See similar';
     badgeText = '-30%';

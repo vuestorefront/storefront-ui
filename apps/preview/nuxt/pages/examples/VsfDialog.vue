@@ -8,7 +8,7 @@
         <p class="mt-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
 
         <footer class="mt-4 flex justify-end gap-4">
-          <VsfButton autofocus :variant="VsfButtonVariants.secondary" @click="onClose('Close')">Close</VsfButton>
+          <VsfButton autofocus :variant="VsfButtonVariant.secondary" @click="onClose('Close')">Close</VsfButton>
           <VsfButton @click="onClose('Accept')">Accept</VsfButton>
         </footer>
       </section>
@@ -19,7 +19,7 @@
 <script lang="ts">
 import { ref } from 'vue';
 import VsfDialog from '@storefront-ui/vue/components//VsfDialog/VsfDialog.vue';
-import { VsfButton, VsfButtonVariants } from '@storefront-ui/vue/components/VsfButton/index';
+import { VsfButton, VsfButtonVariant } from '@storefront-ui/vue/components/VsfButton/index';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
 
@@ -40,7 +40,7 @@ export default {
           alert(`Closed via "${buttonName}" button`);
         });
       },
-      VsfButtonVariants,
+      VsfButtonVariant,
       ...prepareControls(
         [
           {

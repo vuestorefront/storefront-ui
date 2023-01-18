@@ -10,7 +10,7 @@ export enum VsfLinkVariant {
 export interface VsfLinkProps {
   tag?: LinkComponent | 'a' | string;
   link?: string;
-  variant?: VsfLinkVariant;
+  variant?: `${VsfLinkVariant}`;
   className?: string;
   children?: ReactNode | undefined;
 }

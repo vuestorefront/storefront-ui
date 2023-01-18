@@ -12,7 +12,7 @@ const props = defineProps({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   ...extractProps(VsfCheckbox as any, ['value', 'name', 'modelValue'] as const),
   variant: {
-    type: String as PropType<VsfListItemFilterCheckboxVariant>,
+    type: String as PropType<`${VsfListItemFilterCheckboxVariant}`>,
     default: VsfListItemFilterCheckboxVariant.left,
   },
 });

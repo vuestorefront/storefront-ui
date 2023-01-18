@@ -16,7 +16,7 @@ See the design on [Figma](https://www.figma.com/file/Cx2jw34waZltkapwq7j7aT/SFUI
 
 | Prop name | Type              | Default value | Possible values                       |
 |-----------|-------------------|---------------|---------------------------------------|
-| size      | `VsfCounterSizes` | `base`        | `xs`, `sm`, `base`, `lg`, `xl`, `2xl` |
+| size      | `VsfCounterSize` | `base`        | `xs`, `sm`, `base`, `lg`, `xl`, `2xl` |
 | pill      | `Boolean`         | `false`       |                                       |
 
 ### React only:

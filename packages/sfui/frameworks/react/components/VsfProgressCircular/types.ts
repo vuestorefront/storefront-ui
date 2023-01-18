@@ -1,7 +1,7 @@
-import { AriaAttributes } from 'react';
+import type { AriaAttributes } from 'react';
 import type { PropsWithStyle } from '../../shared/types';
 
-export enum VsfProgressCircularSizes {
+export enum VsfProgressCircularSize {
   xs = 'xs',
   sm = 'sm',
   base = 'base',
@@ -15,7 +15,7 @@ export enum VsfProgressCircularSizes {
 export interface VsfProgressCircularProps
   extends PropsWithStyle,
     Pick<AriaAttributes, 'aria-valuemax' | 'aria-valuenow' | 'aria-valuemin'> {
-  size: VsfProgressCircularSizes;
+  size?: `${VsfProgressCircularSize}`;
   value?: number;
-  withValue: boolean;
+  withValue?: boolean;
 }

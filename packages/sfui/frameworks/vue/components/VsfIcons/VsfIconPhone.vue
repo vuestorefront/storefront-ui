@@ -8,12 +8,12 @@
 </template>
 <script lang="ts" setup>
 import { PropType } from 'vue';
-import { VsfIconBase, VsfIconSizeEnum } from '../VsfIconBase';
+import { VsfIconBase, VsfIconSize } from '../VsfIconBase';
 
 defineProps({
   size: {
-    type: String as PropType<VsfIconSizeEnum>,
-    default: VsfIconSizeEnum.base,
+    type: String as PropType<`${VsfIconSize}`>,
+    default: VsfIconSize.base,
   },
 });
 </script>

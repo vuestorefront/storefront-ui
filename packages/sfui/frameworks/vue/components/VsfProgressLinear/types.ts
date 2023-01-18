@@ -1,4 +1,4 @@
-export enum VsfProgressLinearSizes {
+export enum VsfProgressLinearSize {
   'minimal' = 'minimal',
   xs = 'xs',
   sm = 'sm',

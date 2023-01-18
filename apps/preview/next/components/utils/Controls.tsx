@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { ChangeEvent, useState } from 'react';
-import { VsfButton, VsfButtonVariants, VsfButtonSizes } from '@storefront-ui/react/components/VsfButton';
+import { VsfButton, VsfButtonVariant, VsfButtonSize } from '@storefront-ui/react/components/VsfButton';
 import { VsfIconChevronUp, VsfIconChevronDown } from '@storefront-ui/react/components/VsfIcons/index';
 import { useControlsSearchParams } from '../../composables/utils/useControlsSearchParams';
 
@@ -93,8 +93,8 @@ export default function Controls<T extends { [k: string]: any }>({ controls, sta
         <h1 className="heading">Controls</h1>
 
         <VsfButton
-          variant={VsfButtonVariants.tertiary}
-          size={VsfButtonSizes.sm}
+          variant={VsfButtonVariant.tertiary}
+          size={VsfButtonSize.sm}
           onClick={() => setPreviewBottomOpen(!previewBottomOpen)}
           slotSuffix={previewBottomOpen ? <VsfIconChevronDown /> : <VsfIconChevronUp />}
         >

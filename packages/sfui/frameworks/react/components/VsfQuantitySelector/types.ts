@@ -1,7 +1,7 @@
 import type { PropsWithChildren } from 'react';
 import type { PropsWithStyle } from '../../shared/types';
 
-export enum VsfQuantitySelectorSizes {
+export enum VsfQuantitySelectorSize {
   base = 'base',
   lg = 'lg',
 }
@@ -15,7 +15,7 @@ export type VsfQuantitySelectorProps = PropsWithStyle &
     maxValue?: number;
     disabled?: boolean;
     step?: number;
-    size?: VsfQuantitySelectorSizes;
+    size?: `${VsfQuantitySelectorSize}`;
     block?: boolean;
     decimal?: number;
     onChange: (value: number) => void;

@@ -4,10 +4,10 @@ import { mount, useComponent } from '../../utils/mount';
 
 const { vue: VsfProgressLinearVue, react: VsfProgressLinearReact } = useComponent('VsfProgressLinear');
 import VsfProgressLinearBaseObject from "./VsfProgressLinear.PageObject";
-import { VsfProgressLinearSizes } from '../../../sfui/frameworks/vue/components/VsfProgressLinear/types';
+import { VsfProgressLinearSize } from '../../../sfui/frameworks/vue/components/VsfProgressLinear/types';
 
 describe("VsfProgressLinear", () => {
-  let size: VsfProgressLinearSizes;
+  let size: VsfProgressLinearSize;
   let value: number;
   let withValue: boolean;
 
@@ -36,7 +36,7 @@ describe("VsfProgressLinear", () => {
   });
 
   describe('when prop size is set to ', () => {
-    Object.values(VsfProgressLinearSizes).forEach((componentSize) => {
+    Object.values(VsfProgressLinearSize).forEach((componentSize) => {
       describe(`${componentSize}`, () => {
         it(`should render correct ${componentSize} size`, () => {
           size = componentSize;

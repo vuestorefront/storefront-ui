@@ -1,7 +1,7 @@
 import { useRef, useEffect } from 'react';
 import classNames from 'classnames';
 import type { VsfDialogProps } from './types';
-import { VsfButton, VsfButtonVariants } from '../VsfButton';
+import { VsfButton, VsfButtonVariant } from '../VsfButton';
 import VsfIconClose from '../VsfIcons/VsfIconClose';
 
 export default function VsfDialog({
@@ -53,7 +53,7 @@ export default function VsfDialog({
           <VsfButton
             className="vsf-dialog__btn-close"
             onClick={handleCloseDialog}
-            variant={VsfButtonVariants.tertiary}
+            variant={VsfButtonVariant.tertiary}
             slotPrefix={<VsfIconClose />}
           />
         )}

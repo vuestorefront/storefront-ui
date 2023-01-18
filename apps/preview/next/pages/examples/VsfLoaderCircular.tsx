@@ -1,5 +1,5 @@
 import { VsfLoaderCircular } from '@storefront-ui/react/components/VsfLoaderCircular/index';
-import { VsfLoaderSizes } from '@storefront-ui/react/components/VsfLoaderCircular/types';
+import { VsfLoaderSize } from '@storefront-ui/react/components/VsfLoaderCircular/types';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
@@ -10,8 +10,8 @@ function Example() {
       {
         type: 'select',
         modelName: 'size',
-        propType: 'VsfLoaderSizes',
-        options: [...Object.keys(VsfLoaderSizes)],
+        propType: 'VsfLoaderSize',
+        options: [...Object.keys(VsfLoaderSize)],
         description: 'sets sizes of components',
       },
       {
@@ -23,7 +23,7 @@ function Example() {
       },
     ],
     {
-      size: VsfLoaderSizes.lg,
+      size: VsfLoaderSize.lg,
       screenReaderText: 'loading',
     },
   );

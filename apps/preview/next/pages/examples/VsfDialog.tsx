@@ -1,5 +1,5 @@
 import { VsfDialog } from '@storefront-ui/react/components/VsfDialog';
-import { VsfButton, VsfButtonVariants } from '@storefront-ui/react/components/VsfButton';
+import { VsfButton, VsfButtonVariant } from '@storefront-ui/react/components/VsfButton';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
@@ -59,7 +59,7 @@ function Example() {
           <p className="mt-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
 
           <footer className="mt-4 flex justify-end gap-4">
-            <VsfButton autoFocus variant={VsfButtonVariants.secondary} onClick={() => onClose('Close')}>
+            <VsfButton autoFocus variant={VsfButtonVariant.secondary} onClick={() => onClose('Close')}>
               Close
             </VsfButton>
             <VsfButton onClick={() => onClose('Accept')}>Accept</VsfButton>

@@ -1,9 +1,4 @@
-import {
-  VsfButton,
-  VsfButtonProps,
-  VsfButtonSizes,
-  VsfButtonVariants,
-} from '@storefront-ui/react/components/VsfButton';
+import { VsfButton, VsfButtonProps, VsfButtonSize, VsfButtonVariant } from '@storefront-ui/react/components/VsfButton';
 import { VsfIconSearch, VsfIconLock } from '@storefront-ui/react/components/VsfIcons';
 import { createControlsOptions } from '@storefront-ui/preview-shared/utils/controlsOptions';
 import { ExamplePageLayout } from '../examples';
@@ -54,12 +49,12 @@ function Example() {
       {
         type: 'select',
         modelName: 'variant',
-        options: Object.keys(VsfButtonVariants),
+        options: Object.keys(VsfButtonVariant),
       },
       {
         type: 'select',
         modelName: 'size',
-        options: Object.keys(VsfButtonSizes),
+        options: Object.keys(VsfButtonSize),
       },
       {
         type: 'boolean',
@@ -100,8 +95,8 @@ function Example() {
       greyscale: undefined,
       truncate: undefined,
       link: undefined,
-      variant: VsfButtonVariants.primary,
-      size: VsfButtonSizes.base,
+      variant: VsfButtonVariant.primary,
+      size: VsfButtonSize.base,
       tile: undefined,
       rounded: undefined,
       block: undefined,

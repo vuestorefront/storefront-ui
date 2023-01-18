@@ -30,7 +30,7 @@ describe("VsfPagination", () => {
         currentPage={currentPage}
         itemsPerPage={itemsPerPage}
         maxVisiblePages={maxVisiblePages}
-        handlePageUpdate={onChangeSpy}
+        onPageUpdate={onChangeSpy}
       ></VsfPaginationReact>
     });
   }

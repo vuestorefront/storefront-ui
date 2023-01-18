@@ -1,10 +1,10 @@
 import classNames from 'classnames';
 import type { VsfProgressLinearProps } from './types';
-import { VsfProgressLinearSizes } from './types';
+import { VsfProgressLinearSize } from './types';
 
 export default function VsfProgressLinear({
   value = 0,
-  size = VsfProgressLinearSizes.base,
+  size = VsfProgressLinearSize.base,
   withValue = true,
   className,
   ...attributes
@@ -21,7 +21,7 @@ export default function VsfProgressLinear({
       {...attributes}
     >
       <progress id="progressbar" max={100} className="vsf-progress-linear__progress" value={value} />
-      {withValue && size !== VsfProgressLinearSizes.minimal && (
+      {withValue && size !== VsfProgressLinearSize.minimal && (
         <span className="vsf-progress-linear__label" data-testid="progress-value">{`${value}%`}</span>
       )}
     </label>

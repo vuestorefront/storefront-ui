@@ -77,7 +77,7 @@ See the design on [Figma](https://www.figma.com/file/Cx2jw34waZltkapwq7j7aT/SFUI
   </VsfFooterSection>
   <VsfFooterSection type={VsfFooterSectionType.middle}>
     <VsfFooterColumn type={VsfFooterColumnType.middle}>
-      <VsfIconHelp size={VsfIconSizeEnum.lg} />
+      <VsfIconHelp size={VsfIconSize.lg} />
       <VsfFooterLabel type={VsfFooterLabelType.contact}>
         label 1
       </VsfFooterLabel>
@@ -86,7 +86,7 @@ See the design on [Figma](https://www.figma.com/file/Cx2jw34waZltkapwq7j7aT/SFUI
       </VsfFooterLabel>
     </VsfFooterColumn>
     <VsfFooterColumn type={VsfFooterColumnType.middle}>
-      <VsfIconChat size={VsfIconSizeEnum.lg} />
+      <VsfIconChat size={VsfIconSize.lg} />
       <VsfFooterLabel type={VsfFooterLabelType.contact}>
         label 2
       </VsfFooterLabel>
@@ -95,7 +95,7 @@ See the design on [Figma](https://www.figma.com/file/Cx2jw34waZltkapwq7j7aT/SFUI
       </VsfFooterLabel>
     </VsfFooterColumn>
     <VsfFooterColumn type={VsfFooterColumnType.middle}>
-      <VsfIconPhone size={VsfIconSizeEnum.lg} />
+      <VsfIconPhone size={VsfIconSize.lg} />
       <VsfFooterLabel type={VsfFooterLabelType.contact}>
         label 3
       </VsfFooterLabel>

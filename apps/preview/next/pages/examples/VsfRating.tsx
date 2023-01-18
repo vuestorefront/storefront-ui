@@ -1,4 +1,4 @@
-import { VsfRating, VsfRatingVariants, VsfRatingSizes } from '@storefront-ui/react/components/VsfRating';
+import { VsfRating, VsfRatingVariant, VsfRatingSize } from '@storefront-ui/react/components/VsfRating';
 import type { VsfRatingProps } from '@storefront-ui/react/components/VsfRating/types';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
@@ -45,23 +45,23 @@ function Example() {
       {
         type: 'select',
         modelName: 'size',
-        options: Object.keys(VsfRatingSizes),
-        propDefaultValue: VsfRatingSizes.base,
-        propType: 'VsfRatingSizes',
+        options: Object.keys(VsfRatingSize),
+        propDefaultValue: VsfRatingSize.base,
+        propType: 'VsfRatingSize',
       },
       {
         type: 'select',
         modelName: 'variant',
-        options: Object.keys(VsfRatingVariants),
-        propDefaultValue: VsfRatingVariants.base,
-        propType: 'VsfRatingVariants',
+        options: Object.keys(VsfRatingVariant),
+        propDefaultValue: VsfRatingVariant.base,
+        propType: 'VsfRatingVariant',
       },
     ],
     {
       value: 3,
       max: 5,
-      size: VsfRatingSizes.base,
-      variant: VsfRatingVariants.base,
+      size: VsfRatingSize.base,
+      variant: VsfRatingVariant.base,
       halfIncrement: false,
     },
   );
