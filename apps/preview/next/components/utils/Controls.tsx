@@ -122,7 +122,7 @@ export default function Controls<T extends { [k: string]: any }>({ controls, sta
                     control.type !== 'checkbox' && control.type !== 'radio' ? 'align-middle' : 'align-top'
                   }`}
                 >
-                  {control.modelName}
+                  <span id={control.modelName}>{control.modelName}</span>
                 </td>
                 <td className="value">
                   {((): JSX.Element | JSX.Element[] => {
@@ -131,6 +131,7 @@ export default function Controls<T extends { [k: string]: any }>({ controls, sta
                         return (
                           <select
                             value={state.get[control.modelName]}
+                            aria-labelledby={control.modelName}
                             onChange={(e) => handleOnChangeValue<HTMLSelectElement>(e, control.modelName)}
                           >
                             {(control?.options || ([{}] as NonNullable<ControlsType[number]['options']>)).map(
@@ -157,6 +158,7 @@ export default function Controls<T extends { [k: string]: any }>({ controls, sta
                               <input
                                 checked={state.get[control.modelName]}
                                 value={state.get[control.modelName]}
+                                aria-labelledby={control.modelName}
                                 onChange={() =>
                                   state.set({
                                     ...state.get,
@@ -184,6 +186,7 @@ export default function Controls<T extends { [k: string]: any }>({ controls, sta
                                           rows={10}
                                           {...(option as ControlOptionBind).bind}
                                           className="border rounded-md"
+                                          aria-labelledby={control.modelName}
                                           value={JSON.stringify(state.get[control.modelName], undefined, 2) as string}
                                           onChange={(e) => handleJsonOnChangeValue(e, control.modelName)}
                                         />
@@ -196,6 +199,7 @@ export default function Controls<T extends { [k: string]: any }>({ controls, sta
                                           value={state.get[control.modelName] as number | string}
                                           className="border rounded-md"
                                           type={control.type}
+                                          aria-labelledby={control.modelName}
                                           onChange={(e) => handleOnChangeValue(e, control.modelName)}
                                         />
                                       );
@@ -205,6 +209,7 @@ export default function Controls<T extends { [k: string]: any }>({ controls, sta
                                           {...(option as ControlOptionBind).bind}
                                           value={checkboxValue(option)}
                                           type={control.type}
+                                          aria-labelledby={control.modelName}
                                           onChange={(e) => {
                                             // eslint-disable-next-line @typescript-eslint/no-unused-expressions
                                             control.type === 'checkbox'

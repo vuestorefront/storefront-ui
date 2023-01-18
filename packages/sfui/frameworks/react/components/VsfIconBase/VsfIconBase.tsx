@@ -12,7 +12,6 @@ export default function VsfIconBase({
   return (
     <svg
       {...attributes}
-      role="img"
       xmlns="http://www.w3.org/2000/svg"
       viewBox={viewBox}
       className={`vsf-icon vsf-icon-${size} ${className}`}

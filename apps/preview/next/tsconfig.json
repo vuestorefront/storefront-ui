@@ -35,6 +35,7 @@
   "include": [
     "next-env.d.ts",
     "pages/**/*.ts",
+    "pages/_document.tsx",
     "hooks/**/*.tsx",
     "pages/**/*.tsx",
     "layouts/**/*.tsx",

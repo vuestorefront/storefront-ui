@@ -30,11 +30,11 @@
           <tbody>
             <tr v-for="(control, index) in controls" :key="index" class="props">
               <td :class="[control.type === 'text' && 'align-middle']">
-                {{ control.modelName }}
+                <span :id="control.modelName">{{ control.modelName }}</span>
               </td>
               <td class="value">
                 <template v-if="control.type === 'select'">
-                  <select v-model="proxyModels[control.modelName]">
+                  <select v-model="proxyModels[control.modelName]" :aria-labelledby="control.modelName">
                     <option
                       v-for="(options, optionIndex) in control.options || [{}]"
                       :key="`${control.modelName}-${index}-${optionIndex}`"
@@ -47,7 +47,11 @@
                 <template v-else-if="control.type === 'boolean'">
                   <div class="switch-wrapper">
                     <label class="switch">
-                      <input v-model="proxyModels[control.modelName]" type="checkbox" />
+                      <input
+                        v-model="proxyModels[control.modelName]"
+                        type="checkbox"
+                        :aria-labelledby="control.modelName"
+                      />
                       <span class="slider" />
                     </label>
                     <span class="ml-2">{{ proxyModels[control.modelName] }}</span>
@@ -66,6 +70,7 @@
                         v-bind="(options as ControlOptionBind).bind"
                         :value="JSON.stringify(proxyModels[control.modelName], undefined, 2)"
                         :name="`${control.modelName}-${index}`"
+                        :aria-labelledby="control.modelName"
                         @input="proxyModels[control.modelName] = JSON.parse($event.target?.value)"
                       >
                       </textarea>
@@ -75,6 +80,7 @@
                         v-model="proxyModels[control.modelName]"
                         :type="control.type"
                         :name="`${control.modelName}-${index}`"
+                        :aria-labelledby="control.modelName"
                       />
                       <input
                         v-else-if="control.type === 'text'"
@@ -83,6 +89,7 @@
                         class="border rounded-md"
                         :type="control.type"
                         :name="`${control.modelName}-${index}`"
+                        :aria-labelledby="control.modelName"
                       />
                       <input
                         v-else
@@ -90,6 +97,7 @@
                         v-model="proxyModels[control.modelName]"
                         :type="control.type"
                         :name="`${control.modelName}-${index}`"
+                        :aria-labelledby="control.modelName"
                       />
                       <span v-if="options.hasOwnProperty('label')" class="pl-2">{{
                         (options as ControlOptionBind).label
