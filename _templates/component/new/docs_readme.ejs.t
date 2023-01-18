@@ -2,6 +2,11 @@
 to: apps/docs/components/components/<%= name.replace('Vsf', '').toLowerCase() %>.md
 force: false
 ---
+<%- '---' %>
+layout: ComponentLayout
+hideBreadcrumbs: true
+<%- '---' %>
+
 <% DocsName = name.replace('Vsf', '') %># <%= DocsName %> component
 
 <Generate />

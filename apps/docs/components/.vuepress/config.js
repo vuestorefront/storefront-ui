@@ -1,8 +1,11 @@
 const components = require('../utils/components.json');
+const { generateComponentPath } = require('./utils/path.util');
 
 const DOCS_EXAMPLES_REACT = process.env.VITE_DOCS_EXAMPLES_REACT;
 const DOCS_EXAMPLES_VUE = process.env.VITE_DOCS_EXAMPLES_VUE;
 
+const convertComponentPathsToLinks = (paths, slug) =>
+  paths.map((c) => [generateComponentPath(slug, c), c.replace('Vsf', '')]);
 module.exports = {
   title: `Storefront UI`,
   base: process.env.VITE_DOCS_BASEPATH ?? '/',
@@ -10,7 +13,7 @@ module.exports = {
   head: [['link', { rel: 'icon', href: '/favicon.png' }]],
   patterns: ['**/*.md', '**/*.vue', '!components/**/*.md'], // ignore components folder
   markdown: {
-    extractHeaders: [ 'h1', 'h2', 'h3' ]
+    extractHeaders: ['h1', 'h2', 'h3'],
   },
   themeConfig: {
     DOCS_EXAMPLES_REACT,
@@ -21,7 +24,14 @@ module.exports = {
     secondaryNav: [
       { text: 'Home', link: '/' },
       { text: 'Getting Started', link: '/getting-started/' },
-      { text: 'Components', link: '/components/', match: '(react|vue|components)' },
+      {
+        text: 'Components',
+        match: '(react|vue|components)',
+        children: [
+          { text: 'React', link: '/react/components' },
+          { text: 'Vue', link: '/vue/components' },
+        ],
+      },
     ],
     sidebar: {
       '/getting-started/': [
@@ -35,14 +45,14 @@ module.exports = {
         {
           title: 'Components',
           collapsable: false,
-          children: components.react.map((c) => [`/react/components/${c.replace('Vsf', '').toLowerCase()}`, c.replace('Vsf', '')]),
+          children: convertComponentPathsToLinks(components.react, 'react'),
         },
       ],
       '/vue/': [
         {
           title: 'Components',
           collapsable: false,
-          children: components.vue.map((c) => [`/vue/components/${c.replace('Vsf', '').toLowerCase()}`, c.replace('Vsf', '')]),
+          children: convertComponentPathsToLinks(components.vue, 'vue'),
         },
       ],
     },

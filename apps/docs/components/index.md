@@ -8,15 +8,15 @@ openSourceTag: true
 # Storefront UI Docs
 
 ::: subheader
-Lightning fast eCommerce UI library
+Design System for eCommerce
 :::
 
 :::::: col-wrapper-hero
 ::: col-1/2
 
-## Create your storefront
+## Speed up the creation of your storefront
 
-Create stunning, mobile-first online stores with this 100% customizable design system and UI library. Available as UI Framework for React and Vue.js
+Create stunning, mobile-first online stores with our fully customizable Design System and UI library. Available as UI Framework for React and Vue.js
 
 [Get Started](/components/)
 <!-- TODO: uncomment when repo gets publicly avaiable -->
@@ -26,12 +26,12 @@ Create stunning, mobile-first online stores with this 100% customizable design s
 
 ::: col-1/2
 
-<img src='./assets/logo.svg' style="width: 16rem; margin-top: auto;" />
+<img src='./assets/sfui-hero.png' style="margin-top: auto;" />
 
 :::
 ::::::
 
 
+<LandingGrid />
 
-
-<VsfEcosystem />
+<VsfEcosystem :hideSfui="true"/>
