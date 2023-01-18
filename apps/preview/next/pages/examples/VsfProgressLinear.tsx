@@ -1,4 +1,4 @@
-import { VsfProgressLinear, VsfProgressLinearSizes } from '@storefront-ui/react/components/VsfProgressLinear';
+import { VsfProgressLinear, VsfProgressLinearSize } from '@storefront-ui/react/components/VsfProgressLinear';
 import { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 import ComponentExample from '../../components/utils/ComponentExample';
@@ -9,8 +9,8 @@ function Example() {
       {
         type: 'select',
         modelName: 'size',
-        options: Object.keys(VsfProgressLinearSizes),
-        propDefaultValue: VsfProgressLinearSizes.base,
+        options: Object.keys(VsfProgressLinearSize),
+        propDefaultValue: VsfProgressLinearSize.base,
         propType: 'string',
         description:
           'This prop is responsible for progress size. There are 9 sizes: minimal, xs, sm, base, lg, xl, 2xl, 3xl, 4xl',
@@ -33,7 +33,7 @@ function Example() {
     ],
     {
       value: 0,
-      size: VsfProgressLinearSizes.base,
+      size: VsfProgressLinearSize.base,
       withValue: true,
     },
   );

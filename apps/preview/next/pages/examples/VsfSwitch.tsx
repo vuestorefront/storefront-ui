@@ -1,5 +1,5 @@
 import VsfSwitch from '@storefront-ui/react/components/VsfSwitch/VsfSwitch';
-import { VsfSwitchAlignments } from '@storefront-ui/react/components/VsfSwitch/types';
+import { VsfSwitchAlignment } from '@storefront-ui/react/components/VsfSwitch/types';
 import type { VsfSwitchProps } from '@storefront-ui/react/components/VsfSwitch/types';
 import { ChangeEvent } from 'react';
 import { prepareControls } from '../../components/utils/Controls';
@@ -23,10 +23,10 @@ function Example() {
       },
       {
         type: 'select',
-        options: Object.keys(VsfSwitchAlignments),
+        options: Object.keys(VsfSwitchAlignment),
         modelName: 'alignment',
         propType: 'VsfSwitchAlignment',
-        propDefaultValue: VsfSwitchAlignments.prefix,
+        propDefaultValue: VsfSwitchAlignment.prefix,
       },
       {
         type: 'boolean',
@@ -47,7 +47,7 @@ function Example() {
     {
       value: 'value',
       disabled: false,
-      alignment: VsfSwitchAlignments.prefix,
+      alignment: VsfSwitchAlignment.prefix,
       label: 'Label',
       helpText: 'Help Text',
       checkedValue: [],

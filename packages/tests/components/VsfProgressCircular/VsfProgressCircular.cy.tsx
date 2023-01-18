@@ -4,10 +4,10 @@ import { mount, useComponent } from '../../utils/mount';
 
 const { vue: VsfProgressCircularVue, react: VsfProgressCircularReact } = useComponent('VsfProgressCircular');
 import VsfProgressCircularBaseObject from "./VsfProgressCircular.PageObject";
-import { VsfProgressCircularSizes } from '../../../sfui/frameworks/vue/components/VsfProgressCircular/types';
+import { VsfProgressCircularSize } from '../../../sfui/frameworks/vue/components/VsfProgressCircular/types';
 
 describe("VsfProgressCircular", () => {
-  let size: VsfProgressCircularSizes;
+  let size: VsfProgressCircularSize;
   let value: number;
   let withValue: boolean;
 
@@ -36,7 +36,7 @@ describe("VsfProgressCircular", () => {
   });
 
   describe('when prop size is set to ', () => {
-    Object.values(VsfProgressCircularSizes).forEach((componentSize) => {
+    Object.values(VsfProgressCircularSize).forEach((componentSize) => {
       describe(`${componentSize}`, () => {
         it(`should render correct ${componentSize} size`, () => {
           size = componentSize;

@@ -7,7 +7,7 @@
 <script lang="ts">
 import { ref } from 'vue';
 import VsfLoaderLinear from '@storefront-ui/vue/components/VsfLoaderLinear/VsfLoaderLinear.vue';
-import { VsfLoaderSizes } from '@storefront-ui/shared';
+import { VsfLoaderSize } from '@storefront-ui/shared';
 import { VsfLoaderLinearSize } from '@storefront-ui/vue/components/VsfLoaderLinear/types';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
@@ -25,8 +25,8 @@ export default {
           {
             type: 'select',
             modelName: 'size',
-            propType: 'VsfLoaderSizes',
-            options: [...Object.keys(VsfLoaderLinearSize), ...Object.keys(VsfLoaderSizes)],
+            propType: 'VsfLoaderLinearSize',
+            options: [...Object.keys(VsfLoaderLinearSize), ...Object.keys(VsfLoaderSize)],
             propDefaultValue: VsfLoaderLinearSize.minimal,
             description: 'sets sizes of components',
           },

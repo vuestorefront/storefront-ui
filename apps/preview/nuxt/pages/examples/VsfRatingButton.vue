@@ -15,7 +15,7 @@
 import { defineComponent, ref } from 'vue';
 import * as Icons from '@storefront-ui/vue/components/VsfIcons/index';
 import { VsfIconStar, VsfIconStarOutline } from '@storefront-ui/vue/components/VsfIcons/index';
-import { VsfRatingButton, VsfRatingButtonSizes } from '@storefront-ui/vue/components/VsfRatingButton/index';
+import { VsfRatingButton, VsfRatingButtonSize } from '@storefront-ui/vue/components/VsfRatingButton/index';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
 
@@ -40,9 +40,9 @@ export default defineComponent({
           {
             type: 'select',
             modelName: 'size',
-            propDefaultValue: VsfRatingButtonSizes.base,
-            options: Object.keys(VsfRatingButtonSizes),
-            propType: 'VsfRatingButtonSizes',
+            propDefaultValue: VsfRatingButtonSize.base,
+            options: Object.keys(VsfRatingButtonSize),
+            propType: 'VsfRatingButtonSize',
           },
           {
             type: 'range',
@@ -81,7 +81,7 @@ export default defineComponent({
             options: Object.keys(Icons),
             propDefaultValue: '',
             propType: 'Slot',
-            description: 'Slot used for filled icon. Scoped data: { getIconSize: VsfIconSizeEnum }',
+            description: 'Slot used for filled icon. Scoped data: { getIconSize: VsfIconSize }',
           },
           {
             type: 'select',
@@ -89,11 +89,11 @@ export default defineComponent({
             options: Object.keys(Icons),
             propDefaultValue: '',
             propType: 'Slot',
-            description: 'Slot used for empty icon. Scoped data: { getIconSize: VsfIconSizeEnum }',
+            description: 'Slot used for empty icon. Scoped data: { getIconSize: VsfIconSize }',
           },
         ],
         {
-          size: ref(VsfRatingButtonSizes.base),
+          size: ref(VsfRatingButtonSize.base),
           max: ref(5),
           disabled: ref(false),
           modelValue: ref(0),

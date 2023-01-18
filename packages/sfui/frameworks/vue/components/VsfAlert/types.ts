@@ -1,3 +1,3 @@
-import { VsfAlertVariants, VsfAlertTypes } from '@storefront-ui/shared';
+import { VsfAlertVariant, VsfAlertType } from '@storefront-ui/shared';
 
-export { VsfAlertVariants, VsfAlertTypes };
+export { VsfAlertVariant, VsfAlertType };

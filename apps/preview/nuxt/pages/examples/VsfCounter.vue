@@ -8,7 +8,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import { VsfCounter, VsfCounterSizes } from '@storefront-ui/vue/components/VsfCounter/index';
+import { VsfCounter, VsfCounterSize } from '@storefront-ui/vue/components/VsfCounter/index';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
 
@@ -30,9 +30,9 @@ export default defineComponent({
           {
             type: 'select',
             modelName: 'size',
-            options: Object.keys(VsfCounterSizes),
-            propDefaultValue: VsfCounterSizes.base,
-            propType: 'VsfCounterSizes',
+            options: Object.keys(VsfCounterSize),
+            propDefaultValue: VsfCounterSize.base,
+            propType: 'VsfCounterSize',
           },
           {
             type: 'boolean',
@@ -49,7 +49,7 @@ export default defineComponent({
         ],
         {
           value: ref('123'),
-          size: ref<VsfCounterSizes>(VsfCounterSizes.base),
+          size: ref<VsfCounterSize>(VsfCounterSize.base),
           pill: ref(false),
           fill: ref('bg-white'),
         },

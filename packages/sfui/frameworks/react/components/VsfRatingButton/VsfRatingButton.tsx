@@ -1,11 +1,11 @@
 import React, { useState, useMemo } from 'react';
 import type { VsfRatingButtonProps } from './types';
-import { VsfRatingButtonSizes } from './types';
-import { VsfIconSizeEnum } from '../VsfIconBase/types';
+import { VsfRatingButtonSize } from './types';
+import { VsfIconSize } from '../VsfIconBase/types';
 
 export default function VsfRatingButton({
   max = 5,
-  size = VsfRatingButtonSizes.base,
+  size = VsfRatingButtonSize.base,
   disabled = false,
   value = 0,
   name,
@@ -17,14 +17,14 @@ export default function VsfRatingButton({
   ...attributes
 }: VsfRatingButtonProps) {
   const [activeIcon, setActiveIcon] = useState(0);
-  const getIconSize = (): VsfIconSizeEnum => {
+  const getIconSize = (): VsfIconSize => {
     switch (size) {
-      case VsfRatingButtonSizes.sm:
-        return VsfIconSizeEnum.base;
-      case VsfRatingButtonSizes.lg:
-        return VsfIconSizeEnum.xl;
+      case VsfRatingButtonSize.sm:
+        return VsfIconSize.base;
+      case VsfRatingButtonSize.lg:
+        return VsfIconSize.xl;
       default:
-        return VsfIconSizeEnum.lg;
+        return VsfIconSize.lg;
     }
   };
   function createRatingPointsArray(amount: number): number[] {

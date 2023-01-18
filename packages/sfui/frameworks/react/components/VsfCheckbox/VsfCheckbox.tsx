@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { useEffect, useRef } from 'react';
-import { VsfCheckboxAlignments, VsfCheckboxProps } from './types';
+import { VsfCheckboxAlignment, VsfCheckboxProps } from './types';
 
 export default function VsfCheckbox({
   value,
@@ -8,7 +8,7 @@ export default function VsfCheckbox({
   checked,
   label,
   disabled,
-  alignment = VsfCheckboxAlignments.leading,
+  alignment = VsfCheckboxAlignment.leading,
   required,
   invalid,
   errorText,

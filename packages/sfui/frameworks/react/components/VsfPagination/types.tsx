@@ -1,4 +1,4 @@
-import { ReactNode, PropsWithChildren } from 'react';
+import type { ReactNode, PropsWithChildren } from 'react';
 import type { PropsWithStyle } from '../../shared/types';
 
 export interface VsfPaginationProps extends PropsWithStyle, PropsWithChildren {
@@ -7,8 +7,7 @@ export interface VsfPaginationProps extends PropsWithStyle, PropsWithChildren {
   itemsPerPage?: number;
   maxVisiblePages?: number;
   ariaLabel?: string;
-  handlePageUpdate?: (event: number) => void;
   slotPrefix?: ReactNode;
   slotSuffix?: ReactNode;
-  children?: ReactNode;
+  onPageUpdate?: (currectPage: number) => void;
 }

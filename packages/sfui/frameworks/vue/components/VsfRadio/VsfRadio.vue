@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { PropType } from 'vue';
 import { computed, toRefs } from 'vue';
-import { VsfRadioAlignments } from './types';
+import { VsfRadioAlignment } from './types';
 
 const props = defineProps({
   modelValue: {
@@ -13,8 +13,8 @@ const props = defineProps({
     default: '',
   },
   alignment: {
-    type: String as PropType<VsfRadioAlignments>,
-    default: VsfRadioAlignments.leading,
+    type: String as PropType<`${VsfRadioAlignment}`>,
+    default: VsfRadioAlignment.leading,
   },
   label: {
     type: String,

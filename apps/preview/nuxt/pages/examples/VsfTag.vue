@@ -2,7 +2,7 @@
   <ComponentExample :controls-attrs="controlsAttrs">
     <VsfTag v-bind="state" :aria-live="ariaLiveValue">
       <template v-if="showIcon" #icon>
-        <VsfIconCheck :size="size === VsfTagSizes.base ? VsfIconSizeEnum.sm : VsfIconSizeEnum.xs" />
+        <VsfIconCheck :size="size === VsfTagSize.base ? VsfIconSize.sm : VsfIconSize.xs" />
       </template>
     </VsfTag>
   </ComponentExample>
@@ -10,8 +10,8 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import { VsfTag, VsfTagVariants, VsfTagSizes, VsfTagAriaLiveValues } from '@storefront-ui/vue/components/VsfTag/index';
-import { VsfIconSizeEnum, VsfIconCheck } from '@storefront-ui/vue/components/VsfIcons/index';
+import { VsfTag, VsfTagVariant, VsfTagSize, VsfTagAriaLiveValue } from '@storefront-ui/vue/components/VsfTag/index';
+import { VsfIconSize, VsfIconCheck } from '@storefront-ui/vue/components/VsfIcons/index';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
 
@@ -45,13 +45,13 @@ export default defineComponent({
           {
             type: 'select',
             modelName: 'variant',
-            options: Object.keys(VsfTagVariants),
+            options: Object.keys(VsfTagVariant),
             description: 'Set color variant',
           },
           {
             type: 'select',
             modelName: 'size',
-            options: Object.keys(VsfTagSizes),
+            options: Object.keys(VsfTagSize),
             description: 'Set size variant',
           },
           {
@@ -63,15 +63,15 @@ export default defineComponent({
         ],
         {
           label: ref('Label'),
-          variant: ref<VsfTagVariants>(VsfTagVariants.gray),
-          size: ref<VsfTagSizes>(VsfTagSizes.base),
+          variant: ref<VsfTagVariant>(VsfTagVariant.gray),
+          size: ref<VsfTagSize>(VsfTagSize.base),
           strong: ref(false),
           showIcon: ref(false),
-          ariaLiveValue: ref<VsfTagAriaLiveValues>(VsfTagAriaLiveValues.polite),
+          ariaLiveValue: ref<VsfTagAriaLiveValue>(VsfTagAriaLiveValue.polite),
         },
       ),
-      VsfIconSizeEnum,
-      VsfTagSizes,
+      VsfIconSize,
+      VsfTagSize,
     };
   },
 });

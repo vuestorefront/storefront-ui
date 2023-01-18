@@ -95,23 +95,23 @@ const vueIcon = (name, content, attributes) => `
 </template>
 <script lang="ts" setup>
 import { PropType } from 'vue';
-import { VsfIconBase, VsfIconSizeEnum } from '../VsfIconBase';
+import { VsfIconBase, VsfIconSize } from '../VsfIconBase';
 
 defineProps({
     size: {
-        type: String as PropType<VsfIconSizeEnum>,
-        default: VsfIconSizeEnum.base
+        type: String as PropType<\`\${VsfIconSize}\`>,
+        default: VsfIconSize.base
     }
 });
 </script>`;
 
 const reactIcon = (name, camelCaseName, content, attributes) => `
 import type { VsfIconProps } from '${relativePathToIconBasePath}VsfIcons/types';
-import { VsfIconBase, VsfIconSizeEnum } from '${relativePathToIconBasePath}VsfIconBase';
+import { VsfIconBase, VsfIconSize } from '${relativePathToIconBasePath}VsfIconBase';
 
 export default function VsfIcon${camelCaseName}({
     className = '',
-    size = VsfIconSizeEnum.base,
+    size = VsfIconSize.base,
     ariaLabel,
     viewBox,
     ...attributes

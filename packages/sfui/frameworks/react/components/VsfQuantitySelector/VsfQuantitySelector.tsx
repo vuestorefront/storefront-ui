@@ -3,8 +3,8 @@ import { useState } from 'react';
 import classNames from 'classnames';
 import { clamp } from '@storefront-ui/shared';
 import { VsfIconMinus, VsfIconPlus } from '../VsfIcons';
-import { VsfButtonSizes, VsfButton, VsfButtonVariants } from '../VsfButton';
-import { VsfQuantitySelectorProps, VsfQuantitySelectorSizes } from './types';
+import { VsfButtonSize, VsfButton, VsfButtonVariant } from '../VsfButton';
+import { VsfQuantitySelectorProps, VsfQuantitySelectorSize } from './types';
 
 export default function VsfQuantitySelector({
   inputAriaLabel = 'Quantity Selector',
@@ -12,7 +12,7 @@ export default function VsfQuantitySelector({
   minValue = 1,
   maxValue = Infinity,
   step = 1,
-  size = VsfQuantitySelectorSizes.base,
+  size = VsfQuantitySelectorSize.base,
   value,
   disabled,
   block,
@@ -52,7 +52,7 @@ export default function VsfQuantitySelector({
       handleChange(value);
     }
   }
-  const buttonSize = size === VsfQuantitySelectorSizes.lg ? VsfButtonSizes.lg : VsfButtonSizes.base;
+  const buttonSize = size === VsfQuantitySelectorSize.lg ? VsfButtonSize.lg : VsfButtonSize.base;
 
   return (
     <div
@@ -66,7 +66,7 @@ export default function VsfQuantitySelector({
     >
       <div className="vsf-qty-selector__wrapper">
         <VsfButton
-          variant={VsfButtonVariants.tertiary}
+          variant={VsfButtonVariant.tertiary}
           aria-controls={inputId}
           aria-label="decrease"
           className="vsf-qty-selector__decrease"
@@ -96,7 +96,7 @@ export default function VsfQuantitySelector({
         />
 
         <VsfButton
-          variant={VsfButtonVariants.tertiary}
+          variant={VsfButtonVariant.tertiary}
           aria-controls={inputId}
           aria-label="increase"
           className="vsf-qty-selector__increase"

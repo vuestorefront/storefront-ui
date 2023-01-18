@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { useRef } from 'react';
 import { useClickAway } from 'react-use';
-import { VsfButton, VsfButtonVariants } from '../VsfButton';
+import { VsfButton, VsfButtonVariant } from '../VsfButton';
 import { VsfIconClose } from '../VsfIcons';
 import { VsfNavigationTopVariant } from './types';
 import type { VsfNavigationTopProps } from './types';
@@ -29,7 +29,7 @@ export default function VsfNavigationTop({
       {...attributes}
     >
       <VsfButton
-        variant={VsfButtonVariants.tertiary}
+        variant={VsfButtonVariant.tertiary}
         greyscale
         className="vsf-navigation-top__close"
         data-testid="navigation-top-close-button"

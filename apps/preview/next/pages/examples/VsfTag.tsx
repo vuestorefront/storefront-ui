@@ -1,5 +1,5 @@
-import { VsfTag, VsfTagVariants, VsfTagSizes, VsfTagAriaLiveValues } from '@storefront-ui/react/components/VsfTag';
-import { VsfIconSizeEnum } from '@storefront-ui/react/components/VsfIcons/types';
+import { VsfTag, VsfTagVariant, VsfTagSize, VsfTagAriaLiveValue } from '@storefront-ui/react/components/VsfTag';
+import { VsfIconSize } from '@storefront-ui/react/components/VsfIcons/types';
 import { VsfIconCheck } from '@storefront-ui/react/components/VsfIcons';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
@@ -27,13 +27,13 @@ function Example() {
       {
         type: 'select',
         modelName: 'variant',
-        options: Object.keys(VsfTagVariants),
+        options: Object.keys(VsfTagVariant),
         description: 'Set color variant',
       },
       {
         type: 'select',
         modelName: 'size',
-        options: Object.keys(VsfTagSizes),
+        options: Object.keys(VsfTagSize),
         description: 'Set size variant',
       },
       {
@@ -45,11 +45,11 @@ function Example() {
     ],
     {
       label: 'Label',
-      variant: VsfTagVariants.gray,
-      size: VsfTagSizes.base,
+      variant: VsfTagVariant.gray,
+      size: VsfTagSize.base,
       strong: false,
       showIcon: false,
-      ariaLiveValue: VsfTagAriaLiveValues.polite,
+      ariaLiveValue: VsfTagAriaLiveValue.polite,
     },
   );
 
@@ -64,7 +64,7 @@ function Example() {
         className="mr-2"
       >
         {state.get.showIcon ? (
-          <VsfIconCheck size={state.get.size === VsfTagSizes.base ? VsfIconSizeEnum.sm : VsfIconSizeEnum.xs} />
+          <VsfIconCheck size={state.get.size === VsfTagSize.base ? VsfIconSize.sm : VsfIconSize.xs} />
         ) : null}
       </VsfTag>
     </ComponentExample>

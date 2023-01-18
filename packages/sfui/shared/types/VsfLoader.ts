@@ -1,4 +1,4 @@
-export enum VsfLoaderSizes {
+export enum VsfLoaderSize {
   xs = 'xs',
   sm = 'sm',
   base = 'base',

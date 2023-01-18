@@ -21,7 +21,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import { VsfQuantitySelector, VsfQuantitySelectorSizes } from '@storefront-ui/vue/components/VsfQuantitySelector/index';
+import { VsfQuantitySelector, VsfQuantitySelectorSize } from '@storefront-ui/vue/components/VsfQuantitySelector/index';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
 
@@ -36,10 +36,10 @@ export default defineComponent({
       [
         {
           type: 'select',
-          options: Object.keys(VsfQuantitySelectorSizes),
+          options: Object.keys(VsfQuantitySelectorSize),
           modelName: 'size',
-          propType: 'VsfQuantitySelectorSizes',
-          propDefaultValue: VsfQuantitySelectorSizes.base,
+          propType: 'VsfQuantitySelectorSize',
+          propDefaultValue: VsfQuantitySelectorSize.base,
         },
         {
           type: 'boolean',
@@ -129,7 +129,7 @@ export default defineComponent({
         minValue: ref(1),
         maxValue: ref(10),
         step: ref(1),
-        size: ref(VsfQuantitySelectorSizes.base),
+        size: ref(VsfQuantitySelectorSize.base),
         disabled: ref(false),
         block: ref(false),
         inputAriaLabel: ref(),

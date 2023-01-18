@@ -16,7 +16,7 @@
 import { defineComponent, ref, onMounted, onUnmounted, watch, resolveComponent, computed } from 'vue';
 import {
   VsfProductCard,
-  VsfProductCardSizes,
+  VsfProductCardSize,
   VsfProductCardLinkTags,
 } from '@storefront-ui/vue/components/VsfProductCard/index';
 import { prepareControls } from '../../components/utils/Controls.vue';
@@ -120,8 +120,8 @@ export default defineComponent({
           {
             type: 'select',
             modelName: 'size',
-            options: Object.keys(VsfProductCardSizes),
-            propDefaultValue: VsfProductCardSizes.responsive,
+            options: Object.keys(VsfProductCardSize),
+            propDefaultValue: VsfProductCardSize.responsive,
             propType: 'string',
           },
           {
@@ -200,7 +200,7 @@ export default defineComponent({
           title: ref('The standard chunk of Lorem Ipsum'),
           price: ref('$2,345.99'),
           oldPrice: ref('$3,132.99'),
-          size: ref(VsfProductCardSizes.responsive),
+          size: ref(VsfProductCardSize.responsive),
           link: ref('/'),
           linkTag: ref(VsfProductCardLinkTags.a),
           outOfStock: ref(false),

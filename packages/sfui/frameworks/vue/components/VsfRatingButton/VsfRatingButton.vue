@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import type { PropType } from 'vue';
 import { computed, ref, toRefs } from 'vue';
-import { VsfRatingButtonSizes } from './types';
-import { VsfIconSizeEnum } from '../VsfIconBase';
+import { VsfRatingButtonSize } from './types';
+import { VsfIconSize } from '../VsfIconBase';
 
 const props = defineProps({
   max: {
@@ -10,8 +10,8 @@ const props = defineProps({
     default: 5,
   },
   size: {
-    type: String as PropType<VsfRatingButtonSizes>,
-    default: VsfRatingButtonSizes.base,
+    type: String as PropType<`${VsfRatingButtonSize}`>,
+    default: VsfRatingButtonSize.base,
   },
   disabled: {
     type: Boolean,
@@ -38,14 +38,14 @@ const { size } = toRefs(props);
 
 const activeIconIndex = ref<number>();
 
-const getIconSize = computed((): VsfIconSizeEnum => {
+const getIconSize = computed((): VsfIconSize => {
   switch (size.value) {
-    case VsfRatingButtonSizes.sm:
-      return VsfIconSizeEnum.base;
-    case VsfRatingButtonSizes.lg:
-      return VsfIconSizeEnum.xl;
+    case VsfRatingButtonSize.sm:
+      return VsfIconSize.base;
+    case VsfRatingButtonSize.lg:
+      return VsfIconSize.xl;
     default:
-      return VsfIconSizeEnum.lg;
+      return VsfIconSize.lg;
   }
 });
 

@@ -3,12 +3,12 @@ import type { PropType } from 'vue';
 import { toRefs, computed } from 'vue';
 import VsfProductCardImage from './VsfProductCardImage.vue';
 import { VsfCounter } from '../VsfCounter';
-import { VsfIconBasket, VsfIconFavoritesOutline, VsfIconAddedToBasket, VsfIconHot, VsfIconSizeEnum } from '../VsfIcons';
-import { VsfProductCardSizes, VsfProductCardLinkTags } from './types';
+import { VsfIconBasket, VsfIconFavoritesOutline, VsfIconAddedToBasket, VsfIconHot, VsfIconSize } from '../VsfIcons';
+import { VsfProductCardSize, VsfProductCardLinkTags } from './types';
 import type { VsfProductCardProps } from './types';
-import { VsfTag, VsfTagSizes, VsfTagVariants } from '../VsfTag';
-import { VsfButton, VsfButtonVariants, VsfButtonSizes } from '../VsfButton';
-import { VsfRating, VsfRatingSizes, VsfRatingVariants } from '../VsfRating';
+import { VsfTag, VsfTagSize, VsfTagVariant } from '../VsfTag';
+import { VsfButton, VsfButtonVariant, VsfButtonSize } from '../VsfButton';
+import { VsfRating, VsfRatingSize, VsfRatingVariant } from '../VsfRating';
 
 const props = defineProps({
   imageSrc: {
@@ -24,7 +24,7 @@ const props = defineProps({
     default: '',
   },
   linkTag: {
-    type: String as PropType<VsfProductCardLinkTags>,
+    type: String as PropType<`${VsfProductCardLinkTags}`>,
     default: '',
   },
   ratingValue: {
@@ -68,8 +68,8 @@ const props = defineProps({
     default: '',
   },
   size: {
-    type: String as PropType<VsfProductCardSizes>,
-    default: VsfProductCardSizes.responsive,
+    type: String as PropType<`${VsfProductCardSize}`>,
+    default: VsfProductCardSize.responsive,
   },
   addToCartLabel: {
     type: String,
@@ -120,12 +120,12 @@ defineEmits<{
     :class="[
       'vsf-product-card',
       {
-        'vsf-product-card--sm': size === VsfProductCardSizes.sm && vertical,
-        'vsf-product-card--base': size === VsfProductCardSizes.base && vertical,
-        'vsf-product-card--responsive': size === VsfProductCardSizes.responsive && vertical,
-        'vsf-product-card--horizontal-base': size === VsfProductCardSizes.base && !vertical,
-        'vsf-product-card--horizontal-sm': size === VsfProductCardSizes.sm && !vertical,
-        'vsf-product-card--horizontal-responsive': size === VsfProductCardSizes.responsive && !vertical,
+        'vsf-product-card--sm': size === VsfProductCardSize.sm && vertical,
+        'vsf-product-card--base': size === VsfProductCardSize.base && vertical,
+        'vsf-product-card--responsive': size === VsfProductCardSize.responsive && vertical,
+        'vsf-product-card--horizontal-base': size === VsfProductCardSize.base && !vertical,
+        'vsf-product-card--horizontal-sm': size === VsfProductCardSize.sm && !vertical,
+        'vsf-product-card--horizontal-responsive': size === VsfProductCardSize.responsive && !vertical,
         'vsf-product-card--horizontal': !vertical,
       },
     ]"
@@ -149,14 +149,14 @@ defineEmits<{
         <component :is="linkTag" :href="isLinkAString ? link : null" v-bind="!isLinkAString && link">
           <slot v-if="badgeText" name="image-top" v-bind="{ badgeText, ariaLabelBadge }">
             <VsfTag
-              :size="VsfTagSizes.sm"
-              :variant="VsfTagVariants.secondary"
+              :size="VsfTagSize.sm"
+              :variant="VsfTagVariant.secondary"
               strong
               :label="badgeText"
               data-testid="product-card-badge"
             >
               <template #icon>
-                <VsfIconHot :size="VsfIconSizeEnum.xs" :aria-label="ariaLabelBadge" />
+                <VsfIconHot :size="VsfIconSize.xs" :aria-label="ariaLabelBadge" />
               </template>
             </VsfTag>
           </slot>
@@ -167,27 +167,27 @@ defineEmits<{
           <template v-if="vertical && (outOfStock || inCart)">
             <component :is="linkTag" :href="isLinkAString ? link : null" v-bind="!isLinkAString && link">
               <VsfTag
-                :size="VsfTagSizes.sm"
-                :variant="outOfStock ? VsfTagVariants.negative : VsfTagVariants.primary"
+                :size="VsfTagSize.sm"
+                :variant="outOfStock ? VsfTagVariant.negative : VsfTagVariant.primary"
                 :label="outOfStock ? outOfStockLabel : inCart"
                 data-testid="product-card-in-cart"
               >
                 <template v-if="!outOfStock" #icon>
-                  <VsfIconAddedToBasket :size="VsfIconSizeEnum.xs" :aria-label="ariaLabelAddToBasket" />
+                  <VsfIconAddedToBasket :size="VsfIconSize.xs" :aria-label="ariaLabelAddToBasket" />
                 </template>
               </VsfTag>
             </component>
           </template>
 
           <VsfButton
-            :variant="VsfButtonVariants.secondary"
-            :size="VsfButtonSizes.sm"
+            :variant="VsfButtonVariant.secondary"
+            :size="VsfButtonSize.sm"
             class="vsf-product-card__image-bottom-button"
             data-testid="product-card-add-to-wishlist"
             @click="$emit('addToWishlist', $event)"
           >
             <template #prefix>
-              <VsfIconFavoritesOutline :size="VsfIconSizeEnum.sm" :aria-label="ariaLabelAddToWishlist" />
+              <VsfIconFavoritesOutline :size="VsfIconSize.sm" :aria-label="ariaLabelAddToWishlist" />
             </template>
           </VsfButton>
         </slot>
@@ -196,13 +196,13 @@ defineEmits<{
     <div class="vsf-product-card__details">
       <template v-if="!vertical && (outOfStock || inCart)">
         <VsfTag
-          :size="VsfTagSizes.sm"
-          :variant="outOfStock ? VsfTagVariants.negative : VsfTagVariants.primary"
+          :size="VsfTagSize.sm"
+          :variant="outOfStock ? VsfTagVariant.negative : VsfTagVariant.primary"
           :label="outOfStock ? outOfStockLabel : inCart"
           class="vsf-product-card__details-in-cart"
         >
           <template v-if="!outOfStock" #icon>
-            <VsfIconAddedToBasket :size="VsfIconSizeEnum.xs" />
+            <VsfIconAddedToBasket :size="VsfIconSize.xs" />
           </template>
         </VsfTag>
       </template>
@@ -220,8 +220,8 @@ defineEmits<{
         <slot name="rating">
           <VsfRating
             v-if="maxRatingValue"
-            :size="VsfRatingSizes.xs"
-            :type="VsfRatingVariants.base"
+            :size="VsfRatingSize.xs"
+            :type="VsfRatingVariant.base"
             :value="ratingValue"
             :max="maxRatingValue"
             class="vsf-product-card__details-rating-stars"
@@ -229,7 +229,7 @@ defineEmits<{
           />
           <VsfButton
             v-if="reviewsAmount"
-            :variant="VsfButtonVariants.tertiary"
+            :variant="VsfButtonVariant.tertiary"
             class="vsf-product-card__details-rating-button"
             data-testid="product-card-reviews"
             @click="$emit('seeReviews', $event)"
@@ -269,11 +269,11 @@ defineEmits<{
                 'vsf-product-card__details-add-to-cart--out-of-stock': outOfStock,
               },
             ]"
-            :size="VsfButtonSizes.sm"
+            :size="VsfButtonSize.sm"
             data-testId="product-card-add-to-cart"
             @click="$emit('addToCart', $event)"
           >
-            <VsfIconBasket :size="VsfIconSizeEnum.sm" :aria-label="ariaLabelAddToBasket"></VsfIconBasket>
+            <VsfIconBasket :size="VsfIconSize.sm" :aria-label="ariaLabelAddToBasket"></VsfIconBasket>
             <span class="ml-2">
               {{ addToCartLabel }}
             </span>
@@ -288,8 +288,8 @@ defineEmits<{
                 'vsf-product-card__details-add-to-cart--out-of-stock': outOfStock,
               },
             ]"
-            :variant="VsfButtonVariants.secondary"
-            :size="VsfButtonSizes.sm"
+            :variant="VsfButtonVariant.secondary"
+            :size="VsfButtonSize.sm"
             data-testId="product-card-see-similar"
             @click="$emit('seeSimilar', $event)"
           >

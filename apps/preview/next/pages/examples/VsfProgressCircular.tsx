@@ -1,4 +1,4 @@
-import { VsfProgressCircular, VsfProgressCircularSizes } from '@storefront-ui/react/components/VsfProgressCircular';
+import { VsfProgressCircular, VsfProgressCircularSize } from '@storefront-ui/react/components/VsfProgressCircular';
 import { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 import ComponentExample from '../../components/utils/ComponentExample';
@@ -9,8 +9,8 @@ function Example() {
       {
         type: 'select',
         modelName: 'size',
-        options: Object.keys(VsfProgressCircularSizes),
-        propDefaultValue: VsfProgressCircularSizes.base,
+        options: Object.keys(VsfProgressCircularSize),
+        propDefaultValue: VsfProgressCircularSize.base,
         propType: 'string',
         description:
           'This prop is responsible for progress size. There are 8 sizes: xs, sm, base, lg, xl, 2xl, 3xl, 4xl',
@@ -32,7 +32,7 @@ function Example() {
     ],
     {
       value: 0,
-      size: VsfProgressCircularSizes.base,
+      size: VsfProgressCircularSize.base,
       withValue: true,
     },
   );

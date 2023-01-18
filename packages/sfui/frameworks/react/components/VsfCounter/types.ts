@@ -1,6 +1,7 @@
-import type { ReactNode } from 'react';
+import type { PropsWithChildren } from 'react';
+import type { PropsWithStyle } from '../../shared/types';
 
-export enum VsfCounterSizes {
+export enum VsfCounterSize {
   xs = 'xs',
   sm = 'sm',
   base = 'base',
@@ -9,9 +10,7 @@ export enum VsfCounterSizes {
   '2xl' = '2xl',
 }
 
-export interface VsfCounterProps {
-  size?: VsfCounterSizes;
+export interface VsfCounterProps extends PropsWithChildren, PropsWithStyle {
+  size?: `${VsfCounterSize}`;
   pill?: boolean;
-  children?: ReactNode;
-  className?: string;
 }

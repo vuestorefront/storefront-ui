@@ -16,7 +16,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import { VsfCard, VsfCardSizes, VsfCardLinkTags } from '@storefront-ui/vue/components/VsfCard/index';
+import { VsfCard, VsfCardSize, VsfCardLinkTags } from '@storefront-ui/vue/components/VsfCard/index';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
 import productImage from '../fixture/product-card.webp';
@@ -40,9 +40,9 @@ export default defineComponent({
         {
           type: 'select',
           modelName: 'size',
-          options: Object.keys(VsfCardSizes),
+          options: Object.keys(VsfCardSize),
           description: 'Set size variant.',
-          propType: 'VsfCardSizes',
+          propType: 'VsfCardSize',
           isRequired: false,
         },
         {
@@ -94,7 +94,7 @@ export default defineComponent({
       ],
       {
         title: ref('Title'),
-        size: ref(VsfCardSizes.base),
+        size: ref(VsfCardSize.base),
         link: ref('/examples/VsfCard'),
         linkTag: ref(VsfCardLinkTags.a),
         imgSrc: ref(productImage),

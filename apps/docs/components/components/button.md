@@ -25,8 +25,8 @@ See the design on [Figma](https://www.figma.com/file/Cx2jw34waZltkapwq7j7aT/SFUI
 
 | Prop name | Type                | Default value | Possible values                    |
 | --------- | ------------------- | ------------- | ---------------------------------- |
-| variant   | `VsfButtonVariants` | `primary`     | `primary`, `secondary`, `tertiary` |
-| size      | `VsfButtonSizes`    | `base`        | `sm`, `base`, `lg`                 |
+| variant   | `VsfButtonVariant` | `primary`     | `primary`, `secondary`, `tertiary` |
+| size      | `VsfButtonSize`    | `base`        | `sm`, `base`, `lg`                 |
 | link      | `String`            |               | `/my-cool-page`                    |
 | tile      | `Boolean`           | `false`       |                                    |
 | disabled  | `Boolean`           | `false`       |                                    |

@@ -1,13 +1,13 @@
 import classNames from 'classnames';
-import { VsfTagProps, VsfTagVariants, VsfTagSizes } from './types';
+import { VsfTagProps, VsfTagVariant, VsfTagSize } from './types';
 
 export default function VsfTag({
   ariaLive,
   label,
   children,
   strong = false,
-  variant = VsfTagVariants.gray,
-  size = VsfTagSizes.base,
+  variant = VsfTagVariant.gray,
+  size = VsfTagSize.base,
   className,
   ...attributes
 }: VsfTagProps): JSX.Element {

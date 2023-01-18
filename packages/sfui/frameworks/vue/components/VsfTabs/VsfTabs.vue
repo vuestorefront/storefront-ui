@@ -6,7 +6,7 @@ import VsfSlider from '../VsfSlider/VsfSlider.vue';
 import VsfDivider from '../VsfDivider/VsfDivider.vue';
 import { VsfTabsInjectionKey } from './types';
 import { VsfSliderNavigation } from '../VsfSlider/types';
-import { VsfButtonSizes } from '../VsfButton/types';
+import { VsfButtonSize } from '../VsfButton/types';
 
 const props = defineProps({
   modelValue: {
@@ -14,8 +14,8 @@ const props = defineProps({
     default: '',
   },
   size: {
-    type: String as PropType<VsfButtonSizes>,
-    default: VsfButtonSizes.base,
+    type: String as PropType<`${VsfButtonSize}`>,
+    default: VsfButtonSize.base,
   },
 });
 

@@ -3,11 +3,11 @@ import React from "react";
 import { mount, useComponent } from '../../utils/mount';
 
 const { vue: VsfLoaderLinearVue, react: VsfLoaderLinearReact } = useComponent('VsfLoaderLinear');
-import { VsfLoaderLinearSize, VsfLoaderSizes } from '../../../sfui/frameworks/react/components/VsfLoaderLinear/types';
+import { VsfLoaderLinearSize, VsfLoaderSize } from '../../../sfui/frameworks/react/components/VsfLoaderLinear/types';
 import VsfLoaderLinearBaseObject from "./VsfLoaderLinear.PageObject";
 
 describe("VsfLoaderLinear", () => {
-  let size: VsfLoaderLinearSize | VsfLoaderSizes;
+  let size: VsfLoaderLinearSize | VsfLoaderSize;
   let screenReaderText: string;
 
   const page = () => new VsfLoaderLinearBaseObject('loader-linear');
@@ -29,7 +29,7 @@ describe("VsfLoaderLinear", () => {
   }
 
   afterEach(() => {
-    size = VsfLoaderSizes.lg;
+    size = VsfLoaderSize.lg;
     screenReaderText = 'loading';
   })
 
@@ -39,7 +39,7 @@ describe("VsfLoaderLinear", () => {
   });
 
   describe('when size is changed to ', () => {
-    [...Object.values(VsfLoaderLinearSize), ...Object.values(VsfLoaderSizes)].forEach((componentSize) => {
+    [...Object.values(VsfLoaderLinearSize), ...Object.values(VsfLoaderSize)].forEach((componentSize) => {
       describe(componentSize, () => {
         it('should render proper loader size', () => {
           size = componentSize;

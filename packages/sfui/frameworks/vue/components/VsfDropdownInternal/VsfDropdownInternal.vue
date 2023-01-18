@@ -11,11 +11,11 @@ const props = defineProps({
     default: false,
   },
   triggerEvent: {
-    type: String as PropType<VsfDropdownInternalTriggerEvent>,
+    type: String as PropType<`${VsfDropdownInternalTriggerEvent}`>,
     default: VsfDropdownInternalTriggerEvent.click,
   },
   placement: {
-    type: String as PropType<VsfDropdownInternalPlacement>,
+    type: String as PropType<`${VsfDropdownInternalPlacement}`>,
     default: VsfDropdownInternalPlacement.bottom,
   },
   disabled: {

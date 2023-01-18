@@ -28,7 +28,7 @@ const props = defineProps({
     default: '',
   },
   variant: {
-    type: String as PropType<VsfListItemFilterRadioVariant>,
+    type: String as PropType<`${VsfListItemFilterRadioVariant}`>,
     default: VsfListItemFilterRadioVariant.left,
   },
 });

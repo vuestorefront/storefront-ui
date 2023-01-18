@@ -1,5 +1,5 @@
 import { useState, createElement } from 'react';
-import { VsfIconSizeEnum } from '@storefront-ui/react/components/VsfIcons/types';
+import { VsfIconSize } from '@storefront-ui/react/components/VsfIcons/types';
 import * as AllVsfIcons from '@storefront-ui/react/components/VsfIcons';
 import useSWR from 'swr';
 import { prepareControls } from '../../components/utils/Controls';
@@ -22,14 +22,14 @@ function Example() {
     }, 1000);
   };
 
-  const { state, controls } = prepareControls<{ size: VsfIconSizeEnum; colorExample: string }>(
+  const { state, controls } = prepareControls<{ size: VsfIconSize; colorExample: string }>(
     [
       {
         type: 'select',
         modelName: 'size',
         propDefaultValue: 'VsfIconSize.base',
         propType: 'VsfIconSize',
-        options: Object.keys(VsfIconSizeEnum),
+        options: Object.keys(VsfIconSize),
       },
       {
         type: 'select',
@@ -39,7 +39,7 @@ function Example() {
       },
     ],
     {
-      size: VsfIconSizeEnum.base,
+      size: VsfIconSize.base,
       colorExample: 'black',
     },
   );

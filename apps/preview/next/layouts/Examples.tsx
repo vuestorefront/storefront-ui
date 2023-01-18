@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { createElement, ReactElement, useState } from 'react';
 import useSWR from 'swr';
-import { VsfButton, VsfButtonVariants, VsfButtonSizes } from '@storefront-ui/react/components/VsfButton';
+import { VsfButton, VsfButtonVariant, VsfButtonSize } from '@storefront-ui/react/components/VsfButton';
 import { VsfListItemMenu } from '@storefront-ui/react/components/VsfListItemMenu';
 import { VsfIconChevronLeft, VsfIconChevronRight } from '@storefront-ui/react/components/VsfIcons/index';
 
@@ -23,8 +23,8 @@ export default function ExampleLayout({ children }: { children: ReactElement }) 
           </header>
           <VsfButton
             className="sidebar-toggle"
-            variant={VsfButtonVariants.tertiary}
-            size={VsfButtonSizes.sm}
+            variant={VsfButtonVariant.tertiary}
+            size={VsfButtonSize.sm}
             onClick={() => setIsOpen(!isOpen)}
             slotPrefix={isOpen ? <VsfIconChevronLeft /> : <VsfIconChevronRight />}
             aria-label={isOpen ? 'Hide sidebar' : 'Open sidebar'}

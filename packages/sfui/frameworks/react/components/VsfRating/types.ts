@@ -1,4 +1,6 @@
-export enum VsfRatingSizes {
+import type { PropsWithStyle } from '../../shared/types';
+
+export enum VsfRatingSize {
   xs = 'xs',
   sm = 'sm',
   base = 'base',
@@ -6,16 +8,15 @@ export enum VsfRatingSizes {
   xl = 'xl',
 }
 
-export enum VsfRatingVariants {
+export enum VsfRatingVariant {
   base = 'base',
   withValue = 'withValue',
 }
 
-export interface VsfRatingProps {
+export interface VsfRatingProps extends PropsWithStyle {
   value?: number;
   max?: number;
-  size?: VsfRatingSizes;
-  variant?: VsfRatingVariants;
+  size?: `${VsfRatingSize}`;
+  variant?: `${VsfRatingVariant}`;
   halfIncrement?: boolean;
-  className?: string;
 }

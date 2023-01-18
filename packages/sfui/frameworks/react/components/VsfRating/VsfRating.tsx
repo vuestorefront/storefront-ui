@@ -1,12 +1,12 @@
 import classNames from 'classnames';
 import { clamp, roundToNearest } from '@storefront-ui/shared';
 import { VsfIconStar, VsfIconStarOutline, VsfIconStarPartiallyFilled } from '../VsfIcons';
-import { VsfRatingSizes, VsfRatingVariants } from './types';
+import { VsfRatingSize, VsfRatingVariant } from './types';
 import type { VsfRatingProps } from './types';
 
 export default function VsfRating({
-  size = VsfRatingSizes.base,
-  variant = VsfRatingVariants.base,
+  size = VsfRatingSize.base,
+  variant = VsfRatingVariant.base,
   max = 5,
   value = 0,
   halfIncrement,
@@ -30,11 +30,11 @@ export default function VsfRating({
   const classes = classNames(
     'vsf-rating',
     {
-      'vsf-rating--xs': size === VsfRatingSizes.xs,
-      'vsf-rating--sm': size === VsfRatingSizes.sm,
-      'vsf-rating--base': size === VsfRatingSizes.base,
-      'vsf-rating--lg': size === VsfRatingSizes.lg,
-      'vsf-rating--xl': size === VsfRatingSizes.xl,
+      'vsf-rating--xs': size === VsfRatingSize.xs,
+      'vsf-rating--sm': size === VsfRatingSize.sm,
+      'vsf-rating--base': size === VsfRatingSize.base,
+      'vsf-rating--lg': size === VsfRatingSize.lg,
+      'vsf-rating--xl': size === VsfRatingSize.xl,
     },
     className,
   );

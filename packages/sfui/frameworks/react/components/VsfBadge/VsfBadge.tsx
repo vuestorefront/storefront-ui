@@ -10,21 +10,22 @@ export default function VsfBadge({
   bordered,
   ...attributes
 }: VsfBadgeProps) {
-  const classes = classNames('vsf-badge', {
-    'vsf-badge--dot': dot,
-    'vsf-badge--bordered': bordered,
-  });
-
-  const badgeComponent = dot ? (
-    <div className={classNames('vsf-badge__badge', 'vsf-badge__dot', className)} />
-  ) : (
-    <div className={classNames('vsf-badge__badge', 'vsf-badge__base', className)}>{value}</div>
-  );
-
   return (
-    <div className={classes} {...attributes}>
+    <div
+      className={classNames('vsf-badge', {
+        'vsf-badge--dot': dot,
+        'vsf-badge--bordered': bordered,
+      })}
+      {...attributes}
+    >
       {children}
-      {!invisible && !!value && <div className="vsf-badge__wrapper">{badgeComponent}</div>}
+      {!invisible && !!value && (
+        <div className="vsf-badge__wrapper">
+          <div className={classNames('vsf-badge__badge', dot ? 'vsf-badge__dot' : 'vsf-badge__base', className)}>
+            {dot ? value : undefined}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

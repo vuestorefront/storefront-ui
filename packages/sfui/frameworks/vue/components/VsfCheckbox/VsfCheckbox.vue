@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { InputHTMLAttributes, PropType } from 'vue';
 import { computed, toRefs } from 'vue';
-import { VsfCheckboxAlignments } from './types';
+import { VsfCheckboxAlignment } from './types';
 
 const props = defineProps({
   modelValue: {
@@ -29,8 +29,8 @@ const props = defineProps({
     default: false,
   },
   alignment: {
-    type: String as PropType<VsfCheckboxAlignments>,
-    default: VsfCheckboxAlignments.leading,
+    type: String as PropType<`${VsfCheckboxAlignment}`>,
+    default: VsfCheckboxAlignment.leading,
   },
   label: {
     type: String,

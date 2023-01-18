@@ -1,10 +1,5 @@
-import {
-  VsfAlert,
-  VsfAlertProps,
-  VsfAlertTypes,
-  VsfAlertVariants,
-} from '@storefront-ui/react/components/VsfAlert/index';
-import { VsfButton, VsfButtonVariants } from '@storefront-ui/react/components/VsfButton/index';
+import { VsfAlert, VsfAlertProps, VsfAlertType, VsfAlertVariant } from '@storefront-ui/react/components/VsfAlert/index';
+import { VsfButton, VsfButtonVariant } from '@storefront-ui/react/components/VsfButton/index';
 import { VsfIconChat } from '@storefront-ui/react/components/VsfIcons/index';
 import { createControlsOptions } from '@storefront-ui/preview-shared/utils/controlsOptions';
 import { prepareControls } from '../../components/utils/Controls';
@@ -17,7 +12,7 @@ const prefixSlotOptions = createControlsOptions({
 });
 const suffixSlotOptions = createControlsOptions({
   none: undefined,
-  'Custom component': <VsfButton variant={VsfButtonVariants.tertiary}>Button</VsfButton>,
+  'Custom component': <VsfButton variant={VsfButtonVariant.tertiary}>Button</VsfButton>,
 });
 
 interface AlertControls extends Omit<VsfAlertProps, 'slotPrefix' | 'slotSuffix'> {
@@ -38,17 +33,17 @@ function Example() {
       {
         type: 'select',
         modelName: 'variant',
-        propDefaultValue: VsfAlertVariants.gray,
-        options: Object.keys(VsfAlertVariants),
-        propType: 'VsfAlertVariants',
+        propDefaultValue: VsfAlertVariant.gray,
+        options: Object.keys(VsfAlertVariant),
+        propType: 'VsfAlertVariant',
         description: 'Alert color variant, affect rendered icon.',
       },
       {
         type: 'select',
         modelName: 'type',
-        propDefaultValue: VsfAlertTypes.temporary,
-        options: Object.keys(VsfAlertTypes),
-        propType: 'VsfAlertTypes',
+        propDefaultValue: VsfAlertType.temporary,
+        options: Object.keys(VsfAlertType),
+        propType: 'VsfAlertType',
         description: 'Shows/hides close button',
       },
       {
@@ -97,7 +92,7 @@ function Example() {
     {
       open: true,
       variant: undefined,
-      type: VsfAlertTypes.persistent,
+      type: VsfAlertType.persistent,
       text: 'Informative text',
       header: 'Header',
       withShadow: undefined,

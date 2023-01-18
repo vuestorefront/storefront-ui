@@ -16,7 +16,7 @@ import {
   VsfIconTwitter,
   VsfIconYoutube,
 } from '@storefront-ui/react/components/VsfIcons';
-import { VsfIconSizeEnum } from '@storefront-ui/react/components/VsfIconBase/types';
+import { VsfIconSize } from '@storefront-ui/react/components/VsfIconBase/types';
 import { VsfFooterColumnType, VsfFooterLabelType, VsfFooterSectionType } from '@storefront-ui/shared';
 import Link from 'next/link';
 import { VsfDivider } from '@storefront-ui/react/components/VsfDivider';
@@ -254,7 +254,7 @@ function Example() {
             const Icon = iconsMap[contactOption.icon];
             return (
               <VsfFooterColumn type={VsfFooterColumnType.middle} key={contactOption.label}>
-                <Icon size={VsfIconSizeEnum.lg} />
+                <Icon size={VsfIconSize.lg} />
                 <VsfFooterLabel type={VsfFooterLabelType.contact}>
                   <Link href={contactOption.link}>
                     <a>{contactOption.label}</a>

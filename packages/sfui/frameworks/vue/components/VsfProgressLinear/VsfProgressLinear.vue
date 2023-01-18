@@ -1,13 +1,15 @@
 <script lang="ts" setup>
-import { VsfProgressLinearSizes } from './types';
+import type { PropType } from 'vue';
+import { VsfProgressLinearSize } from './types';
+
 defineProps({
   value: {
     type: Number,
     default: 0,
   },
   size: {
-    type: String,
-    default: VsfProgressLinearSizes.base,
+    type: String as PropType<`${VsfProgressLinearSize}`>,
+    default: VsfProgressLinearSize.base,
   },
   withValue: {
     type: Boolean,
@@ -27,7 +29,7 @@ defineProps({
   >
     <progress id="progressbar" max="100" class="vsf-progress-linear__progress" :value="value"></progress>
     <span
-      v-if="withValue && size !== VsfProgressLinearSizes.minimal"
+      v-if="withValue && size !== VsfProgressLinearSize.minimal"
       class="vsf-progress-linear__label"
       data-testid="progress-value"
       >{{ value }}%</span

@@ -7,11 +7,11 @@ import VsfIconFavoritesOutline from '../VsfIcons/VsfIconFavoritesOutline';
 import VsfIconBasket from '../VsfIcons/VsfIconBasket';
 import VsfIconAddedToBasket from '../VsfIcons/VsfIconAddedToBasket';
 import VsfIconHot from '../VsfIcons/VsfIconHot';
-import { VsfTagVariants, VsfTagSizes } from '../VsfTag/types';
-import { VsfIconSizeEnum } from '../VsfIconBase/types';
-import { VsfButtonSizes, VsfButtonVariants } from '../VsfButton/types';
-import { VsfRatingSizes, VsfRatingVariants } from '../VsfRating/types';
-import { VsfProductCardSizes } from './types';
+import { VsfTagVariant, VsfTagSize } from '../VsfTag/types';
+import { VsfIconSize } from '../VsfIconBase/types';
+import { VsfButtonSize, VsfButtonVariant } from '../VsfButton/types';
+import { VsfRatingSize, VsfRatingVariant } from '../VsfRating/types';
+import { VsfProductCardSize } from './types';
 import type { VsfProductCardProps } from './types';
 import VsfProductCardImage from './VsfProductCardImage';
 
@@ -28,7 +28,7 @@ export default function VsfProductCard({
   description,
   outOfStock = false,
   inCart,
-  size = VsfProductCardSizes.responsive,
+  size = VsfProductCardSize.responsive,
   addToCartLabel,
   similarLabel,
   outOfStockLabel,
@@ -52,12 +52,12 @@ export default function VsfProductCard({
   const productCardClasses = classNames(
     'vsf-product-card',
     {
-      'vsf-product-card--sm': size === VsfProductCardSizes.sm,
-      'vsf-product-card--base': size === VsfProductCardSizes.base,
-      'vsf-product-card--responsive': size === VsfProductCardSizes.responsive,
-      'vsf-product-card--horizontal-base': size === VsfProductCardSizes.base && !vertical,
-      'vsf-product-card--horizontal-sm': size === VsfProductCardSizes.sm && !vertical,
-      'vsf-product-card--horizontal-responsive': size === VsfProductCardSizes.responsive && !vertical,
+      'vsf-product-card--sm': size === VsfProductCardSize.sm,
+      'vsf-product-card--base': size === VsfProductCardSize.base,
+      'vsf-product-card--responsive': size === VsfProductCardSize.responsive,
+      'vsf-product-card--horizontal-base': size === VsfProductCardSize.base && !vertical,
+      'vsf-product-card--horizontal-sm': size === VsfProductCardSize.sm && !vertical,
+      'vsf-product-card--horizontal-responsive': size === VsfProductCardSize.responsive && !vertical,
       'vsf-product-card--horizontal': !vertical,
     },
     className,
@@ -94,13 +94,13 @@ export default function VsfProductCard({
           {slotImageTop ||
             (badgeText && (
               <VsfTag
-                size={VsfTagSizes.sm}
+                size={VsfTagSize.sm}
                 strong
                 label={badgeText}
-                variant={VsfTagVariants.secondary}
+                variant={VsfTagVariant.secondary}
                 data-testid="product-card-badge"
               >
-                <VsfIconHot size={VsfIconSizeEnum.xs} ariaLabel={ariaLabelBadge} />
+                <VsfIconHot size={VsfIconSize.xs} ariaLabel={ariaLabelBadge} />
               </VsfTag>
             ))}
         </div>
@@ -110,22 +110,22 @@ export default function VsfProductCard({
             <>
               {vertical && (outOfStock || inCart) ? (
                 <VsfTag
-                  size={VsfTagSizes.sm}
-                  variant={outOfStock ? VsfTagVariants.negative : VsfTagVariants.primary}
+                  size={VsfTagSize.sm}
+                  variant={outOfStock ? VsfTagVariant.negative : VsfTagVariant.primary}
                   label={outOfStock ? outOfStockLabel : inCart}
                   data-testid="product-card-in-cart"
                 >
-                  {!outOfStock ? <VsfIconAddedToBasket size={VsfIconSizeEnum.xs} /> : null}
+                  {!outOfStock ? <VsfIconAddedToBasket size={VsfIconSize.xs} /> : null}
                 </VsfTag>
               ) : null}
 
               <VsfButton
-                variant={VsfButtonVariants.secondary}
-                size={VsfButtonSizes.sm}
+                variant={VsfButtonVariant.secondary}
+                size={VsfButtonSize.sm}
                 className="vsf-product-card__image-bottom-button"
                 onClick={onAddToWishlistClick}
                 data-testid="product-card-add-to-wishlist"
-                slotPrefix={<VsfIconFavoritesOutline size={VsfIconSizeEnum.sm} ariaLabel={ariaLabelAddToWishlist} />}
+                slotPrefix={<VsfIconFavoritesOutline size={VsfIconSize.sm} ariaLabel={ariaLabelAddToWishlist} />}
               />
             </>
           )}
@@ -135,12 +135,12 @@ export default function VsfProductCard({
       <div className="vsf-product-card__details">
         {!vertical && (outOfStock || inCart) ? (
           <VsfTag
-            size={VsfTagSizes.sm}
-            variant={outOfStock ? VsfTagVariants.negative : VsfTagVariants.primary}
+            size={VsfTagSize.sm}
+            variant={outOfStock ? VsfTagVariant.negative : VsfTagVariant.primary}
             label={outOfStock ? outOfStockLabel : inCart}
             className="vsf-product-card__details-in-cart"
           >
-            {!outOfStock ? <VsfIconAddedToBasket size={VsfIconSizeEnum.xs} /> : null}
+            {!outOfStock ? <VsfIconAddedToBasket size={VsfIconSize.xs} /> : null}
           </VsfTag>
         ) : null}
         {slotTitle ||
@@ -156,8 +156,8 @@ export default function VsfProductCard({
           <div className="vsf-product-card__details-rating">
             {maxRatingValue && (
               <VsfRating
-                size={VsfRatingSizes.xs}
-                variant={VsfRatingVariants.base}
+                size={VsfRatingSize.xs}
+                variant={VsfRatingVariant.base}
                 value={ratingValue}
                 max={maxRatingValue}
                 data-testid="product-card-rating"
@@ -165,7 +165,7 @@ export default function VsfProductCard({
             )}
             {reviewsAmount && (
               <VsfButton
-                variant={VsfButtonVariants.tertiary}
+                variant={VsfButtonVariant.tertiary}
                 onClick={onReviewsClick}
                 className="vsf-product-card__details-rating-button"
                 data-testid="product-card-reviews"
@@ -197,18 +197,18 @@ export default function VsfProductCard({
             <VsfButton
               onClick={onAddToCartClick}
               className={addToCartClasses}
-              size={VsfButtonSizes.sm}
+              size={VsfButtonSize.sm}
               data-testid="product-card-add-to-cart"
             >
-              <VsfIconBasket size={VsfIconSizeEnum.sm} ariaLabel={ariaLabelAddToBasket} />
+              <VsfIconBasket size={VsfIconSize.sm} ariaLabel={ariaLabelAddToBasket} />
               <span className="ml-2">{addToCartLabel}</span>
             </VsfButton>
           ) : (
             <VsfButton
               onClick={onSeeSimilarClick}
-              variant={VsfButtonVariants.secondary}
+              variant={VsfButtonVariant.secondary}
               className={addToCartClasses}
-              size={VsfButtonSizes.sm}
+              size={VsfButtonSize.sm}
               data-testid="product-card-see-similar"
             >
               {similarLabel}

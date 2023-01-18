@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { PropType } from 'vue';
 import { computed, toRefs } from 'vue';
-import { VsfListItemMenuSizes } from './types';
-import { VsfCounter, VsfCounterSizes } from '../VsfCounter';
+import { VsfListItemMenuSize } from './types';
+import { VsfCounter, VsfCounterSize } from '../VsfCounter';
 
 const props = defineProps({
   label: {
@@ -14,8 +14,8 @@ const props = defineProps({
     default: undefined,
   },
   size: {
-    type: String as PropType<VsfListItemMenuSizes>,
-    default: VsfListItemMenuSizes.base,
+    type: String as PropType<`${VsfListItemMenuSize}`>,
+    default: VsfListItemMenuSize.base,
   },
   secondaryText: {
     type: String,
@@ -80,7 +80,7 @@ const componentDisabled = computed(() => (!link?.value ? disabled?.value : undef
           <span v-if="label" class="vsf-list-item-menu__label" data-testid="list-item-menu-label">{{ label }}</span>
           <VsfCounter
             v-if="counter"
-            :size="VsfCounterSizes.xl"
+            :size="VsfCounterSize.xl"
             class="vsf-list-item-menu__counter"
             data-testid="list-item-menu-counter"
             >{{ counter }}</VsfCounter

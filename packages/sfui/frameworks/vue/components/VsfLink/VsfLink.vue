@@ -13,7 +13,7 @@ const props = defineProps({
   },
   tag: VsfLinkTagProp,
   variant: {
-    type: String as PropType<VsfLinkVariant>,
+    type: String as PropType<`${VsfLinkVariant}`>,
     default: VsfLinkVariant.primary,
   },
 });

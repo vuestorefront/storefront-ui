@@ -3,7 +3,7 @@ import type { PropType } from 'vue';
 import { toRefs, ref } from 'vue';
 import { onClickOutside } from '@vueuse/core';
 import { VsfNavigationTopVariant } from './types';
-import { VsfButton, VsfButtonVariants } from '../VsfButton';
+import { VsfButton, VsfButtonVariant } from '../VsfButton';
 import { VsfIconClose } from '../VsfIcons';
 
 const props = defineProps({
@@ -12,7 +12,7 @@ const props = defineProps({
     default: false,
   },
   variant: {
-    type: String as PropType<VsfNavigationTopVariant>,
+    type: String as PropType<`${VsfNavigationTopVariant}`>,
     default: VsfNavigationTopVariant.auto,
   },
 });
@@ -31,7 +31,7 @@ onClickOutside(navigationTopRef, onClose);
   <nav v-if="modelValue" ref="navigationTopRef" class="vsf-navigation-top" data-testid="navigation-top">
     <VsfButton
       greyscale
-      :variant="VsfButtonVariants.tertiary"
+      :variant="VsfButtonVariant.tertiary"
       class="vsf-navigation-top__close"
       data-testid="navigation-top-close-button"
       @click="onClose"

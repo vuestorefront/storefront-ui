@@ -1,8 +1,8 @@
-import { VsfLoaderSizes } from '@storefront-ui/shared';
+import { VsfLoaderSize } from '@storefront-ui/shared';
 import type { PropsWithStyle } from '../../shared/types';
 
-export { VsfLoaderSizes };
-export type VsfLoaderCircularProps = PropsWithStyle & {
-  size?: VsfLoaderSizes;
+export { VsfLoaderSize };
+export interface VsfLoaderCircularProps extends PropsWithStyle {
+  size?: `${VsfLoaderSize}`;
   screenReaderText?: string;
-};
+}

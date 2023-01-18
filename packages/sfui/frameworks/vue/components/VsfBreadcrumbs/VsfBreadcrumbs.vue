@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { PropType } from 'vue';
 import { computed, onMounted, onUnmounted, ref, toRefs, watch } from 'vue';
-import { VsfIconHome, VsfIconMoreHorizontal, VsfIconSizeEnum } from '../VsfIcons';
+import { VsfIconHome, VsfIconMoreHorizontal, VsfIconSize } from '../VsfIcons';
 import type { VsfBreadcrumbType, VsfBreadcrumbHomeType } from './types';
 import type { TagOrComponent } from '../../shared/types';
 
@@ -86,7 +86,7 @@ watch(
             aria-label="Show previous categories"
             @click.stop="handleButtonClick()"
           >
-            <VsfIconMoreHorizontal :size="VsfIconSizeEnum.sm" class="vsf-breadcrumbs__item-button-icon" />
+            <VsfIconMoreHorizontal :size="VsfIconSize.sm" class="vsf-breadcrumbs__item-button-icon" />
           </button>
           <ul v-if="dropdownOpened" ref="dropdownRef" class="vsf-breadcrumbs__dropdown-list">
             <li
@@ -114,7 +114,7 @@ watch(
         >
           <slot name="homeButtonIcon" />
           <span v-if="!$slots.icon" class="vsf-breadcrumbs__item-button-icon--home">
-            <VsfIconHome :size="VsfIconSizeEnum.sm" />
+            <VsfIconHome :size="VsfIconSize.sm" />
           </span>
         </component>
       </li>

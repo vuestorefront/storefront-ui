@@ -1,5 +1,6 @@
 <script lang="ts" setup>
-import { VsfChipsFilterVariants } from './types';
+import type { PropType } from 'vue';
+import { VsfChipsFilterVariant } from './types';
 
 defineProps({
   type: {
@@ -7,8 +8,8 @@ defineProps({
     default: 'checkbox',
   },
   size: {
-    type: String,
-    default: VsfChipsFilterVariants.base,
+    type: String as PropType<`${VsfChipsFilterVariant}`>,
+    default: VsfChipsFilterVariant.base,
   },
   disabled: {
     type: Boolean,

@@ -3,14 +3,14 @@ import React from "react";
 import { mount, useComponent } from '../../utils/mount';
 
 const { vue: VsfListItemMenuVue, react: VsfListItemMenuReact } = useComponent('VsfListItemMenu');
-import { VsfListItemMenuSizes } from '../../../sfui/frameworks/vue/components/VsfListItemMenu/types';
+import { VsfListItemMenuSize } from '../../../sfui/frameworks/vue/components/VsfListItemMenu/types';
 import VsfListItemMenuBaseObject from "./VsfListItemMenu.PageObject";
 
 describe("VsfListItemMenu", () => {
   let disabled: boolean;
   let counter: string;
   let label: string;
-  let size: VsfListItemMenuSizes;
+  let size: VsfListItemMenuSize;
   let link: string;
   let truncate: boolean;
   let secondaryText: string;
@@ -52,7 +52,7 @@ describe("VsfListItemMenu", () => {
   });
 
   afterEach(() => {
-    size = VsfListItemMenuSizes.base;
+    size = VsfListItemMenuSize.base;
     label = 'Label'
     secondaryText = 'Secondary text'
   });
@@ -87,7 +87,7 @@ describe("VsfListItemMenu", () => {
   });
 
   describe('when prop size is set to ', () => {
-    Object.values(VsfListItemMenuSizes).forEach((componentSize) => {
+    Object.values(VsfListItemMenuSize).forEach((componentSize) => {
       describe(`${componentSize}`, () => {
         it(`should render correct ${componentSize} size`, () => {
           size = componentSize;

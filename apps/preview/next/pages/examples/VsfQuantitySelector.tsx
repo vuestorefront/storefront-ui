@@ -1,4 +1,4 @@
-import { VsfQuantitySelector, VsfQuantitySelectorSizes } from '@storefront-ui/react/components/VsfQuantitySelector';
+import { VsfQuantitySelector, VsfQuantitySelectorSize } from '@storefront-ui/react/components/VsfQuantitySelector';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
@@ -8,10 +8,10 @@ function Example() {
     [
       {
         type: 'select',
-        options: Object.keys(VsfQuantitySelectorSizes),
+        options: Object.keys(VsfQuantitySelectorSize),
         modelName: 'size',
-        propType: 'VsfQuantitySelectorSizes',
-        propDefaultValue: VsfQuantitySelectorSizes.base,
+        propType: 'VsfQuantitySelectorSize',
+        propDefaultValue: VsfQuantitySelectorSize.base,
       },
       {
         type: 'boolean',
@@ -101,7 +101,7 @@ function Example() {
       minValue: 1,
       maxValue: 10,
       step: 1,
-      size: VsfQuantitySelectorSizes.base,
+      size: VsfQuantitySelectorSize.base,
       disabled: false,
       block: false,
       inputAriaLabel: undefined,

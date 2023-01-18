@@ -2,7 +2,7 @@
 import { inject } from 'vue';
 import { VsfTabsInjectionKey } from './types';
 import VsfButton from '../VsfButton/VsfButton.vue';
-import { VsfButtonVariants } from '../VsfButton/index';
+import { VsfButtonVariant } from '../VsfButton/index';
 
 defineProps({
   uid: {
@@ -26,7 +26,7 @@ const { props: TabsProps, onChange } = injectedValue;
   <VsfButton
     :class="['vsf-tabs-item', { 'vsf-tabs-item--active': TabsProps.modelValue === uid }]"
     :size="TabsProps.size"
-    :variant="VsfButtonVariants.tertiary"
+    :variant="VsfButtonVariant.tertiary"
     :disabled="disabled"
     data-testid="tabs-item"
     role="tab"

@@ -1,4 +1,4 @@
-export enum VsfCounterSizes {
+export enum VsfCounterSize {
   xs = 'xs',
   sm = 'sm',
   base = 'base',
@@ -8,6 +8,6 @@ export enum VsfCounterSizes {
 }
 
 export interface VsfCounterProps {
-  size?: VsfCounterSizes;
+  size?: VsfCounterSize;
   pill?: boolean;
 }

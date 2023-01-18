@@ -1,11 +1,11 @@
 import type { ReactNode } from 'react';
+import type { PropsWithStyle } from '../../shared/types';
 
-export interface VsfReviewProps {
+export interface VsfReviewProps extends PropsWithStyle {
   title: string;
   content: string;
   date?: string;
   author?: string;
-  className?: string;
   charLimit?: number;
   showMoreText?: string;
   showLessText?: string;

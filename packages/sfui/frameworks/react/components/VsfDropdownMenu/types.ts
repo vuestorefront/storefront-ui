@@ -1,8 +1,7 @@
-import { ReactNode } from 'react';
-import { PropsWithStyle } from '../../shared/types';
+import type { ReactNode, PropsWithChildren } from 'react';
+import type { PropsWithStyle } from '../../shared/types';
 
-export interface VsfDropdownMenuProps extends PropsWithStyle {
+export interface VsfDropdownMenuProps extends PropsWithStyle, PropsWithChildren {
   loading?: boolean;
-  children?: ReactNode;
   slotLoader?: ReactNode;
 }

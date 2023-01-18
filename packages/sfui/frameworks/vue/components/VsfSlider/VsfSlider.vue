@@ -3,7 +3,7 @@ import type { PropType } from 'vue';
 import { ref, toRefs, defineAsyncComponent, computed } from 'vue';
 import { isReduceMotionEnabled } from '@storefront-ui/shared';
 import { VsfSliderNavigation, VsfSliderScrollbar, VsfSliderDirection } from './types';
-import { VsfButtonVariants, VsfButtonSizes } from '../VsfButton';
+import { VsfButtonVariant, VsfButtonSize } from '../VsfButton';
 import { useSlider } from './slider';
 const VsfButton = defineAsyncComponent(() => import('../VsfButton/VsfButton.vue'));
 const VsfIconChevronLeft = defineAsyncComponent(() => import('../VsfIcons/VsfIconChevronLeft.vue'));
@@ -13,15 +13,15 @@ const VsfIconChevronDown = defineAsyncComponent(() => import('../VsfIcons/VsfIco
 
 const props = defineProps({
   scrollbar: {
-    type: String as PropType<VsfSliderScrollbar>,
+    type: String as PropType<`${VsfSliderScrollbar}`>,
     default: VsfSliderScrollbar.hidden,
   },
   navigation: {
-    type: String as PropType<VsfSliderNavigation>,
+    type: String as PropType<`${VsfSliderNavigation}`>,
     default: VsfSliderNavigation.block,
   },
   direction: {
-    type: String as PropType<VsfSliderDirection>,
+    type: String as PropType<`${VsfSliderDirection}`>,
     default: VsfSliderDirection.horizontal,
   },
   scrollSnap: {
@@ -72,8 +72,8 @@ const onClickNext = () => slider.value?.next();
     <div v-if="navigation !== VsfSliderNavigation.none" class="vsf-slider__nav vsf-slider__nav-prev">
       <slot name="prev-button" v-bind="{ onClick: onClickPrev, hasPrev }">
         <VsfButton
-          :variant="VsfButtonVariants.secondary"
-          :size="VsfButtonSizes.lg"
+          :variant="VsfButtonVariant.secondary"
+          :size="VsfButtonSize.lg"
           rounded
           :class="['vsf-slider__nav-arrow', { 'vsf-slider__nav-arrow--hidden': !hasPrev }]"
           :disabled="!hasPrev"
@@ -98,8 +98,8 @@ const onClickNext = () => slider.value?.next();
     <div v-if="navigation !== VsfSliderNavigation.none" class="vsf-slider__nav vsf-slider__nav-next">
       <slot name="next-button" v-bind="{ onClick: onClickNext, hasNext }">
         <VsfButton
-          :variant="VsfButtonVariants.secondary"
-          :size="VsfButtonSizes.lg"
+          :variant="VsfButtonVariant.secondary"
+          :size="VsfButtonSize.lg"
           rounded
           :class="['vsf-slider__nav-arrow', { 'vsf-slider__nav-arrow--hidden': !hasNext }]"
           :disabled="!hasNext"

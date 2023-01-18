@@ -3,11 +3,11 @@ import React from "react";
 import { mount, useComponent } from '../../utils/mount';
 
 const {vue: VsfSwitchVue, react: VsfSwitchReact} = useComponent('VsfSwitch');
-import { VsfSwitchAlignments } from '../../../sfui/frameworks/vue/components/VsfSwitch/types';
+import { VsfSwitchAlignment } from '../../../sfui/frameworks/vue/components/VsfSwitch/types';
 import VsfSwitchBaseObject from "./VsfSwitch.PageObject";
 
 describe("VsfSwitch", () => {
-  let alignment: VsfSwitchAlignments;
+  let alignment: VsfSwitchAlignment;
   let disabled: boolean;
   let label: string;
   let helpText: string;
@@ -44,7 +44,7 @@ describe("VsfSwitch", () => {
     label = 'Label';
     value = 'value';
     onChangeSpy = cy.spy();
-    alignment = VsfSwitchAlignments.prefix;
+    alignment = VsfSwitchAlignment.prefix;
   });
 
   it('initial state', () => {
@@ -54,7 +54,7 @@ describe("VsfSwitch", () => {
   });
 
   describe('when prop alignment is set to ', () => {
-    Object.values(VsfSwitchAlignments).forEach((componentAlignment) => {
+    Object.values(VsfSwitchAlignment).forEach((componentAlignment) => {
       describe(`${componentAlignment}`, () => {
         it(`should render correct ${componentAlignment} alignment`, () => {
           alignment = componentAlignment;

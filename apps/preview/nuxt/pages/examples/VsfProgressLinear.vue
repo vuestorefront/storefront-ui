@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import { ref } from 'vue';
-import { VsfProgressLinear, VsfProgressLinearSizes } from '@storefront-ui/vue/components/VsfProgressLinear/index';
+import { VsfProgressLinear, VsfProgressLinearSize } from '@storefront-ui/vue/components/VsfProgressLinear/index';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
 
@@ -23,8 +23,8 @@ export default {
           {
             type: 'select',
             modelName: 'size',
-            options: Object.keys(VsfProgressLinearSizes),
-            propDefaultValue: VsfProgressLinearSizes.base,
+            options: Object.keys(VsfProgressLinearSize),
+            propDefaultValue: VsfProgressLinearSize.base,
             propType: 'string',
             description:
               'This prop is responsible for progress size. There are 9 sizes: minimal, xs, sm, base, lg, xl, 2xl, 3xl, 4xl',
@@ -47,7 +47,7 @@ export default {
         ],
         {
           value: ref(0),
-          size: ref(VsfProgressLinearSizes.base),
+          size: ref(VsfProgressLinearSize.base),
           withValue: ref(true),
         },
       ),

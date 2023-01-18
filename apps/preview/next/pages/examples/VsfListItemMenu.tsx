@@ -1,10 +1,10 @@
 import {
   VsfListItemMenu,
   VsfListItemMenuProps,
-  VsfListItemMenuSizes,
+  VsfListItemMenuSize,
 } from '@storefront-ui/react/components/VsfListItemMenu';
 import { createControlsOptions } from '@storefront-ui/preview-shared/utils/controlsOptions';
-import { VsfIconSizeEnum } from '@storefront-ui/react/components/VsfIcons/types';
+import { VsfIconSize } from '@storefront-ui/react/components/VsfIcons/types';
 import { VsfIconCheck } from '~/../../../packages/sfui/frameworks/react/components/VsfIcons';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
@@ -12,11 +12,11 @@ import { ExamplePageLayout } from '../examples';
 
 const prefixSlotOptions = createControlsOptions({
   none: undefined,
-  'Check icon': <VsfIconCheck size={VsfIconSizeEnum.sm} />,
+  'Check icon': <VsfIconCheck size={VsfIconSize.sm} />,
 });
 const suffixSlotOptions = createControlsOptions({
   none: undefined,
-  'Check icon': <VsfIconCheck size={VsfIconSizeEnum.sm} />,
+  'Check icon': <VsfIconCheck size={VsfIconSize.sm} />,
 });
 
 interface ListItemMenuControls extends Omit<VsfListItemMenuProps, 'slotPrefix' | 'slotSuffix'> {
@@ -68,7 +68,7 @@ function Example() {
       {
         type: 'select',
         modelName: 'size',
-        options: Object.keys(VsfListItemMenuSizes),
+        options: Object.keys(VsfListItemMenuSize),
         description: 'Set size variant',
       },
       {
@@ -94,7 +94,7 @@ function Example() {
     ],
     {
       label: 'Label',
-      size: VsfListItemMenuSizes.base,
+      size: VsfListItemMenuSize.base,
       link: '',
       counter: 123,
       slotPrefix: prefixSlotOptions.defaultOption,

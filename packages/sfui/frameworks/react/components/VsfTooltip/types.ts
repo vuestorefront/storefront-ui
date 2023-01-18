@@ -1,6 +1,6 @@
 import type { PropsWithChildren } from 'react';
 import type { PropsWithStyle } from '../../shared/types/index';
-import { VsfDropdownInternalProps } from '../VsfDropdownInternal';
+import type { VsfDropdownInternalProps } from '../VsfDropdownInternal';
 
 export enum VsfTooltipPlacement {
   top = 'top',
@@ -15,5 +15,5 @@ export interface VsfTooltipProps
     Pick<VsfDropdownInternalProps, 'open' | 'onOpenUpdate'> {
   label: string;
   hidePointer?: boolean;
-  placement: VsfTooltipPlacement;
+  placement: `${VsfTooltipPlacement}`;
 }

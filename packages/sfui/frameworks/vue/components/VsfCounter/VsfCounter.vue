@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import type { PropType } from 'vue';
-import { VsfCounterSizes } from './types';
+import { VsfCounterSize } from './types';
 
 defineProps({
   size: {
-    type: String as PropType<VsfCounterSizes>,
-    default: VsfCounterSizes.base,
+    type: String as PropType<`${VsfCounterSize}`>,
+    default: VsfCounterSize.base,
   },
   pill: {
     type: Boolean,

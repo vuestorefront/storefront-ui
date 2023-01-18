@@ -1,4 +1,4 @@
-export enum VsfTagVariants {
+export enum VsfTagVariant {
   primary = 'primary',
   secondary = 'secondary',
   negative = 'negative',
@@ -6,12 +6,12 @@ export enum VsfTagVariants {
   gray = 'gray',
 }
 
-export enum VsfTagSizes {
+export enum VsfTagSize {
   sm = 'sm',
   base = 'base',
 }
 
-export enum VsfTagAriaLiveValues {
+export enum VsfTagAriaLiveValue {
   off = 'off',
   polite = 'polite',
   assertive = 'assertive',
@@ -22,5 +22,5 @@ export interface VsfTagProps {
   size?: string;
   variant?: string;
   strong?: boolean;
-  ariaLive?: VsfTagAriaLiveValues;
+  ariaLive?: VsfTagAriaLiveValue;
 }

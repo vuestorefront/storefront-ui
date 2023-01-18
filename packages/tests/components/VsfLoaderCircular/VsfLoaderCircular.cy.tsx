@@ -3,12 +3,12 @@ import React from "react";
 import { mount, useComponent } from '../../utils/mount';
 
 const { vue: VsfLoaderCircularVue, react: VsfLoaderCircularReact } = useComponent('VsfLoaderCircular');
-import { VsfLoaderSizes } from "@storefront-ui/shared";
+import { VsfLoaderSize } from "@storefront-ui/shared";
 import VsfLoaderCircularBaseObject from "./VsfLoaderCircular.PageObject";
 
 describe("VsfLoaderCircular", () => {
   const page = () => new VsfLoaderCircularBaseObject('loader-circular');
-  let size: VsfLoaderSizes;
+  let size: VsfLoaderSize;
   let screenReaderText: string;
 
   const initializeComponent = () => {
@@ -25,7 +25,7 @@ describe("VsfLoaderCircular", () => {
   }
 
   afterEach(() => {
-    size = VsfLoaderSizes.lg;
+    size = VsfLoaderSize.lg;
     screenReaderText = 'loading';
   })
 
@@ -35,7 +35,7 @@ describe("VsfLoaderCircular", () => {
   });
 
   describe('when size is changed to ', () => {
-    Object.values(VsfLoaderSizes).forEach((componentSize) => {
+    Object.values(VsfLoaderSize).forEach((componentSize) => {
       describe(componentSize, () => {
         it('should render proper loader size', () => {
           size = componentSize;

@@ -24,7 +24,7 @@ See the design on [Figma](https://www.figma.com/file/Cx2jw34waZltkapwq7j7aT/SFUI
 | modelValue   | Boolean | string[]       | undefined     |                                        |
 | errorText    | String                   | ''            |                                        |
 | requiredText | String                   | ''            |                                        |
-| alignment    | VsfCheckboxAlignments    | leading       |   leading,  trailing                   |
+| alignment    | VsfCheckboxAlignment    | leading       |   leading,  trailing                   |
 | indeterminate| Boolean                  | false         |                                        |
 | invalid      | Boolean                  | false         |                                        |
 | disabled     | Boolean                  | false         |                                        |
@@ -44,7 +44,7 @@ See the design on [Figma](https://www.figma.com/file/Cx2jw34waZltkapwq7j7aT/SFUI
 | errorText    | String                   | ''            |                                        |
 | requiredText | String                   | ''            |                                        |
 | className    | String                   |               |                                        |
-| alignment    | VsfCheckboxAlignments    | leading       |   leading,  trailing                   |
+| alignment    | VsfCheckboxAlignment    | leading       |   leading,  trailing                   |
 | indeterminate| Boolean                  | false         |                                        |
 | invalid      | Boolean                  | false         |                                        |
 | disabled     | Boolean                  | false         |                                        |

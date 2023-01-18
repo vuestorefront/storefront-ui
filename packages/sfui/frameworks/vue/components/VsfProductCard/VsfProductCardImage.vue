@@ -2,7 +2,7 @@
 import type { PropType } from 'vue';
 import { toRefs, computed } from 'vue';
 import type { VsfProductCardProps } from './types';
-import { VsfProductCardSizes } from './types';
+import { VsfProductCardSize } from './types';
 
 const props = defineProps({
   imageSrc: {
@@ -14,8 +14,8 @@ const props = defineProps({
     default: () => ({}),
   },
   size: {
-    type: String as PropType<VsfProductCardSizes>,
-    default: VsfProductCardSizes.responsive,
+    type: String as PropType<`${VsfProductCardSize}`>,
+    default: VsfProductCardSize.responsive,
   },
   vertical: {
     type: Boolean,
@@ -26,7 +26,7 @@ const { size } = toRefs(props);
 
 const imageDimensionsVertical = computed(() => {
   switch (size.value) {
-    case VsfProductCardSizes.sm:
+    case VsfProductCardSize.sm:
       return 192;
 
     default:
@@ -36,7 +36,7 @@ const imageDimensionsVertical = computed(() => {
 
 const imageDimensionsHorizontal = computed(() => {
   switch (size.value) {
-    case VsfProductCardSizes.sm:
+    case VsfProductCardSize.sm:
       return 128;
 
     default:

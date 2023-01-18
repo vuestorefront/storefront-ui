@@ -46,7 +46,7 @@ function Example() {
         currentPage={Number(state.get.currentPage)}
         itemsPerPage={Number(state.get.itemsPerPage)}
         maxVisiblePages={Number(state.get.maxVisiblePages)}
-        handlePageUpdate={setCurrentPage}
+        onPageUpdate={setCurrentPage}
       />
     </ComponentExample>
   );

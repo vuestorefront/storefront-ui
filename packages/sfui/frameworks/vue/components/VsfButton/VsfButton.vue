@@ -1,16 +1,16 @@
 <script lang="ts" setup>
 import type { PropType } from 'vue';
 import { computed, toRefs } from 'vue';
-import { VsfButtonSizes, VsfButtonVariants } from './types';
+import { VsfButtonSize, VsfButtonVariant } from './types';
 
 const props = defineProps({
   size: {
-    type: String as PropType<VsfButtonSizes>,
-    default: VsfButtonSizes.base,
+    type: String as PropType<`${VsfButtonSize}`>,
+    default: VsfButtonSize.base,
   },
   variant: {
-    type: String as PropType<VsfButtonVariants>,
-    default: VsfButtonVariants.primary,
+    type: String as PropType<`${VsfButtonVariant}`>,
+    default: VsfButtonVariant.primary,
   },
   rounded: {
     type: Boolean,

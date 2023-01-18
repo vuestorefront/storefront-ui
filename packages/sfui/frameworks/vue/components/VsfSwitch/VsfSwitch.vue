@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { InputHTMLAttributes, PropType } from 'vue';
-import { VsfSwitchAlignments } from './types';
-import { VsfCheckbox, VsfCheckboxAlignments } from '../VsfCheckbox';
+import { VsfSwitchAlignment } from './types';
+import { VsfCheckbox, VsfCheckboxAlignment } from '../VsfCheckbox';
 
 defineProps({
   modelValue: {
@@ -17,8 +17,8 @@ defineProps({
     default: false,
   },
   alignment: {
-    type: String as PropType<VsfSwitchAlignments>,
-    default: VsfSwitchAlignments.prefix,
+    type: String as PropType<`${VsfSwitchAlignment}`>,
+    default: VsfSwitchAlignment.prefix,
   },
   label: {
     type: String,
@@ -42,9 +42,7 @@ defineEmits<{
     :value="value"
     :disabled="disabled"
     :help-text="helpText"
-    :alignment="
-      alignment === VsfSwitchAlignments.prefix ? VsfCheckboxAlignments.leading : VsfCheckboxAlignments.trailing
-    "
+    :alignment="alignment === VsfSwitchAlignment.prefix ? VsfCheckboxAlignment.leading : VsfCheckboxAlignment.trailing"
     role="switch"
     class="vsf-switch"
     @update:model-value="$emit('update:modelValue', $event)"

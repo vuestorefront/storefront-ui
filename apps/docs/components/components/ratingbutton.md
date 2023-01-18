@@ -22,7 +22,7 @@ See the design on [Figma](https://www.figma.com/file/Cx2jw34waZltkapwq7j7aT/SFUI
 | `value`   | Number   | `0`  |          |
 <!-- end react -->
 | `max`          | Number   | `5`      |          |
-| `size`         | VsfRatingButtonSizes   | `"base"`   | 'xs','sm','base','lg','xl,'2xl'        |
+| `size`         | VsfRatingButtonSize   | `"base"`   | 'xs','sm','base','lg','xl,'2xl'        |
 | `disabled`     | Boolean  | `false`  |          |
 | `name`         | String   |        |          |
 | `ariaLabel`    | String   |        | you can use `${item}` and `${max}` which dynamically adapt to every item in rating  |
@@ -53,7 +53,7 @@ See the design on [Figma](https://www.figma.com/file/Cx2jw34waZltkapwq7j7aT/SFUI
 
 ## Accessibility notes
 
-Component uses `aria-label` attributes to describe all rating items. Tha value can be changed by `ariaLabel` prop.   
+Component uses `aria-label` attributes to describe all rating items. Tha value can be changed by `ariaLabel` prop.
 
 ## Source code
 <!-- vue -->

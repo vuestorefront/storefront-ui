@@ -1,4 +1,4 @@
-import { VsfSelect, VsfSelectSizes } from '@storefront-ui/react/components/VsfSelect';
+import { VsfSelect, VsfSelectSize } from '@storefront-ui/react/components/VsfSelect';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
@@ -59,7 +59,7 @@ function Example() {
       {
         type: 'select',
         modelName: 'size',
-        options: Object.keys(VsfSelectSizes),
+        options: Object.keys(VsfSelectSize),
       },
     ],
     {
@@ -73,7 +73,7 @@ function Example() {
       errorText: 'Error text',
       requiredText: '*Required',
       label: 'Label',
-      size: VsfSelectSizes.base,
+      size: VsfSelectSize.base,
     },
   );
   function onChange(value: string) {

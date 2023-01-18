@@ -1,4 +1,4 @@
-import { VsfRadioGroupDirections } from '@storefront-ui/react/components/VsfRadio/types';
+import { VsfRadioGroupDirection } from '@storefront-ui/react/components/VsfRadio/types';
 import { VsfRadio, VsfRadioGroup } from '@storefront-ui/react/components/VsfRadio';
 import type { ChangeEvent } from 'react';
 import { prepareControls } from '../../components/utils/Controls';
@@ -36,10 +36,10 @@ function Example() {
       },
       {
         type: 'select',
-        options: Object.keys(VsfRadioGroupDirections),
+        options: Object.keys(VsfRadioGroupDirection),
         modelName: 'direction',
-        propType: 'VsfRadioGroupDirections',
-        propDefaultValue: VsfRadioGroupDirections.vertical,
+        propType: 'VsfRadioGroupDirection',
+        propDefaultValue: VsfRadioGroupDirection.vertical,
       },
       {
         type: 'boolean',
@@ -83,7 +83,7 @@ function Example() {
       helpText: '',
       requiredText: '',
       errorText: 'Error message',
-      direction: VsfRadioGroupDirections.vertical,
+      direction: VsfRadioGroupDirection.vertical,
       radioDataModel: radioData,
       selectedValue: '',
       radioGroupModelValue: '',

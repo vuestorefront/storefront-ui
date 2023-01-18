@@ -7,8 +7,8 @@
       </header>
       <VsfButton
         class="sidebar-toggle"
-        :variant="VsfButtonVariants.tertiary"
-        :size="VsfButtonSizes.sm"
+        :variant="VsfButtonVariant.tertiary"
+        :size="VsfButtonSize.sm"
         :aria-label="isOpen ? 'Hide sidebar' : 'Open sidebar'"
         @click="isOpen = !isOpen"
       >
@@ -42,7 +42,7 @@
 
 <script setup>
 import VsfButton from '@storefront-ui/vue/components/VsfButton/VsfButton.vue';
-import { VsfButtonVariants, VsfButtonSizes } from '@storefront-ui/vue/components/VsfButton/types';
+import { VsfButtonVariant, VsfButtonSize } from '@storefront-ui/vue/components/VsfButton/types';
 import VsfListItemMenu from '@storefront-ui/vue/components/VsfListItemMenu/VsfListItemMenu.vue';
 import { VsfIconChevronLeft, VsfIconChevronRight } from '@storefront-ui/vue/components/VsfIcons/index';
 

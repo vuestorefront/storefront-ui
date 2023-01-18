@@ -3,7 +3,7 @@ import React from "react";
 import { mount, useComponent } from '../../utils/mount';
 
 const { vue: VsfQuantitySelectorVue, react: VsfQuantitySelectorReact } = useComponent('VsfQuantitySelector');
-import { VsfQuantitySelectorSizes } from '../../../sfui/frameworks/vue/components/VsfQuantitySelector/types';
+import { VsfQuantitySelectorSize } from '../../../sfui/frameworks/vue/components/VsfQuantitySelector/types';
 import VsfQuantitySelectorBaseObject from "./VsfQuantitySelector.PageObject";
 import VsfButtonBaseObject from "../VsfButton/VsfButton.PageObject";
 
@@ -15,7 +15,7 @@ describe("VsfQuantitySelector", () => {
   let step: number;
   let disabled: boolean;
   let block: boolean;
-  let size: VsfQuantitySelectorSizes;
+  let size: VsfQuantitySelectorSize;
   let inputAriaLabel: string;
   let inputId: string;
   let decimal: number;
@@ -67,7 +67,7 @@ describe("VsfQuantitySelector", () => {
   });
 
   afterEach(() => {
-    size = VsfQuantitySelectorSizes.base;
+    size = VsfQuantitySelectorSize.base;
     minValue = 1;
     maxValue = Infinity;
     value = 0;

@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-curly-brace-presence */
-import { VsfRatingButton, VsfRatingButtonSizes } from '@storefront-ui/react/components/VsfRatingButton';
+import { VsfRatingButton, VsfRatingButtonSize } from '@storefront-ui/react/components/VsfRatingButton';
 import * as Icons from '@storefront-ui/react/components/VsfIcons';
-import { VsfIconSizeEnum } from '@storefront-ui/react/components/VsfIconBase';
+import { VsfIconSize } from '@storefront-ui/react/components/VsfIconBase';
 import { VsfIconAddedToBasket } from '@storefront-ui/react/components/VsfIcons';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
@@ -14,8 +14,8 @@ function Example() {
         type: 'select',
         modelName: 'size',
         propDefaultValue: 'base',
-        options: Object.keys(VsfRatingButtonSizes),
-        propType: 'VsfRatingButtonSizes',
+        options: Object.keys(VsfRatingButtonSize),
+        propType: 'VsfRatingButtonSize',
       },
       {
         type: 'range',
@@ -55,7 +55,7 @@ function Example() {
         propDefaultValue: '',
         propType: 'Function',
         description:
-          "Pass the function returning icon component, e.g.: (size?: VsfIconSizeEnum) => <VsfIconStarOutline size={size} ariaLabel={''} />",
+          "Pass the function returning icon component, e.g.: (size?: VsfIconSize) => <VsfIconStarOutline size={size} ariaLabel={''} />",
       },
       {
         type: 'select',
@@ -64,11 +64,11 @@ function Example() {
         propDefaultValue: '',
         propType: 'Function',
         description:
-          "Pass the function returning icon component, e.g.: (size?: VsfIconSizeEnum) => <VsfIconStarOutline size={size} ariaLabel={''} />",
+          "Pass the function returning icon component, e.g.: (size?: VsfIconSize) => <VsfIconStarOutline size={size} ariaLabel={''} />",
       },
     ],
     {
-      size: VsfRatingButtonSizes.base,
+      size: VsfRatingButtonSize.base,
       disabled: false,
       max: 5,
       value: 0,
@@ -99,8 +99,8 @@ function Example() {
         disabled={state.get.disabled}
         name={state.get.name}
         ariaLabel={state.get.ariaLabel}
-        renderIconFilled={(size?: VsfIconSizeEnum) => <RenderIconFilledComponent size={size} ariaLabel={''} />}
-        renderIconEmpty={(size?: VsfIconSizeEnum) => <RenderIconEmptyComponent size={size} ariaLabel={''} />}
+        renderIconFilled={(size?: VsfIconSize) => <RenderIconFilledComponent size={size} ariaLabel={''} />}
+        renderIconEmpty={(size?: VsfIconSize) => <RenderIconEmptyComponent size={size} ariaLabel={''} />}
       />
     </ComponentExample>
   );

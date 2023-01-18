@@ -4,7 +4,7 @@ import { useClickAway } from 'react-use';
 import { VsfIconHome, VsfIconMoreHorizontal } from '../VsfIcons';
 
 import type { VsfBreadcrumbsProps } from './types';
-import { VsfIconSizeEnum } from '../VsfIconBase/types';
+import { VsfIconSize } from '../VsfIconBase/types';
 
 function VsfBreadcrumbs({ slotIcon, breadcrumbs = [], withIcon = false }: VsfBreadcrumbsProps): JSX.Element {
   const navRef = useRef<HTMLElement>(null);
@@ -61,7 +61,7 @@ function VsfBreadcrumbs({ slotIcon, breadcrumbs = [], withIcon = false }: VsfBre
                 onClick={handleButtonClick}
                 type="button"
               >
-                <VsfIconMoreHorizontal size={VsfIconSizeEnum.sm} className="vsf-breadcrumbs__item-button-icon" />
+                <VsfIconMoreHorizontal size={VsfIconSize.sm} className="vsf-breadcrumbs__item-button-icon" />
               </button>
               {dropdownOpened ? (
                 <ul className="vsf-breadcrumbs__dropdown-list">
@@ -83,7 +83,7 @@ function VsfBreadcrumbs({ slotIcon, breadcrumbs = [], withIcon = false }: VsfBre
             <Link href="/apps/web/pages">
               <a className="vsf-breadcrumbs__item-button--home">
                 <span className="vsf-breadcrumbs__item-button-icon--home">
-                  {slotIcon || <VsfIconHome size={VsfIconSizeEnum.sm} />}
+                  {slotIcon || <VsfIconHome size={VsfIconSize.sm} />}
                 </span>
               </a>
             </Link>

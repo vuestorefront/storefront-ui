@@ -1,7 +1,7 @@
 import type { ReactNode, FormEventHandler, MouseEventHandler } from 'react';
 import type { PropsWithStyle } from '../../shared/types';
 
-export type VsfSearchProps = PropsWithStyle & {
+export interface VsfSearchProps extends PropsWithStyle {
   placeholder?: string;
   disabled?: boolean;
   value?: string;
@@ -14,4 +14,4 @@ export type VsfSearchProps = PropsWithStyle & {
   onInput?: FormEventHandler<HTMLInputElement>;
   onSubmit?: FormEventHandler<HTMLFormElement>;
   onReset?: MouseEventHandler<Element>;
-};
+}

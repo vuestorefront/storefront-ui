@@ -13,19 +13,19 @@
 
 <script lang="ts">
 import { defineComponent, ref, h } from 'vue';
-import { VsfListItemMenu, VsfListItemMenuSizes } from '@storefront-ui/vue/components/VsfListItemMenu/index';
-import { VsfIconSizeEnum, VsfIconCheck } from '@storefront-ui/vue/components/VsfIcons/index';
+import { VsfListItemMenu, VsfListItemMenuSize } from '@storefront-ui/vue/components/VsfListItemMenu/index';
+import { VsfIconSize, VsfIconCheck } from '@storefront-ui/vue/components/VsfIcons/index';
 import { createControlsOptions } from '@storefront-ui/preview-shared/utils/controlsOptions';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
 
 const prefixSlotOptions = createControlsOptions({
   none: undefined,
-  'Check icon': h(VsfIconCheck, { size: VsfIconSizeEnum.sm }),
+  'Check icon': h(VsfIconCheck, { size: VsfIconSize.sm }),
 });
 const suffixSlotOptions = createControlsOptions({
   none: undefined,
-  'Check icon': h(VsfIconCheck, { size: VsfIconSizeEnum.sm }),
+  'Check icon': h(VsfIconCheck, { size: VsfIconSize.sm }),
 });
 
 export default defineComponent({
@@ -80,7 +80,7 @@ export default defineComponent({
           {
             type: 'select',
             modelName: 'size',
-            options: Object.keys(VsfListItemMenuSizes),
+            options: Object.keys(VsfListItemMenuSize),
             description: 'Set size variant',
           },
           {
@@ -106,7 +106,7 @@ export default defineComponent({
         ],
         {
           label: ref('Label'),
-          size: ref<VsfListItemMenuSizes>(VsfListItemMenuSizes.base),
+          size: ref<VsfListItemMenuSize>(VsfListItemMenuSize.base),
           link: ref(undefined),
           counter: ref(123),
           slotPrefix: ref(prefixSlotOptions.defaultOption),
@@ -118,8 +118,8 @@ export default defineComponent({
           truncate: ref(false),
         },
       ),
-      VsfIconSizeEnum,
-      VsfListItemMenuSizes,
+      VsfIconSize,
+      VsfListItemMenuSize,
     };
   },
 });

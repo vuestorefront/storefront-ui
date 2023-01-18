@@ -16,7 +16,7 @@
 
 <script lang="ts">
 import { defineComponent, ref, h } from 'vue';
-import { VsfButton, VsfButtonVariants, VsfButtonSizes } from '@storefront-ui/vue/components/VsfButton/index';
+import { VsfButton, VsfButtonVariant, VsfButtonSize } from '@storefront-ui/vue/components/VsfButton/index';
 import { createControlsOptions } from '@storefront-ui/preview-shared/utils/controlsOptions';
 import { VsfIconLock, VsfIconSearch } from '@storefront-ui/vue/components/VsfIcons/index';
 import { prepareControls } from '../../components/utils/Controls.vue';
@@ -70,12 +70,12 @@ export default defineComponent({
           {
             type: 'select',
             modelName: 'variant',
-            options: Object.keys(VsfButtonVariants),
+            options: Object.keys(VsfButtonVariant),
           },
           {
             type: 'select',
             modelName: 'size',
-            options: Object.keys(VsfButtonSizes),
+            options: Object.keys(VsfButtonSize),
           },
           {
             type: 'boolean',
@@ -115,8 +115,8 @@ export default defineComponent({
           disabled: ref(),
           greyscale: ref(),
           truncate: ref(),
-          variant: ref<VsfButtonVariants>(VsfButtonVariants.primary),
-          size: ref<VsfButtonSizes>(VsfButtonSizes.base),
+          variant: ref<VsfButtonVariant>(VsfButtonVariant.primary),
+          size: ref<VsfButtonSize>(VsfButtonSize.base),
           tile: ref(),
           rounded: ref(),
           block: ref(),

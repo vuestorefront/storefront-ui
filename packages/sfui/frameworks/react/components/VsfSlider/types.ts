@@ -20,9 +20,9 @@ export enum VsfSliderDirection {
 
 export type VsfSliderProps = PropsWithChildren &
   PropsWithStyle & {
-    scrollbar?: VsfSliderScrollbar;
-    navigation?: VsfSliderNavigation;
-    direction?: VsfSliderDirection;
+    scrollbar?: `${VsfSliderScrollbar}`;
+    navigation?: `${VsfSliderNavigation}`;
+    direction?: `${VsfSliderDirection}`;
     scrollSnap?: boolean;
     draggable?: {
       sensitivity: number;

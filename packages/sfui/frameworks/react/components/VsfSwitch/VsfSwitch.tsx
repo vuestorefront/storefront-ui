@@ -1,13 +1,13 @@
 import classNames from 'classnames';
 import type { VsfSwitchProps } from './types';
-import { VsfSwitchAlignments } from './types';
-import { VsfCheckboxAlignments, VsfCheckbox } from '../VsfCheckbox';
+import { VsfSwitchAlignment } from './types';
+import { VsfCheckboxAlignment, VsfCheckbox } from '../VsfCheckbox';
 
 export default function VsfSwitch({
   value,
   label,
   disabled,
-  alignment = VsfSwitchAlignments.prefix,
+  alignment = VsfSwitchAlignment.prefix,
   helpText,
   className,
   onChange,
@@ -19,9 +19,7 @@ export default function VsfSwitch({
       value={value}
       label={label}
       disabled={disabled}
-      alignment={
-        alignment === VsfSwitchAlignments.prefix ? VsfCheckboxAlignments.leading : VsfCheckboxAlignments.trailing
-      }
+      alignment={alignment === VsfSwitchAlignment.prefix ? VsfCheckboxAlignment.leading : VsfCheckboxAlignment.trailing}
       helpText={helpText}
       {...attributes}
       onChange={onChange}

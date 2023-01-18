@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { VsfRadioAlignments, VsfRadioProps } from './types';
+import { VsfRadioAlignment, VsfRadioProps } from './types';
 
 export default function VsfRadio({
   name,
@@ -7,7 +7,7 @@ export default function VsfRadio({
   value,
   checked,
   disabled,
-  alignment = VsfRadioAlignments.leading,
+  alignment = VsfRadioAlignment.leading,
   required,
   helpText,
   className,

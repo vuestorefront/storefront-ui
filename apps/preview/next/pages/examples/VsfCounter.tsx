@@ -1,5 +1,5 @@
 import { VsfCounter } from '@storefront-ui/react/components/VsfCounter';
-import { VsfCounterSizes } from '@storefront-ui/react/components/VsfCounter/types';
+import { VsfCounterSize } from '@storefront-ui/react/components/VsfCounter/types';
 import type { VsfCounterProps } from '@storefront-ui/react/components/VsfCounter/types';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
@@ -16,9 +16,9 @@ function Example() {
       {
         type: 'select',
         modelName: 'size',
-        options: Object.keys(VsfCounterSizes),
-        propDefaultValue: VsfCounterSizes.base,
-        propType: 'VsfCounterSizes',
+        options: Object.keys(VsfCounterSize),
+        propDefaultValue: VsfCounterSize.base,
+        propType: 'VsfCounterSize',
       },
       {
         type: 'boolean',
@@ -35,7 +35,7 @@ function Example() {
     ],
     {
       value: '123',
-      size: VsfCounterSizes.base,
+      size: VsfCounterSize.base,
       pill: false,
       fill: 'bg-white',
     },

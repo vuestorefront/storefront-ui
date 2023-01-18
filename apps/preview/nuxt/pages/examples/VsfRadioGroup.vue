@@ -18,7 +18,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import { VsfRadio, VsfRadioGroup, VsfRadioGroupDirections } from '@storefront-ui/vue/components/VsfRadio/index';
+import { VsfRadio, VsfRadioGroup, VsfRadioGroupDirection } from '@storefront-ui/vue/components/VsfRadio/index';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
 
@@ -55,10 +55,10 @@ export default defineComponent({
           },
           {
             type: 'select',
-            options: Object.keys(VsfRadioGroupDirections),
+            options: Object.keys(VsfRadioGroupDirection),
             modelName: 'direction',
-            propType: 'VsfRadioGroupDirections',
-            propDefaultValue: VsfRadioGroupDirections.vertical,
+            propType: 'VsfRadioGroupDirection',
+            propDefaultValue: VsfRadioGroupDirection.vertical,
           },
           {
             type: 'boolean',
@@ -107,7 +107,7 @@ export default defineComponent({
           helpText: ref(''),
           requiredText: ref(''),
           errorText: ref('Error message'),
-          direction: ref(VsfRadioGroupDirections.vertical),
+          direction: ref(VsfRadioGroupDirection.vertical),
           radioDataModel: ref(radioData),
           radioGroupModelValue: ref(''),
         },

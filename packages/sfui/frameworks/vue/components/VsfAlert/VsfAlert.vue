@@ -2,9 +2,9 @@
 import type { PropType } from 'vue';
 import { toRefs, watch } from 'vue';
 import { useTimeoutFn } from '@vueuse/core';
-import { VsfButton, VsfButtonVariants } from '../VsfButton';
+import { VsfButton, VsfButtonVariant } from '../VsfButton';
 import { VsfIconClose, VsfIconInfo, VsfIconError, VsfIconWarning, VsfIconCheckCircle } from '../VsfIcons';
-import { VsfAlertVariants, VsfAlertTypes } from './types';
+import { VsfAlertVariant, VsfAlertType } from './types';
 
 const props = defineProps({
   modelValue: {
@@ -12,12 +12,12 @@ const props = defineProps({
     required: false,
   },
   variant: {
-    type: String as PropType<VsfAlertVariants>,
-    default: VsfAlertVariants.gray,
+    type: String as PropType<`${VsfAlertVariant}`>,
+    default: VsfAlertVariant.gray,
   },
   type: {
-    type: String as PropType<VsfAlertTypes>,
-    default: VsfAlertTypes.temporary,
+    type: String as PropType<`${VsfAlertType}`>,
+    default: VsfAlertType.temporary,
   },
   text: {
     type: String,
@@ -54,7 +54,7 @@ watch(
   ([modelValue, type]) => {
     stopTimeoutedClose();
 
-    if (modelValue && type === VsfAlertTypes.temporary) {
+    if (modelValue && type === VsfAlertType.temporary) {
       startTimeoutedClose();
     }
   },
@@ -71,9 +71,9 @@ watch(
   >
     <div class="vsf-alert__prefix">
       <slot v-if="!hidePrefix" name="prefix">
-        <VsfIconCheckCircle v-if="variant === VsfAlertVariants.positive" />
-        <VsfIconError v-else-if="variant === VsfAlertVariants.error" />
-        <VsfIconWarning v-else-if="variant === VsfAlertVariants.warning" />
+        <VsfIconCheckCircle v-if="variant === VsfAlertVariant.positive" />
+        <VsfIconError v-else-if="variant === VsfAlertVariant.error" />
+        <VsfIconWarning v-else-if="variant === VsfAlertVariant.warning" />
         <VsfIconInfo v-else />
       </slot>
     </div>
@@ -86,8 +86,8 @@ watch(
     <div class="vsf-alert__suffix">
       <slot name="suffix">
         <VsfButton
-          v-if="type === VsfAlertTypes.persistent"
-          :variant="VsfButtonVariants.tertiary"
+          v-if="type === VsfAlertType.persistent"
+          :variant="VsfButtonVariant.tertiary"
           data-testid="alert-close-button"
           @click="$emit('update:modelValue', false)"
         >

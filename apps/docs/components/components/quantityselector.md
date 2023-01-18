@@ -19,7 +19,7 @@ See the design on [Figma](https://www.figma.com/file/Cx2jw34waZltkapwq7j7aT/SFUI
 | minValue       | `Number`                   | 1                   |                 |
 | maxValue       | `Number`                   | `Infinity`          |                 |
 | step           | `Number`                   | 1                   |                 |
-| size           | `VsfQuantitySelectorSizes` | `base`              | `base`, `lg`    |
+| size           | `VsfQuantitySelectorSize` | `base`              | `base`, `lg`    |
 | disabled       | `Boolean`                  | `false`             |                 |
 | block          | `Boolean`                  | `false`             |                 |
 | inputAriaLabel | `String`                   | `Quantity Selector` |                 |

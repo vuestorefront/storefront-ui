@@ -4,7 +4,7 @@ import { mount, useComponent } from '../../utils/mount';
 
 const {vue: VsfCardVue, react: VsfCardReact} = useComponent('VsfCard');
 import VsfCardBaseObject from "./VsfCard.PageObject";
-import { VsfCardSizes } from '../../../sfui/frameworks/vue/components/VsfCard/types';
+import { VsfCardSize } from '../../../sfui/frameworks/vue/components/VsfCard/types';
 
 describe("VsfCard", () => {
   let imgSrc: string;
@@ -15,7 +15,7 @@ describe("VsfCard", () => {
   let description: string;
   let buttonText: string;
   let rounded: boolean;
-  let size: VsfCardSizes;
+  let size: VsfCardSize;
   let slotImg: ReactNode;
 
   const page = () => new VsfCardBaseObject('card');
@@ -66,7 +66,7 @@ describe("VsfCard", () => {
     description = 'There are many variations of passages of Lorem Ipsum available';
     buttonText = 'Button';
     rounded = false;
-    size = VsfCardSizes.base;
+    size = VsfCardSize.base;
     cy.viewport(500, 500);
   });
 

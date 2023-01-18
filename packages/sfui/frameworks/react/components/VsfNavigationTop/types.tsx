@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import type { ReactNode, PropsWithChildren } from 'react';
 import type { PropsWithStyle } from '../../shared/types';
 
 export enum VsfNavigationTopVariant {
@@ -8,10 +8,9 @@ export enum VsfNavigationTopVariant {
   '3-half' = '3-half',
 }
 
-export type VsfNavigationTopProps = PropsWithStyle & {
+export interface VsfNavigationTopProps extends PropsWithStyle, PropsWithChildren {
   open?: boolean;
-  variant?: VsfNavigationTopVariant;
-  onOpenChange?: (value: boolean) => void;
+  variant?: `${VsfNavigationTopVariant}`;
   slotButtonClose?: ReactNode;
-  children?: ReactNode;
-};
+  onOpenChange?: (value: boolean) => void;
+}

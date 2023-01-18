@@ -1,8 +1,8 @@
-import { VsfLoaderSizes } from '../../../sfui/frameworks/react/components/VsfLoaderCircular/types';
+import { VsfLoaderSize } from '../../../sfui/frameworks/react/components/VsfLoaderCircular/types';
 import { BasePage } from '../../utils/BasePage';
 
 export default class VsfLoaderBaseObject extends BasePage {
-  hasSizeClass(size: VsfLoaderSizes) {
+  hasSizeClass(size: VsfLoaderSize) {
     this.circularLoaderCircleElement.should('have.class', `vsf-loader-circular--${size}`);
     return this;
   }
