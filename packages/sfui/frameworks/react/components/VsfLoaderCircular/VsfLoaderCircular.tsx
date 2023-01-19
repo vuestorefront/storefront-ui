@@ -18,12 +18,14 @@ export default function VsfLoaderCircular({
       <span className="vsf-loader-circular__sr-only" data-testid="loader-sr">
         {screenReaderText}
       </span>
-      <span className="vsf-loader-circular-main" aria-hidden="true" />
-      <span
-        className={classNames('vsf-loader-circular-circle', `vsf-loader-circular--${size}`)}
-        aria-hidden="true"
+      <span className={classNames('vsf-loader-circular__main', `vsf-loader-circular--${size}`)} aria-hidden="true" />
+      <svg
+        className={classNames('vsf-loader-circular__circle', `vsf-loader-circular--${size}`)}
+        viewBox="25 25 50 50"
         data-testid="loader-circular-circle"
-      />
+      >
+        <circle className="vsf-loader-circular__circle-path" cx="50" cy="50" r="24" />
+      </svg>
     </span>
   );
 }

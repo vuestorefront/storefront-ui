@@ -1,13 +1,46 @@
+@keyframes spinning {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animate-stroke {
+  0% {
+    @apply stroke-primary-700;
+
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    @apply stroke-primary-700;
+
+    stroke-dasharray: 140, 200;
+    stroke-dashoffset: -35;
+  }
+
+  100% {
+    @apply stroke-primary-700;
+
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -150;
+  }
+}
+
 .vsf-loader-circular {
   $self: &;
   @apply relative inline-block;
   
-  &-main {
+  &__main {
     @apply absolute bg-transparent border-gray-200 rounded-full;
   }
 
-  &-circle {
-    @apply absolute bg-transparent rounded-[50%] animate-spinning border-t-primary-700;
+  &__circle {
+    @apply absolute animate-[spinning_1.5s_linear_infinite] border-none;
+    
+    &-path {
+      @apply fill-none stroke-2 animate-[animate-stroke_2s_ease-in-out_infinite];
+    }
   }
 
   &--xs {
