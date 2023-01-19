@@ -2,17 +2,14 @@
 layout: ComponentLayout
 hideBreadcrumbs: true
 ---
-# Link component
+# Link
 
-VsfLink component can be used to create internal as well as external links. For external link there is `a` tag, and for internal
-<!-- vue -->
-component tags `<NuxtLink>` for Nuxt.js and `<router-link>` for pure Vue.
-<!-- end vue -->
-<!-- react -->
-`<Link>` component tag.
-<!-- end react -->
+A link is interactive reference to an internal or external resource. For external link there is `<a>` tag, and for internal <!-- vue -->
+component tags `<NuxtLink>` for Nuxt.js and `<router-link>` for pure Vue.<!-- end vue --><!-- react -->`<Link>` component tag.<!-- end react --> When there is a need to have more link with the same tag then [config](config.html) component can be used to achieve this.
 
-When there is a need to have more link with the same tag then [config](config.html) component can be used to achieve this.
+Used to navigate the page and link to external resources (websites and files).
+
+Avoid using links as a ghost buttons. Use a variant of the [Button](button.html) component for this purpose.
 
 <!-- vue -->
 > NOTE: By default, if `VsfLink` component detects that it's running in `Nuxt` environment it will render as `NuxtLink`. In pure `Vue` environment though it will render as `RouterLink`. This behaviour can be overridden by using `tag` prop or [`linkTag` config option](./config).
@@ -22,10 +19,6 @@ When there is a need to have more link with the same tag then [config](config.ht
 <!-- end react -->
 
 <Generate />
-
-## Figma design
-
-See the design on [Figma](https://www.figma.com/file/Cx2jw34waZltkapwq7j7aT/SFUI-2-%7C-Design-Kit-(early-alpha)?node-id=18519%3A48623&t=eAc5joFjkRlZwK2p-0)
 
 ## Props
 
