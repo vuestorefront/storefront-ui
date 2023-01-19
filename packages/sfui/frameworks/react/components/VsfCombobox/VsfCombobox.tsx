@@ -7,6 +7,7 @@ import type { VsfComboboxProps } from './types';
 import { VsfIconCancel, VsfIconChevronDown } from '../VsfIcons';
 
 export default function VsfCombobox({
+  size,
   label,
   loading,
   disabled,
@@ -35,6 +36,7 @@ export default function VsfCombobox({
         onOpenUpdate={onOpenChange}
         slotTrigger={
           <VsfInput
+            size={size}
             label={label}
             placeholder={placeholder}
             required={required}

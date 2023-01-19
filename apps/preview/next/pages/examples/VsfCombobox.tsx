@@ -1,5 +1,6 @@
 import { VsfCombobox } from '@storefront-ui/react/components/VsfCombobox';
 import { VsfListItemMenu } from '@storefront-ui/react/components/VsfListItemMenu';
+import { VsfInputSize } from '@storefront-ui/react/components/VsfInput/types';
 import { ChangeEvent } from 'react';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
@@ -34,59 +35,82 @@ function Example() {
         type: 'text',
         propType: 'string',
         modelName: 'value',
+        description: 'Value of input',
+      },
+      {
+        type: 'select',
+        modelName: 'size',
+        propDefaultValue: 'VsfInputSize.base',
+        propType: 'VsfInputSize',
+        options: Object.keys(VsfInputSize),
+        description: 'Change size of the input',
       },
       {
         type: 'text',
-        propType: 'string',
         modelName: 'label',
+        propType: 'string',
+        description: 'Change label for input',
       },
       {
         type: 'text',
-        propType: 'string',
-        modelName: 'placeholder',
-      },
-      {
-        type: 'text',
-        propType: 'string',
         modelName: 'helpText',
+        propType: 'string',
+        description: 'Change help text for input',
       },
       {
         type: 'text',
-        propType: 'string',
-        modelName: 'requiredText',
-      },
-      {
-        type: 'text',
-        propType: 'string',
         modelName: 'errorText',
+        propType: 'string',
+        description: 'Change error text for input',
+      },
+      {
+        type: 'text',
+        modelName: 'requiredText',
+        propType: 'string',
+        description: 'Change error text for input',
+      },
+      {
+        type: 'text',
+        modelName: 'placeholder',
+        propType: 'string',
+        description: 'Change placeholder for input',
       },
       {
         type: 'boolean',
-        propType: 'boolean',
         modelName: 'disabled',
+        propDefaultValue: 'false',
+        propType: 'boolean',
+        description: 'Disable dropdown',
       },
       {
         type: 'boolean',
-        propType: 'boolean',
         modelName: 'required',
+        propDefaultValue: 'false',
+        propType: 'boolean',
+        description: 'Toggles if selecting is required or not',
       },
       {
         type: 'boolean',
-        propType: 'boolean',
         modelName: 'invalid',
+        propDefaultValue: 'false',
+        propType: 'boolean',
+        description: 'Passes the validation result to the component',
       },
       {
         type: 'boolean',
-        propType: 'boolean',
         modelName: 'loading',
+        propDefaultValue: 'false',
+        propType: 'boolean',
+        description: 'Passes the loading value to the dropdown component',
       },
     ],
     {
+      size: VsfInputSize.base,
       disabled: false,
       required: false,
       invalid: false,
-      placeholder: 'Input or choose from the list',
-      helpText: '',
+      placeholder: 'Placeholder text',
+      helpText: 'Help text',
       requiredText: '',
       errorText: '',
       label: 'Label',
