@@ -19,7 +19,7 @@
       <p class="mt-2">Fully accessible UI components, designed to integrate beautifully with Tailwind CSS and Vue.</p>
     </RouterLink>
     <a
-      href="https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%9F%9B%A0-SFUI-2-%7C-Design-System-(development)?node-id=20746%3A66331&t=YHflTVch2g1wiEnA-1"
+      :href="$themeConfig.FIGMA_URL"
       class="hover:-translate-y-1 hover:shadow-md transition-all col-span-12 md:col-span-4 p-4 rounded border"
       style="background-color: #ffeae8"
       target="_blank"
