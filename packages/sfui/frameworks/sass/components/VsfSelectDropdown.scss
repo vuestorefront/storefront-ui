@@ -1,0 +1,53 @@
+.vsf-select-dropdown {
+  @apply cursor-pointer;
+  
+  &__input {
+    .vsf-input__field {
+      @apply caret-transparent cursor-pointer disabled:cursor-not-allowed focus:caret-transparent;
+    }
+  
+    .vsf-input--readonly, .vsf-input__input-wrapper {
+      @apply bg-white;
+    }
+  }
+
+  &__chevron--up {
+    @apply rotate-180;
+  }
+
+  &__list-item {
+    @apply w-full;
+  }
+
+  .vsf-dropdown-menu {
+    @apply bg-white;
+
+    &__loader {
+      @apply my-4;
+    }
+  }
+
+  &--disabled {
+    @apply cursor-not-allowed;
+
+    .vsf-select-dropdown__chevron, .vsf-select-dropdown__help-text, .vsf-input__field {
+      @apply opacity-50;
+    }
+    
+    .vsf-input--readonly, .vsf-input__input-wrapper {
+      @apply bg-gray-100;
+    }
+  }
+  
+  &__error-text {
+    @apply block mt-1 text-sm font-medium text-negative-600;
+  }
+
+  &__help-text {
+    @apply block mt-1 text-xs text-gray-500;
+  }
+
+  &__required-text {
+    @apply block mt-1 text-sm text-gray-500;
+  }
+}
