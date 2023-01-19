@@ -20,5 +20,6 @@ export interface VsfListItemMenuProps extends PropsWithChildren, PropsWithTag, P
   slotPrefix?: ReactNode;
   slotSecondaryText?: ReactNode;
   truncate?: boolean;
+  role?: string;
   onClick?: (selected: boolean) => void;
 }
