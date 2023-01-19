@@ -4,13 +4,13 @@ hideBreadcrumbs: true
 ---
 # Radio
 
-Radio is a common way to allow users to make a single selection from a list of options.
+A radio is a checkable input always appears in a group of elements with the same role, where no more than one of the radio can be checked at a time.
+
+Used for especially forms.
+
+For filtering use [ListItemFilterRadio](listitemfilterradio.md) component instead of Radio. For long set of options use Select component.
 
 <Generate />
-
-## Figma design
-
-See the design on [Figma](https://www.figma.com/file/Cx2jw34waZltkapwq7j7aT/SFUI-2-%7C-Design-Kit-(early-alpha)?node-id=14307%3A50081&t=LIzxPt9OJb9F1mXf-1)
 
 <!-- vue -->
 
