@@ -11,6 +11,26 @@ export default class VsfPaginationBaseObject extends BasePage {
     return this;
   }
 
+  previousLabelExist() {
+    this.pagePreviousLabel.should('exist');
+    return this;
+  }
+
+  previousLabelNotExist() {
+    this.pagePreviousLabel.should('not.exist');
+    return this;
+  }
+
+  nextLabelExist() {
+    this.pageNextLabel.should('exist');
+    return this;
+  }
+
+  nextLabelNotExist() {
+    this.pageNextLabel.should('not.exist');
+    return this;
+  }
+
   lastClick() {
     this.pageLastButton.click();
     return this;
@@ -56,6 +76,13 @@ export default class VsfPaginationBaseObject extends BasePage {
 
   get pageNextButton() {
     return this.findTestElement('pagination-button-next');
+  }
+
+  get pagePreviousLabel() {
+    return this.findTestElement('pagination-label-prev');
+  }
+  get pageNextLabel() {
+    return this.findTestElement('pagination-label-next');
   }
 
   get pageLastButton() {

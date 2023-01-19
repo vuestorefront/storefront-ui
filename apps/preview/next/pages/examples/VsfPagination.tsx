@@ -26,12 +26,30 @@ function Example() {
         propType: 'number',
         modelName: 'maxVisiblePages',
       },
+      {
+        type: 'text',
+        propType: 'string',
+        modelName: 'prev',
+      },
+      {
+        type: 'text',
+        propType: 'string',
+        modelName: 'next',
+      },
+      {
+        type: 'boolean',
+        propType: 'boolean',
+        modelName: 'hideButtonLabels',
+      },
     ],
     {
       totalItems: 100,
       currentPage: 1,
       itemsPerPage: 10,
       maxVisiblePages: 3,
+      prev: 'Previous',
+      next: 'Next',
+      hideButtonLabels: false,
     },
   );
 
@@ -46,6 +64,9 @@ function Example() {
         currentPage={Number(state.get.currentPage)}
         itemsPerPage={Number(state.get.itemsPerPage)}
         maxVisiblePages={Number(state.get.maxVisiblePages)}
+        prev={state.get.prev}
+        next={state.get.next}
+        hideButtonLabels={state.get.hideButtonLabels}
         onPageUpdate={setCurrentPage}
       />
     </ComponentExample>
