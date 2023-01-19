@@ -22,7 +22,7 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-  dropdownContentClass: ClassProp,
+  triggerClass: ClassProp,
   dropdownClass: ClassProp,
 });
 
@@ -54,7 +54,7 @@ onClickOutside(dropdownRef, onClose);
   >
     <div
       data-testid="dropdown-trigger"
-      :class="['vsf-dropdown-internal__trigger', dropdownClass]"
+      :class="['vsf-dropdown-internal__trigger', triggerClass]"
       v-bind="{
         ...(triggerEvent === VsfDropdownInternalTriggerEvent.click && {
           onClick: () => $emit('update:modelValue', !modelValue),
@@ -63,11 +63,7 @@ onClickOutside(dropdownRef, onClose);
     >
       <slot name="trigger" />
     </div>
-    <div
-      v-if="modelValue"
-      :class="['vsf-dropdown-internal__dropdown', dropdownContentClass]"
-      data-testid="dropdown-dropdown"
-    >
+    <div v-if="modelValue" :class="['vsf-dropdown-internal__dropdown', dropdownClass]" data-testid="dropdown-dropdown">
       <slot />
     </div>
   </div>

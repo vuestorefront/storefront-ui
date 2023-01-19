@@ -5,11 +5,19 @@
     &-cancel {
       @apply mr-2;
     }
-    
+
     &-chevron {
       &--rotate {
         @apply rotate-180;
       }
+    }
+  }
+
+  &-dropdown {
+    &,
+    &__trigger,
+    &__dropdown {
+      @apply w-full;
     }
   }
 

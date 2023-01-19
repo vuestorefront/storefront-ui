@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { generateId } from '@storefront-ui/shared';
+import { generateId, noop } from '@storefront-ui/shared';
 import { VsfInputSize } from './types';
 
 import type { VsfInputProps } from './types';
@@ -20,7 +20,7 @@ export default function VsfInput({
   readonly,
   className,
   characterLimit,
-  onChange,
+  onChange = noop,
   onClick,
   ...attributes
 }: VsfInputProps) {

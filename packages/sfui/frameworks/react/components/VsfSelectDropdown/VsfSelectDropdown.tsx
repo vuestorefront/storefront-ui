@@ -62,7 +62,9 @@ export default function VsfSelectDropdown({
           />
         }
         onOpenUpdate={onOpenUpdate}
-        dropdownContentClass="left-0 translate-x-[0] w-full"
+        className="vsf-select-dropdown-internal"
+        triggerClass="vsf-select-dropdown-internal__trigger"
+        dropdownClass="vsf-select-dropdown-internal__dropdown"
         {...attributes}
       >
         {children ||

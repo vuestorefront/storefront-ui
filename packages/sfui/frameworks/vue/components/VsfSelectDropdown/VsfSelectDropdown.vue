@@ -66,7 +66,9 @@ const selectDropdownSize = computed(() => {
       :trigger-event="VsfDropdownInternalTriggerEvent.click"
       data-testid="select-dropdown"
       :model-value="isDropdownOpened"
-      dropdown-content-class="left-0 translate-x-[0] w-full"
+      class="vsf-select-dropdown-internal"
+      trigger-class="vsf-select-dropdown-internal__trigger"
+      dropdown-class="vsf-select-dropdown-internal__dropdown"
       @update:model-value="(value) => (isDropdownOpened = value)"
     >
       <template #trigger>

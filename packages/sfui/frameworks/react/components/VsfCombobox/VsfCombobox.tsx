@@ -32,7 +32,9 @@ export default function VsfCombobox({
     <div>
       <VsfDropdownInternal
         open={open}
-        dropdownContentClass="w-full"
+        className="vsf-combobox-dropdown"
+        triggerClass="vsf-combobox-dropdown__trigger"
+        dropdownClass="vsf-combobox-dropdown__dropdown"
         onOpenUpdate={onOpenChange}
         slotTrigger={
           <VsfInput

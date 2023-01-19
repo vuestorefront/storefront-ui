@@ -50,7 +50,12 @@ const proxySelected = computed({
 
 <template>
   <div>
-    <VsfDropdownInternal v-model="isDropdownOpened" dropdown-content-class="w-full">
+    <VsfDropdownInternal
+      v-model="isDropdownOpened"
+      class="vsf-combobox-dropdown"
+      trigger-class="vsf-combobox-dropdown__trigger"
+      dropdown-class="vsf-combobox-dropdown__dropdown"
+    >
       <template #trigger>
         <VsfInput
           v-model="proxySelected"
