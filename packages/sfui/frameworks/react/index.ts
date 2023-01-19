@@ -45,3 +45,4 @@ export * from './components/VsfSwitch';
 export * from './components/VsfTabs';
 export * from './components/VsfTag';
 export * from './components/VsfTooltip';
+export * from './components/VsfHero';
