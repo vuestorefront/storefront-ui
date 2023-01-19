@@ -1,13 +1,24 @@
 .vsf-select-dropdown {
   @apply cursor-pointer;
-  
+
   &__input {
     .vsf-input__field {
       @apply caret-transparent cursor-pointer disabled:cursor-not-allowed focus:caret-transparent;
     }
-  
+
     .vsf-input--readonly, .vsf-input__input-wrapper {
       @apply bg-white;
+    }
+  }
+
+  &-internal {
+    &,
+    &__trigger {
+      @apply w-full;
+    }
+
+    &__dropdown {
+      @apply left-0 translate-x-[0] w-full;
     }
   }
 
@@ -33,12 +44,12 @@
     .vsf-select-dropdown__chevron, .vsf-select-dropdown__help-text, .vsf-input__field {
       @apply opacity-50;
     }
-    
+
     .vsf-input--readonly, .vsf-input__input-wrapper {
       @apply bg-gray-100;
     }
   }
-  
+
   &__error-text {
     @apply block mt-1 text-sm font-medium text-negative-600;
   }

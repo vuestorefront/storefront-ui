@@ -13,9 +13,9 @@ export default function VsfDropdownInternal({
   disabled,
   slotTrigger,
   children,
-  className,
+  triggerClass,
   dropdownClass,
-  dropdownContentClass,
+  className,
   onOpenUpdate,
   ...attributes
 }: VsfDropdownInternalProps): JSX.Element {
@@ -36,6 +36,7 @@ export default function VsfDropdownInternal({
         'vsf-dropdown-internal',
         `vsf-dropdown-internal--${placement}`,
         { 'vsf-dropdown-internal--disabled': disabled },
+        className,
       ])}
       ref={dropdownRef}
       onMouseEnter={() => (isHoverEvent() ? onOpenUpdate?.(true) : noop)}
@@ -47,16 +48,13 @@ export default function VsfDropdownInternal({
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions  */}
       <div
         data-testid="dropdown-trigger"
-        className={classNames('vsf-dropdown-internal__trigger', dropdownClass)}
+        className={classNames('vsf-dropdown-internal__trigger', triggerClass)}
         onClick={() => (isClickEvent() ? onOpenUpdate?.(!open) : noop)}
       >
         {slotTrigger}
       </div>
       {open ? (
-        <div
-          className={classNames('vsf-dropdown-internal__dropdown', dropdownContentClass)}
-          data-testid="dropdown-dropdown"
-        >
+        <div className={classNames('vsf-dropdown-internal__dropdown', dropdownClass)} data-testid="dropdown-dropdown">
           {children}
         </div>
       ) : null}

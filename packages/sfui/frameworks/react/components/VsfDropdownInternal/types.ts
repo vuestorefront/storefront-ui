@@ -27,7 +27,7 @@ export interface VsfDropdownInternalProps extends PropsWithStyle, PropsWithChild
   placement?: `${VsfDropdownInternalPlacement}`;
   disabled?: boolean;
   slotTrigger?: ReactNode;
+  triggerClass?: PropsWithStyle['className'];
   dropdownClass?: PropsWithStyle['className'];
-  dropdownContentClass?: PropsWithStyle['className'];
   onOpenUpdate?: (open: boolean) => void;
 }
