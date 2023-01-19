@@ -23,7 +23,7 @@
     </a>
 </p>
 <p align="center">
-    <img alt="npm" src="https://img.shields.io/npm/v/@storefront-ui/vue">
+    <img alt="npm" src="https://img.shields.io/npm/v/@storefront-ui/vue/alpha">
     <a href="http://commitizen.github.io/cz-cli/">
         <img alt="Commitizen friendly" src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg" />
     </a>
@@ -95,6 +95,6 @@ We are building Storefront UI based on the following 6 fundamentals:
 - **E-commerce**: As a UI library dedicated to eCommerce, Storefront UI along with standard UI components has all the elements necessary for building modern online stores.
 - **Open Source**: Storefront UI is a community effort to deliver the best possible experience to modern web applications and e-commerce shops, with carefully crafted components following best practices. Our team consists of agencies and volunteer contributors from all over the world.
 
-# Design
+## How to get started?
 
-Storefront UI 2 was made to make developer-designer work easier for both. You can find the stunning designs we are using [here](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%9F%9B%A0-SFUI-2.0-%7C-Development?node-id=10066%3A27483).
+You can start by reading [the documentation at https://docs.storefrontui.io/v2](https://docs.storefrontui.io/v2/) 🚀
