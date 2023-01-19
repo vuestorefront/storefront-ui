@@ -3,7 +3,7 @@ import type { PropType } from 'vue';
 import { computed, toRefs } from 'vue';
 import { useVModel } from '@vueuse/core';
 import { generateId } from '@storefront-ui/shared';
-import { VsfInputSize } from './types';
+import { VsfInputSize, VsfInputRole, VsfInputAriaAutocomplete } from './types';
 
 const props = defineProps({
   modelValue: {
@@ -13,6 +13,10 @@ const props = defineProps({
   size: {
     type: String as PropType<`${VsfInputSize}`>,
     default: VsfInputSize.base,
+  },
+  role: {
+    type: String as PropType<VsfInputRole>,
+    default: undefined,
   },
   label: {
     type: String,
@@ -26,7 +30,7 @@ const props = defineProps({
     type: String,
     default: '',
   },
-  errorMessage: {
+  errorText: {
     type: String,
     default: '',
   },
@@ -54,9 +58,22 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  ariaAutocomplete: {
+    type: String as PropType<VsfInputAriaAutocomplete>,
+    default: VsfInputAriaAutocomplete.none,
+  },
+  ariaExpanded: {
+    type: Boolean,
+    default: false,
+  },
+  ariaControls: {
+    type: String,
+    default: '',
+  },
 });
 const emit = defineEmits<{
   (event: 'update:modelValue', value: string): void;
+  (event: 'focus'): void;
 }>();
 const { invalid, modelValue, characterLimit } = toRefs(props);
 
@@ -64,6 +81,9 @@ const inputValue = useVModel(props, 'modelValue', emit);
 const isAboveLimit = computed(() => inputValue.value.length > characterLimit.value);
 const charsCount = computed(() => characterLimit.value - modelValue.value.length);
 const inputId = generateId('input');
+const handleFocus = () => {
+  emit('focus');
+};
 </script>
 
 <template>
@@ -83,12 +103,17 @@ const inputId = generateId('input');
         v-model="inputValue"
         class="vsf-input__field"
         type="text"
+        :role="role"
         :placeholder="placeholder"
         :disabled="disabled"
         :invalid="invalid"
         :required="required"
         :readonly="readonly"
+        :aria-expanded="ariaExpanded"
+        :aria-autocomplete="ariaAutocomplete"
+        :aria-controls="ariaControls"
         data-testid="input-field"
+        @focus="handleFocus()"
       />
       <div v-if="$slots.suffix" class="vsf-input__suffix">
         <slot name="suffix" />
@@ -96,7 +121,7 @@ const inputId = generateId('input');
     </div>
     <div class="vsf-input__bottom-wrapper">
       <div>
-        <p v-if="invalid" class="vsf-input__error-message" data-testid="input-error-message">{{ errorMessage }}</p>
+        <p v-if="invalid" class="vsf-input__error-text" data-testid="input-error-text">{{ errorText }}</p>
         <p v-if="helpText" class="vsf-input__help-text" data-testid="input-help-text">{{ helpText }}</p>
         <p v-if="requiredText && required" class="vsf-input__required-text" data-testid="input-required-text">
           {{ requiredText }}

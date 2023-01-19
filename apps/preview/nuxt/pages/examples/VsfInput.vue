@@ -30,7 +30,7 @@ const suffixSlotOptions = createControlsOptions({
 });
 
 export default defineComponent({
-  name: 'VsfSelectExample',
+  name: 'VsfInputExample',
   components: {
     VsfInput,
     ComponentExample,
@@ -73,7 +73,7 @@ export default defineComponent({
           {
             type: 'text',
             propType: 'string',
-            modelName: 'errorMessage',
+            modelName: 'errorText',
           },
           {
             type: 'select',
@@ -122,7 +122,7 @@ export default defineComponent({
           placeholder: ref('Placeholder text'),
           helpText: ref('Help text'),
           requiredText: ref('Required text'),
-          errorMessage: ref('Error message'),
+          errorText: ref('Error text'),
           label: ref('Label'),
           characterLimit: ref(12),
           value: ref(''),

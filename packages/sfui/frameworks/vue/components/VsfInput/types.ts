@@ -4,9 +4,21 @@ export enum VsfInputSize {
   lg = 'lg',
 }
 
+export enum VsfInputRole {
+  widget = 'widget',
+  combobox = 'combobox',
+}
+
+export enum VsfInputAriaAutocomplete {
+  none = 'none',
+  both = 'both',
+  list = 'list',
+}
+
 export interface VsfInputProps {
   value: string;
   size?: VsfInputSize;
+  type?: VsfInputRole;
   label?: string;
   disabled?: boolean;
   required?: boolean;
@@ -14,7 +26,7 @@ export interface VsfInputProps {
   characterLimit?: number;
   readonly?: boolean | undefined;
   placeholder?: string;
-  errorMessage?: string;
+  errorText?: string;
   helpText?: string;
   requiredText?: string;
 }

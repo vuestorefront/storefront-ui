@@ -15,6 +15,7 @@ export default function VsfDropdownInternal({
   children,
   className,
   dropdownClass,
+  dropdownContentClass,
   onOpenUpdate,
   ...attributes
 }: VsfDropdownInternalProps): JSX.Element {
@@ -52,7 +53,10 @@ export default function VsfDropdownInternal({
         {slotTrigger}
       </div>
       {open ? (
-        <div className="vsf-dropdown-internal__dropdown" data-testid="dropdown-dropdown">
+        <div
+          className={classNames('vsf-dropdown-internal__dropdown', dropdownContentClass)}
+          data-testid="dropdown-dropdown"
+        >
           {children}
         </div>
       ) : null}

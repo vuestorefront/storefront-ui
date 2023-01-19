@@ -72,7 +72,7 @@ export default class VsfInputObject extends BasePage {
   }
 
   get invalidElement() {
-    return this.findTestElement('input-error-message');
+    return this.findTestElement('input-error-text');
   }
 
   get charsCountElement() {

@@ -29,7 +29,7 @@ $self: &;
     @apply text-xs text-gray-500 mt-0.5;
   }
 
-  &__error-message {
+  &__error-text {
     @apply text-sm text-negative-700 font-medium mt-0.5;
   }
 

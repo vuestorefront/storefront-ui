@@ -12,7 +12,7 @@ describe("VsfInput", () => {
   let size: VsfInputSize;
   let required: boolean;
   let placeholder: string;
-  let errorMessage: string;
+  let errorText: string;
   let helpText: string;
   let requiredText: string;
   let invalid: boolean;
@@ -33,7 +33,7 @@ describe("VsfInput", () => {
           size,
           required,
           placeholder,
-          errorMessage,
+          errorText,
           helpText,
           requiredText,
           invalid,
@@ -47,7 +47,7 @@ describe("VsfInput", () => {
         value={value}
         disabled={disabled}
         placeholder={placeholder}
-        errorMessage={errorMessage}
+        errorText={errorText}
         helpText={helpText}
         characterLimit={characterLimit}
         requiredText={requiredText}
@@ -164,8 +164,8 @@ describe("VsfInput", () => {
   });
 
   describe('when prop errorText is filled out and invalid=true', () => {
-    before(() => {invalid = true, errorMessage = 'Error'});
-    after(() =>{ invalid = false, errorMessage = ''});
+    before(() => {invalid = true, errorText = 'Error'});
+    after(() =>{ invalid = false, errorText = ''});
     it('should render with invalid text', () => {
       initializeComponent();
 
