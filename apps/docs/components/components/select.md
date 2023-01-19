@@ -4,13 +4,13 @@ hideBreadcrumbs: true
 ---
 # Select
 
-The Select component is used for collecting user provided information from a list of options.
+A select is an input that allows the user to choose from a set of options. Uses native html `<select>` tag.
+
+Used for forms or as a global setting, e.g. language, location.
+
+For a few options use [Radio](radio.html) component instead of Select. For very long set of options think about using Combobox component.
 
 <Generate />
-
-## Figma design
-
-See the design on [Figma](https://www.figma.com/file/Cx2jw34waZltkapwq7j7aT/SFUI-2-%7C-Design-Kit-(early-alpha)?node-id=11375%3A16313&t=LIzxPt9OJb9F1mXf-1)
 
 <!-- vue -->
 ## Props
