@@ -10,6 +10,9 @@ describe("VsfPagination", () => {
   let currentPage: number;
   let itemsPerPage: number;
   let maxVisiblePages: number;
+  let hideButtonLabels: boolean;
+  let prev: string;
+  let next: string;
   let onChangeSpy: Cypress.Agent<sinon.SinonSpy>;
   const page = () => new VsfPaginationBaseObject('pagination');
 
@@ -22,6 +25,9 @@ describe("VsfPagination", () => {
           currentPage,
           itemsPerPage,
           maxVisiblePages,
+          hideButtonLabels,
+          prev,
+          next,
           'onUpdate:current-page': onChangeSpy
         },
       },
@@ -30,6 +36,9 @@ describe("VsfPagination", () => {
         currentPage={currentPage}
         itemsPerPage={itemsPerPage}
         maxVisiblePages={maxVisiblePages}
+        hideButtonLabels={hideButtonLabels}
+        prev={prev}
+        next={next}
         onPageUpdate={onChangeSpy}
       ></VsfPaginationReact>
     });
@@ -45,6 +54,7 @@ describe("VsfPagination", () => {
     currentPage = 1;
     itemsPerPage = 10;
     maxVisiblePages = 3;
+    hideButtonLabels  = false;
   });
 
   it('initial state', () => {
@@ -136,6 +146,26 @@ describe("VsfPagination", () => {
       initializeComponent();
 
       page().pageElementsLength(maxVisiblePages);
+      page().makeSnapshot();
+    })
+  })
+  describe('when the prev props is changed', () => {
+    it('should render new previous label', () => {
+      prev = 'Prev';
+      initializeComponent();
+
+      page().previousLabelExist();
+      page().pagePreviousLabel.contains(prev);
+      page().makeSnapshot();
+    })
+  })
+  describe('when the hideButtonLabels is set to true', () => {
+    it('should hide the prev and next buttons labels', () => {
+      hideButtonLabels = true;
+      initializeComponent();
+
+      page().previousLabelNotExist();
+      page().nextLabelNotExist();
       page().makeSnapshot();
     })
   })

@@ -5,6 +5,9 @@
       :current-page="Number(currentPage)"
       :items-per-page="Number(itemsPerPage)"
       :max-visible-pages="Number(maxVisiblePages)"
+      :prev="prev"
+      :next="next"
+      :hide-button-labels="hideButtonLabels"
       @update:current-page="handlePageChange"
     />
   </ComponentExample>
@@ -49,12 +52,30 @@ export default {
             propType: 'number',
             modelName: 'maxVisiblePages',
           },
+          {
+            type: 'text',
+            propType: 'string',
+            modelName: 'prev',
+          },
+          {
+            type: 'text',
+            propType: 'string',
+            modelName: 'next',
+          },
+          {
+            type: 'boolean',
+            propType: 'boolean',
+            modelName: 'hideButtonLabels',
+          },
         ],
         {
           totalItems: ref(100),
           currentPage: ref(1),
           itemsPerPage: ref(10),
           maxVisiblePages: ref(3),
+          prev: ref('Previous'),
+          next: ref('Next'),
+          hideButtonLabels: ref(),
         },
       ),
     };

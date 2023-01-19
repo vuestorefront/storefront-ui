@@ -7,6 +7,12 @@ export interface VsfPaginationProps extends PropsWithStyle, PropsWithChildren {
   itemsPerPage?: number;
   maxVisiblePages?: number;
   ariaLabel?: string;
+  prev?: string;
+  next?: string;
+  hideButtonLabels?: boolean;
+  slotPrev?: ReactNode;
+  slotNext?: ReactNode;
+  children?: ReactNode;
   slotPrefix?: ReactNode;
   slotSuffix?: ReactNode;
   onPageUpdate?: (currectPage: number) => void;

@@ -22,6 +22,18 @@ const props = defineProps({
     type: Number,
     default: null,
   },
+  prev: {
+    type: String,
+    default: 'Previous',
+  },
+  next: {
+    type: String,
+    default: 'Next',
+  },
+  hideButtonLabels: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const emits = defineEmits<{
@@ -68,18 +80,21 @@ const onPageChange = (newPage: number) => {
 <template>
   <VsfDivider />
   <nav class="vsf-pagination" role="navigation" aria-label="pagination" data-testid="pagination">
-    <!-- TODO: i18n aria-label -->
-    <VsfButton
-      aria-label="Previous"
-      :disabled="selectedPage <= 1"
-      :variant="VsfButtonVariant.tertiary"
-      class="vsf-pagination__button"
-      data-testid="pagination-button-prev"
-      @click="onPageChange((selectedPage -= 1))"
-    >
-      <VsfIconChevronLeft />
-      <span class="vsf-pagination__button--text">Previous</span>
-    </VsfButton>
+    <slot name="previous-button">
+      <VsfButton
+        :aria-label="prev"
+        :disabled="selectedPage <= 1"
+        :variant="VsfButtonVariant.tertiary"
+        class="vsf-pagination__button"
+        data-testid="pagination-button-prev"
+        @click="onPageChange((selectedPage -= 1))"
+      >
+        <VsfIconChevronLeft />
+        <span v-if="!hideButtonLabels" class="vsf-pagination__button--text" data-testid="pagination-label-prev">{{
+          prev
+        }}</span>
+      </VsfButton>
+    </slot>
     <ul class="vsf-pagination__items">
       <li v-if="!pages.find((page) => page === 1)">
         <slot name="slotPrefix">
@@ -181,17 +196,20 @@ const onPageChange = (newPage: number) => {
         </slot>
       </li>
     </ul>
-    <!-- TODO: i18n aria-label -->
-    <VsfButton
-      aria-label="Next"
-      :disabled="selectedPage >= totalPages"
-      :variant="VsfButtonVariant.tertiary"
-      class="vsf-pagination__button"
-      data-testid="pagination-button-next"
-      @click="onPageChange((selectedPage += 1))"
-    >
-      <span class="vsf-pagination__button--text">Next</span>
-      <VsfIconChevronRight />
-    </VsfButton>
+    <slot name="next-button">
+      <VsfButton
+        :aria-label="next"
+        :disabled="selectedPage >= totalPages"
+        :variant="VsfButtonVariant.tertiary"
+        class="vsf-pagination__button"
+        data-testid="pagination-button-next"
+        @click="onPageChange((selectedPage += 1))"
+      >
+        <span v-if="!hideButtonLabels" class="vsf-pagination__button--text" data-testid="pagination-label-next">{{
+          next
+        }}</span>
+        <VsfIconChevronRight />
+      </VsfButton>
+    </slot>
   </nav>
 </template>

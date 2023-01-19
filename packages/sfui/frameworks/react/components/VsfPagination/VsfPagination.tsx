@@ -14,8 +14,13 @@ export default function VsfPagination({
   onPageUpdate,
   slotPrefix,
   slotSuffix,
+  prev,
+  next,
+  slotPrev,
+  slotNext,
   children,
   className,
+  hideButtonLabels = false,
   ...attributes
 }: VsfPaginationProps): JSX.Element {
   const [pagination, setPagination] = useState(paginate(totalItems, currentPage, itemsPerPage, maxVisiblePages));
@@ -44,18 +49,23 @@ export default function VsfPagination({
         {...attributes}
         data-testid="pagination"
       >
-        {/* TODO: i18n aria-label */}
-        <VsfButton
-          className="vsf-pagination__button"
-          aria-label="Previous"
-          onClick={() => onPageChange(selectedPage - 1)}
-          disabled={selectedPage <= 1}
-          variant={VsfButtonVariant.tertiary}
-          data-testid="pagination-button-prev"
-        >
-          <VsfIconChevronLeft />
-          <span className="vsf-pagination__button--text">Previous</span>
-        </VsfButton>
+        {slotPrev || (
+          <VsfButton
+            className="vsf-pagination__button"
+            aria-label={prev}
+            onClick={() => onPageChange(selectedPage - 1)}
+            disabled={selectedPage <= 1}
+            variant={VsfButtonVariant.tertiary}
+            data-testid="pagination-button-prev"
+          >
+            <VsfIconChevronLeft />
+            {!hideButtonLabels && (
+              <span className="vsf-pagination__button--text" data-testid="pagination-label-prev">
+                {prev}
+              </span>
+            )}
+          </VsfButton>
+        )}
         <ul className="vsf-pagination__items">
           {!pagination.pages.find((page) => page === 1) && (
             <li>
@@ -158,18 +168,23 @@ export default function VsfPagination({
             </li>
           )}
         </ul>
-        {/* TODO: i18n aria-label */}
-        <VsfButton
-          className="vsf-pagination__button"
-          aria-label="Next"
-          disabled={selectedPage >= pagination.totalPages}
-          onClick={() => onPageChange(selectedPage + 1)}
-          variant={VsfButtonVariant.tertiary}
-          data-testid="pagination-button-next"
-        >
-          <span className="vsf-pagination__button--text">Next</span>
-          <VsfIconChevronRight />
-        </VsfButton>
+        {slotNext || (
+          <VsfButton
+            className="vsf-pagination__button"
+            aria-label={next}
+            disabled={selectedPage >= pagination.totalPages}
+            onClick={() => onPageChange(selectedPage + 1)}
+            variant={VsfButtonVariant.tertiary}
+            data-testid="pagination-button-next"
+          >
+            {!hideButtonLabels && (
+              <span className="vsf-pagination__button--text" data-testid="pagination-label-next">
+                {next}
+              </span>
+            )}
+            <VsfIconChevronRight />
+          </VsfButton>
+        )}
       </nav>
     </>
   );
