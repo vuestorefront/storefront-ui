@@ -13,6 +13,7 @@
 import { defineComponent, ref } from 'vue';
 import VsfCombobox from '@storefront-ui/vue/components/VsfCombobox/VsfCombobox.vue';
 import VsfListItemMenu from '@storefront-ui/vue/components/VsfListItemMenu/VsfListItemMenu.vue';
+import { VsfInputSize } from '@storefront-ui/vue/components/VsfInput/types';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
 
@@ -53,11 +54,18 @@ export default defineComponent({
       ...prepareControls(
         [
           {
-            type: 'boolean',
-            modelName: 'disabled',
-            propDefaultValue: 'false',
-            propType: 'boolean',
-            description: 'Disable dropdown',
+            type: 'text',
+            propType: 'string',
+            modelName: 'value',
+            description: 'Value of input',
+          },
+          {
+            type: 'select',
+            modelName: 'size',
+            propDefaultValue: 'VsfInputSize.base',
+            propType: 'VsfInputSize',
+            options: Object.keys(VsfInputSize),
+            description: 'Change size of the input',
           },
           {
             type: 'text',
@@ -73,9 +81,28 @@ export default defineComponent({
           },
           {
             type: 'text',
+            modelName: 'errorText',
+            propType: 'string',
+            description: 'Change error text for input',
+          },
+          {
+            type: 'text',
+            modelName: 'requiredText',
+            propType: 'string',
+            description: 'Change error text for input',
+          },
+          {
+            type: 'text',
             modelName: 'placeholder',
             propType: 'string',
             description: 'Change placeholder for input',
+          },
+          {
+            type: 'boolean',
+            modelName: 'disabled',
+            propDefaultValue: 'false',
+            propType: 'boolean',
+            description: 'Disable dropdown',
           },
           {
             type: 'boolean',
@@ -98,23 +125,12 @@ export default defineComponent({
             propType: 'boolean',
             description: 'Passes the loading value to the dropdown component',
           },
-          {
-            type: 'text',
-            modelName: 'errorText',
-            propType: 'string',
-            description: 'Change error text for input',
-          },
-          {
-            type: 'text',
-            modelName: 'requiredText',
-            propType: 'string',
-            description: 'Change error text for input',
-          },
         ],
         {
+          size: ref(VsfInputSize.base),
           label: ref('Label'),
-          placeholder: ref('Select or search for the options'),
-          helpText: ref(''),
+          placeholder: ref('Placeholder text'),
+          helpText: ref('Help text'),
           errorText: ref(''),
           requiredText: ref(''),
           loading: ref(),

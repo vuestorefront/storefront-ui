@@ -9,8 +9,12 @@ import { VsfIconChevronDown, VsfIconCancel } from '../VsfIcons';
 
 const props = defineProps({
   // TODO: issue with typing because one component has defineEmits
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  ...(extractProps(VsfInput as any, ['label', 'placeholder', 'required', 'disabled', 'invalid'] as const) as any),
+  ...(extractProps(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    VsfInput as any,
+    ['label', 'placeholder', 'required', 'disabled', 'invalid', 'size'] as const,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  ) as any),
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   ...(extractProps(VsfDropdownMenu, ['loading'] as const) as any),
   modelValue: {
@@ -50,7 +54,7 @@ const proxySelected = computed({
       <template #trigger>
         <VsfInput
           v-model="proxySelected"
-          v-bind="{ label, placeholder, disabled }"
+          v-bind="{ label, placeholder, disabled, invalid, required, size }"
           :role="VsfInputRole.combobox"
           :aria-autocomplete="VsfInputAriaAutocomplete.both"
           :aria-controls="listboxId"

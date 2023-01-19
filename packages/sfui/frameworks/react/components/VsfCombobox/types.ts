@@ -8,7 +8,7 @@ export interface VsfComboboxProps
     Partial<
       Pick<
         VsfInputProps,
-        'label' | 'disabled' | 'required' | 'value' | 'placeholder' | 'invalid' | 'onChange' | 'value'
+        'label' | 'disabled' | 'required' | 'value' | 'placeholder' | 'invalid' | 'onChange' | 'value' | 'size'
       >
     > {
   open?: boolean;
