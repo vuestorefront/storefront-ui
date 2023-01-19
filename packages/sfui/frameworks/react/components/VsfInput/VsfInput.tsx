@@ -13,20 +13,21 @@ export default function VsfInput({
   slotPrefix,
   slotSuffix,
   placeholder,
-  errorMessage,
+  errorText,
   helpText,
   requiredText,
   invalid,
   readonly,
   className,
-  characterLimit = 12,
+  characterLimit,
   onChange,
+  onClick,
   ...attributes
 }: VsfInputProps) {
   const inputId = generateId('input');
-  const isAboveLimit = value.length > characterLimit;
+  const isAboveLimit = characterLimit ? value.length > characterLimit : false;
 
-  const charsCount = characterLimit - value.length;
+  const charsCount = characterLimit ? characterLimit - value.length : null;
   return (
     <div
       className={classNames([
@@ -56,6 +57,7 @@ export default function VsfInput({
           required={required}
           readOnly={readonly}
           onChange={onChange}
+          onClick={onClick}
           data-testid="input-field"
         />
         {slotSuffix ? <div className="vsf-input__suffix">{slotSuffix}</div> : null}
@@ -63,8 +65,8 @@ export default function VsfInput({
       <div className="vsf-input__bottom-wrapper">
         <div>
           {invalid ? (
-            <p className="vsf-input__error-message" data-testid="input-error-message">
-              {errorMessage}
+            <p className="vsf-input__error-text" data-testid="input-error-text">
+              {errorText}
             </p>
           ) : null}
           {helpText ? (

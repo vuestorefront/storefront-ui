@@ -55,7 +55,7 @@ function Example() {
       {
         type: 'text',
         propType: 'string',
-        modelName: 'errorMessage',
+        modelName: 'errorText',
       },
       {
         type: 'select',
@@ -104,7 +104,7 @@ function Example() {
       placeholder: 'Placeholder text',
       helpText: 'Help text',
       requiredText: 'Required text',
-      errorMessage: 'Error message',
+      errorText: 'Error text',
       label: 'Label',
       characterLimit: 12,
       slotPrefix: prefixSlotOptions.defaultOption,
@@ -123,7 +123,7 @@ function Example() {
         label={state.get.label}
         placeholder={state.get.placeholder}
         helpText={state.get.helpText}
-        errorMessage={state.get.errorMessage}
+        errorText={state.get.errorText}
         requiredText={state.get.requiredText}
         disabled={state.get.disabled}
         invalid={state.get.invalid}

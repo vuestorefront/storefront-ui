@@ -22,6 +22,7 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  dropdownContentClass: ClassProp,
   dropdownClass: ClassProp,
 });
 
@@ -62,7 +63,11 @@ onClickOutside(dropdownRef, onClose);
     >
       <slot name="trigger" />
     </div>
-    <div v-if="modelValue" class="vsf-dropdown-internal__dropdown" data-testid="dropdown-dropdown">
+    <div
+      v-if="modelValue"
+      :class="['vsf-dropdown-internal__dropdown', dropdownContentClass]"
+      data-testid="dropdown-dropdown"
+    >
       <slot />
     </div>
   </div>

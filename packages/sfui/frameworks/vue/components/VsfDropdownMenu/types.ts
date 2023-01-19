@@ -1,3 +1,5 @@
 export interface VsfDropdownMenuProps {
-  loading: boolean;
+  id?: string;
+  role?: string;
+  loading?: boolean;
 }

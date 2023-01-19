@@ -1,6 +1,6 @@
 .vsf-dropdown-internal {
   $self: &;
-  @apply relative inline-flex;
+  @apply relative;
 
   &--disabled {
     @apply pointer-events-none;
