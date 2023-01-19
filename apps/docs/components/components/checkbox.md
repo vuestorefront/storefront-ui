@@ -4,13 +4,13 @@ hideBreadcrumbs: true
 ---
 # Checkbox
 
-The Checkbox component is an input element of type checkbox that allows to turn single values on and off.
+A checkbox is an input that has three possible values: true, false, or indeterminate. When an indeterminate value is not used, these are effectively boolean checkboxes.
+
+Used especially for forms or expressing consents.
+
+For filtering use [ListItemFilterCheckbox]() component instead of Checkbox.
 
 <Generate />
-
-## Figma design
-
-See the design on [Figma](https://www.figma.com/file/Cx2jw34waZltkapwq7j7aT/SFUI-2-%7C-Design-Kit-(early-alpha)?node-id=11375%3A16203&t=LIzxPt9OJb9F1mXf-1)
 
 ## Props
 <!-- vue -->
