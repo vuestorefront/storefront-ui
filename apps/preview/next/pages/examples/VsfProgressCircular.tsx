@@ -29,17 +29,31 @@ function Example() {
         modelName: 'withValue',
         description: 'This prop is responsible for hiding/showing percentage value of progress',
       },
+      {
+        type: 'text',
+        modelName: 'svgAriaLabel',
+        propDefaultValue: 'Progress',
+        propType: 'string',
+        description: 'Aria label value for svg element',
+      },
     ],
     {
       value: 0,
       size: VsfProgressCircularSize.base,
       withValue: true,
+      svgAriaLabel: 'Progress',
     },
   );
 
   return (
     <ComponentExample controls={{ state, controls }}>
-      <VsfProgressCircular value={Number(state.get.value)} size={state.get.size} withValue={state.get.withValue} />
+      <VsfProgressCircular
+        value={Number(state.get.value)}
+        size={state.get.size}
+        withValue={state.get.withValue}
+        aria-label="Progressbar"
+        svgAriaLabel={state.get.svgAriaLabel}
+      />
     </ComponentExample>
   );
 }

@@ -18,4 +18,5 @@ export interface VsfProgressCircularProps
   size?: `${VsfProgressCircularSize}`;
   value?: number;
   withValue?: boolean;
+  svgAriaLabel?: string;
 }
