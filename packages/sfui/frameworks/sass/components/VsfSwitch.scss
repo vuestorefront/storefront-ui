@@ -1,11 +1,16 @@
 .vsf-switch {
   .vsf-checkbox{
     &__input {
-      @apply h-5 min-w-[36px] bg-transparent border-2 border-gray-500 rounded-full relative hover:border-primary-600 hover:before:checked:bg-white checked:before:left-1/2 checked:before:ml-0 checked:before:mr-0.5 disabled:before:bg-gray-500/50 hover:before:bg-primary-600 active:border-primary-700 active:before:bg-primary-700 checked:bg-none checked:bg-primary-500 checked:border-primary-500 checked:before:bg-white hover:checked:bg-primary-600 hover:checked:border-primary-600 disabled:border-gray-500/50 checked:disabled:before:bg-white checked:disabled:bg-gray-500/50 checked:disabled:border-0;
+      @apply h-5 min-w-[36px] bg-transparent border-2 border-gray-500 rounded-full relative hover:border-primary-600 hover:before:checked:bg-white checked:before:left-1/2 checked:before:ml-0 checked:before:mr-0.5 disabled:before:bg-gray-500/50 hover:before:bg-primary-600 active:border-primary-700 active:before:bg-primary-700 checked:bg-none checked:bg-primary-500 checked:border-primary-500 checked:before:bg-white hover:checked:bg-primary-600 hover:checked:border-primary-600 disabled:border-gray-500/50 checked:disabled:before:bg-white checked:disabled:bg-gray-500/50 checked:disabled:border-0 transition-colors;
 
       &::before {
-        @apply content-[''] w-3.5 h-3.5 bg-gray-500 absolute top-0 bottom-0 my-auto rounded-full left-0 ml-0.5 ease-in-out duration-300; 
-     }
+        @apply content-[''] w-3.5 h-3.5 bg-gray-500 absolute top-0 bottom-0 my-auto rounded-full left-0 ml-0.5 ;
+      }
+
+      &,
+      &::before {
+        @apply ease-in-out duration-300;
+      }
     }
 
     &__label {
@@ -22,6 +27,6 @@
       .vsf-checkbox__label {
         @apply ml-0;
       }
-    } 
+    }
   }
 }
