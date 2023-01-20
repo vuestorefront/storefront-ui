@@ -18,9 +18,8 @@ Design System for eCommerce
 
 Create stunning, mobile-first online stores with our fully customizable Design System and UI library. Available as UI Framework for React and Vue.js
 
-[Get Started](/components/)
-<!-- TODO: uncomment when repo gets publicly avaiable -->
-<!-- [See on Github](https://github.com/vuestorefront/sfui2) -->
+[Get Started](/getting-started/)
+[See on Github](https://github.com/vuestorefront/sfui2)
 
 :::
 
