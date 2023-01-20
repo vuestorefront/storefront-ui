@@ -1,14 +1,26 @@
 <template>
   <div class="e-page">
     <div class="e-page-component">
-      <VsfDropdownMenu :loading="loading" class="w-80">
-        <VsfListItemMenu v-for="item of items" :key="item" :label="item.label" :secondary-text="item.secondaryText">
+      <VsfDropdownMenu :loading="loading" class="w-80" role="listbox" aria-label="Items choice">
+        <VsfListItemMenu
+          v-for="item of items"
+          :key="`item-${item}`"
+          :label="item.label"
+          :secondary-text="item.secondaryText"
+          role="option"
+        >
           <template #prefix>
             <VsfIconDot />
           </template>
         </VsfListItemMenu>
         <VsfDivider />
-        <VsfListItemMenu v-for="item of items" :key="item" :label="item.label" :secondary-text="item.secondaryText">
+        <VsfListItemMenu
+          v-for="item of items"
+          :key="`item-${item}`"
+          :label="item.label"
+          :secondary-text="item.secondaryText"
+          role="option"
+        >
           <template #prefix>
             <VsfIconDot />
           </template>
