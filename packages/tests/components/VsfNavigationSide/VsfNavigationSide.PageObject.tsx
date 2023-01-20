@@ -1,8 +1,7 @@
 import { BasePage } from '../../utils/BasePage';
 
 export default class VsfSideSheetBaseObject extends BasePage {
-
-  clickCloseButton(){
+  clickCloseButton() {
     this.closeButton.click();
     return this;
   }
@@ -22,11 +21,16 @@ export default class VsfSideSheetBaseObject extends BasePage {
     return this;
   }
 
+  closeButtonHidden() {
+    this.closeButton.should('not.exist');
+    return this;
+  }
+
   get closeButton() {
-    return this.findTestElement('navigation-side-close-button')
+    return this.findTestElement('navigation-side-close-button');
   }
 
   get logoElement() {
-    return this.findTestElement('navigation-side-logo')
+    return this.findTestElement('navigation-side-logo');
   }
 }

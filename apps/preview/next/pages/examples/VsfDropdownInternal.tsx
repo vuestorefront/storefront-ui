@@ -5,6 +5,7 @@ import {
   VsfDropdownInternalPlacement,
 } from '@storefront-ui/react/components/VsfDropdownInternal';
 import VsfButton from '@storefront-ui/react/components/VsfButton/VsfButton';
+import VsfDropdownMenu from '@storefront-ui/react/components/VsfDropdownMenu/VsfDropdownMenu';
 import { createControlsOptions } from '@storefront-ui/preview-shared/utils/controlsOptions';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
@@ -14,6 +15,7 @@ const slotTriggerOptions = createControlsOptions({
   button: <VsfButton>Trigger for dropdown</VsfButton>,
 });
 const childrenOptions = createControlsOptions({
+  menu: <VsfDropdownMenu className="w-80">Dropdown</VsfDropdownMenu>,
   text: 'Content',
 });
 
