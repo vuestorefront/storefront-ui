@@ -8,10 +8,6 @@ A breadcrumb trail consists of a list of links to the parent pages of the curren
 
 <Generate />
 
-## Figma design
-
-See the design on [Figma](https://www.figma.com/file/Cx2jw34waZltkapwq7j7aT/SFUI-2-%7C-Design-Kit-(early-alpha)?node-id=11378%3A17297&t=LIzxPt9OJb9F1mXf-1)
-
 
 <!-- vue -->
 ## Props

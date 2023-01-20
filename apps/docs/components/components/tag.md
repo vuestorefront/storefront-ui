@@ -8,10 +8,6 @@ The Tag component draws attention to new or categorized content elements.
 
 <Generate />
 
-## Figma design
-
-See the design on [Figma](https://www.figma.com/file/Cx2jw34waZltkapwq7j7aT/SFUI-2-%7C-Design-Kit-(early-alpha)?node-id=11418%3A18666&t=LIzxPt9OJb9F1mXf-1)
-
 
 <!-- vue -->
 ## Props

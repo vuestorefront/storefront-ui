@@ -8,10 +8,6 @@ RatingButton is icon-based group component, used for input a numeric value.
 
 <Generate />
 
-## Figma design
-
-See the design on [Figma](https://www.figma.com/file/Cx2jw34waZltkapwq7j7aT/SFUI-2-%7C-Design-Kit-(early-alpha)?node-id=12426%3A17812&t=LIzxPt9OJb9F1mXf-1)
-
 ## Props
 | Prop name    | Type     | Default value | Possible values                        |
 | ------------ | -------- | ------------- | -------------------------- |

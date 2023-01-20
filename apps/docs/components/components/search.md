@@ -6,10 +6,6 @@ hideBreadcrumbs: true
 
 <Generate />
 
-## Figma design
-
-See the design on [Figma](https://www.figma.com/file/Cx2jw34waZltkapwq7j7aT/SFUI-2-%7C-Design-Kit-(early-alpha)?node-id=10650%3A7288&t=LIzxPt9OJb9F1mXf-1)
-
 ## Props
 
 | Prop name   | Type      | Default value | Possible values |

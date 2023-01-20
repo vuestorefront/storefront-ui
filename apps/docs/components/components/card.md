@@ -8,11 +8,8 @@ The Card component contains content and actions that inform about a single subje
 
 <Generate style="height: 900px" />
 
-## Figma design
+## Props:
 
-See the design on [Figma](https://www.figma.com/file/Cx2jw34waZltkapwq7j7aT/SFUI-2-%7C-Design-Kit-(early-alpha)?node-id=17310%3A45695&t=LIzxPt9OJb9F1mXf-1)
-
-### Props:
 | Prop name   | Type      | Default value | Possible values                        |
 | ----------- |-----------| ------------- | -------------------------------------- |
 <!-- react -->
