@@ -24,5 +24,9 @@ Component implements `role="img"` and `aria-label` property with value `Rating: 
 
 ## Source code
 
+<!-- vue -->
 <<<../../../packages/sfui/frameworks/vue/components/VsfRating/VsfRating.vue
+<!-- end vue -->
+<!-- react -->
 <<< ../../../packages/sfui/frameworks/react/components/VsfRating/VsfRating.tsx
+<!-- end react -->
