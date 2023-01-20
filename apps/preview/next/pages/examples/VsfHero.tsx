@@ -5,9 +5,9 @@ import { VsfButton } from '@storefront-ui//react/components/VsfButton';
 import { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 import ComponentExample from '../../components/utils/ComponentExample';
-import hero_img from '../../assets/hero_img.png';
-import hero_bg_mobile from '../../assets/hero_bg_mobile.png';
-import hero_bg_desktop from '../../assets/hero_bg_desktop.png';
+import hero_img from '../../assets/fixture/hero_img.png';
+import hero_bg_mobile from '../../assets/fixture/hero_bg_mobile.png';
+import hero_bg_desktop from '../../assets/fixture/hero_bg_desktop.png';
 
 function Example() {
   const { controls, state } = prepareControls(
@@ -47,7 +47,7 @@ function Example() {
         <VsfHero {...state.get} slotMedia={<img src={hero_img.src} alt="" className="vsf-hero-img" />}>
           {/* TODO: use DisplayContent for this example after it's implemented */}
           <div className="pb-6">
-            <p className="uppercase text-xs tracking-wide font-medium text-gray-500">special offer</p>
+            <p className="text-xs font-medium tracking-wide text-gray-500 uppercase">special offer</p>
           </div>
           <div className="pb-4">
             <h1 className="text-4xl font-medium">Hot Deals.</h1>

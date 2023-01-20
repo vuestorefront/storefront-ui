@@ -2,7 +2,7 @@ import { VsfCard, VsfCardSize } from '@storefront-ui/react/components/VsfCard';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
-import productImage from '../fixture/product-card.webp';
+import productImage from '../../assets/fixture/card.png';
 
 function Example() {
   const { state, controls } = prepareControls(
