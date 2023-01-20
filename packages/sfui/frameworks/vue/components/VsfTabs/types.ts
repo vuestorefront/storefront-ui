@@ -3,7 +3,7 @@ import { VsfButtonSize } from 'components/VsfButton';
 
 export interface VsfTabsProps {
   modelValue: number | string | symbol;
-  size: VsfButtonSize;
+  size: `${VsfButtonSize}`;
 }
 
 export interface VsfTabsInjectionValue {

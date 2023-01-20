@@ -1,13 +1,17 @@
 <template>
   <ComponentExample :controls-attrs="controlsAttrs">
-    <VsfBreadcrumbs :breadcrumbs="breadcrumbs" :with-icon="withIcon" />
+    <VsfBreadcrumbs
+      :breadcrumbs="breadcrumbs"
+      :with-icon="withIcon"
+      :more-button-aria-label="moreButtonAriaLabel"
+      :home-icon-aria-label="homeIconAriaLabel"
+    />
   </ComponentExample>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, resolveComponent, computed, ToRefs } from 'vue';
+import { defineComponent, ref } from 'vue';
 import VsfBreadcrumbs from '@storefront-ui/vue/components/VsfBreadcrumbs/VsfBreadcrumbs.vue';
-import type { VsfBreadcrumbsProps } from '@storefront-ui/vue/components/VsfBreadcrumbs/types';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
 
@@ -18,13 +22,8 @@ export default defineComponent({
     ComponentExample,
   },
   setup() {
-    const componentToShow = computed(() => {
-      return resolveComponent('NuxtLink');
-    });
-
     return {
-      componentToShow,
-      ...prepareControls<ToRefs<VsfBreadcrumbsProps>>(
+      ...prepareControls(
         [
           {
             type: 'boolean',
@@ -37,15 +36,29 @@ export default defineComponent({
             propType: 'VsfBreadcrumbsType[]',
             propDefaultValue: '[]',
           },
+          {
+            type: 'text',
+            modelName: 'moreButtonAriaLabel',
+            propType: 'string',
+            propDefaultValue: '',
+          },
+          {
+            type: 'text',
+            modelName: 'homeIconAriaLabel',
+            propType: 'string',
+            propDefaultValue: '',
+          },
         ],
         {
           withIcon: ref(),
+          moreButtonAriaLabel: ref('More button'),
+          homeIconAriaLabel: ref('Home'),
           breadcrumbs: ref([
-            { name: 'NuxtLink', linkTag: componentToShow, bindings: { to: '/examples/ListOfIcons' } },
-            { name: 'Page 2', bindings: { href: '/page2' } },
-            { name: 'Page 3', bindings: { href: '/page3' } },
-            { name: 'Page 4', bindings: { href: '/page4' } },
-            { name: 'Page 5', bindings: { href: '/page5' } },
+            { name: 'NuxtLink', bindings: { link: '/examples/ListOfIcons' } },
+            { name: 'Page 2', bindings: { link: '/page2' } },
+            { name: 'Page 3', bindings: { link: '/page3' } },
+            { name: 'Page 4', bindings: { link: '/page4' } },
+            { name: 'Page 5', bindings: { link: '/page5' } },
           ]),
         },
       ),

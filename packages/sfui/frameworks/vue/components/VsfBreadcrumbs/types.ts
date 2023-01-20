@@ -15,4 +15,6 @@ export interface VsfBreadcrumbsProps {
   breadcrumbs?: VsfBreadcrumbType[];
   withIcon?: boolean;
   homeItem?: VsfBreadcrumbHomeType;
+  moreButtonAriaLabel?: string;
+  homeIconAriaLabel?: string;
 }

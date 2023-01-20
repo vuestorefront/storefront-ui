@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 export type VsfBreadcrumbType = {
   name: string;
   link: string;
@@ -6,5 +8,8 @@ export type VsfBreadcrumbType = {
 export interface VsfBreadcrumbsProps {
   breadcrumbs?: VsfBreadcrumbType[];
   withIcon?: boolean;
-  slotIcon?: any;
+  slotIcon?: ReactNode;
+  moreButtonAriaLabel?: string;
+  homeIconAriaLabel?: string;
+  homeIconLink?: string;
 }

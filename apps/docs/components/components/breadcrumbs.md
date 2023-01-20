@@ -9,33 +9,26 @@ A breadcrumb trail consists of a list of links to the parent pages of the curren
 <Generate />
 
 
-<!-- vue -->
 ## Props
 
 | Prop name   | Type    | Default value | Possible values                        |
 | ----------- | ------- | ------------- | -------------------------------------- |
 | breadcrumbs | Array   | []            |                                        |
 | withIcon    | Boolean | false         |                                        |
-| slotIcon    | Boolean | false         |                                        |
+<!-- react -->
+| slotIcon    | ReactNode | undefined         |                                        |
+<!-- end react -->
+| homeIconAriaLabel    | String |       |                                        |
+| moreButtonAriaLabel    | String |       |                                        |
 
+<!-- vue -->
 ## Slots
 
 | Slot name |            Description            |
 | --------- | :-------------------------------: |
 | icon      |     replaces the default icon     |
-      
+
 <!-- end vue -->
-
-<!-- react -->
-## Props
-
-| Prop name   | Type    | Default value | Possible values                        |
-| ----------- | ------- | ------------- | -------------------------------------- |
-| breadcrumbs | Array   | []            |                                        |
-| withIcon    | Boolean | false         |                                        |
-
-<!-- end react -->
-
 
 ## Events
 
