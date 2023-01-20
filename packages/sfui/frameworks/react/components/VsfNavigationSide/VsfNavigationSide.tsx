@@ -44,16 +44,18 @@ export default function VsfNavigationSide({
             <VsfIconLogo viewBox="0 0 205 28" className="!w-[12.5rem] !h-[1.75rem]" />
           </a>
           <VsfNavbarTopActionGroup>
-            <VsfNavbarTopAction
-              icon
-              aria-label={closeAriaLabel}
-              data-testid="navigation-side-close-button"
-              onClick={() => {
-                onOpenChange(!open);
-              }}
-            >
-              <VsfIconClose />
-            </VsfNavbarTopAction>
+            {!permanent && (
+              <VsfNavbarTopAction
+                icon
+                aria-label={closeAriaLabel}
+                data-testid="navigation-side-close-button"
+                onClick={() => {
+                  onOpenChange(!open);
+                }}
+              >
+                <VsfIconClose />
+              </VsfNavbarTopAction>
+            )}
           </VsfNavbarTopActionGroup>
         </VsfNavbarTop>
       )}
