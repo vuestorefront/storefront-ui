@@ -4,6 +4,8 @@ hideBreadcrumbs: true
 ---
 # LoaderLinear
 
+The LoaderLinear is used when the loading progress can be determined.
+
 <Generate />
 
 ## Props

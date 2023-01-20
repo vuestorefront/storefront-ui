@@ -4,7 +4,7 @@ hideBreadcrumbs: true
 ---
 # Combobox
 
-Input is an input widget with an associated popup that enables users to select a value for the combobox from a collection of possible values.
+Combobox is an input widget with an associated popup that enables users to select a value for the combobox from a collection of possible values.
 
 <Generate />
 
