@@ -17,6 +17,10 @@ const props = defineProps({
     type: Boolean,
     default: true,
   },
+  svgAriaLabel: {
+    type: String,
+    default: 'Progress',
+  },
 });
 
 const strokeWidth = computed(() => {
@@ -52,6 +56,7 @@ const strokeWidth = computed(() => {
       :stroke-width="strokeWidth"
       class="vsf-progress-circular__icon"
       :viewBox="`0 0 ${progressSvgSizes[size].icon} ${progressSvgSizes[size].icon}`"
+      :aria-label="svgAriaLabel"
     >
       <circle
         stroke="#e6e6e6"

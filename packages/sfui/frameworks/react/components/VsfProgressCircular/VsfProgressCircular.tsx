@@ -7,6 +7,7 @@ export default function VsfProgressCircular({
   value = 0,
   size = VsfProgressCircularSize.base,
   withValue = true,
+  svgAriaLabel = 'progress',
   className,
   ...attributes
 }: VsfProgressCircularProps): JSX.Element {
@@ -43,6 +44,7 @@ export default function VsfProgressCircular({
         strokeWidth={strokeWidth()}
         className={classNames(!withValue && 'vsf-progress-circular__icon')}
         viewBox={`0 0 ${progressSvgSizes[size].icon} ${progressSvgSizes[size].icon}`}
+        aria-label={svgAriaLabel}
       >
         <circle
           stroke="#e6e6e6"

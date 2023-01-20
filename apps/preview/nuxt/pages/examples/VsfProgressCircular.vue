@@ -1,6 +1,12 @@
 <template>
   <ComponentExample :controls-attrs="controlsAttrs">
-    <VsfProgressCircular :size="size" :value="Number(value)" :with-value="withValue" />
+    <VsfProgressCircular
+      :size="size"
+      :value="Number(value)"
+      :with-value="withValue"
+      aria-label="Progressbar"
+      :svg-aria-label="svgAriaLabel"
+    />
   </ComponentExample>
 </template>
 
@@ -43,11 +49,19 @@ export default {
             modelName: 'withValue',
             description: 'This prop is responsible for hiding/showing percentage value of progress',
           },
+          {
+            type: 'text',
+            propType: 'string',
+            propDefaultValue: 'Progress',
+            modelName: 'svgAriaLabel',
+            description: 'Aria label value for svg element',
+          },
         ],
         {
           value: ref(0),
           size: ref(VsfProgressCircularSize.base),
           withValue: ref(true),
+          svgAriaLabel: ref('Progress'),
         },
       ),
     };

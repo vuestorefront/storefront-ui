@@ -18,6 +18,8 @@ VsfProgressCircular is used to provides feedback about the duration and progress
 |  variant              |  VsfProgressCircularVariants |   base        |   xs, sm, base, lg, xl, 2xl, 3xl, 4xl  |
 |  className            |  String                    |               |                                        |
 |  withValue            |  boolean                   |   true        |                                        |
+|  svgAriaLabel         |  string                    |   'Progress'  |                                        |
+
 
 
 <!-- end react -->
@@ -27,8 +29,9 @@ VsfProgressCircular is used to provides feedback about the duration and progress
 | Prop name             | Type                       | Default value | Possible values                        |
 |-----------------------|----------------------------|---------------|----------------------------------------|
 |  value                |  Number                    |  0            |                                        |
-|  variant              |  VsfProgressCircularVariants |   base        |   xs, sm, base, lg, xl, 2xl, 3xl, 4xl  |
+|  variant              |  VsfProgressCircularVariants |   base        |   xs, sm, base, lg, xl, 2xl, 3xl, 4xl|
 |  withValue            |  boolean                   |   true        |                                        |
+|  svgAriaLabel         |  string                    |   'Progress'  |                                        |
 
 <!-- end vue -->
 
