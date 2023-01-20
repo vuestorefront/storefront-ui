@@ -23,7 +23,6 @@ The Card component contains content and actions that inform about a single subje
 | imgSrc  | `String`           |               |                                    |
 | imgAlt      | `String`           |               |                                    |
 | imgLoading   | `VsfCardImgLoadingValues`           |  `lazy`, `eager`             |  `lazy` `eager`          |
-| rounded     | `Boolean`           |     `false`          |                                    |
 
 <!-- vue -->
 ## Slots
