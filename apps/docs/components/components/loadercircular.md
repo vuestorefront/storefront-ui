@@ -4,6 +4,8 @@ hideBreadcrumbs: true
 ---
 # LoaderCircular
 
+The LoaderCircular is used when the loading progress can be determined.
+
 <Generate />
 
 ## Props

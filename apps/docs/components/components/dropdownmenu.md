@@ -4,6 +4,8 @@ hideBreadcrumbs: true
 ---
 # DropdownMenu
 
+A DropdownMenu is a component that can contain different types of content. It appears after the trigger (e.g. button).
+
 <Generate />
 
 ## Props

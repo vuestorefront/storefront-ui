@@ -8,7 +8,7 @@
         :to="generateComponentPath(type, componentName)"
       >
         <h4 class="font-bold">{{ componentName.replace('Vsf', '') }}</h4>
-        <p class="mt-2 text-sm">A button is an input that allows for user-triggered actions when clicked or pressed.</p>
+        <p class="mt-2 text-sm" v-if="componentsDescription[componentName]">{{ componentsDescription[componentName] }}</p>
       </RouterLink>
     </div>
   </div>
@@ -16,6 +16,8 @@
 
 <script>
 import components from '../../utils/components.json';
+// TODO: refine in https://vsf.atlassian.net/browse/SFUI2-584
+import componentsDescription from './componentsDescription.json';
 import { generateComponentPath } from '../utils/path.util';
 export default {
   props: {
@@ -31,7 +33,7 @@ export default {
     },
   },
   data() {
-    return { generateComponentPath }
+    return { generateComponentPath, componentsDescription }
   }
 };
 </script>

@@ -4,7 +4,7 @@ hideBreadcrumbs: true
 ---
 # ListItemFilterRadio
 
-<Generate />
+A ListItemFilterRadio component is specific ecommerce solution for filter list with additional deselect logic for radio.
 
 <Generate />
 

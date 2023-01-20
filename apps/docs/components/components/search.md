@@ -4,6 +4,8 @@ hideBreadcrumbs: true
 ---
 # Search
 
+The Search component is used to search for content on the page.
+
 <Generate />
 
 ## Props
