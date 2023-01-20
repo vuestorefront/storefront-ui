@@ -20,6 +20,7 @@ export default function VsfInput({
   readonly,
   className,
   characterLimit,
+  readonlyWithoutStyling = false,
   onChange = noop,
   onClick,
   ...attributes
@@ -33,7 +34,11 @@ export default function VsfInput({
       className={classNames([
         'vsf-input',
         `vsf-input--size-${size}`,
-        { 'vsf-input--disabled': disabled, 'vsf-input--invalid': invalid, 'vsf-input--readonly': readonly },
+        {
+          'vsf-input--disabled': disabled,
+          'vsf-input--invalid': invalid && !disabled,
+          'vsf-input--readonly': readonly && !readonlyWithoutStyling,
+        },
         className,
       ])}
       {...attributes}
@@ -64,7 +69,7 @@ export default function VsfInput({
       </div>
       <div className="vsf-input__bottom-wrapper">
         <div>
-          {invalid ? (
+          {invalid && !disabled ? (
             <p className="vsf-input__error-text" data-testid="input-error-text">
               {errorText}
             </p>

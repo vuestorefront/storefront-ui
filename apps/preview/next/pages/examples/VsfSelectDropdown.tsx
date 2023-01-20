@@ -3,6 +3,7 @@ import {
   VsfSelectDropdownProps,
   VsfSelectDropdownSize,
 } from '@storefront-ui/react/components/VsfSelectDropdown';
+import { ChangeEvent } from 'react';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
@@ -95,6 +96,7 @@ function Example() {
       loading: undefined,
       helpText: 'Help text',
       errorText: 'Error text',
+      size: VsfSelectDropdownSize.base,
       requiredText: '*Required',
     },
   );
@@ -106,6 +108,7 @@ function Example() {
         onItemClick={(value) => {
           state.set({ ...state.get, value, open: false });
         }}
+        onChange={(event: ChangeEvent<HTMLInputElement>) => state.set({ ...state.get, value: event?.target.value })}
         onOpenUpdate={(open) => {
           state.set({ ...state.get, open });
         }}
