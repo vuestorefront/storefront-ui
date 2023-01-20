@@ -21,11 +21,11 @@
       </template>
       <template #socialItem="{ social }">
         <component :is="linkTag(social.linkTag)" v-bind="social.bindings">
-          <VsfIconFacebook v-if="social.label === 'Facebook'" />
-          <VsfIconTwitter v-if="social.label === 'Twitter'" />
-          <VsfIconInstagram v-if="social.label === 'Instagram'" />
-          <VsfIconPinterest v-if="social.label === 'Pinterest'" />
-          <VsfIconYoutube v-if="social.label === 'Youtube'" />
+          <VsfIconFacebook v-if="social.label === 'Facebook'" aria-label="Go to facebook page" />
+          <VsfIconTwitter v-if="social.label === 'Twitter'" aria-label="Go to twitter page" />
+          <VsfIconInstagram v-if="social.label === 'Instagram'" aria-label="Go to instagram page" />
+          <VsfIconPinterest v-if="social.label === 'Pinterest'" aria-label="Go to pinterest page" />
+          <VsfIconYoutube v-if="social.label === 'Youtube'" aria-label="Go to youtube page" />
         </component>
       </template>
       <template #bottomLink="{ bottomLink }">
