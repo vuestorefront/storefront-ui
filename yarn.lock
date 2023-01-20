@@ -3378,7 +3378,7 @@ __metadata:
     vue-multiselect: ^2.1.6
     vuepress: ^1.2.0
     vuepress-plugin-clean-urls: ^1.1.2
-    vuepress-theme-vsf-docs: ^1.2.2
+    vuepress-theme-vsf-docs: ^1.2.3
   languageName: unknown
   linkType: soft
 
@@ -3633,7 +3633,6 @@ __metadata:
     vue-tsc: ^1.0.24
   peerDependencies:
     "@vueuse/core": ^9.6.0
-    classnames: ^2.3.2
     jw-paginate: ^1.0.4
   languageName: unknown
   linkType: soft
@@ -24820,9 +24819,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vuepress-theme-vsf-docs@npm:^1.2.2":
-  version: 1.2.2
-  resolution: "vuepress-theme-vsf-docs@npm:1.2.2"
+"vuepress-theme-vsf-docs@npm:^1.2.3":
+  version: 1.2.3
+  resolution: "vuepress-theme-vsf-docs@npm:1.2.3"
   dependencies:
     "@vuepress/plugin-active-header-links": 1.9.7
     "@vuepress/plugin-nprogress": 1.9.7
@@ -24830,7 +24829,7 @@ __metadata:
     iconify-icon: ^1.0.1
     markdown-it-anchor: ^8.6.5
     vuepress-plugin-container: ^2.0.2
-  checksum: a9022b7bdaeaaf0648ef5a5bd68ca0c08090e8addb5c2cb7e1b58359a078e32db6b8d7e01a8be52dba160a72578b652203ea419c20773e687bcd22bde489985e
+  checksum: ddc979256317f27dbdc8ece479ba44901eca6038ca1c5888d813f6d13c57863e1b8785e0372eac4dea3782f0af436ac362faa9f2011d2d7c357bc94b9bb904d0
   languageName: node
   linkType: hard
 

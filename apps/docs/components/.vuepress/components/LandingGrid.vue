@@ -3,7 +3,7 @@
     <RouterLink
       class="hover:-translate-y-1 hover:shadow-md transition-all col-span-12 md:col-span-4 p-4 rounded border bg-[#e8faff]"
       style="background-color: #e8faff"
-      to="/react/components"
+      to="/react/components.html"
     >
       <iconify-icon icon="logos:react" height="48" />
       <h3 class="mt-2 font-bold text-lg dark:text-black">React</h3>
@@ -12,7 +12,7 @@
     <RouterLink
       class="hover:-translate-y-1 hover:shadow-md transition-all col-span-12 md:col-span-4 p-4 rounded border"
       style="background-color: #e3f5ed"
-      to="/vue/components"
+      to="/vue/components.html"
     >
       <iconify-icon icon="logos:vue" height="48" />
       <h3 class="mt-2 font-bold dark:text-black">Vue</h3>

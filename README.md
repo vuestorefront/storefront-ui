@@ -71,14 +71,13 @@
 
 # Storefront UI 2
 
-<p align="center">
-
-**Current status:** Under construction, not suitable for production.<br />
+**Current status:** Under construction, not suitable for production.
+<br />
 Accessible, performance-oriented and elegant out-of-the-box UI framework for eCommerce (and not only).
 <br /><br />
+[See our documentation](https://docs.storefrontui.io/v2/) 📚
+<br /><br />
 Made with ❤️ by <a href="https://github.com/vuestorefront" target="_blank">Vue Storefront</a> team and contributors.
-
-</p>
 
 # What makes it unique?
 

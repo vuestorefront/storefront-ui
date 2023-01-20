@@ -30,17 +30,21 @@ module.exports = {
         text: 'Components',
         match: '(react|vue|components)',
         children: [
-          { text: 'React', link: '/react/components' },
-          { text: 'Vue', link: '/vue/components' },
+          { text: 'React', link: '/react/components.html' },
+          { text: 'Vue', link: '/vue/components.html' },
         ],
       },
+      { text: 'Contributing', link: 'https://github.com/vuestorefront/sfui2/blob/main/CONTRIBUTING.md' },
     ],
     sidebar: {
       '/getting-started/': [
         {
           title: 'Getting Started',
-          collapsable: true,
-          children: [['/getting-started/', 'Setup']],
+          collapsable: false,
+          children: [
+            ['/getting-started/react', 'React'],
+            ['/getting-started/vue', 'Vue'],
+          ],
         },
       ],
       '/react/': [
