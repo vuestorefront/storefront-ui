@@ -1,8 +1,7 @@
 export * from './components/VsfAccordionItem';
 export * from './components/VsfAlert';
 export * from './components/VsfBadge';
-// export * from './components/VsfBreadcrumbs';
-// TODO: next/link has to be removed bundle grow up
+export * from './components/VsfBreadcrumbs';
 export * from './components/VsfButton';
 export * from './components/VsfCard';
 export * from './components/VsfCheckbox';

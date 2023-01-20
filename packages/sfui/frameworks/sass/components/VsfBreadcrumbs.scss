@@ -2,7 +2,7 @@
   @apply inline-flex items-center;
 
   &__ol {
-    @apply flex w-auto text-sm font-normal leading-none text-gray-500 font-body;
+    @apply flex md:flex-wrap w-auto text-sm font-normal leading-none text-gray-500 font-body;
   }
 
   &__item {
