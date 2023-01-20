@@ -13,7 +13,7 @@
     "sync-test": "cpy . ../../apps/preview/next/sfui/tests --cwd=../../../packages/tests/",
     "sync-comp": "cpy . !dist !package ../../../../apps/preview/next/sfui/sfui/frameworks/react/ --cwd=../../../packages/sfui/frameworks/react/",
     "sync": "yarn sync-test && yarn sync-comp",
-    "sync:watch-test": "chokidar --silent \"../../../packages/tests/**/*.{cy.tsx,ts}\" -c \"yarn sync-test\"",
+    "sync:watch-test": "chokidar --silent \"../../../packages/tests/**/*.{cy.tsx,ts,png,jpg,jpeg,json}\" -c \"yarn sync-test\"",
     "sync:watch-comp": "chokidar --silent \"../../../packages/sfui/frameworks/{react,sass}/**/*.{ts,tsx,scss}\" -c \"yarn sync-comp\"",
     "test": "TEST=true && yarn clean && yarn sync && concurrently \"yarn sync:watch-test\" \"yarn sync:watch-comp\" \"yarn cypress open --component\"",
     "test:ci": "TEST=true && yarn clean && yarn sync && yarn percy exec -- cypress run --component",

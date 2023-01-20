@@ -14,6 +14,7 @@ export default defineConfig({
       framework: 'next',
       bundler: 'webpack',
     },
+    fixturesFolder: 'sfui/tests/fixtures',
     experimentalSingleTabRunMode: true,
   },
   e2e: {
