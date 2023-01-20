@@ -56,13 +56,6 @@ function Example() {
         description: 'Set button text.',
         isRequired: true,
       },
-      {
-        type: 'boolean',
-        modelName: 'rounded',
-        propType: 'boolean',
-        description: 'Show rounded variant of card component.',
-        isRequired: false,
-      },
     ],
     {
       title: 'Title',
@@ -72,7 +65,6 @@ function Example() {
       imgAttr: { alt: 'Example image to describe card component content', loading: 'lazy' },
       description: 'There are many variations of passages of Lorem Ipsum available',
       buttonText: 'Button',
-      rounded: false,
     },
   );
 
@@ -86,7 +78,6 @@ function Example() {
         imgAttr={state.get.imgAttr}
         buttonText={state.get.buttonText}
         description={state.get.description}
-        rounded={state.get.rounded}
       />
     </ComponentExample>
   );

@@ -9,7 +9,6 @@
       :img-src="imgSrc"
       :img-attr="imgAttr"
       :button-text="buttonText"
-      :rounded="rounded"
     />
   </ComponentExample>
 </template>
@@ -84,13 +83,6 @@ export default defineComponent({
           description: 'Set button text.',
           isRequired: true,
         },
-        {
-          type: 'boolean',
-          modelName: 'rounded',
-          propType: 'boolean',
-          description: 'Show rounded variant of card component.',
-          isRequired: false,
-        },
       ],
       {
         title: ref('Title'),
@@ -101,7 +93,6 @@ export default defineComponent({
         imgAttr: ref({ alt: 'Example image to describe card component content', loading: 'lazy' }),
         description: ref('There are many variations of passages of Lorem Ipsum available'),
         buttonText: ref('Button'),
-        rounded: ref(false),
       },
     );
   },
