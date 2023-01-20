@@ -50,11 +50,13 @@ const proxySelected = computed({
 
 <template>
   <div>
+
     <VsfDropdownInternal
       v-model="isDropdownOpened"
       class="vsf-combobox-dropdown"
       trigger-class="vsf-combobox-dropdown__trigger"
       dropdown-class="vsf-combobox-dropdown__dropdown"
+      :disabled="disabled"
     >
       <template #trigger>
         <VsfInput
@@ -65,8 +67,6 @@ const proxySelected = computed({
           :aria-controls="listboxId"
           :aria-expanded="isDropdownOpened"
           data-testid="combobox-input"
-          @change="emit('update:modelValue', modelValue)"
-          @input="emit('update:modelValue', modelValue)"
         >
           <template #suffix>
             <div class="vsf-combobox__icons">
