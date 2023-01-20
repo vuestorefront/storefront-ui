@@ -40,13 +40,13 @@ export default function VsfChip({
         disabled={disabled}
         onChange={onSelected}
         value={value}
-        checked={deletable || selected}
+        checked={!disabled && (deletable || selected)}
         data-testid="chip-input"
       />
       <span className="vsf-chip__peer-wrapper">
         {slotPrefix && <span className="vsf-chip__prefix">{slotPrefix}</span>}
         {label && <span className="vsf-chip__label">{label}</span>}
-        {deletable && <VsfIconClose size={getIconSize()} className="vsf-chip__close-icon" />}
+        {deletable && !disabled && <VsfIconClose size={getIconSize()} className="vsf-chip__close-icon" />}
       </span>
     </label>
   );

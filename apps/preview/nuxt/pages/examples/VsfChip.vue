@@ -70,7 +70,7 @@ export default defineComponent({
         disabled: ref(),
         label: ref('Label'),
         slotPrefix: ref(),
-        modelValue: ref(true),
+        modelValue: ref(false),
         value: ref(''),
         deletable: ref(),
       },
