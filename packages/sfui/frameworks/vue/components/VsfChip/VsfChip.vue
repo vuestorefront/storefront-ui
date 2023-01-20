@@ -58,7 +58,7 @@ const getIconSize = computed((): VsfIconSize => {
       type="checkbox"
       :disabled="disabled"
       :value="value"
-      :checked="modelValue"
+      :checked="!disabled && modelValue"
       data-testid="chip-input"
       @change="onSelected"
     />
