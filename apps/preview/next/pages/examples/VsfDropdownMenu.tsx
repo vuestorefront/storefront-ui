@@ -54,13 +54,19 @@ function Example() {
   return (
     <div className="e-page">
       <div className="e-page-component">
-        <VsfDropdownMenu loading={loadingState || state.get.loading} className="w-80">
+        <VsfDropdownMenu
+          loading={loadingState || state.get.loading}
+          className="w-80"
+          role="listbox"
+          aria-label="Items choice"
+        >
           {items.map((item) => (
             <VsfListItemMenu
               key={item.label}
               label={item.label}
               secondaryText={item.secondaryText}
               slotPrefix={<VsfIconDot />}
+              role="option"
             />
           ))}
           <VsfDivider />
@@ -70,6 +76,7 @@ function Example() {
               label={item.label}
               secondaryText={item.secondaryText}
               slotPrefix={<VsfIconDot />}
+              role="option"
             />
           ))}
         </VsfDropdownMenu>

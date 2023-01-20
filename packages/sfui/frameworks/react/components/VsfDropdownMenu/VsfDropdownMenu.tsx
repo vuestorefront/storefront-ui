@@ -10,7 +10,7 @@ export default function VsfDropdownMenu({
   ...attributes
 }: VsfDropdownMenuProps): JSX.Element {
   return (
-    <ul className={classNames('vsf-dropdown-menu', className)} {...attributes} role="menu" data-testid="dropdown-menu">
+    <ul className={classNames('vsf-dropdown-menu', className)} {...attributes} data-testid="dropdown-menu">
       {(loading &&
         (slotLoader || (
           <div className="vsf-dropdown-menu__loader" data-testid="dropdown-menu-loader">
