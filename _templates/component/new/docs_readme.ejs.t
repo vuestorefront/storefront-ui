@@ -11,10 +11,6 @@ hideBreadcrumbs: true
 
 <Generate />
 
-## Figma design
-
-See the design on [Figma]()
-
 ## Props
 
 | Prop name             | Type                       | Default value | Possible values                        |

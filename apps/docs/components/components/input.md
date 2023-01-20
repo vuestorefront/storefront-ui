@@ -8,10 +8,6 @@ Input is a foundational component for inputting text via a keyboard.
 
 <Generate />
 
-## Figma design
-
-See the design on [Figma](https://www.figma.com/file/Cx2jw34waZltkapwq7j7aT/SFUI-2-%7C-Design-Kit-(early-alpha)?node-id=11042%3A14775&t=eAc5joFjkRlZwK2p-0)
-
 ## Props
 
 | Prop name    | Type            | Default value | Possible values                        |

@@ -8,10 +8,6 @@ The product card component contains the most relevant data about the product. Th
 
 <Generate style="height:900px" />
 
-## Figma design
-
-See the design on [Figma](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%9F%9B%A0-SFUI-2.0-%7C-Development?node-id=14013%3A45717)
-
 ## Props
 
 <!-- vue -->

@@ -9,10 +9,6 @@ The Navbar bottom component is used as navigation on mobile devices. Usually has
 
 <Generate />
 
-## Figma design
-
-See the design on [Figma](https://www.figma.com/file/Cx2jw34waZltkapwq7j7aT/SFUI-2-%7C-Design-Kit-(early-alpha)?node-id=11378%3A17353&t=LIzxPt9OJb9F1mXf-1)
-
 ## Props
 
 | Prop name  | Type      | Default value | Possible values |

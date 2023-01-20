@@ -17,10 +17,6 @@ Button text content by default is being wrapped, however this behaviour can be c
 
 <Generate />
 
-## Figma design
-
-See the design on [Figma](https://www.figma.com/file/Cx2jw34waZltkapwq7j7aT/SFUI-2-%7C-Design-Kit-(early-alpha)?node-id=11375%3A16132&t=LIzxPt9OJb9F1mXf-1)
-
 ## Props
 
 | Prop name | Type                | Default value | Possible values                    |

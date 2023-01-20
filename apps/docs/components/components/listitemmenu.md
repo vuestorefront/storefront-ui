@@ -8,10 +8,6 @@ The ListItemMenu component is used in all kind of menus. It can act like a link 
 
 <Generate />
 
-## Figma design
-
-See the design on [Figma](https://www.figma.com/file/Cx2jw34waZltkapwq7j7aT/SFUI-2-%7C-Design-Kit-(early-alpha)?node-id=10928%3A14248&t=LIzxPt9OJb9F1mXf-1)
-
 <!-- vue -->
 
 ## Props
