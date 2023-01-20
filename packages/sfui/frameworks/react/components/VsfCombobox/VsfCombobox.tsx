@@ -36,6 +36,7 @@ export default function VsfCombobox({
         triggerClass="vsf-combobox-dropdown__trigger"
         dropdownClass="vsf-combobox-dropdown__dropdown"
         onOpenUpdate={onOpenChange}
+        disabled={disabled}
         slotTrigger={
           <VsfInput
             size={size}
