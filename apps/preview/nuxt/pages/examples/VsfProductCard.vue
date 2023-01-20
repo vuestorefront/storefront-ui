@@ -21,7 +21,7 @@ import {
 } from '@storefront-ui/vue/components/VsfProductCard/index';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
-import productImage from '../fixture/product-card.webp';
+import productImage from '../../assets/fixture/card.png';
 
 export default defineComponent({
   name: 'VsfProductCardExample',

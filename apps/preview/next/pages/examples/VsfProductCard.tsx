@@ -11,7 +11,7 @@ import { VsfButtonProps } from '@storefront-ui/react/components/VsfButton/types'
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
-import productImage from '../fixture/product-card.webp';
+import productImage from '../../assets/fixture/card.png';
 
 function Example() {
   enum LinkTagTypes {
