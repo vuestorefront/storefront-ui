@@ -38,6 +38,7 @@ export default function VsfSelectDropdown({
   value = '',
   onOpenUpdate,
   onItemClick,
+  onChange,
   ...attributes
 }: VsfSelectDropdownProps): JSX.Element {
   return (
@@ -54,9 +55,14 @@ export default function VsfSelectDropdown({
             size={selectDropdownSize(size)}
             value={value}
             className="vsf-select-dropdown__input"
+            onChange={onChange}
+            readonly
+            readonlyWithoutStyling
             slotSuffix={
               <VsfIconChevronDown
-                className={classNames('vsf-select-dropdown__chevron', { 'vsf-combobox__icons-chevron--rotate': open })}
+                className={classNames('vsf-select-dropdown__chevron', {
+                  'vsf-combobox__icons-chevron--rotate': open && !disabled,
+                })}
               />
             }
           />
@@ -83,7 +89,7 @@ export default function VsfSelectDropdown({
             </VsfDropdownMenu>
           ))}
       </VsfDropdownInternal>
-      {invalid && (
+      {invalid && !disabled && (
         <span className="vsf-select-dropdown__error-text" data-testid="select-dropdown-error-text">
           {errorText}
         </span>

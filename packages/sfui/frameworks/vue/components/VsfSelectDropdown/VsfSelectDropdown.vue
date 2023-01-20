@@ -38,13 +38,6 @@ const emit = defineEmits<{
 
 const isDropdownOpened = ref(false);
 
-const proxySelected = computed({
-  get: () => props.modelValue,
-  set: (value) => {
-    emit('update:modelValue', value);
-  },
-});
-
 const selectDropdownSize = computed(() => {
   switch (props.size) {
     case VsfSelectDropdownSize.sm:
@@ -73,18 +66,20 @@ const selectDropdownSize = computed(() => {
     >
       <template #trigger>
         <VsfInput
-          v-model="proxySelected"
+          :model-value="modelValue"
           :size="selectDropdownSize"
           :label="label"
           :disabled="disabled"
           :invalid="invalid"
+          readonly-without-styling
+          readonly
           :placeholder="placeholder"
           class="vsf-select-dropdown__input"
         >
           <template #suffix>
             <VsfIconChevronDown
               class="vsf-select-dropdown__chevron"
-              :class="{ 'vsf-select-dropdown__chevron--up': isDropdownOpened }"
+              :class="{ 'vsf-select-dropdown__chevron--up': isDropdownOpened && !disabled }"
             />
           </template>
         </VsfInput>
@@ -105,7 +100,7 @@ const selectDropdownSize = computed(() => {
         </slot>
       </VsfDropdownMenu>
     </VsfDropdownInternal>
-    <span v-if="invalid" class="vsf-select-dropdown__error-text" data-testid="select-dropdown-error-text">
+    <span v-if="invalid && !disabled" class="vsf-select-dropdown__error-text" data-testid="select-dropdown-error-text">
       {{ errorText }}
     </span>
     <span v-if="helpText" class="vsf-select-dropdown__help-text" data-testid="select-dropdown-help-text">

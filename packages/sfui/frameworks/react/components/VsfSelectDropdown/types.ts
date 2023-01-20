@@ -1,4 +1,5 @@
 import type { PropsWithChildren } from 'react';
+import type { ChangeEvent } from 'react';
 import type { VsfInputProps } from '../VsfInput';
 import type { VsfSelectProps } from '../VsfSelect';
 import type { VsfDropdownMenuProps } from '../VsfDropdownMenu';
@@ -21,4 +22,5 @@ export interface VsfSelectDropdownProps
   size?: `${VsfSelectDropdownSize}`;
   onOpenUpdate: (isOpen: boolean) => void;
   onItemClick: (selectedItem: string) => void;
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 }

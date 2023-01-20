@@ -5,10 +5,6 @@
     .vsf-input__field {
       @apply caret-transparent cursor-pointer disabled:cursor-not-allowed focus:caret-transparent;
     }
-
-    .vsf-input--readonly, .vsf-input__input-wrapper {
-      @apply bg-white;
-    }
   }
 
   &-internal {
@@ -43,10 +39,6 @@
 
     .vsf-select-dropdown__chevron, .vsf-select-dropdown__help-text, .vsf-input__field {
       @apply opacity-50;
-    }
-
-    .vsf-input--readonly, .vsf-input__input-wrapper {
-      @apply bg-gray-100;
     }
   }
 

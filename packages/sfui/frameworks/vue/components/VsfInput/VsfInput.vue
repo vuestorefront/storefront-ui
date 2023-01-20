@@ -70,6 +70,10 @@ const props = defineProps({
     type: String,
     default: '',
   },
+  readonlyWithoutStyling: {
+    type: Boolean,
+    default: false,
+  },
 });
 const emit = defineEmits<{
   (event: 'update:modelValue', value: string): void;
@@ -91,7 +95,11 @@ const handleFocus = () => {
     :class="[
       'vsf-input',
       `vsf-input--size-${size}`,
-      { 'vsf-input--disabled': disabled, 'vsf-input--invalid': invalid, 'vsf-input--readonly': readonly },
+      {
+        'vsf-input--disabled': disabled,
+        'vsf-input--invalid': invalid && !disabled,
+        'vsf-input--readonly': readonly && !readonlyWithoutStyling,
+      },
     ]"
     data-testid="input"
   >
@@ -121,7 +129,9 @@ const handleFocus = () => {
     </div>
     <div class="vsf-input__bottom-wrapper">
       <div>
-        <p v-if="invalid" class="vsf-input__error-text" data-testid="input-error-text">{{ errorText }}</p>
+        <p v-if="invalid && !disabled" class="vsf-input__error-text" data-testid="input-error-text">
+          {{ errorText }}
+        </p>
         <p v-if="helpText" class="vsf-input__help-text" data-testid="input-help-text">{{ helpText }}</p>
         <p v-if="requiredText && required" class="vsf-input__required-text" data-testid="input-required-text">
           {{ requiredText }}
