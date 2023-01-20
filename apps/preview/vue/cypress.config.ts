@@ -13,6 +13,7 @@ export default defineConfig({
     viewportWidth: 300,
     video: false,
     specPattern: "src/components/sfui/tests/**/*.{cy,spec}.{js,ts,jsx,tsx}",
+    fixturesFolder: "src/components/sfui/tests/fixtures",
     devServer: {
       framework: "vue",
       bundler: "vite",
