@@ -4,7 +4,11 @@ hideBreadcrumbs: true
 ---
 # Input
 
-Input is a foundational component for inputting text via a keyboard.
+A input is a single-line text field allows users to enter any combination of letters, numbers, or symbols. Supports the use of prefix and suffix as text or icon.
+
+Used for forms, for example to enter address details, email, password, credit card numbers.
+
+For search feature use Search component instead of Input.
 
 <Generate />
 
