@@ -3,6 +3,7 @@ import React from "react";
 import { mount, useComponent } from '../../utils/mount';
 
 const {vue: VsfAccordionItemVue, react: VsfAccordionItemReact} = useComponent('VsfAccordionItem');
+import { VsfAccordionItemSize } from "../../../sfui/frameworks/vue/components/VsfAccordionItem/types";
 import VsfAccordionItemBaseObject from "./VsfAccordionItem.PageObject";
 
 describe("VsfAccordionItem", () => {
@@ -10,6 +11,7 @@ describe("VsfAccordionItem", () => {
   let open: boolean;
   let chevronLeft: boolean;
   let slotContent: string;
+  let size: VsfAccordionItemSize;
 
   const page = () => new VsfAccordionItemBaseObject('accordion-item');
 
@@ -20,6 +22,7 @@ describe("VsfAccordionItem", () => {
         props: {
           open,
           title,
+          size,
           chevronLeft
         },
         slots: {
@@ -29,6 +32,7 @@ describe("VsfAccordionItem", () => {
       react: <VsfAccordionItemReact
         title={title}
         open={open}
+        size={size}
         chevronLeft={chevronLeft}
       >{slotContent}</VsfAccordionItemReact>
     });
@@ -51,6 +55,20 @@ describe("VsfAccordionItem", () => {
       .doesNotHaveContent()
       .isNotOpen()
       .makeSnapshot();
+  });
+
+  describe('when prop size is set to ', () => {
+    Object.values(VsfAccordionItemSize).forEach((componentSize) => {
+      describe(`${componentSize}`, () => {
+        it(`should render correct ${componentSize} size`, () => {
+          size = componentSize;
+
+          initializeComponent();
+          
+          page().makeSnapshot();
+        });
+      });
+    });
   });
 
   describe('when accordion prop open=true and filled', () => {

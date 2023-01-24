@@ -10,11 +10,12 @@ The AccordionItem component is built on native `details` html element. Click on 
 
 ## Props
 
-| Prop name   | Type    | Default value | Possible values |
-| ----------- | ------- | ------------- | --------------- |
-| open        | Boolean | false         |                 |
-| title       | String  | ''            |                 |
-| chevronLeft | Boolean | false         |                 |
+| Prop name   | Type                  | Default value | Possible values |
+| ----------- | -------------------   | ------------- | --------------- |
+| open        | boolean               | false         |                 |
+| title       | string                | ''            |                 |
+| chevronLeft | boolean               | false         |                 |
+| size        | VsfAccordionItemSize  | base          | sm, base, lg    |
 <!-- react -->
 | slotPrefix | ReactNode  |             |                                        |                                        |
 | slotSuffix | ReactNode  |             |                                        |                                        |

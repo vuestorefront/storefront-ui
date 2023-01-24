@@ -1,10 +1,12 @@
 import classNames from 'classnames';
 import type { VsfAccordionItemProps } from './types';
 import VsfIconTriangleUp from '../VsfIcons/VsfIconTriangleUp';
+import { VsfAccordionItemSize } from './types';
 
 export default function VsfAccordionItem({
   open,
   title,
+  size = VsfAccordionItemSize.base,
   chevronLeft,
   slotPrefix,
   slotSuffix,
@@ -16,10 +18,15 @@ export default function VsfAccordionItem({
   const classes = classNames([className, 'vsf-accordion-item']);
   return (
     <details className={classes} open={open} onToggle={onToggle} {...attributes} data-testid="accordion-item">
-      <summary className={`${chevronLeft && 'vsf-accordion-item__header--right'} vsf-accordion-item__header`}>
+      <summary
+        className={classNames('vsf-accordion-item__header', { 'vsf-accordion-item__header--right': chevronLeft })}
+      >
         {slotPrefix || (
           <span
-            className={`${chevronLeft && 'vsf-accordion-item__title--right'} vsf-accordion-item__title`}
+            className={classNames({
+              'vsf-accordion-item__title--right': chevronLeft,
+              [`vsf-accordion-item__title vsf-accordion-item__header--${size}`]: true,
+            })}
             data-testid="accordion-item-title"
           >
             {title}
