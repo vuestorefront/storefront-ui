@@ -1,4 +1,4 @@
-# @storefront-ui/react
+# @storefront-ui/vue
 
 Storefront-ui design system components for vue.
 
