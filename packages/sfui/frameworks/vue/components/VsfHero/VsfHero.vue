@@ -5,7 +5,7 @@ import { VsfHeroDirection } from './types';
 
 const props = defineProps({
   direction: {
-    type: String as PropType<VsfHeroDirection>,
+    type: String as PropType<`${VsfHeroDirection}`>,
     default: VsfHeroDirection.horizontal,
   },
   bgImgMobileSrc: {
@@ -25,15 +25,7 @@ const variables = ref({
 
 <template>
   <div class="vsf-hero" :style="variables" data-testid="hero">
-    <div
-      :class="[
-        'vsf-hero__container',
-        {
-          'vsf-hero__container--horizontal': direction === VsfHeroDirection.horizontal,
-          'vsf-hero__container--horizontal-reverse': direction === VsfHeroDirection.horizontalReverse,
-        },
-      ]"
-    >
+    <div :class="['vsf-hero__container', `vsf-hero__container--${direction}`]">
       <div class="vsf-hero__media">
         <slot name="media" />
       </div>

@@ -1,0 +1,34 @@
+.vsf-display {
+  &__container {
+    @apply flex items-center mx-auto;
+
+    &--horizontal {
+      @apply md:flex-row-reverse;
+    }
+
+    &--horizontal-reverse {
+      @apply md:flex-row;
+
+      .vsf-display__media {
+        @apply md:items-end;
+      }
+    }
+
+    &--vertical {
+      @apply flex-col;
+
+      .vsf-display__content {
+        @apply flex flex-col items-center text-center;
+      }
+    }
+  }
+
+  &__media {
+    // TODO: replace 188px with CSS var
+    @apply flex flex-col min-w-[188px] md:min-w-[320px] basis-2/4 md:items-start md:overflow-hidden;
+  }
+
+  &__content {
+    @apply p-4 md:p-10 md:flex md:flex-col md:justify-center md:items-start md:basis-2/4;
+  }
+}
