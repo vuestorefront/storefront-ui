@@ -18,12 +18,7 @@ export default function Hero({
 
   return (
     <div style={variables} className={classNames('vsf-hero', className)} data-testid="hero">
-      <div
-        className={classNames('vsf-hero__container', {
-          'vsf-hero__container--horizontal': direction === VsfHeroDirection.horizontal,
-          'vsf-hero__container--horizontal-reverse': direction === VsfHeroDirection.horizontalReverse,
-        })}
-      >
+      <div className={classNames('vsf-hero__container', `vsf-hero__container--${direction}`)}>
         <div className="vsf-hero__media">{slotMedia}</div>
         <div className="vsf-hero__content">{children}</div>
       </div>
