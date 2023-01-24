@@ -2,10 +2,22 @@
   @apply w-full text-gray-900 normal-case border-none rounded-none shadow-none font-body;
 
   &__header {
-    @apply w-full inline-flex justify-between items-center p-4 hover:shadow-none hover:text-gray-900 hover:bg-gray-100 active:text-gray-900 cursor-pointer;
+    @apply w-full inline-flex justify-between items-center pl-4 pr-3 hover:shadow-none hover:text-gray-900 hover:bg-gray-100 active:text-gray-900 cursor-pointer;
 
     &--right {
       @apply flex-row-reverse justify-end;
+    }
+
+    &--sm {
+      @apply py-1.5;
+    }
+
+    &--base {
+      @apply py-2;
+    }
+
+    &--lg {
+      @apply py-4;
     }
 
     &::-webkit-details-marker {

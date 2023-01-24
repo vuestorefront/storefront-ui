@@ -1,5 +1,7 @@
 <script lang="ts" setup>
+import type { PropType } from 'vue';
 import { VsfIconTriangleUp } from '../VsfIcons';
+import { VsfAccordionItemSize } from './types';
 
 defineProps({
   open: {
@@ -14,6 +16,10 @@ defineProps({
     type: Boolean,
     default: false,
   },
+  size: {
+    type: String as PropType<`${VsfAccordionItemSize}`>,
+    default: VsfAccordionItemSize.base,
+  },
 });
 defineEmits<{
   (event: 'toggle', value: Event): void;
@@ -22,7 +28,13 @@ defineEmits<{
 
 <template>
   <details class="vsf-accordion-item" :open="open" data-testid="accordion-item" @toggle="$emit('toggle', $event)">
-    <summary :class="[{ 'vsf-accordion-item__header--right': chevronLeft }, 'vsf-accordion-item__header']">
+    <summary
+      :class="[
+        { 'vsf-accordion-item__header--right': chevronLeft },
+        `vsf-accordion-item__header--${size}`,
+        'vsf-accordion-item__header',
+      ]"
+    >
       <slot name="prefix">
         <span
           :class="[{ 'vsf-accordion-item__title--right': chevronLeft }, 'vsf-accordion-item__title']"
