@@ -1,5 +1,4 @@
-import type { PropsWithChildren } from 'react';
-import type { ChangeEvent } from 'react';
+import type { PropsWithChildren, ChangeEvent } from 'react';
 import type { VsfInputProps } from '../VsfInput';
 import type { VsfSelectProps } from '../VsfSelect';
 import type { VsfDropdownMenuProps } from '../VsfDropdownMenu';

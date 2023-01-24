@@ -22,7 +22,7 @@ export default function VsfBadge({
       {!invisible && !!value && (
         <div className="vsf-badge__wrapper">
           <div className={classNames('vsf-badge__badge', dot ? 'vsf-badge__dot' : 'vsf-badge__base', className)}>
-            {dot ? value : undefined}
+            {dot || value}
           </div>
         </div>
       )}
