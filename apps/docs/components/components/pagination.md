@@ -4,62 +4,48 @@ hideBreadcrumbs: true
 ---
 # Pagination
 
-Pagination component is a common element to navigate through pages containing many items like products in lists. 
+Pagination component is a common element to navigate through pages containing many items like products in lists.
 
 <Generate />
 
-<!-- react -->
-# Props
+## Props
 
 | Prop name        | Type         | Default value | Possible values      |
 |------------------|--------------|---------------|----------------------|
-| `totalItems`     | number       |               |                      |
-| `currentPage`    | number       |               |                      |
-| `itemsPerPage`   | number       |               |                      |
-| `maxVisiblePages`| number       |               |                      |
-| `slotPrefix`     | ReactNode    |               |                      |
-| `slotSuffix`     | ReactNode    |               |                      |
-| `children`       | ReactNode    |               |                      |
-| className        | String       |               |                      |
-
-
-## Events
-
-| Event name          |            Trigger             |
-| ------------------- | ------------------------------ |
-| `handlePageUpdate`  |      click on any page         |
+| totalItems     | `number`       | `0`           |                      |
+| currentPage    | `number`       | `0`           |                      |
+| itemsPerPage   | `number`       | `0`           |                      |
+| maxVisiblePages| `number`       | `undefined`   |                      |
+| prev           | `string`       | `Previous`    |                      |
+| next           | `string`       | `Next`        |                      |
+| hideButtonLabels | `boolean`    | `false`       |                      |
+<!-- react -->
+| slotPrefix     | `ReactNode`    |               |                      |
+| slotSuffix     | `ReactNode`    |               |                      |
+| children       | `ReactNode`    |               |                      |
+| className      | `string`       |               |                      |
+| onPageUpdate   | `Function`     |               |                      |
 <!-- end react -->
 
 <!-- vue -->
-## Props
-
-| Prop name        | Type      | Default value | Possible values      |
-|------------------|-----------|---------------|----------------------|
-| `totalItems`     | number    |               |                      |
-| `currentPage`    | number    |               |                      |
-| `itemsPerPage`   | number    |               |                      |
-| `maxVisiblePages`| number    |               |                      |
-
-
 ## Slots
 
 | Slot name      |            Description            |
 | -------------- | --------------------------------- |
-| `default`      | to replace the middle pages       |
-| `slotPrefix`   | to replace the start page         |
-| `slotSuffix`   | to replace the end page           |
-
+| default      | to replace the middle pages       |
+| slotPrefix   | to replace the start page         |
+| slotSuffix   | to replace the end page           |
 
 ## Events
 
 | Event name              |            Trigger             |
 | ----------------------- | ------------------------------ |
-| `update:current-page`   |      click on button           |
+| update:current-page   |      click on button           |
 <!-- end vue -->
 
 ## Accessibility notes
 
-Each item has proper `aria-label` property added and `aria-current` for the page that is currently opened. 
+Each item has proper `aria-label` property added and `aria-current` for the page that is currently opened.
 
 ## Source code
 
