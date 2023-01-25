@@ -35,10 +35,6 @@ const props = defineProps({
     type: String as PropType<`${VsfQuantitySelectorSize}`>,
     default: VsfQuantitySelectorSize.base,
   },
-  inputAriaLabel: {
-    type: String,
-    default: 'Quantity Selector',
-  },
   inputId: {
     type: String,
     default: 'qty-selector',
@@ -46,6 +42,18 @@ const props = defineProps({
   decimal: {
     type: Number,
     default: null,
+  },
+  ariaLabelDecrease: {
+    type: String,
+    default: 'decrease',
+  },
+  ariaLabelIncrease: {
+    type: String,
+    default: 'increase',
+  },
+  arialLabelInput: {
+    type: String,
+    default: 'Quantity Selector',
   },
 });
 
@@ -84,11 +92,10 @@ function handleOnBlur() {
     data-testid="qty-selector"
   >
     <div class="vsf-qty-selector__wrapper">
-      <!-- TODO: i18n aria-label -->
       <VsfButton
         :variant="VsfButtonVariant.tertiary"
         :aria-controls="inputId"
-        aria-label="decrease"
+        :aria-label="ariaLabelDecrease"
         class="vsf-qty-selector__decrease"
         tile
         :size="buttonSize"
@@ -109,7 +116,7 @@ function handleOnBlur() {
         role="spinbutton"
         class="vsf-qty-selector__input"
         :disabled="disabled"
-        :aria-label="inputAriaLabel"
+        :aria-label="arialLabelInput"
         :aria-disabled="disabled"
         :min="minValue"
         :max="maxValue"
@@ -118,11 +125,10 @@ function handleOnBlur() {
         @blur="handleOnBlur"
       />
 
-      <!-- TODO: i18n aria-label -->
       <VsfButton
         :variant="VsfButtonVariant.tertiary"
         :aria-controls="inputId"
-        aria-label="increase"
+        :aria-label="ariaLabelIncrease"
         class="vsf-qty-selector__increase"
         tile
         :disabled="increaseDisabled"
@@ -135,7 +141,6 @@ function handleOnBlur() {
         </template>
       </VsfButton>
     </div>
-
     <slot></slot>
   </div>
 </template>

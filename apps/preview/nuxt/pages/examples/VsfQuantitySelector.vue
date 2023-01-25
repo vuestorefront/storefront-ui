@@ -112,15 +112,27 @@ export default defineComponent({
         },
         {
           type: 'text',
-          modelName: 'inputAriaLabel',
+          modelName: 'inputId',
+          propType: 'string',
+          propDefaultValue: 'qty-selector',
+        },
+        {
+          type: 'text',
+          modelName: 'arialLabelInput',
           propType: 'string',
           propDefaultValue: 'Quantity Selector',
         },
         {
           type: 'text',
-          modelName: 'inputId',
+          modelName: 'ariaLabelDecrease',
           propType: 'string',
-          propDefaultValue: 'qty-selector',
+          propDefaultValue: 'decrease',
+        },
+        {
+          type: 'text',
+          modelName: 'ariaLabelIncrease',
+          propType: 'string',
+          propDefaultValue: 'increase',
         },
       ],
       {
@@ -132,7 +144,9 @@ export default defineComponent({
         size: ref(VsfQuantitySelectorSize.base),
         disabled: ref(false),
         block: ref(false),
-        inputAriaLabel: ref(),
+        arialLabelInput: ref(),
+        ariaLabelDecrease: ref(),
+        ariaLabelIncrease: ref(),
         inputId: ref(),
       },
     );

@@ -10,7 +10,6 @@ export type VsfQuantitySelectorProps = PropsWithStyle &
   PropsWithChildren & {
     value: number;
     inputId?: string;
-    inputAriaLabel?: string;
     minValue?: number;
     maxValue?: number;
     disabled?: boolean;
@@ -18,5 +17,8 @@ export type VsfQuantitySelectorProps = PropsWithStyle &
     size?: `${VsfQuantitySelectorSize}`;
     block?: boolean;
     decimal?: number;
+    ariaLabelInput?: string;
+    ariaLabelDecrease?: string;
+    ariaLabelIncrease?: string;
     onChange: (value: number) => void;
   };
