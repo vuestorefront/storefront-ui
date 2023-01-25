@@ -7,9 +7,9 @@ import type { VsfPaginationProps } from './types';
 import VsfDivider from '../VsfDivider/VsfDivider';
 
 export default function VsfPagination({
-  totalItems,
+  totalItems = 0,
   currentPage = 0,
-  itemsPerPage,
+  itemsPerPage = 0,
   maxVisiblePages,
   onPageUpdate,
   slotPrefix,
@@ -20,6 +20,7 @@ export default function VsfPagination({
   slotNext,
   children,
   className,
+  ariaLabelButton = (page: number, totalPages: number) => `Page ${page} of ${totalPages}`,
   hideButtonLabels = false,
   ...attributes
 }: VsfPaginationProps): JSX.Element {
@@ -46,8 +47,8 @@ export default function VsfPagination({
         className={classNames('vsf-pagination', className)}
         role="navigation"
         aria-label="pagination"
-        {...attributes}
         data-testid="pagination"
+        {...attributes}
       >
         {slotPrev || (
           <VsfButton
@@ -75,10 +76,9 @@ export default function VsfPagination({
                     'vsf-pagination__item--selected': selectedPage === 1,
                   })}
                 >
-                  {/* TODO: i18n aria-label */}
                   <VsfButton
                     className="vsf-pagination__button"
-                    aria-label={`Page 1 of ${pagination.totalPages}`}
+                    aria-label={ariaLabelButton(1, pagination.totalPages)}
                     aria-current={selectedPage === 1}
                     onClick={() => onPageChange(1)}
                     variant={VsfButtonVariant.tertiary}
@@ -114,10 +114,9 @@ export default function VsfPagination({
                     selectedPage === page && 'vsf-pagination__item--selected',
                   )}
                 >
-                  {/* TODO: i18n aria-label */}
                   <VsfButton
                     className="vsf-pagination__button"
-                    aria-label={`Page ${page} of ${pagination.totalPages}`}
+                    aria-label={ariaLabelButton(page, pagination.totalPages)}
                     aria-current={selectedPage === page}
                     variant={VsfButtonVariant.tertiary}
                     onClick={() => onPageChange(page)}
@@ -152,10 +151,9 @@ export default function VsfPagination({
                     selectedPage === pagination.totalPages && 'vsf-pagination__item--selected',
                   )}
                 >
-                  {/* TODO: i18n aria-label */}
                   <VsfButton
                     className="vsf-pagination__button"
-                    aria-label={`Page ${pagination.totalPages} of ${pagination.totalPages}`}
+                    aria-label={ariaLabelButton(pagination.totalPages, pagination.totalPages)}
                     aria-current={pagination.totalPages === selectedPage}
                     onClick={() => onPageChange(pagination.totalPages)}
                     variant={VsfButtonVariant.tertiary}

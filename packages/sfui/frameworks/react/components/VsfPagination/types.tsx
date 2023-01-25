@@ -2,7 +2,7 @@ import type { ReactNode, PropsWithChildren } from 'react';
 import type { PropsWithStyle } from '../../shared/types';
 
 export interface VsfPaginationProps extends PropsWithStyle, PropsWithChildren {
-  totalItems: number;
+  totalItems?: number;
   currentPage?: number;
   itemsPerPage?: number;
   maxVisiblePages?: number;
@@ -15,5 +15,6 @@ export interface VsfPaginationProps extends PropsWithStyle, PropsWithChildren {
   children?: ReactNode;
   slotPrefix?: ReactNode;
   slotSuffix?: ReactNode;
+  ariaLabelButton?: (page: number, totalPages: number) => string;
   onPageUpdate?: (currectPage: number) => void;
 }
