@@ -74,6 +74,7 @@ const selectDropdownSize = computed(() => {
           readonly-without-styling
           readonly
           :placeholder="placeholder"
+          :aria-expanded="undefined"
           class="vsf-select-dropdown__input"
         >
           <template #suffix>
