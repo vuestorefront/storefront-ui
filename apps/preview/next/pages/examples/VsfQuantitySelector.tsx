@@ -84,15 +84,27 @@ function Example() {
       },
       {
         type: 'text',
-        modelName: 'inputAriaLabel',
+        modelName: 'inputId',
+        propType: 'string',
+        propDefaultValue: 'qty-selector',
+      },
+      {
+        type: 'text',
+        modelName: 'arialLabelInput',
         propType: 'string',
         propDefaultValue: 'Quantity Selector',
       },
       {
         type: 'text',
-        modelName: 'inputId',
+        modelName: 'ariaLabelDecrease',
         propType: 'string',
-        propDefaultValue: 'qty-selector',
+        propDefaultValue: 'decrease',
+      },
+      {
+        type: 'text',
+        modelName: 'ariaLabelIncrease',
+        propType: 'string',
+        propDefaultValue: 'decrease',
       },
     ],
     {
@@ -104,7 +116,9 @@ function Example() {
       size: VsfQuantitySelectorSize.base,
       disabled: false,
       block: false,
-      inputAriaLabel: undefined,
+      arialLabelInput: undefined,
+      ariaLabelDecrease: undefined,
+      ariaLabelIncrease: undefined,
       inputId: undefined,
     },
   );
@@ -121,7 +135,9 @@ function Example() {
         maxValue={Number(state.get.maxValue)}
         disabled={state.get.disabled}
         block={state.get.block}
-        inputAriaLabel={state.get.inputAriaLabel}
+        ariaLabelInput={state.get.arialLabelInput}
+        ariaLabelDecrease={state.get.ariaLabelDecrease}
+        ariaLabelIncrease={state.get.ariaLabelIncrease}
         inputId={state.get.inputId}
         onChange={onChange}
         decimal={Number(state.get.decimal)}

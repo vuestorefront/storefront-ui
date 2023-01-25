@@ -12,46 +12,42 @@ The QuantitySelector allows the selection of a digital value and the display of 
 
 | Prop name      | Type                       | Default value       | Possible values |
 | -------------- | -------------------------- | ------------------- | --------------- |
-| minValue       | `Number`                   | 1                   |                 |
-| maxValue       | `Number`                   | `Infinity`          |                 |
-| step           | `Number`                   | 1                   |                 |
+<!-- vue -->
+| modelValue | `number` |               |                 |
+<!-- end vue -->
+<!-- react -->
+| value     | `number`    |               |                 |
+<!-- end react -->
+| minValue       | `number`                   | `1`                  |                 |
+| maxValue       | `number`                   | `Infinity`          |                 |
+| step           | `number`                   | `1`                   |                 |
 | size           | `VsfQuantitySelectorSize` | `base`              | `base`, `lg`    |
-| disabled       | `Boolean`                  | `false`             |                 |
-| block          | `Boolean`                  | `false`             |                 |
-| inputAriaLabel | `String`                   | `Quantity Selector` |                 |
-| inputId        | `String`                   | `qty-selector`      |                 |
-| decimal        | `Number`                   |                     |                 |
-
-### React only:
-
-| Prop name | Type        | Default value | Possible values |
-| --------- | ----------- | ------------- | --------------- |
+| disabled       | `boolean`                  | `false`             |                 |
+| block          | `boolean`                  | `false`             |                 |
+| ariaLabelInput | `string`                   | `Quantity Selector` |                 |
+| ariaLabelDecrease | `string`                   | `decrease` |                 |
+| ariaLabelIncrease | `string`                   | `increase` |                 |
+| inputId        | `string`                   | `qty-selector`      |                 |
+| decimal        | `number`                   |                     |                 |
+<!-- react -->
 | children  | `ReactNode` |               |                 |
-| className | `String`    |               |                 |
+| className | `string`    |               |                 |
 | onChange  | `Function`  |               |                 |
-| value     | `Number`    |               |                 |
+<!-- end react -->
 
-### Vue only:
-
-| Prop name  | Type     | Default value | Possible values |
-| ---------- | -------- | ------------- | --------------- |
-| modelValue | `Number` |               |                 |
-
+<!-- vue -->
 ## Slots
 
-### Vue only:
-
-| Slot name |            Description            |
-| --------- | :-------------------------------: |
+| Slot name | Description      |
+| --------- | ---------------- |
 | default   | default slot for optional content |
 
 ## Events
 
-### Vue only:
-
-| Event name        |            Trigger            |
-| ----------------- | :---------------------------: |
-| update:modelValue | triggers v-model update event |
+| Event name        | Trigger                      |
+| ----------------- | ---------------------------- |
+| update:modelValue | triggers when value is changed |
+<!-- end vue -->
 
 ## Accessibility notes
 
@@ -60,5 +56,9 @@ The QuantitySelector allows the selection of a digital value and the display of 
 
 ## Source code
 
+<!-- vue -->
 <<<../../../packages/sfui/frameworks/vue/components/VsfQuantitySelector/VsfQuantitySelector.vue
+<!-- end vue -->
+<!-- react -->
 <<< ../../../packages/sfui/frameworks/react/components/VsfQuantitySelector/VsfQuantitySelector.tsx
+<!-- end react -->

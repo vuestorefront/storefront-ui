@@ -10,23 +10,18 @@ NavigationTop is placeholder for navigation menu, image blocks etc. It purpose i
 
 ## Props
 
-<!-- react -->
-
 | Prop name | Type                      | Default value | Possible values                    |
 | --------- | ------------------------- | ------------- | ---------------------------------- |
 | variant   | `VsfNavigationTopVariant` | `auto`        | `none`, `auto`, `half-3`, `3-half` |
+<!-- react -->
 | open      | `boolean`                 | `false`       |                                    |
-
+| onOpenChange | when navigation is show/hide |
 <!-- end react -->
 <!-- vue -->
-
-| Prop name  | Type                      | Default value | Possible values                    |
-| ---------- | ------------------------- | ------------- | ---------------------------------- |
-| variant    | `VsfNavigationTopVariant` | `auto`        | `none`, `auto`, `half-3`, `3-half` |
 | modelValue | `boolean`                 | `false`       |                                    |
-
 <!-- end vue -->
 
+<!-- vue -->
 ## Slots
 
 | Slot name | Description      |
@@ -34,16 +29,6 @@ NavigationTop is placeholder for navigation menu, image blocks etc. It purpose i
 | default   | columns elements |
 
 ## Events
-
-<!-- react -->
-
-| Event name   | Trigger                      |
-| ------------ | ---------------------------- |
-| onOpenChange | when navigation is show/hide |
-
-<!-- end react -->
-
-<!-- vue -->
 
 | Event name        | Trigger                      |
 | ----------------- | ---------------------------- |
@@ -56,12 +41,8 @@ NavigationTop is placeholder for navigation menu, image blocks etc. It purpose i
 ## Source code
 
 <!-- vue -->
-
 <<<../../../packages/sfui/frameworks/vue/components/VsfNavigationTop/VsfNavigationTop.vue
-
 <!-- end vue -->
 <!-- react -->
-
 <<<../../../packages/sfui/frameworks/react/components/VsfNavigationTop/VsfNavigationTop.tsx
-
 <!-- end react -->

@@ -7,7 +7,6 @@ import { VsfButtonSize, VsfButton, VsfButtonVariant } from '../VsfButton';
 import { VsfQuantitySelectorProps, VsfQuantitySelectorSize } from './types';
 
 export default function VsfQuantitySelector({
-  inputAriaLabel = 'Quantity Selector',
   inputId = 'qty-selector',
   minValue = 1,
   maxValue = Infinity,
@@ -20,6 +19,9 @@ export default function VsfQuantitySelector({
   className,
   children,
   decimal,
+  ariaLabelDecrease = 'decrease',
+  ariaLabelIncrease = 'increase',
+  ariaLabelInput = 'Quantity Selector',
   ...attributes
 }: VsfQuantitySelectorProps) {
   const [innerValue, setInnerValue] = useState<number>(value);
@@ -68,7 +70,7 @@ export default function VsfQuantitySelector({
         <VsfButton
           variant={VsfButtonVariant.tertiary}
           aria-controls={inputId}
-          aria-label="decrease"
+          aria-label={ariaLabelDecrease}
           className="vsf-qty-selector__decrease"
           tile
           disabled={decreaseDisabled}
@@ -86,7 +88,7 @@ export default function VsfQuantitySelector({
           className="vsf-qty-selector__input"
           value={innerValue}
           disabled={disabled}
-          aria-label={inputAriaLabel}
+          aria-label={ariaLabelInput}
           aria-disabled={disabled}
           onChange={handleOnChange}
           onBlur={handleOnBlur}
@@ -98,7 +100,7 @@ export default function VsfQuantitySelector({
         <VsfButton
           variant={VsfButtonVariant.tertiary}
           aria-controls={inputId}
-          aria-label="increase"
+          aria-label={ariaLabelIncrease}
           className="vsf-qty-selector__increase"
           tile
           disabled={increaseDisabled}
