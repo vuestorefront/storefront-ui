@@ -1,12 +1,12 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
-import React from "react";
+import React from 'react';
 import { mount, useComponent } from '../../utils/mount';
 
 const { vue: VsfListItemMenuVue, react: VsfListItemMenuReact } = useComponent('VsfListItemMenu');
 import { VsfListItemMenuSize } from '../../../sfui/frameworks/vue/components/VsfListItemMenu/types';
-import VsfListItemMenuBaseObject from "./VsfListItemMenu.PageObject";
+import VsfListItemMenuBaseObject from './VsfListItemMenu.PageObject';
 
-describe("VsfListItemMenu", () => {
+describe('VsfListItemMenu', () => {
   let disabled: boolean;
   let counter: string;
   let label: string;
@@ -30,33 +30,33 @@ describe("VsfListItemMenu", () => {
           link,
           truncate,
           selected,
-          counter
+          counter,
         },
       },
-      react: <VsfListItemMenuReact
-        disabled={disabled}
-        secondaryText={secondaryText}
-        link={link}
-        is-truncated={truncate}
-        selected={selected}
-        label={label}
-        size={size}
-        counter={counter}
-    />
-    })
-  }
+      react: (
+        <VsfListItemMenuReact
+          disabled={disabled}
+          secondaryText={secondaryText}
+          link={link}
+          is-truncated={truncate}
+          selected={selected}
+          label={label}
+          size={size}
+          counter={counter}
+        />
+      ),
+    });
+  };
 
   beforeEach(() => {
-    cy.viewport(300, 300)
-
+    cy.viewport(300, 300);
   });
 
   afterEach(() => {
     size = VsfListItemMenuSize.base;
-    label = 'Label'
-    secondaryText = 'Secondary text'
+    label = 'Label';
+    secondaryText = 'Secondary text';
   });
-
 
   it('initial state', () => {
     initializeComponent();
@@ -65,23 +65,23 @@ describe("VsfListItemMenu", () => {
   });
 
   describe('when prop disabled=true', () => {
-    before(() => disabled = true);
-    after(() => disabled = false);
+    before(() => (disabled = true));
+    after(() => (disabled = false));
     it(`should render as disabled`, () => {
       initializeComponent();
 
-      page().isDisabled()
+      page().isDisabled();
       page().makeSnapshot();
     });
   });
 
   describe('when prop selected=true', () => {
-    before(() => selected = true);
-    after(() => selected = false);
+    before(() => (selected = true));
+    after(() => (selected = false));
     it(`should render as selected`, () => {
       initializeComponent();
 
-      page().isSelected()
+      page().isSelected();
       page().makeSnapshot();
     });
   });
@@ -100,50 +100,42 @@ describe("VsfListItemMenu", () => {
   });
 
   describe('when prop label is filled in', () => {
-    before(() => label = 'Label');
-    after(() => label = '');
+    before(() => (label = 'Label'));
+    after(() => (label = ''));
     it(`should render with label`, () => {
       initializeComponent();
 
-      page()
-        .hasLabel('Label')
-        .makeSnapshot();
+      page().hasLabel('Label').makeSnapshot();
     });
   });
 
   describe('when prop counter is filled in', () => {
-    before(() => counter = '2');
-    after(() => counter = '');
+    before(() => (counter = '2'));
+    after(() => (counter = ''));
     it(`should render a correct counter value`, () => {
       initializeComponent();
 
-      page()
-        .hasCounter('2')
-        .makeSnapshot();
+      page().hasCounter('2').makeSnapshot();
     });
   });
 
   describe('when prop secondaryText is filled in', () => {
-    before(() => secondaryText = 'Secondary text');
-    after(() => secondaryText = '');
+    before(() => (secondaryText = 'Secondary text'));
+    after(() => (secondaryText = ''));
     it(`should render with secondary text`, () => {
       initializeComponent();
 
-      page()
-        .hasSecondaryText('Secondary text')
-        .makeSnapshot();
+      page().hasSecondaryText('Secondary text').makeSnapshot();
     });
   });
   // TODO: adjust when Link component done
   describe('when prop link is set', () => {
-    before(() => link = 'http://somelink.com');
-    after(() => link = '');
+    before(() => (link = 'http://somelink.com'));
+    after(() => (link = ''));
     it(`should render as <a> element`, () => {
       initializeComponent();
 
-      page()
-        .hasTag('A')
-        .makeSnapshot();
+      page().hasTag('A').makeSnapshot();
     });
   });
 });

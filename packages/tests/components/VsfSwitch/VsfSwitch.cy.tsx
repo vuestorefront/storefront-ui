@@ -1,18 +1,18 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
-import React from "react";
+import React from 'react';
 import { mount, useComponent } from '../../utils/mount';
 
-const {vue: VsfSwitchVue, react: VsfSwitchReact} = useComponent('VsfSwitch');
+const { vue: VsfSwitchVue, react: VsfSwitchReact } = useComponent('VsfSwitch');
 import { VsfSwitchAlignment } from '../../../sfui/frameworks/vue/components/VsfSwitch/types';
-import VsfSwitchBaseObject from "./VsfSwitch.PageObject";
+import VsfSwitchBaseObject from './VsfSwitch.PageObject';
 
-describe("VsfSwitch", () => {
+describe('VsfSwitch', () => {
   let alignment: VsfSwitchAlignment;
   let disabled: boolean;
   let label: string;
   let helpText: string;
   let onChangeSpy: Cypress.Agent<sinon.SinonSpy>;
-  let value = "value";
+  let value = 'value';
 
   const page = () => new VsfSwitchBaseObject('checkbox');
 
@@ -27,18 +27,20 @@ describe("VsfSwitch", () => {
           helpText,
           value,
           modelValue: false,
-          'onUpdate:modelValue': onChangeSpy
+          'onUpdate:modelValue': onChangeSpy,
         },
       },
-      react: <VsfSwitchReact
-        disabled={disabled}
-        alignment={alignment}
-        helpText={helpText}
-        label={label}
-        onChange={onChangeSpy}
-    />
-    })
-  }
+      react: (
+        <VsfSwitchReact
+          disabled={disabled}
+          alignment={alignment}
+          helpText={helpText}
+          label={label}
+          onChange={onChangeSpy}
+        />
+      ),
+    });
+  };
 
   beforeEach(() => {
     label = 'Label';
@@ -67,14 +69,12 @@ describe("VsfSwitch", () => {
   });
 
   describe('when prop disabled=true', () => {
-    before(() => disabled = true);
-    after(() => disabled = false);
+    before(() => (disabled = true));
+    after(() => (disabled = false));
     it(`should render as disabled`, () => {
       initializeComponent();
 
-      page()
-        .isDisabled()
-        .makeSnapshot();
+      page().isDisabled().makeSnapshot();
     });
   });
 
@@ -82,21 +82,21 @@ describe("VsfSwitch", () => {
     it(`should render with label`, () => {
       initializeComponent();
 
-      page()
-        .hasLabel('Label')
-        .makeSnapshot();
+      page().hasLabel('Label').makeSnapshot();
     });
   });
 
   describe('when prop helpText is visible', () => {
-    before(() => { helpText = 'Help'});
-    after(() =>{ helpText = ''});
+    before(() => {
+      helpText = 'Help';
+    });
+    after(() => {
+      helpText = '';
+    });
     it('should render with help text', () => {
       initializeComponent();
 
-      page()
-        .hasHelpText("Help")
-        .makeSnapshot();
+      page().hasHelpText('Help').makeSnapshot();
     });
   });
 
@@ -108,7 +108,7 @@ describe("VsfSwitch", () => {
       cy.then(() => {
         expect(onChangeSpy).calledOnceWith();
         page().makeSnapshot();
-      })
+      });
     });
   });
 });

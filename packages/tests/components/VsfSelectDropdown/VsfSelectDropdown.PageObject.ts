@@ -1,7 +1,6 @@
 import { BasePage } from '../../utils/BasePage';
 
 export default class VsfSelectDropdownBaseObject extends BasePage {
-
   hasRequiredText(text: string) {
     this.requiredElement.contains(text);
     return this;
@@ -28,5 +27,4 @@ export default class VsfSelectDropdownBaseObject extends BasePage {
   get invalidElement() {
     return this.findTestElement('select-dropdown-error-text');
   }
-
 }

@@ -1,13 +1,13 @@
-/// <reference path="../../../../../node_modules/@percy/cypress/types/index.d.ts" />
-import React from "react";
+/// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
+import React from 'react';
 import { mount, Wrapper, useComponent } from '../../utils/mount';
 
 const { vue: VsfSelectDropdownVue, react: VsfSelectDropdownReact } = await useComponent('VsfSelectDropdown');
-import VsfSelectDropdownBaseObject from "./VsfSelectDropdown.PageObject";
-import { VsfSelectDropdownSize } from "../../../sfui/frameworks/vue/components/VsfSelectDropdown/types";
-import VsfInputBaseObject from '../VsfInput/VsfInput.PageObject'
+import VsfSelectDropdownBaseObject from './VsfSelectDropdown.PageObject';
+import { VsfSelectDropdownSize } from '../../../sfui/frameworks/vue/components/VsfSelectDropdown/types';
+import VsfInputBaseObject from '../VsfInput/VsfInput.PageObject';
 
-describe("VsfSelectDropdown", () => {
+describe('VsfSelectDropdown', () => {
   enum options {
     't-shirt' = 't-shirt',
     'sweater' = 'sweater',
@@ -16,8 +16,8 @@ describe("VsfSelectDropdown", () => {
     'jeans' = 'jeans',
     'socks' = 'socks',
     'shorts' = 'shorts',
-    'tracksuit' = 'tracksuit'
-  };
+    'tracksuit' = 'tracksuit',
+  }
   let disabled: boolean;
   let label: string;
   let size: VsfSelectDropdownSize;
@@ -28,7 +28,7 @@ describe("VsfSelectDropdown", () => {
   let requiredText: string;
   let invalid: boolean;
   let onChangeSpy: Cypress.Agent<sinon.SinonSpy>;
-  let value = "";
+  const value = '';
   const page = () => new VsfSelectDropdownBaseObject('select-dropdown');
   const inputPage = () => new VsfInputBaseObject('input');
 
@@ -48,25 +48,29 @@ describe("VsfSelectDropdown", () => {
           requiredText,
           invalid,
           modelValue: value,
-          'onUpdate:modelValue': onChangeSpy
+          'onUpdate:modelValue': onChangeSpy,
         },
       },
-      react: <Wrapper
-        value={value}
-        disabled={disabled}
-        size={size}
-        options={options}
-        placeholder={placeholder}
-        errorText={errorText}
-        helpText={helpText}
-        requiredText={requiredText}
-        required={required}
-        invalid={invalid}
-        label={label}
-        component={VsfSelectDropdownReact}
-      > </Wrapper>
+      react: (
+        <Wrapper
+          value={value}
+          disabled={disabled}
+          size={size}
+          options={options}
+          placeholder={placeholder}
+          errorText={errorText}
+          helpText={helpText}
+          requiredText={requiredText}
+          required={required}
+          invalid={invalid}
+          label={label}
+          component={VsfSelectDropdownReact}
+        >
+          {' '}
+        </Wrapper>
+      ),
     });
-  }
+  };
 
   beforeEach(() => {
     onChangeSpy = cy.spy();
@@ -74,7 +78,7 @@ describe("VsfSelectDropdown", () => {
 
   afterEach(() => {
     size = VsfSelectDropdownSize.base;
-    placeholder = 'Placeholder text'
+    placeholder = 'Placeholder text';
   });
 
   it('initial state', () => {
@@ -96,39 +100,32 @@ describe("VsfSelectDropdown", () => {
     });
   });
 
-
   describe('when prop disabled=true', () => {
-    before(() => disabled = true);
-    after(() => disabled = false);
+    before(() => (disabled = true));
+    after(() => (disabled = false));
     it(`should render as disabled`, () => {
       initializeComponent();
 
-      inputPage()
-        .isDisabled()
-        .makeSnapshot();
+      inputPage().isDisabled().makeSnapshot();
     });
   });
 
   describe('when prop label is filled in', () => {
-    before(() => label = 'Label');
-    after(() => label = '');
+    before(() => (label = 'Label'));
+    after(() => (label = ''));
     it(`should render with label`, () => {
       initializeComponent();
 
-      inputPage()
-        .hasLabel('Label')
-        .makeSnapshot();
+      inputPage().hasLabel('Label').makeSnapshot();
     });
   });
 
   describe('when prop label is empty', () => {
-    before(() => label = '');
+    before(() => (label = ''));
     it(`should render without label`, () => {
       initializeComponent();
 
-      inputPage()
-        .doesNotHaveLabel()
-        .makeSnapshot();
+      inputPage().doesNotHaveLabel().makeSnapshot();
     });
   });
 });

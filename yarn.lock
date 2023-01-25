@@ -3395,6 +3395,7 @@ __metadata:
     eslint-config-next: 12.2.5
     eslint-config-prettier: ^8.3.0
     eslint-import-resolver-alias: ^1.1.2
+    eslint-plugin-cypress: ^2.12.1
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-vue: ^9.3.0
   languageName: unknown
@@ -3565,6 +3566,15 @@ __metadata:
   resolution: "@storefront-ui/tests-shared@workspace:packages/config/tests"
   dependencies:
     typescript: ^4.9.4
+  languageName: unknown
+  linkType: soft
+
+"@storefront-ui/tests@workspace:packages/tests":
+  version: 0.0.0-use.local
+  resolution: "@storefront-ui/tests@workspace:packages/tests"
+  dependencies:
+    "@storefront-ui/eslint-config": "workspace:*"
+    eslint: ^8.27.0
   languageName: unknown
   linkType: soft
 

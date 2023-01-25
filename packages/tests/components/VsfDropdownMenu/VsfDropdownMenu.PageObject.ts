@@ -7,7 +7,7 @@ export default class VsfDropdownMenuBaseObject extends BasePage {
   }
 
   hasLoader() {
-    this.loaderElement.should('exist')
+    this.loaderElement.should('exist');
     return this;
   }
 

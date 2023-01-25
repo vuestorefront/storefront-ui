@@ -1,11 +1,11 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
-import React from "react";
+import React from 'react';
 import { mount, useComponent } from '../../utils/mount';
 
 const { vue: VsfPaginationVue, react: VsfPaginationReact } = useComponent('VsfPagination');
-import VsfPaginationBaseObject from "./VsfPagination.PageObject";
+import VsfPaginationBaseObject from './VsfPagination.PageObject';
 
-describe("VsfPagination", () => {
+describe('VsfPagination', () => {
   let totalItems: number;
   let currentPage: number;
   let itemsPerPage: number;
@@ -28,21 +28,23 @@ describe("VsfPagination", () => {
           hideButtonLabels,
           prev,
           next,
-          'onUpdate:current-page': onChangeSpy
+          'onUpdate:current-page': onChangeSpy,
         },
       },
-      react: <VsfPaginationReact
-        totalItems={totalItems}
-        currentPage={currentPage}
-        itemsPerPage={itemsPerPage}
-        maxVisiblePages={maxVisiblePages}
-        hideButtonLabels={hideButtonLabels}
-        prev={prev}
-        next={next}
-        onPageUpdate={onChangeSpy}
-      ></VsfPaginationReact>
+      react: (
+        <VsfPaginationReact
+          totalItems={totalItems}
+          currentPage={currentPage}
+          itemsPerPage={itemsPerPage}
+          maxVisiblePages={maxVisiblePages}
+          hideButtonLabels={hideButtonLabels}
+          prev={prev}
+          next={next}
+          onPageUpdate={onChangeSpy}
+        ></VsfPaginationReact>
+      ),
     });
-  }
+  };
 
   beforeEach(() => {
     cy.viewport(641, 300);
@@ -54,7 +56,7 @@ describe("VsfPagination", () => {
     currentPage = 1;
     itemsPerPage = 10;
     maxVisiblePages = 3;
-    hideButtonLabels  = false;
+    hideButtonLabels = false;
   });
 
   it('initial state', () => {
@@ -66,13 +68,14 @@ describe("VsfPagination", () => {
     it(`should emit correct number page`, () => {
       initializeComponent();
       page().pageElements.each(($el) => {
-        cy.wrap($el).click()
-        .then(() => {
-          expect(onChangeSpy).calledWith(Number($el.text()));
-        })
+        cy.wrap($el)
+          .click()
+          .then(() => {
+            expect(onChangeSpy).calledWith(Number($el.text()));
+          });
         page().makeSnapshot();
       });
-    })
+    });
   });
 
   describe('when clicked on previous button ', () => {
@@ -84,9 +87,9 @@ describe("VsfPagination", () => {
       cy.then(() => {
         expect(onChangeSpy).calledOnceWith(1);
         page().makeSnapshot();
-      })
-    })
-  })
+      });
+    });
+  });
 
   describe('when clicked on next button ', () => {
     it('should emit next page value', () => {
@@ -95,9 +98,9 @@ describe("VsfPagination", () => {
       cy.then(() => {
         expect(onChangeSpy).calledOnceWith(2);
         page().makeSnapshot();
-      })
-    })
-  })
+      });
+    });
+  });
 
   describe('when the first page is opened', () => {
     it('should only right ellipsis appear', () => {
@@ -105,30 +108,27 @@ describe("VsfPagination", () => {
       page().leftEllipsisNotExist();
       page().rightEllipsisExists();
       page().makeSnapshot();
-    })
-  })
+    });
+  });
 
   describe('when the last page is opened', () => {
     it('should only left ellipsis appear', () => {
       currentPage = 10;
       initializeComponent();
 
-      page()
-        .rightEllipsisNotExist()
-        .leftEllipsisExists()
-        .makeSnapshot();
-    })
-  })
+      page().rightEllipsisNotExist().leftEllipsisExists().makeSnapshot();
+    });
+  });
 
   describe('when the totalItems prop is changed', () => {
     it('should number of pages change', () => {
       totalItems = 150;
       initializeComponent();
 
-      page().pageLastButton.contains(totalItems/itemsPerPage);
+      page().pageLastButton.contains(totalItems / itemsPerPage);
       page().makeSnapshot();
-    })
-  })
+    });
+  });
 
   describe('when the itemsPerPage prop is changed', () => {
     it('should number of pages change', () => {
@@ -137,8 +137,8 @@ describe("VsfPagination", () => {
 
       page().lastButtonContains(totalItems, itemsPerPage);
       page().makeSnapshot();
-    })
-  })
+    });
+  });
 
   describe('when the maxVisiblePages prop is changed', () => {
     it('should number of pages visible change', () => {
@@ -147,8 +147,8 @@ describe("VsfPagination", () => {
 
       page().pageElementsLength(maxVisiblePages);
       page().makeSnapshot();
-    })
-  })
+    });
+  });
   describe('when the prev props is changed', () => {
     it('should render new previous label', () => {
       prev = 'Prev';
@@ -157,8 +157,8 @@ describe("VsfPagination", () => {
       page().previousLabelExist();
       page().pagePreviousLabel.contains(prev);
       page().makeSnapshot();
-    })
-  })
+    });
+  });
   describe('when the hideButtonLabels is set to true', () => {
     it('should hide the prev and next buttons labels', () => {
       hideButtonLabels = true;
@@ -167,6 +167,6 @@ describe("VsfPagination", () => {
       page().previousLabelNotExist();
       page().nextLabelNotExist();
       page().makeSnapshot();
-    })
-  })
+    });
+  });
 });

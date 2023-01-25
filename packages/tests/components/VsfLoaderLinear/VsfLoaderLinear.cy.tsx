@@ -1,12 +1,12 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
-import React from "react";
+import React from 'react';
 import { mount, useComponent } from '../../utils/mount';
 
 const { vue: VsfLoaderLinearVue, react: VsfLoaderLinearReact } = useComponent('VsfLoaderLinear');
 import { VsfLoaderLinearSize, VsfLoaderSize } from '../../../sfui/frameworks/react/components/VsfLoaderLinear/types';
-import VsfLoaderLinearBaseObject from "./VsfLoaderLinear.PageObject";
+import VsfLoaderLinearBaseObject from './VsfLoaderLinear.PageObject';
 
-describe("VsfLoaderLinear", () => {
+describe('VsfLoaderLinear', () => {
   let size: VsfLoaderLinearSize | VsfLoaderSize;
   let screenReaderText: string;
 
@@ -21,21 +21,21 @@ describe("VsfLoaderLinear", () => {
           screenReaderText,
         },
         attrs: {
-          style: "width: 100px;"
-        }
+          style: 'width: 100px;',
+        },
       },
-      react: <VsfLoaderLinearReact style={{width: '100px'}} size={size} screenReaderText={screenReaderText} />
+      react: <VsfLoaderLinearReact style={{ width: '100px' }} size={size} screenReaderText={screenReaderText} />,
     });
-  }
+  };
 
   afterEach(() => {
     size = VsfLoaderSize.lg;
     screenReaderText = 'loading';
-  })
+  });
 
   it('initial state', () => {
     initializeComponent();
-    page().makeSnapshot()
+    page().makeSnapshot();
   });
 
   describe('when size is changed to ', () => {
@@ -45,22 +45,18 @@ describe("VsfLoaderLinear", () => {
           size = componentSize;
           initializeComponent();
 
-          page()
-            .hasSizeClass(componentSize)
-            .makeSnapshot();
-        })
-      })
+          page().hasSizeClass(componentSize).makeSnapshot();
+        });
+      });
     });
-  })
+  });
 
   describe('when screenReaderText is changed', () => {
     it('should render proper content', () => {
       screenReaderText = 'is loading';
       initializeComponent();
 
-      page()
-        .containScreenReaderText(screenReaderText)
-        .makeSnapshot()
-    })
+      page().containScreenReaderText(screenReaderText).makeSnapshot();
+    });
   });
 });

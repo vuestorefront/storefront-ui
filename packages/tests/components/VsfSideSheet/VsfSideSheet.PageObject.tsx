@@ -1,7 +1,6 @@
 import { BasePage } from '../../utils/BasePage';
 
 export default class VsfSideSheetBaseObject extends BasePage {
-
   isPermanent() {
     this.asideElement.should('not.have.class', 'vsf-side-sheet--fixed');
     return this;
@@ -32,7 +31,7 @@ export default class VsfSideSheetBaseObject extends BasePage {
     return this;
   }
 
-  closeButtonIsClicked(){
+  closeButtonIsClicked() {
     this.closeButton.click();
     return this;
   }
@@ -46,10 +45,10 @@ export default class VsfSideSheetBaseObject extends BasePage {
     return this.findTestElement('side-sheet-aside');
   }
   get closeButton() {
-    return this.findTestElement('side-sheet-close-button')
+    return this.findTestElement('side-sheet-close-button');
   }
 
   get overlayElement() {
-    return this.findTestElement('side-sheet-overlay')
+    return this.findTestElement('side-sheet-overlay');
   }
 }

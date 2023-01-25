@@ -1,12 +1,12 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
-import React from "react";
+import React from 'react';
 import { mount, useComponent } from '../../utils/mount';
 
 const { vue: VsfProgressLinearVue, react: VsfProgressLinearReact } = useComponent('VsfProgressLinear');
-import VsfProgressLinearBaseObject from "./VsfProgressLinear.PageObject";
+import VsfProgressLinearBaseObject from './VsfProgressLinear.PageObject';
 import { VsfProgressLinearSize } from '../../../sfui/frameworks/vue/components/VsfProgressLinear/types';
 
-describe("VsfProgressLinear", () => {
+describe('VsfProgressLinear', () => {
   let size: VsfProgressLinearSize;
   let value: number;
   let withValue: boolean;
@@ -20,16 +20,12 @@ describe("VsfProgressLinear", () => {
         props: {
           size,
           value,
-          withValue
+          withValue,
         },
       },
-      react: <VsfProgressLinearReact
-          size={size}
-          value={value}
-          withValue={withValue}
-        />
+      react: <VsfProgressLinearReact size={size} value={value} withValue={withValue} />,
     });
-  }
+  };
 
   it('initial state', () => {
     initializeComponent();
@@ -49,24 +45,24 @@ describe("VsfProgressLinear", () => {
   });
 
   describe('when prop value is 90', () => {
-    before(() => { value = 90});
+    before(() => {
+      value = 90;
+    });
     it('should render with 90%', () => {
       initializeComponent();
 
-      page()
-        .hasValue(90)
-        .makeSnapshot();
+      page().hasValue(90).makeSnapshot();
     });
-  })
+  });
 
   describe('when prop withValue is false', () => {
-    before(() => { withValue = false});
+    before(() => {
+      withValue = false;
+    });
     it('should render without percentage value', () => {
       initializeComponent();
 
-      page()
-        .doesNotHaveValue()
-        .makeSnapshot();
+      page().doesNotHaveValue().makeSnapshot();
     });
-  })
+  });
 });

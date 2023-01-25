@@ -3,7 +3,6 @@ import React from 'react';
 import { h } from 'vue';
 import { mount, Wrapper, useComponent } from '../../utils/mount';
 import { VsfDisplayDirection } from '../../../sfui/frameworks/react/components/VsfDisplay/types';
-import type { VsfDisplayProps } from '../../../sfui/frameworks/react/components/VsfDisplay/types';
 
 const { vue: VsfDisplayVue, react: VsfDisplayReact } = await useComponent('VsfDisplay');
 import VsfDisplayBaseObject from './VsfDisplay.PageObject';
@@ -11,7 +10,7 @@ import VsfDisplayBaseObject from './VsfDisplay.PageObject';
 describe('VsfDisplay', () => {
   const page = () => new VsfDisplayBaseObject('display');
 
-  const initializeComponent = ({ direction = VsfDisplayDirection.horizontal, ...props }: VsfDisplayProps = {}) => {
+  const initializeComponent = ({ direction = VsfDisplayDirection.horizontal, ...props } = {}) => {
     return mount({
       vue: {
         component: VsfDisplayVue,
@@ -31,13 +30,12 @@ describe('VsfDisplay', () => {
     });
   };
 
-   beforeEach(() => {
+  beforeEach(() => {
     cy.viewport(1200, 800);
   });
 
   describe('When direction: horizontal', () => {
     it('should render image on the right side on desktop', () => {
-      
       initializeComponent({ direction: VsfDisplayDirection.horizontal });
 
       page().makeSnapshot();

@@ -1,20 +1,21 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
-import React from "react";
+import React from 'react';
 import { mount, useComponent } from '../../utils/mount';
 
-const {vue: VsfButtonVue, react: VsfButtonReact } = useComponent('VsfButton');
-const {vue: VsfIconCheckCircleVue, react: VsfIconCheckCircleReact } = useComponent('VsfIconCheckCircle');
-const {vue: VsfIconCheckboxIndeterminateVue, react: VsfIconCheckboxIndeterminateReact } = useComponent('VsfIconCheckboxIndeterminate');
+const { vue: VsfButtonVue, react: VsfButtonReact } = useComponent('VsfButton');
+const { vue: VsfIconCheckCircleVue, react: VsfIconCheckCircleReact } = useComponent('VsfIconCheckCircle');
+const { vue: VsfIconCheckboxIndeterminateVue, react: VsfIconCheckboxIndeterminateReact } =
+  useComponent('VsfIconCheckboxIndeterminate');
 import { VsfButtonSize, VsfButtonVariant } from '../../../sfui/frameworks/vue/components/VsfButton/types';
-import VsfButtonBaseObject from "./VsfButton.PageObject";
+import VsfButtonBaseObject from './VsfButton.PageObject';
 
-describe("VsfButton", () => {
+describe('VsfButton', () => {
   const slotDefaultContent = 'button content';
   enum ButtonTypes {
     button = 'button',
     submit = 'submit',
-    reset = 'reset'
-  };
+    reset = 'reset',
+  }
 
   const page = () => new VsfButtonBaseObject('button');
 
@@ -31,8 +32,8 @@ describe("VsfButton", () => {
     slotPrefix?: boolean;
     slotSuffix?: boolean;
     slotDefault?: boolean;
-    type?:ButtonTypes;
-  }
+    type?: ButtonTypes;
+  };
   const initializeComponent = ({
     size = VsfButtonSize.base,
     variant = VsfButtonVariant.primary,
@@ -46,7 +47,7 @@ describe("VsfButton", () => {
     slotPrefix,
     slotSuffix,
     slotDefault = true,
-    type = undefined
+    type = undefined,
   }: InitializeComponentParams = {}) => {
     return mount({
       vue: {
@@ -54,7 +55,7 @@ describe("VsfButton", () => {
         global: {
           components: {
             VsfIconCheckCircleVue,
-            VsfIconCheckboxIndeterminateVue
+            VsfIconCheckboxIndeterminateVue,
           },
         },
         props: {
@@ -70,43 +71,44 @@ describe("VsfButton", () => {
           type,
         },
         attrs: {
-          ...(truncate && {style: 'max-width: 100px;'})
+          ...(truncate && { style: 'max-width: 100px;' }),
         },
         slots: {
-          ...(slotPrefix && { prefix: '<VsfIconCheckCircleVue/>'}),
-          ...(slotSuffix && { suffix: '<VsfIconCheckboxIndeterminateVue/>'}),
-          ...(slotDefault && { default: () => slotDefaultContent}),
+          ...(slotPrefix && { prefix: '<VsfIconCheckCircleVue/>' }),
+          ...(slotSuffix && { suffix: '<VsfIconCheckboxIndeterminateVue/>' }),
+          ...(slotDefault && { default: () => slotDefaultContent }),
         },
       },
-      react: <VsfButtonReact
-        size={size}
-        variant={variant}
-        rounded={rounded}
-        disabled={disabled}
-        tile={tile}
-        block={block}
-        link={link}
-        greyscale={greyscale}
-        truncate={truncate}
-        style={{...(truncate && {maxWidth: '100px'})}}
-        type={type}
-        slotPrefix={slotPrefix && <VsfIconCheckCircleReact/>}
-        slotSuffix={slotSuffix && <VsfIconCheckboxIndeterminateReact/>}
-      >{slotDefault ? slotDefaultContent : undefined}</VsfButtonReact>
+      react: (
+        <VsfButtonReact
+          size={size}
+          variant={variant}
+          rounded={rounded}
+          disabled={disabled}
+          tile={tile}
+          block={block}
+          link={link}
+          greyscale={greyscale}
+          truncate={truncate}
+          style={{ ...(truncate && { maxWidth: '100px' }) }}
+          type={type}
+          slotPrefix={slotPrefix && <VsfIconCheckCircleReact />}
+          slotSuffix={slotSuffix && <VsfIconCheckboxIndeterminateReact />}
+        >
+          {slotDefault ? slotDefaultContent : undefined}
+        </VsfButtonReact>
+      ),
     });
-  }
+  };
 
   beforeEach(() => {
-    cy.viewport(200, 200)
+    cy.viewport(200, 200);
   });
 
   it('initial state', () => {
     initializeComponent();
 
-    page()
-      .doesNotHaveHref()
-      .hasTypeOnButton(ButtonTypes.button)
-      .makeSnapshot();
+    page().doesNotHaveHref().hasTypeOnButton(ButtonTypes.button).makeSnapshot();
   });
 
   describe('when prop size is set to ', () => {
@@ -165,9 +167,7 @@ describe("VsfButton", () => {
     it(`should render as disabled`, () => {
       initializeComponent({ disabled: true });
 
-      page()
-        .isDisabled()
-        .makeSnapshot();
+      page().isDisabled().makeSnapshot();
     });
   });
 
@@ -200,10 +200,7 @@ describe("VsfButton", () => {
     it(`should render as <a> element`, () => {
       initializeComponent({ link });
 
-      page()
-        .hasTag('A')
-        .hasHref(link)
-        .makeSnapshot();
+      page().hasTag('A').hasHref(link).makeSnapshot();
     });
   });
 

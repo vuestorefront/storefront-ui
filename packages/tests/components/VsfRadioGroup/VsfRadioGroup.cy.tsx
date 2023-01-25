@@ -1,13 +1,13 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
-import React from "react";
+import React from 'react';
 import { mount, useComponent } from '../../utils/mount';
 
-const {vue: VsfRadioGroupVue, react: VsfRadioGroupReact} = useComponent('VsfRadioGroup');
+const { vue: VsfRadioGroupVue, react: VsfRadioGroupReact } = useComponent('VsfRadioGroup');
 import { VsfRadioGroupDirection } from '../../../sfui/frameworks/vue/components/VsfRadio/types';
-import VsfRadioGroupBaseObject from "./VsfRadioGroup.PageObject";
+import VsfRadioGroupBaseObject from './VsfRadioGroup.PageObject';
 
-describe("VsfRadioGroup", () => {
-  let slotContent = 'radios';
+describe('VsfRadioGroup', () => {
+  const slotContent = 'radios';
 
   const page = () => new VsfRadioGroupBaseObject('radio-group');
   const initializeComponent = ({
@@ -17,7 +17,7 @@ describe("VsfRadioGroup", () => {
     required,
     errorText,
     helpText,
-    requiredText
+    requiredText,
   }: {
     legend?: string;
     direction?: VsfRadioGroupDirection;
@@ -43,17 +43,21 @@ describe("VsfRadioGroup", () => {
           default: () => slotContent,
         },
       },
-      react: <VsfRadioGroupReact
-        legend={legend}
-        direction={direction}
-        invalid={invalid}
-        required={required}
-        errorText={errorText}
-        helpText={helpText}
-        requiredText={requiredText}
-      >{slotContent}</VsfRadioGroupReact>
-    })
-  }
+      react: (
+        <VsfRadioGroupReact
+          legend={legend}
+          direction={direction}
+          invalid={invalid}
+          required={required}
+          errorText={errorText}
+          helpText={helpText}
+          requiredText={requiredText}
+        >
+          {slotContent}
+        </VsfRadioGroupReact>
+      ),
+    });
+  };
 
   it('initial state', () => {
     initializeComponent({});
@@ -62,7 +66,7 @@ describe("VsfRadioGroup", () => {
   });
 
   describe('when direction prop is set to', () => {
-    Object.values(VsfRadioGroupDirection).forEach(direction => {
+    Object.values(VsfRadioGroupDirection).forEach((direction) => {
       describe(`${direction}`, () => {
         it(`should render correct ${direction} direction`, () => {
           initializeComponent({ direction });
@@ -75,9 +79,7 @@ describe("VsfRadioGroup", () => {
             const legend = 'Legend';
             initializeComponent({ direction, legend });
 
-            page()
-              .hasLegend(legend)
-              .makeSnapshot();
+            page().hasLegend(legend).makeSnapshot();
           });
         });
 
@@ -85,20 +87,16 @@ describe("VsfRadioGroup", () => {
           it(`should render as required`, () => {
             initializeComponent({ direction, required: true });
 
-            page()
-              .isRequired()
-              .makeSnapshot();
+            page().isRequired().makeSnapshot();
           });
         });
 
         describe('when prop requiredText is filled', () => {
           it('should render with required text', () => {
-            const requiredText = 'Required'
+            const requiredText = 'Required';
             initializeComponent({ direction, required: true, requiredText });
 
-            page()
-              .hasRequiredText(`*${requiredText}`)
-              .makeSnapshot();
+            page().hasRequiredText(`*${requiredText}`).makeSnapshot();
           });
         });
 
@@ -107,9 +105,7 @@ describe("VsfRadioGroup", () => {
             const helpText = 'Help';
             initializeComponent({ direction, helpText });
 
-            page()
-              .hasHelpText(helpText)
-              .makeSnapshot();
+            page().hasHelpText(helpText).makeSnapshot();
           });
         });
 
@@ -119,9 +115,7 @@ describe("VsfRadioGroup", () => {
             const errorText = 'Error';
             initializeComponent({ direction, invalid, errorText });
 
-            page()
-              .hasErrorText(errorText)
-              .makeSnapshot();
+            page().hasErrorText(errorText).makeSnapshot();
           });
         });
       });

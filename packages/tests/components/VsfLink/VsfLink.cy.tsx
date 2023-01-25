@@ -1,21 +1,21 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
-import React from "react";
-import { ref } from "vue";
+import React from 'react';
+import { ref } from 'vue';
 import { mount, useComponent, Wrapper } from '../../utils/mount';
 
 const { vue: VsfLinkVue, react: VsfLinkReact } = useComponent('VsfLink');
 import { VsfLinkVariant } from '../../../sfui/frameworks/vue/components/VsfLink/types';
-import VsfLinkBaseObject from "./VsfLink.PageObject";
-import { isReact, isVue } from "../../utils/utils";
-import { wrappedPromise } from "../../utils/wrappedPromise";
+import VsfLinkBaseObject from './VsfLink.PageObject';
+import { isReact, isVue } from '../../utils/utils';
+import { wrappedPromise } from '../../utils/wrappedPromise';
 
-['a', 'RouterLink', 'Link'].forEach(type => {
+['a', 'RouterLink', 'Link'].forEach((type) => {
   // Do not test `RouterLink' in react, and `Link` in vue
-  if(isReact && type === 'RouterLink' || isVue && type === 'Link') return;
+  if ((isReact && type === 'RouterLink') || (isVue && type === 'Link')) return;
 
   describe(`VsfLink with tag ${type}`, async () => {
     const isRouterLink = type === 'RouterLink';
-    let slotContent = 'Link';
+    const slotContent = 'Link';
     const page = () => new VsfLinkBaseObject('link');
 
     const initializeComponent = ({
@@ -23,53 +23,50 @@ import { wrappedPromise } from "../../utils/wrappedPromise";
       link = '',
       tag,
       slotDefault = slotContent,
-      router
-    } : {
+      router,
+    }: {
       variant?: VsfLinkVariant;
       link?: string | Record<string, unknown>;
-      tag?: 'a' | any,
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      tag?: 'a' | any;
       slotDefault?: string;
-      router?: any
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      router?: any;
     }) => {
       return mount({
         vue: {
           component: VsfLinkVue,
           global: {
-            plugins: [router]
+            plugins: [router],
           },
           props: {
             variant,
             tag,
-            link
+            link,
           },
           slots: {
             default: () => slotDefault,
           },
         },
-        react: <Wrapper
-          variant={variant}
-          tag={tag}
-          link={link as string}
-          component={VsfLinkReact}
-        >
-          {slotDefault}
-        </Wrapper>
+        react: (
+          <Wrapper variant={variant} tag={tag} link={link as string} component={VsfLinkReact}>
+            {slotDefault}
+          </Wrapper>
+        ),
       });
-    }
+    };
 
     it('initial state', () => {
       initializeComponent({});
 
-      page()
-        .contains(slotContent)
-        .makeSnapshot();
+      page().contains(slotContent).makeSnapshot();
     });
 
     describe('when prop variant is set to ', () => {
       Object.values(VsfLinkVariant).forEach((componentVariant) => {
         describe(`${componentVariant}`, () => {
           it(`should render correct ${componentVariant} variant`, () => {
-            initializeComponent({ variant: componentVariant});
+            initializeComponent({ variant: componentVariant });
 
             page().makeSnapshot();
           });
@@ -82,7 +79,7 @@ import { wrappedPromise } from "../../utils/wrappedPromise";
         const link = '/home';
         initializeComponent({ link });
 
-        page().hasHref(link)
+        page().hasHref(link);
       });
     });
 
@@ -100,7 +97,7 @@ import { wrappedPromise } from "../../utils/wrappedPromise";
           const tag = 'a';
           initializeComponent({ tag });
 
-          page().hasTag('A')
+          page().hasTag('A');
         });
       });
     });
@@ -108,8 +105,9 @@ import { wrappedPromise } from "../../utils/wrappedPromise";
     // TODO: check contextApi and provide/inject resolution inside VsfLink component
 
     // vue
-    if(isRouterLink) {
-      const loadRouterConfig = () => wrappedPromise('dynamic import router', () => import('../../../../../router/index'));
+    if (isRouterLink) {
+      const loadRouterConfig = () =>
+        wrappedPromise('dynamic import router', () => import('../../../../../router/index'));
       const loadVueRouter = () => wrappedPromise('dynamic import vue-router', () => import('vue-router'));
 
       describe('when router available globally and link=Object', () => {
@@ -118,27 +116,25 @@ import { wrappedPromise } from "../../utils/wrappedPromise";
           const tag = ref();
 
           loadRouterConfig()
-            .then(router => {
-              return loadVueRouter().then(({RouterLink}) => ({ RouterLink, router}))
-            }).then(({RouterLink, router}) => {
-              initializeComponent({ tag, link: { path: link }, router: router.default})
+            .then((router) => {
+              return loadVueRouter().then(({ RouterLink }) => ({ RouterLink, router }));
+            })
+            .then(({ RouterLink, router }) => {
+              initializeComponent({ tag, link: { path: link }, router: router.default });
 
-              page()
-                .hasTag('A')
-                .hasHref(`/__cypress/src${link}`);
+              page().hasTag('A').hasHref(`/__cypress/src${link}`);
               cy.then(() => {
                 tag.value = 'a';
-              }).then(() => {
-                page()
-                  .hasTag('A')
-                  .hasHref(`[object Object]`);
-              }).then(() => {
-                tag.value = RouterLink;
-              }).then(() => {
-                page()
-                  .hasTag('A')
-                  .hasHref(`/__cypress/src${link}`);
-              });
+              })
+                .then(() => {
+                  page().hasTag('A').hasHref(`[object Object]`);
+                })
+                .then(() => {
+                  tag.value = RouterLink;
+                })
+                .then(() => {
+                  page().hasTag('A').hasHref(`/__cypress/src${link}`);
+                });
             });
         });
       });
@@ -154,24 +150,21 @@ import { wrappedPromise } from "../../utils/wrappedPromise";
         const tag = ref();
 
         loadNextLink().then((Link) => {
-          initializeComponent({ tag, link })
+          initializeComponent({ tag, link });
 
-          page()
-            .hasTag('A')
-            .hasHref(link);
+          page().hasTag('A').hasHref(link);
           cy.then(() => {
             tag.value = 'a';
-          }).then(() => {
-            page()
-              .hasTag('A')
-              .hasHref(link);
-          }).then(() => {
-            tag.value = Link.default
-          }).then(() => {
-            page()
-              .hasTag('A')
-              .hasHref(link);
-          });
+          })
+            .then(() => {
+              page().hasTag('A').hasHref(link);
+            })
+            .then(() => {
+              tag.value = Link.default;
+            })
+            .then(() => {
+              page().hasTag('A').hasHref(link);
+            });
         });
       });
     });

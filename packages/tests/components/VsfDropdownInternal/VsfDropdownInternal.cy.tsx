@@ -1,14 +1,15 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
-import React from "react";
+import React from 'react';
 import type { Ref } from 'vue';
 import { ref } from 'vue';
 import { mount, Wrapper, useComponent } from '../../utils/mount';
 
 const { vue: VsfDropdownInternalVue, react: VsfDropdownInternalReact } = useComponent('VsfDropdownInternal');
-import VsfDropdownInternalBaseObject from "./VsfDropdownInternal.PageObject";
-import { VsfDropdownInternalPlacement, VsfDropdownInternalTriggerEvent } from '../../../sfui/frameworks/vue/components/VsfDropdownInternal';
+import VsfDropdownInternalBaseObject from './VsfDropdownInternal.PageObject';
+import { VsfDropdownInternalPlacement } from '../../../sfui/frameworks/vue/components/VsfDropdownInternal';
+import { VsfDropdownInternalTriggerEvent } from '../../../sfui/frameworks/vue/components/VsfDropdownInternal';
 
-describe("VsfDropdownInternal", () => {
+describe('VsfDropdownInternal', () => {
   const defaultSlotContent = 'Content';
   const page = () => new VsfDropdownInternalBaseObject('dropdown');
 
@@ -16,8 +17,8 @@ describe("VsfDropdownInternal", () => {
     modelValue = ref(),
     triggerEvent,
     placement,
-    showDefaultSlot = true
-  } : {
+    showDefaultSlot = true,
+  }: {
     modelValue?: Ref<boolean | undefined>;
     triggerEvent?: VsfDropdownInternalTriggerEvent;
     placement?: VsfDropdownInternalPlacement;
@@ -30,27 +31,31 @@ describe("VsfDropdownInternal", () => {
           modelValue,
           triggerEvent,
           placement,
-          'onUpdate:modelValue': (isOpen: boolean) => modelValue.value = isOpen
+          'onUpdate:modelValue': (isOpen: boolean) => (modelValue.value = isOpen),
         },
         slots: {
           trigger: '<button class="border-prmiary border">Trigger for dropdown</button>',
-          ...(showDefaultSlot && { default: () => defaultSlotContent})
-        }
+          ...(showDefaultSlot && { default: () => defaultSlotContent }),
+        },
       },
-      react: <Wrapper
-        open={modelValue}
-        triggerEvent={triggerEvent}
-        placement={placement}
-        onOpenUpdate={isOpen => modelValue.value = isOpen}
-        slotTrigger={<button className="border-prmiary border">Trigger for dropdown</button>}
-        component={VsfDropdownInternalReact}
-      >{showDefaultSlot ? defaultSlotContent : ''}</Wrapper>
+      react: (
+        <Wrapper
+          open={modelValue}
+          triggerEvent={triggerEvent}
+          placement={placement}
+          onOpenUpdate={(isOpen) => (modelValue.value = isOpen)}
+          slotTrigger={<button className="border-prmiary border">Trigger for dropdown</button>}
+          component={VsfDropdownInternalReact}
+        >
+          {showDefaultSlot ? defaultSlotContent : ''}
+        </Wrapper>
+      ),
     });
-  }
+  };
 
   beforeEach(() => {
     cy.viewport(400, 300);
-    page().cyRoot.then((el) => el[0].style.padding = '120px');
+    page().cyRoot.then((el) => (el[0].style.padding = '120px'));
   });
 
   it('initial state', () => {
@@ -74,9 +79,7 @@ describe("VsfDropdownInternal", () => {
       const modelValue = ref();
       initializeComponent({ modelValue });
 
-      page()
-        .dropdownIsClose()
-        .clickTrigger();
+      page().dropdownIsClose().clickTrigger();
 
       cy.then(() => {
         expect(modelValue.value).to.be.true;
@@ -85,7 +88,7 @@ describe("VsfDropdownInternal", () => {
       }).then(() => {
         expect(modelValue.value).to.be.false;
         page().dropdownIsClose();
-      })
+      });
     });
   });
 
@@ -94,19 +97,15 @@ describe("VsfDropdownInternal", () => {
       const modelValue = ref();
       initializeComponent({ modelValue, triggerEvent: VsfDropdownInternalTriggerEvent.hover });
 
-      page()
-        .dropdownIsClose()
-        .hoverTriggerElement();
+      page().dropdownIsClose().hoverTriggerElement();
 
       cy.then(() => {
         expect(modelValue.value).to.be.true;
-        page()
-          .dropdownIsOpen()
-          .hoverOutTriggerElement();
+        page().dropdownIsOpen().hoverOutTriggerElement();
       }).then(() => {
         expect(modelValue.value).to.be.false;
         page().dropdownIsClose();
-      })
+      });
     });
   });
 
@@ -115,9 +114,7 @@ describe("VsfDropdownInternal", () => {
       const modelValue = ref(true);
       initializeComponent({ modelValue });
 
-      page()
-        .dropdownIsOpen()
-        .clickOutside();
+      page().dropdownIsOpen().clickOutside();
 
       cy.then(() => {
         expect(modelValue.value).to.be.false;
@@ -131,9 +128,7 @@ describe("VsfDropdownInternal", () => {
       const modelValue = ref(true);
       initializeComponent({ modelValue });
 
-      page()
-        .dropdownIsOpen()
-        .clickEsc();
+      page().dropdownIsOpen().clickEsc();
 
       cy.then(() => {
         expect(modelValue.value).to.be.false;

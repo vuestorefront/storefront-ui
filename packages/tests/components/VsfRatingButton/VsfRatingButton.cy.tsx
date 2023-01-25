@@ -1,17 +1,17 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
-import React from "react";
+import React from 'react';
 import { h } from 'vue';
 import { mount, useComponent } from '../../utils/mount';
 
-const {vue: VsfRatingButtonVue, react: VsfRatingButtonReact } = useComponent('VsfRatingButton');
-const {vue: VsfIconStarVue, react: VsfIconStarReact } = useComponent('VsfIconStar');
-const {vue: VsfIconStarOutlineVue, react: VsfIconStarOutlineReact } = useComponent('VsfIconStarOutline');
+const { vue: VsfRatingButtonVue, react: VsfRatingButtonReact } = useComponent('VsfRatingButton');
+const { vue: VsfIconStarVue, react: VsfIconStarReact } = useComponent('VsfIconStar');
+const { vue: VsfIconStarOutlineVue, react: VsfIconStarOutlineReact } = useComponent('VsfIconStarOutline');
 
 import { VsfRatingButtonSize } from '../../../sfui/frameworks/vue/components/VsfRatingButton/types';
 import { VsfIconSize } from '../../../sfui/frameworks/vue/components/VsfIconBase/types';
-import VsfRatingButtonBaseObject from "./VsfRatingButton.PageObject";
+import VsfRatingButtonBaseObject from './VsfRatingButton.PageObject';
 
-describe("VsfRatingButton", () => {
+describe('VsfRatingButton', () => {
   let size: VsfRatingButtonSize;
   let max: number;
   let disabled: boolean;
@@ -36,35 +36,33 @@ describe("VsfRatingButton", () => {
           'onUpdate:modelValue': onChangeSpy,
         },
         slots: {
-          iconFilled: () => h(VsfIconStarVue, {size } ),
+          iconFilled: () => h(VsfIconStarVue, { size }),
           iconEmpty: () => h(VsfIconStarOutlineVue, { size }),
-        }
+        },
       },
-      react: <VsfRatingButtonReact
-        max={max}
-        size={size}
-        disabled={disabled}
-        value={value}
-        name={name}
-        ariaLabel={ariaLabel}
-        renderIconFilled={(size?: VsfIconSize) => <VsfIconStarReact size={size} /> }
-        renderIconEmpty={(size?: VsfIconSize) => <VsfIconStarOutlineReact size={size} />}
-        onChange={onChangeSpy}
-      />
+      react: (
+        <VsfRatingButtonReact
+          max={max}
+          size={size}
+          disabled={disabled}
+          value={value}
+          name={name}
+          ariaLabel={ariaLabel}
+          renderIconFilled={(size?: VsfIconSize) => <VsfIconStarReact size={size} />}
+          renderIconEmpty={(size?: VsfIconSize) => <VsfIconStarOutlineReact size={size} />}
+          onChange={onChangeSpy}
+        />
+      ),
     });
-  }
+  };
 
   beforeEach(() => {
     onChangeSpy = cy.spy();
-  })
+  });
 
   afterEach(() => {
     size = VsfRatingButtonSize.base;
-    max = 5,
-    disabled = false,
-    value = 0,
-    name = "rating",
-    ariaLabel = "rating item";
+    (max = 5), (disabled = false), (value = 0), (name = 'rating'), (ariaLabel = 'rating item');
   });
 
   it('initial state', () => {
@@ -78,10 +76,7 @@ describe("VsfRatingButton", () => {
       value = 1;
       initializeComponent();
 
-      page()
-        .hasIcons('star', 0)
-        .hasIcons('star-outline', 1)
-        .makeSnapshot();
+      page().hasIcons('star', 0).hasIcons('star-outline', 1).makeSnapshot();
     });
   });
 
@@ -101,21 +96,17 @@ describe("VsfRatingButton", () => {
   describe('when prop max is set', () => {
     it(`should render correct rating items`, () => {
       initializeComponent();
-      page()
-      .hasMaxItems(max)
-      .makeSnapshot();
+      page().hasMaxItems(max).makeSnapshot();
     });
   });
 
   describe('when prop disabled=true', () => {
-    before(() => disabled = true);
-    after(() => disabled = false);
+    before(() => (disabled = true));
+    after(() => (disabled = false));
     it(`should render as disabled`, () => {
       initializeComponent();
 
-      page()
-        .isDisabled()
-        .makeSnapshot();
+      page().isDisabled().makeSnapshot();
     });
   });
 
@@ -124,33 +115,27 @@ describe("VsfRatingButton", () => {
       value = 3;
       initializeComponent();
 
-      page()
-        .hasFilledIcons(value)
-        .makeSnapshot();
-      })
+      page().hasFilledIcons(value).makeSnapshot();
+    });
   });
 
   describe('when item 3 is clicked', () => {
     it(`should have value 3 emitted`, () => {
       initializeComponent();
-      page()
-        .itemClick(3);
+      page().itemClick(3);
       cy.then(() => {
         expect(onChangeSpy).to.be.calledWith(3);
 
-        page()
-          .makeSnapshot();
-      })
-    })
+        page().makeSnapshot();
+      });
+    });
   });
 
   describe('when name props set', () => {
     it(`should render legend element with name`, () => {
       initializeComponent();
 
-      page()
-        .hasLegendName(name)
-        .makeSnapshot();
+      page().hasLegendName(name).makeSnapshot();
     });
   });
 
@@ -158,9 +143,7 @@ describe("VsfRatingButton", () => {
     it(`should render ariaLabel attribute set`, () => {
       initializeComponent();
 
-      page()
-      .hasAriaLabel(ariaLabel)
-      .makeSnapshot();
+      page().hasAriaLabel(ariaLabel).makeSnapshot();
     });
   });
 });

@@ -1,7 +1,6 @@
 import { BasePage } from '../../utils/BasePage';
 
 export default class VsfSelectObject extends BasePage {
-
   hasLabel(label: string) {
     this.labelElement.contains(label);
     return this;
@@ -12,17 +11,17 @@ export default class VsfSelectObject extends BasePage {
     return this;
   }
 
-  isDisabled(){
+  isDisabled() {
     this.inputElement.should('be.disabled');
     return this;
   }
 
-  isNotDisabled(){
+  isNotDisabled() {
     this.inputElement.should('not.be.disabled');
     return this;
   }
 
-  isRequired(){
+  isRequired() {
     this.inputElement.should('have.attr', 'required');
     return this;
   }
@@ -47,7 +46,7 @@ export default class VsfSelectObject extends BasePage {
     return this;
   }
 
-  hasSelectedOption(option){
+  hasSelectedOption(option) {
     this.inputElement.select(option);
     return this;
   }
@@ -75,5 +74,4 @@ export default class VsfSelectObject extends BasePage {
   get invalidElement() {
     return this.findTestElement('select-invalid-text');
   }
-
 }

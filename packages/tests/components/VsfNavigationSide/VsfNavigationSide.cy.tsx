@@ -1,5 +1,5 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { ref } from 'vue';
 import type { Ref } from 'vue';
 import { mount, useComponent, Wrapper } from '../../utils/mount';
@@ -11,11 +11,9 @@ describe('VsfNavigationSide', () => {
   let permanent: boolean;
   let leftSide: boolean;
   let overlayVisible: boolean;
-  let open: boolean;
   let logoAriaLabel: string;
   let closeAriaLabel: string;
   let logoLink: string;
-  let slotBanner: ReactNode;
 
   const page = () => new VsfNavigationSideBaseObject('navigation-side');
 

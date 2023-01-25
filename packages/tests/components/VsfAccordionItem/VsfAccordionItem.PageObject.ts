@@ -27,14 +27,14 @@ export default class VsfAccordionItemBaseObject extends BasePage {
   }
 
   isOpen() {
-    this.container.then(el => {
+    this.container.then((el) => {
       expect((el[0] as HTMLDetailsElement).open).to.be.true;
     });
     return this;
   }
 
   isNotOpen() {
-    this.container.then(el => {
+    this.container.then((el) => {
       expect((el[0] as HTMLDetailsElement).open).to.be.false;
     });
     return this;

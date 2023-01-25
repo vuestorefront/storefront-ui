@@ -1,20 +1,20 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
-import React from "react";
+import React from 'react';
 import { ref, unref } from 'vue';
 import type { Ref } from 'vue';
-import type { MaybeRef } from "@vueuse/core";
+import type { MaybeRef } from '@vueuse/core';
+import { VsfAlertType, VsfAlertVariant } from '@storefront-ui/shared';
 import { mount, useComponent, Wrapper } from '../../utils/mount';
 
-const {vue: VsfAlertVue, react: VsfAlertReact } = useComponent('VsfAlert');
-const {vue: VsfButtonVue, react: VsfButtonReact } = useComponent('VsfButton');
-const {vue: VsfIconCheckCircleVue, react: VsfIconCheckCircleReact } = useComponent('VsfIconCheckCircle');
-import VsfAlertBaseObject from "./VsfAlert.PageObject";
-import { waitForRerender } from "../../utils/waitForRerender";
-import { VsfAlertType, VsfAlertVariant } from "@storefront-ui/shared";
+const { vue: VsfAlertVue, react: VsfAlertReact } = useComponent('VsfAlert');
+const { vue: VsfButtonVue, react: VsfButtonReact } = useComponent('VsfButton');
+const { vue: VsfIconCheckCircleVue, react: VsfIconCheckCircleReact } = useComponent('VsfIconCheckCircle');
+import VsfAlertBaseObject from './VsfAlert.PageObject';
+import { waitForRerender } from '../../utils/waitForRerender';
 
-describe("VsfAlert", () => {
-  const headerExampleText = "alert header";
-  const contentExampleText = "this is some alert content";
+describe('VsfAlert', () => {
+  const headerExampleText = 'alert header';
+  const contentExampleText = 'this is some alert content';
 
   const page = () => new VsfAlertBaseObject('alert');
 
@@ -30,9 +30,9 @@ describe("VsfAlert", () => {
     textSlot,
     fillSlotPrefix,
     fillSlotSuffix,
-  } : {
+  }: {
     modelValue?: Ref<boolean>;
-    variant?: MaybeRef<VsfAlertVariant>;
+    variant?: MaybeRef<VsfAlertVariant | undefined>;
     type?: MaybeRef<VsfAlertType>;
     withShadow?: MaybeRef<boolean>;
     hidePrefix?: MaybeRef<boolean>;
@@ -60,30 +60,34 @@ describe("VsfAlert", () => {
           type,
           withShadow,
           hidePrefix,
-          'onUpdate:modelValue': (e: boolean) => modelValue.value = e
+          'onUpdate:modelValue': (e: boolean) => (modelValue.value = e),
         },
         slots: {
           ...(textSlot && { default: () => unref(textSlot) }),
           ...(headerSlot && { header: () => unref(headerSlot) }),
           ...(fillSlotPrefix && { prefix: '<VsfIconCheckCircleVue/>' }),
-          ...(fillSlotSuffix && { suffix: '<VsfButtonVue>some button</VsfButtonVue>'  }),
+          ...(fillSlotSuffix && { suffix: '<VsfButtonVue>some button</VsfButtonVue>' }),
         },
       },
-      react: <Wrapper
-        open={modelValue}
-        header={headerSlot || header}
-        text={text}
-        variant={variant}
-        type={type}
-        withShadow={withShadow}
-        hidePrefix={hidePrefix}
-        slotPrefix={fillSlotPrefix && <VsfIconCheckCircleReact />}
-        slotSuffix={fillSlotSuffix && <VsfButtonReact>some button</VsfButtonReact>}
-        propCallbackPair={{ open: 'onOpenChange' }}
-        component={VsfAlertReact}
-      >{unref(textSlot) || undefined}</Wrapper>
+      react: (
+        <Wrapper
+          open={modelValue}
+          header={headerSlot || header}
+          text={text}
+          variant={variant}
+          type={type}
+          withShadow={withShadow}
+          hidePrefix={hidePrefix}
+          slotPrefix={fillSlotPrefix && <VsfIconCheckCircleReact />}
+          slotSuffix={fillSlotSuffix && <VsfButtonReact>some button</VsfButtonReact>}
+          propCallbackPair={{ open: 'onOpenChange' }}
+          component={VsfAlertReact}
+        >
+          {unref(textSlot) || undefined}
+        </Wrapper>
+      ),
     });
-  }
+  };
 
   it('initial state', () => {
     initializeComponent({ modelValue: ref(false), text: contentExampleText });
@@ -145,21 +149,24 @@ describe("VsfAlert", () => {
       it('renders different icons & colors', () => {
         const modelValue = ref(true);
         const variant = ref<VsfAlertVariant>();
-        initializeComponent({ type: VsfAlertType.temporary, modelValue, variant, header: headerExampleText, text: contentExampleText });
+        initializeComponent({
+          type: VsfAlertType.temporary,
+          modelValue,
+          variant,
+          header: headerExampleText,
+          text: contentExampleText,
+        });
 
-        Object.values(VsfAlertVariant)
-          .reduce<Cypress.Chainable<undefined>>((prevChainable, variantValue) => {
-            return prevChainable
-              .then(() => {
-                variant.value = variantValue;
-                waitForRerender();
-              })
-              .then(() => {
-                page()
-                  .isOpened()
-                  .makeSnapshot();
-              });
-          }, cy);
+        Object.values(VsfAlertVariant).reduce<Cypress.Chainable<undefined>>((prevChainable, variantValue) => {
+          return prevChainable
+            .then(() => {
+              variant.value = variantValue;
+              waitForRerender();
+            })
+            .then(() => {
+              page().isOpened().makeSnapshot();
+            });
+        }, cy);
       });
     });
 
@@ -169,9 +176,7 @@ describe("VsfAlert", () => {
         cy.clock(null, ['setTimeout', 'clearTimeout']);
         initializeComponent({ modelValue, text: contentExampleText, type: VsfAlertType.temporary });
 
-        page()
-          .isOpened()
-          .hasNoCloseButton();
+        page().isOpened().hasNoCloseButton();
 
         waitForRerender();
         cy.tick(10000);
@@ -187,9 +192,7 @@ describe("VsfAlert", () => {
         const modelValue = ref(true);
         initializeComponent({ modelValue, text: contentExampleText, type: VsfAlertType.persistent });
 
-        page()
-          .isOpened()
-          .clickCloseButton();
+        page().isOpened().clickCloseButton();
 
         cy.then(() => {
           expect(modelValue.value).to.be.false;

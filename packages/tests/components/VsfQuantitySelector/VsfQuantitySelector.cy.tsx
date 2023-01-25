@@ -1,13 +1,13 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
-import React from "react";
+import React from 'react';
 import { mount, useComponent } from '../../utils/mount';
 
 const { vue: VsfQuantitySelectorVue, react: VsfQuantitySelectorReact } = useComponent('VsfQuantitySelector');
 import { VsfQuantitySelectorSize } from '../../../sfui/frameworks/vue/components/VsfQuantitySelector/types';
-import VsfQuantitySelectorBaseObject from "./VsfQuantitySelector.PageObject";
-import VsfButtonBaseObject from "../VsfButton/VsfButton.PageObject";
+import VsfQuantitySelectorBaseObject from './VsfQuantitySelector.PageObject';
+import VsfButtonBaseObject from '../VsfButton/VsfButton.PageObject';
 
-describe("VsfQuantitySelector", () => {
+describe('VsfQuantitySelector', () => {
   let onChangeSpy: Cypress.Agent<sinon.SinonSpy>;
   let value = 0;
   let minValue: number;
@@ -19,7 +19,7 @@ describe("VsfQuantitySelector", () => {
   let inputAriaLabel: string;
   let inputId: string;
   let decimal: number;
-  let slotContent = 'label';
+  const slotContent = 'label';
 
   const page = () => new VsfQuantitySelectorBaseObject('qty-selector');
   const decreaseButton = () => new VsfButtonBaseObject('decrease-button');
@@ -40,27 +40,31 @@ describe("VsfQuantitySelector", () => {
           inputId,
           decimal,
           modelValue: value,
-          'onUpdate:modelValue': onChangeSpy
+          'onUpdate:modelValue': onChangeSpy,
         },
         slots: {
           default: () => slotContent,
         },
       },
-      react: <VsfQuantitySelectorReact
-        value={value}
-        minValue={minValue}
-        maxValue={maxValue}
-        step={step}
-        disabled={disabled}
-        block={block}
-        size={size}
-        inputAriaLabel={inputAriaLabel}
-        inputId={inputId}
-        decimal={decimal}
-        onChange={onChangeSpy}
-      >{slotContent}</VsfQuantitySelectorReact>
+      react: (
+        <VsfQuantitySelectorReact
+          value={value}
+          minValue={minValue}
+          maxValue={maxValue}
+          step={step}
+          disabled={disabled}
+          block={block}
+          size={size}
+          inputAriaLabel={inputAriaLabel}
+          inputId={inputId}
+          decimal={decimal}
+          onChange={onChangeSpy}
+        >
+          {slotContent}
+        </VsfQuantitySelectorReact>
+      ),
     });
-  }
+  };
 
   beforeEach(() => {
     onChangeSpy = cy.spy();
@@ -87,7 +91,7 @@ describe("VsfQuantitySelector", () => {
       increaseButton().isNotDisabled().click();
       cy.then(() => {
         decreaseButton().isDisabled();
-        increaseButton().isNotDisabled()
+        increaseButton().isNotDisabled();
         expect(onChangeSpy).calledOnceWith(1);
         page().makeSnapshot();
       });
@@ -106,7 +110,7 @@ describe("VsfQuantitySelector", () => {
       increaseButton().isNotDisabled().click();
       cy.then(() => {
         decreaseButton().isNotDisabled();
-        increaseButton().isDisabled()
+        increaseButton().isDisabled();
         expect(onChangeSpy).calledOnceWith(3);
         page().makeSnapshot();
       });
@@ -121,11 +125,11 @@ describe("VsfQuantitySelector", () => {
       initializeComponent();
 
       decreaseButton().isNotDisabled();
-      increaseButton().isNotDisabled()
+      increaseButton().isNotDisabled();
       decreaseButton().click();
       cy.then(() => {
         decreaseButton().isDisabled();
-        increaseButton().isNotDisabled()
+        increaseButton().isNotDisabled();
         expect(onChangeSpy).calledOnceWith(1);
         page().makeSnapshot();
       });

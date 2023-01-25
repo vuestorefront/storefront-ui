@@ -1,7 +1,6 @@
 import { BasePage } from '../../utils/BasePage';
 
 export default class VsfProgressCircularBaseObject extends BasePage {
-
   hasValue(label: number) {
     this.container.contains(label);
     return this;

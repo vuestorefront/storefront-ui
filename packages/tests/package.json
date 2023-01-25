@@ -1,0 +1,15 @@
+{
+  "name": "@storefront-ui/tests",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "lint": "yarn lint:script",
+    "lint:fix": "yarn lint:script:fix",
+    "lint:script": "eslint . --max-warnings 0",
+    "lint:script:fix": "eslint --fix ."
+  },
+  "devDependencies": {
+    "@storefront-ui/eslint-config": "workspace:*",
+    "eslint": "^8.27.0"
+  }
+}

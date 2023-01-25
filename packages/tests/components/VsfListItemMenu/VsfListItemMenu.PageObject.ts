@@ -1,10 +1,9 @@
 import { BasePage } from '../../utils/BasePage';
 
 export default class VsfListItemMenuObject extends BasePage {
-
   hasTag(tagName: string) {
-    this.container.then(el => {
-      expect(el[0].tagName).to.equal(tagName)
+    this.container.then((el) => {
+      expect(el[0].tagName).to.equal(tagName);
     });
     return this;
   }
@@ -24,13 +23,13 @@ export default class VsfListItemMenuObject extends BasePage {
     return this;
   }
 
-  isDisabled(){
+  isDisabled() {
     this.container.should('be.disabled');
     return this;
   }
 
-  isSelected(){
-    this.container.should('have.class', 'vsf-list-item-menu--selected')
+  isSelected() {
+    this.container.should('have.class', 'vsf-list-item-menu--selected');
   }
 
   get labelElement() {

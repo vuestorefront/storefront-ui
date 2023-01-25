@@ -1,12 +1,12 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
-import React from "react";
+import React from 'react';
 import { mount, useComponent } from '../../utils/mount';
 
-const {vue: VsfCheckboxVue, react: VsfCheckboxReact } = useComponent('VsfCheckbox');
+const { vue: VsfCheckboxVue, react: VsfCheckboxReact } = useComponent('VsfCheckbox');
 import { VsfCheckboxAlignment } from '../../../sfui/frameworks/vue/components/VsfCheckbox/types';
-import VsfCheckboxBaseObject from "./VsfCheckbox.PageObject";
+import VsfCheckboxBaseObject from './VsfCheckbox.PageObject';
 
-describe("VsfCheckbox", () => {
+describe('VsfCheckbox', () => {
   let alignment: VsfCheckboxAlignment;
   let disabled: boolean;
   let label: string;
@@ -16,7 +16,7 @@ describe("VsfCheckbox", () => {
   let requiredText: string;
   let invalid: boolean;
   let onChangeSpy: Cypress.Agent<sinon.SinonSpy>;
-  let value = "value";
+  let value = 'value';
 
   const page = () => new VsfCheckboxBaseObject('checkbox');
 
@@ -35,22 +35,24 @@ describe("VsfCheckbox", () => {
           invalid,
           value,
           modelValue: false,
-          'onUpdate:modelValue': onChangeSpy
+          'onUpdate:modelValue': onChangeSpy,
         },
       },
-      react: <VsfCheckboxReact
-        disabled={disabled}
-        alignment={alignment}
-        errorText={errorText}
-        helpText={helpText}
-        requiredText={requiredText}
-        required={required}
-        invalid={invalid}
-        label={label}
-        onChange={onChangeSpy}
-    />
-    })
-  }
+      react: (
+        <VsfCheckboxReact
+          disabled={disabled}
+          alignment={alignment}
+          errorText={errorText}
+          helpText={helpText}
+          requiredText={requiredText}
+          required={required}
+          invalid={invalid}
+          label={label}
+          onChange={onChangeSpy}
+        />
+      ),
+    });
+  };
 
   beforeEach(() => {
     label = 'Label';
@@ -60,7 +62,7 @@ describe("VsfCheckbox", () => {
   });
 
   it('initial state', () => {
-    initializeComponent({ invalid: true});
+    initializeComponent({ invalid: true });
 
     page().makeSnapshot();
   });
@@ -79,26 +81,22 @@ describe("VsfCheckbox", () => {
   });
 
   describe('when prop disabled=true', () => {
-    before(() => disabled = true);
-    after(() => disabled = false);
+    before(() => (disabled = true));
+    after(() => (disabled = false));
     it(`should render as disabled`, () => {
       initializeComponent();
 
-      page()
-        .isDisabled()
-        .makeSnapshot();
+      page().isDisabled().makeSnapshot();
     });
   });
 
   describe('when prop required=true', () => {
-    before(() => required = true);
-    after(() => required = false);
+    before(() => (required = true));
+    after(() => (required = false));
     it(`should render as required`, () => {
       initializeComponent();
 
-      page()
-        .isRequired()
-        .makeSnapshot();
+      page().isRequired().makeSnapshot();
     });
   });
 
@@ -106,33 +104,35 @@ describe("VsfCheckbox", () => {
     it(`should render with label`, () => {
       initializeComponent();
 
-      page()
-        .hasLabel('Label')
-        .makeSnapshot();
+      page().hasLabel('Label').makeSnapshot();
     });
   });
 
   describe('when prop requiredText is filled out', () => {
-    before(() => {required = true, requiredText = '*Required'});
-    after(() =>{ required = false, requiredText = ''});
+    before(() => {
+      (required = true), (requiredText = '*Required');
+    });
+    after(() => {
+      (required = false), (requiredText = '');
+    });
     it('should render with required text', () => {
       initializeComponent();
 
-      page()
-        .hasRequiredText("*Required")
-        .makeSnapshot();
+      page().hasRequiredText('*Required').makeSnapshot();
     });
   });
 
   describe('when prop helpText is visible', () => {
-    before(() => { helpText = 'Help'});
-    after(() =>{ helpText = ''});
+    before(() => {
+      helpText = 'Help';
+    });
+    after(() => {
+      helpText = '';
+    });
     it('should render with help text', () => {
       initializeComponent();
 
-      page()
-        .hasHelpText("Help")
-        .makeSnapshot();
+      page().hasHelpText('Help').makeSnapshot();
     });
   });
 
@@ -144,19 +144,21 @@ describe("VsfCheckbox", () => {
       cy.then(() => {
         expect(onChangeSpy).calledOnceWith();
         page().makeSnapshot();
-      })
+      });
     });
   });
 
   describe('when prop errorText is filled out and invalid=true', () => {
-    before(() => {invalid = true, errorText = 'Error'});
-    after(() =>{ invalid = false, errorText = ''});
+    before(() => {
+      (invalid = true), (errorText = 'Error');
+    });
+    after(() => {
+      (invalid = false), (errorText = '');
+    });
     it('should render with invalid text', () => {
       initializeComponent();
 
-      page()
-        .hasInvalidText("Error")
-        .makeSnapshot();
+      page().hasInvalidText('Error').makeSnapshot();
     });
   });
 });

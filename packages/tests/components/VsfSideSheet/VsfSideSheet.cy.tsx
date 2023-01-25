@@ -1,11 +1,11 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
-import React from "react";
+import React from 'react';
 import { mount, useComponent } from '../../utils/mount';
 
-const {vue: VsfSideSheetVue, react: VsfSideSheetReact} = useComponent('VsfSideSheet');
-import VsfSideSheetBaseObject from "./VsfSideSheet.PageObject";
+const { vue: VsfSideSheetVue, react: VsfSideSheetReact } = useComponent('VsfSideSheet');
+import VsfSideSheetBaseObject from './VsfSideSheet.PageObject';
 
-describe("VsfSideSheet", () => {
+describe('VsfSideSheet', () => {
   let permanent: boolean;
   let leftSide: boolean;
   let overlayVisible: boolean;
@@ -26,16 +26,19 @@ describe("VsfSideSheet", () => {
           onClose: onChangeSpy,
         },
       },
-      react:
+      react: (
         <VsfSideSheetReact
           permanent={permanent}
           leftSide={leftSide}
           overlayVisible={overlayVisible}
           open={open}
           onOpenChange={onChangeSpy}
-        > </VsfSideSheetReact>
+        >
+          {' '}
+        </VsfSideSheetReact>
+      ),
     });
-  }
+  };
 
   beforeEach(() => {
     cy.viewport(300, 300);
@@ -51,40 +54,44 @@ describe("VsfSideSheet", () => {
   });
 
   describe('when prop permanent is set to true', () => {
-    before(() => {permanent = true});
-    after(() => {permanent = false});
+    before(() => {
+      permanent = true;
+    });
+    after(() => {
+      permanent = false;
+    });
     it('should render without close button and without additional fixed class', () => {
       initializeComponent();
 
-      page()
-        .isPermanent()
-        .makeSnapshot();
-    })
-  })
+      page().isPermanent().makeSnapshot();
+    });
+  });
 
   describe('when prop leftSide is false', () => {
-    before(() => {leftSide = false});
-    after(() => {leftSide = true});
+    before(() => {
+      leftSide = false;
+    });
+    after(() => {
+      leftSide = true;
+    });
     it('should render with class for right side', () => {
       initializeComponent();
 
-      page()
-        .isOnRightSide()
-        .makeSnapshot()
-
-    })
-  })
+      page().isOnRightSide().makeSnapshot();
+    });
+  });
 
   describe('when prop overlayVisible is true', () => {
-    before(() => {overlayVisible = true});
-    after(() => {overlayVisible = false});
+    before(() => {
+      overlayVisible = true;
+    });
+    after(() => {
+      overlayVisible = false;
+    });
     it('should render with overlay', () => {
       initializeComponent();
 
-      page()
-        .hasOverlay()
-        .makeSnapshot()
-
-    })
-  })
+      page().hasOverlay().makeSnapshot();
+    });
+  });
 });
