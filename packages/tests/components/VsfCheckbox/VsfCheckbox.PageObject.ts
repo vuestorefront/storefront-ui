@@ -16,17 +16,17 @@ export default class VsfCheckboxObject extends BasePage {
     return this;
   }
 
-  isDisabled(){
+  isDisabled() {
     this.inputElement.should('be.disabled');
     return this;
   }
 
-  isNotDisabled(){
+  isNotDisabled() {
     this.inputElement.should('not.be.disabled');
     return this;
   }
 
-  isRequired(){
+  isRequired() {
     this.inputElement.should('have.attr', 'required');
     return this;
   }
@@ -69,5 +69,4 @@ export default class VsfCheckboxObject extends BasePage {
   get invalidElement() {
     return this.findTestElement('checkbox-error-text');
   }
-
 }

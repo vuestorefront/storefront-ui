@@ -1,12 +1,12 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
-import React from "react";
+import React from 'react';
 import { mount, useComponent } from '../../utils/mount';
 
-const {vue: VsfAccordionItemVue, react: VsfAccordionItemReact} = useComponent('VsfAccordionItem');
-import { VsfAccordionItemSize } from "../../../sfui/frameworks/vue/components/VsfAccordionItem/types";
-import VsfAccordionItemBaseObject from "./VsfAccordionItem.PageObject";
+const { vue: VsfAccordionItemVue, react: VsfAccordionItemReact } = useComponent('VsfAccordionItem');
+import { VsfAccordionItemSize } from '../../../sfui/frameworks/vue/components/VsfAccordionItem/types';
+import VsfAccordionItemBaseObject from './VsfAccordionItem.PageObject';
 
-describe("VsfAccordionItem", () => {
+describe('VsfAccordionItem', () => {
   let title: string;
   let open: boolean;
   let chevronLeft: boolean;
@@ -23,20 +23,19 @@ describe("VsfAccordionItem", () => {
           open,
           title,
           size,
-          chevronLeft
+          chevronLeft,
         },
         slots: {
           default: () => slotContent,
         },
       },
-      react: <VsfAccordionItemReact
-        title={title}
-        open={open}
-        size={size}
-        chevronLeft={chevronLeft}
-      >{slotContent}</VsfAccordionItemReact>
+      react: (
+        <VsfAccordionItemReact title={title} open={open} size={size} chevronLeft={chevronLeft}>
+          {slotContent}
+        </VsfAccordionItemReact>
+      ),
     });
-  }
+  };
 
   afterEach(() => {
     title = 'Accordion title';
@@ -47,14 +46,10 @@ describe("VsfAccordionItem", () => {
 
   it('initial state', () => {
     title = '';
-    slotContent = ''
+    slotContent = '';
     initializeComponent();
 
-    page()
-      .doesNotHaveHeader()
-      .doesNotHaveContent()
-      .isNotOpen()
-      .makeSnapshot();
+    page().doesNotHaveHeader().doesNotHaveContent().isNotOpen().makeSnapshot();
   });
 
   describe('when prop size is set to ', () => {
@@ -64,7 +59,7 @@ describe("VsfAccordionItem", () => {
           size = componentSize;
 
           initializeComponent();
-          
+
           page().makeSnapshot();
         });
       });
@@ -76,12 +71,8 @@ describe("VsfAccordionItem", () => {
       open = true;
       initializeComponent();
 
-      page()
-        .hasHeader(title)
-        .hasContent(slotContent)
-        .isOpen()
-        .makeSnapshot();
-    })
+      page().hasHeader(title).hasContent(slotContent).isOpen().makeSnapshot();
+    });
   });
 
   describe('when prop chevronLeft=true', () => {
@@ -97,13 +88,7 @@ describe("VsfAccordionItem", () => {
     it('should open/close accordion', () => {
       initializeComponent();
 
-      page()
-        .isNotOpen()
-        .clickHeader()
-        .isOpen()
-        .clickHeader()
-        .isNotOpen()
-        .makeSnapshot();
+      page().isNotOpen().clickHeader().isOpen().clickHeader().isNotOpen().makeSnapshot();
     });
   });
 });

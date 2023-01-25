@@ -11,4 +11,4 @@ export const dynamicImports = (framework: AvailableFrameworks) =>
 export const removeCode = (framework: AvailableFrameworks) => new RegExp(`// ${framework}.*?// end ${framework}`, 'gs');
 
 export const changeFrameworkPathInImports = (framework: AvailableFrameworks) =>
-  new RegExp(`(import.*from.*)(/${framework}/)(.*)`, 'gm');
+  new RegExp(`(import.*?from.*?)(\/${framework}\/)(.*?;)`, 'gs');

@@ -49,7 +49,7 @@ export default {
             },
             {
               // Find all imports with `/vue/` files and replace it to `/react/` so we would test correct package
-              search: changeFrameworkPathInImports("vue"),
+              search: changeFrameworkPathInImports('vue'),
               replace: (_match, g1, g2, g3) => {
                 return `${g1}/react/${g3}`;
               }

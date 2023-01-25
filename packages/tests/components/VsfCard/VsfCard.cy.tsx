@@ -1,12 +1,12 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
-import React, { ReactNode } from "react";
+import React, { ReactNode } from 'react';
 import { mount, useComponent } from '../../utils/mount';
 
-const {vue: VsfCardVue, react: VsfCardReact} = useComponent('VsfCard');
-import VsfCardBaseObject from "./VsfCard.PageObject";
+const { vue: VsfCardVue, react: VsfCardReact } = useComponent('VsfCard');
+import VsfCardBaseObject from './VsfCard.PageObject';
 import { VsfCardSize } from '../../../sfui/frameworks/vue/components/VsfCard/types';
 
-describe("VsfCard", () => {
+describe('VsfCard', () => {
   let imgSrc: string;
   let imgAttr: Record<string, unknown>;
   let link: string;
@@ -34,32 +34,33 @@ describe("VsfCard", () => {
           buttonText,
           rounded,
           size,
-          slotImg
+          slotImg,
         },
         slots: {
           slotImg: () => slotImg,
         },
       },
-      react: <VsfCardReact
-        imgSrc={imgSrc}
-        imgAttr={imgAttr}
-        link={link}
-        linkTag={linkTag}
-        title={title}
-        buttonText={buttonText}
-        description={description}
-        size={size}
-        rounded={rounded}
-      >{slotImg}</VsfCardReact>
+      react: (
+        <VsfCardReact
+          imgSrc={imgSrc}
+          imgAttr={imgAttr}
+          link={link}
+          linkTag={linkTag}
+          title={title}
+          buttonText={buttonText}
+          description={description}
+          size={size}
+          rounded={rounded}
+        >
+          {slotImg}
+        </VsfCardReact>
+      ),
     });
-  }
-
-  beforeEach(() => {
-  })
+  };
 
   afterEach(() => {
     imgSrc = '../../../../../apps/preview/vue/cypress/fixtures/product-card.jpg';
-    imgAttr = {alt: "image"};
+    imgAttr = { alt: 'image' };
     link = '/';
     linkTag = 'a';
     title = 'Title';
@@ -74,21 +75,15 @@ describe("VsfCard", () => {
     imgSrc = '';
     initializeComponent();
 
-    page()
-      .doesNotHaveImage()
-      .makeSnapshot();
+    page().doesNotHaveImage().makeSnapshot();
   });
 
   describe('when image, title and description added', () => {
     it('should render correctly', () => {
       initializeComponent();
 
-      page()
-        .hasImage(imgSrc)
-        .hasTitle(title)
-        .hasDescription(description)
-        .makeSnapshot();
-    })
+      page().hasImage(imgSrc).hasTitle(title).hasDescription(description).makeSnapshot();
+    });
   });
 
   describe('when rounded is true', () => {
@@ -96,9 +91,7 @@ describe("VsfCard", () => {
       rounded = true;
       initializeComponent();
 
-      page()
-        .isRounded()
-        .makeSnapshot();
-    })
+      page().isRounded().makeSnapshot();
+    });
   });
 });

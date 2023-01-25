@@ -6,7 +6,8 @@
   "license": "MIT",
   "files": [
     "react.js",
-    "vue.js"
+    "vue.js",
+    "cypress.js"
   ],
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.38.1",
@@ -20,5 +21,8 @@
     "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^9.3.0"
+  },
+  "devDependencies": {
+    "eslint-plugin-cypress": "^2.12.1"
   }
 }

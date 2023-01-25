@@ -3,7 +3,7 @@
 export class BasePage<T extends HTMLElement = HTMLElement> {
   protected containerTestId: string;
 
-  constructor(containerTestId: string, container?: Cypress.Chainable) {
+  constructor(containerTestId: string) {
     this.containerTestId = containerTestId;
 
     // Log page object method name in cypress test, for easier readibility and debugging
@@ -37,7 +37,9 @@ export class BasePage<T extends HTMLElement = HTMLElement> {
   }
 
   isNotVisible() {
-    cy.get(`[data-testid="${this.containerTestId}"]`, { timeout: 200 }).should('not.exist');
+    cy.get(`[data-testid="${this.containerTestId}"]`, {
+      timeout: 200,
+    }).should('not.exist');
     return this;
   }
 

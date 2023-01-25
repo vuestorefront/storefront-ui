@@ -1,16 +1,12 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
-import React from "react";
-// import vue
-import VsfComboboxVue from "../../../sfui/frameworks/vue/components/VsfCombobox/VsfCombobox.vue";
-// end import vue
-// import react
-import VsfComboboxReact from "../../../sfui/frameworks/react/components/VsfCombobox/VsfCombobox";
-// end import react
+import React from 'react';
+import { ref } from 'vue';
+import { mount, useComponent } from '../../utils/mount';
 
-import { mount } from '../../utils/mount';
-import VsfComboboxBaseObject from "./VsfCombobox.PageObject";
+const { vue: VsfComboboxVue, react: VsfComboboxReact } = useComponent('VsfCombobox');
+import VsfComboboxBaseObject from './VsfCombobox.PageObject';
 
-describe("VsfCombobox", () => {
+describe('VsfCombobox', () => {
   let disabled: boolean;
   let label: string;
   let required: boolean;
@@ -20,7 +16,7 @@ describe("VsfCombobox", () => {
   let requiredText: string;
   let invalid: boolean;
   let onChangeSpy: Cypress.Agent<sinon.SinonSpy>;
-  let value = "";
+  const value = '';
 
   const page = () => new VsfComboboxBaseObject('combobox');
 
@@ -37,31 +33,29 @@ describe("VsfCombobox", () => {
           helpText,
           requiredText,
           invalid,
-          modelValue: value,
-          'onUpdate:modelValue': onChangeSpy
+          modelValue: ref(value),
+          'onUpdate:modelValue': onChangeSpy,
         },
       },
-      react: <VsfComboboxReact
-        value={value}
-        disabled={disabled}
-        placeholder={placeholder}
-        errorText={errorText}
-        helpText={helpText}
-        requiredText={requiredText}
-        required={required}
-        invalid={invalid}
-        label={label}
-        onChange={onChangeSpy}
-    />
-    })
-  }
+      react: (
+        <VsfComboboxReact
+          value={value}
+          disabled={disabled}
+          placeholder={placeholder}
+          errorText={errorText}
+          helpText={helpText}
+          requiredText={requiredText}
+          required={required}
+          invalid={invalid}
+          label={label}
+          onChange={onChangeSpy}
+        />
+      ),
+    });
+  };
 
   beforeEach(() => {
     onChangeSpy = cy.spy();
-  });
-
-  afterEach(() => {
-    placeholder = 'Placeholder'
   });
 
   it('initial state', () => {

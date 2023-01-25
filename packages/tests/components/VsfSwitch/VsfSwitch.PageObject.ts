@@ -16,12 +16,12 @@ export default class VsfSwitchObject extends BasePage {
     return this;
   }
 
-  isDisabled(){
+  isDisabled() {
     this.inputElement.should('be.disabled');
     return this;
   }
 
-  isNotDisabled(){
+  isNotDisabled() {
     this.inputElement.should('not.be.disabled');
     return this;
   }

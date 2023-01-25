@@ -1,12 +1,12 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
-import React from "react";
+import React from 'react';
 import { mount, useComponent } from '../../utils/mount';
 
 const { vue: VsfInputVue, react: VsfInputReact } = useComponent('VsfInput');
 import { VsfInputSize } from '../../../sfui/frameworks/vue/components/VsfInput/types';
-import VsfInputBaseObject from "./VsfInput.PageObject";
+import VsfInputBaseObject from './VsfInput.PageObject';
 
-describe("VsfInput", () => {
+describe('VsfInput', () => {
   let disabled: boolean;
   let label: string;
   let size: VsfInputSize;
@@ -18,7 +18,7 @@ describe("VsfInput", () => {
   let invalid: boolean;
   let characterLimit: number;
   let onChangeSpy: Cypress.Agent<sinon.SinonSpy>;
-  let value = "";
+  let value = '';
   let readonly;
 
   const page = () => new VsfInputBaseObject('input');
@@ -40,26 +40,28 @@ describe("VsfInput", () => {
           readonly,
           characterLimit,
           modelValue: value,
-          'onUpdate:modelValue': onChangeSpy
+          'onUpdate:modelValue': onChangeSpy,
         },
       },
-      react: <VsfInputReact
-        value={value}
-        disabled={disabled}
-        placeholder={placeholder}
-        errorText={errorText}
-        helpText={helpText}
-        characterLimit={characterLimit}
-        requiredText={requiredText}
-        required={required}
-        invalid={invalid}
-        label={label}
-        size={size}
-        readonly={readonly}
-        onChange={onChangeSpy}
-    />
-    })
-  }
+      react: (
+        <VsfInputReact
+          value={value}
+          disabled={disabled}
+          placeholder={placeholder}
+          errorText={errorText}
+          helpText={helpText}
+          characterLimit={characterLimit}
+          requiredText={requiredText}
+          required={required}
+          invalid={invalid}
+          label={label}
+          size={size}
+          readonly={readonly}
+          onChange={onChangeSpy}
+        />
+      ),
+    });
+  };
 
   beforeEach(() => {
     onChangeSpy = cy.spy();
@@ -67,11 +69,9 @@ describe("VsfInput", () => {
 
   afterEach(() => {
     size = VsfInputSize.base;
-    placeholder = 'Placeholder',
-    readonly = undefined;
+    (placeholder = 'Placeholder'), (readonly = undefined);
     characterLimit = 10;
   });
-
 
   it('initial state', () => {
     initializeComponent();
@@ -93,130 +93,132 @@ describe("VsfInput", () => {
   });
 
   describe('when prop disabled=true', () => {
-    before(() => disabled = true);
-    after(() => disabled = false);
+    before(() => (disabled = true));
+    after(() => (disabled = false));
     it(`should render as disabled`, () => {
       initializeComponent();
 
-      page()
-        .isDisabled()
+      page().isDisabled();
       page().makeSnapshot();
     });
   });
 
   describe('when prop label is filled in', () => {
-    before(() => label = 'Label');
-    after(() => label = '');
+    before(() => (label = 'Label'));
+    after(() => (label = ''));
     it(`should render with label`, () => {
       initializeComponent();
 
-      page()
-        .hasLabel('Label')
-        .makeSnapshot();
+      page().hasLabel('Label').makeSnapshot();
     });
   });
 
   describe('when prop label is empty', () => {
-    before(() => label = '');
+    before(() => (label = ''));
     it(`should render without label`, () => {
       initializeComponent();
 
-      page()
-        .doesNotHaveLabel()
-        .makeSnapshot();
+      page().doesNotHaveLabel().makeSnapshot();
     });
   });
 
   describe('when prop required=true', () => {
-    before(() => required = true);
-    after(() => required = false);
+    before(() => (required = true));
+    after(() => (required = false));
     it(`should render as required`, () => {
       initializeComponent();
 
-      page()
-        .isRequired()
+      page().isRequired();
       page().makeSnapshot();
     });
   });
 
   describe('when prop requiredText is filled out', () => {
-    before(() => {required = true, requiredText = '*Required'});
-    after(() =>{ required = false, requiredText = ''});
+    before(() => {
+      (required = true), (requiredText = '*Required');
+    });
+    after(() => {
+      (required = false), (requiredText = '');
+    });
     it('should render with required text', () => {
       initializeComponent();
 
-      page()
-        .hasRequiredText("*Required")
-        .makeSnapshot();
+      page().hasRequiredText('*Required').makeSnapshot();
     });
   });
 
   describe('when prop helpText is visible', () => {
-    before(() => { helpText = 'Help'});
-    after(() =>{ helpText = ''});
+    before(() => {
+      helpText = 'Help';
+    });
+    after(() => {
+      helpText = '';
+    });
     it('should render with help text', () => {
       initializeComponent();
 
-      page()
-        .hasHelpText("Help")
-        .makeSnapshot();
+      page().hasHelpText('Help').makeSnapshot();
     });
   });
 
   describe('when prop errorText is filled out and invalid=true', () => {
-    before(() => {invalid = true, errorText = 'Error'});
-    after(() =>{ invalid = false, errorText = ''});
+    before(() => {
+      (invalid = true), (errorText = 'Error');
+    });
+    after(() => {
+      (invalid = false), (errorText = '');
+    });
     it('should render with invalid text', () => {
       initializeComponent();
 
-      page()
-        .hasInvalidText("Error")
-        .makeSnapshot();
+      page().hasInvalidText('Error').makeSnapshot();
     });
   });
 
   describe('when prop placeholder is filled in', () => {
-    before(() => { placeholder = 'Select value'});
+    before(() => {
+      placeholder = 'Select value';
+    });
     it('should render with no placeholder', () => {
       initializeComponent();
 
-      page()
-        .hasPlaceholder()
-        .makeSnapshot();
+      page().hasPlaceholder().makeSnapshot();
     });
   });
 
   describe('when prop readonly is provided', () => {
-    before(() => { readonly = true });
+    before(() => {
+      readonly = true;
+    });
     it(`should render as readonly input`, () => {
       initializeComponent();
 
-      page()
-        .hasReadonly()
-        page().makeSnapshot();
+      page().hasReadonly();
+      page().makeSnapshot();
     });
   });
 
   describe('when prop characterLimit is provided', () => {
-    before(() => { characterLimit = 10 });
+    before(() => {
+      characterLimit = 10;
+    });
     it(`should render character limit of 10`, () => {
       initializeComponent();
 
-      page()
-        .hasCharsCount(10)
-        page().makeSnapshot();
+      page().hasCharsCount(10);
+      page().makeSnapshot();
     });
   });
 
   describe('when input value change', () => {
-    before(() => { characterLimit = 10, value = 'abc' });
+    before(() => {
+      (characterLimit = 10), (value = 'abc');
+    });
     it(`should render character limit difference`, () => {
       initializeComponent();
 
-      page()
-        .hasCharsCount(7)
-        page().makeSnapshot();
+      page().hasCharsCount(7);
+      page().makeSnapshot();
     });
   });
-
 });

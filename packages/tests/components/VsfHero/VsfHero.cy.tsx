@@ -1,9 +1,9 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from 'react';
+import type { ReactNode } from 'react';
 import { h } from 'vue';
 import { mount, Wrapper, useComponent } from '../../utils/mount';
 import { VsfHeroDirection } from '../../../sfui/frameworks/react/components/VsfHero/types';
-import type { VsfHeroProps } from '../../../sfui/frameworks/react/components/VsfHero/types';
 
 const { vue: VsfHeroVue, react: VsfHeroReact } = await useComponent('VsfHero');
 import VsfHeroBaseObject from './VsfHero.PageObject';
@@ -16,12 +16,20 @@ describe('VsfHero', () => {
   let hero_bg_desktop: string;
 
   before(() => {
-    useImage('hero/hero_img.png').then(img => hero_img = img);
-    useImage('hero/hero_bg_mobile.png').then(img => hero_bg_mobile = img);
-    useImage('hero/hero_bg_desktop.png').then(img => hero_bg_desktop = img);
-  })
+    useImage('hero/hero_img.png').then((img) => (hero_img = img));
+    useImage('hero/hero_bg_mobile.png').then((img) => (hero_bg_mobile = img));
+    useImage('hero/hero_bg_desktop.png').then((img) => (hero_bg_desktop = img));
+  });
 
-  const initializeComponent = ({ direction = VsfHeroDirection.horizontal, ...props }: VsfHeroProps = {}) => {
+  const initializeComponent = ({
+    direction = VsfHeroDirection.horizontal,
+    ...props
+  }: {
+    direction?: VsfHeroDirection;
+    slotMedia?: ReactNode;
+    bgImgMobileSrc?: string;
+    bgImgDesktopSrc?: string;
+  } = {}) => {
     return mount({
       vue: {
         component: VsfHeroVue,

@@ -1,12 +1,12 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
-import React, { ReactNode } from "react";
+import React, { ReactNode } from 'react';
 import { mount, useComponent } from '../../utils/mount';
 
 const { vue: VsfProductCardVue, react: VsfProductCardReact } = useComponent('VsfProductCard');
-import VsfProductCardBaseObject from "./VsfProductCard.PageObject";
+import VsfProductCardBaseObject from './VsfProductCard.PageObject';
 import { VsfProductCardSize } from '../../../sfui/frameworks/vue/components/VsfProductCard/types';
 
-describe("VsfProductCard", () => {
+describe('VsfProductCard', () => {
   let onAddToCartClickSpy: Cypress.Agent<sinon.SinonSpy>;
   let onAddToWishlistClickSpy: Cypress.Agent<sinon.SinonSpy>;
   let onSeeSimilarClickSpy: Cypress.Agent<sinon.SinonSpy>;
@@ -83,46 +83,53 @@ describe("VsfProductCard", () => {
           slotRating: () => slotRating,
         },
       },
-      react: <VsfProductCardReact
-        imageSrc={imageSrc}
-        imageAttr={imageAttr}
-        link={link}
-        ratingValue={ratingValue}
-        maxRatingValue={maxRatingValue}
-        reviewsAmount={reviewsAmount}
-        title={title}
-        price={price}
-        oldPrice={oldPrice}
-        description={description}
-        outOfStock={outOfStock}
-        outOfStockLabel={outOfStockLabel}
-        inCart={inCart}
-        size={size}
-        addToCartLabel={addToCartLabel}
-        similarLabel={similarLabel}
-        badgeText={badgeText}
-        vertical={vertical}
-        ariaLabelAddToWishlist={ariaLabelAddToWishlist}
-        ariaLabelBadge={ariaLabelBadge}
-        ariaLabelAddToBasket={ariaLabelAddToBasket}
-        onAddToCartClick={onAddToCartClickSpy}
-        onAddToWishlistClick={onAddToWishlistClickSpy}
-        onSeeSimilarClick={onSeeSimilarClickSpy}
-        onReviewsClick={onReviewsClickSpy}
-      >{slotImage}{slotImageTop}{slotImageBottom}{slotRating}</VsfProductCardReact>
+      react: (
+        <VsfProductCardReact
+          imageSrc={imageSrc}
+          imageAttr={imageAttr}
+          link={link}
+          ratingValue={ratingValue}
+          maxRatingValue={maxRatingValue}
+          reviewsAmount={reviewsAmount}
+          title={title}
+          price={price}
+          oldPrice={oldPrice}
+          description={description}
+          outOfStock={outOfStock}
+          outOfStockLabel={outOfStockLabel}
+          inCart={inCart}
+          size={size}
+          addToCartLabel={addToCartLabel}
+          similarLabel={similarLabel}
+          badgeText={badgeText}
+          vertical={vertical}
+          ariaLabelAddToWishlist={ariaLabelAddToWishlist}
+          ariaLabelBadge={ariaLabelBadge}
+          ariaLabelAddToBasket={ariaLabelAddToBasket}
+          onAddToCartClick={onAddToCartClickSpy}
+          onAddToWishlistClick={onAddToWishlistClickSpy}
+          onSeeSimilarClick={onSeeSimilarClickSpy}
+          onReviewsClick={onReviewsClickSpy}
+        >
+          {slotImage}
+          {slotImageTop}
+          {slotImageBottom}
+          {slotRating}
+        </VsfProductCardReact>
+      ),
     });
-  }
+  };
 
   beforeEach(() => {
     onAddToCartClickSpy = cy.spy();
     onAddToWishlistClickSpy = cy.spy();
     onSeeSimilarClickSpy = cy.spy();
     onReviewsClickSpy = cy.spy();
-  })
+  });
 
   afterEach(() => {
     imageSrc = '../../../../../apps/preview/vue/cypress/fixtures/product-card.jpg';
-    imageAttr = {alt: "image"};
+    imageAttr = { alt: 'image' };
     link = '/';
     linkTag = 'a';
     ratingValue = 3;
@@ -133,8 +140,7 @@ describe("VsfProductCard", () => {
     oldPrice = '$3,132.99';
     description = 'There are many variations of passages of Lorem Ipsum available';
     outOfStock = false;
-    outOfStockLabel = 'Out of stock',
-    inCart = '12 in cart';
+    (outOfStockLabel = 'Out of stock'), (inCart = '12 in cart');
     size = VsfProductCardSize.responsive;
     addToCartLabel = 'Add';
     similarLabel = 'See similar';
@@ -148,21 +154,16 @@ describe("VsfProductCard", () => {
     title = '';
     initializeComponent();
 
-    page()
-      .doesNotHaveImage()
-      .doesNotHaveTitle()
-      .makeSnapshot();
+    page().doesNotHaveImage().doesNotHaveTitle().makeSnapshot();
   });
 
   describe('when badgeText added', () => {
     it('should render tag component in image top slot', () => {
-      badgeText = '-30%'
+      badgeText = '-30%';
       initializeComponent();
 
-      page()
-        .hasBadge(badgeText)
-        .makeSnapshot();
-    })
+      page().hasBadge(badgeText).makeSnapshot();
+    });
   });
 
   describe('when inCart value above 0', () => {
@@ -170,22 +171,16 @@ describe("VsfProductCard", () => {
       inCart = '12 in cart';
       initializeComponent();
 
-      page()
-        .hasInCart(inCart)
-        .makeSnapshot();
-    })
+      page().hasInCart(inCart).makeSnapshot();
+    });
   });
 
   describe('when image, title and description added', () => {
     it('should render correctly', () => {
       initializeComponent();
 
-      page()
-        .hasImage(imageSrc)
-        .hasTitle(title)
-        .hasDescription(description)
-        .makeSnapshot();
-    })
+      page().hasImage(imageSrc).hasTitle(title).hasDescription(description).makeSnapshot();
+    });
   });
 
   describe('when price and oldPrice added', () => {
@@ -194,11 +189,8 @@ describe("VsfProductCard", () => {
       oldPrice = '$1,349.99';
       initializeComponent();
 
-      page()
-        .hasPrice(price)
-        .hasOldPrice(oldPrice)
-        .makeSnapshot();
-    })
+      page().hasPrice(price).hasOldPrice(oldPrice).makeSnapshot();
+    });
   });
 
   describe('when maxRatingValue is set, ratingValue and reviewsAmount added', () => {
@@ -213,7 +205,7 @@ describe("VsfProductCard", () => {
         .hasRatingValue(ratingValue)
         .hasReviewsAmount(reviewsAmount)
         .makeSnapshot();
-    })
+    });
   });
 
   describe('when viewport is set below 769px width and component is vertical', () => {
@@ -221,10 +213,8 @@ describe("VsfProductCard", () => {
       cy.viewport(768, 500);
       initializeComponent();
 
-      page()
-        .hasProperSize('192px')
-        .makeSnapshot();
-    })
+      page().hasProperSize('192px').makeSnapshot();
+    });
   });
 
   describe('when no badgeText is given and inCart is 0', () => {
@@ -233,11 +223,8 @@ describe("VsfProductCard", () => {
       inCart = '';
       initializeComponent();
 
-      page()
-        .doesNotHaveBadge()
-        .doesNotHaveInCart()
-        .makeSnapshot();
-    })
+      page().doesNotHaveBadge().doesNotHaveInCart().makeSnapshot();
+    });
   });
 
   describe('when outOfStock is true', () => {
@@ -246,11 +233,8 @@ describe("VsfProductCard", () => {
       outOfStock = true;
       initializeComponent();
 
-      page()
-        .hasOutOfStock()
-        .hasSeeSimilarButton(similarLabel)
-        .makeSnapshot();
-    })
+      page().hasOutOfStock().hasSeeSimilarButton(similarLabel).makeSnapshot();
+    });
   });
 
   describe('when vertical is false', () => {
@@ -259,35 +243,32 @@ describe("VsfProductCard", () => {
       cy.viewport(641, 500);
       initializeComponent();
 
-      page()
-        .isHorizontal('640px')
-        .makeSnapshot();
-    })
+      page().isHorizontal('640px').makeSnapshot();
+    });
   });
 
   describe('when add to cart button is clicked', () => {
     it('should emit addToCart event', () => {
       initializeComponent();
 
-      page().addToCartClick()
+      page().addToCartClick();
       cy.then(() => {
         expect(onAddToCartClickSpy).to.be.called;
-        page().makeSnapshot()
-      })
-    })
+        page().makeSnapshot();
+      });
+    });
   });
 
   describe('when add to wishlist button is clicked', () => {
     it('should emit addToWishlist event', () => {
-
       initializeComponent();
 
       page().addToWishlistClick();
       cy.then(() => {
         expect(onAddToWishlistClickSpy).to.be.called;
-        page().makeSnapshot()
-      })
-    })
+        page().makeSnapshot();
+      });
+    });
   });
 
   describe('when see similar button is clicked', () => {
@@ -298,9 +279,9 @@ describe("VsfProductCard", () => {
       page().seeSimilarClick();
       cy.then(() => {
         expect(onSeeSimilarClickSpy).to.be.called;
-        page().makeSnapshot()
-      })
-    })
+        page().makeSnapshot();
+      });
+    });
   });
 
   describe('when see reviews is clicked', () => {
@@ -310,8 +291,8 @@ describe("VsfProductCard", () => {
       page().seeReviewsClick();
       cy.then(() => {
         expect(onReviewsClickSpy).to.be.called;
-        page().makeSnapshot()
-      })
-    })
+        page().makeSnapshot();
+      });
+    });
   });
 });

@@ -1,7 +1,6 @@
 import { BasePage } from '../../utils/BasePage';
 
 export default class VsfProductCardBaseObject extends BasePage {
-
   hasImage(imageSrc: string) {
     this.imageElement.should('have.attr', 'src', imageSrc);
     return this;
@@ -87,13 +86,13 @@ export default class VsfProductCardBaseObject extends BasePage {
     return this;
   }
 
-  isHorizontal(size: string) {    
+  isHorizontal(size: string) {
     this.container.invoke('css', 'width').should('be.eq', size);
     return this;
   }
 
   addToCartClick() {
-    this.addToCartElement.click();    
+    this.addToCartElement.click();
     return this;
   }
 

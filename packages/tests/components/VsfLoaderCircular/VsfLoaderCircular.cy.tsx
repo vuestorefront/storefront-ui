@@ -1,12 +1,12 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
-import React from "react";
+import React from 'react';
+import { VsfLoaderSize } from '@storefront-ui/shared';
 import { mount, useComponent } from '../../utils/mount';
 
 const { vue: VsfLoaderCircularVue, react: VsfLoaderCircularReact } = useComponent('VsfLoaderCircular');
-import { VsfLoaderSize } from "@storefront-ui/shared";
-import VsfLoaderCircularBaseObject from "./VsfLoaderCircular.PageObject";
+import VsfLoaderCircularBaseObject from './VsfLoaderCircular.PageObject';
 
-describe("VsfLoaderCircular", () => {
+describe('VsfLoaderCircular', () => {
   const page = () => new VsfLoaderCircularBaseObject('loader-circular');
   let size: VsfLoaderSize;
   let screenReaderText: string;
@@ -20,18 +20,18 @@ describe("VsfLoaderCircular", () => {
           screenReaderText,
         },
       },
-      react: <VsfLoaderCircularReact size={size} screenReaderText={screenReaderText} />
+      react: <VsfLoaderCircularReact size={size} screenReaderText={screenReaderText} />,
     });
-  }
+  };
 
   afterEach(() => {
     size = VsfLoaderSize.lg;
     screenReaderText = 'loading';
-  })
+  });
 
   it('initial state', () => {
     initializeComponent();
-    page().makeSnapshot()
+    page().makeSnapshot();
   });
 
   describe('when size is changed to ', () => {
@@ -42,22 +42,18 @@ describe("VsfLoaderCircular", () => {
 
           initializeComponent();
 
-          page()
-            .hasSizeClass(componentSize)
-            .makeSnapshot();
-        })
-      })
+          page().hasSizeClass(componentSize).makeSnapshot();
+        });
+      });
     });
-  })
+  });
 
   describe('when screenReaderText is changed', () => {
     it('should render proper content', () => {
       screenReaderText = 'is loading';
       initializeComponent();
 
-      page()
-        .containScreenReaderText(screenReaderText)
-        .makeSnapshot()
-    })
+      page().containScreenReaderText(screenReaderText).makeSnapshot();
+    });
   });
 });

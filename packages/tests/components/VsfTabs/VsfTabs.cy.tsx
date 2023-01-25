@@ -1,24 +1,17 @@
-/// <reference path="../../../../../node_modules/@percy/cypress/types/index.d.ts" />
-import React from "react";
+/// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
+import React from 'react';
 import type { Ref } from 'vue';
 import { ref, h } from 'vue';
-// import vue
-import VsfTabsVue from "../../../sfui/frameworks/vue/components/VsfTabs/VsfTabs.vue";
-import VsfTabsItemVue from '../../../sfui/frameworks/vue/components/VsfTabs/VsfTabsItem.vue';
-import VsfCounterVue from '../../../sfui/frameworks/vue/components/VsfCounter/VsfCounter.vue'
-import VsfIconDotVue from '../../../sfui/frameworks/vue/components/VsfIcons/VsfIconDot.vue';
-// end import vue
-// import react
-import VsfTabsReact from "../../../sfui/frameworks/react/components/VsfTabs/VsfTabs";
-import VsfTabsItemReact from '../../../sfui/frameworks/react/components/VsfTabs/VsfTabsItem';
-import VsfIconDotReact from '../../../sfui/frameworks/react/components/VsfIcons/VsfIconDot';
-import VsfCounterReact from '../../../sfui/frameworks/react/components/VsfCounter/VsfCounter';
-// end import react
-import { mount, Wrapper } from '../../utils/mount';
-import VsfTabsBaseObject from "./VsfTabs.PageObject";
+import { mount, Wrapper, useComponent } from '../../utils/mount';
+
+const { vue: VsfTabsVue, react: VsfTabsReact } = useComponent('VsfTabs');
+const { vue: VsfTabsItemVue, react: VsfTabsItemReact } = useComponent('VsfTabsItem');
+const { vue: VsfCounterVue, react: VsfCounterReact } = useComponent('VsfCounter');
+const { vue: VsfIconDotVue, react: VsfIconDotReact } = useComponent('VsfIconDot');
+import VsfTabsBaseObject from './VsfTabs.PageObject';
 import { VsfButtonSize } from '../../../sfui/frameworks/vue/components/VsfButton/types';
 
-describe("VsfTabs", () => {
+describe('VsfTabs', () => {
   const page = () => new VsfTabsBaseObject('tabs');
   const tabs = [
     {
@@ -36,14 +29,14 @@ describe("VsfTabs", () => {
   ];
 
   let disabledItem = '';
-  let onChangeSpy = Cypress.Agent<sinon.SinonSpy>;
+  let onChangeSpy: Cypress.Agent<sinon.SinonSpy>;
 
   const initializeComponent = ({
     modelValue = ref(''),
     size = ref(VsfButtonSize.base),
   }: {
-    modelValue?: Ref<number | string | symbol>,
-    size?: VsfButtonSize,
+    modelValue?: Ref<number | string | symbol>;
+    size?: Ref<VsfButtonSize>;
   } = {}) => {
     return mount({
       vue: {
@@ -55,10 +48,10 @@ describe("VsfTabs", () => {
         },
         slots: {
           default: () =>
-            tabs.map(
-              ({ label, counter }) => {
-                return h(
-                  VsfTabsItemVue, {
+            tabs.map(({ label, counter }) => {
+              return h(
+                VsfTabsItemVue,
+                {
                   key: label,
                   uid: label,
                   disabled: label === disabledItem,
@@ -66,19 +59,14 @@ describe("VsfTabs", () => {
                 {
                   prefix: () => h(VsfIconDotVue),
                   default: () => label,
-                  suffix: () => h(VsfCounterVue, { pill: true },  { default: () => counter })
-                }
-              )
-              }
-            )
-        }
+                  suffix: () => h(VsfCounterVue, { pill: true }, { default: () => counter }),
+                },
+              );
+            }),
+        },
       },
-        react: <Wrapper
-          active={modelValue}
-          size={size}
-          onChange={onChangeSpy}
-          component={VsfTabsReact}
-        >
+      react: (
+        <Wrapper active={modelValue} size={size} onChange={onChangeSpy} component={VsfTabsReact}>
           {tabs.map((tab) => (
             <VsfTabsItemReact
               key={tab.label}
@@ -91,8 +79,9 @@ describe("VsfTabs", () => {
             </VsfTabsItemReact>
           ))}
         </Wrapper>
+      ),
     });
-  }
+  };
 
   beforeEach(() => {
     cy.viewport(700, 300);
@@ -110,10 +99,11 @@ describe("VsfTabs", () => {
       initializeComponent();
 
       page().buttonElements.each(($el) => {
-        cy.wrap($el).click()
+        cy.wrap($el)
+          .click()
           .then(() => {
             expect(onChangeSpy).calledWith($el.clone().children().remove().end().text());
-          })
+          });
         page().makeSnapshot();
       });
     });
@@ -123,16 +113,13 @@ describe("VsfTabs", () => {
     [...Object.values(VsfButtonSize)].forEach((componentSize) => {
       describe(componentSize, () => {
         it('should render proper tab size', () => {
-          const size = componentSize;
-          initializeComponent({ size });
+          initializeComponent({ size: ref(componentSize) });
 
-          page()
-            .hasSizeClass(componentSize)
-            .makeSnapshot();
-        })
-      })
+          page().hasSizeClass(componentSize).makeSnapshot();
+        });
+      });
     });
-  })
+  });
 
   describe('when disabled prop is set', () => {
     [...tabs].forEach((tab, index) => {
@@ -141,11 +128,9 @@ describe("VsfTabs", () => {
           disabledItem = tab.label;
           initializeComponent();
 
-          page()
-            .isTabDisabled(index)
-            .makeSnapshot();
-        })
-      })
+          page().isTabDisabled(index).makeSnapshot();
+        });
+      });
     });
   });
 

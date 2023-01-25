@@ -1,12 +1,12 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
-import React from "react";
+import React from 'react';
 import { mount, useComponent } from '../../utils/mount';
 
 const { vue: VsfProgressCircularVue, react: VsfProgressCircularReact } = useComponent('VsfProgressCircular');
-import VsfProgressCircularBaseObject from "./VsfProgressCircular.PageObject";
+import VsfProgressCircularBaseObject from './VsfProgressCircular.PageObject';
 import { VsfProgressCircularSize } from '../../../sfui/frameworks/vue/components/VsfProgressCircular/types';
 
-describe("VsfProgressCircular", () => {
+describe('VsfProgressCircular', () => {
   let size: VsfProgressCircularSize;
   let value: number;
   let withValue: boolean;
@@ -20,16 +20,12 @@ describe("VsfProgressCircular", () => {
         props: {
           size,
           value,
-          withValue
+          withValue,
         },
       },
-      react: <VsfProgressCircularReact
-          size={size}
-          value={value}
-          withValue={withValue}
-        />
+      react: <VsfProgressCircularReact size={size} value={value} withValue={withValue} />,
     });
-  }
+  };
 
   it('initial state', () => {
     initializeComponent();
@@ -49,24 +45,24 @@ describe("VsfProgressCircular", () => {
   });
 
   describe('when prop value is 90', () => {
-    before(() => { value = 90});
+    before(() => {
+      value = 90;
+    });
     it('should render with 90%', () => {
       initializeComponent();
 
-      page()
-        .hasValue(90)
-        .makeSnapshot();
+      page().hasValue(90).makeSnapshot();
     });
-  })
+  });
 
   describe('when prop withValue is false', () => {
-    before(() => { withValue = false});
+    before(() => {
+      withValue = false;
+    });
     it('should render without percentage value', () => {
       initializeComponent();
 
-      page()
-        .doesNotHaveValue()
-        .makeSnapshot();
+      page().doesNotHaveValue().makeSnapshot();
     });
-  })
+  });
 });
