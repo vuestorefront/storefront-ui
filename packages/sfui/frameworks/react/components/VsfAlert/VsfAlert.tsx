@@ -39,6 +39,7 @@ export default function VsfAlert({
   slotPrefix,
   slotSuffix,
   className,
+  ariaLabelClose = 'Close',
   ...attributes
 }: VsfAlertProps): JSX.Element | null {
   const [, cancel, reset] = useTimeoutFn(() => {
@@ -76,6 +77,7 @@ export default function VsfAlert({
                 onClick={() => onOpenChange(false)}
                 slotPrefix={<VsfIconClose />}
                 data-testid="alert-close-button"
+                aria-label={ariaLabelClose}
               />
             ))}
         </div>

@@ -6,6 +6,7 @@
       :type="type"
       :text="text"
       :header="header"
+      :aria-label-close="ariaLabelClose"
       :with-shadow="withShadow"
       :hide-prefix="hidePrefix"
       :hide-suffix="hideSuffix"
@@ -89,6 +90,13 @@ export default defineComponent({
             description: 'Used unless "header" slot is provided',
           },
           {
+            type: 'text',
+            modelName: 'ariaLabelClose',
+            propType: 'string',
+            propDefaultValue: 'Close',
+            description: 'Aria label of the default close button icon',
+          },
+          {
             type: 'boolean',
             modelName: 'withShadow',
             propType: 'boolean',
@@ -132,6 +140,7 @@ export default defineComponent({
           text: ref('Informative text'),
           header: ref('Header'),
           withShadow: ref(),
+          ariaLabelClose: ref('Close'),
           hidePrefix: ref(),
           hideSuffix: ref(),
           prefix: ref(prefixSlotOptions.defaultOption),

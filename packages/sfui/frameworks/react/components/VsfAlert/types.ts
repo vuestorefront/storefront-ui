@@ -16,4 +16,5 @@ export interface VsfAlertProps extends PropsWithStyle, PropsWithChildren {
   hideSuffix?: boolean;
   slotPrefix?: ReactNode;
   slotSuffix?: ReactNode;
+  ariaLabelClose?: string;
 }

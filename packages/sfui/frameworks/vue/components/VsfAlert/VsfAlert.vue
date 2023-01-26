@@ -39,6 +39,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  ariaLabelClose: {
+    type: String,
+    default: 'Close',
+  },
 });
 
 const { modelValue, type } = toRefs(props);
@@ -92,6 +96,7 @@ watch(
         <VsfButton
           v-if="type === VsfAlertType.persistent"
           :variant="VsfButtonVariant.tertiary"
+          :aria-label="ariaLabelClose"
           data-testid="alert-close-button"
           @click="$emit('update:modelValue', false)"
         >
