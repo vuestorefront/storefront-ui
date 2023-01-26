@@ -60,6 +60,13 @@ function Example() {
           'Alert header displayed on top `text` paragraph. To customize it - pass in ReactElement instead of a string.',
       },
       {
+        type: 'text',
+        modelName: 'ariaLabelClose',
+        propType: 'string',
+        propDefaultValue: 'Close',
+        description: 'Aria label of the default close button icon',
+      },
+      {
         type: 'boolean',
         modelName: 'withShadow',
         propType: 'boolean',
@@ -103,6 +110,7 @@ function Example() {
       text: 'Informative text',
       header: 'Header',
       withShadow: undefined,
+      ariaLabelClose: 'Close',
       hidePrefix: undefined,
       hideSuffix: undefined,
       slotPrefix: prefixSlotOptions.defaultOption,
