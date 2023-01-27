@@ -3936,6 +3936,11 @@
   resolved "https://registry.yarnpkg.com/@storefront-ui/shared/-/shared-0.10.8.tgz#1717f528a073dcebbd6115f587c3cf57a94ee86a"
   integrity sha512-lRVqxs5QAOtXV129uNDSn0BYvjix0VXNZu2ChnQAu8jNKC/Q10cN1XrDiOEiL8hDpx7py+6DUka1WZ5K8dn+jQ==
 
+"@storefront-ui/shared@0.13.5":
+  version "0.13.5"
+  resolved "https://registry.yarnpkg.com/@storefront-ui/shared/-/shared-0.13.5.tgz#2e376671c401c88581422beabf9e1b268a7cde9c"
+  integrity sha512-Y27gFIxIvsPcU/vnIgLbbi+OZioWErSqvMLho0rFiqkIcpMcK7x98PkaSfN3bHPKWkSf1QsgY8OOdsnlyxuK2Q==
+
 "@storefront-ui/vue@0.10.8":
   version "0.10.8"
   resolved "https://registry.yarnpkg.com/@storefront-ui/vue/-/vue-0.10.8.tgz#9d3e999a4beb2188cca397dcb7cc7b3d5d9a6207"
@@ -3956,7 +3961,7 @@
     vue2-leaflet "^2.5.2"
 
 "@storefront-ui/vue@file:packages/vue":
-  version "0.13.5"
+  version "0.13.6"
   dependencies:
     "@glidejs/glide" "^3.3.0"
     "@storefront-ui/shared" "0.13.5"
@@ -22845,9 +22850,9 @@ typescript@^3.2.2:
   integrity sha512-w6fIxVE/H1PkLKcCPsFqKE7Kv7QUwhU8qQY2MueZXWx5cPZdwFupLgKK3vntcK98BtNHZtAF4LA/yl2a7k8R6Q==
 
 ua-parser-js@^0.7.28:
-  version "0.7.28"
-  resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.28.tgz#8ba04e653f35ce210239c64661685bf9121dec31"
-  integrity sha512-6Gurc1n//gjp9eQNXjD9O3M/sMwVtN5S8Lv9bvOYBfKfDNiIIhqiyi01vMBO45u4zkDE420w/e0se7Vs+sIg+g==
+  version "0.7.33"
+  resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.33.tgz#1d04acb4ccef9293df6f70f2c3d22f3030d8b532"
+  integrity sha512-s8ax/CeZdK9R/56Sui0WM6y9OFREJarMRHqLB2EwkovemBxNQ+Bqu8GAsUnVcXKgphb++ghr/B2BZx4mahujPw==
 
 ufo@^0.7.4, ufo@^0.7.9:
   version "0.7.9"
