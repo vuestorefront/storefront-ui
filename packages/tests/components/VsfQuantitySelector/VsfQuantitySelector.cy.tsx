@@ -1,11 +1,11 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from 'react';
+import { VsfQuantitySelectorSize } from '@storefront-ui/vue/components/VsfQuantitySelector/types';
 import { mount, useComponent } from '../../utils/mount';
-
-const { vue: VsfQuantitySelectorVue, react: VsfQuantitySelectorReact } = useComponent('VsfQuantitySelector');
-import { VsfQuantitySelectorSize } from '../../../sfui/frameworks/vue/components/VsfQuantitySelector/types';
 import VsfQuantitySelectorBaseObject from './VsfQuantitySelector.PageObject';
 import VsfButtonBaseObject from '../VsfButton/VsfButton.PageObject';
+
+const { vue: VsfQuantitySelectorVue, react: VsfQuantitySelectorReact } = useComponent('VsfQuantitySelector');
 
 describe('VsfQuantitySelector', () => {
   let onChangeSpy: Cypress.Agent<sinon.SinonSpy>;

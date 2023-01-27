@@ -2,9 +2,9 @@
 import React from 'react';
 import { VsfLoaderSize } from '@storefront-ui/shared';
 import { mount, useComponent } from '../../utils/mount';
+import VsfLoaderCircularBaseObject from './VsfLoaderCircular.PageObject';
 
 const { vue: VsfLoaderCircularVue, react: VsfLoaderCircularReact } = useComponent('VsfLoaderCircular');
-import VsfLoaderCircularBaseObject from './VsfLoaderCircular.PageObject';
 
 describe('VsfLoaderCircular', () => {
   const page = () => new VsfLoaderCircularBaseObject('loader-circular');

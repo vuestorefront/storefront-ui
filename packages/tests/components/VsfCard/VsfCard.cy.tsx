@@ -1,10 +1,10 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React, { ReactNode } from 'react';
+import { VsfCardSize } from '@storefront-ui/vue/components/VsfCard/types';
 import { mount, useComponent } from '../../utils/mount';
+import VsfCardBaseObject from './VsfCard.PageObject';
 
 const { vue: VsfCardVue, react: VsfCardReact } = useComponent('VsfCard');
-import VsfCardBaseObject from './VsfCard.PageObject';
-import { VsfCardSize } from '../../../sfui/frameworks/vue/components/VsfCard/types';
 
 describe('VsfCard', () => {
   let imgSrc: string;

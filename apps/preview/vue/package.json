@@ -10,13 +10,10 @@
     "lints": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "clean": "rimraf ./src/components/sfui",
     "sync-test": "cpy . ../../apps/preview/vue/src/components/sfui/tests --cwd=../../../packages/tests/",
-    "sync-comp": "cpy . !dist ../../../../apps/preview/vue/src/components/sfui/sfui/frameworks/vue/ --cwd=../../../packages/sfui/frameworks/vue/",
-    "sync": "yarn sync-test && yarn sync-comp",
     "sync:watch-test": "chokidar --silent \"../../../packages/tests/**/*.{cy.tsx,ts,tsx,png,jpg,jpeg,json}\" -c \"yarn sync-test\"",
-    "sync:watch-comp": "chokidar --silent \"../../../packages/sfui/frameworks/{vue,sass}/**/*.{vue,ts,tsx,scss}\" -c \"yarn sync-comp\"",
-    "test": "yarn clean && yarn sync && concurrently \"yarn sync:watch-test\" \"yarn sync:watch-comp\" \"yarn cypress open --component\"",
-    "test:ci": "yarn clean && yarn sync && yarn percy exec -- cypress run --component",
-    "test:ci:vue": "yarn clean && yarn sync && yarn percy exec -- cypress run --component"
+    "test": "yarn clean && yarn sync-test && concurrently \"yarn sync:watch-test\" \"yarn cypress open --component\"",
+    "test:ci": "yarn clean && yarn sync-test && yarn percy exec -- cypress run --component",
+    "test:ci:vue": "yarn clean && yarn sync-test && yarn percy exec -- cypress run --component"
   },
   "dependencies": {
     "pinia": "^2.0.23",

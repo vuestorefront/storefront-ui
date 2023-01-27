@@ -3,11 +3,11 @@ import React from 'react';
 import { h, ref } from 'vue';
 import type { Ref } from 'vue';
 import { mount, useComponent, Wrapper } from '../../utils/mount';
+import VsfDropdownMenuBaseObject from './VsfDropdownMenu.PageObject';
 
 const { vue: VsfDropdownMenuVue, react: VsfDropdownMenuReact } = useComponent('VsfDropdownMenu');
 const { vue: VsfListItemMenuVue, react: VsfListItemMenuReact } = useComponent('VsfListItemMenu');
 const { vue: VsfIconDotVue, react: VsfIconDotReact } = useComponent('VsfIconDot');
-import VsfDropdownMenuBaseObject from './VsfDropdownMenu.PageObject';
 
 describe('VsfDropdownMenu', () => {
   const page = () => new VsfDropdownMenuBaseObject('dropdown-menu');

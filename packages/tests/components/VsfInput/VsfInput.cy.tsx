@@ -1,10 +1,10 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from 'react';
+import { VsfInputSize } from '@storefront-ui/vue/components/VsfInput/types';
 import { mount, useComponent } from '../../utils/mount';
+import VsfInputBaseObject from './VsfInput.PageObject';
 
 const { vue: VsfInputVue, react: VsfInputReact } = useComponent('VsfInput');
-import { VsfInputSize } from '../../../sfui/frameworks/vue/components/VsfInput/types';
-import VsfInputBaseObject from './VsfInput.PageObject';
 
 describe('VsfInput', () => {
   let disabled: boolean;

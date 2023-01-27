@@ -3,9 +3,9 @@ import React from 'react';
 import { ref } from 'vue';
 import type { Ref } from 'vue';
 import { mount, useComponent, Wrapper } from '../../utils/mount';
+import VsfNavigationSideBaseObject from './VsfNavigationSide.PageObject';
 
 const { vue: VsfNavigationSideVue, react: VsfNavigationSideReact } = useComponent('VsfNavigationSide');
-import VsfNavigationSideBaseObject from './VsfNavigationSide.PageObject';
 
 describe('VsfNavigationSide', () => {
   let permanent: boolean;

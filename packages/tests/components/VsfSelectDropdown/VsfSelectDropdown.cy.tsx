@@ -1,11 +1,11 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from 'react';
+import { VsfSelectDropdownSize } from '@storefront-ui/vue/components/VsfSelectDropdown/types';
 import { mount, Wrapper, useComponent } from '../../utils/mount';
-
-const { vue: VsfSelectDropdownVue, react: VsfSelectDropdownReact } = await useComponent('VsfSelectDropdown');
 import VsfSelectDropdownBaseObject from './VsfSelectDropdown.PageObject';
-import { VsfSelectDropdownSize } from '../../../sfui/frameworks/vue/components/VsfSelectDropdown/types';
 import VsfInputBaseObject from '../VsfInput/VsfInput.PageObject';
+
+const { vue: VsfSelectDropdownVue, react: VsfSelectDropdownReact } = useComponent('VsfSelectDropdown');
 
 describe('VsfSelectDropdown', () => {
   enum options {

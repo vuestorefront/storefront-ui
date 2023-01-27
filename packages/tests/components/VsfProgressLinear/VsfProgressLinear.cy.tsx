@@ -1,10 +1,10 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from 'react';
+import { VsfProgressLinearSize } from '@storefront-ui/vue/components/VsfProgressLinear/types';
 import { mount, useComponent } from '../../utils/mount';
+import VsfProgressLinearBaseObject from './VsfProgressLinear.PageObject';
 
 const { vue: VsfProgressLinearVue, react: VsfProgressLinearReact } = useComponent('VsfProgressLinear');
-import VsfProgressLinearBaseObject from './VsfProgressLinear.PageObject';
-import { VsfProgressLinearSize } from '../../../sfui/frameworks/vue/components/VsfProgressLinear/types';
 
 describe('VsfProgressLinear', () => {
   let size: VsfProgressLinearSize;

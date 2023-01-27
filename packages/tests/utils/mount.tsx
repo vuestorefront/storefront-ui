@@ -5,13 +5,13 @@ import { useState, createElement } from 'react';
 import type { ReactNode, FunctionComponent } from 'react';
 import { isRef, unref, watch, reactive } from 'vue';
 import type { Ref } from 'vue';
-import { isReact, isVue } from './utils';
 // import vue
-import * as vueComponents from '../../sfui/frameworks/vue/index';
+import * as vueComponents from '@storefront-ui/vue/index';
 // end import vue
 // import react
-import * as reactComponents from '../../sfui/frameworks/react/index';
+import * as reactComponents from '@storefront-ui/react/index';
 // end import react
+import { isReact, isVue } from './utils';
 
 type vueMountOptions = Parameters<typeof vueMount>;
 type reactMountOptions = Parameters<typeof reactMount>;

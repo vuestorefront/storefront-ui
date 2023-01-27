@@ -1,10 +1,10 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React, { ReactNode } from 'react';
+import { VsfProductCardSize } from '@storefront-ui/vue/components/VsfProductCard/types';
 import { mount, useComponent } from '../../utils/mount';
+import VsfProductCardBaseObject from './VsfProductCard.PageObject';
 
 const { vue: VsfProductCardVue, react: VsfProductCardReact } = useComponent('VsfProductCard');
-import VsfProductCardBaseObject from './VsfProductCard.PageObject';
-import { VsfProductCardSize } from '../../../sfui/frameworks/vue/components/VsfProductCard/types';
 
 describe('VsfProductCard', () => {
   let onAddToCartClickSpy: Cypress.Agent<sinon.SinonSpy>;

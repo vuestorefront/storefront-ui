@@ -1,10 +1,10 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from 'react';
+import { VsfCheckboxAlignment } from '@storefront-ui/vue/components/VsfCheckbox/types';
 import { mount, useComponent } from '../../utils/mount';
+import VsfCheckboxBaseObject from './VsfCheckbox.PageObject';
 
 const { vue: VsfCheckboxVue, react: VsfCheckboxReact } = useComponent('VsfCheckbox');
-import { VsfCheckboxAlignment } from '../../../sfui/frameworks/vue/components/VsfCheckbox/types';
-import VsfCheckboxBaseObject from './VsfCheckbox.PageObject';
 
 describe('VsfCheckbox', () => {
   let alignment: VsfCheckboxAlignment;

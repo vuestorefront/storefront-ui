@@ -1,11 +1,11 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from 'react';
 import { h } from 'vue';
+import { VsfDisplayDirection } from '@storefront-ui/react/components/VsfDisplay/types';
 import { mount, Wrapper, useComponent } from '../../utils/mount';
-import { VsfDisplayDirection } from '../../../sfui/frameworks/react/components/VsfDisplay/types';
-
-const { vue: VsfDisplayVue, react: VsfDisplayReact } = await useComponent('VsfDisplay');
 import VsfDisplayBaseObject from './VsfDisplay.PageObject';
+
+const { vue: VsfDisplayVue, react: VsfDisplayReact } = useComponent('VsfDisplay');
 
 describe('VsfDisplay', () => {
   const page = () => new VsfDisplayBaseObject('display');

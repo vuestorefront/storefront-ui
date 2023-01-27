@@ -1,10 +1,10 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from 'react';
+import { VsfAccordionItemSize } from '@storefront-ui/vue/components/VsfAccordionItem/types';
 import { mount, useComponent } from '../../utils/mount';
+import VsfAccordionItemBaseObject from './VsfAccordionItem.PageObject';
 
 const { vue: VsfAccordionItemVue, react: VsfAccordionItemReact } = useComponent('VsfAccordionItem');
-import { VsfAccordionItemSize } from '../../../sfui/frameworks/vue/components/VsfAccordionItem/types';
-import VsfAccordionItemBaseObject from './VsfAccordionItem.PageObject';
 
 describe('VsfAccordionItem', () => {
   let title: string;

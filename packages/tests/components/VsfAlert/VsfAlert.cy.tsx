@@ -5,12 +5,12 @@ import type { Ref } from 'vue';
 import type { MaybeRef } from '@vueuse/core';
 import { VsfAlertType, VsfAlertVariant } from '@storefront-ui/shared';
 import { mount, useComponent, Wrapper } from '../../utils/mount';
+import VsfAlertBaseObject from './VsfAlert.PageObject';
+import { waitForRerender } from '../../utils/waitForRerender';
 
 const { vue: VsfAlertVue, react: VsfAlertReact } = useComponent('VsfAlert');
 const { vue: VsfButtonVue, react: VsfButtonReact } = useComponent('VsfButton');
 const { vue: VsfIconCheckCircleVue, react: VsfIconCheckCircleReact } = useComponent('VsfIconCheckCircle');
-import VsfAlertBaseObject from './VsfAlert.PageObject';
-import { waitForRerender } from '../../utils/waitForRerender';
 
 describe('VsfAlert', () => {
   const headerExampleText = 'alert header';

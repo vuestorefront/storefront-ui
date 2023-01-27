@@ -10,7 +10,7 @@ force: false
 import React from "react";
 import { mount, Wrapper, useComponent } from '../../utils/mount';
 
-const { vue: <%= VueComponent %>, react: <%= ReactComponent %> } = await useComponent('<%= name %>');
+const { vue: <%= VueComponent %>, react: <%= ReactComponent %> } = useComponent('<%= name %>');
 import <%= PageObject %> from "./<%= name %>.PageObject";
 
 describe("<%= name %>", () => {

@@ -3,10 +3,10 @@ import React from 'react';
 import { ref } from 'vue';
 import type { Ref } from 'vue';
 import { mount, useComponent, Wrapper } from '../../utils/mount';
-
-const { vue: VsfDialogVue, react: VsfDialogReact } = useComponent('VsfDialog');
 import VsfDialogBaseObject from './VsfDialog.PageObject';
 import { waitForRerender } from '../../utils/waitForRerender';
+
+const { vue: VsfDialogVue, react: VsfDialogReact } = useComponent('VsfDialog');
 
 describe('VsfDialog', () => {
   const dialogContent = 'this is some dialog content';

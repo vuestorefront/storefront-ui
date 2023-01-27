@@ -1,10 +1,10 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from 'react';
+import { VsfRadioGroupDirection } from '@storefront-ui/vue/components/VsfRadio/types';
 import { mount, useComponent } from '../../utils/mount';
+import VsfRadioGroupBaseObject from './VsfRadioGroup.PageObject';
 
 const { vue: VsfRadioGroupVue, react: VsfRadioGroupReact } = useComponent('VsfRadioGroup');
-import { VsfRadioGroupDirection } from '../../../sfui/frameworks/vue/components/VsfRadio/types';
-import VsfRadioGroupBaseObject from './VsfRadioGroup.PageObject';
 
 describe('VsfRadioGroup', () => {
   const slotContent = 'radios';

@@ -1,9 +1,9 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from 'react';
 import { mount, useComponent } from '../../utils/mount';
+import VsfPaginationBaseObject from './VsfPagination.PageObject';
 
 const { vue: VsfPaginationVue, react: VsfPaginationReact } = useComponent('VsfPagination');
-import VsfPaginationBaseObject from './VsfPagination.PageObject';
 
 describe('VsfPagination', () => {
   let totalItems: number;

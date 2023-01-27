@@ -1,4 +1,4 @@
-import { VsfLoaderSize } from '../../../sfui/frameworks/react/components/VsfLoaderCircular/types';
+import { VsfLoaderSize } from '@storefront-ui/react/components/VsfLoaderCircular/types';
 import { BasePage } from '../../utils/BasePage';
 
 export default class VsfLoaderBaseObject extends BasePage {
