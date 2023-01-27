@@ -2,12 +2,12 @@
 import React from 'react';
 import type { ReactNode } from 'react';
 import { h } from 'vue';
+import { VsfHeroDirection } from '@storefront-ui/react/components/VsfHero/types';
 import { mount, Wrapper, useComponent } from '../../utils/mount';
-import { VsfHeroDirection } from '../../../sfui/frameworks/react/components/VsfHero/types';
-
-const { vue: VsfHeroVue, react: VsfHeroReact } = await useComponent('VsfHero');
 import VsfHeroBaseObject from './VsfHero.PageObject';
 import { useImage } from '../../utils/media';
+
+const { vue: VsfHeroVue, react: VsfHeroReact } = useComponent('VsfHero');
 
 describe('VsfHero', () => {
   const page = () => new VsfHeroBaseObject('hero');

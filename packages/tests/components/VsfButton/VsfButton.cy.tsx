@@ -1,13 +1,13 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from 'react';
+import { VsfButtonSize, VsfButtonVariant } from '@storefront-ui/vue/components/VsfButton/types';
 import { mount, useComponent } from '../../utils/mount';
+import VsfButtonBaseObject from './VsfButton.PageObject';
 
 const { vue: VsfButtonVue, react: VsfButtonReact } = useComponent('VsfButton');
 const { vue: VsfIconCheckCircleVue, react: VsfIconCheckCircleReact } = useComponent('VsfIconCheckCircle');
 const { vue: VsfIconCheckboxIndeterminateVue, react: VsfIconCheckboxIndeterminateReact } =
   useComponent('VsfIconCheckboxIndeterminate');
-import { VsfButtonSize, VsfButtonVariant } from '../../../sfui/frameworks/vue/components/VsfButton/types';
-import VsfButtonBaseObject from './VsfButton.PageObject';
 
 describe('VsfButton', () => {
   const slotDefaultContent = 'button content';

@@ -2,13 +2,13 @@
 import React from 'react';
 import type { Ref } from 'vue';
 import { ref } from 'vue';
+import { VsfTooltipPlacement } from '@storefront-ui/vue/components/VsfTooltip/types';
 import { mount, Wrapper, useComponent } from '../../utils/mount';
+import VsfTooltipBaseObject from './VsfTooltip.PageObject';
+import VsfDropdownInternalBaseObject from '../VsfDropdownInternal/VsfDropdownInternal.PageObject';
 
 const { vue: VsfTooltipVue, react: VsfTooltipReact } = useComponent('VsfTooltip');
 const { vue: VsfButtonVue, react: VsfButtonReact } = useComponent('VsfButton');
-import VsfTooltipBaseObject from './VsfTooltip.PageObject';
-import { VsfTooltipPlacement } from '../../../sfui/frameworks/vue/components/VsfTooltip';
-import VsfDropdownInternalBaseObject from '../VsfDropdownInternal/VsfDropdownInternal.PageObject';
 
 describe('VsfTooltip', () => {
   const page = () => new VsfTooltipBaseObject('tooltip');

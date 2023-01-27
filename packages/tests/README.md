@@ -36,7 +36,7 @@ To handle this case, we need to mark imports, so our internal tooling can replac
 Having said that there is better solution for marking your component imports than using comments above. For most of cases, using our `useComponent` util will be a better fit. It allows you to import the react/vue components and uses the same comment under the hood. Example:
 
 ```ts
-const {vue: VsfRadioGroupVue, react: VsfRadioGroupReact} = await useComponent('VsfRadioGroup');
+const {vue: VsfRadioGroupVue, react: VsfRadioGroupReact} = useComponent('VsfRadioGroup');
 ```
 
 This util will work perfectly for cases where the component does exist both in React and Vue frameworks. In a situation when the component is not exported from one of framework bundles (for example when you're testing a React-only component) you should use import comments as a fallback strategy:  `// import react` and `// end import react`.

@@ -1,15 +1,14 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from 'react';
 import { h } from 'vue';
+import { VsfRatingButtonSize } from '@storefront-ui/vue/components/VsfRatingButton/types';
+import { VsfIconSize } from '@storefront-ui/vue/components/VsfIconBase/types';
 import { mount, useComponent } from '../../utils/mount';
+import VsfRatingButtonBaseObject from './VsfRatingButton.PageObject';
 
 const { vue: VsfRatingButtonVue, react: VsfRatingButtonReact } = useComponent('VsfRatingButton');
 const { vue: VsfIconStarVue, react: VsfIconStarReact } = useComponent('VsfIconStar');
 const { vue: VsfIconStarOutlineVue, react: VsfIconStarOutlineReact } = useComponent('VsfIconStarOutline');
-
-import { VsfRatingButtonSize } from '../../../sfui/frameworks/vue/components/VsfRatingButton/types';
-import { VsfIconSize } from '../../../sfui/frameworks/vue/components/VsfIconBase/types';
-import VsfRatingButtonBaseObject from './VsfRatingButton.PageObject';
 
 describe('VsfRatingButton', () => {
   let size: VsfRatingButtonSize;

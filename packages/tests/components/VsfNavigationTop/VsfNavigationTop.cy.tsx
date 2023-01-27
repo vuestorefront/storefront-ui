@@ -2,11 +2,11 @@
 import React from 'react';
 import { ref } from 'vue';
 import type { Ref } from 'vue';
+import { VsfNavigationTopVariant } from '@storefront-ui/react/components/VsfNavigationTop/types';
 import { mount, useComponent, Wrapper } from '../../utils/mount';
+import VsfNavigationTopBaseObject from './VsfNavigationTop.PageObject';
 
 const { vue: VsfNavigationTopVue, react: VsfNavigationTopReact } = useComponent('VsfNavigationTop');
-import VsfNavigationTopBaseObject from './VsfNavigationTop.PageObject';
-import { VsfNavigationTopVariant } from '../../../sfui/frameworks/react/components/VsfNavigationTop/types';
 
 describe('VsfNavigationTop', () => {
   const page = () => new VsfNavigationTopBaseObject('navigation-top');

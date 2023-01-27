@@ -1,10 +1,10 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from 'react';
+import { VsfSwitchAlignment } from '@storefront-ui/vue/components/VsfSwitch/types';
 import { mount, useComponent } from '../../utils/mount';
+import VsfSwitchBaseObject from './VsfSwitch.PageObject';
 
 const { vue: VsfSwitchVue, react: VsfSwitchReact } = useComponent('VsfSwitch');
-import { VsfSwitchAlignment } from '../../../sfui/frameworks/vue/components/VsfSwitch/types';
-import VsfSwitchBaseObject from './VsfSwitch.PageObject';
 
 describe('VsfSwitch', () => {
   let alignment: VsfSwitchAlignment;

@@ -1,10 +1,10 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from 'react';
+import { VsfLoaderLinearSize, VsfLoaderSize } from '@storefront-ui/react/components/VsfLoaderLinear/types';
 import { mount, useComponent } from '../../utils/mount';
+import VsfLoaderLinearBaseObject from './VsfLoaderLinear.PageObject';
 
 const { vue: VsfLoaderLinearVue, react: VsfLoaderLinearReact } = useComponent('VsfLoaderLinear');
-import { VsfLoaderLinearSize, VsfLoaderSize } from '../../../sfui/frameworks/react/components/VsfLoaderLinear/types';
-import VsfLoaderLinearBaseObject from './VsfLoaderLinear.PageObject';
 
 describe('VsfLoaderLinear', () => {
   let size: VsfLoaderLinearSize | VsfLoaderSize;

@@ -1,10 +1,10 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from 'react';
+import { VsfProgressCircularSize } from '@storefront-ui/vue/components/VsfProgressCircular/types';
 import { mount, useComponent } from '../../utils/mount';
+import VsfProgressCircularBaseObject from './VsfProgressCircular.PageObject';
 
 const { vue: VsfProgressCircularVue, react: VsfProgressCircularReact } = useComponent('VsfProgressCircular');
-import VsfProgressCircularBaseObject from './VsfProgressCircular.PageObject';
-import { VsfProgressCircularSize } from '../../../sfui/frameworks/vue/components/VsfProgressCircular/types';
 
 describe('VsfProgressCircular', () => {
   let size: VsfProgressCircularSize;

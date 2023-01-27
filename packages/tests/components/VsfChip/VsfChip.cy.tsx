@@ -2,8 +2,8 @@
 import React from 'react';
 import type { Ref } from 'vue';
 import { ref, h } from 'vue';
+import { VsfChipSize } from '@storefront-ui/vue/components/VsfChip/types';
 import { mount, Wrapper, useComponent } from '../../utils/mount';
-import { VsfChipSize } from '../../../sfui/frameworks/vue/components/VsfChip/types';
 import VsfChipObject from './VsfChip.PageObject';
 
 const { vue: VsfChipVue, react: VsfChipReact } = useComponent('VsfChip');

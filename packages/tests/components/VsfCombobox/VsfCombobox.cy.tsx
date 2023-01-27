@@ -2,9 +2,9 @@
 import React from 'react';
 import { ref } from 'vue';
 import { mount, useComponent } from '../../utils/mount';
+import VsfComboboxBaseObject from './VsfCombobox.PageObject';
 
 const { vue: VsfComboboxVue, react: VsfComboboxReact } = useComponent('VsfCombobox');
-import VsfComboboxBaseObject from './VsfCombobox.PageObject';
 
 describe('VsfCombobox', () => {
   let disabled: boolean;

@@ -2,12 +2,14 @@
 import React from 'react';
 import type { Ref } from 'vue';
 import { ref } from 'vue';
+import {
+  VsfDropdownInternalPlacement,
+  VsfDropdownInternalTriggerEvent,
+} from '@storefront-ui/vue/components/VsfDropdownInternal/types';
 import { mount, Wrapper, useComponent } from '../../utils/mount';
+import VsfDropdownInternalBaseObject from './VsfDropdownInternal.PageObject';
 
 const { vue: VsfDropdownInternalVue, react: VsfDropdownInternalReact } = useComponent('VsfDropdownInternal');
-import VsfDropdownInternalBaseObject from './VsfDropdownInternal.PageObject';
-import { VsfDropdownInternalPlacement } from '../../../sfui/frameworks/vue/components/VsfDropdownInternal';
-import { VsfDropdownInternalTriggerEvent } from '../../../sfui/frameworks/vue/components/VsfDropdownInternal';
 
 describe('VsfDropdownInternal', () => {
   const defaultSlotContent = 'Content';

@@ -1,5 +1,5 @@
+import { VsfChipSize } from '@storefront-ui/vue/components/VsfChip/types';
 import { BasePage } from '../../utils/BasePage';
-import { VsfChipSize } from '../../../sfui/frameworks/vue/components/VsfChip/types';
 
 export default class VsfChipObject extends BasePage {
   hasSizeClass(size: VsfChipSize) {

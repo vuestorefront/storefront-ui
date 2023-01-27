@@ -1,10 +1,10 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from 'react';
+import { VsfListItemMenuSize } from '@storefront-ui/vue/components/VsfListItemMenu/types';
 import { mount, useComponent } from '../../utils/mount';
+import VsfListItemMenuBaseObject from './VsfListItemMenu.PageObject';
 
 const { vue: VsfListItemMenuVue, react: VsfListItemMenuReact } = useComponent('VsfListItemMenu');
-import { VsfListItemMenuSize } from '../../../sfui/frameworks/vue/components/VsfListItemMenu/types';
-import VsfListItemMenuBaseObject from './VsfListItemMenu.PageObject';
 
 describe('VsfListItemMenu', () => {
   let disabled: boolean;

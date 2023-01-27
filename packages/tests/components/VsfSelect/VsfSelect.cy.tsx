@@ -1,10 +1,10 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from 'react';
+import { VsfSelectSize } from '@storefront-ui/vue/components/VsfSelect/types';
 import { mount, useComponent } from '../../utils/mount';
+import VsfSelectBaseObject from './VsfSelect.PageObject';
 
 const { vue: VsfSelectVue, react: VsfSelectReact } = useComponent('VsfSelect');
-import { VsfSelectSize } from '../../../sfui/frameworks/vue/components/VsfSelect/types';
-import VsfSelectBaseObject from './VsfSelect.PageObject';
 
 describe('VsfSelect', () => {
   enum options {

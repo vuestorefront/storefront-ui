@@ -1,9 +1,9 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from 'react';
 import { mount, useComponent } from '../../utils/mount';
+import VsfSideSheetBaseObject from './VsfSideSheet.PageObject';
 
 const { vue: VsfSideSheetVue, react: VsfSideSheetReact } = useComponent('VsfSideSheet');
-import VsfSideSheetBaseObject from './VsfSideSheet.PageObject';
 
 describe('VsfSideSheet', () => {
   let permanent: boolean;

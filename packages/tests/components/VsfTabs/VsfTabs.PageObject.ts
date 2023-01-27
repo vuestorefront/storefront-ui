@@ -1,5 +1,5 @@
+import { VsfButtonSize } from '@storefront-ui/vue/components/VsfButton/types';
 import { BasePage } from '../../utils/BasePage';
-import { VsfButtonSize } from '../../../sfui/frameworks/vue/components/VsfButton/types';
 
 export default class VsfTabsBaseObject extends BasePage {
   hasSizeClass(size: VsfButtonSize) {

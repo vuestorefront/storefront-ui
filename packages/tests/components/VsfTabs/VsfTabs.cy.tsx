@@ -2,14 +2,14 @@
 import React from 'react';
 import type { Ref } from 'vue';
 import { ref, h } from 'vue';
+import { VsfButtonSize } from '@storefront-ui/vue/components/VsfButton/types';
 import { mount, Wrapper, useComponent } from '../../utils/mount';
+import VsfTabsBaseObject from './VsfTabs.PageObject';
 
 const { vue: VsfTabsVue, react: VsfTabsReact } = useComponent('VsfTabs');
 const { vue: VsfTabsItemVue, react: VsfTabsItemReact } = useComponent('VsfTabsItem');
 const { vue: VsfCounterVue, react: VsfCounterReact } = useComponent('VsfCounter');
 const { vue: VsfIconDotVue, react: VsfIconDotReact } = useComponent('VsfIconDot');
-import VsfTabsBaseObject from './VsfTabs.PageObject';
-import { VsfButtonSize } from '../../../sfui/frameworks/vue/components/VsfButton/types';
 
 describe('VsfTabs', () => {
   const page = () => new VsfTabsBaseObject('tabs');
