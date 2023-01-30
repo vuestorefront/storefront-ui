@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 // Disabled due to issue with placement of the Next Image
 import { VsfDisplay, VsfDisplayDirection } from '@storefront-ui/react/components/VsfDisplay';
+import { VsfDisplayContent } from '@storefront-ui/react/components/VsfDisplayContent';
 import { VsfButton } from '@storefront-ui//react/components/VsfButton';
 import { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
@@ -20,6 +21,9 @@ function Example() {
     ],
     {
       direction: VsfDisplayDirection.horizontal,
+      title: 'Banner title',
+      subtitle: 'Subtitle',
+      description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
     },
   );
 
@@ -27,14 +31,9 @@ function Example() {
     <ComponentExample controls={{ controls, state }}>
       <div>
         <VsfDisplay {...state.get} className="bg-gray-100" slotMedia={<img src={banner_placeholder.src} alt="" />}>
-          {/* TODO: use DisplayContent for this example after it's implemented */}
-          <div className="pb-4">
-            <h1 className="text-4xl font-medium">Banner title</h1>
-          </div>
-          <div className="pb-6">
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-          </div>
-          <VsfButton type="button">Buy now</VsfButton>
+          <VsfDisplayContent title={state.get.title} subtitle={state.get.subtitle} description={state.get.description}>
+            <VsfButton type="button">Browse deals</VsfButton>
+          </VsfDisplayContent>
         </VsfDisplay>
       </div>
     </ComponentExample>

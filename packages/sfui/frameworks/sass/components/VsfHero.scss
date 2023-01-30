@@ -18,12 +18,12 @@
     }
   }
 
-  &__media {
-    @apply flex flex-col md:items-start md:basis-2/4 md:overflow-hidden;
-  }
-
   &__content {
     @apply p-4 md:p-10 md:flex md:flex-col md:justify-center md:items-start md:basis-2/4;
+  }
+
+  &__media {
+    @apply flex flex-col md:items-start md:basis-2/4 md:overflow-hidden;
   }
 }
 
