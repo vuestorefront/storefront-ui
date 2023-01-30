@@ -14,32 +14,24 @@ Counter is a part of other complex components. Informs in numerical (integer) fo
 |-----------|-------------------|---------------|---------------------------------------|
 | size      | `VsfCounterSize` | `base`        | `xs`, `sm`, `base`, `lg`, `xl`, `2xl` |
 | pill      | `Boolean`         | `false`       |                                       |
-
-### React only:
-
-| Prop name | Type              | Default value | Possible values                       |
-|-----------|-------------------|---------------|---------------------------------------|
+<!-- react -->
 | children  | `ReactNode`       |               |                                       |
 | className | `String`          |               |                                       |
+<!-- end react -->
 
+<!-- vue -->
 ## Slots
-
-### Vue only:
 
 | Slot name |            Description            |
 | --------- | :-------------------------------: |
 | default   | Counter value                     |
-
-## Events
-
-| Event name |            Trigger             |
-| ---------- | :----------------------------: |
-|            |                                |
-
-## Accessibility notes
-
+<!-- end vue -->
 
 ## Source code
 
+<!-- vue -->
 <<<../../../packages/sfui/frameworks/vue/components/VsfCounter/VsfCounter.vue
+<!-- end vue -->
+<!-- react -->
 <<< ../../../packages/sfui/frameworks/react/components/VsfCounter/VsfCounter.tsx
+<!-- end react -->

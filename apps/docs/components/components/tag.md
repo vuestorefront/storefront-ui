@@ -8,8 +8,6 @@ The Tag component draws attention to new or categorized content elements.
 
 <Generate />
 
-
-<!-- vue -->
 ## Props
 
 |   Prop name    |   Type   | Default value | Possible values |
@@ -18,28 +16,17 @@ The Tag component draws attention to new or categorized content elements.
 | `label`      | `String`  | ''           | 'Label' |
 | `size`         |  `String` | `base`        | `sm`, `base`                                   |
 | `strong`        | `Boolean`  | false        | true, false                                     |
+<!-- react -->
+| `children`        | `ReactNode`  |       |                                     |
+<!-- end react -->
 
-
+<!-- vue -->
 ## Slots
 
 |   Slot name    |        Description        |
 |:--------------:|:-------------------------:|
 | `icon`      |   content will be displayed in the placement of icon  |
-
 <!-- end vue -->
-
-<!-- react -->
-## Props
-
-|   Prop name    |   Type   | Default value | Possible values |
-|:--------------:|:--------:|:-------------:|:---------------:|
-| `variant`      |`String`  | `gray`            | `gray`, `primary`, `secondary`, `warning`, `negative` |
-| `label`      | `String`  | `base`            | '' |
-| `size`         |  `String` | `base`        | `sm`, `base`                                   |
-| `strong`        | `Boolean`  | false        | true, false                                     |
-| `children`        | `ReactNode`  |       |                                     |
-
-<!-- end react -->
 
 ## Accessibility notes
 

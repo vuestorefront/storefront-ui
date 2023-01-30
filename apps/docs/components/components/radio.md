@@ -19,6 +19,7 @@ For filtering use [ListItemFilterRadio](listitemfilterradio.md) component instea
 | Prop name  | Type                | Default value | Possible values       |
 | ---------- | ------------------- | ------------- | --------------------- |
 | name       | String              |               |                       |
+| value      | String              |               |                       |
 | modelValue | String              |               |                       |
 | disabled   | Boolean             | false         |                       |
 | required   | Boolean             | false         |                       |
@@ -26,7 +27,13 @@ For filtering use [ListItemFilterRadio](listitemfilterradio.md) component instea
 | helpText   | String              | `Help text`   |                       |
 | modelValue | any                 |               |                       |
 | alignment  | `VsfRadioAlignment` | `leading`     | `trailing`, `leading` |
+<!-- react -->
+| checked   | boolean             |               |                       |
+| className | String              |               |                       |
+| onChange   | triggers radio event emit | | |
+<!-- end react -->
 
+<!-- vue -->
 ## Events
 
 | Event name        |          Trigger          |
@@ -34,30 +41,6 @@ For filtering use [ListItemFilterRadio](listitemfilterradio.md) component instea
 | update:modelValue | triggers radio event emit |
 
 <!-- end vue -->
-
-<!-- react -->
-
-## Props
-
-| Prop name | Type                | Default value | Possible values       |
-| --------- | ------------------- | ------------- | --------------------- |
-| name      | String              |               |                       |
-| value     | String              |               |                       |
-| checked   | boolean             |               |                       |
-| disabled  | Boolean             | false         |                       |
-| required  | Boolean             | false         |                       |
-| label     | String              |               |                       |
-| helpText  | String              | `Help text`   |                       |
-| alignment | `VsfRadioAlignment` | `leading`     | `trailing`, `leading` |
-| className | String              |               |                       |
-
-## Events
-
-| Event name |          Trigger          |
-| ---------- | :-----------------------: |
-| onChange   | triggers radio event emit |
-
-<!-- end react -->
 
 ## Accessibility notes
 
@@ -68,13 +51,9 @@ For filtering use [ListItemFilterRadio](listitemfilterradio.md) component instea
 ## Source code
 
 <!-- vue -->
-
 <<<../../../packages/sfui/frameworks/vue/components/VsfRadio/VsfRadio.vue
-
 <!-- end vue -->
 
 <!-- react -->
-
 <<< ../../../packages/sfui/frameworks/react/components/VsfRadio/VsfRadio.tsx
-
 <!-- end react -->

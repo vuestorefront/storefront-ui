@@ -4,10 +4,8 @@ hideBreadcrumbs: true
 ---
 # NavBarTopAction
 
-The NavbarTopAction component is used as navigation inside NavbarTop component. 
+The NavbarTopAction component is used as navigation inside NavbarTop component.
 
-
-<!-- react -->
 ## Props
 
 |    Prop name              |    Type          |      Default value    |     Possible values             |
@@ -17,25 +15,12 @@ The NavbarTopAction component is used as navigation inside NavbarTop component.
 | link       | `String`     |                  |                 |
 | ariaLabel  | `String`     |                  |                 |
 | icon       | `Boolean`    | `false`          |                 |
+<!-- react -->
 | className  | `String`     |                  |                 |
 | children   | `ReactNode`  |                  |                 |
-| slotIcon   | `ReactNode`  |                  |                 |
-
-
+| slotIcon   | `ReactNode`  | icon displayed as a prefix to the default slot content |                 |
 <!-- end react -->
 
-<!-- vue -->
-## Props
-
-|    Prop name          |    Type          |      Default value    |     Possible values             |
-|-----------------------|----------------- |---------------        |---------------------------------|
-| active                | `Boolean`        | `false`               |                 |
-| tag                   | `String`         | `button`              | `button`, `a`   |
-| link                  | `String`         |                       |                 |
-| ariaLabel             | `String`         |                       |                 |
-| icon                  | `Boolean`        | `false`               |                 |
-
-<!-- end vue -->
 <!-- vue -->
 
 ## Slots
@@ -43,7 +28,7 @@ The NavbarTopAction component is used as navigation inside NavbarTop component.
 | Slot name          |            Description                    |
 | ---------          | -----------------------------------       |
 |    default         |    default slot content                   |  
-
+|    icon         |    icon displayed as a prefix to the default slot content                   |  
 
 <!-- end vue -->
 

@@ -8,8 +8,6 @@ The ListItemMenu component is used in all kind of menus. It can act like a link 
 
 <Generate />
 
-<!-- vue -->
-
 ## Props
 
 | Prop name          | Type    | Default value | Possible values    |
@@ -24,7 +22,16 @@ The ListItemMenu component is used in all kind of menus. It can act like a link 
 | selected           | Boolean | false         |                    |
 | selectedBackground | Boolean | false         |                    |
 | tag                | 'li'    | undefined     |                    |
+<!-- react -->
+| onClick            | `Function`  |               |                            |
+| children           | `ReactNode` |               | label content              |
+| slotSecondaryText      | `ReactNode` |               | secondaryText content      |
+| slotPrefix         | `ReactNode` |               | Right side slotted content |
+| slotSuffix         | `ReactNode` |               | Left side slotted content  |
+| className          | String      |               |                            |
+<!-- end react -->
 
+<!-- vue -->
 ## Slots
 
 | Slot name     |        Description         |
@@ -35,32 +42,6 @@ The ListItemMenu component is used in all kind of menus. It can act like a link 
 | suffix        | left side slotted content  |
 
 <!-- end vue -->
-
-<!-- react -->
-
-## Props
-
-| Prop name          | Type        | Default value | Possible values            |
-| ------------------ | ----------- | ------------- | -------------------------- |
-| size               | String      | 'base'        | 'sm', 'base', 'lg'         |
-| link               | String      | ''            |                            |
-| label              | String      | ''            |                            |
-| secondaryText      | String      | ''            |                            |
-| counter            | String      | ''            |                            |
-| truncate           | Boolean     | false         |                            |
-| disabled           | Boolean     | false         |                            |
-| selected           | Boolean     | false         |                            |
-| selectedBackground | Boolean     | false         |                            |
-| tag                | 'li'        | undefined     |                            |
-| onClick            | `Function`  |               |                            |
-| children           | `ReactNode` |               | label content              |
-| secondaryText      | `ReactNode` |               | secondaryText content      |
-| slotPrefix         | `ReactNode` |               | Right side slotted content |
-| slotSuffix         | `ReactNode` |               | Left side slotted content  |
-| className          | String      |               |                            |
-
-
-<!-- end react -->
 
 ## Source code
 
