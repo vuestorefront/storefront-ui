@@ -8,7 +8,7 @@ The Card component contains content and actions that inform about a single subje
 
 <Generate style="height: 900px" />
 
-## Props:
+## Props
 
 | Prop name   | Type      | Default value | Possible values                        |
 | ----------- |-----------| ------------- | -------------------------------------- |

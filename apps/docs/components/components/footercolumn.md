@@ -6,20 +6,16 @@ hideBreadcrumbs: true
 
 The FooterColumn component is a container for children components and should be used as a direct child of the FooterSection component. 
 
-<!-- vue -->
-### Props:
+## Props
+
 | Prop name | Type      | Default value | Possible values   |
 |-----------|-----------| ------------- |-------------------|
 | type      | VsfFooterColumnType    |     top        | top, middle |                                        |
-<!-- end vue -->
 <!-- react -->
-### Props:
-| Prop name | Type      | Default value | Possible values   |
-|-----------|-----------| ------------- |-------------------|
-| type      | VsfFooterColumnType    |     top        | top, middle |                                        |
 | className | string    |             |                   |                                        |
 | children  | ReactNode |             |                   |                                        |
 <!-- end react -->
+
 ### Types
 
 ```ts

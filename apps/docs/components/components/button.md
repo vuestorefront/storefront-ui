@@ -35,6 +35,7 @@ Button text content by default is being wrapped, however this behaviour can be c
 | children | `ReactNode` | | Default slotted content |
 | slotPrefix | `ReactNode` | | Left side slotted content |
 | slotSuffix | `ReactNode` | | Right side slotted content |
+| onClick     | Details of `<a>` or `<button>` element |
 <!-- end react -->
 
 <!-- vue -->
@@ -46,14 +47,6 @@ Button text content by default is being wrapped, however this behaviour can be c
 | default   | replaces the default content |
 | suffix    |      after default slot      |
 <!-- end vue -->
-
-<!-- react -->
-## Events
-
-| Event name |       Trigger        |
-| ---------- | :------------------: |
-| onClick     | Details of `<a>` or `<button>` element |
-<!-- end react -->
 
 ## Accessibility notes
 

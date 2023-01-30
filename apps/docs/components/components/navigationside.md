@@ -10,38 +10,24 @@ VsfNavigationSide is surface containing content used for navigating the site, th
 
 ## Props
 
+| Prop name             | Type                       | Default value | Possible values                        |
+|-----------------------|----------------------------|---------------|----------------------------------------|
+|  leftSide             |  boolean                   |  true         |                                        |
+|  permanent            |  boolean                   |  false        |                                        |
+|  overlayVisible       |  boolean                   |  false        |                                        |
+|  logoAriaLabel        | `String`                   |  ''           |                                        |
+|  closeAriaLabel       | `String`                   |  ''           |                                        |
+|  logoLink             | `String`                   |  ''           |                                        |
 <!-- vue -->
-
-| Prop name             | Type                       | Default value | Possible values                        |
-|-----------------------|----------------------------|---------------|----------------------------------------|
-|  leftSide             |  boolean                   |  true         |                                        |
-|  permanent            |  boolean                   |  false        |                                        |
-|  overlayVisible       |  boolean                   |  false        |                                        |
-|  logoAriaLabel        | `String`                   |  ''           |                                        |
-|  closeAriaLabel       | `String`                   |  ''           |                                        |
-|  logoLink             | `String`                   |  ''           |                                        |
 |  modelValue           |  boolean                   |  false        |                                        |
-
-
 <!-- end vue -->
-
 <!-- react -->
-
-| Prop name             | Type                       | Default value | Possible values                        |
-|-----------------------|----------------------------|---------------|----------------------------------------|
-|  leftSide             |  boolean                   |  true         |                                        |
-|  permanent            |  boolean                   |  false        |                                        |
-|  overlayVisible       |  boolean                   |  false        |                                        |
 |  open                 |  boolean                   |  false        |                                        |
-|  logoAriaLabel        | `String`                   |  ''           |                                        |
-|  closeAriaLabel       | `String`                   |  ''           |                                        |
-|  logoLink             | `String`                   |  ''           |                                        |
 |  children             |  ReactNode                 |               |                                        |
 |  slotNavigation       |  ReactNode                 |               |                                        |
 |  slotBanner           |  ReactNode                 |               |                                        |
 |  className            |  String                    |               |                                        |
 |  onOpenChange         |  Function                  |               |                                        |
-
 <!-- end react -->
 
 <!-- vue -->
@@ -53,7 +39,6 @@ VsfNavigationSide is surface containing content used for navigating the site, th
 |  default        |  place content of navigation side, such as Accordion menu   |
 |  banner         |  place content of banner section  |
 
-
 ## Events
 
 | Event name |            Trigger               |
@@ -61,10 +46,6 @@ VsfNavigationSide is surface containing content used for navigating the site, th
 |  update:modelValue |  emits on clicking close button  |
 
 <!-- end vue -->
-
-
-## Accessibility notes
-
 
 ## Source code
 

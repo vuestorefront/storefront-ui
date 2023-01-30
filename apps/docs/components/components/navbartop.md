@@ -8,33 +8,23 @@ The NavbarTop component is used as navigation. Usually it's at the top of a page
 
 <Generate />
 
-<!-- react -->
 ## Props
 
 |    Prop name          |    Type          |      Default value    |     Possible values             |
 |-----------------------|----------------- |---------------        |---------------------------------|
 | filled               |      boolean      |  false                 |                                 |
+<!-- react -->
 |       className      |       `String`    |                     |                       |
 |       children       |       `ReactNode` |                     |                       |
 
 <!-- end react -->
 
-
 <!-- vue -->
-## Props
-
-|    Prop name          |    Type          |      Default value    |     Possible values             |
-|-----------------------|----------------- |---------------        |---------------------------------|
-| filled               |      boolean      |  false                 |                                 |
-
-<!-- end vue -->
 ## Slots
 
-<!-- vue -->
 | Slot name          |            Description                    |
 | ---------          | -----------------------------------       |
 |    default         |    default slot content                   |  
-
 
 <!-- end vue -->
 

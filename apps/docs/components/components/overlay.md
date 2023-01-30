@@ -14,18 +14,14 @@ The Overlay is an helper component to other components. It acts as a background 
 | --------- | ------- | ------------- | --------------- |
 | visible   | Boolean | false         |                 |
 | absolute  | Boolean | false         |                 |
-
-### React only:
-
-| Prop name | Type        | Default value | Possible values |
-| --------- | ----------- | ------------- | --------------- |
+<!-- react -->
 | children  | `ReactNode` |               |                 |
 | className | `String`    |               |                 |
 | onClick   | `Function`  |               |                 |
+<!-- end react -->
 
+<!-- vue -->
 ## Slots
-
-### Vue only:
 
 | Slot name |            Description            |
 | --------- | :-------------------------------: |
@@ -33,15 +29,16 @@ The Overlay is an helper component to other components. It acts as a background 
 
 ## Events
 
-### Vue only:
-
 | Event name |           Trigger           |
 | ---------- | :-------------------------: |
 | click      | emits on component clicking |
-
-## Accessibility notes
+<!-- end vue -->
 
 ## Source code
 
+<!-- vue -->
 <<<../../../packages/sfui/frameworks/vue/components/VsfOverlay/VsfOverlay.vue
+<!-- end vue -->
+<!-- react -->
 <<< ../../../packages/sfui/frameworks/react/components/VsfOverlay/VsfOverlay.tsx
+<!-- end react -->

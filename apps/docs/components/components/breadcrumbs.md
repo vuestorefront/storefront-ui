@@ -30,12 +30,6 @@ A breadcrumb trail consists of a list of links to the parent pages of the curren
 
 <!-- end vue -->
 
-## Events
-
-| Event name |            Trigger             |
-| ---------- | :----------------------------: |
-|            |                                |
-
 ## Accessibility notes
 
 The Breadcrumbs component uses `aria-label`to indicate navigation type and page.

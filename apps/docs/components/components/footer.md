@@ -11,7 +11,8 @@ The Footer is not made of single component but a couple of them to let you compo
 <Generate style="height: 900px" />
 
 <!-- react -->
-### Props:
+## Props
+
 | Prop name   | Type      | Default value | Possible values                        |
 | ----------- |-----------| ------------- | -------------------------------------- |
 | className | string    |             |                                        |                                        |

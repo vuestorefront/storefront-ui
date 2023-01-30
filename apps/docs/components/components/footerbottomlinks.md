@@ -7,9 +7,8 @@ hideBreadcrumbs: true
 
 The FooterBottomLinks is a container for links in bottom section of the Footer. 
 
-<Generate />
+## Props
 
-### Props:
 | Prop name   | Type      | Default value | Possible values                        |
 | ----------- |-----------| ------------- | -------------------------------------- |
 | className | string    |             |                                        |                                        |
