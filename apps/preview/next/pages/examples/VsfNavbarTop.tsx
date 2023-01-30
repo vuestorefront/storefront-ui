@@ -106,13 +106,13 @@ function Example() {
         <VsfNavbarTopActionGroup>
           {actionItems.map((actionItem) =>
             actionItem.label !== 'Log in' ? (
-              <VsfNavbarTopAction key={actionItem.ariaLabel} icon>
+              <VsfNavbarTopAction key={actionItem.ariaLabel} icon ariaLabel={actionItem.ariaLabel}>
                 <VsfBadge dot value={1} className={state.get.filled ? 'bg-white' : 'bg-secondary-500'}>
                   {actionItem.icon}
                 </VsfBadge>
               </VsfNavbarTopAction>
             ) : (
-              <VsfNavbarTopAction key={actionItem.ariaLabel} icon>
+              <VsfNavbarTopAction key={actionItem.ariaLabel} icon ariaLabel={actionItem.ariaLabel}>
                 {actionItem.icon}
               </VsfNavbarTopAction>
             ),

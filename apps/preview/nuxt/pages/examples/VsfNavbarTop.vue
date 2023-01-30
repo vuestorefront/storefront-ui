@@ -25,12 +25,12 @@
       <VsfSpacer class="block md:hidden" />
       <VsfSearch placeholder="Search" class="flex-1 hidden md:block" />
       <VsfNavbarTopActionGroup>
-        <VsfNavbarTopAction icon>
+        <VsfNavbarTopAction icon aria-label="Cart">
           <VsfBadge dot bordered value="10" :class="[filled ? 'bg-white' : 'bg-secondary-500']">
             <VsfIconBasket />
           </VsfBadge>
         </VsfNavbarTopAction>
-        <VsfNavbarTopAction icon>
+        <VsfNavbarTopAction icon aria-label="Wishlist">
           <VsfBadge
             dot
             bordered
@@ -40,7 +40,7 @@
             <VsfIconFavoritesOutline />
           </VsfBadge>
         </VsfNavbarTopAction>
-        <VsfNavbarTopAction icon>
+        <VsfNavbarTopAction icon aria-label="Log in">
           <VsfIconPerson />
         </VsfNavbarTopAction>
       </VsfNavbarTopActionGroup>

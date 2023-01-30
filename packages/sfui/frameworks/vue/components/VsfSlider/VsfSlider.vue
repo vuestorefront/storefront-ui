@@ -37,6 +37,14 @@ const props = defineProps({
     >,
     default: undefined,
   },
+  ariaLabelPrev: {
+    type: String,
+    default: 'Previous',
+  },
+  ariaLabelNext: {
+    type: String,
+    default: 'Next',
+  },
 });
 const { draggable, direction } = toRefs(props);
 const hasPrev = ref();
@@ -77,6 +85,7 @@ const onClickNext = () => slider.value?.next();
           rounded
           :class="['vsf-slider__nav-arrow', { 'vsf-slider__nav-arrow--hidden': !hasPrev }]"
           :disabled="!hasPrev"
+          :aria-label="ariaLabelPrev"
           @click="onClickPrev"
         >
           <template #prefix>
@@ -103,6 +112,7 @@ const onClickNext = () => slider.value?.next();
           rounded
           :class="['vsf-slider__nav-arrow', { 'vsf-slider__nav-arrow--hidden': !hasNext }]"
           :disabled="!hasNext"
+          :aria-label="ariaLabelNext"
           @click="onClickNext"
         >
           <template #prefix>

@@ -21,12 +21,24 @@
         <div class="bg-gray-300 w-[150px] h-[150px] flex justify-center items-center">{{ item + 8 }}</div>
       </div>
       <template v-if="ExampleCustomNav" #prev-button="{ onClick, hasPrev }">
-        <button v-show="hasPrev" type="button" class="p-2 text-white rounded-sm bg-secondary-400" @click="onClick">
+        <button
+          v-show="hasPrev"
+          type="button"
+          class="p-2 text-white rounded-sm bg-secondary-400"
+          aria-label="Previous"
+          @click="onClick"
+        >
           prev
         </button>
       </template>
       <template v-if="ExampleCustomNav" #next-button="{ onClick, hasNext }">
-        <button v-show="hasNext" type="button" class="p-2 text-white rounded-sm bg-secondary-400" @click="onClick">
+        <button
+          v-show="hasNext"
+          type="button"
+          class="p-2 text-white rounded-sm bg-secondary-400"
+          aria-label="Next"
+          @click="onClick"
+        >
           next
         </button>
       </template>

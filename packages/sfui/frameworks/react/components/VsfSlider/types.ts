@@ -18,16 +18,17 @@ export enum VsfSliderDirection {
   vertical = 'vertical',
 }
 
-export type VsfSliderProps = PropsWithChildren &
-  PropsWithStyle & {
-    scrollbar?: `${VsfSliderScrollbar}`;
-    navigation?: `${VsfSliderNavigation}`;
-    direction?: `${VsfSliderDirection}`;
-    scrollSnap?: boolean;
-    draggable?: {
-      sensitivity: number;
-    };
-    slotPrevButton?: (arg: { onClick: () => void; hasPrev: boolean }) => ReactNode;
-    slotNextButton?: (arg: { onClick: () => void; hasNext: boolean }) => ReactNode;
-    role?: string;
+export interface VsfSliderProps extends PropsWithChildren, PropsWithStyle {
+  scrollbar?: `${VsfSliderScrollbar}`;
+  navigation?: `${VsfSliderNavigation}`;
+  direction?: `${VsfSliderDirection}`;
+  scrollSnap?: boolean;
+  draggable?: {
+    sensitivity: number;
   };
+  slotPrevButton?: (arg: { onClick: () => void; hasPrev: boolean }) => ReactNode;
+  slotNextButton?: (arg: { onClick: () => void; hasNext: boolean }) => ReactNode;
+  ariaLabelPrev?: string;
+  ariaLabelNext?: string;
+  role?: string;
+}
