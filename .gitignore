@@ -7,6 +7,7 @@ node_modules
 
 # testing
 coverage
+.nyc_output
 apps/preview/next/sfui
 apps/preview/vue/src/components/sfui/
 

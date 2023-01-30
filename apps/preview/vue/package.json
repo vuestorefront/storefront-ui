@@ -9,11 +9,14 @@
     "type-check": "vue-tsc --noEmit -p tsconfig.cypress-ct.json --composite false",
     "lints": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "clean": "rimraf ./src/components/sfui",
+    "clean-coverage": "rimraf ./coverage && rimraf ./.nyc_output",
+    "display-coverage": "yarn nyc report --reporter=text",
     "sync-test": "cpy . ../../apps/preview/vue/src/components/sfui/tests --cwd=../../../packages/tests/",
+    "sync-components": "cpy . !dist ../../../../apps/preview/vue/src/components/sfui/vue/ --cwd=../../../packages/sfui/frameworks/vue/",
     "sync:watch-test": "chokidar --silent \"../../../packages/tests/**/*.{cy.tsx,ts,tsx,png,jpg,jpeg,json}\" -c \"yarn sync-test\"",
     "test": "yarn clean && yarn sync-test && concurrently \"yarn sync:watch-test\" \"yarn cypress open --component\"",
-    "test:ci": "yarn clean && yarn sync-test && yarn percy exec -- cypress run --component",
-    "test:ci:vue": "yarn clean && yarn sync-test && yarn percy exec -- cypress run --component"
+    "test:ci": "yarn clean && yarn clean-coverage && yarn sync-test && yarn sync-components && yarn cypress run --component && yarn display-coverage",
+    "test:ci:vue": "yarn test:ci"
   },
   "dependencies": {
     "pinia": "^2.0.23",
@@ -21,6 +24,7 @@
     "vue-router": "^4.1.5"
   },
   "devDependencies": {
+    "@cypress/code-coverage": "^3.10.0",
     "@percy/cli": "^1.12.0",
     "@percy/cypress": "^3.1.2",
     "@rushstack/eslint-patch": "^1.1.4",
@@ -44,6 +48,7 @@
     "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-vue": "^9.3.0",
     "npm-run-all": "^4.1.5",
+    "nyc": "^15.1.0",
     "postcss": "^8.4.18",
     "postcss-import": "^15.0.0",
     "prettier": "^2.7.1",
@@ -54,6 +59,7 @@
     "tailwindcss": "^3.2.1",
     "typescript": "~4.7.4",
     "vite": "^3.1.8",
+    "vite-plugin-istanbul": "^3.0.4",
     "vue-tsc": "^1.0.8"
   }
 }

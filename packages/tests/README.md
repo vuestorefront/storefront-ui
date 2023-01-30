@@ -98,3 +98,9 @@ it('some test', () => {
 
 * component - component that will be tested
 * all props and children will be passed directly to the original component (with Vue `ref`s being reactively unwrapped).
+
+## Coverage
+
+Currently code coverage is implemented only for `vue`.
+Coverage can be checked locally, by running `yarn test:ci:vue` in `root` directory or `yarn test:ci` in `apps/preview/vue` directory.
+Additionally, if to run only a single test file you can use command like: `SPEC=VsfAlert yarn test:ci`. It will run cypress headless tests and generation report only for specified component test file (`VsfAlert` in this example).

@@ -1,5 +1,5 @@
 import vue from "@vitejs/plugin-vue";
-import { defineConfig, searchForWorkspaceRoot } from "vite";
+import { defineConfig, searchForWorkspaceRoot, type PluginOption } from "vite";
 import {
   extractImports,
   changeImports,
@@ -7,6 +7,9 @@ import {
   removeCode,
   changeFrameworkPathInImports,
 } from "@storefront-ui/tests-shared";
+import istanbul from "vite-plugin-istanbul";
+import path from "path";
+import nycConfig from "./.nycrc.json";
 
 const changeImport = (code: string, framework: "react") => {
   // Find imports of component and replace it with utils/fake-import.ts empty file
@@ -58,8 +61,25 @@ export default defineConfig({
         };
       },
     },
+    istanbul({
+      ...nycConfig,
+      ...(process.env.SPEC && { include: [`**/${process.env.SPEC}/**`] }),
+      cypress: true,
+    }) as PluginOption,
   ],
   resolve: {
     dedupe: ["vue"],
+    alias: [
+      {
+        find: "@storefront-ui/vue",
+        replacement: path.resolve(
+          __dirname,
+          "src",
+          "components",
+          "sfui",
+          "vue"
+        ),
+      },
+    ],
   },
 });

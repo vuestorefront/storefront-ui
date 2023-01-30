@@ -1,0 +1,18 @@
+{
+  "exclude": [
+    "node_modules",
+    "coverage/",
+    "cypress",
+    "src/components/sfui/vue/components/VsfIcons",
+    "src/components/sfui/tests"
+  ],
+  "include": [
+    "src/components/sfui/vue"
+  ],
+  "extension": [".js", ".ts", ".vue"],
+  "checkCoverage": true,
+  "statements": 83,
+  "branches": 78,
+  "functions": 73,
+  "lines": 83
+}
