@@ -40,6 +40,7 @@ export default function VsfListItemFilterRadio({
             checked={selected === value}
             value={value}
             name={name}
+            disabled={disabled}
             aria-label={label}
             onChange={(event) => toggle(event.target.value, selected)}
           />
@@ -51,6 +52,7 @@ export default function VsfListItemFilterRadio({
             checked={selected === value}
             value={value}
             name={name}
+            disabled={disabled}
             aria-label={label}
             onChange={(event) => toggle(event.target.value, selected)}
           />

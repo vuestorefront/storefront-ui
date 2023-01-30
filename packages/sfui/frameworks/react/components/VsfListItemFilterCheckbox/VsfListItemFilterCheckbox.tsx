@@ -40,6 +40,7 @@ export default function VsfListItemFilterCheckbox({
               labelTag="div"
               value={value}
               name={name}
+              disabled={disabled}
               onChange={(event) => {
                 setCheckedState(event.target.checked);
                 onChange(event);
@@ -53,6 +54,7 @@ export default function VsfListItemFilterCheckbox({
               labelTag="div"
               value={value}
               name={name}
+              disabled={disabled}
               onChange={(event) => {
                 setCheckedState(event.target.checked);
                 onChange(event);
