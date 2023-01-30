@@ -18,8 +18,8 @@ A breadcrumb trail consists of a list of links to the parent pages of the curren
 <!-- react -->
 | slotIcon    | ReactNode | undefined         |                                        |
 <!-- end react -->
-| homeIconAriaLabel    | String |       |                                        |
-| moreButtonAriaLabel    | String |       |                                        |
+| ariaLabelHomeIcon    | String |       |                                        |
+| ariaLabelHomeButton    | String |       |                                        |
 
 <!-- vue -->
 ## Slots

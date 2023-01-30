@@ -9,7 +9,6 @@ export interface VsfBreadcrumbsProps {
   breadcrumbs?: VsfBreadcrumbType[];
   withIcon?: boolean;
   slotIcon?: ReactNode;
-  moreButtonAriaLabel?: string;
-  homeIconAriaLabel?: string;
-  homeIconLink?: string;
+  ariaLabelHomeButton?: string;
+  ariaLabelHomeIcon?: string;
 }

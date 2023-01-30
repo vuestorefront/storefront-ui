@@ -1,28 +1,15 @@
 .vsf-breadcrumbs {
-  @apply inline-flex items-center;
+  @apply inline-flex items-center text-sm font-normal text-gray-500 font-body;
 
   &__ol {
-    @apply flex md:flex-wrap w-auto text-sm font-normal leading-none text-gray-500 font-body;
+    @apply flex md:flex-wrap w-auto leading-none;
   }
 
   &__item {
-    @apply relative;
+    @apply hidden sm:block;
 
-    &:last-child > a,
-    &:last-child > button {
-      @apply font-medium text-gray-900 no-underline hover:text-primary-700 active:text-primary-800 hover:underline active:underline;
-    }
-
-    &:nth-of-type(1n + 3) {
-      @apply before:content-['/'] before:mx-2;
-    }
-
-    &-button {
-      @apply leading-5 rounded-sm whitespace-nowrap hover:text-primary-700 hover:underline active:text-primary-800 outline-violet;
-
-      &--home {
-        @apply leading-5 rounded-sm whitespace-nowrap hover:underline hover:text-primary-700 active:text-primary-800 active:no-underline outline-violet;
-      }
+    &-link {
+      @apply leading-5 whitespace-nowrap hover:text-primary-700 hover:underline active:text-primary-800 outline-violet;
 
       &-icon {
         &,
@@ -31,18 +18,35 @@
         }
       }
     }
+
+    &:first-child,
+    &:last-child {
+      @apply flex;
+    }
+
+    &:last-child > a {
+      @apply font-medium text-gray-900 hover:text-primary-700 active:text-primary-800 hover:underline active:underline;
+    }
+
+    &:nth-of-type(1n + 3) {
+      @apply before:content-['/'] before:mx-2;
+    }
   }
 
   &__dropdown {
     &-button {
-      @apply flex leading-5 relative after:content-['/'] after:mx-2 outline-violet rounded-sm;
+      @apply leading-5 relative block sm:hidden outline-violet rounded-sm;
     }
 
     &-list {
-      @apply bg-white rounded-md shadow-md p-4 absolute left-0 flex-col text-sm text-gray-900 z-10;
+      @apply bg-white block sm:hidden rounded-md shadow-md p-4 absolute left-0 flex-col text-sm text-gray-900 z-10;
 
       &-item {
         @apply py-2;
+
+        &:last-child {
+          @apply hidden;
+        }
       }
 
       &-button {

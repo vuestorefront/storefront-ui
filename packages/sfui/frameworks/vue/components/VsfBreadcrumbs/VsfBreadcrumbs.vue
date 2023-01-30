@@ -1,14 +1,13 @@
 <script lang="ts" setup>
 import type { PropType } from 'vue';
-import { ref, toRefs, watch } from 'vue';
+import { ref } from 'vue';
 import { generateId } from '@storefront-ui/shared';
-import { useWindowSize } from '@vueuse/core';
 import { VsfIconHome, VsfIconMoreHorizontal, VsfIconSize } from '../VsfIcons';
 import { VsfLink, VsfLinkVariant } from '../VsfLink';
-import { VsfDropdownInternal } from '../VsfDropdownInternal';
+import { VsfDropdownInternal, VsfDropdownInternalPlacement } from '../VsfDropdownInternal';
 import type { VsfBreadcrumbType } from './types';
 
-const props = defineProps({
+defineProps({
   breadcrumbs: {
     type: Array as PropType<VsfBreadcrumbType[]>,
     default: () => [],
@@ -17,92 +16,53 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-  homeItemLink: {
-    type: String,
-    default: '/',
-  },
-  moreButtonAriaLabel: {
+  ariaLabelHomeIcon: {
     type: String,
     default: '',
   },
-  homeIconAriaLabel: {
+  ariaLabelHomeButton: {
     type: String,
     default: '',
   },
 });
-
-const { breadcrumbs } = toRefs(props);
-const { width } = useWindowSize();
-
-const visibleBreadcrumbs = ref();
-const dropdownBreadcrumbs = ref();
 const dropdownOpened = ref();
-
-const sliceActiveLink = () => breadcrumbs.value.slice(breadcrumbs.value.length - 1);
-const sliceRemainingLinks = () =>
-  breadcrumbs.value.slice(0, breadcrumbs.value.length - visibleBreadcrumbs.value.length);
-
-const handleButtonClick = (): void => {
-  dropdownOpened.value = !dropdownOpened.value;
-};
-
-watch(
-  [width] as const,
-  () => {
-    if (width.value < 640) {
-      visibleBreadcrumbs.value = sliceActiveLink();
-      dropdownBreadcrumbs.value = sliceRemainingLinks();
-    } else {
-      visibleBreadcrumbs.value = breadcrumbs.value;
-      dropdownBreadcrumbs.value = null;
-    }
-  },
-  { immediate: true },
-);
 </script>
 
 <template>
   <nav class="vsf-breadcrumbs">
     <ol class="vsf-breadcrumbs__ol">
       <li class="vsf-breadcrumbs__item">
-        <VsfDropdownInternal :model-value="dropdownOpened && dropdownBreadcrumbs">
+        <VsfDropdownInternal v-model="dropdownOpened" :placement="VsfDropdownInternalPlacement['bottom-start']">
           <template #trigger>
-            <button
-              v-if="width < 640"
-              class="vsf-breadcrumbs__dropdown-button peer"
-              :aria-label="moreButtonAriaLabel"
-              @click="handleButtonClick()"
-            >
-              <VsfIconMoreHorizontal :size="VsfIconSize.sm" class="vsf-breadcrumbs__item-button-icon" />
+            <button class="vsf-breadcrumbs__dropdown-button" :aria-label="ariaLabelHomeButton">
+              <VsfIconMoreHorizontal :size="VsfIconSize.sm" class="vsf-breadcrumbs__item-link-icon" />
             </button>
           </template>
           <ul class="vsf-breadcrumbs__dropdown-list">
             <li
-              v-for="item in dropdownBreadcrumbs"
+              v-for="item in breadcrumbs"
               :key="generateId(item.name)"
               class="vsf-breadcrumbs__dropdown-list-item"
               :aria-label="item.name"
             >
-              <VsfLink v-bind="item.bindings" :variant="VsfLinkVariant.none"> {{ item.name }} </VsfLink>
+              <VsfLink :link="item.link" :variant="VsfLinkVariant.none"> {{ item.name }} </VsfLink>
             </li>
           </ul>
         </VsfDropdownInternal>
       </li>
-      <li v-if="withIcon" class="vsf-breadcrumbs__item">
-        <VsfLink :link="homeItemLink" :aria-label="homeIconAriaLabel" :variant="VsfLinkVariant.none">
+      <li v-for="item in breadcrumbs" :key="generateId(item.name)" class="vsf-breadcrumbs__item">
+        <VsfLink
+          v-if="withIcon && breadcrumbs.indexOf(item) === 0"
+          :link="item.link"
+          :aria-label="ariaLabelHomeIcon"
+          :variant="VsfLinkVariant.none"
+        >
           <slot name="homeButtonIcon" />
-          <span v-if="!$slots.icon" class="vsf-breadcrumbs__item-button-icon--home">
+          <span v-if="!$slots.icon" class="vsf-breadcrumbs__item-link-icon--home">
             <VsfIconHome :size="VsfIconSize.sm" />
           </span>
         </VsfLink>
-      </li>
-      <li
-        v-for="item in visibleBreadcrumbs"
-        :key="generateId(item.name)"
-        class="vsf-breadcrumbs__item"
-        :aria-label="item.name"
-      >
-        <VsfLink v-bind="item.bindings" class="vsf-breadcrumbs__item-button" :variant="VsfLinkVariant.none">
+        <VsfLink v-else :link="item.link" class="vsf-breadcrumbs__item-link" :variant="VsfLinkVariant.none">
           {{ item.name }}
         </VsfLink>
       </li>

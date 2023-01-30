@@ -11,12 +11,28 @@ function Example() {
         type: 'boolean',
         modelName: 'withIcon',
         propType: 'boolean',
+        description: 'Replace first link with an icon',
       },
       {
         type: 'json',
         modelName: 'breadcrumbs',
         propType: 'VsfBreadcrumbType[]',
         propDefaultValue: '[]',
+        description: 'Pass array of breadcrumbs links',
+      },
+      {
+        type: 'text',
+        modelName: 'ariaLabelHomeIcon',
+        propType: 'string',
+        propDefaultValue: '',
+        description: 'Set aria label for home icon button',
+      },
+      {
+        type: 'text',
+        modelName: 'ariaLabelHomeButton',
+        propType: 'string',
+        propDefaultValue: '',
+        description: 'Set aria label for more button',
       },
     ],
     {
@@ -28,11 +44,13 @@ function Example() {
         { name: 'Page 4', link: '/page1' },
         { name: 'Page 5', link: '/page1' },
       ],
+      ariaLabelHomeIcon: 'Home icon',
+      ariaLabelHomeButton: 'More button',
     },
   );
   return (
     <ComponentExample controls={{ state, controls }}>
-      <VsfBreadcrumbs withIcon={state.get.withIcon} breadcrumbs={state.get.breadcrumbs} />
+      <VsfBreadcrumbs {...state.get} />
     </ComponentExample>
   );
 }

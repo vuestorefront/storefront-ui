@@ -1,11 +1,6 @@
 <template>
   <ComponentExample :controls-attrs="controlsAttrs">
-    <VsfBreadcrumbs
-      :breadcrumbs="breadcrumbs"
-      :with-icon="withIcon"
-      :more-button-aria-label="moreButtonAriaLabel"
-      :home-icon-aria-label="homeIconAriaLabel"
-    />
+    <VsfBreadcrumbs v-bind="state" />
   </ComponentExample>
 </template>
 
@@ -38,27 +33,27 @@ export default defineComponent({
           },
           {
             type: 'text',
-            modelName: 'moreButtonAriaLabel',
+            modelName: 'ariaLabelHomeButton',
             propType: 'string',
             propDefaultValue: '',
           },
           {
             type: 'text',
-            modelName: 'homeIconAriaLabel',
+            modelName: 'ariaLabelHomeIcon',
             propType: 'string',
             propDefaultValue: '',
           },
         ],
         {
           withIcon: ref(),
-          moreButtonAriaLabel: ref('More button'),
-          homeIconAriaLabel: ref('Home'),
+          ariaLabelHomeButton: ref('More button'),
+          ariaLabelHomeIcon: ref('Home'),
           breadcrumbs: ref([
-            { name: 'NuxtLink', bindings: { link: '/examples/ListOfIcons' } },
-            { name: 'Page 2', bindings: { link: '/page2' } },
-            { name: 'Page 3', bindings: { link: '/page3' } },
-            { name: 'Page 4', bindings: { link: '/page4' } },
-            { name: 'Page 5', bindings: { link: '/page5' } },
+            { name: 'NuxtLink', link: '/examples/ListOfIcons' },
+            { name: 'Page 2', link: '/page2' },
+            { name: 'Page 3', link: '/page3' },
+            { name: 'Page 4', link: '/page4' },
+            { name: 'Page 5', link: '/page5' },
           ]),
         },
       ),
