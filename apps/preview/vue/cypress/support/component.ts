@@ -23,6 +23,7 @@ import "../../src/assets/global.scss";
 
 import { mount } from "cypress/vue";
 import "@percy/cypress";
+import "@cypress/code-coverage/support";
 
 // Augment the Cypress namespace to include type definitions for
 // your custom command.
