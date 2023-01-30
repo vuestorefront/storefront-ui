@@ -20,6 +20,8 @@ const VsfSlider = forwardRef<HTMLDivElement, VsfSliderProps>(
       children,
       slotNextButton,
       slotPrevButton,
+      ariaLabelPrev = 'Previous',
+      ariaLabelNext = 'Next',
       ...attributes
     },
     ref,
@@ -53,6 +55,7 @@ const VsfSlider = forwardRef<HTMLDivElement, VsfSliderProps>(
         onClick={onClickPrev}
         disabled={!hasPrev}
         slotPrefix={isHorizontal ? <VsfIconChevronLeft /> : <VsfIconChevronUp />}
+        aria-label={ariaLabelPrev}
       />
     );
     const nextButtonDefault = (
@@ -64,6 +67,7 @@ const VsfSlider = forwardRef<HTMLDivElement, VsfSliderProps>(
         onClick={onClickNext}
         disabled={!hasNext}
         slotPrefix={isHorizontal ? <VsfIconChevronRight /> : <VsfIconChevronDown />}
+        aria-label={ariaLabelNext}
       />
     );
     const prevNavigation =

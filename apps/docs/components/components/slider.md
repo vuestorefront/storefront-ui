@@ -2,6 +2,7 @@
 layout: ComponentLayout
 hideBreadcrumbs: true
 ---
+
 # Slider
 
 Slider is a scrollable list with pseudo-pagination.
@@ -12,28 +13,30 @@ NOTE: Some of the mobile browsers (e.g. iOS Safari) will hide scrollbar even whe
 
 ## Props
 
-| Prop name | Type      | Default value | Possible values |
-| --------- | --------- | ------------- | --------------- |
-| scrollbar  | `VsfSliderScrollbar`  | `hidden`        | `always`, `auto`, `hidden`    |
-| navigation | `VsfSliderNavigation` | `block`        | `block`, `floating`, `none` |
-| direction | `VsfSliderDirection` | `horizontal`        | `horizontal`, `vertical` |
-| scrollSnap | `boolean`             | `false`       |                     |
-| draggable | `object | undefined`   | `undefined`       |                     |
+| Prop name     | Type                  | Default value | Possible values             |
+| ------------- | --------------------- | ------------- | --------------------------- |
+| scrollbar     | `VsfSliderScrollbar`  | `hidden`      | `always`, `auto`, `hidden`  |
+| navigation    | `VsfSliderNavigation` | `block`       | `block`, `floating`, `none` |
+| direction     | `VsfSliderDirection`  | `horizontal`  | `horizontal`, `vertical`    |
+| scrollSnap    | `boolean`             | `false`       |                             |
+| draggable     | `object`              | `undefined`   | `undefined`                 |
+| ariaLabelPrev | `string`              | "Previous"    |                             |
+| ariaLabelPrev | `string`              | "Next"        |                             |
 <!-- react -->
-| children      | `ReactNode` |               |                 |
-| className     | `string`    |               |                 |
-| slotPrevButton | `Function`  |               |                 |
-| slotNextButton | `Function`  |               |                 |
+| children | `ReactNode` | | |
+| className | `string` | | |
+| slotPrevButton | `Function` | | |
+| slotNextButton | `Function` | | |
 <!-- end react -->
 
 <!-- vue -->
 ## Slots
 
-| Slot name | Description       |
-| --------- | ----------------- |
-| default    |    default content     |
+| Slot name   | Description                             |
+| ----------- | --------------------------------------- |
+| default     | default content                         |
 | prev-button | scoped slot content for previous button |
-| next-button | scoped slot content for next button |
+| next-button | scoped slot content for next button     |
 <!-- end vue -->
 
 ## Source code

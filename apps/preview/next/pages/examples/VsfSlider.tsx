@@ -13,7 +13,12 @@ import { ExamplePageLayout } from '../examples';
 function NavigationPrev({ onClick, hasPrev }: { onClick: () => void; hasPrev: boolean }) {
   return (
     hasPrev && (
-      <button type="button" onClick={onClick} className="bg-secondary-400 p-2 rounded-sm text-white">
+      <button
+        type="button"
+        onClick={onClick}
+        className="bg-secondary-400 p-2 rounded-sm text-white"
+        aria-label="Previous"
+      >
         prev
       </button>
     )
@@ -22,7 +27,7 @@ function NavigationPrev({ onClick, hasPrev }: { onClick: () => void; hasPrev: bo
 function NavigationNext({ onClick, hasNext }: { onClick: () => void; hasNext: boolean }) {
   return (
     hasNext && (
-      <button type="button" onClick={onClick} className="bg-secondary-400 p-2 rounded-sm text-white">
+      <button type="button" onClick={onClick} className="bg-secondary-400 p-2 rounded-sm text-white" aria-label="Next">
         next
       </button>
     )
