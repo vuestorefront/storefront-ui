@@ -54,6 +54,7 @@ const toggle = (value: string, modelValue: string) => {
         :value="value"
         :model-value="modelValue"
         :aria-label="label"
+        :disabled="disabled"
         @click.stop="$emit('update:modelValue', toggle(value, modelValue))"
       />
     </template>
@@ -62,6 +63,7 @@ const toggle = (value: string, modelValue: string) => {
         :value="value"
         :model-value="modelValue"
         :aria-label="label"
+        :disabled="disabled"
         @click.stop="$emit('update:modelValue', toggle(value, modelValue))"
       />
     </template>

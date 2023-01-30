@@ -42,6 +42,7 @@ const isChecked = computed(() => {
           label-tag="div"
           :value="value"
           :model-value="modelValue"
+          :disabled="disabled"
           @update:model-value="$emit('update:modelValue', $event)"
         />
       </template>
@@ -50,6 +51,7 @@ const isChecked = computed(() => {
           label-tag="div"
           :value="value"
           :model-value="modelValue"
+          :disabled="disabled"
           @update:model-value="$emit('update:modelValue', $event)"
         />
       </template>

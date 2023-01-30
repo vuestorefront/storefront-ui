@@ -50,13 +50,17 @@
     #{$self}__icon--prefix {
       @apply text-gray-500;
     }
+
+    #{$self}__label {
+      @apply font-normal text-gray-500;
+    }
   }
 
   &--size-sm {
-    @apply text-xs px-4 py-1.5;
+    @apply text-sm px-4 py-1;
 
     #{$self}__counter {
-      @apply text-xs;
+      @apply text-sm;
     }
   }
 
