@@ -33,6 +33,10 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build
+
+    permissions:
+      deployments: write
+
     steps:
       - name: Download version artifact
         uses: actions/download-artifact@v2
@@ -45,7 +49,7 @@ jobs:
         name: Create GitHub deployment
         id: deployment
         with:
-          token: ${{ secrets.DEPLOYMENT_PERSONAL_ACCESS_TOKEN }}
+          token: ${{ github.token }}
           target_url: https://docs.storefrontui.io
           environment: router
           initial_status: in_progress
@@ -61,7 +65,7 @@ jobs:
         if: success()
         uses: chrnorm/deployment-status@releases/v1
         with:
-          token: "${{ secrets.DEPLOYMENT_PERSONAL_ACCESS_TOKEN }}"
+          token: "${{ github.token }}"
           target_url: https://docs.storefrontui.io
           state: "success"
           description: Congratulations! The deploy is done.
@@ -70,7 +74,7 @@ jobs:
         if: failure()
         uses: chrnorm/deployment-status@releases/v1
         with:
-          token: "${{ secrets.DEPLOYMENT_PERSONAL_ACCESS_TOKEN }}"
+          token: "${{ github.token }}"
           target_url: https://docs.storefrontui.io
           description: Unfortunately, the instance hasn't been updated.
           state: "failure"
