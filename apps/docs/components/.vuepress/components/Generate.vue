@@ -20,7 +20,7 @@ export default {
         component.toLowerCase().includes('vsf' + this.componentName),
       );
 
-      return `${this.frameworkName === 'react' ? this.$themeConfig.DOCS_EXAMPLES_REACT : this.$themeConfig.DOCS_EXAMPLES_VUE}/examples/${componentNameFull}?docs=true`;
+      return `${this.frameworkName === 'react' ? this.$themeConfig.DOCS_EXAMPLES_REACT_PATH : this.$themeConfig.DOCS_EXAMPLES_VUE_PATH}/examples/${componentNameFull}?docs=true`;
     },
   },
 };

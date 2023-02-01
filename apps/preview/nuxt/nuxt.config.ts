@@ -3,8 +3,8 @@ import * as tailwindConfig from '@storefront-ui/tailwind-config/index.json';
 
 export default defineNuxtConfig({
   app: {
-    baseURL: process.env.VITE_DOCS_EXAMPLES_VUE
-      ? new URL(process.env.VITE_DOCS_EXAMPLES_VUE).pathname
+    baseURL: process.env.VITE_DOCS_EXAMPLES_VUE_PATH
+      ? new URL(process.env.VITE_DOCS_EXAMPLES_VUE_PATH).pathname
       : '',
       head: {
         htmlAttrs: {
