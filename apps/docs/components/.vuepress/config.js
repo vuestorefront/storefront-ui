@@ -1,8 +1,8 @@
 const components = require('../utils/components.json');
 const { generateComponentPath } = require('./utils/path.util');
 
-const DOCS_EXAMPLES_REACT = process.env.VITE_DOCS_EXAMPLES_REACT;
-const DOCS_EXAMPLES_VUE = process.env.VITE_DOCS_EXAMPLES_VUE;
+const DOCS_EXAMPLES_REACT_PATH = process.env.VITE_DOCS_EXAMPLES_REACT_PATH;
+const DOCS_EXAMPLES_VUE_PATH = process.env.VITE_DOCS_EXAMPLES_VUE_PATH;
 const FIGMA_URL = 'https://www.figma.com/file/ko7VoZYxnInYeJJmsnILHU/SFUI-2-%7C-Design-System-(public-RC)';
 
 const convertComponentPathsToLinks = (paths, slug) =>
@@ -17,8 +17,8 @@ module.exports = {
     extractHeaders: ['h1', 'h2', 'h3'],
   },
   themeConfig: {
-    DOCS_EXAMPLES_REACT,
-    DOCS_EXAMPLES_VUE,
+    DOCS_EXAMPLES_REACT_PATH,
+    DOCS_EXAMPLES_VUE_PATH,
     FIGMA_URL,
     title: 'Storefront UI',
     repo: 'https://github.com/vuestorefront/sfui2',

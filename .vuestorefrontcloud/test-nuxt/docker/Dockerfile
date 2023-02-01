@@ -4,7 +4,7 @@ WORKDIR /var/www
 
 COPY . .
 
-ENV VITE_DOCS_EXAMPLES_VUE=https://docs.storefrontui.io/v2-vue
+ENV VITE_DOCS_EXAMPLES_VUE_PATH=https://docs.storefrontui.io/v2-vue
 RUN  yarn install \
   && yarn build:nuxt
 
