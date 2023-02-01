@@ -35,6 +35,10 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build
+
+    permissions:
+      deployments: write
+
     steps:
       - name: Download version artifact
         uses: actions/download-artifact@v2
