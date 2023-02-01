@@ -1,15 +1,13 @@
 <template>
   <ComponentExample :controls-attrs="controlsAttrs">
-    <div>
-      <VsfDisplay :direction="direction" class="bg-gray-100">
-        <template #media>
-          <img :src="banner_placeholder" alt="" />
-        </template>
-        <VsfDisplayContent :title="title" :description="description">
-          <VsfButton type="button">Browse deals</VsfButton>
-        </VsfDisplayContent>
-      </VsfDisplay>
-    </div>
+    <VsfDisplay :direction="direction" class="bg-gray-100 max-w-2xl">
+      <template #media>
+        <img :src="banner_placeholder" alt="" />
+      </template>
+      <VsfDisplayContent :title="title" :description="description">
+        <VsfButton type="button">Browse deals</VsfButton>
+      </VsfDisplayContent>
+    </VsfDisplay>
   </ComponentExample>
 </template>
 
