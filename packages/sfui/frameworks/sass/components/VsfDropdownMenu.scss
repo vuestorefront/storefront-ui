@@ -2,6 +2,6 @@
   @apply flex flex-col items-center py-2 border border-gray-100 shadow-md rounded bg-white;
 
   &__loader {
-    @apply flex justify-start w-8 h-8;
+    @apply flex justify-start w-8 h-8 my-5;
   }
 }
