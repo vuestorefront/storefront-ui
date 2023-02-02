@@ -46,7 +46,6 @@
     ".next",
     "dist",
     "lib",
-    "output",
-    "pages/examplesOld"
+    "output"
   ]
 }
