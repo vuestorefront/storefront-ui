@@ -43,10 +43,6 @@ const props = defineProps({
     type: String,
     default: '',
   },
-  rounded: {
-    type: Boolean,
-    default: false,
-  },
 });
 const isLinkAString = computed(() => {
   return typeof props.link === 'string';
@@ -54,16 +50,7 @@ const isLinkAString = computed(() => {
 </script>
 
 <template>
-  <div
-    :class="[
-      'vsf-card',
-      `vsf-card--size-${size}`,
-      {
-        'vsf-card--rounded': rounded,
-      },
-    ]"
-    data-testid="card"
-  >
+  <div :class="['vsf-card', `vsf-card--size-${size}`]" data-testid="card">
     <!-- TODO: replace with link component -->
     <component
       :is="linkTag"
@@ -85,11 +72,11 @@ const isLinkAString = computed(() => {
         data-testid="card-title"
         >{{ title }}</component
       >
-      <p v-if="description && !rounded" class="vsf-card__description" data-testid="card-description">
+      <p v-if="description" class="vsf-card__description" data-testid="card-description">
         {{ description }}
       </p>
       <VsfButton
-        v-if="buttonText && !rounded"
+        v-if="buttonText"
         class="vsf-card__button"
         :variant="VsfButtonVariant.tertiary"
         :size="VsfButtonSize.sm"

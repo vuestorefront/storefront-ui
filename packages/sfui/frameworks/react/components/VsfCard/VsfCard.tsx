@@ -12,7 +12,6 @@ export default function VsfCard({
   imgAttr = {},
   description,
   buttonText,
-  rounded,
   className = '',
   slotImg,
   ...attributes
@@ -20,7 +19,7 @@ export default function VsfCard({
   return (
     <div
       data-testid="card"
-      className={classNames('vsf-card group', `vsf-card--size-${size}`, { 'vsf-card--rounded': rounded }, className)}
+      className={classNames('vsf-card group', `vsf-card--size-${size}`, className)}
       {...attributes}
     >
       {slotImg ||
@@ -36,12 +35,12 @@ export default function VsfCard({
         <a href={link} className="vsf-card__title" data-testid="card-title">
           {title}
         </a>
-        {description && !rounded && (
+        {description && (
           <p className="vsf-card__description" data-testid="card-description">
             {description}
           </p>
         )}
-        {buttonText && !rounded && (
+        {buttonText && (
           <VsfButton
             className="vsf-card__button"
             variant={VsfButtonVariant.tertiary}
