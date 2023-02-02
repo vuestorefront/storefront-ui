@@ -21,11 +21,6 @@ export default class VsfProductCardBaseObject extends BasePage {
     return this;
   }
 
-  isRounded() {
-    this.container.should('have.class', 'vsf-card--rounded');
-    return this;
-  }
-
   get buttonElement() {
     return this.findTestElement('card-button');
   }

@@ -14,7 +14,6 @@ describe('VsfCard', () => {
   let title: string;
   let description: string;
   let buttonText: string;
-  let rounded: boolean;
   let size: VsfCardSize;
   let slotImg: ReactNode;
 
@@ -32,7 +31,6 @@ describe('VsfCard', () => {
           title,
           description,
           buttonText,
-          rounded,
           size,
           slotImg,
         },
@@ -50,7 +48,6 @@ describe('VsfCard', () => {
           buttonText={buttonText}
           description={description}
           size={size}
-          rounded={rounded}
         >
           {slotImg}
         </VsfCardReact>
@@ -66,7 +63,6 @@ describe('VsfCard', () => {
     title = 'Title';
     description = 'There are many variations of passages of Lorem Ipsum available';
     buttonText = 'Button';
-    rounded = false;
     size = VsfCardSize.base;
     cy.viewport(500, 500);
   });
@@ -83,15 +79,6 @@ describe('VsfCard', () => {
       initializeComponent();
 
       page().hasImage(imgSrc).hasTitle(title).hasDescription(description).makeSnapshot();
-    });
-  });
-
-  describe('when rounded is true', () => {
-    it('should render component in rounded version', () => {
-      rounded = true;
-      initializeComponent();
-
-      page().isRounded().makeSnapshot();
     });
   });
 });

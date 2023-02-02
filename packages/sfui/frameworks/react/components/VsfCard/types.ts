@@ -16,7 +16,6 @@ export interface VsfCardProps extends ButtonProps, PropsWithStyle {
   imgAttr?: Record<string, unknown>;
   description?: string;
   buttonText?: string;
-  rounded?: boolean;
   slotImg?: ReactNode;
   [key: string]: unknown;
 }
