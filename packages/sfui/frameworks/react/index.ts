@@ -48,3 +48,4 @@ export * from './components/VsfTooltip';
 export * from './components/VsfSelectDropdown';
 export * from './components/VsfHero';
 export * from './components/VsfDisplay';
+export * from './components/VsfListItemFilterSwitch';
