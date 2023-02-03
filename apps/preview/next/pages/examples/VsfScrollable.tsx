@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import {
-  VsfSlider,
-  VsfSliderNavigation,
-  VsfSliderScrollbar,
-  VsfSliderDirection,
-} from '@storefront-ui/react/components/VsfSlider';
+  VsfScrollable,
+  VsfScrollableNavigation,
+  VsfScrollableScrollbar,
+  VsfScrollableDirection,
+} from '@storefront-ui/react/components/VsfScrollable';
 import classNames from 'classnames';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
@@ -16,7 +16,7 @@ function NavigationPrev({ onClick, hasPrev }: { onClick: () => void; hasPrev: bo
       <button
         type="button"
         onClick={onClick}
-        className="bg-secondary-400 p-2 rounded-sm text-white"
+        className="p-2 text-white rounded-sm bg-secondary-400"
         aria-label="Previous"
       >
         prev
@@ -27,7 +27,7 @@ function NavigationPrev({ onClick, hasPrev }: { onClick: () => void; hasPrev: bo
 function NavigationNext({ onClick, hasNext }: { onClick: () => void; hasNext: boolean }) {
   return (
     hasNext && (
-      <button type="button" onClick={onClick} className="bg-secondary-400 p-2 rounded-sm text-white" aria-label="Next">
+      <button type="button" onClick={onClick} className="p-2 text-white rounded-sm bg-secondary-400" aria-label="Next">
         next
       </button>
     )
@@ -42,26 +42,26 @@ function Example() {
       {
         type: 'select',
         modelName: 'navigation',
-        propType: 'VsfSliderNavigation',
+        propType: 'VsfScrollableNavigation',
         propDefaultValue: 'block',
-        options: Object.keys(VsfSliderNavigation),
+        options: Object.keys(VsfScrollableNavigation),
       },
       {
         type: 'select',
         modelName: 'scrollbar',
-        propType: 'VsfSliderScrollbar',
+        propType: 'VsfScrollableScrollbar',
         propDefaultValue: 'hidden',
-        options: Object.keys(VsfSliderScrollbar),
+        options: Object.keys(VsfScrollableScrollbar),
         description:
           "`none` hide, `auto` hides scrollbar when content don't overflow container, `always` forces container to show scrollbar",
       },
       {
         type: 'select',
         modelName: 'direction',
-        propType: 'VsfSliderDirection',
+        propType: 'VsfScrollableDirection',
         propDefaultValue: 'horizontal',
-        options: Object.keys(VsfSliderDirection),
-        description: 'Determines whether slider should be displayed vertically or horizontally',
+        options: Object.keys(VsfScrollableDirection),
+        description: 'Determines whether scrollable component should be displayed vertically or horizontally',
       },
       {
         type: 'boolean',
@@ -83,9 +83,9 @@ function Example() {
       },
     ],
     {
-      navigation: VsfSliderNavigation.block,
-      direction: VsfSliderDirection.horizontal,
-      scrollbar: VsfSliderScrollbar.hidden,
+      navigation: VsfScrollableNavigation.block,
+      direction: VsfScrollableDirection.horizontal,
+      scrollbar: VsfScrollableScrollbar.hidden,
       scrollSnap: undefined,
       draggable: undefined,
       ExampleCustomNav: false,
@@ -99,7 +99,7 @@ function Example() {
 
   return (
     <ComponentExample controls={{ state, controls }}>
-      <VsfSlider
+      <VsfScrollable
         key={componentKey}
         navigation={state.get.navigation}
         scrollbar={state.get.scrollbar}
@@ -110,17 +110,19 @@ function Example() {
         slotNextButton={state.get.ExampleCustomNav ? NavigationNext : undefined}
       >
         {Array.from(Array(4).keys()).map((item) => (
-          <div key={item} data-index={item + 1}>
+          // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
+          <div key={item} data-index={item + 1} tabIndex={0}>
             <div className="bg-gray-300 w-[150px] h-[150px] flex justify-center items-center">{item + 1}</div>
           </div>
         ))}
         {Array.from(Array(4).keys()).map((item) => (
-          <div key={item} data-index={item + 5}>
+          // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
+          <div key={item} data-index={item + 5} tabIndex={0}>
             <div
               className={classNames(
                 'bg-gray-300',
-                state.get.direction === VsfSliderDirection.horizontal ? 'w-[200px]' : 'w-[150px]',
-                state.get.direction === VsfSliderDirection.horizontal ? 'h-[150px]' : 'h-[200px]',
+                state.get.direction === VsfScrollableDirection.horizontal ? 'w-[200px]' : 'w-[150px]',
+                state.get.direction === VsfScrollableDirection.horizontal ? 'h-[150px]' : 'h-[200px]',
                 'flex justify-center',
                 'items-center',
               )}
@@ -130,11 +132,12 @@ function Example() {
           </div>
         ))}
         {Array.from(Array(4).keys()).map((item) => (
-          <div key={item} data-index={item + 9}>
+          // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
+          <div key={item} data-index={item + 9} tabIndex={0}>
             <div className="bg-gray-300 w-[150px] h-[150px] flex justify-center items-center">{item + 9}</div>
           </div>
         ))}
-      </VsfSlider>
+      </VsfScrollable>
     </ComponentExample>
   );
 }

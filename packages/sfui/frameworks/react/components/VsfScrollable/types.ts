@@ -1,27 +1,27 @@
 import type { PropsWithChildren, ReactNode } from 'react';
 import type { PropsWithStyle } from '../../shared/types';
 
-export enum VsfSliderScrollbar {
+export enum VsfScrollableScrollbar {
   hidden = 'hidden',
   always = 'always',
   auto = 'auto',
 }
 
-export enum VsfSliderNavigation {
+export enum VsfScrollableNavigation {
   none = 'none',
   block = 'block',
   floating = 'floating',
 }
 
-export enum VsfSliderDirection {
+export enum VsfScrollableDirection {
   horizontal = 'horizontal',
   vertical = 'vertical',
 }
 
-export interface VsfSliderProps extends PropsWithChildren, PropsWithStyle {
-  scrollbar?: `${VsfSliderScrollbar}`;
-  navigation?: `${VsfSliderNavigation}`;
-  direction?: `${VsfSliderDirection}`;
+export interface VsfScrollableProps extends PropsWithChildren, PropsWithStyle {
+  scrollbar?: `${VsfScrollableScrollbar}`;
+  navigation?: `${VsfScrollableNavigation}`;
+  direction?: `${VsfScrollableDirection}`;
   scrollSnap?: boolean;
   draggable?: {
     sensitivity: number;

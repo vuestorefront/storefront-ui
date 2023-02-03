@@ -2,9 +2,9 @@
 import type { PropType } from 'vue';
 import { ref, toRefs, defineAsyncComponent, computed } from 'vue';
 import { isReduceMotionEnabled } from '@storefront-ui/shared';
-import { VsfSliderNavigation, VsfSliderScrollbar, VsfSliderDirection } from './types';
+import { VsfScrollableNavigation, VsfScrollableScrollbar, VsfScrollableDirection } from './types';
 import { VsfButtonVariant, VsfButtonSize } from '../VsfButton';
-import { useSlider } from './slider';
+import { useScrollable } from './scrollable';
 const VsfButton = defineAsyncComponent(() => import('../VsfButton/VsfButton.vue'));
 const VsfIconChevronLeft = defineAsyncComponent(() => import('../VsfIcons/VsfIconChevronLeft.vue'));
 const VsfIconChevronRight = defineAsyncComponent(() => import('../VsfIcons/VsfIconChevronRight.vue'));
@@ -13,16 +13,16 @@ const VsfIconChevronDown = defineAsyncComponent(() => import('../VsfIcons/VsfIco
 
 const props = defineProps({
   scrollbar: {
-    type: String as PropType<`${VsfSliderScrollbar}`>,
-    default: VsfSliderScrollbar.hidden,
+    type: String as PropType<`${VsfScrollableScrollbar}`>,
+    default: VsfScrollableScrollbar.hidden,
   },
   navigation: {
-    type: String as PropType<`${VsfSliderNavigation}`>,
-    default: VsfSliderNavigation.block,
+    type: String as PropType<`${VsfScrollableNavigation}`>,
+    default: VsfScrollableNavigation.block,
   },
   direction: {
-    type: String as PropType<`${VsfSliderDirection}`>,
-    default: VsfSliderDirection.horizontal,
+    type: String as PropType<`${VsfScrollableDirection}`>,
+    default: VsfScrollableDirection.horizontal,
   },
   scrollSnap: {
     type: Boolean,
@@ -50,8 +50,8 @@ const { draggable, direction } = toRefs(props);
 const hasPrev = ref();
 const hasNext = ref();
 
-const isHorizontal = computed(() => direction.value === VsfSliderDirection.horizontal);
-const [container, slider] = useSlider(
+const isHorizontal = computed(() => direction.value === VsfScrollableDirection.horizontal);
+const [container, scrollable] = useScrollable(
   computed(() => ({
     reduceMotion: isReduceMotionEnabled,
     drag: draggable?.value,
@@ -62,28 +62,35 @@ const [container, slider] = useSlider(
     },
   })),
 );
-const onClickPrev = () => slider.value?.prev();
-const onClickNext = () => slider.value?.next();
+const onClickPrev = () => scrollable.value?.prev();
+const onClickNext = () => scrollable.value?.next();
+
+const focusHandler = (event: FocusEvent) => {
+  const elementIndex = Array.from(scrollable.value?.container.children as ArrayLike<Element>).findIndex(
+    (el) => el === event.target,
+  );
+  scrollable.value?.scrollToIndex(elementIndex);
+};
 </script>
 
 <template>
   <div
     :class="[
-      'vsf-slider',
-      `vsf-slider--${direction}`,
+      'vsf-scrollable',
+      `vsf-scrollable--${direction}`,
       {
-        'vsf-slider--floating-nav': navigation === VsfSliderNavigation.floating,
-        'vsf-slider--snap-scroll': scrollSnap,
+        'vsf-scrollable--floating-nav': navigation === VsfScrollableNavigation.floating,
+        'vsf-scrollable--snap-scroll': scrollSnap,
       },
     ]"
   >
-    <div v-if="navigation !== VsfSliderNavigation.none" class="vsf-slider__nav vsf-slider__nav-prev">
+    <div v-if="navigation !== VsfScrollableNavigation.none" class="vsf-scrollable__nav vsf-scrollable__nav-prev">
       <slot name="prev-button" v-bind="{ onClick: onClickPrev, hasPrev }">
         <VsfButton
           :variant="VsfButtonVariant.secondary"
           :size="VsfButtonSize.lg"
           rounded
-          :class="['vsf-slider__nav-arrow', { 'vsf-slider__nav-arrow--hidden': !hasPrev }]"
+          :class="['vsf-scrollable__nav-arrow', { 'vsf-scrollable__nav-arrow--hidden': !hasPrev }]"
           :disabled="!hasPrev"
           :aria-label="ariaLabelPrev"
           @click="onClickPrev"
@@ -98,19 +105,20 @@ const onClickNext = () => slider.value?.next();
     <div
       ref="container"
       :class="[
-        'vsf-slider__container',
-        scrollbar !== VsfSliderScrollbar.hidden && `vsf-slider__container--scroll-${scrollbar}`,
+        'vsf-scrollable__container',
+        scrollbar !== VsfScrollableScrollbar.hidden && `vsf-scrollable__container--scroll-${scrollbar}`,
       ]"
+      @focus.capture="focusHandler"
     >
       <slot />
     </div>
-    <div v-if="navigation !== VsfSliderNavigation.none" class="vsf-slider__nav vsf-slider__nav-next">
+    <div v-if="navigation !== VsfScrollableNavigation.none" class="vsf-scrollable__nav vsf-scrollable__nav-next">
       <slot name="next-button" v-bind="{ onClick: onClickNext, hasNext }">
         <VsfButton
           :variant="VsfButtonVariant.secondary"
           :size="VsfButtonSize.lg"
           rounded
-          :class="['vsf-slider__nav-arrow', { 'vsf-slider__nav-arrow--hidden': !hasNext }]"
+          :class="['vsf-scrollable__nav-arrow', { 'vsf-scrollable__nav-arrow--hidden': !hasNext }]"
           :disabled="!hasNext"
           :aria-label="ariaLabelNext"
           @click="onClickNext"

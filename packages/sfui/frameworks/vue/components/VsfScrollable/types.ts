@@ -1,16 +1,16 @@
-export enum VsfSliderScrollbar {
+export enum VsfScrollableScrollbar {
   hidden = 'hidden',
   always = 'always',
   auto = 'auto',
 }
 
-export enum VsfSliderNavigation {
+export enum VsfScrollableNavigation {
   none = 'none',
   block = 'block',
   floating = 'floating',
 }
 
-export enum VsfSliderDirection {
+export enum VsfScrollableDirection {
   horizontal = 'horizontal',
   vertical = 'vertical',
 }
