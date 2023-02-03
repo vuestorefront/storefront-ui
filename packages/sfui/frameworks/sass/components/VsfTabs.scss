@@ -9,7 +9,7 @@
     @apply pb-0;
 
     & > .vsf-button {
-      @apply w-auto;
+      @apply w-auto whitespace-nowrap;
     }
   }
 
