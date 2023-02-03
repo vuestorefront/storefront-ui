@@ -1,5 +1,5 @@
 import { VsfChip, VsfChipSize } from '@storefront-ui/react/components/VsfChip';
-import VsfIconDot from '@storefront-ui/react/components/VsfIcons/VsfIconDot';
+import { VsfChipThumbnail, VsfChipThumbnailSize } from '@storefront-ui/react/components/VsfChipThumbnail/index';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
@@ -77,7 +77,14 @@ function Example() {
         // eslint-disable-next-line no-console
         onSelected={selectHandler}
         className="mr-2"
-        slotPrefix={state.get.slotPrefix ? <VsfIconDot className="text-gray-500" size={state.get.size} /> : null}
+        slotPrefix={
+          state.get.slotPrefix ? (
+            <VsfChipThumbnail
+              color="rgb(113 113 122)"
+              size={state.get.size === VsfChipSize.sm ? VsfChipThumbnailSize.sm : VsfChipThumbnailSize.base}
+            />
+          ) : null
+        }
       />
     </ComponentExample>
   );

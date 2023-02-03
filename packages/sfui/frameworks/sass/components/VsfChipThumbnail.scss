@@ -1,0 +1,11 @@
+.vsf-chip-thumbnail {
+  @apply bg-[var(--vsf-chip-thumbnail)] bg-[url:var(--vsf-chip-thumbnail)] rounded-full overflow-hidden;
+
+  &--sm {
+    @apply w-5 h-5;
+  }
+
+  &--base {
+    @apply w-6 h-6;
+  }
+}
