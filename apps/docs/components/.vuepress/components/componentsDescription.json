@@ -51,9 +51,9 @@
     "VsfSelectOption": "The SelectOption component is used for displaying data inside Select component.",
     "VsfSelectDropdown": "This component is an alternative option for VsfSelect component. It doesn't use native select tag so it can have more options for styling.",
     "VsfSideSheet": "VsfSideSheet is surface containing supplementary content that is anchored to the left or right edge of the screen.",
-    "VsfSlider": "Slider is a scrollable list with pseudo-pagination.",
+    "VsfScrollable": "Scrollable is a scrollable list with pseudo-pagination.",
     "VsfSwitch": "A switch is an input similar to a checkbox component, except for handling the indeterminate state. The two possible values are true and false.",
-    "VsfTabs": "The tabs consist of two separate components VsfTabs and VsfTabsItem. The first one is the wrapper for the list of tabs whish also includes VsfSlider component allowing to scroll when window is to small for all tabs.",
+    "VsfTabs": "The tabs consist of two separate components VsfTabs and VsfTabsItem. The first one is the wrapper for the list of tabs which also includes VsfScrollable component allowing to scroll when window is to small for all tabs.",
     "VsfTabsItem": "The VsfTabsItem is the VsfButton component which needs to have unique id passed by uid prop and allows to put icon, counter or text content in separate slots.",
     "VsfTag": "The Tag component draws attention to new or categorized content elements.",
     "VsfTooltip": "VsfTooltips provide contextual information about an element when that owning element receives focus or is hovered over, but is otherwise not visible on the page."

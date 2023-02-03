@@ -2,10 +2,10 @@
 import { provide, ref, watch } from 'vue';
 import type { PropType } from 'vue';
 import { useWindowSize, useElementSize } from '@vueuse/core';
-import VsfSlider from '../VsfSlider/VsfSlider.vue';
+import VsfScrollable from '../VsfScrollable/VsfScrollable.vue';
 import VsfDivider from '../VsfDivider/VsfDivider.vue';
 import { VsfTabsInjectionKey } from './types';
-import { VsfSliderNavigation } from '../VsfSlider/types';
+import { VsfScrollableNavigation } from '../VsfScrollable/types';
 import { VsfButtonSize } from '../VsfButton/types';
 
 const props = defineProps({
@@ -43,17 +43,17 @@ watch([windowWidth, tabsWidth], () => {
 </script>
 
 <template>
-  <!-- TODO: When VsfSlider is refactored pass showArrow value to the component to show arrows when needed -->
-  <VsfSlider
+  <!-- TODO: When VsfScrollable is refactored pass showArrow value to the component to show arrows when needed -->
+  <VsfScrollable
     ref="tabs"
     class="vsf-tabs"
     :draggable="{ sensitivity: 3 }"
     scroll-snap
-    :navigation="VsfSliderNavigation.floating"
+    :navigation="VsfScrollableNavigation.floating"
     data-testid="tabs"
     role="tablist"
   >
     <slot />
-  </VsfSlider>
+  </VsfScrollable>
   <VsfDivider />
 </template>

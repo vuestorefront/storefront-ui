@@ -3,9 +3,9 @@ layout: ComponentLayout
 hideBreadcrumbs: true
 ---
 
-# Slider
+# Scrollable
 
-Slider is a scrollable list with pseudo-pagination.
+Scrollable is a scrollable list with pseudo-pagination.
 
 NOTE: Some of the mobile browsers (e.g. iOS Safari) will hide scrollbar even when `scrollbar` prop is set to `auto`, `always`. Make sure that your website is prepared for such case.
 
@@ -15,9 +15,9 @@ NOTE: Some of the mobile browsers (e.g. iOS Safari) will hide scrollbar even whe
 
 | Prop name     | Type                  | Default value | Possible values             |
 | ------------- | --------------------- | ------------- | --------------------------- |
-| scrollbar     | `VsfSliderScrollbar`  | `hidden`      | `always`, `auto`, `hidden`  |
-| navigation    | `VsfSliderNavigation` | `block`       | `block`, `floating`, `none` |
-| direction     | `VsfSliderDirection`  | `horizontal`  | `horizontal`, `vertical`    |
+| scrollbar     | `VsfScrollableScrollbar`  | `hidden`      | `always`, `auto`, `hidden`  |
+| navigation    | `VsfScrollableNavigation` | `block`       | `block`, `floating`, `none` |
+| direction     | `VsfScrollableDirection`  | `horizontal`  | `horizontal`, `vertical`    |
 | scrollSnap    | `boolean`             | `false`       |                             |
 | draggable     | `object`              | `undefined`   | `undefined`                 |
 | ariaLabelPrev | `string`              | "Previous"    |                             |
@@ -42,8 +42,8 @@ NOTE: Some of the mobile browsers (e.g. iOS Safari) will hide scrollbar even whe
 ## Source code
 
 <!-- vue -->
-<<<../../../packages/sfui/frameworks/vue/components/VsfSlider/VsfSlider.vue
+<<<../../../packages/sfui/frameworks/vue/components/VsfScrollable/VsfScrollable.vue
 <!-- end vue -->
 <!-- react -->
-<<< ../../../packages/sfui/frameworks/react/components/VsfSlider/VsfSlider.tsx
+<<< ../../../packages/sfui/frameworks/react/components/VsfScrollable/VsfScrollable.tsx
 <!-- end react -->

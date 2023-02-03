@@ -1,19 +1,19 @@
-import { useState, forwardRef } from 'react';
+import { useState, forwardRef, FocusEvent } from 'react';
 import classNames from 'classnames';
 import { isReduceMotionEnabled } from '@storefront-ui/shared';
 import VsfButton from '../VsfButton/VsfButton';
 import { VsfIconChevronLeft, VsfIconChevronDown, VsfIconChevronRight, VsfIconChevronUp } from '../VsfIcons';
-import type { VsfSliderProps } from './types';
-import { VsfSliderNavigation, VsfSliderScrollbar, VsfSliderDirection } from './types';
-import { useSlider } from './slider';
+import type { VsfScrollableProps } from './types';
+import { VsfScrollableNavigation, VsfScrollableScrollbar, VsfScrollableDirection } from './types';
+import { useScrollable } from './scrollable';
 import { VsfButtonVariant, VsfButtonSize } from '../VsfButton';
 
-const VsfSlider = forwardRef<HTMLDivElement, VsfSliderProps>(
+const VsfScrollable = forwardRef<HTMLDivElement, VsfScrollableProps>(
   (
     {
-      navigation = VsfSliderNavigation.block,
-      scrollbar = VsfSliderScrollbar.hidden,
-      direction = VsfSliderDirection.horizontal,
+      navigation = VsfScrollableNavigation.block,
+      scrollbar = VsfScrollableScrollbar.hidden,
+      direction = VsfScrollableDirection.horizontal,
       scrollSnap,
       draggable,
       className,
@@ -29,8 +29,8 @@ const VsfSlider = forwardRef<HTMLDivElement, VsfSliderProps>(
     const [hasPrev, setHasPrev] = useState<boolean>(true);
     const [hasNext, setHasNext] = useState<boolean>(true);
 
-    const isHorizontal = direction === VsfSliderDirection.horizontal;
-    const [containerRef, slider] = useSlider<HTMLDivElement>({
+    const isHorizontal = direction === VsfScrollableDirection.horizontal;
+    const [containerRef, scrollable] = useScrollable<HTMLDivElement>({
       reduceMotion: isReduceMotionEnabled,
       drag: draggable,
       vertical: !isHorizontal,
@@ -40,10 +40,10 @@ const VsfSlider = forwardRef<HTMLDivElement, VsfSliderProps>(
       },
     });
     function onClickPrev() {
-      return slider.current?.prev();
+      return scrollable.current?.prev();
     }
     function onClickNext() {
-      return slider.current?.next();
+      return scrollable.current?.next();
     }
 
     const prevButtonDefault = (
@@ -51,7 +51,7 @@ const VsfSlider = forwardRef<HTMLDivElement, VsfSliderProps>(
         variant={VsfButtonVariant.secondary}
         size={VsfButtonSize.lg}
         rounded
-        className={classNames('vsf-slider__nav-arrow', { 'vsf-slider__nav-arrow--hidden': !hasPrev })}
+        className={classNames('vsf-scrollable__nav-arrow', { 'vsf-scrollable__nav-arrow--hidden': !hasPrev })}
         onClick={onClickPrev}
         disabled={!hasPrev}
         slotPrefix={isHorizontal ? <VsfIconChevronLeft /> : <VsfIconChevronUp />}
@@ -63,7 +63,7 @@ const VsfSlider = forwardRef<HTMLDivElement, VsfSliderProps>(
         variant={VsfButtonVariant.secondary}
         size={VsfButtonSize.lg}
         rounded
-        className={classNames('vsf-slider__nav-arrow', { 'vsf-slider__nav-arrow--hidden': !hasNext })}
+        className={classNames('vsf-scrollable__nav-arrow', { 'vsf-scrollable__nav-arrow--hidden': !hasNext })}
         onClick={onClickNext}
         disabled={!hasNext}
         slotPrefix={isHorizontal ? <VsfIconChevronRight /> : <VsfIconChevronDown />}
@@ -75,40 +75,47 @@ const VsfSlider = forwardRef<HTMLDivElement, VsfSliderProps>(
     const nextNavigation =
       typeof slotNextButton === 'function' ? slotNextButton({ onClick: onClickNext, hasNext }) : nextButtonDefault;
 
+    const focusHandler = (event: FocusEvent) => {
+      const elementIndex = Array.from(scrollable.current?.container.children as ArrayLike<Element>).findIndex(
+        (el) => el === event.target,
+      );
+      scrollable.current?.scrollToIndex(elementIndex);
+    };
     return (
       <div
         ref={ref}
         className={classNames(
-          'vsf-slider',
-          `vsf-slider--${direction}`,
+          'vsf-scrollable',
+          `vsf-scrollable--${direction}`,
           {
-            'vsf-slider--floating-nav': navigation === VsfSliderNavigation.floating,
-            'vsf-slider--snap-scroll': scrollSnap,
+            'vsf-scrollable--floating-nav': navigation === VsfScrollableNavigation.floating,
+            'vsf-scrollable--snap-scroll': scrollSnap,
           },
           className,
         )}
         {...attributes}
       >
-        {navigation !== VsfSliderNavigation.none && (
-          <div className="vsf-slider__nav vsf-slider__nav-prev">{prevNavigation}</div>
+        {navigation !== VsfScrollableNavigation.none && (
+          <div className="vsf-scrollable__nav vsf-scrollable__nav-prev">{prevNavigation}</div>
         )}
 
         <div
           ref={containerRef}
           className={classNames(
-            'vsf-slider__container',
-            scrollbar !== VsfSliderScrollbar.hidden && `vsf-slider__container--scroll-${scrollbar}`,
+            'vsf-scrollable__container',
+            scrollbar !== VsfScrollableScrollbar.hidden && `vsf-scrollable__container--scroll-${scrollbar}`,
           )}
+          onFocus={focusHandler}
         >
           {children}
         </div>
 
-        {navigation !== VsfSliderNavigation.none && (
-          <div className="vsf-slider__nav vsf-slider__nav-next">{nextNavigation}</div>
+        {navigation !== VsfScrollableNavigation.none && (
+          <div className="vsf-scrollable__nav vsf-scrollable__nav-next">{nextNavigation}</div>
         )}
       </div>
     );
   },
 );
 
-export default VsfSlider;
+export default VsfScrollable;

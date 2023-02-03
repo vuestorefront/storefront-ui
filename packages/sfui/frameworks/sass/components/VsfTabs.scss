@@ -1,11 +1,11 @@
 .vsf-tabs {
   $self: &;
 
-  & .vsf-slider__nav .vsf-button {
+  & .vsf-scrollable__nav .vsf-button {
     @apply bg-white border-none rounded-none ring-0 shadow-none;
   }
 
-  & .vsf-slider__container {
+  & .vsf-scrollable__container {
     @apply pb-0;
 
     & > .vsf-button {

@@ -2,9 +2,9 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import classNames from 'classnames';
 import { useWindowSize } from 'react-use';
 import { VsfTabsProps, VsfTabsContext } from './types';
-import VsfSlider from '../VsfSlider/VsfSlider';
+import VsfScrollable from '../VsfScrollable/VsfScrollable';
 import VsfDivider from '../VsfDivider/VsfDivider';
-import { VsfSliderNavigation } from '../VsfSlider/types';
+import { VsfScrollableNavigation } from '../VsfScrollable/types';
 
 export default function VsfTabs(props: VsfTabsProps): JSX.Element {
   const { active, children, className, ...attributes } = props;
@@ -24,19 +24,19 @@ export default function VsfTabs(props: VsfTabsProps): JSX.Element {
   return (
     <>
       <VsfTabsContext.Provider value={contextValue}>
-        {/* TODO: When VsfSlider is refactored pass showArrow value to the component to show arrows when needed */}
-        <VsfSlider
+        {/* TODO: When VsfScrollable is refactored pass showArrow value to the component to show arrows when needed */}
+        <VsfScrollable
           ref={tabs}
           className={classNames('vsf-tabs', className)}
           draggable={{ sensitivity: 3 }}
           scrollSnap
-          navigation={VsfSliderNavigation.floating}
+          navigation={VsfScrollableNavigation.floating}
           {...attributes}
           data-testid="tabs"
           role="tablist"
         >
           {children}
-        </VsfSlider>
+        </VsfScrollable>
       </VsfTabsContext.Provider>
       <VsfDivider />
     </>

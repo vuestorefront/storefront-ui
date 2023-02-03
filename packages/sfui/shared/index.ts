@@ -1,4 +1,4 @@
 export * from './progress';
-export * from './slider';
+export * from './scrollable';
 export * from './utils';
 export * from './types';

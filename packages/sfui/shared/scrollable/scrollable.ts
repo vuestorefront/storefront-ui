@@ -1,17 +1,17 @@
-import type { VsfSliderOptions, VsfSliderCallbackData } from './types';
+import type { VsfScrollableOptions, VsfScrollableCallbackData } from './types';
 
-const defaultVsfSliderOptions: VsfSliderOptions = {
+const defaultVsfScrollableOptions: VsfScrollableOptions = {
   reduceMotion: false,
   snap: false,
   drag: undefined,
   vertical: false,
 };
 
-const DRAGGING_CLASS = 'vsf-slider__container--dragging';
+const DRAGGING_CLASS = 'vsf-scrollable__container--dragging';
 
-export default class VSFSlider {
-  private container: HTMLElement;
-  private options: VsfSliderOptions;
+export default class VSFScrollable {
+  public container: HTMLElement;
+  private options: VsfScrollableOptions;
   private debounceId?: ReturnType<typeof setTimeout>;
   private isDragged?: boolean;
   private dragScrollX: number;
@@ -25,11 +25,11 @@ export default class VSFSlider {
   private mouseMoveListenerInstance: () => void;
   private mouseLeaveListenerInstance: () => void;
 
-  constructor(container: Element, VsfSliderOptions?: Partial<VsfSliderOptions>) {
+  constructor(container: Element, VsfScrollableOptions?: Partial<VsfScrollableOptions>) {
     if (!(container instanceof HTMLElement))
-      throw new Error(`VSFSlider: Container is not a HTMLElement! Received: ${container}`);
+      throw new Error(`VsfScrollable: Container is not a HTMLElement! Received: ${container}`);
     this.container = container;
-    this.options = { ...defaultVsfSliderOptions, ...VsfSliderOptions };
+    this.options = { ...defaultVsfScrollableOptions, ...VsfScrollableOptions };
     this.dragScrollX = 0;
     this.dragScrollLeft = 0;
     this.dragScrollY = 0;
@@ -42,8 +42,8 @@ export default class VSFSlider {
     this.onScrollHandler();
   }
 
-  public update(VsfSliderOptions?: Partial<VsfSliderOptions>) {
-    this.options = { ...defaultVsfSliderOptions, ...VsfSliderOptions };
+  public update(VsfScrollableOptions?: Partial<VsfScrollableOptions>) {
+    this.options = { ...defaultVsfScrollableOptions, ...VsfScrollableOptions };
     this.removeListeners();
     this.init();
   }
@@ -71,13 +71,15 @@ export default class VSFSlider {
       const rect = children[index].getBoundingClientRect();
       const left = rect.left - container.getBoundingClientRect().left;
       const top = rect.top - container.getBoundingClientRect().top;
+      const centerHorizontal = container.clientWidth / 2 - rect.width / 2;
+      const centerVertical = container.clientHeight / 2 - rect.height / 2;
 
-      if (this.options.vertical) this.scrollTo({ top: container.scrollTop + top });
-      else this.scrollTo({ left: container.scrollLeft + left });
+      if (this.options.vertical) this.scrollTo({ top: container.scrollTop + top - centerVertical });
+      else this.scrollTo({ left: container.scrollLeft + left - centerHorizontal });
     }
   }
 
-  public refresh(callback?: (data: VsfSliderCallbackData) => void) {
+  public refresh(callback?: (data: VsfScrollableCallbackData) => void) {
     requestAnimationFrame(() => {
       const data = this.calculate();
       callback?.(data);
@@ -128,7 +130,6 @@ export default class VSFSlider {
       container.scrollLeft = this.dragScrollLeft - scrolling;
     }
   }
-
   private addListeners() {
     this.scrollListenerInstance = this.onScroll.bind(this);
     this.container.addEventListener('scroll', this.scrollListenerInstance, { passive: true });
@@ -178,14 +179,14 @@ export default class VSFSlider {
     this.refresh((data) => this.options.onScroll?.(data));
   }
 
-  private calculate(): VsfSliderCallbackData {
+  private calculate(): VsfScrollableCallbackData {
     const { container, options } = this;
 
     function hasNext() {
       if (options.vertical) {
-        return container.scrollHeight > container.scrollTop + container.clientHeight;
+        return container.scrollHeight > Math.ceil(container.scrollTop) + container.clientHeight;
       }
-      return container.scrollWidth > container.scrollLeft + container.clientWidth;
+      return container.scrollWidth > Math.ceil(container.scrollLeft) + container.clientWidth;
     }
 
     function hasPrev() {

@@ -1,15 +1,15 @@
 <template>
   <ComponentExample :controls-attrs="controlsAttrs">
-    <VsfSlider v-bind="state" :draggable="draggable ? { sensitivity: 3 } : undefined">
-      <div v-for="item in 4" :key="item">
+    <VsfScrollable v-bind="state" :draggable="draggable ? { sensitivity: 3 } : undefined">
+      <div v-for="item in 4" :key="item" tabindex="0">
         <div class="bg-gray-300 w-[150px] h-[150px] flex justify-center items-center">{{ item }}</div>
       </div>
-      <div v-for="item in 4" :key="item">
+      <div v-for="item in 4" :key="item" tabindex="0">
         <div
           :class="[
             'bg-gray-300',
-            direction === VsfSliderDirection.horizontal ? 'w-[200px]' : 'w-[150px]',
-            direction === VsfSliderDirection.horizontal ? 'h-[150px]' : 'h-[200px]',
+            direction === VsfScrollableDirection.horizontal ? 'w-[200px]' : 'w-[150px]',
+            direction === VsfScrollableDirection.horizontal ? 'h-[150px]' : 'h-[200px]',
             'flex justify-center',
             'items-center',
           ]"
@@ -17,7 +17,7 @@
           {{ item + 4 }}
         </div>
       </div>
-      <div v-for="item in 4" :key="item">
+      <div v-for="item in 4" :key="item" tabindex="0">
         <div class="bg-gray-300 w-[150px] h-[150px] flex justify-center items-center">{{ item + 8 }}</div>
       </div>
       <template v-if="ExampleCustomNav" #prev-button="{ onClick, hasPrev }">
@@ -42,55 +42,55 @@
           next
         </button>
       </template>
-    </VsfSlider>
+    </VsfScrollable>
   </ComponentExample>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import {
-  VsfSlider,
-  VsfSliderDirection,
-  VsfSliderNavigation,
-  VsfSliderScrollbar,
-} from '@storefront-ui/vue/components/VsfSlider/index';
+  VsfScrollable,
+  VsfScrollableDirection,
+  VsfScrollableNavigation,
+  VsfScrollableScrollbar,
+} from '@storefront-ui/vue/components/VsfScrollable/index';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
 
 export default defineComponent({
-  name: 'VsfSliderExample',
+  name: 'VsfScrollableExample',
   components: {
-    VsfSlider,
+    VsfScrollable,
     ComponentExample,
   },
   setup() {
     return {
-      VsfSliderDirection,
+      VsfScrollableDirection,
       ...prepareControls(
         [
           {
             type: 'select',
             modelName: 'navigation',
-            propType: 'VsfSliderNavigation',
+            propType: 'VsfScrollableNavigation',
             propDefaultValue: 'block',
-            options: Object.keys(VsfSliderNavigation),
+            options: Object.keys(VsfScrollableNavigation),
           },
           {
             type: 'select',
             modelName: 'scrollbar',
-            propType: 'VsfSliderScrollbar',
+            propType: 'VsfScrollableScrollbar',
             propDefaultValue: 'hidden',
-            options: Object.keys(VsfSliderScrollbar),
+            options: Object.keys(VsfScrollableScrollbar),
             description:
               "`none` hide, `auto` hides scrollbar when content don't overflow container, `always` forces container to show scrollbar",
           },
           {
             type: 'select',
             modelName: 'direction',
-            propType: 'VsfSliderDirection',
+            propType: 'VsfScrollableDirection',
             propDefaultValue: 'horizontal',
-            options: Object.keys(VsfSliderDirection),
-            description: 'Determines whether slider should be displayed vertically or horizontally',
+            options: Object.keys(VsfScrollableDirection),
+            description: 'Determines whether scrollable component should be displayed vertically or horizontally',
           },
           {
             type: 'boolean',
@@ -112,9 +112,9 @@ export default defineComponent({
           },
         ],
         {
-          navigation: ref(VsfSliderNavigation.block),
-          direction: ref(VsfSliderDirection.horizontal),
-          scrollbar: ref(VsfSliderScrollbar.hidden),
+          navigation: ref(VsfScrollableNavigation.block),
+          direction: ref(VsfScrollableDirection.horizontal),
+          scrollbar: ref(VsfScrollableScrollbar.hidden),
           scrollSnap: ref(),
           draggable: ref(),
           ExampleCustomNav: ref(),

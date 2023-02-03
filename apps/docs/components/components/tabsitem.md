@@ -3,7 +3,7 @@ layout: ComponentLayout
 hideBreadcrumbs: true
 ---
 #  TabsItem
-The tabs consist of two separate components `VsfTabs` and `VsfTabsItem`. The first one is the wrapper for the list of tabs whish also includes VsfSlider component allowing to scroll when window is to small for all tabs. The second one is the VsfButton component which needs to have unique id passed by `uid` prop and allows to put icon, counter or text content in separate slots. 
+The tabs consist of two separate components `VsfTabs` and `VsfTabsItem`. The first one is the wrapper for the list of tabs whish also includes VsfScrollable component allowing to scroll when window is to small for all tabs. The second one is the VsfButton component which needs to have unique id passed by `uid` prop and allows to put icon, counter or text content in separate slots. 
 ## Props
 
 | Prop name           | Type                        | Default value | Possible values                        |
