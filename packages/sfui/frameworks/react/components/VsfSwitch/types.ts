@@ -6,7 +6,7 @@ export enum VsfSwitchAlignment {
   suffix = 'suffix',
 }
 export interface VsfSwitchProps
-  extends Pick<VsfCheckboxProps, 'value' | 'label' | 'helpText' | 'disabled' | 'onChange'>,
+  extends Pick<VsfCheckboxProps, 'value' | 'label' | 'helpText' | 'disabled' | 'labelTag' | 'name' | 'onChange'>,
     PropsWithStyle {
-  alignment: `${VsfSwitchAlignment}`;
+  alignment?: `${VsfSwitchAlignment}`;
 }

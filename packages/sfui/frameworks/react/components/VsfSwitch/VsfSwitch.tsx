@@ -10,6 +10,7 @@ export default function VsfSwitch({
   alignment = VsfSwitchAlignment.prefix,
   helpText,
   className,
+  labelTag,
   onChange,
   ...attributes
 }: VsfSwitchProps): JSX.Element {
@@ -21,6 +22,7 @@ export default function VsfSwitch({
       disabled={disabled}
       alignment={alignment === VsfSwitchAlignment.prefix ? VsfCheckboxAlignment.leading : VsfCheckboxAlignment.trailing}
       helpText={helpText}
+      labelTag={labelTag}
       {...attributes}
       onChange={onChange}
     />

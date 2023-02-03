@@ -2,31 +2,18 @@
 import type { InputHTMLAttributes, PropType } from 'vue';
 import { VsfSwitchAlignment } from './types';
 import { VsfCheckbox, VsfCheckboxAlignment } from '../VsfCheckbox';
+import { extractProps } from '../../shared/props';
 
 defineProps({
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  ...extractProps(VsfCheckbox as any, ['value', 'disabled', 'name', 'label', 'helpText', 'labelTag'] as const),
   modelValue: {
     type: [String, Array, Boolean] as PropType<InputHTMLAttributes['checked']>,
     required: true,
   },
-  value: {
-    type: String,
-    default: '',
-  },
-  disabled: {
-    type: Boolean,
-    default: false,
-  },
   alignment: {
     type: String as PropType<`${VsfSwitchAlignment}`>,
     default: VsfSwitchAlignment.prefix,
-  },
-  label: {
-    type: String,
-    default: '',
-  },
-  helpText: {
-    type: String,
-    default: '',
   },
 });
 
@@ -44,6 +31,8 @@ defineEmits<{
     :help-text="helpText"
     :alignment="alignment === VsfSwitchAlignment.prefix ? VsfCheckboxAlignment.leading : VsfCheckboxAlignment.trailing"
     role="switch"
+    :name="name"
+    :label-tag="labelTag"
     class="vsf-switch"
     @update:model-value="$emit('update:modelValue', $event)"
   />
