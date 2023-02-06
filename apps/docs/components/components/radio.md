@@ -1,16 +1,17 @@
 ---
 layout: ComponentLayout
 hideBreadcrumbs: true
+description: A radio is a checkable input always appears in a group of elements with the same role, where no more than one of the radio can be checked at a time.
 ---
 # Radio
 
-A radio is a checkable input always appears in a group of elements with the same role, where no more than one of the radio can be checked at a time.
-
-Used for especially forms.
-
-For filtering use [ListItemFilterRadio](listitemfilterradio.md) component instead of Radio. For long set of options use Select component.
+{{ $frontmatter.description }}
 
 <Generate />
+
+## Notes
+
+For filtering use [ListItemFilterRadio](listitemfilterradio.md) component instead of Radio. For long set of options use Select component.
 
 <!-- vue -->
 

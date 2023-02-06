@@ -1,11 +1,14 @@
 ---
 layout: ComponentLayout
 hideBreadcrumbs: true
+description: Hero component acts like a layout for your hero section. You can provide main image and any content, as well as background images for mobile and desktop devices.
 ---
 
 # Hero
 
-Hero component acts like a layout for your hero section. You can provide main image and any content, as well as background images for mobile and desktop devices.
+{{ $frontmatter.description }}
+
+## Notes 
 
 Recommended ratio of the main image is 4:3. Background images should be provided as a vertical version for small screens (up to 769px), and horizontal vesion for large screens.
 

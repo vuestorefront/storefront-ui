@@ -1,10 +1,11 @@
 ---
 layout: ComponentLayout
 hideBreadcrumbs: true
+description: VsfSideSheet is surface containing supplementary content that is anchored to the left or right edge of the screen.
 ---
 # SideSheet
 
-VsfSideSheet is surface containing supplementary content that is anchored to the left or right edge of the screen.
+{{ $frontmatter.description }}
 
 <Generate />
 

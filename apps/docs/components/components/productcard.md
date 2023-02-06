@@ -1,12 +1,17 @@
 ---
 layout: ComponentLayout
 hideBreadcrumbs: true
+description: The product card component contains the most relevant data about the product. The most popular are the product's snapshot, name and price. It also includes a direct add to cart button and reviews component. The component can be displayed in vertical and horizontal variant.
 ---
 # ProductCard
 
-The product card component contains the most relevant data about the product. The most popular are the product's snapshot, name and price. It also includes a direct add to cart button and reviews component. In order to customize image you can use slot for image or add VsfProductCardImage component with added attributes. The component can be displayed in vertical and horizontal variant.
+{{ $frontmatter.description }}
 
 <Generate style="height:900px" />
+
+## Notes
+
+ In order to customize image you can use slot for image or add VsfProductCardImage component with added attributes. 
 
 ## Props
 

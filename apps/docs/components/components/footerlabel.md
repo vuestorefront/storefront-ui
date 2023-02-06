@@ -1,10 +1,11 @@
 ---
 layout: ComponentLayout
 hideBreadcrumbs: true
+description: The FooterLabel component is used for styling text content.
 ---
 # FooterLabel
 
-The FooterLabel component is used for styling text content.
+{{ $frontmatter.description }}
 
 ## Props
 

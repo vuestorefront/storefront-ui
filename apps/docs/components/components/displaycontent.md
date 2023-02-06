@@ -1,11 +1,12 @@
 ---
 layout: ComponentLayout
 hideBreadcrumbs: true
+description: Display Content component provide title, subtitle and description for your banners. It can be wrapped with Display or Hero component to position the content inside. 
 ---
 
 # Display Content
 
-Display Content component provide title, subtitle and description for your banners. It can be wrapped with Display or Hero component to position the content inside. 
+{{ $frontmatter.description }}
 
 <Generate />
 

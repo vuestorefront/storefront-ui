@@ -1,10 +1,11 @@
 ---
 layout: ComponentLayout
 hideBreadcrumbs: true
+description: Customer review component with author, rating, date and review text.
 ---
 # Review
 
-Customer review component with author, rating, date and review text.
+{{ $frontmatter.description }}
 
 <Generate style="height: 700px" />
 

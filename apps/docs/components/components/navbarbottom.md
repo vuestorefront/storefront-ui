@@ -1,13 +1,17 @@
 ---
 layout: ComponentLayout
 hideBreadcrumbs: true
+description: The Navbar bottom component is used as navigation on mobile devices. Usually has links to the most common places on a website like homepage.
 ---
 # Navbar Bottom
 
-The Navbar bottom component is used as navigation on mobile devices. Usually has links to the most common places on a website like homepage.
-[Navbar Bottom Item](navbarbottomitem.html) component can be used as list item element.
+{{ $frontmatter.description }}
 
 <Generate />
+
+## Notes 
+
+[Navbar Bottom Item](navbarbottomitem.html) component can be used as list item element.
 
 ## Props
 

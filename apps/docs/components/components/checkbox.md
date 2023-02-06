@@ -1,16 +1,19 @@
 ---
 layout: ComponentLayout
 hideBreadcrumbs: true
+description: A checkbox is an input that has three possible values - true, false, or indeterminate. When an indeterminate value is not used, these are effectively boolean checkboxes.
 ---
 # Checkbox
 
-A checkbox is an input that has three possible values: true, false, or indeterminate. When an indeterminate value is not used, these are effectively boolean checkboxes.
+{{ $frontmatter.description }}
+
+<Generate />
+
+## Notes
 
 Used especially for forms or expressing consents.
 
 For filtering use [ListItemFilterCheckbox]() component instead of Checkbox.
-
-<Generate />
 
 ## Props
 

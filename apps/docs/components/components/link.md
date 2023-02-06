@@ -1,10 +1,15 @@
 ---
 layout: ComponentLayout
 hideBreadcrumbs: true
+description: A link is interactive reference to an internal or external resource.
 ---
 # Link
 
-A link is interactive reference to an internal or external resource. For external link there is `<a>` tag, and for internal <!-- vue -->
+{{ $frontmatter.description }}
+
+## Notes
+
+For external link there is `<a>` tag, and for internal <!-- vue -->
 component tags `<NuxtLink>` for Nuxt.js and `<router-link>` for pure Vue.<!-- end vue --><!-- react -->`<Link>` component tag.<!-- end react --> When there is a need to have more link with the same tag then [config](config.html) component can be used to achieve this.
 
 Used to navigate the page and link to external resources (websites and files).

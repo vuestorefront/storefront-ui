@@ -1,16 +1,17 @@
 ---
 layout: ComponentLayout
 hideBreadcrumbs: true
+description: A switch is an input similar to a checkbox component, except for handling the indeterminate state. The two possible values are true and false. Used for enable/disable features, especially on mobile.
 ---
 #  Switch
 
-A switch is an input similar to a checkbox component, except for handling the indeterminate state. The two possible values are true and false.
-
-Used for enable/disable features, especially on mobile.
-
-In forms, a better choice may be to use a Checkbox component.
+{{ $frontmatter.description }}
 
 <Generate />
+
+## Notes
+
+In forms, a better choice may be to use a Checkbox component.
 
 ## Props
 

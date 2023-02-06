@@ -1,11 +1,12 @@
 ---
 layout: ComponentLayout
 hideBreadcrumbs: true
+description: The FooterBottomLinks is a container for links in bottom section of the Footer. 
 ---
 <!-- react -->
 # FooterBottomLinks
 
-The FooterBottomLinks is a container for links in bottom section of the Footer. 
+{{ $frontmatter.description }}
 
 ## Props
 

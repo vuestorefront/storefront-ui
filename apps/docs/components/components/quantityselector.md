@@ -1,10 +1,11 @@
 ---
 layout: ComponentLayout
 hideBreadcrumbs: true
+description: The QuantitySelector allows the selection of a digital value and the display of additional information.
 ---
 # QuantitySelector
 
-The QuantitySelector allows the selection of a digital value and the display of additional information.
+{{ $frontmatter.description }}
 
 <Generate />
 

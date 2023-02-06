@@ -1,11 +1,11 @@
 ---
 layout: ComponentLayout
 hideBreadcrumbs: true
+description: The NavbarTopAction component is used as navigation inside NavbarTop component.
 ---
 # NavBarTopAction
 
-The NavbarTopAction component is used as navigation inside NavbarTop component.
-
+{{ $frontmatter.description }}
 ## Props
 
 |    Prop name              |    Type          |      Default value    |     Possible values             |

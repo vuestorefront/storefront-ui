@@ -1,10 +1,11 @@
 ---
 layout: ComponentLayout
 hideBreadcrumbs: true
+description: The Tag component draws attention to new or categorized content elements.
 ---
 # Tag
 
-The Tag component draws attention to new or categorized content elements.
+{{ $frontmatter.description }}
 
 <Generate />
 

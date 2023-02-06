@@ -1,10 +1,14 @@
 ---
 layout: ComponentLayout
 hideBreadcrumbs: true
+description: VsfConfig is global configuration component. 
 ---
 # Config component
 
-VsfConfig is global configuration component. It can be used when there is a need to use one setting for multiple components e.g `linkTag` for all [link](link.html) component at once, without doing it via prop every time.
+{{ $frontmatter.description }}
+## Notes
+
+It can be used when there is a need to use one setting for multiple components e.g `linkTag` for all [link](link.html) component at once, without doing it via prop every time.
 
 ## Props
 

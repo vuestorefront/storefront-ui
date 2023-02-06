@@ -1,10 +1,11 @@
 ---
 layout: ComponentLayout
 hideBreadcrumbs: true
+description: Counter is a part of other complex components. Informs in numerical (integer) form about the number of elements.
 ---
 # Counter
 
-Counter is a part of other complex components. Informs in numerical (integer) form about the number of elements.
+{{ $frontmatter.description }}
 
 <Generate />
 

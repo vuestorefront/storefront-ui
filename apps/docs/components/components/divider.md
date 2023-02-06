@@ -1,10 +1,11 @@
 ---
 layout: ComponentLayout
 hideBreadcrumbs: true
+description: The hr tag defines a thematic break in an HTML page (e.g. a shift of topic).
 ---
 # Divider
 
-The hr tag defines a thematic break in an HTML page (e.g. a shift of topic).
+{{ $frontmatter.description }}
 
 <Generate />
 

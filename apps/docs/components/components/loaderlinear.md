@@ -1,10 +1,11 @@
 ---
 layout: ComponentLayout
 hideBreadcrumbs: true
+description: The LoaderLinear is used when the loading progress can be determined.
 ---
 # LoaderLinear
 
-The LoaderLinear is used when the loading progress can be determined.
+{{ $frontmatter.description }}
 
 <Generate />
 

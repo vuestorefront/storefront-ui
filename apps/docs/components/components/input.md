@@ -1,16 +1,19 @@
 ---
 layout: ComponentLayout
 hideBreadcrumbs: true
+description: A input is a single-line text field allows users to enter any combination of letters, numbers, or symbols. Supports the use of prefix and suffix as text or icon.
 ---
 # Input
 
-A input is a single-line text field allows users to enter any combination of letters, numbers, or symbols. Supports the use of prefix and suffix as text or icon.
+{{ $frontmatter.description }}
+
+<Generate />
+
+## Notes
 
 Used for forms, for example to enter address details, email, password, credit card numbers.
 
 For search feature use Search component instead of Input.
-
-<Generate />
 
 ## Props
 

@@ -1,10 +1,11 @@
 ---
 layout: ComponentLayout
 hideBreadcrumbs: true
+description: The Search component is used to search for content on the page.
 ---
 # Search
 
-The Search component is used to search for content on the page.
+{{ $frontmatter.description }}
 
 <Generate />
 

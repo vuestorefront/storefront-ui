@@ -1,10 +1,11 @@
 ---
 layout: ComponentLayout
 hideBreadcrumbs: true
+description: The Card component contains content and actions that inform about a single subject.
 ---
 # Card
 
-The Card component contains content and actions that inform about a single subject.
+{{ $frontmatter.description }}
 
 <Generate style="height: 900px" />
 

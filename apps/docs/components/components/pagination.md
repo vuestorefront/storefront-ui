@@ -1,10 +1,11 @@
 ---
 layout: ComponentLayout
 hideBreadcrumbs: true
+description: Pagination component is a common element to navigate through pages containing many items like products in lists.
 ---
 # Pagination
 
-Pagination component is a common element to navigate through pages containing many items like products in lists.
+{{ $frontmatter.description }}
 
 <Generate />
 

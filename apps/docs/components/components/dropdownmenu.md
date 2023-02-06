@@ -1,10 +1,11 @@
 ---
 layout: ComponentLayout
 hideBreadcrumbs: true
+description: A DropdownMenu is a component that can contain different types of content. It appears after the trigger (e.g. button).
 ---
 # DropdownMenu
 
-A DropdownMenu is a component that can contain different types of content. It appears after the trigger (e.g. button).
+{{ $frontmatter.description }}
 
 <Generate />
 

@@ -1,10 +1,11 @@
 ---
 layout: ComponentLayout
 hideBreadcrumbs: true
+description: This component is an alternative option for VsfSelect component. It doesn't use native select tag so it can have more options for styling.
 ---
 # SelectDropdown
 
-This component is an alternative option for VsfSelect component. It doesn't use native select tag so it can have more options for styling.
+{{ $frontmatter.description }}
 
 <Generate />
 

@@ -1,10 +1,11 @@
 ---
 layout: ComponentLayout
 hideBreadcrumbs: true
+description: The Badge generates a small badge to the top-right of its child.
 ---
 # Badge
 
-The Badge generates a small badge to the top-right of its child.
+{{ $frontmatter.description }}
 
 <Generate />
 

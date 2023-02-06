@@ -1,10 +1,11 @@
 ---
 layout: ComponentLayout
 hideBreadcrumbs: true
+description: A Combobox is a kind of select with search option (used for long lists).
 ---
 # Combobox
 
-Combobox is an input widget with an associated popup that enables users to select a value for the combobox from a collection of possible values.
+{{ $frontmatter.description }}
 
 <Generate />
 
