@@ -1,10 +1,11 @@
 ---
 layout: ComponentLayout
 hideBreadcrumbs: true
+description: VsfProgressCircular is used to provides feedback about the duration and progression of a process to indicate how long a user will be waiting
 ---
 #  ProgressCircular component
 
-VsfProgressCircular is used to provides feedback about the duration and progression of a process to indicate how long a user will be waiting
+{{ $frontmatter.description }}
 
 <Generate />
 

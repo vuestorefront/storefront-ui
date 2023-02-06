@@ -1,14 +1,17 @@
 ---
 layout: ComponentLayout
 hideBreadcrumbs: true
+description: The Footer component is an inseparable element of every page. It can contains list of useful links, contact details and links to other pages connected to the website like links to social media.
 ---
 # Footer
 
-The Footer component is an inseparable element of every page. It can contains list of useful links, contact details and links to other pages connected to the website like links to social media.
-
-The Footer is not made of single component but a couple of them to let you compose it from smaller pieces. This one is an entry point for full implementation.
+{{ $frontmatter.description }}
 
 <Generate style="height: 900px" />
+
+## Notes
+
+The Footer is not made of single component but a couple of them to let you compose it from smaller pieces. This one is an entry point for full implementation.
 
 <!-- react -->
 ## Props

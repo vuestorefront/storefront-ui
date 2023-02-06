@@ -1,16 +1,18 @@
 ---
 layout: ComponentLayout
 hideBreadcrumbs: true
+description: ChipThumbnail is a component used as a within Chip or ChipListItemFilter component and provides visual uniformity between the two. It allows user to pass in an custom icon/image or to pass a color/color gradient.
 ---
 
 # ChipThumbnail component
 
-<!-- TODO: add link to ChipListItemFilter.md when it's implemented -->
-
-ChipThumbnail is a UI component used as a within [Chip](chip.md) or [ChipListItemFilter]() component and provides visual uniformity between the two. It allows user to pass in an custom icon/image or to pass a color/color gradient.
-
+{{ $frontmatter.description }}
 
 <Generate />
+
+## Notes
+<!-- TODO: add link to ChipListItemFilter.md when it's implemented -->
+ChipThumbnail is a UI component used as a within [Chip](chip.md) or [ChipListItemFilter]() 
 
 ## Props
 

@@ -1,12 +1,11 @@
 ---
 layout: ComponentLayout
 hideBreadcrumbs: true
+description: The NavbarTopActionGroup component is used as container for navigation in NavbarTop component.
 ---
 # NavBarTopActionGroup
 
-The NavbarTopActionGroup component is used as container for navigation in NavbarTop component.
-
-
+{{ $frontmatter.description }}
 <!-- react -->
 ## Props
 

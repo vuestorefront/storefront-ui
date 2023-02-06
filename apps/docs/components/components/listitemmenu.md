@@ -1,10 +1,11 @@
 ---
 layout: ComponentLayout
 hideBreadcrumbs: true
+description: The ListItemMenu component is used in all kind of menus. It can act like a link or a button.
 ---
 # ListItemMenu
 
-The ListItemMenu component is used in all kind of menus. It can act like a link or a button.
+{{ $frontmatter.description }}
 
 <Generate />
 

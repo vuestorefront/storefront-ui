@@ -8,7 +8,7 @@
         :to="generateComponentPath(type, componentName)"
       >
         <h4 class="font-bold">{{ componentName.replace('Vsf', '') }}</h4>
-        <p class="mt-2 text-sm" v-if="componentsDescription[componentName]">{{ componentsDescription[componentName] }}</p>
+        <p class="mt-2 text-sm">{{ componentDescription(componentName) }}</p>
       </RouterLink>
     </div>
   </div>
@@ -16,8 +16,6 @@
 
 <script>
 import components from '../../utils/components.json';
-// TODO: refine in https://vsf.atlassian.net/browse/SFUI2-584
-import componentsDescription from './componentsDescription.json';
 import { generateComponentPath } from '../utils/path.util';
 export default {
   props: {
@@ -32,8 +30,14 @@ export default {
       return list.filter((c) => !/VsfIcon.+/.test(c));
     },
   },
+  methods: {
+    componentDescription(componentName) {
+      const componentPath = `/${this.type}` + `/components/${componentName.replace('Vsf', '').toLowerCase()}.html`
+      return this.$site.pages.find((page) => page.path === componentPath)?.frontmatter?.description;
+    }
+  },
   data() {
-    return { generateComponentPath, componentsDescription }
+    return { generateComponentPath}
   }
 };
 </script>

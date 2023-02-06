@@ -1,10 +1,11 @@
 ---
 layout: ComponentLayout
 hideBreadcrumbs: true
+description: A ListItemFilterRadio component is specific ecommerce solution for filter list with additional deselect logic for radio.
 ---
 # ListItemFilterRadio
 
-A ListItemFilterRadio component is specific ecommerce solution for filter list with additional deselect logic for radio.
+{{ $frontmatter.description }}
 
 <Generate />
 

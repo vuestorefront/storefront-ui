@@ -1,10 +1,11 @@
 ---
 layout: ComponentLayout
 hideBreadcrumbs: true
+description: The product card image component is the element passed as default into the image slot inside VsfProductCard component. It provides basic properties for using img element wrapped in proper link element or component. 
 ---
-# ProductCardImage
+# ProductCardImage  
 
-The product card image component is the element passed as default into the image slot inside VsfProductCard component. It provides basic properties for using img element wrapped in proper link element or component.   
+{{ $frontmatter.description }}
 
 ## Props
 

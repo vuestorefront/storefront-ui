@@ -1,10 +1,11 @@
 ---
 layout: ComponentLayout
 hideBreadcrumbs: true
+description: The FooterColumn component is a container for children components and should be used as a direct child of the FooterSection component. 
 ---
 # FooterColumn
 
-The FooterColumn component is a container for children components and should be used as a direct child of the FooterSection component. 
+{{ $frontmatter.description }}
 
 ## Props
 

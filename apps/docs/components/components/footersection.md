@@ -1,11 +1,12 @@
 ---
 layout: ComponentLayout
 hideBreadcrumbs: true
+description: The FooterSection component is a container for whole section and should be used as a direct child of the Footer component. 
 ---
 <!-- react -->
 # FooterSection
 
-The FooterSection component is a container for whole section and should be used as a direct child of the Footer component. 
+{{ $frontmatter.description }}
 
 ## Props
 

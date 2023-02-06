@@ -1,14 +1,17 @@
 ---
 layout: ComponentLayout
 hideBreadcrumbs: true
+description: A dialog is a window overlaid on website content for focus on primary action that requires user interaction.That is, users cannot interact with the content outside.
 ---
 # Dialog
 
-A dialog is a window overlaid on website content for focus on primary action that requires user interaction. That is, users cannot interact with the content outside. Dialog contains tab sequence which means, `Tab` and `Shift + Tab` do not move focus outside the dialog.
-
-Used to prompt the user for input or response to displayed information.
+{{ $frontmatter.description }}
 
 <Generate />
+
+## Notes
+
+Dialog contains tab sequence which means, `Tab` and `Shift + Tab` do not move focus outside the dialog. Used to prompt the user for input or response to displayed information.
 
 ## Props
 

@@ -53,7 +53,7 @@
 import components from '../../../utils/components.json';
 
 export default {
-  name: 'SfuiComponent',
+  name: 'ComponentLayout',
   mounted() {
     document.body.addEventListener('click', (e) => {
       if (this.$refs.menu && !this.$refs.menu.contains(e.target)) {

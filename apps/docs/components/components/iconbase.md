@@ -1,14 +1,16 @@
 ---
 layout: ComponentLayout
 hideBreadcrumbs: true
+description: IconBase component itself gets the icon content data and render it with properly specified `viewBox`, `size`.
 ---
 
 # IconBase
 
+{{ $frontmatter.description }}
+
+## Notes
+
 StorefrontUI icons are generated vie `createIcons` script and they are based on `IconBase` component
-
-IconBase component itself gets the icon content data and render it with properly specified `viewBox`, `size`.
-
 
 ## Props
 

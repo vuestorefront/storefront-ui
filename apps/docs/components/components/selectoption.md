@@ -1,10 +1,11 @@
 ---
 layout: ComponentLayout
 hideBreadcrumbs: true
+description: The SelectOption component is used for displaying data inside Select component
 ---
 # SelectOption
 
-The SelectOption component is used for displaying data inside Select component
+{{ $frontmatter.description }}
 
 ## Props
 

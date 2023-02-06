@@ -1,10 +1,11 @@
 ---
 layout: ComponentLayout
 hideBreadcrumbs: true
+description: RatingButton is icon-based group component, used for input a numeric value.
 ---
 # RatingButton
 
-RatingButton is icon-based group component, used for input a numeric value.
+{{ $frontmatter.description }}
 
 <Generate />
 

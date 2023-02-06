@@ -1,17 +1,17 @@
 ---
 layout: ComponentLayout
 hideBreadcrumbs: true
+description: A select is an input that allows the user to choose from a set of options. Uses native html `<select>` tag. Used for forms or as a global setting, e.g. language, location.
 ---
 # Select
 
-A select is an input that allows the user to choose from a set of options. Uses native html `<select>` tag.
-
-Used for forms or as a global setting, e.g. language, location.
-
-For a few options use [Radio](radio.html) component instead of Select. For very long set of options think about using Combobox component.
+{{ $frontmatter.description }}
 
 <Generate />
 
+## Notes
+
+For a few options use [Radio](radio.html) component instead of Select. For very long set of options think about using Combobox component.
 ## Props
 
 | Prop name    | Type            | Default value | Possible values                        |

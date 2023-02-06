@@ -1,15 +1,18 @@
 ---
 layout: ComponentLayout
 hideBreadcrumbs: true
+description: Display component acts like a layout for your banners. You can provide main image and any content. 
 ---
 
 # Display
 
-Display component acts like a layout for your banners. You can provide main image and any content. The image will not act as a background, it takes the width of container it is in instead.
-
-Recommended ratio of the main image is square. Only one image can be provided.
+{{ $frontmatter.description }}
 
 <Generate />
+
+## Notes 
+
+The image will not act as a background, it takes the width of container it is in instead. Recommended ratio of the main image is square. Only one image can be provided.
 
 ## Props
 

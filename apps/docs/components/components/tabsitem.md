@@ -1,9 +1,15 @@
 ---
 layout: ComponentLayout
 hideBreadcrumbs: true
+description: The VsfTabsItem is the VsfButton component which needs to have unique id passed by uid prop and allows to put icon, counter or text content in separate slots.
 ---
 #  TabsItem
-The tabs consist of two separate components `VsfTabs` and `VsfTabsItem`. The first one is the wrapper for the list of tabs whish also includes VsfScrollable component allowing to scroll when window is to small for all tabs. The second one is the VsfButton component which needs to have unique id passed by `uid` prop and allows to put icon, counter or text content in separate slots. 
+
+{{ $frontmatter.description }}
+
+## Notes
+
+`VsfTabsItem` needs to receive unique id passed by `uid` prop (it can be number, string or symbol).
 ## Props
 
 | Prop name           | Type                        | Default value | Possible values                        |

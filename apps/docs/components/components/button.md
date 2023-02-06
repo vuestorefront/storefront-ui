@@ -1,16 +1,14 @@
 ---
 layout: ComponentLayout
 hideBreadcrumbs: true
+description: A button is an input that allows for user-triggered actions when clicked or pressed. Used for submitting a form, opening and closing a dialog or dropdowns, confirm and cancel an action.
 ---
 # Button
 
-A button is an input that allows for user-triggered actions when clicked or pressed.
-
-Used for submitting a form, opening and closing a dialog or dropdowns, confirm and cancel an action.
+{{ $frontmatter.description }}
+## Notes
 
 Avoid using buttons to navigate the page. Use links or tabs.
-
-## Note
 
 In order to have "square" button with even paddings on each side (e.g for Icon-only button), please use `prefix/suffix` vue slot or `slotPrefix/slotSuffix` props instead of default slot or `children` prop.
 Button text content by default is being wrapped, however this behaviour can be changed via `truncate` prop.

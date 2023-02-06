@@ -1,10 +1,11 @@
 ---
 layout: ComponentLayout
 hideBreadcrumbs: true
+description: VsfNavigationSide is surface containing content used for navigating the site, that is anchored to the left or right edge of the screen.
 ---
 # NavigationSide
 
-VsfNavigationSide is surface containing content used for navigating the site, that is anchored to the left or right edge of the screen.
+{{ $frontmatter.description }}
 
 <Generate style="height: 700px" />
 

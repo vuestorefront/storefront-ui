@@ -1,10 +1,11 @@
 ---
 layout: ComponentLayout
 hideBreadcrumbs: true
+description: RadioGroup is a common way to allow users to make a single selection from a list of radios. It provides additional error messages and alignment of the list. It is a wrapper for Radio components.
 ---
 # RadioGroup
 
-RadioGroup is a common way to allow users to make a single selection from a list of radios. It provides additional error messages and alignment of the list. It is a wrapper for Radio components.
+{{ $frontmatter.description }}
 
 <Generate />
 

@@ -1,11 +1,12 @@
 ---
 layout: ComponentLayout
 hideBreadcrumbs: true
+description: Input components adapted to appear in lists.
 ---
 
 # ListItemFilterSwitch component
 
-Input components adapted to appear in lists.
+{{ $frontmatter.description }}
 
 <Generate />
 

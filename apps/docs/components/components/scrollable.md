@@ -1,16 +1,17 @@
 ---
 layout: ComponentLayout
 hideBreadcrumbs: true
+description: Scrollable is a scrollable list with pseudo-pagination.
 ---
-
 # Scrollable
 
-Scrollable is a scrollable list with pseudo-pagination.
-
-NOTE: Some of the mobile browsers (e.g. iOS Safari) will hide scrollbar even when `scrollbar` prop is set to `auto`, `always`. Make sure that your website is prepared for such case.
+{{ $frontmatter.description }}
 
 <Generate />
 
+## Notes
+
+NOTE: Some of the mobile browsers (e.g. iOS Safari) will hide scrollbar even when `scrollbar` prop is set to `auto`, `always`. Make sure that your website is prepared for such case.
 ## Props
 
 | Prop name     | Type                  | Default value | Possible values             |

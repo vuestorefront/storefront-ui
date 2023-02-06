@@ -1,10 +1,11 @@
 ---
 layout: ComponentLayout
 hideBreadcrumbs: true
+description: The LoaderCircular is used when the loading progress can be determined.
 ---
 # LoaderCircular
 
-The LoaderCircular is used when the loading progress can be determined.
+{{ $frontmatter.description }}
 
 <Generate />
 
