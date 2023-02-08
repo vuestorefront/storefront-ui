@@ -84,13 +84,16 @@ const focusHandler = (event: FocusEvent) => {
       },
     ]"
   >
-    <div v-if="navigation !== VsfScrollableNavigation.none" class="vsf-scrollable__nav vsf-scrollable__nav-prev">
+    <div
+      v-if="navigation !== VsfScrollableNavigation.none"
+      :class="['vsf-scrollable__nav', 'vsf-scrollable__nav-prev', { 'vsf-scrollable__nav-arrow--hidden': !hasPrev }]"
+    >
       <slot name="prev-button" v-bind="{ onClick: onClickPrev, hasPrev }">
         <VsfButton
           :variant="VsfButtonVariant.secondary"
           :size="VsfButtonSize.lg"
           rounded
-          :class="['vsf-scrollable__nav-arrow', { 'vsf-scrollable__nav-arrow--hidden': !hasPrev }]"
+          class="vsf-scrollable__nav-arrow"
           :disabled="!hasPrev"
           :aria-label="ariaLabelPrev"
           @click="onClickPrev"
@@ -112,7 +115,10 @@ const focusHandler = (event: FocusEvent) => {
     >
       <slot />
     </div>
-    <div v-if="navigation !== VsfScrollableNavigation.none" class="vsf-scrollable__nav vsf-scrollable__nav-next">
+    <div
+      v-if="navigation !== VsfScrollableNavigation.none"
+      :class="['vsf-scrollable__nav', 'vsf-scrollable__nav-next', { 'vsf-scrollable__nav-arrow--hidden': !hasNext }]"
+    >
       <slot name="next-button" v-bind="{ onClick: onClickNext, hasNext }">
         <VsfButton
           :variant="VsfButtonVariant.secondary"

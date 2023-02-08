@@ -20,6 +20,7 @@ export default class VSFScrollable {
   private dragScrollTop: number;
 
   private scrollListenerInstance: () => void;
+  private resizeListenerInstance: () => void;
   private mouseDownListenerInstance: () => void;
   private mouseUpListenerInstance: () => void;
   private mouseMoveListenerInstance: () => void;
@@ -132,7 +133,9 @@ export default class VSFScrollable {
   }
   private addListeners() {
     this.scrollListenerInstance = this.onScroll.bind(this);
+    this.resizeListenerInstance = this.onResize.bind(this);
     this.container.addEventListener('scroll', this.scrollListenerInstance, { passive: true });
+    window.addEventListener('resize', this.resizeListenerInstance);
 
     if (this.options.drag) {
       this.mouseDownListenerInstance = this.onMouseDown.bind(this);
@@ -149,6 +152,7 @@ export default class VSFScrollable {
 
   private removeListeners() {
     this.container.removeEventListener('scroll', this.scrollListenerInstance);
+    window.removeEventListener('resize', this.resizeListenerInstance);
 
     if (!this.options.drag) {
       this.container.removeEventListener('mousedown', this.mouseDownListenerInstance);
@@ -173,6 +177,13 @@ export default class VSFScrollable {
 
     clearTimeout(this.debounceId);
     this.debounceId = setTimeout(this.onScrollHandler.bind(this), 50);
+  }
+
+  private onResize(): void {
+    const container = this.container;
+    if (!container) return;
+
+    this.refresh((data) => this.options.onScroll?.(data));
   }
 
   private onScrollHandler() {

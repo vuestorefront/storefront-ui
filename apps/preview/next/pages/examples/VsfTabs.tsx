@@ -79,7 +79,13 @@ function Example() {
         {tabs.map((tab) => (
           <VsfTabsItem
             slotPrefix={state.get.slotPrefix || <VsfIconDot />}
-            slotSuffix={state.get.slotSuffix || <VsfCounter>{tab.counter}</VsfCounter>}
+            slotSuffix={
+              state.get.slotSuffix || (
+                <VsfCounter pill className="bg-white">
+                  {tab.counter}
+                </VsfCounter>
+              )
+            }
             key={tab.label}
             uid={tab.label}
             disabled={state.get.disabled === tab.label}
