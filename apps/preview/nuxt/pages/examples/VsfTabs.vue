@@ -3,7 +3,7 @@
     <VsfTabs v-model="modelValue" :size="size">
       <VsfTabsItem v-for="tab of tabs" :key="tab.label" :uid="tab.label" :disabled="tab.label === disabled">
         <template #prefix>
-          <span v-if="slotPrefix">{{ slotPrefix }}</span> <VsfIconDot />
+          <span v-if="slotPrefix">{{ slotPrefix }}</span> <VsfIconDot v-else />
         </template>
         {{ tab.label }}
         <template #suffix>

@@ -1,7 +1,6 @@
 <script lang="ts" setup>
-import { provide, ref, watch } from 'vue';
+import { provide } from 'vue';
 import type { PropType } from 'vue';
-import { useWindowSize, useElementSize } from '@vueuse/core';
 import VsfScrollable from '../VsfScrollable/VsfScrollable.vue';
 import VsfDivider from '../VsfDivider/VsfDivider.vue';
 import { VsfTabsInjectionKey } from './types';
@@ -19,8 +18,6 @@ const props = defineProps({
   },
 });
 
-const tabs = ref(null);
-
 const emit = defineEmits<{
   (event: 'update:modelValue', param: number | string | symbol): void;
 }>();
@@ -30,22 +27,10 @@ const onChange = (uid: number | string | symbol) => {
 };
 
 provide(VsfTabsInjectionKey, { props, onChange });
-
-const { width: windowWidth } = useWindowSize();
-const { width: tabsWidth } = useElementSize(tabs);
-const showArrows = ref(false);
-
-watch([windowWidth, tabsWidth], () => {
-  if (windowWidth < tabsWidth) {
-    showArrows.value = true;
-  }
-});
 </script>
 
 <template>
-  <!-- TODO: When VsfScrollable is refactored pass showArrow value to the component to show arrows when needed -->
   <VsfScrollable
-    ref="tabs"
     class="vsf-tabs"
     :draggable="{ sensitivity: 3 }"
     scroll-snap

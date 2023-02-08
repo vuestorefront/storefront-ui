@@ -51,7 +51,7 @@ const VsfScrollable = forwardRef<HTMLDivElement, VsfScrollableProps>(
         variant={VsfButtonVariant.secondary}
         size={VsfButtonSize.lg}
         rounded
-        className={classNames('vsf-scrollable__nav-arrow', { 'vsf-scrollable__nav-arrow--hidden': !hasPrev })}
+        className="vsf-scrollable__nav-arrow"
         onClick={onClickPrev}
         disabled={!hasPrev}
         slotPrefix={isHorizontal ? <VsfIconChevronLeft /> : <VsfIconChevronUp />}
@@ -63,7 +63,7 @@ const VsfScrollable = forwardRef<HTMLDivElement, VsfScrollableProps>(
         variant={VsfButtonVariant.secondary}
         size={VsfButtonSize.lg}
         rounded
-        className={classNames('vsf-scrollable__nav-arrow', { 'vsf-scrollable__nav-arrow--hidden': !hasNext })}
+        className="vsf-scrollable__nav-arrow"
         onClick={onClickNext}
         disabled={!hasNext}
         slotPrefix={isHorizontal ? <VsfIconChevronRight /> : <VsfIconChevronDown />}
@@ -96,7 +96,13 @@ const VsfScrollable = forwardRef<HTMLDivElement, VsfScrollableProps>(
         {...attributes}
       >
         {navigation !== VsfScrollableNavigation.none && (
-          <div className="vsf-scrollable__nav vsf-scrollable__nav-prev">{prevNavigation}</div>
+          <div
+            className={classNames('vsf-scrollable__nav', 'vsf-scrollable__nav-prev', {
+              'vsf-scrollable__nav-arrow--hidden': !hasPrev,
+            })}
+          >
+            {prevNavigation}
+          </div>
         )}
 
         <div
@@ -109,9 +115,14 @@ const VsfScrollable = forwardRef<HTMLDivElement, VsfScrollableProps>(
         >
           {children}
         </div>
-
         {navigation !== VsfScrollableNavigation.none && (
-          <div className="vsf-scrollable__nav vsf-scrollable__nav-next">{nextNavigation}</div>
+          <div
+            className={classNames('vsf-scrollable__nav', 'vsf-scrollable__nav-next', {
+              'vsf-scrollable__nav-arrow--hidden': !hasNext,
+            })}
+          >
+            {nextNavigation}
+          </div>
         )}
       </div>
     );
