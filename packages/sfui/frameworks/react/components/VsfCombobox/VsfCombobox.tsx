@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { generateId } from '@storefront-ui/shared';
+import { useId } from 'react';
 import { VsfInput, VsfInputRole, VsfInputAriaAutocomplete } from '../VsfInput';
 import { VsfDropdownInternal } from '../VsfDropdownInternal';
 import { VsfDropdownMenu } from '../VsfDropdownMenu';
@@ -27,7 +27,7 @@ export default function VsfCombobox({
   onClick,
   ...attributes
 }: VsfComboboxProps) {
-  const listboxId = generateId('listbox');
+  const listboxId = useId();
   return (
     <div>
       <VsfDropdownInternal

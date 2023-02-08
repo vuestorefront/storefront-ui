@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { PropType } from 'vue';
 import { ref } from 'vue';
-import { generateId } from '@storefront-ui/shared';
+import { generateId } from '../../shared/generateId';
 import { VsfIconHome, VsfIconMoreHorizontal, VsfIconSize } from '../VsfIcons';
 import { VsfLink, VsfLinkVariant } from '../VsfLink';
 import { VsfDropdownInternal, VsfDropdownInternalPlacement } from '../VsfDropdownInternal';

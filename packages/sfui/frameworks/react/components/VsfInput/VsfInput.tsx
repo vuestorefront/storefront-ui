@@ -1,5 +1,6 @@
 import classNames from 'classnames';
-import { generateId, noop } from '@storefront-ui/shared';
+import { useId } from 'react';
+import { noop } from '@storefront-ui/shared';
 import { VsfInputSize } from './types';
 
 import type { VsfInputProps } from './types';
@@ -25,7 +26,7 @@ export default function VsfInput({
   onClick,
   ...attributes
 }: VsfInputProps) {
-  const inputId = generateId('input');
+  const inputId = useId();
   const isAboveLimit = characterLimit ? value.length > characterLimit : false;
 
   const charsCount = characterLimit ? characterLimit - value.length : null;
