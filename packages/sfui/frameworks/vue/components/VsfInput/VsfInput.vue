@@ -2,7 +2,7 @@
 import type { PropType } from 'vue';
 import { computed, toRefs } from 'vue';
 import { useVModel } from '@vueuse/core';
-import { generateId } from '@storefront-ui/shared';
+import { useId } from '../../shared/useId';
 import { VsfInputSize, VsfInputRole, VsfInputAriaAutocomplete } from './types';
 
 const props = defineProps({
@@ -84,7 +84,7 @@ const { invalid, modelValue, characterLimit } = toRefs(props);
 const inputValue = useVModel(props, 'modelValue', emit);
 const isAboveLimit = computed(() => inputValue.value.length > characterLimit.value);
 const charsCount = computed(() => characterLimit.value - modelValue.value.length);
-const inputId = generateId('input');
+const inputId = useId();
 const handleFocus = () => {
   emit('focus');
 };

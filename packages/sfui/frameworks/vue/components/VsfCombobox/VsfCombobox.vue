@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { ref, toRefs, computed } from 'vue';
-import { generateId } from '@storefront-ui/shared';
+import { useId } from '../../shared/useId';
 import { extractProps } from '../../shared/props';
 import { VsfInput, VsfInputRole, VsfInputAriaAutocomplete } from '../VsfInput';
 import { VsfDropdownMenu } from '../VsfDropdownMenu';
@@ -39,7 +39,7 @@ const emit = defineEmits<{
 }>();
 const { modelValue } = toRefs(props);
 const isDropdownOpened = ref(false);
-const listboxId = generateId('listbox');
+const listboxId = useId();
 const proxySelected = computed({
   get: () => modelValue.value,
   set: (value) => {
