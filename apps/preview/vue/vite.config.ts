@@ -11,6 +11,7 @@ import istanbul from "vite-plugin-istanbul";
 import path from "path";
 import nycConfig from "./.nycrc.json";
 
+const isCoverageEnabled = process.env.CYPRESS_COVERAGE === "true";
 const changeImport = (code: string, framework: "react") => {
   // Find imports of component and replace it with utils/fake-import.ts empty file
   const EXTRACT_IMPORTS = extractImports(framework);
@@ -61,25 +62,32 @@ export default defineConfig({
         };
       },
     },
-    istanbul({
-      ...nycConfig,
-      ...(process.env.SPEC && { include: [`**/${process.env.SPEC}/**`] }),
-      cypress: true,
-    }) as PluginOption,
+    ...(isCoverageEnabled
+      ? [
+          istanbul({
+            ...nycConfig,
+            ...(process.env.SPEC && { include: [`**/${process.env.SPEC}/**`] }),
+            cypress: true,
+          }) as PluginOption,
+        ]
+      : []),
   ],
   resolve: {
     dedupe: ["vue"],
-    alias: [
-      {
-        find: "@storefront-ui/vue",
-        replacement: path.resolve(
-          __dirname,
-          "src",
-          "components",
-          "sfui",
-          "vue"
-        ),
-      },
-    ],
+    ...(isCoverageEnabled && {
+      // Unfortunately we cant do alias directly to packages/sfui/frameworks/vue because node_modules are hardcode excluded from cypress, nyc and code_coverage. And we cant change cwd for nyc(available in cli) because @cypress/code-coverage hardoce cwd where we have package.json https://github.com/cypress-io/code-coverage/blob/706dd66d3450236af9f1dba037dfc1e1fcd5e6d5/task.js#L20
+      alias: [
+        {
+          find: "@storefront-ui/vue",
+          replacement: path.resolve(
+            __dirname,
+            "src",
+            "components",
+            "sfui",
+            "vue"
+          ),
+        },
+      ],
+    }),
   },
 });
