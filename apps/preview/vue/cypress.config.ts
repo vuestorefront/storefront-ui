@@ -1,9 +1,11 @@
 import { defineConfig } from "cypress";
 
+const isCoverageEnabled = process.env.CYPRESS_COVERAGE === "true";
 const singleFile = process.env.SPEC ? `${process.env.SPEC}/` : "";
 export default defineConfig({
   env: {
     framework: "vue",
+    coverage: isCoverageEnabled,
   },
   e2e: {
     specPattern: "cypress/e2e/**/*.{cy,spec}.{js,jsx,ts,tsx}",
@@ -21,7 +23,7 @@ export default defineConfig({
     },
     experimentalSingleTabRunMode: true,
     setupNodeEvents(on, config) {
-      require("@cypress/code-coverage/task")(on, config);
+      isCoverageEnabled && require("@cypress/code-coverage/task")(on, config);
       return config;
     },
   },
