@@ -3,8 +3,9 @@ import type { PropType } from 'vue';
 import { toRefs, computed } from 'vue';
 import VsfProductCardImage from './VsfProductCardImage.vue';
 import { VsfCounter } from '../VsfCounter';
-import { VsfIconBasket, VsfIconFavoritesOutline, VsfIconAddedToBasket, VsfIconHot, VsfIconSize } from '../VsfIcons';
+import { VsfIconShoppingCart, VsfIconFavorite, VsfIconShoppingCartLoad, VsfIconSell } from '../VsfIcons';
 import { VsfProductCardSize, VsfProductCardLinkTags } from './types';
+import { VsfIconSize } from '../VsfIconBase';
 import type { VsfProductCardProps } from './types';
 import { VsfTag, VsfTagSize, VsfTagVariant } from '../VsfTag';
 import { VsfButton, VsfButtonVariant, VsfButtonSize } from '../VsfButton';
@@ -156,7 +157,7 @@ defineEmits<{
               data-testid="product-card-badge"
             >
               <template #icon>
-                <VsfIconHot :size="VsfIconSize.xs" :aria-label="ariaLabelBadge" />
+                <VsfIconSell :size="VsfIconSize.xs" :aria-label="ariaLabelBadge" />
               </template>
             </VsfTag>
           </slot>
@@ -173,7 +174,7 @@ defineEmits<{
                 data-testid="product-card-in-cart"
               >
                 <template v-if="!outOfStock" #icon>
-                  <VsfIconAddedToBasket :size="VsfIconSize.xs" :aria-label="ariaLabelAddToBasket" />
+                  <VsfIconShoppingCartLoad :size="VsfIconSize.xs" :aria-label="ariaLabelAddToBasket" />
                 </template>
               </VsfTag>
             </component>
@@ -187,7 +188,7 @@ defineEmits<{
             @click="$emit('addToWishlist', $event)"
           >
             <template #prefix>
-              <VsfIconFavoritesOutline :size="VsfIconSize.sm" :aria-label="ariaLabelAddToWishlist" />
+              <VsfIconFavorite :size="VsfIconSize.sm" :aria-label="ariaLabelAddToWishlist" />
             </template>
           </VsfButton>
         </slot>
@@ -202,7 +203,7 @@ defineEmits<{
           class="vsf-product-card__details-in-cart"
         >
           <template v-if="!outOfStock" #icon>
-            <VsfIconAddedToBasket :size="VsfIconSize.xs" />
+            <VsfIconShoppingCartLoad :size="VsfIconSize.xs" />
           </template>
         </VsfTag>
       </template>
@@ -273,7 +274,7 @@ defineEmits<{
             data-testId="product-card-add-to-cart"
             @click="$emit('addToCart', $event)"
           >
-            <VsfIconBasket :size="VsfIconSize.sm" :aria-label="ariaLabelAddToBasket"></VsfIconBasket>
+            <VsfIconShoppingCart :size="VsfIconSize.sm" :aria-label="ariaLabelAddToBasket"></VsfIconShoppingCart>
             <span class="ml-2">
               {{ addToCartLabel }}
             </span>

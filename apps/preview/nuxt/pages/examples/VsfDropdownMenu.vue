@@ -10,7 +10,7 @@
           role="option"
         >
           <template #prefix>
-            <VsfIconDot />
+            <VsfIconCircle />
           </template>
         </VsfListItemMenu>
         <VsfDivider />
@@ -22,7 +22,7 @@
           role="option"
         >
           <template #prefix>
-            <VsfIconDot />
+            <VsfIconCircle />
           </template>
         </VsfListItemMenu>
       </VsfDropdownMenu>
@@ -37,7 +37,7 @@
 import { ref, onMounted } from 'vue';
 import VsfDropdownMenu from '@storefront-ui/vue/components/VsfDropdownMenu/VsfDropdownMenu.vue';
 import VsfListItemMenu from '@storefront-ui/vue/components/VsfListItemMenu/VsfListItemMenu.vue';
-import VsfIconDot from '@storefront-ui/vue/components/VsfIcons/VsfIconDot.vue';
+import VsfIconCircle from '@storefront-ui/vue/components/VsfIcons/VsfIconCircle.vue';
 import VsfDivider from '@storefront-ui/vue/components/VsfDivider/VsfDivider.vue';
 import Controls, { prepareControls } from '../../components/utils/Controls.vue';
 
@@ -47,7 +47,7 @@ export default {
     Controls,
     VsfDropdownMenu,
     VsfListItemMenu,
-    VsfIconDot,
+    VsfIconCircle,
     VsfDivider,
   },
   setup() {

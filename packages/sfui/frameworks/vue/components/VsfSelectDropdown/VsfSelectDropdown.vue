@@ -10,7 +10,7 @@ import {
 } from '../VsfDropdownInternal/index';
 import { VsfInput } from '../VsfInput/index';
 import { VsfDropdownMenu } from '../VsfDropdownMenu/index';
-import { VsfIconChevronDown } from '../VsfIcons';
+import { VsfIconExpandMore } from '../VsfIcons';
 import { VsfListItemMenu } from '../VsfListItemMenu/index';
 import { extractProps } from '../../shared/props';
 import { VsfSelect } from '../VsfSelect';
@@ -78,7 +78,7 @@ const selectDropdownSize = computed(() => {
           class="vsf-select-dropdown__input"
         >
           <template #suffix>
-            <VsfIconChevronDown
+            <VsfIconExpandMore
               class="vsf-select-dropdown__chevron"
               :class="{ 'vsf-select-dropdown__chevron--up': isDropdownOpened && !disabled }"
             />

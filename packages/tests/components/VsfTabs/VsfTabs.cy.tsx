@@ -9,7 +9,7 @@ import VsfTabsBaseObject from './VsfTabs.PageObject';
 const { vue: VsfTabsVue, react: VsfTabsReact } = useComponent('VsfTabs');
 const { vue: VsfTabsItemVue, react: VsfTabsItemReact } = useComponent('VsfTabsItem');
 const { vue: VsfCounterVue, react: VsfCounterReact } = useComponent('VsfCounter');
-const { vue: VsfIconDotVue, react: VsfIconDotReact } = useComponent('VsfIconDot');
+const { vue: VsfIconCircleVue, react: VsfIconCircleReact } = useComponent('VsfIconCircle');
 
 describe('VsfTabs', () => {
   const page = () => new VsfTabsBaseObject('tabs');
@@ -57,7 +57,7 @@ describe('VsfTabs', () => {
                   disabled: label === disabledItem,
                 },
                 {
-                  prefix: () => h(VsfIconDotVue),
+                  prefix: () => h(VsfIconCircleVue),
                   default: () => label,
                   suffix: () => h(VsfCounterVue, { pill: true }, { default: () => counter }),
                 },
@@ -72,7 +72,7 @@ describe('VsfTabs', () => {
               key={tab.label}
               uid={tab.label}
               disabled={tab.label === disabledItem}
-              slotPrefix={<VsfIconDotReact />}
+              slotPrefix={<VsfIconCircleReact />}
               slotSuffix={<VsfCounterReact pill>{tab.counter}</VsfCounterReact>}
             >
               {tab.label}

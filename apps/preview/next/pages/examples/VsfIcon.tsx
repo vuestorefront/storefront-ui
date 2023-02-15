@@ -1,5 +1,5 @@
 import { VsfIconSize } from '@storefront-ui/react/components/VsfIcons/types';
-import { VsfIconArrowDown } from '@storefront-ui/react/components/VsfIcons';
+import { VsfIconArrowDownward } from '@storefront-ui/react/components/VsfIcons';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
@@ -31,7 +31,7 @@ function Example() {
       <div>
         Icon imported directly from `@storefront-ui/react/VsfIcons` <br />
         <div style={{ color: state.get.color }}>
-          <VsfIconArrowDown size={state.get.size} />
+          <VsfIconArrowDownward size={state.get.size} />
         </div>
       </div>
     </ComponentExample>

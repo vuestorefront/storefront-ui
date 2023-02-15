@@ -11,7 +11,7 @@
         >
           {{ previewBottomOpen ? 'Close' : 'Open' }}
           <template #suffix>
-            <component :is="previewBottomOpen ? 'VsfIconChevronDown' : 'VsfIconChevronUp'" />
+            <component :is="previewBottomOpen ? 'VsfIconExpandMore' : 'VsfIconExpandLess'" />
           </template>
         </VsfButton>
       </div>
@@ -125,7 +125,7 @@
 import { toRefs, computed, reactive, Ref, ref, defineComponent, PropType } from 'vue';
 import VsfButton from '@storefront-ui/vue/components/VsfButton/VsfButton.vue';
 import { VsfButtonVariant, VsfButtonSize } from '@storefront-ui/vue/components/VsfButton/types';
-import { VsfIconChevronDown, VsfIconChevronUp } from '@storefront-ui/vue/components/VsfIcons/index';
+import { VsfIconExpandMore, VsfIconExpandLess } from '@storefront-ui/vue/components/VsfIcons/index';
 import { useControlsSearchParams } from '../../composables/utils/useControlsSearchParams';
 
 type RefValueUnknown = Ref<unknown>;
@@ -172,8 +172,8 @@ export default defineComponent({
   name: 'Controls',
   components: {
     VsfButton,
-    VsfIconChevronUp,
-    VsfIconChevronDown,
+    VsfIconExpandLess,
+    VsfIconExpandMore,
   },
   inheritAttrs: false,
   props: {

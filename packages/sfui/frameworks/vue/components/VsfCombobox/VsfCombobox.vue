@@ -5,7 +5,7 @@ import { extractProps } from '../../shared/props';
 import { VsfInput, VsfInputRole, VsfInputAriaAutocomplete } from '../VsfInput';
 import { VsfDropdownMenu } from '../VsfDropdownMenu';
 import { VsfDropdownInternal } from '../VsfDropdownInternal';
-import { VsfIconChevronDown, VsfIconCancel } from '../VsfIcons';
+import { VsfIconExpandMore, VsfIconCancel } from '../VsfIcons';
 
 const props = defineProps({
   // TODO: issue with typing because one component has defineEmits
@@ -77,7 +77,7 @@ const proxySelected = computed({
               >
                 <VsfIconCancel />
               </button>
-              <VsfIconChevronDown :class="{ 'vsf-combobox__icons-chevron--rotate': isDropdownOpened }" />
+              <VsfIconExpandMore :class="{ 'vsf-combobox__icons-chevron--rotate': isDropdownOpened }" />
             </div>
           </template>
         </VsfInput>

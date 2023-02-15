@@ -1,6 +1,6 @@
 import { VsfBadge } from '@storefront-ui/react/components/VsfBadge';
 import { VsfButton } from '@storefront-ui/react/components/VsfButton';
-import { VsfIconBasket } from '@storefront-ui/react/components/VsfIcons';
+import { VsfIconShoppingCart } from '@storefront-ui/react/components/VsfIcons';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
@@ -39,7 +39,7 @@ function Example() {
 
   return (
     <ComponentExample controls={{ state, controls }}>
-      <div className="relative bg-white inline-flex gap-4 items-end p-4">
+      <div className="relative inline-flex items-end gap-4 p-4 bg-white">
         <VsfBadge
           bordered={state.get.bordered}
           dot={state.get.dot}
@@ -55,7 +55,7 @@ function Example() {
           value={state.get.value}
           className="text-white bg-secondary-600"
         >
-          <VsfIconBasket />
+          <VsfIconShoppingCart />
         </VsfBadge>
       </div>
     </ComponentExample>

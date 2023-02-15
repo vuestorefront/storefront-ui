@@ -11,8 +11,8 @@
       </template>
       <template #contactIcon="{ contactOption }">
         <VsfIconHelp v-if="contactOption.iconName === 'help'" :size="VsfIconSize.lg" />
-        <VsfIconChat v-if="contactOption.iconName === 'chat'" :size="VsfIconSize.lg" />
-        <VsfIconPhone v-if="contactOption.iconName === 'phone'" :size="VsfIconSize.lg" />
+        <VsfIconContactSupport v-if="contactOption.iconName === 'contact-support'" :size="VsfIconSize.lg" />
+        <VsfIconCall v-if="contactOption.iconName === 'call'" :size="VsfIconSize.lg" />
       </template>
       <template #contactLabel="{ contactOption }">
         <component :is="linkTag(contactOption.linkTag)" v-bind="contactOption.bindings">
@@ -42,8 +42,8 @@ import { computed, defineComponent, ref, resolveComponent } from 'vue';
 import { VsfFooter, VsfFooterLabelType, VsfFooterColumnType } from '@storefront-ui/vue/components/VsfFooter/index';
 import {
   VsfIconHelp,
-  VsfIconChat,
-  VsfIconPhone,
+  VsfIconCall,
+  VsfIconContactSupport,
   VsfIconFacebook,
   VsfIconTwitter,
   VsfIconPinterest,
@@ -63,8 +63,8 @@ export default defineComponent({
     ComponentExample,
     VsfDivider,
     VsfIconHelp,
-    VsfIconChat,
-    VsfIconPhone,
+    VsfIconCall,
+    VsfIconContactSupport,
     VsfIconFacebook,
     VsfIconTwitter,
     VsfIconPinterest,
@@ -223,13 +223,13 @@ export default defineComponent({
         label: 'Live chat',
         bindings: { href: '/' },
         details: ['Mon–Fri, 5am–10pm PT', 'Sat–Sun, 6am–9pm PT'],
-        iconName: 'chat',
+        iconName: 'contact-support',
       },
       {
         label: '1 234 567 8901',
         bindings: { href: '/' },
         details: ['Mon–Fri, 5am–10pm PT', 'Sat–Sun, 6am–9pm PT'],
-        iconName: 'phone',
+        iconName: 'call',
       },
     ];
     const bottomLinks = [

@@ -1,6 +1,6 @@
 import { VsfAlert, VsfAlertProps, VsfAlertType, VsfAlertVariant } from '@storefront-ui/react/components/VsfAlert/index';
 import { VsfButton, VsfButtonVariant } from '@storefront-ui/react/components/VsfButton/index';
-import { VsfIconChat } from '@storefront-ui/react/components/VsfIcons/index';
+import { VsfIconThumbUp } from '@storefront-ui/react/components/VsfIcons/index';
 import { createControlsOptions } from '@storefront-ui/preview-shared/utils/controlsOptions';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
@@ -8,7 +8,7 @@ import { ExamplePageLayout } from '../examples';
 
 const prefixSlotOptions = createControlsOptions({
   none: undefined,
-  'Custom icon': <VsfIconChat />,
+  'Custom icon': <VsfIconThumbUp />,
 });
 const suffixSlotOptions = createControlsOptions({
   none: undefined,

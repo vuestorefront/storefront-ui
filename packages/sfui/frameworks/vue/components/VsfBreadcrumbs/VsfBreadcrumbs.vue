@@ -2,7 +2,8 @@
 import type { PropType } from 'vue';
 import { ref } from 'vue';
 import { generateId } from '@storefront-ui/shared';
-import { VsfIconHome, VsfIconMoreHorizontal, VsfIconSize } from '../VsfIcons';
+import { VsfIconHome, VsfIconMoreHoriz } from '../VsfIcons';
+import { VsfIconSize } from '../VsfIconBase';
 import { VsfLink, VsfLinkVariant } from '../VsfLink';
 import { VsfDropdownInternal, VsfDropdownInternalPlacement } from '../VsfDropdownInternal';
 import type { VsfBreadcrumbType } from './types';
@@ -35,7 +36,7 @@ const dropdownOpened = ref();
         <VsfDropdownInternal v-model="dropdownOpened" :placement="VsfDropdownInternalPlacement['bottom-start']">
           <template #trigger>
             <button class="vsf-breadcrumbs__dropdown-button" :aria-label="ariaLabelHomeButton">
-              <VsfIconMoreHorizontal :size="VsfIconSize.sm" class="vsf-breadcrumbs__item-link-icon" />
+              <VsfIconMoreHoriz :size="VsfIconSize.sm" class="vsf-breadcrumbs__item-link-icon" />
             </button>
           </template>
           <ul class="vsf-breadcrumbs__dropdown-list">

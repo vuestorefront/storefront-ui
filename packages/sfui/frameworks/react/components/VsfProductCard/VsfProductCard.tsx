@@ -3,10 +3,10 @@ import VsfRating from '../VsfRating/VsfRating';
 import VsfTag from '../VsfTag/VsfTag';
 import VsfButton from '../VsfButton/VsfButton';
 import VsfCounter from '../VsfCounter/VsfCounter';
-import VsfIconFavoritesOutline from '../VsfIcons/VsfIconFavoritesOutline';
-import VsfIconBasket from '../VsfIcons/VsfIconBasket';
-import VsfIconAddedToBasket from '../VsfIcons/VsfIconAddedToBasket';
-import VsfIconHot from '../VsfIcons/VsfIconHot';
+import VsfIconFavorite from '../VsfIcons/VsfIconFavorite';
+import VsfIconShoppingCart from '../VsfIcons/VsfIconShoppingCart';
+import VsfIconShoppingCartLoad from '../VsfIcons/VsfIconShoppingCartLoad';
+import VsfIconSell from '../VsfIcons/VsfIconSell';
 import { VsfTagVariant, VsfTagSize } from '../VsfTag/types';
 import { VsfIconSize } from '../VsfIconBase/types';
 import { VsfButtonSize, VsfButtonVariant } from '../VsfButton/types';
@@ -100,7 +100,7 @@ export default function VsfProductCard({
                 variant={VsfTagVariant.secondary}
                 data-testid="product-card-badge"
               >
-                <VsfIconHot size={VsfIconSize.xs} ariaLabel={ariaLabelBadge} />
+                <VsfIconSell size={VsfIconSize.xs} ariaLabel={ariaLabelBadge} />
               </VsfTag>
             ))}
         </div>
@@ -115,7 +115,7 @@ export default function VsfProductCard({
                   label={outOfStock ? outOfStockLabel : inCart}
                   data-testid="product-card-in-cart"
                 >
-                  {!outOfStock ? <VsfIconAddedToBasket size={VsfIconSize.xs} /> : null}
+                  {!outOfStock ? <VsfIconShoppingCartLoad size={VsfIconSize.xs} /> : null}
                 </VsfTag>
               ) : null}
 
@@ -125,7 +125,7 @@ export default function VsfProductCard({
                 className="vsf-product-card__image-bottom-button"
                 onClick={onAddToWishlistClick}
                 data-testid="product-card-add-to-wishlist"
-                slotPrefix={<VsfIconFavoritesOutline size={VsfIconSize.sm} ariaLabel={ariaLabelAddToWishlist} />}
+                slotPrefix={<VsfIconFavorite size={VsfIconSize.sm} ariaLabel={ariaLabelAddToWishlist} />}
               />
             </>
           )}
@@ -140,7 +140,7 @@ export default function VsfProductCard({
             label={outOfStock ? outOfStockLabel : inCart}
             className="vsf-product-card__details-in-cart"
           >
-            {!outOfStock ? <VsfIconAddedToBasket size={VsfIconSize.xs} /> : null}
+            {!outOfStock ? <VsfIconShoppingCartLoad size={VsfIconSize.xs} /> : null}
           </VsfTag>
         ) : null}
         {slotTitle ||
@@ -200,7 +200,7 @@ export default function VsfProductCard({
               size={VsfButtonSize.sm}
               data-testid="product-card-add-to-cart"
             >
-              <VsfIconBasket size={VsfIconSize.sm} ariaLabel={ariaLabelAddToBasket} />
+              <VsfIconShoppingCart size={VsfIconSize.sm} ariaLabel={ariaLabelAddToBasket} />
               <span className="ml-2">{addToCartLabel}</span>
             </VsfButton>
           ) : (

@@ -17,18 +17,11 @@ export default function VsfIconError({
       data-testid="error"
       viewBox={viewBox ?? '0 0 24 24'}
     >
-      <>
-        <path
-          fillRule="evenodd"
-          clipRule="evenodd"
-          d="M12 22c5.52 0 10-4.48 10-10S17.52 2 12 2 2 6.48 2 12s4.48 10 10 10Zm1-14a1 1 0 1 0-2 0v4a1 1 0 1 0 2 0V8Zm-2.25 8a1.25 1.25 0 1 1 2.5 0 1.25 1.25 0 0 1-2.5 0Z"
-        />
-        <path
-          fillRule="evenodd"
-          clipRule="evenodd"
-          d="M12 22c5.52 0 10-4.48 10-10S17.52 2 12 2 2 6.48 2 12s4.48 10 10 10Zm1-14a1 1 0 1 0-2 0v4a1 1 0 1 0 2 0V8Zm-2.25 8a1.25 1.25 0 1 1 2.5 0 1.25 1.25 0 0 1-2.5 0Z"
-        />
-      </>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M22 12c0 5.52-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2s10 4.48 10 10ZM12 7a1 1 0 0 1 1 1v4a1 1 0 1 1-2 0V8a1 1 0 0 1 1-1Zm0 7.75a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5Z"
+      />
     </VsfIconBase>
   );
 }

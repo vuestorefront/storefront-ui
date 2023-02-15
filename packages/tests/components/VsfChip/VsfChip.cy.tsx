@@ -7,7 +7,7 @@ import { mount, Wrapper, useComponent } from '../../utils/mount';
 import VsfChipObject from './VsfChip.PageObject';
 
 const { vue: VsfChipVue, react: VsfChipReact } = useComponent('VsfChip');
-const { vue: VsfIconDotVue, react: VsfIconDotReact } = useComponent('VsfIconDot');
+const { vue: VsfIconCircleVue, react: VsfIconCircleReact } = useComponent('VsfIconCircle');
 
 describe('VsfChip', () => {
   let onChangeSpy: Cypress.Agent<sinon.SinonSpy>;
@@ -42,7 +42,7 @@ describe('VsfChip', () => {
           'onUpdate:modelValue': onChangeSpy,
         },
         slots: {
-          prefix: () => h(VsfIconDotVue),
+          prefix: () => h(VsfIconCircleVue),
         },
       },
       react: (
@@ -55,7 +55,7 @@ describe('VsfChip', () => {
           label={label}
           disabled={disabled}
           deletable={deletable}
-          slotPrefix={<VsfIconDotReact />}
+          slotPrefix={<VsfIconCircleReact />}
         />
       ),
     });

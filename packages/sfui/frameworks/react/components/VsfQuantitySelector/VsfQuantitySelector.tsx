@@ -2,7 +2,7 @@ import type { ChangeEvent, SyntheticEvent } from 'react';
 import { useState } from 'react';
 import classNames from 'classnames';
 import { clamp } from '@storefront-ui/shared';
-import { VsfIconMinus, VsfIconPlus } from '../VsfIcons';
+import { VsfIconRemove, VsfIconAdd } from '../VsfIcons';
 import { VsfButtonSize, VsfButton, VsfButtonVariant } from '../VsfButton';
 import { VsfQuantitySelectorProps, VsfQuantitySelectorSize } from './types';
 
@@ -76,7 +76,7 @@ export default function VsfQuantitySelector({
           disabled={decreaseDisabled}
           data-testid="decrease-button"
           onClick={() => handleChange(innerValue - step)}
-          slotPrefix={<VsfIconMinus />}
+          slotPrefix={<VsfIconRemove />}
           size={buttonSize}
         />
 
@@ -106,7 +106,7 @@ export default function VsfQuantitySelector({
           disabled={increaseDisabled}
           data-testid="increase-button"
           onClick={() => handleChange(innerValue + step)}
-          slotPrefix={<VsfIconPlus />}
+          slotPrefix={<VsfIconAdd />}
           size={buttonSize}
         />
       </div>

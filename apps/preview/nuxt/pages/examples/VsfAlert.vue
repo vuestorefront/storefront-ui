@@ -25,14 +25,14 @@
 import { defineComponent, ref, h } from 'vue';
 import { VsfAlert, VsfAlertType, VsfAlertVariant } from '@storefront-ui/vue/components/VsfAlert/index';
 import { VsfButton, VsfButtonVariant } from '@storefront-ui/vue/components/VsfButton/index';
-import { VsfIconChat } from '@storefront-ui/vue/components/VsfIcons/index';
+import { VsfIconThumbUp } from '@storefront-ui/vue/components/VsfIcons/index';
 import { createControlsOptions } from '@storefront-ui/preview-shared/utils/controlsOptions';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
 
 const prefixSlotOptions = createControlsOptions({
   none: undefined,
-  'Custom icon': h(VsfIconChat),
+  'Custom icon': h(VsfIconThumbUp),
 });
 const suffixSlotOptions = createControlsOptions({
   none: undefined,
@@ -44,7 +44,7 @@ export default defineComponent({
   components: {
     VsfAlert,
     VsfButton,
-    VsfIconChat,
+    VsfIconThumbUp,
     ComponentExample,
   },
   setup() {

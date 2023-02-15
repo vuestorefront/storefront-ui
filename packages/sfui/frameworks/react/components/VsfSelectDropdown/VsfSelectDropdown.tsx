@@ -4,7 +4,7 @@ import { VsfSelectDropdownSize } from './types';
 import { VsfInput, VsfInputSize } from '../VsfInput';
 import { VsfDropdownInternal } from '../VsfDropdownInternal';
 import { VsfDropdownMenu } from '../VsfDropdownMenu';
-import { VsfIconChevronDown } from '../VsfIcons';
+import { VsfIconExpandMore } from '../VsfIcons';
 import { VsfListItemMenu } from '../VsfListItemMenu';
 
 function selectDropdownSize(size: `${VsfSelectDropdownSize}`) {
@@ -59,7 +59,7 @@ export default function VsfSelectDropdown({
             readonly
             readonlyWithoutStyling
             slotSuffix={
-              <VsfIconChevronDown
+              <VsfIconExpandMore
                 className={classNames('vsf-select-dropdown__chevron', {
                   'vsf-combobox__icons-chevron--rotate': open && !disabled,
                 })}

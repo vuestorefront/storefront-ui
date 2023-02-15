@@ -6,8 +6,8 @@ import VsfButtonBaseObject from './VsfButton.PageObject';
 
 const { vue: VsfButtonVue, react: VsfButtonReact } = useComponent('VsfButton');
 const { vue: VsfIconCheckCircleVue, react: VsfIconCheckCircleReact } = useComponent('VsfIconCheckCircle');
-const { vue: VsfIconCheckboxIndeterminateVue, react: VsfIconCheckboxIndeterminateReact } =
-  useComponent('VsfIconCheckboxIndeterminate');
+const { vue: VsfIconIndeterminateCheckBoxVue, react: VsfIconIndeterminateCheckBoxReact } =
+  useComponent('VsfIconIndeterminateCheckBox');
 
 describe('VsfButton', () => {
   const slotDefaultContent = 'button content';
@@ -55,7 +55,7 @@ describe('VsfButton', () => {
         global: {
           components: {
             VsfIconCheckCircleVue,
-            VsfIconCheckboxIndeterminateVue,
+            VsfIconIndeterminateCheckBoxVue,
           },
         },
         props: {
@@ -75,7 +75,7 @@ describe('VsfButton', () => {
         },
         slots: {
           ...(slotPrefix && { prefix: '<VsfIconCheckCircleVue/>' }),
-          ...(slotSuffix && { suffix: '<VsfIconCheckboxIndeterminateVue/>' }),
+          ...(slotSuffix && { suffix: '<VsfIconIndeterminateCheckBoxVue/>' }),
           ...(slotDefault && { default: () => slotDefaultContent }),
         },
       },
@@ -93,7 +93,7 @@ describe('VsfButton', () => {
           style={{ ...(truncate && { maxWidth: '100px' }) }}
           type={type}
           slotPrefix={slotPrefix && <VsfIconCheckCircleReact />}
-          slotSuffix={slotSuffix && <VsfIconCheckboxIndeterminateReact />}
+          slotSuffix={slotSuffix && <VsfIconIndeterminateCheckBoxReact />}
         >
           {slotDefault ? slotDefaultContent : undefined}
         </VsfButtonReact>

@@ -2,21 +2,21 @@
   <ComponentExample :controls-attrs="controlsAttrs">
     <div>
       Icon imported directly from <br />
-      <VsfIconArrowDown :style="{ color: colorExample }" :size="size" />
+      <VsfIconArrowDownward :style="{ color: colorExample }" :size="size" />
     </div>
   </ComponentExample>
 </template>
 
 <script lang="ts">
 import { ref } from 'vue';
-import { VsfIconSize, VsfIconArrowDown } from '@storefront-ui/vue/components/VsfIcons/index';
+import { VsfIconSize, VsfIconArrowDownward } from '@storefront-ui/vue/components/VsfIcons/index';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
 
 export default {
   name: 'VsfIconExample',
   components: {
-    VsfIconArrowDown,
+    VsfIconArrowDownward,
     ComponentExample,
   },
   setup() {

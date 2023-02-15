@@ -7,11 +7,11 @@ import {
   VsfFooterLabel,
 } from '@storefront-ui/react/components/VsfFooter';
 import {
-  VsfIconChat,
+  VsfIconContactSupport,
   VsfIconFacebook,
   VsfIconHelp,
   VsfIconInstagram,
-  VsfIconPhone,
+  VsfIconCall,
   VsfIconPinterest,
   VsfIconTwitter,
   VsfIconYoutube,
@@ -33,8 +33,8 @@ const iconsMap: {
   VsfIconPinterest,
   VsfIconYoutube,
   VsfIconHelp,
-  VsfIconChat,
-  VsfIconPhone,
+  VsfIconContactSupport,
+  VsfIconCall,
 };
 
 function Example() {
@@ -170,13 +170,13 @@ function Example() {
       label: 'Live chat',
       link: '/',
       details: ['Mon–Fri, 5am–10pm PT', 'Sat–Sun, 6am–9pm PT'],
-      icon: 'VsfIconChat',
+      icon: 'VsfIconContactSupport',
     },
     {
       label: '1 234 567 8901',
       link: '/',
       details: ['Mon–Fri, 5am–10pm PT', 'Sat–Sun, 6am–9pm PT'],
-      icon: 'VsfIconPhone',
+      icon: 'VsfIconCall',
     },
   ];
   const bottomLinks = [

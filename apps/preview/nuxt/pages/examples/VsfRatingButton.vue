@@ -14,7 +14,7 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import * as Icons from '@storefront-ui/vue/components/VsfIcons/index';
-import { VsfIconStar, VsfIconStarOutline } from '@storefront-ui/vue/components/VsfIcons/index';
+import { VsfIconStarFilled, VsfIconStar } from '@storefront-ui/vue/components/VsfIcons/index';
 import { VsfRatingButton, VsfRatingButtonSize } from '@storefront-ui/vue/components/VsfRatingButton/index';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
@@ -28,8 +28,8 @@ export default defineComponent({
   },
   setup() {
     return {
+      VsfIconStarFilled,
       VsfIconStar,
-      VsfIconStarOutline,
       changeHandler(e?: Event) {
         if (e?.target && e.target instanceof HTMLInputElement) {
           console.log('Value changed:', e.target.value);
@@ -99,8 +99,8 @@ export default defineComponent({
           modelValue: ref(0),
           name: ref('rating'),
           ariaLabel: ref('Rating button'),
-          iconFilled: ref<keyof typeof Icons>('VsfIconStar'),
-          iconEmpty: ref<keyof typeof Icons>('VsfIconStarOutline'),
+          iconFilled: ref<keyof typeof Icons>('VsfIconStarFilled'),
+          iconEmpty: ref<keyof typeof Icons>('VsfIconStar'),
         },
       ),
     };
