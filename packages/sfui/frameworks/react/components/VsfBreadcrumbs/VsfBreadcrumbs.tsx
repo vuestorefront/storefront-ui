@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { VsfIconHome, VsfIconMoreHorizontal } from '../VsfIcons';
+import { VsfIconHome, VsfIconMoreHoriz } from '../VsfIcons';
 import { VsfLink, VsfLinkVariant } from '../VsfLink';
 import { VsfDropdownInternal, VsfDropdownInternalPlacement } from '../VsfDropdownInternal';
 
@@ -25,7 +25,7 @@ function VsfBreadcrumbs({
             placement={VsfDropdownInternalPlacement['bottom-start']}
             slotTrigger={
               <button className="vsf-breadcrumbs__dropdown-button" aria-label={ariaLabelHomeButton} type="button">
-                <VsfIconMoreHorizontal size={VsfIconSize.sm} className="vsf-breadcrumbs__item-link-icon" />
+                <VsfIconMoreHoriz size={VsfIconSize.sm} className="vsf-breadcrumbs__item-link-icon" />
               </button>
             }
           >

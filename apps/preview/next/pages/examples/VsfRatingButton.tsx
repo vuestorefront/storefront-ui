@@ -2,7 +2,7 @@
 import { VsfRatingButton, VsfRatingButtonSize } from '@storefront-ui/react/components/VsfRatingButton';
 import * as Icons from '@storefront-ui/react/components/VsfIcons';
 import { VsfIconSize } from '@storefront-ui/react/components/VsfIconBase';
-import { VsfIconAddedToBasket } from '@storefront-ui/react/components/VsfIcons';
+import { VsfIconShoppingCartChecked } from '@storefront-ui/react/components/VsfIcons';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
@@ -55,7 +55,7 @@ function Example() {
         propDefaultValue: '',
         propType: 'Function',
         description:
-          "Pass the function returning icon component, e.g.: (size?: VsfIconSize) => <VsfIconStarOutline size={size} ariaLabel={''} />",
+          "Pass the function returning icon component, e.g.: (size?: VsfIconSize) => <VsfIconStar size={size} ariaLabel={''} />",
       },
       {
         type: 'select',
@@ -64,7 +64,7 @@ function Example() {
         propDefaultValue: '',
         propType: 'Function',
         description:
-          "Pass the function returning icon component, e.g.: (size?: VsfIconSize) => <VsfIconStarOutline size={size} ariaLabel={''} />",
+          "Pass the function returning icon component, e.g.: (size?: VsfIconSize) => <VsfIconStar size={size} ariaLabel={''} />",
       },
     ],
     {
@@ -75,13 +75,13 @@ function Example() {
       name: 'rating',
       ariaLabel: 'Rating button',
       renderIconFilled: 'VsfIconStar' as keyof typeof Icons,
-      renderIconEmpty: 'VsfIconStarOutline' as keyof typeof Icons,
+      renderIconEmpty: 'VsfIconStar' as keyof typeof Icons,
     },
   );
 
   // fake any icon typing cast
-  const RenderIconFilledComponent = Icons[state.get.renderIconFilled] as typeof VsfIconAddedToBasket;
-  const RenderIconEmptyComponent = Icons[state.get.renderIconEmpty] as typeof VsfIconAddedToBasket;
+  const RenderIconFilledComponent = Icons[state.get.renderIconFilled] as typeof VsfIconShoppingCartChecked;
+  const RenderIconEmptyComponent = Icons[state.get.renderIconEmpty] as typeof VsfIconShoppingCartChecked;
 
   function onChange(item: number) {
     // eslint-disable-next-line no-console

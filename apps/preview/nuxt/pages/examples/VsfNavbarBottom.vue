@@ -1,6 +1,6 @@
 <template>
   <ComponentExample :controls-attrs="controlsAttrs">
-    <div class="m-10 relative border border-primary-400 h-20">
+    <div class="relative h-20 m-10 border border-primary-400">
       <p>Render in this container when <code>absolute=true</code></p>
       <VsfNavbarBottom v-bind="state">
         <VsfNavbarBottomItem label="Home" :active="active === 'Home'" @click="onClickHandler('Home')">
@@ -26,7 +26,7 @@
         <VsfNavbarBottomItem label="Cart" :active="active === 'Cart'" @click="onClickHandler('Cart')">
           <template #icon>
             <VsfBadge bordered value="10" :class="[filled ? 'bg-white text-gray-900' : 'bg-secondary-600 text-white']">
-              <VsfIconBasket />
+              <VsfIconShoppingCart />
             </VsfBadge>
           </template>
         </VsfNavbarBottomItem>
@@ -38,7 +38,7 @@
               value="10"
               :class="[filled ? 'bg-white text-gray-900' : 'bg-secondary-600 text-white']"
             >
-              <VsfIconFavoritesOutline />
+              <VsfIconFavorite />
             </VsfBadge>
           </template>
         </VsfNavbarBottomItem>
@@ -53,10 +53,10 @@ import { VsfNavbarBottom, VsfNavbarBottomItem } from '@storefront-ui/vue/compone
 import VsfBadge from '@storefront-ui/vue/components/VsfBadge/VsfBadge.vue';
 import {
   VsfIconHome,
-  VsfIconBasket,
+  VsfIconShoppingCart,
   VsfIconSearch,
   VsfIconMenu,
-  VsfIconFavoritesOutline,
+  VsfIconFavorite,
 } from '@storefront-ui/vue/components/VsfIcons/index';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
@@ -68,10 +68,10 @@ export default defineComponent({
     VsfNavbarBottom,
     VsfNavbarBottomItem,
     VsfIconHome,
-    VsfIconBasket,
+    VsfIconShoppingCart,
     VsfIconSearch,
     VsfIconMenu,
-    VsfIconFavoritesOutline,
+    VsfIconFavorite,
     VsfBadge,
   },
   setup() {

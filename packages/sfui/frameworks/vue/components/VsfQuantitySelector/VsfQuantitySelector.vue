@@ -4,7 +4,7 @@ import { computed, toRefs, ref } from 'vue';
 import { clamp } from '@storefront-ui/shared';
 import { VsfQuantitySelectorSize } from './types';
 import { VsfButton, VsfButtonVariant, VsfButtonSize } from '../VsfButton';
-import { VsfIconMinus, VsfIconPlus } from '../VsfIcons';
+import { VsfIconRemove, VsfIconAdd } from '../VsfIcons';
 
 const props = defineProps({
   modelValue: {
@@ -104,7 +104,7 @@ function handleOnBlur() {
         @click="handleChange(currentValue - step)"
       >
         <template #prefix>
-          <VsfIconMinus />
+          <VsfIconRemove />
         </template>
       </VsfButton>
 
@@ -137,7 +137,7 @@ function handleOnBlur() {
         @click="handleChange(currentValue + step)"
       >
         <template #prefix>
-          <VsfIconPlus />
+          <VsfIconAdd />
         </template>
       </VsfButton>
     </div>

@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import type { VsfAccordionItemProps } from './types';
-import VsfIconTriangleUp from '../VsfIcons/VsfIconTriangleUp';
+import VsfIconExpandLess from '../VsfIcons/VsfIconExpandLess';
 import { VsfAccordionItemSize } from './types';
 
 export default function VsfAccordionItem({
@@ -32,7 +32,7 @@ export default function VsfAccordionItem({
             {title}
           </span>
         )}
-        {slotSuffix || <VsfIconTriangleUp className="vsf-accordion-item__icon" />}
+        {slotSuffix || <VsfIconExpandLess className="vsf-accordion-item__icon" />}
       </summary>
       <div className="vsf-accordion-item__content" data-testid="accordion-item-content">
         {children}

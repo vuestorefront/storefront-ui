@@ -8,8 +8,8 @@ import { useScrollable } from './scrollable';
 const VsfButton = defineAsyncComponent(() => import('../VsfButton/VsfButton.vue'));
 const VsfIconChevronLeft = defineAsyncComponent(() => import('../VsfIcons/VsfIconChevronLeft.vue'));
 const VsfIconChevronRight = defineAsyncComponent(() => import('../VsfIcons/VsfIconChevronRight.vue'));
-const VsfIconChevronUp = defineAsyncComponent(() => import('../VsfIcons/VsfIconChevronUp.vue'));
-const VsfIconChevronDown = defineAsyncComponent(() => import('../VsfIcons/VsfIconChevronDown.vue'));
+const VsfIconExpandLess = defineAsyncComponent(() => import('../VsfIcons/VsfIconExpandLess.vue'));
+const VsfIconExpandMore = defineAsyncComponent(() => import('../VsfIcons/VsfIconExpandMore.vue'));
 
 const props = defineProps({
   scrollbar: {
@@ -100,7 +100,7 @@ const focusHandler = (event: FocusEvent) => {
         >
           <template #prefix>
             <VsfIconChevronLeft v-if="isHorizontal" />
-            <VsfIconChevronUp v-else />
+            <VsfIconExpandLess v-else />
           </template>
         </VsfButton>
       </slot>
@@ -131,7 +131,7 @@ const focusHandler = (event: FocusEvent) => {
         >
           <template #prefix>
             <VsfIconChevronRight v-if="isHorizontal" />
-            <VsfIconChevronDown v-else />
+            <VsfIconExpandMore v-else />
           </template>
         </VsfButton>
       </slot>

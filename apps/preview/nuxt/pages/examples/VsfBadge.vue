@@ -1,11 +1,11 @@
 <template>
   <ComponentExample :controls-attrs="controlsAttrs">
-    <div class="relative bg-white inline-flex gap-4 items-end p-4">
+    <div class="relative inline-flex items-end gap-4 p-4 bg-white">
       <VsfBadge v-bind="state">
         <VsfButton>unstyled</VsfButton>
       </VsfBadge>
       <VsfBadge v-bind="state" class="text-white bg-secondary-600">
-        <VsfIconBasket />
+        <VsfIconShoppingCart />
       </VsfBadge>
     </div>
   </ComponentExample>
@@ -15,7 +15,7 @@
 import { defineComponent, ref } from 'vue';
 import VsfBadge from '@storefront-ui/vue/components/VsfBadge/VsfBadge.vue';
 import VsfButton from '@storefront-ui/vue/components/VsfButton/VsfButton.vue';
-import { VsfIconBasket } from '@storefront-ui/vue/components/VsfIcons/index';
+import { VsfIconShoppingCart } from '@storefront-ui/vue/components/VsfIcons/index';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
 
@@ -25,7 +25,7 @@ export default defineComponent({
     ComponentExample,
     VsfBadge,
     VsfButton,
-    VsfIconBasket,
+    VsfIconShoppingCart,
   },
   setup() {
     return prepareControls(

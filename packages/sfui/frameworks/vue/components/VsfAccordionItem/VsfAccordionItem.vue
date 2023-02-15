@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import type { PropType } from 'vue';
-import { VsfIconTriangleUp } from '../VsfIcons';
+import { VsfIconExpandLess } from '../VsfIcons';
 import { VsfAccordionItemSize } from './types';
 
 defineProps({
@@ -45,7 +45,7 @@ defineEmits<{
       </slot>
 
       <slot name="suffix">
-        <vsf-icon-triangle-up class="vsf-accordion-item__icon" />
+        <VsfIconExpandLess class="vsf-accordion-item__icon" />
       </slot>
     </summary>
     <div class="vsf-accordion-item__content" data-testid="accordion-item-content">

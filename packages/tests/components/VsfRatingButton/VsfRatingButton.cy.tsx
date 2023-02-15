@@ -7,8 +7,8 @@ import { mount, useComponent } from '../../utils/mount';
 import VsfRatingButtonBaseObject from './VsfRatingButton.PageObject';
 
 const { vue: VsfRatingButtonVue, react: VsfRatingButtonReact } = useComponent('VsfRatingButton');
+const { vue: VsfIconStarFilledVue, react: VsfIconStarFilledReact } = useComponent('VsfIconStarFilled');
 const { vue: VsfIconStarVue, react: VsfIconStarReact } = useComponent('VsfIconStar');
-const { vue: VsfIconStarOutlineVue, react: VsfIconStarOutlineReact } = useComponent('VsfIconStarOutline');
 
 describe('VsfRatingButton', () => {
   let size: VsfRatingButtonSize;
@@ -35,8 +35,8 @@ describe('VsfRatingButton', () => {
           'onUpdate:modelValue': onChangeSpy,
         },
         slots: {
-          iconFilled: () => h(VsfIconStarVue, { size }),
-          iconEmpty: () => h(VsfIconStarOutlineVue, { size }),
+          iconFilled: () => h(VsfIconStarFilledVue, { size }),
+          iconEmpty: () => h(VsfIconStarVue, { size }),
         },
       },
       react: (
@@ -47,8 +47,8 @@ describe('VsfRatingButton', () => {
           value={value}
           name={name}
           ariaLabel={ariaLabel}
-          renderIconFilled={(size?: VsfIconSize) => <VsfIconStarReact size={size} />}
-          renderIconEmpty={(size?: VsfIconSize) => <VsfIconStarOutlineReact size={size} />}
+          renderIconFilled={(size?: VsfIconSize) => <VsfIconStarFilledReact size={size} />}
+          renderIconEmpty={(size?: VsfIconSize) => <VsfIconStarReact size={size} />}
           onChange={onChangeSpy}
         />
       ),
@@ -75,7 +75,7 @@ describe('VsfRatingButton', () => {
       value = 1;
       initializeComponent();
 
-      page().hasIcons('star', 0).hasIcons('star-outline', 1).makeSnapshot();
+      page().hasIcons('star-filled', 0).hasIcons('star', 1).makeSnapshot();
     });
   });
 

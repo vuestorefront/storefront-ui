@@ -1,6 +1,6 @@
 import VsfDropdownMenu from '@storefront-ui/react/components/VsfDropdownMenu/VsfDropdownMenu';
 import VsfListItemMenu from '@storefront-ui/react/components/VsfListItemMenu/VsfListItemMenu';
-import VsfIconDot from '@storefront-ui/react/components/VsfIcons/VsfIconDot';
+import VsfIconCircle from '@storefront-ui/react/components/VsfIcons/VsfIconCircle';
 import VsfDivider from '@storefront-ui/react/components/VsfDivider/VsfDivider';
 import { useEffect, useState } from 'react';
 import Controls, { prepareControls } from '../../components/utils/Controls';
@@ -65,7 +65,7 @@ function Example() {
               key={item.label}
               label={item.label}
               secondaryText={item.secondaryText}
-              slotPrefix={<VsfIconDot />}
+              slotPrefix={<VsfIconCircle />}
               role="option"
             />
           ))}
@@ -75,7 +75,7 @@ function Example() {
               key={item.label}
               label={item.label}
               secondaryText={item.secondaryText}
-              slotPrefix={<VsfIconDot />}
+              slotPrefix={<VsfIconCircle />}
               role="option"
             />
           ))}

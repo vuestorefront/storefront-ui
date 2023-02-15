@@ -3,7 +3,7 @@
     <VsfTabs v-model="modelValue" :size="size">
       <VsfTabsItem v-for="tab of tabs" :key="tab.label" :uid="tab.label" :disabled="tab.label === disabled">
         <template #prefix>
-          <span v-if="slotPrefix">{{ slotPrefix }}</span> <VsfIconDot v-else />
+          <span v-if="slotPrefix">{{ slotPrefix }}</span> <VsfIconCircle v-else />
         </template>
         {{ tab.label }}
         <template #suffix>
@@ -19,7 +19,7 @@
 import { ref } from 'vue';
 import VsfTabs from '@storefront-ui/vue/components/VsfTabs/VsfTabs.vue';
 import VsfTabsItem from '@storefront-ui/vue/components/VsfTabs/VsfTabsItem.vue';
-import VsfIconDot from '@storefront-ui/vue/components/VsfIcons/VsfIconDot.vue';
+import VsfIconCircle from '@storefront-ui/vue/components/VsfIcons/VsfIconCircle.vue';
 import VsfCounter from '@storefront-ui/vue/components/VsfCounter/VsfCounter.vue';
 import { VsfButtonSize } from '@storefront-ui/vue/components/VsfButton/types';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
@@ -31,7 +31,7 @@ export default {
   components: {
     VsfTabs,
     VsfTabsItem,
-    VsfIconDot,
+    VsfIconCircle,
     VsfCounter,
     ComponentExample,
   },

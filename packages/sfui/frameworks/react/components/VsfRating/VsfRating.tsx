@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { clamp, roundToNearest } from '@storefront-ui/shared';
-import { VsfIconStar, VsfIconStarOutline, VsfIconStarPartiallyFilled } from '../VsfIcons';
+import { VsfIconStarFilled, VsfIconStar, VsfIconStarHalf } from '../VsfIcons';
 import { VsfRatingSize, VsfRatingVariant } from './types';
 import type { VsfRatingProps } from './types';
 
@@ -45,19 +45,17 @@ export default function VsfRating({
     <div role="img" className={classes} aria-label={label} {...attributes} title={label}>
       {variant === 'withValue' ? (
         <>
-          <VsfIconStar aria-hidden="true" className="vsf-rating__star-filled" />
+          <VsfIconStarFilled aria-hidden="true" className="vsf-rating__star-filled" />
           <span className="vsf-rating__value">{value}</span>
         </>
       ) : (
         <>
           {[...Array(filled).keys()].map((key) => (
-            <VsfIconStar aria-hidden="true" className="vsf-rating__star-filled" key={key} />
+            <VsfIconStarFilled aria-hidden="true" className="vsf-rating__star-filled" key={key} />
           ))}
-          {Boolean(partiallyFilled) && (
-            <VsfIconStarPartiallyFilled aria-hidden="true" className="vsf-rating__star-partial" />
-          )}
+          {Boolean(partiallyFilled) && <VsfIconStarHalf aria-hidden="true" className="vsf-rating__star-partial" />}
           {[...Array(empty).keys()].map((key) => (
-            <VsfIconStarOutline aria-hidden="true" className="vsf-rating__star-empty" key={key} />
+            <VsfIconStar aria-hidden="true" className="vsf-rating__star-empty" key={key} />
           ))}
         </>
       )}

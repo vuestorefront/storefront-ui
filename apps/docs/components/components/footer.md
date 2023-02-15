@@ -86,7 +86,7 @@ The Footer is not made of single component but a couple of them to let you compo
       </VsfFooterLabel>
     </VsfFooterColumn>
     <VsfFooterColumn type={VsfFooterColumnType.middle}>
-      <VsfIconChat size={VsfIconSize.lg} />
+      <VsfIconContactSupport size={VsfIconSize.lg} />
       <VsfFooterLabel type={VsfFooterLabelType.contact}>
         label 2
       </VsfFooterLabel>
@@ -95,7 +95,7 @@ The Footer is not made of single component but a couple of them to let you compo
       </VsfFooterLabel>
     </VsfFooterColumn>
     <VsfFooterColumn type={VsfFooterColumnType.middle}>
-      <VsfIconPhone size={VsfIconSize.lg} />
+      <VsfIconCall size={VsfIconSize.lg} />
       <VsfFooterLabel type={VsfFooterLabelType.contact}>
         label 3
       </VsfFooterLabel>
@@ -318,8 +318,8 @@ The Footer is not made of single component but a couple of them to let you compo
     </template>
     <template #contactIcon="{ contactOption }">
       <VsfIconHelp v-if="contactOption.iconName === 'help'" size="lg" />
-      <VsfIconChat v-if="contactOption.iconName === 'chat'" size="lg" />
-      <VsfIconPhone v-if="contactOption.iconName === 'phone'" size="lg" />
+      <VsfIconContactSupport v-if="contactOption.iconName === 'chat'" size="lg" />
+      <VsfIconCall v-if="contactOption.iconName === 'phone'" size="lg" />
     </template>
     <template #contactLabel="{ contactOption }">
       <a>{{ contactOption.label }}</a>

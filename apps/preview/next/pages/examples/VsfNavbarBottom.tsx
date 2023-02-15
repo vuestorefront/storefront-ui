@@ -2,10 +2,10 @@ import { VsfNavbarBottom, VsfNavbarBottomItem } from '@storefront-ui/react/compo
 import { VsfBadge } from '@storefront-ui/react/components/VsfBadge';
 import {
   VsfIconHome,
-  VsfIconBasket,
+  VsfIconShoppingCart,
   VsfIconSearch,
   VsfIconMenu,
-  VsfIconFavoritesOutline,
+  VsfIconFavorite,
 } from '@storefront-ui/react/components/VsfIcons';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
@@ -70,7 +70,7 @@ function Example() {
           value={10}
           className={state.get.filled ? 'bg-white text-gray-900' : 'bg-secondary-600 text-white'}
         >
-          <VsfIconBasket />
+          <VsfIconShoppingCart />
         </VsfBadge>
       ),
     },
@@ -83,14 +83,14 @@ function Example() {
           dot
           className={state.get.filled ? 'bg-white text-gray-900' : 'bg-secondary-600 text-white'}
         >
-          <VsfIconFavoritesOutline />
+          <VsfIconFavorite />
         </VsfBadge>
       ),
     },
   ];
   return (
     <ComponentExample controls={{ state, controls }}>
-      <div className="m-10 relative border border-primary-400 h-20">
+      <div className="relative h-20 m-10 border border-primary-400">
         <p>
           Navbar will render in this container when prop <code>absolute=true</code>
         </p>

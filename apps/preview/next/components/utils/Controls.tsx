@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { ChangeEvent, useState } from 'react';
 import { VsfButton, VsfButtonVariant, VsfButtonSize } from '@storefront-ui/react/components/VsfButton';
-import { VsfIconChevronUp, VsfIconChevronDown } from '@storefront-ui/react/components/VsfIcons/index';
+import { VsfIconExpandLess, VsfIconExpandMore } from '@storefront-ui/react/components/VsfIcons/index';
 import { useControlsSearchParams } from '../../composables/utils/useControlsSearchParams';
 
 type ControlOptionBind = {
@@ -96,7 +96,7 @@ export default function Controls<T extends { [k: string]: any }>({ controls, sta
           variant={VsfButtonVariant.tertiary}
           size={VsfButtonSize.sm}
           onClick={() => setPreviewBottomOpen(!previewBottomOpen)}
-          slotSuffix={previewBottomOpen ? <VsfIconChevronDown /> : <VsfIconChevronUp />}
+          slotSuffix={previewBottomOpen ? <VsfIconExpandMore /> : <VsfIconExpandLess />}
         >
           {previewBottomOpen ? 'Close' : 'Open'}
         </VsfButton>

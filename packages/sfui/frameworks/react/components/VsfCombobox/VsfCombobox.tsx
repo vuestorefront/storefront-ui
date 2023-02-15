@@ -4,7 +4,7 @@ import { VsfInput, VsfInputRole, VsfInputAriaAutocomplete } from '../VsfInput';
 import { VsfDropdownInternal } from '../VsfDropdownInternal';
 import { VsfDropdownMenu } from '../VsfDropdownMenu';
 import type { VsfComboboxProps } from './types';
-import { VsfIconCancel, VsfIconChevronDown } from '../VsfIcons';
+import { VsfIconCancel, VsfIconExpandMore } from '../VsfIcons';
 
 export default function VsfCombobox({
   size,
@@ -67,7 +67,7 @@ export default function VsfCombobox({
                   </button>
                 ) : null}
 
-                <VsfIconChevronDown className={classNames({ 'vsf-combobox__icons-chevron--rotate': open })} />
+                <VsfIconExpandMore className={classNames({ 'vsf-combobox__icons-chevron--rotate': open })} />
               </div>
             }
             {...attributes}

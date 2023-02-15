@@ -7,7 +7,7 @@ import VsfDropdownMenuBaseObject from './VsfDropdownMenu.PageObject';
 
 const { vue: VsfDropdownMenuVue, react: VsfDropdownMenuReact } = useComponent('VsfDropdownMenu');
 const { vue: VsfListItemMenuVue, react: VsfListItemMenuReact } = useComponent('VsfListItemMenu');
-const { vue: VsfIconDotVue, react: VsfIconDotReact } = useComponent('VsfIconDot');
+const { vue: VsfIconCircleVue, react: VsfIconCircleReact } = useComponent('VsfIconCircle');
 
 describe('VsfDropdownMenu', () => {
   const page = () => new VsfDropdownMenuBaseObject('dropdown-menu');
@@ -55,7 +55,7 @@ describe('VsfDropdownMenu', () => {
                   label: label,
                   ['secondary-text']: secondaryText,
                 },
-                { prefix: () => h(VsfIconDotVue) },
+                { prefix: () => h(VsfIconCircleVue) },
               );
             }),
         },
@@ -67,7 +67,7 @@ describe('VsfDropdownMenu', () => {
               key={item.label}
               label={item.label}
               secondary-text={item.secondaryText}
-              slotPrefix={<VsfIconDotReact />}
+              slotPrefix={<VsfIconCircleReact />}
             />
           ))}
         </Wrapper>

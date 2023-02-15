@@ -1,6 +1,6 @@
 import VsfTabs from '@storefront-ui/react/components/VsfTabs/VsfTabs';
 import VsfTabsItem from '@storefront-ui/react/components/VsfTabs/VsfTabsItem';
-import VsfIconDot from '@storefront-ui/react/components/VsfIcons/VsfIconDot';
+import VsfIconCircle from '@storefront-ui/react/components/VsfIcons/VsfIconCircle';
 import VsfCounter from '@storefront-ui/react/components/VsfCounter/VsfCounter';
 import { VsfButtonSize } from '@storefront-ui/react/components/VsfButton';
 import { prepareControls } from '../../components/utils/Controls';
@@ -78,7 +78,7 @@ function Example() {
       <VsfTabs size={state.get.size} active={state.get.active} onChange={changeHandle}>
         {tabs.map((tab) => (
           <VsfTabsItem
-            slotPrefix={state.get.slotPrefix || <VsfIconDot />}
+            slotPrefix={state.get.slotPrefix || <VsfIconCircle />}
             slotSuffix={
               state.get.slotSuffix || (
                 <VsfCounter pill className="bg-white">

@@ -3,7 +3,7 @@ import type { PropType } from 'vue';
 import { computed, toRefs } from 'vue';
 import { clamp, roundToNearest } from '@storefront-ui/shared';
 import { VsfRatingSize, VsfRatingVariant } from './types';
-import { VsfIconStar, VsfIconStarOutline, VsfIconStarPartiallyFilled } from '../VsfIcons';
+import { VsfIconStarFilled, VsfIconStar, VsfIconStarHalf } from '../VsfIcons';
 
 const props = defineProps({
   size: {
@@ -55,13 +55,13 @@ const title = computed(() => `${value.value} out of ${max.value}`);
     ]"
   >
     <template v-if="variant === 'withValue'">
-      <VsfIconStar aria-hidden="true" class="vsf-rating__star-filled" />
+      <VsfIconStarFilled aria-hidden="true" class="vsf-rating__star-filled" />
       <span class="vsf-rating__value">{{ value }}</span>
     </template>
     <template v-else>
-      <VsfIconStar v-for="index in filled" :key="index" aria-hidden="true" class="vsf-rating__star-filled" />
-      <VsfIconStarPartiallyFilled v-if="partiallyFilled" aria-hidden="true" class="vsf-rating__star-partial" />
-      <VsfIconStarOutline v-for="index in empty" :key="index" aria-hidden="true" class="vsf-rating__star-empty" />
+      <VsfIconStarFilled v-for="index in filled" :key="index" aria-hidden="true" class="vsf-rating__star-filled" />
+      <VsfIconStarHalf v-if="partiallyFilled" aria-hidden="true" class="vsf-rating__star-partial" />
+      <VsfIconStar v-for="index in empty" :key="index" aria-hidden="true" class="vsf-rating__star-empty" />
     </template>
   </div>
 </template>

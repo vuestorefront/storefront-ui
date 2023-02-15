@@ -2,7 +2,7 @@ import { useState, forwardRef, FocusEvent } from 'react';
 import classNames from 'classnames';
 import { isReduceMotionEnabled } from '@storefront-ui/shared';
 import VsfButton from '../VsfButton/VsfButton';
-import { VsfIconChevronLeft, VsfIconChevronDown, VsfIconChevronRight, VsfIconChevronUp } from '../VsfIcons';
+import { VsfIconChevronLeft, VsfIconExpandMore, VsfIconChevronRight, VsfIconExpandLess } from '../VsfIcons';
 import type { VsfScrollableProps } from './types';
 import { VsfScrollableNavigation, VsfScrollableScrollbar, VsfScrollableDirection } from './types';
 import { useScrollable } from './scrollable';
@@ -54,7 +54,7 @@ const VsfScrollable = forwardRef<HTMLDivElement, VsfScrollableProps>(
         className="vsf-scrollable__nav-arrow"
         onClick={onClickPrev}
         disabled={!hasPrev}
-        slotPrefix={isHorizontal ? <VsfIconChevronLeft /> : <VsfIconChevronUp />}
+        slotPrefix={isHorizontal ? <VsfIconChevronLeft /> : <VsfIconExpandLess />}
         aria-label={ariaLabelPrev}
       />
     );
@@ -66,7 +66,7 @@ const VsfScrollable = forwardRef<HTMLDivElement, VsfScrollableProps>(
         className="vsf-scrollable__nav-arrow"
         onClick={onClickNext}
         disabled={!hasNext}
-        slotPrefix={isHorizontal ? <VsfIconChevronRight /> : <VsfIconChevronDown />}
+        slotPrefix={isHorizontal ? <VsfIconChevronRight /> : <VsfIconExpandMore />}
         aria-label={ariaLabelNext}
       />
     );
