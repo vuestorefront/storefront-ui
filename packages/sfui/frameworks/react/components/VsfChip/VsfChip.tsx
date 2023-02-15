@@ -13,8 +13,10 @@ export default function VsfChip({
   size = VsfChipSize.base,
   slotPrefix,
   className = '',
+  labelTag,
   ...attributes
 }: VsfChipProps): JSX.Element {
+  const LabelTag = labelTag || 'label';
   const getIconSize = (): VsfIconSize => {
     switch (size) {
       case VsfChipSize.sm:
@@ -25,12 +27,13 @@ export default function VsfChip({
   };
 
   return (
-    <label
-      className={classNames([
+    <LabelTag
+      className={classNames(
         'vsf-chip',
         `vsf-chip--size-${size}`,
-        { 'vsf-chip--hidden': deletable && !selected, className },
-      ])}
+        { 'vsf-chip--hidden': deletable && !selected },
+        className,
+      )}
       {...attributes}
       data-testid="chip"
     >
@@ -48,6 +51,6 @@ export default function VsfChip({
         {label && <span className="vsf-chip__label">{label}</span>}
         {deletable && !disabled && <VsfIconClose size={getIconSize()} className="vsf-chip__close-icon" />}
       </span>
-    </label>
+    </LabelTag>
   );
 }

@@ -50,3 +50,4 @@ export * from './components/VsfHero';
 export * from './components/VsfDisplay';
 export * from './components/VsfChipThumbnail';
 export * from './components/VsfListItemFilterSwitch';
+export * from './components/VsfListItemFilterChip';

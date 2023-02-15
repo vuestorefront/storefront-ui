@@ -33,7 +33,7 @@
 
   &--size-sm {
     #{$self}__peer-wrapper {
-      @apply text-sm h-8 p-1.5 min-w-[2rem];
+      @apply text-sm p-1.5;
     }
 
     #{$self}__label {
