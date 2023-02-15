@@ -1,5 +1,5 @@
 import type { ChangeEvent, PropsWithChildren, ReactNode } from 'react';
-import type { PropsWithStyle } from '../../shared/types';
+import type { PropsWithStyle, PropsWithTag } from '../../shared/types';
 
 export enum VsfChipSize {
   sm = 'sm',
@@ -10,9 +10,10 @@ export interface VsfChipProps extends PropsWithChildren, PropsWithStyle {
   size?: `${VsfChipSize}`;
   label?: string;
   disabled?: boolean;
-  onSelected: (event: ChangeEvent<HTMLInputElement>) => void;
+  onSelected?: (event: ChangeEvent<HTMLInputElement>) => void;
   value?: string;
   selected?: boolean;
   deletable?: boolean;
-  slotPrefix: ReactNode;
+  slotPrefix?: ReactNode;
+  labelTag?: PropsWithTag['tag'];
 }

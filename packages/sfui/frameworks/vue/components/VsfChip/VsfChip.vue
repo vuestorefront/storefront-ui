@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { PropType } from 'vue';
+import type { PropType, InputHTMLAttributes } from 'vue';
 import { toRefs, computed } from 'vue';
 import { VsfChipSize } from './types';
 import VsfIconClose from '../VsfIcons/VsfIconClose.vue';
@@ -19,7 +19,7 @@ const props = defineProps({
     default: false,
   },
   modelValue: {
-    type: [Boolean, Array] as PropType<string[] | boolean>,
+    type: [String, Array, Boolean] as PropType<InputHTMLAttributes['checked']>,
     default: false,
   },
   value: {
@@ -30,16 +30,21 @@ const props = defineProps({
     type: String,
     default: '',
   },
+  labelTag: {
+    type: String,
+    default: undefined,
+  },
 });
-const { size } = toRefs(props);
+const { size, modelValue } = toRefs(props);
 
 const emit = defineEmits<{
-  (event: 'update:modelValue', param: boolean): void;
+  (event: 'update:modelValue', param: InputHTMLAttributes['checked']): void;
 }>();
 
-const onSelected = (event: Event) => {
-  emit('update:modelValue', (event.target as HTMLInputElement).checked);
-};
+const onSelected = computed({
+  get: () => modelValue?.value,
+  set: (value) => emit('update:modelValue', value),
+});
 
 const getIconSize = computed((): VsfIconSize => {
   switch (size.value) {
@@ -52,15 +57,19 @@ const getIconSize = computed((): VsfIconSize => {
 </script>
 
 <template>
-  <label v-if="!deletable || modelValue" class="vsf-chip" :class="`vsf-chip--size-${size}`" data-testid="chip">
+  <component
+    :is="labelTag || 'label'"
+    v-if="!deletable || modelValue"
+    :class="['vsf-chip', `vsf-chip--size-${size}`]"
+    data-testid="chip"
+  >
     <input
+      v-model="onSelected"
       class="peer vsf-chip__input"
       type="checkbox"
       :disabled="disabled"
       :value="value"
-      :checked="!disabled && modelValue"
       data-testid="chip-input"
-      @change="onSelected"
     />
     <div class="vsf-chip__peer-wrapper">
       <div v-if="$slots.prefix" class="vsf-chip__prefix">
@@ -69,5 +78,5 @@ const getIconSize = computed((): VsfIconSize => {
       <span v-if="label" class="vsf-chip__label">{{ label }}</span>
       <VsfIconClose v-if="deletable && !disabled" :size="getIconSize" class="vsf-chip__close-icon" />
     </div>
-  </label>
+  </component>
 </template>
