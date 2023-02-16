@@ -1,25 +1,34 @@
 <script lang="ts" setup>
-import { computed, ref } from 'vue';
+import { ref } from 'vue';
 import type { PropType } from 'vue';
 import { VsfSelectDropdownSize } from './types';
-import { VsfInputSize } from '../VsfInput/index';
 import {
   VsfDropdownInternal,
   VsfDropdownInternalTriggerEvent,
   VsfDropdownInternalPlacement,
 } from '../VsfDropdownInternal/index';
-import { VsfInput } from '../VsfInput/index';
 import { VsfDropdownMenu } from '../VsfDropdownMenu/index';
 import { VsfIconExpandMore } from '../VsfIcons';
 import { VsfListItemMenu } from '../VsfListItemMenu/index';
 import { extractProps } from '../../shared/props';
 import { VsfSelect } from '../VsfSelect';
 
-const props = defineProps({
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  ...(extractProps(VsfSelect as any, ['options', 'label', 'errorText', 'requiredText'] as const) as any),
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  ...(extractProps(VsfInput as any, ['placeholder', 'required', 'disabled', 'invalid', 'helpText'] as const) as any),
+defineProps({
+  ...extractProps(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    VsfSelect as any,
+    [
+      'options',
+      'label',
+      'errorText',
+      'requiredText',
+      'placeholder',
+      'required',
+      'disabled',
+      'invalid',
+      'helpText',
+    ] as const,
+  ),
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   ...(extractProps(VsfDropdownMenu as any, ['loading'] as const) as any),
   modelValue: {
@@ -37,23 +46,10 @@ const emit = defineEmits<{
 }>();
 
 const isDropdownOpened = ref(false);
-
-const selectDropdownSize = computed(() => {
-  switch (props.size) {
-    case VsfSelectDropdownSize.sm:
-      return VsfInputSize.sm;
-
-    case VsfSelectDropdownSize.lg:
-      return VsfInputSize.lg;
-
-    default:
-      return VsfInputSize.base;
-  }
-});
 </script>
 
 <template>
-  <div :class="['vsf-select-dropdown', { 'vsf-select-dropdown--disabled': disabled }]">
+  <div :class="['vsf-select-dropdown', { 'vsf-select-dropdown--disabled': disabled }]" data-testid="select-dropdown">
     <VsfDropdownInternal
       :placement="VsfDropdownInternalPlacement.bottom"
       :trigger-event="VsfDropdownInternalTriggerEvent.click"
@@ -65,25 +61,36 @@ const selectDropdownSize = computed(() => {
       @update:model-value="(value) => (isDropdownOpened = value)"
     >
       <template #trigger>
-        <VsfInput
-          :model-value="modelValue"
-          :size="selectDropdownSize"
-          :label="label"
-          :disabled="disabled"
-          :invalid="invalid"
-          readonly-without-styling
-          readonly
-          :placeholder="placeholder"
-          :aria-expanded="null"
-          class="vsf-select-dropdown__input"
-        >
-          <template #suffix>
+        <label :class="['vsf-select-dropdown__label', { 'vsf-select-dropdown__label--disabled': disabled }]">
+          {{ label }}
+          <span
+            :class="[
+              'vsf-select-dropdown__trigger',
+              `vsf-select-dropdown__trigger--${size}`,
+              { 'vsf-select-dropdown__trigger--invalid': invalid },
+              { 'vsf-select-dropdown__trigger--required': required && !modelValue },
+              { 'vsf-select-dropdown__trigger--disabled': disabled },
+            ]"
+            :tabindex="disabled ? undefined : 0"
+          >
+            <span
+              v-if="!modelValue"
+              :class="[
+                'vsf-select-dropdown__placeholder',
+                { 'vsf-select-dropdown__placeholder--hidden': !placeholder },
+              ]"
+            >
+              {{ placeholder }}
+            </span>
+            <span>{{ modelValue }}</span>
             <VsfIconExpandMore
-              class="vsf-select-dropdown__chevron"
-              :class="{ 'vsf-select-dropdown__chevron--up': isDropdownOpened && !disabled }"
+              :class="[
+                'vsf-select-dropdown__chevron',
+                { 'vsf-select-dropdown__chevron--up': isDropdownOpened && !disabled },
+              ]"
             />
-          </template>
-        </VsfInput>
+          </span>
+        </label>
       </template>
       <VsfDropdownMenu v-if="!disabled" :loading="loading" class="vsf-select-dropdown__dropdown-menu" role="listbox">
         <slot>

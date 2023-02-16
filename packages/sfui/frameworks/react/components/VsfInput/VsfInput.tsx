@@ -21,7 +21,6 @@ export default function VsfInput({
   readonly,
   className,
   characterLimit,
-  readonlyWithoutStyling = false,
   onChange = noop,
   onClick,
   ...attributes
@@ -38,7 +37,6 @@ export default function VsfInput({
         {
           'vsf-input--disabled': disabled,
           'vsf-input--invalid': invalid && !disabled,
-          'vsf-input--readonly': readonly && !readonlyWithoutStyling,
         },
         className,
       ])}

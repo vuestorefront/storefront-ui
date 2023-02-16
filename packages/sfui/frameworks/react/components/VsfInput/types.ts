@@ -35,7 +35,6 @@ export interface VsfInputProps extends PropsWithStyle, PropsWithChildren {
   ariaAutocomplete?: VsfInputAriaAutocomplete;
   slotPrefix?: ReactNode;
   slotSuffix?: ReactNode;
-  readonlyWithoutStyling?: Boolean;
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
   onClick?: MouseEventHandler<HTMLInputElement>;
 }

@@ -70,10 +70,6 @@ const props = defineProps({
     type: String,
     default: '',
   },
-  readonlyWithoutStyling: {
-    type: Boolean,
-    default: false,
-  },
 });
 const emit = defineEmits<{
   (event: 'update:modelValue', value: string): void;
@@ -98,7 +94,6 @@ const handleFocus = () => {
       {
         'vsf-input--disabled': disabled,
         'vsf-input--invalid': invalid && !disabled,
-        'vsf-input--readonly': readonly && !readonlyWithoutStyling,
       },
     ]"
     data-testid="input"

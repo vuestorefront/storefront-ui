@@ -1,24 +1,10 @@
 import classNames from 'classnames';
 import type { VsfSelectDropdownProps } from './types';
 import { VsfSelectDropdownSize } from './types';
-import { VsfInput, VsfInputSize } from '../VsfInput';
 import { VsfDropdownInternal } from '../VsfDropdownInternal';
 import { VsfDropdownMenu } from '../VsfDropdownMenu';
 import { VsfIconExpandMore } from '../VsfIcons';
 import { VsfListItemMenu } from '../VsfListItemMenu';
-
-function selectDropdownSize(size: `${VsfSelectDropdownSize}`) {
-  switch (size) {
-    case VsfSelectDropdownSize.sm:
-      return VsfInputSize.sm;
-
-    case VsfSelectDropdownSize.lg:
-      return VsfInputSize.lg;
-
-    default:
-      return VsfInputSize.base;
-  }
-}
 
 export default function VsfSelectDropdown({
   options,
@@ -42,30 +28,44 @@ export default function VsfSelectDropdown({
   ...attributes
 }: VsfSelectDropdownProps): JSX.Element {
   return (
-    <div className={classNames('vsf-select-dropdown', { 'vsf-select-dropdown--disabled': disabled }, className)}>
+    <div
+      className={classNames('vsf-select-dropdown', { 'vsf-select-dropdown--disabled': disabled }, className)}
+      data-testid="select-dropdown"
+    >
       <VsfDropdownInternal
         open={open}
         slotTrigger={
-          <VsfInput
-            placeholder={placeholder}
-            required={required}
-            label={label}
-            invalid={invalid}
-            disabled={disabled}
-            size={selectDropdownSize(size)}
-            value={value}
-            className="vsf-select-dropdown__input"
-            onChange={onChange}
-            readonly
-            readonlyWithoutStyling
-            slotSuffix={
+          <label
+            className={classNames('vsf-select-dropdown__label', { 'vsf-select-dropdown__label--disabled': disabled })}
+          >
+            {label}
+            <span
+              className={classNames(
+                'vsf-select-dropdown__trigger',
+                `vsf-select-dropdown__trigger--${size}`,
+                { 'vsf-select-dropdown__trigger--invalid': invalid },
+                { 'vsf-select-dropdown__trigger--required': required && !value },
+                { 'vsf-select-dropdown__trigger--disabled': disabled },
+              )}
+              tabIndex={disabled ? undefined : 0}
+            >
+              {!value && (
+                <span
+                  className={classNames('vsf-select-dropdown__placeholder', {
+                    'vsf-select-dropdown__placeholder--hidden': !placeholder,
+                  })}
+                >
+                  {placeholder}
+                </span>
+              )}
+              <span>{value}</span>
               <VsfIconExpandMore
                 className={classNames('vsf-select-dropdown__chevron', {
-                  'vsf-combobox__icons-chevron--rotate': open && !disabled,
+                  'vsf-select-dropdown__chevron--up': open && !disabled,
                 })}
               />
-            }
-          />
+            </span>
+          </label>
         }
         onOpenUpdate={onOpenUpdate}
         className="vsf-select-dropdown-internal"
