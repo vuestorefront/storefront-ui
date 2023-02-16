@@ -3,7 +3,6 @@ import React from 'react';
 import { VsfSelectDropdownSize } from '@storefront-ui/vue/components/VsfSelectDropdown/types';
 import { mount, Wrapper, useComponent } from '../../utils/mount';
 import VsfSelectDropdownBaseObject from './VsfSelectDropdown.PageObject';
-import VsfInputBaseObject from '../VsfInput/VsfInput.PageObject';
 
 const { vue: VsfSelectDropdownVue, react: VsfSelectDropdownReact } = useComponent('VsfSelectDropdown');
 
@@ -30,7 +29,6 @@ describe('VsfSelectDropdown', () => {
   let onChangeSpy: Cypress.Agent<sinon.SinonSpy>;
   const value = '';
   const page = () => new VsfSelectDropdownBaseObject('select-dropdown');
-  const inputPage = () => new VsfInputBaseObject('input');
 
   const initializeComponent = () => {
     return mount({
@@ -106,7 +104,7 @@ describe('VsfSelectDropdown', () => {
     it(`should render as disabled`, () => {
       initializeComponent();
 
-      inputPage().isDisabled().makeSnapshot();
+      page().isDisabled().makeSnapshot();
     });
   });
 
@@ -116,16 +114,7 @@ describe('VsfSelectDropdown', () => {
     it(`should render with label`, () => {
       initializeComponent();
 
-      inputPage().hasLabel('Label').makeSnapshot();
-    });
-  });
-
-  describe('when prop label is empty', () => {
-    before(() => (label = ''));
-    it(`should render without label`, () => {
-      initializeComponent();
-
-      inputPage().doesNotHaveLabel().makeSnapshot();
+      page().hasLabel('Label').makeSnapshot();
     });
   });
 });

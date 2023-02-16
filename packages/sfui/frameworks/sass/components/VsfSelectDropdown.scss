@@ -1,12 +1,47 @@
 .vsf-select-dropdown {
+  $self: &;
   @apply cursor-pointer;
 
-  &__input {
-    .vsf-input__field {
-      @apply caret-transparent cursor-pointer disabled:cursor-not-allowed focus:caret-transparent;
+  &__label {
+    @apply font-medium text-sm;
+
+    &--disabled {
+      @apply text-gray-500/50 cursor-not-allowed;
     }
   }
 
+  &__trigger {
+    @apply flex items-center relative font-normal ring-1 ring-gray-200 ring-inset rounded-md rounded-md py-2 px-4 bg-white hover:ring-primary-700 active:ring-primary-700 active:ring-2 focus-within:ring-primary-700 focus-within:ring-2 cursor-pointer;
+
+    &--sm {
+      @apply py-1.5 text-sm;
+    }
+  
+    &--lg {
+      @apply py-3 text-base;
+    }
+
+    &--invalid, &--required {
+      @apply ring-2 ring-negative-700;
+    }
+
+    &--disabled {
+      @apply cursor-not-allowed bg-gray-100/50 ring-gray-200 ring-1 hover:ring-gray-200 active:ring-gray-200 active:ring-gray-200 active:ring-1 cursor-not-allowed;
+
+      #{$self}__placeholder {
+        @apply bg-transparent text-gray-500/50;
+      }
+    }
+  }
+
+  &__placeholder {
+    @apply text-gray-500;
+
+    &--hidden {
+      @apply after:content-['\200B'];
+    }
+  }
+  
   &-internal {
     &,
     &__trigger {
@@ -18,9 +53,14 @@
     }
   }
 
-  &__chevron--up {
-    @apply rotate-180;
+  &__chevron {
+    @apply absolute right-0 mr-3 text-gray-500;
+
+    &--up {
+      @apply rotate-180;
+    }
   }
+    
 
   &__list-item {
     @apply w-full;
@@ -37,7 +77,7 @@
   &--disabled {
     @apply cursor-not-allowed;
 
-    .vsf-select-dropdown__chevron, .vsf-select-dropdown__help-text, .vsf-input__field {
+    .vsf-select-dropdown__chevron, .vsf-select-dropdown__help-text {
       @apply opacity-50;
     }
   }

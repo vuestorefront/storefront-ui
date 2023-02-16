@@ -16,6 +16,16 @@ export default class VsfSelectDropdownBaseObject extends BasePage {
     return this;
   }
 
+  isDisabled() {
+    this.container.should('have.class', 'vsf-select-dropdown--disabled');
+    return this;
+  }
+
+  hasLabel(label: string) {
+    this.container.contains(label);
+    return this;
+  }
+
   get requiredElement() {
     return this.findTestElement('select-dropdown-required-text');
   }
