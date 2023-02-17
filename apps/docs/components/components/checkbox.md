@@ -13,7 +13,7 @@ description: A checkbox is an input that has three possible values - true, false
 
 Used especially for forms or expressing consents.
 
-For filtering use [ListItemFilterCheckbox]() component instead of Checkbox.
+For filtering use [ListItemFilterCheckbox](listitemfiltercheckbox.md) component instead of Checkbox.
 
 ## Props
 
