@@ -27,7 +27,7 @@ export default {
   computed: {
     components() {
       const list = this.type === 'react' ? components.react : components.vue;
-      return list.filter((c) => !/VsfIcon.+/.test(c));
+      return list;
     },
   },
   methods: {
