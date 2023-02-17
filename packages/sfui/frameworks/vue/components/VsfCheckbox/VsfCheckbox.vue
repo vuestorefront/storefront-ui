@@ -78,7 +78,10 @@ const proxyChecked = computed({
 <template>
   <component
     :is="labelTag || 'label'"
-    :class="['vsf-checkbox', { 'vsf-checkbox--disabled': disabled, 'vsf-checkbox--required': required }]"
+    :class="[
+      'vsf-checkbox',
+      { 'vsf-checkbox--disabled': disabled, 'vsf-checkbox--required': !indeterminate && required },
+    ]"
     data-testid="checkbox"
   >
     <span class="vsf-checkbox__wrapper" :class="`vsf-checkbox__wrapper--alignment-${alignment}`">
@@ -90,7 +93,7 @@ const proxyChecked = computed({
         }"
         type="checkbox"
         :disabled="disabled"
-        :required="required"
+        :required="!indeterminate && required"
         :indeterminate="indeterminate"
         :value="value"
         :role="role || undefined"
@@ -117,7 +120,11 @@ const proxyChecked = computed({
         {{ helpText }}
       </span>
     </span>
-    <span v-if="required && requiredText" class="vsf-checkbox__required-text" data-testid="checkbox-required-text">
+    <span
+      v-if="!indeterminate && required && requiredText"
+      class="vsf-checkbox__required-text"
+      data-testid="checkbox-required-text"
+    >
       {{ requiredText }}
     </span>
   </component>
