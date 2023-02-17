@@ -98,8 +98,8 @@ jobs:
     name: Run cypress tests(Vue)
     needs: [cache, lint]
     runs-on: ubuntu-latest
-    permissions:
-      pull-requests: write
+    # permissions:
+    #   pull-requests: write
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -115,25 +115,25 @@ jobs:
         with:
           command: yarn test:ci:vue
 
-      - name: Run nyc report generation
-        id: code_coverage
-        run: |
-          CoverageOutput=$(cd apps/preview/vue; yarn display-coverage)
-          CoverageOutput="$(sed 1d <<<"$CoverageOutput")"
-          CoverageOutput="${CoverageOutput//'%'/'%25'}"
-          CoverageOutput="${CoverageOutput//$'\n'/'%0A'}"
-          CoverageOutput="${CoverageOutput//$'\r'/'%0D'}"
-          echo "::set-output name=coverage::$CoverageOutput"
+      # - name: Run nyc report generation
+      #   id: code_coverage
+      #   run: |
+      #     CoverageOutput=$(cd apps/preview/vue; yarn display-coverage)
+      #     CoverageOutput="$(sed 1d <<<"$CoverageOutput")"
+      #     CoverageOutput="${CoverageOutput//'%'/'%25'}"
+      #     CoverageOutput="${CoverageOutput//$'\n'/'%0A'}"
+      #     CoverageOutput="${CoverageOutput//$'\r'/'%0D'}"
+      #     echo "::set-output name=coverage::$CoverageOutput"
 
-      - name: Add codecoverage comments
-        uses: mshick/add-pr-comment@a65df5f64fc741e91c59b8359a4bc56e57aaf5b1
-        with:
-          message: |
-            <details><summary>Code coverage report for <b>Vue</b></summary>
+      # - name: Add codecoverage comments
+      #   uses: mshick/add-pr-comment@a65df5f64fc741e91c59b8359a4bc56e57aaf5b1
+      #   with:
+      #     message: |
+      #       <details><summary>Code coverage report for <b>Vue</b></summary>
 
-            ${{ steps.code_coverage.outputs.coverage }}
+      #       ${{ steps.code_coverage.outputs.coverage }}
 
-            </details>
+      #       </details>
 
   cypress-react:
     name: Run cypress tests(react)
