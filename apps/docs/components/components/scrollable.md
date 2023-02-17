@@ -40,6 +40,9 @@ NOTE: Some of the mobile browsers (e.g. iOS Safari) will hide scrollbar even whe
 | next-button | scoped slot content for next button     |
 <!-- end vue -->
 
+When using Arrow `left` and `right` focus is bound within Scrollable and looking for group `data-group` attribute.
+However when cycle with `Tab`/`Tab + Shift` then `focus` will be able to move outside Scrollable component.
+
 ## Source code
 
 <!-- vue -->

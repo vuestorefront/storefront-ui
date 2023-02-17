@@ -27,8 +27,24 @@ const slotTriggerOptions = createControlsOptions({
   button: h(VsfButton, 'Trigger for dropdown'),
 });
 const childrenOptions = createControlsOptions({
-  menu: h(VsfDropdownMenu, { class: 'w-80' }, 'Dropdown'),
-  text: h('p', 'Content'),
+  menu: h(VsfDropdownMenu, { class: 'w-80' }, [
+    h(
+      'li',
+      {
+        class: 'w-80 focus:outline focus:outline-offset-2 focus:outline-2 outline-secondary-600 text-center',
+        tabindex: 0,
+      },
+      'Dropdown',
+    ),
+    h(
+      'li',
+      {
+        class: 'w-80 focus:outline focus:outline-offset-2 focus:outline-2 outline-secondary-600 text-center',
+        tabindex: 0,
+      },
+      'Dropdown',
+    ),
+  ]),
 });
 
 export default {

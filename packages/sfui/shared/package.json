@@ -5,18 +5,18 @@
   "sideEffects": false,
   "exports": {
     ".": {
-      "import": "./dist/index.esm.mjs",
-      "require": "./dist/index.js"
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.umd.js"
     },
     "./*": "./*"
   },
   "source": "index.ts",
-  "main": "dist/index.js",
+  "main": "dist/index.es.js",
   "unpkg": "dist/index.umd.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "dev": "microbundle watch",
-    "build:shared": "microbundle --compress"
+    "dev": "vite build --watch",
+    "build:shared": "vite build"
   },
   "homepage": "https://docs.storefrontui.io/v2/",
   "repository": {
@@ -27,8 +27,11 @@
     "url": "https://github.com/vuestorefront/sfui2/issues"
   },
   "devDependencies": {
-    "microbundle": "0.15.1",
-    "typescript": "~4.7.4"
+    "tabbable": "^6.0.1",
+    "typescript": "~4.7.4",
+    "vite": "^4.1.1",
+    "vite-plugin-dts": "^1.7.2",
+    "vue-tsc": "^1.0.24"
   },
   "publishConfig": {
     "access": "public"

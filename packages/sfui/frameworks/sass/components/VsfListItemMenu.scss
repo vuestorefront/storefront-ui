@@ -1,6 +1,6 @@
 .vsf-list-item-menu {
   $self: &;
-  @apply relative inline-flex text-left items-center font-normal font-body text-base w-full bg-transparent hover:bg-gray-100 active:bg-gray-100 cursor-pointer;
+  @apply relative inline-flex text-left items-center font-normal font-body text-base w-full bg-transparent hover:bg-gray-100 active:bg-gray-100 cursor-pointer focus:outline focus:outline-offset-2 focus:outline-2 outline-secondary-600 focus:z-1;
 
   &__content {
     @apply flex flex-col w-full min-w-0;

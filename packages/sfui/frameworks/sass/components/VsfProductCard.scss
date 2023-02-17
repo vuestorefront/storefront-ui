@@ -6,19 +6,19 @@
   @mixin vertical-base {
     #{$self}__details {
       @apply p-4;
-  
+
       &-title {
         @apply text-base;
       }
-  
+
       &-description {
         @apply text-sm;
       }
-  
+
       &-prices-main {
         @apply leading-7 text-lg;
       }
-  
+
       &-add-to-cart {
         @apply mb-0;
       }
@@ -28,19 +28,19 @@
   @mixin vertical-sm {
     #{$self}__details {
       @apply p-2;
-  
+
       &-title {
         @apply text-sm;
       }
-  
+
       &-description {
         @apply text-xs;
       }
-  
+
       &-prices-main {
         @apply leading-5 text-sm;
       }
-  
+
       &-add-to-cart {
         @apply mb-2;
       }
@@ -86,27 +86,27 @@
 
     #{$self}__details {
       @apply flex-col;
-  
+
       &-in-cart {
         @apply relative mb-2;
       }
-  
+
       &-title {
         @apply text-sm;
       }
-  
+
       &-description {
         @apply text-xs;
       }
-  
+
       &-prices-main {
         @apply leading-5 text-sm;
       }
-  
+
       &-wrapper {
         @apply flex-col mt-2;
       }
-  
+
       &-add-to-cart {
         @apply mr-auto;
       }
@@ -126,7 +126,7 @@
       #{$self}__image-bottom-button {
         @apply ml-auto rounded-full pointer-events-auto;
       }
-    }    
+    }
 
     &--out-of-stock {
       @apply opacity-50;
@@ -170,15 +170,15 @@
         @apply ml-2 text-xs font-normal leading-4 text-gray-500 line-through;
       }
     }
-    
+
     &-add-to-cart {
-      @apply border rounded-md cursor-pointer font-body uppercase disabled:cursor-not-allowed outline-violet disabled:text-gray-500 disabled:opacity-50 leading-5 text-sm bg-primary-500 text-white hover:shadow-medium hover:bg-primary-800 active:bg-primary-900;
-      
+      @apply border rounded-md cursor-pointer font-body uppercase disabled:cursor-not-allowed outline-secondary-600 disabled:text-gray-500 disabled:opacity-50 leading-5 text-sm bg-primary-500 text-white hover:shadow-medium hover:bg-primary-800 active:bg-primary-900;
+
       &--out-of-stock {
         @apply bg-transparent group-hover:ring-primary-300 group-hover:bg-primary-100 group-active:ring-primary-400 group-active:bg-primary-200 group-active:text-primary-700 hover:shadow-medium;
       }
     }
-  }  
+  }
 
   &--sm {
     @apply max-w-[192px];
@@ -212,7 +212,7 @@
     }
 
     #{$self}__details {
-      @apply flex flex-grow p-4 border-none;      
+      @apply flex flex-grow p-4 border-none;
 
       &-rating {
         @apply pt-2;
@@ -220,19 +220,19 @@
 
       &-wrapper {
         @apply flex justify-between;
-      }      
+      }
 
       &-prices {
         @apply py-0;
       }
 
       &-add-to-cart {
-        @apply m-0 mt-2;        
+        @apply m-0 mt-2;
       }
-    }    
+    }
 
     &-base {
-      @include horizontal-base;      
+      @include horizontal-base;
     }
 
     &-sm {
@@ -253,7 +253,7 @@
           @apply w-[192px] h-[192px];
         }
 
-        @include horizontal-base;        
+        @include horizontal-base;
       }
     }
   }

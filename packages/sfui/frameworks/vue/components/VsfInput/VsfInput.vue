@@ -81,9 +81,6 @@ const inputValue = useVModel(props, 'modelValue', emit);
 const isAboveLimit = computed(() => inputValue.value.length > characterLimit.value);
 const charsCount = computed(() => characterLimit.value - modelValue.value.length);
 const inputId = useId();
-const handleFocus = () => {
-  emit('focus');
-};
 </script>
 
 <template>
@@ -116,7 +113,7 @@ const handleFocus = () => {
         :aria-autocomplete="ariaAutocomplete"
         :aria-controls="ariaControls"
         data-testid="input-field"
-        @focus="handleFocus()"
+        @focus="emit('focus')"
       />
       <div v-if="$slots.suffix" class="vsf-input__suffix">
         <slot name="suffix" />

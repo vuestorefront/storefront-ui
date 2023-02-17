@@ -19,12 +19,12 @@ export default class VSFScrollable {
   private dragScrollY: number;
   private dragScrollTop: number;
 
-  private scrollListenerInstance: () => void;
-  private resizeListenerInstance: () => void;
-  private mouseDownListenerInstance: () => void;
-  private mouseUpListenerInstance: () => void;
-  private mouseMoveListenerInstance: () => void;
-  private mouseLeaveListenerInstance: () => void;
+  private scrollListenerInstance: (event: Event) => void = () => undefined;
+  private resizeListenerInstance: () => void = () => undefined;
+  private mouseDownListenerInstance: (event: MouseEvent) => void = () => undefined;
+  private mouseUpListenerInstance: (event: MouseEvent) => void = () => undefined;
+  private mouseMoveListenerInstance: (event: MouseEvent) => void = () => undefined;
+  private mouseLeaveListenerInstance: (event: MouseEvent) => void = () => undefined;
 
   constructor(container: Element, VsfScrollableOptions?: Partial<VsfScrollableOptions>) {
     if (!(container instanceof HTMLElement))

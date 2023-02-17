@@ -1,12 +1,13 @@
-import { useState, forwardRef, FocusEvent } from 'react';
+import { useState, forwardRef, FocusEvent, useRef, useEffect, type KeyboardEvent } from 'react';
 import classNames from 'classnames';
 import { isReduceMotionEnabled } from '@storefront-ui/shared';
 import VsfButton from '../VsfButton/VsfButton';
 import { VsfIconChevronLeft, VsfIconExpandMore, VsfIconChevronRight, VsfIconExpandLess } from '../VsfIcons';
 import type { VsfScrollableProps } from './types';
 import { VsfScrollableNavigation, VsfScrollableScrollbar, VsfScrollableDirection } from './types';
-import { useScrollable } from './scrollable';
+import { useScrollable } from './useScrollable';
 import { VsfButtonVariant, VsfButtonSize } from '../VsfButton';
+import { useTrapFocus } from '../../shared/useTrapFocus/useTrapFocus';
 
 const VsfScrollable = forwardRef<HTMLDivElement, VsfScrollableProps>(
   (
@@ -28,6 +29,7 @@ const VsfScrollable = forwardRef<HTMLDivElement, VsfScrollableProps>(
   ) => {
     const [hasPrev, setHasPrev] = useState<boolean>(true);
     const [hasNext, setHasNext] = useState<boolean>(true);
+    const containerElementRef = useRef<HTMLDivElement>(null);
 
     const isHorizontal = direction === VsfScrollableDirection.horizontal;
     const [containerRef, scrollable] = useScrollable<HTMLDivElement>({
@@ -39,12 +41,18 @@ const VsfScrollable = forwardRef<HTMLDivElement, VsfScrollableProps>(
         setHasNext(next);
       },
     });
+    useEffect(() => {
+      containerRef(containerElementRef.current);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [containerElementRef.current]);
+
     function onClickPrev() {
       return scrollable.current?.prev();
     }
     function onClickNext() {
       return scrollable.current?.next();
     }
+    useTrapFocus(containerElementRef, { arrowFocusGroupSelector: '[data-group]', trapTabs: false });
 
     const prevButtonDefault = (
       <VsfButton
@@ -56,6 +64,7 @@ const VsfScrollable = forwardRef<HTMLDivElement, VsfScrollableProps>(
         disabled={!hasPrev}
         slotPrefix={isHorizontal ? <VsfIconChevronLeft /> : <VsfIconExpandLess />}
         aria-label={ariaLabelPrev}
+        tabindex="-1"
       />
     );
     const nextButtonDefault = (
@@ -68,6 +77,7 @@ const VsfScrollable = forwardRef<HTMLDivElement, VsfScrollableProps>(
         disabled={!hasNext}
         slotPrefix={isHorizontal ? <VsfIconChevronRight /> : <VsfIconExpandMore />}
         aria-label={ariaLabelNext}
+        tabindex="-1"
       />
     );
     const prevNavigation =
@@ -76,11 +86,20 @@ const VsfScrollable = forwardRef<HTMLDivElement, VsfScrollableProps>(
       typeof slotNextButton === 'function' ? slotNextButton({ onClick: onClickNext, hasNext }) : nextButtonDefault;
 
     const focusHandler = (event: FocusEvent) => {
-      const elementIndex = Array.from(scrollable.current?.container.children as ArrayLike<Element>).findIndex(
-        (el) => el === event.target,
-      );
-      scrollable.current?.scrollToIndex(elementIndex);
+      const groupElement = (event?.target as HTMLElement)?.closest('[data-group]');
+      if (groupElement) {
+        const groupElementIndex = Array.from(containerElementRef.current?.children as HTMLCollection).indexOf(
+          groupElement,
+        );
+        scrollable.current?.scrollToIndex(groupElementIndex);
+      }
     };
+    const onKeyDownContainer = (event: KeyboardEvent<HTMLDivElement>) => {
+      if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+        event.preventDefault();
+      }
+    };
+
     return (
       <div
         ref={ref}
@@ -105,13 +124,15 @@ const VsfScrollable = forwardRef<HTMLDivElement, VsfScrollableProps>(
           </div>
         )}
 
+        {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
         <div
-          ref={containerRef}
+          ref={containerElementRef}
           className={classNames(
             'vsf-scrollable__container',
             scrollbar !== VsfScrollableScrollbar.hidden && `vsf-scrollable__container--scroll-${scrollbar}`,
           )}
           onFocus={focusHandler}
+          onKeyDown={onKeyDownContainer}
         >
           {children}
         </div>

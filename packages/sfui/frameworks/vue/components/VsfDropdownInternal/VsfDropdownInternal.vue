@@ -2,6 +2,7 @@
 import { ref, toRefs } from 'vue';
 import type { PropType } from 'vue';
 import { onClickOutside } from '@vueuse/core';
+import { useTrapFocus } from '../../shared/useTrapFocus/useTrapFocus';
 import { ClassProp } from '../../shared/props';
 import { VsfDropdownInternalTriggerEvent, VsfDropdownInternalPlacement } from './types';
 
@@ -30,8 +31,11 @@ const emit = defineEmits<{
   (event: 'update:modelValue', value: boolean): void;
 }>();
 const { modelValue } = toRefs(props);
-const dropdownRef = ref();
+const dropdownRef = ref<HTMLElement>();
+const dropdownDropdownRef = ref();
+
 const onClose = () => emit('update:modelValue', false);
+useTrapFocus(dropdownDropdownRef);
 onClickOutside(dropdownRef, onClose);
 </script>
 
@@ -53,17 +57,24 @@ onClickOutside(dropdownRef, onClose);
     @keydown.esc="onClose"
   >
     <div
-      data-testid="dropdown-trigger"
-      :class="['vsf-dropdown-internal__trigger', triggerClass]"
       v-bind="{
         ...(triggerEvent === VsfDropdownInternalTriggerEvent.click && {
-          onClick: () => $emit('update:modelValue', !modelValue),
+          onMousedown: () => $emit('update:modelValue', !modelValue),
         }),
       }"
+      data-testid="dropdown-trigger"
+      :class="['vsf-dropdown-internal__trigger', triggerClass]"
+      @keydown.enter="$emit('update:modelValue', !modelValue)"
+      @keydown.space="$emit('update:modelValue', !modelValue)"
     >
       <slot name="trigger" />
     </div>
-    <div v-if="modelValue" :class="['vsf-dropdown-internal__dropdown', dropdownClass]" data-testid="dropdown-dropdown">
+    <div
+      v-if="modelValue"
+      ref="dropdownDropdownRef"
+      :class="['vsf-dropdown-internal__dropdown', dropdownClass]"
+      data-testid="dropdown-dropdown"
+    >
       <slot />
     </div>
   </div>

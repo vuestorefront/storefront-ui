@@ -6,7 +6,7 @@
   --vsf-button-padding-right: var(--vsf-button-size-padding);
 
   $self: &;
-  @apply inline-flex items-center justify-center outline-violet font-medium text-base;
+  @apply inline-flex items-center justify-center font-medium text-base focus:outline focus:outline-offset-2 focus:outline-2 outline-secondary-600;
 
   &:not(#{$self}--tile, #{$self}--rounded) {
     @apply rounded-md;

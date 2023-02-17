@@ -25,7 +25,8 @@
   ],
   "dependencies": {
     "@storefront-ui/css": "workspace:*",
-    "@storefront-ui/shared": "workspace:*"
+    "@storefront-ui/shared": "workspace:*",
+    "tabbable": "^6.0.1"
   },
   "devDependencies": {
     "@storefront-ui/eslint-config": "workspace:*",

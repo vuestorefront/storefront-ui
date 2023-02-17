@@ -1,10 +1,10 @@
 <template>
   <ComponentExample :controls-attrs="controlsAttrs">
     <VsfScrollable v-bind="state" :draggable="draggable ? { sensitivity: 3 } : undefined">
-      <div v-for="item in 4" :key="item" tabindex="0">
+      <div v-for="item in 4" :key="item" class="p-1">
         <div class="bg-gray-300 w-[150px] h-[150px] flex justify-center items-center">{{ item }}</div>
       </div>
-      <div v-for="item in 4" :key="item" tabindex="0">
+      <div v-for="item in 4" :key="item" data-group class="p-1">
         <div
           :class="[
             'bg-gray-300',
@@ -12,12 +12,18 @@
             direction === VsfScrollableDirection.horizontal ? 'h-[150px]' : 'h-[200px]',
             'flex justify-center',
             'items-center',
+            'focus-within:outline-2',
+            'focus-within:outline',
+            'outline-secondary-600',
+            'flex-col',
           ]"
         >
           {{ item + 4 }}
+          <button type="button">Focus Example</button>
+          <button type="button">Focus Example</button>
         </div>
       </div>
-      <div v-for="item in 4" :key="item" tabindex="0">
+      <div v-for="item in 4" :key="item" class="p-1">
         <div class="bg-gray-300 w-[150px] h-[150px] flex justify-center items-center">{{ item + 8 }}</div>
       </div>
       <template v-if="ExampleCustomNav" #prev-button="{ onClick, hasPrev }">

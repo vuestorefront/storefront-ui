@@ -34,13 +34,11 @@ description: A Combobox is a kind of select with search option (used for long li
 <!-- end react -->
 
 <!-- vue -->
-
 ## Events
 
 | Event name        |            Trigger             |
 | ----------------- | :----------------------------: |
 | update:modelValue | triggers v-model update event  |
-
 <!-- end vue -->
 
 ## Accessibility notes
@@ -48,6 +46,8 @@ description: A Combobox is a kind of select with search option (used for long li
 Keyboard users can use `tab` to focus on `input`
 Used an `input` element with `type="text"`, for single-line input.
 Dropdown content should use `role="option"`.
+
+When Combobox is opened `focus` is trapped within it's dropdown container.
 
 ## Source code
 

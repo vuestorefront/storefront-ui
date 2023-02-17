@@ -59,7 +59,7 @@ function Example() {
           <p className="mt-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
 
           <footer className="mt-4 flex justify-end gap-4">
-            <VsfButton autoFocus variant={VsfButtonVariant.secondary} onClick={() => onClose('Close')}>
+            <VsfButton variant={VsfButtonVariant.secondary} onClick={() => onClose('Close')}>
               Close
             </VsfButton>
             <VsfButton onClick={() => onClose('Accept')}>Accept</VsfButton>

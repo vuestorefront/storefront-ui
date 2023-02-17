@@ -52,10 +52,14 @@ description: This component is an alternative option for VsfSelect component. It
 ## Accessibility notes
 
 When providing custom <!-- react -->DOM children<!-- end react --><!-- vue -->default slot content<!-- end vue --> you should use aria `role` attribute:
- - `role="listbox"` for content wrapper,
- - `role="option"` for each of the options.
- 
+
+- `role="listbox"` for content wrapper,
+
+- `role="option"` for each of the options.
+
 For more detailed description, have a look at [MDN documentation about this topic](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/listbox_role).
+
+When SelectDropdown is opened `focus` is trapped within it's dropdown container.
 
 ## Source code
 

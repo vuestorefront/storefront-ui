@@ -8,6 +8,7 @@ import { ref, toRefs, watch } from 'vue';
 import { VsfButton, VsfButtonVariant } from '../VsfButton';
 import { VsfIconClose } from '../VsfIcons';
 import { waitForElementInDOM } from '../../shared/render';
+import { useTrapFocus } from '../../shared/useTrapFocus/useTrapFocus';
 
 const props = defineProps({
   modelValue: {
@@ -56,6 +57,8 @@ watch(
   },
   { immediate: true },
 );
+
+useTrapFocus(dialogRef, { activeState: modelValue });
 </script>
 
 <template>
