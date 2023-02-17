@@ -35,7 +35,7 @@ export default function VsfCheckbox({
         'vsf-checkbox',
         {
           'vsf-checkbox--disabled': disabled,
-          'vsf-checkbox--required': required,
+          'vsf-checkbox--required': !indeterminate && required,
           'vas-checkbox--invalid': invalid && !checked,
         },
         className,
@@ -52,7 +52,7 @@ export default function VsfCheckbox({
           })}
           type="checkbox"
           disabled={disabled}
-          required={required}
+          required={!indeterminate && required}
           checked={checked}
           ref={checkboxRef}
           value={value}
@@ -81,7 +81,7 @@ export default function VsfCheckbox({
           )}
         </div>
       ) : null}
-      {required && requiredText && (
+      {!indeterminate && required && requiredText && (
         <span className="vsf-checkbox__required-text" data-testid="checkbox-required-text">
           {requiredText}
         </span>
