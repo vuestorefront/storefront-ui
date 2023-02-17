@@ -8,6 +8,8 @@ description: IconBase component itself gets the icon content data and render it 
 
 {{ $frontmatter.description }}
 
+<Generate />
+
 ## Notes
 
 StorefrontUI icons are generated vie `createIcons` script and they are based on `IconBase` component
