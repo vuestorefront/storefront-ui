@@ -9,7 +9,7 @@
     @apply hidden sm:block;
 
     &-link {
-      @apply leading-5 whitespace-nowrap hover:text-primary-700 hover:underline active:text-primary-800 outline-violet;
+      @apply leading-5 whitespace-nowrap hover:text-primary-700 hover:underline active:text-primary-800 outline-secondary-600;
 
       &-icon {
         &,
@@ -35,7 +35,7 @@
 
   &__dropdown {
     &-button {
-      @apply leading-5 relative block sm:hidden outline-violet rounded-sm;
+      @apply leading-5 relative block sm:hidden outline-secondary-600 rounded-sm;
     }
 
     &-list {
@@ -50,7 +50,7 @@
       }
 
       &-button {
-        @apply leading-5 align-middle rounded-sm whitespace-nowrap hover:text-primary-700 hover:underline active:underline active:text-primary-800 outline-violet;
+        @apply leading-5 align-middle rounded-sm whitespace-nowrap hover:text-primary-700 hover:underline active:underline active:text-primary-800 outline-secondary-600;
       }
     }
   }

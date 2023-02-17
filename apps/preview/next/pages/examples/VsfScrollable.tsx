@@ -110,14 +110,12 @@ function Example() {
         slotNextButton={state.get.ExampleCustomNav ? NavigationNext : undefined}
       >
         {Array.from(Array(4).keys()).map((item) => (
-          // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
-          <div key={item} data-index={item + 1} tabIndex={0}>
+          <div key={item}>
             <div className="bg-gray-300 w-[150px] h-[150px] flex justify-center items-center">{item + 1}</div>
           </div>
         ))}
         {Array.from(Array(4).keys()).map((item) => (
-          // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
-          <div key={item} data-index={item + 5} tabIndex={0}>
+          <div key={item} data-group className="p-1">
             <div
               className={classNames(
                 'bg-gray-300',
@@ -125,15 +123,20 @@ function Example() {
                 state.get.direction === VsfScrollableDirection.horizontal ? 'h-[150px]' : 'h-[200px]',
                 'flex justify-center',
                 'items-center',
+                'focus-within:outline-2',
+                'focus-within:outline',
+                'outline-secondary-600',
+                'flex-col',
               )}
             >
               {item + 5}
+              <button type="button">Focus Example</button>
+              <button type="button">Focus Example</button>
             </div>
           </div>
         ))}
         {Array.from(Array(4).keys()).map((item) => (
-          // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
-          <div key={item} data-index={item + 9} tabIndex={0}>
+          <div key={item}>
             <div className="bg-gray-300 w-[150px] h-[150px] flex justify-center items-center">{item + 9}</div>
           </div>
         ))}

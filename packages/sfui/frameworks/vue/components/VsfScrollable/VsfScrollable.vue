@@ -2,9 +2,12 @@
 import type { PropType } from 'vue';
 import { ref, toRefs, defineAsyncComponent, computed } from 'vue';
 import { isReduceMotionEnabled } from '@storefront-ui/shared';
+import { useEventListener } from '@vueuse/core';
 import { VsfScrollableNavigation, VsfScrollableScrollbar, VsfScrollableDirection } from './types';
 import { VsfButtonVariant, VsfButtonSize } from '../VsfButton';
-import { useScrollable } from './scrollable';
+import { useScrollable } from './useScrollable';
+import { useTrapFocus } from '../../shared/useTrapFocus/useTrapFocus';
+
 const VsfButton = defineAsyncComponent(() => import('../VsfButton/VsfButton.vue'));
 const VsfIconChevronLeft = defineAsyncComponent(() => import('../VsfIcons/VsfIconChevronLeft.vue'));
 const VsfIconChevronRight = defineAsyncComponent(() => import('../VsfIcons/VsfIconChevronRight.vue'));
@@ -51,7 +54,7 @@ const hasPrev = ref();
 const hasNext = ref();
 
 const isHorizontal = computed(() => direction.value === VsfScrollableDirection.horizontal);
-const [container, scrollable] = useScrollable(
+const [containerRef, scrollable] = useScrollable(
   computed(() => ({
     reduceMotion: isReduceMotionEnabled,
     drag: draggable?.value,
@@ -64,13 +67,20 @@ const [container, scrollable] = useScrollable(
 );
 const onClickPrev = () => scrollable.value?.prev();
 const onClickNext = () => scrollable.value?.next();
-
 const focusHandler = (event: FocusEvent) => {
-  const elementIndex = Array.from(scrollable.value?.container.children as ArrayLike<Element>).findIndex(
-    (el) => el === event.target,
-  );
-  scrollable.value?.scrollToIndex(elementIndex);
+  const groupElement = (event?.target as HTMLElement)?.closest('[data-group]');
+  if (groupElement) {
+    const groupElementIndex = Array.from(containerRef.value?.children as HTMLCollection).indexOf(groupElement);
+    scrollable.value?.scrollToIndex(groupElementIndex);
+  }
 };
+
+useTrapFocus(containerRef, { arrowFocusGroupSelector: '[data-group]', trapTabs: false });
+useEventListener(containerRef, 'keydown', (event: KeyboardEvent) => {
+  if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+    event.preventDefault();
+  }
+});
 </script>
 
 <template>
@@ -96,6 +106,7 @@ const focusHandler = (event: FocusEvent) => {
           class="vsf-scrollable__nav-arrow"
           :disabled="!hasPrev"
           :aria-label="ariaLabelPrev"
+          tabindex="-1"
           @click="onClickPrev"
         >
           <template #prefix>
@@ -106,7 +117,7 @@ const focusHandler = (event: FocusEvent) => {
       </slot>
     </div>
     <div
-      ref="container"
+      ref="containerRef"
       :class="[
         'vsf-scrollable__container',
         scrollbar !== VsfScrollableScrollbar.hidden && `vsf-scrollable__container--scroll-${scrollbar}`,
@@ -126,6 +137,7 @@ const focusHandler = (event: FocusEvent) => {
           rounded
           :class="['vsf-scrollable__nav-arrow', { 'vsf-scrollable__nav-arrow--hidden': !hasNext }]"
           :disabled="!hasNext"
+          tabindex="-1"
           :aria-label="ariaLabelNext"
           @click="onClickNext"
         >

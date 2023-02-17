@@ -54,7 +54,6 @@ const componentDisabled = computed(() => (!link?.value ? disabled?.value : undef
 </script>
 
 <template>
-  <!-- TODO: Replace with Link component when ready -->
   <component
     :is="componentTag"
     :href="link"

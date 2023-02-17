@@ -47,6 +47,8 @@ Dialog contains tab sequence which means, `Tab` and `Shift + Tab` do not move fo
 
 The `<dialog>` element is exposed by browsers similarly to custom dialogs using the ARIA `role="dialog"` attribute. `<dialog>` elements invoked by the showModal() method will have an implicit `aria-modal="true"`, where as `<dialog>` elements invoked by the `show()` method, or rendered by use of the open attribute or changing the default display of a `<dialog>` will be exposed as `[aria-modal="false"]`.
 
+When Dialog is opened `focus` is trapped within it's root container.
+
 ## Source code
 
 <!-- vue -->

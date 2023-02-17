@@ -14,8 +14,22 @@ import { ExamplePageLayout } from '../examples';
 const slotTriggerOptions = createControlsOptions({
   button: <VsfButton>Trigger for dropdown</VsfButton>,
 });
+const dropdownMenuChildren = () => (
+  <li
+    className="w-80 focus:outline focus:outline-offset-2 focus:outline-2 outline-secondary-600 text-center"
+    // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
+    tabIndex={0}
+  >
+    Dropdown
+  </li>
+);
 const childrenOptions = createControlsOptions({
-  menu: <VsfDropdownMenu className="w-80">Dropdown</VsfDropdownMenu>,
+  menu: (
+    <VsfDropdownMenu className="w-80">
+      {dropdownMenuChildren()}
+      {dropdownMenuChildren()}
+    </VsfDropdownMenu>
+  ),
   text: 'Content',
 });
 

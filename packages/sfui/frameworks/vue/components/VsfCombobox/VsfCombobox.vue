@@ -69,8 +69,9 @@ const proxySelected = computed({
         >
           <template #suffix>
             <div class="vsf-combobox__icons">
+              <!-- TODO: cant go to claer button when its hidden while dropdown closed focus trap prevent us from go with tab and marking it -->
               <button
-                v-if="!disabled && isDropdownOpened"
+                v-if="!disabled && isDropdownOpened && modelValue"
                 type="button"
                 class="vsf-combobox__icons-cancel"
                 @click="emit('update:modelValue', '')"

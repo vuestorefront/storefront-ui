@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { ref } from 'vue';
 import VsfLoaderCircular from '../VsfLoaderCircular/VsfLoaderCircular.vue';
 
 defineProps({
@@ -7,10 +8,12 @@ defineProps({
     default: false,
   },
 });
+
+const dropdownMenuRef = ref();
 </script>
 
 <template>
-  <ul class="vsf-dropdown-menu" role="menu" data-testid="dropdown-menu">
+  <ul ref="dropdownMenuRef" class="vsf-dropdown-menu" role="menu" data-testid="dropdown-menu">
     <slot v-if="loading" name="loader">
       <div class="vsf-dropdown-menu__loader" data-testid="dropdown-menu-loader">
         <VsfLoaderCircular />

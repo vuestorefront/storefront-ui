@@ -5,6 +5,7 @@ import { useRef } from 'react';
 import type { KeyboardEvent } from 'react';
 import type { VsfDropdownInternalProps } from './types';
 import { VsfDropdownInternalTriggerEvent, VsfDropdownInternalPlacement } from './types';
+import { useTrapFocus } from '../../shared/useTrapFocus/useTrapFocus';
 
 export default function VsfDropdownInternal({
   open,
@@ -20,13 +21,19 @@ export default function VsfDropdownInternal({
   ...attributes
 }: VsfDropdownInternalProps): JSX.Element {
   const dropdownRef = useRef(null);
+  const dropdownDropdownRef = useRef(null);
 
   const isHoverEvent = () => triggerEvent === VsfDropdownInternalTriggerEvent.hover;
   const isClickEvent = () => triggerEvent === VsfDropdownInternalTriggerEvent.click;
   const onClose = () => onOpenUpdate?.(false);
   useClickAway(dropdownRef, onClose);
+  useTrapFocus(dropdownDropdownRef);
   const onEscClick = (event: KeyboardEvent<HTMLDivElement>) => {
     if (event.key === 'Escape') onClose();
+  };
+
+  const onKeyDownTrigger = (event: KeyboardEvent) => {
+    if (event.code === 'Enter' || event.code === 'Space') onOpenUpdate?.(!open);
   };
 
   return (
@@ -50,11 +57,16 @@ export default function VsfDropdownInternal({
         data-testid="dropdown-trigger"
         className={classNames('vsf-dropdown-internal__trigger', triggerClass)}
         onClick={() => (isClickEvent() ? onOpenUpdate?.(!open) : noop)}
+        onKeyDown={onKeyDownTrigger}
       >
         {slotTrigger}
       </div>
       {open ? (
-        <div className={classNames('vsf-dropdown-internal__dropdown', dropdownClass)} data-testid="dropdown-dropdown">
+        <div
+          className={classNames('vsf-dropdown-internal__dropdown', dropdownClass)}
+          data-testid="dropdown-dropdown"
+          ref={dropdownDropdownRef}
+        >
           {children}
         </div>
       ) : null}

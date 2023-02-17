@@ -8,7 +8,7 @@
         <p class="mt-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
 
         <footer class="mt-4 flex justify-end gap-4">
-          <VsfButton autofocus :variant="VsfButtonVariant.secondary" @click="onClose('Close')">Close</VsfButton>
+          <VsfButton :variant="VsfButtonVariant.secondary" @click="onClose('Close')">Close</VsfButton>
           <VsfButton @click="onClose('Accept')">Accept</VsfButton>
         </footer>
       </section>

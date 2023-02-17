@@ -2,7 +2,7 @@
   @apply inline-flex rounded-md disabled:opacity-50 disabled:cursor-not-allowed;
 
   &:focus-within {
-    @apply outline outline-2 outline-violet rounded-md;
+    @apply outline outline-offset-2 outline-2 outline-secondary-600 rounded-md;
   }
 
   &__legend,
@@ -10,7 +10,7 @@
     @apply absolute appearance-none border-0 p-0 m-0 h-px w-px overflow-hidden whitespace-nowrap opacity-0;
   }
 
-  &__input {  
+  &__input {
     &--zero-item {
       @apply hidden;
     }
@@ -19,10 +19,10 @@
   &__icon {
     & svg {
       @apply text-gray-500;
-    }   
-    
+    }
+
     &--filled svg {
       @apply text-primary-500;
     }
-  } 
+  }
 }

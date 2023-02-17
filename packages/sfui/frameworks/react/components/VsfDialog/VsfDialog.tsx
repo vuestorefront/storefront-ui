@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import type { VsfDialogProps } from './types';
 import { VsfButton, VsfButtonVariant } from '../VsfButton';
 import VsfIconClose from '../VsfIcons/VsfIconClose';
+import { useTrapFocus } from '../../shared/useTrapFocus/useTrapFocus';
 
 export default function VsfDialog({
   open,
@@ -34,6 +35,8 @@ export default function VsfDialog({
       dialogRef.current?.close();
     }
   }, [open, dialogRef]);
+
+  useTrapFocus(dialogRef, { activeState: open });
 
   useEffect(() => {
     // There is no onClick event on dialogElement in JSX
