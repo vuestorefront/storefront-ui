@@ -3619,7 +3619,7 @@ __metadata:
     husky: ^8.0.0
     hygen: ^6.2.8
     prettier: latest
-    rimraf: ^3.0.2
+    rimraf: ^4.0.0
     tailwindcss: ^3.1.8
     turbo: latest
     typescript: ^4.9.5
@@ -21404,7 +21404,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rimraf@npm:^4.1.2":
+"rimraf@npm:^4.0.0, rimraf@npm:^4.1.2":
   version: 4.1.2
   resolution: "rimraf@npm:4.1.2"
   bin:
