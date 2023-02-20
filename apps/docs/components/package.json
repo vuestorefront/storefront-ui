@@ -40,6 +40,6 @@
     "vuepress-theme-vsf-docs": "^1.2.3"
   },
   "resolutions": {
-    "webpack-hot-middleware": "2.25.0"
+    "webpack-hot-middleware": "2.25.3"
   }
 }
