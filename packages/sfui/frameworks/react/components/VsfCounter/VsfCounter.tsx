@@ -18,7 +18,7 @@ export default function VsfCounter({
     },
   ]);
   return (
-    <span className={classes} {...attributes}>
+    <span className={classes} data-testid="counter" {...attributes}>
       {children}
     </span>
   );
