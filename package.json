@@ -61,23 +61,16 @@
     "concurrently": "^7.4.0",
     "husky": "^7.0.4",
     "hygen": "^6.2.8",
-    "jw-paginate": "^1.0.4",
-    "node-powershell": "^5.0.1",
-    "nodemon": "^2.0.19",
     "prettier": "latest",
     "rimraf": "^3.0.2",
     "tailwindcss": "^3.1.8",
-    "ts-node-dev": "^2.0.0",
     "turbo": "latest",
-    "typescript": "^4.7.4"
+    "typescript": "^4.9.5"
   },
   "engines": {
     "npm": ">=8.19.1",
     "yarn": ">=1.22.19",
     "node": ">=16.0.0 <17.0.0"
-  },
-  "dependencies": {
-    "cross-env": "^7.0.3"
   },
   "packageManager": "yarn@3.2.4",
   "config": {

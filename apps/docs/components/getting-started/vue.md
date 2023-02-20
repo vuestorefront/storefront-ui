@@ -6,15 +6,15 @@ Install StorefrontUI by running one of the following commands:
 
 
 ```bash
-npm install @storefront-ui/vue @vueuse/core jw-paginate
+npm install @storefront-ui/vue
 ```
 
 ```bash
-yarn add @storefront-ui/vue @vueuse/core jw-paginate
+yarn add @storefront-ui/vue
 ```
 
 ```bash
-pnpm add @storefront-ui/vue @vueuse/core jw-paginate
+pnpm add @storefront-ui/vue
 ```
 
 ## Usage
@@ -36,3 +36,9 @@ import '@storefront-ui/css/storefront-ui.css'
 Congratulation, you're now able to use StrorefrontUI Vue components! :tada:
 
 Now [head to the components page](../vue/components.html) to see more how can they be useful for you!
+
+## Our dependencies
+
+```
+@storefront-ui/css @storefront-ui/shared @vueuse/core jw-paginate tabbable
+```

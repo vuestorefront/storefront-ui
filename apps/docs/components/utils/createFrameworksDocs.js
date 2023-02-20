@@ -1,24 +1,37 @@
 const fs = require('fs');
 const glob = require('glob');
 const path = require('path');
-
+const commandLineArgs = require('command-line-args')
+const options = commandLineArgs([
+  { name: 'event' },
+  { name: 'path' }
+])
 const mdFiles = glob.sync('./components/*.md');
 
 function docsSplit() {
-  for (const file of mdFiles) {
-    let docsContent;
-    try {
-      docsContent = fs.readFileSync(file, 'utf8');
-    } catch (e) {
-      console.warn(`WARN: skipping read md file: ${e.message}`);
-      continue;
-    }
+  if(options.event === 'change') {
+    let docsContent = fs.readFileSync(options.path, 'utf8');
     const reactDocContent = removePart(docsContent, 'vue');
     const vueDocContent = removePart(docsContent, 'react');
 
-    const fileName = path.basename(file);
-    saveDoc(`./react/components/${fileName}`, reactDocContent);
-    saveDoc(`./vue/components/${fileName}`, vueDocContent);
+    saveDoc(`./react/${options.path}`, reactDocContent);
+    saveDoc(`./vue/${options.path}`, vueDocContent);
+  } else {
+    for (const file of mdFiles) {
+      let docsContent;
+      try {
+        docsContent = fs.readFileSync(file, 'utf8');
+      } catch (e) {
+        console.warn(`WARN: skipping read md file: ${e.message}`);
+        continue;
+      }
+      const reactDocContent = removePart(docsContent, 'vue');
+      const vueDocContent = removePart(docsContent, 'react');
+
+      const fileName = path.basename(file);
+      saveDoc(`./react/components/${fileName}`, reactDocContent);
+      saveDoc(`./vue/components/${fileName}`, vueDocContent);
+    }
   }
 }
 

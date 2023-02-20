@@ -26,7 +26,7 @@
   },
   "devDependencies": {
     "@storefront-ui/stylelint-config": "workspace:*",
-    "stylelint": "^14.16.1"
+    "stylelint": "^15.1.0"
   },
   "peerDependencies": {
     "tailwindcss": "^3.0.0"
