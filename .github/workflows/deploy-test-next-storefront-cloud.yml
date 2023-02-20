@@ -22,7 +22,7 @@ jobs:
         id: get_version
         run: echo "VERSION=$(cat version.txt)" >> $GITHUB_OUTPUT
       - name: Build and publish docker image
-        uses: elgohr/Publish-Docker-Github-Action@v4
+        uses: elgohr/Publish-Docker-Github-Action@v5
         with:
           name: sfui-storefrontcloud-io/sfui2-docs-react:${{ steps.get_version.outputs.VERSION }}
           registry: registry.storefrontcloud.io
