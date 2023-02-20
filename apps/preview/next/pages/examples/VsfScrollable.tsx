@@ -110,7 +110,7 @@ function Example() {
         slotNextButton={state.get.ExampleCustomNav ? NavigationNext : undefined}
       >
         {Array.from(Array(4).keys()).map((item) => (
-          <div key={item}>
+          <div key={item} className="p-1">
             <div className="bg-gray-300 w-[150px] h-[150px] flex justify-center items-center">{item + 1}</div>
           </div>
         ))}
@@ -136,7 +136,7 @@ function Example() {
           </div>
         ))}
         {Array.from(Array(4).keys()).map((item) => (
-          <div key={item}>
+          <div key={item} className="p-1">
             <div className="bg-gray-300 w-[150px] h-[150px] flex justify-center items-center">{item + 9}</div>
           </div>
         ))}

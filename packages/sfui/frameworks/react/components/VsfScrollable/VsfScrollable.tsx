@@ -64,7 +64,7 @@ const VsfScrollable = forwardRef<HTMLDivElement, VsfScrollableProps>(
         disabled={!hasPrev}
         slotPrefix={isHorizontal ? <VsfIconChevronLeft /> : <VsfIconExpandLess />}
         aria-label={ariaLabelPrev}
-        tabindex="-1"
+        tabIndex="-1"
       />
     );
     const nextButtonDefault = (
@@ -77,7 +77,7 @@ const VsfScrollable = forwardRef<HTMLDivElement, VsfScrollableProps>(
         disabled={!hasNext}
         slotPrefix={isHorizontal ? <VsfIconChevronRight /> : <VsfIconExpandMore />}
         aria-label={ariaLabelNext}
-        tabindex="-1"
+        tabIndex="-1"
       />
     );
     const prevNavigation =

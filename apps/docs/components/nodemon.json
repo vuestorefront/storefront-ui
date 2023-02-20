@@ -1,5 +1,0 @@
-{
-  "watch": ["components"],
-  "ext": "md",
-  "exec": "yarn update-docs"
-}

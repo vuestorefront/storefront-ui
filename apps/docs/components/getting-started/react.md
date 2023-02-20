@@ -6,15 +6,15 @@ Install StorefrontUI by running one of the following commands:
 
 
 ```bash
-npm install @storefront-ui/react classnames jw-paginate react-transition-group react-use
+npm install @storefront-ui/react
 ```
 
 ```bash
-yarn add @storefront-ui/react classnames jw-paginate react-transition-group react-use
+yarn add @storefront-ui/react
 ```
 
 ```bash
-pnpm add @storefront-ui/react classnames jw-paginate react-transition-group react-use
+pnpm add @storefront-ui/react
 ```
 
 ## Usage
@@ -36,3 +36,9 @@ import '@storefront-ui/css/storefront-ui.css'
 Congratulation, you're now able to use StrorefrontUI React components! :tada:
 
 Now [head to the components page](../vue/components.html) to see more how can they be useful for you!
+
+## Our dependencies
+
+```
+@storefront-ui/css @storefront-ui/shared classnames jw-paginate tabbable react-use react-transition-group
+```

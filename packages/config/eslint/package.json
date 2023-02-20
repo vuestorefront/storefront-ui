@@ -10,19 +10,17 @@
     "cypress.js"
   ],
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.38.1",
-    "@typescript-eslint/parser": "^5.38.1",
+    "@typescript-eslint/eslint-plugin": "^5.52.0",
+    "@typescript-eslint/parser": "^5.52.0",
     "@vue/eslint-config-standard": "^8.0.1",
-    "eslint": "^8.0.0",
+    "eslint": "^8.34.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^17.0.0",
-    "eslint-config-next": "12.2.5",
-    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-next": "^13.1.6",
+    "eslint-config-prettier": "^8.6.0",
     "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-vue": "^9.3.0"
-  },
-  "devDependencies": {
-    "eslint-plugin-cypress": "^2.12.1"
+    "eslint-plugin-vue": "^9.9.0"
   }
 }

@@ -10,6 +10,6 @@
   },
   "devDependencies": {
     "@storefront-ui/eslint-config": "workspace:*",
-    "eslint": "^8.27.0"
+    "eslint": "^8.34.0"
   }
 }
