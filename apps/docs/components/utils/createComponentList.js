@@ -5,10 +5,16 @@ const removeIndexEntry = (paths) => paths.filter((path) => path !== 'index');
 const componentNameFromPath = (paths) => paths.map((path) => path.split('/').pop().split('.')[0]);
 
 const getFrameworkFiles = (frameworkName, componentsExt) => {
-  const componentNames = componentNameFromPath(glob.sync(`./${frameworkName}/components/*.md`));
+  const componentNames = componentNameFromPath(glob.sync(
+    `../components/*.md`,
+    { cwd: __dirname },
+  ));
   const existingDocsNames = removeIndexEntry(componentNames);
   return componentNameFromPath(
-    glob.sync(`../../../packages/sfui/frameworks/${frameworkName}/**/*.${componentsExt}`),
+    glob.sync(
+      `../../../../packages/sfui/frameworks/${frameworkName}/**/*.${componentsExt}`,
+      { cwd: __dirname },
+    ),
   ).filter((name) => existingDocsNames.includes(name.replace('Vsf', '').toLowerCase()));
 };
 
