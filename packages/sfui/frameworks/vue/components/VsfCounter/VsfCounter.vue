@@ -23,6 +23,7 @@ defineProps({
         'vsf-counter--pill': pill,
       },
     ]"
+    data-testid="counter"
   >
     <slot />
   </span>
