@@ -59,7 +59,7 @@
     "babel-preset-node": "^5.1.1",
     "commitizen": "^4.2.5",
     "concurrently": "^7.4.0",
-    "husky": "^7.0.4",
+    "husky": "^8.0.0",
     "hygen": "^6.2.8",
     "prettier": "latest",
     "rimraf": "^3.0.2",
