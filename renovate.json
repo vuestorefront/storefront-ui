@@ -1,6 +1,40 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:base"
+  "timezone": "Europe/Warsaw",
+  "extends": ["config:base", ":disableDependencyDashboard"],
+  "schedule": [
+    "before 5am on Monday"
+  ],
+  "packageRules": [
+    {
+      "extends": "packages:linters",
+      "groupName": "linters",
+      "automerge": true,
+      "automergeType": "branch"
+    },
+    {
+      "extends": "packages:postcss",
+      "groupName": "postcss packages"
+    },
+    {
+      "extends": "packages:test",
+      "groupName": "test packages",
+      "automerge": true,
+      "automergeType": "branch"
+    },
+    {
+      "groupName": "definitelyTyped",
+      "matchPackagePrefixes": ["@types/"],
+      "automerge": true,
+      "automergeType": "branch"
+    },
+    {
+      "matchPackagePatterns": ["*"],
+      "matchUpdateTypes": ["patch"],
+      "groupName": "all non-major dependency bump",
+      "groupSlug": "all-patch",
+      "automerge": true,
+      "automergeType": "branch"
+    }
   ]
 }
