@@ -1,6 +1,6 @@
 <template>
   <ComponentExample :controls-attrs="controlsAttrs">
-    <VsfListItemMenu class="max-w-sm" v-bind="state" @click="selected = !selected">
+    <VsfListItemMenu class="max-w-sm" v-bind="state" :counter="Number(counter)" @click="selected = !selected">
       <template v-if="prefixSlotOptions.getValue(slotPrefix)" #prefix>
         <component :is="prefixSlotOptions.getValue(slotPrefix)" />
       </template>

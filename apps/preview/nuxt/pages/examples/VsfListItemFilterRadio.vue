@@ -1,8 +1,14 @@
 <template>
   <ComponentExample :controls-attrs="controlsAttrs">
     <ul class="max-w-sm">
-      <VsfListItemFilterRadio v-bind="state" v-model="modelValue" />
-      <VsfListItemFilterRadio v-bind="state" v-model="modelValue" :label="`${label}-2`" :value="`${value}-2`" />
+      <VsfListItemFilterRadio v-bind="state" v-model="modelValue" :counter="Number(counter)" />
+      <VsfListItemFilterRadio
+        v-bind="state"
+        v-model="modelValue"
+        :label="`${label}-2`"
+        :value="`${value}-2`"
+        :counter="Number(counter)"
+      />
     </ul>
   </ComponentExample>
 </template>

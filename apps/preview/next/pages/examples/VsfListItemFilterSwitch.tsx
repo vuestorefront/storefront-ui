@@ -97,11 +97,12 @@ function Example() {
   return (
     <ComponentExample controls={{ state, controls }}>
       <ul className="max-w-sm">
-        <VsfListItemFilterSwitch {...state.get} onChange={onChange} />
+        <VsfListItemFilterSwitch {...state.get} counter={Number(state.get.counter)} onChange={onChange} />
         <VsfListItemFilterSwitch
           {...state.get}
           label={`${state.get.label}-2`}
           value={`${state.get.value}-2`}
+          counter={Number(state.get.counter)}
           onChange={onChange}
         />
       </ul>
