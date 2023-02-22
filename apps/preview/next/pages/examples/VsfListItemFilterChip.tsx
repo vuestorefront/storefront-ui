@@ -101,12 +101,13 @@ function Example() {
   return (
     <ComponentExample controls={{ state, controls }}>
       <ul className="max-w-sm">
-        <VsfListItemFilterChip {...state.get} onChange={onChange} />
+        <VsfListItemFilterChip {...state.get} onChange={onChange} counter={Number(state.get.counter)} />
         <VsfListItemFilterChip
           {...state.get}
           label={`${state.get.label}-2`}
           value={`${state.get.value}-2`}
           color="linear-gradient(180deg, #4ADE80 0%, #A78BFA 100%)"
+          counter={Number(state.get.counter)}
           onChange={onChange}
         />
       </ul>
