@@ -3,13 +3,11 @@
     "node_modules",
     "coverage/",
     "cypress",
-    "src/components/sfui/vue/components/VsfIcons",
-    "src/components/sfui/tests"
+    "components/VsfIcons"
   ],
   "include": [
-    "src/components/sfui/vue"
+    "**"
   ],
-  "reporter": [],
   "extension": [".js", ".ts", ".vue"],
   "checkCoverage": true,
   "statements": 83,

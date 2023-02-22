@@ -9,13 +9,14 @@
     "type-check": "vue-tsc --noEmit -p tsconfig.cypress-ct.json --composite false",
     "lints": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "clean": "rimraf ./src/components/sfui",
-    "clean-coverage": "rimraf ./coverage && rimraf ./.nyc_output",
-    "display-coverage": "yarn nyc report --reporter=text",
+    "clean-coverage": "rimraf ./coverage && rimraf ./.nyc_output && rimraf ../../../packages/sfui/frameworks/vue/coverage && rimraf ../../../packages/sfui/frameworks/vue/.nyc_output",
+    "display-coverage": "yarn nyc report --cwd ../../../packages/sfui/frameworks/vue --reporter=text --reporter=lcov",
+    "prepare-coverage-report": "frs-replace \"/apps/preview/vue/src/components/sfui/vue/\" \"/packages/sfui/frameworks/vue/\" -i ./.nyc_output/out.json -o ../../../packages/sfui/frameworks/vue/.nyc_output/out.json",
     "sync-test": "cpy . ../../apps/preview/vue/src/components/sfui/tests --cwd=../../../packages/tests/",
     "sync-components": "cpy . !dist ../../../../apps/preview/vue/src/components/sfui/vue/ --cwd=../../../packages/sfui/frameworks/vue/",
     "sync:watch-test": "chokidar --silent \"../../../packages/tests/**/*.{cy.tsx,ts,tsx,png,jpg,jpeg,json}\" -c \"yarn sync-test\"",
     "test": "yarn clean && yarn sync-test && concurrently \"yarn sync:watch-test\" \"yarn cypress open --component\"",
-    "test:ci": "yarn clean && yarn clean-coverage && yarn sync-test && yarn sync-components && CYPRESS_COVERAGE=true yarn cypress run --component && yarn display-coverage",
+    "test:ci": "yarn clean && yarn clean-coverage && yarn sync-test && yarn sync-components && CYPRESS_COVERAGE=true yarn cypress run --component && yarn prepare-coverage-report && yarn display-coverage",
     "test:ci:vue": "yarn test:ci"
   },
   "dependencies": {
@@ -25,6 +26,7 @@
   },
   "devDependencies": {
     "@cypress/code-coverage": "^3.10.0",
+    "@frsource/frs-replace": "^4.1.0",
     "@percy/cli": "^1.19.2",
     "@percy/cypress": "^3.1.2",
     "@rushstack/eslint-patch": "^1.2.0",

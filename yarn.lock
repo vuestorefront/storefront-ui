@@ -2434,6 +2434,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@frsource/frs-replace@npm:^4.1.0":
+  version: 4.1.0
+  resolution: "@frsource/frs-replace@npm:4.1.0"
+  dependencies:
+    fast-glob: ^3.1.0
+    get-stdin: ^8.0.0
+    write: ^2.0.0
+    yargs: ^17.0.0
+  bin:
+    frs-replace: bin/cli.js
+  checksum: 7a2ed7287a01918c408db8e82bd35e1190b76bd698d4629e2103717badf0b7590b9739ad4d34694e00ad95fc8e91b083e530f7c9ebd2df3abb3309728781cedd
+  languageName: node
+  linkType: hard
+
 "@gar/promisify@npm:^1.1.3":
   version: 1.1.3
   resolution: "@gar/promisify@npm:1.1.3"
@@ -3782,6 +3796,7 @@ __metadata:
   resolution: "@storefront-ui/vue-preview@workspace:apps/preview/vue"
   dependencies:
     "@cypress/code-coverage": ^3.10.0
+    "@frsource/frs-replace": ^4.1.0
     "@percy/cli": ^1.19.2
     "@percy/cypress": ^3.1.2
     "@rushstack/eslint-patch": ^1.2.0
@@ -5711,6 +5726,15 @@ __metadata:
   bin:
     acorn: bin/acorn
   checksum: f790b99a1bf63ef160c967e23c46feea7787e531292bb827126334612c234ed489a0dc2c7ba33156416f0ffa8d25bf2b0fdb7f35c2ba60eb3e960572bece4001
+  languageName: node
+  linkType: hard
+
+"add-filename-increment@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "add-filename-increment@npm:1.0.0"
+  dependencies:
+    strip-filename-increment: ^2.0.1
+  checksum: af013e5f6454225e355db6093e2017d90308b5a2d3dd132a0fc1f01191add2059db629573daa1114efa583d0c686355d4bb6777b07ea91cb25528840e3d14d12
   languageName: node
   linkType: hard
 
@@ -12053,7 +12077,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-glob@npm:^3.1.1, fast-glob@npm:^3.2.11, fast-glob@npm:^3.2.12, fast-glob@npm:^3.2.7, fast-glob@npm:^3.2.9":
+"fast-glob@npm:^3.1.0, fast-glob@npm:^3.1.1, fast-glob@npm:^3.2.11, fast-glob@npm:^3.2.12, fast-glob@npm:^3.2.7, fast-glob@npm:^3.2.9":
   version: 3.2.12
   resolution: "fast-glob@npm:3.2.12"
   dependencies:
@@ -12747,6 +12771,13 @@ __metadata:
   version: 3.0.1
   resolution: "get-port-please@npm:3.0.1"
   checksum: a5de771314986e45872354a72e24f27c13884c14be9e00b7332bc53de971c50787d2ae61dd81ef6d1eb2df5c35b1e3528906de29ac4a5127769f7ebee6e8f100
+  languageName: node
+  linkType: hard
+
+"get-stdin@npm:^8.0.0":
+  version: 8.0.0
+  resolution: "get-stdin@npm:8.0.0"
+  checksum: 40128b6cd25781ddbd233344f1a1e4006d4284906191ed0a7d55ec2c1a3e44d650f280b2c9eeab79c03ac3037da80257476c0e4e5af38ddfb902d6ff06282d77
   languageName: node
   linkType: hard
 
@@ -22510,6 +22541,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"strip-filename-increment@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "strip-filename-increment@npm:2.0.1"
+  checksum: 06e1c8947ada4270a1c5967a863d32c95b2bff36b05e779d85ba32b2b253725e7264dab4e30ca9770ecec102e546052beeee80fa26be70c31106c8c885cb6228
+  languageName: node
+  linkType: hard
+
 "strip-final-newline@npm:^2.0.0":
   version: 2.0.0
   resolution: "strip-final-newline@npm:2.0.0"
@@ -25427,6 +25465,15 @@ __metadata:
     imurmurhash: ^0.1.4
     signal-exit: ^3.0.7
   checksum: 6ee16b195572386cb1c905f9d29808f77f4de2fd063d74a6f1ab6b566363832d8906a493b764ee715e57ab497271d5fc91642a913724960e8e845adf504a9837
+  languageName: node
+  linkType: hard
+
+"write@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "write@npm:2.0.0"
+  dependencies:
+    add-filename-increment: ^1.0.0
+  checksum: a382c49ae014b0d395547c37cfbc953175332cf6aa1601893b7c6eca7fd724610e5c6379a4c6c6ed3e5f2a3fb1bc84e0cc5a6da98dc3ad6f1311250d995f2728
   languageName: node
   linkType: hard
 
