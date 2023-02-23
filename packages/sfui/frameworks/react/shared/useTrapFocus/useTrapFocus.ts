@@ -3,11 +3,18 @@ import { tabbable } from 'tabbable';
 import { focusFirstElement, focusNext, focusPrev, isTab, isTabAndShift } from '@storefront-ui/shared';
 import { useEffect, useRef, type RefObject } from 'react';
 
+// TODO: add possibility to focus on init any number 1,2,3 and also support autofocus attr so user will be able to decide which element focus
+export enum InitialFocusType {
+  first = 'first',
+  none = 'none',
+}
+
 type UseTrapFocusOptions = TabbableOptions &
   CheckOptions & {
     trapTabs?: boolean;
     arrowFocusGroupSelector?: string;
     activeState?: boolean;
+    initialFocus?: `${InitialFocusType}`;
   };
 /**
  * arrowFocusGroupSelector - when arrow left/right press will focus first element of given selector requirement: all children needs to be same structure, options dedicated for slider with many items that has focusable elements inside
@@ -16,9 +23,13 @@ type UseTrapFocusOptions = TabbableOptions &
 const defaultOptions = {
   trapTabs: true,
   activeState: true,
+  initialFocus: InitialFocusType.first,
 };
 export const useTrapFocus = (containerElementRef: RefObject<HTMLElement | null>, options?: UseTrapFocusOptions) => {
-  const { trapTabs, arrowFocusGroupSelector, includeContainer, activeState } = { ...defaultOptions, ...options };
+  const { trapTabs, arrowFocusGroupSelector, includeContainer, activeState, initialFocus } = {
+    ...defaultOptions,
+    ...options,
+  };
   const currentlyFocused = useRef<HTMLElement | undefined>();
   const focusableElements = useRef<FocusableElement[]>([]);
 
@@ -65,7 +76,7 @@ export const useTrapFocus = (containerElementRef: RefObject<HTMLElement | null>,
     }
     if (containerElementRef.current && activeState) {
       focusableElements.current = tabbable(containerElementRef.current, { includeContainer });
-      focusFirstElement({ focusables: focusableElements.current });
+      if (initialFocus === InitialFocusType.first) focusFirstElement({ focusables: focusableElements.current });
     } else {
       focusableElements.current = [];
       currentlyFocused.current = undefined;

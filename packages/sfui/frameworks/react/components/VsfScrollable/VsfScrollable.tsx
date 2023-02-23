@@ -7,7 +7,7 @@ import type { VsfScrollableProps } from './types';
 import { VsfScrollableNavigation, VsfScrollableScrollbar, VsfScrollableDirection } from './types';
 import { useScrollable } from './useScrollable';
 import { VsfButtonVariant, VsfButtonSize } from '../VsfButton';
-import { useTrapFocus } from '../../shared/useTrapFocus/useTrapFocus';
+import { useTrapFocus, InitialFocusType } from '../../shared/useTrapFocus/useTrapFocus';
 
 const VsfScrollable = forwardRef<HTMLDivElement, VsfScrollableProps>(
   (
@@ -52,7 +52,11 @@ const VsfScrollable = forwardRef<HTMLDivElement, VsfScrollableProps>(
     function onClickNext() {
       return scrollable.current?.next();
     }
-    useTrapFocus(containerElementRef, { arrowFocusGroupSelector: '[data-group]', trapTabs: false });
+    useTrapFocus(containerElementRef, {
+      arrowFocusGroupSelector: '[data-group]',
+      trapTabs: false,
+      initialFocus: InitialFocusType.none,
+    });
 
     const prevButtonDefault = (
       <VsfButton
