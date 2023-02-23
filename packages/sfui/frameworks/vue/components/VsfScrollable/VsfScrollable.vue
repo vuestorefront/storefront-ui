@@ -6,7 +6,7 @@ import { useEventListener } from '@vueuse/core';
 import { VsfScrollableNavigation, VsfScrollableScrollbar, VsfScrollableDirection } from './types';
 import { VsfButtonVariant, VsfButtonSize } from '../VsfButton';
 import { useScrollable } from './useScrollable';
-import { useTrapFocus } from '../../shared/useTrapFocus/useTrapFocus';
+import { useTrapFocus, InitialFocusType } from '../../shared/useTrapFocus/useTrapFocus';
 
 const VsfButton = defineAsyncComponent(() => import('../VsfButton/VsfButton.vue'));
 const VsfIconChevronLeft = defineAsyncComponent(() => import('../VsfIcons/VsfIconChevronLeft.vue'));
@@ -75,7 +75,11 @@ const focusHandler = (event: FocusEvent) => {
   }
 };
 
-useTrapFocus(containerRef, { arrowFocusGroupSelector: '[data-group]', trapTabs: false });
+useTrapFocus(containerRef, {
+  arrowFocusGroupSelector: '[data-group]',
+  trapTabs: false,
+  initialFocus: InitialFocusType.none,
+});
 useEventListener(containerRef, 'keydown', (event: KeyboardEvent) => {
   if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
     event.preventDefault();
