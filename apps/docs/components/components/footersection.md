@@ -1,5 +1,5 @@
 ---
-layout: ComponentLayout
+layout: AtomLayout
 hideBreadcrumbs: true
 description: The FooterSection component is a container for whole section and should be used as a direct child of the Footer component. 
 ---

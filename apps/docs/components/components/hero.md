@@ -1,5 +1,5 @@
 ---
-layout: ComponentLayout
+layout: AtomLayout
 hideBreadcrumbs: true
 description: Hero component acts like a layout for your hero section. You can provide main image and any content, as well as background images for mobile and desktop devices.
 ---

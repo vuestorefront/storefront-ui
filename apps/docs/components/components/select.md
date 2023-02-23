@@ -1,5 +1,5 @@
 ---
-layout: ComponentLayout
+layout: AtomLayout
 hideBreadcrumbs: true
 description: A select is an input that allows the user to choose from a set of options. Uses native html `<select>` tag. Used for forms or as a global setting, e.g. language, location.
 ---

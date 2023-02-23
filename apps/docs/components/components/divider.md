@@ -1,5 +1,5 @@
 ---
-layout: ComponentLayout
+layout: AtomLayout
 hideBreadcrumbs: true
 description: The hr tag defines a thematic break in an HTML page (e.g. a shift of topic).
 ---

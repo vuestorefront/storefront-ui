@@ -1,5 +1,5 @@
 ---
-layout: ComponentLayout
+layout: AtomLayout
 hideBreadcrumbs: true
 description: The tabs consist of two separate components VsfTabs and VsfTabsItem. The first one is the wrapper for the list of tabs whish also includes VsfSlider component allowing to scroll when window is to small for all tabs.
 ---

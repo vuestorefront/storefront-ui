@@ -1,5 +1,5 @@
 ---
-layout: ComponentLayout
+layout: AtomLayout
 hideBreadcrumbs: true
 description: VsfNavigationSide is surface containing content used for navigating the site, that is anchored to the left or right edge of the screen.
 ---

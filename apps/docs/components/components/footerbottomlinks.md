@@ -1,5 +1,5 @@
 ---
-layout: ComponentLayout
+layout: AtomLayout
 hideBreadcrumbs: true
 description: The FooterBottomLinks is a container for links in bottom section of the Footer. 
 ---

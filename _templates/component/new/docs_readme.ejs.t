@@ -3,7 +3,7 @@ to: apps/docs/components/components/<%= name.replace('Vsf', '').toLowerCase() %>
 force: false
 ---
 <%- '---' %>
-layout: ComponentLayout
+layout: AtomLayout
 hideBreadcrumbs: true
 <%- '---' %>
 

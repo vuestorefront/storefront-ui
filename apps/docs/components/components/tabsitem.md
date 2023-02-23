@@ -1,5 +1,5 @@
 ---
-layout: ComponentLayout
+layout: AtomLayout
 hideBreadcrumbs: true
 description: The VsfTabsItem is the VsfButton component which needs to have unique id passed by uid prop and allows to put icon, counter or text content in separate slots.
 ---

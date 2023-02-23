@@ -1,5 +1,5 @@
 ---
-layout: ComponentLayout
+layout: AtomLayout
 hideBreadcrumbs: true
 description: The NavbarTopAction component is used as navigation inside NavbarTop component.
 ---

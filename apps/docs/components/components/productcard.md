@@ -1,5 +1,5 @@
 ---
-layout: ComponentLayout
+layout: AtomLayout
 hideBreadcrumbs: true
 description: The product card component contains the most relevant data about the product. The most popular are the product's snapshot, name and price. It also includes a direct add to cart button and reviews component. The component can be displayed in vertical and horizontal variant.
 ---
