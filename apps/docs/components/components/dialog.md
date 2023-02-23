@@ -1,5 +1,5 @@
 ---
-layout: ComponentLayout
+layout: AtomLayout
 hideBreadcrumbs: true
 description: A dialog is a window overlaid on website content for focus on primary action that requires user interaction.That is, users cannot interact with the content outside.
 ---

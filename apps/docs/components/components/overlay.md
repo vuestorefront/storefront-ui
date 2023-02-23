@@ -1,5 +1,5 @@
 ---
-layout: ComponentLayout
+layout: AtomLayout
 hideBreadcrumbs: true
 description: The Overlay is an helper component to other components. It acts as a background for displayed modals, popups, etc.
 ---

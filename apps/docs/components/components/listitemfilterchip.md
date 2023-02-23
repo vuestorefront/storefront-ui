@@ -1,5 +1,5 @@
 ---
-layout: ComponentLayout
+layout: AtomLayout
 hideBreadcrumbs: true
 description: ListItemFilterChip component is a Chip component adapted to appear in lists.
 ---

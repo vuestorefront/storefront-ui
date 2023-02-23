@@ -1,5 +1,5 @@
 ---
-layout: ComponentLayout
+layout: AtomLayout
 hideBreadcrumbs: true
 description: VsfTooltips provide contextual information about an element when that owning element receives focus or is hovered over, but is otherwise not visible on the page.
 ---

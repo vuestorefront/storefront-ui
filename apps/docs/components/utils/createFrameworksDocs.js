@@ -1,15 +1,12 @@
 const fs = require('fs');
 const glob = require('glob');
 const path = require('path');
-const commandLineArgs = require('command-line-args')
-const options = commandLineArgs([
-  { name: 'event' },
-  { name: 'path' }
-])
+const commandLineArgs = require('command-line-args');
+const options = commandLineArgs([{ name: 'event' }, { name: 'path' }]);
 const mdFiles = glob.sync('./components/*.md');
 
 function docsSplit() {
-  if(options.event === 'change') {
+  if (options.event === 'change') {
     let docsContent = fs.readFileSync(options.path, 'utf8');
     const reactDocContent = removePart(docsContent, 'vue');
     const vueDocContent = removePart(docsContent, 'react');
@@ -25,10 +22,11 @@ function docsSplit() {
         console.warn(`WARN: skipping read md file: ${e.message}`);
         continue;
       }
-      const reactDocContent = removePart(docsContent, 'vue');
-      const vueDocContent = removePart(docsContent, 'react');
-
       const fileName = path.basename(file);
+
+      const reactDocContent = addRepoPathToFrontmatter(removePart(docsContent, 'vue'), fileName);
+      const vueDocContent = addRepoPathToFrontmatter(removePart(docsContent, 'react'), fileName);
+
       saveDoc(`./react/components/${fileName}`, reactDocContent);
       saveDoc(`./vue/components/${fileName}`, vueDocContent);
     }
@@ -41,6 +39,13 @@ function removePart(content, framework) {
   const removeIfsRegex = /<!--(.*?)-->\n?/g;
   const docsWithoutIfs = docsWithout.replace(removeIfsRegex, '');
   return docsWithoutIfs;
+}
+
+function addRepoPathToFrontmatter(content, fileName) {
+  const frontmatterStartIndex = content.indexOf('---') + '---'.length;
+  const link = `/components/${fileName}`;
+
+  return content.slice(0, frontmatterStartIndex) + `\nrepoPath: ${link}` + content.slice(frontmatterStartIndex);
 }
 
 function saveDoc(filepath, docsContent) {

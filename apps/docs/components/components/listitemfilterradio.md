@@ -1,5 +1,5 @@
 ---
-layout: ComponentLayout
+layout: AtomLayout
 hideBreadcrumbs: true
 description: A ListItemFilterRadio component is specific ecommerce solution for filter list with additional deselect logic for radio.
 ---

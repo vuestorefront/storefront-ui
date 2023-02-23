@@ -1,5 +1,5 @@
 ---
-layout: ComponentLayout
+layout: AtomLayout
 hideBreadcrumbs: true
 description: A radio is a checkable input always appears in a group of elements with the same role, where no more than one of the radio can be checked at a time.
 ---

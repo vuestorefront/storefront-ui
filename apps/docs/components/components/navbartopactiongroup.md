@@ -1,5 +1,5 @@
 ---
-layout: ComponentLayout
+layout: AtomLayout
 hideBreadcrumbs: true
 description: The NavbarTopActionGroup component is used as container for navigation in NavbarTop component.
 ---

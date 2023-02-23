@@ -1,5 +1,5 @@
 ---
-layout: ComponentLayout
+layout: AtomLayout
 hideBreadcrumbs: true
 description: The Alert component is a notification that keeps people informed of the status of the system and which may or not require the user respond.
 ---

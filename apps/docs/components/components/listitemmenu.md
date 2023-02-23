@@ -1,5 +1,5 @@
 ---
-layout: ComponentLayout
+layout: AtomLayout
 hideBreadcrumbs: true
 description: The ListItemMenu component is used in all kind of menus. It can act like a link or a button.
 ---

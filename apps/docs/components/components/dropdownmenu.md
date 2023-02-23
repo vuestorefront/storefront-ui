@@ -1,5 +1,5 @@
 ---
-layout: ComponentLayout
+layout: AtomLayout
 hideBreadcrumbs: true
 description: A DropdownMenu is a component that can contain different types of content. It appears after the trigger (e.g. button).
 ---

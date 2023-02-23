@@ -1,5 +1,5 @@
 ---
-layout: ComponentLayout
+layout: AtomLayout
 hideBreadcrumbs: true
 description: This component is an alternative option for VsfSelect component. It doesn't use native select tag so it can have more options for styling.
 ---

@@ -1,5 +1,5 @@
 ---
-layout: ComponentLayout
+layout: AtomLayout
 hideBreadcrumbs: true
 description: RatingButton is icon-based group component, used for input a numeric value.
 ---

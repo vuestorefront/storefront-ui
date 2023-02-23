@@ -1,5 +1,5 @@
 ---
-layout: ComponentLayout
+layout: AtomLayout
 hideBreadcrumbs: true
 description: IconBase component itself gets the icon content data and render it with properly specified `viewBox`, `size`.
 ---

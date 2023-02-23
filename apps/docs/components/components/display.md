@@ -1,5 +1,5 @@
 ---
-layout: ComponentLayout
+layout: AtomLayout
 hideBreadcrumbs: true
 description: Display component acts like a layout for your banners. You can provide main image and any content. 
 ---

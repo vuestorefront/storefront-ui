@@ -1,5 +1,5 @@
 ---
-layout: ComponentLayout
+layout: AtomLayout
 hideBreadcrumbs: true
 description: ListItemFilterCheckbox component is a Checkbox component adapted to appear in lists.
 ---

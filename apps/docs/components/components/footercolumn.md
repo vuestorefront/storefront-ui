@@ -1,5 +1,5 @@
 ---
-layout: ComponentLayout
+layout: AtomLayout
 hideBreadcrumbs: true
 description: The FooterColumn component is a container for children components and should be used as a direct child of the FooterSection component. 
 ---

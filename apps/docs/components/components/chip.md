@@ -1,5 +1,5 @@
 ---
-layout: ComponentLayout
+layout: AtomLayout
 hideBreadcrumbs: true
 description: Chip allow selection of a single possibility from a set of options. They are a good alternative to toggle buttons, radio buttons, and single select menus. When `deletable` prop is set to `false` it can be selected and work as filter. When it's set to true, it disappears when clicked.
 ---

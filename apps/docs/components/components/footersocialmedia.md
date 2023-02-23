@@ -1,5 +1,5 @@
 ---
-layout: ComponentLayout
+layout: AtomLayout
 hideBreadcrumbs: true
 description: The FooterSocialMedia component is a container for social media icons and should be used as a direct child of the FooterSection component.
 ---
