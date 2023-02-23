@@ -6,10 +6,7 @@ export interface VsfComboboxProps
   extends PropsWithChildren,
     PropsWithStyle,
     Partial<
-      Pick<
-        VsfInputProps,
-        'label' | 'disabled' | 'required' | 'value' | 'placeholder' | 'invalid' | 'onChange' | 'value' | 'size'
-      >
+      Pick<VsfInputProps, 'label' | 'disabled' | 'required' | 'value' | 'placeholder' | 'invalid' | 'onChange' | 'size'>
     > {
   open?: boolean;
   errorText?: string;

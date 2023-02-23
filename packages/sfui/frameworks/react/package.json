@@ -34,6 +34,7 @@
   },
   "devDependencies": {
     "@storefront-ui/eslint-config": "workspace:*",
+    "@storefront-ui/tests-shared": "workspace:*",
     "@vitejs/plugin-react": "^3.1.0",
     "eslint": "^8.34.0",
     "vite": "^4.1.2",

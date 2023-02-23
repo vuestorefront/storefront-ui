@@ -3639,6 +3639,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@storefront-ui/preview-next@workspace:apps/preview/next"
   dependencies:
+    "@cypress/code-coverage": ^3.10.0
+    "@frsource/frs-replace": ^4.1.0
     "@percy/cli": ^1.19.2
     "@percy/cypress": ^3.1.2
     "@storefront-ui/eslint-config": "workspace:*"
@@ -3659,6 +3661,7 @@ __metadata:
     cpy-cli: ^4.2.0
     cypress: ^12.5.1
     next: ^13.1.6
+    nyc: ^15.1.0
     postcss: ^8.4.21
     postcss-import: ^15.1.0
     react: ^18.2.0
@@ -3667,6 +3670,7 @@ __metadata:
     react-use: ^17.4.0
     rimraf: ^4.1.2
     string-replace-loader: ^3.1.0
+    swc-plugin-coverage-instrument: ^0.0.14
     swr: ^2.0.3
     tailwindcss: ^3.2.7
     ts-loader: ^9.4.2
@@ -3710,6 +3714,7 @@ __metadata:
     "@storefront-ui/css": "workspace:*"
     "@storefront-ui/eslint-config": "workspace:*"
     "@storefront-ui/shared": "workspace:*"
+    "@storefront-ui/tests-shared": "workspace:*"
     "@vitejs/plugin-react": ^3.1.0
     classnames: ^2.3.2
     eslint: ^8.34.0
@@ -3843,6 +3848,7 @@ __metadata:
     "@storefront-ui/css": "workspace:*"
     "@storefront-ui/eslint-config": "workspace:*"
     "@storefront-ui/shared": "workspace:*"
+    "@storefront-ui/tests-shared": "workspace:*"
     "@vitejs/plugin-vue": ^4.0.0
     "@vueuse/core": ^9.12.0
     concurrently: ^7.6.0
@@ -22949,6 +22955,13 @@ __metadata:
     lower-case: ^1.1.1
     upper-case: ^1.1.1
   checksum: 37b0c4988e12520fba54018f7fe259d62902e97349366209d2af9b1d5e741692c8f17da9d5e780c7bd1a56864bbb51d53eaf1a101a11afdfcae157912a3691d8
+  languageName: node
+  linkType: hard
+
+"swc-plugin-coverage-instrument@npm:^0.0.14":
+  version: 0.0.14
+  resolution: "swc-plugin-coverage-instrument@npm:0.0.14"
+  checksum: 73590a95a41ecb308c2b90e43a7a0102c45e49bdf571e4e2c882a71fcb3b08d77ecea1aa1aa2610b32d31181cb8116eece34bea9eaf2f75d2515bd4f2afa72f6
   languageName: node
   linkType: hard
 

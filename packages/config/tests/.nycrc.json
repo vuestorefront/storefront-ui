@@ -1,0 +1,16 @@
+{
+  "exclude": [
+    "node_modules",
+    "coverage/",
+    "cypress",
+    "components/VsfIcons"
+  ],
+  "include": [
+    "**"
+  ],
+  "checkCoverage": true,
+  "statements": 82,
+  "branches": 77,
+  "functions": 73,
+  "lines": 76
+}
