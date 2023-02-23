@@ -32,6 +32,7 @@
   },
   "devDependencies": {
     "@storefront-ui/eslint-config": "workspace:*",
+    "@storefront-ui/tests-shared": "workspace:*",
     "@vitejs/plugin-vue": "^4.0.0",
     "concurrently": "^7.6.0",
     "eslint": "^8.34.0",

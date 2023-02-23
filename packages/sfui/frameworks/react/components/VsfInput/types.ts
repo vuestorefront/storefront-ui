@@ -25,7 +25,7 @@ export interface VsfInputProps extends PropsWithStyle, PropsWithChildren {
   required?: boolean;
   invalid?: boolean;
   characterLimit?: number;
-  readonly?: boolean | undefined;
+  readonly?: boolean;
   placeholder?: string;
   errorText?: string;
   helpText?: string;

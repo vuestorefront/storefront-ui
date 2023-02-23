@@ -14,7 +14,7 @@ export enum VsfSelectDropdownSize {
 export interface VsfSelectDropdownProps
   extends PropsWithChildren,
     PropsWithStyle,
-    Pick<VsfInputProps, 'label' | 'disabled' | 'required' | 'value' | 'placeholder' | 'invalid' | 'value'>,
+    Pick<VsfInputProps, 'label' | 'disabled' | 'required' | 'value' | 'placeholder' | 'invalid'>,
     Partial<Pick<VsfSelectProps, 'options' | 'errorText' | 'helpText' | 'requiredText'>>,
     Pick<VsfDropdownMenuProps, 'loading'> {
   open?: boolean;

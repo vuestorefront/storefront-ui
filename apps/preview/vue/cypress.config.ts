@@ -7,10 +7,6 @@ export default defineConfig({
     framework: "vue",
     coverage: isCoverageEnabled,
   },
-  e2e: {
-    specPattern: "cypress/e2e/**/*.{cy,spec}.{js,jsx,ts,tsx}",
-    baseUrl: "http://localhost:4173",
-  },
   component: {
     viewportHeight: 300,
     viewportWidth: 300,

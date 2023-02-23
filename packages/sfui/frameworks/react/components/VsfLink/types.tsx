@@ -12,7 +12,7 @@ export interface VsfLinkProps {
   link?: string;
   variant?: `${VsfLinkVariant}`;
   className?: string;
-  children?: ReactNode | undefined;
+  children?: ReactNode;
 }
 
 // TODO: Next Link types copied, we cant have import because app can be run in React context so import will fail to resolve

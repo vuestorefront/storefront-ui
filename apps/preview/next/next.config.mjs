@@ -6,6 +6,7 @@ import {
   dynamicImports,
 } from "@storefront-ui/tests-shared/index.js";
 
+const isCoverageEnabled = process.env.CYPRESS_COVERAGE === "true";
 const isTest = process.env.TEST === 'true';
 /** @type {import('next').NextConfig} */
 export default {
@@ -19,7 +20,12 @@ export default {
   swcMinify: true,
   experimental: {
     externalDir: true,
-    topLevelAwait: true
+    topLevelAwait: true,
+    swcPlugins: isCoverageEnabled ? [
+      ["swc-plugin-coverage-instrument", {
+        esModules: true,
+      }]
+    ] : undefined,
   },
   webpack(config) {
     if(isTest) {

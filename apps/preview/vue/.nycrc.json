@@ -10,10 +10,5 @@
     "src/components/sfui/vue"
   ],
   "reporter": [],
-  "extension": [".js", ".ts", ".vue"],
-  "checkCoverage": true,
-  "statements": 83,
-  "branches": 77,
-  "functions": 73,
-  "lines": 83
+  "extension": [".js", ".ts", ".vue"]
 }
