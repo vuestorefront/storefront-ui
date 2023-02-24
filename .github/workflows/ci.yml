@@ -115,6 +115,7 @@ jobs:
         with:
           command: yarn test:ci:vue
       - name: SonarCloud Scan
+        if: success() || failure()
         uses: SonarSource/sonarcloud-github-action@master
         with:
           projectBaseDir: packages/sfui/frameworks/vue
@@ -141,6 +142,7 @@ jobs:
         with:
           command: yarn test:ci:react
       - name: SonarCloud Scan
+        if: success() || failure()
         uses: SonarSource/sonarcloud-github-action@master
         with:
           projectBaseDir: packages/sfui/frameworks/react
