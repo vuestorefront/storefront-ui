@@ -1,5 +1,5 @@
 import { defineNuxtConfig } from 'nuxt/config';
-import * as tailwindConfig from '@storefront-ui/tailwind-config/index.json';
+import tailwindConfig from './tailwind.config';
 
 export default defineNuxtConfig({
   app: {
