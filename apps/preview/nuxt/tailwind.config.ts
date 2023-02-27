@@ -3,5 +3,9 @@ import config from '@storefront-ui/tailwind-config/index.json';
 
 export default <Config>{
   ...(config as unknown as Config),
-  content: [...config.content, '../../../node_modules/@storefront-ui/vue/**/*.{ts,vue}'],
+  content: [
+    ...config.content,
+    '../../../node_modules/@storefront-ui/vue/shared/**/*.ts',
+    '../../../node_modules/@storefront-ui/vue/components/**/*.{ts,vue}',
+  ],
 };
