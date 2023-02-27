@@ -16,6 +16,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "dev": "vite build --watch",
+    "dev:shared": "vite build --watch",
     "build:shared": "vite build"
   },
   "homepage": "https://docs.storefrontui.io/v2/",

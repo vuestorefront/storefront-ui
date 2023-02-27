@@ -30,6 +30,7 @@
     "build": "yarn update-browserlist-db && yarn generate-icons && turbo run build",
     "dev:docs": "yarn update-browserlist-db && turbo run dev:docs",
     "dev": "yarn update-browserlist-db && turbo run dev --parallel",
+    "dev:shared": "turbo run dev:shared",
     "update-browserlist-db": "yarn dlx browserslist@latest",
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint:fix",
