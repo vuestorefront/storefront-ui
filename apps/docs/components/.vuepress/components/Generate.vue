@@ -1,5 +1,5 @@
 <template>
-  <div class="custom-block border rounded bg-white mt-4 generate">
+  <div class="custom-block border rounded bg-white mt-4" :class="{'generate': !showcasePath}">
     <iframe :src="exampleUrl" class="w-full h-full" />
   </div>
 </template>
@@ -8,6 +8,12 @@
 import components from '../../utils/components.json';
 
 export default {
+  props: {
+    showcasePath: {
+      type: String,
+      default: undefined
+    }
+  },
   computed: {
     frameworkName() {
       return this.$route.path.split('/')[1];
@@ -20,7 +26,7 @@ export default {
         component.toLowerCase().includes('vsf' + this.componentName),
       );
 
-      return `${this.frameworkName === 'react' ? this.$themeConfig.DOCS_EXAMPLES_REACT_PATH : this.$themeConfig.DOCS_EXAMPLES_VUE_PATH}/examples/${componentNameFull}?docs=true`;
+      return `${this.frameworkName === 'react' ? this.$themeConfig.DOCS_EXAMPLES_REACT_PATH : this.$themeConfig.DOCS_EXAMPLES_VUE_PATH}/${this.showcasePath ? `showcases/${this.showcasePath}` : `examples/${componentNameFull}`}?docs=true`;
     },
   },
 };

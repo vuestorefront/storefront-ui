@@ -50,6 +50,7 @@
     "concurrently": "^7.6.0",
     "cpy-cli": "^4.2.0",
     "cypress": "^12.5.1",
+    "glob-promise": "^6.0.2",
     "nyc": "^15.1.0",
     "postcss": "^8.4.21",
     "postcss-import": "^15.1.0",

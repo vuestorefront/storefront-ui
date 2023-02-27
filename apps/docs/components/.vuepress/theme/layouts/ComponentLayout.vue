@@ -51,6 +51,7 @@
 </template>
 <script>
 import components from '../../../utils/components.json';
+import showcases from '../../../utils/showcases.json';
 
 export default {
   name: 'ComponentLayout',
@@ -70,18 +71,29 @@ export default {
     framework() {
       return this.$route.path.includes('vue') ? 'vue' : 'react';
     },
+    type() {
+      if(this.$route.path.includes('showcases')) return 'showcases';
+      return 'components';
+    },
     reactLink() {
-      const path = this.$route.path.replace('vue', 'react');
-      if (components.react.some((name) => name.toLowerCase().includes(path.split('/').pop().split('.')[0]))) {
-        return path;
-      }
+      return this.findCounterPartLink('vue');
     },
     vueLink() {
-      const path = this.$route.path.replace('react', 'vue');
-      if (components.vue.some((name) => name.toLowerCase().includes(path.split('/').pop().split('.')[0]))) {
-        return path;
-      }
+      return this.findCounterPartLink('react');
     },
   },
+  methods: {
+    findCounterPartLink(currentFramework) {
+      const path = this.$route.path.replace(currentFramework, currentFramework === 'react' ? 'vue' : 'react');
+      const files = this.type === 'components' ? components : showcases;
+      const findCounterPart = files.vue.some((name) => {
+        const componentName = this.type === 'components' ? name.toLowerCase() : name;
+        return componentName.includes(path.split('/').pop().split('.')[0]);
+      })
+      if (findCounterPart) {
+        return path;
+      }
+    }
+  }
 };
 </script>
