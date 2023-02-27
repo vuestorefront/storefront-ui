@@ -70,9 +70,13 @@
     "dev:docs": {
       "cache": false
     },
+    "dev:shared": {
+      "cache": false
+    },
     "test": {
       "dependsOn": [
-        "build:test-utils"
+        "build:test-utils",
+        "dev:shared"
       ],
       "cache": false
     },
