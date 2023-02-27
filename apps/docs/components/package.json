@@ -7,11 +7,15 @@
     "hoistingLimits": "workspaces"
   },
   "scripts": {
-    "dev:docs": "yarn update-docs && VITE_DOCS_EXAMPLES_REACT_PATH=http://localhost:3002 VITE_DOCS_EXAMPLES_VUE_PATH=http://localhost:3001 && concurrently \"vuepress dev\" \"yarn watch-docs\"",
-    "build": "yarn update-docs && VITE_DOCS_BASEPATH=/v2/ VITE_DOCS_EXAMPLES_REACT_PATH=https://docs.storefrontui.io/v2-react VITE_DOCS_EXAMPLES_VUE_PATH=https://docs.storefrontui.io/v2-vue && vuepress build",
+    "dev:docs": "yarn update-files && VITE_DOCS_EXAMPLES_REACT_PATH=http://localhost:3002 VITE_DOCS_EXAMPLES_VUE_PATH=http://localhost:3001 && concurrently \"vuepress dev\" \"yarn watch-docs\" \"yarn watch-showcases\"",
+    "build": "yarn update-files && VITE_DOCS_BASEPATH=/v2/ VITE_DOCS_EXAMPLES_REACT_PATH=https://docs.storefrontui.io/v2-react VITE_DOCS_EXAMPLES_VUE_PATH=https://docs.storefrontui.io/v2-vue && vuepress build",
     "watch-docs": "chokidar --initial \"./components/**/*.md\" -c \"yarn update-docs --event {event} --path {path};\"",
+    "watch-showcases": "chokidar --initial \"./showcases/**/*.md\" -c \"yarn update-showcases --event {event} --path {path};\"",
     "serve": "vuepress serve",
-    "update-docs": "yarn node ./utils/createComponentList && yarn node ./utils/createFrameworksDocs"
+    "clear": "yarn concurrently \"rimraf ./vue/components\" \"rimraf ./vue/showcases\" \"rimraf ./react/components\" \"rimraf ./react/showcases\"",
+    "update-docs": "yarn node ./utils/createComponentList && yarn node ./utils/createFrameworksDocs",
+    "update-showcases": "yarn node ./utils/createShowcaseList && yarn node ./utils/createShowcaseDocs",
+    "update-files": "yarn clear && yarn concurrently \"yarn update-docs\" \"yarn update-showcases\""
   },
   "devDependencies": {
     "@microsoft/api-documenter": "^7.21.5",
@@ -23,6 +27,7 @@
     "chokidar-cli": "^3.0.0",
     "command-line-args": "^5.2.1",
     "handlebars": "^4.7.7",
+    "rimraf": "^4.1.2",
     "typescript": "^4.9.5",
     "vue": "^2.6.14",
     "vuepress": "^1.9.8",

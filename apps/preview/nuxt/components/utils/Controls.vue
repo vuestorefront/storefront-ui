@@ -122,7 +122,7 @@
 </template>
 
 <script lang="ts">
-import { toRefs, computed, reactive, Ref, ref, defineComponent, PropType } from 'vue';
+import { toRefs, computed, reactive, Ref, defineComponent, PropType } from 'vue';
 import VsfButton from '@storefront-ui/vue/components/VsfButton/VsfButton.vue';
 import { VsfButtonVariant, VsfButtonSize } from '@storefront-ui/vue/components/VsfButton/types';
 import { VsfIconExpandMore, VsfIconExpandLess } from '@storefront-ui/vue/components/VsfIcons/index';

@@ -53,4 +53,7 @@ dist
 # docs
 apps/docs/components/react/components
 apps/docs/components/vue/components
+apps/docs/components/react/showcases
+apps/docs/components/vue/showcases
 apps/docs/components/utils/components.json
+apps/docs/components/utils/showcases.json

@@ -3578,6 +3578,7 @@ __metadata:
     markdown-it-external-links: ^0.0.6
     markdown-spellcheck: ^1.3.1
     postcss: ^8.0.0
+    rimraf: ^4.1.2
     sass-loader: ^13.0.0
     tailwindcss: "npm:@tailwindcss/postcss7-compat@^2.2.17"
     typescript: ^4.9.5
@@ -3660,6 +3661,7 @@ __metadata:
     concurrently: ^7.6.0
     cpy-cli: ^4.2.0
     cypress: ^12.5.1
+    glob-promise: ^6.0.2
     next: ^13.1.6
     nyc: ^15.1.0
     postcss: ^8.4.21
@@ -4011,6 +4013,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/glob@npm:^8.0.0":
+  version: 8.1.0
+  resolution: "@types/glob@npm:8.1.0"
+  dependencies:
+    "@types/minimatch": ^5.1.2
+    "@types/node": "*"
+  checksum: 9101f3a9061e40137190f70626aa0e202369b5ec4012c3fabe6f5d229cce04772db9a94fa5a0eb39655e2e4ad105c38afbb4af56a56c0996a8c7d4fc72350e3d
+  languageName: node
+  linkType: hard
+
 "@types/highlight.js@npm:^9.7.0":
   version: 9.12.4
   resolution: "@types/highlight.js@npm:9.12.4"
@@ -4090,7 +4102,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/minimatch@npm:*":
+"@types/minimatch@npm:*, @types/minimatch@npm:^5.1.2":
   version: 5.1.2
   resolution: "@types/minimatch@npm:5.1.2"
   checksum: 0391a282860c7cb6fe262c12b99564732401bdaa5e395bee9ca323c312c1a0f45efbf34dce974682036e857db59a5c9b1da522f3d6055aeead7097264c8705a8
@@ -12973,6 +12985,17 @@ __metadata:
   dependencies:
     is-glob: ^4.0.3
   checksum: c13ee97978bef4f55106b71e66428eb1512e71a7466ba49025fc2aec59a5bfb0954d5abd58fc5ee6c9b076eef4e1f6d3375c2e964b88466ca390da4419a786a8
+  languageName: node
+  linkType: hard
+
+"glob-promise@npm:^6.0.2":
+  version: 6.0.2
+  resolution: "glob-promise@npm:6.0.2"
+  dependencies:
+    "@types/glob": ^8.0.0
+  peerDependencies:
+    glob: ^8.0.3
+  checksum: 3caa63b052ddcf28d3498a0c93ef623bc43d0fa57487844782b77175c32db1602fd63e4e26091075125083b21eb3e81b4318d5d24139b9b033a764e64b6b3bc3
   languageName: node
   linkType: hard
 
