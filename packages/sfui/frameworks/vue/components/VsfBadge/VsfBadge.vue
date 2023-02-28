@@ -34,9 +34,10 @@ export default {
         'vsf-badge--bordered': bordered,
       },
     ]"
+    data-testid="badge"
   >
     <slot></slot>
-    <div v-if="!invisible && value" class="vsf-badge__wrapper">
+    <div v-if="!invisible && value" class="vsf-badge__wrapper" data-testid="badge-wrapper">
       <div v-if="dot" class="vsf-badge__badge vsf-badge__dot" v-bind="$attrs"></div>
       <div v-else class="vsf-badge__badge vsf-badge__base" v-bind="$attrs">{{ value }}</div>
     </div>

@@ -17,6 +17,7 @@ export default function VsfBadge({
         'vsf-badge--bordered': bordered,
       })}
       {...attributes}
+      data-testid="badge"
     >
       {children}
       {!invisible && !!value && (
