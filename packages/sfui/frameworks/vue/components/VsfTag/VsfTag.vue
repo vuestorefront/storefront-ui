@@ -13,7 +13,7 @@ defineProps({
   },
   variant: {
     type: String as PropType<`${VsfTagVariant}`>,
-    default: VsfTagVariant.gray,
+    default: VsfTagVariant.neutral,
   },
   strong: {
     type: Boolean,

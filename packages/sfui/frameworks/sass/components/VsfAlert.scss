@@ -1,7 +1,7 @@
 .vsf-alert {
   $self: &;
   $button: '.vsf-button';
-  @apply flex py-1 pr-2 pl-4 rounded-md gap-2 ring-1 ring-inset text-gray-900 break-words;
+  @apply flex py-1 pr-2 pl-4 rounded-md gap-2 ring-1 ring-inset text-neutral-900 break-words;
 
   @mixin style-suffix-button ($textColor, $hoverTextColor, $hoverBgColor, $activeTextColor, $activeBgColor) {
     #{$self}__suffix #{$button} {
@@ -17,15 +17,15 @@
     @apply shadow-md;
   }
 
-  &--gray {
-    @apply bg-gray-100 ring-gray-300;
+  &--neutral {
+    @apply bg-neutral-100 ring-neutral-300;
 
     @include style-suffix-button(
-      $textColor: --vsf-color-gray-700,
-      $hoverTextColor: --vsf-color-gray-800,
-      $hoverBgColor: --vsf-color-gray-200,
-      $activeTextColor: --vsf-color-gray-900,
-      $activeBgColor: --vsf-color-gray-300,
+      $textColor: --vsf-color-neutral-700,
+      $hoverTextColor: --vsf-color-neutral-800,
+      $hoverBgColor: --vsf-color-neutral-200,
+      $activeTextColor: --vsf-color-neutral-900,
+      $activeBgColor: --vsf-color-neutral-300,
     );
   }
 

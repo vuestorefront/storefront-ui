@@ -6,11 +6,11 @@
 		@apply text-white font-medium rounded-none;
 	}
 
-	&--variant-gray {
-		@apply bg-gray-100 text-gray-600;
+	&--variant-neutral {
+		@apply bg-neutral-100 text-neutral-600;
 
 		&#{$self}--strong {
-			@apply bg-gray-500;
+			@apply bg-neutral-500;
 		}
 	}
 

@@ -32,7 +32,7 @@ function Example() {
       <div>
         <VsfDisplay
           {...state.get}
-          className="bg-gray-100 max-w-2xl"
+          className="max-w-2xl bg-neutral-100"
           slotMedia={<img src={banner_placeholder.src} alt="" />}
         >
           <VsfDisplayContent title={state.get.title} subtitle={state.get.subtitle} description={state.get.description}>

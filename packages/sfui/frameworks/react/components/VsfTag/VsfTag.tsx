@@ -6,7 +6,7 @@ export default function VsfTag({
   label,
   children,
   strong = false,
-  variant = VsfTagVariant.gray,
+  variant = VsfTagVariant.neutral,
   size = VsfTagSize.base,
   className,
   ...attributes

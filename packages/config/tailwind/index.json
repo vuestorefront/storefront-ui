@@ -40,17 +40,17 @@
       },
       "colors": {
         "brand": "rgb(var(--vsf-color-brand) / <alpha-value>)",
-        "gray": {
-          "900": "rgb(var(--vsf-color-gray-900) / <alpha-value>)",
-          "800": "rgb(var(--vsf-color-gray-800) / <alpha-value>)",
-          "700": "rgb(var(--vsf-color-gray-700) / <alpha-value>)",
-          "600": "rgb(var(--vsf-color-gray-600) / <alpha-value>)",
-          "500": "rgb(var(--vsf-color-gray-500) / <alpha-value>)",
-          "400": "rgb(var(--vsf-color-gray-400) / <alpha-value>)",
-          "300": "rgb(var(--vsf-color-gray-300) / <alpha-value>)",
-          "200": "rgb(var(--vsf-color-gray-200) / <alpha-value>)",
-          "100": "rgb(var(--vsf-color-gray-100) / <alpha-value>)",
-          "50": "rgb(var(--vsf-color-gray-50) / <alpha-value>)"
+        "neutral": {
+          "900": "rgb(var(--vsf-color-neutral-900) / <alpha-value>)",
+          "800": "rgb(var(--vsf-color-neutral-800) / <alpha-value>)",
+          "700": "rgb(var(--vsf-color-neutral-700) / <alpha-value>)",
+          "600": "rgb(var(--vsf-color-neutral-600) / <alpha-value>)",
+          "500": "rgb(var(--vsf-color-neutral-500) / <alpha-value>)",
+          "400": "rgb(var(--vsf-color-neutral-400) / <alpha-value>)",
+          "300": "rgb(var(--vsf-color-neutral-300) / <alpha-value>)",
+          "200": "rgb(var(--vsf-color-neutral-200) / <alpha-value>)",
+          "100": "rgb(var(--vsf-color-neutral-100) / <alpha-value>)",
+          "50": "rgb(var(--vsf-color-neutral-50) / <alpha-value>)"
         },
         "primary": {
           "900": "rgb(var(--vsf-color-primary-900) / <alpha-value>)",
@@ -111,6 +111,18 @@
           "200": "rgb(var(--vsf-color-warning-200) / <alpha-value>)",
           "100": "rgb(var(--vsf-color-warning-100) / <alpha-value>)",
           "50": "rgb(var(--vsf-color-warning-50) / <alpha-value>)"
+        },
+        "disabled": {
+          "900": "rgb(var(--vsf-color-disabled-900) / 0.5)",
+          "800": "rgb(var(--vsf-color-disabled-800) / 0.5)",
+          "700": "rgb(var(--vsf-color-disabled-700) / 0.5)",
+          "600": "rgb(var(--vsf-color-disabled-600) / 0.5)",
+          "500": "rgb(var(--vsf-color-disabled-500) / 0.5)",
+          "400": "rgb(var(--vsf-color-disabled-400) / 0.5)",
+          "300": "rgb(var(--vsf-color-disabled-300) / 0.5)",
+          "200": "rgb(var(--vsf-color-disabled-200) / 0.5)",
+          "100": "rgb(var(--vsf-color-disabled-100) / 0.5)",
+          "50": "rgb(var(--vsf-color-disabled-50) / 0.5)"
         }
       },
       "fontFamily": {

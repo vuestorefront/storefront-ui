@@ -28,7 +28,7 @@ const defaultPrefixComponent = (variant?: `${VsfAlertVariant}`) => {
 export default function VsfAlert({
   open = false,
   onOpenChange = () => undefined,
-  variant = VsfAlertVariant.gray,
+  variant = VsfAlertVariant.neutral,
   type = VsfAlertType.temporary,
   header,
   text,

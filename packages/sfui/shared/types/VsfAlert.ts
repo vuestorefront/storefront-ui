@@ -1,5 +1,5 @@
 export enum VsfAlertVariant {
-  gray = 'gray',
+  neutral = 'neutral',
   secondary = 'secondary',
   positive = 'positive',
   warning = 'warning',

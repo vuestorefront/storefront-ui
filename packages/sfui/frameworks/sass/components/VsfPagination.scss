@@ -14,7 +14,7 @@
   }
 
   &__button {
-    @apply h-12 min-w-[54px] text-gray-500 shrink-0;
+    @apply h-12 min-w-[54px] text-neutral-500 shrink-0;
 
     &--disabled {
       @apply bg-transparent;

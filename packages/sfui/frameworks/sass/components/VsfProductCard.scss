@@ -1,6 +1,6 @@
 .vsf-product-card {
   $self: &;
-  @apply relative overflow-hidden border border-gray-200 rounded-md hover:shadow-lg;
+  @apply relative overflow-hidden border border-neutral-200 rounded-md hover:shadow-lg;
 
 /* stylelint-disable at-rule-no-unknown */
   @mixin vertical-base {
@@ -134,7 +134,7 @@
   }
 
   &__details {
-    @apply border-gray-200 border-t flex flex-col;
+    @apply border-neutral-200 border-t flex flex-col;
 
     &-title {
       @apply block font-normal font-body hover:text-primary-600 hover:underline active:text-primary-700 active:underline;
@@ -152,14 +152,14 @@
     }
 
     &-description {
-      @apply block pt-2 font-normal leading-5 text-gray-700 font-body;
+      @apply block pt-2 font-normal leading-5 text-neutral-700 font-body;
     }
 
     &-prices {
       @apply flex items-baseline py-2;
 
       &-main {
-        @apply font-bold text-gray-900 font-headings;
+        @apply font-bold text-neutral-900 font-headings;
 
         &--old-price {
           @apply text-secondary-700;
@@ -167,12 +167,12 @@
       }
 
       &--old-price {
-        @apply ml-2 text-xs font-normal leading-4 text-gray-500 line-through;
+        @apply ml-2 text-xs font-normal leading-4 text-neutral-500 line-through;
       }
     }
 
     &-add-to-cart {
-      @apply border rounded-md cursor-pointer font-body uppercase disabled:cursor-not-allowed outline-secondary-600 disabled:text-gray-500 disabled:opacity-50 leading-5 text-sm bg-primary-500 text-white hover:shadow-medium hover:bg-primary-800 active:bg-primary-900;
+      @apply border rounded-md cursor-pointer font-body uppercase disabled:cursor-not-allowed outline-secondary-600 disabled:text-disabled-500 leading-5 text-sm bg-primary-500 text-white hover:shadow-medium hover:bg-primary-800 active:bg-primary-900;
 
       &--out-of-stock {
         @apply bg-transparent group-hover:ring-primary-300 group-hover:bg-primary-100 group-active:ring-primary-400 group-active:bg-primary-200 group-active:text-primary-700 hover:shadow-medium;

@@ -111,14 +111,14 @@ function Example() {
       >
         {Array.from(Array(4).keys()).map((item) => (
           <div key={item} className="p-1">
-            <div className="bg-gray-300 w-[150px] h-[150px] flex justify-center items-center">{item + 1}</div>
+            <div className="bg-neutral-300 w-[150px] h-[150px] flex justify-center items-center">{item + 1}</div>
           </div>
         ))}
         {Array.from(Array(4).keys()).map((item) => (
           <div key={item} data-group className="p-1">
             <div
               className={classNames(
-                'bg-gray-300',
+                'bg-neutral-300',
                 state.get.direction === VsfScrollableDirection.horizontal ? 'w-[200px]' : 'w-[150px]',
                 state.get.direction === VsfScrollableDirection.horizontal ? 'h-[150px]' : 'h-[200px]',
                 'flex justify-center',
@@ -137,7 +137,7 @@ function Example() {
         ))}
         {Array.from(Array(4).keys()).map((item) => (
           <div key={item} className="p-1">
-            <div className="bg-gray-300 w-[150px] h-[150px] flex justify-center items-center">{item + 9}</div>
+            <div className="bg-neutral-300 w-[150px] h-[150px] flex justify-center items-center">{item + 9}</div>
           </div>
         ))}
       </VsfScrollable>

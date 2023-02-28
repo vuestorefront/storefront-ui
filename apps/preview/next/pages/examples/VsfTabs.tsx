@@ -3,6 +3,7 @@ import VsfTabsItem from '@storefront-ui/react/components/VsfTabs/VsfTabsItem';
 import VsfIconCircle from '@storefront-ui/react/components/VsfIcons/VsfIconCircle';
 import VsfCounter from '@storefront-ui/react/components/VsfCounter/VsfCounter';
 import { VsfButtonSize } from '@storefront-ui/react/components/VsfButton';
+import classNames from 'classnames';
 import { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 import ComponentExample from '../../components/utils/ComponentExample';
@@ -89,6 +90,7 @@ function Example() {
             key={tab.label}
             uid={tab.label}
             disabled={state.get.disabled === tab.label}
+            className={classNames({ 'opacity-50': state.get.disabled === tab.label })}
           >
             {tab.label}
           </VsfTabsItem>

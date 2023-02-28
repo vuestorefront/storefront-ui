@@ -1,6 +1,6 @@
 .vsf-counter {
   $self: &;
-  @apply inline-flex items-center font-body before:content-['('] after:content-[')'] text-gray-500;
+  @apply inline-flex items-center font-body before:content-['('] after:content-[')'] text-neutral-500;
 
   &--xs,
   &--sm {
@@ -39,7 +39,7 @@
   }
 
   &--pill {
-    @apply rounded-full py-0.5 text-gray-900 font-medium ring-1 ring-gray-200 ring-inset before:content-none after:content-none;
+    @apply rounded-full py-0.5 text-neutral-900 font-medium ring-1 ring-neutral-200 ring-inset before:content-none after:content-none;
 
     &#{$self}--xs,
     &#{$self}--sm {

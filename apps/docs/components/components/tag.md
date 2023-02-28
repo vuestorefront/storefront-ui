@@ -13,7 +13,7 @@ description: The Tag component draws attention to new or categorized content ele
 
 |   Prop name    |   Type   | Default value | Possible values |
 |:--------------:|:--------:|:-------------:|:---------------:|
-| `variant`      |`String`  | `gray`            | `gray`, `primary`, `secondary`, `warning`, `negative` |
+| `variant`      |`String`  | `neutral`            | `neutral`, `primary`, `secondary`, `warning`, `negative` |
 | `label`      | `String`  | ''           | 'Label' |
 | `size`         |  `String` | `base`        | `sm`, `base`                                   |
 | `strong`        | `Boolean`  | false        | true, false                                     |

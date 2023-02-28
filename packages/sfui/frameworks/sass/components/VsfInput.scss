@@ -6,19 +6,19 @@ $self: &;
   }
 
   &__input-wrapper {
-    @apply flex items-center ring-1 ring-gray-200 ring-inset rounded-md text-gray-500 rounded-md py-2 px-4 bg-white hover:ring-primary-700 focus-within:caret-primary-700 active:caret-primary-700 active:ring-primary-700 active:ring-2 focus-within:ring-primary-700 focus-within:ring-2;
+    @apply flex items-center ring-1 ring-neutral-200 ring-inset rounded-md text-neutral-500 rounded-md py-2 px-4 bg-white hover:ring-primary-700 focus-within:caret-primary-700 active:caret-primary-700 active:ring-primary-700 active:ring-2 focus-within:ring-primary-700 focus-within:ring-2;
   }
 
   &__prefix {
-    @apply text-gray-500 mr-2;
+    @apply text-neutral-500 mr-2;
   }
 
   &__suffix {
-    @apply text-gray-500;
+    @apply text-neutral-500;
   }
 
   &__field {
-    @apply appearance-none outline-none w-full text-base text-gray-700;
+    @apply appearance-none outline-none w-full text-base text-neutral-700;
   }
 
   &__bottom-wrapper {
@@ -26,7 +26,7 @@ $self: &;
   }
 
   &__help-text, &__character-limit {
-    @apply text-xs text-gray-500 mt-0.5;
+    @apply text-xs text-neutral-500 mt-0.5;
   }
 
   &__error-text {
@@ -34,7 +34,7 @@ $self: &;
   }
 
   &__required-text {
-    @apply mt-1 text-sm font-normal text-gray-500 before:content-['*'];
+    @apply mt-1 text-sm font-normal text-neutral-500 before:content-['*'];
   }
 
   &__character-limit {
@@ -77,11 +77,11 @@ $self: &;
     @apply cursor-not-allowed;
 
     #{$self}__input-wrapper {
-      @apply bg-gray-100/50 ring-gray-200 ring-1 hover:ring-gray-200 active:ring-gray-200 active:ring-gray-200 active:ring-1;
+      @apply bg-disabled-100 ring-disabled-300 ring-1 hover:ring-disabled-300 active:ring-disabled-300 active:ring-disabled-300 active:ring-1;
     }
 
     #{$self}__label {
-      @apply text-gray-500/50 cursor-not-allowed;
+      @apply text-disabled-500 cursor-not-allowed;
     }
 
     #{$self}__field {
@@ -89,22 +89,22 @@ $self: &;
     }
 
     #{$self}__help-text {
-      @apply text-gray-500/50;
+      @apply text-disabled-500;
     }
 
     #{$self}__prefix, #{$self}__suffix {
-      @apply text-gray-500/50;
+      @apply text-disabled-500;
     }
   }
 
   &--readonly {
     #{$self}__input-wrapper {
-      @apply bg-gray-100/50 hover:ring-gray-200 active:ring-gray-200 active:ring-gray-200 active:ring-1 focus-within:ring-gray-200 focus-within:ring-1;
+      @apply bg-neutral-100/50 hover:ring-neutral-200 active:ring-neutral-200 active:ring-neutral-200 active:ring-1 focus-within:ring-neutral-200 focus-within:ring-1;
     }
 
     #{$self}__prefix,
     #{$self}__suffix {
-      @apply text-gray-500;
+      @apply text-neutral-500;
     }
 
     #{$self}__field {

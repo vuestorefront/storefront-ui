@@ -1,5 +1,5 @@
 .vsf-breadcrumbs {
-  @apply inline-flex items-center text-sm font-normal text-gray-500 font-body;
+  @apply inline-flex items-center text-sm font-normal text-neutral-500 font-body;
 
   &__ol {
     @apply flex md:flex-wrap w-auto leading-none;
@@ -14,7 +14,7 @@
       &-icon {
         &,
         &--home {
-          @apply text-gray-500 hover:text-primary-700 active:text-primary-800;
+          @apply text-neutral-500 hover:text-primary-700 active:text-primary-800;
         }
       }
     }
@@ -25,7 +25,7 @@
     }
 
     &:last-child > a {
-      @apply font-medium text-gray-900 hover:text-primary-700 active:text-primary-800 hover:underline active:underline;
+      @apply font-medium text-neutral-900 hover:text-primary-700 active:text-primary-800 hover:underline active:underline;
     }
 
     &:nth-of-type(1n + 3) {
@@ -39,7 +39,7 @@
     }
 
     &-list {
-      @apply bg-white block sm:hidden rounded-md shadow-md p-4 absolute left-0 flex-col text-sm text-gray-900 z-10;
+      @apply bg-white block sm:hidden rounded-md shadow-md p-4 absolute left-0 flex-col text-sm text-neutral-900 z-10;
 
       &-item {
         @apply py-2;

@@ -26,7 +26,7 @@
 
   &#{$self}--disabled,
   &:disabled {
-    @apply text-gray-500 opacity-50 bg-gray-200 shadow-none pointer-events-none ring-0;
+    @apply text-disabled-500 bg-disabled-200 shadow-none pointer-events-none ring-0;
 
     &#{$self}--tertiary {
       @apply bg-transparent;
@@ -66,7 +66,7 @@
     }
 
     &#{$self}--greyscale {
-      @apply text-white bg-gray-500 hover:bg-gray-600 active:bg-gray-700;
+      @apply text-white bg-neutral-500 hover:bg-neutral-600 active:bg-neutral-700;
     }
   }
 
@@ -77,17 +77,17 @@
     }
 
     &#{$self}--greyscale {
-      @apply text-gray-500 hover:bg-gray-100 hover:text-gray-600 active:bg-gray-200 active:text-gray-700;
+      @apply text-neutral-500 hover:bg-neutral-100 hover:text-neutral-600 active:bg-neutral-200 active:text-neutral-700;
     }
   }
 
   &--secondary {
     &:not(#{$self}--disabled) {
-      @apply ring-1 ring-gray-200 hover:shadow-medium active:shadow shadow hover:ring-primary-200 active:ring-primary-300;
+      @apply ring-1 ring-neutral-200 hover:shadow-medium active:shadow shadow hover:ring-primary-200 active:ring-primary-300;
     }
 
     &#{$self}--greyscale {
-      @apply hover:ring-gray-300 active:ring-gray-300;
+      @apply hover:ring-neutral-300 active:ring-neutral-300;
     }
   }
 

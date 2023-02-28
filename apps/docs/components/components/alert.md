@@ -16,7 +16,7 @@ description: The Alert component is a notification that keeps people informed of
 | -------------------- | -------------- | ------------- | ---------------------------------------------- |
 | title                | String         | `""`          |                                                |
 | message              | String         | `""`          |                                                |
-| type                 | `VsfAlertType` | `gray`        | `gray`, `positive`, `warning`, `error`, `info` |
+| type                 | `VsfAlertType` | `neutral`        | `neutral`, `positive`, `warning`, `error`, `info` |
 | persistent           | Boolean        | `false`       |                                                |
 | ariaLabelClose | String       | `"Close"`       |                                                |
 <!-- react -->

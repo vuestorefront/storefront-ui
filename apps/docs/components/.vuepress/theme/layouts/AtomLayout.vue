@@ -1,16 +1,16 @@
 <template>
   <Layout :hideBreadcrumbs="true" :key="`${$route.path}-toggle`">
     <template #before-content>
-      <span v-if="framework === 'vue'" class="bg-green bg-opacity-20 px-2 py-1 rounded text-green text-sm font-medium">
+      <span v-if="framework === 'vue'" class="px-2 py-1 text-sm font-medium rounded bg-green bg-opacity-20 text-green">
         Vue
       </span>
-      <span v-else class="bg-blue-500 bg-opacity-20 px-2 py-1 rounded text-blue-500 text-sm font-medium"> React </span>
+      <span v-else class="px-2 py-1 text-sm font-medium text-blue-500 bg-blue-500 rounded bg-opacity-20"> React </span>
     </template>
     <template #sidebar-top>
-      <div class="relative mb-4 content-menu text-black dark:text-white" ref="menu">
+      <div class="relative mb-4 text-black content-menu dark:text-white" ref="menu">
         <button
           @click="menuOpen = !menuOpen"
-          class="p-2 w-full transition-colors flex items-center border-2 rounded dark:border-zinc-700 relative"
+          class="relative flex items-center w-full p-2 transition-colors border-2 rounded dark:border-zinc-700"
         >
           <template v-if="framework === 'vue'">
             <iconify-icon icon="vscode-icons:file-type-vue" class="mr-2" height="20" />
@@ -23,13 +23,13 @@
           <iconify-icon icon="majesticons:selector-line" class="absolute right-2" />
         </button>
         <div
-          class="z-10 absolute top-full mt-2 shadow-md bg-white w-full dark:bg-zinc-900 border-2 dark:border-zinc-700 rounded"
+          class="absolute z-10 w-full mt-2 bg-white border-2 rounded shadow-md top-full dark:bg-zinc-900 dark:border-zinc-700"
           v-if="menuOpen"
         >
           <RouterLink
             v-if="vueLink"
             :to="vueLink"
-            class="flex items-center p-2 w-full relative hover:bg-gray-100 dark:hover:bg-zinc-800"
+            class="relative flex items-center w-full p-2 hover:bg-neutral-100 dark:hover:bg-zinc-800"
           >
             <iconify-icon icon="vscode-icons:file-type-vue" class="mr-2" height="20" />
             Vue
@@ -38,7 +38,7 @@
           <RouterLink
             v-if="reactLink"
             :to="reactLink"
-            class="flex items-center p-2 w-full hover:bg-gray-100 dark:hover:bg-zinc-800"
+            class="flex items-center w-full p-2 hover:bg-neutral-100 dark:hover:bg-zinc-800"
           >
             <iconify-icon icon="logos:react" class="mr-2" height="16" />
             React
